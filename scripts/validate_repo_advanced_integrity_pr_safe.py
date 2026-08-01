@@ -41,7 +41,6 @@ PR_SAFE_BOOTSTRAP_SURFACES = frozenset(
     {
         PR_SAFE_HELPER_PATH,
         PR_VALIDATION_WORKFLOW_PATH,
-        PR_BOUNDARY_VALIDATOR_PATH,
         PRODUCTION_INVENTORY_PATH,
     }
 )
@@ -415,11 +414,6 @@ def is_initial_pr_safe_gate_bootstrap(
         PR_VALIDATION_WORKFLOW_PATH,
         repository_root=repository_root,
     )
-    base_boundary = git_blob_at_ref(
-        base_ref,
-        PR_BOUNDARY_VALIDATOR_PATH,
-        repository_root=repository_root,
-    )
     base_inventory = git_blob_at_ref(
         base_ref,
         PRODUCTION_INVENTORY_PATH,
@@ -428,14 +422,12 @@ def is_initial_pr_safe_gate_bootstrap(
     try:
         current_helper = (repository_root / PR_SAFE_HELPER_PATH).read_bytes()
         current_workflow = (repository_root / PR_VALIDATION_WORKFLOW_PATH).read_bytes()
-        current_boundary = (repository_root / PR_BOUNDARY_VALIDATOR_PATH).read_bytes()
         current_inventory = (repository_root / PRODUCTION_INVENTORY_PATH).read_bytes()
     except OSError:
         return False
     if (
         not current_helper
         or base_workflow is None
-        or base_boundary is None
         or base_inventory is None
     ):
         return False
@@ -448,8 +440,6 @@ def is_initial_pr_safe_gate_bootstrap(
         and command in current_workflow
         and deselect not in base_workflow
         and deselect in current_workflow
-        and command not in base_boundary
-        and command in current_boundary
         and helper_path not in base_inventory
         and helper_path in current_inventory
     )

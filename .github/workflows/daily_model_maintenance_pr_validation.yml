@@ -135,6 +135,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       BASE_SHA: ${{ github.event.pull_request.base.sha || 'origin/main' }}
+      SNAPSHOT_PR_SAFE_CONTROL_HELPER_SHA256: 4329b48823dc844fc565f09d6af4aa0495a16b3713cb842c55f63d28949e31c2
 
     steps:
       - name: Checkout repository
