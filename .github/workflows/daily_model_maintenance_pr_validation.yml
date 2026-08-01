@@ -175,7 +175,7 @@ jobs:
           python scripts/validate_daily_legacy_volume_range_breakout_removed.py
           python scripts/validate_daily_legacy_mature_model_paths_removed.py
           python scripts/validate_daily_production_boundaries.py
-          python scripts/validate_daily_published_model_snapshots.py
+          python scripts/validate_daily_published_model_snapshots_pr_safe.py --base-ref "$BASE_SHA"
           python scripts/validate_daily_model_background_data_registry.py
           python scripts/validate_model_data_independence.py --base-ref "$BASE_SHA"
           python scripts/validate_model_research_shared_utilities.py --base-ref "$BASE_SHA"
@@ -234,6 +234,7 @@ jobs:
             tests/test_daily_pdf_completion_hard_gate.py \
             tests/test_daily_pdf_shared_path_isolation.py \
             tests/test_daily_published_model_snapshots.py \
+            tests/test_daily_published_model_snapshots_pr_safe.py \
             tests/test_backfill_historical_all_candidates_snapshots.py \
             tests/test_daily_published_snapshot_ranking_backtest.py \
             tests/test_daily_snapshot_revision_utils.py \
