@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-31 02:54:52 Asia/Taipei",
+  "generated_at": "2026-08-01 08:17:49 Asia/Taipei",
   "files": {
     "company_event_calendar": {
       "path": "data/company_calendar/company_event_calendar.csv",
-      "rows": 3867
+      "rows": 3887
     },
     "macro_event_calendar": {
       "path": "data/macro_events/macro_event_calendar.csv",
@@ -11,7 +11,7 @@
     },
     "upcoming_catalyst_calendar": {
       "path": "output/latest/upcoming_catalyst_calendar_latest.csv",
-      "rows": 773
+      "rows": 780
     },
     "upcoming_macro_event_calendar": {
       "path": "output/latest/upcoming_macro_event_calendar_latest.csv",
@@ -22,17 +22,17 @@
     "twse_ex_right_ex_dividend": {
       "url": "https://www.twse.com.tw/rwd/zh/exRight/TWT48U?response=json",
       "status": "ok",
-      "rows": 113,
+      "rows": 122,
       "error": "",
       "http_status": 200,
-      "live_rows": 113,
+      "live_rows": 122,
       "consecutive_live_failures": 0,
       "calendar_effect_allowed": true
     },
     "twse_shareholder_meeting_from_dividend_distribution": {
       "url": "https://openapi.twse.com.tw/v1/opendata/t187ap45_L",
       "status": "ok",
-      "rows": 547,
+      "rows": 548,
       "error": "",
       "http_status": 200,
       "note": "TWSE-listed shareholder meeting dates parsed from official OpenAPI t187ap45_L when available."
@@ -76,7 +76,7 @@
     "mops_shareholder_meeting_calendar": {
       "url": "https://mops.twse.com.tw/mops/web/t108sb31new",
       "status": "partial_coverage_twse_only",
-      "rows": 547,
+      "rows": 548,
       "note": "TWSE-listed shareholder meeting dates are stored from t187ap45_L. Direct MOPS shareholder pages are blocked or unavailable from this environment, and OTC coverage still needs a stable official endpoint."
     }
   }
