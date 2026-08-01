@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
+import io
 import re
 import subprocess
 import sys
@@ -21,6 +23,16 @@ ROOT = Path(__file__).resolve().parents[1]
 FRESHNESS_RELATIVE_PATH = "output/latest/data_freshness_latest.csv"
 EXTERNAL_SOURCE_CONTRACT_PATH = "config/external_data_source_contract.csv"
 PRODUCTION_INVENTORY_PATH = "config/repo_production_inventory.csv"
+LIFECYCLE_INVENTORY_PATH = "config/repo_file_lifecycle_inventory.csv"
+CANONICAL_LINEAGE_REGISTRY_PATH = (
+    "config/daily_model_canonical_field_lineage_registry.csv"
+)
+CANONICAL_LINEAGE_MIGRATIONS_PATH = (
+    "config/daily_model_canonical_field_lineage_migrations.csv"
+)
+CANONICAL_LINEAGE_VALIDATOR_PATH = (
+    "scripts/validate_daily_canonical_field_lineage.py"
+)
 PR_SAFE_HELPER_PATH = "scripts/validate_repo_advanced_integrity_pr_safe.py"
 STRICT_VALIDATOR_PATH = "scripts/validate_repo_advanced_integrity.py"
 PR_VALIDATION_WORKFLOW_PATH = (
@@ -36,6 +48,27 @@ STRICT_RUNTIME_TEST = (
     "test_repo_advanced_integrity_validator_passes"
 )
 STRICT_RUNTIME_TEST_DESELECT = f"--deselect {STRICT_RUNTIME_TEST}"
+
+SOURCE_IDENTITY_GATE_SELF_UPDATE_ID = "registered-source-identity-pr-safe-v1"
+SOURCE_IDENTITY_GATE_SELF_UPDATE_BASE_HELPER_SHA256 = (
+    "aa21f0ed72eca64232b253a1818df7a60cf8433baf57fb6b8f06edff89cdcf7a"
+)
+SOURCE_IDENTITY_GATE_TEST_PATH = "tests/test_repo_advanced_integrity_pr_safe.py"
+SOURCE_IDENTITY_GATE_SELF_UPDATE_TEST_MARKER = (
+    "def test_registered_source_identity_gate_self_update_is_exact_and_one_time"
+)
+SOURCE_IDENTITY_GATE_SELF_UPDATE_PATHS = frozenset(
+    {
+        LIFECYCLE_INVENTORY_PATH,
+        PR_SAFE_HELPER_PATH,
+        SOURCE_IDENTITY_GATE_TEST_PATH,
+    }
+)
+SOURCE_IDENTITY_ARTIFACT_ROLE = "canonical_source_identity_projection"
+SOURCE_IDENTITY_MIGRATION_STATUS = "validated_user_approved_migration"
+CANONICAL_LINEAGE_PR_COMMAND = (
+    'python scripts/validate_daily_canonical_field_lineage.py --base-ref "$BASE_SHA"'
+)
 
 PR_SAFE_BOOTSTRAP_SURFACES = frozenset(
     {
@@ -63,7 +96,17 @@ STRICT_EXACT_PATHS = frozenset(
         "scripts/resolve_daily_report_source_state.py",
         "scripts/run_chatgpt_daily_report_entrypoint.py",
         STRICT_VALIDATOR_PATH,
+        "output/latest/chatgpt_daily_pdf_semantic_manifest.csv",
+        "output/latest/chatgpt_daily_report_runtime_manifest.json",
+        "output/latest/report_manifest_latest.json",
     }
+)
+
+STRICT_PATH_PREFIXES = (
+    "docs/latest/published_reports/",
+    "output/history/daily_model_snapshots/",
+    "output/latest/chatgpt_side_outputs_official/",
+    "output/latest/published_reports/",
 )
 
 HISTORICAL_REPLAY_REPORT_READY_NOTE = (
@@ -98,6 +141,114 @@ def read_csv_rows(path: Path) -> list[dict[str, str]]:
             ]
     except (OSError, UnicodeError, csv.Error):
         return []
+
+
+def parse_csv_payload(
+    payload: bytes | None,
+    *,
+    source: str,
+) -> tuple[list[dict[str, str]], list[str]]:
+    if payload is None:
+        return [], [f"cannot read CSV evidence: {source}"]
+    try:
+        text = payload.decode("utf-8-sig")
+        reader = csv.DictReader(io.StringIO(text, newline=""))
+        if not reader.fieldnames:
+            return [], [f"CSV evidence has no header: {source}"]
+        rows: list[dict[str, str]] = []
+        for line_number, row in enumerate(reader, start=2):
+            if None in row:
+                return [], [
+                    f"CSV evidence row has extra fields: {source}:{line_number}"
+                ]
+            rows.append(
+                {str(key): str(value or "") for key, value in row.items()}
+            )
+        return rows, []
+    except (UnicodeError, csv.Error) as exc:
+        return [], [f"cannot parse CSV evidence {source}: {exc}"]
+
+
+def append_only_csv_rows(
+    base_ref: str,
+    path: str,
+    *,
+    repository_root: Path,
+) -> tuple[list[dict[str, str]], list[str]]:
+    base_payload = git_blob_at_ref(
+        base_ref,
+        path,
+        repository_root=repository_root,
+    )
+    try:
+        current_payload = (repository_root / path).read_bytes()
+    except OSError as exc:
+        return [], [f"cannot read current CSV evidence {path}: {exc}"]
+    base_rows, base_errors = parse_csv_payload(
+        base_payload,
+        source=f"{base_ref}:{path}",
+    )
+    current_rows, current_errors = parse_csv_payload(
+        current_payload,
+        source=path,
+    )
+    if base_errors or current_errors:
+        return [], [*base_errors, *current_errors]
+    if len(current_rows) < len(base_rows) or current_rows[: len(base_rows)] != base_rows:
+        return [], [
+            f"registered source-identity evidence must be append-only: {path}"
+        ]
+    return current_rows[len(base_rows) :], []
+
+
+def additive_csv_rows(
+    base_ref: str,
+    path: str,
+    *,
+    key: str,
+    repository_root: Path,
+) -> tuple[list[dict[str, str]], list[str]]:
+    base_payload = git_blob_at_ref(
+        base_ref,
+        path,
+        repository_root=repository_root,
+    )
+    try:
+        current_payload = (repository_root / path).read_bytes()
+    except OSError as exc:
+        return [], [f"cannot read current CSV evidence {path}: {exc}"]
+    base_rows, base_errors = parse_csv_payload(
+        base_payload,
+        source=f"{base_ref}:{path}",
+    )
+    current_rows, current_errors = parse_csv_payload(
+        current_payload,
+        source=path,
+    )
+    if base_errors or current_errors:
+        return [], [*base_errors, *current_errors]
+    base_by_key = {row.get(key, "").strip(): row for row in base_rows}
+    current_by_key = {row.get(key, "").strip(): row for row in current_rows}
+    if (
+        "" in base_by_key
+        or "" in current_by_key
+        or len(base_by_key) != len(base_rows)
+        or len(current_by_key) != len(current_rows)
+    ):
+        return [], [f"additive CSV evidence has blank or duplicate {key}: {path}"]
+    changed_base_keys = sorted(
+        observed_key
+        for observed_key, base_row in base_by_key.items()
+        if current_by_key.get(observed_key) != base_row
+    )
+    if changed_base_keys:
+        return [], [
+            f"registered source-identity evidence may not change base {path} row(s): "
+            + ", ".join(changed_base_keys)
+        ]
+    return [
+        row for row in current_rows if row.get(key, "").strip() not in base_by_key
+    ], []
 
 
 def normalize_repository_path(path: str) -> str:
@@ -295,15 +446,298 @@ def external_source_surface_paths(repository_root: Path) -> set[str]:
     return paths
 
 
+def external_source_producer_paths(repository_root: Path) -> set[str]:
+    paths: set[str] = set()
+    for row in read_csv_rows(repository_root / EXTERNAL_SOURCE_CONTRACT_PATH):
+        paths.update(
+            normalize_repository_path(path)
+            for path in split_list(row.get("producer", ""))
+        )
+    return {path for path in paths if path}
+
+
 def requires_strict_runtime_validation(
     path: str,
     *,
     repository_root: Path = ROOT,
 ) -> bool:
     normalized = normalize_repository_path(path)
-    return normalized in STRICT_EXACT_PATHS or normalized in external_source_surface_paths(
-        repository_root
+    return (
+        normalized in STRICT_EXACT_PATHS
+        or any(normalized.startswith(prefix) for prefix in STRICT_PATH_PREFIXES)
+        or normalized in external_source_surface_paths(repository_root)
     )
+
+
+def is_registered_source_identity_gate_self_update(
+    base_ref: str,
+    changed_paths: set[str],
+    strict_surface_changes: set[str],
+    *,
+    repository_root: Path,
+) -> bool:
+    if changed_paths != SOURCE_IDENTITY_GATE_SELF_UPDATE_PATHS:
+        return False
+    if strict_surface_changes != {PR_SAFE_HELPER_PATH}:
+        return False
+    base_helper = git_blob_at_ref(
+        base_ref,
+        PR_SAFE_HELPER_PATH,
+        repository_root=repository_root,
+    )
+    if base_helper is None:
+        return False
+    if (
+        hashlib.sha256(base_helper).hexdigest()
+        != SOURCE_IDENTITY_GATE_SELF_UPDATE_BASE_HELPER_SHA256
+    ):
+        return False
+    try:
+        current_helper = (repository_root / PR_SAFE_HELPER_PATH).read_text(
+            encoding="utf-8"
+        )
+        current_tests = (repository_root / SOURCE_IDENTITY_GATE_TEST_PATH).read_text(
+            encoding="utf-8"
+        )
+    except (OSError, UnicodeError):
+        return False
+    return bool(
+        SOURCE_IDENTITY_GATE_SELF_UPDATE_ID in current_helper
+        and SOURCE_IDENTITY_GATE_SELF_UPDATE_TEST_MARKER in current_tests
+    )
+
+
+def validate_registered_source_identity_migration(
+    base_ref: str,
+    changed_paths: set[str],
+    strict_surface_changes: set[str],
+    *,
+    repository_root: Path,
+) -> tuple[bool, list[str]]:
+    registered_producers = external_source_producer_paths(repository_root)
+    changed_producers = strict_surface_changes & registered_producers
+    if not changed_producers:
+        return False, []
+    allowed_strict_surfaces = set(changed_producers) | {PRODUCTION_INVENTORY_PATH}
+    if strict_surface_changes != allowed_strict_surfaces:
+        return False, []
+
+    errors: list[str] = []
+    required_evidence_paths = {
+        CANONICAL_LINEAGE_MIGRATIONS_PATH,
+        CANONICAL_LINEAGE_REGISTRY_PATH,
+        PRODUCTION_INVENTORY_PATH,
+    }
+    missing_evidence_paths = sorted(required_evidence_paths - changed_paths)
+    if missing_evidence_paths:
+        errors.append(
+            "registered source-identity migration is missing changed evidence path(s): "
+            + ", ".join(missing_evidence_paths)
+        )
+
+    added_migrations, migration_errors = append_only_csv_rows(
+        base_ref,
+        CANONICAL_LINEAGE_MIGRATIONS_PATH,
+        repository_root=repository_root,
+    )
+    added_registry_rows, registry_errors = append_only_csv_rows(
+        base_ref,
+        CANONICAL_LINEAGE_REGISTRY_PATH,
+        repository_root=repository_root,
+    )
+    added_inventory_rows, inventory_errors = additive_csv_rows(
+        base_ref,
+        PRODUCTION_INVENTORY_PATH,
+        key="path",
+        repository_root=repository_root,
+    )
+    errors.extend(migration_errors)
+    errors.extend(registry_errors)
+    errors.extend(inventory_errors)
+    if errors:
+        return True, errors
+    if not added_migrations:
+        errors.append("registered source-identity migration adds no migration ledger row")
+    if not added_registry_rows:
+        errors.append("registered source-identity migration adds no lineage registry row")
+    if not added_inventory_rows:
+        errors.append("registered source-identity migration adds no test inventory row")
+
+    migrations_by_id: dict[str, dict[str, str]] = {}
+    migration_lineage_ids: set[str] = set()
+    for migration in added_migrations:
+        migration_id = migration.get("migration_id", "").strip()
+        changed_ids = split_list(migration.get("changed_lineage_ids", ""))
+        previous_hashes = split_list(
+            migration.get("previous_contract_sha256s", "")
+        )
+        new_hashes = split_list(migration.get("new_contract_sha256s", ""))
+        if not migration_id or migration_id in migrations_by_id:
+            errors.append(
+                "registered source-identity migration has blank or duplicate migration_id"
+            )
+            continue
+        migrations_by_id[migration_id] = migration
+        if migration.get("migration_status", "").strip() != SOURCE_IDENTITY_MIGRATION_STATUS:
+            errors.append(
+                f"registered source-identity migration is not validated: {migration_id}"
+            )
+        if not migration.get("user_approval_reference", "").strip():
+            errors.append(
+                f"registered source-identity migration lacks approval reference: {migration_id}"
+            )
+        if not changed_ids or not (
+            len(changed_ids) == len(previous_hashes) == len(new_hashes)
+        ):
+            errors.append(
+                f"registered source-identity migration SHA lists do not align: {migration_id}"
+            )
+            continue
+        if any(value != "NEW" for value in previous_hashes):
+            errors.append(
+                f"registered source-identity migration must add new lineage rows only: {migration_id}"
+            )
+        if any(not re.fullmatch(r"[0-9a-f]{64}", value) for value in new_hashes):
+            errors.append(
+                f"registered source-identity migration has invalid contract SHA: {migration_id}"
+            )
+        repeated_ids = migration_lineage_ids & set(changed_ids)
+        if repeated_ids:
+            errors.append(
+                "registered source-identity migration repeats lineage id(s): "
+                + ", ".join(sorted(repeated_ids))
+            )
+        migration_lineage_ids.update(changed_ids)
+
+    registry_by_id: dict[str, dict[str, str]] = {}
+    identity_producers: set[str] = set()
+    for row in added_registry_rows:
+        lineage_id = row.get("lineage_id", "").strip()
+        if not lineage_id or lineage_id in registry_by_id:
+            errors.append(
+                "registered source-identity registry has blank or duplicate lineage_id"
+            )
+            continue
+        registry_by_id[lineage_id] = row
+        migration_id = row.get("last_migration_id", "").strip()
+        migration = migrations_by_id.get(migration_id)
+        if migration is None:
+            errors.append(
+                f"source-identity registry row lacks an added migration: {lineage_id}"
+            )
+            continue
+        changed_ids = split_list(migration.get("changed_lineage_ids", ""))
+        new_hashes = split_list(migration.get("new_contract_sha256s", ""))
+        if lineage_id not in changed_ids:
+            errors.append(
+                f"source-identity registry row is absent from migration: {lineage_id}"
+            )
+            continue
+        expected_sha = new_hashes[changed_ids.index(lineage_id)]
+        if row.get("contract_sha256", "").strip() != expected_sha:
+            errors.append(
+                f"source-identity registry contract SHA mismatch: {lineage_id}"
+            )
+        if (
+            row.get("approval_reference", "").strip()
+            != migration.get("user_approval_reference", "").strip()
+        ):
+            errors.append(
+                f"source-identity registry approval mismatch: {lineage_id}"
+            )
+        producer = normalize_repository_path(row.get("producer", ""))
+        if producer in changed_producers:
+            if row.get("artifact_role", "").strip() != SOURCE_IDENTITY_ARTIFACT_ROLE:
+                errors.append(
+                    f"changed producer lineage is not source-identity evidence: {lineage_id}"
+                )
+            required_values = {
+                "identity_columns": row.get("identity_columns", "").strip(),
+                "collision_policy": row.get("collision_policy", "").strip(),
+                "parity_policy": row.get("parity_policy", "").strip(),
+                "forbidden_use": row.get("forbidden_use", "").strip(),
+            }
+            missing_values = sorted(
+                key for key, value in required_values.items() if not value
+            )
+            allowed_use = row.get("allowed_use", "").strip().lower()
+            model_family = row.get("model_family", "").strip().lower()
+            if missing_values or "identity" not in allowed_use or "source_identity" not in model_family:
+                errors.append(
+                    f"changed producer source-identity contract is incomplete: {lineage_id}"
+                )
+            identity_producers.add(producer)
+
+    if set(registry_by_id) != migration_lineage_ids:
+        errors.append(
+            "registered source-identity migration and appended registry lineage sets differ"
+        )
+
+    added_test_paths: list[str] = []
+    for row in added_inventory_rows:
+        path = normalize_repository_path(row.get("path", ""))
+        if (
+            not path.startswith("tests/")
+            or "source_identity" not in Path(path).name
+            or "test_python" not in {value.strip() for value in row.values()}
+        ):
+            errors.append(
+                "registered source-identity inventory additions must be source-identity tests"
+            )
+            continue
+        if path not in changed_paths or not (repository_root / path).is_file():
+            errors.append(
+                f"registered source-identity test is not a changed current file: {path}"
+            )
+        existed_at_base = git_path_exists_at_ref(
+            base_ref,
+            path,
+            repository_root=repository_root,
+        )
+        if existed_at_base is not False:
+            errors.append(
+                f"registered source-identity test must be newly added relative to base: {path}"
+            )
+        added_test_paths.append(path)
+
+    for producer in sorted(changed_producers):
+        if producer not in identity_producers:
+            errors.append(
+                f"changed external producer lacks canonical source-identity registry evidence: {producer}"
+            )
+        covering_migrations = [
+            migration
+            for migration in added_migrations
+            if producer in split_list(migration.get("affected_consumers", ""))
+        ]
+        if not covering_migrations:
+            errors.append(
+                f"changed external producer lacks migration consumer evidence: {producer}"
+            )
+            continue
+        for migration in covering_migrations:
+            commands = migration.get("validation_commands", "")
+            if CANONICAL_LINEAGE_VALIDATOR_PATH not in commands:
+                errors.append(
+                    f"source-identity migration omits canonical lineage validator: {producer}"
+                )
+            if not any(test_path in commands for test_path in added_test_paths):
+                errors.append(
+                    f"source-identity migration omits independent source-identity test: {producer}"
+                )
+
+    try:
+        workflow_text = (repository_root / PR_VALIDATION_WORKFLOW_PATH).read_text(
+            encoding="utf-8"
+        )
+    except (OSError, UnicodeError) as exc:
+        errors.append(f"cannot read PR validation workflow for migration evidence: {exc}")
+    else:
+        if CANONICAL_LINEAGE_PR_COMMAND not in workflow_text:
+            errors.append(
+                "PR workflow omits append-only canonical lineage validation with base ref"
+            )
+    return True, errors
 
 
 def expected_historical_replay_external_errors(
@@ -482,6 +916,31 @@ def validate_pr_safe_advanced_integrity_contract(
         repository_root=repository_root,
     ):
         strict_surface_changes = set()
+    elif is_registered_source_identity_gate_self_update(
+        base_ref,
+        changed_paths,
+        strict_surface_changes,
+        repository_root=repository_root,
+    ):
+        strict_surface_changes = set()
+    elif strict_surface_changes:
+        is_source_identity_migration, migration_errors = (
+            validate_registered_source_identity_migration(
+                base_ref,
+                changed_paths,
+                strict_surface_changes,
+                repository_root=repository_root,
+            )
+        )
+        if is_source_identity_migration:
+            if migration_errors:
+                return [
+                    "registered source-identity migration evidence is incomplete; "
+                    "full runtime repo advanced-integrity validation remains required",
+                    *migration_errors,
+                    *external_errors,
+                ]
+            strict_surface_changes = set()
     if strict_surface_changes:
         return [
             "full runtime repo advanced-integrity validation is required because the PR "

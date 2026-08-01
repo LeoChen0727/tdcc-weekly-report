@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import csv
+import hashlib
+import io
 from pathlib import Path
 
 import pytest
@@ -83,6 +85,171 @@ def write_csv(path: Path, rows: list[dict[str, str]]) -> None:
         writer = csv.DictWriter(handle, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(rows)
+
+
+def csv_payload(rows: list[dict[str, str]]) -> bytes:
+    buffer = io.StringIO(newline="")
+    writer = csv.DictWriter(buffer, fieldnames=list(rows[0]))
+    writer.writeheader()
+    writer.writerows(rows)
+    return buffer.getvalue().encode("utf-8")
+
+
+def install_registered_source_identity_migration(
+    repository_root: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    *,
+    producer: str = "build_all_candidates_latest.py",
+) -> set[str]:
+    contract_rows = []
+    for row in CONTRACT_ROWS:
+        contract_rows.append(
+            {
+                **row,
+                "producer": producer if row["source_id"] == "all_candidates" else "",
+                "validator": "",
+                "json_status_path": "",
+                "allowed_statuses": "",
+            }
+        )
+    write_csv(repository_root / pr_safe.EXTERNAL_SOURCE_CONTRACT_PATH, contract_rows)
+    producer_file = repository_root / producer
+    producer_file.parent.mkdir(parents=True, exist_ok=True)
+    producer_file.write_text("# registered external producer\n", encoding="utf-8")
+
+    test_path = "tests/test_all_candidates_source_identity.py"
+    test_file = repository_root / test_path
+    test_file.parent.mkdir(parents=True, exist_ok=True)
+    test_file.write_text("def test_source_identity():\n    pass\n", encoding="utf-8")
+
+    base_inventory = [
+        {"path": "placeholder.py", "type": "python", "owner": "repo"},
+        {"path": producer, "type": "python", "owner": "daily_production"},
+    ]
+    added_test_inventory = {
+        "path": test_path,
+        "type": "test_python",
+        "owner": "daily_production",
+    }
+    write_csv(
+        repository_root / pr_safe.PRODUCTION_INVENTORY_PATH,
+        [*base_inventory, added_test_inventory],
+    )
+
+    base_migration = {
+        "migration_id": "existing_migration",
+        "changed_lineage_ids": "existing_lineage",
+        "previous_contract_sha256s": "NEW",
+        "new_contract_sha256s": "b" * 64,
+        "affected_models": "existing_model",
+        "affected_consumers": "existing.py",
+        "validation_commands": "python existing.py",
+        "user_approval_reference": "existing_approval",
+        "migration_status": pr_safe.SOURCE_IDENTITY_MIGRATION_STATUS,
+        "notes": "existing",
+    }
+    migration_id = "all_candidates_source_identity_20260731"
+    contract_sha = "a" * 64
+    added_migration = {
+        **base_migration,
+        "migration_id": migration_id,
+        "changed_lineage_ids": "candidate_source_row_id__all_candidates_current",
+        "new_contract_sha256s": contract_sha,
+        "affected_consumers": producer,
+        "validation_commands": (
+            f"python {pr_safe.CANONICAL_LINEAGE_VALIDATOR_PATH};"
+            f"python -m pytest {test_path}"
+        ),
+        "user_approval_reference": "approved_source_identity_migration",
+        "notes": "immutable source identity",
+    }
+    write_csv(
+        repository_root / pr_safe.CANONICAL_LINEAGE_MIGRATIONS_PATH,
+        [base_migration, added_migration],
+    )
+
+    base_registry = {
+        "lineage_id": "existing_lineage",
+        "field_name": "existing_field",
+        "model_family": "existing_family",
+        "artifact_path": "output/latest/existing.csv",
+        "artifact_role": "existing_role",
+        "producer": "existing.py",
+        "identity_columns": "stock_id",
+        "as_of_columns": "date",
+        "canonical_source_artifact": "output/latest/existing.csv",
+        "allowed_consumer_modules": "existing.py",
+        "allowed_use": "existing_use",
+        "forbidden_use": "existing_forbidden_use",
+        "collision_policy": "existing_collision",
+        "parity_policy": "existing_parity",
+        "contract_sha256": "b" * 64,
+        "last_migration_id": "existing_migration",
+        "approval_reference": "existing_approval",
+        "required_validation_commands": "python existing.py",
+        "notes": "existing",
+    }
+    added_registry = {
+        **base_registry,
+        "lineage_id": "candidate_source_row_id__all_candidates_current",
+        "field_name": "candidate_source_row_id",
+        "model_family": "volume_v2_candidate_source_identity_current",
+        "artifact_path": "output/latest/all_candidates_latest.csv",
+        "artifact_role": pr_safe.SOURCE_IDENTITY_ARTIFACT_ROLE,
+        "producer": producer,
+        "identity_columns": "candidate_source_artifact;candidate_source_record_number",
+        "canonical_source_artifact": "output/latest/all_candidates_latest.csv",
+        "allowed_consumer_modules": "scripts/build_daily_candidate_model_layer.py",
+        "allowed_use": "immutable_source_identity_trace",
+        "forbidden_use": "model_gate_score_or_rank",
+        "collision_policy": "source_row_id_unique",
+        "parity_policy": "raw_to_normalized_identity_parity",
+        "contract_sha256": contract_sha,
+        "last_migration_id": migration_id,
+        "approval_reference": "approved_source_identity_migration",
+        "required_validation_commands": f"python -m pytest {test_path}",
+        "notes": "immutable source identity",
+    }
+    write_csv(
+        repository_root / pr_safe.CANONICAL_LINEAGE_REGISTRY_PATH,
+        [base_registry, added_registry],
+    )
+
+    workflow = repository_root / pr_safe.PR_VALIDATION_WORKFLOW_PATH
+    workflow.parent.mkdir(parents=True, exist_ok=True)
+    workflow.write_text(
+        f"{pr_safe.PR_SAFE_COMMAND}\n{pr_safe.CANONICAL_LINEAGE_PR_COMMAND}\n",
+        encoding="utf-8",
+    )
+
+    base_payloads = {
+        pr_safe.PRODUCTION_INVENTORY_PATH: csv_payload(base_inventory),
+        pr_safe.CANONICAL_LINEAGE_MIGRATIONS_PATH: csv_payload([base_migration]),
+        pr_safe.CANONICAL_LINEAGE_REGISTRY_PATH: csv_payload([base_registry]),
+    }
+    monkeypatch.setattr(
+        pr_safe,
+        "git_blob_at_ref",
+        lambda _ref, path, **_kwargs: base_payloads.get(path),
+    )
+    monkeypatch.setattr(
+        pr_safe,
+        "git_path_exists_at_ref",
+        lambda _ref, path, **_kwargs: False if path == test_path else True,
+    )
+    changed_paths = {
+        producer,
+        pr_safe.PRODUCTION_INVENTORY_PATH,
+        pr_safe.CANONICAL_LINEAGE_MIGRATIONS_PATH,
+        pr_safe.CANONICAL_LINEAGE_REGISTRY_PATH,
+        test_path,
+    }
+    monkeypatch.setattr(
+        pr_safe,
+        "changed_paths_from_base",
+        lambda *_args, **_kwargs: (set(changed_paths), []),
+    )
+    return changed_paths
 
 
 @pytest.fixture
@@ -275,3 +442,187 @@ def test_initial_control_plane_bootstrap_is_exact_and_one_time(
     )
     assert errors
     assert "full runtime repo advanced-integrity validation is required" in errors[0]
+
+
+def test_registered_source_identity_migration_inherits_stale_runtime_but_strict_fails(
+    historical_replay_repo: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    install_registered_source_identity_migration(
+        historical_replay_repo,
+        monkeypatch,
+    )
+
+    assert strict_validator.main() == 1
+    strict_stdout = capsys.readouterr().out
+    assert "all_candidates date all_candidates_date=20260717" in strict_stdout
+    assert "daily_pdf_source readiness daily_pdf_ready is not True" in strict_stdout
+    assert (
+        pr_safe.validate_pr_safe_advanced_integrity_contract(
+            "base-sha",
+            repository_root=historical_replay_repo,
+        )
+        == []
+    )
+
+
+@pytest.mark.parametrize(
+    "forbidden_path",
+    [
+        pr_safe.EXTERNAL_SOURCE_CONTRACT_PATH,
+        pr_safe.FRESHNESS_RELATIVE_PATH,
+        ".github/workflows/daily_full_pipeline.yml",
+        "output/latest/published_reports/daily_market/report.pdf",
+    ],
+)
+def test_registered_source_identity_migration_cannot_cover_strict_contract_or_runtime_paths(
+    historical_replay_repo: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    forbidden_path: str,
+) -> None:
+    changed_paths = install_registered_source_identity_migration(
+        historical_replay_repo,
+        monkeypatch,
+    )
+    monkeypatch.setattr(
+        pr_safe,
+        "changed_paths_from_base",
+        lambda *_args, **_kwargs: ({*changed_paths, forbidden_path}, []),
+    )
+
+    errors = pr_safe.validate_pr_safe_advanced_integrity_contract(
+        "base-sha",
+        repository_root=historical_replay_repo,
+    )
+
+    assert errors
+    assert "full runtime repo advanced-integrity validation is required" in errors[0]
+    assert forbidden_path in errors[0]
+
+
+def test_unregistered_external_producer_cannot_use_registered_migration_evidence(
+    historical_replay_repo: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    changed_paths = install_registered_source_identity_migration(
+        historical_replay_repo,
+        monkeypatch,
+        producer="scripts/unregistered_external_producer.py",
+    )
+    migration_path = historical_replay_repo / pr_safe.CANONICAL_LINEAGE_MIGRATIONS_PATH
+    rows = list(csv.DictReader(migration_path.read_text(encoding="utf-8").splitlines()))
+    rows[-1]["affected_consumers"] = "build_all_candidates_latest.py"
+    write_csv(migration_path, rows)
+    monkeypatch.setattr(
+        pr_safe,
+        "changed_paths_from_base",
+        lambda *_args, **_kwargs: (set(changed_paths), []),
+    )
+
+    errors = pr_safe.validate_pr_safe_advanced_integrity_contract(
+        "base-sha",
+        repository_root=historical_replay_repo,
+    )
+
+    assert errors
+    assert "migration consumer evidence" in "\n".join(errors)
+
+
+def test_incomplete_source_identity_contract_sha_evidence_fails_closed(
+    historical_replay_repo: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    install_registered_source_identity_migration(
+        historical_replay_repo,
+        monkeypatch,
+    )
+    registry_path = historical_replay_repo / pr_safe.CANONICAL_LINEAGE_REGISTRY_PATH
+    rows = list(csv.DictReader(registry_path.read_text(encoding="utf-8").splitlines()))
+    rows[-1]["contract_sha256"] = "c" * 64
+    write_csv(registry_path, rows)
+
+    errors = pr_safe.validate_pr_safe_advanced_integrity_contract(
+        "base-sha",
+        repository_root=historical_replay_repo,
+    )
+
+    assert errors
+    assert "contract SHA mismatch" in "\n".join(errors)
+
+
+def test_registered_source_identity_gate_self_update_is_exact_and_one_time(
+    historical_replay_repo: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    helper_path = historical_replay_repo / pr_safe.PR_SAFE_HELPER_PATH
+    test_path = historical_replay_repo / pr_safe.SOURCE_IDENTITY_GATE_TEST_PATH
+    helper_path.parent.mkdir(parents=True, exist_ok=True)
+    test_path.parent.mkdir(parents=True, exist_ok=True)
+    helper_path.write_text(
+        pr_safe.SOURCE_IDENTITY_GATE_SELF_UPDATE_ID,
+        encoding="utf-8",
+    )
+    test_path.write_text(
+        pr_safe.SOURCE_IDENTITY_GATE_SELF_UPDATE_TEST_MARKER,
+        encoding="utf-8",
+    )
+    base_helper = b"exact base helper"
+    monkeypatch.setattr(
+        pr_safe,
+        "SOURCE_IDENTITY_GATE_SELF_UPDATE_BASE_HELPER_SHA256",
+        hashlib.sha256(base_helper).hexdigest(),
+    )
+    monkeypatch.setattr(
+        pr_safe,
+        "git_blob_at_ref",
+        lambda _ref, path, **_kwargs: (
+            base_helper if path == pr_safe.PR_SAFE_HELPER_PATH else None
+        ),
+    )
+    monkeypatch.setattr(
+        pr_safe,
+        "changed_paths_from_base",
+        lambda *_args, **_kwargs: (
+            set(pr_safe.SOURCE_IDENTITY_GATE_SELF_UPDATE_PATHS),
+            [],
+        ),
+    )
+
+    assert (
+        pr_safe.validate_pr_safe_advanced_integrity_contract(
+            "base-sha",
+            repository_root=historical_replay_repo,
+        )
+        == []
+    )
+
+    monkeypatch.setattr(
+        pr_safe,
+        "SOURCE_IDENTITY_GATE_SELF_UPDATE_BASE_HELPER_SHA256",
+        "0" * 64,
+    )
+    errors = pr_safe.validate_pr_safe_advanced_integrity_contract(
+        "base-sha",
+        repository_root=historical_replay_repo,
+    )
+    assert errors
+    assert "full runtime repo advanced-integrity validation is required" in errors[0]
+
+    monkeypatch.setattr(
+        pr_safe,
+        "changed_paths_from_base",
+        lambda *_args, **_kwargs: (
+            {
+                *pr_safe.SOURCE_IDENTITY_GATE_SELF_UPDATE_PATHS,
+                pr_safe.PR_VALIDATION_WORKFLOW_PATH,
+            },
+            [],
+        ),
+    )
+    errors = pr_safe.validate_pr_safe_advanced_integrity_contract(
+        "base-sha",
+        repository_root=historical_replay_repo,
+    )
+    assert errors
+    assert pr_safe.PR_VALIDATION_WORKFLOW_PATH in errors[0]
