@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6198 瑞築
 
 ## Metadata
-- generated_at: 2026-07-31 22:27:55 Asia/Taipei
+- generated_at: 2026-08-01 15:54:21 Asia/Taipei
 - stock_id: 6198
 - stock_name: 瑞築
 - packet_status: standard_180d_window_packet
@@ -11,10 +11,10 @@
 - current_main_price_universe_status: historical_only_noncurrent
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260724-88f3a903b384007d
-- official_tdcc_signal_date: 20260724
-- latest_tdcc_date: 20260724
-- tdcc_rows: 13
+- source_tdcc_dataset_id: tdcc-20260731-0b236a2d4a043618
+- official_tdcc_signal_date: 20260731
+- latest_tdcc_date: 20260731
+- tdcc_rows: 14
 - tdcc_history_status: historical_only_noncurrent
 - tdcc_freshness_status: historical_only_noncurrent
 - tdcc_continuity_status: complete
@@ -170,15 +170,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260724
-- over_400_ratio: 94.24
-- over_600_ratio: 93.33
-- over_800_ratio: 92.92
-- over_1000_ratio: 92.92
+- as_of_date: 20260731
+- over_400_ratio: 94.26
+- over_600_ratio: 93.35
+- over_800_ratio: 92.94
+- over_1000_ratio: 92.94
 - over_400_change_1w: 0.02
 - over_800_change_1w: 0.02
 - over_1000_change_1w: 0.02
-- tdcc_consecutive_up_weeks: 2
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260508,94.14,0.04,92.82,0.03,92.82,0.59,1,True,True
 20260515,94.15,0.01,92.83,0.01,92.83,0.01,2,True,True
 20260522,94.15,0,92.83,0,92.83,0,0,False,False
 20260529,94.17,0.02,92.85,0.02,92.85,0.02,1,True,True
@@ -198,6 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260709,94.21,0,92.89,0,92.89,0,0,False,False
 20260717,94.22,0.01,92.9,0.01,92.9,0.01,1,True,True
 20260724,94.24,0.02,92.92,0.02,92.92,0.02,2,True,True
+20260731,94.26,0.02,92.94,0.02,92.94,0.02,3,True,True
 ```
 
 ## Candidate Context

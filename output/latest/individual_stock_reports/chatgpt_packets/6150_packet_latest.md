@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6150 撼訊
 
 ## Metadata
-- generated_at: 2026-07-31 22:27:52 Asia/Taipei
+- generated_at: 2026-08-01 15:54:17 Asia/Taipei
 - stock_id: 6150
 - stock_name: 撼訊
 - packet_status: standard_180d_window_packet
@@ -11,10 +11,10 @@
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260724-88f3a903b384007d
-- official_tdcc_signal_date: 20260724
-- latest_tdcc_date: 20260724
-- tdcc_rows: 13
+- source_tdcc_dataset_id: tdcc-20260731-0b236a2d4a043618
+- official_tdcc_signal_date: 20260731
+- latest_tdcc_date: 20260731
+- tdcc_rows: 14
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -170,12 +170,12 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260724
-- over_400_ratio: 16.23
-- over_600_ratio: 13.25
+- as_of_date: 20260731
+- over_400_ratio: 16.16
+- over_600_ratio: 12.01
 - over_800_ratio: 12.01
 - over_1000_ratio: 12.01
-- over_400_change_1w: -1.16
+- over_400_change_1w: -0.07
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260508,14.08,-0.01,11.78,0,11.78,0,0,False,False
 20260515,14.18,0.1,11.78,0,11.78,0,1,False,False
 20260522,14.16,-0.02,11.78,0,11.78,0,0,False,False
 20260529,14.08,-0.08,11.78,0,11.78,0,0,False,False
@@ -198,6 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260709,17.04,0.09,11.78,0,11.78,0,1,False,False
 20260717,17.39,0.35,12.01,0.23,12.01,0.23,2,True,True
 20260724,16.23,-1.16,12.01,0,12.01,0,0,False,False
+20260731,16.16,-0.07,12.01,0,12.01,0,0,False,False
 ```
 
 ## Candidate Context

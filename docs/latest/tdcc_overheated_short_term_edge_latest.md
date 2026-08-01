@@ -1,7 +1,7 @@
 # TDCC Overheated Short-Term Edge
 
-- generated_at: `2026-07-31 00:48:37 Asia/Taipei`
-- source_tdcc_dataset_id: `tdcc-20260724-88f3a903b384007d`
+- generated_at: `2026-08-01 15:43:54 Asia/Taipei`
+- source_tdcc_dataset_id: `tdcc-20260731-0b236a2d4a043618`
 - tuning_status: `not_ready`
 - allowed_changes: `reporting_priority_only`
 - forbidden_changes: `core_weight_change`
@@ -17,14 +17,7 @@
 
 ## Current Matching Stocks
 
-| signal_date | stock_id | stock_name | theme | rule_name_zh | price_ret_1w | price_ret_2w | d5_mature_count | d5_win_rate_pct | d5_avg_relative_return_pct | d10_mature_count | d10_win_rate_pct | d10_avg_relative_return_pct | sample_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260724 | 8039 | 台虹 | other | 四級距同步過熱 + 1週漲10~30% + MACD histogram > 0 | 24.675324675324674 | 55.84415584415585 | 68 | 58.82 | 1.70 | 65 | 56.92 | 0.85 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
-| 20260724 | 6414 | 樺漢 | other | 四級距同步過熱 + 1週漲10~30% + MACD histogram > 0 | 26.582278481012665 | 26.903553299492387 | 68 | 58.82 | 1.70 | 65 | 56.92 | 0.85 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
-| 20260724 | 5227 | 立凱-KY | other | TDCC 過熱 phase + KD多方但未過熱 + 1週漲10~30% + 2週漲20~50% | 28.525641025641036 | 33.00165837479272 | 40 | 62.50 | 0.06 | 37 | 54.05 | -1.46 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
-| 20260724 | 6414 | 樺漢 | other | TDCC 過熱 phase + KD多方但未過熱 + 1週漲10~30% + 2週漲20~50% | 26.582278481012665 | 26.903553299492387 | 40 | 62.50 | 0.06 | 37 | 54.05 | -1.46 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
-| 20260724 | 3231 | 緯創 | other | TDCC 過熱 phase + KD多方但未過熱 + 1週漲10~30% + 2週漲20~50% | 28.776978417266186 | 23.875432525951567 | 40 | 62.50 | 0.06 | 37 | 54.05 | -1.46 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
-| 20260724 | 5227 | 立凱-KY | other | TDCC 過熱 phase + 布林寬度未極端 + 2週漲20~50% + TDCC連續1週 | 28.525641025641036 | 33.00165837479272 | 3 | 33.33 | -8.74 | 3 | 33.33 | -7.74 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
+目前沒有可用資料。
 
 ## D+5 Table
 

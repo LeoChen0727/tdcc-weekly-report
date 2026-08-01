@@ -1,7 +1,11 @@
 from __future__ import annotations
 
 import hashlib
+import io
 import json
+import os
+import re
+import subprocess
 from pathlib import Path
 
 import pandas as pd
@@ -17,6 +21,8 @@ CANDIDATE_CSV = LATEST_DIR / "all_candidates_latest.csv"
 WARRANT_FLOW_CSV = LATEST_DIR / "warrant_flow_latest.csv"
 VALIDATION_JSON = LATEST_DIR / "volume_attack_theme_layer_validation_latest.json"
 VALIDATION_MD = LATEST_DIR / "volume_attack_theme_layer_validation_latest.md"
+ROOT = Path(__file__).resolve().parents[1]
+LIVE_SOURCE_REVISION = "working_tree"
 
 VALID_THEME_STATUSES = {
     "confirmed_volume_theme",
@@ -90,6 +96,191 @@ def sha256_file(path: Path) -> str:
     return hashlib.sha256(canonical_text.encode("utf-8")).hexdigest()
 
 
+def canonical_text_sha256(payload: bytes) -> str:
+    text = payload.decode("utf-8-sig")
+    canonical_text = text.replace("\r\n", "\n").replace("\r", "\n")
+    return hashlib.sha256(canonical_text.encode("utf-8")).hexdigest()
+
+
+def resolve_pinned_canonical_source_revision(
+    root: Path,
+    artifact_path: str,
+    declared_sha256: str,
+    *,
+    trusted_ref: str = "HEAD",
+    allow_live: bool = True,
+) -> tuple[bytes, str]:
+    """Resolve a pinned source from the live payload or immutable HEAD history."""
+
+    relative = Path(artifact_path)
+    if relative.is_absolute() or ".." in relative.parts:
+        raise RuntimeError(f"pinned source artifact path is unsafe: {artifact_path}")
+    if re.fullmatch(r"[0-9a-f]{64}", declared_sha256) is None:
+        raise RuntimeError(
+            f"pinned source SHA-256 is malformed: artifact={artifact_path} "
+            f"sha256={declared_sha256!r}"
+        )
+    current_path = root / relative
+    current_payload: bytes | None = None
+    current_sha = "<missing>"
+    if current_path.is_file():
+        try:
+            current_payload = current_path.read_bytes()
+            current_sha = canonical_text_sha256(current_payload)
+        except (OSError, UnicodeError):
+            current_payload = None
+    if allow_live and current_payload is not None and current_sha == declared_sha256:
+        head_payload = subprocess.run(
+            ["git", "show", f"HEAD:{relative.as_posix()}"],
+            cwd=root,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            check=False,
+        )
+        current_is_committed_at_head = False
+        if head_payload.returncode == 0:
+            try:
+                current_is_committed_at_head = (
+                    canonical_text_sha256(head_payload.stdout) == current_sha
+                )
+            except UnicodeError:
+                current_is_committed_at_head = False
+        if not current_is_committed_at_head:
+            return current_payload, LIVE_SOURCE_REVISION
+
+    history = subprocess.run(
+        [
+            "git",
+            "log",
+            "--format=%H",
+            trusted_ref,
+            "--",
+            relative.as_posix(),
+        ],
+        cwd=root,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        check=False,
+    )
+    if history.returncode != 0:
+        detail = history.stderr.decode("utf-8", errors="replace").strip()
+        raise RuntimeError(
+            "pinned source revision history is unavailable: "
+            f"artifact={artifact_path} trusted_ref={trusted_ref} "
+            f"detail={detail or '<none>'}"
+        )
+    commits = [
+        value.strip()
+        for value in history.stdout.decode("utf-8", errors="replace").splitlines()
+        if value.strip()
+    ]
+    for commit_sha in commits:
+        revision = subprocess.run(
+            ["git", "show", f"{commit_sha}:{relative.as_posix()}"],
+            cwd=root,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            check=False,
+        )
+        if revision.returncode != 0:
+            continue
+        try:
+            revision_sha = canonical_text_sha256(revision.stdout)
+        except UnicodeError:
+            continue
+        if revision_sha == declared_sha256:
+            return revision.stdout, commit_sha
+    raise RuntimeError(
+        "pinned source revision is not reconstructable: "
+        f"artifact={artifact_path} expected_sha256={declared_sha256} "
+        f"current_sha256={current_sha} trusted_ref={trusted_ref} "
+        f"searched_commits={len(commits)}"
+    )
+
+
+def committed_artifact_revision(
+    root: Path,
+    artifact_path: str,
+    payload: bytes,
+    *,
+    trusted_ref: str,
+) -> str | None:
+    relative = Path(artifact_path)
+    committed = subprocess.run(
+        ["git", "show", f"HEAD:{relative.as_posix()}"],
+        cwd=root,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        check=False,
+    )
+    if committed.returncode != 0:
+        return None
+    try:
+        if canonical_text_sha256(committed.stdout) != canonical_text_sha256(payload):
+            return None
+    except UnicodeError:
+        return None
+    revision = subprocess.run(
+        [
+            "git",
+            "log",
+            "-1",
+            "--format=%H",
+            "HEAD",
+            "--",
+            relative.as_posix(),
+        ],
+        cwd=root,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        check=False,
+        text=True,
+    )
+    commit_sha = revision.stdout.strip() if revision.returncode == 0 else ""
+    if not commit_sha:
+        raise RuntimeError(
+            "committed theme artifact revision cannot be identified: "
+            f"artifact={artifact_path}"
+        )
+    trusted = subprocess.run(
+        ["git", "merge-base", "--is-ancestor", commit_sha, trusted_ref],
+        cwd=root,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        check=False,
+    )
+    if trusted.returncode != 0:
+        raise RuntimeError(
+            "committed theme artifact revision is outside trusted ref ancestry: "
+            f"artifact={artifact_path} revision={commit_sha} "
+            f"trusted_ref={trusted_ref}"
+        )
+    return commit_sha
+
+
+def source_precedes_consumer(
+    root: Path,
+    source_revision: str,
+    consumer_revision: str,
+) -> bool:
+    completed = subprocess.run(
+        ["git", "merge-base", "--is-ancestor", source_revision, consumer_revision],
+        cwd=root,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        check=False,
+    )
+    return completed.returncode == 0
+
+
+def read_csv_payload(payload: bytes) -> pd.DataFrame:
+    return pd.read_csv(
+        io.StringIO(payload.decode("utf-8-sig")),
+        dtype=str,
+        keep_default_na=False,
+    )
+
+
 def main() -> int:
     errors: list[str] = []
     warnings: list[str] = []
@@ -104,6 +295,100 @@ def main() -> int:
     watch_sha = sha256_file(VOLUME_WATCH_CSV)
     candidate_sha = sha256_file(CANDIDATE_CSV)
     official_sha = sha256_file(WARRANT_FLOW_CSV)
+    trusted_ref = os.environ.get("BASE_SHA", "").strip() or "HEAD"
+    declared_official_sha = official_sha
+    resolved_official = read_csv(WARRANT_FLOW_CSV)
+    stock_revision: str | None = None
+    stock_revision_invalid = False
+    if not stocks.empty and STOCK_LAYER_CSV.is_file():
+        try:
+            stock_revision = committed_artifact_revision(
+                ROOT,
+                STOCK_LAYER_CSV.as_posix(),
+                STOCK_LAYER_CSV.read_bytes(),
+                trusted_ref=trusted_ref,
+            )
+        except (OSError, RuntimeError, UnicodeError) as exc:
+            errors.append(f"stock_layer committed revision cannot be validated: {exc}")
+            stock_revision_invalid = True
+    if not stocks.empty and "warrant_flow_official_source_sha256" in stocks.columns:
+        declared_artifacts = {
+            str(value).strip()
+            for value in stocks.get(
+                "warrant_flow_official_source_artifact", pd.Series(dtype=str)
+            )
+        }
+        declared_shas = {
+            str(value).strip()
+            for value in stocks["warrant_flow_official_source_sha256"]
+        }
+        expected_artifact = WARRANT_FLOW_CSV.as_posix()
+        if declared_artifacts != {expected_artifact}:
+            errors.append(
+                "stock_layer official warrant source artifact is not singular canonical: "
+                f"expected={expected_artifact!r} actual={sorted(declared_artifacts)}"
+            )
+        if len(declared_shas) != 1:
+            errors.append(
+                "stock_layer official warrant source revision is not singular: "
+                f"actual={sorted(declared_shas)}"
+            )
+        elif declared_artifacts == {expected_artifact} and not stock_revision_invalid:
+            declared_official_sha = next(iter(declared_shas))
+            try:
+                payload, official_revision = resolve_pinned_canonical_source_revision(
+                    ROOT,
+                    expected_artifact,
+                    declared_official_sha,
+                    trusted_ref=trusted_ref,
+                    allow_live=stock_revision is None,
+                )
+                if stock_revision is None and official_revision != LIVE_SOURCE_REVISION:
+                    errors.append(
+                        "live stock_layer cannot consume a historical official warrant "
+                        f"revision: source_revision={official_revision}"
+                    )
+                elif stock_revision is not None and (
+                    official_revision == LIVE_SOURCE_REVISION
+                    or not source_precedes_consumer(
+                        ROOT,
+                        official_revision,
+                        stock_revision,
+                    )
+                ):
+                    errors.append(
+                        "official warrant revision is not available before stock_layer: "
+                        f"source_revision={official_revision} "
+                        f"stock_revision={stock_revision}"
+                    )
+                resolved_official = read_csv_payload(payload)
+                missing_official_columns = sorted(
+                    {"stock_id", "warrant_flow_signal"}
+                    - set(resolved_official.columns)
+                )
+                if missing_official_columns:
+                    errors.append(
+                        "resolved official warrant source is missing columns: "
+                        + ",".join(missing_official_columns)
+                    )
+                    resolved_official = pd.DataFrame()
+                if resolved_official.empty:
+                    errors.append(
+                        "resolved official warrant source is empty; as-of cannot be verified"
+                    )
+                if not {"date", "signal_date"}.intersection(
+                    resolved_official.columns
+                ):
+                    errors.append(
+                        "resolved official warrant source has no as-of column"
+                    )
+                    resolved_official = pd.DataFrame()
+            except (RuntimeError, UnicodeError, pd.errors.ParserError) as exc:
+                errors.append(
+                    "stock_layer official warrant source revision cannot be validated: "
+                    f"{exc}"
+                )
+                resolved_official = pd.DataFrame()
     for source_name, source_sha in (
         ("volume watch", watch_sha),
         ("all_candidates", candidate_sha),
@@ -117,7 +402,7 @@ def main() -> int:
         f"warrant_projection_source: `{CANDIDATE_CSV.as_posix()}`",
         f"warrant_projection_source_sha256: `{candidate_sha}`",
         f"warrant_official_parity_source: `{WARRANT_FLOW_CSV.as_posix()}`",
-        f"warrant_official_parity_source_sha256: `{official_sha}`",
+        f"warrant_official_parity_source_sha256: `{declared_official_sha}`",
     )
     for path in (THEME_LAYER_MD, STOCK_LAYER_MD):
         if not path.is_file():
@@ -182,7 +467,6 @@ def main() -> int:
                 "warrant_flow_source_artifact": CANDIDATE_CSV.as_posix(),
                 "warrant_flow_source_sha256": candidate_sha,
                 "warrant_flow_official_source_artifact": WARRANT_FLOW_CSV.as_posix(),
-                "warrant_flow_official_source_sha256": official_sha,
             }
             for column, expected in expected_constants.items():
                 actual = set(stocks[column].astype(str))
@@ -278,7 +562,7 @@ def main() -> int:
                         )
 
             candidates = read_csv(CANDIDATE_CSV)
-            official = read_csv(WARRANT_FLOW_CSV)
+            official = resolved_official
             candidate_signals: dict[str, set[str]] = {}
             if not candidates.empty and {"stock_id", "warrant_flow_signal"} <= set(candidates.columns):
                 for stock_id, part in candidates.groupby("stock_id", dropna=False):
@@ -287,9 +571,55 @@ def main() -> int:
                     )
             official_signals: dict[str, set[str]] = {}
             if not official.empty and {"stock_id", "warrant_flow_signal"} <= set(official.columns):
+                duplicate_official_ids = sorted(
+                    {
+                        str(stock_id)
+                        for stock_id, count in official["stock_id"]
+                        .astype(str)
+                        .value_counts(dropna=False)
+                        .items()
+                        if count > 1
+                    }
+                )
+                if duplicate_official_ids:
+                    errors.append(
+                        "resolved official warrant source has duplicate stock_id rows: "
+                        + ",".join(duplicate_official_ids)
+                    )
                 for stock_id, part in official.groupby("stock_id", dropna=False):
                     official_signals[str(stock_id)] = set(
                         part["warrant_flow_signal"].astype(str)
+                    )
+            official_dates = {
+                str(row.get("date", "") or row.get("signal_date", "")).strip()
+                for _, row in official.iterrows()
+                if str(row.get("date", "") or row.get("signal_date", "")).strip()
+            }
+            if not official.empty:
+                rows_without_as_of = [
+                    str(row_number)
+                    for row_number, (_, row) in enumerate(
+                        official.iterrows(), start=2
+                    )
+                    if not str(
+                        row.get("date", "") or row.get("signal_date", "")
+                    ).strip()
+                ]
+                if rows_without_as_of:
+                    errors.append(
+                        "resolved official warrant source rows have no as-of: "
+                        + ",".join(rows_without_as_of)
+                    )
+            if len(official_dates) > 1:
+                errors.append(
+                    "resolved official warrant source has multiple as-of dates: "
+                    + ",".join(sorted(official_dates))
+                )
+            for source_date in sorted(official_dates):
+                if re.fullmatch(r"[0-9]{8}", source_date) is None:
+                    errors.append(
+                        "resolved official warrant source has invalid as-of: "
+                        f"{source_date!r}"
                     )
             for _, row in stocks.iterrows():
                 stock_id = str(row["stock_id"])
@@ -309,6 +639,29 @@ def main() -> int:
                         "stock_layer warrant projection differs from official warrant: "
                         f"stock_id={stock_id} published={published!r} "
                         f"official={sorted(official_set)}"
+                    )
+                if len(official_dates) == 1:
+                    expected_as_of = next(iter(official_dates))
+                    actual_as_of = str(row.get("warrant_flow_as_of", "")).strip()
+                    if actual_as_of != expected_as_of:
+                        errors.append(
+                            "stock_layer warrant_flow_as_of differs from pinned official "
+                            f"revision: stock_id={stock_id} expected={expected_as_of!r} "
+                            f"actual={actual_as_of!r}"
+                        )
+                signal_date = str(row.get("signal_date", "")).strip()
+                actual_as_of = str(row.get("warrant_flow_as_of", "")).strip()
+                if (
+                    actual_as_of
+                    and signal_date
+                    and re.fullmatch(r"[0-9]{8}", actual_as_of)
+                    and re.fullmatch(r"[0-9]{8}", signal_date)
+                    and actual_as_of > signal_date
+                ):
+                    errors.append(
+                        "stock_layer warrant_flow_as_of is later than signal_date: "
+                        f"stock_id={stock_id} signal_date={signal_date} "
+                        f"warrant_flow_as_of={actual_as_of}"
                     )
     else:
         warnings.append("stock_layer_empty")

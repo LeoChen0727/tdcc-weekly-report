@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3176 基亞
 
 ## Metadata
-- generated_at: 2026-07-31 22:27:06 Asia/Taipei
+- generated_at: 2026-08-01 15:53:31 Asia/Taipei
 - stock_id: 3176
 - stock_name: 基亞
 - packet_status: standard_180d_window_packet
@@ -11,10 +11,10 @@
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260724-88f3a903b384007d
-- official_tdcc_signal_date: 20260724
-- latest_tdcc_date: 20260724
-- tdcc_rows: 13
+- source_tdcc_dataset_id: tdcc-20260731-0b236a2d4a043618
+- official_tdcc_signal_date: 20260731
+- latest_tdcc_date: 20260731
+- tdcc_rows: 14
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -170,23 +170,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260724
-- over_400_ratio: 34.34
-- over_600_ratio: 31.07
-- over_800_ratio: 30.6
-- over_1000_ratio: 28.67
-- over_400_change_1w: -1.01
-- over_800_change_1w: -0.02
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260731
+- over_400_ratio: 34.62
+- over_600_ratio: 31.04
+- over_800_ratio: 30.04
+- over_1000_ratio: 28.7
+- over_400_change_1w: 0.28
+- over_800_change_1w: -0.56
+- over_1000_change_1w: 0.03
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260508,34.66,0.17,30.17,0.19,29.48,0.19,1,True,True
 20260515,34.68,0.02,30.17,0,29.48,0,2,False,False
 20260522,34.99,0.31,30.6,0.43,29.29,-0.19,3,False,True
 20260529,34.58,-0.41,30.14,-0.46,29.45,0.16,4,False,True
@@ -198,6 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260709,35.12,1.21,30.51,0.06,28.56,0.06,4,True,True
 20260717,35.35,0.23,30.62,0.11,28.67,0.11,5,True,True
 20260724,34.34,-1.01,30.6,-0.02,28.67,0,0,False,False
+20260731,34.62,0.28,30.04,-0.56,28.7,0.03,1,False,True
 ```
 
 ## Candidate Context
