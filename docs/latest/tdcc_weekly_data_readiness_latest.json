@@ -1,13 +1,13 @@
 {
   "status": "pass",
-  "generated_at": "2026-07-31 00:41:38 Asia/Taipei",
-  "as_of_date": "20260727",
+  "generated_at": "2026-08-01 15:38:34 Asia/Taipei",
+  "as_of_date": "20260801",
   "timezone": "Asia/Taipei",
-  "target_week_start": "20260720",
-  "target_week_end": "20260724",
-  "selected_official_date": "20260724",
-  "latest_official_date": "20260724",
-  "previous_official_date": "20260717",
+  "target_week_start": "20260727",
+  "target_week_end": "20260731",
+  "selected_official_date": "20260731",
+  "latest_official_date": "20260731",
+  "previous_official_date": "20260724",
   "official_dates": [
     "20250801",
     "20250808",
@@ -59,7 +59,8 @@
     "20260703",
     "20260709",
     "20260717",
-    "20260724"
+    "20260724",
+    "20260731"
   ],
   "official_date_source": "https://www.tdcc.com.tw/portal/zh/smWeb/qryStock",
   "date_contract": "official_tdcc_query_form_date_within_target_report_week"

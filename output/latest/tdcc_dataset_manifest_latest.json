@@ -1,11 +1,11 @@
 {
   "status": "pass",
   "schema_version": "tdcc_dataset_manifest_v1",
-  "dataset_id": "tdcc-20260724-88f3a903b384007d",
-  "dataset_hash": "88f3a903b384007d3b2dc97dce5778fe319d53091631f08f2f6556cb915ed6c3",
+  "dataset_id": "tdcc-20260731-0b236a2d4a043618",
+  "dataset_hash": "0b236a2d4a0436184c9a82af49d62aa4362dfed05b4f339a680658c7acad3705",
   "hash_mode": "utf8_text_lf_normalized_sha256",
-  "generated_at": "2026-07-31 00:42:56 Asia/Taipei",
-  "signal_date": "20260724",
+  "generated_at": "2026-08-01 15:39:34 Asia/Taipei",
+  "signal_date": "20260731",
   "official_date_source": "https://www.tdcc.com.tw/portal/zh/smWeb/qryStock",
   "canonical_source_root": "output/history/tdcc",
   "readiness_path": "output/latest/tdcc_weekly_data_readiness_latest.json",
@@ -23,7 +23,8 @@
     "20260703",
     "20260709",
     "20260717",
-    "20260724"
+    "20260724",
+    "20260731"
   ],
   "history_dates": [
     "20251121",
@@ -60,10 +61,11 @@
     "20260703",
     "20260709",
     "20260717",
-    "20260724"
+    "20260724",
+    "20260731"
   ],
-  "current_stock_count": 1971,
-  "snapshot_count": 13,
+  "current_stock_count": 1970,
+  "snapshot_count": 14,
   "snapshots": [
     {
       "date": "20260430",
@@ -72,7 +74,7 @@
       "stock_count": 1972,
       "current_universe_missing_count": 0,
       "current_universe_missing_stock_ids": [],
-      "current_universe_extra_count": 1,
+      "current_universe_extra_count": 2,
       "coverage_status": "complete",
       "sha256": "c65b3d0b10a8d5e03a901f981d543d725b72a4206a7a5af8194bbf4e0d58f015"
     },
@@ -83,7 +85,7 @@
       "stock_count": 1972,
       "current_universe_missing_count": 0,
       "current_universe_missing_stock_ids": [],
-      "current_universe_extra_count": 1,
+      "current_universe_extra_count": 2,
       "coverage_status": "complete",
       "sha256": "a64ddf96e7d65c7732379d58d8ab434e6de547d72288460521c31fbe8d08e99c"
     },
@@ -94,7 +96,7 @@
       "stock_count": 1972,
       "current_universe_missing_count": 0,
       "current_universe_missing_stock_ids": [],
-      "current_universe_extra_count": 1,
+      "current_universe_extra_count": 2,
       "coverage_status": "complete",
       "sha256": "360a1aa7bd8a254e2bcabbb4965d2a0e0198afd09aabca9baf955b4b8aff7f66"
     },
@@ -105,7 +107,7 @@
       "stock_count": 1972,
       "current_universe_missing_count": 0,
       "current_universe_missing_stock_ids": [],
-      "current_universe_extra_count": 1,
+      "current_universe_extra_count": 2,
       "coverage_status": "complete",
       "sha256": "f8429acbc0a383338ea5a639d9e1e8838594e7c61a69e94bc7ab707b9ac828b9"
     },
@@ -116,7 +118,7 @@
       "stock_count": 1972,
       "current_universe_missing_count": 0,
       "current_universe_missing_stock_ids": [],
-      "current_universe_extra_count": 1,
+      "current_universe_extra_count": 2,
       "coverage_status": "complete",
       "sha256": "8383ad6d544dd496d33caacd410af252d0d4317a6665db48196810fb0e4480ce"
     },
@@ -127,7 +129,7 @@
       "stock_count": 1972,
       "current_universe_missing_count": 0,
       "current_universe_missing_stock_ids": [],
-      "current_universe_extra_count": 1,
+      "current_universe_extra_count": 2,
       "coverage_status": "complete",
       "sha256": "600ae8d6a193c7bbf78505ddf08dd320d96817f1167c2807599006216653c6d8"
     },
@@ -138,7 +140,7 @@
       "stock_count": 1972,
       "current_universe_missing_count": 0,
       "current_universe_missing_stock_ids": [],
-      "current_universe_extra_count": 1,
+      "current_universe_extra_count": 2,
       "coverage_status": "complete",
       "sha256": "94fd09606358a3e69a37f768695e4a4348e956cd2cec72b0ba187e2c8c18a14f"
     },
@@ -149,7 +151,7 @@
       "stock_count": 1972,
       "current_universe_missing_count": 0,
       "current_universe_missing_stock_ids": [],
-      "current_universe_extra_count": 1,
+      "current_universe_extra_count": 2,
       "coverage_status": "complete",
       "sha256": "ec029bf45025aa46235835c42c7c1471d361d324d28314a3cb1d1837f061abbb"
     },
@@ -163,7 +165,7 @@
         "2380",
         "3152"
       ],
-      "current_universe_extra_count": 1,
+      "current_universe_extra_count": 2,
       "coverage_status": "accepted_exceptions",
       "sha256": "04203132814e52e154a35c18ff795f2ec49d498644d267bbd313719f58ef6df9"
     },
@@ -174,7 +176,7 @@
       "stock_count": 1972,
       "current_universe_missing_count": 0,
       "current_universe_missing_stock_ids": [],
-      "current_universe_extra_count": 1,
+      "current_universe_extra_count": 2,
       "coverage_status": "complete",
       "sha256": "48c51a42860f530d91f094cae83b03782fcbd5744cb620c177fc5b1ccfbbd900"
     },
@@ -185,7 +187,7 @@
       "stock_count": 1972,
       "current_universe_missing_count": 0,
       "current_universe_missing_stock_ids": [],
-      "current_universe_extra_count": 1,
+      "current_universe_extra_count": 2,
       "coverage_status": "complete",
       "sha256": "063ae4c615aece8656e46627daa8badc11ef07f83cbe1ccc1b138de9af2c9ea6"
     },
@@ -196,7 +198,7 @@
       "stock_count": 1972,
       "current_universe_missing_count": 0,
       "current_universe_missing_stock_ids": [],
-      "current_universe_extra_count": 1,
+      "current_universe_extra_count": 2,
       "coverage_status": "complete",
       "sha256": "141fe58ff437c0730e3d7d9766a69c6a91fd2364eb65894cae3cd36b9e73be3c"
     },
@@ -207,12 +209,23 @@
       "stock_count": 1971,
       "current_universe_missing_count": 0,
       "current_universe_missing_stock_ids": [],
-      "current_universe_extra_count": 0,
+      "current_universe_extra_count": 1,
       "coverage_status": "complete",
       "sha256": "a4601bb64a6c1ca72dca374213d73ee8e193f6549ccc9548298bd7579bbd1656"
+    },
+    {
+      "date": "20260731",
+      "path": "output/history/tdcc/tdcc_holder_ratio_20260731.csv",
+      "row_count": 1970,
+      "stock_count": 1970,
+      "current_universe_missing_count": 0,
+      "current_universe_missing_stock_ids": [],
+      "current_universe_extra_count": 0,
+      "coverage_status": "complete",
+      "sha256": "3ecc97d9889cd45711c96ea637326f3f77a4a24fb8a88f88612ee445b380a015"
     }
   ],
-  "history_snapshot_count": 35,
+  "history_snapshot_count": 36,
   "history_snapshots": [
     {
       "date": "20251121",
@@ -458,6 +471,13 @@
       "row_count": 1971,
       "stock_count": 1971,
       "sha256": "a4601bb64a6c1ca72dca374213d73ee8e193f6549ccc9548298bd7579bbd1656"
+    },
+    {
+      "date": "20260731",
+      "path": "output/history/tdcc/tdcc_holder_ratio_20260731.csv",
+      "row_count": 1970,
+      "stock_count": 1970,
+      "sha256": "3ecc97d9889cd45711c96ea637326f3f77a4a24fb8a88f88612ee445b380a015"
     }
   ],
   "accepted_history_exceptions": [
@@ -472,8 +492,8 @@
   ],
   "producer": {
     "workflow": "TDCC Weekly Report",
-    "run_id": "30562471380",
+    "run_id": "30690091032",
     "source_ref": "main",
-    "source_commit_sha": "845337a30c4932d8e1bd0dffbd665f67e177c877"
+    "source_commit_sha": "6ac85e834d350c771edd8dbe12d56c836b9ea396"
   }
 }
