@@ -136,6 +136,56 @@ def test_apps_script_workflow_trigger_validator_passes_current_repo() -> None:
     assert validate_apps_script_workflow_triggers.main() == 0
 
 
+def test_apps_script_research_dispatch_registry_is_forward_compatible() -> None:
+    validator = validate_apps_script_workflow_triggers
+    registry = validator.load_research_dispatch_registry()
+    workflow_inputs = validator.workflow_inputs("research_backtest_pipeline.yml")
+    apps_inputs, guarded_inputs = validator.apps_script_research_dispatch_inputs()
+    staged_input = "run_revenue_unreacted_range_source_snapshot_projection_chain_only"
+
+    assert registry[staged_input]["activation_mode"] == "when_declared"
+    assert staged_input not in workflow_inputs
+    assert staged_input in apps_inputs
+    assert guarded_inputs == {staged_input}
+
+    errors: list[str] = []
+    validator.validate_research_dispatch_contract(
+        errors,
+        workflow_input_names=workflow_inputs,
+        apps_inputs=set(apps_inputs),
+        guarded_inputs=guarded_inputs,
+        registry=registry,
+    )
+    assert errors == []
+
+    declared_errors: list[str] = []
+    validator.validate_research_dispatch_contract(
+        declared_errors,
+        workflow_input_names={*workflow_inputs, staged_input},
+        apps_inputs=set(apps_inputs),
+        guarded_inputs=guarded_inputs,
+        registry=registry,
+    )
+    assert declared_errors == []
+
+    unknown_errors: list[str] = []
+    validator.validate_research_dispatch_contract(
+        unknown_errors,
+        workflow_input_names={*workflow_inputs, "run_unregistered_research"},
+        apps_inputs=set(apps_inputs),
+        guarded_inputs=guarded_inputs,
+        registry=registry,
+    )
+    assert any("unregistered Apps Script inputs" in error for error in unknown_errors)
+
+    helper_body = validator.apps_script_function_body("researchBacktestInputs_")
+    schema_body = validator.apps_script_function_body("workflowDispatchInputNames_")
+    assert "if (!declaredInputs[inputName])" in helper_body
+    assert "if (declaredInputs[inputName])" in helper_body
+    assert 'githubJson_(\n    "get"' in schema_body
+    assert 'payload.encoding !== "base64"' in schema_body
+
+
 def test_apps_script_daily_trigger_skips_weekends_and_disables_raw_health_check() -> None:
     body = validate_apps_script_workflow_triggers.apps_script_function_body(
         "triggerDailyStockMonitor"

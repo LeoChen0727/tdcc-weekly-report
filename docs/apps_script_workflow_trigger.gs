@@ -1798,8 +1798,45 @@ function triggerWeeklyThemeReview() {
   logLatestWorkflowRunsSafe_("weekly_theme_review.yml");
 }
 
-function triggerResearchBacktestPipeline() {
-  dispatchWorkflow_("research_backtest_pipeline.yml", {
+function workflowDispatchInputNames_(workflowFile) {
+  const path =
+    "/repos/" +
+    GITHUB_OWNER +
+    "/" +
+    GITHUB_REPO +
+    "/contents/.github/workflows/" +
+    encodeURIComponent(workflowFile) +
+    "?ref=" +
+    encodeURIComponent(GITHUB_REF);
+  const payload = githubJson_(
+    "get",
+    path,
+    null,
+    "Read workflow dispatch inputs for " + workflowFile
+  );
+  if (payload.encoding !== "base64" || !payload.content) {
+    throw new Error("Workflow contents response is missing base64 source: " + workflowFile);
+  }
+  const source = Utilities.newBlob(
+    Utilities.base64Decode(String(payload.content).replace(/\s/g, ""))
+  ).getDataAsString("UTF-8");
+  const dispatchBlock = source.match(
+    /(?:^|\n)  workflow_dispatch:\s*\n    inputs:\s*\n([\s\S]*?)(?=\n\S|\s*$)/
+  );
+  if (!dispatchBlock) {
+    throw new Error("Workflow dispatch input block is missing: " + workflowFile);
+  }
+  const names = {};
+  const inputPattern = /^      ([A-Za-z0-9_]+):\s*$/gm;
+  let match;
+  while ((match = inputPattern.exec(dispatchBlock[1])) !== null) {
+    names[match[1]] = true;
+  }
+  return names;
+}
+
+function researchBacktestInputs_(workflowFile) {
+  const inputs = {
     run_market_timing: "true",
     run_weekly_surge: "true",
     run_explosive_volume: "true",
@@ -1815,9 +1852,29 @@ function triggerResearchBacktestPipeline() {
     run_price_pullback_23ema_research: "true",
     run_revenue_unreacted_range_research: "true",
     run_volume_range_breakout_v2_research: "true",
+  };
+  const stagedInputs = {
+    run_revenue_unreacted_range_source_snapshot_projection_chain_only: "true",
+  };
+  const declaredInputs = workflowDispatchInputNames_(workflowFile);
+  Object.keys(inputs).forEach(function (inputName) {
+    if (!declaredInputs[inputName]) {
+      throw new Error("Required research workflow input is missing: " + inputName);
+    }
   });
+  Object.keys(stagedInputs).forEach(function (inputName) {
+    if (declaredInputs[inputName]) {
+      inputs[inputName] = stagedInputs[inputName];
+    }
+  });
+  return inputs;
+}
+
+function triggerResearchBacktestPipeline() {
+  const workflowFile = "research_backtest_pipeline.yml";
+  dispatchWorkflow_(workflowFile, researchBacktestInputs_(workflowFile));
   Utilities.sleep(5000);
-  logLatestWorkflowRunsSafe_("research_backtest_pipeline.yml");
+  logLatestWorkflowRunsSafe_(workflowFile);
 }
 
 function triggerIndividualStockDataRefresh() {
