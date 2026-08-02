@@ -110,6 +110,13 @@ LIFECYCLE_INVENTORY_PATH = "config/repo_file_lifecycle_inventory.csv"
 PRODUCTION_INVENTORY_PATH = "config/repo_production_inventory.csv"
 PR_SAFE_TEST_PATH = "tests/test_daily_published_model_snapshots_pr_safe.py"
 PR_WORKFLOW_TEST_PATH = "tests/test_daily_model_maintenance_pr_validation_workflow.py"
+FRESHNESS_CANONICAL_MIGRATION_ID = "freshness-git-canonical-parity-v1"
+FRESHNESS_CANONICAL_MIGRATION_BASE_HELPER_SHA256 = (
+    "ad8c96e613f5274158f00edb5ffa51add6771850cb522521722fb85ee6844fb2"
+)
+FRESHNESS_CANONICAL_MIGRATION_PATHS = frozenset(
+    {PR_SAFE_HELPER_PATH, PR_SAFE_TEST_PATH}
+)
 RESEARCH_CONTROL_PLANE_MIGRATION_PATHS = frozenset(
     {
         PR_SAFE_HELPER_PATH,
@@ -264,30 +271,62 @@ def validate_freshness_is_inherited_from_base(
     repository_root: Path = ROOT,
 ) -> list[str]:
     current_path = repository_root / FRESHNESS_RELATIVE_PATH
+    if not current_path.is_file():
+        return [f"cannot read current {FRESHNESS_RELATIVE_PATH}: file is missing"]
     try:
-        current_payload = current_path.read_bytes()
-    except OSError as exc:
-        return [f"cannot read current {FRESHNESS_RELATIVE_PATH}: {exc}"]
-    try:
-        proc = subprocess.run(
-            ["git", "show", f"{base_ref}:{FRESHNESS_RELATIVE_PATH}"],
+        base_proc = subprocess.run(
+            [
+                "git",
+                "rev-parse",
+                "--verify",
+                f"{base_ref}:{FRESHNESS_RELATIVE_PATH}",
+            ],
             cwd=repository_root,
             capture_output=True,
+            text=True,
+            check=False,
+            timeout=30,
+        )
+        current_proc = subprocess.run(
+            [
+                "git",
+                "hash-object",
+                f"--path={FRESHNESS_RELATIVE_PATH}",
+                str(current_path),
+            ],
+            cwd=repository_root,
+            capture_output=True,
+            text=True,
             check=False,
             timeout=30,
         )
     except (OSError, subprocess.TimeoutExpired) as exc:
         return [
-            f"cannot read base freshness artifact from {base_ref}: "
+            f"cannot compare canonical freshness artifact with {base_ref}: "
             f"{FRESHNESS_RELATIVE_PATH}: {exc}"
         ]
-    if proc.returncode != 0:
-        detail = proc.stderr.decode("utf-8", errors="replace").strip()
+    if base_proc.returncode != 0:
+        detail = base_proc.stderr.strip() or base_proc.stdout.strip()
         return [
             f"cannot read base freshness artifact from {base_ref}: "
-            f"{FRESHNESS_RELATIVE_PATH}: {detail or 'git show failed'}"
+            f"{FRESHNESS_RELATIVE_PATH}: {detail or 'git rev-parse failed'}"
         ]
-    if proc.stdout != current_payload:
+    if current_proc.returncode != 0:
+        detail = current_proc.stderr.strip() or current_proc.stdout.strip()
+        return [
+            f"cannot canonicalize current freshness artifact with Git attributes: "
+            f"{FRESHNESS_RELATIVE_PATH}: {detail or 'git hash-object failed'}"
+        ]
+    base_blob = base_proc.stdout.strip()
+    current_blob = current_proc.stdout.strip()
+    if not re.fullmatch(r"[0-9a-f]{40,64}", base_blob) or not re.fullmatch(
+        r"[0-9a-f]{40,64}", current_blob
+    ):
+        return [
+            "cannot compare canonical freshness artifact because Git returned an "
+            f"invalid object id: base={base_blob!r} current={current_blob!r}"
+        ]
+    if base_blob != current_blob:
         return [
             "PR-safe snapshot validation cannot inherit a changed freshness artifact; "
             f"{FRESHNESS_RELATIVE_PATH} differs from base_ref={base_ref}"
@@ -476,6 +515,44 @@ def is_research_control_plane_self_migration(
             repository_root=repository_root,
         )
         is False
+    )
+
+
+def is_freshness_canonical_self_migration(
+    base_ref: str,
+    changed_paths: set[str],
+    strict_surface_changes: set[str],
+    *,
+    repository_root: Path,
+) -> bool:
+    if strict_surface_changes != {PR_SAFE_HELPER_PATH}:
+        return False
+    if changed_paths != set(FRESHNESS_CANONICAL_MIGRATION_PATHS):
+        return False
+    base_helper = git_blob_at_ref(
+        base_ref, PR_SAFE_HELPER_PATH, repository_root=repository_root
+    )
+    base_strict_validator = git_blob_at_ref(
+        base_ref,
+        "scripts/validate_daily_published_model_snapshots.py",
+        repository_root=repository_root,
+    )
+    try:
+        current_helper = (repository_root / PR_SAFE_HELPER_PATH).read_bytes()
+        current_strict_validator = (
+            repository_root / "scripts/validate_daily_published_model_snapshots.py"
+        ).read_bytes()
+    except OSError:
+        return False
+    if base_helper is None or base_strict_validator is None:
+        return False
+    return bool(
+        sha256_bytes(base_helper)
+        == FRESHNESS_CANONICAL_MIGRATION_BASE_HELPER_SHA256
+        and FRESHNESS_CANONICAL_MIGRATION_ID.encode("utf-8") not in base_helper
+        and FRESHNESS_CANONICAL_MIGRATION_ID.encode("utf-8") in current_helper
+        and canonical_repository_bytes(base_strict_validator)
+        == canonical_repository_bytes(current_strict_validator)
     )
 
 
@@ -710,6 +787,11 @@ def validate_pr_safe_snapshot_contract(
         strict_surface_changes,
         repository_root=repository_root,
     ) or is_research_control_plane_self_migration(
+        base_ref,
+        changed_paths,
+        strict_surface_changes,
+        repository_root=repository_root,
+    ) or is_freshness_canonical_self_migration(
         base_ref,
         changed_paths,
         strict_surface_changes,
