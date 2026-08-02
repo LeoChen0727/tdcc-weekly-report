@@ -281,6 +281,7 @@ jobs:
       - name: Commit research and backtest outputs
         if: ${{ env.ANY_RESEARCH_SELECTED == 'true' }}
         run: |
+          set -euo pipefail
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
@@ -379,5 +380,9 @@ jobs:
             git add docs/latest/daily_short_term_specialty_packet_latest.md || true
           fi
           git status --short
-          git commit -m "Update research backtest outputs" || echo "No changes to commit"
-          bash scripts/ci_push_with_retry.sh "$TARGET_BRANCH" 5
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "Update research backtest outputs"
+          git push origin "HEAD:$TARGET_BRANCH"
