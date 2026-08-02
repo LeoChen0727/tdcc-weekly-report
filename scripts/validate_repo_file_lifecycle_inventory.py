@@ -53,6 +53,36 @@ VALID_REMOVAL_RISK = {"none", "low", "medium", "high"}
 NON_PYTHON_EXECUTABLE_SUFFIXES = {".bat", ".cmd", ".gs", ".js", ".mjs", ".pl", ".ps1", ".rb", ".sh", ".ts", ".tsx"}
 PYTHON_INVOKE_RE = re.compile(r"\bpython(?:3)?\s+([A-Za-z0-9_./\\-]+\.py)")
 SHELL_INVOKE_RE = re.compile(r"\b(?:bash|sh)\s+([A-Za-z0-9_./\\-]+\.(?:sh|cmd|bat|ps1))")
+PYTHON_PATH_REFERENCE_RE = re.compile(
+    r"(?<![A-Za-z0-9_./\\-])"
+    r"((?:\.[/\\])?[A-Za-z0-9_.-]+(?:[/\\][A-Za-z0-9_.-]+)*\.py)"
+    r"(?![A-Za-z0-9_.-])"
+)
+PYTHON_MODULE_REFERENCE_RE = re.compile(
+    r"(?<![A-Za-z0-9_])([A-Za-z_][A-Za-z0-9_]*(?:\.[A-Za-z_][A-Za-z0-9_]*)*)"
+    r"(?![A-Za-z0-9_])"
+)
+NON_MODULE_FILE_SUFFIXES = {
+    "bat",
+    "cmd",
+    "csv",
+    "gs",
+    "html",
+    "json",
+    "md",
+    "mjs",
+    "pdf",
+    "pl",
+    "ps1",
+    "py",
+    "rb",
+    "sh",
+    "ts",
+    "tsx",
+    "txt",
+    "yaml",
+    "yml",
+}
 DATE_STAMPED_DAILY_README_RE = re.compile(r"(?:^|/)READ_ME_FIRST_DAILY_REPORT_\d{8}\.txt$")
 
 ACTIVE_GUIDANCE_ROOT_FILES = {"AGENTS.md", "README.md"}
@@ -387,17 +417,64 @@ def documentation_references(paths: set[str]) -> dict[str, set[str]]:
     return refs
 
 
+def test_reference_tokens(text: str) -> tuple[set[str], set[str]]:
+    path_references = {
+        match.group(1).replace("\\", "/").removeprefix("./")
+        for match in PYTHON_PATH_REFERENCE_RE.finditer(text)
+    }
+    module_references = {
+        reference
+        for reference in PYTHON_MODULE_REFERENCE_RE.findall(text)
+        if reference.rsplit(".", 1)[-1].lower() not in NON_MODULE_FILE_SUFFIXES
+    }
+    return path_references, module_references
+
+
+def test_tokens_reference_target(
+    path_references: set[str],
+    module_references: set[str],
+    target: str,
+) -> bool:
+    normalized_target = target.replace("\\", "/").removeprefix("./")
+    module = module_name_for_path(normalized_target)
+    stem = Path(normalized_target).stem
+    filename = Path(normalized_target).name
+    return bool(
+        normalized_target in path_references
+        or filename in path_references
+        or stem in module_references
+        or module in module_references
+        or any(reference.startswith(module + ".") for reference in module_references)
+        or any(stem in reference.split(".") for reference in module_references)
+    )
+
+
+def test_text_references_target(text: str, target: str) -> bool:
+    path_references, module_references = test_reference_tokens(text)
+    return test_tokens_reference_target(
+        path_references,
+        module_references,
+        target,
+    )
+
+
 def test_references(paths: set[str]) -> dict[str, set[str]]:
     tests = tracked_test_python_paths()
+    targets = sorted(
+        target
+        for target in paths
+        if target.endswith(".py") and not target.startswith("tests/")
+    )
     refs: dict[str, set[str]] = {}
     for test in tests:
         text = read_text(ROOT / test)
-        for target in paths:
-            if not target.endswith(".py") or target.startswith("tests/"):
-                continue
-            stem = Path(target).stem
-            module = module_name_for_path(target)
-            if stem in text or module in text or target in text:
+        path_references, module_references = test_reference_tokens(text)
+        for target in targets:
+            if test_tokens_reference_target(
+                path_references,
+                module_references,
+                target,
+            ):
                 refs.setdefault(target, set()).add(test)
     return refs
 
