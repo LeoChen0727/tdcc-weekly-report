@@ -307,6 +307,7 @@ jobs:
       - name: Commit research and backtest outputs
         if: ${{ env.ANY_RESEARCH_SELECTED == 'true' }}
         run: |
+          set -euo pipefail
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 

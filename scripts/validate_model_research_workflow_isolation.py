@@ -63,11 +63,6 @@ BACKGROUND_REGISTRY_FULL_COMMAND = (
     "python scripts/validate_daily_model_background_data_registry.py"
 )
 COMMIT_STEP_MARKER = "- name: Commit research and backtest outputs"
-COMMIT_STEP_NAME = "Commit research and backtest outputs"
-STAGED_DIFF_GUARD = "if git diff --cached --quiet; then"
-RESEARCH_COMMIT_COMMAND = 'git commit -m "Update research backtest outputs"'
-FAIL_CLOSED_PUSH_COMMAND = 'git push origin "HEAD:$TARGET_BRANCH"'
-REBASE_RETRY_PUSH_COMMAND = 'bash scripts/ci_push_with_retry.sh "$TARGET_BRANCH" 5'
 
 REVENUE_WORKFLOW_INPUT = "run_revenue_unreacted_range_research"
 REVENUE_PROJECTION_CHAIN_STAGE_INPUT = (
@@ -89,6 +84,19 @@ REVENUE_PROJECTION_CHAIN_VALIDATOR_COMMANDS = {
     "python scripts/validate_revenue_unreacted_range_position_shape_transition_matrix.py",
     "python scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
 }
+
+PUBLISH_COMMIT = 'git commit -m "Update research backtest outputs"'
+PUBLISH_PUSH = 'git push origin "HEAD:$TARGET_BRANCH"'
+PUBLISH_FAIL_CLOSED_SHELL = "set -euo pipefail"
+PUBLISH_NO_CHANGE_GUARD = (
+    "if git diff --cached --quiet; then\n"
+    'echo "No changes to commit"\n'
+    "exit 0\n"
+    "fi"
+)
+FORBIDDEN_PUBLISH_REWRITE = re.compile(
+    r"^git\s+(?:pull|fetch|rebase|merge|reset|checkout|switch)\b"
+)
 
 
 @dataclass(frozen=True)
@@ -170,6 +178,80 @@ def workflow_step_blocks(text: str) -> list[str]:
     return [block for block in re.split(r"(?m)^      - name: ", text)[1:] if block.strip()]
 
 
+def _normalized_shell_block(block: str) -> str:
+    return "\n".join(line.strip() for line in block.splitlines() if line.strip())
+
+
+def validate_publish_block(text: str, blocks: list[str]) -> list[str]:
+    errors: list[str] = []
+    shell_lines = [line.strip() for line in text.splitlines()]
+    commit_lines = [line for line in shell_lines if line.startswith("git commit ")]
+    push_lines = [line for line in shell_lines if line.startswith("git push ")]
+    publish_blocks = [
+        block
+        for block in blocks
+        if any(
+            line.strip().startswith(("git commit ", "git push "))
+            or "ci_push_with_retry.sh" in line
+            for line in block.splitlines()
+        )
+    ]
+
+    if len(publish_blocks) != 1:
+        errors.append(
+            "research workflow must contain exactly one commit/push publish block: "
+            f"observed={len(publish_blocks)}"
+        )
+        publish_block = ""
+    else:
+        publish_block = _normalized_shell_block(publish_blocks[0])
+
+    if len(commit_lines) != 1:
+        errors.append(
+            "research workflow must contain exactly one research output commit: "
+            f"observed={len(commit_lines)}"
+        )
+    elif commit_lines[0] != PUBLISH_COMMIT:
+        errors.append("research workflow must not swallow or alter research output commit failure")
+
+    if len(push_lines) != 1:
+        errors.append(
+            "research workflow must contain exactly one direct research output push: "
+            f"observed={len(push_lines)}"
+        )
+    elif push_lines[0] != PUBLISH_PUSH:
+        errors.append("research workflow push must be direct, non-force, and fail closed")
+
+    if "ci_push_with_retry.sh" in text:
+        errors.append("research workflow must not retry or rebase after validation")
+
+    if publish_block:
+        if PUBLISH_FAIL_CLOSED_SHELL not in publish_block:
+            errors.append("research workflow publish block missing fail-closed shell mode")
+        if "continue-on-error: true" in publish_block or "set +e" in publish_block:
+            errors.append("research workflow publish block must not mask shell failure")
+        if PUBLISH_NO_CHANGE_GUARD not in publish_block:
+            errors.append("research workflow publish block missing staged no-change exit guard")
+        else:
+            shell_position = publish_block.find(PUBLISH_FAIL_CLOSED_SHELL)
+            guard_position = publish_block.index(PUBLISH_NO_CHANGE_GUARD)
+            commit_position = publish_block.find(PUBLISH_COMMIT)
+            push_position = publish_block.find(PUBLISH_PUSH)
+            if not (shell_position < guard_position < commit_position < push_position):
+                errors.append(
+                    "research workflow publish order must be fail-closed shell, staged guard, "
+                    "commit, then direct push"
+                )
+        for line in publish_block.splitlines():
+            if FORBIDDEN_PUBLISH_REWRITE.match(line):
+                errors.append(
+                    "research workflow publish block must not rewrite or resynchronize the target branch: "
+                    f"{line}"
+                )
+
+    return errors
+
+
 def validate_pr_workflow_text(text: str, rows: list[WorkflowEntrypoint]) -> list[str]:
     errors: list[str] = []
     for model_id in sorted({row.model_id for row in rows}):
@@ -194,6 +276,7 @@ def validate_workflow_text(
     errors: list[str] = []
     defaults = workflow_input_defaults(text)
     blocks = workflow_step_blocks(text)
+    errors.extend(validate_publish_block(text, blocks))
     stripped_lines = [line.strip() for line in text.splitlines()]
     any_selected_line = next(
         (line for line in text.splitlines() if "ANY_RESEARCH_SELECTED:" in line),
@@ -208,16 +291,19 @@ def validate_workflow_text(
         errors.append("legacy cross-model workflow input is forbidden: run_model_parameter_research")
     if 'git pull --rebase --autostash origin "$TARGET_BRANCH" || true' in text:
         errors.append("research workflow must not pull or ignore sync failure after producers run")
-    if REBASE_RETRY_PUSH_COMMAND in text:
-        errors.append(
-            "research workflow must fail closed when the target branch advances after validation; "
-            "post-validation rebase retry is forbidden"
-        )
-    if f'{RESEARCH_COMMIT_COMMAND} ||' in text:
-        errors.append("research workflow must not swallow commit failures")
     pre_run_sync = 'git pull --ff-only origin "$TARGET_BRANCH"'
     if pre_run_sync not in text:
         errors.append("research workflow missing fail-closed pre-run branch synchronization")
+    branch_sync_lines = [
+        line.strip()
+        for line in text.splitlines()
+        if FORBIDDEN_PUBLISH_REWRITE.match(line.strip())
+    ]
+    if branch_sync_lines != [pre_run_sync]:
+        errors.append(
+            "research workflow must contain exactly one pre-run ff-only synchronization and no "
+            f"post-validation branch rewrite: observed={branch_sync_lines}"
+        )
     for name, default in sorted(defaults.items()):
         if default != "false":
             errors.append(f"research workflow input must default false: {name}={default}")
@@ -397,43 +483,6 @@ def validate_workflow_text(
             errors.append("shared objective data refresh must precede model-owned producers")
     if model_positions and pre_run_sync in text and text.index(pre_run_sync) > min(model_positions):
         errors.append("target branch synchronization must precede model-owned producers")
-
-    commit_blocks = [
-        block for block in blocks if block.splitlines()[0].strip() == COMMIT_STEP_NAME
-    ]
-    if len(commit_blocks) != 1:
-        errors.append("research workflow must contain exactly one research artifact commit step")
-    else:
-        commit_block = commit_blocks[0]
-        for required in (
-            STAGED_DIFF_GUARD,
-            'echo "No changes to commit"',
-            "exit 0",
-            RESEARCH_COMMIT_COMMAND,
-            FAIL_CLOSED_PUSH_COMMAND,
-        ):
-            if required not in commit_block:
-                errors.append(
-                    "research artifact commit step is missing fail-closed command: "
-                    f"{required}"
-                )
-        if all(
-            command in commit_block
-            for command in (
-                STAGED_DIFF_GUARD,
-                RESEARCH_COMMIT_COMMAND,
-                FAIL_CLOSED_PUSH_COMMAND,
-            )
-        ):
-            if not (
-                commit_block.index(STAGED_DIFF_GUARD)
-                < commit_block.index(RESEARCH_COMMIT_COMMAND)
-                < commit_block.index(FAIL_CLOSED_PUSH_COMMAND)
-            ):
-                errors.append(
-                    "research artifact commit step must guard no-change then commit then "
-                    "push without rebasing"
-                )
 
     structure_positions = [
         index
