@@ -56,6 +56,19 @@ SHARED_DATA_STAGE_COMMANDS = {
     "git add output/latest/research_backtest/daily_model_background_feature_catalog_latest.* || true",
 }
 
+PUBLISH_COMMIT = 'git commit -m "Update research backtest outputs"'
+PUBLISH_PUSH = 'git push origin "HEAD:$TARGET_BRANCH"'
+PUBLISH_FAIL_CLOSED_SHELL = "set -euo pipefail"
+PUBLISH_NO_CHANGE_GUARD = (
+    "if git diff --cached --quiet; then\n"
+    'echo "No changes to commit"\n'
+    "exit 0\n"
+    "fi"
+)
+FORBIDDEN_PUBLISH_REWRITE = re.compile(
+    r"^git\s+(?:pull|fetch|rebase|merge|reset|checkout|switch)\b"
+)
+
 
 @dataclass(frozen=True)
 class WorkflowEntrypoint:
@@ -136,6 +149,80 @@ def workflow_step_blocks(text: str) -> list[str]:
     return [block for block in re.split(r"(?m)^      - name: ", text)[1:] if block.strip()]
 
 
+def _normalized_shell_block(block: str) -> str:
+    return "\n".join(line.strip() for line in block.splitlines() if line.strip())
+
+
+def validate_publish_block(text: str, blocks: list[str]) -> list[str]:
+    errors: list[str] = []
+    shell_lines = [line.strip() for line in text.splitlines()]
+    commit_lines = [line for line in shell_lines if line.startswith("git commit ")]
+    push_lines = [line for line in shell_lines if line.startswith("git push ")]
+    publish_blocks = [
+        block
+        for block in blocks
+        if any(
+            line.strip().startswith(("git commit ", "git push "))
+            or "ci_push_with_retry.sh" in line
+            for line in block.splitlines()
+        )
+    ]
+
+    if len(publish_blocks) != 1:
+        errors.append(
+            "research workflow must contain exactly one commit/push publish block: "
+            f"observed={len(publish_blocks)}"
+        )
+        publish_block = ""
+    else:
+        publish_block = _normalized_shell_block(publish_blocks[0])
+
+    if len(commit_lines) != 1:
+        errors.append(
+            "research workflow must contain exactly one research output commit: "
+            f"observed={len(commit_lines)}"
+        )
+    elif commit_lines[0] != PUBLISH_COMMIT:
+        errors.append("research workflow must not swallow or alter research output commit failure")
+
+    if len(push_lines) != 1:
+        errors.append(
+            "research workflow must contain exactly one direct research output push: "
+            f"observed={len(push_lines)}"
+        )
+    elif push_lines[0] != PUBLISH_PUSH:
+        errors.append("research workflow push must be direct, non-force, and fail closed")
+
+    if "ci_push_with_retry.sh" in text:
+        errors.append("research workflow must not retry or rebase after validation")
+
+    if publish_block:
+        if PUBLISH_FAIL_CLOSED_SHELL not in publish_block:
+            errors.append("research workflow publish block missing fail-closed shell mode")
+        if "continue-on-error: true" in publish_block or "set +e" in publish_block:
+            errors.append("research workflow publish block must not mask shell failure")
+        if PUBLISH_NO_CHANGE_GUARD not in publish_block:
+            errors.append("research workflow publish block missing staged no-change exit guard")
+        else:
+            shell_position = publish_block.find(PUBLISH_FAIL_CLOSED_SHELL)
+            guard_position = publish_block.index(PUBLISH_NO_CHANGE_GUARD)
+            commit_position = publish_block.find(PUBLISH_COMMIT)
+            push_position = publish_block.find(PUBLISH_PUSH)
+            if not (shell_position < guard_position < commit_position < push_position):
+                errors.append(
+                    "research workflow publish order must be fail-closed shell, staged guard, "
+                    "commit, then direct push"
+                )
+        for line in publish_block.splitlines():
+            if FORBIDDEN_PUBLISH_REWRITE.match(line):
+                errors.append(
+                    "research workflow publish block must not rewrite or resynchronize the target branch: "
+                    f"{line}"
+                )
+
+    return errors
+
+
 def validate_pr_workflow_text(text: str, rows: list[WorkflowEntrypoint]) -> list[str]:
     errors: list[str] = []
     for model_id in sorted({row.model_id for row in rows}):
@@ -160,6 +247,7 @@ def validate_workflow_text(
     errors: list[str] = []
     defaults = workflow_input_defaults(text)
     blocks = workflow_step_blocks(text)
+    errors.extend(validate_publish_block(text, blocks))
     any_selected_line = next(
         (line for line in text.splitlines() if "ANY_RESEARCH_SELECTED:" in line),
         "",
@@ -176,6 +264,16 @@ def validate_workflow_text(
     pre_run_sync = 'git pull --ff-only origin "$TARGET_BRANCH"'
     if pre_run_sync not in text:
         errors.append("research workflow missing fail-closed pre-run branch synchronization")
+    branch_sync_lines = [
+        line.strip()
+        for line in text.splitlines()
+        if FORBIDDEN_PUBLISH_REWRITE.match(line.strip())
+    ]
+    if branch_sync_lines != [pre_run_sync]:
+        errors.append(
+            "research workflow must contain exactly one pre-run ff-only synchronization and no "
+            f"post-validation branch rewrite: observed={branch_sync_lines}"
+        )
     for name, default in sorted(defaults.items()):
         if default != "false":
             errors.append(f"research workflow input must default false: {name}={default}")
