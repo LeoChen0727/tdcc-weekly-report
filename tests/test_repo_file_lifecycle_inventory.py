@@ -127,3 +127,85 @@ def test_read_text_reads_skip_worktree_file_from_head(tmp_path: Path, monkeypatc
         assert validator.read_text(sparse / "docs" / "latest" / "omitted.md") == "canonical sparse text\n"
     finally:
         run_git(repo, "worktree", "remove", "--force", str(sparse))
+
+
+def test_test_reference_matching_rejects_similar_validator_and_input_names() -> None:
+    producer = "scripts/x.py"
+    validator_path = "scripts/validate_x.py"
+
+    assert validator.test_text_references_target(
+        "python scripts/validate_x.py",
+        validator_path,
+    )
+    assert not validator.test_text_references_target(
+        "python scripts/validate_x.py",
+        producer,
+    )
+    assert not validator.test_text_references_target(
+        "run_x_chain_only = True",
+        producer,
+    )
+
+
+def test_test_reference_matching_accepts_exact_path_import_and_module_references() -> None:
+    target = "scripts/x.py"
+    direct_references = [
+        "python scripts/x.py",
+        "from scripts.x import main",
+        "import scripts.x",
+        "scripts.x.main()",
+        "entrypoint.x.main()",
+        '(ROOT / "scripts" / "x.py").read_text()',
+        'b\'      - "scripts/x.py"\\n\'',
+    ]
+
+    for text in direct_references:
+        assert validator.test_text_references_target(text, target), text
+
+    assert not validator.test_text_references_target(
+        'artifact = "output/latest/x.csv"',
+        target,
+    )
+    assert not validator.test_text_references_target(
+        'workflow = ".github/workflows/x.yml"',
+        target,
+    )
+
+
+def test_reference_column_validation_still_rejects_missing_tested_by(
+    monkeypatch,
+) -> None:
+    target = "scripts/x.py"
+    direct_test = "tests/test_x.py"
+    lifecycle = {
+        target: validator.LifecycleRow(
+            path=target,
+            type="python",
+            owner="repo_infrastructure",
+            status="active",
+            called_by_workflow=(),
+            imported_by=(),
+            tested_by=(),
+            documented_by=(),
+            writes_artifact=(),
+            reads_artifact=(),
+            keep_reason="test fixture",
+            delete_reason="",
+            removal_risk="high",
+        )
+    }
+    monkeypatch.setattr(validator, "workflow_invocations", lambda: {})
+    monkeypatch.setattr(validator, "import_references", lambda _: {})
+    monkeypatch.setattr(validator, "documentation_references", lambda _: {})
+    monkeypatch.setattr(
+        validator,
+        "test_references",
+        lambda _: {target: {direct_test}},
+    )
+    monkeypatch.setattr(validator, "lineage_artifacts", lambda: ({}, {}))
+
+    errors = validator.validate_reference_columns(lifecycle)
+
+    assert errors == [
+        f"{target} lifecycle tested_by out of date: expected ['{direct_test}'], got []"
+    ]
