@@ -661,3 +661,121 @@ def test_research_control_plane_self_migration_is_exact_and_one_time(
         {pr_safe.PR_SAFE_HELPER_PATH},
         repository_root=repo,
     )
+
+
+def crlf_checkout_payload(path: Path) -> bytes:
+    canonical = path.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    return canonical.replace(b"\n", b"\r\n")
+
+
+def test_freshness_inheritance_accepts_git_clean_crlf_checkout_representation(
+    tmp_path: Path,
+) -> None:
+    repo, base_ref = initialized_pr_repo(tmp_path)
+    commit_unrelated_pr_change(repo)
+    run_git(repo, "config", "core.autocrlf", "true")
+    freshness_path = repo / pr_safe.FRESHNESS_RELATIVE_PATH
+    base_payload = subprocess.run(
+        ["git", "show", f"{base_ref}:{pr_safe.FRESHNESS_RELATIVE_PATH}"],
+        cwd=repo,
+        check=True,
+        capture_output=True,
+    ).stdout
+    freshness_path.write_bytes(crlf_checkout_payload(freshness_path))
+
+    assert b"\r\n" in freshness_path.read_bytes()
+    assert freshness_path.read_bytes() != base_payload
+    assert run_git(
+        repo,
+        "hash-object",
+        f"--path={pr_safe.FRESHNESS_RELATIVE_PATH}",
+        str(freshness_path),
+    ) == run_git(
+        repo,
+        "rev-parse",
+        f"{base_ref}:{pr_safe.FRESHNESS_RELATIVE_PATH}",
+    )
+    assert pr_safe.validate_freshness_is_inherited_from_base(
+        base_ref,
+        repository_root=repo,
+    ) == []
+
+
+@pytest.mark.parametrize("drift_kind", ["field_value", "row"])
+def test_freshness_inheritance_rejects_real_tracked_content_drift_with_autocrlf(
+    tmp_path: Path,
+    drift_kind: str,
+) -> None:
+    repo, base_ref = initialized_pr_repo(tmp_path)
+    commit_unrelated_pr_change(repo)
+    run_git(repo, "config", "core.autocrlf", "true")
+    freshness_path = repo / pr_safe.FRESHNESS_RELATIVE_PATH
+    canonical = freshness_path.read_bytes().replace(b"\r\n", b"\n").replace(
+        b"\r", b"\n"
+    )
+    if drift_kind == "field_value":
+        canonical = canonical.replace(b"20260731", b"20260801", 1)
+    else:
+        rows = canonical.splitlines(keepends=True)
+        canonical += rows[-1]
+    freshness_path.write_bytes(canonical.replace(b"\n", b"\r\n"))
+
+    assert run_git(
+        repo,
+        "hash-object",
+        f"--path={pr_safe.FRESHNESS_RELATIVE_PATH}",
+        str(freshness_path),
+    ) != run_git(
+        repo,
+        "rev-parse",
+        f"{base_ref}:{pr_safe.FRESHNESS_RELATIVE_PATH}",
+    )
+    errors = pr_safe.validate_freshness_is_inherited_from_base(
+        base_ref,
+        repository_root=repo,
+    )
+    assert any("differs from base_ref" in error for error in errors)
+
+
+def test_freshness_canonical_self_migration_is_exact_and_one_time(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    repo, _ = initialized_pr_repo(tmp_path)
+    helper = repo / pr_safe.PR_SAFE_HELPER_PATH
+    helper.parent.mkdir(parents=True, exist_ok=True)
+    helper.write_text("BASE_HELPER = True\n", encoding="utf-8")
+    helper_test = repo / pr_safe.PR_SAFE_TEST_PATH
+    helper_test.parent.mkdir(parents=True, exist_ok=True)
+    helper_test.write_text("BASE_TEST = True\n", encoding="utf-8")
+    strict_validator = repo / "scripts" / "validate_daily_published_model_snapshots.py"
+    strict_validator.write_text("STRICT = True\n", encoding="utf-8")
+    run_git(repo, "add", ".")
+    run_git(repo, "commit", "-m", "base freshness comparison helper")
+    base_ref = run_git(repo, "rev-parse", "HEAD")
+    base_helper = helper.read_bytes()
+
+    helper.write_text(
+        f"MIGRATION = {pr_safe.FRESHNESS_CANONICAL_MIGRATION_ID!r}\n",
+        encoding="utf-8",
+    )
+    helper_test.write_text("CURRENT_TEST = True\n", encoding="utf-8")
+    monkeypatch.setattr(
+        pr_safe,
+        "FRESHNESS_CANONICAL_MIGRATION_BASE_HELPER_SHA256",
+        pr_safe.sha256_bytes(base_helper),
+    )
+    changed_paths = set(pr_safe.FRESHNESS_CANONICAL_MIGRATION_PATHS)
+
+    assert pr_safe.is_freshness_canonical_self_migration(
+        base_ref,
+        changed_paths,
+        {pr_safe.PR_SAFE_HELPER_PATH},
+        repository_root=repo,
+    )
+    assert not pr_safe.is_freshness_canonical_self_migration(
+        base_ref,
+        {*changed_paths, "scripts/unapproved_portability_change.py"},
+        {pr_safe.PR_SAFE_HELPER_PATH},
+        repository_root=repo,
+    )
