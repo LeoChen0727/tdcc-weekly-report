@@ -394,3 +394,270 @@ def test_pr_workflow_uses_pr_safe_gate_while_publish_workflows_remain_strict() -
             encoding="utf-8"
         )
         assert strict_command in workflow, workflow_name
+
+
+RESEARCH_VALIDATORS = (
+    "scripts/validate_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py",
+    "scripts/validate_revenue_unreacted_range_source_snapshot_projection.py",
+    "scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
+)
+RESEARCH_TESTS = (
+    "tests/test_revenue_unreacted_range_source_snapshot_projection.py",
+    "tests/test_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py",
+    "tests/test_validate_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py",
+    "tests/test_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
+    "tests/test_validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
+)
+
+
+def commit_registered_research_validator_migration(repo: Path) -> str:
+    workflow = repo / pr_safe.PR_VALIDATION_WORKFLOW_PATH
+    workflow.parent.mkdir(parents=True, exist_ok=True)
+    workflow.write_text(
+        """name: PR validation
+on:
+  pull_request:
+    paths:
+      - "config/daily_model_*.csv"
+      - "tests/test_revenue_unreacted_range_*.py"
+jobs:
+  validate:
+    steps:
+      - name: Validate contracts
+        run: |
+          python scripts/validate_revenue_unreacted_range_existing.py
+      - name: Focused tests
+        run: |
+          python -m pytest \\
+            tests/test_revenue_unreacted_range_existing.py
+""",
+        encoding="utf-8",
+    )
+    lifecycle = repo / pr_safe.LIFECYCLE_INVENTORY_PATH
+    lifecycle.parent.mkdir(parents=True, exist_ok=True)
+    lifecycle.write_text(
+        "path,type,owner,status,called_by_workflow,imported_by,tested_by,documented_by,"
+        "writes_artifact,reads_artifact,keep_reason,delete_reason,removal_risk\n",
+        encoding="utf-8",
+    )
+    production = repo / pr_safe.PRODUCTION_INVENTORY_PATH
+    production.write_text(
+        "path,kind,owner,status,purpose,allowed_workflows,allowed_stage_patterns\n",
+        encoding="utf-8",
+    )
+    workflow_test = repo / pr_safe.PR_WORKFLOW_TEST_PATH
+    workflow_test.parent.mkdir(parents=True, exist_ok=True)
+    workflow_test.write_text("BASE_WORKFLOW_TEST = True\n", encoding="utf-8")
+    run_git(repo, "add", ".")
+    run_git(repo, "commit", "-m", "base PR workflow contract")
+    base_ref = run_git(repo, "rev-parse", "HEAD")
+
+    workflow_text = workflow.read_text(encoding="utf-8")
+    workflow_text = workflow_text.replace(
+        '      - "config/daily_model_*.csv"\n',
+        '      - "config/daily_model_*.csv"\n'
+        '      - "config/revenue_unreacted_range_*.csv"\n',
+        1,
+    ).replace(
+        '      - "tests/test_revenue_unreacted_range_*.py"\n',
+        '      - "tests/test_revenue_unreacted_range_*.py"\n'
+        '      - "tests/test_validate_revenue_unreacted_range_*.py"\n',
+        1,
+    ).replace(
+        "          python scripts/validate_revenue_unreacted_range_existing.py\n",
+        "          python scripts/validate_revenue_unreacted_range_existing.py\n"
+        + "".join(f"          python {path}\n" for path in RESEARCH_VALIDATORS),
+        1,
+    ).replace(
+        "            tests/test_revenue_unreacted_range_existing.py\n",
+        "".join(f"            {path} \\\n" for path in RESEARCH_TESTS)
+        + "            tests/test_revenue_unreacted_range_existing.py\n",
+        1,
+    )
+    workflow.write_text(workflow_text, encoding="utf-8")
+
+    validator_test_map = {
+        RESEARCH_VALIDATORS[0]: RESEARCH_TESTS[2],
+        RESEARCH_VALIDATORS[1]: RESEARCH_TESTS[0],
+        RESEARCH_VALIDATORS[2]: RESEARCH_TESTS[4],
+    }
+    for path in (*RESEARCH_VALIDATORS, *RESEARCH_TESTS):
+        target = repo / path
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text("REGISTERED_RESEARCH_ONLY = True\n", encoding="utf-8")
+    with lifecycle.open("a", encoding="utf-8", newline="") as handle:
+        for path, test_path in validator_test_map.items():
+            handle.write(
+                f"{path},python,research_backtest,active,"
+                f"{pr_safe.PR_VALIDATION_WORKFLOW_PATH},,{test_path},,,,,registered validator,,high\n"
+            )
+        for path in RESEARCH_TESTS:
+            handle.write(
+                f"{path},test_python,research_backtest,active,,,,,,,registered test,,medium\n"
+            )
+    with production.open("a", encoding="utf-8", newline="") as handle:
+        for path in RESEARCH_VALIDATORS:
+            handle.write(
+                f"{path},python,research_backtest,active,registered validator,"
+                f"{pr_safe.PR_VALIDATION_WORKFLOW_PATH},\n"
+            )
+        for path in RESEARCH_TESTS:
+            handle.write(f"{path},test_python,research_backtest,active,registered test,,\n")
+    workflow_test.write_text(
+        "\n".join((*RESEARCH_VALIDATORS, *RESEARCH_TESTS)) + "\n",
+        encoding="utf-8",
+    )
+    run_git(repo, "add", ".")
+    run_git(repo, "commit", "-m", "register research-only validators")
+    return base_ref
+
+
+def test_registered_research_validator_workflow_migration_is_pr_safe(
+    tmp_path: Path,
+) -> None:
+    repo, _ = initialized_pr_repo(tmp_path)
+    base_ref = commit_registered_research_validator_migration(repo)
+    changed_paths, errors = pr_safe.changed_paths_from_base(
+        base_ref, repository_root=repo
+    )
+
+    assert errors == []
+    assert pr_safe.is_registered_research_validator_workflow_migration(
+        base_ref,
+        changed_paths,
+        {pr_safe.PR_VALIDATION_WORKFLOW_PATH},
+        repository_root=repo,
+    )
+    assert pr_safe.validate_pr_safe_snapshot_contract(
+        base_ref,
+        repository_root=repo,
+        latest_dir=repo / "output" / "latest",
+    ) == []
+
+
+def test_registered_research_validator_migration_rejects_command_deletion(
+    tmp_path: Path,
+) -> None:
+    repo, _ = initialized_pr_repo(tmp_path)
+    base_ref = commit_registered_research_validator_migration(repo)
+    workflow = repo / pr_safe.PR_VALIDATION_WORKFLOW_PATH
+    workflow.write_text(
+        workflow.read_text(encoding="utf-8").replace(
+            "          python scripts/validate_revenue_unreacted_range_existing.py\n",
+            "",
+            1,
+        ),
+        encoding="utf-8",
+    )
+    run_git(repo, "add", workflow.relative_to(repo).as_posix())
+    run_git(repo, "commit", "-m", "delete existing workflow command")
+
+    errors = pr_safe.validate_pr_safe_snapshot_contract(
+        base_ref,
+        repository_root=repo,
+        latest_dir=repo / "output" / "latest",
+    )
+
+    assert any("full runtime" in error for error in errors)
+    assert any(pr_safe.PR_VALIDATION_WORKFLOW_PATH in error for error in errors)
+
+
+def test_registered_research_validator_migration_rejects_incomplete_inventory(
+    tmp_path: Path,
+) -> None:
+    repo, _ = initialized_pr_repo(tmp_path)
+    base_ref = commit_registered_research_validator_migration(repo)
+    production = repo / pr_safe.PRODUCTION_INVENTORY_PATH
+    production.write_text(
+        "\n".join(
+            line
+            for line in production.read_text(encoding="utf-8").splitlines()
+            if not line.startswith(RESEARCH_VALIDATORS[0] + ",")
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+    run_git(repo, "add", production.relative_to(repo).as_posix())
+    run_git(repo, "commit", "-m", "remove validator registration evidence")
+
+    errors = pr_safe.validate_pr_safe_snapshot_contract(
+        base_ref,
+        repository_root=repo,
+        latest_dir=repo / "output" / "latest",
+    )
+
+    assert any("full runtime" in error for error in errors)
+
+
+def test_registered_research_validator_migration_cannot_hide_snapshot_producer_change(
+    tmp_path: Path,
+) -> None:
+    repo, _ = initialized_pr_repo(tmp_path)
+    base_ref = commit_registered_research_validator_migration(repo)
+    updater = repo / "scripts" / "update_daily_published_model_snapshots.py"
+    updater.write_text("CHANGED_PRODUCTION_SNAPSHOT_PRODUCER = True\n", encoding="utf-8")
+    run_git(repo, "add", updater.relative_to(repo).as_posix())
+    run_git(repo, "commit", "-m", "change production snapshot producer")
+
+    errors = pr_safe.validate_pr_safe_snapshot_contract(
+        base_ref,
+        repository_root=repo,
+        latest_dir=repo / "output" / "latest",
+    )
+
+    assert any("full runtime" in error for error in errors)
+    assert any("update_daily_published_model_snapshots.py" in error for error in errors)
+
+
+def test_research_control_plane_self_migration_is_exact_and_one_time(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    repo, _ = initialized_pr_repo(tmp_path)
+    for path in pr_safe.RESEARCH_CONTROL_PLANE_MIGRATION_PATHS:
+        if path == pr_safe.APPS_SCRIPT_RESEARCH_REGISTRY_PATH:
+            continue
+        target = repo / path
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(f"BASE = {path!r}\n", encoding="utf-8")
+    strict_validator = repo / "scripts" / "validate_daily_published_model_snapshots.py"
+    strict_validator.write_text("STRICT = True\n", encoding="utf-8")
+    workflow = repo / pr_safe.PR_VALIDATION_WORKFLOW_PATH
+    workflow.parent.mkdir(parents=True, exist_ok=True)
+    workflow.write_text("name: Daily model PR validation\n", encoding="utf-8")
+    run_git(repo, "add", ".")
+    run_git(repo, "commit", "-m", "base research control plane")
+    base_ref = run_git(repo, "rev-parse", "HEAD")
+    base_helper = (repo / pr_safe.PR_SAFE_HELPER_PATH).read_bytes()
+
+    for path in pr_safe.RESEARCH_CONTROL_PLANE_MIGRATION_PATHS:
+        target = repo / path
+        target.parent.mkdir(parents=True, exist_ok=True)
+        if path == pr_safe.PR_SAFE_HELPER_PATH:
+            target.write_text(
+                f"MIGRATION = {pr_safe.RESEARCH_VALIDATOR_MIGRATION_ID!r}\n",
+                encoding="utf-8",
+            )
+        elif path == pr_safe.APPS_SCRIPT_RESEARCH_REGISTRY_PATH:
+            target.write_text("workflow_path,workflow_input\nworkflow,input\n", encoding="utf-8")
+        else:
+            target.write_text(f"CURRENT = {path!r}\n", encoding="utf-8")
+    monkeypatch.setattr(
+        pr_safe,
+        "RESEARCH_VALIDATOR_MIGRATION_BASE_HELPER_SHA256",
+        pr_safe.sha256_bytes(base_helper),
+    )
+
+    changed_paths = set(pr_safe.RESEARCH_CONTROL_PLANE_MIGRATION_PATHS)
+    assert pr_safe.is_research_control_plane_self_migration(
+        base_ref,
+        changed_paths,
+        {pr_safe.PR_SAFE_HELPER_PATH},
+        repository_root=repo,
+    )
+    assert not pr_safe.is_research_control_plane_self_migration(
+        base_ref,
+        {*changed_paths, "scripts/unapproved_control_plane.py"},
+        {pr_safe.PR_SAFE_HELPER_PATH},
+        repository_root=repo,
+    )

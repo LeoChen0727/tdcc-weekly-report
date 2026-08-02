@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import csv
 import hashlib
 import json
 import re
@@ -9,6 +10,17 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 APPS_SCRIPT = ROOT / "docs" / "apps_script_workflow_trigger.gs"
 WORKFLOW_DIR = ROOT / ".github" / "workflows"
+RESEARCH_DISPATCH_REGISTRY = ROOT / "config" / "apps_script_research_dispatch_inputs.csv"
+RESEARCH_WORKFLOW_PATH = ".github/workflows/research_backtest_pipeline.yml"
+RESEARCH_REGISTRY_COLUMNS = {
+    "workflow_path",
+    "workflow_input",
+    "dispatch_value",
+    "activation_mode",
+    "owner",
+    "producer",
+    "notes",
+}
 MIN_TRIGGER_SPACING_MINUTES = 60
 TDCC_CHAIN_POLL_MINUTES = 5
 TDCC_WORKFLOW = "tdcc_weekly.yml"
@@ -70,19 +82,127 @@ def workflow_dispatch_input_property(
 ) -> str | None:
     text = read_text(WORKFLOW_DIR / workflow_file)
     input_block = re.search(
-        rf"(?ms)^ {{6}}{re.escape(input_name)}:\s*\n(?P<body>(?: {{8}}.*\n)*?)(?=^ {{6}}\S|\\Z)",
+        rf"(?m)^ {{6}}{re.escape(input_name)}:\s*$\n"
+        rf"(?P<body>(?: {{8}}[^\r\n]*(?:\n|\Z))*)",
         text,
     )
     if not input_block:
         return None
     body = input_block.group("body")
     property_match = re.search(
-        rf"(?ms)^ {{8}}{re.escape(property_name)}:\s*(.+?)\s*$",
+        rf"(?m)^ {{8}}{re.escape(property_name)}:\s*([^\r\n]+?)\s*$",
         body,
     )
     if not property_match:
         return None
     return property_match.group(1).strip().strip('"').strip("'")
+
+
+def load_research_dispatch_registry(
+    path: Path = RESEARCH_DISPATCH_REGISTRY,
+) -> dict[str, dict[str, str]]:
+    with path.open("r", encoding="utf-8-sig", newline="") as handle:
+        reader = csv.DictReader(handle)
+        if not RESEARCH_REGISTRY_COLUMNS.issubset(reader.fieldnames or []):
+            raise ValueError("Apps Script research dispatch registry schema is incomplete")
+        rows = list(reader)
+    registry: dict[str, dict[str, str]] = {}
+    for row_number, row in enumerate(rows, start=2):
+        normalized = {key: str(value or "").strip() for key, value in row.items()}
+        input_name = normalized["workflow_input"]
+        if not input_name:
+            raise ValueError(f"Apps Script research dispatch registry row {row_number} has no input")
+        if input_name in registry:
+            raise ValueError(f"duplicate Apps Script research dispatch input: {input_name}")
+        if normalized["workflow_path"] != RESEARCH_WORKFLOW_PATH:
+            raise ValueError(
+                f"Apps Script research dispatch input has wrong workflow: {input_name}"
+            )
+        if normalized["dispatch_value"] != "true":
+            raise ValueError(
+                f"Apps Script scheduled research input must dispatch true: {input_name}"
+            )
+        if normalized["activation_mode"] not in {"required", "when_declared"}:
+            raise ValueError(
+                f"Apps Script research input has invalid activation_mode: {input_name}"
+            )
+        if not normalized["owner"]:
+            raise ValueError(f"Apps Script research input has no owner: {input_name}")
+        producer = normalized["producer"]
+        if producer and not (ROOT / producer).is_file():
+            raise ValueError(
+                f"Apps Script research input producer is missing: {input_name} -> {producer}"
+            )
+        registry[input_name] = normalized
+    if not registry:
+        raise ValueError("Apps Script research dispatch registry is empty")
+    return registry
+
+
+def apps_script_research_dispatch_inputs() -> tuple[dict[str, str], set[str]]:
+    body = apps_script_function_body("researchBacktestInputs_")
+    objects = {
+        name: payload
+        for name, payload in re.findall(
+            r"const\s+(inputs|stagedInputs)\s*=\s*\{(?P<payload>.*?)\};",
+            body,
+            re.S,
+        )
+    }
+    if set(objects) != {"inputs", "stagedInputs"}:
+        raise ValueError("Apps Script research input helper must define inputs and stagedInputs")
+    parsed = {
+        name: dict(
+            re.findall(r'^\s*([A-Za-z0-9_]+)\s*:\s*"([^"]*)"', payload, re.M)
+        )
+        for name, payload in objects.items()
+    }
+    combined = {**parsed["inputs"], **parsed["stagedInputs"]}
+    return combined, set(parsed["stagedInputs"])
+
+
+def validate_research_dispatch_contract(
+    errors: list[str],
+    *,
+    workflow_input_names: set[str],
+    apps_inputs: set[str],
+    guarded_inputs: set[str],
+    registry: dict[str, dict[str, str]],
+) -> None:
+    registered_inputs = set(registry)
+    required_inputs = {
+        name for name, row in registry.items() if row["activation_mode"] == "required"
+    }
+    staged_inputs = registered_inputs - required_inputs
+    if apps_inputs != registered_inputs:
+        errors.append(
+            "Apps Script research input source must exactly match its registry: "
+            f"missing={sorted(registered_inputs - apps_inputs)} "
+            f"unknown={sorted(apps_inputs - registered_inputs)}"
+        )
+    if guarded_inputs != staged_inputs:
+        errors.append(
+            "Apps Script guarded research inputs must exactly match when_declared registry rows: "
+            f"observed={sorted(guarded_inputs)} expected={sorted(staged_inputs)}"
+        )
+    unregistered_workflow_inputs = workflow_input_names - registered_inputs
+    if unregistered_workflow_inputs:
+        errors.append(
+            "Research workflow has unregistered Apps Script inputs: "
+            f"{sorted(unregistered_workflow_inputs)}"
+        )
+    missing_required_workflow_inputs = required_inputs - workflow_input_names
+    if missing_required_workflow_inputs:
+        errors.append(
+            "Research workflow is missing required Apps Script inputs: "
+            f"{sorted(missing_required_workflow_inputs)}"
+        )
+    unsafe_extras = (apps_inputs - workflow_input_names) - staged_inputs
+    if unsafe_extras:
+        errors.append(
+            "Apps Script research dispatch has unguarded unknown inputs: "
+            f"{sorted(unsafe_extras)}"
+        )
 
 
 def validate_repair_workflow_yaml_contract(errors: list[str]) -> None:
@@ -143,6 +263,8 @@ def apps_script_dispatches() -> dict[str, dict[str, str]]:
             re.findall(r'^\s*([A-Za-z0-9_]+)\s*:\s*"([^"]*)"', inputs_body, re.M)
         )
         dispatches[workflow] = inputs
+    research_inputs, _ = apps_script_research_dispatch_inputs()
+    dispatches["research_backtest_pipeline.yml"] = research_inputs
     return dispatches
 
 
@@ -554,6 +676,11 @@ def main() -> int:
     errors: list[str] = []
     dispatches = apps_script_dispatches()
     functions = apps_script_functions()
+    try:
+        research_registry = load_research_dispatch_registry()
+    except (OSError, ValueError) as exc:
+        errors.append(str(exc))
+        research_registry = {}
 
     missing_dispatches = EXPECTED_DISPATCHES - set(dispatches)
     if missing_dispatches:
@@ -566,12 +693,40 @@ def main() -> int:
     research_workflow = "research_backtest_pipeline.yml"
     research_inputs = workflow_inputs(research_workflow)
     apps_inputs = set(dispatches.get(research_workflow, {}))
-    missing_inputs = research_inputs - apps_inputs
-    extra_inputs = apps_inputs - research_inputs
-    if missing_inputs:
-        errors.append(f"Apps Script research dispatch missing inputs: {sorted(missing_inputs)}")
-    if extra_inputs:
-        errors.append(f"Apps Script research dispatch has unknown inputs: {sorted(extra_inputs)}")
+    _, guarded_research_inputs = apps_script_research_dispatch_inputs()
+    validate_research_dispatch_contract(
+        errors,
+        workflow_input_names=research_inputs,
+        apps_inputs=apps_inputs,
+        guarded_inputs=guarded_research_inputs,
+        registry=research_registry,
+    )
+    for input_name in sorted(research_inputs):
+        if workflow_dispatch_input_property(research_workflow, input_name, "default") != "false":
+            errors.append(f"Research workflow input must default false: {input_name}")
+    try:
+        research_helper_body = apps_script_function_body("researchBacktestInputs_")
+        research_trigger_body = apps_script_function_body("triggerResearchBacktestPipeline")
+        workflow_input_body = apps_script_function_body("workflowDispatchInputNames_")
+    except ValueError as exc:
+        errors.append(str(exc))
+    else:
+        required_research_snippets = {
+            "workflowDispatchInputNames_(workflowFile)": research_helper_body,
+            "if (!declaredInputs[inputName])": research_helper_body,
+            "if (declaredInputs[inputName])": research_helper_body,
+            "inputs[inputName] = stagedInputs[inputName]": research_helper_body,
+            "researchBacktestInputs_(workflowFile)": research_trigger_body,
+            'githubJson_(\n    "get"': workflow_input_body,
+            'payload.encoding !== "base64"': workflow_input_body,
+            "throw new Error": workflow_input_body,
+        }
+        for snippet, body in required_research_snippets.items():
+            if snippet not in body:
+                errors.append(
+                    "Apps Script research dispatch is missing fail-closed schema guard: "
+                    f"{snippet}"
+                )
 
     daily_workflow = "daily_full_pipeline.yml"
     daily_expected_false_inputs = {

@@ -206,6 +206,12 @@ research input explicitly set to `true`. Workflow inputs default to `false`, so
 a manual run executes only the selected research surfaces. The scheduled
 biweekly trigger remains an explicit full research/backtest run.
 
+The canonical input registry is `config/apps_script_research_dispatch_inputs.csv`.
+An input marked `when_declared` is forward staged: Apps Script reads the live
+`main` workflow source and includes that input only after the workflow declares
+it. A schema read failure or a missing required input stops before dispatch;
+Apps Script never sends an unknown input to the GitHub dispatch API.
+
 ## Recovery Flow
 
 If Apps Script shows `triggerDailyStockMonitor` failed quickly, especially in
