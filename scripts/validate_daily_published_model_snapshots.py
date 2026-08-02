@@ -188,22 +188,19 @@ def validate_historical_snapshot_frame(
     return df
 
 
-def _validate_snapshot_contract(
+def validate_current_report_snapshots(
     latest_dir: Path = LATEST_DIR,
     snapshot_dir: Path = SNAPSHOT_DIR,
     manifest_path: Path = MANIFEST_PATH,
     artifact_ids: Collection[str] | None = None,
-    *,
-    current_report_required: bool,
 ) -> list[str]:
     errors: list[str] = []
-    report_date = ""
-    if current_report_required:
-        try:
-            state = freshness_state(latest_dir)
-        except Exception as exc:
-            return [str(exc)]
-        report_date = state["main_price_date"]
+    try:
+        state = freshness_state(latest_dir)
+    except Exception as exc:
+        return [str(exc)]
+
+    report_date = state["main_price_date"]
     try:
         manifest = load_manifest(manifest_path)
     except Exception as exc:
@@ -304,18 +301,12 @@ def _validate_snapshot_contract(
         if not ordered.empty:
             active_rows[(label_date, label_artifact)] = ordered.iloc[-1]
 
-    if current_report_required:
-        current = manifest[manifest["_report_date"].eq(report_date)]
-        required_artifact_ids = selected_ids
-        observed_artifact_ids = {
-            safe_str(value) for value in current["artifact_id"].tolist()
-        }
-        missing = sorted(required_artifact_ids - observed_artifact_ids)
-        if missing:
-            errors.append(
-                f"manifest missing current report_date={report_date} artifact rows: "
-                f"{missing}"
-            )
+    current = manifest[manifest["_report_date"].eq(report_date)]
+    required_artifact_ids = selected_ids
+    observed_artifact_ids = {safe_str(value) for value in current["artifact_id"].tolist()}
+    missing = sorted(required_artifact_ids - observed_artifact_ids)
+    if missing:
+        errors.append(f"manifest missing current report_date={report_date} artifact rows: {missing}")
 
     for _, row in manifest.iterrows():
         row_report_date = safe_str(row.get("_report_date", ""))
@@ -381,84 +372,49 @@ def _validate_snapshot_contract(
         if safe_str(row.get("purpose", "")) != "as_published_daily_model_snapshot":
             errors.append(f"{label}: unexpected purpose")
 
-    if current_report_required:
-        for artifact in artifacts:
-            artifact_id = artifact.artifact_id
-            active = active_rows.get((report_date, artifact_id))
-            if active is None:
-                continue
-            source = latest_dir / artifact.source_name
-            if not source.exists():
-                errors.append(
-                    f"{report_date}/{artifact_id}: source missing: {source.as_posix()}"
-                )
-                continue
-            try:
-                validate_artifact_frame(source, artifact, report_date)
-            except Exception as exc:
-                errors.append(f"{report_date}/{artifact_id}: current source {exc}")
-            try:
-                active_snapshot = resolve_manifest_snapshot_path(
-                    active.get("snapshot_path", ""),
-                    repository_root=repository_root,
-                    artifact=artifact,
-                    report_date=report_date,
-                    snapshot_revision=safe_str(active.get("snapshot_revision", "")),
-                    snapshot_sha256=safe_str(active.get("snapshot_sha256", "")),
-                    revision_reason=safe_str(active.get("revision_reason", "")),
-                )
-            except RuntimeError:
-                continue
-            if active_snapshot.exists():
-                try:
-                    validate_artifact_frame(active_snapshot, artifact, report_date)
-                except Exception as exc:
-                    errors.append(
-                        f"{report_date}/{artifact_id}: current max revision {exc}"
-                    )
-            source_hash = sha256_file(source)
-            active_revision = safe_str(active.get("snapshot_revision", ""))
-            active_content_hash = (
-                sha256_file(active_snapshot) if active_snapshot.exists() else ""
+    for artifact in artifacts:
+        artifact_id = artifact.artifact_id
+        active = active_rows.get((report_date, artifact_id))
+        if active is None:
+            continue
+        source = latest_dir / artifact.source_name
+        if not source.exists():
+            errors.append(f"{report_date}/{artifact_id}: source missing: {source.as_posix()}")
+            continue
+        try:
+            validate_artifact_frame(source, artifact, report_date)
+        except Exception as exc:
+            errors.append(f"{report_date}/{artifact_id}: current source {exc}")
+        try:
+            active_snapshot = resolve_manifest_snapshot_path(
+                active.get("snapshot_path", ""),
+                repository_root=repository_root,
+                artifact=artifact,
+                report_date=report_date,
+                snapshot_revision=safe_str(active.get("snapshot_revision", "")),
+                snapshot_sha256=safe_str(active.get("snapshot_sha256", "")),
+                revision_reason=safe_str(active.get("revision_reason", "")),
             )
-            if source_hash != active_content_hash:
+        except RuntimeError:
+            continue
+        if active_snapshot.exists():
+            try:
+                validate_artifact_frame(active_snapshot, artifact, report_date)
+            except Exception as exc:
                 errors.append(
-                    f"{report_date}/{artifact_id}/{active_revision}: max revision "
-                    "does not match current source"
+                    f"{report_date}/{artifact_id}: current max revision {exc}"
                 )
+        source_hash = sha256_file(source)
+        active_revision = safe_str(active.get("snapshot_revision", ""))
+        active_content_hash = (
+            sha256_file(active_snapshot) if active_snapshot.exists() else ""
+        )
+        if source_hash != active_content_hash:
+            errors.append(
+                f"{report_date}/{artifact_id}/{active_revision}: max revision does not match current source"
+            )
 
     return errors
-
-
-def validate_current_report_snapshots(
-    latest_dir: Path = LATEST_DIR,
-    snapshot_dir: Path = SNAPSHOT_DIR,
-    manifest_path: Path = MANIFEST_PATH,
-    artifact_ids: Collection[str] | None = None,
-) -> list[str]:
-    """Validate current publish readiness plus immutable snapshot history."""
-
-    return _validate_snapshot_contract(
-        latest_dir=latest_dir,
-        snapshot_dir=snapshot_dir,
-        manifest_path=manifest_path,
-        artifact_ids=artifact_ids,
-        current_report_required=True,
-    )
-
-
-def validate_pr_immutable_snapshot_history(
-    snapshot_dir: Path = SNAPSHOT_DIR,
-    manifest_path: Path = MANIFEST_PATH,
-) -> list[str]:
-    """Validate all published immutable history without asserting current readiness."""
-
-    return _validate_snapshot_contract(
-        snapshot_dir=snapshot_dir,
-        manifest_path=manifest_path,
-        artifact_ids=None,
-        current_report_required=False,
-    )
 
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
@@ -474,43 +430,19 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
             "repeat for multiple artifacts. Omit for the full contract."
         ),
     )
-    parser.add_argument(
-        "--pr-immutable-history-only",
-        action="store_true",
-        help=(
-            "PR-only full immutable manifest/history audit. This does not validate "
-            "current output/latest publish readiness or current-source parity."
-        ),
-    )
-    args = parser.parse_args(argv)
-    if args.pr_immutable_history_only and args.artifact_id:
-        parser.error(
-            "--pr-immutable-history-only requires the full manifest and cannot be "
-            "combined with --artifact-id"
-        )
-    return args
+    return parser.parse_args(argv)
 
 
 def main(argv: list[str] | None = None) -> int:
     args = parse_args(argv)
-    errors = (
-        validate_pr_immutable_snapshot_history()
-        if args.pr_immutable_history_only
-        else validate_current_report_snapshots(artifact_ids=args.artifact_id)
-    )
+    errors = validate_current_report_snapshots(artifact_ids=args.artifact_id)
     if errors:
         print("ERROR: daily published model snapshot validation failed")
         for error in errors:
             print(f"ERROR: {error}")
         return 1
-    scope = ",".join(args.artifact_id or []) or "full"
-    if args.pr_immutable_history_only:
-        print(
-            "daily published model snapshot immutable history validation passed "
-            f"scope={scope} mode=pr_immutable_history_only"
-        )
-        return 0
     state = freshness_state()
+    scope = ",".join(args.artifact_id or []) or "full"
     print(
         "daily published model snapshot validation passed for "
         f"report_date={state['main_price_date']} scope={scope}"

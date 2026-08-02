@@ -12,7 +12,6 @@ ROOT = Path(__file__).resolve().parents[1]
 WORKFLOW = ROOT / ".github" / "workflows" / "daily_model_maintenance_pr_validation.yml"
 DAILY_WORKFLOW = ROOT / ".github" / "workflows" / "daily_full_pipeline.yml"
 WARRANT_WORKFLOW = ROOT / ".github" / "workflows" / "warrant_flow.yml"
-WEEKLY_THEME_WORKFLOW = ROOT / ".github" / "workflows" / "weekly_theme_review.yml"
 PDF_REPLAY_WORKFLOW = ROOT / ".github" / "workflows" / "daily_pdf_replay_pr_validation.yml"
 
 
@@ -147,32 +146,6 @@ def test_production_snapshot_updates_are_followed_by_dynamic_lineage_parity() ->
     )
 
 
-def test_pr_snapshot_history_mode_is_isolated_from_formal_publish_workflows() -> None:
-    history_command = (
-        "python scripts/validate_daily_published_model_snapshots.py "
-        "--pr-immutable-history-only"
-    )
-    pr_workflow = WORKFLOW.read_text(encoding="utf-8")
-    assert pr_workflow.count(history_command) == 1
-    assert history_command in {line.strip() for line in pr_workflow.splitlines()}
-    workflow_paths = {
-        *list((ROOT / ".github" / "workflows").glob("*.yml")),
-        *list((ROOT / ".github" / "workflows").glob("*.yaml")),
-    }
-    flag_callers = {
-        path.name
-        for path in workflow_paths
-        if "--pr-immutable-history-only" in path.read_text(encoding="utf-8")
-    }
-    assert flag_callers == {WORKFLOW.name}
-
-    strict_command = "python scripts/validate_daily_published_model_snapshots.py"
-    for workflow_path in (DAILY_WORKFLOW, WARRANT_WORKFLOW, WEEKLY_THEME_WORKFLOW):
-        text = workflow_path.read_text(encoding="utf-8")
-        assert "--pr-immutable-history-only" not in text
-        assert strict_command in text
-
-
 def test_pdf_replay_pr_workflow_is_renderer_contract_only_and_manually_dispatchable() -> None:
     text = PDF_REPLAY_WORKFLOW.read_text(encoding="utf-8")
     observed_paths = boundaries.workflow_pull_request_paths(text)
@@ -300,10 +273,8 @@ def test_daily_model_maintenance_pr_workflow_runs_contract_validators() -> None:
         "python scripts/validate_daily_pdf_role_manifest_contract.py",
         "python scripts/validate_daily_pdf_completion_hard_gate.py",
         "python scripts/validate_daily_production_boundaries.py",
-        (
-            "python scripts/validate_daily_published_model_snapshots.py "
-            "--pr-immutable-history-only"
-        ),
+        'python scripts/validate_daily_published_model_snapshots_pr_safe.py --base-ref "$BASE_SHA"',
+        'python scripts/validate_repo_advanced_integrity_pr_safe.py --base-ref "$BASE_SHA"',
         "python scripts/validate_daily_model_background_data_registry.py",
         "python scripts/validate_model_data_independence.py",
         'python scripts/validate_model_research_shared_utilities.py --base-ref "$BASE_SHA"',
@@ -355,6 +326,7 @@ def test_daily_model_maintenance_pr_workflow_runs_focused_pdf_operation_tests() 
         "tests/test_daily_pdf_contract_consumers.py",
         "tests/test_daily_pdf_completion_hard_gate.py",
         "tests/test_daily_published_model_snapshots.py",
+        "tests/test_repo_advanced_integrity_pr_safe.py",
         "tests/test_backfill_historical_all_candidates_snapshots.py",
         "tests/test_daily_published_snapshot_ranking_backtest.py",
         "tests/test_stage_daily_published_snapshot_revisions.py",
@@ -385,6 +357,21 @@ def test_daily_model_maintenance_pr_workflow_runs_focused_pdf_operation_tests() 
     )
     for path in required_tests:
         assert path in text
+
+
+def test_daily_model_pr_focused_suite_replaces_only_strict_runtime_integrity_test() -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+    focused = text.split("- name: Run focused regression tests", 1)[1]
+    strict_node = (
+        "tests/test_repo_advanced_integrity.py::"
+        "test_repo_advanced_integrity_validator_passes"
+    )
+
+    assert "tests/test_repo_advanced_integrity.py" in focused
+    assert f"--deselect {strict_node}" in focused
+    assert focused.count("--deselect") == 1
+    assert "--ignore=tests/test_repo_advanced_integrity.py" not in focused
+    assert "-k " not in focused
 
 
 def test_pdf_impact_pr_workflow_runs_actual_pdf_replay_and_uploads_evidence() -> None:

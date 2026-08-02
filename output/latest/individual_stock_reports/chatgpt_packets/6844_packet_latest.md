@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6844 諾貝兒
 
 ## Metadata
-- generated_at: 2026-07-31 01:15:53 Asia/Taipei
+- generated_at: 2026-08-01 22:28:43 Asia/Taipei
 - stock_id: 6844
 - stock_name: 諾貝兒
 - packet_status: standard_180d_window_packet
@@ -11,10 +11,10 @@
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260724-88f3a903b384007d
-- official_tdcc_signal_date: 20260724
-- latest_tdcc_date: 20260724
-- tdcc_rows: 13
+- source_tdcc_dataset_id: tdcc-20260731-0b236a2d4a043618
+- official_tdcc_signal_date: 20260731
+- latest_tdcc_date: 20260731
+- tdcc_rows: 14
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -171,12 +171,12 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260724
-- over_400_ratio: 64.93
+- as_of_date: 20260731
+- over_400_ratio: 63.45
 - over_600_ratio: 58.44
 - over_800_ratio: 58.44
 - over_1000_ratio: 55.96
-- over_400_change_1w: 0
+- over_400_change_1w: -1.48
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260508,63.42,0,58.46,0,55.98,0,0,False,False
 20260515,63.42,0,58.46,0,55.98,0,0,False,False
 20260522,63.44,0.02,58.46,0,55.98,0,1,False,False
 20260529,63.44,0,58.46,0,55.98,0,0,False,False
@@ -199,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260709,63.45,-1.26,58.44,0,55.96,0,0,False,False
 20260717,64.93,1.48,58.44,0,55.96,0,1,False,False
 20260724,64.93,0,58.44,0,55.96,0,0,False,False
+20260731,63.45,-1.48,58.44,0,55.96,0,0,False,False
 ```
 
 ## Candidate Context

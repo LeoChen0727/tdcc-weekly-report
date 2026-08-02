@@ -1,6 +1,6 @@
 # Individual Stock Available Raw Data Index
 
-- generated_at: 2026-07-31 01:16:57 Asia/Taipei
+- generated_at: 2026-08-01 22:30:17 Asia/Taipei
 - total_stocks: 2404
 - standard_rawdata_report: 1974
 - partial_rawdata_report: 407
@@ -199,25 +199,25 @@
 | 009824 | 群益美國科技巨頭 | 25 | 0 | 20260730 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
 | 009825 | 聯邦美國金融創新 | 10 | 0 | 20260730 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
 | 0200 | 兆豐半導體氣候N | 1 | 0 | 20250407 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 1101 | 台泥 | 314 | 13 | 20260730 | 20260724 | False | False | standard_rawdata_report |  |
-| 1102 | 亞泥 | 315 | 13 | 20260730 | 20260724 | False | False | standard_rawdata_report |  |
-| 1103 | 嘉泥 | 315 | 13 | 20260730 | 20260724 | False | False | standard_rawdata_report |  |
-| 1104 | 環泥 | 315 | 13 | 20260730 | 20260724 | False | False | standard_rawdata_report |  |
-| 1108 | 幸福 | 315 | 13 | 20260730 | 20260724 | False | False | standard_rawdata_report |  |
-| 1109 | 信大 | 315 | 13 | 20260730 | 20260724 | False | False | standard_rawdata_report |  |
-| 1110 | 東泥 | 315 | 13 | 20260730 | 20260724 | False | False | standard_rawdata_report |  |
-| 1201 | 味全 | 315 | 13 | 20260730 | 20260724 | False | False | standard_rawdata_report |  |
-| 1203 | 味王 | 314 | 13 | 20260730 | 20260724 | False | False | standard_rawdata_report |  |
-| 1210 | 大成 | 315 | 13 | 20260730 | 20260724 | False | False | standard_rawdata_report |  |
-| 1213 | 大飲 | 293 | 13 | 20260730 | 20260724 | False | False | standard_rawdata_report |  |
-| 1215 | 卜蜂 | 315 | 13 | 20260730 | 20260724 | False | False | standard_rawdata_report |  |
-| 1216 | 統一 | 315 | 13 | 20260730 | 20260724 | False | False | standard_rawdata_report |  |
-| 1217 | 愛之味 | 315 | 35 | 20260730 | 20260724 | False | False | standard_rawdata_report |  |
-| 1218 | 泰山 | 315 | 13 | 20260730 | 20260724 | False | False | standard_rawdata_report |  |
-| 1219 | 福壽 | 315 | 13 | 20260730 | 20260724 | False | False | standard_rawdata_report |  |
-| 1220 | 台榮 | 315 | 13 | 20260730 | 20260724 | False | False | standard_rawdata_report |  |
-| 1225 | 福懋油 | 264 | 13 | 20260730 | 20260724 | False | False | standard_rawdata_report |  |
-| 1227 | 佳格 | 315 | 13 | 20260730 | 20260724 | False | False | standard_rawdata_report |  |
-| 1229 | 聯華 | 315 | 13 | 20260730 | 20260724 | False | False | standard_rawdata_report |  |
+| 1101 | 台泥 | 314 | 14 | 20260730 | 20260731 | False | False | standard_rawdata_report |  |
+| 1102 | 亞泥 | 315 | 14 | 20260730 | 20260731 | False | False | standard_rawdata_report |  |
+| 1103 | 嘉泥 | 315 | 14 | 20260730 | 20260731 | False | False | standard_rawdata_report |  |
+| 1104 | 環泥 | 315 | 14 | 20260730 | 20260731 | False | False | standard_rawdata_report |  |
+| 1108 | 幸福 | 315 | 14 | 20260730 | 20260731 | False | False | standard_rawdata_report |  |
+| 1109 | 信大 | 315 | 14 | 20260730 | 20260731 | False | False | standard_rawdata_report |  |
+| 1110 | 東泥 | 315 | 14 | 20260730 | 20260731 | False | False | standard_rawdata_report |  |
+| 1201 | 味全 | 315 | 14 | 20260730 | 20260731 | False | False | standard_rawdata_report |  |
+| 1203 | 味王 | 314 | 14 | 20260730 | 20260731 | False | False | standard_rawdata_report |  |
+| 1210 | 大成 | 315 | 14 | 20260730 | 20260731 | False | False | standard_rawdata_report |  |
+| 1213 | 大飲 | 293 | 14 | 20260730 | 20260731 | False | False | standard_rawdata_report |  |
+| 1215 | 卜蜂 | 315 | 14 | 20260730 | 20260731 | False | False | standard_rawdata_report |  |
+| 1216 | 統一 | 315 | 14 | 20260730 | 20260731 | False | False | standard_rawdata_report |  |
+| 1217 | 愛之味 | 315 | 36 | 20260730 | 20260731 | False | False | standard_rawdata_report |  |
+| 1218 | 泰山 | 315 | 14 | 20260730 | 20260731 | False | False | standard_rawdata_report |  |
+| 1219 | 福壽 | 315 | 14 | 20260730 | 20260731 | False | False | standard_rawdata_report |  |
+| 1220 | 台榮 | 315 | 14 | 20260730 | 20260731 | False | False | standard_rawdata_report |  |
+| 1225 | 福懋油 | 264 | 14 | 20260730 | 20260731 | False | False | standard_rawdata_report |  |
+| 1227 | 佳格 | 315 | 14 | 20260730 | 20260731 | False | False | standard_rawdata_report |  |
+| 1229 | 聯華 | 315 | 14 | 20260730 | 20260731 | False | False | standard_rawdata_report |  |
 
 _Only first 200 rows shown. Use the CSV for the full index._

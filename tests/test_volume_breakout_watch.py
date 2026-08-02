@@ -33,11 +33,17 @@ from build_daily_candidate_model_layer import (  # noqa: E402
     volume_v2_canonical_text_sha256 as consumer_canonical_csv_slice_sha256,
 )
 from build_volume_attack_theme_layer import (  # noqa: E402
-    VOLUME_THEME_WATCH_OUTPUT_FIELDS,
+    apply_theme_status_to_stocks,
+    build_theme_layer,
     enrich_stocks,
+    read_csv_revision,
     sha256_file as theme_canonical_text_sha256,
+    validate_official_warrant_source_revision,
 )
+import validate_volume_attack_theme_layer as theme_layer_validator  # noqa: E402
 from validate_volume_attack_theme_layer import (  # noqa: E402
+    canonical_text_sha256 as theme_validator_payload_sha256,
+    resolve_pinned_canonical_source_revision,
     sha256_file as theme_validator_canonical_text_sha256,
 )
 from validate_volume_breakout_watch import (  # noqa: E402
@@ -50,6 +56,14 @@ from validate_volume_breakout_watch import (  # noqa: E402
 
 
 class VolumeBreakoutWatchTest(unittest.TestCase):
+    def setUp(self) -> None:
+        self._theme_source_sha_patcher = patch(
+            "build_volume_attack_theme_layer.sha256_file",
+            return_value="e" * 64,
+        )
+        self._theme_source_sha_patcher.start()
+        self.addCleanup(self._theme_source_sha_patcher.stop)
+
     @staticmethod
     def _theme_enrichment_inputs() -> tuple[pd.DataFrame, ...]:
         watch = pd.DataFrame(
@@ -94,30 +108,6 @@ class VolumeBreakoutWatchTest(unittest.TestCase):
         )
         return watch, empty, empty, candidates, empty, official
 
-    def test_theme_layer_uses_explicit_source_column_order(self) -> None:
-        inputs = self._theme_enrichment_inputs()
-        watch = inputs[0]
-
-        out = enrich_stocks(
-            *inputs,
-            volume_watch_source_sha256="b" * 64,
-            candidate_source_sha256="c" * 64,
-            official_warrant_source_sha256="f" * 64,
-        )
-
-        expected_source_columns = [
-            field for field in VOLUME_THEME_WATCH_OUTPUT_FIELDS if field in watch.columns
-        ]
-        self.assertEqual(
-            out.columns[: len(expected_source_columns)].tolist(),
-            expected_source_columns,
-        )
-        builder_source = (ROOT / "scripts" / "build_volume_attack_theme_layer.py").read_text(
-            encoding="utf-8"
-        )
-        self.assertIn("for key in VOLUME_THEME_WATCH_OUTPUT_FIELDS", builder_source)
-        self.assertNotIn("for key in VOLUME_THEME_WATCH_ALLOWED_FIELDS", builder_source)
-
     def test_theme_layer_uses_allowlisted_canonical_candidate_warrant(self) -> None:
         out = enrich_stocks(
             *self._theme_enrichment_inputs(),
@@ -153,6 +143,347 @@ class VolumeBreakoutWatchTest(unittest.TestCase):
             "output/latest/warrant_flow_latest.csv",
         )
         self.assertEqual(out.iloc[0]["warrant_flow_official_source_sha256"], "f" * 64)
+
+    def test_theme_official_source_revision_requires_one_matching_as_of(self) -> None:
+        official = pd.DataFrame(
+            [
+                {
+                    "date": "20260718",
+                    "stock_id": "6505",
+                    "warrant_flow_signal": "call_strong_inflow",
+                }
+            ]
+        )
+
+        self.assertEqual(
+            validate_official_warrant_source_revision(
+                official,
+                expected_as_of="20260718",
+                source_sha256="f" * 64,
+            ),
+            "20260718",
+        )
+        with self.assertRaisesRegex(RuntimeError, "source as-of mismatch"):
+            validate_official_warrant_source_revision(
+                official,
+                expected_as_of="20260719",
+                source_sha256="f" * 64,
+            )
+
+    def test_theme_official_source_revision_rejects_empty_or_undated_payload(
+        self,
+    ) -> None:
+        with self.assertRaisesRegex(RuntimeError, "source is empty"):
+            validate_official_warrant_source_revision(
+                pd.DataFrame(columns=["date", "stock_id", "warrant_flow_signal"]),
+                expected_as_of="20260718",
+                source_sha256="f" * 64,
+            )
+        with self.assertRaisesRegex(RuntimeError, "row has no as-of"):
+            validate_official_warrant_source_revision(
+                pd.DataFrame(
+                    [
+                        {
+                            "date": "",
+                            "stock_id": "6505",
+                            "warrant_flow_signal": "call_strong_inflow",
+                        }
+                    ]
+                ),
+                expected_as_of="20260718",
+                source_sha256="f" * 64,
+            )
+
+    def test_theme_csv_revision_hashes_the_same_payload_it_parses(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / "warrant.csv"
+            captured_payload = (
+                b"date,stock_id,warrant_flow_signal\n"
+                b"20260718,6505,call_strong_inflow\n"
+            )
+            later_payload = (
+                b"date,stock_id,warrant_flow_signal\n"
+                b"20260718,6505,put_inflow\n"
+            )
+            source.write_bytes(later_payload)
+
+            with patch.object(
+                Path,
+                "read_bytes",
+                side_effect=[captured_payload, later_payload],
+            ) as read_bytes:
+                frame, payload_sha = read_csv_revision(source)
+
+            self.assertEqual(read_bytes.call_count, 1)
+            self.assertEqual(frame.iloc[0]["warrant_flow_signal"], "call_strong_inflow")
+            self.assertEqual(
+                payload_sha,
+                theme_validator_payload_sha256(captured_payload),
+            )
+
+    def test_theme_validator_resolves_pinned_revision_after_latest_advances(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source = root / "output/latest/warrant_flow_latest.csv"
+            source.parent.mkdir(parents=True)
+            source.write_text(
+                "date,stock_id,warrant_flow_signal\n"
+                "20260717,6505,call_strong_inflow\n",
+                encoding="utf-8",
+            )
+            old_sha = theme_validator_payload_sha256(source.read_bytes())
+            subprocess.run(["git", "init"], cwd=root, check=True, capture_output=True)
+            subprocess.run(
+                ["git", "config", "user.email", "theme-test@example.invalid"],
+                cwd=root,
+                check=True,
+            )
+            subprocess.run(
+                ["git", "config", "user.name", "Theme Test"],
+                cwd=root,
+                check=True,
+            )
+            subprocess.run(["git", "add", "."], cwd=root, check=True)
+            subprocess.run(
+                ["git", "commit", "-m", "old warrant revision"],
+                cwd=root,
+                check=True,
+                capture_output=True,
+            )
+            source.write_text(
+                "date,stock_id,warrant_flow_signal\n"
+                "20260730,6505,call_strong_inflow\n",
+                encoding="utf-8",
+            )
+            subprocess.run(["git", "add", "."], cwd=root, check=True)
+            subprocess.run(
+                ["git", "commit", "-m", "advance warrant latest"],
+                cwd=root,
+                check=True,
+                capture_output=True,
+            )
+
+            payload, revision = resolve_pinned_canonical_source_revision(
+                root,
+                "output/latest/warrant_flow_latest.csv",
+                old_sha,
+            )
+
+            self.assertEqual(theme_validator_payload_sha256(payload), old_sha)
+            self.assertNotEqual(revision, "working_tree")
+
+    def test_theme_validator_main_uses_pinned_revision_after_latest_advances(
+        self,
+    ) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            latest = root / "output/latest"
+            latest.mkdir(parents=True)
+            watch, theme_context, two_line, candidates, taxonomy, official = (
+                self._theme_enrichment_inputs()
+            )
+            for frame in (watch, candidates, official):
+                date_column = "signal_date" if "signal_date" in frame.columns else "date"
+                frame[date_column] = "20260717"
+            watch["advisory_score_as_of"] = "20260717"
+            watch["volume_ratio"] = "2.0"
+
+            watch_path = latest / "volume_breakout_watch_latest.csv"
+            candidate_path = latest / "all_candidates_latest.csv"
+            official_path = latest / "warrant_flow_latest.csv"
+            watch.to_csv(watch_path, index=False, lineterminator="\n")
+            candidates.to_csv(candidate_path, index=False, lineterminator="\n")
+            official.to_csv(official_path, index=False, lineterminator="\n")
+            watch_sha = theme_validator_payload_sha256(watch_path.read_bytes())
+            candidate_sha = theme_validator_payload_sha256(candidate_path.read_bytes())
+            official_sha = theme_validator_payload_sha256(official_path.read_bytes())
+
+            stocks = enrich_stocks(
+                watch,
+                theme_context,
+                two_line,
+                candidates,
+                taxonomy,
+                official,
+                warrant_as_of="20260717",
+                volume_watch_source_sha256=watch_sha,
+                candidate_source_sha256=candidate_sha,
+                official_warrant_source_sha256=official_sha,
+            )
+            themes = build_theme_layer(stocks)
+            stocks = apply_theme_status_to_stocks(stocks, themes)
+            theme_path = latest / "volume_attack_theme_layer_latest.csv"
+            stock_path = latest / "volume_attack_theme_stocks_latest.csv"
+            themes.to_csv(theme_path, index=False, lineterminator="\n")
+            stocks.to_csv(stock_path, index=False, lineterminator="\n")
+            lineage_tokens = "\n".join(
+                [
+                    "source_watch: `output/latest/volume_breakout_watch_latest.csv`",
+                    f"source_watch_sha256: `{watch_sha}`",
+                    "warrant_projection_source: `output/latest/all_candidates_latest.csv`",
+                    f"warrant_projection_source_sha256: `{candidate_sha}`",
+                    "warrant_official_parity_source: `output/latest/warrant_flow_latest.csv`",
+                    f"warrant_official_parity_source_sha256: `{official_sha}`",
+                    "",
+                ]
+            )
+            (latest / "volume_attack_theme_layer_latest.md").write_text(
+                lineage_tokens,
+                encoding="utf-8",
+            )
+            (latest / "volume_attack_theme_stocks_latest.md").write_text(
+                lineage_tokens,
+                encoding="utf-8",
+            )
+
+            subprocess.run(["git", "init"], cwd=root, check=True, capture_output=True)
+            subprocess.run(
+                ["git", "config", "user.email", "theme-test@example.invalid"],
+                cwd=root,
+                check=True,
+            )
+            subprocess.run(
+                ["git", "config", "user.name", "Theme Test"],
+                cwd=root,
+                check=True,
+            )
+            subprocess.run(["git", "add", "."], cwd=root, check=True)
+            subprocess.run(
+                ["git", "commit", "-m", "pinned theme revision"],
+                cwd=root,
+                check=True,
+                capture_output=True,
+            )
+            base_sha = subprocess.run(
+                ["git", "rev-parse", "HEAD"],
+                cwd=root,
+                check=True,
+                capture_output=True,
+                text=True,
+            ).stdout.strip()
+
+            official.loc[0, "date"] = "20260730"
+            official.loc[0, "warrant_flow_signal"] = "put_inflow"
+            official.to_csv(official_path, index=False, lineterminator="\n")
+            subprocess.run(["git", "add", "."], cwd=root, check=True)
+            subprocess.run(
+                ["git", "commit", "-m", "advance mutable warrant latest"],
+                cwd=root,
+                check=True,
+                capture_output=True,
+            )
+
+            original_cwd = Path.cwd()
+            try:
+                os.chdir(root)
+                with patch.object(theme_layer_validator, "ROOT", root), patch.dict(
+                    os.environ,
+                    {"BASE_SHA": base_sha},
+                ):
+                    self.assertEqual(theme_layer_validator.main(), 0)
+            finally:
+                os.chdir(original_cwd)
+            result = pd.read_json(
+                latest / "volume_attack_theme_layer_validation_latest.json",
+                typ="series",
+            )
+            self.assertEqual(result["status"], "pass")
+
+    def test_theme_validator_rejects_unreconstructable_pinned_revision(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source = root / "output/latest/warrant_flow_latest.csv"
+            source.parent.mkdir(parents=True)
+            source.write_text(
+                "date,stock_id,warrant_flow_signal\n"
+                "20260730,6505,call_strong_inflow\n",
+                encoding="utf-8",
+            )
+            subprocess.run(["git", "init"], cwd=root, check=True, capture_output=True)
+            subprocess.run(
+                ["git", "config", "user.email", "theme-test@example.invalid"],
+                cwd=root,
+                check=True,
+            )
+            subprocess.run(
+                ["git", "config", "user.name", "Theme Test"],
+                cwd=root,
+                check=True,
+            )
+            subprocess.run(["git", "add", "."], cwd=root, check=True)
+            subprocess.run(
+                ["git", "commit", "-m", "only warrant revision"],
+                cwd=root,
+                check=True,
+                capture_output=True,
+            )
+
+            with self.assertRaisesRegex(RuntimeError, "not reconstructable"):
+                resolve_pinned_canonical_source_revision(
+                    root,
+                    "output/latest/warrant_flow_latest.csv",
+                    "f" * 64,
+                )
+
+    def test_theme_validator_rejects_branch_only_revision_outside_trusted_ref(
+        self,
+    ) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source = root / "output/latest/warrant_flow_latest.csv"
+            source.parent.mkdir(parents=True)
+            source.write_text(
+                "date,stock_id,warrant_flow_signal\n"
+                "20260717,6505,call_strong_inflow\n",
+                encoding="utf-8",
+            )
+            subprocess.run(["git", "init"], cwd=root, check=True, capture_output=True)
+            subprocess.run(
+                ["git", "config", "user.email", "theme-test@example.invalid"],
+                cwd=root,
+                check=True,
+            )
+            subprocess.run(
+                ["git", "config", "user.name", "Theme Test"],
+                cwd=root,
+                check=True,
+            )
+            subprocess.run(["git", "add", "."], cwd=root, check=True)
+            subprocess.run(
+                ["git", "commit", "-m", "trusted base"],
+                cwd=root,
+                check=True,
+                capture_output=True,
+            )
+            base_sha = subprocess.run(
+                ["git", "rev-parse", "HEAD"],
+                cwd=root,
+                check=True,
+                capture_output=True,
+                text=True,
+            ).stdout.strip()
+            source.write_text(
+                "date,stock_id,warrant_flow_signal\n"
+                "20260718,6505,put_inflow\n",
+                encoding="utf-8",
+            )
+            branch_only_sha = theme_validator_payload_sha256(source.read_bytes())
+            subprocess.run(["git", "add", "."], cwd=root, check=True)
+            subprocess.run(
+                ["git", "commit", "-m", "branch only revision"],
+                cwd=root,
+                check=True,
+                capture_output=True,
+            )
+
+            with self.assertRaisesRegex(RuntimeError, "not reconstructable"):
+                resolve_pinned_canonical_source_revision(
+                    root,
+                    "output/latest/warrant_flow_latest.csv",
+                    branch_only_sha,
+                    trusted_ref=base_sha,
+                    allow_live=True,
+                )
 
     def test_theme_layer_fails_when_official_warrant_row_lacks_candidate_projection(self) -> None:
         watch, theme, two_line, _candidates, taxonomy, official = (
@@ -231,6 +562,15 @@ class VolumeBreakoutWatchTest(unittest.TestCase):
         watch, theme, two_line, candidates, taxonomy, _official = (
             self._theme_enrichment_inputs()
         )
+        unrelated_official = pd.DataFrame(
+            [
+                {
+                    "date": "20260718",
+                    "stock_id": "9999",
+                    "warrant_flow_signal": "no_signal",
+                }
+            ]
+        )
 
         with self.assertRaisesRegex(
             RuntimeError,
@@ -242,7 +582,7 @@ class VolumeBreakoutWatchTest(unittest.TestCase):
                 two_line,
                 candidates,
                 taxonomy,
-                pd.DataFrame(columns=["date", "stock_id", "warrant_flow_signal"]),
+                unrelated_official,
                 warrant_as_of="20260718",
                 candidate_source_sha256="c" * 64,
                 official_warrant_source_sha256="f" * 64,

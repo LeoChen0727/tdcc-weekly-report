@@ -405,7 +405,6 @@ def test_projection_manifest_binds_cutoff_inputs_and_round_trips(
     errors = validator.validate_frames(
         manifest,
         source_inputs["projected_detail"],
-        source_inputs["full_detail"],
         revenue_path=source_inputs["revenue_path"],
         price_dir=source_inputs["price_dir"],
         monthly_resolution_path=source_inputs["monthly_registry_path"],
@@ -502,7 +501,6 @@ def test_independent_validator_rejects_price_lineage_and_formal_flag_mutation(
     errors = validator.validate_frames(
         manifest,
         source_inputs["projected_detail"],
-        source_inputs["full_detail"],
         revenue_path=source_inputs["revenue_path"],
         price_dir=source_inputs["price_dir"],
         monthly_resolution_path=source_inputs["monthly_registry_path"],
@@ -515,7 +513,6 @@ def test_independent_validator_rejects_price_lineage_and_formal_flag_mutation(
     errors = validator.validate_frames(
         unsafe,
         source_inputs["projected_detail"],
-        source_inputs["full_detail"],
         revenue_path=source_inputs["revenue_path"],
         price_dir=source_inputs["price_dir"],
         monthly_resolution_path=source_inputs["monthly_registry_path"],
@@ -538,7 +535,6 @@ def test_independent_validator_replays_rows_instead_of_trusting_rebound_manifest
     errors = validator.validate_frames(
         rebound_manifest,
         fabricated,
-        source_inputs["full_detail"],
         revenue_path=source_inputs["revenue_path"],
         price_dir=source_inputs["price_dir"],
         monthly_resolution_path=source_inputs["monthly_registry_path"],
@@ -566,7 +562,6 @@ def test_no_episode_stock_price_is_bound_and_independently_validated(
     errors = validator.validate_frames(
         manifest,
         source_inputs["projected_detail"],
-        source_inputs["full_detail"],
         revenue_path=source_inputs["revenue_path"],
         price_dir=source_inputs["price_dir"],
         monthly_resolution_path=source_inputs["monthly_registry_path"],
@@ -594,7 +589,6 @@ def test_no_episode_stock_resolution_is_bound_and_independently_validated(
     errors = validator.validate_frames(
         manifest,
         source_inputs["projected_detail"],
-        source_inputs["full_detail"],
         revenue_path=source_inputs["revenue_path"],
         price_dir=source_inputs["price_dir"],
         monthly_resolution_path=source_inputs["monthly_registry_path"],
@@ -620,9 +614,38 @@ def test_normalized_price_filename_collision_fails_closed(
         cutoff_price_input_lineage(cutoff_monthly, source_inputs["price_dir"])
 
 
+def test_duplicate_price_dates_fail_closed_in_producer_and_independent_validator(
+    source_inputs: dict[str, object],
+) -> None:
+    manifest = _build(source_inputs)
+    price_path = source_inputs["price_dir"] / "1111.csv"
+    price = pd.read_csv(price_path, dtype=str, keep_default_na=False)
+    conflicting = price.loc[price["date"].eq("20260709")].copy()
+    conflicting.loc[:, "close"] = "99"
+    pd.concat([price, conflicting], ignore_index=True).to_csv(price_path, index=False)
+
+    cutoff_monthly = load_cutoff_monthly_revenue_subset(
+        source_inputs["revenue_path"],
+        source_inputs["monthly_registry_path"],
+    )
+    with pytest.raises(RuntimeError, match="repeats trading dates within cutoff"):
+        cutoff_price_input_lineage(cutoff_monthly, source_inputs["price_dir"])
+
+    errors = validator.validate_frames(
+        manifest,
+        source_inputs["projected_detail"],
+        revenue_path=source_inputs["revenue_path"],
+        price_dir=source_inputs["price_dir"],
+        monthly_resolution_path=source_inputs["monthly_registry_path"],
+        price_resolution_path=source_inputs["price_registry_path"],
+    )
+    assert any("repeats trading dates within cutoff" in error for error in errors)
+
+
 def test_post_cutoff_raw_changes_do_not_change_cutoff_input_hashes(
     source_inputs: dict[str, object],
 ) -> None:
+    manifest = _build(source_inputs)
     before_monthly = load_cutoff_monthly_revenue_subset(
         source_inputs["revenue_path"],
         source_inputs["monthly_registry_path"],
@@ -670,6 +693,118 @@ def test_post_cutoff_raw_changes_do_not_change_cutoff_input_hashes(
     assert canonical_monthly_revenue_history_table_sha256(after_monthly) == before_monthly_sha
     assert after_price == before_price
 
+    _current_full_summary, current_full_detail = build_source_first_condition_audit(
+        source_inputs["revenue_path"],
+        source_inputs["price_dir"],
+        source_inputs["monthly_registry_path"],
+        source_inputs["price_registry_path"],
+    )
+    assert not current_full_detail.equals(source_inputs["full_detail"])
+    assert validator.validate_frames(
+        manifest,
+        source_inputs["projected_detail"],
+        revenue_path=source_inputs["revenue_path"],
+        price_dir=source_inputs["price_dir"],
+        monthly_resolution_path=source_inputs["monthly_registry_path"],
+        price_resolution_path=source_inputs["price_registry_path"],
+    ) == []
+
+
+def test_independent_validator_rejects_pre_cutoff_revenue_mutation(
+    source_inputs: dict[str, object],
+) -> None:
+    manifest = _build(source_inputs)
+    raw = pd.read_csv(
+        source_inputs["revenue_path"],
+        dtype=str,
+        keep_default_na=False,
+    )
+    target = raw["stock_id"].eq("1111") & raw["source_table_date"].eq("20260710")
+    assert int(target.sum()) == 1
+    raw.loc[target, "monthly_revenue"] = "1001"
+    raw.to_csv(source_inputs["revenue_path"], index=False)
+
+    errors = validator.validate_frames(
+        manifest,
+        source_inputs["projected_detail"],
+        revenue_path=source_inputs["revenue_path"],
+        price_dir=source_inputs["price_dir"],
+        monthly_resolution_path=source_inputs["monthly_registry_path"],
+        price_resolution_path=source_inputs["price_registry_path"],
+    )
+
+    assert any(
+        "cutoff_revenue_subset_semantic_sha256 source recomputation mismatch" in error
+        for error in errors
+    )
+
+
+def test_independent_validator_ignores_post_cutoff_resolution_changes(
+    source_inputs: dict[str, object],
+) -> None:
+    manifest = _build(source_inputs)
+    monthly_registry = pd.read_csv(
+        source_inputs["monthly_registry_path"],
+        dtype=str,
+        keep_default_na=False,
+    )
+    monthly_registry.loc[
+        monthly_registry["resolution_id"].eq("future_cross_market_mirror"),
+        "evidence_url",
+    ] = "https://example.test/future-evidence-updated"
+    monthly_registry.to_csv(source_inputs["monthly_registry_path"], index=False)
+
+    price_registry = pd.read_csv(
+        source_inputs["price_registry_path"],
+        dtype=str,
+        keep_default_na=False,
+    )
+    price_registry.loc[
+        price_registry["resolution_id"].eq("price_after_cutoff"),
+        "exchange_ratio",
+    ] = "2"
+    price_registry.to_csv(source_inputs["price_registry_path"], index=False)
+
+    assert validator.validate_frames(
+        manifest,
+        source_inputs["projected_detail"],
+        revenue_path=source_inputs["revenue_path"],
+        price_dir=source_inputs["price_dir"],
+        monthly_resolution_path=source_inputs["monthly_registry_path"],
+        price_resolution_path=source_inputs["price_registry_path"],
+    ) == []
+
+
+def test_independent_validator_rejects_pre_cutoff_monthly_resolution_mutation(
+    source_inputs: dict[str, object],
+) -> None:
+    manifest = _build(source_inputs)
+    registry = pd.read_csv(
+        source_inputs["monthly_registry_path"],
+        dtype=str,
+        keep_default_na=False,
+    )
+    registry.loc[
+        registry["resolution_id"].eq("cutoff_cross_market_mirror"),
+        "evidence_url",
+    ] = "https://example.test/cutoff-evidence-mutated"
+    registry.to_csv(source_inputs["monthly_registry_path"], index=False)
+
+    errors = validator.validate_frames(
+        manifest,
+        source_inputs["projected_detail"],
+        revenue_path=source_inputs["revenue_path"],
+        price_dir=source_inputs["price_dir"],
+        monthly_resolution_path=source_inputs["monthly_registry_path"],
+        price_resolution_path=source_inputs["price_registry_path"],
+    )
+
+    assert any(
+        "applied_monthly_resolution_semantic_sha256 source recomputation mismatch"
+        in error
+        for error in errors
+    )
+
 
 def test_independent_validator_does_not_import_business_producers() -> None:
     source = Path(validator.__file__).read_text(encoding="utf-8")
@@ -679,36 +814,32 @@ def test_independent_validator_does_not_import_business_producers() -> None:
     assert "from revenue_unreacted_range_source_first_condition_audit" not in source
 
 
-def test_projection_stage_refreshes_full_source_before_writing_projection(
+def test_projection_stage_reuses_immutable_capture_without_current_source_rebuild(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    full_summary = pd.DataFrame([{"view": "full"}])
-    full_detail = pd.DataFrame([{"view": "full"}])
-    projected_summary = pd.DataFrame([{"view": "projected"}])
     projected_detail = pd.DataFrame([{"view": "projected"}])
     manifest = pd.DataFrame([{"view": "manifest"}])
     calls: list[tuple[str, object, object]] = []
 
-    def fake_build(*, observation_cutoff_date: str | None = None):
-        if observation_cutoff_date is None:
-            return full_summary, full_detail
-        assert observation_cutoff_date == CUTOFF_DATE
-        return projected_summary, projected_detail
-
-    monkeypatch.setattr(orchestrator, "build_source_first_condition_audit", fake_build)
     monkeypatch.setattr(
         orchestrator,
-        "build_source_snapshot_projection_manifest",
-        lambda full, projected: (
-            manifest
-            if full is full_detail and projected is projected_detail
-            else pytest.fail("projection stage used the wrong source frames")
-        ),
+        "load_immutable_source_snapshot_projection",
+        lambda: (manifest, projected_detail),
     )
     monkeypatch.setattr(
         orchestrator,
+        "build_source_first_condition_audit",
+        lambda *_args, **_kwargs: pytest.fail(
+            "projection stage rebuilt the mutable current source"
+        ),
+    )
+    assert not hasattr(orchestrator, "build_source_snapshot_projection_manifest")
+    monkeypatch.setattr(
+        orchestrator,
         "write_source_first_condition_audit",
-        lambda summary, detail: calls.append(("full", summary, detail)),
+        lambda *_args, **_kwargs: pytest.fail(
+            "projection stage rewrote the mutable current-source audit"
+        ),
     )
     monkeypatch.setattr(
         orchestrator,
@@ -721,7 +852,6 @@ def test_projection_stage_refreshes_full_source_before_writing_projection(
     orchestrator.build_and_write_source_snapshot_projection()
 
     assert calls == [
-        ("full", full_summary, full_detail),
         ("projection", manifest, projected_detail),
     ]
 
@@ -732,11 +862,14 @@ def test_projection_chain_stage_rebuilds_cutoff_consumers_in_dependency_order(
     frames = {
         name: pd.DataFrame([{"view": name}])
         for name in (
-            "full_summary",
-            "full_detail",
-            "projected_summary",
+            "fixed_detail",
             "projected_detail",
             "manifest",
+            "lag_strength_summary",
+            "lag_strength_detail",
+            "launch_summary",
+            "launch_detail",
+            "launch_feature",
             "forward_summary",
             "forward_detail",
             "forward_events",
@@ -760,20 +893,19 @@ def test_projection_chain_stage_rebuilds_cutoff_consumers_in_dependency_order(
     projected_daily = {"1111": pd.DataFrame([{"date": CUTOFF_DATE}])}
     writes: list[str] = []
 
-    def fake_source(*, observation_cutoff_date: str | None = None):
-        if observation_cutoff_date is None:
-            return frames["full_summary"], frames["full_detail"]
-        assert observation_cutoff_date == CUTOFF_DATE
-        return frames["projected_summary"], frames["projected_detail"]
-
-    monkeypatch.setattr(orchestrator, "build_source_first_condition_audit", fake_source)
     monkeypatch.setattr(
         orchestrator,
-        "build_source_snapshot_projection_manifest",
-        lambda full, projected: frames["manifest"]
-        if full is frames["full_detail"] and projected is frames["projected_detail"]
-        else pytest.fail("projection chain used the wrong source frames"),
+        "load_immutable_source_snapshot_projection",
+        lambda: (frames["manifest"], frames["projected_detail"]),
     )
+    monkeypatch.setattr(
+        orchestrator,
+        "build_source_first_condition_audit",
+        lambda *_args, **_kwargs: pytest.fail(
+            "projection chain rebuilt the mutable current source"
+        ),
+    )
+    assert not hasattr(orchestrator, "build_source_snapshot_projection_manifest")
     monkeypatch.setattr(
         orchestrator,
         "build_revenue_unreacted_range_research_frame",
@@ -788,6 +920,49 @@ def test_projection_chain_stage_rebuilds_cutoff_consumers_in_dependency_order(
         orchestrator,
         "_attach_revenue_signal_market_regime",
         lambda value: value,
+    )
+    monkeypatch.setattr(
+        orchestrator.pd,
+        "read_csv",
+        lambda path, **_kwargs: (
+            frames["fixed_detail"]
+            if path == orchestrator.FIXED_CONFIRMATION_DETAIL_CSV
+            else pytest.fail(f"projection chain read an unexpected CSV: {path}")
+        ),
+    )
+
+    def fake_lag_strength(
+        fixed_detail,
+        *,
+        source_projection_manifest,
+        projected_source_detail,
+    ):
+        assert fixed_detail is frames["fixed_detail"]
+        assert source_projection_manifest is frames["manifest"]
+        assert projected_source_detail is frames["projected_detail"]
+        return frames["lag_strength_summary"], frames["lag_strength_detail"]
+
+    monkeypatch.setattr(orchestrator, "build_lag_strength_matrix", fake_lag_strength)
+
+    def fake_launch(
+        _prepared,
+        lag_strength_detail,
+        *,
+        observation_cutoff_date=None,
+    ):
+        assert _prepared is prepared
+        assert lag_strength_detail is frames["lag_strength_detail"]
+        assert observation_cutoff_date == CUTOFF_DATE
+        return (
+            frames["launch_summary"],
+            frames["launch_detail"],
+            frames["launch_feature"],
+        )
+
+    monkeypatch.setattr(
+        orchestrator,
+        "build_launch_timing_feature_audit",
+        fake_launch,
     )
 
     def fake_prepare(_prepared, source, *, observation_cutoff_date=None):
@@ -855,12 +1030,37 @@ def test_projection_chain_stage_rebuilds_cutoff_consumers_in_dependency_order(
     monkeypatch.setattr(
         orchestrator,
         "write_source_first_condition_audit",
-        lambda *_args: writes.append("source_first"),
+        lambda *_args, **_kwargs: pytest.fail(
+            "projection chain rewrote the mutable current-source audit"
+        ),
     )
     monkeypatch.setattr(
         orchestrator,
         "write_source_snapshot_projection",
-        lambda *_args: writes.append("projection"),
+        lambda *_args, **_kwargs: pytest.fail(
+            "projection chain rewrote the pinned source projection"
+        ),
+    )
+    monkeypatch.setattr(
+        orchestrator,
+        "write_lag_strength_matrix",
+        lambda summary, detail: (
+            writes.append("lag_strength")
+            if summary is frames["lag_strength_summary"]
+            and detail is frames["lag_strength_detail"]
+            else pytest.fail("projection chain wrote the wrong lag-strength frames")
+        ),
+    )
+    monkeypatch.setattr(
+        orchestrator,
+        "write_launch_timing_feature_audit",
+        lambda summary, detail, feature: (
+            writes.append("launch")
+            if summary is frames["launch_summary"]
+            and detail is frames["launch_detail"]
+            and feature is frames["launch_feature"]
+            else pytest.fail("projection chain wrote the wrong launch frames")
+        ),
     )
     monkeypatch.setattr(
         orchestrator,
@@ -880,8 +1080,8 @@ def test_projection_chain_stage_rebuilds_cutoff_consumers_in_dependency_order(
 
     def fake_position():
         assert writes == [
-            "source_first",
-            "projection",
+            "lag_strength",
+            "launch",
             "forward",
             "rearmed",
             "lag",
@@ -906,8 +1106,8 @@ def test_projection_chain_stage_rebuilds_cutoff_consumers_in_dependency_order(
     orchestrator.build_and_write_source_snapshot_projection_chain()
 
     assert writes == [
-        "source_first",
-        "projection",
+        "lag_strength",
+        "launch",
         "forward",
         "rearmed",
         "lag",

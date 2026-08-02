@@ -1,36 +1,23 @@
 from __future__ import annotations
 
 from io import StringIO
-from pathlib import Path
 
 import pandas as pd
 
-from revenue_unreacted_range_monthly_revenue_cross_market_resolution import (
-    canonical_monthly_revenue_history_table_sha256,
-    cross_market_resolution_registry_canonical_sha256,
-    load_canonical_monthly_revenue_history,
-    load_cross_market_resolutions,
-    monthly_revenue_history_blob_sha256,
-)
-
 from revenue_unreacted_range_lag_strength_matrix import (
+    ALL_LINEAGE_COLUMNS,
     ARTIFACT_VERSION,
     DETAIL_COLUMNS,
     DETAIL_CSV,
     LATEST_CSV,
-    MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS,
     SOURCE_DETAIL,
+    SOURCE_DATE_COLUMNS,
+    SOURCE_SNAPSHOT_CUTOFF_DATE,
     SUMMARY_COLUMNS,
+    _fixed_source_lineage,
+    _monthly_revenue_runtime_context,
+    _source_episodes,
     build_lag_strength_matrix,
-)
-
-
-ROOT = Path(__file__).resolve().parents[1]
-MONTHLY_REVENUE_HISTORY = (
-    ROOT / "output/latest/research_backtest/monthly_revenue_history_latest.csv"
-)
-MONTHLY_REVENUE_CROSS_MARKET_RESOLUTION_CSV = (
-    ROOT / "config/revenue_unreacted_range_monthly_revenue_cross_market_resolution.csv"
 )
 
 DETAIL_DTYPES = {
@@ -70,37 +57,20 @@ def _serialized(frame: pd.DataFrame, *, detail: bool = False) -> pd.DataFrame:
 
 
 def _current_monthly_revenue_runtime_lineage() -> dict[str, str]:
-    canonical = load_canonical_monthly_revenue_history(
-        MONTHLY_REVENUE_HISTORY,
-        MONTHLY_REVENUE_CROSS_MARKET_RESOLUTION_CSV,
-    )
-    return {
-        "monthly_revenue_history_blob_sha256": monthly_revenue_history_blob_sha256(
-            MONTHLY_REVENUE_HISTORY
-        ),
-        "monthly_revenue_canonical_table_sha256": (
-            canonical_monthly_revenue_history_table_sha256(canonical)
-        ),
-        "cross_market_resolution_registry_canonical_sha256": (
-            cross_market_resolution_registry_canonical_sha256(
-                load_cross_market_resolutions(
-                    MONTHLY_REVENUE_CROSS_MARKET_RESOLUTION_CSV
-                )
-            )
-        ),
-    }
+    _history, lineage = _monthly_revenue_runtime_context()
+    return lineage
 
 
 def _runtime_lineage_errors(
     frame: pd.DataFrame,
     *,
     label: str,
-    expected: dict[str, str],
+    expected: dict[str, object],
 ) -> list[str]:
     errors: list[str] = []
-    for column in MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS:
+    for column in ALL_LINEAGE_COLUMNS:
         actual = set(frame[column].astype(str).str.strip().str.lower())
-        if actual != {expected[column]}:
+        if actual != {str(expected[column]).strip().lower()}:
             errors.append(f"lag strength matrix {label} runtime lineage drift: {column}")
     return errors
 
@@ -117,10 +87,21 @@ def validate() -> list[str]:
         errors.append("lag strength matrix detail schema drift")
     if errors:
         return errors
+    source = pd.read_csv(
+        SOURCE_DETAIL,
+        dtype={
+            "stock_id": str,
+            **{column: str for column in SOURCE_DATE_COLUMNS},
+        },
+        keep_default_na=False,
+        low_memory=False,
+    )
     try:
         expected_runtime_lineage = _current_monthly_revenue_runtime_lineage()
+        source_episodes = _source_episodes(source)
+        expected_runtime_lineage.update(_fixed_source_lineage(source_episodes))
     except (RuntimeError, ValueError, KeyError, pd.errors.ParserError) as exc:
-        return [f"lag strength current monthly revenue lineage cannot be verified: {exc}"]
+        return [f"lag strength cutoff lineage cannot be verified: {exc}"]
     if set(summary["artifact_version"].astype(str)) != {ARTIFACT_VERSION}:
         errors.append("lag strength matrix summary version drift")
     if set(detail["artifact_version"].astype(str)) != {ARTIFACT_VERSION}:
@@ -139,19 +120,16 @@ def validate() -> list[str]:
             expected=expected_runtime_lineage,
         )
     )
-    source = pd.read_csv(SOURCE_DETAIL, dtype={"stock_id": str}, low_memory=False)
-    source_mask = (
-        source["decision_basis"].astype(str).str.lower().isin({"true", "1", "yes"})
-        & ~source["sensitivity_basis"].astype(str).str.lower().isin({"true", "1", "yes"})
-        & source["feature_time_basis"].astype(str).eq("signal_date_close")
-    )
-    expected_source_count = len(source.loc[source_mask].drop_duplicates("episode_key"))
+    expected_source_count = len(source_episodes)
     if len(detail) != expected_source_count:
         errors.append(
             f"lag strength detail source count drift: expected={expected_source_count} actual={len(detail)}"
         )
     if detail["episode_key"].duplicated().any():
         errors.append("lag strength detail contains duplicate episodes")
+    for column in SOURCE_DATE_COLUMNS:
+        if detail[column].astype(str).gt(SOURCE_SNAPSHOT_CUTOFF_DATE).any():
+            errors.append(f"lag strength detail {column} exceeds cutoff")
     repeats = detail.groupby(["stock_id", "source_monthly_revenue_period"]).size()
     if int((repeats - 1).clip(lower=0).sum()) != 0:
         errors.append("lag strength detail repeats same-stock revenue periods")

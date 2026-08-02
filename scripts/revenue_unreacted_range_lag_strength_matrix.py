@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 from datetime import datetime
+import hashlib
+import json
 from pathlib import Path
 from typing import Callable
 from zoneinfo import ZoneInfo
@@ -10,19 +12,24 @@ import pandas as pd
 from revenue_unreacted_range_monthly_revenue_cross_market_resolution import (
     RESOLUTION_CSV as MONTHLY_REVENUE_CROSS_MARKET_RESOLUTION_CSV,
     canonical_monthly_revenue_history_table_sha256,
-    cross_market_resolution_registry_canonical_sha256,
-    load_canonical_monthly_revenue_history,
-    load_cross_market_resolutions,
-    monthly_revenue_history_blob_sha256,
+)
+from revenue_unreacted_range_source_snapshot_projection import (
+    CUTOFF_DATE as SOURCE_SNAPSHOT_CUTOFF_DATE,
+    LATEST_DETAIL_CSV as SOURCE_SNAPSHOT_DETAIL_CSV,
+    LATEST_MANIFEST_CSV as SOURCE_SNAPSHOT_MANIFEST_CSV,
+    REVENUE_HISTORY_CSV as MONTHLY_REVENUE_HISTORY,
+    load_cutoff_monthly_revenue_subset,
+    load_projected_source_detail,
+    load_source_snapshot_projection_manifest,
+    validate_projection_binding,
 )
 
 
 ROOT = Path(__file__).resolve().parents[1]
 MODEL_ID = "revenue_unreacted_range"
 ARTIFACT_ID = "revenue_unreacted_range_lag_strength_matrix"
-ARTIFACT_VERSION = "trading_day_lag_strength_root_cause_pending_v4_20260720"
+ARTIFACT_VERSION = "trading_day_lag_strength_root_cause_pending_v5_20260802"
 SOURCE_DETAIL = ROOT / "output/latest/research_backtest/revenue_unreacted_range_fixed_confirmation_feature_contrast_audit_detail_latest.csv"
-MONTHLY_REVENUE_HISTORY = ROOT / "output/latest/research_backtest/monthly_revenue_history_latest.csv"
 PRICE_HISTORY_DIR = ROOT / "data/stock_price_history"
 LATEST_CSV = ROOT / f"output/latest/research_backtest/{ARTIFACT_ID}_latest.csv"
 DETAIL_CSV = ROOT / f"output/latest/research_backtest/{ARTIFACT_ID}_detail_latest.csv"
@@ -39,6 +46,34 @@ MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS = (
     "monthly_revenue_history_blob_sha256",
     "monthly_revenue_canonical_table_sha256",
     "cross_market_resolution_registry_canonical_sha256",
+)
+SOURCE_SNAPSHOT_LINEAGE_COLUMNS = (
+    "source_projection_id",
+    "source_projection_version",
+    "source_projection_policy_id",
+    "source_projection_cutoff_date",
+    "source_projection_cutoff_revenue_subset_semantic_sha256",
+    "source_projection_cutoff_price_input_semantic_sha256",
+    "source_projection_applied_monthly_resolution_semantic_sha256",
+    "source_projection_applied_price_resolution_semantic_sha256",
+)
+FIXED_SOURCE_LINEAGE_COLUMNS = (
+    "source_fixed_confirmation_artifact_id",
+    "source_fixed_confirmation_artifact_version",
+    "source_fixed_confirmation_cutoff_row_count",
+    "source_fixed_confirmation_cutoff_semantic_sha256",
+)
+ALL_LINEAGE_COLUMNS = (
+    *MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS,
+    *SOURCE_SNAPSHOT_LINEAGE_COLUMNS,
+    *FIXED_SOURCE_LINEAGE_COLUMNS,
+)
+SOURCE_DATE_COLUMNS = (
+    "source_monthly_revenue_source_table_date",
+    "signal_date",
+    "confirmation_date",
+    "entry_date",
+    "exit_date",
 )
 
 CURRENT_LAG_BUCKETS = (
@@ -62,7 +97,7 @@ SUMMARY_COLUMNS = [
     "model_id",
     "artifact_id",
     "artifact_version",
-    *MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS,
+    *ALL_LINEAGE_COLUMNS,
     "matrix_order",
     "matrix_family",
     "condition_test_id",
@@ -111,7 +146,7 @@ DETAIL_COLUMNS = [
     "model_id",
     "artifact_id",
     "artifact_version",
-    *MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS,
+    *ALL_LINEAGE_COLUMNS,
     "episode_key",
     "stock_id",
     "stock_name",
@@ -205,13 +240,27 @@ def _load_price_dates(stock_id: str, cache: dict[str, pd.Series]) -> pd.Series:
     if not path.is_file():
         raise RuntimeError(f"missing stock price history for lag matrix: {path}")
     frame = pd.read_csv(path, usecols=["date"], dtype={"date": str})
-    dates = frame["date"].astype(str).str.replace(r"\D", "", regex=True).str[:8].sort_values()
+    dates = frame["date"].astype(str).str.strip()
+    if not dates.str.fullmatch(r"\d{8}").all():
+        raise RuntimeError(f"price history {stock_id} contains invalid trading dates")
+    dates = dates.loc[dates.le(SOURCE_SNAPSHOT_CUTOFF_DATE)].sort_values()
+    duplicate_dates = sorted(dates.loc[dates.duplicated(keep=False)].unique().tolist())
+    if duplicate_dates:
+        raise RuntimeError(
+            f"price history {stock_id} repeats trading dates within cutoff: "
+            f"{duplicate_dates[:3]}"
+        )
     cache[stock_id] = dates.reset_index(drop=True)
     return cache[stock_id]
 
 
 def _trading_day_lag(stock_id: str, start_date: str, end_date: str, cache: dict[str, pd.Series]) -> int:
-    if not start_date or not end_date or start_date > end_date:
+    if (
+        not start_date
+        or not end_date
+        or start_date > end_date
+        or end_date > SOURCE_SNAPSHOT_CUTOFF_DATE
+    ):
         raise RuntimeError(
             f"invalid lag dates: stock_id={stock_id}; start_date={start_date}; end_date={end_date}"
         )
@@ -221,6 +270,8 @@ def _trading_day_lag(stock_id: str, start_date: str, end_date: str, cache: dict[
 
 def _source_episodes(source: pd.DataFrame) -> pd.DataFrame:
     required = {
+        "research_artifact_id",
+        "artifact_version",
         "episode_key",
         "stock_id",
         "source_monthly_revenue_period",
@@ -243,7 +294,18 @@ def _source_episodes(source: pd.DataFrame) -> pd.DataFrame:
         & ~_boolish(source["sensitivity_basis"])
         & source["feature_time_basis"].astype(str).eq("signal_date_close")
     )
-    episodes = source.loc[mask].drop_duplicates("episode_key").copy()
+    selected = source.loc[mask].copy()
+    for column in SOURCE_DATE_COLUMNS:
+        values = selected[column].astype(str).str.strip()
+        if not values.str.fullmatch(r"\d{8}").all():
+            raise RuntimeError(f"lag strength source contains invalid {column}")
+        selected[column] = values
+    cutoff_mask = pd.Series(True, index=selected.index)
+    for column in SOURCE_DATE_COLUMNS:
+        cutoff_mask &= selected[column].le(SOURCE_SNAPSHOT_CUTOFF_DATE)
+    episodes = selected.loc[cutoff_mask].copy()
+    if episodes.empty:
+        raise RuntimeError("lag strength source has no fully observed cutoff cohort")
     if episodes["episode_key"].duplicated().any():
         raise RuntimeError("lag strength source contains duplicate episodes")
     repeat = episodes.groupby(["stock_id", "source_monthly_revenue_period"], dropna=False).size()
@@ -252,25 +314,96 @@ def _source_episodes(source: pd.DataFrame) -> pd.DataFrame:
     return episodes.sort_values(["stock_id", "signal_date"], kind="mergesort").reset_index(drop=True)
 
 
-def _monthly_revenue_runtime_context() -> tuple[pd.DataFrame, dict[str, str]]:
-    history = load_canonical_monthly_revenue_history(
+def canonical_fixed_source_slice_sha256(source: pd.DataFrame) -> str:
+    columns = sorted(column for column in source.columns if column != "generated_at")
+    rows = [
+        ["" if pd.isna(value) else str(value) for value in row]
+        for row in source.loc[:, columns].itertuples(index=False, name=None)
+    ]
+    payload = json.dumps(
+        ["revenue_lag_fixed_source_cutoff_slice_v1", columns, rows],
+        ensure_ascii=False,
+        separators=(",", ":"),
+    ).encode("utf-8")
+    return hashlib.sha256(payload).hexdigest()
+
+
+def _fixed_source_lineage(episodes: pd.DataFrame) -> dict[str, object]:
+    if episodes.empty:
+        raise RuntimeError("lag strength fixed-confirmation cutoff source is empty")
+    artifact_ids = set(episodes["research_artifact_id"].astype(str))
+    versions = set(episodes["artifact_version"].astype(str))
+    if len(artifact_ids) != 1 or len(versions) != 1:
+        raise RuntimeError("lag strength fixed-confirmation source identity is not constant")
+    return {
+        "source_fixed_confirmation_artifact_id": next(iter(artifact_ids)),
+        "source_fixed_confirmation_artifact_version": next(iter(versions)),
+        "source_fixed_confirmation_cutoff_row_count": len(episodes),
+        "source_fixed_confirmation_cutoff_semantic_sha256": (
+            canonical_fixed_source_slice_sha256(episodes)
+        ),
+    }
+
+
+def _monthly_revenue_runtime_context(
+    source_projection_manifest: pd.DataFrame | None = None,
+    projected_source_detail: pd.DataFrame | None = None,
+) -> tuple[pd.DataFrame, dict[str, str]]:
+    manifest = (
+        source_projection_manifest.copy()
+        if source_projection_manifest is not None
+        else load_source_snapshot_projection_manifest(SOURCE_SNAPSHOT_MANIFEST_CSV)
+    )
+    projected_detail = (
+        projected_source_detail.copy()
+        if projected_source_detail is not None
+        else load_projected_source_detail(SOURCE_SNAPSHOT_DETAIL_CSV)
+    )
+    validate_projection_binding(
+        manifest,
+        projected_detail,
+        expected_cutoff_date=SOURCE_SNAPSHOT_CUTOFF_DATE,
+    )
+    if len(manifest) != 1:
+        raise RuntimeError(
+            "lag strength source snapshot manifest must contain exactly one row"
+        )
+    manifest_row = manifest.iloc[0]
+    history = load_cutoff_monthly_revenue_subset(
         MONTHLY_REVENUE_HISTORY,
         MONTHLY_REVENUE_CROSS_MARKET_RESOLUTION_CSV,
+        cutoff_date=SOURCE_SNAPSHOT_CUTOFF_DATE,
     )
+    cutoff_sha = canonical_monthly_revenue_history_table_sha256(history)
+    expected_cutoff_sha = str(
+        manifest_row["cutoff_revenue_subset_semantic_sha256"]
+    ).strip().lower()
+    if cutoff_sha != expected_cutoff_sha:
+        raise RuntimeError(
+            "lag strength cutoff monthly revenue no longer matches source snapshot projection"
+        )
     lineage = {
-        "monthly_revenue_history_blob_sha256": monthly_revenue_history_blob_sha256(
-            MONTHLY_REVENUE_HISTORY
-        ),
-        "monthly_revenue_canonical_table_sha256": (
-            canonical_monthly_revenue_history_table_sha256(history)
-        ),
-        "cross_market_resolution_registry_canonical_sha256": (
-            cross_market_resolution_registry_canonical_sha256(
-                load_cross_market_resolutions(
-                    MONTHLY_REVENUE_CROSS_MARKET_RESOLUTION_CSV
-                )
-            )
-        ),
+        "monthly_revenue_history_blob_sha256": str(
+            manifest_row["monthly_revenue_history_blob_sha256"]
+        ).strip().lower(),
+        "monthly_revenue_canonical_table_sha256": expected_cutoff_sha,
+        "cross_market_resolution_registry_canonical_sha256": str(
+            manifest_row["cross_market_resolution_registry_canonical_sha256"]
+        ).strip().lower(),
+        "source_projection_id": str(manifest_row["projection_id"]),
+        "source_projection_version": str(manifest_row["projection_version"]),
+        "source_projection_policy_id": str(manifest_row["projection_policy_id"]),
+        "source_projection_cutoff_date": str(manifest_row["cutoff_date"]),
+        "source_projection_cutoff_revenue_subset_semantic_sha256": expected_cutoff_sha,
+        "source_projection_cutoff_price_input_semantic_sha256": str(
+            manifest_row["cutoff_price_input_semantic_sha256"]
+        ).strip().lower(),
+        "source_projection_applied_monthly_resolution_semantic_sha256": str(
+            manifest_row["applied_monthly_resolution_semantic_sha256"]
+        ).strip().lower(),
+        "source_projection_applied_price_resolution_semantic_sha256": str(
+            manifest_row["applied_price_resolution_semantic_sha256"]
+        ).strip().lower(),
     }
     return history, lineage
 
@@ -323,11 +456,20 @@ def _strict_streak(
     return streak, start_period, start_date
 
 
-def build_lag_strength_detail(source: pd.DataFrame) -> pd.DataFrame:
+def build_lag_strength_detail(
+    source: pd.DataFrame,
+    *,
+    source_projection_manifest: pd.DataFrame | None = None,
+    projected_source_detail: pd.DataFrame | None = None,
+) -> pd.DataFrame:
     episodes = _source_episodes(source)
+    fixed_source_lineage = _fixed_source_lineage(episodes)
     generated_at = _now_text()
     price_cache: dict[str, pd.Series] = {}
-    monthly_revenue_history, runtime_lineage = _monthly_revenue_runtime_context()
+    monthly_revenue_history, runtime_lineage = _monthly_revenue_runtime_context(
+        source_projection_manifest,
+        projected_source_detail,
+    )
     revenue_lookup = _monthly_history_lookup(monthly_revenue_history)
     rows: list[dict[str, object]] = []
     for episode in episodes.itertuples(index=False):
@@ -358,6 +500,7 @@ def build_lag_strength_detail(source: pd.DataFrame) -> pd.DataFrame:
             "artifact_id": ARTIFACT_ID,
             "artifact_version": ARTIFACT_VERSION,
             **runtime_lineage,
+            **fixed_source_lineage,
             "episode_key": str(episode.episode_key),
             "stock_id": stock_id,
             "stock_name": str(getattr(episode, "stock_name", "")),
@@ -541,7 +684,7 @@ def _summary_row(
         "artifact_version": ARTIFACT_VERSION,
         **{
             column: str(detail[column].iloc[0])
-            for column in MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS
+            for column in ALL_LINEAGE_COLUMNS
         },
         "matrix_order": order,
         "matrix_family": family,
@@ -688,8 +831,17 @@ def build_lag_strength_summary(detail: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(rows, columns=SUMMARY_COLUMNS).sort_values("matrix_order").reset_index(drop=True)
 
 
-def build_lag_strength_matrix(source: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
-    detail = build_lag_strength_detail(source)
+def build_lag_strength_matrix(
+    source: pd.DataFrame,
+    *,
+    source_projection_manifest: pd.DataFrame | None = None,
+    projected_source_detail: pd.DataFrame | None = None,
+) -> tuple[pd.DataFrame, pd.DataFrame]:
+    detail = build_lag_strength_detail(
+        source,
+        source_projection_manifest=source_projection_manifest,
+        projected_source_detail=projected_source_detail,
+    )
     summary = build_lag_strength_summary(detail)
     return summary, detail
 

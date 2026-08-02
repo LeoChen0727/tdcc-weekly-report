@@ -278,12 +278,16 @@ def _price_file_projection(path: Path, stock_id: str, cutoff_date: str) -> pd.Da
     frame["date"] = frame["date"].map(
         lambda value: _digits(value, 8, label=f"price date for {stock_id}")
     )
-    frame = (
-        frame.loc[frame["date"].le(cutoff_date)]
-        .sort_values("date", kind="mergesort")
-        .drop_duplicates("date", keep="last")
-        .reset_index(drop=True)
+    frame = frame.loc[frame["date"].le(cutoff_date)].copy()
+    duplicate_dates = sorted(
+        frame.loc[frame["date"].duplicated(keep=False), "date"].unique().tolist()
     )
+    if duplicate_dates:
+        raise RuntimeError(
+            f"price history {stock_id} repeats trading dates within cutoff: "
+            f"{duplicate_dates[:3]}"
+        )
+    frame = frame.sort_values("date", kind="mergesort").reset_index(drop=True)
     return frame
 
 

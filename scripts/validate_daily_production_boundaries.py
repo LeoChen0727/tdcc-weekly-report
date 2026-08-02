@@ -14,15 +14,6 @@ HISTORICAL_SOURCE_REPLAY_WORKFLOW = (
 )
 DAILY_MODEL_MAINTENANCE_PR_WORKFLOW = ROOT / ".github" / "workflows" / "daily_model_maintenance_pr_validation.yml"
 DAILY_PDF_REPLAY_PR_WORKFLOW = ROOT / ".github" / "workflows" / "daily_pdf_replay_pr_validation.yml"
-WARRANT_WORKFLOW = ROOT / ".github" / "workflows" / "warrant_flow.yml"
-WEEKLY_THEME_WORKFLOW = ROOT / ".github" / "workflows" / "weekly_theme_review.yml"
-PUBLISHED_SNAPSHOT_VALIDATOR_COMMAND = (
-    "python scripts/validate_daily_published_model_snapshots.py"
-)
-PR_IMMUTABLE_HISTORY_ONLY_FLAG = "--pr-immutable-history-only"
-PR_IMMUTABLE_HISTORY_ONLY_COMMAND = (
-    f"{PUBLISHED_SNAPSHOT_VALIDATOR_COMMAND} {PR_IMMUTABLE_HISTORY_ONLY_FLAG}"
-)
 DAILY_PDF_REPLAY_AUTOMATIC_PATHS = {
     "config/daily_pdf_rendered_model_regression_contract.csv",
     "config/daily_pdf_semantic_golden_cases.csv",
@@ -630,18 +621,6 @@ def validate_historical_source_replay_workflow(text: str) -> list[str]:
         "python scripts/replay_historical_structured_sources.py": "must use the canonical replay orchestrator",
         "--repair-market-index-base-date \"$BASE_REPAIR_DATE\"": "must explicitly route the TPEX base repair",
         "--replay-id \"$HISTORICAL_SOURCE_REPLAY_ID\"": "must use the immutable run namespace",
-        "Rebuild and validate registered warrant advisory consumer lineage": (
-            "must refresh registered advisory consumers after canonical warrant replay"
-        ),
-        "python scripts/build_volume_attack_theme_layer.py": (
-            "must rebuild the registered volume-attack advisory projection"
-        ),
-        "python scripts/validate_volume_attack_theme_layer.py": (
-            "must validate refreshed advisory lineage before commit"
-        ),
-        "python scripts/validate_daily_canonical_field_lineage.py": (
-            "must validate global canonical consumer lineage after advisory rebuild"
-        ),
         "--expected-pipeline-sha \"$REPLAY_BASE_SHA\"": "must validate against the code-base SHA",
         "python scripts/validate_historical_source_replay_staged_paths.py": "must fail closed on staged/worktree paths",
         "git add data/daily_price/": "must explicitly stage dated price sources",
@@ -650,21 +629,6 @@ def validate_historical_source_replay_workflow(text: str) -> list[str]:
         "git add data/futures_options/": "must explicitly stage TAIFEX histories",
         "git add output/history/warrant_daily/": "must explicitly stage warrant history",
         "git add output/history/warrant_flow/": "must explicitly stage warrant-flow history",
-        "git add output/latest/volume_attack_theme_layer_latest.*": (
-            "must stage the refreshed advisory theme layer"
-        ),
-        "git add output/latest/volume_attack_theme_stocks_latest.*": (
-            "must stage the refreshed advisory stock layer"
-        ),
-        "git add output/latest/volume_attack_theme_layer_validation_latest.*": (
-            "must stage advisory lineage validation evidence"
-        ),
-        "git add docs/latest/volume_attack_theme_layer_latest.*": (
-            "must stage the advisory theme documentation mirror"
-        ),
-        "git add docs/latest/volume_attack_theme_stocks_latest.*": (
-            "must stage the advisory stock documentation mirror"
-        ),
         "REMOTE_MAIN_SHA_PRECOMMIT": "must record the precommit remote SHA",
         "REMOTE_MAIN_SHA_AFTER": "must verify the post-push remote SHA",
         "commit_count_after - commit_count_before": "must prove exactly one output commit",
@@ -707,12 +671,8 @@ def validate_historical_source_replay_workflow(text: str) -> list[str]:
         "Install replay dependencies",
         "Validate repository automation boundaries",
         "python scripts/replay_historical_structured_sources.py",
-        "python scripts/build_volume_attack_theme_layer.py",
-        "python scripts/validate_volume_attack_theme_layer.py",
-        "python scripts/validate_daily_canonical_field_lineage.py",
         "python scripts/validate_historical_structured_source_replay.py",
         "git add data/daily_price/",
-        "git add output/latest/volume_attack_theme_layer_latest.*",
         "python scripts/validate_historical_source_replay_staged_paths.py",
         "Reject remote-main drift before the only output commit",
         "git commit -m",
@@ -1042,8 +1002,8 @@ def main() -> int:
             "python scripts/validate_daily_production_boundaries.py": (
                 "daily model maintenance PR workflow must run production boundary validation"
             ),
-            PR_IMMUTABLE_HISTORY_ONLY_COMMAND: (
-                "daily model maintenance PR workflow must validate published model snapshots"
+            'python scripts/validate_daily_published_model_snapshots_pr_safe.py --base-ref "$BASE_SHA"': (
+                "daily model maintenance PR workflow must use the PR-safe published snapshot gate"
             ),
             "tests/test_chatgpt_daily_report_new_conversation_replay.py": (
                 "daily model maintenance PR workflow must run rendered PDF replay regression tests"
@@ -1061,14 +1021,6 @@ def main() -> int:
         for literal, message in required_pr_workflow_literals.items():
             if literal not in pr_workflow_text:
                 errors.append(f"{message}: missing {literal!r}")
-        pr_workflow_lines = {
-            line.strip() for line in pr_workflow_text.splitlines()
-        }
-        if PR_IMMUTABLE_HISTORY_ONLY_COMMAND not in pr_workflow_lines:
-            errors.append(
-                "daily model maintenance PR workflow must execute the exact immutable "
-                "snapshot history command"
-            )
         if "daily-pdf-dfkai-replay:" in pr_workflow_text:
             errors.append("daily model maintenance PR workflow must not own the Windows DFKai replay job")
         if "Install and validate DFKai-SB" in pr_workflow_text:
@@ -1079,39 +1031,6 @@ def main() -> int:
         )
         if "- name: Replay ChatGPT-side daily PDF new conversation" in pr_validation_block:
             errors.append("daily model PR Ubuntu validation job must not render the six daily PDFs")
-
-    workflow_paths = {
-        *list((ROOT / ".github" / "workflows").glob("*.yml")),
-        *list((ROOT / ".github" / "workflows").glob("*.yaml")),
-    }
-    history_flag_callers = {
-        path.name
-        for path in workflow_paths
-        if PR_IMMUTABLE_HISTORY_ONLY_FLAG in read_text(path)
-    }
-    expected_history_flag_callers = {DAILY_MODEL_MAINTENANCE_PR_WORKFLOW.name}
-    if history_flag_callers != expected_history_flag_callers:
-        errors.append(
-            "PR immutable snapshot history mode must be isolated to the daily model "
-            "maintenance PR workflow; "
-            f"observed={sorted(history_flag_callers)} "
-            f"expected={sorted(expected_history_flag_callers)}"
-        )
-    for production_workflow in (
-        DAILY_WORKFLOW,
-        WARRANT_WORKFLOW,
-        WEEKLY_THEME_WORKFLOW,
-    ):
-        if not production_workflow.exists():
-            continue
-        production_lines = {
-            line.strip() for line in read_text(production_workflow).splitlines()
-        }
-        if PUBLISHED_SNAPSHOT_VALIDATOR_COMMAND not in production_lines:
-            errors.append(
-                "formal publish workflow must retain strict current snapshot validation: "
-                f"{production_workflow.relative_to(ROOT).as_posix()}"
-            )
 
     if not DAILY_PDF_REPLAY_PR_WORKFLOW.exists():
         errors.append(

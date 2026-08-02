@@ -45,10 +45,13 @@ def test_revenue_projection_chain_stage_is_not_a_second_producer_entrypoint() ->
     assert validator.workflow_input_defaults(text)[stage_input] == "false"
     assert stage_input not in {row.workflow_input for row in rows}
     assert validator.REVENUE_PROJECTION_CHAIN_BUILD_COMMAND in text
-    assert (
-        "python scripts/validate_revenue_unreacted_range_forward_confirmation_feature_audit.py"
-        in validator.REVENUE_PROJECTION_CHAIN_VALIDATOR_COMMANDS
-    )
+    projection_chain_validators = {
+        "python scripts/validate_revenue_unreacted_range_lag_strength_matrix.py",
+        "python scripts/validate_revenue_unreacted_range_launch_timing_feature_audit.py",
+        "python scripts/validate_revenue_unreacted_range_forward_confirmation_feature_audit.py",
+    }
+    assert projection_chain_validators <= validator.REVENUE_PROJECTION_CHAIN_VALIDATOR_COMMANDS
+    assert projection_chain_validators <= {line.strip() for line in text.splitlines()}
     assert validator.validate_workflow_text(text, rows, producers) == []
 
 

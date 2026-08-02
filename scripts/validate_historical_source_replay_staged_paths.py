@@ -24,15 +24,12 @@ ALLOWED_PATTERNS = [
     r"output/latest/warrant_(?:daily_raw|source_status)_latest\.(?:csv|json|md)",
     r"output/latest/warrant_daily_fetch_latest\.md",
     r"output/latest/warrant_flow_latest\.(?:csv|md)",
-    r"output/latest/volume_attack_theme_(?:layer|stocks)_latest\.(?:csv|md)",
-    r"output/latest/volume_attack_theme_layer_validation_latest\.(?:json|md)",
     r"output/latest/stock_price_history_manifest\.(?:csv|json|md)",
     r"output/latest/daily_price_history_continuity_latest\.(?:csv|json|md)",
     r"output/latest/data_freshness_latest\.(?:csv|md)",
     r"output/latest/historical_structured_source_replay_latest\.(?:json|md)",
     r"output/debug/warrant_fetch_debug_latest\.(?:csv|md)",
     r"docs/latest/stock_price_history_manifest\.(?:csv|json|md)",
-    r"docs/latest/volume_attack_theme_(?:layer|stocks)_latest\.(?:csv|md)",
 ]
 
 PRESERVE_PRICE_HISTORY_FORBIDDEN_PATTERNS = [

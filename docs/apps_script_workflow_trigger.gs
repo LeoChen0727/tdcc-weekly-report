@@ -1814,7 +1814,6 @@ function triggerResearchBacktestPipeline() {
     run_shared_model_research_data_refresh: "true",
     run_price_pullback_23ema_research: "true",
     run_revenue_unreacted_range_research: "true",
-    run_revenue_unreacted_range_source_snapshot_projection_chain_only: "false",
     run_volume_range_breakout_v2_research: "true",
   });
   Utilities.sleep(5000);

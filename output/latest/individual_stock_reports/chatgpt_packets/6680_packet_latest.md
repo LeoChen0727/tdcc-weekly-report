@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6680 鑫創電子
 
 ## Metadata
-- generated_at: 2026-07-31 01:15:49 Asia/Taipei
+- generated_at: 2026-08-01 22:28:37 Asia/Taipei
 - stock_id: 6680
 - stock_name: 鑫創電子
 - packet_status: standard_180d_window_packet
@@ -11,10 +11,10 @@
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260724-88f3a903b384007d
-- official_tdcc_signal_date: 20260724
-- latest_tdcc_date: 20260724
-- tdcc_rows: 35
+- source_tdcc_dataset_id: tdcc-20260731-0b236a2d4a043618
+- official_tdcc_signal_date: 20260731
+- latest_tdcc_date: 20260731
+- tdcc_rows: 36
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -171,23 +171,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260724
-- over_400_ratio: 72.73
-- over_600_ratio: 70.76
-- over_800_ratio: 67.96
-- over_1000_ratio: 64.52
-- over_400_change_1w: -0.02
-- over_800_change_1w: 0.01
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
+- as_of_date: 20260731
+- over_400_ratio: 72.76
+- over_600_ratio: 70.79
+- over_800_ratio: 68
+- over_1000_ratio: 64.56
+- over_400_change_1w: 0.03
+- over_800_change_1w: 0.04
+- over_1000_change_1w: 0.04
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260508,72.64,0,67.78,0,64.34,0,0,False,False
 20260515,72.63,-0.01,67.79,0.01,64.35,0.01,1,False,True
 20260522,72.64,0.01,67.8,0.01,64.36,0.01,2,True,True
 20260529,72.63,-0.01,67.8,0,64.36,0,0,False,False
@@ -199,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260709,72.75,-0.01,67.95,0,64.51,0,0,False,False
 20260717,72.75,0,67.95,0,64.51,0,0,False,False
 20260724,72.73,-0.02,67.96,0.01,64.52,0.01,1,False,True
+20260731,72.76,0.03,68,0.04,64.56,0.04,2,True,True
 ```
 
 ## Candidate Context

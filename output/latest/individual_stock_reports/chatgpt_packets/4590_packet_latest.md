@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4590 富田-創
 
 ## Metadata
-- generated_at: 2026-07-31 01:15:19 Asia/Taipei
+- generated_at: 2026-08-01 22:27:50 Asia/Taipei
 - stock_id: 4590
 - stock_name: 富田-創
 - packet_status: standard_rawdata_packet
@@ -11,10 +11,10 @@
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260724-88f3a903b384007d
-- official_tdcc_signal_date: 20260724
-- latest_tdcc_date: 20260724
-- tdcc_rows: 13
+- source_tdcc_dataset_id: tdcc-20260731-0b236a2d4a043618
+- official_tdcc_signal_date: 20260731
+- latest_tdcc_date: 20260731
+- tdcc_rows: 14
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -170,15 +170,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260724
-- over_400_ratio: 49.11
-- over_600_ratio: 44.37
+- as_of_date: 20260731
+- over_400_ratio: 48.93
+- over_600_ratio: 44.39
 - over_800_ratio: 39.27
 - over_1000_ratio: 35.82
-- over_400_change_1w: -0.94
-- over_800_change_1w: -0.1
-- over_1000_change_1w: -0.1
-- tdcc_consecutive_up_weeks: 0
+- over_400_change_1w: -0.18
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260508,49.2,-0.18,43.37,-1.62,36.96,-0.04,0,False,False
 20260515,49.16,-0.04,43.33,-0.04,36.92,-0.04,0,False,False
 20260522,49.08,-0.08,43.3,-0.03,36.91,-0.01,0,False,False
 20260529,49.07,-0.01,41.85,-1.45,36.92,0.01,1,False,True
@@ -198,6 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260709,49.75,0.35,39.86,-0.36,36.41,-0.36,1,False,False
 20260717,50.05,0.3,39.37,-0.49,35.92,-0.49,2,False,False
 20260724,49.11,-0.94,39.27,-0.1,35.82,-0.1,0,False,False
+20260731,48.93,-0.18,39.27,0,35.82,0,1,False,False
 ```
 
 ## Candidate Context

@@ -40,6 +40,7 @@ from revenue_unreacted_range_extreme_return_path_audit import (
 )
 from revenue_unreacted_range_lag_strength_matrix import (
     DETAIL_CSV as LAG_STRENGTH_DETAIL_CSV,
+    SOURCE_DETAIL as FIXED_CONFIRMATION_DETAIL_CSV,
     build_lag_strength_matrix,
     write_lag_strength_matrix,
 )
@@ -64,7 +65,6 @@ from revenue_unreacted_range_source_first_condition_audit import (
     write_source_first_condition_audit,
 )
 from revenue_unreacted_range_source_snapshot_projection import (
-    build_source_snapshot_projection_manifest,
     load_projected_source_detail,
     load_source_snapshot_projection_manifest,
     validate_projection_binding,
@@ -77,6 +77,17 @@ from revenue_unreacted_range_research_frame import (
 
 MODEL_ID = "revenue_unreacted_range"
 PRODUCER = "scripts/build_revenue_unreacted_range_research.py"
+
+
+def load_immutable_source_snapshot_projection() -> tuple[pd.DataFrame, pd.DataFrame]:
+    manifest = load_source_snapshot_projection_manifest()
+    projected_detail = load_projected_source_detail()
+    validate_projection_binding(
+        manifest,
+        projected_detail,
+        expected_cutoff_date=PRICE_HISTORY_CUTOFF_DATE,
+    )
+    return manifest, projected_detail
 
 
 def build_and_write() -> None:
@@ -101,18 +112,19 @@ def build_and_write() -> None:
         numeric_specs=REVENUE_UNREACTED_FEATURE_CONTRAST_NUMERIC_SPECS,
     )
     extreme_return_audit = build_extreme_return_path_audit(fixed_detail)
-    lag_strength_summary, lag_strength_detail = build_lag_strength_matrix(fixed_detail)
+    source_first_summary, source_first_detail = build_source_first_condition_audit()
+    source_projection_manifest, projected_source_detail = (
+        load_immutable_source_snapshot_projection()
+    )
+    lag_strength_summary, lag_strength_detail = build_lag_strength_matrix(
+        fixed_detail,
+        source_projection_manifest=source_projection_manifest,
+        projected_source_detail=projected_source_detail,
+    )
     launch_summary, launch_detail, launch_feature = build_launch_timing_feature_audit(
         prepared,
         lag_strength_detail,
-    )
-    source_first_summary, source_first_detail = build_source_first_condition_audit()
-    _projected_source_summary, projected_source_detail = build_source_first_condition_audit(
         observation_cutoff_date=PRICE_HISTORY_CUTOFF_DATE,
-    )
-    source_projection_manifest = build_source_snapshot_projection_manifest(
-        source_first_detail,
-        projected_source_detail,
     )
     projected_daily_by_stock = prepare_daily_by_stock(
         prepared,
@@ -156,7 +168,6 @@ def build_and_write() -> None:
     write_lag_strength_matrix(lag_strength_summary, lag_strength_detail)
     write_launch_timing_feature_audit(launch_summary, launch_detail, launch_feature)
     write_source_first_condition_audit(source_first_summary, source_first_detail)
-    write_source_snapshot_projection(source_projection_manifest, projected_source_detail)
     write_forward_confirmation_feature_audit(
         forward_summary,
         forward_detail,
@@ -203,6 +214,7 @@ def build_and_write_launch_timing_feature_audit() -> None:
     launch_summary, launch_detail, launch_feature = build_launch_timing_feature_audit(
         prepared,
         lag_strength_detail,
+        observation_cutoff_date=PRICE_HISTORY_CUTOFF_DATE,
     )
     write_launch_timing_feature_audit(launch_summary, launch_detail, launch_feature)
 
@@ -213,23 +225,14 @@ def build_and_write_source_first_condition_audit() -> None:
 
 
 def build_and_write_source_snapshot_projection() -> None:
-    full_summary, full_detail = build_source_first_condition_audit()
-    _projected_summary, projected_detail = build_source_first_condition_audit(
-        observation_cutoff_date=PRICE_HISTORY_CUTOFF_DATE,
-    )
-    manifest = build_source_snapshot_projection_manifest(full_detail, projected_detail)
-    write_source_first_condition_audit(full_summary, full_detail)
+    manifest, projected_detail = load_immutable_source_snapshot_projection()
     write_source_snapshot_projection(manifest, projected_detail)
 
 
 def build_and_write_source_snapshot_projection_chain() -> None:
     """Refresh only the cutoff-pinned source projection consumer chain."""
 
-    full_summary, full_detail = build_source_first_condition_audit()
-    _projected_summary, projected_detail = build_source_first_condition_audit(
-        observation_cutoff_date=PRICE_HISTORY_CUTOFF_DATE,
-    )
-    manifest = build_source_snapshot_projection_manifest(full_detail, projected_detail)
+    manifest, projected_detail = load_immutable_source_snapshot_projection()
 
     frame = build_revenue_unreacted_range_research_frame()
     if frame.empty:
@@ -242,6 +245,29 @@ def build_and_write_source_snapshot_projection_chain() -> None:
     )
     del frame
     gc.collect()
+    fixed_detail = pd.read_csv(
+        FIXED_CONFIRMATION_DETAIL_CSV,
+        dtype={
+            "stock_id": str,
+            "source_monthly_revenue_source_table_date": str,
+            "signal_date": str,
+            "confirmation_date": str,
+            "entry_date": str,
+            "exit_date": str,
+        },
+        keep_default_na=False,
+        low_memory=False,
+    )
+    lag_strength_summary, lag_strength_detail = build_lag_strength_matrix(
+        fixed_detail,
+        source_projection_manifest=manifest,
+        projected_source_detail=projected_detail,
+    )
+    launch_summary, launch_detail, launch_feature = build_launch_timing_feature_audit(
+        prepared,
+        lag_strength_detail,
+        observation_cutoff_date=PRICE_HISTORY_CUTOFF_DATE,
+    )
     projected_daily_by_stock = prepare_daily_by_stock(
         prepared,
         projected_detail,
@@ -277,10 +303,14 @@ def build_and_write_source_snapshot_projection_chain() -> None:
         projected_daily_by_stock,
     )
 
-    # Write upstream lineage before the position/shape builder reads the exact
-    # persisted sources and enforces the immutable 955-operation semantic pins.
-    write_source_first_condition_audit(full_summary, full_detail)
-    write_source_snapshot_projection(manifest, projected_detail)
+    # Persist the cutoff consumers in dependency order before the position/shape
+    # builder reads their exact artifacts and enforces the immutable 955 pins.
+    write_lag_strength_matrix(lag_strength_summary, lag_strength_detail)
+    write_launch_timing_feature_audit(
+        launch_summary,
+        launch_detail,
+        launch_feature,
+    )
     write_forward_confirmation_feature_audit(
         forward_summary,
         forward_detail,

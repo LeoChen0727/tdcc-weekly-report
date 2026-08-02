@@ -170,7 +170,7 @@ def test_every_active_model_has_exact_ast_semantic_ownership() -> None:
 def test_shared_business_semantics_are_disclosed_as_contained_not_technical() -> None:
     rows = read_csv("config/daily_model_shared_semantic_registry.csv")
     by_item = {row["semantic_item"]: row for row in rows}
-    assert len(rows) == 89
+    assert len(rows) == 91
     assert by_item["global:MODEL_SCORE_PROFILES"]["semantic_class"] == (
         "contained_legacy_cross_model_semantic"
     )
@@ -183,16 +183,25 @@ def test_shared_business_semantics_are_disclosed_as_contained_not_technical() ->
         "volume_range_breakout_v2_low_position_volume_attack;"
         "volume_range_breakout_v2_mid_position_momentum_attack"
     )
-    for family_helper in (
-        "function:append_volume_breakout_signals",
-        "function:volume_v2_candidate_lookup",
-    ):
+    family_helper_migrations = {
+        "function:append_volume_breakout_signals": (
+            "volume_v2_candidate_projection_lineage_20260731"
+        ),
+        "function:_volume_v2_formal_outcome_envelope": (
+            "volume_v2_candidate_projection_lineage_20260731"
+        ),
+        "function:_volume_v2_formal_outcome_sha256": (
+            "volume_v2_candidate_projection_lineage_20260731"
+        ),
+        "function:volume_v2_candidate_lookup": (
+            "volume_v2_candidate_projection_lineage_20260731"
+        ),
+    }
+    for family_helper, expected_migration in family_helper_migrations.items():
         assert by_item[family_helper]["semantic_class"] == (
             "contained_model_family_semantic"
         )
-        assert by_item[family_helper]["last_migration_id"] == (
-            "volume_v2_formal_lineage_hardening_20260718"
-        )
+        assert by_item[family_helper]["last_migration_id"] == expected_migration
     watch_lineage_validator = by_item["function:validate_volume_v2_watch_advisory_lineage"]
     assert watch_lineage_validator["semantic_class"] == "contained_model_family_semantic"
     assert watch_lineage_validator["last_migration_id"] == (
@@ -261,7 +270,7 @@ def test_warrant_runtime_subgraphs_pin_recursive_hashes_consumers_and_migration(
         assert row["consumer_models"] == expected_consumers
         assert row["canonical_ast_sha256"] == runtime_subgraph_sha256(graph, item)
         expected_migration = (
-            "volume_v2_advisory_asof_slice_lineage_20260727"
+            "volume_v2_candidate_projection_lineage_20260731"
             if item
             in {
                 "runtime_subgraph:run_warrant_formal_sync_only",
@@ -336,15 +345,85 @@ def test_volume_v2_asof_slice_migration_pins_exact_current_records() -> None:
         shared[key] if key.startswith("item:") else ownership[key.removeprefix("model:")]
         for key in changed
     ]
-    assert migration["new_sha256s"].split(";") == [
+    migration_new_sha256s = migration["new_sha256s"].split(";")
+    assert migration_new_sha256s[:2] == [
         semantic_record_sha256(key, row)
-        for key, row in zip(changed, current_rows)
+        for key, row in zip(changed[:2], current_rows[:2])
+    ]
+    later_projection = next(
+        row
+        for row in read_csv("config/daily_model_semantic_migrations.csv")
+        if row["migration_id"] == "volume_v2_candidate_projection_lineage_20260731"
+    )
+    later_previous_by_key = dict(
+        zip(
+            later_projection["changed_semantics"].split(";"),
+            later_projection["previous_sha256s"].split(";"),
+        )
+    )
+    assert migration_new_sha256s[2:] == [
+        later_previous_by_key[key] for key in changed[2:]
     ]
     expected_consumers = ";".join(sorted(ACTIVE_MODELS))
     assert migration["affected_models"] == expected_consumers
     assert migration["user_approval_reference"] == approval
     assert migration["migration_status"] == "validated_user_approved_migration"
-    for key, row in zip(changed, current_rows):
+    for key, row in zip(changed[:2], current_rows[:2]):
+        assert row["last_migration_id"] == migration_id
+        assert row["approval_reference"] == approval
+
+
+def test_volume_v2_candidate_projection_migration_pins_exact_current_records() -> None:
+    migration_id = "volume_v2_candidate_projection_lineage_20260731"
+    approval = "user_delegated_daily_model_2451_duplicate_normalization_repair_20260731"
+    ownership = {
+        row["model_id"]: row
+        for row in read_csv("config/daily_model_semantic_ownership.csv")
+    }
+    shared = {
+        f"item:{row['source_file']}::{row['semantic_item']}": row
+        for row in read_csv("config/daily_model_shared_semantic_registry.csv")
+    }
+    migration = next(
+        row
+        for row in read_csv("config/daily_model_semantic_migrations.csv")
+        if row["migration_id"] == migration_id
+    )
+    changed = migration["changed_semantics"].split(";")
+    assert changed == [
+        "item:scripts/build_daily_candidate_model_layer.py::function:append_volume_breakout_signals",
+        "item:scripts/build_daily_candidate_model_layer.py::function:_volume_v2_formal_outcome_envelope",
+        "item:scripts/build_daily_candidate_model_layer.py::function:_volume_v2_formal_outcome_sha256",
+        "item:scripts/build_daily_candidate_model_layer.py::function:volume_v2_candidate_lookup",
+        "item:scripts/build_daily_candidate_model_layer.py::runtime_subgraph:run_warrant_formal_sync_only",
+        "item:scripts/build_daily_candidate_model_layer.py::runtime_subgraph:synchronize_warrant_formal_frames",
+        "model:volume_range_breakout_v2_high_position_volume_attack",
+        "model:volume_range_breakout_v2_low_position_volume_attack",
+        "model:volume_range_breakout_v2_mid_position_momentum_attack",
+    ]
+    assert migration["previous_sha256s"].split(";") == [
+        "841c11be7321e4000b59ce95a0ca7cc1cd843c24be482bccc4a8c36098327f0a",
+        "NEW",
+        "NEW",
+        "a22f68e77932175e9ca2b04ca3c60471a5a173a34fa90765b426e3ea1afe07ab",
+        "14320bec05bbc2370eb9b1f03a3e240536a011e6460f09ef71d78303995c02b2",
+        "e83a5815d063bdd5707128c492414e2012ec4bd1f5d39105cf5169cb9bd3c458",
+        "46645d18da4feebe982590842427274a899c7046d8b37d57d80ba2b2b9fd42c5",
+        "76776e3924e0d32ba83951c809608f080e2c4e1b54f90eec7e37dfe760e69117",
+        "34a8a772898459af18305daee7310ead321aea9e992e1cc869505ed585a13ecc",
+    ]
+    current_rows = [
+        shared[key] if key.startswith("item:") else ownership[key.removeprefix("model:")]
+        for key in changed
+    ]
+    assert migration["new_sha256s"].split(";") == [
+        semantic_record_sha256(key, row)
+        for key, row in zip(changed, current_rows)
+    ]
+    assert migration["affected_models"] == ";".join(sorted(ACTIVE_MODELS))
+    assert migration["user_approval_reference"] == approval
+    assert migration["migration_status"] == "validated_user_approved_migration"
+    for row in current_rows:
         assert row["last_migration_id"] == migration_id
         assert row["approval_reference"] == approval
 
@@ -503,7 +582,7 @@ def test_data_sharing_registry_uses_model_owned_research_entrypoints() -> None:
         "latest_context_not_historical"
     )
     assert by_family["official_warrant_flow_current_snapshot"]["consumer_access_mode"] == (
-        "current_date_negative_or_exact_projection_parity_guard_only"
+        "current_projection_parity_and_pinned_committed_revision_lineage_audit_only"
     )
     background = {
         row["data_family_id"]: row
@@ -516,7 +595,7 @@ def test_data_sharing_registry_uses_model_owned_research_entrypoints() -> None:
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
-    assert len(rows) == 22
+    assert len(rows) == 24
     baseline = rows[0]
     assert tuple(baseline) == DATA_SHARING_MIGRATION_COLUMNS
     assert data_migration_row_sha256(baseline) == BASELINE_DATA_MIGRATION_ROW_SHA256
@@ -869,7 +948,7 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
         "validated_user_approved_migration"
     )
 
-    low_mid_falling_candidate = rows[18]
+    low_mid_falling_candidate = rows[19]
     assert low_mid_falling_candidate["migration_id"] == (
         "revenue_low_mid_falling_candidate_audit_20260720"
     )
@@ -890,7 +969,7 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
         "validated_user_approved_migration"
     )
 
-    cross_market_lineage = rows[19]
+    cross_market_lineage = rows[20]
     assert cross_market_lineage["migration_id"] == (
         "revenue_monthly_cross_market_lineage_resolution_20260720"
     )
@@ -968,6 +1047,37 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     assert cross_market_lineage["migration_status"] == (
         "validated_user_approved_migration"
     )
+    cutoff_migration = next(
+        row
+        for row in rows
+        if row["migration_id"] == "revenue_lag_launch_observation_cutoff_20260802"
+    )
+    expected_cutoff_contracts = {
+        "revenue_unreacted_range_lag_strength_matrix": (
+            "93a83bd64ba0f7b4a8595ba5683a9cb38e9e35011e3cd6f0bbc514068efa9766",
+            "bb4229a1233d1f9a6e42bd545da7c235202bb4a43846b9066c37cfcf1b50e697",
+        ),
+        "revenue_unreacted_range_launch_timing_feature_audit": (
+            "a3facf77c3ca4831cd2c9fe47246e84c601f96fcd326b0cf4f2bdacfef9df305",
+            "929e84bc7611061948a3cefe5ba78961e9b06bcff6375d21eaa75340d7958e2f",
+        ),
+    }
+    assert cutoff_migration["changed_data_families"].split(";") == list(
+        expected_cutoff_contracts
+    )
+    assert cutoff_migration["previous_contract_sha256s"].split(";") == [
+        old_hash for old_hash, _new_hash in expected_cutoff_contracts.values()
+    ]
+    assert cutoff_migration["new_contract_sha256s"].split(";") == [
+        new_hash for _old_hash, new_hash in expected_cutoff_contracts.values()
+    ]
+    assert cutoff_migration["affected_models"] == "revenue_unreacted_range"
+    assert cutoff_migration["user_approval_reference"] == (
+        "user_authorized_research_only_observation_cutoff_20260802"
+    )
+    assert cutoff_migration["migration_status"] == (
+        "validated_user_approved_migration"
+    )
     sharing_by_family = {
         row["data_family_id"]: row
         for row in read_csv("config/daily_model_data_sharing_registry.csv")
@@ -998,16 +1108,26 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
         "revenue_unreacted_range_forward_confirmation_feature_audit"
     ] = "revenue_forward_confirmation_source_snapshot_projection_20260731"
     for family, (_old_hash, new_hash) in expected_cross_market_contracts.items():
-        expected_current_hash = snapshot_contracts.get(family, new_hash)
+        expected_current_hash = (
+            snapshot_contracts[family]
+            if family in snapshot_contracts
+            else expected_cutoff_contracts[family][1]
+            if family in expected_cutoff_contracts
+            else new_hash
+        )
         assert sharing_by_family[family]["data_contract_sha256"] == expected_current_hash
         assert sharing_by_family[family]["last_migration_id"] == (
             snapshot_migration_ids[family]
             if family in snapshot_contracts
+            else cutoff_migration["migration_id"]
+            if family in expected_cutoff_contracts
             else "revenue_monthly_cross_market_lineage_resolution_20260720"
         )
         assert sharing_by_family[family]["sharing_decision_reference"] == (
             "user_authorized_20260713_source_snapshot_projection_and_955_baseline_20260731"
             if family in snapshot_contracts
+            else "user_authorized_research_only_observation_cutoff_20260802"
+            if family in expected_cutoff_contracts
             else "user_requested_revenue_low_mid_falling_research_candidates_20260720"
         )
         background = background_by_family[family]
@@ -1015,22 +1135,82 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
             "config/revenue_unreacted_range_monthly_revenue_cross_market_resolution.csv"
             in background["source_artifacts"].split(";")
         )
-        assert (
-            "registered_exact_lineage_equal_payload_cross_market_mirror_"
-            "earliest_availability_fail_closed"
-            in background["point_in_time_status"]
-        )
-        assert (
-            "registered exact-lineage equal-payload cross-market mirrors use the "
-            "earliest official source-table availability"
-            in background["allowed_use"]
-        )
-        assert (
-            "unregistered same-market or conflicting-payload stock-period "
-            "collisions fail closed"
-            in background["forbidden_use"]
-        )
-        assert "Raw monthly history remains market-grained" in background["notes"]
+        if family not in expected_cutoff_contracts:
+            assert (
+                "registered_exact_lineage_equal_payload_cross_market_mirror_"
+                "earliest_availability_fail_closed"
+                in background["point_in_time_status"]
+            )
+            assert (
+                "registered exact-lineage equal-payload cross-market mirrors use the "
+                "earliest official source-table availability"
+                in background["allowed_use"]
+            )
+            assert (
+                "unregistered same-market or conflicting-payload stock-period "
+                "collisions fail closed"
+                in background["forbidden_use"]
+            )
+            assert "Raw monthly history remains market-grained" in background["notes"]
+
+    projection_manifest = (
+        "output/latest/research_backtest/"
+        "revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv"
+    )
+    projection_detail = (
+        "output/latest/research_backtest/"
+        "revenue_unreacted_range_source_snapshot_projection_detail_latest.csv"
+    )
+    cutoff_background_contracts = {
+        "revenue_unreacted_range_lag_strength_matrix": {
+            "point_in_time_status": (
+                "research_only_lag_strength_matrix_immutable_source_snapshot_"
+                "cutoff_20260713_fail_closed"
+            ),
+            "sources": {
+                "output/latest/research_backtest/"
+                "revenue_unreacted_range_fixed_confirmation_feature_contrast_audit_"
+                "detail_latest.csv",
+                projection_manifest,
+                projection_detail,
+                "data/monthly_revenue_history/monthly_revenue_history.csv",
+                "data/stock_price_history/*.csv",
+                "config/revenue_unreacted_range_monthly_revenue_cross_market_resolution.csv",
+            },
+        },
+        "revenue_unreacted_range_launch_timing_feature_audit": {
+            "point_in_time_status": (
+                "research_only_launch_timing_immutable_observation_cutoff_"
+                "20260713_fail_closed"
+            ),
+            "sources": {
+                "output/latest/research_backtest/"
+                "revenue_unreacted_range_lag_strength_matrix_detail_latest.csv",
+                projection_manifest,
+                projection_detail,
+                "data/stock_price_history/*.csv",
+                "data/tdcc_stock_history",
+                "data/market_index_history.csv",
+                "data/monthly_revenue_history/monthly_revenue_history.csv",
+                "config/revenue_unreacted_range_price_comparability_resolution.csv",
+                "config/revenue_unreacted_range_monthly_revenue_cross_market_resolution.csv",
+            },
+        },
+    }
+    for family, contract in cutoff_background_contracts.items():
+        _previous_hash, current_hash = expected_cutoff_contracts[family]
+        sharing = sharing_by_family[family]
+        assert sharing["data_contract_sha256"] == current_hash
+        assert sharing["last_migration_id"] == cutoff_migration["migration_id"]
+        assert sharing["sharing_decision_reference"] == cutoff_migration[
+            "user_approval_reference"
+        ]
+        background = background_by_family[family]
+        assert background["point_in_time_status"] == contract["point_in_time_status"]
+        assert contract["sources"] <= set(background["source_artifacts"].split(";"))
+        assert "20260713" in background["allowed_use"]
+        assert "post-20260713" in background["forbidden_use"]
+        assert background["consumer_models"] == "revenue_unreacted_range"
 
     snapshot_migration = next(
         row
@@ -1123,6 +1303,23 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     assert "current source-first fallback" in forward_background["forbidden_use"]
     assert "current source-first fallback is forbidden" in forward_background["notes"]
 
+    theme_warrant_revision_contract = rows[18]
+    assert theme_warrant_revision_contract["migration_id"] == (
+        "theme_warrant_lineage_revision_contract_20260801"
+    )
+    assert theme_warrant_revision_contract["changed_data_families"] == (
+        "official_warrant_flow_current_snapshot"
+    )
+    assert theme_warrant_revision_contract["previous_contract_sha256s"] == (
+        "75872e9619017808259ebb41f72655b795ce4154ba128260f4a239ccd5f8b691"
+    )
+    assert theme_warrant_revision_contract["new_contract_sha256s"] == (
+        "a7bccc9ab66457283c1070606fc8ef763a07920642255aa79740ab93b3c69d19"
+    )
+    assert theme_warrant_revision_contract["migration_status"] == (
+        "validated_user_approved_migration"
+    )
+
 
 def test_forward_confirmation_artifact_lineage_uses_projection_not_current_source() -> None:
     rows = {
@@ -1157,7 +1354,6 @@ def test_forward_confirmation_artifact_lineage_uses_projection_not_current_sourc
         assert projection_manifest in sources
         assert projection_detail in sources
         assert mutable_source not in sources
-
 
 def test_data_contract_hash_detects_point_in_time_or_forbidden_use_drift() -> None:
     row = read_csv("config/daily_model_background_data_registry.csv")[0]

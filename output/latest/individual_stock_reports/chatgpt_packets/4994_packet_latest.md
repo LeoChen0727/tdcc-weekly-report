@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4994 傳奇
 
 ## Metadata
-- generated_at: 2026-07-31 01:15:24 Asia/Taipei
+- generated_at: 2026-08-01 22:27:57 Asia/Taipei
 - stock_id: 4994
 - stock_name: 傳奇
 - packet_status: standard_180d_window_packet
@@ -11,10 +11,10 @@
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260724-88f3a903b384007d
-- official_tdcc_signal_date: 20260724
-- latest_tdcc_date: 20260724
-- tdcc_rows: 13
+- source_tdcc_dataset_id: tdcc-20260731-0b236a2d4a043618
+- official_tdcc_signal_date: 20260731
+- latest_tdcc_date: 20260731
+- tdcc_rows: 14
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -171,15 +171,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260724
-- over_400_ratio: 86.11
-- over_600_ratio: 83.09
-- over_800_ratio: 80.32
-- over_1000_ratio: 79
-- over_400_change_1w: -0.06
-- over_800_change_1w: 0.04
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 12
+- as_of_date: 20260731
+- over_400_ratio: 86.12
+- over_600_ratio: 82.19
+- over_800_ratio: 80.34
+- over_1000_ratio: 78.99
+- over_400_change_1w: 0.01
+- over_800_change_1w: 0.02
+- over_1000_change_1w: -0.01
+- tdcc_consecutive_up_weeks: 13
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260508,85.57,0.04,80.24,0,78.92,0,1,False,False
 20260515,85.62,0.05,80.24,0,78.92,0,2,False,False
 20260522,85.66,0.04,81.47,1.23,78.92,0,3,False,True
 20260529,85.75,0.09,81.57,0.1,78.95,0.03,4,True,True
@@ -199,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260709,86.06,0.47,80.24,-0.47,79,-1.71,10,False,False
 20260717,86.17,0.11,80.28,0.04,79,0,11,False,True
 20260724,86.11,-0.06,80.32,0.04,79,0,12,False,True
+20260731,86.12,0.01,80.34,0.02,78.99,-0.01,13,False,True
 ```
 
 ## Candidate Context

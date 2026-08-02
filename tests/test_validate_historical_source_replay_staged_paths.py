@@ -9,11 +9,6 @@ def test_exact_structured_source_and_warrant_flow_paths_are_allowed() -> None:
         "output/history/warrant_flow/warrant_flow_20260720.csv",
         "output/latest/warrant_flow_latest.csv",
         "output/latest/warrant_flow_latest.md",
-        "output/latest/volume_attack_theme_layer_latest.csv",
-        "output/latest/volume_attack_theme_stocks_latest.md",
-        "output/latest/volume_attack_theme_layer_validation_latest.json",
-        "docs/latest/volume_attack_theme_layer_latest.md",
-        "docs/latest/volume_attack_theme_stocks_latest.csv",
         "output/history/historical_source_replay/github-run-123-1/20260720/structured_source_manifest.json",
     ]
 
@@ -31,25 +26,6 @@ def test_candidate_model_and_pdf_paths_remain_forbidden() -> None:
 
     assert len(errors) == 3
     assert all("forbidden artifact" in error for error in errors)
-
-
-def test_theme_near_misses_and_formal_model_artifacts_remain_forbidden() -> None:
-    paths = [
-        "output/latest/volume_attack_theme_layer_latest.json",
-        "output/latest/volume_attack_theme_layer_validation_latest.csv",
-        "output/latest/daily_candidate_model_signals_for_report_latest.csv",
-        "output/latest/daily_volume_breakout_operation_section_latest.csv",
-        "output/latest/model_operation_readiness_latest.csv",
-        "output/latest/volume_breakout_rank_latest.csv",
-    ]
-
-    errors = staged.validate(paths)
-
-    assert len(errors) == len(paths)
-    assert all(
-        "forbidden artifact" in error or "not allowlisted" in error
-        for error in errors
-    )
 
 
 def test_any_staged_deletion_fails_closed_even_if_path_is_allowlisted() -> None:

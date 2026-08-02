@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7811 民盛
 
 ## Metadata
-- generated_at: 2026-07-31 01:16:03 Asia/Taipei
+- generated_at: 2026-08-01 22:28:59 Asia/Taipei
 - stock_id: 7811
 - stock_name: 民盛
 - packet_status: standard_rawdata_packet
@@ -11,10 +11,10 @@
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260724-88f3a903b384007d
-- official_tdcc_signal_date: 20260724
-- latest_tdcc_date: 20260724
-- tdcc_rows: 13
+- source_tdcc_dataset_id: tdcc-20260731-0b236a2d4a043618
+- official_tdcc_signal_date: 20260731
+- latest_tdcc_date: 20260731
+- tdcc_rows: 14
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -171,7 +171,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260724
+- as_of_date: 20260731
 - over_400_ratio: 71.79
 - over_600_ratio: 67.33
 - over_800_ratio: 65.17
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260508,70.85,0.01,64.26,0,64.26,0,1,False,False
 20260515,71.21,0.36,64.6,0.34,64.6,0.34,2,True,True
 20260522,71.38,0.17,64.77,0.17,64.77,0.17,3,True,True
 20260529,71.78,0.4,65.17,0.4,65.17,0.4,4,True,True
@@ -199,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260709,71.79,0,65.17,0,65.17,0,0,False,False
 20260717,71.79,0,65.17,0,65.17,0,0,False,False
 20260724,71.79,0,65.17,0,65.17,0,0,False,False
+20260731,71.79,0,65.17,0,65.17,0,0,False,False
 ```
 
 ## Candidate Context

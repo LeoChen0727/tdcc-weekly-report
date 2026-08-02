@@ -2388,31 +2388,6 @@ def test_historical_structured_source_replay_workflow_wires_optional_price_high_
     assert "git add output/latest/official_daily_price_latest.csv" in text
 
 
-def test_historical_replay_refreshes_only_registered_warrant_advisory_consumers() -> None:
-    text = boundaries.HISTORICAL_SOURCE_REPLAY_WORKFLOW.read_text(encoding="utf-8")
-
-    ordered = (
-        "python scripts/replay_historical_structured_sources.py",
-        "python scripts/build_volume_attack_theme_layer.py",
-        "python scripts/validate_volume_attack_theme_layer.py",
-        "python scripts/validate_daily_canonical_field_lineage.py",
-        "python scripts/validate_historical_structured_source_replay.py",
-        "git add output/latest/volume_attack_theme_layer_latest.*",
-        "git add output/latest/volume_attack_theme_stocks_latest.*",
-        "git add output/latest/volume_attack_theme_layer_validation_latest.*",
-        "git add docs/latest/volume_attack_theme_layer_latest.*",
-        "git add docs/latest/volume_attack_theme_stocks_latest.*",
-        "python scripts/validate_historical_source_replay_staged_paths.py",
-    )
-    positions = [text.index(literal) for literal in ordered]
-    assert positions == sorted(positions)
-    assert "python scripts/build_daily_candidate_model_layer.py" not in text
-    assert "git add output/latest/all_candidates" not in text
-    assert "git add output/history/daily_model" not in text
-    assert "output/latest/volume_attack_theme_layer_validation_latest.json" in text
-    assert "output/latest/volume_attack_theme_stocks_latest.csv" in text
-
-
 def test_historical_structured_source_replay_rejects_broad_stage_and_retry_push() -> None:
     text = boundaries.HISTORICAL_SOURCE_REPLAY_WORKFLOW.read_text(encoding="utf-8")
     text += "\nrun: git add -A\nrun: scripts/ci_push_with_retry.sh\n"

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6598 ABC-KY
 
 ## Metadata
-- generated_at: 2026-07-31 01:15:47 Asia/Taipei
+- generated_at: 2026-08-01 22:28:33 Asia/Taipei
 - stock_id: 6598
 - stock_name: ABC-KY
 - packet_status: standard_180d_window_packet
@@ -11,10 +11,10 @@
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260724-88f3a903b384007d
-- official_tdcc_signal_date: 20260724
-- latest_tdcc_date: 20260724
-- tdcc_rows: 13
+- source_tdcc_dataset_id: tdcc-20260731-0b236a2d4a043618
+- official_tdcc_signal_date: 20260731
+- latest_tdcc_date: 20260731
+- tdcc_rows: 14
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -175,15 +175,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260724
-- over_400_ratio: 52.61
-- over_600_ratio: 45.9
-- over_800_ratio: 41.79
-- over_1000_ratio: 38.33
-- over_400_change_1w: 0.25
-- over_800_change_1w: -0.65
-- over_1000_change_1w: -1.48
-- tdcc_consecutive_up_weeks: 8
+- as_of_date: 20260731
+- over_400_ratio: 52.39
+- over_600_ratio: 44.99
+- over_800_ratio: 41.57
+- over_1000_ratio: 37.26
+- over_400_change_1w: -0.22
+- over_800_change_1w: -0.22
+- over_1000_change_1w: -1.07
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -191,7 +191,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260508,51.65,-0.04,43.59,-0.04,39.99,-0.04,1,False,False
 20260515,51.6,-0.05,43.54,-0.05,38.98,-1.01,0,False,False
 20260522,51.33,-0.27,43.49,-0.05,38.98,0,0,False,False
 20260529,50.79,-0.54,43.36,-0.13,38.89,-0.09,0,False,False
@@ -203,6 +202,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260709,52.05,0.47,42.61,-0.01,39.98,-0.01,6,False,False
 20260717,52.36,0.31,42.44,-0.17,39.81,-0.17,7,False,False
 20260724,52.61,0.25,41.79,-0.65,38.33,-1.48,8,False,False
+20260731,52.39,-0.22,41.57,-0.22,37.26,-1.07,0,False,False
 ```
 
 ## Candidate Context

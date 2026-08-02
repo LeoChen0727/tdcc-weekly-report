@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 from datetime import datetime
+import hashlib
+import json
 import math
 from pathlib import Path
 from typing import Callable
@@ -9,19 +11,27 @@ from zoneinfo import ZoneInfo
 import numpy as np
 import pandas as pd
 
+from revenue_unreacted_range_lag_strength_matrix import (
+    ALL_LINEAGE_COLUMNS as LAG_INHERITED_LINEAGE_COLUMNS,
+    ARTIFACT_VERSION as EXPECTED_SOURCE_ARTIFACT_VERSION,
+)
+from revenue_unreacted_range_source_snapshot_projection import (
+    CUTOFF_DATE as SOURCE_SNAPSHOT_CUTOFF_DATE,
+)
+
 
 ROOT = Path(__file__).resolve().parents[1]
 MODEL_ID = "revenue_unreacted_range"
 ARTIFACT_ID = "revenue_unreacted_range_launch_timing_feature_audit"
-ARTIFACT_VERSION = "launch_timing_breakout_feature_v3_20260720"
+ARTIFACT_VERSION = "launch_timing_breakout_feature_v4_20260802"
 EXPECTED_SOURCE_ARTIFACT_ID = "revenue_unreacted_range_lag_strength_matrix"
-EXPECTED_SOURCE_ARTIFACT_VERSION = (
-    "trading_day_lag_strength_root_cause_pending_v4_20260720"
+SOURCE_LAG_DETAIL_LINEAGE_COLUMNS = (
+    "source_lag_detail_row_count",
+    "source_lag_detail_semantic_sha256",
 )
-MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS = (
-    "monthly_revenue_history_blob_sha256",
-    "monthly_revenue_canonical_table_sha256",
-    "cross_market_resolution_registry_canonical_sha256",
+ALL_LINEAGE_COLUMNS = (
+    *LAG_INHERITED_LINEAGE_COLUMNS,
+    *SOURCE_LAG_DETAIL_LINEAGE_COLUMNS,
 )
 
 SOURCE_DETAIL = (
@@ -68,11 +78,30 @@ ANALYSIS_BASES = (
 )
 
 
-def _assert_source_detail_lineage(source: pd.DataFrame) -> dict[str, str]:
+def canonical_lag_detail_semantic_sha256(source: pd.DataFrame) -> str:
+    columns = sorted(column for column in source.columns if column != "generated_at")
+    rows = [
+        ["" if pd.isna(value) else str(value) for value in row]
+        for row in source.loc[:, columns].itertuples(index=False, name=None)
+    ]
+    payload = json.dumps(
+        ["revenue_launch_source_lag_detail_v1", columns, rows],
+        ensure_ascii=False,
+        separators=(",", ":"),
+    ).encode("utf-8")
+    return hashlib.sha256(payload).hexdigest()
+
+
+def _assert_source_detail_lineage(source: pd.DataFrame) -> dict[str, object]:
     required = {
         "artifact_id",
         "artifact_version",
-        *MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS,
+        "source_monthly_revenue_source_table_date",
+        "signal_date",
+        "confirmation_date",
+        "entry_date",
+        "exit_date",
+        *LAG_INHERITED_LINEAGE_COLUMNS,
     }
     missing = sorted(required - set(source.columns))
     if missing:
@@ -89,19 +118,42 @@ def _assert_source_detail_lineage(source: pd.DataFrame) -> dict[str, str]:
             "launch timing source artifact version drift: "
             f"expected={EXPECTED_SOURCE_ARTIFACT_VERSION}"
         )
-    lineage: dict[str, str] = {}
-    for column in MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS:
+    if set(source["source_projection_cutoff_date"].astype(str)) != {
+        SOURCE_SNAPSHOT_CUTOFF_DATE
+    }:
+        raise RuntimeError("launch timing source projection cutoff drift")
+    for column in (
+        "source_monthly_revenue_source_table_date",
+        "signal_date",
+        "confirmation_date",
+        "entry_date",
+        "exit_date",
+    ):
+        values = source[column].astype(str).str.strip()
+        if not values.str.fullmatch(r"\d{8}").all():
+            raise RuntimeError(f"launch timing source {column} contains invalid dates")
+        if values.gt(SOURCE_SNAPSHOT_CUTOFF_DATE).any():
+            raise RuntimeError(f"launch timing source {column} exceeds cutoff")
+    lineage: dict[str, object] = {}
+    for column in LAG_INHERITED_LINEAGE_COLUMNS:
         values = set(source[column].astype(str).str.strip().str.lower())
         if len(values) != 1:
             raise RuntimeError(
                 f"launch timing source runtime lineage is not constant: {column}"
             )
         value = next(iter(values))
-        if len(value) != 64 or any(character not in "0123456789abcdef" for character in value):
+        if column.endswith("sha256") and (
+            len(value) != 64
+            or any(character not in "0123456789abcdef" for character in value)
+        ):
             raise RuntimeError(
                 f"launch timing source runtime lineage is not canonical SHA-256: {column}"
             )
         lineage[column] = value
+    lineage["source_lag_detail_row_count"] = len(source)
+    lineage["source_lag_detail_semantic_sha256"] = (
+        canonical_lag_detail_semantic_sha256(source)
+    )
     return lineage
 
 OUTCOME_SPECS = (
@@ -153,7 +205,7 @@ SUMMARY_COLUMNS = [
     "model_id",
     "artifact_id",
     "artifact_version",
-    *MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS,
+    *ALL_LINEAGE_COLUMNS,
     "analysis_basis",
     "trigger_id",
     "trigger_label_zh",
@@ -198,7 +250,7 @@ DETAIL_COLUMNS = [
     "model_id",
     "artifact_id",
     "artifact_version",
-    *MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS,
+    *ALL_LINEAGE_COLUMNS,
     "analysis_basis",
     "episode_key",
     "stock_id",
@@ -215,6 +267,8 @@ DETAIL_COLUMNS = [
     "observation_selection_status",
     "observation_suppression_reason",
     "observation_available_candidate_days",
+    "observation_cutoff_date",
+    "observation_last_trade_date",
     "mature_for_126d_classification",
     "trigger_id",
     "trigger_label_zh",
@@ -253,7 +307,7 @@ FEATURE_COLUMNS = [
     "model_id",
     "artifact_id",
     "artifact_version",
-    *MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS,
+    *ALL_LINEAGE_COLUMNS,
     "analysis_basis",
     "classification_trigger_id",
     "classification_outcome_definition_id",
@@ -438,7 +492,11 @@ def _source_cohort(source: pd.DataFrame, analysis_basis: str) -> pd.DataFrame:
     ).reset_index(drop=True)
 
 
-def _prepare_daily_rows(prepared: pd.DataFrame) -> tuple[pd.DataFrame, dict[str, pd.DataFrame]]:
+def _prepare_daily_rows(
+    prepared: pd.DataFrame,
+    *,
+    observation_cutoff_date: str = SOURCE_SNAPSHOT_CUTOFF_DATE,
+) -> tuple[pd.DataFrame, dict[str, pd.DataFrame]]:
     required = {
         "stock_id",
         "stock_name",
@@ -482,6 +540,17 @@ def _prepare_daily_rows(prepared: pd.DataFrame) -> tuple[pd.DataFrame, dict[str,
     daily = prepared.loc[:, sorted(required)].copy()
     daily["stock_id"] = daily["stock_id"].astype(str).str.replace(r"\.0$", "", regex=True).str.zfill(4)
     daily["feature_date"] = _normalize_date(daily["_revenue_signal_date"])
+    cutoff = str(observation_cutoff_date).strip()
+    if cutoff != SOURCE_SNAPSHOT_CUTOFF_DATE:
+        raise RuntimeError(
+            "launch timing observation cutoff drift: "
+            f"{cutoff}/{SOURCE_SNAPSHOT_CUTOFF_DATE}"
+        )
+    if not daily["feature_date"].str.fullmatch(r"\d{8}").all():
+        raise RuntimeError("launch timing prepared frame contains invalid feature dates")
+    daily = daily.loc[daily["feature_date"].le(cutoff)].copy()
+    if daily.empty:
+        raise RuntimeError("launch timing prepared frame is empty at source snapshot cutoff")
     daily = daily.sort_values(["stock_id", "feature_date"], kind="mergesort")
     if daily.duplicated(["stock_id", "feature_date"]).any():
         duplicated = daily.loc[daily.duplicated(["stock_id", "feature_date"], keep=False), ["stock_id", "feature_date"]]
@@ -524,7 +593,10 @@ def _prepare_daily_rows(prepared: pd.DataFrame) -> tuple[pd.DataFrame, dict[str,
         current = stock.reset_index(drop=True).copy()
         current["analysis_price_adjustment_factor"] = 1.0
         current["price_comparability_resolution_ids_on_resume_date"] = ""
-        stock_resolutions = resolutions.loc[resolutions["stock_id"].eq(str(stock_id))]
+        stock_resolutions = resolutions.loc[
+            resolutions["stock_id"].eq(str(stock_id))
+            & resolutions["resume_date"].astype(str).le(cutoff)
+        ]
         for event in stock_resolutions.itertuples(index=False):
             prior_mask = current["feature_date"].lt(str(event.resume_date))
             current.loc[prior_mask, "analysis_price_adjustment_factor"] *= (
@@ -569,11 +641,13 @@ def _episode_inventory(
         suppression_reason = "none"
         source_position: int | None = None
         source_trade_date = ""
+        observation_last_trade_date = ""
         available = -1
         if stock is None or stock.empty:
             selection_status = "suppressed_missing_price_history"
             suppression_reason = "stock_missing_from_prepared_point_in_time_frame"
         else:
+            observation_last_trade_date = str(stock["feature_date"].iloc[-1])
             candidates = stock.index[stock["feature_date"].ge(source_date)]
             if not len(candidates):
                 selection_status = "suppressed_missing_source_trade_date"
@@ -615,6 +689,8 @@ def _episode_inventory(
                 "observation_selection_status": selection_status,
                 "observation_suppression_reason": suppression_reason,
                 "observation_available_candidate_days": max(available, -1),
+                "observation_cutoff_date": SOURCE_SNAPSHOT_CUTOFF_DATE,
+                "observation_last_trade_date": observation_last_trade_date,
                 "mature_for_126d_classification": available >= SIX_MONTH_HORIZON_DAYS,
             }
         )
@@ -914,7 +990,7 @@ def _summary_row(
         "artifact_version": ARTIFACT_VERSION,
         **{
             column: str(detail[column].iloc[0])
-            for column in MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS
+            for column in ALL_LINEAGE_COLUMNS
         },
         "analysis_basis": analysis_basis,
         "trigger_id": str(trigger["trigger_id"]),
@@ -1084,7 +1160,7 @@ def _snapshot_rows(
                     ),
                     **{
                         column: str(getattr(episode, column))
-                        for column in MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS
+                        for column in ALL_LINEAGE_COLUMNS
                     },
                 }
             )
@@ -1160,7 +1236,7 @@ def _feature_base_row(
         "artifact_version": ARTIFACT_VERSION,
         **{
             column: str(snapshots[column].iloc[0])
-            for column in MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS
+            for column in ALL_LINEAGE_COLUMNS
         },
         "analysis_basis": analysis_basis,
         "classification_trigger_id": PRIMARY_TRIGGER_ID,
@@ -1392,8 +1468,13 @@ def build_feature_contrast(
 def build_launch_timing_feature_audit(
     prepared: pd.DataFrame,
     lag_detail: pd.DataFrame,
+    *,
+    observation_cutoff_date: str = SOURCE_SNAPSHOT_CUTOFF_DATE,
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
-    _daily, daily_by_stock = _prepare_daily_rows(prepared)
+    _daily, daily_by_stock = _prepare_daily_rows(
+        prepared,
+        observation_cutoff_date=observation_cutoff_date,
+    )
     detail, inventory = build_launch_detail(
         lag_detail,
         daily_by_stock=daily_by_stock,

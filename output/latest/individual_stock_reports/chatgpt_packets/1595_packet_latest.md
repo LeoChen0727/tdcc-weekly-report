@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1595 川寶
 
 ## Metadata
-- generated_at: 2026-07-31 01:14:29 Asia/Taipei
+- generated_at: 2026-08-01 22:26:32 Asia/Taipei
 - stock_id: 1595
 - stock_name: 川寶
 - packet_status: standard_180d_window_packet
@@ -11,10 +11,10 @@
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260724-88f3a903b384007d
-- official_tdcc_signal_date: 20260724
-- latest_tdcc_date: 20260724
-- tdcc_rows: 13
+- source_tdcc_dataset_id: tdcc-20260731-0b236a2d4a043618
+- official_tdcc_signal_date: 20260731
+- latest_tdcc_date: 20260731
+- tdcc_rows: 14
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -170,15 +170,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260724
-- over_400_ratio: 45.02
-- over_600_ratio: 42.29
-- over_800_ratio: 36.75
-- over_1000_ratio: 33.7
-- over_400_change_1w: -0.65
-- over_800_change_1w: -1.46
-- over_1000_change_1w: 1.8
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20260731
+- over_400_ratio: 44.38
+- over_600_ratio: 42.46
+- over_800_ratio: 38.23
+- over_1000_ratio: 31.9
+- over_400_change_1w: -0.64
+- over_800_change_1w: 1.48
+- over_1000_change_1w: -1.8
+- tdcc_consecutive_up_weeks: 8
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260508,51.92,0.32,42.44,1.63,39.34,0.11,1,True,True
 20260515,50.5,-1.42,42.39,-0.05,40.82,1.48,2,False,True
 20260522,49.79,-0.71,42.23,-0.16,40.66,-0.16,0,False,False
 20260529,47.57,-2.22,40.16,-2.07,38.6,-2.06,0,False,False
@@ -198,6 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260709,45.55,-0.44,38.42,-0.82,33.75,-2.33,5,False,False
 20260717,45.67,0.12,38.21,-0.21,31.9,-1.85,6,False,False
 20260724,45.02,-0.65,36.75,-1.46,33.7,1.8,7,False,True
+20260731,44.38,-0.64,38.23,1.48,31.9,-1.8,8,False,True
 ```
 
 ## Candidate Context

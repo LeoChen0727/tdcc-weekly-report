@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6841 長佳智能
 
 ## Metadata
-- generated_at: 2026-07-31 01:15:53 Asia/Taipei
+- generated_at: 2026-08-01 22:28:43 Asia/Taipei
 - stock_id: 6841
 - stock_name: 長佳智能
 - packet_status: standard_180d_window_packet
@@ -11,10 +11,10 @@
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260724-88f3a903b384007d
-- official_tdcc_signal_date: 20260724
-- latest_tdcc_date: 20260724
-- tdcc_rows: 13
+- source_tdcc_dataset_id: tdcc-20260731-0b236a2d4a043618
+- official_tdcc_signal_date: 20260731
+- latest_tdcc_date: 20260731
+- tdcc_rows: 14
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -170,15 +170,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260724
-- over_400_ratio: 47.4
-- over_600_ratio: 44.79
+- as_of_date: 20260731
+- over_400_ratio: 47.24
+- over_600_ratio: 44.6
 - over_800_ratio: 38.86
 - over_1000_ratio: 37.03
-- over_400_change_1w: 0.09
+- over_400_change_1w: -0.16
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260508,48.03,0.02,39.4,0,38.42,0,1,False,False
 20260515,48.67,0.64,39.42,0.02,38.44,0.02,2,True,True
 20260522,48.06,-0.61,39.42,0,38.44,0,0,False,False
 20260529,48.68,0.62,39.49,0.07,38.51,0.07,1,False,True
@@ -198,6 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260709,47.7,-0.5,39.74,-0.47,37.04,-1.34,0,False,False
 20260717,47.31,-0.39,38.86,-0.88,37.03,-0.01,0,False,False
 20260724,47.4,0.09,38.86,0,37.03,0,1,False,False
+20260731,47.24,-0.16,38.86,0,37.03,0,0,False,False
 ```
 
 ## Candidate Context

@@ -40,11 +40,6 @@ PROJECTED_DETAIL_CSV = (
     / "output/latest/research_backtest/"
     "revenue_unreacted_range_source_snapshot_projection_detail_latest.csv"
 )
-FULL_SOURCE_DETAIL_CSV = (
-    ROOT
-    / "output/latest/research_backtest/"
-    "revenue_unreacted_range_source_first_condition_audit_detail_latest.csv"
-)
 REVENUE_HISTORY_CSV = ROOT / "data/monthly_revenue_history/monthly_revenue_history.csv"
 PRICE_HISTORY_DIR = ROOT / "data/stock_price_history"
 MONTHLY_RESOLUTION_CSV = (
@@ -784,12 +779,16 @@ def _price_file(path: Path, stock_id: str, cutoff: str) -> pd.DataFrame:
     frame["date"] = frame["date"].map(
         lambda value: _digits(value, 8, label=f"price date for {stock_id}")
     )
-    return (
-        frame.loc[frame["date"].le(cutoff)]
-        .sort_values("date", kind="mergesort")
-        .drop_duplicates("date", keep="last")
-        .reset_index(drop=True)
+    frame = frame.loc[frame["date"].le(cutoff)].copy()
+    duplicate_dates = sorted(
+        frame.loc[frame["date"].duplicated(keep=False), "date"].unique().tolist()
     )
+    if duplicate_dates:
+        raise RuntimeError(
+            f"price history {stock_id} repeats trading dates within cutoff: "
+            f"{duplicate_dates[:3]}"
+        )
+    return frame.sort_values("date", kind="mergesort").reset_index(drop=True)
 
 
 def _price_input_lineage(
@@ -1651,26 +1650,25 @@ def validate_projection_binding_frames(
 def validate_frames(
     manifest: pd.DataFrame,
     projected_detail: pd.DataFrame,
-    full_source_detail: pd.DataFrame,
     *,
     revenue_path: Path,
     price_dir: Path,
     monthly_resolution_path: Path,
     price_resolution_path: Path,
 ) -> list[str]:
+    """Validate the pinned cutoff projection against cutoff-only current inputs.
+
+    The mutable source-first latest artifact can legitimately advance after
+    this projection was pinned, so it is deliberately not an input here.  The
+    manifest/detail binding above preserves the historical capture hashes; the
+    replay below independently verifies every cutoff-scoped input and row.
+    """
+
     errors = _binding_errors(manifest, projected_detail)
     if errors:
         return errors
     try:
-        if list(projected_detail.columns) != list(full_source_detail.columns):
-            errors.append("projected detail does not preserve full source schema")
         row = manifest.iloc[0]
-        if len(full_source_detail) != int(row["full_source_episode_row_count"]):
-            errors.append("full source row count mismatch")
-        if _source_detail_sha256(full_source_detail) != _payload_value(
-            row["full_source_episode_semantic_sha256"]
-        ):
-            errors.append("full source semantic SHA-256 mismatch")
         raw = pd.read_csv(
             revenue_path,
             dtype=str,
@@ -1682,7 +1680,6 @@ def validate_frames(
             dtype=str,
             keep_default_na=False,
         )
-        full_monthly = _resolve_monthly(raw, monthly_registry, None)
         cutoff_monthly = _resolve_monthly(raw, monthly_registry, CUTOFF_DATE)
         price_registry = pd.read_csv(
             price_resolution_path,
@@ -1707,24 +1704,22 @@ def validate_frames(
             price_registry,
             CUTOFF_DATE,
         )
-        monthly_blob_sha = _file_sha256(revenue_path)
-        full_monthly_sha = _canonical_monthly_table_sha256(full_monthly)
         cutoff_monthly_sha = _canonical_monthly_table_sha256(cutoff_monthly)
-        monthly_registry_sha = _monthly_registry_sha256(monthly_registry)
         rebuilt_detail = _rebuild_cutoff_source_detail(
             cutoff_monthly,
             price_dir=price_dir,
             price_registry=price_registry,
-            monthly_blob_sha=monthly_blob_sha,
+            monthly_blob_sha=_payload_value(
+                row["monthly_revenue_history_blob_sha256"]
+            ),
             cutoff_monthly_sha=cutoff_monthly_sha,
-            monthly_registry_sha=monthly_registry_sha,
+            monthly_registry_sha=_payload_value(
+                row["cross_market_resolution_registry_canonical_sha256"]
+            ),
         )
         errors.extend(_replay_detail_errors(projected_detail, rebuilt_detail))
         max_source, max_trade, max_end = _max_dates(projected_detail)
         expected = {
-            "monthly_revenue_history_blob_sha256": monthly_blob_sha,
-            "monthly_revenue_canonical_table_sha256": full_monthly_sha,
-            "cross_market_resolution_registry_canonical_sha256": monthly_registry_sha,
             "cutoff_revenue_subset_row_count": len(cutoff_monthly),
             "cutoff_revenue_subset_semantic_sha256": cutoff_monthly_sha,
             "cutoff_price_input_stock_count": price_lineage["stock_count"],
@@ -1749,28 +1744,6 @@ def validate_frames(
                 errors.append(
                     f"projection manifest {column} source recomputation mismatch"
                 )
-        for frame, label in (
-            (full_source_detail, "full source detail"),
-            (projected_detail, "projected detail"),
-        ):
-            for column in (
-                "monthly_revenue_history_blob_sha256",
-                "cross_market_resolution_registry_canonical_sha256",
-            ):
-                if _constant(frame, column, label=label) != _payload_value(row[column]):
-                    errors.append(f"{label} {column} lineage mismatch")
-        if _constant(
-            full_source_detail,
-            "monthly_revenue_canonical_table_sha256",
-            label="full source detail",
-        ) != _payload_value(row["monthly_revenue_canonical_table_sha256"]):
-            errors.append("full source detail canonical monthly lineage mismatch")
-        if _constant(
-            projected_detail,
-            "monthly_revenue_canonical_table_sha256",
-            label="projected detail",
-        ) != _payload_value(row["cutoff_revenue_subset_semantic_sha256"]):
-            errors.append("projected detail cutoff monthly lineage mismatch")
         for column in (
             "full_source_episode_semantic_sha256",
             "monthly_revenue_history_blob_sha256",
@@ -1792,7 +1765,6 @@ def validate_frames(
 def validate(
     manifest_path: Path = MANIFEST_CSV,
     projected_detail_path: Path = PROJECTED_DETAIL_CSV,
-    full_source_detail_path: Path = FULL_SOURCE_DETAIL_CSV,
     revenue_path: Path = REVENUE_HISTORY_CSV,
     price_dir: Path = PRICE_HISTORY_DIR,
     monthly_resolution_path: Path = MONTHLY_RESOLUTION_CSV,
@@ -1801,7 +1773,6 @@ def validate(
     required_paths = (
         manifest_path,
         projected_detail_path,
-        full_source_detail_path,
         revenue_path,
         monthly_resolution_path,
         price_resolution_path,
@@ -1816,16 +1787,9 @@ def validate(
         keep_default_na=False,
         low_memory=False,
     )
-    full_source_detail = pd.read_csv(
-        full_source_detail_path,
-        dtype={"stock_id": str},
-        keep_default_na=False,
-        low_memory=False,
-    )
     return validate_frames(
         manifest,
         projected_detail,
-        full_source_detail,
         revenue_path=Path(revenue_path),
         price_dir=Path(price_dir),
         monthly_resolution_path=Path(monthly_resolution_path),
@@ -1839,7 +1803,6 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--manifest", type=Path, default=MANIFEST_CSV)
     parser.add_argument("--projected-detail", type=Path, default=PROJECTED_DETAIL_CSV)
-    parser.add_argument("--full-source-detail", type=Path, default=FULL_SOURCE_DETAIL_CSV)
     parser.add_argument("--revenue-history", type=Path, default=REVENUE_HISTORY_CSV)
     parser.add_argument("--price-dir", type=Path, default=PRICE_HISTORY_DIR)
     parser.add_argument("--monthly-resolution", type=Path, default=MONTHLY_RESOLUTION_CSV)
@@ -1852,7 +1815,6 @@ def main() -> int:
     errors = validate(
         manifest_path=args.manifest,
         projected_detail_path=args.projected_detail,
-        full_source_detail_path=args.full_source_detail,
         revenue_path=args.revenue_history,
         price_dir=args.price_dir,
         monthly_resolution_path=args.monthly_resolution,

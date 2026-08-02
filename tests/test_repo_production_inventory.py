@@ -85,30 +85,6 @@ def test_daily_boundary_validator_runs_repo_inventory_gate() -> None:
     assert "validate_repo_production_inventory.py" in boundary_text
 
 
-def test_historical_replay_daily_production_scope_is_one_registered_builder() -> None:
-    workflow_path = ".github/workflows/historical_structured_source_replay.yml"
-    expected_exceptions = {
-        (
-            workflow_path,
-            "scripts/build_volume_attack_theme_layer.py",
-        ): "daily_production"
-    }
-    assert inventory.WORKFLOW_CROSS_OWNER_PATH_EXCEPTIONS == expected_exceptions
-
-    errors: list[str] = []
-    rows = inventory.load_inventory(errors)
-    invoked_daily_production = {
-        path
-        for path in inventory.workflow_invocations(workflow_path)
-        if rows[path].owner == "daily_production"
-    }
-    assert invoked_daily_production == {
-        "scripts/build_volume_attack_theme_layer.py"
-    }
-    inventory.validate_workflow_invocations(rows, {workflow_path}, errors)
-    assert errors == []
-
-
 def test_all_inventory_artifact_writers_use_the_deploy_key() -> None:
     errors: list[str] = []
     rows = inventory.load_inventory(errors)

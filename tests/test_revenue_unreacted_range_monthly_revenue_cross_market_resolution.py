@@ -27,6 +27,9 @@ from revenue_unreacted_range_monthly_revenue_cross_market_resolution import (  #
 from revenue_unreacted_range_source_first_condition_audit import (  # noqa: E402
     load_revenue_history,
 )
+from revenue_unreacted_range_source_snapshot_projection import (  # noqa: E402
+    load_cutoff_monthly_revenue_subset,
+)
 from revenue_unreacted_range_research_frame import (  # noqa: E402
     attach_revenue_unreacted_range_canonical_monthly_history,
 )
@@ -373,9 +376,8 @@ def test_same_market_duplicate_fails_closed() -> None:
         resolve_monthly_revenue_cross_market_mirrors(frame)
 
 
-def test_source_first_and_lag_lookup_consume_the_same_canonical_view(
+def test_source_first_and_lag_lookup_consume_the_same_cutoff_canonical_view(
     tmp_path: Path,
-    monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     previous = _row(
         market="otc",
@@ -405,18 +407,13 @@ def test_source_first_and_lag_lookup_consume_the_same_canonical_view(
     assert target.iloc[0]["source_table_date"] == "20260715"
     assert target.iloc[0]["previous_revenue_period"] == "202605"
 
-    monkeypatch.setattr(lag_strength, "MONTHLY_REVENUE_HISTORY", path)
-    canonical_history, runtime_lineage = lag_strength._monthly_revenue_runtime_context()
+    canonical_history = load_cutoff_monthly_revenue_subset(
+        path,
+        RESOLUTION_CSV,
+        cutoff_date="20260716",
+    )
     assert len(canonical_history) == 2
-    assert set(runtime_lineage) == set(
-        lag_strength.MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS
-    )
-    assert all(
-        len(value) == 64
-        and all(character in "0123456789abcdef" for character in value)
-        for value in runtime_lineage.values()
-    )
-    lookup = lag_strength._monthly_history_lookup()
+    lookup = lag_strength._monthly_history_lookup(canonical_history)
     assert lookup["5236"]["202606"]["source_table_date"] == "20260715"
     assert set(lookup["5236"]) == {"202605", "202606"}
 

@@ -572,20 +572,6 @@ def main() -> int:
         errors.append(f"Apps Script research dispatch missing inputs: {sorted(missing_inputs)}")
     if extra_inputs:
         errors.append(f"Apps Script research dispatch has unknown inputs: {sorted(extra_inputs)}")
-    research_expected_false_inputs = {
-        "run_revenue_unreacted_range_source_snapshot_projection_chain_only",
-    }
-    research_dispatch_inputs = dispatches.get(research_workflow, {})
-    bad_research_values = {
-        key: value
-        for key, value in research_dispatch_inputs.items()
-        if key in research_expected_false_inputs and value != "false"
-    }
-    if bad_research_values:
-        errors.append(
-            "Apps Script scheduled research stage-only inputs must be false: "
-            f"{bad_research_values}"
-        )
 
     daily_workflow = "daily_full_pipeline.yml"
     daily_expected_false_inputs = {
