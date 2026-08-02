@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8088 品安
 
 ## Metadata
-- generated_at: 2026-08-01 22:29:03 Asia/Taipei
+- generated_at: 2026-08-02 22:28:52 Asia/Taipei
 - stock_id: 8088
 - stock_name: 品安
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2497 怡利電
 
 ## Metadata
-- generated_at: 2026-08-01 22:26:59 Asia/Taipei
+- generated_at: 2026-08-02 22:26:47 Asia/Taipei
 - stock_id: 2497
 - stock_name: 怡利電
 - packet_status: standard_180d_window_packet

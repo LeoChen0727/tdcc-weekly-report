@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9951 皇田
 
 ## Metadata
-- generated_at: 2026-08-01 22:29:18 Asia/Taipei
+- generated_at: 2026-08-02 22:29:07 Asia/Taipei
 - stock_id: 9951
 - stock_name: 皇田
 - packet_status: standard_180d_window_packet

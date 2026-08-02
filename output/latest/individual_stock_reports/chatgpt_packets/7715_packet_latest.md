@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7715 裕山
 
 ## Metadata
-- generated_at: 2026-08-01 22:28:55 Asia/Taipei
+- generated_at: 2026-08-02 22:28:44 Asia/Taipei
 - stock_id: 7715
 - stock_name: 裕山
 - packet_status: standard_180d_window_packet

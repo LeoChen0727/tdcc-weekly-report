@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8917 欣泰
 
 ## Metadata
-- generated_at: 2026-08-01 22:29:13 Asia/Taipei
+- generated_at: 2026-08-02 22:29:01 Asia/Taipei
 - stock_id: 8917
 - stock_name: 欣泰
 - packet_status: standard_180d_window_packet

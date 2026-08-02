@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4966 譜瑞-KY
 
 ## Metadata
-- generated_at: 2026-08-01 22:27:56 Asia/Taipei
+- generated_at: 2026-08-02 22:27:45 Asia/Taipei
 - stock_id: 4966
 - stock_name: 譜瑞-KY
 - packet_status: standard_180d_window_packet

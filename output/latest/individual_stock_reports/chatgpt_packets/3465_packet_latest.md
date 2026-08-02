@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3465 進泰電子
 
 ## Metadata
-- generated_at: 2026-08-01 22:27:28 Asia/Taipei
+- generated_at: 2026-08-02 22:27:17 Asia/Taipei
 - stock_id: 3465
 - stock_name: 進泰電子
 - packet_status: standard_180d_window_packet

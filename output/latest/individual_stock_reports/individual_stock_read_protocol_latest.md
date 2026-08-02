@@ -1,6 +1,6 @@
 # Individual Stock Raw Data Read Protocol
 
-- generated_at: 2026-08-01 22:30:17 Asia/Taipei
+- generated_at: 2026-08-02 22:30:06 Asia/Taipei
 - scope: every Taiwan stock id with repo raw data
 - individual_report_md_is_optional: True
 - individual_stock_chatgpt_packet_is_primary_read_entry: True

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7290 群聯富邦61售05
 
 ## Metadata
-- generated_at: 2026-08-01 22:28:52 Asia/Taipei
+- generated_at: 2026-08-02 22:28:41 Asia/Taipei
 - stock_id: 7290
 - stock_name: 群聯富邦61售05
 - packet_status: partial_rawdata_packet

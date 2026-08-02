@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0083 國泰費城半導體
 
 ## Metadata
-- generated_at: 2026-08-01 22:26:15 Asia/Taipei
+- generated_at: 2026-08-02 22:26:03 Asia/Taipei
 - stock_id: 0083
 - stock_name: 國泰費城半導體
 - packet_status: insufficient_price_data

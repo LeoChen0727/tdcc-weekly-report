@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7728 光焱科技
 
 ## Metadata
-- generated_at: 2026-08-01 22:28:56 Asia/Taipei
+- generated_at: 2026-08-02 22:28:45 Asia/Taipei
 - stock_id: 7728
 - stock_name: 光焱科技
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7814 海昌生技
 
 ## Metadata
-- generated_at: 2026-08-01 22:28:59 Asia/Taipei
+- generated_at: 2026-08-02 22:28:48 Asia/Taipei
 - stock_id: 7814
 - stock_name: 海昌生技
 - packet_status: partial_rawdata_packet

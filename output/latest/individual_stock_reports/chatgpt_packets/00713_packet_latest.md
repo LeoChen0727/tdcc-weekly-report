@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00713 元大台灣高息低波
 
 ## Metadata
-- generated_at: 2026-08-01 22:26:14 Asia/Taipei
+- generated_at: 2026-08-02 22:26:03 Asia/Taipei
 - stock_id: 00713
 - stock_name: 元大台灣高息低波
 - packet_status: partial_rawdata_packet

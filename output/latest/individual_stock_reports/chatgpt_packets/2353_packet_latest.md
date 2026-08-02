@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2353 宏碁
 
 ## Metadata
-- generated_at: 2026-08-01 22:26:49 Asia/Taipei
+- generated_at: 2026-08-02 22:26:37 Asia/Taipei
 - stock_id: 2353
 - stock_name: 宏碁
 - packet_status: standard_180d_window_packet

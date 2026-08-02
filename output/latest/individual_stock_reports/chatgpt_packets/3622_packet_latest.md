@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3622 洋華
 
 ## Metadata
-- generated_at: 2026-08-01 22:27:35 Asia/Taipei
+- generated_at: 2026-08-02 22:27:24 Asia/Taipei
 - stock_id: 3622
 - stock_name: 洋華
 - packet_status: standard_180d_window_packet
