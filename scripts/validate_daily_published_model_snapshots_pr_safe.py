@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import csv
 import hashlib
 import re
 import subprocess
@@ -95,6 +96,44 @@ STRICT_EXACT_PATHS = frozenset(
     }
 )
 STRICT_PATH_PREFIXES = ("output/history/daily_model_snapshots/",)
+
+RESEARCH_VALIDATOR_MIGRATION_ID = "research-validator-registration-pr-safe-v1"
+RESEARCH_VALIDATOR_MIGRATION_BASE_HELPER_SHA256 = (
+    "4329b48823dc844fc565f09d6af4aa0495a16b3713cb842c55f63d28949e31c2"
+)
+APPS_SCRIPT_SOURCE_PATH = "docs/apps_script_workflow_trigger.gs"
+APPS_SCRIPT_DOC_PATH = "docs/APPS_SCRIPT_WORKFLOW_TRIGGER.md"
+APPS_SCRIPT_VALIDATOR_PATH = "scripts/validate_apps_script_workflow_triggers.py"
+APPS_SCRIPT_TEST_PATH = "tests/test_daily_production_boundaries.py"
+APPS_SCRIPT_RESEARCH_REGISTRY_PATH = "config/apps_script_research_dispatch_inputs.csv"
+LIFECYCLE_INVENTORY_PATH = "config/repo_file_lifecycle_inventory.csv"
+PRODUCTION_INVENTORY_PATH = "config/repo_production_inventory.csv"
+PR_SAFE_TEST_PATH = "tests/test_daily_published_model_snapshots_pr_safe.py"
+PR_WORKFLOW_TEST_PATH = "tests/test_daily_model_maintenance_pr_validation_workflow.py"
+RESEARCH_CONTROL_PLANE_MIGRATION_PATHS = frozenset(
+    {
+        PR_SAFE_HELPER_PATH,
+        PR_SAFE_TEST_PATH,
+        APPS_SCRIPT_SOURCE_PATH,
+        APPS_SCRIPT_DOC_PATH,
+        APPS_SCRIPT_VALIDATOR_PATH,
+        APPS_SCRIPT_TEST_PATH,
+        APPS_SCRIPT_RESEARCH_REGISTRY_PATH,
+        LIFECYCLE_INVENTORY_PATH,
+    }
+)
+RESEARCH_VALIDATOR_PATH_FILTER_LINES = frozenset(
+    {
+        '      - "config/revenue_unreacted_range_*.csv"',
+        '      - "tests/test_validate_revenue_unreacted_range_*.py"',
+    }
+)
+RESEARCH_VALIDATOR_COMMAND_RE = re.compile(
+    r"^ {10}python (scripts/validate_revenue_unreacted_range_[A-Za-z0-9_]+\.py)$"
+)
+RESEARCH_VALIDATOR_TEST_RE = re.compile(
+    r"^ {12}(tests/test_(?:validate_)?revenue_unreacted_range_[A-Za-z0-9_]+\.py)(?: \\)?$"
+)
 
 
 def safe_str(value: object) -> str:
@@ -360,6 +399,184 @@ def sha256_bytes(payload: bytes) -> str:
     return hashlib.sha256(canonical_repository_bytes(payload)).hexdigest()
 
 
+def additive_lines_from_base(base_payload: bytes, current_payload: bytes) -> list[str] | None:
+    base_lines = canonical_repository_bytes(base_payload).decode("utf-8").splitlines()
+    current_lines = canonical_repository_bytes(current_payload).decode("utf-8").splitlines()
+    additions: list[str] = []
+    base_index = 0
+    for line in current_lines:
+        if base_index < len(base_lines) and line == base_lines[base_index]:
+            base_index += 1
+        else:
+            additions.append(line)
+    return additions if base_index == len(base_lines) else None
+
+
+def csv_rows_by_path(path: Path) -> dict[str, dict[str, str]]:
+    with path.open("r", encoding="utf-8-sig", newline="") as handle:
+        rows = list(csv.DictReader(handle))
+    return {
+        safe_str(row.get("path", "")): {
+            key: safe_str(value) for key, value in row.items()
+        }
+        for row in rows
+        if safe_str(row.get("path", ""))
+    }
+
+
+def split_registry_paths(value: str) -> set[str]:
+    return {item.strip() for item in value.split(";") if item.strip()}
+
+
+def is_research_control_plane_self_migration(
+    base_ref: str,
+    changed_paths: set[str],
+    strict_surface_changes: set[str],
+    *,
+    repository_root: Path,
+) -> bool:
+    if strict_surface_changes != {PR_SAFE_HELPER_PATH}:
+        return False
+    if changed_paths != set(RESEARCH_CONTROL_PLANE_MIGRATION_PATHS):
+        return False
+    base_helper = git_blob_at_ref(
+        base_ref, PR_SAFE_HELPER_PATH, repository_root=repository_root
+    )
+    base_workflow = git_blob_at_ref(
+        base_ref, PR_VALIDATION_WORKFLOW_PATH, repository_root=repository_root
+    )
+    base_strict_validator = git_blob_at_ref(
+        base_ref,
+        "scripts/validate_daily_published_model_snapshots.py",
+        repository_root=repository_root,
+    )
+    try:
+        current_helper = (repository_root / PR_SAFE_HELPER_PATH).read_bytes()
+        current_workflow = (repository_root / PR_VALIDATION_WORKFLOW_PATH).read_bytes()
+        current_strict_validator = (
+            repository_root / "scripts/validate_daily_published_model_snapshots.py"
+        ).read_bytes()
+        staged_registry = (repository_root / APPS_SCRIPT_RESEARCH_REGISTRY_PATH).read_bytes()
+    except OSError:
+        return False
+    if base_helper is None or base_workflow is None or base_strict_validator is None:
+        return False
+    return bool(
+        sha256_bytes(base_helper) == RESEARCH_VALIDATOR_MIGRATION_BASE_HELPER_SHA256
+        and RESEARCH_VALIDATOR_MIGRATION_ID.encode("utf-8") not in base_helper
+        and RESEARCH_VALIDATOR_MIGRATION_ID.encode("utf-8") in current_helper
+        and canonical_repository_bytes(base_workflow)
+        == canonical_repository_bytes(current_workflow)
+        and canonical_repository_bytes(base_strict_validator)
+        == canonical_repository_bytes(current_strict_validator)
+        and staged_registry
+        and git_path_exists_at_ref(
+            base_ref,
+            APPS_SCRIPT_RESEARCH_REGISTRY_PATH,
+            repository_root=repository_root,
+        )
+        is False
+    )
+
+
+def is_registered_research_validator_workflow_migration(
+    base_ref: str,
+    changed_paths: set[str],
+    strict_surface_changes: set[str],
+    *,
+    repository_root: Path,
+) -> bool:
+    if strict_surface_changes != {PR_VALIDATION_WORKFLOW_PATH}:
+        return False
+    base_workflow = git_blob_at_ref(
+        base_ref, PR_VALIDATION_WORKFLOW_PATH, repository_root=repository_root
+    )
+    try:
+        current_workflow = (repository_root / PR_VALIDATION_WORKFLOW_PATH).read_bytes()
+        lifecycle_rows = csv_rows_by_path(repository_root / LIFECYCLE_INVENTORY_PATH)
+        production_rows = csv_rows_by_path(repository_root / PRODUCTION_INVENTORY_PATH)
+        workflow_test = (repository_root / PR_WORKFLOW_TEST_PATH).read_text(encoding="utf-8")
+    except OSError:
+        return False
+    if base_workflow is None:
+        return False
+    additions = additive_lines_from_base(base_workflow, current_workflow)
+    if additions is None:
+        return False
+
+    path_filter_lines: set[str] = set()
+    validator_paths: set[str] = set()
+    test_paths: set[str] = set()
+    for line in additions:
+        if not line.strip():
+            continue
+        if line in RESEARCH_VALIDATOR_PATH_FILTER_LINES:
+            path_filter_lines.add(line)
+            continue
+        validator_match = RESEARCH_VALIDATOR_COMMAND_RE.fullmatch(line)
+        if validator_match:
+            validator_paths.add(validator_match.group(1))
+            continue
+        test_match = RESEARCH_VALIDATOR_TEST_RE.fullmatch(line)
+        if test_match:
+            test_paths.add(test_match.group(1))
+            continue
+        return False
+    if path_filter_lines != set(RESEARCH_VALIDATOR_PATH_FILTER_LINES):
+        return False
+    if not validator_paths or not test_paths:
+        return False
+    if not {
+        LIFECYCLE_INVENTORY_PATH,
+        PRODUCTION_INVENTORY_PATH,
+        PR_WORKFLOW_TEST_PATH,
+    }.issubset(changed_paths):
+        return False
+
+    for validator_path in validator_paths:
+        lifecycle = lifecycle_rows.get(validator_path, {})
+        production = production_rows.get(validator_path, {})
+        linked_tests = split_registry_paths(lifecycle.get("tested_by", "")) & test_paths
+        if not (
+            validator_path in changed_paths
+            and git_path_exists_at_ref(
+                base_ref, validator_path, repository_root=repository_root
+            )
+            is False
+            and lifecycle.get("type") == "python"
+            and lifecycle.get("owner") == "research_backtest"
+            and lifecycle.get("status") == "active"
+            and PR_VALIDATION_WORKFLOW_PATH
+            in split_registry_paths(lifecycle.get("called_by_workflow", ""))
+            and production.get("kind") == "python"
+            and production.get("owner") == "research_backtest"
+            and production.get("status") == "active"
+            and PR_VALIDATION_WORKFLOW_PATH
+            in split_registry_paths(production.get("allowed_workflows", ""))
+            and linked_tests
+            and validator_path in workflow_test
+        ):
+            return False
+
+    for test_path in test_paths:
+        lifecycle = lifecycle_rows.get(test_path, {})
+        production = production_rows.get(test_path, {})
+        if not (
+            test_path in changed_paths
+            and git_path_exists_at_ref(base_ref, test_path, repository_root=repository_root)
+            is False
+            and lifecycle.get("type") == "test_python"
+            and lifecycle.get("owner") == "research_backtest"
+            and lifecycle.get("status") == "active"
+            and production.get("kind") == "test_python"
+            and production.get("owner") == "research_backtest"
+            and production.get("status") == "active"
+            and test_path in workflow_test
+        ):
+            return False
+    return True
+
+
 def expected_control_plane_workflow(
     base_workflow: bytes,
     *,
@@ -490,6 +707,16 @@ def validate_pr_safe_snapshot_contract(
         repository_root=repository_root,
     ) or is_control_plane_self_update_migration(
         base_ref,
+        strict_surface_changes,
+        repository_root=repository_root,
+    ) or is_research_control_plane_self_migration(
+        base_ref,
+        changed_paths,
+        strict_surface_changes,
+        repository_root=repository_root,
+    ) or is_registered_research_validator_workflow_migration(
+        base_ref,
+        changed_paths,
         strict_surface_changes,
         repository_root=repository_root,
     ):
