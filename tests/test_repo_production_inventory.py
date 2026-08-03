@@ -469,6 +469,26 @@ def test_pr_safe_base_guard_rejects_tampered_retained_authorization() -> None:
     )
 
 
+def test_pr_safe_base_guard_retains_exact_v1_v2_authorization_prefix() -> None:
+    retained = [dict(row) for row in inventory.PR_SAFE_RETAINED_AUTHORIZATION_ROWS]
+    assert [row["migration_id"] for row in retained] == [
+        "additive-research-validation-registration-pr-safe-v1",
+        "additive-research-validation-registration-pr-safe-v2",
+    ]
+
+    tampered_v2 = [dict(row) for row in retained]
+    tampered_v2[1]["current_test_sha256"] = "0" * 64
+    invalid_histories = (
+        retained[:1],
+        tampered_v2,
+        list(reversed(retained)),
+    )
+    for rows in invalid_histories:
+        assert inventory.validate_pr_safe_authorization_history(rows) == [
+            "PR-safe authorization history must retain the exact append-only prefix"
+        ]
+
+
 def test_pr_safe_base_guard_rejects_helper_migration_with_extra_path() -> None:
     base_helper = b"base helper\n"
     current_helper = inventory.PR_SAFE_ADDITIVE_RESEARCH_MIGRATION_ID.encode("utf-8")
