@@ -1,7 +1,11 @@
 from __future__ import annotations
 
-from pathlib import Path
 import csv
+import hashlib
+import io
+from pathlib import Path
+
+import pytest
 
 from scripts import validate_repo_production_inventory as inventory
 
@@ -9,8 +13,785 @@ from scripts import validate_repo_production_inventory as inventory
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def pr_safe_authorization_payload(
+    base_helper: bytes,
+    current_helper: bytes,
+    current_test: bytes,
+    **overrides: str,
+) -> bytes:
+    row = {
+        "migration_id": inventory.PR_SAFE_ADDITIVE_RESEARCH_MIGRATION_ID,
+        "status": "preauthorized",
+        "approval_reference": "user_authorized_stage0_test",
+        "base_helper_sha256": inventory.canonical_blob_sha256(base_helper),
+        "current_helper_sha256": inventory.canonical_blob_sha256(current_helper),
+        "current_test_sha256": inventory.canonical_blob_sha256(current_test),
+        "changed_paths": ";".join(
+            sorted(inventory.PR_SAFE_AUTHORIZED_STAGE1_PATHS)
+        ),
+    }
+    row.update(overrides)
+    buffer = io.StringIO(newline="")
+    writer = csv.DictWriter(
+        buffer,
+        fieldnames=list(inventory.PR_SAFE_AUTHORIZATION_COLUMNS),
+    )
+    writer.writeheader()
+    writer.writerow(row)
+    return buffer.getvalue().encode("utf-8")
+
+
 def test_repo_production_inventory_validator_passes() -> None:
     assert inventory.main() == 0
+
+
+def test_pr_safe_base_audit_workflow_never_executes_pull_request_code() -> None:
+    text = (
+        ROOT / inventory.PR_SAFE_BASE_GUARD_WORKFLOW
+    ).read_text(encoding="utf-8")
+
+    assert "  pull_request_target:" in text
+    assert "types: [opened, synchronize, reopened, edited]" in text
+    assert f"name: {inventory.PR_SAFE_REGULAR_JOB_NAME_EXPRESSION}" in text
+    assert inventory.PR_SAFE_REQUIRED_CHECK_CONTEXT != inventory.PR_SAFE_TARGET_SKIP_CHECK_NAME
+    assert "name: pr-safe-base-audit-runner" in text
+    assert "if: github.event_name == 'pull_request'" in text
+    assert "github.event_name == 'pull_request_target' &&" in text
+    assert "github.event.pull_request.base.ref == 'main' &&" in text
+    assert (
+        "github.event.pull_request.base.repo.full_name == github.repository" in text
+    )
+    assert (
+        "group: individual-stock-pr-validation-${{ github.event_name }}-"
+        "${{ github.event.pull_request.number }}" in text
+    )
+    assert "ref: ${{ github.event.pull_request.base.sha }}" in text
+    assert "persist-credentials: false" in text
+    assert "checks: write" not in text
+    assert "statuses: write" not in text
+    assert "actions/github-script" not in text
+    assert "15368" not in text
+    assert "base-owned-pr-safe-control-plane-migration" not in text
+    assert 'refs/pull/$PR_NUMBER/head:$LOCAL_HEAD_REF' in text
+    assert 'test "$(git rev-parse \"$LOCAL_HEAD_REF\")" = "$HEAD_SHA"' in text
+    assert "--validate-pr-safe-control-plane-migration" in text
+    assert "--audit-manifest \"$AUDIT_MANIFEST\"" in text
+    assert "--workflow-ref \"$GITHUB_WORKFLOW_REF\"" in text
+    assert "--workflow-sha \"$GITHUB_WORKFLOW_SHA\"" in text
+    assert "--event-action \"${{ github.event.action }}\"" in text
+    assert "--base-ref \"${{ github.event.pull_request.base.ref }}\"" in text
+    assert (
+        "--base-repository \"${{ github.event.pull_request.base.repo.full_name }}\""
+        in text
+    )
+    assert (
+        "--head-repository \"${{ github.event.pull_request.head.repo.full_name }}\""
+        in text
+    )
+    assert inventory.PR_SAFE_CHECKOUT_ACTION in text
+    assert inventory.PR_SAFE_SETUP_PYTHON_ACTION in text
+    assert inventory.PR_SAFE_UPLOAD_ARTIFACT_ACTION in text
+    assert inventory.workflow_action_uses(text) == (
+        inventory.PR_SAFE_EXPECTED_ACTION_USES,
+        [],
+    )
+    assert inventory.workflow_exact_mapping(
+        text,
+        "permissions",
+        section_indent=0,
+        entry_indent=2,
+    ) == (inventory.PR_SAFE_READ_ONLY_PERMISSIONS, [])
+    jobs = inventory.workflow_job_blocks(text)
+    assert "    timeout-minutes: 30" in jobs["individual-stock-pr-validation"]
+    audit_steps = inventory.workflow_step_blocks(jobs["pr-safe-base-audit-runner"])
+    assert tuple(inventory.workflow_step_name(step) for step in audit_steps) == (
+        inventory.PR_SAFE_AUDIT_STEP_NAMES
+    )
+    assert tuple(
+        inventory.canonical_workflow_step_sha256(step) for step in audit_steps
+    ) == inventory.PR_SAFE_AUDIT_STEP_SHA256
+    assert inventory.workflow_exact_mapping(
+        jobs["pr-safe-base-audit-runner"],
+        "permissions",
+        section_indent=4,
+        entry_indent=6,
+    ) == (inventory.PR_SAFE_READ_ONLY_PERMISSIONS, [])
+    assert "actions/checkout@v6" not in text
+    assert "actions/upload-artifact@v4" not in text
+    assert inventory.workflow_trigger_paths(text, "pull_request_target") == (
+        inventory.PR_SAFE_TRIGGER_PATHS,
+        [],
+    )
+    assert "timeout-minutes: 10" in text
+    assert 'manifest_name="$(basename "$AUDIT_MANIFEST")"' in text
+    assert (
+        '(cd "$manifest_dir" && sha256sum "$manifest_name" > '
+        '"${manifest_name}.sha256")' in text
+    )
+    assert 'sha256sum "$AUDIT_MANIFEST"' not in text
+    assert "pr-safe-control-plane-audit-${{ github.run_id }}-${{ github.run_attempt }}" in text
+    assert "secrets." not in text
+    assert "github.event.pull_request.head.ref" not in text
+    assert "github.ref" not in text
+
+
+def test_pr_safe_base_audit_artifact_contract_is_structurally_exact() -> None:
+    text = (ROOT / inventory.PR_SAFE_BASE_GUARD_WORKFLOW).read_text(encoding="utf-8")
+
+    assert inventory.validate_pr_safe_base_guard_workflow_text(text) == []
+
+    mutations = (
+        text.replace(
+            inventory.PR_SAFE_UPLOAD_ARTIFACT_ACTION,
+            "actions/upload-artifact@v4",
+            1,
+        ),
+        text.replace(
+            inventory.PR_SAFE_CHECKOUT_ACTION,
+            "actions/checkout@v6",
+            1,
+        ),
+        text.replace(
+            inventory.PR_SAFE_SETUP_PYTHON_ACTION,
+            "actions/setup-python@v6",
+            1,
+        ),
+        text.replace(
+            '      - "tests/test_repo_advanced_integrity_pr_safe.py"',
+            '      - "tests/test_repo_advanced_integrity_pr_safe.py"\n'
+            '      - "scripts/unexpected.py"',
+            1,
+        ),
+        text.replace(
+            "            ${{ runner.temp }}/pr-safe-control-plane-audit-manifest.json.sha256",
+            "            ${{ runner.temp }}/pr-safe-control-plane-audit-manifest.json.sha256\n"
+            "            ${{ runner.temp }}/unexpected-third-path.txt",
+            1,
+        ),
+        text.replace(
+            "      - name: Upload audit-only evidence\n        if: always()",
+            "      - name: Upload audit-only evidence\n        if: success()",
+            1,
+        ),
+        text.replace("    timeout-minutes: 10\n", "", 1),
+        text.replace(
+            'manifest_name="$(basename "$AUDIT_MANIFEST")"',
+            'manifest_name="$AUDIT_MANIFEST"',
+            1,
+        ),
+        text.replace(
+            inventory.PR_SAFE_REGULAR_JOB_NAME_EXPRESSION,
+            inventory.PR_SAFE_REQUIRED_CHECK_CONTEXT,
+            1,
+        ),
+        text.replace("    timeout-minutes: 30\n", "", 1),
+        text.replace(
+            "permissions:\n  contents: read",
+            "permissions:\n  contents: write",
+            1,
+        ),
+        text.replace(
+            "    permissions:\n      contents: read",
+            "    permissions:\n      contents: read\n      actions: write",
+            1,
+        ),
+        text.replace(
+            "      - name: Upload audit-only evidence",
+            "      - name: Unexpected fifth action\n"
+            "        uses: actions/cache@0000000000000000000000000000000000000000\n\n"
+            "      - name: Upload audit-only evidence",
+            1,
+        ),
+        text.replace(
+            f"        uses: {inventory.PR_SAFE_SETUP_PYTHON_ACTION}\n",
+            "",
+            1,
+        ),
+        text.replace(
+            f"        uses: {inventory.PR_SAFE_SETUP_PYTHON_ACTION}\n",
+            f"        uses: {inventory.PR_SAFE_SETUP_PYTHON_ACTION}\n"
+            f"        uses: {inventory.PR_SAFE_SETUP_PYTHON_ACTION}\n",
+            1,
+        ),
+        text.replace(
+            "permissions:\n  contents: read",
+            "permissions:\n  contents: read\n  contents: read",
+            1,
+        ),
+        text.replace(
+            "    permissions:\n      contents: read",
+            "    permissions:\n      contents: write",
+            1,
+        ),
+        text.replace(
+            "    permissions:\n      contents: read\n\n    steps:",
+            "    permissions:\n      contents: read\n"
+            "    permissions:\n      contents: read\n\n    steps:",
+            1,
+        ),
+        text.replace(
+            "    permissions:\n      contents: read",
+            "    permissions:\n      contents: read\n      contents: read",
+            1,
+        ),
+        text.replace(
+            "            ${{ runner.temp }}/pr-safe-control-plane-audit-manifest.json\n",
+            "",
+            1,
+        ),
+        text.replace(
+            "            ${{ runner.temp }}/pr-safe-control-plane-audit-manifest.json.sha256\n",
+            "",
+            1,
+        ),
+        text.replace(
+            "            ${{ runner.temp }}/pr-safe-control-plane-audit-manifest.json\n",
+            "            ${{ runner.temp }}/pr-safe-control-plane-audit-manifest.json\n"
+            "            ${{ runner.temp }}/pr-safe-control-plane-audit-manifest.json\n",
+            1,
+        ),
+        text.replace(
+            "            ${{ runner.temp }}/pr-safe-control-plane-audit-manifest.json.sha256\n",
+            "            ${{ runner.temp }}/pr-safe-control-plane-audit-manifest.json.sha256\n"
+            "            ${{ runner.temp }}/pr-safe-control-plane-audit-manifest.json.sha256\n",
+            1,
+        ),
+    )
+    for mutated in mutations:
+        assert mutated != text
+        assert inventory.validate_pr_safe_base_guard_workflow_text(mutated)
+
+
+def test_pr_safe_audit_runner_rejects_step_or_head_execution_drift() -> None:
+    text = (ROOT / inventory.PR_SAFE_BASE_GUARD_WORKFLOW).read_text(encoding="utf-8")
+    audit_job = inventory.workflow_job_blocks(text)["pr-safe-base-audit-runner"]
+    steps = inventory.workflow_step_blocks(audit_job)
+    step_blob = "".join(steps)
+    seventh_step = (
+        "      - name: Unexpected seventh run step\n"
+        "        run: echo unsafe\n\n"
+    )
+
+    mutations = (
+        text.replace(step_blob, "".join(steps[:-1]) + seventh_step + steps[-1], 1),
+        text.replace(step_blob, "".join(steps[:-1]), 1),
+        text.replace(step_blob, "".join([steps[0], steps[0], *steps[1:]]), 1),
+        text.replace(step_blob, "".join([steps[1], steps[0], *steps[2:]]), 1),
+        text.replace(
+            "      - name: Record audit manifest SHA-256",
+            "      - name: Renamed audit manifest step",
+            1,
+        ),
+        text.replace(
+            '          git fetch --no-tags origin "+refs/pull/$PR_NUMBER/head:$LOCAL_HEAD_REF"',
+            '          git fetch --no-tags origin "+refs/pull/$PR_NUMBER/head:$LOCAL_HEAD_REF"\n'
+            '          git checkout "$LOCAL_HEAD_REF"',
+            1,
+        ),
+        text.replace(
+            '          git fetch --no-tags origin "+refs/pull/$PR_NUMBER/head:$LOCAL_HEAD_REF"',
+            '          git fetch --no-tags origin "+refs/pull/$PR_NUMBER/head:$LOCAL_HEAD_REF"\n'
+            '          git switch --detach "$HEAD_SHA"',
+            1,
+        ),
+        text.replace(
+            '          test "$(git rev-parse "$LOCAL_HEAD_REF")" = "$HEAD_SHA"',
+            '          test "$(git rev-parse "$LOCAL_HEAD_REF")" = "$HEAD_SHA"\n'
+            '          git show "$LOCAL_HEAD_REF:scripts/untrusted.py" | python -',
+            1,
+        ),
+        text.replace(
+            "          PR_NUMBER: ${{ github.event.pull_request.number }}",
+            "          PR_NUMBER: ${{ github.event.pull_request.number }}\n"
+            "          UNTRUSTED: ${{ secrets.UNTRUSTED }}",
+            1,
+        ),
+    )
+    for mutated in mutations:
+        assert mutated != text
+        assert inventory.validate_pr_safe_base_guard_workflow_text(mutated)
+
+
+def test_pr_safe_audit_runner_rejects_job_header_drift() -> None:
+    text = (ROOT / inventory.PR_SAFE_BASE_GUARD_WORKFLOW).read_text(encoding="utf-8")
+    audit_job = inventory.workflow_job_blocks(text)[inventory.PR_SAFE_AUDIT_JOB_NAME]
+    header_sha256, header_errors = inventory.canonical_workflow_job_header_sha256(
+        audit_job
+    )
+
+    assert header_errors == []
+    assert header_sha256 == inventory.PR_SAFE_AUDIT_JOB_HEADER_SHA256
+    assert inventory.workflow_job_scalar_values(audit_job, "name") == (
+        inventory.PR_SAFE_AUDIT_JOB_NAME,
+    )
+    assert inventory.workflow_job_scalar_values(audit_job, "runs-on") == (
+        inventory.PR_SAFE_AUDIT_JOB_RUNS_ON,
+    )
+    assert inventory.workflow_job_scalar_values(audit_job, "timeout-minutes") == (
+        inventory.PR_SAFE_AUDIT_JOB_TIMEOUT_MINUTES,
+    )
+    assert inventory.workflow_job_multiline_block(audit_job, "if") == (
+        inventory.PR_SAFE_AUDIT_JOB_IF_BLOCK,
+        [],
+    )
+
+    exact_if = "\n".join(inventory.PR_SAFE_AUDIT_JOB_IF_BLOCK)
+    mutations = (
+        text.replace(
+            "    name: pr-safe-base-audit-runner",
+            "    # name: pr-safe-base-audit-runner\n"
+            "    name: individual-stock-pr-validation",
+            1,
+        ),
+        text.replace(
+            "    name: pr-safe-base-audit-runner",
+            "    name: pr-safe-base-audit-runner\n"
+            "    name: individual-stock-pr-validation",
+            1,
+        ),
+        text.replace(
+            "      github.event.pull_request.base.repo.full_name == github.repository\n"
+            "    runs-on: ubuntu-latest",
+            "      github.event.pull_request.base.repo.full_name == github.repository\n"
+            "    runs-on: self-hosted",
+            1,
+        ),
+        text.replace(
+            "      github.event.pull_request.base.repo.full_name == github.repository\n"
+            "    runs-on: ubuntu-latest",
+            "      github.event.pull_request.base.repo.full_name == github.repository\n"
+            "    runs-on: ubuntu-latest\n    runs-on: self-hosted",
+            1,
+        ),
+        text.replace(exact_if, "    if: always()", 1),
+        text.replace(
+            exact_if,
+            exact_if.replace(
+                "      github.event.pull_request.base.ref == 'main' &&\n",
+                "",
+            ),
+            1,
+        ),
+        text.replace(
+            exact_if,
+            exact_if.replace(
+                "      github.event.pull_request.base.repo.full_name == github.repository",
+                "      true",
+            ),
+            1,
+        ),
+        text.replace(
+            exact_if,
+            "    # if: >-\n    if: always()",
+            1,
+        ),
+        text.replace(exact_if, exact_if + "\n    if: always()", 1),
+        text.replace(
+            "    timeout-minutes: 10",
+            "    timeout-minutes: 10\n    timeout-minutes: 999",
+            1,
+        ),
+        text.replace(
+            "    permissions:\n      contents: read\n\n    steps:",
+            "    permissions:\n      contents: read\n    environment: unexpected\n\n    steps:",
+            1,
+        ),
+    )
+    for mutated in mutations:
+        assert mutated != text
+        assert inventory.validate_pr_safe_base_guard_workflow_text(mutated)
+
+
+def test_pr_safe_base_guard_concurrency_isolated_per_event_and_pull_request() -> None:
+    text = (ROOT / inventory.PR_SAFE_BASE_GUARD_WORKFLOW).read_text(encoding="utf-8")
+    group_line = next(
+        line.strip() for line in text.splitlines() if line.strip().startswith("group:")
+    )
+
+    assert "${{ github.event_name }}" in group_line
+    assert "${{ github.event.pull_request.number }}" in group_line
+    assert "github.ref" not in group_line
+    rendered_pr_101 = group_line.replace("${{ github.event.pull_request.number }}", "101")
+    rendered_pr_202 = group_line.replace("${{ github.event.pull_request.number }}", "202")
+    assert rendered_pr_101 != rendered_pr_202
+
+
+def test_pr_safe_base_guard_accepts_only_exact_preauthorized_helper_bytes() -> None:
+    base_helper = b"base helper without consumed migration\n"
+    current_helper = (
+        f"MIGRATION = '{inventory.PR_SAFE_ADDITIVE_RESEARCH_MIGRATION_ID}'\n"
+    ).encode("utf-8")
+    current_test = b"def test_fail_closed():\n    assert True\n"
+    payload = pr_safe_authorization_payload(
+        base_helper,
+        current_helper,
+        current_test,
+    )
+
+    errors = inventory.validate_pr_safe_control_plane_delta(
+        set(inventory.PR_SAFE_AUTHORIZED_STAGE1_PATHS),
+        base_helper=base_helper,
+        current_helper=current_helper,
+        current_test=current_test,
+        authorization_payload=payload,
+    )
+
+    assert errors == []
+
+
+def test_pr_safe_base_guard_rejects_helper_migration_with_extra_path() -> None:
+    base_helper = b"base helper\n"
+    current_helper = inventory.PR_SAFE_ADDITIVE_RESEARCH_MIGRATION_ID.encode("utf-8")
+    current_test = b"exact tests\n"
+    payload = pr_safe_authorization_payload(
+        base_helper,
+        current_helper,
+        current_test,
+    )
+    changed_paths = {
+        *inventory.PR_SAFE_AUTHORIZED_STAGE1_PATHS,
+        "scripts/synthetic_daily_production.py",
+    }
+
+    errors = inventory.validate_pr_safe_control_plane_delta(
+        changed_paths,
+        base_helper=base_helper,
+        current_helper=current_helper,
+        current_test=current_test,
+        authorization_payload=payload,
+    )
+
+    assert any("must change exactly the preauthorized paths" in error for error in errors)
+
+
+def test_pr_safe_base_guard_rejects_unpinned_helper_semantic_mutation() -> None:
+    base_helper = b"base helper\n"
+    approved_helper = inventory.PR_SAFE_ADDITIVE_RESEARCH_MIGRATION_ID.encode("utf-8")
+    current_helper = approved_helper + b"\nUNAPPROVED = True\n"
+    current_test = b"exact tests\n"
+    payload = pr_safe_authorization_payload(
+        base_helper,
+        approved_helper,
+        current_test,
+    )
+
+    errors = inventory.validate_pr_safe_control_plane_delta(
+        set(inventory.PR_SAFE_AUTHORIZED_STAGE1_PATHS),
+        base_helper=base_helper,
+        current_helper=current_helper,
+        current_test=current_test,
+        authorization_payload=payload,
+    )
+
+    assert "PR-safe migration authorization current_helper_sha256 mismatch" in errors
+
+
+def test_pr_safe_base_guard_rejects_its_own_trust_root_changes() -> None:
+    changed_paths = {inventory.PR_SAFE_BASE_GUARD_WORKFLOW}
+
+    errors = inventory.validate_pr_safe_control_plane_delta(
+        changed_paths,
+        base_helper=None,
+        current_helper=None,
+        current_test=None,
+        authorization_payload=(
+            ",".join(inventory.PR_SAFE_AUTHORIZATION_COLUMNS) + "\n"
+        ).encode("utf-8"),
+    )
+
+    assert any("may not modify the base-owned PR-safe trust root" in error for error in errors)
+
+
+def test_pr_safe_base_guard_rejects_changed_workflow_spoof_surfaces() -> None:
+    spoof_path = ".github/workflows/spoof.yml"
+    payloads = (
+        b"permissions:\n  checks: write\n",
+        b"permissions: {statuses: write}\n",
+        b"permissions: {'checks': 'write'}\n",
+        b"permissions: write-all\n",
+    )
+
+    for payload in payloads:
+        errors = inventory.validate_pr_safe_control_plane_delta(
+            {spoof_path},
+            base_helper=None,
+            current_helper=None,
+            current_test=None,
+            authorization_payload=(
+                ",".join(inventory.PR_SAFE_AUTHORIZATION_COLUMNS) + "\n"
+            ).encode("utf-8"),
+            changed_workflow_blobs={spoof_path: payload},
+        )
+        assert errors
+
+
+def test_pr_safe_base_guard_allows_ordinary_non_control_plane_pr() -> None:
+    errors = inventory.validate_pr_safe_control_plane_delta(
+        {"docs/research-note.md"},
+        base_helper=None,
+        current_helper=None,
+        current_test=None,
+        authorization_payload=(
+            ",".join(inventory.PR_SAFE_AUTHORIZATION_COLUMNS) + "\n"
+        ).encode("utf-8"),
+    )
+
+    assert errors == []
+
+
+def test_pr_safe_name_status_parser_keeps_type_change_and_both_rename_paths() -> None:
+    payload = (
+        b"T\0" + inventory.PR_SAFE_ADVANCED_HELPER.encode("utf-8") + b"\0"
+        b"R100\0.github/workflows/individual_stock_pr_validation.yml\0"
+        b".github/workflows/renamed_guard.yml\0"
+    )
+
+    paths, errors = inventory.parse_git_name_status_z(payload)
+
+    assert errors == []
+    assert paths == {
+        inventory.PR_SAFE_ADVANCED_HELPER,
+        ".github/workflows/individual_stock_pr_validation.yml",
+        ".github/workflows/renamed_guard.yml",
+    }
+    guard_errors = inventory.validate_pr_safe_control_plane_delta(
+        paths,
+        base_helper=None,
+        current_helper=None,
+        current_test=None,
+        authorization_payload=(
+            ",".join(inventory.PR_SAFE_AUTHORIZATION_COLUMNS) + "\n"
+        ).encode("utf-8"),
+    )
+    assert any("may not modify the base-owned PR-safe trust root" in error for error in guard_errors)
+
+
+@pytest.mark.parametrize(
+    ("unsafe_mode", "unsafe_type"),
+    [
+        ("120000", "blob"),
+        ("160000", "commit"),
+        ("100664", "blob"),
+    ],
+)
+def test_pr_safe_regular_blob_gate_rejects_symlink_submodule_and_other_modes(
+    monkeypatch: pytest.MonkeyPatch,
+    unsafe_mode: str,
+    unsafe_type: str,
+) -> None:
+    unsafe_path = inventory.PR_SAFE_ADVANCED_HELPER
+
+    def fake_git_output_bytes(*args: str) -> bytes:
+        assert args[:2] == ("ls-tree", "-z")
+        ref = args[2]
+        path = args[-1]
+        mode = unsafe_mode if ref == "head-sha" and path == unsafe_path else "100644"
+        object_type = (
+            unsafe_type if ref == "head-sha" and path == unsafe_path else "blob"
+        )
+        return (
+            f"{mode} {object_type} {'0' * 40}\t{path}\0"
+        ).encode("utf-8")
+
+    monkeypatch.setattr(inventory, "git_output_bytes", fake_git_output_bytes)
+
+    errors = inventory.validate_pr_safe_regular_blob_modes("base-sha", "head-sha")
+
+    assert any(
+        unsafe_path in error and "must remain a regular blob" in error
+        for error in errors
+    )
+
+
+def test_pr_safe_lifecycle_authorization_ledger_is_exact_and_base_owned() -> None:
+    payload = (ROOT / inventory.PR_SAFE_LIFECYCLE_AUTHORIZATION_PATH).read_bytes()
+
+    rows, errors = inventory.parse_pr_safe_lifecycle_authorizations(payload)
+
+    assert errors == []
+    assert {
+        (row["row_path"], row["column"])
+        for row in rows
+    } == inventory.PR_SAFE_LIFECYCLE_AUTHORIZED_TARGETS
+
+
+def test_pr_safe_audit_manifest_pins_exact_evidence_without_trust_identity(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    base_sha = "a" * 40
+    head_sha = "b" * 40
+    base_helper = b"base helper without consumed migration\n"
+    current_helper = (
+        f"MIGRATION = '{inventory.PR_SAFE_ADDITIVE_RESEARCH_MIGRATION_ID}'\n"
+    ).encode("utf-8")
+    current_test = b"def test_fail_closed():\n    assert True\n"
+    authorization_payload = pr_safe_authorization_payload(
+        base_helper,
+        current_helper,
+        current_test,
+    )
+    lifecycle_payload = (
+        ROOT / inventory.PR_SAFE_LIFECYCLE_AUTHORIZATION_PATH
+    ).read_bytes()
+
+    diff_payload = (
+        f"M\0{inventory.PR_SAFE_ADVANCED_HELPER}\0"
+        f"M\0{inventory.PR_SAFE_ADVANCED_TEST}\0"
+    ).encode("utf-8")
+
+    def fake_git_output_bytes(*args: str) -> bytes:
+        if args[0] == "diff":
+            return diff_payload
+        if args == ("rev-parse", "HEAD"):
+            return f"{base_sha}\n".encode("ascii")
+        if args[:2] == ("ls-tree", "-z"):
+            path = args[-1]
+            return f"100644 blob {'0' * 40}\t{path}\0".encode("utf-8")
+        raise AssertionError(args)
+
+    def fake_git_blob_at_ref(ref: str, path: str) -> bytes | None:
+        if ref == base_sha and path == inventory.PR_SAFE_AUTHORIZATION_PATH:
+            return authorization_payload
+        if ref == base_sha and path == inventory.PR_SAFE_LIFECYCLE_AUTHORIZATION_PATH:
+            return lifecycle_payload
+        if path == inventory.PR_SAFE_ADVANCED_HELPER:
+            return base_helper if ref == base_sha else current_helper
+        if path == inventory.PR_SAFE_ADVANCED_TEST:
+            return b"base tests\n" if ref == base_sha else current_test
+        return b"base-owned audit blob\n"
+
+    monkeypatch.setattr(inventory, "git_output_bytes", fake_git_output_bytes)
+    monkeypatch.setattr(inventory, "git_blob_at_ref", fake_git_blob_at_ref)
+
+    manifest = inventory.build_pr_safe_audit_manifest(
+        base_sha=base_sha,
+        head_sha=head_sha,
+        validation_errors=[],
+        repository=inventory.PR_SAFE_REPOSITORY,
+        workflow_ref=(
+            f"{inventory.PR_SAFE_REPOSITORY}/"
+            f"{inventory.PR_SAFE_BASE_GUARD_WORKFLOW}@refs/heads/main"
+        ),
+        workflow_sha=base_sha,
+        run_id="12345",
+        run_attempt="1",
+        event_name="pull_request_target",
+        event_action="synchronize",
+        base_ref="main",
+        base_repository=inventory.PR_SAFE_REPOSITORY,
+        head_repository=inventory.PR_SAFE_REPOSITORY,
+        pull_request_number="462",
+    )
+
+    assert manifest["audit_mode"] == inventory.PR_SAFE_AUDIT_MODE
+    assert manifest["trust_identity_claimed"] is False
+    assert manifest["required_context_used"] is False
+    assert manifest["changed_paths_match_allowlist"] is True
+    assert manifest["manual_gate_eligible"] is True
+    assert manifest["validation"] == {"passed": True, "errors": []}
+    assert manifest["preauthorization"]["migration"]["migration_id"] == (
+        inventory.PR_SAFE_ADDITIVE_RESEARCH_MIGRATION_ID
+    )
+    assert len(manifest["lifecycle_preauthorization"]["migrations"]) == 2
+    helper_evidence = manifest["protected_blobs"][inventory.PR_SAFE_ADVANCED_HELPER]
+    assert helper_evidence["base"]["object_id"] == "0" * 40
+    assert helper_evidence["head"]["raw_sha256"] == hashlib.sha256(
+        current_helper
+    ).hexdigest()
+
+    destination = tmp_path / inventory.PR_SAFE_AUDIT_MANIFEST_FILENAME
+    observed_sha = inventory.write_pr_safe_audit_manifest(manifest, destination)
+    assert observed_sha == hashlib.sha256(destination.read_bytes()).hexdigest()
+
+    rejected = inventory.build_pr_safe_audit_manifest(
+        base_sha=base_sha,
+        head_sha=head_sha,
+        validation_errors=[],
+        repository=inventory.PR_SAFE_REPOSITORY,
+        workflow_ref=(
+            f"{inventory.PR_SAFE_REPOSITORY}/"
+            f"{inventory.PR_SAFE_BASE_GUARD_WORKFLOW}@refs/heads/main"
+        ),
+        workflow_sha=base_sha,
+        run_id="12345",
+        run_attempt="1",
+        event_name="pull_request",
+        event_action="synchronize",
+        base_ref="main",
+        base_repository=inventory.PR_SAFE_REPOSITORY,
+        head_repository=inventory.PR_SAFE_REPOSITORY,
+        pull_request_number="462",
+    )
+    assert rejected["validation"]["passed"] is False
+    assert any(
+        "event_name must be pull_request_target" in error
+        for error in rejected["validation"]["errors"]
+    )
+
+    for bad_workflow_ref in (
+        inventory.PR_SAFE_EXPECTED_WORKFLOW_REF.replace("refs/heads/main", "refs/heads/dev"),
+        inventory.PR_SAFE_EXPECTED_WORKFLOW_REF.replace("refs/heads/main", "refs/tags/main"),
+        inventory.PR_SAFE_EXPECTED_WORKFLOW_REF.replace("refs/heads/main", "refs/pull/462/merge"),
+        inventory.PR_SAFE_EXPECTED_WORKFLOW_REF + "/extra",
+    ):
+        bad_ref_manifest = inventory.build_pr_safe_audit_manifest(
+            base_sha=base_sha,
+            head_sha=head_sha,
+            validation_errors=[],
+            repository=inventory.PR_SAFE_REPOSITORY,
+            workflow_ref=bad_workflow_ref,
+            workflow_sha=base_sha,
+            run_id="12345",
+            run_attempt="1",
+            event_name="pull_request_target",
+            event_action="synchronize",
+            base_ref="main",
+            base_repository=inventory.PR_SAFE_REPOSITORY,
+            head_repository=inventory.PR_SAFE_REPOSITORY,
+            pull_request_number="462",
+        )
+        assert bad_ref_manifest["manual_gate_eligible"] is False
+        assert bad_ref_manifest["validation"]["passed"] is False
+
+    rerun_manifest = inventory.build_pr_safe_audit_manifest(
+        base_sha=base_sha,
+        head_sha=head_sha,
+        validation_errors=[],
+        repository=inventory.PR_SAFE_REPOSITORY,
+        workflow_ref=inventory.PR_SAFE_EXPECTED_WORKFLOW_REF,
+        workflow_sha=base_sha,
+        run_id="12345",
+        run_attempt="2",
+        event_name="pull_request_target",
+        event_action="synchronize",
+        base_ref="main",
+        base_repository=inventory.PR_SAFE_REPOSITORY,
+        head_repository=inventory.PR_SAFE_REPOSITORY,
+        pull_request_number="462",
+    )
+    assert rerun_manifest["manual_gate_eligible"] is False
+
+    diff_payload = b"M\0docs/unrelated.md\0"
+    unrelated_manifest = inventory.build_pr_safe_audit_manifest(
+        base_sha=base_sha,
+        head_sha=head_sha,
+        validation_errors=[],
+        repository=inventory.PR_SAFE_REPOSITORY,
+        workflow_ref=inventory.PR_SAFE_EXPECTED_WORKFLOW_REF,
+        workflow_sha=base_sha,
+        run_id="12345",
+        run_attempt="1",
+        event_name="pull_request_target",
+        event_action="synchronize",
+        base_ref="main",
+        base_repository=inventory.PR_SAFE_REPOSITORY,
+        head_repository=inventory.PR_SAFE_REPOSITORY,
+        pull_request_number="462",
+    )
+    assert unrelated_manifest["changed_paths_match_allowlist"] is False
+    assert unrelated_manifest["manual_gate_eligible"] is False
+    assert unrelated_manifest["validation"]["passed"] is False
 
 
 def test_inventory_manifest_exists_and_is_authoritative() -> None:
