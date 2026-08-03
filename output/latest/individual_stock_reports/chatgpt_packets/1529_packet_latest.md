@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1529 樂事綠能
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:18 Asia/Taipei
+- generated_at: 2026-08-03 22:26:30 Asia/Taipei
 - stock_id: 1529
 - stock_name: 樂事綠能
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 16.2
-- high: 17.3
-- low: 16.2
-- close: 16.65
-- volume: 741703
-- ma5: 17.5
-- ema23_primary: 19.79
-- distance_to_ema23_pct: -15.88
-- ma20: 20.18
-- ma60: 21.54
-- ma120: 23.07
-- return_5d: -10.72
-- return_20d: -25.34
-- volume_ratio: 0.97
-- distance_to_ma20_pct_auxiliary: -17.49
-- distance_to_high_60_pct: -35.47
+- date: 20260731
+- open: 17
+- high: 17.5
+- low: 17
+- close: 17.25
+- volume: 327387
+- ma5: 17.27
+- ema23_primary: 19.58
+- distance_to_ema23_pct: -11.91
+- ma20: 19.93
+- ma60: 21.45
+- ma120: 23
+- return_5d: -6.25
+- return_20d: -22.82
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: -13.43
+- distance_to_high_60_pct: -33.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,22.4,22.6,22.25,22.35,259782,22.5,-0.67,22.7,22.53,0.24
 20260703,22.6,23.35,22.55,23.1,1168660,22.55,2.44,22.64,22.5,1.55
 20260706,23.1,23.7,23.1,23.2,845393,22.6,2.63,22.65,22.47,1.16
 20260707,23.2,23.25,22.4,22.55,675720,22.6,-0.22,22.67,22.45,0.96
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,18.2,18.2,17.05,17.4,867756,20.38,-14.61,20.75,21.73,1.18
 20260729,17.5,17.5,16,16.8,947413,20.08,-16.33,20.46,21.64,1.25
 20260730,16.2,17.3,16.2,16.65,741703,19.79,-15.88,20.18,21.54,0.97
+20260731,17,17.5,17,17.25,327387,19.58,-11.91,19.93,21.45,0.43
 ```
 
 ## Latest TDCC Snapshot

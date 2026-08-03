@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00703 台新MSCI中國
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:03 Asia/Taipei
+- generated_at: 2026-08-03 22:26:13 Asia/Taipei
 - stock_id: 00703
 - stock_name: 台新MSCI中國
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260730
-- price_rows: 48
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 49
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 20.1
-- high: 20.2
-- low: 20
-- close: 20.07
-- volume: 44508
-- ma5: 19.73
-- ema23_primary: 19.35
-- distance_to_ema23_pct: 3.74
-- ma20: 19.28
-- ma60: 19.09
-- ma120: 19.09
-- return_5d: 2.14
-- return_20d: 12.06
-- volume_ratio: 0.87
-- distance_to_ma20_pct_auxiliary: 4.11
-- distance_to_high_60_pct: -0.64
+- date: 20260731
+- open: 20.07
+- high: 20.25
+- low: 20.07
+- close: 20.17
+- volume: 38761
+- ma5: 19.88
+- ema23_primary: 19.42
+- distance_to_ema23_pct: 3.89
+- ma20: 19.38
+- ma60: 19.12
+- ma120: 19.12
+- return_5d: 3.76
+- return_20d: 11.25
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: 4.08
+- distance_to_high_60_pct: -0.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,18.17,18.17,18.09,18.13,18151,18.6,-2.53,18.65,18.93,0.22
 20260703,18.23,18.3,18.15,18.2,70290,18.57,-1.98,18.58,18.91,0.83
 20260706,18.28,18.67,18.28,18.64,38826,18.57,0.36,18.54,18.9,0.47
 20260707,18.7,18.88,18.56,18.56,140329,18.57,-0.07,18.51,18.89,1.66
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,19.71,19.71,19.55,19.55,14018,19.21,1.75,19.06,19.05,0.28
 20260729,19.85,20.11,19.79,20.01,52968,19.28,3.78,19.17,19.07,1.04
 20260730,20.1,20.2,20,20.07,44508,19.35,3.74,19.28,19.09,0.87
+20260731,20.07,20.25,20.07,20.17,38761,19.42,3.89,19.38,19.12,0.74
 ```
 
 ## Latest TDCC Snapshot

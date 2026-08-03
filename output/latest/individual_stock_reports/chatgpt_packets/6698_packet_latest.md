@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6698 旭暉應材
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:26 Asia/Taipei
+- generated_at: 2026-08-03 22:28:43 Asia/Taipei
 - stock_id: 6698
 - stock_name: 旭暉應材
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 30.3
-- high: 31.8
-- low: 29.5
-- close: 29.5
-- volume: 205555
-- ma5: 32.05
-- ema23_primary: 36.14
-- distance_to_ema23_pct: -18.38
-- ma20: 36.91
-- ma60: 37.48
-- ma120: 34.7
-- return_5d: -15.59
-- return_20d: -30.34
-- volume_ratio: 0.55
-- distance_to_ma20_pct_auxiliary: -20.07
-- distance_to_high_60_pct: -39.11
+- date: 20260731
+- open: 31.25
+- high: 31.5
+- low: 30.55
+- close: 31.3
+- volume: 200031
+- ma5: 31.37
+- ema23_primary: 35.74
+- distance_to_ema23_pct: -12.43
+- ma20: 36.38
+- ma60: 37.49
+- ma120: 34.65
+- return_5d: -9.8
+- return_20d: -25.21
+- volume_ratio: 0.56
+- distance_to_ma20_pct_auxiliary: -13.96
+- distance_to_high_60_pct: -35.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,42.35,43.1,41.6,41.85,572982,41.12,1.77,41.94,35.68,0.35
 20260703,41.35,41.8,40.5,41.2,528619,41.13,0.17,41.76,35.85,0.37
 20260706,41.3,45.3,41.3,42.05,954590,41.21,2.05,41.58,36.04,0.78
 20260707,42.2,42.75,40.65,41.3,672023,41.21,0.21,41.58,36.21,0.57
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,32.05,33.15,31.95,31.95,213788,37.33,-14.4,38.19,37.51,0.53
 20260729,33,33,29.3,30.4,729813,36.75,-17.28,37.55,37.51,1.83
 20260730,30.3,31.8,29.5,29.5,205555,36.14,-18.38,36.91,37.48,0.55
+20260731,31.25,31.5,30.55,31.3,200031,35.74,-12.43,36.38,37.49,0.56
 ```
 
 ## Latest TDCC Snapshot

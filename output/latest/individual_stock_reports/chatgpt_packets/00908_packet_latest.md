@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00908 富邦入息REITs+
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:04 Asia/Taipei
+- generated_at: 2026-08-03 22:26:15 Asia/Taipei
 - stock_id: 00908
 - stock_name: 富邦入息REITs+
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260730
-- price_rows: 48
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 49
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 15.8
-- high: 15.86
+- date: 20260731
+- open: 15.9
+- high: 15.9
 - low: 15.8
-- close: 15.83
-- volume: 213792
-- ma5: 15.72
-- ema23_primary: 15.47
-- distance_to_ema23_pct: 2.33
-- ma20: 15.52
-- ma60: 15.07
-- ma120: 15.07
-- return_5d: 1.09
-- return_20d: 5.18
-- volume_ratio: 1.24
-- distance_to_ma20_pct_auxiliary: 2.02
-- distance_to_high_60_pct: -0.19
+- close: 15.84
+- volume: 144141
+- ma5: 15.77
+- ema23_primary: 15.5
+- distance_to_ema23_pct: 2.19
+- ma20: 15.55
+- ma60: 15.08
+- ma120: 15.08
+- return_5d: 1.67
+- return_20d: 4.97
+- volume_ratio: 0.82
+- distance_to_ma20_pct_auxiliary: 1.84
+- distance_to_high_60_pct: -0.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,15.15,15.15,15.09,15.09,98216,14.87,1.45,14.9,14.76,0.63
 20260703,15.22,15.35,15.22,15.34,606106,14.91,2.86,14.95,14.78,3.27
 20260706,15.34,15.43,15.34,15.4,121419,14.95,2.98,14.99,14.8,0.64
 20260707,15.4,15.41,15.38,15.39,171653,14.99,2.67,15.03,14.81,0.88
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,15.64,15.69,15.64,15.68,53632,15.4,1.79,15.45,15.03,0.37
 20260729,15.68,15.83,15.68,15.8,446161,15.44,2.35,15.48,15.05,2.73
 20260730,15.8,15.86,15.8,15.83,213792,15.47,2.33,15.52,15.07,1.24
+20260731,15.9,15.9,15.8,15.84,144141,15.5,2.19,15.55,15.08,0.82
 ```
 
 ## Latest TDCC Snapshot

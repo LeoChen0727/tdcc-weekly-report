@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3708 上緯投控
 
 ## Metadata
-- generated_at: 2026-08-02 22:27:27 Asia/Taipei
+- generated_at: 2026-08-03 22:27:41 Asia/Taipei
 - stock_id: 3708
 - stock_name: 上緯投控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 86.4
-- high: 88.8
-- low: 86.4
-- close: 87.8
-- volume: 499823
-- ma5: 93.12
-- ema23_primary: 101.26
-- distance_to_ema23_pct: -13.29
-- ma20: 101.41
-- ma60: 112.84
-- ma120: 115.85
-- return_5d: -13.07
-- return_20d: -16.78
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: -13.42
-- distance_to_high_60_pct: -37.51
+- date: 20260731
+- open: 90.7
+- high: 92.2
+- low: 90
+- close: 91.9
+- volume: 367746
+- ma5: 91.5
+- ema23_primary: 100.48
+- distance_to_ema23_pct: -8.54
+- ma20: 100.72
+- ma60: 112.36
+- ma120: 115.6
+- return_5d: -8.1
+- return_20d: -12.89
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: -8.76
+- distance_to_high_60_pct: -34.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,104,106,103,105.5,492241,114.16,-7.58,114.85,118.72,0.7
 20260703,105,110.5,105,110.5,639365,113.85,-2.94,114.17,118.67,0.92
 20260706,111.5,120,111.5,118.5,2595738,114.24,3.73,114.12,118.75,3.31
 20260707,117,117,110,110.5,1114219,113.93,-3.01,113.8,118.66,1.43
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,97.1,97.1,91.3,91.3,833385,103.79,-12.03,103.31,114.02,1.13
 20260729,91.6,91.8,85.6,88.1,1169844,102.48,-14.03,102.29,113.48,1.5
 20260730,86.4,88.8,86.4,87.8,499823,101.26,-13.29,101.41,112.84,0.66
+20260731,90.7,92.2,90,91.9,367746,100.48,-8.54,100.72,112.36,0.49
 ```
 
 ## Latest TDCC Snapshot

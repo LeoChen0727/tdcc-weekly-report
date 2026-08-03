@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7788 松川精密
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:47 Asia/Taipei
+- generated_at: 2026-08-03 22:29:04 Asia/Taipei
 - stock_id: 7788
 - stock_name: 松川精密
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 189
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 190
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -130,29 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 184.5
-- high: 188.5
-- low: 171.5
-- close: 173.5
-- volume: 1413971
-- ma5: 194
-- ema23_primary: 226.45
-- distance_to_ema23_pct: -23.38
-- ma20: 232.93
-- ma60: 225.81
-- ma120: 193.85
-- return_5d: -24.57
-- return_20d: -31.69
-- volume_ratio: 0.77
-- distance_to_ma20_pct_auxiliary: -25.51
-- distance_to_high_60_pct: -43.21
+- date: 20260731
+- open: 190.5
+- high: 190.5
+- low: 183
+- close: 189.5
+- volume: 832048
+- ma5: 190.5
+- ema23_primary: 223.37
+- distance_to_ema23_pct: -15.16
+- ma20: 229.97
+- ma60: 226.23
+- ma120: 193.91
+- return_5d: -8.45
+- return_20d: -23.74
+- volume_ratio: 0.45
+- distance_to_ma20_pct_auxiliary: -17.6
+- distance_to_high_60_pct: -37.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,250,255,246.5,248.5,903792,247.08,0.58,257.9,202.9,0.26
 20260703,248.5,250,244.5,246.5,750690,247.03,-0.21,260.02,204.68,0.23
 20260706,250,252,231,239,1617917,246.36,-2.99,260.77,206.32,0.51
 20260707,240.5,250.5,228,232.5,1464445,245.21,-5.18,260.1,207.76,0.51
@@ -172,6 +171,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,201.5,203,195,196,822821,235.37,-16.73,240.5,225.4,0.42
 20260729,199.5,199.5,180,186,1557061,231.26,-19.57,236.95,225.72,0.84
 20260730,184.5,188.5,171.5,173.5,1413971,226.45,-23.38,232.93,225.81,0.77
+20260731,190.5,190.5,183,189.5,832048,223.37,-15.16,229.97,226.23,0.45
 ```
 
 ## Latest TDCC Snapshot

@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3693 營邦
 
 ## Metadata
-- generated_at: 2026-08-02 22:27:26 Asia/Taipei
+- generated_at: 2026-08-03 22:27:40 Asia/Taipei
 - stock_id: 3693
 - stock_name: 營邦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 180
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 181
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 426
-- high: 438
-- low: 404
-- close: 406.5
-- volume: 701000
-- ma5: 457.1
-- ema23_primary: 481.42
-- distance_to_ema23_pct: -15.56
-- ma20: 483.25
-- ma60: 527.22
-- ma120: 514.47
-- return_5d: -19.18
-- return_20d: -16.53
-- volume_ratio: 0.86
-- distance_to_ma20_pct_auxiliary: -15.88
-- distance_to_high_60_pct: -42.18
+- date: 20260731
+- open: 435.5
+- high: 447
+- low: 435.5
+- close: 447
+- volume: 344000
+- ma5: 444.7
+- ema23_primary: 478.55
+- distance_to_ema23_pct: -6.59
+- ma20: 481.62
+- ma60: 523.6
+- ma120: 515.05
+- return_5d: -12.18
+- return_20d: -6.78
+- volume_ratio: 0.42
+- distance_to_ma20_pct_auxiliary: -7.19
+- distance_to_high_60_pct: -36.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,480,489.5,477,479.5,334000,515.29,-6.95,509.02,575.52,0.52
 20260703,478,524,478,507,945000,514.6,-1.48,505.82,574.86,1.44
 20260706,513,516,493.5,493.5,432000,512.84,-3.77,502.05,573.82,0.67
 20260707,542,542,542,542,997000,515.27,5.19,500.95,573.42,1.53
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,481,481,445.5,446,650000,493.57,-9.64,490.85,535.17,0.86
 20260729,448.5,453,402,429.5,1214000,488.23,-12.03,487.27,531.42,1.52
 20260730,426,438,404,406.5,701000,481.42,-15.56,483.25,527.22,0.86
+20260731,435.5,447,435.5,447,344000,478.55,-6.59,481.62,523.6,0.42
 ```
 
 ## Latest TDCC Snapshot

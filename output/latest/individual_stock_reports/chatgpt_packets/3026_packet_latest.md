@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3026 禾伸堂
 
 ## Metadata
-- generated_at: 2026-08-02 22:27:02 Asia/Taipei
+- generated_at: 2026-08-03 22:27:15 Asia/Taipei
 - stock_id: 3026
 - stock_name: 禾伸堂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 427.5
-- high: 442
-- low: 427.5
-- close: 427.5
-- volume: 3974280
-- ma5: 530.8
-- ema23_primary: 681.74
-- distance_to_ema23_pct: -37.29
-- ma20: 750.3
-- ma60: 651.47
-- ma120: 400.83
-- return_5d: -38.67
-- return_20d: -52.45
-- volume_ratio: 0.41
-- distance_to_ma20_pct_auxiliary: -43.02
-- distance_to_high_60_pct: -59.09
+- date: 20260731
+- open: 470
+- high: 470
+- low: 416.5
+- close: 450
+- volume: 6002702
+- ma5: 492.8
+- ema23_primary: 662.43
+- distance_to_ema23_pct: -32.07
+- ma20: 727.85
+- ma60: 654.42
+- ma120: 403.68
+- return_5d: -29.69
+- return_20d: -49.94
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: -38.17
+- distance_to_high_60_pct: -56.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,899,899,858,899,1387814,746.33,20.46,773.55,486.94,0.38
 20260703,867,988,839,988,15337569,766.47,28.9,791.85,500.62,3.55
 20260706,1015,1020,891,963,20374460,782.85,23.01,808.7,513.62,3.88
 20260707,955,986,867,867,12818325,789.86,9.77,822,524.83,2.21
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,527,527,527,527,291893,725.8,-27.39,792.25,644.34,0.03
 20260729,474.5,474.5,474.5,474.5,786939,704.86,-32.68,773.88,648.48,0.08
 20260730,427.5,442,427.5,427.5,3974280,681.74,-37.29,750.3,651.47,0.41
+20260731,470,470,416.5,450,6002702,662.43,-32.07,727.85,654.42,0.6
 ```
 
 ## Latest TDCC Snapshot

@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3550 聯穎
 
 ## Metadata
-- generated_at: 2026-08-02 22:27:21 Asia/Taipei
+- generated_at: 2026-08-03 22:27:35 Asia/Taipei
 - stock_id: 3550
 - stock_name: 聯穎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 19.35
-- high: 19.6
-- low: 18.4
-- close: 18.5
-- volume: 1389292
-- ma5: 20.23
-- ema23_primary: 24.28
-- distance_to_ema23_pct: -23.82
-- ma20: 25.21
-- ma60: 25.41
-- ma120: 22.02
-- return_5d: -18.14
-- return_20d: -44.61
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: -26.63
-- distance_to_high_60_pct: -53.4
+- date: 20260731
+- open: 19.65
+- high: 19.85
+- low: 19.35
+- close: 19.75
+- volume: 967300
+- ma5: 19.79
+- ema23_primary: 23.91
+- distance_to_ema23_pct: -17.39
+- ma20: 24.37
+- ma60: 25.37
+- ma120: 22.06
+- return_5d: -10.02
+- return_20d: -46.19
+- volume_ratio: 0.31
+- distance_to_ma20_pct_auxiliary: -18.95
+- distance_to_high_60_pct: -50.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,34.3,36.7,34.15,36.7,13098609,30.24,21.35,30.86,23.99,1.22
 20260703,36.4,37.65,33.2,33.4,13944271,30.51,9.49,31.33,24.25,1.28
 20260706,34,34.15,32.2,32.2,4717562,30.65,5.07,31.74,24.45,0.45
 20260707,32.45,32.7,29,29.35,6302607,30.54,-3.89,32.03,24.62,0.59
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,20.7,20.85,20.15,20.2,1257374,25.33,-20.25,26.59,25.53,0.29
 20260729,20.55,20.55,18.35,19.1,2071390,24.81,-23.02,25.96,25.49,0.49
 20260730,19.35,19.6,18.4,18.5,1389292,24.28,-23.82,25.21,25.41,0.38
+20260731,19.65,19.85,19.35,19.75,967300,23.91,-17.39,24.37,25.37,0.31
 ```
 
 ## Latest TDCC Snapshot

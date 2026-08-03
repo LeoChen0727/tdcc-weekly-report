@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4585 達明
 
 ## Metadata
-- generated_at: 2026-08-02 22:27:38 Asia/Taipei
+- generated_at: 2026-08-03 22:27:53 Asia/Taipei
 - stock_id: 4585
 - stock_name: 達明
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 199
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 200
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 288.5
-- high: 288.5
-- low: 269.5
-- close: 270
-- volume: 414704
-- ma5: 290.6
-- ema23_primary: 303.73
-- distance_to_ema23_pct: -11.1
-- ma20: 308.15
-- ma60: 322.27
-- ma120: 322.64
-- return_5d: -11.04
-- return_20d: -11.62
-- volume_ratio: 0.97
-- distance_to_ma20_pct_auxiliary: -12.38
-- distance_to_high_60_pct: -28.57
+- date: 20260731
+- open: 283
+- high: 287.5
+- low: 275.5
+- close: 282.5
+- volume: 156139
+- ma5: 287.1
+- ema23_primary: 301.96
+- distance_to_ema23_pct: -6.44
+- ma20: 305.48
+- ma60: 321.35
+- ma120: 321.99
+- return_5d: -5.83
+- return_20d: -15.92
+- volume_ratio: 0.4
+- distance_to_ma20_pct_auxiliary: -7.52
+- distance_to_high_60_pct: -25.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,307.5,336,307,336,869242,316.37,6.2,313.98,324.18,2.8
 20260703,348,354,340.5,340.5,2051756,318.38,6.95,313.9,324.84,5.2
 20260706,344.5,344.5,328.5,328.5,587147,319.22,2.91,313.02,325.35,1.47
 20260707,339,339,318.5,320,456902,319.29,0.22,312.73,325.73,1.14
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,298.5,298.5,292,292,283699,308.46,-5.34,310.52,324.39,0.71
 20260729,294.5,298,276.5,288.5,405713,306.79,-5.96,309.93,323.48,0.98
 20260730,288.5,288.5,269.5,270,414704,303.73,-11.1,308.15,322.27,0.97
+20260731,283,287.5,275.5,282.5,156139,301.96,-6.44,305.48,321.35,0.4
 ```
 
 ## Latest TDCC Snapshot

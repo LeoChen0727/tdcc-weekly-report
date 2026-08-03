@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2497 怡利電
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:47 Asia/Taipei
+- generated_at: 2026-08-03 22:27:00 Asia/Taipei
 - stock_id: 2497
 - stock_name: 怡利電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 314
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 315
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 47.05
-- high: 47.05
-- low: 43.7
-- close: 44.45
-- volume: 2660595
-- ma5: 47.58
-- ema23_primary: 54.22
-- distance_to_ema23_pct: -18.02
-- ma20: 56.1
-- ma60: 58.36
-- ma120: 53.6
-- return_5d: -15.81
-- return_20d: -21.33
-- volume_ratio: 2.33
-- distance_to_ma20_pct_auxiliary: -20.77
-- distance_to_high_60_pct: -37.22
+- date: 20260731
+- open: 47.5
+- high: 48
+- low: 45.05
+- close: 45.75
+- volume: 1299594
+- ma5: 46.31
+- ema23_primary: 53.51
+- distance_to_ema23_pct: -14.51
+- ma20: 55.54
+- ma60: 58.21
+- ma120: 53.55
+- return_5d: -12.19
+- return_20d: -19.74
+- volume_ratio: 1.09
+- distance_to_ma20_pct_auxiliary: -17.63
+- distance_to_high_60_pct: -35.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,55.9,57.4,55.9,57,217436,58.87,-3.17,60.18,58.19,0.29
 20260703,57,61.2,57,60.8,647294,59.03,3,60.13,58.35,0.87
 20260706,61.1,66.8,61.1,66.8,4040459,59.68,11.94,60.34,58.62,4.42
 20260707,68.5,70.8,63.5,64.5,3365244,60.08,7.36,60.53,58.86,3.24
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,49.55,49.55,45.75,45.75,1379338,56.22,-18.63,57.44,58.72,1.53
 20260729,46.3,46.6,41.5,42.8,2813285,55.11,-22.33,56.71,58.54,2.75
 20260730,47.05,47.05,43.7,44.45,2660595,54.22,-18.02,56.1,58.36,2.33
+20260731,47.5,48,45.05,45.75,1299594,53.51,-14.51,55.54,58.21,1.09
 ```
 
 ## Latest TDCC Snapshot

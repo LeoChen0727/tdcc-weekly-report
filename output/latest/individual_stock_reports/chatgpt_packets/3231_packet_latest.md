@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3231 緯創
 
 ## Metadata
-- generated_at: 2026-08-02 22:27:11 Asia/Taipei
+- generated_at: 2026-08-03 22:27:24 Asia/Taipei
 - stock_id: 3231
 - stock_name: 緯創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -130,29 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 170
-- high: 170.5
-- low: 157.5
-- close: 160
-- volume: 82602193
-- ma5: 171.1
-- ema23_primary: 159.48
-- distance_to_ema23_pct: 0.32
-- ma20: 156.25
-- ma60: 154.93
-- ma120: 143.71
-- return_5d: -7.78
-- return_20d: 0.31
-- volume_ratio: 1.22
-- distance_to_ma20_pct_auxiliary: 2.4
-- distance_to_high_60_pct: -20.4
+- date: 20260731
+- open: 176
+- high: 176
+- low: 165.5
+- close: 176
+- volume: 138686721
+- ma5: 170.5
+- ema23_primary: 160.86
+- distance_to_ema23_pct: 9.41
+- ma20: 157.12
+- ma60: 155.42
+- ma120: 144.06
+- return_5d: -1.68
+- return_20d: 11.04
+- volume_ratio: 1.88
+- distance_to_ma20_pct_auxiliary: 12.01
+- distance_to_high_60_pct: -12.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,157,160,156,158.5,17411425,157.97,0.33,160.43,149.25,0.36
 20260703,157.5,161.5,157.5,159,24768914,158.06,0.6,159.57,149.72,0.57
 20260706,161,162,157.5,158,26189698,158.05,-0.03,158.93,150.14,0.64
 20260707,158.5,159.5,155.5,155.5,34773345,157.84,-1.48,158.53,150.48,0.9
@@ -172,6 +171,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,168,177.5,167,170,83361429,158.52,7.24,155.68,154.14,1.41
 20260729,173,178.5,164,169.5,155521276,159.44,6.31,156.22,154.62,2.38
 20260730,170,170.5,157.5,160,82602193,159.48,0.32,156.25,154.93,1.22
+20260731,176,176,165.5,176,138686721,160.86,9.41,157.12,155.42,1.88
 ```
 
 ## Latest TDCC Snapshot

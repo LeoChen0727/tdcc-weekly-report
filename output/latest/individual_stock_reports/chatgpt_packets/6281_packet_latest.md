@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6281 全國電
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:13 Asia/Taipei
+- generated_at: 2026-08-03 22:28:29 Asia/Taipei
 - stock_id: 6281
 - stock_name: 全國電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 52.1
-- high: 52.1
-- low: 51.6
+- date: 20260731
+- open: 52.2
+- high: 52.2
+- low: 51.5
 - close: 51.8
-- volume: 49038
-- ma5: 51.98
-- ema23_primary: 51.63
-- distance_to_ema23_pct: 0.33
-- ma20: 51.66
-- ma60: 51.23
-- ma120: 54.24
-- return_5d: 0.58
+- volume: 64691
+- ma5: 51.96
+- ema23_primary: 51.64
+- distance_to_ema23_pct: 0.3
+- ma20: 51.69
+- ma60: 51.28
+- ma120: 54.16
+- return_5d: -0.19
 - return_20d: 1.37
-- volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: 0.28
+- volume_ratio: 0.92
+- distance_to_ma20_pct_auxiliary: 0.21
 - distance_to_high_60_pct: -2.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,50.9,51.4,50.9,51.1,47023,51.24,-0.27,51.35,51.25,0.47
 20260703,51.6,52.5,51.5,52.1,170122,51.31,1.54,51.38,51.22,1.71
 20260706,52.3,52.4,51.8,52.1,93266,51.38,1.41,51.38,51.2,1.01
 20260707,52,52,51.6,51.9,65020,51.42,0.93,51.42,51.19,0.74
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,52.2,52.2,51.4,52,52030,51.58,0.82,51.58,51.15,0.77
 20260729,52,52.1,51.4,52,85221,51.61,0.75,51.62,51.19,1.23
 20260730,52.1,52.1,51.6,51.8,49038,51.63,0.33,51.66,51.23,0.71
+20260731,52.2,52.2,51.5,51.8,64691,51.64,0.3,51.69,51.28,0.92
 ```
 
 ## Latest TDCC Snapshot

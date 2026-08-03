@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00733 富邦臺灣中小
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:03 Asia/Taipei
+- generated_at: 2026-08-03 22:26:13 Asia/Taipei
 - stock_id: 00733
 - stock_name: 富邦臺灣中小
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260730
-- price_rows: 48
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 49
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 54.5
-- high: 56.85
-- low: 53.25
-- close: 53.7
-- volume: 2494142
-- ma5: 58.97
-- ema23_primary: 66.53
-- distance_to_ema23_pct: -19.28
-- ma20: 67.97
-- ma60: 71.89
-- ma120: 71.89
-- return_5d: -18.64
-- return_20d: -30.66
-- volume_ratio: 1.62
-- distance_to_ma20_pct_auxiliary: -20.99
-- distance_to_high_60_pct: -33.42
+- date: 20260731
+- open: 57.15
+- high: 58.7
+- low: 57.15
+- close: 57.7
+- volume: 2153223
+- ma5: 57.78
+- ema23_primary: 65.79
+- distance_to_ema23_pct: -12.3
+- ma20: 66.97
+- ma60: 71.6
+- ma120: 71.6
+- return_5d: -9.35
+- return_20d: -25.64
+- volume_ratio: 1.33
+- distance_to_ma20_pct_auxiliary: -13.85
+- distance_to_high_60_pct: -28.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,76.35,77.6,75.65,77.6,584400,75.23,3.15,74.5,74.79,0.55
 20260703,75.5,78.85,75.5,78.7,928888,75.52,4.21,74.75,74.92,0.85
 20260706,79.5,79.7,76.55,77.45,1066559,75.68,2.34,74.97,75,0.99
 20260707,76.85,76.85,72,72.15,2045566,75.39,-4.3,75.09,74.92,1.85
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,60.15,60.6,59.15,59.25,899274,68.78,-13.86,70.27,72.64,0.61
 20260729,59.25,59.25,54.8,55.75,2001972,67.7,-17.65,69.16,72.28,1.36
 20260730,54.5,56.85,53.25,53.7,2494142,66.53,-19.28,67.97,71.89,1.62
+20260731,57.15,58.7,57.15,57.7,2153223,65.79,-12.3,66.97,71.6,1.33
 ```
 
 ## Latest TDCC Snapshot

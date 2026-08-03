@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00858 永豐美國500大
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:04 Asia/Taipei
+- generated_at: 2026-08-03 22:26:14 Asia/Taipei
 - stock_id: 00858
 - stock_name: 永豐美國500大
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260730
-- price_rows: 48
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 49
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 34.5
-- high: 34.71
-- low: 34.48
-- close: 34.61
-- volume: 367000
-- ma5: 35.27
-- ema23_primary: 36.09
-- distance_to_ema23_pct: -4.11
-- ma20: 36.41
-- ma60: 36.11
-- ma120: 36.11
-- return_5d: -5.98
-- return_20d: -4.97
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: -4.95
-- distance_to_high_60_pct: -7.04
+- date: 20260731
+- open: 35.29
+- high: 35.44
+- low: 35.29
+- close: 35.44
+- volume: 520000
+- ma5: 35.05
+- ema23_primary: 36.04
+- distance_to_ema23_pct: -1.67
+- ma20: 36.36
+- ma60: 36.09
+- ma120: 36.09
+- return_5d: -2.98
+- return_20d: -2.77
+- volume_ratio: 1.03
+- distance_to_ma20_pct_auxiliary: -2.53
+- distance_to_high_60_pct: -4.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,36.4,36.48,36.36,36.45,454000,35.97,1.35,35.88,35.91,0.83
 20260703,36.45,36.5,36.42,36.5,651000,36.01,1.36,35.91,35.93,1.13
 20260706,36.5,36.7,36.5,36.66,592000,36.06,1.65,35.93,35.95,0.98
 20260707,36.7,36.85,36.7,36.77,600000,36.12,1.79,36.01,35.98,1.03
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,35.23,35.23,34.85,34.93,522000,36.34,-3.89,36.57,36.16,1.07
 20260729,35.01,35.1,34.89,34.97,947000,36.23,-3.48,36.5,36.14,1.87
 20260730,34.5,34.71,34.48,34.61,367000,36.09,-4.11,36.41,36.11,0.73
+20260731,35.29,35.44,35.29,35.44,520000,36.04,-1.67,36.36,36.09,1.03
 ```
 
 ## Latest TDCC Snapshot

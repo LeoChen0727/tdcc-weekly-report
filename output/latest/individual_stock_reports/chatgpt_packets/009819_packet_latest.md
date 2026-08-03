@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009819 中信數據及電力
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:07 Asia/Taipei
+- generated_at: 2026-08-03 22:26:17 Asia/Taipei
 - stock_id: 009819
 - stock_name: 中信數據及電力
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260730
-- price_rows: 48
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 49
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 9.6
-- high: 9.65
-- low: 9.55
-- close: 9.57
-- volume: 4477986
-- ma5: 9.84
+- date: 20260731
+- open: 9.96
+- high: 10.03
+- low: 9.96
+- close: 10.02
+- volume: 6583355
+- ma5: 9.83
 - ema23_primary: 10.01
-- distance_to_ema23_pct: -4.37
-- ma20: 9.99
+- distance_to_ema23_pct: 0.11
+- ma20: 9.98
 - ma60: 10.24
 - ma120: 10.24
-- return_5d: -5.25
-- return_20d: -7.36
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: -4.22
-- distance_to_high_60_pct: -18.07
+- return_5d: -0.2
+- return_20d: -1.47
+- volume_ratio: 0.97
+- distance_to_ma20_pct_auxiliary: 0.36
+- distance_to_high_60_pct: -14.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,10.16,10.18,10.13,10.17,6904866,10.34,-1.62,10.36,10.42,0.42
 20260703,10.04,10.1,10.03,10.1,8885989,10.32,-2.11,10.32,10.41,0.67
 20260706,10.1,10.1,10.05,10.08,8145400,10.3,-2.12,10.28,10.4,0.67
 20260707,10.16,10.16,10.05,10.05,8906124,10.28,-2.21,10.27,10.38,0.77
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,9.94,9.94,9.82,9.83,5170686,10.08,-2.48,10.06,10.27,0.75
 20260729,9.83,9.83,9.65,9.69,8054831,10.05,-3.56,10.03,10.26,1.16
 20260730,9.6,9.65,9.55,9.57,4477986,10.01,-4.37,9.99,10.24,0.66
+20260731,9.96,10.03,9.96,10.02,6583355,10.01,0.11,9.98,10.24,0.97
 ```
 
 ## Latest TDCC Snapshot

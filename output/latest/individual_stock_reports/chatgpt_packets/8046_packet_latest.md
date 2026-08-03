@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8046 南電
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:50 Asia/Taipei
+- generated_at: 2026-08-03 22:29:07 Asia/Taipei
 - stock_id: 8046
 - stock_name: 南電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -130,29 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 817
-- high: 954
-- low: 792
-- close: 837
-- volume: 40319290
-- ma5: 975.4
-- ema23_primary: 1080.4
-- distance_to_ema23_pct: -22.53
-- ma20: 1143.1
-- ma60: 983.8
-- ma120: 784.09
-- return_5d: -31.95
-- return_20d: -28.77
-- volume_ratio: 2.17
-- distance_to_ma20_pct_auxiliary: -26.78
-- distance_to_high_60_pct: -40.85
+- date: 20260731
+- open: 920
+- high: 920
+- low: 920
+- close: 920
+- volume: 1729841
+- ma5: 937.4
+- ema23_primary: 1067.03
+- distance_to_ema23_pct: -13.78
+- ma20: 1131.85
+- ma60: 983.47
+- ma120: 788.46
+- return_5d: -17.12
+- return_20d: -19.65
+- volume_ratio: 0.1
+- distance_to_ma20_pct_auxiliary: -18.72
+- distance_to_high_60_pct: -34.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,1155,1180,1110,1145,11111399,978.39,17.03,947.25,874.87,0.6
 20260703,1100,1210,1050,1185,13118601,995.61,19.02,962.6,884,0.7
 20260706,1160,1170,1070,1075,14049159,1002.23,7.26,974.1,890.77,0.75
 20260707,1040,1135,1015,1030,18823215,1004.54,2.53,984.05,896.82,0.99
@@ -172,6 +171,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,996,1045,973,976,15703363,1122.84,-13.08,1175.3,988.25,0.91
 20260729,994,995,879,879,13363060,1102.52,-20.27,1160,986.47,0.76
 20260730,817,954,792,837,40319290,1080.4,-22.53,1143.1,983.8,2.17
+20260731,920,920,920,920,1729841,1067.03,-13.78,1131.85,983.47,0.1
 ```
 
 ## Latest TDCC Snapshot

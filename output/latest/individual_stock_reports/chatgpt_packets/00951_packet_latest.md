@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00951 台新日本半導體
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:06 Asia/Taipei
+- generated_at: 2026-08-03 22:26:16 Asia/Taipei
 - stock_id: 00951
 - stock_name: 台新日本半導體
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260730
-- price_rows: 48
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 49
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 14.91
-- high: 15.56
-- low: 14.91
-- close: 15.06
-- volume: 3949762
-- ma5: 16.29
-- ema23_primary: 18.15
-- distance_to_ema23_pct: -17.02
-- ma20: 18.65
-- ma60: 18.67
-- ma120: 18.67
-- return_5d: -20.74
-- return_20d: -30.25
-- volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: -19.25
-- distance_to_high_60_pct: -31.33
+- date: 20260731
+- open: 16.81
+- high: 17.12
+- low: 16.6
+- close: 16.93
+- volume: 3680612
+- ma5: 16.11
+- ema23_primary: 18.05
+- distance_to_ema23_pct: -6.19
+- ma20: 18.47
+- ma60: 18.63
+- ma120: 18.63
+- return_5d: -4.99
+- return_20d: -17.66
+- volume_ratio: 0.91
+- distance_to_ma20_pct_auxiliary: -8.34
+- distance_to_high_60_pct: -22.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,20.35,20.76,20.2,20.56,6092353,19.47,5.59,19.46,18.75,1.4
 20260703,19.84,20.64,19.7,20.62,2116945,19.57,5.38,19.57,18.81,0.49
 20260706,20.64,20.64,20.05,20.49,3332398,19.64,4.3,19.69,18.86,0.78
 20260707,20.26,20.26,19.64,19.72,4950279,19.65,0.35,19.84,18.89,1.18
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,16.51,16.51,16,16.07,5047179,18.77,-14.39,19.29,18.84,1.29
 20260729,15.7,15.7,14.39,14.68,7192880,18.43,-20.35,18.98,18.75,1.74
 20260730,14.91,15.56,14.91,15.06,3949762,18.15,-17.02,18.65,18.67,0.95
+20260731,16.81,17.12,16.6,16.93,3680612,18.05,-6.19,18.47,18.63,0.91
 ```
 
 ## Latest TDCC Snapshot

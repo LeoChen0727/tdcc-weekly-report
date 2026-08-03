@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3563 牧德
 
 ## Metadata
-- generated_at: 2026-08-02 22:27:22 Asia/Taipei
+- generated_at: 2026-08-03 22:27:35 Asia/Taipei
 - stock_id: 3563
 - stock_name: 牧德
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 579
-- high: 605
-- low: 552
-- close: 561
-- volume: 674502
-- ma5: 624
-- ema23_primary: 671.88
-- distance_to_ema23_pct: -16.5
-- ma20: 682.7
-- ma60: 750.95
-- ma120: 731.36
-- return_5d: -16.77
-- return_20d: -27.89
-- volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: -17.83
-- distance_to_high_60_pct: -40.26
+- date: 20260731
+- open: 617
+- high: 617
+- low: 592
+- close: 614
+- volume: 577948
+- ma5: 613.4
+- ema23_primary: 667.06
+- distance_to_ema23_pct: -7.95
+- ma20: 672.95
+- ma60: 747.27
+- ma120: 732.34
+- return_5d: -7.95
+- return_20d: -24.1
+- volume_ratio: 0.79
+- distance_to_ma20_pct_auxiliary: -8.76
+- distance_to_high_60_pct: -34.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,780,838,777,809,4120487,745.62,8.5,723.95,823.08,4.96
 20260703,809,816,785,787,1313225,749.07,5.06,722.95,822.17,1.52
 20260706,796,798,772,777,1180009,751.39,3.41,722.5,820.53,1.34
 20260707,771,787,724,726,1164380,749.28,-3.11,722.1,817.27,1.29
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,640,659,631,635,491451,690.51,-8.04,699.55,761.05,0.55
 20260729,639,648,572,588,922046,681.96,-13.78,693.55,756.08,1.02
 20260730,579,605,552,561,674502,671.88,-16.5,682.7,750.95,0.74
+20260731,617,617,592,614,577948,667.06,-7.95,672.95,747.27,0.79
 ```
 
 ## Latest TDCC Snapshot

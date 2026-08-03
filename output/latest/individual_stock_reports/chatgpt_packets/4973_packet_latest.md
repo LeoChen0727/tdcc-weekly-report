@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4973 廣穎電通
 
 ## Metadata
-- generated_at: 2026-08-02 22:27:46 Asia/Taipei
+- generated_at: 2026-08-03 22:28:01 Asia/Taipei
 - stock_id: 4973
 - stock_name: 廣穎電通
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 180
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 181
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -132,29 +132,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 120.5
-- high: 125.5
-- low: 117
-- close: 117.5
-- volume: 1671000
-- ma5: 131
-- ema23_primary: 146.94
-- distance_to_ema23_pct: -20.03
-- ma20: 148.82
-- ma60: 150.92
-- ma120: 108.09
-- return_5d: -17.54
-- return_20d: -26.56
-- volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: -21.05
-- distance_to_high_60_pct: -46.35
+- date: 20260731
+- open: 129
+- high: 129
+- low: 126.5
+- close: 129
+- volume: 975000
+- ma5: 128.1
+- ema23_primary: 145.44
+- distance_to_ema23_pct: -11.3
+- ma20: 147.07
+- ma60: 151.54
+- ma120: 108.75
+- return_5d: -10.1
+- return_20d: -21.34
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: -12.29
+- distance_to_high_60_pct: -41.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,156,164,156,164,2070000,169.76,-3.39,181.55,130.06,0.67
 20260703,162,174.5,162,171,2875000,169.86,0.67,181.3,131.63,0.89
 20260706,172,175.5,167.5,168.5,2231000,169.75,-0.74,181.15,133.25,0.67
 20260707,169.5,170.5,160,162.5,1381000,169.15,-3.93,181.28,134.66,0.42
@@ -174,6 +173,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,137,137,129,129,1151000,152.08,-15.17,153.5,149.81,0.62
 20260729,125,129,116.5,122.5,2860000,149.61,-18.12,150.95,150.43,1.5
 20260730,120.5,125.5,117,117.5,1671000,146.94,-20.03,148.82,150.92,0.95
+20260731,129,129,126.5,129,975000,145.44,-11.3,147.07,151.54,0.57
 ```
 
 ## Latest TDCC Snapshot

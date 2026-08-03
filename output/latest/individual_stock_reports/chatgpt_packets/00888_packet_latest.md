@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00888 永豐台灣ESG
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:04 Asia/Taipei
+- generated_at: 2026-08-03 22:26:14 Asia/Taipei
 - stock_id: 00888
 - stock_name: 永豐台灣ESG
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260730
-- price_rows: 48
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 49
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 27.74
-- high: 29.59
-- low: 27.6
-- close: 28.61
-- volume: 22496000
-- ma5: 30.62
-- ema23_primary: 33.96
-- distance_to_ema23_pct: -15.76
-- ma20: 34.86
-- ma60: 35.18
-- ma120: 35.18
-- return_5d: -18.7
-- return_20d: -24.77
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: -17.93
-- distance_to_high_60_pct: -27.72
+- date: 20260731
+- open: 31
+- high: 31.47
+- low: 30.83
+- close: 31.47
+- volume: 23495000
+- ma5: 30.06
+- ema23_primary: 33.76
+- distance_to_ema23_pct: -6.77
+- ma20: 34.55
+- ma60: 35.1
+- ma120: 35.1
+- return_5d: -8.12
+- return_20d: -16.66
+- volume_ratio: 0.92
+- distance_to_ma20_pct_auxiliary: -8.91
+- distance_to_high_60_pct: -20.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,37.35,37.89,37.06,37.76,28044000,36.13,4.5,35.99,35.48,4.21
 20260703,36.92,37.86,36.85,37.77,18779000,36.27,4.13,36.14,35.56,2.47
 20260706,38.27,38.39,37.51,37.72,20028000,36.39,3.65,36.31,35.63,2.33
 20260707,37.98,37.98,36.44,36.57,26937000,36.41,0.45,36.49,35.66,2.78
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,30.25,30.62,29.95,29.96,20564000,35.01,-14.42,35.82,35.47,0.87
 20260729,29.79,30,27.87,28.31,25648000,34.45,-17.82,35.33,35.32,1.03
 20260730,27.74,29.59,27.6,28.61,22496000,33.96,-15.76,34.86,35.18,0.88
+20260731,31,31.47,30.83,31.47,23495000,33.76,-6.77,34.55,35.1,0.92
 ```
 
 ## Latest TDCC Snapshot

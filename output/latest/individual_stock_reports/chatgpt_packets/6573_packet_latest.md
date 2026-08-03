@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6573 虹揚-KY
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:21 Asia/Taipei
+- generated_at: 2026-08-03 22:28:37 Asia/Taipei
 - stock_id: 6573
 - stock_name: 虹揚-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 15.5
-- high: 16.5
-- low: 15
-- close: 15.05
-- volume: 418521
-- ma5: 17.13
-- ema23_primary: 19.82
-- distance_to_ema23_pct: -24.06
-- ma20: 21.96
-- ma60: 17.73
-- ma120: 15.72
-- return_5d: -25.31
-- return_20d: -28.33
-- volume_ratio: 0.3
-- distance_to_ma20_pct_auxiliary: -31.46
-- distance_to_high_60_pct: -49.5
+- date: 20260731
+- open: 16.45
+- high: 16.55
+- low: 15.5
+- close: 16.55
+- volume: 512335
+- ma5: 16.64
+- ema23_primary: 19.55
+- distance_to_ema23_pct: -15.33
+- ma20: 21.63
+- ma60: 17.8
+- ma120: 15.73
+- return_5d: -12.89
+- return_20d: -28.36
+- volume_ratio: 0.38
+- distance_to_ma20_pct_auxiliary: -23.49
+- distance_to_high_60_pct: -44.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,19.25,23.1,19.2,23.1,1986150,18.13,27.39,17.69,14.83,1.67
 20260703,23.1,25.4,22.8,25.1,3035521,18.71,34.12,18.11,15.04,2.36
 20260706,25,27.6,24.15,27.6,2722805,19.45,41.87,18.69,15.3,1.96
 20260707,29.2,29.8,24.85,25.05,3370768,19.92,25.75,19.19,15.51,2.19
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,17.8,17.8,16.75,16.75,458999,20.59,-18.65,22.51,17.64,0.31
 20260729,18.25,18.25,15.1,16.55,783841,20.25,-18.28,22.25,17.7,0.53
 20260730,15.5,16.5,15,15.05,418521,19.82,-24.06,21.96,17.73,0.3
+20260731,16.45,16.55,15.5,16.55,512335,19.55,-15.33,21.63,17.8,0.38
 ```
 
 ## Latest TDCC Snapshot

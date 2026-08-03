@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7780 大研生醫*
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:47 Asia/Taipei
+- generated_at: 2026-08-03 22:29:04 Asia/Taipei
 - stock_id: 7780
 - stock_name: 大研生醫*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 203
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 204
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -130,29 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 16.7
-- high: 16.75
-- low: 16.35
-- close: 16.55
-- volume: 980151
-- ma5: 16.95
-- ema23_primary: 17.52
-- distance_to_ema23_pct: -5.52
-- ma20: 17.57
-- ma60: 18.04
-- ma120: 19.84
-- return_5d: -4.34
-- return_20d: -7.54
-- volume_ratio: 0.89
-- distance_to_ma20_pct_auxiliary: -5.79
-- distance_to_high_60_pct: -16.41
+- date: 20260731
+- open: 16.65
+- high: 16.9
+- low: 16.65
+- close: 16.8
+- volume: 586194
+- ma5: 16.84
+- ema23_primary: 17.46
+- distance_to_ema23_pct: -3.76
+- ma20: 17.5
+- ma60: 18.01
+- ma120: 19.77
+- return_5d: -3.17
+- return_20d: -6.93
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: -4.03
+- distance_to_high_60_pct: -15.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,17.9,18.15,17.9,18.05,728284,18.33,-1.55,18.41,18.76,0.36
 20260703,18.05,18.45,18.05,18.35,1254513,18.34,0.08,18.44,18.71,0.63
 20260706,18.45,18.5,18.25,18.35,1051221,18.34,0.07,18.45,18.67,0.54
 20260707,18.4,18.45,17.9,18,1050241,18.31,-1.69,18.45,18.62,0.56
@@ -172,6 +171,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,17.15,17.15,16.85,16.95,1155211,17.69,-4.17,17.71,18.11,1.09
 20260729,17,17.05,16.3,16.7,1884794,17.6,-5.14,17.64,18.08,1.72
 20260730,16.7,16.75,16.35,16.55,980151,17.52,-5.52,17.57,18.04,0.89
+20260731,16.65,16.9,16.65,16.8,586194,17.46,-3.76,17.5,18.01,0.54
 ```
 
 ## Latest TDCC Snapshot

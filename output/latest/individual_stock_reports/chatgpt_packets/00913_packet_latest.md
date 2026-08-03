@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00913 兆豐台灣晶圓製造
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:05 Asia/Taipei
+- generated_at: 2026-08-03 22:26:15 Asia/Taipei
 - stock_id: 00913
 - stock_name: 兆豐台灣晶圓製造
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260730
-- price_rows: 48
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 49
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 39.56
-- high: 42.38
-- low: 39.5
-- close: 40.29
-- volume: 3392243
-- ma5: 43.85
-- ema23_primary: 48.26
-- distance_to_ema23_pct: -16.51
-- ma20: 49.34
-- ma60: 50.4
-- ma120: 50.4
-- return_5d: -18.46
-- return_20d: -26.28
-- volume_ratio: 1.48
-- distance_to_ma20_pct_auxiliary: -18.34
-- distance_to_high_60_pct: -30.23
+- date: 20260731
+- open: 44.02
+- high: 44.31
+- low: 43.92
+- close: 44.31
+- volume: 3883393
+- ma5: 43.24
+- ema23_primary: 47.93
+- distance_to_ema23_pct: -7.55
+- ma20: 48.84
+- ma60: 50.28
+- ma120: 50.28
+- return_5d: -6.44
+- return_20d: -18.47
+- volume_ratio: 1.64
+- distance_to_ma20_pct_auxiliary: -9.27
+- distance_to_high_60_pct: -23.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,53.05,54.35,53,54.35,2379845,52.03,4.46,51.82,51.27,0.86
 20260703,52.8,54.35,52.5,54.2,1157088,52.21,3.81,52.01,51.37,0.42
 20260706,55.15,55.45,53.75,54.2,2474808,52.38,3.48,52.26,51.46,0.91
 20260707,54.2,54.25,51.2,51.7,2738986,52.32,-1.18,52.51,51.47,1
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,45.25,45.5,43.65,43.66,2485903,49.76,-12.26,50.74,50.84,1.18
 20260729,43.11,43.3,39.98,40.46,3729912,48.98,-17.4,50.06,50.62,1.71
 20260730,39.56,42.38,39.5,40.29,3392243,48.26,-16.51,49.34,50.4,1.48
+20260731,44.02,44.31,43.92,44.31,3883393,47.93,-7.55,48.84,50.28,1.64
 ```
 
 ## Latest TDCC Snapshot

@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5258 虹堡
 
 ## Metadata
-- generated_at: 2026-08-02 22:27:49 Asia/Taipei
+- generated_at: 2026-08-03 22:28:04 Asia/Taipei
 - stock_id: 5258
 - stock_name: 虹堡
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 48.55
-- high: 49.25
-- low: 47.25
-- close: 49
-- volume: 752120
-- ma5: 50.47
-- ema23_primary: 51.45
-- distance_to_ema23_pct: -4.76
-- ma20: 52.03
-- ma60: 52.05
-- ma120: 50.93
-- return_5d: -9.43
-- return_20d: -3.92
-- volume_ratio: 1.34
-- distance_to_ma20_pct_auxiliary: -5.82
-- distance_to_high_60_pct: -22.22
+- date: 20260731
+- open: 50.9
+- high: 52
+- low: 50.5
+- close: 51.6
+- volume: 392204
+- ma5: 50.37
+- ema23_primary: 51.46
+- distance_to_ema23_pct: 0.27
+- ma20: 52.08
+- ma60: 52.1
+- ma120: 50.85
+- return_5d: -0.96
+- return_20d: 1.98
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: -0.92
+- distance_to_high_60_pct: -18.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,50.5,51.6,50.1,50.6,465400,50.2,0.8,49.63,50.96,0.81
 20260703,50.6,52.2,50.6,52,563719,50.35,3.28,49.68,51.05,0.99
 20260706,52.8,53.3,51.6,51.6,502212,50.45,2.28,49.75,51.14,0.89
 20260707,51.7,52.3,50.7,51,399370,50.5,0.99,49.9,51.21,0.73
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,51.6,51.7,50,50.5,444407,51.95,-2.8,52.14,52.03,0.79
 20260729,50.2,51.9,46.9,48.55,683573,51.67,-6.04,52.13,52.04,1.17
 20260730,48.55,49.25,47.25,49,752120,51.45,-4.76,52.03,52.05,1.34
+20260731,50.9,52,50.5,51.6,392204,51.46,0.27,52.08,52.1,0.7
 ```
 
 ## Latest TDCC Snapshot

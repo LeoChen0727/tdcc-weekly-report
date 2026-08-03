@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7749 意騰-KY
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:46 Asia/Taipei
+- generated_at: 2026-08-03 22:29:03 Asia/Taipei
 - stock_id: 7749
 - stock_name: 意騰-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 270
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 271
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 312
-- high: 316
-- low: 302
-- close: 305
-- volume: 230486
-- ma5: 332.5
-- ema23_primary: 379.21
-- distance_to_ema23_pct: -19.57
-- ma20: 377.95
-- ma60: 451.44
-- ma120: 430.15
-- return_5d: -15.51
-- return_20d: -28.57
-- volume_ratio: 1.25
-- distance_to_ma20_pct_auxiliary: -19.3
-- distance_to_high_60_pct: -45.54
+- date: 20260731
+- open: 325
+- high: 325
+- low: 313.5
+- close: 320
+- volume: 164929
+- ma5: 325.4
+- ema23_primary: 374.27
+- distance_to_ema23_pct: -14.5
+- ma20: 372
+- ma60: 448.19
+- ma120: 429.32
+- return_5d: -9.99
+- return_20d: -27.11
+- volume_ratio: 0.9
+- distance_to_ma20_pct_auxiliary: -13.98
+- distance_to_high_60_pct: -42.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,425,450,418,439,207055,463.25,-5.24,469,464.36,0.37
 20260703,435.5,437,428,432.5,139866,460.69,-6.12,466.43,465.49,0.26
 20260706,436.5,436.5,421,427,200364,457.88,-6.74,464.52,466.69,0.38
 20260707,429,429,406,407,237544,453.64,-10.28,462.7,467.4,0.46
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,354,354,333,333,212695,392.72,-15.21,389.62,457.56,1.26
 20260729,334.5,334.5,300,311.5,474641,385.95,-19.29,384.05,454.94,2.62
 20260730,312,316,302,305,230486,379.21,-19.57,377.95,451.44,1.25
+20260731,325,325,313.5,320,164929,374.27,-14.5,372,448.19,0.9
 ```
 
 ## Latest TDCC Snapshot

@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00702 國泰標普低波高息
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:03 Asia/Taipei
+- generated_at: 2026-08-03 22:26:13 Asia/Taipei
 - stock_id: 00702
 - stock_name: 國泰標普低波高息
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260730
-- price_rows: 48
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 49
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 25.51
-- high: 25.53
-- low: 25.51
-- close: 25.53
-- volume: 19946
-- ma5: 25.25
-- ema23_primary: 25.01
-- distance_to_ema23_pct: 2.1
-- ma20: 25.11
-- ma60: 24.59
-- ma120: 24.59
-- return_5d: 2.61
-- return_20d: 2.74
-- volume_ratio: 0.21
-- distance_to_ma20_pct_auxiliary: 1.67
-- distance_to_high_60_pct: -0.08
+- date: 20260731
+- open: 25.4
+- high: 25.4
+- low: 25.29
+- close: 25.32
+- volume: 37952
+- ma5: 25.31
+- ema23_primary: 25.03
+- distance_to_ema23_pct: 1.15
+- ma20: 25.14
+- ma60: 24.6
+- ma120: 24.6
+- return_5d: 1.28
+- return_20d: 1.89
+- volume_ratio: 0.42
+- distance_to_ma20_pct_auxiliary: 0.74
+- distance_to_high_60_pct: -0.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,24.84,24.86,24.83,24.85,118020,24.41,1.81,24.36,24.23,1.09
 20260703,25,25.08,25,25.08,127706,24.46,2.51,24.43,24.26,1.12
 20260706,25.27,25.27,25.07,25.1,95142,24.52,2.38,24.5,24.29,0.85
 20260707,25.1,25.12,25.1,25.1,114775,24.57,2.17,24.56,24.31,1.01
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,25.09,25.15,25.09,25.13,117183,24.91,0.89,25.05,24.55,1.11
 20260729,25.55,25.55,25.45,25.51,66494,24.96,2.21,25.08,24.57,0.66
 20260730,25.51,25.53,25.51,25.53,19946,25.01,2.1,25.11,24.59,0.21
+20260731,25.4,25.4,25.29,25.32,37952,25.03,1.15,25.14,24.6,0.42
 ```
 
 ## Latest TDCC Snapshot

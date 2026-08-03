@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6664 群翊
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:25 Asia/Taipei
+- generated_at: 2026-08-03 22:28:41 Asia/Taipei
 - stock_id: 6664
 - stock_name: 群翊
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 180
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 181
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 313.5
-- high: 328
-- low: 308
-- close: 309.5
-- volume: 457000
-- ma5: 335.3
-- ema23_primary: 362.64
-- distance_to_ema23_pct: -14.65
-- ma20: 367.18
-- ma60: 396.46
-- ma120: 363.14
-- return_5d: -14.5
-- return_20d: -22.14
-- volume_ratio: 1.03
-- distance_to_ma20_pct_auxiliary: -15.71
-- distance_to_high_60_pct: -36.38
+- date: 20260731
+- open: 331
+- high: 340
+- low: 324.5
+- close: 339
+- volume: 367000
+- ma5: 332.7
+- ema23_primary: 360.67
+- distance_to_ema23_pct: -6.01
+- ma20: 363.73
+- ma60: 394.43
+- ma120: 363.59
+- return_5d: -3.69
+- return_20d: -16.91
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: -6.8
+- distance_to_high_60_pct: -30.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,399,415,394.5,408,670000,392.88,3.85,384.1,414.39,1.3
 20260703,402,404,395,395.5,414000,393.1,0.61,383.43,415.13,0.8
 20260706,403,405.5,391.5,391.5,362000,392.97,-0.37,382.57,415.23,0.71
 20260707,394.5,394.5,368,370,554000,391.05,-5.38,381.48,414.97,1.08
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,357,358.5,327.5,330.5,506000,372.38,-11.25,375.45,401.49,1.09
 20260729,330.5,336,302.5,313.5,585000,367.47,-14.69,371.57,399.01,1.25
 20260730,313.5,328,308,309.5,457000,362.64,-14.65,367.18,396.46,1.03
+20260731,331,340,324.5,339,367000,360.67,-6.01,363.73,394.43,0.86
 ```
 
 ## Latest TDCC Snapshot

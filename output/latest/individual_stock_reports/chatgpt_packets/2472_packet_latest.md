@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2472 立隆電
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:46 Asia/Taipei
+- generated_at: 2026-08-03 22:26:58 Asia/Taipei
 - stock_id: 2472
 - stock_name: 立隆電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 218
-- high: 225
-- low: 198.5
-- close: 203
-- volume: 5650250
-- ma5: 235.4
-- ema23_primary: 297.43
-- distance_to_ema23_pct: -31.75
-- ma20: 312.05
-- ma60: 319.83
-- ma120: 227.32
-- return_5d: -26.45
-- return_20d: -52.24
-- volume_ratio: 0.85
-- distance_to_ma20_pct_auxiliary: -34.95
-- distance_to_high_60_pct: -58.4
+- date: 20260731
+- open: 223
+- high: 223
+- low: 214.5
+- close: 220
+- volume: 3374321
+- ma5: 227.7
+- ema23_primary: 290.98
+- distance_to_ema23_pct: -24.39
+- ma20: 301.65
+- ma60: 320.39
+- ma120: 228.18
+- return_5d: -14.89
+- return_20d: -48.6
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: -27.07
+- distance_to_high_60_pct: -54.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,420,439.5,411.5,428,12173264,373.24,14.67,379.62,277.78,1.04
 20260703,417.5,453.5,413.5,425,12770438,377.55,12.57,383.38,282.52,1.05
 20260706,425.5,435,397,405,8669414,379.84,6.62,385.45,286.85,0.7
 20260707,404,414.5,365,369,10440049,378.94,-2.62,386.95,290.53,0.81
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,246,247,234.5,235,3454399,313.83,-25.12,334.82,318.99,0.4
 20260729,238.5,242,211.5,220,5908644,306.01,-28.11,323.15,319.59,0.78
 20260730,218,225,198.5,203,5650250,297.43,-31.75,312.05,319.83,0.85
+20260731,223,223,214.5,220,3374321,290.98,-24.39,301.65,320.39,0.54
 ```
 
 ## Latest TDCC Snapshot

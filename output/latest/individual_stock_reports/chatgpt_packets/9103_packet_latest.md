@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9103 美德醫療-DR
 
 ## Metadata
-- generated_at: 2026-08-02 22:29:03 Asia/Taipei
+- generated_at: 2026-08-03 22:29:21 Asia/Taipei
 - stock_id: 9103
 - stock_name: 美德醫療-DR
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -130,29 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 5.13
-- high: 5.17
-- low: 5
-- close: 5.06
-- volume: 1456897
-- ma5: 5.24
-- ema23_primary: 5.25
-- distance_to_ema23_pct: -3.54
+- date: 20260731
+- open: 5.07
+- high: 5.13
+- low: 5.02
+- close: 5.04
+- volume: 1369387
+- ma5: 5.18
+- ema23_primary: 5.23
+- distance_to_ema23_pct: -3.61
 - ma20: 5.2
 - ma60: 5.24
 - ma120: 5.21
-- return_5d: -11.69
-- return_20d: -0.39
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: -2.67
-- distance_to_high_60_pct: -22.98
+- return_5d: -6.32
+- return_20d: -1.18
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: -3
+- distance_to_high_60_pct: -23.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,5,5.15,5,5.1,777373,5.29,-3.57,5.46,5.12,0.25
 20260703,5.1,5.29,5.1,5.27,948703,5.29,-0.33,5.43,5.13,0.34
 20260706,5.27,5.33,5.17,5.18,909150,5.28,-1.86,5.39,5.13,0.44
 20260707,5.22,5.22,5.01,5.05,1190714,5.26,-3.98,5.34,5.13,0.71
@@ -172,6 +171,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,5.34,5.36,5.14,5.31,1830671,5.27,0.67,5.2,5.22,0.96
 20260729,5.35,5.44,5.07,5.13,1788971,5.26,-2.52,5.2,5.23,0.91
 20260730,5.13,5.17,5,5.06,1456897,5.25,-3.54,5.2,5.24,0.73
+20260731,5.07,5.13,5.02,5.04,1369387,5.23,-3.61,5.2,5.24,0.68
 ```
 
 ## Latest TDCC Snapshot

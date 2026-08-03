@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8086 宏捷科
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:52 Asia/Taipei
+- generated_at: 2026-08-03 22:29:09 Asia/Taipei
 - stock_id: 8086
 - stock_name: 宏捷科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 180
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 181
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 103.5
-- high: 108
-- low: 100.5
-- close: 103
-- volume: 3159000
-- ma5: 112.3
-- ema23_primary: 126.52
-- distance_to_ema23_pct: -18.59
-- ma20: 126.35
-- ma60: 146.27
-- ma120: 138.09
-- return_5d: -16.26
-- return_20d: -28.22
-- volume_ratio: 1.25
-- distance_to_ma20_pct_auxiliary: -18.48
-- distance_to_high_60_pct: -43.72
+- date: 20260731
+- open: 110
+- high: 112
+- low: 108
+- close: 110
+- volume: 1754000
+- ma5: 110.6
+- ema23_primary: 125.15
+- distance_to_ema23_pct: -12.1
+- ma20: 124.6
+- ma60: 145.5
+- ma120: 137.97
+- return_5d: -7.17
+- return_20d: -24.14
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: -11.72
+- distance_to_high_60_pct: -39.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,141,145,140,145,1728000,152.42,-4.87,152.6,151.86,0.46
 20260703,143,146,142,144,2212000,151.72,-5.09,151.85,151.83,0.57
 20260706,146,147.5,144,144.5,3773000,151.11,-4.38,151.28,151.87,0.93
 20260707,145,147,136,136,3989000,149.85,-9.25,150.88,151.72,0.98
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,116,117.5,112,112,2174000,130.68,-14.29,130.53,147.85,0.87
 20260729,110.5,113,102,106.5,4135000,128.66,-17.22,128.38,147.12,1.61
 20260730,103.5,108,100.5,103,3159000,126.52,-18.59,126.35,146.27,1.25
+20260731,110,112,108,110,1754000,125.15,-12.1,124.6,145.5,0.7
 ```
 
 ## Latest TDCC Snapshot

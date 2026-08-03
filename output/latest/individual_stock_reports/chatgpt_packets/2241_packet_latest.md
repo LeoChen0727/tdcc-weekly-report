@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2241 艾姆勒
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:34 Asia/Taipei
+- generated_at: 2026-08-03 22:26:46 Asia/Taipei
 - stock_id: 2241
 - stock_name: 艾姆勒
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -131,29 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 29.4
-- high: 31.15
-- low: 29.4
-- close: 30.45
-- volume: 644982
-- ma5: 32.29
-- ema23_primary: 37.14
-- distance_to_ema23_pct: -18.02
-- ma20: 38.35
-- ma60: 38.51
-- ma120: 34.2
-- return_5d: -10.96
-- return_20d: -31.03
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: -20.61
-- distance_to_high_60_pct: -44.64
+- date: 20260731
+- open: 31.95
+- high: 32.05
+- low: 30.45
+- close: 31.1
+- volume: 657668
+- ma5: 31.51
+- ema23_primary: 36.64
+- distance_to_ema23_pct: -15.12
+- ma20: 37.59
+- ma60: 38.52
+- ma120: 34.18
+- return_5d: -11.14
+- return_20d: -33.05
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: -17.26
+- distance_to_high_60_pct: -43.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,44.1,46.85,43.75,46.45,1548962,43.1,7.78,43.77,35.89,0.34
 20260703,46.6,48.7,45.8,47.6,1784756,43.47,9.49,44.54,36.22,0.39
 20260706,49.95,50.4,46.05,46.35,2711603,43.71,6.03,45.09,36.54,0.61
 20260707,46.7,46.9,43,43.1,2470489,43.66,-1.29,45.3,36.8,0.6
@@ -173,6 +172,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,33.9,33.9,31.5,31.5,664964,38.41,-18,39.78,38.51,0.53
 20260729,32.65,32.65,29.5,30.5,1188362,37.75,-19.21,39.04,38.52,0.96
 20260730,29.4,31.15,29.4,30.45,644982,37.14,-18.02,38.35,38.51,0.54
+20260731,31.95,32.05,30.45,31.1,657668,36.64,-15.12,37.59,38.52,0.57
 ```
 
 ## Latest TDCC Snapshot

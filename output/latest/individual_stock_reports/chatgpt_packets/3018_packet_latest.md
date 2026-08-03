@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3018 隆銘綠能
 
 ## Metadata
-- generated_at: 2026-08-02 22:27:02 Asia/Taipei
+- generated_at: 2026-08-03 22:27:15 Asia/Taipei
 - stock_id: 3018
 - stock_name: 隆銘綠能
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 309
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 310
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -124,29 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 17
-- high: 18.9
-- low: 15.55
-- close: 16
-- volume: 932551
-- ma5: 15.25
-- ema23_primary: 13.05
-- distance_to_ema23_pct: 22.6
-- ma20: 12.74
-- ma60: 11.42
-- ma120: 11.66
-- return_5d: 35.02
-- return_20d: 35.59
-- volume_ratio: 8.27
-- distance_to_ma20_pct_auxiliary: 25.59
-- distance_to_high_60_pct: -15.34
+- date: 20260731
+- open: 16.05
+- high: 16.05
+- low: 14.45
+- close: 15.5
+- volume: 221706
+- ma5: 15.75
+- ema23_primary: 13.26
+- distance_to_ema23_pct: 16.94
+- ma20: 12.92
+- ma60: 11.5
+- ma120: 11.69
+- return_5d: 19.23
+- return_20d: 29.71
+- volume_ratio: 1.8
+- distance_to_ma20_pct_auxiliary: 19.99
+- distance_to_high_60_pct: -17.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,11.6,11.95,11.6,11.95,21402,11.52,3.74,11.75,10.84,0.56
 20260703,11.95,11.95,11.95,11.95,6710,11.55,3.42,11.85,10.85,0.18
 20260706,11.95,12.05,11.95,12.05,77273,11.6,3.92,11.91,10.86,2
 20260707,12.05,12.05,12.05,12.05,11781,11.63,3.58,11.93,10.87,0.37
@@ -166,6 +165,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,15.7,15.7,15.7,15.7,186828,12.38,26.85,12.27,11.22,3.97
 20260729,17.25,17.25,17.25,17.25,417537,12.78,34.95,12.53,11.33,6.18
 20260730,17,18.9,15.55,16,932551,13.05,22.6,12.74,11.42,8.27
+20260731,16.05,16.05,14.45,15.5,221706,13.26,16.94,12.92,11.5,1.8
 ```
 
 ## Latest TDCC Snapshot

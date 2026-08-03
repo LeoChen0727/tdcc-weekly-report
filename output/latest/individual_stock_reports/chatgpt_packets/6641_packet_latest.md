@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6641 基士德-KY
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:24 Asia/Taipei
+- generated_at: 2026-08-03 22:28:40 Asia/Taipei
 - stock_id: 6641
 - stock_name: 基士德-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 16.8
-- high: 17.25
-- low: 16.8
-- close: 17.2
-- volume: 3500
-- ma5: 17.42
-- ema23_primary: 17.89
-- distance_to_ema23_pct: -3.86
-- ma20: 18.04
-- ma60: 18.3
-- ma120: 19
-- return_5d: -4.18
-- return_20d: -4.44
-- volume_ratio: 0.04
-- distance_to_ma20_pct_auxiliary: -4.66
-- distance_to_high_60_pct: -15.27
+- date: 20260731
+- open: 17.65
+- high: 17.65
+- low: 17.35
+- close: 17.5
+- volume: 21516
+- ma5: 17.35
+- ema23_primary: 17.86
+- distance_to_ema23_pct: -2.01
+- ma20: 18.01
+- ma60: 18.26
+- ma120: 18.93
+- return_5d: -1.96
+- return_20d: -3.58
+- volume_ratio: 0.31
+- distance_to_ma20_pct_auxiliary: -2.82
+- distance_to_high_60_pct: -13.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,17.75,18.25,17.75,18.15,520759,18.24,-0.51,18.28,18.4,7.68
 20260703,18.2,18.5,18.2,18.4,63320,18.26,0.79,18.25,18.39,0.94
 20260706,19.1,20.2,18.95,19.25,476511,18.34,4.97,18.27,18.41,5.4
 20260707,19.3,19.35,19.05,19.1,101913,18.4,3.79,18.32,18.43,1.12
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,17.7,17.7,17.3,17.3,48676,18.04,-4.1,18.13,18.33,0.52
 20260729,17.2,17.55,16.55,17,59858,17.95,-5.31,18.08,18.31,0.62
 20260730,16.8,17.25,16.8,17.2,3500,17.89,-3.86,18.04,18.3,0.04
+20260731,17.65,17.65,17.35,17.5,21516,17.86,-2.01,18.01,18.26,0.31
 ```
 
 ## Latest TDCC Snapshot

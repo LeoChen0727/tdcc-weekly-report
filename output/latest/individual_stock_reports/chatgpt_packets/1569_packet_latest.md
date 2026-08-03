@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1569 濱川
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:20 Asia/Taipei
+- generated_at: 2026-08-03 22:26:31 Asia/Taipei
 - stock_id: 1569
 - stock_name: 濱川
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 180
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 181
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 37.05
-- high: 37.85
-- low: 36.35
-- close: 37.45
-- volume: 615000
-- ma5: 39.49
-- ema23_primary: 43.78
-- distance_to_ema23_pct: -14.45
-- ma20: 44.49
-- ma60: 48.69
-- ma120: 51.07
-- return_5d: -11.88
-- return_20d: -18.05
-- volume_ratio: 1.14
-- distance_to_ma20_pct_auxiliary: -15.82
-- distance_to_high_60_pct: -41.02
+- date: 20260731
+- open: 38.45
+- high: 40.35
+- low: 38.45
+- close: 39.65
+- volume: 218000
+- ma5: 39.06
+- ema23_primary: 43.43
+- distance_to_ema23_pct: -8.71
+- ma20: 44.11
+- ma60: 48.33
+- ma120: 50.93
+- return_5d: -5.14
+- return_20d: -16
+- volume_ratio: 0.41
+- distance_to_ma20_pct_auxiliary: -10.11
+- distance_to_high_60_pct: -34.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,45.7,47.6,45.4,47.2,394000,48.42,-2.52,48.12,52.64,0.57
 20260703,47.1,49.1,46.85,48.6,671000,48.43,0.34,47.97,52.57,0.93
 20260706,49.05,50.6,49,49.5,901000,48.52,2.01,47.89,52.55,1.18
 20260707,50.1,50.1,47,47.05,622000,48.4,-2.79,47.77,52.4,0.84
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,40.6,40.65,39.3,39.3,794000,45,-12.67,45.34,49.55,1.66
 20260729,39.05,39.75,36.5,37.2,1602000,44.35,-16.13,44.9,49.11,2.97
 20260730,37.05,37.85,36.35,37.45,615000,43.78,-14.45,44.49,48.69,1.14
+20260731,38.45,40.35,38.45,39.65,218000,43.43,-8.71,44.11,48.33,0.41
 ```
 
 ## Latest TDCC Snapshot

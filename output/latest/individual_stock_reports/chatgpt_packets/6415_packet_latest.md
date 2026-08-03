@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6415 矽力*-KY
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:14 Asia/Taipei
+- generated_at: 2026-08-03 22:28:30 Asia/Taipei
 - stock_id: 6415
 - stock_name: 矽力*-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 376
-- high: 394
-- low: 362
-- close: 375.5
-- volume: 6127777
-- ma5: 414.4
-- ema23_primary: 480.69
-- distance_to_ema23_pct: -21.88
-- ma20: 491.57
-- ma60: 531.82
-- ma120: 417.38
-- return_5d: -20.86
-- return_20d: -36.14
-- volume_ratio: 1.41
-- distance_to_ma20_pct_auxiliary: -23.61
-- distance_to_high_60_pct: -45.89
+- date: 20260731
+- open: 413
+- high: 413
+- low: 413
+- close: 413
+- volume: 853430
+- ma5: 403.5
+- ema23_primary: 475.05
+- distance_to_ema23_pct: -13.06
+- ma20: 481.02
+- ma60: 531.63
+- ma120: 418.43
+- return_5d: -11.66
+- return_20d: -33.81
+- volume_ratio: 0.2
+- distance_to_ma20_pct_auxiliary: -14.14
+- distance_to_high_60_pct: -40.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,588,624,584,624,1791976,579.21,7.73,575.33,492.54,0.34
 20260703,602,607,595,605,1441371,581.36,4.07,577.08,497.63,0.28
 20260706,645,645,615,620,1963801,584.58,6.06,578.98,503.27,0.38
 20260707,615,620,558,560,2996706,582.53,-3.87,580.77,507.94,0.59
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,422,424.5,404.5,404.5,4630188,500.68,-19.21,513.33,533.82,1.22
 20260729,400,400,364.5,375.5,7858735,490.25,-23.41,502.2,532.83,1.91
 20260730,376,394,362,375.5,6127777,480.69,-21.88,491.57,531.82,1.41
+20260731,413,413,413,413,853430,475.05,-13.06,481.02,531.63,0.2
 ```
 
 ## Latest TDCC Snapshot

@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1531 高林股
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:18 Asia/Taipei
+- generated_at: 2026-08-03 22:26:30 Asia/Taipei
 - stock_id: 1531
 - stock_name: 高林股
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 12.9
-- high: 12.9
+- date: 20260731
+- open: 12.95
+- high: 13
 - low: 12.8
-- close: 12.85
-- volume: 138095
-- ma5: 12.94
-- ema23_primary: 12.96
-- distance_to_ema23_pct: -0.82
+- close: 12.9
+- volume: 380729
+- ma5: 12.92
+- ema23_primary: 12.95
+- distance_to_ema23_pct: -0.39
 - ma20: 13.01
 - ma60: 12.8
 - ma120: 12.71
-- return_5d: -1.15
-- return_20d: -0.39
-- volume_ratio: 0.83
-- distance_to_ma20_pct_auxiliary: -1.23
-- distance_to_high_60_pct: -3.75
+- return_5d: -0.77
+- return_20d: 0
+- volume_ratio: 2.1
+- distance_to_ma20_pct_auxiliary: -0.85
+- distance_to_high_60_pct: -3.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,12.75,12.95,12.75,12.9,96781,12.83,0.58,12.91,12.84,0.43
 20260703,12.9,13.15,12.9,13.1,316942,12.85,1.95,12.92,12.84,1.44
 20260706,13.2,13.35,13.05,13.15,284822,12.87,2.14,12.92,12.84,1.39
 20260707,13.15,13.15,13.05,13.15,203697,12.9,1.96,12.93,12.84,1.02
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,13,13.05,12.8,12.85,190246,12.97,-0.94,13.01,12.8,1.15
 20260729,13,13,12.65,12.9,302305,12.97,-0.5,13.01,12.8,1.81
 20260730,12.9,12.9,12.8,12.85,138095,12.96,-0.82,13.01,12.8,0.83
+20260731,12.95,13,12.8,12.9,380729,12.95,-0.39,13.01,12.8,2.1
 ```
 
 ## Latest TDCC Snapshot

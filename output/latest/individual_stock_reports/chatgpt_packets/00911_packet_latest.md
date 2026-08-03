@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00911 兆豐洲際半導體
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:05 Asia/Taipei
+- generated_at: 2026-08-03 22:26:15 Asia/Taipei
 - stock_id: 00911
 - stock_name: 兆豐洲際半導體
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260730
-- price_rows: 48
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 49
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 48.04
-- high: 49.2
-- low: 48.04
-- close: 48.33
-- volume: 1199757
-- ma5: 52.59
-- ema23_primary: 57.33
-- distance_to_ema23_pct: -15.7
-- ma20: 57.96
-- ma60: 61.06
-- ma120: 61.06
-- return_5d: -15.14
-- return_20d: -29.34
-- volume_ratio: 1.45
-- distance_to_ma20_pct_auxiliary: -16.62
-- distance_to_high_60_pct: -30.36
+- date: 20260731
+- open: 53.2
+- high: 53.7
+- low: 52.4
+- close: 53.65
+- volume: 1641895
+- ma5: 51.99
+- ema23_primary: 57.03
+- distance_to_ema23_pct: -5.92
+- ma20: 57.33
+- ma60: 60.91
+- ma120: 60.91
+- return_5d: -5.3
+- return_20d: -19.08
+- volume_ratio: 1.87
+- distance_to_ma20_pct_auxiliary: -6.42
+- distance_to_high_60_pct: -22.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,66.65,66.65,64.5,66.3,684772,64.43,2.91,64.82,63.38,1.06
 20260703,63.9,63.9,62.7,63.45,1174203,64.34,-1.39,64.75,63.38,1.78
 20260706,64,64.15,63.2,63.4,441402,64.27,-1.35,64.74,63.39,0.68
 20260707,63,63.25,62.1,62.2,1088850,64.09,-2.95,64.86,63.35,1.62
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,53.35,53.35,52.25,52.3,975137,58.89,-11.19,59.81,61.58,1.26
 20260729,51.15,51.15,49.16,50,1138721,58.15,-14.02,58.97,61.33,1.41
 20260730,48.04,49.2,48.04,48.33,1199757,57.33,-15.7,57.96,61.06,1.45
+20260731,53.2,53.7,52.4,53.65,1641895,57.03,-5.92,57.33,60.91,1.87
 ```
 
 ## Latest TDCC Snapshot

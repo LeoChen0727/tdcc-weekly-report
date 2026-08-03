@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2609 陽明
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:51 Asia/Taipei
+- generated_at: 2026-08-03 22:27:04 Asia/Taipei
 - stock_id: 2609
 - stock_name: 陽明
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 50.3
-- high: 50.5
-- low: 49.5
-- close: 50
-- volume: 13511856
-- ma5: 50.68
-- ema23_primary: 50.73
-- distance_to_ema23_pct: -1.44
-- ma20: 50.72
+- date: 20260731
+- open: 50.5
+- high: 51.7
+- low: 50.3
+- close: 50.8
+- volume: 20351433
+- ma5: 50.54
+- ema23_primary: 50.74
+- distance_to_ema23_pct: 0.12
+- ma20: 50.7
 - ma60: 51.16
-- ma120: 52.65
-- return_5d: -0.99
-- return_20d: -1.38
-- volume_ratio: 0.67
-- distance_to_ma20_pct_auxiliary: -1.41
-- distance_to_high_60_pct: -10.23
+- ma120: 52.62
+- return_5d: -1.36
+- return_20d: -0.39
+- volume_ratio: 0.99
+- distance_to_ma20_pct_auxiliary: 0.19
+- distance_to_high_60_pct: -8.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,51.2,51.3,50.5,51,10558613,51.46,-0.9,51.6,51.06,0.3
 20260703,51.2,53.6,51.2,52.4,43386845,51.54,1.66,51.56,51.07,1.24
 20260706,53,53.6,52.6,53,19345058,51.66,2.59,51.48,51.1,0.6
 20260707,52.1,52.2,51.1,51.1,22349000,51.62,-1,51.45,51.09,0.75
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,50.6,50.9,50.1,50.7,13630141,50.86,-0.32,50.84,51.16,0.69
 20260729,50.9,51.6,49.5,50.1,22690053,50.8,-1.37,50.75,51.16,1.12
 20260730,50.3,50.5,49.5,50,13511856,50.73,-1.44,50.72,51.16,0.67
+20260731,50.5,51.7,50.3,50.8,20351433,50.74,0.12,50.7,51.16,0.99
 ```
 
 ## Latest TDCC Snapshot

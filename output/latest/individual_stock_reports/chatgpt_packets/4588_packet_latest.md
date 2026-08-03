@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4588 玖鼎電力
 
 ## Metadata
-- generated_at: 2026-08-02 22:27:39 Asia/Taipei
+- generated_at: 2026-08-03 22:27:53 Asia/Taipei
 - stock_id: 4588
 - stock_name: 玖鼎電力
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 49
-- high: 50
-- low: 48.85
-- close: 49
-- volume: 77974
-- ma5: 50.2
-- ema23_primary: 53.68
-- distance_to_ema23_pct: -8.72
-- ma20: 54.22
-- ma60: 56.67
-- ma120: 59.18
-- return_5d: -5.41
-- return_20d: -19.14
-- volume_ratio: 0.81
-- distance_to_ma20_pct_auxiliary: -9.63
-- distance_to_high_60_pct: -26.87
+- date: 20260731
+- open: 50.5
+- high: 51.2
+- low: 50.1
+- close: 50.5
+- volume: 46250
+- ma5: 49.98
+- ema23_primary: 53.41
+- distance_to_ema23_pct: -5.46
+- ma20: 53.78
+- ma60: 56.51
+- ma120: 59.02
+- return_5d: -2.13
+- return_20d: -14.84
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: -6.1
+- distance_to_high_60_pct: -24.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,60,60.3,59,59.3,166350,58.79,0.87,59.08,58.56,0.85
 20260703,59.2,59.7,58.9,59.6,113347,58.86,1.26,58.91,58.59,0.88
 20260706,59.6,60.7,59.6,60,114689,58.95,1.78,58.91,58.62,0.98
 20260707,60.1,60.3,57.9,58.1,134831,58.88,-1.33,58.92,58.63,1.16
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,50.8,50.8,49.5,49.7,85230,54.54,-8.88,55.27,57.05,0.84
 20260729,51.3,53,48.5,49.3,204909,54.11,-8.88,54.8,56.87,1.89
 20260730,49,50,48.85,49,77974,53.68,-8.72,54.22,56.67,0.81
+20260731,50.5,51.2,50.1,50.5,46250,53.41,-5.46,53.78,56.51,0.51
 ```
 
 ## Latest TDCC Snapshot

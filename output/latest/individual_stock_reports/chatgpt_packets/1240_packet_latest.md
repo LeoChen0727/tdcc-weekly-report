@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1240 茂生農經
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:09 Asia/Taipei
+- generated_at: 2026-08-03 22:26:20 Asia/Taipei
 - stock_id: 1240
 - stock_name: 茂生農經
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 180
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 181
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 53.4
-- high: 54
-- low: 53.3
-- close: 53.7
-- volume: 8000
-- ma5: 54.18
-- ema23_primary: 55.79
-- distance_to_ema23_pct: -3.75
-- ma20: 56.08
-- ma60: 57.34
-- ma120: 58.39
-- return_5d: -2.72
-- return_20d: -7.41
-- volume_ratio: 0.48
-- distance_to_ma20_pct_auxiliary: -4.24
-- distance_to_high_60_pct: -10.35
+- date: 20260731
+- open: 54.5
+- high: 55.3
+- low: 54.5
+- close: 55.2
+- volume: 28000
+- ma5: 54.28
+- ema23_primary: 55.74
+- distance_to_ema23_pct: -0.98
+- ma20: 55.94
+- ma60: 57.27
+- ma120: 58.34
+- return_5d: 0.91
+- return_20d: -4.83
+- volume_ratio: 1.62
+- distance_to_ma20_pct_auxiliary: -1.31
+- distance_to_high_60_pct: -7.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,58,58,58,58,17000,57.94,0.1,57.91,58.37,1.04
 20260703,58,58.2,58,58.2,5000,57.97,0.41,57.95,58.36,0.36
 20260706,58.5,58.5,58.4,58.5,12000,58.01,0.85,58.02,58.35,1.04
 20260707,58.4,58.4,56.8,57.9,20000,58,-0.17,58.05,58.33,1.68
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,55.1,55.1,54.4,54.4,11000,56.2,-3.2,56.48,57.52,0.65
 20260729,54.1,54.1,53.6,53.6,5000,55.98,-4.26,56.29,57.42,0.29
 20260730,53.4,54,53.3,53.7,8000,55.79,-3.75,56.08,57.34,0.48
+20260731,54.5,55.3,54.5,55.2,28000,55.74,-0.98,55.94,57.27,1.62
 ```
 
 ## Latest TDCC Snapshot

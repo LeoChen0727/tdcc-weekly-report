@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7728 光焱科技
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:45 Asia/Taipei
+- generated_at: 2026-08-03 22:29:02 Asia/Taipei
 - stock_id: 7728
 - stock_name: 光焱科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 180
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 181
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 478
-- high: 518
-- low: 478
-- close: 501
-- volume: 148000
-- ma5: 573.4
-- ema23_primary: 630
-- distance_to_ema23_pct: -20.48
-- ma20: 633.35
-- ma60: 694.75
-- ma120: 730.43
-- return_5d: -20.1
-- return_20d: -23.39
-- volume_ratio: 4.65
-- distance_to_ma20_pct_auxiliary: -20.9
-- distance_to_high_60_pct: -40.99
+- date: 20260731
+- open: 550
+- high: 550
+- low: 521
+- close: 544
+- volume: 56000
+- ma5: 556
+- ema23_primary: 622.83
+- distance_to_ema23_pct: -12.66
+- ma20: 627.75
+- ma60: 690.95
+- ma120: 729.88
+- return_5d: -13.79
+- return_20d: -17.07
+- volume_ratio: 1.68
+- distance_to_ma20_pct_auxiliary: -13.34
+- distance_to_high_60_pct: -32.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,654,660,651,656,26000,699.23,-6.18,702.9,740.05,0.21
 20260703,664,672,651,672,24000,696.96,-3.58,699.3,738.03,0.28
 20260706,686,694,672,680,37000,695.55,-2.24,695.45,735.68,0.72
 20260707,662,676,635,635,52000,690.5,-8.04,691.5,731.98,1.03
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,608,608,572,590,24000,651.79,-9.48,647.75,703.3,0.94
 20260729,590,590,531,531,39000,641.73,-17.25,641,699.88,1.52
 20260730,478,518,478,501,148000,630,-20.48,633.35,694.75,4.65
+20260731,550,550,521,544,56000,622.83,-12.66,627.75,690.95,1.68
 ```
 
 ## Latest TDCC Snapshot

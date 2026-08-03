@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3312 弘憶股
 
 ## Metadata
-- generated_at: 2026-08-02 22:27:13 Asia/Taipei
+- generated_at: 2026-08-03 22:27:27 Asia/Taipei
 - stock_id: 3312
 - stock_name: 弘憶股
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 41.15
-- high: 42
-- low: 39.2
-- close: 39.65
-- volume: 1431626
-- ma5: 44.07
-- ema23_primary: 50.27
-- distance_to_ema23_pct: -21.12
-- ma20: 51.29
-- ma60: 53.61
+- date: 20260731
+- open: 42
+- high: 43.15
+- low: 41.7
+- close: 43.1
+- volume: 1102366
+- ma5: 43.24
+- ema23_primary: 49.67
+- distance_to_ema23_pct: -13.23
+- ma20: 50.4
+- ma60: 53.64
 - ma120: 45.77
-- return_5d: -17.99
-- return_20d: -30.68
-- volume_ratio: 0.98
-- distance_to_ma20_pct_auxiliary: -22.69
-- distance_to_high_60_pct: -45.83
+- return_5d: -8.78
+- return_20d: -29.11
+- volume_ratio: 0.81
+- distance_to_ma20_pct_auxiliary: -14.49
+- distance_to_high_60_pct: -41.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,57.2,61.3,56.6,60.8,2981116,58.76,3.47,61.31,50.54,0.38
 20260703,59.7,60.9,59.5,59.9,2004884,58.85,1.78,60.65,50.92,0.28
 20260706,60.4,61.4,58.6,60,2568588,58.95,1.78,60.27,51.32,0.41
 20260707,60.5,60.6,57,57.1,2215520,58.8,-2.88,60.09,51.67,0.37
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,46.2,46.2,43.65,43.75,1147666,52.08,-15.99,53.05,53.65,0.73
 20260729,44.65,44.65,40.1,41.95,1791335,51.23,-18.12,52.16,53.65,1.18
 20260730,41.15,42,39.2,39.65,1431626,50.27,-21.12,51.29,53.61,0.98
+20260731,42,43.15,41.7,43.1,1102366,49.67,-13.23,50.4,53.64,0.81
 ```
 
 ## Latest TDCC Snapshot

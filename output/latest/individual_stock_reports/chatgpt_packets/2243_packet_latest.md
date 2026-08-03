@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2243 宏旭-KY
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:34 Asia/Taipei
+- generated_at: 2026-08-03 22:26:46 Asia/Taipei
 - stock_id: 2243
 - stock_name: 宏旭-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 45.3
-- high: 45.9
-- low: 39.85
-- close: 39.85
-- volume: 1053415
-- ma5: 45.96
-- ema23_primary: 49.22
-- distance_to_ema23_pct: -19.03
-- ma20: 52.88
-- ma60: 39.73
-- ma120: 28.84
-- return_5d: -26.75
-- return_20d: -35.73
-- volume_ratio: 1.15
-- distance_to_ma20_pct_auxiliary: -24.64
-- distance_to_high_60_pct: -41.22
+- date: 20260731
+- open: 40.45
+- high: 42.55
+- low: 40.45
+- close: 41.55
+- volume: 635647
+- ma5: 44.19
+- ema23_primary: 48.58
+- distance_to_ema23_pct: -14.47
+- ma20: 51.82
+- ma60: 39.98
+- ma120: 29.09
+- return_5d: -17.56
+- return_20d: -33.73
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: -19.82
+- distance_to_high_60_pct: -38.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,63.9,63.9,60.5,62.7,320736,45.2,38.71,44.39,30.77,0.18
 20260703,62.7,66,61,65.9,402619,46.93,40.43,46.2,31.53,0.25
 20260706,67.8,67.8,65.5,66,352233,48.52,36.04,48.1,32.25,0.23
 20260707,64,64,59.4,59.4,1979069,49.42,20.19,49.69,32.87,1.27
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,47.95,47.95,45.95,47.3,414471,50.6,-6.52,54.62,39.18,0.47
 20260729,48.85,48.85,42.65,44.25,812457,50.07,-11.62,53.99,39.5,0.91
 20260730,45.3,45.9,39.85,39.85,1053415,49.22,-19.03,52.88,39.73,1.15
+20260731,40.45,42.55,40.45,41.55,635647,48.58,-14.47,51.82,39.98,0.68
 ```
 
 ## Latest TDCC Snapshot

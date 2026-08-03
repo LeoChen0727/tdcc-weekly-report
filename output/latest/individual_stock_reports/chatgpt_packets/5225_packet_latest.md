@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5225 東科-KY
 
 ## Metadata
-- generated_at: 2026-08-02 22:27:48 Asia/Taipei
+- generated_at: 2026-08-03 22:28:03 Asia/Taipei
 - stock_id: 5225
 - stock_name: 東科-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 70.7
-- high: 71.1
-- low: 69.5
-- close: 70.7
-- volume: 279818
-- ma5: 71.62
-- ema23_primary: 72.28
-- distance_to_ema23_pct: -2.19
-- ma20: 72.73
-- ma60: 72.63
-- ma120: 80.48
-- return_5d: -2.62
-- return_20d: -3.94
-- volume_ratio: 1.27
-- distance_to_ma20_pct_auxiliary: -2.8
-- distance_to_high_60_pct: -12.61
+- date: 20260731
+- open: 71.2
+- high: 72.6
+- low: 71.2
+- close: 72.5
+- volume: 198553
+- ma5: 71.58
+- ema23_primary: 72.3
+- distance_to_ema23_pct: 0.28
+- ma20: 72.67
+- ma60: 72.56
+- ma120: 80.21
+- return_5d: -0.28
+- return_20d: -1.76
+- volume_ratio: 0.89
+- distance_to_ma20_pct_auxiliary: -0.23
+- distance_to_high_60_pct: -10.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,73,74.1,72.8,73.8,148009,73,1.09,73.11,74.18,0.39
 20260703,75,77.9,75,76.2,588810,73.27,4,72.97,74.12,1.9
 20260706,76.6,77.7,76.1,76.6,314587,73.55,4.15,73.06,74.07,1.15
 20260707,76.8,77.4,72.5,75.4,357514,73.7,2.31,73.28,74.01,1.34
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,72.7,72.8,71,71.2,177327,72.58,-1.91,72.94,72.87,0.81
 20260729,72,72.2,68.9,70.7,305341,72.43,-2.38,72.88,72.75,1.35
 20260730,70.7,71.1,69.5,70.7,279818,72.28,-2.19,72.73,72.63,1.27
+20260731,71.2,72.6,71.2,72.5,198553,72.3,0.28,72.67,72.56,0.89
 ```
 
 ## Latest TDCC Snapshot

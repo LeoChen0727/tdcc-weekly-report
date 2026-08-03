@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8467 波力-KY
 
 ## Metadata
-- generated_at: 2026-08-02 22:29:00 Asia/Taipei
+- generated_at: 2026-08-03 22:29:17 Asia/Taipei
 - stock_id: 8467
 - stock_name: 波力-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 314
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 315
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 104
-- high: 104
-- low: 99.7
-- close: 99.7
-- volume: 7024
-- ma5: 101.54
-- ema23_primary: 108.22
-- distance_to_ema23_pct: -7.87
-- ma20: 106.86
-- ma60: 120.98
-- ma120: 141.38
-- return_5d: -2.25
-- return_20d: -12.16
-- volume_ratio: 0.35
-- distance_to_ma20_pct_auxiliary: -6.7
-- distance_to_high_60_pct: -31
+- date: 20260731
+- open: 100
+- high: 100
+- low: 98
+- close: 100
+- volume: 15053
+- ma5: 100.94
+- ema23_primary: 107.53
+- distance_to_ema23_pct: -7
+- ma20: 106.26
+- ma60: 120.27
+- ma120: 140.65
+- return_5d: -2.91
+- return_20d: -10.71
+- volume_ratio: 0.82
+- distance_to_ma20_pct_auxiliary: -5.89
+- distance_to_high_60_pct: -30.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,111,113.5,108.5,112,42297,123.59,-9.38,124.22,135.12,2.9
 20260703,115,115,112.5,113,12444,122.71,-7.91,123.25,134.51,0.86
 20260706,113,115,113,114,26556,121.98,-6.54,122.47,133.87,1.73
 20260707,114,114,111,113,12055,121.23,-6.79,121.65,133.27,0.76
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,106,106,101,101,17062,109.72,-7.94,108.4,122.48,0.88
 20260729,105,105,99,101,26332,108.99,-7.33,107.55,121.72,1.3
 20260730,104,104,99.7,99.7,7024,108.22,-7.87,106.86,120.98,0.35
+20260731,100,100,98,100,15053,107.53,-7,106.26,120.27,0.82
 ```
 
 ## Latest TDCC Snapshot

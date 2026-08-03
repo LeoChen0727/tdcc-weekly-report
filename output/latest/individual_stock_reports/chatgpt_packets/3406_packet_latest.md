@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3406 玉晶光
 
 ## Metadata
-- generated_at: 2026-08-02 22:27:16 Asia/Taipei
+- generated_at: 2026-08-03 22:27:29 Asia/Taipei
 - stock_id: 3406
 - stock_name: 玉晶光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 459.5
-- high: 474
-- low: 442
-- close: 447.5
-- volume: 2004656
-- ma5: 484.1
-- ema23_primary: 553.86
-- distance_to_ema23_pct: -19.2
-- ma20: 555.42
-- ma60: 604.61
-- ma120: 532.62
-- return_5d: -15.88
-- return_20d: -30.19
-- volume_ratio: 1.08
-- distance_to_ma20_pct_auxiliary: -19.43
-- distance_to_high_60_pct: -43.78
+- date: 20260731
+- open: 480
+- high: 485
+- low: 471
+- close: 481
+- volume: 1850655
+- ma5: 478.9
+- ema23_primary: 547.79
+- distance_to_ema23_pct: -12.19
+- ma20: 547.27
+- ma60: 604.04
+- ma120: 532.75
+- return_5d: -5.13
+- return_20d: -25.31
+- volume_ratio: 0.99
+- distance_to_ma20_pct_auxiliary: -12.11
+- distance_to_high_60_pct: -39.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,626,652,626,644,1577910,672.98,-4.31,700.05,590.02,0.31
 20260703,644,651,634,636,989256,669.9,-5.06,698.9,593.19,0.2
 20260706,654,672,631,653,2697285,668.49,-2.32,697.45,596.58,0.58
 20260707,653,660,606,609,2286680,663.53,-8.22,695.2,599.13,0.5
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,501,502,482.5,482.5,1314790,572.36,-15.7,574.73,607.04,0.71
 20260729,491.5,491.5,452.5,466.5,2576658,563.53,-17.22,565.1,605.82,1.37
 20260730,459.5,474,442,447.5,2004656,553.86,-19.2,555.42,604.61,1.08
+20260731,480,485,471,481,1850655,547.79,-12.19,547.27,604.04,0.99
 ```
 
 ## Latest TDCC Snapshot

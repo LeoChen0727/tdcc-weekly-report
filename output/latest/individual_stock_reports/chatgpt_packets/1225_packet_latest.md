@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1225 福懋油
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:08 Asia/Taipei
+- generated_at: 2026-08-03 22:26:19 Asia/Taipei
 - stock_id: 1225
 - stock_name: 福懋油
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 264
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 265
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 27.3
-- high: 27.3
-- low: 26.2
-- close: 26.25
-- volume: 467786
-- ma5: 26.69
-- ema23_primary: 27.52
-- distance_to_ema23_pct: -4.61
-- ma20: 27.2
-- ma60: 29.25
-- ma120: 30.3
-- return_5d: -1.13
-- return_20d: -10.1
-- volume_ratio: 2.38
-- distance_to_ma20_pct_auxiliary: -3.51
-- distance_to_high_60_pct: -21.29
+- date: 20260731
+- open: 26.5
+- high: 26.55
+- low: 25.65
+- close: 25.8
+- volume: 383732
+- ma5: 26.52
+- ema23_primary: 27.38
+- distance_to_ema23_pct: -5.76
+- ma20: 27.06
+- ma60: 29.13
+- ma120: 30.28
+- return_5d: -3.19
+- return_20d: -9.95
+- volume_ratio: 1.97
+- distance_to_ma20_pct_auxiliary: -4.67
+- distance_to_high_60_pct: -22.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,28.7,29.05,28.4,28.65,417762,30.06,-4.68,30.25,31.02,1.03
 20260703,28.5,29,28.5,28.65,299199,29.94,-4.3,30.2,30.96,0.73
 20260706,28.3,28.45,27.85,28.05,427765,29.78,-5.81,30.12,30.89,1.01
 20260707,27.95,28.4,27.95,28.2,168821,29.65,-4.89,30.02,30.82,0.43
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,26.55,26.7,26.1,26.7,128463,27.67,-3.52,27.45,29.43,0.66
 20260729,27.1,27.25,26.45,27.2,270404,27.64,-1.57,27.35,29.35,1.38
 20260730,27.3,27.3,26.2,26.25,467786,27.52,-4.61,27.2,29.25,2.38
+20260731,26.5,26.55,25.65,25.8,383732,27.38,-5.76,27.06,29.13,1.97
 ```
 
 ## Latest TDCC Snapshot

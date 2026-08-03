@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7786 東方風能
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:47 Asia/Taipei
+- generated_at: 2026-08-03 22:29:04 Asia/Taipei
 - stock_id: 7786
 - stock_name: 東方風能
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 168
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 169
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 125
-- high: 125
-- low: 121.5
-- close: 122.5
-- volume: 205655
-- ma5: 125
-- ema23_primary: 126.98
-- distance_to_ema23_pct: -3.53
-- ma20: 127.88
-- ma60: 125.69
-- ma120: 134.29
-- return_5d: -5.41
-- return_20d: 0.82
-- volume_ratio: 0.89
-- distance_to_ma20_pct_auxiliary: -4.2
-- distance_to_high_60_pct: -13.73
+- date: 20260731
+- open: 123.5
+- high: 130
+- low: 123.5
+- close: 126.5
+- volume: 205643
+- ma5: 124.9
+- ema23_primary: 126.94
+- distance_to_ema23_pct: -0.35
+- ma20: 128.05
+- ma60: 125.55
+- ma120: 134
+- return_5d: -0.39
+- return_20d: 2.85
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: -1.21
+- distance_to_high_60_pct: -10.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,122,124.5,121.5,123,185795,124.53,-1.23,124.97,127.96,0.65
 20260703,122,126,122,126,353840,124.65,1.08,125.2,127.9,1.24
 20260706,126,127,124,124,185678,124.6,-0.48,125.15,127.8,0.71
 20260707,126.5,126.5,122,122.5,205425,124.43,-1.55,125.28,127.69,0.81
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,122.5,124,118,123.5,220799,127.69,-3.28,127.78,126.09,0.97
 20260729,125,126.5,122,124,257916,127.39,-2.66,127.83,125.89,1.12
 20260730,125,125,121.5,122.5,205655,126.98,-3.53,127.88,125.69,0.89
+20260731,123.5,130,123.5,126.5,205643,126.94,-0.35,128.05,125.55,0.88
 ```
 
 ## Latest TDCC Snapshot

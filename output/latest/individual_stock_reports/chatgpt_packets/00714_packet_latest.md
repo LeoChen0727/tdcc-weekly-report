@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00714 群益道瓊美國地產
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:03 Asia/Taipei
+- generated_at: 2026-08-03 22:26:13 Asia/Taipei
 - stock_id: 00714
 - stock_name: 群益道瓊美國地產
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260730
-- price_rows: 48
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 49
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 23
-- high: 23.08
-- low: 23
-- close: 23.05
-- volume: 124586
-- ma5: 23.01
-- ema23_primary: 22.5
-- distance_to_ema23_pct: 2.43
-- ma20: 22.48
-- ma60: 21.99
-- ma120: 21.99
-- return_5d: 1.99
-- return_20d: 5.98
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: 2.54
-- distance_to_high_60_pct: -0.43
+- date: 20260731
+- open: 22.63
+- high: 22.8
+- low: 22.63
+- close: 22.8
+- volume: 22697
+- ma5: 23.03
+- ema23_primary: 22.53
+- distance_to_ema23_pct: 1.21
+- ma20: 22.53
+- ma60: 22.01
+- ma120: 22.01
+- return_5d: 0.53
+- return_20d: 4.59
+- volume_ratio: 0.08
+- distance_to_ma20_pct_auxiliary: 1.2
+- distance_to_high_60_pct: -1.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,21.83,21.83,21.8,21.8,107516,21.76,0.18,21.74,21.65,0.5
 20260703,21.99,22.15,21.99,22.14,71658,21.79,1.59,21.8,21.66,0.34
 20260706,22.2,22.2,22.19,22.19,264576,21.83,1.67,21.84,21.68,1.21
 20260707,21.7,22.09,21.7,22.06,360531,21.85,0.98,21.86,21.69,1.64
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,23,23.08,22.95,23.08,720482,22.39,3.08,22.37,21.94,2.63
 20260729,23.1,23.15,23.1,23.14,419946,22.45,3.06,22.41,21.97,1.43
 20260730,23,23.08,23,23.05,124586,22.5,2.43,22.48,21.99,0.44
+20260731,22.63,22.8,22.63,22.8,22697,22.53,1.21,22.53,22.01,0.08
 ```
 
 ## Latest TDCC Snapshot

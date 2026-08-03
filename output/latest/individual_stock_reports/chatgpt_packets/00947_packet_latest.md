@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00947 台新臺灣IC設計
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:06 Asia/Taipei
+- generated_at: 2026-08-03 22:26:16 Asia/Taipei
 - stock_id: 00947
 - stock_name: 台新臺灣IC設計
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260730
-- price_rows: 48
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 49
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 27.7
-- high: 30.12
-- low: 27.45
-- close: 28.13
-- volume: 8809805
-- ma5: 30.88
-- ema23_primary: 34.26
-- distance_to_ema23_pct: -17.89
-- ma20: 34.6
-- ma60: 37.04
-- ma120: 37.04
-- return_5d: -19.14
-- return_20d: -28.06
-- volume_ratio: 1.22
-- distance_to_ma20_pct_auxiliary: -18.71
-- distance_to_high_60_pct: -35.92
+- date: 20260731
+- open: 30.94
+- high: 30.94
+- low: 30.59
+- close: 30.91
+- volume: 17614554
+- ma5: 30.34
+- ema23_primary: 33.98
+- distance_to_ema23_pct: -9.03
+- ma20: 34.19
+- ma60: 36.91
+- ma120: 36.91
+- return_5d: -8.06
+- return_20d: -21.21
+- volume_ratio: 2.31
+- distance_to_ma20_pct_auxiliary: -9.59
+- distance_to_high_60_pct: -29.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,37.77,39.29,37.71,39.23,9438406,38.99,0.6,38.87,38.79,0.83
 20260703,38.51,39.1,38.34,38.8,6453460,38.98,-0.46,38.84,38.79,0.56
 20260706,39.67,39.76,38.25,38.38,6973091,38.93,-1.41,38.87,38.78,0.63
 20260707,38.49,38.87,36.61,36.88,9755303,38.76,-4.84,38.92,38.72,0.87
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,32.4,32.4,30.47,30.55,10937461,35.41,-13.71,35.72,37.42,1.41
 20260729,30.13,30.33,27.77,28.33,14125281,34.82,-18.63,35.15,37.23,1.84
 20260730,27.7,30.12,27.45,28.13,8809805,34.26,-17.89,34.6,37.04,1.22
+20260731,30.94,30.94,30.59,30.91,17614554,33.98,-9.03,34.19,36.91,2.31
 ```
 
 ## Latest TDCC Snapshot

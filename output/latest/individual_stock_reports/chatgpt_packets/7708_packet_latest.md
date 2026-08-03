@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7708 全家餐飲
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:44 Asia/Taipei
+- generated_at: 2026-08-03 22:29:01 Asia/Taipei
 - stock_id: 7708
 - stock_name: 全家餐飲
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 179
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 180
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
+- date: 20260731
 - open: 88.6
-- high: 90
+- high: 89.8
 - low: 88.6
-- close: 89.6
-- volume: 35000
-- ma5: 93.12
-- ema23_primary: 93.55
-- distance_to_ema23_pct: -4.22
-- ma20: 93.8
-- ma60: 93.05
-- ma120: 92.84
-- return_5d: -5.19
-- return_20d: -5.19
-- volume_ratio: 1.84
-- distance_to_ma20_pct_auxiliary: -4.48
-- distance_to_high_60_pct: -5.58
+- close: 89.8
+- volume: 22000
+- ma5: 92.3
+- ema23_primary: 93.23
+- distance_to_ema23_pct: -3.68
+- ma20: 93.58
+- ma60: 93.03
+- ma120: 92.8
+- return_5d: -4.37
+- return_20d: -4.67
+- volume_ratio: 1.1
+- distance_to_ma20_pct_auxiliary: -4.04
+- distance_to_high_60_pct: -5.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,94.5,94.5,94.2,94.2,3000,93.35,0.91,93.39,92.49,0.17
 20260703,94.3,94.5,93.4,93.4,48000,93.36,0.04,93.43,92.5,3.02
 20260706,93.4,94.4,93.4,94.4,6000,93.44,1.02,93.53,92.54,0.52
 20260707,94.4,94.4,94.3,94.3,3000,93.52,0.84,93.66,92.58,0.27
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,94.1,94.2,93.9,94,27000,93.89,0.11,94.07,93.04,1.94
 20260729,94.1,94.3,93.9,94,91000,93.9,0.1,94.05,93.08,5.16
 20260730,88.6,90,88.6,89.6,35000,93.55,-4.22,93.8,93.05,1.84
+20260731,88.6,89.8,88.6,89.8,22000,93.23,-3.68,93.58,93.03,1.1
 ```
 
 ## Latest TDCC Snapshot

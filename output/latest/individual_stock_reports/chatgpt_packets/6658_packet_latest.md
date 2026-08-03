@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6658 聯策
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:24 Asia/Taipei
+- generated_at: 2026-08-03 22:28:40 Asia/Taipei
 - stock_id: 6658
 - stock_name: 聯策
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 137
-- high: 139.5
-- low: 128.5
-- close: 130
-- volume: 596086
-- ma5: 144.8
-- ema23_primary: 167.56
-- distance_to_ema23_pct: -22.42
-- ma20: 171.38
-- ma60: 187.49
-- ma120: 130.87
-- return_5d: -18.75
-- return_20d: -49.42
-- volume_ratio: 0.6
-- distance_to_ma20_pct_auxiliary: -24.14
-- distance_to_high_60_pct: -50
+- date: 20260731
+- open: 138.5
+- high: 140
+- low: 135.5
+- close: 140
+- volume: 471253
+- ma5: 141.6
+- ema23_primary: 165.27
+- distance_to_ema23_pct: -15.29
+- ma20: 166.8
+- ma60: 187.23
+- ma120: 131.57
+- return_5d: -10.26
+- return_20d: -39.52
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: -16.07
+- distance_to_high_60_pct: -46.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,257,260,231.5,231.5,3645710,202.95,14.07,197.75,166.7,2.27
 20260703,230.5,231,208.5,208.5,3092670,203.41,2.5,198.03,168.94,1.8
 20260706,211,211,200,205.5,1510757,203.59,0.94,198.9,171.12,0.89
 20260707,208,209,192.5,194.5,916817,202.83,-4.11,199.2,173,0.54
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,151.5,152,144.5,144.5,412493,173.98,-16.94,182.53,188.03,0.34
 20260729,145,147.5,132,138,811148,170.98,-19.29,177.72,187.94,0.74
 20260730,137,139.5,128.5,130,596086,167.56,-22.42,171.38,187.49,0.6
+20260731,138.5,140,135.5,140,471253,165.27,-15.29,166.8,187.23,0.57
 ```
 
 ## Latest TDCC Snapshot

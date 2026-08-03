@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1537 廣隆
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:19 Asia/Taipei
+- generated_at: 2026-08-03 22:26:30 Asia/Taipei
 - stock_id: 1537
 - stock_name: 廣隆
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 127
-- high: 127
-- low: 126
-- close: 126
-- volume: 76497
-- ma5: 127.1
-- ema23_primary: 126.29
-- distance_to_ema23_pct: -0.23
-- ma20: 126.2
-- ma60: 125.99
-- ma120: 124.84
-- return_5d: 0.8
-- return_20d: 0
-- volume_ratio: 0.81
-- distance_to_ma20_pct_auxiliary: -0.16
-- distance_to_high_60_pct: -3.08
+- date: 20260731
+- open: 126.5
+- high: 127.5
+- low: 126.5
+- close: 126.5
+- volume: 97412
+- ma5: 126.9
+- ema23_primary: 126.31
+- distance_to_ema23_pct: 0.15
+- ma20: 126.25
+- ma60: 126.05
+- ma120: 124.86
+- return_5d: -0.78
+- return_20d: 0.8
+- volume_ratio: 1.01
+- distance_to_ma20_pct_auxiliary: 0.2
+- distance_to_high_60_pct: -2.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,126,126,125.5,125.5,48893,126.03,-0.42,126.55,125.15,0.61
 20260703,125.5,126.5,125.5,126.5,32964,126.07,0.34,126.45,125.19,0.46
 20260706,126,127,126,126.5,51925,126.1,0.32,126.35,125.23,0.78
 20260707,126,126.5,125.5,126,44807,126.09,-0.07,126.35,125.25,0.74
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,127,128,127,128,92777,126.3,1.35,126.15,125.85,1.05
 20260729,127.5,128,125,126.5,150271,126.32,0.15,126.2,125.92,1.61
 20260730,127,127,126,126,76497,126.29,-0.23,126.2,125.99,0.81
+20260731,126.5,127.5,126.5,126.5,97412,126.31,0.15,126.25,126.05,1.01
 ```
 
 ## Latest TDCC Snapshot

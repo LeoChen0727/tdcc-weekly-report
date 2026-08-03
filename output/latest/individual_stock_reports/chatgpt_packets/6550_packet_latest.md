@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6550 北極星藥業-KY
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:20 Asia/Taipei
+- generated_at: 2026-08-03 22:28:36 Asia/Taipei
 - stock_id: 6550
 - stock_name: 北極星藥業-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 11.6
-- high: 11.6
-- low: 11
-- close: 11.1
-- volume: 1228862
-- ma5: 11.6
-- ema23_primary: 12.43
-- distance_to_ema23_pct: -10.69
-- ma20: 12.49
-- ma60: 13.9
-- ma120: 19
-- return_5d: -8.26
-- return_20d: -17.16
-- volume_ratio: 1.01
-- distance_to_ma20_pct_auxiliary: -11.13
-- distance_to_high_60_pct: -39.67
+- date: 20260731
+- open: 11.35
+- high: 11.45
+- low: 10.85
+- close: 10.85
+- volume: 1885135
+- ma5: 11.37
+- ema23_primary: 12.3
+- distance_to_ema23_pct: -11.77
+- ma20: 12.38
+- ma60: 13.78
+- ma120: 18.83
+- return_5d: -9.58
+- return_20d: -17.49
+- volume_ratio: 1.51
+- distance_to_ma20_pct_auxiliary: -12.32
+- distance_to_high_60_pct: -41.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,13.3,13.7,13.05,13.15,1160519,13.66,-3.73,13.22,15.72,0.82
 20260703,13,14,13,13.7,1722647,13.66,0.27,13.25,15.63,1.21
 20260706,13.85,14.15,13.55,13.85,1348419,13.68,1.25,13.28,15.54,0.98
 20260707,14,14,13.4,13.55,1451435,13.67,-0.86,13.29,15.46,1.05
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,11.9,11.9,11.35,11.45,1219502,12.64,-9.42,12.71,14.11,1
 20260729,11.75,11.8,11.3,11.55,1910566,12.55,-7.96,12.61,14.01,1.53
 20260730,11.6,11.6,11,11.1,1228862,12.43,-10.69,12.49,13.9,1.01
+20260731,11.35,11.45,10.85,10.85,1885135,12.3,-11.77,12.38,13.78,1.51
 ```
 
 ## Latest TDCC Snapshot

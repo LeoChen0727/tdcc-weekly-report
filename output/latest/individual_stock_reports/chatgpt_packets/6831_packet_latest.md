@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6831 邁科
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:31 Asia/Taipei
+- generated_at: 2026-08-03 22:28:48 Asia/Taipei
 - stock_id: 6831
 - stock_name: 邁科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 163
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 164
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 460
-- high: 530
-- low: 460
-- close: 477.5
-- volume: 1941503
-- ma5: 572.7
-- ema23_primary: 664.76
-- distance_to_ema23_pct: -28.17
-- ma20: 692.38
-- ma60: 726.54
-- ma120: 543.03
-- return_5d: -28.73
-- return_20d: -47.12
-- volume_ratio: 2.25
-- distance_to_ma20_pct_auxiliary: -31.03
-- distance_to_high_60_pct: -50.77
+- date: 20260731
+- open: 525
+- high: 525
+- low: 507
+- close: 525
+- volume: 504856
+- ma5: 542.1
+- ema23_primary: 653.11
+- distance_to_ema23_pct: -19.62
+- ma20: 670.83
+- ma60: 725.94
+- ma120: 545.33
+- return_5d: -22.57
+- return_20d: -45.08
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: -21.74
+- distance_to_high_60_pct: -45.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,888,970,888,956,1847184,797.51,19.87,789.8,661.03,1.35
 20260703,937,948,897,923,1169575,807.97,14.24,799.9,669.44,0.84
 20260706,943,943,831,859,2369246,812.22,5.76,805.9,676.8,1.65
 20260707,890,890,775,775,1113971,809.12,-4.22,808.9,682.55,0.77
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,567,577,567,567,242969,697.31,-18.69,731.75,726.62,0.25
 20260729,555,555,511,511,370751,681.78,-25.05,713.65,727.25,0.42
 20260730,460,530,460,477.5,1941503,664.76,-28.17,692.38,726.54,2.25
+20260731,525,525,507,525,504856,653.11,-19.62,670.83,725.94,0.63
 ```
 
 ## Latest TDCC Snapshot

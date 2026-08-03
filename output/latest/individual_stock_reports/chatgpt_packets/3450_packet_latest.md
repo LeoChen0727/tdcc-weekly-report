@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3450 聯鈞
 
 ## Metadata
-- generated_at: 2026-08-02 22:27:17 Asia/Taipei
+- generated_at: 2026-08-03 22:27:31 Asia/Taipei
 - stock_id: 3450
 - stock_name: 聯鈞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 345.5
-- high: 377
-- low: 330
-- close: 338.5
-- volume: 10490110
-- ma5: 394.6
-- ema23_primary: 449.32
-- distance_to_ema23_pct: -24.66
-- ma20: 458.15
-- ma60: 476.33
-- ma120: 381.69
-- return_5d: -28.59
-- return_20d: -33.89
-- volume_ratio: 1.68
-- distance_to_ma20_pct_auxiliary: -26.12
-- distance_to_high_60_pct: -44.69
+- date: 20260731
+- open: 372
+- high: 372
+- low: 364.5
+- close: 372
+- volume: 2859243
+- ma5: 383.6
+- ema23_primary: 442.88
+- distance_to_ema23_pct: -16
+- ma20: 451.7
+- ma60: 476.81
+- ma120: 382.69
+- return_5d: -12.88
+- return_20d: -25.75
+- volume_ratio: 0.45
+- distance_to_ma20_pct_auxiliary: -17.64
+- distance_to_high_60_pct: -39.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,480.5,511,480.5,501,1392074,513.38,-2.41,518.8,435.8,0.13
 20260703,501,532,501,530,1632813,514.76,2.96,519.3,440.11,0.16
 20260706,555,555,510,520,1475890,515.2,0.93,520.25,443.95,0.15
 20260707,534,544,493,495,2036271,513.52,-3.61,521.95,447.09,0.22
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,411,429,403.5,405,8944635,468.02,-13.47,475.2,476.23,1.61
 20260729,405,405.5,364.5,364.5,7367179,459.39,-20.66,466.82,476.77,1.27
 20260730,345.5,377,330,338.5,10490110,449.32,-24.66,458.15,476.33,1.68
+20260731,372,372,364.5,372,2859243,442.88,-16,451.7,476.81,0.45
 ```
 
 ## Latest TDCC Snapshot

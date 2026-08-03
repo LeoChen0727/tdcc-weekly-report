@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4806 桂田文創
 
 ## Metadata
-- generated_at: 2026-08-02 22:27:42 Asia/Taipei
+- generated_at: 2026-08-03 22:27:57 Asia/Taipei
 - stock_id: 4806
 - stock_name: 桂田文創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 168
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 169
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 9.61
-- high: 9.89
-- low: 9.3
-- close: 9.89
-- volume: 24000
-- ma5: 9.89
+- date: 20260731
+- open: 10.05
+- high: 10.05
+- low: 10.05
+- close: 10.05
+- volume: 1000
+- ma5: 9.9
 - ema23_primary: 10.03
-- distance_to_ema23_pct: -1.35
-- ma20: 10.04
+- distance_to_ema23_pct: 0.23
+- ma20: 10.05
 - ma60: 10.16
 - ma120: 10.51
-- return_5d: -1.1
-- return_20d: -1.59
-- volume_ratio: 2.45
-- distance_to_ma20_pct_auxiliary: -1.46
-- distance_to_high_60_pct: -15.11
+- return_5d: 0.5
+- return_20d: 1.72
+- volume_ratio: 0.11
+- distance_to_ma20_pct_auxiliary: 0.04
+- distance_to_high_60_pct: -13.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260629,9.96,9.96,9.88,9.88,10000,10.18,-2.91,10.16,10.28,0.32
 20260630,9.88,10.4,9.88,10.4,6000,10.19,2.01,10.19,10.27,0.2
 20260701,10.35,10.35,10,10,20000,10.18,-1.75,10.18,10.27,0.63
 20260703,9.9,10.3,9.9,10.3,19000,10.19,1.09,10.2,10.27,0.59
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,10,10,9.86,9.86,6000,10.07,-2.08,10.07,10.18,0.58
 20260729,9.81,9.81,9.68,9.68,14000,10.04,-3.56,10.04,10.17,1.39
 20260730,9.61,9.89,9.3,9.89,24000,10.03,-1.35,10.04,10.16,2.45
+20260731,10.05,10.05,10.05,10.05,1000,10.03,0.23,10.05,10.16,0.11
 ```
 
 ## Latest TDCC Snapshot

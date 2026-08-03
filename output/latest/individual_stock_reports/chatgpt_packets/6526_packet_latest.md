@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6526 達發
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:19 Asia/Taipei
+- generated_at: 2026-08-03 22:28:34 Asia/Taipei
 - stock_id: 6526
 - stock_name: 達發
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 507
-- high: 517
-- low: 485
-- close: 493
-- volume: 540018
-- ma5: 539
-- ema23_primary: 597.91
-- distance_to_ema23_pct: -17.55
-- ma20: 610.6
-- ma60: 658.32
-- ma120: 579.81
-- return_5d: -16.16
-- return_20d: -29.87
-- volume_ratio: 0.92
-- distance_to_ma20_pct_auxiliary: -19.26
-- distance_to_high_60_pct: -37.36
+- date: 20260731
+- open: 535
+- high: 535
+- low: 515
+- close: 520
+- volume: 522924
+- ma5: 525.6
+- ema23_primary: 591.42
+- distance_to_ema23_pct: -12.08
+- ma20: 601.35
+- ma60: 656.07
+- ma120: 580.28
+- return_5d: -11.41
+- return_20d: -26.24
+- volume_ratio: 0.9
+- distance_to_ma20_pct_auxiliary: -13.53
+- distance_to_high_60_pct: -33.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,688,714,688,705,714634,671.96,4.92,665.75,635.99,0.87
 20260703,697,719,696,706,733986,674.8,4.62,666.7,639.62,0.9
 20260706,710,715,684,686,609979,675.73,1.52,667.55,643.09,0.75
 20260707,685,691,647,648,994041,673.42,-3.77,668.6,645.98,1.2
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,559,559,531,532,524967,616.58,-13.72,629.25,661.4,0.81
 20260729,540,541,486,507,807121,607.45,-16.54,621.1,660.03,1.26
 20260730,507,517,485,493,540018,597.91,-17.55,610.6,658.32,0.92
+20260731,535,535,515,520,522924,591.42,-12.08,601.35,656.07,0.9
 ```
 
 ## Latest TDCC Snapshot

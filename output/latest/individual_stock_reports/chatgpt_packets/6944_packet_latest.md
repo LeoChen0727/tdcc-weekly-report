@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6944 兆聯實業
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:36 Asia/Taipei
+- generated_at: 2026-08-03 22:28:53 Asia/Taipei
 - stock_id: 6944
 - stock_name: 兆聯實業
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 281
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 282
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 676
-- high: 692
-- low: 658
-- close: 659
-- volume: 810883
-- ma5: 726.6
-- ema23_primary: 887.9
-- distance_to_ema23_pct: -25.78
-- ma20: 921.2
-- ma60: 942.03
+- date: 20260731
+- open: 706
+- high: 724
+- low: 699
+- close: 721
+- volume: 645370
+- ma5: 713.6
+- ema23_primary: 873.99
+- distance_to_ema23_pct: -17.5
+- ma20: 906.75
+- ma60: 938.17
 - ma120: 871.98
-- return_5d: -20.51
-- return_20d: -31.78
-- volume_ratio: 1.09
-- distance_to_ma20_pct_auxiliary: -28.46
-- distance_to_high_60_pct: -40.9
+- return_5d: -8.27
+- return_20d: -28.61
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: -20.49
+- distance_to_high_60_pct: -35.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,952,1010,948,1010,519070,979.16,3.15,983.1,945.28,0.66
 20260703,1000,1005,985,992,341926,980.23,1.2,986,946.88,0.45
 20260706,992,992,968,981,327357,980.29,0.07,988.1,947.47,0.44
 20260707,986,997,962,969,669668,979.35,-1.06,991,947.95,0.92
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,775,775,715,715,1096366,928.86,-23.02,951.05,950.53,1.56
 20260729,723,728,660,687,904055,908.71,-24.4,936.55,946.8,1.25
 20260730,676,692,658,659,810883,887.9,-25.78,921.2,942.03,1.09
+20260731,706,724,699,721,645370,873.99,-17.5,906.75,938.17,0.86
 ```
 
 ## Latest TDCC Snapshot

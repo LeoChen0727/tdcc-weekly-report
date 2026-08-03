@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4439 冠星-KY
 
 ## Metadata
-- generated_at: 2026-08-02 22:27:34 Asia/Taipei
+- generated_at: 2026-08-03 22:27:49 Asia/Taipei
 - stock_id: 4439
 - stock_name: 冠星-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 99.5
-- high: 100.5
-- low: 99.5
-- close: 100
-- volume: 51131
-- ma5: 99.78
-- ema23_primary: 98.46
-- distance_to_ema23_pct: 1.56
-- ma20: 99.25
-- ma60: 94.59
+- date: 20260731
+- open: 102
+- high: 103
+- low: 99.9
+- close: 102
+- volume: 37253
+- ma5: 100.24
+- ema23_primary: 98.76
+- distance_to_ema23_pct: 3.29
+- ma20: 99.77
+- ma60: 94.64
 - ma120: 94.9
-- return_5d: -1.48
-- return_20d: 9.41
-- volume_ratio: 1.1
-- distance_to_ma20_pct_auxiliary: 0.75
-- distance_to_high_60_pct: -12.28
+- return_5d: 2.31
+- return_20d: 11.11
+- volume_ratio: 0.78
+- distance_to_ma20_pct_auxiliary: 2.24
+- distance_to_high_60_pct: -10.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,91.5,91.8,90.8,91.8,17350,91.19,0.67,90.39,94.25,0.97
 20260703,91.2,91.8,91,91.8,12322,91.24,0.62,90.44,94.28,0.73
 20260706,91.2,91.4,90.5,91.1,14083,91.23,-0.14,90.5,94.2,0.84
 20260707,91,91.8,90.5,91.5,11000,91.25,0.28,90.56,94.09,0.66
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,99.2,100,98.5,100,4601,98.24,1.79,98.42,94.58,0.1
 20260729,100,100,97,99.2,17586,98.32,0.89,98.83,94.56,0.39
 20260730,99.5,100.5,99.5,100,51131,98.46,1.56,99.25,94.59,1.1
+20260731,102,103,99.9,102,37253,98.76,3.29,99.77,94.64,0.78
 ```
 
 ## Latest TDCC Snapshot

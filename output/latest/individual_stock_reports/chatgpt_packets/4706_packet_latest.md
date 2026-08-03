@@ -1,27 +1,27 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4706 大恭
 
 ## Metadata
-- generated_at: 2026-08-02 22:27:39 Asia/Taipei
+- generated_at: 2026-08-03 22:27:54 Asia/Taipei
 - stock_id: 4706
 - stock_name: 大恭
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260728
-- price_rows: 163
-- current_main_price_date: 20260730
-- current_main_price_universe_status: historical_only_noncurrent
+- latest_price_date: 20260731
+- price_rows: 164
+- current_main_price_date: 20260731
+- current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
 - source_tdcc_dataset_id: tdcc-20260731-0b236a2d4a043618
 - official_tdcc_signal_date: 20260731
 - latest_tdcc_date: 20260731
 - tdcc_rows: 14
-- tdcc_history_status: historical_only_noncurrent
-- tdcc_freshness_status: historical_only_noncurrent
+- tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
 - tdcc_missing_official_dates: 
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: Historical-only TDCC window: stock is absent from the official current main-price universe; retain real historical dates and do not claim current TDCC history
+- notes:
 
 ## Stable Read URLs
 - packet_pages_url: not_published_to_pages_use_raw_or_github_api
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260728
-- open: 33.5
-- high: 33.5
-- low: 33
-- close: 33
-- volume: 12000
-- ma5: 33.6
-- ema23_primary: 32.59
-- distance_to_ema23_pct: 1.25
+- date: 20260731
+- open: 32.5
+- high: 32.5
+- low: 32.15
+- close: 32.15
+- volume: 5000
+- ma5: 33.43
+- ema23_primary: 32.55
+- distance_to_ema23_pct: -1.24
 - ma20: 32.47
-- ma60: 32.03
-- ma120: 31.27
-- return_5d: 3.12
-- return_20d: -1.64
-- volume_ratio: 0.69
-- distance_to_ma20_pct_auxiliary: 1.64
-- distance_to_high_60_pct: -5.71
+- ma60: 32.04
+- ma120: 31.28
+- return_5d: -2.58
+- return_20d: 0.16
+- volume_ratio: 0.29
+- distance_to_ma20_pct_auxiliary: -0.99
+- distance_to_high_60_pct: -8.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260626,33,33,32.1,32.1,6000,31.96,0.44,31.96,31.7,0.25
 20260629,32.1,32.1,32.1,32.1,1000,31.97,0.4,31.97,31.73,0.05
 20260630,32,32.5,32,32.4,8000,32.01,1.23,31.96,31.75,0.38
 20260701,32.5,32.5,32.25,32.25,3000,32.03,0.69,32,31.78,0.15
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260724,33.35,35,33.35,35,57000,32.47,7.8,32.44,32.02,2.65
 20260727,34,34,33.5,33.5,16000,32.55,2.91,32.49,32.03,0.77
 20260728,33.5,33.5,33,33,12000,32.59,1.25,32.47,32.03,0.69
+20260731,32.5,32.5,32.15,32.15,5000,32.55,-1.24,32.47,32.04,0.29
 ```
 
 ## Latest TDCC Snapshot

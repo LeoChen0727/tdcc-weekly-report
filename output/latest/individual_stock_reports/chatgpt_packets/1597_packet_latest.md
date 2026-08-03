@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1597 直得
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:21 Asia/Taipei
+- generated_at: 2026-08-03 22:26:32 Asia/Taipei
 - stock_id: 1597
 - stock_name: 直得
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 109
-- high: 112
-- low: 102
-- close: 104
-- volume: 1102988
-- ma5: 117.1
-- ema23_primary: 131.57
-- distance_to_ema23_pct: -20.96
-- ma20: 132.82
-- ma60: 156.28
-- ma120: 124.29
-- return_5d: -22.68
-- return_20d: -27.27
-- volume_ratio: 0.79
-- distance_to_ma20_pct_auxiliary: -21.7
-- distance_to_high_60_pct: -52.94
+- date: 20260731
+- open: 111.5
+- high: 114
+- low: 109.5
+- close: 114
+- volume: 980103
+- ma5: 114.7
+- ema23_primary: 130.11
+- distance_to_ema23_pct: -12.38
+- ma20: 130.68
+- ma60: 155.21
+- ma120: 124.54
+- return_5d: -9.52
+- return_20d: -27.39
+- volume_ratio: 0.72
+- distance_to_ma20_pct_auxiliary: -12.76
+- distance_to_high_60_pct: -48.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,141.5,157,141,157,1529650,153.7,2.15,152.03,152.26,0.83
 20260703,160.5,166,151,156,6863779,153.89,1.37,151.2,153.3,3.39
 20260706,156,157.5,151,151.5,1547161,153.69,-1.43,150.4,154.33,0.79
 20260707,152.5,152.5,139,139,1466690,152.47,-8.83,149.57,154.99,0.76
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,124.5,124.5,117,117.5,907826,136.32,-13.8,136.35,158.22,0.67
 20260729,116,119.5,106,109.5,1737996,134.08,-18.33,134.78,157.43,1.26
 20260730,109,112,102,104,1102988,131.57,-20.96,132.82,156.28,0.79
+20260731,111.5,114,109.5,114,980103,130.11,-12.38,130.68,155.21,0.72
 ```
 
 ## Latest TDCC Snapshot

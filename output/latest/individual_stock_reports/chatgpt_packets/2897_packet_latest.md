@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2897 王道銀行
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:58 Asia/Taipei
+- generated_at: 2026-08-03 22:27:11 Asia/Taipei
 - stock_id: 2897
 - stock_name: 王道銀行
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 10.25
-- high: 10.25
-- low: 10.15
+- date: 20260731
+- open: 10.2
+- high: 10.4
+- low: 10.2
 - close: 10.25
-- volume: 4219274
-- ma5: 10.23
-- ema23_primary: 10.36
-- distance_to_ema23_pct: -1.05
-- ma20: 10.41
-- ma60: 10.3
-- ma120: 10.07
-- return_5d: 1.99
-- return_20d: -1.44
-- volume_ratio: 0.72
-- distance_to_ma20_pct_auxiliary: -1.54
+- volume: 6525868
+- ma5: 10.25
+- ema23_primary: 10.35
+- distance_to_ema23_pct: -0.97
+- ma20: 10.4
+- ma60: 10.31
+- ma120: 10.08
+- return_5d: 0.99
+- return_20d: -2.38
+- volume_ratio: 1.08
+- distance_to_ma20_pct_auxiliary: -1.42
 - distance_to_high_60_pct: -4.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,10.4,10.5,10.4,10.5,2694064,10.41,0.85,10.47,10.23,0.47
 20260703,10.5,10.65,10.5,10.55,4887766,10.42,1.22,10.48,10.24,0.87
 20260706,10.55,10.65,10.55,10.55,3918640,10.43,1.12,10.49,10.25,0.71
 20260707,10.6,10.65,10.55,10.55,4957650,10.44,1.03,10.52,10.25,0.9
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,10.25,10.3,10.1,10.2,5142901,10.38,-1.73,10.43,10.3,0.94
 20260729,10.3,10.3,10.05,10.25,10572240,10.37,-1.15,10.42,10.3,1.8
 20260730,10.25,10.25,10.15,10.25,4219274,10.36,-1.05,10.41,10.3,0.72
+20260731,10.2,10.4,10.2,10.25,6525868,10.35,-0.97,10.4,10.31,1.08
 ```
 
 ## Latest TDCC Snapshot

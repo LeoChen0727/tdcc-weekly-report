@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7814 海昌生技
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:48 Asia/Taipei
+- generated_at: 2026-08-03 22:29:05 Asia/Taipei
 - stock_id: 7814
 - stock_name: 海昌生技
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260730
-- price_rows: 11
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 12
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,23 +126,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 31.85
-- high: 31.85
-- low: 29.6
-- close: 31
-- volume: 42000
-- ma5: 30.59
-- ema23_primary: 31.45
-- distance_to_ema23_pct: -1.42
-- ma20: 32.52
-- ma60: 32.52
-- ma120: 32.52
-- return_5d: -4.47
+- date: 20260731
+- open: 31.3
+- high: 31.3
+- low: 30.05
+- close: 30.25
+- volume: 29000
+- ma5: 30.46
+- ema23_primary: 31.35
+- distance_to_ema23_pct: -3.5
+- ma20: 32.33
+- ma60: 32.33
+- ma120: 32.33
+- return_5d: -2.1
 - return_20d:
-- volume_ratio: 0.13
-- distance_to_ma20_pct_auxiliary: -4.68
-- distance_to_high_60_pct: -23.27
+- volume_ratio: 0.09
+- distance_to_ma20_pct_auxiliary: -6.44
+- distance_to_high_60_pct: -25.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -159,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,30.5,31.25,30.1,30.45,60000,31.66,-3.82,33.02,33.02,0.15
 20260729,30.45,30.45,29.6,29.6,76000,31.49,-5.99,32.67,32.67,0.21
 20260730,31.85,31.85,29.6,31,42000,31.45,-1.42,32.52,32.52,0.13
+20260731,31.3,31.3,30.05,30.25,29000,31.35,-3.5,32.33,32.33,0.09
 ```
 
 ## Latest TDCC Snapshot
