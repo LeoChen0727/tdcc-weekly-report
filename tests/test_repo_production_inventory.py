@@ -37,7 +37,7 @@ def pr_safe_authorization_payload(
         fieldnames=list(inventory.PR_SAFE_AUTHORIZATION_COLUMNS),
     )
     writer.writeheader()
-    writer.writerow(row)
+    writer.writerows([*inventory.PR_SAFE_RETAINED_AUTHORIZATION_ROWS, row])
     return buffer.getvalue().encode("utf-8")
 
 
@@ -437,6 +437,36 @@ def test_pr_safe_base_guard_accepts_only_exact_preauthorized_helper_bytes() -> N
     )
 
     assert errors == []
+
+
+def test_pr_safe_base_guard_rejects_tampered_retained_authorization() -> None:
+    base_helper = b"base helper without consumed migration\n"
+    current_helper = (
+        f"MIGRATION = '{inventory.PR_SAFE_ADDITIVE_RESEARCH_MIGRATION_ID}'\n"
+    ).encode("utf-8")
+    current_test = b"def test_fail_closed():\n    assert True\n"
+    payload = pr_safe_authorization_payload(
+        base_helper,
+        current_helper,
+        current_test,
+    ).replace(
+        b"user_authorized_pr_safe_stage0_control_plane_trust_root_20260803",
+        b"tampered_v1_history",
+        1,
+    )
+
+    errors = inventory.validate_pr_safe_control_plane_delta(
+        set(inventory.PR_SAFE_AUTHORIZED_STAGE1_PATHS),
+        base_helper=base_helper,
+        current_helper=current_helper,
+        current_test=current_test,
+        authorization_payload=payload,
+    )
+
+    assert (
+        "PR-safe authorization history must retain the exact append-only prefix"
+        in errors
+    )
 
 
 def test_pr_safe_base_guard_rejects_helper_migration_with_extra_path() -> None:
