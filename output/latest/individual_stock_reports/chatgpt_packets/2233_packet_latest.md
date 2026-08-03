@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2233 宇隆
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:33 Asia/Taipei
+- generated_at: 2026-08-03 22:26:45 Asia/Taipei
 - stock_id: 2233
 - stock_name: 宇隆
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 178.5
-- high: 184.5
-- low: 172
-- close: 173.5
-- volume: 875340
-- ma5: 191.9
-- ema23_primary: 223.43
-- distance_to_ema23_pct: -22.35
-- ma20: 225.38
-- ma60: 277.3
-- ma120: 257.75
-- return_5d: -20.59
-- return_20d: -25.54
-- volume_ratio: 0.87
-- distance_to_ma20_pct_auxiliary: -23.02
-- distance_to_high_60_pct: -55.96
+- date: 20260731
+- open: 189
+- high: 190.5
+- low: 185
+- close: 190.5
+- volume: 550965
+- ma5: 189.3
+- ema23_primary: 220.68
+- distance_to_ema23_pct: -13.68
+- ma20: 222.4
+- ma60: 275.22
+- ma120: 257.4
+- return_5d: -6.39
+- return_20d: -23.8
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: -14.34
+- distance_to_high_60_pct: -51.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,230,250,227,250,2696769,270.84,-7.69,274.77,285.18,1.53
 20260703,260,275,250.5,275,2105472,271.19,1.41,272.7,286.07,1.18
 20260706,275,279.5,262,264.5,1191599,270.63,-2.26,270.38,286.93,0.67
 20260707,261.5,269,247,252,742981,269.08,-6.35,268.23,287.58,0.42
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,197.5,198,191.5,192,807556,231.83,-17.18,229.68,281.87,0.86
 20260729,193.5,199.5,175.5,185.5,1754208,227.97,-18.63,228.35,279.65,1.77
 20260730,178.5,184.5,172,173.5,875340,223.43,-22.35,225.38,277.3,0.87
+20260731,189,190.5,185,190.5,550965,220.68,-13.68,222.4,275.22,0.61
 ```
 
 ## Latest TDCC Snapshot

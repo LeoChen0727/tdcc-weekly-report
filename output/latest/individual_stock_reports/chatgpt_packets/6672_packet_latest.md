@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6672 騰輝電子-KY
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:25 Asia/Taipei
+- generated_at: 2026-08-03 22:28:41 Asia/Taipei
 - stock_id: 6672
 - stock_name: 騰輝電子-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -132,29 +132,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 179.5
-- high: 193
-- low: 178
-- close: 181
-- volume: 2854432
-- ma5: 202.3
-- ema23_primary: 236.68
-- distance_to_ema23_pct: -23.52
-- ma20: 253.3
-- ma60: 233.82
-- ma120: 182.13
-- return_5d: -21.64
-- return_20d: -37.69
-- volume_ratio: 0.77
-- distance_to_ma20_pct_auxiliary: -28.54
-- distance_to_high_60_pct: -45.15
+- date: 20260731
+- open: 195
+- high: 199
+- low: 191
+- close: 198
+- volume: 2172683
+- ma5: 197
+- ema23_primary: 233.45
+- distance_to_ema23_pct: -15.19
+- ma20: 248.32
+- ma60: 233.54
+- ma120: 182.96
+- return_5d: -11.8
+- return_20d: -33.45
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: -20.27
+- distance_to_high_60_pct: -40
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,287.5,300,287,297.5,5145546,252.93,17.62,249.47,212.75,0.79
 20260703,297,316.5,293,315,5750657,258.1,22.05,254.12,215.64,0.89
 20260706,317.5,317.5,304.5,308,4407424,262.26,17.44,258.57,218.21,0.68
 20260707,315,324.5,296,300,7412931,265.4,13.04,262.73,220.71,1.1
@@ -174,6 +173,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,213,213,199,199.5,2262010,246.85,-19.18,264.5,235.1,0.53
 20260729,204,204,180,185.5,3222466,241.74,-23.26,258.77,234.47,0.77
 20260730,179.5,193,178,181,2854432,236.68,-23.52,253.3,233.82,0.77
+20260731,195,199,191,198,2172683,233.45,-15.19,248.32,233.54,0.61
 ```
 
 ## Latest TDCC Snapshot

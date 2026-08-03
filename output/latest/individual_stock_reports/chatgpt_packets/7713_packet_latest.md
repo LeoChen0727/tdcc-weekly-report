@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7713 威力德生醫
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:44 Asia/Taipei
+- generated_at: 2026-08-03 22:29:01 Asia/Taipei
 - stock_id: 7713
 - stock_name: 威力德生醫
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 167
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 168
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 70.5
+- date: 20260731
+- open: 70.1
 - high: 70.5
-- low: 70
+- low: 69.9
 - close: 70
-- volume: 11000
-- ma5: 70.2
-- ema23_primary: 70.45
-- distance_to_ema23_pct: -0.64
-- ma20: 70.5
-- ma60: 69.9
-- ma120: 69.78
-- return_5d: -0.71
-- return_20d: -0.14
-- volume_ratio: 1.01
-- distance_to_ma20_pct_auxiliary: -0.7
+- volume: 9000
+- ma5: 70.08
+- ema23_primary: 70.42
+- distance_to_ema23_pct: -0.59
+- ma20: 70.48
+- ma60: 69.94
+- ma120: 69.77
+- return_5d: -0.85
+- return_20d: -0.43
+- volume_ratio: 0.8
+- distance_to_ma20_pct_auxiliary: -0.68
 - distance_to_high_60_pct: -5.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,70.1,70.5,70.1,70.3,3000,70.57,-0.38,71.08,68.89,0.11
 20260703,70.3,70.5,70.3,70.3,5000,70.54,-0.35,70.97,68.94,0.21
 20260706,70.5,70.6,70.5,70.6,2000,70.55,0.07,70.97,68.99,0.1
 20260707,70.2,70.7,70.1,70.7,25000,70.56,0.2,70.91,69.05,1.35
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,70.2,70.5,70,70,6000,70.54,-0.76,70.56,69.82,0.52
 20260729,70.1,70.5,70,70,10000,70.49,-0.7,70.5,69.86,0.9
 20260730,70.5,70.5,70,70,11000,70.45,-0.64,70.5,69.9,1.01
+20260731,70.1,70.5,69.9,70,9000,70.42,-0.59,70.48,69.94,0.8
 ```
 
 ## Latest TDCC Snapshot

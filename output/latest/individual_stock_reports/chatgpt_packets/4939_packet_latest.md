@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4939 亞電
 
 ## Metadata
-- generated_at: 2026-08-02 22:27:44 Asia/Taipei
+- generated_at: 2026-08-03 22:27:59 Asia/Taipei
 - stock_id: 4939
 - stock_name: 亞電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 180
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 181
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -124,29 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 48.2
-- high: 50.1
-- low: 45.9
-- close: 46.55
-- volume: 7868000
-- ma5: 55.02
-- ema23_primary: 59.74
-- distance_to_ema23_pct: -22.07
-- ma20: 60.81
-- ma60: 55.06
-- ma120: 44.94
-- return_5d: -33.12
-- return_20d: -22.55
-- volume_ratio: 0.43
-- distance_to_ma20_pct_auxiliary: -23.45
-- distance_to_high_60_pct: -40.47
+- date: 20260731
+- open: 51
+- high: 51.2
+- low: 47.65
+- close: 50.8
+- volume: 11920000
+- ma5: 52.64
+- ema23_primary: 58.99
+- distance_to_ema23_pct: -13.89
+- ma20: 60.28
+- ma60: 55.19
+- ma120: 45.02
+- return_5d: -18.98
+- return_20d: -17.13
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: -15.73
+- distance_to_high_60_pct: -35.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,60.4,64.3,60.4,61.3,5217000,59.16,3.62,62.51,48.27,0.35
 20260703,61.3,64.1,61.3,63.7,5348000,59.54,6.99,62.98,48.84,0.35
 20260706,63.8,66.4,63,63,6242000,59.82,5.31,63.15,49.4,0.4
 20260707,62.9,62.9,56.7,59.1,5135000,59.76,-1.11,62.82,49.87,0.37
@@ -166,6 +165,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,58.5,58.6,54.9,55.5,7082000,61.93,-10.39,62.2,54.91,0.38
 20260729,54,55.2,49.95,49.95,5940000,60.93,-18.03,61.49,55.01,0.33
 20260730,48.2,50.1,45.9,46.55,7868000,59.74,-22.07,60.81,55.06,0.43
+20260731,51,51.2,47.65,50.8,11920000,58.99,-13.89,60.28,55.19,0.65
 ```
 
 ## Latest TDCC Snapshot

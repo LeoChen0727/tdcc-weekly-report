@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6727 亞泰金屬
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:27 Asia/Taipei
+- generated_at: 2026-08-03 22:28:44 Asia/Taipei
 - stock_id: 6727
 - stock_name: 亞泰金屬
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 180
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 181
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 278.5
-- high: 300
-- low: 278.5
-- close: 278.5
-- volume: 458000
-- ma5: 336.8
-- ema23_primary: 388
-- distance_to_ema23_pct: -28.22
-- ma20: 403.65
-- ma60: 460.72
-- ma120: 373.56
-- return_5d: -25.73
-- return_20d: -33.85
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: -31
-- distance_to_high_60_pct: -60.04
+- date: 20260731
+- open: 306
+- high: 306
+- low: 306
+- close: 306
+- volume: 131000
+- ma5: 323.5
+- ema23_primary: 381.17
+- distance_to_ema23_pct: -19.72
+- ma20: 398.32
+- ma60: 458.87
+- ma120: 374.55
+- return_5d: -17.85
+- return_20d: -25.82
+- volume_ratio: 0.11
+- distance_to_ma20_pct_auxiliary: -23.18
+- distance_to_high_60_pct: -56.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,412.5,423,407.5,412.5,427000,443.08,-6.9,429.27,459.18,0.29
 20260703,404.5,451,401.5,445,978000,443.24,0.4,427.05,460.48,0.65
 20260706,489.5,489.5,465,489.5,2237000,447.1,9.48,427.9,462.02,1.41
 20260707,509,537,484,495,4137000,451.09,9.73,431.38,463.61,2.33
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,358,358,343,343,145000,406.04,-15.53,416.75,463.88,0.11
 20260729,313,313,309,309,149000,397.96,-22.35,410.77,462.86,0.12
 20260730,278.5,300,278.5,278.5,458000,388,-28.22,403.65,460.72,0.38
+20260731,306,306,306,306,131000,381.17,-19.72,398.32,458.87,0.11
 ```
 
 ## Latest TDCC Snapshot

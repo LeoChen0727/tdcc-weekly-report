@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7068 宜特凱基59購06
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:40 Asia/Taipei
+- generated_at: 2026-08-03 22:28:56 Asia/Taipei
 - stock_id: 7068
 - stock_name: 宜特凱基59購06
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20250407
 - price_rows: 1
-- current_main_price_date: 20260730
+- current_main_price_date: 20260731
 - current_main_price_universe_status: historical_only_noncurrent
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable

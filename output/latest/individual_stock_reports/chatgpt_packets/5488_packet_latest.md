@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5488 松普
 
 ## Metadata
-- generated_at: 2026-08-02 22:27:55 Asia/Taipei
+- generated_at: 2026-08-03 22:28:11 Asia/Taipei
 - stock_id: 5488
 - stock_name: 松普
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 180
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 181
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 12.9
-- high: 12.9
-- low: 11.95
-- close: 12.05
-- volume: 1317000
-- ma5: 12.97
-- ema23_primary: 14.06
-- distance_to_ema23_pct: -14.27
-- ma20: 14.86
-- ma60: 12.96
-- ma120: 11.48
-- return_5d: -17.18
-- return_20d: -5.86
-- volume_ratio: 0.34
-- distance_to_ma20_pct_auxiliary: -18.91
-- distance_to_high_60_pct: -37.56
+- date: 20260731
+- open: 12.55
+- high: 12.6
+- low: 12.25
+- close: 12.4
+- volume: 666000
+- ma5: 12.72
+- ema23_primary: 13.92
+- distance_to_ema23_pct: -10.91
+- ma20: 14.78
+- ma60: 13
+- ma120: 11.5
+- return_5d: -9.16
+- return_20d: -11.74
+- volume_ratio: 0.18
+- distance_to_ma20_pct_auxiliary: -16.09
+- distance_to_high_60_pct: -35.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,12.8,14.05,12.8,14.05,4138000,12.69,10.72,12.79,11.45,5.65
 20260703,14.5,15.45,14.5,15.45,7017000,12.92,19.58,12.9,11.54,6.48
 20260706,15.4,15.4,14.1,14.1,4517000,13.02,8.31,12.96,11.6,3.45
 20260707,14.1,14.5,13.5,13.8,1897000,13.08,5.48,13.02,11.66,1.39
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,13.15,13.15,12.7,13,593000,14.37,-9.53,14.91,12.88,0.16
 20260729,13.45,13.45,12.35,12.8,998000,14.24,-10.1,14.9,12.93,0.26
 20260730,12.9,12.9,11.95,12.05,1317000,14.06,-14.27,14.86,12.96,0.34
+20260731,12.55,12.6,12.25,12.4,666000,13.92,-10.91,14.78,13,0.18
 ```
 
 ## Latest TDCC Snapshot

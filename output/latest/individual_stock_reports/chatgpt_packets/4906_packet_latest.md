@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4906 正文
 
 ## Metadata
-- generated_at: 2026-08-02 22:27:42 Asia/Taipei
+- generated_at: 2026-08-03 22:27:57 Asia/Taipei
 - stock_id: 4906
 - stock_name: 正文
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 29.95
-- high: 30.6
-- low: 28.65
-- close: 28.95
-- volume: 5021270
-- ma5: 31.83
-- ema23_primary: 36.46
-- distance_to_ema23_pct: -20.59
-- ma20: 36.83
-- ma60: 41.03
-- ma120: 36.64
-- return_5d: -18.34
-- return_20d: -29.22
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: -21.4
-- distance_to_high_60_pct: -48.12
+- date: 20260731
+- open: 31
+- high: 31.3
+- low: 30.25
+- close: 30.9
+- volume: 3165649
+- ma5: 31.19
+- ema23_primary: 36
+- distance_to_ema23_pct: -14.15
+- ma20: 36.26
+- ma60: 40.96
+- ma120: 36.66
+- return_5d: -9.38
+- return_20d: -26.95
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: -14.78
+- distance_to_high_60_pct: -44.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,40.5,42.4,40.25,42.3,5713834,43.32,-2.35,43.85,41.34,0.42
 20260703,41.6,44.3,41.6,43.7,9236239,43.35,0.8,43.59,41.42,0.73
 20260706,44.5,44.5,42.55,42.95,8021764,43.32,-0.85,43.34,41.47,0.66
 20260707,42.9,43.35,39.65,40.1,10184698,43.05,-6.85,43.16,41.46,0.87
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,33.2,33.2,31.6,31.8,5381345,37.77,-15.8,38.05,41.21,0.94
 20260729,31.8,32.15,28.65,30.25,9760557,37.14,-18.55,37.43,41.14,1.66
 20260730,29.95,30.6,28.65,28.95,5021270,36.46,-20.59,36.83,41.03,0.88
+20260731,31,31.3,30.25,30.9,3165649,36,-14.15,36.26,40.96,0.57
 ```
 
 ## Latest TDCC Snapshot

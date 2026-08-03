@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3317 尼克森
 
 ## Metadata
-- generated_at: 2026-08-02 22:27:13 Asia/Taipei
+- generated_at: 2026-08-03 22:27:27 Asia/Taipei
 - stock_id: 3317
 - stock_name: 尼克森
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 180
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 181
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 61.2
-- high: 63.8
-- low: 58.9
-- close: 59.3
-- volume: 1099000
-- ma5: 67.76
-- ema23_primary: 79.66
-- distance_to_ema23_pct: -25.56
-- ma20: 84.69
-- ma60: 81.3
-- ma120: 65.64
-- return_5d: -24.84
-- return_20d: -32.99
-- volume_ratio: 0.24
-- distance_to_ma20_pct_auxiliary: -29.98
-- distance_to_high_60_pct: -45.09
+- date: 20260731
+- open: 64.2
+- high: 65
+- low: 62.5
+- close: 63.7
+- volume: 747000
+- ma5: 65.36
+- ema23_primary: 78.33
+- distance_to_ema23_pct: -18.68
+- ma20: 83.01
+- ma60: 81.28
+- ma120: 65.74
+- return_5d: -15.85
+- return_20d: -34.53
+- volume_ratio: 0.18
+- distance_to_ma20_pct_auxiliary: -23.26
+- distance_to_high_60_pct: -41.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,88.5,97.3,88,97.3,9360000,85.26,14.13,84.91,71.82,1.74
 20260703,97.3,102,92.5,96.2,16366000,86.17,11.64,85.67,72.57,2.64
 20260706,102,105.5,102,105.5,8100000,87.78,20.19,86.89,73.49,1.23
 20260707,107,108,95.3,96.9,13706000,88.54,9.44,88.03,74.26,1.91
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,72,72,66.9,66.9,1362000,83.23,-19.63,87.49,81.29,0.28
 20260729,66.9,68,60.3,62.6,1637000,81.52,-23.2,86.15,81.35,0.35
 20260730,61.2,63.8,58.9,59.3,1099000,79.66,-25.56,84.69,81.3,0.24
+20260731,64.2,65,62.5,63.7,747000,78.33,-18.68,83.01,81.28,0.18
 ```
 
 ## Latest TDCC Snapshot

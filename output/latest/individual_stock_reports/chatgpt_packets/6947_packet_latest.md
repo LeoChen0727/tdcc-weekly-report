@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6947 台鎔科技
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:36 Asia/Taipei
+- generated_at: 2026-08-03 22:28:53 Asia/Taipei
 - stock_id: 6947
 - stock_name: 台鎔科技
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260730
-- price_rows: 6
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 7
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,23 +125,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 68.3
-- high: 70.8
-- low: 68.3
-- close: 68.6
-- volume: 400016
-- ma5: 73.2
-- ema23_primary: 76.45
-- distance_to_ema23_pct: -10.27
-- ma20: 74.08
-- ma60: 74.08
-- ma120: 74.08
-- return_5d: -12.61
+- date: 20260731
+- open: 72.1
+- high: 72.8
+- low: 69.1
+- close: 69.2
+- volume: 489747
+- ma5: 71.04
+- ema23_primary: 75.85
+- distance_to_ema23_pct: -8.76
+- ma20: 73.39
+- ma60: 73.39
+- ma120: 73.39
+- return_5d: -13.5
 - return_20d:
-- volume_ratio: 0.3
-- distance_to_ma20_pct_auxiliary: -7.4
-- distance_to_high_60_pct: -19.48
+- volume_ratio: 0.4
+- distance_to_ma20_pct_auxiliary: -5.7
+- distance_to_high_60_pct: -18.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -153,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,74.5,74.5,71,72.1,739016,,,,,
 20260729,72.2,73,68,69.3,871212,77.17,-10.19,75.18,75.18,0.57
 20260730,68.3,70.8,68.3,68.6,400016,76.45,-10.27,74.08,74.08,0.3
+20260731,72.1,72.8,69.1,69.2,489747,75.85,-8.76,73.39,73.39,0.4
 ```
 
 ## Latest TDCC Snapshot

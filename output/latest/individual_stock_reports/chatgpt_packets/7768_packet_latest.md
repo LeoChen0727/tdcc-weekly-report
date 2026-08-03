@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7768 頌勝科技
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:46 Asia/Taipei
+- generated_at: 2026-08-03 22:29:03 Asia/Taipei
 - stock_id: 7768
 - stock_name: 頌勝科技
-- packet_status: partial_rawdata_packet
-- latest_price_date: 20260730
-- price_rows: 59
-- current_main_price_date: 20260730
+- packet_status: standard_rawdata_packet
+- latest_price_date: 20260731
+- price_rows: 60
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 246
-- high: 249.5
-- low: 232
-- close: 234
-- volume: 153559
-- ma5: 260.1
-- ema23_primary: 305.95
-- distance_to_ema23_pct: -23.52
-- ma20: 311.27
-- ma60: 352.01
-- ma120: 352.01
-- return_5d: -20.68
-- return_20d: -31.58
-- volume_ratio: 1.21
-- distance_to_ma20_pct_auxiliary: -24.83
-- distance_to_high_60_pct: -47.3
+- date: 20260731
+- open: 245
+- high: 252.5
+- low: 243.5
+- close: 252
+- volume: 115815
+- ma5: 254.7
+- ema23_primary: 301.45
+- distance_to_ema23_pct: -16.4
+- ma20: 306.68
+- ma60: 350.34
+- ma120: 350.34
+- return_5d: -9.68
+- return_20d: -26.74
+- volume_ratio: 0.91
+- distance_to_ma20_pct_auxiliary: -17.83
+- distance_to_high_60_pct: -43.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,339,344,335,344,100726,362.91,-5.21,368.68,372.18,0.51
 20260703,341,362,341,362,172352,362.83,-0.23,366,371.93,0.93
 20260706,370,370,357,370,173276,363.43,1.81,364.18,371.88,0.95
 20260707,370,370,340,340,181414,361.48,-5.94,361.23,371.14,1.02
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,270,270,259,262.5,113025,318.17,-17.5,321.3,355.87,0.96
 20260729,262,262,237,250,192469,312.49,-20,316.68,354.04,1.56
 20260730,246,249.5,232,234,153559,305.95,-23.52,311.27,352.01,1.21
+20260731,245,252.5,243.5,252,115815,301.45,-16.4,306.68,350.34,0.91
 ```
 
 ## Latest TDCC Snapshot

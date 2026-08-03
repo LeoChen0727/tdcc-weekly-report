@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8488 吉源-KY
 
 ## Metadata
-- generated_at: 2026-08-02 22:29:01 Asia/Taipei
+- generated_at: 2026-08-03 22:29:18 Asia/Taipei
 - stock_id: 8488
 - stock_name: 吉源-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 286
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 287
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 9.91
-- high: 9.98
-- low: 9.91
-- close: 9.98
+- date: 20260731
+- open: 10.2
+- high: 10.25
+- low: 10.2
+- close: 10.25
 - volume: 2000
 - ma5: 10.19
-- ema23_primary: 10.16
-- distance_to_ema23_pct: -1.79
-- ma20: 10.17
+- ema23_primary: 10.17
+- distance_to_ema23_pct: 0.79
+- ma20: 10.16
 - ma60: 10.1
-- ma120: 10.03
-- return_5d: -3.11
-- return_20d: -0.2
-- volume_ratio: 0.09
-- distance_to_ma20_pct_auxiliary: -1.87
-- distance_to_high_60_pct: -12.84
+- ma120: 10.04
+- return_5d: 0
+- return_20d: -0.97
+- volume_ratio: 0.1
+- distance_to_ma20_pct_auxiliary: 0.84
+- distance_to_high_60_pct: -10.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,10,10.4,9.91,10.35,18301,10.14,2.08,10.14,10.07,0.64
 20260703,10.55,10.55,10.1,10.2,14225,10.14,0.55,10.14,10.08,0.49
 20260706,10.05,10.2,10.05,10.2,3000,10.15,0.51,10.15,10.08,0.1
 20260707,10.15,10.2,10.1,10.15,11000,10.15,0.01,10.16,10.09,0.38
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,10.15,10.2,10,10.2,21000,10.18,0.23,10.16,10.1,0.99
 20260729,10.15,10.25,10.15,10.2,14130,10.18,0.21,10.17,10.1,0.65
 20260730,9.91,9.98,9.91,9.98,2000,10.16,-1.79,10.17,10.1,0.09
+20260731,10.2,10.25,10.2,10.25,2000,10.17,0.79,10.16,10.1,0.1
 ```
 
 ## Latest TDCC Snapshot

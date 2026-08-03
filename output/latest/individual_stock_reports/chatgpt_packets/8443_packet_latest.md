@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8443 阿瘦
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:59 Asia/Taipei
+- generated_at: 2026-08-03 22:29:17 Asia/Taipei
 - stock_id: 8443
 - stock_name: 阿瘦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 11.25
-- high: 11.45
-- low: 11.25
-- close: 11.45
-- volume: 21832
-- ma5: 11.46
+- date: 20260731
+- open: 11.5
+- high: 11.55
+- low: 11.3
+- close: 11.5
+- volume: 26333
+- ma5: 11.48
 - ema23_primary: 11.43
-- distance_to_ema23_pct: 0.2
+- distance_to_ema23_pct: 0.58
 - ma20: 11.43
-- ma60: 11.43
+- ma60: 11.42
 - ma120: 11.62
 - return_5d: 0.88
-- return_20d: 0.44
-- volume_ratio: 0.22
-- distance_to_ma20_pct_auxiliary: 0.2
-- distance_to_high_60_pct: -2.97
+- return_20d: 0
+- volume_ratio: 0.35
+- distance_to_ma20_pct_auxiliary: 0.63
+- distance_to_high_60_pct: -2.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,11.4,11.5,11.3,11.5,496503,11.43,0.58,11.42,11.59,7.14
 20260703,11.45,11.5,11.45,11.5,1058182,11.44,0.53,11.43,11.58,8.73
 20260706,11.4,11.45,11.4,11.45,47636,11.44,0.09,11.43,11.57,0.39
 20260707,11.45,11.5,11.4,11.5,13540,11.45,0.48,11.44,11.57,0.11
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,11.45,11.45,11.3,11.45,40045,11.41,0.32,11.42,11.43,0.42
 20260729,11.45,11.55,11.3,11.55,49918,11.43,1.09,11.43,11.43,0.51
 20260730,11.25,11.45,11.25,11.45,21832,11.43,0.2,11.43,11.43,0.22
+20260731,11.5,11.55,11.3,11.5,26333,11.43,0.58,11.43,11.42,0.35
 ```
 
 ## Latest TDCC Snapshot

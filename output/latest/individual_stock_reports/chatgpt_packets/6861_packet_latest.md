@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6861 睿生光電
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:33 Asia/Taipei
+- generated_at: 2026-08-03 22:28:49 Asia/Taipei
 - stock_id: 6861
 - stock_name: 睿生光電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 181
-- high: 186
-- low: 168
-- close: 174
-- volume: 457923
-- ma5: 192.1
-- ema23_primary: 244.8
-- distance_to_ema23_pct: -28.92
-- ma20: 245.5
-- ma60: 334.12
-- ma120: 242.32
-- return_5d: -18.69
-- return_20d: -46.21
-- volume_ratio: 0.77
-- distance_to_ma20_pct_auxiliary: -29.12
-- distance_to_high_60_pct: -64.49
+- date: 20260731
+- open: 191
+- high: 191
+- low: 189.5
+- close: 191
+- volume: 103960
+- ma5: 189.1
+- ema23_primary: 240.32
+- distance_to_ema23_pct: -20.52
+- ma20: 238.47
+- ma60: 331.04
+- ma120: 243.38
+- return_5d: -7.28
+- return_20d: -42.38
+- volume_ratio: 0.18
+- distance_to_ma20_pct_auxiliary: -19.91
+- distance_to_high_60_pct: -61.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,312,335,312,331.5,292728,343.26,-3.43,335.65,326.94,0.37
 20260703,325,336,325,327.5,259149,341.94,-4.22,334.6,330.23,0.34
 20260706,338.5,344.5,321,321.5,402082,340.24,-5.51,333.1,333.33,0.53
 20260707,325.5,325.5,300,307.5,552427,337.51,-8.89,331.4,336.19,0.75
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,200,200,191,192.5,357917,257.62,-25.28,260.57,340.82,0.63
 20260729,189,192.5,173.5,181,934011,251.24,-27.96,252.97,337.83,1.57
 20260730,181,186,168,174,457923,244.8,-28.92,245.5,334.12,0.77
+20260731,191,191,189.5,191,103960,240.32,-20.52,238.47,331.04,0.18
 ```
 
 ## Latest TDCC Snapshot

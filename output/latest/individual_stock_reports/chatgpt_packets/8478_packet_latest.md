@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8478 東哥遊艇
 
 ## Metadata
-- generated_at: 2026-08-02 22:29:00 Asia/Taipei
+- generated_at: 2026-08-03 22:29:18 Asia/Taipei
 - stock_id: 8478
 - stock_name: 東哥遊艇
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 151.5
-- high: 151.5
-- low: 148.5
-- close: 149
-- volume: 135506
-- ma5: 150.5
-- ema23_primary: 152.59
-- distance_to_ema23_pct: -2.35
-- ma20: 153.65
-- ma60: 154.97
-- ma120: 162.16
-- return_5d: -0.67
-- return_20d: -2.93
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: -3.03
-- distance_to_high_60_pct: -14.12
+- date: 20260731
+- open: 153.5
+- high: 154
+- low: 150.5
+- close: 152
+- volume: 206871
+- ma5: 151.1
+- ema23_primary: 152.54
+- distance_to_ema23_pct: -0.35
+- ma20: 153.55
+- ma60: 154.68
+- ma120: 161.85
+- return_5d: 2.01
+- return_20d: -1.3
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: -1.01
+- distance_to_high_60_pct: -11.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,153.5,156,152.5,154,212873,153.73,0.18,154.2,159.87,0.72
 20260703,153,161.5,153,160,585591,154.25,3.73,154.25,159.81,1.88
 20260706,159.5,168.5,159.5,162,647886,154.89,4.59,154.22,159.85,2.07
 20260707,162.5,162.5,157,157,223022,155.07,1.24,154.1,159.77,0.72
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,153,153,149.5,150.5,136102,153.09,-1.69,153.9,155.55,0.64
 20260729,152.5,153,147,151,291212,152.91,-1.25,153.88,155.29,1.32
 20260730,151.5,151.5,148.5,149,135506,152.59,-2.35,153.65,154.97,0.62
+20260731,153.5,154,150.5,152,206871,152.54,-0.35,153.55,154.68,0.94
 ```
 
 ## Latest TDCC Snapshot

@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4503 金雨
 
 ## Metadata
-- generated_at: 2026-08-02 22:27:34 Asia/Taipei
+- generated_at: 2026-08-03 22:27:49 Asia/Taipei
 - stock_id: 4503
 - stock_name: 金雨
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 180
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 181
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 31.2
-- high: 31.6
-- low: 30.3
-- close: 30.5
-- volume: 173000
-- ma5: 33.54
-- ema23_primary: 37.14
-- distance_to_ema23_pct: -17.88
-- ma20: 38.72
-- ma60: 39.88
-- ma120: 39.74
-- return_5d: -17.9
-- return_20d: -27.47
-- volume_ratio: 0.51
-- distance_to_ma20_pct_auxiliary: -21.23
-- distance_to_high_60_pct: -37.18
+- date: 20260731
+- open: 31.75
+- high: 32.95
+- low: 31.7
+- close: 32.5
+- volume: 126000
+- ma5: 32.75
+- ema23_primary: 36.75
+- distance_to_ema23_pct: -11.57
+- ma20: 38.13
+- ma60: 39.69
+- ma120: 39.67
+- return_5d: -10.84
+- return_20d: -26.64
+- volume_ratio: 0.41
+- distance_to_ma20_pct_auxiliary: -14.77
+- distance_to_high_60_pct: -33.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,41.1,44.7,41.1,44.3,729000,39.54,12.03,38.61,41.24,2.73
 20260703,44.55,46.4,44.35,45.95,878000,40.08,14.66,38.9,41.34,2.84
 20260706,46.75,48.05,45.75,46.1,940000,40.58,13.61,39.25,41.44,2.65
 20260707,47.1,47.4,43.3,43.3,604000,40.8,6.12,39.51,41.49,1.61
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,35.75,35.75,33.6,33.6,180000,38.36,-12.4,39.83,40.3,0.42
 20260729,34.05,34.05,30.25,31,350000,37.74,-17.87,39.3,40.1,0.94
 20260730,31.2,31.6,30.3,30.5,173000,37.14,-17.88,38.72,39.88,0.51
+20260731,31.75,32.95,31.7,32.5,126000,36.75,-11.57,38.13,39.69,0.41
 ```
 
 ## Latest TDCC Snapshot

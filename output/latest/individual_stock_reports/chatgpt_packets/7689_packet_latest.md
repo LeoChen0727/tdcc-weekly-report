@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7689 大鵬科CLMX
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:43 Asia/Taipei
+- generated_at: 2026-08-03 22:29:00 Asia/Taipei
 - stock_id: 7689
 - stock_name: 大鵬科CLMX
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260730
-- price_rows: 3
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 4
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,12 +125,12 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 178
-- high: 179
-- low: 172
-- close: 177.5
-- volume: 244476
+- date: 20260731
+- open: 174
+- high: 177
+- low: 173.5
+- close: 176
+- volume: 191220
 - ma5:
 - ema23_primary:
 - distance_to_ema23_pct:
@@ -150,6 +150,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,172,175,164,175,754511,,,,,
 20260729,179.5,179.5,166.5,176.5,342635,,,,,
 20260730,178,179,172,177.5,244476,,,,,
+20260731,174,177,173.5,176,191220,,,,,
 ```
 
 ## Latest TDCC Snapshot

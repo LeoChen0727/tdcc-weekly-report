@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3229 晟鈦
 
 ## Metadata
-- generated_at: 2026-08-02 22:27:10 Asia/Taipei
+- generated_at: 2026-08-03 22:27:24 Asia/Taipei
 - stock_id: 3229
 - stock_name: 晟鈦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -101,7 +101,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -126,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 38.25
-- high: 41.45
-- low: 38
-- close: 39.25
-- volume: 546120
-- ma5: 39.04
-- ema23_primary: 40.4
-- distance_to_ema23_pct: -2.86
-- ma20: 39.78
+- date: 20260731
+- open: 40.2
+- high: 43.15
+- low: 40.2
+- close: 43.15
+- volume: 861687
+- ma5: 39.77
+- ema23_primary: 40.63
+- distance_to_ema23_pct: 6.19
+- ma20: 39.8
 - ma60: 42.46
-- ma120: 33.43
-- return_5d: -10.08
-- return_20d: -4.96
-- volume_ratio: 1.26
-- distance_to_ma20_pct_auxiliary: -1.33
-- distance_to_high_60_pct: -27.85
+- ma120: 33.6
+- return_5d: 9.24
+- return_20d: 1.17
+- volume_ratio: 1.85
+- distance_to_ma20_pct_auxiliary: 8.41
+- distance_to_high_60_pct: -20.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,41.3,43.5,41.15,42.65,202676,43.67,-2.34,44.09,40.17,0.36
 20260703,42.65,43.8,42.4,42.75,190780,43.59,-1.93,43.9,40.57,0.35
 20260706,42.75,43.5,41.55,41.7,270995,43.44,-4,43.77,40.95,0.51
 20260707,41.7,42.7,38.8,39.1,404589,43.07,-9.23,43.66,41.26,0.77
@@ -168,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,37.4,40.6,37,39.4,416276,40.71,-3.23,40.07,42.61,1.05
 20260729,39,39.75,37.5,38.25,568495,40.51,-5.58,39.88,42.52,1.37
 20260730,38.25,41.45,38,39.25,546120,40.4,-2.86,39.78,42.46,1.26
+20260731,40.2,43.15,40.2,43.15,861687,40.63,6.19,39.8,42.46,1.85
 ```
 
 ## Latest TDCC Snapshot

@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3704 合勤控
 
 ## Metadata
-- generated_at: 2026-08-02 22:27:27 Asia/Taipei
+- generated_at: 2026-08-03 22:27:41 Asia/Taipei
 - stock_id: 3704
 - stock_name: 合勤控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 40.75
-- high: 41.3
-- low: 39.75
-- close: 39.9
-- volume: 1456674
-- ma5: 43.49
-- ema23_primary: 45.3
-- distance_to_ema23_pct: -11.92
-- ma20: 45.81
-- ma60: 44.48
-- ma120: 39.42
-- return_5d: -14.29
-- return_20d: -9.83
+- date: 20260731
+- open: 42.3
+- high: 42.8
+- low: 40.45
+- close: 41.4
+- volume: 1444064
+- ma5: 42.41
+- ema23_primary: 44.97
+- distance_to_ema23_pct: -7.95
+- ma20: 45.64
+- ma60: 44.59
+- ma120: 39.44
+- return_5d: -11.54
+- return_20d: -7.69
 - volume_ratio: 0.33
-- distance_to_ma20_pct_auxiliary: -12.9
-- distance_to_high_60_pct: -22.37
+- distance_to_ma20_pct_auxiliary: -9.29
+- distance_to_high_60_pct: -19.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,44.25,45,43.75,44.85,1607289,45.73,-1.92,46.89,41.26,0.3
 20260703,44.95,47.7,44.8,46.95,4775445,45.83,2.44,46.85,41.47,0.9
 20260706,47.4,47.8,44.85,44.85,4073225,45.75,-1.97,46.71,41.64,0.78
 20260707,46.55,46.55,44.35,44.85,3319181,45.67,-1.81,46.62,41.83,0.66
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,44.8,45.15,43.6,43.6,2090141,46.24,-5.7,46.31,44.3,0.44
 20260729,43.65,44.1,39.25,40.9,3981867,45.79,-10.68,46.03,44.4,0.88
 20260730,40.75,41.3,39.75,39.9,1456674,45.3,-11.92,45.81,44.48,0.33
+20260731,42.3,42.8,40.45,41.4,1444064,44.97,-7.95,45.64,44.59,0.33
 ```
 
 ## Latest TDCC Snapshot

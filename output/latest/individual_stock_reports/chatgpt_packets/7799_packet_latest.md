@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7799 禾榮科
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:47 Asia/Taipei
+- generated_at: 2026-08-03 22:29:04 Asia/Taipei
 - stock_id: 7799
 - stock_name: 禾榮科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 206
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 207
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 343.5
-- high: 353
-- low: 335
-- close: 340
-- volume: 428532
-- ma5: 367.6
-- ema23_primary: 391.54
-- distance_to_ema23_pct: -13.16
-- ma20: 406.2
-- ma60: 368.85
-- ma120: 393.43
-- return_5d: -14.68
-- return_20d: -14.03
-- volume_ratio: 0.39
-- distance_to_ma20_pct_auxiliary: -16.3
-- distance_to_high_60_pct: -28.12
+- date: 20260731
+- open: 350.5
+- high: 358.5
+- low: 345.5
+- close: 348.5
+- volume: 387789
+- ma5: 357.4
+- ema23_primary: 387.95
+- distance_to_ema23_pct: -10.17
+- ma20: 403.73
+- ma60: 368.76
+- ma120: 392.79
+- return_5d: -12.77
+- return_20d: -12.44
+- volume_ratio: 0.35
+- distance_to_ma20_pct_auxiliary: -13.68
+- distance_to_high_60_pct: -26.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,406.5,415,394.5,398,552634,376.94,5.59,377.5,361.04,0.63
 20260703,399.5,415.5,390,391,853651,378.11,3.41,379.27,361.76,0.97
 20260706,405,430,405,430,1137236,382.44,12.44,381.27,362.73,1.35
 20260707,454.5,473,442.5,466,4150006,389.4,19.67,385.7,364.11,4.27
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,383.5,384.5,358,359,862867,401.02,-10.48,412.3,369.37,0.76
 20260729,365.5,371,333.5,343.5,1046729,396.22,-13.31,408.98,369.06,0.94
 20260730,343.5,353,335,340,428532,391.54,-13.16,406.2,368.85,0.39
+20260731,350.5,358.5,345.5,348.5,387789,387.95,-10.17,403.73,368.76,0.35
 ```
 
 ## Latest TDCC Snapshot

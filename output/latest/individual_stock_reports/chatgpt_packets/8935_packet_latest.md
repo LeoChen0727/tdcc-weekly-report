@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8935 邦泰
 
 ## Metadata
-- generated_at: 2026-08-02 22:29:02 Asia/Taipei
+- generated_at: 2026-08-03 22:29:20 Asia/Taipei
 - stock_id: 8935
 - stock_name: 邦泰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 180
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 181
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 17.35
-- high: 17.35
-- low: 16.8
-- close: 16.9
-- volume: 361000
-- ma5: 17.77
-- ema23_primary: 19.68
-- distance_to_ema23_pct: -14.12
-- ma20: 20.35
-- ma60: 20.68
-- ma120: 20.12
-- return_5d: -9.87
-- return_20d: -26.04
-- volume_ratio: 0.6
-- distance_to_ma20_pct_auxiliary: -16.96
-- distance_to_high_60_pct: -32.4
+- date: 20260731
+- open: 17.25
+- high: 17.45
+- low: 17.05
+- close: 17.05
+- volume: 151000
+- ma5: 17.45
+- ema23_primary: 19.46
+- distance_to_ema23_pct: -12.38
+- ma20: 19.99
+- ma60: 20.65
+- ma120: 20.07
+- return_5d: -8.58
+- return_20d: -29.98
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: -14.7
+- distance_to_high_60_pct: -31.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,22.65,25,22.5,24.35,3128000,21.59,12.77,22.03,20.25,3.68
 20260703,24.3,24.35,23.4,23.65,1735000,21.76,8.67,22.06,20.35,1.85
 20260706,24.65,24.65,23.2,23.35,1034000,21.9,6.64,22.04,20.44,1.05
 20260707,23.35,23.35,22.35,22.65,639000,21.96,3.15,21.98,20.49,0.68
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,17.9,18.05,17.5,17.75,272000,20.16,-11.94,20.84,20.73,0.38
 20260729,17.6,17.8,17,17.45,448000,19.93,-12.45,20.65,20.71,0.63
 20260730,17.35,17.35,16.8,16.9,361000,19.68,-14.12,20.35,20.68,0.6
+20260731,17.25,17.45,17.05,17.05,151000,19.46,-12.38,19.99,20.65,0.33
 ```
 
 ## Latest TDCC Snapshot

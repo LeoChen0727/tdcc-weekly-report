@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8499 鼎炫-KY
 
 ## Metadata
-- generated_at: 2026-08-02 22:29:01 Asia/Taipei
+- generated_at: 2026-08-03 22:29:18 Asia/Taipei
 - stock_id: 8499
 - stock_name: 鼎炫-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 248
-- high: 248
-- low: 227
-- close: 227
-- volume: 94945
-- ma5: 249.4
-- ema23_primary: 274.66
-- distance_to_ema23_pct: -17.35
-- ma20: 280.35
-- ma60: 291.55
-- ma120: 282.55
-- return_5d: -15.77
-- return_20d: -24.46
-- volume_ratio: 1.3
-- distance_to_ma20_pct_auxiliary: -19.03
-- distance_to_high_60_pct: -33.24
+- date: 20260731
+- open: 233.5
+- high: 241.5
+- low: 231.5
+- close: 234
+- volume: 46953
+- ma5: 243.4
+- ema23_primary: 271.27
+- distance_to_ema23_pct: -13.74
+- ma20: 277.15
+- ma60: 291.08
+- ma120: 281.88
+- return_5d: -11.36
+- return_20d: -21.48
+- volume_ratio: 0.64
+- distance_to_ma20_pct_auxiliary: -15.57
+- distance_to_high_60_pct: -31.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,300.5,304,295,298,33930,300.19,-0.73,297.43,288.48,0.4
 20260703,298,315,298,315,80199,301.42,4.5,298.32,289.23,0.93
 20260706,334,334,317.5,325.5,184173,303.43,7.27,299.98,290.17,2
 20260707,325.5,325.5,299,299,65017,303.06,-1.34,301.25,290.6,0.72
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,258,270.5,250.5,253,163474,282.35,-10.4,287.52,292.34,2.43
 20260729,248,253.5,236,242,99370,278.99,-13.26,284.02,292.08,1.41
 20260730,248,248,227,227,94945,274.66,-17.35,280.35,291.55,1.3
+20260731,233.5,241.5,231.5,234,46953,271.27,-13.74,277.15,291.08,0.64
 ```
 
 ## Latest TDCC Snapshot

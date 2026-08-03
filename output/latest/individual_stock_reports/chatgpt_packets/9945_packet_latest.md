@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9945 潤泰新
 
 ## Metadata
-- generated_at: 2026-08-02 22:29:07 Asia/Taipei
+- generated_at: 2026-08-03 22:29:24 Asia/Taipei
 - stock_id: 9945
 - stock_name: 潤泰新
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 26.05
-- high: 26.85
-- low: 25.85
-- close: 26.7
-- volume: 9336569
-- ma5: 26.24
-- ema23_primary: 26.22
-- distance_to_ema23_pct: 1.82
-- ma20: 26.22
-- ma60: 25.32
-- ma120: 25.99
-- return_5d: 1.71
-- return_20d: 0.38
-- volume_ratio: 1.18
-- distance_to_ma20_pct_auxiliary: 1.83
-- distance_to_high_60_pct: -4.3
+- date: 20260731
+- open: 27
+- high: 27.5
+- low: 26.95
+- close: 27.05
+- volume: 13289205
+- ma5: 26.43
+- ema23_primary: 26.29
+- distance_to_ema23_pct: 2.89
+- ma20: 26.24
+- ma60: 25.38
+- ma120: 25.97
+- return_5d: 3.64
+- return_20d: 1.5
+- volume_ratio: 1.72
+- distance_to_ma20_pct_auxiliary: 3.09
+- distance_to_high_60_pct: -3.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,26.6,26.7,26.45,26.65,16665724,26.12,2.04,26.42,24.81,1.4
 20260703,26.45,26.9,26.45,26.5,14347495,26.15,1.35,26.49,24.82,1.19
 20260706,26.7,26.9,26.35,26.5,19123819,26.18,1.23,26.55,24.84,1.53
 20260707,25.65,26.3,25.6,25.75,10696639,26.14,-1.5,26.61,24.84,0.85
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,26.05,26.2,25.85,26,4955224,26.19,-0.72,26.25,25.22,0.63
 20260729,26.2,26.4,25.55,26.05,9749702,26.18,-0.49,26.21,25.27,1.21
 20260730,26.05,26.85,25.85,26.7,9336569,26.22,1.82,26.22,25.32,1.18
+20260731,27,27.5,26.95,27.05,13289205,26.29,2.89,26.24,25.38,1.72
 ```
 
 ## Latest TDCC Snapshot

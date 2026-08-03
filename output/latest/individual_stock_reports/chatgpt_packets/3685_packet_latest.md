@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3685 元創精密
 
 ## Metadata
-- generated_at: 2026-08-02 22:27:26 Asia/Taipei
+- generated_at: 2026-08-03 22:27:40 Asia/Taipei
 - stock_id: 3685
 - stock_name: 元創精密
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 180
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 181
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -130,29 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 33.3
-- high: 34.45
-- low: 32.3
-- close: 34.45
-- volume: 991000
-- ma5: 36.92
-- ema23_primary: 34.86
-- distance_to_ema23_pct: -1.18
-- ma20: 34.99
-- ma60: 31.01
-- ma120: 31.93
-- return_5d: -7.76
-- return_20d: 19.41
-- volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: -1.54
-- distance_to_high_60_pct: -15.98
+- date: 20260731
+- open: 34.5
+- high: 36.45
+- low: 34.2
+- close: 36.35
+- volume: 1498000
+- ma5: 35.99
+- ema23_primary: 34.98
+- distance_to_ema23_pct: 3.9
+- ma20: 35.37
+- ma60: 31.11
+- ma120: 31.92
+- return_5d: -11.34
+- return_20d: 26
+- volume_ratio: 0.85
+- distance_to_ma20_pct_auxiliary: 2.79
+- distance_to_high_60_pct: -11.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,28.85,29.75,28.5,28.85,521000,29.4,-1.88,29.56,29.69,1.18
 20260703,28.9,29.4,27,27.8,850000,29.27,-5.02,29.55,29.68,1.76
 20260706,27.85,30.3,27,30.3,879000,29.36,3.22,29.63,29.73,1.67
 20260707,30.5,31,29.25,30.35,879000,29.44,3.1,29.73,29.81,1.59
@@ -172,6 +171,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,37.5,37.5,35.8,36.05,848000,34.97,3.09,34.45,30.88,0.52
 20260729,35.95,36.5,32.5,34.1,1225000,34.9,-2.29,34.71,30.94,0.73
 20260730,33.3,34.45,32.3,34.45,991000,34.86,-1.18,34.99,31.01,0.58
+20260731,34.5,36.45,34.2,36.35,1498000,34.98,3.9,35.37,31.11,0.85
 ```
 
 ## Latest TDCC Snapshot

@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8131 福懋科
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:54 Asia/Taipei
+- generated_at: 2026-08-03 22:29:11 Asia/Taipei
 - stock_id: 8131
 - stock_name: 福懋科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -131,29 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 52.9
-- high: 54.8
-- low: 50.8
-- close: 51.1
-- volume: 5087798
-- ma5: 58.42
-- ema23_primary: 67.4
-- distance_to_ema23_pct: -24.18
-- ma20: 70.17
-- ma60: 69.88
-- ma120: 67.49
-- return_5d: -25.62
-- return_20d: -26.26
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: -27.18
-- distance_to_high_60_pct: -41.33
+- date: 20260731
+- open: 56.1
+- high: 56.2
+- low: 55.2
+- close: 56.2
+- volume: 4049405
+- ma5: 56.74
+- ema23_primary: 66.47
+- distance_to_ema23_pct: -15.45
+- ma20: 69.47
+- ma60: 69.6
+- ma120: 67.28
+- return_5d: -13
+- return_20d: -20.17
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: -19.1
+- distance_to_high_60_pct: -35.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,67.9,71,67,70.4,3653423,71.47,-1.5,72.11,67.31,0.51
 20260703,69.6,76.2,68.8,74.8,6024192,71.75,4.25,72.19,67.52,0.86
 20260706,76.4,82.2,76.1,82.2,22171659,72.62,13.19,72.85,67.86,2.83
 20260707,87.1,87.1,78.3,79,23335093,73.15,7.99,73.61,68.16,2.65
@@ -173,6 +172,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,61,61.2,58.2,58.2,6643654,70.27,-17.18,72,70.4,0.7
 20260729,58.1,58.1,52.4,53.6,6289773,68.88,-22.18,71.08,70.18,0.66
 20260730,52.9,54.8,50.8,51.1,5087798,67.4,-24.18,70.17,69.88,0.54
+20260731,56.1,56.2,55.2,56.2,4049405,66.47,-15.45,69.47,69.6,0.43
 ```
 
 ## Latest TDCC Snapshot

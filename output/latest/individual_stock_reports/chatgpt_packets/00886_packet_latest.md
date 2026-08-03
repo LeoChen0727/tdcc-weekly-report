@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00886 永豐美國科技
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:04 Asia/Taipei
+- generated_at: 2026-08-03 22:26:14 Asia/Taipei
 - stock_id: 00886
 - stock_name: 永豐美國科技
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260730
-- price_rows: 43
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 44
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 43.9
-- high: 43.9
-- low: 43.9
-- close: 43.9
-- volume: 20000
-- ma5: 44.38
-- ema23_primary: 44.84
-- distance_to_ema23_pct: -2.09
-- ma20: 45.19
-- ma60: 44.65
-- ma120: 44.65
-- return_5d: -2.88
-- return_20d: -1.41
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: -2.86
-- distance_to_high_60_pct: -5.83
+- date: 20260731
+- open: 44.57
+- high: 45.14
+- low: 44.57
+- close: 45.14
+- volume: 44000
+- ma5: 44.42
+- ema23_primary: 44.86
+- distance_to_ema23_pct: 0.62
+- ma20: 45.24
+- ma60: 44.66
+- ma120: 44.66
+- return_5d: 0.53
+- return_20d: 2.01
+- volume_ratio: 1.09
+- distance_to_ma20_pct_auxiliary: -0.22
+- distance_to_high_60_pct: -3.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260626,44.53,44.53,44.25,44.25,43000,44.13,0.26,44.26,44.18,2.05
 20260629,44.25,44.25,44.25,44.25,1000,44.14,0.24,44.29,44.19,0.05
 20260630,45.08,45.35,45.08,45.33,33000,44.24,2.46,44.33,44.23,1.8
 20260701,45.45,46.27,45.45,46.25,223000,44.41,4.14,44.39,44.3,8.2
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260727,44.68,44.68,44.66,44.66,41000,45.01,-0.78,45.22,44.69,1.03
 20260728,43.98,43.98,43.94,43.94,24000,44.92,-2.18,45.23,44.67,0.59
 20260730,43.9,43.9,43.9,43.9,20000,44.84,-2.09,45.19,44.65,0.5
+20260731,44.57,45.14,44.57,45.14,44000,44.86,0.62,45.24,44.66,1.09
 ```
 
 ## Latest TDCC Snapshot

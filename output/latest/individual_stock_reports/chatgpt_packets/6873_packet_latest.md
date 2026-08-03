@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6873 泓德能源
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:33 Asia/Taipei
+- generated_at: 2026-08-03 22:28:49 Asia/Taipei
 - stock_id: 6873
 - stock_name: 泓德能源
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 78.2
-- high: 79.6
-- low: 76.7
-- close: 77
-- volume: 352263
-- ma5: 81.22
-- ema23_primary: 83.83
-- distance_to_ema23_pct: -8.15
-- ma20: 85.07
-- ma60: 85.91
-- ma120: 92.05
-- return_5d: -9.73
-- return_20d: -6.33
-- volume_ratio: 0.72
-- distance_to_ma20_pct_auxiliary: -9.49
-- distance_to_high_60_pct: -25.6
+- date: 20260731
+- open: 79.5
+- high: 81.9
+- low: 77.8
+- close: 78.3
+- volume: 312858
+- ma5: 79.88
+- ema23_primary: 83.37
+- distance_to_ema23_pct: -6.08
+- ma20: 84.94
+- ma60: 85.73
+- ma120: 91.74
+- return_5d: -7.88
+- return_20d: -3.09
+- volume_ratio: 0.64
+- distance_to_ma20_pct_auxiliary: -7.82
+- distance_to_high_60_pct: -24.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,82.3,82.3,80.8,80.8,250452,83.36,-3.07,83.22,86.84,0.38
 20260703,81.6,87.2,80.9,86.1,850801,83.59,3.01,82.59,86.8,1.5
 20260706,85.8,91.7,85.8,89.5,710059,84.08,6.45,82.42,86.83,1.3
 20260707,90,93.1,88.5,89.2,774430,84.51,5.56,82.53,86.9,1.42
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,84.8,84.8,80.3,80.7,442928,85.03,-5.1,85.54,86.36,1.01
 20260729,82.1,82.2,75,78.1,1109348,84.46,-7.53,85.33,86.14,2.29
 20260730,78.2,79.6,76.7,77,352263,83.83,-8.15,85.07,85.91,0.72
+20260731,79.5,81.9,77.8,78.3,312858,83.37,-6.08,84.94,85.73,0.64
 ```
 
 ## Latest TDCC Snapshot

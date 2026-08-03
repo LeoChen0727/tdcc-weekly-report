@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8473 山林水
 
 ## Metadata
-- generated_at: 2026-08-02 22:29:00 Asia/Taipei
+- generated_at: 2026-08-03 22:29:18 Asia/Taipei
 - stock_id: 8473
 - stock_name: 山林水
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 40.4
-- high: 40.9
-- low: 39.7
-- close: 40
-- volume: 663428
-- ma5: 42.12
-- ema23_primary: 44.66
-- distance_to_ema23_pct: -10.43
-- ma20: 44.72
-- ma60: 45.33
-- ma120: 41.43
-- return_5d: -9.6
-- return_20d: -17.7
-- volume_ratio: 0.87
-- distance_to_ma20_pct_auxiliary: -10.55
-- distance_to_high_60_pct: -30.07
+- date: 20260731
+- open: 40.65
+- high: 41.7
+- low: 40.45
+- close: 40.75
+- volume: 608410
+- ma5: 41.42
+- ema23_primary: 44.33
+- distance_to_ema23_pct: -8.08
+- ma20: 44.34
+- ma60: 45.43
+- ma120: 41.44
+- return_5d: -7.91
+- return_20d: -15.81
+- volume_ratio: 0.8
+- distance_to_ma20_pct_auxiliary: -8.09
+- distance_to_high_60_pct: -28.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,48.95,49.35,48.35,48.4,519024,48.9,-1.02,50.88,42.87,0.19
 20260703,48.55,50.4,48.35,49.15,1077857,48.92,0.47,50.61,43.08,0.53
 20260706,49.25,49.5,48.6,48.6,541312,48.89,-0.6,50.32,43.29,0.29
 20260707,48.8,48.8,45.5,45.6,2670080,48.62,-6.21,49.91,43.43,1.49
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,43.55,43.55,41.95,42.25,621519,45.51,-7.16,45.65,45.17,0.8
 20260729,42.45,42.45,39.7,40.4,1376110,45.08,-10.39,45.15,45.25,1.72
 20260730,40.4,40.9,39.7,40,663428,44.66,-10.43,44.72,45.33,0.87
+20260731,40.65,41.7,40.45,40.75,608410,44.33,-8.08,44.34,45.43,0.8
 ```
 
 ## Latest TDCC Snapshot

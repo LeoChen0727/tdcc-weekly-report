@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4739 康普
 
 ## Metadata
-- generated_at: 2026-08-02 22:27:40 Asia/Taipei
+- generated_at: 2026-08-03 22:27:55 Asia/Taipei
 - stock_id: 4739
 - stock_name: 康普
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 71.5
-- high: 73.2
-- low: 68.8
-- close: 69.1
-- volume: 1549358
-- ma5: 75.92
-- ema23_primary: 89.93
-- distance_to_ema23_pct: -23.16
-- ma20: 91.01
-- ma60: 102.93
-- ma120: 91.02
-- return_5d: -18.42
-- return_20d: -38.03
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: -24.07
-- distance_to_high_60_pct: -48.62
+- date: 20260731
+- open: 74.8
+- high: 76
+- low: 73.6
+- close: 76
+- volume: 1075220
+- ma5: 74.76
+- ema23_primary: 88.77
+- distance_to_ema23_pct: -14.39
+- ma20: 89.23
+- ma60: 102.68
+- ma120: 91.04
+- return_5d: -7.09
+- return_20d: -31.84
+- volume_ratio: 0.45
+- distance_to_ma20_pct_auxiliary: -14.83
+- distance_to_high_60_pct: -43.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,110,113.5,108.5,111.5,1277503,113.63,-1.87,118.65,102.42,0.21
 20260703,110,115,110,113.5,1541918,113.62,-0.1,118.4,103,0.26
 20260706,114,119.5,113,115.5,3062509,113.77,1.52,118.28,103.54,0.54
 20260707,116,119.5,107.5,107.5,3369673,113.25,-5.08,117.72,103.92,0.63
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,79.7,79.8,75,75.4,2114034,93.67,-19.51,95.28,103.56,0.86
 20260729,76.6,76.6,68.7,71.5,2798865,91.83,-22.14,93.13,103.31,1.15
 20260730,71.5,73.2,68.8,69.1,1549358,89.93,-23.16,91.01,102.93,0.65
+20260731,74.8,76,73.6,76,1075220,88.77,-14.39,89.23,102.68,0.45
 ```
 
 ## Latest TDCC Snapshot

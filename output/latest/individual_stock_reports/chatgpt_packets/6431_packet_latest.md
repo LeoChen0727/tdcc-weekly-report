@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6431 光麗-KY
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:15 Asia/Taipei
+- generated_at: 2026-08-03 22:28:31 Asia/Taipei
 - stock_id: 6431
 - stock_name: 光麗-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 16.4
-- high: 16.4
-- low: 15.55
-- close: 16.3
-- volume: 515063
-- ma5: 16.72
-- ema23_primary: 17.61
-- distance_to_ema23_pct: -7.45
-- ma20: 17.71
-- ma60: 18.85
-- ma120: 21.15
-- return_5d: -6.05
-- return_20d: -10.44
-- volume_ratio: 4.56
-- distance_to_ma20_pct_auxiliary: -7.95
-- distance_to_high_60_pct: -26.74
+- date: 20260731
+- open: 16.3
+- high: 16.7
+- low: 16.25
+- close: 16.6
+- volume: 35006
+- ma5: 16.6
+- ema23_primary: 17.53
+- distance_to_ema23_pct: -5.29
+- ma20: 17.63
+- ma60: 18.8
+- ma120: 21.06
+- return_5d: -3.49
+- return_20d: -8.79
+- volume_ratio: 0.31
+- distance_to_ma20_pct_auxiliary: -5.83
+- distance_to_high_60_pct: -25.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,18,18.2,17.75,18.2,46000,18.73,-2.85,18.5,19.86,0.41
 20260703,17.95,18.1,17.75,17.85,34182,18.66,-4.35,18.47,19.79,0.31
 20260706,17.85,19.6,17.85,19.6,301205,18.74,4.59,18.53,19.74,2.53
 20260707,19.3,19.3,18.5,18.5,91001,18.72,-1.17,18.55,19.66,0.76
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,16.65,16.95,16.5,16.7,46162,17.85,-6.45,17.89,18.95,0.6
 20260729,16.75,16.9,16.15,16.4,289269,17.73,-7.51,17.8,18.9,3.19
 20260730,16.4,16.4,15.55,16.3,515063,17.61,-7.45,17.71,18.85,4.56
+20260731,16.3,16.7,16.25,16.6,35006,17.53,-5.29,17.63,18.8,0.31
 ```
 
 ## Latest TDCC Snapshot

@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00668 國泰美國道瓊
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:02 Asia/Taipei
+- generated_at: 2026-08-03 22:26:13 Asia/Taipei
 - stock_id: 00668
 - stock_name: 國泰美國道瓊
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260730
-- price_rows: 48
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 49
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 61
-- high: 61.25
-- low: 61
-- close: 61.15
-- volume: 16340
-- ma5: 61.66
-- ema23_primary: 61.28
-- distance_to_ema23_pct: -0.22
-- ma20: 61.67
-- ma60: 60.16
-- ma120: 60.16
-- return_5d: -0.57
-- return_20d: 0.74
-- volume_ratio: 0.15
-- distance_to_ma20_pct_auxiliary: -0.85
-- distance_to_high_60_pct: -2.08
+- date: 20260731
+- open: 61.8
+- high: 62.05
+- low: 61.8
+- close: 62.05
+- volume: 36813
+- ma5: 61.84
+- ema23_primary: 61.35
+- distance_to_ema23_pct: 1.15
+- ma20: 61.73
+- ma60: 60.2
+- ma120: 60.2
+- return_5d: 1.47
+- return_20d: 1.89
+- volume_ratio: 0.35
+- distance_to_ma20_pct_auxiliary: 0.52
+- distance_to_high_60_pct: -0.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,60.7,60.9,60.7,60.9,45042,59.62,2.14,59.56,59.15,0.47
 20260703,61.75,62,61.75,61.95,952035,59.82,3.57,59.75,59.24,6.75
 20260706,62,62.05,61.95,62.05,15643,60,3.41,59.88,59.33,0.11
 20260707,62.15,62.3,62.1,62.15,32447,60.18,3.27,60.06,59.42,0.23
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,61.6,61.8,61.55,61.7,29654,61.19,0.83,61.56,60.09,0.29
 20260729,62.3,62.45,62.25,62.45,59613,61.3,1.88,61.65,60.14,0.56
 20260730,61,61.25,61,61.15,16340,61.28,-0.22,61.67,60.16,0.15
+20260731,61.8,62.05,61.8,62.05,36813,61.35,1.15,61.73,60.2,0.35
 ```
 
 ## Latest TDCC Snapshot

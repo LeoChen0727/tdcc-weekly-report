@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9958 世紀鋼
 
 ## Metadata
-- generated_at: 2026-08-02 22:29:07 Asia/Taipei
+- generated_at: 2026-08-03 22:29:25 Asia/Taipei
 - stock_id: 9958
 - stock_name: 世紀鋼
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -131,29 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 103.5
-- high: 105
-- low: 101
-- close: 101.5
-- volume: 1244117
-- ma5: 106
-- ema23_primary: 111.61
-- distance_to_ema23_pct: -9.06
-- ma20: 113.78
-- ma60: 110.73
-- ma120: 114.91
-- return_5d: -7.73
-- return_20d: -13.62
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: -10.79
-- distance_to_high_60_pct: -19.12
+- date: 20260731
+- open: 105
+- high: 108
+- low: 104.5
+- close: 104.5
+- volume: 1815204
+- ma5: 104.8
+- ema23_primary: 111.01
+- distance_to_ema23_pct: -5.87
+- ma20: 113.15
+- ma60: 110.78
+- ma120: 114.66
+- return_5d: -5.43
+- return_20d: -10.68
+- volume_ratio: 0.93
+- distance_to_ma20_pct_auxiliary: -7.64
+- distance_to_high_60_pct: -16.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,116.5,118,116,117,1181578,113.41,3.16,115.05,108,0.29
 20260703,116.5,121,116.5,120,3092455,113.96,5.3,115.17,108.13,0.79
 20260706,121.5,125.5,120,120.5,3518709,114.51,5.23,115.15,108.36,1.14
 20260707,121,121.5,117,117.5,1723945,114.76,2.39,115.28,108.53,0.6
@@ -173,6 +172,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,107,108,104,105,1837934,113.3,-7.33,115.25,110.7,0.86
 20260729,104.5,106,100.5,104,2191838,112.53,-7.58,114.58,110.73,1.11
 20260730,103.5,105,101,101.5,1244117,111.61,-9.06,113.78,110.73,0.65
+20260731,105,108,104.5,104.5,1815204,111.01,-5.87,113.15,110.78,0.93
 ```
 
 ## Latest TDCC Snapshot

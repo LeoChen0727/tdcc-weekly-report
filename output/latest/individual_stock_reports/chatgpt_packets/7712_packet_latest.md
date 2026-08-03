@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7712 博盛半導體
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:44 Asia/Taipei
+- generated_at: 2026-08-03 22:29:01 Asia/Taipei
 - stock_id: 7712
 - stock_name: 博盛半導體
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 180
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 181
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 119
-- high: 124
-- low: 112
-- close: 115.5
-- volume: 370000
-- ma5: 129.8
-- ema23_primary: 153.12
-- distance_to_ema23_pct: -24.57
-- ma20: 160.93
-- ma60: 162.91
-- ma120: 135.21
-- return_5d: -20.89
-- return_20d: -41.52
-- volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: -28.23
-- distance_to_high_60_pct: -47.02
+- date: 20260731
+- open: 125
+- high: 127
+- low: 121
+- close: 126.5
+- volume: 443000
+- ma5: 126.6
+- ema23_primary: 150.91
+- distance_to_ema23_pct: -16.17
+- ma20: 156.95
+- ma60: 163.05
+- ma120: 135.51
+- return_5d: -11.23
+- return_20d: -38.59
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: -19.4
+- distance_to_high_60_pct: -41.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,191,206,191,206,585000,178.91,15.14,173.4,149.43,0.61
 20260703,199,208,199,203.5,401000,180.96,12.46,176.05,150.88,0.42
 20260706,208.5,218,204.5,213.5,880000,183.67,16.24,179.22,152.53,0.88
 20260707,213.5,213.5,192.5,192.5,545000,184.41,4.39,181.8,153.89,0.54
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,135,135,128,128,462000,159.73,-19.87,168.88,162.88,0.9
 20260729,128.5,130.5,117,121.5,541000,156.55,-22.39,165.03,163,1.04
 20260730,119,124,112,115.5,370000,153.12,-24.57,160.93,162.91,0.71
+20260731,125,127,121,126.5,443000,150.91,-16.17,156.95,163.05,0.86
 ```
 
 ## Latest TDCC Snapshot

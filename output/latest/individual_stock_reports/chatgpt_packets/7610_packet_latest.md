@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7610 聯友金屬-創
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:43 Asia/Taipei
+- generated_at: 2026-08-03 22:29:00 Asia/Taipei
 - stock_id: 7610
 - stock_name: 聯友金屬-創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 209
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 210
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 1095
-- high: 1305
-- low: 1095
-- close: 1095
-- volume: 1259699
-- ma5: 1363
-- ema23_primary: 1871.72
-- distance_to_ema23_pct: -41.5
-- ma20: 2092.5
-- ma60: 1733.37
-- ma120: 1063.85
-- return_5d: -33.84
-- return_20d: -54.94
-- volume_ratio: 1.86
-- distance_to_ma20_pct_auxiliary: -47.67
-- distance_to_high_60_pct: -59.89
+- date: 20260731
+- open: 1200
+- high: 1200
+- low: 1200
+- close: 1200
+- volume: 77895
+- ma5: 1271
+- ema23_primary: 1815.75
+- distance_to_ema23_pct: -33.91
+- ma20: 2027.75
+- ma60: 1741.87
+- ma120: 1072.24
+- return_5d: -27.71
+- return_20d: -51.9
+- volume_ratio: 0.12
+- distance_to_ma20_pct_auxiliary: -40.82
+- distance_to_high_60_pct: -56.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,2400,2515,2400,2495,175411,1985.58,25.66,2046.75,1269.47,0.4
 20260703,2500,2570,2445,2550,207916,2032.62,25.45,2087.75,1304.58,0.48
 20260706,2590,2590,2475,2545,138191,2075.32,22.63,2127.5,1339.46,0.32
 20260707,2475,2530,2330,2400,181959,2102.37,14.16,2158.5,1371.17,0.42
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,1350,1350,1350,1350,159557,2008.45,-32.78,2210,1718.07,0.25
 20260729,1215,1215,1215,1215,141751,1942.33,-37.45,2159.25,1727.27,0.23
 20260730,1095,1305,1095,1095,1259699,1871.72,-41.5,2092.5,1733.37,1.86
+20260731,1200,1200,1200,1200,77895,1815.75,-33.91,2027.75,1741.87,0.12
 ```
 
 ## Latest TDCC Snapshot

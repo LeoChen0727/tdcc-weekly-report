@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8016 矽創
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:49 Asia/Taipei
+- generated_at: 2026-08-03 22:29:06 Asia/Taipei
 - stock_id: 8016
 - stock_name: 矽創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -131,29 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 262.5
-- high: 266
-- low: 251
-- close: 254.5
-- volume: 1140365
-- ma5: 276
-- ema23_primary: 295.82
-- distance_to_ema23_pct: -13.97
-- ma20: 305.98
-- ma60: 298.17
-- ma120: 250.24
-- return_5d: -14.6
-- return_20d: -24.93
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: -16.82
-- distance_to_high_60_pct: -32.4
+- date: 20260731
+- open: 270
+- high: 275.5
+- low: 262.5
+- close: 266.5
+- volume: 2052498
+- ma5: 270.5
+- ema23_primary: 293.38
+- distance_to_ema23_pct: -9.16
+- ma20: 302.93
+- ma60: 298.58
+- ma120: 250.85
+- return_5d: -9.35
+- return_20d: -18.63
+- volume_ratio: 1
+- distance_to_ma20_pct_auxiliary: -12.02
+- distance_to_high_60_pct: -29.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,330.5,335.5,320.5,327.5,3051242,307.01,6.67,305.3,270.82,1.09
 20260703,320.5,336.5,320,334,1511014,309.26,8,306.82,273.02,0.54
 20260706,338,347.5,330.5,332,1625875,311.15,6.7,308.25,275.17,0.58
 20260707,332,365,332,352,7633149,314.56,11.9,311.6,277.66,2.46
@@ -173,6 +172,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,286.5,286.5,273.5,273.5,1019293,302.77,-9.67,313.57,297.32,0.42
 20260729,277,286,257,264.5,1666473,299.58,-11.71,310.2,297.83,0.73
 20260730,262.5,266,251,254.5,1140365,295.82,-13.97,305.98,298.17,0.54
+20260731,270,275.5,262.5,266.5,2052498,293.38,-9.16,302.93,298.58,1
 ```
 
 ## Latest TDCC Snapshot

@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1459 聯發
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:15 Asia/Taipei
+- generated_at: 2026-08-03 22:26:26 Asia/Taipei
 - stock_id: 1459
 - stock_name: 聯發
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260722
 - price_rows: 309
-- current_main_price_date: 20260730
+- current_main_price_date: 20260731
 - current_main_price_universe_status: historical_only_noncurrent
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable

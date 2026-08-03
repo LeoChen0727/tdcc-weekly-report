@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6215 和椿
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:09 Asia/Taipei
+- generated_at: 2026-08-03 22:28:24 Asia/Taipei
 - stock_id: 6215
 - stock_name: 和椿
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 82.4
-- high: 84.8
-- low: 79.5
-- close: 80.2
-- volume: 1058121
-- ma5: 89.14
-- ema23_primary: 99.6
-- distance_to_ema23_pct: -19.48
-- ma20: 102.48
-- ma60: 111.73
-- ma120: 109.57
-- return_5d: -18.33
-- return_20d: -25.74
-- volume_ratio: 0.61
-- distance_to_ma20_pct_auxiliary: -21.74
-- distance_to_high_60_pct: -41.88
+- date: 20260731
+- open: 84.4
+- high: 86.7
+- low: 84.3
+- close: 86.5
+- volume: 564492
+- ma5: 87.24
+- ema23_primary: 98.51
+- distance_to_ema23_pct: -12.19
+- ma20: 100.91
+- ma60: 111.3
+- ma120: 109.28
+- return_5d: -9.9
+- return_20d: -26.69
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: -14.28
+- distance_to_high_60_pct: -37.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,110,118.5,110,118,9410508,110.16,7.11,108.6,112.97,5.27
 20260703,115.5,117.5,112.5,112.5,4001527,110.36,1.94,108.38,113.23,2.13
 20260706,114,116.5,113,115.5,1888806,110.79,4.25,108.25,113.53,1.05
 20260707,115,116,112,113.5,1394214,111.01,2.24,108.33,113.74,0.78
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,93.2,93.2,89.1,89.2,787109,102.9,-13.32,104.83,112.83,0.46
 20260729,89.5,91,80.3,84.4,1705965,101.36,-16.73,103.87,112.32,0.97
 20260730,82.4,84.8,79.5,80.2,1058121,99.6,-19.48,102.48,111.73,0.61
+20260731,84.4,86.7,84.3,86.5,564492,98.51,-12.19,100.91,111.3,0.44
 ```
 
 ## Latest TDCC Snapshot

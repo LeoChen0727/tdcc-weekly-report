@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00897 富邦基因免疫生技
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:04 Asia/Taipei
+- generated_at: 2026-08-03 22:26:14 Asia/Taipei
 - stock_id: 00897
 - stock_name: 富邦基因免疫生技
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260730
-- price_rows: 48
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 49
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 11.06
-- high: 11.08
-- low: 10.98
-- close: 10.99
-- volume: 383299
-- ma5: 11.03
-- ema23_primary: 11
-- distance_to_ema23_pct: -0.06
+- date: 20260731
+- open: 11.12
+- high: 11.2
+- low: 11.12
+- close: 11.2
+- volume: 384111
+- ma5: 11.06
+- ema23_primary: 11.01
+- distance_to_ema23_pct: 1.69
 - ma20: 11.24
-- ma60: 10.54
-- ma120: 10.54
-- return_5d: -0.09
-- return_20d: -1.96
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: -2.23
-- distance_to_high_60_pct: -6.94
+- ma60: 10.55
+- ma120: 10.55
+- return_5d: 1.73
+- return_20d: -0.18
+- volume_ratio: 0.39
+- distance_to_ma20_pct_auxiliary: -0.36
+- distance_to_high_60_pct: -5.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,11.21,11.3,11.21,11.22,950134,10.37,8.24,10.22,10.07,0.73
 20260703,11.6,11.76,11.6,11.75,1574299,10.48,12.1,10.33,10.13,1.17
 20260706,11.77,11.81,11.76,11.81,1580996,10.59,11.5,10.43,10.18,1.16
 20260707,11.76,11.76,11.6,11.65,1697837,10.68,9.08,10.52,10.23,1.23
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,11.01,11.01,10.91,10.95,531272,10.99,-0.33,11.26,10.51,0.48
 20260729,11.06,11.11,11.03,11.11,1750907,11,1.03,11.25,10.53,1.59
 20260730,11.06,11.08,10.98,10.99,383299,11,-0.06,11.24,10.54,0.38
+20260731,11.12,11.2,11.12,11.2,384111,11.01,1.69,11.24,10.55,0.39
 ```
 
 ## Latest TDCC Snapshot

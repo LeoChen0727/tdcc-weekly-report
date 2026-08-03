@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4989 榮科
 
 ## Metadata
-- generated_at: 2026-08-02 22:27:46 Asia/Taipei
+- generated_at: 2026-08-03 22:28:01 Asia/Taipei
 - stock_id: 4989
 - stock_name: 榮科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 54.8
-- high: 56.8
-- low: 50.1
-- close: 51
-- volume: 5818674
-- ma5: 59.3
-- ema23_primary: 74.2
-- distance_to_ema23_pct: -31.26
-- ma20: 78.83
-- ma60: 87.64
-- ma120: 80.9
-- return_5d: -27.45
-- return_20d: -44.44
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: -35.3
-- distance_to_high_60_pct: -56.6
+- date: 20260731
+- open: 56
+- high: 56.1
+- low: 54.3
+- close: 55.6
+- volume: 3943380
+- ma5: 57.38
+- ema23_primary: 72.65
+- distance_to_ema23_pct: -23.46
+- ma20: 76.58
+- ma60: 86.81
+- ma120: 80.84
+- return_5d: -14.72
+- return_20d: -44.68
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: -27.4
+- distance_to_high_60_pct: -52.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,89.5,100.5,89.4,100.5,24009502,89.77,11.95,86.71,94.46,3.19
 20260703,99.6,110.5,97.9,110.5,44984524,91.5,20.76,87.61,95.14,4.77
 20260706,116,117.5,106.5,111,40555568,93.13,19.19,88.62,95.77,3.63
 20260707,114,115.5,99.9,99.9,17997681,93.69,6.63,89.46,96.09,1.52
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,63.1,63.1,59.4,59.5,5007420,78.2,-23.91,82.46,89.33,0.39
 20260729,60.2,60.4,53.6,55.5,8388349,76.3,-27.26,80.87,88.54,0.64
 20260730,54.8,56.8,50.1,51,5818674,74.2,-31.26,78.83,87.64,0.45
+20260731,56,56.1,54.3,55.6,3943380,72.65,-23.46,76.58,86.81,0.33
 ```
 
 ## Latest TDCC Snapshot

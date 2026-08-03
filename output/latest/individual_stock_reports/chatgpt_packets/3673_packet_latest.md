@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3673 TPK-KY
 
 ## Metadata
-- generated_at: 2026-08-02 22:27:25 Asia/Taipei
+- generated_at: 2026-08-03 22:27:39 Asia/Taipei
 - stock_id: 3673
 - stock_name: TPK-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 53.1
-- high: 54.6
-- low: 50.1
-- close: 50.6
-- volume: 6384359
-- ma5: 57.04
-- ema23_primary: 67.33
-- distance_to_ema23_pct: -24.85
-- ma20: 69.08
-- ma60: 75.01
-- ma120: 61.35
-- return_5d: -21.31
-- return_20d: -33.6
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: -26.75
-- distance_to_high_60_pct: -48.84
+- date: 20260731
+- open: 54.7
+- high: 55
+- low: 53.4
+- close: 54.7
+- volume: 4598940
+- ma5: 55.44
+- ema23_primary: 66.28
+- distance_to_ema23_pct: -17.47
+- ma20: 67.62
+- ma60: 74.93
+- ma120: 61.46
+- return_5d: -12.76
+- return_20d: -34.73
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: -19.11
+- distance_to_high_60_pct: -44.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,75.2,83.8,74.1,83.8,12382845,80.56,4.02,82.17,72.83,0.63
 20260703,83.6,88.8,81.9,82.4,32803793,80.72,2.09,81.91,73.34,1.67
 20260706,83,85.6,81.1,81.2,10622153,80.76,0.55,81.67,73.84,0.56
 20260707,81.9,83.2,76,76,9944649,80.36,-5.43,81.33,74.28,0.54
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,58.9,59,56.7,57,5497704,70.25,-18.86,71.7,75.34,0.63
 20260729,57.2,57.8,51.8,53.5,9993204,68.86,-22.3,70.36,75.21,1.14
 20260730,53.1,54.6,50.1,50.6,6384359,67.33,-24.85,69.08,75.01,0.76
+20260731,54.7,55,53.4,54.7,4598940,66.28,-17.47,67.62,74.93,0.57
 ```
 
 ## Latest TDCC Snapshot

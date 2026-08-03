@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4960 誠美材
 
 ## Metadata
-- generated_at: 2026-08-02 22:27:45 Asia/Taipei
+- generated_at: 2026-08-03 22:28:00 Asia/Taipei
 - stock_id: 4960
 - stock_name: 誠美材
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 18.65
-- high: 18.95
-- low: 17.8
-- close: 17.95
-- volume: 2877468
-- ma5: 19.66
-- ema23_primary: 22.76
-- distance_to_ema23_pct: -21.13
-- ma20: 22.43
-- ma60: 29.01
-- ma120: 26.29
-- return_5d: -17.66
-- return_20d: -27.03
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: -19.98
-- distance_to_high_60_pct: -59.25
+- date: 20260731
+- open: 19
+- high: 19.5
+- low: 18.7
+- close: 19.2
+- volume: 2245498
+- ma5: 19.3
+- ema23_primary: 22.46
+- distance_to_ema23_pct: -14.53
+- ma20: 22.04
+- ma60: 28.65
+- ma120: 26.33
+- return_5d: -8.57
+- return_20d: -29.02
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: -12.89
+- distance_to_high_60_pct: -56.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,25.55,27.05,25,27.05,6229520,28.95,-6.55,28.7,32.78,1.06
 20260703,27.5,27.5,25.4,25.75,10256567,28.68,-10.21,28.36,32.86,1.69
 20260706,26,26.2,25.2,25.45,3177810,28.41,-10.42,28,32.94,0.54
 20260707,25.7,25.85,23.7,23.95,4647116,28.04,-14.58,27.67,32.95,0.81
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,20.2,20.25,19.7,19.85,2227037,23.61,-15.91,23.14,29.76,0.61
 20260729,20,20,17.95,18.7,4786365,23.2,-19.38,22.77,29.42,1.29
 20260730,18.65,18.95,17.8,17.95,2877468,22.76,-21.13,22.43,29.01,0.82
+20260731,19,19.5,18.7,19.2,2245498,22.46,-14.53,22.04,28.65,0.68
 ```
 
 ## Latest TDCC Snapshot

@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4768 晶呈科技
 
 ## Metadata
-- generated_at: 2026-08-02 22:27:41 Asia/Taipei
+- generated_at: 2026-08-03 22:27:56 Asia/Taipei
 - stock_id: 4768
 - stock_name: 晶呈科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 180
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 181
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 265.5
-- high: 277.5
-- low: 252
-- close: 259
-- volume: 543000
-- ma5: 293.1
-- ema23_primary: 325.67
-- distance_to_ema23_pct: -20.47
-- ma20: 322.48
-- ma60: 395.65
-- ma120: 426.37
-- return_5d: -19.94
-- return_20d: -29.72
-- volume_ratio: 1.19
-- distance_to_ma20_pct_auxiliary: -19.68
-- distance_to_high_60_pct: -52.13
+- date: 20260731
+- open: 277.5
+- high: 281.5
+- low: 274
+- close: 280
+- volume: 346000
+- ma5: 283.8
+- ema23_primary: 321.86
+- distance_to_ema23_pct: -13.01
+- ma20: 318.27
+- ma60: 391.63
+- ma120: 425.4
+- return_5d: -14.24
+- return_20d: -23.08
+- volume_ratio: 0.75
+- distance_to_ma20_pct_auxiliary: -12.03
+- distance_to_high_60_pct: -48.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,361.5,369,361.5,364,282000,394.94,-7.83,385.93,451.18,0.42
 20260703,360.5,368.5,356,358.5,289000,391.91,-8.52,381,449.19,0.44
 20260706,360,365,354.5,358,335000,389.08,-7.99,376.9,447.34,0.51
 20260707,360,362.5,333.5,335,404000,384.57,-12.89,373.15,444.89,0.66
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,300,304.5,292,297,382000,337.29,-11.95,333.25,403.88,0.87
 20260729,304,304,267.5,270.5,815000,331.73,-18.46,327.95,400.08,1.8
 20260730,265.5,277.5,252,259,543000,325.67,-20.47,322.48,395.65,1.19
+20260731,277.5,281.5,274,280,346000,321.86,-13.01,318.27,391.63,0.75
 ```
 
 ## Latest TDCC Snapshot

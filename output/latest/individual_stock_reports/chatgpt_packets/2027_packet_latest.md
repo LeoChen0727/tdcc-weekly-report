@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2027 大成鋼
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:29 Asia/Taipei
+- generated_at: 2026-08-03 22:26:41 Asia/Taipei
 - stock_id: 2027
 - stock_name: 大成鋼
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 43.25
-- high: 44.25
-- low: 42.55
-- close: 43.7
-- volume: 24041541
-- ma5: 43.45
-- ema23_primary: 42.07
-- distance_to_ema23_pct: 3.88
-- ma20: 41.66
-- ma60: 41.46
-- ma120: 39.44
-- return_5d: -1.58
-- return_20d: 5.3
-- volume_ratio: 1.4
-- distance_to_ma20_pct_auxiliary: 4.91
-- distance_to_high_60_pct: -3.96
+- date: 20260731
+- open: 43.8
+- high: 44.15
+- low: 42.9
+- close: 43.2
+- volume: 19109583
+- ma5: 43.38
+- ema23_primary: 42.16
+- distance_to_ema23_pct: 2.46
+- ma20: 41.78
+- ma60: 41.54
+- ma120: 39.48
+- return_5d: -0.8
+- return_20d: 6.27
+- volume_ratio: 1.09
+- distance_to_ma20_pct_auxiliary: 3.39
+- distance_to_high_60_pct: -5.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,41,41.4,40.45,40.65,14678216,41.19,-1.3,41.7,40.14,0.72
 20260703,40.45,41.3,40.45,41.15,7403959,41.18,-0.08,41.55,40.18,0.38
 20260706,41.15,41.65,41.1,41.3,7065493,41.19,0.26,41.42,40.23,0.38
 20260707,41.25,41.65,40.9,40.9,11863125,41.17,-0.65,41.38,40.28,0.68
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,43.3,44.05,42,42.2,18884961,41.8,0.96,41.4,41.27,1.06
 20260729,42.1,43.55,42.05,43.25,25417202,41.92,3.17,41.55,41.36,1.37
 20260730,43.25,44.25,42.55,43.7,24041541,42.07,3.88,41.66,41.46,1.4
+20260731,43.8,44.15,42.9,43.2,19109583,42.16,2.46,41.78,41.54,1.09
 ```
 
 ## Latest TDCC Snapshot

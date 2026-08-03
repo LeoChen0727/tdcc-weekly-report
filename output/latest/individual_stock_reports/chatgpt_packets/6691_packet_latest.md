@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6691 洋基工程
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:26 Asia/Taipei
+- generated_at: 2026-08-03 22:28:42 Asia/Taipei
 - stock_id: 6691
 - stock_name: 洋基工程
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -132,29 +132,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 622
-- high: 642
-- low: 602
-- close: 607
-- volume: 777643
-- ma5: 658
-- ema23_primary: 698.38
-- distance_to_ema23_pct: -13.08
-- ma20: 711.4
-- ma60: 686.27
-- ma120: 652.74
-- return_5d: -16.85
-- return_20d: -19.07
-- volume_ratio: 0.93
-- distance_to_ma20_pct_auxiliary: -14.68
-- distance_to_high_60_pct: -27.22
+- date: 20260731
+- open: 663
+- high: 663
+- low: 637
+- close: 650
+- volume: 565217
+- ma5: 645.4
+- ema23_primary: 694.35
+- distance_to_ema23_pct: -6.39
+- ma20: 705.6
+- ma60: 685.82
+- ma120: 653.14
+- return_5d: -8.84
+- return_20d: -15.14
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: -7.88
+- distance_to_high_60_pct: -22.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,740,780,729,766,986685,719.18,6.51,711.95,665.63,0.77
 20260703,760,777,759,762,1007699,722.75,5.43,718.3,668.63,0.78
 20260706,774,774,748,748,1240777,724.86,3.19,723.6,671.1,0.94
 20260707,750,770,728,728,1380308,725.12,0.4,729.15,672.73,1.02
@@ -174,6 +173,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,680,680,641,645,1003162,713.75,-9.63,725.15,687,1.1
 20260729,647,659,600,629,853369,706.69,-10.99,718.55,686.8,0.98
 20260730,622,642,602,607,777643,698.38,-13.08,711.4,686.27,0.93
+20260731,663,663,637,650,565217,694.35,-6.39,705.6,685.82,0.69
 ```
 
 ## Latest TDCC Snapshot

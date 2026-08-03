@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009824 群益美國科技巨頭
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:07 Asia/Taipei
+- generated_at: 2026-08-03 22:26:17 Asia/Taipei
 - stock_id: 009824
 - stock_name: 群益美國科技巨頭
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260730
-- price_rows: 25
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 26
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 9.5
-- high: 9.6
-- low: 9.49
-- close: 9.52
-- volume: 5411677
-- ma5: 9.82
-- ema23_primary: 9.99
-- distance_to_ema23_pct: -4.72
-- ma20: 10.01
-- ma60: 10.01
-- ma120: 10.01
-- return_5d: -6.67
-- return_20d: -6.11
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: -4.88
-- distance_to_high_60_pct: -8.02
+- date: 20260731
+- open: 9.86
+- high: 9.94
+- low: 9.84
+- close: 9.91
+- volume: 4495162
+- ma5: 9.8
+- ema23_primary: 9.98
+- distance_to_ema23_pct: -0.75
+- ma20: 10
+- ma60: 10
+- ma120: 10
+- return_5d: -1.2
+- return_20d: -1.29
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: -0.91
+- distance_to_high_60_pct: -4.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,10.04,10.06,10,10.04,17108773,10.11,-0.67,10.02,10.02,0.25
 20260703,9.92,9.97,9.9,9.97,21796209,10.1,-1.25,10.01,10.01,0.36
 20260706,9.99,10,9.94,9.97,14350919,10.09,-1.15,10,10,0.26
 20260707,9.98,10,9.91,9.91,15326518,10.07,-1.6,9.99,9.99,0.3
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,9.81,9.83,9.77,9.77,13209227,10.07,-2.95,10.05,10.04,0.82
 20260729,9.81,9.82,9.63,9.68,10480912,10.03,-3.54,10.04,10.03,0.69
 20260730,9.5,9.6,9.49,9.52,5411677,9.99,-4.72,10.01,10.01,0.38
+20260731,9.86,9.94,9.84,9.91,4495162,9.98,-0.75,10,10,0.33
 ```
 
 ## Latest TDCC Snapshot

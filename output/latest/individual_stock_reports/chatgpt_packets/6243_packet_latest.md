@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6243 迅杰
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:11 Asia/Taipei
+- generated_at: 2026-08-03 22:28:27 Asia/Taipei
 - stock_id: 6243
 - stock_name: 迅杰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -69,27 +69,27 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可分批買進
+- action_rating_display_zh: 可小量試單
 - model_category_display_zh: 嚴格突破
 - score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 嚴格突破，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 突破後順勢追蹤；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- action_summary_zh: 符合 嚴格突破，價格結構尚未破壞，操作評級為「可小量試單」。
+- entry_strategy_zh: 突破後順勢追蹤；可依「試單 1/3 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 試單 1/3 部位；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 嚴格突破，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：突破後順勢追蹤；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 符合 嚴格突破，價格結構尚未破壞，操作評級為「可小量試單」。 進場策略：突破後順勢追蹤；可依「試單 1/3 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
-- confidence_level: high
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
+- confidence_level: medium
 - thesis_state: breakout_confirmed
 - entry_style: breakout_follow
-- position_sizing: half_position
+- position_sizing: starter_1_3
 
 ### management_plan
 - buy_first_tranche_near_support
@@ -107,7 +107,6 @@
 - model_recommended
 - decision_score_high
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -132,29 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 50.1
-- high: 51.1
-- low: 46.1
-- close: 46.1
-- volume: 3821820
-- ma5: 49.66
-- ema23_primary: 45.22
-- distance_to_ema23_pct: 1.96
-- ma20: 45.12
-- ma60: 38.39
-- ma120: 35.45
-- return_5d: -2.95
-- return_20d: 12.71
-- volume_ratio: 0.83
-- distance_to_ma20_pct_auxiliary: 2.17
-- distance_to_high_60_pct: -16.94
+- date: 20260731
+- open: 47.6
+- high: 50.7
+- low: 47.6
+- close: 50.7
+- volume: 4172788
+- ma5: 49.36
+- ema23_primary: 45.67
+- distance_to_ema23_pct: 11.01
+- ma20: 45.65
+- ma60: 38.67
+- ma120: 35.58
+- return_5d: -2.87
+- return_20d: 26.43
+- volume_ratio: 0.87
+- distance_to_ma20_pct_auxiliary: 11.06
+- distance_to_high_60_pct: -8.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,41,41.2,39.65,40.1,351901,37.31,7.48,36,34.25,0.25
 20260703,40.3,40.3,39.7,40.1,242265,37.54,6.82,36.32,34.43,0.17
 20260706,40.1,42.75,40.1,41.2,413181,37.85,8.86,36.76,34.62,0.29
 20260707,41,41.85,39.05,39.25,320960,37.96,3.39,37.2,34.78,0.22
@@ -174,6 +172,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,48,53.4,47.2,49.6,12292709,44.58,11.25,44.3,37.91,3.14
 20260729,48.95,53.2,47.2,51.2,10247432,45.14,13.44,44.86,38.2,2.32
 20260730,50.1,51.1,46.1,46.1,3821820,45.22,1.96,45.12,38.39,0.83
+20260731,47.6,50.7,47.6,50.7,4172788,45.67,11.01,45.65,38.67,0.87
 ```
 
 ## Latest TDCC Snapshot

@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2484 希華
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:46 Asia/Taipei
+- generated_at: 2026-08-03 22:26:59 Asia/Taipei
 - stock_id: 2484
 - stock_name: 希華
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 58.3
-- high: 63
-- low: 56.7
-- close: 57.6
-- volume: 25659736
-- ma5: 65.54
-- ema23_primary: 72.27
-- distance_to_ema23_pct: -20.3
-- ma20: 79
-- ma60: 63.47
-- ma120: 47.63
-- return_5d: -17
-- return_20d: -27.82
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: -27.09
-- distance_to_high_60_pct: -43.53
+- date: 20260731
+- open: 62.7
+- high: 63.2
+- low: 59.8
+- close: 61.1
+- volume: 18503128
+- ma5: 63.38
+- ema23_primary: 71.34
+- distance_to_ema23_pct: -14.35
+- ma20: 77.67
+- ma60: 63.81
+- ma120: 47.89
+- return_5d: -15.02
+- return_20d: -30.33
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: -21.33
+- distance_to_high_60_pct: -40.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,80.5,87.7,79.2,87.7,70000147,66.77,31.34,67.24,51.09,1.5
 20260703,93.9,96.4,88,96.4,117755286,69.24,39.22,69.52,52.19,2.28
 20260706,98.1,99.4,93.6,95.8,80006414,71.46,34.07,71.67,53.28,1.46
 20260707,99.4,102,87,87.1,85220226,72.76,19.71,73.26,54.2,1.49
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,70,70.6,65.8,65.8,12655808,74.9,-12.15,80.78,62.92,0.3
 20260729,64.5,67.2,59.3,59.3,15212498,73.6,-19.43,80.11,63.22,0.37
 20260730,58.3,63,56.7,57.6,25659736,72.27,-20.3,79,63.47,0.62
+20260731,62.7,63.2,59.8,61.1,18503128,71.34,-14.35,77.67,63.81,0.48
 ```
 
 ## Latest TDCC Snapshot

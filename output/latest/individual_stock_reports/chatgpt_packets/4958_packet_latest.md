@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4958 臻鼎-KY
 
 ## Metadata
-- generated_at: 2026-08-02 22:27:45 Asia/Taipei
+- generated_at: 2026-08-03 22:28:00 Asia/Taipei
 - stock_id: 4958
 - stock_name: 臻鼎-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -130,29 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 395
-- high: 420.5
-- low: 368
-- close: 376
-- volume: 63762972
-- ma5: 432.1
-- ema23_primary: 512.93
-- distance_to_ema23_pct: -26.7
-- ma20: 534.8
-- ma60: 522.53
-- ma120: 378.5
-- return_5d: -25.69
-- return_20d: -37.65
-- volume_ratio: 1.6
-- distance_to_ma20_pct_auxiliary: -29.69
-- distance_to_high_60_pct: -42.94
+- date: 20260731
+- open: 413.5
+- high: 413.5
+- low: 407
+- close: 413.5
+- volume: 15543203
+- ma5: 418.4
+- ema23_primary: 504.65
+- distance_to_ema23_pct: -18.06
+- ma20: 525.58
+- ma60: 522.56
+- ma120: 380.57
+- return_5d: -14.21
+- return_20d: -30.85
+- volume_ratio: 0.39
+- distance_to_ma20_pct_auxiliary: -21.32
+- distance_to_high_60_pct: -37.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,595,601,582,598,18905469,566.49,5.56,575.67,455.95,0.56
 20260703,580,618,561,613,22484803,570.37,7.47,581.7,462.04,0.66
 20260706,616,621,567,579,33883218,571.09,1.39,585.45,467.3,0.96
 20260707,581,594,544,548,39380209,569.16,-3.72,587.25,472.02,1.07
@@ -172,6 +171,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,440,451.5,426,427.5,28467435,536.37,-20.3,557.42,523.84,0.74
 20260729,432,432,385,404.5,43694602,525.38,-23.01,546.15,523.38,1.11
 20260730,395,420.5,368,376,63762972,512.93,-26.7,534.8,522.53,1.6
+20260731,413.5,413.5,407,413.5,15543203,504.65,-18.06,525.58,522.56,0.39
 ```
 
 ## Latest TDCC Snapshot

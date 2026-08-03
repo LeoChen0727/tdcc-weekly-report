@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6517 保勝光學
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:18 Asia/Taipei
+- generated_at: 2026-08-03 22:28:34 Asia/Taipei
 - stock_id: 6517
 - stock_name: 保勝光學
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 180
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 181
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -131,29 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 63.8
-- high: 67.3
-- low: 59
-- close: 59.3
-- volume: 2211000
-- ma5: 63.54
-- ema23_primary: 67.85
-- distance_to_ema23_pct: -12.6
-- ma20: 68.59
-- ma60: 66.09
-- ma120: 63.08
-- return_5d: -12.79
-- return_20d: -17.06
-- volume_ratio: 1.15
-- distance_to_ma20_pct_auxiliary: -13.55
-- distance_to_high_60_pct: -28.55
+- date: 20260731
+- open: 62.4
+- high: 64.6
+- low: 62.3
+- close: 62.4
+- volume: 893000
+- ma5: 62.9
+- ema23_primary: 67.39
+- distance_to_ema23_pct: -7.41
+- ma20: 68.24
+- ma60: 66.15
+- ma120: 62.99
+- return_5d: -4.88
+- return_20d: -10.22
+- volume_ratio: 0.46
+- distance_to_ma20_pct_auxiliary: -8.56
+- distance_to_high_60_pct: -24.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,70.1,72,68.5,69.5,648000,69.23,0.39,70.66,62.99,0.25
 20260703,68.8,73.9,67.7,71.3,991000,69.41,2.73,71.08,63.25,0.37
 20260706,71.3,72.6,69.1,69.1,508000,69.38,-0.4,71.06,63.46,0.19
 20260707,69.7,70.1,65.8,65.9,368000,69.09,-4.62,71.1,63.6,0.14
@@ -173,6 +172,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,65,67.2,60.6,60.6,1002000,68.96,-12.13,69.61,66.01,0.54
 20260729,60.6,66.4,58.2,64.9,2310000,68.62,-5.43,69.2,66.1,1.21
 20260730,63.8,67.3,59,59.3,2211000,67.85,-12.6,68.59,66.09,1.15
+20260731,62.4,64.6,62.3,62.4,893000,67.39,-7.41,68.24,66.15,0.46
 ```
 
 ## Latest TDCC Snapshot

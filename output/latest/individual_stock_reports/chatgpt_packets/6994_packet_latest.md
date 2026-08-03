@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6994 富威電力
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:38 Asia/Taipei
+- generated_at: 2026-08-03 22:28:54 Asia/Taipei
 - stock_id: 6994
 - stock_name: 富威電力
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 314
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 315
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 38.65
-- high: 38.75
-- low: 37.5
-- close: 37.5
-- volume: 465330
-- ma5: 39.3
-- ema23_primary: 42.67
-- distance_to_ema23_pct: -12.13
-- ma20: 40.97
-- ma60: 51.73
-- ma120: 64.72
-- return_5d: -7.86
-- return_20d: -13.49
-- volume_ratio: 0.32
-- distance_to_ma20_pct_auxiliary: -8.47
-- distance_to_high_60_pct: -44.03
+- date: 20260731
+- open: 38.95
+- high: 38.95
+- low: 36.7
+- close: 36.7
+- volume: 757291
+- ma5: 38.64
+- ema23_primary: 42.18
+- distance_to_ema23_pct: -12.99
+- ma20: 40.76
+- ma60: 51.27
+- ma120: 64.25
+- return_5d: -8.25
+- return_20d: -10.38
+- volume_ratio: 0.56
+- distance_to_ma20_pct_auxiliary: -9.96
+- distance_to_high_60_pct: -45.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,43.3,43.3,40.5,40.95,3226991,52.64,-22.2,53.7,60.05,2.93
 20260703,41.5,42.55,39.25,41.9,11732409,51.74,-19.02,52.6,59.61,7.08
 20260706,45.5,46.05,43.3,46.05,1624315,51.27,-10.18,51.77,59.26,0.94
 20260707,48.7,50,44,44.15,4012434,50.67,-12.88,50.93,58.9,2.11
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,40.2,40.4,39.6,39.8,534454,43.54,-8.6,41.73,52.6,0.33
 20260729,40,40.25,37.75,38.75,647610,43.15,-10.19,41.26,52.18,0.41
 20260730,38.65,38.75,37.5,37.5,465330,42.67,-12.13,40.97,51.73,0.32
+20260731,38.95,38.95,36.7,36.7,757291,42.18,-12.99,40.76,51.27,0.56
 ```
 
 ## Latest TDCC Snapshot

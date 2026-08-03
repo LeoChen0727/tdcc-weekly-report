@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4577 達航科技
 
 ## Metadata
-- generated_at: 2026-08-02 22:27:38 Asia/Taipei
+- generated_at: 2026-08-03 22:27:53 Asia/Taipei
 - stock_id: 4577
 - stock_name: 達航科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 180
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 181
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 66.4
-- high: 67.2
-- low: 62.7
-- close: 62.7
-- volume: 835000
-- ma5: 69.92
-- ema23_primary: 78.53
-- distance_to_ema23_pct: -20.16
-- ma20: 77.28
-- ma60: 100.78
-- ma120: 102.52
-- return_5d: -14.46
-- return_20d: -29.31
-- volume_ratio: 1.36
-- distance_to_ma20_pct_auxiliary: -18.87
-- distance_to_high_60_pct: -63.12
+- date: 20260731
+- open: 65.5
+- high: 67.6
+- low: 63.1
+- close: 64.6
+- volume: 768000
+- ma5: 68.9
+- ema23_primary: 77.37
+- distance_to_ema23_pct: -16.51
+- ma20: 76.14
+- ma60: 99.19
+- ma120: 102.58
+- return_5d: -7.32
+- return_20d: -26.17
+- volume_ratio: 1.2
+- distance_to_ma20_pct_auxiliary: -15.15
+- distance_to_high_60_pct: -61.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,88.7,90.2,86.5,87.5,300000,99.19,-11.79,93.38,124.66,0.39
 20260703,87.5,93.5,86.3,91.6,608000,98.56,-7.06,92.95,124.24,0.77
 20260706,93.1,98.8,90.5,92.6,617000,98.06,-5.57,92.7,123.85,0.76
 20260707,93.5,93.7,86,86,568000,97.06,-11.39,92.31,123.16,0.7
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,70.1,77.3,68.9,77.3,724000,80.92,-4.47,79.71,104.04,1.71
 20260729,76.8,82.7,69.6,69.6,3948000,79.97,-12.97,78.58,102.5,6.55
 20260730,66.4,67.2,62.7,62.7,835000,78.53,-20.16,77.28,100.78,1.36
+20260731,65.5,67.6,63.1,64.6,768000,77.37,-16.51,76.14,99.19,1.2
 ```
 
 ## Latest TDCC Snapshot

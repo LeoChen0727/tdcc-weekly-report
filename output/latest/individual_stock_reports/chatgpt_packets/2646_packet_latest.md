@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2646 星宇航空
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:53 Asia/Taipei
+- generated_at: 2026-08-03 22:27:06 Asia/Taipei
 - stock_id: 2646
 - stock_name: 星宇航空
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 21.5
-- high: 21.6
-- low: 21.3
-- close: 21.55
-- volume: 4454388
-- ma5: 21.52
-- ema23_primary: 21.34
-- distance_to_ema23_pct: 0.96
-- ma20: 21.36
-- ma60: 20.88
-- ma120: 21.27
-- return_5d: 1.41
-- return_20d: 2.38
-- volume_ratio: 0.79
-- distance_to_ma20_pct_auxiliary: 0.87
-- distance_to_high_60_pct: -4.01
+- date: 20260731
+- open: 21.7
+- high: 22
+- low: 21.65
+- close: 21.65
+- volume: 6990952
+- ma5: 21.62
+- ema23_primary: 21.37
+- distance_to_ema23_pct: 1.31
+- ma20: 21.39
+- ma60: 20.9
+- ma120: 21.26
+- return_5d: 2.36
+- return_20d: 2.85
+- volume_ratio: 1.21
+- distance_to_ma20_pct_auxiliary: 1.19
+- distance_to_high_60_pct: -3.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,21.05,21.15,20.85,21.05,3765358,20.97,0.39,20.93,20.66,0.49
 20260703,21.05,21.65,21.05,21.3,5636317,21,1.45,20.96,20.66,0.74
 20260706,21.5,21.55,21.25,21.35,4076117,21.03,1.54,21,20.67,0.54
 20260707,21.4,21.45,21.1,21.3,4465788,21.05,1.2,21.06,20.67,0.62
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,21.55,21.85,21.45,21.8,8864340,21.31,2.3,21.32,20.84,1.62
 20260729,21.85,22,21.15,21.5,8982690,21.33,0.82,21.34,20.86,1.58
 20260730,21.5,21.6,21.3,21.55,4454388,21.34,0.96,21.36,20.88,0.79
+20260731,21.7,22,21.65,21.65,6990952,21.37,1.31,21.39,20.9,1.21
 ```
 
 ## Latest TDCC Snapshot

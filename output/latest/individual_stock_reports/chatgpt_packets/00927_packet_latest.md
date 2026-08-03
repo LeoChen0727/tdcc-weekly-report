@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00927 群益半導體收益
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:05 Asia/Taipei
+- generated_at: 2026-08-03 22:26:15 Asia/Taipei
 - stock_id: 00927
 - stock_name: 群益半導體收益
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260730
-- price_rows: 48
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 49
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 30.92
-- high: 32.79
-- low: 30.85
-- close: 31.43
-- volume: 31297817
-- ma5: 33.63
-- ema23_primary: 37.11
-- distance_to_ema23_pct: -15.31
-- ma20: 38.07
-- ma60: 39.25
-- ma120: 39.25
-- return_5d: -14.92
-- return_20d: -26.01
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: -17.45
-- distance_to_high_60_pct: -29.51
+- date: 20260731
+- open: 34.07
+- high: 34.57
+- low: 33.91
+- close: 34.49
+- volume: 33962844
+- ma5: 33.35
+- ema23_primary: 36.89
+- distance_to_ema23_pct: -6.51
+- ma20: 37.66
+- ma60: 39.15
+- ma120: 39.15
+- return_5d: -3.93
+- return_20d: -19.47
+- volume_ratio: 0.73
+- distance_to_ma20_pct_auxiliary: -8.41
+- distance_to_high_60_pct: -22.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,41.43,42.83,41.31,42.83,79317740,40.54,5.65,40.28,40.19,3.22
 20260703,42,42.65,41.82,42.52,71003864,40.7,4.46,40.4,40.26,2.6
 20260706,43.4,43.55,42.43,42.6,66095257,40.86,4.26,40.57,40.34,2.23
 20260707,42.91,42.92,40.95,41.16,93460889,40.89,0.67,40.79,40.36,2.83
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,34.37,34.37,33.4,33.41,30521109,38.18,-12.48,39.13,39.59,0.62
 20260729,33.3,33.58,30.86,31.59,58201389,37.63,-16.04,38.63,39.42,1.15
 20260730,30.92,32.79,30.85,31.43,31297817,37.11,-15.31,38.07,39.25,0.64
+20260731,34.07,34.57,33.91,34.49,33962844,36.89,-6.51,37.66,39.15,0.73
 ```
 
 ## Latest TDCC Snapshot

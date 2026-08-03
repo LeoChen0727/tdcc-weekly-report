@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7792 安葆
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:47 Asia/Taipei
+- generated_at: 2026-08-03 22:29:04 Asia/Taipei
 - stock_id: 7792
 - stock_name: 安葆
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 120
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 121
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 187.5
-- high: 190
-- low: 179.5
-- close: 180.5
-- volume: 203000
-- ma5: 199.7
-- ema23_primary: 223.65
-- distance_to_ema23_pct: -19.29
-- ma20: 223.35
-- ma60: 259.88
-- ma120: 299.13
-- return_5d: -16.44
-- return_20d: -28.23
-- volume_ratio: 1.69
-- distance_to_ma20_pct_auxiliary: -19.19
-- distance_to_high_60_pct: -48.58
+- date: 20260731
+- open: 188
+- high: 197
+- low: 188
+- close: 191.5
+- volume: 135000
+- ma5: 196.2
+- ema23_primary: 220.97
+- distance_to_ema23_pct: -13.34
+- ma20: 220.3
+- ma60: 257.53
+- ma120: 298.38
+- return_5d: -8.37
+- return_20d: -24.16
+- volume_ratio: 1.07
+- distance_to_ma20_pct_auxiliary: -13.07
+- distance_to_high_60_pct: -42.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,258,258,252.5,252.5,24000,267.74,-5.69,264.48,301.73,0.16
 20260703,253,255,253,253.5,32000,266.55,-4.9,262.4,300.18,0.23
 20260706,257,260,253.5,254.5,66000,265.55,-4.16,261.1,298.67,0.51
 20260707,257.5,258.5,247,247,113000,264,-6.44,260.6,296.8,0.99
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,210,214.5,203,203,284000,230.89,-12.08,230.28,265.23,2.64
 20260729,201,204,186.5,191,224000,227.57,-16.07,226.9,262.57,1.92
 20260730,187.5,190,179.5,180.5,203000,223.65,-19.29,223.35,259.88,1.69
+20260731,188,197,188,191.5,135000,220.97,-13.34,220.3,257.53,1.07
 ```
 
 ## Latest TDCC Snapshot

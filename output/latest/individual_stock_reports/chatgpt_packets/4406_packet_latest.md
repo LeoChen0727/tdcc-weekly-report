@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4406 新昕纖
 
 ## Metadata
-- generated_at: 2026-08-02 22:27:33 Asia/Taipei
+- generated_at: 2026-08-03 22:27:47 Asia/Taipei
 - stock_id: 4406
 - stock_name: 新昕纖
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 157
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 158
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 10.3
-- high: 10.9
-- low: 9.76
-- close: 10
-- volume: 124000
-- ma5: 10.02
-- ema23_primary: 9.93
-- distance_to_ema23_pct: 0.72
-- ma20: 9.91
+- date: 20260731
+- open: 10
+- high: 10.3
+- low: 10
+- close: 10.3
+- volume: 10000
+- ma5: 10.12
+- ema23_primary: 9.96
+- distance_to_ema23_pct: 3.42
+- ma20: 9.93
 - ma60: 9.93
 - ma120: 10.01
-- return_5d: 1.01
-- return_20d: 1.01
-- volume_ratio: 2.39
-- distance_to_ma20_pct_auxiliary: 0.93
-- distance_to_high_60_pct: -9.09
+- return_5d: 4.99
+- return_20d: 4.04
+- volume_ratio: 0.19
+- distance_to_ma20_pct_auxiliary: 3.75
+- distance_to_high_60_pct: -6.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260701,10,10,9.9,9.9,2000,9.9,0.04,9.87,9.97,0.12
 20260702,9.78,9.91,9.45,9.91,79000,9.9,0.13,9.88,9.97,4.05
 20260703,9.85,9.98,9.85,9.95,9000,9.9,0.49,9.88,9.97,0.45
 20260706,9.95,10,9.95,9.96,8000,9.91,0.54,9.89,9.96,0.4
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,9.98,10.7,9.98,10.25,200000,9.89,3.67,9.88,9.93,5.59
 20260729,10.3,11,10.25,10.3,212000,9.92,3.81,9.9,9.93,4.62
 20260730,10.3,10.9,9.76,10,124000,9.93,0.72,9.91,9.93,2.39
+20260731,10,10.3,10,10.3,10000,9.96,3.42,9.93,9.93,0.19
 ```
 
 ## Latest TDCC Snapshot

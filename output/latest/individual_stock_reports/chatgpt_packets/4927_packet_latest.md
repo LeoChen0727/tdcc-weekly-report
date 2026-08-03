@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4927 泰鼎-KY
 
 ## Metadata
-- generated_at: 2026-08-02 22:27:43 Asia/Taipei
+- generated_at: 2026-08-03 22:27:58 Asia/Taipei
 - stock_id: 4927
 - stock_name: 泰鼎-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 26.35
-- high: 28.95
-- low: 26.35
-- close: 26.9
-- volume: 4704999
-- ma5: 30.95
-- ema23_primary: 37.86
-- distance_to_ema23_pct: -28.95
-- ma20: 37.88
-- ma60: 47.28
-- ma120: 45.58
-- return_5d: -24.54
-- return_20d: -42.09
-- volume_ratio: 1.14
-- distance_to_ma20_pct_auxiliary: -28.98
-- distance_to_high_60_pct: -59.18
+- date: 20260731
+- open: 29
+- high: 29.5
+- low: 28.1
+- close: 29.2
+- volume: 3290647
+- ma5: 29.94
+- ema23_primary: 37.14
+- distance_to_ema23_pct: -21.38
+- ma20: 37.01
+- ma60: 46.81
+- ma120: 45.55
+- return_5d: -14.74
+- return_20d: -37.34
+- volume_ratio: 0.81
+- distance_to_ma20_pct_auxiliary: -21.1
+- distance_to_high_60_pct: -55.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,44.8,48.15,44.8,46.6,4667175,49.51,-5.87,49.5,51.74,0.66
 20260703,46.1,47.8,45.8,46.55,2861422,49.26,-5.5,49.18,51.83,0.42
 20260706,47.3,48,45.6,46.4,2988262,49.02,-5.35,48.91,51.85,0.45
 20260707,46.9,46.9,41.8,42,11602664,48.44,-13.29,48.47,51.82,1.75
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,33.15,33.15,30.95,31.1,3928433,39.81,-21.88,39.84,48.23,0.99
 20260729,31.2,31.55,28,28.4,8093379,38.86,-26.91,38.85,47.81,1.97
 20260730,26.35,28.95,26.35,26.9,4704999,37.86,-28.95,37.88,47.28,1.14
+20260731,29,29.5,28.1,29.2,3290647,37.14,-21.38,37.01,46.81,0.81
 ```
 
 ## Latest TDCC Snapshot

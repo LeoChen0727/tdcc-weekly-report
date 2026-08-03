@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4741 泓瀚
 
 ## Metadata
-- generated_at: 2026-08-02 22:27:40 Asia/Taipei
+- generated_at: 2026-08-03 22:27:55 Asia/Taipei
 - stock_id: 4741
 - stock_name: 泓瀚
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 180
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 181
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 36.5
-- high: 39.85
-- low: 35.75
-- close: 38.45
-- volume: 407000
-- ma5: 42.49
-- ema23_primary: 49.29
-- distance_to_ema23_pct: -21.98
-- ma20: 49.02
-- ma60: 58.73
-- ma120: 46.62
-- return_5d: -18.54
-- return_20d: -31.46
-- volume_ratio: 1.03
-- distance_to_ma20_pct_auxiliary: -21.57
-- distance_to_high_60_pct: -55.6
+- date: 20260731
+- open: 40.05
+- high: 42.25
+- low: 39.25
+- close: 41.95
+- volume: 366000
+- ma5: 41.68
+- ema23_primary: 48.67
+- distance_to_ema23_pct: -13.81
+- ma20: 48.04
+- ma60: 58.37
+- ma120: 46.78
+- return_5d: -8.8
+- return_20d: -32.01
+- volume_ratio: 1
+- distance_to_ma20_pct_auxiliary: -12.67
+- distance_to_high_60_pct: -51.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,56.2,61.7,54.4,61.7,957000,62.63,-1.49,66.36,60.61,0.69
 20260703,61.3,62.4,58.2,59,1069000,62.33,-5.34,66.11,60.83,0.75
 20260706,59.2,60.1,57.5,57.5,481000,61.93,-7.15,65.84,61.01,0.33
 20260707,57.5,57.7,51.8,52.7,662000,61.16,-13.83,65.03,61.03,0.49
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,44.3,45.6,42,43.3,316000,51.3,-15.59,50.76,59.27,0.81
 20260729,44.45,44.45,39,39,494000,50.27,-22.42,49.91,59.04,1.24
 20260730,36.5,39.85,35.75,38.45,407000,49.29,-21.98,49.02,58.73,1.03
+20260731,40.05,42.25,39.25,41.95,366000,48.67,-13.81,48.04,58.37,1
 ```
 
 ## Latest TDCC Snapshot

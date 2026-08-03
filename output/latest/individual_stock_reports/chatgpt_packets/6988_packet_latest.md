@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6988 威力暘-創
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:38 Asia/Taipei
+- generated_at: 2026-08-03 22:28:54 Asia/Taipei
 - stock_id: 6988
 - stock_name: 威力暘-創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 302
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 303
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 12.6
-- high: 12.6
-- low: 11.95
-- close: 11.95
-- volume: 37000
-- ma5: 12.61
-- ema23_primary: 13.17
-- distance_to_ema23_pct: -9.29
-- ma20: 13.16
-- ma60: 14.36
-- ma120: 15.07
-- return_5d: -6.64
-- return_20d: -11.15
-- volume_ratio: 0.96
-- distance_to_ma20_pct_auxiliary: -9.18
-- distance_to_high_60_pct: -34.16
+- date: 20260731
+- open: 12.8
+- high: 12.8
+- low: 12.05
+- close: 12.1
+- volume: 12000
+- ma5: 12.45
+- ema23_primary: 13.08
+- distance_to_ema23_pct: -7.52
+- ma20: 13.09
+- ma60: 14.32
+- ma120: 15.01
+- return_5d: -6.2
+- return_20d: -10.7
+- volume_ratio: 0.31
+- distance_to_ma20_pct_auxiliary: -7.53
+- distance_to_high_60_pct: -33.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260701,13.45,13.7,13.45,13.55,17001,14.14,-4.15,13.98,14.77,0.45
 20260702,13.35,13.7,13.35,13.6,55000,14.09,-3.49,13.93,14.74,1.4
 20260703,13.55,13.55,13.4,13.55,34050,14.05,-3.54,13.88,14.72,0.87
 20260706,13.4,13.55,13.4,13.5,46000,14,-3.58,13.84,14.7,1.17
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,12.6,12.65,12.3,12.55,25800,13.33,-5.84,13.26,14.4,0.73
 20260729,12.95,12.95,11.95,12.8,60000,13.28,-3.65,13.23,14.39,1.6
 20260730,12.6,12.6,11.95,11.95,37000,13.17,-9.29,13.16,14.36,0.96
+20260731,12.8,12.8,12.05,12.1,12000,13.08,-7.52,13.09,14.32,0.31
 ```
 
 ## Latest TDCC Snapshot

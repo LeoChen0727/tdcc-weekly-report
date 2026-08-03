@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4760 勤凱科技
 
 ## Metadata
-- generated_at: 2026-08-02 22:27:41 Asia/Taipei
+- generated_at: 2026-08-03 22:27:56 Asia/Taipei
 - stock_id: 4760
 - stock_name: 勤凱科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 180
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 181
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 202
-- high: 211
-- low: 195
-- close: 197.5
-- volume: 531000
-- ma5: 219.7
-- ema23_primary: 270.13
-- distance_to_ema23_pct: -26.89
-- ma20: 272.45
-- ma60: 326.52
-- ma120: 266.19
-- return_5d: -20.68
-- return_20d: -41.04
-- volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: -27.51
-- distance_to_high_60_pct: -61.27
+- date: 20260731
+- open: 214
+- high: 216
+- low: 211
+- close: 213
+- volume: 355000
+- ma5: 214.7
+- ema23_primary: 265.37
+- distance_to_ema23_pct: -19.74
+- ma20: 266.82
+- ma60: 326.02
+- ma120: 266.32
+- return_5d: -10.5
+- return_20d: -34.56
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: -20.17
+- distance_to_high_60_pct: -58.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,331,335.5,323.5,325.5,367000,352.56,-7.67,365.88,320.29,0.32
 20260703,324.5,357,320.5,346.5,1130000,352.05,-1.58,362.95,322.27,0.96
 20260706,350,353,331.5,332,632000,350.38,-5.25,359,323.74,0.53
 20260707,351,356,311,314,1332000,347.35,-9.6,354.7,324.76,1.14
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,231,233.5,217,217,415000,283.26,-23.39,286.27,328.07,0.58
 20260729,217.5,222,196,205,938000,276.74,-25.92,279.32,327.29,1.29
 20260730,202,211,195,197.5,531000,270.13,-26.89,272.45,326.52,0.74
+20260731,214,216,211,213,355000,265.37,-19.74,266.82,326.02,0.49
 ```
 
 ## Latest TDCC Snapshot

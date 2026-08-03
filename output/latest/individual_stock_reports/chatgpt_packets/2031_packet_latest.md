@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2031 新光鋼
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:30 Asia/Taipei
+- generated_at: 2026-08-03 22:26:41 Asia/Taipei
 - stock_id: 2031
 - stock_name: 新光鋼
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 39.9
-- high: 39.9
-- low: 38.5
-- close: 38.5
-- volume: 443950
-- ma5: 39.78
-- ema23_primary: 39.5
-- distance_to_ema23_pct: -2.53
-- ma20: 39.39
-- ma60: 39.47
-- ma120: 39.58
-- return_5d: -4.7
-- return_20d: 2.12
-- volume_ratio: 0.57
-- distance_to_ma20_pct_auxiliary: -2.25
-- distance_to_high_60_pct: -12
+- date: 20260731
+- open: 38.95
+- high: 39.5
+- low: 37.9
+- close: 37.9
+- volume: 1227409
+- ma5: 39.33
+- ema23_primary: 39.37
+- distance_to_ema23_pct: -3.73
+- ma20: 39.37
+- ma60: 39.45
+- ma120: 39.57
+- return_5d: -5.6
+- return_20d: -1.04
+- volume_ratio: 1.51
+- distance_to_ma20_pct_auxiliary: -3.73
+- distance_to_high_60_pct: -13.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,37.85,38.3,37.5,38.3,502265,39.21,-2.31,39.86,39.77,0.35
 20260703,38,39.15,38,39.05,1008064,39.19,-0.37,39.66,39.73,0.76
 20260706,39.1,39.6,38.8,38.9,735193,39.17,-0.69,39.44,39.7,0.59
 20260707,39.25,39.25,38.35,38.45,496644,39.11,-1.69,39.29,39.66,0.43
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,40.85,40.85,39.45,39.8,609219,39.6,0.5,39.27,39.53,0.76
 20260729,40.05,40.25,38.55,39.5,901534,39.59,-0.23,39.35,39.51,1.14
 20260730,39.9,39.9,38.5,38.5,443950,39.5,-2.53,39.39,39.47,0.57
+20260731,38.95,39.5,37.9,37.9,1227409,39.37,-3.73,39.37,39.45,1.51
 ```
 
 ## Latest TDCC Snapshot

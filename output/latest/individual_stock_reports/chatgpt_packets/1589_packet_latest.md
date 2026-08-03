@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1589 永冠-KY
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:21 Asia/Taipei
+- generated_at: 2026-08-03 22:26:32 Asia/Taipei
 - stock_id: 1589
 - stock_name: 永冠-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260402
 - price_rows: 235
-- current_main_price_date: 20260730
+- current_main_price_date: 20260731
 - current_main_price_universe_status: historical_only_noncurrent
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable

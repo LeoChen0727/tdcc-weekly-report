@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7760 享溫馨
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:46 Asia/Taipei
+- generated_at: 2026-08-03 22:29:03 Asia/Taipei
 - stock_id: 7760
 - stock_name: 享溫馨
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260730
-- price_rows: 65
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 66
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 35
-- high: 35
+- date: 20260731
+- open: 33.45
+- high: 34
 - low: 33.3
 - close: 34
-- volume: 70114
-- ma5: 34.11
-- ema23_primary: 34.27
-- distance_to_ema23_pct: -0.8
-- ma20: 34.85
+- volume: 75174
+- ma5: 33.94
+- ema23_primary: 34.25
+- distance_to_ema23_pct: -0.73
+- ma20: 34.8
 - ma60: 33.64
 - ma120: 33.76
-- return_5d: -2.72
-- return_20d: -1.73
-- volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: -2.43
+- return_5d: -2.44
+- return_20d: -3
+- volume_ratio: 0.79
+- distance_to_ma20_pct_auxiliary: -2.28
 - distance_to_high_60_pct: -8.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,34.6,35.5,34.6,35.05,185066,33.1,5.88,32.66,33.31,1.46
 20260703,35.05,36.4,35,36.35,151300,33.37,8.92,32.88,33.38,1.2
 20260706,35.35,37,35.35,36.7,91441,33.65,9.06,33.12,33.45,0.72
 20260707,37,37,35.5,36,290463,33.85,6.36,33.36,33.5,2.09
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,34.15,34.15,33.5,34.05,32054,34.36,-0.9,34.84,33.68,0.3
 20260729,34.2,34.2,33,33.65,140407,34.3,-1.89,34.88,33.66,1.25
 20260730,35,35,33.3,34,70114,34.27,-0.8,34.85,33.64,0.7
+20260731,33.45,34,33.3,34,75174,34.25,-0.73,34.8,33.64,0.79
 ```
 
 ## Latest TDCC Snapshot

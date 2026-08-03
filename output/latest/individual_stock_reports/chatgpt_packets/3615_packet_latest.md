@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3615 安可
 
 ## Metadata
-- generated_at: 2026-08-02 22:27:23 Asia/Taipei
+- generated_at: 2026-08-03 22:27:37 Asia/Taipei
 - stock_id: 3615
 - stock_name: 安可
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 180
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 181
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 31.5
-- high: 32.8
-- low: 30.2
-- close: 30.6
-- volume: 876000
-- ma5: 34.31
-- ema23_primary: 41.76
-- distance_to_ema23_pct: -26.73
-- ma20: 42.67
-- ma60: 46.29
-- ma120: 38.71
-- return_5d: -20.93
-- return_20d: -41.38
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: -28.28
-- distance_to_high_60_pct: -54.26
+- date: 20260731
+- open: 32.75
+- high: 33.05
+- low: 31.95
+- close: 33
+- volume: 805000
+- ma5: 33.46
+- ema23_primary: 41.03
+- distance_to_ema23_pct: -19.57
+- ma20: 41.74
+- ma60: 46.28
+- ma120: 38.77
+- return_5d: -11.41
+- return_20d: -36.05
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: -20.93
+- distance_to_high_60_pct: -50.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,51.1,53.9,51,51.6,2145000,51.7,-0.19,53.78,43.18,0.37
 20260703,51.2,52.4,50.8,51.8,1413000,51.7,0.18,53.47,43.5,0.24
 20260706,52.6,53.2,51.5,51.7,1572000,51.7,-0.01,53.05,43.82,0.27
 20260707,51.9,52.9,48.05,48.5,1780000,51.44,-5.71,52.76,44.11,0.3
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,36,36.4,34.2,34.25,962000,43.72,-21.65,44.77,46.34,0.61
 20260729,34.3,34.65,31.2,32.45,1335000,42.78,-24.14,43.75,46.34,0.91
 20260730,31.5,32.8,30.2,30.6,876000,41.76,-26.73,42.67,46.29,0.65
+20260731,32.75,33.05,31.95,33,805000,41.03,-19.57,41.74,46.28,0.63
 ```
 
 ## Latest TDCC Snapshot

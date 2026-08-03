@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1432 大魯閣
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:13 Asia/Taipei
+- generated_at: 2026-08-03 22:26:24 Asia/Taipei
 - stock_id: 1432
 - stock_name: 大魯閣
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 14.95
-- high: 15.15
-- low: 14.9
-- close: 15.05
-- volume: 213611
-- ma5: 15.02
-- ema23_primary: 15.3
-- distance_to_ema23_pct: -1.61
-- ma20: 15.11
-- ma60: 16.1
-- ma120: 16.94
-- return_5d: 0
-- return_20d: -0.99
-- volume_ratio: 1.06
-- distance_to_ma20_pct_auxiliary: -0.38
-- distance_to_high_60_pct: -16.39
+- date: 20260731
+- open: 15.05
+- high: 15.3
+- low: 15.05
+- close: 15.1
+- volume: 173581
+- ma5: 15.04
+- ema23_primary: 15.28
+- distance_to_ema23_pct: -1.18
+- ma20: 15.1
+- ma60: 16.07
+- ma120: 16.91
+- return_5d: 0.67
+- return_20d: -0.66
+- volume_ratio: 0.87
+- distance_to_ma20_pct_auxiliary: -0.02
+- distance_to_high_60_pct: -16.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,15.25,15.3,15.15,15.2,214408,16.25,-6.49,16.58,16.68,0.36
 20260703,15.3,15.3,15.2,15.2,333224,16.17,-5.98,16.48,16.65,0.56
 20260706,15.5,15.6,15.25,15.3,319052,16.09,-4.93,16.39,16.61,0.55
 20260707,15.3,15.3,15.15,15.15,299687,16.02,-5.4,16.29,16.57,0.53
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,15.05,15.05,14.95,15,165680,15.35,-2.27,15.13,16.16,0.83
 20260729,15.15,15.15,14.9,15,259177,15.32,-2.08,15.12,16.13,1.28
 20260730,14.95,15.15,14.9,15.05,213611,15.3,-1.61,15.11,16.1,1.06
+20260731,15.05,15.3,15.05,15.1,173581,15.28,-1.18,15.1,16.07,0.87
 ```
 
 ## Latest TDCC Snapshot

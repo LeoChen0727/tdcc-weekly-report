@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4568 科際精密
 
 ## Metadata
-- generated_at: 2026-08-02 22:27:38 Asia/Taipei
+- generated_at: 2026-08-03 22:27:52 Asia/Taipei
 - stock_id: 4568
 - stock_name: 科際精密
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 160
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 161
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 38.75
-- high: 38.75
-- low: 38.75
-- close: 38.75
-- volume: 1000
-- ma5: 39.16
-- ema23_primary: 40.12
-- distance_to_ema23_pct: -3.41
-- ma20: 40.35
-- ma60: 40.68
-- ma120: 41.45
-- return_5d: -2.39
-- return_20d: -6.74
-- volume_ratio: 0.08
-- distance_to_ma20_pct_auxiliary: -3.97
-- distance_to_high_60_pct: -8.07
+- date: 20260731
+- open: 39.5
+- high: 39.55
+- low: 38.7
+- close: 38.7
+- volume: 8000
+- ma5: 39.03
+- ema23_primary: 40
+- distance_to_ema23_pct: -3.25
+- ma20: 40.19
+- ma60: 40.65
+- ma120: 41.41
+- return_5d: -1.65
+- return_20d: -7.75
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: -3.7
+- distance_to_high_60_pct: -8.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,41.55,41.95,41.55,41.95,14000,41.23,1.76,41.18,41.23,0.72
 20260703,41.8,41.8,41.2,41.2,3000,41.22,-0.06,41.14,41.21,0.17
 20260706,41.25,41.4,41.25,41.25,7000,41.23,0.06,41.11,41.2,0.44
 20260707,41.5,41.8,41.3,41.8,13000,41.27,1.27,41.1,41.19,0.8
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,39.25,39.25,38.5,38.95,13000,40.33,-3.41,40.6,40.74,0.97
 20260729,38.9,39.3,38.4,39.3,8000,40.24,-2.34,40.49,40.71,0.59
 20260730,38.75,38.75,38.75,38.75,1000,40.12,-3.41,40.35,40.68,0.08
+20260731,39.5,39.55,38.7,38.7,8000,40,-3.25,40.19,40.65,0.62
 ```
 
 ## Latest TDCC Snapshot

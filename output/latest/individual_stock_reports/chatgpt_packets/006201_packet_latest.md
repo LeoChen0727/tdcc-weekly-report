@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 006201 元大富櫃50
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:02 Asia/Taipei
+- generated_at: 2026-08-03 22:26:12 Asia/Taipei
 - stock_id: 006201
 - stock_name: 元大富櫃50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260730
-- price_rows: 48
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 49
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 35
-- high: 36.7
-- low: 34.34
-- close: 34.95
-- volume: 675000
-- ma5: 38.27
-- ema23_primary: 42.67
-- distance_to_ema23_pct: -18.1
-- ma20: 43.37
-- ma60: 46.27
-- ma120: 46.27
-- return_5d: -18.82
-- return_20d: -26.91
-- volume_ratio: 2.2
-- distance_to_ma20_pct_auxiliary: -19.41
-- distance_to_high_60_pct: -32.46
+- date: 20260731
+- open: 37.72
+- high: 38.17
+- low: 37.53
+- close: 38.07
+- volume: 607000
+- ma5: 37.64
+- ema23_primary: 42.29
+- distance_to_ema23_pct: -9.98
+- ma20: 42.85
+- ma60: 46.1
+- ma120: 46.1
+- return_5d: -7.57
+- return_20d: -21.51
+- volume_ratio: 1.91
+- distance_to_ma20_pct_auxiliary: -11.15
+- distance_to_high_60_pct: -26.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,47.7,48.5,46.35,48.5,400000,48,1.05,47.84,48.35,1.56
 20260703,48.3,49.37,48.3,49.3,204000,48.11,2.48,47.81,48.38,0.77
 20260706,49.61,50.15,47.88,48.46,261000,48.13,0.68,47.83,48.38,0.95
 20260707,48.56,48.75,45.85,46.19,293000,47.97,-3.72,47.81,48.31,1.11
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,40.97,40.97,38.15,38.15,398000,44.05,-13.39,44.58,46.74,1.61
 20260729,38.15,38.15,35.28,35.99,979000,43.38,-17.03,44.01,46.51,3.4
 20260730,35,36.7,34.34,34.95,675000,42.67,-18.1,43.37,46.27,2.2
+20260731,37.72,38.17,37.53,38.07,607000,42.29,-9.98,42.85,46.1,1.91
 ```
 
 ## Latest TDCC Snapshot

@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009813 貝萊德標普卓越50
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:06 Asia/Taipei
+- generated_at: 2026-08-03 22:26:17 Asia/Taipei
 - stock_id: 009813
 - stock_name: 貝萊德標普卓越50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260730
-- price_rows: 48
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 49
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 10.77
-- high: 10.88
-- low: 10.77
-- close: 10.83
-- volume: 2075337
-- ma5: 10.97
+- date: 20260731
+- open: 11
+- high: 11.09
+- low: 11
+- close: 11.08
+- volume: 1492924
+- ma5: 10.98
 - ema23_primary: 11.08
-- distance_to_ema23_pct: -2.22
+- distance_to_ema23_pct: 0.03
 - ma20: 11.11
 - ma60: 11.12
 - ma120: 11.12
-- return_5d: -3.04
-- return_20d: -1.72
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: -2.51
-- distance_to_high_60_pct: -5.58
+- return_5d: 0.45
+- return_20d: 0.64
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: -0.29
+- distance_to_high_60_pct: -3.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,11.01,11.04,11,11.01,2995755,11.04,-0.24,11.01,11.12,0.81
 20260703,11.01,11.04,10.99,11.03,3003377,11.04,-0.05,11,11.12,0.81
 20260706,11.03,11.1,11.03,11.09,2391723,11.04,0.45,10.99,11.12,0.65
 20260707,11.1,11.15,11.1,11.1,3617306,11.05,0.5,10.98,11.12,1
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,10.99,10.99,10.9,10.93,1699446,11.11,-1.63,11.12,11.13,0.68
 20260729,10.95,11,10.93,10.96,3746608,11.1,-1.25,11.12,11.13,1.44
 20260730,10.77,10.88,10.77,10.83,2075337,11.08,-2.22,11.11,11.12,0.82
+20260731,11,11.09,11,11.08,1492924,11.08,0.03,11.11,11.12,0.61
 ```
 
 ## Latest TDCC Snapshot

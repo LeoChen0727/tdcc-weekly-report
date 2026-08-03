@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4107 邦特
 
 ## Metadata
-- generated_at: 2026-08-02 22:27:28 Asia/Taipei
+- generated_at: 2026-08-03 22:27:43 Asia/Taipei
 - stock_id: 4107
 - stock_name: 邦特
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 180
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 181
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 110.5
-- high: 111.5
-- low: 110
-- close: 111.5
-- volume: 35000
-- ma5: 114.5
-- ema23_primary: 116.29
-- distance_to_ema23_pct: -4.12
-- ma20: 117
-- ma60: 116.53
-- ma120: 117.93
-- return_5d: -6.3
-- return_20d: -2.19
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: -4.7
-- distance_to_high_60_pct: -8.23
+- date: 20260731
+- open: 112.5
+- high: 114
+- low: 112.5
+- close: 113.5
+- volume: 46000
+- ma5: 113.5
+- ema23_primary: 116.06
+- distance_to_ema23_pct: -2.2
+- ma20: 116.9
+- ma60: 116.49
+- ma120: 117.85
+- return_5d: -4.22
+- return_20d: -1.73
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: -2.91
+- distance_to_high_60_pct: -6.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,115,116,115,115.5,87000,115.81,-0.27,115.97,116.95,1.14
 20260703,115.5,116.5,115.5,116.5,115000,115.87,0.54,116.03,116.92,1.5
 20260706,117.5,118,116.5,117.5,90000,116.01,1.29,116.08,116.88,1.2
 20260707,117.5,117.5,115.5,117,104000,116.09,0.78,116.17,116.78,1.35
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,114,114,112.5,112.5,108000,117.29,-4.09,117.35,116.67,1.38
 20260729,112.5,112.5,110,110.5,137000,116.73,-5.33,117.12,116.59,1.67
 20260730,110.5,111.5,110,111.5,35000,116.29,-4.12,117,116.53,0.45
+20260731,112.5,114,112.5,113.5,46000,116.06,-2.2,116.9,116.49,0.61
 ```
 
 ## Latest TDCC Snapshot

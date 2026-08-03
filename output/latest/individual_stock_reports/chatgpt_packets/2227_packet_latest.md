@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2227 裕日車
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:33 Asia/Taipei
+- generated_at: 2026-08-03 22:26:45 Asia/Taipei
 - stock_id: 2227
 - stock_name: 裕日車
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 50.8
-- high: 50.8
-- low: 49.65
+- date: 20260731
+- open: 50
+- high: 50.5
+- low: 49.6
 - close: 50.2
-- volume: 76432
-- ma5: 50.4
-- ema23_primary: 50.06
-- distance_to_ema23_pct: 0.28
-- ma20: 50.02
-- ma60: 49.94
-- ma120: 51.22
-- return_5d: -0.4
-- return_20d: 1.52
-- volume_ratio: 1.48
-- distance_to_ma20_pct_auxiliary: 0.36
+- volume: 22338
+- ma5: 50.42
+- ema23_primary: 50.07
+- distance_to_ema23_pct: 0.26
+- ma20: 50.08
+- ma60: 49.88
+- ma120: 51.19
+- return_5d: 0.2
+- return_20d: 2.45
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: 0.24
 - distance_to_high_60_pct: -7.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,49.5,49.5,48.95,49,40665,49.58,-1.16,49.49,51.01,1.02
 20260703,48.1,50,48.1,50,53748,49.61,0.78,49.48,50.99,1.35
 20260706,50.5,50.5,49.1,50,27762,49.64,0.72,49.48,50.98,0.71
 20260707,49.6,50,49.1,49.7,53894,49.65,0.1,49.51,50.96,1.36
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,50.7,50.7,49.55,50.4,31534,49.98,0.85,49.92,50.01,0.72
 20260729,50.7,50.8,49.35,50.8,118807,50.05,1.51,49.98,49.98,2.45
 20260730,50.8,50.8,49.65,50.2,76432,50.06,0.28,50.02,49.94,1.48
+20260731,50,50.5,49.6,50.2,22338,50.07,0.26,50.08,49.88,0.44
 ```
 
 ## Latest TDCC Snapshot

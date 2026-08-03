@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00963 中信全球高股息
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:06 Asia/Taipei
+- generated_at: 2026-08-03 22:26:16 Asia/Taipei
 - stock_id: 00963
 - stock_name: 中信全球高股息
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260730
-- price_rows: 48
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 49
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 13.41
-- high: 13.42
-- low: 13.32
-- close: 13.41
-- volume: 1368868
-- ma5: 13.31
-- ema23_primary: 13.04
-- distance_to_ema23_pct: 2.82
-- ma20: 13.02
-- ma60: 12.78
-- ma120: 12.78
-- return_5d: 0.9
-- return_20d: 7.19
-- volume_ratio: 1.14
-- distance_to_ma20_pct_auxiliary: 2.99
-- distance_to_high_60_pct: -0.15
+- date: 20260731
+- open: 13.44
+- high: 13.48
+- low: 13.37
+- close: 13.47
+- volume: 1702204
+- ma5: 13.37
+- ema23_primary: 13.08
+- distance_to_ema23_pct: 3
+- ma20: 13.07
+- ma60: 12.8
+- ma120: 12.8
+- return_5d: 2.2
+- return_20d: 7.25
+- volume_ratio: 1.37
+- distance_to_ma20_pct_auxiliary: 3.09
+- distance_to_high_60_pct: -0.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,12.6,12.6,12.53,12.56,798551,12.59,-0.21,12.56,12.61,0.61
 20260703,12.64,12.72,12.64,12.71,1048342,12.6,0.9,12.57,12.62,0.84
 20260706,12.71,12.75,12.71,12.75,985198,12.61,1.12,12.58,12.62,0.83
 20260707,12.8,12.8,12.72,12.74,534754,12.62,0.95,12.59,12.62,0.47
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,13.28,13.3,13.23,13.28,1710966,12.97,2.37,12.94,12.76,1.57
 20260729,13.3,13.43,13.3,13.41,2048196,13.01,3.09,12.98,12.77,1.75
 20260730,13.41,13.42,13.32,13.41,1368868,13.04,2.82,13.02,12.78,1.14
+20260731,13.44,13.48,13.37,13.47,1702204,13.08,3,13.07,12.8,1.37
 ```
 
 ## Latest TDCC Snapshot

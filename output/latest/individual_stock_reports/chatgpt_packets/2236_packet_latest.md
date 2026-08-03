@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2236 百達-KY
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:34 Asia/Taipei
+- generated_at: 2026-08-03 22:26:45 Asia/Taipei
 - stock_id: 2236
 - stock_name: 百達-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 129
-- high: 131.5
-- low: 122.5
-- close: 131.5
-- volume: 1137203
-- ma5: 137.8
-- ema23_primary: 150.03
-- distance_to_ema23_pct: -12.35
-- ma20: 160.07
-- ma60: 145.35
-- ma120: 131.37
-- return_5d: -12.33
-- return_20d: -18.32
-- volume_ratio: 1.29
-- distance_to_ma20_pct_auxiliary: -17.85
-- distance_to_high_60_pct: -30.61
+- date: 20260731
+- open: 134.5
+- high: 138.5
+- low: 128
+- close: 130.5
+- volume: 1043081
+- ma5: 134.1
+- ema23_primary: 148.4
+- distance_to_ema23_pct: -12.06
+- ma20: 158.22
+- ma60: 145.33
+- ma120: 131.5
+- return_5d: -12.42
+- return_20d: -22.09
+- volume_ratio: 1.23
+- distance_to_ma20_pct_auxiliary: -17.52
+- distance_to_high_60_pct: -31.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,158,171,156.5,167.5,1708208,142.01,17.95,139.47,135.55,3.15
 20260703,167.5,184,167.5,184,2157207,145.51,26.45,141.88,136.68,3.41
 20260706,188,189,180.5,184,1665511,148.72,23.72,144.07,137.8,2.37
 20260707,186,189.5,181,184.5,1462876,151.7,21.62,146.55,138.95,1.97
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,141,141,131.5,131.5,546899,153.6,-14.39,162.32,145.62,0.6
 20260729,132.5,132.5,119,131,884296,151.72,-13.66,161.55,145.48,0.97
 20260730,129,131.5,122.5,131.5,1137203,150.03,-12.35,160.07,145.35,1.29
+20260731,134.5,138.5,128,130.5,1043081,148.4,-12.06,158.22,145.33,1.23
 ```
 
 ## Latest TDCC Snapshot

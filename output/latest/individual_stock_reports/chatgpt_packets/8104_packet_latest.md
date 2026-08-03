@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8104 錸寶
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:53 Asia/Taipei
+- generated_at: 2026-08-03 22:29:10 Asia/Taipei
 - stock_id: 8104
 - stock_name: 錸寶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 29.15
-- high: 29.5
-- low: 28.05
-- close: 28.1
-- volume: 766277
-- ma5: 30.81
-- ema23_primary: 34.96
-- distance_to_ema23_pct: -19.61
-- ma20: 35.95
-- ma60: 37.31
-- ma120: 36.29
-- return_5d: -16.37
-- return_20d: -25.17
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: -21.82
-- distance_to_high_60_pct: -41.21
+- date: 20260731
+- open: 29.3
+- high: 30
+- low: 29.3
+- close: 29.65
+- volume: 543803
+- ma5: 30.16
+- ema23_primary: 34.51
+- distance_to_ema23_pct: -14.09
+- ma20: 35.52
+- ma60: 37.23
+- ma120: 36.23
+- return_5d: -9.88
+- return_20d: -22.08
+- volume_ratio: 0.29
+- distance_to_ma20_pct_auxiliary: -16.54
+- distance_to_high_60_pct: -37.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,37.55,38.75,37,38.05,921050,38.85,-2.07,39.76,37.05,0.26
 20260703,38.5,38.5,37.85,38.05,596205,38.79,-1.9,39.52,37.15,0.22
 20260706,38.15,41.85,38.15,41.25,4278142,38.99,5.79,39.43,37.31,1.73
 20260707,41.85,42.35,39.1,40.05,7508710,39.08,2.48,39.42,37.45,2.77
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,31.9,32.05,31.1,31.1,376774,36.16,-14,36.86,37.51,0.2
 20260729,31.95,31.95,28.05,29.15,1379899,35.58,-18.07,36.42,37.43,0.71
 20260730,29.15,29.5,28.05,28.1,766277,34.96,-19.61,35.95,37.31,0.4
+20260731,29.3,30,29.3,29.65,543803,34.51,-14.09,35.52,37.23,0.29
 ```
 
 ## Latest TDCC Snapshot

@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6683 雍智科技
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:26 Asia/Taipei
+- generated_at: 2026-08-03 22:28:42 Asia/Taipei
 - stock_id: 6683
 - stock_name: 雍智科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 180
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 181
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 843
-- high: 900
-- low: 843
-- close: 843
-- volume: 341000
-- ma5: 1032.8
-- ema23_primary: 1322.98
-- distance_to_ema23_pct: -36.28
-- ma20: 1376.2
-- ma60: 1644.48
-- ma120: 1455.61
-- return_5d: -31.74
-- return_20d: -53.68
-- volume_ratio: 0.61
-- distance_to_ma20_pct_auxiliary: -38.74
-- distance_to_high_60_pct: -66.68
+- date: 20260731
+- open: 927
+- high: 927
+- low: 910
+- close: 927
+- volume: 284000
+- ma5: 980.2
+- ema23_primary: 1289.98
+- distance_to_ema23_pct: -28.14
+- ma20: 1333.8
+- ma60: 1620.02
+- ma120: 1459.3
+- return_5d: -22.1
+- return_20d: -47.77
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: -30.5
+- distance_to_high_60_pct: -61.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,1775,1900,1775,1775,331000,1718.09,3.31,1651.25,1813.67,0.22
 20260703,1770,1850,1755,1805,338000,1725.33,4.62,1657.5,1819.58,0.24
 20260706,1805,1805,1660,1780,341000,1729.89,2.9,1666,1822.67,0.25
 20260707,1770,1785,1595,1660,385000,1724.07,-3.72,1674.25,1822,0.29
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,1050,1055,1040,1040,133000,1405.76,-26.02,1464.5,1696.5,0.23
 20260729,1040,1040,936,936,65000,1366.61,-31.51,1425.05,1673.18,0.12
 20260730,843,900,843,843,341000,1322.98,-36.28,1376.2,1644.48,0.61
+20260731,927,927,910,927,284000,1289.98,-28.14,1333.8,1620.02,0.51
 ```
 
 ## Latest TDCC Snapshot

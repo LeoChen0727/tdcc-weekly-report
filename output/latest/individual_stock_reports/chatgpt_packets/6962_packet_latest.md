@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6962 奕力-KY
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:37 Asia/Taipei
+- generated_at: 2026-08-03 22:28:54 Asia/Taipei
 - stock_id: 6962
 - stock_name: 奕力-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 29.15
-- high: 29.8
-- low: 28.6
-- close: 29
-- volume: 1721177
-- ma5: 30.88
-- ema23_primary: 33.78
-- distance_to_ema23_pct: -14.16
-- ma20: 34.26
-- ma60: 36.42
-- ma120: 35.49
-- return_5d: -11.99
-- return_20d: -23.48
-- volume_ratio: 0.67
-- distance_to_ma20_pct_auxiliary: -15.35
-- distance_to_high_60_pct: -29.95
+- date: 20260731
+- open: 30.4
+- high: 31.1
+- low: 30.1
+- close: 30.95
+- volume: 1469790
+- ma5: 30.55
+- ema23_primary: 33.55
+- distance_to_ema23_pct: -7.74
+- ma20: 33.88
+- ma60: 36.35
+- ma120: 35.42
+- return_5d: -5.06
+- return_20d: -19.61
+- volume_ratio: 0.58
+- distance_to_ma20_pct_auxiliary: -8.65
+- distance_to_high_60_pct: -25.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,37.75,39.15,37.4,38.5,2262073,37.73,2.03,37.26,36.73,0.52
 20260703,38.1,39.25,38.1,38.9,3368518,37.83,2.82,37.36,36.82,0.79
 20260706,39.4,40.3,38.75,39.25,3934321,37.95,3.43,37.52,36.92,0.92
 20260707,39.25,39.8,37.85,37.95,3478781,37.95,-0,37.74,37.01,0.81
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,31.05,31.55,30.5,30.5,3270704,34.59,-11.81,35.13,36.6,1.27
 20260729,31,31,29.45,30.15,3851478,34.22,-11.88,34.7,36.52,1.5
 20260730,29.15,29.8,28.6,29,1721177,33.78,-14.16,34.26,36.42,0.67
+20260731,30.4,31.1,30.1,30.95,1469790,33.55,-7.74,33.88,36.35,0.58
 ```
 
 ## Latest TDCC Snapshot

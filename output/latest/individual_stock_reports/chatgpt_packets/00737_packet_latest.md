@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00737 國泰AI機器人
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:03 Asia/Taipei
+- generated_at: 2026-08-03 22:26:13 Asia/Taipei
 - stock_id: 00737
 - stock_name: 國泰AI機器人
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260730
-- price_rows: 48
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 49
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 37.58
-- high: 37.95
-- low: 37.58
-- close: 37.8
-- volume: 119278
-- ma5: 37.6
-- ema23_primary: 38.16
-- distance_to_ema23_pct: -0.93
-- ma20: 38.43
+- date: 20260731
+- open: 38.4
+- high: 38.67
+- low: 38.4
+- close: 38.67
+- volume: 122475
+- ma5: 37.92
+- ema23_primary: 38.2
+- distance_to_ema23_pct: 1.23
+- ma20: 38.4
 - ma60: 38.57
 - ma120: 38.57
-- return_5d: 0.53
-- return_20d: -2.6
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: -1.63
-- distance_to_high_60_pct: -8.67
+- return_5d: 4.43
+- return_20d: -1.28
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: 0.7
+- distance_to_high_60_pct: -6.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,38.97,39.35,38.97,39.17,208372,38.36,2.12,38.35,38.69,0.99
 20260703,39.17,39.39,38.85,39.38,174295,38.44,2.44,38.31,38.72,0.91
 20260706,39.5,39.6,39.4,39.6,284634,38.54,2.75,38.27,38.74,1.47
 20260707,39.65,39.73,39.55,39.64,487353,38.63,2.61,38.34,38.77,2.42
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,37.69,37.69,37.35,37.53,118753,38.21,-1.78,38.52,38.6,0.62
 20260729,37.56,38.12,37.56,37.93,193269,38.19,-0.68,38.48,38.59,1.03
 20260730,37.58,37.95,37.58,37.8,119278,38.16,-0.93,38.43,38.57,0.63
+20260731,38.4,38.67,38.4,38.67,122475,38.2,1.23,38.4,38.57,0.66
 ```
 
 ## Latest TDCC Snapshot

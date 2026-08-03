@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2382 廣達
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:40 Asia/Taipei
+- generated_at: 2026-08-03 22:26:52 Asia/Taipei
 - stock_id: 2382
 - stock_name: 廣達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 315
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 316
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -131,29 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 288
-- high: 288
-- low: 279
-- close: 279
-- volume: 58851779
-- ma5: 310.4
-- ema23_primary: 338.31
-- distance_to_ema23_pct: -17.53
-- ma20: 346.05
-- ma60: 350.23
-- ma120: 323.49
-- return_5d: -16.96
-- return_20d: -25
-- volume_ratio: 2.49
-- distance_to_ma20_pct_auxiliary: -19.38
-- distance_to_high_60_pct: -36.3
+- date: 20260731
+- open: 299
+- high: 299
+- low: 285
+- close: 291.5
+- volume: 49270092
+- ma5: 303.1
+- ema23_primary: 334.41
+- distance_to_ema23_pct: -12.83
+- ma20: 342.18
+- ma60: 349.32
+- ma120: 323.52
+- return_5d: -11.13
+- return_20d: -21
+- volume_ratio: 1.92
+- distance_to_ma20_pct_auxiliary: -14.81
+- distance_to_high_60_pct: -33.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,366,372,365.5,369,9014780,365.29,1.01,374,342.75,0.31
 20260703,369,378,368.5,377,13135151,366.27,2.93,372.65,343.91,0.5
 20260706,381.5,393,378,378,25001955,367.25,2.93,372.02,344.99,1.03
 20260707,374.5,380,372.5,373,15592266,367.73,1.43,371.85,345.85,0.71
@@ -173,6 +172,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,312,315.5,308,313.5,20455771,346.82,-9.61,353.62,351.07,1
 20260729,319,322.5,301.5,309.5,28018749,343.71,-9.95,350.7,350.93,1.31
 20260730,288,288,279,279,58851779,338.31,-17.53,346.05,350.23,2.49
+20260731,299,299,285,291.5,49270092,334.41,-12.83,342.18,349.32,1.92
 ```
 
 ## Latest TDCC Snapshot

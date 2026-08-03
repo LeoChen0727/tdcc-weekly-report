@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009812 野村日本東證
 
 ## Metadata
-- generated_at: 2026-08-02 22:26:06 Asia/Taipei
+- generated_at: 2026-08-03 22:26:17 Asia/Taipei
 - stock_id: 009812
 - stock_name: 野村日本東證
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260730
-- price_rows: 48
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 49
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
-- open: 12.3
-- high: 12.36
-- low: 12.26
-- close: 12.28
-- volume: 560282
-- ma5: 12.36
-- ema23_primary: 12.4
-- distance_to_ema23_pct: -0.94
-- ma20: 12.46
-- ma60: 12.31
-- ma120: 12.31
-- return_5d: -2.46
-- return_20d: -0.24
-- volume_ratio: 1.21
-- distance_to_ma20_pct_auxiliary: -1.48
-- distance_to_high_60_pct: -3.69
+- date: 20260731
+- open: 12.58
+- high: 12.8
+- low: 12.58
+- close: 12.67
+- volume: 470764
+- ma5: 12.42
+- ema23_primary: 12.42
+- distance_to_ema23_pct: 2.02
+- ma20: 12.48
+- ma60: 12.32
+- ma120: 12.32
+- return_5d: 2.43
+- return_20d: 1.85
+- volume_ratio: 1.01
+- distance_to_ma20_pct_auxiliary: 1.55
+- distance_to_high_60_pct: -1.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,12.36,12.48,12.35,12.44,359157,12.26,1.45,12.24,12.21,0.53
 20260703,12.47,12.63,12.47,12.6,853523,12.29,2.52,12.26,12.23,1.21
 20260706,12.74,12.74,12.64,12.71,517725,12.32,3.12,12.28,12.24,0.74
 20260707,12.71,12.75,12.62,12.62,224088,12.35,2.19,12.32,12.25,0.33
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,12.33,12.34,12.23,12.28,822827,12.42,-1.1,12.47,12.31,1.73
 20260729,12.29,12.36,12.22,12.3,805153,12.41,-0.87,12.47,12.31,1.75
 20260730,12.3,12.36,12.26,12.28,560282,12.4,-0.94,12.46,12.31,1.21
+20260731,12.58,12.8,12.58,12.67,470764,12.42,2.02,12.48,12.32,1.01
 ```
 
 ## Latest TDCC Snapshot

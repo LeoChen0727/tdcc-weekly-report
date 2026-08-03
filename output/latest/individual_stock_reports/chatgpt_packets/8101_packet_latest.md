@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8101 華冠
 
 ## Metadata
-- generated_at: 2026-08-02 22:28:53 Asia/Taipei
+- generated_at: 2026-08-03 22:29:10 Asia/Taipei
 - stock_id: 8101
 - stock_name: 華冠
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260730
-- price_rows: 303
-- current_main_price_date: 20260730
+- latest_price_date: 20260731
+- price_rows: 304
+- current_main_price_date: 20260731
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260730
+- date: 20260731
 - open: 12.8
 - high: 12.8
 - low: 12.8
 - close: 12.8
-- volume: 1187
-- ma5: 12.53
-- ema23_primary: 13.16
-- distance_to_ema23_pct: -2.73
-- ma20: 13.1
+- volume: 1170
+- ma5: 12.44
+- ema23_primary: 13.13
+- distance_to_ema23_pct: -2.51
+- ma20: 13.07
 - ma60: 13.68
-- ma120: 14.08
-- return_5d: -0.78
-- return_20d: 0.39
+- ma120: 14.05
+- return_5d: -3.4
+- return_20d: -4.48
 - volume_ratio: 0.04
-- distance_to_ma20_pct_auxiliary: -2.31
+- distance_to_ma20_pct_auxiliary: -2.08
 - distance_to_high_60_pct: -22.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,12.25,13.4,12.25,13.4,4502,13.99,-4.24,14.53,13.78,0.45
 20260703,13.3,13.6,13.15,13.6,37865,13.96,-2.58,14.41,13.77,3.31
 20260706,13.25,13.3,13.25,13.3,15951,13.91,-4.35,14.26,13.76,1.33
 20260707,12.85,12.85,12.8,12.85,12002,13.82,-7,14.14,13.74,0.98
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260728,12.25,12.25,12.2,12.2,7623,13.28,-8.15,13.12,13.69,0.22
 20260729,12.2,12.2,12.2,12.2,4000,13.19,-7.52,13.1,13.67,0.12
 20260730,12.8,12.8,12.8,12.8,1187,13.16,-2.73,13.1,13.68,0.04
+20260731,12.8,12.8,12.8,12.8,1170,13.13,-2.51,13.07,13.68,0.04
 ```
 
 ## Latest TDCC Snapshot
