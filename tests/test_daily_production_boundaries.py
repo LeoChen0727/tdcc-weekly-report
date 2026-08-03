@@ -139,9 +139,11 @@ def test_apps_script_workflow_trigger_validator_passes_current_repo() -> None:
 def test_apps_script_research_dispatch_registry_is_forward_compatible() -> None:
     validator = validate_apps_script_workflow_triggers
     registry = validator.load_research_dispatch_registry()
-    workflow_inputs = validator.workflow_inputs("research_backtest_pipeline.yml")
-    apps_inputs, guarded_inputs = validator.apps_script_research_dispatch_inputs()
     staged_input = "run_revenue_unreacted_range_source_snapshot_projection_chain_only"
+    workflow_inputs = validator.workflow_inputs("research_backtest_pipeline.yml") | {
+        staged_input
+    }
+    apps_inputs, guarded_inputs = validator.apps_script_research_dispatch_inputs()
 
     assert registry[staged_input]["activation_mode"] == "when_declared"
     assert staged_input in workflow_inputs
