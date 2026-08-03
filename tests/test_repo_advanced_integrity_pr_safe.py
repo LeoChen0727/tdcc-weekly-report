@@ -629,22 +629,27 @@ def test_registered_source_identity_gate_self_update_is_exact_and_one_time(
 
 
 PR462_RESEARCH_PRODUCERS = (
-    "scripts/revenue_unreacted_range_source_snapshot_projection.py",
-    "scripts/revenue_unreacted_range_low_mid_falling_candidate_audit.py",
-    "scripts/revenue_unreacted_range_monthly_revenue_cross_market_resolution.py",
-    "scripts/revenue_unreacted_range_research_frame.py",
+    "scripts/revenue_unreacted_range_synthetic_pr_safe_fixture_source_snapshot_projection.py",
+    "scripts/revenue_unreacted_range_synthetic_pr_safe_fixture_low_mid_falling_candidate_audit.py",
+    "scripts/revenue_unreacted_range_synthetic_pr_safe_fixture_monthly_revenue_cross_market_resolution.py",
+    "scripts/revenue_unreacted_range_synthetic_pr_safe_fixture_research_frame.py",
 )
 PR462_RESEARCH_VALIDATORS = (
-    "scripts/validate_revenue_unreacted_range_source_snapshot_projection.py",
-    "scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
-    "scripts/validate_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py",
+    "scripts/validate_revenue_unreacted_range_synthetic_pr_safe_fixture_source_snapshot_projection.py",
+    "scripts/validate_revenue_unreacted_range_synthetic_pr_safe_fixture_low_mid_falling_candidate_audit.py",
+    "scripts/validate_revenue_unreacted_range_synthetic_pr_safe_fixture_monthly_revenue_cross_market_resolution.py",
 )
 PR462_RESEARCH_TESTS = (
-    "tests/test_revenue_unreacted_range_source_snapshot_projection.py",
-    "tests/test_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py",
-    "tests/test_validate_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py",
-    "tests/test_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
-    "tests/test_validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
+    "tests/test_revenue_unreacted_range_synthetic_pr_safe_fixture_source_snapshot_projection.py",
+    "tests/test_revenue_unreacted_range_synthetic_pr_safe_fixture_monthly_revenue_cross_market_resolution.py",
+    "tests/test_validate_revenue_unreacted_range_synthetic_pr_safe_fixture_monthly_revenue_cross_market_resolution.py",
+    "tests/test_revenue_unreacted_range_synthetic_pr_safe_fixture_low_mid_falling_candidate_audit.py",
+    "tests/test_validate_revenue_unreacted_range_synthetic_pr_safe_fixture_low_mid_falling_candidate_audit.py",
+)
+PR462_SYNTHETIC_FIXTURE_PATHS = (
+    *PR462_RESEARCH_PRODUCERS,
+    *PR462_RESEARCH_VALIDATORS,
+    *PR462_RESEARCH_TESTS,
 )
 PR462_EXISTING_RESEARCH_ROWS = (
     "scripts/synthetic_pr_safe_fixture_existing_research_audit.py",
@@ -665,6 +670,14 @@ PR462_REPLACEMENT_RESEARCH_CONFIG = (
 PR462_SECOND_REPLACEMENT_RESEARCH_CONFIG = (
     "config/revenue_unreacted_range_price_comparability_resolution.csv"
 )
+
+
+def test_pr462_fixture_python_paths_are_synthetic_and_repo_absent() -> None:
+    repository_root = Path(__file__).resolve().parents[1]
+
+    for path in PR462_SYNTHETIC_FIXTURE_PATHS:
+        assert "synthetic_pr_safe_fixture" in path
+        assert not (repository_root / path).exists()
 
 
 def production_inventory_row(
