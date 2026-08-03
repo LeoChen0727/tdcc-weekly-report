@@ -4,6 +4,7 @@ import subprocess
 from pathlib import Path
 
 from scripts import detect_individual_stock_pr_scope as scope
+from scripts import validate_repo_production_inventory as inventory
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -54,7 +55,12 @@ def test_workflow_creates_the_same_check_for_every_pull_request() -> None:
     assert "  pull_request:" in text
     assert all(line.strip() != "paths:" for line in pull_request_nested_lines(text))
     assert "  individual-stock-pr-validation:" in text
-    assert "    name: individual-stock-pr-validation" in text
+    assert f"    name: {inventory.PR_SAFE_REGULAR_JOB_NAME_EXPRESSION}" in text
+    assert inventory.PR_SAFE_REQUIRED_CHECK_CONTEXT != inventory.PR_SAFE_TARGET_SKIP_CHECK_NAME
+    assert inventory.PR_SAFE_REQUIRED_CHECK_CONTEXT in inventory.PR_SAFE_REGULAR_JOB_NAME_EXPRESSION
+    assert inventory.PR_SAFE_TARGET_SKIP_CHECK_NAME in inventory.PR_SAFE_REGULAR_JOB_NAME_EXPRESSION
+    regular_job = inventory.workflow_job_blocks(text)["individual-stock-pr-validation"]
+    assert "    timeout-minutes: 30" in regular_job
     assert "workflow_dispatch:" not in text
 
 
@@ -141,7 +147,6 @@ def test_workflow_cannot_commit_push_or_deploy_artifacts() -> None:
         "git commit",
         "git push",
         "ci_push_with_retry",
-        "actions/upload-artifact",
         "actions/upload-pages-artifact",
         "actions/deploy-pages",
         "repository_dispatch",
@@ -152,6 +157,137 @@ def test_workflow_cannot_commit_push_or_deploy_artifacts() -> None:
     assert "contents: read" in text
     for snippet in forbidden:
         assert snippet not in text
+    assert text.count(
+        "actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803"
+    ) == 2
+    assert text.count(
+        "actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1"
+    ) == 1
+    assert text.count(
+        "actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02"
+    ) == 1
+    assert "actions/checkout@v6" not in text
+    assert "actions/setup-python@v6" not in text
+    assert "actions/upload-artifact@v4" not in text
+    assert "name: upload audit-only evidence" in text
+    assert "pr-safe-control-plane-audit-${{ github.run_id }}-${{ github.run_attempt }}" in text
+    assert "${{ runner.temp }}/pr-safe-control-plane-audit-manifest.json" in text
+    assert "${{ runner.temp }}/pr-safe-control-plane-audit-manifest.json.sha256" in text
+
+
+def test_privileged_workflow_structure_is_closed_against_spoofing() -> None:
+    text = workflow_text()
+
+    assert inventory.validate_pr_safe_base_guard_workflow_text(text) == []
+    assert inventory.workflow_action_uses(text) == (
+        inventory.PR_SAFE_EXPECTED_ACTION_USES,
+        [],
+    )
+    assert inventory.workflow_exact_mapping(
+        text,
+        "permissions",
+        section_indent=0,
+        entry_indent=2,
+    ) == (inventory.PR_SAFE_READ_ONLY_PERMISSIONS, [])
+    audit_job = inventory.workflow_job_blocks(text)["pr-safe-base-audit-runner"]
+    assert inventory.workflow_exact_mapping(
+        audit_job,
+        "permissions",
+        section_indent=4,
+        entry_indent=6,
+    ) == (inventory.PR_SAFE_READ_ONLY_PERMISSIONS, [])
+
+    mutations = (
+        text.replace(
+            inventory.PR_SAFE_REGULAR_JOB_NAME_EXPRESSION,
+            inventory.PR_SAFE_REQUIRED_CHECK_CONTEXT,
+            1,
+        ),
+        text.replace("    timeout-minutes: 30\n", "", 1),
+        text.replace(
+            "permissions:\n  contents: read",
+            "permissions:\n  contents: read\n  id-token: write",
+            1,
+        ),
+        text.replace(
+            "    permissions:\n      contents: read",
+            "    permissions:\n      contents: read\n      pull-requests: write",
+            1,
+        ),
+        text.replace(
+            "      - name: Upload audit-only evidence",
+            "      - name: Unexpected fifth action\n"
+            "        uses: actions/cache@0000000000000000000000000000000000000000\n\n"
+            "      - name: Upload audit-only evidence",
+            1,
+        ),
+        text.replace(
+            inventory.PR_SAFE_SETUP_PYTHON_ACTION,
+            "actions/setup-python@v6",
+            1,
+        ),
+        text.replace(
+            f"        uses: {inventory.PR_SAFE_SETUP_PYTHON_ACTION}\n",
+            "",
+            1,
+        ),
+        text.replace(
+            f"        uses: {inventory.PR_SAFE_SETUP_PYTHON_ACTION}\n",
+            f"        uses: {inventory.PR_SAFE_SETUP_PYTHON_ACTION}\n"
+            f"        uses: {inventory.PR_SAFE_SETUP_PYTHON_ACTION}\n",
+            1,
+        ),
+        text.replace(
+            "permissions:\n  contents: read",
+            "permissions:\n  contents: read\npermissions:\n  contents: read",
+            1,
+        ),
+        text.replace(
+            "    permissions:\n      contents: read",
+            "    permissions:\n      contents: write",
+            1,
+        ),
+        text.replace(
+            "    permissions:\n      contents: read\n\n    steps:",
+            "    permissions:\n      contents: read\n"
+            "    permissions:\n      contents: read\n\n    steps:",
+            1,
+        ),
+        text.replace(
+            "    permissions:\n      contents: read",
+            "    permissions:\n      contents: read\n      contents: read",
+            1,
+        ),
+        text.replace(
+            "    name: pr-safe-base-audit-runner",
+            "    # name: pr-safe-base-audit-runner\n"
+            "    name: individual-stock-pr-validation",
+            1,
+        ),
+        text.replace(
+            "      github.event.pull_request.base.repo.full_name == github.repository\n"
+            "    runs-on: ubuntu-latest",
+            "      github.event.pull_request.base.repo.full_name == github.repository\n"
+            "    runs-on: self-hosted",
+            1,
+        ),
+        text.replace(
+            "    timeout-minutes: 10",
+            "    timeout-minutes: 10\n    timeout-minutes: 999",
+            1,
+        ),
+        text.replace(
+            "    if: >-\n"
+            "      github.event_name == 'pull_request_target' &&\n"
+            "      github.event.pull_request.base.ref == 'main' &&\n"
+            "      github.event.pull_request.base.repo.full_name == github.repository",
+            "    if: always()",
+            1,
+        ),
+    )
+    for mutated in mutations:
+        assert mutated != text
+        assert inventory.validate_pr_safe_base_guard_workflow_text(mutated)
 
 
 def test_scope_output_is_stable(tmp_path: Path) -> None:

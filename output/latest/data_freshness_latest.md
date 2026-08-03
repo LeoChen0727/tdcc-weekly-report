@@ -1,15 +1,15 @@
 # Data Freshness Status
 
-- generated_at: `2026-07-30 16:49:18` Asia/Taipei
+- generated_at: `2026-08-03 10:43:08` Asia/Taipei
 - market_session_status: `unknown`
-- market_session_date: `20260729`
-- expected_main_price_date: `20260729`
+- market_session_date: `20260731`
+- expected_main_price_date: `20260731`
 - market_session_reason_code: `awaiting_official_price_confirmation`
-- main_price_date: `20260730`
+- main_price_date: `20260731`
 - main_price_date_source: `historical_replay_override`
-- historical_replay_main_price_date: `20260730`
-- expected_price_history_high_water_date: `20260730`
-- actual_stock_price_history_date: `20260730`
+- historical_replay_main_price_date: `20260731`
+- expected_price_history_high_water_date: `20260731`
+- actual_stock_price_history_date: `20260731`
 - report_ready: `False`
 - report_ready_note: historical structured-source replay updates objective-source freshness only; publish artifacts remain stale
 - warrant_ready: `True`
@@ -29,9 +29,9 @@
 | source | effective_date | raw_date | note |
 |---|---:|---:|---|
 | all_candidates_latest.csv | 20260717 | 20260717 | stale_date=20260717 |
-| official_price_fetch_latest | 20260730 | 20260730 | ready |
+| official_price_fetch_latest | 20260731 | 20260731 | ready |
 | stock_monitor_latest.md | 20260717 | 20260717 | stale_date=20260717 |
-| warrant_flow_latest.csv | 20260730 | 20260730 | ready |
+| warrant_flow_latest.csv | 20260731 | 20260731 | ready |
 
 ## Rule
 

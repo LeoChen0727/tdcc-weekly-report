@@ -626,3 +626,1125 @@ def test_registered_source_identity_gate_self_update_is_exact_and_one_time(
     )
     assert errors
     assert pr_safe.PR_VALIDATION_WORKFLOW_PATH in errors[0]
+
+
+PR462_RESEARCH_PRODUCERS = (
+    "scripts/revenue_unreacted_range_source_snapshot_projection.py",
+    "scripts/revenue_unreacted_range_low_mid_falling_candidate_audit.py",
+    "scripts/revenue_unreacted_range_monthly_revenue_cross_market_resolution.py",
+    "scripts/revenue_unreacted_range_research_frame.py",
+)
+PR462_RESEARCH_VALIDATORS = (
+    "scripts/validate_revenue_unreacted_range_source_snapshot_projection.py",
+    "scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
+    "scripts/validate_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py",
+)
+PR462_RESEARCH_TESTS = (
+    "tests/test_revenue_unreacted_range_source_snapshot_projection.py",
+    "tests/test_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py",
+    "tests/test_validate_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py",
+    "tests/test_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
+    "tests/test_validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
+)
+PR462_EXISTING_RESEARCH_ROWS = (
+    "scripts/synthetic_pr_safe_fixture_existing_research_audit.py",
+    "scripts/synthetic_pr_safe_fixture_existing_research_validator.py",
+)
+PR462_LIFECYCLE_TARGETS = (
+    "scripts/synthetic_pr_safe_fixture_data_independence_audit.py",
+    "scripts/synthetic_pr_safe_fixture_revenue_research_producer.py",
+)
+PR462_CONTROL_PATHS = tuple(pr_safe.RESEARCH_CONTROL_PYTHON_ALLOWLIST)
+PR462_PRODUCTION_SENTINEL = "scripts/build_daily_candidate_model_layer.py"
+PR462_LEGACY_RESEARCH_ARTIFACT = (
+    "output/latest/research_backtest/monthly_revenue_history_latest.csv"
+)
+PR462_REPLACEMENT_RESEARCH_CONFIG = (
+    "config/revenue_unreacted_range_monthly_revenue_cross_market_resolution.csv"
+)
+PR462_SECOND_REPLACEMENT_RESEARCH_CONFIG = (
+    "config/revenue_unreacted_range_price_comparability_resolution.csv"
+)
+
+
+def production_inventory_row(
+    path: str,
+    *,
+    kind: str = "python",
+    purpose: str = "research-only path",
+    allowed_workflows: str = pr_safe.RESEARCH_WORKFLOW_PATH,
+    owner: str = pr_safe.RESEARCH_OWNER,
+) -> dict[str, str]:
+    return {
+        "path": path,
+        "kind": kind,
+        "owner": owner,
+        "status": "active",
+        "purpose": purpose,
+        "allowed_workflows": allowed_workflows,
+        "allowed_stage_patterns": "",
+    }
+
+
+def lifecycle_inventory_row(
+    path: str,
+    *,
+    kind: str,
+    tested_by: str = "",
+    owner: str = pr_safe.RESEARCH_OWNER,
+) -> dict[str, str]:
+    return {
+        "path": path,
+        "type": kind,
+        "owner": owner,
+        "status": "active",
+        "called_by_workflow": (
+            f"{pr_safe.PR_VALIDATION_WORKFLOW_PATH};{pr_safe.RESEARCH_WORKFLOW_PATH}"
+            if path in PR462_RESEARCH_VALIDATORS
+            else ""
+        ),
+        "imported_by": "",
+        "tested_by": tested_by,
+        "documented_by": "",
+        "writes_artifact": "",
+        "reads_artifact": "",
+        "keep_reason": "registered research-only path",
+        "delete_reason": "",
+        "removal_risk": "high",
+    }
+
+
+def lifecycle_authorization_row(
+    migration_id: str,
+    row_path: str,
+    base_value: str,
+    current_value: str,
+    **overrides: str,
+) -> dict[str, str]:
+    base_values = set(pr_safe.split_list(base_value))
+    current_values = set(pr_safe.split_list(current_value))
+    row = {
+        "migration_id": migration_id,
+        "status": pr_safe.LIFECYCLE_SEMANTIC_MIGRATION_STATUS,
+        "approval_reference": "user_delegated_pr462_research_registration_20260803",
+        "row_path": row_path,
+        "column": "reads_artifact",
+        "base_value_sha256": pr_safe.canonical_sha256(base_value.encode("utf-8")),
+        "current_value_sha256": pr_safe.canonical_sha256(
+            current_value.encode("utf-8")
+        ),
+        "added_values": ";".join(sorted(current_values - base_values)),
+        "removed_values": ";".join(sorted(base_values - current_values)),
+        "scope": pr_safe.LIFECYCLE_SEMANTIC_MIGRATION_SCOPE,
+    }
+    row.update(overrides)
+    return row
+
+
+def install_pr462_additive_research_registration(
+    repository_root: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    *,
+    lifecycle_authorization_overrides: dict[str, str] | None = None,
+    include_config_filter_assertion: bool = True,
+) -> set[str]:
+    monkeypatch.setattr(
+        pr_safe,
+        "RESEARCH_LIFECYCLE_CONTROL_ALLOWLIST",
+        frozenset(
+            {
+                *pr_safe.RESEARCH_LIFECYCLE_CONTROL_ALLOWLIST,
+                PR462_LIFECYCLE_TARGETS[0],
+            }
+        ),
+    )
+    base_workflow = """name: Daily Model Maintenance PR Validation
+on:
+  pull_request:
+    paths:
+      - "config/daily_model_*.csv"
+      - "tests/test_revenue_unreacted_range_*.py"
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate contracts
+        run: |
+          python scripts/validate_revenue_unreacted_range_existing.py
+      - name: Focused tests
+        run: |
+          python -m pytest -q \\
+            tests/test_revenue_unreacted_range_existing.py
+"""
+    current_workflow = base_workflow.replace(
+        '      - "config/daily_model_*.csv"\n',
+        '      - "config/daily_model_*.csv"\n'
+        '      - "config/revenue_unreacted_range_*.csv"\n',
+        1,
+    ).replace(
+        '      - "tests/test_revenue_unreacted_range_*.py"\n',
+        '      - "tests/test_revenue_unreacted_range_*.py"\n'
+        '      - "tests/test_validate_revenue_unreacted_range_*.py"\n',
+        1,
+    ).replace(
+        "          python scripts/validate_revenue_unreacted_range_existing.py\n",
+        "          python scripts/validate_revenue_unreacted_range_existing.py\n"
+        + "".join(f"          python {path}\n" for path in PR462_RESEARCH_VALIDATORS),
+        1,
+    ).replace(
+        "            tests/test_revenue_unreacted_range_existing.py\n",
+        "".join(f"            {path} \\\n" for path in PR462_RESEARCH_TESTS)
+        + "            tests/test_revenue_unreacted_range_existing.py\n",
+        1,
+    )
+    workflow_path = repository_root / pr_safe.PR_VALIDATION_WORKFLOW_PATH
+    workflow_path.parent.mkdir(parents=True, exist_ok=True)
+    workflow_path.write_text(current_workflow, encoding="utf-8")
+
+    base_rows = [
+        production_inventory_row(
+            PR462_EXISTING_RESEARCH_ROWS[0],
+            purpose="revenue forward confirmation audit module",
+        ),
+        production_inventory_row(
+            PR462_EXISTING_RESEARCH_ROWS[1],
+            purpose="revenue forward confirmation validator",
+            allowed_workflows=(
+                f"{pr_safe.PR_VALIDATION_WORKFLOW_PATH};"
+                f"{pr_safe.RESEARCH_WORKFLOW_PATH}"
+            ),
+        ),
+    ]
+    base_rows.extend(
+        (
+            production_inventory_row(
+                PR462_LIFECYCLE_TARGETS[0],
+                owner="repo_infrastructure",
+                allowed_workflows="",
+                purpose="formal model data independence audit builder",
+            ),
+            production_inventory_row(
+                PR462_LIFECYCLE_TARGETS[1],
+                purpose="model-owned revenue research producer",
+            ),
+        )
+    )
+    for path in PR462_CONTROL_PATHS:
+        owner, kind = pr_safe.RESEARCH_CONTROL_PYTHON_ALLOWLIST[path]
+        base_rows.append(
+            production_inventory_row(
+                path,
+                kind=kind,
+                owner=owner,
+                allowed_workflows="",
+                purpose="registered research control-plane regression",
+            )
+        )
+    base_rows.append(
+        production_inventory_row(
+            PR462_PRODUCTION_SENTINEL,
+            owner="daily_production",
+            allowed_workflows=".github/workflows/daily_full_pipeline.yml",
+            purpose="formal daily production sentinel",
+        )
+    )
+    current_rows = [dict(row) for row in base_rows]
+    current_rows[0]["purpose"] = "projection-bound forward audit module"
+    current_rows[1]["purpose"] = "projection-bound forward validator"
+    for path in PR462_RESEARCH_PRODUCERS:
+        current_rows.append(production_inventory_row(path))
+    for path in PR462_RESEARCH_VALIDATORS:
+        current_rows.append(
+            production_inventory_row(
+                path,
+                allowed_workflows=(
+                    f"{pr_safe.PR_VALIDATION_WORKFLOW_PATH};"
+                    f"{pr_safe.RESEARCH_WORKFLOW_PATH}"
+                ),
+            )
+        )
+    for path in PR462_RESEARCH_TESTS:
+        current_rows.append(
+            production_inventory_row(
+                path,
+                kind="test_python",
+                allowed_workflows="",
+            )
+        )
+    write_csv(repository_root / pr_safe.PRODUCTION_INVENTORY_PATH, current_rows)
+
+    validator_tests = {
+        PR462_RESEARCH_VALIDATORS[0]: PR462_RESEARCH_TESTS[0],
+        PR462_RESEARCH_VALIDATORS[1]: PR462_RESEARCH_TESTS[4],
+        PR462_RESEARCH_VALIDATORS[2]: PR462_RESEARCH_TESTS[2],
+    }
+    base_lifecycle_rows = [
+        lifecycle_inventory_row(path, kind="python")
+        for path in PR462_EXISTING_RESEARCH_ROWS
+    ]
+    base_lifecycle_rows.extend(
+        (
+            lifecycle_inventory_row(
+                PR462_LIFECYCLE_TARGETS[0],
+                kind="python",
+                owner="repo_infrastructure",
+            ),
+            lifecycle_inventory_row(
+                PR462_LIFECYCLE_TARGETS[1],
+                kind="python",
+            ),
+        )
+    )
+    base_lifecycle_rows[2]["reads_artifact"] = PR462_LEGACY_RESEARCH_ARTIFACT
+    base_lifecycle_rows[3]["reads_artifact"] = PR462_LEGACY_RESEARCH_ARTIFACT
+    base_lifecycle_rows.extend(
+        lifecycle_inventory_row(
+            path,
+            kind=pr_safe.RESEARCH_CONTROL_PYTHON_ALLOWLIST[path][1],
+            owner=pr_safe.RESEARCH_CONTROL_PYTHON_ALLOWLIST[path][0],
+        )
+        for path in PR462_CONTROL_PATHS
+    )
+    base_lifecycle_rows.append(
+        lifecycle_inventory_row(
+            PR462_PRODUCTION_SENTINEL,
+            kind="python",
+            owner="daily_production",
+        )
+    )
+    lifecycle_rows = [dict(row) for row in base_lifecycle_rows]
+    lifecycle_rows[2]["reads_artifact"] = (
+        f"{PR462_LEGACY_RESEARCH_ARTIFACT};{PR462_REPLACEMENT_RESEARCH_CONFIG}"
+    )
+    lifecycle_rows[3]["reads_artifact"] = (
+        f"{PR462_REPLACEMENT_RESEARCH_CONFIG};"
+        f"{PR462_SECOND_REPLACEMENT_RESEARCH_CONFIG}"
+    )
+    lifecycle_rows.extend(
+        lifecycle_inventory_row(path, kind="python")
+        for path in PR462_RESEARCH_PRODUCERS
+    )
+    lifecycle_rows.extend(
+        lifecycle_inventory_row(
+            path,
+            kind="python",
+            tested_by=validator_tests[path],
+        )
+        for path in PR462_RESEARCH_VALIDATORS
+    )
+    lifecycle_rows.extend(
+        lifecycle_inventory_row(path, kind="test_python")
+        for path in PR462_RESEARCH_TESTS
+    )
+    write_csv(
+        repository_root / pr_safe.LIFECYCLE_INVENTORY_PATH,
+        lifecycle_rows,
+    )
+
+    workflow_test_path = (
+        repository_root
+        / "tests/test_daily_model_maintenance_pr_validation_workflow.py"
+    )
+    workflow_test_path.parent.mkdir(parents=True, exist_ok=True)
+    asserted_path_patterns = (
+        ("        'config/revenue_unreacted_range_*.csv',\n")
+        if include_config_filter_assertion
+        else ""
+    ) + "        'tests/test_validate_revenue_unreacted_range_*.py',\n"
+    workflow_test_path.write_text(
+        "from pathlib import Path\n\n"
+        "WORKFLOW = Path('.github/workflows/daily_model_maintenance_pr_validation.yml')\n\n"
+        "def test_revenue_research_paths_are_asserted() -> None:\n"
+        "    text = WORKFLOW.read_text(encoding='utf-8')\n"
+        "    required_patterns = (\n"
+        + asserted_path_patterns
+        + "    )\n"
+        "    for pattern in required_patterns:\n"
+        "        assert pattern in text\n"
+        "    required_commands = (\n"
+        + "".join(f"        'python {path}',\n" for path in PR462_RESEARCH_VALIDATORS)
+        + "    )\n"
+        "    for command in required_commands:\n"
+        "        assert command in text\n"
+        "    required_tests = (\n"
+        + "".join(f"        '{path}',\n" for path in PR462_RESEARCH_TESTS)
+        + "    )\n"
+        "    for path in required_tests:\n"
+        "        assert path in text\n",
+        encoding="utf-8",
+    )
+    new_python_paths = {
+        *PR462_RESEARCH_PRODUCERS,
+        *PR462_RESEARCH_VALIDATORS,
+        *PR462_RESEARCH_TESTS,
+    }
+    for path in (
+        *new_python_paths,
+        *PR462_EXISTING_RESEARCH_ROWS,
+        *PR462_LIFECYCLE_TARGETS,
+        *PR462_CONTROL_PATHS,
+        PR462_PRODUCTION_SENTINEL,
+    ):
+        if path == pr_safe.RESEARCH_WORKFLOW_REGRESSION_TEST_PATH:
+            continue
+        target = repository_root / path
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text("RESEARCH_ONLY = True\n", encoding="utf-8")
+    new_config_path = PR462_REPLACEMENT_RESEARCH_CONFIG
+    config_path = repository_root / new_config_path
+    config_path.parent.mkdir(parents=True, exist_ok=True)
+    config_path.write_text("stock_id,canonical_market\n5236,TWSE\n", encoding="utf-8")
+    second_config_path = PR462_SECOND_REPLACEMENT_RESEARCH_CONFIG
+    second_config = repository_root / second_config_path
+    second_config_payload = b"stock_id,comparable\n5236,true\n"
+    second_config.write_bytes(second_config_payload)
+    lifecycle_authorizations = [
+        lifecycle_authorization_row(
+            "pr462-additive-lifecycle-test",
+            PR462_LIFECYCLE_TARGETS[0],
+            base_lifecycle_rows[2]["reads_artifact"],
+            lifecycle_rows[2]["reads_artifact"],
+            **(lifecycle_authorization_overrides or {}),
+        ),
+        lifecycle_authorization_row(
+            "pr462-rewrite-lifecycle-test",
+            PR462_LIFECYCLE_TARGETS[1],
+            base_lifecycle_rows[3]["reads_artifact"],
+            lifecycle_rows[3]["reads_artifact"],
+        ),
+    ]
+    migration_path = repository_root / pr_safe.LIFECYCLE_SEMANTIC_MIGRATIONS_PATH
+    migration_path.parent.mkdir(parents=True, exist_ok=True)
+    write_csv(migration_path, lifecycle_authorizations)
+
+    changed_paths = {
+        pr_safe.PR_VALIDATION_WORKFLOW_PATH,
+        pr_safe.PRODUCTION_INVENTORY_PATH,
+        pr_safe.LIFECYCLE_INVENTORY_PATH,
+        "tests/test_daily_model_maintenance_pr_validation_workflow.py",
+        new_config_path,
+        *new_python_paths,
+        *PR462_EXISTING_RESEARCH_ROWS,
+        PR462_LIFECYCLE_TARGETS[1],
+        *PR462_CONTROL_PATHS,
+    }
+    base_payloads = {
+        pr_safe.PR_VALIDATION_WORKFLOW_PATH: base_workflow.encode("utf-8"),
+        pr_safe.PRODUCTION_INVENTORY_PATH: csv_payload(base_rows),
+        pr_safe.LIFECYCLE_INVENTORY_PATH: csv_payload(base_lifecycle_rows),
+        pr_safe.LIFECYCLE_SEMANTIC_MIGRATIONS_PATH: csv_payload(
+            lifecycle_authorizations
+        ),
+        pr_safe.BACKGROUND_DATA_REGISTRY_PATH: csv_payload(
+            [
+                {
+                    "data_family_id": "revenue_unreacted_range_fixture",
+                    "scope": "model_research_output",
+                    "owner_lane": "daily_model_maintenance",
+                    "producer": PR462_LIFECYCLE_TARGETS[1],
+                    "artifact_path": "output/latest/research_backtest/fixture.csv",
+                    "source_artifacts": second_config_path,
+                    "consumer_surfaces": "research_backtest",
+                    "consumer_models": "revenue_unreacted_range",
+                    "point_in_time_status": "research_only",
+                    "allowed_use": "research fixture",
+                    "forbidden_use": "do not use in production",
+                    "validator": PR462_RESEARCH_VALIDATORS[0],
+                    "retention_policy": "keep",
+                    "cleanup_status": "active",
+                    "notes": "base-owned fixture governance",
+                }
+            ]
+        ),
+        second_config_path: second_config_payload,
+    }
+    monkeypatch.setattr(
+        pr_safe,
+        "git_blob_at_ref",
+        lambda _ref, path, **_kwargs: base_payloads.get(path),
+    )
+    monkeypatch.setattr(
+        pr_safe,
+        "git_path_exists_at_ref",
+        lambda _ref, path, **_kwargs: False
+        if path in {*new_python_paths, new_config_path}
+        else True,
+    )
+    monkeypatch.setattr(
+        pr_safe,
+        "git_tree_entry_at_ref",
+        lambda _ref, path, **_kwargs: (
+            ("100644", "blob", "1" * 40, path)
+            if path == second_config_path
+            else None
+        ),
+    )
+    monkeypatch.setattr(
+        pr_safe,
+        "changed_paths_from_base",
+        lambda *_args, **_kwargs: (set(changed_paths), []),
+    )
+    return changed_paths
+
+
+def test_pr462_exact_additive_research_workflow_and_inventory_shape_is_pr_safe(
+    historical_replay_repo: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    changed_paths = install_pr462_additive_research_registration(
+        historical_replay_repo,
+        monkeypatch,
+    )
+    recognized, errors = pr_safe.validate_additive_research_validation_registration(
+        "base-sha",
+        changed_paths,
+        {
+            pr_safe.PR_VALIDATION_WORKFLOW_PATH,
+            pr_safe.PRODUCTION_INVENTORY_PATH,
+        },
+        repository_root=historical_replay_repo,
+    )
+
+    assert recognized
+    assert errors == []
+    assert (
+        pr_safe.validate_pr_safe_advanced_integrity_contract(
+            "base-sha",
+            repository_root=historical_replay_repo,
+        )
+        == []
+    )
+
+
+def test_pr462_current_projection_is_rejected_until_config_filter_is_asserted(
+    historical_replay_repo: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    changed_paths = install_pr462_additive_research_registration(
+        historical_replay_repo,
+        monkeypatch,
+        include_config_filter_assertion=False,
+    )
+
+    recognized, errors = pr_safe.validate_additive_research_validation_registration(
+        "base-sha",
+        changed_paths,
+        {
+            pr_safe.PR_VALIDATION_WORKFLOW_PATH,
+            pr_safe.PRODUCTION_INVENTORY_PATH,
+        },
+        repository_root=historical_replay_repo,
+    )
+
+    assert recognized
+    assert errors == [
+        "PR workflow regression does not assert additive path filter: "
+        "config/revenue_unreacted_range_*.csv"
+    ]
+
+    workflow_test = (
+        historical_replay_repo / pr_safe.RESEARCH_WORKFLOW_REGRESSION_TEST_PATH
+    )
+    current_source = workflow_test.read_text(encoding="utf-8")
+    workflow_test.write_text(
+        current_source.replace(
+            "        'tests/test_validate_revenue_unreacted_range_*.py',\n",
+            "        'config/revenue_unreacted_range_*.csv',\n"
+            "        'tests/test_validate_revenue_unreacted_range_*.py',\n",
+            1,
+        ),
+        encoding="utf-8",
+    )
+
+    recognized, errors = pr_safe.validate_additive_research_validation_registration(
+        "base-sha",
+        changed_paths,
+        {
+            pr_safe.PR_VALIDATION_WORKFLOW_PATH,
+            pr_safe.PRODUCTION_INVENTORY_PATH,
+        },
+        repository_root=historical_replay_repo,
+    )
+
+    assert recognized
+    assert errors == []
+
+
+def test_additive_research_registration_rejects_existing_production_python_change(
+    historical_replay_repo: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    changed_paths = install_pr462_additive_research_registration(
+        historical_replay_repo,
+        monkeypatch,
+    )
+    changed_paths.add(PR462_PRODUCTION_SENTINEL)
+
+    recognized, errors = pr_safe.validate_additive_research_validation_registration(
+        "base-sha",
+        changed_paths,
+        {
+            pr_safe.PR_VALIDATION_WORKFLOW_PATH,
+            pr_safe.PRODUCTION_INVENTORY_PATH,
+        },
+        repository_root=historical_replay_repo,
+    )
+
+    assert recognized
+    assert any(
+        PR462_PRODUCTION_SENTINEL in error
+        and "outside the additive research ownership boundary" in error
+        for error in errors
+    )
+
+
+def test_additive_research_registration_rejects_existing_lifecycle_governance_drift(
+    historical_replay_repo: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    changed_paths = install_pr462_additive_research_registration(
+        historical_replay_repo,
+        monkeypatch,
+    )
+    lifecycle_path = historical_replay_repo / pr_safe.LIFECYCLE_INVENTORY_PATH
+    rows = list(csv.DictReader(lifecycle_path.read_text(encoding="utf-8").splitlines()))
+    next(
+        row for row in rows if row["path"] == PR462_EXISTING_RESEARCH_ROWS[0]
+    )["status"] = "legacy_deprecated"
+    write_csv(lifecycle_path, rows)
+
+    recognized, errors = pr_safe.validate_additive_research_validation_registration(
+        "base-sha",
+        changed_paths,
+        {
+            pr_safe.PR_VALIDATION_WORKFLOW_PATH,
+            pr_safe.PRODUCTION_INVENTORY_PATH,
+        },
+        repository_root=historical_replay_repo,
+    )
+
+    assert recognized
+    assert any(
+        "existing lifecycle governance semantics may not change" in error
+        and PR462_EXISTING_RESEARCH_ROWS[0] in error
+        for error in errors
+    )
+
+
+def test_additive_research_registration_rejects_lifecycle_rewrite_without_migration(
+    historical_replay_repo: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    changed_paths = install_pr462_additive_research_registration(
+        historical_replay_repo,
+        monkeypatch,
+    )
+    migration_path = (
+        historical_replay_repo / pr_safe.LIFECYCLE_SEMANTIC_MIGRATIONS_PATH
+    )
+    rows = list(csv.DictReader(migration_path.read_text(encoding="utf-8").splitlines()))
+    write_csv(migration_path, rows[1:])
+    changed_paths.add(pr_safe.LIFECYCLE_SEMANTIC_MIGRATIONS_PATH)
+
+    recognized, errors = pr_safe.validate_additive_research_validation_registration(
+        "base-sha",
+        changed_paths,
+        {
+            pr_safe.PR_VALIDATION_WORKFLOW_PATH,
+            pr_safe.PRODUCTION_INVENTORY_PATH,
+        },
+        repository_root=historical_replay_repo,
+    )
+
+    assert recognized
+    assert any(
+        "base-owned lifecycle semantic authorization ledger" in error
+        for error in errors
+    )
+
+
+def test_additive_research_registration_accepts_exact_lifecycle_semantic_migration(
+    historical_replay_repo: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    changed_paths = install_pr462_additive_research_registration(
+        historical_replay_repo,
+        monkeypatch,
+    )
+
+    recognized, errors = pr_safe.validate_additive_research_validation_registration(
+        "base-sha",
+        changed_paths,
+        {
+            pr_safe.PR_VALIDATION_WORKFLOW_PATH,
+            pr_safe.PRODUCTION_INVENTORY_PATH,
+        },
+        repository_root=historical_replay_repo,
+    )
+
+    assert recognized
+    assert errors == []
+    assert pr_safe.LIFECYCLE_SEMANTIC_MIGRATIONS_PATH not in changed_paths
+
+
+def test_unchanged_dependency_allows_only_canonical_line_ending_difference(
+    historical_replay_repo: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    changed_paths = install_pr462_additive_research_registration(
+        historical_replay_repo,
+        monkeypatch,
+    )
+    dependency = historical_replay_repo / PR462_SECOND_REPLACEMENT_RESEARCH_CONFIG
+    dependency.write_bytes(dependency.read_bytes().replace(b"\n", b"\r\n"))
+
+    recognized, errors = pr_safe.validate_additive_research_validation_registration(
+        "base-sha",
+        changed_paths,
+        {
+            pr_safe.PR_VALIDATION_WORKFLOW_PATH,
+            pr_safe.PRODUCTION_INVENTORY_PATH,
+        },
+        repository_root=historical_replay_repo,
+    )
+
+    assert recognized
+    assert errors == []
+
+
+@pytest.mark.parametrize("failure_mode", ["content", "mode", "governance"])
+def test_additive_research_registration_rejects_unverified_unchanged_dependency(
+    historical_replay_repo: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    failure_mode: str,
+) -> None:
+    changed_paths = install_pr462_additive_research_registration(
+        historical_replay_repo,
+        monkeypatch,
+    )
+    dependency = historical_replay_repo / PR462_SECOND_REPLACEMENT_RESEARCH_CONFIG
+    if failure_mode == "content":
+        dependency.write_text("stock_id,comparable\n5236,false\n", encoding="utf-8")
+    elif failure_mode == "mode":
+        monkeypatch.setattr(
+            pr_safe,
+            "git_tree_entry_at_ref",
+            lambda _ref, path, **_kwargs: (
+                ("120000", "blob", "1" * 40, path)
+                if path == PR462_SECOND_REPLACEMENT_RESEARCH_CONFIG
+                else None
+            ),
+        )
+    else:
+        original_git_blob = pr_safe.git_blob_at_ref
+        ungoverned_registry = csv_payload(
+            [
+                {
+                    "scope": "model_research_output",
+                    "producer": PR462_LIFECYCLE_TARGETS[1],
+                    "source_artifacts": "",
+                    "consumer_surfaces": "research_backtest",
+                    "consumer_models": "revenue_unreacted_range",
+                    "forbidden_use": "do not use in production",
+                    "cleanup_status": "active",
+                }
+            ]
+        )
+        monkeypatch.setattr(
+            pr_safe,
+            "git_blob_at_ref",
+            lambda ref, path, **kwargs: (
+                ungoverned_registry
+                if path == pr_safe.BACKGROUND_DATA_REGISTRY_PATH
+                else original_git_blob(ref, path, **kwargs)
+            ),
+        )
+
+    recognized, errors = pr_safe.validate_additive_research_validation_registration(
+        "base-sha",
+        changed_paths,
+        {
+            pr_safe.PR_VALIDATION_WORKFLOW_PATH,
+            pr_safe.PRODUCTION_INVENTORY_PATH,
+        },
+        repository_root=historical_replay_repo,
+    )
+
+    assert recognized
+    assert any(
+        "research lifecycle addition is not bound to a changed path" in error
+        and PR462_SECOND_REPLACEMENT_RESEARCH_CONFIG in error
+        for error in errors
+    )
+
+
+@pytest.mark.parametrize(
+    ("field", "value"),
+    [
+        ("base_value_sha256", "0" * 64),
+        ("current_value_sha256", "1" * 64),
+        ("removed_values", "output/latest/research_backtest/not-the-base.csv"),
+        ("scope", "production_lifecycle"),
+    ],
+)
+def test_additive_research_registration_rejects_inexact_lifecycle_migration(
+    historical_replay_repo: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    field: str,
+    value: str,
+) -> None:
+    changed_paths = install_pr462_additive_research_registration(
+        historical_replay_repo,
+        monkeypatch,
+        lifecycle_authorization_overrides={field: value},
+    )
+
+    recognized, errors = pr_safe.validate_additive_research_validation_registration(
+        "base-sha",
+        changed_paths,
+        {
+            pr_safe.PR_VALIDATION_WORKFLOW_PATH,
+            pr_safe.PRODUCTION_INVENTORY_PATH,
+        },
+        repository_root=historical_replay_repo,
+    )
+
+    assert recognized
+    assert any(
+        "base-owned lifecycle authorization does not match exact base/current evidence"
+        in error
+        for error in errors
+    )
+
+
+def test_additive_research_registration_rejects_dummy_workflow_test_substrings(
+    historical_replay_repo: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    changed_paths = install_pr462_additive_research_registration(
+        historical_replay_repo,
+        monkeypatch,
+    )
+    workflow_test = (
+        historical_replay_repo / pr_safe.RESEARCH_WORKFLOW_REGRESSION_TEST_PATH
+    )
+    workflow_test.write_text(
+        "\n".join(
+            (
+                "config/revenue_unreacted_range_*.csv",
+                "tests/test_validate_revenue_unreacted_range_*.py",
+                *PR462_RESEARCH_VALIDATORS,
+                *PR462_RESEARCH_TESTS,
+            )
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+
+    recognized, errors = pr_safe.validate_additive_research_validation_registration(
+        "base-sha",
+        changed_paths,
+        {
+            pr_safe.PR_VALIDATION_WORKFLOW_PATH,
+            pr_safe.PRODUCTION_INVENTORY_PATH,
+        },
+        repository_root=historical_replay_repo,
+    )
+
+    assert recognized
+    assert any("does not assert additive research path" in error for error in errors)
+    assert any("does not assert additive path filter" in error for error in errors)
+
+
+@pytest.mark.parametrize(
+    "source",
+    [
+        (
+            "from pathlib import Path\n"
+            "WORKFLOW = Path('.github/workflows/daily_model_maintenance_pr_validation.yml')\n"
+            "def test_dummy():\n"
+            "    text = WORKFLOW.read_text(encoding='utf-8')\n"
+            "    required = ('needle',)\n"
+            "    for item in required:\n"
+            "        assert item in item\n"
+        ),
+        (
+            "from pathlib import Path\n"
+            "WORKFLOW = Path('.github/workflows/daily_model_maintenance_pr_validation.yml')\n"
+            "def test_dummy():\n"
+            "    text = WORKFLOW.read_text(encoding='utf-8')\n"
+            "    required = ('needle',)\n"
+            "    for item in required:\n"
+            "        assert item in 'constant needle'\n"
+        ),
+        (
+            "from pathlib import Path\n"
+            "WORKFLOW = Path('.github/workflows/not-the-pr-workflow.yml')\n"
+            "def test_dummy():\n"
+            "    text = WORKFLOW.read_text(encoding='utf-8')\n"
+            "    required = ('needle',)\n"
+            "    for item in required:\n"
+            "        assert item in text\n"
+        ),
+        (
+            "from pathlib import Path\n"
+            "WORKFLOW = Path('.github/workflows/daily_model_maintenance_pr_validation.yml')\n"
+            "def test_dummy():\n"
+            "    text = 'needle'\n"
+            "    assert 'needle' in text\n"
+            "    text = WORKFLOW.read_text(encoding='utf-8')\n"
+        ),
+    ],
+)
+def test_workflow_regression_ast_rejects_untrusted_membership_rhs(source: str) -> None:
+    asserted, errors = pr_safe.asserted_workflow_regression_literals(source)
+
+    assert errors == []
+    assert asserted == set()
+
+
+@pytest.mark.parametrize(
+    ("old", "new"),
+    [
+        (
+            "          python scripts/validate_revenue_unreacted_range_existing.py\n",
+            "",
+        ),
+        ("  contents: read\n", "  contents: write\n"),
+        (
+            "  pull_request:\n    paths:\n",
+            "  pull_request:\n    branches: [main]\n    paths:\n",
+        ),
+        (
+            "    runs-on: ubuntu-latest\n",
+            "    runs-on: ubuntu-latest\n    timeout-minutes: 10\n",
+        ),
+        (
+            "          python scripts/validate_revenue_unreacted_range_existing.py\n",
+            "          python scripts/validate_revenue_unreacted_range_existing.py\n"
+            "          python scripts/synthetic_pr_safe_fixture_forbidden_entrypoint.py\n",
+        ),
+    ],
+)
+def test_additive_research_registration_rejects_workflow_semantic_mutation(
+    historical_replay_repo: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    old: str,
+    new: str,
+) -> None:
+    changed_paths = install_pr462_additive_research_registration(
+        historical_replay_repo,
+        monkeypatch,
+    )
+    workflow_path = historical_replay_repo / pr_safe.PR_VALIDATION_WORKFLOW_PATH
+    workflow_path.write_text(
+        workflow_path.read_text(encoding="utf-8").replace(old, new, 1),
+        encoding="utf-8",
+    )
+
+    recognized, errors = pr_safe.validate_additive_research_validation_registration(
+        "base-sha",
+        changed_paths,
+        {
+            pr_safe.PR_VALIDATION_WORKFLOW_PATH,
+            pr_safe.PRODUCTION_INVENTORY_PATH,
+        },
+        repository_root=historical_replay_repo,
+    )
+
+    assert recognized
+    assert errors
+
+
+@pytest.mark.parametrize(
+    ("path", "column", "value"),
+    [
+        (PR462_RESEARCH_VALIDATORS[0], "owner", "daily_production"),
+        (
+            PR462_EXISTING_RESEARCH_ROWS[1],
+            "allowed_workflows",
+            ".github/workflows/daily_full_pipeline.yml",
+        ),
+    ],
+)
+def test_additive_research_registration_rejects_inventory_semantic_mutation(
+    historical_replay_repo: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    path: str,
+    column: str,
+    value: str,
+) -> None:
+    changed_paths = install_pr462_additive_research_registration(
+        historical_replay_repo,
+        monkeypatch,
+    )
+    inventory_path = historical_replay_repo / pr_safe.PRODUCTION_INVENTORY_PATH
+    rows = list(csv.DictReader(inventory_path.read_text(encoding="utf-8").splitlines()))
+    next(row for row in rows if row["path"] == path)[column] = value
+    write_csv(inventory_path, rows)
+
+    recognized, errors = pr_safe.validate_additive_research_validation_registration(
+        "base-sha",
+        changed_paths,
+        {
+            pr_safe.PR_VALIDATION_WORKFLOW_PATH,
+            pr_safe.PRODUCTION_INVENTORY_PATH,
+        },
+        repository_root=historical_replay_repo,
+    )
+
+    assert recognized
+    assert errors
+
+
+def test_additive_research_registration_rejects_unregistered_new_producer(
+    historical_replay_repo: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    changed_paths = install_pr462_additive_research_registration(
+        historical_replay_repo,
+        monkeypatch,
+    )
+    unregistered = "scripts/revenue_unreacted_range_unregistered_producer.py"
+    target = historical_replay_repo / unregistered
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text("RESEARCH_ONLY = True\n", encoding="utf-8")
+    changed_paths.add(unregistered)
+    monkeypatch.setattr(
+        pr_safe,
+        "changed_paths_from_base",
+        lambda *_args, **_kwargs: (set(changed_paths), []),
+    )
+    original_exists = pr_safe.git_path_exists_at_ref
+    monkeypatch.setattr(
+        pr_safe,
+        "git_path_exists_at_ref",
+        lambda ref, path, **kwargs: (
+            False if path == unregistered else original_exists(ref, path, **kwargs)
+        ),
+    )
+
+    recognized, errors = pr_safe.validate_additive_research_validation_registration(
+        "base-sha",
+        changed_paths,
+        {
+            pr_safe.PR_VALIDATION_WORKFLOW_PATH,
+            pr_safe.PRODUCTION_INVENTORY_PATH,
+        },
+        repository_root=historical_replay_repo,
+    )
+
+    assert recognized
+    assert any("lacks production inventory" in error for error in errors)
+
+
+def test_additive_research_registration_cannot_cover_readiness_change(
+    historical_replay_repo: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    changed_paths = install_pr462_additive_research_registration(
+        historical_replay_repo,
+        monkeypatch,
+    )
+    changed_paths.add(pr_safe.FRESHNESS_RELATIVE_PATH)
+    monkeypatch.setattr(
+        pr_safe,
+        "changed_paths_from_base",
+        lambda *_args, **_kwargs: (set(changed_paths), []),
+    )
+
+    errors = pr_safe.validate_pr_safe_advanced_integrity_contract(
+        "base-sha",
+        repository_root=historical_replay_repo,
+    )
+
+    assert errors
+    assert "full runtime repo advanced-integrity validation is required" in errors[0]
+    assert pr_safe.FRESHNESS_RELATIVE_PATH in errors[0]
+
+
+def test_additive_research_gate_self_update_is_exact_and_one_time(
+    historical_replay_repo: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    helper_path = historical_replay_repo / pr_safe.PR_SAFE_HELPER_PATH
+    test_path = historical_replay_repo / pr_safe.SOURCE_IDENTITY_GATE_TEST_PATH
+    authorization_path = (
+        historical_replay_repo
+        / pr_safe.ADDITIVE_RESEARCH_GATE_AUTHORIZATIONS_PATH
+    )
+    helper_path.parent.mkdir(parents=True, exist_ok=True)
+    test_path.parent.mkdir(parents=True, exist_ok=True)
+    authorization_path.parent.mkdir(parents=True, exist_ok=True)
+    current_helper = (
+        f"GATE_ID = '{pr_safe.ADDITIVE_RESEARCH_GATE_SELF_UPDATE_ID}'\n"
+        "def enforce_additive_research_contract() -> bool:\n"
+        "    return True\n"
+    ).encode("utf-8")
+    current_tests = (
+        "def test_additive_research_contract_is_fail_closed() -> None:\n"
+        "    assert True\n"
+    ).encode("utf-8")
+    helper_path.write_bytes(current_helper)
+    test_path.write_bytes(current_tests)
+    base_helper = b"exact additive research gate base helper\n"
+    authorization_row = {
+        "migration_id": pr_safe.ADDITIVE_RESEARCH_GATE_SELF_UPDATE_ID,
+        "status": "preauthorized",
+        "approval_reference": "user-approved-stage0",
+        "base_helper_sha256": pr_safe.canonical_sha256(base_helper),
+        "current_helper_sha256": pr_safe.canonical_sha256(current_helper),
+        "current_test_sha256": pr_safe.canonical_sha256(current_tests),
+        "changed_paths": ";".join(
+            sorted(pr_safe.ADDITIVE_RESEARCH_GATE_SELF_UPDATE_PATHS)
+        ),
+    }
+    write_csv(authorization_path, [authorization_row])
+    base_authorizations = csv_payload([authorization_row])
+    base_payloads = {
+        pr_safe.PR_SAFE_HELPER_PATH: base_helper,
+        pr_safe.ADDITIVE_RESEARCH_GATE_AUTHORIZATIONS_PATH: base_authorizations,
+    }
+    monkeypatch.setattr(
+        pr_safe,
+        "git_blob_at_ref",
+        lambda _ref, path, **_kwargs: base_payloads.get(path),
+    )
+    monkeypatch.setattr(
+        pr_safe,
+        "changed_paths_from_base",
+        lambda *_args, **_kwargs: (
+            set(pr_safe.ADDITIVE_RESEARCH_GATE_SELF_UPDATE_PATHS),
+            [],
+        ),
+    )
+
+    assert (
+        pr_safe.validate_pr_safe_advanced_integrity_contract(
+            "base-sha",
+            repository_root=historical_replay_repo,
+        )
+        == []
+    )
+
+    helper_path.write_bytes(
+        current_helper
+        + b"\n# marker remains, but this unapproved semantic mutation must fail\n"
+    )
+    errors = pr_safe.validate_pr_safe_advanced_integrity_contract(
+        "base-sha",
+        repository_root=historical_replay_repo,
+    )
+    assert errors
+    assert "full runtime repo advanced-integrity validation is required" in errors[0]
+
+    helper_path.write_bytes(current_helper)
+    test_path.write_bytes(current_tests + b"\n# unapproved test mutation\n")
+    assert not pr_safe.is_additive_research_gate_self_update(
+        "base-sha",
+        set(pr_safe.ADDITIVE_RESEARCH_GATE_SELF_UPDATE_PATHS),
+        {pr_safe.PR_SAFE_HELPER_PATH},
+        repository_root=historical_replay_repo,
+    )

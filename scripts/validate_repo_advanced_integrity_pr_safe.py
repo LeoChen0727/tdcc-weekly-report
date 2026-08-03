@@ -1,13 +1,18 @@
 from __future__ import annotations
 
 import argparse
+import ast
+import copy
 import csv
+import fnmatch
 import hashlib
 import io
 import re
 import subprocess
 import sys
 from pathlib import Path
+
+import yaml
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 if str(SCRIPT_DIR) not in sys.path:
@@ -24,6 +29,24 @@ FRESHNESS_RELATIVE_PATH = "output/latest/data_freshness_latest.csv"
 EXTERNAL_SOURCE_CONTRACT_PATH = "config/external_data_source_contract.csv"
 PRODUCTION_INVENTORY_PATH = "config/repo_production_inventory.csv"
 LIFECYCLE_INVENTORY_PATH = "config/repo_file_lifecycle_inventory.csv"
+BACKGROUND_DATA_REGISTRY_PATH = "config/daily_model_background_data_registry.csv"
+LIFECYCLE_SEMANTIC_MIGRATIONS_PATH = (
+    "config/repo_file_lifecycle_semantic_migrations.csv"
+)
+LIFECYCLE_SEMANTIC_MIGRATION_COLUMNS = (
+    "migration_id",
+    "status",
+    "approval_reference",
+    "row_path",
+    "column",
+    "base_value_sha256",
+    "current_value_sha256",
+    "added_values",
+    "removed_values",
+    "scope",
+)
+LIFECYCLE_SEMANTIC_MIGRATION_STATUS = "preauthorized"
+LIFECYCLE_SEMANTIC_MIGRATION_SCOPE = "pr462_research_lifecycle_only"
 CANONICAL_LINEAGE_REGISTRY_PATH = (
     "config/daily_model_canonical_field_lineage_registry.csv"
 )
@@ -69,6 +92,88 @@ SOURCE_IDENTITY_MIGRATION_STATUS = "validated_user_approved_migration"
 CANONICAL_LINEAGE_PR_COMMAND = (
     'python scripts/validate_daily_canonical_field_lineage.py --base-ref "$BASE_SHA"'
 )
+
+ADDITIVE_RESEARCH_GATE_SELF_UPDATE_ID = (
+    "additive-research-validation-registration-pr-safe-v2"
+)
+ADDITIVE_RESEARCH_GATE_SELF_UPDATE_PATHS = frozenset(
+    {PR_SAFE_HELPER_PATH, SOURCE_IDENTITY_GATE_TEST_PATH}
+)
+ADDITIVE_RESEARCH_GATE_AUTHORIZATIONS_PATH = (
+    "config/daily_model_pr_safe_self_migration_authorizations.csv"
+)
+ADDITIVE_RESEARCH_GATE_AUTHORIZATION_COLUMNS = (
+    "migration_id",
+    "status",
+    "approval_reference",
+    "base_helper_sha256",
+    "current_helper_sha256",
+    "current_test_sha256",
+    "changed_paths",
+)
+RESEARCH_OWNER = "research_backtest"
+RESEARCH_WORKFLOW_PATH = ".github/workflows/research_backtest_pipeline.yml"
+RESEARCH_ALLOWED_WORKFLOWS = frozenset(
+    {PR_VALIDATION_WORKFLOW_PATH, RESEARCH_WORKFLOW_PATH}
+)
+RESEARCH_WORKFLOW_VALIDATOR_COMMAND_RE = re.compile(
+    r"^python (scripts/validate_[A-Za-z0-9_]+\.py)$"
+)
+RESEARCH_WORKFLOW_TEST_LINE_RE = re.compile(
+    r"^(tests/test_[A-Za-z0-9_]+\.py)(?:\s+\\)?$"
+)
+RESEARCH_WORKFLOW_PATH_FILTER_RE = re.compile(
+    r"^(?:config/[a-z0-9][a-z0-9_]*_\*\.csv|"
+    r"tests/test_(?:validate_)?[a-z0-9][a-z0-9_]*_\*\.py)$"
+)
+RESEARCH_WORKFLOW_REGRESSION_TEST_PATH = (
+    "tests/test_daily_model_maintenance_pr_validation_workflow.py"
+)
+RESEARCH_CONTROL_PYTHON_ALLOWLIST = {
+    "scripts/model_data_independence.py": ("repo_infrastructure", "python"),
+    "scripts/validate_daily_model_background_data_registry.py": (
+        "repo_infrastructure",
+        "python",
+    ),
+    "scripts/validate_model_research_workflow_isolation.py": (
+        "repo_infrastructure",
+        "python",
+    ),
+    "tests/test_daily_model_background_data_registry.py": (
+        "repo_infrastructure",
+        "test_python",
+    ),
+    RESEARCH_WORKFLOW_REGRESSION_TEST_PATH: ("daily_production", "test_python"),
+    "tests/test_model_data_independence.py": (
+        "repo_infrastructure",
+        "test_python",
+    ),
+    "tests/test_model_research_artifact_ownership.py": (
+        "repo_infrastructure",
+        "test_python",
+    ),
+    "tests/test_model_research_workflow_isolation.py": (
+        "repo_infrastructure",
+        "test_python",
+    ),
+}
+RESEARCH_LIFECYCLE_CONTROL_ALLOWLIST = frozenset(
+    {
+        *RESEARCH_CONTROL_PYTHON_ALLOWLIST,
+        "scripts/build_model_data_independence_audit.py",
+    }
+)
+LIFECYCLE_ADDITIVE_LIST_COLUMNS = frozenset(
+    {
+        "called_by_workflow",
+        "imported_by",
+        "tested_by",
+        "documented_by",
+        "writes_artifact",
+        "reads_artifact",
+    }
+)
+REGULAR_BLOB_MODES = frozenset({"100644", "100755"})
 
 PR_SAFE_BOOTSTRAP_SURFACES = frozenset(
     {
@@ -251,6 +356,1061 @@ def additive_csv_rows(
     ], []
 
 
+def canonical_repository_bytes(payload: bytes) -> bytes:
+    return payload.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+
+
+def canonical_sha256(payload: bytes) -> str:
+    return hashlib.sha256(canonical_repository_bytes(payload)).hexdigest()
+
+
+def assigned_expressions(nodes: list[ast.stmt]) -> dict[str, ast.expr]:
+    assignments: dict[str, ast.expr] = {}
+    assignment_counts: dict[str, int] = {}
+    for statement in nodes:
+        target: ast.expr | None = None
+        value: ast.expr | None = None
+        if isinstance(statement, ast.Assign) and len(statement.targets) == 1:
+            target = statement.targets[0]
+            value = statement.value
+        elif isinstance(statement, ast.AnnAssign) and isinstance(
+            statement.target, ast.Name
+        ):
+            target = statement.target
+            value = statement.value
+        if isinstance(target, ast.Name) and value is not None:
+            assignments[target.id] = value
+            assignment_counts[target.id] = assignment_counts.get(target.id, 0) + 1
+    return {
+        name: expression
+        for name, expression in assignments.items()
+        if assignment_counts[name] == 1
+    }
+
+
+def assignment_name_and_value(
+    statement: ast.stmt,
+) -> tuple[str, ast.expr] | None:
+    if isinstance(statement, ast.Assign) and len(statement.targets) == 1:
+        target = statement.targets[0]
+        if isinstance(target, ast.Name):
+            return target.id, statement.value
+    if (
+        isinstance(statement, ast.AnnAssign)
+        and isinstance(statement.target, ast.Name)
+        and statement.value is not None
+    ):
+        return statement.target.id, statement.value
+    return None
+
+
+def literal_string_sequence(expression: ast.expr) -> set[str] | None:
+    if not isinstance(expression, (ast.Tuple, ast.List, ast.Set)):
+        return None
+    values = {
+        element.value
+        for element in expression.elts
+        if isinstance(element, ast.Constant) and isinstance(element.value, str)
+    }
+    return values if len(values) == len(expression.elts) else None
+
+
+def asserted_literal(
+    expression: ast.expr,
+    *,
+    trusted_text_names: set[str],
+    expected_left_name: str | None = None,
+) -> str | None:
+    if not (
+        isinstance(expression, ast.Compare)
+        and len(expression.ops) == 1
+        and isinstance(expression.ops[0], ast.In)
+        and len(expression.comparators) == 1
+        and isinstance(expression.comparators[0], ast.Name)
+        and expression.comparators[0].id in trusted_text_names
+    ):
+        return None
+    if expected_left_name is not None:
+        return (
+            expected_left_name
+            if isinstance(expression.left, ast.Name)
+            and expression.left.id == expected_left_name
+            else None
+        )
+    return (
+        expression.left.value
+        if isinstance(expression.left, ast.Constant)
+        and isinstance(expression.left.value, str)
+        else None
+    )
+
+
+def static_path_components(
+    expression: ast.expr,
+    assignments: dict[str, ast.expr],
+    seen: frozenset[str] = frozenset(),
+) -> tuple[str, ...]:
+    if isinstance(expression, ast.Name):
+        if expression.id in seen or expression.id not in assignments:
+            return ()
+        return static_path_components(
+            assignments[expression.id],
+            assignments,
+            seen | {expression.id},
+        )
+    if isinstance(expression, ast.Constant) and isinstance(expression.value, str):
+        return tuple(
+            part
+            for part in expression.value.replace("\\", "/").split("/")
+            if part not in {"", "."}
+        )
+    if isinstance(expression, ast.BinOp) and isinstance(expression.op, ast.Div):
+        return (
+            *static_path_components(expression.left, assignments, seen),
+            *static_path_components(expression.right, assignments, seen),
+        )
+    if (
+        isinstance(expression, ast.Call)
+        and isinstance(expression.func, ast.Name)
+        and expression.func.id == "Path"
+        and len(expression.args) == 1
+    ):
+        return static_path_components(expression.args[0], assignments, seen)
+    return ()
+
+
+def reads_pr_validation_workflow(
+    expression: ast.expr,
+    assignments: dict[str, ast.expr],
+    seen: frozenset[str] = frozenset(),
+) -> bool:
+    if isinstance(expression, ast.Name):
+        if expression.id in seen or expression.id not in assignments:
+            return False
+        return reads_pr_validation_workflow(
+            assignments[expression.id],
+            assignments,
+            seen | {expression.id},
+        )
+    if not (
+        isinstance(expression, ast.Call)
+        and isinstance(expression.func, ast.Attribute)
+        and expression.func.attr == "read_text"
+    ):
+        return False
+    observed = static_path_components(expression.func.value, assignments)
+    expected = tuple(PR_VALIDATION_WORKFLOW_PATH.split("/"))
+    return len(observed) >= len(expected) and observed[-len(expected) :] == expected
+
+
+def asserted_workflow_regression_literals(source: str) -> tuple[set[str], list[str]]:
+    try:
+        module = ast.parse(source)
+    except SyntaxError as exc:
+        return set(), [f"cannot parse PR workflow regression evidence: {exc}"]
+
+    asserted: set[str] = set()
+    module_assignments = assigned_expressions(module.body)
+    for function in (
+        node
+        for node in module.body
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
+        and node.name.startswith("test_")
+    ):
+        assignments = dict(module_assignments)
+        sequences: dict[str, set[str]] = {}
+        trusted_text_names: set[str] = set()
+        for statement in function.body:
+            assignment = assignment_name_and_value(statement)
+            if assignment is not None:
+                name, value = assignment
+                assignments[name] = value
+                trusted_text_names.discard(name)
+                sequences.pop(name, None)
+                values = literal_string_sequence(value)
+                if values is not None:
+                    sequences[name] = values
+                if reads_pr_validation_workflow(value, assignments):
+                    trusted_text_names.add(name)
+                continue
+
+            if isinstance(statement, ast.Assert):
+                literal = asserted_literal(
+                    statement.test,
+                    trusted_text_names=trusted_text_names,
+                )
+                if literal is not None:
+                    asserted.add(literal)
+                continue
+
+            if not (
+                isinstance(statement, ast.For)
+                and isinstance(statement.target, ast.Name)
+                and isinstance(statement.iter, ast.Name)
+                and not statement.orelse
+                and len(statement.body) == 1
+                and isinstance(statement.body[0], ast.Assert)
+            ):
+                continue
+            values = sequences.get(statement.iter.id)
+            if not values:
+                continue
+            asserted_item = asserted_literal(
+                statement.body[0].test,
+                trusted_text_names=trusted_text_names,
+                expected_left_name=statement.target.id,
+            )
+            if asserted_item is not None:
+                asserted.update(values)
+    return asserted, []
+
+
+def additive_sequence_items(
+    base_items: list[str],
+    current_items: list[str],
+) -> list[str] | None:
+    additions: list[str] = []
+    base_index = 0
+    for item in current_items:
+        if base_index < len(base_items) and item == base_items[base_index]:
+            base_index += 1
+        else:
+            additions.append(item)
+    return additions if base_index == len(base_items) else None
+
+
+def additive_text_lines(base_text: str, current_text: str) -> list[str] | None:
+    return additive_sequence_items(
+        canonical_repository_bytes(base_text.encode("utf-8")).decode("utf-8").splitlines(),
+        canonical_repository_bytes(current_text.encode("utf-8"))
+        .decode("utf-8")
+        .splitlines(),
+    )
+
+
+def parse_workflow_document(
+    payload: bytes | None,
+    *,
+    source: str,
+) -> tuple[dict[str, object], list[str]]:
+    if payload is None:
+        return {}, [f"cannot read workflow evidence: {source}"]
+    try:
+        document = yaml.load(payload.decode("utf-8-sig"), Loader=yaml.BaseLoader)
+    except (UnicodeError, yaml.YAMLError) as exc:
+        return {}, [f"cannot parse workflow evidence {source}: {exc}"]
+    if not isinstance(document, dict):
+        return {}, [f"workflow evidence must be a mapping: {source}"]
+    return document, []
+
+
+def csv_rows_by_key(
+    payload: bytes | None,
+    *,
+    source: str,
+    key: str = "path",
+) -> tuple[dict[str, dict[str, str]], list[str]]:
+    rows, errors = parse_csv_payload(payload, source=source)
+    if errors:
+        return {}, errors
+    rows_by_key: dict[str, dict[str, str]] = {}
+    for row in rows:
+        observed_key = row.get(key, "").strip()
+        if not observed_key:
+            errors.append(f"CSV evidence has blank {key}: {source}")
+        elif observed_key in rows_by_key:
+            errors.append(
+                f"CSV evidence has duplicate {key}={observed_key}: {source}"
+            )
+        else:
+            rows_by_key[observed_key] = row
+    return rows_by_key, errors
+
+
+def validate_research_production_inventory_delta(
+    base_ref: str,
+    changed_paths: set[str],
+    *,
+    repository_root: Path,
+) -> tuple[dict[str, dict[str, str]], set[str], list[str]]:
+    base_payload = git_blob_at_ref(
+        base_ref,
+        PRODUCTION_INVENTORY_PATH,
+        repository_root=repository_root,
+    )
+    try:
+        current_payload = (repository_root / PRODUCTION_INVENTORY_PATH).read_bytes()
+    except OSError as exc:
+        return {}, set(), [
+            f"cannot read current research inventory evidence: {exc}"
+        ]
+
+    base_rows, base_errors = csv_rows_by_key(
+        base_payload,
+        source=f"{base_ref}:{PRODUCTION_INVENTORY_PATH}",
+    )
+    current_rows, current_errors = csv_rows_by_key(
+        current_payload,
+        source=PRODUCTION_INVENTORY_PATH,
+    )
+    errors = [*base_errors, *current_errors]
+    if errors:
+        return {}, set(), errors
+
+    base_headers = list(next(iter(base_rows.values()), {}))
+    current_headers = list(next(iter(current_rows.values()), {}))
+    if base_headers != current_headers:
+        errors.append("research inventory header may not change")
+
+    removed_paths = sorted(set(base_rows) - set(current_rows))
+    if removed_paths:
+        errors.append(
+            "research inventory may not delete existing row(s): "
+            + ", ".join(removed_paths)
+        )
+
+    for path in sorted(set(base_rows) & set(current_rows)):
+        base_row = base_rows[path]
+        current_row = current_rows[path]
+        changed_columns = {
+            column
+            for column in set(base_row) | set(current_row)
+            if base_row.get(column, "") != current_row.get(column, "")
+        }
+        if not changed_columns:
+            continue
+        if changed_columns != {"purpose"}:
+            errors.append(
+                "research inventory existing-row semantics may not change: "
+                f"{path} columns={','.join(sorted(changed_columns))}"
+            )
+            continue
+        if base_row.get("owner", "").strip() != RESEARCH_OWNER:
+            errors.append(
+                "only a research_backtest row may receive a purpose-only update: "
+                + path
+            )
+        if path not in changed_paths or not (repository_root / path).is_file():
+            errors.append(
+                "purpose-only research inventory update must describe a changed file: "
+                + path
+            )
+
+    added_paths = set(current_rows) - set(base_rows)
+    for path in sorted(added_paths):
+        row = current_rows[path]
+        kind = row.get("kind", "").strip()
+        owner = row.get("owner", "").strip()
+        status = row.get("status", "").strip()
+        workflows = set(split_list(row.get("allowed_workflows", "")))
+        stage_patterns = row.get("allowed_stage_patterns", "").strip()
+        expected_prefix = "tests/" if kind == "test_python" else "scripts/"
+        if owner != RESEARCH_OWNER or kind not in {"python", "test_python"}:
+            errors.append(
+                "additive inventory row must be research_backtest python/test_python: "
+                + path
+            )
+        if status != "active":
+            errors.append(f"additive research inventory row must be active: {path}")
+        if not path.startswith(expected_prefix) or not path.endswith(".py"):
+            errors.append(
+                f"additive research inventory path/kind mismatch: {path} kind={kind}"
+            )
+        if workflows - set(RESEARCH_ALLOWED_WORKFLOWS):
+            errors.append(
+                "additive research inventory row references a non-research workflow: "
+                + path
+            )
+        if kind == "python" and RESEARCH_WORKFLOW_PATH not in workflows:
+            errors.append(
+                "additive research python row lacks the research workflow: " + path
+            )
+        if kind == "test_python" and workflows:
+            errors.append(
+                "additive research test row must not be a workflow command: " + path
+            )
+        if stage_patterns:
+            errors.append(
+                "additive research inventory row may not add stage patterns: " + path
+            )
+        if path not in changed_paths or not (repository_root / path).is_file():
+            errors.append(
+                "additive research inventory row is not a changed current file: " + path
+            )
+        existed_at_base = git_path_exists_at_ref(
+            base_ref,
+            path,
+            repository_root=repository_root,
+        )
+        if existed_at_base is not False:
+            errors.append(
+                "additive research inventory row must register a new file: " + path
+            )
+
+    changed_python_paths: set[str] = set()
+    new_python_paths: set[str] = set()
+    for path in sorted(changed_paths):
+        if not (
+            path.endswith(".py")
+            and (path.startswith("scripts/") or path.startswith("tests/"))
+            and (repository_root / path).is_file()
+        ):
+            continue
+        changed_python_paths.add(path)
+        existed_at_base = git_path_exists_at_ref(
+            base_ref,
+            path,
+            repository_root=repository_root,
+        )
+        if existed_at_base is False:
+            new_python_paths.add(path)
+        elif existed_at_base is None:
+            errors.append(f"cannot verify base existence for changed Python path: {path}")
+
+    if new_python_paths != added_paths:
+        missing_rows = sorted(new_python_paths - added_paths)
+        phantom_rows = sorted(added_paths - new_python_paths)
+        if missing_rows:
+            errors.append(
+                "new research Python path lacks production inventory registration: "
+                + ", ".join(missing_rows)
+            )
+        if phantom_rows:
+            errors.append(
+                "additive research inventory row does not map to a new Python path: "
+                + ", ".join(phantom_rows)
+            )
+
+    for path in sorted(changed_python_paths):
+        row = current_rows.get(path)
+        if row is None:
+            errors.append(
+                "changed Python path lacks production inventory ownership: " + path
+            )
+            continue
+        owner = row.get("owner", "").strip()
+        kind = row.get("kind", "").strip()
+        status = row.get("status", "").strip()
+        expected_kind = "test_python" if path.startswith("tests/") else "python"
+        if owner == RESEARCH_OWNER:
+            if kind != expected_kind or status != "active":
+                errors.append(
+                    "changed research Python path has invalid ownership metadata: "
+                    f"{path} owner={owner} kind={kind} status={status}"
+                )
+            continue
+        expected_control = RESEARCH_CONTROL_PYTHON_ALLOWLIST.get(path)
+        if expected_control is None or (owner, kind) != expected_control or status != "active":
+            errors.append(
+                "changed Python path is outside the additive research ownership boundary: "
+                f"{path} owner={owner} kind={kind} status={status}"
+            )
+    return current_rows, added_paths, errors
+
+
+def validate_additive_research_workflow_delta(
+    base_ref: str,
+    changed_paths: set[str],
+    *,
+    repository_root: Path,
+) -> tuple[set[str], set[str], set[str], list[str]]:
+    base_payload = git_blob_at_ref(
+        base_ref,
+        PR_VALIDATION_WORKFLOW_PATH,
+        repository_root=repository_root,
+    )
+    try:
+        current_payload = (repository_root / PR_VALIDATION_WORKFLOW_PATH).read_bytes()
+    except OSError as exc:
+        return set(), set(), set(), [
+            f"cannot read current research workflow evidence: {exc}"
+        ]
+    base_document, base_errors = parse_workflow_document(
+        base_payload,
+        source=f"{base_ref}:{PR_VALIDATION_WORKFLOW_PATH}",
+    )
+    current_document, current_errors = parse_workflow_document(
+        current_payload,
+        source=PR_VALIDATION_WORKFLOW_PATH,
+    )
+    errors = [*base_errors, *current_errors]
+    if errors:
+        return set(), set(), set(), errors
+
+    base_copy = copy.deepcopy(base_document)
+    current_copy = copy.deepcopy(current_document)
+    try:
+        base_paths = base_copy["on"]["pull_request"]["paths"]  # type: ignore[index]
+        current_paths = current_copy["on"]["pull_request"]["paths"]  # type: ignore[index]
+    except (KeyError, TypeError):
+        return set(), set(), set(), [
+            "research workflow must retain on.pull_request.paths structure"
+        ]
+    if not isinstance(base_paths, list) or not isinstance(current_paths, list):
+        return set(), set(), set(), [
+            "research workflow pull_request paths must remain lists"
+        ]
+    if not all(isinstance(value, str) for value in [*base_paths, *current_paths]):
+        return set(), set(), set(), [
+            "research workflow pull_request paths must contain only strings"
+        ]
+    path_additions = additive_sequence_items(base_paths, current_paths)
+    if path_additions is None:
+        errors.append("research workflow may not delete or rewrite trigger paths")
+        path_additions = []
+    current_copy["on"]["pull_request"]["paths"] = base_paths  # type: ignore[index]
+
+    validator_paths: set[str] = set()
+    test_paths: set[str] = set()
+    base_jobs = base_copy.get("jobs")
+    current_jobs = current_copy.get("jobs")
+    if not isinstance(base_jobs, dict) or not isinstance(current_jobs, dict):
+        errors.append("research workflow jobs must remain mappings")
+    else:
+        for job_name, base_job in base_jobs.items():
+            current_job = current_jobs.get(job_name)
+            if not isinstance(base_job, dict) or not isinstance(current_job, dict):
+                continue
+            base_steps = base_job.get("steps")
+            current_steps = current_job.get("steps")
+            if not isinstance(base_steps, list) or not isinstance(current_steps, list):
+                continue
+            if len(base_steps) != len(current_steps):
+                errors.append(
+                    f"research workflow may not add or remove job steps: {job_name}"
+                )
+                continue
+            for index, (base_step, current_step) in enumerate(
+                zip(base_steps, current_steps)
+            ):
+                if not isinstance(base_step, dict) or not isinstance(current_step, dict):
+                    continue
+                base_run = base_step.get("run")
+                current_run = current_step.get("run")
+                if base_run == current_run:
+                    continue
+                if not isinstance(base_run, str) or not isinstance(current_run, str):
+                    errors.append(
+                        "research workflow may change only existing run command lists: "
+                        f"{job_name}[{index}]"
+                    )
+                    continue
+                additions = additive_text_lines(base_run, current_run)
+                if additions is None:
+                    errors.append(
+                        "research workflow may not delete or rewrite an existing command: "
+                        f"{job_name}[{index}]"
+                    )
+                    continue
+                step_validators: set[str] = set()
+                step_tests: set[str] = set()
+                for line in additions:
+                    stripped = line.strip()
+                    if not stripped:
+                        continue
+                    validator_match = RESEARCH_WORKFLOW_VALIDATOR_COMMAND_RE.fullmatch(
+                        stripped
+                    )
+                    test_match = RESEARCH_WORKFLOW_TEST_LINE_RE.fullmatch(stripped)
+                    if validator_match:
+                        step_validators.add(validator_match.group(1))
+                    elif test_match:
+                        step_tests.add(test_match.group(1))
+                    else:
+                        errors.append(
+                            "research workflow contains a non-additive-validation line: "
+                            + stripped
+                        )
+                if step_validators and "python -m pytest" in base_run:
+                    errors.append(
+                        "research validator commands may not be inserted into pytest step"
+                    )
+                if step_tests and "python -m pytest" not in base_run:
+                    errors.append(
+                        "research test paths may be inserted only into existing pytest step"
+                    )
+                validator_paths.update(step_validators)
+                test_paths.update(step_tests)
+                current_step["run"] = base_run
+
+    if base_copy != current_copy:
+        errors.append(
+            "research workflow changes permissions, triggers outside additive paths, "
+            "jobs, steps, or other protected semantics"
+        )
+    if not validator_paths or not test_paths:
+        errors.append(
+            "additive research workflow migration requires validator commands and tests"
+        )
+    return set(path_additions), validator_paths, test_paths, errors
+
+
+def base_governed_research_dependencies(
+    base_ref: str,
+    *,
+    repository_root: Path,
+) -> tuple[set[tuple[str, str]], list[str]]:
+    payload = git_blob_at_ref(
+        base_ref,
+        BACKGROUND_DATA_REGISTRY_PATH,
+        repository_root=repository_root,
+    )
+    if payload is None:
+        return set(), ["base-owned background data registry is missing"]
+    try:
+        reader = csv.DictReader(io.StringIO(payload.decode("utf-8-sig"), newline=""))
+        required = {
+            "scope",
+            "producer",
+            "source_artifacts",
+            "consumer_surfaces",
+            "consumer_models",
+            "forbidden_use",
+            "cleanup_status",
+        }
+        if not required.issubset(set(reader.fieldnames or ())):
+            return set(), ["base-owned background data registry header mismatch"]
+        governed: set[tuple[str, str]] = set()
+        for row in reader:
+            if None in row:
+                return set(), ["base-owned background data registry has extra fields"]
+            producer = normalize_repository_path(row.get("producer", ""))
+            if not (
+                row.get("scope", "").strip() == "model_research_output"
+                and "research_backtest" in split_list(
+                    row.get("consumer_surfaces", "")
+                )
+                and row.get("consumer_models", "").strip() not in {"", "all_models"}
+                and row.get("cleanup_status", "").strip() == "active"
+                and "production" in row.get("forbidden_use", "").lower()
+            ):
+                continue
+            governed.update(
+                (producer, normalize_repository_path(source))
+                for source in split_list(row.get("source_artifacts", ""))
+            )
+        return governed, []
+    except (UnicodeError, csv.Error) as exc:
+        return set(), [f"cannot parse base-owned background data registry: {exc}"]
+
+
+def unchanged_base_regular_blob_dependency(
+    base_ref: str,
+    path: str,
+    *,
+    repository_root: Path,
+) -> bool:
+    entry = git_tree_entry_at_ref(
+        base_ref,
+        path,
+        repository_root=repository_root,
+    )
+    base_payload = git_blob_at_ref(base_ref, path, repository_root=repository_root)
+    try:
+        current_payload = (repository_root / path).read_bytes()
+    except OSError:
+        return False
+    if entry is None or base_payload is None:
+        return False
+    mode, object_type, object_id, observed_path = entry
+    return bool(
+        mode in REGULAR_BLOB_MODES
+        and object_type == "blob"
+        and re.fullmatch(r"[0-9a-f]{40}", object_id)
+        and observed_path == path
+        and canonical_repository_bytes(base_payload)
+        == canonical_repository_bytes(current_payload)
+    )
+
+
+def validate_research_lifecycle_inventory_delta(
+    base_ref: str,
+    changed_paths: set[str],
+    added_inventory_paths: set[str],
+    *,
+    repository_root: Path,
+) -> tuple[dict[str, dict[str, str]], list[str]]:
+    base_payload = git_blob_at_ref(
+        base_ref,
+        LIFECYCLE_INVENTORY_PATH,
+        repository_root=repository_root,
+    )
+    try:
+        current_payload = (repository_root / LIFECYCLE_INVENTORY_PATH).read_bytes()
+    except OSError as exc:
+        return {}, [f"cannot read current lifecycle inventory evidence: {exc}"]
+    base_rows, base_errors = csv_rows_by_key(
+        base_payload,
+        source=f"{base_ref}:{LIFECYCLE_INVENTORY_PATH}",
+    )
+    current_rows, current_errors = csv_rows_by_key(
+        current_payload,
+        source=LIFECYCLE_INVENTORY_PATH,
+    )
+    errors = [*base_errors, *current_errors]
+    if errors:
+        return current_rows, errors
+    governed_dependencies, governance_errors = base_governed_research_dependencies(
+        base_ref,
+        repository_root=repository_root,
+    )
+    errors.extend(governance_errors)
+
+    base_migration_payload = git_blob_at_ref(
+        base_ref,
+        LIFECYCLE_SEMANTIC_MIGRATIONS_PATH,
+        repository_root=repository_root,
+    )
+    try:
+        current_migration_payload = (
+            repository_root / LIFECYCLE_SEMANTIC_MIGRATIONS_PATH
+        ).read_bytes()
+    except OSError as exc:
+        current_migration_payload = None
+        errors.append(f"cannot read lifecycle semantic migration evidence: {exc}")
+
+    def parse_migration_rows(
+        payload: bytes | None,
+        *,
+        source: str,
+    ) -> list[dict[str, str]]:
+        if payload is None:
+            errors.append(f"cannot read lifecycle semantic migration evidence: {source}")
+            return []
+        try:
+            reader = csv.DictReader(
+                io.StringIO(payload.decode("utf-8-sig"), newline="")
+            )
+            if tuple(reader.fieldnames or ()) != LIFECYCLE_SEMANTIC_MIGRATION_COLUMNS:
+                errors.append(
+                    "lifecycle semantic migration header mismatch: " + source
+                )
+                return []
+            rows: list[dict[str, str]] = []
+            for line_number, row in enumerate(reader, start=2):
+                if None in row:
+                    errors.append(
+                        "lifecycle semantic migration row has extra fields: "
+                        f"{source}:{line_number}"
+                    )
+                    continue
+                rows.append(
+                    {str(key): str(value or "") for key, value in row.items()}
+                )
+            return rows
+        except (UnicodeError, csv.Error) as exc:
+            errors.append(
+                f"cannot parse lifecycle semantic migration evidence {source}: {exc}"
+            )
+            return []
+
+    base_migrations = parse_migration_rows(
+        base_migration_payload,
+        source=f"{base_ref}:{LIFECYCLE_SEMANTIC_MIGRATIONS_PATH}",
+    )
+    current_migrations = parse_migration_rows(
+        current_migration_payload,
+        source=LIFECYCLE_SEMANTIC_MIGRATIONS_PATH,
+    )
+    if (
+        base_migration_payload is None
+        or current_migration_payload is None
+        or canonical_repository_bytes(current_migration_payload)
+        != canonical_repository_bytes(base_migration_payload)
+        or current_migrations != base_migrations
+    ):
+        errors.append(
+            "base-owned lifecycle semantic authorization ledger may not change in the PR"
+        )
+
+    migration_ids = [row.get("migration_id", "").strip() for row in current_migrations]
+    if any(not migration_id for migration_id in migration_ids) or len(
+        migration_ids
+    ) != len(set(migration_ids)):
+        errors.append("lifecycle semantic migration ids must be nonblank and unique")
+
+    migrations_by_target: dict[tuple[str, str], dict[str, str]] = {}
+    for migration in base_migrations:
+        target = (
+            normalize_repository_path(migration.get("row_path", "")),
+            migration.get("column", "").strip(),
+        )
+        if not all(target) or target in migrations_by_target:
+            errors.append(
+                "base-owned lifecycle authorizations must have unique row_path/column"
+            )
+            continue
+        migrations_by_target[target] = migration
+
+    base_headers = list(next(iter(base_rows.values()), {}))
+    current_headers = list(next(iter(current_rows.values()), {}))
+    if base_headers != current_headers:
+        errors.append("research lifecycle inventory header may not change")
+
+    removed_paths = sorted(set(base_rows) - set(current_rows))
+    if removed_paths:
+        errors.append(
+            "research lifecycle inventory may not delete existing row(s): "
+            + ", ".join(removed_paths)
+        )
+
+    for path in sorted(set(base_rows) & set(current_rows)):
+        base_row = base_rows[path]
+        current_row = current_rows[path]
+        changed_columns = {
+            column
+            for column in set(base_row) | set(current_row)
+            if base_row.get(column, "") != current_row.get(column, "")
+        }
+        if not changed_columns:
+            continue
+        owner = current_row.get("owner", "").strip()
+        if owner != RESEARCH_OWNER and path not in RESEARCH_LIFECYCLE_CONTROL_ALLOWLIST:
+            errors.append(
+                "existing non-research lifecycle row is outside the control allowlist: "
+                + path
+            )
+        for column in sorted(changed_columns):
+            if column in LIFECYCLE_ADDITIVE_LIST_COLUMNS:
+                base_values = split_list(base_row.get(column, ""))
+                current_values = split_list(current_row.get(column, ""))
+                additions = additive_sequence_items(base_values, current_values)
+                migration = migrations_by_target.get((path, column))
+                base_value = base_row.get(column, "")
+                current_value = current_row.get(column, "")
+                expected_added = sorted(set(current_values) - set(base_values))
+                expected_removed = sorted(set(base_values) - set(current_values))
+                if migration is not None:
+                    owner_is_authorized = (
+                        owner == RESEARCH_OWNER
+                        or path in RESEARCH_LIFECYCLE_CONTROL_ALLOWLIST
+                    )
+                    if not (
+                        owner_is_authorized
+                        and (expected_added or expected_removed)
+                        and migration.get("status", "").strip()
+                        == LIFECYCLE_SEMANTIC_MIGRATION_STATUS
+                        and migration.get("scope", "").strip()
+                        == LIFECYCLE_SEMANTIC_MIGRATION_SCOPE
+                        and bool(migration.get("approval_reference", "").strip())
+                        and migration.get("base_value_sha256", "").strip()
+                        == canonical_sha256(base_value.encode("utf-8"))
+                        and migration.get("current_value_sha256", "").strip()
+                        == canonical_sha256(current_value.encode("utf-8"))
+                        and split_list(migration.get("added_values", ""))
+                        == expected_added
+                        and split_list(migration.get("removed_values", ""))
+                        == expected_removed
+                    ):
+                        errors.append(
+                            "base-owned lifecycle authorization does not match exact "
+                            "base/current evidence: "
+                            f"{path} column={column}"
+                        )
+                    added_values = expected_added
+                elif additions is not None and additions:
+                    added_values = additions
+                else:
+                    errors.append(
+                        "research lifecycle list rewrite requires base-owned exact "
+                        f"authorization: {path} column={column}"
+                    )
+                    continue
+                unchanged_governed = {
+                    value
+                    for value in added_values
+                    if migration is not None
+                    and column == "reads_artifact"
+                    and value not in changed_paths
+                    and (path, value) in governed_dependencies
+                    and unchanged_base_regular_blob_dependency(
+                        base_ref,
+                        value,
+                        repository_root=repository_root,
+                    )
+                }
+                unbound = sorted(
+                    value
+                    for value in added_values
+                    if value not in changed_paths
+                    and value not in added_inventory_paths
+                    and value not in unchanged_governed
+                )
+                if unbound:
+                    errors.append(
+                        "research lifecycle addition is not bound to a changed path: "
+                        f"{path} column={column} values={','.join(unbound)}"
+                    )
+            elif (
+                column == "keep_reason"
+                and owner == RESEARCH_OWNER
+                and path in changed_paths
+            ):
+                continue
+            else:
+                errors.append(
+                    "existing lifecycle governance semantics may not change: "
+                    f"{path} column={column}"
+                )
+    if LIFECYCLE_SEMANTIC_MIGRATIONS_PATH in changed_paths:
+        errors.append(
+            "base-owned lifecycle semantic authorization ledger is immutable in the PR"
+        )
+    return current_rows, errors
+
+
+def validate_additive_research_validation_registration(
+    base_ref: str,
+    changed_paths: set[str],
+    strict_surface_changes: set[str],
+    *,
+    repository_root: Path,
+) -> tuple[bool, list[str]]:
+    expected_strict_surfaces = {
+        PR_VALIDATION_WORKFLOW_PATH,
+        PRODUCTION_INVENTORY_PATH,
+    }
+    if strict_surface_changes != expected_strict_surfaces:
+        return False, []
+
+    current_inventory, added_inventory_paths, inventory_errors = (
+        validate_research_production_inventory_delta(
+            base_ref,
+            changed_paths,
+            repository_root=repository_root,
+        )
+    )
+    path_patterns, validator_paths, test_paths, workflow_errors = (
+        validate_additive_research_workflow_delta(
+            base_ref,
+            changed_paths,
+            repository_root=repository_root,
+        )
+    )
+    errors = [*inventory_errors, *workflow_errors]
+
+    try:
+        workflow_test = (
+            repository_root / RESEARCH_WORKFLOW_REGRESSION_TEST_PATH
+        ).read_text(encoding="utf-8")
+    except (OSError, UnicodeError) as exc:
+        errors.append(f"cannot read additive research registry evidence: {exc}")
+        workflow_test = ""
+    lifecycle_rows, lifecycle_errors = validate_research_lifecycle_inventory_delta(
+        base_ref,
+        changed_paths,
+        added_inventory_paths,
+        repository_root=repository_root,
+    )
+    errors.extend(lifecycle_errors)
+    asserted_literals, assertion_errors = asserted_workflow_regression_literals(
+        workflow_test
+    )
+    errors.extend(assertion_errors)
+    if LIFECYCLE_INVENTORY_PATH not in changed_paths:
+        errors.append("additive research migration must update lifecycle inventory")
+    if RESEARCH_WORKFLOW_REGRESSION_TEST_PATH not in changed_paths:
+        errors.append("additive research migration must update PR workflow regression")
+
+    for path in sorted(added_inventory_paths):
+        production = current_inventory.get(path, {})
+        lifecycle = lifecycle_rows.get(path, {})
+        expected_kind = production.get("kind", "").strip()
+        if not (
+            lifecycle.get("type", "").strip() == expected_kind
+            and lifecycle.get("owner", "").strip() == RESEARCH_OWNER
+            and lifecycle.get("status", "").strip() == "active"
+        ):
+            errors.append(
+                "additive research path lacks matching lifecycle registration: " + path
+            )
+        if path.startswith("scripts/validate_"):
+            if path not in validator_paths:
+                errors.append(
+                    "new research validator is not called by the PR workflow: " + path
+                )
+            if PR_VALIDATION_WORKFLOW_PATH not in split_list(
+                production.get("allowed_workflows", "")
+            ):
+                errors.append(
+                    "new research validator lacks PR workflow inventory permission: "
+                    + path
+                )
+            linked_tests = set(split_list(lifecycle.get("tested_by", "")))
+            if not linked_tests.intersection(test_paths):
+                errors.append(
+                    "new research validator lacks an added focused regression: " + path
+                )
+        elif expected_kind == "test_python" and path not in test_paths:
+            errors.append("new research test is absent from focused pytest: " + path)
+        asserted_evidence = f"python {path}" if path in validator_paths else path
+        if (
+            path in validator_paths or expected_kind == "test_python"
+        ) and asserted_evidence not in asserted_literals:
+            errors.append(
+                "PR workflow regression does not assert additive research path: " + path
+            )
+
+    if validator_paths - added_inventory_paths:
+        errors.append(
+            "workflow invokes an unregistered additive research validator: "
+            + ", ".join(sorted(validator_paths - added_inventory_paths))
+        )
+    if test_paths - added_inventory_paths:
+        errors.append(
+            "workflow invokes an unregistered additive research test: "
+            + ", ".join(sorted(test_paths - added_inventory_paths))
+        )
+
+    for pattern in sorted(path_patterns):
+        if pattern not in asserted_literals:
+            errors.append(
+                "PR workflow regression does not assert additive path filter: " + pattern
+            )
+        if not RESEARCH_WORKFLOW_PATH_FILTER_RE.fullmatch(pattern):
+            errors.append(
+                "additive research workflow path filter is not narrowly scoped: "
+                + pattern
+            )
+            continue
+        matched_paths = {
+            path for path in changed_paths if fnmatch.fnmatchcase(path, pattern)
+        }
+        if not matched_paths:
+            errors.append(
+                "additive research workflow path filter matches no changed path: "
+                + pattern
+            )
+            continue
+        for path in sorted(matched_paths):
+            existed_at_base = git_path_exists_at_ref(
+                base_ref,
+                path,
+                repository_root=repository_root,
+            )
+            if existed_at_base is not False or not (repository_root / path).is_file():
+                errors.append(
+                    "additive research workflow filter may cover only new current files: "
+                    + path
+                )
+            if path.startswith("tests/") and path not in test_paths:
+                errors.append(
+                    "additive research test filter path is absent from focused pytest: "
+                    + path
+                )
+        family_token = Path(pattern).name.replace("*", "")
+        family_token = family_token.removeprefix("test_").removeprefix("validate_")
+        family_token = family_token.removesuffix(".csv").removesuffix(".py")
+        if not any(
+            family_token in Path(path).name for path in added_inventory_paths
+        ):
+            errors.append(
+                "additive research workflow path filter lacks matching inventory family: "
+                + pattern
+            )
+    return True, errors
+
+
 def normalize_repository_path(path: str) -> str:
     normalized = str(path).replace("\\", "/")
     while normalized.startswith("./"):
@@ -315,6 +1475,37 @@ def git_blob_at_ref(
     except (OSError, subprocess.TimeoutExpired):
         return None
     return proc.stdout if proc.returncode == 0 else None
+
+
+def git_tree_entry_at_ref(
+    ref: str,
+    path: str,
+    *,
+    repository_root: Path,
+) -> tuple[str, str, str, str] | None:
+    try:
+        proc = subprocess.run(
+            ["git", "ls-tree", "-z", ref, "--", path],
+            cwd=repository_root,
+            capture_output=True,
+            check=False,
+            timeout=30,
+        )
+    except (OSError, subprocess.TimeoutExpired):
+        return None
+    entries = [entry for entry in proc.stdout.split(b"\0") if entry]
+    if proc.returncode != 0 or len(entries) != 1 or b"\t" not in entries[0]:
+        return None
+    metadata, raw_path = entries[0].split(b"\t", 1)
+    try:
+        fields = metadata.decode("ascii", errors="strict").split()
+        observed_path = raw_path.decode("utf-8").replace("\\", "/")
+    except UnicodeError:
+        return None
+    if len(fields) != 3:
+        return None
+    mode, object_type, object_id = fields
+    return mode, object_type, object_id, observed_path
 
 
 def git_path_exists_at_ref(
@@ -504,6 +1695,83 @@ def is_registered_source_identity_gate_self_update(
     return bool(
         SOURCE_IDENTITY_GATE_SELF_UPDATE_ID in current_helper
         and SOURCE_IDENTITY_GATE_SELF_UPDATE_TEST_MARKER in current_tests
+    )
+
+
+def is_additive_research_gate_self_update(
+    base_ref: str,
+    changed_paths: set[str],
+    strict_surface_changes: set[str],
+    *,
+    repository_root: Path,
+) -> bool:
+    if changed_paths != ADDITIVE_RESEARCH_GATE_SELF_UPDATE_PATHS:
+        return False
+    if strict_surface_changes != {PR_SAFE_HELPER_PATH}:
+        return False
+    base_authorizations = git_blob_at_ref(
+        base_ref,
+        ADDITIVE_RESEARCH_GATE_AUTHORIZATIONS_PATH,
+        repository_root=repository_root,
+    )
+    base_helper = git_blob_at_ref(
+        base_ref,
+        PR_SAFE_HELPER_PATH,
+        repository_root=repository_root,
+    )
+    if base_authorizations is None or base_helper is None:
+        return False
+    authorization_rows, authorization_errors = parse_csv_payload(
+        base_authorizations,
+        source=f"{base_ref}:{ADDITIVE_RESEARCH_GATE_AUTHORIZATIONS_PATH}",
+    )
+    if authorization_errors or not authorization_rows:
+        return False
+    if tuple(authorization_rows[0]) != ADDITIVE_RESEARCH_GATE_AUTHORIZATION_COLUMNS:
+        return False
+    matching = [
+        row
+        for row in authorization_rows
+        if row.get("migration_id", "").strip()
+        == ADDITIVE_RESEARCH_GATE_SELF_UPDATE_ID
+    ]
+    if len(matching) != 1:
+        return False
+    authorization = matching[0]
+    try:
+        base_helper_text = base_helper.decode("utf-8")
+        current_helper = (repository_root / PR_SAFE_HELPER_PATH).read_bytes()
+        current_tests = (repository_root / SOURCE_IDENTITY_GATE_TEST_PATH).read_bytes()
+        current_authorizations = (
+            repository_root / ADDITIVE_RESEARCH_GATE_AUTHORIZATIONS_PATH
+        ).read_bytes()
+    except (OSError, UnicodeError):
+        return False
+    sha_fields = (
+        "base_helper_sha256",
+        "current_helper_sha256",
+        "current_test_sha256",
+    )
+    if any(
+        not re.fullmatch(r"[0-9a-f]{64}", authorization.get(field, "").strip())
+        for field in sha_fields
+    ):
+        return False
+    return bool(
+        authorization.get("status", "").strip() == "preauthorized"
+        and bool(authorization.get("approval_reference", "").strip())
+        and set(split_list(authorization.get("changed_paths", "")))
+        == set(ADDITIVE_RESEARCH_GATE_SELF_UPDATE_PATHS)
+        and canonical_repository_bytes(current_authorizations)
+        == canonical_repository_bytes(base_authorizations)
+        and canonical_sha256(base_helper)
+        == authorization.get("base_helper_sha256", "").strip()
+        and canonical_sha256(current_helper)
+        == authorization.get("current_helper_sha256", "").strip()
+        and canonical_sha256(current_tests)
+        == authorization.get("current_test_sha256", "").strip()
+        and ADDITIVE_RESEARCH_GATE_SELF_UPDATE_ID.encode("utf-8") in current_helper
+        and ADDITIVE_RESEARCH_GATE_SELF_UPDATE_ID not in base_helper_text
     )
 
 
@@ -923,24 +2191,49 @@ def validate_pr_safe_advanced_integrity_contract(
         repository_root=repository_root,
     ):
         strict_surface_changes = set()
+    elif is_additive_research_gate_self_update(
+        base_ref,
+        changed_paths,
+        strict_surface_changes,
+        repository_root=repository_root,
+    ):
+        strict_surface_changes = set()
     elif strict_surface_changes:
-        is_source_identity_migration, migration_errors = (
-            validate_registered_source_identity_migration(
+        is_additive_research, additive_research_errors = (
+            validate_additive_research_validation_registration(
                 base_ref,
                 changed_paths,
                 strict_surface_changes,
                 repository_root=repository_root,
             )
         )
-        if is_source_identity_migration:
-            if migration_errors:
+        if is_additive_research:
+            if additive_research_errors:
                 return [
-                    "registered source-identity migration evidence is incomplete; "
+                    "additive research-only validation registration is incomplete; "
                     "full runtime repo advanced-integrity validation remains required",
-                    *migration_errors,
+                    *additive_research_errors,
                     *external_errors,
                 ]
             strict_surface_changes = set()
+        else:
+            is_source_identity_migration, migration_errors = (
+                validate_registered_source_identity_migration(
+                    base_ref,
+                    changed_paths,
+                    strict_surface_changes,
+                    repository_root=repository_root,
+                )
+            )
+            if is_source_identity_migration:
+                if migration_errors:
+                    return [
+                        "registered source-identity migration evidence is incomplete; "
+                        "full runtime repo advanced-integrity validation remains required",
+                        *migration_errors,
+                        *external_errors,
+                    ]
+                strict_surface_changes = set()
     if strict_surface_changes:
         return [
             "full runtime repo advanced-integrity validation is required because the PR "
