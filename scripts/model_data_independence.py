@@ -30,8 +30,20 @@ REVENUE_CROSS_MARKET_RESOLUTION = (
 )
 VALIDATOR_INDEPENDENCE = ROOT / "config" / "daily_model_validator_independence.csv"
 RESEARCH_ARTIFACT_OWNERSHIP = ROOT / "config" / "model_research_artifact_ownership.csv"
+MODEL_RESEARCH_SHARED_UTILITY_REGISTRY = (
+    ROOT / "config" / "model_research_shared_utility_registry.csv"
+)
 FORMAL_EVIDENCE_PINS = ROOT / "config" / "formal_model_evidence_pins.csv"
 REPO_PRODUCTION_INVENTORY = ROOT / "config" / "repo_production_inventory.csv"
+CANONICAL_FIELD_LINEAGE_REGISTRY = (
+    ROOT / "config" / "daily_model_canonical_field_lineage_registry.csv"
+)
+VOLUME_V2_DISPATCHER_COLLISION_REGISTRY = (
+    ROOT / "config" / "daily_model_volume_v2_dispatcher_collision_registry.csv"
+)
+OPERATION_ADAPTER_PROTECTED_FIELD_CONTRACT = (
+    ROOT / "config" / "daily_operation_adapter_protected_field_contract.csv"
+)
 
 BASELINE_REFERENCE_PREFIX = "baseline_"
 BASELINE_MIGRATION_ID = "baseline_20260712"
@@ -185,6 +197,101 @@ REVENUE_CROSS_MARKET_RESOLUTION_COLUMNS = (
     "evidence_url",
     "formal_model_use_allowed",
     "notes",
+)
+BACKGROUND_DATA_COLUMNS = (
+    "data_family_id",
+    "scope",
+    "owner_lane",
+    "producer",
+    "artifact_path",
+    "source_artifacts",
+    "consumer_surfaces",
+    "consumer_models",
+    "point_in_time_status",
+    "allowed_use",
+    "forbidden_use",
+    "validator",
+    "retention_policy",
+    "cleanup_status",
+    "notes",
+)
+RESEARCH_ARTIFACT_OWNERSHIP_COLUMNS = (
+    "owner_model_id",
+    "producer",
+    "artifact_glob",
+    "artifact_class",
+    "change_policy",
+    "formal_evidence_status",
+    "notes",
+)
+MODEL_RESEARCH_SHARED_UTILITY_COLUMNS = (
+    "utility_path",
+    "ownership_class",
+    "semantic_scope",
+    "consumer_models",
+    "current_canonical_sha256",
+    "change_policy",
+    "required_validation_commands",
+    "last_migration_id",
+    "notes",
+)
+CANONICAL_FIELD_LINEAGE_COLUMNS = (
+    "lineage_id",
+    "field_name",
+    "model_family",
+    "artifact_path",
+    "artifact_role",
+    "producer",
+    "identity_columns",
+    "as_of_columns",
+    "canonical_source_artifact",
+    "allowed_consumer_modules",
+    "allowed_use",
+    "forbidden_use",
+    "collision_policy",
+    "parity_policy",
+    "contract_sha256",
+    "last_migration_id",
+    "approval_reference",
+    "required_validation_commands",
+    "notes",
+)
+VOLUME_V2_DISPATCHER_COLLISION_COLUMNS = (
+    "collision_id",
+    "field_name",
+    "model_family",
+    "canonical_artifact",
+    "canonical_producer",
+    "allowed_mirror_artifact",
+    "allowed_mirror_producer",
+    "dispatcher_consumer",
+    "collision_policy",
+    "source_precedence",
+    "value_parity_policy",
+    "contract_sha256",
+    "last_migration_id",
+    "approval_reference",
+    "required_validation_commands",
+    "notes",
+)
+OPERATION_ADAPTER_PROTECTED_FIELD_COLUMNS = (
+    "contract_version",
+    "model_id",
+    "producer_path",
+    "validator_path",
+    "artifact_path",
+    "lifecycle_state",
+    "pdf_section",
+    "row_type",
+    "quality_field",
+    "allowed_quality_values",
+    "allowed_row_action_status_values",
+    "allowed_buy_rank_eligible_values",
+    "allowed_operation_status_values",
+    "allowed_operation_status_zh_values",
+    "allowed_adapter_note_values",
+    "state_test_path",
+    "required_state_test_names",
 )
 REPO_PRODUCTION_INVENTORY_COLUMNS = (
     "path",
@@ -1381,24 +1488,11 @@ def _validate_data_migration_chain(
 
 def validate_data_sharing(*, base_ref: str | None = None) -> tuple[list[str], list[dict[str, str]]]:
     errors: list[str] = []
-    background_columns = (
-        "data_family_id",
-        "scope",
-        "owner_lane",
-        "producer",
-        "artifact_path",
-        "source_artifacts",
-        "consumer_surfaces",
-        "consumer_models",
-        "point_in_time_status",
-        "allowed_use",
-        "forbidden_use",
-        "validator",
-        "retention_policy",
-        "cleanup_status",
-        "notes",
+    background = strict_csv_rows(
+        BACKGROUND_DATA_REGISTRY,
+        BACKGROUND_DATA_COLUMNS,
+        errors,
     )
-    background = strict_csv_rows(BACKGROUND_DATA_REGISTRY, background_columns, errors)
     sharing = strict_csv_rows(DATA_SHARING_REGISTRY, DATA_SHARING_COLUMNS, errors)
     data_migrations = strict_csv_rows(
         DATA_SHARING_MIGRATIONS, DATA_SHARING_MIGRATION_COLUMNS, errors
@@ -1408,17 +1502,10 @@ def validate_data_sharing(*, base_ref: str | None = None) -> tuple[list[str], li
         REVENUE_CROSS_MARKET_RESOLUTION_COLUMNS,
         errors,
     )
-    research_columns = (
-        "owner_model_id",
-        "producer",
-        "artifact_glob",
-        "artifact_class",
-        "change_policy",
-        "formal_evidence_status",
-        "notes",
-    )
     research_ownership = strict_csv_rows(
-        RESEARCH_ARTIFACT_OWNERSHIP, research_columns, errors
+        RESEARCH_ARTIFACT_OWNERSHIP,
+        RESEARCH_ARTIFACT_OWNERSHIP_COLUMNS,
+        errors,
     )
     active_models = _active_stock_models(errors)
     if errors:
@@ -1563,25 +1650,123 @@ def validate_data_sharing(*, base_ref: str | None = None) -> tuple[list[str], li
     return errors, sharing
 
 
-def _production_imports(
-    path: Path, production_modules: dict[str, str]
-) -> tuple[tuple[str, ...], tuple[str, ...]]:
+def _repo_module_name(path: Path, repo_root: Path) -> str | None:
+    try:
+        relative = path.resolve().relative_to(repo_root.resolve()).with_suffix("")
+    except ValueError:
+        return None
+    parts = list(relative.parts)
+    if parts and parts[-1] == "__init__":
+        parts.pop()
+    return ".".join(parts) or None
+
+
+def _relative_import_base(
+    path: Path,
+    repo_root: Path,
+    level: int,
+    module: str | None,
+) -> str | None:
+    current_module = _repo_module_name(path, repo_root)
+    if current_module is None:
+        return None
+    current_parts = current_module.split(".")
+    package_parts = (
+        current_parts
+        if path.name == "__init__.py"
+        else current_parts[:-1]
+    )
+    parent_hops = level - 1
+    if parent_hops > len(package_parts):
+        return None
+    base_parts = package_parts[: len(package_parts) - parent_hops]
+    if module:
+        base_parts.extend(module.split("."))
+    return ".".join(base_parts)
+
+
+def _repo_import_analysis(
+    path: Path,
+    production_modules: dict[str, str],
+    *,
+    repo_root: Path = ROOT,
+) -> tuple[dict[str, tuple[str, ...]], tuple[str, ...]]:
     try:
         tree = ast.parse(path.read_text(encoding="utf-8-sig"), filename=path.as_posix())
-    except (SyntaxError, UnicodeError):
-        return (), ()
-    symbols: set[str] = set()
-    sources: set[str] = set()
+    except (SyntaxError, UnicodeError) as exc:
+        return {}, (f"unparseable Python source: {exc}",)
+    symbols_by_source: dict[str, set[str]] = defaultdict(set)
+    unresolved_local_imports: set[str] = set()
+    local_package_roots = {
+        module.split(".", 1)[0]
+        for module in production_modules
+        if "." in module
+    }
     for node in ast.walk(tree):
-        if isinstance(node, ast.ImportFrom) and node.module in production_modules:
-            sources.add(production_modules[node.module])
-            symbols.update(alias.name for alias in node.names)
+        if isinstance(node, ast.ImportFrom):
+            base_module = (
+                _relative_import_base(
+                    path,
+                    repo_root,
+                    node.level,
+                    node.module,
+                )
+                if node.level
+                else node.module
+            )
+            for alias in node.names:
+                combined_module = (
+                    f"{base_module}.{alias.name}" if base_module else alias.name
+                )
+                if alias.name != "*" and combined_module in production_modules:
+                    symbols_by_source[production_modules[combined_module]].add("*")
+                    continue
+                if base_module in production_modules:
+                    symbols_by_source[production_modules[base_module]].add(alias.name)
+                    continue
+                is_repo_local = bool(node.level) or bool(
+                    base_module
+                    and base_module.split(".", 1)[0] in local_package_roots
+                )
+                if is_repo_local:
+                    unresolved_local_imports.add(
+                        f"from {'.' * node.level}{node.module or ''} import {alias.name}"
+                    )
         elif isinstance(node, ast.Import):
             for alias in node.names:
                 if alias.name in production_modules:
-                    sources.add(production_modules[alias.name])
-                    symbols.add("*")
-    return tuple(sorted(sources)), tuple(sorted(symbols))
+                    symbols_by_source[production_modules[alias.name]].add("*")
+                elif alias.name.split(".", 1)[0] in local_package_roots:
+                    unresolved_local_imports.add(f"import {alias.name}")
+    return (
+        {
+            source: tuple(sorted(symbols))
+            for source, symbols in sorted(symbols_by_source.items())
+        },
+        tuple(sorted(unresolved_local_imports)),
+    )
+
+
+def _repo_imports_by_source(
+    path: Path,
+    production_modules: dict[str, str],
+    *,
+    repo_root: Path = ROOT,
+) -> dict[str, tuple[str, ...]]:
+    imports, _unresolved = _repo_import_analysis(
+        path,
+        production_modules,
+        repo_root=repo_root,
+    )
+    return imports
+
+
+def _production_imports(
+    path: Path, production_modules: dict[str, str]
+) -> tuple[tuple[str, ...], tuple[str, ...]]:
+    imports = _repo_imports_by_source(path, production_modules)
+    symbols = {symbol for values in imports.values() for symbol in values}
+    return tuple(imports), tuple(sorted(symbols))
 
 
 def _active_repo_python_sources(errors: list[str]) -> set[str]:
@@ -1595,6 +1780,222 @@ def _active_repo_python_sources(errors: list[str]) -> set[str]:
         for row in rows
         if row["kind"] == "python" and row["status"] == "active"
     }
+
+
+def _python_source_module_map(
+    sources: Iterable[str], errors: list[str]
+) -> dict[str, str]:
+    modules: dict[str, str] = {}
+    for source in sorted(set(sources)):
+        source_path = Path(source).with_suffix("")
+        aliases = {source_path.name, ".".join(source_path.parts)}
+        if source_path.parts and source_path.parts[0] == "scripts":
+            aliases.add(".".join(source_path.parts[1:]))
+        for alias in sorted(part for part in aliases if part):
+            existing = modules.get(alias)
+            if existing is not None and existing != source:
+                errors.append(
+                    "active repo Python import alias is ambiguous: "
+                    f"{alias}={existing};{source}"
+                )
+                continue
+            modules[alias] = source
+    return modules
+
+
+def _governed_business_import_contract(
+    validator_rows: list[dict[str, str]],
+    active_models: dict[str, dict[str, str]],
+    active_repo_python_sources: set[str],
+    errors: list[str],
+) -> tuple[
+    dict[str, str],
+    set[str],
+    set[str],
+    dict[str, set[str]],
+]:
+    ownership_rows = strict_csv_rows(
+        MODEL_OWNERSHIP,
+        MODEL_OWNERSHIP_COLUMNS,
+        errors,
+    )
+    shared_semantic_rows = strict_csv_rows(
+        SHARED_SEMANTICS,
+        SHARED_SEMANTIC_COLUMNS,
+        errors,
+    )
+    background_rows = strict_csv_rows(
+        BACKGROUND_DATA_REGISTRY,
+        BACKGROUND_DATA_COLUMNS,
+        errors,
+    )
+    sharing_rows = strict_csv_rows(
+        DATA_SHARING_REGISTRY,
+        DATA_SHARING_COLUMNS,
+        errors,
+    )
+    research_rows = strict_csv_rows(
+        RESEARCH_ARTIFACT_OWNERSHIP,
+        RESEARCH_ARTIFACT_OWNERSHIP_COLUMNS,
+        errors,
+    )
+    utility_rows = strict_csv_rows(
+        MODEL_RESEARCH_SHARED_UTILITY_REGISTRY,
+        MODEL_RESEARCH_SHARED_UTILITY_COLUMNS,
+        errors,
+    )
+    canonical_lineage_rows = strict_csv_rows(
+        CANONICAL_FIELD_LINEAGE_REGISTRY,
+        CANONICAL_FIELD_LINEAGE_COLUMNS,
+        errors,
+    )
+    dispatcher_collision_rows = strict_csv_rows(
+        VOLUME_V2_DISPATCHER_COLLISION_REGISTRY,
+        VOLUME_V2_DISPATCHER_COLLISION_COLUMNS,
+        errors,
+    )
+    operation_adapter_rows = strict_csv_rows(
+        OPERATION_ADAPTER_PROTECTED_FIELD_CONTRACT,
+        OPERATION_ADAPTER_PROTECTED_FIELD_COLUMNS,
+        errors,
+    )
+
+    seeds = {
+        contract["production_source_file"] for contract in active_models.values()
+    }
+    for rows, column in (
+        (ownership_rows, "production_source_file"),
+        (background_rows, "producer"),
+        (sharing_rows, "registered_producers"),
+        (research_rows, "producer"),
+        (validator_rows, "production_source_file"),
+        (shared_semantic_rows, "source_file"),
+    ):
+        for row in rows:
+            seeds.update(split_list(row[column]))
+
+    technical_utility_sources = {
+        row["utility_path"]
+        for row in utility_rows
+        if row["ownership_class"] == "shared_technical_utility"
+    }
+    seeds.update(
+        row["utility_path"]
+        for row in utility_rows
+        if row["ownership_class"] != "shared_technical_utility"
+    )
+    for row in canonical_lineage_rows:
+        seeds.update(split_list(row["producer"]))
+    for row in dispatcher_collision_rows:
+        for column in (
+            "canonical_producer",
+            "allowed_mirror_producer",
+            "dispatcher_consumer",
+        ):
+            seeds.update(split_list(row[column]))
+    for row in operation_adapter_rows:
+        seeds.update(split_list(row["producer_path"]))
+    technical_symbols_by_source: dict[str, set[str]] = defaultdict(set)
+    for row in shared_semantic_rows:
+        if row["semantic_class"] != "shared_technical":
+            continue
+        semantic_item = row["semantic_item"]
+        if ":" not in semantic_item:
+            errors.append(
+                f"{row['source_file']}: shared technical semantic item lacks a symbol kind"
+            )
+            continue
+        technical_symbols_by_source[row["source_file"]].add(
+            semantic_item.split(":", 1)[1]
+        )
+
+    unknown_sources = (seeds | technical_utility_sources) - active_repo_python_sources
+    if unknown_sources:
+        errors.append(
+            "governed producer map contains inactive repo Python paths: "
+            f"{sorted(unknown_sources)}"
+        )
+    repo_modules = _python_source_module_map(active_repo_python_sources, errors)
+    governed_sources = set(seeds) - technical_utility_sources
+    pending = list(sorted(governed_sources))
+    while pending:
+        source = pending.pop()
+        source_file = ROOT / source
+        if not source_file.is_file():
+            continue
+        imports, unresolved = _repo_import_analysis(
+            source_file,
+            repo_modules,
+        )
+        for item in unresolved:
+            errors.append(
+                f"{source}: governed producer import graph has unresolved repo-local import: {item}"
+            )
+        for imported_source in imports:
+            if imported_source in technical_utility_sources:
+                continue
+            if imported_source not in governed_sources:
+                governed_sources.add(imported_source)
+                pending.append(imported_source)
+    return (
+        repo_modules,
+        governed_sources,
+        technical_utility_sources,
+        dict(technical_symbols_by_source),
+    )
+
+
+def _validate_independent_governed_imports(
+    validator_path: str,
+    validator_file: Path,
+    repo_modules: dict[str, str],
+    governed_sources: set[str],
+    technical_utility_sources: set[str],
+    technical_symbols_by_source: dict[str, set[str]],
+    errors: list[str],
+    *,
+    repo_root: Path = ROOT,
+) -> None:
+    pending: list[tuple[str, Path]] = [(validator_path, validator_file)]
+    visited: set[str] = set()
+    while pending:
+        current_path, current_file = pending.pop()
+        if current_path in visited:
+            continue
+        visited.add(current_path)
+        imports, unresolved = _repo_import_analysis(
+            current_file,
+            repo_modules,
+            repo_root=repo_root,
+        )
+        for item in unresolved:
+            errors.append(
+                f"{validator_path}: independent validator import graph has unresolved "
+                f"repo-local import at {current_path}: {item}"
+            )
+        for source, symbols in sorted(imports.items()):
+            if source in technical_utility_sources:
+                continue
+            if source in governed_sources:
+                unapproved_symbols = set(symbols) - technical_symbols_by_source.get(
+                    source,
+                    set(),
+                )
+                if unapproved_symbols:
+                    errors.append(
+                        f"{validator_path}: independent validator imports governed producer "
+                        f"business logic: {source}; "
+                        f"symbols={';'.join(sorted(unapproved_symbols))}"
+                    )
+                continue
+            source_file = repo_root / source
+            if not source_file.is_file():
+                errors.append(
+                    f"{validator_path}: independent validator import graph source is missing: "
+                    f"{source}"
+                )
+                continue
+            pending.append((source, source_file))
 
 
 def validate_validator_independence() -> tuple[list[str], list[dict[str, str]]]:
@@ -1649,6 +2050,17 @@ def validate_validator_independence() -> tuple[list[str], list[dict[str, str]]]:
         errors.append(f"{independent_guard}: independent guard must claim independence")
     active_production_sources = set(production_modules.values())
     active_repo_python_sources = _active_repo_python_sources(errors)
+    (
+        repo_python_modules,
+        governed_sources,
+        technical_utility_sources,
+        technical_symbols_by_source,
+    ) = _governed_business_import_contract(
+        rows,
+        active_models,
+        active_repo_python_sources,
+        errors,
+    )
     for path in sorted(independent_paths):
         row = registered[path]
         validator_file = ROOT / path
@@ -1665,17 +2077,22 @@ def validate_validator_independence() -> tuple[list[str], list[dict[str, str]]]:
             errors.append(
                 f"{path}: independent validator target source is not an active registered module"
             )
-        declared_modules: dict[str, str] = {}
-        for source in declared_sources:
-            stem = Path(source).stem
-            declared_modules[stem] = source
-            declared_modules[f"scripts.{stem}"] = source
+        declared_modules = _python_source_module_map(declared_sources, errors)
         _guard_sources, guard_symbols = _production_imports(
             validator_file,
             declared_modules,
         )
         if guard_symbols:
             errors.append(f"{path}: independent guard must parse contracts, not import production logic")
+        _validate_independent_governed_imports(
+            path,
+            validator_file,
+            repo_python_modules,
+            governed_sources,
+            technical_utility_sources,
+            technical_symbols_by_source,
+            errors,
+        )
         if "independent" not in row["allowed_evidence_use"].lower():
             errors.append(f"{path}: independent validator evidence policy must remain explicit")
     for path in sorted(set(registered) - set(discovered) - independent_paths):

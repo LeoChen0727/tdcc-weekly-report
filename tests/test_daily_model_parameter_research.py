@@ -2031,7 +2031,7 @@ def test_research_workflow_has_opt_in_revenue_projection_chain_stage_mode() -> N
     input_contract = (
         "      run_revenue_unreacted_range_source_snapshot_projection_chain_only:\n"
         "        description: \"When revenue research is selected, rebuild only its "
-        "20260713 source snapshot projection chain\"\n"
+        "downstream chain from the pinned 20260713 source snapshot projection\"\n"
         "        required: false\n"
         "        default: \"false\""
     )

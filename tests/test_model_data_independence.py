@@ -23,9 +23,14 @@ from model_data_independence import (  # noqa: E402
     SEMANTIC_MIGRATION_COLUMNS,
     SourceSemanticGraph,
     _production_imports,
+    _active_repo_python_sources,
+    _active_stock_models,
+    _governed_business_import_contract,
+    _python_source_module_map,
     _revenue_cross_market_resolution_registry_canonical_sha256,
     _validate_revenue_cross_market_resolution_contract_binding,
     _validate_current_migration_chain,
+    _validate_independent_governed_imports,
     aggregate_semantic_sha256,
     data_contract_sha256,
     data_migration_row_sha256,
@@ -1619,6 +1624,294 @@ def test_future_model_owned_module_import_is_detected(tmp_path: Path) -> None:
     )
     assert sources == ("scripts/models/future_model.py",)
     assert symbols == ("condition", "score")
+
+
+def test_independent_validator_declared_source_cannot_hide_other_repo_import(
+    tmp_path: Path,
+) -> None:
+    validator = tmp_path / "validate_substitution.py"
+    validator.write_text("from producer_b import business_rule\n", encoding="utf-8")
+    declared_sources = {"scripts/producer_a.py"}
+    errors: list[str] = []
+    repo_modules = _python_source_module_map(
+        {*declared_sources, "scripts/producer_b.py"},
+        errors,
+    )
+
+    assert errors == []
+    _validate_independent_governed_imports(
+        "scripts/validate_substitution.py",
+        validator,
+        repo_modules,
+        {"scripts/producer_b.py"},
+        set(),
+        {},
+        errors,
+    )
+
+    assert errors == [
+        "scripts/validate_substitution.py: independent validator imports governed "
+        "producer business logic: scripts/producer_b.py; symbols=business_rule"
+    ]
+    assert "scripts/producer_b.py" not in declared_sources
+
+
+def test_canonical_lineage_producer_is_in_current_governed_import_contract(
+    tmp_path: Path,
+) -> None:
+    errors: list[str] = []
+    validator_rows = read_csv("config/daily_model_validator_independence.csv")
+    canonical_lineage_rows = read_csv(
+        "config/daily_model_canonical_field_lineage_registry.csv"
+    )
+    canonical_producer = next(
+        row["producer"]
+        for row in canonical_lineage_rows
+        if row["lineage_id"] == "score__all_candidates_current"
+    )
+    (
+        repo_modules,
+        governed_sources,
+        technical_utility_sources,
+        technical_symbols_by_source,
+    ) = _governed_business_import_contract(
+        validator_rows,
+        _active_stock_models(errors),
+        _active_repo_python_sources(errors),
+        errors,
+    )
+    assert errors == []
+    assert canonical_producer in governed_sources
+
+    validator = tmp_path / "validate_canonical_lineage.py"
+    validator.write_text(
+        f"from {Path(canonical_producer).stem} import load_all_sources\n",
+        encoding="utf-8",
+    )
+    _validate_independent_governed_imports(
+        "scripts/validate_canonical_lineage.py",
+        validator,
+        repo_modules,
+        governed_sources,
+        technical_utility_sources,
+        technical_symbols_by_source,
+        errors,
+    )
+    assert errors == [
+        "scripts/validate_canonical_lineage.py: independent validator imports governed "
+        f"producer business logic: {canonical_producer}; symbols=load_all_sources"
+    ]
+
+
+def test_independent_validator_package_import_cannot_hide_governed_producer(
+    tmp_path: Path,
+) -> None:
+    scripts = tmp_path / "scripts"
+    scripts.mkdir()
+    validator = scripts / "validate_substitution.py"
+    validator.write_text(
+        "from scripts import producer_b as hidden\n",
+        encoding="utf-8",
+    )
+    producer = scripts / "producer_b.py"
+    producer.write_text("def business_rule(): return True\n", encoding="utf-8")
+    errors: list[str] = []
+    repo_modules = _python_source_module_map(
+        {"scripts/producer_b.py"},
+        errors,
+    )
+    _validate_independent_governed_imports(
+        "scripts/validate_substitution.py",
+        validator,
+        repo_modules,
+        {"scripts/producer_b.py"},
+        set(),
+        {},
+        errors,
+        repo_root=tmp_path,
+    )
+
+    assert errors == [
+        "scripts/validate_substitution.py: independent validator imports governed "
+        "producer business logic: scripts/producer_b.py; symbols=*"
+    ]
+
+
+def test_independent_validator_relative_import_cannot_hide_governed_producer(
+    tmp_path: Path,
+) -> None:
+    package = tmp_path / "scripts" / "fixture_package"
+    package.mkdir(parents=True)
+    validator = package / "validate_substitution.py"
+    validator.write_text("from . import producer_b\n", encoding="utf-8")
+    producer = package / "producer_b.py"
+    producer.write_text("def business_rule(): return True\n", encoding="utf-8")
+    errors: list[str] = []
+    repo_modules = _python_source_module_map(
+        {"scripts/fixture_package/producer_b.py"},
+        errors,
+    )
+    _validate_independent_governed_imports(
+        "scripts/fixture_package/validate_substitution.py",
+        validator,
+        repo_modules,
+        {"scripts/fixture_package/producer_b.py"},
+        set(),
+        {},
+        errors,
+        repo_root=tmp_path,
+    )
+
+    assert errors == [
+        "scripts/fixture_package/validate_substitution.py: independent validator "
+        "imports governed producer business logic: "
+        "scripts/fixture_package/producer_b.py; symbols=*"
+    ]
+
+
+def test_independent_validator_helper_cannot_hide_transitive_governed_import(
+    tmp_path: Path,
+) -> None:
+    scripts = tmp_path / "scripts"
+    scripts.mkdir()
+    validator = scripts / "validate_with_helper.py"
+    validator.write_text(
+        "from validation_helper import validate_binding\n",
+        encoding="utf-8",
+    )
+    helper = scripts / "validation_helper.py"
+    helper.write_text(
+        "from producer_b import business_rule\n"
+        "def validate_binding(): return business_rule()\n",
+        encoding="utf-8",
+    )
+    producer = scripts / "producer_b.py"
+    producer.write_text("def business_rule(): return True\n", encoding="utf-8")
+    errors: list[str] = []
+    repo_modules = _python_source_module_map(
+        {
+            "scripts/producer_b.py",
+            "scripts/validation_helper.py",
+        },
+        errors,
+    )
+    _validate_independent_governed_imports(
+        "scripts/validate_with_helper.py",
+        validator,
+        repo_modules,
+        {"scripts/producer_b.py"},
+        set(),
+        {},
+        errors,
+        repo_root=tmp_path,
+    )
+
+    assert errors == [
+        "scripts/validate_with_helper.py: independent validator imports governed "
+        "producer business logic: scripts/producer_b.py; symbols=business_rule"
+    ]
+
+
+def test_independent_validator_can_import_non_producer_validation_helper(
+    tmp_path: Path,
+) -> None:
+    scripts = tmp_path / "scripts"
+    scripts.mkdir()
+    validator = scripts / "validate_with_helper.py"
+    validator.write_text(
+        "from validation_helper import validate_binding\n",
+        encoding="utf-8",
+    )
+    (scripts / "validation_helper.py").write_text(
+        "from validation_leaf import validate_leaf\n"
+        "def validate_binding(): return validate_leaf()\n",
+        encoding="utf-8",
+    )
+    (scripts / "validation_leaf.py").write_text(
+        "def validate_leaf(): return True\n",
+        encoding="utf-8",
+    )
+    errors: list[str] = []
+    repo_modules = _python_source_module_map(
+        {
+            "scripts/producer.py",
+            "scripts/validation_helper.py",
+            "scripts/validation_leaf.py",
+        },
+        errors,
+    )
+    _validate_independent_governed_imports(
+        "scripts/validate_with_helper.py",
+        validator,
+        repo_modules,
+        {"scripts/producer.py"},
+        set(),
+        {},
+        errors,
+        repo_root=tmp_path,
+    )
+
+    assert errors == []
+
+
+def test_independent_validator_technical_import_exceptions_are_narrow(
+    tmp_path: Path,
+) -> None:
+    scripts = tmp_path / "scripts"
+    scripts.mkdir()
+    validator = scripts / "validate_technical.py"
+    validator.write_text(
+        "from synthetic_independence_technical_utility import read_csv\n"
+        "from mixed_producer import num\n",
+        encoding="utf-8",
+    )
+    (scripts / "synthetic_independence_technical_utility.py").write_text(
+        "def read_csv(path): return path\n",
+        encoding="utf-8",
+    )
+    (scripts / "mixed_producer.py").write_text(
+        "def num(value): return value\n"
+        "def business_rule(): return True\n",
+        encoding="utf-8",
+    )
+    errors: list[str] = []
+    repo_modules = _python_source_module_map(
+        {
+            "scripts/synthetic_independence_technical_utility.py",
+            "scripts/mixed_producer.py",
+        },
+        errors,
+    )
+    _validate_independent_governed_imports(
+        "scripts/validate_technical.py",
+        validator,
+        repo_modules,
+        {"scripts/mixed_producer.py"},
+        {"scripts/synthetic_independence_technical_utility.py"},
+        {"scripts/mixed_producer.py": {"num"}},
+        errors,
+        repo_root=tmp_path,
+    )
+    assert errors == []
+
+    validator.write_text(
+        "from mixed_producer import business_rule\n",
+        encoding="utf-8",
+    )
+    _validate_independent_governed_imports(
+        "scripts/validate_technical.py",
+        validator,
+        repo_modules,
+        {"scripts/mixed_producer.py"},
+        {"scripts/synthetic_independence_technical_utility.py"},
+        {"scripts/mixed_producer.py": {"num"}},
+        errors,
+        repo_root=tmp_path,
+    )
+    assert errors == [
+        "scripts/validate_technical.py: independent validator imports governed "
+        "producer business logic: scripts/mixed_producer.py; symbols=business_rule"
+    ]
 
 
 def test_new_model_cannot_reuse_contained_legacy_monolith_status() -> None:
