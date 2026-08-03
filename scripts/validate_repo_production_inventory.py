@@ -123,7 +123,7 @@ PR_SAFE_AUTHORIZATION_COLUMNS = (
     "changed_paths",
 )
 PR_SAFE_ADDITIVE_RESEARCH_MIGRATION_ID = (
-    "additive-research-validation-registration-pr-safe-v2"
+    "additive-research-validation-registration-pr-safe-v3"
 )
 PR_SAFE_ADVANCED_HELPER = "scripts/validate_repo_advanced_integrity_pr_safe.py"
 PR_SAFE_ADVANCED_TEST = "tests/test_repo_advanced_integrity_pr_safe.py"
@@ -145,6 +145,23 @@ PR_SAFE_RETAINED_AUTHORIZATION_ROWS = (
         ),
         "current_test_sha256": (
             "72e308d5e8757878958ba21529298001c1888a72e9e837ed9d6057c3d8e2f50b"
+        ),
+        "changed_paths": f"{PR_SAFE_ADVANCED_HELPER};{PR_SAFE_ADVANCED_TEST}",
+    },
+    {
+        "migration_id": "additive-research-validation-registration-pr-safe-v2",
+        "status": "preauthorized",
+        "approval_reference": (
+            "user_authorized_stage1_v2_preauthorization_20260803"
+        ),
+        "base_helper_sha256": (
+            "72f79f37dd8a4ece163f9f6e3c7f299f3243c8c44b66442c992bc54f38126315"
+        ),
+        "current_helper_sha256": (
+            "5a05baa9d505152c5bacf456116be4c896db08e55a14a37c1d46074a810a8e8c"
+        ),
+        "current_test_sha256": (
+            "557d085bfa04221a9dc0bf826b783f8de1fa9b6e026bdcba181d2d1f836fd234"
         ),
         "changed_paths": f"{PR_SAFE_ADVANCED_HELPER};{PR_SAFE_ADVANCED_TEST}",
     },

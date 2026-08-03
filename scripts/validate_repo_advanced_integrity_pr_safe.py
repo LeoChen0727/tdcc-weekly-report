@@ -94,7 +94,7 @@ CANONICAL_LINEAGE_PR_COMMAND = (
 )
 
 ADDITIVE_RESEARCH_GATE_SELF_UPDATE_ID = (
-    "additive-research-validation-registration-pr-safe-v2"
+    "additive-research-validation-registration-pr-safe-v3"
 )
 ADDITIVE_RESEARCH_GATE_SELF_UPDATE_PATHS = frozenset(
     {PR_SAFE_HELPER_PATH, SOURCE_IDENTITY_GATE_TEST_PATH}
