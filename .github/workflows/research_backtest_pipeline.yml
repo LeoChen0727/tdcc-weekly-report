@@ -60,7 +60,7 @@ on:
         required: false
         default: "false"
       run_revenue_unreacted_range_source_snapshot_projection_chain_only:
-        description: "When revenue research is selected, rebuild only its 20260713 source snapshot projection chain"
+        description: "When revenue research is selected, rebuild only its downstream chain from the pinned 20260713 source snapshot projection"
         required: false
         default: "false"
       run_volume_range_breakout_v2_research:

@@ -197,6 +197,7 @@ def test_daily_model_maintenance_pr_workflow_triggers_on_independence_guard_chan
 
     required_paths = (
         "config/daily_model_*.csv",
+        "config/revenue_unreacted_range_*.csv",
         "data/financial_statement_history/*.csv",
         "config/runtime_file_lineage_contract.csv",
         "scripts/build_model_data_independence_audit.py",
