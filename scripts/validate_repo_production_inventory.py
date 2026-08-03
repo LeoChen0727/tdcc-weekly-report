@@ -123,12 +123,31 @@ PR_SAFE_AUTHORIZATION_COLUMNS = (
     "changed_paths",
 )
 PR_SAFE_ADDITIVE_RESEARCH_MIGRATION_ID = (
-    "additive-research-validation-registration-pr-safe-v1"
+    "additive-research-validation-registration-pr-safe-v2"
 )
 PR_SAFE_ADVANCED_HELPER = "scripts/validate_repo_advanced_integrity_pr_safe.py"
 PR_SAFE_ADVANCED_TEST = "tests/test_repo_advanced_integrity_pr_safe.py"
 PR_SAFE_AUTHORIZED_STAGE1_PATHS = frozenset(
     {PR_SAFE_ADVANCED_HELPER, PR_SAFE_ADVANCED_TEST}
+)
+PR_SAFE_RETAINED_AUTHORIZATION_ROWS = (
+    {
+        "migration_id": "additive-research-validation-registration-pr-safe-v1",
+        "status": "preauthorized",
+        "approval_reference": (
+            "user_authorized_pr_safe_stage0_control_plane_trust_root_20260803"
+        ),
+        "base_helper_sha256": (
+            "72f79f37dd8a4ece163f9f6e3c7f299f3243c8c44b66442c992bc54f38126315"
+        ),
+        "current_helper_sha256": (
+            "b09d8063512dad3c771789e8e546ab4c1541b5f1b1ca8cb59a1bfcfb3c35982a"
+        ),
+        "current_test_sha256": (
+            "72e308d5e8757878958ba21529298001c1888a72e9e837ed9d6057c3d8e2f50b"
+        ),
+        "changed_paths": f"{PR_SAFE_ADVANCED_HELPER};{PR_SAFE_ADVANCED_TEST}",
+    },
 )
 PR_SAFE_TRIGGER_PATHS = tuple(sorted(PR_SAFE_AUTHORIZED_STAGE1_PATHS))
 PR_SAFE_IMMUTABLE_TRUST_ROOT_PATHS = frozenset(
@@ -1523,6 +1542,17 @@ def parse_pr_safe_authorizations(payload: bytes) -> tuple[list[dict[str, str]], 
     return rows, []
 
 
+def validate_pr_safe_authorization_history(
+    rows: list[dict[str, str]],
+) -> list[str]:
+    retained = list(PR_SAFE_RETAINED_AUTHORIZATION_ROWS)
+    if rows[: len(retained)] != retained:
+        return [
+            "PR-safe authorization history must retain the exact append-only prefix"
+        ]
+    return []
+
+
 def parse_pr_safe_lifecycle_authorizations(
     payload: bytes,
 ) -> tuple[list[dict[str, str]], list[str]]:
@@ -1660,6 +1690,7 @@ def validate_pr_safe_control_plane_delta(
         authorization_payload
     )
     errors.extend(authorization_errors)
+    errors.extend(validate_pr_safe_authorization_history(authorizations))
     matching = [
         row
         for row in authorizations
@@ -2094,6 +2125,17 @@ def validate_pr_safe_base_guard_repository_invariants(
     workflow_paths: set[str],
     errors: list[str],
 ) -> None:
+    try:
+        authorization_payload = (ROOT / PR_SAFE_AUTHORIZATION_PATH).read_bytes()
+    except OSError as exc:
+        errors.append(f"cannot read PR-safe authorization ledger: {exc}")
+    else:
+        authorization_rows, authorization_errors = parse_pr_safe_authorizations(
+            authorization_payload
+        )
+        errors.extend(authorization_errors)
+        errors.extend(validate_pr_safe_authorization_history(authorization_rows))
+
     try:
         lifecycle_payload = (ROOT / PR_SAFE_LIFECYCLE_AUTHORIZATION_PATH).read_bytes()
     except OSError as exc:
