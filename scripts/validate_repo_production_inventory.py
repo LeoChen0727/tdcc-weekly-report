@@ -1,14 +1,150 @@
 from __future__ import annotations
 
+import argparse
 import csv
+import hashlib
+import io
+import json
 import re
 import subprocess
+import sys
 from dataclasses import dataclass
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
 INVENTORY = ROOT / "config" / "repo_production_inventory.csv"
+PR_SAFE_BASE_GUARD_WORKFLOW = ".github/workflows/individual_stock_pr_validation.yml"
+PR_SAFE_BASE_GUARD_SCRIPT = "scripts/validate_repo_production_inventory.py"
+PR_SAFE_REPOSITORY = "LeoChen0727/tdcc-weekly-report"
+PR_SAFE_AUDIT_MANIFEST_SCHEMA_VERSION = 1
+PR_SAFE_AUDIT_MODE = "base_owned_evidence_only"
+PR_SAFE_AUDIT_MANIFEST_FILENAME = "pr-safe-control-plane-audit-manifest.json"
+PR_SAFE_EXPECTED_WORKFLOW_REF = (
+    f"{PR_SAFE_REPOSITORY}/{PR_SAFE_BASE_GUARD_WORKFLOW}@refs/heads/main"
+)
+PR_SAFE_ALLOWED_EVENT_ACTIONS = frozenset(
+    {"opened", "synchronize", "reopened", "edited"}
+)
+PR_SAFE_CHECKOUT_ACTION = (
+    "actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803"
+)
+PR_SAFE_SETUP_PYTHON_ACTION = (
+    "actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1"
+)
+PR_SAFE_UPLOAD_ARTIFACT_ACTION = (
+    "actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02"
+)
+PR_SAFE_EXPECTED_ACTION_USES = (
+    PR_SAFE_CHECKOUT_ACTION,
+    PR_SAFE_SETUP_PYTHON_ACTION,
+    PR_SAFE_CHECKOUT_ACTION,
+    PR_SAFE_UPLOAD_ARTIFACT_ACTION,
+)
+PR_SAFE_REQUIRED_CHECK_CONTEXT = "individual-stock-pr-validation"
+PR_SAFE_TARGET_SKIP_CHECK_NAME = (
+    "individual-stock-pr-validation-pull-request-target-skip"
+)
+PR_SAFE_REGULAR_JOB_NAME_EXPRESSION = (
+    "${{ github.event_name == 'pull_request' && "
+    "'individual-stock-pr-validation' || "
+    "'individual-stock-pr-validation-pull-request-target-skip' }}"
+)
+PR_SAFE_READ_ONLY_PERMISSIONS = {"contents": "read"}
+PR_SAFE_AUDIT_STEP_NAMES = (
+    "Checkout pull request base only",
+    "Fetch pull request head object without checkout",
+    "Validate PR head blobs and write audit-only manifest",
+    "Record audit manifest SHA-256",
+    "Upload audit-only evidence",
+    "Fail runner when audit validator rejects",
+)
+PR_SAFE_AUDIT_STEP_SHA256 = (
+    "1cf9ca3456324b5fc20d51705d37dee3f715e528fb912eb01cc4e7497925ecf9",
+    "b90af382f61aaa0f33f4aa81515e392863444446342c505d4a3098c498b89fce",
+    "e301e03e3c7c6e60231a199662fd297a706f007727cc9aa249135ddd9413fb7f",
+    "26bade9c4c3b3a0e8e2fcb8b293f309e359efca4904eef8c853b0f3e3c8bed24",
+    "8169e8d5635859dca2c93eef7e4221c23a1f3f92d9f92efddf3a3752f4156d2a",
+    "39bd97385eabe276a77d3721ff8df61c3aa3d796a3d016755454bdce823ff845",
+)
+PR_SAFE_AUDIT_JOB_NAME = "pr-safe-base-audit-runner"
+PR_SAFE_AUDIT_JOB_RUNS_ON = "ubuntu-latest"
+PR_SAFE_AUDIT_JOB_TIMEOUT_MINUTES = "10"
+PR_SAFE_AUDIT_JOB_IF_BLOCK = (
+    "    if: >-",
+    "      github.event_name == 'pull_request_target' &&",
+    "      github.event.pull_request.base.ref == 'main' &&",
+    "      github.event.pull_request.base.repo.full_name == github.repository",
+)
+PR_SAFE_AUDIT_JOB_HEADER_SHA256 = (
+    "9b2aef41c5b06cdd3b1179b71f0773ebf2ff6ce56de801786990af27b4871806"
+)
+PR_SAFE_AUDIT_ARTIFACT_NAME = (
+    "pr-safe-control-plane-audit-${{ github.run_id }}-${{ github.run_attempt }}"
+)
+PR_SAFE_AUDIT_ARTIFACT_PATHS = (
+    "${{ runner.temp }}/pr-safe-control-plane-audit-manifest.json",
+    "${{ runner.temp }}/pr-safe-control-plane-audit-manifest.json.sha256",
+)
+PR_SAFE_AUDIT_RETENTION_DAYS = "30"
+PR_SAFE_AUTHORIZATION_PATH = (
+    "config/daily_model_pr_safe_self_migration_authorizations.csv"
+)
+PR_SAFE_LIFECYCLE_AUTHORIZATION_PATH = (
+    "config/repo_file_lifecycle_semantic_migrations.csv"
+)
+PR_SAFE_LIFECYCLE_AUTHORIZATION_COLUMNS = (
+    "migration_id",
+    "status",
+    "approval_reference",
+    "row_path",
+    "column",
+    "base_value_sha256",
+    "current_value_sha256",
+    "added_values",
+    "removed_values",
+    "scope",
+)
+PR_SAFE_LIFECYCLE_AUTHORIZATION_STATUS = "preauthorized"
+PR_SAFE_LIFECYCLE_AUTHORIZATION_SCOPE = "pr462_research_lifecycle_only"
+PR_SAFE_LIFECYCLE_AUTHORIZED_TARGETS = frozenset(
+    {
+        ("scripts/build_model_data_independence_audit.py", "reads_artifact"),
+        ("scripts/build_revenue_unreacted_range_research.py", "reads_artifact"),
+    }
+)
+PR_SAFE_AUTHORIZATION_COLUMNS = (
+    "migration_id",
+    "status",
+    "approval_reference",
+    "base_helper_sha256",
+    "current_helper_sha256",
+    "current_test_sha256",
+    "changed_paths",
+)
+PR_SAFE_ADDITIVE_RESEARCH_MIGRATION_ID = (
+    "additive-research-validation-registration-pr-safe-v1"
+)
+PR_SAFE_ADVANCED_HELPER = "scripts/validate_repo_advanced_integrity_pr_safe.py"
+PR_SAFE_ADVANCED_TEST = "tests/test_repo_advanced_integrity_pr_safe.py"
+PR_SAFE_AUTHORIZED_STAGE1_PATHS = frozenset(
+    {PR_SAFE_ADVANCED_HELPER, PR_SAFE_ADVANCED_TEST}
+)
+PR_SAFE_TRIGGER_PATHS = tuple(sorted(PR_SAFE_AUTHORIZED_STAGE1_PATHS))
+PR_SAFE_IMMUTABLE_TRUST_ROOT_PATHS = frozenset(
+    {
+        PR_SAFE_BASE_GUARD_WORKFLOW,
+        PR_SAFE_BASE_GUARD_SCRIPT,
+        PR_SAFE_AUTHORIZATION_PATH,
+        PR_SAFE_LIFECYCLE_AUTHORIZATION_PATH,
+    }
+)
+PR_SAFE_REGULAR_BLOB_MODES = frozenset({"100644", "100755"})
+PR_SAFE_FORBIDDEN_WRITE_PERMISSION_RE = re.compile(
+    r"(?im)(?:^|[{,])\s*['\"]?(?:checks|statuses)['\"]?\s*:\s*"
+    r"['\"]?write['\"]?(?![A-Za-z0-9_-])|"
+    r"^\s*permissions\s*:\s*['\"]?write-all['\"]?(?![A-Za-z0-9_-])"
+)
 DAILY_WORKFLOW = ".github/workflows/daily_full_pipeline.yml"
 PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY = "PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY"
 PRODUCTION_ARTIFACT_WRITE_SECRET_EXPRESSION = (
@@ -726,6 +862,67 @@ def workflow_step_name(step_block: str) -> str:
     return match.group(1) if match else ""
 
 
+def workflow_job_scalar_values(job_block: str, key: str) -> tuple[str, ...]:
+    return tuple(
+        match.group(1).strip("'\"")
+        for match in re.finditer(
+            rf"^    {re.escape(key)}:\s*(.*?)\s*$",
+            job_block,
+            flags=re.MULTILINE,
+        )
+    )
+
+
+def workflow_job_multiline_block(
+    job_block: str,
+    key: str,
+) -> tuple[tuple[str, ...], list[str]]:
+    lines = job_block.splitlines()
+    indexes = [
+        index
+        for index, line in enumerate(lines)
+        if re.match(rf"^    {re.escape(key)}:\s*", line)
+    ]
+    if len(indexes) != 1:
+        return (), [f"audit runner must contain exactly one {key} field"]
+    block = [lines[indexes[0]]]
+    for line in lines[indexes[0] + 1 :]:
+        if not line.strip():
+            continue
+        indent = len(line) - len(line.lstrip(" "))
+        if indent <= 4:
+            break
+        block.append(line.rstrip())
+    return tuple(block), []
+
+
+def canonical_workflow_job_header_sha256(
+    job_block: str,
+) -> tuple[str, list[str]]:
+    lines = job_block.replace("\r\n", "\n").replace("\r", "\n").split("\n")
+    indexes = [index for index, line in enumerate(lines) if line == "    steps:"]
+    if len(indexes) != 1:
+        return "", ["audit runner must contain exactly one steps mapping"]
+    header_lines = [line.rstrip() for line in lines[: indexes[0]]]
+    while header_lines and not header_lines[0]:
+        header_lines.pop(0)
+    while header_lines and not header_lines[-1]:
+        header_lines.pop()
+    payload = ("\n".join(header_lines) + "\n").encode("utf-8")
+    return hashlib.sha256(payload).hexdigest(), []
+
+
+def canonical_workflow_step_sha256(step_block: str) -> str:
+    normalized = step_block.replace("\r\n", "\n").replace("\r", "\n")
+    lines = [line.rstrip() for line in normalized.split("\n")]
+    while lines and not lines[0]:
+        lines.pop(0)
+    while lines and not lines[-1]:
+        lines.pop()
+    payload = ("\n".join(lines) + "\n").encode("utf-8")
+    return hashlib.sha256(payload).hexdigest()
+
+
 def workflow_step_mapping(step_block: str, section: str) -> dict[str, str]:
     lines = step_block.splitlines()
     section_line = f"        {section}:"
@@ -746,6 +943,283 @@ def workflow_step_mapping(step_block: str, section: str) -> dict[str, str]:
         if match:
             mapping[match.group(1)] = match.group(2)
     return mapping
+
+
+def workflow_exact_mapping(
+    text: str,
+    section: str,
+    *,
+    section_indent: int,
+    entry_indent: int,
+) -> tuple[dict[str, str], list[str]]:
+    lines = text.splitlines()
+    section_line = f"{' ' * section_indent}{section}:"
+    indexes = [index for index, line in enumerate(lines) if line == section_line]
+    if len(indexes) != 1:
+        return {}, [
+            f"workflow must contain exactly one {section} mapping at indent "
+            f"{section_indent}"
+        ]
+
+    mapping: dict[str, str] = {}
+    errors: list[str] = []
+    for line in lines[indexes[0] + 1 :]:
+        if not line.strip():
+            continue
+        indent = len(line) - len(line.lstrip(" "))
+        if indent <= section_indent:
+            break
+        match = re.fullmatch(
+            rf" {{{entry_indent}}}([A-Za-z0-9_-]+):\s*(.*?)\s*",
+            line,
+        )
+        if not match:
+            errors.append(f"{section} mapping contains malformed entry: {line.strip()}")
+            continue
+        key = match.group(1)
+        if key in mapping:
+            errors.append(f"{section} mapping contains duplicate key: {key}")
+            continue
+        mapping[key] = match.group(2).strip("'\"")
+    return mapping, errors
+
+
+def workflow_action_uses(text: str) -> tuple[tuple[str, ...], list[str]]:
+    refs: list[str] = []
+    errors: list[str] = []
+    for line in text.splitlines():
+        if not re.match(r"^\s+(?:-\s+)?uses\s*:", line):
+            continue
+        match = re.fullmatch(r"\s+(?:-\s+)?uses:\s*(.*?)\s*", line)
+        if not match or not match.group(1):
+            errors.append(f"workflow contains malformed uses entry: {line.strip()}")
+            continue
+        refs.append(match.group(1).strip("'\""))
+    return tuple(refs), errors
+
+
+def workflow_step_uses(step_block: str) -> str:
+    match = re.search(r"^        uses:\s*([^\s#]+)\s*$", step_block, flags=re.MULTILINE)
+    return match.group(1) if match else ""
+
+
+def workflow_step_condition(step_block: str) -> str:
+    match = re.search(r"^        if:\s*(.+?)\s*$", step_block, flags=re.MULTILINE)
+    return match.group(1) if match else ""
+
+
+def workflow_step_with_values(
+    step_block: str,
+) -> tuple[dict[str, str | tuple[str, ...]], list[str]]:
+    lines = step_block.splitlines()
+    values: dict[str, str | tuple[str, ...]] = {}
+    errors: list[str] = []
+    try:
+        start = lines.index("        with:") + 1
+    except ValueError:
+        return values, ["workflow step lacks an exact with mapping"]
+
+    index = start
+    while index < len(lines):
+        line = lines[index]
+        if not line.strip():
+            index += 1
+            continue
+        indent = len(line) - len(line.lstrip(" "))
+        if indent <= 8:
+            break
+        match = re.fullmatch(r" {10}([A-Za-z0-9_-]+):\s*(.*?)\s*", line)
+        if not match:
+            errors.append(f"workflow with mapping has malformed line: {line.strip()}")
+            index += 1
+            continue
+        key, raw_value = match.groups()
+        if key in values:
+            errors.append(f"workflow with mapping repeats key: {key}")
+        if raw_value in {"|", ">"}:
+            block_values: list[str] = []
+            index += 1
+            while index < len(lines):
+                block_line = lines[index]
+                block_indent = len(block_line) - len(block_line.lstrip(" "))
+                if block_line.strip() and block_indent <= 10:
+                    break
+                if block_line.strip():
+                    if block_indent != 12:
+                        errors.append(
+                            f"workflow block value has unexpected indentation: {key}"
+                        )
+                    block_values.append(block_line.strip())
+                index += 1
+            values[key] = tuple(block_values)
+            continue
+        values[key] = raw_value.strip("'\"")
+        index += 1
+    return values, errors
+
+
+def workflow_trigger_paths(text: str, trigger: str) -> tuple[tuple[str, ...], list[str]]:
+    lines = text.splitlines()
+    trigger_line = f"  {trigger}:"
+    indexes = [index for index, line in enumerate(lines) if line == trigger_line]
+    if len(indexes) != 1:
+        return (), [f"workflow must contain exactly one {trigger} trigger mapping"]
+    paths_indexes: list[int] = []
+    for index in range(indexes[0] + 1, len(lines)):
+        line = lines[index]
+        if line and not line.startswith("    "):
+            break
+        if line == "    paths:":
+            paths_indexes.append(index)
+    if len(paths_indexes) != 1:
+        return (), [f"{trigger} must contain exactly one paths mapping"]
+    paths: list[str] = []
+    for line in lines[paths_indexes[0] + 1 :]:
+        if line and not line.startswith("      "):
+            break
+        match = re.fullmatch(r" {6}-\s*['\"]?(.+?)['\"]?\s*", line)
+        if match:
+            paths.append(match.group(1).strip("'\""))
+        elif line.strip():
+            return (), [f"{trigger} paths contains malformed entry: {line.strip()}"]
+    return tuple(paths), []
+
+
+def validate_pr_safe_base_guard_workflow_text(text: str) -> list[str]:
+    errors: list[str] = []
+    trigger_paths, trigger_errors = workflow_trigger_paths(
+        text,
+        "pull_request_target",
+    )
+    errors.extend(trigger_errors)
+    if trigger_paths != PR_SAFE_TRIGGER_PATHS:
+        errors.append("pull_request_target paths must match the exact Stage1 path set")
+    action_uses, action_errors = workflow_action_uses(text)
+    errors.extend(action_errors)
+    if action_uses != PR_SAFE_EXPECTED_ACTION_USES:
+        errors.append("workflow uses entries must match the exact ordered pinned action set")
+
+    global_permissions, permission_errors = workflow_exact_mapping(
+        text,
+        "permissions",
+        section_indent=0,
+        entry_indent=2,
+    )
+    errors.extend(permission_errors)
+    if global_permissions != PR_SAFE_READ_ONLY_PERMISSIONS:
+        errors.append("workflow permissions must contain exactly contents: read")
+
+    jobs = workflow_job_blocks(text)
+    regular_job = jobs.get("individual-stock-pr-validation", "")
+    if not regular_job:
+        errors.append("regular individual-stock PR validation job is missing")
+    else:
+        regular_names = re.findall(
+            r"^    name:\s*(.*?)\s*$",
+            regular_job,
+            flags=re.MULTILINE,
+        )
+        if regular_names != [PR_SAFE_REGULAR_JOB_NAME_EXPRESSION]:
+            errors.append(
+                "regular job name must preserve the pull_request required context and "
+                "use a distinct pull_request_target skip name"
+            )
+        regular_timeouts = re.findall(
+            r"^    timeout-minutes:\s*(.*?)\s*$",
+            regular_job,
+            flags=re.MULTILINE,
+        )
+        if regular_timeouts != ["30"]:
+            errors.append("regular individual-stock PR validation job must use timeout-minutes: 30")
+
+    audit_job = jobs.get(PR_SAFE_AUDIT_JOB_NAME, "")
+    if not audit_job:
+        return [*errors, "base-owned PR-safe audit runner job is missing"]
+    audit_header_sha256, audit_header_errors = canonical_workflow_job_header_sha256(
+        audit_job
+    )
+    errors.extend(audit_header_errors)
+    if audit_header_sha256 != PR_SAFE_AUDIT_JOB_HEADER_SHA256:
+        errors.append("audit runner job header must match the exact canonical contract")
+    if workflow_job_scalar_values(audit_job, "name") != (PR_SAFE_AUDIT_JOB_NAME,):
+        errors.append("audit runner name must appear once and match its non-required context")
+    if workflow_job_scalar_values(audit_job, "runs-on") != (
+        PR_SAFE_AUDIT_JOB_RUNS_ON,
+    ):
+        errors.append("audit runner runs-on must appear once and equal ubuntu-latest")
+    if workflow_job_scalar_values(audit_job, "timeout-minutes") != (
+        PR_SAFE_AUDIT_JOB_TIMEOUT_MINUTES,
+    ):
+        errors.append("audit runner timeout-minutes must appear once and equal 10")
+    audit_if_block, audit_if_errors = workflow_job_multiline_block(audit_job, "if")
+    errors.extend(audit_if_errors)
+    if audit_if_block != PR_SAFE_AUDIT_JOB_IF_BLOCK:
+        errors.append("audit runner if condition must match the exact base-owned contract")
+    audit_permissions, audit_permission_errors = workflow_exact_mapping(
+        audit_job,
+        "permissions",
+        section_indent=4,
+        entry_indent=6,
+    )
+    errors.extend(audit_permission_errors)
+    if audit_permissions != PR_SAFE_READ_ONLY_PERMISSIONS:
+        errors.append("audit runner permissions must contain exactly contents: read")
+    if not re.search(
+        r"^    timeout-minutes:\s*10\s*$",
+        audit_job,
+        flags=re.MULTILINE,
+    ):
+        errors.append("base-owned PR-safe audit runner must use timeout-minutes: 10")
+    steps = workflow_step_blocks(audit_job)
+    step_names = tuple(workflow_step_name(step) for step in steps)
+    if step_names != PR_SAFE_AUDIT_STEP_NAMES:
+        errors.append("audit runner steps must match the exact six-step ordered name contract")
+    step_sha256 = tuple(canonical_workflow_step_sha256(step) for step in steps)
+    if step_sha256 != PR_SAFE_AUDIT_STEP_SHA256:
+        errors.append(
+            "audit runner steps must match the exact canonical security contract"
+        )
+    audit_checkout_steps = [
+        step for step in steps if workflow_step_uses(step).startswith("actions/checkout@")
+    ]
+    if len(audit_checkout_steps) != 1 or workflow_step_uses(
+        audit_checkout_steps[0] if audit_checkout_steps else ""
+    ) != PR_SAFE_CHECKOUT_ACTION:
+        errors.append("audit runner must use exactly one pinned checkout step")
+
+    upload_steps = [
+        step
+        for step in steps
+        if workflow_step_uses(step).startswith("actions/upload-artifact@")
+    ]
+    if len(upload_steps) != 1:
+        errors.append("audit runner must contain exactly one upload-artifact step")
+        return errors
+    upload_step = upload_steps[0]
+    if workflow_step_uses(upload_step) != PR_SAFE_UPLOAD_ARTIFACT_ACTION:
+        errors.append("audit evidence upload must use the pinned official action SHA")
+    if workflow_step_name(upload_step) != "Upload audit-only evidence":
+        errors.append("audit evidence upload step name mismatch")
+    if workflow_step_condition(upload_step) != "always()":
+        errors.append("audit evidence upload must use if: always()")
+    with_values, with_errors = workflow_step_with_values(upload_step)
+    errors.extend(with_errors)
+    expected_with: dict[str, str | tuple[str, ...]] = {
+        "name": PR_SAFE_AUDIT_ARTIFACT_NAME,
+        "path": PR_SAFE_AUDIT_ARTIFACT_PATHS,
+        "if-no-files-found": "error",
+        "retention-days": PR_SAFE_AUDIT_RETENTION_DAYS,
+    }
+    if with_values != expected_with:
+        errors.append("audit evidence upload with mapping must match the exact contract")
+    required_sidecar_lines = (
+        'manifest_name="$(basename "$AUDIT_MANIFEST")"',
+        '(cd "$manifest_dir" && sha256sum "$manifest_name" > '
+        '"${manifest_name}.sha256")',
+    )
+    if not all(line in audit_job for line in required_sidecar_lines):
+        errors.append("audit SHA-256 sidecar must reference the manifest basename")
+    return errors
 
 
 def is_checkout_step(step_block: str) -> bool:
@@ -1019,6 +1493,643 @@ def validate_active_guidance_commands(errors: list[str]) -> None:
                 errors.append(f"{message}: {rel_path} matches {pattern}")
 
 
+def canonical_blob_sha256(payload: bytes) -> str:
+    canonical = payload.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    return hashlib.sha256(canonical).hexdigest()
+
+
+def parse_pr_safe_authorizations(payload: bytes) -> tuple[list[dict[str, str]], list[str]]:
+    try:
+        reader = csv.DictReader(io.StringIO(payload.decode("utf-8-sig"), newline=""))
+    except UnicodeError as exc:
+        return [], [f"cannot decode PR-safe authorization ledger: {exc}"]
+    if tuple(reader.fieldnames or ()) != PR_SAFE_AUTHORIZATION_COLUMNS:
+        return [], ["PR-safe authorization ledger header mismatch"]
+    rows: list[dict[str, str]] = []
+    try:
+        for line_number, row in enumerate(reader, start=2):
+            if None in row:
+                return [], [
+                    f"PR-safe authorization ledger row has extra fields: {line_number}"
+                ]
+            rows.append({str(key): str(value or "") for key, value in row.items()})
+    except csv.Error as exc:
+        return [], [f"cannot parse PR-safe authorization ledger: {exc}"]
+    migration_ids = [row.get("migration_id", "").strip() for row in rows]
+    if any(not migration_id for migration_id in migration_ids) or len(
+        migration_ids
+    ) != len(set(migration_ids)):
+        return [], ["PR-safe authorization migration ids must be nonblank and unique"]
+    return rows, []
+
+
+def parse_pr_safe_lifecycle_authorizations(
+    payload: bytes,
+) -> tuple[list[dict[str, str]], list[str]]:
+    try:
+        reader = csv.DictReader(io.StringIO(payload.decode("utf-8-sig"), newline=""))
+    except UnicodeError as exc:
+        return [], [f"cannot decode lifecycle authorization ledger: {exc}"]
+    if tuple(reader.fieldnames or ()) != PR_SAFE_LIFECYCLE_AUTHORIZATION_COLUMNS:
+        return [], ["lifecycle authorization ledger header mismatch"]
+
+    rows: list[dict[str, str]] = []
+    errors: list[str] = []
+    try:
+        for line_number, row in enumerate(reader, start=2):
+            if None in row:
+                errors.append(
+                    "lifecycle authorization ledger row has extra fields: "
+                    f"{line_number}"
+                )
+                continue
+            normalized = {str(key): str(value or "").strip() for key, value in row.items()}
+            rows.append(normalized)
+    except csv.Error as exc:
+        return [], [f"cannot parse lifecycle authorization ledger: {exc}"]
+
+    migration_ids = [row.get("migration_id", "") for row in rows]
+    if any(not migration_id for migration_id in migration_ids) or len(
+        migration_ids
+    ) != len(set(migration_ids)):
+        errors.append("lifecycle authorization migration ids must be nonblank and unique")
+
+    observed_targets: list[tuple[str, str]] = []
+    for row in rows:
+        target = (
+            row.get("row_path", "").replace("\\", "/"),
+            row.get("column", ""),
+        )
+        observed_targets.append(target)
+        if row.get("status", "") != PR_SAFE_LIFECYCLE_AUTHORIZATION_STATUS:
+            errors.append(
+                "lifecycle authorization status must be preauthorized: "
+                + row.get("migration_id", "")
+            )
+        if row.get("scope", "") != PR_SAFE_LIFECYCLE_AUTHORIZATION_SCOPE:
+            errors.append(
+                "lifecycle authorization scope mismatch: "
+                + row.get("migration_id", "")
+            )
+        if not row.get("approval_reference", ""):
+            errors.append(
+                "lifecycle authorization lacks approval_reference: "
+                + row.get("migration_id", "")
+            )
+        for field in ("base_value_sha256", "current_value_sha256"):
+            if not re.fullmatch(r"[0-9a-f]{64}", row.get(field, "")):
+                errors.append(
+                    f"lifecycle authorization {field} is not canonical SHA-256: "
+                    + row.get("migration_id", "")
+                )
+        added_values = [
+            value for value in row.get("added_values", "").split(";") if value
+        ]
+        removed_values = [
+            value for value in row.get("removed_values", "").split(";") if value
+        ]
+        if added_values != sorted(set(added_values)):
+            errors.append(
+                "lifecycle authorization added_values must be sorted and unique: "
+                + row.get("migration_id", "")
+            )
+        if removed_values != sorted(set(removed_values)):
+            errors.append(
+                "lifecycle authorization removed_values must be sorted and unique: "
+                + row.get("migration_id", "")
+            )
+        if not added_values and not removed_values:
+            errors.append(
+                "lifecycle authorization must describe a semantic delta: "
+                + row.get("migration_id", "")
+            )
+        if set(added_values) & set(removed_values):
+            errors.append(
+                "lifecycle authorization added/removed values overlap: "
+                + row.get("migration_id", "")
+            )
+
+    if len(observed_targets) != len(set(observed_targets)):
+        errors.append("lifecycle authorization targets must be unique")
+    if set(observed_targets) != PR_SAFE_LIFECYCLE_AUTHORIZED_TARGETS:
+        errors.append("lifecycle authorization target set mismatch")
+    return rows, errors
+
+
+def validate_pr_safe_control_plane_delta(
+    changed_paths: set[str],
+    *,
+    base_helper: bytes | None,
+    current_helper: bytes | None,
+    current_test: bytes | None,
+    authorization_payload: bytes,
+    changed_workflow_blobs: dict[str, bytes | None] | None = None,
+) -> list[str]:
+    errors: list[str] = []
+    immutable_changes = sorted(changed_paths & PR_SAFE_IMMUTABLE_TRUST_ROOT_PATHS)
+    if immutable_changes:
+        errors.append(
+            "PR may not modify the base-owned PR-safe trust root: "
+            + ", ".join(immutable_changes)
+        )
+
+    for path, payload in sorted((changed_workflow_blobs or {}).items()):
+        if payload is None:
+            continue
+        try:
+            workflow_text = payload.decode("utf-8-sig")
+        except UnicodeError:
+            errors.append(f"cannot decode changed workflow for spoof audit: {path}")
+            continue
+        if PR_SAFE_FORBIDDEN_WRITE_PERMISSION_RE.search(workflow_text):
+            errors.append(
+                "changed workflow requests checks/statuses write permission: " + path
+            )
+
+    protected_changes = changed_paths & PR_SAFE_AUTHORIZED_STAGE1_PATHS
+    if not protected_changes:
+        return errors
+    if changed_paths != PR_SAFE_AUTHORIZED_STAGE1_PATHS:
+        errors.append(
+            "PR-safe helper migration must change exactly the preauthorized paths: "
+            + ", ".join(sorted(PR_SAFE_AUTHORIZED_STAGE1_PATHS))
+        )
+        return errors
+
+    authorizations, authorization_errors = parse_pr_safe_authorizations(
+        authorization_payload
+    )
+    errors.extend(authorization_errors)
+    matching = [
+        row
+        for row in authorizations
+        if row.get("migration_id", "").strip()
+        == PR_SAFE_ADDITIVE_RESEARCH_MIGRATION_ID
+    ]
+    if len(matching) != 1:
+        errors.append(
+            "base authorization ledger must contain exactly one matching PR-safe migration"
+        )
+        return errors
+    authorization = matching[0]
+    if base_helper is None or current_helper is None or current_test is None:
+        errors.append("preauthorized PR-safe helper/test blobs must all exist")
+        return errors
+
+    observed_paths = {
+        path.strip()
+        for path in authorization.get("changed_paths", "").split(";")
+        if path.strip()
+    }
+    expected = {
+        "base_helper_sha256": canonical_blob_sha256(base_helper),
+        "current_helper_sha256": canonical_blob_sha256(current_helper),
+        "current_test_sha256": canonical_blob_sha256(current_test),
+    }
+    if authorization.get("status", "").strip() != "preauthorized":
+        errors.append("PR-safe migration authorization status is not preauthorized")
+    if not authorization.get("approval_reference", "").strip():
+        errors.append("PR-safe migration authorization lacks approval_reference")
+    if observed_paths != PR_SAFE_AUTHORIZED_STAGE1_PATHS:
+        errors.append("PR-safe migration authorization changed_paths mismatch")
+    for field, observed in expected.items():
+        if authorization.get(field, "").strip() != observed:
+            errors.append(f"PR-safe migration authorization {field} mismatch")
+    marker = PR_SAFE_ADDITIVE_RESEARCH_MIGRATION_ID.encode("utf-8")
+    if marker in base_helper:
+        errors.append("PR-safe migration was already consumed by the base helper")
+    if marker not in current_helper:
+        errors.append("PR-safe migration id is absent from the current helper")
+    return errors
+
+
+def git_output_bytes(*args: str) -> bytes:
+    result = subprocess.run(
+        ["git", *args],
+        cwd=ROOT,
+        check=False,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    if result.returncode != 0:
+        message = result.stderr.decode("utf-8", errors="replace").strip()
+        raise RuntimeError(f"git {' '.join(args)} failed: {message}")
+    return result.stdout
+
+
+def git_blob_at_ref(ref: str, path: str) -> bytes | None:
+    try:
+        return git_output_bytes("show", f"{ref}:{path}")
+    except RuntimeError:
+        return None
+
+
+def parse_git_name_status_z(payload: bytes) -> tuple[set[str], list[str]]:
+    fields = payload.split(b"\0")
+    if fields and fields[-1] == b"":
+        fields.pop()
+    paths: set[str] = set()
+    errors: list[str] = []
+    index = 0
+    while index < len(fields):
+        try:
+            status = fields[index].decode("ascii")
+        except UnicodeError:
+            errors.append("git name-status output contains a non-ASCII status")
+            break
+        index += 1
+        if not re.fullmatch(r"[ACDMRT][0-9]*", status):
+            errors.append(f"git name-status output has unsupported status: {status!r}")
+            break
+        path_count = 2 if status[0] in {"R", "C"} else 1
+        if index + path_count > len(fields):
+            errors.append(f"git name-status output is truncated after status {status}")
+            break
+        for raw_path in fields[index : index + path_count]:
+            try:
+                path = raw_path.decode("utf-8").replace("\\", "/")
+            except UnicodeError:
+                errors.append(
+                    f"git name-status output contains a non-UTF-8 path for {status}"
+                )
+                continue
+            if not path:
+                errors.append(f"git name-status output has a blank path for {status}")
+            else:
+                paths.add(path)
+        index += path_count
+    return paths, errors
+
+
+def git_tree_entry_at_ref(ref: str, path: str) -> tuple[str, str, str, str] | None:
+    payload = git_output_bytes("ls-tree", "-z", ref, "--", path)
+    entries = [entry for entry in payload.split(b"\0") if entry]
+    if not entries:
+        return None
+    if len(entries) != 1 or b"\t" not in entries[0]:
+        raise RuntimeError(f"git ls-tree returned ambiguous evidence for {ref}:{path}")
+    metadata, raw_path = entries[0].split(b"\t", 1)
+    metadata_fields = metadata.decode("ascii").split()
+    if len(metadata_fields) != 3:
+        raise RuntimeError(f"git ls-tree returned malformed metadata for {ref}:{path}")
+    try:
+        observed_path = raw_path.decode("utf-8").replace("\\", "/")
+    except UnicodeError as exc:
+        raise RuntimeError(f"git ls-tree returned a non-UTF-8 path for {ref}:{path}") from exc
+    mode, object_type, object_id = metadata_fields
+    return mode, object_type, object_id, observed_path
+
+
+def validate_pr_safe_regular_blob_modes(
+    base_sha: str,
+    head_sha: str,
+) -> list[str]:
+    errors: list[str] = []
+    protected_paths = (
+        PR_SAFE_IMMUTABLE_TRUST_ROOT_PATHS | PR_SAFE_AUTHORIZED_STAGE1_PATHS
+    )
+    for ref_label, ref in (("base", base_sha), ("head", head_sha)):
+        for path in sorted(protected_paths):
+            try:
+                entry = git_tree_entry_at_ref(ref, path)
+            except RuntimeError as exc:
+                errors.append(str(exc))
+                continue
+            if entry is None:
+                errors.append(
+                    f"PR-safe protected path is missing from {ref_label}: {path}"
+                )
+                continue
+            mode, object_type, _object_id, observed_path = entry
+            if (
+                observed_path != path
+                or object_type != "blob"
+                or mode not in PR_SAFE_REGULAR_BLOB_MODES
+            ):
+                errors.append(
+                    "PR-safe protected path must remain a regular blob: "
+                    f"ref={ref_label} path={path} mode={mode} type={object_type} "
+                    f"observed_path={observed_path}"
+                )
+    return errors
+
+
+def validate_pr_safe_control_plane_migration(base_sha: str, head_sha: str) -> list[str]:
+    errors: list[str] = []
+    if not re.fullmatch(r"[0-9a-fA-F]{40}", base_sha):
+        return [f"invalid base SHA: {base_sha!r}"]
+    if not re.fullmatch(r"[0-9a-fA-F]{40}", head_sha):
+        return [f"invalid head SHA: {head_sha!r}"]
+    try:
+        checkout_sha = git_output_bytes("rev-parse", "HEAD").decode().strip()
+        if checkout_sha.lower() != base_sha.lower():
+            errors.append(
+                "base-owned guard checkout does not match pull request base SHA: "
+                f"checkout={checkout_sha} base={base_sha}"
+            )
+        diff_payload = git_output_bytes(
+            "diff",
+            "--name-status",
+            "-z",
+            "--find-renames",
+            "--find-copies",
+            "--diff-filter=ACDMRT",
+            f"{base_sha}...{head_sha}",
+            "--",
+        )
+        changed_paths, diff_errors = parse_git_name_status_z(diff_payload)
+        errors.extend(diff_errors)
+        if changed_paths != PR_SAFE_AUTHORIZED_STAGE1_PATHS:
+            errors.append(
+                "PR-safe audit requires exactly the preauthorized changed paths: "
+                + ", ".join(sorted(PR_SAFE_AUTHORIZED_STAGE1_PATHS))
+            )
+        authorization_payload = git_blob_at_ref(base_sha, PR_SAFE_AUTHORIZATION_PATH)
+        lifecycle_authorization_payload = git_blob_at_ref(
+            base_sha,
+            PR_SAFE_LIFECYCLE_AUTHORIZATION_PATH,
+        )
+    except (OSError, RuntimeError) as exc:
+        return [*errors, f"cannot load base-owned PR-safe evidence: {exc}"]
+
+    errors.extend(validate_pr_safe_regular_blob_modes(base_sha, head_sha))
+    if authorization_payload is None:
+        errors.append("base-owned PR-safe authorization ledger is missing")
+        authorization_payload = b""
+    if lifecycle_authorization_payload is None:
+        errors.append("base-owned lifecycle authorization ledger is missing")
+    else:
+        _rows, lifecycle_errors = parse_pr_safe_lifecycle_authorizations(
+            lifecycle_authorization_payload
+        )
+        errors.extend(lifecycle_errors)
+
+    errors.extend(
+        validate_pr_safe_control_plane_delta(
+            changed_paths,
+            base_helper=git_blob_at_ref(base_sha, PR_SAFE_ADVANCED_HELPER),
+            current_helper=git_blob_at_ref(head_sha, PR_SAFE_ADVANCED_HELPER),
+            current_test=git_blob_at_ref(head_sha, PR_SAFE_ADVANCED_TEST),
+            authorization_payload=authorization_payload,
+            changed_workflow_blobs={
+                path: git_blob_at_ref(head_sha, path)
+                for path in changed_paths
+                if path.startswith(".github/workflows/")
+                and Path(path).suffix in {".yml", ".yaml"}
+            },
+        )
+    )
+    return errors
+
+
+def _positive_integer(value: str, label: str, errors: list[str]) -> int | None:
+    if not re.fullmatch(r"[1-9][0-9]*", value):
+        errors.append(f"audit metadata {label} must be a positive integer")
+        return None
+    return int(value)
+
+
+def _pr_safe_blob_evidence(ref: str, path: str) -> dict[str, str | None]:
+    entry = git_tree_entry_at_ref(ref, path)
+    payload = git_blob_at_ref(ref, path)
+    if entry is None or payload is None:
+        return {
+            "path": path,
+            "mode": None,
+            "object_type": None,
+            "object_id": None,
+            "raw_sha256": None,
+            "canonical_sha256": None,
+        }
+    mode, object_type, object_id, observed_path = entry
+    return {
+        "path": observed_path,
+        "mode": mode,
+        "object_type": object_type,
+        "object_id": object_id,
+        "raw_sha256": hashlib.sha256(payload).hexdigest(),
+        "canonical_sha256": canonical_blob_sha256(payload),
+    }
+
+
+def build_pr_safe_audit_manifest(
+    *,
+    base_sha: str,
+    head_sha: str,
+    validation_errors: list[str],
+    repository: str,
+    workflow_ref: str,
+    workflow_sha: str,
+    run_id: str,
+    run_attempt: str,
+    event_name: str,
+    event_action: str,
+    base_ref: str,
+    base_repository: str,
+    head_repository: str,
+    pull_request_number: str,
+) -> dict[str, object]:
+    errors = list(validation_errors)
+    if repository != PR_SAFE_REPOSITORY:
+        errors.append(
+            f"audit metadata repository mismatch: {repository!r}"
+        )
+    if event_name != "pull_request_target":
+        errors.append(
+            f"audit metadata event_name must be pull_request_target: {event_name!r}"
+        )
+    if event_action not in PR_SAFE_ALLOWED_EVENT_ACTIONS:
+        errors.append(f"audit metadata event_action is not allowed: {event_action!r}")
+    if base_ref != "main":
+        errors.append(f"audit metadata base_ref must be main: {base_ref!r}")
+    if base_repository != PR_SAFE_REPOSITORY:
+        errors.append(
+            f"audit metadata base_repository mismatch: {base_repository!r}"
+        )
+    if not re.fullmatch(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", head_repository):
+        errors.append(
+            f"audit metadata head_repository is malformed: {head_repository!r}"
+        )
+    if workflow_ref != PR_SAFE_EXPECTED_WORKFLOW_REF:
+        errors.append(
+            "audit metadata workflow_ref must identify the exact main workflow ref"
+        )
+    if workflow_sha.lower() != base_sha.lower():
+        errors.append(
+            "audit metadata workflow_sha must equal the pull request base SHA"
+        )
+    parsed_run_id = _positive_integer(run_id, "run_id", errors)
+    parsed_run_attempt = _positive_integer(run_attempt, "run_attempt", errors)
+    if parsed_run_attempt is not None and parsed_run_attempt != 1:
+        errors.append("audit metadata run_attempt must be 1; reruns are not eligible")
+    parsed_pr_number = _positive_integer(
+        pull_request_number,
+        "pull_request_number",
+        errors,
+    )
+
+    changed_paths: set[str] = set()
+    try:
+        diff_payload = git_output_bytes(
+            "diff",
+            "--name-status",
+            "-z",
+            "--find-renames",
+            "--find-copies",
+            "--diff-filter=ACDMRT",
+            f"{base_sha}...{head_sha}",
+            "--",
+        )
+        changed_paths, diff_errors = parse_git_name_status_z(diff_payload)
+        errors.extend(diff_errors)
+        if changed_paths != PR_SAFE_AUTHORIZED_STAGE1_PATHS:
+            errors.append(
+                "audit manifest changed paths do not match the exact preauthorization"
+            )
+        checkout_sha = git_output_bytes("rev-parse", "HEAD").decode().strip()
+    except (OSError, RuntimeError, UnicodeError) as exc:
+        errors.append(f"cannot collect audit Git evidence: {exc}")
+        checkout_sha = ""
+
+    authorization_payload = git_blob_at_ref(base_sha, PR_SAFE_AUTHORIZATION_PATH)
+    lifecycle_payload = git_blob_at_ref(
+        base_sha,
+        PR_SAFE_LIFECYCLE_AUTHORIZATION_PATH,
+    )
+    authorization_rows: list[dict[str, str]] = []
+    lifecycle_rows: list[dict[str, str]] = []
+    if authorization_payload is not None:
+        authorization_rows, authorization_errors = parse_pr_safe_authorizations(
+            authorization_payload
+        )
+        errors.extend(authorization_errors)
+    if lifecycle_payload is not None:
+        lifecycle_rows, lifecycle_errors = parse_pr_safe_lifecycle_authorizations(
+            lifecycle_payload
+        )
+        errors.extend(lifecycle_errors)
+
+    matching_authorizations = [
+        row
+        for row in authorization_rows
+        if row.get("migration_id", "").strip()
+        == PR_SAFE_ADDITIVE_RESEARCH_MIGRATION_ID
+    ]
+    migration = matching_authorizations[0] if len(matching_authorizations) == 1 else {}
+    protected_blobs = {
+        path: {
+            "base": _pr_safe_blob_evidence(base_sha, path),
+            "head": _pr_safe_blob_evidence(head_sha, path),
+        }
+        for path in sorted(
+            PR_SAFE_IMMUTABLE_TRUST_ROOT_PATHS | PR_SAFE_AUTHORIZED_STAGE1_PATHS
+        )
+    }
+    unique_errors = list(dict.fromkeys(errors))
+    return {
+        "schema_version": PR_SAFE_AUDIT_MANIFEST_SCHEMA_VERSION,
+        "audit_mode": PR_SAFE_AUDIT_MODE,
+        "trust_identity_claimed": False,
+        "required_context_used": False,
+        "workflow_path": PR_SAFE_BASE_GUARD_WORKFLOW,
+        "repository": repository,
+        "workflow_ref": workflow_ref,
+        "workflow_sha": workflow_sha.lower(),
+        "event_name": event_name,
+        "event_action": event_action,
+        "base_ref": base_ref,
+        "base_repository": base_repository,
+        "head_repository": head_repository,
+        "run_id": parsed_run_id,
+        "run_attempt": parsed_run_attempt,
+        "pull_request_number": parsed_pr_number,
+        "base_sha": base_sha.lower(),
+        "head_sha": head_sha.lower(),
+        "checkout_sha": checkout_sha.lower(),
+        "changed_paths": sorted(changed_paths),
+        "changed_path_allowlist": sorted(PR_SAFE_AUTHORIZED_STAGE1_PATHS),
+        "changed_paths_match_allowlist": changed_paths
+        == PR_SAFE_AUTHORIZED_STAGE1_PATHS,
+        "manual_gate_eligible": not unique_errors
+        and changed_paths == PR_SAFE_AUTHORIZED_STAGE1_PATHS,
+        "preauthorization": {
+            "path": PR_SAFE_AUTHORIZATION_PATH,
+            "canonical_sha256": (
+                canonical_blob_sha256(authorization_payload)
+                if authorization_payload is not None
+                else None
+            ),
+            "migration": migration,
+        },
+        "lifecycle_preauthorization": {
+            "path": PR_SAFE_LIFECYCLE_AUTHORIZATION_PATH,
+            "canonical_sha256": (
+                canonical_blob_sha256(lifecycle_payload)
+                if lifecycle_payload is not None
+                else None
+            ),
+            "migrations": lifecycle_rows,
+        },
+        "protected_blobs": protected_blobs,
+        "validation": {
+            "passed": not unique_errors,
+            "errors": unique_errors,
+        },
+    }
+
+
+def write_pr_safe_audit_manifest(
+    manifest: dict[str, object],
+    destination: Path,
+) -> str:
+    payload = (
+        json.dumps(manifest, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
+    ).encode("utf-8")
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    destination.write_bytes(payload)
+    return hashlib.sha256(payload).hexdigest()
+
+
+def validate_pr_safe_base_guard_repository_invariants(
+    workflow_paths: set[str],
+    errors: list[str],
+) -> None:
+    try:
+        lifecycle_payload = (ROOT / PR_SAFE_LIFECYCLE_AUTHORIZATION_PATH).read_bytes()
+    except OSError as exc:
+        errors.append(f"cannot read lifecycle authorization ledger: {exc}")
+    else:
+        _rows, lifecycle_errors = parse_pr_safe_lifecycle_authorizations(
+            lifecycle_payload
+        )
+        errors.extend(lifecycle_errors)
+
+    write_permission_owners: list[str] = []
+    for path in sorted(workflow_paths):
+        try:
+            text = (ROOT / path).read_text(encoding="utf-8")
+        except (OSError, UnicodeError) as exc:
+            errors.append(f"cannot read workflow for PR-safe collision audit: {path}: {exc}")
+            continue
+        if PR_SAFE_FORBIDDEN_WRITE_PERMISSION_RE.search(text):
+            write_permission_owners.append(path)
+
+    if write_permission_owners:
+        errors.append(
+            "audit-only workflows may not request checks/statuses write permission: "
+            + ", ".join(write_permission_owners)
+        )
+    try:
+        guard_text = (ROOT / PR_SAFE_BASE_GUARD_WORKFLOW).read_text(encoding="utf-8")
+    except (OSError, UnicodeError):
+        return
+    if "pull_request_target:" not in guard_text:
+        errors.append("base-owned PR-safe audit workflow must use pull_request_target")
+    if "actions/github-script" in guard_text:
+        errors.append("audit-only PR-safe workflow may not use actions/github-script")
+    errors.extend(validate_pr_safe_base_guard_workflow_text(guard_text))
+
+
 def validate() -> list[str]:
     errors: list[str] = []
     rows_by_path = load_inventory(errors)
@@ -1043,10 +2154,67 @@ def validate() -> list[str]:
 
     validate_workflow_snippets(errors)
     validate_active_guidance_commands(errors)
+    validate_pr_safe_base_guard_repository_invariants(workflow_paths, errors)
     return errors
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--validate-pr-safe-control-plane-migration",
+        action="store_true",
+    )
+    parser.add_argument("--base-sha", default="")
+    parser.add_argument("--head-sha", default="")
+    parser.add_argument("--audit-manifest", default="")
+    parser.add_argument("--repository", default="")
+    parser.add_argument("--workflow-ref", default="")
+    parser.add_argument("--workflow-sha", default="")
+    parser.add_argument("--run-id", default="")
+    parser.add_argument("--run-attempt", default="")
+    parser.add_argument("--event-name", default="")
+    parser.add_argument("--event-action", default="")
+    parser.add_argument("--base-ref", default="")
+    parser.add_argument("--base-repository", default="")
+    parser.add_argument("--head-repository", default="")
+    parser.add_argument("--pull-request-number", default="")
+    args = parser.parse_args(argv or [])
+    if args.validate_pr_safe_control_plane_migration:
+        errors = validate_pr_safe_control_plane_migration(
+            args.base_sha.strip(),
+            args.head_sha.strip(),
+        )
+        if args.audit_manifest:
+            manifest = build_pr_safe_audit_manifest(
+                base_sha=args.base_sha.strip(),
+                head_sha=args.head_sha.strip(),
+                validation_errors=errors,
+                repository=args.repository.strip(),
+                workflow_ref=args.workflow_ref.strip(),
+                workflow_sha=args.workflow_sha.strip(),
+                run_id=args.run_id.strip(),
+                run_attempt=args.run_attempt.strip(),
+                event_name=args.event_name.strip(),
+                event_action=args.event_action.strip(),
+                base_ref=args.base_ref.strip(),
+                base_repository=args.base_repository.strip(),
+                head_repository=args.head_repository.strip(),
+                pull_request_number=args.pull_request_number.strip(),
+            )
+            errors = list(manifest["validation"]["errors"])
+            manifest_path = Path(args.audit_manifest).resolve()
+            manifest_sha256 = write_pr_safe_audit_manifest(manifest, manifest_path)
+            print(f"audit_manifest={manifest_path}")
+            print(f"audit_manifest_sha256={manifest_sha256}")
+        if errors:
+            for error in errors:
+                print(f"ERROR: {error}")
+            return 1
+        print("base-owned PR-safe control-plane audit validation passed")
+        print(f"audit_mode={PR_SAFE_AUDIT_MODE}")
+        print(f"head_sha={args.head_sha.strip()}")
+        return 0
+
     errors = validate()
     if errors:
         for error in errors:
@@ -1067,4 +2235,4 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    raise SystemExit(main(sys.argv[1:]))
