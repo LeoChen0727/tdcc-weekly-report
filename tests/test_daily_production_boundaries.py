@@ -144,7 +144,7 @@ def test_apps_script_research_dispatch_registry_is_forward_compatible() -> None:
     staged_input = "run_revenue_unreacted_range_source_snapshot_projection_chain_only"
 
     assert registry[staged_input]["activation_mode"] == "when_declared"
-    assert staged_input not in workflow_inputs
+    assert staged_input in workflow_inputs
     assert staged_input in apps_inputs
     assert guarded_inputs == {staged_input}
 
@@ -158,15 +158,15 @@ def test_apps_script_research_dispatch_registry_is_forward_compatible() -> None:
     )
     assert errors == []
 
-    declared_errors: list[str] = []
+    undeclared_errors: list[str] = []
     validator.validate_research_dispatch_contract(
-        declared_errors,
-        workflow_input_names={*workflow_inputs, staged_input},
+        undeclared_errors,
+        workflow_input_names=workflow_inputs - {staged_input},
         apps_inputs=set(apps_inputs),
         guarded_inputs=guarded_inputs,
         registry=registry,
     )
-    assert declared_errors == []
+    assert undeclared_errors == []
 
     unknown_errors: list[str] = []
     validator.validate_research_dispatch_contract(
