@@ -59,6 +59,10 @@ on:
         description: "Run model-owned revenue lag and strength research only"
         required: false
         default: "false"
+      run_revenue_unreacted_range_source_snapshot_projection_chain_only:
+        description: "When revenue research is selected, rebuild only its downstream chain from the pinned 20260713 source snapshot projection"
+        required: false
+        default: "false"
       run_volume_range_breakout_v2_research:
         description: "Run model-owned volume breakout v2 research only"
         required: false
@@ -112,12 +116,17 @@ jobs:
         run: |
           python scripts/validate_apps_script_workflow_triggers.py
           python scripts/validate_repo_production_inventory.py
-          python scripts/validate_daily_model_background_data_registry.py
+          python scripts/validate_daily_model_background_data_registry.py --structure-only
           python scripts/validate_research_production_boundaries.py
           python scripts/validate_model_research_artifact_ownership.py
           python scripts/validate_model_research_shared_utilities.py
           python scripts/validate_formal_model_evidence_pins.py
           python scripts/validate_model_research_workflow_isolation.py
+
+      - name: Validate existing registered artifacts before non-model research
+        if: ${{ env.MODEL_RESEARCH_SELECTED != 'true' }}
+        run: |
+          python scripts/validate_daily_model_background_data_registry.py
 
       - name: Install dependencies
         if: ${{ env.ANY_RESEARCH_SELECTED == 'true' }}
@@ -206,20 +215,36 @@ jobs:
       - name: Build model-owned revenue lag and strength research
         if: ${{ github.event.inputs.run_revenue_unreacted_range_research == 'true' }}
         run: |
-          python scripts/build_revenue_unreacted_range_research.py
-          python scripts/validate_daily_model_revenue_condition_matrix.py
-          python scripts/validate_revenue_unreacted_range_operation_candidate_matrix.py
-          python scripts/validate_revenue_unreacted_range_feature_contrast_audit.py
-          python scripts/validate_revenue_unreacted_range_close_confirmation_timing_audit.py
-          python scripts/validate_revenue_unreacted_range_fixed_confirmation_feature_contrast.py
-          python scripts/validate_revenue_unreacted_range_extreme_return_path_audit.py
-          python scripts/validate_revenue_unreacted_range_lag_strength_matrix.py
-          python scripts/validate_revenue_unreacted_range_launch_timing_feature_audit.py
-          python scripts/validate_revenue_unreacted_range_source_first_condition_audit.py
-          python scripts/validate_revenue_unreacted_range_forward_confirmation_feature_audit.py
-          python scripts/validate_revenue_unreacted_range_rearmed_operation_grid.py
-          python scripts/validate_revenue_unreacted_range_operation_lag_bucket_audit.py
-          python scripts/validate_revenue_unreacted_range_position_shape_transition_matrix.py
+          python scripts/validate_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py
+          if [[ "${{ github.event.inputs.run_revenue_unreacted_range_source_snapshot_projection_chain_only }}" == "true" ]]; then
+            python scripts/build_revenue_unreacted_range_research.py --stage source_snapshot_projection_chain
+            python scripts/validate_revenue_unreacted_range_source_first_condition_audit.py
+            python scripts/validate_revenue_unreacted_range_source_snapshot_projection.py
+            python scripts/validate_revenue_unreacted_range_lag_strength_matrix.py
+            python scripts/validate_revenue_unreacted_range_launch_timing_feature_audit.py
+            python scripts/validate_revenue_unreacted_range_forward_confirmation_feature_audit.py
+            python scripts/validate_revenue_unreacted_range_rearmed_operation_grid.py
+            python scripts/validate_revenue_unreacted_range_operation_lag_bucket_audit.py
+            python scripts/validate_revenue_unreacted_range_position_shape_transition_matrix.py
+            python scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py
+          else
+            python scripts/build_revenue_unreacted_range_research.py
+            python scripts/validate_daily_model_revenue_condition_matrix.py
+            python scripts/validate_revenue_unreacted_range_operation_candidate_matrix.py
+            python scripts/validate_revenue_unreacted_range_feature_contrast_audit.py
+            python scripts/validate_revenue_unreacted_range_close_confirmation_timing_audit.py
+            python scripts/validate_revenue_unreacted_range_fixed_confirmation_feature_contrast.py
+            python scripts/validate_revenue_unreacted_range_extreme_return_path_audit.py
+            python scripts/validate_revenue_unreacted_range_lag_strength_matrix.py
+            python scripts/validate_revenue_unreacted_range_launch_timing_feature_audit.py
+            python scripts/validate_revenue_unreacted_range_source_first_condition_audit.py
+            python scripts/validate_revenue_unreacted_range_source_snapshot_projection.py
+            python scripts/validate_revenue_unreacted_range_forward_confirmation_feature_audit.py
+            python scripts/validate_revenue_unreacted_range_rearmed_operation_grid.py
+            python scripts/validate_revenue_unreacted_range_operation_lag_bucket_audit.py
+            python scripts/validate_revenue_unreacted_range_position_shape_transition_matrix.py
+            python scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py
+          fi
 
       - name: Build volume breakout watch backtest
         if: ${{ github.event.inputs.run_volume_breakout == 'true' }}
@@ -274,6 +299,7 @@ jobs:
       - name: Validate post-run model research contracts
         if: ${{ env.MODEL_RESEARCH_SELECTED == 'true' }}
         run: |
+          python scripts/validate_daily_model_background_data_registry.py
           python scripts/validate_model_research_artifact_ownership.py
           python scripts/validate_formal_model_evidence_pins.py
           python scripts/validate_daily_model_research_parity.py

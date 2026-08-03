@@ -56,6 +56,35 @@ SHARED_DATA_STAGE_COMMANDS = {
     "git add output/latest/research_backtest/daily_model_background_feature_catalog_latest.* || true",
 }
 
+BACKGROUND_REGISTRY_STRUCTURE_COMMAND = (
+    "python scripts/validate_daily_model_background_data_registry.py --structure-only"
+)
+BACKGROUND_REGISTRY_FULL_COMMAND = (
+    "python scripts/validate_daily_model_background_data_registry.py"
+)
+COMMIT_STEP_MARKER = "- name: Commit research and backtest outputs"
+
+REVENUE_WORKFLOW_INPUT = "run_revenue_unreacted_range_research"
+REVENUE_PROJECTION_CHAIN_STAGE_INPUT = (
+    "run_revenue_unreacted_range_source_snapshot_projection_chain_only"
+)
+REVENUE_PRODUCER = "scripts/build_revenue_unreacted_range_research.py"
+REVENUE_FULL_BUILD_COMMAND = f"python {REVENUE_PRODUCER}"
+REVENUE_PROJECTION_CHAIN_BUILD_COMMAND = (
+    f"{REVENUE_FULL_BUILD_COMMAND} --stage source_snapshot_projection_chain"
+)
+REVENUE_PROJECTION_CHAIN_VALIDATOR_COMMANDS = {
+    "python scripts/validate_revenue_unreacted_range_source_first_condition_audit.py",
+    "python scripts/validate_revenue_unreacted_range_source_snapshot_projection.py",
+    "python scripts/validate_revenue_unreacted_range_lag_strength_matrix.py",
+    "python scripts/validate_revenue_unreacted_range_launch_timing_feature_audit.py",
+    "python scripts/validate_revenue_unreacted_range_forward_confirmation_feature_audit.py",
+    "python scripts/validate_revenue_unreacted_range_rearmed_operation_grid.py",
+    "python scripts/validate_revenue_unreacted_range_operation_lag_bucket_audit.py",
+    "python scripts/validate_revenue_unreacted_range_position_shape_transition_matrix.py",
+    "python scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
+}
+
 PUBLISH_COMMIT = 'git commit -m "Update research backtest outputs"'
 PUBLISH_PUSH = 'git push origin "HEAD:$TARGET_BRANCH"'
 PUBLISH_FAIL_CLOSED_SHELL = "set -euo pipefail"
@@ -248,6 +277,7 @@ def validate_workflow_text(
     defaults = workflow_input_defaults(text)
     blocks = workflow_step_blocks(text)
     errors.extend(validate_publish_block(text, blocks))
+    stripped_lines = [line.strip() for line in text.splitlines()]
     any_selected_line = next(
         (line for line in text.splitlines() if "ANY_RESEARCH_SELECTED:" in line),
         "",
@@ -298,6 +328,86 @@ def validate_workflow_text(
     for command in SHARED_DATA_STAGE_COMMANDS:
         if command not in text:
             errors.append(f"shared objective data stage allowlist missing from workflow: {command}")
+
+    if defaults.get(REVENUE_PROJECTION_CHAIN_STAGE_INPUT) != "false":
+        errors.append(
+            "missing opt-in revenue source projection chain stage input with false "
+            f"default: {REVENUE_PROJECTION_CHAIN_STAGE_INPUT}"
+        )
+    if any(
+        row.workflow_input == REVENUE_PROJECTION_CHAIN_STAGE_INPUT for row in rows
+    ):
+        errors.append(
+            "revenue source projection chain stage mode must not be registered as a "
+            "second producer entrypoint"
+        )
+    stage_input_condition = (
+        f"github.event.inputs.{REVENUE_PROJECTION_CHAIN_STAGE_INPUT} == 'true'"
+    )
+    if stage_input_condition in any_selected_line or stage_input_condition in model_selected_line:
+        errors.append(
+            "revenue source projection chain stage mode must require the primary revenue "
+            "workflow input instead of selecting research independently"
+        )
+    revenue_blocks = [
+        block for block in blocks if REVENUE_PROJECTION_CHAIN_BUILD_COMMAND in block
+    ]
+    if len(revenue_blocks) != 1:
+        errors.append(
+            "revenue source projection chain stage command must appear in exactly one "
+            "workflow step"
+        )
+    else:
+        revenue_block = revenue_blocks[0]
+        revenue_lines = [line.strip() for line in revenue_block.splitlines()]
+        stage_if = (
+            'if [[ "${{ github.event.inputs.'
+            f'{REVENUE_PROJECTION_CHAIN_STAGE_INPUT}'
+            ' }}" == "true" ]]; then'
+        )
+        try:
+            stage_index = revenue_lines.index(stage_if)
+            else_index = revenue_lines.index("else", stage_index + 1)
+            fi_index = revenue_lines.index("fi", else_index + 1)
+        except ValueError:
+            errors.append(
+                "revenue source projection chain stage mode is missing its guarded "
+                "stage/full branch"
+            )
+        else:
+            stage_python = {
+                line for line in revenue_lines[stage_index + 1 : else_index]
+                if line.startswith("python ")
+            }
+            full_python = {
+                line for line in revenue_lines[else_index + 1 : fi_index]
+                if line.startswith("python ")
+            }
+            expected_stage_python = {
+                REVENUE_PROJECTION_CHAIN_BUILD_COMMAND,
+                *REVENUE_PROJECTION_CHAIN_VALIDATOR_COMMANDS,
+            }
+            if stage_python != expected_stage_python:
+                errors.append(
+                    "revenue source projection chain stage mode must contain only its "
+                    "existing producer stage and cutoff-chain validators: "
+                    f"actual={sorted(stage_python)}"
+                )
+            if REVENUE_FULL_BUILD_COMMAND not in full_python:
+                errors.append(
+                    "revenue full research branch must retain the existing producer"
+                )
+            if REVENUE_PROJECTION_CHAIN_BUILD_COMMAND in full_python:
+                errors.append(
+                    "revenue full research branch must not replace the full producer with "
+                    "the source projection chain stage"
+                )
+        revenue_condition = f"github.event.inputs.{REVENUE_WORKFLOW_INPUT} == 'true'"
+        if revenue_condition not in revenue_block:
+            errors.append(
+                "revenue source projection chain stage mode must remain nested under the "
+                "primary revenue workflow input"
+            )
 
     volume_source = "python scripts/build_volume_breakout_confirmed_operation_backtest.py"
     volume_v2 = "python scripts/build_volume_range_breakout_v2_research.py"
@@ -373,6 +483,85 @@ def validate_workflow_text(
             errors.append("shared objective data refresh must precede model-owned producers")
     if model_positions and pre_run_sync in text and text.index(pre_run_sync) > min(model_positions):
         errors.append("target branch synchronization must precede model-owned producers")
+
+    structure_positions = [
+        index
+        for index, line in enumerate(stripped_lines)
+        if line == BACKGROUND_REGISTRY_STRUCTURE_COMMAND
+    ]
+    full_positions = [
+        index
+        for index, line in enumerate(stripped_lines)
+        if line == BACKGROUND_REGISTRY_FULL_COMMAND
+    ]
+    producer_line_positions = [
+        index
+        for index, line in enumerate(stripped_lines)
+        if any(line == f"python {row.producer}" for row in rows)
+    ]
+    commit_positions = [
+        index
+        for index, line in enumerate(stripped_lines)
+        if line == COMMIT_STEP_MARKER
+    ]
+    structure_blocks = [
+        block
+        for block in blocks
+        if BACKGROUND_REGISTRY_STRUCTURE_COMMAND in {
+            line.strip() for line in block.splitlines()
+        }
+    ]
+    full_blocks = [
+        block
+        for block in blocks
+        if BACKGROUND_REGISTRY_FULL_COMMAND in {
+            line.strip() for line in block.splitlines()
+        }
+    ]
+    if len(structure_positions) != 1 or len(structure_blocks) != 1:
+        errors.append(
+            "research workflow must run background registry structure-only validation "
+            "exactly once before model producers"
+        )
+    if len(full_positions) != 2 or len(full_blocks) != 2:
+        errors.append(
+            "research workflow must run full background artifact validation exactly "
+            "once for non-model research and once after model producers"
+        )
+    else:
+        non_model_blocks = [
+            block
+            for block in full_blocks
+            if "env.MODEL_RESEARCH_SELECTED != 'true'" in block
+        ]
+        post_model_blocks = [
+            block
+            for block in full_blocks
+            if "env.MODEL_RESEARCH_SELECTED == 'true'" in block
+        ]
+        if len(non_model_blocks) != 1:
+            errors.append(
+                "existing registered artifacts full validation must be conditional on "
+                "MODEL_RESEARCH_SELECTED != true"
+            )
+        if len(post_model_blocks) != 1:
+            errors.append(
+                "post-run full background artifact validation must be conditional on "
+                "MODEL_RESEARCH_SELECTED == true"
+            )
+    if producer_line_positions:
+        if not structure_positions or structure_positions[0] >= min(producer_line_positions):
+            errors.append(
+                "background registry structure-only validation must precede model-owned producers"
+            )
+        if not full_positions or max(full_positions) <= max(producer_line_positions):
+            errors.append(
+                "full background artifact validation must run after model-owned producers"
+            )
+        if not commit_positions or not full_positions or max(full_positions) >= min(commit_positions):
+            errors.append(
+                "full background artifact validation must pass before research artifacts are committed"
+            )
     post_run_parity = "python scripts/validate_daily_model_research_parity.py"
     if model_positions and (
         post_run_parity not in text or text.index(post_run_parity) < max(model_positions)

@@ -3,6 +3,7 @@ from __future__ import annotations
 import pandas as pd
 
 from revenue_unreacted_range_launch_timing_feature_audit import (
+    ALL_LINEAGE_COLUMNS,
     ANALYSIS_BASES,
     ARTIFACT_VERSION,
     DETAIL_COLUMNS,
@@ -14,6 +15,8 @@ from revenue_unreacted_range_launch_timing_feature_audit import (
     HORIZONS,
     LATEST_CSV,
     LATEST_MD,
+    EXPECTED_SOURCE_ARTIFACT_ID,
+    EXPECTED_SOURCE_ARTIFACT_VERSION,
     OUTCOME_SPECS,
     PRIMARY_ANALYSIS_BASIS,
     PRIMARY_OUTCOME_ID,
@@ -22,8 +25,10 @@ from revenue_unreacted_range_launch_timing_feature_audit import (
     SENSITIVITY_ANALYSIS_BASIS,
     SIX_MONTH_HORIZON_DAYS,
     SOURCE_DETAIL,
+    SOURCE_SNAPSHOT_CUTOFF_DATE,
     SUMMARY_COLUMNS,
     TRIGGER_SPECS,
+    _assert_source_detail_lineage,
     _source_cohort,
 )
 
@@ -39,7 +44,6 @@ DETAIL_DTYPES = {
     "launch_date": str,
 }
 
-
 def _read(path, *, detail: bool = False) -> pd.DataFrame:
     return pd.read_csv(
         path,
@@ -53,15 +57,75 @@ def _boolish(series: pd.Series) -> pd.Series:
     return series.astype(str).str.strip().str.lower().isin({"true", "1", "yes"})
 
 
+def _source_lineage_errors(
+    source: pd.DataFrame,
+    *,
+    expected_runtime_lineage: dict[str, object] | None = None,
+) -> list[str]:
+    required = {
+        "artifact_id",
+        "artifact_version",
+        *ALL_LINEAGE_COLUMNS[:-2],
+    }
+    missing = sorted(required - set(source.columns))
+    if missing:
+        return [f"launch timing source lineage is missing columns: {missing}"]
+    errors: list[str] = []
+    if set(source["artifact_id"].astype(str)) != {EXPECTED_SOURCE_ARTIFACT_ID}:
+        errors.append("launch timing source artifact id drift")
+    if set(source["artifact_version"].astype(str)) != {
+        EXPECTED_SOURCE_ARTIFACT_VERSION
+    }:
+        errors.append("launch timing source artifact version drift")
+    for column in ALL_LINEAGE_COLUMNS[:-2]:
+        values = set(source[column].astype(str).str.strip().str.lower())
+        if len(values) != 1:
+            errors.append(f"launch timing source runtime lineage is not constant: {column}")
+            continue
+        value = next(iter(values))
+        if column.endswith("sha256") and (
+            len(value) != 64
+            or any(character not in "0123456789abcdef" for character in value)
+        ):
+            errors.append(
+                f"launch timing source runtime lineage is not canonical SHA-256: {column}"
+            )
+            continue
+        if (
+            expected_runtime_lineage is not None
+            and value != str(expected_runtime_lineage[column]).strip().lower()
+        ):
+            errors.append(f"launch timing source current input lineage drift: {column}")
+    return errors
+
+
 def validate() -> list[str]:
     errors: list[str] = []
-    for path in (LATEST_CSV, DETAIL_CSV, FEATURE_CSV):
+    for path in (LATEST_CSV, DETAIL_CSV, FEATURE_CSV, SOURCE_DETAIL):
         if not path.is_file():
             errors.append(f"launch timing feature artifact is missing: {path}")
     if errors:
         return errors
     if not LATEST_MD.is_file():
         return [f"launch timing markdown artifact is missing: {LATEST_MD}"]
+
+    source = pd.read_csv(
+        SOURCE_DETAIL,
+        dtype={
+            "stock_id": str,
+            "source_monthly_revenue_source_table_date": str,
+            "signal_date": str,
+            "confirmation_date": str,
+            "entry_date": str,
+            "exit_date": str,
+        },
+        keep_default_na=False,
+        low_memory=False,
+    )
+    try:
+        expected_runtime_lineage = _assert_source_detail_lineage(source)
+    except (RuntimeError, ValueError, KeyError, pd.errors.ParserError) as exc:
+        return [f"launch timing cutoff source lineage cannot be verified: {exc}"]
 
     try:
         resolution = pd.read_csv(
@@ -131,6 +195,42 @@ def validate() -> list[str]:
     if errors:
         return errors
 
+    if set(detail["observation_cutoff_date"].astype(str)) != {
+        SOURCE_SNAPSHOT_CUTOFF_DATE
+    }:
+        errors.append("launch timing observation cutoff drift")
+    for column in (
+        "source_monthly_revenue_source_table_date",
+        "source_trade_date",
+        "signal_date",
+        "first_trigger_date",
+        "launch_date",
+        "observation_last_trade_date",
+    ):
+        values = detail[column].astype(str).str.strip()
+        if values.loc[values.ne("")].gt(SOURCE_SNAPSHOT_CUTOFF_DATE).any():
+            errors.append(f"launch timing {column} exceeds cutoff")
+    accepted_last_dates = detail.loc[
+        detail["observation_selection_status"].eq("accepted"),
+        "observation_last_trade_date",
+    ].astype(str)
+    if accepted_last_dates.eq("").any():
+        errors.append("launch timing accepted observation omits last trade date")
+    eligible_resolution_ids = set(
+        resolution.loc[
+            resolution["resume_date"].astype(str).le(SOURCE_SNAPSHOT_CUTOFF_DATE),
+            "resolution_id",
+        ].astype(str)
+    )
+    used_resolution_ids = {
+        item
+        for value in detail["observation_price_comparability_resolution_ids"].astype(str)
+        for item in value.split(";")
+        if item
+    }
+    if not used_resolution_ids <= eligible_resolution_ids:
+        errors.append("launch timing uses a post-cutoff price resolution")
+
     canonical_markdown = summary.loc[
         summary["analysis_basis"].eq(PRIMARY_ANALYSIS_BASIS)
         & summary["trigger_id"].eq(PRIMARY_TRIGGER_ID)
@@ -161,6 +261,12 @@ def validate() -> list[str]:
             errors.append(f"launch timing {name} must remain research-only")
         if _boolish(frame["production_change"]).any():
             errors.append(f"launch timing {name} must not change production")
+        for column, expected in expected_runtime_lineage.items():
+            expected_text = str(expected).strip().lower()
+            if set(frame[column].astype(str).str.strip().str.lower()) != {
+                expected_text
+            }:
+                errors.append(f"launch timing {name} runtime lineage drift: {column}")
 
     expected_combinations = len(ANALYSIS_BASES) * len(TRIGGER_SPECS) * len(OUTCOME_SPECS) * len(HORIZONS)
     if len(summary) != expected_combinations:
@@ -178,7 +284,12 @@ def validate() -> list[str]:
     }:
         errors.append("launch timing outcome definition coverage drift")
 
-    source = pd.read_csv(SOURCE_DETAIL, dtype={"stock_id": str}, keep_default_na=False, low_memory=False)
+    errors.extend(
+        _source_lineage_errors(
+            source,
+            expected_runtime_lineage=expected_runtime_lineage,
+        )
+    )
     expected_source_counts = {
         basis: len(_source_cohort(source, basis))
         for basis in ANALYSIS_BASES

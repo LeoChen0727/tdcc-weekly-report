@@ -11,19 +11,24 @@ import pandas as pd
 from revenue_unreacted_range_forward_confirmation_feature_audit import (
     OPERATION_RETURN_REVIEW_THRESHOLD_PCT,
     _bool_value,
-    _normalize_source_detail,
+    _normalize_source_detail as _normalize_forward_source_detail,
     _strict_launch_metrics,
-    load_source_detail,
     prepare_daily_by_stock,
 )
-
+from revenue_unreacted_range_source_snapshot_projection import (
+    load_projected_source_detail,
+    load_source_snapshot_projection_manifest,
+    validate_projection_binding,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 MODEL_ID = "revenue_unreacted_range"
 ARTIFACT_ID = "revenue_unreacted_range_rearmed_operation_grid"
 ARTIFACT_VERSION = "rearmed_operation_grid_v1_20260713"
 PRICE_HISTORY_CUTOFF_DATE = "20260713"
-SOURCE_ARTIFACT_ID = "revenue_unreacted_range_source_first_condition_audit"
+EXPECTED_SOURCE_ARTIFACT_ID = "revenue_unreacted_range_source_first_condition_audit"
+EXPECTED_SOURCE_ARTIFACT_VERSION = "source_first_condition_v3_20260720"
+SOURCE_ARTIFACT_ID = EXPECTED_SOURCE_ARTIFACT_ID
 SOURCE_VARIANT_ID = "absolute_or_two_month_yoy_ge15"
 
 LATEST_CSV = ROOT / f"output/latest/research_backtest/{ARTIFACT_ID}_latest.csv"
@@ -72,6 +77,28 @@ FINANCIAL_STATEMENT_SCOPE = (
     "monthly_revenue_only;EPS_gross_margin_operating_margin_operating_income_"
     "non_operating_income_net_income_excluded"
 )
+
+
+def _normalize_source_detail(frame: pd.DataFrame) -> pd.DataFrame:
+    required = {"artifact_id", "artifact_version"}
+    missing = sorted(required - set(frame.columns))
+    if missing:
+        raise RuntimeError(
+            f"rearmed operation grid source lineage is missing columns: {missing}"
+        )
+    if set(frame["artifact_id"].astype(str)) != {EXPECTED_SOURCE_ARTIFACT_ID}:
+        raise RuntimeError(
+            "rearmed operation grid source artifact id drift: "
+            f"expected={EXPECTED_SOURCE_ARTIFACT_ID}"
+        )
+    if set(frame["artifact_version"].astype(str)) != {
+        EXPECTED_SOURCE_ARTIFACT_VERSION
+    }:
+        raise RuntimeError(
+            "rearmed operation grid source artifact version drift: "
+            f"expected={EXPECTED_SOURCE_ARTIFACT_VERSION}"
+        )
+    return _normalize_forward_source_detail(frame)
 
 
 @dataclass(frozen=True)
@@ -861,13 +888,25 @@ def build_rearmed_operation_grid(
     prepared: pd.DataFrame | None = None,
     source_detail: pd.DataFrame | None = None,
     daily_by_stock: dict[str, pd.DataFrame] | None = None,
+    source_projection_manifest: pd.DataFrame | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
-    source = load_source_detail() if source_detail is None else _normalize_source_detail(source_detail)
+    raw_source = load_projected_source_detail() if source_detail is None else source_detail
+    projection_manifest = (
+        load_source_snapshot_projection_manifest()
+        if source_projection_manifest is None
+        else source_projection_manifest
+    )
+    validate_projection_binding(projection_manifest, raw_source)
+    source = _normalize_source_detail(raw_source)
     _assert_source_within_price_history_cutoff(source)
     if daily_by_stock is None:
         if prepared is None:
             raise RuntimeError("prepared research frame is required when daily_by_stock is not supplied")
-        daily_by_stock = prepare_daily_by_stock(prepared, source)
+        daily_by_stock = prepare_daily_by_stock(
+            prepared,
+            source,
+            observation_cutoff_date=PRICE_HISTORY_CUTOFF_DATE,
+        )
     daily_by_stock = _apply_price_history_cutoff(daily_by_stock)
     generated_at = _now_text()
     detail = build_operation_detail(source, daily_by_stock, generated_at)

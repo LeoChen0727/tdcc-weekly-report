@@ -5,6 +5,7 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+import pytest
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -17,6 +18,8 @@ from revenue_unreacted_range_rearmed_operation_grid import (  # noqa: E402
     PRICE_HISTORY_CUTOFF_DATE,
     PRIMARY_ANALYSIS_BASIS,
     SENSITIVITY_ANALYSIS_BASIS,
+    EXPECTED_SOURCE_ARTIFACT_ID,
+    EXPECTED_SOURCE_ARTIFACT_VERSION,
     STOP_POLICY_ID,
     STOP_RULE_ID,
     _apply_price_history_cutoff,
@@ -80,6 +83,8 @@ def _source_row(
     source_anomaly: bool = False,
 ) -> dict[str, object]:
     return {
+        "artifact_id": EXPECTED_SOURCE_ARTIFACT_ID,
+        "artifact_version": EXPECTED_SOURCE_ARTIFACT_VERSION,
         "condition_variant_id": "absolute_or_two_month_yoy_ge15",
         "episode_key": f"episode-{stock_id}",
         "stock_id": stock_id,
@@ -95,6 +100,27 @@ def _source_row(
         "unresolved_price_path_candidate_flag": False,
         "same_stock_non_overlap_applied": True,
     }
+
+
+@pytest.mark.parametrize(
+    ("column", "value", "message"),
+    (
+        ("artifact_id", "wrong_source_artifact", "artifact id drift"),
+        ("artifact_version", "source_first_condition_v2_20260714", "artifact version drift"),
+    ),
+)
+def test_rearmed_producer_and_validator_reject_mutated_or_stale_source_artifact(
+    column: str,
+    value: str,
+    message: str,
+) -> None:
+    stock = _stock_frame("4916", triggers=(40,))
+    source = pd.DataFrame([_source_row(stock, "4916", first_trigger=40)])
+    source.loc[0, column] = value
+
+    with pytest.raises(RuntimeError, match=message):
+        build_operation_detail(source, {"4916": stock}, "2026-07-13 00:00:00 Asia/Taipei")
+    assert any(message in error for error in grid_validator._source_lineage_errors(source))
 
 
 def _build_detail(

@@ -1,6 +1,13 @@
 from __future__ import annotations
 
+from pathlib import Path
+
 import pandas as pd
+
+from revenue_unreacted_range_monthly_revenue_cross_market_resolution import (
+    canonical_monthly_revenue_history_table_sha256,
+    resolve_monthly_revenue_cross_market_mirrors,
+)
 
 from revenue_unreacted_range_source_first_condition_audit import (
     ARTIFACT_VERSION,
@@ -11,8 +18,36 @@ from revenue_unreacted_range_source_first_condition_audit import (
     FINANCIAL_STATEMENT_SCOPE,
     LATEST_CSV,
     LATEST_MD,
+    MONTHLY_REVENUE_CROSS_MARKET_RESOLUTION_CSV,
+    NO_CROSS_MARKET_RESOLUTION_ID,
     PRIMARY_VARIANT_ID,
+    REVENUE_HISTORY_CSV,
     SUMMARY_COLUMNS,
+)
+
+
+ROOT = Path(__file__).resolve().parents[1]
+SOURCE_SNAPSHOT_PROJECTION_MANIFEST_CSV = (
+    ROOT
+    / "output/latest/research_backtest/"
+    "revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv"
+)
+SOURCE_SNAPSHOT_PROJECTION_ID = (
+    "revenue_unreacted_range_source_snapshot_asof_20260713"
+)
+SOURCE_SNAPSHOT_CUTOFF_DATE = "20260713"
+RUN_LINEAGE_COLUMNS = (
+    "monthly_revenue_history_blob_sha256",
+    "monthly_revenue_canonical_table_sha256",
+    "cross_market_resolution_registry_canonical_sha256",
+)
+PROJECTION_FORBIDDEN_TRUE_FLAGS = (
+    "formal_model_use_allowed",
+    "approved_for_daily",
+    "production_change",
+    "promotion_evidence_allowed",
+    "ranking_consumption_allowed",
+    "pdf_consumption_allowed",
 )
 
 
@@ -36,13 +71,199 @@ def _number(value: object) -> float | None:
     return None if pd.isna(number) else float(number)
 
 
-def validate() -> list[str]:
+def _digits(value: object, length: int) -> str:
+    return "".join(character for character in str(value) if character.isdigit())[:length]
+
+
+def _stock_id(value: object) -> str:
+    text = str(value).strip().replace(".0", "")
+    return text.zfill(4) if text else ""
+
+
+def _is_sha256(value: object) -> bool:
+    text = str(value).strip().lower()
+    return len(text) == 64 and all(
+        character in "0123456789abcdef" for character in text
+    )
+
+
+def _pinned_monthly_revenue_lineage(
+    manifest_path: Path,
+) -> tuple[dict[str, str], int, str]:
+    manifest = pd.read_csv(
+        manifest_path,
+        keep_default_na=False,
+        low_memory=False,
+    )
+    required = {
+        "projection_id",
+        "cutoff_date",
+        "full_source_artifact_id",
+        "full_source_artifact_version",
+        "research_only",
+        "cutoff_revenue_subset_row_count",
+        "cutoff_revenue_subset_semantic_sha256",
+        *RUN_LINEAGE_COLUMNS,
+        *PROJECTION_FORBIDDEN_TRUE_FLAGS,
+    }
+    missing = sorted(required - set(manifest.columns))
+    if missing:
+        raise RuntimeError(
+            "immutable source projection manifest schema is incomplete: "
+            f"{missing}"
+        )
+    if len(manifest) != 1:
+        raise RuntimeError(
+            "immutable source projection manifest must contain exactly one row"
+        )
+    row = manifest.iloc[0]
+    if str(row["projection_id"]).strip() != SOURCE_SNAPSHOT_PROJECTION_ID:
+        raise RuntimeError("immutable source projection id drift")
+    if str(row["cutoff_date"]).strip() != SOURCE_SNAPSHOT_CUTOFF_DATE:
+        raise RuntimeError("immutable source projection cutoff drift")
+    if str(row["full_source_artifact_id"]).strip() != "revenue_unreacted_range_source_first_condition_audit":
+        raise RuntimeError("immutable source projection full-source artifact id drift")
+    if str(row["full_source_artifact_version"]).strip() != ARTIFACT_VERSION:
+        raise RuntimeError("immutable source projection full-source artifact version drift")
+    if str(row["research_only"]).strip().lower() != "true":
+        raise RuntimeError(
+            "immutable source projection research_only must be canonical true"
+        )
+    noncanonical_formal_flags = [
+        flag
+        for flag in PROJECTION_FORBIDDEN_TRUE_FLAGS
+        if str(row[flag]).strip().lower() != "false"
+    ]
+    if noncanonical_formal_flags:
+        raise RuntimeError(
+            "immutable source projection formal-use flags must remain canonical false: "
+            f"{noncanonical_formal_flags}"
+        )
+    lineage = {
+        column: str(row[column]).strip().lower()
+        for column in RUN_LINEAGE_COLUMNS
+    }
+    invalid = sorted(
+        column for column, value in lineage.items() if not _is_sha256(value)
+    )
+    if invalid:
+        raise RuntimeError(
+            "immutable source projection run lineage is not canonical SHA-256: "
+            f"{invalid}"
+        )
+    cutoff_row_count = pd.to_numeric(
+        row["cutoff_revenue_subset_row_count"], errors="coerce"
+    )
+    if pd.isna(cutoff_row_count) or float(cutoff_row_count) < 0 or not float(
+        cutoff_row_count
+    ).is_integer():
+        raise RuntimeError(
+            "immutable source projection cutoff revenue row count is invalid"
+        )
+    cutoff_semantic_sha = str(
+        row["cutoff_revenue_subset_semantic_sha256"]
+    ).strip().lower()
+    if not _is_sha256(cutoff_semantic_sha):
+        raise RuntimeError(
+            "immutable source projection cutoff revenue semantic SHA-256 is invalid"
+        )
+    return lineage, int(cutoff_row_count), cutoff_semantic_sha
+
+
+def _current_monthly_revenue_lineage(
+    revenue_path: Path,
+    resolution_path: Path,
+) -> tuple[int, str, dict[tuple[str, str], dict[str, str]]]:
+    if not revenue_path.is_file():
+        raise RuntimeError(f"missing monthly revenue history: {revenue_path}")
+    raw = pd.read_csv(
+        revenue_path,
+        dtype=str,
+        keep_default_na=False,
+        low_memory=False,
+    )
+    canonical = resolve_monthly_revenue_cross_market_mirrors(
+        raw,
+        resolution_path,
+    )
+    cutoff_canonical = resolve_monthly_revenue_cross_market_mirrors(
+        raw,
+        resolution_path,
+        observation_cutoff_date=SOURCE_SNAPSHOT_CUTOFF_DATE,
+    )
+    by_key: dict[tuple[str, str], dict[str, str]] = {}
+    for row in canonical.itertuples(index=False):
+        key = (_stock_id(row.stock_id), _digits(row.revenue_period, 6))
+        if key in by_key:
+            raise RuntimeError(
+                f"current canonical monthly revenue repeats a stock-period: {key[0]}/{key[1]}"
+            )
+        resolution_id = str(row.cross_market_resolution_id).strip()
+        by_key[key] = {
+            "source_date": _digits(row.source_table_date, 8),
+            "cross_market_resolution_id": (
+                resolution_id or NO_CROSS_MARKET_RESOLUTION_ID
+            ),
+            "source_row_canonical_sha256": str(
+                row.source_row_canonical_sha256
+            ).strip().lower(),
+            "canonical_source_table_date": _digits(
+                row.canonical_source_table_date, 8
+            ),
+        }
+    return (
+        len(cutoff_canonical),
+        canonical_monthly_revenue_history_table_sha256(cutoff_canonical),
+        by_key,
+    )
+
+
+def validate(
+    *,
+    revenue_path: Path = REVENUE_HISTORY_CSV,
+    resolution_path: Path = MONTHLY_REVENUE_CROSS_MARKET_RESOLUTION_CSV,
+    projection_manifest_path: Path = SOURCE_SNAPSHOT_PROJECTION_MANIFEST_CSV,
+) -> list[str]:
     errors: list[str] = []
     for path in (LATEST_CSV, DETAIL_CSV, LATEST_MD):
         if not path.is_file():
             errors.append(f"source-first revenue condition artifact is missing: {path}")
+    if not projection_manifest_path.is_file():
+        errors.append(
+            "source-first immutable projection manifest is missing: "
+            f"{projection_manifest_path}"
+        )
     if errors:
         return errors
+
+    try:
+        (
+            expected_run_lineage,
+            expected_cutoff_row_count,
+            expected_cutoff_semantic_sha,
+        ) = _pinned_monthly_revenue_lineage(projection_manifest_path)
+        (
+            current_cutoff_row_count,
+            current_cutoff_semantic_sha,
+            current_source_lineage,
+        ) = _current_monthly_revenue_lineage(
+            revenue_path,
+            resolution_path,
+        )
+    except (RuntimeError, ValueError, KeyError, pd.errors.ParserError) as exc:
+        return [f"source-first current monthly revenue lineage cannot be verified: {exc}"]
+
+    if current_cutoff_row_count != expected_cutoff_row_count:
+        errors.append(
+            "source-first current cutoff monthly revenue row count drift: "
+            f"actual={current_cutoff_row_count}; expected={expected_cutoff_row_count}"
+        )
+    if current_cutoff_semantic_sha != expected_cutoff_semantic_sha:
+        errors.append(
+            "source-first current cutoff monthly revenue semantic lineage drift: "
+            f"actual={current_cutoff_semantic_sha}; "
+            f"expected={expected_cutoff_semantic_sha}"
+        )
 
     summary = pd.read_csv(LATEST_CSV, keep_default_na=False, low_memory=False)
     detail = pd.read_csv(
@@ -76,6 +297,11 @@ def validate() -> list[str]:
             errors.append(f"source-first revenue condition {name} must not change production")
         if set(frame["financial_statement_scope"].astype(str)) != {FINANCIAL_STATEMENT_SCOPE}:
             errors.append(f"source-first revenue condition {name} financial scope drift")
+        for column, expected in expected_run_lineage.items():
+            if set(frame[column].astype(str).str.strip().str.lower()) != {expected}:
+                errors.append(
+                    f"source-first revenue condition {name} immutable capture lineage drift: {column}"
+                )
 
     detail_variants = set(detail["condition_variant_id"].astype(str))
     if not detail_variants <= expected_variants:
@@ -164,6 +390,13 @@ def validate() -> list[str]:
     for row in detail.itertuples(index=False):
         periods = str(row.qualifying_revenue_periods).split("|")
         source_dates = str(row.qualifying_source_dates).split("|")
+        resolution_ids = str(row.qualifying_cross_market_resolution_ids).split("|")
+        source_row_hashes = str(
+            row.qualifying_source_row_canonical_sha256s
+        ).lower().split("|")
+        canonical_source_dates = str(
+            row.qualifying_canonical_source_table_dates
+        ).split("|")
         trade_dates = str(row.qualifying_trade_dates).split("|")
         try:
             sequence_indices = [
@@ -175,12 +408,24 @@ def validate() -> list[str]:
         aligned_lengths = {
             len(periods),
             len(source_dates),
+            len(resolution_ids),
+            len(source_row_hashes),
+            len(canonical_source_dates),
             len(trade_dates),
             len(sequence_indices),
             int(row.qualifying_update_count),
         }
         if len(aligned_lengths) != 1 or not periods or any(
-            not value for values in (periods, source_dates, trade_dates) for value in values
+            not value
+            for values in (
+                periods,
+                source_dates,
+                resolution_ids,
+                source_row_hashes,
+                canonical_source_dates,
+                trade_dates,
+            )
+            for value in values
         ):
             errors.append(f"source-first qualifying lineage is not aligned: {row.episode_key}")
             continue
@@ -188,6 +433,22 @@ def validate() -> list[str]:
             errors.append(f"source-first qualifying lineage start period drift: {row.episode_key}")
         if source_dates[0] != str(row.episode_start_source_date):
             errors.append(f"source-first qualifying lineage start source date drift: {row.episode_key}")
+        if resolution_ids[0] != str(row.episode_start_cross_market_resolution_id):
+            errors.append(
+                f"source-first qualifying lineage start resolution id drift: {row.episode_key}"
+            )
+        if source_row_hashes[0] != str(
+            row.episode_start_source_row_canonical_sha256
+        ).lower():
+            errors.append(
+                f"source-first qualifying lineage start source hash drift: {row.episode_key}"
+            )
+        if canonical_source_dates[0] != str(
+            row.episode_start_canonical_source_table_date
+        ):
+            errors.append(
+                f"source-first qualifying lineage start canonical date drift: {row.episode_key}"
+            )
         if trade_dates[0] != str(row.episode_start_trade_date):
             errors.append(f"source-first qualifying lineage start trade date drift: {row.episode_key}")
         if sequence_indices[0] != int(row.episode_start_sequence_index):
@@ -196,6 +457,24 @@ def validate() -> list[str]:
             errors.append(f"source-first qualifying lineage latest period drift: {row.episode_key}")
         if source_dates[-1] != str(row.latest_qualifying_source_date):
             errors.append(f"source-first qualifying lineage latest source date drift: {row.episode_key}")
+        if resolution_ids[-1] != str(
+            row.latest_qualifying_cross_market_resolution_id
+        ):
+            errors.append(
+                f"source-first qualifying lineage latest resolution id drift: {row.episode_key}"
+            )
+        if source_row_hashes[-1] != str(
+            row.latest_qualifying_source_row_canonical_sha256
+        ).lower():
+            errors.append(
+                f"source-first qualifying lineage latest source hash drift: {row.episode_key}"
+            )
+        if canonical_source_dates[-1] != str(
+            row.latest_qualifying_canonical_source_table_date
+        ):
+            errors.append(
+                f"source-first qualifying lineage latest canonical date drift: {row.episode_key}"
+            )
         if trade_dates[-1] != str(row.latest_qualifying_trade_date):
             errors.append(f"source-first qualifying lineage latest trade date drift: {row.episode_key}")
         if sequence_indices[-1] != int(row.latest_qualifying_sequence_index):
@@ -204,6 +483,46 @@ def validate() -> list[str]:
             errors.append(f"source-first qualifying lineage is not chronological: {row.episode_key}")
         if any(source_date > trade_date for source_date, trade_date in zip(source_dates, trade_dates)):
             errors.append(f"source-first qualifying source is after mapped trade date: {row.episode_key}")
+        if any(
+            len(value) != 64
+            or any(character not in "0123456789abcdef" for character in value)
+            for value in source_row_hashes
+        ):
+            errors.append(
+                f"source-first qualifying source hash is not canonical SHA-256: {row.episode_key}"
+            )
+        for period, source_date, resolution_id, source_hash, canonical_date in zip(
+            periods,
+            source_dates,
+            resolution_ids,
+            source_row_hashes,
+            canonical_source_dates,
+        ):
+            expected = current_source_lineage.get(
+                (_stock_id(row.stock_id), _digits(period, 6))
+            )
+            if expected is None:
+                errors.append(
+                    f"source-first qualifying row is absent from current canonical monthly revenue: "
+                    f"{row.episode_key}/{period}"
+                )
+                continue
+            observed = {
+                "source_date": _digits(source_date, 8),
+                "cross_market_resolution_id": resolution_id,
+                "source_row_canonical_sha256": source_hash,
+                "canonical_source_table_date": _digits(canonical_date, 8),
+            }
+            drift = [
+                column
+                for column, expected_value in expected.items()
+                if observed[column] != expected_value
+            ]
+            if drift:
+                errors.append(
+                    f"source-first qualifying row current input lineage drift: "
+                    f"{row.episode_key}/{period}/{drift}"
+                )
 
     selected = summary.loc[summary["condition_variant_id"].eq(PRIMARY_VARIANT_ID)]
     baseline = summary.loc[summary["condition_variant_id"].eq(BASELINE_VARIANT_ID)]

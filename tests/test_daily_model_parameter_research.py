@@ -2026,6 +2026,49 @@ def test_research_workflow_routes_revenue_feature_contrast_through_model_owned_p
     assert "git add docs/latest/revenue_unreacted_range_* || true" in workflow
 
 
+def test_research_workflow_has_opt_in_revenue_projection_chain_stage_mode() -> None:
+    workflow = (ROOT / ".github" / "workflows" / "research_backtest_pipeline.yml").read_text(encoding="utf-8")
+    input_contract = (
+        "      run_revenue_unreacted_range_source_snapshot_projection_chain_only:\n"
+        "        description: \"When revenue research is selected, rebuild only its "
+        "downstream chain from the pinned 20260713 source snapshot projection\"\n"
+        "        required: false\n"
+        "        default: \"false\""
+    )
+    stage_command = (
+        "python scripts/build_revenue_unreacted_range_research.py "
+        "--stage source_snapshot_projection_chain"
+    )
+    stage_start = workflow.index(stage_command)
+    full_branch = workflow.index("          else", stage_start)
+    stage_branch = workflow[stage_start:full_branch]
+
+    assert input_contract in workflow
+    assert stage_command in workflow
+    assert "python scripts/build_revenue_unreacted_range_research.py\n" in workflow
+    source_snapshot_validator = (
+        "python scripts/validate_revenue_unreacted_range_source_snapshot_projection.py"
+    )
+    lag_validator = (
+        "python scripts/validate_revenue_unreacted_range_lag_strength_matrix.py"
+    )
+    launch_validator = (
+        "python scripts/validate_revenue_unreacted_range_launch_timing_feature_audit.py"
+    )
+    forward_validator = (
+        "python scripts/validate_revenue_unreacted_range_forward_confirmation_feature_audit.py"
+    )
+    assert lag_validator in stage_branch
+    assert launch_validator in stage_branch
+    assert forward_validator in stage_branch
+    assert stage_branch.index(source_snapshot_validator) < stage_branch.index(lag_validator)
+    assert stage_branch.index(lag_validator) < stage_branch.index(launch_validator)
+    assert stage_branch.index(launch_validator) < stage_branch.index(forward_validator)
+    assert stage_branch.index(forward_validator) < stage_branch.index(
+        "python scripts/validate_revenue_unreacted_range_rearmed_operation_grid.py"
+    )
+
+
 def test_research_workflow_validates_revenue_close_confirmation_timing_artifacts() -> None:
     workflow = (ROOT / ".github" / "workflows" / "research_backtest_pipeline.yml").read_text(encoding="utf-8")
 
@@ -2042,10 +2085,12 @@ def test_research_workflow_validates_revenue_fixed_confirmation_and_lag_artifact
     assert "python scripts/validate_revenue_unreacted_range_lag_strength_matrix.py" in workflow
     assert "python scripts/validate_revenue_unreacted_range_launch_timing_feature_audit.py" in workflow
     assert "python scripts/validate_revenue_unreacted_range_source_first_condition_audit.py" in workflow
+    assert "python scripts/validate_revenue_unreacted_range_source_snapshot_projection.py" in workflow
     assert "python scripts/validate_revenue_unreacted_range_forward_confirmation_feature_audit.py" in workflow
     assert "python scripts/validate_revenue_unreacted_range_rearmed_operation_grid.py" in workflow
     assert "python scripts/validate_revenue_unreacted_range_operation_lag_bucket_audit.py" in workflow
     assert "python scripts/validate_revenue_unreacted_range_position_shape_transition_matrix.py" in workflow
+    assert "python scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py" in workflow
 
 
 def test_research_workflow_does_not_refresh_formal_adapters_or_snapshots() -> None:

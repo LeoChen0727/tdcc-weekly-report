@@ -727,7 +727,12 @@ def load_adjusted_daily_by_stock(
         path = price_dir / f"{stock_id}.csv"
         if not path.is_file():
             raise RuntimeError(f"position/shape price history is missing: {path}")
-        stock = load_stock_price(stock_id, path, resolutions)
+        stock = load_stock_price(
+            stock_id,
+            path,
+            resolutions,
+            observation_cutoff_date=PRICE_HISTORY_CUTOFF_DATE,
+        )
         factor = pd.to_numeric(stock["analysis_price_adjustment_factor"], errors="coerce")
         for source_column, target_column in (
             ("open", "analysis_open"),

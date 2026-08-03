@@ -5,6 +5,10 @@ from pathlib import Path
 
 import pandas as pd
 
+from validate_revenue_unreacted_range_source_snapshot_projection import (
+    validate_projection_binding_frames,
+)
+
 
 ROOT = Path(__file__).resolve().parents[1]
 MODEL_ID = "revenue_unreacted_range"
@@ -13,7 +17,7 @@ ARTIFACT_VERSION = "operation_lag_bucket_v1_20260714"
 SOURCE_OPERATION_ARTIFACT_ID = "revenue_unreacted_range_rearmed_operation_grid"
 SOURCE_OPERATION_ARTIFACT_VERSION = "rearmed_operation_grid_v1_20260713"
 SOURCE_CONDITION_ARTIFACT_ID = "revenue_unreacted_range_source_first_condition_audit"
-SOURCE_CONDITION_ARTIFACT_VERSION = "source_first_condition_v2_20260714"
+SOURCE_CONDITION_ARTIFACT_VERSION = "source_first_condition_v3_20260720"
 SOURCE_VARIANT_ID = "absolute_or_two_month_yoy_ge15"
 GRID_ID = (
     "rearm_after_realized_exit_next_trade_day|delayed_next_close_continuation_bonus|"
@@ -36,7 +40,11 @@ SOURCE_OPERATION_DETAIL_CSV = ROOT / (
 )
 SOURCE_CONDITION_DETAIL_CSV = ROOT / (
     "output/latest/research_backtest/"
-    "revenue_unreacted_range_source_first_condition_audit_detail_latest.csv"
+    "revenue_unreacted_range_source_snapshot_projection_detail_latest.csv"
+)
+SOURCE_PROJECTION_MANIFEST_CSV = ROOT / (
+    "output/latest/research_backtest/"
+    "revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv"
 )
 
 LATEST_BUCKETS = {
@@ -427,6 +435,7 @@ def validate() -> list[str]:
         DOCS_MD,
         SOURCE_OPERATION_DETAIL_CSV,
         SOURCE_CONDITION_DETAIL_CSV,
+        SOURCE_PROJECTION_MANIFEST_CSV,
     )
     for path in paths:
         if not path.is_file():
@@ -461,6 +470,14 @@ def validate() -> list[str]:
         keep_default_na=False,
         low_memory=False,
     )
+    projection_manifest = pd.read_csv(
+        SOURCE_PROJECTION_MANIFEST_CSV,
+        dtype=str,
+        keep_default_na=False,
+    )
+    errors.extend(validate_projection_binding_frames(projection_manifest, episodes))
+    if errors:
+        return errors
     episodes = episodes.loc[
         episodes["condition_variant_id"].astype(str).eq(SOURCE_VARIANT_ID)
     ].copy()

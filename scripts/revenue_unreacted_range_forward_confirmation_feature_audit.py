@@ -11,7 +11,6 @@ import numpy as np
 import pandas as pd
 
 from revenue_unreacted_range_source_first_condition_audit import (
-    DETAIL_CSV as SOURCE_DETAIL_CSV,
     FINANCIAL_STATEMENT_SCOPE,
     FIRST_HIT_DEADLINE_DAYS,
     OUTCOME_WINDOW_DAYS,
@@ -20,12 +19,33 @@ from revenue_unreacted_range_source_first_condition_audit import (
     _load_price_resolutions,
     load_stock_price,
 )
+from revenue_unreacted_range_source_snapshot_projection import (
+    CUTOFF_DATE as SOURCE_PROJECTION_CUTOFF_DATE,
+    LATEST_DETAIL_CSV as SOURCE_DETAIL_CSV,
+    LATEST_MANIFEST_CSV as SOURCE_PROJECTION_MANIFEST_CSV,
+    load_projected_source_detail,
+    load_source_snapshot_projection_manifest,
+    validate_projection_binding,
+)
 
 
 ROOT = Path(__file__).resolve().parents[1]
 MODEL_ID = "revenue_unreacted_range"
 ARTIFACT_ID = "revenue_unreacted_range_forward_confirmation_feature_audit"
-ARTIFACT_VERSION = "forward_confirmation_v1_20260713"
+ARTIFACT_VERSION = "forward_confirmation_v2_20260713"
+EXPECTED_SOURCE_ARTIFACT_ID = "revenue_unreacted_range_source_first_condition_audit"
+EXPECTED_SOURCE_ARTIFACT_VERSION = "source_first_condition_v3_20260720"
+
+SOURCE_PROJECTION_SUMMARY_COLUMNS = (
+    "source_projection_artifact_id",
+    "source_projection_artifact_version",
+    "source_projection_id",
+    "source_projection_version",
+    "source_projection_policy_id",
+    "source_projection_cutoff_date",
+    "source_projection_episode_row_count",
+    "source_projection_detail_semantic_sha256",
+)
 
 LATEST_CSV = ROOT / f"output/latest/research_backtest/{ARTIFACT_ID}_latest.csv"
 DETAIL_CSV = ROOT / f"output/latest/research_backtest/{ARTIFACT_ID}_detail_latest.csv"
@@ -296,6 +316,8 @@ def _pooled_effect(success: pd.Series, failure: pd.Series) -> float | str:
 def _normalize_source_detail(frame: pd.DataFrame) -> pd.DataFrame:
     frame = frame.copy()
     required = {
+        "artifact_id",
+        "artifact_version",
         "condition_variant_id",
         "episode_key",
         "stock_id",
@@ -314,6 +336,18 @@ def _normalize_source_detail(frame: pd.DataFrame) -> pd.DataFrame:
     missing = sorted(required - set(frame.columns))
     if missing:
         raise RuntimeError(f"forward confirmation source detail is missing columns: {missing}")
+    if set(frame["artifact_id"].astype(str)) != {EXPECTED_SOURCE_ARTIFACT_ID}:
+        raise RuntimeError(
+            "forward confirmation source artifact id drift: "
+            f"expected={EXPECTED_SOURCE_ARTIFACT_ID}"
+        )
+    if set(frame["artifact_version"].astype(str)) != {
+        EXPECTED_SOURCE_ARTIFACT_VERSION
+    }:
+        raise RuntimeError(
+            "forward confirmation source artifact version drift: "
+            f"expected={EXPECTED_SOURCE_ARTIFACT_VERSION}"
+        )
     frame = frame.loc[frame["condition_variant_id"].eq(PRIMARY_VARIANT_ID)].copy()
     frame["stock_id"] = frame["stock_id"].map(_normalize_stock_id)
     for column in ("episode_start_trade_date", "episode_end_date", "first_breakout_date", "launch_date"):
@@ -325,9 +359,51 @@ def _normalize_source_detail(frame: pd.DataFrame) -> pd.DataFrame:
     return frame.sort_values(["stock_id", "episode_start_trade_date", "episode_key"], kind="mergesort").reset_index(drop=True)
 
 
-def load_source_detail(path: Path = SOURCE_DETAIL_CSV) -> pd.DataFrame:
-    frame = pd.read_csv(path, dtype={"stock_id": str}, keep_default_na=False, low_memory=False)
-    return _normalize_source_detail(frame)
+def load_source_projection(
+    *,
+    detail_path: Path = SOURCE_DETAIL_CSV,
+    manifest_path: Path = SOURCE_PROJECTION_MANIFEST_CSV,
+) -> tuple[pd.DataFrame, pd.DataFrame]:
+    manifest = load_source_snapshot_projection_manifest(Path(manifest_path))
+    projected_detail = load_projected_source_detail(Path(detail_path))
+    validate_projection_binding(
+        manifest,
+        projected_detail,
+        expected_cutoff_date=SOURCE_PROJECTION_CUTOFF_DATE,
+    )
+    return manifest, projected_detail
+
+
+def load_source_detail(
+    path: Path = SOURCE_DETAIL_CSV,
+    *,
+    manifest_path: Path = SOURCE_PROJECTION_MANIFEST_CSV,
+) -> pd.DataFrame:
+    _manifest, projected_detail = load_source_projection(
+        detail_path=path,
+        manifest_path=manifest_path,
+    )
+    return _normalize_source_detail(projected_detail)
+
+
+def _source_projection_summary_lineage(manifest: pd.DataFrame) -> dict[str, object]:
+    if len(manifest) != 1:
+        raise RuntimeError(
+            "forward confirmation source projection manifest must have exactly one row"
+        )
+    row = manifest.iloc[0]
+    return {
+        "source_projection_artifact_id": str(row["artifact_id"]),
+        "source_projection_artifact_version": str(row["artifact_version"]),
+        "source_projection_id": str(row["projection_id"]),
+        "source_projection_version": str(row["projection_version"]),
+        "source_projection_policy_id": str(row["projection_policy_id"]),
+        "source_projection_cutoff_date": str(row["cutoff_date"]),
+        "source_projection_episode_row_count": int(row["projected_episode_row_count"]),
+        "source_projection_detail_semantic_sha256": str(
+            row["projected_episode_semantic_sha256"]
+        ),
+    }
 
 
 def _prepared_feature_frame(prepared: pd.DataFrame) -> pd.DataFrame:
@@ -351,6 +427,7 @@ def prepare_daily_by_stock(
     source_detail: pd.DataFrame,
     *,
     price_dir: Path = PRICE_HISTORY_DIR,
+    observation_cutoff_date: str | None = None,
 ) -> dict[str, pd.DataFrame]:
     features = _prepared_feature_frame(prepared)
     resolutions = _load_price_resolutions()
@@ -364,7 +441,12 @@ def prepare_daily_by_stock(
         path = price_dir / f"{stock_id}.csv"
         if not path.is_file():
             continue
-        price = load_stock_price(stock_id, path, resolutions)
+        price = load_stock_price(
+            stock_id,
+            path,
+            resolutions,
+            observation_cutoff_date=observation_cutoff_date,
+        )
         price["analysis_open"] = price["open"] * price["analysis_price_adjustment_factor"]
         price["analysis_high"] = price["high"] * price["analysis_price_adjustment_factor"]
         price["analysis_low"] = price["low"] * price["analysis_price_adjustment_factor"]
@@ -429,6 +511,24 @@ def prepare_daily_by_stock(
         price["stock_sequence_index"] = np.arange(len(price), dtype=int)
         output[stock_id] = price.reset_index(drop=True)
     return output
+
+
+def _require_projection_daily_cutoff(
+    daily_by_stock: dict[str, pd.DataFrame],
+) -> None:
+    for stock_id, frame in daily_by_stock.items():
+        if "date" not in frame.columns:
+            raise RuntimeError(
+                f"forward confirmation daily frame is missing date: {stock_id}"
+            )
+        dates = _normalize_date(frame["date"])
+        after_cutoff = dates.loc[dates.gt(SOURCE_PROJECTION_CUTOFF_DATE)]
+        if not after_cutoff.empty:
+            raise RuntimeError(
+                "forward confirmation daily frame exceeds source projection cutoff: "
+                f"stock_id={stock_id}; max_date={after_cutoff.max()}; "
+                f"cutoff={SOURCE_PROJECTION_CUTOFF_DATE}"
+            )
 
 
 def _strict_launch_metrics(stock: pd.DataFrame, trigger_index: int) -> dict[str, object]:
@@ -962,8 +1062,16 @@ def _same_stock_overlap_pair_count(source_detail: pd.DataFrame) -> int:
     return count
 
 
-def build_rule_summary(detail: pd.DataFrame, source_detail: pd.DataFrame) -> pd.DataFrame:
+def build_rule_summary(
+    detail: pd.DataFrame,
+    source_detail: pd.DataFrame,
+    *,
+    source_projection_manifest: pd.DataFrame,
+) -> pd.DataFrame:
     overlap_count = _same_stock_overlap_pair_count(source_detail)
+    projection_lineage = _source_projection_summary_lineage(
+        source_projection_manifest
+    )
     rows: list[dict[str, object]] = []
     for basis in ANALYSIS_BASES:
         source = source_detail.copy()
@@ -1000,6 +1108,7 @@ def build_rule_summary(detail: pd.DataFrame, source_detail: pd.DataFrame) -> pd.
                     "model_id": MODEL_ID,
                     "artifact_id": ARTIFACT_ID,
                     "artifact_version": ARTIFACT_VERSION,
+                    **projection_lineage,
                     "analysis_basis": basis,
                     "rule_order": rule.rule_order,
                     "rule_id": rule.rule_id,
@@ -1331,15 +1440,42 @@ def build_forward_confirmation_feature_audit(
     source_detail: pd.DataFrame | None = None,
     *,
     daily_by_stock: dict[str, pd.DataFrame] | None = None,
+    source_projection_manifest: pd.DataFrame | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
-    source = load_source_detail() if source_detail is None else _normalize_source_detail(source_detail)
+    if source_detail is None:
+        if source_projection_manifest is not None:
+            raise ValueError(
+                "source_projection_manifest cannot be supplied without explicit source_detail"
+            )
+        source_projection_manifest, projected_source_detail = load_source_projection()
+    else:
+        if source_projection_manifest is None:
+            raise ValueError(
+                "source_projection_manifest is required with explicit source_detail"
+            )
+        projected_source_detail = source_detail
+        validate_projection_binding(
+            source_projection_manifest,
+            projected_source_detail,
+            expected_cutoff_date=SOURCE_PROJECTION_CUTOFF_DATE,
+        )
+    source = _normalize_source_detail(projected_source_detail)
     if daily_by_stock is None:
         if prepared is None:
             raise ValueError("prepared frame is required when daily_by_stock is not supplied")
-        daily_by_stock = prepare_daily_by_stock(prepared, source)
+        daily_by_stock = prepare_daily_by_stock(
+            prepared,
+            source,
+            observation_cutoff_date=SOURCE_PROJECTION_CUTOFF_DATE,
+        )
+    _require_projection_daily_cutoff(daily_by_stock)
     detail = build_rule_detail(source, daily_by_stock)
     events = build_event_detail(source, daily_by_stock)
-    summary = build_rule_summary(detail, source)
+    summary = build_rule_summary(
+        detail,
+        source,
+        source_projection_manifest=source_projection_manifest,
+    )
     feature = build_feature_contrast(events)
     return_review = build_operation_return_review(detail, daily_by_stock)
     return summary, detail, events, feature, return_review
@@ -1380,7 +1516,8 @@ def _markdown(
         f"- model_id: `{MODEL_ID}`",
         f"- artifact_version: `{ARTIFACT_VERSION}`",
         "- 狀態：`research_only`，不可直接升格或進入 PDF 操作列。",
-        "- 來源母體：`absolute_or_two_month_yoy_ge15` 的 source-first、同股不重疊 episodes。",
+        "- 來源母體：固定綁定 `20260713` source snapshot projection 中 `absolute_or_two_month_yoy_ge15` 的同股不重疊 episodes。",
+        "- 截止防線：cutoff 後新增的 current source-first episodes 不得改變本 artifact。",
         "- 突破事件：收盤由未高於前高，首次跨到高於前 N 日最高收盤價。",
         "- 前向選取：每條確認規則只採第一次符合事件；後來成功不得回頭取代較早已確認的失敗。",
         "- 特徵對照：成功組使用 source 標記的真正發動日，失敗組使用 source 第一個成熟失敗突破；僅供找差異，不是可交易勝率。",

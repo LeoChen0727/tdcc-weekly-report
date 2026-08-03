@@ -17,10 +17,20 @@ from model_data_independence import (  # noqa: E402
     BASELINE_MIGRATION_ROW_SHA256,
     BASELINE_DATA_MIGRATION_ROW_SHA256,
     DATA_SHARING_MIGRATION_COLUMNS,
+    REVENUE_CROSS_MARKET_CONSUMER_FAMILIES,
+    REVENUE_CROSS_MARKET_RESOLUTION_CANONICAL_COLUMNS,
+    REVENUE_CROSS_MARKET_RESOLUTION_SHA_TOKEN,
     SEMANTIC_MIGRATION_COLUMNS,
     SourceSemanticGraph,
     _production_imports,
+    _active_repo_python_sources,
+    _active_stock_models,
+    _governed_business_import_contract,
+    _python_source_module_map,
+    _revenue_cross_market_resolution_registry_canonical_sha256,
+    _validate_revenue_cross_market_resolution_contract_binding,
     _validate_current_migration_chain,
+    _validate_independent_governed_imports,
     aggregate_semantic_sha256,
     data_contract_sha256,
     data_migration_row_sha256,
@@ -590,7 +600,7 @@ def test_data_sharing_registry_uses_model_owned_research_entrypoints() -> None:
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
-    assert len(rows) == 19
+    assert len(rows) == 24
     baseline = rows[0]
     assert tuple(baseline) == DATA_SHARING_MIGRATION_COLUMNS
     assert data_migration_row_sha256(baseline) == BASELINE_DATA_MIGRATION_ROW_SHA256
@@ -943,6 +953,361 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
         "validated_user_approved_migration"
     )
 
+    low_mid_falling_candidate = rows[19]
+    assert low_mid_falling_candidate["migration_id"] == (
+        "revenue_low_mid_falling_candidate_audit_20260720"
+    )
+    assert low_mid_falling_candidate["changed_data_families"] == (
+        "revenue_unreacted_range_low_mid_falling_candidate_audit"
+    )
+    assert low_mid_falling_candidate["previous_contract_sha256s"] == "NEW"
+    assert low_mid_falling_candidate["new_contract_sha256s"] == (
+        "45ccdded177fa9425bf0d6f2f092f55662734026e7a3dd6a9353c2f9b785ceaa"
+    )
+    assert low_mid_falling_candidate["affected_models"] == (
+        "revenue_unreacted_range"
+    )
+    assert low_mid_falling_candidate["user_approval_reference"] == (
+        "user_requested_revenue_low_mid_falling_research_candidates_20260720"
+    )
+    assert low_mid_falling_candidate["migration_status"] == (
+        "validated_user_approved_migration"
+    )
+
+    cross_market_lineage = rows[20]
+    assert cross_market_lineage["migration_id"] == (
+        "revenue_monthly_cross_market_lineage_resolution_20260720"
+    )
+    expected_cross_market_contracts = {
+        "revenue_unreacted_range_revenue_condition_matrix": (
+            "ed8750ab708a521c25dd7fa63ae57575888741f74f3fe1ec5c2915543b6f4cd0",
+            "d00447260585f63c729ecd06d984408284393ac5c2de1a136cabe0d8e35f7346",
+        ),
+        "revenue_unreacted_range_operation_candidate_matrix": (
+            "2916eeb6a8b13d73505068aafdea9f85b9d38595529af2866bff65036152419f",
+            "fab505e8a651241996203a6aea2dd54de2ab4cd469fec1f6cdbf270967eea630",
+        ),
+        "revenue_unreacted_range_feature_contrast_audit": (
+            "289aab7764939a9eab80a8427d870ce94e7350f87927bd33f1840df26dd897ce",
+            "d56a182fb8798d8924aa1d99c3399abd37d8c3505469744dadc19a86349075b3",
+        ),
+        "revenue_unreacted_range_close_confirmation_timing_audit": (
+            "c99b6fb2080896b4cbb432ad6d0e2468bdcd9148c638a469563e545a1c1c2ed4",
+            "66c8e65e36e46deaf69a5827a11e638680044aaf1f578b8ab63f8dfc31e09acc",
+        ),
+        "revenue_unreacted_range_fixed_confirmation_feature_contrast_audit": (
+            "cf59df65d092aa900528b0f11a5440a4917386ed77f4fcbae1bcf3850a4a285e",
+            "300064197a3b83510f7f16e9f675a4da2ed4846f9184d49088e54e48a56e5576",
+        ),
+        "revenue_unreacted_range_extreme_return_path_audit": (
+            "8b52d4659d3212236328ecb1b2decb582fb6a063bdc598bf98d4bfae79c55719",
+            "9de8bfd31d9cea1395ac4ace08504f2353a8c6c3ec2ac53333244020143899e0",
+        ),
+        "revenue_unreacted_range_lag_strength_matrix": (
+            "c42e820afc93e6f467de7103f70b19faae344dcb40e96048ab11318fe75a54df",
+            "93a83bd64ba0f7b4a8595ba5683a9cb38e9e35011e3cd6f0bbc514068efa9766",
+        ),
+        "revenue_unreacted_range_launch_timing_feature_audit": (
+            "7fae8b6102f7cac5715ef3845ee6345788bee7d57188c9eff5d754219a632145",
+            "a3facf77c3ca4831cd2c9fe47246e84c601f96fcd326b0cf4f2bdacfef9df305",
+        ),
+        "revenue_unreacted_range_source_first_condition_audit": (
+            "ed1c90dfeba7846f6078c01a116967b2cc42e695d37471c6892402b9e7acb044",
+            "fca68c6a1eab47d9fca82720981f08afe496f473a9602efd641337adb95acd94",
+        ),
+        "revenue_unreacted_range_forward_confirmation_feature_audit": (
+            "995625483248e76a27316420e8de07491158a83f25c3fc443c4f76bb72490dd5",
+            "1a350c64189bdf6ead59dc0d2494f6d07df7f1f18f685de6c41220e8cac43d2c",
+        ),
+        "revenue_unreacted_range_rearmed_operation_grid": (
+            "1b3915bf2f82c119820a1ae7b545ed74c91dd83fc24c00a0f5f49481206b1189",
+            "de1c5ff2386087bd64775e4ba01f9fc953be23253828ccd064619b422ddb2449",
+        ),
+        "revenue_unreacted_range_operation_lag_bucket_audit": (
+            "c204e9e4fe2dfd55da9331272f3084654e9323f025c10950a0cfe92e567af693",
+            "8720f64feb216362755d9c3a4f503e9233d1ce5a06d04de1a3c1580c7a36863b",
+        ),
+        "revenue_unreacted_range_position_shape_transition_matrix": (
+            "5c41b1f6314159a580ed1bb54811ba96e8c5193235367d4d8d512314077e37ac",
+            "c5598b7f0a8c988667f8c635d609a86c4d7f339608c02f2a7a25c1167e278d65",
+        ),
+        "revenue_unreacted_range_low_mid_falling_candidate_audit": (
+            "45ccdded177fa9425bf0d6f2f092f55662734026e7a3dd6a9353c2f9b785ceaa",
+            "b92495db71a2fd4534e80ba1c77c5c2d1a1d50effd934e2e188c24804a8d4bd3",
+        ),
+    }
+    assert cross_market_lineage["changed_data_families"].split(";") == list(
+        expected_cross_market_contracts
+    )
+    assert cross_market_lineage["previous_contract_sha256s"].split(";") == [
+        old_hash for old_hash, _new_hash in expected_cross_market_contracts.values()
+    ]
+    assert cross_market_lineage["new_contract_sha256s"].split(";") == [
+        new_hash for _old_hash, new_hash in expected_cross_market_contracts.values()
+    ]
+    assert cross_market_lineage["affected_models"] == "revenue_unreacted_range"
+    assert cross_market_lineage["user_approval_reference"] == (
+        "user_requested_revenue_low_mid_falling_research_candidates_20260720"
+    )
+    assert cross_market_lineage["migration_status"] == (
+        "validated_user_approved_migration"
+    )
+    cutoff_migration = next(
+        row
+        for row in rows
+        if row["migration_id"] == "revenue_lag_launch_observation_cutoff_20260802"
+    )
+    expected_cutoff_contracts = {
+        "revenue_unreacted_range_lag_strength_matrix": (
+            "93a83bd64ba0f7b4a8595ba5683a9cb38e9e35011e3cd6f0bbc514068efa9766",
+            "bb4229a1233d1f9a6e42bd545da7c235202bb4a43846b9066c37cfcf1b50e697",
+        ),
+        "revenue_unreacted_range_launch_timing_feature_audit": (
+            "a3facf77c3ca4831cd2c9fe47246e84c601f96fcd326b0cf4f2bdacfef9df305",
+            "929e84bc7611061948a3cefe5ba78961e9b06bcff6375d21eaa75340d7958e2f",
+        ),
+    }
+    assert cutoff_migration["changed_data_families"].split(";") == list(
+        expected_cutoff_contracts
+    )
+    assert cutoff_migration["previous_contract_sha256s"].split(";") == [
+        old_hash for old_hash, _new_hash in expected_cutoff_contracts.values()
+    ]
+    assert cutoff_migration["new_contract_sha256s"].split(";") == [
+        new_hash for _old_hash, new_hash in expected_cutoff_contracts.values()
+    ]
+    assert cutoff_migration["affected_models"] == "revenue_unreacted_range"
+    assert cutoff_migration["user_approval_reference"] == (
+        "user_authorized_research_only_observation_cutoff_20260802"
+    )
+    assert cutoff_migration["migration_status"] == (
+        "validated_user_approved_migration"
+    )
+    sharing_by_family = {
+        row["data_family_id"]: row
+        for row in read_csv("config/daily_model_data_sharing_registry.csv")
+    }
+    background_by_family = {
+        row["data_family_id"]: row
+        for row in read_csv("config/daily_model_background_data_registry.csv")
+    }
+    snapshot_contracts = {
+        "revenue_unreacted_range_forward_confirmation_feature_audit": (
+            "ad1bbe3e1f76d8680857b7c40d588915582da39e398e39cefcefcbb77da4b637"
+        ),
+        "revenue_unreacted_range_rearmed_operation_grid": (
+            "2d528012095f626e20b67f33ca7df5d357a245874ccbe148769e4a37bf6b611b"
+        ),
+        "revenue_unreacted_range_operation_lag_bucket_audit": (
+            "3038067e652157e31c76a8a4b9254e1184fe1309de87b78ba94b44ed02595d06"
+        ),
+        "revenue_unreacted_range_low_mid_falling_candidate_audit": (
+            "4aff77863a07ba5fe7c574731ea84ac778b85daffbbfe7123d38cccd4cc61432"
+        ),
+    }
+    snapshot_migration_ids = {
+        family: "revenue_source_snapshot_projection_20260731"
+        for family in snapshot_contracts
+    }
+    snapshot_migration_ids[
+        "revenue_unreacted_range_forward_confirmation_feature_audit"
+    ] = "revenue_forward_confirmation_source_snapshot_projection_20260731"
+    for family, (_old_hash, new_hash) in expected_cross_market_contracts.items():
+        expected_current_hash = (
+            snapshot_contracts[family]
+            if family in snapshot_contracts
+            else expected_cutoff_contracts[family][1]
+            if family in expected_cutoff_contracts
+            else new_hash
+        )
+        assert sharing_by_family[family]["data_contract_sha256"] == expected_current_hash
+        assert sharing_by_family[family]["last_migration_id"] == (
+            snapshot_migration_ids[family]
+            if family in snapshot_contracts
+            else cutoff_migration["migration_id"]
+            if family in expected_cutoff_contracts
+            else "revenue_monthly_cross_market_lineage_resolution_20260720"
+        )
+        assert sharing_by_family[family]["sharing_decision_reference"] == (
+            "user_authorized_20260713_source_snapshot_projection_and_955_baseline_20260731"
+            if family in snapshot_contracts
+            else "user_authorized_research_only_observation_cutoff_20260802"
+            if family in expected_cutoff_contracts
+            else "user_requested_revenue_low_mid_falling_research_candidates_20260720"
+        )
+        background = background_by_family[family]
+        assert (
+            "config/revenue_unreacted_range_monthly_revenue_cross_market_resolution.csv"
+            in background["source_artifacts"].split(";")
+        )
+        if family not in expected_cutoff_contracts:
+            assert (
+                "registered_exact_lineage_equal_payload_cross_market_mirror_"
+                "earliest_availability_fail_closed"
+                in background["point_in_time_status"]
+            )
+            assert (
+                "registered exact-lineage equal-payload cross-market mirrors use the "
+                "earliest official source-table availability"
+                in background["allowed_use"]
+            )
+            assert (
+                "unregistered same-market or conflicting-payload stock-period "
+                "collisions fail closed"
+                in background["forbidden_use"]
+            )
+            assert "Raw monthly history remains market-grained" in background["notes"]
+
+    projection_manifest = (
+        "output/latest/research_backtest/"
+        "revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv"
+    )
+    projection_detail = (
+        "output/latest/research_backtest/"
+        "revenue_unreacted_range_source_snapshot_projection_detail_latest.csv"
+    )
+    cutoff_background_contracts = {
+        "revenue_unreacted_range_lag_strength_matrix": {
+            "point_in_time_status": (
+                "research_only_lag_strength_matrix_immutable_source_snapshot_"
+                "cutoff_20260713_fail_closed"
+            ),
+            "sources": {
+                "output/latest/research_backtest/"
+                "revenue_unreacted_range_fixed_confirmation_feature_contrast_audit_"
+                "detail_latest.csv",
+                projection_manifest,
+                projection_detail,
+                "data/monthly_revenue_history/monthly_revenue_history.csv",
+                "data/stock_price_history/*.csv",
+                "config/revenue_unreacted_range_monthly_revenue_cross_market_resolution.csv",
+            },
+        },
+        "revenue_unreacted_range_launch_timing_feature_audit": {
+            "point_in_time_status": (
+                "research_only_launch_timing_immutable_observation_cutoff_"
+                "20260713_fail_closed"
+            ),
+            "sources": {
+                "output/latest/research_backtest/"
+                "revenue_unreacted_range_lag_strength_matrix_detail_latest.csv",
+                projection_manifest,
+                projection_detail,
+                "data/stock_price_history/*.csv",
+                "data/tdcc_stock_history",
+                "data/market_index_history.csv",
+                "data/monthly_revenue_history/monthly_revenue_history.csv",
+                "config/revenue_unreacted_range_price_comparability_resolution.csv",
+                "config/revenue_unreacted_range_monthly_revenue_cross_market_resolution.csv",
+            },
+        },
+    }
+    for family, contract in cutoff_background_contracts.items():
+        _previous_hash, current_hash = expected_cutoff_contracts[family]
+        sharing = sharing_by_family[family]
+        assert sharing["data_contract_sha256"] == current_hash
+        assert sharing["last_migration_id"] == cutoff_migration["migration_id"]
+        assert sharing["sharing_decision_reference"] == cutoff_migration[
+            "user_approval_reference"
+        ]
+        background = background_by_family[family]
+        assert background["point_in_time_status"] == contract["point_in_time_status"]
+        assert contract["sources"] <= set(background["source_artifacts"].split(";"))
+        assert "20260713" in background["allowed_use"]
+        assert "post-20260713" in background["forbidden_use"]
+        assert background["consumer_models"] == "revenue_unreacted_range"
+
+    snapshot_migration = next(
+        row
+        for row in rows
+        if row["migration_id"] == "revenue_source_snapshot_projection_20260731"
+    )
+    assert snapshot_migration["migration_id"] == (
+        "revenue_source_snapshot_projection_20260731"
+    )
+    assert snapshot_migration["changed_data_families"].split(";") == [
+        "revenue_unreacted_range_source_snapshot_projection",
+        "revenue_unreacted_range_rearmed_operation_grid",
+        "revenue_unreacted_range_operation_lag_bucket_audit",
+        "revenue_unreacted_range_low_mid_falling_candidate_audit",
+    ]
+    assert snapshot_migration["previous_contract_sha256s"].split(";")[0] == "NEW"
+    assert snapshot_migration["new_contract_sha256s"].split(";") == [
+        "d941b53613e393cc016e4f7b777787b0e9118e6e9d30aa4e00e5a04f959daa79",
+        snapshot_contracts["revenue_unreacted_range_rearmed_operation_grid"],
+        snapshot_contracts["revenue_unreacted_range_operation_lag_bucket_audit"],
+        snapshot_contracts["revenue_unreacted_range_low_mid_falling_candidate_audit"],
+    ]
+    assert snapshot_migration["user_approval_reference"] == (
+        "user_authorized_20260713_source_snapshot_projection_and_955_baseline_20260731"
+    )
+    projection = sharing_by_family[
+        "revenue_unreacted_range_source_snapshot_projection"
+    ]
+    assert projection["data_contract_sha256"] == (
+        "d941b53613e393cc016e4f7b777787b0e9118e6e9d30aa4e00e5a04f959daa79"
+    )
+    assert projection["ownership_mode"] == "model_owned_not_shared"
+    projection_background = background_by_family[
+        "revenue_unreacted_range_source_snapshot_projection"
+    ]
+    assert projection_background["validator"] == (
+        "scripts/validate_revenue_unreacted_range_source_snapshot_projection.py"
+    )
+    assert "20260713" in projection_background["point_in_time_status"]
+
+    forward_migration = next(
+        row
+        for row in rows
+        if row["migration_id"]
+        == "revenue_forward_confirmation_source_snapshot_projection_20260731"
+    )
+    assert forward_migration["changed_data_families"] == (
+        "revenue_unreacted_range_forward_confirmation_feature_audit"
+    )
+    assert forward_migration["previous_contract_sha256s"] == (
+        "1a350c64189bdf6ead59dc0d2494f6d07df7f1f18f685de6c41220e8cac43d2c"
+    )
+    assert forward_migration["new_contract_sha256s"] == snapshot_contracts[
+        "revenue_unreacted_range_forward_confirmation_feature_audit"
+    ]
+    assert forward_migration["affected_models"] == "revenue_unreacted_range"
+    assert forward_migration["user_approval_reference"] == (
+        "user_authorized_20260713_source_snapshot_projection_and_955_baseline_20260731"
+    )
+    assert forward_migration["migration_status"] == (
+        "validated_user_approved_migration"
+    )
+    forward = sharing_by_family[
+        "revenue_unreacted_range_forward_confirmation_feature_audit"
+    ]
+    assert forward["last_migration_id"] == forward_migration["migration_id"]
+    assert forward["data_contract_sha256"] == forward_migration[
+        "new_contract_sha256s"
+    ]
+    forward_background = background_by_family[
+        "revenue_unreacted_range_forward_confirmation_feature_audit"
+    ]
+    forward_sources = forward_background["source_artifacts"].split(";")
+    assert (
+        "output/latest/research_backtest/"
+        "revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv"
+        in forward_sources
+    )
+    assert (
+        "output/latest/research_backtest/"
+        "revenue_unreacted_range_source_snapshot_projection_detail_latest.csv"
+        in forward_sources
+    )
+    assert (
+        "output/latest/research_backtest/"
+        "revenue_unreacted_range_source_first_condition_audit_detail_latest.csv"
+        not in forward_sources
+    )
+    assert "20260713" in forward_background["point_in_time_status"]
+    assert "current source-first fallback" in forward_background["forbidden_use"]
+    assert "current source-first fallback is forbidden" in forward_background["notes"]
+
     theme_warrant_revision_contract = rows[18]
     assert theme_warrant_revision_contract["migration_id"] == (
         "theme_warrant_lineage_revision_contract_20260801"
@@ -961,6 +1326,40 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     )
 
 
+def test_forward_confirmation_artifact_lineage_uses_projection_not_current_source() -> None:
+    rows = {
+        row["artifact_path"]: row
+        for row in read_csv("config/report_artifact_lineage.csv")
+    }
+    prefix = (
+        "output/latest/research_backtest/"
+        "revenue_unreacted_range_forward_confirmation_feature_audit"
+    )
+    direct_artifacts = {
+        f"{prefix}_latest.csv",
+        f"{prefix}_detail_latest.csv",
+        f"{prefix}_event_detail_latest.csv",
+        f"{prefix}_feature_contrast_latest.csv",
+        f"{prefix}_operation_return_review_latest.csv",
+    }
+    projection_manifest = (
+        "output/latest/research_backtest/"
+        "revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv"
+    )
+    projection_detail = (
+        "output/latest/research_backtest/"
+        "revenue_unreacted_range_source_snapshot_projection_detail_latest.csv"
+    )
+    mutable_source = (
+        "output/latest/research_backtest/"
+        "revenue_unreacted_range_source_first_condition_audit_detail_latest.csv"
+    )
+    for artifact_path in direct_artifacts:
+        sources = rows[artifact_path]["source_artifacts"].split(";")
+        assert projection_manifest in sources
+        assert projection_detail in sources
+        assert mutable_source not in sources
+
 def test_data_contract_hash_detects_point_in_time_or_forbidden_use_drift() -> None:
     row = read_csv("config/daily_model_background_data_registry.csv")[0]
     original = data_contract_sha256(row)
@@ -970,6 +1369,169 @@ def test_data_contract_hash_detects_point_in_time_or_forbidden_use_drift() -> No
     changed_forbidden["forbidden_use"] = "silently_changed"
     assert data_contract_sha256(changed_pit) != original
     assert data_contract_sha256(changed_forbidden) != original
+
+
+def test_revenue_cross_market_resolution_contract_requires_one_exact_sha_token() -> None:
+    digest = "a" * 64
+    rows = {
+        family: {
+            "notes": (
+                "model-owned resolution contract; "
+                f"{REVENUE_CROSS_MARKET_RESOLUTION_SHA_TOKEN}{digest}"
+            )
+        }
+        for family in REVENUE_CROSS_MARKET_CONSUMER_FAMILIES
+    }
+    errors: list[str] = []
+    _validate_revenue_cross_market_resolution_contract_binding(rows, digest, errors)
+    assert errors == []
+
+    drifted = {family: dict(row) for family, row in rows.items()}
+    drifted[REVENUE_CROSS_MARKET_CONSUMER_FAMILIES[0]]["notes"] = (
+        f"{REVENUE_CROSS_MARKET_RESOLUTION_SHA_TOKEN}{'b' * 64}"
+    )
+    errors = []
+    _validate_revenue_cross_market_resolution_contract_binding(
+        drifted, digest, errors
+    )
+    assert any("must pin exact" in error for error in errors)
+
+
+def test_revenue_cross_market_research_artifact_lineage_is_complete() -> None:
+    rows = read_csv("config/report_artifact_lineage.csv")
+    artifact_paths = [row["artifact_path"] for row in rows]
+    assert len(artifact_paths) == len(set(artifact_paths))
+
+    expected_by_family = {
+        "revenue_unreacted_range_launch_timing_feature_audit": {
+            "output/latest/research_backtest/revenue_unreacted_range_launch_timing_feature_audit_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_launch_timing_feature_audit_detail_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_launch_timing_feature_audit_feature_contrast_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_launch_timing_feature_audit_latest.md",
+            "output/history/research/revenue_unreacted_range_launch_timing_feature_audit.csv",
+            "output/history/research/revenue_unreacted_range_launch_timing_feature_audit_feature_contrast.csv",
+        },
+        "revenue_unreacted_range_source_first_condition_audit": {
+            "output/latest/research_backtest/revenue_unreacted_range_source_first_condition_audit_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_source_first_condition_audit_detail_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_source_first_condition_audit_latest.md",
+            "output/history/research/revenue_unreacted_range_source_first_condition_audit.csv",
+        },
+        "revenue_unreacted_range_source_snapshot_projection": {
+            "output/latest/research_backtest/revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_source_snapshot_projection_detail_latest.csv",
+            "output/history/research/revenue_unreacted_range_source_snapshot_projection_manifest.csv",
+            "docs/latest/revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv",
+        },
+        "revenue_unreacted_range_forward_confirmation_feature_audit": {
+            "output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_detail_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_event_detail_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_feature_contrast_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_operation_return_review_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_latest.md",
+            "output/history/research/revenue_unreacted_range_forward_confirmation_feature_audit.csv",
+            "output/history/research/revenue_unreacted_range_forward_confirmation_feature_audit_feature_contrast.csv",
+            "output/history/research/revenue_unreacted_range_forward_confirmation_feature_audit_operation_return_review.csv",
+        },
+        "revenue_unreacted_range_rearmed_operation_grid": {
+            "output/latest/research_backtest/revenue_unreacted_range_rearmed_operation_grid_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_rearmed_operation_grid_detail_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_rearmed_operation_grid_operation_return_review_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_rearmed_operation_grid_latest.md",
+            "output/history/research/revenue_unreacted_range_rearmed_operation_grid.csv",
+            "output/history/research/revenue_unreacted_range_rearmed_operation_grid_operation_return_review.csv",
+        },
+        "revenue_unreacted_range_operation_lag_bucket_audit": {
+            "output/latest/research_backtest/revenue_unreacted_range_operation_lag_bucket_audit_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_operation_lag_bucket_audit_detail_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_operation_lag_bucket_audit_latest.md",
+            "output/history/research/revenue_unreacted_range_operation_lag_bucket_audit.csv",
+        },
+        "revenue_unreacted_range_position_shape_transition_matrix": {
+            "output/latest/research_backtest/revenue_unreacted_range_position_shape_transition_matrix_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_position_shape_transition_matrix_detail_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_position_shape_transition_matrix_transition_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_position_shape_transition_matrix_latest.md",
+            "output/history/research/revenue_unreacted_range_position_shape_transition_matrix.csv",
+            "output/history/research/revenue_unreacted_range_position_shape_transition_matrix_transition.csv",
+        },
+        "revenue_unreacted_range_low_mid_falling_candidate_audit": {
+            "output/latest/research_backtest/revenue_unreacted_range_low_mid_falling_candidate_audit_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_low_mid_falling_candidate_audit_detail_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_low_mid_falling_candidate_audit_paired_confirmation_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_low_mid_falling_candidate_audit_feature_contrast_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_low_mid_falling_candidate_audit_latest.md",
+            "output/history/research/revenue_unreacted_range_low_mid_falling_candidate_audit.csv",
+            "output/history/research/revenue_unreacted_range_low_mid_falling_candidate_audit_detail.csv",
+            "output/history/research/revenue_unreacted_range_low_mid_falling_candidate_audit_paired_confirmation.csv",
+            "output/history/research/revenue_unreacted_range_low_mid_falling_candidate_audit_feature_contrast.csv",
+        },
+    }
+    row_by_path = {row["artifact_path"]: row for row in rows}
+    for family, expected_paths in expected_by_family.items():
+        actual_paths = {
+            path for path in artifact_paths if Path(path).name.startswith(family)
+        }
+        assert actual_paths == expected_paths
+        for path in expected_paths:
+            row = row_by_path[path]
+            if "_latest.csv" in path and "output/latest/" in path:
+                assert (
+                    "config/revenue_unreacted_range_monthly_revenue_cross_market_resolution.csv"
+                    in row["source_artifacts"].split(";")
+                )
+
+
+def test_revenue_cross_market_resolution_canonical_sha_is_semantic_and_stable() -> None:
+    row = {
+        column: f"value-{column}"
+        for column in REVENUE_CROSS_MARKET_RESOLUTION_CANONICAL_COLUMNS
+    }
+    row.update(
+        {
+            "model_id": "revenue_unreacted_range",
+            "stock_id": "5236.0",
+            "revenue_period": "2026-06",
+            "earlier_market": "OTC",
+            "earlier_source_market_name": "tpex",
+            "earlier_source_table_date": "2026-07-15",
+            "later_market": "LISTED",
+            "later_source_market_name": "twse",
+            "later_source_table_date": "2026-07-17",
+            "official_market_transition_date": "2026-07-16",
+            "canonical_source_table_date": "2026-07-15",
+            "formal_model_use_allowed": "False",
+            "notes": "not part of the canonical payload",
+        }
+    )
+    normalized_equivalent = dict(row)
+    normalized_equivalent.update(
+        {
+            "stock_id": "5236",
+            "revenue_period": "202606",
+            "earlier_market": "otc",
+            "earlier_source_market_name": "TPEX",
+            "earlier_source_table_date": "20260715",
+            "later_market": "listed",
+            "later_source_market_name": "TWSE",
+            "later_source_table_date": "20260717",
+            "official_market_transition_date": "20260716",
+            "canonical_source_table_date": "20260715",
+            "formal_model_use_allowed": "false",
+            "notes": "changed but intentionally excluded",
+        }
+    )
+    digest = _revenue_cross_market_resolution_registry_canonical_sha256([row])
+    assert digest == _revenue_cross_market_resolution_registry_canonical_sha256(
+        [normalized_equivalent]
+    )
+
+    changed_raw_binding = dict(row)
+    changed_raw_binding["earlier_raw_row_canonical_sha256"] = "b" * 64
+    assert digest != _revenue_cross_market_resolution_registry_canonical_sha256(
+        [changed_raw_binding]
+    )
 
 
 def test_financial_statement_revision_guard_migrates_every_changed_shared_contract() -> None:
@@ -1019,6 +1581,39 @@ def test_production_importing_audits_cannot_claim_independent_evidence() -> None
         == "scripts/validate_revenue_unreacted_range_financial_statement_fail_closed.py"
     )
     assert revenue_guard["independence_claim"] == "True"
+    research_independent = {
+        row["validator_path"]: row
+        for row in rows
+        if row["validator_path"]
+        in {
+            "scripts/validate_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py",
+            "scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
+        }
+    }
+    assert set(research_independent) == {
+        "scripts/validate_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py",
+        "scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
+    }
+    expected_sources = {
+        "scripts/validate_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py": (
+            "scripts/revenue_unreacted_range_monthly_revenue_cross_market_resolution.py"
+        ),
+        "scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py": (
+            "scripts/revenue_unreacted_range_low_mid_falling_candidate_audit.py"
+        ),
+    }
+    for path, row in research_independent.items():
+        assert row["independence_claim"] == "True"
+        assert row["imported_production_symbols"] == ""
+        assert row["production_source_file"] == expected_sources[path]
+        assert "independent" in row["allowed_evidence_use"]
+        assert "not_promotion_proof" in row["allowed_evidence_use"]
+        sources, symbols = _production_imports(
+            ROOT / path,
+            {Path(expected_sources[path]).stem: expected_sources[path]},
+        )
+        assert sources == ()
+        assert symbols == ()
 
 
 def test_future_model_owned_module_import_is_detected(tmp_path: Path) -> None:
@@ -1029,6 +1624,294 @@ def test_future_model_owned_module_import_is_detected(tmp_path: Path) -> None:
     )
     assert sources == ("scripts/models/future_model.py",)
     assert symbols == ("condition", "score")
+
+
+def test_independent_validator_declared_source_cannot_hide_other_repo_import(
+    tmp_path: Path,
+) -> None:
+    validator = tmp_path / "validate_substitution.py"
+    validator.write_text("from producer_b import business_rule\n", encoding="utf-8")
+    declared_sources = {"scripts/producer_a.py"}
+    errors: list[str] = []
+    repo_modules = _python_source_module_map(
+        {*declared_sources, "scripts/producer_b.py"},
+        errors,
+    )
+
+    assert errors == []
+    _validate_independent_governed_imports(
+        "scripts/validate_substitution.py",
+        validator,
+        repo_modules,
+        {"scripts/producer_b.py"},
+        set(),
+        {},
+        errors,
+    )
+
+    assert errors == [
+        "scripts/validate_substitution.py: independent validator imports governed "
+        "producer business logic: scripts/producer_b.py; symbols=business_rule"
+    ]
+    assert "scripts/producer_b.py" not in declared_sources
+
+
+def test_canonical_lineage_producer_is_in_current_governed_import_contract(
+    tmp_path: Path,
+) -> None:
+    errors: list[str] = []
+    validator_rows = read_csv("config/daily_model_validator_independence.csv")
+    canonical_lineage_rows = read_csv(
+        "config/daily_model_canonical_field_lineage_registry.csv"
+    )
+    canonical_producer = next(
+        row["producer"]
+        for row in canonical_lineage_rows
+        if row["lineage_id"] == "score__all_candidates_current"
+    )
+    (
+        repo_modules,
+        governed_sources,
+        technical_utility_sources,
+        technical_symbols_by_source,
+    ) = _governed_business_import_contract(
+        validator_rows,
+        _active_stock_models(errors),
+        _active_repo_python_sources(errors),
+        errors,
+    )
+    assert errors == []
+    assert canonical_producer in governed_sources
+
+    validator = tmp_path / "validate_canonical_lineage.py"
+    validator.write_text(
+        f"from {Path(canonical_producer).stem} import load_all_sources\n",
+        encoding="utf-8",
+    )
+    _validate_independent_governed_imports(
+        "scripts/validate_canonical_lineage.py",
+        validator,
+        repo_modules,
+        governed_sources,
+        technical_utility_sources,
+        technical_symbols_by_source,
+        errors,
+    )
+    assert errors == [
+        "scripts/validate_canonical_lineage.py: independent validator imports governed "
+        f"producer business logic: {canonical_producer}; symbols=load_all_sources"
+    ]
+
+
+def test_independent_validator_package_import_cannot_hide_governed_producer(
+    tmp_path: Path,
+) -> None:
+    scripts = tmp_path / "scripts"
+    scripts.mkdir()
+    validator = scripts / "validate_substitution.py"
+    validator.write_text(
+        "from scripts import producer_b as hidden\n",
+        encoding="utf-8",
+    )
+    producer = scripts / "producer_b.py"
+    producer.write_text("def business_rule(): return True\n", encoding="utf-8")
+    errors: list[str] = []
+    repo_modules = _python_source_module_map(
+        {"scripts/producer_b.py"},
+        errors,
+    )
+    _validate_independent_governed_imports(
+        "scripts/validate_substitution.py",
+        validator,
+        repo_modules,
+        {"scripts/producer_b.py"},
+        set(),
+        {},
+        errors,
+        repo_root=tmp_path,
+    )
+
+    assert errors == [
+        "scripts/validate_substitution.py: independent validator imports governed "
+        "producer business logic: scripts/producer_b.py; symbols=*"
+    ]
+
+
+def test_independent_validator_relative_import_cannot_hide_governed_producer(
+    tmp_path: Path,
+) -> None:
+    package = tmp_path / "scripts" / "fixture_package"
+    package.mkdir(parents=True)
+    validator = package / "validate_substitution.py"
+    validator.write_text("from . import producer_b\n", encoding="utf-8")
+    producer = package / "producer_b.py"
+    producer.write_text("def business_rule(): return True\n", encoding="utf-8")
+    errors: list[str] = []
+    repo_modules = _python_source_module_map(
+        {"scripts/fixture_package/producer_b.py"},
+        errors,
+    )
+    _validate_independent_governed_imports(
+        "scripts/fixture_package/validate_substitution.py",
+        validator,
+        repo_modules,
+        {"scripts/fixture_package/producer_b.py"},
+        set(),
+        {},
+        errors,
+        repo_root=tmp_path,
+    )
+
+    assert errors == [
+        "scripts/fixture_package/validate_substitution.py: independent validator "
+        "imports governed producer business logic: "
+        "scripts/fixture_package/producer_b.py; symbols=*"
+    ]
+
+
+def test_independent_validator_helper_cannot_hide_transitive_governed_import(
+    tmp_path: Path,
+) -> None:
+    scripts = tmp_path / "scripts"
+    scripts.mkdir()
+    validator = scripts / "validate_with_helper.py"
+    validator.write_text(
+        "from validation_helper import validate_binding\n",
+        encoding="utf-8",
+    )
+    helper = scripts / "validation_helper.py"
+    helper.write_text(
+        "from producer_b import business_rule\n"
+        "def validate_binding(): return business_rule()\n",
+        encoding="utf-8",
+    )
+    producer = scripts / "producer_b.py"
+    producer.write_text("def business_rule(): return True\n", encoding="utf-8")
+    errors: list[str] = []
+    repo_modules = _python_source_module_map(
+        {
+            "scripts/producer_b.py",
+            "scripts/validation_helper.py",
+        },
+        errors,
+    )
+    _validate_independent_governed_imports(
+        "scripts/validate_with_helper.py",
+        validator,
+        repo_modules,
+        {"scripts/producer_b.py"},
+        set(),
+        {},
+        errors,
+        repo_root=tmp_path,
+    )
+
+    assert errors == [
+        "scripts/validate_with_helper.py: independent validator imports governed "
+        "producer business logic: scripts/producer_b.py; symbols=business_rule"
+    ]
+
+
+def test_independent_validator_can_import_non_producer_validation_helper(
+    tmp_path: Path,
+) -> None:
+    scripts = tmp_path / "scripts"
+    scripts.mkdir()
+    validator = scripts / "validate_with_helper.py"
+    validator.write_text(
+        "from validation_helper import validate_binding\n",
+        encoding="utf-8",
+    )
+    (scripts / "validation_helper.py").write_text(
+        "from validation_leaf import validate_leaf\n"
+        "def validate_binding(): return validate_leaf()\n",
+        encoding="utf-8",
+    )
+    (scripts / "validation_leaf.py").write_text(
+        "def validate_leaf(): return True\n",
+        encoding="utf-8",
+    )
+    errors: list[str] = []
+    repo_modules = _python_source_module_map(
+        {
+            "scripts/producer.py",
+            "scripts/validation_helper.py",
+            "scripts/validation_leaf.py",
+        },
+        errors,
+    )
+    _validate_independent_governed_imports(
+        "scripts/validate_with_helper.py",
+        validator,
+        repo_modules,
+        {"scripts/producer.py"},
+        set(),
+        {},
+        errors,
+        repo_root=tmp_path,
+    )
+
+    assert errors == []
+
+
+def test_independent_validator_technical_import_exceptions_are_narrow(
+    tmp_path: Path,
+) -> None:
+    scripts = tmp_path / "scripts"
+    scripts.mkdir()
+    validator = scripts / "validate_technical.py"
+    validator.write_text(
+        "from synthetic_independence_technical_utility import read_csv\n"
+        "from mixed_producer import num\n",
+        encoding="utf-8",
+    )
+    (scripts / "synthetic_independence_technical_utility.py").write_text(
+        "def read_csv(path): return path\n",
+        encoding="utf-8",
+    )
+    (scripts / "mixed_producer.py").write_text(
+        "def num(value): return value\n"
+        "def business_rule(): return True\n",
+        encoding="utf-8",
+    )
+    errors: list[str] = []
+    repo_modules = _python_source_module_map(
+        {
+            "scripts/synthetic_independence_technical_utility.py",
+            "scripts/mixed_producer.py",
+        },
+        errors,
+    )
+    _validate_independent_governed_imports(
+        "scripts/validate_technical.py",
+        validator,
+        repo_modules,
+        {"scripts/mixed_producer.py"},
+        {"scripts/synthetic_independence_technical_utility.py"},
+        {"scripts/mixed_producer.py": {"num"}},
+        errors,
+        repo_root=tmp_path,
+    )
+    assert errors == []
+
+    validator.write_text(
+        "from mixed_producer import business_rule\n",
+        encoding="utf-8",
+    )
+    _validate_independent_governed_imports(
+        "scripts/validate_technical.py",
+        validator,
+        repo_modules,
+        {"scripts/mixed_producer.py"},
+        {"scripts/synthetic_independence_technical_utility.py"},
+        {"scripts/mixed_producer.py": {"num"}},
+        errors,
+        repo_root=tmp_path,
+    )
+    assert errors == [
+        "scripts/validate_technical.py: independent validator imports governed "
+        "producer business logic: scripts/mixed_producer.py; symbols=business_rule"
+    ]
 
 
 def test_new_model_cannot_reuse_contained_legacy_monolith_status() -> None:

@@ -197,6 +197,7 @@ def test_daily_model_maintenance_pr_workflow_triggers_on_independence_guard_chan
 
     required_paths = (
         "config/daily_model_*.csv",
+        "config/revenue_unreacted_range_*.csv",
         "data/financial_statement_history/*.csv",
         "config/runtime_file_lineage_contract.csv",
         "scripts/build_model_data_independence_audit.py",
@@ -207,6 +208,7 @@ def test_daily_model_maintenance_pr_workflow_triggers_on_independence_guard_chan
         "tests/test_model_data_independence.py",
         "tests/test_model_surface_registry.py",
         "tests/test_repo_code_isolation_policy.py",
+        "tests/test_validate_revenue_unreacted_range_*.py",
         "docs/latest/model_data_independence_audit_latest.*",
         "output/latest/model_data_independence_audit_latest.*",
         "output/latest/research_backtest/financial_statement_pit_coverage_latest.*",
@@ -284,9 +286,12 @@ def test_daily_model_maintenance_pr_workflow_runs_contract_validators() -> None:
         "python scripts/validate_volume_v2_warrant_lineage_history_audit.py",
         "python scripts/validate_financial_statement_pit.py",
         "python scripts/validate_revenue_unreacted_range_source_first_condition_audit.py",
+        "python scripts/validate_revenue_unreacted_range_source_snapshot_projection.py",
+        "python scripts/validate_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py",
         "python scripts/validate_revenue_unreacted_range_forward_confirmation_feature_audit.py",
         "python scripts/validate_revenue_unreacted_range_rearmed_operation_grid.py",
         "python scripts/validate_revenue_unreacted_range_operation_lag_bucket_audit.py",
+        "python scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
         "python scripts/build_mature_model_row_level_metric_contract_audit.py",
         "python scripts/validate_mature_model_row_level_metric_contract_audit.py",
         "python scripts/validate_research_against_stock_model_contract.py",
@@ -297,6 +302,19 @@ def test_daily_model_maintenance_pr_workflow_runs_contract_validators() -> None:
     )
     for command in required_commands:
         assert command in text
+
+    revenue_validator_order = (
+        "python scripts/validate_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py",
+        "python scripts/validate_revenue_unreacted_range_source_first_condition_audit.py",
+        "python scripts/validate_revenue_unreacted_range_source_snapshot_projection.py",
+        "python scripts/validate_revenue_unreacted_range_forward_confirmation_feature_audit.py",
+        "python scripts/validate_revenue_unreacted_range_rearmed_operation_grid.py",
+        "python scripts/validate_revenue_unreacted_range_operation_lag_bucket_audit.py",
+        "python scripts/validate_revenue_unreacted_range_position_shape_transition_matrix.py",
+        "python scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
+    )
+    positions = [text.index(command) for command in revenue_validator_order]
+    assert positions == sorted(positions)
 
 
 def test_daily_model_maintenance_pr_workflow_runs_focused_pdf_operation_tests() -> None:
@@ -327,9 +345,14 @@ def test_daily_model_maintenance_pr_workflow_runs_focused_pdf_operation_tests() 
         "tests/test_volume_v2_warrant_lineage_history_audit.py",
         "tests/test_financial_statement_pit.py",
         "tests/test_revenue_unreacted_range_source_first_condition_audit.py",
+        "tests/test_revenue_unreacted_range_source_snapshot_projection.py",
+        "tests/test_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py",
+        "tests/test_validate_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py",
         "tests/test_revenue_unreacted_range_forward_confirmation_feature_audit.py",
         "tests/test_revenue_unreacted_range_rearmed_operation_grid.py",
         "tests/test_revenue_unreacted_range_operation_lag_bucket_audit.py",
+        "tests/test_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
+        "tests/test_validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
         "tests/test_repo_hidden_coupling_audit.py",
         "tests/test_stock_model_contract_registry.py",
     )

@@ -30,14 +30,36 @@ from revenue_unreacted_range_forward_confirmation_feature_audit import (
     RULE_SPECS,
     SENSITIVITY_ANALYSIS_BASIS,
     SOURCE_DETAIL_CSV,
+    SOURCE_PROJECTION_CUTOFF_DATE,
+    SOURCE_PROJECTION_MANIFEST_CSV,
+    SOURCE_PROJECTION_SUMMARY_COLUMNS,
 )
 from revenue_unreacted_range_source_first_condition_audit import (
     PRICE_RESOLUTION_CSV,
     PRIMARY_VARIANT_ID,
 )
+from revenue_unreacted_range_source_snapshot_projection import (
+    projection_binding_errors,
+)
 
 
 DETAIL_MAX_BYTES = 50_000_000
+EXPECTED_SOURCE_ARTIFACT_ID = "revenue_unreacted_range_source_first_condition_audit"
+EXPECTED_SOURCE_ARTIFACT_VERSION = "source_first_condition_v3_20260720"
+
+
+def _source_lineage_errors(source: pd.DataFrame) -> list[str]:
+    missing = sorted({"artifact_id", "artifact_version"} - set(source.columns))
+    if missing:
+        return [f"forward confirmation source lineage is missing columns: {missing}"]
+    errors: list[str] = []
+    if set(source["artifact_id"].astype(str)) != {EXPECTED_SOURCE_ARTIFACT_ID}:
+        errors.append("forward confirmation source artifact id drift")
+    if set(source["artifact_version"].astype(str)) != {
+        EXPECTED_SOURCE_ARTIFACT_VERSION
+    }:
+        errors.append("forward confirmation source artifact version drift")
+    return errors
 
 SUMMARY_REQUIRED = {
     "model_id",
@@ -67,6 +89,7 @@ SUMMARY_REQUIRED = {
     "approved_for_daily",
     "production_change",
     "promotion_readiness",
+    *SOURCE_PROJECTION_SUMMARY_COLUMNS,
 }
 
 DETAIL_REQUIRED = {
@@ -168,6 +191,129 @@ def _check_governance(name: str, frame: pd.DataFrame, errors: list[str]) -> None
         errors.append(f"forward confirmation {name} must not change production")
 
 
+def _projection_summary_lineage_errors(
+    summary: pd.DataFrame,
+    manifest: pd.DataFrame,
+) -> list[str]:
+    if len(manifest) != 1:
+        return [
+            "forward confirmation source projection manifest must have exactly one row"
+        ]
+    row = manifest.iloc[0]
+    mapping = {
+        "source_projection_artifact_id": "artifact_id",
+        "source_projection_artifact_version": "artifact_version",
+        "source_projection_id": "projection_id",
+        "source_projection_version": "projection_version",
+        "source_projection_policy_id": "projection_policy_id",
+        "source_projection_cutoff_date": "cutoff_date",
+        "source_projection_episode_row_count": "projected_episode_row_count",
+        "source_projection_detail_semantic_sha256": (
+            "projected_episode_semantic_sha256"
+        ),
+    }
+    errors: list[str] = []
+    for summary_column, manifest_column in mapping.items():
+        expected = str(row[manifest_column]).strip()
+        observed = set(summary[summary_column].astype(str).str.strip())
+        if observed != {expected}:
+            errors.append(
+                "forward confirmation summary projection lineage drift: "
+                f"{summary_column}={sorted(observed)[:3]}/{expected}"
+            )
+    return errors
+
+
+def _cutoff_date_errors(
+    name: str,
+    frame: pd.DataFrame,
+    columns: tuple[str, ...],
+) -> list[str]:
+    errors: list[str] = []
+    for column in columns:
+        if column not in frame.columns:
+            continue
+        values = frame[column].astype(str).str.replace(r"\D", "", regex=True)
+        values = values.loc[values.ne("")]
+        after_cutoff = values.loc[values.gt(SOURCE_PROJECTION_CUTOFF_DATE)]
+        if not after_cutoff.empty:
+            errors.append(
+                f"forward confirmation {name} {column} exceeds "
+                f"{SOURCE_PROJECTION_CUTOFF_DATE}: {sorted(set(after_cutoff))[:5]}"
+            )
+    return errors
+
+
+def _source_reference_errors(
+    source: pd.DataFrame,
+    detail: pd.DataFrame,
+) -> list[str]:
+    errors: list[str] = []
+    source_duplicates = source.loc[
+        source["episode_key"].astype(str).duplicated(keep=False), "episode_key"
+    ].astype(str)
+    if not source_duplicates.empty:
+        errors.append(
+            "forward confirmation source reference has duplicate episode keys: "
+            f"{sorted(set(source_duplicates))[:5]}"
+        )
+    source_reference = detail.loc[
+        detail["rule_id"].eq("source_first_close_above_prev20_reference")
+    ].copy()
+    reference_duplicates = source_reference.loc[
+        source_reference["episode_key"].astype(str).duplicated(keep=False),
+        "episode_key",
+    ].astype(str)
+    if not reference_duplicates.empty:
+        errors.append(
+            "forward confirmation baseline reference has duplicate episode keys: "
+            f"{sorted(set(reference_duplicates))[:5]}"
+        )
+
+    source_keys = set(source["episode_key"].astype(str))
+    reference_keys = set(source_reference["episode_key"].astype(str))
+    missing = sorted(source_keys - reference_keys)
+    extra = sorted(reference_keys - source_keys)
+    if missing:
+        errors.append(
+            "forward confirmation baseline reference is missing source episode keys: "
+            f"count={len(missing)}; examples={missing[:5]}"
+        )
+    if extra:
+        errors.append(
+            "forward confirmation baseline reference has extra episode keys: "
+            f"count={len(extra)}; examples={extra[:5]}"
+        )
+
+    source_by_key = source.drop_duplicates("episode_key").set_index("episode_key")
+    reference_by_key = source_reference.drop_duplicates("episode_key").set_index(
+        "episode_key"
+    )
+    for episode_key in sorted(source_keys & reference_keys):
+        source_row = source_by_key.loc[episode_key]
+        observed = reference_by_key.loc[episode_key]
+        source_date = str(source_row["first_breakout_date"])
+        if source_date:
+            if str(observed["trigger_date"]) != source_date:
+                errors.append(
+                    "forward confirmation baseline first breakout date drift: "
+                    f"{episode_key}"
+                )
+            if str(observed["outcome_status"]) != str(
+                source_row["first_breakout_outcome"]
+            ):
+                errors.append(
+                    "forward confirmation baseline first breakout outcome drift: "
+                    f"{episode_key}"
+                )
+        elif str(observed["trigger_date"]):
+            errors.append(
+                "forward confirmation baseline invents a source breakout: "
+                f"{episode_key}"
+            )
+    return errors
+
+
 def validate() -> list[str]:
     errors: list[str] = []
     paths = (
@@ -185,6 +331,7 @@ def validate() -> list[str]:
         DOCS_RETURN_REVIEW_CSV,
         DOCS_MD,
         SOURCE_DETAIL_CSV,
+        SOURCE_PROJECTION_MANIFEST_CSV,
         PRICE_RESOLUTION_CSV,
     )
     for path in paths:
@@ -226,13 +373,29 @@ def validate() -> list[str]:
         keep_default_na=False,
         low_memory=False,
     )
-    source = pd.read_csv(
+    projected_source = pd.read_csv(
         SOURCE_DETAIL_CSV,
         dtype={"stock_id": str, "first_breakout_date": str},
         keep_default_na=False,
         low_memory=False,
     )
-    source = source.loc[source["condition_variant_id"].eq(PRIMARY_VARIANT_ID)].copy()
+    source_projection_manifest = pd.read_csv(
+        SOURCE_PROJECTION_MANIFEST_CSV,
+        dtype=str,
+        keep_default_na=False,
+        low_memory=False,
+    )
+    errors.extend(_source_lineage_errors(projected_source))
+    errors.extend(
+        projection_binding_errors(
+            source_projection_manifest,
+            projected_source,
+            expected_cutoff_date=SOURCE_PROJECTION_CUTOFF_DATE,
+        )
+    )
+    source = projected_source.loc[
+        projected_source["condition_variant_id"].eq(PRIMARY_VARIANT_ID)
+    ].copy()
     price_resolutions = pd.read_csv(
         PRICE_RESOLUTION_CSV,
         dtype={"stock_id": str},
@@ -256,6 +419,10 @@ def validate() -> list[str]:
     if errors:
         return errors
 
+    errors.extend(
+        _projection_summary_lineage_errors(summary, source_projection_manifest)
+    )
+
     for name, frame in (
         ("summary", summary),
         ("detail", detail),
@@ -273,6 +440,37 @@ def validate() -> list[str]:
         errors.append("forward confirmation event detail repeats an episode/group pair")
     if return_review.duplicated(["stock_id", "entry_date", "fixed_exit_date"]).any():
         errors.append("forward confirmation operation return review repeats an operation path")
+    for name, frame, columns in (
+        (
+            "projected source",
+            source,
+            (
+                "episode_start_trade_date",
+                "episode_start_source_date",
+                "episode_end_date",
+                "first_breakout_date",
+                "launch_date",
+            ),
+        ),
+        (
+            "detail",
+            detail,
+            (
+                "episode_start_trade_date",
+                "episode_start_source_date",
+                "episode_end_date",
+                "source_first_breakout_date",
+                "source_launch_date",
+                "trigger_date",
+                "confirmation_date",
+                "entry_date",
+                "fixed_exit_date",
+            ),
+        ),
+        ("event detail", events, ("source_launch_date", "trigger_date")),
+        ("operation return review", return_review, ("entry_date", "fixed_exit_date")),
+    ):
+        errors.extend(_cutoff_date_errors(name, frame, columns))
     review_detail = detail.loc[
         _boolish(detail["operation_return_review_candidate_flag"])
     ].copy()
@@ -343,20 +541,7 @@ def validate() -> list[str]:
     }:
         errors.append("forward confirmation fixed exit timing drift")
 
-    source_reference = detail.loc[
-        detail["rule_id"].eq("source_first_close_above_prev20_reference")
-    ].set_index("episode_key")
-    source_by_key = source.set_index("episode_key")
-    for episode_key, source_row in source_by_key.iterrows():
-        observed = source_reference.loc[episode_key]
-        source_date = str(source_row["first_breakout_date"])
-        if source_date:
-            if str(observed["trigger_date"]) != source_date:
-                errors.append(f"forward confirmation baseline first breakout date drift: {episode_key}")
-            if str(observed["outcome_status"]) != str(source_row["first_breakout_outcome"]):
-                errors.append(f"forward confirmation baseline first breakout outcome drift: {episode_key}")
-        elif str(observed["trigger_date"]):
-            errors.append(f"forward confirmation baseline invents a source breakout: {episode_key}")
+    errors.extend(_source_reference_errors(source, detail))
 
     for row in summary.itertuples(index=False):
         part = detail.loc[detail["rule_id"].eq(row.rule_id)].copy()

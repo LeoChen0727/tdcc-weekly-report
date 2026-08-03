@@ -5,15 +5,20 @@ from io import StringIO
 import pandas as pd
 
 from revenue_unreacted_range_lag_strength_matrix import (
+    ALL_LINEAGE_COLUMNS,
     ARTIFACT_VERSION,
     DETAIL_COLUMNS,
     DETAIL_CSV,
     LATEST_CSV,
     SOURCE_DETAIL,
+    SOURCE_DATE_COLUMNS,
+    SOURCE_SNAPSHOT_CUTOFF_DATE,
     SUMMARY_COLUMNS,
+    _fixed_source_lineage,
+    _monthly_revenue_runtime_context,
+    _source_episodes,
     build_lag_strength_matrix,
 )
-
 
 DETAIL_DTYPES = {
         "episode_key": str,
@@ -51,6 +56,25 @@ def _serialized(frame: pd.DataFrame, *, detail: bool = False) -> pd.DataFrame:
     )
 
 
+def _current_monthly_revenue_runtime_lineage() -> dict[str, str]:
+    _history, lineage = _monthly_revenue_runtime_context()
+    return lineage
+
+
+def _runtime_lineage_errors(
+    frame: pd.DataFrame,
+    *,
+    label: str,
+    expected: dict[str, object],
+) -> list[str]:
+    errors: list[str] = []
+    for column in ALL_LINEAGE_COLUMNS:
+        actual = set(frame[column].astype(str).str.strip().str.lower())
+        if actual != {str(expected[column]).strip().lower()}:
+            errors.append(f"lag strength matrix {label} runtime lineage drift: {column}")
+    return errors
+
+
 def validate() -> list[str]:
     errors: list[str] = []
     if not LATEST_CSV.is_file() or not DETAIL_CSV.is_file():
@@ -63,23 +87,49 @@ def validate() -> list[str]:
         errors.append("lag strength matrix detail schema drift")
     if errors:
         return errors
+    source = pd.read_csv(
+        SOURCE_DETAIL,
+        dtype={
+            "stock_id": str,
+            **{column: str for column in SOURCE_DATE_COLUMNS},
+        },
+        keep_default_na=False,
+        low_memory=False,
+    )
+    try:
+        expected_runtime_lineage = _current_monthly_revenue_runtime_lineage()
+        source_episodes = _source_episodes(source)
+        expected_runtime_lineage.update(_fixed_source_lineage(source_episodes))
+    except (RuntimeError, ValueError, KeyError, pd.errors.ParserError) as exc:
+        return [f"lag strength cutoff lineage cannot be verified: {exc}"]
     if set(summary["artifact_version"].astype(str)) != {ARTIFACT_VERSION}:
         errors.append("lag strength matrix summary version drift")
     if set(detail["artifact_version"].astype(str)) != {ARTIFACT_VERSION}:
         errors.append("lag strength matrix detail version drift")
-    source = pd.read_csv(SOURCE_DETAIL, dtype={"stock_id": str}, low_memory=False)
-    source_mask = (
-        source["decision_basis"].astype(str).str.lower().isin({"true", "1", "yes"})
-        & ~source["sensitivity_basis"].astype(str).str.lower().isin({"true", "1", "yes"})
-        & source["feature_time_basis"].astype(str).eq("signal_date_close")
+    errors.extend(
+        _runtime_lineage_errors(
+            summary,
+            label="summary",
+            expected=expected_runtime_lineage,
+        )
     )
-    expected_source_count = len(source.loc[source_mask].drop_duplicates("episode_key"))
+    errors.extend(
+        _runtime_lineage_errors(
+            detail,
+            label="detail",
+            expected=expected_runtime_lineage,
+        )
+    )
+    expected_source_count = len(source_episodes)
     if len(detail) != expected_source_count:
         errors.append(
             f"lag strength detail source count drift: expected={expected_source_count} actual={len(detail)}"
         )
     if detail["episode_key"].duplicated().any():
         errors.append("lag strength detail contains duplicate episodes")
+    for column in SOURCE_DATE_COLUMNS:
+        if detail[column].astype(str).gt(SOURCE_SNAPSHOT_CUTOFF_DATE).any():
+            errors.append(f"lag strength detail {column} exceeds cutoff")
     repeats = detail.groupby(["stock_id", "source_monthly_revenue_period"]).size()
     if int((repeats - 1).clip(lower=0).sum()) != 0:
         errors.append("lag strength detail repeats same-stock revenue periods")
