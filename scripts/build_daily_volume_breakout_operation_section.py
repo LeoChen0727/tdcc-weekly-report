@@ -67,6 +67,9 @@ V2_MID_MODEL_ID = "volume_range_breakout_v2_mid_position_momentum_attack"
 V2_HIGH_MODEL_ID = "volume_range_breakout_v2_high_position_volume_attack"
 FORMAL_MODEL_IDS = (V2_LOW_MODEL_ID, V2_MID_MODEL_ID, V2_HIGH_MODEL_ID)
 MODEL_ID = ",".join(FORMAL_MODEL_IDS)
+MANIFEST_HISTORY_SAME_COMMIT_RESOLUTION = (
+    "manifest_history_first_exact_row_same_commit_sources"
+)
 VOLUME_V2_LINEAGE_AUDIT_REQUIRED_COLUMNS = {
     "snapshot_report_date",
     "snapshot_revision",
@@ -91,6 +94,7 @@ VOLUME_V2_ALLOWED_PAIRED_SOURCE_RESOLUTIONS = frozenset(
         "published_snapshot_exact_current_sources_pending_commit",
         "manifest_pipeline_commit_exact_source_blob",
         "snapshot_history_exact_blob_fallback",
+        MANIFEST_HISTORY_SAME_COMMIT_RESOLUTION,
     }
 )
 VOLUME_V2_LINEAGE_SOURCE_SHA_COLUMNS = (
