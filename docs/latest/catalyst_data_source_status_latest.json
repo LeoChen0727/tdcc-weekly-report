@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-31 02:54:45 Asia/Taipei",
+  "generated_at": "2026-08-04 18:16:28 Asia/Taipei",
   "external_fetch_status": "partial_ok",
   "note": "Official monthly revenue and material-information sources are used when reachable. No unverified news, MOPS pages, or social rumor data is fabricated.",
   "files": {
@@ -21,7 +21,7 @@
     "event_catalyst_log": {
       "path": "data/event_catalysts/event_catalyst_log.csv",
       "exists": true,
-      "rows": 2560
+      "rows": 2653
     }
   },
   "sources": {
@@ -37,32 +37,32 @@
     },
     "TPEX monthly revenue OpenAPI": {
       "url": "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O",
-      "status": "ok",
-      "rows": 891,
-      "error": "",
-      "http_status": 200,
-      "matched_tracked_rows": 91,
-      "stored_rows": 91,
+      "status": "failed",
+      "rows": 0,
+      "error": "525 Server Error: <none> for url: https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O",
+      "http_status": 525,
+      "matched_tracked_rows": 0,
+      "stored_rows": 0,
       "note": "Official monthly revenue rows are stored as fundamental source rows with EPS/margin fields blank. They can flag revenue_good_eps_unconfirmed only; they are not EPS confirmation."
     },
     "TWSE material information OpenAPI": {
       "url": "https://openapi.twse.com.tw/v1/opendata/t187ap04_L",
       "status": "ok",
-      "rows": 180,
+      "rows": 243,
       "error": "",
       "http_status": 200,
-      "matched_tracked_rows": 51,
-      "stored_rows": 51,
+      "matched_tracked_rows": 72,
+      "stored_rows": 72,
       "note": "Official material-information rows are filtered to tracked stocks. Only objective order/customer/capacity/production/certification keywords become evidence event types; other rows stay material_information context."
     },
     "TPEX material information OpenAPI": {
       "url": "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O",
       "status": "ok",
-      "rows": 184,
+      "rows": 217,
       "error": "",
       "http_status": 200,
-      "matched_tracked_rows": 31,
-      "stored_rows": 31,
+      "matched_tracked_rows": 21,
+      "stored_rows": 21,
       "note": "Official material-information rows are filtered to tracked stocks. Only objective order/customer/capacity/production/certification keywords become evidence event types; other rows stay material_information context."
     }
   }
