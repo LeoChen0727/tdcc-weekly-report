@@ -1,24 +1,33 @@
 {
-  "status": "pass",
-  "as_of_date": "20260803",
+  "status": "repaired",
+  "as_of_date": "20260804",
   "date_boundary": "exclude_as_of_date",
-  "target_end_date": "20260731",
+  "target_end_date": "20260803",
   "lookback_days": 7,
   "expected_trading_dates": [
-    "20260724",
     "20260727",
     "20260728",
     "20260729",
     "20260730",
-    "20260731"
+    "20260731",
+    "20260803"
   ],
   "non_trading_days_in_window": [],
   "legacy_only_before": [],
-  "missing_before": [],
+  "missing_before": [
+    "20260803"
+  ],
   "missing_after": [],
-  "actions": [],
+  "actions": [
+    {
+      "date": "20260803",
+      "action": "repair_daily_price_range",
+      "return_code": "0",
+      "target": "data/daily_price/daily_price_20260803.csv"
+    }
+  ],
   "rebuild_history_if_repaired": true,
-  "rebuild_history_status": "skipped_no_repair_actions",
-  "rebuild_history_return_code": "",
+  "rebuild_history_status": "completed",
+  "rebuild_history_return_code": "0",
   "errors": []
 }

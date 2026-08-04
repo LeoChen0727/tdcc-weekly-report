@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20260729,7689,大鵬科CLMX,TWSE,179.5,179.5,166.5,176.5,342635.0,59692184.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260729.csv,,,,,,0.8571,,,,,,,,,,,,,,,,,,,,,
 20260730,7689,大鵬科CLMX,TWSE,178.0,179.0,172.0,177.5,244476.0,43139272.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260730.csv,,,,,,0.5666,,,,,,,,,,,,,,,,,,,,,
 20260731,7689,大鵬科CLMX,TWSE,174.0,177.0,173.5,176.0,191220.0,33477648.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260731.csv,,,,,,-0.8451,,,,,,,,,,,,,,,,,,,,,
+20260803,7689,大鵬科CLMX,TWSE,173.5,173.5,170.5,171.0,109571.0,18839785.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260803.csv,175.2,175.2,175.2,175.2,175.0144,-2.8409,,,,,328482.6,0.3336,179.5,179.5,179.5,164.0,164.0,164.0,-2.3973,-2.3973,-2.3973,-2.2938,-4.7354,-4.7354,-4.7354,4.2683,4.2683
