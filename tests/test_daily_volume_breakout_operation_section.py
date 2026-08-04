@@ -842,6 +842,15 @@ def test_formal_operation_lineage_gate_selects_manifest_max_same_day_revision(
                 formal_snapshot_sha256=r1_canonical_sha,
                 formal_row_sha256=builder.canonical_row_sha256(r1_formal.iloc[0]),
             ),
+            lineage_audit_row(
+                audit_row_type="revision_coverage",
+                snapshot_report_date="20260715",
+                snapshot_revision="legacy_r1",
+                signal_date="",
+                model_id="",
+                stock_id="",
+                formal_row_disposition="not_applicable_revision_coverage",
+            ),
         ]
     ).to_csv(audit_path, index=False)
 
@@ -854,6 +863,153 @@ def test_formal_operation_lineage_gate_selects_manifest_max_same_day_revision(
 
     assert evidence["checked_rows"] == 1
     assert evidence["formal_row_disposition"] == "verified_clean"
+
+
+def write_20260804_r1_lineage_fixture_with_legacy_history(
+    tmp_path: Path,
+) -> tuple[Path, pd.DataFrame]:
+    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    snapshot_dir.mkdir(parents=True, exist_ok=True)
+    current_snapshot = (
+        snapshot_dir / "daily_candidate_model_signals_for_report_20260804.csv"
+    )
+    formal = pd.DataFrame(
+        [lineage_formal_signal_row(signal_date="20260804")]
+    )
+    formal.to_csv(current_snapshot, index=False)
+    current_sha = snapshot_file_sha256(current_snapshot)
+    current_relative = current_snapshot.relative_to(tmp_path).as_posix()
+    pd.DataFrame(
+        [
+            {
+                "snapshot_report_date": "20260804",
+                "snapshot_revision": "r1",
+                "supersedes_snapshot_sha256": "",
+                "revision_reason": "legacy_v1_manifest",
+                "artifact_id": "model_signals_for_report",
+                "snapshot_path": current_relative,
+                "snapshot_sha256": current_sha,
+            }
+        ]
+    ).to_csv(
+        snapshot_dir / "daily_published_model_snapshot_manifest.csv", index=False
+    )
+    audit_path = tmp_path / "lineage.csv"
+    pd.DataFrame(
+        [
+            lineage_audit_row(
+                audit_row_type="revision_coverage",
+                snapshot_report_date="20260717",
+                snapshot_revision="legacy_r1",
+                signal_date="",
+                model_id="",
+                stock_id="",
+                formal_row_disposition="not_applicable_revision_coverage",
+            ),
+            lineage_audit_row(
+                audit_row_type="revision_coverage",
+                snapshot_report_date="20260717",
+                snapshot_revision="legacy_r2",
+                signal_date="",
+                model_id="",
+                stock_id="",
+                formal_row_disposition="not_applicable_revision_coverage",
+            ),
+            lineage_audit_row(
+                audit_row_type="revision_coverage",
+                snapshot_report_date="20260717",
+                snapshot_revision="legacy_r7",
+                signal_date="",
+                model_id="",
+                stock_id="",
+                formal_row_disposition="not_applicable_revision_coverage",
+            ),
+            lineage_audit_row(
+                audit_row_type="formal_row",
+                snapshot_report_date="20260804",
+                snapshot_revision="r1",
+                signal_date="20260804",
+                formal_snapshot_path=current_relative,
+                formal_snapshot_sha256=builder.canonical_text_sha256(
+                    current_snapshot.read_bytes()
+                ),
+                formal_row_number="0",
+                formal_row_sha256=builder.canonical_row_sha256(formal.iloc[0]),
+            ),
+        ]
+    ).to_csv(audit_path, index=False)
+    return audit_path, formal
+
+
+def test_formal_operation_lineage_gate_accepts_20260804_r1_with_recovered_legacy_history(
+    tmp_path: Path,
+) -> None:
+    audit_path, formal = write_20260804_r1_lineage_fixture_with_legacy_history(
+        tmp_path
+    )
+
+    evidence = builder.require_verified_clean_volume_v2_lineage(
+        lineage_operation_section(signal_date="20260804"),
+        audit_path=audit_path,
+        formal_signal_rows=formal,
+        source_root=tmp_path,
+    )
+
+    assert evidence["checked_rows"] == 1
+    assert evidence["formal_row_disposition"] == "verified_clean"
+
+
+@pytest.mark.parametrize(
+    "invalid_revision",
+    [
+        "",
+        "legacy_r0",
+        "legacy_r01",
+        "legacy_r",
+        "legacy_r1.0",
+        "legacy_x1",
+        "r0",
+        "r01",
+        "1",
+    ],
+)
+def test_formal_operation_lineage_gate_rejects_malformed_audit_revision_namespace(
+    tmp_path: Path,
+    invalid_revision: str,
+) -> None:
+    audit_path, formal = write_20260804_r1_lineage_fixture_with_legacy_history(
+        tmp_path
+    )
+    audit = pd.read_csv(audit_path, dtype=str, keep_default_na=False)
+    audit.loc[0, "snapshot_revision"] = invalid_revision
+    audit.to_csv(audit_path, index=False)
+
+    with pytest.raises(RuntimeError, match="invalid snapshot_revision rows"):
+        builder.require_verified_clean_volume_v2_lineage(
+            lineage_operation_section(signal_date="20260804"),
+            audit_path=audit_path,
+            formal_signal_rows=formal,
+            source_root=tmp_path,
+        )
+
+
+def test_formal_operation_lineage_gate_does_not_treat_legacy_revision_as_manifest_r1(
+    tmp_path: Path,
+) -> None:
+    audit_path, formal = write_20260804_r1_lineage_fixture_with_legacy_history(
+        tmp_path
+    )
+    audit = pd.read_csv(audit_path, dtype=str, keep_default_na=False)
+    audit.loc[3, "snapshot_revision"] = "legacy_r1"
+    audit.to_csv(audit_path, index=False)
+
+    with pytest.raises(RuntimeError, match="uncovered_manifest_max_lineage_evidence"):
+        builder.require_verified_clean_volume_v2_lineage(
+            lineage_operation_section(signal_date="20260804"),
+            audit_path=audit_path,
+            formal_signal_rows=formal,
+            source_root=tmp_path,
+        )
 
 
 @pytest.mark.parametrize("disposition", ["superseded", "quarantined", "unreplayable"])
