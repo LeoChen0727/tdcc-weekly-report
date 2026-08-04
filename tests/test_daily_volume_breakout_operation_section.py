@@ -779,6 +779,90 @@ def test_formal_operation_lineage_gate_accepts_only_exact_verified_clean_row(tmp
     assert evidence["evidence_status"] == "complete"
 
 
+@pytest.mark.parametrize(
+    "stock_id",
+    ["6243", "6505"],
+)
+def test_formal_operation_lineage_gate_accepts_manifest_history_same_commit_sources(
+    tmp_path: Path,
+    stock_id: str,
+) -> None:
+    audit_path, _source_path, formal = write_lineage_fixture(
+        tmp_path,
+        formal_updates={"stock_id": stock_id},
+        audit_updates={
+            "stock_id": stock_id,
+            "paired_source_resolution": (
+                builder.MANIFEST_HISTORY_SAME_COMMIT_RESOLUTION
+            ),
+        },
+    )
+
+    evidence = builder.require_verified_clean_volume_v2_lineage(
+        lineage_operation_section(stock_id=stock_id),
+        audit_path=audit_path,
+        formal_signal_rows=formal,
+        source_root=tmp_path,
+    )
+
+    assert evidence["checked_rows"] == 1
+    assert evidence["formal_row_disposition"] == "verified_clean"
+
+
+@pytest.mark.parametrize(
+    "source_resolution",
+    ["unknown_resolution", "legacy_same_canonical_publication_fallback_incomplete"],
+)
+def test_formal_operation_lineage_gate_rejects_unapproved_source_resolution(
+    tmp_path: Path,
+    source_resolution: str,
+) -> None:
+    audit_path, _source_path, formal = write_lineage_fixture(
+        tmp_path,
+        audit_updates={"paired_source_resolution": source_resolution},
+    )
+
+    with pytest.raises(RuntimeError, match=source_resolution):
+        builder.require_verified_clean_volume_v2_lineage(
+            lineage_operation_section(),
+            audit_path=audit_path,
+            formal_signal_rows=formal,
+            source_root=tmp_path,
+        )
+
+
+@pytest.mark.parametrize(
+    ("field", "value"),
+    [
+        ("formal_row_disposition", "quarantined"),
+        ("evidence_status", "incomplete"),
+        ("watch_artifact_sha256", ""),
+    ],
+)
+def test_formal_operation_lineage_gate_rejects_invalid_same_commit_evidence(
+    tmp_path: Path,
+    field: str,
+    value: str,
+) -> None:
+    audit_path, _source_path, formal = write_lineage_fixture(
+        tmp_path,
+        audit_updates={
+            "paired_source_resolution": (
+                builder.MANIFEST_HISTORY_SAME_COMMIT_RESOLUTION
+            ),
+            field: value,
+        },
+    )
+
+    with pytest.raises(RuntimeError, match="quarantined|incomplete|missing_or_invalid"):
+        builder.require_verified_clean_volume_v2_lineage(
+            lineage_operation_section(),
+            audit_path=audit_path,
+            formal_signal_rows=formal,
+            source_root=tmp_path,
+        )
+
+
 def test_formal_operation_lineage_gate_selects_manifest_max_same_day_revision(
     tmp_path: Path,
 ) -> None:
