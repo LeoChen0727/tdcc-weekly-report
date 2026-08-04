@@ -407,6 +407,23 @@ def safe_str(value: Any) -> str:
     return text
 
 
+def normalize_volume_v2_audit_snapshot_revision(value: Any) -> str:
+    """Validate the two distinct revision namespaces emitted by the audit.
+
+    Publisher-manifest revisions use ``rN``.  Revisions recovered from
+    pre-contract Git history use ``legacy_rN`` and remain audit-only lineage;
+    preserving that prefix prevents them from satisfying a manifest ``rN``
+    join.  Every other spelling stays invalid and fails the formal gate.
+    """
+
+    revision = safe_str(value)
+    match = re.fullmatch(r"(legacy_)?r([1-9][0-9]*)", revision)
+    if match is None:
+        return ""
+    prefix = "legacy_r" if match.group(1) else "r"
+    return f"{prefix}{int(match.group(2))}"
+
+
 def read_csv(path: Path) -> pd.DataFrame:
     if not path.exists():
         return pd.DataFrame()
@@ -725,9 +742,7 @@ def require_verified_clean_volume_v2_lineage(
         normalize_date_text
     )
     audit["_snapshot_revision"] = audit["snapshot_revision"].map(
-        lambda value: f"r{int(safe_str(value)[1:])}"
-        if re.fullmatch(r"r[1-9][0-9]*", safe_str(value))
-        else ""
+        normalize_volume_v2_audit_snapshot_revision
     )
     audit["_formal_snapshot_sha256"] = audit["formal_snapshot_sha256"].map(
         safe_str
