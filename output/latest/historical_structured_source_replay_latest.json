@@ -1,49 +1,24 @@
 {
   "schema_version": "historical_structured_source_replay_v1",
-  "replay_id": "github-run-30871658508-1",
-  "pipeline_commit_sha": "864e5e3b7db1d1aa997a9b2d0260e213d2edea71",
+  "replay_id": "github-run-30969232075-1",
+  "pipeline_commit_sha": "d8a095813a24c3dca010304195e8b598ba651b43",
   "status": "pass",
-  "start_date": "20260803",
-  "end_date": "20260803",
-  "price_history_high_water_date": "20260803",
+  "start_date": "20260804",
+  "end_date": "20260804",
+  "price_history_high_water_date": "20260804",
   "trading_dates": [
-    "20260803"
+    "20260804"
   ],
-  "required_base_date": "20260731",
+  "required_base_date": "20260803",
   "base_repair_date": "",
   "publication_status": "reconstructed_not_as_published",
   "as_published": false,
   "before_tail_matrix": {
-    "daily_price": "20260803",
+    "daily_price": "20260804",
     "stock_price_history": {
-      "max_date": "20260803",
+      "max_date": "20260804",
       "files": 2382,
-      "files_at_max": 2099
-    },
-    "market_index": {
-      "TWSE": "20260731",
-      "TPEX": "20260731"
-    },
-    "market_index_ohlc": {
-      "TWSE": "20260731",
-      "TPEX": "20260731"
-    },
-    "taifex": {
-      "institutional_fo": "20260731",
-      "futures_contracts": "20260731",
-      "options_call_put": "20260731",
-      "put_call_ratio": "20260731",
-      "taiwan_vix": "20260731"
-    },
-    "warrant_daily": "20260731",
-    "warrant_flow": "20260731"
-  },
-  "after_tail_matrix": {
-    "daily_price": "20260803",
-    "stock_price_history": {
-      "max_date": "20260803",
-      "files": 2382,
-      "files_at_max": 2099
+      "files_at_max": 2103
     },
     "market_index": {
       "TWSE": "20260803",
@@ -63,65 +38,90 @@
     "warrant_daily": "20260803",
     "warrant_flow": "20260803"
   },
+  "after_tail_matrix": {
+    "daily_price": "20260804",
+    "stock_price_history": {
+      "max_date": "20260804",
+      "files": 2382,
+      "files_at_max": 2103
+    },
+    "market_index": {
+      "TWSE": "20260804",
+      "TPEX": "20260804"
+    },
+    "market_index_ohlc": {
+      "TWSE": "20260804",
+      "TPEX": "20260804"
+    },
+    "taifex": {
+      "institutional_fo": "20260804",
+      "futures_contracts": "20260804",
+      "options_call_put": "20260804",
+      "put_call_ratio": "20260804",
+      "taiwan_vix": "20260804"
+    },
+    "warrant_daily": "20260804",
+    "warrant_flow": "20260804"
+  },
   "protected_price_history_fingerprints_before": {
     "daily_price": {
-      "path_count": 375,
-      "aggregate_sha256": "c55904a60c5eeb83eed2b5a1933312a1fe13602d28ffff05397b426e1563b4ee"
+      "path_count": 377,
+      "aggregate_sha256": "590d84326b87d8e5208a9e1a0adaf57c02a748344d2379bcfa0c8e151fcddad6"
     },
     "stock_price_history": {
       "path_count": 2382,
-      "aggregate_sha256": "dec7c4aba5b9ea34824a287a98640e9a69a02de98e031366d8b00547d0671eb5"
+      "aggregate_sha256": "aee95208f25f02314dc98108ea16c3af4c219316c2097dafa9f0447385d53597"
     },
     "stock_history_manifest_output": {
       "path_count": 3,
-      "aggregate_sha256": "d0d858066cbd0b45f898cae611345173ab93126e5ec799b77c5d90b0923911c9"
+      "aggregate_sha256": "3944d8fa40b4fd273258cc77d1d66df69bb0fd4591efd6f6aafa68fece119df0"
     },
     "stock_history_manifest_docs": {
       "path_count": 3,
-      "aggregate_sha256": "886ffbe66cbcdd1fba983018c7833d1469acced25ad26ad8d5d77399993f1375"
+      "aggregate_sha256": "429c237a78ad7558d54276c5a4097d26d519afc867f4ffdd22eaf41ba9a03659"
     }
   },
   "protected_price_history_fingerprints_after": {
     "daily_price": {
-      "path_count": 375,
-      "aggregate_sha256": "c55904a60c5eeb83eed2b5a1933312a1fe13602d28ffff05397b426e1563b4ee"
+      "path_count": 377,
+      "aggregate_sha256": "590d84326b87d8e5208a9e1a0adaf57c02a748344d2379bcfa0c8e151fcddad6"
     },
     "stock_price_history": {
       "path_count": 2382,
-      "aggregate_sha256": "dec7c4aba5b9ea34824a287a98640e9a69a02de98e031366d8b00547d0671eb5"
+      "aggregate_sha256": "aee95208f25f02314dc98108ea16c3af4c219316c2097dafa9f0447385d53597"
     },
     "stock_history_manifest_output": {
       "path_count": 3,
-      "aggregate_sha256": "d0d858066cbd0b45f898cae611345173ab93126e5ec799b77c5d90b0923911c9"
+      "aggregate_sha256": "3944d8fa40b4fd273258cc77d1d66df69bb0fd4591efd6f6aafa68fece119df0"
     },
     "stock_history_manifest_docs": {
       "path_count": 3,
-      "aggregate_sha256": "886ffbe66cbcdd1fba983018c7833d1469acced25ad26ad8d5d77399993f1375"
+      "aggregate_sha256": "429c237a78ad7558d54276c5a4097d26d519afc867f4ffdd22eaf41ba9a03659"
     }
   },
   "manifest_paths": [
-    "output/history/historical_source_replay/github-run-30871658508-1/20260803/structured_source_manifest.json"
+    "output/history/historical_source_replay/github-run-30969232075-1/20260804/structured_source_manifest.json"
   ],
   "freshness": {
-    "generated_at": "2026-08-04 10:41:31",
+    "generated_at": "2026-08-05 10:42:41",
     "market_session_status": "unknown",
-    "market_session_date": "20260803",
-    "expected_main_price_date": "20260803",
+    "market_session_date": "20260804",
+    "expected_main_price_date": "20260804",
     "market_session_reason_code": "awaiting_official_price_confirmation",
-    "market_session_generated_at": "2026-08-04T10:28:04+08:00",
-    "main_price_date": "20260803",
+    "market_session_generated_at": "2026-08-05T10:28:50+08:00",
+    "main_price_date": "20260804",
     "main_price_date_source": "historical_replay_override",
-    "historical_replay_main_price_date": "20260803",
-    "expected_price_history_high_water_date": "20260803",
-    "actual_stock_price_history_date": "20260803",
+    "historical_replay_main_price_date": "20260804",
+    "expected_price_history_high_water_date": "20260804",
+    "actual_stock_price_history_date": "20260804",
     "stock_monitor_price_date": "20260717",
     "all_candidates_date": "20260717",
-    "official_price_fetch_date": "20260803",
-    "warrant_flow_date": "20260803",
+    "official_price_fetch_date": "20260804",
+    "warrant_flow_date": "20260804",
     "raw_stock_monitor_price_date": "20260717",
     "raw_all_candidates_date": "20260717",
-    "raw_official_price_fetch_date": "20260803",
-    "raw_warrant_flow_date": "20260803",
+    "raw_official_price_fetch_date": "20260804",
+    "raw_warrant_flow_date": "20260804",
     "report_ready": "False",
     "report_ready_note": "historical structured-source replay updates objective-source freshness only; publish artifacts remain stale",
     "warrant_ready": "True",
