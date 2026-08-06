@@ -1,5 +1,4 @@
 date,taiwan_vix,source,vix_return_5d,vix_return_10d,vix_return_20d
-20260204,27.45,https://www.taifex.com.tw/file/taifex/Dailydownload/vix/log2data/202602new.txt,,,
 20260205,28.81,https://www.taifex.com.tw/file/taifex/Dailydownload/vix/log2data/202602new.txt,,,
 20260206,30.07,https://www.taifex.com.tw/file/taifex/Dailydownload/vix/log2data/202602new.txt,,,
 20260209,28.43,https://www.taifex.com.tw/file/taifex/Dailydownload/vix/log2data/202602new.txt,0.3529827038475153,,
@@ -116,3 +115,4 @@ date,taiwan_vix,source,vix_return_5d,vix_return_10d,vix_return_20d
 20260731,40.6,https://www.taifex.com.tw/file/taifex/Dailydownload/vix/log2data/202607new.txt,6.310552500654643,4.612213347075489,7.521186440677985
 20260803,39.47,https://www.taifex.com.tw/file/taifex/Dailydownload/vix/log2data/202608new.txt,5.931293612453037,-0.050645733096998935,7.900492072170584
 20260804,38.91,https://www.taifex.com.tw/file/taifex/Dailydownload/vix/log2data/202608new.txt,-3.8309441423628354,6.456908344733248,5.475738682569786
+20260805,35.37,https://www.taifex.com.tw/file/taifex/Dailydownload/vix/log2data/202608new.txt,-16.12520749347879,-2.130603209739912,-7.529411764705884

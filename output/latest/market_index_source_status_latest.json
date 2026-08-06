@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-08-05 10:40:54 Asia/Taipei",
+  "generated_at": "2026-08-06 10:39:32 Asia/Taipei",
   "mode": "reconstructed_source_tail_gap",
-  "requested_date": "20260804",
+  "requested_date": "20260805",
   "observed_dates": {
-    "TPEX": "20260804",
-    "TWSE": "20260804"
+    "TPEX": "20260805",
+    "TWSE": "20260805"
   },
   "requested_index_codes": [
     "TPEX",
@@ -15,22 +15,22 @@
   "fallback_used": false,
   "future_rows_used": false,
   "calculation_context_max_date_by_index": {
-    "TPEX": "20260804",
-    "TWSE": "20260804"
+    "TPEX": "20260805",
+    "TWSE": "20260805"
   },
   "before_state": {
     "data/market_index_history.csv": {
       "tail_by_index": {
-        "TPEX": "20260803",
-        "TWSE": "20260803"
+        "TPEX": "20260804",
+        "TWSE": "20260804"
       },
       "future_rows": 0,
       "future_rows_sha256": "0f5570959b27bf658b75995ae74e702919cdaf85a79e5ce5fcea3cc3531cb60c"
     },
     "data/market_index_ohlc_history.csv": {
       "tail_by_index": {
-        "TPEX": "20260803",
-        "TWSE": "20260803"
+        "TPEX": "20260804",
+        "TWSE": "20260804"
       },
       "future_rows": 0,
       "future_rows_sha256": "1d1320b334317c72e6360d13460a405435f18d76914b47ff9b6390ad5c9da169"
@@ -39,16 +39,16 @@
   "after_state": {
     "data/market_index_history.csv": {
       "tail_by_index": {
-        "TPEX": "20260804",
-        "TWSE": "20260804"
+        "TPEX": "20260805",
+        "TWSE": "20260805"
       },
       "future_rows": 0,
       "future_rows_sha256": "0f5570959b27bf658b75995ae74e702919cdaf85a79e5ce5fcea3cc3531cb60c"
     },
     "data/market_index_ohlc_history.csv": {
       "tail_by_index": {
-        "TPEX": "20260804",
-        "TWSE": "20260804"
+        "TPEX": "20260805",
+        "TWSE": "20260805"
       },
       "future_rows": 0,
       "future_rows_sha256": "1d1320b334317c72e6360d13460a405435f18d76914b47ff9b6390ad5c9da169"
@@ -63,27 +63,27 @@
     {
       "endpoint": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20260801&response=json",
       "params": {},
-      "fetched_at": "2026-08-05 10:40:52 Asia/Taipei",
-      "raw_sha256": "cfc8ffae4c364f733c42a2e7d9fd6e8d78d1e3277b6e3c33878a2ad02d5dd98f",
-      "normalized_sha256": "d2344a7067d3dfe876f113a421201c13cb20c9fe60e504ccc1a1d9777689f1bb"
+      "fetched_at": "2026-08-06 10:39:31 Asia/Taipei",
+      "raw_sha256": "e6e75d97ea09b28c3386305f058839458b64d9f6073aa76a2ad91441228be057",
+      "normalized_sha256": "bffaea450c4b46dd81949e06a26be0eee8cad72e15bdc4d9545c2200972cea25"
     },
     {
       "endpoint": "https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=115/08&response=json",
       "params": {},
-      "fetched_at": "2026-08-05 10:40:53 Asia/Taipei",
-      "raw_sha256": "f401d3c0fed49659d9db49be1fc4ea8f7bbe98a3478a652b862785819b9f24cd",
-      "normalized_sha256": "a5000fdbac555d2daea7b24a15d954e12dea3640089dbb7172a58bde37b8c946"
+      "fetched_at": "2026-08-06 10:39:31 Asia/Taipei",
+      "raw_sha256": "b6c74f69764f5b27f63a5e92d713c22567e50cb1f8e26f5c92291a83987ce558",
+      "normalized_sha256": "09625240ebbb8e99d27d37887fd3e9c58b02418c1d30c0243a8534a157b88a27"
     },
     {
       "endpoint": "https://www.twse.com.tw/rwd/zh/afterTrading/FMTQIK?date=20260801&response=json",
       "params": {},
-      "fetched_at": "2026-08-05 10:40:53 Asia/Taipei",
-      "raw_sha256": "8c695ef25b83c7ac1af8a044b105ef2ff870cb548e1c159b8ee4aaa3d9b980c9",
-      "normalized_sha256": "616eb345f578f3e05ffb09a6d1129f7d66ccead95e3c28003f2b70ddeafed689"
+      "fetched_at": "2026-08-06 10:39:32 Asia/Taipei",
+      "raw_sha256": "4e6fbbf018038d0a6f9395e9f3bb5d5519ed2766eab9d695cb683b60fb8d9684",
+      "normalized_sha256": "2c6c38cbdeb3f65fd3b5a278e2d21c7a328872b4c5106189a5dac4a8eac0fafc"
     }
   ],
   "outputs": {
-    "data/market_index_history.csv": "0ac0174250033c5125a06b86e47f5b1e1af8b6fb5985cf7565d7a136fb01694f",
-    "data/market_index_ohlc_history.csv": "352ced8d2be6addcedcdc50040806a9dcbbfe29ca563dfed09e45403510e0599"
+    "data/market_index_history.csv": "2de3e24a246d86dda3caf076c8330f5d59270a35c4f96da81bfd673823bd6b1b",
+    "data/market_index_ohlc_history.csv": "34b9e47af533a86e6ce5ae6a50a95f86fef93481c2501a04c74f2e7f37785bc9"
   }
 }
