@@ -3,9 +3,9 @@
   "exceptional_non_trading_days": [
     "20260710"
   ],
-  "expected_main_price_date": "20260806",
-  "generated_at": "2026-08-07T10:27:55+08:00",
-  "market_session_date": "20260806",
+  "expected_main_price_date": "20260807",
+  "generated_at": "2026-08-07T20:34:56+08:00",
+  "market_session_date": "20260807",
   "market_status": "unknown",
   "official_sources": {
     "dgpa_emergency_closure": {
@@ -14,7 +14,7 @@
         "20260710",
         "20260711"
       ],
-      "queried_at": "2026-08-07T10:27:55+08:00",
+      "queried_at": "2026-08-07T20:34:56+08:00",
       "status": "ok",
       "taipei_notice_count": 3,
       "url": "https://alerts.ncdr.nat.gov.tw/RssAtomFeed.ashx?AlertType=33"
@@ -24,7 +24,7 @@
       "covered_years": [
         2026
       ],
-      "queried_at": "2026-08-07T10:27:55+08:00",
+      "queried_at": "2026-08-07T20:34:56+08:00",
       "status": "ok",
       "url": "https://openapi.twse.com.tw/v1/holidaySchedule/holidaySchedule"
     },
