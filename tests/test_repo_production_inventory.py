@@ -774,10 +774,10 @@ def test_daily_full_checkpoint_replay_preauthorization_is_exact_and_fail_closed(
     lifecycle_path = "config/repo_file_lifecycle_inventory.csv"
     assert inventory.PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_BASE_SHA256_BY_PATH[
         lifecycle_path
-    ] == "45eae9722c4d8587ff483a8e550eb5054cc8a6ab26a836d7f8f80e30a9c3a3d7"
+    ] == "69831c7ef8b922ddb763af94cbf4df694ee2d981c7a7d475567f67587ed07ce5"
     assert inventory.PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_TARGET_SHA256_BY_PATH[
         lifecycle_path
-    ] == "b297a44b3e898e6f896893607b6e88d62b0fe3c2aefb57aa463caef3ed384429"
+    ] == "e4e7ae5fa26c90545ddcd8f12aae8a5c0a343e2657d44f081b4c7b3088ae3c1a"
     base_ref = "a" * 40
     base_blobs: dict[str, bytes | None] = {}
     target_blobs: dict[str, bytes] = {}
@@ -880,6 +880,128 @@ def test_daily_full_checkpoint_replay_preauthorization_is_exact_and_fail_closed(
     )
     assert not inventory.is_preauthorized_daily_full_checkpoint_replay_migration(
         **{**kwargs, "changed_paths": {*kwargs["changed_paths"], "scripts/extra.py"}}
+    )
+
+
+def test_daily_full_checkpoint_replay_three_layer_lifecycle_reconciliation(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    fields = (
+        "path",
+        "type",
+        "owner",
+        "status",
+        "called_by_workflow",
+        "imported_by",
+        "tested_by",
+        "documented_by",
+        "writes_artifact",
+        "reads_artifact",
+        "keep_reason",
+        "delete_reason",
+        "removal_risk",
+    )
+    overlap_path = inventory.PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_LIFECYCLE_OVERLAP_ROW
+
+    def payload(rows: list[dict[str, str]]) -> bytes:
+        output = io.StringIO(newline="")
+        writer = csv.DictWriter(output, fieldnames=fields, lineterminator="\n")
+        writer.writeheader()
+        writer.writerows(rows)
+        return output.getvalue().encode("utf-8")
+
+    base_overlap = {field: "" for field in fields}
+    base_overlap.update(
+        path=overlap_path,
+        type="python",
+        owner="repo_infrastructure",
+        status="active",
+        called_by_workflow="daily.yml",
+        imported_by="snapshot.py",
+        removal_risk="high",
+    )
+    stable_row = {field: "" for field in fields}
+    stable_row.update(
+        path="scripts/stable.py",
+        type="python",
+        owner="repo_infrastructure",
+        status="active",
+        removal_risk="low",
+    )
+    replay_row = {field: "" for field in fields}
+    replay_row.update(
+        path="scripts/replay.py",
+        type="python",
+        owner="repo_infrastructure",
+        status="active",
+        removal_risk="high",
+    )
+    stage_f_overlap = {**base_overlap, "imported_by": "snapshot.py;advanced.py"}
+    replay_overlap = {**base_overlap, "called_by_workflow": "daily.yml;replay.yml"}
+    pre_stage_f = payload([base_overlap, stable_row])
+    stage_f = payload([stage_f_overlap, stable_row])
+    replay_branch = payload([replay_overlap, stable_row, replay_row])
+    expected = payload(
+        [
+            {
+                **replay_overlap,
+                "imported_by": "snapshot.py;advanced.py",
+            },
+            stable_row,
+            replay_row,
+        ]
+    )
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_PRE_STAGE_F_LIFECYCLE_SHA256",
+        inventory.canonical_blob_sha256(pre_stage_f),
+    )
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_STAGE_F_LIFECYCLE_SHA256",
+        inventory.canonical_blob_sha256(stage_f),
+    )
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_BRANCH_LIFECYCLE_SHA256",
+        inventory.canonical_blob_sha256(replay_branch),
+    )
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_INTEGRATED_LIFECYCLE_SHA256",
+        inventory.canonical_blob_sha256(expected),
+    )
+
+    assert (
+        inventory.build_daily_full_checkpoint_replay_integrated_lifecycle_inventory(
+            pre_stage_f,
+            stage_f,
+            replay_branch,
+        )
+        == expected
+    )
+
+    invalid_stage_f = payload(
+        [
+            {
+                **stage_f_overlap,
+                "called_by_workflow": "daily.yml;unapproved.yml",
+            },
+            stable_row,
+        ]
+    )
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_STAGE_F_LIFECYCLE_SHA256",
+        inventory.canonical_blob_sha256(invalid_stage_f),
+    )
+    assert (
+        inventory.build_daily_full_checkpoint_replay_integrated_lifecycle_inventory(
+            pre_stage_f,
+            invalid_stage_f,
+            replay_branch,
+        )
+        is None
     )
 
 

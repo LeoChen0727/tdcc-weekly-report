@@ -190,7 +190,7 @@ PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_BASE_SHA256_BY_PATH = {
     ),
     ".github/workflows/daily_full_validation_replay_20260807.yml": None,
     "config/repo_file_lifecycle_inventory.csv": (
-        "45eae9722c4d8587ff483a8e550eb5054cc8a6ab26a836d7f8f80e30a9c3a3d7"
+        "69831c7ef8b922ddb763af94cbf4df694ee2d981c7a7d475567f67587ed07ce5"
     ),
     "config/repo_production_inventory.csv": (
         "359a3419a6ad7e043d9649a0efe89e1b4ed40365d1640f7d3d8fa06909f6092a"
@@ -211,7 +211,7 @@ PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_TARGET_SHA256_BY_PATH = {
         "9ba1da323f7aa4ed0501e702abbd14d511cf697138c247bdb92e033f43a96831"
     ),
     "config/repo_file_lifecycle_inventory.csv": (
-        "b297a44b3e898e6f896893607b6e88d62b0fe3c2aefb57aa463caef3ed384429"
+        "e4e7ae5fa26c90545ddcd8f12aae8a5c0a343e2657d44f081b4c7b3088ae3c1a"
     ),
     "config/repo_production_inventory.csv": (
         "675f8d6abdd5bbcc7f911739ee1d3f9439353cfc6375b415070f4da4ce7dd533"
@@ -234,6 +234,24 @@ PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_TARGET_SHA256_BY_PATH = {
 }
 PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_PATHS = frozenset(
     PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_TARGET_SHA256_BY_PATH
+)
+PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_LIFECYCLE_PATH = (
+    "config/repo_file_lifecycle_inventory.csv"
+)
+PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_LIFECYCLE_OVERLAP_ROW = (
+    "scripts/validate_repo_production_inventory.py"
+)
+PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_PRE_STAGE_F_LIFECYCLE_SHA256 = (
+    "45eae9722c4d8587ff483a8e550eb5054cc8a6ab26a836d7f8f80e30a9c3a3d7"
+)
+PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_STAGE_F_LIFECYCLE_SHA256 = (
+    "69831c7ef8b922ddb763af94cbf4df694ee2d981c7a7d475567f67587ed07ce5"
+)
+PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_BRANCH_LIFECYCLE_SHA256 = (
+    "b297a44b3e898e6f896893607b6e88d62b0fe3c2aefb57aa463caef3ed384429"
+)
+PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_INTEGRATED_LIFECYCLE_SHA256 = (
+    "e4e7ae5fa26c90545ddcd8f12aae8a5c0a343e2657d44f081b4c7b3088ae3c1a"
 )
 PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_WORKFLOW_ANCHOR = (
     "      - name: Build volume attack theme layer\n"
@@ -1689,6 +1707,100 @@ def validate_active_guidance_commands(errors: list[str]) -> None:
 def canonical_blob_sha256(payload: bytes) -> str:
     canonical = payload.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
     return hashlib.sha256(canonical).hexdigest()
+
+
+def build_daily_full_checkpoint_replay_integrated_lifecycle_inventory(
+    pre_stage_f_payload: bytes,
+    stage_f_payload: bytes,
+    replay_branch_payload: bytes,
+) -> bytes | None:
+    expected_hashes = (
+        PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_PRE_STAGE_F_LIFECYCLE_SHA256,
+        PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_STAGE_F_LIFECYCLE_SHA256,
+        PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_BRANCH_LIFECYCLE_SHA256,
+    )
+    payloads = (pre_stage_f_payload, stage_f_payload, replay_branch_payload)
+    if tuple(canonical_blob_sha256(payload) for payload in payloads) != expected_hashes:
+        return None
+
+    parsed: list[tuple[list[str], list[dict[str, str]], bytes]] = []
+    for payload in payloads:
+        canonical = payload.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+        try:
+            reader = csv.DictReader(
+                io.StringIO(canonical.decode("utf-8-sig"), newline="")
+            )
+            fieldnames = list(reader.fieldnames or ())
+            rows = [dict(row) for row in reader]
+        except (UnicodeError, csv.Error):
+            return None
+        if (
+            not fieldnames
+            or any(None in row for row in rows)
+            or any(not row.get("path", "").strip() for row in rows)
+            or len({row["path"] for row in rows}) != len(rows)
+        ):
+            return None
+        parsed.append((fieldnames, rows, canonical))
+
+    base_fields, base_rows, _base_canonical = parsed[0]
+    stage_f_fields, stage_f_rows, _stage_f_canonical = parsed[1]
+    replay_fields, replay_rows, replay_canonical = parsed[2]
+    if base_fields != stage_f_fields or base_fields != replay_fields:
+        return None
+
+    base_by_path = {row["path"]: row for row in base_rows}
+    stage_f_by_path = {row["path"]: row for row in stage_f_rows}
+    replay_by_path = {row["path"]: row for row in replay_rows}
+    overlap_path = PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_LIFECYCLE_OVERLAP_ROW
+    if set(base_by_path) != set(stage_f_by_path) or overlap_path not in base_by_path:
+        return None
+    stage_f_changed = {
+        path for path in base_by_path if base_by_path[path] != stage_f_by_path[path]
+    }
+    if stage_f_changed != {overlap_path}:
+        return None
+
+    base_overlap = base_by_path[overlap_path]
+    stage_f_overlap = stage_f_by_path[overlap_path]
+    replay_overlap = replay_by_path.get(overlap_path)
+    if replay_overlap is None:
+        return None
+    stage_f_columns = {
+        column
+        for column in base_fields
+        if base_overlap[column] != stage_f_overlap[column]
+    }
+    replay_overlap_columns = {
+        column
+        for column in base_fields
+        if base_overlap[column] != replay_overlap[column]
+    }
+    if stage_f_columns != {"imported_by"}:
+        return None
+    if replay_overlap_columns != {"called_by_workflow"}:
+        return None
+
+    output = io.StringIO(newline="")
+    writer = csv.DictWriter(output, fieldnames=base_fields, lineterminator="\n")
+    writer.writeheader()
+    writer.writerows(replay_rows)
+    if output.getvalue().encode("utf-8") != replay_canonical:
+        return None
+
+    merged_rows = [dict(row) for row in replay_rows]
+    merged_overlap = next(row for row in merged_rows if row["path"] == overlap_path)
+    merged_overlap["imported_by"] = stage_f_overlap["imported_by"]
+    output = io.StringIO(newline="")
+    writer = csv.DictWriter(output, fieldnames=base_fields, lineterminator="\n")
+    writer.writeheader()
+    writer.writerows(merged_rows)
+    integrated = output.getvalue().encode("utf-8")
+    if canonical_blob_sha256(integrated) != (
+        PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_INTEGRATED_LIFECYCLE_SHA256
+    ):
+        return None
+    return integrated
 
 
 def pr_safe_migration_contract_for_paths(
