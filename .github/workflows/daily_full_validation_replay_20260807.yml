@@ -1,0 +1,325 @@
+name: Daily Full Validation-Only Historical Replay 20260807
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "capture_canary uploads an immutable checkpoint then fails; replay consumes that exact checkpoint"
+        required: true
+        default: capture_canary
+        type: choice
+        options:
+          - capture_canary
+          - replay
+      checkpoint_run_id:
+        description: "Exact failed capture_canary run id; required only for replay"
+        required: false
+        default: ""
+        type: string
+      checkpoint_artifact_id:
+        description: "Exact capture_canary artifact id; required only for replay"
+        required: false
+        default: ""
+        type: string
+      checkpoint_artifact_digest:
+        description: "Exact capture_canary artifact digest sha256:<hex>; required only for replay"
+        required: false
+        default: ""
+        type: string
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: daily-full-validation-only-historical-replay-20260807
+  cancel-in-progress: false
+
+env:
+  REPLAY_DATE: "20260807"
+  PYTHONDONTWRITEBYTECODE: "1"
+
+jobs:
+  capture-canary:
+    if: inputs.mode == 'capture_canary'
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - name: Checkout exact main validation source
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Require exact current main and validation-only permissions
+        shell: bash
+        run: |
+          set -euo pipefail
+          head_sha="$(git rev-parse HEAD)"
+          remote_sha="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+          if [ "$GITHUB_REF" != "refs/heads/main" ] || [ -z "$remote_sha" ] || [ "$head_sha" != "$remote_sha" ] || [ "$head_sha" != "$GITHUB_SHA" ]; then
+            echo "::error::Validation-only replay requires one exact current-main source SHA."
+            exit 1
+          fi
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "::error::Validation-only replay checkout must start clean."
+            exit 1
+          fi
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install validation replay dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas requests tabulate matplotlib pillow openpyxl lxml html5lib beautifulsoup4 reportlab pypdf fonttools
+
+      - name: Validate replay control-plane contract
+        run: |
+          python -B scripts/validate_daily_full_validation_replay.py
+          python -B scripts/validate_repo_production_inventory.py
+          python -B scripts/validate_repo_file_lifecycle_inventory.py
+
+      - name: Build authoritative 20260807 revision and pre-step41 checkpoint
+        id: capture
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -B scripts/run_daily_full_validation_replay.py capture-canary \
+            --repo-root . \
+            --runner-temp "$RUNNER_TEMP/daily-full-validation-replay" \
+            --replay-date "$REPLAY_DATE" \
+            --source-sha "$GITHUB_SHA" \
+            --run-id "$GITHUB_RUN_ID" \
+            --bundle-dir "$RUNNER_TEMP/daily-full-validation-replay/pre-step41-checkpoint"
+
+      - name: Upload immutable pre-step41 checkpoint before controlled failure
+        id: checkpoint_upload
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-full-validation-replay-20260807-checkpoint-${{ github.run_id }}
+          path: ${{ runner.temp }}/daily-full-validation-replay/pre-step41-checkpoint/
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Record immutable checkpoint upload receipt
+        if: steps.checkpoint_upload.outcome == 'success'
+        shell: bash
+        env:
+          ARTIFACT_ID: ${{ steps.checkpoint_upload.outputs.artifact-id }}
+          ARTIFACT_DIGEST: ${{ steps.checkpoint_upload.outputs.artifact-digest }}
+        run: |
+          set -euo pipefail
+          if ! [[ "$ARTIFACT_ID" =~ ^[0-9]+$ ]] || ! [[ "$ARTIFACT_DIGEST" =~ ^[0-9a-f]{64}$ ]]; then
+            echo "::error::Upload receipt lacks exact artifact id/digest."
+            exit 1
+          fi
+          {
+            echo "checkpoint_run_id=$GITHUB_RUN_ID"
+            echo "checkpoint_artifact_id=$ARTIFACT_ID"
+            echo "checkpoint_artifact_digest=sha256:$ARTIFACT_DIGEST"
+            echo "checkpoint_source_sha=$GITHUB_SHA"
+            echo "checkpoint_replay_date=$REPLAY_DATE"
+          } | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Controlled canary failure after immutable checkpoint upload
+        if: steps.checkpoint_upload.outcome == 'success'
+        shell: bash
+        run: |
+          echo "::error::Intentional validation-only canary failure after checkpoint upload."
+          exit 86
+
+  replay:
+    if: inputs.mode == 'replay'
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    outputs:
+      source_sha: ${{ steps.identity.outputs.source_sha }}
+    steps:
+      - name: Checkout exact main validation source
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Validate exact checkpoint inputs and current main
+        id: identity
+        shell: bash
+        env:
+          CHECKPOINT_RUN_ID: ${{ inputs.checkpoint_run_id }}
+          CHECKPOINT_ARTIFACT_ID: ${{ inputs.checkpoint_artifact_id }}
+          CHECKPOINT_ARTIFACT_DIGEST: ${{ inputs.checkpoint_artifact_digest }}
+        run: |
+          set -euo pipefail
+          if ! [[ "$CHECKPOINT_RUN_ID" =~ ^[0-9]+$ ]] || ! [[ "$CHECKPOINT_ARTIFACT_ID" =~ ^[0-9]+$ ]] || ! [[ "$CHECKPOINT_ARTIFACT_DIGEST" =~ ^sha256:[0-9a-f]{64}$ ]]; then
+            echo "::error::Replay requires exact canary run id, artifact id, and sha256 digest."
+            exit 1
+          fi
+          head_sha="$(git rev-parse HEAD)"
+          remote_sha="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+          if [ "$GITHUB_REF" != "refs/heads/main" ] || [ -z "$remote_sha" ] || [ "$head_sha" != "$remote_sha" ] || [ "$head_sha" != "$GITHUB_SHA" ]; then
+            echo "::error::Replay source must remain exact current main."
+            exit 1
+          fi
+          echo "source_sha=$head_sha" >> "$GITHUB_OUTPUT"
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install validation replay dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas requests tabulate matplotlib pillow openpyxl lxml html5lib beautifulsoup4 reportlab pypdf fonttools
+
+      - name: Validate replay control-plane contract
+        run: |
+          python -B scripts/validate_daily_full_validation_replay.py
+          python -B scripts/validate_repo_production_inventory.py
+          python -B scripts/validate_repo_file_lifecycle_inventory.py
+
+      - name: Download exact failed-canary artifact by id
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CHECKPOINT_RUN_ID: ${{ inputs.checkpoint_run_id }}
+          CHECKPOINT_ARTIFACT_ID: ${{ inputs.checkpoint_artifact_id }}
+          CHECKPOINT_ARTIFACT_DIGEST: ${{ inputs.checkpoint_artifact_digest }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/checkpoint-download" "$RUNNER_TEMP/checkpoint"
+          metadata_path="$RUNNER_TEMP/checkpoint-download/artifact-metadata.json"
+          run_metadata_path="$RUNNER_TEMP/checkpoint-download/run-metadata.json"
+          gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$CHECKPOINT_ARTIFACT_ID" > "$metadata_path"
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs/$CHECKPOINT_RUN_ID" > "$run_metadata_path"
+          python -B - "$metadata_path" "$run_metadata_path" "$CHECKPOINT_RUN_ID" "$CHECKPOINT_ARTIFACT_DIGEST" "$GITHUB_SHA" <<'PY'
+          import json
+          import re
+          import sys
+          from pathlib import Path
+
+          metadata = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+          run_metadata = json.loads(Path(sys.argv[2]).read_text(encoding="utf-8"))
+          expected_run = sys.argv[3]
+          expected_digest = sys.argv[4]
+          expected_sha = sys.argv[5]
+          expected_name = f"daily-full-validation-replay-20260807-checkpoint-{expected_run}"
+          errors = []
+          if str((metadata.get("workflow_run") or {}).get("id")) != expected_run:
+              errors.append("artifact workflow_run.id mismatch")
+          if metadata.get("name") != expected_name:
+              errors.append("artifact name mismatch")
+          if metadata.get("digest") != expected_digest:
+              errors.append("artifact digest mismatch")
+          if metadata.get("expired") is not False:
+              errors.append("artifact is expired")
+          if not re.fullmatch(r"sha256:[0-9a-f]{64}", str(metadata.get("digest") or "")):
+              errors.append("artifact digest is malformed")
+          if str(run_metadata.get("id")) != expected_run:
+              errors.append("canary run id mismatch")
+          if run_metadata.get("event") != "workflow_dispatch":
+              errors.append("canary event must be workflow_dispatch")
+          if run_metadata.get("status") != "completed" or run_metadata.get("conclusion") != "failure":
+              errors.append("canary run must be completed failure")
+          if run_metadata.get("head_sha") != expected_sha:
+              errors.append("canary run head SHA mismatch")
+          if not str(run_metadata.get("path") or "").endswith(
+              ".github/workflows/daily_full_validation_replay_20260807.yml"
+          ):
+              errors.append("canary workflow path mismatch")
+          if errors:
+              raise SystemExit("; ".join(errors))
+          PY
+          gh api -H "Accept: application/vnd.github+json" \
+            "repos/$GITHUB_REPOSITORY/actions/artifacts/$CHECKPOINT_ARTIFACT_ID/zip" \
+            > "$RUNNER_TEMP/checkpoint-download/checkpoint.zip"
+          python -B - "$RUNNER_TEMP/checkpoint-download/checkpoint.zip" "$RUNNER_TEMP/checkpoint" <<'PY'
+          import sys
+          import zipfile
+          from pathlib import Path
+
+          archive = Path(sys.argv[1])
+          destination = Path(sys.argv[2])
+          with zipfile.ZipFile(archive) as handle:
+              names = handle.namelist()
+              if not names or any(name.startswith("/") or ".." in Path(name).parts for name in names):
+                  raise SystemExit("checkpoint ZIP has an unsafe path set")
+              handle.extractall(destination)
+          PY
+
+      - name: Verify checkpoint and replay original step41 through all downstream gates
+        shell: bash
+        env:
+          CHECKPOINT_RUN_ID: ${{ inputs.checkpoint_run_id }}
+        run: |
+          set -euo pipefail
+          python -B scripts/run_daily_full_validation_replay.py replay \
+            --repo-root . \
+            --runner-temp "$RUNNER_TEMP/daily-full-validation-replay" \
+            --replay-date "$REPLAY_DATE" \
+            --source-sha "$GITHUB_SHA" \
+            --run-id "$GITHUB_RUN_ID" \
+            --bundle-dir "$RUNNER_TEMP/checkpoint" \
+            --checkpoint-run-id "$CHECKPOINT_RUN_ID" \
+            --post-bundle-dir "$RUNNER_TEMP/daily-full-validation-replay/post-validation-checkpoint"
+
+      - name: Upload post-step41 validation checkpoint and gates
+        id: post_checkpoint_upload
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-full-validation-replay-20260807-post-${{ github.run_id }}
+          path: ${{ runner.temp }}/daily-full-validation-replay/post-validation-checkpoint/
+          if-no-files-found: error
+          retention-days: 30
+
+  isolated-six-pdf-validation:
+    if: inputs.mode == 'replay'
+    needs: replay
+    runs-on: windows-2025
+    timeout-minutes: 120
+    steps:
+      - name: Checkout exact main validation source
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install isolated PDF validation dependencies
+        shell: pwsh
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas requests tabulate matplotlib pillow openpyxl lxml html5lib beautifulsoup4 reportlab pypdf fonttools PyMuPDF
+
+      - name: Download exact post-validation checkpoint
+        uses: actions/download-artifact@v5
+        with:
+          name: daily-full-validation-replay-20260807-post-${{ github.run_id }}
+          path: ${{ runner.temp }}/post-validation-checkpoint
+
+      - name: Render and validate six isolated test PDFs with all-page contact sheets
+        shell: pwsh
+        run: |
+          python -B scripts/run_daily_full_validation_replay.py render-pdfs --repo-root . --runner-temp "$env:RUNNER_TEMP\daily-full-validation-replay" --replay-date "$env:REPLAY_DATE" --source-sha "$env:GITHUB_SHA" --run-id "$env:GITHUB_RUN_ID" --bundle-dir "$env:RUNNER_TEMP\post-validation-checkpoint" --output-dir "$env:RUNNER_TEMP\daily-full-validation-replay\isolated-pdfs"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Upload six isolated PDFs and complete visual evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-full-validation-replay-20260807-six-pdfs-${{ github.run_id }}
+          path: ${{ runner.temp }}/daily-full-validation-replay/isolated-pdfs/
+          if-no-files-found: error
+          retention-days: 30

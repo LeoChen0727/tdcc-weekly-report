@@ -681,6 +681,27 @@ jobs:
           python scripts/build_volume_breakout_watch.py --latest-only
           python scripts/validate_volume_breakout_watch.py --latest-only
 
+      - name: Create failure-safe immutable pre-step41 checkpoint
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -B scripts/run_daily_full_validation_replay.py capture-production-checkpoint \
+            --repo-root . \
+            --runner-temp "$RUNNER_TEMP/daily-full-pre-step41-checkpoint-work" \
+            --replay-date "$EXPECTED_MAIN_PRICE_DATE" \
+            --source-sha "$GITHUB_SHA" \
+            --run-id "$GITHUB_RUN_ID" \
+            --bundle-dir "$RUNNER_TEMP/daily-full-pre-step41-checkpoint"
+
+      - name: Upload failure-safe immutable pre-step41 checkpoint
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-full-pre-step41-checkpoint-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/daily-full-pre-step41-checkpoint/
+          if-no-files-found: error
+          retention-days: 30
+
       - name: Build volume attack theme layer
         run: |
           python scripts/build_volume_attack_theme_layer.py
