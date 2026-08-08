@@ -59,6 +59,13 @@ AUTHORIZED_VALIDATOR_FIX_PATHS = (
     "scripts/validate_daily_canonical_field_lineage.py",
     "tests/test_daily_canonical_field_lineage.py",
 )
+AUTHORIZED_FORMAL_LINEAGE_FIX_COMMIT = (
+    "f677331954f8baef3aad17cfff1d0866df0db2bc"
+)
+AUTHORIZED_FORMAL_LINEAGE_FIX_PATHS = (
+    "scripts/build_daily_volume_breakout_operation_section.py",
+    "tests/test_daily_volume_breakout_operation_section.py",
+)
 PIPELINE_WORKFLOW = Path(".github/workflows/daily_full_pipeline.yml")
 HISTORICAL_REPLAY_SCRIPT = Path(
     "scripts/replay_historical_structured_sources.py"
@@ -2077,6 +2084,7 @@ def require_authorized_checkpoint_revision_transition(
         (checkpoint_source_sha, "checkpoint source"),
         (AUTHORIZED_PRODUCER_FIX_COMMIT, "producer fix"),
         (AUTHORIZED_VALIDATOR_FIX_COMMIT, "validator fix"),
+        (AUTHORIZED_FORMAL_LINEAGE_FIX_COMMIT, "formal lineage fix"),
     ):
         result = subprocess.run(
             ["git", "merge-base", "--is-ancestor", ancestor, replay_source_sha],
@@ -2102,6 +2110,21 @@ def require_authorized_checkpoint_revision_transition(
         raise ValidationReplayError(
             "authorized validator fix does not descend from the producer fix"
         )
+    formal_transition_order = subprocess.run(
+        [
+            "git",
+            "merge-base",
+            "--is-ancestor",
+            AUTHORIZED_VALIDATOR_FIX_COMMIT,
+            AUTHORIZED_FORMAL_LINEAGE_FIX_COMMIT,
+        ],
+        cwd=repo_root,
+        check=False,
+    )
+    if formal_transition_order.returncode != 0:
+        raise ValidationReplayError(
+            "authorized formal lineage fix does not descend from the validator fix"
+        )
     validator_paths = set(AUTHORIZED_VALIDATOR_FIX_PATHS)
     producer_paths = set(AUTHORIZED_PRODUCER_FIX_PATHS)
     if not validator_paths or not validator_paths <= producer_paths:
@@ -2123,6 +2146,11 @@ def require_authorized_checkpoint_revision_transition(
             AUTHORIZED_VALIDATOR_FIX_COMMIT,
             "validator fix",
             AUTHORIZED_VALIDATOR_FIX_PATHS,
+        ),
+        (
+            AUTHORIZED_FORMAL_LINEAGE_FIX_COMMIT,
+            "formal lineage fix",
+            AUTHORIZED_FORMAL_LINEAGE_FIX_PATHS,
         ),
     ):
         drift = subprocess.run(
@@ -2156,6 +2184,10 @@ def require_authorized_checkpoint_revision_transition(
         "producer_fix_paths": list(AUTHORIZED_PRODUCER_FIX_PATHS),
         "validator_fix_commit": AUTHORIZED_VALIDATOR_FIX_COMMIT,
         "validator_fix_paths": list(AUTHORIZED_VALIDATOR_FIX_PATHS),
+        "formal_lineage_fix_commit": AUTHORIZED_FORMAL_LINEAGE_FIX_COMMIT,
+        "formal_lineage_fix_paths": list(
+            AUTHORIZED_FORMAL_LINEAGE_FIX_PATHS
+        ),
     }
 
 
