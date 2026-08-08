@@ -16,6 +16,11 @@ on:
         required: false
         default: ""
         type: string
+      checkpoint_source_sha:
+        description: "Exact immutable capture_canary source SHA; required only for replay"
+        required: false
+        default: ""
+        type: string
       checkpoint_artifact_id:
         description: "Exact capture_canary artifact id; required only for replay"
         required: false
@@ -152,12 +157,13 @@ jobs:
         shell: bash
         env:
           CHECKPOINT_RUN_ID: ${{ inputs.checkpoint_run_id }}
+          CHECKPOINT_SOURCE_SHA: ${{ inputs.checkpoint_source_sha }}
           CHECKPOINT_ARTIFACT_ID: ${{ inputs.checkpoint_artifact_id }}
           CHECKPOINT_ARTIFACT_DIGEST: ${{ inputs.checkpoint_artifact_digest }}
         run: |
           set -euo pipefail
-          if ! [[ "$CHECKPOINT_RUN_ID" =~ ^[0-9]+$ ]] || ! [[ "$CHECKPOINT_ARTIFACT_ID" =~ ^[0-9]+$ ]] || ! [[ "$CHECKPOINT_ARTIFACT_DIGEST" =~ ^sha256:[0-9a-f]{64}$ ]]; then
-            echo "::error::Replay requires exact canary run id, artifact id, and sha256 digest."
+          if ! [[ "$CHECKPOINT_RUN_ID" =~ ^[0-9]+$ ]] || ! [[ "$CHECKPOINT_SOURCE_SHA" =~ ^[0-9a-f]{40}$ ]] || ! [[ "$CHECKPOINT_ARTIFACT_ID" =~ ^[0-9]+$ ]] || ! [[ "$CHECKPOINT_ARTIFACT_DIGEST" =~ ^sha256:[0-9a-f]{64}$ ]]; then
+            echo "::error::Replay requires exact canary run id, source SHA, artifact id, and sha256 digest."
             exit 1
           fi
           head_sha="$(git rev-parse HEAD)"
@@ -167,6 +173,8 @@ jobs:
             exit 1
           fi
           echo "source_sha=$head_sha" >> "$GITHUB_OUTPUT"
+          echo "checkpoint_source_sha=$CHECKPOINT_SOURCE_SHA" >> "$GITHUB_OUTPUT"
+          echo "replay_source_sha=$head_sha" >> "$GITHUB_OUTPUT"
 
       - name: Set up Python
         uses: actions/setup-python@v6
@@ -189,6 +197,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           CHECKPOINT_RUN_ID: ${{ inputs.checkpoint_run_id }}
+          CHECKPOINT_SOURCE_SHA: ${{ inputs.checkpoint_source_sha }}
           CHECKPOINT_ARTIFACT_ID: ${{ inputs.checkpoint_artifact_id }}
           CHECKPOINT_ARTIFACT_DIGEST: ${{ inputs.checkpoint_artifact_digest }}
         run: |
@@ -198,7 +207,7 @@ jobs:
           run_metadata_path="$RUNNER_TEMP/checkpoint-download/run-metadata.json"
           gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$CHECKPOINT_ARTIFACT_ID" > "$metadata_path"
           gh api "repos/$GITHUB_REPOSITORY/actions/runs/$CHECKPOINT_RUN_ID" > "$run_metadata_path"
-          python -B - "$metadata_path" "$run_metadata_path" "$CHECKPOINT_RUN_ID" "$CHECKPOINT_ARTIFACT_DIGEST" "$GITHUB_SHA" <<'PY'
+          python -B - "$metadata_path" "$run_metadata_path" "$CHECKPOINT_RUN_ID" "$CHECKPOINT_ARTIFACT_ID" "$CHECKPOINT_ARTIFACT_DIGEST" "$CHECKPOINT_SOURCE_SHA" "$GITHUB_SHA" <<'PY'
           import json
           import re
           import sys
@@ -207,10 +216,14 @@ jobs:
           metadata = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
           run_metadata = json.loads(Path(sys.argv[2]).read_text(encoding="utf-8"))
           expected_run = sys.argv[3]
-          expected_digest = sys.argv[4]
-          expected_sha = sys.argv[5]
+          expected_artifact = sys.argv[4]
+          expected_digest = sys.argv[5]
+          expected_checkpoint_sha = sys.argv[6]
+          expected_replay_sha = sys.argv[7]
           expected_name = f"daily-full-validation-replay-20260807-checkpoint-{expected_run}"
           errors = []
+          if str(metadata.get("id")) != expected_artifact:
+              errors.append("artifact id mismatch")
           if str((metadata.get("workflow_run") or {}).get("id")) != expected_run:
               errors.append("artifact workflow_run.id mismatch")
           if metadata.get("name") != expected_name:
@@ -227,8 +240,15 @@ jobs:
               errors.append("canary event must be workflow_dispatch")
           if run_metadata.get("status") != "completed" or run_metadata.get("conclusion") != "failure":
               errors.append("canary run must be completed failure")
-          if run_metadata.get("head_sha") != expected_sha:
+          if run_metadata.get("head_sha") != expected_checkpoint_sha:
               errors.append("canary run head SHA mismatch")
+          if expected_checkpoint_sha != expected_replay_sha and (
+              expected_checkpoint_sha != "4d715065f38389752aaeaa0c511280c47ccedc08"
+              or expected_run != "31268964962"
+              or expected_artifact != "9025240156"
+              or expected_digest != "sha256:492038fcf6c2a443ac2c77423624700d174a7d3522fc581673ef48b8314927fd"
+          ):
+              errors.append("checkpoint replay source transition mismatch")
           if not str(run_metadata.get("path") or "").endswith(
               ".github/workflows/daily_full_validation_replay_20260807.yml"
           ):
@@ -257,6 +277,9 @@ jobs:
         shell: bash
         env:
           CHECKPOINT_RUN_ID: ${{ inputs.checkpoint_run_id }}
+          CHECKPOINT_SOURCE_SHA: ${{ inputs.checkpoint_source_sha }}
+          CHECKPOINT_ARTIFACT_ID: ${{ inputs.checkpoint_artifact_id }}
+          CHECKPOINT_ARTIFACT_DIGEST: ${{ inputs.checkpoint_artifact_digest }}
         run: |
           set -euo pipefail
           python -B scripts/run_daily_full_validation_replay.py replay \
@@ -267,6 +290,9 @@ jobs:
             --run-id "$GITHUB_RUN_ID" \
             --bundle-dir "$RUNNER_TEMP/checkpoint" \
             --checkpoint-run-id "$CHECKPOINT_RUN_ID" \
+            --checkpoint-source-sha "$CHECKPOINT_SOURCE_SHA" \
+            --checkpoint-artifact-id "$CHECKPOINT_ARTIFACT_ID" \
+            --checkpoint-artifact-digest "$CHECKPOINT_ARTIFACT_DIGEST" \
             --post-bundle-dir "$RUNNER_TEMP/daily-full-validation-replay/post-validation-checkpoint"
 
       - name: Upload post-step41 validation checkpoint and gates
