@@ -87,6 +87,11 @@ VOLUME_V2_LINEAGE_AUDIT_REQUIRED_COLUMNS = {
     "watch_artifact_sha256",
     "candidate_artifact_sha256",
     "official_warrant_artifact_sha256",
+    "candidate_row_present",
+    "canonical_warrant_source_type",
+    "candidate_warrant_signal",
+    "formal_warrant_signal",
+    "impact_scope",
 }
 VOLUME_V2_ALLOWED_PAIRED_SOURCE_RESOLUTIONS = frozenset(
     {
@@ -702,6 +707,404 @@ def resolve_formal_snapshot_path(source_root: Path, audit_path_text: Any) -> Pat
     return path
 
 
+def volume_v2_lineage_evidence(row: pd.Series) -> dict[str, Any]:
+    return {
+        "formal_row_disposition": safe_str(row.get("formal_row_disposition")),
+        "evidence_status": safe_str(row.get("evidence_status")),
+        "paired_source_resolution": safe_str(row.get("paired_source_resolution")),
+        "snapshot_report_date": normalize_date_text(row.get("snapshot_report_date")),
+        "formal_snapshot_path": safe_str(row.get("formal_snapshot_path")),
+        "formal_snapshot_sha256": safe_str(row.get("formal_snapshot_sha256")),
+        "formal_row_number": safe_str(row.get("formal_row_number")),
+        "formal_row_sha256": safe_str(row.get("formal_row_sha256")),
+        "candidate_row_present": safe_str(row.get("candidate_row_present")),
+        "canonical_warrant_source_type": safe_str(
+            row.get("canonical_warrant_source_type")
+        ),
+        "candidate_warrant_signal": safe_str(row.get("candidate_warrant_signal")),
+        "formal_warrant_signal": safe_str(row.get("formal_warrant_signal")),
+        "impact_scope": safe_str(row.get("impact_scope")),
+        "source_sha_complete": all(
+            bool(re.fullmatch(r"[0-9a-f]{64}", safe_str(row.get(field))))
+            for field in VOLUME_V2_LINEAGE_SOURCE_SHA_COLUMNS
+        ),
+    }
+
+
+def exact_volume_v2_formal_row_violation(
+    *,
+    key: tuple[str, str, str],
+    evidence: dict[str, Any],
+    manifest_record: SnapshotRevision,
+    expected_canonical_snapshot_sha: str,
+    source_root: Path,
+    formal_signal_rows: pd.DataFrame | None,
+    verified_snapshot_cache: dict[tuple[str, str], pd.DataFrame],
+) -> dict[str, str] | None:
+    try:
+        formal_row_number = int(evidence["formal_row_number"])
+    except (TypeError, ValueError):
+        return {
+            "signal_date": key[0],
+            "model_id": key[1],
+            "stock_id": key[2],
+            "formal_source_status": "invalid_formal_row_number",
+        }
+
+    try:
+        snapshot_path = resolve_formal_snapshot_path(
+            source_root, evidence["formal_snapshot_path"]
+        )
+    except RuntimeError as exc:
+        return {
+            "signal_date": key[0],
+            "model_id": key[1],
+            "stock_id": key[2],
+            "formal_source_status": str(exc),
+        }
+    if snapshot_path != manifest_record.path:
+        return {
+            "signal_date": key[0],
+            "model_id": key[1],
+            "stock_id": key[2],
+            "formal_source_status": "formal_snapshot_path_not_manifest_max",
+            "audit_snapshot_path": snapshot_path.as_posix(),
+            "manifest_snapshot_path": manifest_record.path.as_posix(),
+        }
+    expected_snapshot_sha256 = evidence["formal_snapshot_sha256"]
+    if expected_snapshot_sha256 != expected_canonical_snapshot_sha:
+        return {
+            "signal_date": key[0],
+            "model_id": key[1],
+            "stock_id": key[2],
+            "formal_source_status": "formal_snapshot_not_manifest_max_sha256",
+            "expected_formal_snapshot_sha256": expected_canonical_snapshot_sha,
+            "actual_formal_snapshot_sha256": expected_snapshot_sha256,
+        }
+    snapshot_cache_key = (snapshot_path.as_posix(), expected_snapshot_sha256)
+    snapshot_rows = verified_snapshot_cache.get(snapshot_cache_key)
+    if snapshot_rows is None:
+        if not snapshot_path.is_file():
+            return {
+                "signal_date": key[0],
+                "model_id": key[1],
+                "stock_id": key[2],
+                "formal_source_status": "formal_snapshot_missing",
+                "formal_snapshot_path": snapshot_path.as_posix(),
+            }
+        actual_snapshot_sha256 = canonical_text_sha256(snapshot_path.read_bytes())
+        if actual_snapshot_sha256 != expected_snapshot_sha256:
+            return {
+                "signal_date": key[0],
+                "model_id": key[1],
+                "stock_id": key[2],
+                "formal_source_status": "formal_snapshot_sha256_mismatch",
+                "expected_formal_snapshot_sha256": expected_snapshot_sha256,
+                "actual_formal_snapshot_sha256": actual_snapshot_sha256,
+            }
+        snapshot_rows = read_csv(snapshot_path)
+        if snapshot_rows.empty:
+            return {
+                "signal_date": key[0],
+                "model_id": key[1],
+                "stock_id": key[2],
+                "formal_source_status": "formal_snapshot_empty_or_unreadable",
+            }
+        if "model_id" not in snapshot_rows.columns:
+            return {
+                "signal_date": key[0],
+                "model_id": key[1],
+                "stock_id": key[2],
+                "formal_source_status": "formal_snapshot_missing_model_id",
+            }
+        snapshot_rows = snapshot_rows[
+            snapshot_rows["model_id"].map(safe_str).isin(FORMAL_MODEL_IDS)
+        ].copy()
+        verified_snapshot_cache[snapshot_cache_key] = snapshot_rows
+
+    if formal_row_number < 0 or formal_row_number >= len(snapshot_rows):
+        return {
+            "signal_date": key[0],
+            "model_id": key[1],
+            "stock_id": key[2],
+            "formal_source_status": "formal_row_number_out_of_range",
+            "formal_row_number": str(formal_row_number),
+        }
+    snapshot_row = snapshot_rows.iloc[formal_row_number]
+    snapshot_row_key = (
+        normalize_date_text(snapshot_row.get("signal_date")),
+        safe_str(snapshot_row.get("model_id")),
+        stock_id_key(snapshot_row.get("stock_id")),
+    )
+    expected_formal_row_sha256 = evidence["formal_row_sha256"]
+    actual_formal_row_sha256 = canonical_row_sha256(snapshot_row)
+    if snapshot_row_key != key or actual_formal_row_sha256 != expected_formal_row_sha256:
+        return {
+            "signal_date": key[0],
+            "model_id": key[1],
+            "stock_id": key[2],
+            "formal_source_status": "formal_row_exact_hash_mismatch",
+            "formal_row_number": str(formal_row_number),
+            "snapshot_row_key": repr(snapshot_row_key),
+            "expected_formal_row_sha256": expected_formal_row_sha256,
+            "actual_formal_row_sha256": actual_formal_row_sha256,
+        }
+
+    if formal_signal_rows is not None:
+        current_row = exact_formal_source_row(
+            formal_signal_rows,
+            key,
+            source_label="current_lifecycle_formal_signal_rows",
+        )
+        if current_row is not None:
+            current_row_sha256 = canonical_row_sha256(current_row)
+            if current_row_sha256 != expected_formal_row_sha256:
+                return {
+                    "signal_date": key[0],
+                    "model_id": key[1],
+                    "stock_id": key[2],
+                    "formal_source_status": "current_formal_row_exact_hash_mismatch",
+                    "expected_formal_row_sha256": expected_formal_row_sha256,
+                    "actual_formal_row_sha256": current_row_sha256,
+                }
+    return None
+
+
+def filter_volume_v2_operation_lineage_scope(
+    frame: pd.DataFrame,
+    *,
+    audit_path: Path = VOLUME_V2_LINEAGE_AUDIT_CSV,
+    formal_signal_rows: pd.DataFrame | None = None,
+    source_root: Path = ROOT,
+    manifest_path: Path | None = None,
+) -> tuple[pd.DataFrame, set[tuple[str, str, str]]]:
+    """Exclude only exact superseded negative non-candidate rows from lifecycle use.
+
+    The immutable lineage audit keeps these rows as ``superseded``.  This
+    consumer-side scope filter prevents them from becoming operation rows while
+    leaving every other non-clean row for the strict verified-clean gate.
+    """
+
+    if frame.empty or "model_id" not in frame.columns:
+        return frame.copy(), set()
+    work = frame.copy()
+    if "row_type" in work.columns:
+        work = work[work["row_type"].astype(str).eq("data")].copy()
+    work = work[work["model_id"].astype(str).isin(FORMAL_MODEL_IDS)].copy()
+    if work.empty:
+        return frame.copy(), set()
+
+    audit = read_csv(audit_path)
+    if audit.empty:
+        raise RuntimeError(
+            "volume v2 operation lineage scope failed: missing or empty lineage audit "
+            f"audit={audit_path.as_posix()} rows_requiring_scope={len(work)}"
+        )
+    audit_sha256 = hashlib.sha256(audit_path.read_bytes()).hexdigest()
+    missing = sorted(VOLUME_V2_LINEAGE_AUDIT_REQUIRED_COLUMNS - set(audit.columns))
+    if missing:
+        raise RuntimeError(
+            "volume v2 operation lineage scope failed: lineage audit missing columns "
+            f"audit={audit_path.as_posix()} audit_sha256={audit_sha256} missing={missing}"
+        )
+
+    audit = audit.copy()
+    audit["_signal_date"] = audit["signal_date"].map(normalize_date_text)
+    audit["_model_id"] = audit["model_id"].map(safe_str)
+    audit["_stock_id"] = audit["stock_id"].map(stock_id_key)
+    audit["_snapshot_report_date"] = audit["snapshot_report_date"].map(
+        normalize_date_text
+    )
+    audit["_snapshot_revision"] = audit["snapshot_revision"].map(
+        normalize_volume_v2_audit_snapshot_revision
+    )
+    audit["_formal_snapshot_sha256"] = audit["formal_snapshot_sha256"].map(
+        safe_str
+    )
+    invalid_revisions = audit[audit["_snapshot_revision"].eq("")]
+    if not invalid_revisions.empty:
+        raise RuntimeError(
+            "volume v2 operation lineage scope failed: invalid snapshot_revision rows "
+            f"audit={audit_path.as_posix()} rows={invalid_revisions.index.tolist()}"
+        )
+
+    lineage_snapshot_dir = source_root / "output" / "history" / "daily_model_snapshots"
+    through_date = max(work["signal_date"].map(normalize_date_text))
+    manifest_records = select_latest_snapshot_revisions(
+        lineage_snapshot_dir,
+        "model_signals_for_report",
+        through_date=through_date,
+        manifest_path=manifest_path,
+        repository_root=source_root,
+    )
+    manifest_by_date = {record.report_date: record for record in manifest_records}
+    canonical_snapshot_sha_by_date = {
+        record.report_date: canonical_text_sha256(record.path.read_bytes())
+        for record in manifest_records
+    }
+    excluded_keys: set[tuple[str, str, str]] = set()
+    violations: list[dict[str, str]] = []
+    verified_snapshot_cache: dict[tuple[str, str], pd.DataFrame] = {}
+    keys = {
+        (
+            normalize_date_text(row.get("signal_date")),
+            safe_str(row.get("model_id")),
+            stock_id_key(row.get("stock_id")),
+        )
+        for _, row in work.iterrows()
+    }
+    for key in sorted(keys):
+        key_rows = audit[
+            audit["_signal_date"].eq(key[0])
+            & audit["_model_id"].eq(key[1])
+            & audit["_stock_id"].eq(key[2])
+        ].copy()
+        negative_scope = key_rows[
+            key_rows["candidate_row_present"].map(safe_str).str.lower().eq("false")
+            & key_rows["canonical_warrant_source_type"]
+            .map(safe_str)
+            .eq("negative_projection_no_candidate_row")
+            & key_rows["formal_row_disposition"].map(safe_str).eq("superseded")
+        ].copy()
+        manifest_record = manifest_by_date.get(key[0])
+        if manifest_record is None:
+            if not negative_scope.empty:
+                violations.append(
+                    {
+                        "signal_date": key[0],
+                        "model_id": key[1],
+                        "stock_id": key[2],
+                        "formal_source_status": "missing_manifest_max_formal_snapshot",
+                    }
+                )
+            continue
+        expected_canonical_snapshot_sha = canonical_snapshot_sha_by_date[key[0]]
+        matches = key_rows[
+            key_rows["_snapshot_report_date"].eq(manifest_record.report_date)
+            & key_rows["_snapshot_revision"].eq(manifest_record.revision)
+            & key_rows["_formal_snapshot_sha256"].eq(
+                expected_canonical_snapshot_sha
+            )
+        ].copy()
+        if len(matches) != 1:
+            if not negative_scope.empty:
+                violations.append(
+                    {
+                        "signal_date": key[0],
+                        "model_id": key[1],
+                        "stock_id": key[2],
+                        "formal_source_status": (
+                            "uncovered_manifest_max_negative_projection_evidence"
+                            if matches.empty
+                            else "duplicate_manifest_max_negative_projection_evidence"
+                        ),
+                        "manifest_snapshot_revision": manifest_record.revision,
+                        "manifest_snapshot_sha256": manifest_record.snapshot_sha256,
+                        "matching_audit_rows": str(len(matches)),
+                    }
+                )
+            continue
+        latest_row = matches.iloc[0]
+        latest_is_negative_scope = (
+            safe_str(latest_row.get("candidate_row_present")).lower() == "false"
+            and safe_str(latest_row.get("canonical_warrant_source_type"))
+            == "negative_projection_no_candidate_row"
+            and safe_str(latest_row.get("formal_row_disposition")) == "superseded"
+        )
+        if not latest_is_negative_scope:
+            continue
+        evidence = volume_v2_lineage_evidence(latest_row)
+        classification_complete = (
+            evidence["evidence_status"] == "complete"
+            and evidence["paired_source_resolution"]
+            in VOLUME_V2_ALLOWED_PAIRED_SOURCE_RESOLUTIONS
+            and bool(evidence["source_sha_complete"])
+            and evidence["snapshot_report_date"] == key[0]
+            and bool(re.fullmatch(r"[0-9a-f]{64}", evidence["formal_row_sha256"]))
+            and evidence["candidate_warrant_signal"] == ""
+            and evidence["formal_warrant_signal"] == ""
+            and evidence["impact_scope"] == "formal_warrant_lineage_superseded"
+        )
+        if not classification_complete:
+            violations.append(
+                {
+                    "signal_date": key[0],
+                    "model_id": key[1],
+                    "stock_id": key[2],
+                    "formal_source_status": "incomplete_negative_projection_exclusion_evidence",
+                    "formal_row_disposition": evidence["formal_row_disposition"],
+                    "evidence_status": evidence["evidence_status"],
+                    "paired_source_resolution": evidence["paired_source_resolution"],
+                    "candidate_warrant_signal": evidence["candidate_warrant_signal"],
+                    "formal_warrant_signal": evidence["formal_warrant_signal"],
+                    "impact_scope": evidence["impact_scope"],
+                    "source_sha_status": (
+                        "complete"
+                        if evidence["source_sha_complete"]
+                        else "missing_or_invalid"
+                    ),
+                }
+            )
+            continue
+        exact_violation = exact_volume_v2_formal_row_violation(
+            key=key,
+            evidence=evidence,
+            manifest_record=manifest_record,
+            expected_canonical_snapshot_sha=expected_canonical_snapshot_sha,
+            source_root=source_root,
+            formal_signal_rows=formal_signal_rows,
+            verified_snapshot_cache=verified_snapshot_cache,
+        )
+        if exact_violation is not None:
+            violations.append(exact_violation)
+            continue
+        excluded_keys.add(key)
+
+    if violations:
+        raise RuntimeError(
+            "volume v2 operation lineage scope failed: superseded non-candidate rows "
+            "may be excluded only with complete exact manifest-max lineage; "
+            f"audit={audit_path.as_posix()} audit_sha256={audit_sha256} "
+            f"violations={violations}"
+        )
+    if not excluded_keys:
+        return frame.copy(), set()
+    keep = frame.apply(
+        lambda row: (
+            normalize_date_text(row.get("signal_date")),
+            safe_str(row.get("model_id")),
+            stock_id_key(row.get("stock_id")),
+        )
+        not in excluded_keys,
+        axis=1,
+    )
+    return frame.loc[keep].copy().reset_index(drop=True), excluded_keys
+
+
+def suppress_excluded_operation_audit_rows(
+    audit: pd.DataFrame,
+    excluded_keys: set[tuple[str, str, str]],
+) -> pd.DataFrame:
+    if audit.empty or not excluded_keys:
+        return audit.copy()
+    out = audit.copy()
+    for index, row in out.iterrows():
+        key = (
+            normalize_date_text(row.get("signal_date")),
+            safe_str(row.get("model_id")),
+            stock_id_key(row.get("stock_id")),
+        )
+        if key not in excluded_keys:
+            continue
+        if "included_in_daily_adapter" in out.columns:
+            out.at[index, "included_in_daily_adapter"] = "False"
+        if "reason" in out.columns:
+            reason = safe_str(row.get("reason"))
+            marker = "superseded_non_candidate_lineage_excluded_from_formal_adapter"
+            out.at[index, "reason"] = marker if not reason else f"{reason}|{marker}"
+    return out
+
+
 def require_verified_clean_volume_v2_lineage(
     section: pd.DataFrame,
     audit_path: Path = VOLUME_V2_LINEAGE_AUDIT_CSV,
@@ -821,34 +1224,7 @@ def require_verified_clean_volume_v2_lineage(
             )
             continue
         evidence_row = matches.iloc[0]
-        evidence = {
-            "formal_row_disposition": safe_str(
-                evidence_row.get("formal_row_disposition")
-            ),
-            "evidence_status": safe_str(evidence_row.get("evidence_status")),
-            "paired_source_resolution": safe_str(
-                evidence_row.get("paired_source_resolution")
-            ),
-            "snapshot_report_date": normalize_date_text(
-                evidence_row.get("snapshot_report_date")
-            ),
-            "formal_snapshot_path": safe_str(
-                evidence_row.get("formal_snapshot_path")
-            ),
-            "formal_snapshot_sha256": safe_str(
-                evidence_row.get("formal_snapshot_sha256")
-            ),
-            "formal_row_number": safe_str(evidence_row.get("formal_row_number")),
-            "formal_row_sha256": safe_str(evidence_row.get("formal_row_sha256")),
-            "source_sha_complete": all(
-                bool(
-                    re.fullmatch(
-                        r"[0-9a-f]{64}", safe_str(evidence_row.get(field))
-                    )
-                )
-                for field in VOLUME_V2_LINEAGE_SOURCE_SHA_COLUMNS
-            ),
-        }
+        evidence = volume_v2_lineage_evidence(evidence_row)
         disposition = evidence["formal_row_disposition"]
         evidence_status = evidence["evidence_status"]
         source_resolution = evidence["paired_source_resolution"]
@@ -884,151 +1260,17 @@ def require_verified_clean_volume_v2_lineage(
             )
             continue
 
-        try:
-            formal_row_number = int(evidence["formal_row_number"])
-        except (TypeError, ValueError):
-            violations.append(
-                {
-                    "signal_date": key[0],
-                    "model_id": key[1],
-                    "stock_id": key[2],
-                    "formal_source_status": "invalid_formal_row_number",
-                }
-            )
-            continue
-
-        try:
-            snapshot_path = resolve_formal_snapshot_path(
-                source_root, evidence["formal_snapshot_path"]
-            )
-        except RuntimeError as exc:
-            violations.append(
-                {
-                    "signal_date": key[0],
-                    "model_id": key[1],
-                    "stock_id": key[2],
-                    "formal_source_status": str(exc),
-                }
-            )
-            continue
-        if snapshot_path != manifest_record.path:
-            violations.append(
-                {
-                    "signal_date": key[0],
-                    "model_id": key[1],
-                    "stock_id": key[2],
-                    "formal_source_status": "formal_snapshot_path_not_manifest_max",
-                    "audit_snapshot_path": snapshot_path.as_posix(),
-                    "manifest_snapshot_path": manifest_record.path.as_posix(),
-                }
-            )
-            continue
-        expected_snapshot_sha256 = evidence["formal_snapshot_sha256"]
-        snapshot_cache_key = (snapshot_path.as_posix(), expected_snapshot_sha256)
-        snapshot_rows = verified_snapshot_cache.get(snapshot_cache_key)
-        if snapshot_rows is None:
-            if not snapshot_path.is_file():
-                violations.append(
-                    {
-                        "signal_date": key[0],
-                        "model_id": key[1],
-                        "stock_id": key[2],
-                        "formal_source_status": "formal_snapshot_missing",
-                        "formal_snapshot_path": snapshot_path.as_posix(),
-                    }
-                )
-                continue
-            actual_snapshot_sha256 = canonical_text_sha256(snapshot_path.read_bytes())
-            if actual_snapshot_sha256 != expected_snapshot_sha256:
-                violations.append(
-                    {
-                        "signal_date": key[0],
-                        "model_id": key[1],
-                        "stock_id": key[2],
-                        "formal_source_status": "formal_snapshot_sha256_mismatch",
-                        "expected_formal_snapshot_sha256": expected_snapshot_sha256,
-                        "actual_formal_snapshot_sha256": actual_snapshot_sha256,
-                    }
-                )
-                continue
-            snapshot_rows = read_csv(snapshot_path)
-            if snapshot_rows.empty:
-                violations.append(
-                    {
-                        "signal_date": key[0],
-                        "model_id": key[1],
-                        "stock_id": key[2],
-                        "formal_source_status": "formal_snapshot_empty_or_unreadable",
-                    }
-                )
-                continue
-            if "model_id" not in snapshot_rows.columns:
-                violations.append(
-                    {
-                        "signal_date": key[0],
-                        "model_id": key[1],
-                        "stock_id": key[2],
-                        "formal_source_status": "formal_snapshot_missing_model_id",
-                    }
-                )
-                continue
-            snapshot_rows = snapshot_rows[
-                snapshot_rows["model_id"].map(safe_str).isin(FORMAL_MODEL_IDS)
-            ].copy()
-            verified_snapshot_cache[snapshot_cache_key] = snapshot_rows
-
-        if formal_row_number < 0 or formal_row_number >= len(snapshot_rows):
-            violations.append(
-                {
-                    "signal_date": key[0],
-                    "model_id": key[1],
-                    "stock_id": key[2],
-                    "formal_source_status": "formal_row_number_out_of_range",
-                    "formal_row_number": str(formal_row_number),
-                }
-            )
-            continue
-        snapshot_row = snapshot_rows.iloc[formal_row_number]
-        snapshot_row_key = (
-            normalize_date_text(snapshot_row.get("signal_date")),
-            safe_str(snapshot_row.get("model_id")),
-            stock_id_key(snapshot_row.get("stock_id")),
+        exact_violation = exact_volume_v2_formal_row_violation(
+            key=key,
+            evidence=evidence,
+            manifest_record=manifest_record,
+            expected_canonical_snapshot_sha=expected_canonical_snapshot_sha,
+            source_root=source_root,
+            formal_signal_rows=formal_signal_rows,
+            verified_snapshot_cache=verified_snapshot_cache,
         )
-        actual_formal_row_sha256 = canonical_row_sha256(snapshot_row)
-        if snapshot_row_key != key or actual_formal_row_sha256 != expected_formal_row_sha256:
-            violations.append(
-                {
-                    "signal_date": key[0],
-                    "model_id": key[1],
-                    "stock_id": key[2],
-                    "formal_source_status": "formal_row_exact_hash_mismatch",
-                    "formal_row_number": str(formal_row_number),
-                    "snapshot_row_key": repr(snapshot_row_key),
-                    "expected_formal_row_sha256": expected_formal_row_sha256,
-                    "actual_formal_row_sha256": actual_formal_row_sha256,
-                }
-            )
-            continue
-
-        if formal_signal_rows is not None:
-            current_row = exact_formal_source_row(
-                formal_signal_rows,
-                key,
-                source_label="current_lifecycle_formal_signal_rows",
-            )
-            if current_row is not None:
-                current_row_sha256 = canonical_row_sha256(current_row)
-                if current_row_sha256 != expected_formal_row_sha256:
-                    violations.append(
-                        {
-                            "signal_date": key[0],
-                            "model_id": key[1],
-                            "stock_id": key[2],
-                            "formal_source_status": "current_formal_row_exact_hash_mismatch",
-                            "expected_formal_row_sha256": expected_formal_row_sha256,
-                            "actual_formal_row_sha256": current_row_sha256,
-                        }
-                    )
+        if exact_violation is not None:
+            violations.append(exact_violation)
     if violations:
         raise RuntimeError(
             "volume v2 formal lineage gate failed: only verified_clean rows with "
@@ -2565,8 +2807,13 @@ def build_lifecycle_rows(
     approvals_by_model: dict[str, dict[str, str]],
     generated_at: str,
     formal_summary: pd.DataFrame,
+    signal_history: pd.DataFrame | None = None,
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
-    history = load_volume_signal_history(signals, report_date)
+    history = (
+        load_volume_signal_history(signals, report_date)
+        if signal_history is None
+        else signal_history.copy()
+    )
     if history.empty:
         return [], []
 
@@ -2733,6 +2980,142 @@ def empty_row(
     }
 
 
+def sort_operation_section(frame: pd.DataFrame) -> pd.DataFrame:
+    out = frame.copy()
+    for column in OUTPUT_COLUMNS:
+        if column not in out.columns:
+            out[column] = ""
+    out = out[OUTPUT_COLUMNS].copy()
+    out["_model_order"] = out["model_id"].map(
+        {model_id: idx for idx, model_id in enumerate(FORMAL_MODEL_IDS)}
+    ).fillna(9)
+    out["_view_order"] = out["pdf_view"].map({"highlight": 0, "full": 1}).fillna(9)
+    out["_section_order"] = out["pdf_section"].map(
+        {
+            "confirmed_operation": 0,
+            "confirmed_unranked_operation": 1,
+            "pending_confirmation": 2,
+            "active_operation": 3,
+        }
+    ).fillna(9)
+    out["_row_type_order"] = out["row_type"].map(
+        {"data": 0, "empty_state": 1}
+    ).fillna(9)
+    out["_display_order_num"] = pd.to_numeric(
+        out["display_order"], errors="coerce"
+    ).fillna(999999)
+    out = out.sort_values(
+        [
+            "_model_order",
+            "_view_order",
+            "_section_order",
+            "_row_type_order",
+            "_display_order_num",
+            "stock_id",
+        ]
+    )
+    return out.drop(
+        columns=[
+            "_model_order",
+            "_view_order",
+            "_section_order",
+            "_row_type_order",
+            "_display_order_num",
+        ]
+    ).reset_index(drop=True)
+
+
+def ensure_operation_section_empty_states(
+    section: pd.DataFrame,
+    *,
+    report_date: str,
+    daily_signal_date: str,
+    daily_volume_count: int,
+    approvals_by_model: dict[str, dict[str, str]],
+    generated_at: str,
+    metadata_source: pd.DataFrame | None = None,
+) -> pd.DataFrame:
+    out = section.copy()
+    for column in OUTPUT_COLUMNS:
+        if column not in out.columns:
+            out[column] = ""
+    out = out[OUTPUT_COLUMNS].copy()
+    represented = {
+        (
+            safe_str(row.get("model_id")),
+            safe_str(row.get("pdf_view")),
+            safe_str(row.get("pdf_section")),
+        )
+        for _, row in out.iterrows()
+    }
+    source = out if metadata_source is None else metadata_source.copy()
+    if "model_id" not in source.columns:
+        source["model_id"] = ""
+    additions: list[dict[str, Any]] = []
+    for model_id in FORMAL_MODEL_IDS:
+        fallback_approval = approvals_by_model[model_id]
+        model_source = source[
+            source.get("model_id", pd.Series(dtype=str)).map(safe_str).eq(model_id)
+        ].copy()
+        if model_source.empty:
+            source_row = pd.Series(dtype=object)
+            approval_info = fallback_approval
+        else:
+            source_row = model_source.iloc[0]
+            approval_info = {
+                key: safe_str(source_row.get(key)) or value
+                for key, value in fallback_approval.items()
+            }
+        source_generated_at = safe_str(source_row.get("generated_at")) or generated_at
+        source_signal_date = (
+            normalize_date_text(source_row.get("daily_signal_date"))
+            or daily_signal_date
+        )
+        source_status = (
+            safe_str(source_row.get("adapter_source_status"))
+            or safe_str(source_row.get("operation_source_date_status"))
+            or "ready"
+        )
+        source_asof_date = (
+            normalize_date_text(source_row.get("operation_asof_date")) or report_date
+        )
+        source_volume_count_value = number_text(
+            source_row.get("daily_volume_model_signal_count")
+        )
+        source_volume_count = (
+            int(source_volume_count_value)
+            if pd.notna(source_volume_count_value)
+            else daily_volume_count
+        )
+        for pdf_view in PDF_VIEWS:
+            for pdf_section in PDF_SECTIONS:
+                if not section_allowed_for_pdf_view(pdf_view, pdf_section):
+                    continue
+                key = (model_id, pdf_view, pdf_section)
+                if key in represented:
+                    continue
+                additions.append(
+                    empty_row(
+                        model_id,
+                        pdf_view,
+                        pdf_section,
+                        source_status,
+                        source_signal_date,
+                        source_volume_count,
+                        approval_info,
+                        source_generated_at,
+                        source_asof_date,
+                    )
+                )
+                represented.add(key)
+    if additions:
+        out = pd.concat(
+            [out, pd.DataFrame(additions, columns=OUTPUT_COLUMNS)],
+            ignore_index=True,
+        )
+    return sort_operation_section(out)
+
+
 def write_outputs(df: pd.DataFrame, source_rows: int, source_status: str) -> None:
     OUT_CSV.parent.mkdir(parents=True, exist_ok=True)
     OUT_MD.parent.mkdir(parents=True, exist_ok=True)
@@ -2853,17 +3236,37 @@ def build() -> tuple[pd.DataFrame, pd.DataFrame]:
     report_date = main_price_date()
     require_latest_signals_match_report_date(signals, report_date)
     daily_signal_date, daily_volume_count = daily_signal_context(signals, report_date)
-    restored = restore_published_snapshot(daily_signal_date)
-    if restored is not None:
-        require_verified_clean_volume_v2_lineage(
-            restored[0], formal_signal_rows=signals
-        )
-        return restored
     generated_at = now_text()
     approvals_by_model = {
         model_id: approval_context(approval, model_id)
         for model_id in FORMAL_MODEL_IDS
     }
+    restored = restore_published_snapshot(daily_signal_date)
+    if restored is not None:
+        restored_source_section = restored[0]
+        restored_section, excluded_keys = filter_volume_v2_operation_lineage_scope(
+            restored_source_section, formal_signal_rows=signals
+        )
+        restored_section = ensure_operation_section_empty_states(
+            restored_section,
+            report_date=daily_signal_date,
+            daily_signal_date=daily_signal_date,
+            daily_volume_count=daily_volume_count,
+            approvals_by_model=approvals_by_model,
+            generated_at=generated_at,
+            metadata_source=restored_source_section,
+        )
+        restored_audit = suppress_excluded_operation_audit_rows(
+            restored[1], excluded_keys
+        )
+        require_verified_clean_volume_v2_lineage(
+            restored_section, formal_signal_rows=signals
+        )
+        return restored_section, restored_audit
+    signal_history = load_volume_signal_history(signals, daily_signal_date)
+    signal_history, _excluded_keys = filter_volume_v2_operation_lineage_scope(
+        signal_history, formal_signal_rows=signals
+    )
     rows, audit_rows = build_lifecycle_rows(
         signals,
         daily_signal_date,
@@ -2871,47 +3274,16 @@ def build() -> tuple[pd.DataFrame, pd.DataFrame]:
         approvals_by_model,
         generated_at,
         formal_summary,
+        signal_history=signal_history,
     )
-    existing = {
-        (safe_str(row.get("model_id")), safe_str(row.get("pdf_view")), safe_str(row.get("pdf_section")))
-        for row in rows
-        if safe_str(row.get("row_type")) == "data"
-    }
-    for model_id in FORMAL_MODEL_IDS:
-        approval_info = approvals_by_model[model_id]
-        for pdf_view in PDF_VIEWS:
-            for pdf_section in PDF_SECTIONS:
-                if not section_allowed_for_pdf_view(pdf_view, pdf_section):
-                    continue
-                if (model_id, pdf_view, pdf_section) not in existing:
-                    rows.append(
-                        empty_row(
-                            model_id,
-                            pdf_view,
-                            pdf_section,
-                            "ready",
-                            daily_signal_date,
-                            daily_volume_count,
-                            approval_info,
-                            generated_at,
-                            daily_signal_date,
-                        )
-                    )
-    out = pd.DataFrame(rows, columns=OUTPUT_COLUMNS)
-    out["_model_order"] = out["model_id"].map({model_id: idx for idx, model_id in enumerate(FORMAL_MODEL_IDS)}).fillna(9)
-    out["_view_order"] = out["pdf_view"].map({"highlight": 0, "full": 1}).fillna(9)
-    out["_section_order"] = out["pdf_section"].map(
-        {
-            "confirmed_operation": 0,
-            "confirmed_unranked_operation": 1,
-            "pending_confirmation": 2,
-            "active_operation": 3,
-        }
-    ).fillna(9)
-    out["_row_type_order"] = out["row_type"].map({"data": 0, "empty_state": 1}).fillna(9)
-    out["_display_order_num"] = pd.to_numeric(out["display_order"], errors="coerce").fillna(999999)
-    out = out.sort_values(["_model_order", "_view_order", "_section_order", "_row_type_order", "_display_order_num", "stock_id"])
-    section = out.drop(columns=["_model_order", "_view_order", "_section_order", "_row_type_order", "_display_order_num"]).reset_index(drop=True)
+    section = ensure_operation_section_empty_states(
+        pd.DataFrame(rows, columns=OUTPUT_COLUMNS),
+        report_date=daily_signal_date,
+        daily_signal_date=daily_signal_date,
+        daily_volume_count=daily_volume_count,
+        approvals_by_model=approvals_by_model,
+        generated_at=generated_at,
+    )
     require_verified_clean_volume_v2_lineage(
         section, formal_signal_rows=signals
     )
