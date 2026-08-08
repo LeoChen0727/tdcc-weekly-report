@@ -3554,22 +3554,20 @@ def _validate_projection_set(
         expected = candidate_by_source.get(source_key)
         if expected is None:
             expected = candidate_by_stock.get(identity[3])
+        has_candidate_projection = expected is not None
         if expected is None:
-            if identity[3] in official:
-                errors.append(
-                    f"formal volume signal has official warrant data but no all_candidates projection "
-                    f"{label}: {identity}"
-                )
-                expected = official[identity[3]]
-            else:
-                expected = ""
+            expected = ""
         actual = _normalize_signal(row.get(FIELD_NAME))
         if actual != expected:
             errors.append(
                 f"formal volume warrant projection mismatch {label}: {identity} "
                 f"expected={expected!r} actual={actual!r}"
             )
-        if identity[3] in official and expected != official[identity[3]]:
+        if (
+            has_candidate_projection
+            and identity[3] in official
+            and expected != official[identity[3]]
+        ):
             errors.append(
                 f"official/all_candidates warrant projection mismatch {label}: "
                 f"stock_id={identity[3]} official={official[identity[3]]!r} candidate={expected!r}"

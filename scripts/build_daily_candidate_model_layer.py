@@ -4523,7 +4523,7 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
     }
     lookup = volume_v2_candidate_lookup(candidates, relevant_watch_stock_ids)
     volume_taxonomy_by_stock: dict[str, pd.Series] | None = None
-    official_warrant_stock_ids: set[str] | None = None
+    official_warrant_source_validated = False
     rows: list[dict[str, Any]] = []
     valid_statuses = {"selected"}
     valid_types = {"bottom_volume_attack"}
@@ -4888,33 +4888,57 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
         # volume_breakout_watch is a model-owned producer and can legitimately
         # contain a selected row that is absent from the general all_candidates
         # table.  In that case taxonomy may supply presentation fields, but it
-        # must never supply a warrant signal.  The independent formal-sync
-        # validator permits only an empty official warrant projection for this
-        # path; if an official warrant row exists, the workflow fails closed
-        # until all_candidates carries its canonical projection.
+        # must never supply a warrant signal.  The official warrant artifact is
+        # a global-universe source, so it is validated in full and then scoped
+        # to canonical all_candidates identities before formal projection.
         if not candidate_rows:
             source = taxonomy_source
-            if official_warrant_stock_ids is None:
+            if not official_warrant_source_validated:
                 official_warrant = read_csv(WARRANT_FLOW, dtype=str, keep_default_na=False)
-                if official_warrant.empty or "stock_id" not in official_warrant.columns:
+                if official_warrant.empty:
                     raise RuntimeError(
-                        "volume breakout negative warrant projection requires current official "
-                        "warrant_flow rows"
+                        "volume breakout official warrant source has no rows for lineage validation"
                     )
-                normalized_ids = [
-                    normalize_code(value) for value in official_warrant["stock_id"].tolist()
-                ]
-                normalized_ids = [value for value in normalized_ids if value]
-                if len(normalized_ids) != len(set(normalized_ids)):
-                    raise RuntimeError(
-                        "current official warrant_flow has duplicate normalized stock_id rows"
-                    )
-                official_warrant_stock_ids = set(normalized_ids)
-            if stock_id in official_warrant_stock_ids:
-                raise RuntimeError(
-                    "volume breakout formal signal has an official warrant projection but no "
-                    f"canonical all_candidates row: stock_id={stock_id}"
+                date_column = (
+                    "date" if "date" in official_warrant.columns else "signal_date"
                 )
+                required_columns = {
+                    date_column,
+                    "stock_id",
+                    "warrant_flow_signal",
+                }
+                missing_columns = sorted(
+                    required_columns - set(official_warrant.columns)
+                )
+                if missing_columns:
+                    raise RuntimeError(
+                        "volume breakout official warrant source columns missing: "
+                        f"{missing_columns}"
+                    )
+                expected_official_date = safe_str(signal_date).replace("-", "")
+                official_warrant_identities: set[tuple[str, str]] = set()
+                for _, official_row in official_warrant.iterrows():
+                    official_date = safe_str(official_row.get(date_column)).replace(
+                        "-", ""
+                    )
+                    if official_date != expected_official_date:
+                        raise RuntimeError(
+                            "volume breakout official warrant source date mismatch: "
+                            f"observed={official_date!r} expected={expected_official_date!r}"
+                        )
+                    official_stock_id = normalize_code(official_row.get("stock_id"))
+                    if not official_stock_id:
+                        raise RuntimeError(
+                            "volume breakout official warrant source has an incomplete identity"
+                        )
+                    identity = (official_date, official_stock_id)
+                    if identity in official_warrant_identities:
+                        raise RuntimeError(
+                            "volume breakout official warrant source has duplicate normalized "
+                            f"identities: identity={identity}"
+                        )
+                    official_warrant_identities.add(identity)
+                official_warrant_source_validated = True
             authoritative_warrant_signal = ""
             outcome = evaluate_candidate_outcome(
                 candidate_row=None,
@@ -6901,10 +6925,14 @@ def synchronize_warrant_formal_frames(
                     "warrant, exact watch, and taxonomy negative-lineage evidence"
                 )
             if official_projection is None:
-                official_projection = _warrant_sync_official_projection(
-                    official_warrant,
-                    signal_dates,
-                )
+                official_projection = {
+                    key: signal
+                    for key, signal in _warrant_sync_official_projection(
+                        official_warrant,
+                        signal_dates,
+                    ).items()
+                    if key in projection
+                }
             if taxonomy_stock_ids is None:
                 taxonomy_stock_ids = _warrant_sync_taxonomy_stock_ids(volume_taxonomy)
             if volume_watch_identities is None:
@@ -6925,12 +6953,6 @@ def synchronize_warrant_formal_frames(
                 raise RuntimeError(
                     "volume-v2 formal row has no canonical taxonomy lineage: "
                     f"stock_id={source_key[1]}"
-                )
-            if source_key in official_projection:
-                raise RuntimeError(
-                    "formal volume signal has official warrant data but no canonical "
-                    "all_candidates projection: "
-                    f"stock_id={source_key[1]} signal={official_projection[source_key]!r}"
                 )
             after_signal = ""
         else:

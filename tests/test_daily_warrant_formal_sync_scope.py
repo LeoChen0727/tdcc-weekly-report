@@ -919,7 +919,7 @@ def test_projection_requires_candidate_raw_and_report_consistency(tmp_path: Path
     assert any("raw/report warrant formal sync mismatch" in error for error in errors)
 
 
-def test_projection_allows_volume_v2_without_candidate_only_for_empty_official_projection(
+def test_projection_allows_volume_v2_without_candidate_and_without_global_official_row(
     tmp_path: Path,
 ) -> None:
     rows = _signal_rows()
@@ -933,7 +933,7 @@ def test_projection_allows_volume_v2_without_candidate_only_for_empty_official_p
     assert errors == []
 
 
-def test_projection_rejects_volume_v2_without_candidate_when_official_warrant_exists(
+def test_projection_ignores_global_official_warrant_row_without_candidate_identity(
     tmp_path: Path,
 ) -> None:
     rows = _signal_rows()
@@ -956,12 +956,7 @@ def test_projection_rejects_volume_v2_without_candidate_when_official_warrant_ex
 
     errors, _ = validate_current_projection(tmp_path)
 
-    assert any(
-        "formal signal warrant projection mismatch" in error
-        and "volume_range_breakout_v2_high_position_volume_attack" in error
-        and "expected='call_inflow' actual=''" in error
-        for error in errors
-    )
+    assert errors == []
 
 
 def test_projection_rejects_volume_v2_without_candidate_or_taxonomy_lineage(
@@ -1039,6 +1034,25 @@ def test_projection_rejects_candidate_warrant_drift_from_official_source(tmp_pat
     errors, _ = validate_current_projection(tmp_path)
 
     assert any("all_candidates warrant projection mismatch" in error for error in errors)
+
+
+def test_projection_rejects_positive_candidate_missing_from_nonempty_official_source(
+    tmp_path: Path,
+) -> None:
+    _write_artifacts(tmp_path, _signal_rows())
+    warrant_path = tmp_path / WARRANT_FLOW_ARTIFACT
+    columns, warrant_rows = _read_csv_fixture(warrant_path)
+    warrant_rows = [row for row in warrant_rows if row["stock_id"] != "2330"]
+    _write_csv(warrant_path, columns, warrant_rows)
+
+    errors, _ = validate_current_projection(tmp_path)
+
+    assert any(
+        "all_candidates warrant projection mismatch" in error
+        and "source_key=('1', '2330')" in error
+        and "column=warrant_flow_signal" in error
+        for error in errors
+    )
 
 
 def test_projection_rejects_empty_official_projection(tmp_path: Path) -> None:
