@@ -68,19 +68,29 @@ MUTABLE_POST_COMMANDS = frozenset(
 MODEL_SIGNAL_PATH = Path(
     "output/latest/daily_candidate_model_signals_for_report_latest.csv"
 )
-REQUIRED_MODEL_SIGNAL_COLUMNS = (
-    "base_model_score",
-    "operation_score",
-    "tdcc_score",
-    "pattern_score",
-    "risk_penalty",
-    "final_rank_score",
-    "rank_reason_zh",
-)
 ALL_CANDIDATES_PATH = Path("output/latest/all_candidates_latest.csv")
 WARRANT_FLOW_PATH = Path("output/latest/warrant_flow_latest.csv")
 THEME_STOCK_PATH = Path(
     "output/latest/volume_attack_theme_stocks_latest.csv"
+)
+MODEL_SIGNAL_VALIDATION_PATH = Path(
+    "output/latest/daily_candidate_model_layer_validation_latest.json"
+)
+THEME_VALIDATION_PATH = Path(
+    "output/latest/volume_attack_theme_layer_validation_latest.json"
+)
+REGISTERED_PARITY_VALIDATOR_PATHS = (
+    Path("scripts/validate_daily_candidate_model_layer.py"),
+    Path("scripts/validate_volume_attack_theme_layer.py"),
+    Path("scripts/validate_daily_warrant_formal_sync_scope.py"),
+)
+PARITY_EVIDENCE_PATHS = (
+    MODEL_SIGNAL_PATH,
+    ALL_CANDIDATES_PATH,
+    WARRANT_FLOW_PATH,
+    THEME_STOCK_PATH,
+    MODEL_SIGNAL_VALIDATION_PATH,
+    THEME_VALIDATION_PATH,
 )
 FRESHNESS_PATH = Path("output/latest/data_freshness_latest.csv")
 MARKET_SESSION_PATH = Path(
@@ -102,9 +112,6 @@ STEP_RESULTS_PATH = Path(
 )
 SOURCE_REVISION_FILENAME = "source_revision_manifest.json"
 ALLOWED_CHECKPOINT_PREFIXES = ("data", "output", "docs")
-REGRESSION_STOCK_IDS = ("7711", "2059")
-
-
 class ValidationReplayError(RuntimeError):
     """A fail-closed validation replay contract violation."""
 
@@ -575,10 +582,6 @@ def run_named_steps(
                 ).isoformat(),
             }
         )
-        if name == POST_START_STEP:
-            validate_candidate_scoped_warrant_projection(repo_root)
-        if name == "Build daily candidate model layer":
-            validate_model_signal_schema(repo_root)
     return results
 
 
@@ -617,108 +620,44 @@ def require_csv_exact_date(
         )
 
 
-def validate_model_signal_schema(repo_root: Path) -> dict[str, Any]:
-    columns, rows = read_csv_rows(repo_root / MODEL_SIGNAL_PATH)
-    missing = [
-        field
-        for field in REQUIRED_MODEL_SIGNAL_COLUMNS
-        if field not in columns
-    ]
-    if missing:
-        raise ValidationReplayError(
-            f"daily model signal schema missing columns: {missing}"
-        )
-    return {
-        "path": MODEL_SIGNAL_PATH.as_posix(),
-        "sha256": sha256_file(repo_root / MODEL_SIGNAL_PATH),
-        "rows": len(rows),
-        "required_columns": list(REQUIRED_MODEL_SIGNAL_COLUMNS),
-    }
-
-
-def stock_ids(rows: Iterable[dict[str, str]]) -> set[str]:
-    return {
-        str(row.get("stock_id") or "").strip()
-        for row in rows
-        if str(row.get("stock_id") or "").strip()
-    }
-
-
-def validate_candidate_scoped_warrant_projection(
+def run_registered_parity_validators(
     repo_root: Path,
+    env: dict[str, str],
 ) -> dict[str, Any]:
-    _candidate_columns, candidate_rows = read_csv_rows(
-        repo_root / ALL_CANDIDATES_PATH
-    )
-    _warrant_columns, warrant_rows = read_csv_rows(
-        repo_root / WARRANT_FLOW_PATH
-    )
-    _theme_columns, theme_rows = read_csv_rows(
-        repo_root / THEME_STOCK_PATH
-    )
-    candidate_ids = stock_ids(candidate_rows)
-    warrant_by_id = {
-        str(row.get("stock_id") or "").strip(): row
-        for row in warrant_rows
-        if str(row.get("stock_id") or "").strip()
-    }
-    projected_ids = {
-        stock_id
-        for stock_id in stock_ids(theme_rows)
-        if stock_id in warrant_by_id
-        and str(
-            warrant_by_id[stock_id].get("warrant_flow_signal") or ""
-        ).strip()
-    }
-    leaked = sorted(projected_ids - candidate_ids)
-    if leaked:
-        raise ValidationReplayError(
-            "official warrant projection escaped canonical "
-            f"all_candidates: {leaked[:20]}"
-        )
-    regressions = {
-        stock_id: {
-            "in_all_candidates": stock_id in candidate_ids,
-            "in_official_warrant": stock_id in warrant_by_id,
-            "in_theme_output": stock_id in stock_ids(theme_rows),
-            "projection_contract_pass": (
-                stock_id not in projected_ids
-                or stock_id in candidate_ids
+    validators: list[dict[str, str]] = []
+    for relative_path in REGISTERED_PARITY_VALIDATOR_PATHS:
+        run_command(
+            [sys.executable, "-B", relative_path.as_posix()],
+            cwd=repo_root,
+            env=env,
+            label=(
+                "registered replay parity validator: "
+                f"{relative_path.as_posix()}"
             ),
+        )
+        validators.append(
+            {
+                "path": relative_path.as_posix(),
+                "status": "pass",
+            }
+        )
+
+    artifacts: dict[str, dict[str, object]] = {}
+    for relative_path in PARITY_EVIDENCE_PATHS:
+        path = repo_root / relative_path
+        if not path.is_file():
+            raise ValidationReplayError(
+                "registered replay parity validator evidence missing: "
+                f"{relative_path.as_posix()}"
+            )
+        artifacts[relative_path.as_posix()] = {
+            "bytes": path.stat().st_size,
+            "sha256": sha256_file(path),
         }
-        for stock_id in REGRESSION_STOCK_IDS
-    }
-    missing_regression_sources = [
-        stock_id
-        for stock_id in REGRESSION_STOCK_IDS
-        if stock_id not in warrant_by_id
-    ]
-    if missing_regression_sources:
-        raise ValidationReplayError(
-            "authoritative 20260807 warrant revision does not contain "
-            f"required regression stock ids: {missing_regression_sources}"
-        )
-    if not all(
-        row["projection_contract_pass"]
-        for row in regressions.values()
-    ):
-        raise ValidationReplayError(
-            "7711/2059 warrant projection regression failed"
-        )
     return {
-        "all_candidates_sha256": sha256_file(
-            repo_root / ALL_CANDIDATES_PATH
-        ),
-        "official_warrant_sha256": sha256_file(
-            repo_root / WARRANT_FLOW_PATH
-        ),
-        "theme_stock_sha256": sha256_file(
-            repo_root / THEME_STOCK_PATH
-        ),
-        "candidate_count": len(candidate_ids),
-        "projected_count": len(projected_ids),
-        "leaked_ids": leaked,
-        "regressions": regressions,
+        "validation_mode": "registered_fail_closed_validators",
+        "validators": validators,
+        "artifacts": artifacts,
     }
 
 
@@ -1354,9 +1293,9 @@ def replay_from_checkpoint(args: argparse.Namespace) -> int:
         names=names,
         post_mode=True,
     )
-    model_evidence = validate_model_signal_schema(repo_root)
-    warrant_evidence = validate_candidate_scoped_warrant_projection(
-        repo_root
+    parity_evidence = run_registered_parity_validators(
+        repo_root,
+        env,
     )
     source_state = write_validation_source_state(
         repo_root, source_sha
@@ -1368,8 +1307,7 @@ def replay_from_checkpoint(args: argparse.Namespace) -> int:
         "checkpoint_run_id": args.checkpoint_run_id,
         "original_failure_step": POST_START_STEP,
         "original_failure_stock_id": "2059",
-        "model_signal_schema": model_evidence,
-        "candidate_scoped_warrant_projection": warrant_evidence,
+        "registered_parity_validation": parity_evidence,
         "pdf_source_gate": {
             "status": "pass",
             "main_price_date": source_state["source_state"][

@@ -541,88 +541,96 @@ def test_exact_date_csv_guard_rejects_current_data_substitution(
         )
 
 
-def test_seven_model_signal_columns_are_required(tmp_path: Path) -> None:
-    path = tmp_path / replay_runner.MODEL_SIGNAL_PATH
-    required = list(replay_runner.REQUIRED_MODEL_SIGNAL_COLUMNS)
-    _write_csv(
-        path,
-        ["stock_id", *required],
-        [
-            {
-                "stock_id": "2059",
-                **{field: "evidence" for field in required},
-            }
-        ],
-    )
-    evidence = replay_runner.validate_model_signal_schema(tmp_path)
-    assert evidence["rows"] == 1
-    assert evidence["required_columns"] == required
-    _write_csv(
-        path,
-        ["stock_id", *required[:-1]],
-        [
-            {
-                "stock_id": "2059",
-                **{
-                    field: "evidence"
-                    for field in required[:-1]
-                },
-            }
-        ],
-    )
-    with pytest.raises(
-        replay_runner.ValidationReplayError,
-        match="rank_reason_zh",
-    ):
-        replay_runner.validate_model_signal_schema(tmp_path)
+def _write_registered_parity_evidence(root: Path) -> None:
+    for relative_path in replay_runner.PARITY_EVIDENCE_PATHS:
+        path = root / relative_path
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(b"registered-validator-evidence\n")
 
 
-def test_candidate_scoped_warrant_projection_covers_2059_and_7711(
+def test_registered_parity_validators_run_in_fail_closed_order(
     tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    _write_csv(
-        tmp_path / replay_runner.ALL_CANDIDATES_PATH,
-        ["stock_id"],
-        [{"stock_id": "2059"}],
+    _write_registered_parity_evidence(tmp_path)
+    calls: list[str] = []
+
+    def fake_run_command(
+        command: list[str],
+        *,
+        cwd: Path,
+        env: dict[str, str],
+        label: str,
+    ) -> None:
+        assert cwd == tmp_path
+        assert env == {"VALIDATION_ONLY": "true"}
+        assert label.startswith("registered replay parity validator:")
+        calls.append(command[-1])
+
+    monkeypatch.setattr(replay_runner, "run_command", fake_run_command)
+    evidence = replay_runner.run_registered_parity_validators(
+        tmp_path,
+        {"VALIDATION_ONLY": "true"},
     )
-    _write_csv(
-        tmp_path / replay_runner.WARRANT_FLOW_PATH,
-        ["stock_id", "warrant_flow_signal"],
-        [
-            {"stock_id": "2059", "warrant_flow_signal": "positive"},
-            {"stock_id": "7711", "warrant_flow_signal": "positive"},
-        ],
-    )
-    _write_csv(
-        tmp_path / replay_runner.THEME_STOCK_PATH,
-        ["stock_id"],
-        [{"stock_id": "2059"}],
-    )
-    evidence = (
-        replay_runner.validate_candidate_scoped_warrant_projection(
-            tmp_path
-        )
-    )
-    assert evidence["leaked_ids"] == []
-    assert evidence["regressions"]["2059"][
-        "projection_contract_pass"
+    expected = [
+        path.as_posix()
+        for path in replay_runner.REGISTERED_PARITY_VALIDATOR_PATHS
     ]
-    assert evidence["regressions"]["7711"][
-        "projection_contract_pass"
+    assert calls == expected
+    assert [row["path"] for row in evidence["validators"]] == expected
+    assert evidence["validation_mode"] == (
+        "registered_fail_closed_validators"
+    )
+    assert set(evidence["artifacts"]) == {
+        path.as_posix()
+        for path in replay_runner.PARITY_EVIDENCE_PATHS
+    }
+
+
+def test_registered_parity_validator_nonzero_fails_closed(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    calls: list[str] = []
+    expected = [
+        path.as_posix()
+        for path in replay_runner.REGISTERED_PARITY_VALIDATOR_PATHS
     ]
 
-    _write_csv(
-        tmp_path / replay_runner.THEME_STOCK_PATH,
-        ["stock_id"],
-        [{"stock_id": "2059"}, {"stock_id": "7711"}],
-    )
+    def fake_run_command(
+        command: list[str],
+        *,
+        cwd: Path,
+        env: dict[str, str],
+        label: str,
+    ) -> None:
+        calls.append(command[-1])
+        if command[-1] == expected[1]:
+            raise replay_runner.ValidationReplayError(
+                "registered validator exited nonzero"
+            )
+
+    monkeypatch.setattr(replay_runner, "run_command", fake_run_command)
     with pytest.raises(
         replay_runner.ValidationReplayError,
-        match="7711",
+        match="exited nonzero",
     ):
-        replay_runner.validate_candidate_scoped_warrant_projection(
-            tmp_path
-        )
+        replay_runner.run_registered_parity_validators(tmp_path, {})
+    assert calls == expected[:2]
+
+
+def test_replay_runner_does_not_consume_governed_fields_directly() -> None:
+    import ast
+
+    source = Path(replay_runner.__file__).read_text(encoding="utf-8")
+    literals = {
+        node.value
+        for node in ast.walk(ast.parse(source))
+        if isinstance(node, ast.Constant)
+        and isinstance(node.value, str)
+    }
+    assert "final_rank_score" not in literals
+    assert "warrant_flow_signal" not in literals
 
 
 def test_source_state_hash_drift_fails_closed(tmp_path: Path) -> None:
