@@ -42,6 +42,16 @@ REQUIRED_PARAMETER_MODELS = {
     "msci_event_tag",
 }
 
+REPORT_SIGNAL_SNAPSHOT_SCORE_COLUMNS = {
+    "base_model_score",
+    "operation_score",
+    "tdcc_score",
+    "pattern_score",
+    "risk_penalty",
+    "final_rank_score",
+    "rank_reason_zh",
+}
+
 REQUIRED_SIGNAL_COLUMNS = {
     "signal_date",
     "stock_id",
@@ -71,6 +81,7 @@ REQUIRED_SIGNAL_COLUMNS = {
     "why_selected_human_zh",
     "operation_reminder_zh",
     "source_hit_count",
+    *REPORT_SIGNAL_SNAPSHOT_SCORE_COLUMNS,
     "source_hit_labels",
     "source_hit_labels_zh",
     "source_row_indices",
@@ -187,6 +198,10 @@ def line_count(path: Path) -> int:
     return path.read_text(encoding="utf-8", errors="replace").count("\n") + 1
 
 
+def missing_required_signal_columns(signals: pd.DataFrame) -> list[str]:
+    return sorted(REQUIRED_SIGNAL_COLUMNS - set(signals.columns))
+
+
 def validate() -> dict[str, object]:
     errors: list[str] = []
     warnings: list[str] = []
@@ -210,12 +225,12 @@ def validate() -> dict[str, object]:
         if params["main_conditions"].astype(str).str.len().lt(5).any():
             errors.append("parameter rows must include readable main_conditions")
 
+    missing_cols = missing_required_signal_columns(signals)
+    if missing_cols:
+        errors.append(f"missing_signal_columns: {missing_cols}")
     if signals.empty:
         warnings.append("report-ready model signal table is empty for current date")
     else:
-        missing_cols = sorted(REQUIRED_SIGNAL_COLUMNS - set(signals.columns))
-        if missing_cols:
-            errors.append(f"missing_signal_columns: {missing_cols}")
         bad_semantics = signals[
             ~signals["selection_semantics"].astype(str).str.contains("condition_met", na=False)
         ]

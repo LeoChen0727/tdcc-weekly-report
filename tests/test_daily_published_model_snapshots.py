@@ -1698,3 +1698,17 @@ def test_scoped_validator_requires_only_requested_current_artifacts_but_full_cha
         "model_signals_for_report",
         "all_candidates_source_rows",
     ]
+
+
+def test_model_signal_snapshot_contract_keeps_volume_v2_score_columns_required() -> None:
+    expected = {
+        "base_model_score",
+        "operation_score",
+        "tdcc_score",
+        "pattern_score",
+        "risk_penalty",
+        "final_rank_score",
+        "rank_reason_zh",
+    }
+    artifact = update_snapshots.ARTIFACTS_BY_ID["model_signals_for_report"]
+    assert expected <= set(artifact.required_columns)

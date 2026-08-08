@@ -372,6 +372,27 @@ def build_unique_warrant_lookup(df: pd.DataFrame) -> dict[str, dict[str, Any]]:
     return lookup
 
 
+def build_candidate_scoped_official_warrant_projection(
+    candidates: pd.DataFrame,
+    official_warrant: pd.DataFrame,
+) -> pd.DataFrame:
+    """Project the global official source onto canonical candidate identities."""
+    if official_warrant.empty:
+        return official_warrant.copy()
+    if "stock_id" not in official_warrant.columns:
+        raise RuntimeError("official warrant projection is missing stock_id")
+
+    candidate_ids = set(build_candidate_projection_lookup(candidates))
+    build_unique_warrant_lookup(official_warrant)
+    if not candidate_ids:
+        return official_warrant.iloc[0:0].copy()
+
+    projected = official_warrant[
+        official_warrant["stock_id"].map(safe_str).isin(candidate_ids)
+    ].copy()
+    return projected.reset_index(drop=True)
+
+
 def enrich_stocks(
     watch: pd.DataFrame,
     theme_df: pd.DataFrame,
@@ -383,6 +404,7 @@ def enrich_stocks(
     volume_watch_source_sha256: str = "",
     candidate_source_sha256: str = "",
     official_warrant_source_sha256: str = "",
+    official_warrant_projection: pd.DataFrame | None = None,
 ) -> pd.DataFrame:
     if watch.empty:
         return pd.DataFrame()
@@ -392,7 +414,9 @@ def enrich_stocks(
     candidate_lookup = build_candidate_projection_lookup(candidates)
     taxonomy_lookup = build_lookup_by_stock(taxonomy)
     official_warrant_lookup = build_unique_warrant_lookup(
-        official_warrant if official_warrant is not None else pd.DataFrame()
+        official_warrant_projection
+        if official_warrant_projection is not None
+        else (official_warrant if official_warrant is not None else pd.DataFrame())
     )
     volume_watch_source_sha256 = volume_watch_source_sha256 or sha256_file(
         VOLUME_WATCH_CSV
@@ -905,6 +929,10 @@ def main() -> int:
         expected_as_of=main_date,
         source_sha256=official_warrant_source_sha256,
     )
+    official_warrant_projection = build_candidate_scoped_official_warrant_projection(
+        candidates,
+        official_warrant,
+    )
 
     if watch.empty:
         stock_layer = pd.DataFrame()
@@ -921,6 +949,7 @@ def main() -> int:
             volume_watch_source_sha256=volume_watch_source_sha256,
             candidate_source_sha256=candidate_source_sha256,
             official_warrant_source_sha256=official_warrant_source_sha256,
+            official_warrant_projection=official_warrant_projection,
         )
         theme_layer = build_theme_layer(stock_layer)
         stock_layer = apply_theme_status_to_stocks(stock_layer, theme_layer)

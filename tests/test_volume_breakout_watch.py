@@ -34,6 +34,7 @@ from build_daily_candidate_model_layer import (  # noqa: E402
 )
 from build_volume_attack_theme_layer import (  # noqa: E402
     apply_theme_status_to_stocks,
+    build_candidate_scoped_official_warrant_projection,
     build_theme_layer,
     enrich_stocks,
     read_csv_revision,
@@ -499,6 +500,80 @@ class VolumeBreakoutWatchTest(unittest.TestCase):
                 taxonomy,
                 official,
             )
+
+    def test_theme_layer_scopes_global_only_warrant_rows_to_candidates(self) -> None:
+        watch, theme, two_line, candidates, taxonomy, official = (
+            self._theme_enrichment_inputs()
+        )
+        regression_ids = ("7711", "2059")
+        global_only_watch_rows = []
+        global_only_official_rows = []
+        for stock_id in regression_ids:
+            watch_row = watch.iloc[0].copy()
+            watch_row["stock_id"] = stock_id
+            watch_row["stock_name"] = f"regression-{stock_id}"
+            global_only_watch_rows.append(watch_row)
+
+            official_row = official.iloc[0].copy()
+            official_row["stock_id"] = stock_id
+            global_only_official_rows.append(official_row)
+
+        global_official = pd.concat(
+            [official, pd.DataFrame(global_only_official_rows)],
+            ignore_index=True,
+        )
+        candidate_projection = build_candidate_scoped_official_warrant_projection(
+            candidates,
+            global_official,
+        )
+        self.assertEqual(set(candidate_projection["stock_id"]), {"6505"})
+
+        no_candidate_projection = build_candidate_scoped_official_warrant_projection(
+            pd.DataFrame(),
+            pd.DataFrame(global_only_official_rows),
+        )
+        self.assertTrue(no_candidate_projection.empty)
+        out = enrich_stocks(
+            pd.DataFrame(global_only_watch_rows),
+            theme,
+            two_line,
+            pd.DataFrame(),
+            taxonomy,
+            pd.DataFrame(global_only_official_rows),
+            official_warrant_projection=no_candidate_projection,
+        )
+        self.assertEqual(set(out["stock_id"]), set(regression_ids))
+        self.assertTrue(out["warrant_flow_signal"].eq("").all())
+
+        official_signals = {stock_id: {"call_inflow"} for stock_id in regression_ids}
+        for stock_id in regression_ids:
+            self.assertEqual(
+                theme_layer_validator.warrant_projection_parity_errors(
+                    stock_id,
+                    "",
+                    {},
+                    official_signals,
+                ),
+                [],
+            )
+
+        self.assertEqual(
+            theme_layer_validator.warrant_projection_parity_errors(
+                "6505",
+                "call_inflow",
+                {"6505": {"call_inflow"}},
+                {"6505": {"call_inflow"}},
+            ),
+            [],
+        )
+        self.assertTrue(
+            theme_layer_validator.warrant_projection_parity_errors(
+                "6505",
+                "call_inflow",
+                {"6505": {"call_inflow"}},
+                {"6505": {"no_signal"}},
+            )
+        )
 
     def test_theme_layer_fails_on_candidate_official_warrant_mismatch(self) -> None:
         watch, theme, two_line, candidates, taxonomy, official = (
