@@ -1,15 +1,15 @@
 # TDCC Weekly History Continuity
 
 - status: `pass`
-- generated_at: `2026-08-01 15:39:33 Asia/Taipei`
-- signal_date: `20260731`
-- required_dates: `20260430, 20260508, 20260515, 20260522, 20260529, 20260605, 20260612, 20260618, 20260626, 20260703, 20260709, 20260717, 20260724, 20260731`
+- generated_at: `2026-08-08 15:40:00 Asia/Taipei`
+- signal_date: `20260807`
+- required_dates: `20260430, 20260508, 20260515, 20260522, 20260529, 20260605, 20260612, 20260618, 20260626, 20260703, 20260709, 20260717, 20260724, 20260731, 20260807`
 - current_stock_count: 1970
-- missing_rows_before: 2
+- missing_rows_before: 3
 - repaired_count: 0
-- accepted_exception_count: 2
+- accepted_exception_count: 3
 - official_no_data_count: 1
-- invalid_holder_distribution_count: 1
+- invalid_holder_distribution_count: 2
 - unresolved_missing_rows: 0
 
 ## Contract
@@ -21,8 +21,10 @@
 ## Missing Before
 
 - `20260626`: missing_stock_count=2 existing_rows=1970
+- `20260731`: missing_stock_count=1 existing_rows=1970
 
 ## Actions
 
 - `20260626` `2380` invalid_holder_distribution attempts=1: single-holder or placeholder distribution
 - `20260626` `3152` official_no_data attempts=3: official query returned no distribution row
+- `20260731` `1459` invalid_holder_distribution attempts=1: single-holder or placeholder distribution
