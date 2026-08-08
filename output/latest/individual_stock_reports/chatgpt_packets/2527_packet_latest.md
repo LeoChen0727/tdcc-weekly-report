@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2527 宏璟
 
 ## Metadata
-- generated_at: 2026-08-03 22:27:01 Asia/Taipei
+- generated_at: 2026-08-08 16:01:01 Asia/Taipei
 - stock_id: 2527
 - stock_name: 宏璟
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260731
-- price_rows: 316
-- current_main_price_date: 20260731
+- latest_price_date: 20260805
+- price_rows: 319
+- current_main_price_date: 20260805
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260731-0b236a2d4a043618
-- official_tdcc_signal_date: 20260731
-- latest_tdcc_date: 20260731
-- tdcc_rows: 14
+- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
+- official_tdcc_signal_date: 20260807
+- latest_tdcc_date: 20260807
+- tdcc_rows: 15
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -131,31 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260731
-- open: 43
-- high: 44.6
-- low: 43
-- close: 44.55
-- volume: 1341302
-- ma5: 43.33
-- ema23_primary: 44
-- distance_to_ema23_pct: 1.24
-- ma20: 45.09
-- ma60: 39.41
-- ma120: 35.45
-- return_5d: -3.47
-- return_20d: 8.66
-- volume_ratio: 0.72
-- distance_to_ma20_pct_auxiliary: -1.2
-- distance_to_high_60_pct: -14.33
+- date: 20260805
+- open: 43.3
+- high: 43.4
+- low: 42.45
+- close: 42.75
+- volume: 819877
+- ma5: 43.09
+- ema23_primary: 43.86
+- distance_to_ema23_pct: -2.53
+- ma20: 45.29
+- ma60: 39.86
+- ma120: 35.8
+- return_5d: 2.64
+- return_20d: 0.35
+- volume_ratio: 0.42
+- distance_to_ma20_pct_auxiliary: -5.61
+- distance_to_high_60_pct: -17.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260703,41,41.35,40.65,41.2,603470,38.74,6.34,38.58,36.23,0.46
-20260706,41.6,43.4,41.55,42.6,1201608,39.06,9.05,38.9,36.42,0.9
-20260707,42.55,43.3,42.1,42.6,736971,39.36,8.24,39.3,36.58,0.54
 20260708,42.6,42.7,40.75,41.3,902415,39.52,4.5,39.61,36.66,0.65
 20260709,41.7,42.95,41.2,42.6,774245,39.78,7.1,40.01,36.74,0.56
 20260713,43,46.5,43,45.65,3445397,40.27,13.37,40.56,36.85,2.23
@@ -173,26 +170,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260729,43.45,43.6,40.55,41.65,1386711,44.26,-5.9,44.92,39.12,0.77
 20260730,41.8,41.8,40.2,40.55,1105834,43.95,-7.74,44.91,39.23,0.61
 20260731,43,44.6,43,44.55,1341302,44,1.24,45.09,39.41,0.72
+20260803,43.9,45.5,42,45.05,1386013,44.09,2.18,45.28,39.58,0.73
+20260804,44.75,44.75,42.2,42.55,1878858,43.96,-3.21,45.28,39.72,0.97
+20260805,43.3,43.4,42.45,42.75,819877,43.86,-2.53,45.29,39.86,0.42
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260731
-- over_400_ratio: 81.24
-- over_600_ratio: 78.85
-- over_800_ratio: 76.82
-- over_1000_ratio: 76.16
-- over_400_change_1w: -0.26
-- over_800_change_1w: -0.33
-- over_1000_change_1w: -0.36
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260807
+- over_400_ratio: 81.13
+- over_600_ratio: 78.96
+- over_800_ratio: 77.68
+- over_1000_ratio: 75.66
+- over_400_change_1w: -0.11
+- over_800_change_1w: 0.86
+- over_1000_change_1w: -0.5
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260515,79.52,-0.24,75.11,-0.57,74.44,0.43,2,False,True
 20260522,79.69,0.17,75.12,0.01,74.45,0.01,3,True,True
 20260529,80.09,0.4,75.78,0.66,74.46,0.01,4,True,True
 20260605,80.04,-0.05,76.15,0.37,74.49,0.03,5,False,True
@@ -204,6 +203,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260717,81.42,1.18,77.06,0.82,76.11,0.83,4,True,True
 20260724,81.5,0.08,77.15,0.09,76.52,0.41,5,True,True
 20260731,81.24,-0.26,76.82,-0.33,76.16,-0.36,0,False,False
+20260807,81.13,-0.11,77.68,0.86,75.66,-0.5,1,False,True
 ```
 
 ## Candidate Context

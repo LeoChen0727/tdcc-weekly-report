@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8080 泰霖
 
 ## Metadata
-- generated_at: 2026-08-03 22:29:09 Asia/Taipei
+- generated_at: 2026-08-08 16:03:13 Asia/Taipei
 - stock_id: 8080
 - stock_name: 泰霖
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260731
-- price_rows: 178
-- current_main_price_date: 20260731
+- latest_price_date: 20260805
+- price_rows: 181
+- current_main_price_date: 20260805
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260731-0b236a2d4a043618
-- official_tdcc_signal_date: 20260731
-- latest_tdcc_date: 20260731
-- tdcc_rows: 14
+- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
+- official_tdcc_signal_date: 20260807
+- latest_tdcc_date: 20260807
+- tdcc_rows: 15
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,31 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260731
-- open: 27.5
-- high: 29.8
-- low: 27.5
-- close: 29.5
-- volume: 61000
-- ma5: 27.9
-- ema23_primary: 27.84
-- distance_to_ema23_pct: 5.95
-- ma20: 27.7
-- ma60: 27.94
-- ma120: 28.97
-- return_5d: 5.36
-- return_20d: 6.31
-- volume_ratio: 1.94
-- distance_to_ma20_pct_auxiliary: 6.52
-- distance_to_high_60_pct: -3.12
+- date: 20260805
+- open: 30
+- high: 30.1
+- low: 27.45
+- close: 27.6
+- volume: 24000
+- ma5: 28.39
+- ema23_primary: 27.95
+- distance_to_ema23_pct: -1.24
+- ma20: 27.77
+- ma60: 27.89
+- ma120: 28.84
+- return_5d: 1.1
+- return_20d: -0.36
+- volume_ratio: 0.9
+- distance_to_ma20_pct_auxiliary: -0.6
+- distance_to_high_60_pct: -9.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260703,27.75,28,27.7,28,55000,28.05,-0.17,28.08,28.29,1.48
-20260706,27.8,28,27.75,27.85,54000,28.03,-0.64,28.07,28.27,1.4
-20260707,28,28,27.7,27.7,62000,28,-1.08,28.05,28.24,1.53
 20260708,27.7,27.7,27.55,27.65,22000,27.97,-1.16,28.03,28.21,0.55
 20260709,27.65,27.7,27.6,27.65,20000,27.95,-1.06,28.01,28.18,0.5
 20260713,27.65,27.65,27.55,27.55,13000,27.91,-1.3,27.97,28.16,0.32
@@ -167,10 +165,13 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260729,27.25,27.3,27.25,27.3,21000,27.71,-1.49,27.62,27.96,0.65
 20260730,27.35,27.55,27.35,27.45,24000,27.69,-0.87,27.61,27.94,0.75
 20260731,27.5,29.8,27.5,29.5,61000,27.84,5.95,27.7,27.94,1.94
+20260803,28.05,29.35,28.05,28.9,28000,27.93,3.47,27.74,27.93,0.93
+20260804,27.5,28.5,27.5,28.5,25000,27.98,1.87,27.77,27.91,0.87
+20260805,30,30.1,27.45,27.6,24000,27.95,-1.24,27.77,27.89,0.9
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260731
+- as_of_date: 20260807
 - over_400_ratio: 84.11
 - over_600_ratio: 83.48
 - over_800_ratio: 82.53
@@ -186,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260515,84.77,0,82.53,0,82.53,0,0,False,False
 20260522,84.77,0,82.53,0,82.53,0,0,False,False
 20260529,84.77,0,82.53,0,82.53,0,0,False,False
 20260605,84.77,0,82.53,0,82.53,0,0,False,False
@@ -198,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260717,84.11,0,82.53,0,82.53,0,0,False,False
 20260724,84.11,0,82.53,0,82.53,0,0,False,False
 20260731,84.11,0,82.53,0,82.53,0,0,False,False
+20260807,84.11,0,82.53,0,82.53,0,0,False,False
 ```
 
 ## Candidate Context

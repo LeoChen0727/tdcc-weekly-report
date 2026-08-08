@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7034 台星科群益59購01
 
 ## Metadata
-- generated_at: 2026-08-03 22:28:55 Asia/Taipei
+- generated_at: 2026-08-08 16:03:00 Asia/Taipei
 - stock_id: 7034
 - stock_name: 台星科群益59購01
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20250407
 - price_rows: 1
-- current_main_price_date: 20260731
+- current_main_price_date: 20260805
 - current_main_price_universe_status: historical_only_noncurrent
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260731-0b236a2d4a043618
-- official_tdcc_signal_date: 20260731
+- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
+- official_tdcc_signal_date: 20260807
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
