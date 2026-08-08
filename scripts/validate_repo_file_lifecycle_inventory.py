@@ -51,7 +51,10 @@ VALID_STATUSES = {
 VALID_REMOVAL_RISK = {"none", "low", "medium", "high"}
 
 NON_PYTHON_EXECUTABLE_SUFFIXES = {".bat", ".cmd", ".gs", ".js", ".mjs", ".pl", ".ps1", ".rb", ".sh", ".ts", ".tsx"}
-PYTHON_INVOKE_RE = re.compile(r"\bpython(?:3)?\s+([A-Za-z0-9_./\\-]+\.py)")
+PYTHON_INVOKE_RE = re.compile(
+    r"\bpython(?:3)?\s+(?:-[A-Za-z]+\s+)*"
+    r"([A-Za-z0-9_./\\-]+\.py)"
+)
 SHELL_INVOKE_RE = re.compile(r"\b(?:bash|sh)\s+([A-Za-z0-9_./\\-]+\.(?:sh|cmd|bat|ps1))")
 PYTHON_PATH_REFERENCE_RE = re.compile(
     r"(?<![A-Za-z0-9_./\\-])"
