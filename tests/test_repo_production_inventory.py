@@ -662,8 +662,10 @@ def test_snapshot_helper_self_migration_uses_exact_base_owned_contract(
     base_ref = "a" * 40
     base_helper = b"snapshot base helper\n"
     base_test = b"snapshot base tests\n"
+    base_lifecycle_inventory = b"snapshot base lifecycle inventory\n"
     current_helper = b"snapshot helper delegates to base guard\n"
     current_test = b"snapshot helper delegation regression\n"
+    current_lifecycle_inventory = b"snapshot current lifecycle inventory\n"
     monkeypatch.setattr(
         inventory,
         "PR_SAFE_SNAPSHOT_BASE_HELPER_SHA256",
@@ -684,6 +686,16 @@ def test_snapshot_helper_self_migration_uses_exact_base_owned_contract(
         "PR_SAFE_SNAPSHOT_CURRENT_TEST_SHA256",
         inventory.canonical_blob_sha256(current_test),
     )
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_SNAPSHOT_BASE_LIFECYCLE_INVENTORY_SHA256",
+        inventory.canonical_blob_sha256(base_lifecycle_inventory),
+    )
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_SNAPSHOT_CURRENT_LIFECYCLE_INVENTORY_SHA256",
+        inventory.canonical_blob_sha256(current_lifecycle_inventory),
+    )
     authorization_payload = pr_safe_authorization_payload(
         base_helper,
         current_helper,
@@ -695,8 +707,16 @@ def test_snapshot_helper_self_migration_uses_exact_base_owned_contract(
         (base_ref, inventory.PR_SAFE_AUTHORIZATION_PATH): authorization_payload,
         (base_ref, inventory.PR_SAFE_SNAPSHOT_HELPER): base_helper,
         (base_ref, inventory.PR_SAFE_SNAPSHOT_TEST): base_test,
+        (
+            base_ref,
+            inventory.PR_SAFE_SNAPSHOT_LIFECYCLE_INVENTORY,
+        ): base_lifecycle_inventory,
         ("HEAD", inventory.PR_SAFE_SNAPSHOT_HELPER): current_helper,
         ("HEAD", inventory.PR_SAFE_SNAPSHOT_TEST): current_test,
+        (
+            "HEAD",
+            inventory.PR_SAFE_SNAPSHOT_LIFECYCLE_INVENTORY,
+        ): current_lifecycle_inventory,
     }
     monkeypatch.setattr(
         inventory,
@@ -723,6 +743,13 @@ def test_snapshot_helper_self_migration_uses_exact_base_owned_contract(
     }
 
     assert inventory.is_preauthorized_daily_full_checkpoint_replay_migration(**kwargs)
+    blobs[("HEAD", inventory.PR_SAFE_SNAPSHOT_LIFECYCLE_INVENTORY)] = (
+        current_lifecycle_inventory + b"unexpected relation\n"
+    )
+    assert not inventory.is_preauthorized_daily_full_checkpoint_replay_migration(**kwargs)
+    blobs[("HEAD", inventory.PR_SAFE_SNAPSHOT_LIFECYCLE_INVENTORY)] = (
+        current_lifecycle_inventory
+    )
     assert not inventory.is_preauthorized_daily_full_checkpoint_replay_migration(
         **{**kwargs, "strict_surface_changes": {inventory.PR_SAFE_SNAPSHOT_TEST}}
     )

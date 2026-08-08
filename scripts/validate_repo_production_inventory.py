@@ -133,8 +133,13 @@ PR_SAFE_AUTHORIZED_STAGE1_PATHS = frozenset(
 PR_SAFE_SNAPSHOT_MIGRATION_ID = "daily-full-checkpoint-replay-snapshot-pr-safe-v1"
 PR_SAFE_SNAPSHOT_HELPER = "scripts/validate_daily_published_model_snapshots_pr_safe.py"
 PR_SAFE_SNAPSHOT_TEST = "tests/test_daily_published_model_snapshots_pr_safe.py"
+PR_SAFE_SNAPSHOT_LIFECYCLE_INVENTORY = "config/repo_file_lifecycle_inventory.csv"
 PR_SAFE_SNAPSHOT_AUTHORIZED_PATHS = frozenset(
-    {PR_SAFE_SNAPSHOT_HELPER, PR_SAFE_SNAPSHOT_TEST}
+    {
+        PR_SAFE_SNAPSHOT_HELPER,
+        PR_SAFE_SNAPSHOT_TEST,
+        PR_SAFE_SNAPSHOT_LIFECYCLE_INVENTORY,
+    }
 )
 PR_SAFE_SNAPSHOT_SELF_STRICT_SURFACES = frozenset({PR_SAFE_SNAPSHOT_HELPER})
 PR_SAFE_SNAPSHOT_BASE_CONTENT_REF_SHA = (
@@ -151,6 +156,12 @@ PR_SAFE_SNAPSHOT_CURRENT_HELPER_SHA256 = (
 )
 PR_SAFE_SNAPSHOT_CURRENT_TEST_SHA256 = (
     "05d47d133b2afe0654c1c9755c632ecafdd6b12e5f9311d05a12c105b835d641"
+)
+PR_SAFE_SNAPSHOT_BASE_LIFECYCLE_INVENTORY_SHA256 = (
+    "88fb62d8b1ea278b52939a433f1cdf210cdf081fe89a287739d8900f5d286e88"
+)
+PR_SAFE_SNAPSHOT_CURRENT_LIFECYCLE_INVENTORY_SHA256 = (
+    "45eae9722c4d8587ff483a8e550eb5054cc8a6ab26a836d7f8f80e30a9c3a3d7"
 )
 PR_SAFE_SNAPSHOT_REQUIRED_MODE = "100644"
 PR_SAFE_ALL_AUTHORIZED_MIGRATION_PATHS = (
@@ -1801,6 +1812,25 @@ def is_preauthorized_daily_full_checkpoint_replay_migration(
             authorization_payload=authorization_payload,
         )
         if errors:
+            return False
+        base_lifecycle_inventory = _pr_safe_repo_blob(
+            root,
+            base_ref,
+            PR_SAFE_SNAPSHOT_LIFECYCLE_INVENTORY,
+        )
+        current_lifecycle_inventory = _pr_safe_repo_blob(
+            root,
+            head_ref,
+            PR_SAFE_SNAPSHOT_LIFECYCLE_INVENTORY,
+        )
+        if (
+            base_lifecycle_inventory is None
+            or canonical_blob_sha256(base_lifecycle_inventory)
+            != PR_SAFE_SNAPSHOT_BASE_LIFECYCLE_INVENTORY_SHA256
+            or current_lifecycle_inventory is None
+            or canonical_blob_sha256(current_lifecycle_inventory)
+            != PR_SAFE_SNAPSHOT_CURRENT_LIFECYCLE_INVENTORY_SHA256
+        ):
             return False
         for ref in (base_ref, head_ref):
             for path in sorted(PR_SAFE_SNAPSHOT_AUTHORIZED_PATHS):
