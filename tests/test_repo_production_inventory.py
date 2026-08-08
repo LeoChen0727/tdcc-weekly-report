@@ -777,7 +777,7 @@ def test_daily_full_checkpoint_replay_preauthorization_is_exact_and_fail_closed(
     ] == "45eae9722c4d8587ff483a8e550eb5054cc8a6ab26a836d7f8f80e30a9c3a3d7"
     assert inventory.PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_TARGET_SHA256_BY_PATH[
         lifecycle_path
-    ] == "57502d42204acbd2574cf720c3adc6f09c63d20a9ad4c8f47590377fe3f4c7c1"
+    ] == "b297a44b3e898e6f896893607b6e88d62b0fe3c2aefb57aa463caef3ed384429"
     base_ref = "a" * 40
     base_blobs: dict[str, bytes | None] = {}
     target_blobs: dict[str, bytes] = {}
