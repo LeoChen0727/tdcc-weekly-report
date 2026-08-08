@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7814 海昌生技
 
 ## Metadata
-- generated_at: 2026-08-03 22:29:05 Asia/Taipei
+- generated_at: 2026-08-08 16:03:09 Asia/Taipei
 - stock_id: 7814
 - stock_name: 海昌生技
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260731
-- price_rows: 12
-- current_main_price_date: 20260731
+- latest_price_date: 20260805
+- price_rows: 15
+- current_main_price_date: 20260805
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260731-0b236a2d4a043618
-- official_tdcc_signal_date: 20260731
+- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
+- official_tdcc_signal_date: 20260807
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -126,23 +126,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260731
-- open: 31.3
-- high: 31.3
-- low: 30.05
-- close: 30.25
-- volume: 29000
-- ma5: 30.46
-- ema23_primary: 31.35
-- distance_to_ema23_pct: -3.5
-- ma20: 32.33
-- ma60: 32.33
-- ma120: 32.33
-- return_5d: -2.1
+- date: 20260805
+- open: 30.1
+- high: 31
+- low: 30
+- close: 30.4
+- volume: 20000
+- ma5: 30.42
+- ema23_primary: 31.1
+- distance_to_ema23_pct: -2.26
+- ma20: 31.92
+- ma60: 31.92
+- ma120: 31.92
+- return_5d: 2.7
 - return_20d:
-- volume_ratio: 0.09
-- distance_to_ma20_pct_auxiliary: -6.44
-- distance_to_high_60_pct: -25.12
+- volume_ratio: 0.08
+- distance_to_ma20_pct_auxiliary: -4.77
+- distance_to_high_60_pct: -24.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -160,6 +160,9 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260729,30.45,30.45,29.6,29.6,76000,31.49,-5.99,32.67,32.67,0.21
 20260730,31.85,31.85,29.6,31,42000,31.45,-1.42,32.52,32.52,0.13
 20260731,31.3,31.3,30.05,30.25,29000,31.35,-3.5,32.33,32.33,0.09
+20260803,29.65,31.5,29.55,30.35,36000,31.26,-2.92,32.18,32.18,0.13
+20260804,30.3,30.6,29.8,30.1,42000,31.17,-3.42,32.03,32.03,0.16
+20260805,30.1,31,30,30.4,20000,31.1,-2.26,31.92,31.92,0.08
 ```
 
 ## Latest TDCC Snapshot

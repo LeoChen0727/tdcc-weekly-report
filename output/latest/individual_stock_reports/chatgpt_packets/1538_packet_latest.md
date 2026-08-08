@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1538 正峰
 
 ## Metadata
-- generated_at: 2026-08-03 22:26:30 Asia/Taipei
+- generated_at: 2026-08-08 16:00:31 Asia/Taipei
 - stock_id: 1538
 - stock_name: 正峰
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260730
 - price_rows: 265
-- current_main_price_date: 20260731
+- current_main_price_date: 20260805
 - current_main_price_universe_status: historical_only_noncurrent
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260731-0b236a2d4a043618
-- official_tdcc_signal_date: 20260731
-- latest_tdcc_date: 20260731
-- tdcc_rows: 14
+- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
+- official_tdcc_signal_date: 20260807
+- latest_tdcc_date: 20260807
+- tdcc_rows: 15
 - tdcc_history_status: historical_only_noncurrent
 - tdcc_freshness_status: historical_only_noncurrent
 - tdcc_continuity_status: complete
@@ -171,7 +171,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260731
+- as_of_date: 20260807
 - over_400_ratio: 78.45
 - over_600_ratio: 75.36
 - over_800_ratio: 70.77
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260515,78.45,0.15,70.77,0,70.77,0,2,False,False
 20260522,78.45,0,70.77,0,70.77,0,0,False,False
 20260529,78.45,0,70.77,0,70.77,0,0,False,False
 20260605,78.45,0,70.77,0,70.77,0,0,False,False
@@ -199,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260717,78.45,0,70.77,0,70.77,0,0,False,False
 20260724,78.45,0,70.77,0,70.77,0,0,False,False
 20260731,78.45,0,70.77,0,70.77,0,0,False,False
+20260807,78.45,0,70.77,0,70.77,0,0,False,False
 ```
 
 ## Candidate Context

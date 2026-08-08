@@ -16,6 +16,9 @@ from validate_daily_published_model_snapshots import (  # noqa: E402
     ARTIFACTS,
     validate_current_report_snapshots,
 )
+from validate_repo_production_inventory import (  # noqa: E402
+    is_preauthorized_daily_full_checkpoint_replay_migration,
+)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -797,6 +800,11 @@ def validate_pr_safe_snapshot_contract(
         strict_surface_changes,
         repository_root=repository_root,
     ) or is_registered_research_validator_workflow_migration(
+        base_ref,
+        changed_paths,
+        strict_surface_changes,
+        repository_root=repository_root,
+    ) or is_preauthorized_daily_full_checkpoint_replay_migration(
         base_ref,
         changed_paths,
         strict_surface_changes,

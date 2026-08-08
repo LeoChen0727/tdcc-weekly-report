@@ -130,6 +130,125 @@ PR_SAFE_ADVANCED_TEST = "tests/test_repo_advanced_integrity_pr_safe.py"
 PR_SAFE_AUTHORIZED_STAGE1_PATHS = frozenset(
     {PR_SAFE_ADVANCED_HELPER, PR_SAFE_ADVANCED_TEST}
 )
+PR_SAFE_SNAPSHOT_MIGRATION_ID = "daily-full-checkpoint-replay-snapshot-pr-safe-v1"
+PR_SAFE_SNAPSHOT_HELPER = "scripts/validate_daily_published_model_snapshots_pr_safe.py"
+PR_SAFE_SNAPSHOT_TEST = "tests/test_daily_published_model_snapshots_pr_safe.py"
+PR_SAFE_SNAPSHOT_LIFECYCLE_INVENTORY = "config/repo_file_lifecycle_inventory.csv"
+PR_SAFE_SNAPSHOT_AUTHORIZED_PATHS = frozenset(
+    {
+        PR_SAFE_SNAPSHOT_HELPER,
+        PR_SAFE_SNAPSHOT_TEST,
+        PR_SAFE_SNAPSHOT_LIFECYCLE_INVENTORY,
+    }
+)
+PR_SAFE_SNAPSHOT_SELF_STRICT_SURFACES = frozenset({PR_SAFE_SNAPSHOT_HELPER})
+PR_SAFE_SNAPSHOT_BASE_CONTENT_REF_SHA = (
+    "6a37e30797006397146bdbc6d29c51560c48ef9a"
+)
+PR_SAFE_SNAPSHOT_BASE_HELPER_SHA256 = (
+    "745dd9582fc1d272615c57990ac6173157c33120e7da51e787dd3122e8c16532"
+)
+PR_SAFE_SNAPSHOT_BASE_TEST_SHA256 = (
+    "85e192cb342cd135cc3a368be701abe39945a7c07c34ecd3d5271b040f092651"
+)
+PR_SAFE_SNAPSHOT_CURRENT_HELPER_SHA256 = (
+    "9021ef2f921514d1bc781aaf4adec87a9a573630153a9a4d28536dc35daf0bf3"
+)
+PR_SAFE_SNAPSHOT_CURRENT_TEST_SHA256 = (
+    "05d47d133b2afe0654c1c9755c632ecafdd6b12e5f9311d05a12c105b835d641"
+)
+PR_SAFE_SNAPSHOT_BASE_LIFECYCLE_INVENTORY_SHA256 = (
+    "88fb62d8b1ea278b52939a433f1cdf210cdf081fe89a287739d8900f5d286e88"
+)
+PR_SAFE_SNAPSHOT_CURRENT_LIFECYCLE_INVENTORY_SHA256 = (
+    "45eae9722c4d8587ff483a8e550eb5054cc8a6ab26a836d7f8f80e30a9c3a3d7"
+)
+PR_SAFE_SNAPSHOT_REQUIRED_MODE = "100644"
+PR_SAFE_ALL_AUTHORIZED_MIGRATION_PATHS = (
+    PR_SAFE_AUTHORIZED_STAGE1_PATHS | PR_SAFE_SNAPSHOT_AUTHORIZED_PATHS
+)
+PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_TARGET_ID = (
+    "daily-full-checkpoint-replay-20260807-v1"
+)
+PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_STRICT_SURFACES = frozenset(
+    {".github/workflows/daily_full_pipeline.yml"}
+)
+PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_BASE_SHA256_BY_PATH = {
+    ".github/workflows/daily_full_pipeline.yml": (
+        "09bf4b8e3fd5fcc1861f132015c758fd25c4574584efcf257881385cf719d67e"
+    ),
+    ".github/workflows/daily_full_validation_replay_20260807.yml": None,
+    "config/repo_file_lifecycle_inventory.csv": (
+        "88fb62d8b1ea278b52939a433f1cdf210cdf081fe89a287739d8900f5d286e88"
+    ),
+    "config/repo_production_inventory.csv": (
+        "359a3419a6ad7e043d9649a0efe89e1b4ed40365d1640f7d3d8fa06909f6092a"
+    ),
+    "scripts/daily_full_validation_replay_checkpoint.py": None,
+    "scripts/run_daily_full_validation_replay.py": None,
+    "scripts/validate_daily_full_validation_replay.py": None,
+    "scripts/validate_repo_file_lifecycle_inventory.py": (
+        "81030020cd36377676a1c11c6827a67ecbc09d3edf1f152ad6269ff3cdcdd882"
+    ),
+    "tests/test_daily_full_validation_replay.py": None,
+}
+PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_TARGET_SHA256_BY_PATH = {
+    ".github/workflows/daily_full_pipeline.yml": (
+        "8a1b02295fb3e78420952fda03de86007b1ae0bd48033dea4467aec5085e42e3"
+    ),
+    ".github/workflows/daily_full_validation_replay_20260807.yml": (
+        "9ba1da323f7aa4ed0501e702abbd14d511cf697138c247bdb92e033f43a96831"
+    ),
+    "config/repo_file_lifecycle_inventory.csv": (
+        "d6dbfe937b738afbbbf342af1ffa7e43145851248687ca40ca4f4953d411ed99"
+    ),
+    "config/repo_production_inventory.csv": (
+        "675f8d6abdd5bbcc7f911739ee1d3f9439353cfc6375b415070f4da4ce7dd533"
+    ),
+    "scripts/daily_full_validation_replay_checkpoint.py": (
+        "d6f02d338095bcf6c9d6cafd0df53e26a974a380dbe5dd24e0c5fcd01a88b348"
+    ),
+    "scripts/run_daily_full_validation_replay.py": (
+        "3d018092dea4a63c5f25e95040d36777149d0c60cfc32048306e2eb567506d9c"
+    ),
+    "scripts/validate_daily_full_validation_replay.py": (
+        "4cf31195f56ef0f39b89312ee3b01b62e011d26c648da66f4e5d82fc2db2e3db"
+    ),
+    "scripts/validate_repo_file_lifecycle_inventory.py": (
+        "bbdd0793bab756c04d5536ef7c9aaec75569a9f78ad5eaa3deff012e49e71aab"
+    ),
+    "tests/test_daily_full_validation_replay.py": (
+        "8cfba5db6a560d2b5ec7bd948fa890a4d43a1cb48f0d65124f42853b75b2b787"
+    ),
+}
+PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_PATHS = frozenset(
+    PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_TARGET_SHA256_BY_PATH
+)
+PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_WORKFLOW_ANCHOR = (
+    "      - name: Build volume attack theme layer\n"
+)
+PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_WORKFLOW_INSERTION = """      - name: Create failure-safe immutable pre-step41 checkpoint
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -B scripts/run_daily_full_validation_replay.py capture-production-checkpoint \\
+            --repo-root . \\
+            --runner-temp "$RUNNER_TEMP/daily-full-pre-step41-checkpoint-work" \\
+            --replay-date "$EXPECTED_MAIN_PRICE_DATE" \\
+            --source-sha "$GITHUB_SHA" \\
+            --run-id "$GITHUB_RUN_ID" \\
+            --bundle-dir "$RUNNER_TEMP/daily-full-pre-step41-checkpoint"
+
+      - name: Upload failure-safe immutable pre-step41 checkpoint
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-full-pre-step41-checkpoint-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/daily-full-pre-step41-checkpoint/
+          if-no-files-found: error
+          retention-days: 30
+
+"""
 PR_SAFE_RETAINED_AUTHORIZATION_ROWS = (
     {
         "migration_id": "additive-research-validation-registration-pr-safe-v1",
@@ -166,7 +285,26 @@ PR_SAFE_RETAINED_AUTHORIZATION_ROWS = (
         "changed_paths": f"{PR_SAFE_ADVANCED_HELPER};{PR_SAFE_ADVANCED_TEST}",
     },
 )
-PR_SAFE_TRIGGER_PATHS = tuple(sorted(PR_SAFE_AUTHORIZED_STAGE1_PATHS))
+PR_SAFE_CONSUMED_AUTHORIZATION_ROWS = (
+    {
+        "migration_id": "additive-research-validation-registration-pr-safe-v3",
+        "status": "preauthorized",
+        "approval_reference": (
+            "user_authorized_stage1_v3_collision_free_fixture_preauthorization_20260803"
+        ),
+        "base_helper_sha256": (
+            "5a05baa9d505152c5bacf456116be4c896db08e55a14a37c1d46074a810a8e8c"
+        ),
+        "current_helper_sha256": (
+            "bfc01dc51857f2944b88475d4ae8f460fc930a7c0ea75b1f1345b9e7e44d463c"
+        ),
+        "current_test_sha256": (
+            "d99d14062787e06360e9956b645851c2b84a01ec7c4c55a48fd6c2fcb519defe"
+        ),
+        "changed_paths": f"{PR_SAFE_ADVANCED_HELPER};{PR_SAFE_ADVANCED_TEST}",
+    },
+)
+PR_SAFE_TRIGGER_PATHS = tuple(sorted(PR_SAFE_ALL_AUTHORIZED_MIGRATION_PATHS))
 PR_SAFE_IMMUTABLE_TRUST_ROOT_PATHS = frozenset(
     {
         PR_SAFE_BASE_GUARD_WORKFLOW,
@@ -1542,6 +1680,227 @@ def canonical_blob_sha256(payload: bytes) -> str:
     return hashlib.sha256(canonical).hexdigest()
 
 
+def pr_safe_migration_contract_for_paths(
+    changed_paths: set[str],
+) -> tuple[str, str, str, frozenset[str]] | None:
+    if changed_paths == PR_SAFE_AUTHORIZED_STAGE1_PATHS:
+        return (
+            PR_SAFE_ADDITIVE_RESEARCH_MIGRATION_ID,
+            PR_SAFE_ADVANCED_HELPER,
+            PR_SAFE_ADVANCED_TEST,
+            PR_SAFE_AUTHORIZED_STAGE1_PATHS,
+        )
+    if changed_paths == PR_SAFE_SNAPSHOT_AUTHORIZED_PATHS:
+        return (
+            PR_SAFE_SNAPSHOT_MIGRATION_ID,
+            PR_SAFE_SNAPSHOT_HELPER,
+            PR_SAFE_SNAPSHOT_TEST,
+            PR_SAFE_SNAPSHOT_AUTHORIZED_PATHS,
+        )
+    return None
+
+
+def _pr_safe_repo_ref_is_ancestor(
+    repository_root: Path,
+    ancestor: str,
+    descendant: str,
+) -> bool:
+    try:
+        result = subprocess.run(
+            ["git", "merge-base", "--is-ancestor", ancestor, descendant],
+            cwd=repository_root,
+            check=False,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            timeout=30,
+        )
+    except (OSError, subprocess.TimeoutExpired):
+        return False
+    return result.returncode == 0
+
+
+def _pr_safe_repo_blob(
+    repository_root: Path,
+    ref: str,
+    path: str,
+) -> bytes | None:
+    try:
+        result = subprocess.run(
+            ["git", "show", f"{ref}:{path}"],
+            cwd=repository_root,
+            check=False,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            timeout=30,
+        )
+    except (OSError, subprocess.TimeoutExpired):
+        return None
+    return result.stdout if result.returncode == 0 else None
+
+
+def _pr_safe_repo_blob_mode(
+    repository_root: Path,
+    ref: str,
+    path: str,
+) -> str | None:
+    try:
+        result = subprocess.run(
+            ["git", "ls-tree", "-z", ref, "--", path],
+            cwd=repository_root,
+            check=False,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            timeout=30,
+        )
+    except (OSError, subprocess.TimeoutExpired):
+        return None
+    if result.returncode != 0:
+        return None
+    entries = [entry for entry in result.stdout.split(b"\0") if entry]
+    if len(entries) != 1 or b"\t" not in entries[0]:
+        return None
+    metadata, raw_path = entries[0].split(b"\t", 1)
+    fields = metadata.decode("ascii", errors="replace").split()
+    try:
+        observed_path = raw_path.decode("utf-8").replace("\\", "/")
+    except UnicodeError:
+        return None
+    if len(fields) != 3 or fields[1] != "blob" or observed_path != path:
+        return None
+    return fields[0]
+
+
+def is_preauthorized_daily_full_checkpoint_replay_migration(
+    base_ref: str,
+    changed_paths: set[str],
+    strict_surface_changes: set[str],
+    *,
+    repository_root: Path = ROOT,
+    head_ref: str = "HEAD",
+) -> bool:
+    normalized_paths = {str(path).replace("\\", "/") for path in changed_paths}
+    normalized_strict = {
+        str(path).replace("\\", "/") for path in strict_surface_changes
+    }
+    if normalized_paths == PR_SAFE_SNAPSHOT_AUTHORIZED_PATHS:
+        if normalized_strict != PR_SAFE_SNAPSHOT_SELF_STRICT_SURFACES:
+            return False
+        if not re.fullmatch(r"[0-9a-f]{40}", str(base_ref)):
+            return False
+        root = Path(repository_root).resolve()
+        if not _pr_safe_repo_ref_is_ancestor(
+            root,
+            PR_SAFE_SNAPSHOT_BASE_CONTENT_REF_SHA,
+            base_ref,
+        ):
+            return False
+        if not _pr_safe_repo_ref_is_ancestor(root, base_ref, head_ref):
+            return False
+        authorization_payload = _pr_safe_repo_blob(
+            root,
+            base_ref,
+            PR_SAFE_AUTHORIZATION_PATH,
+        )
+        if authorization_payload is None:
+            return False
+        errors = validate_pr_safe_control_plane_delta(
+            normalized_paths,
+            base_helper=_pr_safe_repo_blob(root, base_ref, PR_SAFE_SNAPSHOT_HELPER),
+            base_test=_pr_safe_repo_blob(root, base_ref, PR_SAFE_SNAPSHOT_TEST),
+            current_helper=_pr_safe_repo_blob(root, head_ref, PR_SAFE_SNAPSHOT_HELPER),
+            current_test=_pr_safe_repo_blob(root, head_ref, PR_SAFE_SNAPSHOT_TEST),
+            authorization_payload=authorization_payload,
+        )
+        if errors:
+            return False
+        base_lifecycle_inventory = _pr_safe_repo_blob(
+            root,
+            base_ref,
+            PR_SAFE_SNAPSHOT_LIFECYCLE_INVENTORY,
+        )
+        current_lifecycle_inventory = _pr_safe_repo_blob(
+            root,
+            head_ref,
+            PR_SAFE_SNAPSHOT_LIFECYCLE_INVENTORY,
+        )
+        if (
+            base_lifecycle_inventory is None
+            or canonical_blob_sha256(base_lifecycle_inventory)
+            != PR_SAFE_SNAPSHOT_BASE_LIFECYCLE_INVENTORY_SHA256
+            or current_lifecycle_inventory is None
+            or canonical_blob_sha256(current_lifecycle_inventory)
+            != PR_SAFE_SNAPSHOT_CURRENT_LIFECYCLE_INVENTORY_SHA256
+        ):
+            return False
+        for ref in (base_ref, head_ref):
+            for path in sorted(PR_SAFE_SNAPSHOT_AUTHORIZED_PATHS):
+                if _pr_safe_repo_blob_mode(root, ref, path) != PR_SAFE_SNAPSHOT_REQUIRED_MODE:
+                    return False
+        return True
+    if normalized_paths != PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_PATHS:
+        return False
+    if normalized_strict != PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_STRICT_SURFACES:
+        return False
+    if not re.fullmatch(r"[0-9a-f]{40}", str(base_ref)):
+        return False
+
+    root = Path(repository_root).resolve()
+    if not _pr_safe_repo_ref_is_ancestor(
+        root,
+        PR_SAFE_SNAPSHOT_BASE_CONTENT_REF_SHA,
+        base_ref,
+    ):
+        return False
+    if not _pr_safe_repo_ref_is_ancestor(root, base_ref, head_ref):
+        return False
+
+    base_blobs: dict[str, bytes | None] = {}
+    current_blobs: dict[str, bytes] = {}
+    for path in sorted(PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_PATHS):
+        base_blob = _pr_safe_repo_blob(root, base_ref, path)
+        current_blob = _pr_safe_repo_blob(root, head_ref, path)
+        expected_base_sha = PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_BASE_SHA256_BY_PATH[
+            path
+        ]
+        if expected_base_sha is None:
+            if base_blob is not None or _pr_safe_repo_blob_mode(root, base_ref, path) is not None:
+                return False
+        else:
+            if base_blob is None or canonical_blob_sha256(base_blob) != expected_base_sha:
+                return False
+            if _pr_safe_repo_blob_mode(root, base_ref, path) != "100644":
+                return False
+        if current_blob is None:
+            return False
+        if canonical_blob_sha256(current_blob) != (
+            PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_TARGET_SHA256_BY_PATH[path]
+        ):
+            return False
+        if _pr_safe_repo_blob_mode(root, head_ref, path) != "100644":
+            return False
+        base_blobs[path] = base_blob
+        current_blobs[path] = current_blob
+
+    workflow_path = ".github/workflows/daily_full_pipeline.yml"
+    base_workflow_blob = base_blobs[workflow_path]
+    if base_workflow_blob is None:
+        return False
+    try:
+        base_workflow = base_workflow_blob.decode("utf-8-sig")
+        current_workflow = current_blobs[workflow_path].decode("utf-8-sig")
+    except UnicodeError:
+        return False
+    base_workflow = base_workflow.replace("\r\n", "\n").replace("\r", "\n")
+    current_workflow = current_workflow.replace("\r\n", "\n").replace("\r", "\n")
+    anchor = PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_WORKFLOW_ANCHOR
+    insertion = PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_WORKFLOW_INSERTION
+    if base_workflow.count(anchor) != 1 or insertion in base_workflow:
+        return False
+    if current_workflow.count(anchor) != 1 or current_workflow.count(insertion) != 1:
+        return False
+    return current_workflow == base_workflow.replace(anchor, insertion + anchor, 1)
+
+
 def parse_pr_safe_authorizations(payload: bytes) -> tuple[list[dict[str, str]], list[str]]:
     try:
         reader = csv.DictReader(io.StringIO(payload.decode("utf-8-sig"), newline=""))
@@ -1571,6 +1930,11 @@ def validate_pr_safe_authorization_history(
     rows: list[dict[str, str]],
 ) -> list[str]:
     retained = list(PR_SAFE_RETAINED_AUTHORIZATION_ROWS)
+    if any(
+        row.get("migration_id", "").strip() == PR_SAFE_SNAPSHOT_MIGRATION_ID
+        for row in rows
+    ):
+        retained.extend(PR_SAFE_CONSUMED_AUTHORIZATION_ROWS)
     if rows[: len(retained)] != retained:
         return [
             "PR-safe authorization history must retain the exact append-only prefix"
@@ -1675,6 +2039,7 @@ def validate_pr_safe_control_plane_delta(
     changed_paths: set[str],
     *,
     base_helper: bytes | None,
+    base_test: bytes | None = None,
     current_helper: bytes | None,
     current_test: bytes | None,
     authorization_payload: bytes,
@@ -1701,15 +2066,23 @@ def validate_pr_safe_control_plane_delta(
                 "changed workflow requests checks/statuses write permission: " + path
             )
 
-    protected_changes = changed_paths & PR_SAFE_AUTHORIZED_STAGE1_PATHS
+    protected_changes = changed_paths & PR_SAFE_ALL_AUTHORIZED_MIGRATION_PATHS
     if not protected_changes:
         return errors
-    if changed_paths != PR_SAFE_AUTHORIZED_STAGE1_PATHS:
+    contract = pr_safe_migration_contract_for_paths(changed_paths)
+    if contract is None:
         errors.append(
             "PR-safe helper migration must change exactly the preauthorized paths: "
-            + ", ".join(sorted(PR_SAFE_AUTHORIZED_STAGE1_PATHS))
+            + "; or ".join(
+                ", ".join(sorted(paths))
+                for paths in (
+                    PR_SAFE_AUTHORIZED_STAGE1_PATHS,
+                    PR_SAFE_SNAPSHOT_AUTHORIZED_PATHS,
+                )
+            )
         )
         return errors
+    migration_id, _helper_path, _test_path, authorized_paths = contract
 
     authorizations, authorization_errors = parse_pr_safe_authorizations(
         authorization_payload
@@ -1720,7 +2093,7 @@ def validate_pr_safe_control_plane_delta(
         row
         for row in authorizations
         if row.get("migration_id", "").strip()
-        == PR_SAFE_ADDITIVE_RESEARCH_MIGRATION_ID
+        == migration_id
     ]
     if len(matching) != 1:
         errors.append(
@@ -1746,16 +2119,30 @@ def validate_pr_safe_control_plane_delta(
         errors.append("PR-safe migration authorization status is not preauthorized")
     if not authorization.get("approval_reference", "").strip():
         errors.append("PR-safe migration authorization lacks approval_reference")
-    if observed_paths != PR_SAFE_AUTHORIZED_STAGE1_PATHS:
+    if observed_paths != authorized_paths:
         errors.append("PR-safe migration authorization changed_paths mismatch")
     for field, observed in expected.items():
         if authorization.get(field, "").strip() != observed:
             errors.append(f"PR-safe migration authorization {field} mismatch")
-    marker = PR_SAFE_ADDITIVE_RESEARCH_MIGRATION_ID.encode("utf-8")
-    if marker in base_helper:
-        errors.append("PR-safe migration was already consumed by the base helper")
-    if marker not in current_helper:
-        errors.append("PR-safe migration id is absent from the current helper")
+    if migration_id == PR_SAFE_ADDITIVE_RESEARCH_MIGRATION_ID:
+        marker = migration_id.encode("utf-8")
+        if marker in base_helper:
+            errors.append("PR-safe migration was already consumed by the base helper")
+        if marker not in current_helper:
+            errors.append("PR-safe migration id is absent from the current helper")
+    else:
+        snapshot_expected = {
+            "base_helper_sha256": PR_SAFE_SNAPSHOT_BASE_HELPER_SHA256,
+            "current_helper_sha256": PR_SAFE_SNAPSHOT_CURRENT_HELPER_SHA256,
+            "current_test_sha256": PR_SAFE_SNAPSHOT_CURRENT_TEST_SHA256,
+        }
+        for field, expected_sha in snapshot_expected.items():
+            if expected[field] != expected_sha:
+                errors.append(f"snapshot preauthorization pinned {field} mismatch")
+        if base_test is None:
+            errors.append("snapshot preauthorization base test blob must exist")
+        elif canonical_blob_sha256(base_test) != PR_SAFE_SNAPSHOT_BASE_TEST_SHA256:
+            errors.append("snapshot preauthorization pinned base_test_sha256 mismatch")
     return errors
 
 
@@ -1842,7 +2229,7 @@ def validate_pr_safe_regular_blob_modes(
 ) -> list[str]:
     errors: list[str] = []
     protected_paths = (
-        PR_SAFE_IMMUTABLE_TRUST_ROOT_PATHS | PR_SAFE_AUTHORIZED_STAGE1_PATHS
+        PR_SAFE_IMMUTABLE_TRUST_ROOT_PATHS | PR_SAFE_ALL_AUTHORIZED_MIGRATION_PATHS
     )
     for ref_label, ref in (("base", base_sha), ("head", head_sha)):
         for path in sorted(protected_paths):
@@ -1864,6 +2251,42 @@ def validate_pr_safe_regular_blob_modes(
             ):
                 errors.append(
                     "PR-safe protected path must remain a regular blob: "
+                    f"ref={ref_label} path={path} mode={mode} type={object_type} "
+                    f"observed_path={observed_path}"
+                )
+    return errors
+
+
+def validate_pr_safe_exact_migration_blob_modes(
+    changed_paths: set[str],
+    base_sha: str,
+    head_sha: str,
+) -> list[str]:
+    contract = pr_safe_migration_contract_for_paths(changed_paths)
+    if contract is None or contract[0] != PR_SAFE_SNAPSHOT_MIGRATION_ID:
+        return []
+
+    errors: list[str] = []
+    for ref_label, ref in (("base", base_sha), ("head", head_sha)):
+        for path in sorted(PR_SAFE_SNAPSHOT_AUTHORIZED_PATHS):
+            try:
+                entry = git_tree_entry_at_ref(ref, path)
+            except RuntimeError as exc:
+                errors.append(str(exc))
+                continue
+            if entry is None:
+                errors.append(
+                    f"snapshot preauthorization path is missing from {ref_label}: {path}"
+                )
+                continue
+            mode, object_type, _object_id, observed_path = entry
+            if (
+                mode != PR_SAFE_SNAPSHOT_REQUIRED_MODE
+                or object_type != "blob"
+                or observed_path != path
+            ):
+                errors.append(
+                    "snapshot preauthorization requires exact regular blob mode: "
                     f"ref={ref_label} path={path} mode={mode} type={object_type} "
                     f"observed_path={observed_path}"
                 )
@@ -1895,10 +2318,23 @@ def validate_pr_safe_control_plane_migration(base_sha: str, head_sha: str) -> li
         )
         changed_paths, diff_errors = parse_git_name_status_z(diff_payload)
         errors.extend(diff_errors)
-        if changed_paths != PR_SAFE_AUTHORIZED_STAGE1_PATHS:
+        contract = pr_safe_migration_contract_for_paths(changed_paths)
+        if contract is None:
             errors.append(
                 "PR-safe audit requires exactly the preauthorized changed paths: "
-                + ", ".join(sorted(PR_SAFE_AUTHORIZED_STAGE1_PATHS))
+                + "; or ".join(
+                    ", ".join(sorted(paths))
+                    for paths in (
+                        PR_SAFE_AUTHORIZED_STAGE1_PATHS,
+                        PR_SAFE_SNAPSHOT_AUTHORIZED_PATHS,
+                    )
+                )
+            )
+            contract = (
+                PR_SAFE_ADDITIVE_RESEARCH_MIGRATION_ID,
+                PR_SAFE_ADVANCED_HELPER,
+                PR_SAFE_ADVANCED_TEST,
+                PR_SAFE_AUTHORIZED_STAGE1_PATHS,
             )
         authorization_payload = git_blob_at_ref(base_sha, PR_SAFE_AUTHORIZATION_PATH)
         lifecycle_authorization_payload = git_blob_at_ref(
@@ -1909,6 +2345,9 @@ def validate_pr_safe_control_plane_migration(base_sha: str, head_sha: str) -> li
         return [*errors, f"cannot load base-owned PR-safe evidence: {exc}"]
 
     errors.extend(validate_pr_safe_regular_blob_modes(base_sha, head_sha))
+    errors.extend(
+        validate_pr_safe_exact_migration_blob_modes(changed_paths, base_sha, head_sha)
+    )
     if authorization_payload is None:
         errors.append("base-owned PR-safe authorization ledger is missing")
         authorization_payload = b""
@@ -1923,9 +2362,10 @@ def validate_pr_safe_control_plane_migration(base_sha: str, head_sha: str) -> li
     errors.extend(
         validate_pr_safe_control_plane_delta(
             changed_paths,
-            base_helper=git_blob_at_ref(base_sha, PR_SAFE_ADVANCED_HELPER),
-            current_helper=git_blob_at_ref(head_sha, PR_SAFE_ADVANCED_HELPER),
-            current_test=git_blob_at_ref(head_sha, PR_SAFE_ADVANCED_TEST),
+            base_helper=git_blob_at_ref(base_sha, contract[1]),
+            base_test=git_blob_at_ref(base_sha, contract[2]),
+            current_helper=git_blob_at_ref(head_sha, contract[1]),
+            current_test=git_blob_at_ref(head_sha, contract[2]),
             authorization_payload=authorization_payload,
             changed_workflow_blobs={
                 path: git_blob_at_ref(head_sha, path)
@@ -2025,6 +2465,7 @@ def build_pr_safe_audit_manifest(
     )
 
     changed_paths: set[str] = set()
+    migration_contract: tuple[str, str, str, frozenset[str]] | None = None
     try:
         diff_payload = git_output_bytes(
             "diff",
@@ -2038,7 +2479,8 @@ def build_pr_safe_audit_manifest(
         )
         changed_paths, diff_errors = parse_git_name_status_z(diff_payload)
         errors.extend(diff_errors)
-        if changed_paths != PR_SAFE_AUTHORIZED_STAGE1_PATHS:
+        migration_contract = pr_safe_migration_contract_for_paths(changed_paths)
+        if migration_contract is None:
             errors.append(
                 "audit manifest changed paths do not match the exact preauthorization"
             )
@@ -2065,11 +2507,12 @@ def build_pr_safe_audit_manifest(
         )
         errors.extend(lifecycle_errors)
 
+    migration_id = migration_contract[0] if migration_contract is not None else ""
     matching_authorizations = [
         row
         for row in authorization_rows
         if row.get("migration_id", "").strip()
-        == PR_SAFE_ADDITIVE_RESEARCH_MIGRATION_ID
+        == migration_id
     ]
     migration = matching_authorizations[0] if len(matching_authorizations) == 1 else {}
     protected_blobs = {
@@ -2078,9 +2521,11 @@ def build_pr_safe_audit_manifest(
             "head": _pr_safe_blob_evidence(head_sha, path),
         }
         for path in sorted(
-            PR_SAFE_IMMUTABLE_TRUST_ROOT_PATHS | PR_SAFE_AUTHORIZED_STAGE1_PATHS
+            PR_SAFE_IMMUTABLE_TRUST_ROOT_PATHS
+            | PR_SAFE_ALL_AUTHORIZED_MIGRATION_PATHS
         )
     }
+    authorized_paths = migration_contract[3] if migration_contract is not None else frozenset()
     unique_errors = list(dict.fromkeys(errors))
     return {
         "schema_version": PR_SAFE_AUDIT_MANIFEST_SCHEMA_VERSION,
@@ -2103,11 +2548,10 @@ def build_pr_safe_audit_manifest(
         "head_sha": head_sha.lower(),
         "checkout_sha": checkout_sha.lower(),
         "changed_paths": sorted(changed_paths),
-        "changed_path_allowlist": sorted(PR_SAFE_AUTHORIZED_STAGE1_PATHS),
-        "changed_paths_match_allowlist": changed_paths
-        == PR_SAFE_AUTHORIZED_STAGE1_PATHS,
+        "changed_path_allowlist": sorted(authorized_paths),
+        "changed_paths_match_allowlist": changed_paths == authorized_paths,
         "manual_gate_eligible": not unique_errors
-        and changed_paths == PR_SAFE_AUTHORIZED_STAGE1_PATHS,
+        and changed_paths == authorized_paths,
         "preauthorization": {
             "path": PR_SAFE_AUTHORIZATION_PATH,
             "canonical_sha256": (

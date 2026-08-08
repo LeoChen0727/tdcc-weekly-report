@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0076 期街口道瓊銅
 
 ## Metadata
-- generated_at: 2026-08-03 22:26:14 Asia/Taipei
+- generated_at: 2026-08-08 16:00:14 Asia/Taipei
 - stock_id: 0076
 - stock_name: 期街口道瓊銅
 - packet_status: insufficient_price_data
 - latest_price_date: 
 - price_rows: 0
-- current_main_price_date: 20260731
+- current_main_price_date: 20260805
 - current_main_price_universe_status: historical_only_noncurrent
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260731-0b236a2d4a043618
-- official_tdcc_signal_date: 20260731
+- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
+- official_tdcc_signal_date: 20260807
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing

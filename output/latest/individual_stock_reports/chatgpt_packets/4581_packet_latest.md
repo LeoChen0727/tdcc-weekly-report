@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4581 光隆精密-KY
 
 ## Metadata
-- generated_at: 2026-08-03 22:27:53 Asia/Taipei
+- generated_at: 2026-08-08 16:01:55 Asia/Taipei
 - stock_id: 4581
 - stock_name: 光隆精密-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260731
-- price_rows: 312
-- current_main_price_date: 20260731
+- latest_price_date: 20260805
+- price_rows: 315
+- current_main_price_date: 20260805
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260731-0b236a2d4a043618
-- official_tdcc_signal_date: 20260731
-- latest_tdcc_date: 20260731
-- tdcc_rows: 14
+- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
+- official_tdcc_signal_date: 20260807
+- latest_tdcc_date: 20260807
+- tdcc_rows: 15
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,31 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260731
-- open: 50.4
-- high: 50.9
-- low: 50.4
-- close: 50.9
-- volume: 2010
-- ma5: 50.72
-- ema23_primary: 50.6
+- date: 20260805
+- open: 51.3
+- high: 51.3
+- low: 50.8
+- close: 51
+- volume: 4131
+- ma5: 50.8
+- ema23_primary: 50.7
 - distance_to_ema23_pct: 0.59
-- ma20: 50.72
-- ma60: 50.17
-- ma120: 50.14
-- return_5d: -0.59
-- return_20d: 1.6
-- volume_ratio: 0.14
-- distance_to_ma20_pct_auxiliary: 0.35
-- distance_to_high_60_pct: -3.6
+- ma20: 50.8
+- ma60: 50.2
+- ma120: 50.13
+- return_5d: 0.39
+- return_20d: 0.99
+- volume_ratio: 0.29
+- distance_to_ma20_pct_auxiliary: 0.39
+- distance_to_high_60_pct: -2.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260703,50,50.2,50,50.2,6006,49.96,0.48,49.92,49.99,0.45
-20260706,50.2,50.8,50.2,50.8,12000,50.03,1.54,49.97,50,0.93
-20260707,50.7,50.7,50.4,50.5,20029,50.07,0.86,50,50.01,1.48
 20260708,50.3,50.5,50.1,50.5,17032,50.1,0.79,50.05,50.02,1.3
 20260709,50.5,50.5,50.5,50.5,1056,50.14,0.72,50.09,50.02,0.08
 20260713,50.8,51,50.6,51,35228,50.21,1.58,50.15,50.04,2.55
@@ -168,10 +165,13 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260729,51.9,51.9,50,50.8,50632,50.63,0.34,50.69,50.15,3.4
 20260730,50.1,50.5,49.9,50,10239,50.58,-1.14,50.68,50.15,0.7
 20260731,50.4,50.9,50.4,50.9,2010,50.6,0.59,50.72,50.17,0.14
+20260803,51.1,51.1,50.7,50.8,5131,50.62,0.36,50.75,50.17,0.35
+20260804,49.95,51.6,49.95,51.3,18037,50.68,1.23,50.77,50.18,1.22
+20260805,51.3,51.3,50.8,51,4131,50.7,0.59,50.8,50.2,0.29
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260731
+- as_of_date: 20260807
 - over_400_ratio: 62.95
 - over_600_ratio: 59.85
 - over_800_ratio: 59.85
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260515,62.95,0,59.85,0,46.35,0,0,False,False
 20260522,62.95,0,59.85,0,46.35,0,0,False,False
 20260529,62.95,0,59.85,0,46.35,0,0,False,False
 20260605,62.95,0,59.85,0,46.35,0,0,False,False
@@ -199,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260717,62.95,0,59.85,0,46.35,0,0,False,False
 20260724,62.95,0,59.85,0,46.35,0,0,False,False
 20260731,62.95,0,59.85,0,46.35,0,0,False,False
+20260807,62.95,0,59.85,0,46.35,0,0,False,False
 ```
 
 ## Candidate Context

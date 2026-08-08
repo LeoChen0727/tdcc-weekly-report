@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7835 永悅健康-創
 
 ## Metadata
-- generated_at: 2026-08-03 22:29:05 Asia/Taipei
+- generated_at: 2026-08-08 16:03:10 Asia/Taipei
 - stock_id: 7835
 - stock_name: 永悅健康-創
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260731
-- price_rows: 6
-- current_main_price_date: 20260731
+- latest_price_date: 20260805
+- price_rows: 9
+- current_main_price_date: 20260805
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260731-0b236a2d4a043618
-- official_tdcc_signal_date: 20260731
+- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
+- official_tdcc_signal_date: 20260807
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -125,23 +125,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260731
-- open: 29.75
-- high: 30
-- low: 28.4
-- close: 29.8
-- volume: 91417
-- ma5: 33.03
-- ema23_primary: 37.4
-- distance_to_ema23_pct: -20.32
-- ma20: 34.18
-- ma60: 34.18
-- ma120: 34.18
-- return_5d: -25.41
+- date: 20260805
+- open: 28.35
+- high: 28.35
+- low: 27.75
+- close: 28.05
+- volume: 52310
+- ma5: 29.25
+- ema23_primary: 35.38
+- distance_to_ema23_pct: -20.71
+- ma20: 32.33
+- ma60: 32.33
+- ma120: 32.33
+- return_5d: -15
 - return_20d:
-- volume_ratio: 0.35
-- distance_to_ma20_pct_auxiliary: -12.82
-- distance_to_high_60_pct: -40.4
+- volume_ratio: 0.28
+- distance_to_ma20_pct_auxiliary: -13.23
+- distance_to_high_60_pct: -43.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -153,6 +153,9 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260729,35.2,35.2,32,33,75177,,,,,
 20260730,34.7,34.7,29,30.6,118646,38.09,-19.66,35.06,35.06,0.41
 20260731,29.75,30,28.4,29.8,91417,37.4,-20.32,34.18,34.18,0.35
+20260803,29.5,29.5,28.15,29,29199,36.7,-20.98,33.44,33.44,0.13
+20260804,29.1,29.1,28.35,28.8,23104,36.04,-20.09,32.86,32.86,0.12
+20260805,28.35,28.35,27.75,28.05,52310,35.38,-20.71,32.33,32.33,0.28
 ```
 
 ## Latest TDCC Snapshot

@@ -5,7 +5,10 @@ on:
   pull_request_target:
     types: [opened, synchronize, reopened, edited]
     paths:
+      - "config/repo_file_lifecycle_inventory.csv"
+      - "scripts/validate_daily_published_model_snapshots_pr_safe.py"
       - "scripts/validate_repo_advanced_integrity_pr_safe.py"
+      - "tests/test_daily_published_model_snapshots_pr_safe.py"
       - "tests/test_repo_advanced_integrity_pr_safe.py"
 
 permissions:

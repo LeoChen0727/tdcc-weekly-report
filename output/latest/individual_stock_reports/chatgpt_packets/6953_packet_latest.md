@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6953 家碩
 
 ## Metadata
-- generated_at: 2026-08-03 22:28:53 Asia/Taipei
+- generated_at: 2026-08-08 16:02:58 Asia/Taipei
 - stock_id: 6953
 - stock_name: 家碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260731
-- price_rows: 180
-- current_main_price_date: 20260731
+- latest_price_date: 20260805
+- price_rows: 183
+- current_main_price_date: 20260805
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260731-0b236a2d4a043618
-- official_tdcc_signal_date: 20260731
-- latest_tdcc_date: 20260731
-- tdcc_rows: 14
+- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
+- official_tdcc_signal_date: 20260807
+- latest_tdcc_date: 20260807
+- tdcc_rows: 15
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,31 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260731
-- open: 199
-- high: 205.5
-- low: 199
-- close: 205
-- volume: 42000
-- ma5: 204.1
-- ema23_primary: 219.09
-- distance_to_ema23_pct: -6.43
-- ma20: 220.5
-- ma60: 236.68
-- ma120: 233.89
-- return_5d: -6.61
-- return_20d: -15.11
-- volume_ratio: 0.85
-- distance_to_ma20_pct_auxiliary: -7.03
-- distance_to_high_60_pct: -30.15
+- date: 20260805
+- open: 211.5
+- high: 217
+- low: 211.5
+- close: 215
+- volume: 41000
+- ma5: 207.1
+- ema23_primary: 217.49
+- distance_to_ema23_pct: -1.15
+- ma20: 217.05
+- ma60: 233.23
+- ma120: 233.17
+- return_5d: 11.11
+- return_20d: -6.11
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: -0.94
+- distance_to_high_60_pct: -23.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260703,236.5,239,235,238.5,32000,236.69,0.77,231.9,245.94,0.43
-20260706,243,247,236.5,237.5,46000,236.76,0.31,231.93,246.28,0.71
-20260707,238,238,226.5,229,66000,236.11,-3.01,232,246.71,1.05
 20260708,228,229.5,224.5,227,47000,235.35,-3.55,231.8,247.18,0.76
 20260709,228,230,226,228,23000,234.74,-2.87,232.32,247.45,0.4
 20260713,229.5,234,222.5,228.5,49000,234.22,-2.44,232.93,247.78,0.94
@@ -167,10 +165,13 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260729,207,207,191,193.5,101000,222.72,-13.12,224.82,239.68,1.94
 20260730,193,200.5,189.5,194.5,52000,220.37,-11.74,222.32,238.05,1.06
 20260731,199,205.5,199,205,42000,219.09,-6.43,220.5,236.68,0.85
+20260803,205,217.5,205,210,31000,218.33,-3.82,219.07,235.44,0.63
+20260804,204.5,214.5,204.5,211,19000,217.72,-3.09,217.75,234.33,0.4
+20260805,211.5,217,211.5,215,41000,217.49,-1.15,217.05,233.23,0.88
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260731
+- as_of_date: 20260807
 - over_400_ratio: 63.56
 - over_600_ratio: 63.56
 - over_800_ratio: 56.2
@@ -186,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260515,63.56,0,56.2,0,56.2,0,0,False,False
 20260522,63.56,0,56.2,0,56.2,0,0,False,False
 20260529,63.56,0,56.2,0,56.2,0,0,False,False
 20260605,63.56,0,56.2,0,56.2,0,0,False,False
@@ -198,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260717,63.56,0,56.2,0,56.2,0,0,False,False
 20260724,63.56,0,56.2,0,56.2,0,0,False,False
 20260731,63.56,0,56.2,0,56.2,0,0,False,False
+20260807,63.56,0,56.2,0,56.2,0,0,False,False
 ```
 
 ## Candidate Context
