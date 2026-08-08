@@ -779,3 +779,12 @@ def test_freshness_canonical_self_migration_is_exact_and_one_time(
         {pr_safe.PR_SAFE_HELPER_PATH},
         repository_root=repo,
     )
+
+
+def test_snapshot_helper_delegates_checkpoint_replay_to_base_owned_guard() -> None:
+    source = (
+        ROOT / pr_safe.PR_SAFE_HELPER_PATH
+    ).read_text(encoding="utf-8")
+    assert "from validate_repo_production_inventory import" in source
+    assert "is_preauthorized_daily_full_checkpoint_replay_migration(" in source
+    assert "DAILY_FULL_CHECKPOINT_REPLAY_TARGET_SHA256" not in source
