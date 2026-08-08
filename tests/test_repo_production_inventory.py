@@ -771,6 +771,13 @@ def test_daily_full_checkpoint_replay_preauthorization_is_exact_and_fail_closed(
     monkeypatch: pytest.MonkeyPatch,
     tmp_path: Path,
 ) -> None:
+    lifecycle_path = "config/repo_file_lifecycle_inventory.csv"
+    assert inventory.PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_BASE_SHA256_BY_PATH[
+        lifecycle_path
+    ] == "45eae9722c4d8587ff483a8e550eb5054cc8a6ab26a836d7f8f80e30a9c3a3d7"
+    assert inventory.PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_TARGET_SHA256_BY_PATH[
+        lifecycle_path
+    ] == "57502d42204acbd2574cf720c3adc6f09c63d20a9ad4c8f47590377fe3f4c7c1"
     base_ref = "a" * 40
     base_blobs: dict[str, bytes | None] = {}
     target_blobs: dict[str, bytes] = {}
