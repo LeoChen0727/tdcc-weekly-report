@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import subprocess
 from pathlib import Path
 
@@ -782,6 +783,7 @@ def test_authoritative_revision_extends_20260806_price_history_then_replans_exac
             {**kwargs["env"], "GIT_INDEX_FILE": "verified-index"},
             tmp_path / "temporary-index",
             tmp_path / "pathspec",
+            tmp_path / "temporary-git-dir",
         ),
     )
     monkeypatch.setattr(
@@ -859,6 +861,221 @@ def test_authoritative_revision_extends_20260806_price_history_then_replans_exac
     )
     assert calls.count("authoritative historical source replay") == 1
     assert cleanup_calls == ["removed"]
+
+
+def test_validation_only_git_index_is_a_real_clean_synthetic_main_and_rejects_extra_drift(
+    tmp_path: Path,
+) -> None:
+    repo = tmp_path / "repo"
+    runner_temp = tmp_path / "runner-temp"
+    repo.mkdir()
+    runner_temp.mkdir()
+    _git(repo, "init", "-q", "--initial-branch=main")
+    _git(repo, "config", "user.email", "replay@example.invalid")
+    _git(repo, "config", "user.name", "Replay Test")
+    tracked_paths = sorted(
+        (
+            set(replay_runner.PRICE_HISTORY_EXTENSION_REQUIRED_FILES)
+            - {
+                "data/daily_price/20260807.csv",
+                "data/daily_price/daily_price_20260807.csv",
+            }
+        )
+        | {"data/stock_price_history/2330.csv", "unrelated.txt"}
+    )
+    for relative in tracked_paths:
+        path = repo / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text("baseline\n", encoding="utf-8")
+    _git(repo, "add", ".")
+    _git(repo, "commit", "-qm", "baseline")
+    source_sha = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=repo,
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.strip()
+    for relative in replay_runner.PRICE_HISTORY_EXTENSION_REQUIRED_FILES:
+        path = repo / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text("date,stock_id\n20260807,2330\n", encoding="utf-8")
+    stock_history = repo / "data/stock_price_history/2330.csv"
+    stock_history.write_text(
+        "date,stock_id\n20260806,2330\n20260807,2330\n",
+        encoding="utf-8",
+    )
+    entries = replay_runner.price_extension_status_entries(repo)
+    real_index_path, real_index_sha256 = replay_runner.real_index_identity(repo)
+    manifest = {
+        "source_sha": source_sha,
+        "real_index_path": str(real_index_path),
+        "real_index_sha256": real_index_sha256,
+        "files": [
+            {
+                **entry,
+                "bytes": (repo / entry["path"]).stat().st_size,
+                "sha256": replay_runner.sha256_file(repo / entry["path"]),
+            }
+            for entry in entries
+        ],
+    }
+    env = os.environ.copy()
+    producer_env, index_path, pathspec_path, git_dir_path = (
+        replay_runner.prepare_validation_only_git_index(
+            repo_root=repo,
+            runner_temp=runner_temp,
+            env=env,
+            manifest=manifest,
+        )
+    )
+    for args in (
+        ("diff", "--cached", "--quiet"),
+        ("diff", "--quiet"),
+    ):
+        assert subprocess.run(
+            ["git", *args], cwd=repo, env=producer_env, check=False
+        ).returncode == 0
+    assert subprocess.run(
+        ["git", "status", "--porcelain=v1", "--untracked-files=all"],
+        cwd=repo,
+        env=producer_env,
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout == ""
+    assert subprocess.run(
+        ["git", "rev-parse", "--abbrev-ref", "HEAD"],
+        cwd=repo,
+        env=producer_env,
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.strip() == "main"
+    assert subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=repo,
+        env=producer_env,
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.strip() == source_sha
+    replay_runner.assert_real_index_unchanged(
+        repo, real_index_path, real_index_sha256
+    )
+    replay_runner.remove_validation_only_git_index(
+        repo_root=repo,
+        index_path=index_path,
+        pathspec_path=pathspec_path,
+        git_dir_path=git_dir_path,
+        real_index_path=real_index_path,
+        real_index_sha256=real_index_sha256,
+        source_sha=source_sha,
+    )
+    assert not index_path.exists()
+    assert not pathspec_path.exists()
+    assert not git_dir_path.exists()
+
+    for mutation in ("head_ref", "head_tree", "index"):
+        producer_env, index_path, pathspec_path, git_dir_path = (
+            replay_runner.prepare_validation_only_git_index(
+                repo_root=repo,
+                runner_temp=runner_temp,
+                env=env,
+                manifest=manifest,
+            )
+        )
+        if mutation == "head_ref":
+            _git_env = producer_env
+            subprocess.run(
+                ["git", "update-ref", "refs/heads/not-main", "HEAD"],
+                cwd=repo,
+                env=_git_env,
+                check=True,
+            )
+            subprocess.run(
+                ["git", "symbolic-ref", "HEAD", "refs/heads/not-main"],
+                cwd=repo,
+                env=_git_env,
+                check=True,
+            )
+            expected_error = "synthetic branch drifted"
+        elif mutation == "head_tree":
+            subprocess.run(
+                ["git", "update-ref", "-d", f"refs/replace/{source_sha}"],
+                cwd=repo,
+                env=producer_env,
+                check=True,
+            )
+            expected_error = "synthetic replace ref drifted"
+        else:
+            index_drift_env = producer_env.copy()
+            index_drift_env["GIT_NO_REPLACE_OBJECTS"] = "1"
+            subprocess.run(
+                ["git", "read-tree", source_sha],
+                cwd=repo,
+                env=index_drift_env,
+                check=True,
+            )
+            expected_error = "synthetic index tree drifted"
+        with pytest.raises(
+            replay_runner.ValidationReplayError,
+            match=expected_error,
+        ):
+            replay_runner.assert_validation_only_git_baseline(
+                repo_root=repo,
+                producer_env=producer_env,
+                source_sha=source_sha,
+                expected_paths=[row["path"] for row in manifest["files"]],
+            )
+        replay_runner.remove_validation_only_git_index(
+            repo_root=repo,
+            index_path=index_path,
+            pathspec_path=pathspec_path,
+            git_dir_path=git_dir_path,
+            real_index_path=real_index_path,
+            real_index_sha256=real_index_sha256,
+            source_sha=source_sha,
+        )
+
+    (repo / "unrelated.txt").write_text("unexpected drift\n", encoding="utf-8")
+    with pytest.raises(
+        replay_runner.ValidationReplayError,
+        match="verify validation-only working tree baseline failed",
+    ):
+        replay_runner.prepare_validation_only_git_index(
+            repo_root=repo,
+            runner_temp=runner_temp,
+            env=env,
+            manifest=manifest,
+        )
+    replay_runner.assert_real_index_unchanged(
+        repo, real_index_path, real_index_sha256
+    )
+    assert not (runner_temp / "price-history-extension.git-index").exists()
+    assert not (runner_temp / "price-history-extension-paths.bin").exists()
+    assert not (runner_temp / "price-history-extension.git-dir").exists()
+
+    (repo / "unrelated.txt").write_text("baseline\n", encoding="utf-8")
+    (repo / "unexpected-untracked.txt").write_text(
+        "unexpected untracked drift\n", encoding="utf-8"
+    )
+    with pytest.raises(
+        replay_runner.ValidationReplayError,
+        match="did not preserve an exact clean baseline",
+    ):
+        replay_runner.prepare_validation_only_git_index(
+            repo_root=repo,
+            runner_temp=runner_temp,
+            env=env,
+            manifest=manifest,
+        )
+    replay_runner.assert_real_index_unchanged(
+        repo, real_index_path, real_index_sha256
+    )
+    assert not (runner_temp / "price-history-extension.git-index").exists()
+    assert not (runner_temp / "price-history-extension-paths.bin").exists()
+    assert not (runner_temp / "price-history-extension.git-dir").exists()
 
 
 def test_price_history_extension_manifest_fails_closed_on_source_or_hash_drift(
