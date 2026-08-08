@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4744 皇將
 
 ## Metadata
-- generated_at: 2026-08-03 22:27:55 Asia/Taipei
+- generated_at: 2026-08-08 16:01:57 Asia/Taipei
 - stock_id: 4744
 - stock_name: 皇將
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260731
-- price_rows: 181
-- current_main_price_date: 20260731
+- latest_price_date: 20260805
+- price_rows: 184
+- current_main_price_date: 20260805
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260731-0b236a2d4a043618
-- official_tdcc_signal_date: 20260731
-- latest_tdcc_date: 20260731
-- tdcc_rows: 36
+- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
+- official_tdcc_signal_date: 20260807
+- latest_tdcc_date: 20260807
+- tdcc_rows: 37
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,7 +101,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -126,31 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260731
-- open: 30
-- high: 31
-- low: 29
-- close: 30.05
-- volume: 47000
-- ma5: 29.3
-- ema23_primary: 29.64
-- distance_to_ema23_pct: 1.39
-- ma20: 29.62
-- ma60: 30.97
-- ma120: 31.98
-- return_5d: -1.8
-- return_20d: 20.2
-- volume_ratio: 0.35
-- distance_to_ma20_pct_auxiliary: 1.43
-- distance_to_high_60_pct: -22.65
+- date: 20260805
+- open: 29.8
+- high: 30.35
+- low: 26.9
+- close: 27.5
+- volume: 135000
+- ma5: 29.34
+- ema23_primary: 29.53
+- distance_to_ema23_pct: -6.86
+- ma20: 29.93
+- ma60: 30.8
+- ma120: 31.96
+- return_5d: -5.17
+- return_20d: -5.17
+- volume_ratio: 1.12
+- distance_to_ma20_pct_auxiliary: -8.12
+- distance_to_high_60_pct: -29.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260703,25.2,26.05,25,25.45,73000,28.38,-10.33,28.77,31.75,0.16
-20260706,25,27.15,25,27.15,138000,28.28,-3.99,28.38,31.65,0.3
-20260707,27.2,29.25,27.2,29,234000,28.34,2.33,28,31.58,0.53
 20260708,28.05,29.25,27.85,29.25,42000,28.42,2.94,27.57,31.5,0.1
 20260709,29.05,29.05,28.2,28.8,30000,28.45,1.24,27.14,31.43,0.08
 20260713,28.95,29.1,27.65,27.7,108000,28.39,-2.41,26.84,31.34,0.31
@@ -168,15 +164,18 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260729,29,29.2,28,29,50000,29.66,-2.23,29.18,31.05,0.37
 20260730,29.5,29.5,28.95,28.95,6000,29.6,-2.2,29.37,31,0.04
 20260731,30,31,29,30.05,47000,29.64,1.39,29.62,30.97,0.35
+20260803,30.5,30.5,30,30.4,12000,29.7,2.35,29.87,30.93,0.09
+20260804,30.4,30.4,29.35,29.8,33000,29.71,0.3,30,30.89,0.26
+20260805,29.8,30.35,26.9,27.5,135000,29.53,-6.86,29.93,30.8,1.12
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260731
-- over_400_ratio: 51.69
-- over_600_ratio: 46.38
+- as_of_date: 20260807
+- over_400_ratio: 51.55
+- over_600_ratio: 46.24
 - over_800_ratio: 40.05
 - over_1000_ratio: 35.2
-- over_400_change_1w: 0
+- over_400_change_1w: -0.14
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -187,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260515,51.63,1.27,39.36,2.01,33.19,3.71,24,True,True
 20260522,52.47,0.84,40.1,0.74,34.01,0.82,25,True,True
 20260529,52.92,0.45,40.54,0.44,34.25,0.24,26,True,True
 20260605,53.12,0.2,40.62,0.08,34.26,0.01,27,True,True
@@ -199,6 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260717,52.62,1.09,40.06,0.19,35.2,-0.01,2,False,True
 20260724,51.69,-0.93,40.05,-0.01,35.2,0,0,False,False
 20260731,51.69,0,40.05,0,35.2,0,0,False,False
+20260807,51.55,-0.14,40.05,0,35.2,0,0,False,False
 ```
 
 ## Candidate Context

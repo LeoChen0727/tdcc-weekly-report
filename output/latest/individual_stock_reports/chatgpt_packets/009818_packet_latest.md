@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009818 華南永昌NASDAQxT
 
 ## Metadata
-- generated_at: 2026-08-03 22:26:17 Asia/Taipei
+- generated_at: 2026-08-08 16:00:18 Asia/Taipei
 - stock_id: 009818
 - stock_name: 華南永昌NASDAQxT
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260731
-- price_rows: 49
-- current_main_price_date: 20260731
+- latest_price_date: 20260805
+- price_rows: 52
+- current_main_price_date: 20260805
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260731-0b236a2d4a043618
-- official_tdcc_signal_date: 20260731
+- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
+- official_tdcc_signal_date: 20260807
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -126,31 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260731
-- open: 19.4
-- high: 19.6
-- low: 19.4
-- close: 19.6
-- volume: 213355
-- ma5: 19.28
-- ema23_primary: 19.61
-- distance_to_ema23_pct: -0.05
-- ma20: 19.71
-- ma60: 19.66
-- ma120: 19.66
-- return_5d: -0.1
-- return_20d: -1.71
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: -0.54
-- distance_to_high_60_pct: -3.92
+- date: 20260805
+- open: 20.5
+- high: 20.62
+- low: 20.4
+- close: 20.54
+- volume: 831111
+- ma5: 19.74
+- ema23_primary: 19.72
+- distance_to_ema23_pct: 4.13
+- ma20: 19.76
+- ma60: 19.68
+- ma120: 19.68
+- return_5d: 7.76
+- return_20d: 4.53
+- volume_ratio: 2.06
+- distance_to_ma20_pct_auxiliary: 3.95
+- distance_to_high_60_pct: -0.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260703,19.9,19.9,19.66,19.74,481314,19.64,0.48,19.59,19.63,1.17
-20260706,19.77,19.85,19.72,19.78,235009,19.66,0.63,19.58,19.63,0.57
-20260707,19.78,19.81,19.65,19.65,285978,19.66,-0.03,19.62,19.63,0.72
 20260708,19.74,19.74,19.6,19.6,211491,19.65,-0.26,19.63,19.63,0.53
 20260709,19.65,19.87,19.65,19.87,441775,19.67,1.02,19.68,19.64,1.1
 20260713,20.04,20.04,19.88,19.88,533318,19.69,0.98,19.74,19.65,1.32
@@ -168,6 +165,9 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260729,19.15,19.15,18.9,19.06,263254,19.68,-3.16,19.78,19.68,0.66
 20260730,18.96,19,18.78,18.83,642453,19.61,-3.98,19.72,19.66,1.64
 20260731,19.4,19.6,19.4,19.6,213355,19.61,-0.05,19.71,19.66,0.56
+20260803,19.54,19.72,19.54,19.7,198600,19.62,0.42,19.7,19.66,0.54
+20260804,19.73,20.03,19.73,20.01,418859,19.65,1.83,19.72,19.66,1.12
+20260805,20.5,20.62,20.4,20.54,831111,19.72,4.13,19.76,19.68,2.06
 ```
 
 ## Latest TDCC Snapshot

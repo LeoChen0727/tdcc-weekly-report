@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2947 振宇五金
 
 ## Metadata
-- generated_at: 2026-08-03 22:27:13 Asia/Taipei
+- generated_at: 2026-08-08 16:01:14 Asia/Taipei
 - stock_id: 2947
 - stock_name: 振宇五金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260731
-- price_rows: 172
-- current_main_price_date: 20260731
+- latest_price_date: 20260805
+- price_rows: 174
+- current_main_price_date: 20260805
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260731-0b236a2d4a043618
-- official_tdcc_signal_date: 20260731
-- latest_tdcc_date: 20260731
-- tdcc_rows: 14
+- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
+- official_tdcc_signal_date: 20260807
+- latest_tdcc_date: 20260807
+- tdcc_rows: 15
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260731
-- open: 62
-- high: 62
-- low: 62
-- close: 62
-- volume: 2000
-- ma5: 62.5
-- ema23_primary: 67.57
-- distance_to_ema23_pct: -8.25
-- ma20: 67.19
-- ma60: 74.31
-- ma120: 76.72
-- return_5d: -2.97
-- return_20d: -21.52
-- volume_ratio: 0.15
-- distance_to_ma20_pct_auxiliary: -7.72
-- distance_to_high_60_pct: -22.98
+- date: 20260805
+- open: 62.5
+- high: 64
+- low: 62.5
+- close: 64
+- volume: 7000
+- ma5: 62.16
+- ema23_primary: 66.85
+- distance_to_ema23_pct: -4.26
+- ma20: 65.81
+- ma60: 73.79
+- ma120: 76.38
+- return_5d: 2.4
+- return_20d: -13.51
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: -2.75
+- distance_to_high_60_pct: -20.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260703,80,80,79,79.5,31000,78.16,1.72,77.77,77.92,1.78
-20260706,72.3,74,72.3,74,14000,77.81,-4.9,77.64,77.83,0.98
 20260707,79.2,79.2,70.5,70.5,39000,77.2,-8.68,77.34,77.7,2.56
 20260708,69.9,70.9,69,69,17000,76.52,-9.82,76.97,77.55,1.1
 20260709,68.9,69,68.4,69,17000,75.89,-9.08,76.61,77.4,1.14
@@ -167,10 +166,12 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260729,62.6,62.6,61,61,9000,68.65,-11.14,68.87,74.85,0.64
 20260730,62.2,62.2,61.8,61.8,4000,68.08,-9.22,68.03,74.58,0.29
 20260731,62,62,62,62,2000,67.57,-8.25,67.19,74.31,0.15
+20260804,62,62,62,62,5000,67.11,-7.61,66.31,74.03,0.42
+20260805,62.5,64,62.5,64,7000,66.85,-4.26,65.81,73.79,0.6
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260731
+- as_of_date: 20260807
 - over_400_ratio: 63.31
 - over_600_ratio: 61.37
 - over_800_ratio: 55.2
@@ -186,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260515,63.27,0.04,55.2,0,55.2,0,1,False,False
 20260522,63.27,0,55.2,0,55.2,0,0,False,False
 20260529,63.27,0,55.2,0,55.2,0,0,False,False
 20260605,63.27,0,55.2,0,55.2,0,0,False,False
@@ -198,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260717,63.31,0.03,55.2,0,55.2,0,1,False,False
 20260724,63.31,0,55.2,0,55.2,0,0,False,False
 20260731,63.31,0,55.2,0,55.2,0,0,False,False
+20260807,63.31,0,55.2,0,55.2,0,0,False,False
 ```
 
 ## Candidate Context

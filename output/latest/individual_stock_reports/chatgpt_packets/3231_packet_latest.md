@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3231 緯創
 
 ## Metadata
-- generated_at: 2026-08-03 22:27:24 Asia/Taipei
+- generated_at: 2026-08-08 16:01:25 Asia/Taipei
 - stock_id: 3231
 - stock_name: 緯創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260731
-- price_rows: 316
-- current_main_price_date: 20260731
+- latest_price_date: 20260805
+- price_rows: 319
+- current_main_price_date: 20260805
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260731-0b236a2d4a043618
-- official_tdcc_signal_date: 20260731
-- latest_tdcc_date: 20260731
-- tdcc_rows: 14
+- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
+- official_tdcc_signal_date: 20260807
+- latest_tdcc_date: 20260807
+- tdcc_rows: 15
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,35 +69,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可分批買進
+- action_rating_display_zh: 等待回檔
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
+- action_summary_zh: 營收成長股價回檔 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
+- entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 營收成長股價回檔 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: wait_pullback
+- action_rating_label_zh: 等待回檔
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- thesis_state: high_level_distribution_risk
+- entry_style: pullback_to_support
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
-- take_profit_near_prior_high
-- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
@@ -109,7 +103,6 @@
 - near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -123,6 +116,7 @@
 
 ### downgrade_reason
 - tdcc_distribution_warning
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -130,31 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260731
-- open: 176
-- high: 176
-- low: 165.5
-- close: 176
-- volume: 138686721
-- ma5: 170.5
-- ema23_primary: 160.86
-- distance_to_ema23_pct: 9.41
-- ma20: 157.12
-- ma60: 155.42
-- ma120: 144.06
-- return_5d: -1.68
-- return_20d: 11.04
-- volume_ratio: 1.88
-- distance_to_ma20_pct_auxiliary: 12.01
-- distance_to_high_60_pct: -12.44
+- date: 20260805
+- open: 198
+- high: 202.5
+- low: 190
+- close: 193
+- volume: 206766416
+- ma5: 182
+- ema23_primary: 167.91
+- distance_to_ema23_pct: 14.94
+- ma20: 162.2
+- ma60: 157.79
+- ma120: 145.53
+- return_5d: 13.86
+- return_20d: 24.12
+- volume_ratio: 2.16
+- distance_to_ma20_pct_auxiliary: 18.99
+- distance_to_high_60_pct: -4.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260703,157.5,161.5,157.5,159,24768914,158.06,0.6,159.57,149.72,0.57
-20260706,161,162,157.5,158,26189698,158.05,-0.03,158.93,150.14,0.64
-20260707,158.5,159.5,155.5,155.5,34773345,157.84,-1.48,158.53,150.48,0.9
 20260708,150,152,145,146.5,59256833,156.9,-6.63,157.57,150.68,1.54
 20260709,147,148,144.5,144.5,29080046,155.86,-7.29,156.9,150.82,0.77
 20260713,147,148,142.5,143.5,27031128,154.83,-7.32,156.45,150.99,0.74
@@ -172,18 +163,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260729,173,178.5,164,169.5,155521276,159.44,6.31,156.22,154.62,2.38
 20260730,170,170.5,157.5,160,82602193,159.48,0.32,156.25,154.93,1.22
 20260731,176,176,165.5,176,138686721,160.86,9.41,157.12,155.42,1.88
+20260803,172.5,188,169.5,186,162427285,162.96,14.14,158.47,156.08,2.02
+20260804,186.5,198,183,195,153901367,165.63,17.74,160.32,156.89,1.77
+20260805,198,202.5,190,193,206766416,167.91,14.94,162.2,157.79,2.16
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260731
-- over_400_ratio: 66.08
-- over_600_ratio: 64.35
-- over_800_ratio: 63.18
-- over_1000_ratio: 62.08
-- over_400_change_1w: 1.45
-- over_800_change_1w: 1.45
-- over_1000_change_1w: 1.33
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260807
+- over_400_ratio: 68.92
+- over_600_ratio: 67.21
+- over_800_ratio: 65.98
+- over_1000_ratio: 64.89
+- over_400_change_1w: 2.84
+- over_800_change_1w: 2.8
+- over_1000_change_1w: 2.81
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -191,7 +185,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260515,60.85,-1.42,57.61,-1.32,56.52,-1.39,0,False,False
 20260522,61.11,0.26,57.73,0.12,56.7,0.18,1,True,True
 20260529,62.57,1.46,59.29,1.56,58.18,1.48,2,True,True
 20260605,66.02,3.45,62.74,3.45,61.68,3.5,3,True,True
@@ -203,6 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260717,61.14,-0.37,58.11,-0.25,56.96,-0.34,0,False,False
 20260724,64.63,3.49,61.73,3.62,60.75,3.79,1,True,True
 20260731,66.08,1.45,63.18,1.45,62.08,1.33,2,True,True
+20260807,68.92,2.84,65.98,2.8,64.89,2.81,3,True,True
 ```
 
 ## Candidate Context

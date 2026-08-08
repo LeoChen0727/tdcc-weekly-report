@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4804 大略-KY
 
 ## Metadata
-- generated_at: 2026-08-03 22:27:57 Asia/Taipei
+- generated_at: 2026-08-08 16:01:59 Asia/Taipei
 - stock_id: 4804
 - stock_name: 大略-KY
 - packet_status: standard_rawdata_packet
 - latest_price_date: 20260413
 - price_rows: 101
-- current_main_price_date: 20260731
+- current_main_price_date: 20260805
 - current_main_price_universe_status: historical_only_noncurrent
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260731-0b236a2d4a043618
-- official_tdcc_signal_date: 20260731
-- latest_tdcc_date: 20260731
-- tdcc_rows: 14
+- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
+- official_tdcc_signal_date: 20260807
+- latest_tdcc_date: 20260807
+- tdcc_rows: 15
 - tdcc_history_status: historical_only_noncurrent
 - tdcc_freshness_status: historical_only_noncurrent
 - tdcc_continuity_status: complete
@@ -170,7 +170,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260731
+- as_of_date: 20260807
 - over_400_ratio: 62
 - over_600_ratio: 60.11
 - over_800_ratio: 57.16
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260515,62,0,57.16,0,54.88,0,0,False,False
 20260522,62,0,57.16,0,54.88,0,0,False,False
 20260529,62,0,57.16,0,54.88,0,0,False,False
 20260605,62,0,57.16,0,54.88,0,0,False,False
@@ -198,6 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260717,62,0,57.16,0,54.88,0,0,False,False
 20260724,62,0,57.16,0,54.88,0,0,False,False
 20260731,62,0,57.16,0,54.88,0,0,False,False
+20260807,62,0,57.16,0,54.88,0,0,False,False
 ```
 
 ## Candidate Context
