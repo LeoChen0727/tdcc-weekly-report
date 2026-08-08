@@ -17,17 +17,21 @@ def pr_safe_authorization_payload(
     base_helper: bytes,
     current_helper: bytes,
     current_test: bytes,
+    migration_id: str | None = None,
+    authorized_paths: frozenset[str] | None = None,
     **overrides: str,
 ) -> bytes:
+    migration_id = migration_id or inventory.PR_SAFE_ADDITIVE_RESEARCH_MIGRATION_ID
+    authorized_paths = authorized_paths or inventory.PR_SAFE_AUTHORIZED_STAGE1_PATHS
     row = {
-        "migration_id": inventory.PR_SAFE_ADDITIVE_RESEARCH_MIGRATION_ID,
+        "migration_id": migration_id,
         "status": "preauthorized",
         "approval_reference": "user_authorized_stage0_test",
         "base_helper_sha256": inventory.canonical_blob_sha256(base_helper),
         "current_helper_sha256": inventory.canonical_blob_sha256(current_helper),
         "current_test_sha256": inventory.canonical_blob_sha256(current_test),
         "changed_paths": ";".join(
-            sorted(inventory.PR_SAFE_AUTHORIZED_STAGE1_PATHS)
+            sorted(authorized_paths)
         ),
     }
     row.update(overrides)
@@ -37,7 +41,14 @@ def pr_safe_authorization_payload(
         fieldnames=list(inventory.PR_SAFE_AUTHORIZATION_COLUMNS),
     )
     writer.writeheader()
-    writer.writerows([*inventory.PR_SAFE_RETAINED_AUTHORIZATION_ROWS, row])
+    retained = [
+        retained_row
+        for retained_row in inventory.PR_SAFE_RETAINED_AUTHORIZATION_ROWS
+        if retained_row["migration_id"] != migration_id
+    ]
+    if migration_id == inventory.PR_SAFE_SNAPSHOT_MIGRATION_ID:
+        retained.extend(inventory.PR_SAFE_CONSUMED_AUTHORIZATION_ROWS)
+    writer.writerows([*retained, row])
     return buffer.getvalue().encode("utf-8")
 
 
@@ -78,6 +89,17 @@ def test_pr_safe_base_audit_workflow_never_executes_pull_request_code() -> None:
     assert "--audit-manifest \"$AUDIT_MANIFEST\"" in text
     assert "--workflow-ref \"$GITHUB_WORKFLOW_REF\"" in text
     assert "--workflow-sha \"$GITHUB_WORKFLOW_SHA\"" in text
+
+
+def test_pr_safe_base_audit_trigger_paths_cover_snapshot_stage_b() -> None:
+    text = (ROOT / inventory.PR_SAFE_BASE_GUARD_WORKFLOW).read_text(encoding="utf-8")
+    trigger_paths, errors = inventory.workflow_trigger_paths(
+        text,
+        "pull_request_target",
+    )
+
+    assert errors == []
+    assert trigger_paths == tuple(sorted(inventory.PR_SAFE_ALL_AUTHORIZED_MIGRATION_PATHS))
     assert "--event-action \"${{ github.event.action }}\"" in text
     assert "--base-ref \"${{ github.event.pull_request.base.ref }}\"" in text
     assert (
@@ -469,12 +491,15 @@ def test_pr_safe_base_guard_rejects_tampered_retained_authorization() -> None:
     )
 
 
-def test_pr_safe_base_guard_retains_exact_v1_v2_authorization_prefix() -> None:
+def test_pr_safe_base_guard_retains_exact_consumed_authorization_prefix() -> None:
     retained = [dict(row) for row in inventory.PR_SAFE_RETAINED_AUTHORIZATION_ROWS]
     assert [row["migration_id"] for row in retained] == [
         "additive-research-validation-registration-pr-safe-v1",
         "additive-research-validation-registration-pr-safe-v2",
     ]
+    assert [
+        row["migration_id"] for row in inventory.PR_SAFE_CONSUMED_AUTHORIZATION_ROWS
+    ] == ["additive-research-validation-registration-pr-safe-v3"]
 
     tampered_v2 = [dict(row) for row in retained]
     tampered_v2[1]["current_test_sha256"] = "0" * 64
@@ -487,6 +512,341 @@ def test_pr_safe_base_guard_retains_exact_v1_v2_authorization_prefix() -> None:
         assert inventory.validate_pr_safe_authorization_history(rows) == [
             "PR-safe authorization history must retain the exact append-only prefix"
         ]
+
+
+def test_snapshot_pr_safe_preauthorization_ledger_pins_exact_stage_b_bytes() -> None:
+    payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
+    rows, errors = inventory.parse_pr_safe_authorizations(payload)
+
+    assert errors == []
+    matching = [
+        row
+        for row in rows
+        if row["migration_id"] == inventory.PR_SAFE_SNAPSHOT_MIGRATION_ID
+    ]
+    assert matching == [
+        {
+            "migration_id": inventory.PR_SAFE_SNAPSHOT_MIGRATION_ID,
+            "status": "preauthorized",
+            "approval_reference": (
+                "user_authorized_daily_full_checkpoint_replay_snapshot_stage_a_20260808"
+            ),
+            "base_helper_sha256": inventory.PR_SAFE_SNAPSHOT_BASE_HELPER_SHA256,
+            "current_helper_sha256": inventory.PR_SAFE_SNAPSHOT_CURRENT_HELPER_SHA256,
+            "current_test_sha256": inventory.PR_SAFE_SNAPSHOT_CURRENT_TEST_SHA256,
+            "changed_paths": ";".join(
+                sorted(inventory.PR_SAFE_SNAPSHOT_AUTHORIZED_PATHS)
+            ),
+        }
+    ]
+    assert inventory.PR_SAFE_SNAPSHOT_BASE_CONTENT_REF_SHA == (
+        "6a37e30797006397146bdbc6d29c51560c48ef9a"
+    )
+    assert inventory.PR_SAFE_SNAPSHOT_REQUIRED_MODE == "100644"
+
+
+def test_snapshot_pr_safe_guard_accepts_only_exact_pinned_blobs(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    base_helper = b"snapshot base helper\n"
+    base_test = b"snapshot base tests\n"
+    current_helper = b"snapshot helper delegates to base guard\n"
+    current_test = b"snapshot helper delegation regression\n"
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_SNAPSHOT_BASE_HELPER_SHA256",
+        inventory.canonical_blob_sha256(base_helper),
+    )
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_SNAPSHOT_BASE_TEST_SHA256",
+        inventory.canonical_blob_sha256(base_test),
+    )
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_SNAPSHOT_CURRENT_HELPER_SHA256",
+        inventory.canonical_blob_sha256(current_helper),
+    )
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_SNAPSHOT_CURRENT_TEST_SHA256",
+        inventory.canonical_blob_sha256(current_test),
+    )
+    payload = pr_safe_authorization_payload(
+        base_helper,
+        current_helper,
+        current_test,
+        migration_id=inventory.PR_SAFE_SNAPSHOT_MIGRATION_ID,
+        authorized_paths=inventory.PR_SAFE_SNAPSHOT_AUTHORIZED_PATHS,
+    )
+
+    assert inventory.validate_pr_safe_control_plane_delta(
+        set(inventory.PR_SAFE_SNAPSHOT_AUTHORIZED_PATHS),
+        base_helper=base_helper,
+        base_test=base_test,
+        current_helper=current_helper,
+        current_test=current_test,
+        authorization_payload=payload,
+    ) == []
+
+    mutation_cases = (
+        (base_helper + b"drift", base_test, current_helper, current_test),
+        (base_helper, base_test + b"drift", current_helper, current_test),
+        (base_helper, base_test, current_helper + b"drift", current_test),
+        (base_helper, base_test, current_helper, current_test + b"drift"),
+    )
+    for mutated_base_helper, mutated_base_test, mutated_helper, mutated_test in mutation_cases:
+        assert inventory.validate_pr_safe_control_plane_delta(
+            set(inventory.PR_SAFE_SNAPSHOT_AUTHORIZED_PATHS),
+            base_helper=mutated_base_helper,
+            base_test=mutated_base_test,
+            current_helper=mutated_helper,
+            current_test=mutated_test,
+            authorization_payload=payload,
+        )
+
+
+def test_snapshot_pr_safe_guard_rejects_extra_path() -> None:
+    errors = inventory.validate_pr_safe_control_plane_delta(
+        {*inventory.PR_SAFE_SNAPSHOT_AUTHORIZED_PATHS, "scripts/unapproved.py"},
+        base_helper=b"base\n",
+        base_test=b"base test\n",
+        current_helper=b"current\n",
+        current_test=b"current test\n",
+        authorization_payload=(ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes(),
+    )
+
+    assert any("must change exactly the preauthorized paths" in error for error in errors)
+
+
+def test_snapshot_pr_safe_guard_requires_exact_regular_blob_mode(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    unsafe_path = inventory.PR_SAFE_SNAPSHOT_HELPER
+
+    def fake_git_tree_entry_at_ref(ref: str, path: str) -> tuple[str, str, str, str]:
+        mode = "100755" if ref == "head-sha" and path == unsafe_path else "100644"
+        return mode, "blob", "0" * 40, path
+
+    monkeypatch.setattr(
+        inventory,
+        "git_tree_entry_at_ref",
+        fake_git_tree_entry_at_ref,
+    )
+
+    errors = inventory.validate_pr_safe_exact_migration_blob_modes(
+        set(inventory.PR_SAFE_SNAPSHOT_AUTHORIZED_PATHS),
+        "base-sha",
+        "head-sha",
+    )
+
+    assert any(
+        unsafe_path in error and "requires exact regular blob mode" in error
+        for error in errors
+    )
+
+
+def test_snapshot_pr_safe_guard_does_not_authorize_mixed_migration_paths() -> None:
+    mixed = {
+        inventory.PR_SAFE_SNAPSHOT_HELPER,
+        inventory.PR_SAFE_ADVANCED_TEST,
+    }
+
+    assert inventory.pr_safe_migration_contract_for_paths(mixed) is None
+
+
+def test_snapshot_helper_self_migration_uses_exact_base_owned_contract(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    base_ref = "a" * 40
+    base_helper = b"snapshot base helper\n"
+    base_test = b"snapshot base tests\n"
+    current_helper = b"snapshot helper delegates to base guard\n"
+    current_test = b"snapshot helper delegation regression\n"
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_SNAPSHOT_BASE_HELPER_SHA256",
+        inventory.canonical_blob_sha256(base_helper),
+    )
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_SNAPSHOT_BASE_TEST_SHA256",
+        inventory.canonical_blob_sha256(base_test),
+    )
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_SNAPSHOT_CURRENT_HELPER_SHA256",
+        inventory.canonical_blob_sha256(current_helper),
+    )
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_SNAPSHOT_CURRENT_TEST_SHA256",
+        inventory.canonical_blob_sha256(current_test),
+    )
+    authorization_payload = pr_safe_authorization_payload(
+        base_helper,
+        current_helper,
+        current_test,
+        migration_id=inventory.PR_SAFE_SNAPSHOT_MIGRATION_ID,
+        authorized_paths=inventory.PR_SAFE_SNAPSHOT_AUTHORIZED_PATHS,
+    )
+    blobs = {
+        (base_ref, inventory.PR_SAFE_AUTHORIZATION_PATH): authorization_payload,
+        (base_ref, inventory.PR_SAFE_SNAPSHOT_HELPER): base_helper,
+        (base_ref, inventory.PR_SAFE_SNAPSHOT_TEST): base_test,
+        ("HEAD", inventory.PR_SAFE_SNAPSHOT_HELPER): current_helper,
+        ("HEAD", inventory.PR_SAFE_SNAPSHOT_TEST): current_test,
+    }
+    monkeypatch.setattr(
+        inventory,
+        "_pr_safe_repo_ref_is_ancestor",
+        lambda _root, _ancestor, _descendant: True,
+    )
+    monkeypatch.setattr(
+        inventory,
+        "_pr_safe_repo_blob",
+        lambda _root, ref, path: blobs.get((ref, path)),
+    )
+    monkeypatch.setattr(
+        inventory,
+        "_pr_safe_repo_blob_mode",
+        lambda _root, _ref, path: (
+            "100644" if path in inventory.PR_SAFE_SNAPSHOT_AUTHORIZED_PATHS else None
+        ),
+    )
+    kwargs = {
+        "base_ref": base_ref,
+        "changed_paths": set(inventory.PR_SAFE_SNAPSHOT_AUTHORIZED_PATHS),
+        "strict_surface_changes": set(inventory.PR_SAFE_SNAPSHOT_SELF_STRICT_SURFACES),
+        "repository_root": tmp_path,
+    }
+
+    assert inventory.is_preauthorized_daily_full_checkpoint_replay_migration(**kwargs)
+    assert not inventory.is_preauthorized_daily_full_checkpoint_replay_migration(
+        **{**kwargs, "strict_surface_changes": {inventory.PR_SAFE_SNAPSHOT_TEST}}
+    )
+    assert not inventory.is_preauthorized_daily_full_checkpoint_replay_migration(
+        **{**kwargs, "changed_paths": {*kwargs["changed_paths"], "scripts/extra.py"}}
+    )
+    assert not inventory.is_preauthorized_daily_full_checkpoint_replay_migration(
+        **{
+            **kwargs,
+            "changed_paths": {
+                inventory.PR_SAFE_SNAPSHOT_HELPER,
+                inventory.PR_SAFE_ADVANCED_TEST,
+            },
+        }
+    )
+
+
+def test_daily_full_checkpoint_replay_preauthorization_is_exact_and_fail_closed(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    base_ref = "a" * 40
+    base_blobs: dict[str, bytes | None] = {}
+    target_blobs: dict[str, bytes] = {}
+    base_hashes: dict[str, str | None] = {}
+    target_hashes: dict[str, str] = {}
+    workflow_path = ".github/workflows/daily_full_pipeline.yml"
+    anchor = inventory.PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_WORKFLOW_ANCHOR
+    insertion = inventory.PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_WORKFLOW_INSERTION
+
+    for path, expected_base_sha in (
+        inventory.PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_BASE_SHA256_BY_PATH.items()
+    ):
+        if expected_base_sha is None:
+            base_blobs[path] = None
+            base_hashes[path] = None
+        elif path == workflow_path:
+            base_blobs[path] = ("prefix\n" + anchor + "suffix\n").encode("utf-8")
+            base_hashes[path] = inventory.canonical_blob_sha256(base_blobs[path] or b"")
+        else:
+            base_blobs[path] = f"base:{path}\n".encode("utf-8")
+            base_hashes[path] = inventory.canonical_blob_sha256(base_blobs[path] or b"")
+        if path == workflow_path:
+            target_blobs[path] = (base_blobs[path] or b"").replace(
+                anchor.encode("utf-8"),
+                (insertion + anchor).encode("utf-8"),
+                1,
+            )
+        else:
+            target_blobs[path] = f"target:{path}\n".encode("utf-8")
+        target_hashes[path] = inventory.canonical_blob_sha256(target_blobs[path])
+
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_BASE_SHA256_BY_PATH",
+        base_hashes,
+    )
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_TARGET_SHA256_BY_PATH",
+        target_hashes,
+    )
+    monkeypatch.setattr(
+        inventory,
+        "_pr_safe_repo_ref_is_ancestor",
+        lambda _root, _ancestor, _descendant: True,
+    )
+    monkeypatch.setattr(
+        inventory,
+        "_pr_safe_repo_blob",
+        lambda _root, ref, path: base_blobs[path] if ref == base_ref else target_blobs[path],
+    )
+    modes = {
+        (ref, path): (
+            None if ref == base_ref and base_blobs[path] is None else "100644"
+        )
+        for ref in (base_ref, "HEAD")
+        for path in inventory.PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_PATHS
+    }
+    monkeypatch.setattr(
+        inventory,
+        "_pr_safe_repo_blob_mode",
+        lambda _root, ref, path: modes[(ref, path)],
+    )
+
+    kwargs = {
+        "base_ref": base_ref,
+        "changed_paths": set(inventory.PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_PATHS),
+        "strict_surface_changes": set(
+            inventory.PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_STRICT_SURFACES
+        ),
+        "repository_root": tmp_path,
+    }
+    assert inventory.is_preauthorized_daily_full_checkpoint_replay_migration(**kwargs)
+
+    mutated_path = "scripts/run_daily_full_validation_replay.py"
+    original = target_blobs[mutated_path]
+    target_blobs[mutated_path] = original + b"semantic drift\n"
+    assert not inventory.is_preauthorized_daily_full_checkpoint_replay_migration(**kwargs)
+    target_blobs[mutated_path] = original
+
+    modes[("HEAD", mutated_path)] = "100755"
+    assert not inventory.is_preauthorized_daily_full_checkpoint_replay_migration(**kwargs)
+    modes[("HEAD", mutated_path)] = "100644"
+
+    wrong_workflow = target_blobs[workflow_path].replace(
+        b"retention-days: 30",
+        b"retention-days: 31",
+    )
+    target_blobs[workflow_path] = wrong_workflow
+    target_hashes[workflow_path] = inventory.canonical_blob_sha256(wrong_workflow)
+    assert not inventory.is_preauthorized_daily_full_checkpoint_replay_migration(**kwargs)
+
+    target_blobs[workflow_path] = (base_blobs[workflow_path] or b"").replace(
+        anchor.encode("utf-8"),
+        (insertion + anchor).encode("utf-8"),
+        1,
+    )
+    target_hashes[workflow_path] = inventory.canonical_blob_sha256(
+        target_blobs[workflow_path]
+    )
+    assert not inventory.is_preauthorized_daily_full_checkpoint_replay_migration(
+        **{**kwargs, "changed_paths": {*kwargs["changed_paths"], "scripts/extra.py"}}
+    )
 
 
 def test_pr_safe_base_guard_rejects_helper_migration_with_extra_path() -> None:
