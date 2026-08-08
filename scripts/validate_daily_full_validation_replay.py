@@ -181,6 +181,8 @@ def validate_runner(text: str, errors: list[str]) -> None:
             "AUTHORIZED_PRODUCER_FIX_COMMIT",
             "AUTHORIZED_VALIDATOR_FIX_COMMIT",
             "AUTHORIZED_VALIDATOR_FIX_PATHS",
+            "AUTHORIZED_FORMAL_LINEAGE_FIX_COMMIT",
+            "AUTHORIZED_FORMAL_LINEAGE_FIX_PATHS",
             "authorized_code_revision_transition",
             "require_authorized_checkpoint_bundle_identity",
             "checkpoint_source_sha",
