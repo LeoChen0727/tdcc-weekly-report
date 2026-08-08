@@ -1,7 +1,7 @@
 # TDCC Weekly Candidate Report Validation
 
 - status: pass
-- signal_date: 20260731
+- signal_date: 20260807
 - date_source: report_ready_csv_signal_date
 - error_count: 0
 - warning_count: 2
@@ -9,11 +9,11 @@
 ## Date Contract
 
 - date_source: `report_ready_csv_signal_date`
-- report_date: `20260731`
-- highlight_report_ready_signal_dates: `['20260731']`
-- full_report_ready_signal_dates: `['20260731']`
-- weekly_source_signal_dates: `['20260731']`
-- consecutive_source_signal_dates: `['20260731']`
+- report_date: `20260807`
+- highlight_report_ready_signal_dates: `['20260807']`
+- full_report_ready_signal_dates: `['20260807']`
+- weekly_source_signal_dates: `['20260807']`
+- consecutive_source_signal_dates: `['20260807']`
 
 ## Manifest Sections
 
@@ -24,32 +24,32 @@
 
 ## Report Row Counts
 
-- weekly_increase: 359
-- consecutive_accumulation: 11
-- model_cross: 3
-- highlight_report: 23
-- full_report: 64
+- weekly_increase: 422
+- consecutive_accumulation: 5
+- model_cross: 5
+- highlight_report: 20
+- full_report: 60
 - manifest_sections: 4
 
 ## Section Row Counts
 
 ### highlight
 - `weekly_increase`: 10
-- `consecutive_accumulation`: 10
-- `model_cross_weekly_increase_tdcc_short_term_continuation_d5_d10`: 3
+- `consecutive_accumulation`: 5
+- `model_cross_weekly_increase_tdcc_short_term_continuation_d5_d10`: 5
 - `model_cross_consecutive_accumulation_tdcc_short_term_continuation_d5_d10`: 0
 ### full
 - `weekly_increase`: 50
-- `consecutive_accumulation`: 11
-- `model_cross_weekly_increase_tdcc_short_term_continuation_d5_d10`: 3
+- `consecutive_accumulation`: 5
+- `model_cross_weekly_increase_tdcc_short_term_continuation_d5_d10`: 5
 - `model_cross_consecutive_accumulation_tdcc_short_term_continuation_d5_d10`: 0
 
 ## Font Contract
 
 - `output/latest/tdcc_weekly_candidate_highlight_latest.pdf`: `['/AAAAAA+TW-Kai-98_1', '/AAAAAB+TW-Kai-98_1', '/Helvetica']`
 - `output/latest/tdcc_weekly_candidate_full_latest.pdf`: `['/AAAAAA+TW-Kai-98_1', '/AAAAAB+TW-Kai-98_1', '/Helvetica']`
-- `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_精華版_20260731.pdf`: `['/AAAAAA+TW-Kai-98_1', '/AAAAAB+TW-Kai-98_1', '/Helvetica']`
-- `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_完整版_20260731.pdf`: `['/AAAAAA+TW-Kai-98_1', '/AAAAAB+TW-Kai-98_1', '/Helvetica']`
+- `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_精華版_20260807.pdf`: `['/AAAAAA+TW-Kai-98_1', '/AAAAAB+TW-Kai-98_1', '/Helvetica']`
+- `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_完整版_20260807.pdf`: `['/AAAAAA+TW-Kai-98_1', '/AAAAAB+TW-Kai-98_1', '/Helvetica']`
 
 ## Errors
 

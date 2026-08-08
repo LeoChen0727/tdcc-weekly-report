@@ -1,13 +1,13 @@
 {
   "status": "pass",
   "schema_version": "tdcc_analytics_manifest_v1",
-  "generated_at": "2026-08-01 15:39:36 Asia/Taipei",
+  "generated_at": "2026-08-08 15:40:03 Asia/Taipei",
   "source_manifest_path": "output/latest/tdcc_dataset_manifest_latest.json",
-  "source_manifest_sha256": "44baecd78cdade612834934fa3d808282f53d235d48f15b27688a31a8edb9349",
-  "source_tdcc_dataset_id": "tdcc-20260731-0b236a2d4a043618",
-  "source_tdcc_dataset_hash": "0b236a2d4a0436184c9a82af49d62aa4362dfed05b4f339a680658c7acad3705",
-  "signal_date": "20260731",
-  "history_snapshot_count": 36,
+  "source_manifest_sha256": "029736551dc050cc4b7eba608a9c008af091632799a0bc1a160a3fa9a53c405b",
+  "source_tdcc_dataset_id": "tdcc-20260807-01698d0b1c2355ac",
+  "source_tdcc_dataset_hash": "01698d0b1c2355ac3979094aa53bdf0a7cabde3c5711a883e9f5c03cbfe60ca9",
+  "signal_date": "20260807",
+  "history_snapshot_count": 37,
   "history_dates": [
     "20251121",
     "20251128",
@@ -44,7 +44,8 @@
     "20260709",
     "20260717",
     "20260724",
-    "20260731"
+    "20260731",
+    "20260807"
   ],
   "history_snapshots": [
     {
@@ -298,9 +299,16 @@
       "row_count": 1970,
       "stock_count": 1970,
       "sha256": "3ecc97d9889cd45711c96ea637326f3f77a4a24fb8a88f88612ee445b380a015"
+    },
+    {
+      "date": "20260807",
+      "path": "output/history/tdcc/tdcc_holder_ratio_20260807.csv",
+      "row_count": 1970,
+      "stock_count": 1970,
+      "sha256": "0b396ff92a08f2650c301f3858588fd68b987deeb56faeb4669da49416049baa"
     }
   ],
-  "row_count": 29389,
+  "row_count": 31359,
   "latest_stock_count": 1970,
   "history_columns": [
     "source_tdcc_dataset_id",
@@ -330,13 +338,13 @@
   "artifacts": {
     "parquet": {
       "path": "output/latest/tdcc_analytics/tdcc_holder_ratio_history_latest.parquet",
-      "size_bytes": 375746,
-      "sha256": "eacde4222f7bbd62be245528c1de3255c7d2e61c32d14d5fc4fc8c052f2ac370"
+      "size_bytes": 399804,
+      "sha256": "ad197a14bedfb4fbc0278f9f97391bad5595addceb865e2abb18745bec860432"
     },
     "duckdb": {
       "path": "output/latest/tdcc_analytics/tdcc_analytics_latest.duckdb",
       "size_bytes": 3158016,
-      "sha256": "baf32dd82ef0e324696109429079ff6f1bf709a5bc81e442845abf31ad3a4e0b"
+      "sha256": "84b6aaf515d05bc26279a5f3e5e45c0c00bb81c019e702f2b7094c680fa01e6d"
     }
   }
 }
