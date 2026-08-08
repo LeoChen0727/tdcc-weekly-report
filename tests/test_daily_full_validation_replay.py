@@ -699,3 +699,339 @@ def test_lifecycle_workflow_scanner_recognizes_python_dash_b_invocations() -> No
     assert workflow in invocations[
         "scripts/validate_daily_full_validation_replay.py"
     ]
+
+
+def test_authoritative_revision_extends_20260806_price_history_then_replans_exact_date(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    repo = tmp_path / "repo"
+    runner_temp = tmp_path / "runner-temp"
+    repo.mkdir()
+    runner_temp.mkdir()
+    changed = sorted(
+        set(replay_runner.PRICE_HISTORY_EXTENSION_REQUIRED_FILES)
+        | {"data/stock_price_history/2330.csv"}
+    )
+    for relative in changed:
+        path = repo / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text("date,stock_id\n20260807,2330\n", encoding="utf-8")
+    source_sha = "a" * 40
+    calls: list[str] = []
+    cleanup_calls: list[str] = []
+    planner_calls = 0
+
+    def fake_replay_price_date(target_date: str) -> dict:
+        calls.append(f"extend:{target_date}")
+        return {
+            "target_date": target_date,
+            "saved_price_date": target_date,
+            "is_target_date": True,
+            "future_rows_used": False,
+            "source_responses": [
+                {
+                    "source_name": "TWSE_T187AP03_L",
+                    "exact_date_match": True,
+                    "observed_response_dates": [target_date],
+                }
+            ],
+            "stock_history_coverage": {"missing_history_rows": 0},
+        }
+
+    monkeypatch.setattr(
+        replay_runner.historical_replay,
+        "previous_trading_date",
+        lambda _date: "20260806",
+    )
+    monkeypatch.setattr(
+        replay_runner.historical_replay,
+        "replay_price_date",
+        fake_replay_price_date,
+    )
+    monkeypatch.setattr(
+        replay_runner.historical_replay,
+        "source_tail_matrix",
+        lambda: {
+            "daily_price": "20260807",
+            "stock_price_history": {"max_date": "20260807"},
+        },
+    )
+    monkeypatch.setattr(
+        replay_runner,
+        "real_index_identity",
+        lambda _repo: (tmp_path / "real-index", "c" * 64),
+    )
+    monkeypatch.setattr(
+        replay_runner,
+        "assert_real_index_unchanged",
+        lambda *_args, **_kwargs: None,
+    )
+    monkeypatch.setattr(
+        replay_runner,
+        "price_extension_status_entries",
+        lambda _repo: [
+            {"path": path, "status": "??", "mode": "100644"}
+            for path in changed
+        ],
+    )
+    monkeypatch.setattr(
+        replay_runner,
+        "prepare_validation_only_git_index",
+        lambda **kwargs: (
+            {**kwargs["env"], "GIT_INDEX_FILE": "verified-index"},
+            tmp_path / "temporary-index",
+            tmp_path / "pathspec",
+        ),
+    )
+    monkeypatch.setattr(
+        replay_runner,
+        "remove_validation_only_git_index",
+        lambda **_kwargs: cleanup_calls.append("removed"),
+    )
+
+    def fake_run_command(command, *, cwd, env, label):
+        nonlocal planner_calls
+        calls.append(label)
+        if "planner" in label:
+            planner_calls += 1
+            output = Path(command[command.index("--output") + 1])
+            payload = (
+                {
+                    "should_replay": True,
+                    "start_date": "20260806",
+                    "end_date": "20260806",
+                    "price_history_high_water_date": "20260806",
+                    "required_base_date": "20260805",
+                    "trading_dates": ["20260806"],
+                }
+                if planner_calls == 1
+                else {
+                    "should_replay": True,
+                    "start_date": "20260806",
+                    "end_date": "20260807",
+                    "price_history_high_water_date": "20260807",
+                    "required_base_date": "20260805",
+                    "trading_dates": ["20260806", "20260807"],
+                }
+            )
+            output.write_text(json.dumps(payload), encoding="utf-8")
+        elif label == "authoritative historical source replay":
+            assert env["GIT_INDEX_FILE"] == "verified-index"
+            replay_id = command[command.index("--replay-id") + 1]
+            manifest = (
+                repo
+                / "output/history/historical_source_replay"
+                / replay_id
+                / "20260807/structured_source_manifest.json"
+            )
+            manifest.parent.mkdir(parents=True, exist_ok=True)
+            manifest.write_text(
+                json.dumps(
+                    {
+                        "report_date": "20260807",
+                        "pipeline_commit_sha": source_sha,
+                        "as_published": False,
+                    }
+                ),
+                encoding="utf-8",
+            )
+        return ""
+
+    monkeypatch.setattr(replay_runner, "run_command", fake_run_command)
+
+    plan, manifest = replay_runner.run_authoritative_historical_revision(
+        repo_root=repo,
+        runner_temp=runner_temp,
+        env={"DAILY_FULL_VALIDATION_ONLY": "1"},
+        run_id="31270000000",
+        source_sha=source_sha,
+    )
+
+    assert plan["end_date"] == "20260807"
+    assert plan["trading_dates"][-1] == "20260807"
+    assert plan["validation_only_price_history_extension"]["initial_plan"][
+        "price_history_high_water_date"
+    ] == "20260806"
+    assert manifest.is_file()
+    assert calls.index("extend:20260807") < calls.index(
+        "historical source replay planner after price extension"
+    )
+    assert calls.count("authoritative historical source replay") == 1
+    assert cleanup_calls == ["removed"]
+
+
+def test_price_history_extension_manifest_fails_closed_on_source_or_hash_drift(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    repo = tmp_path / "repo"
+    runner_temp = tmp_path / "runner-temp"
+    repo.mkdir()
+    runner_temp.mkdir()
+    relative = "data/daily_price/daily_price_20260807.csv"
+    changed = sorted(
+        set(replay_runner.PRICE_HISTORY_EXTENSION_REQUIRED_FILES)
+        | {"data/stock_price_history/2330.csv"}
+    )
+    for changed_path in changed:
+        file_path = repo / changed_path
+        file_path.parent.mkdir(parents=True, exist_ok=True)
+        file_path.write_text(
+            "date,stock_id\n20260807,2330\n", encoding="utf-8"
+        )
+    path = repo / relative
+    source_sha = "b" * 40
+    status = {
+        "target_date": "20260807",
+        "saved_price_date": "20260807",
+        "is_target_date": True,
+        "future_rows_used": False,
+        "source_responses": [
+            {
+                "exact_date_match": True,
+                "observed_response_dates": ["20260807"],
+            }
+        ],
+        "stock_history_coverage": {"missing_history_rows": 0},
+    }
+    payload = {
+        "schema_version": 1,
+        "mode": "validation_only_authoritative_price_history_extension",
+        "replay_date": "20260807",
+        "source_sha": source_sha,
+        "real_index_path": str(tmp_path / "real-index"),
+        "real_index_sha256": "c" * 64,
+        "source_status": status,
+        "files": [
+            {
+                "path": changed_path,
+                "status": "??",
+                "mode": "100644",
+                "bytes": (repo / changed_path).stat().st_size,
+                "sha256": replay_runner.sha256_file(repo / changed_path),
+            }
+            for changed_path in changed
+        ],
+    }
+    manifest = runner_temp / replay_runner.PRICE_HISTORY_EXTENSION_MANIFEST
+    manifest.write_bytes(replay_runner.canonical_json_bytes(payload))
+    digest = replay_runner.sha256_file(manifest)
+    monkeypatch.setattr(
+        replay_runner,
+        "price_extension_status_entries",
+        lambda _repo: [
+            {"path": changed_path, "status": "??", "mode": "100644"}
+            for changed_path in changed
+        ],
+    )
+
+    assert replay_runner.verify_price_history_extension_manifest(
+        repo_root=repo,
+        manifest_path=manifest,
+        expected_manifest_sha256=digest,
+        source_sha=source_sha,
+    )["replay_date"] == "20260807"
+
+    monkeypatch.setattr(
+        replay_runner,
+        "price_extension_status_entries",
+        lambda _repo: [
+            *[
+                {"path": changed_path, "status": "??", "mode": "100644"}
+                for changed_path in changed
+            ],
+            {
+                "path": "output/latest/unapproved.csv",
+                "status": "??",
+                "mode": "100644",
+            },
+        ],
+    )
+    with pytest.raises(
+        replay_runner.ValidationReplayError,
+        match="path set drift",
+    ):
+        replay_runner.verify_price_history_extension_manifest(
+            repo_root=repo,
+            manifest_path=manifest,
+            expected_manifest_sha256=digest,
+            source_sha=source_sha,
+        )
+
+    monkeypatch.setattr(
+        replay_runner,
+        "price_extension_status_entries",
+        lambda _repo: [
+            {
+                "path": changed_path,
+                "status": "??",
+                "mode": "100755" if changed_path == relative else "100644",
+            }
+            for changed_path in changed
+        ],
+    )
+    with pytest.raises(
+        replay_runner.ValidationReplayError,
+        match="status/mode mismatch",
+    ):
+        replay_runner.verify_price_history_extension_manifest(
+            repo_root=repo,
+            manifest_path=manifest,
+            expected_manifest_sha256=digest,
+            source_sha=source_sha,
+        )
+
+    monkeypatch.setattr(
+        replay_runner,
+        "price_extension_status_entries",
+        lambda _repo: [
+            {"path": changed_path, "status": "??", "mode": "100644"}
+            for changed_path in changed
+        ],
+    )
+
+    path.write_text("date,stock_id\n20260806,2330\n", encoding="utf-8")
+    with pytest.raises(
+        replay_runner.ValidationReplayError,
+        match="byte mismatch|hash mismatch",
+    ):
+        replay_runner.verify_price_history_extension_manifest(
+            repo_root=repo,
+            manifest_path=manifest,
+            expected_manifest_sha256=digest,
+            source_sha=source_sha,
+        )
+
+    bad_status = {**status, "source_responses": []}
+    with pytest.raises(
+        replay_runner.ValidationReplayError,
+        match="lacks exact-date source evidence",
+    ):
+        replay_runner._validate_price_history_extension_status(bad_status)
+
+    wrong_date_status = {
+        **status,
+        "target_date": "20260806",
+        "saved_price_date": "20260806",
+    }
+    with pytest.raises(
+        replay_runner.ValidationReplayError,
+        match="wrong-date",
+    ):
+        replay_runner._validate_price_history_extension_status(wrong_date_status)
+
+    monkeypatch.setattr(
+        replay_runner,
+        "real_index_identity",
+        lambda _repo: (tmp_path / "real-index", "d" * 64),
+    )
+    with pytest.raises(
+        replay_runner.ValidationReplayError,
+        match="real Git index drifted",
+    ):
+        replay_runner.assert_real_index_unchanged(
+            repo,
+            tmp_path / "real-index",
+            "c" * 64,
+        )
