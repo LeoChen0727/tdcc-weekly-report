@@ -123,12 +123,23 @@ PR_SAFE_AUTHORIZATION_COLUMNS = (
     "changed_paths",
 )
 PR_SAFE_ADDITIVE_RESEARCH_MIGRATION_ID = (
-    "additive-research-validation-registration-pr-safe-v3"
+    "additive-research-validation-registration-pr-safe-v4"
 )
 PR_SAFE_ADVANCED_HELPER = "scripts/validate_repo_advanced_integrity_pr_safe.py"
 PR_SAFE_ADVANCED_TEST = "tests/test_repo_advanced_integrity_pr_safe.py"
+PR_SAFE_ADVANCED_LIFECYCLE_INVENTORY = "config/repo_file_lifecycle_inventory.csv"
 PR_SAFE_AUTHORIZED_STAGE1_PATHS = frozenset(
-    {PR_SAFE_ADVANCED_HELPER, PR_SAFE_ADVANCED_TEST}
+    {
+        PR_SAFE_ADVANCED_HELPER,
+        PR_SAFE_ADVANCED_TEST,
+        PR_SAFE_ADVANCED_LIFECYCLE_INVENTORY,
+    }
+)
+PR_SAFE_ADVANCED_BASE_LIFECYCLE_INVENTORY_SHA256 = (
+    "45eae9722c4d8587ff483a8e550eb5054cc8a6ab26a836d7f8f80e30a9c3a3d7"
+)
+PR_SAFE_ADVANCED_CURRENT_LIFECYCLE_INVENTORY_SHA256 = (
+    "69831c7ef8b922ddb763af94cbf4df694ee2d981c7a7d475567f67587ed07ce5"
 )
 PR_SAFE_SNAPSHOT_MIGRATION_ID = "daily-full-checkpoint-replay-snapshot-pr-safe-v1"
 PR_SAFE_SNAPSHOT_HELPER = "scripts/validate_daily_published_model_snapshots_pr_safe.py"
@@ -179,7 +190,7 @@ PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_BASE_SHA256_BY_PATH = {
     ),
     ".github/workflows/daily_full_validation_replay_20260807.yml": None,
     "config/repo_file_lifecycle_inventory.csv": (
-        "45eae9722c4d8587ff483a8e550eb5054cc8a6ab26a836d7f8f80e30a9c3a3d7"
+        "69831c7ef8b922ddb763af94cbf4df694ee2d981c7a7d475567f67587ed07ce5"
     ),
     "config/repo_production_inventory.csv": (
         "359a3419a6ad7e043d9649a0efe89e1b4ed40365d1640f7d3d8fa06909f6092a"
@@ -200,7 +211,7 @@ PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_TARGET_SHA256_BY_PATH = {
         "9ba1da323f7aa4ed0501e702abbd14d511cf697138c247bdb92e033f43a96831"
     ),
     "config/repo_file_lifecycle_inventory.csv": (
-        "b297a44b3e898e6f896893607b6e88d62b0fe3c2aefb57aa463caef3ed384429"
+        "e4e7ae5fa26c90545ddcd8f12aae8a5c0a343e2657d44f081b4c7b3088ae3c1a"
     ),
     "config/repo_production_inventory.csv": (
         "675f8d6abdd5bbcc7f911739ee1d3f9439353cfc6375b415070f4da4ce7dd533"
@@ -223,6 +234,24 @@ PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_TARGET_SHA256_BY_PATH = {
 }
 PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_PATHS = frozenset(
     PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_TARGET_SHA256_BY_PATH
+)
+PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_LIFECYCLE_PATH = (
+    "config/repo_file_lifecycle_inventory.csv"
+)
+PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_LIFECYCLE_OVERLAP_ROW = (
+    "scripts/validate_repo_production_inventory.py"
+)
+PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_PRE_STAGE_F_LIFECYCLE_SHA256 = (
+    "45eae9722c4d8587ff483a8e550eb5054cc8a6ab26a836d7f8f80e30a9c3a3d7"
+)
+PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_STAGE_F_LIFECYCLE_SHA256 = (
+    "69831c7ef8b922ddb763af94cbf4df694ee2d981c7a7d475567f67587ed07ce5"
+)
+PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_BRANCH_LIFECYCLE_SHA256 = (
+    "b297a44b3e898e6f896893607b6e88d62b0fe3c2aefb57aa463caef3ed384429"
+)
+PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_INTEGRATED_LIFECYCLE_SHA256 = (
+    "e4e7ae5fa26c90545ddcd8f12aae8a5c0a343e2657d44f081b4c7b3088ae3c1a"
 )
 PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_WORKFLOW_ANCHOR = (
     "      - name: Build volume attack theme layer\n"
@@ -1680,6 +1709,100 @@ def canonical_blob_sha256(payload: bytes) -> str:
     return hashlib.sha256(canonical).hexdigest()
 
 
+def build_daily_full_checkpoint_replay_integrated_lifecycle_inventory(
+    pre_stage_f_payload: bytes,
+    stage_f_payload: bytes,
+    replay_branch_payload: bytes,
+) -> bytes | None:
+    expected_hashes = (
+        PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_PRE_STAGE_F_LIFECYCLE_SHA256,
+        PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_STAGE_F_LIFECYCLE_SHA256,
+        PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_BRANCH_LIFECYCLE_SHA256,
+    )
+    payloads = (pre_stage_f_payload, stage_f_payload, replay_branch_payload)
+    if tuple(canonical_blob_sha256(payload) for payload in payloads) != expected_hashes:
+        return None
+
+    parsed: list[tuple[list[str], list[dict[str, str]], bytes]] = []
+    for payload in payloads:
+        canonical = payload.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+        try:
+            reader = csv.DictReader(
+                io.StringIO(canonical.decode("utf-8-sig"), newline="")
+            )
+            fieldnames = list(reader.fieldnames or ())
+            rows = [dict(row) for row in reader]
+        except (UnicodeError, csv.Error):
+            return None
+        if (
+            not fieldnames
+            or any(None in row for row in rows)
+            or any(not row.get("path", "").strip() for row in rows)
+            or len({row["path"] for row in rows}) != len(rows)
+        ):
+            return None
+        parsed.append((fieldnames, rows, canonical))
+
+    base_fields, base_rows, _base_canonical = parsed[0]
+    stage_f_fields, stage_f_rows, _stage_f_canonical = parsed[1]
+    replay_fields, replay_rows, replay_canonical = parsed[2]
+    if base_fields != stage_f_fields or base_fields != replay_fields:
+        return None
+
+    base_by_path = {row["path"]: row for row in base_rows}
+    stage_f_by_path = {row["path"]: row for row in stage_f_rows}
+    replay_by_path = {row["path"]: row for row in replay_rows}
+    overlap_path = PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_LIFECYCLE_OVERLAP_ROW
+    if set(base_by_path) != set(stage_f_by_path) or overlap_path not in base_by_path:
+        return None
+    stage_f_changed = {
+        path for path in base_by_path if base_by_path[path] != stage_f_by_path[path]
+    }
+    if stage_f_changed != {overlap_path}:
+        return None
+
+    base_overlap = base_by_path[overlap_path]
+    stage_f_overlap = stage_f_by_path[overlap_path]
+    replay_overlap = replay_by_path.get(overlap_path)
+    if replay_overlap is None:
+        return None
+    stage_f_columns = {
+        column
+        for column in base_fields
+        if base_overlap[column] != stage_f_overlap[column]
+    }
+    replay_overlap_columns = {
+        column
+        for column in base_fields
+        if base_overlap[column] != replay_overlap[column]
+    }
+    if stage_f_columns != {"imported_by"}:
+        return None
+    if replay_overlap_columns != {"called_by_workflow"}:
+        return None
+
+    output = io.StringIO(newline="")
+    writer = csv.DictWriter(output, fieldnames=base_fields, lineterminator="\n")
+    writer.writeheader()
+    writer.writerows(replay_rows)
+    if output.getvalue().encode("utf-8") != replay_canonical:
+        return None
+
+    merged_rows = [dict(row) for row in replay_rows]
+    merged_overlap = next(row for row in merged_rows if row["path"] == overlap_path)
+    merged_overlap["imported_by"] = stage_f_overlap["imported_by"]
+    output = io.StringIO(newline="")
+    writer = csv.DictWriter(output, fieldnames=base_fields, lineterminator="\n")
+    writer.writeheader()
+    writer.writerows(merged_rows)
+    integrated = output.getvalue().encode("utf-8")
+    if canonical_blob_sha256(integrated) != (
+        PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_INTEGRATED_LIFECYCLE_SHA256
+    ):
+        return None
+    return integrated
+
+
 def pr_safe_migration_contract_for_paths(
     changed_paths: set[str],
 ) -> tuple[str, str, str, frozenset[str]] | None:
@@ -2146,6 +2269,26 @@ def validate_pr_safe_control_plane_delta(
     return errors
 
 
+def validate_pr_safe_advanced_lifecycle_inventory_delta(
+    base_payload: bytes | None,
+    current_payload: bytes | None,
+) -> list[str]:
+    errors: list[str] = []
+    if base_payload is None:
+        errors.append("advanced helper preauthorization base lifecycle blob is missing")
+    elif canonical_blob_sha256(base_payload) != (
+        PR_SAFE_ADVANCED_BASE_LIFECYCLE_INVENTORY_SHA256
+    ):
+        errors.append("advanced helper preauthorization base lifecycle SHA mismatch")
+    if current_payload is None:
+        errors.append("advanced helper preauthorization current lifecycle blob is missing")
+    elif canonical_blob_sha256(current_payload) != (
+        PR_SAFE_ADVANCED_CURRENT_LIFECYCLE_INVENTORY_SHA256
+    ):
+        errors.append("advanced helper preauthorization current lifecycle SHA mismatch")
+    return errors
+
+
 def git_output_bytes(*args: str) -> bytes:
     result = subprocess.run(
         ["git", *args],
@@ -2295,6 +2438,7 @@ def validate_pr_safe_exact_migration_blob_modes(
 
 def validate_pr_safe_control_plane_migration(base_sha: str, head_sha: str) -> list[str]:
     errors: list[str] = []
+    is_replay_target = False
     if not re.fullmatch(r"[0-9a-fA-F]{40}", base_sha):
         return [f"invalid base SHA: {base_sha!r}"]
     if not re.fullmatch(r"[0-9a-fA-F]{40}", head_sha):
@@ -2319,7 +2463,10 @@ def validate_pr_safe_control_plane_migration(base_sha: str, head_sha: str) -> li
         changed_paths, diff_errors = parse_git_name_status_z(diff_payload)
         errors.extend(diff_errors)
         contract = pr_safe_migration_contract_for_paths(changed_paths)
-        if contract is None:
+        is_replay_target = (
+            changed_paths == PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_PATHS
+        )
+        if contract is None and not is_replay_target:
             errors.append(
                 "PR-safe audit requires exactly the preauthorized changed paths: "
                 + "; or ".join(
@@ -2327,6 +2474,7 @@ def validate_pr_safe_control_plane_migration(base_sha: str, head_sha: str) -> li
                     for paths in (
                         PR_SAFE_AUTHORIZED_STAGE1_PATHS,
                         PR_SAFE_SNAPSHOT_AUTHORIZED_PATHS,
+                        PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_PATHS,
                     )
                 )
             )
@@ -2351,6 +2499,11 @@ def validate_pr_safe_control_plane_migration(base_sha: str, head_sha: str) -> li
     if authorization_payload is None:
         errors.append("base-owned PR-safe authorization ledger is missing")
         authorization_payload = b""
+    elif is_replay_target:
+        _rows, authorization_errors = parse_pr_safe_authorizations(
+            authorization_payload
+        )
+        errors.extend(authorization_errors)
     if lifecycle_authorization_payload is None:
         errors.append("base-owned lifecycle authorization ledger is missing")
     else:
@@ -2359,22 +2512,47 @@ def validate_pr_safe_control_plane_migration(base_sha: str, head_sha: str) -> li
         )
         errors.extend(lifecycle_errors)
 
-    errors.extend(
-        validate_pr_safe_control_plane_delta(
+    if is_replay_target:
+        if not is_preauthorized_daily_full_checkpoint_replay_migration(
+            base_sha,
             changed_paths,
-            base_helper=git_blob_at_ref(base_sha, contract[1]),
-            base_test=git_blob_at_ref(base_sha, contract[2]),
-            current_helper=git_blob_at_ref(head_sha, contract[1]),
-            current_test=git_blob_at_ref(head_sha, contract[2]),
-            authorization_payload=authorization_payload,
-            changed_workflow_blobs={
-                path: git_blob_at_ref(head_sha, path)
-                for path in changed_paths
-                if path.startswith(".github/workflows/")
-                and Path(path).suffix in {".yml", ".yaml"}
-            },
+            PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_STRICT_SURFACES,
+            repository_root=ROOT,
+            head_ref=head_sha,
+        ):
+            errors.append(
+                "base-owned audit rejected the exact daily full checkpoint replay target"
+            )
+    else:
+        errors.extend(
+            validate_pr_safe_control_plane_delta(
+                changed_paths,
+                base_helper=git_blob_at_ref(base_sha, contract[1]),
+                base_test=git_blob_at_ref(base_sha, contract[2]),
+                current_helper=git_blob_at_ref(head_sha, contract[1]),
+                current_test=git_blob_at_ref(head_sha, contract[2]),
+                authorization_payload=authorization_payload,
+                changed_workflow_blobs={
+                    path: git_blob_at_ref(head_sha, path)
+                    for path in changed_paths
+                    if path.startswith(".github/workflows/")
+                    and Path(path).suffix in {".yml", ".yaml"}
+                },
+            )
         )
-    )
+        if contract[0] == PR_SAFE_ADDITIVE_RESEARCH_MIGRATION_ID:
+            errors.extend(
+                validate_pr_safe_advanced_lifecycle_inventory_delta(
+                    git_blob_at_ref(
+                        base_sha,
+                        PR_SAFE_ADVANCED_LIFECYCLE_INVENTORY,
+                    ),
+                    git_blob_at_ref(
+                        head_sha,
+                        PR_SAFE_ADVANCED_LIFECYCLE_INVENTORY,
+                    ),
+                )
+            )
     return errors
 
 
@@ -2465,6 +2643,7 @@ def build_pr_safe_audit_manifest(
     )
 
     changed_paths: set[str] = set()
+    is_replay_target = False
     migration_contract: tuple[str, str, str, frozenset[str]] | None = None
     try:
         diff_payload = git_output_bytes(
@@ -2480,7 +2659,10 @@ def build_pr_safe_audit_manifest(
         changed_paths, diff_errors = parse_git_name_status_z(diff_payload)
         errors.extend(diff_errors)
         migration_contract = pr_safe_migration_contract_for_paths(changed_paths)
-        if migration_contract is None:
+        is_replay_target = (
+            changed_paths == PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_PATHS
+        )
+        if migration_contract is None and not is_replay_target:
             errors.append(
                 "audit manifest changed paths do not match the exact preauthorization"
             )
@@ -2507,7 +2689,29 @@ def build_pr_safe_audit_manifest(
         )
         errors.extend(lifecycle_errors)
 
-    migration_id = migration_contract[0] if migration_contract is not None else ""
+    replay_target_verified = False
+    if is_replay_target:
+        replay_target_verified = (
+            is_preauthorized_daily_full_checkpoint_replay_migration(
+                base_sha,
+                changed_paths,
+                PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_STRICT_SURFACES,
+                repository_root=ROOT,
+                head_ref=head_sha,
+            )
+        )
+        if not replay_target_verified:
+            errors.append(
+                "audit manifest replay target failed exact base-owned preauthorization"
+            )
+
+    migration_id = (
+        migration_contract[0]
+        if migration_contract is not None
+        else PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_TARGET_ID
+        if is_replay_target
+        else ""
+    )
     matching_authorizations = [
         row
         for row in authorization_rows
@@ -2515,6 +2719,13 @@ def build_pr_safe_audit_manifest(
         == migration_id
     ]
     migration = matching_authorizations[0] if len(matching_authorizations) == 1 else {}
+    authorized_paths = (
+        PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_PATHS
+        if is_replay_target
+        else migration_contract[3]
+        if migration_contract is not None
+        else frozenset()
+    )
     protected_blobs = {
         path: {
             "base": _pr_safe_blob_evidence(base_sha, path),
@@ -2523,9 +2734,9 @@ def build_pr_safe_audit_manifest(
         for path in sorted(
             PR_SAFE_IMMUTABLE_TRUST_ROOT_PATHS
             | PR_SAFE_ALL_AUTHORIZED_MIGRATION_PATHS
+            | authorized_paths
         )
     }
-    authorized_paths = migration_contract[3] if migration_contract is not None else frozenset()
     unique_errors = list(dict.fromkeys(errors))
     return {
         "schema_version": PR_SAFE_AUDIT_MANIFEST_SCHEMA_VERSION,
@@ -2560,6 +2771,29 @@ def build_pr_safe_audit_manifest(
                 else None
             ),
             "migration": migration,
+        },
+        "replay_target_preauthorization": {
+            "target_id": (
+                PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_TARGET_ID
+                if is_replay_target
+                else None
+            ),
+            "strict_surfaces": (
+                sorted(PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_STRICT_SURFACES)
+                if is_replay_target
+                else []
+            ),
+            "base_sha256_by_path": (
+                PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_BASE_SHA256_BY_PATH
+                if is_replay_target
+                else {}
+            ),
+            "target_sha256_by_path": (
+                PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_TARGET_SHA256_BY_PATH
+                if is_replay_target
+                else {}
+            ),
+            "verified": replay_target_verified,
         },
         "lifecycle_preauthorization": {
             "path": PR_SAFE_LIFECYCLE_AUTHORIZATION_PATH,
