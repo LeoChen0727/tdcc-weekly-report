@@ -36,6 +36,9 @@ AUTHORIZED_CHECKPOINT_ARTIFACT_ID = "9025240156"
 AUTHORIZED_CHECKPOINT_ARTIFACT_DIGEST = (
     "sha256:492038fcf6c2a443ac2c77423624700d174a7d3522fc581673ef48b8314927fd"
 )
+AUTHORIZED_CHECKPOINT_MANIFEST_SHA256 = (
+    "a8b7ac80d5342a72e0f1df823392025f26d18c4494aae32a7137e11f1aa1fd96"
+)
 AUTHORIZED_PRODUCER_FIX_COMMIT = "33568e1e3cc33530a4af65f4d50cda6fcf17b77d"
 AUTHORIZED_PRODUCER_FIX_PATHS = (
     "config/daily_model_semantic_migrations.csv",
@@ -50,6 +53,11 @@ AUTHORIZED_PRODUCER_FIX_PATHS = (
     "tests/test_daily_canonical_field_lineage.py",
     "tests/test_daily_warrant_formal_sync_scope.py",
     "tests/test_model_data_independence.py",
+)
+AUTHORIZED_VALIDATOR_FIX_COMMIT = "898656c1167bbe5cc8b4a7e31e2b507cb144a657"
+AUTHORIZED_VALIDATOR_FIX_PATHS = (
+    "scripts/validate_daily_canonical_field_lineage.py",
+    "tests/test_daily_canonical_field_lineage.py",
 )
 PIPELINE_WORKFLOW = Path(".github/workflows/daily_full_pipeline.yml")
 HISTORICAL_REPLAY_SCRIPT = Path(
@@ -2068,6 +2076,7 @@ def require_authorized_checkpoint_revision_transition(
     for ancestor, label in (
         (checkpoint_source_sha, "checkpoint source"),
         (AUTHORIZED_PRODUCER_FIX_COMMIT, "producer fix"),
+        (AUTHORIZED_VALIDATOR_FIX_COMMIT, "validator fix"),
     ):
         result = subprocess.run(
             ["git", "merge-base", "--is-ancestor", ancestor, replay_source_sha],
@@ -2078,23 +2087,61 @@ def require_authorized_checkpoint_revision_transition(
             raise ValidationReplayError(
                 f"authorized {label} is not an ancestor of replay source"
             )
-    producer_drift = subprocess.run(
+    transition_order = subprocess.run(
         [
             "git",
-            "diff",
-            "--quiet",
+            "merge-base",
+            "--is-ancestor",
             AUTHORIZED_PRODUCER_FIX_COMMIT,
-            replay_source_sha,
-            "--",
-            *AUTHORIZED_PRODUCER_FIX_PATHS,
+            AUTHORIZED_VALIDATOR_FIX_COMMIT,
         ],
         cwd=repo_root,
         check=False,
     )
-    if producer_drift.returncode != 0:
+    if transition_order.returncode != 0:
         raise ValidationReplayError(
-            "authorized producer fix paths drifted after the pinned revision"
+            "authorized validator fix does not descend from the producer fix"
         )
+    validator_paths = set(AUTHORIZED_VALIDATOR_FIX_PATHS)
+    producer_paths = set(AUTHORIZED_PRODUCER_FIX_PATHS)
+    if not validator_paths or not validator_paths <= producer_paths:
+        raise ValidationReplayError(
+            "authorized validator fix paths are outside the producer contract"
+        )
+    stable_producer_paths = tuple(
+        path
+        for path in AUTHORIZED_PRODUCER_FIX_PATHS
+        if path not in validator_paths
+    )
+    for base_sha, label, paths in (
+        (
+            AUTHORIZED_PRODUCER_FIX_COMMIT,
+            "producer fix",
+            stable_producer_paths,
+        ),
+        (
+            AUTHORIZED_VALIDATOR_FIX_COMMIT,
+            "validator fix",
+            AUTHORIZED_VALIDATOR_FIX_PATHS,
+        ),
+    ):
+        drift = subprocess.run(
+            [
+                "git",
+                "diff",
+                "--quiet",
+                base_sha,
+                replay_source_sha,
+                "--",
+                *paths,
+            ],
+            cwd=repo_root,
+            check=False,
+        )
+        if drift.returncode != 0:
+            raise ValidationReplayError(
+                f"authorized {label} paths drifted after the pinned revision"
+            )
     return {
         "mode": "authorized_code_revision_transition",
         "checkpoint_source_sha": checkpoint_source_sha,
@@ -2102,9 +2149,32 @@ def require_authorized_checkpoint_revision_transition(
         "checkpoint_run_id": str(checkpoint_run_id),
         "checkpoint_artifact_id": str(checkpoint_artifact_id),
         "checkpoint_artifact_digest": checkpoint_artifact_digest,
+        "checkpoint_manifest_sha256": (
+            AUTHORIZED_CHECKPOINT_MANIFEST_SHA256
+        ),
         "producer_fix_commit": AUTHORIZED_PRODUCER_FIX_COMMIT,
         "producer_fix_paths": list(AUTHORIZED_PRODUCER_FIX_PATHS),
+        "validator_fix_commit": AUTHORIZED_VALIDATOR_FIX_COMMIT,
+        "validator_fix_paths": list(AUTHORIZED_VALIDATOR_FIX_PATHS),
     }
+
+
+def require_authorized_checkpoint_bundle_identity(bundle_dir: Path) -> None:
+    manifest_path = bundle_dir / checkpoint.CHECKPOINT_MANIFEST
+    sidecar_path = bundle_dir / checkpoint.CHECKPOINT_MANIFEST_SHA
+    if not manifest_path.is_file() or not sidecar_path.is_file():
+        raise ValidationReplayError(
+            "authorized checkpoint manifest or sidecar is missing"
+        )
+    manifest_sha = sha256_file(manifest_path)
+    sidecar_sha = sidecar_path.read_text(encoding="ascii").strip().lower()
+    if (
+        manifest_sha != AUTHORIZED_CHECKPOINT_MANIFEST_SHA256
+        or sidecar_sha != AUTHORIZED_CHECKPOINT_MANIFEST_SHA256
+    ):
+        raise ValidationReplayError(
+            "authorized checkpoint manifest/sidecar SHA mismatch"
+        )
 
 
 def write_replay_source_revision_manifest(
@@ -2192,8 +2262,11 @@ def replay_from_checkpoint(args: argparse.Namespace) -> int:
         checkpoint_artifact_id=args.checkpoint_artifact_id,
         checkpoint_artifact_digest=args.checkpoint_artifact_digest,
     )
+    bundle_dir = args.bundle_dir.resolve()
+    if transition["mode"] == "authorized_code_revision_transition":
+        require_authorized_checkpoint_bundle_identity(bundle_dir)
     checkpoint.restore_checkpoint(
-        bundle_dir=args.bundle_dir.resolve(),
+        bundle_dir=bundle_dir,
         destination_root=repo_root,
         expected_source_sha=checkpoint_source_sha,
         expected_destination_source_sha=source_sha,

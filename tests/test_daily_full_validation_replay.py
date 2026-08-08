@@ -325,6 +325,17 @@ def test_authorized_revision_transition_pins_identity_and_producer_bytes(
         capture_output=True,
         text=True,
     ).stdout.strip()
+    with (repo / paths[1]).open("a", encoding="utf-8") as handle:
+        handle.write("validator-fix,true\n")
+    _git(repo, "add", paths[1])
+    _git(repo, "commit", "-qm", "authorized validator fix")
+    validator_fix_sha = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=repo,
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.strip()
     monkeypatch.setattr(
         replay_runner,
         "AUTHORIZED_CHECKPOINT_SOURCE_SHA",
@@ -336,12 +347,22 @@ def test_authorized_revision_transition_pins_identity_and_producer_bytes(
         producer_fix_sha,
     )
     monkeypatch.setattr(
-        replay_runner, "AUTHORIZED_PRODUCER_FIX_PATHS", (paths[0],)
+        replay_runner,
+        "AUTHORIZED_PRODUCER_FIX_PATHS",
+        (paths[0], paths[1]),
+    )
+    monkeypatch.setattr(
+        replay_runner,
+        "AUTHORIZED_VALIDATOR_FIX_COMMIT",
+        validator_fix_sha,
+    )
+    monkeypatch.setattr(
+        replay_runner, "AUTHORIZED_VALIDATOR_FIX_PATHS", (paths[1],)
     )
     transition = replay_runner.require_authorized_checkpoint_revision_transition(
         repo_root=repo,
         checkpoint_source_sha=checkpoint_source_sha,
-        replay_source_sha=producer_fix_sha,
+        replay_source_sha=validator_fix_sha,
         checkpoint_run_id=replay_runner.AUTHORIZED_CHECKPOINT_RUN_ID,
         checkpoint_artifact_id=replay_runner.AUTHORIZED_CHECKPOINT_ARTIFACT_ID,
         checkpoint_artifact_digest=(
@@ -349,13 +370,15 @@ def test_authorized_revision_transition_pins_identity_and_producer_bytes(
         ),
     )
     assert transition["mode"] == "authorized_code_revision_transition"
+    assert transition["producer_fix_commit"] == producer_fix_sha
+    assert transition["validator_fix_commit"] == validator_fix_sha
     with pytest.raises(
         replay_runner.ValidationReplayError, match="not preauthorized"
     ):
         replay_runner.require_authorized_checkpoint_revision_transition(
             repo_root=repo,
             checkpoint_source_sha=checkpoint_source_sha,
-            replay_source_sha=producer_fix_sha,
+            replay_source_sha=validator_fix_sha,
             checkpoint_run_id="999",
             checkpoint_artifact_id=(
                 replay_runner.AUTHORIZED_CHECKPOINT_ARTIFACT_ID
@@ -401,6 +424,107 @@ def test_authorized_revision_transition_pins_identity_and_producer_bytes(
                 replay_runner.AUTHORIZED_CHECKPOINT_ARTIFACT_DIGEST
             ),
         )
+
+
+def test_authorized_revision_transition_rejects_validator_fix_drift(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    repo, _, paths, checkpoint_source_sha = _build(tmp_path)
+    _git(repo, "add", ".")
+    _git(repo, "commit", "-qm", "authorized producer fix")
+    producer_fix_sha = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=repo,
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.strip()
+    with (repo / paths[1]).open("a", encoding="utf-8") as handle:
+        handle.write("validator-fix,true\n")
+    _git(repo, "add", paths[1])
+    _git(repo, "commit", "-qm", "authorized validator fix")
+    validator_fix_sha = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=repo,
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.strip()
+    monkeypatch.setattr(
+        replay_runner,
+        "AUTHORIZED_CHECKPOINT_SOURCE_SHA",
+        checkpoint_source_sha,
+    )
+    monkeypatch.setattr(
+        replay_runner,
+        "AUTHORIZED_PRODUCER_FIX_COMMIT",
+        producer_fix_sha,
+    )
+    monkeypatch.setattr(
+        replay_runner,
+        "AUTHORIZED_PRODUCER_FIX_PATHS",
+        (paths[0], paths[1]),
+    )
+    monkeypatch.setattr(
+        replay_runner,
+        "AUTHORIZED_VALIDATOR_FIX_COMMIT",
+        validator_fix_sha,
+    )
+    monkeypatch.setattr(
+        replay_runner, "AUTHORIZED_VALIDATOR_FIX_PATHS", (paths[1],)
+    )
+    with (repo / paths[1]).open("a", encoding="utf-8") as handle:
+        handle.write("unauthorized-drift,true\n")
+    _git(repo, "add", paths[1])
+    _git(repo, "commit", "-qm", "unauthorized validator drift")
+    drift_sha = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=repo,
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.strip()
+    with pytest.raises(
+        replay_runner.ValidationReplayError,
+        match="validator fix paths drifted",
+    ):
+        replay_runner.require_authorized_checkpoint_revision_transition(
+            repo_root=repo,
+            checkpoint_source_sha=checkpoint_source_sha,
+            replay_source_sha=drift_sha,
+            checkpoint_run_id=replay_runner.AUTHORIZED_CHECKPOINT_RUN_ID,
+            checkpoint_artifact_id=(
+                replay_runner.AUTHORIZED_CHECKPOINT_ARTIFACT_ID
+            ),
+            checkpoint_artifact_digest=(
+                replay_runner.AUTHORIZED_CHECKPOINT_ARTIFACT_DIGEST
+            ),
+        )
+
+
+def test_authorized_checkpoint_manifest_and_sidecar_sha_are_pinned(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    _, bundle, _, _ = _build(tmp_path)
+    manifest_sha = hashlib.sha256(
+        (bundle / CHECKPOINT_MANIFEST).read_bytes()
+    ).hexdigest()
+    monkeypatch.setattr(
+        replay_runner,
+        "AUTHORIZED_CHECKPOINT_MANIFEST_SHA256",
+        manifest_sha,
+    )
+    replay_runner.require_authorized_checkpoint_bundle_identity(bundle)
+    (bundle / CHECKPOINT_MANIFEST_SHA).write_text(
+        "0" * 64 + "\n", encoding="ascii"
+    )
+    with pytest.raises(
+        replay_runner.ValidationReplayError,
+        match="manifest/sidecar SHA mismatch",
+    ):
+        replay_runner.require_authorized_checkpoint_bundle_identity(bundle)
 
 
 def test_cross_revision_workflow_requires_explicit_checkpoint_identity() -> None:
