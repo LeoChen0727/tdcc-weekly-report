@@ -774,10 +774,10 @@ def test_daily_full_checkpoint_replay_preauthorization_is_exact_and_fail_closed(
     lifecycle_path = "config/repo_file_lifecycle_inventory.csv"
     assert inventory.PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_BASE_SHA256_BY_PATH[
         lifecycle_path
-    ] == "45eae9722c4d8587ff483a8e550eb5054cc8a6ab26a836d7f8f80e30a9c3a3d7"
+    ] == "69831c7ef8b922ddb763af94cbf4df694ee2d981c7a7d475567f67587ed07ce5"
     assert inventory.PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_TARGET_SHA256_BY_PATH[
         lifecycle_path
-    ] == "b297a44b3e898e6f896893607b6e88d62b0fe3c2aefb57aa463caef3ed384429"
+    ] == "e4e7ae5fa26c90545ddcd8f12aae8a5c0a343e2657d44f081b4c7b3088ae3c1a"
     base_ref = "a" * 40
     base_blobs: dict[str, bytes | None] = {}
     target_blobs: dict[str, bytes] = {}
@@ -883,6 +883,128 @@ def test_daily_full_checkpoint_replay_preauthorization_is_exact_and_fail_closed(
     )
 
 
+def test_daily_full_checkpoint_replay_three_layer_lifecycle_reconciliation(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    fields = (
+        "path",
+        "type",
+        "owner",
+        "status",
+        "called_by_workflow",
+        "imported_by",
+        "tested_by",
+        "documented_by",
+        "writes_artifact",
+        "reads_artifact",
+        "keep_reason",
+        "delete_reason",
+        "removal_risk",
+    )
+    overlap_path = inventory.PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_LIFECYCLE_OVERLAP_ROW
+
+    def payload(rows: list[dict[str, str]]) -> bytes:
+        output = io.StringIO(newline="")
+        writer = csv.DictWriter(output, fieldnames=fields, lineterminator="\n")
+        writer.writeheader()
+        writer.writerows(rows)
+        return output.getvalue().encode("utf-8")
+
+    base_overlap = {field: "" for field in fields}
+    base_overlap.update(
+        path=overlap_path,
+        type="python",
+        owner="repo_infrastructure",
+        status="active",
+        called_by_workflow="daily.yml",
+        imported_by="snapshot.py",
+        removal_risk="high",
+    )
+    stable_row = {field: "" for field in fields}
+    stable_row.update(
+        path="scripts/stable.py",
+        type="python",
+        owner="repo_infrastructure",
+        status="active",
+        removal_risk="low",
+    )
+    replay_row = {field: "" for field in fields}
+    replay_row.update(
+        path="scripts/replay.py",
+        type="python",
+        owner="repo_infrastructure",
+        status="active",
+        removal_risk="high",
+    )
+    stage_f_overlap = {**base_overlap, "imported_by": "snapshot.py;advanced.py"}
+    replay_overlap = {**base_overlap, "called_by_workflow": "daily.yml;replay.yml"}
+    pre_stage_f = payload([base_overlap, stable_row])
+    stage_f = payload([stage_f_overlap, stable_row])
+    replay_branch = payload([replay_overlap, stable_row, replay_row])
+    expected = payload(
+        [
+            {
+                **replay_overlap,
+                "imported_by": "snapshot.py;advanced.py",
+            },
+            stable_row,
+            replay_row,
+        ]
+    )
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_PRE_STAGE_F_LIFECYCLE_SHA256",
+        inventory.canonical_blob_sha256(pre_stage_f),
+    )
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_STAGE_F_LIFECYCLE_SHA256",
+        inventory.canonical_blob_sha256(stage_f),
+    )
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_BRANCH_LIFECYCLE_SHA256",
+        inventory.canonical_blob_sha256(replay_branch),
+    )
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_INTEGRATED_LIFECYCLE_SHA256",
+        inventory.canonical_blob_sha256(expected),
+    )
+
+    assert (
+        inventory.build_daily_full_checkpoint_replay_integrated_lifecycle_inventory(
+            pre_stage_f,
+            stage_f,
+            replay_branch,
+        )
+        == expected
+    )
+
+    invalid_stage_f = payload(
+        [
+            {
+                **stage_f_overlap,
+                "called_by_workflow": "daily.yml;unapproved.yml",
+            },
+            stable_row,
+        ]
+    )
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_STAGE_F_LIFECYCLE_SHA256",
+        inventory.canonical_blob_sha256(invalid_stage_f),
+    )
+    assert (
+        inventory.build_daily_full_checkpoint_replay_integrated_lifecycle_inventory(
+            pre_stage_f,
+            invalid_stage_f,
+            replay_branch,
+        )
+        is None
+    )
+
+
 def test_pr_safe_base_guard_rejects_helper_migration_with_extra_path() -> None:
     base_helper = b"base helper\n"
     current_helper = inventory.PR_SAFE_ADDITIVE_RESEARCH_MIGRATION_ID.encode("utf-8")
@@ -928,6 +1050,34 @@ def test_pr_safe_base_guard_rejects_unpinned_helper_semantic_mutation() -> None:
     )
 
     assert "PR-safe migration authorization current_helper_sha256 mismatch" in errors
+
+
+def test_pr_safe_advanced_lifecycle_preauthorization_is_exact() -> None:
+    base_payload = b"base lifecycle inventory\n"
+    current_payload = b"current lifecycle inventory\n"
+    original_base = inventory.PR_SAFE_ADVANCED_BASE_LIFECYCLE_INVENTORY_SHA256
+    original_current = inventory.PR_SAFE_ADVANCED_CURRENT_LIFECYCLE_INVENTORY_SHA256
+    try:
+        inventory.PR_SAFE_ADVANCED_BASE_LIFECYCLE_INVENTORY_SHA256 = (
+            inventory.canonical_blob_sha256(base_payload)
+        )
+        inventory.PR_SAFE_ADVANCED_CURRENT_LIFECYCLE_INVENTORY_SHA256 = (
+            inventory.canonical_blob_sha256(current_payload)
+        )
+        assert (
+            inventory.validate_pr_safe_advanced_lifecycle_inventory_delta(
+                base_payload,
+                current_payload,
+            )
+            == []
+        )
+        assert inventory.validate_pr_safe_advanced_lifecycle_inventory_delta(
+            base_payload,
+            current_payload + b"unapproved drift\n",
+        ) == ["advanced helper preauthorization current lifecycle SHA mismatch"]
+    finally:
+        inventory.PR_SAFE_ADVANCED_BASE_LIFECYCLE_INVENTORY_SHA256 = original_base
+        inventory.PR_SAFE_ADVANCED_CURRENT_LIFECYCLE_INVENTORY_SHA256 = original_current
 
 
 def test_pr_safe_base_guard_rejects_its_own_trust_root_changes() -> None:
@@ -1080,6 +1230,7 @@ def test_pr_safe_audit_manifest_pins_exact_evidence_without_trust_identity(
     ).read_bytes()
 
     diff_payload = (
+        f"M\0{inventory.PR_SAFE_ADVANCED_LIFECYCLE_INVENTORY}\0"
         f"M\0{inventory.PR_SAFE_ADVANCED_HELPER}\0"
         f"M\0{inventory.PR_SAFE_ADVANCED_TEST}\0"
     ).encode("utf-8")
@@ -1236,6 +1387,108 @@ def test_pr_safe_audit_manifest_pins_exact_evidence_without_trust_identity(
     assert unrelated_manifest["changed_paths_match_allowlist"] is False
     assert unrelated_manifest["manual_gate_eligible"] is False
     assert unrelated_manifest["validation"]["passed"] is False
+
+
+def test_pr_safe_base_audit_accepts_only_exact_daily_full_replay_target(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    base_sha = "a" * 40
+    head_sha = "b" * 40
+    diff_payload = b"".join(
+        f"M\0{path}\0".encode("utf-8")
+        for path in sorted(inventory.PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_PATHS)
+    )
+    authorization_payload = (
+        ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH
+    ).read_bytes()
+    lifecycle_payload = (
+        ROOT / inventory.PR_SAFE_LIFECYCLE_AUTHORIZATION_PATH
+    ).read_bytes()
+
+    def fake_git_output_bytes(*args: str) -> bytes:
+        if args[0] == "diff":
+            return diff_payload
+        if args == ("rev-parse", "HEAD"):
+            return f"{base_sha}\n".encode("ascii")
+        if args[:2] == ("ls-tree", "-z"):
+            path = args[-1]
+            return f"100644 blob {'0' * 40}\t{path}\0".encode("utf-8")
+        raise AssertionError(args)
+
+    def fake_git_blob_at_ref(ref: str, path: str) -> bytes | None:
+        if ref == base_sha and path == inventory.PR_SAFE_AUTHORIZATION_PATH:
+            return authorization_payload
+        if ref == base_sha and path == inventory.PR_SAFE_LIFECYCLE_AUTHORIZATION_PATH:
+            return lifecycle_payload
+        return f"{ref}:{path}\n".encode("utf-8")
+
+    monkeypatch.setattr(inventory, "git_output_bytes", fake_git_output_bytes)
+    monkeypatch.setattr(inventory, "git_blob_at_ref", fake_git_blob_at_ref)
+    monkeypatch.setattr(
+        inventory,
+        "is_preauthorized_daily_full_checkpoint_replay_migration",
+        lambda base_ref, changed_paths, strict_surfaces, **kwargs: (
+            base_ref == base_sha
+            and changed_paths
+            == inventory.PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_PATHS
+            and strict_surfaces
+            == inventory.PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_STRICT_SURFACES
+            and kwargs["head_ref"] == head_sha
+        ),
+    )
+
+    assert inventory.validate_pr_safe_control_plane_migration(base_sha, head_sha) == []
+    manifest = inventory.build_pr_safe_audit_manifest(
+        base_sha=base_sha,
+        head_sha=head_sha,
+        validation_errors=[],
+        repository=inventory.PR_SAFE_REPOSITORY,
+        workflow_ref=inventory.PR_SAFE_EXPECTED_WORKFLOW_REF,
+        workflow_sha=base_sha,
+        run_id="12345",
+        run_attempt="1",
+        event_name="pull_request_target",
+        event_action="synchronize",
+        base_ref="main",
+        base_repository=inventory.PR_SAFE_REPOSITORY,
+        head_repository=inventory.PR_SAFE_REPOSITORY,
+        pull_request_number="482",
+    )
+
+    assert manifest["validation"] == {"passed": True, "errors": []}
+    assert manifest["manual_gate_eligible"] is True
+    assert manifest["changed_paths_match_allowlist"] is True
+    assert manifest["changed_path_allowlist"] == sorted(
+        inventory.PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_PATHS
+    )
+    assert manifest["replay_target_preauthorization"]["verified"] is True
+    assert set(manifest["protected_blobs"]) >= (
+        inventory.PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_PATHS
+    )
+
+    monkeypatch.setattr(
+        inventory,
+        "is_preauthorized_daily_full_checkpoint_replay_migration",
+        lambda *args, **kwargs: False,
+    )
+    rejected = inventory.build_pr_safe_audit_manifest(
+        base_sha=base_sha,
+        head_sha=head_sha,
+        validation_errors=[],
+        repository=inventory.PR_SAFE_REPOSITORY,
+        workflow_ref=inventory.PR_SAFE_EXPECTED_WORKFLOW_REF,
+        workflow_sha=base_sha,
+        run_id="12345",
+        run_attempt="1",
+        event_name="pull_request_target",
+        event_action="synchronize",
+        base_ref="main",
+        base_repository=inventory.PR_SAFE_REPOSITORY,
+        head_repository=inventory.PR_SAFE_REPOSITORY,
+        pull_request_number="482",
+    )
+    assert rejected["manual_gate_eligible"] is False
+    assert rejected["replay_target_preauthorization"]["verified"] is False
 
 
 def test_inventory_manifest_exists_and_is_authoritative() -> None:
