@@ -496,6 +496,41 @@ def create_checkpoint(
             "mutable_source_fallback_allowed": False,
         },
     }
+    checkpoint_source_sha = source_revision.get("checkpoint_source_sha")
+    replay_source_sha = source_revision.get("replay_source_sha")
+    revision_transition = source_revision.get("revision_transition")
+    if any(
+        value is not None
+        for value in (
+            checkpoint_source_sha,
+            replay_source_sha,
+            revision_transition,
+        )
+    ):
+        checkpoint_source_sha = _require_sha(
+            str(checkpoint_source_sha or ""),
+            "checkpoint_source_sha",
+        )
+        replay_source_sha = _require_sha(
+            str(replay_source_sha or ""),
+            "replay_source_sha",
+        )
+        if replay_source_sha != source_sha:
+            raise ReplayCheckpointError(
+                "replay source SHA must equal checkpoint producer source SHA"
+            )
+        if not isinstance(revision_transition, dict) or (
+            revision_transition.get("checkpoint_source_sha")
+            != checkpoint_source_sha
+            or revision_transition.get("replay_source_sha")
+            != replay_source_sha
+        ):
+            raise ReplayCheckpointError(
+                "checkpoint revision transition metadata mismatch"
+            )
+        manifest["checkpoint_source_sha"] = checkpoint_source_sha
+        manifest["replay_source_sha"] = replay_source_sha
+        manifest["revision_transition"] = revision_transition
     manifest_bytes = _canonical_json_bytes(manifest)
     (bundle_dir / CHECKPOINT_MANIFEST).write_bytes(manifest_bytes)
     (bundle_dir / CHECKPOINT_MANIFEST_SHA).write_text(
@@ -569,6 +604,33 @@ def verify_checkpoint(
         raise ReplayCheckpointError(
             "checkpoint producer head/source SHA mismatch"
         )
+    if any(
+        key in manifest
+        for key in (
+            "checkpoint_source_sha",
+            "replay_source_sha",
+            "revision_transition",
+        )
+    ):
+        checkpoint_source_sha = _require_sha(
+            str(manifest.get("checkpoint_source_sha") or ""),
+            "checkpoint_source_sha",
+        )
+        replay_source_sha = _require_sha(
+            str(manifest.get("replay_source_sha") or ""),
+            "replay_source_sha",
+        )
+        transition = manifest.get("revision_transition")
+        if (
+            replay_source_sha != manifest.get("source_sha")
+            or not isinstance(transition, dict)
+            or transition.get("checkpoint_source_sha")
+            != checkpoint_source_sha
+            or transition.get("replay_source_sha") != replay_source_sha
+        ):
+            raise ReplayCheckpointError(
+                "checkpoint revision transition metadata mismatch"
+            )
     revision_kind = manifest.get("revision_kind")
     if revision_kind not in {
         "authoritative_historical_revision",
@@ -719,6 +781,12 @@ def verify_checkpoint(
         != manifest.get("replay_date")
         or source_revision.get("source_sha")
         != manifest.get("source_sha")
+        or source_revision.get("checkpoint_source_sha")
+        != manifest.get("checkpoint_source_sha")
+        or source_revision.get("replay_source_sha")
+        != manifest.get("replay_source_sha")
+        or source_revision.get("revision_transition")
+        != manifest.get("revision_transition")
         or load_source_identities(revision_path) != identities
     ):
         raise ReplayCheckpointError(
@@ -732,6 +800,7 @@ def restore_checkpoint(
     bundle_dir: Path,
     destination_root: Path,
     expected_source_sha: str,
+    expected_destination_source_sha: str | None = None,
     expected_run_id: str,
     expected_kind: str,
     expected_capture_context: str | None = None,
@@ -745,36 +814,79 @@ def restore_checkpoint(
     )
     destination_root = destination_root.resolve()
     source_sha = str(manifest["source_sha"])
-    tracked_paths = [
-        str(entry["path"])
-        for entry in manifest["files"]
-        if bool(entry["baseline"]["exists"])
-    ]
-    for start in range(0, len(tracked_paths), 100):
-        chunk = tracked_paths[start : start + 100]
+    destination_source_sha = _require_sha(
+        expected_destination_source_sha or source_sha,
+        "expected_destination_source_sha",
+    )
+    head_result = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=destination_root,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    if head_result.returncode != 0:
+        raise ReplayCheckpointError(
+            "cannot resolve restore destination HEAD"
+        )
+    destination_head = head_result.stdout.strip()
+    if destination_head != destination_source_sha:
+        raise ReplayCheckpointError(
+            "restore destination HEAD/source SHA mismatch"
+        )
+    status_result = subprocess.run(
+        ["git", "status", "--porcelain=v1", "--untracked-files=all"],
+        cwd=destination_root,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    if status_result.returncode != 0:
+        raise ReplayCheckpointError(
+            "cannot resolve restore destination status"
+        )
+    destination_status = status_result.stdout
+    if destination_status.strip():
+        raise ReplayCheckpointError(
+            "restore collision: destination checkout is not clean"
+        )
+    relative_paths = [str(entry["path"]) for entry in manifest["files"]]
+    destination_entries = _baseline_entries(
+        destination_root, destination_source_sha, relative_paths
+    )
+    for start in range(0, len(relative_paths), 100):
+        chunk = relative_paths[start : start + 100]
         parity = subprocess.run(
-            ["git", "diff", "--quiet", source_sha, "--", *chunk],
+            [
+                "git",
+                "diff",
+                "--quiet",
+                destination_source_sha,
+                "--",
+                *chunk,
+            ],
             cwd=destination_root,
             check=False,
         )
         if parity.returncode == 1:
             raise ReplayCheckpointError(
-                "restore collision against source SHA in tracked "
+                "restore collision against destination source SHA in "
                 f"checkpoint path chunk: {chunk[:3]}"
             )
         if parity.returncode != 0:
             raise ReplayCheckpointError(
-                "cannot verify restore collision against source SHA; "
+                "cannot verify restore collision against destination "
+                "source SHA; "
                 f"git diff exit={parity.returncode}"
             )
     for entry in manifest["files"]:
         relative = str(entry["path"])
         destination = destination_root / Path(relative)
-        baseline = entry["baseline"]
-        if bool(baseline["exists"]):
+        destination_baseline = destination_entries[relative]
+        if bool(destination_baseline["exists"]):
             if not destination.is_file():
                 raise ReplayCheckpointError(
-                    f"restore baseline file is missing: {relative}"
+                    f"restore destination baseline file is missing: {relative}"
                 )
         elif destination.exists():
             raise ReplayCheckpointError(

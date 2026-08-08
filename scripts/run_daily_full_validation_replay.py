@@ -30,6 +30,27 @@ from scripts import replay_historical_structured_sources as historical_replay  #
 
 REPLAY_DATE = "20260807"
 OLD_FAILED_RUN_ID = "31174813266"
+AUTHORIZED_CHECKPOINT_SOURCE_SHA = "4d715065f38389752aaeaa0c511280c47ccedc08"
+AUTHORIZED_CHECKPOINT_RUN_ID = "31268964962"
+AUTHORIZED_CHECKPOINT_ARTIFACT_ID = "9025240156"
+AUTHORIZED_CHECKPOINT_ARTIFACT_DIGEST = (
+    "sha256:492038fcf6c2a443ac2c77423624700d174a7d3522fc581673ef48b8314927fd"
+)
+AUTHORIZED_PRODUCER_FIX_COMMIT = "33568e1e3cc33530a4af65f4d50cda6fcf17b77d"
+AUTHORIZED_PRODUCER_FIX_PATHS = (
+    "config/daily_model_semantic_migrations.csv",
+    "config/daily_model_semantic_ownership.csv",
+    "config/daily_model_shared_semantic_registry.csv",
+    "config/model_research_shared_utility_migrations.csv",
+    "config/model_research_shared_utility_registry.csv",
+    "scripts/build_daily_candidate_model_layer.py",
+    "scripts/validate_daily_canonical_field_lineage.py",
+    "scripts/validate_daily_warrant_formal_sync_scope.py",
+    "tests/test_daily_candidate_model_layer.py",
+    "tests/test_daily_canonical_field_lineage.py",
+    "tests/test_daily_warrant_formal_sync_scope.py",
+    "tests/test_model_data_independence.py",
+)
 PIPELINE_WORKFLOW = Path(".github/workflows/daily_full_pipeline.yml")
 HISTORICAL_REPLAY_SCRIPT = Path(
     "scripts/replay_historical_structured_sources.py"
@@ -1996,10 +2017,130 @@ def require_freshness_contract(
     return state
 
 
-def write_validation_source_state(
-    repo_root: Path, source_sha: str
+def require_authorized_checkpoint_revision_transition(
+    *,
+    repo_root: Path,
+    checkpoint_source_sha: str,
+    replay_source_sha: str,
+    checkpoint_run_id: str,
+    checkpoint_artifact_id: str,
+    checkpoint_artifact_digest: str,
 ) -> dict[str, Any]:
-    state = require_freshness_contract(repo_root, source_sha)
+    checkpoint_source_sha = require_sha(
+        checkpoint_source_sha, "checkpoint_source_sha"
+    )
+    replay_source_sha = require_sha(replay_source_sha, "replay_source_sha")
+    if (
+        not str(checkpoint_run_id).isdigit()
+        or not str(checkpoint_artifact_id).isdigit()
+        or not re.fullmatch(
+            r"sha256:[0-9a-f]{64}", checkpoint_artifact_digest
+        )
+    ):
+        raise ValidationReplayError(
+            "checkpoint replay identity inputs are malformed"
+        )
+    if checkpoint_source_sha == replay_source_sha:
+        return {
+            "mode": "same_source",
+            "checkpoint_source_sha": checkpoint_source_sha,
+            "replay_source_sha": replay_source_sha,
+            "checkpoint_run_id": str(checkpoint_run_id),
+            "checkpoint_artifact_id": str(checkpoint_artifact_id),
+            "checkpoint_artifact_digest": checkpoint_artifact_digest,
+        }
+    observed = (
+        checkpoint_source_sha,
+        str(checkpoint_run_id),
+        str(checkpoint_artifact_id),
+        checkpoint_artifact_digest,
+    )
+    expected = (
+        AUTHORIZED_CHECKPOINT_SOURCE_SHA,
+        AUTHORIZED_CHECKPOINT_RUN_ID,
+        AUTHORIZED_CHECKPOINT_ARTIFACT_ID,
+        AUTHORIZED_CHECKPOINT_ARTIFACT_DIGEST,
+    )
+    if observed != expected:
+        raise ValidationReplayError(
+            "checkpoint replay source transition is not preauthorized"
+        )
+    for ancestor, label in (
+        (checkpoint_source_sha, "checkpoint source"),
+        (AUTHORIZED_PRODUCER_FIX_COMMIT, "producer fix"),
+    ):
+        result = subprocess.run(
+            ["git", "merge-base", "--is-ancestor", ancestor, replay_source_sha],
+            cwd=repo_root,
+            check=False,
+        )
+        if result.returncode != 0:
+            raise ValidationReplayError(
+                f"authorized {label} is not an ancestor of replay source"
+            )
+    producer_drift = subprocess.run(
+        [
+            "git",
+            "diff",
+            "--quiet",
+            AUTHORIZED_PRODUCER_FIX_COMMIT,
+            replay_source_sha,
+            "--",
+            *AUTHORIZED_PRODUCER_FIX_PATHS,
+        ],
+        cwd=repo_root,
+        check=False,
+    )
+    if producer_drift.returncode != 0:
+        raise ValidationReplayError(
+            "authorized producer fix paths drifted after the pinned revision"
+        )
+    return {
+        "mode": "authorized_code_revision_transition",
+        "checkpoint_source_sha": checkpoint_source_sha,
+        "replay_source_sha": replay_source_sha,
+        "checkpoint_run_id": str(checkpoint_run_id),
+        "checkpoint_artifact_id": str(checkpoint_artifact_id),
+        "checkpoint_artifact_digest": checkpoint_artifact_digest,
+        "producer_fix_commit": AUTHORIZED_PRODUCER_FIX_COMMIT,
+        "producer_fix_paths": list(AUTHORIZED_PRODUCER_FIX_PATHS),
+    }
+
+
+def write_replay_source_revision_manifest(
+    *,
+    source_manifest_path: Path,
+    output_path: Path,
+    transition: dict[str, Any],
+) -> Path:
+    payload = json.loads(source_manifest_path.read_text(encoding="utf-8"))
+    checkpoint_source_sha = str(transition["checkpoint_source_sha"])
+    replay_source_sha = str(transition["replay_source_sha"])
+    if payload.get("source_sha") != checkpoint_source_sha:
+        raise ValidationReplayError(
+            "checkpoint source revision manifest SHA identity mismatch"
+        )
+    payload["source_sha"] = replay_source_sha
+    payload["checkpoint_source_sha"] = checkpoint_source_sha
+    payload["replay_source_sha"] = replay_source_sha
+    payload["revision_transition"] = {
+        **transition,
+        "checkpoint_source_manifest_sha256": sha256_file(
+            source_manifest_path
+        ),
+    }
+    output_path.write_bytes(canonical_json_bytes(payload))
+    return output_path
+
+
+def write_validation_source_state(
+    repo_root: Path,
+    replay_source_sha: str,
+    transition: dict[str, Any],
+) -> dict[str, Any]:
+    state = require_freshness_contract(repo_root, replay_source_sha)
+    state["checkpoint_source_sha"] = transition["checkpoint_source_sha"]
+    state["replay_source_sha"] = replay_source_sha
     files = {}
     for relative in (
         FRESHNESS_PATH,
@@ -2015,7 +2156,10 @@ def write_validation_source_state(
     payload = {
         "schema_version": 1,
         "replay_date": REPLAY_DATE,
-        "source_sha": source_sha,
+        "source_sha": replay_source_sha,
+        "checkpoint_source_sha": transition["checkpoint_source_sha"],
+        "replay_source_sha": replay_source_sha,
+        "revision_transition": transition,
         "source_state": state,
         "files": files,
         "safety": {
@@ -2034,13 +2178,25 @@ def replay_from_checkpoint(args: argparse.Namespace) -> int:
     repo_root = args.repo_root.resolve()
     runner_temp = args.runner_temp.resolve()
     runner_temp.mkdir(parents=True, exist_ok=True)
-    source_sha = require_sha(args.source_sha, "source_sha")
+    source_sha = require_sha(args.source_sha, "replay_source_sha")
+    checkpoint_source_sha = require_sha(
+        args.checkpoint_source_sha, "checkpoint_source_sha"
+    )
     require_exact_date(args.replay_date, "replay_date")
     require_main_source(repo_root, source_sha)
+    transition = require_authorized_checkpoint_revision_transition(
+        repo_root=repo_root,
+        checkpoint_source_sha=checkpoint_source_sha,
+        replay_source_sha=source_sha,
+        checkpoint_run_id=args.checkpoint_run_id,
+        checkpoint_artifact_id=args.checkpoint_artifact_id,
+        checkpoint_artifact_digest=args.checkpoint_artifact_digest,
+    )
     checkpoint.restore_checkpoint(
         bundle_dir=args.bundle_dir.resolve(),
         destination_root=repo_root,
-        expected_source_sha=source_sha,
+        expected_source_sha=checkpoint_source_sha,
+        expected_destination_source_sha=source_sha,
         expected_run_id=args.checkpoint_run_id,
         expected_kind="pre_step41",
         expected_capture_context="validation_canary",
@@ -2073,12 +2229,15 @@ def replay_from_checkpoint(args: argparse.Namespace) -> int:
         env,
     )
     source_state = write_validation_source_state(
-        repo_root, source_sha
+        repo_root, source_sha, transition
     )
     parity = {
         "schema_version": 1,
         "replay_date": REPLAY_DATE,
         "source_sha": source_sha,
+        "checkpoint_source_sha": checkpoint_source_sha,
+        "replay_source_sha": source_sha,
+        "revision_transition": transition,
         "checkpoint_run_id": args.checkpoint_run_id,
         "original_failure_step": POST_START_STEP,
         "original_failure_stock_id": "2059",
@@ -2105,6 +2264,8 @@ def replay_from_checkpoint(args: argparse.Namespace) -> int:
                 "mode": "replay",
                 "replay_date": REPLAY_DATE,
                 "source_sha": source_sha,
+                "checkpoint_source_sha": checkpoint_source_sha,
+                "replay_source_sha": source_sha,
                 "steps": steps,
             }
         )
@@ -2120,13 +2281,18 @@ def replay_from_checkpoint(args: argparse.Namespace) -> int:
         raise ValidationReplayError(
             "restored historical source manifest is missing"
         )
+    replay_source_manifest = write_replay_source_revision_manifest(
+        source_manifest_path=structured_paths[-1],
+        output_path=runner_temp / "replay_source_revision_manifest.json",
+        transition=transition,
+    )
     manifest = capture_checkpoint(
         repo_root=repo_root,
         bundle_dir=args.post_bundle_dir.resolve(),
         runner_temp=runner_temp,
         source_sha=source_sha,
         run_id=args.run_id,
-        structured_manifest_path=structured_paths[-1],
+        structured_manifest_path=replay_source_manifest,
         revision_kind="authoritative_historical_revision",
         checkpoint_kind="post_validation",
         capture_context="validation_replay",
@@ -2155,9 +2321,26 @@ def verify_local_source_state(
             "validation source-state manifest is missing"
         )
     payload = json.loads(path.read_text(encoding="utf-8"))
+    checkpoint_source_sha = str(
+        payload.get("checkpoint_source_sha") or source_sha
+    )
+    replay_source_sha = str(payload.get("replay_source_sha") or source_sha)
+    transition = payload.get("revision_transition") or {}
+    cross_revision_invalid = checkpoint_source_sha != source_sha and (
+        replay_source_sha != source_sha
+        or checkpoint_source_sha != AUTHORIZED_CHECKPOINT_SOURCE_SHA
+        or transition.get("checkpoint_run_id")
+        != AUTHORIZED_CHECKPOINT_RUN_ID
+        or transition.get("checkpoint_artifact_id")
+        != AUTHORIZED_CHECKPOINT_ARTIFACT_ID
+        or transition.get("checkpoint_artifact_digest")
+        != AUTHORIZED_CHECKPOINT_ARTIFACT_DIGEST
+    )
     if (
         payload.get("replay_date") != REPLAY_DATE
         or payload.get("source_sha") != source_sha
+        or replay_source_sha != source_sha
+        or cross_revision_invalid
         or payload.get("safety")
         != {
             "validation_only": True,
@@ -2438,7 +2621,10 @@ def render_pdfs(args: argparse.Namespace) -> int:
                 "validation_only_authoritative_historical_revision"
             ),
             "source_materialization": "verified_checkpoint_overlay",
-            "validation_checkpoint_source_sha": source_sha,
+            "validation_checkpoint_source_sha": source_state[
+                "checkpoint_source_sha"
+            ],
+            "validation_replay_source_sha": source_sha,
             "production_not_run": True,
             "official_pdf_published": False,
             "repo_artifacts_pushed_by_replay": False,
@@ -2471,6 +2657,8 @@ def render_pdfs(args: argparse.Namespace) -> int:
         "schema_version": 1,
         "replay_date": REPLAY_DATE,
         "source_sha": source_sha,
+        "checkpoint_source_sha": source_state["checkpoint_source_sha"],
+        "replay_source_sha": source_sha,
         "pdf_count": 6,
         "pdf_source_gate": "pass",
         "pdf_completion_hard_gate": "pass",
@@ -2530,6 +2718,9 @@ def parser() -> argparse.ArgumentParser:
     )
     replay.add_argument("--bundle-dir", type=Path, required=True)
     replay.add_argument("--checkpoint-run-id", required=True)
+    replay.add_argument("--checkpoint-source-sha", required=True)
+    replay.add_argument("--checkpoint-artifact-id", required=True)
+    replay.add_argument("--checkpoint-artifact-digest", required=True)
     replay.add_argument(
         "--post-bundle-dir", type=Path, required=True
     )

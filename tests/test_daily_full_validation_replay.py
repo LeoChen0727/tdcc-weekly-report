@@ -169,6 +169,252 @@ def test_checkpoint_roundtrip_exact_manifest_bytes_sha_date_source_and_path_set(
         ).read_bytes()
 
 
+def test_checkpoint_restore_accepts_clean_new_replay_source_and_keeps_old_identity(
+    tmp_path: Path,
+) -> None:
+    repo, bundle, paths, checkpoint_source_sha = _build(tmp_path)
+    _git(repo, "add", ".")
+    _git(repo, "commit", "-qm", "track checkpoint revision")
+    (repo / paths[0]).write_text("current replay baseline\n", encoding="utf-8")
+    _git(repo, "add", paths[0])
+    _git(repo, "commit", "-qm", "new replay source")
+    replay_source_sha = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=repo,
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.strip()
+    restore_root = tmp_path / "cross-revision-restore"
+    subprocess.run(
+        ["git", "clone", "-q", str(repo), str(restore_root)], check=True
+    )
+    restored = restore_checkpoint(
+        bundle_dir=bundle,
+        destination_root=restore_root,
+        expected_source_sha=checkpoint_source_sha,
+        expected_destination_source_sha=replay_source_sha,
+        expected_run_id=RUN_ID,
+        expected_kind="pre_step41",
+    )
+    assert restored["source_sha"] == checkpoint_source_sha
+    assert (restore_root / paths[0]).read_bytes() == (
+        bundle / PAYLOAD_DIR / paths[0]
+    ).read_bytes()
+
+
+def test_checkpoint_restore_rejects_dirty_new_replay_source(
+    tmp_path: Path,
+) -> None:
+    repo, bundle, paths, checkpoint_source_sha = _build(tmp_path)
+    _git(repo, "add", ".")
+    _git(repo, "commit", "-qm", "new replay source")
+    replay_source_sha = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=repo,
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.strip()
+    (repo / paths[0]).write_text("dirty\n", encoding="utf-8")
+    with pytest.raises(ReplayCheckpointError, match="restore collision"):
+        restore_checkpoint(
+            bundle_dir=bundle,
+            destination_root=repo,
+            expected_source_sha=checkpoint_source_sha,
+            expected_destination_source_sha=replay_source_sha,
+            expected_run_id=RUN_ID,
+            expected_kind="pre_step41",
+        )
+
+
+def test_cross_revision_manifest_preserves_checkpoint_and_replay_sources(
+    tmp_path: Path,
+) -> None:
+    repo, identity_path, paths, checkpoint_source_sha = _fixture(tmp_path)
+    _git(repo, "add", ".")
+    _git(repo, "commit", "-qm", "replay source")
+    replay_source_sha = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=repo,
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.strip()
+    transition = {
+        "mode": "authorized_code_revision_transition",
+        "checkpoint_source_sha": checkpoint_source_sha,
+        "replay_source_sha": replay_source_sha,
+        "checkpoint_run_id": "31268964962",
+        "checkpoint_artifact_id": "9025240156",
+        "checkpoint_artifact_digest": replay_runner.AUTHORIZED_CHECKPOINT_ARTIFACT_DIGEST,
+    }
+    output = replay_runner.write_replay_source_revision_manifest(
+        source_manifest_path=identity_path,
+        output_path=tmp_path / "replay-source-revision.json",
+        transition=transition,
+    )
+    payload = json.loads(output.read_text(encoding="utf-8"))
+    assert payload["checkpoint_source_sha"] == checkpoint_source_sha
+    assert payload["replay_source_sha"] == replay_source_sha
+    assert payload["source_sha"] == replay_source_sha
+    assert payload["revision_transition"]["checkpoint_source_manifest_sha256"]
+    post_bundle = tmp_path / "post-bundle"
+    post_manifest = create_checkpoint(
+        repo_root=repo,
+        bundle_dir=post_bundle,
+        paths=paths,
+        replay_date=REPLAY_DATE,
+        source_sha=replay_source_sha,
+        producer_run_id="31270000001",
+        producer_head_sha=replay_source_sha,
+        source_identity_manifest=output,
+        checkpoint_kind="post_validation",
+        producer_steps=["Validate catalyst layer"],
+        capture_context="validation_replay",
+    )
+    assert post_manifest["checkpoint_source_sha"] == checkpoint_source_sha
+    assert post_manifest["replay_source_sha"] == replay_source_sha
+    assert post_manifest["revision_transition"] == payload[
+        "revision_transition"
+    ]
+    verified = verify_checkpoint(
+        bundle_dir=post_bundle,
+        expected_source_sha=replay_source_sha,
+        expected_run_id="31270000001",
+        expected_kind="post_validation",
+        expected_capture_context="validation_replay",
+    )
+    assert verified["checkpoint_source_sha"] == checkpoint_source_sha
+    manifest_path = post_bundle / CHECKPOINT_MANIFEST
+    mutated = json.loads(manifest_path.read_text(encoding="utf-8"))
+    mutated["checkpoint_source_sha"] = "b" * 40
+    mutated["revision_transition"]["checkpoint_source_sha"] = "b" * 40
+    manifest_path.write_text(
+        json.dumps(mutated, sort_keys=True, separators=(",", ":")) + "\n",
+        encoding="utf-8",
+    )
+    (post_bundle / CHECKPOINT_MANIFEST_SHA).write_text(
+        hashlib.sha256(manifest_path.read_bytes()).hexdigest() + "\n",
+        encoding="ascii",
+    )
+    with pytest.raises(
+        ReplayCheckpointError,
+        match="checkpoint source revision metadata mismatch",
+    ):
+        verify_checkpoint(
+            bundle_dir=post_bundle,
+            expected_source_sha=replay_source_sha,
+            expected_run_id="31270000001",
+            expected_kind="post_validation",
+            expected_capture_context="validation_replay",
+        )
+
+
+def test_authorized_revision_transition_pins_identity_and_producer_bytes(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    repo, _, paths, checkpoint_source_sha = _build(tmp_path)
+    _git(repo, "add", ".")
+    _git(repo, "commit", "-qm", "authorized producer fix")
+    producer_fix_sha = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=repo,
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.strip()
+    monkeypatch.setattr(
+        replay_runner,
+        "AUTHORIZED_CHECKPOINT_SOURCE_SHA",
+        checkpoint_source_sha,
+    )
+    monkeypatch.setattr(
+        replay_runner,
+        "AUTHORIZED_PRODUCER_FIX_COMMIT",
+        producer_fix_sha,
+    )
+    monkeypatch.setattr(
+        replay_runner, "AUTHORIZED_PRODUCER_FIX_PATHS", (paths[0],)
+    )
+    transition = replay_runner.require_authorized_checkpoint_revision_transition(
+        repo_root=repo,
+        checkpoint_source_sha=checkpoint_source_sha,
+        replay_source_sha=producer_fix_sha,
+        checkpoint_run_id=replay_runner.AUTHORIZED_CHECKPOINT_RUN_ID,
+        checkpoint_artifact_id=replay_runner.AUTHORIZED_CHECKPOINT_ARTIFACT_ID,
+        checkpoint_artifact_digest=(
+            replay_runner.AUTHORIZED_CHECKPOINT_ARTIFACT_DIGEST
+        ),
+    )
+    assert transition["mode"] == "authorized_code_revision_transition"
+    with pytest.raises(
+        replay_runner.ValidationReplayError, match="not preauthorized"
+    ):
+        replay_runner.require_authorized_checkpoint_revision_transition(
+            repo_root=repo,
+            checkpoint_source_sha=checkpoint_source_sha,
+            replay_source_sha=producer_fix_sha,
+            checkpoint_run_id="999",
+            checkpoint_artifact_id=(
+                replay_runner.AUTHORIZED_CHECKPOINT_ARTIFACT_ID
+            ),
+            checkpoint_artifact_digest=(
+                replay_runner.AUTHORIZED_CHECKPOINT_ARTIFACT_DIGEST
+            ),
+        )
+    with pytest.raises(
+        replay_runner.ValidationReplayError,
+        match="identity inputs are malformed",
+    ):
+        replay_runner.require_authorized_checkpoint_revision_transition(
+            repo_root=repo,
+            checkpoint_source_sha=producer_fix_sha,
+            replay_source_sha=producer_fix_sha,
+            checkpoint_run_id="bad",
+            checkpoint_artifact_id="bad",
+            checkpoint_artifact_digest="bad",
+        )
+    (repo / paths[0]).write_text("producer drift\n", encoding="utf-8")
+    _git(repo, "add", paths[0])
+    _git(repo, "commit", "-qm", "unauthorized producer drift")
+    drift_sha = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=repo,
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.strip()
+    with pytest.raises(
+        replay_runner.ValidationReplayError, match="producer fix paths drifted"
+    ):
+        replay_runner.require_authorized_checkpoint_revision_transition(
+            repo_root=repo,
+            checkpoint_source_sha=checkpoint_source_sha,
+            replay_source_sha=drift_sha,
+            checkpoint_run_id=replay_runner.AUTHORIZED_CHECKPOINT_RUN_ID,
+            checkpoint_artifact_id=(
+                replay_runner.AUTHORIZED_CHECKPOINT_ARTIFACT_ID
+            ),
+            checkpoint_artifact_digest=(
+                replay_runner.AUTHORIZED_CHECKPOINT_ARTIFACT_DIGEST
+            ),
+        )
+
+
+def test_cross_revision_workflow_requires_explicit_checkpoint_identity() -> None:
+    workflow = (
+        Path(__file__).resolve().parents[1]
+        / ".github/workflows/daily_full_validation_replay_20260807.yml"
+    ).read_text(encoding="utf-8")
+    assert "checkpoint_source_sha:" in workflow
+    assert '--checkpoint-source-sha "$CHECKPOINT_SOURCE_SHA"' in workflow
+    assert '--checkpoint-artifact-id "$CHECKPOINT_ARTIFACT_ID"' in workflow
+    assert '--checkpoint-artifact-digest "$CHECKPOINT_ARTIFACT_DIGEST"' in workflow
+    assert "checkpoint replay source transition mismatch" in workflow
+
+
 @pytest.mark.parametrize(
     "mutation",
     [
