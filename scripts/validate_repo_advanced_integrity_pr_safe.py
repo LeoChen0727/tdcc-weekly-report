@@ -20,8 +20,18 @@ if str(SCRIPT_DIR) not in sys.path:
 
 try:
     from . import validate_repo_advanced_integrity as strict_validator  # type: ignore
+    from .validate_repo_production_inventory import (
+        PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_PATHS,
+        PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_STRICT_SURFACES,
+        is_preauthorized_daily_full_checkpoint_replay_migration,
+    )
 except ImportError:
     import validate_repo_advanced_integrity as strict_validator  # noqa: E402
+    from validate_repo_production_inventory import (  # noqa: E402
+        PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_PATHS,
+        PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_STRICT_SURFACES,
+        is_preauthorized_daily_full_checkpoint_replay_migration,
+    )
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -94,10 +104,23 @@ CANONICAL_LINEAGE_PR_COMMAND = (
 )
 
 ADDITIVE_RESEARCH_GATE_SELF_UPDATE_ID = (
-    "additive-research-validation-registration-pr-safe-v3"
+    "additive-research-validation-registration-pr-safe-v4"
+)
+ADDITIVE_RESEARCH_GATE_LIFECYCLE_INVENTORY_PATH = (
+    "config/repo_file_lifecycle_inventory.csv"
 )
 ADDITIVE_RESEARCH_GATE_SELF_UPDATE_PATHS = frozenset(
-    {PR_SAFE_HELPER_PATH, SOURCE_IDENTITY_GATE_TEST_PATH}
+    {
+        ADDITIVE_RESEARCH_GATE_LIFECYCLE_INVENTORY_PATH,
+        PR_SAFE_HELPER_PATH,
+        SOURCE_IDENTITY_GATE_TEST_PATH,
+    }
+)
+ADDITIVE_RESEARCH_GATE_BASE_LIFECYCLE_INVENTORY_SHA256 = (
+    "45eae9722c4d8587ff483a8e550eb5054cc8a6ab26a836d7f8f80e30a9c3a3d7"
+)
+ADDITIVE_RESEARCH_GATE_CURRENT_LIFECYCLE_INVENTORY_SHA256 = (
+    "69831c7ef8b922ddb763af94cbf4df694ee2d981c7a7d475567f67587ed07ce5"
 )
 ADDITIVE_RESEARCH_GATE_AUTHORIZATIONS_PATH = (
     "config/daily_model_pr_safe_self_migration_authorizations.csv"
@@ -212,6 +235,13 @@ STRICT_PATH_PREFIXES = (
     "output/history/daily_model_snapshots/",
     "output/latest/chatgpt_side_outputs_official/",
     "output/latest/published_reports/",
+)
+
+DAILY_FULL_CHECKPOINT_REPLAY_ADVANCED_STRICT_SURFACES = frozenset(
+    {
+        *PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_STRICT_SURFACES,
+        PRODUCTION_INVENTORY_PATH,
+    }
 )
 
 HISTORICAL_REPLAY_REPORT_READY_NOTE = (
@@ -1719,7 +1749,16 @@ def is_additive_research_gate_self_update(
         PR_SAFE_HELPER_PATH,
         repository_root=repository_root,
     )
-    if base_authorizations is None or base_helper is None:
+    base_lifecycle_inventory = git_blob_at_ref(
+        base_ref,
+        ADDITIVE_RESEARCH_GATE_LIFECYCLE_INVENTORY_PATH,
+        repository_root=repository_root,
+    )
+    if (
+        base_authorizations is None
+        or base_helper is None
+        or base_lifecycle_inventory is None
+    ):
         return False
     authorization_rows, authorization_errors = parse_csv_payload(
         base_authorizations,
@@ -1742,6 +1781,9 @@ def is_additive_research_gate_self_update(
         base_helper_text = base_helper.decode("utf-8")
         current_helper = (repository_root / PR_SAFE_HELPER_PATH).read_bytes()
         current_tests = (repository_root / SOURCE_IDENTITY_GATE_TEST_PATH).read_bytes()
+        current_lifecycle_inventory = (
+            repository_root / ADDITIVE_RESEARCH_GATE_LIFECYCLE_INVENTORY_PATH
+        ).read_bytes()
         current_authorizations = (
             repository_root / ADDITIVE_RESEARCH_GATE_AUTHORIZATIONS_PATH
         ).read_bytes()
@@ -1770,8 +1812,30 @@ def is_additive_research_gate_self_update(
         == authorization.get("current_helper_sha256", "").strip()
         and canonical_sha256(current_tests)
         == authorization.get("current_test_sha256", "").strip()
+        and canonical_sha256(base_lifecycle_inventory)
+        == ADDITIVE_RESEARCH_GATE_BASE_LIFECYCLE_INVENTORY_SHA256
+        and canonical_sha256(current_lifecycle_inventory)
+        == ADDITIVE_RESEARCH_GATE_CURRENT_LIFECYCLE_INVENTORY_SHA256
         and ADDITIVE_RESEARCH_GATE_SELF_UPDATE_ID.encode("utf-8") in current_helper
         and ADDITIVE_RESEARCH_GATE_SELF_UPDATE_ID not in base_helper_text
+    )
+
+
+def is_preauthorized_daily_full_checkpoint_replay_advanced_integrity_migration(
+    base_ref: str,
+    changed_paths: set[str],
+    strict_surface_changes: set[str],
+    *,
+    repository_root: Path,
+) -> bool:
+    if strict_surface_changes != DAILY_FULL_CHECKPOINT_REPLAY_ADVANCED_STRICT_SURFACES:
+        return False
+    return is_preauthorized_daily_full_checkpoint_replay_migration(
+        base_ref,
+        changed_paths,
+        set(PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_STRICT_SURFACES),
+        repository_root=repository_root,
+        head_ref="HEAD",
     )
 
 
@@ -2192,6 +2256,13 @@ def validate_pr_safe_advanced_integrity_contract(
     ):
         strict_surface_changes = set()
     elif is_additive_research_gate_self_update(
+        base_ref,
+        changed_paths,
+        strict_surface_changes,
+        repository_root=repository_root,
+    ):
+        strict_surface_changes = set()
+    elif is_preauthorized_daily_full_checkpoint_replay_advanced_integrity_migration(
         base_ref,
         changed_paths,
         strict_surface_changes,
