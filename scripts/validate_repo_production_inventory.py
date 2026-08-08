@@ -220,16 +220,16 @@ PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_TARGET_SHA256_BY_PATH = {
         "d6f02d338095bcf6c9d6cafd0df53e26a974a380dbe5dd24e0c5fcd01a88b348"
     ),
     "scripts/run_daily_full_validation_replay.py": (
-        "3d018092dea4a63c5f25e95040d36777149d0c60cfc32048306e2eb567506d9c"
+        "94707cb4029487f3c119970c7ef2a2476442e7926a70a20f0d8dcede9b602703"
     ),
     "scripts/validate_daily_full_validation_replay.py": (
-        "4cf31195f56ef0f39b89312ee3b01b62e011d26c648da66f4e5d82fc2db2e3db"
+        "4ec1e81b5781c91d0f0b0a9eec754f29c125c79b4e6c20e04e4474a1fe69ec3b"
     ),
     "scripts/validate_repo_file_lifecycle_inventory.py": (
         "bbdd0793bab756c04d5536ef7c9aaec75569a9f78ad5eaa3deff012e49e71aab"
     ),
     "tests/test_daily_full_validation_replay.py": (
-        "8cfba5db6a560d2b5ec7bd948fa890a4d43a1cb48f0d65124f42853b75b2b787"
+        "b2e5f48050a7d14b964348511655e1e1e2ef89e11899fe2715945d4fe47a3ee7"
     ),
 }
 PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_PATHS = frozenset(

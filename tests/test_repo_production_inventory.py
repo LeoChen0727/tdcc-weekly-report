@@ -1502,6 +1502,77 @@ def test_inventory_manifest_exists_and_is_authoritative() -> None:
     assert "executable_script" in docs.read_text(encoding="utf-8")
 
 
+def test_daily_full_replay_reconciled_target_hashes_are_exact() -> None:
+    import hashlib
+    import json
+
+    target = inventory.PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_TARGET_SHA256_BY_PATH
+    updated = {
+        "scripts/run_daily_full_validation_replay.py": (
+            "94707cb4029487f3c119970c7ef2a2476442e7926a70a20f0d8dcede9b602703"
+        ),
+        "scripts/validate_daily_full_validation_replay.py": (
+            "4ec1e81b5781c91d0f0b0a9eec754f29c125c79b4e6c20e04e4474a1fe69ec3b"
+        ),
+        "tests/test_daily_full_validation_replay.py": (
+            "b2e5f48050a7d14b964348511655e1e1e2ef89e11899fe2715945d4fe47a3ee7"
+        ),
+    }
+    assert {path: target[path] for path in updated} == updated
+    unchanged = sorted(
+        (path, sha256)
+        for path, sha256 in target.items()
+        if path not in updated
+    )
+    assert len(target) == 9
+    assert hashlib.sha256(
+        json.dumps(
+            unchanged,
+            ensure_ascii=True,
+            separators=(",", ":"),
+        ).encode("utf-8")
+    ).hexdigest() == (
+        "64091df77f01a54d4af6c485fc56c06e90f9c5a655b9fafe7223a73188bbd940"
+    )
+
+
+def test_daily_full_replay_hash_reconciliation_authorization_is_exact() -> None:
+    payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
+    rows, errors = inventory.parse_pr_safe_authorizations(payload)
+    assert errors == []
+    matching = [
+        row
+        for row in rows
+        if row["migration_id"]
+        == "daily-full-checkpoint-replay-target-hash-reconciliation-v2"
+    ]
+    assert matching == [
+        {
+            "migration_id": (
+                "daily-full-checkpoint-replay-target-hash-reconciliation-v2"
+            ),
+            "status": "preauthorized",
+            "approval_reference": (
+                "user_authorized_daily_full_replay_hash_reconciliation_20260808"
+            ),
+            "base_helper_sha256": (
+                "5f944d349cac77f6726ac6fcc13d6d8eee2196b6ad9a8bc5756a67ff04abf460"
+            ),
+            "current_helper_sha256": inventory.canonical_blob_sha256(
+                (ROOT / inventory.PR_SAFE_BASE_GUARD_SCRIPT).read_bytes()
+            ),
+            "current_test_sha256": inventory.canonical_blob_sha256(
+                (ROOT / "tests/test_repo_production_inventory.py").read_bytes()
+            ),
+            "changed_paths": (
+                "config/daily_model_pr_safe_self_migration_authorizations.csv;"
+                "scripts/validate_repo_production_inventory.py;"
+                "tests/test_repo_production_inventory.py"
+            ),
+        }
+    ]
+
+
 def test_inventory_covers_tests_and_non_python_executables() -> None:
     manifest = ROOT / "config" / "repo_production_inventory.csv"
     with manifest.open("r", encoding="utf-8-sig", newline="") as fh:
