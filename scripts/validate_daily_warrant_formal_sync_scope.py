@@ -1335,6 +1335,11 @@ def validate_current_projection(root: Path) -> tuple[list[str], dict[str, int]]:
             "official warrant projection date does not match all_candidates date: "
             f"warrant={next(iter(warrant_dates))} candidates={next(iter(candidate_dates))}"
         )
+    candidate_scoped_warrant_by_stock = {
+        stock_id: projection
+        for stock_id, projection in warrant_by_stock.items()
+        if stock_id in candidate_by_stock
+    }
     empty_projection = {column: "" for column in WARRANT_CANDIDATE_FIELDS}
     for source_key, candidate_projection in candidate_by_key.items():
         expected_projection = warrant_by_stock.get(source_key[1], empty_projection)
@@ -1476,11 +1481,9 @@ def validate_current_projection(root: Path) -> tuple[list[str], dict[str, int]]:
                             )
                         continue
                     # A selected model-owned volume row does not have to be a
-                    # general all_candidates row.  It may bypass that table
-                    # only when the official warrant projection is empty.  A
-                    # real official warrant row still produces an exact
-                    # mismatch and fails closed instead of trusting taxonomy
-                    # or a value embedded in volume_breakout_watch.
+                    # general all_candidates row.  The official warrant source
+                    # is validated as a global universe, then scoped to the
+                    # canonical candidate identities before formal projection.
                     if source_key not in volume_watch_by_source:
                         errors.append(
                             "formal volume signal has no exact model-owned watch lineage "
@@ -1493,15 +1496,14 @@ def validate_current_projection(root: Path) -> tuple[list[str], dict[str, int]]:
                             f"{relative_path}: {signal_key}"
                         )
                         continue
-                    official_projection = warrant_by_stock.get(source_key[1])
-                    if official_projection is not None:
-                        errors.append(
-                            "formal volume signal has official warrant data but no canonical "
-                            f"all_candidates projection {relative_path}: {signal_key}"
-                        )
-                        expected_signal = official_projection["warrant_flow_signal"]
-                    else:
-                        expected_signal = ""
+                    official_projection = candidate_scoped_warrant_by_stock.get(
+                        source_key[1]
+                    )
+                    expected_signal = (
+                        official_projection["warrant_flow_signal"]
+                        if official_projection is not None
+                        else ""
+                    )
                 if expected_signal is None:
                     errors.append(
                         f"formal signal row has no all_candidates warrant source {relative_path}: "

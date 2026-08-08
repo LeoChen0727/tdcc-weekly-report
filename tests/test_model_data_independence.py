@@ -190,7 +190,7 @@ def test_shared_business_semantics_are_disclosed_as_contained_not_technical() ->
     )
     family_helper_migrations = {
         "function:append_volume_breakout_signals": (
-            "volume_v2_candidate_projection_lineage_20260731"
+            "volume_v2_global_official_candidate_scope_repair_20260809"
         ),
         "function:_volume_v2_formal_outcome_envelope": (
             "volume_v2_candidate_projection_lineage_20260731"
@@ -275,7 +275,7 @@ def test_warrant_runtime_subgraphs_pin_recursive_hashes_consumers_and_migration(
         assert row["consumer_models"] == expected_consumers
         assert row["canonical_ast_sha256"] == runtime_subgraph_sha256(graph, item)
         expected_migration = (
-            "volume_v2_candidate_projection_lineage_20260731"
+            "volume_v2_global_official_candidate_scope_repair_20260809"
             if item
             in {
                 "runtime_subgraph:run_warrant_formal_sync_only",
@@ -378,7 +378,7 @@ def test_volume_v2_asof_slice_migration_pins_exact_current_records() -> None:
         assert row["approval_reference"] == approval
 
 
-def test_volume_v2_candidate_projection_migration_pins_exact_current_records() -> None:
+def test_volume_v2_candidate_projection_migration_chains_to_current_records() -> None:
     migration_id = "volume_v2_candidate_projection_lineage_20260731"
     approval = "user_delegated_daily_model_2451_duplicate_normalization_repair_20260731"
     ownership = {
@@ -416,6 +416,65 @@ def test_volume_v2_candidate_projection_migration_pins_exact_current_records() -
         "46645d18da4feebe982590842427274a899c7046d8b37d57d80ba2b2b9fd42c5",
         "76776e3924e0d32ba83951c809608f080e2c4e1b54f90eec7e37dfe760e69117",
         "34a8a772898459af18305daee7310ead321aea9e992e1cc869505ed585a13ecc",
+    ]
+    old_new_by_key = dict(zip(changed, migration["new_sha256s"].split(";")))
+    later = next(
+        row
+        for row in read_csv("config/daily_model_semantic_migrations.csv")
+        if row["migration_id"]
+        == "volume_v2_global_official_candidate_scope_repair_20260809"
+    )
+    later_previous_by_key = dict(
+        zip(
+            later["changed_semantics"].split(";"),
+            later["previous_sha256s"].split(";"),
+        )
+    )
+    for key in changed:
+        if key in later_previous_by_key:
+            assert old_new_by_key[key] == later_previous_by_key[key]
+            continue
+        row = shared[key] if key.startswith("item:") else ownership[key.removeprefix("model:")]
+        assert old_new_by_key[key] == semantic_record_sha256(key, row)
+        assert row["last_migration_id"] == migration_id
+        assert row["approval_reference"] == approval
+    assert migration["affected_models"] == ";".join(sorted(ACTIVE_MODELS))
+    assert migration["user_approval_reference"] == approval
+    assert migration["migration_status"] == "validated_user_approved_migration"
+
+
+def test_volume_v2_global_official_candidate_scope_migration_pins_current_records() -> None:
+    migration_id = "volume_v2_global_official_candidate_scope_repair_20260809"
+    approval = "user_delegated_validation_only_replay_2059_repair_20260809"
+    ownership = {
+        row["model_id"]: row
+        for row in read_csv("config/daily_model_semantic_ownership.csv")
+    }
+    shared = {
+        f"item:{row['source_file']}::{row['semantic_item']}": row
+        for row in read_csv("config/daily_model_shared_semantic_registry.csv")
+    }
+    migration = next(
+        row
+        for row in read_csv("config/daily_model_semantic_migrations.csv")
+        if row["migration_id"] == migration_id
+    )
+    changed = migration["changed_semantics"].split(";")
+    assert changed == [
+        "item:scripts/build_daily_candidate_model_layer.py::function:append_volume_breakout_signals",
+        "item:scripts/build_daily_candidate_model_layer.py::runtime_subgraph:run_warrant_formal_sync_only",
+        "item:scripts/build_daily_candidate_model_layer.py::runtime_subgraph:synchronize_warrant_formal_frames",
+        "model:volume_range_breakout_v2_high_position_volume_attack",
+        "model:volume_range_breakout_v2_low_position_volume_attack",
+        "model:volume_range_breakout_v2_mid_position_momentum_attack",
+    ]
+    assert migration["previous_sha256s"].split(";") == [
+        "cdb45b61aa6bfb8314ff7dd7314a802122a928493410c0153aab82c69a4817fc",
+        "92ea9cd7e27699898eb93c662cac829a4f630e6cb2942b77ab65690a66eb1d28",
+        "f4493b8be563267a35c3a88ce38b5d5b70f7c23c3a242a8051843fe2d66c35c2",
+        "3e52846d512a084ad735d2671e707a5b869d2cc3e51fe59f7c94926beb5f9d5f",
+        "f90afe066a203f71a1c45deea5476a758a32fa1d3e74918bd7cd7d7379c3a628",
+        "d97f4c00df25456aad5a9368ebd2394bf59cb6bbdd3a0ece24a15cf069039295",
     ]
     current_rows = [
         shared[key] if key.startswith("item:") else ownership[key.removeprefix("model:")]

@@ -1949,6 +1949,64 @@ def test_formal_projection_mismatch_fails_closed(tmp_path: Path) -> None:
     assert any("current raw/report volume v2 parity mismatch" in error for error in errors)
 
 
+def test_global_official_warrant_row_without_candidate_is_not_a_formal_projection() -> None:
+    formal = {
+        "signal_date": "20260807",
+        "report_line": "mainstream",
+        "source_row_index": "volume_breakout:3",
+        "stock_id": "2059",
+        "model_id": "volume_range_breakout_v2_high_position_volume_attack",
+        "final_rank_score": "70",
+        "model_score": "70",
+        "model_rank": "1",
+        "warrant_flow_signal": "",
+        "score_components": "base=70",
+    }
+
+    errors, indexed = lineage._validate_projection_set(
+        [{"stock_id": "2059", "warrant_flow_signal": "call_inflow"}],
+        [],
+        [formal],
+        "current_raw",
+    )
+
+    assert errors == []
+    assert len(indexed) == 1
+
+
+def test_candidate_scoped_official_warrant_mismatch_still_fails_closed() -> None:
+    candidate = {
+        "source_row_index": "1",
+        "stock_id": "6505",
+        "warrant_flow_signal": "call_inflow",
+    }
+    formal = {
+        "signal_date": "20260807",
+        "report_line": "mainstream",
+        "source_row_index": "1",
+        "stock_id": "6505",
+        "model_id": "volume_range_breakout_v2_high_position_volume_attack",
+        "final_rank_score": "72",
+        "model_score": "72",
+        "model_rank": "1",
+        "warrant_flow_signal": "call_inflow",
+        "score_components": "base=70 | warrant bullish +2",
+    }
+
+    errors, _ = lineage._validate_projection_set(
+        [{"stock_id": "6505", "warrant_flow_signal": "no_signal"}],
+        [candidate],
+        [formal],
+        "current_raw",
+    )
+
+    assert any(
+        "official/all_candidates warrant projection mismatch" in error
+        and "stock_id=6505" in error
+        for error in errors
+    )
+
+
 def test_theme_advisory_warrant_projection_and_source_sha_fail_closed(
     tmp_path: Path,
 ) -> None:

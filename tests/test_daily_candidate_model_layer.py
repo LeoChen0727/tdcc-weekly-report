@@ -1837,13 +1837,13 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         self.assertIn("profile=volume_range_breakout_v2_high_position_volume_attack", row["score_components"])
         self.assertNotIn("一價鎖漲停放量突破", row["rank_reason_zh"])
 
-    def test_volume_breakout_without_candidate_cannot_inherit_warrant_from_watch(self) -> None:
+    def test_volume_breakout_without_candidate_ignores_global_official_warrant_row(self) -> None:
         source = pd.DataFrame(
             [
                 {
                     "signal_date": "20260530",
-                    "stock_id": "1617",
-                    "stock_name": "LOW",
+                    "stock_id": "2059",
+                    "stock_name": "CHUAN_HU",
                     "volume_breakout_type": "bottom_volume_attack",
                     "selection_status": "selected",
                     "warrant_flow_signal": "call_inflow",
@@ -1865,16 +1865,22 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             write_volume_v2_watch_fixture(
                 source,
                 temp_path,
-                price_dir / "1617.csv",
+                price_dir / "2059.csv",
                 volume_v2_price_history(),
             )
             pd.DataFrame(
-                [{"stock_id": "9999", "warrant_flow_signal": "no_signal"}]
+                [
+                    {
+                        "date": "20260530",
+                        "stock_id": "9999",
+                        "warrant_flow_signal": "no_signal",
+                    }
+                ]
             ).to_csv(warrant_path, index=False, encoding="utf-8-sig")
             pd.DataFrame(
                 [
                     {
-                        "stock_id": "1617",
+                        "stock_id": "2059",
                         "industry": "electronic",
                         "effective_primary_theme": "electronic_component_general_theme",
                         "effective_mainstream_label": "core_mainstream",
@@ -1890,24 +1896,53 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
                     pd.DataFrame(), pd.DataFrame(), "20260530"
                 )
                 pd.DataFrame(
-                    [{"stock_id": "1617", "warrant_flow_signal": "call_inflow"}]
+                    [
+                        {
+                            "date": "20260530",
+                            "stock_id": "2059",
+                            "warrant_flow_signal": "call_inflow",
+                        }
+                    ]
+                ).to_csv(warrant_path, index=False, encoding="utf-8-sig")
+                out_with_global_warrant = model_layer.append_volume_breakout_signals(
+                    pd.DataFrame(), pd.DataFrame(), "20260530"
+                )
+                pd.DataFrame(
+                    [
+                        {
+                            "date": "20260530",
+                            "stock_id": "2059",
+                            "warrant_flow_signal": "call_inflow",
+                        },
+                        {
+                            "date": "20260530",
+                            "stock_id": "2059",
+                            "warrant_flow_signal": "no_signal",
+                        },
+                    ]
                 ).to_csv(warrant_path, index=False, encoding="utf-8-sig")
                 with self.assertRaisesRegex(
                     RuntimeError,
-                    "official warrant projection but no canonical all_candidates row: stock_id=1617",
+                    "duplicate normalized identities",
                 ):
                     model_layer.append_volume_breakout_signals(
                         pd.DataFrame(), pd.DataFrame(), "20260530"
                     )
                 pd.DataFrame(
-                    [{"stock_id": "9999", "warrant_flow_signal": "no_signal"}]
+                    [
+                        {
+                            "date": "20260530",
+                            "stock_id": "9999",
+                            "warrant_flow_signal": "no_signal",
+                        }
+                    ]
                 ).to_csv(warrant_path, index=False, encoding="utf-8-sig")
                 pd.DataFrame(
                     [{"stock_id": "9999", "industry": "other"}]
                 ).to_csv(taxonomy_path, index=False, encoding="utf-8-sig")
                 with self.assertRaisesRegex(
                     RuntimeError,
-                    "no canonical taxonomy source row: stock_id=1617",
+                    "no canonical taxonomy source row: stock_id=2059",
                 ):
                     model_layer.append_volume_breakout_signals(
                         pd.DataFrame(), pd.DataFrame(), "20260530"
@@ -1919,9 +1954,14 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
                 model_layer.VOLUME_BREAKOUT_TAXONOMY = original_taxonomy_path
 
         self.assertEqual(len(out), 1)
-        self.assertEqual(out.iloc[0]["stock_id"], "1617")
+        self.assertEqual(out.iloc[0]["stock_id"], "2059")
         self.assertEqual(out.iloc[0]["warrant_flow_signal"], "")
         self.assertNotIn("warrant bullish", out.iloc[0]["score_components"])
+        self.assertEqual(len(out_with_global_warrant), 1)
+        self.assertEqual(out_with_global_warrant.iloc[0]["warrant_flow_signal"], "")
+        self.assertEqual(
+            out_with_global_warrant.iloc[0]["model_score"], out.iloc[0]["model_score"]
+        )
 
     def test_nonmember_volume_watch_rows_skip_before_provenance_checks(self) -> None:
         source = pd.DataFrame(
@@ -3355,7 +3395,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
                 unknown_history,
             )
 
-    def test_warrant_formal_sync_volume_row_requires_negative_official_lineage(self) -> None:
+    def test_warrant_formal_sync_volume_row_uses_candidate_scoped_official_lineage(self) -> None:
         candidates, raw, report, history = warrant_formal_sync_fixture()
         price_mask = raw["model_id"].eq("price_pullback_23ema")
         raw.loc[price_mask, "model_id"] = HIGH_VOLUME_MODEL_ID
@@ -3468,7 +3508,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         self.assertEqual(volume["warrant_flow_signal"], "")
         self.assertEqual(volume["model_score"], "70")
 
-        official = pd.DataFrame(
+        global_only_official = pd.DataFrame(
             [
                 {
                     "date": "20260717",
@@ -3477,16 +3517,20 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
                 }
             ]
         )
-        with self.assertRaisesRegex(RuntimeError, "official warrant data"):
-            model_layer.synchronize_warrant_formal_frames(
-                candidates,
-                raw,
-                report,
-                history,
-                official_warrant=official,
-                volume_taxonomy=taxonomy,
-                volume_watch=volume_watch,
-            )
+        global_synced_raw, _, _ = model_layer.synchronize_warrant_formal_frames(
+            candidates,
+            raw,
+            report,
+            history,
+            official_warrant=global_only_official,
+            volume_taxonomy=taxonomy,
+            volume_watch=volume_watch,
+        )
+        global_volume = global_synced_raw[
+            global_synced_raw["model_id"].eq(HIGH_VOLUME_MODEL_ID)
+        ].iloc[0]
+        self.assertEqual(global_volume["warrant_flow_signal"], "")
+        self.assertEqual(global_volume["model_score"], "70")
 
         wrong_watch = volume_watch.copy()
         wrong_watch.loc[0, "selection_status"] = "watch_only"
