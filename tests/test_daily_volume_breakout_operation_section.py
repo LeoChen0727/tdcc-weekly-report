@@ -682,6 +682,11 @@ def lineage_audit_row(**updates: str) -> dict[str, str]:
         "watch_artifact_sha256": source_sha,
         "candidate_artifact_sha256": source_sha,
         "official_warrant_artifact_sha256": source_sha,
+        "candidate_row_present": "True",
+        "canonical_warrant_source_type": "all_candidates_projection",
+        "candidate_warrant_signal": "call_strong_inflow",
+        "formal_warrant_signal": "call_strong_inflow",
+        "impact_scope": "none",
     }
     row.update(updates)
     return row
@@ -761,6 +766,419 @@ def write_lineage_fixture(
     audit_path = tmp_path / "lineage.csv"
     pd.DataFrame([audit]).to_csv(audit_path, index=False)
     return audit_path, source_path, formal
+
+
+def write_20260807_2059_lineage_scope_fixture(
+    tmp_path: Path,
+) -> tuple[Path, pd.DataFrame, pd.DataFrame]:
+    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    snapshot_dir.mkdir(parents=True, exist_ok=True)
+    source_relative_path = (
+        "output/history/daily_model_snapshots/"
+        "daily_candidate_model_signals_for_report_20260807.csv"
+    )
+    source_path = tmp_path / source_relative_path
+    formal = pd.DataFrame(
+        [
+            lineage_formal_signal_row(
+                signal_date="20260807",
+                stock_id="2059",
+                source_row_index="volume_breakout:0",
+                warrant_flow_signal="",
+                final_rank_score="96",
+                model_rank="1",
+            ),
+            lineage_formal_signal_row(
+                signal_date="20260807",
+                stock_id="6505",
+                source_row_index="volume_breakout:1",
+                model_rank="2",
+            ),
+        ]
+    )
+    formal.to_csv(source_path, index=False)
+    snapshot_sha = snapshot_file_sha256(source_path)
+    canonical_snapshot_sha = builder.canonical_text_sha256(source_path.read_bytes())
+    pd.DataFrame(
+        [
+            {
+                "snapshot_report_date": "20260807",
+                "snapshot_revision": "r1",
+                "supersedes_snapshot_sha256": "",
+                "revision_reason": "legacy_v1_manifest",
+                "artifact_id": "model_signals_for_report",
+                "snapshot_path": source_relative_path,
+                "snapshot_sha256": snapshot_sha,
+            }
+        ]
+    ).to_csv(
+        snapshot_dir / "daily_published_model_snapshot_manifest.csv", index=False
+    )
+    audit_path = tmp_path / "lineage.csv"
+    pd.DataFrame(
+        [
+            lineage_audit_row(
+                snapshot_report_date="20260807",
+                signal_date="20260807",
+                stock_id="2059",
+                formal_row_disposition="superseded",
+                evidence_status="complete",
+                paired_source_resolution=(
+                    "published_snapshot_exact_current_sources_pending_commit"
+                ),
+                formal_snapshot_path=source_relative_path,
+                formal_snapshot_sha256=canonical_snapshot_sha,
+                formal_row_number="0",
+                formal_row_sha256=builder.canonical_row_sha256(formal.iloc[0]),
+                candidate_row_present="False",
+                canonical_warrant_source_type=(
+                    "negative_projection_no_candidate_row"
+                ),
+                candidate_warrant_signal="",
+                formal_warrant_signal="",
+                impact_scope="formal_warrant_lineage_superseded",
+            ),
+            lineage_audit_row(
+                snapshot_report_date="20260807",
+                signal_date="20260807",
+                stock_id="6505",
+                formal_row_disposition="verified_clean",
+                evidence_status="complete",
+                paired_source_resolution=(
+                    "published_snapshot_exact_current_sources_pending_commit"
+                ),
+                formal_snapshot_path=source_relative_path,
+                formal_snapshot_sha256=canonical_snapshot_sha,
+                formal_row_number="1",
+                formal_row_sha256=builder.canonical_row_sha256(formal.iloc[1]),
+            ),
+        ]
+    ).to_csv(audit_path, index=False)
+    section = pd.DataFrame(
+        [
+            output_row(
+                model_id=HIGH_VOLUME_MODEL_ID,
+                row_type="data",
+                pdf_view="highlight",
+                pdf_section="confirmed_operation",
+                stock_id="2059",
+                signal_date="20260807",
+                display_order="1",
+            ),
+            output_row(
+                model_id=HIGH_VOLUME_MODEL_ID,
+                row_type="data",
+                pdf_view="highlight",
+                pdf_section="confirmed_operation",
+                stock_id="6505",
+                signal_date="20260807",
+                display_order="2",
+            ),
+        ],
+        columns=builder.OUTPUT_COLUMNS,
+    )
+    return audit_path, formal, section
+
+
+def test_20260807_2059_negative_projection_is_excluded_before_formal_adapter(
+    tmp_path: Path,
+) -> None:
+    audit_path, formal, section = write_20260807_2059_lineage_scope_fixture(
+        tmp_path
+    )
+
+    scoped, excluded_keys = builder.filter_volume_v2_operation_lineage_scope(
+        section,
+        audit_path=audit_path,
+        formal_signal_rows=formal,
+        source_root=tmp_path,
+    )
+
+    assert excluded_keys == {
+        ("20260807", HIGH_VOLUME_MODEL_ID, "2059")
+    }
+    assert scoped["stock_id"].tolist() == ["6505"]
+    evidence = builder.require_verified_clean_volume_v2_lineage(
+        scoped,
+        audit_path=audit_path,
+        formal_signal_rows=formal,
+        source_root=tmp_path,
+    )
+    assert evidence["checked_rows"] == 1
+    with pytest.raises(RuntimeError, match="stock_id.*2059|2059"):
+        builder.require_verified_clean_volume_v2_lineage(
+            section,
+            audit_path=audit_path,
+            formal_signal_rows=formal,
+            source_root=tmp_path,
+        )
+    pdf_rows = pdf_generator.volume_operation_frame(
+        {"volume_operation": scoped},
+        HIGH_VOLUME_MODEL_ID,
+        "highlight",
+        "confirmed_operation",
+    )
+    assert pdf_rows["stock_id"].tolist() == ["6505"]
+
+
+def test_20260807_candidate_present_superseded_row_still_fails_closed(
+    tmp_path: Path,
+) -> None:
+    audit_path, formal, section = write_20260807_2059_lineage_scope_fixture(
+        tmp_path
+    )
+    audit = pd.read_csv(audit_path, dtype=str, keep_default_na=False)
+    audit.loc[0, "candidate_row_present"] = "True"
+    audit.loc[0, "canonical_warrant_source_type"] = "all_candidates_projection"
+    audit.to_csv(audit_path, index=False)
+
+    scoped, excluded_keys = builder.filter_volume_v2_operation_lineage_scope(
+        section,
+        audit_path=audit_path,
+        formal_signal_rows=formal,
+        source_root=tmp_path,
+    )
+
+    assert excluded_keys == set()
+    with pytest.raises(RuntimeError, match="superseded"):
+        builder.require_verified_clean_volume_v2_lineage(
+            scoped,
+            audit_path=audit_path,
+            formal_signal_rows=formal,
+            source_root=tmp_path,
+        )
+
+
+def test_20260807_old_negative_revision_does_not_override_verified_manifest_max(
+    tmp_path: Path,
+) -> None:
+    audit_path, _r1_formal, section = write_20260807_2059_lineage_scope_fixture(
+        tmp_path
+    )
+    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    r2_formal = pd.DataFrame(
+        [
+            lineage_formal_signal_row(
+                signal_date="20260807",
+                stock_id="2059",
+                source_row_index="volume_breakout:0",
+                warrant_flow_signal="no_signal",
+                final_rank_score="96",
+                model_rank="1",
+            ),
+            lineage_formal_signal_row(
+                signal_date="20260807",
+                stock_id="6505",
+                source_row_index="volume_breakout:1",
+                model_rank="2",
+            ),
+        ]
+    )
+    staging = snapshot_dir / "model_signals_20260807_r2_staging.csv"
+    r2_formal.to_csv(staging, index=False)
+    r2_sha = snapshot_file_sha256(staging)
+    r2_path = snapshot_dir / (
+        f"daily_candidate_model_signals_for_report_20260807_r2_{r2_sha[:12]}.csv"
+    )
+    staging.rename(r2_path)
+    r2_relative = r2_path.relative_to(tmp_path).as_posix()
+    manifest_path = snapshot_dir / "daily_published_model_snapshot_manifest.csv"
+    manifest = pd.read_csv(manifest_path, dtype=str, keep_default_na=False)
+    r1_sha = manifest.iloc[0]["snapshot_sha256"]
+    manifest.loc[len(manifest)] = {
+        "snapshot_report_date": "20260807",
+        "snapshot_revision": "r2",
+        "supersedes_snapshot_sha256": r1_sha,
+        "revision_reason": "candidate_scope_correction",
+        "artifact_id": "model_signals_for_report",
+        "snapshot_path": r2_relative,
+        "snapshot_sha256": r2_sha,
+    }
+    manifest.to_csv(manifest_path, index=False)
+    canonical_r2_sha = builder.canonical_text_sha256(r2_path.read_bytes())
+    audit = pd.read_csv(audit_path, dtype=str, keep_default_na=False)
+    audit = pd.concat(
+        [
+            audit,
+            pd.DataFrame(
+                [
+                    lineage_audit_row(
+                        snapshot_report_date="20260807",
+                        snapshot_revision="r2",
+                        signal_date="20260807",
+                        stock_id="2059",
+                        formal_row_disposition="verified_clean",
+                        formal_snapshot_path=r2_relative,
+                        formal_snapshot_sha256=canonical_r2_sha,
+                        formal_row_number="0",
+                        formal_row_sha256=builder.canonical_row_sha256(
+                            r2_formal.iloc[0]
+                        ),
+                        candidate_row_present="True",
+                        canonical_warrant_source_type="all_candidates_projection",
+                        candidate_warrant_signal="no_signal",
+                        formal_warrant_signal="no_signal",
+                        impact_scope="none",
+                    ),
+                    lineage_audit_row(
+                        snapshot_report_date="20260807",
+                        snapshot_revision="r2",
+                        signal_date="20260807",
+                        stock_id="6505",
+                        formal_row_disposition="verified_clean",
+                        formal_snapshot_path=r2_relative,
+                        formal_snapshot_sha256=canonical_r2_sha,
+                        formal_row_number="1",
+                        formal_row_sha256=builder.canonical_row_sha256(
+                            r2_formal.iloc[1]
+                        ),
+                    ),
+                ]
+            ),
+        ],
+        ignore_index=True,
+    )
+    audit.to_csv(audit_path, index=False)
+
+    scoped, excluded_keys = builder.filter_volume_v2_operation_lineage_scope(
+        section,
+        audit_path=audit_path,
+        formal_signal_rows=r2_formal,
+        source_root=tmp_path,
+    )
+
+    assert excluded_keys == set()
+    assert scoped["stock_id"].tolist() == ["2059", "6505"]
+    evidence = builder.require_verified_clean_volume_v2_lineage(
+        scoped,
+        audit_path=audit_path,
+        formal_signal_rows=r2_formal,
+        source_root=tmp_path,
+    )
+    assert evidence["checked_rows"] == 2
+
+
+def test_20260807_conflicting_manifest_max_audit_rows_fail_closed(
+    tmp_path: Path,
+) -> None:
+    audit_path, formal, section = write_20260807_2059_lineage_scope_fixture(
+        tmp_path
+    )
+    audit = pd.read_csv(audit_path, dtype=str, keep_default_na=False)
+    conflicting = audit.iloc[0].copy()
+    conflicting["candidate_row_present"] = "True"
+    conflicting["canonical_warrant_source_type"] = "all_candidates_projection"
+    conflicting["formal_row_disposition"] = "verified_clean"
+    audit = pd.concat([audit, conflicting.to_frame().T], ignore_index=True)
+    audit.to_csv(audit_path, index=False)
+
+    with pytest.raises(
+        RuntimeError,
+        match="duplicate_manifest_max_negative_projection_evidence",
+    ):
+        builder.filter_volume_v2_operation_lineage_scope(
+            section,
+            audit_path=audit_path,
+            formal_signal_rows=formal,
+            source_root=tmp_path,
+        )
+
+
+@pytest.mark.parametrize(
+    ("field", "value", "error_text"),
+    [
+        ("evidence_status", "incomplete", "incomplete_negative_projection"),
+        ("paired_source_resolution", "unknown", "incomplete_negative_projection"),
+        ("watch_artifact_sha256", "", "incomplete_negative_projection"),
+        ("formal_row_sha256", "b" * 64, "formal_row_exact_hash_mismatch"),
+    ],
+)
+def test_20260807_negative_projection_exclusion_requires_complete_exact_lineage(
+    tmp_path: Path,
+    field: str,
+    value: str,
+    error_text: str,
+) -> None:
+    audit_path, formal, section = write_20260807_2059_lineage_scope_fixture(
+        tmp_path
+    )
+    audit = pd.read_csv(audit_path, dtype=str, keep_default_na=False)
+    audit.loc[0, field] = value
+    audit.to_csv(audit_path, index=False)
+
+    with pytest.raises(RuntimeError, match=error_text):
+        builder.filter_volume_v2_operation_lineage_scope(
+            section,
+            audit_path=audit_path,
+            formal_signal_rows=formal,
+            source_root=tmp_path,
+        )
+
+
+def test_restored_2059_operation_audit_is_not_marked_included(
+    tmp_path: Path,
+) -> None:
+    audit_path, formal, section = write_20260807_2059_lineage_scope_fixture(
+        tmp_path
+    )
+    only_2059 = section[section["stock_id"].eq("2059")].copy()
+    scoped, excluded_keys = builder.filter_volume_v2_operation_lineage_scope(
+        only_2059,
+        audit_path=audit_path,
+        formal_signal_rows=formal,
+        source_root=tmp_path,
+    )
+    approvals = {
+        model_id: builder.approval_context(pd.DataFrame(), model_id)
+        for model_id in builder.FORMAL_MODEL_IDS
+    }
+    restored_section = builder.ensure_operation_section_empty_states(
+        scoped,
+        report_date="20260807",
+        daily_signal_date="20260807",
+        daily_volume_count=1,
+        approvals_by_model=approvals,
+        generated_at="2026-08-08 08:00:00 Asia/Taipei",
+        metadata_source=only_2059,
+    )
+    operation_audit = pd.DataFrame(
+        [
+            audit_row(
+                model_id=HIGH_VOLUME_MODEL_ID,
+                signal_date="20260807",
+                stock_id="2059",
+                included_in_daily_adapter="True",
+            ),
+            audit_row(
+                model_id=HIGH_VOLUME_MODEL_ID,
+                signal_date="20260807",
+                stock_id="6505",
+                included_in_daily_adapter="True",
+            ),
+        ],
+        columns=builder.EVIDENCE_AUDIT_COLUMNS,
+    )
+
+    restored_audit = builder.suppress_excluded_operation_audit_rows(
+        operation_audit, excluded_keys
+    )
+
+    assert scoped.empty
+    restored_target = restored_section[
+        restored_section["model_id"].eq(HIGH_VOLUME_MODEL_ID)
+        & restored_section["pdf_view"].eq("highlight")
+        & restored_section["pdf_section"].eq("confirmed_operation")
+    ]
+    assert len(restored_target) == 1
+    assert restored_target.iloc[0]["row_type"] == "empty_state"
+    assert restored_target.iloc[0]["stock_id"] == ""
+    assert not restored_section["stock_id"].eq("2059").any()
+    assert restored_audit.set_index("stock_id").loc[
+        "2059", "included_in_daily_adapter"
+    ] == "False"
+    assert restored_audit.set_index("stock_id").loc[
+        "6505", "included_in_daily_adapter"
+    ] == "True"
 
 
 def test_formal_operation_lineage_gate_accepts_only_exact_verified_clean_row(tmp_path: Path) -> None:
