@@ -11,6 +11,7 @@ import io
 import json
 import os
 import re
+import shutil
 import stat
 import subprocess
 import sys
@@ -527,6 +528,18 @@ def assert_real_index_unchanged(
         )
 
 
+def assert_real_head_and_ref_unchanged(
+    repo_root: Path, expected_source_sha: str
+) -> None:
+    observed_head = str(_git_capture(repo_root, "rev-parse", "HEAD")).strip()
+    observed_ref = str(_git_capture(repo_root, "symbolic-ref", "HEAD")).strip()
+    if observed_head != expected_source_sha or observed_ref != "refs/heads/main":
+        raise ValidationReplayError(
+            "real Git HEAD/ref drifted during validation-only price extension: "
+            f"head={observed_head} ref={observed_ref}"
+        )
+
+
 def price_extension_status_entries(repo_root: Path) -> list[dict[str, str]]:
     raw = _git_capture(
         repo_root,
@@ -766,27 +779,217 @@ def extend_authoritative_price_history(
     return payload, manifest_path, manifest_sha256
 
 
+def assert_validation_only_git_baseline(
+    *,
+    repo_root: Path,
+    producer_env: dict[str, str],
+    source_sha: str,
+    expected_paths: list[str],
+) -> None:
+    branch = run_command(
+        ["git", "rev-parse", "--abbrev-ref", "HEAD"],
+        cwd=repo_root,
+        env=producer_env,
+        label="verify validation-only synthetic branch",
+    ).strip()
+    if branch != "main":
+        raise ValidationReplayError(
+            f"validation-only synthetic branch drifted: {branch}"
+        )
+    observed_head = run_command(
+        ["git", "rev-parse", "HEAD"],
+        cwd=repo_root,
+        env=producer_env,
+        label="verify validation-only source HEAD",
+    ).strip()
+    if observed_head != source_sha:
+        raise ValidationReplayError(
+            "validation-only source HEAD drifted: "
+            f"expected={source_sha} observed={observed_head}"
+        )
+    replace_ref = f"refs/replace/{source_sha}"
+    replace_refs = sorted(
+        line.strip()
+        for line in run_command(
+            ["git", "for-each-ref", "--format=%(refname)", "refs/replace/"],
+            cwd=repo_root,
+            env=producer_env,
+            label="verify validation-only replacement ref set",
+        ).splitlines()
+        if line.strip()
+    )
+    if replace_refs != [replace_ref]:
+        raise ValidationReplayError(
+            "validation-only synthetic replace ref drifted: "
+            f"expected={[replace_ref]} observed={replace_refs}"
+        )
+    baseline_commit = run_command(
+        ["git", "rev-parse", replace_ref],
+        cwd=repo_root,
+        env=producer_env,
+        label="resolve validation-only synthetic commit",
+    ).strip()
+    no_replace_env = producer_env.copy()
+    no_replace_env["GIT_NO_REPLACE_OBJECTS"] = "1"
+    source_parents = run_command(
+        ["git", "rev-list", "--parents", "-n", "1", source_sha],
+        cwd=repo_root,
+        env=no_replace_env,
+        label="resolve validation-only source parents",
+    ).strip().split()[1:]
+    baseline_parents = run_command(
+        ["git", "rev-list", "--parents", "-n", "1", baseline_commit],
+        cwd=repo_root,
+        env=no_replace_env,
+        label="verify validation-only synthetic parents",
+    ).strip().split()[1:]
+    if baseline_parents != source_parents:
+        raise ValidationReplayError(
+            "validation-only synthetic parent set drifted: "
+            f"expected={source_parents} observed={baseline_parents}"
+        )
+    head_tree = run_command(
+        ["git", "rev-parse", "HEAD^{tree}"],
+        cwd=repo_root,
+        env=producer_env,
+        label="resolve validation-only synthetic tree",
+    ).strip()
+    index_tree = run_command(
+        ["git", "write-tree"],
+        cwd=repo_root,
+        env=producer_env,
+        label="verify validation-only index tree",
+    ).strip()
+    if index_tree != head_tree:
+        raise ValidationReplayError(
+            "validation-only synthetic index tree drifted: "
+            f"head={head_tree} index={index_tree}"
+        )
+    staged_paths = sorted(
+        line.strip().replace("\\", "/")
+        for line in run_command(
+            ["git", "diff", "--cached", "--name-only", source_sha],
+            cwd=repo_root,
+            env=no_replace_env,
+            label="verify validation-only synthetic path set",
+        ).splitlines()
+        if line.strip()
+    )
+    if staged_paths != expected_paths:
+        raise ValidationReplayError(
+            "validation-only synthetic path set drifted: "
+            f"expected={expected_paths} observed={staged_paths}"
+        )
+    run_command(
+        ["git", "diff", "--cached", "--quiet"],
+        cwd=repo_root,
+        env=producer_env,
+        label="verify validation-only staged baseline",
+    )
+    run_command(
+        ["git", "diff", "--quiet"],
+        cwd=repo_root,
+        env=producer_env,
+        label="verify validation-only working tree baseline",
+    )
+    status = run_command(
+        ["git", "status", "--porcelain=v1", "--untracked-files=all"],
+        cwd=repo_root,
+        env=producer_env,
+        label="verify validation-only alternate index",
+    )
+    if status.strip():
+        raise ValidationReplayError(
+            "validation-only alternate index did not preserve an exact clean baseline: "
+            f"{status.strip()}"
+        )
+
+
+def remove_validation_only_git_dir(git_dir_path: Path) -> None:
+    if not git_dir_path.exists():
+        return
+    if git_dir_path.is_symlink() or not git_dir_path.is_dir():
+        raise ValidationReplayError(
+            f"validation-only Git directory cleanup is unsafe: {git_dir_path}"
+        )
+
+    def remove_readonly_path(
+        function: Any, path: str, _error: Any
+    ) -> None:
+        os.chmod(path, stat.S_IWRITE)
+        function(path)
+
+    shutil.rmtree(git_dir_path, onerror=remove_readonly_path)
+
+
 def prepare_validation_only_git_index(
     *,
     repo_root: Path,
     runner_temp: Path,
     env: dict[str, str],
     manifest: dict[str, Any],
-) -> tuple[dict[str, str], Path, Path]:
+) -> tuple[dict[str, str], Path, Path, Path]:
     index_path = runner_temp / "price-history-extension.git-index"
     pathspec_path = runner_temp / "price-history-extension-paths.bin"
+    git_dir_path = runner_temp / "price-history-extension.git-dir"
     if index_path.exists():
         index_path.unlink()
     paths = [str(row["path"]) for row in manifest["files"]]
+    if paths != sorted(set(paths)):
+        raise ValidationReplayError(
+            "validation-only alternate index requires a sorted unique path set"
+        )
+    source_sha = str(manifest["source_sha"])
     real_index_path = Path(str(manifest["real_index_path"]))
     real_index_sha256 = str(manifest["real_index_sha256"])
     assert_real_index_unchanged(repo_root, real_index_path, real_index_sha256)
+    assert_real_head_and_ref_unchanged(repo_root, source_sha)
+    remove_validation_only_git_dir(git_dir_path)
     pathspec_path.write_bytes(b"\0".join(path.encode("utf-8") for path in paths) + b"\0")
+    common_dir_text = run_command(
+        ["git", "rev-parse", "--git-common-dir"],
+        cwd=repo_root,
+        env=env,
+        label="resolve real Git object database",
+    ).strip()
+    common_dir = Path(common_dir_text)
+    if not common_dir.is_absolute():
+        common_dir = repo_root / common_dir
+    real_objects_dir = (common_dir.resolve() / "objects")
+    if not real_objects_dir.is_dir():
+        raise ValidationReplayError(
+            f"real Git object database is missing: {real_objects_dir}"
+        )
+    run_command(
+        ["git", "init", "--bare", str(git_dir_path)],
+        cwd=repo_root,
+        env=env,
+        label="initialize validation-only Git directory",
+    )
+    alternates_path = git_dir_path / "objects" / "info" / "alternates"
+    alternates_path.parent.mkdir(parents=True, exist_ok=True)
+    alternates_path.write_text(
+        real_objects_dir.as_posix() + "\n", encoding="utf-8", newline="\n"
+    )
     producer_env = env.copy()
+    producer_env["GIT_DIR"] = str(git_dir_path)
+    producer_env["GIT_WORK_TREE"] = str(repo_root)
     producer_env["GIT_INDEX_FILE"] = str(index_path)
     try:
         run_command(
-            ["git", "read-tree", "HEAD"],
+            ["git", "config", "core.bare", "false"],
+            cwd=repo_root,
+            env=producer_env,
+            label="enable validation-only Git work tree",
+        )
+        run_command(
+            ["git", "config", "core.worktree", str(repo_root)],
+            cwd=repo_root,
+            env=producer_env,
+            label="bind validation-only Git work tree",
+        )
+        run_command(
+            ["git", "read-tree", source_sha],
             cwd=repo_root,
             env=producer_env,
             label="initialize validation-only price-extension index",
@@ -803,28 +1006,100 @@ def prepare_validation_only_git_index(
             env=producer_env,
             label="stage verified price extension in alternate index",
         )
-        status = run_command(
-            ["git", "status", "--porcelain=v1", "--untracked-files=all"],
+        staged_paths = sorted(
+            line.strip().replace("\\", "/")
+            for line in run_command(
+                ["git", "diff", "--cached", "--name-only", source_sha],
+                cwd=repo_root,
+                env=producer_env,
+                label="verify validation-only staged path set",
+            ).splitlines()
+            if line.strip()
+        )
+        if staged_paths != paths:
+            raise ValidationReplayError(
+                "validation-only alternate index staged path set drifted: "
+                f"expected={paths} observed={staged_paths}"
+            )
+        baseline_tree = run_command(
+            ["git", "write-tree"],
             cwd=repo_root,
             env=producer_env,
-            label="verify validation-only alternate index",
-        )
-        if status.strip():
+            label="write validation-only synthetic baseline tree",
+        ).strip()
+        commit_env = producer_env.copy()
+        no_replace_env = producer_env.copy()
+        no_replace_env["GIT_NO_REPLACE_OBJECTS"] = "1"
+        source_commit = run_command(
+            ["git", "rev-list", "--parents", "-n", "1", source_sha],
+            cwd=repo_root,
+            env=no_replace_env,
+            label="resolve source parents for validation-only baseline",
+        ).strip().split()
+        if not source_commit or source_commit[0] != source_sha:
             raise ValidationReplayError(
-                "validation-only alternate index did not preserve an exact clean baseline: "
-                f"{status.strip()}"
+                "validation-only source parent evidence drifted"
             )
+        commit_env.update(
+            {
+                "GIT_AUTHOR_NAME": "Validation Replay",
+                "GIT_AUTHOR_EMAIL": "validation-replay@example.invalid",
+                "GIT_AUTHOR_DATE": "2026-08-07T23:59:59+08:00",
+                "GIT_COMMITTER_NAME": "Validation Replay",
+                "GIT_COMMITTER_EMAIL": "validation-replay@example.invalid",
+                "GIT_COMMITTER_DATE": "2026-08-07T23:59:59+08:00",
+            }
+        )
+        commit_command = ["git", "commit-tree", baseline_tree]
+        for parent_sha in source_commit[1:]:
+            commit_command.extend(["-p", parent_sha])
+        commit_command.extend(
+            ["-m", "Validation-only verified price-extension baseline"]
+        )
+        baseline_commit = run_command(
+            commit_command,
+            cwd=repo_root,
+            env=commit_env,
+            label="create validation-only synthetic baseline commit",
+        ).strip()
+        run_command(
+            ["git", "update-ref", f"refs/replace/{source_sha}", baseline_commit],
+            cwd=repo_root,
+            env=producer_env,
+            label="bind validation-only synthetic replacement",
+        )
+        run_command(
+            ["git", "update-ref", "refs/heads/main", source_sha],
+            cwd=repo_root,
+            env=producer_env,
+            label="bind validation-only synthetic main",
+        )
+        run_command(
+            ["git", "symbolic-ref", "HEAD", "refs/heads/main"],
+            cwd=repo_root,
+            env=producer_env,
+            label="select validation-only synthetic main",
+        )
+        assert_validation_only_git_baseline(
+            repo_root=repo_root,
+            producer_env=producer_env,
+            source_sha=source_sha,
+            expected_paths=paths,
+        )
     except Exception:
         remove_validation_only_git_index(
             repo_root=repo_root,
             index_path=index_path,
             pathspec_path=pathspec_path,
+            git_dir_path=git_dir_path,
             real_index_path=real_index_path,
             real_index_sha256=real_index_sha256,
+            source_sha=source_sha,
         )
         raise
     assert_real_index_unchanged(repo_root, real_index_path, real_index_sha256)
-    return producer_env, index_path, pathspec_path
+    assert_real_head_and_ref_unchanged(repo_root, source_sha)
+    return producer_env, index_path, pathspec_path, git_dir_path
 
 
 def remove_validation_only_git_index(
@@ -832,12 +1107,21 @@ def remove_validation_only_git_index(
     repo_root: Path,
     index_path: Path,
     pathspec_path: Path,
+    git_dir_path: Path,
     real_index_path: Path,
     real_index_sha256: str,
+    source_sha: str,
 ) -> None:
     for path in (Path(f"{index_path}.lock"), index_path, pathspec_path):
         path.unlink(missing_ok=True)
+    expected_git_dir = index_path.parent / "price-history-extension.git-dir"
+    if git_dir_path != expected_git_dir:
+        raise ValidationReplayError(
+            f"refusing to remove unexpected validation-only Git directory: {git_dir_path}"
+        )
+    remove_validation_only_git_dir(git_dir_path)
     assert_real_index_unchanged(repo_root, real_index_path, real_index_sha256)
+    assert_real_head_and_ref_unchanged(repo_root, source_sha)
 
 
 def run_authoritative_historical_revision(
@@ -868,6 +1152,7 @@ def run_authoritative_historical_revision(
     producer_env = env
     temporary_index_path: Path | None = None
     temporary_pathspec_path: Path | None = None
+    temporary_git_dir_path: Path | None = None
     real_index_path: Path | None = None
     real_index_sha256 = ""
     extension: dict[str, Any] | None = None
@@ -933,7 +1218,12 @@ def run_authoritative_historical_revision(
             f"date lock: {trading_dates}"
         )
     if extension is not None:
-        producer_env, temporary_index_path, temporary_pathspec_path = (
+        (
+            producer_env,
+            temporary_index_path,
+            temporary_pathspec_path,
+            temporary_git_dir_path,
+        ) = (
             prepare_validation_only_git_index(
                 repo_root=repo_root,
                 runner_temp=runner_temp,
@@ -970,14 +1260,17 @@ def run_authoritative_historical_revision(
         if (
             temporary_index_path is not None
             and temporary_pathspec_path is not None
+            and temporary_git_dir_path is not None
             and real_index_path is not None
         ):
             remove_validation_only_git_index(
                 repo_root=repo_root,
                 index_path=temporary_index_path,
                 pathspec_path=temporary_pathspec_path,
+                git_dir_path=temporary_git_dir_path,
                 real_index_path=real_index_path,
                 real_index_sha256=real_index_sha256,
+                source_sha=source_sha,
             )
     validator = [
         sys.executable,
