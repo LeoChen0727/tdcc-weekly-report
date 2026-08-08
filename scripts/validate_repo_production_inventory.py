@@ -211,7 +211,7 @@ PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_TARGET_SHA256_BY_PATH = {
         "9ba1da323f7aa4ed0501e702abbd14d511cf697138c247bdb92e033f43a96831"
     ),
     "config/repo_file_lifecycle_inventory.csv": (
-        "e4e7ae5fa26c90545ddcd8f12aae8a5c0a343e2657d44f081b4c7b3088ae3c1a"
+        "adf32adc13882d556d2c54595ca49241df36f8c30e2528cb4f4411aad55974b5"
     ),
     "config/repo_production_inventory.csv": (
         "675f8d6abdd5bbcc7f911739ee1d3f9439353cfc6375b415070f4da4ce7dd533"

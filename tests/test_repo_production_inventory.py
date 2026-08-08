@@ -777,7 +777,7 @@ def test_daily_full_checkpoint_replay_preauthorization_is_exact_and_fail_closed(
     ] == "69831c7ef8b922ddb763af94cbf4df694ee2d981c7a7d475567f67587ed07ce5"
     assert inventory.PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_TARGET_SHA256_BY_PATH[
         lifecycle_path
-    ] == "e4e7ae5fa26c90545ddcd8f12aae8a5c0a343e2657d44f081b4c7b3088ae3c1a"
+    ] == "adf32adc13882d556d2c54595ca49241df36f8c30e2528cb4f4411aad55974b5"
     base_ref = "a" * 40
     base_blobs: dict[str, bytes | None] = {}
     target_blobs: dict[str, bytes] = {}
@@ -1523,6 +1523,7 @@ def test_daily_full_replay_reconciled_target_hashes_are_exact() -> None:
         (path, sha256)
         for path, sha256 in target.items()
         if path not in updated
+        and path != inventory.PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_LIFECYCLE_PATH
     )
     assert len(target) == 9
     assert hashlib.sha256(
@@ -1532,7 +1533,7 @@ def test_daily_full_replay_reconciled_target_hashes_are_exact() -> None:
             separators=(",", ":"),
         ).encode("utf-8")
     ).hexdigest() == (
-        "64091df77f01a54d4af6c485fc56c06e90f9c5a655b9fafe7223a73188bbd940"
+        "f9572ab03922e38a239bbadb9347cc1a031f186ae94e952698d1194d1d2e9138"
     )
 
 
@@ -1557,6 +1558,50 @@ def test_daily_full_replay_hash_reconciliation_authorization_is_exact() -> None:
             ),
             "base_helper_sha256": (
                 "5f944d349cac77f6726ac6fcc13d6d8eee2196b6ad9a8bc5756a67ff04abf460"
+            ),
+            "current_helper_sha256": (
+                "6ef1cfa402322114c8b9770f02584af1b208048fff2d550e24c1133e41235eeb"
+            ),
+            "current_test_sha256": (
+                "0c97991722990b3378d5c87ac996ab2270072dc6f56ce0d4f543922da387e64d"
+            ),
+            "changed_paths": (
+                "config/daily_model_pr_safe_self_migration_authorizations.csv;"
+                "scripts/validate_repo_production_inventory.py;"
+                "tests/test_repo_production_inventory.py"
+            ),
+        }
+    ]
+
+
+def test_daily_full_replay_lifecycle_target_hash_is_exact() -> None:
+    target = inventory.PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_TARGET_SHA256_BY_PATH
+    assert target[
+        inventory.PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_LIFECYCLE_PATH
+    ] == "adf32adc13882d556d2c54595ca49241df36f8c30e2528cb4f4411aad55974b5"
+
+
+def test_daily_full_replay_lifecycle_hash_authorization_is_exact() -> None:
+    payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
+    rows, errors = inventory.parse_pr_safe_authorizations(payload)
+    assert errors == []
+    matching = [
+        row
+        for row in rows
+        if row["migration_id"]
+        == "daily-full-checkpoint-replay-lifecycle-target-reconciliation-v3"
+    ]
+    assert matching == [
+        {
+            "migration_id": (
+                "daily-full-checkpoint-replay-lifecycle-target-reconciliation-v3"
+            ),
+            "status": "preauthorized",
+            "approval_reference": (
+                "user_authorized_daily_full_replay_lifecycle_reconciliation_20260808"
+            ),
+            "base_helper_sha256": (
+                "6ef1cfa402322114c8b9770f02584af1b208048fff2d550e24c1133e41235eeb"
             ),
             "current_helper_sha256": inventory.canonical_blob_sha256(
                 (ROOT / inventory.PR_SAFE_BASE_GUARD_SCRIPT).read_bytes()
