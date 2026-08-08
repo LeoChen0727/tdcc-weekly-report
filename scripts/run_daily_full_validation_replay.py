@@ -11,6 +11,7 @@ import io
 import json
 import os
 import re
+import stat
 import subprocess
 import sys
 from datetime import datetime, timezone
@@ -23,6 +24,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 import scripts.daily_full_validation_replay_checkpoint as checkpoint  # noqa: E402
+from scripts import replay_historical_structured_sources as historical_replay  # noqa: E402
 
 
 REPLAY_DATE = "20260807"
@@ -111,6 +113,26 @@ STEP_RESULTS_PATH = Path(
     "output/validation_replay/20260807/step_results.json"
 )
 SOURCE_REVISION_FILENAME = "source_revision_manifest.json"
+PRICE_HISTORY_EXTENSION_MANIFEST = "price_history_extension_manifest.json"
+PRICE_HISTORY_EXTENSION_ALLOWED_PREFIXES = (
+    "data/stock_price_history/",
+)
+PRICE_HISTORY_EXTENSION_ALLOWED_FILES = frozenset(
+    {
+        f"data/daily_price/{REPLAY_DATE}.csv",
+        f"data/daily_price/daily_price_{REPLAY_DATE}.csv",
+        "output/latest/official_daily_price_latest.csv",
+        "output/latest/official_price_fetch_latest.json",
+        "output/latest/official_price_fetch_latest.md",
+        "output/latest/stock_price_history_manifest.csv",
+        "output/latest/stock_price_history_manifest.json",
+        "output/latest/stock_price_history_manifest.md",
+        "docs/latest/stock_price_history_manifest.csv",
+        "docs/latest/stock_price_history_manifest.json",
+        "docs/latest/stock_price_history_manifest.md",
+    }
+)
+PRICE_HISTORY_EXTENSION_REQUIRED_FILES = PRICE_HISTORY_EXTENSION_ALLOWED_FILES
 ALLOWED_CHECKPOINT_PREFIXES = ("data", "output", "docs")
 class ValidationReplayError(RuntimeError):
     """A fail-closed validation replay contract violation."""
@@ -437,6 +459,387 @@ def run_market_session_preflight(
     return payload
 
 
+def _is_price_history_extension_path(relative_path: str) -> bool:
+    return relative_path in PRICE_HISTORY_EXTENSION_ALLOWED_FILES or bool(
+        re.fullmatch(r"data/stock_price_history/[^/]+\.csv", relative_path)
+    )
+
+
+def _git_capture(
+    repo_root: Path,
+    *args: str,
+    env: dict[str, str] | None = None,
+    binary: bool = False,
+) -> bytes | str:
+    git_env = os.environ.copy()
+    if env:
+        git_env.update(env)
+    git_env["GIT_OPTIONAL_LOCKS"] = "0"
+    completed = subprocess.run(
+        ["git", *args],
+        cwd=repo_root,
+        env=git_env,
+        capture_output=True,
+        text=not binary,
+        encoding=None if binary else "utf-8",
+        errors=None if binary else "replace",
+        check=False,
+    )
+    if completed.returncode != 0:
+        stderr = (
+            completed.stderr.decode("utf-8", errors="replace")
+            if binary
+            else completed.stderr
+        )
+        raise ValidationReplayError(
+            f"validation-only git command failed rc={completed.returncode}: "
+            f"git {' '.join(args)}: {str(stderr).strip()}"
+        )
+    return completed.stdout
+
+
+def real_index_identity(repo_root: Path) -> tuple[Path, str]:
+    raw_path = str(
+        _git_capture(
+            repo_root,
+            "rev-parse",
+            "--path-format=absolute",
+            "--git-path",
+            "index",
+        )
+    ).strip()
+    index_path = Path(raw_path)
+    if not index_path.is_file():
+        raise ValidationReplayError(f"real Git index is missing: {index_path}")
+    return index_path, sha256_file(index_path)
+
+
+def assert_real_index_unchanged(
+    repo_root: Path,
+    expected_path: Path,
+    expected_sha256: str,
+) -> None:
+    observed_path, observed_sha256 = real_index_identity(repo_root)
+    if observed_path != expected_path or observed_sha256 != expected_sha256:
+        raise ValidationReplayError(
+            "real Git index drifted during validation-only price extension: "
+            f"path={observed_path} sha256={observed_sha256}"
+        )
+
+
+def price_extension_status_entries(repo_root: Path) -> list[dict[str, str]]:
+    raw = _git_capture(
+        repo_root,
+        "status",
+        "--porcelain=v1",
+        "-z",
+        "--untracked-files=all",
+        binary=True,
+    )
+    assert isinstance(raw, bytes)
+    fields = raw.split(b"\0")
+    entries: list[dict[str, str]] = []
+    index = 0
+    while index < len(fields) and fields[index]:
+        field = fields[index]
+        index += 1
+        if len(field) < 4 or field[2:3] != b" ":
+            raise ValidationReplayError(
+                "price history extension has malformed git status evidence"
+            )
+        status = field[:2].decode("ascii", errors="strict")
+        path = field[3:].decode("utf-8", errors="strict").replace("\\", "/")
+        if "R" in status or "C" in status:
+            if index < len(fields) and fields[index]:
+                index += 1
+            raise ValidationReplayError(
+                f"price history extension forbids rename/copy status: {status} {path}"
+            )
+        if status not in {" M", "??"}:
+            raise ValidationReplayError(
+                f"price history extension forbids git status: {status} {path}"
+            )
+        if not _is_price_history_extension_path(path):
+            raise ValidationReplayError(
+                f"price history extension changed an unapproved path: {path}"
+            )
+        file_path = repo_root / path
+        if not file_path.is_file() or file_path.is_symlink():
+            raise ValidationReplayError(
+                f"price history extension path is not a regular file: {path}"
+            )
+        if status == "??":
+            mode = (
+                "100755"
+                if file_path.stat().st_mode & stat.S_IXUSR
+                else "100644"
+            )
+        else:
+            staged = str(
+                _git_capture(repo_root, "ls-files", "--stage", "--", path)
+            ).strip()
+            match = re.fullmatch(r"(100644|100755) [0-9a-f]{40,64} 0\t.+", staged)
+            if not match:
+                raise ValidationReplayError(
+                    f"price history extension cannot prove tracked mode: {path}"
+                )
+            mode = match.group(1)
+        entries.append({"path": path, "status": status, "mode": mode})
+    return sorted(entries, key=lambda row: row["path"])
+
+
+def _validate_price_history_extension_status(status: dict[str, Any]) -> None:
+    if (
+        status.get("target_date") != REPLAY_DATE
+        or status.get("saved_price_date") != REPLAY_DATE
+        or status.get("is_target_date") is not True
+        or status.get("future_rows_used") is not False
+    ):
+        raise ValidationReplayError(
+            "authoritative price-history extension returned a wrong-date or "
+            "future-row status"
+        )
+    responses = status.get("source_responses") or []
+    if not responses or any(
+        response.get("exact_date_match") is not True
+        or response.get("observed_response_dates") != [REPLAY_DATE]
+        for response in responses
+    ):
+        raise ValidationReplayError(
+            "authoritative price-history extension lacks exact-date source evidence"
+        )
+    coverage = status.get("stock_history_coverage") or {}
+    if int(coverage.get("missing_history_rows", -1)) != 0:
+        raise ValidationReplayError(
+            "authoritative price-history extension has incomplete stock-history coverage"
+        )
+
+
+def verify_price_history_extension_manifest(
+    *,
+    repo_root: Path,
+    manifest_path: Path,
+    expected_manifest_sha256: str,
+    source_sha: str,
+) -> dict[str, Any]:
+    if not manifest_path.is_file():
+        raise ValidationReplayError(
+            f"price history extension manifest missing: {manifest_path}"
+        )
+    if sha256_file(manifest_path) != expected_manifest_sha256:
+        raise ValidationReplayError("price history extension manifest SHA mismatch")
+    payload = json.loads(manifest_path.read_text(encoding="utf-8"))
+    if (
+        payload.get("schema_version") != 1
+        or payload.get("mode") != "validation_only_authoritative_price_history_extension"
+        or payload.get("replay_date") != REPLAY_DATE
+        or payload.get("source_sha") != source_sha
+    ):
+        raise ValidationReplayError(
+            "price history extension manifest date/source contract mismatch"
+        )
+    _validate_price_history_extension_status(payload.get("source_status") or {})
+    rows = payload.get("files") or []
+    expected_paths = [str(row.get("path") or "") for row in rows]
+    if (
+        not expected_paths
+        or len(expected_paths) != len(set(expected_paths))
+        or expected_paths != sorted(expected_paths)
+        or any(not _is_price_history_extension_path(path) for path in expected_paths)
+    ):
+        raise ValidationReplayError(
+            "price history extension manifest path allowlist is invalid"
+        )
+    if not PRICE_HISTORY_EXTENSION_REQUIRED_FILES.issubset(expected_paths) or not any(
+        path.startswith(PRICE_HISTORY_EXTENSION_ALLOWED_PREFIXES[0])
+        for path in expected_paths
+    ):
+        raise ValidationReplayError(
+            "price history extension manifest is missing required price/history files"
+        )
+    observed_entries = price_extension_status_entries(repo_root)
+    observed_paths = [row["path"] for row in observed_entries]
+    if observed_paths != expected_paths:
+        raise ValidationReplayError(
+            "price history extension manifest path set drift: "
+            f"observed={observed_paths} expected={expected_paths}"
+        )
+    observed_by_path = {row["path"]: row for row in observed_entries}
+    for row in rows:
+        relative = str(row["path"])
+        observed = observed_by_path[relative]
+        if (
+            row.get("status") != observed["status"]
+            or row.get("mode") != observed["mode"]
+        ):
+            raise ValidationReplayError(
+                f"price history extension status/mode mismatch: {relative}"
+            )
+        path = repo_root / relative
+        if not path.is_file():
+            raise ValidationReplayError(
+                f"price history extension file missing: {relative}"
+            )
+        if path.stat().st_size != int(row.get("bytes", -1)):
+            raise ValidationReplayError(
+                f"price history extension byte mismatch: {relative}"
+            )
+        if sha256_file(path) != str(row.get("sha256") or ""):
+            raise ValidationReplayError(
+                f"price history extension hash mismatch: {relative}"
+            )
+    return payload
+
+
+def extend_authoritative_price_history(
+    *,
+    repo_root: Path,
+    runner_temp: Path,
+    source_sha: str,
+    initial_high_water_date: str,
+) -> tuple[dict[str, Any], Path, str]:
+    expected_previous = historical_replay.previous_trading_date(REPLAY_DATE)
+    if initial_high_water_date != expected_previous:
+        raise ValidationReplayError(
+            "price history extension requires the immediately preceding trading "
+            f"date; observed={initial_high_water_date} expected={expected_previous}"
+        )
+    real_index_path, real_index_sha256 = real_index_identity(repo_root)
+    previous_cwd = Path.cwd()
+    try:
+        os.chdir(repo_root)
+        status = historical_replay.replay_price_date(REPLAY_DATE)
+        _validate_price_history_extension_status(status)
+        tails = historical_replay.source_tail_matrix()
+    finally:
+        os.chdir(previous_cwd)
+        assert_real_index_unchanged(
+            repo_root, real_index_path, real_index_sha256
+        )
+    if (
+        tails.get("daily_price") != REPLAY_DATE
+        or (tails.get("stock_price_history") or {}).get("max_date") != REPLAY_DATE
+    ):
+        raise ValidationReplayError(
+            "authoritative price-history extension did not reach exact replay date"
+        )
+    status_entries = price_extension_status_entries(repo_root)
+    changed_paths = [row["path"] for row in status_entries]
+    if not changed_paths:
+        raise ValidationReplayError(
+            "authoritative price-history extension produced no file evidence"
+        )
+    status_by_path = {row["path"]: row for row in status_entries}
+    files = [
+        {
+            "path": relative,
+            "status": status_by_path[relative]["status"],
+            "mode": status_by_path[relative]["mode"],
+            "bytes": (repo_root / relative).stat().st_size,
+            "sha256": sha256_file(repo_root / relative),
+        }
+        for relative in changed_paths
+    ]
+    payload = {
+        "schema_version": 1,
+        "mode": "validation_only_authoritative_price_history_extension",
+        "replay_date": REPLAY_DATE,
+        "source_sha": source_sha,
+        "initial_price_history_high_water_date": initial_high_water_date,
+        "real_index_path": str(real_index_path),
+        "real_index_sha256": real_index_sha256,
+        "source_status": status,
+        "files": files,
+    }
+    manifest_path = runner_temp / PRICE_HISTORY_EXTENSION_MANIFEST
+    manifest_path.write_bytes(canonical_json_bytes(payload))
+    manifest_sha256 = sha256_file(manifest_path)
+    (runner_temp / f"{PRICE_HISTORY_EXTENSION_MANIFEST}.sha256").write_text(
+        manifest_sha256 + "\n", encoding="ascii", newline="\n"
+    )
+    verify_price_history_extension_manifest(
+        repo_root=repo_root,
+        manifest_path=manifest_path,
+        expected_manifest_sha256=manifest_sha256,
+        source_sha=source_sha,
+    )
+    return payload, manifest_path, manifest_sha256
+
+
+def prepare_validation_only_git_index(
+    *,
+    repo_root: Path,
+    runner_temp: Path,
+    env: dict[str, str],
+    manifest: dict[str, Any],
+) -> tuple[dict[str, str], Path, Path]:
+    index_path = runner_temp / "price-history-extension.git-index"
+    pathspec_path = runner_temp / "price-history-extension-paths.bin"
+    if index_path.exists():
+        index_path.unlink()
+    paths = [str(row["path"]) for row in manifest["files"]]
+    real_index_path = Path(str(manifest["real_index_path"]))
+    real_index_sha256 = str(manifest["real_index_sha256"])
+    assert_real_index_unchanged(repo_root, real_index_path, real_index_sha256)
+    pathspec_path.write_bytes(b"\0".join(path.encode("utf-8") for path in paths) + b"\0")
+    producer_env = env.copy()
+    producer_env["GIT_INDEX_FILE"] = str(index_path)
+    try:
+        run_command(
+            ["git", "read-tree", "HEAD"],
+            cwd=repo_root,
+            env=producer_env,
+            label="initialize validation-only price-extension index",
+        )
+        run_command(
+            [
+                "git",
+                "add",
+                "--all",
+                f"--pathspec-from-file={pathspec_path}",
+                "--pathspec-file-nul",
+            ],
+            cwd=repo_root,
+            env=producer_env,
+            label="stage verified price extension in alternate index",
+        )
+        status = run_command(
+            ["git", "status", "--porcelain=v1", "--untracked-files=all"],
+            cwd=repo_root,
+            env=producer_env,
+            label="verify validation-only alternate index",
+        )
+        if status.strip():
+            raise ValidationReplayError(
+                "validation-only alternate index did not preserve an exact clean baseline: "
+                f"{status.strip()}"
+            )
+    except Exception:
+        remove_validation_only_git_index(
+            repo_root=repo_root,
+            index_path=index_path,
+            pathspec_path=pathspec_path,
+            real_index_path=real_index_path,
+            real_index_sha256=real_index_sha256,
+        )
+        raise
+    assert_real_index_unchanged(repo_root, real_index_path, real_index_sha256)
+    return producer_env, index_path, pathspec_path
+
+
+def remove_validation_only_git_index(
+    *,
+    repo_root: Path,
+    index_path: Path,
+    pathspec_path: Path,
+    real_index_path: Path,
+    real_index_sha256: str,
+) -> None:
+    for path in (Path(f"{index_path}.lock"), index_path, pathspec_path):
+        path.unlink(missing_ok=True)
+    assert_real_index_unchanged(repo_root, real_index_path, real_index_sha256)
+
+
 def run_authoritative_historical_revision(
     *,
     repo_root: Path,
@@ -445,7 +848,7 @@ def run_authoritative_historical_revision(
     run_id: str,
     source_sha: str,
 ) -> tuple[dict[str, Any], Path]:
-    plan_path = runner_temp / "historical_replay_plan.json"
+    plan_path = runner_temp / "historical_replay_plan_before_price_extension.json"
     run_command(
         [
             sys.executable,
@@ -460,7 +863,59 @@ def run_authoritative_historical_revision(
         env=env,
         label="historical source replay planner",
     )
-    plan = json.loads(plan_path.read_text(encoding="utf-8"))
+    initial_plan = json.loads(plan_path.read_text(encoding="utf-8"))
+    plan = initial_plan
+    producer_env = env
+    temporary_index_path: Path | None = None
+    temporary_pathspec_path: Path | None = None
+    real_index_path: Path | None = None
+    real_index_sha256 = ""
+    extension: dict[str, Any] | None = None
+    extension_evidence: dict[str, Any] | None = None
+    if str(initial_plan.get("end_date") or "") != REPLAY_DATE:
+        initial_high_water = str(
+            initial_plan.get("price_history_high_water_date") or ""
+        )
+        initial_end = str(initial_plan.get("end_date") or "")
+        if initial_end and initial_end != initial_high_water:
+            raise ValidationReplayError(
+                "historical source replay planner initial end/high-water mismatch"
+            )
+        extension, extension_manifest, extension_sha = (
+            extend_authoritative_price_history(
+                repo_root=repo_root,
+                runner_temp=runner_temp,
+                source_sha=source_sha,
+                initial_high_water_date=initial_high_water,
+            )
+        )
+        plan_path = runner_temp / "historical_replay_plan_after_price_extension.json"
+        run_command(
+            [
+                sys.executable,
+                "-B",
+                str(HISTORICAL_REPLAY_PLANNER),
+                "--max-replay-dates",
+                "5",
+                "--output",
+                str(plan_path),
+            ],
+            cwd=repo_root,
+            env=env,
+            label="historical source replay planner after price extension",
+        )
+        plan = json.loads(plan_path.read_text(encoding="utf-8"))
+        verify_price_history_extension_manifest(
+            repo_root=repo_root,
+            manifest_path=extension_manifest,
+            expected_manifest_sha256=extension_sha,
+            source_sha=source_sha,
+        )
+        extension_evidence = {
+            "initial_plan": initial_plan,
+            "manifest_path": str(extension_manifest),
+            "manifest_sha256": extension_sha,
+        }
     require_exact_date(
         str(plan.get("end_date") or ""),
         "historical source replay plan end_date",
@@ -477,6 +932,17 @@ def run_authoritative_historical_revision(
             "historical source replay planner escaped the exact "
             f"date lock: {trading_dates}"
         )
+    if extension is not None:
+        producer_env, temporary_index_path, temporary_pathspec_path = (
+            prepare_validation_only_git_index(
+                repo_root=repo_root,
+                runner_temp=runner_temp,
+                env=env,
+                manifest=extension,
+            )
+        )
+        real_index_path = Path(str(extension["real_index_path"]))
+        real_index_sha256 = str(extension["real_index_sha256"])
     replay_id = f"validation-only-{run_id}-authoritative-r1"
     command = [
         sys.executable,
@@ -493,12 +959,26 @@ def run_authoritative_historical_revision(
         "--replay-id",
         replay_id,
     ]
-    run_command(
-        command,
-        cwd=repo_root,
-        env=env,
-        label="authoritative historical source replay",
-    )
+    try:
+        run_command(
+            command,
+            cwd=repo_root,
+            env=producer_env,
+            label="authoritative historical source replay",
+        )
+    finally:
+        if (
+            temporary_index_path is not None
+            and temporary_pathspec_path is not None
+            and real_index_path is not None
+        ):
+            remove_validation_only_git_index(
+                repo_root=repo_root,
+                index_path=temporary_index_path,
+                pathspec_path=temporary_pathspec_path,
+                real_index_path=real_index_path,
+                real_index_sha256=real_index_sha256,
+            )
     validator = [
         sys.executable,
         "-B",
@@ -544,6 +1024,8 @@ def run_authoritative_historical_revision(
         raise ValidationReplayError(
             "historical source manifest date/SHA/revision contract mismatch"
         )
+    if extension_evidence is not None:
+        plan = {**plan, "validation_only_price_history_extension": extension_evidence}
     return plan, manifest_path
 
 
