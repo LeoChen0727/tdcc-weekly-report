@@ -179,7 +179,7 @@ PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_BASE_SHA256_BY_PATH = {
     ),
     ".github/workflows/daily_full_validation_replay_20260807.yml": None,
     "config/repo_file_lifecycle_inventory.csv": (
-        "88fb62d8b1ea278b52939a433f1cdf210cdf081fe89a287739d8900f5d286e88"
+        "45eae9722c4d8587ff483a8e550eb5054cc8a6ab26a836d7f8f80e30a9c3a3d7"
     ),
     "config/repo_production_inventory.csv": (
         "359a3419a6ad7e043d9649a0efe89e1b4ed40365d1640f7d3d8fa06909f6092a"
@@ -200,7 +200,7 @@ PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_TARGET_SHA256_BY_PATH = {
         "9ba1da323f7aa4ed0501e702abbd14d511cf697138c247bdb92e033f43a96831"
     ),
     "config/repo_file_lifecycle_inventory.csv": (
-        "d6dbfe937b738afbbbf342af1ffa7e43145851248687ca40ca4f4953d411ed99"
+        "57502d42204acbd2574cf720c3adc6f09c63d20a9ad4c8f47590377fe3f4c7c1"
     ),
     "config/repo_production_inventory.csv": (
         "675f8d6abdd5bbcc7f911739ee1d3f9439353cfc6375b415070f4da4ce7dd533"
