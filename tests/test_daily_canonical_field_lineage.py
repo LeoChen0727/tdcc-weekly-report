@@ -25,6 +25,9 @@ RANKING_VALIDATOR_HISTORY_MIGRATION_ID = (
     "daily_published_ranking_validator_history_consumers_20260720"
 )
 SOURCE_IDENTITY_MIGRATION_ID = "volume_v2_candidate_projection_lineage_20260731"
+REPORT_SIGNAL_SCHEMA_CONSUMER_MIGRATION_ID = (
+    "daily_pipeline_report_signal_schema_consumer_20260808"
+)
 RANKING_VALIDATOR_EXCLUSION_MIGRATION_ID = (
     "daily_published_ranking_validator_current_hash_exclusions_20260720"
 )
@@ -1418,6 +1421,7 @@ def build_valid_repo(root: Path) -> None:
         RANKING_VALIDATOR_HISTORY_MIGRATION_ID,
         "theme_warrant_lineage_revision_contract_20260801",
         SOURCE_IDENTITY_MIGRATION_ID,
+        REPORT_SIGNAL_SCHEMA_CONSUMER_MIGRATION_ID,
     ]
     write_csv(
         root / lineage.MIGRATIONS_PATH,

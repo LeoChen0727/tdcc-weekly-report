@@ -281,6 +281,31 @@ def read_csv_payload(payload: bytes) -> pd.DataFrame:
     )
 
 
+def warrant_projection_parity_errors(
+    stock_id: str,
+    published: str,
+    candidate_signals: dict[str, set[str]],
+    official_signals: dict[str, set[str]],
+) -> list[str]:
+    errors: list[str] = []
+    expected_set = candidate_signals.get(stock_id, {""})
+    if len(expected_set) != 1 or published not in expected_set:
+        errors.append(
+            "stock_layer warrant projection differs from all_candidates: "
+            f"stock_id={stock_id} published={published!r} "
+            f"candidate={sorted(expected_set)}"
+        )
+    if stock_id in candidate_signals:
+        official_set = official_signals.get(stock_id, {""})
+        if len(official_set) != 1 or published not in official_set:
+            errors.append(
+                "stock_layer warrant projection differs from official warrant: "
+                f"stock_id={stock_id} published={published!r} "
+                f"official={sorted(official_set)}"
+            )
+    return errors
+
+
 def main() -> int:
     errors: list[str] = []
     warnings: list[str] = []
@@ -624,22 +649,14 @@ def main() -> int:
             for _, row in stocks.iterrows():
                 stock_id = str(row["stock_id"])
                 published = str(row["warrant_flow_signal"])
-                expected_set = candidate_signals.get(stock_id, {""})
-                if len(expected_set) != 1 or published not in expected_set:
-                    errors.append(
-                        "stock_layer warrant projection differs from all_candidates: "
-                        f"stock_id={stock_id} published={published!r} "
-                        f"candidate={sorted(expected_set)}"
+                errors.extend(
+                    warrant_projection_parity_errors(
+                        stock_id,
+                        published,
+                        candidate_signals,
+                        official_signals,
                     )
-                official_set = official_signals.get(stock_id, {""})
-                if (
-                    len(official_set) != 1 or published not in official_set
-                ):
-                    errors.append(
-                        "stock_layer warrant projection differs from official warrant: "
-                        f"stock_id={stock_id} published={published!r} "
-                        f"official={sorted(official_set)}"
-                    )
+                )
                 if len(official_dates) == 1:
                     expected_as_of = next(iter(official_dates))
                     actual_as_of = str(row.get("warrant_flow_as_of", "")).strip()

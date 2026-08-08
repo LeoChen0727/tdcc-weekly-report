@@ -5700,6 +5700,39 @@ def same_model_repeat_note_zh(row: pd.Series) -> str:
     return "欄位尚未完成 / 暫用現有資料"
 
 
+REPORT_SIGNAL_SNAPSHOT_SCORE_COLUMNS = (
+    "base_model_score",
+    "operation_score",
+    "tdcc_score",
+    "pattern_score",
+    "risk_penalty",
+    "final_rank_score",
+    "rank_reason_zh",
+)
+
+
+def ensure_report_signal_snapshot_score_schema(df: pd.DataFrame) -> pd.DataFrame:
+    """Keep the published report-signal schema stable on non-volume-v2 days."""
+    out = df.copy()
+    for column in REPORT_SIGNAL_SNAPSHOT_SCORE_COLUMNS:
+        if column not in out.columns:
+            out[column] = ""
+        else:
+            out[column] = out[column].fillna("")
+    return out
+
+
+def finalize_daily_candidate_snapshot_schemas(
+    signals: pd.DataFrame,
+    report_signals: pd.DataFrame,
+) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Apply the fixed published score schema only on the full daily build path."""
+    return (
+        ensure_report_signal_snapshot_score_schema(signals),
+        ensure_report_signal_snapshot_score_schema(report_signals),
+    )
+
+
 def build_report_ready_model_signals(signals: pd.DataFrame) -> pd.DataFrame:
     """Build a PDF-ready table: one row per report_line + model_id + stock_id."""
     if signals.empty:
@@ -7285,6 +7318,10 @@ def main() -> int:
     signals = attach_model_recommendations(signals, recommendations)
     signals = apply_display_columns(signals)
     report_signals = build_report_ready_model_signals(signals)
+    signals, report_signals = finalize_daily_candidate_snapshot_schemas(
+        signals,
+        report_signals,
+    )
     model_log = update_model_signal_log(report_signals)
     report_signals, same_model_repeat = attach_same_model_repeat(report_signals, model_log)
     report_signals = annotate_frontpage_uniqueness(report_signals)

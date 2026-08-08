@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import ast
 import hashlib
+import inspect
 import json
 import sys
 import tempfile
@@ -3697,6 +3698,52 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         self.assertEqual(set(rotation["theme_resolution_status"]), {"resolved"})
         self.assertTrue(rotation["theme_key"].str.contains("DR_or_foreign_listing").any())
         self.assertFalse(rotation["theme"].str.contains(r"^\\d+$|DR_or_foreign_listing|其他", regex=True).any())
+
+
+def test_report_signal_snapshot_score_schema_is_stable_without_volume_v2_rows() -> None:
+    signals = pd.DataFrame(
+        [
+            {
+                "signal_date": "20260805",
+                "report_bucket": "mainstream",
+                "model_id": "price_pullback_23ema",
+                "model_name_zh": "23EMA回檔",
+                "stock_id": "2330",
+                "stock_name": "台積電",
+                "model_score": "70",
+                "model_rank": "1",
+                "original_category": "pullback_rebound",
+                "source_row_index": "0",
+                "next_confirmation": "",
+                "score_components": "",
+                "risk_penalty_tags": "",
+            }
+        ]
+    )
+
+    raw, report = model_layer.finalize_daily_candidate_snapshot_schemas(
+        signals,
+        model_layer.build_report_ready_model_signals(signals),
+    )
+    assert set(model_layer.REPORT_SIGNAL_SNAPSHOT_SCORE_COLUMNS) <= set(raw.columns)
+    assert set(model_layer.REPORT_SIGNAL_SNAPSHOT_SCORE_COLUMNS) <= set(report.columns)
+    assert report.loc[0, list(model_layer.REPORT_SIGNAL_SNAPSHOT_SCORE_COLUMNS)].eq("").all()
+
+    empty_raw, empty_report = model_layer.finalize_daily_candidate_snapshot_schemas(
+        pd.DataFrame(),
+        model_layer.build_report_ready_model_signals(pd.DataFrame()),
+    )
+    assert set(model_layer.REPORT_SIGNAL_SNAPSHOT_SCORE_COLUMNS) <= set(
+        empty_raw.columns
+    )
+    assert set(model_layer.REPORT_SIGNAL_SNAPSHOT_SCORE_COLUMNS) <= set(
+        empty_report.columns
+    )
+
+    main_source = inspect.getsource(model_layer.main)
+    assert main_source.index("finalize_daily_candidate_snapshot_schemas") < (
+        main_source.index("update_model_signal_log")
+    )
 
 
 if __name__ == "__main__":
