@@ -1702,6 +1702,63 @@ def build_valid_repo(root: Path) -> None:
     )
 
 
+def refresh_current_theme_source_hashes(root: Path) -> None:
+    theme_path = root / lineage.THEME_ADVISORY_ARTIFACT
+    columns, rows = lineage._read_artifact(theme_path)
+    source_hashes = {
+        "volume_watch_source_sha256": lineage._canonical_text_sha256(
+            (root / lineage.VOLUME_WATCH_ARTIFACT).read_bytes()
+        ),
+        "warrant_flow_source_sha256": lineage._canonical_text_sha256(
+            (root / "output/latest/all_candidates_latest.csv").read_bytes()
+        ),
+        "warrant_flow_official_source_sha256": lineage._canonical_text_sha256(
+            (root / "output/latest/warrant_flow_latest.csv").read_bytes()
+        ),
+    }
+    for row in rows:
+        row.update(source_hashes)
+    write_csv(theme_path, columns, rows)
+
+
+def set_current_candidate_warrant_projection(
+    root: Path,
+    *,
+    candidate_signal: str,
+    official_signal: str,
+    theme_signal: str,
+) -> None:
+    for relative_path, signal in (
+        ("output/latest/all_candidates_latest.csv", candidate_signal),
+        ("output/latest/warrant_flow_latest.csv", official_signal),
+        (lineage.THEME_ADVISORY_ARTIFACT, theme_signal),
+    ):
+        path = root / relative_path
+        columns, rows = lineage._read_artifact(path)
+        rows[0]["warrant_flow_signal"] = signal
+        write_csv(path, columns, rows)
+
+    score = "82" if candidate_signal in lineage.BULLISH_WARRANT_SIGNALS else "80"
+    score_components = (
+        "base=80 | warrant bullish +2"
+        if candidate_signal in lineage.BULLISH_WARRANT_SIGNALS
+        else "base=80"
+    )
+    for relative_path in (
+        "output/latest/daily_candidate_model_signals_latest.csv",
+        "output/latest/daily_candidate_model_signals_for_report_latest.csv",
+    ):
+        path = root / relative_path
+        columns, rows = lineage._read_artifact(path)
+        rows[0]["warrant_flow_signal"] = candidate_signal
+        rows[0]["model_score"] = score
+        rows[0]["final_rank_score"] = score
+        rows[0]["score_components"] = score_components
+        write_csv(path, columns, rows)
+
+    refresh_current_theme_source_hashes(root)
+
+
 def test_valid_canonical_field_lineage_contract_passes(tmp_path: Path) -> None:
     build_valid_repo(tmp_path)
     assert lineage.validate(tmp_path) == []
@@ -2108,6 +2165,125 @@ def test_theme_same_revision_signal_mismatch_still_fails_closed(
 
     assert any(
         "theme advisory warrant projection differs from official warrant" in error
+        for error in errors
+    )
+
+
+def test_theme_allows_2059_global_only_official_no_signal_projection(
+    tmp_path: Path,
+) -> None:
+    build_valid_repo(tmp_path)
+
+    official_path = tmp_path / "output/latest/warrant_flow_latest.csv"
+    official_columns, official_rows = lineage._read_artifact(official_path)
+    official_rows.append(
+        {
+            "date": "20260717",
+            "stock_id": "2059",
+            "warrant_flow_signal": "no_signal",
+        }
+    )
+    write_csv(official_path, official_columns, official_rows)
+
+    watch_path = tmp_path / lineage.VOLUME_WATCH_ARTIFACT
+    watch_columns, watch_rows = lineage._read_artifact(watch_path)
+    watch_2059 = dict(watch_rows[0])
+    watch_2059.update(
+        {
+            "stock_id": "2059",
+            "advisory_volume_breakout_rank": "2",
+        }
+    )
+    watch_rows.append(watch_2059)
+    write_csv(watch_path, watch_columns, watch_rows)
+
+    theme_path = tmp_path / lineage.THEME_ADVISORY_ARTIFACT
+    theme_columns, theme_rows = lineage._read_artifact(theme_path)
+    theme_2059 = dict(theme_rows[0])
+    theme_2059.update(
+        {
+            "stock_id": "2059",
+            "volume_breakout_rank": "2",
+            "warrant_flow_signal": "",
+        }
+    )
+    theme_rows.append(theme_2059)
+    write_csv(theme_path, theme_columns, theme_rows)
+    refresh_current_theme_source_hashes(tmp_path)
+
+    assert lineage.validate(tmp_path) == []
+
+
+def test_theme_candidate_blank_exact_official_parity_passes(tmp_path: Path) -> None:
+    build_valid_repo(tmp_path)
+    set_current_candidate_warrant_projection(
+        tmp_path,
+        candidate_signal="",
+        official_signal="",
+        theme_signal="",
+    )
+
+    assert lineage._validate_current_projection(tmp_path) == []
+
+
+def test_theme_candidate_blank_official_no_signal_mismatch_fails_closed(
+    tmp_path: Path,
+) -> None:
+    build_valid_repo(tmp_path)
+    set_current_candidate_warrant_projection(
+        tmp_path,
+        candidate_signal="",
+        official_signal="no_signal",
+        theme_signal="",
+    )
+
+    errors = lineage._validate_current_projection(tmp_path)
+
+    assert any(
+        "theme advisory warrant projection differs from official warrant" in error
+        and "stock_id=1617" in error
+        and "official='no_signal' actual=''" in error
+        for error in errors
+    )
+
+
+def test_theme_pinned_official_duplicate_rows_fail_closed(tmp_path: Path) -> None:
+    build_valid_repo(tmp_path)
+    official_path = tmp_path / "output/latest/warrant_flow_latest.csv"
+    columns, rows = lineage._read_artifact(official_path)
+    rows.append(dict(rows[0]))
+    write_csv(official_path, columns, rows)
+    refresh_current_theme_source_hashes(tmp_path)
+
+    errors = lineage._validate_current_projection(tmp_path)
+
+    assert any(
+        "theme advisory pinned official warrant revision has duplicate stock_id rows: "
+        "stock_id=1617" in error
+        for error in errors
+    )
+
+
+def test_theme_conflicting_candidate_duplicate_rows_fail_closed(tmp_path: Path) -> None:
+    build_valid_repo(tmp_path)
+    candidate_path = tmp_path / "output/latest/all_candidates_latest.csv"
+    columns, rows = lineage._read_artifact(candidate_path)
+    conflicting = dict(rows[0])
+    conflicting.update(
+        {
+            "source_row_index": "2",
+            "warrant_flow_signal": "no_signal",
+        }
+    )
+    rows.append(conflicting)
+    write_csv(candidate_path, columns, rows)
+    refresh_current_theme_source_hashes(tmp_path)
+
+    errors = lineage._validate_current_projection(tmp_path)
+
+    assert any(
+        "current_theme has inconsistent warrant projection by stock" in error
+        and "stock_id=1617" in error
         for error in errors
     )
 

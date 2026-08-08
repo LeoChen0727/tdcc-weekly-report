@@ -3855,7 +3855,11 @@ def _validate_current_projection(
                 "theme advisory warrant projection differs from all_candidates: "
                 f"row={row_number} stock_id={stock_id} expected={expected!r} actual={actual!r}"
             )
-        if stock_id in official_index and actual != official_index[stock_id]:
+        if (
+            stock_id in candidate_index
+            and stock_id in official_index
+            and actual != official_index[stock_id]
+        ):
             errors.append(
                 "theme advisory warrant projection differs from official warrant: "
                 f"row={row_number} stock_id={stock_id} "
