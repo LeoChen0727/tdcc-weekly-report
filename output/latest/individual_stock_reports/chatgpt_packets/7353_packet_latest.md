@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7353 東捷統一56購01
 
 ## Metadata
-- generated_at: 2026-08-08 16:03:03 Asia/Taipei
+- generated_at: 2026-08-08 22:28:49 Asia/Taipei
 - stock_id: 7353
 - stock_name: 東捷統一56購01
 - packet_status: partial_rawdata_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7384 廣運永豐59購01
 
 ## Metadata
-- generated_at: 2026-08-08 16:03:04 Asia/Taipei
+- generated_at: 2026-08-08 22:28:50 Asia/Taipei
 - stock_id: 7384
 - stock_name: 廣運永豐59購01
 - packet_status: partial_rawdata_packet
