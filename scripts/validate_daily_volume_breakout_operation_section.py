@@ -5,6 +5,9 @@ from pathlib import Path
 
 import pandas as pd
 
+from build_daily_volume_breakout_operation_section import (
+    filter_volume_v2_operation_lineage_scope,
+)
 from daily_snapshot_revision_utils import latest_snapshot_revision_for_date
 from validate_daily_operation_adapter_protected_fields import validate_adapter_frame
 
@@ -21,6 +24,9 @@ EVIDENCE_AUDIT_MD = LATEST_DIR / "daily_volume_breakout_operation_evidence_audit
 TAXONOMY_CSV = LATEST_DIR / "stock_theme_taxonomy_latest.csv"
 DATA_FRESHNESS_CSV = LATEST_DIR / "data_freshness_latest.csv"
 DAILY_SIGNALS_CSV = LATEST_DIR / "daily_candidate_model_signals_for_report_latest.csv"
+VOLUME_V2_LINEAGE_AUDIT_CSV = (
+    LATEST_DIR / "volume_v2_warrant_lineage_history_audit_latest.csv"
+)
 APPROVED_FORMAL_SUMMARY_CSV = (
     ROOT
     / "config"
@@ -403,9 +409,25 @@ def validate_latest_signal_log_sync(section: pd.DataFrame) -> None:
             details.append("extra_in_signal_log=" + ", ".join(f"{date}/{bucket}/{stock}" for date, bucket, stock, _ in extra[:20]))
         fail("latest volume_range_breakout signals and daily model signal log are out of sync: " + " | ".join(details))
 
-    latest_stocks = {
+    latest_signal_stocks = {
         stock_id_text(value)
         for value in latest_volume["stock_id"].tolist()
+        if stock_id_text(value)
+    }
+    try:
+        operation_eligible_latest, _excluded_keys = (
+            filter_volume_v2_operation_lineage_scope(
+                latest_volume,
+                audit_path=VOLUME_V2_LINEAGE_AUDIT_CSV,
+                formal_signal_rows=latest,
+                source_root=ROOT,
+            )
+        )
+    except RuntimeError as exc:
+        fail(str(exc))
+    operation_eligible_stocks = {
+        stock_id_text(value)
+        for value in operation_eligible_latest["stock_id"].tolist()
         if stock_id_text(value)
     }
     data_stocks = {
@@ -413,7 +435,7 @@ def validate_latest_signal_log_sync(section: pd.DataFrame) -> None:
         for value in section.loc[section["row_type"].astype(str).eq("data"), "stock_id"].tolist()
         if stock_id_text(value)
     }
-    missing_stocks = sorted(latest_stocks - data_stocks)
+    missing_stocks = sorted(operation_eligible_stocks - data_stocks)
     if missing_stocks:
         fail(f"latest volume_range_breakout stocks missing from operation section: {missing_stocks}")
 
@@ -422,10 +444,10 @@ def validate_latest_signal_log_sync(section: pd.DataFrame) -> None:
         for value in section["daily_volume_model_signal_count"].tolist()
         if str(value).strip()
     }
-    if observed_counts != {str(len(latest_stocks))}:
+    if observed_counts != {str(len(latest_signal_stocks))}:
         fail(
             "daily_volume_model_signal_count must match latest volume_range_breakout stock count: "
-            f"observed={sorted(observed_counts)} expected={len(latest_stocks)}"
+            f"observed={sorted(observed_counts)} expected={len(latest_signal_stocks)}"
         )
 
 
