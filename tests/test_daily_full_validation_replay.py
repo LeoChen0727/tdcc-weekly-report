@@ -1063,10 +1063,44 @@ def test_cross_revision_workflow_requires_explicit_checkpoint_identity() -> None
         / ".github/workflows/daily_full_validation_replay_20260807.yml"
     ).read_text(encoding="utf-8")
     assert "checkpoint_source_sha:" in workflow
+    assert (
+        'default: "4d715065f38389752aaeaa0c511280c47ccedc08"'
+        in workflow
+    )
+    assert (
+        "CHECKPOINT_SOURCE_SHA: ${{ inputs.checkpoint_source_sha }}"
+        in workflow
+    )
     assert '--checkpoint-source-sha "$CHECKPOINT_SOURCE_SHA"' in workflow
     assert '--checkpoint-artifact-id "$CHECKPOINT_ARTIFACT_ID"' in workflow
     assert '--checkpoint-artifact-digest "$CHECKPOINT_ARTIFACT_DIGEST"' in workflow
     assert "checkpoint replay source transition mismatch" in workflow
+
+
+@pytest.mark.parametrize(
+    "invalid_default",
+    ["", "0" * 40],
+)
+def test_replay_workflow_rejects_omitted_or_wrong_checkpoint_source_default(
+    invalid_default: str,
+) -> None:
+    workflow = (
+        Path(__file__).resolve().parents[1]
+        / ".github/workflows/daily_full_validation_replay_20260807.yml"
+    ).read_text(encoding="utf-8")
+    expected = replay_validator.AUTHORIZED_CHECKPOINT_SOURCE_SHA
+    mutated = workflow.replace(
+        f'default: "{expected}"',
+        f'default: "{invalid_default}"',
+        1,
+    )
+    assert mutated != workflow
+    errors: list[str] = []
+    replay_validator.validate_replay_workflow(mutated, errors)
+    assert errors == [
+        "validation replay checkpoint_source_sha must default to "
+        "the exact immutable checkpoint source SHA"
+    ]
 
 
 def _freshness_csv_bytes(date: str, *, ready: bool) -> bytes:

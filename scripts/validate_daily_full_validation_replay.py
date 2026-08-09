@@ -25,6 +25,9 @@ PRODUCTION_INVENTORY = (
 LIFECYCLE_INVENTORY = (
     ROOT / "config/repo_file_lifecycle_inventory.csv"
 )
+AUTHORIZED_CHECKPOINT_SOURCE_SHA = (
+    "4d715065f38389752aaeaa0c511280c47ccedc08"
+)
 
 
 def read(path: Path) -> str:
@@ -103,6 +106,8 @@ def validate_replay_workflow(
             "checkpoint_source_sha:",
             "checkpoint_artifact_id:",
             "checkpoint_artifact_digest:",
+            "CHECKPOINT_SOURCE_SHA: ${{ inputs.checkpoint_source_sha }}",
+            '--checkpoint-source-sha "$CHECKPOINT_SOURCE_SHA"',
             'REPLAY_DATE: "20260807"',
             "contents: read",
             "actions: read",
@@ -137,6 +142,30 @@ def validate_replay_workflow(
         "validation replay workflow",
         errors,
     )
+    checkpoint_source_input = re.search(
+        r"(?ms)^      checkpoint_source_sha:\s*\n"
+        r"(?P<body>(?:        [^\n]*\n)+)",
+        text,
+    )
+    if checkpoint_source_input is None:
+        errors.append(
+            "validation replay workflow lacks checkpoint_source_sha input"
+        )
+    else:
+        source_input_body = checkpoint_source_input.group("body")
+        expected_default = (
+            f'default: "{AUTHORIZED_CHECKPOINT_SOURCE_SHA}"'
+        )
+        if expected_default not in source_input_body:
+            errors.append(
+                "validation replay checkpoint_source_sha must default to "
+                "the exact immutable checkpoint source SHA"
+            )
+        if "required: false" not in source_input_body:
+            errors.append(
+                "validation replay checkpoint_source_sha must remain optional "
+                "for capture_canary mode"
+            )
     forbidden = (
         re.compile(r"(?m)^  (push|pull_request|schedule):"),
         re.compile(r"PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY"),

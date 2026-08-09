@@ -19,7 +19,7 @@ on:
       checkpoint_source_sha:
         description: "Exact immutable capture_canary source SHA; required only for replay"
         required: false
-        default: ""
+        default: "4d715065f38389752aaeaa0c511280c47ccedc08"
         type: string
       checkpoint_artifact_id:
         description: "Exact capture_canary artifact id; required only for replay"
