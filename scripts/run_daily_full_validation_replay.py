@@ -66,6 +66,16 @@ AUTHORIZED_FORMAL_LINEAGE_FIX_PATHS = (
     "scripts/build_daily_volume_breakout_operation_section.py",
     "tests/test_daily_volume_breakout_operation_section.py",
 )
+AUTHORIZED_OPERATION_COMPLETENESS_FIX_COMMIT = (
+    "954db8310d2bd5f0ab7d43655afaa45d09f7c5e3"
+)
+AUTHORIZED_OPERATION_COMPLETENESS_FIX_PATHS = (
+    "scripts/validate_daily_volume_breakout_operation_section.py",
+    "tests/test_daily_volume_breakout_operation_section.py",
+)
+AUTHORIZED_FORMAL_OPERATION_SHARED_PATH = (
+    "tests/test_daily_volume_breakout_operation_section.py"
+)
 PIPELINE_WORKFLOW = Path(".github/workflows/daily_full_pipeline.yml")
 HISTORICAL_REPLAY_SCRIPT = Path(
     "scripts/replay_historical_structured_sources.py"
@@ -2085,6 +2095,10 @@ def require_authorized_checkpoint_revision_transition(
         (AUTHORIZED_PRODUCER_FIX_COMMIT, "producer fix"),
         (AUTHORIZED_VALIDATOR_FIX_COMMIT, "validator fix"),
         (AUTHORIZED_FORMAL_LINEAGE_FIX_COMMIT, "formal lineage fix"),
+        (
+            AUTHORIZED_OPERATION_COMPLETENESS_FIX_COMMIT,
+            "operation completeness fix",
+        ),
     ):
         result = subprocess.run(
             ["git", "merge-base", "--is-ancestor", ancestor, replay_source_sha],
@@ -2125,6 +2139,22 @@ def require_authorized_checkpoint_revision_transition(
         raise ValidationReplayError(
             "authorized formal lineage fix does not descend from the validator fix"
         )
+    operation_transition_order = subprocess.run(
+        [
+            "git",
+            "merge-base",
+            "--is-ancestor",
+            AUTHORIZED_FORMAL_LINEAGE_FIX_COMMIT,
+            AUTHORIZED_OPERATION_COMPLETENESS_FIX_COMMIT,
+        ],
+        cwd=repo_root,
+        check=False,
+    )
+    if operation_transition_order.returncode != 0:
+        raise ValidationReplayError(
+            "authorized operation completeness fix does not descend from "
+            "the formal lineage fix"
+        )
     validator_paths = set(AUTHORIZED_VALIDATOR_FIX_PATHS)
     producer_paths = set(AUTHORIZED_PRODUCER_FIX_PATHS)
     if not validator_paths or not validator_paths <= producer_paths:
@@ -2136,6 +2166,23 @@ def require_authorized_checkpoint_revision_transition(
         for path in AUTHORIZED_PRODUCER_FIX_PATHS
         if path not in validator_paths
     )
+    formal_paths = set(AUTHORIZED_FORMAL_LINEAGE_FIX_PATHS)
+    operation_paths = set(AUTHORIZED_OPERATION_COMPLETENESS_FIX_PATHS)
+    if formal_paths & operation_paths != {
+        AUTHORIZED_FORMAL_OPERATION_SHARED_PATH
+    }:
+        raise ValidationReplayError(
+            "authorized formal/operation fix path overlap is not exact"
+        )
+    stable_formal_paths = tuple(
+        path
+        for path in AUTHORIZED_FORMAL_LINEAGE_FIX_PATHS
+        if path not in operation_paths
+    )
+    if not stable_formal_paths or not operation_paths:
+        raise ValidationReplayError(
+            "authorized formal/operation fix path contract is empty"
+        )
     for base_sha, label, paths in (
         (
             AUTHORIZED_PRODUCER_FIX_COMMIT,
@@ -2150,7 +2197,12 @@ def require_authorized_checkpoint_revision_transition(
         (
             AUTHORIZED_FORMAL_LINEAGE_FIX_COMMIT,
             "formal lineage fix",
-            AUTHORIZED_FORMAL_LINEAGE_FIX_PATHS,
+            stable_formal_paths,
+        ),
+        (
+            AUTHORIZED_OPERATION_COMPLETENESS_FIX_COMMIT,
+            "operation completeness fix",
+            AUTHORIZED_OPERATION_COMPLETENESS_FIX_PATHS,
         ),
     ):
         drift = subprocess.run(
@@ -2187,6 +2239,15 @@ def require_authorized_checkpoint_revision_transition(
         "formal_lineage_fix_commit": AUTHORIZED_FORMAL_LINEAGE_FIX_COMMIT,
         "formal_lineage_fix_paths": list(
             AUTHORIZED_FORMAL_LINEAGE_FIX_PATHS
+        ),
+        "operation_completeness_fix_commit": (
+            AUTHORIZED_OPERATION_COMPLETENESS_FIX_COMMIT
+        ),
+        "operation_completeness_fix_paths": list(
+            AUTHORIZED_OPERATION_COMPLETENESS_FIX_PATHS
+        ),
+        "formal_operation_shared_path": (
+            AUTHORIZED_FORMAL_OPERATION_SHARED_PATH
         ),
     }
 
