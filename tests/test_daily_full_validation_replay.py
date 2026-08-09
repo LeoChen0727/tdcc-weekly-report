@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import io
 import json
 import os
 import stat
@@ -1651,6 +1652,44 @@ def test_validation_workflow_has_exact_two_mode_canary_replay_contract() -> None
     assert "if-no-files-found: error" in post_upload_block
     assert "contents: write" not in workflow
     assert "PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY" not in workflow
+
+
+@pytest.mark.parametrize("stream_name", ["stdout", "stderr"])
+def test_renderer_output_is_utf8_safe_under_windows_cp1252(
+    stream_name: str,
+) -> None:
+    raw = io.BytesIO()
+    stream = io.TextIOWrapper(raw, encoding="cp1252", newline="")
+    try:
+        replay_runner.emit_utf8_safe_text(
+            f"{stream_name}: 已產生六份隔離測試 PDF",
+            stream=stream,
+        )
+        stream.flush()
+        assert raw.getvalue().decode("utf-8") == (
+            f"{stream_name}: 已產生六份隔離測試 PDF\n"
+        )
+    finally:
+        stream.detach()
+
+
+def test_replay_validator_rejects_locale_bound_renderer_output() -> None:
+    runner = (
+        Path(__file__).resolve().parents[1]
+        / "scripts/run_daily_full_validation_replay.py"
+    ).read_text(encoding="utf-8")
+    mutated = runner.replace(
+        "emit_utf8_safe_text(rendered_stdout, stream=sys.stdout)",
+        "print(rendered_stdout.rstrip())",
+        1,
+    )
+    assert mutated != runner
+    errors: list[str] = []
+    replay_validator.validate_runner(mutated, errors)
+    assert (
+        "validation replay renderer output must not use locale-bound print"
+        in errors
+    )
 
 
 def test_workflow_step_parser_uses_original_step41_through_catalyst_gate() -> None:

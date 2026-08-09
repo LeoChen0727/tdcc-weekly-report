@@ -303,6 +303,9 @@ def validate_runner(text: str, errors: list[str]) -> None:
             "capture-production-checkpoint",
             "capture-canary",
             "render-pdfs",
+            "emit_utf8_safe_text",
+            'binary_stream.write(payload.encode("utf-8"))',
+            "emit_utf8_safe_text(rendered_stdout, stream=sys.stdout)",
             "restore_checkpoint",
             "run_registered_parity_validators",
             "scripts/validate_daily_candidate_model_layer.py",
@@ -325,6 +328,10 @@ def validate_runner(text: str, errors: list[str]) -> None:
         "validation replay runner",
         errors,
     )
+    if "print(rendered_stdout.rstrip())" in text:
+        errors.append(
+            "validation replay renderer output must not use locale-bound print"
+        )
     if "git commit" in text or "git push" in text:
         errors.append(
             "validation replay runner must not contain commit/push commands"
