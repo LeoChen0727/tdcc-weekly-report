@@ -1,8 +1,10 @@
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 import os
+import stat
 import subprocess
 from pathlib import Path
 
@@ -309,6 +311,228 @@ def test_cross_revision_manifest_preserves_checkpoint_and_replay_sources(
             expected_kind="post_validation",
             expected_capture_context="validation_replay",
         )
+
+
+def _source_revision_identity_fixture(
+    tmp_path: Path,
+) -> tuple[Path, Path, dict[str, object], str, Path]:
+    repo = tmp_path / "identity-repo"
+    bundle = tmp_path / "identity-bundle"
+    repo.mkdir()
+    bundle.mkdir()
+    source_sha = "4" * 40
+    structured_relative = (
+        "output/history/historical_source_replay/test-authoritative-r1/"
+        f"{REPLAY_DATE}/structured_source_manifest.json"
+    )
+    structured_path = repo / structured_relative
+    structured_path.parent.mkdir(parents=True)
+    structured_path.write_bytes(
+        replay_runner.canonical_json_bytes(
+            {
+                "schema_version": 1,
+                "report_date": REPLAY_DATE,
+                "pipeline_commit_sha": source_sha,
+            }
+        )
+    )
+    structured_sha = hashlib.sha256(structured_path.read_bytes()).hexdigest()
+    source_artifact_relative = "data/source.csv"
+    source_artifact = repo / source_artifact_relative
+    source_artifact.parent.mkdir(parents=True)
+    source_artifact.write_text(
+        f"date,value\n{REPLAY_DATE},official\n", encoding="utf-8"
+    )
+    source_artifact_sha = hashlib.sha256(
+        source_artifact.read_bytes()
+    ).hexdigest()
+    source_payload = {
+        "schema_version": 1,
+        "replay_date": REPLAY_DATE,
+        "revision_kind": "authoritative_historical_revision",
+        "source_sha": source_sha,
+        "sources": [
+            {
+                "artifact_path": source_artifact_relative,
+                "bytes": source_artifact.stat().st_size,
+                "category": "official_test_source",
+                "identity": f"official_test_source:{source_artifact_sha}",
+                "sha256": source_artifact_sha,
+                "source_url": "https://official.example.invalid/source",
+            }
+        ],
+        "structured_source_manifest": {
+            "bytes": structured_path.stat().st_size,
+            "path": structured_relative,
+            "sha256": structured_sha,
+        },
+    }
+    source_path = bundle / replay_runner.SOURCE_REVISION_FILENAME
+    source_path.write_bytes(replay_runner.canonical_json_bytes(source_payload))
+    source_sha256 = hashlib.sha256(source_path.read_bytes()).hexdigest()
+    checkpoint_manifest: dict[str, object] = {
+        "source_revision_manifest": {
+            "bytes": source_path.stat().st_size,
+            "path": replay_runner.SOURCE_REVISION_FILENAME,
+            "sha256": source_sha256,
+        },
+        "files": [
+            {
+                "bytes": structured_path.stat().st_size,
+                "path": structured_relative,
+                "sha256": structured_sha,
+            }
+        ],
+    }
+    return repo, bundle, checkpoint_manifest, source_sha, source_path
+
+
+def test_checkpoint_source_revision_identity_uses_exact_canonical_object(
+    tmp_path: Path,
+) -> None:
+    repo, bundle, manifest, source_sha, source_path = (
+        _source_revision_identity_fixture(tmp_path)
+    )
+    structured_path = repo / manifest["files"][0]["path"]
+    observed = replay_runner.require_checkpoint_source_revision_manifest_identity(
+        bundle_dir=bundle,
+        repo_root=repo,
+        checkpoint_manifest=manifest,
+        checkpoint_source_sha=source_sha,
+        structured_source_manifest=structured_path,
+    )
+    assert observed == source_path
+    assert source_path.read_bytes() == replay_runner.canonical_json_bytes(
+        json.loads(source_path.read_text(encoding="utf-8"))
+    )
+
+
+@pytest.mark.parametrize(
+    "mutation,match",
+    [
+        ("wrong_object", "path/object mismatch"),
+        ("wrong_path", "path/object mismatch"),
+        ("wrong_date", "date mismatch"),
+        ("wrong_source_sha", "source SHA mismatch"),
+        ("wrong_mode", "mode mismatch"),
+        ("wrong_content", "raw bytes/SHA mismatch"),
+        ("noncanonical", "raw/canonical SHA mismatch"),
+    ],
+)
+def test_checkpoint_source_revision_identity_rejects_drift(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    mutation: str,
+    match: str,
+) -> None:
+    repo, bundle, manifest, source_sha, source_path = (
+        _source_revision_identity_fixture(tmp_path)
+    )
+    metadata = manifest["source_revision_manifest"]
+    assert isinstance(metadata, dict)
+    structured_path = repo / manifest["files"][0]["path"]
+    if mutation == "wrong_object":
+        other = bundle / "structured_source_manifest.json"
+        other.write_bytes(source_path.read_bytes())
+        metadata["path"] = other.name
+    elif mutation == "wrong_path":
+        metadata["path"] = "nested/source_revision_manifest.json"
+    elif mutation == "wrong_date":
+        payload = json.loads(source_path.read_text(encoding="utf-8"))
+        payload["replay_date"] = "20260806"
+        source_path.write_bytes(replay_runner.canonical_json_bytes(payload))
+        metadata["bytes"] = source_path.stat().st_size
+        metadata["sha256"] = hashlib.sha256(source_path.read_bytes()).hexdigest()
+    elif mutation == "wrong_source_sha":
+        payload = json.loads(source_path.read_text(encoding="utf-8"))
+        payload["source_sha"] = "f" * 40
+        source_path.write_bytes(replay_runner.canonical_json_bytes(payload))
+        metadata["bytes"] = source_path.stat().st_size
+        metadata["sha256"] = hashlib.sha256(source_path.read_bytes()).hexdigest()
+    elif mutation == "wrong_mode":
+        real_mode = replay_runner.checkpoint_manifest_file_mode
+        monkeypatch.setattr(
+            replay_runner,
+            "checkpoint_manifest_file_mode",
+            lambda path: (
+                stat.S_IFREG | 0o755
+                if path == source_path
+                else real_mode(path)
+            ),
+        )
+    elif mutation == "wrong_content":
+        source_path.write_bytes(source_path.read_bytes() + b"drift")
+    elif mutation == "noncanonical":
+        payload = json.loads(source_path.read_text(encoding="utf-8"))
+        source_path.write_text(
+            json.dumps(payload, indent=2), encoding="utf-8", newline="\n"
+        )
+        metadata["bytes"] = source_path.stat().st_size
+        metadata["sha256"] = hashlib.sha256(source_path.read_bytes()).hexdigest()
+    with pytest.raises(replay_runner.ValidationReplayError, match=match):
+        replay_runner.require_checkpoint_source_revision_manifest_identity(
+            bundle_dir=bundle,
+            repo_root=repo,
+            checkpoint_manifest=manifest,
+            checkpoint_source_sha=source_sha,
+            structured_source_manifest=structured_path,
+        )
+
+
+def test_replay_checkpoint_capture_uses_revision_and_structured_identities(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    repo, _bundle, _manifest, checkpoint_sha, source_path = (
+        _source_revision_identity_fixture(tmp_path)
+    )
+    structured_path = next(
+        repo.glob(
+            "output/history/historical_source_replay/*/"
+            f"{REPLAY_DATE}/structured_source_manifest.json"
+        )
+    )
+    replay_sha = "5" * 40
+    replay_manifest = replay_runner.write_replay_source_revision_manifest(
+        source_manifest_path=source_path,
+        output_path=tmp_path / "replay-source.json",
+        transition={
+            "checkpoint_source_sha": checkpoint_sha,
+            "replay_source_sha": replay_sha,
+        },
+    )
+    observed: dict[str, object] = {}
+    monkeypatch.setattr(
+        replay_runner,
+        "checkpoint_paths",
+        lambda _repo, required: sorted(set(required)),
+    )
+
+    def fake_create_checkpoint(**kwargs: object) -> dict[str, object]:
+        observed.update(kwargs)
+        return {"files": []}
+
+    monkeypatch.setattr(
+        replay_runner.checkpoint,
+        "create_checkpoint",
+        fake_create_checkpoint,
+    )
+    replay_runner.capture_checkpoint(
+        repo_root=repo,
+        bundle_dir=tmp_path / "post-bundle",
+        runner_temp=tmp_path / "runner-temp",
+        source_sha=replay_sha,
+        run_id="31291570842",
+        structured_manifest_path=structured_path,
+        revision_kind="authoritative_historical_revision",
+        checkpoint_kind="post_validation",
+        capture_context="validation_replay",
+        producer_steps=["Validate catalyst layer"],
+        source_revision_manifest_path=replay_manifest,
+    )
+    assert observed["source_identity_manifest"] == replay_manifest
+    assert "data/source.csv" in observed["paths"]
+    assert structured_path.relative_to(repo).as_posix() in observed["paths"]
 
 
 def test_authorized_revision_transition_pins_identity_and_producer_bytes(
@@ -988,18 +1212,137 @@ def test_replay_failure_checkpoint_is_created_before_error_is_rethrown(
         bundle_dir=bundle,
         source_sha="1" * 40,
         run_id="31290000000",
-        replay_source_manifest=tmp_path / "source.json",
+        checkpoint_source_sha="2" * 40,
+        structured_source_manifest=tmp_path / "structured.json",
+        replay_source_manifest=None,
+        failure_phase="verify checkpoint source revision manifest",
         steps=[{"step": "Guard", "status": "failure"}],
         error=replay_runner.ValidationReplayError("guard failed"),
     )
-    assert observed["checkpoint_kind"] == "post_step_failure"
-    assert observed["capture_context"] == "validation_replay_failure"
+    assert observed["checkpoint_kind"] == "post_validation"
+    assert observed["capture_context"] == "validation_replay"
     assert bundle.is_dir()
     payload = json.loads(
         (repo / replay_runner.STEP_RESULTS_PATH).read_text(encoding="utf-8")
     )
     assert payload["mode"] == "replay_failure"
     assert payload["error"] == "guard failed"
+    assert payload["checkpoint_source_sha"] == "2" * 40
+    assert payload["failure_phase"] == (
+        "verify checkpoint source revision manifest"
+    )
+    assert observed["structured_manifest_path"] == (
+        tmp_path / "structured.json"
+    )
+    assert observed["source_revision_manifest_path"] is None
+
+
+def test_replay_source_manifest_failure_is_captured_before_rethrow(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    repo = tmp_path / "repo"
+    repo.mkdir()
+    bundle = tmp_path / "bundle"
+    bundle.mkdir()
+    post_bundle = tmp_path / "post-bundle"
+    source_sha = "3" * 40
+    checkpoint_source_sha = "4" * 40
+    observed: dict[str, object] = {}
+    monkeypatch.setattr(replay_runner, "require_main_source", lambda *_: None)
+    monkeypatch.setattr(
+        replay_runner,
+        "require_authorized_checkpoint_revision_transition",
+        lambda **_: {
+            "mode": "authorized_code_revision_transition",
+            "checkpoint_source_sha": checkpoint_source_sha,
+            "replay_source_sha": source_sha,
+        },
+    )
+    monkeypatch.setattr(
+        replay_runner,
+        "require_authorized_checkpoint_bundle_identity",
+        lambda *_: None,
+    )
+    monkeypatch.setattr(
+        replay_runner.checkpoint,
+        "restore_checkpoint",
+        lambda **_: {"source_revision_manifest": {}, "files": []},
+    )
+    monkeypatch.setattr(
+        replay_runner,
+        "require_checkpoint_structured_source_manifest_identity",
+        lambda **_: repo / "structured.json",
+    )
+    monkeypatch.setattr(
+        replay_runner,
+        "require_checkpoint_source_revision_manifest_identity",
+        lambda **_: (_ for _ in ()).throw(
+            replay_runner.ValidationReplayError("early identity failure")
+        ),
+    )
+
+    def fake_capture(**kwargs: object) -> dict[str, object]:
+        observed.update(kwargs)
+        post_bundle.mkdir()
+        (post_bundle / "failure.json").write_text(
+            "{}\n", encoding="utf-8"
+        )
+        return {"files": []}
+
+    monkeypatch.setattr(
+        replay_runner, "capture_replay_failure_checkpoint", fake_capture
+    )
+    args = argparse.Namespace(
+        repo_root=repo,
+        runner_temp=tmp_path / "runner-temp",
+        source_sha=source_sha,
+        checkpoint_source_sha=checkpoint_source_sha,
+        replay_date=REPLAY_DATE,
+        checkpoint_run_id="31268964962",
+        checkpoint_artifact_id="9025240156",
+        checkpoint_artifact_digest=(
+            replay_runner.AUTHORIZED_CHECKPOINT_ARTIFACT_DIGEST
+        ),
+        bundle_dir=bundle,
+        post_bundle_dir=post_bundle,
+        run_id="31291570842",
+    )
+    with pytest.raises(
+        replay_runner.ValidationReplayError, match="early identity failure"
+    ):
+        replay_runner.replay_from_checkpoint(args)
+    assert observed["replay_source_manifest"] is None
+    assert observed["failure_phase"] == (
+        "verify checkpoint source revision manifest"
+    )
+    assert post_bundle.is_dir()
+
+
+def test_minimal_replay_failure_receipt_preserves_original_error(
+    tmp_path: Path,
+) -> None:
+    bundle = tmp_path / "failure-bundle"
+    path = replay_runner.write_minimal_replay_failure_upload_receipt(
+        bundle_dir=bundle,
+        source_sha="3" * 40,
+        checkpoint_source_sha="4" * 40,
+        run_id="31291570842",
+        failure_phase="verify checkpoint source revision manifest",
+        error=replay_runner.ValidationReplayError("identity mismatch"),
+        capture_error=replay_runner.ValidationReplayError(
+            "full checkpoint unavailable"
+        ),
+    )
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    sidecar = bundle / "replay_failure_evidence.json.sha256"
+    assert payload["error"] == "identity mismatch"
+    assert payload["full_checkpoint_capture_error"] == (
+        "full checkpoint unavailable"
+    )
+    assert sidecar.read_text(encoding="ascii").strip() == hashlib.sha256(
+        path.read_bytes()
+    ).hexdigest()
 
 
 @pytest.mark.parametrize(
@@ -1395,7 +1738,7 @@ def test_registered_parity_validators_run_in_fail_closed_order(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     _write_registered_parity_evidence(tmp_path)
-    calls: list[str] = []
+    calls: list[list[str]] = []
 
     def fake_run_command(
         command: list[str],
@@ -1407,7 +1750,7 @@ def test_registered_parity_validators_run_in_fail_closed_order(
         assert cwd == tmp_path
         assert env == {"VALIDATION_ONLY": "true"}
         assert label.startswith("registered replay parity validator:")
-        calls.append(command[-1])
+        calls.append(command[2:])
 
     monkeypatch.setattr(replay_runner, "run_command", fake_run_command)
     evidence = replay_runner.run_registered_parity_validators(
@@ -1415,11 +1758,17 @@ def test_registered_parity_validators_run_in_fail_closed_order(
         {"VALIDATION_ONLY": "true"},
     )
     expected = [
-        path.as_posix()
+        [
+            path.as_posix(),
+            *replay_runner.REGISTERED_PARITY_VALIDATOR_ARGUMENTS[path],
+        ]
         for path in replay_runner.REGISTERED_PARITY_VALIDATOR_PATHS
     ]
     assert calls == expected
-    assert [row["path"] for row in evidence["validators"]] == expected
+    assert [row["path"] for row in evidence["validators"]] == [
+        path.as_posix()
+        for path in replay_runner.REGISTERED_PARITY_VALIDATOR_PATHS
+    ]
     assert evidence["validation_mode"] == (
         "registered_fail_closed_validators"
     )
@@ -1446,8 +1795,8 @@ def test_registered_parity_validator_nonzero_fails_closed(
         env: dict[str, str],
         label: str,
     ) -> None:
-        calls.append(command[-1])
-        if command[-1] == expected[1]:
+        calls.append(command[2])
+        if command[2] == expected[1]:
             raise replay_runner.ValidationReplayError(
                 "registered validator exited nonzero"
             )
@@ -1523,6 +1872,97 @@ def test_source_state_hash_drift_fails_closed(tmp_path: Path) -> None:
         replay_runner.verify_local_source_state(
             tmp_path, source_sha
         )
+
+
+def test_checkpoint_deletion_manifest_roundtrip_is_exact_and_fail_closed(
+    tmp_path: Path,
+) -> None:
+    repo = tmp_path / "repo"
+    repo.mkdir()
+    _git(repo, "init", "-q")
+    _git(repo, "config", "user.email", "replay@example.invalid")
+    _git(repo, "config", "user.name", "Replay Test")
+    _git(repo, "config", "core.autocrlf", "false")
+    relative = "docs/latest/1216_統一_stale_daily_readme.txt"
+    baseline = b"stale tracked source\n"
+    target = repo / relative
+    target.parent.mkdir(parents=True)
+    (repo / ".gitattributes").write_text(
+        "docs/latest/*.txt text eol=lf\n", encoding="ascii"
+    )
+    target.write_bytes(baseline)
+    _git(repo, "add", ".gitattributes", relative)
+    _git(repo, "commit", "-qm", "baseline")
+    source_sha = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=repo,
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.strip()
+    target.unlink()
+
+    manifest_path = replay_runner.write_checkpoint_deletion_manifest(
+        repo, source_sha, [relative]
+    )
+    manifest_raw = manifest_path.read_bytes()
+    manifest = json.loads(manifest_raw.decode("utf-8"))
+    assert manifest_raw == replay_runner.canonical_json_bytes(manifest)
+    assert manifest["replay_date"] == "20260807"
+    assert manifest["source_sha"] == source_sha
+    assert manifest["deletions"][0]["path"] == relative
+    assert manifest["deletions"][0]["mode"] == "100644"
+    assert manifest["deletions"][0]["bytes"] == len(baseline)
+    assert manifest["deletions"][0]["sha256"] == hashlib.sha256(
+        baseline
+    ).hexdigest()
+
+    target.write_bytes(baseline)
+    assert replay_runner.apply_checkpoint_deletions(repo, source_sha) == [
+        relative
+    ]
+    assert not target.exists()
+
+    target.write_bytes(baseline.replace(b"\n", b"\r\n"))
+    assert replay_runner.apply_checkpoint_deletions(repo, source_sha) == [
+        relative
+    ]
+    assert not target.exists()
+
+    target.write_bytes(b"wrong current bytes\n")
+    with pytest.raises(
+        replay_runner.ValidationReplayError,
+        match="baseline content drift",
+    ):
+        replay_runner.apply_checkpoint_deletions(repo, source_sha)
+    target.write_bytes(baseline)
+
+    changed = dict(manifest)
+    changed["replay_date"] = "20260808"
+    manifest_path.write_bytes(replay_runner.canonical_json_bytes(changed))
+    with pytest.raises(
+        replay_runner.ValidationReplayError,
+        match="manifest identity mismatch",
+    ):
+        replay_runner.apply_checkpoint_deletions(repo, source_sha)
+
+    changed = json.loads(json.dumps(manifest))
+    changed["deletions"][0]["mode"] = "100755"
+    manifest_path.write_bytes(replay_runner.canonical_json_bytes(changed))
+    with pytest.raises(
+        replay_runner.ValidationReplayError,
+        match="source identity drift",
+    ):
+        replay_runner.apply_checkpoint_deletions(repo, source_sha)
+
+    changed = json.loads(json.dumps(manifest))
+    changed["deletions"][0]["path"] = "docs/latest/other.txt"
+    manifest_path.write_bytes(replay_runner.canonical_json_bytes(changed))
+    with pytest.raises(
+        replay_runner.ValidationReplayError,
+        match="source object is missing",
+    ):
+        replay_runner.apply_checkpoint_deletions(repo, source_sha)
 
 
 def test_static_validation_replay_contract_passes_current_repo() -> None:
@@ -2093,3 +2533,296 @@ def test_price_history_extension_manifest_fails_closed_on_source_or_hash_drift(
             tmp_path / "real-index",
             "c" * 64,
         )
+
+
+def _validation_readme_fixture(
+    tmp_path: Path,
+) -> tuple[Path, str, str, dict[str, str]]:
+    repo = tmp_path / "validation-readme-repo"
+    freshness = repo / replay_runner.FRESHNESS_PATH
+    freshness.parent.mkdir(parents=True)
+    columns = [
+        "expected_main_price_date",
+        "main_price_date",
+        "stock_monitor_price_date",
+        "all_candidates_date",
+        "official_price_fetch_date",
+        "warrant_flow_date",
+        "report_ready",
+        "warrant_ready",
+        "daily_pdf_ready",
+        "warrant_source_status",
+        "warrant_pdf_visibility",
+    ]
+    values = [
+        REPLAY_DATE,
+        REPLAY_DATE,
+        REPLAY_DATE,
+        REPLAY_DATE,
+        REPLAY_DATE,
+        REPLAY_DATE,
+        "True",
+        "True",
+        "True",
+        "ok",
+        "visible",
+    ]
+    freshness.write_text(
+        ",".join(columns) + "\n" + ",".join(values) + "\n",
+        encoding="utf-8",
+        newline="\n",
+    )
+    market = repo / replay_runner.MARKET_SESSION_PATH
+    market.parent.mkdir(parents=True, exist_ok=True)
+    market.write_text(
+        json.dumps(
+            {
+                "market_status": "open_confirmed",
+                "market_session_date": REPLAY_DATE,
+                "expected_main_price_date": REPLAY_DATE,
+            }
+        ),
+        encoding="utf-8",
+    )
+    packet = repo / replay_runner.PACKET_PATH
+    packet.parent.mkdir(parents=True, exist_ok=True)
+    packet.write_text("validation packet\n", encoding="utf-8")
+    replay_source_sha = "a" * 40
+    checkpoint_source_sha = "b" * 40
+    transition = {
+        "mode": "authorized_code_revision_transition",
+        "checkpoint_source_sha": checkpoint_source_sha,
+        "replay_source_sha": replay_source_sha,
+    }
+    return repo, replay_source_sha, checkpoint_source_sha, transition
+
+
+def test_validation_only_pdf_source_readme_is_date_and_revision_locked(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    assert replay_runner.PACKET_PATH.as_posix() == (
+        "output/latest/chatgpt_daily_report_packet_latest.txt"
+    )
+    repo, replay_sha, checkpoint_sha, transition = (
+        _validation_readme_fixture(tmp_path)
+    )
+    monkeypatch.setenv("DAILY_FULL_VALIDATION_ONLY", "1")
+    path = replay_runner.write_validation_only_pdf_source_readme(
+        repo_root=repo,
+        replay_source_sha=replay_sha,
+        transition=transition,
+        validation_env={"DAILY_FULL_VALIDATION_ONLY": "1"},
+    )
+    fields = replay_runner.read_key_value_file(path)
+    assert fields["main_price_date"] == REPLAY_DATE
+    assert fields["validation_only"] == "true"
+    assert fields["official_pdf_published"] == "false"
+    assert fields["checkpoint_source_sha"] == checkpoint_sha
+    assert fields["replay_source_sha"] == replay_sha
+    payload = replay_runner.write_validation_source_state(
+        repo, replay_sha, transition
+    )
+    assert payload["source_state"]["readme_fields"] == fields
+    assert payload["files"][replay_runner.README_PATH.as_posix()][
+        "sha256"
+    ] == hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+@pytest.mark.parametrize(
+    ("mutation", "match"),
+    [
+        ("mode", "requires validation-only mode"),
+        ("date", "freshness date mismatch"),
+        ("market", "market date mismatch"),
+        ("packet", "PDF source-gate artifact missing"),
+    ],
+)
+def test_validation_only_pdf_source_readme_fails_closed(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    mutation: str,
+    match: str,
+) -> None:
+    repo, replay_sha, _checkpoint_sha, transition = (
+        _validation_readme_fixture(tmp_path)
+    )
+    monkeypatch.setenv("DAILY_FULL_VALIDATION_ONLY", "1")
+    if mutation == "mode":
+        monkeypatch.delenv("DAILY_FULL_VALIDATION_ONLY")
+    elif mutation == "date":
+        path = repo / replay_runner.FRESHNESS_PATH
+        path.write_text(
+            path.read_text(encoding="utf-8").replace(
+                REPLAY_DATE, "20260806", 1
+            ),
+            encoding="utf-8",
+        )
+    elif mutation == "market":
+        path = repo / replay_runner.MARKET_SESSION_PATH
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        payload["expected_main_price_date"] = "20260806"
+        path.write_text(json.dumps(payload), encoding="utf-8")
+    elif mutation == "packet":
+        (repo / replay_runner.PACKET_PATH).unlink()
+    with pytest.raises(replay_runner.ValidationReplayError, match=match):
+        replay_runner.write_validation_only_pdf_source_readme(
+            repo_root=repo,
+            replay_source_sha=replay_sha,
+            transition=transition,
+            validation_env=(
+                {}
+                if mutation == "mode"
+                else {"DAILY_FULL_VALIDATION_ONLY": "1"}
+            ),
+        )
+
+
+def test_validation_source_state_rejects_tampered_validation_readme(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    repo, replay_sha, checkpoint_sha, transition = (
+        _validation_readme_fixture(tmp_path)
+    )
+    monkeypatch.setenv("DAILY_FULL_VALIDATION_ONLY", "1")
+    path = replay_runner.write_validation_only_pdf_source_readme(
+        repo_root=repo,
+        replay_source_sha=replay_sha,
+        transition=transition,
+        validation_env={"DAILY_FULL_VALIDATION_ONLY": "1"},
+    )
+    path.write_text(
+        path.read_text(encoding="utf-8").replace(
+            f"replay_source_sha={replay_sha}",
+            f"replay_source_sha={'c' * 40}",
+        ),
+        encoding="utf-8",
+    )
+    with pytest.raises(
+        replay_runner.ValidationReplayError,
+        match="README identity mismatch",
+    ):
+        replay_runner.require_freshness_contract(
+            repo, replay_sha, checkpoint_sha
+        )
+
+
+def test_post_step_source_gate_failure_is_captured_before_rethrow(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    repo = tmp_path / "repo"
+    repo.mkdir()
+    market = repo / replay_runner.MARKET_SESSION_PATH
+    market.parent.mkdir(parents=True)
+    market.write_text(
+        json.dumps(
+            {
+                "market_status": "open_confirmed",
+                "market_session_date": REPLAY_DATE,
+            }
+        ),
+        encoding="utf-8",
+    )
+    bundle = tmp_path / "bundle"
+    bundle.mkdir()
+    post_bundle = tmp_path / "post-bundle"
+    replay_sha = "d" * 40
+    checkpoint_sha = "e" * 40
+    transition = {
+        "mode": "authorized_code_revision_transition",
+        "checkpoint_source_sha": checkpoint_sha,
+        "replay_source_sha": replay_sha,
+    }
+    observed: dict[str, object] = {}
+    monkeypatch.setattr(replay_runner, "require_main_source", lambda *_: None)
+    monkeypatch.setattr(
+        replay_runner,
+        "require_authorized_checkpoint_revision_transition",
+        lambda **_: transition,
+    )
+    monkeypatch.setattr(
+        replay_runner,
+        "require_authorized_checkpoint_bundle_identity",
+        lambda *_: None,
+    )
+    monkeypatch.setattr(
+        replay_runner.checkpoint,
+        "restore_checkpoint",
+        lambda **_: {"source_revision_manifest": {}, "files": []},
+    )
+    monkeypatch.setattr(
+        replay_runner,
+        "require_checkpoint_structured_source_manifest_identity",
+        lambda **_: repo / "structured.json",
+    )
+    monkeypatch.setattr(
+        replay_runner,
+        "require_checkpoint_source_revision_manifest_identity",
+        lambda **_: repo / "source-revision.json",
+    )
+    monkeypatch.setattr(
+        replay_runner,
+        "write_replay_source_revision_manifest",
+        lambda **_: repo / "replay-source.json",
+    )
+    monkeypatch.setattr(
+        replay_runner,
+        "materialize_publish_freshness_baseline",
+        lambda **_: {},
+    )
+    monkeypatch.setattr(
+        replay_runner,
+        "base_environment",
+        lambda **_: {"DAILY_FULL_VALIDATION_ONLY": "1"},
+    )
+    monkeypatch.setattr(replay_runner, "post_step_names", lambda *_: [])
+    monkeypatch.setattr(replay_runner, "run_named_steps", lambda **_: None)
+    monkeypatch.setattr(
+        replay_runner,
+        "run_registered_parity_validators",
+        lambda *_: [],
+    )
+    monkeypatch.setattr(
+        replay_runner,
+        "write_validation_only_pdf_source_readme",
+        lambda **_: (_ for _ in ()).throw(
+            replay_runner.ValidationReplayError("source gate failed")
+        ),
+    )
+
+    def fake_capture(**kwargs: object) -> dict[str, object]:
+        observed.update(kwargs)
+        post_bundle.mkdir()
+        (post_bundle / "failure.json").write_text(
+            "{}\n", encoding="utf-8"
+        )
+        return {"files": []}
+
+    monkeypatch.setattr(
+        replay_runner, "capture_replay_failure_checkpoint", fake_capture
+    )
+    args = argparse.Namespace(
+        repo_root=repo,
+        runner_temp=tmp_path / "runner-temp",
+        source_sha=replay_sha,
+        checkpoint_source_sha=checkpoint_sha,
+        replay_date=REPLAY_DATE,
+        checkpoint_run_id="31268964962",
+        checkpoint_artifact_id="9025240156",
+        checkpoint_artifact_digest=(
+            replay_runner.AUTHORIZED_CHECKPOINT_ARTIFACT_DIGEST
+        ),
+        bundle_dir=bundle,
+        post_bundle_dir=post_bundle,
+        run_id="31291570843",
+    )
+    with pytest.raises(
+        replay_runner.ValidationReplayError, match="source gate failed"
+    ):
+        replay_runner.replay_from_checkpoint(args)
+    assert observed["failure_phase"] == (
+        "materialize validation-only PDF source README"
+    )
+    assert post_bundle.is_dir()
