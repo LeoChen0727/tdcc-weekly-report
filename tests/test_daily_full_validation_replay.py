@@ -336,11 +336,30 @@ def test_authorized_revision_transition_pins_identity_and_producer_bytes(
         capture_output=True,
         text=True,
     ).stdout.strip()
+    formal_only_path = "formal_lineage_fix.py"
+    (repo / formal_only_path).write_text(
+        "formal-lineage-fix\n", encoding="utf-8"
+    )
     with (repo / paths[2]).open("a", encoding="utf-8") as handle:
         handle.write("formal-lineage-fix,true\n")
-    _git(repo, "add", paths[2])
+    _git(repo, "add", paths[2], formal_only_path)
     _git(repo, "commit", "-qm", "authorized formal lineage fix")
     formal_lineage_fix_sha = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=repo,
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.strip()
+    operation_only_path = "operation_completeness_fix.py"
+    (repo / operation_only_path).write_text(
+        "operation-completeness-fix\n", encoding="utf-8"
+    )
+    with (repo / paths[2]).open("a", encoding="utf-8") as handle:
+        handle.write("operation-completeness-fix,true\n")
+    _git(repo, "add", paths[2], operation_only_path)
+    _git(repo, "commit", "-qm", "authorized operation completeness fix")
+    operation_fix_sha = subprocess.run(
         ["git", "rev-parse", "HEAD"],
         cwd=repo,
         check=True,
@@ -378,12 +397,27 @@ def test_authorized_revision_transition_pins_identity_and_producer_bytes(
     monkeypatch.setattr(
         replay_runner,
         "AUTHORIZED_FORMAL_LINEAGE_FIX_PATHS",
-        (paths[2],),
+        (formal_only_path, paths[2]),
+    )
+    monkeypatch.setattr(
+        replay_runner,
+        "AUTHORIZED_OPERATION_COMPLETENESS_FIX_COMMIT",
+        operation_fix_sha,
+    )
+    monkeypatch.setattr(
+        replay_runner,
+        "AUTHORIZED_OPERATION_COMPLETENESS_FIX_PATHS",
+        (operation_only_path, paths[2]),
+    )
+    monkeypatch.setattr(
+        replay_runner,
+        "AUTHORIZED_FORMAL_OPERATION_SHARED_PATH",
+        paths[2],
     )
     transition = replay_runner.require_authorized_checkpoint_revision_transition(
         repo_root=repo,
         checkpoint_source_sha=checkpoint_source_sha,
-        replay_source_sha=formal_lineage_fix_sha,
+        replay_source_sha=operation_fix_sha,
         checkpoint_run_id=replay_runner.AUTHORIZED_CHECKPOINT_RUN_ID,
         checkpoint_artifact_id=replay_runner.AUTHORIZED_CHECKPOINT_ARTIFACT_ID,
         checkpoint_artifact_digest=(
@@ -394,13 +428,14 @@ def test_authorized_revision_transition_pins_identity_and_producer_bytes(
     assert transition["producer_fix_commit"] == producer_fix_sha
     assert transition["validator_fix_commit"] == validator_fix_sha
     assert transition["formal_lineage_fix_commit"] == formal_lineage_fix_sha
+    assert transition["operation_completeness_fix_commit"] == operation_fix_sha
     with pytest.raises(
         replay_runner.ValidationReplayError, match="not preauthorized"
     ):
         replay_runner.require_authorized_checkpoint_revision_transition(
             repo_root=repo,
             checkpoint_source_sha=checkpoint_source_sha,
-            replay_source_sha=formal_lineage_fix_sha,
+            replay_source_sha=operation_fix_sha,
             checkpoint_run_id="999",
             checkpoint_artifact_id=(
                 replay_runner.AUTHORIZED_CHECKPOINT_ARTIFACT_ID
@@ -504,7 +539,22 @@ def test_authorized_revision_transition_rejects_validator_fix_drift(
     monkeypatch.setattr(
         replay_runner,
         "AUTHORIZED_FORMAL_LINEAGE_FIX_PATHS",
-        (paths[2],),
+        ("formal_lineage_fix.py", paths[2]),
+    )
+    monkeypatch.setattr(
+        replay_runner,
+        "AUTHORIZED_OPERATION_COMPLETENESS_FIX_COMMIT",
+        validator_fix_sha,
+    )
+    monkeypatch.setattr(
+        replay_runner,
+        "AUTHORIZED_OPERATION_COMPLETENESS_FIX_PATHS",
+        ("operation_completeness_fix.py", paths[2]),
+    )
+    monkeypatch.setattr(
+        replay_runner,
+        "AUTHORIZED_FORMAL_OPERATION_SHARED_PATH",
+        paths[2],
     )
     with (repo / paths[1]).open("a", encoding="utf-8") as handle:
         handle.write("unauthorized-drift,true\n")
@@ -560,9 +610,13 @@ def test_authorized_revision_transition_rejects_formal_lineage_fix_drift(
         capture_output=True,
         text=True,
     ).stdout.strip()
+    formal_only_path = "formal_lineage_fix.py"
+    (repo / formal_only_path).write_text(
+        "formal-lineage-fix\n", encoding="utf-8"
+    )
     with (repo / paths[2]).open("a", encoding="utf-8") as handle:
         handle.write("formal-lineage-fix,true\n")
-    _git(repo, "add", paths[2])
+    _git(repo, "add", paths[2], formal_only_path)
     _git(repo, "commit", "-qm", "authorized formal lineage fix")
     formal_lineage_fix_sha = subprocess.run(
         ["git", "rev-parse", "HEAD"],
@@ -602,11 +656,26 @@ def test_authorized_revision_transition_rejects_formal_lineage_fix_drift(
     monkeypatch.setattr(
         replay_runner,
         "AUTHORIZED_FORMAL_LINEAGE_FIX_PATHS",
-        (paths[2],),
+        (formal_only_path, paths[2]),
     )
-    with (repo / paths[2]).open("a", encoding="utf-8") as handle:
+    monkeypatch.setattr(
+        replay_runner,
+        "AUTHORIZED_OPERATION_COMPLETENESS_FIX_COMMIT",
+        formal_lineage_fix_sha,
+    )
+    monkeypatch.setattr(
+        replay_runner,
+        "AUTHORIZED_OPERATION_COMPLETENESS_FIX_PATHS",
+        ("operation_completeness_fix.py", paths[2]),
+    )
+    monkeypatch.setattr(
+        replay_runner,
+        "AUTHORIZED_FORMAL_OPERATION_SHARED_PATH",
+        paths[2],
+    )
+    with (repo / formal_only_path).open("a", encoding="utf-8") as handle:
         handle.write("unauthorized-drift,true\n")
-    _git(repo, "add", paths[2])
+    _git(repo, "add", formal_only_path)
     _git(repo, "commit", "-qm", "unauthorized formal lineage drift")
     drift_sha = subprocess.run(
         ["git", "rev-parse", "HEAD"],
@@ -618,6 +687,113 @@ def test_authorized_revision_transition_rejects_formal_lineage_fix_drift(
     with pytest.raises(
         replay_runner.ValidationReplayError,
         match="formal lineage fix paths drifted",
+    ):
+        replay_runner.require_authorized_checkpoint_revision_transition(
+            repo_root=repo,
+            checkpoint_source_sha=checkpoint_source_sha,
+            replay_source_sha=drift_sha,
+            checkpoint_run_id=replay_runner.AUTHORIZED_CHECKPOINT_RUN_ID,
+            checkpoint_artifact_id=(
+                replay_runner.AUTHORIZED_CHECKPOINT_ARTIFACT_ID
+            ),
+            checkpoint_artifact_digest=(
+                replay_runner.AUTHORIZED_CHECKPOINT_ARTIFACT_DIGEST
+            ),
+        )
+
+
+def test_authorized_revision_transition_rejects_operation_completeness_drift(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    repo, _, paths, checkpoint_source_sha = _build(tmp_path)
+    def current_head() -> str:
+        return subprocess.run(
+            ["git", "rev-parse", "HEAD"],
+            cwd=repo,
+            check=True,
+            capture_output=True,
+            text=True,
+        ).stdout.strip()
+
+    _git(repo, "add", ".")
+    _git(repo, "commit", "-qm", "authorized producer fix")
+    producer_fix_sha = current_head()
+    with (repo / paths[1]).open("a", encoding="utf-8") as handle:
+        handle.write("validator-fix,true\n")
+    _git(repo, "add", paths[1])
+    _git(repo, "commit", "-qm", "authorized validator fix")
+    validator_fix_sha = current_head()
+    formal_only_path = "formal_lineage_fix.py"
+    (repo / formal_only_path).write_text(
+        "formal-lineage-fix\n", encoding="utf-8"
+    )
+    with (repo / paths[2]).open("a", encoding="utf-8") as handle:
+        handle.write("formal-lineage-fix,true\n")
+    _git(repo, "add", paths[2], formal_only_path)
+    _git(repo, "commit", "-qm", "authorized formal lineage fix")
+    formal_lineage_fix_sha = current_head()
+    operation_only_path = "operation_completeness_fix.py"
+    (repo / operation_only_path).write_text(
+        "operation-completeness-fix\n", encoding="utf-8"
+    )
+    with (repo / paths[2]).open("a", encoding="utf-8") as handle:
+        handle.write("operation-completeness-fix,true\n")
+    _git(repo, "add", paths[2], operation_only_path)
+    _git(repo, "commit", "-qm", "authorized operation completeness fix")
+    operation_fix_sha = current_head()
+    monkeypatch.setattr(
+        replay_runner,
+        "AUTHORIZED_CHECKPOINT_SOURCE_SHA",
+        checkpoint_source_sha,
+    )
+    monkeypatch.setattr(
+        replay_runner, "AUTHORIZED_PRODUCER_FIX_COMMIT", producer_fix_sha
+    )
+    monkeypatch.setattr(
+        replay_runner,
+        "AUTHORIZED_PRODUCER_FIX_PATHS",
+        (paths[0], paths[1]),
+    )
+    monkeypatch.setattr(
+        replay_runner, "AUTHORIZED_VALIDATOR_FIX_COMMIT", validator_fix_sha
+    )
+    monkeypatch.setattr(
+        replay_runner, "AUTHORIZED_VALIDATOR_FIX_PATHS", (paths[1],)
+    )
+    monkeypatch.setattr(
+        replay_runner,
+        "AUTHORIZED_FORMAL_LINEAGE_FIX_COMMIT",
+        formal_lineage_fix_sha,
+    )
+    monkeypatch.setattr(
+        replay_runner,
+        "AUTHORIZED_FORMAL_LINEAGE_FIX_PATHS",
+        (formal_only_path, paths[2]),
+    )
+    monkeypatch.setattr(
+        replay_runner,
+        "AUTHORIZED_OPERATION_COMPLETENESS_FIX_COMMIT",
+        operation_fix_sha,
+    )
+    monkeypatch.setattr(
+        replay_runner,
+        "AUTHORIZED_OPERATION_COMPLETENESS_FIX_PATHS",
+        (operation_only_path, paths[2]),
+    )
+    monkeypatch.setattr(
+        replay_runner,
+        "AUTHORIZED_FORMAL_OPERATION_SHARED_PATH",
+        paths[2],
+    )
+    with (repo / operation_only_path).open("a", encoding="utf-8") as handle:
+        handle.write("unauthorized-drift\n")
+    _git(repo, "add", operation_only_path)
+    _git(repo, "commit", "-qm", "unauthorized operation completeness drift")
+    drift_sha = current_head()
+    with pytest.raises(
+        replay_runner.ValidationReplayError,
+        match="operation completeness fix paths drifted",
     ):
         replay_runner.require_authorized_checkpoint_revision_transition(
             repo_root=repo,
