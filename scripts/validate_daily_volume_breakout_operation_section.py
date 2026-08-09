@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import re
 from pathlib import Path
 
 import pandas as pd
@@ -21,6 +22,40 @@ EVIDENCE_AUDIT_MD = LATEST_DIR / "daily_volume_breakout_operation_evidence_audit
 TAXONOMY_CSV = LATEST_DIR / "stock_theme_taxonomy_latest.csv"
 DATA_FRESHNESS_CSV = LATEST_DIR / "data_freshness_latest.csv"
 DAILY_SIGNALS_CSV = LATEST_DIR / "daily_candidate_model_signals_for_report_latest.csv"
+VOLUME_V2_LINEAGE_AUDIT_CSV = (
+    LATEST_DIR / "volume_v2_warrant_lineage_history_audit_latest.csv"
+)
+VOLUME_V2_OPERATION_SCOPE_AUDIT_REQUIRED_COLUMNS = {
+    "snapshot_report_date",
+    "snapshot_revision",
+    "signal_date",
+    "model_id",
+    "stock_id",
+    "formal_row_disposition",
+    "evidence_status",
+    "paired_source_resolution",
+    "production_code_sha256",
+    "formal_snapshot_path",
+    "formal_snapshot_sha256",
+    "formal_row_number",
+    "formal_row_sha256",
+    "watch_artifact_sha256",
+    "candidate_artifact_sha256",
+    "official_warrant_artifact_sha256",
+    "candidate_row_present",
+    "canonical_warrant_source_type",
+    "candidate_warrant_signal",
+    "formal_warrant_signal",
+    "impact_scope",
+}
+VOLUME_V2_OPERATION_SCOPE_SHA_COLUMNS = (
+    "production_code_sha256",
+    "formal_snapshot_sha256",
+    "formal_row_sha256",
+    "watch_artifact_sha256",
+    "candidate_artifact_sha256",
+    "official_warrant_artifact_sha256",
+)
 APPROVED_FORMAL_SUMMARY_CSV = (
     ROOT
     / "config"
@@ -347,6 +382,142 @@ def report_date_from_section(section: pd.DataFrame) -> str:
     return dates[0]
 
 
+def operation_eligible_latest_volume_rows(latest_volume: pd.DataFrame) -> pd.DataFrame:
+    """Remove only manifest-max superseded non-candidate audit identities.
+
+    The upstream volume-v2 lineage audit validator owns complete source replay,
+    revision history, and closed-set resolution validation.  This downstream
+    completeness consumer independently selects the manifest-max audit row and
+    requires the exact negative-projection evidence shape before subtracting a
+    raw signal identity from the operation-membership universe.  It never turns
+    an audit-only row into a candidate or a verified-clean operation row.
+    """
+
+    if latest_volume.empty:
+        return latest_volume.copy()
+    audit = require_nonempty_csv(
+        VOLUME_V2_LINEAGE_AUDIT_CSV,
+        VOLUME_V2_OPERATION_SCOPE_AUDIT_REQUIRED_COLUMNS,
+    ).copy()
+    audit["_signal_date"] = audit["signal_date"].map(normalize_date_text)
+    audit["_model_id"] = audit["model_id"].astype(str).str.strip()
+    audit["_stock_id"] = audit["stock_id"].map(stock_id_text)
+    audit["_snapshot_report_date"] = audit["snapshot_report_date"].map(
+        normalize_date_text
+    )
+    audit["_snapshot_revision"] = audit["snapshot_revision"].astype(str).str.strip()
+    audit["_formal_snapshot_path"] = (
+        audit["formal_snapshot_path"].astype(str).str.strip().str.replace("\\", "/", regex=False)
+    )
+    excluded_keys: set[tuple[str, str, str]] = set()
+    keys = {
+        (
+            normalize_date_text(row.get("signal_date")),
+            str(row.get("model_id", "")).strip(),
+            stock_id_text(row.get("stock_id")),
+        )
+        for _, row in latest_volume.iterrows()
+    }
+    snapshot_dir = ROOT / "output" / "history" / "daily_model_snapshots"
+    for key in sorted(keys):
+        key_rows = audit[
+            audit["_signal_date"].eq(key[0])
+            & audit["_model_id"].eq(key[1])
+            & audit["_stock_id"].eq(key[2])
+        ].copy()
+        negative_rows = key_rows[
+            key_rows["candidate_row_present"].astype(str).str.strip().str.lower().eq("false")
+            & key_rows["canonical_warrant_source_type"]
+            .astype(str)
+            .str.strip()
+            .eq("negative_projection_no_candidate_row")
+            & key_rows["formal_row_disposition"]
+            .astype(str)
+            .str.strip()
+            .eq("superseded")
+        ].copy()
+        if negative_rows.empty:
+            continue
+        try:
+            manifest_record = latest_snapshot_revision_for_date(
+                snapshot_dir,
+                "model_signals_for_report",
+                key[0],
+                repository_root=ROOT,
+                require_files=False,
+                verify_hash=False,
+            )
+        except RuntimeError as exc:
+            fail(f"volume v2 operation completeness scope failed: {exc}")
+        if manifest_record is None:
+            fail(
+                "volume v2 operation completeness scope failed: missing manifest-max "
+                f"snapshot for negative projection key={key}"
+            )
+        matches = key_rows[
+            key_rows["_snapshot_report_date"].eq(manifest_record.report_date)
+            & key_rows["_snapshot_revision"].eq(manifest_record.revision)
+            & key_rows["_formal_snapshot_path"].eq(
+                manifest_record.path_text.replace("\\", "/")
+            )
+        ].copy()
+        if len(matches) != 1:
+            status = (
+                "uncovered_manifest_max_negative_projection_evidence"
+                if matches.empty
+                else "duplicate_manifest_max_negative_projection_evidence"
+            )
+            fail(
+                "volume v2 operation completeness scope failed: "
+                f"{status} key={key} revision={manifest_record.revision} "
+                f"path={manifest_record.path_text} matches={len(matches)}"
+            )
+        row = matches.iloc[0]
+        latest_is_negative = (
+            str(row.get("candidate_row_present", "")).strip().lower() == "false"
+            and str(row.get("canonical_warrant_source_type", "")).strip()
+            == "negative_projection_no_candidate_row"
+            and str(row.get("formal_row_disposition", "")).strip() == "superseded"
+        )
+        if not latest_is_negative:
+            continue
+        sha_complete = all(
+            re.fullmatch(r"[0-9a-f]{64}", str(row.get(column, "")).strip().lower())
+            is not None
+            for column in VOLUME_V2_OPERATION_SCOPE_SHA_COLUMNS
+        )
+        row_number = str(row.get("formal_row_number", "")).strip()
+        classification_complete = (
+            str(row.get("evidence_status", "")).strip() == "complete"
+            and bool(str(row.get("paired_source_resolution", "")).strip())
+            and sha_complete
+            and row_number.isdigit()
+            and str(row.get("candidate_warrant_signal", "")).strip() == ""
+            and str(row.get("formal_warrant_signal", "")).strip() == ""
+            and str(row.get("impact_scope", "")).strip()
+            == "formal_warrant_lineage_superseded"
+        )
+        if not classification_complete:
+            fail(
+                "volume v2 operation completeness scope failed: incomplete exact "
+                f"manifest-max negative projection evidence key={key}"
+            )
+        excluded_keys.add(key)
+
+    if not excluded_keys:
+        return latest_volume.copy()
+    keep = latest_volume.apply(
+        lambda row: (
+            normalize_date_text(row.get("signal_date")),
+            str(row.get("model_id", "")).strip(),
+            stock_id_text(row.get("stock_id")),
+        )
+        not in excluded_keys,
+        axis=1,
+    )
+    return latest_volume.loc[keep].copy().reset_index(drop=True)
+
+
 def validate_latest_signal_log_sync(section: pd.DataFrame) -> None:
     report_date = report_date_from_section(section)
     freshness = require_nonempty_csv(DATA_FRESHNESS_CSV, {"main_price_date", "report_ready", "warrant_ready", "daily_pdf_ready"})
@@ -403,9 +574,15 @@ def validate_latest_signal_log_sync(section: pd.DataFrame) -> None:
             details.append("extra_in_signal_log=" + ", ".join(f"{date}/{bucket}/{stock}" for date, bucket, stock, _ in extra[:20]))
         fail("latest volume_range_breakout signals and daily model signal log are out of sync: " + " | ".join(details))
 
-    latest_stocks = {
+    latest_signal_stocks = {
         stock_id_text(value)
         for value in latest_volume["stock_id"].tolist()
+        if stock_id_text(value)
+    }
+    operation_eligible_latest = operation_eligible_latest_volume_rows(latest_volume)
+    operation_eligible_stocks = {
+        stock_id_text(value)
+        for value in operation_eligible_latest["stock_id"].tolist()
         if stock_id_text(value)
     }
     data_stocks = {
@@ -413,7 +590,7 @@ def validate_latest_signal_log_sync(section: pd.DataFrame) -> None:
         for value in section.loc[section["row_type"].astype(str).eq("data"), "stock_id"].tolist()
         if stock_id_text(value)
     }
-    missing_stocks = sorted(latest_stocks - data_stocks)
+    missing_stocks = sorted(operation_eligible_stocks - data_stocks)
     if missing_stocks:
         fail(f"latest volume_range_breakout stocks missing from operation section: {missing_stocks}")
 
@@ -422,10 +599,10 @@ def validate_latest_signal_log_sync(section: pd.DataFrame) -> None:
         for value in section["daily_volume_model_signal_count"].tolist()
         if str(value).strip()
     }
-    if observed_counts != {str(len(latest_stocks))}:
+    if observed_counts != {str(len(latest_signal_stocks))}:
         fail(
             "daily_volume_model_signal_count must match latest volume_range_breakout stock count: "
-            f"observed={sorted(observed_counts)} expected={len(latest_stocks)}"
+            f"observed={sorted(observed_counts)} expected={len(latest_signal_stocks)}"
         )
 
 

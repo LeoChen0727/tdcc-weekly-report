@@ -950,6 +950,7 @@ def test_20260807_candidate_present_superseded_row_still_fails_closed(
 
 
 def test_20260807_old_negative_revision_does_not_override_verified_manifest_max(
+    monkeypatch: pytest.MonkeyPatch,
     tmp_path: Path,
 ) -> None:
     audit_path, _r1_formal, section = write_20260807_2059_lineage_scope_fixture(
@@ -1056,6 +1057,16 @@ def test_20260807_old_negative_revision_does_not_override_verified_manifest_max(
         source_root=tmp_path,
     )
     assert evidence["checked_rows"] == 2
+    monkeypatch.setattr(section_validator, "ROOT", tmp_path)
+    monkeypatch.setattr(
+        section_validator,
+        "VOLUME_V2_LINEAGE_AUDIT_CSV",
+        audit_path,
+    )
+    operation_eligible = section_validator.operation_eligible_latest_volume_rows(
+        section
+    )
+    assert operation_eligible["stock_id"].tolist() == ["2059", "6505"]
 
 
 def test_20260807_conflicting_manifest_max_audit_rows_fail_closed(
@@ -3116,6 +3127,11 @@ def test_volume_operation_validator_allows_lineage_only_signal_log_rows(monkeypa
     monkeypatch.setattr(section_validator, "DATA_FRESHNESS_CSV", freshness)
     monkeypatch.setattr(section_validator, "DAILY_SIGNALS_CSV", latest_signals)
     monkeypatch.setattr(section_validator, "MODEL_SIGNAL_LOG_CSV", signal_log)
+    monkeypatch.setattr(
+        section_validator,
+        "operation_eligible_latest_volume_rows",
+        lambda frame: frame.copy(),
+    )
 
     section = pd.DataFrame(
         [
@@ -3128,6 +3144,276 @@ def test_volume_operation_validator_allows_lineage_only_signal_log_rows(monkeypa
         ]
     )
     section_validator.validate_latest_signal_log_sync(section)
+
+
+def prepare_20260807_2059_completeness_fixture(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> tuple[pd.DataFrame, pd.DataFrame]:
+    audit_path, formal, section = write_20260807_2059_lineage_scope_fixture(
+        tmp_path
+    )
+    formal = formal.copy()
+    formal["report_bucket"] = "mainstream"
+
+    audit = pd.read_csv(audit_path, dtype=str, keep_default_na=False)
+    source_path = tmp_path / audit.iloc[0]["formal_snapshot_path"]
+    formal.to_csv(source_path, index=False)
+    manifest_path = (
+        tmp_path
+        / "output"
+        / "history"
+        / "daily_model_snapshots"
+        / "daily_published_model_snapshot_manifest.csv"
+    )
+    manifest = pd.read_csv(manifest_path, dtype=str, keep_default_na=False)
+    manifest.loc[0, "snapshot_sha256"] = snapshot_file_sha256(source_path)
+    manifest.to_csv(manifest_path, index=False)
+    audit["formal_snapshot_sha256"] = builder.canonical_text_sha256(
+        source_path.read_bytes()
+    )
+    audit.loc[0, "formal_row_sha256"] = builder.canonical_row_sha256(formal.iloc[0])
+    audit.loc[1, "formal_row_sha256"] = builder.canonical_row_sha256(formal.iloc[1])
+    audit.to_csv(audit_path, index=False)
+
+    latest_dir = tmp_path / "output" / "latest"
+    signal_log_dir = (
+        tmp_path / "output" / "history" / "daily_candidate_models"
+    )
+    latest_dir.mkdir(parents=True, exist_ok=True)
+    signal_log_dir.mkdir(parents=True, exist_ok=True)
+    freshness_path = latest_dir / "data_freshness_latest.csv"
+    latest_signals_path = (
+        latest_dir / "daily_candidate_model_signals_for_report_latest.csv"
+    )
+    signal_log_path = signal_log_dir / "daily_candidate_model_signal_log.csv"
+    pd.DataFrame(
+        [
+            {
+                "main_price_date": "20260807",
+                "report_ready": "True",
+                "warrant_ready": "True",
+                "daily_pdf_ready": "True",
+            }
+        ]
+    ).to_csv(freshness_path, index=False)
+    formal.to_csv(latest_signals_path, index=False)
+    formal.to_csv(signal_log_path, index=False)
+
+    monkeypatch.setattr(section_validator, "ROOT", tmp_path)
+    monkeypatch.setattr(section_validator, "DATA_FRESHNESS_CSV", freshness_path)
+    monkeypatch.setattr(section_validator, "DAILY_SIGNALS_CSV", latest_signals_path)
+    monkeypatch.setattr(section_validator, "MODEL_SIGNAL_LOG_CSV", signal_log_path)
+    monkeypatch.setattr(
+        section_validator,
+        "VOLUME_V2_LINEAGE_AUDIT_CSV",
+        audit_path,
+        raising=False,
+    )
+
+    scoped, excluded_keys = builder.filter_volume_v2_operation_lineage_scope(
+        section,
+        audit_path=audit_path,
+        formal_signal_rows=formal,
+        source_root=tmp_path,
+    )
+    assert excluded_keys == {("20260807", HIGH_VOLUME_MODEL_ID, "2059")}
+    scoped["daily_signal_date"] = "20260807"
+    scoped["daily_volume_model_signal_count"] = "2"
+    return formal, scoped
+
+
+def test_20260807_operation_completeness_excludes_exact_superseded_noncandidate(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    _formal, scoped = prepare_20260807_2059_completeness_fixture(
+        monkeypatch, tmp_path
+    )
+
+    section_validator.validate_latest_signal_log_sync(scoped)
+
+
+def test_20260807_operation_completeness_does_not_replay_validated_snapshot_payload(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    _formal, scoped = prepare_20260807_2059_completeness_fixture(
+        monkeypatch, tmp_path
+    )
+    manifest_path = (
+        tmp_path
+        / "output"
+        / "history"
+        / "daily_model_snapshots"
+        / "daily_published_model_snapshot_manifest.csv"
+    )
+    manifest = pd.read_csv(manifest_path, dtype=str, keep_default_na=False)
+    (tmp_path / manifest.iloc[0]["snapshot_path"]).unlink()
+
+    section_validator.validate_latest_signal_log_sync(scoped)
+
+
+def test_20260807_operation_completeness_keeps_raw_signal_count_and_log_lineage(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    _formal, scoped = prepare_20260807_2059_completeness_fixture(
+        monkeypatch, tmp_path
+    )
+    wrong_count = scoped.copy()
+    wrong_count["daily_volume_model_signal_count"] = "1"
+    with pytest.raises(SystemExit):
+        section_validator.validate_latest_signal_log_sync(wrong_count)
+    assert (
+        "daily_volume_model_signal_count must match latest volume_range_breakout "
+        "stock count: observed=['1'] expected=2"
+        in capsys.readouterr().out
+    )
+
+    signal_log = pd.read_csv(
+        section_validator.MODEL_SIGNAL_LOG_CSV,
+        dtype=str,
+        keep_default_na=False,
+    )
+    signal_log = signal_log[signal_log["stock_id"].astype(str).ne("2059")]
+    signal_log.to_csv(section_validator.MODEL_SIGNAL_LOG_CSV, index=False)
+    with pytest.raises(SystemExit):
+        section_validator.validate_latest_signal_log_sync(scoped)
+    assert (
+        "latest volume_range_breakout signals and daily model signal log are out of sync"
+        in capsys.readouterr().out
+    )
+
+
+def test_20260807_operation_completeness_still_rejects_missing_real_candidate(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    _formal, scoped = prepare_20260807_2059_completeness_fixture(
+        monkeypatch, tmp_path
+    )
+    without_verified_candidate = scoped.iloc[0:0].copy()
+    empty = builder.empty_row(
+        HIGH_VOLUME_MODEL_ID,
+        "highlight",
+        "confirmed_operation",
+        "ready",
+        "20260807",
+        2,
+        approval_stub(),
+        "2026-08-08 08:00:00 Asia/Taipei",
+        "20260807",
+    )
+    without_verified_candidate = pd.DataFrame(
+        [empty], columns=builder.OUTPUT_COLUMNS
+    )
+
+    with pytest.raises(SystemExit):
+        section_validator.validate_latest_signal_log_sync(
+            without_verified_candidate
+        )
+    output = capsys.readouterr().out
+    assert (
+        "latest volume_range_breakout stocks missing from operation section: ['6505']"
+        in output
+    )
+    assert "['2059']" not in output
+
+
+@pytest.mark.parametrize(
+    ("field", "value", "expected_error"),
+    [
+        (
+            "evidence_status",
+            "incomplete",
+            "incomplete exact manifest-max negative projection evidence",
+        ),
+        (
+            "paired_source_resolution",
+            "",
+            "incomplete exact manifest-max negative projection evidence",
+        ),
+        (
+            "watch_artifact_sha256",
+            "",
+            "incomplete exact manifest-max negative projection evidence",
+        ),
+        (
+            "formal_row_sha256",
+            "not-a-sha",
+            "incomplete exact manifest-max negative projection evidence",
+        ),
+        (
+            "impact_scope",
+            "",
+            "incomplete exact manifest-max negative projection evidence",
+        ),
+        (
+            "formal_snapshot_path",
+            "output/history/daily_model_snapshots/wrong.csv",
+            "uncovered_manifest_max_negative_projection_evidence",
+        ),
+        (
+            "snapshot_revision",
+            "r2",
+            "uncovered_manifest_max_negative_projection_evidence",
+        ),
+        (
+            "formal_snapshot_sha256",
+            "not-a-sha",
+            "incomplete exact manifest-max negative projection evidence",
+        ),
+    ],
+)
+def test_20260807_operation_completeness_rejects_incomplete_negative_evidence(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
+    field: str,
+    value: str,
+    expected_error: str,
+) -> None:
+    _formal, scoped = prepare_20260807_2059_completeness_fixture(
+        monkeypatch, tmp_path
+    )
+    audit = pd.read_csv(
+        section_validator.VOLUME_V2_LINEAGE_AUDIT_CSV,
+        dtype=str,
+        keep_default_na=False,
+    )
+    audit.loc[0, field] = value
+    audit.to_csv(section_validator.VOLUME_V2_LINEAGE_AUDIT_CSV, index=False)
+
+    with pytest.raises(SystemExit):
+        section_validator.validate_latest_signal_log_sync(scoped)
+    assert expected_error in capsys.readouterr().out
+
+
+def test_20260807_operation_completeness_rejects_duplicate_manifest_max_audit(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    _formal, scoped = prepare_20260807_2059_completeness_fixture(
+        monkeypatch, tmp_path
+    )
+    audit = pd.read_csv(
+        section_validator.VOLUME_V2_LINEAGE_AUDIT_CSV,
+        dtype=str,
+        keep_default_na=False,
+    )
+    audit = pd.concat([audit, audit.iloc[[0]]], ignore_index=True)
+    audit.to_csv(section_validator.VOLUME_V2_LINEAGE_AUDIT_CSV, index=False)
+
+    with pytest.raises(SystemExit):
+        section_validator.validate_latest_signal_log_sync(scoped)
+    assert (
+        "duplicate_manifest_max_negative_projection_evidence"
+        in capsys.readouterr().out
+    )
 
 
 def test_volume_operation_builder_rejects_latest_signal_date_mismatch() -> None:
