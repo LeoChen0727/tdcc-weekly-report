@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5521 工信
 
 ## Metadata
-- generated_at: 2026-08-08 22:28:05 Asia/Taipei
+- generated_at: 2026-08-09 22:27:58 Asia/Taipei
 - stock_id: 5521
 - stock_name: 工信
 - packet_status: standard_180d_window_packet

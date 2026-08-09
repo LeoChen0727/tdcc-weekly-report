@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7708 全家餐飲
 
 ## Metadata
-- generated_at: 2026-08-08 22:28:51 Asia/Taipei
+- generated_at: 2026-08-09 22:28:46 Asia/Taipei
 - stock_id: 7708
 - stock_name: 全家餐飲
 - packet_status: standard_180d_window_packet
