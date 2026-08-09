@@ -166,6 +166,24 @@ def validate_replay_workflow(
         errors.append(
             "controlled canary failure must occur only after upload"
         )
+    post_upload = text.find(
+        "Upload post-step41 validation checkpoint and gates"
+    )
+    pdf_job = text.find("\n  isolated-six-pdf-validation:")
+    post_upload_block = (
+        text[post_upload:pdf_job]
+        if post_upload >= 0 and pdf_job > post_upload
+        else ""
+    )
+    if (
+        not post_upload_block
+        or "if: always()" not in post_upload_block
+        or "post-validation-checkpoint" not in post_upload_block
+        or "if-no-files-found: error" not in post_upload_block
+    ):
+        errors.append(
+            "replay failure checkpoint must always upload fail closed"
+        )
 
 
 def validate_runner(text: str, errors: list[str]) -> None:
@@ -186,6 +204,15 @@ def validate_runner(text: str, errors: list[str]) -> None:
             "AUTHORIZED_OPERATION_COMPLETENESS_FIX_COMMIT",
             "AUTHORIZED_OPERATION_COMPLETENESS_FIX_PATHS",
             "AUTHORIZED_FORMAL_OPERATION_SHARED_PATH",
+            'AUTHORIZED_PUBLISH_BASELINE_DATE = "20260805"',
+            "PUBLISH_BASELINE_DIRNAME",
+            "PUBLISH_BASELINE_EVIDENCE_PATH",
+            "materialize_publish_freshness_baseline",
+            "current freshness artifact cannot substitute for baseline",
+            "checkpoint publish freshness baseline bytes/SHA mismatch",
+            "capture_replay_failure_checkpoint",
+            'checkpoint_kind="post_step_failure"',
+            'capture_context="validation_replay_failure"',
             "authorized_code_revision_transition",
             "require_authorized_checkpoint_bundle_identity",
             "checkpoint_source_sha",

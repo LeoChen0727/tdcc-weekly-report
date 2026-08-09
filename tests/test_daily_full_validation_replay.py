@@ -845,6 +845,163 @@ def test_cross_revision_workflow_requires_explicit_checkpoint_identity() -> None
     assert "checkpoint replay source transition mismatch" in workflow
 
 
+def _freshness_csv_bytes(date: str, *, ready: bool) -> bytes:
+    return (
+        "market_session_date,expected_main_price_date,main_price_date,"
+        "report_ready,daily_pdf_ready\n"
+        f"{date},{date},{date},{ready},{ready}\n"
+    ).encode("utf-8")
+
+
+def _publish_baseline_fixture(
+    tmp_path: Path,
+    *,
+    baseline_date: str = "20260805",
+    current_matches_baseline: bool = False,
+) -> tuple[Path, Path, str, dict[str, object], bytes]:
+    repo = tmp_path / "repo"
+    repo.mkdir()
+    _git(repo, "init", "-q")
+    _git(repo, "config", "user.email", "codex@example.invalid")
+    _git(repo, "config", "user.name", "Codex Test")
+    path = repo / replay_runner.FRESHNESS_PATH
+    path.parent.mkdir(parents=True)
+    baseline_bytes = _freshness_csv_bytes(baseline_date, ready=False)
+    path.write_bytes(baseline_bytes)
+    _git(repo, "add", replay_runner.FRESHNESS_PATH.as_posix())
+    _git(repo, "commit", "-qm", "baseline")
+    source_sha = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=repo,
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.strip()
+    if not current_matches_baseline:
+        path.write_bytes(_freshness_csv_bytes("20260807", ready=True))
+    manifest: dict[str, object] = {
+        "files": [
+            {
+                "path": replay_runner.FRESHNESS_PATH.as_posix(),
+                "bytes": path.stat().st_size,
+                "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+                "baseline": {
+                    "exists": True,
+                    "bytes": len(baseline_bytes),
+                    "sha256": hashlib.sha256(baseline_bytes).hexdigest(),
+                },
+            }
+        ]
+    }
+    return repo, tmp_path / "runner-temp", source_sha, manifest, baseline_bytes
+
+
+def test_publish_freshness_baseline_materializes_exact_checkpoint_git_object(
+    tmp_path: Path,
+) -> None:
+    repo, runner_temp, source_sha, manifest, baseline_bytes = (
+        _publish_baseline_fixture(tmp_path)
+    )
+    evidence = replay_runner.materialize_publish_freshness_baseline(
+        repo_root=repo,
+        runner_temp=runner_temp,
+        checkpoint_source_sha=source_sha,
+        checkpoint_manifest=manifest,
+    )
+    materialized = (
+        runner_temp
+        / replay_runner.PUBLISH_BASELINE_DIRNAME
+        / replay_runner.FRESHNESS_PATH.name
+    )
+    assert materialized.read_bytes() == baseline_bytes
+    assert evidence["baseline_date"] == "20260805"
+    assert evidence["baseline_sha256"] == hashlib.sha256(
+        baseline_bytes
+    ).hexdigest()
+    assert evidence["current_substitution_forbidden"] is True
+
+
+@pytest.mark.parametrize(
+    "mutation,match",
+    [
+        ("missing", "no unique"),
+        ("wrong_path", "no unique"),
+        ("bytes", "bytes/SHA mismatch"),
+        ("sha", "bytes/SHA mismatch"),
+        ("date", "date mismatch"),
+        ("current_as_baseline", "cannot substitute"),
+    ],
+)
+def test_publish_freshness_baseline_rejects_untrusted_materialization(
+    tmp_path: Path,
+    mutation: str,
+    match: str,
+) -> None:
+    repo, runner_temp, source_sha, manifest, _baseline_bytes = (
+        _publish_baseline_fixture(
+            tmp_path,
+            baseline_date=("20260804" if mutation == "date" else "20260805"),
+            current_matches_baseline=(mutation == "current_as_baseline"),
+        )
+    )
+    entry = manifest["files"][0]
+    if mutation == "missing":
+        manifest["files"] = []
+    elif mutation == "wrong_path":
+        entry["path"] = "output/latest/not_freshness.csv"
+    elif mutation == "bytes":
+        entry["baseline"]["bytes"] += 1
+    elif mutation == "sha":
+        entry["baseline"]["sha256"] = "0" * 64
+    with pytest.raises(replay_runner.ValidationReplayError, match=match):
+        replay_runner.materialize_publish_freshness_baseline(
+            repo_root=repo,
+            runner_temp=runner_temp,
+            checkpoint_source_sha=source_sha,
+            checkpoint_manifest=manifest,
+        )
+
+
+def test_replay_failure_checkpoint_is_created_before_error_is_rethrown(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    repo = tmp_path / "repo"
+    repo.mkdir()
+    bundle = tmp_path / "post-bundle"
+    observed: dict[str, object] = {}
+
+    def fake_capture_checkpoint(**kwargs: object) -> dict[str, object]:
+        observed.update(kwargs)
+        bundle.mkdir()
+        (bundle / "checkpoint_manifest.json").write_text(
+            "{}\n", encoding="utf-8"
+        )
+        return {"files": []}
+
+    monkeypatch.setattr(
+        replay_runner, "capture_checkpoint", fake_capture_checkpoint
+    )
+    replay_runner.capture_replay_failure_checkpoint(
+        repo_root=repo,
+        runner_temp=tmp_path / "runner-temp",
+        bundle_dir=bundle,
+        source_sha="1" * 40,
+        run_id="31290000000",
+        replay_source_manifest=tmp_path / "source.json",
+        steps=[{"step": "Guard", "status": "failure"}],
+        error=replay_runner.ValidationReplayError("guard failed"),
+    )
+    assert observed["checkpoint_kind"] == "post_step_failure"
+    assert observed["capture_context"] == "validation_replay_failure"
+    assert bundle.is_dir()
+    payload = json.loads(
+        (repo / replay_runner.STEP_RESULTS_PATH).read_text(encoding="utf-8")
+    )
+    assert payload["mode"] == "replay_failure"
+    assert payload["error"] == "guard failed"
+
+
 @pytest.mark.parametrize(
     "mutation",
     [
@@ -1107,6 +1264,14 @@ def test_validation_workflow_has_exact_two_mode_canary_replay_contract() -> None
     assert "render-pdfs" in workflow
     assert "PyMuPDF" in workflow
     assert "pillow" in workflow
+    post_upload = workflow.index(
+        "- name: Upload post-step41 validation checkpoint and gates"
+    )
+    isolated_pdf_job = workflow.index("  isolated-six-pdf-validation:")
+    post_upload_block = workflow[post_upload:isolated_pdf_job]
+    assert "if: always()" in post_upload_block
+    assert "post-validation-checkpoint" in post_upload_block
+    assert "if-no-files-found: error" in post_upload_block
     assert "contents: write" not in workflow
     assert "PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY" not in workflow
 
