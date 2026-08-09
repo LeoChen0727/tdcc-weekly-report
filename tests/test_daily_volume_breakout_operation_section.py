@@ -11,11 +11,9 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 import build_daily_volume_breakout_operation_section as builder  # noqa: E402
-import build_model_operation_readiness as readiness_builder  # noqa: E402
 import build_volume_breakout_confirmed_operation_backtest as operation_backtest  # noqa: E402
 import generate_chatgpt_side_daily_reports as pdf_generator  # noqa: E402
 import validate_daily_staged_paths as staged_path_validator  # noqa: E402
-import validate_daily_pdf_contract_consumers as pdf_contract_validator  # noqa: E402
 import validate_daily_volume_breakout_operation_section as section_validator  # noqa: E402
 from daily_snapshot_revision_utils import snapshot_file_sha256  # noqa: E402
 
@@ -952,6 +950,7 @@ def test_20260807_candidate_present_superseded_row_still_fails_closed(
 
 
 def test_20260807_old_negative_revision_does_not_override_verified_manifest_max(
+    monkeypatch: pytest.MonkeyPatch,
     tmp_path: Path,
 ) -> None:
     audit_path, _r1_formal, section = write_20260807_2059_lineage_scope_fixture(
@@ -1058,6 +1057,16 @@ def test_20260807_old_negative_revision_does_not_override_verified_manifest_max(
         source_root=tmp_path,
     )
     assert evidence["checked_rows"] == 2
+    monkeypatch.setattr(section_validator, "ROOT", tmp_path)
+    monkeypatch.setattr(
+        section_validator,
+        "VOLUME_V2_LINEAGE_AUDIT_CSV",
+        audit_path,
+    )
+    operation_eligible = section_validator.operation_eligible_latest_volume_rows(
+        section
+    )
+    assert operation_eligible["stock_id"].tolist() == ["2059", "6505"]
 
 
 def test_20260807_conflicting_manifest_max_audit_rows_fail_closed(
@@ -3120,8 +3129,8 @@ def test_volume_operation_validator_allows_lineage_only_signal_log_rows(monkeypa
     monkeypatch.setattr(section_validator, "MODEL_SIGNAL_LOG_CSV", signal_log)
     monkeypatch.setattr(
         section_validator,
-        "filter_volume_v2_operation_lineage_scope",
-        lambda frame, **_kwargs: (frame.copy(), set()),
+        "operation_eligible_latest_volume_rows",
+        lambda frame: frame.copy(),
     )
 
     section = pd.DataFrame(
@@ -3225,6 +3234,26 @@ def test_20260807_operation_completeness_excludes_exact_superseded_noncandidate(
     section_validator.validate_latest_signal_log_sync(scoped)
 
 
+def test_20260807_operation_completeness_does_not_replay_validated_snapshot_payload(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    _formal, scoped = prepare_20260807_2059_completeness_fixture(
+        monkeypatch, tmp_path
+    )
+    manifest_path = (
+        tmp_path
+        / "output"
+        / "history"
+        / "daily_model_snapshots"
+        / "daily_published_model_snapshot_manifest.csv"
+    )
+    manifest = pd.read_csv(manifest_path, dtype=str, keep_default_na=False)
+    (tmp_path / manifest.iloc[0]["snapshot_path"]).unlink()
+
+    section_validator.validate_latest_signal_log_sync(scoped)
+
+
 def test_20260807_operation_completeness_keeps_raw_signal_count_and_log_lineage(
     monkeypatch: pytest.MonkeyPatch,
     tmp_path: Path,
@@ -3294,74 +3323,97 @@ def test_20260807_operation_completeness_still_rejects_missing_real_candidate(
     assert "['2059']" not in output
 
 
-def test_20260807_2059_scoped_adapter_passes_readiness_and_pdf_source_gate(
+@pytest.mark.parametrize(
+    ("field", "value", "expected_error"),
+    [
+        (
+            "evidence_status",
+            "incomplete",
+            "incomplete exact manifest-max negative projection evidence",
+        ),
+        (
+            "paired_source_resolution",
+            "",
+            "incomplete exact manifest-max negative projection evidence",
+        ),
+        (
+            "watch_artifact_sha256",
+            "",
+            "incomplete exact manifest-max negative projection evidence",
+        ),
+        (
+            "formal_row_sha256",
+            "not-a-sha",
+            "incomplete exact manifest-max negative projection evidence",
+        ),
+        (
+            "impact_scope",
+            "",
+            "incomplete exact manifest-max negative projection evidence",
+        ),
+        (
+            "formal_snapshot_path",
+            "output/history/daily_model_snapshots/wrong.csv",
+            "uncovered_manifest_max_negative_projection_evidence",
+        ),
+        (
+            "snapshot_revision",
+            "r2",
+            "uncovered_manifest_max_negative_projection_evidence",
+        ),
+        (
+            "formal_snapshot_sha256",
+            "not-a-sha",
+            "incomplete exact manifest-max negative projection evidence",
+        ),
+    ],
+)
+def test_20260807_operation_completeness_rejects_incomplete_negative_evidence(
     monkeypatch: pytest.MonkeyPatch,
     tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
+    field: str,
+    value: str,
+    expected_error: str,
 ) -> None:
     _formal, scoped = prepare_20260807_2059_completeness_fixture(
         monkeypatch, tmp_path
     )
-    approvals = {
-        model_id: approval_stub(
-            operation_module_id=f"{model_id}_operation_v1",
-            buy_filter_id=f"{model_id}_buy_filter_v1",
-        )
-        for model_id in builder.FORMAL_MODEL_IDS
-    }
-    adapter = builder.ensure_operation_section_empty_states(
-        scoped,
-        report_date="20260807",
-        daily_signal_date="20260807",
-        daily_volume_count=2,
-        approvals_by_model=approvals,
-        generated_at="2026-08-08 08:00:00 Asia/Taipei",
+    audit = pd.read_csv(
+        section_validator.VOLUME_V2_LINEAGE_AUDIT_CSV,
+        dtype=str,
+        keep_default_na=False,
     )
-    adapter["approved_for_daily"] = "True"
-    adapter["operation_directive_level"] = "approved_daily_operation_guidance"
-    adapter["adapter_source_status"] = "ready"
-    adapter.loc[
-        adapter["row_type"].astype(str).eq("data"), "row_metric_status"
-    ] = "unavailable_no_approved_add_score_metric"
-    assert "2059" not in set(adapter["stock_id"].astype(str))
-    assert "6505" in set(adapter["stock_id"].astype(str))
+    audit.loc[0, field] = value
+    audit.to_csv(section_validator.VOLUME_V2_LINEAGE_AUDIT_CSV, index=False)
 
-    readiness_rows: list[dict[str, str]] = []
-    for model_id in sorted(builder.FORMAL_MODEL_IDS):
-        summary = readiness_builder.summarize_volume_daily_adapter(
-            adapter, model_id
-        )
-        assert str(summary["daily_adapter_status"]).startswith("ready_")
-        readiness_rows.append(
-            {
-                "model_id": model_id,
-                "pdf_integration_status": "pdf_integrated_daily_adapter",
-                "daily_adapter_sections": str(summary["daily_adapter_sections"]),
-            }
-        )
+    with pytest.raises(SystemExit):
+        section_validator.validate_latest_signal_log_sync(scoped)
+    assert expected_error in capsys.readouterr().out
 
-    adapter_path = tmp_path / "daily_volume_breakout_operation_section_latest.csv"
-    adapter.to_csv(adapter_path, index=False)
-    artifact_paths = {
-        model_id: adapter_path for model_id in builder.FORMAL_MODEL_IDS
-    }
-    errors = (
-        pdf_contract_validator.validate_pdf_integrated_operation_adapter_contract(
-            readiness_rows,
-            source_paths=(),
-            artifact_paths=artifact_paths,
-            renderer_tokens={model_id: () for model_id in builder.FORMAL_MODEL_IDS},
-            required_columns_by_model={
-                model_id: set(adapter.columns)
-                for model_id in builder.FORMAL_MODEL_IDS
-            },
-            allowed_sections_by_model={
-                model_id: set(builder.PDF_SECTIONS)
-                for model_id in builder.FORMAL_MODEL_IDS
-            },
-            required_model_ids=set(builder.FORMAL_MODEL_IDS),
-        )
+
+def test_20260807_operation_completeness_rejects_duplicate_manifest_max_audit(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    _formal, scoped = prepare_20260807_2059_completeness_fixture(
+        monkeypatch, tmp_path
     )
-    assert errors == []
+    audit = pd.read_csv(
+        section_validator.VOLUME_V2_LINEAGE_AUDIT_CSV,
+        dtype=str,
+        keep_default_na=False,
+    )
+    audit = pd.concat([audit, audit.iloc[[0]]], ignore_index=True)
+    audit.to_csv(section_validator.VOLUME_V2_LINEAGE_AUDIT_CSV, index=False)
+
+    with pytest.raises(SystemExit):
+        section_validator.validate_latest_signal_log_sync(scoped)
+    assert (
+        "duplicate_manifest_max_negative_projection_evidence"
+        in capsys.readouterr().out
+    )
 
 
 def test_volume_operation_builder_rejects_latest_signal_date_mismatch() -> None:

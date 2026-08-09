@@ -165,7 +165,7 @@ scripts/validate_daily_report_source_preflight.py,python,repo_infrastructure,act
 scripts/validate_daily_signal_performance.py,python,research_backtest,active,research/backtest script: validate_daily_signal_performance,.github/workflows/research_backtest_pipeline.yml;.github/workflows/signal_performance_tracker.yml,
 scripts/validate_daily_staged_paths.py,python,repo_infrastructure,active,daily pipeline staged-path gate,,
 scripts/validate_daily_theme_leadership_layer.py,python,repo_infrastructure,active,validator: validate_daily_theme_leadership_layer,,
-scripts/validate_daily_volume_breakout_operation_section.py,python,daily_production,active,model-owned validator: validate_daily_volume_breakout_operation_section,,
+scripts/validate_daily_volume_breakout_operation_section.py,python,repo_infrastructure,active,validator: validate_daily_volume_breakout_operation_section,,
 scripts/validate_daily_legacy_volume_range_breakout_removed.py,python,daily_production,active,validator: prevent legacy volume_range_breakout v1 formal runtime/PDF/packet consumption,.github/workflows/daily_full_pipeline.yml;.github/workflows/daily_model_maintenance_pr_validation.yml,
 scripts/validate_daily_legacy_mature_model_paths_removed.py,python,daily_production,active,validator: prevent legacy mature model aliases and deprecated executable paths in formal runtime/PDF/packet consumption,.github/workflows/daily_full_pipeline.yml;.github/workflows/daily_model_maintenance_pr_validation.yml,
 scripts/validate_daily_operation_adapter_protected_fields.py,python,repo_infrastructure,active,canonical mature-model operation adapter protected-field and lifecycle-state gate,.github/workflows/daily_full_pipeline.yml;.github/workflows/daily_model_maintenance_pr_validation.yml,
