@@ -3678,6 +3678,22 @@ def render_contact_sheets(
     return manifest_path
 
 
+def emit_utf8_safe_text(text: str, *, stream: Any) -> None:
+    payload = text.rstrip()
+    if not payload:
+        return
+    payload += "\n"
+    try:
+        stream.write(payload)
+        stream.flush()
+    except UnicodeEncodeError:
+        binary_stream = getattr(stream, "buffer", None)
+        if binary_stream is None:
+            raise
+        binary_stream.write(payload.encode("utf-8"))
+        binary_stream.flush()
+
+
 def render_pdfs(args: argparse.Namespace) -> int:
     repo_root = args.repo_root.resolve()
     source_sha = require_sha(args.source_sha, "source_sha")
@@ -3749,7 +3765,7 @@ def render_pdfs(args: argparse.Namespace) -> int:
         os.environ.clear()
         os.environ.update(old_env)
     rendered_stdout = stdout.getvalue()
-    print(rendered_stdout.rstrip())
+    emit_utf8_safe_text(rendered_stdout, stream=sys.stdout)
     pdf_paths = [
         Path(line.strip()).resolve()
         for line in rendered_stdout.splitlines()
