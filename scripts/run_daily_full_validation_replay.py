@@ -133,6 +133,13 @@ REGISTERED_PARITY_VALIDATOR_PATHS = (
     Path("scripts/validate_volume_attack_theme_layer.py"),
     Path("scripts/validate_daily_warrant_formal_sync_scope.py"),
 )
+REGISTERED_PARITY_VALIDATOR_ARGUMENTS = {
+    Path("scripts/validate_daily_candidate_model_layer.py"): (),
+    Path("scripts/validate_volume_attack_theme_layer.py"): (),
+    Path("scripts/validate_daily_warrant_formal_sync_scope.py"): (
+        "--validate-source-date",
+    ),
+}
 PARITY_EVIDENCE_PATHS = (
     MODEL_SIGNAL_PATH,
     ALL_CANDIDATES_PATH,
@@ -153,7 +160,7 @@ MARKET_SESSION_PATH = Path(
 )
 README_PATH = Path("output/latest/READ_ME_FIRST_DAILY_REPORT.txt")
 PACKET_PATH = Path(
-    "output/latest/chatgpt_daily_report_packet_latest.md"
+    "output/latest/chatgpt_daily_report_packet_latest.txt"
 )
 VALIDATION_SOURCE_STATE_PATH = Path(
     "output/validation_replay/20260807/validation_source_state.json"
@@ -164,6 +171,9 @@ PARITY_EVIDENCE_PATH = Path(
 )
 STEP_RESULTS_PATH = Path(
     "output/validation_replay/20260807/step_results.json"
+)
+DELETION_MANIFEST_PATH = Path(
+    "output/validation_replay/20260807/deleted_paths.json"
 )
 SOURCE_REVISION_FILENAME = "source_revision_manifest.json"
 PRICE_HISTORY_EXTENSION_MANIFEST = "price_history_extension_manifest.json"
@@ -1468,8 +1478,19 @@ def run_registered_parity_validators(
 ) -> dict[str, Any]:
     validators: list[dict[str, str]] = []
     for relative_path in REGISTERED_PARITY_VALIDATOR_PATHS:
+        arguments = REGISTERED_PARITY_VALIDATOR_ARGUMENTS.get(relative_path)
+        if arguments is None:
+            raise ValidationReplayError(
+                "registered replay parity validator mode is missing: "
+                f"{relative_path.as_posix()}"
+            )
         run_command(
-            [sys.executable, "-B", relative_path.as_posix()],
+            [
+                sys.executable,
+                "-B",
+                relative_path.as_posix(),
+                *arguments,
+            ],
             cwd=repo_root,
             env=env,
             label=(
@@ -1728,6 +1749,206 @@ def checkpoint_paths(
     return paths
 
 
+def source_tree_file_identity(
+    repo_root: Path, source_sha: str, relative: str
+) -> dict[str, Any]:
+    source_sha = require_sha(source_sha, "source_sha")
+    normalized = Path(relative).as_posix()
+    if (
+        not normalized
+        or Path(normalized).is_absolute()
+        or ".." in Path(normalized).parts
+        or normalized == DELETION_MANIFEST_PATH.as_posix()
+        or not any(
+            normalized == prefix or normalized.startswith(f"{prefix}/")
+            for prefix in ALLOWED_CHECKPOINT_PREFIXES
+        )
+    ):
+        raise ValidationReplayError(
+            f"checkpoint deletion path is not allowed: {relative}"
+        )
+    result = subprocess.run(
+        ["git", "ls-tree", "-z", source_sha, "--", normalized],
+        cwd=repo_root,
+        check=False,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    rows = [row for row in result.stdout.split(b"\0") if row]
+    if result.returncode != 0 or len(rows) != 1 or b"\t" not in rows[0]:
+        raise ValidationReplayError(
+            f"checkpoint deletion source object is missing: {normalized}"
+        )
+    metadata_raw, observed_path_raw = rows[0].split(b"\t", 1)
+    try:
+        metadata = metadata_raw.decode("ascii")
+        observed_path = observed_path_raw.decode("utf-8")
+    except UnicodeDecodeError as error:
+        raise ValidationReplayError(
+            f"checkpoint deletion source path/mode mismatch: {normalized}"
+        ) from error
+    parts = metadata.split()
+    if (
+        observed_path != normalized
+        or len(parts) != 3
+        or parts[0] not in {"100644", "100755"}
+        or parts[1] != "blob"
+        or not re.fullmatch(r"[0-9a-f]{40,64}", parts[2])
+    ):
+        raise ValidationReplayError(
+            f"checkpoint deletion source path/mode mismatch: {normalized}"
+        )
+    blob = subprocess.run(
+        ["git", "cat-file", "blob", parts[2]],
+        cwd=repo_root,
+        check=False,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    if blob.returncode != 0:
+        raise ValidationReplayError(
+            f"checkpoint deletion source blob is unreadable: {normalized}"
+        )
+    return {
+        "path": normalized,
+        "mode": parts[0],
+        "blob_sha": parts[2],
+        "bytes": len(blob.stdout),
+        "sha256": hashlib.sha256(blob.stdout).hexdigest(),
+    }
+
+
+def write_checkpoint_deletion_manifest(
+    repo_root: Path, source_sha: str, deleted_paths: Iterable[str]
+) -> Path:
+    rows: list[dict[str, Any]] = []
+    for relative in sorted(set(deleted_paths)):
+        target = repo_root / Path(relative)
+        if target.exists() or target.is_symlink():
+            raise ValidationReplayError(
+                f"checkpoint deletion path still exists: {relative}"
+            )
+        rows.append(source_tree_file_identity(repo_root, source_sha, relative))
+    payload = {
+        "schema_version": 1,
+        "replay_date": REPLAY_DATE,
+        "source_sha": source_sha,
+        "deletions": rows,
+    }
+    path = repo_root / DELETION_MANIFEST_PATH
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_bytes(canonical_json_bytes(payload))
+    return path
+
+
+def checkpoint_deletion_baseline_matches(
+    repo_root: Path,
+    target: Path,
+    relative: str,
+    expected: dict[str, Any],
+) -> bool:
+    if not target.is_file() or target.is_symlink():
+        return False
+    content = target.read_bytes()
+    if (
+        len(content) == expected["bytes"]
+        and hashlib.sha256(content).hexdigest() == expected["sha256"]
+    ):
+        return True
+    canonical = subprocess.run(
+        ["git", "hash-object", "--path", relative, "--stdin"],
+        cwd=repo_root,
+        check=False,
+        input=content,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    observed = canonical.stdout.strip()
+    if (
+        canonical.returncode != 0
+        or not re.fullmatch(rb"[0-9a-f]{40,64}", observed)
+    ):
+        raise ValidationReplayError(
+            "checkpoint deletion Git canonicalization failed: "
+            f"{relative}"
+        )
+    return observed.decode("ascii") == expected["blob_sha"]
+
+
+def apply_checkpoint_deletions(
+    repo_root: Path, source_sha: str
+) -> list[str]:
+    path = repo_root / DELETION_MANIFEST_PATH
+    if not path.is_file() or path.is_symlink():
+        raise ValidationReplayError(
+            "checkpoint deletion manifest is missing or not a regular file"
+        )
+    raw = path.read_bytes()
+    try:
+        payload = json.loads(raw.decode("utf-8"))
+    except (UnicodeDecodeError, json.JSONDecodeError) as error:
+        raise ValidationReplayError(
+            "checkpoint deletion manifest is not UTF-8 JSON"
+        ) from error
+    if raw != canonical_json_bytes(payload):
+        raise ValidationReplayError(
+            "checkpoint deletion manifest is not canonical"
+        )
+    if (
+        set(payload) != {
+            "schema_version",
+            "replay_date",
+            "source_sha",
+            "deletions",
+        }
+        or payload.get("schema_version") != 1
+        or payload.get("replay_date") != REPLAY_DATE
+        or payload.get("source_sha") != source_sha
+        or not isinstance(payload.get("deletions"), list)
+    ):
+        raise ValidationReplayError(
+            "checkpoint deletion manifest identity mismatch"
+        )
+    deleted: list[str] = []
+    seen: set[str] = set()
+    for row in payload["deletions"]:
+        if not isinstance(row, dict) or set(row) != {
+            "path",
+            "mode",
+            "blob_sha",
+            "bytes",
+            "sha256",
+        }:
+            raise ValidationReplayError(
+                "checkpoint deletion row is malformed"
+            )
+        relative = str(row.get("path") or "")
+        if relative in seen:
+            raise ValidationReplayError(
+                f"checkpoint deletion path is duplicated: {relative}"
+            )
+        seen.add(relative)
+        expected = source_tree_file_identity(repo_root, source_sha, relative)
+        if row != expected:
+            raise ValidationReplayError(
+                f"checkpoint deletion source identity drift: {relative}"
+            )
+        target = repo_root / Path(relative)
+        if not checkpoint_deletion_baseline_matches(
+            repo_root, target, relative, expected
+        ):
+            raise ValidationReplayError(
+                f"checkpoint deletion baseline content drift: {relative}"
+            )
+        target.unlink()
+        if target.exists() or target.is_symlink():
+            raise ValidationReplayError(
+                f"checkpoint deletion did not remove path: {relative}"
+            )
+        deleted.append(relative)
+    return deleted
+
+
 def capture_checkpoint(
     *,
     repo_root: Path,
@@ -1740,16 +1961,105 @@ def capture_checkpoint(
     checkpoint_kind: str,
     capture_context: str,
     producer_steps: Sequence[str],
+    source_revision_manifest_path: Path | None = None,
 ) -> dict[str, Any]:
-    source_revision_path = runner_temp / SOURCE_REVISION_FILENAME
-    _revision, required = create_source_revision_manifest(
-        repo_root=repo_root,
-        output_path=source_revision_path,
-        source_sha=source_sha,
-        revision_kind=revision_kind,
-        structured_manifest_path=structured_manifest_path,
-    )
+    if source_revision_manifest_path is None:
+        source_revision_path = runner_temp / SOURCE_REVISION_FILENAME
+        _revision, required = create_source_revision_manifest(
+            repo_root=repo_root,
+            output_path=source_revision_path,
+            source_sha=source_sha,
+            revision_kind=revision_kind,
+            structured_manifest_path=structured_manifest_path,
+        )
+    else:
+        source_revision_path = source_revision_manifest_path
+        raw = source_revision_path.read_bytes()
+        try:
+            revision = json.loads(raw.decode("utf-8"))
+        except (UnicodeDecodeError, json.JSONDecodeError) as error:
+            raise ValidationReplayError(
+                "replay source revision manifest is not UTF-8 JSON"
+            ) from error
+        if raw != canonical_json_bytes(revision):
+            raise ValidationReplayError(
+                "replay source revision manifest is not canonical"
+            )
+        if (
+            revision.get("source_sha") != source_sha
+            or revision.get("replay_source_sha") != source_sha
+            or revision.get("replay_date") != REPLAY_DATE
+            or revision.get("revision_kind") != revision_kind
+        ):
+            raise ValidationReplayError(
+                "replay source revision manifest identity mismatch"
+            )
+        structured = revision.get("structured_source_manifest")
+        if structured_manifest_path is None or not isinstance(
+            structured, dict
+        ):
+            raise ValidationReplayError(
+                "replay source revision manifest lacks structured identity"
+            )
+        structured_relative = structured_manifest_path.relative_to(
+            repo_root
+        ).as_posix()
+        if (
+            structured.get("path") != structured_relative
+            or structured.get("bytes") != structured_manifest_path.stat().st_size
+            or str(structured.get("sha256") or "").lower()
+            != sha256_file(structured_manifest_path)
+        ):
+            raise ValidationReplayError(
+                "replay source revision structured identity mismatch"
+            )
+        sources = revision.get("sources")
+        if not isinstance(sources, list) or not sources:
+            raise ValidationReplayError(
+                "replay source revision source allowlist is missing"
+            )
+        required = []
+        for row in sources:
+            if not isinstance(row, dict):
+                raise ValidationReplayError(
+                    "replay source revision source row is malformed"
+                )
+            artifact_path = str(row.get("artifact_path") or "")
+            if not artifact_path or ".." in Path(artifact_path).parts:
+                raise ValidationReplayError(
+                    "replay source revision artifact path is malformed"
+                )
+            artifact = repo_root / artifact_path
+            if (
+                not artifact.is_file()
+                or row.get("bytes") != artifact.stat().st_size
+                or str(row.get("sha256") or "").lower()
+                != sha256_file(artifact)
+            ):
+                raise ValidationReplayError(
+                    "replay source revision artifact identity mismatch: "
+                    f"{artifact_path}"
+                )
+            required.append(artifact_path)
+        required.append(structured_relative)
     paths = checkpoint_paths(repo_root, required)
+    deleted_paths = [
+        relative
+        for relative in paths
+        if not (repo_root / Path(relative)).is_file()
+    ]
+    if set(deleted_paths) & set(required):
+        raise ValidationReplayError(
+            "required source identity path cannot be deleted from checkpoint"
+        )
+    deletion_manifest = write_checkpoint_deletion_manifest(
+        repo_root, source_sha, deleted_paths
+    )
+    deletion_relative = deletion_manifest.relative_to(repo_root).as_posix()
+    paths = sorted(
+        {relative for relative in paths if relative not in deleted_paths}
+        | {deletion_relative}
+    )
     return checkpoint.create_checkpoint(
         repo_root=repo_root,
         bundle_dir=bundle_dir,
@@ -1972,8 +2282,114 @@ def capture_production_checkpoint(args: argparse.Namespace) -> int:
     return 0
 
 
+def write_validation_only_pdf_source_readme(
+    *,
+    repo_root: Path,
+    replay_source_sha: str,
+    transition: dict[str, Any],
+    validation_env: dict[str, str],
+) -> Path:
+    if validation_env.get("DAILY_FULL_VALIDATION_ONLY") != "1":
+        raise ValidationReplayError(
+            "validation-only PDF source README requires validation-only mode"
+        )
+    replay_source_sha = require_sha(
+        replay_source_sha, "replay_source_sha"
+    )
+    checkpoint_source_sha = require_sha(
+        str(transition.get("checkpoint_source_sha") or ""),
+        "checkpoint_source_sha",
+    )
+    _columns, rows = read_csv_rows(repo_root / FRESHNESS_PATH)
+    if len(rows) != 1:
+        raise ValidationReplayError(
+            "validation-only PDF source README requires one freshness row"
+        )
+    freshness = rows[0]
+    for field in (
+        "expected_main_price_date",
+        "main_price_date",
+        "stock_monitor_price_date",
+        "all_candidates_date",
+        "official_price_fetch_date",
+        "warrant_flow_date",
+    ):
+        if freshness.get(field, "") != REPLAY_DATE:
+            raise ValidationReplayError(
+                "validation-only PDF source README freshness date mismatch: "
+                f"{field}={freshness.get(field, '')!r}"
+            )
+    for field in ("report_ready", "warrant_ready", "daily_pdf_ready"):
+        if str(freshness.get(field, "")).strip().lower() != "true":
+            raise ValidationReplayError(
+                "validation-only PDF source README readiness mismatch: "
+                f"{field}={freshness.get(field, '')!r}"
+            )
+    market = json.loads(
+        (repo_root / MARKET_SESSION_PATH).read_text(encoding="utf-8-sig")
+    )
+    if market.get("expected_main_price_date") != REPLAY_DATE:
+        raise ValidationReplayError(
+            "validation-only PDF source README market date mismatch"
+        )
+    if not (repo_root / PACKET_PATH).is_file():
+        raise ValidationReplayError(
+            f"PDF source-gate artifact missing: {PACKET_PATH}"
+        )
+    fields = {
+        "validation_only": "true",
+        "production_not_run": "true",
+        "official_pdf_published": "false",
+        "repo_artifacts_pushed": "false",
+        "main_price_date": REPLAY_DATE,
+        "expected_main_price_date": REPLAY_DATE,
+        "market_session_date": str(
+            market.get("market_session_date") or REPLAY_DATE
+        ),
+        "market_status": str(market.get("market_status") or ""),
+        "report_ready": "True",
+        "warrant_ready": "True",
+        "daily_pdf_ready": "True",
+        "warrant_source_status": str(
+            freshness.get("warrant_source_status") or "ok"
+        ),
+        "warrant_pdf_visibility": str(
+            freshness.get("warrant_pdf_visibility") or "visible"
+        ),
+        "warrant_source_status_note": (
+            "validation-only authoritative historical replay"
+        ),
+        "checkpoint_source_sha": checkpoint_source_sha,
+        "replay_source_sha": replay_source_sha,
+        "source_commit_sha": replay_source_sha,
+    }
+    path = repo_root / README_PATH
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        "".join(f"{key}={value}\n" for key, value in fields.items()),
+        encoding="utf-8",
+        newline="\n",
+    )
+    return path
+
+
+def read_key_value_file(path: Path) -> dict[str, str]:
+    fields: dict[str, str] = {}
+    for raw_line in path.read_text(
+        encoding="utf-8-sig", errors="strict"
+    ).splitlines():
+        line = raw_line.strip()
+        if not line or "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        fields[key.strip()] = value.strip()
+    return fields
+
+
 def require_freshness_contract(
-    repo_root: Path, source_sha: str
+    repo_root: Path,
+    source_sha: str,
+    checkpoint_source_sha: str,
 ) -> dict[str, Any]:
     _columns, rows = read_csv_rows(repo_root / FRESHNESS_PATH)
     if len(rows) != 1:
@@ -2017,6 +2433,31 @@ def require_freshness_contract(
             raise ValidationReplayError(
                 f"PDF source-gate artifact missing: {required}"
             )
+    readme_fields = read_key_value_file(repo_root / README_PATH)
+    expected_readme_fields = {
+        "validation_only": "true",
+        "production_not_run": "true",
+        "official_pdf_published": "false",
+        "repo_artifacts_pushed": "false",
+        "main_price_date": REPLAY_DATE,
+        "expected_main_price_date": REPLAY_DATE,
+        "report_ready": "True",
+        "warrant_ready": "True",
+        "daily_pdf_ready": "True",
+        "checkpoint_source_sha": checkpoint_source_sha,
+        "replay_source_sha": source_sha,
+        "source_commit_sha": source_sha,
+    }
+    readme_mismatches = {
+        key: readme_fields.get(key)
+        for key, expected in expected_readme_fields.items()
+        if readme_fields.get(key) != expected
+    }
+    if readme_mismatches:
+        raise ValidationReplayError(
+            "validation-only PDF source README identity mismatch: "
+            f"{readme_mismatches}"
+        )
     state = {
         "source": f"validation-checkpoint:{source_sha}",
         "source_ref": f"validation-checkpoint:{source_sha}",
@@ -2047,7 +2488,7 @@ def require_freshness_contract(
         "daily_pdf_ready": True,
         "allow_report_generation": True,
         "freshness_fields": row,
-        "readme_fields": {},
+        "readme_fields": readme_fields,
         "packet_fields": {},
         "market_session_fields": market,
         "validation_replay_main_price_date": REPLAY_DATE,
@@ -2291,6 +2732,205 @@ def require_authorized_checkpoint_bundle_identity(bundle_dir: Path) -> None:
         )
 
 
+def checkpoint_manifest_file_mode(path: Path) -> int:
+    return path.lstat().st_mode
+
+
+def require_checkpoint_structured_source_manifest_identity(
+    *,
+    repo_root: Path,
+    checkpoint_manifest: dict[str, Any],
+    checkpoint_source_sha: str,
+) -> Path:
+    expected_suffix = f"/{REPLAY_DATE}/structured_source_manifest.json"
+    entries = [
+        row
+        for row in checkpoint_manifest.get("files", [])
+        if isinstance(row, dict)
+        and str(row.get("path") or "").startswith(
+            "output/history/historical_source_replay/"
+        )
+        and str(row.get("path") or "").endswith(expected_suffix)
+    ]
+    if len(entries) != 1:
+        raise ValidationReplayError(
+            "checkpoint structured source manifest has no unique allowlist entry"
+        )
+    entry = entries[0]
+    relative = str(entry.get("path") or "")
+    expected_bytes = entry.get("bytes")
+    expected_sha = str(entry.get("sha256") or "").lower()
+    if (
+        ".." in Path(relative).parts
+        or not isinstance(expected_bytes, int)
+        or expected_bytes <= 0
+        or not re.fullmatch(r"[0-9a-f]{64}", expected_sha)
+    ):
+        raise ValidationReplayError(
+            "checkpoint structured source manifest path/date identity mismatch"
+        )
+    path = repo_root / relative
+    if not path.exists() or path.is_symlink():
+        raise ValidationReplayError(
+            "restored checkpoint structured source manifest is missing"
+        )
+    mode = checkpoint_manifest_file_mode(path)
+    if not stat.S_ISREG(mode) or stat.S_IMODE(mode) & 0o111:
+        raise ValidationReplayError(
+            "checkpoint structured source manifest mode mismatch: "
+            f"observed={stat.filemode(mode)}"
+        )
+    raw = path.read_bytes()
+    observed_sha = hashlib.sha256(raw).hexdigest()
+    if len(raw) != expected_bytes or observed_sha != expected_sha:
+        raise ValidationReplayError(
+            "restored checkpoint structured source manifest bytes/SHA mismatch"
+        )
+    try:
+        payload = json.loads(raw.decode("utf-8"))
+    except (UnicodeDecodeError, json.JSONDecodeError) as error:
+        raise ValidationReplayError(
+            "restored checkpoint structured source manifest is not UTF-8 JSON"
+        ) from error
+    if payload.get("report_date") != REPLAY_DATE:
+        raise ValidationReplayError(
+            "checkpoint structured source manifest report date mismatch"
+        )
+    if payload.get("pipeline_commit_sha") != checkpoint_source_sha:
+        raise ValidationReplayError(
+            "checkpoint structured source manifest source SHA mismatch: "
+            f"expected={checkpoint_source_sha} "
+            f"observed={payload.get('pipeline_commit_sha')!r}"
+        )
+    return path
+
+
+def require_checkpoint_source_revision_manifest_identity(
+    *,
+    bundle_dir: Path,
+    repo_root: Path,
+    checkpoint_manifest: dict[str, Any],
+    checkpoint_source_sha: str,
+    structured_source_manifest: Path | None,
+) -> Path:
+    metadata = checkpoint_manifest.get("source_revision_manifest")
+    if not isinstance(metadata, dict) or set(metadata) != {
+        "bytes",
+        "path",
+        "sha256",
+    }:
+        raise ValidationReplayError(
+            "checkpoint source revision manifest metadata is malformed"
+        )
+    relative = str(metadata.get("path") or "")
+    if relative != SOURCE_REVISION_FILENAME:
+        raise ValidationReplayError(
+            "checkpoint source revision manifest path/object mismatch: "
+            f"expected={SOURCE_REVISION_FILENAME} observed={relative!r}"
+        )
+    expected_bytes = metadata.get("bytes")
+    expected_sha = str(metadata.get("sha256") or "").lower()
+    if (
+        not isinstance(expected_bytes, int)
+        or expected_bytes <= 0
+        or not re.fullmatch(r"[0-9a-f]{64}", expected_sha)
+    ):
+        raise ValidationReplayError(
+            "checkpoint source revision manifest bytes/SHA metadata is malformed"
+        )
+    source_path = bundle_dir / relative
+    if not source_path.exists() or source_path.is_symlink():
+        raise ValidationReplayError(
+            "checkpoint source revision manifest is missing or not a regular file"
+        )
+    mode = checkpoint_manifest_file_mode(source_path)
+    if not stat.S_ISREG(mode) or stat.S_IMODE(mode) & 0o111:
+        raise ValidationReplayError(
+            "checkpoint source revision manifest mode mismatch: "
+            f"observed={stat.filemode(mode)}"
+        )
+    raw = source_path.read_bytes()
+    raw_sha = hashlib.sha256(raw).hexdigest()
+    if len(raw) != expected_bytes or raw_sha != expected_sha:
+        raise ValidationReplayError(
+            "checkpoint source revision manifest raw bytes/SHA mismatch: "
+            f"expected_bytes={expected_bytes} observed_bytes={len(raw)} "
+            f"expected_sha={expected_sha} observed_sha={raw_sha}"
+        )
+    try:
+        payload = json.loads(raw.decode("utf-8"))
+    except (UnicodeDecodeError, json.JSONDecodeError) as error:
+        raise ValidationReplayError(
+            "checkpoint source revision manifest is not canonical UTF-8 JSON"
+        ) from error
+    canonical = canonical_json_bytes(payload)
+    canonical_sha = hashlib.sha256(canonical).hexdigest()
+    if raw != canonical or canonical_sha != expected_sha:
+        raise ValidationReplayError(
+            "checkpoint source revision manifest raw/canonical SHA mismatch: "
+            f"raw_sha={raw_sha} canonical_sha={canonical_sha} "
+            f"expected_sha={expected_sha}"
+        )
+    if payload.get("schema_version") != 1:
+        raise ValidationReplayError(
+            "checkpoint source revision manifest schema mismatch"
+        )
+    if payload.get("revision_kind") != "authoritative_historical_revision":
+        raise ValidationReplayError(
+            "checkpoint source revision manifest revision kind mismatch"
+        )
+    if payload.get("replay_date") != REPLAY_DATE:
+        raise ValidationReplayError(
+            "checkpoint source revision manifest date mismatch: "
+            f"expected={REPLAY_DATE} observed={payload.get('replay_date')!r}"
+        )
+    if payload.get("source_sha") != checkpoint_source_sha:
+        raise ValidationReplayError(
+            "checkpoint source revision manifest source SHA mismatch: "
+            f"expected={checkpoint_source_sha} "
+            f"observed={payload.get('source_sha')!r}"
+        )
+    structured = payload.get("structured_source_manifest")
+    if not isinstance(structured, dict) or set(structured) != {
+        "bytes",
+        "path",
+        "sha256",
+    }:
+        raise ValidationReplayError(
+            "checkpoint structured source manifest identity is malformed"
+        )
+    structured_relative = str(structured.get("path") or "")
+    structured_bytes = structured.get("bytes")
+    structured_sha = str(structured.get("sha256") or "").lower()
+    expected_suffix = f"/{REPLAY_DATE}/structured_source_manifest.json"
+    if (
+        not structured_relative.startswith(
+            "output/history/historical_source_replay/"
+        )
+        or not structured_relative.endswith(expected_suffix)
+        or ".." in Path(structured_relative).parts
+        or not isinstance(structured_bytes, int)
+        or structured_bytes <= 0
+        or not re.fullmatch(r"[0-9a-f]{64}", structured_sha)
+    ):
+        raise ValidationReplayError(
+            "checkpoint structured source manifest path/date identity mismatch"
+        )
+    observed_relative = structured_source_manifest.relative_to(
+        repo_root
+    ).as_posix()
+    structured_raw = structured_source_manifest.read_bytes()
+    if (
+        observed_relative != structured_relative
+        or len(structured_raw) != structured_bytes
+        or hashlib.sha256(structured_raw).hexdigest() != structured_sha
+    ):
+        raise ValidationReplayError(
+            "checkpoint structured source manifest identity/allowlist mismatch"
+        )
+    return source_path
+
+
 def write_replay_source_revision_manifest(
     *,
     source_manifest_path: Path,
@@ -2302,7 +2942,9 @@ def write_replay_source_revision_manifest(
     replay_source_sha = str(transition["replay_source_sha"])
     if payload.get("source_sha") != checkpoint_source_sha:
         raise ValidationReplayError(
-            "checkpoint source revision manifest SHA identity mismatch"
+            "checkpoint source revision manifest source SHA mismatch: "
+            f"expected={checkpoint_source_sha} "
+            f"observed={payload.get('source_sha')!r}"
         )
     payload["source_sha"] = replay_source_sha
     payload["checkpoint_source_sha"] = checkpoint_source_sha
@@ -2322,7 +2964,11 @@ def write_validation_source_state(
     replay_source_sha: str,
     transition: dict[str, Any],
 ) -> dict[str, Any]:
-    state = require_freshness_contract(repo_root, replay_source_sha)
+    state = require_freshness_contract(
+        repo_root,
+        replay_source_sha,
+        str(transition["checkpoint_source_sha"]),
+    )
     state["checkpoint_source_sha"] = transition["checkpoint_source_sha"]
     state["replay_source_sha"] = replay_source_sha
     files = {}
@@ -2497,7 +3143,10 @@ def capture_replay_failure_checkpoint(
     bundle_dir: Path,
     source_sha: str,
     run_id: str,
-    replay_source_manifest: Path,
+    checkpoint_source_sha: str,
+    structured_source_manifest: Path,
+    replay_source_manifest: Path | None,
+    failure_phase: str,
     steps: Sequence[dict[str, str]],
     error: Exception,
 ) -> dict[str, Any]:
@@ -2510,6 +3159,8 @@ def capture_replay_failure_checkpoint(
                 "mode": "replay_failure",
                 "replay_date": REPLAY_DATE,
                 "source_sha": source_sha,
+                "checkpoint_source_sha": checkpoint_source_sha,
+                "failure_phase": failure_phase,
                 "error": str(error),
                 "steps": list(steps),
                 "production_not_run": True,
@@ -2520,19 +3171,56 @@ def capture_replay_failure_checkpoint(
     producer_steps = [
         f"{row.get('step', 'unknown')}:{row.get('status', 'unknown')}"
         for row in steps
-    ] or ["failure_before_named_step"]
+    ] or [f"{failure_phase}:failure"]
     return capture_checkpoint(
         repo_root=repo_root,
         bundle_dir=bundle_dir,
         runner_temp=runner_temp,
         source_sha=source_sha,
         run_id=run_id,
-        structured_manifest_path=replay_source_manifest,
+        structured_manifest_path=structured_source_manifest,
         revision_kind="authoritative_historical_revision",
-        checkpoint_kind="post_step_failure",
-        capture_context="validation_replay_failure",
+        checkpoint_kind="post_validation",
+        capture_context="validation_replay",
         producer_steps=producer_steps,
+        source_revision_manifest_path=replay_source_manifest,
     )
+
+
+def write_minimal_replay_failure_upload_receipt(
+    *,
+    bundle_dir: Path,
+    source_sha: str,
+    checkpoint_source_sha: str,
+    run_id: str,
+    failure_phase: str,
+    error: Exception,
+    capture_error: Exception,
+) -> Path:
+    bundle_dir.mkdir(parents=True, exist_ok=True)
+    payload = {
+        "schema_version": 1,
+        "mode": "replay_failure_minimal_receipt",
+        "replay_date": REPLAY_DATE,
+        "source_sha": source_sha,
+        "checkpoint_source_sha": checkpoint_source_sha,
+        "run_id": str(run_id),
+        "failure_phase": failure_phase,
+        "error": str(error),
+        "full_checkpoint_capture_error": str(capture_error),
+        "production_not_run": True,
+        "official_pdf_published": False,
+        "repo_artifacts_pushed": False,
+    }
+    path = bundle_dir / "replay_failure_evidence.json"
+    if path.exists():
+        raise ValidationReplayError(
+            "minimal replay failure receipt destination already exists"
+        )
+    path.write_bytes(canonical_json_bytes(payload))
+    sidecar = bundle_dir / "replay_failure_evidence.json.sha256"
+    sidecar.write_text(sha256_file(path) + "\n", encoding="ascii")
+    return path
 
 
 def replay_from_checkpoint(args: argparse.Namespace) -> int:
@@ -2565,47 +3253,58 @@ def replay_from_checkpoint(args: argparse.Namespace) -> int:
         expected_kind="pre_step41",
         expected_capture_context="validation_canary",
     )
-    structured_paths = sorted(
-        repo_root.glob(
-            "output/history/historical_source_replay/*/"
-            f"{REPLAY_DATE}/structured_source_manifest.json"
-        ),
-        key=lambda path: path.stat().st_mtime_ns,
-    )
-    if not structured_paths:
-        raise ValidationReplayError(
-            "restored historical source manifest is missing"
-        )
-    replay_source_manifest = write_replay_source_revision_manifest(
-        source_manifest_path=structured_paths[-1],
-        output_path=runner_temp / "replay_source_revision_manifest.json",
-        transition=transition,
-    )
-    materialize_publish_freshness_baseline(
-        repo_root=repo_root,
-        runner_temp=runner_temp,
-        checkpoint_source_sha=checkpoint_source_sha,
-        checkpoint_manifest=checkpoint_manifest,
-    )
-    env = base_environment(
-        repo_root=repo_root,
-        runner_temp=runner_temp,
-        source_sha=source_sha,
-    )
-    market = json.loads(
-        (repo_root / MARKET_SESSION_PATH).read_text(
-            encoding="utf-8-sig"
-        )
-    )
-    env["MARKET_STATUS"] = str(
-        market.get("market_status") or ""
-    )
-    env["MARKET_SESSION_DATE"] = str(
-        market.get("market_session_date") or REPLAY_DATE
-    )
-    names = post_step_names(repo_root)
     steps: list[dict[str, str]] = []
+    checkpoint_structured_manifest: Path | None = None
+    replay_source_manifest: Path | None = None
+    failure_phase = "verify checkpoint structured source manifest"
     try:
+        checkpoint_structured_manifest = (
+            require_checkpoint_structured_source_manifest_identity(
+                repo_root=repo_root,
+                checkpoint_manifest=checkpoint_manifest,
+                checkpoint_source_sha=checkpoint_source_sha,
+            )
+        )
+        failure_phase = "verify checkpoint source revision manifest"
+        source_revision_manifest = (
+            require_checkpoint_source_revision_manifest_identity(
+                bundle_dir=bundle_dir,
+                repo_root=repo_root,
+                checkpoint_manifest=checkpoint_manifest,
+                checkpoint_source_sha=checkpoint_source_sha,
+                structured_source_manifest=checkpoint_structured_manifest,
+            )
+        )
+        failure_phase = "write replay source revision manifest"
+        replay_source_manifest = write_replay_source_revision_manifest(
+            source_manifest_path=source_revision_manifest,
+            output_path=runner_temp / "replay_source_revision_manifest.json",
+            transition=transition,
+        )
+        failure_phase = "materialize publish freshness baseline"
+        materialize_publish_freshness_baseline(
+            repo_root=repo_root,
+            runner_temp=runner_temp,
+            checkpoint_source_sha=checkpoint_source_sha,
+            checkpoint_manifest=checkpoint_manifest,
+        )
+        failure_phase = "prepare replay environment"
+        env = base_environment(
+            repo_root=repo_root,
+            runner_temp=runner_temp,
+            source_sha=source_sha,
+        )
+        market = json.loads(
+            (repo_root / MARKET_SESSION_PATH).read_text(
+                encoding="utf-8-sig"
+            )
+        )
+        env["MARKET_STATUS"] = str(market.get("market_status") or "")
+        env["MARKET_SESSION_DATE"] = str(
+            market.get("market_session_date") or REPLAY_DATE
+        )
+        names = post_step_names(repo_root)
+        failure_phase = "run post-step41 validation gates"
         run_named_steps(
             repo_root=repo_root,
             env=env,
@@ -2621,73 +3320,143 @@ def replay_from_checkpoint(args: argparse.Namespace) -> int:
                 bundle_dir=args.post_bundle_dir.resolve(),
                 source_sha=source_sha,
                 run_id=args.run_id,
+                checkpoint_source_sha=checkpoint_source_sha,
+                structured_source_manifest=checkpoint_structured_manifest,
                 replay_source_manifest=replay_source_manifest,
+                failure_phase=failure_phase,
                 steps=steps,
                 error=error,
             )
         except Exception as capture_error:
+            try:
+                write_minimal_replay_failure_upload_receipt(
+                    bundle_dir=args.post_bundle_dir.resolve(),
+                    source_sha=source_sha,
+                    checkpoint_source_sha=checkpoint_source_sha,
+                    run_id=args.run_id,
+                    failure_phase=failure_phase,
+                    error=error,
+                    capture_error=capture_error,
+                )
+            except Exception as receipt_error:
+                raise ValidationReplayError(
+                    f"{error}; failure checkpoint capture failed: "
+                    f"{capture_error}; minimal failure receipt failed: "
+                    f"{receipt_error}"
+                ) from error
             raise ValidationReplayError(
                 f"{error}; failure checkpoint capture failed: "
-                f"{capture_error}"
+                f"{capture_error}; minimal failure receipt written"
             ) from error
         raise
-    parity_evidence = run_registered_parity_validators(
-        repo_root,
-        env,
-    )
-    source_state = write_validation_source_state(
-        repo_root, source_sha, transition
-    )
-    parity = {
-        "schema_version": 1,
-        "replay_date": REPLAY_DATE,
-        "source_sha": source_sha,
-        "checkpoint_source_sha": checkpoint_source_sha,
-        "replay_source_sha": source_sha,
-        "revision_transition": transition,
-        "checkpoint_run_id": args.checkpoint_run_id,
-        "original_failure_step": POST_START_STEP,
-        "original_failure_stock_id": "2059",
-        "registered_parity_validation": parity_evidence,
-        "pdf_source_gate": {
-            "status": "pass",
-            "main_price_date": source_state["source_state"][
-                "main_price_date"
-            ],
-            "report_ready": True,
-            "daily_pdf_ready": True,
-        },
-        "production_not_run": True,
-        "official_pdf_published": False,
-    }
-    parity_path = repo_root / PARITY_EVIDENCE_PATH
-    parity_path.parent.mkdir(parents=True, exist_ok=True)
-    parity_path.write_bytes(canonical_json_bytes(parity))
-    step_path = repo_root / STEP_RESULTS_PATH
-    step_path.write_bytes(
-        canonical_json_bytes(
-            {
-                "schema_version": 1,
-                "mode": "replay",
-                "replay_date": REPLAY_DATE,
-                "source_sha": source_sha,
-                "checkpoint_source_sha": checkpoint_source_sha,
-                "replay_source_sha": source_sha,
-                "steps": steps,
-            }
+    assert checkpoint_structured_manifest is not None
+    assert replay_source_manifest is not None
+    failure_phase = "run registered replay parity validators"
+    try:
+        parity_evidence = run_registered_parity_validators(
+            repo_root,
+            env,
         )
-    )
+        failure_phase = "materialize validation-only PDF source README"
+        write_validation_only_pdf_source_readme(
+            repo_root=repo_root,
+            replay_source_sha=source_sha,
+            transition=transition,
+            validation_env=env,
+        )
+        failure_phase = "write validation replay source state"
+        source_state = write_validation_source_state(
+            repo_root, source_sha, transition
+        )
+        parity = {
+            "schema_version": 1,
+            "replay_date": REPLAY_DATE,
+            "source_sha": source_sha,
+            "checkpoint_source_sha": checkpoint_source_sha,
+            "replay_source_sha": source_sha,
+            "revision_transition": transition,
+            "checkpoint_run_id": args.checkpoint_run_id,
+            "original_failure_step": POST_START_STEP,
+            "original_failure_stock_id": "2059",
+            "registered_parity_validation": parity_evidence,
+            "pdf_source_gate": {
+                "status": "pass",
+                "main_price_date": source_state["source_state"][
+                    "main_price_date"
+                ],
+                "report_ready": True,
+                "daily_pdf_ready": True,
+            },
+            "production_not_run": True,
+            "official_pdf_published": False,
+        }
+        failure_phase = "write validation replay parity evidence"
+        parity_path = repo_root / PARITY_EVIDENCE_PATH
+        parity_path.parent.mkdir(parents=True, exist_ok=True)
+        parity_path.write_bytes(canonical_json_bytes(parity))
+        step_path = repo_root / STEP_RESULTS_PATH
+        step_path.write_bytes(
+            canonical_json_bytes(
+                {
+                    "schema_version": 1,
+                    "mode": "replay",
+                    "replay_date": REPLAY_DATE,
+                    "source_sha": source_sha,
+                    "checkpoint_source_sha": checkpoint_source_sha,
+                    "replay_source_sha": source_sha,
+                    "steps": steps,
+                }
+            )
+        )
+    except Exception as error:
+        try:
+            capture_replay_failure_checkpoint(
+                repo_root=repo_root,
+                runner_temp=runner_temp,
+                bundle_dir=args.post_bundle_dir.resolve(),
+                source_sha=source_sha,
+                run_id=args.run_id,
+                checkpoint_source_sha=checkpoint_source_sha,
+                structured_source_manifest=checkpoint_structured_manifest,
+                replay_source_manifest=replay_source_manifest,
+                failure_phase=failure_phase,
+                steps=steps,
+                error=error,
+            )
+        except Exception as capture_error:
+            try:
+                write_minimal_replay_failure_upload_receipt(
+                    bundle_dir=args.post_bundle_dir.resolve(),
+                    source_sha=source_sha,
+                    checkpoint_source_sha=checkpoint_source_sha,
+                    run_id=args.run_id,
+                    failure_phase=failure_phase,
+                    error=error,
+                    capture_error=capture_error,
+                )
+            except Exception as receipt_error:
+                raise ValidationReplayError(
+                    f"{error}; failure checkpoint capture failed: "
+                    f"{capture_error}; minimal failure receipt failed: "
+                    f"{receipt_error}"
+                ) from error
+            raise ValidationReplayError(
+                f"{error}; failure checkpoint capture failed: "
+                f"{capture_error}; minimal failure receipt written"
+            ) from error
+        raise
     manifest = capture_checkpoint(
         repo_root=repo_root,
         bundle_dir=args.post_bundle_dir.resolve(),
         runner_temp=runner_temp,
         source_sha=source_sha,
         run_id=args.run_id,
-        structured_manifest_path=replay_source_manifest,
+        structured_manifest_path=checkpoint_structured_manifest,
         revision_kind="authoritative_historical_revision",
         checkpoint_kind="post_validation",
         capture_context="validation_replay",
         producer_steps=[row["step"] for row in steps],
+        source_revision_manifest_path=replay_source_manifest,
     )
     print(
         json.dumps(
@@ -2921,6 +3690,7 @@ def render_pdfs(args: argparse.Namespace) -> int:
         expected_kind="post_validation",
         expected_capture_context="validation_replay",
     )
+    apply_checkpoint_deletions(repo_root, source_sha)
     source_state = verify_local_source_state(
         repo_root, source_sha
     )
