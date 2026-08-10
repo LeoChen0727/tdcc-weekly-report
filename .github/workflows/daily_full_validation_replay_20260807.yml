@@ -139,7 +139,7 @@ jobs:
           exit 86
 
   replay:
-    if: inputs.mode == 'replay'
+    if: inputs.mode == 'replay' && inputs.checkpoint_run_id != '31384317163'
     runs-on: ubuntu-latest
     timeout-minutes: 150
     outputs:
@@ -305,8 +305,163 @@ jobs:
           if-no-files-found: error
           retention-days: 30
 
+  replay-20260810:
+    if: inputs.mode == 'replay' && inputs.checkpoint_run_id == '31384317163'
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    env:
+      REPLAY_DATE: "20260810"
+      DAILY_FULL_VALIDATION_REPLAY_PROFILE_DATE: "20260810"
+      CHECKPOINT_SOURCE_SHA: "bf04304b0dafc480c690a8d5c9c53aa70634b7f2"
+      CHECKPOINT_RUN_ID: "31384317163"
+      CHECKPOINT_ARTIFACT_ID: "9061570264"
+      CHECKPOINT_ARTIFACT_DIGEST: "sha256:87a586726d64300371a77fddf92f892357732cc754395aac3f3d872465ac49f4"
+      CHECKPOINT_CAPTURE_CONTEXT: "production_pre_step41"
+    steps:
+      - name: Checkout exact main validation source for 20260810
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Require exact current main and immutable 20260810 replay identity
+        shell: bash
+        env:
+          INPUT_CHECKPOINT_RUN_ID: ${{ inputs.checkpoint_run_id }}
+          INPUT_CHECKPOINT_SOURCE_SHA: ${{ inputs.checkpoint_source_sha }}
+          INPUT_CHECKPOINT_ARTIFACT_ID: ${{ inputs.checkpoint_artifact_id }}
+          INPUT_CHECKPOINT_ARTIFACT_DIGEST: ${{ inputs.checkpoint_artifact_digest }}
+        run: |
+          set -euo pipefail
+          head_sha="$(git rev-parse HEAD)"
+          remote_sha="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+          if [ "$GITHUB_REF" != "refs/heads/main" ] || [ -z "$remote_sha" ] || [ "$head_sha" != "$remote_sha" ] || [ "$head_sha" != "$GITHUB_SHA" ]; then
+            echo "::error::Validation-only replay requires exact current main."
+            exit 1
+          fi
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "::error::Validation-only replay checkout must start clean."
+            exit 1
+          fi
+          if [ "$REPLAY_DATE" != "20260810" ] || [ "$INPUT_CHECKPOINT_SOURCE_SHA" != "$CHECKPOINT_SOURCE_SHA" ] || [ "$INPUT_CHECKPOINT_RUN_ID" != "$CHECKPOINT_RUN_ID" ] || [ "$INPUT_CHECKPOINT_ARTIFACT_ID" != "$CHECKPOINT_ARTIFACT_ID" ] || [ "$INPUT_CHECKPOINT_ARTIFACT_DIGEST" != "$CHECKPOINT_ARTIFACT_DIGEST" ] || [ "$CHECKPOINT_CAPTURE_CONTEXT" != "production_pre_step41" ]; then
+            echo "::error::Immutable 20260810 replay identity drifted."
+            exit 1
+          fi
+
+      - name: Set up Python for 20260810 replay
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install 20260810 validation replay dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas requests tabulate matplotlib pillow openpyxl lxml html5lib beautifulsoup4 reportlab pypdf fonttools
+
+      - name: Validate 20260810 replay control-plane contract
+        run: |
+          python -B scripts/validate_daily_full_validation_replay.py
+          python -B scripts/validate_repo_production_inventory.py
+          python -B scripts/validate_repo_file_lifecycle_inventory.py
+
+      - name: Download and verify exact production pre-step41 checkpoint
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          download_root="$RUNNER_TEMP/checkpoint-download-20260810"
+          bundle_root="$RUNNER_TEMP/checkpoint-20260810"
+          mkdir -p "$download_root" "$bundle_root"
+          gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$CHECKPOINT_ARTIFACT_ID" > "$download_root/artifact.json"
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs/$CHECKPOINT_RUN_ID" > "$download_root/run.json"
+          python -B - "$download_root/artifact.json" "$download_root/run.json" <<'PY'
+          import json
+          import sys
+          from pathlib import Path
+
+          artifact = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+          run = json.loads(Path(sys.argv[2]).read_text(encoding="utf-8"))
+          errors = []
+          if artifact.get("id") != 9061570264:
+              errors.append("artifact id mismatch")
+          if artifact.get("name") != "daily-full-pre-step41-checkpoint-31384317163-1":
+              errors.append("artifact name mismatch")
+          if artifact.get("digest") != "sha256:87a586726d64300371a77fddf92f892357732cc754395aac3f3d872465ac49f4":
+              errors.append("artifact digest mismatch")
+          if artifact.get("expired") is not False:
+              errors.append("artifact is expired")
+          if (artifact.get("workflow_run") or {}).get("id") != 31384317163:
+              errors.append("artifact run id mismatch")
+          if run.get("id") != 31384317163:
+              errors.append("source run id mismatch")
+          if run.get("head_sha") != "bf04304b0dafc480c690a8d5c9c53aa70634b7f2":
+              errors.append("source run head SHA mismatch")
+          if run.get("event") != "workflow_dispatch":
+              errors.append("source run event mismatch")
+          if run.get("status") != "completed" or run.get("conclusion") != "failure":
+              errors.append("source run terminal state mismatch")
+          if not str(run.get("path") or "").endswith(
+              ".github/workflows/daily_full_pipeline.yml"
+          ):
+              errors.append("source workflow path mismatch")
+          if errors:
+              raise SystemExit("; ".join(errors))
+          PY
+          gh api -H "Accept: application/vnd.github+json" \
+            "repos/$GITHUB_REPOSITORY/actions/artifacts/$CHECKPOINT_ARTIFACT_ID/zip" \
+            > "$download_root/checkpoint.zip"
+          observed_digest="sha256:$(sha256sum "$download_root/checkpoint.zip" | awk '{print $1}')"
+          if [ "$observed_digest" != "$CHECKPOINT_ARTIFACT_DIGEST" ]; then
+            echo "::error::Downloaded checkpoint ZIP digest mismatch."
+            exit 1
+          fi
+          python -B - "$download_root/checkpoint.zip" "$bundle_root" <<'PY'
+          import sys
+          import zipfile
+          from pathlib import Path
+
+          archive = Path(sys.argv[1])
+          destination = Path(sys.argv[2])
+          with zipfile.ZipFile(archive) as handle:
+              names = handle.namelist()
+              if not names or any(
+                  name.startswith("/") or ".." in Path(name).parts
+                  for name in names
+              ):
+                  raise SystemExit("checkpoint ZIP has an unsafe path set")
+              handle.extractall(destination)
+          PY
+
+      - name: Replay 20260810 step41 through readiness and PDF source gates
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -B scripts/run_daily_full_validation_replay.py replay \
+            --repo-root . \
+            --runner-temp "$RUNNER_TEMP/daily-full-validation-replay-20260810" \
+            --replay-date "$REPLAY_DATE" \
+            --source-sha "$GITHUB_SHA" \
+            --run-id "$GITHUB_RUN_ID" \
+            --bundle-dir "$RUNNER_TEMP/checkpoint-20260810" \
+            --checkpoint-run-id "$CHECKPOINT_RUN_ID" \
+            --checkpoint-source-sha "$CHECKPOINT_SOURCE_SHA" \
+            --checkpoint-artifact-id "$CHECKPOINT_ARTIFACT_ID" \
+            --checkpoint-artifact-digest "$CHECKPOINT_ARTIFACT_DIGEST" \
+            --post-bundle-dir "$RUNNER_TEMP/daily-full-validation-replay-20260810/post-validation-checkpoint"
+
+      - name: Upload 20260810 validation-only post-step41 evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-full-validation-replay-20260810-post-${{ github.run_id }}
+          path: ${{ runner.temp }}/daily-full-validation-replay-20260810/post-validation-checkpoint/
+          if-no-files-found: error
+          retention-days: 30
+
   isolated-six-pdf-validation:
-    if: inputs.mode == 'replay'
+    if: inputs.mode == 'replay' && inputs.checkpoint_run_id != '31384317163'
     needs: replay
     runs-on: windows-2025
     timeout-minutes: 120

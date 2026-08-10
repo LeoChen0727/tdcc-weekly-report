@@ -2899,3 +2899,294 @@ def test_post_step_source_gate_failure_is_captured_before_rethrow(
         "materialize validation-only PDF source README"
     )
     assert post_bundle.is_dir()
+
+
+def test_20260810_profile_is_exact_and_default_profile_is_unchanged() -> None:
+    old = replay_runner.replay_profile("20260807")
+    current = replay_runner.replay_profile("20260810")
+
+    assert old["checkpoint_run_id"] == "31268964962"
+    assert old["checkpoint_capture_context"] == "validation_canary"
+    assert old["market_session_validation_scope"] == (
+        "authoritative_historical_revision"
+    )
+    assert current["checkpoint_source_sha"] == (
+        "bf04304b0dafc480c690a8d5c9c53aa70634b7f2"
+    )
+    assert current["checkpoint_run_id"] == "31384317163"
+    assert current["checkpoint_artifact_id"] == "9061570264"
+    assert current["checkpoint_artifact_digest"] == (
+        "sha256:"
+        "87a586726d64300371a77fddf92f892357732cc754395aac3f3d872465ac49f4"
+    )
+    assert current["checkpoint_manifest_sha256"] == (
+        "fd72454a5711225d93e85c22881c35b9f8a91f5d8ab3898f9d7f47c729a806d3"
+    )
+    assert current["checkpoint_capture_context"] == "production_pre_step41"
+    assert current["checkpoint_revision_kind"] == "live_production_capture"
+    assert current["market_session_validation_scope"] == (
+        "live_production_capture"
+    )
+    assert current["original_failure_stock_id"] == "6152"
+    with pytest.raises(RuntimeError, match="unsupported"):
+        replay_runner.replay_profile("20260811")
+
+
+def test_checkpoint_source_reconciliation_uses_payload_and_git_objects(
+    tmp_path: Path,
+) -> None:
+    repo = tmp_path / "repo"
+    repo.mkdir()
+
+    def git(*arguments: str) -> str:
+        result = replay_runner.subprocess.run(
+            ["git", *arguments],
+            cwd=repo,
+            check=False,
+            text=True,
+            encoding="utf-8",
+            stdout=replay_runner.subprocess.PIPE,
+            stderr=replay_runner.subprocess.STDOUT,
+        )
+        assert result.returncode == 0, result.stdout
+        return result.stdout.strip()
+
+    git("init")
+    git("config", "user.name", "Replay Test")
+    git("config", "user.email", "replay@example.invalid")
+    (repo / "output/latest").mkdir(parents=True)
+    (repo / "scripts").mkdir()
+    (repo / "output/latest/mutable.csv").write_text(
+        "date,value\n20260810,checkpoint-source\n", encoding="utf-8"
+    )
+    (repo / "output/latest/checkpoint.csv").write_text(
+        "date,value\n20260810,checkpoint-source\n", encoding="utf-8"
+    )
+    (repo / "scripts/model.py").write_text("VALUE = 'old'\n", encoding="utf-8")
+    git("add", ".")
+    git("commit", "-m", "checkpoint source")
+    checkpoint_source_sha = git("rev-parse", "HEAD")
+
+    (repo / "output/latest/mutable.csv").write_text(
+        "date,value\n20260810,mutable-latest\n", encoding="utf-8"
+    )
+    (repo / "output/latest/checkpoint.csv").write_text(
+        "date,value\n20260810,mutable-latest\n", encoding="utf-8"
+    )
+    (repo / "output/latest/added.csv").write_text(
+        "date,value\n20260810,latest-only\n", encoding="utf-8"
+    )
+    (repo / "scripts/model.py").write_text(
+        "VALUE = 'fixed'\n", encoding="utf-8"
+    )
+    git("add", ".")
+    git("commit", "-m", "replay source")
+    replay_source_sha = git("rev-parse", "HEAD")
+
+    payload = b"date,value\n20260810,immutable-checkpoint\n"
+    (repo / "output/latest/checkpoint.csv").write_bytes(payload)
+    manifest = {
+        "files": [
+            {
+                "path": "output/latest/checkpoint.csv",
+                "bytes": len(payload),
+                "sha256": replay_runner.hashlib.sha256(payload).hexdigest(),
+            }
+        ]
+    }
+    transition = {
+        "checkpoint_source_sha": checkpoint_source_sha,
+        "replay_source_sha": replay_source_sha,
+        "changed_paths": [
+            "output/latest/added.csv",
+            "output/latest/checkpoint.csv",
+            "output/latest/mutable.csv",
+            "scripts/model.py",
+        ],
+        "authorized_live_paths": ["scripts/model.py"],
+        "checkpoint_source_restore_paths": [
+            "output/latest/added.csv",
+            "output/latest/checkpoint.csv",
+            "output/latest/mutable.csv",
+        ],
+    }
+
+    evidence = replay_runner.reconcile_checkpoint_source_state(
+        repo_root=repo,
+        checkpoint_manifest=manifest,
+        transition=transition,
+    )
+
+    assert (repo / "scripts/model.py").read_text(encoding="utf-8") == (
+        "VALUE = 'fixed'\n"
+    )
+    assert (repo / "output/latest/checkpoint.csv").read_bytes() == payload
+    assert (repo / "output/latest/mutable.csv").read_text(
+        encoding="utf-8"
+    ) == "date,value\n20260810,checkpoint-source\n"
+    assert not (repo / "output/latest/added.csv").exists()
+    assert evidence["mutable_latest_fallback_allowed"] is False
+    assert {row["source"] for row in evidence["files"]} == {
+        "checkpoint_source_git_object",
+        "immutable_checkpoint_payload",
+        "replay_source_git_object",
+    }
+
+
+def test_checkpoint_source_reconciliation_rejects_non_artifact_restore_path(
+    tmp_path: Path,
+) -> None:
+    with pytest.raises(
+        replay_runner.ValidationReplayError,
+        match="outside immutable artifact roots",
+    ):
+        replay_runner.reconcile_checkpoint_source_state(
+            repo_root=tmp_path,
+            checkpoint_manifest={"files": []},
+            transition={
+                "checkpoint_source_sha": "a" * 40,
+                "replay_source_sha": "b" * 40,
+                "changed_paths": ["rules/contract.md"],
+                "authorized_live_paths": [],
+                "checkpoint_source_restore_paths": ["rules/contract.md"],
+            },
+        )
+
+
+def test_20260810_revision_transition_requires_checkpoint_ancestry(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    repo = tmp_path / "repo"
+    repo.mkdir()
+
+    def git(*arguments: str) -> str:
+        result = replay_runner.subprocess.run(
+            ["git", *arguments],
+            cwd=repo,
+            check=False,
+            text=True,
+            encoding="utf-8",
+            stdout=replay_runner.subprocess.PIPE,
+            stderr=replay_runner.subprocess.STDOUT,
+        )
+        assert result.returncode == 0, result.stdout
+        return result.stdout.strip()
+
+    git("init")
+    git("config", "user.name", "Replay Test")
+    git("config", "user.email", "replay@example.invalid")
+    (repo / "scripts").mkdir()
+    (repo / "output/latest").mkdir(parents=True)
+    (repo / "scripts/model.py").write_text("VALUE = 'old'\n", encoding="utf-8")
+    (repo / "scripts/control.py").write_text("VALUE = 'old'\n", encoding="utf-8")
+    (repo / "output/latest/state.csv").write_text("old\n", encoding="utf-8")
+    git("add", ".")
+    git("commit", "-m", "checkpoint source")
+    checkpoint_source_sha = git("rev-parse", "HEAD")
+
+    (repo / "scripts/model.py").write_text("VALUE = 'fixed'\n", encoding="utf-8")
+    git("add", ".")
+    git("commit", "-m", "model fix")
+    model_fix_sha = git("rev-parse", "HEAD")
+
+    (repo / "scripts/control.py").write_text(
+        "VALUE = 'replay'\n", encoding="utf-8"
+    )
+    (repo / "output/latest/state.csv").write_text(
+        "mutable latest\n", encoding="utf-8"
+    )
+    git("add", ".")
+    git("commit", "-m", "replay control")
+    replay_source_sha = git("rev-parse", "HEAD")
+
+    monkeypatch.setattr(replay_runner, "REPLAY_DATE", "20260810")
+    monkeypatch.setattr(
+        replay_runner,
+        "AUTHORIZED_CHECKPOINT_SOURCE_SHA",
+        checkpoint_source_sha,
+    )
+    monkeypatch.setattr(replay_runner, "AUTHORIZED_CHECKPOINT_RUN_ID", "1")
+    monkeypatch.setattr(
+        replay_runner, "AUTHORIZED_CHECKPOINT_ARTIFACT_ID", "2"
+    )
+    digest = "sha256:" + "a" * 64
+    monkeypatch.setattr(
+        replay_runner, "AUTHORIZED_CHECKPOINT_ARTIFACT_DIGEST", digest
+    )
+    monkeypatch.setattr(
+        replay_runner,
+        "AUTHORIZED_20260810_MODEL_FIX_COMMIT",
+        model_fix_sha,
+    )
+    monkeypatch.setattr(
+        replay_runner,
+        "AUTHORIZED_20260810_MODEL_FIX_PATHS",
+        ("scripts/model.py",),
+    )
+    monkeypatch.setattr(
+        replay_runner,
+        "AUTHORIZED_20260810_REPLAY_CONTROL_PATHS",
+        ("scripts/control.py",),
+    )
+
+    transition = replay_runner.require_authorized_checkpoint_revision_transition(
+        repo_root=repo,
+        checkpoint_source_sha=checkpoint_source_sha,
+        replay_source_sha=replay_source_sha,
+        checkpoint_run_id="1",
+        checkpoint_artifact_id="2",
+        checkpoint_artifact_digest=digest,
+    )
+    assert transition["authorized_live_paths"] == [
+        "scripts/control.py",
+        "scripts/model.py",
+    ]
+    assert transition["checkpoint_source_restore_paths"] == [
+        "output/latest/state.csv"
+    ]
+
+    checkpoint_tree = git("rev-parse", f"{checkpoint_source_sha}^{{tree}}")
+    unrelated_checkpoint = git(
+        "commit-tree", checkpoint_tree, "-m", "unrelated checkpoint"
+    )
+    monkeypatch.setattr(
+        replay_runner,
+        "AUTHORIZED_CHECKPOINT_SOURCE_SHA",
+        unrelated_checkpoint,
+    )
+    with pytest.raises(
+        replay_runner.ValidationReplayError,
+        match="checkpoint source is not an ancestor",
+    ):
+        replay_runner.require_authorized_checkpoint_revision_transition(
+            repo_root=repo,
+            checkpoint_source_sha=unrelated_checkpoint,
+            replay_source_sha=replay_source_sha,
+            checkpoint_run_id="1",
+            checkpoint_artifact_id="2",
+            checkpoint_artifact_digest=digest,
+        )
+
+
+def test_20260810_workflow_is_exact_replay_only() -> None:
+    workflow = (
+        Path(__file__).resolve().parents[1]
+        / ".github/workflows/daily_full_validation_replay_20260807.yml"
+    ).read_text(encoding="utf-8")
+    block = workflow.split("\n  replay-20260810:", 1)[1].split(
+        "\n  isolated-six-pdf-validation:", 1
+    )[0]
+
+    assert 'REPLAY_DATE: "20260810"' in block
+    assert (
+        'CHECKPOINT_SOURCE_SHA: "bf04304b0dafc480c690a8d5c9c53aa70634b7f2"'
+        in block
+    )
+    assert 'CHECKPOINT_RUN_ID: "31384317163"' in block
+    assert 'CHECKPOINT_ARTIFACT_ID: "9061570264"' in block
+    assert "daily-full-pre-step41-checkpoint-31384317163-1" in block
+    assert "scripts/run_daily_full_validation_replay.py replay" in block
+    assert "capture-canary" not in block
+    assert "render-pdfs" not in block
+    assert "git push" not in block

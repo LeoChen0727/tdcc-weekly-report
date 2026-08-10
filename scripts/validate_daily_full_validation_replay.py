@@ -215,15 +215,67 @@ def validate_replay_workflow(
         )
 
 
+def validate_20260810_replay_workflow(
+    text: str, errors: list[str]
+) -> None:
+    start = text.find("\n  replay-20260810:")
+    end = text.find("\n  isolated-six-pdf-validation:", start + 1)
+    if start < 0 or end <= start:
+        errors.append(
+            "validation replay workflow lacks isolated 20260810 job boundary"
+        )
+        return
+    block = text[start:end]
+    require_fragments(
+        block,
+        [
+            'REPLAY_DATE: "20260810"',
+            'DAILY_FULL_VALIDATION_REPLAY_PROFILE_DATE: "20260810"',
+            'CHECKPOINT_SOURCE_SHA: "bf04304b0dafc480c690a8d5c9c53aa70634b7f2"',
+            'CHECKPOINT_RUN_ID: "31384317163"',
+            'CHECKPOINT_ARTIFACT_ID: "9061570264"',
+            "sha256:87a586726d64300371a77fddf92f892357732cc754395aac3f3d872465ac49f4",
+            "daily-full-pre-step41-checkpoint-31384317163-1",
+            'CHECKPOINT_CAPTURE_CONTEXT: "production_pre_step41"',
+            "scripts/run_daily_full_validation_replay.py replay",
+            "daily-full-validation-replay-20260810-post-${{ github.run_id }}",
+            "if-no-files-found: error",
+        ],
+        "20260810 validation replay workflow",
+        errors,
+    )
+    require_fragments(
+        text,
+        ["contents: read", "actions: read"],
+        "20260810 validation replay permissions",
+        errors,
+    )
+    for fragment in (
+        "capture-canary",
+        "render-pdfs",
+        "isolated-six-pdf-validation",
+        "git push",
+        "installAllWorkflowTriggers",
+    ):
+        if fragment in block:
+            errors.append(
+                "20260810 replay workflow contains forbidden behavior: "
+                f"{fragment}"
+            )
+
+
 def validate_runner(text: str, errors: list[str]) -> None:
     require_fragments(
         text,
         [
-            'REPLAY_DATE = "20260807"',
-            'OLD_FAILED_RUN_ID = "31174813266"',
-            'AUTHORIZED_CHECKPOINT_SOURCE_SHA = "4d715065f38389752aaeaa0c511280c47ccedc08"',
-            'AUTHORIZED_CHECKPOINT_RUN_ID = "31268964962"',
-            'AUTHORIZED_CHECKPOINT_ARTIFACT_ID = "9025240156"',
+            'REPLAY_PROFILE_ENV = "DAILY_FULL_VALIDATION_REPLAY_PROFILE_DATE"',
+            'if replay_date == "20260807":',
+            '"old_failed_run_id": "31174813266"',
+            '"checkpoint_run_id": "31268964962"',
+            '"checkpoint_artifact_id": "9025240156"',
+            'if replay_date == "20260810":',
+            '"checkpoint_run_id": "31384317163"',
+            '"checkpoint_artifact_id": "9061570264"',
             "AUTHORIZED_CHECKPOINT_MANIFEST_SHA256",
             "AUTHORIZED_PRODUCER_FIX_COMMIT",
             "AUTHORIZED_VALIDATOR_FIX_COMMIT",
@@ -315,6 +367,14 @@ def validate_runner(text: str, errors: list[str]) -> None:
             '"--validate-source-date"',
             "registered replay parity validator mode is missing",
             "registered_fail_closed_validators",
+            "AUTHORIZED_20260810_MODEL_FIX_COMMIT",
+            "AUTHORIZED_20260810_MODEL_FIX_PATHS",
+            "AUTHORIZED_20260810_REPLAY_CONTROL_PATHS",
+            "reconcile_checkpoint_source_state",
+            "checkpoint_source_git_object",
+            "immutable_checkpoint_payload",
+            "replay_source_git_object",
+            "mutable_latest_fallback_allowed",
             "report_ready",
             "daily_pdf_ready",
             "write_runtime_manifest",
@@ -414,6 +474,7 @@ def validate() -> list[str]:
         read(PRODUCTION_WORKFLOW), errors
     )
     validate_replay_workflow(read(REPLAY_WORKFLOW), errors)
+    validate_20260810_replay_workflow(read(REPLAY_WORKFLOW), errors)
     validate_runner(read(RUNNER), errors)
     validate_checkpoint(read(CHECKPOINT), errors)
     validate_inventory(errors)

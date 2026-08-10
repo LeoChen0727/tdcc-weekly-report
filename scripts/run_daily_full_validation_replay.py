@@ -28,16 +28,85 @@ import scripts.daily_full_validation_replay_checkpoint as checkpoint  # noqa: E4
 from scripts import replay_historical_structured_sources as historical_replay  # noqa: E402
 
 
-REPLAY_DATE = "20260807"
-OLD_FAILED_RUN_ID = "31174813266"
-AUTHORIZED_CHECKPOINT_SOURCE_SHA = "4d715065f38389752aaeaa0c511280c47ccedc08"
-AUTHORIZED_CHECKPOINT_RUN_ID = "31268964962"
-AUTHORIZED_CHECKPOINT_ARTIFACT_ID = "9025240156"
-AUTHORIZED_CHECKPOINT_ARTIFACT_DIGEST = (
-    "sha256:492038fcf6c2a443ac2c77423624700d174a7d3522fc581673ef48b8314927fd"
+REPLAY_PROFILE_ENV = "DAILY_FULL_VALIDATION_REPLAY_PROFILE_DATE"
+
+
+def replay_profile(replay_date: str) -> dict[str, Any]:
+    if replay_date == "20260807":
+        return {
+            "replay_date": "20260807",
+            "old_failed_run_id": "31174813266",
+            "checkpoint_source_sha": (
+                "4d715065f38389752aaeaa0c511280c47ccedc08"
+            ),
+            "checkpoint_run_id": "31268964962",
+            "checkpoint_artifact_id": "9025240156",
+            "checkpoint_artifact_digest": (
+                "sha256:"
+                "492038fcf6c2a443ac2c77423624700d174a7d3522fc581673ef48b8314927fd"
+            ),
+            "checkpoint_manifest_sha256": (
+                "a8b7ac80d5342a72e0f1df823392025f26d18c4494aae32a7137e11f1aa1fd96"
+            ),
+            "checkpoint_capture_context": "validation_canary",
+            "checkpoint_revision_kind": "authoritative_historical_revision",
+            "market_session_validation_scope": (
+                "authoritative_historical_revision"
+            ),
+            "original_failure_stock_id": "2059",
+            "source_status_note": (
+                "validation-only authoritative historical replay"
+            ),
+        }
+    if replay_date == "20260810":
+        return {
+            "replay_date": "20260810",
+            "old_failed_run_id": "31384317163",
+            "checkpoint_source_sha": (
+                "bf04304b0dafc480c690a8d5c9c53aa70634b7f2"
+            ),
+            "checkpoint_run_id": "31384317163",
+            "checkpoint_artifact_id": "9061570264",
+            "checkpoint_artifact_digest": (
+                "sha256:"
+                "87a586726d64300371a77fddf92f892357732cc754395aac3f3d872465ac49f4"
+            ),
+            "checkpoint_manifest_sha256": (
+                "fd72454a5711225d93e85c22881c35b9f8a91f5d8ab3898f9d7f47c729a806d3"
+            ),
+            "checkpoint_capture_context": "production_pre_step41",
+            "checkpoint_revision_kind": "live_production_capture",
+            "market_session_validation_scope": "live_production_capture",
+            "original_failure_stock_id": "6152",
+            "source_status_note": (
+                "validation-only replay from immutable production checkpoint"
+            ),
+        }
+    raise RuntimeError(
+        "unsupported Daily Full validation replay profile date: "
+        f"{replay_date!r}"
+    )
+
+
+ACTIVE_REPLAY_PROFILE = replay_profile(
+    os.environ.get(REPLAY_PROFILE_ENV, "20260807")
 )
-AUTHORIZED_CHECKPOINT_MANIFEST_SHA256 = (
-    "a8b7ac80d5342a72e0f1df823392025f26d18c4494aae32a7137e11f1aa1fd96"
+REPLAY_DATE = str(ACTIVE_REPLAY_PROFILE["replay_date"])
+OLD_FAILED_RUN_ID = str(ACTIVE_REPLAY_PROFILE["old_failed_run_id"])
+AUTHORIZED_CHECKPOINT_SOURCE_SHA = str(
+    ACTIVE_REPLAY_PROFILE["checkpoint_source_sha"]
+)
+AUTHORIZED_CHECKPOINT_RUN_ID = str(
+    ACTIVE_REPLAY_PROFILE["checkpoint_run_id"]
+)
+AUTHORIZED_CHECKPOINT_ARTIFACT_ID = str(
+    ACTIVE_REPLAY_PROFILE["checkpoint_artifact_id"]
+)
+AUTHORIZED_CHECKPOINT_ARTIFACT_DIGEST = str(
+    ACTIVE_REPLAY_PROFILE["checkpoint_artifact_digest"]
+)
+AUTHORIZED_CHECKPOINT_MANIFEST_SHA256 = str(
+    ACTIVE_REPLAY_PROFILE["checkpoint_manifest_sha256"]
 )
 AUTHORIZED_PRODUCER_FIX_COMMIT = "33568e1e3cc33530a4af65f4d50cda6fcf17b77d"
 AUTHORIZED_PRODUCER_FIX_PATHS = (
@@ -75,6 +144,34 @@ AUTHORIZED_OPERATION_COMPLETENESS_FIX_PATHS = (
 )
 AUTHORIZED_FORMAL_OPERATION_SHARED_PATH = (
     "tests/test_daily_volume_breakout_operation_section.py"
+)
+AUTHORIZED_20260810_MODEL_FIX_COMMIT = (
+    "dd8ed3b9094c556363718ccc56a06f9fb97b8c26"
+)
+AUTHORIZED_20260810_MODEL_FIX_PATHS = (
+    "config/daily_model_canonical_field_lineage_migrations.csv",
+    "config/daily_model_canonical_field_lineage_registry.csv",
+    "config/daily_model_semantic_migrations.csv",
+    "config/daily_model_semantic_ownership.csv",
+    "config/daily_model_shared_semantic_registry.csv",
+    "config/model_research_shared_utility_migrations.csv",
+    "config/model_research_shared_utility_registry.csv",
+    "docs/latest/model_data_independence_audit_latest.csv",
+    "docs/latest/model_data_independence_audit_latest.md",
+    "output/latest/model_data_independence_audit_latest.csv",
+    "output/latest/model_data_independence_audit_latest.md",
+    "scripts/build_daily_candidate_model_layer.py",
+    "scripts/validate_daily_canonical_field_lineage.py",
+    "tests/test_daily_candidate_model_layer.py",
+    "tests/test_daily_canonical_field_lineage.py",
+    "tests/test_model_data_independence.py",
+)
+AUTHORIZED_20260810_REPLAY_CONTROL_PATHS = (
+    ".github/workflows/daily_full_validation_replay_20260807.yml",
+    "scripts/daily_full_validation_replay_checkpoint.py",
+    "scripts/run_daily_full_validation_replay.py",
+    "scripts/validate_daily_full_validation_replay.py",
+    "tests/test_daily_full_validation_replay.py",
 )
 PIPELINE_WORKFLOW = Path(".github/workflows/daily_full_pipeline.yml")
 HISTORICAL_REPLAY_SCRIPT = Path(
@@ -152,7 +249,7 @@ FRESHNESS_PATH = Path("output/latest/data_freshness_latest.csv")
 AUTHORIZED_PUBLISH_BASELINE_DATE = "20260805"
 PUBLISH_BASELINE_DIRNAME = "tdcc_daily_baseline"
 PUBLISH_BASELINE_EVIDENCE_PATH = Path(
-    "output/validation_replay/20260807/"
+    f"output/validation_replay/{REPLAY_DATE}/"
     "publish_freshness_baseline_evidence.json"
 )
 MARKET_SESSION_PATH = Path(
@@ -163,17 +260,21 @@ PACKET_PATH = Path(
     "output/latest/chatgpt_daily_report_packet_latest.txt"
 )
 VALIDATION_SOURCE_STATE_PATH = Path(
-    "output/validation_replay/20260807/validation_source_state.json"
+    f"output/validation_replay/{REPLAY_DATE}/validation_source_state.json"
 )
 PARITY_EVIDENCE_PATH = Path(
-    "output/validation_replay/20260807/"
+    f"output/validation_replay/{REPLAY_DATE}/"
     "producer_consumer_parity_evidence.json"
 )
 STEP_RESULTS_PATH = Path(
-    "output/validation_replay/20260807/step_results.json"
+    f"output/validation_replay/{REPLAY_DATE}/step_results.json"
 )
 DELETION_MANIFEST_PATH = Path(
-    "output/validation_replay/20260807/deleted_paths.json"
+    f"output/validation_replay/{REPLAY_DATE}/deleted_paths.json"
+)
+SOURCE_BASELINE_EVIDENCE_PATH = Path(
+    f"output/validation_replay/{REPLAY_DATE}/"
+    "checkpoint_source_baseline_evidence.json"
 )
 SOURCE_REVISION_FILENAME = "source_revision_manifest.json"
 PRICE_HISTORY_EXTENSION_MANIFEST = "price_history_extension_manifest.json"
@@ -1995,24 +2096,33 @@ def capture_checkpoint(
                 "replay source revision manifest identity mismatch"
             )
         structured = revision.get("structured_source_manifest")
-        if structured_manifest_path is None or not isinstance(
-            structured, dict
-        ):
-            raise ValidationReplayError(
-                "replay source revision manifest lacks structured identity"
-            )
-        structured_relative = structured_manifest_path.relative_to(
-            repo_root
-        ).as_posix()
-        if (
-            structured.get("path") != structured_relative
-            or structured.get("bytes") != structured_manifest_path.stat().st_size
-            or str(structured.get("sha256") or "").lower()
-            != sha256_file(structured_manifest_path)
-        ):
-            raise ValidationReplayError(
-                "replay source revision structured identity mismatch"
-            )
+        structured_relative: str | None = None
+        if structured_manifest_path is None:
+            if (
+                revision_kind != "live_production_capture"
+                or structured is not None
+            ):
+                raise ValidationReplayError(
+                    "replay source revision lacks required structured identity"
+                )
+        else:
+            if not isinstance(structured, dict):
+                raise ValidationReplayError(
+                    "replay source revision lacks structured identity"
+                )
+            structured_relative = structured_manifest_path.relative_to(
+                repo_root
+            ).as_posix()
+            if (
+                structured.get("path") != structured_relative
+                or structured.get("bytes")
+                != structured_manifest_path.stat().st_size
+                or str(structured.get("sha256") or "").lower()
+                != sha256_file(structured_manifest_path)
+            ):
+                raise ValidationReplayError(
+                    "replay source revision structured identity mismatch"
+                )
         sources = revision.get("sources")
         if not isinstance(sources, list) or not sources:
             raise ValidationReplayError(
@@ -2041,7 +2151,8 @@ def capture_checkpoint(
                     f"{artifact_path}"
                 )
             required.append(artifact_path)
-        required.append(structured_relative)
+        if structured_relative is not None:
+            required.append(structured_relative)
     paths = checkpoint_paths(repo_root, required)
     deleted_paths = [
         relative
@@ -2356,8 +2467,8 @@ def write_validation_only_pdf_source_readme(
         "warrant_pdf_visibility": str(
             freshness.get("warrant_pdf_visibility") or "visible"
         ),
-        "warrant_source_status_note": (
-            "validation-only authoritative historical replay"
+        "warrant_source_status_note": str(
+            ACTIVE_REPLAY_PROFILE["source_status_note"]
         ),
         "checkpoint_source_sha": checkpoint_source_sha,
         "replay_source_sha": replay_source_sha,
@@ -2492,7 +2603,9 @@ def require_freshness_contract(
         "packet_fields": {},
         "market_session_fields": market,
         "validation_replay_main_price_date": REPLAY_DATE,
-        "market_session_validation_scope": "authoritative_historical_revision",
+        "market_session_validation_scope": str(
+            ACTIVE_REPLAY_PROFILE["market_session_validation_scope"]
+        ),
         "live_market_session_status": str(
             market.get("market_status") or ""
         ),
@@ -2502,6 +2615,262 @@ def require_freshness_contract(
         "live_expected_main_price_date": REPLAY_DATE,
     }
     return state
+
+
+def _git_changed_paths(
+    repo_root: Path,
+    base_sha: str,
+    target_sha: str,
+) -> list[str]:
+    result = subprocess.run(
+        ["git", "diff", "--name-only", "-z", base_sha, target_sha],
+        cwd=repo_root,
+        env={**os.environ, "GIT_NO_REPLACE_OBJECTS": "1"},
+        check=False,
+        capture_output=True,
+    )
+    if result.returncode != 0:
+        raise ValidationReplayError(
+            "cannot resolve checkpoint-to-replay changed path set"
+        )
+    try:
+        paths = [
+            part.decode("utf-8")
+            for part in result.stdout.split(b"\0")
+            if part
+        ]
+    except UnicodeDecodeError as error:
+        raise ValidationReplayError(
+            "checkpoint-to-replay path set is not UTF-8"
+        ) from error
+    if paths != sorted(set(paths)):
+        raise ValidationReplayError(
+            "checkpoint-to-replay path set is not sorted and unique"
+        )
+    return paths
+
+
+def _git_blob_identity(
+    repo_root: Path,
+    revision: str,
+    relative: str,
+) -> dict[str, Any] | None:
+    if (
+        not relative
+        or "\\" in relative
+        or Path(relative).is_absolute()
+        or ".." in Path(relative).parts
+    ):
+        raise ValidationReplayError(
+            f"checkpoint source path is unsafe: {relative!r}"
+        )
+    env = {**os.environ, "GIT_NO_REPLACE_OBJECTS": "1"}
+    result = subprocess.run(
+        ["git", "ls-tree", "-z", revision, "--", relative],
+        cwd=repo_root,
+        env=env,
+        check=False,
+        capture_output=True,
+    )
+    if result.returncode != 0:
+        raise ValidationReplayError(
+            f"cannot resolve checkpoint source object: {relative}"
+        )
+    records = [record for record in result.stdout.split(b"\0") if record]
+    if not records:
+        return None
+    if len(records) != 1 or b"\t" not in records[0]:
+        raise ValidationReplayError(
+            f"checkpoint source object is not unique: {relative}"
+        )
+    header, raw_path = records[0].split(b"\t", 1)
+    try:
+        mode, object_type, object_sha = header.decode("ascii").split()
+        observed_path = raw_path.decode("utf-8")
+    except (UnicodeDecodeError, ValueError) as error:
+        raise ValidationReplayError(
+            f"checkpoint source object metadata is malformed: {relative}"
+        ) from error
+    if (
+        observed_path != relative
+        or object_type != "blob"
+        or mode not in {"100644", "100755"}
+        or not re.fullmatch(r"[0-9a-f]{40}", object_sha)
+    ):
+        raise ValidationReplayError(
+            f"checkpoint source object identity mismatch: {relative}"
+        )
+    content = subprocess.run(
+        ["git", "cat-file", "blob", object_sha],
+        cwd=repo_root,
+        env=env,
+        check=False,
+        capture_output=True,
+    )
+    if content.returncode != 0:
+        raise ValidationReplayError(
+            f"cannot read checkpoint source blob: {relative}"
+        )
+    return {
+        "path": relative,
+        "mode": mode,
+        "git_blob_sha": object_sha,
+        "bytes": len(content.stdout),
+        "sha256": hashlib.sha256(content.stdout).hexdigest(),
+        "content": content.stdout,
+    }
+
+
+def _materialize_git_blob(
+    *,
+    repo_root: Path,
+    revision: str,
+    relative: str,
+) -> dict[str, Any]:
+    identity = _git_blob_identity(repo_root, revision, relative)
+    destination = repo_root / Path(relative)
+    if destination.is_symlink() or (
+        destination.exists() and not destination.is_file()
+    ):
+        raise ValidationReplayError(
+            f"checkpoint source destination is unsafe: {relative}"
+        )
+    if identity is None:
+        if destination.exists():
+            destination.unlink()
+        return {
+            "path": relative,
+            "revision": revision,
+            "exists": False,
+            "mode": None,
+            "bytes": 0,
+            "sha256": None,
+        }
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    destination.write_bytes(identity["content"])
+    destination.chmod(0o755 if identity["mode"] == "100755" else 0o644)
+    if (
+        destination.stat().st_size != identity["bytes"]
+        or sha256_file(destination) != identity["sha256"]
+    ):
+        raise ValidationReplayError(
+            f"checkpoint source materialization drifted: {relative}"
+        )
+    return {
+        key: value
+        for key, value in {
+            **identity,
+            "revision": revision,
+            "exists": True,
+        }.items()
+        if key != "content"
+    }
+
+
+def reconcile_checkpoint_source_state(
+    *,
+    repo_root: Path,
+    checkpoint_manifest: dict[str, Any],
+    transition: dict[str, Any],
+) -> dict[str, Any]:
+    changed_paths = list(transition.get("changed_paths") or [])
+    authorized_live_paths = list(
+        transition.get("authorized_live_paths") or []
+    )
+    restore_paths = list(
+        transition.get("checkpoint_source_restore_paths") or []
+    )
+    for values, label in (
+        (changed_paths, "changed paths"),
+        (authorized_live_paths, "authorized live paths"),
+        (restore_paths, "checkpoint restore paths"),
+    ):
+        if values != sorted(set(values)):
+            raise ValidationReplayError(
+                f"20260810 {label} are not sorted and unique"
+            )
+    if set(authorized_live_paths) & set(restore_paths):
+        raise ValidationReplayError(
+            "20260810 replay live/restore path sets overlap"
+        )
+    if set(changed_paths) != set(authorized_live_paths) | set(restore_paths):
+        raise ValidationReplayError(
+            "20260810 replay changed path accounting is incomplete"
+        )
+    payload_entries = {
+        str(row.get("path")): row
+        for row in checkpoint_manifest.get("files", [])
+        if isinstance(row, dict)
+    }
+    checkpoint_source_sha = str(transition["checkpoint_source_sha"])
+    replay_source_sha = str(transition["replay_source_sha"])
+    evidence_rows: list[dict[str, Any]] = []
+
+    for relative in authorized_live_paths:
+        identity = _materialize_git_blob(
+            repo_root=repo_root,
+            revision=replay_source_sha,
+            relative=relative,
+        )
+        if identity["exists"] is not True:
+            raise ValidationReplayError(
+                f"authorized replay source path is absent: {relative}"
+            )
+        identity["source"] = "replay_source_git_object"
+        evidence_rows.append(identity)
+
+    for relative in restore_paths:
+        if not relative.startswith(("data/", "docs/", "output/")):
+            raise ValidationReplayError(
+                "checkpoint source restoration path is outside immutable "
+                f"artifact roots: {relative}"
+            )
+        entry = payload_entries.get(relative)
+        if entry is not None:
+            path = repo_root / Path(relative)
+            if (
+                not path.is_file()
+                or path.is_symlink()
+                or path.stat().st_size != entry.get("bytes")
+                or sha256_file(path) != entry.get("sha256")
+            ):
+                raise ValidationReplayError(
+                    f"restored checkpoint payload identity drifted: {relative}"
+                )
+            evidence_rows.append(
+                {
+                    "path": relative,
+                    "source": "immutable_checkpoint_payload",
+                    "exists": True,
+                    "mode": "checkpoint_manifest",
+                    "bytes": entry["bytes"],
+                    "sha256": entry["sha256"],
+                }
+            )
+            continue
+        identity = _materialize_git_blob(
+            repo_root=repo_root,
+            revision=checkpoint_source_sha,
+            relative=relative,
+        )
+        identity["source"] = "checkpoint_source_git_object"
+        evidence_rows.append(identity)
+
+    evidence = {
+        "schema_version": 1,
+        "replay_date": REPLAY_DATE,
+        "checkpoint_source_sha": checkpoint_source_sha,
+        "replay_source_sha": replay_source_sha,
+        "changed_paths": changed_paths,
+        "authorized_live_paths": authorized_live_paths,
+        "checkpoint_source_restore_paths": restore_paths,
+        "files": sorted(evidence_rows, key=lambda row: str(row["path"])),
+        "mutable_latest_fallback_allowed": False,
+    }
+    evidence_path = repo_root / SOURCE_BASELINE_EVIDENCE_PATH
+    evidence_path.parent.mkdir(parents=True, exist_ok=True)
+    evidence_path.write_bytes(canonical_json_bytes(evidence))
+    return evidence
 
 
 def require_authorized_checkpoint_revision_transition(
@@ -2552,6 +2921,106 @@ def require_authorized_checkpoint_revision_transition(
         raise ValidationReplayError(
             "checkpoint replay source transition is not preauthorized"
         )
+    if REPLAY_DATE == "20260810":
+        for ancestor, label in (
+            (checkpoint_source_sha, "checkpoint source"),
+            (AUTHORIZED_20260810_MODEL_FIX_COMMIT, "model fix"),
+        ):
+            ancestry = subprocess.run(
+                [
+                    "git",
+                    "merge-base",
+                    "--is-ancestor",
+                    ancestor,
+                    replay_source_sha,
+                ],
+                cwd=repo_root,
+                check=False,
+            )
+            if ancestry.returncode != 0:
+                raise ValidationReplayError(
+                    f"authorized 20260810 {label} is not an ancestor of "
+                    "replay source"
+                )
+        transition_order = subprocess.run(
+            [
+                "git",
+                "merge-base",
+                "--is-ancestor",
+                checkpoint_source_sha,
+                AUTHORIZED_20260810_MODEL_FIX_COMMIT,
+            ],
+            cwd=repo_root,
+            check=False,
+        )
+        if transition_order.returncode != 0:
+            raise ValidationReplayError(
+                "authorized 20260810 model fix does not descend from the "
+                "checkpoint source"
+            )
+        stable = subprocess.run(
+            [
+                "git",
+                "diff",
+                "--quiet",
+                AUTHORIZED_20260810_MODEL_FIX_COMMIT,
+                replay_source_sha,
+                "--",
+                *AUTHORIZED_20260810_MODEL_FIX_PATHS,
+            ],
+            cwd=repo_root,
+            check=False,
+        )
+        if stable.returncode != 0:
+            raise ValidationReplayError(
+                "authorized 20260810 model fix paths drifted"
+            )
+        changed_paths = _git_changed_paths(
+            repo_root, checkpoint_source_sha, replay_source_sha
+        )
+        changed_set = set(changed_paths)
+        model_paths = set(AUTHORIZED_20260810_MODEL_FIX_PATHS)
+        control_paths = set(AUTHORIZED_20260810_REPLAY_CONTROL_PATHS)
+        if changed_set & model_paths != model_paths:
+            raise ValidationReplayError(
+                "20260810 replay source lacks the exact model fix path set"
+            )
+        if changed_set & control_paths != control_paths:
+            raise ValidationReplayError(
+                "20260810 replay source lacks the exact control path set"
+            )
+        unexpected_contract_paths = sorted(
+            path
+            for path in changed_paths
+            if path not in model_paths
+            and path not in control_paths
+            and not path.startswith(("data/", "docs/", "output/"))
+        )
+        if unexpected_contract_paths:
+            raise ValidationReplayError(
+                "20260810 replay contains unregistered code/contract drift: "
+                f"{unexpected_contract_paths}"
+            )
+        authorized_live_paths = sorted(model_paths | control_paths)
+        restore_paths = sorted(changed_set - set(authorized_live_paths))
+        return {
+            "mode": "authorized_20260810_production_checkpoint_transition",
+            "checkpoint_source_sha": checkpoint_source_sha,
+            "replay_source_sha": replay_source_sha,
+            "checkpoint_run_id": str(checkpoint_run_id),
+            "checkpoint_artifact_id": str(checkpoint_artifact_id),
+            "checkpoint_artifact_digest": checkpoint_artifact_digest,
+            "checkpoint_manifest_sha256": (
+                AUTHORIZED_CHECKPOINT_MANIFEST_SHA256
+            ),
+            "model_fix_commit": AUTHORIZED_20260810_MODEL_FIX_COMMIT,
+            "model_fix_paths": sorted(model_paths),
+            "replay_control_paths": sorted(control_paths),
+            "changed_paths": changed_paths,
+            "authorized_live_paths": authorized_live_paths,
+            "checkpoint_source_restore_paths": restore_paths,
+            "mutable_latest_fallback_allowed": False,
+        }
     for ancestor, label in (
         (checkpoint_source_sha, "checkpoint source"),
         (AUTHORIZED_PRODUCER_FIX_COMMIT, "producer fix"),
@@ -2875,7 +3344,9 @@ def require_checkpoint_source_revision_manifest_identity(
         raise ValidationReplayError(
             "checkpoint source revision manifest schema mismatch"
         )
-    if payload.get("revision_kind") != "authoritative_historical_revision":
+    if payload.get("revision_kind") != str(
+        ACTIVE_REPLAY_PROFILE["checkpoint_revision_kind"]
+    ):
         raise ValidationReplayError(
             "checkpoint source revision manifest revision kind mismatch"
         )
@@ -2890,6 +3361,49 @@ def require_checkpoint_source_revision_manifest_identity(
             f"expected={checkpoint_source_sha} "
             f"observed={payload.get('source_sha')!r}"
         )
+    if REPLAY_DATE == "20260810":
+        if structured_source_manifest is not None:
+            raise ValidationReplayError(
+                "live production checkpoint cannot bind a historical "
+                "structured source manifest"
+            )
+        if payload.get("structured_source_manifest") is not None:
+            raise ValidationReplayError(
+                "live production checkpoint source revision contains an "
+                "unexpected structured source identity"
+            )
+        sources = payload.get("sources")
+        if not isinstance(sources, list) or not sources:
+            raise ValidationReplayError(
+                "live production checkpoint source allowlist is missing"
+            )
+        entries = {
+            str(row.get("path")): row
+            for row in checkpoint_manifest.get("files", [])
+            if isinstance(row, dict)
+        }
+        for row in sources:
+            if not isinstance(row, dict):
+                raise ValidationReplayError(
+                    "live production checkpoint source row is malformed"
+                )
+            relative = str(row.get("artifact_path") or "")
+            entry = entries.get(relative)
+            path = repo_root / Path(relative)
+            if (
+                entry is None
+                or row.get("bytes") != entry.get("bytes")
+                or row.get("sha256") != entry.get("sha256")
+                or not path.is_file()
+                or path.is_symlink()
+                or path.stat().st_size != row.get("bytes")
+                or sha256_file(path) != row.get("sha256")
+            ):
+                raise ValidationReplayError(
+                    "live production checkpoint source identity mismatch: "
+                    f"{relative}"
+                )
+        return source_path
     structured = payload.get("structured_source_manifest")
     if not isinstance(structured, dict) or set(structured) != {
         "bytes",
@@ -3144,7 +3658,7 @@ def capture_replay_failure_checkpoint(
     source_sha: str,
     run_id: str,
     checkpoint_source_sha: str,
-    structured_source_manifest: Path,
+    structured_source_manifest: Path | None,
     replay_source_manifest: Path | None,
     failure_phase: str,
     steps: Sequence[dict[str, str]],
@@ -3179,7 +3693,9 @@ def capture_replay_failure_checkpoint(
         source_sha=source_sha,
         run_id=run_id,
         structured_manifest_path=structured_source_manifest,
-        revision_kind="authoritative_historical_revision",
+        revision_kind=str(
+            ACTIVE_REPLAY_PROFILE["checkpoint_revision_kind"]
+        ),
         checkpoint_kind="post_validation",
         capture_context="validation_replay",
         producer_steps=producer_steps,
@@ -3242,29 +3758,39 @@ def replay_from_checkpoint(args: argparse.Namespace) -> int:
         checkpoint_artifact_digest=args.checkpoint_artifact_digest,
     )
     bundle_dir = args.bundle_dir.resolve()
-    if transition["mode"] == "authorized_code_revision_transition":
+    if transition["mode"] != "same_source":
         require_authorized_checkpoint_bundle_identity(bundle_dir)
     checkpoint_manifest = checkpoint.restore_checkpoint(
         bundle_dir=bundle_dir,
         destination_root=repo_root,
+        expected_replay_date=REPLAY_DATE,
         expected_source_sha=checkpoint_source_sha,
         expected_destination_source_sha=source_sha,
         expected_run_id=args.checkpoint_run_id,
         expected_kind="pre_step41",
-        expected_capture_context="validation_canary",
+        expected_capture_context=str(
+            ACTIVE_REPLAY_PROFILE["checkpoint_capture_context"]
+        ),
     )
+    if REPLAY_DATE == "20260810":
+        reconcile_checkpoint_source_state(
+            repo_root=repo_root,
+            checkpoint_manifest=checkpoint_manifest,
+            transition=transition,
+        )
     steps: list[dict[str, str]] = []
     checkpoint_structured_manifest: Path | None = None
     replay_source_manifest: Path | None = None
     failure_phase = "verify checkpoint structured source manifest"
     try:
-        checkpoint_structured_manifest = (
-            require_checkpoint_structured_source_manifest_identity(
-                repo_root=repo_root,
-                checkpoint_manifest=checkpoint_manifest,
-                checkpoint_source_sha=checkpoint_source_sha,
+        if REPLAY_DATE != "20260810":
+            checkpoint_structured_manifest = (
+                require_checkpoint_structured_source_manifest_identity(
+                    repo_root=repo_root,
+                    checkpoint_manifest=checkpoint_manifest,
+                    checkpoint_source_sha=checkpoint_source_sha,
+                )
             )
-        )
         failure_phase = "verify checkpoint source revision manifest"
         source_revision_manifest = (
             require_checkpoint_source_revision_manifest_identity(
@@ -3349,7 +3875,13 @@ def replay_from_checkpoint(args: argparse.Namespace) -> int:
                 f"{capture_error}; minimal failure receipt written"
             ) from error
         raise
-    assert checkpoint_structured_manifest is not None
+    if (
+        REPLAY_DATE != "20260810"
+        and checkpoint_structured_manifest is None
+    ):
+        raise ValidationReplayError(
+            "historical replay structured source identity is missing"
+        )
     assert replay_source_manifest is not None
     failure_phase = "run registered replay parity validators"
     try:
@@ -3377,7 +3909,9 @@ def replay_from_checkpoint(args: argparse.Namespace) -> int:
             "revision_transition": transition,
             "checkpoint_run_id": args.checkpoint_run_id,
             "original_failure_step": POST_START_STEP,
-            "original_failure_stock_id": "2059",
+            "original_failure_stock_id": str(
+                ACTIVE_REPLAY_PROFILE["original_failure_stock_id"]
+            ),
             "registered_parity_validation": parity_evidence,
             "pdf_source_gate": {
                 "status": "pass",
@@ -3452,7 +3986,9 @@ def replay_from_checkpoint(args: argparse.Namespace) -> int:
         source_sha=source_sha,
         run_id=args.run_id,
         structured_manifest_path=checkpoint_structured_manifest,
-        revision_kind="authoritative_historical_revision",
+        revision_kind=str(
+            ACTIVE_REPLAY_PROFILE["checkpoint_revision_kind"]
+        ),
         checkpoint_kind="post_validation",
         capture_context="validation_replay",
         producer_steps=[row["step"] for row in steps],
