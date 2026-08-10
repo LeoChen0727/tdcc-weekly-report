@@ -435,6 +435,67 @@ def test_daily_full_checkpoint_replay_migration_rejects_extra_path(
     assert pr_safe.PRODUCTION_INVENTORY_PATH in errors[0]
 
 
+def test_exact_local_validation_replay_routing_migration_inherits_not_ready_state(
+    historical_replay_repo: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    observed: dict[str, object] = {}
+
+    def exact_preauthorization(
+        base_ref: str,
+        changed_paths: set[str],
+        strict_surface_changes: set[str],
+        **kwargs: object,
+    ) -> bool:
+        observed.update(
+            base_ref=base_ref,
+            changed_paths=set(changed_paths),
+            strict_surface_changes=set(strict_surface_changes),
+            **kwargs,
+        )
+        return (
+            changed_paths
+            == set(pr_safe.PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_PATHS)
+            and strict_surface_changes
+            == set(
+                pr_safe.PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_STRICT_SURFACES
+            )
+        )
+
+    monkeypatch.setattr(
+        pr_safe,
+        "changed_paths_from_base",
+        lambda *_args, **_kwargs: (
+            set(pr_safe.PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_PATHS),
+            [],
+        ),
+    )
+    monkeypatch.setattr(
+        pr_safe,
+        "is_preauthorized_daily_full_checkpoint_replay_migration",
+        exact_preauthorization,
+    )
+
+    assert (
+        pr_safe.validate_pr_safe_advanced_integrity_contract(
+            "base-sha",
+            repository_root=historical_replay_repo,
+        )
+        == []
+    )
+    assert observed == {
+        "base_ref": "base-sha",
+        "changed_paths": set(
+            pr_safe.PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_PATHS
+        ),
+        "strict_surface_changes": set(
+            pr_safe.PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_STRICT_SURFACES
+        ),
+        "repository_root": historical_replay_repo,
+        "head_ref": "HEAD",
+    }
+
+
 def test_changed_freshness_bytes_fail_closed(
     historical_replay_repo: Path,
     monkeypatch: pytest.MonkeyPatch,

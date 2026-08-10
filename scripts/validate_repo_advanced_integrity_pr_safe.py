@@ -23,6 +23,8 @@ try:
     from .validate_repo_production_inventory import (
         PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_PATHS,
         PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_STRICT_SURFACES,
+        PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_PATHS,
+        PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_STRICT_SURFACES,
         is_preauthorized_daily_full_checkpoint_replay_migration,
     )
 except ImportError:
@@ -30,6 +32,8 @@ except ImportError:
     from validate_repo_production_inventory import (  # noqa: E402
         PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_PATHS,
         PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_STRICT_SURFACES,
+        PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_PATHS,
+        PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_STRICT_SURFACES,
         is_preauthorized_daily_full_checkpoint_replay_migration,
     )
 
@@ -1839,6 +1843,26 @@ def is_preauthorized_daily_full_checkpoint_replay_advanced_integrity_migration(
     )
 
 
+def is_preauthorized_local_validation_replay_routing_advanced_integrity_migration(
+    base_ref: str,
+    changed_paths: set[str],
+    strict_surface_changes: set[str],
+    *,
+    repository_root: Path,
+) -> bool:
+    if changed_paths != PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_PATHS:
+        return False
+    if strict_surface_changes != PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_STRICT_SURFACES:
+        return False
+    return is_preauthorized_daily_full_checkpoint_replay_migration(
+        base_ref,
+        changed_paths,
+        strict_surface_changes,
+        repository_root=repository_root,
+        head_ref="HEAD",
+    )
+
+
 def validate_registered_source_identity_migration(
     base_ref: str,
     changed_paths: set[str],
@@ -2256,6 +2280,13 @@ def validate_pr_safe_advanced_integrity_contract(
     ):
         strict_surface_changes = set()
     elif is_additive_research_gate_self_update(
+        base_ref,
+        changed_paths,
+        strict_surface_changes,
+        repository_root=repository_root,
+    ):
+        strict_surface_changes = set()
+    elif is_preauthorized_local_validation_replay_routing_advanced_integrity_migration(
         base_ref,
         changed_paths,
         strict_surface_changes,
