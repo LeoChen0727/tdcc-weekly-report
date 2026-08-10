@@ -369,6 +369,8 @@ def validate_runner(text: str, errors: list[str]) -> None:
             "registered_fail_closed_validators",
             "AUTHORIZED_20260810_MODEL_FIX_COMMIT",
             "AUTHORIZED_20260810_MODEL_FIX_PATHS",
+            "AUTHORIZED_20260810_LINEAGE_FIX_COMMIT",
+            "AUTHORIZED_20260810_LINEAGE_FIX_PATHS",
             "AUTHORIZED_20260810_REPLAY_CONTROL_PATHS",
             "reconcile_checkpoint_source_state",
             "checkpoint_source_git_object",
