@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2646 星宇航空
 
 ## Metadata
-- generated_at: 2026-08-09 22:26:53 Asia/Taipei
+- generated_at: 2026-08-10 22:27:07 Asia/Taipei
 - stock_id: 2646
 - stock_name: 星宇航空
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 319
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 321
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 21.35
-- high: 21.45
-- low: 21.2
+- date: 20260807
+- open: 21.15
+- high: 21.35
+- low: 21.15
 - close: 21.3
-- volume: 3681432
-- ma5: 21.4
-- ema23_primary: 21.35
-- distance_to_ema23_pct: -0.22
+- volume: 2416999
+- ma5: 21.25
+- ema23_primary: 21.33
+- distance_to_ema23_pct: -0.13
 - ma20: 21.39
-- ma60: 20.94
-- ma120: 21.22
-- return_5d: -0.93
-- return_20d: 0
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: -0.41
+- ma60: 20.97
+- ma120: 21.19
+- return_5d: -1.62
+- return_20d: 0.71
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: -0.43
 - distance_to_high_60_pct: -5.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,21.3,21.6,21.1,21.2,4438350,21.06,0.66,21.11,20.68,0.61
-20260709,21.2,21.2,20.95,21.15,4312278,21.07,0.39,21.16,20.68,0.59
 20260713,21.15,21.3,21.05,21.2,3747627,21.08,0.57,21.21,20.68,0.52
 20260714,21.35,21.45,20.9,21.15,5968852,21.09,0.31,21.24,20.68,0.83
 20260715,21.2,21.35,21.15,21.3,4133164,21.1,0.93,21.24,20.69,0.6
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,21.65,21.7,21.3,21.35,5253791,21.37,-0.09,21.4,20.91,0.91
 20260804,21.05,21.35,20.95,21.15,5506550,21.35,-0.94,21.39,20.92,0.94
 20260805,21.35,21.45,21.2,21.3,3681432,21.35,-0.22,21.39,20.94,0.64
+20260806,21.2,21.4,21.05,21.15,3711385,21.33,-0.84,21.39,20.95,0.64
+20260807,21.15,21.35,21.15,21.3,2416999,21.33,-0.13,21.39,20.97,0.43
 ```
 
 ## Latest TDCC Snapshot

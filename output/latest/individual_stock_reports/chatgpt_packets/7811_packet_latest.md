@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7811 民盛
 
 ## Metadata
-- generated_at: 2026-08-09 22:28:50 Asia/Taipei
+- generated_at: 2026-08-10 22:29:03 Asia/Taipei
 - stock_id: 7811
 - stock_name: 民盛
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260805
-- price_rows: 92
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 94
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
+- date: 20260807
 - open: 71
-- high: 71
-- low: 70.5
-- close: 71
-- volume: 48000
-- ma5: 71.02
-- ema23_primary: 73.08
-- distance_to_ema23_pct: -2.85
-- ma20: 72.51
-- ma60: 77
-- ma120: 80.26
-- return_5d: 0.42
-- return_20d: -11.14
-- volume_ratio: 2.71
-- distance_to_ma20_pct_auxiliary: -2.08
-- distance_to_high_60_pct: -14.87
+- high: 71.1
+- low: 71
+- close: 71.1
+- volume: 33000
+- ma5: 71.04
+- ema23_primary: 72.76
+- distance_to_ema23_pct: -2.28
+- ma20: 71.56
+- ma60: 76.67
+- ma120: 80.06
+- return_5d: 0.14
+- return_20d: -11.68
+- volume_ratio: 1.84
+- distance_to_ma20_pct_auxiliary: -0.65
+- distance_to_high_60_pct: -14.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,79.9,80.5,79.9,80.5,21000,79.23,1.6,79.09,81.1,2.22
-20260709,81,81.4,80,80.5,41000,79.34,1.46,79.17,80.97,3.64
 20260713,75,75,73.1,73.6,31000,78.86,-6.67,78.82,80.7,2.47
 20260714,73.7,73.7,71.7,71.8,21000,78.27,-8.27,78.41,80.42,1.58
 20260715,71.8,72.5,71.8,72,5000,77.75,-7.39,78.03,80.14,0.38
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,71,71.8,71,71.1,31000,73.48,-3.24,73.36,77.33,2.03
 20260804,71,71.5,71,71,14000,73.27,-3.1,72.95,77.16,0.9
 20260805,71,71,70.5,71,48000,73.08,-2.85,72.51,77,2.71
+20260806,71,71.2,71,71,33000,72.91,-2.62,72.03,76.84,1.8
+20260807,71,71.1,71,71.1,33000,72.76,-2.28,71.56,76.67,1.84
 ```
 
 ## Latest TDCC Snapshot

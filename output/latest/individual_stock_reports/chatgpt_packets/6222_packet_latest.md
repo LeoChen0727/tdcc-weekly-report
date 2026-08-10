@@ -1,27 +1,27 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6222 立軒
 
 ## Metadata
-- generated_at: 2026-08-09 22:28:11 Asia/Taipei
+- generated_at: 2026-08-10 22:28:24 Asia/Taipei
 - stock_id: 6222
 - stock_name: 立軒
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260804
-- price_rows: 182
-- current_main_price_date: 20260805
-- current_main_price_universe_status: historical_only_noncurrent
+- latest_price_date: 20260807
+- price_rows: 184
+- current_main_price_date: 20260807
+- current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
 - source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
 - official_tdcc_signal_date: 20260807
 - latest_tdcc_date: 20260807
 - tdcc_rows: 15
-- tdcc_history_status: historical_only_noncurrent
-- tdcc_freshness_status: historical_only_noncurrent
+- tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
 - tdcc_missing_official_dates: 
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: Historical-only TDCC window: stock is absent from the official current main-price universe; retain real historical dates and do not claim current TDCC history
+- notes:
 
 ## Stable Read URLs
 - packet_pages_url: not_published_to_pages_use_raw_or_github_api
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260804
+- date: 20260807
 - open: 21
 - high: 21
-- low: 20.45
-- close: 20.95
-- volume: 8000
-- ma5: 20.68
+- low: 21
+- close: 21
+- volume: 1000
+- ma5: 20.78
 - ema23_primary: 20.68
-- distance_to_ema23_pct: 1.28
+- distance_to_ema23_pct: 1.54
 - ma20: 20.68
-- ma60: 20.81
-- ma120: 20.54
-- return_5d: 3.97
-- return_20d: -0.24
-- volume_ratio: 0.81
-- distance_to_ma20_pct_auxiliary: 1.28
-- distance_to_high_60_pct: -10.47
+- ma60: 20.74
+- ma120: 20.57
+- return_5d: 3.19
+- return_20d: 0.48
+- volume_ratio: 0.13
+- distance_to_ma20_pct_auxiliary: 1.57
+- distance_to_high_60_pct: -7.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260707,20.95,21,20.6,20.6,20000,20.77,-0.8,20.68,21.05,0.68
-20260708,20.6,21,20.55,20.9,37000,20.78,0.59,20.7,21.05,1.23
 20260709,20.6,21,20.6,20.9,14000,20.79,0.54,20.73,21.06,0.47
 20260713,20.7,21.2,20.7,21.05,5000,20.81,1.15,20.77,21.06,0.17
 20260714,21.05,21.05,21.05,21.05,1000,20.83,1.06,20.79,21.06,0.03
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260731,20.1,20.85,20,20.65,8000,20.63,0.1,20.66,20.87,0.7
 20260803,21,21,20.95,21,3000,20.66,1.64,20.69,20.83,0.28
 20260804,21,21,20.45,20.95,8000,20.68,1.28,20.68,20.81,0.81
+20260806,20.15,20.3,20.1,20.3,14000,20.65,-1.71,20.67,20.77,1.47
+20260807,21,21,21,21,1000,20.68,1.54,20.68,20.74,0.13
 ```
 
 ## Latest TDCC Snapshot

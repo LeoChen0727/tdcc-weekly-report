@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4804 大略-KY
 
 ## Metadata
-- generated_at: 2026-08-09 22:27:43 Asia/Taipei
+- generated_at: 2026-08-10 22:27:56 Asia/Taipei
 - stock_id: 4804
 - stock_name: 大略-KY
 - packet_status: standard_rawdata_packet
 - latest_price_date: 20260413
 - price_rows: 101
-- current_main_price_date: 20260805
+- current_main_price_date: 20260807
 - current_main_price_universe_status: historical_only_noncurrent
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable

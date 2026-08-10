@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9103 美德醫療-DR
 
 ## Metadata
-- generated_at: 2026-08-09 22:29:06 Asia/Taipei
+- generated_at: 2026-08-10 22:29:18 Asia/Taipei
 - stock_id: 9103
 - stock_name: 美德醫療-DR
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 319
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 321
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -130,30 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 5.14
-- high: 5.33
-- low: 5.12
-- close: 5.3
-- volume: 1691253
-- ma5: 5.13
+- date: 20260807
+- open: 5.24
+- high: 5.29
+- low: 5.23
+- close: 5.28
+- volume: 691065
+- ma5: 5.21
 - ema23_primary: 5.22
-- distance_to_ema23_pct: 1.56
-- ma20: 5.2
-- ma60: 5.26
-- ma120: 5.19
-- return_5d: 3.31
-- return_20d: 4.95
-- volume_ratio: 0.83
-- distance_to_ma20_pct_auxiliary: 1.96
-- distance_to_high_60_pct: -19.33
+- distance_to_ema23_pct: 1.06
+- ma20: 5.22
+- ma60: 5.27
+- ma120: 5.18
+- return_5d: 4.76
+- return_20d: 4.55
+- volume_ratio: 0.34
+- distance_to_ma20_pct_auxiliary: 1.22
+- distance_to_high_60_pct: -19.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,5.05,5.1,5,5.09,743705,5.25,-2.96,5.3,5.13,0.51
-20260709,5.13,5.13,5.05,5.05,358145,5.23,-3.42,5.26,5.13,0.28
 20260713,5.12,5.12,4.95,4.97,1070678,5.21,-4.56,5.22,5.13,0.92
 20260714,4.95,5,4.79,4.89,1326392,5.18,-5.61,5.18,5.13,1.16
 20260715,4.89,5.15,4.89,5.11,974844,5.17,-1.26,5.16,5.13,0.91
@@ -172,6 +170,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,5.09,5.13,5.04,5.12,1215857,5.22,-1.91,5.19,5.25,0.6
 20260804,5.23,5.23,5.06,5.12,642043,5.21,-1.75,5.19,5.26,0.32
 20260805,5.14,5.33,5.12,5.3,1691253,5.22,1.56,5.2,5.26,0.83
+20260806,5.28,5.31,5.19,5.23,819845,5.22,0.2,5.21,5.27,0.4
+20260807,5.24,5.29,5.23,5.28,691065,5.22,1.06,5.22,5.27,0.34
 ```
 
 ## Latest TDCC Snapshot

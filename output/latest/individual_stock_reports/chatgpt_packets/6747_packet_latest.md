@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6747 亨泰光
 
 ## Metadata
-- generated_at: 2026-08-09 22:28:30 Asia/Taipei
+- generated_at: 2026-08-10 22:28:43 Asia/Taipei
 - stock_id: 6747
 - stock_name: 亨泰光
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20251126
 - price_rows: 17
-- current_main_price_date: 20260805
+- current_main_price_date: 20260807
 - current_main_price_universe_status: historical_only_noncurrent
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable

@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4401 東隆興
 
 ## Metadata
-- generated_at: 2026-08-09 22:27:34 Asia/Taipei
+- generated_at: 2026-08-10 22:27:47 Asia/Taipei
 - stock_id: 4401
 - stock_name: 東隆興
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 184
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 186
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 13.9
-- high: 14
+- date: 20260807
+- open: 13.8
+- high: 13.95
 - low: 13.7
-- close: 13.9
-- volume: 28000
-- ma5: 13.82
-- ema23_primary: 14.34
-- distance_to_ema23_pct: -3.07
-- ma20: 14.56
+- close: 13.85
+- volume: 8000
+- ma5: 13.86
+- ema23_primary: 14.26
+- distance_to_ema23_pct: -2.86
+- ma20: 14.44
 - ma60: 14.24
-- ma120: 14.69
-- return_5d: -1.42
-- return_20d: -6.71
-- volume_ratio: 0.55
-- distance_to_ma20_pct_auxiliary: -4.53
-- distance_to_high_60_pct: -12.85
+- ma120: 14.64
+- return_5d: 0.73
+- return_20d: -7.05
+- volume_ratio: 0.19
+- distance_to_ma20_pct_auxiliary: -4.07
+- distance_to_high_60_pct: -13.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,15.45,15.5,14.85,15.2,117000,14.36,5.88,14.26,14.27,1.05
-20260709,15.35,15.45,14.7,14.9,81000,14.4,3.46,14.31,14.27,0.73
 20260713,15,15.2,14.7,14.8,30000,14.43,2.53,14.35,14.26,0.28
 20260714,14.85,14.85,14.65,14.7,67000,14.46,1.68,14.38,14.26,0.62
 20260715,15.1,15.1,14.7,14.95,62000,14.5,3.12,14.42,14.26,0.59
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,13.8,13.85,13.75,13.85,11000,14.42,-3.98,14.69,14.25,0.14
 20260804,13.85,13.9,13.8,13.9,16000,14.38,-3.34,14.61,14.25,0.29
 20260805,13.9,14,13.7,13.9,28000,14.34,-3.07,14.56,14.24,0.55
+20260806,14.1,14.1,13.8,13.8,17000,14.3,-3.47,14.49,14.24,0.37
+20260807,13.8,13.95,13.7,13.85,8000,14.26,-2.86,14.44,14.24,0.19
 ```
 
 ## Latest TDCC Snapshot

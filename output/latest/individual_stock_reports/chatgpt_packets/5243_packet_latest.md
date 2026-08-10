@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5243 乙盛-KY
 
 ## Metadata
-- generated_at: 2026-08-09 22:27:50 Asia/Taipei
+- generated_at: 2026-08-10 22:28:03 Asia/Taipei
 - stock_id: 5243
 - stock_name: 乙盛-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 319
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 321
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 86.1
-- high: 86.4
-- low: 84.2
-- close: 85.9
-- volume: 1049839
-- ma5: 79.68
-- ema23_primary: 88.32
-- distance_to_ema23_pct: -2.74
-- ma20: 87.51
-- ma60: 103.08
-- ma120: 97.69
-- return_5d: 14.84
-- return_20d: -12.35
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: -1.84
-- distance_to_high_60_pct: -40.14
+- date: 20260807
+- open: 89.3
+- high: 89.9
+- low: 86.6
+- close: 87.1
+- volume: 987610
+- ma5: 85.18
+- ema23_primary: 88.3
+- distance_to_ema23_pct: -1.35
+- ma20: 86.5
+- ma60: 102.58
+- ma120: 97.77
+- return_5d: 13.12
+- return_20d: -10.94
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: 0.69
+- distance_to_high_60_pct: -39.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,100,100,95.7,98.8,1403650,105.23,-6.11,104.66,111.5,0.55
-20260709,99.8,100.5,97.3,97.8,1318711,104.61,-6.51,104.05,111.01,0.55
 20260713,100.5,100.5,94.6,95.3,1952807,103.83,-8.22,103.33,110.54,0.85
 20260714,94.2,96,88.5,92.9,2488717,102.92,-9.74,102.43,110.06,1.08
 20260715,93.8,100.5,93.7,99,1989270,102.6,-3.5,101.78,109.64,0.89
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,76.8,81.3,76.6,80.4,1224160,89.03,-9.69,89.13,103.83,0.7
 20260804,79.5,83.3,78.9,83.2,1154562,88.54,-6.03,88.11,103.44,0.67
 20260805,86.1,86.4,84.2,85.9,1049839,88.32,-2.74,87.51,103.08,0.66
+20260806,85.9,89.3,82.9,89.3,1391795,88.4,1.01,87.03,102.85,0.88
+20260807,89.3,89.9,86.6,87.1,987610,88.3,-1.35,86.5,102.58,0.63
 ```
 
 ## Latest TDCC Snapshot

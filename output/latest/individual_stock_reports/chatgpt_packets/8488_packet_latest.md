@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8488 吉源-KY
 
 ## Metadata
-- generated_at: 2026-08-09 22:29:03 Asia/Taipei
+- generated_at: 2026-08-10 22:29:16 Asia/Taipei
 - stock_id: 8488
 - stock_name: 吉源-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 290
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 292
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 10.05
-- high: 10.05
-- low: 10.05
+- date: 20260807
+- open: 10.35
+- high: 10.75
+- low: 10
 - close: 10.05
-- volume: 3001
-- ma5: 10.06
+- volume: 284000
+- ma5: 10.05
 - ema23_primary: 10.13
-- distance_to_ema23_pct: -0.84
+- distance_to_ema23_pct: -0.78
 - ma20: 10.14
-- ma60: 10.09
+- ma60: 10.1
 - ma120: 10.04
-- return_5d: -1.47
-- return_20d: -0.99
-- volume_ratio: 0.15
-- distance_to_ma20_pct_auxiliary: -0.89
+- return_5d: -1.95
+- return_20d: 0
+- volume_ratio: 8
+- distance_to_ma20_pct_auxiliary: -0.92
 - distance_to_high_60_pct: -12.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,10.15,10.15,10.1,10.1,18000,10.14,-0.44,10.18,10.1,0.61
-20260709,9.88,10.1,9.88,10.05,3011,10.14,-0.86,10.2,10.1,0.1
 20260713,10.05,10.7,9.97,9.97,245000,10.12,-1.51,10.22,10.11,5.97
 20260714,10.2,10.2,10.05,10.05,4000,10.12,-0.66,10.2,10.11,0.11
 20260715,9.98,10.25,9.98,10.2,23000,10.12,0.75,10.2,10.11,0.63
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,10.2,10.2,10,10.1,14001,10.16,-0.63,10.16,10.1,0.67
 20260804,9.81,9.91,9.81,9.91,2000,10.14,-2.29,10.15,10.09,0.1
 20260805,10.05,10.05,10.05,10.05,3001,10.13,-0.84,10.14,10.09,0.15
+20260806,9.93,10.15,9.93,10.15,39000,10.14,0.14,10.14,10.1,1.82
+20260807,10.35,10.75,10,10.05,284000,10.13,-0.78,10.14,10.1,8
 ```
 
 ## Latest TDCC Snapshot

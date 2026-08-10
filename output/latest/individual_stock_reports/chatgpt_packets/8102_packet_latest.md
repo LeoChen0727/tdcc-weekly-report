@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8102 傑霖科技
 
 ## Metadata
-- generated_at: 2026-08-09 22:28:55 Asia/Taipei
+- generated_at: 2026-08-10 22:29:08 Asia/Taipei
 - stock_id: 8102
 - stock_name: 傑霖科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 143
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 145
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 69.5
-- high: 71.3
-- low: 67.9
-- close: 69.4
-- volume: 10000
-- ma5: 69.6
-- ema23_primary: 71.33
-- distance_to_ema23_pct: -2.7
-- ma20: 72.04
-- ma60: 70.02
-- ma120: 64.38
-- return_5d: -3.88
-- return_20d: 2.97
-- volume_ratio: 0.34
-- distance_to_ma20_pct_auxiliary: -3.66
-- distance_to_high_60_pct: -13.79
+- date: 20260807
+- open: 69.7
+- high: 69.7
+- low: 68.2
+- close: 68.3
+- volume: 7000
+- ma5: 69.12
+- ema23_primary: 70.84
+- distance_to_ema23_pct: -3.58
+- ma20: 72.14
+- ma60: 70.09
+- ma120: 64.57
+- return_5d: 0.15
+- return_20d: 0.44
+- volume_ratio: 0.26
+- distance_to_ma20_pct_auxiliary: -5.32
+- distance_to_high_60_pct: -15.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260707,67.5,67.5,66.6,66.6,11000,69.35,-3.97,70.27,68.86,0.52
-20260708,68.6,68.6,66.5,68,42000,69.24,-1.79,69.81,69.03,2.19
 20260709,68.5,68.5,66.2,68.4,9000,69.17,-1.12,69.56,69.19,0.5
 20260713,68.4,75.2,68.4,75,86000,69.66,7.67,69.72,69.45,4.07
 20260714,75.5,77,71.7,74.1,95000,70.03,5.82,69.81,69.66,3.88
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260731,68.2,71.9,68.2,71.9,3000,71.84,0.08,71.94,70.05,0.1
 20260804,67.8,67.8,67.8,67.8,1000,71.5,-5.18,71.94,70.05,0.03
 20260805,69.5,71.3,67.9,69.4,10000,71.33,-2.7,72.04,70.02,0.34
+20260806,68,69.6,67.9,68.2,8000,71.07,-4.03,72.12,70.02,0.28
+20260807,69.7,69.7,68.2,68.3,7000,70.84,-3.58,72.14,70.09,0.26
 ```
 
 ## Latest TDCC Snapshot

@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009825 聯邦美國金融創新
 
 ## Metadata
-- generated_at: 2026-08-09 22:26:08 Asia/Taipei
+- generated_at: 2026-08-10 22:26:21 Asia/Taipei
 - stock_id: 009825
 - stock_name: 聯邦美國金融創新
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260805
-- price_rows: 14
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 16
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,23 +126,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 10.01
+- date: 20260807
+- open: 10.05
 - high: 10.05
-- low: 9.99
-- close: 9.99
-- volume: 6610000
-- ma5: 9.84
-- ema23_primary: 9.76
-- distance_to_ema23_pct: 2.38
-- ma20: 9.79
-- ma60: 9.79
-- ma120: 9.79
-- return_5d: 1.63
+- low: 10.01
+- close: 10.05
+- volume: 5671000
+- ma5: 9.95
+- ema23_primary: 9.8
+- distance_to_ema23_pct: 2.53
+- ma20: 9.82
+- ma60: 9.82
+- ma120: 9.82
+- return_5d: 2.55
 - return_20d:
-- volume_ratio: 2.99
-- distance_to_ma20_pct_auxiliary: 1.99
-- distance_to_high_60_pct: -0.6
+- volume_ratio: 2.08
+- distance_to_ma20_pct_auxiliary: 2.29
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -162,6 +162,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,9.79,9.87,9.79,9.8,782000,9.72,0.79,9.77,9.77,0.41
 20260804,9.82,9.95,9.82,9.88,1467000,9.74,1.48,9.78,9.78,0.78
 20260805,10.01,10.05,9.99,9.99,6610000,9.76,2.38,9.79,9.79,2.99
+20260806,10.03,10.04,9.99,10.02,6929000,9.78,2.46,9.81,9.81,2.75
+20260807,10.05,10.05,10.01,10.05,5671000,9.8,2.53,9.82,9.82,2.08
 ```
 
 ## Latest TDCC Snapshot

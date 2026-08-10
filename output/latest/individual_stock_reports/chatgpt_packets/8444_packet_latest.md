@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8444 綠河-KY
 
 ## Metadata
-- generated_at: 2026-08-09 22:29:02 Asia/Taipei
+- generated_at: 2026-08-10 22:29:14 Asia/Taipei
 - stock_id: 8444
 - stock_name: 綠河-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 178
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 180
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 5.23
-- high: 5.35
-- low: 5.22
+- date: 20260807
+- open: 5.55
+- high: 5.55
+- low: 5.35
 - close: 5.35
-- volume: 19000
-- ma5: 5.12
-- ema23_primary: 5.37
-- distance_to_ema23_pct: -0.4
-- ma20: 5.39
-- ma60: 5.81
-- ma120: 7.06
-- return_5d: 5.52
-- return_20d: -11.72
-- volume_ratio: 2.97
-- distance_to_ma20_pct_auxiliary: -0.76
+- volume: 15000
+- ma5: 5.36
+- ema23_primary: 5.38
+- distance_to_ema23_pct: -0.55
+- ma20: 5.36
+- ma60: 5.79
+- ma120: 6.97
+- return_5d: 7.21
+- return_20d: -4.46
+- volume_ratio: 2.24
+- distance_to_ma20_pct_auxiliary: -0.11
 - distance_to_high_60_pct: -44.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260630,6.22,6.22,5.95,5.95,4000,5.65,5.33,5.21,5.98,0.1
-20260701,5.55,5.6,5.55,5.6,14000,5.64,-0.8,5.26,5.93,0.33
 20260702,5.6,5.6,5.59,5.59,3000,5.64,-0.89,5.28,5.88,0.07
 20260703,5.59,5.59,5.39,5.41,4000,5.62,-3.76,5.3,5.84,0.09
 20260706,5.41,5.41,5.12,5.14,8000,5.58,-7.9,5.31,5.81,0.19
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260731,5.47,5.47,5.44,5.44,2000,5.39,0.89,5.5,5.84,0.21
 20260803,5.17,5.17,5.17,5.17,3000,5.37,-3.79,5.43,5.83,0.44
 20260805,5.23,5.35,5.22,5.35,19000,5.37,-0.4,5.39,5.81,2.97
+20260806,5.35,5.5,5.35,5.5,9000,5.38,2.19,5.37,5.8,1.35
+20260807,5.55,5.55,5.35,5.35,15000,5.38,-0.55,5.36,5.79,2.24
 ```
 
 ## Latest TDCC Snapshot

@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6846 綠茵
 
 ## Metadata
-- generated_at: 2026-08-09 22:28:34 Asia/Taipei
+- generated_at: 2026-08-10 22:28:47 Asia/Taipei
 - stock_id: 6846
 - stock_name: 綠茵
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 181
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 183
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 60.3
-- high: 61.9
+- date: 20260807
+- open: 61
+- high: 61
 - low: 60.3
 - close: 61
-- volume: 18000
-- ma5: 61.02
-- ema23_primary: 62.92
-- distance_to_ema23_pct: -3.05
-- ma20: 62.86
-- ma60: 65.83
-- ma120: 68.57
-- return_5d: 1.33
-- return_20d: -4.54
-- volume_ratio: 1.03
-- distance_to_ma20_pct_auxiliary: -2.96
-- distance_to_high_60_pct: -14.08
+- volume: 7000
+- ma5: 61.26
+- ema23_primary: 62.61
+- distance_to_ema23_pct: -2.57
+- ma20: 62.45
+- ma60: 65.54
+- ma120: 68.35
+- return_5d: 0.33
+- return_20d: -8.82
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: -2.33
+- distance_to_high_60_pct: -13.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,64.7,64.7,62,63.2,32000,65.69,-3.8,65.77,68.15,1.39
-20260709,62.6,66.9,62.6,66.9,20000,65.8,1.68,65.69,68.07,0.85
 20260713,66.8,67,63.4,64.4,39000,65.68,-1.95,65.53,67.95,1.68
 20260714,63.3,63.7,62.2,63.2,23000,65.47,-3.47,65.31,67.82,1.01
 20260715,63.8,65,62.6,63.4,40000,65.3,-2.91,65.12,67.69,1.71
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,60.8,61.4,60.5,61.4,7000,63.2,-2.85,63.1,66.11,0.37
 20260804,60.5,61.9,60.5,61.9,2000,63.09,-1.89,63.01,65.98,0.11
 20260805,60.3,61.9,60.3,61,18000,62.92,-3.05,62.86,65.83,1.03
+20260806,60.7,61.1,60.5,61,12000,62.76,-2.8,62.75,65.67,0.73
+20260807,61,61,60.3,61,7000,62.61,-2.57,62.45,65.54,0.44
 ```
 
 ## Latest TDCC Snapshot

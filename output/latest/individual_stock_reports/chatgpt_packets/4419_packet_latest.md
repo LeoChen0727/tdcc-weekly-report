@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4419 皇家美食
 
 ## Metadata
-- generated_at: 2026-08-09 22:27:35 Asia/Taipei
+- generated_at: 2026-08-10 22:27:48 Asia/Taipei
 - stock_id: 4419
 - stock_name: 皇家美食
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 180
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 182
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 45.25
-- high: 45.45
-- low: 45.25
-- close: 45.45
-- volume: 5000
-- ma5: 45.21
-- ema23_primary: 45.8
-- distance_to_ema23_pct: -0.77
-- ma20: 45.74
-- ma60: 46.25
-- ma120: 46.35
+- date: 20260807
+- open: 45.5
+- high: 45.65
+- low: 45.5
+- close: 45.65
+- volume: 3000
+- ma5: 45.34
+- ema23_primary: 45.74
+- distance_to_ema23_pct: -0.2
+- ma20: 45.64
+- ma60: 46.22
+- ma120: 46.29
 - return_5d: 1
-- return_20d: -3.19
-- volume_ratio: 1.92
-- distance_to_ma20_pct_auxiliary: -0.64
-- distance_to_high_60_pct: -11.92
+- return_20d: -0.65
+- volume_ratio: 1.2
+- distance_to_ma20_pct_auxiliary: 0.02
+- distance_to_high_60_pct: -11.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,46.95,46.95,46.95,46.95,1000,47.16,-0.44,47.19,46.3,0.02
-20260709,45.55,45.95,45.2,45.95,6000,47.06,-2.35,47.21,46.31,0.12
 20260713,46.25,46.25,46.25,46.25,1000,46.99,-1.58,47.24,46.33,0.02
 20260714,46.25,46.25,45.25,46.25,3000,46.93,-1.45,47.23,46.35,0.06
 20260715,46.95,46.95,45.1,46.45,3000,46.89,-0.94,47.26,46.35,0.07
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,45.2,45.2,45.15,45.2,4000,45.89,-1.5,45.92,46.29,1.63
 20260804,45.2,45.2,45.2,45.2,3000,45.83,-1.38,45.82,46.29,1.18
 20260805,45.25,45.45,45.25,45.45,5000,45.8,-0.77,45.74,46.25,1.92
+20260806,45.1,45.2,45.1,45.2,2000,45.75,-1.2,45.66,46.22,0.75
+20260807,45.5,45.65,45.5,45.65,3000,45.74,-0.2,45.64,46.22,1.2
 ```
 
 ## Latest TDCC Snapshot

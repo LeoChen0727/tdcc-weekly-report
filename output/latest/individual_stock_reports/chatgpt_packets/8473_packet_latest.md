@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8473 山林水
 
 ## Metadata
-- generated_at: 2026-08-09 22:29:03 Asia/Taipei
+- generated_at: 2026-08-10 22:29:15 Asia/Taipei
 - stock_id: 8473
 - stock_name: 山林水
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 319
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 321
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
+- date: 20260807
 - open: 41.75
-- high: 42.1
-- low: 41.2
-- close: 41.4
-- volume: 494608
-- ma5: 40.76
-- ema23_primary: 43.58
-- distance_to_ema23_pct: -5
-- ma20: 43.32
-- ma60: 45.74
-- ma120: 41.52
-- return_5d: 2.48
-- return_20d: -9.21
-- volume_ratio: 0.8
-- distance_to_ma20_pct_auxiliary: -4.43
-- distance_to_high_60_pct: -27.62
+- high: 42
+- low: 40.75
+- close: 40.9
+- volume: 681012
+- ma5: 41.12
+- ema23_primary: 43.21
+- distance_to_ema23_pct: -5.34
+- ma20: 42.9
+- ma60: 45.99
+- ma120: 41.6
+- return_5d: 0.37
+- return_20d: -10.31
+- volume_ratio: 1.03
+- distance_to_ma20_pct_auxiliary: -4.66
+- distance_to_high_60_pct: -28.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,46.2,46.2,45.05,45.4,758540,48.35,-6.1,49.5,43.56,0.45
-20260709,45.8,46.2,45.45,45.6,449249,48.12,-5.24,49.26,43.69,0.29
 20260713,45.65,46,44.85,45.1,612000,47.87,-5.78,48.92,43.82,0.45
 20260714,45.35,45.35,42.8,43.5,987766,47.5,-8.43,48.5,43.91,0.78
 20260715,43.5,45.95,43.5,45.15,758963,47.31,-4.56,48.19,44.04,0.64
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,40.75,41.2,39.95,40.3,495023,44,-8.4,43.89,45.51,0.67
 20260804,40.2,41.35,40,41.35,429285,43.78,-5.54,43.53,45.62,0.59
 20260805,41.75,42.1,41.2,41.4,494608,43.58,-5,43.32,45.74,0.8
+20260806,41.2,41.7,40.7,41.65,1298438,43.42,-4.07,43.13,45.87,2.01
+20260807,41.75,42,40.75,40.9,681012,43.21,-5.34,42.9,45.99,1.03
 ```
 
 ## Latest TDCC Snapshot

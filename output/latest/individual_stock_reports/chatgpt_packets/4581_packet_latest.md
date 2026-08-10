@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4581 光隆精密-KY
 
 ## Metadata
-- generated_at: 2026-08-09 22:27:40 Asia/Taipei
+- generated_at: 2026-08-10 22:27:53 Asia/Taipei
 - stock_id: 4581
 - stock_name: 光隆精密-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 315
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 317
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
+- date: 20260807
 - open: 51.3
-- high: 51.3
-- low: 50.8
-- close: 51
-- volume: 4131
-- ma5: 50.8
-- ema23_primary: 50.7
-- distance_to_ema23_pct: 0.59
-- ma20: 50.8
-- ma60: 50.2
+- high: 51.5
+- low: 50.5
+- close: 50.5
+- volume: 19246
+- ma5: 50.98
+- ema23_primary: 50.73
+- distance_to_ema23_pct: -0.46
+- ma20: 50.84
+- ma60: 50.21
 - ma120: 50.13
-- return_5d: 0.39
-- return_20d: 0.99
-- volume_ratio: 0.29
-- distance_to_ma20_pct_auxiliary: 0.39
-- distance_to_high_60_pct: -2.3
+- return_5d: -0.79
+- return_20d: 0
+- volume_ratio: 1.31
+- distance_to_ma20_pct_auxiliary: -0.67
+- distance_to_high_60_pct: -3.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,50.3,50.5,50.1,50.5,17032,50.1,0.79,50.05,50.02,1.3
-20260709,50.5,50.5,50.5,50.5,1056,50.14,0.72,50.09,50.02,0.08
 20260713,50.8,51,50.6,51,35228,50.21,1.58,50.15,50.04,2.55
 20260714,50.6,50.6,50.1,50.5,12100,50.23,0.53,50.19,50.05,0.91
 20260715,51.5,51.5,50.5,50.7,6012,50.27,0.85,50.23,50.05,0.46
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,51.1,51.1,50.7,50.8,5131,50.62,0.36,50.75,50.17,0.35
 20260804,49.95,51.6,49.95,51.3,18037,50.68,1.23,50.77,50.18,1.22
 20260805,51.3,51.3,50.8,51,4131,50.7,0.59,50.8,50.2,0.29
+20260806,51,51.3,50.9,51.3,12314,50.75,1.08,50.84,50.2,0.89
+20260807,51.3,51.5,50.5,50.5,19246,50.73,-0.46,50.84,50.21,1.31
 ```
 
 ## Latest TDCC Snapshot

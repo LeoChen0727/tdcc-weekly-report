@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2832 台產
 
 ## Metadata
-- generated_at: 2026-08-09 22:26:57 Asia/Taipei
+- generated_at: 2026-08-10 22:27:10 Asia/Taipei
 - stock_id: 2832
 - stock_name: 台產
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 312
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 314
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 59.6
-- high: 59.6
-- low: 58.5
+- date: 20260807
+- open: 57.9
+- high: 58.9
+- low: 57.9
 - close: 58.6
-- volume: 163448
-- ma5: 58.9
-- ema23_primary: 57.25
-- distance_to_ema23_pct: 2.36
-- ma20: 57.16
-- ma60: 55.52
-- ma120: 52.34
-- return_5d: 2.99
-- return_20d: 3.53
-- volume_ratio: 0.68
-- distance_to_ma20_pct_auxiliary: 2.51
+- volume: 107945
+- ma5: 58.82
+- ema23_primary: 57.4
+- distance_to_ema23_pct: 2.08
+- ma20: 57.35
+- ma60: 55.67
+- ma120: 52.5
+- return_5d: -1.35
+- return_20d: 4.09
+- volume_ratio: 0.45
+- distance_to_ma20_pct_auxiliary: 2.18
 - distance_to_high_60_pct: -2.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,56.8,56.8,56.1,56.4,149736,55.71,1.24,55.89,53.65,0.35
-20260709,56.4,56.7,55.9,56.3,268886,55.76,0.98,55.96,53.79,0.64
 20260713,56.8,57.1,56.5,56.8,181616,55.84,1.71,56.08,53.93,0.44
 20260714,56.8,56.8,55.3,55.9,535022,55.85,0.09,56.13,54.04,1.36
 20260715,56.2,57.5,56.2,57.2,301440,55.96,2.21,56.33,54.18,0.85
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,59.4,60.4,58.7,60.3,236761,56.97,5.84,56.97,55.35,1.01
 20260804,59.4,59.5,58.2,58.8,250416,57.13,2.93,57.06,55.44,1.05
 20260805,59.6,59.6,58.5,58.6,163448,57.25,2.36,57.16,55.52,0.68
+20260806,58.5,59.1,57.7,57.8,374180,57.3,0.88,57.23,55.59,1.5
+20260807,57.9,58.9,57.9,58.6,107945,57.4,2.08,57.35,55.67,0.45
 ```
 
 ## Latest TDCC Snapshot

@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4987 科誠
 
 ## Metadata
-- generated_at: 2026-08-09 22:27:48 Asia/Taipei
+- generated_at: 2026-08-10 22:28:01 Asia/Taipei
 - stock_id: 4987
 - stock_name: 科誠
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260520
 - price_rows: 129
-- current_main_price_date: 20260805
+- current_main_price_date: 20260807
 - current_main_price_universe_status: historical_only_noncurrent
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable

@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3057 喬鼎
 
 ## Metadata
-- generated_at: 2026-08-09 22:27:06 Asia/Taipei
+- generated_at: 2026-08-10 22:27:19 Asia/Taipei
 - stock_id: 3057
 - stock_name: 喬鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 313
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 315
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 14.55
-- high: 16
-- low: 14.5
-- close: 16
-- volume: 222998
-- ma5: 14.67
-- ema23_primary: 16.18
-- distance_to_ema23_pct: -1.12
-- ma20: 15.95
-- ma60: 18.66
-- ma120: 17.96
-- return_5d: 17.65
-- return_20d: -14.89
-- volume_ratio: 1.32
-- distance_to_ma20_pct_auxiliary: 0.33
-- distance_to_high_60_pct: -33.61
+- date: 20260807
+- open: 16
+- high: 16.15
+- low: 15.3
+- close: 15.4
+- volume: 113674
+- ma5: 15.4
+- ema23_primary: 16.11
+- distance_to_ema23_pct: -4.38
+- ma20: 15.6
+- ma60: 18.5
+- ma120: 17.95
+- return_5d: 7.69
+- return_20d: -18.95
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: -1.3
+- distance_to_high_60_pct: -36.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,18.85,19.65,18.45,19.35,228623,19.66,-1.55,19.53,19.89,0.9
-20260709,19.05,19.95,18.95,19,145281,19.6,-3.07,19.45,19.9,0.61
 20260713,19,19.2,17.1,17.2,450664,19.4,-11.34,19.36,19.87,1.96
 20260714,17.2,17.2,16.05,16.2,304445,19.13,-15.33,19.23,19.83,1.29
 20260715,16.55,17,16.3,16.85,114723,18.94,-11.05,19.07,19.8,0.51
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,14.5,15.15,14.1,15,135965,16.35,-8.24,16.34,18.87,0.78
 20260804,15.3,15.3,14.55,14.55,102728,16.2,-10.17,16.09,18.75,0.61
 20260805,14.55,16,14.5,16,222998,16.18,-1.12,15.95,18.66,1.32
+20260806,15.9,16.3,15.5,16.05,185449,16.17,-0.74,15.78,18.58,1.12
+20260807,16,16.15,15.3,15.4,113674,16.11,-4.38,15.6,18.5,0.69
 ```
 
 ## Latest TDCC Snapshot

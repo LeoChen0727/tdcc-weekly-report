@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8929 富堡
 
 ## Metadata
-- generated_at: 2026-08-09 22:29:05 Asia/Taipei
+- generated_at: 2026-08-10 22:29:17 Asia/Taipei
 - stock_id: 8929
 - stock_name: 富堡
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 180
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 182
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 13.15
-- high: 13.15
-- low: 13
-- close: 13.1
-- volume: 19000
-- ma5: 13.18
-- ema23_primary: 13.66
-- distance_to_ema23_pct: -4.12
-- ma20: 13.82
-- ma60: 14.05
-- ma120: 14.96
-- return_5d: -1.5
-- return_20d: -9.34
-- volume_ratio: 0.69
-- distance_to_ma20_pct_auxiliary: -5.23
-- distance_to_high_60_pct: -17.61
+- date: 20260807
+- open: 13.3
+- high: 13.4
+- low: 13.3
+- close: 13.3
+- volume: 6000
+- ma5: 13.19
+- ema23_primary: 13.6
+- distance_to_ema23_pct: -2.19
+- ma20: 13.7
+- ma60: 14.02
+- ma120: 14.91
+- return_5d: 0.76
+- return_20d: -8.28
+- volume_ratio: 0.23
+- distance_to_ma20_pct_auxiliary: -2.92
+- distance_to_high_60_pct: -16.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260707,14.4,14.65,14.4,14.45,30000,14.11,2.39,14.02,14.49,1
-20260708,14.6,14.6,14.35,14.5,24000,14.14,2.51,14.01,14.47,0.78
 20260709,15,15.9,14.6,15,192000,14.22,5.52,14.05,14.46,4.89
 20260713,14.9,15,14.7,14.75,32000,14.26,3.43,14.07,14.45,0.8
 20260714,14.4,14.4,14.1,14.3,19000,14.26,0.26,14.08,14.43,0.49
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,13.05,13.2,13.05,13.2,18000,13.77,-4.11,13.96,14.1,0.61
 20260804,13.1,13.2,12.95,13.15,36000,13.71,-4.11,13.89,14.08,1.32
 20260805,13.15,13.15,13,13.1,19000,13.66,-4.12,13.82,14.05,0.69
+20260806,13.1,13.2,13.1,13.2,11000,13.62,-3.12,13.76,14.04,0.41
+20260807,13.3,13.4,13.3,13.3,6000,13.6,-2.19,13.7,14.02,0.23
 ```
 
 ## Latest TDCC Snapshot

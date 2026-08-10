@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7768 頌勝科技
 
 ## Metadata
-- generated_at: 2026-08-09 22:28:49 Asia/Taipei
+- generated_at: 2026-08-10 22:29:01 Asia/Taipei
 - stock_id: 7768
 - stock_name: 頌勝科技
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260805
-- price_rows: 63
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 65
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,30 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 252
-- high: 267.5
-- low: 252
-- close: 262
-- volume: 164048
-- ma5: 250.3
-- ema23_primary: 290.89
-- distance_to_ema23_pct: -9.93
-- ma20: 291.35
-- ma60: 344.96
-- ma120: 345.81
-- return_5d: 4.8
-- return_20d: -22.94
-- volume_ratio: 1.39
-- distance_to_ma20_pct_auxiliary: -10.07
-- distance_to_high_60_pct: -40.99
+- date: 20260807
+- open: 260
+- high: 263.5
+- low: 256.5
+- close: 257
+- volume: 52603
+- ma5: 257.2
+- ema23_primary: 285.97
+- distance_to_ema23_pct: -10.13
+- ma20: 282.65
+- ma60: 342.34
+- ma120: 343.18
+- return_5d: 1.98
+- return_20d: -26.68
+- volume_ratio: 0.45
+- distance_to_ma20_pct_auxiliary: -9.07
+- distance_to_high_60_pct: -42.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,340,347,339.5,344,65940,360.02,-4.45,358.38,370.52,0.39
-20260709,351,357.5,348.5,350.5,97236,359.23,-2.43,356.7,370.08,0.61
 20260713,356,356,339.5,342,86960,357.79,-4.41,355.12,369.47,0.58
 20260714,346,346,318.5,329,140955,355.39,-7.43,352.68,368.61,0.93
 20260715,329,333,327,333,62705,353.53,-5.81,350.3,367.86,0.43
@@ -167,6 +165,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,245.5,255,241,251.5,103907,297.29,-15.4,301.15,348.12,0.84
 20260804,244,253,244,252,82835,293.51,-14.14,295.25,346.49,0.69
 20260805,252,267.5,252,262,164048,290.89,-9.93,291.35,344.96,1.39
+20260806,260.5,263.5,253,263.5,56708,288.61,-8.7,287.32,343.75,0.48
+20260807,260,263.5,256.5,257,52603,285.97,-10.13,282.65,342.34,0.45
 ```
 
 ## Latest TDCC Snapshot

@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8104 錸寶
 
 ## Metadata
-- generated_at: 2026-08-09 22:28:56 Asia/Taipei
+- generated_at: 2026-08-10 22:29:08 Asia/Taipei
 - stock_id: 8104
 - stock_name: 錸寶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 319
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 321
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,30 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 31.1
-- high: 31.75
-- low: 30.7
-- close: 31.2
-- volume: 468243
-- ma5: 29.87
-- ema23_primary: 33.61
-- distance_to_ema23_pct: -7.16
-- ma20: 34.14
-- ma60: 37.04
-- ma120: 36
-- return_5d: 7.03
-- return_20d: -22.1
-- volume_ratio: 0.35
-- distance_to_ma20_pct_auxiliary: -8.6
-- distance_to_high_60_pct: -34.73
+- date: 20260807
+- open: 31.45
+- high: 31.7
+- low: 30.85
+- close: 30.9
+- volume: 320997
+- ma5: 30.73
+- ema23_primary: 33.19
+- distance_to_ema23_pct: -6.91
+- ma20: 33.09
+- ma60: 36.93
+- ma120: 35.9
+- return_5d: 4.22
+- return_20d: -24.91
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: -6.63
+- distance_to_high_60_pct: -35.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,40.8,42.8,40.4,41.75,8369695,39.3,6.23,39.44,37.6,2.83
-20260709,41.8,42.9,40.25,41.15,5955626,39.46,4.29,39.54,37.69,1.91
 20260713,41.05,41.8,39,40.6,2428817,39.55,2.65,39.64,37.79,0.76
 20260714,39.75,40.5,37,38.65,1293327,39.48,-2.09,39.64,37.8,0.41
 20260715,38.45,39,38.35,38.55,648925,39.4,-2.16,39.62,37.77,0.2
@@ -167,6 +165,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,28.8,30.75,28.75,30,428820,34.14,-12.12,35.12,37.15,0.23
 20260804,29.75,30.75,29.65,30.4,475188,33.83,-10.13,34.58,37.1,0.28
 20260805,31.1,31.75,30.7,31.2,468243,33.61,-7.16,34.14,37.04,0.35
+20260806,31.3,31.75,30.65,31.15,322019,33.4,-6.74,33.61,36.98,0.34
+20260807,31.45,31.7,30.85,30.9,320997,33.19,-6.91,33.09,36.93,0.48
 ```
 
 ## Latest TDCC Snapshot

@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3013 晟銘電
 
 ## Metadata
-- generated_at: 2026-08-09 22:27:02 Asia/Taipei
+- generated_at: 2026-08-10 22:27:15 Asia/Taipei
 - stock_id: 3013
 - stock_name: 晟銘電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 319
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 321
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 83.9
-- high: 85.2
-- low: 83.3
-- close: 84.6
-- volume: 1161053
-- ma5: 79.18
-- ema23_primary: 88.95
-- distance_to_ema23_pct: -4.89
-- ma20: 87.91
-- ma60: 104.07
-- ma120: 104.39
-- return_5d: 12.05
-- return_20d: -19.81
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: -3.77
-- distance_to_high_60_pct: -37.79
+- date: 20260807
+- open: 87
+- high: 88.3
+- low: 84.4
+- close: 85.1
+- volume: 1077260
+- ma5: 83.84
+- ema23_primary: 88.48
+- distance_to_ema23_pct: -3.82
+- ma20: 86.14
+- ma60: 103.33
+- ma120: 104
+- return_5d: 10.66
+- return_20d: -16.57
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: -1.21
+- distance_to_high_60_pct: -37.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,106.5,107.5,104,105.5,780225,109.78,-3.9,108.72,111.12,0.41
-20260709,104.5,105,101.5,102,1330584,109.13,-6.53,108.4,111.09,0.75
 20260713,102.5,104,98,99.5,2212338,108.33,-8.15,108.08,111.02,1.3
 20260714,99,99.5,90.5,96.3,2556534,107.32,-10.27,107.52,110.88,1.45
 20260715,96.5,98.5,95.8,98,827860,106.55,-8.02,106.81,110.66,0.51
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,76.9,81,76,80,1025860,89.97,-11.08,90.28,104.94,0.63
 20260804,78.4,83.2,78.3,82.5,888803,89.35,-7.67,88.95,104.53,0.55
 20260805,83.9,85.2,83.3,84.6,1161053,88.95,-4.89,87.91,104.07,0.73
+20260806,83.6,87,83,87,968410,88.79,-2.02,86.98,103.69,0.6
+20260807,87,88.3,84.4,85.1,1077260,88.48,-3.82,86.14,103.33,0.68
 ```
 
 ## Latest TDCC Snapshot

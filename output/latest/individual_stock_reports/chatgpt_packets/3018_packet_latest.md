@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3018 隆銘綠能
 
 ## Metadata
-- generated_at: 2026-08-09 22:27:02 Asia/Taipei
+- generated_at: 2026-08-10 22:27:16 Asia/Taipei
 - stock_id: 3018
 - stock_name: 隆銘綠能
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 313
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 315
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 14.2
-- high: 14.55
-- low: 13.9
-- close: 14.05
-- volume: 108140
-- ma5: 14.84
-- ema23_primary: 13.48
-- distance_to_ema23_pct: 4.25
-- ma20: 13.25
-- ma60: 11.7
-- ma120: 11.75
-- return_5d: -18.55
-- return_20d: 16.6
-- volume_ratio: 0.79
-- distance_to_ma20_pct_auxiliary: 6.04
-- distance_to_high_60_pct: -25.66
+- date: 20260807
+- open: 15
+- high: 15
+- low: 14.2
+- close: 14.25
+- volume: 58565
+- ma5: 14.29
+- ema23_primary: 13.62
+- distance_to_ema23_pct: 4.62
+- ma20: 13.48
+- ma60: 11.82
+- ma120: 11.79
+- return_5d: -8.06
+- return_20d: 18.26
+- volume_ratio: 0.42
+- distance_to_ma20_pct_auxiliary: 5.71
+- distance_to_high_60_pct: -24.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,12.6,12.6,12.1,12.1,19618,11.67,3.66,11.93,10.88,0.65
-20260709,12,12.05,12,12.05,54666,11.7,2.96,11.93,10.89,1.76
 20260713,12,12,11.9,12,41748,11.73,2.31,11.93,10.91,1.28
 20260714,12,12,11.65,11.7,29075,11.73,-0.23,11.92,10.93,0.86
 20260715,11.7,11.85,11.65,11.85,29209,11.74,0.97,11.92,10.94,0.84
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,14.65,14.75,14,14.35,180825,13.35,7.52,13.04,11.57,1.37
 20260804,14.35,14.45,13.7,14.3,95278,13.43,6.51,13.15,11.63,0.72
 20260805,14.2,14.55,13.9,14.05,108140,13.48,4.25,13.25,11.7,0.79
+20260806,14.1,14.5,14.1,14.5,58628,13.56,6.91,13.37,11.76,0.42
+20260807,15,15,14.2,14.25,58565,13.62,4.62,13.48,11.82,0.42
 ```
 
 ## Latest TDCC Snapshot

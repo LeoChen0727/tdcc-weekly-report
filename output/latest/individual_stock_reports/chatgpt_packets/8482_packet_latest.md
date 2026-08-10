@@ -1,27 +1,27 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8482 商億-KY
 
 ## Metadata
-- generated_at: 2026-08-09 22:29:03 Asia/Taipei
+- generated_at: 2026-08-10 22:29:16 Asia/Taipei
 - stock_id: 8482
 - stock_name: 商億-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260804
-- price_rows: 307
-- current_main_price_date: 20260805
-- current_main_price_universe_status: historical_only_noncurrent
+- latest_price_date: 20260807
+- price_rows: 309
+- current_main_price_date: 20260807
+- current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
 - source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
 - official_tdcc_signal_date: 20260807
 - latest_tdcc_date: 20260807
 - tdcc_rows: 15
-- tdcc_history_status: historical_only_noncurrent
-- tdcc_freshness_status: historical_only_noncurrent
+- tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
 - tdcc_missing_official_dates: 
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: Historical-only TDCC window: stock is absent from the official current main-price universe; retain real historical dates and do not claim current TDCC history
+- notes:
 
 ## Stable Read URLs
 - packet_pages_url: not_published_to_pages_use_raw_or_github_api
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260804
-- open: 49.4
-- high: 49.8
-- low: 47.8
+- date: 20260807
+- open: 48.75
+- high: 48.8
+- low: 48.75
 - close: 48.8
-- volume: 26415
-- ma5: 50.57
+- volume: 2010
+- ma5: 50.09
 - ema23_primary: 49.32
 - distance_to_ema23_pct: -1.06
-- ma20: 49.08
-- ma60: 48.91
-- ma120: 49.07
-- return_5d: 0.93
-- return_20d: -0.91
-- volume_ratio: 3.3
-- distance_to_ma20_pct_auxiliary: -0.56
+- ma20: 49.13
+- ma60: 48.9
+- ma120: 49.09
+- return_5d: -5.06
+- return_20d: 1.04
+- volume_ratio: 0.25
+- distance_to_ma20_pct_auxiliary: -0.68
 - distance_to_high_60_pct: -8.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260707,49.25,49.25,49.25,49.25,1000,48.86,0.8,48.74,48.97,0.13
-20260708,49.2,49.2,48.3,48.3,3001,48.81,-1.05,48.7,48.99,0.4
 20260709,47,47.9,46.35,47.9,3107,48.74,-1.72,48.6,49,0.42
 20260713,47.3,48.4,47.3,47.95,7086,48.67,-1.48,48.57,48.97,0.93
 20260714,48.8,48.8,48.8,48.8,1215,48.68,0.24,48.63,48.96,0.2
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260731,53.4,53.4,53,53,3286,49.32,7.47,49,48.91,0.51
 20260803,49.15,51.5,49.15,49.95,11117,49.37,1.18,49.1,48.91,1.63
 20260804,49.4,49.8,47.8,48.8,26415,49.32,-1.06,49.08,48.91,3.3
+20260806,49.9,49.9,49.9,49.9,5050,49.37,1.07,49.11,48.92,0.62
+20260807,48.75,48.8,48.75,48.8,2010,49.32,-1.06,49.13,48.9,0.25
 ```
 
 ## Latest TDCC Snapshot

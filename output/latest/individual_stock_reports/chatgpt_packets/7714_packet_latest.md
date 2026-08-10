@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7714 創泓科技
 
 ## Metadata
-- generated_at: 2026-08-09 22:28:47 Asia/Taipei
+- generated_at: 2026-08-10 22:28:59 Asia/Taipei
 - stock_id: 7714
 - stock_name: 創泓科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 184
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 186
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 166.5
-- high: 167
-- low: 155.5
-- close: 158
-- volume: 531000
-- ma5: 143.3
-- ema23_primary: 156.66
-- distance_to_ema23_pct: 0.86
-- ma20: 168.9
-- ma60: 143.42
-- ma120: 139.32
-- return_5d: 16.18
-- return_20d: 10.49
-- volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: -6.45
-- distance_to_high_60_pct: -26.68
+- date: 20260807
+- open: 158
+- high: 158
+- low: 152.5
+- close: 153
+- volume: 151000
+- ma5: 152.1
+- ema23_primary: 156.11
+- distance_to_ema23_pct: -1.99
+- ma20: 167.75
+- ma60: 144.27
+- ma120: 139.4
+- return_5d: 11.27
+- return_20d: -11.3
+- volume_ratio: 0.2
+- distance_to_ma20_pct_auxiliary: -8.79
+- distance_to_high_60_pct: -29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,144,157,140,157,460000,139.27,12.73,136.88,131.32,2.07
-20260709,172.5,172.5,172.5,172.5,425000,142.04,21.44,138.97,132.05,1.82
 20260713,180.5,189.5,173,184.5,2878000,145.58,26.73,141.85,132.97,7.73
 20260714,190,202,181,202,2294000,150.28,34.41,145.5,134.1,4.74
 20260715,205,208.5,191.5,207.5,1849000,155.05,33.83,149.5,135.32,3.22
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,137,147,137,141,563000,156.67,-10,167.95,142.55,0.75
 20260804,146,155,145,155,396000,156.53,-0.98,168.15,142.94,0.53
 20260805,166.5,167,155.5,158,531000,156.66,0.86,168.9,143.42,0.7
+20260806,155.5,156.5,149,153.5,309000,156.39,-1.85,168.72,143.85,0.41
+20260807,158,158,152.5,153,151000,156.11,-1.99,167.75,144.27,0.2
 ```
 
 ## Latest TDCC Snapshot

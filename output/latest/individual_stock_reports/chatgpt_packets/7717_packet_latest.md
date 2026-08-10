@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7717 萊德光電-KY
 
 ## Metadata
-- generated_at: 2026-08-09 22:28:47 Asia/Taipei
+- generated_at: 2026-08-10 22:28:59 Asia/Taipei
 - stock_id: 7717
 - stock_name: 萊德光電-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 174
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 176
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 423
-- high: 453
-- low: 423
-- close: 440
-- volume: 183000
-- ma5: 387.3
-- ema23_primary: 433.49
-- distance_to_ema23_pct: 1.5
-- ma20: 429.77
-- ma60: 531.02
-- ma120: 625.65
-- return_5d: 21.21
-- return_20d: 0.8
-- volume_ratio: 0.77
-- distance_to_ma20_pct_auxiliary: 2.38
-- distance_to_high_60_pct: -41.88
+- date: 20260807
+- open: 418.5
+- high: 436
+- low: 417
+- close: 419
+- volume: 123000
+- ma5: 418.3
+- ema23_primary: 431.78
+- distance_to_ema23_pct: -2.96
+- ma20: 429.57
+- ma60: 523.39
+- ma120: 622.77
+- return_5d: 17.37
+- return_20d: -0.83
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: -2.46
+- distance_to_high_60_pct: -44.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,444,444,420,427.5,128000,504.67,-15.29,500.77,638.58,0.33
-20260709,435,441.5,422.5,422.5,106000,497.82,-15.13,489.2,630.62,0.29
 20260713,464.5,464.5,464.5,464.5,138000,495.05,-6.17,482.48,623.48,0.46
 20260714,467.5,498,419.5,498,530000,495.29,0.55,477.68,617.84,1.8
 20260715,502,544,502,532,370000,498.35,6.75,475.62,612.12,1.27
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,364.5,392.5,357.5,392.5,117000,434.7,-9.71,431.48,539.21,0.5
 20260804,392.5,423.5,392,413,372000,432.9,-4.6,429.6,534.96,1.56
 20260805,423,453,423,440,183000,433.49,1.5,429.77,531.02,0.77
+20260806,440,446.5,426,427,156000,432.95,-1.37,429.75,527.16,0.65
+20260807,418.5,436,417,419,123000,431.78,-2.96,429.57,523.39,0.51
 ```
 
 ## Latest TDCC Snapshot

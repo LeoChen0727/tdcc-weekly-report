@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3303 岱稜
 
 ## Metadata
-- generated_at: 2026-08-09 22:27:14 Asia/Taipei
+- generated_at: 2026-08-10 22:27:27 Asia/Taipei
 - stock_id: 3303
 - stock_name: 岱稜
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 184
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 186
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -131,30 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 56.4
-- high: 56.6
-- low: 54.5
-- close: 54.9
-- volume: 783000
-- ma5: 54.46
-- ema23_primary: 54.32
-- distance_to_ema23_pct: 1.06
-- ma20: 54.31
-- ma60: 53.94
-- ma120: 50.54
-- return_5d: 8.71
-- return_20d: -4.19
-- volume_ratio: 0.61
-- distance_to_ma20_pct_auxiliary: 1.08
-- distance_to_high_60_pct: -15.15
+- date: 20260807
+- open: 54.3
+- high: 54.9
+- low: 53.7
+- close: 54.8
+- volume: 552000
+- ma5: 55.14
+- ema23_primary: 54.35
+- distance_to_ema23_pct: 0.83
+- ma20: 54.02
+- ma60: 54.09
+- ma120: 50.7
+- return_5d: -0.36
+- return_20d: -7.43
+- volume_ratio: 0.47
+- distance_to_ma20_pct_auxiliary: 1.45
+- distance_to_high_60_pct: -15.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,57.3,57.9,55.5,55.7,799000,56.59,-1.58,58.2,52.19,0.47
-20260709,59,61.2,58.7,59.2,2854000,56.81,4.2,58.59,52.41,1.58
 20260713,57.6,58.2,55.4,56,1336000,56.74,-1.31,58.71,52.58,0.73
 20260714,56.5,58,55.4,57.4,1931000,56.8,1.06,58.63,52.76,1.1
 20260715,57.4,62.7,54.5,62.7,3699000,57.29,9.44,58.62,53.03,2.71
@@ -173,6 +171,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,54,57.5,53.9,56.3,1307000,54.15,3.97,54.54,53.83,1.02
 20260804,56.4,57.5,55.2,55.6,576000,54.27,2.45,54.44,53.89,0.45
 20260805,56.4,56.6,54.5,54.9,783000,54.32,1.06,54.31,53.94,0.61
+20260806,55.5,55.5,53.3,54.1,668000,54.31,-0.38,54.23,54.01,0.52
+20260807,54.3,54.9,53.7,54.8,552000,54.35,0.83,54.02,54.09,0.47
 ```
 
 ## Latest TDCC Snapshot

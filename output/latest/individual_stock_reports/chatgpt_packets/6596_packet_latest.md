@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6596 寬宏藝術
 
 ## Metadata
-- generated_at: 2026-08-09 22:28:24 Asia/Taipei
+- generated_at: 2026-08-10 22:28:37 Asia/Taipei
 - stock_id: 6596
 - stock_name: 寬宏藝術
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 184
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 186
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 88.7
-- high: 89.1
-- low: 88.5
-- close: 88.7
-- volume: 71000
-- ma5: 87.68
-- ema23_primary: 89.08
-- distance_to_ema23_pct: -0.43
-- ma20: 88.39
-- ma60: 93.18
-- ma120: 108.49
-- return_5d: 3.02
-- return_20d: -4.73
-- volume_ratio: 0.6
-- distance_to_ma20_pct_auxiliary: 0.36
-- distance_to_high_60_pct: -15.12
+- date: 20260807
+- open: 88.4
+- high: 90
+- low: 88.4
+- close: 89.8
+- volume: 61000
+- ma5: 88.64
+- ema23_primary: 89.14
+- distance_to_ema23_pct: 0.74
+- ma20: 88.1
+- ma60: 92.78
+- ma120: 107.56
+- return_5d: 2.05
+- return_20d: -1.86
+- volume_ratio: 0.56
+- distance_to_ma20_pct_auxiliary: 1.93
+- distance_to_high_60_pct: -10.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,93.5,93.5,92.7,93.1,62000,94.28,-1.25,93.58,97.25,0.39
-20260709,92.2,92.5,91.5,91.5,215000,94.05,-2.71,93.42,97.07,1.47
 20260713,91.5,91.5,90,90,179000,93.71,-3.96,93.22,96.84,1.25
 20260714,90.1,90.8,88.5,89.4,194000,93.35,-4.23,92.97,96.64,1.34
 20260715,89.4,90.4,89.4,90.3,48000,93.1,-3.01,92.78,96.47,0.36
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,88,89.3,87,87.3,88000,89.19,-2.12,88.97,93.61,0.68
 20260804,87,88.5,87,88.3,46000,89.11,-0.91,88.61,93.44,0.37
 20260805,88.7,89.1,88.5,88.7,71000,89.08,-0.43,88.39,93.18,0.6
+20260806,89,89.5,88.9,89.1,38000,89.08,0.02,88.19,92.95,0.32
+20260807,88.4,90,88.4,89.8,61000,89.14,0.74,88.1,92.78,0.56
 ```
 
 ## Latest TDCC Snapshot

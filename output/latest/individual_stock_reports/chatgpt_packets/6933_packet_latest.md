@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6933 AMAX-KY
 
 ## Metadata
-- generated_at: 2026-08-09 22:28:38 Asia/Taipei
+- generated_at: 2026-08-10 22:28:51 Asia/Taipei
 - stock_id: 6933
 - stock_name: AMAX-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 319
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 321
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 170
-- high: 171.5
-- low: 165
-- close: 165.5
-- volume: 819365
-- ma5: 155.2
-- ema23_primary: 157.93
-- distance_to_ema23_pct: 4.79
-- ma20: 160.05
-- ma60: 159.38
-- ma120: 154.32
-- return_5d: 11.82
-- return_20d: 15.73
-- volume_ratio: 1.49
-- distance_to_ma20_pct_auxiliary: 3.41
-- distance_to_high_60_pct: -15.13
+- date: 20260807
+- open: 168
+- high: 174
+- low: 162.5
+- close: 164.5
+- volume: 548182
+- ma5: 164.4
+- ema23_primary: 159.33
+- distance_to_ema23_pct: 3.25
+- ma20: 161.68
+- ma60: 158.89
+- ma120: 154.88
+- return_5d: 9.67
+- return_20d: 4.44
+- volume_ratio: 0.95
+- distance_to_ma20_pct_auxiliary: 1.75
+- distance_to_high_60_pct: -15.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,145.5,145.5,141,143.5,81236,151.1,-5.03,148.75,164.12,0.55
-20260709,157.5,157.5,157.5,157.5,139527,151.63,3.87,149.12,163.68,0.95
 20260713,173,173,173,173,333359,153.41,12.77,150.35,163.47,2.17
 20260714,164.5,166.5,156,163,1209532,154.21,5.7,150.97,163.14,5.8
 20260715,164,171.5,158.5,170.5,572963,155.57,9.6,151.8,162.72,2.5
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,147,162,144.5,154,515128,156.18,-1.39,157.93,159.27,1.11
 20260804,151.5,169,151.5,169,1119110,157.25,7.47,158.93,159.33,2.17
 20260805,170,171.5,165,165.5,819365,157.93,4.79,160.05,159.38,1.49
+20260806,167,170,161.5,169,295974,158.86,6.39,161.32,159.21,0.53
+20260807,168,174,162.5,164.5,548182,159.33,3.25,161.68,158.89,0.95
 ```
 
 ## Latest TDCC Snapshot

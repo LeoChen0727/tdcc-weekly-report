@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00898 國泰基因免疫革命
 
 ## Metadata
-- generated_at: 2026-08-09 22:26:05 Asia/Taipei
+- generated_at: 2026-08-10 22:26:19 Asia/Taipei
 - stock_id: 00898
 - stock_name: 國泰基因免疫革命
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260805
-- price_rows: 52
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 54
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 9.53
-- high: 9.6
-- low: 9.49
-- close: 9.58
-- volume: 748718
-- ma5: 9.45
-- ema23_primary: 9.31
-- distance_to_ema23_pct: 2.88
+- date: 20260807
+- open: 9.62
+- high: 9.69
+- low: 9.62
+- close: 9.68
+- volume: 1966606
+- ma5: 9.54
+- ema23_primary: 9.37
+- distance_to_ema23_pct: 3.36
 - ma20: 9.39
-- ma60: 8.9
-- ma120: 8.9
-- return_5d: 2.57
-- return_20d: -1.03
-- volume_ratio: 1.14
-- distance_to_ma20_pct_auxiliary: 2.03
-- distance_to_high_60_pct: -2.04
+- ma60: 8.92
+- ma120: 8.92
+- return_5d: 1.57
+- return_20d: 1.47
+- volume_ratio: 2.81
+- distance_to_ma20_pct_auxiliary: 3.03
+- distance_to_high_60_pct: -1.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,9.67,9.72,9.62,9.63,650015,8.98,7.25,8.9,8.62,0.52
-20260709,9.58,9.58,9.51,9.54,888451,9.03,5.7,8.97,8.65,0.7
 20260713,9.54,9.54,9.35,9.35,833535,9.05,3.29,9.03,8.67,0.66
 20260714,9.35,9.35,9.26,9.34,830839,9.08,2.9,9.07,8.69,0.67
 20260715,9.34,9.38,9.3,9.37,464469,9.1,2.96,9.12,8.7,0.37
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,9.45,9.45,9.26,9.37,91188,9.27,1.03,9.41,8.87,0.12
 20260804,9.37,9.45,9.35,9.44,691190,9.29,1.64,9.39,8.88,0.97
 20260805,9.53,9.6,9.49,9.58,748718,9.31,2.88,9.39,8.9,1.14
+20260806,9.6,9.61,9.58,9.61,437827,9.34,2.92,9.39,8.91,0.68
+20260807,9.62,9.69,9.62,9.68,1966606,9.37,3.36,9.39,8.92,2.81
 ```
 
 ## Latest TDCC Snapshot

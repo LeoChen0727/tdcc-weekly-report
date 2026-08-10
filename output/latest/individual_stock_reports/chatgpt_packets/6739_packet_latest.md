@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6739 竹陞科技
 
 ## Metadata
-- generated_at: 2026-08-09 22:28:30 Asia/Taipei
+- generated_at: 2026-08-10 22:28:43 Asia/Taipei
 - stock_id: 6739
 - stock_name: 竹陞科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 184
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 186
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 1050
-- high: 1070
-- low: 1015
-- close: 1045
-- volume: 128000
-- ma5: 904.8
-- ema23_primary: 1036.75
-- distance_to_ema23_pct: 0.8
-- ma20: 1044.6
-- ma60: 1154.55
-- ma120: 1192.17
-- return_5d: 23.38
-- return_20d: -11.81
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: 0.04
-- distance_to_high_60_pct: -26.67
+- date: 20260807
+- open: 1105
+- high: 1115
+- low: 1005
+- close: 1005
+- volume: 87000
+- ma5: 1011
+- ema23_primary: 1040.08
+- distance_to_ema23_pct: -3.37
+- ma20: 1042.35
+- ma60: 1146.05
+- ma120: 1195.1
+- return_5d: 22.41
+- return_20d: -4.74
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: -3.58
+- distance_to_high_60_pct: -29.47
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,1180,1180,1075,1110,420000,1172.84,-5.36,1138.55,1301.18,1.54
-20260709,1130,1140,1050,1055,209000,1163.02,-9.29,1133.05,1294.1,0.77
 20260713,1060,1090,1000,1050,197000,1153.6,-8.98,1130.55,1284.52,0.73
 20260714,1030,1100,969,1085,282000,1147.88,-5.48,1126.3,1276.35,1.03
 20260715,1100,1140,1065,1105,157000,1144.31,-3.44,1123.8,1268.77,0.57
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,835,903,822,900,168000,1040.18,-13.48,1067.85,1166.72,0.49
 20260804,887,990,887,990,85000,1035.99,-4.44,1051.6,1161.13,0.28
 20260805,1050,1070,1015,1045,128000,1036.75,0.8,1044.6,1154.55,0.45
+20260806,1055,1120,1055,1115,129000,1043.27,6.88,1044.85,1150.72,0.47
+20260807,1105,1115,1005,1005,87000,1040.08,-3.37,1042.35,1146.05,0.33
 ```
 
 ## Latest TDCC Snapshot

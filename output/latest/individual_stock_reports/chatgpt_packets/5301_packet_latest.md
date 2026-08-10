@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5301 寶得利
 
 ## Metadata
-- generated_at: 2026-08-09 22:27:52 Asia/Taipei
+- generated_at: 2026-08-10 22:28:05 Asia/Taipei
 - stock_id: 5301
 - stock_name: 寶得利
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 169
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 171
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,30 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 5.38
-- high: 5.38
-- low: 5.26
-- close: 5.26
-- volume: 4000
-- ma5: 5.31
-- ema23_primary: 5.81
-- distance_to_ema23_pct: -9.4
-- ma20: 5.82
-- ma60: 6.48
-- ma120: 8.19
-- return_5d: -4.36
-- return_20d: -13.63
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: -9.64
-- distance_to_high_60_pct: -32.39
+- date: 20260807
+- open: 5.2
+- high: 5.34
+- low: 5.2
+- close: 5.34
+- volume: 12000
+- ma5: 5.26
+- ema23_primary: 5.72
+- distance_to_ema23_pct: -6.65
+- ma20: 5.73
+- ma60: 6.4
+- ma120: 8.09
+- return_5d: -1.11
+- return_20d: -14.42
+- volume_ratio: 1.17
+- distance_to_ma20_pct_auxiliary: -6.74
+- distance_to_high_60_pct: -30.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,6.17,6.2,6.09,6.2,9000,6.55,-5.34,6.56,7.42,0.7
-20260709,6.1,6.24,6.1,6.24,7000,6.52,-4.35,6.52,7.38,0.59
 20260713,6.24,6.32,6.24,6.29,15000,6.5,-3.29,6.5,7.33,1.21
 20260714,6.29,6.3,6.02,6.3,15000,6.49,-2.89,6.47,7.28,1.29
 20260715,6.31,6.31,6.27,6.29,10000,6.47,-2.79,6.43,7.23,0.85
@@ -167,6 +165,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,5.4,5.4,5.25,5.25,7000,5.91,-11.16,5.91,6.56,0.58
 20260804,5.25,5.26,5.25,5.26,3000,5.86,-10.17,5.86,6.52,0.26
 20260805,5.38,5.38,5.26,5.26,4000,5.81,-9.4,5.82,6.48,0.4
+20260806,5.26,5.35,5.2,5.2,11000,5.76,-9.65,5.77,6.44,1.09
+20260807,5.2,5.34,5.2,5.34,12000,5.72,-6.65,5.73,6.4,1.17
 ```
 
 ## Latest TDCC Snapshot
