@@ -767,6 +767,49 @@ def test_snapshot_helper_self_migration_uses_exact_base_owned_contract(
     )
 
 
+def test_local_validation_replay_advanced_migration_contract_is_exact() -> None:
+    paths = set(inventory.PR_SAFE_LOCAL_VALIDATION_REPLAY_ADVANCED_PATHS)
+    contract = inventory.pr_safe_migration_contract_for_paths(paths)
+    assert contract == (
+        inventory.PR_SAFE_LOCAL_VALIDATION_REPLAY_ADVANCED_MIGRATION_ID,
+        inventory.PR_SAFE_ADVANCED_HELPER,
+        inventory.PR_SAFE_ADVANCED_TEST,
+        inventory.PR_SAFE_LOCAL_VALIDATION_REPLAY_ADVANCED_PATHS,
+    )
+    assert inventory.pr_safe_migration_contract_for_paths(
+        {*paths, "scripts/unapproved.py"}
+    ) is None
+
+    base_helper = b"base advanced helper\n"
+    current_helper = (
+        "current advanced helper\n"
+        + inventory.PR_SAFE_LOCAL_VALIDATION_REPLAY_ADVANCED_MIGRATION_ID
+        + "\n"
+    ).encode("utf-8")
+    current_test = b"current advanced test\n"
+    payload = pr_safe_authorization_payload(
+        base_helper,
+        current_helper,
+        current_test,
+        migration_id=inventory.PR_SAFE_LOCAL_VALIDATION_REPLAY_ADVANCED_MIGRATION_ID,
+        authorized_paths=inventory.PR_SAFE_LOCAL_VALIDATION_REPLAY_ADVANCED_PATHS,
+    )
+    assert inventory.validate_pr_safe_control_plane_delta(
+        paths,
+        base_helper=base_helper,
+        current_helper=current_helper,
+        current_test=current_test,
+        authorization_payload=payload,
+    ) == []
+    assert inventory.validate_pr_safe_control_plane_delta(
+        {*paths, "scripts/unapproved.py"},
+        base_helper=base_helper,
+        current_helper=current_helper,
+        current_test=current_test,
+        authorization_payload=payload,
+    )
+
+
 def test_daily_full_checkpoint_replay_preauthorization_is_exact_and_fail_closed(
     monkeypatch: pytest.MonkeyPatch,
     tmp_path: Path,
@@ -880,6 +923,106 @@ def test_daily_full_checkpoint_replay_preauthorization_is_exact_and_fail_closed(
     )
     assert not inventory.is_preauthorized_daily_full_checkpoint_replay_migration(
         **{**kwargs, "changed_paths": {*kwargs["changed_paths"], "scripts/extra.py"}}
+    )
+
+
+def test_local_validation_replay_routing_preauthorization_is_exact_and_fail_closed(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    base_ref = "a" * 40
+    base_blobs: dict[str, bytes | None] = {}
+    target_blobs: dict[str, bytes] = {}
+    base_hashes: dict[str, str | None] = {}
+    target_hashes: dict[str, str] = {}
+    for path, expected_base_sha in (
+        inventory.PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_BASE_SHA256_BY_PATH.items()
+    ):
+        if expected_base_sha is None:
+            base_blobs[path] = None
+            base_hashes[path] = None
+        else:
+            base_blobs[path] = f"base:{path}\n".encode("utf-8")
+            base_hashes[path] = inventory.canonical_blob_sha256(
+                base_blobs[path] or b""
+            )
+        target_blobs[path] = f"target:{path}\n".encode("utf-8")
+        target_hashes[path] = inventory.canonical_blob_sha256(target_blobs[path])
+
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_BASE_SHA256_BY_PATH",
+        base_hashes,
+    )
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_TARGET_SHA256_BY_PATH",
+        target_hashes,
+    )
+    monkeypatch.setattr(
+        inventory,
+        "_pr_safe_repo_ref_is_ancestor",
+        lambda _root, _ancestor, _descendant: True,
+    )
+    monkeypatch.setattr(
+        inventory,
+        "_pr_safe_repo_blob",
+        lambda _root, ref, path: (
+            base_blobs[path] if ref == base_ref else target_blobs[path]
+        ),
+    )
+    modes = {
+        (ref, path): (
+            None if ref == base_ref and base_blobs[path] is None else "100644"
+        )
+        for ref in (base_ref, "HEAD")
+        for path in inventory.PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_PATHS
+    }
+    monkeypatch.setattr(
+        inventory,
+        "_pr_safe_repo_blob_mode",
+        lambda _root, ref, path: modes[(ref, path)],
+    )
+    kwargs = {
+        "base_ref": base_ref,
+        "changed_paths": set(
+            inventory.PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_PATHS
+        ),
+        "strict_surface_changes": set(
+            inventory.PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_STRICT_SURFACES
+        ),
+        "repository_root": tmp_path,
+    }
+
+    assert inventory.is_preauthorized_daily_full_checkpoint_replay_migration(**kwargs)
+    mutated_path = sorted(
+        inventory.PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_PATHS
+    )[0]
+    original = target_blobs[mutated_path]
+    target_blobs[mutated_path] = original + b"semantic drift\n"
+    assert not inventory.is_preauthorized_daily_full_checkpoint_replay_migration(
+        **kwargs
+    )
+    target_blobs[mutated_path] = original
+    modes[("HEAD", mutated_path)] = "100755"
+    assert not inventory.is_preauthorized_daily_full_checkpoint_replay_migration(
+        **kwargs
+    )
+    modes[("HEAD", mutated_path)] = "100644"
+    assert not inventory.is_preauthorized_daily_full_checkpoint_replay_migration(
+        **{
+            **kwargs,
+            "strict_surface_changes": {
+                *kwargs["strict_surface_changes"],
+                "scripts/unapproved.py",
+            },
+        }
+    )
+    assert not inventory.is_preauthorized_daily_full_checkpoint_replay_migration(
+        **{
+            **kwargs,
+            "changed_paths": {*kwargs["changed_paths"], "scripts/unapproved.py"},
+        }
     )
 
 
@@ -1491,6 +1634,100 @@ def test_pr_safe_base_audit_accepts_only_exact_daily_full_replay_target(
     assert rejected["replay_target_preauthorization"]["verified"] is False
 
 
+def test_local_validation_replay_routing_base_audit_is_exact(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    base_sha = "a" * 40
+    head_sha = "b" * 40
+    changed_paths = set(inventory.PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_PATHS)
+    diff_payload = b"".join(
+        (
+            (b"A\0" if base_sha256 is None else b"M\0")
+            + path.encode("utf-8")
+            + b"\0"
+        )
+        for path, base_sha256 in sorted(
+            inventory.PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_BASE_SHA256_BY_PATH.items()
+        )
+    )
+    authorization_payload = (
+        ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH
+    ).read_bytes()
+    lifecycle_payload = (
+        ROOT / inventory.PR_SAFE_LIFECYCLE_AUTHORIZATION_PATH
+    ).read_bytes()
+
+    def fake_git_output_bytes(*args: str) -> bytes:
+        if args[0] == "diff":
+            return diff_payload
+        if args == ("rev-parse", "HEAD"):
+            return f"{base_sha}\n".encode("ascii")
+        raise AssertionError(args)
+
+    def fake_git_blob_at_ref(ref: str, path: str) -> bytes | None:
+        if ref == base_sha and path == inventory.PR_SAFE_AUTHORIZATION_PATH:
+            return authorization_payload
+        if ref == base_sha and path == inventory.PR_SAFE_LIFECYCLE_AUTHORIZATION_PATH:
+            return lifecycle_payload
+        return f"{ref}:{path}\n".encode("utf-8")
+
+    monkeypatch.setattr(inventory, "git_output_bytes", fake_git_output_bytes)
+    monkeypatch.setattr(inventory, "git_blob_at_ref", fake_git_blob_at_ref)
+    monkeypatch.setattr(
+        inventory, "validate_pr_safe_regular_blob_modes", lambda *_args: []
+    )
+    monkeypatch.setattr(
+        inventory, "validate_pr_safe_exact_migration_blob_modes", lambda *_args: []
+    )
+    monkeypatch.setattr(
+        inventory,
+        "is_preauthorized_daily_full_checkpoint_replay_migration",
+        lambda base_ref, observed_paths, strict_surfaces, **kwargs: (
+            base_ref == base_sha
+            and observed_paths == changed_paths
+            and strict_surfaces
+            == inventory.PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_STRICT_SURFACES
+            and kwargs["head_ref"] == head_sha
+        ),
+    )
+    monkeypatch.setattr(
+        inventory,
+        "git_tree_entry_at_ref",
+        lambda _ref, path: ("100644", "blob", "0" * 40, path),
+    )
+
+    assert inventory.validate_pr_safe_control_plane_migration(base_sha, head_sha) == []
+    manifest = inventory.build_pr_safe_audit_manifest(
+        base_sha=base_sha,
+        head_sha=head_sha,
+        validation_errors=[],
+        repository=inventory.PR_SAFE_REPOSITORY,
+        workflow_ref=inventory.PR_SAFE_EXPECTED_WORKFLOW_REF,
+        workflow_sha=base_sha,
+        run_id="12345",
+        run_attempt="1",
+        event_name="pull_request_target",
+        event_action="synchronize",
+        base_ref="main",
+        base_repository=inventory.PR_SAFE_REPOSITORY,
+        head_repository=inventory.PR_SAFE_REPOSITORY,
+        pull_request_number="506",
+    )
+    assert manifest["validation"] == {"passed": True, "errors": []}
+    assert manifest["changed_paths"] == sorted(changed_paths)
+    assert manifest["changed_path_allowlist"] == sorted(changed_paths)
+    assert manifest["changed_paths_match_allowlist"] is True
+    assert manifest["manual_gate_eligible"] is True
+    target = manifest["replay_target_preauthorization"]
+    assert target["target_id"] == (
+        inventory.PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_TARGET_ID
+    )
+    assert target["strict_surfaces"] == sorted(
+        inventory.PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_STRICT_SURFACES
+    )
+    assert target["verified"] is True
+
+
 def test_inventory_manifest_exists_and_is_authoritative() -> None:
     manifest = ROOT / "config" / "repo_production_inventory.csv"
     docs = ROOT / "docs" / "repo_production_inventory.md"
@@ -1603,6 +1840,43 @@ def test_daily_full_replay_lifecycle_hash_authorization_is_exact() -> None:
             "base_helper_sha256": (
                 "6ef1cfa402322114c8b9770f02584af1b208048fff2d550e24c1133e41235eeb"
             ),
+            "current_helper_sha256": (
+                "64052ce22886dd649554a9567d760da44bf8ab97e2f8ffc413132a4ebc96a92f"
+            ),
+            "current_test_sha256": (
+                "e463927104a978cebdb70986108ed55d76049ea27a119b4f35ffb3daa637649c"
+            ),
+            "changed_paths": (
+                "config/daily_model_pr_safe_self_migration_authorizations.csv;"
+                "scripts/validate_repo_production_inventory.py;"
+                "tests/test_repo_production_inventory.py"
+            ),
+        }
+    ]
+
+
+def test_local_validation_replay_routing_authorization_is_exact() -> None:
+    payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
+    rows, errors = inventory.parse_pr_safe_authorizations(payload)
+    assert errors == []
+    matching = [
+        row
+        for row in rows
+        if row["migration_id"]
+        == inventory.PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_TARGET_ID
+    ]
+    assert matching == [
+        {
+            "migration_id": (
+                inventory.PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_TARGET_ID
+            ),
+            "status": "preauthorized",
+            "approval_reference": (
+                "user_authorized_local_validation_replay_f_routing_20260810"
+            ),
+            "base_helper_sha256": (
+                "64052ce22886dd649554a9567d760da44bf8ab97e2f8ffc413132a4ebc96a92f"
+            ),
             "current_helper_sha256": inventory.canonical_blob_sha256(
                 (ROOT / inventory.PR_SAFE_BASE_GUARD_SCRIPT).read_bytes()
             ),
@@ -1613,6 +1887,41 @@ def test_daily_full_replay_lifecycle_hash_authorization_is_exact() -> None:
                 "config/daily_model_pr_safe_self_migration_authorizations.csv;"
                 "scripts/validate_repo_production_inventory.py;"
                 "tests/test_repo_production_inventory.py"
+            ),
+        }
+    ]
+
+
+def test_local_validation_replay_advanced_authorization_is_exact() -> None:
+    payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
+    rows, errors = inventory.parse_pr_safe_authorizations(payload)
+    assert errors == []
+    matching = [
+        row
+        for row in rows
+        if row["migration_id"]
+        == inventory.PR_SAFE_LOCAL_VALIDATION_REPLAY_ADVANCED_MIGRATION_ID
+    ]
+    assert matching == [
+        {
+            "migration_id": (
+                inventory.PR_SAFE_LOCAL_VALIDATION_REPLAY_ADVANCED_MIGRATION_ID
+            ),
+            "status": "preauthorized",
+            "approval_reference": (
+                "user_authorized_local_validation_replay_advanced_pr_safe_20260810"
+            ),
+            "base_helper_sha256": (
+                "4838bf1976c54cd5170d7dc5017127e7c88eee432629ad8703f1e612b2bb48ea"
+            ),
+            "current_helper_sha256": (
+                "985ec761f31a7a4f9e19fd0419f1c9091deaac6afc9ed2863c76b6d700a271cd"
+            ),
+            "current_test_sha256": (
+                "9d510aebede19de7347ca09ea84f9ea28e687ebbe3a381bea7fdb8ad248a89fd"
+            ),
+            "changed_paths": ";".join(
+                sorted(inventory.PR_SAFE_LOCAL_VALIDATION_REPLAY_ADVANCED_PATHS)
             ),
         }
     ]
