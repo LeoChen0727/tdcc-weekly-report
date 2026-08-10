@@ -247,6 +247,9 @@ DAILY_FULL_CHECKPOINT_REPLAY_ADVANCED_STRICT_SURFACES = frozenset(
         PRODUCTION_INVENTORY_PATH,
     }
 )
+LOCAL_VALIDATION_REPLAY_ADVANCED_MIGRATION_ID = (
+    "local-validation-replay-advanced-integrity-pr-safe-v2"
+)
 
 HISTORICAL_REPLAY_REPORT_READY_NOTE = (
     "historical structured-source replay updates objective-source freshness only; "

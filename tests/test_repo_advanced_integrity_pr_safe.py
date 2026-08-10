@@ -439,6 +439,9 @@ def test_exact_local_validation_replay_routing_migration_inherits_not_ready_stat
     historical_replay_repo: Path,
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
+    assert pr_safe.LOCAL_VALIDATION_REPLAY_ADVANCED_MIGRATION_ID == (
+        "local-validation-replay-advanced-integrity-pr-safe-v2"
+    )
     observed: dict[str, object] = {}
 
     def exact_preauthorization(
