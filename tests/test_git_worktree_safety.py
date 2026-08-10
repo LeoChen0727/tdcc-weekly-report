@@ -809,6 +809,10 @@ def test_local_replay_pilot_routes_all_large_roots_to_f_without_c_temp(
     approved = tmp_path / "f-root"
     system_temp = tmp_path / "c-temp"
     system_temp.mkdir()
+    historical_root = system_temp / "codex-daily-full-replay-existing"
+    historical_root.mkdir()
+    historical_file = historical_root / "immutable.txt"
+    historical_file.write_text("historical\n", encoding="utf-8")
     configure_local_replay_root(monkeypatch, approved)
     monkeypatch.setattr(
         local_replay,
@@ -862,8 +866,96 @@ def test_local_replay_pilot_routes_all_large_roots_to_f_without_c_temp(
         assert block["files"]
     assert payload["source_sha"] == source_sha
     assert payload["source_tree_sha"] == payload["synthetic_tree_sha"]
-    assert payload["forbidden_system_temp_replay_paths_after"] == []
-    assert list(system_temp.iterdir()) == []
+    assert payload["forbidden_system_temp_replay_paths_before"] == [
+        str(historical_root)
+    ]
+    assert payload["forbidden_system_temp_replay_paths_after"] == [
+        str(historical_root)
+    ]
+    assert (
+        payload["forbidden_system_temp_replay_evidence_before"]
+        == payload["forbidden_system_temp_replay_evidence_after"]
+    )
+    historical_evidence = payload["forbidden_system_temp_replay_evidence_before"][0]
+    assert historical_evidence["type"] == "directory"
+    assert historical_evidence["reparse"] is False
+    assert historical_evidence["file_count"] == 1
+    assert historical_evidence["bytes"] == historical_file.stat().st_size
+    assert len(historical_evidence["root_sha256"]) == 64
+    assert payload["system_temp_replay_baseline_unchanged"] is True
+    assert payload["temp_environment_unchanged"] is True
+    assert historical_file.read_text(encoding="utf-8") == "historical\n"
+    assert list(system_temp.iterdir()) == [historical_root]
+    remove_worktree(repo, paths.source_root)
+
+
+@pytest.mark.parametrize("drift", ["content", "new_root", "temp_environment"])
+def test_local_replay_pilot_rejects_c_temp_or_environment_delta(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    drift: str,
+) -> None:
+    repo = init_repo(tmp_path)
+    write(repo, "scripts/a.py", "print('a')\n")
+    source_sha = commit_all(repo, "source")
+    approved = tmp_path / "f-root"
+    system_temp = tmp_path / "c-temp"
+    system_temp.mkdir()
+    historical_root = system_temp / "codex-daily-full-replay-existing"
+    historical_root.mkdir()
+    historical_file = historical_root / "immutable.txt"
+    historical_file.write_text("historical\n", encoding="utf-8")
+    configure_local_replay_root(monkeypatch, approved)
+    monkeypatch.setattr(
+        local_replay,
+        "_system_temp_root_for_audit",
+        lambda: system_temp,
+    )
+
+    def materialize(
+        source_repo: Path,
+        source_ref: str,
+        destination: Path,
+        **_kwargs: object,
+    ) -> Path:
+        run_git(
+            source_repo,
+            "worktree",
+            "add",
+            "--detach",
+            str(destination),
+            source_ref,
+        )
+        if drift == "content":
+            historical_file.write_text("changed\n", encoding="utf-8")
+        elif drift == "new_root":
+            (system_temp / "local-validation-replay-new").mkdir()
+        else:
+            monkeypatch.setenv("TEMP", str(system_temp / "changed"))
+        return destination
+
+    monkeypatch.setattr(
+        worktree_safety,
+        "create_registered_full_local_validation_replay_worktree",
+        materialize,
+    )
+    args = type(
+        "Args",
+        (),
+        {
+            "repo_root": repo,
+            "source_ref": source_sha,
+            "workspace_id": f"run-drift-{drift}",
+        },
+    )()
+    expected = (
+        "TEMP/TMP environment drifted"
+        if drift == "temp_environment"
+        else "C Temp replay baseline drifted"
+    )
+    with pytest.raises(local_replay.LocalValidationReplayWorkspaceError, match=expected):
+        local_replay.run_pilot(args)
+    paths = local_replay.plan_workspace(repo, f"run-drift-{drift}")
     remove_worktree(repo, paths.source_root)
 
 
@@ -971,6 +1063,7 @@ def test_local_replay_rejects_collision_reparse_and_path_traversal(
 
 def test_local_replay_manifest_rejects_bytes_or_sha_drift(
     tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     root = tmp_path / "workspace"
     evidence = root / "evidence"
@@ -1011,16 +1104,33 @@ def test_local_replay_manifest_rejects_bytes_or_sha_drift(
     (paths.evidence_root / "evidence-probe.txt").write_text(
         "manifest_evidence\n", encoding="utf-8"
     )
+    system_temp = tmp_path / "system-temp"
+    system_temp.mkdir()
+    monkeypatch.setattr(
+        local_replay,
+        "_system_temp_root_for_audit",
+        lambda: system_temp,
+    )
+    temp_environment = local_replay._temp_environment_snapshot()
     payload = {
+        "schema_version": 2,
         "status": "pilot_verified",
         "workspace_root": str(root),
+        "system_temp_root": str(system_temp.resolve()),
         "source_tree_sha": "same-tree",
         "synthetic_tree_sha": "same-tree",
         "production_not_run": True,
         "official_pdf_published": False,
         "repo_artifacts_pushed_by_replay": False,
         "c_temp_fallback_used": False,
+        "forbidden_system_temp_replay_paths_before": [],
         "forbidden_system_temp_replay_paths_after": [],
+        "forbidden_system_temp_replay_evidence_before": [],
+        "forbidden_system_temp_replay_evidence_after": [],
+        "system_temp_replay_baseline_unchanged": True,
+        "temp_environment_before": temp_environment,
+        "temp_environment_after": temp_environment,
+        "temp_environment_unchanged": True,
         "categories": local_replay._pilot_categories(paths),
     }
     local_replay._write_manifest(paths, payload)

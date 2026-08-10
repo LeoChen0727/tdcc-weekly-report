@@ -163,7 +163,7 @@ def _forbidden_system_temp_entries(system_temp: Path) -> list[str]:
         )
     return sorted(
         (
-            str(child.resolve(strict=False))
+            str(child)
             for child in system_temp.iterdir()
             if any(
                 child.name.lower().startswith(prefix)
@@ -361,6 +361,114 @@ def _is_reparse_path(path: Path) -> bool:
     return path.is_symlink() or bool(attributes & reparse_attribute)
 
 
+def _path_type(path: Path, mode: int) -> str:
+    if stat.S_ISDIR(mode):
+        return "directory"
+    if stat.S_ISREG(mode):
+        return "file"
+    if stat.S_ISLNK(mode):
+        return "symlink"
+    return "other"
+
+
+def _system_temp_root_evidence(root: Path) -> dict[str, Any]:
+    rows: list[dict[str, Any]] = []
+    file_count = 0
+    total_bytes = 0
+
+    def add_path(path: Path, relative_path: str) -> tuple[str, bool]:
+        nonlocal file_count, total_bytes
+        before = path.lstat()
+        path_type = _path_type(path, before.st_mode)
+        is_reparse = _is_reparse_path(path)
+        row: dict[str, Any] = {
+            "path": relative_path,
+            "type": path_type,
+            "reparse": is_reparse,
+            "mode": f"{stat.S_IMODE(before.st_mode):04o}",
+        }
+        if is_reparse:
+            try:
+                row["target"] = os.readlink(path)
+            except OSError as error:
+                raise LocalValidationReplayWorkspaceError(
+                    f"cannot inspect C Temp replay reparse target: {path}"
+                ) from error
+            row["bytes"] = 0
+        elif path_type == "file":
+            digest = sha256_file(path)
+            after = path.lstat()
+            stable_identity = (
+                before.st_mode,
+                before.st_size,
+                before.st_mtime_ns,
+                before.st_ino,
+            )
+            observed_identity = (
+                after.st_mode,
+                after.st_size,
+                after.st_mtime_ns,
+                after.st_ino,
+            )
+            if stable_identity != observed_identity or _is_reparse_path(path):
+                raise LocalValidationReplayWorkspaceError(
+                    f"C Temp replay file changed during baseline capture: {path}"
+                )
+            row["bytes"] = after.st_size
+            row["sha256"] = digest
+            file_count += 1
+            total_bytes += after.st_size
+        else:
+            row["bytes"] = 0
+        rows.append(row)
+        return path_type, is_reparse
+
+    root_type, root_reparse = add_path(root, ".")
+    if root_type == "directory" and not root_reparse:
+        pending: list[tuple[Path, Path]] = [(root, Path())]
+        while pending:
+            directory, relative_directory = pending.pop()
+            try:
+                with os.scandir(directory) as iterator:
+                    children = sorted(
+                        list(iterator), key=lambda item: item.name.casefold()
+                    )
+            except OSError as error:
+                raise LocalValidationReplayWorkspaceError(
+                    f"cannot enumerate C Temp replay baseline root: {directory}"
+                ) from error
+            child_directories: list[tuple[Path, Path]] = []
+            for child in children:
+                child_path = Path(child.path)
+                relative_path = relative_directory / child.name
+                child_type, child_reparse = add_path(
+                    child_path, relative_path.as_posix()
+                )
+                if child_type == "directory" and not child_reparse:
+                    child_directories.append((child_path, relative_path))
+            pending.extend(reversed(child_directories))
+
+    return {
+        "path": str(root),
+        "type": root_type,
+        "reparse": root_reparse,
+        "file_count": file_count,
+        "bytes": total_bytes,
+        "root_sha256": hashlib.sha256(canonical_json_bytes(rows)).hexdigest(),
+    }
+
+
+def _forbidden_system_temp_evidence(system_temp: Path) -> list[dict[str, Any]]:
+    return [
+        _system_temp_root_evidence(Path(path))
+        for path in _forbidden_system_temp_entries(system_temp)
+    ]
+
+
+def _temp_environment_snapshot() -> dict[str, str | None]:
+    return {"TEMP": os.environ.get("TEMP"), "TMP": os.environ.get("TMP")}
+
+
 def _require_no_reparse_tree(root: Path) -> None:
     if not root.is_dir() or _is_reparse_path(root):
         raise LocalValidationReplayWorkspaceError(
@@ -551,7 +659,12 @@ def _pilot_categories(
     }
 
 
-def verify_pilot_manifest(paths: LocalReplayWorkspacePaths) -> dict[str, Any]:
+def verify_pilot_manifest(
+    paths: LocalReplayWorkspacePaths,
+    *,
+    observed_system_temp_evidence: list[dict[str, Any]] | None = None,
+    observed_temp_environment: dict[str, str | None] | None = None,
+) -> dict[str, Any]:
     observed_digest = sha256_file(paths.manifest_path)
     expected_digest = paths.manifest_sha_path.read_text(encoding="ascii").strip()
     if observed_digest != expected_digest:
@@ -559,13 +672,60 @@ def verify_pilot_manifest(paths: LocalReplayWorkspacePaths) -> dict[str, Any]:
             "local replay pilot manifest/sidecar SHA mismatch"
         )
     payload = json.loads(paths.manifest_path.read_text(encoding="utf-8"))
-    if payload.get("status") != "pilot_verified":
+    if payload.get("schema_version") != 2 or payload.get("status") != "pilot_verified":
         raise LocalValidationReplayWorkspaceError(
             "local replay pilot manifest status mismatch"
         )
-    if payload.get("forbidden_system_temp_replay_paths_after") != []:
+    system_temp = _system_temp_root_for_audit()
+    if Path(str(payload.get("system_temp_root", ""))).resolve(strict=False) != system_temp:
         raise LocalValidationReplayWorkspaceError(
-            "local replay pilot detected forbidden C Temp materialization"
+            "local replay pilot system Temp identity drifted"
+        )
+    before_evidence = payload.get("forbidden_system_temp_replay_evidence_before")
+    after_evidence = payload.get("forbidden_system_temp_replay_evidence_after")
+    if (
+        not isinstance(before_evidence, list)
+        or before_evidence != after_evidence
+        or payload.get("system_temp_replay_baseline_unchanged") is not True
+    ):
+        raise LocalValidationReplayWorkspaceError(
+            "local replay pilot C Temp baseline evidence drifted"
+        )
+    current_evidence = (
+        observed_system_temp_evidence
+        if observed_system_temp_evidence is not None
+        else _forbidden_system_temp_evidence(system_temp)
+    )
+    if current_evidence != after_evidence:
+        raise LocalValidationReplayWorkspaceError(
+            "local replay pilot C Temp roots changed after manifest capture"
+        )
+    expected_paths = [row["path"] for row in before_evidence]
+    if (
+        payload.get("forbidden_system_temp_replay_paths_before") != expected_paths
+        or payload.get("forbidden_system_temp_replay_paths_after") != expected_paths
+    ):
+        raise LocalValidationReplayWorkspaceError(
+            "local replay pilot C Temp path set drifted"
+        )
+    before_environment = payload.get("temp_environment_before")
+    after_environment = payload.get("temp_environment_after")
+    if (
+        not isinstance(before_environment, dict)
+        or before_environment != after_environment
+        or payload.get("temp_environment_unchanged") is not True
+    ):
+        raise LocalValidationReplayWorkspaceError(
+            "local replay pilot TEMP/TMP evidence drifted"
+        )
+    current_environment = (
+        observed_temp_environment
+        if observed_temp_environment is not None
+        else _temp_environment_snapshot()
+    )
+    if current_environment != after_environment:
+        raise LocalValidationReplayWorkspaceError(
+            "local replay pilot TEMP/TMP changed after manifest capture"
         )
     if Path(str(payload.get("workspace_root", ""))).resolve(strict=False) != (
         paths.workspace_root.resolve(strict=False)
@@ -625,11 +785,8 @@ def verify_pilot_manifest(paths: LocalReplayWorkspacePaths) -> dict[str, Any]:
 
 def run_pilot(args: argparse.Namespace) -> int:
     system_temp = _system_temp_root_for_audit()
-    before = _forbidden_system_temp_entries(system_temp)
-    if before:
-        raise LocalValidationReplayWorkspaceError(
-            f"pre-existing replay materialization remains in C Temp: {before}"
-        )
+    temp_environment_before = _temp_environment_snapshot()
+    before_evidence = _forbidden_system_temp_evidence(system_temp)
     paths, source_sha = create_workspace(
         args.repo_root,
         source_ref=args.source_ref,
@@ -648,10 +805,19 @@ def run_pilot(args: argparse.Namespace) -> int:
     )
     evidence_probe = paths.evidence_root / "routing-pilot-evidence.txt"
     evidence_probe.write_text("manifest_evidence=F_only\n", encoding="utf-8")
-    after = _forbidden_system_temp_entries(system_temp)
+    after_evidence = _forbidden_system_temp_evidence(system_temp)
+    temp_environment_after = _temp_environment_snapshot()
+    if before_evidence != after_evidence:
+        raise LocalValidationReplayWorkspaceError(
+            "C Temp replay baseline drifted during F-only pilot"
+        )
+    if temp_environment_before != temp_environment_after:
+        raise LocalValidationReplayWorkspaceError(
+            "TEMP/TMP environment drifted during F-only pilot"
+        )
     categories = _pilot_categories(paths)
     payload = {
-        "schema_version": 1,
+        "schema_version": 2,
         "status": "pilot_verified",
         "workspace_id": args.workspace_id,
         "workspace_root": str(paths.workspace_root.resolve()),
@@ -661,15 +827,29 @@ def run_pilot(args: argparse.Namespace) -> int:
         "synthetic_tree_sha": synthetic_tree,
         "categories": categories,
         "system_temp_root": str(system_temp),
-        "forbidden_system_temp_replay_paths_before": before,
-        "forbidden_system_temp_replay_paths_after": after,
+        "forbidden_system_temp_replay_paths_before": [
+            row["path"] for row in before_evidence
+        ],
+        "forbidden_system_temp_replay_paths_after": [
+            row["path"] for row in after_evidence
+        ],
+        "forbidden_system_temp_replay_evidence_before": before_evidence,
+        "forbidden_system_temp_replay_evidence_after": after_evidence,
+        "system_temp_replay_baseline_unchanged": True,
+        "temp_environment_before": temp_environment_before,
+        "temp_environment_after": temp_environment_after,
+        "temp_environment_unchanged": True,
         "production_not_run": True,
         "official_pdf_published": False,
         "repo_artifacts_pushed_by_replay": False,
         "c_temp_fallback_used": False,
     }
     manifest_sha = _write_manifest(paths, payload)
-    verify_pilot_manifest(paths)
+    verify_pilot_manifest(
+        paths,
+        observed_system_temp_evidence=after_evidence,
+        observed_temp_environment=temp_environment_after,
+    )
     print(json.dumps({"status": "pilot_verified", "workspace_root": str(paths.workspace_root.resolve()), "manifest": str(paths.manifest_path.resolve()), "manifest_sha256": manifest_sha}, ensure_ascii=False, sort_keys=True))
     return 0
 
