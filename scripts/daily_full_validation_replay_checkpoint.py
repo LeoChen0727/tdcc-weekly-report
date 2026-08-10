@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import re
 import shlex
 import shutil
@@ -15,7 +16,13 @@ from typing import Iterable, Sequence
 
 
 SCHEMA_VERSION = 2
-REPLAY_DATE = "20260807"
+REPLAY_PROFILE_ENV = "DAILY_FULL_VALIDATION_REPLAY_PROFILE_DATE"
+REPLAY_DATE = os.environ.get(REPLAY_PROFILE_ENV, "20260807")
+if REPLAY_DATE not in {"20260807", "20260810"}:
+    raise RuntimeError(
+        "unsupported Daily Full validation replay checkpoint date: "
+        f"{REPLAY_DATE!r}"
+    )
 CHECKPOINT_MANIFEST = "checkpoint_manifest.json"
 CHECKPOINT_MANIFEST_SHA = "checkpoint_manifest.sha256"
 PAYLOAD_DIR = "payload"
@@ -799,6 +806,7 @@ def restore_checkpoint(
     *,
     bundle_dir: Path,
     destination_root: Path,
+    expected_replay_date: str = REPLAY_DATE,
     expected_source_sha: str,
     expected_destination_source_sha: str | None = None,
     expected_run_id: str,
@@ -807,6 +815,7 @@ def restore_checkpoint(
 ) -> dict[str, object]:
     manifest = verify_checkpoint(
         bundle_dir=bundle_dir,
+        expected_replay_date=expected_replay_date,
         expected_source_sha=expected_source_sha,
         expected_run_id=expected_run_id,
         expected_kind=expected_kind,
