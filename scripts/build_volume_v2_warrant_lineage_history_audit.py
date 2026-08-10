@@ -2131,6 +2131,16 @@ def build_audit_dataframe(root: Path = ROOT) -> pd.DataFrame:
             row["candidate_row_present"] == "False"
             and bool(row["watch_source_score"] or row["watch_source_rank"])
         )
+        source_score_rank_difference = (
+            source_score_collision
+            or source_rank_collision
+            or unpaired_watch_score_rank
+        )
+        source_score_rank_exposed_to_dispatcher = (
+            row["dispatcher_warrant_source_mode"]
+            != "canonical_candidate_explicit_allowlist"
+            and source_score_rank_difference
+        )
 
         legacy_revision_incomplete = (
             row["legacy_revision_history_status"] == LEGACY_HISTORY_INCOMPLETE
@@ -2146,7 +2156,7 @@ def build_audit_dataframe(root: Path = ROOT) -> pd.DataFrame:
                 "the date-only precontract snapshot path contains a Git blob revision "
                 "without exact same-commit manifest and paired-source recovery evidence"
             )
-        elif source_score_collision or source_rank_collision or unpaired_watch_score_rank:
+        elif source_score_rank_exposed_to_dispatcher:
             disposition = "quarantined"
             impact_scope = "legacy_watch_source_score_rank_effect_unresolved"
             reason = (
@@ -2170,12 +2180,18 @@ def build_audit_dataframe(root: Path = ROOT) -> pd.DataFrame:
             )
         else:
             disposition = "verified_clean"
-            if collision:
+            if collision or source_score_rank_difference:
                 impact_scope = "watch_only_no_formal_score_or_rank_effect"
-                reason = (
-                    "legacy collision values differ, but independently replayed formal score and "
-                    f"rank are unchanged: fields={row['collision_fields']}"
-                )
+                if source_score_rank_difference:
+                    reason = (
+                        "the explicit formal dispatcher excludes advisory watch score and rank "
+                        "fields, and independently replayed formal score and rank are unchanged"
+                    )
+                else:
+                    reason = (
+                        "legacy collision values differ, but independently replayed formal score "
+                        f"and rank are unchanged: fields={row['collision_fields']}"
+                    )
             else:
                 impact_scope = "none"
                 reason = "published and canonical collision contexts, components, and rank agree"
