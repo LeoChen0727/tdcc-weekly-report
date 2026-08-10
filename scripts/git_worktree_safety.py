@@ -21,12 +21,20 @@ from typing import Iterator, Sequence
 ROOT = Path(__file__).resolve().parents[1]
 CONTRACT_PATH = ROOT / "config" / "git_worktree_materialization_contract.csv"
 SPARSE_TASK_CONSUMER_ID = "sparse_task_worktree"
+LOCAL_VALIDATION_REPLAY_CONSUMER_ID = "local_daily_full_validation_replay"
 APPROVED_SPARSE_DESTINATION_ROOT_WINDOWS = (
     r"F:\CodexStorage\task-worktrees\taiwan-stock-recommendation"
 )
+APPROVED_LOCAL_VALIDATION_REPLAY_ROOT_WINDOWS = (
+    r"F:\CodexStorage\validation-replay-workspaces\taiwan-stock-recommendation"
+)
 APPROVED_SPARSE_DESTINATION_FILESYSTEM = "NTFS"
+APPROVED_LOCAL_VALIDATION_REPLAY_FILESYSTEM = "NTFS"
 DEFAULT_SPARSE_DESTINATION_POLICY = "approved_root_task_child"
+DEFAULT_LOCAL_VALIDATION_REPLAY_DESTINATION_POLICY = "approved_root_task_or_run_child"
 MINIMUM_APPROVED_ROOT_FREE_BYTES = 10 * 1024 * 1024 * 1024
+MINIMUM_LOCAL_VALIDATION_REPLAY_FREE_BYTES = 20 * 1024 * 1024 * 1024
+WINDOWS_FIXED_DRIVE_TYPE = 3
 MAX_TASK_NAME_LENGTH = 80
 DEFAULT_MAX_CHANGED_PATHS = 250
 DEFAULT_MAX_MATERIALIZED_FILES = 2500
@@ -290,6 +298,26 @@ def _filesystem_type(path: Path) -> str:
     return filesystem_name.value.upper()
 
 
+def _drive_type(path: Path) -> int:
+    if os.name != "nt":
+        raise GitWorktreeSafetyError(
+            "approved local validation replay roots are supported only on Windows"
+        )
+    import ctypes
+    from ctypes import wintypes
+
+    volume_root = Path(path.anchor)
+    if not volume_root.anchor:
+        raise GitWorktreeSafetyError(
+            f"approved local validation replay root has no Windows volume: {path}"
+        )
+    kernel32 = ctypes.WinDLL("kernel32", use_last_error=True)
+    get_drive_type = kernel32.GetDriveTypeW
+    get_drive_type.argtypes = (wintypes.LPCWSTR,)
+    get_drive_type.restype = wintypes.UINT
+    return int(get_drive_type(str(volume_root)))
+
+
 def _common_git_dir(repo_root: Path) -> Path:
     raw = _require(_git(repo_root, "rev-parse", "--git-common-dir"), "resolve git common directory").strip()
     path = Path(raw)
@@ -352,6 +380,90 @@ def _approved_sparse_destination_roots() -> tuple[Path, ...]:
             f"sparse task contract minimum_free_bytes must be {MINIMUM_APPROVED_ROOT_FREE_BYTES}"
         )
     return (Path(approved_root),)
+
+
+def _require_full_local_validation_replay_contract(
+    consumer_id: str,
+) -> dict[str, str]:
+    row = _load_materialization_contract(consumer_id)
+    if consumer_id != LOCAL_VALIDATION_REPLAY_CONSUMER_ID:
+        raise GitWorktreeSafetyError(
+            f"consumer is not approved for local validation replay materialization: {consumer_id}"
+        )
+    expected = {
+        "entrypoint": "scripts/run_local_daily_full_validation_replay.py",
+        "materialization_mode": "full_local_validation_replay_only",
+        "checkout_workers": "1",
+        "max_concurrent": "1",
+        "temp_root_policy": "approved_root_only",
+        "approved_destination_root": APPROVED_LOCAL_VALIDATION_REPLAY_ROOT_WINDOWS,
+        "approved_root_filesystem": APPROVED_LOCAL_VALIDATION_REPLAY_FILESYSTEM,
+        "default_destination_policy": DEFAULT_LOCAL_VALIDATION_REPLAY_DESTINATION_POLICY,
+        "minimum_free_bytes": str(MINIMUM_LOCAL_VALIDATION_REPLAY_FREE_BYTES),
+    }
+    for key, expected_value in expected.items():
+        observed = row.get(key, "").strip()
+        if key == "approved_destination_root":
+            observed = observed.lower().rstrip("\\/")
+            expected_value = expected_value.lower().rstrip("\\/")
+        elif key == "approved_root_filesystem":
+            observed = observed.upper()
+            expected_value = expected_value.upper()
+        if observed != expected_value:
+            raise GitWorktreeSafetyError(
+                f"local validation replay contract {key} mismatch: "
+                f"expected={expected_value!r}, observed={observed!r}"
+            )
+    return row
+
+
+def approved_local_validation_replay_root(repo_root: Path) -> Path:
+    _require_full_local_validation_replay_contract(
+        LOCAL_VALIDATION_REPLAY_CONSUMER_ID
+    )
+    approved_root = _absolute_without_resolving(
+        Path(APPROVED_LOCAL_VALIDATION_REPLAY_ROOT_WINDOWS)
+    )
+    if _is_drive_root(approved_root):
+        raise GitWorktreeSafetyError(
+            f"approved local validation replay root must not be a drive root: {approved_root}"
+        )
+    _require_no_reparse_points(approved_root)
+    _require_destination_outside_repository_roots(repo_root, approved_root)
+    drive_type = _drive_type(approved_root)
+    if drive_type != WINDOWS_FIXED_DRIVE_TYPE:
+        raise GitWorktreeSafetyError(
+            "approved local validation replay root must be on a fixed drive: "
+            f"drive_type={drive_type}, root={approved_root}"
+        )
+    filesystem = _filesystem_type(approved_root)
+    if filesystem != APPROVED_LOCAL_VALIDATION_REPLAY_FILESYSTEM:
+        raise GitWorktreeSafetyError(
+            "approved local validation replay root must be on NTFS: "
+            f"found={filesystem or 'unknown'}, root={approved_root}"
+        )
+    capacity_path = approved_root
+    while not capacity_path.exists() and capacity_path.parent != capacity_path:
+        capacity_path = capacity_path.parent
+    free_bytes = _available_free_bytes(capacity_path)
+    if free_bytes < MINIMUM_LOCAL_VALIDATION_REPLAY_FREE_BYTES:
+        raise GitWorktreeSafetyError(
+            "approved local validation replay root has insufficient free space: "
+            f"required={MINIMUM_LOCAL_VALIDATION_REPLAY_FREE_BYTES}, "
+            f"available={free_bytes}, root={approved_root}"
+        )
+    try:
+        approved_root.mkdir(parents=True, exist_ok=True)
+    except OSError as exc:
+        raise GitWorktreeSafetyError(
+            f"cannot create approved local validation replay root {approved_root}: {exc}"
+        ) from exc
+    _require_no_reparse_points(approved_root)
+    if not approved_root.is_dir():
+        raise GitWorktreeSafetyError(
+            f"approved local validation replay root is not a directory: {approved_root}"
+        )
+    return approved_root.resolve()
 
 
 def _registered_worktree_paths(repo_root: Path) -> tuple[Path, ...]:
@@ -757,6 +869,64 @@ def create_registered_full_temp_worktree(
             _require(
                 _git(destination, "-c", "checkout.workers=1", "reset", "--hard", "HEAD"),
                 "materialize registered full temp worktree with one checkout worker",
+            )
+            _verify_clean_worktree(destination)
+        except Exception:
+            _cleanup_failed_worktree(repo_root, destination)
+            raise
+    return destination
+
+
+def create_registered_full_local_validation_replay_worktree(
+    repo_root: Path,
+    source_ref: str,
+    destination: Path,
+    *,
+    consumer_id: str = LOCAL_VALIDATION_REPLAY_CONSUMER_ID,
+) -> Path:
+    _require_full_local_validation_replay_contract(consumer_id)
+    repo_root = repo_root.resolve()
+    approved_root = approved_local_validation_replay_root(repo_root)
+    destination = _absolute_without_resolving(destination)
+    if destination == approved_root or not _path_is_within(destination, approved_root):
+        raise GitWorktreeSafetyError(
+            "local validation replay full worktree must be a child of the exact "
+            f"approved F root {approved_root}: {destination}"
+        )
+    _require_no_reparse_points(destination)
+    _require_destination_outside_repository_roots(repo_root, destination)
+    if destination.exists():
+        raise GitWorktreeSafetyError(
+            f"local validation replay worktree destination already exists: {destination}"
+        )
+    _require(
+        _git(repo_root, "rev-parse", "--verify", source_ref),
+        f"resolve {source_ref}",
+    )
+    with checkout_materialization_lock(repo_root):
+        try:
+            _require(
+                _git(
+                    repo_root,
+                    "worktree",
+                    "add",
+                    "--no-checkout",
+                    "--detach",
+                    str(destination),
+                    source_ref,
+                ),
+                "register no-checkout local validation replay worktree",
+            )
+            _require(
+                _git(
+                    destination,
+                    "-c",
+                    "checkout.workers=1",
+                    "reset",
+                    "--hard",
+                    "HEAD",
+                ),
+                "materialize local validation replay worktree with one checkout worker",
             )
             _verify_clean_worktree(destination)
         except Exception:
