@@ -3079,6 +3079,9 @@ def test_20260810_revision_transition_requires_checkpoint_ancestry(
     (repo / "scripts").mkdir()
     (repo / "output/latest").mkdir(parents=True)
     (repo / "scripts/model.py").write_text("VALUE = 'old'\n", encoding="utf-8")
+    (repo / "scripts/lineage.py").write_text(
+        "VALUE = 'old'\n", encoding="utf-8"
+    )
     (repo / "scripts/control.py").write_text("VALUE = 'old'\n", encoding="utf-8")
     (repo / "output/latest/state.csv").write_text("old\n", encoding="utf-8")
     git("add", ".")
@@ -3089,6 +3092,13 @@ def test_20260810_revision_transition_requires_checkpoint_ancestry(
     git("add", ".")
     git("commit", "-m", "model fix")
     model_fix_sha = git("rev-parse", "HEAD")
+
+    (repo / "scripts/lineage.py").write_text(
+        "VALUE = 'fixed'\n", encoding="utf-8"
+    )
+    git("add", ".")
+    git("commit", "-m", "lineage fix")
+    lineage_fix_sha = git("rev-parse", "HEAD")
 
     (repo / "scripts/control.py").write_text(
         "VALUE = 'replay'\n", encoding="utf-8"
@@ -3126,6 +3136,16 @@ def test_20260810_revision_transition_requires_checkpoint_ancestry(
     )
     monkeypatch.setattr(
         replay_runner,
+        "AUTHORIZED_20260810_LINEAGE_FIX_COMMIT",
+        lineage_fix_sha,
+    )
+    monkeypatch.setattr(
+        replay_runner,
+        "AUTHORIZED_20260810_LINEAGE_FIX_PATHS",
+        ("scripts/lineage.py",),
+    )
+    monkeypatch.setattr(
+        replay_runner,
         "AUTHORIZED_20260810_REPLAY_CONTROL_PATHS",
         ("scripts/control.py",),
     )
@@ -3140,6 +3160,7 @@ def test_20260810_revision_transition_requires_checkpoint_ancestry(
     )
     assert transition["authorized_live_paths"] == [
         "scripts/control.py",
+        "scripts/lineage.py",
         "scripts/model.py",
     ]
     assert transition["checkpoint_source_restore_paths"] == [
@@ -3163,6 +3184,30 @@ def test_20260810_revision_transition_requires_checkpoint_ancestry(
             repo_root=repo,
             checkpoint_source_sha=unrelated_checkpoint,
             replay_source_sha=replay_source_sha,
+            checkpoint_run_id="1",
+            checkpoint_artifact_id="2",
+            checkpoint_artifact_digest=digest,
+        )
+
+    monkeypatch.setattr(
+        replay_runner,
+        "AUTHORIZED_CHECKPOINT_SOURCE_SHA",
+        checkpoint_source_sha,
+    )
+    (repo / "scripts/lineage.py").write_text(
+        "VALUE = 'unauthorized drift'\n", encoding="utf-8"
+    )
+    git("add", "scripts/lineage.py")
+    git("commit", "-m", "unauthorized lineage drift")
+    drift_sha = git("rev-parse", "HEAD")
+    with pytest.raises(
+        replay_runner.ValidationReplayError,
+        match="authorized 20260810 lineage fix paths drifted",
+    ):
+        replay_runner.require_authorized_checkpoint_revision_transition(
+            repo_root=repo,
+            checkpoint_source_sha=checkpoint_source_sha,
+            replay_source_sha=drift_sha,
             checkpoint_run_id="1",
             checkpoint_artifact_id="2",
             checkpoint_artifact_digest=digest,

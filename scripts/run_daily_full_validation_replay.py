@@ -166,6 +166,18 @@ AUTHORIZED_20260810_MODEL_FIX_PATHS = (
     "tests/test_daily_canonical_field_lineage.py",
     "tests/test_model_data_independence.py",
 )
+AUTHORIZED_20260810_LINEAGE_FIX_COMMIT = (
+    "6df2c46bb096102e47762ae28a23328b27f29a3c"
+)
+AUTHORIZED_20260810_LINEAGE_FIX_PATHS = (
+    "docs/latest/volume_v2_warrant_lineage_history_audit_latest.csv",
+    "docs/latest/volume_v2_warrant_lineage_history_audit_latest.md",
+    "output/latest/volume_v2_warrant_lineage_history_audit_latest.csv",
+    "output/latest/volume_v2_warrant_lineage_history_audit_latest.md",
+    "scripts/build_volume_v2_warrant_lineage_history_audit.py",
+    "scripts/validate_volume_v2_warrant_lineage_history_audit.py",
+    "tests/test_volume_v2_warrant_lineage_history_audit.py",
+)
 AUTHORIZED_20260810_REPLAY_CONTROL_PATHS = (
     ".github/workflows/daily_full_validation_replay_20260807.yml",
     "scripts/daily_full_validation_replay_checkpoint.py",
@@ -2925,6 +2937,7 @@ def require_authorized_checkpoint_revision_transition(
         for ancestor, label in (
             (checkpoint_source_sha, "checkpoint source"),
             (AUTHORIZED_20260810_MODEL_FIX_COMMIT, "model fix"),
+            (AUTHORIZED_20260810_LINEAGE_FIX_COMMIT, "lineage fix"),
         ):
             ancestry = subprocess.run(
                 [
@@ -2958,6 +2971,22 @@ def require_authorized_checkpoint_revision_transition(
                 "authorized 20260810 model fix does not descend from the "
                 "checkpoint source"
             )
+        lineage_transition_order = subprocess.run(
+            [
+                "git",
+                "merge-base",
+                "--is-ancestor",
+                AUTHORIZED_20260810_MODEL_FIX_COMMIT,
+                AUTHORIZED_20260810_LINEAGE_FIX_COMMIT,
+            ],
+            cwd=repo_root,
+            check=False,
+        )
+        if lineage_transition_order.returncode != 0:
+            raise ValidationReplayError(
+                "authorized 20260810 lineage fix does not descend from the "
+                "model fix"
+            )
         stable = subprocess.run(
             [
                 "git",
@@ -2975,15 +3004,37 @@ def require_authorized_checkpoint_revision_transition(
             raise ValidationReplayError(
                 "authorized 20260810 model fix paths drifted"
             )
+        lineage_stable = subprocess.run(
+            [
+                "git",
+                "diff",
+                "--quiet",
+                AUTHORIZED_20260810_LINEAGE_FIX_COMMIT,
+                replay_source_sha,
+                "--",
+                *AUTHORIZED_20260810_LINEAGE_FIX_PATHS,
+            ],
+            cwd=repo_root,
+            check=False,
+        )
+        if lineage_stable.returncode != 0:
+            raise ValidationReplayError(
+                "authorized 20260810 lineage fix paths drifted"
+            )
         changed_paths = _git_changed_paths(
             repo_root, checkpoint_source_sha, replay_source_sha
         )
         changed_set = set(changed_paths)
         model_paths = set(AUTHORIZED_20260810_MODEL_FIX_PATHS)
+        lineage_paths = set(AUTHORIZED_20260810_LINEAGE_FIX_PATHS)
         control_paths = set(AUTHORIZED_20260810_REPLAY_CONTROL_PATHS)
         if changed_set & model_paths != model_paths:
             raise ValidationReplayError(
                 "20260810 replay source lacks the exact model fix path set"
+            )
+        if changed_set & lineage_paths != lineage_paths:
+            raise ValidationReplayError(
+                "20260810 replay source lacks the exact lineage fix path set"
             )
         if changed_set & control_paths != control_paths:
             raise ValidationReplayError(
@@ -2993,6 +3044,7 @@ def require_authorized_checkpoint_revision_transition(
             path
             for path in changed_paths
             if path not in model_paths
+            and path not in lineage_paths
             and path not in control_paths
             and not path.startswith(("data/", "docs/", "output/"))
         )
@@ -3001,7 +3053,9 @@ def require_authorized_checkpoint_revision_transition(
                 "20260810 replay contains unregistered code/contract drift: "
                 f"{unexpected_contract_paths}"
             )
-        authorized_live_paths = sorted(model_paths | control_paths)
+        authorized_live_paths = sorted(
+            model_paths | lineage_paths | control_paths
+        )
         restore_paths = sorted(changed_set - set(authorized_live_paths))
         return {
             "mode": "authorized_20260810_production_checkpoint_transition",
@@ -3015,6 +3069,8 @@ def require_authorized_checkpoint_revision_transition(
             ),
             "model_fix_commit": AUTHORIZED_20260810_MODEL_FIX_COMMIT,
             "model_fix_paths": sorted(model_paths),
+            "lineage_fix_commit": AUTHORIZED_20260810_LINEAGE_FIX_COMMIT,
+            "lineage_fix_paths": sorted(lineage_paths),
             "replay_control_paths": sorted(control_paths),
             "changed_paths": changed_paths,
             "authorized_live_paths": authorized_live_paths,
