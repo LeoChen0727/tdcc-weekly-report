@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6908 宏碁遊戲-創
 
 ## Metadata
-- generated_at: 2026-08-09 22:28:37 Asia/Taipei
+- generated_at: 2026-08-10 22:28:49 Asia/Taipei
 - stock_id: 6908
 - stock_name: 宏碁遊戲-創
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260805
-- price_rows: 91
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 93
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,30 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 33.15
-- high: 33.15
-- low: 32.5
-- close: 32.85
-- volume: 39128
-- ma5: 33.31
-- ema23_primary: 35.19
-- distance_to_ema23_pct: -6.64
-- ma20: 35.2
-- ma60: 37.49
-- ma120: 38.36
-- return_5d: 0
-- return_20d: -11.22
-- volume_ratio: 2.36
-- distance_to_ma20_pct_auxiliary: -6.69
-- distance_to_high_60_pct: -21.03
+- date: 20260807
+- open: 33.6
+- high: 33.6
+- low: 32.1
+- close: 32.3
+- volume: 9724
+- ma5: 33.15
+- ema23_primary: 34.83
+- distance_to_ema23_pct: -7.25
+- ma20: 34.82
+- ma60: 37.28
+- ma120: 38.25
+- return_5d: -4.58
+- return_20d: -11.75
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: -7.24
+- distance_to_high_60_pct: -22.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,37,37,37,37,6200,38.14,-2.98,38.19,38.94,0.43
-20260709,37,37,36.6,36.6,13001,38.01,-3.71,38.05,38.92,0.91
 20260713,36.5,36.8,36,36.8,13051,37.91,-2.92,37.95,38.9,0.93
 20260714,37.45,37.5,36.1,36.7,17103,37.81,-2.93,37.84,38.86,1.16
 20260715,36.7,37,36.1,37,15000,37.74,-1.96,37.77,38.78,1
@@ -167,6 +165,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,33.6,34,33.2,33.85,29346,35.6,-4.93,35.63,37.71,1.87
 20260804,31.1,33.15,31.1,33.15,6035,35.4,-6.36,35.41,37.6,0.39
 20260805,33.15,33.15,32.5,32.85,39128,35.19,-6.64,35.2,37.49,2.36
+20260806,32.5,33.6,32.5,33.6,4264,35.05,-4.15,35.03,37.39,0.26
+20260807,33.6,33.6,32.1,32.3,9724,34.83,-7.25,34.82,37.28,0.6
 ```
 
 ## Latest TDCC Snapshot

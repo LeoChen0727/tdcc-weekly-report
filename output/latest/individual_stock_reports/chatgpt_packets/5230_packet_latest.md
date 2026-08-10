@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5230 雷笛克光學
 
 ## Metadata
-- generated_at: 2026-08-09 22:27:50 Asia/Taipei
+- generated_at: 2026-08-10 22:28:03 Asia/Taipei
 - stock_id: 5230
 - stock_name: 雷笛克光學
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 184
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 186
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 17.75
-- high: 18.1
-- low: 17.75
-- close: 17.85
-- volume: 127000
-- ma5: 17.42
-- ema23_primary: 18.41
-- distance_to_ema23_pct: -3.04
-- ma20: 18.52
-- ma60: 18.68
-- ma120: 17.84
-- return_5d: 5
-- return_20d: -8.23
-- volume_ratio: 0.34
-- distance_to_ma20_pct_auxiliary: -3.59
-- distance_to_high_60_pct: -28.74
+- date: 20260807
+- open: 17.5
+- high: 17.65
+- low: 17.25
+- close: 17.25
+- volume: 92000
+- ma5: 17.51
+- ema23_primary: 18.24
+- distance_to_ema23_pct: -5.41
+- ma20: 18.15
+- ma60: 18.7
+- ma120: 17.83
+- return_5d: -0.58
+- return_20d: -16.06
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: -4.97
+- distance_to_high_60_pct: -31.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,20.25,21.35,20.2,21.35,935000,20.21,5.62,20.47,18.38,0.52
-20260709,21.35,21.45,20.35,20.55,1280000,20.24,1.52,20.63,18.45,0.7
 20260713,20.65,21.05,19.9,20.2,607000,20.24,-0.19,20.76,18.5,0.33
 20260714,20.1,20.15,19.05,19.75,549000,20.2,-2.22,20.87,18.53,0.29
 20260715,19.85,19.95,19.65,19.8,228000,20.16,-1.81,20.89,18.55,0.12
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,17.25,17.55,17.25,17.45,83000,18.54,-5.88,18.77,18.64,0.18
 20260804,17.4,17.65,17.35,17.6,106000,18.46,-4.67,18.59,18.65,0.26
 20260805,17.75,18.1,17.75,17.85,127000,18.41,-3.04,18.52,18.68,0.34
+20260806,17.85,17.85,17.25,17.4,216000,18.33,-5.05,18.32,18.69,0.64
+20260807,17.5,17.65,17.25,17.25,92000,18.24,-5.41,18.15,18.7,0.33
 ```
 
 ## Latest TDCC Snapshot

@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9946 三發地產
 
 ## Metadata
-- generated_at: 2026-08-09 22:29:09 Asia/Taipei
+- generated_at: 2026-08-10 22:29:22 Asia/Taipei
 - stock_id: 9946
 - stock_name: 三發地產
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 319
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 321
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 17.9
+- date: 20260807
+- open: 17.8
 - high: 18
-- low: 17.85
-- close: 17.85
-- volume: 190579
-- ma5: 17.93
-- ema23_primary: 18.27
-- distance_to_ema23_pct: -2.31
-- ma20: 18.29
-- ma60: 18.11
-- ma120: 17.55
-- return_5d: -0.56
-- return_20d: -9.39
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: -2.38
-- distance_to_high_60_pct: -18.31
+- low: 17.8
+- close: 17.95
+- volume: 139476
+- ma5: 17.86
+- ema23_primary: 18.21
+- distance_to_ema23_pct: -1.42
+- ma20: 18.08
+- ma60: 18.15
+- ma120: 17.57
+- return_5d: -0.55
+- return_20d: -9.8
+- volume_ratio: 0.39
+- distance_to_ma20_pct_auxiliary: -0.73
+- distance_to_high_60_pct: -17.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,19.7,19.9,19.5,19.9,535713,19.13,4.02,19.49,17.51,0.38
-20260709,19.9,20.1,19.65,19.9,476747,19.19,3.67,19.6,17.56,0.37
 20260713,19.8,19.8,18.7,18.7,927998,19.15,-2.37,19.64,17.59,0.74
 20260714,18.7,18.8,18.2,18.45,590800,19.09,-3.38,19.67,17.61,0.49
 20260715,18.7,18.7,18.1,18.15,470073,19.02,-4.55,19.61,17.63,0.43
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,17.9,18,17.75,17.8,376594,18.35,-2.99,18.48,18.06,0.83
 20260804,17.7,17.9,17.65,17.9,160777,18.31,-2.24,18.38,18.09,0.38
 20260805,17.9,18,17.85,17.85,190579,18.27,-2.31,18.29,18.11,0.49
+20260806,17.95,18,17.8,17.8,123836,18.23,-2.37,18.18,18.13,0.33
+20260807,17.8,18,17.8,17.95,139476,18.21,-1.42,18.08,18.15,0.39
 ```
 
 ## Latest TDCC Snapshot

@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00897 富邦基因免疫生技
 
 ## Metadata
-- generated_at: 2026-08-09 22:26:05 Asia/Taipei
+- generated_at: 2026-08-10 22:26:19 Asia/Taipei
 - stock_id: 00897
 - stock_name: 富邦基因免疫生技
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260805
-- price_rows: 52
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 54
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 11.16
-- high: 11.19
-- low: 11.15
-- close: 11.17
-- volume: 162860
-- ma5: 11.09
-- ema23_primary: 11.03
-- distance_to_ema23_pct: 1.25
-- ma20: 11.14
-- ma60: 10.58
-- ma120: 10.58
-- return_5d: 0.54
-- return_20d: -4.12
-- volume_ratio: 0.2
-- distance_to_ma20_pct_auxiliary: 0.24
-- distance_to_high_60_pct: -5.42
+- date: 20260807
+- open: 11.34
+- high: 11.36
+- low: 11.32
+- close: 11.33
+- volume: 325280
+- ma5: 11.18
+- ema23_primary: 11.08
+- distance_to_ema23_pct: 2.28
+- ma20: 11.12
+- ma60: 10.61
+- ma120: 10.61
+- return_5d: 1.16
+- return_20d: -1.56
+- volume_ratio: 0.47
+- distance_to_ma20_pct_auxiliary: 1.92
+- distance_to_high_60_pct: -4.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,11.65,11.76,11.65,11.66,1655294,10.76,8.34,10.62,10.27,1.15
-20260709,11.53,11.53,11.45,11.51,1816255,10.82,6.33,10.72,10.31,1.2
 20260713,11.44,11.44,10.43,11.14,1707641,10.85,2.67,10.8,10.33,1.12
 20260714,11.23,11.23,11.09,11.17,1156058,10.88,2.69,10.87,10.36,0.74
 20260715,11.21,11.21,11.11,11.14,177826,10.9,2.21,10.93,10.38,0.12
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,11.1,11.1,10.94,11.05,794755,11.02,0.3,11.21,10.56,0.84
 20260804,11.02,11.08,11.02,11.06,263234,11.02,0.36,11.17,10.57,0.3
 20260805,11.16,11.19,11.15,11.17,162860,11.03,1.25,11.14,10.58,0.2
+20260806,11.22,11.3,11.21,11.3,949101,11.05,2.22,11.13,10.59,1.23
+20260807,11.34,11.36,11.32,11.33,325280,11.08,2.28,11.12,10.61,0.47
 ```
 
 ## Latest TDCC Snapshot

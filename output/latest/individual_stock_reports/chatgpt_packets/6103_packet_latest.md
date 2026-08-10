@@ -1,27 +1,27 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6103 合邦
 
 ## Metadata
-- generated_at: 2026-08-09 22:28:02 Asia/Taipei
+- generated_at: 2026-08-10 22:28:15 Asia/Taipei
 - stock_id: 6103
 - stock_name: 合邦
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260804
-- price_rows: 91
-- current_main_price_date: 20260805
-- current_main_price_universe_status: historical_only_noncurrent
+- latest_price_date: 20260807
+- price_rows: 93
+- current_main_price_date: 20260807
+- current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
 - source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
 - official_tdcc_signal_date: 20260807
 - latest_tdcc_date: 20260807
 - tdcc_rows: 15
-- tdcc_history_status: historical_only_noncurrent
-- tdcc_freshness_status: historical_only_noncurrent
+- tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
 - tdcc_missing_official_dates: 
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: price history shorter than 120 rows; K-line context is partial; Historical-only TDCC window: stock is absent from the official current main-price universe; retain real historical dates and do not claim current TDCC history
+- notes: price history shorter than 120 rows; K-line context is partial
 
 ## Stable Read URLs
 - packet_pages_url: not_published_to_pages_use_raw_or_github_api
@@ -125,30 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260804
-- open: 28.5
-- high: 28.5
-- low: 28.5
-- close: 28.5
-- volume: 3000
-- ma5: 28.67
-- ema23_primary: 31.05
-- distance_to_ema23_pct: -8.2
-- ma20: 30.36
-- ma60: 35.61
-- ma120: 37.56
-- return_5d: -13.9
-- return_20d: -8.21
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: -6.11
-- distance_to_high_60_pct: -35.81
+- date: 20260807
+- open: 28.55
+- high: 28.55
+- low: 28.55
+- close: 28.55
+- volume: 1000
+- ma5: 28.58
+- ema23_primary: 30.68
+- distance_to_ema23_pct: -6.96
+- ma20: 30.12
+- ma60: 35.22
+- ma120: 37.37
+- return_5d: 1.06
+- return_20d: -8.2
+- volume_ratio: 0.15
+- distance_to_ma20_pct_auxiliary: -5.23
+- distance_to_high_60_pct: -35.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260626,30.05,32.15,30.05,31.1,8000,35.64,-12.75,35.77,40.27,0.48
-20260630,31.1,31.1,31.1,31.1,1000,35.26,-11.81,35.44,40.2,0.06
 20260701,31.1,31.1,31.1,31.1,3000,34.92,-10.93,35.1,40.1,0.18
 20260706,34.25,34.25,34.25,34.25,1000,34.86,-1.76,35.01,39.98,0.07
 20260708,29.85,29.85,29.85,29.85,1000,34.44,-13.34,34.64,39.73,0.07
@@ -167,6 +165,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260730,29,29.4,28.4,28.4,5000,31.54,-9.95,30.66,36.09,0.74
 20260731,28.4,28.4,28.4,28.4,1000,31.28,-9.2,30.48,35.84,0.15
 20260804,28.5,28.5,28.5,28.5,3000,31.05,-8.2,30.36,35.61,0.45
+20260806,26.85,30.1,26.85,29.05,4000,30.88,-5.92,30.25,35.4,0.62
+20260807,28.55,28.55,28.55,28.55,1000,30.68,-6.96,30.12,35.22,0.15
 ```
 
 ## Latest TDCC Snapshot

@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00901 永豐智能車供應鏈
 
 ## Metadata
-- generated_at: 2026-08-09 22:26:05 Asia/Taipei
+- generated_at: 2026-08-10 22:26:19 Asia/Taipei
 - stock_id: 00901
 - stock_name: 永豐智能車供應鏈
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260805
-- price_rows: 52
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 54
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 44.41
-- high: 44.75
-- low: 44.05
-- close: 44.32
-- volume: 332444
-- ma5: 42.27
-- ema23_primary: 43.4
-- distance_to_ema23_pct: 2.12
-- ma20: 43.19
-- ma60: 45.23
-- ma120: 45.23
-- return_5d: 16.63
-- return_20d: -2.53
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: 2.61
-- distance_to_high_60_pct: -10.46
+- date: 20260807
+- open: 44.53
+- high: 44.69
+- low: 43.48
+- close: 43.67
+- volume: 185134
+- ma5: 43.63
+- ema23_primary: 43.49
+- distance_to_ema23_pct: 0.42
+- ma20: 43.04
+- ma60: 45.18
+- ma120: 45.18
+- return_5d: 2.8
+- return_20d: -4.13
+- volume_ratio: 0.28
+- distance_to_ma20_pct_auxiliary: 1.46
+- distance_to_high_60_pct: -11.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,45.53,45.62,44.85,45.37,222441,46.5,-2.42,46.67,46.47,0.45
-20260709,45.48,46.2,45.45,45.55,275917,46.42,-1.87,46.74,46.44,0.6
 20260713,46.48,46.48,45.14,45.36,488650,46.33,-2.09,46.81,46.41,1.18
 20260714,45.05,45.05,43.25,44.17,601982,46.15,-4.29,46.76,46.35,1.41
 20260715,44.68,45.58,44.68,45.56,382813,46.1,-1.17,46.71,46.33,0.9
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,42.48,43.34,42.19,42.99,2319963,43.35,-0.83,43.47,45.3,3.89
 20260804,42.39,43.58,42.39,42.92,1462449,43.32,-0.91,43.25,45.25,2.21
 20260805,44.41,44.75,44.05,44.32,332444,43.4,2.12,43.19,45.23,0.5
+20260806,43.75,44.26,43.75,44.24,88425,43.47,1.77,43.14,45.21,0.14
+20260807,44.53,44.69,43.48,43.67,185134,43.49,0.42,43.04,45.18,0.28
 ```
 
 ## Latest TDCC Snapshot

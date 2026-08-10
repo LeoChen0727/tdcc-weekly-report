@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2726 雅茗-KY
 
 ## Metadata
-- generated_at: 2026-08-09 22:26:55 Asia/Taipei
+- generated_at: 2026-08-10 22:27:08 Asia/Taipei
 - stock_id: 2726
 - stock_name: 雅茗-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 184
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 186
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
+- date: 20260807
 - open: 8.63
-- high: 8.68
-- low: 8.55
-- close: 8.63
-- volume: 43000
+- high: 8.75
+- low: 8.61
+- close: 8.68
+- volume: 26000
 - ma5: 8.65
-- ema23_primary: 8.97
-- distance_to_ema23_pct: -3.74
-- ma20: 8.89
-- ma60: 9.46
-- ma120: 9.98
-- return_5d: -2.82
-- return_20d: 0.35
-- volume_ratio: 1.33
-- distance_to_ma20_pct_auxiliary: -2.96
-- distance_to_high_60_pct: -17.81
+- ema23_primary: 8.92
+- distance_to_ema23_pct: -2.66
+- ma20: 8.86
+- ma60: 9.42
+- ma120: 9.93
+- return_5d: 0.12
+- return_20d: -3.56
+- volume_ratio: 0.83
+- distance_to_ma20_pct_auxiliary: -2.03
+- distance_to_high_60_pct: -17.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,9.05,9.07,8.79,9,27000,9.54,-5.7,9.6,9.88,0.32
-20260709,9.16,9.5,8.71,9,58000,9.5,-5.25,9.56,9.86,0.66
 20260713,9.1,9.2,8.7,8.99,79000,9.46,-4.93,9.52,9.84,0.88
 20260714,8.99,8.99,8.7,8.98,22000,9.42,-4.64,9.47,9.83,0.25
 20260715,9.16,9.19,9.09,9.09,3000,9.39,-3.19,9.43,9.81,0.03
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,8.85,8.85,8.57,8.66,84000,9.03,-4.09,8.92,9.51,2.14
 20260804,8.77,8.77,8.55,8.63,40000,9,-4.07,8.89,9.48,1.1
 20260805,8.63,8.68,8.55,8.63,43000,8.97,-3.74,8.89,9.46,1.33
+20260806,8.64,8.69,8.47,8.64,39000,8.94,-3.34,8.88,9.44,1.19
+20260807,8.63,8.75,8.61,8.68,26000,8.92,-2.66,8.86,9.42,0.83
 ```
 
 ## Latest TDCC Snapshot

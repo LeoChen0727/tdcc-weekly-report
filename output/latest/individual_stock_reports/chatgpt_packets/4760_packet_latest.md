@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4760 勤凱科技
 
 ## Metadata
-- generated_at: 2026-08-09 22:27:42 Asia/Taipei
+- generated_at: 2026-08-10 22:27:56 Asia/Taipei
 - stock_id: 4760
 - stock_name: 勤凱科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 184
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 186
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,30 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 260.5
-- high: 260.5
-- low: 243
-- close: 246
-- volume: 682000
-- ma5: 222.8
-- ema23_primary: 258.45
-- distance_to_ema23_pct: -4.82
-- ma20: 252.38
-- ma60: 323.84
-- ma120: 267.53
-- return_5d: 20
-- return_20d: -21.66
-- volume_ratio: 1.07
-- distance_to_ma20_pct_auxiliary: -2.53
-- distance_to_high_60_pct: -51.76
+- date: 20260807
+- open: 254.5
+- high: 254.5
+- low: 236
+- close: 236.5
+- volume: 372000
+- ma5: 237.9
+- ema23_primary: 255.94
+- distance_to_ema23_pct: -7.59
+- ma20: 244.1
+- ma60: 321.78
+- ma120: 268.6
+- return_5d: 11.03
+- return_20d: -26.09
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: -3.11
+- distance_to_high_60_pct: -53.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,325,335.5,320.5,331.5,1005000,346.03,-4.2,351.65,325.78,0.88
-20260709,333.5,335.5,320,320,722000,343.86,-6.94,348.98,326.65,0.7
 20260713,320,320,294,300.5,680000,340.25,-11.68,345.77,327.23,0.69
 20260714,300.5,303,270.5,286,1277000,335.73,-14.81,341.25,327.56,1.29
 20260715,288.5,288.5,280,284.5,548000,331.46,-14.17,335.4,327.85,0.58
@@ -167,6 +165,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,210,223.5,208,220,434000,261.59,-15.9,260.5,325.23,0.64
 20260804,226,238,220,237.5,375000,259.58,-8.51,255.78,324.4,0.56
 20260805,260.5,260.5,243,246,682000,258.45,-4.82,252.38,323.84,1.07
+20260806,244.5,253,236,249.5,393000,257.7,-3.18,248.28,322.98,0.65
+20260807,254.5,254.5,236,236.5,372000,255.94,-7.59,244.1,321.78,0.63
 ```
 
 ## Latest TDCC Snapshot

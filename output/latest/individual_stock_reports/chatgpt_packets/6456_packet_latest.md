@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6456 GIS-KY
 
 ## Metadata
-- generated_at: 2026-08-09 22:28:18 Asia/Taipei
+- generated_at: 2026-08-10 22:28:30 Asia/Taipei
 - stock_id: 6456
 - stock_name: GIS-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 319
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 321
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 59.9
-- high: 62
-- low: 59.6
-- close: 60.3
-- volume: 2626270
-- ma5: 56.18
-- ema23_primary: 62.66
-- distance_to_ema23_pct: -3.76
-- ma20: 63.34
-- ma60: 69.91
-- ma120: 65.18
-- return_5d: 13.13
-- return_20d: -9.46
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: -4.79
-- distance_to_high_60_pct: -36.59
+- date: 20260807
+- open: 60
+- high: 64
+- low: 60
+- close: 61.5
+- volume: 2968059
+- ma5: 59.54
+- ema23_primary: 62.46
+- distance_to_ema23_pct: -1.54
+- ma20: 62.37
+- ma60: 69.67
+- ma120: 65.55
+- return_5d: 12.02
+- return_20d: -13.01
+- volume_ratio: 0.91
+- distance_to_ma20_pct_auxiliary: -1.39
+- distance_to_high_60_pct: -35.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,67.5,72.4,65.7,71.6,4860670,71.21,0.55,70.86,73.74,0.81
-20260709,72,72.4,70.1,70.7,3866433,71.17,-0.66,70.83,73.86,0.68
 20260713,72.3,75.4,70.5,70.6,5154934,71.12,-0.73,70.9,73.86,0.92
 20260714,70.8,71.4,64.7,69.5,4466522,70.99,-2.09,70.82,73.74,0.79
 20260715,69.6,71.5,68,70.9,3293910,70.98,-0.11,70.69,73.63,0.59
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,55,57.2,54.6,56.5,1527671,63.31,-10.76,64.31,70.14,0.4
 20260804,55.6,58.7,55.6,58,1745658,62.87,-7.75,63.65,70.02,0.49
 20260805,59.9,62,59.6,60.3,2626270,62.66,-3.76,63.34,69.91,0.76
+20260806,60.5,61.5,58.8,61.4,1525159,62.55,-1.84,62.83,69.8,0.46
+20260807,60,64,60,61.5,2968059,62.46,-1.54,62.37,69.67,0.91
 ```
 
 ## Latest TDCC Snapshot

@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1813 寶利徠
 
 ## Metadata
-- generated_at: 2026-08-09 22:26:28 Asia/Taipei
+- generated_at: 2026-08-10 22:26:42 Asia/Taipei
 - stock_id: 1813
 - stock_name: 寶利徠
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 184
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 186
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 11.5
-- high: 11.5
-- low: 11.45
-- close: 11.45
-- volume: 7000
-- ma5: 11.6
-- ema23_primary: 11.77
-- distance_to_ema23_pct: -2.71
-- ma20: 11.8
-- ma60: 11.95
-- ma120: 12.57
-- return_5d: 1.33
-- return_20d: -4.18
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: -2.95
-- distance_to_high_60_pct: -9.13
+- date: 20260807
+- open: 11.4
+- high: 11.55
+- low: 11.3
+- close: 11.5
+- volume: 34000
+- ma5: 11.52
+- ema23_primary: 11.73
+- distance_to_ema23_pct: -1.93
+- ma20: 11.75
+- ma60: 11.92
+- ma120: 12.54
+- return_5d: -1.71
+- return_20d: -4.17
+- volume_ratio: 2.38
+- distance_to_ma20_pct_auxiliary: -2.13
+- distance_to_high_60_pct: -8.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,11.8,11.95,11.8,11.95,3000,11.99,-0.35,11.93,12.24,0.08
-20260709,11.95,12,11.95,12,4000,11.99,0.06,11.94,12.21,0.11
 20260713,11.85,11.95,11.85,11.95,4000,11.99,-0.33,11.95,12.19,0.11
 20260714,11.85,11.9,11.8,11.9,17000,11.98,-0.69,11.95,12.16,0.48
 20260715,11.75,11.95,11.75,11.95,8000,11.98,-0.25,11.96,12.13,0.23
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,11.65,11.7,11.55,11.65,6000,11.82,-1.48,11.85,11.97,0.48
 20260804,11.5,11.6,11.5,11.5,6000,11.8,-2.53,11.82,11.96,0.5
 20260805,11.5,11.5,11.45,11.45,7000,11.77,-2.71,11.8,11.95,0.59
+20260806,11.55,11.55,11.5,11.5,23000,11.75,-2.1,11.78,11.93,1.8
+20260807,11.4,11.55,11.3,11.5,34000,11.73,-1.93,11.75,11.92,2.38
 ```
 
 ## Latest TDCC Snapshot

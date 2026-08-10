@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9136 巨騰-DR
 
 ## Metadata
-- generated_at: 2026-08-09 22:29:06 Asia/Taipei
+- generated_at: 2026-08-10 22:29:18 Asia/Taipei
 - stock_id: 9136
 - stock_name: 巨騰-DR
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 302
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 304
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 11.85
-- high: 11.85
-- low: 11.35
+- date: 20260807
+- open: 11.5
+- high: 11.5
+- low: 11.15
 - close: 11.35
-- volume: 399101
-- ma5: 11.15
-- ema23_primary: 11.97
-- distance_to_ema23_pct: -5.17
-- ma20: 11.7
-- ma60: 13.05
-- ma120: 10.83
-- return_5d: 5.09
-- return_20d: -11.67
-- volume_ratio: 0.69
-- distance_to_ma20_pct_auxiliary: -2.97
+- volume: 288001
+- ma5: 11.37
+- ema23_primary: 11.87
+- distance_to_ema23_pct: -4.38
+- ma20: 11.58
+- ma60: 13.1
+- ma120: 10.89
+- return_5d: 4.13
+- return_20d: -9.56
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: -1.97
 - distance_to_high_60_pct: -39.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,13,13,12.3,12.55,453726,14.15,-11.3,15.07,12.4,0.31
-20260709,12.45,12.75,12.15,12.55,405263,14.02,-10.46,14.96,12.45,0.32
 20260713,12.85,13.3,12.75,12.8,399038,13.91,-8.01,14.8,12.49,0.34
 20260714,13,13,12.3,12.5,342180,13.8,-9.4,14.56,12.52,0.38
 20260715,12.75,12.75,12.4,12.4,116110,13.68,-9.36,14.35,12.54,0.16
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,11.05,11.6,10.85,11.3,299910,12.07,-6.41,11.87,12.98,0.5
 20260804,11.6,11.8,11.3,11.5,387306,12.03,-4.37,11.77,13.01,0.66
 20260805,11.85,11.85,11.35,11.35,399101,11.97,-5.17,11.7,13.05,0.69
+20260806,11.05,11.45,11.05,11.35,241000,11.92,-4.76,11.64,13.08,0.43
+20260807,11.5,11.5,11.15,11.35,288001,11.87,-4.38,11.58,13.1,0.52
 ```
 
 ## Latest TDCC Snapshot

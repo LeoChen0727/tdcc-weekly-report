@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6183 關貿
 
 ## Metadata
-- generated_at: 2026-08-09 22:28:08 Asia/Taipei
+- generated_at: 2026-08-10 22:28:21 Asia/Taipei
 - stock_id: 6183
 - stock_name: 關貿
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 319
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 321
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 92.5
-- high: 93.5
-- low: 91.8
-- close: 92.1
-- volume: 30178
-- ma5: 92.12
-- ema23_primary: 91.34
-- distance_to_ema23_pct: 0.84
-- ma20: 91.27
-- ma60: 90.8
-- ma120: 92.25
-- return_5d: -0.75
-- return_20d: 2.22
-- volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: 0.91
-- distance_to_high_60_pct: -2.23
+- date: 20260807
+- open: 91.4
+- high: 92
+- low: 91.1
+- close: 91.8
+- volume: 33274
+- ma5: 91.78
+- ema23_primary: 91.38
+- distance_to_ema23_pct: 0.46
+- ma20: 91.42
+- ma60: 90.77
+- ma120: 92.2
+- return_5d: -1.92
+- return_20d: 1.77
+- volume_ratio: 0.8
+- distance_to_ma20_pct_auxiliary: 0.42
+- distance_to_high_60_pct: -1.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,90,91.3,89.8,90,25666,90.1,-0.11,89.83,91.47,0.8
-20260709,90,90.5,89.8,90.2,11651,90.11,0.1,89.92,91.42,0.42
 20260713,90.1,90.2,88.6,90.2,51871,90.11,0.1,89.99,91.35,1.84
 20260714,90.4,91.4,89.7,90.3,102525,90.13,0.19,90.02,91.28,3.18
 20260715,90.8,90.9,90,90.9,29355,90.19,0.78,90.02,91.2,0.95
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,93.5,93.5,90.6,91.9,101935,91.23,0.74,91.09,90.81,2.65
 20260804,90.6,91.7,90.6,91.7,54269,91.27,0.48,91.17,90.8,1.35
 20260805,92.5,93.5,91.8,92.1,30178,91.34,0.84,91.27,90.8,0.74
+20260806,91.4,91.4,91.2,91.4,20750,91.34,0.07,91.34,90.78,0.51
+20260807,91.4,92,91.1,91.8,33274,91.38,0.46,91.42,90.77,0.8
 ```
 
 ## Latest TDCC Snapshot

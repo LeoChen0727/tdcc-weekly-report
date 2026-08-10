@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7711 永擎
 
 ## Metadata
-- generated_at: 2026-08-09 22:28:46 Asia/Taipei
+- generated_at: 2026-08-10 22:28:59 Asia/Taipei
 - stock_id: 7711
 - stock_name: 永擎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 171
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 173
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -72,14 +72,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 單一個股分析
 - score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -87,7 +87,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: high_level_consolidation
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -104,7 +104,6 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -117,7 +116,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -125,30 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 329
-- high: 329
-- low: 329
-- close: 329
-- volume: 74377
-- ma5: 298.4
-- ema23_primary: 307.94
-- distance_to_ema23_pct: 6.84
-- ma20: 302.32
-- ma60: 344.4
-- ma120: 314.81
-- return_5d: 16.67
-- return_20d: 6.13
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: 8.82
-- distance_to_high_60_pct: -23.4
+- date: 20260807
+- open: 397.5
+- high: 397.5
+- low: 370.5
+- close: 375
+- volume: 2470695
+- ma5: 331.7
+- ema23_primary: 317.62
+- distance_to_ema23_pct: 18.07
+- ma20: 308.43
+- ma60: 342.73
+- ma120: 317.28
+- return_5d: 28.21
+- return_20d: 21.95
+- volume_ratio: 8.08
+- distance_to_ma20_pct_auxiliary: 21.59
+- distance_to_high_60_pct: -12.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,310,311.5,303,307,193528,339.87,-9.67,338.98,369.18,0.58
-20260709,309.5,312,307,307.5,98407,337.17,-8.8,336.7,369.28,0.32
 20260713,310,323.5,309,317,224730,335.49,-5.51,334.68,369.45,0.77
 20260714,320.5,324.5,300,314.5,293616,333.74,-5.77,332.45,369.61,1
 20260715,315,321.5,314.5,317.5,128510,332.39,-4.48,330,369.88,0.47
@@ -167,6 +164,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,292,300,289.5,293.5,172784,306.62,-4.28,302.65,348.72,0.87
 20260804,291.5,300,290.5,299.5,163825,306.02,-2.13,301.38,345.93,0.83
 20260805,329,329,329,329,74377,307.94,6.84,302.32,344.4,0.4
+20260806,361.5,361.5,361.5,361.5,191485,312.4,15.72,305.05,343.51,1.02
+20260807,397.5,397.5,370.5,375,2470695,317.62,18.07,308.43,342.73,8.08
 ```
 
 ## Latest TDCC Snapshot

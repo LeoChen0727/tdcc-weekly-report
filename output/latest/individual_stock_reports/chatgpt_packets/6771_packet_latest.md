@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6771 平和環保-創
 
 ## Metadata
-- generated_at: 2026-08-09 22:28:32 Asia/Taipei
+- generated_at: 2026-08-10 22:28:44 Asia/Taipei
 - stock_id: 6771
 - stock_name: 平和環保-創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 319
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 321
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 38.2
-- high: 38.35
-- low: 38
-- close: 38
-- volume: 14002
-- ma5: 38.15
-- ema23_primary: 38.77
-- distance_to_ema23_pct: -1.99
-- ma20: 38.59
-- ma60: 40.42
-- ma120: 42.34
-- return_5d: -0.13
-- return_20d: -4.52
-- volume_ratio: 0.61
-- distance_to_ma20_pct_auxiliary: -1.52
-- distance_to_high_60_pct: -13.44
+- date: 20260807
+- open: 38
+- high: 38.25
+- low: 37.85
+- close: 38.05
+- volume: 8000
+- ma5: 38.13
+- ema23_primary: 38.66
+- distance_to_ema23_pct: -1.58
+- ma20: 38.44
+- ma60: 40.24
+- ma120: 42.24
+- return_5d: -0.39
+- return_20d: -4.4
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: -1.01
+- distance_to_high_60_pct: -11.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,39.6,39.6,39.3,39.3,5126,40.39,-2.71,40.49,42.39,0.14
-20260709,41.25,41.25,39.25,39.8,14077,40.34,-1.35,40.39,42.32,0.38
 20260713,39.5,39.5,39.05,39.1,23010,40.24,-2.84,40.26,42.22,0.64
 20260714,39.5,39.7,38.3,38.95,26010,40.13,-2.95,40.1,42.13,0.72
 20260715,39.3,39.3,39,39.3,4000,40.06,-1.91,39.97,42.03,0.12
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,38.2,38.2,37.85,37.85,33438,38.86,-2.6,38.74,40.6,1.43
 20260804,38.1,38.7,37.9,38.65,25184,38.84,-0.49,38.68,40.52,1.09
 20260805,38.2,38.35,38,38,14002,38.77,-1.99,38.59,40.42,0.61
+20260806,38.1,38.2,37.8,38.1,38099,38.72,-1.59,38.53,40.33,1.55
+20260807,38,38.25,37.85,38.05,8000,38.66,-1.58,38.44,40.24,0.33
 ```
 
 ## Latest TDCC Snapshot

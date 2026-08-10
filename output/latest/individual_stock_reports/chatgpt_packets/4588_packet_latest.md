@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4588 玖鼎電力
 
 ## Metadata
-- generated_at: 2026-08-09 22:27:40 Asia/Taipei
+- generated_at: 2026-08-10 22:27:53 Asia/Taipei
 - stock_id: 4588
 - stock_name: 玖鼎電力
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 319
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 321
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 50.1
-- high: 51.9
-- low: 50.1
-- close: 51
-- volume: 50566
-- ma5: 50.34
-- ema23_primary: 52.8
-- distance_to_ema23_pct: -3.41
-- ma20: 52.51
-- ma60: 56.09
-- ma120: 58.6
-- return_5d: 3.45
-- return_20d: -12.22
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: -2.87
-- distance_to_high_60_pct: -23.88
+- date: 20260807
+- open: 51.6
+- high: 52
+- low: 51.1
+- close: 51.3
+- volume: 41714
+- ma5: 50.92
+- ema23_primary: 52.55
+- distance_to_ema23_pct: -2.37
+- ma20: 51.88
+- ma60: 55.9
+- ma120: 58.34
+- return_5d: 1.58
+- return_20d: -10.78
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: -1.11
+- distance_to_high_60_pct: -23.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,58.9,58.9,57.1,57.5,86983,58.77,-2.15,58.84,58.56,0.77
-20260709,58.7,58.7,57.1,57.5,41644,58.66,-1.98,58.82,58.51,0.38
 20260713,57.9,59,57.9,58.7,150509,58.66,0.06,58.91,58.47,1.33
 20260714,55.7,55.7,53.7,54,150896,58.28,-7.34,58.69,58.35,1.33
 20260715,54.6,58,54.3,55.3,117242,58.03,-4.7,58.49,58.27,1
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,50.8,51,50.3,50.6,21328,53.18,-4.85,53.33,56.35,0.25
 20260804,50.1,50.8,49.45,50.6,59621,52.97,-4.47,52.86,56.21,0.72
 20260805,50.1,51.9,50.1,51,50566,52.8,-3.41,52.51,56.09,0.64
+20260806,52,52,50.3,51.1,38675,52.66,-2.96,52.19,55.99,0.5
+20260807,51.6,52,51.1,51.3,41714,52.55,-2.37,51.88,55.9,0.54
 ```
 
 ## Latest TDCC Snapshot

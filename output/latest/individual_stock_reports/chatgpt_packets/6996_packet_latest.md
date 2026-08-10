@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6996 力領科技
 
 ## Metadata
-- generated_at: 2026-08-09 22:28:40 Asia/Taipei
+- generated_at: 2026-08-10 22:28:53 Asia/Taipei
 - stock_id: 6996
 - stock_name: 力領科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 184
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 186
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 179.5
-- high: 181
-- low: 177
-- close: 180
-- volume: 152000
-- ma5: 174
-- ema23_primary: 178.78
-- distance_to_ema23_pct: 0.68
-- ma20: 177.15
-- ma60: 187.82
-- ma120: 179.92
-- return_5d: 9.42
-- return_20d: -11.11
-- volume_ratio: 1.58
-- distance_to_ma20_pct_auxiliary: 1.61
-- distance_to_high_60_pct: -15.49
+- date: 20260807
+- open: 187
+- high: 188.5
+- low: 185
+- close: 185
+- volume: 52000
+- ma5: 180.2
+- ema23_primary: 179.85
+- distance_to_ema23_pct: 2.86
+- ma20: 175.95
+- ma60: 187.81
+- ma120: 180.3
+- return_5d: 6.94
+- return_20d: -5.13
+- volume_ratio: 0.56
+- distance_to_ma20_pct_auxiliary: 5.14
+- distance_to_high_60_pct: -13.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,202,202,196.5,200,135000,195.86,2.11,196.45,189.43,1
-20260709,200,200,193,195,138000,195.79,-0.4,196.22,189.68,1.15
 20260713,195.5,195.5,185,185.5,146000,194.93,-4.84,195.55,189.67,1.25
 20260714,182.5,185.5,172,177,218000,193.44,-8.5,194.53,189.57,1.79
 20260715,177,181.5,177,181.5,92000,192.44,-5.69,194.05,189.52,0.78
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,172,180,172,175,160000,179,-2.24,179.5,188.03,1.55
 20260804,175,176.5,173,175,66000,178.67,-2.05,178.28,187.87,0.64
 20260805,179.5,181,177,180,152000,178.78,0.68,177.15,187.82,1.58
+20260806,185,187,182.5,186,139000,179.38,3.69,176.45,187.77,1.44
+20260807,187,188.5,185,185,52000,179.85,2.86,175.95,187.81,0.56
 ```
 
 ## Latest TDCC Snapshot

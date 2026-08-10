@@ -1,27 +1,27 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6680 鑫創電子
 
 ## Metadata
-- generated_at: 2026-08-09 22:28:28 Asia/Taipei
+- generated_at: 2026-08-10 22:28:40 Asia/Taipei
 - stock_id: 6680
 - stock_name: 鑫創電子
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 170
-- current_main_price_date: 20260805
-- current_main_price_universe_status: current
+- latest_price_date: 20260806
+- price_rows: 171
+- current_main_price_date: 20260807
+- current_main_price_universe_status: historical_only_noncurrent
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
 - source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
 - official_tdcc_signal_date: 20260807
 - latest_tdcc_date: 20260807
 - tdcc_rows: 37
-- tdcc_history_status: tdcc_history_ready
-- tdcc_freshness_status: tdcc_window_fresh
+- tdcc_history_status: historical_only_noncurrent
+- tdcc_freshness_status: historical_only_noncurrent
 - tdcc_continuity_status: complete
 - tdcc_missing_official_dates: 
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes:
+- notes: Historical-only TDCC window: stock is absent from the official current main-price universe; retain real historical dates and do not claim current TDCC history
 
 ## Stable Read URLs
 - packet_pages_url: not_published_to_pages_use_raw_or_github_api
@@ -125,29 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 56.4
-- high: 57.2
-- low: 56.2
-- close: 57.2
-- volume: 35000
-- ma5: 54.02
-- ema23_primary: 53.89
-- distance_to_ema23_pct: 6.14
-- ma20: 53.86
-- ma60: 53.78
-- ma120: 57.09
-- return_5d: 3.81
-- return_20d: 14.17
-- volume_ratio: 2.41
-- distance_to_ma20_pct_auxiliary: 6.2
-- distance_to_high_60_pct: -2.72
+- date: 20260806
+- open: 57.5
+- high: 58.3
+- low: 55.9
+- close: 57.8
+- volume: 12000
+- ma5: 54.64
+- ema23_primary: 54.22
+- distance_to_ema23_pct: 6.61
+- ma20: 54.24
+- ma60: 53.83
+- ma120: 56.98
+- return_5d: 5.67
+- return_20d: 15.37
+- volume_ratio: 0.81
+- distance_to_ma20_pct_auxiliary: 6.55
+- distance_to_high_60_pct: -1.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260707,51.8,51.8,50.1,50.1,5000,51.74,-3.16,51.65,54.14,0.36
 20260708,50.4,50.4,50.4,50.4,1000,51.63,-2.37,51.44,54.01,0.09
 20260709,49.35,49.35,49.35,49.35,1000,51.44,-4.05,51.19,53.88,0.09
 20260713,49.35,49.6,49,49.6,3000,51.28,-3.28,50.88,53.78,0.28
@@ -167,6 +166,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,53.1,53.1,53.1,53.1,1000,53.74,-1.18,53.45,53.72,0.08
 20260804,52,52,52,52,2000,53.59,-2.97,53.51,53.71,0.15
 20260805,56.4,57.2,56.2,57.2,35000,53.89,6.14,53.86,53.78,2.41
+20260806,57.5,58.3,55.9,57.8,12000,54.22,6.61,54.24,53.83,0.81
 ```
 
 ## Latest TDCC Snapshot

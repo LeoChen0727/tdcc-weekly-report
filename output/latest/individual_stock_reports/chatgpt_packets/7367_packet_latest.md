@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7367 力旺元大57購01
 
 ## Metadata
-- generated_at: 2026-08-09 22:28:45 Asia/Taipei
+- generated_at: 2026-08-10 22:28:57 Asia/Taipei
 - stock_id: 7367
 - stock_name: 力旺元大57購01
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20250407
 - price_rows: 1
-- current_main_price_date: 20260805
+- current_main_price_date: 20260807
 - current_main_price_universe_status: historical_only_noncurrent
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable

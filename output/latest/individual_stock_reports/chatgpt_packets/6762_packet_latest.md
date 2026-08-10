@@ -1,27 +1,27 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6762 達亞
 
 ## Metadata
-- generated_at: 2026-08-09 22:28:31 Asia/Taipei
+- generated_at: 2026-08-10 22:28:44 Asia/Taipei
 - stock_id: 6762
 - stock_name: 達亞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260803
-- price_rows: 140
-- current_main_price_date: 20260805
-- current_main_price_universe_status: historical_only_noncurrent
+- latest_price_date: 20260807
+- price_rows: 141
+- current_main_price_date: 20260807
+- current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
 - source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
 - official_tdcc_signal_date: 20260807
 - latest_tdcc_date: 20260807
 - tdcc_rows: 15
-- tdcc_history_status: historical_only_noncurrent
-- tdcc_freshness_status: historical_only_noncurrent
+- tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
 - tdcc_missing_official_dates: 
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: Historical-only TDCC window: stock is absent from the official current main-price universe; retain real historical dates and do not claim current TDCC history
+- notes:
 
 ## Stable Read URLs
 - packet_pages_url: not_published_to_pages_use_raw_or_github_api
@@ -126,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260803
-- open: 168
+- date: 20260807
+- open: 169
 - high: 169
-- low: 168
+- low: 169
 - close: 169
-- volume: 2000
-- ma5: 171.8
-- ema23_primary: 170.62
-- distance_to_ema23_pct: -0.95
-- ma20: 170.35
-- ma60: 167.7
-- ma120: 170.39
+- volume: 1000
+- ma5: 169.8
+- ema23_primary: 170.49
+- distance_to_ema23_pct: -0.87
+- ma20: 170.45
+- ma60: 167.68
+- ma120: 170.16
 - return_5d: -5.59
-- return_20d: -5.06
-- volume_ratio: 0.37
-- distance_to_ma20_pct_auxiliary: -0.79
+- return_20d: 1.2
+- volume_ratio: 0.19
+- distance_to_ma20_pct_auxiliary: -0.85
 - distance_to_high_60_pct: -14.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260702,168,168,167,167,2000,170.25,-1.91,173.82,166.21,0.03
 20260703,164,182,164,182,10000,171.23,6.29,173.53,166.41,0.15
 20260707,170.5,170.5,162.5,162.5,5000,170.51,-4.7,172.25,166.28,0.09
 20260708,162.5,168,161,168,14000,170.3,-1.35,171.25,166.33,0.29
@@ -168,6 +167,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260730,177,178,170,170,4000,171.29,-0.76,171.05,167.57,0.76
 20260731,170,170,165,165,5000,170.77,-3.38,170.8,167.6,0.93
 20260803,168,169,168,169,2000,170.62,-0.95,170.35,167.7,0.37
+20260807,169,169,169,169,1000,170.49,-0.87,170.45,167.68,0.19
 ```
 
 ## Latest TDCC Snapshot

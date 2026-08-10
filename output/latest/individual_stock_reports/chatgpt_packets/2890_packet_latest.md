@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2890 永豐金
 
 ## Metadata
-- generated_at: 2026-08-09 22:26:59 Asia/Taipei
+- generated_at: 2026-08-10 22:27:12 Asia/Taipei
 - stock_id: 2890
 - stock_name: 永豐金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 319
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 321
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,30 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 39.8
-- high: 40.1
-- low: 39.4
-- close: 39.55
-- volume: 20888840
-- ma5: 39.73
-- ema23_primary: 39.25
-- distance_to_ema23_pct: 0.78
-- ma20: 39.73
-- ma60: 36.09
-- ma120: 33.83
-- return_5d: 2.46
-- return_20d: -3.77
-- volume_ratio: 0.51
-- distance_to_ma20_pct_auxiliary: -0.45
-- distance_to_high_60_pct: -6.5
+- date: 20260807
+- open: 39.05
+- high: 39.25
+- low: 38.8
+- close: 38.95
+- volume: 8967206
+- ma5: 39.37
+- ema23_primary: 39.18
+- distance_to_ema23_pct: -0.59
+- ma20: 39.49
+- ma60: 36.36
+- ma120: 34
+- return_5d: -4.06
+- return_20d: -3.71
+- volume_ratio: 0.23
+- distance_to_ma20_pct_auxiliary: -1.37
+- distance_to_high_60_pct: -7.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,41.8,42,41.25,41.9,31400453,38,10.26,38.4,33.58,0.51
-20260709,42.05,42.3,40.35,40.45,26714324,38.2,5.88,38.77,33.7,0.44
 20260713,41.75,41.75,40,40.2,31611423,38.37,4.77,39.12,33.82,0.53
 20260714,40.6,40.6,39,39.65,35527189,38.48,3.05,39.39,33.93,0.61
 20260715,39.8,40.3,39.45,39.95,32360511,38.6,3.5,39.63,34.05,0.57
@@ -167,6 +165,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,40,40.5,39.5,40.05,26559143,39.18,2.21,39.88,35.79,0.63
 20260804,39.3,40.6,39.3,39.6,31750523,39.22,0.97,39.8,35.94,0.76
 20260805,39.8,40.1,39.4,39.55,20888840,39.25,0.78,39.73,36.09,0.51
+20260806,39.2,39.6,38.7,38.7,15994820,39.2,-1.28,39.57,36.22,0.4
+20260807,39.05,39.25,38.8,38.95,8967206,39.18,-0.59,39.49,36.36,0.23
 ```
 
 ## Latest TDCC Snapshot

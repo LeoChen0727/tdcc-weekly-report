@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00910 第一金太空衛星
 
 ## Metadata
-- generated_at: 2026-08-09 22:26:05 Asia/Taipei
+- generated_at: 2026-08-10 22:26:19 Asia/Taipei
 - stock_id: 00910
 - stock_name: 第一金太空衛星
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260805
-- price_rows: 52
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 54
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 61.5
-- high: 61.65
-- low: 61.15
-- close: 61.5
-- volume: 1944338
-- ma5: 56.69
-- ema23_primary: 58.25
-- distance_to_ema23_pct: 5.58
-- ma20: 56.6
-- ma60: 65.67
-- ma120: 65.67
-- return_5d: 16.04
-- return_20d: -2.07
-- volume_ratio: 1.7
-- distance_to_ma20_pct_auxiliary: 8.65
-- distance_to_high_60_pct: -30.15
+- date: 20260807
+- open: 61.35
+- high: 61.55
+- low: 61
+- close: 61.05
+- volume: 568090
+- ma5: 59.72
+- ema23_primary: 58.7
+- distance_to_ema23_pct: 4
+- ma20: 56.56
+- ma60: 65.5
+- ma120: 65.5
+- return_5d: 10.1
+- return_20d: -0.73
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: 7.93
+- distance_to_high_60_pct: -30.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,61.85,61.85,61.35,61.5,941281,66.53,-7.57,64.9,71.04,0.21
-20260709,61.55,61.75,61.2,61.5,755780,66.11,-6.98,64.63,70.76,0.18
 20260713,60.05,60.05,58.35,58.8,2165532,65.5,-10.24,64.2,70.41,0.54
 20260714,58.35,58.35,56.8,57.6,1918635,64.85,-11.17,63.31,70.06,0.57
 20260715,58.7,58.7,58.1,58.5,710278,64.32,-9.04,62.72,69.75,0.24
@@ -167,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,55.3,55.95,54.9,55.95,624819,57.86,-3.3,56.97,65.89,0.55
 20260804,57.7,59,57.7,59,1206613,57.95,1.8,56.67,65.75,1.07
 20260805,61.5,61.65,61.15,61.5,1944338,58.25,5.58,56.6,65.67,1.7
+20260806,61,61.2,60.6,61.1,643032,58.49,4.47,56.59,65.58,0.57
+20260807,61.35,61.55,61,61.05,568090,58.7,4,56.56,65.5,0.51
 ```
 
 ## Latest TDCC Snapshot

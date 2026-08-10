@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1341 富林-KY
 
 ## Metadata
-- generated_at: 2026-08-09 22:26:13 Asia/Taipei
+- generated_at: 2026-08-10 22:26:27 Asia/Taipei
 - stock_id: 1341
 - stock_name: 富林-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 312
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 314
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 57.7
-- high: 59.4
-- low: 57.7
-- close: 59.4
-- volume: 6089
-- ma5: 58.54
-- ema23_primary: 58.81
-- distance_to_ema23_pct: 1.01
-- ma20: 58.53
-- ma60: 60.21
-- ma120: 59.98
-- return_5d: 2.41
-- return_20d: 2.95
-- volume_ratio: 1.12
-- distance_to_ma20_pct_auxiliary: 1.49
-- distance_to_high_60_pct: -6.75
+- date: 20260807
+- open: 58.1
+- high: 58.6
+- low: 58.1
+- close: 58.6
+- volume: 4301
+- ma5: 58.72
+- ema23_primary: 58.83
+- distance_to_ema23_pct: -0.38
+- ma20: 58.66
+- ma60: 60.12
+- ma120: 59.99
+- return_5d: -0.68
+- return_20d: 1.74
+- volume_ratio: 0.78
+- distance_to_ma20_pct_auxiliary: -0.11
+- distance_to_high_60_pct: -8.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260707,57.5,59.8,57,57.6,7102,59.75,-3.6,60.19,60.89,0.53
-20260708,57.5,57.6,57.5,57.6,4103,59.57,-3.31,59.93,60.86,0.31
 20260709,57.9,58.2,57.9,58.2,7001,59.45,-2.11,59.7,60.83,0.55
 20260714,59,59,59,59,1389,59.42,-0.7,59.56,60.82,0.11
 20260715,57.7,59,57.7,59,8154,59.38,-0.64,59.41,60.79,0.66
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,57.7,57.7,57.7,57.7,1877,58.77,-1.81,58.44,60.3,0.34
 20260804,57.3,58.6,57.3,58.6,5759,58.75,-0.26,58.45,60.25,1.04
 20260805,57.7,59.4,57.7,59.4,6089,58.81,1.01,58.53,60.21,1.12
+20260806,58.1,59.3,57.8,59.3,8036,58.85,0.77,58.62,60.16,1.47
+20260807,58.1,58.6,58.1,58.6,4301,58.83,-0.38,58.66,60.12,0.78
 ```
 
 ## Latest TDCC Snapshot

@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00896 中信綠能及電動車
 
 ## Metadata
-- generated_at: 2026-08-09 22:26:05 Asia/Taipei
+- generated_at: 2026-08-10 22:26:19 Asia/Taipei
 - stock_id: 00896
 - stock_name: 中信綠能及電動車
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260805
-- price_rows: 52
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 54
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 26.88
-- high: 27.1
-- low: 26.74
-- close: 26.78
-- volume: 2892915
-- ma5: 25.56
-- ema23_primary: 26.33
-- distance_to_ema23_pct: 1.72
-- ma20: 26.26
-- ma60: 27.44
-- ma120: 27.44
-- return_5d: 12.43
-- return_20d: -2.12
-- volume_ratio: 0.87
-- distance_to_ma20_pct_auxiliary: 1.99
-- distance_to_high_60_pct: -13.19
+- date: 20260807
+- open: 27.06
+- high: 27.16
+- low: 26.64
+- close: 26.81
+- volume: 2709398
+- ma5: 26.5
+- ema23_primary: 26.42
+- distance_to_ema23_pct: 1.49
+- ma20: 26.22
+- ma60: 27.42
+- ma120: 27.42
+- return_5d: 5.1
+- return_20d: -1.87
+- volume_ratio: 0.83
+- distance_to_ma20_pct_auxiliary: 2.26
+- distance_to_high_60_pct: -13.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,27.36,27.59,27.03,27.28,3547649,27.86,-2.1,27.85,28.15,0.38
-20260709,27.43,27.7,27.18,27.32,1327011,27.82,-1.79,27.84,28.13,0.16
 20260713,27.54,27.95,27.13,27.3,2315500,27.78,-1.71,27.83,28.1,0.3
 20260714,27.2,27.2,26.05,26.74,6876610,27.69,-3.43,27.75,28.06,0.95
 20260715,27.09,27.49,27.02,27.45,3867671,27.67,-0.79,27.68,28.05,0.65
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,25.13,26.04,25.13,25.8,2325980,26.3,-1.91,26.4,27.48,0.63
 20260804,25.85,26.4,25.63,26.12,1584879,26.29,-0.63,26.29,27.45,0.47
 20260805,26.88,27.1,26.74,26.78,2892915,26.33,1.72,26.26,27.44,0.87
+20260806,26.63,27.1,26.6,26.98,1152926,26.38,2.27,26.24,27.43,0.36
+20260807,27.06,27.16,26.64,26.81,2709398,26.42,1.49,26.22,27.42,0.83
 ```
 
 ## Latest TDCC Snapshot

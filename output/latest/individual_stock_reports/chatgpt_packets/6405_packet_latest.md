@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6405 悅城
 
 ## Metadata
-- generated_at: 2026-08-09 22:28:16 Asia/Taipei
+- generated_at: 2026-08-10 22:28:28 Asia/Taipei
 - stock_id: 6405
 - stock_name: 悅城
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 319
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 321
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,30 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 40.1
-- high: 40.45
-- low: 38.3
-- close: 38.95
-- volume: 966607
-- ma5: 36.22
-- ema23_primary: 44.02
-- distance_to_ema23_pct: -11.52
-- ma20: 42.59
-- ma60: 58.4
-- ma120: 47.29
-- return_5d: 15.07
-- return_20d: -30.45
-- volume_ratio: 0.96
-- distance_to_ma20_pct_auxiliary: -8.55
-- distance_to_high_60_pct: -56.29
+- date: 20260807
+- open: 39.25
+- high: 40.5
+- low: 37.75
+- close: 38.35
+- volume: 383466
+- ma5: 38.21
+- ema23_primary: 43.17
+- distance_to_ema23_pct: -11.16
+- ma20: 40.98
+- ma60: 57.72
+- ma120: 47.44
+- return_5d: 8.64
+- return_20d: -31.15
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: -6.41
+- distance_to_high_60_pct: -56.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,55.5,56.2,53.2,54,1120904,62.92,-14.17,63.82,59.44,0.6
-20260709,54.8,57.3,53.6,55.7,1952698,62.31,-10.61,63.12,59.78,1
 20260713,55.8,57.5,52,54.6,1758061,61.67,-11.47,62.2,60.09,0.88
 20260714,53.5,54,49.3,50.7,1191089,60.76,-16.55,61.27,60.33,0.65
 20260715,52.7,52.7,49.9,50,733806,59.86,-16.47,60.65,60.56,0.44
@@ -167,6 +165,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,35.15,37.3,34.5,36.1,1119378,45.01,-19.8,44.58,59.15,1.07
 20260804,35.7,38.65,35.65,38.65,734232,44.48,-13.11,43.45,58.72,0.71
 20260805,40.1,40.45,38.3,38.95,966607,44.02,-11.52,42.59,58.4,0.96
+20260806,38.65,39.75,37.15,39,486049,43.6,-10.56,41.84,58.08,0.5
+20260807,39.25,40.5,37.75,38.35,383466,43.17,-11.16,40.98,57.72,0.43
 ```
 
 ## Latest TDCC Snapshot

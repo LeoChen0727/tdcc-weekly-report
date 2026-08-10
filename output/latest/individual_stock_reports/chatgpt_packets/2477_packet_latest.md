@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2477 美隆電
 
 ## Metadata
-- generated_at: 2026-08-09 22:26:47 Asia/Taipei
+- generated_at: 2026-08-10 22:27:00 Asia/Taipei
 - stock_id: 2477
 - stock_name: 美隆電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 319
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 321
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 21.7
-- high: 21.9
-- low: 21.5
-- close: 21.55
-- volume: 134037
-- ma5: 21.64
-- ema23_primary: 21.52
-- distance_to_ema23_pct: 0.16
-- ma20: 21.35
-- ma60: 21.58
-- ma120: 22.54
-- return_5d: 1.65
-- return_20d: -0.69
-- volume_ratio: 1.01
-- distance_to_ma20_pct_auxiliary: 0.94
-- distance_to_high_60_pct: -10.77
+- date: 20260807
+- open: 21.85
+- high: 22.45
+- low: 21.4
+- close: 22.35
+- volume: 333082
+- ma5: 21.85
+- ema23_primary: 21.6
+- distance_to_ema23_pct: 3.48
+- ma20: 21.42
+- ma60: 21.62
+- ma120: 22.5
+- return_5d: 3.47
+- return_20d: 4.93
+- volume_ratio: 2.25
+- distance_to_ma20_pct_auxiliary: 4.33
+- distance_to_high_60_pct: -7.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,21.75,21.75,21.2,21.3,152124,21.86,-2.56,21.83,21.9,0.63
-20260709,21.4,21.6,21.3,21.3,85267,21.81,-2.35,21.8,21.86,0.37
 20260713,21.3,21.35,20.9,21.2,130199,21.76,-2.58,21.78,21.82,0.56
 20260714,21.3,21.3,20.6,21.1,228999,21.71,-2.79,21.73,21.77,0.97
 20260715,21.05,21.55,20.95,21.4,85275,21.68,-1.3,21.7,21.73,0.36
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,21.6,22,21.35,22,85647,21.5,2.33,21.39,21.57,0.61
 20260804,21.7,22.2,21.65,21.65,156749,21.51,0.64,21.36,21.58,1.15
 20260805,21.7,21.9,21.5,21.55,134037,21.52,0.16,21.35,21.58,1.01
+20260806,21.5,22,21.4,21.7,223051,21.53,0.79,21.37,21.59,1.64
+20260807,21.85,22.45,21.4,22.35,333082,21.6,3.48,21.42,21.62,2.25
 ```
 
 ## Latest TDCC Snapshot

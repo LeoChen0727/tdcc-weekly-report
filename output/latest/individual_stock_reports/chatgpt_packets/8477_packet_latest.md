@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8477 創業家
 
 ## Metadata
-- generated_at: 2026-08-09 22:29:03 Asia/Taipei
+- generated_at: 2026-08-10 22:29:15 Asia/Taipei
 - stock_id: 8477
 - stock_name: 創業家
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 181
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 183
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
+- date: 20260807
 - open: 15.95
-- high: 15.95
-- low: 15.45
-- close: 15.9
-- volume: 32000
-- ma5: 15.7
-- ema23_primary: 15.88
-- distance_to_ema23_pct: 0.11
-- ma20: 15.71
+- high: 16
+- low: 15.65
+- close: 15.65
+- volume: 10000
+- ma5: 15.72
+- ema23_primary: 15.85
+- distance_to_ema23_pct: -1.25
+- ma20: 15.68
 - ma60: 16.84
-- ma120: 15.14
-- return_5d: 5.65
-- return_20d: -0.62
-- volume_ratio: 0.86
-- distance_to_ma20_pct_auxiliary: 1.24
-- distance_to_high_60_pct: -30.11
+- ma120: 15.19
+- return_5d: -1.57
+- return_20d: -2.19
+- volume_ratio: 0.3
+- distance_to_ma20_pct_auxiliary: -0.18
+- distance_to_high_60_pct: -31.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260707,16,16,15.55,15.9,72000,16.79,-5.31,16.88,16.17,1.32
-20260708,15.7,16,15.7,16,14000,16.73,-4.34,16.73,16.21,0.26
 20260709,15.6,16.3,15.6,16.15,43000,16.68,-3.17,16.63,16.26,0.87
 20260713,16.5,16.5,15.3,15.9,78000,16.61,-4.29,16.58,16.3,1.62
 20260714,15.6,16.35,15.6,16,35000,16.56,-3.39,16.54,16.35,0.74
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,15.4,15.75,15,15.4,20000,15.87,-2.99,15.72,16.76,0.54
 20260804,15.6,16.2,15.6,15.95,32000,15.88,0.44,15.71,16.8,0.85
 20260805,15.95,15.95,15.45,15.9,32000,15.88,0.11,15.71,16.84,0.86
+20260806,15.55,15.7,15.5,15.7,3000,15.87,-1.05,15.7,16.85,0.09
+20260807,15.95,16,15.65,15.65,10000,15.85,-1.25,15.68,16.84,0.3
 ```
 
 ## Latest TDCC Snapshot

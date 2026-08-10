@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6698 旭暉應材
 
 ## Metadata
-- generated_at: 2026-08-09 22:28:29 Asia/Taipei
+- generated_at: 2026-08-10 22:28:41 Asia/Taipei
 - stock_id: 6698
 - stock_name: 旭暉應材
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 319
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 321
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 33.55
-- high: 34.3
-- low: 33.35
-- close: 34.05
-- volume: 122595
-- ma5: 32.11
-- ema23_primary: 35.18
-- distance_to_ema23_pct: -3.21
-- ma20: 35.14
-- ma60: 37.57
-- ma120: 34.61
-- return_5d: 12.01
-- return_20d: -17.55
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: -3.1
-- distance_to_high_60_pct: -29.72
+- date: 20260807
+- open: 34.5
+- high: 34.6
+- low: 33.45
+- close: 34.15
+- volume: 107208
+- ma5: 33.68
+- ema23_primary: 35.04
+- distance_to_ema23_pct: -2.54
+- ma20: 34.53
+- ma60: 37.69
+- ma120: 34.62
+- return_5d: 9.11
+- return_20d: -14.73
+- volume_ratio: 0.41
+- distance_to_ma20_pct_auxiliary: -1.11
+- distance_to_high_60_pct: -29.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,41.3,41.6,40.3,40.7,290927,41.17,-1.14,41.6,36.38,0.26
-20260709,40.45,40.5,39.7,40.05,275169,41.08,-2.5,41.73,36.54,0.26
 20260713,40.25,40.35,38.25,39.9,395450,40.98,-2.63,41.84,36.7,0.38
 20260714,39.2,39.4,37.1,38.55,422164,40.78,-5.46,41.85,36.83,0.41
 20260715,38.6,40,38.25,39.15,203743,40.64,-3.67,41.88,36.96,0.2
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,31.25,32.7,30.85,32.7,166894,35.49,-7.86,35.95,37.52,0.49
 20260804,32.2,33,32,33,190540,35.28,-6.46,35.5,37.52,0.63
 20260805,33.55,34.3,33.35,34.05,122595,35.18,-3.21,35.14,37.57,0.45
+20260806,33.95,34.5,33,34.5,169391,35.12,-1.77,34.83,37.63,0.63
+20260807,34.5,34.6,33.45,34.15,107208,35.04,-2.54,34.53,37.69,0.41
 ```
 
 ## Latest TDCC Snapshot

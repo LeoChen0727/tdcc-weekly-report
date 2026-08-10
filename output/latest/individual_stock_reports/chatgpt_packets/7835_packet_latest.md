@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7835 永悅健康-創
 
 ## Metadata
-- generated_at: 2026-08-09 22:28:51 Asia/Taipei
+- generated_at: 2026-08-10 22:29:03 Asia/Taipei
 - stock_id: 7835
 - stock_name: 永悅健康-創
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260805
-- price_rows: 9
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 11
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,23 +125,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 28.35
-- high: 28.35
-- low: 27.75
-- close: 28.05
-- volume: 52310
-- ma5: 29.25
-- ema23_primary: 35.38
-- distance_to_ema23_pct: -20.71
-- ma20: 32.33
-- ma60: 32.33
-- ma120: 32.33
-- return_5d: -15
+- date: 20260807
+- open: 25.5
+- high: 27.3
+- low: 24.4
+- close: 27.3
+- volume: 84657
+- ma5: 27.68
+- ema23_primary: 33.93
+- distance_to_ema23_pct: -19.54
+- ma20: 31.23
+- ma60: 31.23
+- ma120: 31.23
+- return_5d: -8.39
 - return_20d:
-- volume_ratio: 0.28
-- distance_to_ma20_pct_auxiliary: -13.23
-- distance_to_high_60_pct: -43.9
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: -12.58
+- distance_to_high_60_pct: -45.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -156,6 +156,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,29.5,29.5,28.15,29,29199,36.7,-20.98,33.44,33.44,0.13
 20260804,29.1,29.1,28.35,28.8,23104,36.04,-20.09,32.86,32.86,0.12
 20260805,28.35,28.35,27.75,28.05,52310,35.38,-20.71,32.33,32.33,0.28
+20260806,27.1,27.1,25.25,25.25,149680,34.53,-26.88,31.62,31.62,0.83
+20260807,25.5,27.3,24.4,27.3,84657,33.93,-19.54,31.23,31.23,0.49
 ```
 
 ## Latest TDCC Snapshot

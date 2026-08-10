@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009817 國泰日本不動產
 
 ## Metadata
-- generated_at: 2026-08-09 22:26:07 Asia/Taipei
+- generated_at: 2026-08-10 22:26:21 Asia/Taipei
 - stock_id: 009817
 - stock_name: 國泰日本不動產
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260805
-- price_rows: 52
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 54
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 9.34
-- high: 9.34
-- low: 9.23
-- close: 9.26
-- volume: 1948336
-- ma5: 9.37
+- date: 20260807
+- open: 9.3
+- high: 9.3
+- low: 9.19
+- close: 9.19
+- volume: 1135762
+- ma5: 9.3
 - ema23_primary: 9.2
-- distance_to_ema23_pct: 0.68
-- ma20: 9.22
-- ma60: 8.95
-- ma120: 8.95
-- return_5d: -1.49
-- return_20d: 1.2
-- volume_ratio: 1.04
-- distance_to_ma20_pct_auxiliary: 0.46
-- distance_to_high_60_pct: -2.73
+- distance_to_ema23_pct: -0.11
+- ma20: 9.23
+- ma60: 8.96
+- ma120: 8.96
+- return_5d: -2.44
+- return_20d: 1.77
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: -0.49
+- distance_to_high_60_pct: -3.47
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,9.07,9.08,9.01,9.04,737319,8.87,1.96,8.83,8.79,0.35
-20260709,9,9.12,9,9.03,1567805,8.88,1.69,8.85,8.8,0.78
 20260713,9.03,9.07,9.02,9.05,562750,8.89,1.75,8.86,8.81,0.29
 20260714,9.05,9.13,9.05,9.09,2272661,8.91,2.02,8.87,8.81,1.22
 20260715,9.15,9.19,9.13,9.16,3180451,8.93,2.56,8.89,8.82,1.66
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,9.4,9.52,9.38,9.47,2213529,9.18,3.17,9.2,8.94,1.17
 20260804,9.47,9.47,9.3,9.34,595107,9.19,1.61,9.21,8.95,0.32
 20260805,9.34,9.34,9.23,9.26,1948336,9.2,0.68,9.22,8.95,1.04
+20260806,9.26,9.26,9.21,9.23,1326553,9.2,0.32,9.23,8.96,0.7
+20260807,9.3,9.3,9.19,9.19,1135762,9.2,-0.11,9.23,8.96,0.6
 ```
 
 ## Latest TDCC Snapshot

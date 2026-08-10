@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8403 盛弘
 
 ## Metadata
-- generated_at: 2026-08-09 22:29:00 Asia/Taipei
+- generated_at: 2026-08-10 22:29:12 Asia/Taipei
 - stock_id: 8403
 - stock_name: 盛弘
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 184
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 186
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,30 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 19
+- date: 20260807
+- open: 18.95
 - high: 19
 - low: 18.8
-- close: 18.9
+- close: 18.85
 - volume: 101000
-- ma5: 18.93
-- ema23_primary: 19.17
-- distance_to_ema23_pct: -1.39
-- ma20: 19.19
-- ma60: 19.43
-- ma120: 20.99
-- return_5d: 0
-- return_20d: -1.82
-- volume_ratio: 0.89
-- distance_to_ma20_pct_auxiliary: -1.51
-- distance_to_high_60_pct: -7.8
+- ma5: 18.91
+- ema23_primary: 19.12
+- distance_to_ema23_pct: -1.43
+- ma20: 19.15
+- ma60: 19.39
+- ma120: 20.91
+- return_5d: -0.53
+- return_20d: -2.33
+- volume_ratio: 0.87
+- distance_to_ma20_pct_auxiliary: -1.58
+- distance_to_high_60_pct: -7.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,19.25,19.25,19.15,19.25,72000,19.43,-0.95,19.34,20.25,0.51
-20260709,19.25,19.35,19.15,19.3,22000,19.42,-0.64,19.32,20.21,0.16
 20260713,19.3,19.6,19.3,19.4,85000,19.42,-0.11,19.33,20.16,0.65
 20260714,19.5,19.5,19.15,19.35,142000,19.42,-0.34,19.32,20.11,1.13
 20260715,19.3,19.6,19.3,19.5,172000,19.42,0.4,19.31,20.07,1.34
@@ -168,6 +166,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,19.1,19.1,18.9,18.95,74000,19.22,-1.39,19.25,19.49,0.62
 20260804,18.95,19,18.9,18.9,75000,19.19,-1.51,19.21,19.46,0.65
 20260805,19,19,18.8,18.9,101000,19.17,-1.39,19.19,19.43,0.89
+20260806,18.9,18.95,18.8,18.95,36000,19.15,-1.04,19.18,19.41,0.32
+20260807,18.95,19,18.8,18.85,101000,19.12,-1.43,19.15,19.39,0.87
 ```
 
 ## Latest TDCC Snapshot

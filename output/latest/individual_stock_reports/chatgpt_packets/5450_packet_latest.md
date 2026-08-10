@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5450 南良
 
 ## Metadata
-- generated_at: 2026-08-09 22:27:55 Asia/Taipei
+- generated_at: 2026-08-10 22:28:08 Asia/Taipei
 - stock_id: 5450
 - stock_name: 南良
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260805
-- price_rows: 184
-- current_main_price_date: 20260805
+- latest_price_date: 20260807
+- price_rows: 186
+- current_main_price_date: 20260807
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -69,27 +69,27 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可小量試單
+- action_rating_display_zh: 可分批買進
 - model_category_display_zh: 嚴格突破
 - score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 嚴格突破，價格結構尚未破壞，操作評級為「可小量試單」。
-- entry_strategy_zh: 突破後順勢追蹤；可依「試單 1/3 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 試單 1/3 部位；部位大小需依支撐距離、波動與模型確認度控制。
+- action_summary_zh: 符合 嚴格突破，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 突破後順勢追蹤；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 嚴格突破，價格結構尚未破壞，操作評級為「可小量試單」。 進場策略：突破後順勢追蹤；可依「試單 1/3 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 符合 嚴格突破，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：突破後順勢追蹤；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: starter_position
-- action_rating_label_zh: 可小量試單
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
 - thesis_state: breakout_confirmed
 - entry_style: breakout_follow
-- position_sizing: starter_1_3
+- position_sizing: half_position
 
 ### management_plan
 - buy_first_tranche_near_support
@@ -107,6 +107,7 @@
 - model_recommended
 - decision_score_high
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -130,30 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260805
-- open: 14.15
-- high: 14.25
-- low: 13.9
-- close: 14
-- volume: 220000
+- date: 20260807
+- open: 14.45
+- high: 14.9
+- low: 14.3
+- close: 14.3
+- volume: 142000
 - ma5: 14.17
-- ema23_primary: 14.98
-- distance_to_ema23_pct: -6.54
-- ma20: 15.31
-- ma60: 14.36
+- ema23_primary: 14.86
+- distance_to_ema23_pct: -3.79
+- ma20: 15.22
+- ma60: 14.41
 - ma120: 14.26
-- return_5d: -1.41
-- return_20d: -9.39
-- volume_ratio: 0.23
-- distance_to_ma20_pct_auxiliary: -8.56
-- distance_to_high_60_pct: -32.04
+- return_5d: -0.35
+- return_20d: -3.7
+- volume_ratio: 0.15
+- distance_to_ma20_pct_auxiliary: -6.08
+- distance_to_high_60_pct: -30.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260708,15.25,15.35,15,15.35,68000,14.72,4.29,14.9,13.78,0.27
-20260709,15.35,15.35,14.45,14.85,226000,14.73,0.82,14.93,13.79,0.9
 20260713,14.75,14.85,14.4,14.4,103000,14.7,-2.05,14.94,13.79,0.41
 20260714,14.25,14.35,13.85,14.1,47000,14.65,-3.77,14.88,13.79,0.2
 20260715,14.1,14.55,14.1,14.45,39000,14.64,-1.26,14.85,13.8,0.18
@@ -172,6 +171,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260803,14.35,14.65,14.1,14.25,243000,15.16,-5.98,15.46,14.32,0.25
 20260804,14.15,14.15,13.75,14.1,202000,15.07,-6.43,15.38,14.34,0.21
 20260805,14.15,14.25,13.9,14,220000,14.98,-6.54,15.31,14.36,0.23
+20260806,14.15,14.2,14,14.2,50000,14.91,-4.79,15.25,14.38,0.05
+20260807,14.45,14.9,14.3,14.3,142000,14.86,-3.79,15.22,14.41,0.15
 ```
 
 ## Latest TDCC Snapshot
