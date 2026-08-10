@@ -5,6 +5,15 @@ import csv
 import sys
 from pathlib import Path
 
+try:
+    from scripts.validate_local_daily_full_validation_replay import (
+        validate as validate_local_daily_full_validation_replay,
+    )
+except ModuleNotFoundError:
+    from validate_local_daily_full_validation_replay import (
+        validate as validate_local_daily_full_validation_replay,
+    )
+
 
 ROOT = Path(__file__).resolve().parents[1]
 CONTRACT = ROOT / "config" / "git_worktree_materialization_contract.csv"
@@ -33,10 +42,20 @@ EXPECTED_FULL_CONSUMERS = {
 EXPECTED_SPARSE_CONSUMER = {
     "sparse_task_worktree": "scripts/git_worktree_safety.py",
 }
-EXPECTED_CONSUMERS = {**EXPECTED_FULL_CONSUMERS, **EXPECTED_SPARSE_CONSUMER}
+EXPECTED_LOCAL_REPLAY_CONSUMER = {
+    "local_daily_full_validation_replay": "scripts/run_local_daily_full_validation_replay.py",
+}
+EXPECTED_CONSUMERS = {
+    **EXPECTED_FULL_CONSUMERS,
+    **EXPECTED_SPARSE_CONSUMER,
+    **EXPECTED_LOCAL_REPLAY_CONSUMER,
+}
 APPROVED_SPARSE_ROOT = r"F:\CodexStorage\task-worktrees\taiwan-stock-recommendation"
+APPROVED_LOCAL_REPLAY_ROOT = r"F:\CodexStorage\validation-replay-workspaces\taiwan-stock-recommendation"
 DEFAULT_DESTINATION_POLICY = "approved_root_task_child"
+LOCAL_REPLAY_DESTINATION_POLICY = "approved_root_task_or_run_child"
 MINIMUM_FREE_BYTES = "10737418240"
+LOCAL_REPLAY_MINIMUM_FREE_BYTES = "21474836480"
 
 
 def _literal_words(node: ast.AST) -> list[str]:
@@ -143,6 +162,29 @@ def validate() -> list[str]:
                 errors.append(
                     f"{consumer_id}: minimum_free_bytes must be {MINIMUM_FREE_BYTES}"
                 )
+        elif consumer_id in EXPECTED_LOCAL_REPLAY_CONSUMER:
+            expected = {
+                "materialization_mode": "full_local_validation_replay_only",
+                "temp_root_policy": "approved_root_only",
+                "approved_destination_root": APPROVED_LOCAL_REPLAY_ROOT,
+                "approved_root_filesystem": "NTFS",
+                "default_destination_policy": LOCAL_REPLAY_DESTINATION_POLICY,
+                "minimum_free_bytes": LOCAL_REPLAY_MINIMUM_FREE_BYTES,
+            }
+            for key, expected_value in expected.items():
+                observed = row.get(key, "").strip()
+                if key == "approved_destination_root":
+                    observed = observed.lower().rstrip("\\/")
+                    expected_value = expected_value.lower().rstrip("\\/")
+                if observed != expected_value:
+                    errors.append(f"{consumer_id}: {key} must be {expected_value}")
+            if (
+                "create_registered_full_local_validation_replay_worktree" not in text
+                or consumer_id not in text
+            ):
+                errors.append(
+                    f"{consumer_id}: entrypoint must call the guarded F-only full helper"
+                )
         else:
             errors.append(f"unexpected worktree materialization consumer: {consumer_id}")
 
@@ -163,6 +205,9 @@ def validate() -> list[str]:
         "default_approved_root",
         "--task-name",
         "insufficient free space",
+        "APPROVED_LOCAL_VALIDATION_REPLAY_ROOT_WINDOWS",
+        "WINDOWS_FIXED_DRIVE_TYPE",
+        "full_local_validation_replay_only",
     ):
         if token not in safety_text:
             errors.append(f"git worktree safety module missing required token: {token}")
@@ -192,6 +237,10 @@ def validate() -> list[str]:
     ):
         if token not in workflow_text:
             errors.append(f"daily model PR workflow missing checkout safety validation: {token}")
+    errors.extend(
+        f"local validation replay routing: {error}"
+        for error in validate_local_daily_full_validation_replay()
+    )
     return errors
 
 
@@ -204,6 +253,10 @@ def main() -> int:
     print("git worktree materialization safety validation passed")
     print(f"registered_full_consumers={len(EXPECTED_FULL_CONSUMERS)}")
     print(f"registered_sparse_consumers={len(EXPECTED_SPARSE_CONSUMER)}")
+    print(
+        "registered_local_validation_replay_consumers="
+        f"{len(EXPECTED_LOCAL_REPLAY_CONSUMER)}"
+    )
     print(f"approved_sparse_root={APPROVED_SPARSE_ROOT}")
     print(f"default_destination_policy={DEFAULT_DESTINATION_POLICY}")
     print(f"minimum_free_bytes={MINIMUM_FREE_BYTES}")
