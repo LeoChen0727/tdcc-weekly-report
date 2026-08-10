@@ -135,6 +135,12 @@ PR_SAFE_AUTHORIZED_STAGE1_PATHS = frozenset(
         PR_SAFE_ADVANCED_LIFECYCLE_INVENTORY,
     }
 )
+PR_SAFE_LOCAL_VALIDATION_REPLAY_ADVANCED_MIGRATION_ID = (
+    "local-validation-replay-advanced-integrity-pr-safe-v2"
+)
+PR_SAFE_LOCAL_VALIDATION_REPLAY_ADVANCED_PATHS = frozenset(
+    {PR_SAFE_ADVANCED_HELPER, PR_SAFE_ADVANCED_TEST}
+)
 PR_SAFE_ADVANCED_BASE_LIFECYCLE_INVENTORY_SHA256 = (
     "45eae9722c4d8587ff483a8e550eb5054cc8a6ab26a836d7f8f80e30a9c3a3d7"
 )
@@ -176,7 +182,69 @@ PR_SAFE_SNAPSHOT_CURRENT_LIFECYCLE_INVENTORY_SHA256 = (
 )
 PR_SAFE_SNAPSHOT_REQUIRED_MODE = "100644"
 PR_SAFE_ALL_AUTHORIZED_MIGRATION_PATHS = (
-    PR_SAFE_AUTHORIZED_STAGE1_PATHS | PR_SAFE_SNAPSHOT_AUTHORIZED_PATHS
+    PR_SAFE_AUTHORIZED_STAGE1_PATHS
+    | PR_SAFE_SNAPSHOT_AUTHORIZED_PATHS
+    | PR_SAFE_LOCAL_VALIDATION_REPLAY_ADVANCED_PATHS
+)
+PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_TARGET_ID = (
+    "local-validation-replay-f-routing-20260810-v1"
+)
+PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_BASE_CONTENT_REF_SHA = (
+    "fef0cd7787643ce4d4f53d5890e8c1b9ed3f193d"
+)
+PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_STRICT_SURFACES = frozenset(
+    {"config/repo_production_inventory.csv"}
+)
+PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_BASE_SHA256_BY_PATH = {
+    "config/git_worktree_materialization_contract.csv": (
+        "2dd3c88177059831bb8ad88745d6aa4d9a0991ec1d69f64fb0d4c506a5b332a8"
+    ),
+    "config/repo_file_lifecycle_inventory.csv": (
+        "adf32adc13882d556d2c54595ca49241df36f8c30e2528cb4f4411aad55974b5"
+    ),
+    "config/repo_production_inventory.csv": (
+        "675f8d6abdd5bbcc7f911739ee1d3f9439353cfc6375b415070f4da4ce7dd533"
+    ),
+    "scripts/git_worktree_safety.py": (
+        "926b33cc3e7716d1ac9a7ec4f716e6ddb78c3f16058604a92088c1699e58e760"
+    ),
+    "scripts/run_local_daily_full_validation_replay.py": None,
+    "scripts/validate_git_worktree_safety.py": (
+        "84bdcb07691a8ee1384d23d61d1e6658533591412b694d577a47cae9c2cde2bc"
+    ),
+    "scripts/validate_local_daily_full_validation_replay.py": None,
+    "tests/test_git_worktree_safety.py": (
+        "1c880196af21e7b2bde7fc2aa989c7aa2762822ee1585344239305278d80f1ce"
+    ),
+}
+PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_TARGET_SHA256_BY_PATH = {
+    "config/git_worktree_materialization_contract.csv": (
+        "8c3505199bee61e045bfee06c80b51802c203b0da2a9f8d62c384049e48515f3"
+    ),
+    "config/repo_file_lifecycle_inventory.csv": (
+        "99daaa3785f949b5efce848e7e8bcbe4a79ae08aad15ce5d008f1e3cc994327d"
+    ),
+    "config/repo_production_inventory.csv": (
+        "4f155b6568f60646608ed8c0be596ceb9ba4521afb2e0da82d8b2deea2c9d89b"
+    ),
+    "scripts/git_worktree_safety.py": (
+        "8113a2a6c8de90c57696ea8bc6f8ed883d83e10e2f6e3268030828faf2d91828"
+    ),
+    "scripts/run_local_daily_full_validation_replay.py": (
+        "2293c0eae889e7a494a14187afb61d9d2093ae4d8eca9471775f704e28c7be63"
+    ),
+    "scripts/validate_git_worktree_safety.py": (
+        "bdb16b6550bbf3ba70a8822af28c5cf2e34fdc7bb807b11729d86064d864808b"
+    ),
+    "scripts/validate_local_daily_full_validation_replay.py": (
+        "65cbd4bc2273d01484b33aa844282afcc66db00820439d52b446618e4886ea2f"
+    ),
+    "tests/test_git_worktree_safety.py": (
+        "65acc6ed5f3b8a0995a55fa0da55ae66bd7f7bceb78bf1a3171534a5ea545ce6"
+    ),
+}
+PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_PATHS = frozenset(
+    PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_TARGET_SHA256_BY_PATH
 )
 PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_TARGET_ID = (
     "daily-full-checkpoint-replay-20260807-v1"
@@ -1806,6 +1874,13 @@ def build_daily_full_checkpoint_replay_integrated_lifecycle_inventory(
 def pr_safe_migration_contract_for_paths(
     changed_paths: set[str],
 ) -> tuple[str, str, str, frozenset[str]] | None:
+    if changed_paths == PR_SAFE_LOCAL_VALIDATION_REPLAY_ADVANCED_PATHS:
+        return (
+            PR_SAFE_LOCAL_VALIDATION_REPLAY_ADVANCED_MIGRATION_ID,
+            PR_SAFE_ADVANCED_HELPER,
+            PR_SAFE_ADVANCED_TEST,
+            PR_SAFE_LOCAL_VALIDATION_REPLAY_ADVANCED_PATHS,
+        )
     if changed_paths == PR_SAFE_AUTHORIZED_STAGE1_PATHS:
         return (
             PR_SAFE_ADDITIVE_RESEARCH_MIGRATION_ID,
@@ -1893,6 +1968,63 @@ def _pr_safe_repo_blob_mode(
     return fields[0]
 
 
+def is_preauthorized_local_validation_replay_routing_migration(
+    base_ref: str,
+    changed_paths: set[str],
+    strict_surface_changes: set[str],
+    *,
+    repository_root: Path = ROOT,
+    head_ref: str = "HEAD",
+) -> bool:
+    normalized_paths = {str(path).replace("\\", "/") for path in changed_paths}
+    normalized_strict = {
+        str(path).replace("\\", "/") for path in strict_surface_changes
+    }
+    if normalized_paths != PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_PATHS:
+        return False
+    if normalized_strict != PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_STRICT_SURFACES:
+        return False
+    if not re.fullmatch(r"[0-9a-f]{40}", str(base_ref)):
+        return False
+
+    root = Path(repository_root).resolve()
+    if not _pr_safe_repo_ref_is_ancestor(
+        root,
+        PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_BASE_CONTENT_REF_SHA,
+        base_ref,
+    ):
+        return False
+    if not _pr_safe_repo_ref_is_ancestor(root, base_ref, head_ref):
+        return False
+
+    for path in sorted(PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_PATHS):
+        base_blob = _pr_safe_repo_blob(root, base_ref, path)
+        target_blob = _pr_safe_repo_blob(root, head_ref, path)
+        expected_base_sha = (
+            PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_BASE_SHA256_BY_PATH[path]
+        )
+        if expected_base_sha is None:
+            if (
+                base_blob is not None
+                or _pr_safe_repo_blob_mode(root, base_ref, path) is not None
+            ):
+                return False
+        elif (
+            base_blob is None
+            or canonical_blob_sha256(base_blob) != expected_base_sha
+            or _pr_safe_repo_blob_mode(root, base_ref, path) != "100644"
+        ):
+            return False
+        if (
+            target_blob is None
+            or canonical_blob_sha256(target_blob)
+            != PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_TARGET_SHA256_BY_PATH[path]
+            or _pr_safe_repo_blob_mode(root, head_ref, path) != "100644"
+        ):
+            return False
+    return True
+
+
 def is_preauthorized_daily_full_checkpoint_replay_migration(
     base_ref: str,
     changed_paths: set[str],
@@ -1905,6 +2037,14 @@ def is_preauthorized_daily_full_checkpoint_replay_migration(
     normalized_strict = {
         str(path).replace("\\", "/") for path in strict_surface_changes
     }
+    if normalized_paths == PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_PATHS:
+        return is_preauthorized_local_validation_replay_routing_migration(
+            base_ref,
+            normalized_paths,
+            normalized_strict,
+            repository_root=repository_root,
+            head_ref=head_ref,
+        )
     if normalized_paths == PR_SAFE_SNAPSHOT_AUTHORIZED_PATHS:
         if normalized_strict != PR_SAFE_SNAPSHOT_SELF_STRICT_SURFACES:
             return False
@@ -2199,6 +2339,7 @@ def validate_pr_safe_control_plane_delta(
             + "; or ".join(
                 ", ".join(sorted(paths))
                 for paths in (
+                    PR_SAFE_LOCAL_VALIDATION_REPLAY_ADVANCED_PATHS,
                     PR_SAFE_AUTHORIZED_STAGE1_PATHS,
                     PR_SAFE_SNAPSHOT_AUTHORIZED_PATHS,
                 )
@@ -2247,13 +2388,16 @@ def validate_pr_safe_control_plane_delta(
     for field, observed in expected.items():
         if authorization.get(field, "").strip() != observed:
             errors.append(f"PR-safe migration authorization {field} mismatch")
-    if migration_id == PR_SAFE_ADDITIVE_RESEARCH_MIGRATION_ID:
+    if migration_id in {
+        PR_SAFE_ADDITIVE_RESEARCH_MIGRATION_ID,
+        PR_SAFE_LOCAL_VALIDATION_REPLAY_ADVANCED_MIGRATION_ID,
+    }:
         marker = migration_id.encode("utf-8")
         if marker in base_helper:
             errors.append("PR-safe migration was already consumed by the base helper")
         if marker not in current_helper:
             errors.append("PR-safe migration id is absent from the current helper")
-    else:
+    elif migration_id == PR_SAFE_SNAPSHOT_MIGRATION_ID:
         snapshot_expected = {
             "base_helper_sha256": PR_SAFE_SNAPSHOT_BASE_HELPER_SHA256,
             "current_helper_sha256": PR_SAFE_SNAPSHOT_CURRENT_HELPER_SHA256,
@@ -2266,6 +2410,8 @@ def validate_pr_safe_control_plane_delta(
             errors.append("snapshot preauthorization base test blob must exist")
         elif canonical_blob_sha256(base_test) != PR_SAFE_SNAPSHOT_BASE_TEST_SHA256:
             errors.append("snapshot preauthorization pinned base_test_sha256 mismatch")
+    else:
+        errors.append(f"unsupported PR-safe migration id: {migration_id}")
     return errors
 
 
@@ -2439,6 +2585,7 @@ def validate_pr_safe_exact_migration_blob_modes(
 def validate_pr_safe_control_plane_migration(base_sha: str, head_sha: str) -> list[str]:
     errors: list[str] = []
     is_replay_target = False
+    is_local_replay_target = False
     if not re.fullmatch(r"[0-9a-fA-F]{40}", base_sha):
         return [f"invalid base SHA: {base_sha!r}"]
     if not re.fullmatch(r"[0-9a-fA-F]{40}", head_sha):
@@ -2466,15 +2613,20 @@ def validate_pr_safe_control_plane_migration(base_sha: str, head_sha: str) -> li
         is_replay_target = (
             changed_paths == PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_PATHS
         )
-        if contract is None and not is_replay_target:
+        is_local_replay_target = (
+            changed_paths == PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_PATHS
+        )
+        if contract is None and not is_replay_target and not is_local_replay_target:
             errors.append(
                 "PR-safe audit requires exactly the preauthorized changed paths: "
                 + "; or ".join(
                     ", ".join(sorted(paths))
                     for paths in (
+                        PR_SAFE_LOCAL_VALIDATION_REPLAY_ADVANCED_PATHS,
                         PR_SAFE_AUTHORIZED_STAGE1_PATHS,
                         PR_SAFE_SNAPSHOT_AUTHORIZED_PATHS,
                         PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_PATHS,
+                        PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_PATHS,
                     )
                 )
             )
@@ -2499,7 +2651,7 @@ def validate_pr_safe_control_plane_migration(base_sha: str, head_sha: str) -> li
     if authorization_payload is None:
         errors.append("base-owned PR-safe authorization ledger is missing")
         authorization_payload = b""
-    elif is_replay_target:
+    elif is_replay_target or is_local_replay_target:
         _rows, authorization_errors = parse_pr_safe_authorizations(
             authorization_payload
         )
@@ -2512,16 +2664,21 @@ def validate_pr_safe_control_plane_migration(base_sha: str, head_sha: str) -> li
         )
         errors.extend(lifecycle_errors)
 
-    if is_replay_target:
+    if is_replay_target or is_local_replay_target:
+        strict_surfaces = (
+            PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_STRICT_SURFACES
+            if is_local_replay_target
+            else PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_STRICT_SURFACES
+        )
         if not is_preauthorized_daily_full_checkpoint_replay_migration(
             base_sha,
             changed_paths,
-            PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_STRICT_SURFACES,
+            strict_surfaces,
             repository_root=ROOT,
             head_ref=head_sha,
         ):
             errors.append(
-                "base-owned audit rejected the exact daily full checkpoint replay target"
+                "base-owned audit rejected the exact validation replay target"
             )
     else:
         errors.extend(
@@ -2644,6 +2801,7 @@ def build_pr_safe_audit_manifest(
 
     changed_paths: set[str] = set()
     is_replay_target = False
+    is_local_replay_target = False
     migration_contract: tuple[str, str, str, frozenset[str]] | None = None
     try:
         diff_payload = git_output_bytes(
@@ -2662,7 +2820,14 @@ def build_pr_safe_audit_manifest(
         is_replay_target = (
             changed_paths == PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_PATHS
         )
-        if migration_contract is None and not is_replay_target:
+        is_local_replay_target = (
+            changed_paths == PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_PATHS
+        )
+        if (
+            migration_contract is None
+            and not is_replay_target
+            and not is_local_replay_target
+        ):
             errors.append(
                 "audit manifest changed paths do not match the exact preauthorization"
             )
@@ -2690,24 +2855,31 @@ def build_pr_safe_audit_manifest(
         errors.extend(lifecycle_errors)
 
     replay_target_verified = False
-    if is_replay_target:
+    if is_replay_target or is_local_replay_target:
+        strict_surfaces = (
+            PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_STRICT_SURFACES
+            if is_local_replay_target
+            else PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_STRICT_SURFACES
+        )
         replay_target_verified = (
             is_preauthorized_daily_full_checkpoint_replay_migration(
                 base_sha,
                 changed_paths,
-                PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_STRICT_SURFACES,
+                strict_surfaces,
                 repository_root=ROOT,
                 head_ref=head_sha,
             )
         )
         if not replay_target_verified:
             errors.append(
-                "audit manifest replay target failed exact base-owned preauthorization"
+                "audit manifest validation replay target failed exact base-owned preauthorization"
             )
 
     migration_id = (
         migration_contract[0]
         if migration_contract is not None
+        else PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_TARGET_ID
+        if is_local_replay_target
         else PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_TARGET_ID
         if is_replay_target
         else ""
@@ -2720,7 +2892,9 @@ def build_pr_safe_audit_manifest(
     ]
     migration = matching_authorizations[0] if len(matching_authorizations) == 1 else {}
     authorized_paths = (
-        PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_PATHS
+        PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_PATHS
+        if is_local_replay_target
+        else PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_PATHS
         if is_replay_target
         else migration_contract[3]
         if migration_contract is not None
@@ -2774,22 +2948,30 @@ def build_pr_safe_audit_manifest(
         },
         "replay_target_preauthorization": {
             "target_id": (
-                PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_TARGET_ID
+                PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_TARGET_ID
+                if is_local_replay_target
+                else PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_TARGET_ID
                 if is_replay_target
                 else None
             ),
             "strict_surfaces": (
-                sorted(PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_STRICT_SURFACES)
+                sorted(PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_STRICT_SURFACES)
+                if is_local_replay_target
+                else sorted(PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_STRICT_SURFACES)
                 if is_replay_target
                 else []
             ),
             "base_sha256_by_path": (
-                PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_BASE_SHA256_BY_PATH
+                PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_BASE_SHA256_BY_PATH
+                if is_local_replay_target
+                else PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_BASE_SHA256_BY_PATH
                 if is_replay_target
                 else {}
             ),
             "target_sha256_by_path": (
-                PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_TARGET_SHA256_BY_PATH
+                PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_TARGET_SHA256_BY_PATH
+                if is_local_replay_target
+                else PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_TARGET_SHA256_BY_PATH
                 if is_replay_target
                 else {}
             ),
