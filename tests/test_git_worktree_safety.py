@@ -1082,15 +1082,17 @@ def test_local_replay_commands_bind_every_runner_path_to_workspace(
         not Path(value).is_relative_to(c_temp)
         for value in paths.canonical_strings().values()
     )
+    system_temp = tmp_path / "system-temp"
+    system_temp.mkdir()
     original_temp_audit = local_replay._system_temp_root_for_audit
-    local_replay._system_temp_root_for_audit = lambda: c_temp
+    local_replay._system_temp_root_for_audit = lambda: system_temp
     try:
         with pytest.raises(
             local_replay.LocalValidationReplayWorkspaceError,
             match="must not be materialized",
         ):
             local_replay._require_checkpoint_bundle_outside_system_temp(
-                c_temp / "checkpoint"
+                system_temp / "checkpoint"
             )
     finally:
         local_replay._system_temp_root_for_audit = original_temp_audit
