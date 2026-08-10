@@ -1,10 +1,8 @@
 {
   "status": "pass",
-  "main_price_date": "20260805",
+  "main_price_date": "20260807",
   "lookback_days": 20,
   "expected_trading_dates": [
-    "20260716",
-    "20260717",
     "20260720",
     "20260721",
     "20260722",
@@ -17,34 +15,12 @@
     "20260731",
     "20260803",
     "20260804",
-    "20260805"
+    "20260805",
+    "20260806",
+    "20260807"
   ],
   "non_trading_days_in_window": [],
   "daily_price_files": {
-    "20260716": {
-      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260716.csv",
-      "exists": true,
-      "legacy_exists": true,
-      "rows": 2122,
-      "date_rows": 2122,
-      "stock_rows": 2106,
-      "markets": [
-        "TPEx",
-        "TWSE"
-      ]
-    },
-    "20260717": {
-      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260717.csv",
-      "exists": true,
-      "legacy_exists": true,
-      "rows": 2131,
-      "date_rows": 2131,
-      "stock_rows": 2113,
-      "markets": [
-        "TPEx",
-        "TWSE"
-      ]
-    },
     "20260720": {
       "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260720.csv",
       "exists": true,
@@ -196,6 +172,30 @@
       "rows": 2128,
       "date_rows": 2128,
       "stock_rows": 2109,
+      "markets": [
+        "TPEx",
+        "TWSE"
+      ]
+    },
+    "20260806": {
+      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260806.csv",
+      "exists": true,
+      "legacy_exists": true,
+      "rows": 2128,
+      "date_rows": 2128,
+      "stock_rows": 2107,
+      "markets": [
+        "TPEx",
+        "TWSE"
+      ]
+    },
+    "20260807": {
+      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260807.csv",
+      "exists": true,
+      "legacy_exists": true,
+      "rows": 2119,
+      "date_rows": 2119,
+      "stock_rows": 2102,
       "markets": [
         "TPEx",
         "TWSE"
