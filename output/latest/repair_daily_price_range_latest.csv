@@ -1,2 +1,2 @@
 ﻿date,status,twse_rows,tpex_rows,total_rows,reason,saved_files
-20260806,repaired,1241,887,2128,full_market_ok,data/daily_price/20260806.csv;data/daily_price/daily_price_20260806.csv
+20260807,repaired,1236,883,2119,full_market_ok,data/daily_price/20260807.csv;data/daily_price/daily_price_20260807.csv

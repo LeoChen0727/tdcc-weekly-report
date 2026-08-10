@@ -1,28 +1,28 @@
 {
   "rows": [
     {
-      "date": "20260806",
+      "date": "20260807",
       "status": "repaired",
-      "twse_rows": 1241,
-      "tpex_rows": 887,
-      "total_rows": 2128,
+      "twse_rows": 1236,
+      "tpex_rows": 883,
+      "total_rows": 2119,
       "reason": "full_market_ok",
-      "saved_files": "data/daily_price/20260806.csv;data/daily_price/daily_price_20260806.csv"
+      "saved_files": "data/daily_price/20260807.csv;data/daily_price/daily_price_20260807.csv"
     }
   ],
   "check_rows": [
     {
-      "date": "20260806",
+      "date": "20260807",
       "stock_id": "5291",
       "found": true,
       "stock_name": "邑昇",
       "market": "TPEx",
-      "open": "50.0",
-      "high": "51.8",
-      "low": "48.2",
-      "close": "51.0",
-      "volume": "186000",
-      "trading_value": "9342000"
+      "open": "56.1",
+      "high": "56.1",
+      "low": "56.1",
+      "close": "56.1",
+      "volume": "629000",
+      "trading_value": "35286900"
     }
   ]
 }

@@ -1872,16 +1872,16 @@ def test_local_validation_replay_routing_authorization_is_exact() -> None:
             ),
             "status": "preauthorized",
             "approval_reference": (
-                "user_authorized_local_validation_replay_f_routing_20260810"
+                "user_authorized_local_validation_replay_portable_ci_reconciliation_20260810"
             ),
             "base_helper_sha256": (
-                "64052ce22886dd649554a9567d760da44bf8ab97e2f8ffc413132a4ebc96a92f"
+                "d415db1eb2433f2bda00d204ca55575a61aa57b326c8db6a938294611dd81ed0"
             ),
-            "current_helper_sha256": (
-                "395680f68487f0836db8aac9662bf6bd6cd8d79b15e2271ef37ab28d210f544c"
+            "current_helper_sha256": inventory.canonical_blob_sha256(
+                (ROOT / inventory.PR_SAFE_BASE_GUARD_SCRIPT).read_bytes()
             ),
-            "current_test_sha256": (
-                "e6af79cf0446fc09c6fdbd0ad035651a53a010186eed8d1aa5c5f66a9321c544"
+            "current_test_sha256": inventory.canonical_blob_sha256(
+                (ROOT / "tests/test_repo_production_inventory.py").read_bytes()
             ),
             "changed_paths": (
                 "config/daily_model_pr_safe_self_migration_authorizations.csv;"
@@ -1923,6 +1923,22 @@ def test_local_validation_replay_advanced_v1_authorization_is_retained() -> None
             ),
         }
     ]
+
+
+def test_local_validation_replay_routing_v1_authorization_is_retained() -> None:
+    payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
+    rows, errors = inventory.parse_pr_safe_authorizations(payload)
+    assert errors == []
+    matching = [
+        row
+        for row in rows
+        if row["migration_id"] == "local-validation-replay-f-routing-20260810-v1"
+    ]
+    assert len(matching) == 1
+    assert matching[0]["status"] == "preauthorized"
+    assert matching[0]["approval_reference"] == (
+        "user_authorized_local_validation_replay_f_routing_20260810"
+    )
 
 
 def test_local_validation_replay_advanced_v2_authorization_is_exact() -> None:
@@ -1982,11 +1998,11 @@ def test_local_validation_replay_hash_reconciliation_authorization_is_exact() ->
             "base_helper_sha256": (
                 "395680f68487f0836db8aac9662bf6bd6cd8d79b15e2271ef37ab28d210f544c"
             ),
-            "current_helper_sha256": inventory.canonical_blob_sha256(
-                (ROOT / inventory.PR_SAFE_BASE_GUARD_SCRIPT).read_bytes()
+            "current_helper_sha256": (
+                "d415db1eb2433f2bda00d204ca55575a61aa57b326c8db6a938294611dd81ed0"
             ),
-            "current_test_sha256": inventory.canonical_blob_sha256(
-                (ROOT / "tests/test_repo_production_inventory.py").read_bytes()
+            "current_test_sha256": (
+                "ff09926d02a76e059e0ca79af9ef6a749207419ef1e0f01b09b6952ee7772c2a"
             ),
             "changed_paths": (
                 "config/daily_model_pr_safe_self_migration_authorizations.csv;"
