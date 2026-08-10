@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import subprocess
+import sys
 from pathlib import Path
 
 import pytest
@@ -1096,3 +1097,23 @@ def test_local_replay_commands_bind_every_runner_path_to_workspace(
             )
     finally:
         local_replay._system_temp_root_for_audit = original_temp_audit
+
+
+def test_local_replay_direct_script_entrypoint_resolves_repo_package() -> None:
+    repo_root = Path(__file__).resolve().parents[1]
+    proc = subprocess.run(
+        [
+            sys.executable,
+            "-B",
+            str(repo_root / "scripts/run_local_daily_full_validation_replay.py"),
+            "--help",
+        ],
+        cwd=repo_root,
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+        check=False,
+    )
+    assert proc.returncode == 0, proc.stderr
+    assert "pilot" in proc.stdout
