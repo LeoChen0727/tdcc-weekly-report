@@ -853,20 +853,51 @@ VOLUME_V2_WARRANT_SYNC_IMMUTABLE_OUTCOME_FIELDS = tuple(
 
 
 def _volume_v2_formal_outcome_envelope(row: pd.Series | dict[str, Any]) -> dict[str, str]:
+    def canonical_numeric(field_name: str) -> str:
+        raw_value = row.get(field_name, "")
+        if raw_value is None:
+            return ""
+        if not isinstance(raw_value, str):
+            try:
+                if pd.isna(raw_value):
+                    return ""
+            except (TypeError, ValueError):
+                pass
+        value = str(raw_value).replace("\ufeff", "").strip()
+        if not value:
+            return ""
+        try:
+            if "e" in value.lower():
+                raise InvalidOperation
+            number = Decimal(value)
+            if not number.is_finite():
+                raise InvalidOperation
+            canonical = number.quantize(Decimal("0.1"))
+            if number != canonical:
+                raise InvalidOperation
+        except (InvalidOperation, ValueError):
+            raise RuntimeError(
+                "formal outcome numeric field is not canonicalizable: "
+                f"field={field_name} value={value!r}"
+            ) from None
+        if canonical == 0:
+            canonical = Decimal("0.0")
+        return f"{canonical:.1f}"
+
     has_candidate_sources = bool(safe_str(row.get("candidate_source_row_ids", "")))
     signal_date = safe_str(row.get("signal_date", "")) or safe_str(row.get("date", ""))
     return {
         "model_id": safe_str(row.get("model_id", "")),
         "candidate_signal_date": signal_date if has_candidate_sources else "",
         "authoritative_warrant_signal": safe_str(row.get("warrant_flow_signal", "")),
-        "base_model_score": safe_str(row.get("base_model_score", "")),
-        "operation_score": safe_str(row.get("operation_score", "")),
-        "tdcc_score": safe_str(row.get("tdcc_score", "")),
-        "pattern_score": safe_str(row.get("pattern_score", "")),
-        "risk_penalty": safe_str(row.get("risk_penalty", "")),
-        "final_rank_score": safe_str(row.get("final_rank_score", "")),
+        "base_model_score": canonical_numeric("base_model_score"),
+        "operation_score": canonical_numeric("operation_score"),
+        "tdcc_score": canonical_numeric("tdcc_score"),
+        "pattern_score": canonical_numeric("pattern_score"),
+        "risk_penalty": canonical_numeric("risk_penalty"),
+        "final_rank_score": canonical_numeric("final_rank_score"),
         "rank_reason_zh": safe_str(row.get("rank_reason_zh", "")),
-        "model_score": safe_str(row.get("model_score", "")),
+        "model_score": canonical_numeric("model_score"),
         "score_components": safe_str(row.get("score_components", "")),
         "risk_penalty_tags": safe_str(row.get("risk_penalty_tags", "")),
         "tdcc_status": safe_str(row.get("tdcc_status", "")),

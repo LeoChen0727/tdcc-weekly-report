@@ -25,6 +25,9 @@ RANKING_VALIDATOR_HISTORY_MIGRATION_ID = (
     "daily_published_ranking_validator_history_consumers_20260720"
 )
 SOURCE_IDENTITY_MIGRATION_ID = "volume_v2_candidate_projection_lineage_20260731"
+FORMAL_OUTCOME_NUMERIC_MIGRATION_ID = (
+    "volume_v2_formal_outcome_numeric_canonicalization_20260810"
+)
 REPORT_SIGNAL_SCHEMA_CONSUMER_MIGRATION_ID = (
     "daily_pipeline_report_signal_schema_consumer_20260808"
 )
@@ -425,6 +428,92 @@ def rehash_formal_resolution_row(row: dict[str, str]) -> None:
     row["candidate_presentation_source_artifact_sha256"] = hashlib.sha256(
         descriptor_text.encode("utf-8")
     ).hexdigest()
+
+
+def test_formal_outcome_numeric_contract_is_stable_across_all_four_surfaces(
+    tmp_path: Path,
+) -> None:
+    row = formal_resolution_row([], tmp_path)
+    row.update(
+        {
+            "signal_date": "20260810",
+            "stock_id": "6152",
+            "model_id": "volume_range_breakout_v2_low_position_volume_attack",
+            "candidate_source_row_ids": "",
+            "candidate_source_row_sha256s": "",
+            "candidate_source_categories": "",
+            "warrant_flow_signal": "",
+            "base_model_score": "60.0",
+            "operation_score": "20.0",
+            "tdcc_score": "12.0",
+            "pattern_score": "8.0",
+            "risk_penalty": "0.0",
+            "final_rank_score": "100",
+            "rank_reason_zh": "cap reached",
+            "model_score": "100.0",
+            "score_components": "base=60 | operation=20 | tdcc=12 | pattern=8",
+            "risk_penalty_tags": "",
+            "tdcc_status": "strong_accumulation",
+            "next_confirmation": "confirm next close",
+        }
+    )
+    rehash_formal_resolution_row(row)
+    canonical_envelope = {
+        "model_id": "volume_range_breakout_v2_low_position_volume_attack",
+        "candidate_signal_date": "",
+        "authoritative_warrant_signal": "",
+        "base_model_score": "60.0",
+        "operation_score": "20.0",
+        "tdcc_score": "12.0",
+        "pattern_score": "8.0",
+        "risk_penalty": "0.0",
+        "final_rank_score": "100.0",
+        "rank_reason_zh": "cap reached",
+        "model_score": "100.0",
+        "score_components": "base=60 | operation=20 | tdcc=12 | pattern=8",
+        "risk_penalty_tags": "",
+        "tdcc_status": "strong_accumulation",
+        "next_confirmation": "confirm next close",
+    }
+    row["candidate_formal_outcome_sha256"] = lineage._canonical_payload_sha256(
+        canonical_envelope
+    )
+
+    labels = (
+        "current_raw",
+        "current_report",
+        "formal_signal_log_20260810",
+        "historical_pair_20260810",
+    )
+    for label in labels:
+        errors = lineage._validate_formal_projection_hashes(row, label, 2)
+        assert not any("formal outcome" in error for error in errors), errors
+
+    drifted = dict(row)
+    drifted["model_score"] = "99.9"
+    for label in labels:
+        errors = lineage._validate_formal_projection_hashes(drifted, label, 2)
+        assert any(
+            "formal outcome SHA-256 does not match the independent row projection"
+            in error
+            and f"artifact={label}" in error
+            for error in errors
+        )
+
+
+@pytest.mark.parametrize("invalid", ["83.51", "NaN", "Infinity", "1e2", "bad"])
+def test_formal_outcome_numeric_contract_rejects_invalid_values(
+    tmp_path: Path,
+    invalid: str,
+) -> None:
+    row = formal_resolution_row([], tmp_path)
+    row["final_rank_score"] = invalid
+    errors = lineage._validate_formal_projection_hashes(row, "current_raw", 2)
+    assert any(
+        "formal outcome numeric field is not canonicalizable" in error
+        and "field=final_rank_score" in error
+        for error in errors
+    )
 
 
 def test_formal_resolution_lineage_requires_exact_raw_report_pairing(
@@ -1422,6 +1511,7 @@ def build_valid_repo(root: Path) -> None:
         "theme_warrant_lineage_revision_contract_20260801",
         SOURCE_IDENTITY_MIGRATION_ID,
         REPORT_SIGNAL_SCHEMA_CONSUMER_MIGRATION_ID,
+        FORMAL_OUTCOME_NUMERIC_MIGRATION_ID,
     ]
     write_csv(
         root / lineage.MIGRATIONS_PATH,

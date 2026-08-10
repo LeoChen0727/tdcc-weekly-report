@@ -3179,6 +3179,109 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         self.assertEqual(protected.loc["2454", "model_score"], "70")
         self.assertEqual(protected.loc["1301", "warrant_flow_signal"], "")
 
+    def test_volume_v2_formal_outcome_hash_uses_stable_one_decimal_numeric_contract(self) -> None:
+        taxonomy_only = {
+            "stock_id": "6152",
+            "model_id": LOW_VOLUME_MODEL_ID,
+            "signal_date": "20260810",
+            "candidate_source_row_ids": "",
+            "warrant_flow_signal": "",
+            "base_model_score": 60.0,
+            "operation_score": 20.0,
+            "tdcc_score": 12.0,
+            "pattern_score": 8.0,
+            "risk_penalty": 0.0,
+            "final_rank_score": 100,
+            "rank_reason_zh": "cap reached",
+            "model_score": 100,
+            "score_components": "base=60 | operation=20 | tdcc=12 | pattern=8",
+            "risk_penalty_tags": "",
+            "tdcc_status": "strong_accumulation",
+            "next_confirmation": "confirm next close",
+        }
+        persisted_taxonomy_only = {
+            **taxonomy_only,
+            "base_model_score": "60.0",
+            "operation_score": "20.0",
+            "tdcc_score": "12.0",
+            "pattern_score": "8.0",
+            "risk_penalty": "0.0",
+            "final_rank_score": "100.0",
+            "model_score": "100.0",
+        }
+        expected_taxonomy_envelope = {
+            "model_id": LOW_VOLUME_MODEL_ID,
+            "candidate_signal_date": "",
+            "authoritative_warrant_signal": "",
+            "base_model_score": "60.0",
+            "operation_score": "20.0",
+            "tdcc_score": "12.0",
+            "pattern_score": "8.0",
+            "risk_penalty": "0.0",
+            "final_rank_score": "100.0",
+            "rank_reason_zh": "cap reached",
+            "model_score": "100.0",
+            "score_components": "base=60 | operation=20 | tdcc=12 | pattern=8",
+            "risk_penalty_tags": "",
+            "tdcc_status": "strong_accumulation",
+            "next_confirmation": "confirm next close",
+        }
+
+        self.assertEqual(
+            model_layer._volume_v2_formal_outcome_envelope(taxonomy_only),
+            expected_taxonomy_envelope,
+        )
+        self.assertEqual(
+            model_layer._volume_v2_formal_outcome_sha256(taxonomy_only),
+            model_layer._volume_v2_formal_outcome_sha256(persisted_taxonomy_only),
+        )
+
+        candidate_backed = {
+            **taxonomy_only,
+            "candidate_source_row_ids": "source-row:6152",
+            "final_rank_score": "83.5",
+            "model_score": 83.5,
+        }
+        candidate_backed_persisted = {
+            **candidate_backed,
+            "final_rank_score": 83.5,
+            "model_score": "83.5",
+        }
+        self.assertEqual(
+            model_layer._volume_v2_formal_outcome_envelope(candidate_backed)[
+                "candidate_signal_date"
+            ],
+            "20260810",
+        )
+        self.assertEqual(
+            model_layer._volume_v2_formal_outcome_sha256(candidate_backed),
+            model_layer._volume_v2_formal_outcome_sha256(
+                candidate_backed_persisted
+            ),
+        )
+        real_score_drift = {**candidate_backed_persisted, "model_score": "83.4"}
+        self.assertNotEqual(
+            model_layer._volume_v2_formal_outcome_sha256(candidate_backed),
+            model_layer._volume_v2_formal_outcome_sha256(real_score_drift),
+        )
+
+    def test_volume_v2_formal_outcome_numeric_contract_rejects_invalid_values(self) -> None:
+        valid = {
+            "model_id": LOW_VOLUME_MODEL_ID,
+            "candidate_source_row_ids": "",
+            "final_rank_score": "100.0",
+            "model_score": "100.0",
+        }
+        for invalid in ("83.51", "NaN", "Infinity", "1e2", "not-a-score"):
+            with self.subTest(invalid=invalid):
+                with self.assertRaisesRegex(
+                    RuntimeError,
+                    "formal outcome numeric field is not canonicalizable",
+                ):
+                    model_layer._volume_v2_formal_outcome_sha256(
+                        {**valid, "final_rank_score": invalid}
+                    )
+
     def test_warrant_formal_sync_refreshes_effective_volume_v2_outcome_hash(self) -> None:
         immutable_lineage = {
             "candidate_source_row_ids": "source-a:" + "a" * 64,

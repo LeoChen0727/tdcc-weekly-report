@@ -193,7 +193,7 @@ def test_shared_business_semantics_are_disclosed_as_contained_not_technical() ->
             "volume_v2_global_official_candidate_scope_repair_20260809"
         ),
         "function:_volume_v2_formal_outcome_envelope": (
-            "volume_v2_candidate_projection_lineage_20260731"
+            "volume_v2_formal_outcome_numeric_canonicalization_20260810"
         ),
         "function:_volume_v2_formal_outcome_sha256": (
             "volume_v2_candidate_projection_lineage_20260731"
@@ -275,7 +275,7 @@ def test_warrant_runtime_subgraphs_pin_recursive_hashes_consumers_and_migration(
         assert row["consumer_models"] == expected_consumers
         assert row["canonical_ast_sha256"] == runtime_subgraph_sha256(graph, item)
         expected_migration = (
-            "volume_v2_global_official_candidate_scope_repair_20260809"
+            "volume_v2_formal_outcome_numeric_canonicalization_20260810"
             if item
             in {
                 "runtime_subgraph:run_warrant_formal_sync_only",
@@ -418,18 +418,21 @@ def test_volume_v2_candidate_projection_migration_chains_to_current_records() ->
         "34a8a772898459af18305daee7310ead321aea9e992e1cc869505ed585a13ecc",
     ]
     old_new_by_key = dict(zip(changed, migration["new_sha256s"].split(";")))
-    later = next(
-        row
-        for row in read_csv("config/daily_model_semantic_migrations.csv")
-        if row["migration_id"]
-        == "volume_v2_global_official_candidate_scope_repair_20260809"
-    )
-    later_previous_by_key = dict(
-        zip(
+    later_previous_by_key: dict[str, str] = {}
+    for later_id in (
+        "volume_v2_global_official_candidate_scope_repair_20260809",
+        "volume_v2_formal_outcome_numeric_canonicalization_20260810",
+    ):
+        later = next(
+            row
+            for row in read_csv("config/daily_model_semantic_migrations.csv")
+            if row["migration_id"] == later_id
+        )
+        for key, previous in zip(
             later["changed_semantics"].split(";"),
             later["previous_sha256s"].split(";"),
-        )
-    )
+        ):
+            later_previous_by_key.setdefault(key, previous)
     for key in changed:
         if key in later_previous_by_key:
             assert old_new_by_key[key] == later_previous_by_key[key]
@@ -476,6 +479,72 @@ def test_volume_v2_global_official_candidate_scope_migration_pins_current_record
         "f90afe066a203f71a1c45deea5476a758a32fa1d3e74918bd7cd7d7379c3a628",
         "d97f4c00df25456aad5a9368ebd2394bf59cb6bbdd3a0ece24a15cf069039295",
     ]
+    current_rows = {
+        key: shared[key] if key.startswith("item:") else ownership[key.removeprefix("model:")]
+        for key in changed
+    }
+    successor = next(
+        row
+        for row in read_csv("config/daily_model_semantic_migrations.csv")
+        if row["migration_id"]
+        == "volume_v2_formal_outcome_numeric_canonicalization_20260810"
+    )
+    successor_previous = dict(
+        zip(
+            successor["changed_semantics"].split(";"),
+            successor["previous_sha256s"].split(";"),
+        )
+    )
+    for key, new_hash in zip(changed, migration["new_sha256s"].split(";")):
+        if key in successor_previous:
+            assert new_hash == successor_previous[key]
+        else:
+            assert new_hash == semantic_record_sha256(key, current_rows[key])
+    assert migration["affected_models"] == ";".join(sorted(ACTIVE_MODELS))
+    assert migration["user_approval_reference"] == approval
+    assert migration["migration_status"] == "validated_user_approved_migration"
+    for key, row in current_rows.items():
+        expected_migration = (
+            "volume_v2_formal_outcome_numeric_canonicalization_20260810"
+            if key in successor_previous
+            else migration_id
+        )
+        assert row["last_migration_id"] == expected_migration
+
+
+def test_volume_v2_formal_outcome_numeric_migration_pins_current_records() -> None:
+    migration_id = "volume_v2_formal_outcome_numeric_canonicalization_20260810"
+    approval = "user_delegated_volume_v2_formal_outcome_sha_repair_20260810"
+    ownership = {
+        row["model_id"]: row
+        for row in read_csv("config/daily_model_semantic_ownership.csv")
+    }
+    shared = {
+        f"item:{row['source_file']}::{row['semantic_item']}": row
+        for row in read_csv("config/daily_model_shared_semantic_registry.csv")
+    }
+    migration = next(
+        row
+        for row in read_csv("config/daily_model_semantic_migrations.csv")
+        if row["migration_id"] == migration_id
+    )
+    changed = migration["changed_semantics"].split(";")
+    assert changed == [
+        "item:scripts/build_daily_candidate_model_layer.py::function:_volume_v2_formal_outcome_envelope",
+        "item:scripts/build_daily_candidate_model_layer.py::runtime_subgraph:run_warrant_formal_sync_only",
+        "item:scripts/build_daily_candidate_model_layer.py::runtime_subgraph:synchronize_warrant_formal_frames",
+        "model:volume_range_breakout_v2_high_position_volume_attack",
+        "model:volume_range_breakout_v2_low_position_volume_attack",
+        "model:volume_range_breakout_v2_mid_position_momentum_attack",
+    ]
+    assert migration["previous_sha256s"].split(";") == [
+        "0c7e887aab10df7fe9b843205a2494da9a58bd5e019162cc8ce1218732616fbc",
+        "7922c5ed9ac50ecf3eed579a2fa7d211e65c4b743d0be08f0e0a43e4deff48f2",
+        "5e0ae45788de4e1ea555ddcc4c227a9fd127651ae906f7750253ad702923224c",
+        "de8caba7a68cbf2cf1928548d7438625b96b3b18fd3a57bc4da1049e12fc8c05",
+        "6a4c0763c9a109ac142f5e05311f7b9ba5d5f47afc18804af3c0e0d27c36613b",
+        "23abb241fa9b4c80b350832796b1fdb02d0bfed8bee7a58213c518a54d3709e2",
+    ]
     current_rows = [
         shared[key] if key.startswith("item:") else ownership[key.removeprefix("model:")]
         for key in changed
@@ -484,7 +553,6 @@ def test_volume_v2_global_official_candidate_scope_migration_pins_current_record
         semantic_record_sha256(key, row)
         for key, row in zip(changed, current_rows)
     ]
-    assert migration["affected_models"] == ";".join(sorted(ACTIVE_MODELS))
     assert migration["user_approval_reference"] == approval
     assert migration["migration_status"] == "validated_user_approved_migration"
     for row in current_rows:

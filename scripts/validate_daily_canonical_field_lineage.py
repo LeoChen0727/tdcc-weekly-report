@@ -2748,6 +2748,28 @@ def _canonical_payload_sha256(payload: object) -> str:
 
 
 def _formal_outcome_envelope(row: dict[str, str]) -> dict[str, str]:
+    def canonical_numeric(field_name: str) -> str:
+        raw_value = row.get(field_name)
+        if raw_value is None:
+            return ""
+        value = str(raw_value).strip()
+        if not value:
+            return ""
+        try:
+            if "e" in value.lower():
+                raise InvalidOperation
+            number = Decimal(value)
+            if not number.is_finite():
+                raise InvalidOperation
+            canonical = number.quantize(Decimal("0.1"))
+            if number != canonical:
+                raise InvalidOperation
+        except (InvalidOperation, ValueError):
+            raise ValueError(f"field={field_name} value={value!r}") from None
+        if canonical == 0:
+            canonical = Decimal("0.0")
+        return f"{canonical:.1f}"
+
     has_candidate_sources = bool(_text(row.get("candidate_source_row_ids")))
     return {
         "model_id": _text(row.get("model_id")),
@@ -2757,14 +2779,14 @@ def _formal_outcome_envelope(row: dict[str, str]) -> dict[str, str]:
             else ""
         ),
         "authoritative_warrant_signal": _text(row.get("warrant_flow_signal")),
-        "base_model_score": _text(row.get("base_model_score")),
-        "operation_score": _text(row.get("operation_score")),
-        "tdcc_score": _text(row.get("tdcc_score")),
-        "pattern_score": _text(row.get("pattern_score")),
-        "risk_penalty": _text(row.get("risk_penalty")),
-        "final_rank_score": _text(row.get("final_rank_score")),
+        "base_model_score": canonical_numeric("base_model_score"),
+        "operation_score": canonical_numeric("operation_score"),
+        "tdcc_score": canonical_numeric("tdcc_score"),
+        "pattern_score": canonical_numeric("pattern_score"),
+        "risk_penalty": canonical_numeric("risk_penalty"),
+        "final_rank_score": canonical_numeric("final_rank_score"),
         "rank_reason_zh": _text(row.get("rank_reason_zh")),
-        "model_score": _text(row.get("model_score")),
+        "model_score": canonical_numeric("model_score"),
         "score_components": _text(row.get("score_components")),
         "risk_penalty_tags": _text(row.get("risk_penalty_tags")),
         "tdcc_status": _text(row.get("tdcc_status")),
@@ -2999,10 +3021,17 @@ def _validate_formal_projection_hashes(
                 f"row={row_number} field={field_name} value={field_value!r}"
             )
 
-    expected_outcome_sha = _canonical_payload_sha256(
-        _formal_outcome_envelope(row)
-    )
-    if outcome_sha != expected_outcome_sha:
+    try:
+        expected_outcome_sha = _canonical_payload_sha256(
+            _formal_outcome_envelope(row)
+        )
+    except ValueError as exc:
+        expected_outcome_sha = ""
+        errors.append(
+            "formal outcome numeric field is not canonicalizable: "
+            f"artifact={label} row={row_number} {exc}"
+        )
+    if expected_outcome_sha and outcome_sha != expected_outcome_sha:
         errors.append(
             "formal outcome SHA-256 does not match the independent row projection: "
             f"artifact={label} row={row_number} "
