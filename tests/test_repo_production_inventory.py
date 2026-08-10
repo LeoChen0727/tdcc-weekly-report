@@ -1877,11 +1877,11 @@ def test_local_validation_replay_routing_authorization_is_exact() -> None:
             "base_helper_sha256": (
                 "64052ce22886dd649554a9567d760da44bf8ab97e2f8ffc413132a4ebc96a92f"
             ),
-            "current_helper_sha256": inventory.canonical_blob_sha256(
-                (ROOT / inventory.PR_SAFE_BASE_GUARD_SCRIPT).read_bytes()
+            "current_helper_sha256": (
+                "395680f68487f0836db8aac9662bf6bd6cd8d79b15e2271ef37ab28d210f544c"
             ),
-            "current_test_sha256": inventory.canonical_blob_sha256(
-                (ROOT / "tests/test_repo_production_inventory.py").read_bytes()
+            "current_test_sha256": (
+                "e6af79cf0446fc09c6fdbd0ad035651a53a010186eed8d1aa5c5f66a9321c544"
             ),
             "changed_paths": (
                 "config/daily_model_pr_safe_self_migration_authorizations.csv;"
@@ -1892,7 +1892,40 @@ def test_local_validation_replay_routing_authorization_is_exact() -> None:
     ]
 
 
-def test_local_validation_replay_advanced_authorization_is_exact() -> None:
+def test_local_validation_replay_advanced_v1_authorization_is_retained() -> None:
+    payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
+    rows, errors = inventory.parse_pr_safe_authorizations(payload)
+    assert errors == []
+    matching = [
+        row
+        for row in rows
+        if row["migration_id"]
+        == "local-validation-replay-advanced-integrity-pr-safe-v1"
+    ]
+    assert matching == [
+        {
+            "migration_id": "local-validation-replay-advanced-integrity-pr-safe-v1",
+            "status": "preauthorized",
+            "approval_reference": (
+                "user_authorized_local_validation_replay_advanced_pr_safe_20260810"
+            ),
+            "base_helper_sha256": (
+                "4838bf1976c54cd5170d7dc5017127e7c88eee432629ad8703f1e612b2bb48ea"
+            ),
+            "current_helper_sha256": (
+                "985ec761f31a7a4f9e19fd0419f1c9091deaac6afc9ed2863c76b6d700a271cd"
+            ),
+            "current_test_sha256": (
+                "9d510aebede19de7347ca09ea84f9ea28e687ebbe3a381bea7fdb8ad248a89fd"
+            ),
+            "changed_paths": ";".join(
+                sorted(inventory.PR_SAFE_LOCAL_VALIDATION_REPLAY_ADVANCED_PATHS)
+            ),
+        }
+    ]
+
+
+def test_local_validation_replay_advanced_v2_authorization_is_exact() -> None:
     payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
     rows, errors = inventory.parse_pr_safe_authorizations(payload)
     assert errors == []
@@ -1909,19 +1942,56 @@ def test_local_validation_replay_advanced_authorization_is_exact() -> None:
             ),
             "status": "preauthorized",
             "approval_reference": (
-                "user_authorized_local_validation_replay_advanced_pr_safe_20260810"
+                "user_authorized_local_validation_replay_advanced_pr_safe_v2_20260810"
             ),
             "base_helper_sha256": (
                 "4838bf1976c54cd5170d7dc5017127e7c88eee432629ad8703f1e612b2bb48ea"
             ),
             "current_helper_sha256": (
-                "985ec761f31a7a4f9e19fd0419f1c9091deaac6afc9ed2863c76b6d700a271cd"
+                "02f28d28e7214e1949b2e8fa4aa6ad9df3b39c90bbe11534e0c5c24f350a7b3a"
             ),
             "current_test_sha256": (
-                "9d510aebede19de7347ca09ea84f9ea28e687ebbe3a381bea7fdb8ad248a89fd"
+                "d26afe8ef1cfb0cc943f4ed82652d0e3784075a86c8329626386677308d03d73"
             ),
             "changed_paths": ";".join(
                 sorted(inventory.PR_SAFE_LOCAL_VALIDATION_REPLAY_ADVANCED_PATHS)
+            ),
+        }
+    ]
+
+
+def test_local_validation_replay_hash_reconciliation_authorization_is_exact() -> None:
+    payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
+    rows, errors = inventory.parse_pr_safe_authorizations(payload)
+    assert errors == []
+    matching = [
+        row
+        for row in rows
+        if row["migration_id"]
+        == "local-validation-replay-f-routing-hash-reconciliation-v2"
+    ]
+    assert matching == [
+        {
+            "migration_id": (
+                "local-validation-replay-f-routing-hash-reconciliation-v2"
+            ),
+            "status": "preauthorized",
+            "approval_reference": (
+                "user_authorized_local_validation_replay_hash_reconciliation_20260810"
+            ),
+            "base_helper_sha256": (
+                "395680f68487f0836db8aac9662bf6bd6cd8d79b15e2271ef37ab28d210f544c"
+            ),
+            "current_helper_sha256": inventory.canonical_blob_sha256(
+                (ROOT / inventory.PR_SAFE_BASE_GUARD_SCRIPT).read_bytes()
+            ),
+            "current_test_sha256": inventory.canonical_blob_sha256(
+                (ROOT / "tests/test_repo_production_inventory.py").read_bytes()
+            ),
+            "changed_paths": (
+                "config/daily_model_pr_safe_self_migration_authorizations.csv;"
+                "scripts/validate_repo_production_inventory.py;"
+                "tests/test_repo_production_inventory.py"
             ),
         }
     ]

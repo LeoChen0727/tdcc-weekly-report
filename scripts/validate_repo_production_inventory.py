@@ -136,7 +136,7 @@ PR_SAFE_AUTHORIZED_STAGE1_PATHS = frozenset(
     }
 )
 PR_SAFE_LOCAL_VALIDATION_REPLAY_ADVANCED_MIGRATION_ID = (
-    "local-validation-replay-advanced-integrity-pr-safe-v1"
+    "local-validation-replay-advanced-integrity-pr-safe-v2"
 )
 PR_SAFE_LOCAL_VALIDATION_REPLAY_ADVANCED_PATHS = frozenset(
     {PR_SAFE_ADVANCED_HELPER, PR_SAFE_ADVANCED_TEST}
