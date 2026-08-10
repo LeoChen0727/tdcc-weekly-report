@@ -161,6 +161,8 @@ def _write_current_sources(
     *,
     watch_score: str = "1",
     candidate_score: str = "1",
+    watch_rank: str = "1",
+    candidate_rank: str = "1",
 ) -> None:
     latest = root / "output" / "latest"
     latest.mkdir(parents=True, exist_ok=True)
@@ -176,7 +178,7 @@ def _write_current_sources(
                 "stock_id": "2330",
                 "warrant_flow_signal": "",
                 "score": watch_score,
-                "rank": "1",
+                "rank": watch_rank,
                 "tdcc_status": "",
                 "false_breakout_risk": "False",
             }
@@ -192,7 +194,7 @@ def _write_current_sources(
                 "stock_id": "2330",
                 "warrant_flow_signal": "",
                 "score": candidate_score,
-                "rank": "1",
+                "rank": candidate_rank,
             }
         ]
     ).to_csv(latest / "all_candidates_latest.csv", index=False, lineterminator="\n")
@@ -251,6 +253,8 @@ def _setup_dynamic_repo(
     *,
     current_watch_score: str = "1",
     current_candidate_score: str = "1",
+    current_watch_rank: str = "1",
+    current_candidate_rank: str = "1",
     explicit_candidate_allowlist: bool = False,
 ) -> None:
     (root / "scripts").mkdir(parents=True)
@@ -294,6 +298,8 @@ def _setup_dynamic_repo(
         "20260718",
         watch_score=current_watch_score,
         candidate_score=current_candidate_score,
+        watch_rank=current_watch_rank,
+        candidate_rank=current_candidate_rank,
     )
 
 
@@ -1421,10 +1427,25 @@ def test_builder_reconstructs_all_dynamic_volume_v2_sources(tmp_path: Path) -> N
         formal_audit["watch_candidate_score_collision"].eq("True")
         | formal_audit["watch_candidate_rank_collision"].eq("True")
     ]
-    assert collision["formal_row_disposition"].eq("quarantined").all()
-    assert collision["historical_promotion_evidence_eligible"].eq("False").all()
+    legacy_collision = collision[
+        ~collision["dispatcher_warrant_source_mode"].eq(
+            "canonical_candidate_explicit_allowlist"
+        )
+    ]
+    assert legacy_collision["formal_row_disposition"].eq("quarantined").all()
+    assert legacy_collision["historical_promotion_evidence_eligible"].eq("False").all()
     assert (
-        collision["impact_scope"] == "legacy_watch_source_score_rank_effect_unresolved"
+        legacy_collision["impact_scope"]
+        == "legacy_watch_source_score_rank_effect_unresolved"
+    ).all()
+    explicit_collision = collision[
+        collision["dispatcher_warrant_source_mode"].eq(
+            "canonical_candidate_explicit_allowlist"
+        )
+    ]
+    assert explicit_collision["formal_row_disposition"].eq("verified_clean").all()
+    assert explicit_collision["impact_scope"].eq(
+        "watch_only_no_formal_score_or_rank_effect"
     ).all()
     assert set(formal_audit["replay_status"]) == {"resolved"}
     assert set(formal_audit["rank_replay_status"]) == {"resolved"}
@@ -1551,6 +1572,137 @@ def test_explicit_allowlist_audit_and_independent_validator_use_canonical_source
         "canonical_candidate"
     }
     _validate_generated_audit(root, audit, tmp_path / "explicit-allowlist")
+
+
+def test_20260810_6426_explicit_allowlist_ignores_advisory_watch_score_collision(
+    tmp_path: Path,
+) -> None:
+    root = tmp_path / "repo"
+    root.mkdir()
+    _setup_dynamic_repo(
+        root,
+        explicit_candidate_allowlist=True,
+        current_watch_score="",
+        current_candidate_score="69",
+    )
+    latest = root / "output" / "latest"
+    formal = pd.read_csv(
+        latest / "daily_candidate_model_signals_for_report_latest.csv",
+        dtype=str,
+        keep_default_na=False,
+    )
+    formal.loc[:, "signal_date"] = "20260810"
+    formal.loc[:, "stock_id"] = "6426"
+    formal.loc[:, "model_id"] = (
+        "volume_range_breakout_v2_mid_position_momentum_attack"
+    )
+    formal.to_csv(
+        latest / "daily_candidate_model_signals_for_report_latest.csv",
+        index=False,
+        lineterminator="\n",
+    )
+    watch = pd.read_csv(
+        latest / "volume_breakout_watch_latest.csv",
+        dtype=str,
+        keep_default_na=False,
+    )
+    watch.loc[:, "signal_date"] = "20260810"
+    watch.loc[:, "stock_id"] = "6426"
+    watch.to_csv(
+        latest / "volume_breakout_watch_latest.csv",
+        index=False,
+        lineterminator="\n",
+    )
+    for filename in ("all_candidates_latest.csv", "warrant_flow_latest.csv"):
+        frame = pd.read_csv(latest / filename, dtype=str, keep_default_na=False)
+        frame.loc[:, "stock_id"] = "6426"
+        frame.to_csv(latest / filename, index=False, lineterminator="\n")
+
+    audit = builder.build_audit_dataframe(root)
+    current = _formal_audit_rows(audit)
+    current = current[
+        current["snapshot_report_date"].eq("20260810")
+        & current["stock_id"].eq("6426")
+    ]
+
+    assert len(current) == 1
+    row = current.iloc[0]
+    assert row["dispatcher_warrant_source_mode"] == (
+        "canonical_candidate_explicit_allowlist"
+    )
+    assert row["model_id"] == (
+        "volume_range_breakout_v2_mid_position_momentum_attack"
+    )
+    assert row["watch_source_score"] == ""
+    assert row["candidate_source_score"] == "69"
+    assert row["watch_candidate_score_collision"] == "True"
+    assert row["score_delta"] == "0"
+    assert row["rank_delta"] == "0"
+    assert row["formal_row_disposition"] == "verified_clean"
+    assert row["evidence_status"] == "complete"
+    assert row["impact_scope"] == "watch_only_no_formal_score_or_rank_effect"
+    _validate_generated_audit(root, audit, tmp_path / "explicit-score-collision")
+
+
+def test_explicit_allowlist_ignores_advisory_watch_rank_collision(
+    tmp_path: Path,
+) -> None:
+    root = tmp_path / "repo"
+    root.mkdir()
+    _setup_dynamic_repo(
+        root,
+        explicit_candidate_allowlist=True,
+        current_watch_rank="7",
+        current_candidate_rank="1",
+    )
+
+    audit = builder.build_audit_dataframe(root)
+    current = _formal_audit_rows(audit)
+    row = current[current["snapshot_report_date"].eq("20260718")].iloc[0]
+
+    assert row["watch_candidate_rank_collision"] == "True"
+    assert row["score_delta"] == "0"
+    assert row["rank_delta"] == "0"
+    assert row["formal_row_disposition"] == "verified_clean"
+    assert row["impact_scope"] == "watch_only_no_formal_score_or_rank_effect"
+    _validate_generated_audit(root, audit, tmp_path / "explicit-rank-collision")
+
+
+@pytest.mark.parametrize(
+    ("watch_score", "candidate_score", "watch_rank", "candidate_rank"),
+    [
+        ("99", "69", "1", "1"),
+        ("1", "1", "7", "1"),
+    ],
+)
+def test_generic_watch_merge_score_or_rank_collision_remains_quarantined(
+    tmp_path: Path,
+    watch_score: str,
+    candidate_score: str,
+    watch_rank: str,
+    candidate_rank: str,
+) -> None:
+    root = tmp_path / "repo"
+    root.mkdir()
+    _setup_dynamic_repo(
+        root,
+        current_watch_score=watch_score,
+        current_candidate_score=candidate_score,
+        current_watch_rank=watch_rank,
+        current_candidate_rank=candidate_rank,
+    )
+
+    audit = builder.build_audit_dataframe(root)
+    current = _formal_audit_rows(audit)
+    row = current[current["snapshot_report_date"].eq("20260718")].iloc[0]
+
+    assert row["dispatcher_warrant_source_mode"] == (
+        "canonical_candidate_after_watch_merge"
+    )
+    assert row["formal_row_disposition"] == "quarantined"
+    assert row["impact_scope"] == "legacy_watch_source_score_rank_effect_unresolved"
+    assert row["historical_promotion_evidence_eligible"] == "False"
+    _validate_generated_audit(root, audit, tmp_path / "generic-source-collision")
 
 
 def test_published_warrant_score_source_covers_every_dispatcher_mode() -> None:

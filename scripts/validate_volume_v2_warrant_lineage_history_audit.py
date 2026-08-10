@@ -2142,6 +2142,7 @@ def validate(
                 "candidate_row_present": candidate_row is not None,
                 "watch_source_score": raw_watch_source_score,
                 "watch_source_rank": raw_watch_source_rank,
+                "dispatcher_warrant_source_mode": mode,
                 "legacy_revision_history_status": source[
                     "legacy_revision_history_status"
                 ],
@@ -2248,6 +2249,16 @@ def validate(
             not state["candidate_row_present"]
             and bool(state["watch_source_score"] or state["watch_source_rank"])
         )
+        source_score_rank_difference = (
+            state["source_score_collision"]
+            or state["source_rank_collision"]
+            or unpaired_watch_score_rank
+        )
+        source_score_rank_exposed_to_dispatcher = (
+            state["dispatcher_warrant_source_mode"]
+            != "canonical_candidate_explicit_allowlist"
+            and source_score_rank_difference
+        )
         rank_changed = expected_rank is not None and expected_rank != published_rank
         legacy_revision_incomplete = (
             state["legacy_revision_history_status"] == LEGACY_HISTORY_INCOMPLETE
@@ -2266,11 +2277,7 @@ def validate(
                 "the date-only precontract snapshot path contains a Git blob revision "
                 "without exact same-commit manifest and paired-source recovery evidence"
             )
-        elif (
-            state["source_score_collision"]
-            or state["source_rank_collision"]
-            or unpaired_watch_score_rank
-        ):
+        elif source_score_rank_exposed_to_dispatcher:
             disposition = "quarantined"
             impact = "legacy_watch_source_score_rank_effect_unresolved"
             reason = (
@@ -2294,17 +2301,21 @@ def validate(
             )
         else:
             disposition = "verified_clean"
-            impact = (
-                "watch_only_no_formal_score_or_rank_effect"
-                if state["watch_collision"]
-                else "none"
-            )
-            reason = (
-                "legacy collision values differ, but independently replayed formal score and "
-                f"rank are unchanged: fields={state['collision_fields']}"
-                if state["watch_collision"]
-                else "published and canonical collision contexts, components, and rank agree"
-            )
+            if state["watch_collision"] or source_score_rank_difference:
+                impact = "watch_only_no_formal_score_or_rank_effect"
+                if source_score_rank_difference:
+                    reason = (
+                        "the explicit formal dispatcher excludes advisory watch score and rank "
+                        "fields, and independently replayed formal score and rank are unchanged"
+                    )
+                else:
+                    reason = (
+                        "legacy collision values differ, but independently replayed formal score "
+                        f"and rank are unchanged: fields={state['collision_fields']}"
+                    )
+            else:
+                impact = "none"
+                reason = "published and canonical collision contexts, components, and rank agree"
         append_mismatch(
             errors,
             report_date,
