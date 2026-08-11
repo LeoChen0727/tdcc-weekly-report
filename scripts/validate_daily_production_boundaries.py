@@ -796,7 +796,6 @@ def main() -> int:
     for forbidden in (
         "fetch_official_daily_price.py",
         "git add data/daily_price/",
-        "build_data_freshness_latest.py",
         "generate_chatgpt_side_daily_reports.py",
         "validate_chatgpt_daily_report_new_conversation_replay.py",
         "pages.yml",
@@ -811,19 +810,23 @@ def main() -> int:
         repair_literals = {
             "Reject non-main production dispatch": "recent price-gap workflow must reject branch dispatch",
             "ref: main": "recent price-gap workflow must operate on main",
-            "output/latest/market_session_status_latest.json": (
-                "recent price-gap workflow must persist market-session status"
-            ),
-            "data/market_calendar/exceptional_non_trading_days.csv": (
-                "recent price-gap workflow must persist exceptional closure evidence"
-            ),
-            "MARKET_SESSION_CHANGE_COUNT": (
-                "recent price-gap workflow must commit market evidence even when no price row is repaired"
+            "if: env.REPAIR_ACTION_COUNT != '0'": (
+                "recent price-gap workflow must commit only actual repair actions"
             ),
         }
         for literal, message in repair_literals.items():
             if literal not in repair_text:
                 errors.append(f"{message}: missing {literal!r}")
+        for forbidden in (
+            "MARKET_SESSION_CHANGE_COUNT",
+            "git add output/latest/market_session_status_latest.json",
+            "git add data/market_calendar/exceptional_non_trading_days.csv",
+        ):
+            if forbidden in repair_text:
+                errors.append(
+                    "recent price-gap workflow must not independently publish market authority: "
+                    f"found {forbidden!r}"
+                )
 
     calendar_precheck_literals = {
         "Record calendar source status before integrity gate": "daily_full_pipeline must record calendar status before the external-source hard gate",

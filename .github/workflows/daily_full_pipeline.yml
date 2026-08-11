@@ -161,9 +161,21 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
+          python build_data_freshness_latest.py
+          authority_release_id="daily-authority-${MARKET_SESSION_DATE}-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          python scripts/daily_authority_release.py publish \
+            --release-id "$authority_release_id" \
+            --producer daily_full_pipeline \
+            --base-sha "$(git rev-parse HEAD)"
           git add data/market_calendar/exceptional_non_trading_days.csv || true
-          git add output/latest/market_session_status_latest.json || true
+          git add \
+            output/latest/market_session_status_latest.json \
+            output/latest/data_freshness_latest.csv \
+            output/latest/data_freshness_latest.md \
+            output/latest/daily_authority_release_latest.json
           python scripts/validate_daily_staged_paths.py
+          python scripts/daily_authority_release.py validate-staged \
+            --expected-release-id "$authority_release_id"
           git status --short
           if git diff --cached --quiet; then
             echo "No closed-market evidence changes to commit"
@@ -948,6 +960,11 @@ jobs:
             echo "Invalid snapshot report date: $snapshot_report_date" >&2
             exit 1
           fi
+          authority_release_id="daily-authority-${snapshot_report_date}-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          python scripts/daily_authority_release.py publish \
+            --release-id "$authority_release_id" \
+            --producer daily_full_pipeline \
+            --base-sha "$(git rev-parse HEAD)"
 
           # Daily pipeline only stages daily report outputs and source data.
           # Heavy research/backtest outputs are maintained by research_backtest_pipeline.yml.
@@ -1003,6 +1020,8 @@ jobs:
 
           python scripts/stage_daily_latest_mirrors.py
           python scripts/validate_daily_staged_paths.py
+          python scripts/daily_authority_release.py validate-staged \
+            --expected-release-id "$authority_release_id"
           python scripts/validate_daily_published_model_snapshots.py
           python scripts/validate_no_conflict_markers.py
           git status --short

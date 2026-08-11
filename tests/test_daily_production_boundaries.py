@@ -2110,12 +2110,14 @@ def test_daily_workflow_market_session_gate_is_main_only_and_fail_closed() -> No
     for forbidden in (
         "fetch_official_daily_price.py",
         "git add data/daily_price/",
-        "build_data_freshness_latest.py",
         "generate_chatgpt_side_daily_reports.py",
         "validate_chatgpt_daily_report_new_conversation_replay.py",
         "pages.yml",
     ):
         assert forbidden not in closure_block
+    assert "python build_data_freshness_latest.py" in closure_block
+    assert "python scripts/daily_authority_release.py publish" in closure_block
+    assert "python scripts/daily_authority_release.py validate-staged" in closure_block
 
     replay_block = boundaries.workflow_job_block(text, "daily-pdf-dfkai-replay")
     source_gate_block = boundaries.workflow_job_block(
@@ -2153,7 +2155,7 @@ def test_daily_workflow_market_session_gate_is_main_only_and_fail_closed() -> No
         assert forbidden not in source_gate_block
 
 
-def test_recent_price_gap_workflow_persists_shared_market_session_evidence() -> None:
+def test_recent_price_gap_workflow_never_publishes_market_session_on_zero_repair() -> None:
     text = (ROOT / ".github" / "workflows" / "repair_recent_daily_price_gaps.yml").read_text(
         encoding="utf-8"
     )
@@ -2161,10 +2163,26 @@ def test_recent_price_gap_workflow_persists_shared_market_session_evidence() -> 
     assert "Reject non-main production dispatch" in text
     assert "github.ref_name != 'main'" in text
     assert "ref: main" in text
-    assert "data/market_calendar/exceptional_non_trading_days.csv" in text
-    assert "output/latest/market_session_status_latest.json" in text
-    assert "MARKET_SESSION_CHANGE_COUNT" in text
+    assert "if: env.REPAIR_ACTION_COUNT != '0'" in text
+    assert "MARKET_SESSION_CHANGE_COUNT" not in text
+    assert "git add output/latest/market_session_status_latest.json" not in text
+    assert "git add data/market_calendar/exceptional_non_trading_days.csv" not in text
     assert "bash scripts/ci_push_with_retry.sh main 5" in text
+
+
+def test_only_daily_full_pipeline_can_stage_authoritative_latest_surfaces() -> None:
+    workflows = ROOT / ".github" / "workflows"
+    for path in workflows.glob("*.yml"):
+        if path.name == "daily_full_pipeline.yml":
+            continue
+        text = path.read_text(encoding="utf-8")
+        assert "git add output/latest/market_session_status_latest.json" not in text, path.name
+        assert "git add output/latest/data_freshness_latest" not in text, path.name
+    daily = (workflows / "daily_full_pipeline.yml").read_text(encoding="utf-8")
+    assert "output/latest/market_session_status_latest.json" in daily
+    assert "output/latest/data_freshness_latest.csv" in daily
+    assert daily.count("python scripts/daily_authority_release.py publish") == 2
+    assert daily.count("python scripts/daily_authority_release.py validate-staged") == 2
 
 
 def test_daily_workflow_requires_current_usable_warrant_fetch_with_evidence() -> None:
@@ -2554,6 +2572,7 @@ def test_historical_structured_source_replay_workflow_wires_optional_price_high_
     ) == 4
     assert 'if [ -z "$PRICE_HISTORY_HIGH_WATER_DATE" ]; then\n            git add data/daily_price/' in text
     assert "git add output/latest/official_daily_price_latest.csv" in text
+    assert "git add output/latest/data_freshness_latest" not in text
 
 
 def test_historical_structured_source_replay_rejects_broad_stage_and_retry_push() -> None:
