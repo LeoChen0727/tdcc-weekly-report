@@ -122,7 +122,11 @@ def load_research_dispatch_registry(
             raise ValueError(
                 f"Apps Script scheduled research input must dispatch true: {input_name}"
             )
-        if normalized["activation_mode"] not in {"required", "when_declared"}:
+        if normalized["activation_mode"] not in {
+            "required",
+            "when_declared",
+            "workflow_only",
+        }:
             raise ValueError(
                 f"Apps Script research input has invalid activation_mode: {input_name}"
             )
@@ -165,20 +169,44 @@ def validate_research_dispatch_contract(
     errors: list[str],
     *,
     workflow_input_names: set[str],
+    workflow_input_defaults: dict[str, str | None],
+    workflow_input_types: dict[str, str | None],
     apps_inputs: set[str],
     guarded_inputs: set[str],
     registry: dict[str, dict[str, str]],
 ) -> None:
     registered_inputs = set(registry)
+    allowed_modes = {"required", "when_declared", "workflow_only"}
+    unknown_modes = {
+        name
+        for name, row in registry.items()
+        if row.get("activation_mode") not in allowed_modes
+    }
+    if unknown_modes:
+        errors.append(
+            "Apps Script research input registry has unknown activation modes: "
+            f"{sorted(unknown_modes)}"
+        )
     required_inputs = {
         name for name, row in registry.items() if row["activation_mode"] == "required"
     }
-    staged_inputs = registered_inputs - required_inputs
-    if apps_inputs != registered_inputs:
+    staged_inputs = {
+        name
+        for name, row in registry.items()
+        if row.get("activation_mode") == "when_declared"
+    }
+    workflow_only_inputs = {
+        name
+        for name, row in registry.items()
+        if row.get("activation_mode") == "workflow_only"
+    }
+    apps_script_registered_inputs = required_inputs | staged_inputs
+    if apps_inputs != apps_script_registered_inputs:
         errors.append(
-            "Apps Script research input source must exactly match its registry: "
-            f"missing={sorted(registered_inputs - apps_inputs)} "
-            f"unknown={sorted(apps_inputs - registered_inputs)}"
+            "Apps Script research input source must exactly match Apps Script-eligible "
+            "registry rows: "
+            f"missing={sorted(apps_script_registered_inputs - apps_inputs)} "
+            f"unknown={sorted(apps_inputs - apps_script_registered_inputs)}"
         )
     if guarded_inputs != staged_inputs:
         errors.append(
@@ -196,6 +224,44 @@ def validate_research_dispatch_contract(
         errors.append(
             "Research workflow is missing required Apps Script inputs: "
             f"{sorted(missing_required_workflow_inputs)}"
+        )
+    missing_workflow_only_inputs = workflow_only_inputs - workflow_input_names
+    if missing_workflow_only_inputs:
+        errors.append(
+            "Research workflow is missing workflow-only inputs: "
+            f"{sorted(missing_workflow_only_inputs)}"
+        )
+    wrong_workflow_only_defaults = {
+        name
+        for name in workflow_only_inputs & workflow_input_names
+        if workflow_input_defaults.get(name) != "false"
+    }
+    if wrong_workflow_only_defaults:
+        errors.append(
+            "Research workflow-only inputs must default false: "
+            f"{sorted(wrong_workflow_only_defaults)}"
+        )
+    wrong_workflow_only_types = {
+        name
+        for name in workflow_only_inputs & workflow_input_names
+        if workflow_input_types.get(name) != "boolean"
+    }
+    if wrong_workflow_only_types:
+        errors.append(
+            "Research workflow-only inputs must use type boolean: "
+            f"{sorted(wrong_workflow_only_types)}"
+        )
+    unexpected_workflow_only_apps_inputs = workflow_only_inputs & apps_inputs
+    if unexpected_workflow_only_apps_inputs:
+        errors.append(
+            "Research workflow-only inputs must not appear in Apps Script: "
+            f"{sorted(unexpected_workflow_only_apps_inputs)}"
+        )
+    unexpected_workflow_only_guarded_inputs = workflow_only_inputs & guarded_inputs
+    if unexpected_workflow_only_guarded_inputs:
+        errors.append(
+            "Research workflow-only inputs must not be guarded by Apps Script: "
+            f"{sorted(unexpected_workflow_only_guarded_inputs)}"
         )
     unsafe_extras = (apps_inputs - workflow_input_names) - staged_inputs
     if unsafe_extras:
@@ -697,6 +763,14 @@ def main() -> int:
     validate_research_dispatch_contract(
         errors,
         workflow_input_names=research_inputs,
+        workflow_input_defaults={
+            name: workflow_dispatch_input_property(research_workflow, name, "default")
+            for name in research_inputs
+        },
+        workflow_input_types={
+            name: workflow_dispatch_input_property(research_workflow, name, "type")
+            for name in research_inputs
+        },
         apps_inputs=apps_inputs,
         guarded_inputs=guarded_research_inputs,
         registry=research_registry,
