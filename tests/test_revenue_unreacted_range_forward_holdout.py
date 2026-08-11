@@ -1446,7 +1446,7 @@ def test_late_history_rewrite_failure_leaves_every_prior_surface_unchanged(
     assert after == before
 
 
-def test_injected_publish_io_failure_rolls_back_all_17_paths_byte_exact(
+def test_injected_publish_io_failure_after_eighth_target_rolls_back_all_17_paths_byte_exact(
     monkeypatch: pytest.MonkeyPatch,
     tmp_path: Path,
 ) -> None:
