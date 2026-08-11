@@ -727,7 +727,7 @@ def test_data_sharing_registry_uses_model_owned_research_entrypoints() -> None:
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
-    assert len(rows) == 24
+    assert len(rows) == 25
     baseline = rows[0]
     assert tuple(baseline) == DATA_SHARING_MIGRATION_COLUMNS
     assert data_migration_row_sha256(baseline) == BASELINE_DATA_MIGRATION_ROW_SHA256
@@ -1452,6 +1452,27 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
         "validated_user_approved_migration"
     )
 
+    forward_holdout_migration = rows[-1]
+    assert forward_holdout_migration["migration_id"] == (
+        "revenue_low_mid_falling_forward_holdout_20260811"
+    )
+    assert forward_holdout_migration["changed_data_families"] == (
+        "revenue_unreacted_range_forward_holdout"
+    )
+    assert forward_holdout_migration["previous_contract_sha256s"] == "NEW"
+    assert forward_holdout_migration["new_contract_sha256s"] == (
+        "6798ba95d83ead7fdb616d9eff730efa51614f399af7f831780b2183992caae5"
+    )
+    assert forward_holdout_migration["affected_models"] == (
+        "revenue_unreacted_range"
+    )
+    assert forward_holdout_migration["user_approval_reference"] == (
+        "user_authorized_revenue_low_mid_falling_forward_holdout_20260811"
+    )
+    assert forward_holdout_migration["migration_status"] == (
+        "validated_user_approved_migration"
+    )
+
 
 def test_forward_confirmation_artifact_lineage_uses_projection_not_current_source() -> None:
     rows = {
@@ -1486,6 +1507,46 @@ def test_forward_confirmation_artifact_lineage_uses_projection_not_current_sourc
         assert projection_manifest in sources
         assert projection_detail in sources
         assert mutable_source not in sources
+
+
+def test_forward_holdout_artifact_lineage_lists_only_actual_direct_inputs() -> None:
+    rows = {
+        row["artifact_path"]: row
+        for row in read_csv("config/report_artifact_lineage.csv")
+    }
+    prefix = "output/latest/research_backtest/revenue_unreacted_range_forward_holdout_"
+    projection_manifest = (
+        "output/latest/research_backtest/"
+        "revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv"
+    )
+    unconsumed_sources = {
+        "output/latest/research_backtest/"
+        "revenue_unreacted_range_source_snapshot_projection_detail_latest.csv",
+        "output/latest/research_backtest/"
+        "revenue_unreacted_range_low_mid_falling_candidate_audit_latest.csv",
+    }
+    for artifact_name in ("manifest", "event_detail"):
+        sources = rows[f"{prefix}{artifact_name}_latest.csv"][
+            "source_artifacts"
+        ].split(";")
+        assert projection_manifest in sources
+        assert unconsumed_sources.isdisjoint(sources)
+
+    for artifact_name in (
+        "manifest",
+        "event_detail",
+        "maturity_status",
+        "comparison",
+        "anomaly_sensitivity",
+    ):
+        history_path = (
+            "output/history/research/"
+            f"revenue_unreacted_range_forward_holdout_{artifact_name}.csv"
+        )
+        assert rows[history_path]["validator"] == (
+            "scripts/validate_revenue_unreacted_range_forward_holdout.py"
+        )
+
 
 def test_data_contract_hash_detects_point_in_time_or_forbidden_use_drift() -> None:
     row = read_csv("config/daily_model_background_data_registry.csv")[0]
@@ -1593,6 +1654,18 @@ def test_revenue_cross_market_research_artifact_lineage_is_complete() -> None:
             "output/history/research/revenue_unreacted_range_low_mid_falling_candidate_audit_detail.csv",
             "output/history/research/revenue_unreacted_range_low_mid_falling_candidate_audit_paired_confirmation.csv",
             "output/history/research/revenue_unreacted_range_low_mid_falling_candidate_audit_feature_contrast.csv",
+        },
+        "revenue_unreacted_range_forward_holdout": {
+            "output/latest/research_backtest/revenue_unreacted_range_forward_holdout_manifest_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_forward_holdout_event_detail_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_forward_holdout_maturity_status_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_forward_holdout_comparison_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_forward_holdout_anomaly_sensitivity_latest.csv",
+            "output/history/research/revenue_unreacted_range_forward_holdout_manifest.csv",
+            "output/history/research/revenue_unreacted_range_forward_holdout_event_detail.csv",
+            "output/history/research/revenue_unreacted_range_forward_holdout_maturity_status.csv",
+            "output/history/research/revenue_unreacted_range_forward_holdout_comparison.csv",
+            "output/history/research/revenue_unreacted_range_forward_holdout_anomaly_sensitivity.csv",
         },
     }
     row_by_path = {row["artifact_path"]: row for row in rows}

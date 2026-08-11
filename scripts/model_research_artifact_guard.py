@@ -126,6 +126,20 @@ def validate_changed_paths(
     return errors
 
 
+def validate_stage_changed_paths(
+    changed_paths: list[str],
+    allowed_changed_path_globs: tuple[str, ...],
+) -> list[str]:
+    """Restrict one model-owned stage to its declared artifact subset."""
+
+    allowed_globs = tuple(_normal_path(pattern) for pattern in allowed_changed_path_globs)
+    errors: list[str] = []
+    for path in sorted({_normal_path(item) for item in changed_paths}):
+        if not any(fnmatch.fnmatchcase(path, pattern) for pattern in allowed_globs):
+            errors.append(f"stage-specific artifact allowlist violation: {path}")
+    return errors
+
+
 def _git_status_paths(root: Path) -> set[str]:
     result = subprocess.run(
         ["git", "status", "--porcelain=v1", "--untracked-files=all"],
@@ -230,6 +244,7 @@ def model_owned_artifact_guard(
     root: Path = ROOT,
     registry_path: Path = DEFAULT_REGISTRY,
     sentinel_registry_path: Path = DEFAULT_SENTINEL_REGISTRY,
+    allowed_changed_path_globs: tuple[str, ...] | None = None,
 ) -> Iterator[None]:
     rules = load_ownership_rules(registry_path)
     sentinels = load_protected_sentinels(sentinel_registry_path)
@@ -244,6 +259,10 @@ def model_owned_artifact_guard(
     finally:
         changed = changed_during_run(root, before)
         errors = validate_changed_paths(model_id, producer, changed, rules)
+        if allowed_changed_path_globs is not None:
+            errors.extend(
+                validate_stage_changed_paths(changed, allowed_changed_path_globs)
+            )
         sentinel_after, sentinel_after_errors = protected_sentinel_snapshot(root, sentinels)
         sentinel_after_sha256 = protected_sentinel_aggregate_sha256(sentinel_after)
         errors.extend(sentinel_after_errors)

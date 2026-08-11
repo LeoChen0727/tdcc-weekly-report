@@ -166,6 +166,7 @@ REVENUE_CROSS_MARKET_CONSUMER_FAMILIES = (
     "revenue_unreacted_range_operation_lag_bucket_audit",
     "revenue_unreacted_range_position_shape_transition_matrix",
     "revenue_unreacted_range_low_mid_falling_candidate_audit",
+    "revenue_unreacted_range_forward_holdout",
 )
 REVENUE_CROSS_MARKET_RESOLUTION_SHA_TOKEN = (
     "resolution_registry_canonical_sha256="

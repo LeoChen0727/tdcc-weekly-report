@@ -273,6 +273,8 @@ jobs:
             tests/test_revenue_unreacted_range_position_shape_transition_matrix.py \
             tests/test_revenue_unreacted_range_low_mid_falling_candidate_audit.py \
             tests/test_validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py \
+            tests/test_revenue_unreacted_range_forward_holdout.py \
+            tests/test_validate_revenue_unreacted_range_forward_holdout.py \
             tests/test_revenue_unreacted_range_financial_statement_fail_closed.py \
             tests/test_repo_hidden_coupling_audit.py \
             tests/test_git_worktree_safety.py \

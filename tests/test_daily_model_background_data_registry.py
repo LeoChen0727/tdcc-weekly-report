@@ -105,6 +105,31 @@ def test_research_workflow_pre_registers_then_requires_full_artifact_validation(
     assert structure_index < producer_index < post_run_index < full_index < commit_index
 
 
+def test_revenue_forward_holdout_is_model_owned_right_censored_and_formal_use_blocked() -> None:
+    by_id = {row["data_family_id"]: row for row in registry_rows()}
+    row = by_id["revenue_unreacted_range_forward_holdout"]
+
+    assert row["scope"] == "model_research_output"
+    assert row["consumer_models"] == "revenue_unreacted_range"
+    assert row["validator"] == (
+        "scripts/validate_revenue_unreacted_range_forward_holdout.py"
+    )
+    assert "20260804" in row["point_in_time_status"]
+    assert "right_censored" in row["point_in_time_status"]
+    assert "bridge-period" in row["forbidden_use"]
+    assert "promotion evidence" in row["forbidden_use"]
+    assert "quarterly or annual financial statements are excluded" in row["forbidden_use"]
+    assert "436c25cd0d037c3425ab2ac4fa76cb464cf96de4" in row["notes"]
+    assert row["source_artifacts"].split(";") == [
+        "output/latest/research_backtest/"
+        "revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv",
+        "data/monthly_revenue_history/monthly_revenue_history.csv",
+        "data/stock_price_history/*.csv",
+        "config/revenue_unreacted_range_price_comparability_resolution.csv",
+        "config/revenue_unreacted_range_monthly_revenue_cross_market_resolution.csv",
+    ]
+
+
 def test_financial_statement_data_families_are_registered_and_formal_use_is_blocked() -> None:
     by_id = {row["data_family_id"]: row for row in registry_rows()}
     required = {

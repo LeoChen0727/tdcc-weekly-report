@@ -1,7 +1,9 @@
 from __future__ import annotations
 
+from contextlib import contextmanager
 import sys
 from pathlib import Path
+from types import SimpleNamespace
 
 import pytest
 
@@ -18,6 +20,7 @@ from model_research_artifact_guard import (  # noqa: E402
     protected_sentinel_snapshot,
     protected_sentinel_aggregate_sha256,
     validate_changed_paths,
+    validate_stage_changed_paths,
 )
 from validate_model_research_artifact_ownership import validate  # noqa: E402
 import model_research_artifact_guard as guard_module  # noqa: E402
@@ -55,6 +58,7 @@ def test_revenue_producer_accepts_only_revenue_artifacts() -> None:
             "output/latest/research_backtest/revenue_unreacted_range_low_mid_falling_candidate_audit_paired_confirmation_latest.csv",
             "output/latest/research_backtest/revenue_unreacted_range_low_mid_falling_candidate_audit_feature_contrast_latest.csv",
             "output/latest/research_backtest/revenue_unreacted_range_low_mid_falling_candidate_audit_latest.md",
+            "output/latest/research_backtest/revenue_unreacted_range_forward_holdout_manifest_latest.csv",
             "output/history/research/revenue_unreacted_range_feature_contrast_audit.csv",
             "output/history/research/revenue_unreacted_range_source_snapshot_projection_manifest.csv",
             "output/history/research/revenue_unreacted_range_position_shape_transition_matrix.csv",
@@ -63,6 +67,7 @@ def test_revenue_producer_accepts_only_revenue_artifacts() -> None:
             "output/history/research/revenue_unreacted_range_low_mid_falling_candidate_audit_detail.csv",
             "output/history/research/revenue_unreacted_range_low_mid_falling_candidate_audit_paired_confirmation.csv",
             "output/history/research/revenue_unreacted_range_low_mid_falling_candidate_audit_feature_contrast.csv",
+            "output/history/research/revenue_unreacted_range_forward_holdout_manifest.csv",
             "docs/latest/revenue_unreacted_range_feature_contrast_audit_latest.md",
             "docs/latest/revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv",
             "docs/latest/revenue_unreacted_range_position_shape_transition_matrix_latest.csv",
@@ -73,10 +78,153 @@ def test_revenue_producer_accepts_only_revenue_artifacts() -> None:
             "docs/latest/revenue_unreacted_range_low_mid_falling_candidate_audit_paired_confirmation_latest.csv",
             "docs/latest/revenue_unreacted_range_low_mid_falling_candidate_audit_feature_contrast_latest.csv",
             "docs/latest/revenue_unreacted_range_low_mid_falling_candidate_audit_latest.md",
+            "docs/latest/revenue_unreacted_range_forward_holdout_manifest_latest.csv",
         ],
         rules,
     )
     assert errors == []
+
+
+def test_forward_holdout_stage_accepts_exact_fifteen_artifacts_only() -> None:
+    from build_revenue_unreacted_range_research import (  # noqa: PLC0415
+        FORWARD_HOLDOUT_ALLOWED_ARTIFACT_PATHS,
+    )
+
+    assert len(FORWARD_HOLDOUT_ALLOWED_ARTIFACT_PATHS) == 15
+    assert len(set(FORWARD_HOLDOUT_ALLOWED_ARTIFACT_PATHS)) == 15
+    assert validate_stage_changed_paths(
+        list(FORWARD_HOLDOUT_ALLOWED_ARTIFACT_PATHS),
+        FORWARD_HOLDOUT_ALLOWED_ARTIFACT_PATHS,
+    ) == []
+
+
+def test_forward_holdout_stage_rejects_other_same_model_research_artifact() -> None:
+    from build_revenue_unreacted_range_research import (  # noqa: PLC0415
+        FORWARD_HOLDOUT_ALLOWED_ARTIFACT_PATHS,
+    )
+
+    errors = validate_stage_changed_paths(
+        [
+            "output/latest/research_backtest/"
+            "revenue_unreacted_range_low_mid_falling_candidate_audit_latest.csv"
+        ],
+        FORWARD_HOLDOUT_ALLOWED_ARTIFACT_PATHS,
+    )
+
+    assert errors == [
+        "stage-specific artifact allowlist violation: "
+        "output/latest/research_backtest/"
+        "revenue_unreacted_range_low_mid_falling_candidate_audit_latest.csv"
+    ]
+
+
+@pytest.mark.parametrize(
+    ("stage", "expected_allowlist"),
+    (
+        ("forward_holdout", "forward_holdout"),
+        ("launch_timing_feature_audit", None),
+    ),
+)
+def test_revenue_wrapper_passes_stage_allowlist_only_for_forward_holdout(
+    monkeypatch,
+    stage: str,
+    expected_allowlist: str | None,
+) -> None:
+    import build_revenue_unreacted_range_research as revenue_builder  # noqa: PLC0415
+
+    guard_calls: list[tuple[str, ...] | None] = []
+    builder_calls: list[str] = []
+
+    @contextmanager
+    def fake_guard(_model_id, _producer, **kwargs):
+        guard_calls.append(kwargs.get("allowed_changed_path_globs"))
+        yield
+
+    monkeypatch.setattr(revenue_builder, "model_owned_artifact_guard", fake_guard)
+    monkeypatch.setattr(
+        revenue_builder,
+        "parse_args",
+        lambda: SimpleNamespace(stage=stage),
+    )
+    monkeypatch.setattr(
+        revenue_builder,
+        "build_and_write_forward_holdout",
+        lambda: builder_calls.append("forward_holdout"),
+    )
+    monkeypatch.setattr(
+        revenue_builder,
+        "build_and_write_launch_timing_feature_audit",
+        lambda: builder_calls.append("launch_timing_feature_audit"),
+    )
+
+    assert revenue_builder.main() == 0
+    expected = (
+        revenue_builder.FORWARD_HOLDOUT_ALLOWED_ARTIFACT_PATHS
+        if expected_allowlist == "forward_holdout"
+        else None
+    )
+    assert guard_calls == [expected]
+    assert builder_calls == [stage]
+
+
+def test_stage_allowlist_is_opt_in_and_does_not_change_model_owner_validation() -> None:
+    rules = load_ownership_rules()
+    existing_revenue_artifact = (
+        "output/latest/research_backtest/"
+        "revenue_unreacted_range_feature_contrast_audit_latest.csv"
+    )
+
+    assert validate_changed_paths(
+        "revenue_unreacted_range",
+        REVENUE_PRODUCER,
+        [existing_revenue_artifact],
+        rules,
+    ) == []
+
+
+def test_model_owned_guard_enforces_optional_stage_allowlist(
+    tmp_path, monkeypatch
+) -> None:
+    ownership = tmp_path / "ownership.csv"
+    ownership.write_text(
+        "owner_model_id,producer,artifact_glob,artifact_class,change_policy,"
+        "formal_evidence_status,notes\n"
+        "revenue_unreacted_range,scripts/build_revenue_unreacted_range_research.py,"
+        "output/latest/research_backtest/revenue_unreacted_range_*,"
+        "model_research_output,model_owned_write,research_only,test\n",
+        encoding="utf-8",
+    )
+    sentinels = tmp_path / "sentinels.csv"
+    sentinels.write_text(
+        "sentinel_id,artifact_glob,owner,sentinel_class,required,notes\n"
+        "optional,output/latest/never_present.csv,mature_model,"
+        "formal_operation_adapter,False,test\n",
+        encoding="utf-8",
+    )
+    changed_path = (
+        "output/latest/research_backtest/"
+        "revenue_unreacted_range_low_mid_falling_candidate_audit_latest.csv"
+    )
+    monkeypatch.setattr(guard_module, "_dirty_snapshot", lambda _root: {})
+    monkeypatch.setattr(
+        guard_module,
+        "changed_during_run",
+        lambda _root, _before: [changed_path],
+    )
+
+    with pytest.raises(RuntimeError, match="stage-specific artifact allowlist violation"):
+        with guard_module.model_owned_artifact_guard(
+            "revenue_unreacted_range",
+            "scripts/build_revenue_unreacted_range_research.py",
+            root=tmp_path,
+            registry_path=ownership,
+            sentinel_registry_path=sentinels,
+            allowed_changed_path_globs=(
+                "output/latest/research_backtest/"
+                "revenue_unreacted_range_forward_holdout_*",
+            ),
+        ):
+            pass
 
 
 def test_revenue_producer_fails_on_other_model_or_snapshot_changes() -> None:

@@ -29,6 +29,9 @@ from revenue_unreacted_range_forward_confirmation_feature_audit import (
     prepare_daily_by_stock,
     write_forward_confirmation_feature_audit,
 )
+from revenue_unreacted_range_forward_holdout import (
+    build_and_write_current_forward_holdout,
+)
 from revenue_unreacted_range_rearmed_operation_grid import (
     PRICE_HISTORY_CUTOFF_DATE,
     build_rearmed_operation_grid,
@@ -77,6 +80,23 @@ from revenue_unreacted_range_research_frame import (
 
 MODEL_ID = "revenue_unreacted_range"
 PRODUCER = "scripts/build_revenue_unreacted_range_research.py"
+FORWARD_HOLDOUT_ALLOWED_ARTIFACT_PATHS = (
+    "docs/latest/revenue_unreacted_range_forward_holdout_anomaly_sensitivity_latest.csv",
+    "docs/latest/revenue_unreacted_range_forward_holdout_comparison_latest.csv",
+    "docs/latest/revenue_unreacted_range_forward_holdout_event_detail_latest.csv",
+    "docs/latest/revenue_unreacted_range_forward_holdout_manifest_latest.csv",
+    "docs/latest/revenue_unreacted_range_forward_holdout_maturity_status_latest.csv",
+    "output/history/research/revenue_unreacted_range_forward_holdout_anomaly_sensitivity.csv",
+    "output/history/research/revenue_unreacted_range_forward_holdout_comparison.csv",
+    "output/history/research/revenue_unreacted_range_forward_holdout_event_detail.csv",
+    "output/history/research/revenue_unreacted_range_forward_holdout_manifest.csv",
+    "output/history/research/revenue_unreacted_range_forward_holdout_maturity_status.csv",
+    "output/latest/research_backtest/revenue_unreacted_range_forward_holdout_anomaly_sensitivity_latest.csv",
+    "output/latest/research_backtest/revenue_unreacted_range_forward_holdout_comparison_latest.csv",
+    "output/latest/research_backtest/revenue_unreacted_range_forward_holdout_event_detail_latest.csv",
+    "output/latest/research_backtest/revenue_unreacted_range_forward_holdout_manifest_latest.csv",
+    "output/latest/research_backtest/revenue_unreacted_range_forward_holdout_maturity_status_latest.csv",
+)
 
 
 def load_immutable_source_snapshot_projection() -> tuple[pd.DataFrame, pd.DataFrame]:
@@ -427,6 +447,10 @@ def build_and_write_low_mid_falling_candidate_audit() -> None:
     )
 
 
+def build_and_write_forward_holdout() -> None:
+    build_and_write_current_forward_holdout()
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Build model-owned revenue_unreacted_range research artifacts.")
     parser.add_argument(
@@ -442,6 +466,7 @@ def parse_args() -> argparse.Namespace:
             "operation_lag_bucket_audit",
             "position_shape_transition_matrix",
             "low_mid_falling_candidate_audit",
+            "forward_holdout",
         ),
         default="all",
         help="Run the full producer or one model-owned audit stage.",
@@ -451,7 +476,16 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> int:
     args = parse_args()
-    with model_owned_artifact_guard(MODEL_ID, PRODUCER):
+    stage_allowlist = (
+        FORWARD_HOLDOUT_ALLOWED_ARTIFACT_PATHS
+        if args.stage == "forward_holdout"
+        else None
+    )
+    with model_owned_artifact_guard(
+        MODEL_ID,
+        PRODUCER,
+        allowed_changed_path_globs=stage_allowlist,
+    ):
         if args.stage == "launch_timing_feature_audit":
             build_and_write_launch_timing_feature_audit()
         elif args.stage == "source_first_condition_audit":
@@ -470,6 +504,8 @@ def main() -> int:
             build_and_write_position_shape_transition_matrix()
         elif args.stage == "low_mid_falling_candidate_audit":
             build_and_write_low_mid_falling_candidate_audit()
+        elif args.stage == "forward_holdout":
+            build_and_write_forward_holdout()
         else:
             build_and_write()
     return 0
