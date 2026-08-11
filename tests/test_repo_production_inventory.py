@@ -2042,10 +2042,11 @@ def test_input_bound_validator_stage_a_preauthorizations_are_exact() -> None:
     payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
     rows, errors = inventory.parse_pr_safe_authorizations(payload)
     assert errors == []
-    assert [row["migration_id"] for row in rows[-3:]] == [
+    assert [row["migration_id"] for row in rows[-4:]] == [
         inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_MIGRATION_ID,
         inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_STAGE_A_MIGRATION_ID,
         inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_ID,
+        inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_TARGET_ID,
     ]
     rows_by_id = {row["migration_id"]: row for row in rows}
     assert rows_by_id[inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_MIGRATION_ID] == {
@@ -2124,6 +2125,40 @@ def test_input_bound_validator_stage_a_preauthorizations_are_exact() -> None:
     assert inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_SHA256_BY_PATH[
         "config/repo_production_inventory.csv"
     ] == "0273f04dc00d040b5890b3036fc10521b1c295e570aab9b48d7300914d47eac2"
+    assert rows_by_id[
+        inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_TARGET_ID
+    ] == {
+        "migration_id": (
+            inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_TARGET_ID
+        ),
+        "status": "preauthorized",
+        "approval_reference": "user_authorized_pr524_exact_target_preauthorization_20260812",
+        "base_helper_sha256": (
+            inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_BASE_SHA256_BY_PATH[
+                inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_HELPER
+            ]
+        ),
+        "current_helper_sha256": (
+            inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_TARGET_SHA256_BY_PATH[
+                inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_HELPER
+            ]
+        ),
+        "current_test_sha256": (
+            inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_TARGET_SHA256_BY_PATH[
+                inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_TEST
+            ]
+        ),
+        "changed_paths": ";".join(
+            sorted(inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_PATHS)
+        ),
+    }
+    assert len(inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_PATHS) == 19
+    assert inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_BASE_SHA256_BY_PATH[
+        "config/repo_file_lifecycle_inventory.csv"
+    ] == "f68002587c18ca4463d80a9ba41859e6ca06b75872566242a2ce64a0fb230431"
+    assert inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_TARGET_SHA256_BY_PATH[
+        "config/repo_file_lifecycle_inventory.csv"
+    ] == "fc1fb68e6d4a4910e79386d23aed7837ce41ea9c738ad43a2992eef9c8f9e632"
 
 
 def test_input_bound_validator_stage_a_rejects_mixed_or_drifted_target() -> None:
@@ -2311,6 +2346,84 @@ def test_revenue_forward_holdout_target_uses_base_owned_ledger(
         current_helper=current_helper + b"drift",
         current_test=current_test,
         authorization_payload=payload,
+    )
+
+
+def test_revenue_forward_holdout_replay_detail_target_matches_frozen_git_objects(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    base_ref = inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_BASE_CONTENT_REF_SHA
+    target_ref = "a005b620328b9806271022539d32224a5ab7886f"
+    paths = set(inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_PATHS)
+    kwargs = {
+        "base_ref": base_ref,
+        "changed_paths": paths,
+        "repository_root": ROOT,
+        "head_ref": target_ref,
+    }
+    assert inventory.is_preauthorized_revenue_forward_holdout_target(**kwargs)
+    assert not inventory.is_preauthorized_revenue_forward_holdout_target(
+        **{**kwargs, "changed_paths": {*paths, "scripts/unregistered.py"}}
+    )
+    assert not inventory.is_preauthorized_revenue_forward_holdout_target(
+        **{**kwargs, "base_ref": "0" * 40}
+    )
+
+    helper = inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_HELPER
+    expected_helper_sha = (
+        inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_TARGET_SHA256_BY_PATH[
+            helper
+        ]
+    )
+    monkeypatch.setitem(
+        inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_TARGET_SHA256_BY_PATH,
+        helper,
+        "0" * 64,
+    )
+    assert not inventory.is_preauthorized_revenue_forward_holdout_target(**kwargs)
+    monkeypatch.setitem(
+        inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_TARGET_SHA256_BY_PATH,
+        helper,
+        expected_helper_sha,
+    )
+
+    original_mode = inventory._pr_safe_repo_blob_mode
+    monkeypatch.setattr(
+        inventory,
+        "_pr_safe_repo_blob_mode",
+        lambda root, ref, path: (
+            "100755"
+            if ref == target_ref and path == helper
+            else original_mode(root, ref, path)
+        ),
+    )
+    assert not inventory.is_preauthorized_revenue_forward_holdout_target(**kwargs)
+
+
+def test_revenue_forward_holdout_replay_detail_target_uses_base_owned_ledger() -> None:
+    base_ref = inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_BASE_CONTENT_REF_SHA
+    target_ref = "a005b620328b9806271022539d32224a5ab7886f"
+    helper = inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_HELPER
+    direct_test = inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_TEST
+    base_helper = inventory.git_blob_at_ref(base_ref, helper)
+    current_helper = inventory.git_blob_at_ref(target_ref, helper)
+    current_test = inventory.git_blob_at_ref(target_ref, direct_test)
+    authorization_payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
+    errors = inventory.validate_pr_safe_control_plane_delta(
+        set(inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_PATHS),
+        base_helper=base_helper,
+        current_helper=current_helper,
+        current_test=current_test,
+        authorization_payload=authorization_payload,
+    )
+    assert errors == []
+    assert current_helper is not None
+    assert inventory.validate_pr_safe_control_plane_delta(
+        set(inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_PATHS),
+        base_helper=base_helper,
+        current_helper=current_helper + b"drift",
+        current_test=current_test,
+        authorization_payload=authorization_payload,
     )
 
 
