@@ -35,7 +35,7 @@ from revenue_unreacted_range_forward_holdout import (  # noqa: E402
     TRAINING_CUTOFF_DATE,
     build_forward_holdout,
     validate_append_only_history,
-    write_forward_holdout,
+    write_forward_holdout as _write_forward_holdout,
 )
 
 
@@ -314,6 +314,22 @@ def holdout_inputs() -> tuple[pd.DataFrame, dict[str, pd.DataFrame], pd.DataFram
         )
     source = pd.DataFrame(rows)
     return source, daily, _source_manifest(len(source))
+
+
+def write_forward_holdout(
+    *frames: pd.DataFrame,
+    replay_source_detail: pd.DataFrame | None = None,
+    **kwargs: object,
+) -> dict[str, Path]:
+    """Exercise the production 17-path writer with an exact raw source input."""
+
+    if replay_source_detail is None:
+        replay_source_detail = holdout_inputs()[0]
+    return _write_forward_holdout(
+        *frames,
+        replay_source_detail=replay_source_detail,
+        **kwargs,
+    )
 
 
 def _build():
@@ -1090,7 +1106,7 @@ def test_append_only_history_is_idempotent_across_generated_at_only() -> None:
         validate_append_only_history(existing, regenerated)
 
 
-def test_writer_preserves_all_15_bytes_for_idempotent_semantic_capture(
+def test_writer_preserves_all_17_bytes_for_idempotent_semantic_capture(
     tmp_path: Path,
 ) -> None:
     source, daily, source_manifest = holdout_inputs()
@@ -1156,7 +1172,9 @@ def test_writer_preserves_all_15_bytes_for_idempotent_semantic_capture(
     # If all three mirrors already share a semantically valid raw encoding,
     # idempotency preserves those exact bytes instead of normalizing only the
     # latest/docs pair and splitting it from append-only history.
-    for path in paths.values():
+    for name, path in paths.items():
+        if name.startswith("replay_source_"):
+            continue
         path.write_bytes(path.read_bytes().replace(b"\n", b"\r\n"))
     all_crlf = {name: path.read_bytes() for name, path in paths.items()}
     write_forward_holdout(*regenerated, output_root=tmp_path)
@@ -1182,7 +1200,7 @@ def test_writer_keeps_byte_equal_mirrors_inside_research_only_scope(
         anomaly,
         output_root=tmp_path,
     )
-    assert len(paths) == 15
+    assert len(paths) == 17
     forbidden = (
         "daily_candidate",
         "model_operation",
@@ -1257,6 +1275,99 @@ def test_writer_keeps_byte_equal_mirrors_inside_research_only_scope(
             paths[f"{artifact}_history"], keep_default_na=False, low_memory=False
         )
         assert len(persisted) == len(first_frame) + len(next_frame)
+
+
+def test_writer_fails_closed_without_replay_source_detail(tmp_path: Path) -> None:
+    frames = _build()[:5]
+
+    with pytest.raises(RuntimeError, match="replay source detail is required"):
+        holdout_module.write_forward_holdout(*frames, output_root=tmp_path)
+
+    assert not list(tmp_path.rglob("revenue_unreacted_range_forward_holdout_*"))
+
+    empty_source = holdout_inputs()[0].iloc[0:0].copy()
+    with pytest.raises(RuntimeError, match="replay source detail is empty"):
+        holdout_module.write_forward_holdout(
+            *frames,
+            replay_source_detail=empty_source,
+            output_root=tmp_path,
+        )
+
+    assert not list(tmp_path.rglob("revenue_unreacted_range_forward_holdout_*"))
+
+
+def test_writer_publishes_exact_seventeen_paths_with_bound_replay_source(
+    tmp_path: Path,
+) -> None:
+    source, daily, source_manifest = holdout_inputs()
+    replay_source = source.copy().reset_index(drop=True)
+    frames = build_forward_holdout(
+        replay_source,
+        daily,
+        source_manifest=source_manifest,
+        generated_at=GENERATED_AT,
+    )
+
+    paths = write_forward_holdout(
+        *frames,
+        replay_source_detail=replay_source,
+        output_root=tmp_path,
+    )
+
+    assert len(paths) == 17
+    assert len(set(paths.values())) == 17
+    assert paths["replay_source_latest"].relative_to(tmp_path).as_posix() == (
+        "output/latest/research_backtest/"
+        "revenue_unreacted_range_forward_holdout_replay_source_detail_latest.csv"
+    )
+    assert paths["replay_source_docs"].relative_to(tmp_path).as_posix() == (
+        "docs/latest/"
+        "revenue_unreacted_range_forward_holdout_replay_source_detail_latest.csv"
+    )
+    assert paths["replay_source_latest"].read_bytes() == paths[
+        "replay_source_docs"
+    ].read_bytes()
+
+    persisted_source = pd.read_csv(
+        paths["replay_source_latest"],
+        dtype={"stock_id": str},
+        keep_default_na=False,
+        low_memory=False,
+    )
+    canonical_persisted_source = holdout_module._normalize_source(
+        persisted_source
+    ).reset_index(drop=True)
+    assert holdout_module._canonical_frame_sha256(canonical_persisted_source) == str(
+        frames[0].iloc[0]["source_detail_canonical_sha256"]
+    )
+
+
+def _read_forward_holdout_publish(
+    paths: dict[str, Path],
+) -> tuple[list[pd.DataFrame], dict[str, pd.DataFrame], pd.DataFrame]:
+    dtype = {
+        "stock_id": str,
+        "trigger_date": str,
+        "entry_date": str,
+        "exit_date": str,
+        "capture_id": str,
+        "artifact_row_key": str,
+    }
+
+    def read(path: Path) -> pd.DataFrame:
+        return pd.read_csv(
+            path,
+            dtype=dtype,
+            keep_default_na=False,
+            low_memory=False,
+        )
+
+    names = ("manifest", "detail", "summary", "comparison", "anomaly")
+    return (
+        [read(paths[f"{name}_latest"]) for name in names],
+        {name: read(paths[f"{name}_history"]) for name in names},
+        read(paths["replay_source_latest"]),
+    )
 
 
 def test_writer_rejects_partial_four_of_five_git_base_before_publish(
@@ -1335,7 +1446,7 @@ def test_late_history_rewrite_failure_leaves_every_prior_surface_unchanged(
     assert after == before
 
 
-def test_injected_publish_io_failure_rolls_back_all_15_paths_byte_exact(
+def test_injected_publish_io_failure_rolls_back_all_17_paths_byte_exact(
     monkeypatch: pytest.MonkeyPatch,
     tmp_path: Path,
 ) -> None:
@@ -1381,7 +1492,7 @@ def test_injected_publish_io_failure_rolls_back_all_15_paths_byte_exact(
     assert not list(tmp_path.rglob("*.tmp"))
 
 
-def test_post_publish_replay_failure_rolls_back_all_15_paths_byte_exact(
+def test_post_publish_replay_failure_rolls_back_all_17_paths_byte_exact(
     tmp_path: Path,
 ) -> None:
     first = _build()[:5]
@@ -1420,6 +1531,122 @@ def test_post_publish_replay_failure_rolls_back_all_15_paths_byte_exact(
     assert not list(tmp_path.rglob("*.tmp"))
 
 
+def test_replay_source_drift_fails_before_mutating_all_17_paths(
+    tmp_path: Path,
+) -> None:
+    source, daily, source_manifest = holdout_inputs()
+    replay_source = source.copy().reset_index(drop=True)
+    frames = build_forward_holdout(
+        replay_source,
+        daily,
+        source_manifest=source_manifest,
+        generated_at=GENERATED_AT,
+    )
+    paths = write_forward_holdout(
+        *frames,
+        replay_source_detail=replay_source,
+        output_root=tmp_path,
+    )
+    before = {name: path.read_bytes() for name, path in paths.items()}
+    corrupted_source = replay_source.copy()
+    corrupted_source.at[corrupted_source.index[0], "stock_name"] = "corrupted-name"
+
+    with pytest.raises(
+        RuntimeError,
+        match="replay source detail SHA-256 disagrees with the manifest",
+    ):
+        write_forward_holdout(
+            *frames,
+            replay_source_detail=corrupted_source,
+            output_root=tmp_path,
+        )
+
+    assert {name: path.read_bytes() for name, path in paths.items()} == before
+    assert not list(tmp_path.rglob("*.tmp"))
+
+
+def test_missing_replay_source_mirror_rolls_back_all_17_paths_byte_exact(
+    tmp_path: Path,
+) -> None:
+    source, daily, source_manifest = holdout_inputs()
+    replay_source = source.copy().reset_index(drop=True)
+    frames = build_forward_holdout(
+        replay_source,
+        daily,
+        source_manifest=source_manifest,
+        generated_at=GENERATED_AT,
+    )
+    paths = write_forward_holdout(
+        *frames,
+        replay_source_detail=replay_source,
+        output_root=tmp_path,
+    )
+    before = {name: path.read_bytes() for name, path in paths.items()}
+
+    def delete_docs_mirror(candidate_paths: dict[str, Path]) -> None:
+        candidate_paths["replay_source_docs"].unlink()
+        raise RuntimeError("missing replay source docs mirror")
+
+    with pytest.raises(
+        RuntimeError,
+        match="rolled back.*missing replay source docs mirror",
+    ):
+        write_forward_holdout(
+            *frames,
+            replay_source_detail=replay_source,
+            output_root=tmp_path,
+            post_publish_check=delete_docs_mirror,
+        )
+
+    assert {name: path.read_bytes() for name, path in paths.items()} == before
+    assert not list(tmp_path.rglob("*.tmp"))
+
+
+def test_injected_publish_io_failure_rolls_back_all_17_paths_byte_exact(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    source, daily, source_manifest = holdout_inputs()
+    replay_source = source.copy().reset_index(drop=True)
+    frames = build_forward_holdout(
+        replay_source,
+        daily,
+        source_manifest=source_manifest,
+        generated_at=GENERATED_AT,
+    )
+    paths = write_forward_holdout(
+        *frames,
+        replay_source_detail=replay_source,
+        output_root=tmp_path,
+    )
+    before = {name: path.read_bytes() for name, path in paths.items()}
+    real_replace = holdout_module._replace_file
+    calls = {"count": 0, "failed": False}
+
+    def fail_once_after_fifteen_targets(source_path: Path, target_path: Path) -> None:
+        calls["count"] += 1
+        if calls["count"] == 16 and not calls["failed"]:
+            calls["failed"] = True
+            raise OSError("injected replay-source publish failure")
+        real_replace(source_path, target_path)
+
+    monkeypatch.setattr(
+        holdout_module,
+        "_replace_file",
+        fail_once_after_fifteen_targets,
+    )
+    with pytest.raises(RuntimeError, match="every target was rolled back"):
+        write_forward_holdout(
+            *frames,
+            replay_source_detail=replay_source,
+            output_root=tmp_path,
+        )
+
+    assert calls["failed"]
+    assert {name: path.read_bytes() for name, path in paths.items()} == before
+    assert not list(tmp_path.rglob("*.tmp"))
+
+
 def test_publish_lock_rejects_concurrent_writer_without_target_drift(
     tmp_path: Path,
 ) -> None:
@@ -1451,10 +1678,16 @@ def test_publish_lock_is_held_through_transaction_temporary_cleanup(
     real_publish = holdout_module._publish_payloads_transactionally
     observed = {"returned_with_lock": False}
 
-    def observe_publish(payloads, *, post_publish_check=None):
+    def observe_publish(
+        payloads,
+        *,
+        expected_path_count=17,
+        post_publish_check=None,
+    ):
         assert lock_path.is_file()
         result = real_publish(
             payloads,
+            expected_path_count=expected_path_count,
             post_publish_check=post_publish_check,
         )
         assert lock_path.is_file()
@@ -1600,6 +1833,7 @@ def _install_stage_validation_harness(
     validation_errors: list[str],
 ) -> tuple[dict[str, object], dict[str, Path]]:
     source_detail = pd.DataFrame([{"source": "bounded"}])
+    persisted_source = source_detail.copy()
     daily_by_stock = {"1111": pd.DataFrame([{"date": "20260810"}])}
     source_manifest = pd.DataFrame([{"manifest": "pinned"}])
     frames = tuple(
@@ -1611,6 +1845,12 @@ def _install_stage_validation_harness(
         for name in ("manifest", "detail", "summary", "comparison", "anomaly")
         for surface in ("latest", "history")
     }
+    paths.update(
+        {
+            "replay_source_latest": tmp_path / "replay_source_detail_latest.csv",
+            "replay_source_docs": tmp_path / "replay_source_detail_docs.csv",
+        }
+    )
     name_to_frame = {
         name: frame
         for name, frame in zip(
@@ -1626,21 +1866,27 @@ def _install_stage_validation_harness(
         "_materialize_current_forward_holdout_inputs",
         lambda: (source_detail, daily_by_stock, source_manifest),
     )
-
     def fake_build(source, daily, *, source_manifest):
         observed["events"].append("build")
         assert source is source_detail
+        observed["in_memory_source"] = source
         assert daily is daily_by_stock
         assert source_manifest is source_manifest_fixture
         return frames
 
     source_manifest_fixture = source_manifest
 
-    def fake_write(*written_frames, output_root=None, post_publish_check=None):
+    def fake_write(
+        *written_frames,
+        replay_source_detail=None,
+        output_root=None,
+        post_publish_check=None,
+    ):
         write_kind = "staged" if output_root is not None else "real"
         observed["events"].append(f"write:{write_kind}")
         for actual, expected in zip(written_frames, frames, strict=True):
             pd.testing.assert_frame_equal(actual, expected)
+        assert replay_source_detail is source_detail
         if output_root is None:
             result = paths
         else:
@@ -1650,12 +1896,24 @@ def _install_stage_validation_harness(
                 for name in ("manifest", "detail", "summary", "comparison", "anomaly")
                 for surface in ("latest", "history")
             }
+            result.update(
+                {
+                    "replay_source_latest": root / "replay_source_detail_latest.csv",
+                    "replay_source_docs": root / "replay_source_detail_docs.csv",
+                }
+            )
+        replay_payload = persisted_source.to_csv(index=False).encode("utf-8")
+        for key in ("replay_source_latest", "replay_source_docs"):
+            result[key].parent.mkdir(parents=True, exist_ok=True)
+            result[key].write_bytes(replay_payload)
         if post_publish_check is not None:
             post_publish_check(result)
         return result
 
     def fake_read_csv(path, **_kwargs):
         observed["events"].append(f"read:{Path(path).stem}")
+        if "replay_source_detail" in Path(path).stem:
+            return persisted_source.copy()
         name = Path(path).stem.removesuffix("_latest").removesuffix("_history")
         return name_to_frame[name].copy()
 
@@ -1669,9 +1927,14 @@ def _install_stage_validation_harness(
     ):
         observed["events"].append("validate")
         observed["validate_calls"] = int(observed["validate_calls"]) + 1
+        observed.setdefault("validated_sources", []).append(source_detail)
         for actual, expected in zip(persisted, frames, strict=True):
             pd.testing.assert_frame_equal(actual, expected)
-        assert source_detail is source_detail_fixture
+        if int(observed["validate_calls"]) == 1:
+            assert source_detail is observed["in_memory_source"]
+        else:
+            pd.testing.assert_frame_equal(source_detail, persisted_source)
+            assert source_detail is not observed["in_memory_source"]
         assert daily_by_stock is daily_fixture
         assert source_manifest is source_manifest_fixture
         if int(observed["validate_calls"]) > 1:
@@ -1686,7 +1949,6 @@ def _install_stage_validation_harness(
         # the first persisted replay so the failure proves write/read gating.
         return list(validation_errors) if int(observed["validate_calls"]) > 1 else []
 
-    source_detail_fixture = source_detail
     daily_fixture = daily_by_stock
     monkeypatch.setattr(holdout_module, "build_forward_holdout", fake_build)
     monkeypatch.setattr(holdout_module, "write_forward_holdout", fake_write)
@@ -1714,7 +1976,12 @@ def test_forward_holdout_stage_validates_persisted_surfaces_after_write(
     assert events[-1] == "validate"
     assert events.count("write:staged") == 1
     assert events.count("write:real") == 1
-    assert len([event for event in events if str(event).startswith("read:")]) == 20
+    assert len([event for event in events if str(event).startswith("read:")]) == 22
+    validated_sources = observed["validated_sources"]
+    assert validated_sources[0] is observed["in_memory_source"]
+    assert validated_sources[1] is not observed["in_memory_source"]
+    assert validated_sources[2] is not observed["in_memory_source"]
+    pd.testing.assert_frame_equal(validated_sources[1], validated_sources[2])
 
 
 def test_forward_holdout_stage_fails_closed_on_independent_validation_error(

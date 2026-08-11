@@ -58,6 +58,7 @@ def test_revenue_producer_accepts_only_revenue_artifacts() -> None:
             "output/latest/research_backtest/revenue_unreacted_range_low_mid_falling_candidate_audit_feature_contrast_latest.csv",
             "output/latest/research_backtest/revenue_unreacted_range_low_mid_falling_candidate_audit_latest.md",
             "output/latest/research_backtest/revenue_unreacted_range_forward_holdout_manifest_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_forward_holdout_replay_source_detail_latest.csv",
             "output/history/research/revenue_unreacted_range_feature_contrast_audit.csv",
             "output/history/research/revenue_unreacted_range_source_snapshot_projection_manifest.csv",
             "output/history/research/revenue_unreacted_range_position_shape_transition_matrix.csv",
@@ -78,23 +79,40 @@ def test_revenue_producer_accepts_only_revenue_artifacts() -> None:
             "docs/latest/revenue_unreacted_range_low_mid_falling_candidate_audit_feature_contrast_latest.csv",
             "docs/latest/revenue_unreacted_range_low_mid_falling_candidate_audit_latest.md",
             "docs/latest/revenue_unreacted_range_forward_holdout_manifest_latest.csv",
+            "docs/latest/revenue_unreacted_range_forward_holdout_replay_source_detail_latest.csv",
         ],
         rules,
     )
     assert errors == []
 
 
-def test_forward_holdout_stage_accepts_exact_fifteen_artifacts_only() -> None:
+def test_forward_holdout_stage_accepts_exact_seventeen_artifacts_only() -> None:
     from build_revenue_unreacted_range_research import (  # noqa: PLC0415
         FORWARD_HOLDOUT_ALLOWED_ARTIFACT_PATHS,
         validate_forward_holdout_stage_changed_paths,
     )
 
-    assert len(FORWARD_HOLDOUT_ALLOWED_ARTIFACT_PATHS) == 15
-    assert len(set(FORWARD_HOLDOUT_ALLOWED_ARTIFACT_PATHS)) == 15
+    assert len(FORWARD_HOLDOUT_ALLOWED_ARTIFACT_PATHS) == 17
+    assert len(set(FORWARD_HOLDOUT_ALLOWED_ARTIFACT_PATHS)) == 17
+    assert {
+        "output/latest/research_backtest/"
+        "revenue_unreacted_range_forward_holdout_replay_source_detail_latest.csv",
+        "docs/latest/"
+        "revenue_unreacted_range_forward_holdout_replay_source_detail_latest.csv",
+    }.issubset(FORWARD_HOLDOUT_ALLOWED_ARTIFACT_PATHS)
     assert validate_forward_holdout_stage_changed_paths(
         list(FORWARD_HOLDOUT_ALLOWED_ARTIFACT_PATHS)
     ) == []
+
+    eighteenth = (
+        "output/latest/research_backtest/"
+        "revenue_unreacted_range_forward_holdout_unregistered_surface_latest.csv"
+    )
+    assert validate_forward_holdout_stage_changed_paths(
+        [*FORWARD_HOLDOUT_ALLOWED_ARTIFACT_PATHS, eighteenth]
+    ) == [
+        "forward holdout stage artifact allowlist violation: " + eighteenth
+    ]
 
 
 def test_forward_holdout_stage_rejects_other_same_model_research_artifact() -> None:

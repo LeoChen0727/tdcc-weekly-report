@@ -122,11 +122,17 @@ def test_revenue_forward_holdout_is_model_owned_right_censored_and_formal_use_bl
     assert "436c25cd0d037c3425ab2ac4fa76cb464cf96de4" in row["notes"]
     assert row["source_artifacts"].split(";") == [
         "output/latest/research_backtest/"
+        "revenue_unreacted_range_forward_holdout_replay_source_detail_latest.csv",
+        "output/latest/research_backtest/"
         "revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv",
         "data/monthly_revenue_history/monthly_revenue_history.csv",
         "data/stock_price_history/*.csv",
         "config/revenue_unreacted_range_price_comparability_resolution.csv",
         "config/revenue_unreacted_range_monthly_revenue_cross_market_resolution.csv",
+    ]
+    assert "current exact replay source detail" in row["notes"]
+    assert "historical captures do not claim archived independent input replay" in row[
+        "notes"
     ]
 
 

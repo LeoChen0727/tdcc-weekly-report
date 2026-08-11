@@ -284,8 +284,21 @@ DEFAULT_OUTPUT_RELATIVE_PATHS = {
         ),
     )
 }
+REPLAY_SOURCE_OUTPUT_RELATIVE_PATHS = {
+    "replay_source_latest": (
+        f"output/latest/research_backtest/{ARTIFACT_ID}_replay_source_detail_latest.csv"
+    ),
+    "replay_source_docs": (
+        f"docs/latest/{ARTIFACT_ID}_replay_source_detail_latest.csv"
+    ),
+}
 FORWARD_HOLDOUT_ALLOWED_ARTIFACT_PATHS = tuple(
-    sorted(DEFAULT_OUTPUT_RELATIVE_PATHS.values())
+    sorted(
+        (
+            *DEFAULT_OUTPUT_RELATIVE_PATHS.values(),
+            *REPLAY_SOURCE_OUTPUT_RELATIVE_PATHS.values(),
+        )
+    )
 )
 
 SHA256_PATTERN = re.compile(r"^[0-9a-f]{64}$")
@@ -1838,11 +1851,13 @@ def _replace_file(source: Path, target: Path) -> None:
 def _publish_payloads_transactionally(
     payloads: Mapping[Path, bytes],
     *,
+    expected_path_count: int = 17,
     post_publish_check: Callable[[], None] | None = None,
 ) -> None:
-    if len(payloads) != 15:
+    if len(payloads) != expected_path_count:
         raise RuntimeError(
-            f"forward holdout publish transaction requires 15 paths, got {len(payloads)}"
+            "forward holdout publish transaction path-count drift: "
+            f"expected={expected_path_count} observed={len(payloads)}"
         )
     targets = list(payloads)
     original_payloads: dict[Path, bytes | None] = {}
@@ -1867,7 +1882,8 @@ def _publish_payloads_transactionally(
             if temporary is not None:
                 temporary.unlink(missing_ok=True)
         raise RuntimeError(
-            "forward holdout 15-path publish staging failed before target mutation"
+            f"forward holdout {expected_path_count}-path publish staging failed "
+            "before target mutation"
         ) from exc
 
     try:
@@ -1905,11 +1921,13 @@ def _publish_payloads_transactionally(
                 temporary.unlink(missing_ok=True)
         if rollback_errors:
             raise RuntimeError(
-                "forward holdout 15-path publish failed and rollback was incomplete: "
+                f"forward holdout {expected_path_count}-path publish failed and "
+                "rollback was incomplete: "
                 + "; ".join(rollback_errors)
             ) from exc
         raise RuntimeError(
-            "forward holdout 15-path publish failed; every target was rolled back: "
+            f"forward holdout {expected_path_count}-path publish failed; every target "
+            "was rolled back: "
             f"{exc}"
         ) from exc
     finally:
@@ -2066,11 +2084,36 @@ def write_forward_holdout(
     comparison: pd.DataFrame,
     anomaly_sensitivity: pd.DataFrame,
     *,
+    replay_source_detail: pd.DataFrame | None = None,
     output_root: Path | str = ROOT,
     history_base_ref: str | None = None,
     immutable_history_bases: Mapping[str, pd.DataFrame] | None = None,
     post_publish_check: Callable[[Mapping[str, Path]], None] | None = None,
 ) -> dict[str, Path]:
+    if replay_source_detail is None:
+        raise RuntimeError(
+            "forward holdout replay source detail is required for the 17-path "
+            "publish transaction"
+        )
+    if replay_source_detail.empty:
+        raise RuntimeError("forward holdout replay source detail is empty")
+    if len(manifest) != 1:
+        raise RuntimeError(
+            "forward holdout manifest must contain exactly one row before publish"
+        )
+    normalized_replay_source = _normalize_source(
+        replay_source_detail
+    ).reset_index(drop=True)
+    observed_source_sha = _canonical_frame_sha256(normalized_replay_source)
+    expected_source_sha = _require_sha256(
+        manifest.iloc[0].get("source_detail_canonical_sha256", ""),
+        label="forward holdout manifest source detail",
+    )
+    if observed_source_sha != expected_source_sha:
+        raise RuntimeError(
+            "forward holdout replay source detail SHA-256 disagrees with the manifest: "
+            f"expected={expected_source_sha} observed={observed_source_sha}"
+        )
     frames = {
         "manifest": manifest,
         "detail": detail,
@@ -2082,6 +2125,12 @@ def write_forward_holdout(
     paths = {
         name: root / relative for name, relative in DEFAULT_OUTPUT_RELATIVE_PATHS.items()
     }
+    paths.update(
+        {
+            name: root / relative
+            for name, relative in REPLAY_SOURCE_OUTPUT_RELATIVE_PATHS.items()
+        }
+    )
     lock_path = (
         root
         / "output/history/research"
@@ -2238,6 +2287,9 @@ def write_forward_holdout(
                 persisted_capture,
                 authoritative_payload=authoritative_mirror_payload,
             )
+        replay_source_payload = _csv_payload(replay_source_detail)
+        payloads[paths["replay_source_latest"]] = replay_source_payload
+        payloads[paths["replay_source_docs"]] = replay_source_payload
         if set(payloads) != set(paths.values()):
             raise RuntimeError("forward holdout publish path set drift")
 
@@ -2247,6 +2299,7 @@ def write_forward_holdout(
 
         _publish_payloads_transactionally(
             payloads,
+            expected_path_count=len(paths),
             post_publish_check=validate_persisted_publish,
         )
         # _publish_payloads_transactionally returns only after its staged and
@@ -2337,12 +2390,13 @@ def build_and_write_current_forward_holdout(
     def replay(
         candidate_frames: tuple[pd.DataFrame, ...] | list[pd.DataFrame],
         *,
+        source_input: pd.DataFrame = source_detail,
         history_frames: Mapping[str, pd.DataFrame] | None = None,
         immutable_history_base_frames: Mapping[str, pd.DataFrame] | None = None,
     ) -> None:
         errors = validate_frames(
             *candidate_frames,
-            source_detail=source_detail,
+            source_detail=source_input,
             daily_by_stock=daily_by_stock,
             source_manifest=source_manifest,
             history_frames=history_frames,
@@ -2356,7 +2410,7 @@ def build_and_write_current_forward_holdout(
 
     def read_persisted(
         paths: Mapping[str, Path],
-    ) -> tuple[list[pd.DataFrame], dict[str, pd.DataFrame]]:
+    ) -> tuple[list[pd.DataFrame], dict[str, pd.DataFrame], pd.DataFrame]:
         def read(path: Path) -> pd.DataFrame:
             return pd.read_csv(
                 path,
@@ -2375,12 +2429,19 @@ def build_and_write_current_forward_holdout(
         names = ("manifest", "detail", "summary", "comparison", "anomaly")
         latest = [read(paths[f"{name}_latest"]) for name in names]
         histories = {name: read(paths[f"{name}_history"]) for name in names}
-        return latest, histories
+        replay_source = read(paths["replay_source_latest"])
+        if paths["replay_source_docs"].read_bytes() != paths[
+            "replay_source_latest"
+        ].read_bytes():
+            raise RuntimeError(
+                "forward holdout persisted replay source mirrors are not byte-identical"
+            )
+        return latest, histories, replay_source
 
     replay(frames)
 
     def replay_persisted(paths: Mapping[str, Path]) -> None:
-        persisted_latest, persisted_histories = read_persisted(paths)
+        persisted_latest, persisted_histories, persisted_source = read_persisted(paths)
         immutable_bases: Mapping[str, pd.DataFrame] | None = None
         try:
             is_repository_publish = all(
@@ -2398,6 +2459,7 @@ def build_and_write_current_forward_holdout(
             immutable_bases = load_history_base_frames_from_git(base_ref)
         replay(
             persisted_latest,
+            source_input=persisted_source,
             history_frames=persisted_histories,
             immutable_history_base_frames=immutable_bases,
         )
@@ -2408,7 +2470,7 @@ def build_and_write_current_forward_holdout(
                 summary_readback=persisted_latest[2],
                 comparison_readback=persisted_latest[3],
                 anomaly_readback=persisted_latest[4],
-                source_detail=source_detail,
+                source_detail=persisted_source,
                 price_inputs=daily_by_stock,
                 source_manifest=source_manifest,
                 history_frames=persisted_histories,
@@ -2421,9 +2483,14 @@ def build_and_write_current_forward_holdout(
     ) as temporary_root:
         staged_paths = write_forward_holdout(
             *frames,
+            replay_source_detail=source_detail,
             output_root=temporary_root,
             post_publish_check=replay_persisted,
         )
 
-    paths = write_forward_holdout(*frames, post_publish_check=replay_persisted)
+    paths = write_forward_holdout(
+        *frames,
+        replay_source_detail=source_detail,
+        post_publish_check=replay_persisted,
+    )
     return paths
