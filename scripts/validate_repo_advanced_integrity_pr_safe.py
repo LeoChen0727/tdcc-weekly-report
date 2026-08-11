@@ -149,6 +149,20 @@ RESEARCH_WORKFLOW_VALIDATOR_COMMAND_RE = re.compile(
 RESEARCH_WORKFLOW_TEST_LINE_RE = re.compile(
     r"^(tests/test_[A-Za-z0-9_]+\.py)(?:\s+\\)?$"
 )
+VALIDATOR_INDEPENDENCE_REGISTRY_PATH = "config/daily_model_validator_independence.csv"
+INPUT_BOUND_VALIDATOR_ROLE = "input_bound_in_process_independent_validator"
+INPUT_BOUND_VALIDATOR_EVIDENCE_USE = (
+    "independent_input_bound_research_validation_only_not_promotion_proof"
+)
+INPUT_BOUND_VALIDATOR_CONTRACTS = {
+    "scripts/validate_revenue_unreacted_range_forward_holdout.py": {
+        "test_path": "tests/test_validate_revenue_unreacted_range_forward_holdout.py",
+        "stage_path": "scripts/build_revenue_unreacted_range_research.py",
+        "stage_name": "forward_holdout",
+        "workflow_input": "run_revenue_unreacted_range_forward_holdout_only",
+        "parent_workflow_input": "run_revenue_unreacted_range_research",
+    }
+}
 RESEARCH_WORKFLOW_PATH_FILTER_RE = re.compile(
     r"^(?:config/[a-z0-9][a-z0-9_]*_\*\.csv|"
     r"tests/test_(?:validate_)?[a-z0-9][a-z0-9_]*_\*\.py)$"
@@ -975,9 +989,9 @@ def validate_additive_research_workflow_delta(
             "research workflow changes permissions, triggers outside additive paths, "
             "jobs, steps, or other protected semantics"
         )
-    if not validator_paths or not test_paths:
+    if not test_paths:
         errors.append(
-            "additive research workflow migration requires validator commands and tests"
+            "additive research workflow migration requires focused tests"
         )
     return set(path_additions), validator_paths, test_paths, errors
 
@@ -1296,6 +1310,453 @@ def validate_research_lifecycle_inventory_delta(
     return current_rows, errors
 
 
+def _input_bound_cli_errors(source: str, validator_path: str) -> list[str]:
+    try:
+        tree = ast.parse(source, filename=validator_path)
+    except SyntaxError as exc:
+        return [f"input-bound validator cannot be parsed: {validator_path}: {exc}"]
+    main_nodes = [
+        node
+        for node in tree.body
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
+        and node.name == "main"
+    ]
+    if len(main_nodes) != 1:
+        return [f"input-bound validator must define exactly one main: {validator_path}"]
+    main_node = main_nodes[0]
+    required_tokens: set[str] = set()
+    has_parse_args = False
+    for node in ast.walk(main_node):
+        if not isinstance(node, ast.Call) or not isinstance(node.func, ast.Attribute):
+            continue
+        if node.func.attr == "parse_args":
+            has_parse_args = True
+        if node.func.attr != "add_argument":
+            continue
+        options = [
+            arg.value
+            for arg in node.args
+            if isinstance(arg, ast.Constant) and isinstance(arg.value, str)
+        ]
+        is_required = any(
+            keyword.arg == "required"
+            and isinstance(keyword.value, ast.Constant)
+            and keyword.value.value is True
+            for keyword in node.keywords
+        )
+        if not is_required:
+            continue
+        for option in options:
+            normalized = option.lower().replace("-", "_")
+            if "source" in normalized and "manifest" not in normalized:
+                required_tokens.add("source")
+            if "detail" in normalized:
+                required_tokens.add("detail")
+            if "price" in normalized:
+                required_tokens.add("price")
+            if "manifest" in normalized:
+                required_tokens.add("manifest")
+    errors: list[str] = []
+    if not has_parse_args:
+        errors.append(f"input-bound validator main must parse explicit CLI inputs: {validator_path}")
+    missing_tokens = {"source", "detail", "price", "manifest"} - required_tokens
+    if missing_tokens:
+        errors.append(
+            "input-bound validator CLI inputs must be required and explicit: "
+            f"{validator_path} missing={sorted(missing_tokens)}"
+        )
+    return errors
+
+
+def _direct_test_cli_fail_closed_errors(source: str, test_path: str) -> list[str]:
+    try:
+        tree = ast.parse(source, filename=test_path)
+    except SyntaxError as exc:
+        return [f"input-bound validator direct test cannot be parsed: {test_path}: {exc}"]
+    for node in ast.walk(tree):
+        if not isinstance(node, ast.With):
+            continue
+        raises_system_exit = any(
+            isinstance(item.context_expr, ast.Call)
+            and isinstance(item.context_expr.func, ast.Attribute)
+            and isinstance(item.context_expr.func.value, ast.Name)
+            and item.context_expr.func.value.id == "pytest"
+            and item.context_expr.func.attr == "raises"
+            and any(
+                isinstance(arg, ast.Name) and arg.id == "SystemExit"
+                for arg in item.context_expr.args
+            )
+            for item in node.items
+        )
+        if not raises_system_exit:
+            continue
+        for nested in ast.walk(node):
+            if not isinstance(nested, ast.Call):
+                continue
+            if not (
+                isinstance(nested.func, ast.Attribute)
+                and nested.func.attr == "main"
+                and len(nested.args) == 1
+                and isinstance(nested.args[0], (ast.List, ast.Tuple))
+                and not nested.args[0].elts
+            ):
+                continue
+            return []
+    return [
+        "input-bound validator direct test must prove bare CLI failure via main([]): "
+        + test_path
+    ]
+
+
+def _stage_validate_frames_errors(
+    source: str,
+    *,
+    stage_path: str,
+    validator_path: str,
+) -> list[str]:
+    try:
+        tree = ast.parse(source, filename=stage_path)
+    except SyntaxError as exc:
+        return [f"input-bound validator stage cannot be parsed: {stage_path}: {exc}"]
+    validator_module = validator_path.removesuffix(".py").replace("/", ".")
+    validator_leaf = Path(validator_path).stem
+    module_aliases: set[str] = set()
+    direct_aliases: set[str] = set()
+    for node in tree.body:
+        if isinstance(node, ast.Import):
+            for alias in node.names:
+                if alias.name == validator_module:
+                    module_aliases.add(alias.asname or alias.name.split(".")[-1])
+        elif isinstance(node, ast.ImportFrom):
+            if node.module == validator_module:
+                direct_aliases.update(
+                    alias.asname or alias.name
+                    for alias in node.names
+                    if alias.name == "validate_frames"
+                )
+            elif node.module == "scripts":
+                module_aliases.update(
+                    alias.asname or alias.name
+                    for alias in node.names
+                    if alias.name == validator_leaf
+                )
+    errors: list[str] = []
+    if not module_aliases and not direct_aliases:
+        errors.append(
+            "model-owned stage must explicitly import its input-bound validator: "
+            + validator_path
+        )
+        return errors
+
+    def is_validate_frames_call(node: ast.AST) -> bool:
+        if not isinstance(node, ast.Call):
+            return False
+        if isinstance(node.func, ast.Name):
+            return node.func.id in direct_aliases
+        return bool(
+            isinstance(node.func, ast.Attribute)
+            and node.func.attr == "validate_frames"
+            and isinstance(node.func.value, ast.Name)
+            and node.func.value.id in module_aliases
+        )
+
+    fail_closed = False
+    explicit_inputs = False
+    for function in (
+        node
+        for node in ast.walk(tree)
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
+    ):
+        assigned_calls: dict[str, int] = {}
+        for node in ast.walk(function):
+            value: ast.AST | None = None
+            targets: list[ast.AST] = []
+            if isinstance(node, ast.Assign):
+                value = node.value
+                targets = list(node.targets)
+            elif isinstance(node, ast.AnnAssign):
+                value = node.value
+                targets = [node.target]
+            if value is None or not is_validate_frames_call(value):
+                continue
+            call = value
+            argument_text = [
+                ast.unparse(argument).lower().replace("-", "_")
+                for argument in call.args  # type: ignore[attr-defined]
+            ]
+            argument_text.extend(
+                (
+                    (keyword.arg or "")
+                    + " "
+                    + ast.unparse(keyword.value)
+                )
+                .lower()
+                .replace("-", "_")
+                for keyword in call.keywords  # type: ignore[attr-defined]
+            )
+            observed_tokens: set[str] = set()
+            for value in argument_text:
+                if "source" in value and "manifest" not in value:
+                    observed_tokens.add("source")
+                if "detail" in value or "readback" in value:
+                    observed_tokens.add("detail")
+                if "price" in value:
+                    observed_tokens.add("price")
+                if "manifest" in value:
+                    observed_tokens.add("manifest")
+            explicit_inputs = explicit_inputs or observed_tokens == {
+                "source",
+                "detail",
+                "price",
+                "manifest",
+            }
+            for target in targets:
+                if isinstance(target, ast.Name):
+                    assigned_calls[target.id] = getattr(node, "lineno", 0)
+        for node in ast.walk(function):
+            if not isinstance(node, ast.If):
+                continue
+            referenced = {
+                nested.id for nested in ast.walk(node.test) if isinstance(nested, ast.Name)
+            }
+            if not any(
+                name in referenced and getattr(node, "lineno", 0) > line
+                for name, line in assigned_calls.items()
+            ):
+                continue
+            if any(isinstance(nested, ast.Raise) for nested in ast.walk(node)):
+                fail_closed = True
+    if not explicit_inputs:
+        errors.append(
+            "model-owned stage must call validate_frames with explicit source/detail/price/manifest inputs: "
+            + stage_path
+        )
+    if not fail_closed:
+        errors.append(
+            "model-owned stage must raise on input-bound validate_frames errors: "
+            + stage_path
+        )
+    return errors
+
+
+def _input_bound_workflow_errors(
+    workflow_payload: bytes,
+    *,
+    contract: dict[str, str],
+) -> list[str]:
+    document, errors = parse_workflow_document(
+        workflow_payload,
+        source=RESEARCH_WORKFLOW_PATH,
+    )
+    if errors:
+        return errors
+    workflow_input = contract["workflow_input"]
+    try:
+        inputs = document["on"]["workflow_dispatch"]["inputs"]  # type: ignore[index]
+    except (KeyError, TypeError):
+        return ["research workflow must retain workflow_dispatch.inputs"]
+    input_contract = inputs.get(workflow_input) if isinstance(inputs, dict) else None
+    result: list[str] = []
+    if not isinstance(input_contract, dict):
+        result.append("research workflow is missing input-bound validator input: " + workflow_input)
+    elif not (
+        str(input_contract.get("default", "")).lower() == "false"
+        and str(input_contract.get("type", "")).lower() == "boolean"
+    ):
+        result.append(
+            "input-bound validator workflow input must be boolean and default false: "
+            + workflow_input
+        )
+    matching_steps: list[dict[str, object]] = []
+    jobs = document.get("jobs")
+    if isinstance(jobs, dict):
+        for job in jobs.values():
+            if not isinstance(job, dict) or not isinstance(job.get("steps"), list):
+                continue
+            for step in job["steps"]:
+                if isinstance(step, dict) and workflow_input in str(step.get("run", "")):
+                    matching_steps.append(step)
+    if len(matching_steps) != 1:
+        result.append(
+            "input-bound validator workflow input must occur in exactly one model-owned stage: "
+            f"{workflow_input} observed={len(matching_steps)}"
+        )
+        return result
+    step = matching_steps[0]
+    parent_input = contract["parent_workflow_input"]
+    step_if = str(step.get("if", ""))
+    if parent_input not in step_if or "true" not in step_if.lower():
+        result.append(
+            "input-bound validator stage must remain isolated under its parent research input: "
+            + parent_input
+        )
+    run_lines = [line.strip() for line in str(step.get("run", "")).splitlines()]
+    guard_indexes = [
+        index
+        for index, line in enumerate(run_lines)
+        if workflow_input in line and "true" in line.lower()
+    ]
+    expected_command = (
+        f"python {contract['stage_path']} --stage {contract['stage_name']}"
+    )
+    if len(guard_indexes) != 1:
+        result.append(
+            "input-bound validator stage must have one explicit disabled-by-default guard: "
+            + workflow_input
+        )
+        return result
+    guard_index = guard_indexes[0]
+    try:
+        end_index = run_lines.index("fi", guard_index + 1)
+    except ValueError:
+        result.append("input-bound validator stage guard must terminate with fi")
+        return result
+    guarded_python = [
+        line
+        for line in run_lines[guard_index + 1 : end_index]
+        if line.startswith("python ")
+    ]
+    if guarded_python != [expected_command]:
+        result.append(
+            "input-bound validator guard must execute exactly its single model-owned stage: "
+            f"expected={expected_command!r} observed={guarded_python!r}"
+        )
+    return result
+
+
+def validate_input_bound_research_validator_registration(
+    base_ref: str,
+    validator_path: str,
+    changed_paths: set[str],
+    current_inventory: dict[str, dict[str, str]],
+    lifecycle_rows: dict[str, dict[str, str]],
+    test_paths: set[str],
+    *,
+    repository_root: Path,
+) -> tuple[bool, list[str]]:
+    contract = INPUT_BOUND_VALIDATOR_CONTRACTS.get(validator_path)
+    if contract is None:
+        return False, []
+    errors: list[str] = []
+    if VALIDATOR_INDEPENDENCE_REGISTRY_PATH not in changed_paths:
+        errors.append(
+            "input-bound validator requires an additive independence registry claim: "
+            + validator_path
+        )
+    base_registry_payload = git_blob_at_ref(
+        base_ref,
+        VALIDATOR_INDEPENDENCE_REGISTRY_PATH,
+        repository_root=repository_root,
+    )
+    try:
+        current_registry_payload = (
+            repository_root / VALIDATOR_INDEPENDENCE_REGISTRY_PATH
+        ).read_bytes()
+    except OSError as exc:
+        errors.append(f"cannot read input-bound validator registry evidence: {exc}")
+        current_registry_payload = b""
+    base_rows, base_errors = csv_rows_by_key(
+        base_registry_payload,
+        source=f"{base_ref}:{VALIDATOR_INDEPENDENCE_REGISTRY_PATH}",
+        key="validator_path",
+    )
+    current_rows, current_errors = csv_rows_by_key(
+        current_registry_payload,
+        source=VALIDATOR_INDEPENDENCE_REGISTRY_PATH,
+        key="validator_path",
+    )
+    errors.extend([*base_errors, *current_errors])
+    if set(base_rows) - set(current_rows):
+        errors.append("input-bound validator registry may not remove existing rows")
+    for path in set(base_rows) & set(current_rows):
+        if base_rows[path] != current_rows[path]:
+            errors.append(
+                "input-bound validator registry may not rewrite existing row: " + path
+            )
+    row = current_rows.get(validator_path, {})
+    if validator_path in base_rows or not row:
+        errors.append(
+            "input-bound validator must have one new independence registry row: "
+            + validator_path
+        )
+    if not (
+        row.get("validator_role", "").strip() == INPUT_BOUND_VALIDATOR_ROLE
+        and row.get("production_source_file", "").strip() == contract["stage_path"]
+        and not row.get("imported_production_symbols", "").strip()
+        and row.get("independence_claim", "").strip() == "True"
+        and row.get("allowed_evidence_use", "").strip()
+        == INPUT_BOUND_VALIDATOR_EVIDENCE_USE
+        and "input-bound" in row.get("notes", "").lower()
+        and "in-process" in row.get("notes", "").lower()
+    ):
+        errors.append(
+            "input-bound validator independence registry claim is incomplete: "
+            + validator_path
+        )
+
+    test_path = contract["test_path"]
+    if test_path not in test_paths:
+        errors.append(
+            "PR workflow must directly execute input-bound validator tests: " + test_path
+        )
+    stage_path = contract["stage_path"]
+    if stage_path not in changed_paths:
+        errors.append("input-bound validator stage must change in the same PR: " + stage_path)
+    stage_inventory = current_inventory.get(stage_path, {})
+    if not (
+        stage_inventory.get("owner", "").strip() == RESEARCH_OWNER
+        and stage_inventory.get("status", "").strip() == "active"
+        and RESEARCH_WORKFLOW_PATH
+        in split_list(stage_inventory.get("allowed_workflows", ""))
+    ):
+        errors.append("input-bound validator stage lacks research ownership: " + stage_path)
+    validator_inventory = current_inventory.get(validator_path, {})
+    validator_workflows = set(
+        split_list(validator_inventory.get("allowed_workflows", ""))
+    )
+    if not (
+        RESEARCH_WORKFLOW_PATH in validator_workflows
+        and PR_VALIDATION_WORKFLOW_PATH not in validator_workflows
+    ):
+        errors.append(
+            "input-bound validator inventory must permit only in-process research workflow use: "
+            + validator_path
+        )
+    lifecycle = lifecycle_rows.get(validator_path, {})
+    if not (
+        stage_path in split_list(lifecycle.get("imported_by", ""))
+        and test_path in split_list(lifecycle.get("tested_by", ""))
+        and not split_list(lifecycle.get("called_by_workflow", ""))
+    ):
+        errors.append(
+            "input-bound validator lifecycle evidence must bind stage import and direct tests "
+            "without claiming a bare workflow call: "
+            + validator_path
+        )
+
+    try:
+        validator_source = (repository_root / validator_path).read_text(encoding="utf-8")
+        test_source = (repository_root / test_path).read_text(encoding="utf-8")
+        stage_source = (repository_root / stage_path).read_text(encoding="utf-8")
+        workflow_payload = (repository_root / RESEARCH_WORKFLOW_PATH).read_bytes()
+    except (OSError, UnicodeError) as exc:
+        errors.append(f"cannot read input-bound validator evidence: {exc}")
+        return True, errors
+    errors.extend(_input_bound_cli_errors(validator_source, validator_path))
+    errors.extend(_direct_test_cli_fail_closed_errors(test_source, test_path))
+    errors.extend(
+        _stage_validate_frames_errors(
+            stage_source,
+            stage_path=stage_path,
+            validator_path=validator_path,
+        )
+    )
+    errors.extend(
+        _input_bound_workflow_errors(workflow_payload, contract=contract)
+    )
+    return True, errors
+
+
 def validate_additive_research_validation_registration(
     base_ref: str,
     changed_paths: set[str],
@@ -1348,6 +1809,12 @@ def validate_additive_research_validation_registration(
         errors.append("additive research migration must update lifecycle inventory")
     if RESEARCH_WORKFLOW_REGRESSION_TEST_PATH not in changed_paths:
         errors.append("additive research migration must update PR workflow regression")
+    input_bound_candidates = added_inventory_paths & set(INPUT_BOUND_VALIDATOR_CONTRACTS)
+    if not validator_paths and not input_bound_candidates:
+        errors.append(
+            "additive research workflow migration requires validator commands or one "
+            "closed-set input-bound validator"
+        )
 
     for path in sorted(added_inventory_paths):
         production = current_inventory.get(path, {})
@@ -1362,11 +1829,29 @@ def validate_additive_research_validation_registration(
                 "additive research path lacks matching lifecycle registration: " + path
             )
         if path.startswith("scripts/validate_"):
-            if path not in validator_paths:
+            input_bound, input_bound_errors = (
+                validate_input_bound_research_validator_registration(
+                    base_ref,
+                    path,
+                    changed_paths,
+                    current_inventory,
+                    lifecycle_rows,
+                    test_paths,
+                    repository_root=repository_root,
+                )
+            )
+            if input_bound:
+                errors.extend(input_bound_errors)
+            if path not in validator_paths and not input_bound:
                 errors.append(
                     "new research validator is not called by the PR workflow: " + path
                 )
-            if PR_VALIDATION_WORKFLOW_PATH not in split_list(
+            if path in validator_paths and input_bound:
+                errors.append(
+                    "input-bound validator must not be executed as a bare PR workflow command: "
+                    + path
+                )
+            if path in validator_paths and PR_VALIDATION_WORKFLOW_PATH not in split_list(
                 production.get("allowed_workflows", "")
             ):
                 errors.append(

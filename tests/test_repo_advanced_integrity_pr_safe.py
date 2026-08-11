@@ -819,6 +819,9 @@ PR462_REPLACEMENT_RESEARCH_CONFIG = (
 PR462_SECOND_REPLACEMENT_RESEARCH_CONFIG = (
     "config/revenue_unreacted_range_price_comparability_resolution.csv"
 )
+INPUT_BOUND_VALIDATOR = "scripts/validate_revenue_unreacted_range_forward_holdout.py"
+INPUT_BOUND_TEST = "tests/test_validate_revenue_unreacted_range_forward_holdout.py"
+INPUT_BOUND_STAGE = "scripts/build_revenue_unreacted_range_research.py"
 
 
 def test_pr462_fixture_python_paths_are_synthetic_and_repo_absent() -> None:
@@ -1251,6 +1254,217 @@ jobs:
     return changed_paths
 
 
+def extend_with_input_bound_validator_registration(
+    repository_root: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    changed_paths: set[str],
+) -> set[str]:
+    original_git_blob = pr_safe.git_blob_at_ref
+    original_exists = pr_safe.git_path_exists_at_ref
+
+    def rows_from_payload(payload: bytes) -> list[dict[str, str]]:
+        return list(
+            csv.DictReader(io.StringIO(payload.decode("utf-8"), newline=""))
+        )
+
+    base_inventory = rows_from_payload(
+        original_git_blob("base-sha", pr_safe.PRODUCTION_INVENTORY_PATH)
+    )
+    current_inventory = rows_from_payload(
+        (repository_root / pr_safe.PRODUCTION_INVENTORY_PATH).read_bytes()
+    )
+    stage_inventory = production_inventory_row(
+        INPUT_BOUND_STAGE,
+        purpose="model-owned revenue forward holdout stage",
+    )
+    base_inventory.append(stage_inventory)
+    current_inventory.extend(
+        (
+            stage_inventory,
+            production_inventory_row(INPUT_BOUND_VALIDATOR),
+            production_inventory_row(
+                INPUT_BOUND_TEST,
+                kind="test_python",
+                allowed_workflows="",
+            ),
+        )
+    )
+    write_csv(repository_root / pr_safe.PRODUCTION_INVENTORY_PATH, current_inventory)
+
+    base_lifecycle = rows_from_payload(
+        original_git_blob("base-sha", pr_safe.LIFECYCLE_INVENTORY_PATH)
+    )
+    current_lifecycle = rows_from_payload(
+        (repository_root / pr_safe.LIFECYCLE_INVENTORY_PATH).read_bytes()
+    )
+    stage_lifecycle = lifecycle_inventory_row(INPUT_BOUND_STAGE, kind="python")
+    base_lifecycle.append(stage_lifecycle)
+    current_lifecycle.extend(
+        (
+            stage_lifecycle,
+            {
+                **lifecycle_inventory_row(
+                    INPUT_BOUND_VALIDATOR,
+                    kind="python",
+                    tested_by=INPUT_BOUND_TEST,
+                ),
+                "imported_by": INPUT_BOUND_STAGE,
+            },
+            lifecycle_inventory_row(INPUT_BOUND_TEST, kind="test_python"),
+        )
+    )
+    write_csv(repository_root / pr_safe.LIFECYCLE_INVENTORY_PATH, current_lifecycle)
+
+    workflow_path = repository_root / pr_safe.PR_VALIDATION_WORKFLOW_PATH
+    workflow_text = workflow_path.read_text(encoding="utf-8")
+    workflow_path.write_text(
+        workflow_text.replace(
+            "            tests/test_revenue_unreacted_range_existing.py\n",
+            f"            {INPUT_BOUND_TEST} \\\n"
+            "            tests/test_revenue_unreacted_range_existing.py\n",
+            1,
+        ),
+        encoding="utf-8",
+    )
+    workflow_test_path = repository_root / pr_safe.RESEARCH_WORKFLOW_REGRESSION_TEST_PATH
+    workflow_test_source = workflow_test_path.read_text(encoding="utf-8")
+    workflow_test_path.write_text(
+        workflow_test_source.replace(
+            "    )\n    for path in required_tests:\n",
+            f"        '{INPUT_BOUND_TEST}',\n"
+            "    )\n    for path in required_tests:\n",
+            1,
+        ),
+        encoding="utf-8",
+    )
+
+    validator_path = repository_root / INPUT_BOUND_VALIDATOR
+    validator_path.parent.mkdir(parents=True, exist_ok=True)
+    validator_path.write_text(
+        "import argparse\n\n"
+        "def validate_frames(source, detail, price, source_manifest):\n"
+        "    return []\n\n"
+        "def main(argv=None):\n"
+        "    parser = argparse.ArgumentParser()\n"
+        "    parser.add_argument('--source', required=True)\n"
+        "    parser.add_argument('--detail', required=True)\n"
+        "    parser.add_argument('--price-dir', required=True)\n"
+        "    parser.add_argument('--source-manifest', required=True)\n"
+        "    parser.parse_args(argv)\n"
+        "    return 0\n\n"
+        "if __name__ == '__main__':\n"
+        "    raise SystemExit(main())\n",
+        encoding="utf-8",
+    )
+    direct_test_path = repository_root / INPUT_BOUND_TEST
+    direct_test_path.parent.mkdir(parents=True, exist_ok=True)
+    direct_test_path.write_text(
+        "import pytest\n"
+        "from scripts import validate_revenue_unreacted_range_forward_holdout as validator\n\n"
+        "def test_cli_requires_explicit_inputs():\n"
+        "    with pytest.raises(SystemExit):\n"
+        "        validator.main([])\n",
+        encoding="utf-8",
+    )
+    stage_path = repository_root / INPUT_BOUND_STAGE
+    stage_path.parent.mkdir(parents=True, exist_ok=True)
+    stage_path.write_text(
+        "from scripts import validate_revenue_unreacted_range_forward_holdout as validator\n\n"
+        "def build_forward_holdout(source, detail, price, source_manifest):\n"
+        "    readback_detail = detail\n"
+        "    errors = validator.validate_frames(source, readback_detail, price, source_manifest)\n"
+        "    if errors:\n"
+        "        raise RuntimeError('; '.join(errors))\n"
+        "    return readback_detail\n",
+        encoding="utf-8",
+    )
+
+    base_research_workflow = """name: Research
+on:
+  workflow_dispatch:
+    inputs:
+      run_revenue_unreacted_range_research:
+        default: false
+        type: boolean
+      run_revenue_unreacted_range_forward_holdout_only:
+        default: false
+        type: boolean
+jobs:
+  research:
+    steps:
+      - name: Revenue research
+        if: ${{ github.event.inputs.run_revenue_unreacted_range_research == 'true' }}
+        run: echo base
+"""
+    current_research_workflow = base_research_workflow.replace(
+        "        run: echo base\n",
+        "        run: |\n"
+        "          if [[ \"${{ github.event.inputs.run_revenue_unreacted_range_forward_holdout_only }}\" == \"true\" ]]; then\n"
+        "            python scripts/build_revenue_unreacted_range_research.py --stage forward_holdout\n"
+        "          fi\n",
+    )
+    research_workflow_path = repository_root / pr_safe.RESEARCH_WORKFLOW_PATH
+    research_workflow_path.parent.mkdir(parents=True, exist_ok=True)
+    research_workflow_path.write_text(current_research_workflow, encoding="utf-8")
+
+    independence_header = (
+        "validator_path,validator_role,production_source_file,"
+        "imported_production_symbols,independence_claim,allowed_evidence_use,notes\n"
+    )
+    independence_path = repository_root / pr_safe.VALIDATOR_INDEPENDENCE_REGISTRY_PATH
+    independence_path.parent.mkdir(parents=True, exist_ok=True)
+    independence_path.write_text(
+        independence_header
+        + f"{INPUT_BOUND_VALIDATOR},{pr_safe.INPUT_BOUND_VALIDATOR_ROLE},"
+        f"{INPUT_BOUND_STAGE},,True,{pr_safe.INPUT_BOUND_VALIDATOR_EVIDENCE_USE},"
+        "Explicit input-bound in-process validator with no production imports.\n",
+        encoding="utf-8",
+    )
+
+    changed_paths.update(
+        {
+            INPUT_BOUND_VALIDATOR,
+            INPUT_BOUND_TEST,
+            INPUT_BOUND_STAGE,
+            pr_safe.RESEARCH_WORKFLOW_PATH,
+            pr_safe.VALIDATOR_INDEPENDENCE_REGISTRY_PATH,
+        }
+    )
+    base_payloads = {
+        pr_safe.PRODUCTION_INVENTORY_PATH: csv_payload(base_inventory),
+        pr_safe.LIFECYCLE_INVENTORY_PATH: csv_payload(base_lifecycle),
+        pr_safe.RESEARCH_WORKFLOW_PATH: base_research_workflow.encode("utf-8"),
+        pr_safe.VALIDATOR_INDEPENDENCE_REGISTRY_PATH: independence_header.encode("utf-8"),
+    }
+    monkeypatch.setattr(
+        pr_safe,
+        "git_blob_at_ref",
+        lambda ref, path, **kwargs: base_payloads.get(path)
+        if path in base_payloads
+        else original_git_blob(ref, path, **kwargs),
+    )
+    monkeypatch.setattr(
+        pr_safe,
+        "git_path_exists_at_ref",
+        lambda ref, path, **kwargs: False
+        if path in {INPUT_BOUND_VALIDATOR, INPUT_BOUND_TEST}
+        else True
+        if path
+        in {
+            INPUT_BOUND_STAGE,
+            pr_safe.RESEARCH_WORKFLOW_PATH,
+            pr_safe.VALIDATOR_INDEPENDENCE_REGISTRY_PATH,
+        }
+        else original_exists(ref, path, **kwargs),
+    )
+    monkeypatch.setattr(
+        pr_safe,
+        "changed_paths_from_base",
+        lambda *_args, **_kwargs: (set(changed_paths), []),
+    )
+    return changed_paths
+
+
 def test_pr462_exact_additive_research_workflow_and_inventory_shape_is_pr_safe(
     historical_replay_repo: Path,
     monkeypatch: pytest.MonkeyPatch,
@@ -1278,6 +1492,128 @@ def test_pr462_exact_additive_research_workflow_and_inventory_shape_is_pr_safe(
         )
         == []
     )
+
+
+def test_additive_research_accepts_registered_input_bound_validator_evidence(
+    historical_replay_repo: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    changed_paths = install_pr462_additive_research_registration(
+        historical_replay_repo,
+        monkeypatch,
+    )
+    changed_paths = extend_with_input_bound_validator_registration(
+        historical_replay_repo,
+        monkeypatch,
+        changed_paths,
+    )
+
+    recognized, errors = pr_safe.validate_additive_research_validation_registration(
+        "base-sha",
+        changed_paths,
+        {
+            pr_safe.PR_VALIDATION_WORKFLOW_PATH,
+            pr_safe.PRODUCTION_INVENTORY_PATH,
+        },
+        repository_root=historical_replay_repo,
+    )
+
+    assert recognized
+    assert errors == []
+
+
+@pytest.mark.parametrize(
+    ("evidence_path", "old", "new", "expected_error"),
+    [
+        (
+            pr_safe.VALIDATOR_INDEPENDENCE_REGISTRY_PATH,
+            pr_safe.INPUT_BOUND_VALIDATOR_ROLE,
+            "unregistered_role",
+            "independence registry claim is incomplete",
+        ),
+        (
+            INPUT_BOUND_STAGE,
+            "        raise RuntimeError('; '.join(errors))",
+            "        return errors",
+            "must raise on input-bound validate_frames errors",
+        ),
+        (
+            INPUT_BOUND_STAGE,
+            "validator.validate_frames(source, readback_detail, price, source_manifest)",
+            "validator.validate_frames(source, source, price, source_manifest)",
+            "with explicit source/detail/price/manifest inputs",
+        ),
+        (
+            INPUT_BOUND_VALIDATOR,
+            "parser.add_argument('--source', required=True)",
+            "parser.add_argument('--source')",
+            "CLI inputs must be required and explicit",
+        ),
+        (
+            pr_safe.RESEARCH_WORKFLOW_PATH,
+            "if: ${{ github.event.inputs.run_revenue_unreacted_range_research == 'true' }}",
+            "if: ${{ github.event.inputs.run_revenue_unreacted_range_forward_holdout_only == 'true' }}",
+            "must remain isolated under its parent research input",
+        ),
+        (
+            INPUT_BOUND_TEST,
+            "    with pytest.raises(SystemExit):\n        validator.main([])",
+            "    validator.main(['--source', 'x'])",
+            "must prove bare CLI failure",
+        ),
+    ],
+)
+def test_additive_research_input_bound_validator_requires_every_alternative_evidence(
+    historical_replay_repo: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    evidence_path: str,
+    old: str,
+    new: str,
+    expected_error: str,
+) -> None:
+    changed_paths = install_pr462_additive_research_registration(
+        historical_replay_repo,
+        monkeypatch,
+    )
+    changed_paths = extend_with_input_bound_validator_registration(
+        historical_replay_repo,
+        monkeypatch,
+        changed_paths,
+    )
+    path = historical_replay_repo / evidence_path
+    source = path.read_text(encoding="utf-8")
+    assert old in source
+    path.write_text(source.replace(old, new, 1), encoding="utf-8")
+
+    recognized, errors = pr_safe.validate_additive_research_validation_registration(
+        "base-sha",
+        changed_paths,
+        {
+            pr_safe.PR_VALIDATION_WORKFLOW_PATH,
+            pr_safe.PRODUCTION_INVENTORY_PATH,
+        },
+        repository_root=historical_replay_repo,
+    )
+
+    assert recognized
+    assert any(expected_error in error for error in errors)
+
+
+def test_additive_research_unknown_input_bound_validator_is_not_preauthorized(
+    historical_replay_repo: Path,
+) -> None:
+    recognized, errors = pr_safe.validate_input_bound_research_validator_registration(
+        "base-sha",
+        "scripts/validate_unregistered_input_bound.py",
+        set(),
+        {},
+        {},
+        set(),
+        repository_root=historical_replay_repo,
+    )
+
+    assert not recognized
+    assert errors == []
 
 
 def test_pr462_current_projection_is_rejected_until_config_filter_is_asserted(
