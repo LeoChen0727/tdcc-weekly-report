@@ -328,6 +328,63 @@ PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_TARGET_SHA256_BY_PATH = {
 PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_PATHS = frozenset(
     PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_TARGET_SHA256_BY_PATH
 )
+PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TARGET_ID = (
+    "daily-runtime-authority-containment-exact-target-v1"
+)
+PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_BASE_CONTENT_REF_SHA = (
+    "e7319ea8c3a29519358244c613830d33d80db7b8"
+)
+PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_HELPER = (
+    "scripts/validate_daily_production_boundaries.py"
+)
+PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TEST = "tests/test_daily_production_boundaries.py"
+PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_BASE_SHA256_BY_PATH = {
+    ".github/workflows/daily_full_pipeline.yml": "8a1b02295fb3e78420952fda03de86007b1ae0bd48033dea4467aec5085e42e3",
+    ".github/workflows/debug_tpex_fetch.yml": "e52e5d998cb5d4a266cdac49f1768f487c5a7b211b908d103fa1366b6ede138a",
+    ".github/workflows/event_catalyst_update.yml": "0331223d91c56bf04b3360b63091d1b7b9a039ab7841353333681346706bbe9c",
+    ".github/workflows/historical_structured_source_replay.yml": "3c88c42dd42c6e6646868c62ac3ff96669a60731c44bca5af6c9ec3fb1f19005",
+    ".github/workflows/official_price_backfill.yml": "4e55af382a36ef2131b856faaecc04066416f27b6fc83cba034a1388549eea85",
+    ".github/workflows/official_price_fetch.yml": "d4b8a50b7333daa51895504ae9b08249b46804ccf9f2b5b3ed7a777a8fad9613",
+    ".github/workflows/repair_recent_daily_price_gaps.yml": "f0d1acc2895b29138e852a33fb6b626ad3f3f66107cb8ac71058acc2e77c9d6a",
+    ".github/workflows/warrant_flow.yml": "7a503e7524a392f06b0d8c22faacc2a7be957ba8b2ed87db130a11b0120800d6",
+    "config/repo_file_lifecycle_inventory.csv": "fc1fb68e6d4a4910e79386d23aed7837ce41ea9c738ad43a2992eef9c8f9e632",
+    "config/repo_production_inventory.csv": "0273f04dc00d040b5890b3036fc10521b1c295e570aab9b48d7300914d47eac2",
+    "config/report_artifact_lineage.csv": "e838d9c08c16aee1735811c3f93188407c7f09d0df574940c71b8d1ccb713566",
+    "config/runtime_file_lineage_contract.csv": "767c1c630f0bc5ff95c171c72555efc183e2348899542082960b13346439c99e",
+    "scripts/daily_authority_release.py": None,
+    "scripts/market_session_calendar.py": "23b8ea3e5fa8f3ac4bd25797f2686c3654d1e50e3912d054a2d062b9bc76eb1c",
+    "scripts/repair_recent_daily_price_gaps.py": "d874861c85b6af7e6c4b1b84d31e9ef7e94627cde558c2db032386473fd95fab",
+    "scripts/validate_daily_production_boundaries.py": "70c56bd57cc273ee1a7caa7ffcb935793c967cd7b127698e48411acd3b035010",
+    "scripts/validate_recent_daily_price_repair_staged_paths.py": "46e89b21234aa2975b5d5426644581039fd8d3a27e2e17ce6f43982856e75b32",
+    "scripts/validate_recent_structured_source_repair_workflow.py": "1f8ed03a16df3d18c5d0304d559122f36cbf4bd629382441bcfe28ccf667efa2",
+    "tests/test_daily_authority_release.py": None,
+    "tests/test_daily_production_boundaries.py": "361b937f8ad2b173ee48288bd499d4100797bbb88fd089b2e696a41ea5b486d3",
+}
+PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TARGET_SHA256_BY_PATH = {
+    ".github/workflows/daily_full_pipeline.yml": "4bc3e52c69aba1d3dfda2074760a37f64af771c884ad147ad9356087dabe722b",
+    ".github/workflows/debug_tpex_fetch.yml": "4167dcc0b6e1a563ea4ac17e2eaed8f84a894f8fc527ca86730f17fab525762b",
+    ".github/workflows/event_catalyst_update.yml": "49888c3b5828cc0b6ff0126ccf5dcdd12db9656c2252a9efd7cca4e0875af278",
+    ".github/workflows/historical_structured_source_replay.yml": "ef89646660b52954533b2a78412c1c67d56afb914adfa1300f687de93e04cd03",
+    ".github/workflows/official_price_backfill.yml": "0b28a3134391cb7759259221972b6d14b134affbee1546c613d7020a15c6ea48",
+    ".github/workflows/official_price_fetch.yml": "8b128b159007d66ded32862b183f9227238a3169f803e9bf9c3c521901c2a22b",
+    ".github/workflows/repair_recent_daily_price_gaps.yml": "7e6b7ccf8bcbe776d747c7526007aeda2e80d71b101161f521c4b70b91723c56",
+    ".github/workflows/warrant_flow.yml": "a80b34fb274e0b5c4f007c3ae3c82f15470a427468053dca36f7eb81a546005b",
+    "config/repo_file_lifecycle_inventory.csv": "3b6f5e7ff545a7ae5cab1fe3364fd17379a8daaaab2d6538b610bd95a1662a9b",
+    "config/repo_production_inventory.csv": "0769a088ef4f1bb394bf33397a17307cbe7960d165fe56f2668cc88a24ae9fe2",
+    "config/report_artifact_lineage.csv": "9b71464838e786a85cad3c85f37e83cc019fce0ff9cc22a9004981bfff46b155",
+    "config/runtime_file_lineage_contract.csv": "e94d93888aa79a415ffa536c64f9029ba7f66a362f44f265a6765dfe7e6d42a1",
+    "scripts/daily_authority_release.py": "b2895991d6b5d21443c07ffea78b6b4d8813ce883a595523baf4a8f1115fe6f8",
+    "scripts/market_session_calendar.py": "529f117df989d5d8fb60a56fb444efbde3646e220bec4601aa2dbb124cceed28",
+    "scripts/repair_recent_daily_price_gaps.py": "2dcab2ba980c8b394567d16cd2dbd9a8bcf2937863571ef1e0cb5e8970bbc0b1",
+    "scripts/validate_daily_production_boundaries.py": "1df727afdf9a4579e0f908d1c886924d76699c2a0203249e6997d9c64610f60f",
+    "scripts/validate_recent_daily_price_repair_staged_paths.py": "81c9225afb4e1c885d5f29cffa2f2bd97952546eaf6c237428f34b5357151ca8",
+    "scripts/validate_recent_structured_source_repair_workflow.py": "5ff826ffd0ca207a686e0ed87ba710bd9315735a2c2dfb5d091a8dc9ed941676",
+    "tests/test_daily_authority_release.py": "1659d68c1ed9d2b6f8251f76b607ba2dfd284045aadc08c87d306a88ca5911d4",
+    "tests/test_daily_production_boundaries.py": "c6464e7afe88d9cbc786592bc4269415e9370774e111b55e0a226bb951453669",
+}
+PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_PATHS = frozenset(
+    PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TARGET_SHA256_BY_PATH
+)
 PR_SAFE_SNAPSHOT_MIGRATION_ID = "daily-full-checkpoint-replay-snapshot-pr-safe-v1"
 PR_SAFE_SNAPSHOT_HELPER = "scripts/validate_daily_published_model_snapshots_pr_safe.py"
 PR_SAFE_SNAPSHOT_TEST = "tests/test_daily_published_model_snapshots_pr_safe.py"
@@ -2063,6 +2120,14 @@ def pr_safe_migration_contract_for_paths(
             revenue_target[3],
             revenue_target[6],
         )
+    authority_target = pr_safe_daily_authority_containment_target_profile(changed_paths)
+    if authority_target is not None:
+        return (
+            authority_target[0],
+            authority_target[2],
+            authority_target[3],
+            authority_target[6],
+        )
     if changed_paths == PR_SAFE_INPUT_BOUND_VALIDATOR_REGISTRATION_PATHS:
         return (
             PR_SAFE_INPUT_BOUND_VALIDATOR_MIGRATION_ID,
@@ -2452,6 +2517,84 @@ def is_preauthorized_revenue_forward_holdout_target(
     return True
 
 
+def pr_safe_daily_authority_containment_target_profile(
+    changed_paths: set[str],
+) -> tuple[
+    str,
+    str,
+    str,
+    str,
+    dict[str, str | None],
+    dict[str, str],
+    frozenset[str],
+] | None:
+    normalized_paths = frozenset(str(path).replace("\\", "/") for path in changed_paths)
+    if normalized_paths != PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_PATHS:
+        return None
+    return (
+        PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TARGET_ID,
+        PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_BASE_CONTENT_REF_SHA,
+        PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_HELPER,
+        PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TEST,
+        PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_BASE_SHA256_BY_PATH,
+        PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TARGET_SHA256_BY_PATH,
+        PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_PATHS,
+    )
+
+
+def is_preauthorized_daily_authority_containment_target(
+    base_ref: str,
+    changed_paths: set[str],
+    *,
+    repository_root: Path = ROOT,
+    head_ref: str = "HEAD",
+) -> bool:
+    profile = pr_safe_daily_authority_containment_target_profile(changed_paths)
+    if profile is None:
+        return False
+    (
+        _target_id,
+        base_content_ref_sha,
+        _helper_path,
+        _test_path,
+        base_sha256_by_path,
+        target_sha256_by_path,
+        target_paths,
+    ) = profile
+    if set(base_sha256_by_path) != target_paths:
+        return False
+    if not re.fullmatch(r"[0-9a-f]{40}", str(base_ref)):
+        return False
+
+    root = Path(repository_root).resolve()
+    if not _pr_safe_repo_ref_is_ancestor(root, base_content_ref_sha, base_ref):
+        return False
+    if not _pr_safe_repo_ref_is_ancestor(root, base_ref, head_ref):
+        return False
+
+    for path in sorted(target_paths):
+        base_blob = _pr_safe_repo_blob(root, base_ref, path)
+        target_blob = _pr_safe_repo_blob(root, head_ref, path)
+        expected_base_sha = base_sha256_by_path[path]
+        expected_target_sha = target_sha256_by_path[path]
+        if expected_base_sha is None:
+            if base_blob is not None or _pr_safe_repo_blob_mode(root, base_ref, path) is not None:
+                return False
+        elif (
+            base_blob is None
+            or canonical_blob_sha256(base_blob) != expected_base_sha
+            or _pr_safe_repo_blob_mode(root, base_ref, path) != "100644"
+        ):
+            return False
+        if (
+            target_blob is None
+            or canonical_blob_sha256(target_blob) != expected_target_sha
+            or _pr_safe_repo_blob_mode(root, head_ref, path) != "100644"
+        ):
+            return False
+    return True
+
+
 def parse_pr_safe_authorizations(payload: bytes) -> tuple[list[dict[str, str]], list[str]]:
     try:
         reader = csv.DictReader(io.StringIO(payload.decode("utf-8-sig"), newline=""))
@@ -2718,6 +2861,22 @@ def validate_pr_safe_control_plane_delta(
         for field, expected_sha in target_expected.items():
             if expected[field] != expected_sha:
                 errors.append(f"revenue forward-holdout target pinned {field} mismatch")
+    elif migration_id == PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TARGET_ID:
+        target_profile = pr_safe_daily_authority_containment_target_profile(
+            authorized_paths
+        )
+        if target_profile is None:
+            errors.append("daily authority containment target profile is missing")
+            return errors
+        _, _, target_helper, target_test, base_hashes, target_hashes, _ = target_profile
+        target_expected = {
+            "base_helper_sha256": base_hashes[target_helper],
+            "current_helper_sha256": target_hashes[target_helper],
+            "current_test_sha256": target_hashes[target_test],
+        }
+        for field, expected_sha in target_expected.items():
+            if expected[field] != expected_sha:
+                errors.append(f"daily authority containment target pinned {field} mismatch")
     else:
         errors.append(f"unsupported PR-safe migration id: {migration_id}")
     return errors
@@ -2915,6 +3074,7 @@ def validate_pr_safe_control_plane_migration(base_sha: str, head_sha: str) -> li
     is_replay_target = False
     is_local_replay_target = False
     is_revenue_forward_holdout_target = False
+    is_daily_authority_containment_target = False
     if not re.fullmatch(r"[0-9a-fA-F]{40}", base_sha):
         return [f"invalid base SHA: {base_sha!r}"]
     if not re.fullmatch(r"[0-9a-fA-F]{40}", head_sha):
@@ -2948,6 +3108,9 @@ def validate_pr_safe_control_plane_migration(base_sha: str, head_sha: str) -> li
         is_revenue_forward_holdout_target = (
             pr_safe_revenue_forward_holdout_target_profile(changed_paths) is not None
         )
+        is_daily_authority_containment_target = (
+            pr_safe_daily_authority_containment_target_profile(changed_paths) is not None
+        )
         if contract is None and not is_replay_target and not is_local_replay_target:
             errors.append(
                 "PR-safe audit requires exactly the preauthorized changed paths: "
@@ -2957,6 +3120,7 @@ def validate_pr_safe_control_plane_migration(base_sha: str, head_sha: str) -> li
                         PR_SAFE_INPUT_BOUND_VALIDATOR_REGISTRATION_PATHS,
                         PR_SAFE_REVENUE_FORWARD_HOLDOUT_PATHS,
                         PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_PATHS,
+                        PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_PATHS,
                         PR_SAFE_LOCAL_VALIDATION_REPLAY_ADVANCED_PATHS,
                         PR_SAFE_AUTHORIZED_STAGE1_PATHS,
                         PR_SAFE_SNAPSHOT_AUTHORIZED_PATHS,
@@ -3043,6 +3207,18 @@ def validate_pr_safe_control_plane_migration(base_sha: str, head_sha: str) -> li
         ):
             errors.append(
                 "base-owned audit rejected the exact revenue forward-holdout target"
+            )
+        if (
+            is_daily_authority_containment_target
+            and not is_preauthorized_daily_authority_containment_target(
+                base_sha,
+                changed_paths,
+                repository_root=ROOT,
+                head_ref=head_sha,
+            )
+        ):
+            errors.append(
+                "base-owned audit rejected the exact daily authority containment target"
             )
         if contract[0] == PR_SAFE_ADDITIVE_RESEARCH_MIGRATION_ID:
             errors.extend(
@@ -3164,6 +3340,8 @@ def build_pr_safe_audit_manifest(
     is_local_replay_target = False
     is_revenue_forward_holdout_target = False
     revenue_forward_holdout_target_profile = None
+    is_daily_authority_containment_target = False
+    daily_authority_containment_target_profile = None
     migration_contract: tuple[str, str, str, frozenset[str]] | None = None
     try:
         diff_payload = git_output_bytes(
@@ -3190,6 +3368,12 @@ def build_pr_safe_audit_manifest(
         )
         is_revenue_forward_holdout_target = (
             revenue_forward_holdout_target_profile is not None
+        )
+        daily_authority_containment_target_profile = (
+            pr_safe_daily_authority_containment_target_profile(changed_paths)
+        )
+        is_daily_authority_containment_target = (
+            daily_authority_containment_target_profile is not None
         )
         if (
             migration_contract is None
@@ -3256,6 +3440,21 @@ def build_pr_safe_audit_manifest(
         if not revenue_forward_holdout_target_verified:
             errors.append(
                 "audit manifest revenue forward-holdout target failed exact base-owned preauthorization"
+            )
+
+    daily_authority_containment_target_verified = False
+    if is_daily_authority_containment_target:
+        daily_authority_containment_target_verified = (
+            is_preauthorized_daily_authority_containment_target(
+                base_sha,
+                changed_paths,
+                repository_root=ROOT,
+                head_ref=head_sha,
+            )
+        )
+        if not daily_authority_containment_target_verified:
+            errors.append(
+                "audit manifest daily authority containment target failed exact base-owned preauthorization"
             )
 
     migration_id = (
@@ -3351,6 +3550,29 @@ def build_pr_safe_audit_manifest(
                 else {}
             ),
             "verified": revenue_forward_holdout_target_verified,
+        },
+        "daily_authority_containment_target_preauthorization": {
+            "target_id": (
+                daily_authority_containment_target_profile[0]
+                if daily_authority_containment_target_profile is not None
+                else None
+            ),
+            "base_content_ref_sha": (
+                daily_authority_containment_target_profile[1]
+                if daily_authority_containment_target_profile is not None
+                else None
+            ),
+            "base_sha256_by_path": (
+                daily_authority_containment_target_profile[4]
+                if daily_authority_containment_target_profile is not None
+                else {}
+            ),
+            "target_sha256_by_path": (
+                daily_authority_containment_target_profile[5]
+                if daily_authority_containment_target_profile is not None
+                else {}
+            ),
+            "verified": daily_authority_containment_target_verified,
         },
         "replay_target_preauthorization": {
             "target_id": (
