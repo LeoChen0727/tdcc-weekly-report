@@ -315,6 +315,7 @@ def test_daily_model_maintenance_pr_workflow_runs_contract_validators() -> None:
     )
     positions = [text.index(command) for command in revenue_validator_order]
     assert positions == sorted(positions)
+    assert "python scripts/validate_revenue_unreacted_range_forward_holdout.py" not in text
 
 
 def test_daily_model_maintenance_pr_workflow_runs_focused_pdf_operation_tests() -> None:
@@ -353,6 +354,8 @@ def test_daily_model_maintenance_pr_workflow_runs_focused_pdf_operation_tests() 
         "tests/test_revenue_unreacted_range_operation_lag_bucket_audit.py",
         "tests/test_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
         "tests/test_validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
+        "tests/test_revenue_unreacted_range_forward_holdout.py",
+        "tests/test_validate_revenue_unreacted_range_forward_holdout.py",
         "tests/test_repo_hidden_coupling_audit.py",
         "tests/test_stock_model_contract_registry.py",
     )

@@ -68,8 +68,26 @@ REVENUE_WORKFLOW_INPUT = "run_revenue_unreacted_range_research"
 REVENUE_PROJECTION_CHAIN_STAGE_INPUT = (
     "run_revenue_unreacted_range_source_snapshot_projection_chain_only"
 )
+REVENUE_FORWARD_HOLDOUT_STAGE_INPUT = (
+    "run_revenue_unreacted_range_forward_holdout_only"
+)
 REVENUE_PRODUCER = "scripts/build_revenue_unreacted_range_research.py"
 REVENUE_FULL_BUILD_COMMAND = f"python {REVENUE_PRODUCER}"
+REVENUE_FORWARD_HOLDOUT_BUILD_COMMAND = (
+    f"{REVENUE_FULL_BUILD_COMMAND} --stage forward_holdout"
+)
+REVENUE_FORWARD_HOLDOUT_STAGE_COMMANDS = {
+    "git add output/latest/research_backtest/"
+    "revenue_unreacted_range_forward_holdout_* || true",
+    "git add output/history/research/"
+    "revenue_unreacted_range_forward_holdout_* || true",
+    "git add docs/latest/revenue_unreacted_range_forward_holdout_* || true",
+}
+REVENUE_FULL_STAGE_COMMANDS = {
+    "git add output/latest/research_backtest/revenue_unreacted_range_* || true",
+    "git add output/history/research/revenue_unreacted_range_* || true",
+    "git add docs/latest/revenue_unreacted_range_* || true",
+}
 REVENUE_PROJECTION_CHAIN_BUILD_COMMAND = (
     f"{REVENUE_FULL_BUILD_COMMAND} --stage source_snapshot_projection_chain"
 )
@@ -167,10 +185,13 @@ def workflow_input_defaults(text: str) -> dict[str, str]:
     body = match.group("body")
     rows: dict[str, str] = {}
     for input_match in re.finditer(
-        r'(?ms)^      (?P<name>[A-Za-z0-9_]+):\s*\n.*?^        default: "(?P<default>true|false)"\s*$',
+        r'(?ms)^      (?P<name>[A-Za-z0-9_]+):\s*\n.*?^        default: '
+        r'(?:(?:"(?P<quoted>true|false)")|(?P<plain>true|false))\s*$',
         body,
     ):
-        rows[input_match.group("name")] = input_match.group("default")
+        rows[input_match.group("name")] = (
+            input_match.group("quoted") or input_match.group("plain")
+        )
     return rows
 
 
@@ -329,69 +350,118 @@ def validate_workflow_text(
         if command not in text:
             errors.append(f"shared objective data stage allowlist missing from workflow: {command}")
 
-    if defaults.get(REVENUE_PROJECTION_CHAIN_STAGE_INPUT) != "false":
-        errors.append(
-            "missing opt-in revenue source projection chain stage input with false "
-            f"default: {REVENUE_PROJECTION_CHAIN_STAGE_INPUT}"
-        )
-    if any(
-        row.workflow_input == REVENUE_PROJECTION_CHAIN_STAGE_INPUT for row in rows
-    ):
-        errors.append(
-            "revenue source projection chain stage mode must not be registered as a "
-            "second producer entrypoint"
-        )
-    stage_input_condition = (
-        f"github.event.inputs.{REVENUE_PROJECTION_CHAIN_STAGE_INPUT} == 'true'"
+    stage_inputs = (
+        REVENUE_FORWARD_HOLDOUT_STAGE_INPUT,
+        REVENUE_PROJECTION_CHAIN_STAGE_INPUT,
     )
-    if stage_input_condition in any_selected_line or stage_input_condition in model_selected_line:
+    for stage_input in stage_inputs:
+        if defaults.get(stage_input) != "false":
+            errors.append(
+                "missing opt-in revenue stage input with false default: "
+                f"{stage_input}"
+            )
+        if any(row.workflow_input == stage_input for row in rows):
+            errors.append(
+                "revenue stage mode must not be registered as a second producer "
+                f"entrypoint: {stage_input}"
+            )
+        stage_input_condition = f"github.event.inputs.{stage_input} == 'true'"
+        if (
+            stage_input_condition in any_selected_line
+            or stage_input_condition in model_selected_line
+        ):
+            errors.append(
+                "revenue stage mode must require the primary revenue workflow input "
+                f"instead of selecting research independently: {stage_input}"
+            )
+
+    holdout_requires_primary = (
+        'if [[ "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" && '
+        '"$REVENUE_RESEARCH_ENABLED" != "true" ]]; then'
+    )
+    mutually_exclusive_modes = (
+        'if [[ "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" && '
+        '"$REVENUE_SOURCE_PROJECTION_CHAIN_ONLY" == "true" ]]; then'
+    )
+    if holdout_requires_primary not in text:
         errors.append(
-            "revenue source projection chain stage mode must require the primary revenue "
-            "workflow input instead of selecting research independently"
+            "revenue forward holdout stage must fail closed unless the primary revenue "
+            "workflow input is selected"
         )
+    if mutually_exclusive_modes not in text:
+        errors.append(
+            "revenue forward holdout and source projection chain stage modes must be "
+            "mutually exclusive"
+        )
+
     revenue_blocks = [
-        block for block in blocks if REVENUE_PROJECTION_CHAIN_BUILD_COMMAND in block
+        block
+        for block in blocks
+        if REVENUE_PROJECTION_CHAIN_BUILD_COMMAND in block
+        or REVENUE_FORWARD_HOLDOUT_BUILD_COMMAND in block
     ]
     if len(revenue_blocks) != 1:
         errors.append(
-            "revenue source projection chain stage command must appear in exactly one "
+            "revenue stage commands must appear together in exactly one "
             "workflow step"
         )
     else:
         revenue_block = revenue_blocks[0]
         revenue_lines = [line.strip() for line in revenue_block.splitlines()]
-        stage_if = (
+        holdout_if = (
+            'if [[ "${{ github.event.inputs.'
+            f'{REVENUE_FORWARD_HOLDOUT_STAGE_INPUT}'
+            ' }}" == "true" ]]; then'
+        )
+        projection_if = (
             'if [[ "${{ github.event.inputs.'
             f'{REVENUE_PROJECTION_CHAIN_STAGE_INPUT}'
             ' }}" == "true" ]]; then'
         )
         try:
-            stage_index = revenue_lines.index(stage_if)
-            else_index = revenue_lines.index("else", stage_index + 1)
+            holdout_index = revenue_lines.index(holdout_if)
+            holdout_fi_index = revenue_lines.index("fi", holdout_index + 1)
+            projection_index = revenue_lines.index(
+                projection_if, holdout_fi_index + 1
+            )
+            else_index = revenue_lines.index("else", projection_index + 1)
             fi_index = revenue_lines.index("fi", else_index + 1)
         except ValueError:
             errors.append(
-                "revenue source projection chain stage mode is missing its guarded "
-                "stage/full branch"
+                "revenue holdout and source projection stage modes are missing their "
+                "guarded stage/full branches"
             )
         else:
-            stage_python = {
-                line for line in revenue_lines[stage_index + 1 : else_index]
+            holdout_python = {
+                line for line in revenue_lines[holdout_index + 1 : holdout_fi_index]
+                if line.startswith("python ")
+            }
+            projection_python = {
+                line for line in revenue_lines[projection_index + 1 : else_index]
                 if line.startswith("python ")
             }
             full_python = {
                 line for line in revenue_lines[else_index + 1 : fi_index]
                 if line.startswith("python ")
             }
-            expected_stage_python = {
+            expected_holdout_python = {
+                REVENUE_FORWARD_HOLDOUT_BUILD_COMMAND,
+            }
+            if holdout_python != expected_holdout_python:
+                errors.append(
+                    "revenue forward holdout stage mode must contain only its model-owned "
+                    "producer stage with persisted independent replay: "
+                    f"actual={sorted(holdout_python)}"
+                )
+            expected_projection_python = {
                 REVENUE_PROJECTION_CHAIN_BUILD_COMMAND,
                 *REVENUE_PROJECTION_CHAIN_VALIDATOR_COMMANDS,
             }
-            if stage_python != expected_stage_python:
+            if projection_python != expected_projection_python:
                 errors.append(
                     "revenue source projection chain stage mode must contain only its "
                     "existing producer stage and cutoff-chain validators: "
-                    f"actual={sorted(stage_python)}"
+                    f"actual={sorted(projection_python)}"
                 )
             if REVENUE_FULL_BUILD_COMMAND not in full_python:
                 errors.append(
@@ -402,12 +472,71 @@ def validate_workflow_text(
                     "revenue full research branch must not replace the full producer with "
                     "the source projection chain stage"
                 )
+            if REVENUE_FORWARD_HOLDOUT_BUILD_COMMAND in full_python:
+                errors.append(
+                    "revenue full research branch must not replace the full producer with "
+                    "the forward holdout stage"
+                )
         revenue_condition = f"github.event.inputs.{REVENUE_WORKFLOW_INPUT} == 'true'"
         if revenue_condition not in revenue_block:
             errors.append(
-                "revenue source projection chain stage mode must remain nested under the "
+                "revenue stage modes must remain nested under the "
                 "primary revenue workflow input"
             )
+
+    commit_step_name = COMMIT_STEP_MARKER.removeprefix("- name: ")
+    commit_blocks = [
+        block
+        for block in blocks
+        if block.splitlines() and block.splitlines()[0].strip() == commit_step_name
+    ]
+    if len(commit_blocks) != 1:
+        errors.append("research artifact commit step must appear exactly once")
+    else:
+        commit_lines = [line.strip() for line in commit_blocks[0].splitlines()]
+        revenue_stage_if = (
+            'if [[ "${{ github.event.inputs.'
+            f'{REVENUE_WORKFLOW_INPUT}'
+            ' }}" == "true" ]]; then'
+        )
+        holdout_stage_if = (
+            'if [[ "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" ]]; then'
+        )
+        try:
+            revenue_stage_index = commit_lines.index(revenue_stage_if)
+            holdout_stage_index = commit_lines.index(
+                holdout_stage_if, revenue_stage_index + 1
+            )
+            stage_else_index = commit_lines.index("else", holdout_stage_index + 1)
+            stage_fi_index = commit_lines.index("fi", stage_else_index + 1)
+        except ValueError:
+            errors.append(
+                "revenue forward holdout commit staging must be nested under the "
+                "primary revenue artifact stage"
+            )
+        else:
+            holdout_stage_commands = {
+                line
+                for line in commit_lines[holdout_stage_index + 1 : stage_else_index]
+                if line.startswith("git add ")
+            }
+            full_stage_commands = {
+                line
+                for line in commit_lines[stage_else_index + 1 : stage_fi_index]
+                if line.startswith("git add ")
+            }
+            if holdout_stage_commands != REVENUE_FORWARD_HOLDOUT_STAGE_COMMANDS:
+                errors.append(
+                    "revenue forward holdout commit stage must contain only its exact "
+                    "latest/history/docs artifact prefixes: "
+                    f"actual={sorted(holdout_stage_commands)}"
+                )
+            if full_stage_commands != REVENUE_FULL_STAGE_COMMANDS:
+                errors.append(
+                    "revenue full research commit stage must retain its existing "
+                    "latest/history/docs artifact prefixes: "
+                    f"actual={sorted(full_stage_commands)}"
+                )
 
     volume_source = "python scripts/build_volume_breakout_confirmed_operation_backtest.py"
     volume_v2 = "python scripts/build_volume_range_breakout_v2_research.py"

@@ -166,6 +166,7 @@ REVENUE_CROSS_MARKET_CONSUMER_FAMILIES = (
     "revenue_unreacted_range_operation_lag_bucket_audit",
     "revenue_unreacted_range_position_shape_transition_matrix",
     "revenue_unreacted_range_low_mid_falling_candidate_audit",
+    "revenue_unreacted_range_forward_holdout",
 )
 REVENUE_CROSS_MARKET_RESOLUTION_SHA_TOKEN = (
     "resolution_registry_canonical_sha256="
@@ -306,6 +307,7 @@ VALID_INDEPENDENT_VALIDATOR_ROLES = {
     "independent_contract_ast_guard",
     "independent_source_lineage_validator",
     "independent_research_replay_validator",
+    "input_bound_in_process_independent_validator",
 }
 REVENUE_CROSS_MARKET_RESOLUTION_CANONICAL_COLUMNS = (
     "resolution_id",

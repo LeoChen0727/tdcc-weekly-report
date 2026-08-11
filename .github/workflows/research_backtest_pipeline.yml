@@ -118,7 +118,19 @@ jobs:
           git pull --ff-only origin "$TARGET_BRANCH"
 
       - name: Validate Apps Script workflow triggers
+        env:
+          REVENUE_FORWARD_HOLDOUT_ONLY: ${{ github.event.inputs.run_revenue_unreacted_range_forward_holdout_only }}
+          REVENUE_RESEARCH_ENABLED: ${{ github.event.inputs.run_revenue_unreacted_range_research }}
+          REVENUE_SOURCE_PROJECTION_CHAIN_ONLY: ${{ github.event.inputs.run_revenue_unreacted_range_source_snapshot_projection_chain_only }}
         run: |
+          if [[ "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" && "$REVENUE_RESEARCH_ENABLED" != "true" ]]; then
+            echo "::error::Revenue forward holdout mode requires run_revenue_unreacted_range_research=true."
+            exit 1
+          fi
+          if [[ "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" && "$REVENUE_SOURCE_PROJECTION_CHAIN_ONLY" == "true" ]]; then
+            echo "::error::Revenue forward holdout mode and source snapshot projection chain mode are mutually exclusive."
+            exit 1
+          fi
           python scripts/validate_apps_script_workflow_triggers.py
           python scripts/validate_repo_production_inventory.py
           python scripts/validate_daily_model_background_data_registry.py --structure-only
@@ -221,6 +233,10 @@ jobs:
         if: ${{ github.event.inputs.run_revenue_unreacted_range_research == 'true' }}
         run: |
           python scripts/validate_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py
+          if [[ "${{ github.event.inputs.run_revenue_unreacted_range_forward_holdout_only }}" == "true" ]]; then
+            python scripts/build_revenue_unreacted_range_research.py --stage forward_holdout
+            exit 0
+          fi
           if [[ "${{ github.event.inputs.run_revenue_unreacted_range_source_snapshot_projection_chain_only }}" == "true" ]]; then
             python scripts/build_revenue_unreacted_range_research.py --stage source_snapshot_projection_chain
             python scripts/validate_revenue_unreacted_range_source_first_condition_audit.py
@@ -311,6 +327,8 @@ jobs:
 
       - name: Commit research and backtest outputs
         if: ${{ env.ANY_RESEARCH_SELECTED == 'true' }}
+        env:
+          REVENUE_FORWARD_HOLDOUT_ONLY: ${{ github.event.inputs.run_revenue_unreacted_range_forward_holdout_only }}
         run: |
           set -euo pipefail
           git config user.name "github-actions"
@@ -333,9 +351,15 @@ jobs:
           fi
 
           if [[ "${{ github.event.inputs.run_revenue_unreacted_range_research }}" == "true" ]]; then
-            git add output/latest/research_backtest/revenue_unreacted_range_* || true
-            git add output/history/research/revenue_unreacted_range_* || true
-            git add docs/latest/revenue_unreacted_range_* || true
+            if [[ "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" ]]; then
+              git add output/latest/research_backtest/revenue_unreacted_range_forward_holdout_* || true
+              git add output/history/research/revenue_unreacted_range_forward_holdout_* || true
+              git add docs/latest/revenue_unreacted_range_forward_holdout_* || true
+            else
+              git add output/latest/research_backtest/revenue_unreacted_range_* || true
+              git add output/history/research/revenue_unreacted_range_* || true
+              git add docs/latest/revenue_unreacted_range_* || true
+            fi
           fi
 
           if [[ "${{ github.event.inputs.run_volume_range_breakout_v2_research }}" == "true" ]]; then

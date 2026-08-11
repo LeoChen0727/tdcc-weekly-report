@@ -186,6 +186,113 @@ def test_revenue_projection_chain_stage_is_not_a_second_producer_entrypoint() ->
     assert validator.validate_workflow_text(text, rows, producers) == []
 
 
+def test_revenue_forward_holdout_stage_is_nested_and_model_owned() -> None:
+    text, rows, producers = _inputs()
+    stage_input = validator.REVENUE_FORWARD_HOLDOUT_STAGE_INPUT
+
+    assert validator.workflow_input_defaults(text)[stage_input] == "false"
+    assert stage_input not in {row.workflow_input for row in rows}
+    assert validator.REVENUE_FORWARD_HOLDOUT_BUILD_COMMAND in text
+    for command in validator.REVENUE_FORWARD_HOLDOUT_STAGE_COMMANDS:
+        assert command in text
+    assert "python scripts/validate_revenue_unreacted_range_forward_holdout.py" not in text
+    assert validator.validate_workflow_text(text, rows, producers) == []
+
+
+def test_revenue_forward_holdout_stage_rejects_plain_boolean_true_default() -> None:
+    text, rows, producers = _inputs()
+    input_block = (
+        "      run_revenue_unreacted_range_forward_holdout_only:\n"
+        '        description: "Declare the model-owned revenue forward holdout input; disabled by default"\n'
+        "        required: false\n"
+        "        default: false\n"
+        "        type: boolean"
+    )
+    assert input_block in text
+    text = text.replace(input_block, input_block.replace("default: false", "default: true"), 1)
+
+    errors = validator.validate_workflow_text(text, rows, producers)
+
+    assert any("must default false" in error for error in errors)
+    assert any("missing opt-in revenue stage input" in error for error in errors)
+
+
+def test_revenue_forward_holdout_stage_rejects_unregistered_command() -> None:
+    text, rows, producers = _inputs()
+    stage_command = f"            {validator.REVENUE_FORWARD_HOLDOUT_BUILD_COMMAND}\n"
+    text = text.replace(
+        stage_command,
+        stage_command + "            python scripts/unregistered_holdout_command.py\n",
+        1,
+    )
+
+    errors = validator.validate_workflow_text(text, rows, producers)
+
+    assert any("forward holdout stage mode must contain only" in error for error in errors)
+
+
+def test_revenue_forward_holdout_commit_stage_rejects_broad_revenue_glob() -> None:
+    text, rows, producers = _inputs()
+    exact_command = (
+        "              git add output/latest/research_backtest/"
+        "revenue_unreacted_range_forward_holdout_* || true\n"
+    )
+    broad_command = (
+        "              git add output/latest/research_backtest/"
+        "revenue_unreacted_range_* || true\n"
+    )
+    assert exact_command in text
+    text = text.replace(exact_command, broad_command, 1)
+
+    errors = validator.validate_workflow_text(text, rows, producers)
+
+    assert any(
+        "forward holdout commit stage must contain only" in error
+        for error in errors
+    )
+
+
+def test_revenue_forward_holdout_stage_rejects_independent_selection() -> None:
+    text, rows, producers = _inputs()
+    marker = "      MODEL_RESEARCH_SELECTED: ${{ "
+    text = text.replace(
+        marker,
+        marker
+        + "github.event.inputs."
+        + validator.REVENUE_FORWARD_HOLDOUT_STAGE_INPUT
+        + " == 'true' || ",
+        1,
+    )
+
+    errors = validator.validate_workflow_text(text, rows, producers)
+
+    assert any("instead of selecting research independently" in error for error in errors)
+
+
+def test_revenue_forward_holdout_stage_requires_primary_and_exclusive_mode_guards() -> None:
+    text, rows, producers = _inputs()
+    primary_guard = (
+        '          if [[ "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" && '
+        '"$REVENUE_RESEARCH_ENABLED" != "true" ]]; then\n'
+    )
+    exclusive_guard = (
+        '          if [[ "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" && '
+        '"$REVENUE_SOURCE_PROJECTION_CHAIN_ONLY" == "true" ]]; then\n'
+    )
+    assert primary_guard in text
+    assert exclusive_guard in text
+
+    without_primary = text.replace(primary_guard, "", 1)
+    primary_errors = validator.validate_workflow_text(without_primary, rows, producers)
+    assert any("unless the primary revenue" in error for error in primary_errors)
+
+    without_exclusive = text.replace(exclusive_guard, "", 1)
+    exclusive_errors = validator.validate_workflow_text(
+        without_exclusive, rows, producers
+    )
+    assert any("mutually exclusive" in error for error in exclusive_errors)
+
+
 def test_revenue_projection_chain_stage_rejects_unregistered_command() -> None:
     text, rows, producers = _inputs()
     stage_command = (
