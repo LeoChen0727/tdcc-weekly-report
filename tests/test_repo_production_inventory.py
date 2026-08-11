@@ -2042,11 +2042,12 @@ def test_input_bound_validator_stage_a_preauthorizations_are_exact() -> None:
     payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
     rows, errors = inventory.parse_pr_safe_authorizations(payload)
     assert errors == []
-    assert [row["migration_id"] for row in rows[-4:]] == [
+    assert [row["migration_id"] for row in rows[-5:]] == [
         inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_MIGRATION_ID,
         inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_STAGE_A_MIGRATION_ID,
         inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_ID,
         inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_TARGET_ID,
+        inventory.PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TARGET_ID,
     ]
     rows_by_id = {row["migration_id"]: row for row in rows}
     assert rows_by_id[inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_MIGRATION_ID] == {
@@ -2159,6 +2160,30 @@ def test_input_bound_validator_stage_a_preauthorizations_are_exact() -> None:
     assert inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_TARGET_SHA256_BY_PATH[
         "config/repo_file_lifecycle_inventory.csv"
     ] == "fc1fb68e6d4a4910e79386d23aed7837ce41ea9c738ad43a2992eef9c8f9e632"
+    assert rows_by_id[inventory.PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TARGET_ID] == {
+        "migration_id": inventory.PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TARGET_ID,
+        "status": "preauthorized",
+        "approval_reference": "user_authorized_daily_runtime_authority_containment_20260812",
+        "base_helper_sha256": (
+            inventory.PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_BASE_SHA256_BY_PATH[
+                inventory.PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_HELPER
+            ]
+        ),
+        "current_helper_sha256": (
+            inventory.PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TARGET_SHA256_BY_PATH[
+                inventory.PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_HELPER
+            ]
+        ),
+        "current_test_sha256": (
+            inventory.PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TARGET_SHA256_BY_PATH[
+                inventory.PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TEST
+            ]
+        ),
+        "changed_paths": ";".join(
+            sorted(inventory.PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_PATHS)
+        ),
+    }
+    assert len(inventory.PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_PATHS) == 20
 
 
 def test_input_bound_validator_stage_a_rejects_mixed_or_drifted_target() -> None:
@@ -2425,6 +2450,165 @@ def test_revenue_forward_holdout_replay_detail_target_uses_base_owned_ledger() -
         current_test=current_test,
         authorization_payload=authorization_payload,
     )
+
+
+def test_daily_authority_containment_target_is_exact_and_fail_closed(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    base_ref = "a" * 40
+    head_ref = "b" * 40
+    base_blobs: dict[str, bytes | None] = {}
+    target_blobs: dict[str, bytes] = {}
+    base_hashes: dict[str, str | None] = {}
+    target_hashes: dict[str, str] = {}
+    for path, expected_base_sha in (
+        inventory.PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_BASE_SHA256_BY_PATH.items()
+    ):
+        base_blobs[path] = (
+            None if expected_base_sha is None else f"base:{path}\n".encode("utf-8")
+        )
+        target_blobs[path] = f"target:{path}\n".encode("utf-8")
+        base_hashes[path] = (
+            None
+            if base_blobs[path] is None
+            else inventory.canonical_blob_sha256(base_blobs[path] or b"")
+        )
+        target_hashes[path] = inventory.canonical_blob_sha256(target_blobs[path])
+
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_BASE_SHA256_BY_PATH",
+        base_hashes,
+    )
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TARGET_SHA256_BY_PATH",
+        target_hashes,
+    )
+    monkeypatch.setattr(
+        inventory,
+        "_pr_safe_repo_ref_is_ancestor",
+        lambda _root, _ancestor, _descendant: True,
+    )
+    monkeypatch.setattr(
+        inventory,
+        "_pr_safe_repo_blob",
+        lambda _root, ref, path: (
+            base_blobs[path] if ref == base_ref else target_blobs[path]
+        ),
+    )
+    modes = {
+        (ref, path): (
+            None if ref == base_ref and base_blobs[path] is None else "100644"
+        )
+        for ref in (base_ref, head_ref)
+        for path in inventory.PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_PATHS
+    }
+    monkeypatch.setattr(
+        inventory,
+        "_pr_safe_repo_blob_mode",
+        lambda _root, ref, path: modes[(ref, path)],
+    )
+    kwargs = {
+        "base_ref": base_ref,
+        "changed_paths": set(inventory.PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_PATHS),
+        "repository_root": tmp_path,
+        "head_ref": head_ref,
+    }
+    assert inventory.is_preauthorized_daily_authority_containment_target(**kwargs)
+
+    helper = inventory.PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_HELPER
+    original_target = target_blobs[helper]
+    target_blobs[helper] = original_target + b"drift\n"
+    assert not inventory.is_preauthorized_daily_authority_containment_target(**kwargs)
+    target_blobs[helper] = original_target
+
+    modes[(head_ref, helper)] = "100755"
+    assert not inventory.is_preauthorized_daily_authority_containment_target(**kwargs)
+    modes[(head_ref, helper)] = "100644"
+
+    added_path = next(path for path, value in base_blobs.items() if value is None)
+    base_blobs[added_path] = b"unexpected collision\n"
+    modes[(base_ref, added_path)] = "100644"
+    assert not inventory.is_preauthorized_daily_authority_containment_target(**kwargs)
+    base_blobs[added_path] = None
+    modes[(base_ref, added_path)] = None
+
+    assert not inventory.is_preauthorized_daily_authority_containment_target(
+        **{**kwargs, "changed_paths": {*kwargs["changed_paths"], "scripts/extra.py"}}
+    )
+
+
+def test_daily_authority_containment_target_uses_base_owned_ledger(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    base_helper = b"base daily boundary validator\n"
+    current_helper = b"target daily boundary validator\n"
+    current_test = b"target daily boundary regressions\n"
+    base_hashes = dict(
+        inventory.PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_BASE_SHA256_BY_PATH
+    )
+    target_hashes = dict(
+        inventory.PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TARGET_SHA256_BY_PATH
+    )
+    base_hashes[inventory.PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_HELPER] = (
+        inventory.canonical_blob_sha256(base_helper)
+    )
+    target_hashes[inventory.PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_HELPER] = (
+        inventory.canonical_blob_sha256(current_helper)
+    )
+    target_hashes[inventory.PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TEST] = (
+        inventory.canonical_blob_sha256(current_test)
+    )
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_BASE_SHA256_BY_PATH",
+        base_hashes,
+    )
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TARGET_SHA256_BY_PATH",
+        target_hashes,
+    )
+    payload = pr_safe_authorization_payload(
+        base_helper,
+        current_helper,
+        current_test,
+        migration_id=inventory.PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TARGET_ID,
+        authorized_paths=inventory.PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_PATHS,
+    )
+    assert inventory.validate_pr_safe_control_plane_delta(
+        set(inventory.PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_PATHS),
+        base_helper=base_helper,
+        current_helper=current_helper,
+        current_test=current_test,
+        authorization_payload=payload,
+    ) == []
+    assert inventory.validate_pr_safe_control_plane_delta(
+        set(inventory.PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_PATHS),
+        base_helper=base_helper,
+        current_helper=current_helper + b"drift",
+        current_test=current_test,
+        authorization_payload=payload,
+    )
+
+
+def test_daily_authority_containment_stage_a_cannot_self_authorize() -> None:
+    stage_a_paths = {
+        inventory.PR_SAFE_AUTHORIZATION_PATH,
+        inventory.PR_SAFE_BASE_GUARD_SCRIPT,
+        "tests/test_repo_production_inventory.py",
+    }
+    assert inventory.pr_safe_migration_contract_for_paths(stage_a_paths) is None
+    errors = inventory.validate_pr_safe_control_plane_delta(
+        stage_a_paths,
+        base_helper=b"base guard\n",
+        current_helper=b"branch guard\n",
+        current_test=b"branch tests\n",
+        authorization_payload=(ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes(),
+    )
+    assert any("may not modify the base-owned PR-safe trust root" in error for error in errors)
 
 
 def test_inventory_covers_tests_and_non_python_executables() -> None:
