@@ -170,6 +170,107 @@ PR_SAFE_INPUT_BOUND_BASE_LIFECYCLE_INVENTORY_SHA256 = (
 PR_SAFE_INPUT_BOUND_CURRENT_LIFECYCLE_INVENTORY_SHA256 = (
     "6bd6d3c81eccbcfb929112ad713de7130d02829f9e46832055b88c4bd8be1e29"
 )
+PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_ID = (
+    "revenue-unreacted-range-forward-holdout-exact-target-v1"
+)
+PR_SAFE_REVENUE_FORWARD_HOLDOUT_BASE_CONTENT_REF_SHA = (
+    "77dbe2f8c0de91bd2d4a07141f0982446b9afb12"
+)
+PR_SAFE_REVENUE_FORWARD_HOLDOUT_HELPER = (
+    "scripts/validate_model_research_workflow_isolation.py"
+)
+PR_SAFE_REVENUE_FORWARD_HOLDOUT_TEST = (
+    "tests/test_model_research_workflow_isolation.py"
+)
+PR_SAFE_REVENUE_FORWARD_HOLDOUT_BASE_SHA256_BY_PATH = {
+    ".github/workflows/daily_model_maintenance_pr_validation.yml": "aa0945c69d13ab0b562c57f8bf4638de47d8d785cfde8d604c056c647911da09",
+    ".github/workflows/research_backtest_pipeline.yml": "787efe25c7703e1c344962c4b57677ac9201d27c30bc5bd3e3c53a2b754d8a36",
+    "config/daily_model_background_data_registry.csv": "c82ad53052529ccd0a88239fd63655c2bfa4c87282622716254a197e5a9bdead",
+    "config/daily_model_data_sharing_migrations.csv": "2e6b0c9a0efc7fe31db6a078c807cf7e1635b9dbda21142ebd8fb638742a99fe",
+    "config/daily_model_data_sharing_registry.csv": "ec7ed00b38e2d13552bb362e992bff65317da0947d76dd116fa25be13d38a317",
+    "config/daily_model_validator_independence.csv": "c124878ed83dfb1903879fbafcdce935a01f993c15d74761a2f98304da17e5d8",
+    "config/repo_file_lifecycle_inventory.csv": "6bd6d3c81eccbcfb929112ad713de7130d02829f9e46832055b88c4bd8be1e29",
+    "config/repo_production_inventory.csv": "4f155b6568f60646608ed8c0be596ceb9ba4521afb2e0da82d8b2deea2c9d89b",
+    "config/report_artifact_lineage.csv": "23e9e63c1e30188bf2b388a895cceb58053acfa2a74592e2b40afc161904e39e",
+    "docs/latest/model_data_independence_audit_latest.csv": "79c6603df08691024f4307ba4b33ae733950d3b1b3b57a21562aaef4634b96cb",
+    "docs/latest/model_data_independence_audit_latest.md": "2497c0f5d7ae805825470b14b713bbacafc906f04fb2278b4746eaf1f920dcc8",
+    "docs/latest/revenue_unreacted_range_forward_holdout_anomaly_sensitivity_latest.csv": None,
+    "docs/latest/revenue_unreacted_range_forward_holdout_comparison_latest.csv": None,
+    "docs/latest/revenue_unreacted_range_forward_holdout_event_detail_latest.csv": None,
+    "docs/latest/revenue_unreacted_range_forward_holdout_manifest_latest.csv": None,
+    "docs/latest/revenue_unreacted_range_forward_holdout_maturity_status_latest.csv": None,
+    "docs/specs/revenue_unreacted_range_forward_holdout.md": None,
+    "output/history/research/revenue_unreacted_range_forward_holdout_anomaly_sensitivity.csv": None,
+    "output/history/research/revenue_unreacted_range_forward_holdout_comparison.csv": None,
+    "output/history/research/revenue_unreacted_range_forward_holdout_event_detail.csv": None,
+    "output/history/research/revenue_unreacted_range_forward_holdout_manifest.csv": None,
+    "output/history/research/revenue_unreacted_range_forward_holdout_maturity_status.csv": None,
+    "output/latest/model_data_independence_audit_latest.csv": "79c6603df08691024f4307ba4b33ae733950d3b1b3b57a21562aaef4634b96cb",
+    "output/latest/model_data_independence_audit_latest.md": "2497c0f5d7ae805825470b14b713bbacafc906f04fb2278b4746eaf1f920dcc8",
+    "output/latest/research_backtest/revenue_unreacted_range_forward_holdout_anomaly_sensitivity_latest.csv": None,
+    "output/latest/research_backtest/revenue_unreacted_range_forward_holdout_comparison_latest.csv": None,
+    "output/latest/research_backtest/revenue_unreacted_range_forward_holdout_event_detail_latest.csv": None,
+    "output/latest/research_backtest/revenue_unreacted_range_forward_holdout_manifest_latest.csv": None,
+    "output/latest/research_backtest/revenue_unreacted_range_forward_holdout_maturity_status_latest.csv": None,
+    "scripts/build_revenue_unreacted_range_research.py": "70430096dc7ee7781a94d62525db1d3a4e4555ce6b45737b06895eefbf739aed",
+    "scripts/model_data_independence.py": "90f036e84780bb3077fe93e6127688de15a2157d73ae4f18f0aebaee28a2256b",
+    "scripts/revenue_unreacted_range_forward_holdout.py": None,
+    "scripts/validate_model_research_workflow_isolation.py": "912c59d6b0642f13b36480997af99c85ad51494e2dfcf6703225b159ae0278e6",
+    "scripts/validate_revenue_unreacted_range_forward_holdout.py": None,
+    "tests/test_daily_model_background_data_registry.py": "2530676b105129b6ad4a409741f46050228f695853f1aed0054be3b822b0f8b6",
+    "tests/test_daily_model_maintenance_pr_validation_workflow.py": "322a8dab09ebcb7c913491868c3c1517dcdedf3b66ff847d3cd44c3160646db2",
+    "tests/test_model_data_independence.py": "7420e424465eb7b97b6da6fcbf9ab7fd6a19bf09333f6eaabf33c78f6e36546b",
+    "tests/test_model_research_artifact_ownership.py": "6e20d6d38e5977c5dc482bef305e18db40388a20efff8f0f01d57956d9b32b5e",
+    "tests/test_model_research_workflow_isolation.py": "00305b86fbda9918864157189e96f694061528c21c0bb80d84dcc9549bf6991d",
+    "tests/test_revenue_unreacted_range_forward_holdout.py": None,
+    "tests/test_validate_revenue_unreacted_range_forward_holdout.py": None,
+}
+PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_SHA256_BY_PATH = {
+    ".github/workflows/daily_model_maintenance_pr_validation.yml": "d714ea85d7a47102186a6f2612eff9e1cc25efd3a50fbc3846e0f997c10ac405",
+    ".github/workflows/research_backtest_pipeline.yml": "72297d14df7a39d290c13b7853ef2e6a30df3c5aa207fb73db4056ac4187c02a",
+    "config/daily_model_background_data_registry.csv": "40e0dd17120e1340690fcaa87b1f4fb5192a023702d8a210cca929cb38ec6484",
+    "config/daily_model_data_sharing_migrations.csv": "8c98df161fdb60297c93cb760baa365fb05a57d6c64e68d7653a6fbe9534fbf7",
+    "config/daily_model_data_sharing_registry.csv": "15ba0fc062858943cb3a96b8a2d39be70b23000e4f6c5363182805e8e6e1a956",
+    "config/daily_model_validator_independence.csv": "a76e2e232c9b063eb5e62a7f5a562610f305f9069fe20b6db583159e60d720d3",
+    "config/repo_file_lifecycle_inventory.csv": "f68002587c18ca4463d80a9ba41859e6ca06b75872566242a2ce64a0fb230431",
+    "config/repo_production_inventory.csv": "0273f04dc00d040b5890b3036fc10521b1c295e570aab9b48d7300914d47eac2",
+    "config/report_artifact_lineage.csv": "6d8249ebfd7f28d0d11c0c6e6de3f5d6eea10d84de4f73998733b762657a15cb",
+    "docs/latest/model_data_independence_audit_latest.csv": "a5039a5ebeaeb379bf424986462531e87cc9cfb9f4890c3a12b8cad9d52b3b97",
+    "docs/latest/model_data_independence_audit_latest.md": "2f54c8060da9dfdfc91884257482612d1fb8f790f3b67bcbdcfc40be97af10d2",
+    "docs/latest/revenue_unreacted_range_forward_holdout_anomaly_sensitivity_latest.csv": "5fb470b2b3f7571b10b13062393166365ebf469a05f776f10dc54156cc2f5421",
+    "docs/latest/revenue_unreacted_range_forward_holdout_comparison_latest.csv": "0c79a883dc39b005adbf8608d96815574c04616f3fcbc2bbf56ff5cb7af7576f",
+    "docs/latest/revenue_unreacted_range_forward_holdout_event_detail_latest.csv": "6f5810eeb60ad61b9784f5eba483831570a7a586435d524aed8f2515e51cd703",
+    "docs/latest/revenue_unreacted_range_forward_holdout_manifest_latest.csv": "b50ed00d92c06e43b55a24c45db1206291ddc53c0791f8703fd8edb4a0ae8f6c",
+    "docs/latest/revenue_unreacted_range_forward_holdout_maturity_status_latest.csv": "5c41293c1b279cdccb4680f0c46dfe8b20d02d24d60a279cc587f0c33cbbe2a9",
+    "docs/specs/revenue_unreacted_range_forward_holdout.md": "1302aa3dd88c896349bc782d91244f3f052b242233f64b4ffc8bfefde4b4bbdb",
+    "output/history/research/revenue_unreacted_range_forward_holdout_anomaly_sensitivity.csv": "5fb470b2b3f7571b10b13062393166365ebf469a05f776f10dc54156cc2f5421",
+    "output/history/research/revenue_unreacted_range_forward_holdout_comparison.csv": "0c79a883dc39b005adbf8608d96815574c04616f3fcbc2bbf56ff5cb7af7576f",
+    "output/history/research/revenue_unreacted_range_forward_holdout_event_detail.csv": "6f5810eeb60ad61b9784f5eba483831570a7a586435d524aed8f2515e51cd703",
+    "output/history/research/revenue_unreacted_range_forward_holdout_manifest.csv": "b50ed00d92c06e43b55a24c45db1206291ddc53c0791f8703fd8edb4a0ae8f6c",
+    "output/history/research/revenue_unreacted_range_forward_holdout_maturity_status.csv": "5c41293c1b279cdccb4680f0c46dfe8b20d02d24d60a279cc587f0c33cbbe2a9",
+    "output/latest/model_data_independence_audit_latest.csv": "a5039a5ebeaeb379bf424986462531e87cc9cfb9f4890c3a12b8cad9d52b3b97",
+    "output/latest/model_data_independence_audit_latest.md": "2f54c8060da9dfdfc91884257482612d1fb8f790f3b67bcbdcfc40be97af10d2",
+    "output/latest/research_backtest/revenue_unreacted_range_forward_holdout_anomaly_sensitivity_latest.csv": "5fb470b2b3f7571b10b13062393166365ebf469a05f776f10dc54156cc2f5421",
+    "output/latest/research_backtest/revenue_unreacted_range_forward_holdout_comparison_latest.csv": "0c79a883dc39b005adbf8608d96815574c04616f3fcbc2bbf56ff5cb7af7576f",
+    "output/latest/research_backtest/revenue_unreacted_range_forward_holdout_event_detail_latest.csv": "6f5810eeb60ad61b9784f5eba483831570a7a586435d524aed8f2515e51cd703",
+    "output/latest/research_backtest/revenue_unreacted_range_forward_holdout_manifest_latest.csv": "b50ed00d92c06e43b55a24c45db1206291ddc53c0791f8703fd8edb4a0ae8f6c",
+    "output/latest/research_backtest/revenue_unreacted_range_forward_holdout_maturity_status_latest.csv": "5c41293c1b279cdccb4680f0c46dfe8b20d02d24d60a279cc587f0c33cbbe2a9",
+    "scripts/build_revenue_unreacted_range_research.py": "0e8fe73332a4894c069dfad9b85f2466c31a9bef10759404ea0b9f0a5b7e4101",
+    "scripts/model_data_independence.py": "0142a9a26d502c947d8f061ef312f988be2edaac9cd6232b7d064db44c7dbd28",
+    "scripts/revenue_unreacted_range_forward_holdout.py": "fcd8896fe633abc7a76e6bc2f7fee8ddfdc02a549538dba15a2524707135c5b5",
+    "scripts/validate_model_research_workflow_isolation.py": "c9f5b0a2491136c9c0b4201d48a16674076fb964f39103f553dfcb93d28f97b4",
+    "scripts/validate_revenue_unreacted_range_forward_holdout.py": "4c893613362be4d565ef4a67d35fa0820738a4c1d55a263d40045347327116d6",
+    "tests/test_daily_model_background_data_registry.py": "f4a9bb4faebba075c5c4a2e7829dd97fbdb1a1ff270ddad28680a4e3fcdb5c83",
+    "tests/test_daily_model_maintenance_pr_validation_workflow.py": "8eca7620ed1eb32abe10618ea1f76078e838643e5f34a79c2de2b6abe796967a",
+    "tests/test_model_data_independence.py": "db757e1aa3ca092afe7c9071e3ee25e6875a68ba35696f59e14c58d11ca6ac28",
+    "tests/test_model_research_artifact_ownership.py": "632f7a5eae05815211794495560ce344f020befdfa2f2cd2b7e717a9454b1124",
+    "tests/test_model_research_workflow_isolation.py": "682d2083e8fb59c9e48f4e2778693305e4731a5d40b70688278804021bac7d9f",
+    "tests/test_revenue_unreacted_range_forward_holdout.py": "75fe616e3af0b1bc4c6cf9000c7e6e3ab507bd4fdb9fa004e954891c971830e6",
+    "tests/test_validate_revenue_unreacted_range_forward_holdout.py": "5d96e64ceb9dce37681d42430b3b6f6fa375d710cee3c14a303fd8cfd77f1ea4",
+}
+PR_SAFE_REVENUE_FORWARD_HOLDOUT_PATHS = frozenset(
+    PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_SHA256_BY_PATH
+)
 PR_SAFE_SNAPSHOT_MIGRATION_ID = "daily-full-checkpoint-replay-snapshot-pr-safe-v1"
 PR_SAFE_SNAPSHOT_HELPER = "scripts/validate_daily_published_model_snapshots_pr_safe.py"
 PR_SAFE_SNAPSHOT_TEST = "tests/test_daily_published_model_snapshots_pr_safe.py"
@@ -1897,6 +1998,13 @@ def build_daily_full_checkpoint_replay_integrated_lifecycle_inventory(
 def pr_safe_migration_contract_for_paths(
     changed_paths: set[str],
 ) -> tuple[str, str, str, frozenset[str]] | None:
+    if changed_paths == PR_SAFE_REVENUE_FORWARD_HOLDOUT_PATHS:
+        return (
+            PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_ID,
+            PR_SAFE_REVENUE_FORWARD_HOLDOUT_HELPER,
+            PR_SAFE_REVENUE_FORWARD_HOLDOUT_TEST,
+            PR_SAFE_REVENUE_FORWARD_HOLDOUT_PATHS,
+        )
     if changed_paths == PR_SAFE_INPUT_BOUND_VALIDATOR_REGISTRATION_PATHS:
         return (
             PR_SAFE_INPUT_BOUND_VALIDATOR_MIGRATION_ID,
@@ -2194,6 +2302,54 @@ def is_preauthorized_daily_full_checkpoint_replay_migration(
     return current_workflow == base_workflow.replace(anchor, insertion + anchor, 1)
 
 
+def is_preauthorized_revenue_forward_holdout_target(
+    base_ref: str,
+    changed_paths: set[str],
+    *,
+    repository_root: Path = ROOT,
+    head_ref: str = "HEAD",
+) -> bool:
+    normalized_paths = {str(path).replace("\\", "/") for path in changed_paths}
+    if normalized_paths != PR_SAFE_REVENUE_FORWARD_HOLDOUT_PATHS:
+        return False
+    if set(PR_SAFE_REVENUE_FORWARD_HOLDOUT_BASE_SHA256_BY_PATH) != normalized_paths:
+        return False
+    if not re.fullmatch(r"[0-9a-f]{40}", str(base_ref)):
+        return False
+
+    root = Path(repository_root).resolve()
+    if not _pr_safe_repo_ref_is_ancestor(
+        root,
+        PR_SAFE_REVENUE_FORWARD_HOLDOUT_BASE_CONTENT_REF_SHA,
+        base_ref,
+    ):
+        return False
+    if not _pr_safe_repo_ref_is_ancestor(root, base_ref, head_ref):
+        return False
+
+    for path in sorted(normalized_paths):
+        base_blob = _pr_safe_repo_blob(root, base_ref, path)
+        target_blob = _pr_safe_repo_blob(root, head_ref, path)
+        expected_base_sha = PR_SAFE_REVENUE_FORWARD_HOLDOUT_BASE_SHA256_BY_PATH[path]
+        expected_target_sha = PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_SHA256_BY_PATH[path]
+        if expected_base_sha is None:
+            if base_blob is not None or _pr_safe_repo_blob_mode(root, base_ref, path) is not None:
+                return False
+        elif (
+            base_blob is None
+            or canonical_blob_sha256(base_blob) != expected_base_sha
+            or _pr_safe_repo_blob_mode(root, base_ref, path) != "100644"
+        ):
+            return False
+        if (
+            target_blob is None
+            or canonical_blob_sha256(target_blob) != expected_target_sha
+            or _pr_safe_repo_blob_mode(root, head_ref, path) != "100644"
+        ):
+            return False
+    return True
+
+
 def parse_pr_safe_authorizations(payload: bytes) -> tuple[list[dict[str, str]], list[str]]:
     try:
         reader = csv.DictReader(io.StringIO(payload.decode("utf-8-sig"), newline=""))
@@ -2441,6 +2597,21 @@ def validate_pr_safe_control_plane_delta(
             errors.append("snapshot preauthorization base test blob must exist")
         elif canonical_blob_sha256(base_test) != PR_SAFE_SNAPSHOT_BASE_TEST_SHA256:
             errors.append("snapshot preauthorization pinned base_test_sha256 mismatch")
+    elif migration_id == PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_ID:
+        target_expected = {
+            "base_helper_sha256": PR_SAFE_REVENUE_FORWARD_HOLDOUT_BASE_SHA256_BY_PATH[
+                PR_SAFE_REVENUE_FORWARD_HOLDOUT_HELPER
+            ],
+            "current_helper_sha256": PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_SHA256_BY_PATH[
+                PR_SAFE_REVENUE_FORWARD_HOLDOUT_HELPER
+            ],
+            "current_test_sha256": PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_SHA256_BY_PATH[
+                PR_SAFE_REVENUE_FORWARD_HOLDOUT_TEST
+            ],
+        }
+        for field, expected_sha in target_expected.items():
+            if expected[field] != expected_sha:
+                errors.append(f"revenue forward-holdout target pinned {field} mismatch")
     else:
         errors.append(f"unsupported PR-safe migration id: {migration_id}")
     return errors
@@ -2637,6 +2808,7 @@ def validate_pr_safe_control_plane_migration(base_sha: str, head_sha: str) -> li
     errors: list[str] = []
     is_replay_target = False
     is_local_replay_target = False
+    is_revenue_forward_holdout_target = False
     if not re.fullmatch(r"[0-9a-fA-F]{40}", base_sha):
         return [f"invalid base SHA: {base_sha!r}"]
     if not re.fullmatch(r"[0-9a-fA-F]{40}", head_sha):
@@ -2667,6 +2839,9 @@ def validate_pr_safe_control_plane_migration(base_sha: str, head_sha: str) -> li
         is_local_replay_target = (
             changed_paths == PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_PATHS
         )
+        is_revenue_forward_holdout_target = (
+            changed_paths == PR_SAFE_REVENUE_FORWARD_HOLDOUT_PATHS
+        )
         if contract is None and not is_replay_target and not is_local_replay_target:
             errors.append(
                 "PR-safe audit requires exactly the preauthorized changed paths: "
@@ -2674,6 +2849,7 @@ def validate_pr_safe_control_plane_migration(base_sha: str, head_sha: str) -> li
                     ", ".join(sorted(paths))
                     for paths in (
                         PR_SAFE_INPUT_BOUND_VALIDATOR_REGISTRATION_PATHS,
+                        PR_SAFE_REVENUE_FORWARD_HOLDOUT_PATHS,
                         PR_SAFE_LOCAL_VALIDATION_REPLAY_ADVANCED_PATHS,
                         PR_SAFE_AUTHORIZED_STAGE1_PATHS,
                         PR_SAFE_SNAPSHOT_AUTHORIZED_PATHS,
@@ -2749,6 +2925,18 @@ def validate_pr_safe_control_plane_migration(base_sha: str, head_sha: str) -> li
                 },
             )
         )
+        if (
+            is_revenue_forward_holdout_target
+            and not is_preauthorized_revenue_forward_holdout_target(
+                base_sha,
+                changed_paths,
+                repository_root=ROOT,
+                head_ref=head_sha,
+            )
+        ):
+            errors.append(
+                "base-owned audit rejected the exact revenue forward-holdout target"
+            )
         if contract[0] == PR_SAFE_ADDITIVE_RESEARCH_MIGRATION_ID:
             errors.extend(
                 validate_pr_safe_advanced_lifecycle_inventory_delta(
@@ -2867,6 +3055,7 @@ def build_pr_safe_audit_manifest(
     changed_paths: set[str] = set()
     is_replay_target = False
     is_local_replay_target = False
+    is_revenue_forward_holdout_target = False
     migration_contract: tuple[str, str, str, frozenset[str]] | None = None
     try:
         diff_payload = git_output_bytes(
@@ -2887,6 +3076,9 @@ def build_pr_safe_audit_manifest(
         )
         is_local_replay_target = (
             changed_paths == PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_PATHS
+        )
+        is_revenue_forward_holdout_target = (
+            changed_paths == PR_SAFE_REVENUE_FORWARD_HOLDOUT_PATHS
         )
         if (
             migration_contract is None
@@ -2938,6 +3130,21 @@ def build_pr_safe_audit_manifest(
         if not replay_target_verified:
             errors.append(
                 "audit manifest validation replay target failed exact base-owned preauthorization"
+            )
+
+    revenue_forward_holdout_target_verified = False
+    if is_revenue_forward_holdout_target:
+        revenue_forward_holdout_target_verified = (
+            is_preauthorized_revenue_forward_holdout_target(
+                base_sha,
+                changed_paths,
+                repository_root=ROOT,
+                head_ref=head_sha,
+            )
+        )
+        if not revenue_forward_holdout_target_verified:
+            errors.append(
+                "audit manifest revenue forward-holdout target failed exact base-owned preauthorization"
             )
 
     migration_id = (
@@ -3010,6 +3217,29 @@ def build_pr_safe_audit_manifest(
                 else None
             ),
             "migration": migration,
+        },
+        "exact_research_target_preauthorization": {
+            "target_id": (
+                PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_ID
+                if is_revenue_forward_holdout_target
+                else None
+            ),
+            "base_content_ref_sha": (
+                PR_SAFE_REVENUE_FORWARD_HOLDOUT_BASE_CONTENT_REF_SHA
+                if is_revenue_forward_holdout_target
+                else None
+            ),
+            "base_sha256_by_path": (
+                PR_SAFE_REVENUE_FORWARD_HOLDOUT_BASE_SHA256_BY_PATH
+                if is_revenue_forward_holdout_target
+                else {}
+            ),
+            "target_sha256_by_path": (
+                PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_SHA256_BY_PATH
+                if is_revenue_forward_holdout_target
+                else {}
+            ),
+            "verified": revenue_forward_holdout_target_verified,
         },
         "replay_target_preauthorization": {
             "target_id": (
