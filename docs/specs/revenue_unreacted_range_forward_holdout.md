@@ -113,6 +113,15 @@ Artifact id：`revenue_unreacted_range_forward_holdout`
 4. `comparison`：三個 variant 同一操作口徑的比較；結論固定為 accumulating。
 5. `anomaly_sensitivity`：保留候選的 primary 與排除候選 sensitivity 並列。
 
+每次 current build 另保存一份 exact enriched replay source detail，並以 raw bytes
+完全相同的兩個 current-only mirrors 發布：
+
+- `output/latest/research_backtest/revenue_unreacted_range_forward_holdout_replay_source_detail_latest.csv`
+- `docs/latest/revenue_unreacted_range_forward_holdout_replay_source_detail_latest.csv`
+
+這份 source detail 是本模型 current capture 的 standalone replay input，不是第六份
+holdout conclusion surface，也不允許成為跨模型或正式 promotion evidence。
+
 Latest：
 
 - `output/latest/research_backtest/revenue_unreacted_range_forward_holdout_manifest_latest.csv`
@@ -125,9 +134,10 @@ Append-only history 位於 `output/history/research/`；文件 mirrors 位於
 `docs/latest/`。history 以 `(capture_id, artifact_row_key)` 唯一識別；相同 key 的
 semantic bytes 不得改寫。完全相同 capture 可 idempotent 重跑。
 
-五個 latest、五個 history 與五個 docs mirror 共 15 個檔案使用同一次 filesystem
+五個 latest、五個 history、五個 docs mirror 與兩個 current-only replay source mirrors
+共 17 個檔案使用同一次 filesystem
 publish transaction：所有新 bytes 與 rollback backups 必須先完成 staging，任一 replace
-或驗證 I/O 失敗時，15 個 target 全數回復到執行前 exact bytes（原本不存在者仍不存在）。
+或驗證 I/O 失敗時，17 個 target 全數回復到執行前 exact bytes（原本不存在者仍不存在）。
 不得留下部分更新的 latest/history/docs 組合。讀取既有 history、合併與 transaction publish
 全程由 exclusive publish lock 保護；並行 writer 必須 fail closed，不得 lost update。
 
@@ -140,6 +150,9 @@ evidence 時，既有 capture 不得接受新的 capture append。
 這只是 append-only history structural integrity；舊 capture 的原始 source/price bundles
 未隨 history 保存，因此 history hash 或 structural pass **不是**舊 capture 的獨立重播，
 也不是 promotion-grade replay bundle 或 promotion proof。
+current-only replay source mirrors 只承諾目前 tracked current capture 的 exact source input；
+舊 Git commit 可保存當時 tracked latest bytes，但本 contract 不宣稱另有 source-input history，
+也不得僅憑新 commit 的 current replay source 重播或重新詮釋舊 capture。
 
 ## Producer 與獨立 validator
 
@@ -161,7 +174,7 @@ scripts/revenue_unreacted_range_forward_holdout.py
 python scripts/validate_revenue_unreacted_range_forward_holdout.py \
   --manifest <persisted-forward-holdout-manifest.csv> \
   --source-manifest <immutable-pr462-source-projection-manifest.csv> \
-  --source-detail <exact-source-detail.csv> \
+  --source-detail output/latest/research_backtest/revenue_unreacted_range_forward_holdout_replay_source_detail_latest.csv \
   --price-input-directory <exact-normalized-price-input-directory> \
   --history-base-ref <immutable-git-base-ref>
 ```
@@ -171,8 +184,10 @@ source alignment、120 日位階、下降型態、trigger、D+1 confirmation、D
 exit、right censor、rearm/non-overlap、summary/comparison/anomaly metrics，並由 explicit
 inputs 重算完整 capture envelope/capture id，再核對五個 current surfaces 與 lineage hashes。
 正式 `forward_holdout` stage 在同一批 explicit source、price 與 source manifest 完成
-build/write 後，重新讀取 persisted latest surfaces 及五份 history，再呼叫
-`validate_frames`。任何 error 使 stage fail closed。Standalone CLI 的五個 history args
+build/write 後，重新讀取 persisted replay source mirror、五個 latest surfaces 及五份 history，
+先驗證 output/docs replay source raw-byte parity，再呼叫 `validate_frames`。stage 不得以
+尚未持久化的 in-memory source 代替 replay input。任何 error 使 stage fail closed。
+Standalone CLI 的五個 history args
 預設為已登錄的 `output/history/research/` paths；它不自行重建 business inputs，缺少上述
 explicit replay evidence 時會拒絕執行。
 

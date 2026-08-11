@@ -80,6 +80,92 @@ def test_bare_cli_fails_closed_without_explicit_inputs() -> None:
         validator.main([])
 
 
+def _persist_standalone_cli_fixture(
+    tmp_path: Path,
+) -> tuple[list[str], Path]:
+    bundle = _valid_bundle()
+    replay_source = bundle["source"].copy().reset_index(drop=True)
+    paths = write_forward_holdout(
+        bundle["manifest"],
+        bundle["detail"],
+        bundle["summary"],
+        bundle["comparison"],
+        bundle["anomaly"],
+        replay_source_detail=replay_source,
+        output_root=tmp_path,
+    )
+    source_manifest_path = tmp_path / "source_projection_manifest.csv"
+    bundle["source_manifest"].to_csv(source_manifest_path, index=False)
+    price_directory = tmp_path / "price_inputs"
+    price_directory.mkdir()
+    for stock_id, frame in bundle["daily"].items():
+        frame.to_csv(price_directory / f"{stock_id}.csv", index=False)
+
+    args = [
+        "--manifest",
+        str(paths["manifest_latest"]),
+        "--source-manifest",
+        str(source_manifest_path),
+        "--source-detail",
+        str(paths["replay_source_latest"]),
+        "--price-input-directory",
+        str(price_directory),
+        "--history-base-ref",
+        "synthetic-immutable-base",
+    ]
+    for name in ("detail", "summary", "comparison", "anomaly"):
+        args.extend((f"--{name.replace('_', '-')}", str(paths[f"{name}_latest"])))
+    for name in ("manifest", "detail", "summary", "comparison", "anomaly"):
+        args.extend(
+            (
+                f"--{name.replace('_', '-')}-history",
+                str(paths[f"{name}_history"]),
+            )
+        )
+    return args, paths["replay_source_latest"]
+
+
+def test_standalone_cli_accepts_persisted_enriched_replay_source(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    args, replay_source_path = _persist_standalone_cli_fixture(tmp_path)
+    monkeypatch.setattr(
+        validator,
+        "load_history_base_frames_from_git",
+        lambda *_args, **_kwargs: {},
+    )
+
+    assert validator.main(args) == 0
+    assert replay_source_path.is_file()
+    assert "independently validated" in capsys.readouterr().out
+
+
+def test_standalone_cli_rejects_replay_source_missing_anomaly_lineage(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    args, replay_source_path = _persist_standalone_cli_fixture(tmp_path)
+    source = pd.read_csv(
+        replay_source_path,
+        dtype={"stock_id": str},
+        keep_default_na=False,
+        low_memory=False,
+    ).drop(columns=["qualifying_source_revenue_anomaly_candidate_flags"])
+    source.to_csv(replay_source_path, index=False)
+    monkeypatch.setattr(
+        validator,
+        "load_history_base_frames_from_git",
+        lambda *_args, **_kwargs: {},
+    )
+
+    assert validator.main(args) == 1
+    output = capsys.readouterr().out
+    assert "qualifying_source_revenue_anomaly_candidate_flags" in output
+
+
 def test_validator_is_independent_and_accepts_exact_replay() -> None:
     validator_path = Path(validator.__file__).resolve()
     tree = ast.parse(validator_path.read_text(encoding="utf-8-sig"))
@@ -173,6 +259,7 @@ def test_validator_reads_five_histories_and_accepts_current_capture_parity(
     names = ("manifest", "detail", "summary", "comparison", "anomaly")
     paths = write_forward_holdout(
         *(bundle[name] for name in names),
+        replay_source_detail=bundle["source"],
         output_root=tmp_path,
     )
     bundle["history"] = {

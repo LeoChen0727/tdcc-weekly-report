@@ -98,7 +98,7 @@ PRODUCER = "scripts/build_revenue_unreacted_range_research.py"
 def validate_forward_holdout_stage_changed_paths(
     changed_paths: list[str],
 ) -> list[str]:
-    """Restrict the forward-only stage to its exact fifteen research artifacts."""
+    """Restrict the forward-only stage to its exact seventeen research artifacts."""
 
     allowed = set(FORWARD_HOLDOUT_ALLOWED_ARTIFACT_PATHS)
     return [

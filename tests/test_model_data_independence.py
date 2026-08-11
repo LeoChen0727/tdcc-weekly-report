@@ -728,7 +728,7 @@ def test_data_sharing_registry_uses_model_owned_research_entrypoints() -> None:
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
-    assert len(rows) == 25
+    assert len(rows) == 26
     baseline = rows[0]
     assert tuple(baseline) == DATA_SHARING_MIGRATION_COLUMNS
     assert data_migration_row_sha256(baseline) == BASELINE_DATA_MIGRATION_ROW_SHA256
@@ -1453,7 +1453,12 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
         "validated_user_approved_migration"
     )
 
-    forward_holdout_migration = rows[-1]
+    forward_holdout_migration = next(
+        row
+        for row in rows
+        if row["migration_id"]
+        == "revenue_low_mid_falling_forward_holdout_20260811"
+    )
     assert forward_holdout_migration["migration_id"] == (
         "revenue_low_mid_falling_forward_holdout_20260811"
     )
@@ -1473,6 +1478,40 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     assert forward_holdout_migration["migration_status"] == (
         "validated_user_approved_migration"
     )
+
+    replay_source_migration = next(
+        row
+        for row in rows
+        if row["migration_id"]
+        == "revenue_forward_holdout_replay_source_detail_20260812"
+    )
+    assert replay_source_migration["changed_data_families"] == (
+        "revenue_unreacted_range_forward_holdout"
+    )
+    assert replay_source_migration["previous_contract_sha256s"] == (
+        "6798ba95d83ead7fdb616d9eff730efa51614f399af7f831780b2183992caae5"
+    )
+    assert replay_source_migration["new_contract_sha256s"] == (
+        "64a0b285a5065dd2d4484cca544d31f5b6e887f1bb9a4bf6e076582edd66b561"
+    )
+    assert replay_source_migration["affected_models"] == (
+        "revenue_unreacted_range"
+    )
+    assert replay_source_migration["user_approval_reference"] == (
+        "user_authorized_revenue_forward_holdout_replay_input_20260812"
+    )
+    assert replay_source_migration["migration_status"] == (
+        "validated_user_approved_migration"
+    )
+    forward_holdout = sharing_by_family[
+        "revenue_unreacted_range_forward_holdout"
+    ]
+    assert forward_holdout["last_migration_id"] == replay_source_migration[
+        "migration_id"
+    ]
+    assert forward_holdout["data_contract_sha256"] == replay_source_migration[
+        "new_contract_sha256s"
+    ]
 
 
 def test_forward_confirmation_artifact_lineage_uses_projection_not_current_source() -> None:
@@ -1662,6 +1701,7 @@ def test_revenue_cross_market_research_artifact_lineage_is_complete() -> None:
             "output/latest/research_backtest/revenue_unreacted_range_forward_holdout_maturity_status_latest.csv",
             "output/latest/research_backtest/revenue_unreacted_range_forward_holdout_comparison_latest.csv",
             "output/latest/research_backtest/revenue_unreacted_range_forward_holdout_anomaly_sensitivity_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_forward_holdout_replay_source_detail_latest.csv",
             "output/history/research/revenue_unreacted_range_forward_holdout_manifest.csv",
             "output/history/research/revenue_unreacted_range_forward_holdout_event_detail.csv",
             "output/history/research/revenue_unreacted_range_forward_holdout_maturity_status.csv",
