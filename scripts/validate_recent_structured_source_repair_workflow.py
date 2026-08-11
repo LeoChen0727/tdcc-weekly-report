@@ -225,10 +225,21 @@ def validate(recent_text: str, replay_text: str) -> list[str]:
         "git add output/history/daily_model": "must not stage model outputs",
         "git add published_reports": "must not stage published reports",
         "git add chatgpt_side_outputs": "must not stage PDF outputs",
+        "git add output/latest/market_session_status_latest.json": (
+            "must not publish the authoritative market-session surface"
+        ),
     }
     for literal, purpose in forbidden.items():
         if literal in recent_text:
             errors.append(f"recent structured-source catch-up {purpose}: found {literal!r}")
+    if "git add output/latest/data_freshness_latest" in replay_text:
+        errors.append(
+            "historical structured-source replay must not independently publish the authoritative freshness surface"
+        )
+    if "write_files=False" not in (ROOT / "scripts" / "repair_recent_daily_price_gaps.py").read_text(
+        encoding="utf-8"
+    ):
+        errors.append("recent repair market-session preflight must be decision-only with write_files=False")
 
     ordered = (
         "Commit repaired recent daily price gaps",

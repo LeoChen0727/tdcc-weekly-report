@@ -29,6 +29,8 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add data/ output/
+          git add data/daily_price/
+          git add output/latest/official_daily_price_latest.csv output/latest/official_price_fetch_latest.*
+          git add output/debug/official_price_fetch_debug_latest.md || true
           git commit -m "Update official daily price data" || echo "No changes to commit"
           git push

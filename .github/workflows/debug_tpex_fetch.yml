@@ -29,6 +29,6 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add output/
+          git add output/debug_tpex_fetch_latest.csv output/debug_tpex_fetch_latest.md
           git commit -m "Update TPEx debug report" || echo "No changes to commit"
           git push

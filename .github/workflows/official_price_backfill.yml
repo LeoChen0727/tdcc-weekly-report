@@ -34,7 +34,9 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git pull --rebase --autostash origin main || true
-          git add data/ output/
+          git add data/daily_price/ data/stock_price_history/
+          git add output/official_price_backfill_latest.md output/official_price_backfill_row_stats.csv || true
+          git add output/latest/stock_price_history_manifest.* || true
           git add docs/latest/stock_price_history_manifest.csv || true
           git add docs/latest/stock_price_history_manifest.json || true
           git add docs/latest/stock_price_history_manifest.md || true

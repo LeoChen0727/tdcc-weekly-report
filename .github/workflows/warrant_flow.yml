@@ -301,7 +301,6 @@ jobs:
           git add output/history/warrant_flow/ || true
           git add output/latest/all_candidates_latest.* || true
           git add output/latest/stock_monitor_latest.md || true
-          git add output/latest/data_freshness_latest.* || true
           git add output/latest/chatgpt_indicator_usage_guide_latest.md || true
           git add output/latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt || true
           git add output/latest/theme_event_watch_latest.* || true

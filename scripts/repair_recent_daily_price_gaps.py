@@ -270,6 +270,7 @@ def main() -> int:
             market_status = market_session_calendar.refresh_market_session_status(
                 root,
                 phase="preflight",
+                write_files=False,
             )
         except Exception as exc:
             print(f"ERROR: market session refresh failed before recent gap repair: {exc}")

@@ -8,8 +8,6 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 ALLOWED_EXACT = {
-    "data/market_calendar/exceptional_non_trading_days.csv",
-    "output/latest/market_session_status_latest.json",
     "output/latest/recent_daily_price_gap_repair_latest.json",
     "output/latest/recent_daily_price_gap_repair_latest.md",
     "output/latest/repair_daily_price_range_check_code_latest.csv",

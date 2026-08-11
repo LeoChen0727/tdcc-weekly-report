@@ -2176,13 +2176,127 @@ def test_only_daily_full_pipeline_can_stage_authoritative_latest_surfaces() -> N
         if path.name == "daily_full_pipeline.yml":
             continue
         text = path.read_text(encoding="utf-8")
-        assert "git add output/latest/market_session_status_latest.json" not in text, path.name
-        assert "git add output/latest/data_freshness_latest" not in text, path.name
+        assert "scripts/daily_authority_release.py publish" not in text, path.name
+        normalized = text.replace("\\\n", " ")
+        for line in normalized.splitlines():
+            command = line.strip()
+            if command.startswith("git add"):
+                assert not boundaries.git_add_command_covers_authority(command), (path.name, command)
     daily = (workflows / "daily_full_pipeline.yml").read_text(encoding="utf-8")
     assert "output/latest/market_session_status_latest.json" in daily
     assert "output/latest/data_freshness_latest.csv" in daily
     assert daily.count("python scripts/daily_authority_release.py publish") == 2
     assert daily.count("python scripts/daily_authority_release.py validate-staged") == 2
+    assert "ci_push_with_retry.sh" not in daily
+    assert "git pull --rebase" not in daily
+    assert 'git commit -m "Update daily report artifacts and packets" ||' not in daily
+    assert 'git push origin "HEAD:refs/heads/main"' in daily
+    assert 'git push origin "HEAD:$TARGET_BRANCH"' in daily
+
+
+@pytest.mark.parametrize(
+    "command",
+    (
+        "git add output/latest/",
+        "git add output/",
+        "git add -A",
+        "git add --all -- .",
+        "git add -u",
+        "git add output/latest/*.json",
+        "git add output/latest/data_freshness_latest.*",
+        "git add output/latest/.",
+        "git add ':(glob)output/latest/*.json'",
+        "git add output/latest/$artifact",
+        "command git add output/latest/",
+        "env RELEASE=1 git add output/latest/",
+        "bash -c 'git add output/latest/'",
+        "bash -lc 'git add output/latest/'",
+        "/bin/bash -c 'git add output/latest/data_freshness_latest.csv'",
+        "if true; then git add output/latest/data_freshness_latest.md; fi",
+        "git -c core.autocrlf=false add output/latest/market_session_status_latest.json",
+        "git stage output/latest/data_freshness_latest.csv",
+        "git -C . add output/latest/",
+        "git add --pathspec-from-file=paths.txt",
+    ),
+)
+def test_non_daily_workflow_broad_staging_cannot_bypass_authority_ownership(command: str) -> None:
+    assert boundaries.git_add_command_covers_authority(command)
+
+
+@pytest.mark.parametrize(
+    "command",
+    (
+        "git commit -am update",
+        "command git commit --all -m update",
+        "git commit --only output/latest/data_freshness_latest.csv",
+        "git commit -m update -- output/latest/",
+        "env RELEASE=1 git commit output/latest/market_session_status_latest.json",
+        "bash -c 'git commit --only output/latest/data_freshness_latest.md'",
+        "bash -lc 'git commit --only output/latest/data_freshness_latest.md'",
+        "if true; then git commit --only output/latest/data_freshness_latest.csv; fi",
+        "git commit --pathspec-from-file=paths.txt -m update",
+    ),
+)
+def test_non_daily_workflow_commit_all_cannot_bypass_authority_ownership(command: str) -> None:
+    assert boundaries.git_commit_command_covers_authority(command)
+
+
+@pytest.mark.parametrize(
+    "command",
+    (
+        "git update-index --add output/latest/data_freshness_latest.csv",
+        "if true; then git update-index --add output/latest/market_session_status_latest.json; fi",
+    ),
+)
+def test_non_daily_workflow_update_index_cannot_bypass_authority_ownership(command: str) -> None:
+    assert boundaries.git_update_index_command_may_stage(command)
+
+
+@pytest.mark.parametrize(
+    "command",
+    (
+        "git rm output/latest/data_freshness_latest.csv",
+        "git mv output/latest/data_freshness_latest.md moved.md",
+        "git apply --cached authority.patch",
+        "git apply --index authority.patch",
+        "if true; then git apply --cached authority.patch; fi",
+        "git read-tree replacement-tree",
+        "git reset replacement-tree -- output/latest/data_freshness_latest.csv",
+        "git checkout replacement-tree -- output/latest/market_session_status_latest.json",
+        "git restore --staged --source=replacement-tree output/latest/data_freshness_latest.md",
+        "git restore -S -s replacement-tree output/latest/data_freshness_latest.md",
+        "git stash apply --index",
+        "git merge other-branch",
+        "git cherry-pick deadbeef",
+        "git commit-tree replacement-tree",
+        "git update-ref refs/heads/main deadbeef",
+    ),
+)
+def test_non_daily_native_git_mutation_cannot_bypass_authority_ownership(command: str) -> None:
+    assert boundaries.git_native_mutation_may_publish_authority(command)
+
+
+def test_daily_full_preflight_artifact_is_bound_to_exact_source_sha() -> None:
+    text = (ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(encoding="utf-8")
+
+    assert "source_sha: ${{ steps.decision.outputs.source_sha }}" in text
+    assert 'handle.write(f"source_sha={source_sha}\\n")' in text
+    assert "market_session_preflight_identity.json" in text
+    assert '"daily_market_session_preflight_identity_v1"' in text
+    assert "market-session preflight artifact SHA mismatch" in text
+    assert text.count("ref: ${{ needs.market-session-preflight.outputs.source_sha }}") == 2
+    assert text.count("REMOTE_MAIN=\"$(git rev-parse origin/main)\"") >= 2
+
+
+def test_authority_workflow_scanner_includes_yaml_suffix(tmp_path: Path) -> None:
+    workflow_root = tmp_path / ".github" / "workflows"
+    workflow_root.mkdir(parents=True)
+    yml = workflow_root / "one.yml"
+    yaml = workflow_root / "two.yaml"
+    yml.write_text("name: one\n", encoding="utf-8")
+    yaml.write_text("name: two\n", encoding="utf-8")
+
+    assert boundaries.workflow_paths(workflow_root) == [yml, yaml]
 
 
 def test_daily_workflow_requires_current_usable_warrant_fetch_with_evidence() -> None:
