@@ -1,15 +1,15 @@
 # Data Freshness Status
 
-- generated_at: `2026-08-11 08:45:10` Asia/Taipei
+- generated_at: `2026-08-11 20:06:20` Asia/Taipei
 - market_session_status: `open_confirmed`
-- market_session_date: `20260810`
-- expected_main_price_date: `20260810`
+- market_session_date: `20260811`
+- expected_main_price_date: `20260811`
 - market_session_reason_code: `twse_tpex_target_date_confirmed`
-- main_price_date: `20260810`
+- main_price_date: `20260811`
 - main_price_date_source: `validated_stock_history`
 - historical_replay_main_price_date: ``
 - expected_price_history_high_water_date: ``
-- actual_stock_price_history_date: `20260810`
+- actual_stock_price_history_date: `20260811`
 - report_ready: `True`
 - report_ready_note: core daily data dates match main_price_date
 - warrant_ready: `True`
@@ -28,10 +28,10 @@
 
 | source | effective_date | raw_date | note |
 |---|---:|---:|---|
-| all_candidates_latest.csv | 20260810 | 20260810 | ready |
-| official_price_fetch_latest | 20260810 | 20260810 | ready |
-| stock_monitor_latest.md | 20260810 | 20260810 | ready |
-| warrant_flow_latest.csv | 20260810 | 20260810 | ready |
+| all_candidates_latest.csv | 20260811 | 20260811 | ready |
+| official_price_fetch_latest | 20260811 | 20260811 | ready |
+| stock_monitor_latest.md | 20260811 | 20260811 | ready |
+| warrant_flow_latest.csv | 20260811 | 20260811 | ready |
 
 ## Rule
 
