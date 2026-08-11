@@ -125,6 +125,12 @@ PR_SAFE_AUTHORIZATION_COLUMNS = (
 PR_SAFE_ADDITIVE_RESEARCH_MIGRATION_ID = (
     "additive-research-validation-registration-pr-safe-v4"
 )
+PR_SAFE_INPUT_BOUND_VALIDATOR_MIGRATION_ID = (
+    "input_bound_in_process_independent_validator"
+)
+PR_SAFE_INPUT_BOUND_VALIDATOR_STAGE_A_MIGRATION_ID = (
+    "input-bound-validator-pr-safe-control-plane-stage-a-v1"
+)
 PR_SAFE_ADVANCED_HELPER = "scripts/validate_repo_advanced_integrity_pr_safe.py"
 PR_SAFE_ADVANCED_TEST = "tests/test_repo_advanced_integrity_pr_safe.py"
 PR_SAFE_ADVANCED_LIFECYCLE_INVENTORY = "config/repo_file_lifecycle_inventory.csv"
@@ -133,6 +139,17 @@ PR_SAFE_AUTHORIZED_STAGE1_PATHS = frozenset(
         PR_SAFE_ADVANCED_HELPER,
         PR_SAFE_ADVANCED_TEST,
         PR_SAFE_ADVANCED_LIFECYCLE_INVENTORY,
+    }
+)
+PR_SAFE_INPUT_BOUND_VALIDATOR_REGISTRATION_PATHS = frozenset(
+    {
+        ".github/workflows/research_backtest_pipeline.yml",
+        "config/apps_script_research_dispatch_inputs.csv",
+        "config/repo_file_lifecycle_inventory.csv",
+        "scripts/validate_apps_script_workflow_triggers.py",
+        PR_SAFE_ADVANCED_HELPER,
+        "tests/test_daily_production_boundaries.py",
+        PR_SAFE_ADVANCED_TEST,
     }
 )
 PR_SAFE_LOCAL_VALIDATION_REPLAY_ADVANCED_MIGRATION_ID = (
@@ -146,6 +163,12 @@ PR_SAFE_ADVANCED_BASE_LIFECYCLE_INVENTORY_SHA256 = (
 )
 PR_SAFE_ADVANCED_CURRENT_LIFECYCLE_INVENTORY_SHA256 = (
     "69831c7ef8b922ddb763af94cbf4df694ee2d981c7a7d475567f67587ed07ce5"
+)
+PR_SAFE_INPUT_BOUND_BASE_LIFECYCLE_INVENTORY_SHA256 = (
+    "99daaa3785f949b5efce848e7e8bcbe4a79ae08aad15ce5d008f1e3cc994327d"
+)
+PR_SAFE_INPUT_BOUND_CURRENT_LIFECYCLE_INVENTORY_SHA256 = (
+    "6bd6d3c81eccbcfb929112ad713de7130d02829f9e46832055b88c4bd8be1e29"
 )
 PR_SAFE_SNAPSHOT_MIGRATION_ID = "daily-full-checkpoint-replay-snapshot-pr-safe-v1"
 PR_SAFE_SNAPSHOT_HELPER = "scripts/validate_daily_published_model_snapshots_pr_safe.py"
@@ -1874,6 +1897,13 @@ def build_daily_full_checkpoint_replay_integrated_lifecycle_inventory(
 def pr_safe_migration_contract_for_paths(
     changed_paths: set[str],
 ) -> tuple[str, str, str, frozenset[str]] | None:
+    if changed_paths == PR_SAFE_INPUT_BOUND_VALIDATOR_REGISTRATION_PATHS:
+        return (
+            PR_SAFE_INPUT_BOUND_VALIDATOR_MIGRATION_ID,
+            PR_SAFE_ADVANCED_HELPER,
+            PR_SAFE_ADVANCED_TEST,
+            PR_SAFE_INPUT_BOUND_VALIDATOR_REGISTRATION_PATHS,
+        )
     if changed_paths == PR_SAFE_LOCAL_VALIDATION_REPLAY_ADVANCED_PATHS:
         return (
             PR_SAFE_LOCAL_VALIDATION_REPLAY_ADVANCED_MIGRATION_ID,
@@ -2390,6 +2420,7 @@ def validate_pr_safe_control_plane_delta(
             errors.append(f"PR-safe migration authorization {field} mismatch")
     if migration_id in {
         PR_SAFE_ADDITIVE_RESEARCH_MIGRATION_ID,
+        PR_SAFE_INPUT_BOUND_VALIDATOR_MIGRATION_ID,
         PR_SAFE_LOCAL_VALIDATION_REPLAY_ADVANCED_MIGRATION_ID,
     }:
         marker = migration_id.encode("utf-8")
@@ -2432,6 +2463,26 @@ def validate_pr_safe_advanced_lifecycle_inventory_delta(
         PR_SAFE_ADVANCED_CURRENT_LIFECYCLE_INVENTORY_SHA256
     ):
         errors.append("advanced helper preauthorization current lifecycle SHA mismatch")
+    return errors
+
+
+def validate_pr_safe_input_bound_lifecycle_inventory_delta(
+    base_payload: bytes | None,
+    current_payload: bytes | None,
+) -> list[str]:
+    errors: list[str] = []
+    if base_payload is None:
+        errors.append("input-bound preauthorization base lifecycle blob is missing")
+    elif canonical_blob_sha256(base_payload) != (
+        PR_SAFE_INPUT_BOUND_BASE_LIFECYCLE_INVENTORY_SHA256
+    ):
+        errors.append("input-bound preauthorization base lifecycle SHA mismatch")
+    if current_payload is None:
+        errors.append("input-bound preauthorization current lifecycle blob is missing")
+    elif canonical_blob_sha256(current_payload) != (
+        PR_SAFE_INPUT_BOUND_CURRENT_LIFECYCLE_INVENTORY_SHA256
+    ):
+        errors.append("input-bound preauthorization current lifecycle SHA mismatch")
     return errors
 
 
@@ -2622,6 +2673,7 @@ def validate_pr_safe_control_plane_migration(base_sha: str, head_sha: str) -> li
                 + "; or ".join(
                     ", ".join(sorted(paths))
                     for paths in (
+                        PR_SAFE_INPUT_BOUND_VALIDATOR_REGISTRATION_PATHS,
                         PR_SAFE_LOCAL_VALIDATION_REPLAY_ADVANCED_PATHS,
                         PR_SAFE_AUTHORIZED_STAGE1_PATHS,
                         PR_SAFE_SNAPSHOT_AUTHORIZED_PATHS,
@@ -2700,6 +2752,19 @@ def validate_pr_safe_control_plane_migration(base_sha: str, head_sha: str) -> li
         if contract[0] == PR_SAFE_ADDITIVE_RESEARCH_MIGRATION_ID:
             errors.extend(
                 validate_pr_safe_advanced_lifecycle_inventory_delta(
+                    git_blob_at_ref(
+                        base_sha,
+                        PR_SAFE_ADVANCED_LIFECYCLE_INVENTORY,
+                    ),
+                    git_blob_at_ref(
+                        head_sha,
+                        PR_SAFE_ADVANCED_LIFECYCLE_INVENTORY,
+                    ),
+                )
+            )
+        elif contract[0] == PR_SAFE_INPUT_BOUND_VALIDATOR_MIGRATION_ID:
+            errors.extend(
+                validate_pr_safe_input_bound_lifecycle_inventory_delta(
                     git_blob_at_ref(
                         base_sha,
                         PR_SAFE_ADVANCED_LIFECYCLE_INVENTORY,

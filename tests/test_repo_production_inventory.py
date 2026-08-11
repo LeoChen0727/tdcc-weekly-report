@@ -1223,6 +1223,31 @@ def test_pr_safe_advanced_lifecycle_preauthorization_is_exact() -> None:
         inventory.PR_SAFE_ADVANCED_CURRENT_LIFECYCLE_INVENTORY_SHA256 = original_current
 
 
+def test_input_bound_validator_lifecycle_preauthorization_is_exact() -> None:
+    base_payload = b"input-bound base lifecycle inventory\n"
+    current_payload = b"input-bound current lifecycle inventory\n"
+    original_base = inventory.PR_SAFE_INPUT_BOUND_BASE_LIFECYCLE_INVENTORY_SHA256
+    original_current = inventory.PR_SAFE_INPUT_BOUND_CURRENT_LIFECYCLE_INVENTORY_SHA256
+    try:
+        inventory.PR_SAFE_INPUT_BOUND_BASE_LIFECYCLE_INVENTORY_SHA256 = (
+            inventory.canonical_blob_sha256(base_payload)
+        )
+        inventory.PR_SAFE_INPUT_BOUND_CURRENT_LIFECYCLE_INVENTORY_SHA256 = (
+            inventory.canonical_blob_sha256(current_payload)
+        )
+        assert inventory.validate_pr_safe_input_bound_lifecycle_inventory_delta(
+            base_payload,
+            current_payload,
+        ) == []
+        assert inventory.validate_pr_safe_input_bound_lifecycle_inventory_delta(
+            base_payload,
+            current_payload + b"drift\n",
+        ) == ["input-bound preauthorization current lifecycle SHA mismatch"]
+    finally:
+        inventory.PR_SAFE_INPUT_BOUND_BASE_LIFECYCLE_INVENTORY_SHA256 = original_base
+        inventory.PR_SAFE_INPUT_BOUND_CURRENT_LIFECYCLE_INVENTORY_SHA256 = original_current
+
+
 def test_pr_safe_base_guard_rejects_its_own_trust_root_changes() -> None:
     changed_paths = {inventory.PR_SAFE_BASE_GUARD_WORKFLOW}
 
@@ -1877,11 +1902,11 @@ def test_local_validation_replay_routing_authorization_is_exact() -> None:
             "base_helper_sha256": (
                 "d415db1eb2433f2bda00d204ca55575a61aa57b326c8db6a938294611dd81ed0"
             ),
-            "current_helper_sha256": inventory.canonical_blob_sha256(
-                (ROOT / inventory.PR_SAFE_BASE_GUARD_SCRIPT).read_bytes()
+            "current_helper_sha256": (
+                "20cfc385916432d0a4cf82094270a7bbd41d901aa07a7586bbf88894540bfe90"
             ),
-            "current_test_sha256": inventory.canonical_blob_sha256(
-                (ROOT / "tests/test_repo_production_inventory.py").read_bytes()
+            "current_test_sha256": (
+                "7ea9abd8f9c0d6b5907d9dd5109e36d1cddc86bc3ce6e4f270c51e952397890d"
             ),
             "changed_paths": (
                 "config/daily_model_pr_safe_self_migration_authorizations.csv;"
@@ -2011,6 +2036,96 @@ def test_local_validation_replay_hash_reconciliation_authorization_is_exact() ->
             ),
         }
     ]
+
+
+def test_input_bound_validator_stage_a_preauthorizations_are_exact() -> None:
+    payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
+    rows, errors = inventory.parse_pr_safe_authorizations(payload)
+    assert errors == []
+    assert [row["migration_id"] for row in rows[-2:]] == [
+        inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_MIGRATION_ID,
+        inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_STAGE_A_MIGRATION_ID,
+    ]
+    rows_by_id = {row["migration_id"]: row for row in rows}
+    assert rows_by_id[inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_MIGRATION_ID] == {
+        "migration_id": inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_MIGRATION_ID,
+        "status": "preauthorized",
+        "approval_reference": (
+            "user_authorized_input_bound_validator_pr_safe_stage_a_20260811"
+        ),
+        "base_helper_sha256": (
+            "02f28d28e7214e1949b2e8fa4aa6ad9df3b39c90bbe11534e0c5c24f350a7b3a"
+        ),
+        "current_helper_sha256": (
+            "480e53ef1f82bc931e79036521152ee9faa220e2a79ed2646df3016e488b2971"
+        ),
+        "current_test_sha256": (
+            "d2ce9565202835d11116408c8ec6b71e94525aa630b311533cdcb3395303098e"
+        ),
+        "changed_paths": ";".join(
+            sorted(inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_REGISTRATION_PATHS)
+        ),
+    }
+    assert rows_by_id[inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_STAGE_A_MIGRATION_ID] == {
+        "migration_id": inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_STAGE_A_MIGRATION_ID,
+        "status": "preauthorized",
+        "approval_reference": (
+            "user_authorized_input_bound_validator_control_plane_stage_a_20260811"
+        ),
+        "base_helper_sha256": (
+            "20cfc385916432d0a4cf82094270a7bbd41d901aa07a7586bbf88894540bfe90"
+        ),
+        "current_helper_sha256": inventory.canonical_blob_sha256(
+            (ROOT / inventory.PR_SAFE_BASE_GUARD_SCRIPT).read_bytes()
+        ),
+        "current_test_sha256": inventory.canonical_blob_sha256(
+            (ROOT / "tests/test_repo_production_inventory.py").read_bytes()
+        ),
+        "changed_paths": (
+            "config/daily_model_pr_safe_self_migration_authorizations.csv;"
+            "scripts/validate_repo_production_inventory.py;"
+            "tests/test_repo_production_inventory.py"
+        ),
+    }
+
+
+def test_input_bound_validator_stage_a_rejects_mixed_or_drifted_target() -> None:
+    base_helper = b"base helper without input-bound registration\n"
+    current_helper = (
+        inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_MIGRATION_ID.encode("utf-8")
+    )
+    current_test = b"exact input-bound regressions\n"
+    payload = pr_safe_authorization_payload(
+        base_helper,
+        current_helper,
+        current_test,
+        migration_id=inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_MIGRATION_ID,
+        authorized_paths=inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_REGISTRATION_PATHS,
+    )
+    assert inventory.validate_pr_safe_control_plane_delta(
+        set(inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_REGISTRATION_PATHS),
+        base_helper=base_helper,
+        current_helper=current_helper,
+        current_test=current_test,
+        authorization_payload=payload,
+    ) == []
+    assert inventory.validate_pr_safe_control_plane_delta(
+        {
+            *inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_REGISTRATION_PATHS,
+            "scripts/unregistered.py",
+        },
+        base_helper=base_helper,
+        current_helper=current_helper,
+        current_test=current_test,
+        authorization_payload=payload,
+    )
+    assert inventory.validate_pr_safe_control_plane_delta(
+        set(inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_REGISTRATION_PATHS),
+        base_helper=base_helper,
+        current_helper=current_helper + b"drift",
+        current_test=current_test,
+        authorization_payload=payload,
+    )
 
 
 def test_inventory_covers_tests_and_non_python_executables() -> None:
