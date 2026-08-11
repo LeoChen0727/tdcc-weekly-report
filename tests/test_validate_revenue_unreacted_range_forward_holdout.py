@@ -125,6 +125,156 @@ def _persist_standalone_cli_fixture(
     return args, paths["replay_source_latest"]
 
 
+def _real_shape_round_trip_price_frame() -> pd.DataFrame:
+    dates = pd.bdate_range("2026-06-01", periods=48)
+    close = pd.Series(
+        [100.00000000000001 + (index * 0.125) for index in range(len(dates))],
+        dtype=float,
+    )
+    previous_high = close.shift(1).rolling(20, min_periods=20).max()
+    breakout = close.gt(previous_high)
+    sparse_ma120 = pd.Series(
+        [float("nan")] * 7
+        + [0.12345678901234566 + (index * 0.0001) for index in range(41)],
+        dtype=float,
+    )
+    frame = pd.DataFrame(
+        {
+            "stock_id": ["0007"] * len(dates),
+            "date": dates.strftime("%Y%m%d"),
+            "open": close - 0.25,
+            "high": close + 0.5,
+            "low": close - 0.5,
+            "close": close,
+            "analysis_open": close - 0.25,
+            "analysis_high": close + 0.5,
+            "analysis_low": close - 0.5,
+            "analysis_close": close,
+            "ma60": pd.Series(
+                [float("nan")] * 5
+                + [1.2345678901234567 + (index * 0.001) for index in range(43)],
+                dtype=float,
+            ),
+            "ma120": sparse_ma120,
+            "analysis_ema23": close.ewm(span=23, adjust=False).mean(),
+            "operation_ma20": close.rolling(20, min_periods=20).mean(),
+            "operation_ema23": close.ewm(span=23, adjust=False).mean(),
+            "analysis_price_adjustment_factor": [0.10000000000000002]
+            * len(dates),
+            "cross_breakout_prev20": (
+                breakout & ~breakout.shift(1, fill_value=False).astype(bool)
+            ),
+            "verified_price_row": [index % 2 == 0 for index in range(len(dates))],
+            "price_basis": ["pit_adjusted_close"] * len(dates),
+            "optional_lineage_note": [
+                ("", "authoritative", "NA", "N/A", "nan", "null")[index % 6]
+                for index in range(len(dates))
+            ],
+        }
+    )
+    return frame
+
+
+def _canonical_price_rows(frame: pd.DataFrame) -> list[list[str]]:
+    columns = sorted(column for column in frame.columns if column != "generated_at")
+    return [
+        [validator._canonical_value(value) for value in row]
+        for row in frame.loc[:, columns].itertuples(index=False, name=None)
+    ]
+
+
+def test_explicit_price_reader_round_trips_real_shape_sparse_and_boundary_floats(
+    tmp_path: Path,
+) -> None:
+    frame = _real_shape_round_trip_price_frame()
+    expected = validator._normalize_prices({"0007": frame})
+    expected_lineage = validator._price_lineage(expected)
+    price_directory = tmp_path / "price_inputs"
+    price_directory.mkdir()
+    price_path = price_directory / "0007.csv"
+
+    # Exercise the exact default pandas serialization used by the workflow.
+    frame.to_csv(price_path, index=False)
+    loaded = validator._load_explicit_price_inputs(price_directory)
+    observed = validator._normalize_prices(loaded)
+
+    assert list(loaded) == ["0007"]
+    assert loaded["0007"]["stock_id"].eq("0007").all()
+    assert pd.isna(loaded["0007"].at[0, "ma120"])
+    assert loaded["0007"].at[7, "ma120"] == frame.at[7, "ma120"]
+    assert (
+        loaded["0007"].at[0, "analysis_price_adjustment_factor"]
+        == frame.at[0, "analysis_price_adjustment_factor"]
+    )
+    assert pd.isna(loaded["0007"].at[0, "optional_lineage_note"])
+    assert loaded["0007"].loc[1:5, "optional_lineage_note"].tolist() == [
+        "authoritative",
+        "NA",
+        "N/A",
+        "nan",
+        "null",
+    ]
+    assert _canonical_price_rows(observed["0007"]) == _canonical_price_rows(
+        expected["0007"]
+    )
+    assert validator._frame_sha(observed["0007"]) == validator._frame_sha(
+        expected["0007"]
+    )
+    assert validator._price_lineage(observed) == expected_lineage
+
+    # The legacy reader leaves leading-blank numeric columns as object/string;
+    # downstream normalization then preserves lexical decimals on operation MA
+    # columns instead of the producer's float canonical form.  This proves the
+    # fixture detects the original lineage defect rather than a no-op case.
+    legacy = pd.read_csv(
+        price_path,
+        dtype={"stock_id": str},
+        keep_default_na=False,
+        low_memory=False,
+    )
+    legacy_normalized = validator._normalize_prices({"0007": legacy})
+    assert validator._price_lineage(legacy_normalized) != expected_lineage
+
+
+def test_explicit_price_reader_rejects_missing_stock_identity(tmp_path: Path) -> None:
+    frame = _real_shape_round_trip_price_frame()
+    frame["stock_id"] = ""
+    price_directory = tmp_path / "price_inputs"
+    price_directory.mkdir()
+    frame.to_csv(price_directory / "blank.csv", index=False)
+
+    with pytest.raises(RuntimeError, match="stock identity is invalid"):
+        validator._load_explicit_price_inputs(price_directory)
+
+
+def test_explicit_price_reader_keeps_real_numeric_drift_fail_closed(
+    tmp_path: Path,
+) -> None:
+    frame = _real_shape_round_trip_price_frame()
+    expected = validator._normalize_prices({"0007": frame})
+    expected_lineage = validator._price_lineage(expected)
+    price_directory = tmp_path / "price_inputs"
+    price_directory.mkdir()
+    price_path = price_directory / "0007.csv"
+
+    lineage_drift = frame.copy()
+    lineage_drift.at[0, "analysis_price_adjustment_factor"] += 0.000001
+    lineage_drift.to_csv(price_path, index=False)
+    loaded_drift = validator._load_explicit_price_inputs(price_directory)
+    normalized_drift = validator._normalize_prices(loaded_drift)
+    assert validator._price_lineage(normalized_drift) != expected_lineage
+
+    formula_drift = frame.copy()
+    formula_drift.at[30, "analysis_close"] += 0.01
+    formula_drift.to_csv(price_path, index=False)
+    loaded_formula_drift = validator._load_explicit_price_inputs(price_directory)
+    with pytest.raises(
+        RuntimeError,
+        match="derived price field differs from frozen analysis_close formula",
+    ):
+        validator._normalize_prices(loaded_formula_drift)
+
+
 def test_standalone_cli_accepts_persisted_enriched_replay_source(
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,

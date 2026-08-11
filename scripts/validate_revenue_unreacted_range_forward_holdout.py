@@ -2026,8 +2026,31 @@ def _load_explicit_price_inputs(directory: Path) -> dict[str, pd.DataFrame]:
         raise RuntimeError(f"explicit price input directory is missing: {directory}")
     output: dict[str, pd.DataFrame] = {}
     for path in sorted(directory.glob("*.csv")):
-        frame = _read_csv(path)
+        # Price bundles contain sparse numeric columns.  The general artifact
+        # reader intentionally preserves empty text, but doing that here makes
+        # pandas infer an entire sparse numeric column as object/string.  Its
+        # lexical decimal then hashes differently from the producer's float
+        # canonical form even when the numeric value is unchanged.  Restore
+        # only the explicit empty token as missing and request round-trip float
+        # parsing so persisted price inputs reproduce the in-memory lineage.
+        frame = pd.read_csv(
+            path,
+            dtype={
+                "stock_id": str,
+                "trigger_date": str,
+                "entry_date": str,
+                "exit_date": str,
+            },
+            keep_default_na=False,
+            na_values=[""],
+            float_precision="round_trip",
+            low_memory=False,
+        )
         if "stock_id" in frame.columns:
+            if frame["stock_id"].isna().any():
+                raise RuntimeError(
+                    f"explicit price input stock identity is invalid: {path}"
+                )
             stock_ids = sorted({_stock_id(value) for value in frame["stock_id"]})
             if len(stock_ids) != 1:
                 raise RuntimeError(
