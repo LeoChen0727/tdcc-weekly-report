@@ -1,18 +1,18 @@
 # Daily Data Layer Consistency Audit
 
 - status: `pass`
-- main_price_date: `20260810`
-- readme_main_price_date: `20260810`
-- readme_index_main_price_date: `20260810`
-- model_signal_rows: `229`
-- volume_watch_rows: `22`
+- main_price_date: `20260811`
+- readme_main_price_date: `20260811`
+- readme_index_main_price_date: `20260811`
+- model_signal_rows: `270`
+- volume_watch_rows: `13`
 - volume_theme_other_rows: `0`
-- group_rotation_rows: `3`
-- taxonomy_rows: `2380`
-- taxonomy_template_csv_rows: `2380`
-- taxonomy_template_xlsx_rows: `2380`
-- docs_taxonomy_template_csv_rows: `2380`
-- docs_taxonomy_template_xlsx_rows: `2380`
+- group_rotation_rows: `6`
+- taxonomy_rows: `2381`
+- taxonomy_template_csv_rows: `2381`
+- taxonomy_template_xlsx_rows: `2381`
+- docs_taxonomy_template_csv_rows: `2381`
+- docs_taxonomy_template_xlsx_rows: `2381`
 
 ## Errors
 
@@ -26,12 +26,12 @@
 
 ```json
 {
-  "main_price_date": "20260810",
-  "readme_main_price_date": "20260810",
+  "main_price_date": "20260811",
+  "readme_main_price_date": "20260811",
   "readme_report_ready": "True",
-  "readme_index_main_price_date": "20260810",
+  "readme_index_main_price_date": "20260811",
   "readme_index_report_ready": "True",
-  "preferred_chatgpt_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/ec8a4b990e04bf527806fb8d8c83ae4a8a5af570/output/history/reports/20260810_CHATGPT_DAILY_REPORT_PACKET.txt",
+  "preferred_chatgpt_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/e59e4f5c481ec1ae93c75327cab6abf0d853b567/output/history/reports/20260811_CHATGPT_DAILY_REPORT_PACKET.txt",
   "readme_cache_bypass_order": [
     "readme_date_stamped_raw_url",
     "readme_date_stamped_github_api_url",
@@ -71,22 +71,22 @@
   "chatgpt_daily_rules_pages_first_snippet_count": 0,
   "individual_stock_read_protocol_present": true,
   "individual_stock_protocol_pages_first_count": 0,
-  "effective_model_signal_date": "20260810",
-  "model_signal_rows": 229,
-  "raw_model_signal_rows": 229,
-  "volume_watch_rows": 22,
-  "volume_theme_stock_rows": 22,
-  "group_rotation_rows": 3,
-  "taxonomy_rows": 2380,
-  "taxonomy_template_csv_rows": 2380,
-  "taxonomy_template_xlsx_rows": 2380,
-  "docs_taxonomy_template_csv_rows": 2380,
-  "docs_taxonomy_template_xlsx_rows": 2380,
-  "market_timing_packet_main_price_date": "20260810",
+  "effective_model_signal_date": "20260811",
+  "model_signal_rows": 270,
+  "raw_model_signal_rows": 270,
+  "volume_watch_rows": 13,
+  "volume_theme_stock_rows": 13,
+  "group_rotation_rows": 6,
+  "taxonomy_rows": 2381,
+  "taxonomy_template_csv_rows": 2381,
+  "taxonomy_template_xlsx_rows": 2381,
+  "docs_taxonomy_template_csv_rows": 2381,
+  "docs_taxonomy_template_xlsx_rows": 2381,
+  "market_timing_packet_main_price_date": "20260811",
   "missing_required_model_columns": [],
   "blank_required_model_columns": {},
   "model_signal_dates": [
-    "20260810"
+    "20260811"
   ],
   "same_model_report_duplicates": 0,
   "model_report_line_membership_mismatch_rows": 0,
@@ -97,16 +97,16 @@
   "model_signal_third_bucket_rows": {},
   "model_signal_main_condition_not_true_rows": 0,
   "raw_model_signal_dates": [
-    "20260810"
+    "20260811"
   ],
   "missing_volume_columns": [],
   "volume_signal_dates": [
-    "20260810"
+    "20260811"
   ],
   "volume_theme_other_rows": 0,
   "group_rotation_invalid_models": [],
-  "group_rotation_slow_rows": 3,
-  "group_rotation_launch_rows": 0,
+  "group_rotation_slow_rows": 4,
+  "group_rotation_launch_rows": 2,
   "missing_required_taxonomy_columns": [],
   "taxonomy_duplicate_stock_id_rows": 0,
   "taxonomy_unresolved_basic_theme_rows": 0,

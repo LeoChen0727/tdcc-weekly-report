@@ -1,7 +1,7 @@
 # Upcoming Catalyst Calendar
 
-- generated_at: `2026-08-11 08:37:45 Asia/Taipei`
-- rows: `576`
+- generated_at: `2026-08-11 19:58:07 Asia/Taipei`
+- rows: `656`
 - note: Calendar proximity is a reminder, not a confirmed bullish catalyst.
 
 ## Company / Stock Calendar
@@ -79,7 +79,7 @@
 | 20260817 | 20260817 | 4967 | 十銓 | ex_dividend | confirmed | 6 | within_7d | dividend_calendar | cash_dividend=8.61990400; ex_right_dividend_flag=息 |
 | 20260817 | 20260817 | 6282 | 康舒 | ex_dividend | confirmed | 6 | within_7d | dividend_calendar | cash_dividend=0.79993300; ex_right_dividend_flag=息 |
 | 20260817 | 20260817 | 6698 | 旭暉應材 | ex_right | confirmed | 6 | within_7d | dividend_calendar | cash_dividend=0.00000000; ex_right_dividend_flag=權 |
-| 20260818 | 20260818 | 00690 | 兆豐藍籌30 | ex_dividend | confirmed | 7 | within_7d | dividend_calendar | cash_dividend=<p style= text-align:center;>待公告實際收益分配金額</p>; ex_right_dividend_fl... |
+| 20260818 | 20260818 | 00690 | 兆豐藍籌30 | ex_dividend | confirmed | 7 | within_7d | dividend_calendar | cash_dividend=2.19000000; ex_right_dividend_flag=息 |
 | 20260818 | 20260818 | 00701 | 國泰股利精選30 | ex_dividend | confirmed | 7 | within_7d | dividend_calendar | cash_dividend=<p style= text-align:center;>待公告實際收益分配金額</p>; ex_right_dividend_fl... |
 | 20260818 | 20260818 | 00730 | 富邦臺灣優質高息 | ex_dividend | confirmed | 7 | within_7d | dividend_calendar | cash_dividend=<p style= text-align:center;>待公告實際收益分配金額</p>; ex_right_dividend_fl... |
 | 20260818 | 20260818 | 00878 | 國泰永續高股息 | ex_dividend | confirmed | 7 | within_7d | dividend_calendar | cash_dividend=<p style= text-align:center;>待公告實際收益分配金額</p>; ex_right_dividend_fl... |
@@ -87,4 +87,4 @@
 | 20260818 | 20260818 | 00891 | 中信關鍵半導體 | ex_dividend | confirmed | 7 | within_7d | dividend_calendar | cash_dividend=<p style= text-align:center;>待公告實際收益分配金額</p>; ex_right_dividend_fl... |
 | 20260818 | 20260818 | 00894 | 中信小資高價30 | ex_dividend | confirmed | 7 | within_7d | dividend_calendar | cash_dividend=<p style= text-align:center;>待公告實際收益分配金額</p>; ex_right_dividend_fl... |
 | 20260818 | 20260818 | 00900 | 富邦特選高股息30 | ex_dividend | confirmed | 7 | within_7d | dividend_calendar | cash_dividend=<p style= text-align:center;>待公告實際收益分配金額</p>; ex_right_dividend_fl... |
-| 20260818 | 20260818 | 00913 | 兆豐台灣晶圓製造 | ex_dividend | confirmed | 7 | within_7d | dividend_calendar | cash_dividend=<p style= text-align:center;>待公告實際收益分配金額</p>; ex_right_dividend_fl... |
+| 20260818 | 20260818 | 00913 | 兆豐台灣晶圓製造 | ex_dividend | confirmed | 7 | within_7d | dividend_calendar | cash_dividend=1.78000000; ex_right_dividend_flag=息 |
