@@ -1,17 +1,17 @@
 # Data Freshness Status
 
-- generated_at: `2026-08-10 20:48:39` Asia/Taipei
-- market_session_status: `unknown`
+- generated_at: `2026-08-11 08:45:10` Asia/Taipei
+- market_session_status: `open_confirmed`
 - market_session_date: `20260810`
 - expected_main_price_date: `20260810`
-- market_session_reason_code: `awaiting_official_price_confirmation`
-- main_price_date: `20260807`
-- main_price_date_source: `historical_replay_override`
-- historical_replay_main_price_date: `20260807`
-- expected_price_history_high_water_date: `20260807`
-- actual_stock_price_history_date: `20260807`
-- report_ready: `False`
-- report_ready_note: historical structured-source replay updates objective-source freshness only; publish artifacts remain stale
+- market_session_reason_code: `twse_tpex_target_date_confirmed`
+- main_price_date: `20260810`
+- main_price_date_source: `validated_stock_history`
+- historical_replay_main_price_date: ``
+- expected_price_history_high_water_date: ``
+- actual_stock_price_history_date: `20260810`
+- report_ready: `True`
+- report_ready_note: core daily data dates match main_price_date
 - warrant_ready: `True`
 - warrant_ready_note: warrant_flow_date matches main_price_date
 - warrant_source_status: `ok`
@@ -21,18 +21,18 @@
 - warrant_pdf_visibility: `visible`
 - warrant_model_effect_allowed: `True`
 - warrant_pdf_effect_allowed: `True`
-- daily_pdf_ready: `False`
-- daily_pdf_ready_note: historical structured-source replay must not mark stale daily PDFs ready
+- daily_pdf_ready: `True`
+- daily_pdf_ready_note: core daily data, warrant layer, and PDF theme display are ready for daily PDF source use; group rotation themes resolved for PDF display
 
 ## Component Dates
 
 | source | effective_date | raw_date | note |
 |---|---:|---:|---|
-| all_candidates_latest.csv | 20260717 | 20260717 | stale_date=20260717 |
-| official_price_fetch_latest | 20260807 | 20260807 | ready |
-| stock_monitor_latest.md | 20260717 | 20260717 | stale_date=20260717 |
-| warrant_flow_latest.csv | 20260807 | 20260807 | ready |
+| all_candidates_latest.csv | 20260810 | 20260810 | ready |
+| official_price_fetch_latest | 20260810 | 20260810 | ready |
+| stock_monitor_latest.md | 20260810 | 20260810 | ready |
+| warrant_flow_latest.csv | 20260810 | 20260810 | ready |
 
 ## Rule
 
-Historical structured-source replay explicitly pins the canonical main_price_date while preserving the same or newer validated raw price/history high-water date. The two dates remain visible and publish/PDF readiness must stay false until current publication artifacts are rebuilt.
+When an upstream daily snapshot has a raw date newer than the latest validated all-market price history date, the effective report date is capped to the validated price date. A stock price history date is rejected when many symbols have the exact same OHLCV as recent prior rows, because that indicates a copied or stale upstream snapshot rather than a trustworthy trading-day close.

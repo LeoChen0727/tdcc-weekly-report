@@ -294,6 +294,7 @@ stock_id,stock_name,industry,market,industry_source
 2233,宇隆,汽車工業,TWSE,official_twse
 2235,謚源,電機機械,TPEX,official_tpex
 2236,百達-KY,汽車工業,TWSE,official_twse
+2237,華德動能-創,汽車工業,TWSE,official_twse
 2239,英利-KY,汽車工業,TWSE,official_twse
 2241,艾姆勒,汽車工業,TWSE,official_twse
 2243,宏旭-KY,汽車工業,TWSE,official_twse
@@ -904,7 +905,6 @@ stock_id,stock_name,industry,market,industry_source
 4127,天良,生技醫療業,TPEX,official_tpex
 4128,中天,生技醫療業,TPEX,official_tpex
 4129,聯合,生技醫療業,TPEX,official_tpex
-4130,健亞,生技醫療業,TPEX,official_tpex
 4131,浩泰,生技醫療業,TPEX,official_tpex
 4133,亞諾法,生技醫療業,TWSE,official_twse
 4137,麗豐-KY,生技醫療業,TWSE,official_twse
@@ -971,7 +971,7 @@ stock_id,stock_name,industry,market,industry_source
 4527,方方土霖,電機機械,TPEX,official_tpex
 4528,江興鍛,電機機械,TPEX,official_tpex
 4529,淳紳,其他業,TPEX,official_tpex
-4530,宏易,觀光餐旅,TPEX,official_tpex
+4530,天意能創,觀光餐旅,TPEX,official_tpex
 4532,瑞智,電機機械,TWSE,official_twse
 4533,協易機,電機機械,TPEX,official_tpex
 4534,慶騰,電機機械,TPEX,official_tpex
@@ -1244,7 +1244,7 @@ stock_id,stock_name,industry,market,industry_source
 5880,合庫金,金融保險業,TWSE,official_twse
 5902,德記,居家生活,TPEX,official_tpex
 5903,全家,居家生活,TPEX,official_tpex
-5904,寶雅,居家生活,TPEX,official_tpex
+5904,寶雅*,居家生活,TPEX,official_tpex
 5905,南仁湖,觀光餐旅,TPEX,official_tpex
 5906,台南-KY,貿易百貨,TWSE,official_twse
 5907,大洋-KY,貿易百貨,TWSE,official_twse
@@ -1668,6 +1668,7 @@ stock_id,stock_name,industry,market,industry_source
 6937,天虹,半導體業,TWSE,official_twse
 6944,兆聯實業,綠能環保,TWSE,official_twse
 6945,圓祥生技,生技醫療業,TPEX,official_tpex
+6947,台鎔科技,綠能環保,TWSE,official_twse
 6949,沛爾生醫-創,生技醫療業,TWSE,official_twse
 6951,青新-創,綠能環保,TWSE,official_twse
 6952,大武山,其他業,TWSE,official_twse
@@ -1696,6 +1697,7 @@ stock_id,stock_name,industry,market,industry_source
 7610,聯友金屬-創,綠能環保,TWSE,official_twse
 7631,聚賢研發-創,其他電子業,TWSE,official_twse
 7642,昶瑞機電,電機機械,TPEX,official_tpex
+7689,大鵬科CLMX,通信網路業,TWSE,official_twse
 7703,銳澤,其他電子業,TPEX,official_tpex
 7704,明遠精密,半導體業,TPEX,official_tpex
 7705,三商餐飲,觀光餐旅,TWSE,official_twse
@@ -1757,6 +1759,7 @@ stock_id,stock_name,industry,market,industry_source
 7823,奧義賽博-KY創,數位雲端,TWSE,official_twse
 7827,漢康-KY創,生技醫療業,TWSE,official_twse
 7828,創新服務,半導體業,TPEX,official_tpex
+7835,永悅健康-創,數位雲端,TWSE,official_twse
 7839,達人網,數位雲端,TPEX,official_tpex
 7842,天能綠電,綠能環保,TPEX,official_tpex
 8011,台通,通信網路業,TWSE,official_twse
