@@ -9,7 +9,7 @@
 - Formal quarantined: `22`
 - Formal unreplayable: `0`
 - Legacy precontract history incomplete dates: `16`
-- Historical promotion evidence eligible rows: `22/102`
+- Historical promotion evidence eligible rows: `25/102`
 - Superseded advisory watch rows: `6`
 - Independent component replay resolved: `102/102`
 - Candidate-absent canonical score contexts: `50` stored as `{}`
@@ -133,7 +133,7 @@
 | 20260717 | legacy_r1 | 3 | legacy_git_manifest_recovered | complete | 3 | canonical_candidate_after_watch_merge |
 | 20260717 | r1 | 3 | complete | complete | 3 | canonical_candidate_after_watch_merge |
 | 20260717 | r2 | 3 | versioned_revision_exact | complete | 3 | canonical_candidate_explicit_allowlist |
-| 20260810 | r1 | 3 | versioned_revision_exact | complete | 0 | canonical_candidate_explicit_allowlist |
+| 20260810 | r1 | 3 | versioned_revision_exact | complete | 3 | canonical_candidate_explicit_allowlist |
 
 ## Watch collision disposition
 
