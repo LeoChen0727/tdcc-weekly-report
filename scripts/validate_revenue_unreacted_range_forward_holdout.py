@@ -3,11 +3,13 @@ from __future__ import annotations
 import argparse
 from decimal import Decimal, InvalidOperation
 import hashlib
+import io
 import json
 import math
 import numbers
 from pathlib import Path
 import re
+import subprocess
 from typing import Mapping
 
 import numpy as np
@@ -21,6 +23,7 @@ ARTIFACT_VERSION = "forward_holdout_v1_20260811"
 CANONICAL_LINEAGE_VERSION = "canonical_json_numeric_text_v1"
 
 PREREGISTRATION_MERGE_COMMIT = "436c25cd0d037c3425ab2ac4fa76cb464cf96de4"
+PREREGISTRATION_PR_NUMBER = "462"
 PR462_PROJECTED_EPISODE_ROW_COUNT = 19569
 PR462_PROJECTED_EPISODE_SEMANTIC_SHA256 = (
     "92c68810ac2b5718d714d450fe83bf23f2f3469fec5db0ae2753330950ab2cf5"
@@ -51,11 +54,36 @@ HOLDING_DAYS = 30
 HOLDING_SESSION_INDEX_OFFSET = 29
 WATCH_HORIZON_TRADING_DAYS = 60
 OPERATION_RETURN_REVIEW_THRESHOLD_PCT = 80.0
+BASE_TRIGGER_PREVIOUS_HIGH_WINDOW_SESSIONS = 20
+BASE_TRIGGER_MA_SHORT_WINDOW_SESSIONS = 60
+BASE_TRIGGER_MA_LONG_WINDOW_SESSIONS = 120
 
-RULE_CONTRACT_VERSION = "revenue_low_mid_falling_forward_holdout_rule_v1"
+POSITION_LOOKBACK_PRIOR_SESSIONS = 120
+POSITION_LOW_MAX_PCT = 40.0
+POSITION_MID_MAX_PCT = 75.0
+SHAPE_RETURN_LOOKBACK_SESSIONS = 20
+SHAPE_RANGE_WINDOW_SESSIONS = 23
+SHAPE_EMA_SPAN_SESSIONS = 23
+SHAPE_EMA_SLOPE_LOOKBACK_SESSIONS = 5
+SHAPE_RISING_RETURN_MIN_PCT = 5.0
+SHAPE_FALLING_RETURN_MAX_PCT = -5.0
+SHAPE_RISING_EMA_SLOPE_MIN_PCT = 0.0
+SHAPE_FALLING_EMA_SLOPE_MAX_PCT = 0.0
+SHAPE_CONSOLIDATION_RETURN_ABS_MAX_PCT = 5.0
+SHAPE_CONSOLIDATION_RANGE_MAX_PCT = 15.0
+
+RULE_CONTRACT_VERSION = "revenue_low_mid_falling_forward_holdout_rule_v2"
 RULE_CONTRACT = {
     "model_id": MODEL_ID,
     "source_variant_id": SOURCE_VARIANT_ID,
+    "source_variant_contract": {
+        "logic": "absolute_branch_or_two_consecutive_month_branch",
+        "absolute_latest_yoy_min_pct_inclusive": 30.0,
+        "absolute_cumulative_yoy_min_pct_inclusive": 20.0,
+        "two_month_requires_consecutive_calendar_months": True,
+        "two_month_latest_yoy_min_pct_inclusive": 15.0,
+        "two_month_previous_latest_yoy_min_pct_inclusive": 15.0,
+    },
     "primary_variant_id": PRIMARY_VARIANT_ID,
     "challenger_variant_ids": list(CHALLENGER_VARIANT_IDS),
     "position_buckets": {
@@ -64,7 +92,48 @@ RULE_CONTRACT = {
         "source_low_or_mid_falling_union": "low_pos_le40|mid_pos_40_75",
     },
     "shape_bucket": "falling",
+    "position_feature_contract": {
+        "lookback_prior_sessions": POSITION_LOOKBACK_PRIOR_SESSIONS,
+        "anchor_included": False,
+        "formula": "(anchor_analysis_close-prior_analysis_low_min)/(prior_analysis_high_max-prior_analysis_low_min)*100",
+        "low_max_pct_inclusive": POSITION_LOW_MAX_PCT,
+        "mid_lower_pct_exclusive": POSITION_LOW_MAX_PCT,
+        "mid_max_pct_inclusive": POSITION_MID_MAX_PCT,
+        "high_lower_pct_exclusive": POSITION_MID_MAX_PCT,
+    },
+    "shape_feature_contract": {
+        "return_lookback_sessions": SHAPE_RETURN_LOOKBACK_SESSIONS,
+        "return_formula": "(anchor_analysis_close/analysis_close_t_minus_20-1)*100",
+        "range_window_sessions": SHAPE_RANGE_WINDOW_SESSIONS,
+        "range_window_includes_anchor": True,
+        "range_formula": "(window_analysis_close_max/window_analysis_close_min-1)*100",
+        "ema_span_sessions": SHAPE_EMA_SPAN_SESSIONS,
+        "ema_adjust": False,
+        "ema_source": "analysis_close",
+        "ema_slope_lookback_sessions": SHAPE_EMA_SLOPE_LOOKBACK_SESSIONS,
+        "ema_slope_formula": "(anchor_ema23/ema23_t_minus_5-1)*100",
+        "rising_return_min_pct_exclusive": SHAPE_RISING_RETURN_MIN_PCT,
+        "rising_ema_slope_min_pct_exclusive": SHAPE_RISING_EMA_SLOPE_MIN_PCT,
+        "falling_return_max_pct_exclusive": SHAPE_FALLING_RETURN_MAX_PCT,
+        "falling_ema_slope_max_pct_exclusive": SHAPE_FALLING_EMA_SLOPE_MAX_PCT,
+        "consolidation_return_abs_max_pct_inclusive": SHAPE_CONSOLIDATION_RETURN_ABS_MAX_PCT,
+        "consolidation_range_max_pct_inclusive": SHAPE_CONSOLIDATION_RANGE_MAX_PCT,
+    },
+    "base_trigger_contract": {
+        "previous_close_high_window_sessions": BASE_TRIGGER_PREVIOUS_HIGH_WINDOW_SESSIONS,
+        "crossing_requires_prior_day_not_breakout": True,
+        "cross_breakout_recomputed_from_analysis_close": True,
+        "ma_short_window_sessions": BASE_TRIGGER_MA_SHORT_WINDOW_SESSIONS,
+        "ma_long_window_sessions": BASE_TRIGGER_MA_LONG_WINDOW_SESSIONS,
+        "ma60_input_contract": "authoritative_prepared_input_numeric_pr462_compatible",
+        "ma120_input_contract": "authoritative_prepared_input_numeric_pr462_compatible",
+        "missing_or_nonfinite_ma_behavior": "not_a_base_trigger",
+        "condition": "cross_breakout_prev20_and_ma60_gt_ma120",
+    },
     "watch_horizon_trading_days": WATCH_HORIZON_TRADING_DAYS,
+    "source_eligibility_before_lifecycle": (
+        "point_in_time_latest_qualifying_source_lag_le_60_before_operation_block"
+    ),
     "base_confirmation_rule_id": BASE_CONFIRMATION_RULE_ID,
     "confirmation_variant_id": CONFIRMATION_VARIANT_ID,
     "confirmation_rule_id": CONFIRMATION_RULE_ID,
@@ -78,12 +147,18 @@ RULE_CONTRACT = {
     "exit_price_basis": "analysis_close",
     "lifecycle_policy_id": LIFECYCLE_POLICY_ID,
     "same_stock_non_overlap": "entry_after_prior_realized_exit_next_trading_day",
+    "lifecycle_then_stratification_order": (
+        "pr462_global_source_universe_rearm_non_overlap_before_low_mid_falling_membership"
+    ),
     "anomaly_policy": "primary_retains_unresolved_candidates_sensitivity_excludes",
+    "operation_return_review_threshold_pct": OPERATION_RETURN_REVIEW_THRESHOLD_PCT,
     "financial_statement_scope": (
         "monthly_revenue_only;EPS_gross_margin_operating_margin_operating_income_"
         "non_operating_income_net_income_excluded"
     ),
 }
+FINANCIAL_STATEMENT_SCOPE = str(RULE_CONTRACT["financial_statement_scope"])
+ANOMALY_POLICY = str(RULE_CONTRACT["anomaly_policy"])
 DATA_CONTRACT_VERSION = "revenue_low_mid_falling_forward_holdout_data_v1"
 DATA_CONTRACT = {
     "training_cutoff_date": TRAINING_CUTOFF_DATE,
@@ -119,21 +194,38 @@ FALSE_FLAG_COLUMNS = (
     "promotion_evidence_allowed",
     "production_change",
 )
-METRIC_COLUMNS = (
+DETAIL_BUSINESS_BOOLEAN_COLUMNS = (
+    "primary_variant_member",
+    "low_falling_member",
+    "low_or_mid_falling_union_member",
+    "return_valid",
+    "right_censored",
+    "realized_return_ge20",
+    "operation_return_review_candidate_flag",
+    "anomaly_candidate_flag",
+    "source_anomaly_candidate_flag",
+    "unresolved_price_path_candidate_flag",
+    "primary_metric_included",
+    "sensitivity_metric_included",
+    "same_stock_non_overlap_applied",
+)
+INTEGER_METRIC_COLUMNS = (
     "event_count",
     "mature_count",
     "right_censored_count",
     "win_count",
     "neutral_count",
     "failure_count",
+    "return_ge20_count",
+    "loss_count",
+    "same_stock_overlap_pair_count",
+)
+CONTINUOUS_METRIC_COLUMNS = (
     "win_rate_pct",
     "average_return_pct",
     "median_return_pct",
     "p10_return_pct",
     "p90_return_pct",
-    "return_ge20_count",
-    "loss_count",
-    "same_stock_overlap_pair_count",
 )
 SHA256_PATTERN = re.compile(r"^[0-9a-f]{64}$")
 
@@ -165,6 +257,105 @@ def _strict_bool(value: object, *, label: str) -> bool:
     raise RuntimeError(f"{label} is not canonical boolean text")
 
 
+def _validate_source_anomaly_boolean_contract(source: pd.DataFrame) -> None:
+    scalar_columns = (
+        "qualifying_source_revenue_anomaly_candidate_flag",
+        "unresolved_price_path_candidate_flag",
+    )
+    if "start_source_revenue_anomaly_candidate_flag" in source.columns:
+        scalar_columns = (*scalar_columns, "start_source_revenue_anomaly_candidate_flag")
+    for column in scalar_columns:
+        if column not in source.columns:
+            raise RuntimeError(f"source anomaly contract missing column: {column}")
+        for row_index, value in source[column].items():
+            _strict_bool(
+                value,
+                label=f"source anomaly {column} row={row_index}",
+            )
+    list_column = "qualifying_source_revenue_anomaly_candidate_flags"
+    if list_column not in source.columns:
+        raise RuntimeError(f"source anomaly contract missing column: {list_column}")
+    for row_index, value in source[list_column].items():
+        tokens = [token.strip() for token in str(value).split("|") if token.strip()]
+        if not tokens:
+            raise RuntimeError(f"source anomaly flag lineage is empty: row={row_index}")
+        for position, token in enumerate(tokens):
+            _strict_bool(
+                token,
+                label=(
+                    f"source anomaly {list_column} row={row_index} position={position}"
+                ),
+            )
+
+
+def _validate_source_integer_contract(source: pd.DataFrame) -> None:
+    required = (
+        "qualifying_update_count",
+        "qualifying_sequence_indices",
+        "episode_start_sequence_index",
+        "latest_qualifying_sequence_index",
+    )
+    missing = sorted(set(required) - set(source.columns))
+    if missing:
+        raise RuntimeError(f"source integer contract missing: {missing}")
+    for row_index, row in source.iterrows():
+        count_valid, count = _exact_integer_value(row["qualifying_update_count"])
+        if not count_valid or count is None or count <= 0:
+            raise RuntimeError(
+                f"source qualifying update count is not a positive exact integer: row={row_index}"
+            )
+        sequence_tokens = [
+            token.strip()
+            for token in str(row["qualifying_sequence_indices"]).split("|")
+            if token.strip()
+        ]
+        sequences: list[int] = []
+        for position, token in enumerate(sequence_tokens):
+            valid, sequence = _exact_integer_value(token)
+            if not valid or sequence is None or sequence < 0:
+                raise RuntimeError(
+                    "source qualifying sequence is not an exact non-negative integer: "
+                    f"row={row_index} position={position}"
+                )
+            sequences.append(sequence)
+        if len(sequences) != count:
+            raise RuntimeError(f"source sequence/count contract drift: row={row_index}")
+        start_valid, start = _exact_integer_value(row["episode_start_sequence_index"])
+        latest_valid, latest = _exact_integer_value(
+            row["latest_qualifying_sequence_index"]
+        )
+        if (
+            not start_valid
+            or not latest_valid
+            or start is None
+            or latest is None
+            or start != sequences[0]
+            or latest != sequences[-1]
+        ):
+            raise RuntimeError(f"source scalar/list sequence drift: row={row_index}")
+
+
+def _validate_strict_boolean_columns(
+    frame: pd.DataFrame,
+    columns: tuple[str, ...],
+    *,
+    label: str,
+    errors: list[str],
+) -> None:
+    for column in columns:
+        if column not in frame.columns:
+            errors.append(f"{label} missing boolean contract column: {column}")
+            continue
+        for row_index, value in frame[column].items():
+            try:
+                _strict_bool(
+                    value,
+                    label=f"{label} {column} row={row_index}",
+                )
+            except RuntimeError as exc:
+                errors.append(str(exc))
+
+
 def _date(value: object) -> str:
     text = "".join(character for character in str(value or "") if character.isdigit())
     return text[:8] if len(text) >= 8 else ""
@@ -182,16 +373,52 @@ def _number(value: object) -> float:
     return float(result) if pd.notna(result) else math.nan
 
 
+def _is_canonical_blank_numeric(value: object) -> bool:
+    if value is None:
+        return True
+    if isinstance(value, (str, bytes)):
+        return not str(value).strip()
+    try:
+        return bool(pd.isna(value))
+    except (TypeError, ValueError):
+        return False
+
+
 def _equal_number(left: object, right: object, tolerance: float = 0.00011) -> bool:
     left_number = _number(left)
     right_number = _number(right)
     if not np.isfinite(left_number) and not np.isfinite(right_number):
-        return True
+        return _is_canonical_blank_numeric(left) and _is_canonical_blank_numeric(
+            right
+        )
     return bool(
         np.isfinite(left_number)
         and np.isfinite(right_number)
         and math.isclose(left_number, right_number, abs_tol=tolerance)
     )
+
+
+def _exact_integer_value(value: object) -> tuple[bool, int | None]:
+    if value is None or (
+        not isinstance(value, (str, bytes)) and pd.isna(value)
+    ):
+        return True, None
+    text = str(value).strip()
+    if not text:
+        return True, None
+    try:
+        number = Decimal(text)
+    except InvalidOperation:
+        return False, None
+    if not number.is_finite() or number != number.to_integral_value():
+        return False, None
+    return True, int(number)
+
+
+def _equal_exact_integer(left: object, right: object) -> bool:
+    left_valid, left_value = _exact_integer_value(left)
+    right_valid, right_value = _exact_integer_value(right)
+    return left_valid and right_valid and left_value == right_value
 
 
 def _canonical_numeric_text(text: str) -> str | None:
@@ -261,11 +488,15 @@ def _frame_sha(frame: pd.DataFrame) -> str:
     return _json_sha([CANONICAL_LINEAGE_VERSION, columns, rows])
 
 
-def _mapping_sha(mapping: Mapping[str, object]) -> str:
+def _mapping_sha(
+    mapping: Mapping[str, object],
+    *,
+    excluded_columns: tuple[str, ...] = ("generated_at",),
+) -> str:
     payload = [
         [str(key), _canonical_value(value)]
         for key, value in sorted(mapping.items())
-        if str(key) != "generated_at"
+        if str(key) not in excluded_columns
     ]
     return _json_sha([CANONICAL_LINEAGE_VERSION, payload])
 
@@ -407,22 +638,60 @@ def _normalize_prices(
                 frame[analysis] = pd.to_numeric(frame[basis], errors="coerce")
             frame[analysis] = pd.to_numeric(frame[analysis], errors="coerce")
         close = frame["analysis_close"]
-        if "ma60" not in frame.columns:
-            frame["ma60"] = close.rolling(60, min_periods=60).mean()
-        if "ma120" not in frame.columns:
-            frame["ma120"] = close.rolling(120, min_periods=120).mean()
+        for column in ("ma60", "ma120"):
+            if column not in frame.columns:
+                frame[column] = np.nan
+            frame[column] = pd.to_numeric(frame[column], errors="coerce")
+        canonical_numeric = {
+            "analysis_ema23": close.ewm(
+                span=SHAPE_EMA_SPAN_SESSIONS,
+                adjust=False,
+            ).mean(),
+        }
+        for column, canonical in canonical_numeric.items():
+            if column in frame.columns:
+                observed = pd.to_numeric(frame[column], errors="coerce")
+                parity = np.isclose(
+                    observed.to_numpy(dtype=float),
+                    canonical.to_numpy(dtype=float),
+                    rtol=1e-12,
+                    atol=1e-10,
+                    equal_nan=True,
+                )
+                if not bool(parity.all()):
+                    first = int(np.flatnonzero(~parity)[0])
+                    raise RuntimeError(
+                        "derived price field differs from frozen analysis_close "
+                        f"formula: {stock_id}/{column}/row={first + 2}"
+                    )
+            frame[column] = canonical
         if "operation_ma20" not in frame.columns:
             frame["operation_ma20"] = close.rolling(20, min_periods=20).mean()
         if "operation_ema23" not in frame.columns:
             frame["operation_ema23"] = close.ewm(span=23, adjust=False).mean()
-        if "analysis_ema23" not in frame.columns:
-            frame["analysis_ema23"] = close.ewm(span=23, adjust=False).mean()
-        if "cross_breakout_prev20" not in frame.columns:
-            previous_high = close.shift(1).rolling(20, min_periods=20).max()
-            breakout = close.gt(previous_high)
-            frame["cross_breakout_prev20"] = breakout & ~breakout.shift(
-                1, fill_value=False
-            ).astype(bool)
+        previous_high = close.shift(1).rolling(
+            BASE_TRIGGER_PREVIOUS_HIGH_WINDOW_SESSIONS,
+            min_periods=BASE_TRIGGER_PREVIOUS_HIGH_WINDOW_SESSIONS,
+        ).max()
+        breakout = close.gt(previous_high)
+        canonical_cross = breakout & ~breakout.shift(
+            1, fill_value=False
+        ).astype(bool)
+        if "cross_breakout_prev20" in frame.columns:
+            observed_cross = frame["cross_breakout_prev20"].map(
+                lambda value: _strict_bool(
+                    value,
+                    label=f"cross_breakout_prev20/{stock_id}",
+                )
+            )
+            if not observed_cross.equals(canonical_cross):
+                mismatch = observed_cross.ne(canonical_cross)
+                first = int(np.flatnonzero(mismatch.to_numpy())[0])
+                raise RuntimeError(
+                    "derived price field differs from frozen analysis_close formula: "
+                    f"{stock_id}/cross_breakout_prev20/row={first + 2}"
+                )
+        frame["cross_breakout_prev20"] = canonical_cross
         result[stock_id] = frame
     if not result:
         raise RuntimeError("price input is empty")
@@ -458,12 +727,11 @@ def _training_lineage(source_manifest: pd.DataFrame) -> dict[str, object]:
     for column, value in expected.items():
         if str(row.get(column, "")).strip() != value:
             raise RuntimeError(f"training source projection drift: {column}")
-    try:
-        row_count = int(row.get("projected_episode_row_count", ""))
-    except (TypeError, ValueError) as exc:
-        raise RuntimeError(
-            "training projected episode row count is invalid"
-        ) from exc
+    row_count_valid, row_count = _exact_integer_value(
+        row.get("projected_episode_row_count", "")
+    )
+    if not row_count_valid or row_count is None:
+        raise RuntimeError("training projected episode row count is not an exact integer")
     if row_count != PR462_PROJECTED_EPISODE_ROW_COUNT:
         raise RuntimeError(
             "PR462 projected episode row count drift: "
@@ -472,7 +740,10 @@ def _training_lineage(source_manifest: pd.DataFrame) -> dict[str, object]:
     semantic_sha = str(row.get("projected_episode_semantic_sha256", "")).strip().lower()
     if semantic_sha != PR462_PROJECTED_EPISODE_SEMANTIC_SHA256:
         raise RuntimeError("PR462 projected episode semantic SHA-256 drift")
-    if not _bool(row.get("research_only", False)):
+    if not _strict_bool(
+        row.get("research_only", ""),
+        label="training source projection research_only",
+    ):
         raise RuntimeError("training source projection must remain research-only")
     for column in (
         "formal_model_use_allowed",
@@ -482,7 +753,14 @@ def _training_lineage(source_manifest: pd.DataFrame) -> dict[str, object]:
         "ranking_consumption_allowed",
         "pdf_consumption_allowed",
     ):
-        if column not in source_manifest.columns or _bool(row.get(column, False)):
+        if column not in source_manifest.columns:
+            raise RuntimeError(
+                f"training source projection formal consumer flag missing: {column}"
+            )
+        if _strict_bool(
+            row.get(column, ""),
+            label=f"training source projection {column}",
+        ):
             raise RuntimeError(
                 f"training source projection formal consumer flag drift: {column}"
             )
@@ -495,11 +773,11 @@ def _training_lineage(source_manifest: pd.DataFrame) -> dict[str, object]:
 
 def _anchor_features(frame: pd.DataFrame, index: int) -> dict[str, object]:
     close = _number(frame.at[index, "analysis_close"])
-    prior = frame.iloc[max(0, index - 120) : index]
+    prior = frame.iloc[max(0, index - POSITION_LOOKBACK_PRIOR_SESSIONS) : index]
     prior_high = pd.to_numeric(prior["analysis_high"], errors="coerce")
     prior_low = pd.to_numeric(prior["analysis_low"], errors="coerce")
     observed = bool(
-        len(prior) == 120
+        len(prior) == POSITION_LOOKBACK_PRIOR_SESSIONS
         and prior_high.notna().all()
         and prior_low.notna().all()
         and np.isfinite(close)
@@ -510,28 +788,48 @@ def _anchor_features(frame: pd.DataFrame, index: int) -> dict[str, object]:
     position = (close - low) / (high - low) * 100.0 if observed else math.nan
     position_bucket = (
         "low_pos_le40"
-        if observed and position <= 40.0
+        if observed and position <= POSITION_LOW_MAX_PCT
         else "mid_pos_40_75"
-        if observed and position <= 75.0
+        if observed and position <= POSITION_MID_MAX_PCT
         else "high_pos_gt75"
         if observed
         else "insufficient_history"
     )
     return20 = math.nan
-    if index >= 20:
-        close20 = _number(frame.at[index - 20, "analysis_close"])
+    if index >= SHAPE_RETURN_LOOKBACK_SESSIONS:
+        close20 = _number(
+            frame.at[index - SHAPE_RETURN_LOOKBACK_SESSIONS, "analysis_close"]
+        )
         if np.isfinite(close) and np.isfinite(close20) and close20 > 0:
             return20 = (close / close20 - 1.0) * 100.0
     recent = pd.to_numeric(
-        frame.iloc[max(0, index - 22) : index + 1]["analysis_close"], errors="coerce"
+        frame.iloc[
+            max(0, index - SHAPE_RANGE_WINDOW_SESSIONS + 1) : index + 1
+        ]["analysis_close"],
+        errors="coerce",
     )
     range23 = (
         (float(recent.max()) / float(recent.min()) - 1.0) * 100.0
-        if len(recent) == 23 and recent.notna().all() and float(recent.min()) > 0
+        if len(recent) == SHAPE_RANGE_WINDOW_SESSIONS
+        and recent.notna().all()
+        and float(recent.min()) > 0
         else math.nan
     )
-    ema_now = _number(frame.at[index, "analysis_ema23"]) if index >= 5 else math.nan
-    ema_prior = _number(frame.at[index - 5, "analysis_ema23"]) if index >= 5 else math.nan
+    ema_now = (
+        _number(frame.at[index, "analysis_ema23"])
+        if index >= SHAPE_EMA_SLOPE_LOOKBACK_SESSIONS
+        else math.nan
+    )
+    ema_prior = (
+        _number(
+            frame.at[
+                index - SHAPE_EMA_SLOPE_LOOKBACK_SESSIONS,
+                "analysis_ema23",
+            ]
+        )
+        if index >= SHAPE_EMA_SLOPE_LOOKBACK_SESSIONS
+        else math.nan
+    )
     slope = (
         (ema_now / ema_prior - 1.0) * 100.0
         if np.isfinite(ema_now) and np.isfinite(ema_prior) and ema_prior > 0
@@ -539,11 +837,20 @@ def _anchor_features(frame: pd.DataFrame, index: int) -> dict[str, object]:
     )
     if not all(np.isfinite(value) for value in (return20, range23, slope)):
         shape = "insufficient_history"
-    elif return20 > 5.0 and slope > 0.0:
+    elif (
+        return20 > SHAPE_RISING_RETURN_MIN_PCT
+        and slope > SHAPE_RISING_EMA_SLOPE_MIN_PCT
+    ):
         shape = "rising"
-    elif return20 < -5.0 and slope < 0.0:
+    elif (
+        return20 < SHAPE_FALLING_RETURN_MAX_PCT
+        and slope < SHAPE_FALLING_EMA_SLOPE_MAX_PCT
+    ):
         shape = "falling"
-    elif abs(return20) <= 5.0 and range23 <= 15.0:
+    elif (
+        abs(return20) <= SHAPE_CONSOLIDATION_RETURN_ABS_MAX_PCT
+        and range23 <= SHAPE_CONSOLIDATION_RANGE_MAX_PCT
+    ):
         shape = "consolidation"
     else:
         shape = "mixed_or_turn"
@@ -577,8 +884,13 @@ def _lineage(episode: pd.Series, frame: pd.DataFrame) -> list[dict[str, object]]
         name: [part.strip() for part in str(episode[name]).split("|") if part.strip()]
         for name in names
     }
+    count_valid, expected_count = _exact_integer_value(
+        episode["qualifying_update_count"]
+    )
+    if not count_valid or expected_count is None or expected_count <= 0:
+        raise RuntimeError("source qualifying update count is not a positive exact integer")
     lengths = {len(values) for values in lists.values()}
-    lengths.add(int(episode["qualifying_update_count"]))
+    lengths.add(expected_count)
     if len(lengths) != 1 or not lists[names[0]]:
         raise RuntimeError(f"source point-in-time lineage is not aligned: {episode['episode_key']}")
     date_index = {str(date): int(index) for index, date in frame["date"].items()}
@@ -599,7 +911,9 @@ def _lineage(episode: pd.Series, frame: pd.DataFrame) -> list[dict[str, object]]
         trade_date = _date(trade_date)
         if not source_date or not table_date or not trade_date:
             raise RuntimeError("source point-in-time date lineage is incomplete")
-        sequence_index = int(sequence)
+        sequence_valid, sequence_index = _exact_integer_value(sequence)
+        if not sequence_valid or sequence_index is None or sequence_index < 0:
+            raise RuntimeError("source point-in-time sequence is not an exact integer")
         if not SHA256_PATTERN.fullmatch(str(row_sha).lower()):
             raise RuntimeError("source point-in-time row SHA is invalid")
         first_available = next(
@@ -660,11 +974,14 @@ def _operation(frame: pd.DataFrame, trigger: int) -> dict[str, object]:
         "confirmation_date": str(frame.at[confirmation, "date"]),
         "confirmation_close": round(confirmation_close, 8),
         "entry_index": entry,
+        "entry_price_basis": "analysis_open",
         "planned_exit_index": entry + HOLDING_SESSION_INDEX_OFFSET,
         "planned_exit_date": "",
         "exit_index": "",
         "exit_date": "",
         "exit_price": "",
+        "exit_price_basis": "analysis_close",
+        "exit_reason": EXIT_RULE_ID,
         "return_valid": False,
         "right_censored": True,
         "realized_return_pct": "",
@@ -762,8 +1079,6 @@ def _expected_window(
                     continue
                 if trigger > end:
                     break
-                operation = _operation(frame, trigger)
-                blocked = max(blocked, int(operation.pop("blocked")))
                 trigger_date = str(frame.at[trigger, "date"])
                 available = [
                     row
@@ -777,27 +1092,30 @@ def _expected_window(
                     raise RuntimeError("source as-of point-in-time row is missing at trigger")
                 asof = available[-1]
                 lag = trigger - int(asof["sequence_index"])
-                if lag <= WATCH_HORIZON_TRADING_DAYS:
-                    features = _anchor_features(frame, int(asof["sequence_index"]))
-                    position = str(features["source_position_bucket"])
-                    shape = str(features["source_shape_bucket"])
-                    low = position == "low_pos_le40" and shape == "falling"
-                    mid = position == "mid_pos_40_75" and shape == "falling"
-                    if low or mid:
-                        source_candidate = bool(asof["source_anomaly_candidate_flag"])
-                        price_candidate = _bool(episode["unresolved_price_path_candidate_flag"])
-                        return_candidate = _bool(operation["operation_return_review_candidate_flag"])
-                        event_key = "|".join(
-                            (
-                                LIFECYCLE_POLICY_ID,
-                                CONFIRMATION_VARIANT_ID,
-                                stock_id,
-                                str(episode["episode_key"]),
-                                str(operation["trigger_date"]),
-                            )
+                if lag > WATCH_HORIZON_TRADING_DAYS:
+                    continue
+                operation = _operation(frame, trigger)
+                blocked = max(blocked, int(operation.pop("blocked")))
+                features = _anchor_features(frame, int(asof["sequence_index"]))
+                position = str(features["source_position_bucket"])
+                shape = str(features["source_shape_bucket"])
+                low = position == "low_pos_le40" and shape == "falling"
+                mid = position == "mid_pos_40_75" and shape == "falling"
+                if low or mid:
+                    source_candidate = bool(asof["source_anomaly_candidate_flag"])
+                    price_candidate = _bool(episode["unresolved_price_path_candidate_flag"])
+                    return_candidate = _bool(operation["operation_return_review_candidate_flag"])
+                    event_key = "|".join(
+                        (
+                            LIFECYCLE_POLICY_ID,
+                            CONFIRMATION_VARIANT_ID,
+                            stock_id,
+                            str(episode["episode_key"]),
+                            str(operation["trigger_date"]),
                         )
-                        expected.append(
-                            {
+                    )
+                    expected.append(
+                        {
                                 "event_key": event_key,
                                 "stock_id": stock_id,
                                 "stock_name": str(episode["stock_name"]),
@@ -819,8 +1137,8 @@ def _expected_window(
                                 "anomaly_candidate_flag": source_candidate or price_candidate or return_candidate,
                                 "source_anomaly_candidate_flag": source_candidate,
                                 "unresolved_price_path_candidate_flag": price_candidate,
-                            }
-                        )
+                        }
+                    )
                 if _bool(operation["right_censored"]):
                     break
     return expected
@@ -880,7 +1198,12 @@ def _check_metric_row(
     label: str,
     errors: list[str],
 ) -> None:
-    for column in METRIC_COLUMNS:
+    for column in INTEGER_METRIC_COLUMNS:
+        if column not in row.index:
+            errors.append(f"{label} missing metric column: {column}")
+        elif not _equal_exact_integer(row[column], expected[column]):
+            errors.append(f"{label} exact-integer metric drift: {column}")
+    for column in CONTINUOUS_METRIC_COLUMNS:
         if column not in row.index:
             errors.append(f"{label} missing metric column: {column}")
         elif not _equal_number(row[column], expected[column]):
@@ -921,11 +1244,14 @@ def _validate_capture_surfaces(
 def validate_history_surfaces(
     current_frames: Mapping[str, pd.DataFrame],
     history_frames: Mapping[str, pd.DataFrame],
+    *,
+    immutable_base_frames: Mapping[str, pd.DataFrame] | None = None,
 ) -> list[str]:
-    """Validate append-only structure and current-capture parity only.
+    """Validate append-only base prefix, structure, and current-capture parity.
 
     Historical rows are not replayed because their original input bundles are not
-    part of this validator invocation.
+    part of this validator invocation.  Their immutable rows are instead anchored
+    to the explicit Git/base frames supplied by the caller.
     """
 
     errors: list[str] = []
@@ -934,6 +1260,15 @@ def validate_history_surfaces(
         errors.append(
             "history surface set drift: "
             f"expected={sorted(expected_names)} observed={sorted(history_frames)}"
+        )
+        return errors
+    if immutable_base_frames is not None and set(immutable_base_frames) not in (
+        set(),
+        expected_names,
+    ):
+        errors.append(
+            "history immutable base surface set drift: "
+            f"observed={sorted(immutable_base_frames)}"
         )
         return errors
     manifest = current_frames["manifest"]
@@ -956,6 +1291,47 @@ def validate_history_surfaces(
         if history.duplicated(["capture_id", "artifact_row_key"]).any():
             errors.append(f"{label} history has duplicate capture/artifact row keys")
             continue
+        capture_blocks: set[str] = set()
+        previous_capture_id: str | None = None
+        non_contiguous_capture = False
+        for capture_id in history["capture_id"].astype(str):
+            if capture_id == previous_capture_id:
+                continue
+            if capture_id in capture_blocks:
+                non_contiguous_capture = True
+                break
+            capture_blocks.add(capture_id)
+            previous_capture_id = capture_id
+        if non_contiguous_capture:
+            errors.append(f"{label} history has non-contiguous capture blocks")
+            continue
+        base = (
+            immutable_base_frames.get(label)
+            if immutable_base_frames is not None
+            else None
+        )
+        if base is not None:
+            if list(base.columns) != list(history.columns):
+                errors.append(f"{label} history immutable base schema drift")
+                continue
+            if len(history) < len(base):
+                errors.append(f"{label} history deleted immutable base rows")
+                continue
+            if base.empty and history["capture_id"].astype(str).nunique() > 1:
+                errors.append(
+                    f"{label} history has prior captures but immutable base is empty"
+                )
+                continue
+            for offset in range(len(base)):
+                if _mapping_sha(
+                    base.iloc[offset].to_dict(), excluded_columns=()
+                ) != _mapping_sha(
+                    history.iloc[offset].to_dict(), excluded_columns=()
+                ):
+                    errors.append(
+                        f"{label} history immutable base prefix drift at row {offset + 2}"
+                    )
+                    break
         persisted = history.loc[
             history["capture_id"].astype(str).eq(current_capture_id)
         ].copy()
@@ -964,8 +1340,72 @@ def validate_history_surfaces(
         if persisted_keys != current_keys:
             errors.append(f"{label} history current-capture row presence drift")
             continue
+        if persisted["artifact_row_key"].astype(str).tolist() != current[
+            "artifact_row_key"
+        ].astype(str).tolist():
+            errors.append(f"{label} history current-capture row order drift")
+            continue
+        if not current.empty:
+            terminal = history.tail(len(current))
+            if (
+                len(terminal) != len(current)
+                or not terminal["capture_id"].astype(str).eq(current_capture_id).all()
+            ):
+                errors.append(
+                    f"{label} history current capture is not the contiguous terminal suffix"
+                )
+                continue
         current_index = current.set_index("artifact_row_key", drop=False)
         persisted_index = persisted.set_index("artifact_row_key", drop=False)
+        base_row_count = len(base) if base is not None else 0
+        uncommitted_tail = history.iloc[base_row_count:].copy()
+        if not uncommitted_tail.empty:
+            tail_keys = set(
+                zip(
+                    uncommitted_tail["capture_id"].astype(str),
+                    uncommitted_tail["artifact_row_key"].astype(str),
+                    strict=True,
+                )
+            )
+            current_composite_keys = {
+                (current_capture_id, str(key)) for key in current_keys
+            }
+            if tail_keys != current_composite_keys:
+                errors.append(
+                    f"{label} history has an uncommitted prior capture outside the "
+                    "immutable base"
+                )
+                continue
+            tail_composite_order = list(
+                zip(
+                    uncommitted_tail["capture_id"].astype(str),
+                    uncommitted_tail["artifact_row_key"].astype(str),
+                    strict=True,
+                )
+            )
+            current_composite_order = [
+                (current_capture_id, str(key))
+                for key in current["artifact_row_key"].astype(str)
+            ]
+            if tail_composite_order != current_composite_order:
+                errors.append(
+                    f"{label} history uncommitted current-capture row order drift"
+                )
+                continue
+            tail_index = uncommitted_tail.set_index("artifact_row_key", drop=False)
+            tail_mismatch = False
+            for key in sorted(current_keys):
+                if _mapping_sha(tail_index.loc[key].to_dict()) != _mapping_sha(
+                    current_index.loc[key].to_dict()
+                ):
+                    errors.append(
+                        f"{label} history current-capture semantic parity drift "
+                        f"(uncommitted tail): {key}"
+                    )
+                    tail_mismatch = True
+                    break
+            if tail_mismatch:
+                continue
         for key in sorted(current_keys):
             if _mapping_sha(current_index.loc[key].to_dict()) != _mapping_sha(
                 persisted_index.loc[key].to_dict()
@@ -987,6 +1427,7 @@ def validate_frames(
     daily_by_stock: Mapping[str, pd.DataFrame],
     source_manifest: pd.DataFrame,
     history_frames: Mapping[str, pd.DataFrame] | None = None,
+    immutable_history_base_frames: Mapping[str, pd.DataFrame] | None = None,
 ) -> list[str]:
     """Independently replay the frozen forward-holdout contract."""
 
@@ -999,35 +1440,91 @@ def validate_frames(
         "anomaly": anomaly,
     }
     for label, frame in frames.items():
-        if "research_only" not in frame.columns or not frame["research_only"].map(_bool).all():
+        if "research_only" not in frame.columns:
             errors.append(f"{label} must remain research-only")
+        else:
+            for row_index, value in frame["research_only"].items():
+                try:
+                    research_only = _strict_bool(
+                        value,
+                        label=f"{label} research_only row={row_index}",
+                    )
+                except RuntimeError as exc:
+                    errors.append(str(exc))
+                    continue
+                if not research_only:
+                    errors.append(f"{label} must remain research-only")
         for column in FALSE_FLAG_COLUMNS:
-            if column not in frame.columns or frame[column].map(_bool).any():
+            if column not in frame.columns:
                 errors.append(f"{label} formal consumer flag must remain false: {column}")
+                continue
+            for row_index, value in frame[column].items():
+                try:
+                    enabled = _strict_bool(
+                        value,
+                        label=f"{label} {column} row={row_index}",
+                    )
+                except RuntimeError as exc:
+                    errors.append(str(exc))
+                    continue
+                if enabled:
+                    errors.append(
+                        f"{label} formal consumer flag must remain false: {column}"
+                    )
     if len(manifest) != 1:
         errors.append("manifest must contain exactly one row")
         return errors
     manifest_row = manifest.iloc[0]
     for column, expected in (
+        ("preregistration_pr_number", PREREGISTRATION_PR_NUMBER),
         ("preregistration_merge_commit", PREREGISTRATION_MERGE_COMMIT),
         ("training_cutoff_date", TRAINING_CUTOFF_DATE),
         ("bridge_start_date", BRIDGE_START_DATE),
         ("bridge_end_date", BRIDGE_END_DATE),
         ("holdout_start_date", HOLDOUT_START_DATE),
         ("artifact_row_key", "manifest"),
+        ("rule_contract_version", RULE_CONTRACT_VERSION),
         ("rule_canonical_sha256", RULE_CANONICAL_SHA256),
+        ("data_contract_version", DATA_CONTRACT_VERSION),
         ("data_contract_sha256", DATA_CONTRACT_SHA256),
         ("holdout_status", "holdout_accumulating"),
+        ("financial_statement_scope", FINANCIAL_STATEMENT_SCOPE),
     ):
         if column not in manifest.columns or str(manifest_row[column]).strip() != expected:
             errors.append(f"manifest preregistration/rule/cutoff drift: {column}")
     for column in ("ranking_consumption_allowed", "pdf_consumption_allowed"):
-        if column not in manifest.columns or _bool(manifest_row[column]):
+        if column not in manifest.columns:
             errors.append(f"manifest formal consumer flag must remain false: {column}")
+            continue
+        try:
+            enabled = _strict_bool(
+                manifest_row[column],
+                label=f"manifest {column}",
+            )
+        except RuntimeError as exc:
+            errors.append(str(exc))
+            continue
+        if enabled:
+            errors.append(f"manifest formal consumer flag must remain false: {column}")
+    if "append_only_history" not in manifest.columns:
+        errors.append("manifest append_only_history contract is missing")
+    else:
+        try:
+            append_only = _strict_bool(
+                manifest_row["append_only_history"],
+                label="manifest append_only_history",
+            )
+        except RuntimeError as exc:
+            errors.append(str(exc))
+        else:
+            if not append_only:
+                errors.append("manifest append_only_history must remain true")
 
     try:
         training_lineage = _training_lineage(source_manifest)
         source = _normalize_source(source_detail)
+        _validate_source_anomaly_boolean_contract(source)
+        _validate_source_integer_contract(source)
         prices = _normalize_prices(daily_by_stock)
         observed = max(str(frame["date"].iloc[-1]) for frame in prices.values())
         if observed < HOLDOUT_START_DATE:
@@ -1118,8 +1615,16 @@ def validate_frames(
         expected_capture_id=expected_capture_id,
         errors=errors,
     )
+    _validate_strict_boolean_columns(
+        detail,
+        DETAIL_BUSINESS_BOOLEAN_COLUMNS,
+        label="detail",
+        errors=errors,
+    )
     detail_lineage = {
         "preregistration_merge_commit": PREREGISTRATION_MERGE_COMMIT,
+        "rule_contract_version": RULE_CONTRACT_VERSION,
+        "data_contract_version": DATA_CONTRACT_VERSION,
         "source_artifact_id": SOURCE_ARTIFACT_ID,
         "source_artifact_version": SOURCE_ARTIFACT_VERSION,
         "source_detail_canonical_sha256": source_sha,
@@ -1168,21 +1673,23 @@ def validate_frames(
         "operation_status",
         "return_outcome",
     )
-    numeric_columns = (
+    exact_integer_columns = (
         "source_asof_sequence_index",
         "source_to_trigger_trading_days",
         "future_qualifying_update_ignored_count",
+        "trigger_index",
+        "confirmation_index",
+        "entry_index",
+        "planned_exit_index",
+        "exit_index",
+    )
+    continuous_numeric_columns = (
         "source_position_120d_pct",
         "source_shape_return20_pct",
         "source_shape_range23_pct",
         "source_shape_ema23_slope5_pct",
-        "trigger_index",
         "trigger_close",
-        "confirmation_index",
         "confirmation_close",
-        "entry_index",
-        "planned_exit_index",
-        "exit_index",
         "entry_price",
         "exit_price",
         "realized_return_pct",
@@ -1209,7 +1716,14 @@ def validate_frames(
         for column in row_columns:
             if str(row.get(column, "")) != str(expected_row.get(column, "")):
                 errors.append(f"detail point-in-time/timing drift: {key}/{column}")
-        for column in numeric_columns:
+        for column in exact_integer_columns:
+            if not _equal_exact_integer(
+                row.get(column, ""), expected_row.get(column, "")
+            ):
+                errors.append(
+                    f"detail exact-integer timing replay drift: {key}/{column}"
+                )
+        for column in continuous_numeric_columns:
             if not _equal_number(row.get(column, ""), expected_row.get(column, "")):
                 errors.append(f"detail D+2/D+30 numeric replay drift: {key}/{column}")
         for column in bool_columns:
@@ -1217,14 +1731,28 @@ def validate_frames(
                 errors.append(f"detail anomaly/censor/member drift: {key}/{column}")
         if str(row.get("confirmation_variant_id", "")) != CONFIRMATION_VARIANT_ID:
             errors.append(f"detail confirmation contract drift: {key}")
+        if str(row.get("candidate_variant_id", "")) != str(
+            expected_row.get("variant_id", "")
+        ):
+            errors.append(f"detail candidate variant contract drift: {key}")
+        if str(row.get("lifecycle_policy_id", "")) != LIFECYCLE_POLICY_ID:
+            errors.append(f"detail lifecycle policy drift: {key}")
+        if not _equal_exact_integer(row.get("holding_days", ""), HOLDING_DAYS):
+            errors.append(f"detail holding days must remain {HOLDING_DAYS}: {key}")
         if str(row.get("entry_price_basis", "")) != "analysis_open":
             errors.append(f"detail D+2 entry basis drift: {key}")
         if str(row.get("exit_price_basis", "")) != "analysis_close":
             errors.append(f"detail D+30 exit basis drift: {key}")
-        if not _equal_number(row.get("holding_session_index_offset", ""), 29):
+        if not _equal_exact_integer(
+            row.get("holding_session_index_offset", ""), HOLDING_SESSION_INDEX_OFFSET
+        ):
             errors.append(f"detail D+30 holding offset must remain 29: {key}")
         if str(row.get("stop_policy_id", "")) != STOP_POLICY_ID:
             errors.append(f"detail stop policy drift: {key}")
+        if str(row.get("exit_reason", "")) != EXIT_RULE_ID:
+            errors.append(f"detail D+30 exit reason drift: {key}")
+        if str(row.get("financial_statement_scope", "")) != FINANCIAL_STATEMENT_SCOPE:
+            errors.append(f"detail financial statement isolation drift: {key}")
         trigger_date = str(row.get("trigger_date", ""))
         for column in (
             "source_asof_date",
@@ -1239,6 +1767,8 @@ def validate_frames(
             errors.append(f"detail future source sequence leakage: {key}")
         if not _bool(row.get("primary_metric_included", False)):
             errors.append(f"detail anomaly candidate must remain in primary metric: {key}")
+        if not _bool(row.get("same_stock_non_overlap_applied", False)):
+            errors.append(f"detail same-stock non-overlap contract drift: {key}")
         expected_sensitivity = not _bool(row.get("anomaly_candidate_flag", False))
         if _bool(row.get("sensitivity_metric_included", False)) != expected_sensitivity:
             errors.append(f"detail anomaly sensitivity inclusion drift: {key}")
@@ -1257,13 +1787,36 @@ def validate_frames(
     if overlap:
         errors.append(f"same-stock overlap/rearm prior exit violation: {overlap}")
 
-    if int(_number(manifest_row.get("bridge_excluded_signal_count", -1))) != len(bridge):
+    if not _equal_exact_integer(
+        manifest_row.get("bridge_excluded_signal_count", ""), len(bridge)
+    ):
         errors.append("manifest bridge exclusion count drift")
-    if int(_number(manifest_row.get("holdout_event_count", -1))) != len(detail):
+    if not _equal_exact_integer(
+        manifest_row.get("holdout_event_count", ""), len(detail)
+    ):
         errors.append("manifest holdout event count drift")
     mature_total = int(detail["return_valid"].map(_bool).sum())
-    if int(_number(manifest_row.get("mature_event_count", -1))) != mature_total:
+    if not _equal_exact_integer(
+        manifest_row.get("mature_event_count", ""), mature_total
+    ):
         errors.append("manifest mature/right-censored count drift")
+    right_censored_total = int(detail["right_censored"].map(_bool).sum())
+    if not _equal_exact_integer(
+        manifest_row.get("right_censored_event_count", ""),
+        right_censored_total,
+    ):
+        errors.append("manifest right-censored event count drift")
+    primary_metrics = _metrics(detail.loc[_membership(detail, PRIMARY_VARIANT_ID)])
+    if not _equal_exact_integer(
+        manifest_row.get("primary_mature_count", ""),
+        primary_metrics["mature_count"],
+    ):
+        errors.append("manifest primary mature count drift")
+    if not _equal_exact_integer(
+        manifest_row.get("primary_right_censored_count", ""),
+        primary_metrics["right_censored_count"],
+    ):
+        errors.append("manifest primary right-censored count drift")
 
     for surface_label, frame in (("summary", summary), ("comparison", comparison)):
         if len(frame) != len(ALL_VARIANT_IDS):
@@ -1286,6 +1839,14 @@ def validate_frames(
             part = detail.loc[_membership(detail, variant_id)]
             expected_metrics = _metrics(part)
             row = frame.loc[frame["variant_id"].astype(str).eq(variant_id)].iloc[0]
+            expected_order = ALL_VARIANT_IDS.index(variant_id) + 1
+            expected_role = "primary" if variant_id == PRIMARY_VARIANT_ID else "challenger"
+            if not _equal_exact_integer(
+                row.get("variant_order", ""), expected_order
+            ):
+                errors.append(f"{surface_label} variant order drift: {variant_id}")
+            if str(row.get("variant_role", "")) != expected_role:
+                errors.append(f"{surface_label} variant role drift: {variant_id}")
             _check_metric_row(
                 row,
                 expected_metrics,
@@ -1294,6 +1855,28 @@ def validate_frames(
             )
             if str(row.get("holdout_status", "")) != "holdout_accumulating":
                 errors.append(f"{surface_label} holdout status drift: {variant_id}")
+            if surface_label == "summary":
+                if not _equal_exact_integer(
+                    row.get("bridge_excluded_signal_count", ""), len(bridge)
+                ):
+                    errors.append(f"summary bridge exclusion count drift: {variant_id}")
+                expected_anomaly_count = int(
+                    part["anomaly_candidate_flag"].map(_bool).sum()
+                )
+                if not _equal_exact_integer(
+                    row.get("anomaly_candidate_count", ""), expected_anomaly_count
+                ):
+                    errors.append(f"summary anomaly candidate count drift: {variant_id}")
+                if str(row.get("financial_statement_scope", "")) != (
+                    FINANCIAL_STATEMENT_SCOPE
+                ):
+                    errors.append(
+                        f"summary financial statement isolation drift: {variant_id}"
+                    )
+            elif str(row.get("comparison_conclusion", "")) != (
+                "no_promotion_conclusion_holdout_accumulating"
+            ):
+                errors.append(f"comparison conclusion drift: {variant_id}")
 
     expected_anomaly_keys = {
         (variant_id, basis)
@@ -1330,6 +1913,20 @@ def validate_frames(
                 anomaly["variant_id"].astype(str).eq(variant_id)
                 & anomaly["analysis_basis"].astype(str).eq(basis)
             ].iloc[0]
+            expected_variant_order = ALL_VARIANT_IDS.index(variant_id) + 1
+            expected_basis_order = (
+                1 if basis == "primary_candidate_retaining" else 2
+            )
+            if not _equal_exact_integer(
+                row.get("variant_order", ""), expected_variant_order
+            ):
+                errors.append(f"anomaly variant order drift: {variant_id}/{basis}")
+            if not _equal_exact_integer(
+                row.get("basis_order", ""), expected_basis_order
+            ):
+                errors.append(f"anomaly basis order drift: {variant_id}/{basis}")
+            if str(row.get("anomaly_policy", "")) != ANOMALY_POLICY:
+                errors.append(f"anomaly policy drift: {variant_id}/{basis}")
             _check_metric_row(
                 row,
                 _metrics(basis_part),
@@ -1337,11 +1934,82 @@ def validate_frames(
                 errors=errors,
             )
             expected_excluded = 0 if basis == "primary_candidate_retaining" else int(candidates.sum())
-            if not _equal_number(row.get("excluded_anomaly_candidate_count", ""), expected_excluded):
+            if not _equal_exact_integer(
+                row.get("excluded_anomaly_candidate_count", ""), expected_excluded
+            ):
                 errors.append(f"anomaly primary retention/sensitivity drift: {variant_id}/{basis}")
     if history_frames is not None:
-        errors.extend(validate_history_surfaces(frames, history_frames))
+        errors.extend(
+            validate_history_surfaces(
+                frames,
+                history_frames,
+                immutable_base_frames=immutable_history_base_frames,
+            )
+        )
     return errors
+
+
+def load_history_base_frames_from_git(
+    base_ref: str,
+    *,
+    root: Path = ROOT,
+    history_paths: Mapping[str, Path] | None = None,
+) -> dict[str, pd.DataFrame]:
+    """Load immutable history prefixes directly from an explicit Git commit."""
+
+    if not base_ref.strip():
+        raise RuntimeError("forward holdout history base ref is blank")
+    paths = history_paths or {
+        name: DEFAULT_PATHS[f"{name}_history"]
+        for name in ("manifest", "detail", "summary", "comparison", "anomaly")
+    }
+    frames: dict[str, pd.DataFrame] = {}
+    for name, path in paths.items():
+        try:
+            relative = path.resolve().relative_to(root.resolve()).as_posix()
+        except ValueError as exc:
+            raise RuntimeError(
+                f"forward holdout history path is outside repository root: {path}"
+            ) from exc
+        try:
+            result = subprocess.run(
+                ["git", "show", f"{base_ref}:{relative}"],
+                cwd=root,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                check=False,
+                timeout=15,
+            )
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise RuntimeError(
+                f"cannot read forward holdout history base {base_ref}:{relative}: {exc}"
+            ) from exc
+        if result.returncode == 0:
+            frames[name] = pd.read_csv(
+                io.BytesIO(result.stdout),
+                dtype={"stock_id": str, "capture_id": str, "artifact_row_key": str},
+                keep_default_na=False,
+                low_memory=False,
+            )
+            continue
+        missing_markers = (
+            b"does not exist in",
+            b"exists on disk, but not in",
+            b"Path '",
+        )
+        if any(marker in result.stderr for marker in missing_markers):
+            continue
+        detail = result.stderr.decode("utf-8", errors="replace").strip()
+        raise RuntimeError(
+            f"cannot resolve forward holdout history base {base_ref}:{relative}"
+            + (f": {detail}" if detail else "")
+        )
+    if set(frames) not in (set(), set(paths)):
+        raise RuntimeError(
+            "forward holdout immutable history Git base must contain either zero "
+            "or all five surfaces"
+        )
+    return frames
 
 
 def _read_csv(path: Path) -> pd.DataFrame:
@@ -1376,12 +2044,26 @@ def _load_explicit_price_inputs(directory: Path) -> dict[str, pd.DataFrame]:
     return output
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
         description="Validate the independent revenue forward holdout replay"
     )
     for name, path in DEFAULT_PATHS.items():
+        if name in {"manifest", "source_manifest"}:
+            continue
         parser.add_argument(f"--{name.replace('_', '-')}", type=Path, default=path)
+    parser.add_argument(
+        "--manifest",
+        type=Path,
+        required=True,
+        help="Explicit persisted forward-holdout manifest for this capture",
+    )
+    parser.add_argument(
+        "--source-manifest",
+        type=Path,
+        required=True,
+        help="Explicit immutable PR #462 source-projection manifest",
+    )
     parser.add_argument(
         "--source-detail",
         type=Path,
@@ -1394,9 +2076,22 @@ def main() -> int:
         required=True,
         help="Directory containing one explicit normalized price CSV per stock",
     )
-    args = parser.parse_args()
+    parser.add_argument(
+        "--history-base-ref",
+        required=True,
+        help="Explicit immutable Git base commit/ref for append-only history prefixes",
+    )
+    args = parser.parse_args(argv)
     source = _read_csv(args.source_detail)
     daily = _load_explicit_price_inputs(args.price_input_directory)
+    history_paths = {
+        name: getattr(args, f"{name}_history")
+        for name in ("manifest", "detail", "summary", "comparison", "anomaly")
+    }
+    immutable_history_base_frames = load_history_base_frames_from_git(
+        args.history_base_ref,
+        history_paths=history_paths,
+    )
     errors = validate_frames(
         _read_csv(args.manifest),
         _read_csv(args.detail),
@@ -1407,9 +2102,9 @@ def main() -> int:
         daily_by_stock=daily,
         source_manifest=_read_csv(args.source_manifest),
         history_frames={
-            name: _read_csv(getattr(args, f"{name}_history"))
-            for name in ("manifest", "detail", "summary", "comparison", "anomaly")
+            name: _read_csv(path) for name, path in history_paths.items()
         },
+        immutable_history_base_frames=immutable_history_base_frames,
     )
     if errors:
         for error in errors:

@@ -272,18 +272,12 @@ def test_revenue_forward_holdout_stage_rejects_independent_selection() -> None:
 def test_revenue_forward_holdout_stage_requires_primary_and_exclusive_mode_guards() -> None:
     text, rows, producers = _inputs()
     primary_guard = (
-        '          if [[ "${{ github.event.inputs.'
-        + validator.REVENUE_FORWARD_HOLDOUT_STAGE_INPUT
-        + ' }}" == "true" && "${{ github.event.inputs.'
-        + validator.REVENUE_WORKFLOW_INPUT
-        + ' }}" != "true" ]]; then\n'
+        '          if [[ "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" && '
+        '"$REVENUE_RESEARCH_ENABLED" != "true" ]]; then\n'
     )
     exclusive_guard = (
-        '          if [[ "${{ github.event.inputs.'
-        + validator.REVENUE_FORWARD_HOLDOUT_STAGE_INPUT
-        + ' }}" == "true" && "${{ github.event.inputs.'
-        + validator.REVENUE_PROJECTION_CHAIN_STAGE_INPUT
-        + ' }}" == "true" ]]; then\n'
+        '          if [[ "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" && '
+        '"$REVENUE_SOURCE_PROJECTION_CHAIN_ONLY" == "true" ]]; then\n'
     )
     assert primary_guard in text
     assert exclusive_guard in text

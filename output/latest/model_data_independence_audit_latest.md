@@ -1,6 +1,6 @@
 # 每日股票模型與資料獨立性稽核
 
-- 產生時間：`2026-08-11 16:02:27 Asia/Taipei`
+- 產生時間：`2026-08-11 19:16:37 Asia/Taipei`
 - 結果：`CONTAINED=28, DISCLOSED_NOT_INDEPENDENT=4, PASS=57`
 - 原則：新模型與新資料 family 預設獨立；跨模型共用商業語意必須先有使用者核准與 migration evidence。
 - `CONTAINED` 代表既有共用已被凍結與精確盤點，不代表已物理拆分。
@@ -96,4 +96,4 @@
 | validator_independence | scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py | PASS | independent_research_replay_validator | none |
 | validator_independence | scripts/validate_research_against_stock_model_contract.py | DISCLOSED_NOT_INDEPENDENT | production_research_contract_consistency | may verify implementation consistency only; cannot prove model correctness independently |
 | validator_independence | scripts/validate_revenue_unreacted_range_source_snapshot_projection.py | PASS | independent_source_lineage_validator | none |
-| validator_independence | scripts/validate_revenue_unreacted_range_forward_holdout.py | PASS | independent_research_replay_validator | none |
+| validator_independence | scripts/validate_revenue_unreacted_range_forward_holdout.py | PASS | input_bound_in_process_independent_validator | none |

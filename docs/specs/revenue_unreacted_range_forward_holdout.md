@@ -37,12 +37,19 @@ cutoff 傳給月營收 source builder。禁止把價格觀察終點之後才出�
 凍結 source projection 的 `episode_end_date` 是 retrospective training boundary，
 不是 forward 觀察上限。每一筆 point-in-time qualifying source availability 依原規則
 開啟 60 個交易日 watch horizon；as-of 選擇只准取 trigger 當時已可得的最後一筆來源。
+超過當時最新 qualifying source 60 個交易日的 trigger 不屬於 source universe，必須在
+operation lifecycle 占用之前排除；後續新 qualifying source 可重新開啟自己的 60 日視窗。
 
 ## 候選與操作契約
 
 Primary：
 
 - `candidate_variant_id=source_mid_falling`
+
+上游來源變體的數值語意同樣納入 frozen rule SHA：
+`latest_revenue_yoy_pct >= 30%` 或 `cumulative_revenue_yoy_pct >= 20%`，
+或連續兩個曆月的 `latest_revenue_yoy_pct` 都 `>= 15%`。不得只保留
+`absolute_or_two_month_yoy_ge15` 這個 variant id 而未綁定其實際門檻。
 
 Challengers：
 
@@ -59,6 +66,12 @@ Challengers：
 - `stop_policy_id=none_no_stop_reference`
 - 同股前一筆實際出場後的下一個交易日才可重新武裝
 - same-stock overlap 必須為 0
+
+為了與 PR #462 的 955 baseline 保持完全相同的樣本形成順序，rearm／non-overlap
+先在完整 frozen source-universe operation stream 上執行，之後才分層為 low／mid
+falling。即使某筆 base operation 最後不屬於 low／mid falling，它仍會依原 baseline
+lifecycle 占用至實際出場；不得改成 candidate-specific rearm，也不得用 holdout 觀察值
+重新調整此順序。
 
 若尚未觀察到 D+2 或 D+30，事件保留為 `right_censored`；不得寫入勝率、平均、
 中位數或 promotion conclusion。artifact 狀態維持 `holdout_accumulating`，即使已有
@@ -120,6 +133,10 @@ publish transaction：所有新 bytes 與 rollback backups 必須先完成 stagi
 
 History validator 對五份 history 執行 schema、空白 key、重複
 `(capture_id, artifact_row_key)` 與 current capture exact row presence/semantic parity 檢查。
+任何新 capture append 前，producer 與獨立 validator另須以明確 Git `HEAD`／PR base
+中的五份 history blobs 作 immutable prefix trust anchor；base 的完整 row 順序、欄位與
+semantic values 必須逐列原樣保留，只能在尾端新增 capture。沒有 immutable base
+evidence 時，既有 capture 不得接受新的 capture append。
 這只是 append-only history structural integrity；舊 capture 的原始 source/price bundles
 未隨 history 保存，因此 history hash 或 structural pass **不是**舊 capture 的獨立重播，
 也不是 promotion-grade replay bundle 或 promotion proof。
@@ -142,8 +159,11 @@ scripts/revenue_unreacted_range_forward_holdout.py
 
 ```text
 python scripts/validate_revenue_unreacted_range_forward_holdout.py \
+  --manifest <persisted-forward-holdout-manifest.csv> \
+  --source-manifest <immutable-pr462-source-projection-manifest.csv> \
   --source-detail <exact-source-detail.csv> \
-  --price-input-directory <exact-normalized-price-input-directory>
+  --price-input-directory <exact-normalized-price-input-directory> \
+  --history-base-ref <immutable-git-base-ref>
 ```
 
 validator 不 import forward-holdout producer business functions。它獨立重播 point-in-time

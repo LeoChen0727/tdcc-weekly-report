@@ -3,9 +3,11 @@ from __future__ import annotations
 import ast
 from copy import deepcopy
 from pathlib import Path
+import subprocess
 import sys
 
 import pandas as pd
+import pytest
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -63,6 +65,7 @@ def _errors(bundle: dict[str, object]) -> list[str]:
         daily_by_stock=bundle["daily"],
         source_manifest=bundle["source_manifest"],
         history_frames=bundle.get("history"),
+        immutable_history_base_frames=bundle.get("history_base"),
     )
 
 
@@ -70,6 +73,11 @@ def _assert_error(errors: list[str], *needles: str) -> None:
     joined = "\n".join(errors).lower()
     assert errors, "validator unexpectedly accepted a corrupted holdout"
     assert any(needle.lower() in joined for needle in needles), joined
+
+
+def test_bare_cli_fails_closed_without_explicit_inputs() -> None:
+    with pytest.raises(SystemExit):
+        validator.main([])
 
 
 def test_validator_is_independent_and_accepts_exact_replay() -> None:
@@ -120,10 +128,12 @@ def test_validator_requires_exact_pr462_projection_pin() -> None:
     )
     for column, value in (
         ("projected_episode_row_count", PR462_PROJECTED_EPISODE_ROW_COUNT - 1),
+        ("projected_episode_row_count", PR462_PROJECTED_EPISODE_ROW_COUNT + 0.9),
         ("projected_episode_semantic_sha256", "0" * 64),
     ):
         bundle = _valid_bundle()
         manifest = bundle["source_manifest"].copy()
+        manifest[column] = manifest[column].astype(object)
         manifest.at[0, column] = value
         bundle["source_manifest"] = manifest
         _assert_error(_errors(bundle), "pr462", "projected episode")
@@ -182,6 +192,189 @@ def test_validator_reads_five_histories_and_accepts_current_capture_parity(
         "output/history/research" in validator.DEFAULT_PATHS[f"{name}_history"].as_posix()
         for name in names
     )
+
+
+def test_validator_rejects_clean_uncommitted_prior_capture_against_immutable_base() -> None:
+    source, daily, source_manifest = holdout_inputs()
+    first = build_forward_holdout(
+        source,
+        daily,
+        source_manifest=source_manifest,
+        generated_at="2026-08-11 12:00:00 Asia/Taipei",
+    )
+    daily_second = {key: value.copy() for key, value in daily.items()}
+    last = daily_second["1111"].index[-1]
+    daily_second["1111"].at[last, "price_resolution_ids_on_date"] = "revision-1"
+    second = build_forward_holdout(
+        source,
+        daily_second,
+        source_manifest=source_manifest,
+        generated_at="2026-08-11 12:10:00 Asia/Taipei",
+    )
+    daily_third = {key: value.copy() for key, value in daily_second.items()}
+    daily_third["1111"].at[last, "price_resolution_ids_on_date"] = "revision-2"
+    third = build_forward_holdout(
+        source,
+        daily_third,
+        source_manifest=source_manifest,
+        generated_at="2026-08-11 12:20:00 Asia/Taipei",
+    )
+    names = ("manifest", "detail", "summary", "comparison", "anomaly")
+    history = {
+        name: pd.concat([first_frame, second_frame, third_frame], ignore_index=True)
+        for name, first_frame, second_frame, third_frame in zip(
+            names, first, second, third, strict=True
+        )
+    }
+    bundle = {
+        **dict(zip(names, third, strict=True)),
+        "source": source,
+        "daily": daily_third,
+        "source_manifest": source_manifest,
+        "history": history,
+        "history_base": dict(zip(names, first, strict=True)),
+    }
+
+    _assert_error(_errors(bundle), "uncommitted prior capture")
+
+
+def test_validator_rejects_rewritten_uncommitted_current_capture() -> None:
+    source, daily, source_manifest = holdout_inputs()
+    first = build_forward_holdout(
+        source,
+        daily,
+        source_manifest=source_manifest,
+        generated_at="2026-08-11 12:00:00 Asia/Taipei",
+    )
+    daily_second = {key: value.copy() for key, value in daily.items()}
+    last = daily_second["1111"].index[-1]
+    daily_second["1111"].at[last, "price_resolution_ids_on_date"] = "revision-1"
+    second = build_forward_holdout(
+        source,
+        daily_second,
+        source_manifest=source_manifest,
+        generated_at="2026-08-11 12:10:00 Asia/Taipei",
+    )
+    names = ("manifest", "detail", "summary", "comparison", "anomaly")
+    history = {
+        name: pd.concat([first_frame, second_frame], ignore_index=True)
+        for name, first_frame, second_frame in zip(names, first, second, strict=True)
+    }
+    history["manifest"].at[len(first[0]), "rule_canonical_sha256"] = "f" * 64
+    bundle = {
+        **dict(zip(names, second, strict=True)),
+        "source": source,
+        "daily": daily_second,
+        "source_manifest": source_manifest,
+        "history": history,
+        "history_base": dict(zip(names, first, strict=True)),
+    }
+
+    _assert_error(_errors(bundle), "current-capture semantic parity drift")
+
+
+def test_validator_rejects_stale_existing_capture_as_current() -> None:
+    source, daily, source_manifest = holdout_inputs()
+    first = build_forward_holdout(
+        source,
+        daily,
+        source_manifest=source_manifest,
+        generated_at="2026-08-11 12:00:00 Asia/Taipei",
+    )
+    daily_second = {key: value.copy() for key, value in daily.items()}
+    last = daily_second["1111"].index[-1]
+    daily_second["1111"].at[last, "price_resolution_ids_on_date"] = "revision-1"
+    second = build_forward_holdout(
+        source,
+        daily_second,
+        source_manifest=source_manifest,
+        generated_at="2026-08-11 12:10:00 Asia/Taipei",
+    )
+    names = ("manifest", "detail", "summary", "comparison", "anomaly")
+    history = {
+        name: pd.concat([first_frame, second_frame], ignore_index=True)
+        for name, first_frame, second_frame in zip(names, first, second, strict=True)
+    }
+    bundle = {
+        **dict(zip(names, first, strict=True)),
+        "source": source,
+        "daily": daily,
+        "source_manifest": source_manifest,
+        "history": history,
+        "history_base": {name: frame.copy() for name, frame in history.items()},
+    }
+
+    _assert_error(_errors(bundle), "not the contiguous terminal suffix")
+
+
+def test_validator_rejects_current_capture_row_reordering() -> None:
+    bundle = _valid_bundle()
+    names = ("manifest", "detail", "summary", "comparison", "anomaly")
+    bundle["history"] = {name: bundle[name].copy() for name in names}
+    bundle["history_base"] = {name: bundle[name].copy() for name in names}
+    bundle["detail"] = bundle["detail"].iloc[::-1].reset_index(drop=True)
+
+    _assert_error(_errors(bundle), "current-capture row order drift")
+
+
+def test_validator_immutable_base_prefix_includes_generated_at() -> None:
+    bundle = _valid_bundle()
+    names = ("manifest", "detail", "summary", "comparison", "anomaly")
+    bundle["history"] = {name: bundle[name].copy() for name in names}
+    bundle["history_base"] = {name: bundle[name].copy() for name in names}
+    bundle["history_base"]["manifest"].at[0, "generated_at"] = (
+        "2099-01-01 00:00:00 Asia/Taipei"
+    )
+
+    _assert_error(_errors(bundle), "immutable base prefix drift")
+
+
+def test_validator_rejects_partial_immutable_base_surface_bundle() -> None:
+    bundle = _valid_bundle()
+    names = ("manifest", "detail", "summary", "comparison", "anomaly")
+    bundle["history"] = {name: bundle[name].copy() for name in names}
+    bundle["history_base"] = {
+        name: bundle[name].copy() for name in names if name != "anomaly"
+    }
+
+    _assert_error(_errors(bundle), "immutable base surface set drift")
+
+
+def test_git_history_loader_rejects_partial_five_surface_base(
+    tmp_path: Path, monkeypatch
+) -> None:
+    bundle = _valid_bundle()
+    names = ("manifest", "detail", "summary", "comparison", "anomaly")
+    paths = {name: tmp_path / f"{name}.csv" for name in names}
+    payloads = {
+        path.relative_to(tmp_path).as_posix(): bundle[name].to_csv(index=False).encode()
+        for name, path in paths.items()
+    }
+    missing = paths["anomaly"].relative_to(tmp_path).as_posix()
+
+    def fake_run(command, **_kwargs):
+        relative = str(command[2]).split(":", 1)[1]
+        if relative == missing:
+            return subprocess.CompletedProcess(
+                command,
+                128,
+                stdout=b"",
+                stderr=f"Path '{relative}' does not exist in 'base'".encode(),
+            )
+        return subprocess.CompletedProcess(
+            command,
+            0,
+            stdout=payloads[relative],
+            stderr=b"",
+        )
+
+    monkeypatch.setattr(validator.subprocess, "run", fake_run)
+    with pytest.raises(RuntimeError, match="zero or all five surfaces"):
+        validator.load_history_base_frames_from_git(
+            "base",
+            root=tmp_path,
+            history_paths=paths,
+        )
 
 
 def test_validator_rejects_history_schema_duplicate_presence_and_semantic_drift() -> None:
@@ -376,6 +569,24 @@ def test_validator_rejects_right_censored_return_in_mature_metrics() -> None:
     bundle["summary"] = summary
     _assert_error(_errors(bundle), "mature", "right-censored", "summary")
 
+    for column, invalid_value in (
+        ("exit_price", "not-a-number"),
+        ("realized_return_pct", float("inf")),
+    ):
+        bundle = _valid_bundle()
+        detail = bundle["detail"].copy()
+        target = detail.index[detail["stock_id"].astype(str).eq("3333")][0]
+        detail[column] = detail[column].astype(object)
+        detail.at[target, column] = invalid_value
+        mapping = detail.loc[target].drop(
+            labels=["event_row_canonical_sha256"]
+        ).to_dict()
+        detail.at[target, "event_row_canonical_sha256"] = validator._mapping_sha(
+            mapping
+        )
+        bundle["detail"] = detail
+        _assert_error(_errors(bundle), column, "numeric replay", "right-censored")
+
 
 def test_validator_rejects_same_stock_overlap_and_false_rearm() -> None:
     source = pd.DataFrame(
@@ -448,6 +659,49 @@ def test_validator_rejects_anomaly_exclusion_from_primary_metrics() -> None:
     _assert_error(_errors(bundle), "anomaly", "primary", "retain")
 
 
+@pytest.mark.parametrize(
+    "column",
+    ("analysis_ema23", "cross_breakout_prev20"),
+)
+def test_validator_independently_rejects_precomputed_price_feature_drift(
+    column: str,
+) -> None:
+    bundle = _valid_bundle()
+    daily = {
+        stock_id: frame.copy() for stock_id, frame in bundle["daily"].items()
+    }
+    target = daily["1111"]
+    row = target.index[-1]
+    if column == "cross_breakout_prev20":
+        target.at[row, column] = not bool(target.at[row, column])
+    else:
+        target.at[row, column] = float(target.at[row, column]) + 0.5
+    bundle["daily"] = daily
+
+    _assert_error(_errors(bundle), "derived price field differs from frozen")
+
+
+def test_validator_accepts_pr462_authoritative_prepared_ma_rounding() -> None:
+    source, daily, source_manifest = holdout_inputs()
+    rounded = {stock_id: frame.copy() for stock_id, frame in daily.items()}
+    for frame in rounded.values():
+        frame["ma60"] = pd.to_numeric(frame["ma60"], errors="coerce").round(4)
+        frame["ma120"] = pd.to_numeric(frame["ma120"], errors="coerce").round(4)
+    frames = build_forward_holdout(
+        source,
+        rounded,
+        source_manifest=source_manifest,
+        generated_at=GENERATED_AT,
+    )
+
+    assert validator.validate_frames(
+        *frames,
+        source_detail=source,
+        daily_by_stock=rounded,
+        source_manifest=source_manifest,
+    ) == []
+
+
 def test_validator_rejects_anchor_rule_or_source_cutoff_drift() -> None:
     bundle = _valid_bundle()
     manifest = bundle["manifest"].copy()
@@ -460,6 +714,19 @@ def test_validator_rejects_anchor_rule_or_source_cutoff_drift() -> None:
     manifest.at[0, "rule_canonical_sha256"] = "f" * 64
     bundle["manifest"] = manifest
     _assert_error(_errors(bundle), "rule", "canonical", "drift")
+
+    for column in ("rule_contract_version", "data_contract_version"):
+        bundle = _valid_bundle()
+        manifest = bundle["manifest"].copy()
+        manifest.at[0, column] = "drifted_contract_version"
+        bundle["manifest"] = manifest
+        _assert_error(_errors(bundle), "preregistration", "rule", "drift", column)
+
+        bundle = _valid_bundle()
+        detail = bundle["detail"].copy()
+        detail.at[detail.index[0], column] = "drifted_contract_version"
+        bundle["detail"] = detail
+        _assert_error(_errors(bundle), "detail", "lineage", "drift", column)
 
     bundle = _valid_bundle()
     source_manifest = bundle["source_manifest"].copy()
@@ -489,6 +756,143 @@ def test_validator_rejects_formal_ranking_or_pdf_consumer_leakage() -> None:
             "consumer",
             "research-only",
         )
+
+
+def test_validator_rejects_malformed_governance_boolean_text() -> None:
+    for frame_name, column in (
+        ("manifest", "research_only"),
+        ("summary", "formal_model_use_allowed"),
+        ("comparison", "approved_for_daily"),
+        ("anomaly", "promotion_evidence_allowed"),
+        ("manifest", "pdf_consumption_allowed"),
+    ):
+        bundle = _valid_bundle()
+        frame = bundle[frame_name].copy()
+        frame[column] = frame[column].astype(object)
+        frame.at[frame.index[0], column] = "not-a-boolean"
+        bundle[frame_name] = frame
+        _assert_error(_errors(bundle), column, "canonical boolean")
+
+    for column in ("research_only", "ranking_consumption_allowed"):
+        bundle = _valid_bundle()
+        source_manifest = bundle["source_manifest"].copy()
+        source_manifest[column] = source_manifest[column].astype(object)
+        source_manifest.at[0, column] = "not-a-boolean"
+        bundle["source_manifest"] = source_manifest
+        _assert_error(_errors(bundle), column, "canonical boolean", "point-in-time")
+
+    for value in (False, "not-a-boolean"):
+        bundle = _valid_bundle()
+        manifest = bundle["manifest"].copy()
+        manifest["append_only_history"] = manifest["append_only_history"].astype(
+            object
+        )
+        manifest.at[0, "append_only_history"] = value
+        bundle["manifest"] = manifest
+        _assert_error(_errors(bundle), "append_only_history")
+
+
+def test_validator_rejects_malformed_detail_and_source_anomaly_booleans() -> None:
+    for column in (
+        "low_falling_member",
+        "right_censored",
+        "sensitivity_metric_included",
+        "same_stock_non_overlap_applied",
+    ):
+        bundle = _valid_bundle()
+        detail = bundle["detail"].copy()
+        detail[column] = detail[column].astype(object)
+        detail.at[detail.index[0], column] = "not-a-boolean"
+        mapping = detail.iloc[0].drop(labels=["event_row_canonical_sha256"]).to_dict()
+        detail.at[detail.index[0], "event_row_canonical_sha256"] = (
+            validator._mapping_sha(mapping)
+        )
+        bundle["detail"] = detail
+        _assert_error(_errors(bundle), "detail", column, "canonical boolean")
+
+    for column in (
+        "unresolved_price_path_candidate_flag",
+        "qualifying_source_revenue_anomaly_candidate_flag",
+        "qualifying_source_revenue_anomaly_candidate_flags",
+    ):
+        bundle = _valid_bundle()
+        source = bundle["source"].copy()
+        source[column] = source[column].astype(object)
+        source.at[source.index[0], column] = "not-a-boolean"
+        bundle["source"] = source
+        _assert_error(_errors(bundle), "source anomaly", column, "canonical boolean")
+
+    for column, value in (
+        ("qualifying_update_count", 1.9),
+        ("episode_start_sequence_index", 100.5),
+        ("latest_qualifying_sequence_index", 100.5),
+        ("qualifying_sequence_indices", "100.5"),
+    ):
+        bundle = _valid_bundle()
+        source = bundle["source"].copy()
+        source[column] = source[column].astype(object)
+        source.at[source.index[0], column] = value
+        bundle["source"] = source
+        _assert_error(_errors(bundle), "source", "exact integer", "sequence")
+
+
+def test_validator_rejects_closed_surface_metadata_and_count_drift() -> None:
+    cases = (
+        ("manifest", "preregistration_pr_number", "999", "preregistration"),
+        ("manifest", "financial_statement_scope", "EPS_enabled", "financial"),
+        ("manifest", "right_censored_event_count", 999, "right-censored"),
+        ("manifest", "holdout_event_count", 0.9, "holdout event count"),
+        ("manifest", "primary_mature_count", 999, "primary mature"),
+        ("manifest", "primary_right_censored_count", 999, "primary right-censored"),
+        ("detail", "candidate_variant_id", "wrong_variant", "candidate variant"),
+        ("detail", "lifecycle_policy_id", "wrong_lifecycle", "lifecycle"),
+        ("detail", "holding_days", 999, "holding days"),
+        ("detail", "holding_days", 30.00005, "holding days"),
+        (
+            "detail",
+            "holding_session_index_offset",
+            29.00005,
+            "holding offset",
+        ),
+        ("detail", "trigger_index", 196.00005, "exact-integer timing"),
+        ("detail", "exit_reason", "wrong_exit", "exit reason"),
+        ("detail", "financial_statement_scope", "EPS_enabled", "financial"),
+        ("detail", "primary_metric_included", False, "primary metric"),
+        ("detail", "same_stock_non_overlap_applied", False, "non-overlap"),
+        ("summary", "variant_order", 99, "variant order"),
+        ("summary", "variant_order", 1.00005, "variant order"),
+        ("summary", "event_count", 1.9, "exact-integer metric"),
+        ("summary", "variant_role", "wrong_role", "variant role"),
+        ("summary", "bridge_excluded_signal_count", 999, "bridge exclusion"),
+        ("summary", "anomaly_candidate_count", 999, "anomaly candidate count"),
+        ("summary", "financial_statement_scope", "EPS_enabled", "financial"),
+        ("comparison", "variant_order", 99, "variant order"),
+        ("comparison", "variant_role", "wrong_role", "variant role"),
+        ("comparison", "comparison_conclusion", "promotion_pass", "conclusion"),
+        ("anomaly", "variant_order", 99, "variant order"),
+        ("anomaly", "basis_order", 99, "basis order"),
+        (
+            "anomaly",
+            "excluded_anomaly_candidate_count",
+            0.9,
+            "primary retention",
+        ),
+        ("anomaly", "anomaly_policy", "drop_candidates", "anomaly policy"),
+    )
+    for surface, column, value, needle in cases:
+        bundle = _valid_bundle()
+        frame = bundle[surface].copy()
+        frame[column] = frame[column].astype(object)
+        frame.at[frame.index[0], column] = value
+        if surface == "detail":
+            mapping = frame.iloc[0].drop(
+                labels=["event_row_canonical_sha256"]
+            ).to_dict()
+            frame.at[frame.index[0], "event_row_canonical_sha256"] = (
+                validator._mapping_sha(mapping)
+            )
+        bundle[surface] = frame
+        _assert_error(_errors(bundle), needle, column)
 
 
 def test_validator_accepts_accumulating_holdout_with_no_mature_rows() -> None:

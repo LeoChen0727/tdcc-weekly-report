@@ -307,6 +307,7 @@ VALID_INDEPENDENT_VALIDATOR_ROLES = {
     "independent_contract_ast_guard",
     "independent_source_lineage_validator",
     "independent_research_replay_validator",
+    "input_bound_in_process_independent_validator",
 }
 REVENUE_CROSS_MARKET_RESOLUTION_CANONICAL_COLUMNS = (
     "resolution_id",

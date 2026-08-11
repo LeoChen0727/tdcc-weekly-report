@@ -21,6 +21,7 @@ from model_data_independence import (  # noqa: E402
     REVENUE_CROSS_MARKET_RESOLUTION_CANONICAL_COLUMNS,
     REVENUE_CROSS_MARKET_RESOLUTION_SHA_TOKEN,
     SEMANTIC_MIGRATION_COLUMNS,
+    VALID_INDEPENDENT_VALIDATOR_ROLES,
     SourceSemanticGraph,
     _production_imports,
     _active_repo_python_sources,
@@ -1814,6 +1815,31 @@ def test_production_importing_audits_cannot_claim_independent_evidence() -> None
         )
         assert sources == ()
         assert symbols == ()
+
+
+def test_input_bound_independent_validator_role_is_closed_set_and_registered() -> None:
+    assert VALID_INDEPENDENT_VALIDATOR_ROLES == {
+        "independent_contract_ast_guard",
+        "independent_source_lineage_validator",
+        "independent_research_replay_validator",
+        "input_bound_in_process_independent_validator",
+    }
+    rows = {
+        row["validator_path"]: row
+        for row in read_csv("config/daily_model_validator_independence.csv")
+    }
+    forward = rows["scripts/validate_revenue_unreacted_range_forward_holdout.py"]
+    assert forward["validator_role"] == (
+        "input_bound_in_process_independent_validator"
+    )
+    assert forward["production_source_file"] == (
+        "scripts/build_revenue_unreacted_range_research.py"
+    )
+    assert forward["imported_production_symbols"] == ""
+    assert forward["independence_claim"] == "True"
+    assert forward["allowed_evidence_use"] == (
+        "independent_input_bound_research_validation_only_not_promotion_proof"
+    )
 
 
 def test_future_model_owned_module_import_is_detected(tmp_path: Path) -> None:

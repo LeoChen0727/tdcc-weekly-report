@@ -2,8 +2,17 @@ from __future__ import annotations
 
 import argparse
 import gc
+from contextlib import contextmanager
+from pathlib import Path
+import sys
+from typing import Iterator, Mapping
 
 import pandas as pd
+
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 from build_daily_model_parameter_research import (
     REVENUE_UNREACTED_FEATURE_CONTRAST_BINARY_SPECS,
@@ -18,7 +27,11 @@ from build_daily_model_parameter_research import (
     write_revenue_unreacted_range_operation_candidate_matrix,
     write_revenue_unreacted_range_revenue_condition_matrix,
 )
-from model_research_artifact_guard import model_owned_artifact_guard
+from model_research_artifact_guard import (
+    _dirty_snapshot,
+    changed_during_run,
+    model_owned_artifact_guard,
+)
 from revenue_unreacted_range_close_confirmation_timing import write_close_confirmation_timing_audit
 from revenue_unreacted_range_fixed_confirmation_feature_contrast import (
     build_fixed_confirmation_feature_contrast,
@@ -30,8 +43,10 @@ from revenue_unreacted_range_forward_confirmation_feature_audit import (
     write_forward_confirmation_feature_audit,
 )
 from revenue_unreacted_range_forward_holdout import (
+    FORWARD_HOLDOUT_ALLOWED_ARTIFACT_PATHS,
     build_and_write_current_forward_holdout,
 )
+from scripts.validate_revenue_unreacted_range_forward_holdout import validate_frames
 from revenue_unreacted_range_rearmed_operation_grid import (
     PRICE_HISTORY_CUTOFF_DATE,
     build_rearmed_operation_grid,
@@ -80,23 +95,35 @@ from revenue_unreacted_range_research_frame import (
 
 MODEL_ID = "revenue_unreacted_range"
 PRODUCER = "scripts/build_revenue_unreacted_range_research.py"
-FORWARD_HOLDOUT_ALLOWED_ARTIFACT_PATHS = (
-    "docs/latest/revenue_unreacted_range_forward_holdout_anomaly_sensitivity_latest.csv",
-    "docs/latest/revenue_unreacted_range_forward_holdout_comparison_latest.csv",
-    "docs/latest/revenue_unreacted_range_forward_holdout_event_detail_latest.csv",
-    "docs/latest/revenue_unreacted_range_forward_holdout_manifest_latest.csv",
-    "docs/latest/revenue_unreacted_range_forward_holdout_maturity_status_latest.csv",
-    "output/history/research/revenue_unreacted_range_forward_holdout_anomaly_sensitivity.csv",
-    "output/history/research/revenue_unreacted_range_forward_holdout_comparison.csv",
-    "output/history/research/revenue_unreacted_range_forward_holdout_event_detail.csv",
-    "output/history/research/revenue_unreacted_range_forward_holdout_manifest.csv",
-    "output/history/research/revenue_unreacted_range_forward_holdout_maturity_status.csv",
-    "output/latest/research_backtest/revenue_unreacted_range_forward_holdout_anomaly_sensitivity_latest.csv",
-    "output/latest/research_backtest/revenue_unreacted_range_forward_holdout_comparison_latest.csv",
-    "output/latest/research_backtest/revenue_unreacted_range_forward_holdout_event_detail_latest.csv",
-    "output/latest/research_backtest/revenue_unreacted_range_forward_holdout_manifest_latest.csv",
-    "output/latest/research_backtest/revenue_unreacted_range_forward_holdout_maturity_status_latest.csv",
-)
+def validate_forward_holdout_stage_changed_paths(
+    changed_paths: list[str],
+) -> list[str]:
+    """Restrict the forward-only stage to its exact fifteen research artifacts."""
+
+    allowed = set(FORWARD_HOLDOUT_ALLOWED_ARTIFACT_PATHS)
+    return [
+        f"forward holdout stage artifact allowlist violation: {path}"
+        for path in sorted(set(changed_paths) - allowed)
+    ]
+
+
+@contextmanager
+def forward_holdout_stage_artifact_guard(
+    *,
+    root: Path = ROOT,
+) -> Iterator[None]:
+    before = _dirty_snapshot(root)
+    try:
+        yield
+    finally:
+        errors = validate_forward_holdout_stage_changed_paths(
+            changed_during_run(root, before)
+        )
+        if errors:
+            details = "\n".join(f"- {error}" for error in errors)
+            raise RuntimeError(
+                "forward holdout stage artifact guard failed:\n" + details
+            )
 
 
 def load_immutable_source_snapshot_projection() -> tuple[pd.DataFrame, pd.DataFrame]:
@@ -447,8 +474,42 @@ def build_and_write_low_mid_falling_candidate_audit() -> None:
     )
 
 
+def validate_forward_holdout_persisted_frames(
+    manifest_readback: pd.DataFrame,
+    detail_readback: pd.DataFrame,
+    summary_readback: pd.DataFrame,
+    comparison_readback: pd.DataFrame,
+    anomaly_readback: pd.DataFrame,
+    *,
+    source_detail: pd.DataFrame,
+    price_inputs: Mapping[str, pd.DataFrame],
+    source_manifest: pd.DataFrame,
+    history_frames: Mapping[str, pd.DataFrame],
+    immutable_history_base_frames: Mapping[str, pd.DataFrame] | None,
+) -> None:
+    errors = validate_frames(
+        manifest_readback,
+        detail_readback,
+        summary_readback,
+        comparison_readback,
+        anomaly_readback,
+        source_detail=source_detail,
+        daily_by_stock=price_inputs,
+        source_manifest=source_manifest,
+        history_frames=history_frames,
+        immutable_history_base_frames=immutable_history_base_frames,
+    )
+    if errors:
+        raise RuntimeError(
+            "forward holdout model-owned persisted replay failed: "
+            + "; ".join(errors)
+        )
+
+
 def build_and_write_forward_holdout() -> None:
-    build_and_write_current_forward_holdout()
+    build_and_write_current_forward_holdout(
+        final_validation=validate_forward_holdout_persisted_frames
+    )
 
 
 def parse_args() -> argparse.Namespace:
@@ -476,16 +537,7 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> int:
     args = parse_args()
-    stage_allowlist = (
-        FORWARD_HOLDOUT_ALLOWED_ARTIFACT_PATHS
-        if args.stage == "forward_holdout"
-        else None
-    )
-    with model_owned_artifact_guard(
-        MODEL_ID,
-        PRODUCER,
-        allowed_changed_path_globs=stage_allowlist,
-    ):
+    with model_owned_artifact_guard(MODEL_ID, PRODUCER):
         if args.stage == "launch_timing_feature_audit":
             build_and_write_launch_timing_feature_audit()
         elif args.stage == "source_first_condition_audit":
@@ -505,7 +557,8 @@ def main() -> int:
         elif args.stage == "low_mid_falling_candidate_audit":
             build_and_write_low_mid_falling_candidate_audit()
         elif args.stage == "forward_holdout":
-            build_and_write_forward_holdout()
+            with forward_holdout_stage_artifact_guard():
+                build_and_write_forward_holdout()
         else:
             build_and_write()
     return 0

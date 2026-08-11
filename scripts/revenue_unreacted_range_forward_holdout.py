@@ -9,6 +9,7 @@ import math
 import os
 from pathlib import Path
 import re
+import subprocess
 import tempfile
 from typing import Callable, Mapping
 from zoneinfo import ZoneInfo
@@ -20,7 +21,6 @@ from revenue_unreacted_range_forward_confirmation_feature_audit import (
     prepare_daily_by_stock,
 )
 from revenue_unreacted_range_low_mid_falling_candidate_audit import (
-    _anchor_features,
     _asof_source,
     _normalize_source,
 )
@@ -73,11 +73,36 @@ EXIT_RULE_ID = "fixed_d30_close"
 HOLDING_DAYS = 30
 HOLDING_SESSION_INDEX_OFFSET = HOLDING_DAYS - 1
 WATCH_HORIZON_TRADING_DAYS = 60
+BASE_TRIGGER_PREVIOUS_HIGH_WINDOW_SESSIONS = 20
+BASE_TRIGGER_MA_SHORT_WINDOW_SESSIONS = 60
+BASE_TRIGGER_MA_LONG_WINDOW_SESSIONS = 120
 
-RULE_CONTRACT_VERSION = "revenue_low_mid_falling_forward_holdout_rule_v1"
+POSITION_LOOKBACK_PRIOR_SESSIONS = 120
+POSITION_LOW_MAX_PCT = 40.0
+POSITION_MID_MAX_PCT = 75.0
+SHAPE_RETURN_LOOKBACK_SESSIONS = 20
+SHAPE_RANGE_WINDOW_SESSIONS = 23
+SHAPE_EMA_SPAN_SESSIONS = 23
+SHAPE_EMA_SLOPE_LOOKBACK_SESSIONS = 5
+SHAPE_RISING_RETURN_MIN_PCT = 5.0
+SHAPE_FALLING_RETURN_MAX_PCT = -5.0
+SHAPE_RISING_EMA_SLOPE_MIN_PCT = 0.0
+SHAPE_FALLING_EMA_SLOPE_MAX_PCT = 0.0
+SHAPE_CONSOLIDATION_RETURN_ABS_MAX_PCT = 5.0
+SHAPE_CONSOLIDATION_RANGE_MAX_PCT = 15.0
+
+RULE_CONTRACT_VERSION = "revenue_low_mid_falling_forward_holdout_rule_v2"
 RULE_CONTRACT = {
     "model_id": MODEL_ID,
     "source_variant_id": SOURCE_VARIANT_ID,
+    "source_variant_contract": {
+        "logic": "absolute_branch_or_two_consecutive_month_branch",
+        "absolute_latest_yoy_min_pct_inclusive": 30.0,
+        "absolute_cumulative_yoy_min_pct_inclusive": 20.0,
+        "two_month_requires_consecutive_calendar_months": True,
+        "two_month_latest_yoy_min_pct_inclusive": 15.0,
+        "two_month_previous_latest_yoy_min_pct_inclusive": 15.0,
+    },
     "primary_variant_id": PRIMARY_VARIANT_ID,
     "challenger_variant_ids": list(CHALLENGER_VARIANT_IDS),
     "position_buckets": {
@@ -86,7 +111,48 @@ RULE_CONTRACT = {
         "source_low_or_mid_falling_union": "low_pos_le40|mid_pos_40_75",
     },
     "shape_bucket": "falling",
+    "position_feature_contract": {
+        "lookback_prior_sessions": POSITION_LOOKBACK_PRIOR_SESSIONS,
+        "anchor_included": False,
+        "formula": "(anchor_analysis_close-prior_analysis_low_min)/(prior_analysis_high_max-prior_analysis_low_min)*100",
+        "low_max_pct_inclusive": POSITION_LOW_MAX_PCT,
+        "mid_lower_pct_exclusive": POSITION_LOW_MAX_PCT,
+        "mid_max_pct_inclusive": POSITION_MID_MAX_PCT,
+        "high_lower_pct_exclusive": POSITION_MID_MAX_PCT,
+    },
+    "shape_feature_contract": {
+        "return_lookback_sessions": SHAPE_RETURN_LOOKBACK_SESSIONS,
+        "return_formula": "(anchor_analysis_close/analysis_close_t_minus_20-1)*100",
+        "range_window_sessions": SHAPE_RANGE_WINDOW_SESSIONS,
+        "range_window_includes_anchor": True,
+        "range_formula": "(window_analysis_close_max/window_analysis_close_min-1)*100",
+        "ema_span_sessions": SHAPE_EMA_SPAN_SESSIONS,
+        "ema_adjust": False,
+        "ema_source": "analysis_close",
+        "ema_slope_lookback_sessions": SHAPE_EMA_SLOPE_LOOKBACK_SESSIONS,
+        "ema_slope_formula": "(anchor_ema23/ema23_t_minus_5-1)*100",
+        "rising_return_min_pct_exclusive": SHAPE_RISING_RETURN_MIN_PCT,
+        "rising_ema_slope_min_pct_exclusive": SHAPE_RISING_EMA_SLOPE_MIN_PCT,
+        "falling_return_max_pct_exclusive": SHAPE_FALLING_RETURN_MAX_PCT,
+        "falling_ema_slope_max_pct_exclusive": SHAPE_FALLING_EMA_SLOPE_MAX_PCT,
+        "consolidation_return_abs_max_pct_inclusive": SHAPE_CONSOLIDATION_RETURN_ABS_MAX_PCT,
+        "consolidation_range_max_pct_inclusive": SHAPE_CONSOLIDATION_RANGE_MAX_PCT,
+    },
+    "base_trigger_contract": {
+        "previous_close_high_window_sessions": BASE_TRIGGER_PREVIOUS_HIGH_WINDOW_SESSIONS,
+        "crossing_requires_prior_day_not_breakout": True,
+        "cross_breakout_recomputed_from_analysis_close": True,
+        "ma_short_window_sessions": BASE_TRIGGER_MA_SHORT_WINDOW_SESSIONS,
+        "ma_long_window_sessions": BASE_TRIGGER_MA_LONG_WINDOW_SESSIONS,
+        "ma60_input_contract": "authoritative_prepared_input_numeric_pr462_compatible",
+        "ma120_input_contract": "authoritative_prepared_input_numeric_pr462_compatible",
+        "missing_or_nonfinite_ma_behavior": "not_a_base_trigger",
+        "condition": "cross_breakout_prev20_and_ma60_gt_ma120",
+    },
     "watch_horizon_trading_days": WATCH_HORIZON_TRADING_DAYS,
+    "source_eligibility_before_lifecycle": (
+        "point_in_time_latest_qualifying_source_lag_le_60_before_operation_block"
+    ),
     "base_confirmation_rule_id": BASE_CONFIRMATION_RULE_ID,
     "confirmation_variant_id": CONFIRMATION_VARIANT_ID,
     "confirmation_rule_id": CONFIRMATION_RULE_ID,
@@ -100,7 +166,11 @@ RULE_CONTRACT = {
     "exit_price_basis": "analysis_close",
     "lifecycle_policy_id": LIFECYCLE_POLICY_ID,
     "same_stock_non_overlap": "entry_after_prior_realized_exit_next_trading_day",
+    "lifecycle_then_stratification_order": (
+        "pr462_global_source_universe_rearm_non_overlap_before_low_mid_falling_membership"
+    ),
     "anomaly_policy": "primary_retains_unresolved_candidates_sensitivity_excludes",
+    "operation_return_review_threshold_pct": OPERATION_RETURN_REVIEW_THRESHOLD_PCT,
     "financial_statement_scope": (
         "monthly_revenue_only;EPS_gross_margin_operating_margin_operating_income_"
         "non_operating_income_net_income_excluded"
@@ -214,6 +284,9 @@ DEFAULT_OUTPUT_RELATIVE_PATHS = {
         ),
     )
 }
+FORWARD_HOLDOUT_ALLOWED_ARTIFACT_PATHS = tuple(
+    sorted(DEFAULT_OUTPUT_RELATIVE_PATHS.values())
+)
 
 SHA256_PATTERN = re.compile(r"^[0-9a-f]{64}$")
 MONTHLY_LINEAGE_COLUMNS = (
@@ -341,6 +414,16 @@ def _number(value: object) -> float:
     return float(result) if pd.notna(result) else math.nan
 
 
+def _require_exact_integer(value: object, *, label: str) -> int:
+    try:
+        number = Decimal(str(value).strip())
+    except InvalidOperation as exc:
+        raise RuntimeError(f"forward holdout {label} is not an exact integer") from exc
+    if not number.is_finite() or number != number.to_integral_value():
+        raise RuntimeError(f"forward holdout {label} is not an exact integer")
+    return int(number)
+
+
 def _require_sha256(value: object, *, label: str) -> str:
     digest = str(value).strip().lower()
     if not SHA256_PATTERN.fullmatch(digest):
@@ -348,11 +431,15 @@ def _require_sha256(value: object, *, label: str) -> str:
     return digest
 
 
-def _canonical_mapping_sha256(mapping: Mapping[str, object]) -> str:
+def _canonical_mapping_sha256(
+    mapping: Mapping[str, object],
+    *,
+    excluded_columns: tuple[str, ...] = ("generated_at",),
+) -> str:
     payload = [
         [str(key), _canonical_value(value)]
         for key, value in sorted(mapping.items())
-        if str(key) != "generated_at"
+        if str(key) not in excluded_columns
     ]
     return _canonical_json_sha256([CANONICAL_LINEAGE_VERSION, payload])
 
@@ -409,12 +496,10 @@ def _validate_source_manifest(source_manifest: pd.DataFrame) -> dict[str, str]:
     for column, value in expected.items():
         if str(row[column]).strip() != value:
             raise RuntimeError(f"forward holdout source projection {column} drift")
-    try:
-        projected_row_count = int(row["projected_episode_row_count"])
-    except (TypeError, ValueError) as exc:
-        raise RuntimeError(
-            "forward holdout training projected episode row count is invalid"
-        ) from exc
+    projected_row_count = _require_exact_integer(
+        row["projected_episode_row_count"],
+        label="training projected episode row count",
+    )
     if projected_row_count != PR462_PROJECTED_EPISODE_ROW_COUNT:
         raise RuntimeError(
             "forward holdout PR462 projected episode row count drift: "
@@ -429,7 +514,10 @@ def _validate_source_manifest(source_manifest: pd.DataFrame) -> dict[str, str]:
         raise RuntimeError(
             "forward holdout PR462 projected episode semantic SHA-256 drift"
         )
-    if not _bool_value(row["research_only"]):
+    if not _strict_bool_value(
+        row["research_only"],
+        label="training projection research_only",
+    ):
         raise RuntimeError("forward holdout training projection must be research_only")
     for column in (
         "formal_model_use_allowed",
@@ -439,7 +527,10 @@ def _validate_source_manifest(source_manifest: pd.DataFrame) -> dict[str, str]:
         "ranking_consumption_allowed",
         "pdf_consumption_allowed",
     ):
-        if _bool_value(row[column]):
+        if _strict_bool_value(
+            row[column],
+            label=f"training projection {column}",
+        ):
             raise RuntimeError(f"forward holdout training projection {column} must be false")
     return {
         "training_source_projection_semantic_sha256": projected_semantic_sha256,
@@ -457,6 +548,85 @@ def _strict_bool_value(value: object, *, label: str) -> bool:
     if token in {"false", "0", "no"}:
         return False
     raise RuntimeError(f"forward holdout {label} is not canonical boolean text")
+
+
+def _validate_source_anomaly_boolean_contract(source: pd.DataFrame) -> None:
+    scalar_columns = (
+        "qualifying_source_revenue_anomaly_candidate_flag",
+        "unresolved_price_path_candidate_flag",
+    )
+    if "start_source_revenue_anomaly_candidate_flag" in source.columns:
+        scalar_columns = (*scalar_columns, "start_source_revenue_anomaly_candidate_flag")
+    for column in scalar_columns:
+        if column not in source.columns:
+            raise RuntimeError(
+                f"forward holdout source anomaly contract missing column: {column}"
+            )
+        for row_index, value in source[column].items():
+            _strict_bool_value(
+                value,
+                label=f"source anomaly {column} row={row_index}",
+            )
+    list_column = "qualifying_source_revenue_anomaly_candidate_flags"
+    if list_column not in source.columns:
+        raise RuntimeError(
+            f"forward holdout source anomaly contract missing column: {list_column}"
+        )
+    for row_index, value in source[list_column].items():
+        tokens = _split_pipe(value)
+        if not tokens:
+            raise RuntimeError(
+                "forward holdout source anomaly flag lineage is empty: "
+                f"row={row_index}"
+            )
+        for position, token in enumerate(tokens):
+            _strict_bool_value(
+                token,
+                label=(
+                    f"source anomaly {list_column} row={row_index} position={position}"
+                ),
+            )
+
+
+def _validate_source_integer_contract(source: pd.DataFrame) -> None:
+    required = (
+        "qualifying_update_count",
+        "qualifying_sequence_indices",
+        "episode_start_sequence_index",
+        "latest_qualifying_sequence_index",
+    )
+    missing = sorted(set(required) - set(source.columns))
+    if missing:
+        raise RuntimeError(f"forward holdout source integer contract missing: {missing}")
+    for row_index, row in source.iterrows():
+        count = _require_exact_integer(
+            row["qualifying_update_count"],
+            label=f"source qualifying update count row={row_index}",
+        )
+        sequence_tokens = _split_pipe(row["qualifying_sequence_indices"])
+        sequences = [
+            _require_exact_integer(
+                token,
+                label=f"source qualifying sequence row={row_index} position={position}",
+            )
+            for position, token in enumerate(sequence_tokens)
+        ]
+        if count <= 0 or len(sequences) != count or any(value < 0 for value in sequences):
+            raise RuntimeError(
+                f"forward holdout source sequence/count contract drift: row={row_index}"
+            )
+        start = _require_exact_integer(
+            row["episode_start_sequence_index"],
+            label=f"source episode-start sequence row={row_index}",
+        )
+        latest = _require_exact_integer(
+            row["latest_qualifying_sequence_index"],
+            label=f"source latest sequence row={row_index}",
+        )
+        if start != sequences[0] or latest != sequences[-1]:
+            raise RuntimeError(
+                f"forward holdout source scalar/list sequence drift: row={row_index}"
+            )
 
 
 def _split_pipe(value: object) -> list[str]:
@@ -620,26 +790,185 @@ def _normalize_prices(
                 frame[analysis] = pd.to_numeric(frame[basis], errors="coerce")
             frame[analysis] = pd.to_numeric(frame[analysis], errors="coerce")
         close = frame["analysis_close"]
-        if "ma60" not in frame.columns:
-            frame["ma60"] = close.rolling(60, min_periods=60).mean()
-        if "ma120" not in frame.columns:
-            frame["ma120"] = close.rolling(120, min_periods=120).mean()
+        for column in ("ma60", "ma120"):
+            if column not in frame.columns:
+                frame[column] = np.nan
+            frame[column] = pd.to_numeric(frame[column], errors="coerce")
+        canonical_numeric = {
+            "analysis_ema23": close.ewm(
+                span=SHAPE_EMA_SPAN_SESSIONS,
+                adjust=False,
+            ).mean(),
+        }
+        for column, canonical in canonical_numeric.items():
+            if column in frame.columns:
+                observed = pd.to_numeric(frame[column], errors="coerce")
+                parity = np.isclose(
+                    observed.to_numpy(dtype=float),
+                    canonical.to_numpy(dtype=float),
+                    rtol=1e-12,
+                    atol=1e-10,
+                    equal_nan=True,
+                )
+                if not bool(parity.all()):
+                    first = int(np.flatnonzero(~parity)[0])
+                    raise RuntimeError(
+                        "forward holdout derived price field differs from the frozen "
+                        f"analysis_close formula: {stock_id}/{column}/row={first + 2}"
+                    )
+            frame[column] = canonical
         if "operation_ma20" not in frame.columns:
             frame["operation_ma20"] = close.rolling(20, min_periods=20).mean()
         if "operation_ema23" not in frame.columns:
             frame["operation_ema23"] = close.ewm(span=23, adjust=False).mean()
-        if "analysis_ema23" not in frame.columns:
-            frame["analysis_ema23"] = close.ewm(span=23, adjust=False).mean()
-        if "cross_breakout_prev20" not in frame.columns:
-            previous_high = close.shift(1).rolling(20, min_periods=20).max()
-            breakout = close.gt(previous_high)
-            frame["cross_breakout_prev20"] = breakout & ~breakout.shift(
-                1, fill_value=False
-            ).astype(bool)
+        previous_high = close.shift(1).rolling(
+            BASE_TRIGGER_PREVIOUS_HIGH_WINDOW_SESSIONS,
+            min_periods=BASE_TRIGGER_PREVIOUS_HIGH_WINDOW_SESSIONS,
+        ).max()
+        breakout = close.gt(previous_high)
+        canonical_cross = breakout & ~breakout.shift(
+            1, fill_value=False
+        ).astype(bool)
+        if "cross_breakout_prev20" in frame.columns:
+            observed_cross = frame["cross_breakout_prev20"].map(
+                lambda value: _strict_bool_value(
+                    value,
+                    label=f"cross_breakout_prev20/{stock_id}",
+                )
+            )
+            if not observed_cross.equals(canonical_cross):
+                mismatch = observed_cross.ne(canonical_cross)
+                first = int(np.flatnonzero(mismatch.to_numpy())[0])
+                raise RuntimeError(
+                    "forward holdout derived price field differs from the frozen "
+                    f"analysis_close formula: {stock_id}/cross_breakout_prev20/"
+                    f"row={first + 2}"
+                )
+        frame["cross_breakout_prev20"] = canonical_cross
         normalized[stock_id] = frame
     if not normalized:
         raise RuntimeError("forward holdout has no normalized price inputs")
     return normalized
+
+
+def _frozen_anchor_features(frame: pd.DataFrame, index: int) -> dict[str, object]:
+    close = _number(frame.at[index, "analysis_close"])
+    prior = frame.iloc[
+        max(0, index - POSITION_LOOKBACK_PRIOR_SESSIONS) : index
+    ]
+    prior_high = pd.to_numeric(prior["analysis_high"], errors="coerce")
+    prior_low = pd.to_numeric(prior["analysis_low"], errors="coerce")
+    position_observed = bool(
+        len(prior) == POSITION_LOOKBACK_PRIOR_SESSIONS
+        and prior_high.notna().all()
+        and prior_low.notna().all()
+        and np.isfinite(close)
+    )
+    high = float(prior_high.max()) if position_observed else math.nan
+    low = float(prior_low.min()) if position_observed else math.nan
+    position_observed = bool(
+        position_observed
+        and np.isfinite(high)
+        and np.isfinite(low)
+        and high > low
+    )
+    position = (
+        (close - low) / (high - low) * 100.0 if position_observed else math.nan
+    )
+    position_bucket = (
+        "low_pos_le40"
+        if position_observed and position <= POSITION_LOW_MAX_PCT
+        else "mid_pos_40_75"
+        if position_observed and position <= POSITION_MID_MAX_PCT
+        else "high_pos_gt75"
+        if position_observed
+        else "insufficient_history"
+    )
+
+    return_value = math.nan
+    if index >= SHAPE_RETURN_LOOKBACK_SESSIONS:
+        prior_close = _number(
+            frame.at[
+                index - SHAPE_RETURN_LOOKBACK_SESSIONS,
+                "analysis_close",
+            ]
+        )
+        if np.isfinite(close) and np.isfinite(prior_close) and prior_close > 0:
+            return_value = (close / prior_close - 1.0) * 100.0
+    recent = pd.to_numeric(
+        frame.iloc[
+            max(0, index - SHAPE_RANGE_WINDOW_SESSIONS + 1) : index + 1
+        ]["analysis_close"],
+        errors="coerce",
+    )
+    range_value = (
+        (float(recent.max()) / float(recent.min()) - 1.0) * 100.0
+        if len(recent) == SHAPE_RANGE_WINDOW_SESSIONS
+        and recent.notna().all()
+        and float(recent.min()) > 0
+        else math.nan
+    )
+    ema_now = (
+        _number(frame.at[index, "analysis_ema23"])
+        if index >= SHAPE_EMA_SLOPE_LOOKBACK_SESSIONS
+        else math.nan
+    )
+    ema_prior = (
+        _number(
+            frame.at[
+                index - SHAPE_EMA_SLOPE_LOOKBACK_SESSIONS,
+                "analysis_ema23",
+            ]
+        )
+        if index >= SHAPE_EMA_SLOPE_LOOKBACK_SESSIONS
+        else math.nan
+    )
+    ema_slope = (
+        (ema_now / ema_prior - 1.0) * 100.0
+        if np.isfinite(ema_now) and np.isfinite(ema_prior) and ema_prior > 0
+        else math.nan
+    )
+    if not all(
+        np.isfinite(value) for value in (return_value, range_value, ema_slope)
+    ):
+        shape_bucket = "insufficient_history"
+    elif (
+        return_value > SHAPE_RISING_RETURN_MIN_PCT
+        and ema_slope > SHAPE_RISING_EMA_SLOPE_MIN_PCT
+    ):
+        shape_bucket = "rising"
+    elif (
+        return_value < SHAPE_FALLING_RETURN_MAX_PCT
+        and ema_slope < SHAPE_FALLING_EMA_SLOPE_MAX_PCT
+    ):
+        shape_bucket = "falling"
+    elif (
+        abs(return_value) <= SHAPE_CONSOLIDATION_RETURN_ABS_MAX_PCT
+        and range_value <= SHAPE_CONSOLIDATION_RANGE_MAX_PCT
+    ):
+        shape_bucket = "consolidation"
+    else:
+        shape_bucket = "mixed_or_turn"
+    cell_id = (
+        f"{position_bucket}__{shape_bucket}"
+        if position_observed and shape_bucket != "insufficient_history"
+        else "insufficient_history"
+    )
+    return {
+        "position_120d_pct": round(position, 4) if np.isfinite(position) else "",
+        "shape_return20_pct": (
+            round(return_value, 4) if np.isfinite(return_value) else ""
+        ),
+        "shape_range23_pct": (
+            round(range_value, 4) if np.isfinite(range_value) else ""
+        ),
+        "shape_ema23_slope5_pct": (
+            round(ema_slope, 4) if np.isfinite(ema_slope) else ""
+        ),
+        "position_bucket": position_bucket,
+        "shape_bucket": shape_bucket,
+        "position_shape_cell_id": cell_id,
+    }
 
 
 def _price_lineage(prices: Mapping[str, pd.DataFrame]) -> tuple[str, str, int, int]:
@@ -853,12 +1182,8 @@ def _event_rows_for_window(
                     continue
                 if trigger_index > end_index:
                     break
-                result = _operation_result(frame, trigger_index)
-                blocked_through_index = max(
-                    blocked_through_index, int(result.pop("blocked_through_index"))
-                )
                 asof = _asof_source(episode, frame, trigger_index)
-                trigger_date = str(result["trigger_date"])
+                trigger_date = str(frame.at[trigger_index, "date"])
                 asof_dates = {
                     "source": str(asof["asof_latest_qualifying_source_date"]),
                     "trade": str(asof["asof_latest_qualifying_trade_date"]),
@@ -881,38 +1206,49 @@ def _event_rows_for_window(
                         f"episode={episode['episode_key']}"
                     )
                 lag = int(asof["latest_source_to_trigger_trading_days"])
-                if lag <= WATCH_HORIZON_TRADING_DAYS:
-                    features = _anchor_features(frame, int(asof["source_index"]))
-                    position_bucket = str(features["position_bucket"])
-                    shape_bucket = str(features["shape_bucket"])
-                    low_member = (
-                        position_bucket == "low_pos_le40" and shape_bucket == "falling"
+                if lag > WATCH_HORIZON_TRADING_DAYS:
+                    # A price trigger outside every point-in-time revenue watch
+                    # window is not part of the frozen source universe and must
+                    # not consume the same-stock operation lifecycle.  A later
+                    # qualifying revenue update may open a new 60-session window.
+                    continue
+                result = _operation_result(frame, trigger_index)
+                blocked_through_index = max(
+                    blocked_through_index, int(result.pop("blocked_through_index"))
+                )
+                features = _frozen_anchor_features(
+                    frame, int(asof["source_index"])
+                )
+                position_bucket = str(features["position_bucket"])
+                shape_bucket = str(features["shape_bucket"])
+                low_member = (
+                    position_bucket == "low_pos_le40" and shape_bucket == "falling"
+                )
+                mid_member = (
+                    position_bucket == "mid_pos_40_75" and shape_bucket == "falling"
+                )
+                if low_member or mid_member:
+                    source_candidate = _asof_source_anomaly_flag(episode, asof)
+                    price_candidate = _bool_value(
+                        episode["unresolved_price_path_candidate_flag"]
                     )
-                    mid_member = (
-                        position_bucket == "mid_pos_40_75" and shape_bucket == "falling"
+                    return_candidate = _bool_value(
+                        result["operation_return_review_candidate_flag"]
                     )
-                    if low_member or mid_member:
-                        source_candidate = _asof_source_anomaly_flag(episode, asof)
-                        price_candidate = _bool_value(
-                            episode["unresolved_price_path_candidate_flag"]
+                    anomaly_candidate = (
+                        source_candidate or price_candidate or return_candidate
+                    )
+                    variant_id = PRIMARY_VARIANT_ID if mid_member else CHALLENGER_VARIANT_IDS[0]
+                    event_key = "|".join(
+                        (
+                            LIFECYCLE_POLICY_ID,
+                            CONFIRMATION_VARIANT_ID,
+                            stock_id,
+                            str(episode["episode_key"]),
+                            str(result["trigger_date"]),
                         )
-                        return_candidate = _bool_value(
-                            result["operation_return_review_candidate_flag"]
-                        )
-                        anomaly_candidate = (
-                            source_candidate or price_candidate or return_candidate
-                        )
-                        variant_id = PRIMARY_VARIANT_ID if mid_member else CHALLENGER_VARIANT_IDS[0]
-                        event_key = "|".join(
-                            (
-                                LIFECYCLE_POLICY_ID,
-                                CONFIRMATION_VARIANT_ID,
-                                stock_id,
-                                str(episode["episode_key"]),
-                                str(result["trigger_date"]),
-                            )
-                        )
-                        row = {
+                    )
+                    row = {
                             "generated_at": generated_at,
                             "model_id": MODEL_ID,
                             "artifact_id": ARTIFACT_ID,
@@ -988,8 +1324,8 @@ def _event_rows_for_window(
                             "promotion_evidence_allowed": False,
                             "production_change": False,
                         }
-                        row["event_row_canonical_sha256"] = _canonical_mapping_sha256(row)
-                        rows.append(row)
+                    row["event_row_canonical_sha256"] = _canonical_mapping_sha256(row)
+                    rows.append(row)
                 if _bool_value(result["right_censored"]):
                     break
     return rows
@@ -1147,6 +1483,8 @@ def build_forward_holdout(
     generated = generated_at or _now_text()
     training_lineage = _validate_source_manifest(source_manifest)
     source = _normalize_source(source_detail).reset_index(drop=True)
+    _validate_source_anomaly_boolean_contract(source)
+    _validate_source_integer_contract(source)
     prices = _normalize_prices(daily_by_stock)
     observed_through_date = max(
         str(frame["date"].iloc[-1]) for frame in prices.values() if not frame.empty
@@ -1295,22 +1633,155 @@ def build_forward_holdout(
     return manifest, detail, summary, comparison, anomaly
 
 
-def validate_append_only_history(existing: pd.DataFrame, new: pd.DataFrame) -> None:
-    """Reject history rewrites; exact duplicate capture rows are idempotent."""
+def _history_prefix_matches(base: pd.DataFrame, current: pd.DataFrame) -> bool:
+    if list(base.columns) != list(current.columns) or len(current) < len(base):
+        return False
+    for offset in range(len(base)):
+        left = base.iloc[offset]
+        right = current.iloc[offset]
+        left_mapping = {column: left[column] for column in base.columns}
+        right_mapping = {column: right[column] for column in current.columns}
+        if _canonical_mapping_sha256(
+            left_mapping, excluded_columns=()
+        ) != _canonical_mapping_sha256(
+            right_mapping, excluded_columns=()
+        ):
+            return False
+    return True
 
-    if existing.empty:
-        return
+
+def _capture_blocks_are_contiguous(frame: pd.DataFrame) -> bool:
+    """Return true when every capture_id occupies one contiguous history block."""
+
+    seen: set[str] = set()
+    previous: str | None = None
+    for value in frame["capture_id"].astype(str):
+        if value == previous:
+            continue
+        if value in seen:
+            return False
+        seen.add(value)
+        previous = value
+    return True
+
+
+def validate_append_only_history(
+    existing: pd.DataFrame,
+    new: pd.DataFrame,
+    *,
+    immutable_base: pd.DataFrame | None = None,
+) -> None:
+    """Reject history rewrites; exact duplicate capture rows are idempotent.
+
+    A different capture may be appended only when an immutable Git/base frame is
+    supplied.  The current/new intersection alone cannot prove that an older,
+    non-current capture was not rewritten.
+    """
+
     required = {"capture_id", "artifact_row_key"}
-    for frame, label in ((existing, "existing"), (new, "new")):
+    frames_to_check = [(existing, "existing"), (new, "new")]
+    if immutable_base is not None:
+        frames_to_check.append((immutable_base, "immutable base"))
+    for frame, label in frames_to_check:
         missing = sorted(required - set(frame.columns))
         if missing:
             raise RuntimeError(f"forward holdout {label} history missing keys: {missing}")
+        structural = frame[list(required)].astype(str).apply(
+            lambda series: series.str.strip()
+        )
+        if structural.eq("").any().any():
+            raise RuntimeError(f"forward holdout {label} history has blank structural keys")
         if frame.duplicated(["capture_id", "artifact_row_key"]).any():
             raise RuntimeError(f"forward holdout {label} history has duplicate keys")
+        if not _capture_blocks_are_contiguous(frame):
+            raise RuntimeError(
+                f"forward holdout {label} history has non-contiguous capture blocks"
+            )
     if list(existing.columns) != list(new.columns):
         raise RuntimeError("forward holdout append-only history schema drift")
+    if immutable_base is not None:
+        if not _history_prefix_matches(immutable_base, existing):
+            raise RuntimeError(
+                "forward holdout append-only immutable base prefix drift"
+            )
+    new_capture_ids = set(new["capture_id"].astype(str))
+    if len(new_capture_ids) > 1:
+        raise RuntimeError("forward holdout new history contains multiple captures")
+    if existing.empty:
+        return
     existing_index = existing.set_index(["capture_id", "artifact_row_key"], drop=False)
     new_index = new.set_index(["capture_id", "artifact_row_key"], drop=False)
+
+    base_row_count = len(immutable_base) if immutable_base is not None else 0
+    uncommitted_tail = existing.iloc[base_row_count:].copy()
+    if not uncommitted_tail.empty:
+        tail_index = uncommitted_tail.set_index(
+            ["capture_id", "artifact_row_key"], drop=False
+        )
+        if set(tail_index.index) != set(new_index.index):
+            if immutable_base is None:
+                boundary = "immutable base is required"
+            elif immutable_base.empty:
+                boundary = "immutable base is absent for prior capture history"
+            else:
+                boundary = "uncommitted history tail is not the current capture"
+            raise RuntimeError(
+                f"forward holdout append-only {boundary}; commit the prior capture "
+                "into the immutable base before appending another capture"
+            )
+        if list(tail_index.index) != list(new_index.index):
+            raise RuntimeError(
+                "forward holdout append-only uncommitted current-capture row order drift"
+            )
+        for key in tail_index.index:
+            left = tail_index.loc[key]
+            right = new_index.loc[key]
+            left_mapping = {
+                column: left[column]
+                for column in uncommitted_tail.columns
+                if column != "generated_at"
+            }
+            right_mapping = {
+                column: right[column]
+                for column in new.columns
+                if column != "generated_at"
+            }
+            if _canonical_mapping_sha256(
+                left_mapping
+            ) != _canonical_mapping_sha256(right_mapping):
+                raise RuntimeError(
+                    "forward holdout append-only uncommitted history tail rewrite "
+                    f"detected: {key}"
+                )
+    elif immutable_base is None and not set(existing_index.index).issubset(
+        set(new_index.index)
+    ):
+        raise RuntimeError(
+            "forward holdout append-only immutable base is required before a new "
+            "capture can be appended"
+        )
+    if new_capture_ids:
+        current_capture_id = next(iter(new_capture_ids))
+        persisted_current = existing.loc[
+            existing["capture_id"].astype(str).eq(current_capture_id)
+        ]
+        if not persisted_current.empty:
+            if str(existing.iloc[-1]["capture_id"]) != current_capture_id:
+                raise RuntimeError(
+                    "forward holdout append-only current capture is stale; an existing "
+                    "capture may be reused only when it is the terminal history block"
+                )
+            persisted_index = persisted_current.set_index(
+                ["capture_id", "artifact_row_key"], drop=False
+            )
+            if set(persisted_index.index) != set(new_index.index):
+                raise RuntimeError(
+                    "forward holdout append-only terminal current-capture row presence drift"
+                )
+            if list(persisted_index.index) != list(new_index.index):
+                raise RuntimeError(
+                    "forward holdout append-only terminal current-capture row order drift"
+                )
     for key in existing_index.index.intersection(new_index.index):
         left = existing_index.loc[key]
         right = new_index.loc[key]
@@ -1447,7 +1918,119 @@ def _publish_payloads_transactionally(
                 temporary.unlink(missing_ok=True)
 
 
-def _combined_append_only_history(path: Path, frame: pd.DataFrame) -> pd.DataFrame:
+def _read_history_bytes(payload: bytes) -> pd.DataFrame:
+    return pd.read_csv(
+        io.BytesIO(payload),
+        dtype={"stock_id": str, "capture_id": str, "artifact_row_key": str},
+        keep_default_na=False,
+        low_memory=False,
+    )
+
+
+def _ordered_frame_matches(
+    expected: pd.DataFrame,
+    observed: pd.DataFrame,
+    *,
+    excluded_columns: tuple[str, ...] = (),
+) -> bool:
+    """Compare one capture in row order with canonical numeric stability."""
+
+    if list(expected.columns) != list(observed.columns) or len(expected) != len(observed):
+        return False
+    for offset in range(len(expected)):
+        expected_mapping = {
+            column: expected.iloc[offset][column]
+            for column in expected.columns
+            if column not in excluded_columns
+        }
+        observed_mapping = {
+            column: observed.iloc[offset][column]
+            for column in observed.columns
+            if column not in excluded_columns
+        }
+        if _canonical_mapping_sha256(
+            expected_mapping, excluded_columns=()
+        ) != _canonical_mapping_sha256(observed_mapping, excluded_columns=()):
+            return False
+    return True
+
+
+def _idempotent_mirror_payload(
+    path: Path,
+    persisted_capture: pd.DataFrame,
+    *,
+    authoritative_payload: bytes,
+) -> bytes:
+    """Validate one mirror, then return the history-owned current payload."""
+
+    if not path.is_file():
+        raise RuntimeError(
+            "forward holdout idempotent capture is missing an existing mirror: "
+            f"{path}"
+        )
+    existing_payload = path.read_bytes()
+    observed = _read_history_bytes(existing_payload)
+    if not _ordered_frame_matches(
+        persisted_capture,
+        observed,
+        excluded_columns=("generated_at",),
+    ):
+        raise RuntimeError(
+            "forward holdout idempotent mirror semantic drift detected: "
+            f"{path}"
+        )
+    if existing_payload == authoritative_payload:
+        return existing_payload
+    # History owns the immutable capture timestamp and, when it contains only
+    # this capture, its exact raw serialization.  Multi-capture histories cannot
+    # be a latest/docs payload, so their caller supplies the canonical current
+    # capture serialization instead.  Normalize any mirror drift only after the
+    # semantic comparison above has passed fail closed.
+    return authoritative_payload
+
+
+def _git_history_base_frame(
+    root: Path,
+    path: Path,
+    *,
+    base_ref: str,
+) -> pd.DataFrame | None:
+    relative = path.relative_to(root).as_posix()
+    try:
+        result = subprocess.run(
+            ["git", "show", f"{base_ref}:{relative}"],
+            cwd=root,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            check=False,
+            timeout=15,
+        )
+    except (OSError, subprocess.TimeoutExpired) as exc:
+        raise RuntimeError(
+            f"cannot read forward holdout immutable history base {base_ref}:{relative}: {exc}"
+        ) from exc
+    if result.returncode == 0:
+        return _read_history_bytes(result.stdout)
+    missing_markers = (
+        b"does not exist in",
+        b"exists on disk, but not in",
+        b"Path '",
+    )
+    if any(marker in result.stderr for marker in missing_markers):
+        return None
+    detail = result.stderr.decode("utf-8", errors="replace").strip()
+    raise RuntimeError(
+        f"cannot resolve forward holdout immutable history base {base_ref}:{relative}"
+        + (f": {detail}" if detail else "")
+    )
+
+
+def _combined_append_only_history(
+    path: Path,
+    frame: pd.DataFrame,
+    *,
+    immutable_base: pd.DataFrame | None = None,
+) -> pd.DataFrame:
     if path.is_file():
         existing = pd.read_csv(
             path,
@@ -1455,7 +2038,7 @@ def _combined_append_only_history(path: Path, frame: pd.DataFrame) -> pd.DataFra
             keep_default_na=False,
             low_memory=False,
         )
-        validate_append_only_history(existing, frame)
+        validate_append_only_history(existing, frame, immutable_base=immutable_base)
         existing_keys = set(
             zip(existing["capture_id"].astype(str), existing["artifact_row_key"].astype(str))
         )
@@ -1467,6 +2050,11 @@ def _combined_append_only_history(path: Path, frame: pd.DataFrame) -> pd.DataFra
         ]
         combined = pd.concat([existing, additions], ignore_index=True)
     else:
+        if immutable_base is not None and not immutable_base.empty:
+            raise RuntimeError(
+                "forward holdout append-only history deleted its immutable base prefix: "
+                f"{path}"
+            )
         combined = frame.copy()
     return combined
 
@@ -1479,6 +2067,8 @@ def write_forward_holdout(
     anomaly_sensitivity: pd.DataFrame,
     *,
     output_root: Path | str = ROOT,
+    history_base_ref: str | None = None,
+    immutable_history_bases: Mapping[str, pd.DataFrame] | None = None,
     post_publish_check: Callable[[Mapping[str, Path]], None] | None = None,
 ) -> dict[str, Path]:
     frames = {
@@ -1517,17 +2107,137 @@ def write_forward_holdout(
         finally:
             os.close(descriptor)
 
-        histories = {
-            artifact: _combined_append_only_history(
-                paths[f"{artifact}_history"], frame
+        effective_base_ref = history_base_ref
+        if effective_base_ref is None and root.resolve() == ROOT.resolve():
+            effective_base_ref = os.environ.get(
+                "REVENUE_FORWARD_HOLDOUT_HISTORY_BASE_REF", "HEAD"
+            ).strip()
+            if not effective_base_ref:
+                raise RuntimeError(
+                    "forward holdout immutable history base ref is blank"
+                )
+        if immutable_history_bases is not None:
+            if set(immutable_history_bases) != set(frames):
+                raise RuntimeError(
+                    "forward holdout immutable history base surface set drift"
+                )
+            resolved_history_bases: dict[str, pd.DataFrame | None] = {
+                artifact: immutable_history_bases[artifact]
+                for artifact in frames
+            }
+        elif effective_base_ref is not None:
+            resolved_history_bases = {
+                artifact: _git_history_base_frame(
+                    root,
+                    paths[f"{artifact}_history"],
+                    base_ref=effective_base_ref,
+                )
+                for artifact in frames
+            }
+            present_base_surfaces = {
+                artifact
+                for artifact, base in resolved_history_bases.items()
+                if base is not None
+            }
+            if present_base_surfaces not in (set(), set(frames)):
+                raise RuntimeError(
+                    "forward holdout immutable history Git base must contain either "
+                    "zero or all five surfaces"
+                )
+        else:
+            resolved_history_bases = {artifact: None for artifact in frames}
+        histories: dict[str, pd.DataFrame] = {}
+        for artifact, frame in frames.items():
+            immutable_base = resolved_history_bases[artifact]
+            histories[artifact] = _combined_append_only_history(
+                paths[f"{artifact}_history"],
+                frame,
+                immutable_base=immutable_base,
             )
-            for artifact, frame in frames.items()
-        }
+        current_capture_ids = set(manifest["capture_id"].astype(str))
+        if len(current_capture_ids) != 1:
+            raise RuntimeError(
+                "forward holdout publish requires exactly one current manifest capture"
+            )
+        current_capture_id = next(iter(current_capture_ids))
+        existing_history_frames: dict[str, pd.DataFrame | None] = {}
+        existing_history_payloads: dict[str, bytes | None] = {}
+        for artifact in frames:
+            history_path = paths[f"{artifact}_history"]
+            if history_path.is_file():
+                existing_payload = history_path.read_bytes()
+                existing_history_payloads[artifact] = existing_payload
+                existing_history_frames[artifact] = _read_history_bytes(existing_payload)
+            else:
+                existing_history_payloads[artifact] = None
+                existing_history_frames[artifact] = None
+        existing_manifest_history = existing_history_frames["manifest"]
+        idempotent_capture = bool(
+            existing_manifest_history is not None
+            and not existing_manifest_history.empty
+            and existing_manifest_history["capture_id"]
+            .astype(str)
+            .eq(current_capture_id)
+            .any()
+        )
         payloads: dict[Path, bytes] = {}
         for artifact, frame in frames.items():
-            payloads[paths[f"{artifact}_history"]] = _csv_payload(histories[artifact])
-            payloads[paths[f"{artifact}_latest"]] = _csv_payload(frame)
-            payloads[paths[f"{artifact}_docs"]] = _csv_payload(frame)
+            if not idempotent_capture:
+                payloads[paths[f"{artifact}_history"]] = _csv_payload(
+                    histories[artifact]
+                )
+                payloads[paths[f"{artifact}_latest"]] = _csv_payload(frame)
+                payloads[paths[f"{artifact}_docs"]] = _csv_payload(frame)
+                continue
+
+            existing_history = existing_history_frames[artifact]
+            existing_history_payload = existing_history_payloads[artifact]
+            if existing_history is None or existing_history_payload is None:
+                raise RuntimeError(
+                    "forward holdout idempotent capture has a partial history surface set"
+                )
+            if frame.empty:
+                persisted_capture = frame.copy()
+            else:
+                persisted_capture = existing_history.loc[
+                    existing_history["capture_id"]
+                    .astype(str)
+                    .eq(current_capture_id)
+                ].copy()
+                if persisted_capture.empty:
+                    raise RuntimeError(
+                        "forward holdout idempotent capture is missing from history "
+                        f"surface: {artifact}"
+                    )
+                if not _ordered_frame_matches(
+                    persisted_capture,
+                    frame,
+                    excluded_columns=("generated_at",),
+                ):
+                    raise RuntimeError(
+                        "forward holdout idempotent capture semantic drift detected in "
+                        f"history surface: {artifact}"
+                    )
+            payloads[paths[f"{artifact}_history"]] = existing_history_payload
+            history_capture_ids = set(existing_history["capture_id"].astype(str))
+            history_is_current_only = history_capture_ids == {current_capture_id}
+            if frame.empty and existing_history.empty:
+                history_is_current_only = True
+            authoritative_mirror_payload = (
+                existing_history_payload
+                if history_is_current_only
+                else _csv_payload(persisted_capture)
+            )
+            payloads[paths[f"{artifact}_latest"]] = _idempotent_mirror_payload(
+                paths[f"{artifact}_latest"],
+                persisted_capture,
+                authoritative_payload=authoritative_mirror_payload,
+            )
+            payloads[paths[f"{artifact}_docs"]] = _idempotent_mirror_payload(
+                paths[f"{artifact}_docs"],
+                persisted_capture,
+                authoritative_payload=authoritative_mirror_payload,
+            )
         if set(payloads) != set(paths.values()):
             raise RuntimeError("forward holdout publish path set drift")
 
@@ -1605,7 +2315,10 @@ def build_current_forward_holdout() -> tuple[
     )
 
 
-def build_and_write_current_forward_holdout() -> dict[str, Path]:
+def build_and_write_current_forward_holdout(
+    *,
+    final_validation: Callable[..., None] | None = None,
+) -> dict[str, Path]:
     source_detail, daily_by_stock, source_manifest = (
         _materialize_current_forward_holdout_inputs()
     )
@@ -1616,12 +2329,16 @@ def build_and_write_current_forward_holdout() -> dict[str, Path]:
     )
     # The independent validator receives the exact explicit input bundle used by
     # this capture.  It does not import this producer or rebuild business inputs.
-    from validate_revenue_unreacted_range_forward_holdout import validate_frames
+    from validate_revenue_unreacted_range_forward_holdout import (
+        load_history_base_frames_from_git,
+        validate_frames,
+    )
 
     def replay(
         candidate_frames: tuple[pd.DataFrame, ...] | list[pd.DataFrame],
         *,
         history_frames: Mapping[str, pd.DataFrame] | None = None,
+        immutable_history_base_frames: Mapping[str, pd.DataFrame] | None = None,
     ) -> None:
         errors = validate_frames(
             *candidate_frames,
@@ -1629,6 +2346,7 @@ def build_and_write_current_forward_holdout() -> dict[str, Path]:
             daily_by_stock=daily_by_stock,
             source_manifest=source_manifest,
             history_frames=history_frames,
+            immutable_history_base_frames=immutable_history_base_frames,
         )
         if not errors:
             return
@@ -1663,7 +2381,39 @@ def build_and_write_current_forward_holdout() -> dict[str, Path]:
 
     def replay_persisted(paths: Mapping[str, Path]) -> None:
         persisted_latest, persisted_histories = read_persisted(paths)
-        replay(persisted_latest, history_frames=persisted_histories)
+        immutable_bases: Mapping[str, pd.DataFrame] | None = None
+        try:
+            is_repository_publish = all(
+                path.resolve().is_relative_to(ROOT.resolve()) for path in paths.values()
+            )
+        except AttributeError:  # pragma: no cover - Python <3.9 compatibility
+            is_repository_publish = all(
+                str(path.resolve()).startswith(str(ROOT.resolve()))
+                for path in paths.values()
+            )
+        if is_repository_publish:
+            base_ref = os.environ.get(
+                "REVENUE_FORWARD_HOLDOUT_HISTORY_BASE_REF", "HEAD"
+            ).strip()
+            immutable_bases = load_history_base_frames_from_git(base_ref)
+        replay(
+            persisted_latest,
+            history_frames=persisted_histories,
+            immutable_history_base_frames=immutable_bases,
+        )
+        if final_validation is not None:
+            final_validation(
+                manifest_readback=persisted_latest[0],
+                detail_readback=persisted_latest[1],
+                summary_readback=persisted_latest[2],
+                comparison_readback=persisted_latest[3],
+                anomaly_readback=persisted_latest[4],
+                source_detail=source_detail,
+                price_inputs=daily_by_stock,
+                source_manifest=source_manifest,
+                history_frames=persisted_histories,
+                immutable_history_base_frames=immutable_bases,
+            )
 
     with tempfile.TemporaryDirectory(
         prefix="revenue-forward-holdout-",

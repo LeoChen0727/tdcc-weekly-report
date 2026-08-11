@@ -376,18 +376,12 @@ def validate_workflow_text(
             )
 
     holdout_requires_primary = (
-        'if [[ "${{ github.event.inputs.'
-        f'{REVENUE_FORWARD_HOLDOUT_STAGE_INPUT}'
-        ' }}" == "true" && "${{ github.event.inputs.'
-        f'{REVENUE_WORKFLOW_INPUT}'
-        ' }}" != "true" ]]; then'
+        'if [[ "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" && '
+        '"$REVENUE_RESEARCH_ENABLED" != "true" ]]; then'
     )
     mutually_exclusive_modes = (
-        'if [[ "${{ github.event.inputs.'
-        f'{REVENUE_FORWARD_HOLDOUT_STAGE_INPUT}'
-        ' }}" == "true" && "${{ github.event.inputs.'
-        f'{REVENUE_PROJECTION_CHAIN_STAGE_INPUT}'
-        ' }}" == "true" ]]; then'
+        'if [[ "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" && '
+        '"$REVENUE_SOURCE_PROJECTION_CHAIN_ONLY" == "true" ]]; then'
     )
     if holdout_requires_primary not in text:
         errors.append(
@@ -419,14 +413,17 @@ def validate_workflow_text(
             f'{REVENUE_FORWARD_HOLDOUT_STAGE_INPUT}'
             ' }}" == "true" ]]; then'
         )
-        projection_elif = (
-            'elif [[ "${{ github.event.inputs.'
+        projection_if = (
+            'if [[ "${{ github.event.inputs.'
             f'{REVENUE_PROJECTION_CHAIN_STAGE_INPUT}'
             ' }}" == "true" ]]; then'
         )
         try:
             holdout_index = revenue_lines.index(holdout_if)
-            projection_index = revenue_lines.index(projection_elif, holdout_index + 1)
+            holdout_fi_index = revenue_lines.index("fi", holdout_index + 1)
+            projection_index = revenue_lines.index(
+                projection_if, holdout_fi_index + 1
+            )
             else_index = revenue_lines.index("else", projection_index + 1)
             fi_index = revenue_lines.index("fi", else_index + 1)
         except ValueError:
@@ -436,7 +433,7 @@ def validate_workflow_text(
             )
         else:
             holdout_python = {
-                line for line in revenue_lines[holdout_index + 1 : projection_index]
+                line for line in revenue_lines[holdout_index + 1 : holdout_fi_index]
                 if line.startswith("python ")
             }
             projection_python = {
@@ -503,9 +500,7 @@ def validate_workflow_text(
             ' }}" == "true" ]]; then'
         )
         holdout_stage_if = (
-            'if [[ "${{ github.event.inputs.'
-            f'{REVENUE_FORWARD_HOLDOUT_STAGE_INPUT}'
-            ' }}" == "true" ]]; then'
+            'if [[ "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" ]]; then'
         )
         try:
             revenue_stage_index = commit_lines.index(revenue_stage_if)
