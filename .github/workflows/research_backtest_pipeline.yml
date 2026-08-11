@@ -59,11 +59,6 @@ on:
         description: "Run model-owned revenue lag and strength research only"
         required: false
         default: "false"
-      run_revenue_unreacted_range_forward_holdout_only:
-        description: "Declare the model-owned revenue forward holdout input; disabled by default"
-        required: false
-        default: false
-        type: boolean
       run_revenue_unreacted_range_source_snapshot_projection_chain_only:
         description: "When revenue research is selected, rebuild only its downstream chain from the pinned 20260713 source snapshot projection"
         required: false
@@ -72,6 +67,11 @@ on:
         description: "Run model-owned volume breakout v2 research only"
         required: false
         default: "false"
+      run_revenue_unreacted_range_forward_holdout_only:
+        description: "Declare the model-owned revenue forward holdout input; disabled by default"
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: write
