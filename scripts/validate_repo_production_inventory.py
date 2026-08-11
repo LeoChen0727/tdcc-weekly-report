@@ -271,6 +271,63 @@ PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_SHA256_BY_PATH = {
 PR_SAFE_REVENUE_FORWARD_HOLDOUT_PATHS = frozenset(
     PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_SHA256_BY_PATH
 )
+PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_TARGET_ID = (
+    "revenue-unreacted-range-forward-holdout-replay-detail-exact-target-v1"
+)
+PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_BASE_CONTENT_REF_SHA = (
+    "8e03b27fc65a2141701a4cad158d5c6c1f8b229b"
+)
+PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_HELPER = (
+    "scripts/revenue_unreacted_range_forward_holdout.py"
+)
+PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_TEST = (
+    "tests/test_revenue_unreacted_range_forward_holdout.py"
+)
+PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_BASE_SHA256_BY_PATH = {
+    "config/daily_model_background_data_registry.csv": "40e0dd17120e1340690fcaa87b1f4fb5192a023702d8a210cca929cb38ec6484",
+    "config/daily_model_data_sharing_migrations.csv": "8c98df161fdb60297c93cb760baa365fb05a57d6c64e68d7653a6fbe9534fbf7",
+    "config/daily_model_data_sharing_registry.csv": "15ba0fc062858943cb3a96b8a2d39be70b23000e4f6c5363182805e8e6e1a956",
+    "config/repo_file_lifecycle_inventory.csv": "f68002587c18ca4463d80a9ba41859e6ca06b75872566242a2ce64a0fb230431",
+    "config/report_artifact_lineage.csv": "6d8249ebfd7f28d0d11c0c6e6de3f5d6eea10d84de4f73998733b762657a15cb",
+    "docs/latest/model_data_independence_audit_latest.csv": "a5039a5ebeaeb379bf424986462531e87cc9cfb9f4890c3a12b8cad9d52b3b97",
+    "docs/latest/model_data_independence_audit_latest.md": "2f54c8060da9dfdfc91884257482612d1fb8f790f3b67bcbdcfc40be97af10d2",
+    "docs/latest/revenue_unreacted_range_forward_holdout_replay_source_detail_latest.csv": None,
+    "docs/specs/revenue_unreacted_range_forward_holdout.md": "1302aa3dd88c896349bc782d91244f3f052b242233f64b4ffc8bfefde4b4bbdb",
+    "output/latest/model_data_independence_audit_latest.csv": "a5039a5ebeaeb379bf424986462531e87cc9cfb9f4890c3a12b8cad9d52b3b97",
+    "output/latest/model_data_independence_audit_latest.md": "2f54c8060da9dfdfc91884257482612d1fb8f790f3b67bcbdcfc40be97af10d2",
+    "output/latest/research_backtest/revenue_unreacted_range_forward_holdout_replay_source_detail_latest.csv": None,
+    "scripts/build_revenue_unreacted_range_research.py": "0e8fe73332a4894c069dfad9b85f2466c31a9bef10759404ea0b9f0a5b7e4101",
+    "scripts/revenue_unreacted_range_forward_holdout.py": "fcd8896fe633abc7a76e6bc2f7fee8ddfdc02a549538dba15a2524707135c5b5",
+    "tests/test_daily_model_background_data_registry.py": "f4a9bb4faebba075c5c4a2e7829dd97fbdb1a1ff270ddad28680a4e3fcdb5c83",
+    "tests/test_model_data_independence.py": "db757e1aa3ca092afe7c9071e3ee25e6875a68ba35696f59e14c58d11ca6ac28",
+    "tests/test_model_research_artifact_ownership.py": "632f7a5eae05815211794495560ce344f020befdfa2f2cd2b7e717a9454b1124",
+    "tests/test_revenue_unreacted_range_forward_holdout.py": "75fe616e3af0b1bc4c6cf9000c7e6e3ab507bd4fdb9fa004e954891c971830e6",
+    "tests/test_validate_revenue_unreacted_range_forward_holdout.py": "5d96e64ceb9dce37681d42430b3b6f6fa375d710cee3c14a303fd8cfd77f1ea4",
+}
+PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_TARGET_SHA256_BY_PATH = {
+    "config/daily_model_background_data_registry.csv": "e161cd1826197072039a5f5f2aaebb7c97af31e9bc335529c936db600fbb2d08",
+    "config/daily_model_data_sharing_migrations.csv": "6f82c52cb0799971621eafac0a676c2e1e7fdbdb65a6c1354a5a4fa86da2cd02",
+    "config/daily_model_data_sharing_registry.csv": "7aa4fdde0f0ca9ea9aacb727ef060d89430018480b69d92dd6cf520695ef41d8",
+    "config/repo_file_lifecycle_inventory.csv": "fc1fb68e6d4a4910e79386d23aed7837ce41ea9c738ad43a2992eef9c8f9e632",
+    "config/report_artifact_lineage.csv": "e838d9c08c16aee1735811c3f93188407c7f09d0df574940c71b8d1ccb713566",
+    "docs/latest/model_data_independence_audit_latest.csv": "21ff57d0f79fdcb861ad7284bbc46853ccbd47984a62ea7c05b9cd64ffeaf0fc",
+    "docs/latest/model_data_independence_audit_latest.md": "91aeff1b79e2a318b249354a56e33f88cff39d96d690d5b2413f9727cd8d8335",
+    "docs/latest/revenue_unreacted_range_forward_holdout_replay_source_detail_latest.csv": "96ce91a25c845cbfcdadc3f6c72a3444efe3d3a8a57604685493e2c82dac863d",
+    "docs/specs/revenue_unreacted_range_forward_holdout.md": "9f1f2b9e4eea895cd13012509495f13742b3bb8aabfa52cd96a74013e6a9be86",
+    "output/latest/model_data_independence_audit_latest.csv": "21ff57d0f79fdcb861ad7284bbc46853ccbd47984a62ea7c05b9cd64ffeaf0fc",
+    "output/latest/model_data_independence_audit_latest.md": "91aeff1b79e2a318b249354a56e33f88cff39d96d690d5b2413f9727cd8d8335",
+    "output/latest/research_backtest/revenue_unreacted_range_forward_holdout_replay_source_detail_latest.csv": "96ce91a25c845cbfcdadc3f6c72a3444efe3d3a8a57604685493e2c82dac863d",
+    "scripts/build_revenue_unreacted_range_research.py": "70d549218cde2b7917bb13f54c8b41bd9e74c770896cdf4c43351bc2439df29b",
+    "scripts/revenue_unreacted_range_forward_holdout.py": "11fb0878c6b9678c8321e7c6a460e5d06eb976a7f9dfd5d3dd3c9f851ea953c3",
+    "tests/test_daily_model_background_data_registry.py": "ef4f0d9e3fbd3922430abc8b828d06a9ba7cd4c8eafaca005791fb1a90da124a",
+    "tests/test_model_data_independence.py": "3a713e0ca5778f3d56772dc3fad6f0c5dcf0956cf446ded133eb970e4a16b5c6",
+    "tests/test_model_research_artifact_ownership.py": "e071cc4ec6353a43648eae2d007569747150e5cc78759e6556e98c8748730144",
+    "tests/test_revenue_unreacted_range_forward_holdout.py": "81b1dbfdedd95faf0f04058c0f7c78ae87cf291c1fc5653becafaa0ed9704e3c",
+    "tests/test_validate_revenue_unreacted_range_forward_holdout.py": "8be89f425261ea8631524b07ef29d5ae43e329f0b2936c774b632fe925429595",
+}
+PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_PATHS = frozenset(
+    PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_TARGET_SHA256_BY_PATH
+)
 PR_SAFE_SNAPSHOT_MIGRATION_ID = "daily-full-checkpoint-replay-snapshot-pr-safe-v1"
 PR_SAFE_SNAPSHOT_HELPER = "scripts/validate_daily_published_model_snapshots_pr_safe.py"
 PR_SAFE_SNAPSHOT_TEST = "tests/test_daily_published_model_snapshots_pr_safe.py"
@@ -1998,12 +2055,13 @@ def build_daily_full_checkpoint_replay_integrated_lifecycle_inventory(
 def pr_safe_migration_contract_for_paths(
     changed_paths: set[str],
 ) -> tuple[str, str, str, frozenset[str]] | None:
-    if changed_paths == PR_SAFE_REVENUE_FORWARD_HOLDOUT_PATHS:
+    revenue_target = pr_safe_revenue_forward_holdout_target_profile(changed_paths)
+    if revenue_target is not None:
         return (
-            PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_ID,
-            PR_SAFE_REVENUE_FORWARD_HOLDOUT_HELPER,
-            PR_SAFE_REVENUE_FORWARD_HOLDOUT_TEST,
-            PR_SAFE_REVENUE_FORWARD_HOLDOUT_PATHS,
+            revenue_target[0],
+            revenue_target[2],
+            revenue_target[3],
+            revenue_target[6],
         )
     if changed_paths == PR_SAFE_INPUT_BOUND_VALIDATOR_REGISTRATION_PATHS:
         return (
@@ -2302,6 +2360,41 @@ def is_preauthorized_daily_full_checkpoint_replay_migration(
     return current_workflow == base_workflow.replace(anchor, insertion + anchor, 1)
 
 
+def pr_safe_revenue_forward_holdout_target_profile(
+    changed_paths: set[str],
+) -> tuple[
+    str,
+    str,
+    str,
+    str,
+    dict[str, str | None],
+    dict[str, str],
+    frozenset[str],
+] | None:
+    normalized_paths = frozenset(str(path).replace("\\", "/") for path in changed_paths)
+    if normalized_paths == PR_SAFE_REVENUE_FORWARD_HOLDOUT_PATHS:
+        return (
+            PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_ID,
+            PR_SAFE_REVENUE_FORWARD_HOLDOUT_BASE_CONTENT_REF_SHA,
+            PR_SAFE_REVENUE_FORWARD_HOLDOUT_HELPER,
+            PR_SAFE_REVENUE_FORWARD_HOLDOUT_TEST,
+            PR_SAFE_REVENUE_FORWARD_HOLDOUT_BASE_SHA256_BY_PATH,
+            PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_SHA256_BY_PATH,
+            PR_SAFE_REVENUE_FORWARD_HOLDOUT_PATHS,
+        )
+    if normalized_paths == PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_PATHS:
+        return (
+            PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_TARGET_ID,
+            PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_BASE_CONTENT_REF_SHA,
+            PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_HELPER,
+            PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_TEST,
+            PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_BASE_SHA256_BY_PATH,
+            PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_TARGET_SHA256_BY_PATH,
+            PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_PATHS,
+        )
+    return None
+
+
 def is_preauthorized_revenue_forward_holdout_target(
     base_ref: str,
     changed_paths: set[str],
@@ -2309,10 +2402,19 @@ def is_preauthorized_revenue_forward_holdout_target(
     repository_root: Path = ROOT,
     head_ref: str = "HEAD",
 ) -> bool:
-    normalized_paths = {str(path).replace("\\", "/") for path in changed_paths}
-    if normalized_paths != PR_SAFE_REVENUE_FORWARD_HOLDOUT_PATHS:
+    profile = pr_safe_revenue_forward_holdout_target_profile(changed_paths)
+    if profile is None:
         return False
-    if set(PR_SAFE_REVENUE_FORWARD_HOLDOUT_BASE_SHA256_BY_PATH) != normalized_paths:
+    (
+        _target_id,
+        base_content_ref_sha,
+        _helper_path,
+        _test_path,
+        base_sha256_by_path,
+        target_sha256_by_path,
+        target_paths,
+    ) = profile
+    if set(base_sha256_by_path) != target_paths:
         return False
     if not re.fullmatch(r"[0-9a-f]{40}", str(base_ref)):
         return False
@@ -2320,18 +2422,18 @@ def is_preauthorized_revenue_forward_holdout_target(
     root = Path(repository_root).resolve()
     if not _pr_safe_repo_ref_is_ancestor(
         root,
-        PR_SAFE_REVENUE_FORWARD_HOLDOUT_BASE_CONTENT_REF_SHA,
+        base_content_ref_sha,
         base_ref,
     ):
         return False
     if not _pr_safe_repo_ref_is_ancestor(root, base_ref, head_ref):
         return False
 
-    for path in sorted(normalized_paths):
+    for path in sorted(target_paths):
         base_blob = _pr_safe_repo_blob(root, base_ref, path)
         target_blob = _pr_safe_repo_blob(root, head_ref, path)
-        expected_base_sha = PR_SAFE_REVENUE_FORWARD_HOLDOUT_BASE_SHA256_BY_PATH[path]
-        expected_target_sha = PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_SHA256_BY_PATH[path]
+        expected_base_sha = base_sha256_by_path[path]
+        expected_target_sha = target_sha256_by_path[path]
         if expected_base_sha is None:
             if base_blob is not None or _pr_safe_repo_blob_mode(root, base_ref, path) is not None:
                 return False
@@ -2597,17 +2699,21 @@ def validate_pr_safe_control_plane_delta(
             errors.append("snapshot preauthorization base test blob must exist")
         elif canonical_blob_sha256(base_test) != PR_SAFE_SNAPSHOT_BASE_TEST_SHA256:
             errors.append("snapshot preauthorization pinned base_test_sha256 mismatch")
-    elif migration_id == PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_ID:
+    elif migration_id in {
+        PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_ID,
+        PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_TARGET_ID,
+    }:
+        target_profile = pr_safe_revenue_forward_holdout_target_profile(
+            authorized_paths
+        )
+        if target_profile is None:
+            errors.append("revenue forward-holdout target profile is missing")
+            return errors
+        _, _, target_helper, target_test, base_hashes, target_hashes, _ = target_profile
         target_expected = {
-            "base_helper_sha256": PR_SAFE_REVENUE_FORWARD_HOLDOUT_BASE_SHA256_BY_PATH[
-                PR_SAFE_REVENUE_FORWARD_HOLDOUT_HELPER
-            ],
-            "current_helper_sha256": PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_SHA256_BY_PATH[
-                PR_SAFE_REVENUE_FORWARD_HOLDOUT_HELPER
-            ],
-            "current_test_sha256": PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_SHA256_BY_PATH[
-                PR_SAFE_REVENUE_FORWARD_HOLDOUT_TEST
-            ],
+            "base_helper_sha256": base_hashes[target_helper],
+            "current_helper_sha256": target_hashes[target_helper],
+            "current_test_sha256": target_hashes[target_test],
         }
         for field, expected_sha in target_expected.items():
             if expected[field] != expected_sha:
@@ -2840,7 +2946,7 @@ def validate_pr_safe_control_plane_migration(base_sha: str, head_sha: str) -> li
             changed_paths == PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_PATHS
         )
         is_revenue_forward_holdout_target = (
-            changed_paths == PR_SAFE_REVENUE_FORWARD_HOLDOUT_PATHS
+            pr_safe_revenue_forward_holdout_target_profile(changed_paths) is not None
         )
         if contract is None and not is_replay_target and not is_local_replay_target:
             errors.append(
@@ -2850,6 +2956,7 @@ def validate_pr_safe_control_plane_migration(base_sha: str, head_sha: str) -> li
                     for paths in (
                         PR_SAFE_INPUT_BOUND_VALIDATOR_REGISTRATION_PATHS,
                         PR_SAFE_REVENUE_FORWARD_HOLDOUT_PATHS,
+                        PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_PATHS,
                         PR_SAFE_LOCAL_VALIDATION_REPLAY_ADVANCED_PATHS,
                         PR_SAFE_AUTHORIZED_STAGE1_PATHS,
                         PR_SAFE_SNAPSHOT_AUTHORIZED_PATHS,
@@ -3056,6 +3163,7 @@ def build_pr_safe_audit_manifest(
     is_replay_target = False
     is_local_replay_target = False
     is_revenue_forward_holdout_target = False
+    revenue_forward_holdout_target_profile = None
     migration_contract: tuple[str, str, str, frozenset[str]] | None = None
     try:
         diff_payload = git_output_bytes(
@@ -3077,8 +3185,11 @@ def build_pr_safe_audit_manifest(
         is_local_replay_target = (
             changed_paths == PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_PATHS
         )
+        revenue_forward_holdout_target_profile = (
+            pr_safe_revenue_forward_holdout_target_profile(changed_paths)
+        )
         is_revenue_forward_holdout_target = (
-            changed_paths == PR_SAFE_REVENUE_FORWARD_HOLDOUT_PATHS
+            revenue_forward_holdout_target_profile is not None
         )
         if (
             migration_contract is None
@@ -3220,23 +3331,23 @@ def build_pr_safe_audit_manifest(
         },
         "exact_research_target_preauthorization": {
             "target_id": (
-                PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_ID
-                if is_revenue_forward_holdout_target
+                revenue_forward_holdout_target_profile[0]
+                if revenue_forward_holdout_target_profile is not None
                 else None
             ),
             "base_content_ref_sha": (
-                PR_SAFE_REVENUE_FORWARD_HOLDOUT_BASE_CONTENT_REF_SHA
-                if is_revenue_forward_holdout_target
+                revenue_forward_holdout_target_profile[1]
+                if revenue_forward_holdout_target_profile is not None
                 else None
             ),
             "base_sha256_by_path": (
-                PR_SAFE_REVENUE_FORWARD_HOLDOUT_BASE_SHA256_BY_PATH
-                if is_revenue_forward_holdout_target
+                revenue_forward_holdout_target_profile[4]
+                if revenue_forward_holdout_target_profile is not None
                 else {}
             ),
             "target_sha256_by_path": (
-                PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_SHA256_BY_PATH
-                if is_revenue_forward_holdout_target
+                revenue_forward_holdout_target_profile[5]
+                if revenue_forward_holdout_target_profile is not None
                 else {}
             ),
             "verified": revenue_forward_holdout_target_verified,
