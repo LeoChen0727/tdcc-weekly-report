@@ -140,20 +140,37 @@ def test_apps_script_research_dispatch_registry_is_forward_compatible() -> None:
     validator = validate_apps_script_workflow_triggers
     registry = validator.load_research_dispatch_registry()
     staged_input = "run_revenue_unreacted_range_source_snapshot_projection_chain_only"
+    workflow_only_input = "run_revenue_unreacted_range_forward_holdout_only"
     workflow_inputs = validator.workflow_inputs("research_backtest_pipeline.yml") | {
         staged_input
     }
     apps_inputs, guarded_inputs = validator.apps_script_research_dispatch_inputs()
 
     assert registry[staged_input]["activation_mode"] == "when_declared"
+    assert registry[workflow_only_input]["activation_mode"] == "workflow_only"
     assert staged_input in workflow_inputs
+    assert workflow_only_input in workflow_inputs
     assert staged_input in apps_inputs
+    assert workflow_only_input not in apps_inputs
+    assert workflow_only_input not in guarded_inputs
     assert guarded_inputs == {staged_input}
 
     errors: list[str] = []
     validator.validate_research_dispatch_contract(
         errors,
         workflow_input_names=workflow_inputs,
+        workflow_input_defaults={
+            name: validator.workflow_dispatch_input_property(
+                "research_backtest_pipeline.yml", name, "default"
+            )
+            for name in workflow_inputs
+        },
+        workflow_input_types={
+            name: validator.workflow_dispatch_input_property(
+                "research_backtest_pipeline.yml", name, "type"
+            )
+            for name in workflow_inputs
+        },
         apps_inputs=set(apps_inputs),
         guarded_inputs=guarded_inputs,
         registry=registry,
@@ -164,6 +181,18 @@ def test_apps_script_research_dispatch_registry_is_forward_compatible() -> None:
     validator.validate_research_dispatch_contract(
         undeclared_errors,
         workflow_input_names=workflow_inputs - {staged_input},
+        workflow_input_defaults={
+            name: validator.workflow_dispatch_input_property(
+                "research_backtest_pipeline.yml", name, "default"
+            )
+            for name in workflow_inputs - {staged_input}
+        },
+        workflow_input_types={
+            name: validator.workflow_dispatch_input_property(
+                "research_backtest_pipeline.yml", name, "type"
+            )
+            for name in workflow_inputs - {staged_input}
+        },
         apps_inputs=set(apps_inputs),
         guarded_inputs=guarded_inputs,
         registry=registry,
@@ -174,6 +203,18 @@ def test_apps_script_research_dispatch_registry_is_forward_compatible() -> None:
     validator.validate_research_dispatch_contract(
         unknown_errors,
         workflow_input_names={*workflow_inputs, "run_unregistered_research"},
+        workflow_input_defaults={
+            name: validator.workflow_dispatch_input_property(
+                "research_backtest_pipeline.yml", name, "default"
+            )
+            for name in workflow_inputs
+        },
+        workflow_input_types={
+            name: validator.workflow_dispatch_input_property(
+                "research_backtest_pipeline.yml", name, "type"
+            )
+            for name in workflow_inputs
+        },
         apps_inputs=set(apps_inputs),
         guarded_inputs=guarded_inputs,
         registry=registry,
@@ -186,6 +227,81 @@ def test_apps_script_research_dispatch_registry_is_forward_compatible() -> None:
     assert "if (declaredInputs[inputName])" in helper_body
     assert 'githubJson_(\n    "get"' in schema_body
     assert 'payload.encoding !== "base64"' in schema_body
+
+
+def test_apps_script_research_dispatch_workflow_only_contract_is_fail_closed() -> None:
+    validator = validate_apps_script_workflow_triggers
+    workflow_only_input = "run_revenue_unreacted_range_forward_holdout_only"
+    registry = {
+        workflow_only_input: {
+            "activation_mode": "workflow_only",
+        }
+    }
+    valid_kwargs = {
+        "workflow_input_names": {workflow_only_input},
+        "workflow_input_defaults": {workflow_only_input: "false"},
+        "workflow_input_types": {workflow_only_input: "boolean"},
+        "apps_inputs": set(),
+        "guarded_inputs": set(),
+        "registry": registry,
+    }
+
+    errors: list[str] = []
+    validator.validate_research_dispatch_contract(errors, **valid_kwargs)
+    assert errors == []
+
+    missing_errors: list[str] = []
+    validator.validate_research_dispatch_contract(
+        missing_errors,
+        **{**valid_kwargs, "workflow_input_names": set()},
+    )
+    assert any("missing workflow-only inputs" in error for error in missing_errors)
+
+    default_errors: list[str] = []
+    validator.validate_research_dispatch_contract(
+        default_errors,
+        **{
+            **valid_kwargs,
+            "workflow_input_defaults": {workflow_only_input: "true"},
+        },
+    )
+    assert any("must default false" in error for error in default_errors)
+
+    type_errors: list[str] = []
+    validator.validate_research_dispatch_contract(
+        type_errors,
+        **{
+            **valid_kwargs,
+            "workflow_input_types": {workflow_only_input: "string"},
+        },
+    )
+    assert any("must use type boolean" in error for error in type_errors)
+
+    apps_errors: list[str] = []
+    validator.validate_research_dispatch_contract(
+        apps_errors,
+        **{
+            **valid_kwargs,
+            "apps_inputs": {workflow_only_input},
+            "guarded_inputs": {workflow_only_input},
+        },
+    )
+    assert any("must not appear in Apps Script" in error for error in apps_errors)
+    assert any("must not be guarded by Apps Script" in error for error in apps_errors)
+
+    unknown_mode_errors: list[str] = []
+    validator.validate_research_dispatch_contract(
+        unknown_mode_errors,
+        **{
+            **valid_kwargs,
+            "registry": {
+                workflow_only_input: {
+                    "activation_mode": "unknown",
+                }
+            },
+        },
+    )
+    assert any("unknown activation modes" in error for error in unknown_mode_errors)
 
 
 def test_apps_script_daily_trigger_skips_weekends_and_disables_raw_health_check() -> None:

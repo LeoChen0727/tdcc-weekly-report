@@ -185,10 +185,13 @@ def workflow_input_defaults(text: str) -> dict[str, str]:
     body = match.group("body")
     rows: dict[str, str] = {}
     for input_match in re.finditer(
-        r'(?ms)^      (?P<name>[A-Za-z0-9_]+):\s*\n.*?^        default: "(?P<default>true|false)"\s*$',
+        r'(?ms)^      (?P<name>[A-Za-z0-9_]+):\s*\n.*?^        default: '
+        r'(?:(?:"(?P<quoted>true|false)")|(?P<plain>true|false))\s*$',
         body,
     ):
-        rows[input_match.group("name")] = input_match.group("default")
+        rows[input_match.group("name")] = (
+            input_match.group("quoted") or input_match.group("plain")
+        )
     return rows
 
 

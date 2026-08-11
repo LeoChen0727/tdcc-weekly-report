@@ -199,6 +199,24 @@ def test_revenue_forward_holdout_stage_is_nested_and_model_owned() -> None:
     assert validator.validate_workflow_text(text, rows, producers) == []
 
 
+def test_revenue_forward_holdout_stage_rejects_plain_boolean_true_default() -> None:
+    text, rows, producers = _inputs()
+    input_block = (
+        "      run_revenue_unreacted_range_forward_holdout_only:\n"
+        '        description: "Declare the model-owned revenue forward holdout input; disabled by default"\n'
+        "        required: false\n"
+        "        default: false\n"
+        "        type: boolean"
+    )
+    assert input_block in text
+    text = text.replace(input_block, input_block.replace("default: false", "default: true"), 1)
+
+    errors = validator.validate_workflow_text(text, rows, producers)
+
+    assert any("must default false" in error for error in errors)
+    assert any("missing opt-in revenue stage input" in error for error in errors)
+
+
 def test_revenue_forward_holdout_stage_rejects_unregistered_command() -> None:
     text, rows, producers = _inputs()
     stage_command = f"            {validator.REVENUE_FORWARD_HOLDOUT_BUILD_COMMAND}\n"
