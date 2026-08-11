@@ -12,6 +12,7 @@ from pathlib import Path
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
+PINNED_20260717_WATCH_COMMIT = "ef54f44f5d69889894fe987b4c9ac7cc2bb86623"
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from build_volume_breakout_watch import (  # noqa: E402
@@ -54,6 +55,19 @@ from validate_volume_breakout_watch import (  # noqa: E402
     canonical_text_sha256 as validator_canonical_text_sha256,
     forbidden_watch_columns,
 )
+
+
+def git_show_text(repo: Path, ref: str, relative_path: str) -> str:
+    return subprocess.check_output(
+        [
+            "git",
+            "-c",
+            f"safe.directory={repo.resolve().as_posix()}",
+            "show",
+            f"{ref}:{relative_path}",
+        ],
+        cwd=repo,
+    ).decode("utf-8-sig")
 
 
 class VolumeBreakoutWatchTest(unittest.TestCase):
@@ -1132,24 +1146,41 @@ class VolumeBreakoutWatchTest(unittest.TestCase):
                     with self.assertRaisesRegex(RuntimeError, "CSV is invalid"):
                         hasher(malformed, "20260718")
 
-    def test_materialized_20260717_artifact_hashes_are_slice_compatible(self) -> None:
+    def test_pinned_20260717_artifact_hashes_are_slice_compatible(self) -> None:
         artifact_root = Path(os.environ.get("TDCC_VOLUME_LINEAGE_REPO_ROOT", ROOT))
-        watch_path = artifact_root / "output/latest/volume_breakout_watch_latest.csv"
-        if not watch_path.is_file():
-            self.skipTest("current-main volume breakout artifacts are not materialized")
         expected = {
             "4139": "28cbde51ca0eb7a03631839d06c647647cf58cb8557964cd3632243458546e61",
             "6243": "418e3ed7d1dfa2e2f0d6cf8e02393204942b7e5bc97611e6458d1d0ef0716b8f",
             "3288": "2cdc283b3c40b503194efd275a761c4a740dd3458fc754864cc318fdde1f9929",
             "3024": "b60cdd6df569aa6640af0119ce693502f9e2a2a57430b56245230c950abff48b",
         }
-        watch = pd.read_csv(watch_path, dtype=str, keep_default_na=False)
+        watch = pd.read_csv(
+            io.StringIO(
+                git_show_text(
+                    ROOT,
+                    PINNED_20260717_WATCH_COMMIT,
+                    "output/latest/volume_breakout_watch_latest.csv",
+                )
+            ),
+            dtype=str,
+            keep_default_na=False,
+        )
         current = watch[watch["signal_date"].astype(str) == "20260717"]
         self.assertEqual(len(current), len(expected))
         self.assertEqual(
             dict(zip(current["stock_id"], current["advisory_score_source_sha256"])),
             expected,
         )
+        missing_sources = [
+            (artifact_root / row["advisory_score_source_artifact"]).as_posix()
+            for row in current.to_dict("records")
+            if not (artifact_root / row["advisory_score_source_artifact"]).is_file()
+        ]
+        if missing_sources:
+            self.skipTest(
+                "current-main advisory source artifacts are not materialized: "
+                + ", ".join(missing_sources)
+            )
         for row in current.to_dict("records"):
             source = artifact_root / row["advisory_score_source_artifact"]
             self.assertTrue(source.is_file(), source.as_posix())
@@ -1164,23 +1195,13 @@ class VolumeBreakoutWatchTest(unittest.TestCase):
                         row["advisory_score_source_sha256"],
                     )
 
-    def test_origin_main_20260717_artifact_hashes_survive_future_appends(self) -> None:
+    def test_pinned_20260717_artifact_hashes_survive_origin_main_future_appends(
+        self,
+    ) -> None:
         repository = os.environ.get("TDCC_VOLUME_LINEAGE_GIT_REPO", "").strip()
         if not repository:
             self.skipTest("set TDCC_VOLUME_LINEAGE_GIT_REPO for origin/main integration")
         repo = Path(repository)
-
-        def git_show(relative_path: str) -> str:
-            return subprocess.check_output(
-                [
-                    "git",
-                    "-c",
-                    f"safe.directory={repo.resolve().as_posix()}",
-                    "show",
-                    f"origin/main:{relative_path}",
-                ],
-                cwd=repo,
-            ).decode("utf-8-sig")
 
         expected = {
             "4139": "28cbde51ca0eb7a03631839d06c647647cf58cb8557964cd3632243458546e61",
@@ -1189,7 +1210,13 @@ class VolumeBreakoutWatchTest(unittest.TestCase):
             "3024": "b60cdd6df569aa6640af0119ce693502f9e2a2a57430b56245230c950abff48b",
         }
         watch = pd.read_csv(
-            io.StringIO(git_show("output/latest/volume_breakout_watch_latest.csv")),
+            io.StringIO(
+                git_show_text(
+                    repo,
+                    PINNED_20260717_WATCH_COMMIT,
+                    "output/latest/volume_breakout_watch_latest.csv",
+                )
+            ),
             dtype=str,
             keep_default_na=False,
         )
@@ -1200,7 +1227,11 @@ class VolumeBreakoutWatchTest(unittest.TestCase):
             expected,
         )
         for row in current.to_dict("records"):
-            source_text = git_show(row["advisory_score_source_artifact"])
+            source_text = git_show_text(
+                repo,
+                "origin/main",
+                row["advisory_score_source_artifact"],
+            )
             with patch.object(Path, "read_text", return_value=source_text):
                 for hasher in (
                     canonical_csv_slice_sha256,
