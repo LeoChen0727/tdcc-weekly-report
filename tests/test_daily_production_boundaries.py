@@ -2155,7 +2155,7 @@ def test_daily_workflow_market_session_gate_is_main_only_and_fail_closed() -> No
         assert forbidden not in source_gate_block
 
 
-def test_recent_price_gap_workflow_never_publishes_market_session_on_zero_repair() -> None:
+def test_recent_price_gap_workflow_bundles_zero_repair_without_publishing_market_session() -> None:
     text = (ROOT / ".github" / "workflows" / "repair_recent_daily_price_gaps.yml").read_text(
         encoding="utf-8"
     )
@@ -2163,11 +2163,14 @@ def test_recent_price_gap_workflow_never_publishes_market_session_on_zero_repair
     assert "Reject non-main production dispatch" in text
     assert "github.ref_name != 'main'" in text
     assert "ref: main" in text
-    assert "if: env.REPAIR_ACTION_COUNT != '0'" in text
+    assert "if: env.REPAIR_ACTION_COUNT != '0'" not in text
+    assert "Build immutable current-day source recovery bundle" in text
+    assert "resume-daily-full-from-source-bundle:" in text
     assert "MARKET_SESSION_CHANGE_COUNT" not in text
     assert "git add output/latest/market_session_status_latest.json" not in text
     assert "git add data/market_calendar/exceptional_non_trading_days.csv" not in text
-    assert "bash scripts/ci_push_with_retry.sh main 5" in text
+    assert "bash scripts/ci_push_with_retry.sh main 5" not in text
+    assert "git push origin HEAD:main" in text
 
 
 def test_only_daily_full_pipeline_can_stage_authoritative_latest_surfaces() -> None:

@@ -1,4 +1,5 @@
 name: Daily Full Pipeline
+run-name: ${{ inputs.recovery_correlation_id != '' && format('Daily Full Pipeline | recovery={0}', inputs.recovery_correlation_id) || 'Daily Full Pipeline' }}
 
 on:
   workflow_dispatch:
@@ -12,13 +13,58 @@ on:
         required: false
         default: false
         type: boolean
+      recovery_correlation_id:
+        description: "Exact correlation id supplied by the source-recovery workflow"
+        required: false
+        default: ""
+        type: string
+      recovery_expected_head_sha:
+        description: "Exact Daily Full event SHA reserved by the source-recovery workflow"
+        required: false
+        default: ""
+        type: string
+      recovery_reservation_path:
+        description: "Exact date-scoped durable dispatch reservation path"
+        required: false
+        default: ""
+        type: string
+      recovery_reservation_sha256:
+        description: "Exact raw SHA-256 of the durable dispatch reservation"
+        required: false
+        default: ""
+        type: string
+      recovery_source_bundle_commit_sha:
+        description: "Immutable Git commit containing the date-scoped source bundle"
+        required: false
+        default: ""
+        type: string
+      recovery_source_bundle_manifest_path:
+        description: "Exact manifest path inside the immutable source bundle commit"
+        required: false
+        default: ""
+        type: string
+      recovery_source_bundle_manifest_sha256:
+        description: "Exact raw SHA-256 of the immutable source bundle manifest"
+        required: false
+        default: ""
+        type: string
+      recovery_source_bundle_sha:
+        description: "Canonical source bundle identity SHA-256"
+        required: false
+        default: ""
+        type: string
+      recovery_source_bundle_trading_date:
+        description: "Exact YYYYMMDD trading date of the immutable source bundle"
+        required: false
+        default: ""
+        type: string
 
 permissions:
   contents: write
   actions: write
 
 concurrency:
-  group: daily-full-pipeline-${{ github.ref }}
+  group: ${{ inputs.recovery_correlation_id != '' && format('daily-full-recovery-{0}', inputs.recovery_correlation_id) || format('daily-full-pipeline-{0}', github.ref) }}
   cancel-in-progress: false
 
 jobs:
@@ -42,7 +88,7 @@ jobs:
       - name: Checkout main production source
         uses: actions/checkout@v6
         with:
-          ref: main
+          ref: ${{ github.sha }}
           fetch-depth: 0
 
       - name: Set up Python
@@ -50,13 +96,100 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Validate immutable recovery input set
+        shell: bash
+        env:
+          RECOVERY_CORRELATION_ID: ${{ inputs.recovery_correlation_id }}
+          RECOVERY_EXPECTED_HEAD_SHA: ${{ inputs.recovery_expected_head_sha }}
+          RECOVERY_RESERVATION_PATH: ${{ inputs.recovery_reservation_path }}
+          RECOVERY_RESERVATION_SHA256: ${{ inputs.recovery_reservation_sha256 }}
+          RECOVERY_SOURCE_BUNDLE_COMMIT_SHA: ${{ inputs.recovery_source_bundle_commit_sha }}
+          RECOVERY_SOURCE_BUNDLE_MANIFEST_PATH: ${{ inputs.recovery_source_bundle_manifest_path }}
+          RECOVERY_SOURCE_BUNDLE_MANIFEST_SHA256: ${{ inputs.recovery_source_bundle_manifest_sha256 }}
+          RECOVERY_SOURCE_BUNDLE_SHA: ${{ inputs.recovery_source_bundle_sha }}
+          RECOVERY_SOURCE_BUNDLE_TRADING_DATE: ${{ inputs.recovery_source_bundle_trading_date }}
+        run: |
+          python - <<'PY'
+          import os
+
+          names = (
+              "RECOVERY_CORRELATION_ID",
+              "RECOVERY_EXPECTED_HEAD_SHA",
+              "RECOVERY_RESERVATION_PATH",
+              "RECOVERY_RESERVATION_SHA256",
+              "RECOVERY_SOURCE_BUNDLE_COMMIT_SHA",
+              "RECOVERY_SOURCE_BUNDLE_MANIFEST_PATH",
+              "RECOVERY_SOURCE_BUNDLE_MANIFEST_SHA256",
+              "RECOVERY_SOURCE_BUNDLE_SHA",
+              "RECOVERY_SOURCE_BUNDLE_TRADING_DATE",
+          )
+          values = {name: os.environ.get(name, "").strip() for name in names}
+          populated = {name for name, value in values.items() if value}
+          if populated and populated != set(names):
+              raise SystemExit(f"recovery source bundle inputs must be all-or-none: {sorted(populated)}")
+          if populated:
+              expected_head = values["RECOVERY_EXPECTED_HEAD_SHA"]
+              event_head = os.environ.get("GITHUB_SHA", "").strip().lower()
+              expected_correlation = (
+                  "daily-source-" + values["RECOVERY_SOURCE_BUNDLE_TRADING_DATE"]
+              )
+              if values["RECOVERY_CORRELATION_ID"] != expected_correlation:
+                  raise SystemExit(
+                      "recovery correlation id must equal the date-scoped bundle identity: "
+                      f"expected={expected_correlation} observed={values['RECOVERY_CORRELATION_ID']}"
+                  )
+              if len(expected_head) != 40 or any(char not in "0123456789abcdef" for char in expected_head):
+                  raise SystemExit(f"invalid recovery expected head SHA: {expected_head!r}")
+              if event_head != expected_head:
+                  raise SystemExit(
+                      f"recovery event SHA mismatch: expected={expected_head} observed={event_head}"
+                  )
+          PY
+
+      - name: Verify durable recovery dispatch reservation
+        if: inputs.recovery_source_bundle_commit_sha != ''
+        run: |
+          python -B scripts/daily_source_recovery_bundle.py verify-reservation \
+            --repo-root . \
+            --trading-date "${{ inputs.recovery_source_bundle_trading_date }}" \
+            --reservation-path "${{ inputs.recovery_reservation_path }}" \
+            --reservation-sha256 "${{ inputs.recovery_reservation_sha256 }}" \
+            --expected-head-sha "${{ inputs.recovery_expected_head_sha }}" \
+            --source-commit-sha "${{ inputs.recovery_source_bundle_commit_sha }}" \
+            --manifest-path "${{ inputs.recovery_source_bundle_manifest_path }}" \
+            --manifest-sha256 "${{ inputs.recovery_source_bundle_manifest_sha256 }}" \
+            --source-bundle-sha "${{ inputs.recovery_source_bundle_sha }}" \
+            --correlation-id "${{ inputs.recovery_correlation_id }}"
+
+      - name: Materialize immutable recovery source bundle for preflight
+        if: inputs.recovery_source_bundle_commit_sha != ''
+        run: |
+          python -B scripts/daily_source_recovery_bundle.py verify \
+            --repo-root . \
+            --source-commit-sha "${{ inputs.recovery_source_bundle_commit_sha }}" \
+            --manifest-path "${{ inputs.recovery_source_bundle_manifest_path }}" \
+            --manifest-sha256 "${{ inputs.recovery_source_bundle_manifest_sha256 }}" \
+            --source-bundle-sha "${{ inputs.recovery_source_bundle_sha }}" \
+            --trading-date "${{ inputs.recovery_source_bundle_trading_date }}" \
+            --materialize
+
       - name: Resolve official Taiwan market session
+        if: inputs.recovery_source_bundle_commit_sha == ''
         run: |
           python scripts/market_session_calendar.py --phase preflight
 
       - name: Export market-session decision
         id: decision
         shell: bash
+        env:
+          RECOVERY_EXPECTED_HEAD_SHA: ${{ inputs.recovery_expected_head_sha }}
+          RECOVERY_RESERVATION_PATH: ${{ inputs.recovery_reservation_path }}
+          RECOVERY_RESERVATION_SHA256: ${{ inputs.recovery_reservation_sha256 }}
+          RECOVERY_SOURCE_BUNDLE_COMMIT_SHA: ${{ inputs.recovery_source_bundle_commit_sha }}
+          RECOVERY_SOURCE_BUNDLE_MANIFEST_PATH: ${{ inputs.recovery_source_bundle_manifest_path }}
+          RECOVERY_SOURCE_BUNDLE_MANIFEST_SHA256: ${{ inputs.recovery_source_bundle_manifest_sha256 }}
+          RECOVERY_SOURCE_BUNDLE_SHA: ${{ inputs.recovery_source_bundle_sha }}
+          RECOVERY_SOURCE_BUNDLE_TRADING_DATE: ${{ inputs.recovery_source_bundle_trading_date }}
         run: |
           python - <<'PY'
           import hashlib
@@ -81,6 +214,16 @@ jobs:
           identity = {
               "schema_version": "daily_market_session_preflight_identity_v1",
               "source_sha": source_sha,
+              "recovery_source_bundle": {
+                  "expected_head_sha": os.environ.get("RECOVERY_EXPECTED_HEAD_SHA", ""),
+                  "reservation_path": os.environ.get("RECOVERY_RESERVATION_PATH", ""),
+                  "reservation_sha256": os.environ.get("RECOVERY_RESERVATION_SHA256", ""),
+                  "source_commit_sha": os.environ.get("RECOVERY_SOURCE_BUNDLE_COMMIT_SHA", ""),
+                  "manifest_path": os.environ.get("RECOVERY_SOURCE_BUNDLE_MANIFEST_PATH", ""),
+                  "manifest_sha256": os.environ.get("RECOVERY_SOURCE_BUNDLE_MANIFEST_SHA256", ""),
+                  "source_bundle_sha": os.environ.get("RECOVERY_SOURCE_BUNDLE_SHA", ""),
+                  "trading_date": os.environ.get("RECOVERY_SOURCE_BUNDLE_TRADING_DATE", ""),
+              },
               "files": {
                   path.as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
                   for path in (path, calendar_path)
@@ -129,6 +272,14 @@ jobs:
       EXPECTED_MAIN_PRICE_DATE: ${{ needs.market-session-preflight.outputs.expected_main_price_date }}
       REASON_CODE: ${{ needs.market-session-preflight.outputs.reason_code }}
       PREFLIGHT_SOURCE_SHA: ${{ needs.market-session-preflight.outputs.source_sha }}
+      RECOVERY_SOURCE_BUNDLE_COMMIT_SHA: ${{ inputs.recovery_source_bundle_commit_sha }}
+      RECOVERY_EXPECTED_HEAD_SHA: ${{ inputs.recovery_expected_head_sha }}
+      RECOVERY_RESERVATION_PATH: ${{ inputs.recovery_reservation_path }}
+      RECOVERY_RESERVATION_SHA256: ${{ inputs.recovery_reservation_sha256 }}
+      RECOVERY_SOURCE_BUNDLE_MANIFEST_PATH: ${{ inputs.recovery_source_bundle_manifest_path }}
+      RECOVERY_SOURCE_BUNDLE_MANIFEST_SHA256: ${{ inputs.recovery_source_bundle_manifest_sha256 }}
+      RECOVERY_SOURCE_BUNDLE_SHA: ${{ inputs.recovery_source_bundle_sha }}
+      RECOVERY_SOURCE_BUNDLE_TRADING_DATE: ${{ inputs.recovery_source_bundle_trading_date }}
 
     steps:
       - name: Require production artifact write deploy key
@@ -192,6 +343,18 @@ jobs:
               observed = hashlib.sha256(Path(relative_path).read_bytes()).hexdigest()
               if observed != expected_digest:
                   raise SystemExit(f"market-session preflight artifact SHA mismatch: {relative_path}")
+          expected_recovery = {
+              "expected_head_sha": os.environ.get("RECOVERY_EXPECTED_HEAD_SHA", ""),
+              "reservation_path": os.environ.get("RECOVERY_RESERVATION_PATH", ""),
+              "reservation_sha256": os.environ.get("RECOVERY_RESERVATION_SHA256", ""),
+              "source_commit_sha": os.environ.get("RECOVERY_SOURCE_BUNDLE_COMMIT_SHA", ""),
+              "manifest_path": os.environ.get("RECOVERY_SOURCE_BUNDLE_MANIFEST_PATH", ""),
+              "manifest_sha256": os.environ.get("RECOVERY_SOURCE_BUNDLE_MANIFEST_SHA256", ""),
+              "source_bundle_sha": os.environ.get("RECOVERY_SOURCE_BUNDLE_SHA", ""),
+              "trading_date": os.environ.get("RECOVERY_SOURCE_BUNDLE_TRADING_DATE", ""),
+          }
+          if identity.get("recovery_source_bundle") != expected_recovery:
+              raise SystemExit("market-session preflight recovery bundle identity mismatch")
           PY
 
       - name: Validate closed market decision
@@ -405,6 +568,14 @@ jobs:
       TARGET_BRANCH: main
       EXPECTED_MAIN_PRICE_DATE: ${{ needs.market-session-preflight.outputs.expected_main_price_date }}
       PREFLIGHT_SOURCE_SHA: ${{ needs.market-session-preflight.outputs.source_sha }}
+      RECOVERY_EXPECTED_HEAD_SHA: ${{ inputs.recovery_expected_head_sha }}
+      RECOVERY_RESERVATION_PATH: ${{ inputs.recovery_reservation_path }}
+      RECOVERY_RESERVATION_SHA256: ${{ inputs.recovery_reservation_sha256 }}
+      RECOVERY_SOURCE_BUNDLE_COMMIT_SHA: ${{ inputs.recovery_source_bundle_commit_sha }}
+      RECOVERY_SOURCE_BUNDLE_MANIFEST_PATH: ${{ inputs.recovery_source_bundle_manifest_path }}
+      RECOVERY_SOURCE_BUNDLE_MANIFEST_SHA256: ${{ inputs.recovery_source_bundle_manifest_sha256 }}
+      RECOVERY_SOURCE_BUNDLE_SHA: ${{ inputs.recovery_source_bundle_sha }}
+      RECOVERY_SOURCE_BUNDLE_TRADING_DATE: ${{ inputs.recovery_source_bundle_trading_date }}
 
     steps:
       - name: Require production artifact write deploy key
@@ -435,6 +606,23 @@ jobs:
             echo "::error::Preflight source drift: expected=$PREFLIGHT_SOURCE_SHA head=$CURRENT_HEAD origin/main=$REMOTE_MAIN"
             exit 1
           fi
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Materialize immutable recovery source bundle for production
+        if: env.RECOVERY_SOURCE_BUNDLE_COMMIT_SHA != ''
+        run: |
+          python -B scripts/daily_source_recovery_bundle.py verify \
+            --repo-root . \
+            --source-commit-sha "$RECOVERY_SOURCE_BUNDLE_COMMIT_SHA" \
+            --manifest-path "$RECOVERY_SOURCE_BUNDLE_MANIFEST_PATH" \
+            --manifest-sha256 "$RECOVERY_SOURCE_BUNDLE_MANIFEST_SHA256" \
+            --source-bundle-sha "$RECOVERY_SOURCE_BUNDLE_SHA" \
+            --trading-date "$RECOVERY_SOURCE_BUNDLE_TRADING_DATE" \
+            --materialize
 
       - name: Download market-session preflight evidence
         uses: actions/download-artifact@v4
@@ -468,17 +656,24 @@ jobs:
               observed = hashlib.sha256(Path(relative_path).read_bytes()).hexdigest()
               if observed != expected_digest:
                   raise SystemExit(f"market-session preflight artifact SHA mismatch: {relative_path}")
+          expected_recovery = {
+              "expected_head_sha": os.environ.get("RECOVERY_EXPECTED_HEAD_SHA", ""),
+              "reservation_path": os.environ.get("RECOVERY_RESERVATION_PATH", ""),
+              "reservation_sha256": os.environ.get("RECOVERY_RESERVATION_SHA256", ""),
+              "source_commit_sha": os.environ.get("RECOVERY_SOURCE_BUNDLE_COMMIT_SHA", ""),
+              "manifest_path": os.environ.get("RECOVERY_SOURCE_BUNDLE_MANIFEST_PATH", ""),
+              "manifest_sha256": os.environ.get("RECOVERY_SOURCE_BUNDLE_MANIFEST_SHA256", ""),
+              "source_bundle_sha": os.environ.get("RECOVERY_SOURCE_BUNDLE_SHA", ""),
+              "trading_date": os.environ.get("RECOVERY_SOURCE_BUNDLE_TRADING_DATE", ""),
+          }
+          if identity.get("recovery_source_bundle") != expected_recovery:
+              raise SystemExit("market-session preflight recovery bundle identity mismatch")
           PY
 
       - name: Capture pre-run freshness baseline
         run: |
           mkdir -p "$RUNNER_TEMP/tdcc_daily_baseline"
           cp output/latest/data_freshness_latest.csv "$RUNNER_TEMP/tdcc_daily_baseline/data_freshness_latest.csv"
-
-      - name: Set up Python
-        uses: actions/setup-python@v6
-        with:
-          python-version: "3.11"
 
       - name: Validate Apps Script workflow triggers
         run: |
@@ -509,6 +704,7 @@ jobs:
           python scripts/validate_monthly_revenue_history.py
 
       - name: Fetch latest official daily price
+        if: env.RECOVERY_SOURCE_BUNDLE_COMMIT_SHA == ''
         timeout-minutes: 9
         env:
           OFFICIAL_PRICE_TARGET_DATE: ${{ needs.market-session-preflight.outputs.expected_main_price_date }}
@@ -519,12 +715,14 @@ jobs:
           python fetch_official_daily_price.py
 
       - name: Inspect official daily price fetch result
+        if: env.RECOVERY_SOURCE_BUNDLE_COMMIT_SHA == ''
         run: |
           echo "Official price fetch completed. Partial latest outputs are not published here."
           echo "All daily outputs are committed only after downstream freshness and consistency checks pass."
           git status --short
 
       - name: Repair missing daily price source files
+        if: env.RECOVERY_SOURCE_BUNDLE_COMMIT_SHA == ''
         timeout-minutes: 12
         run: |
           python scripts/repair_missing_daily_price_files.py \

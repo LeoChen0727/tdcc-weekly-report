@@ -50,21 +50,25 @@ def current_taipei_date() -> str:
     return datetime.now(TAIPEI_TZ).strftime("%Y%m%d")
 
 
-def previous_trading_date_before(
+def latest_trading_date_on_or_before(
     as_of_date: str,
     non_trading_days: set[str],
     *,
+    include_as_of_date: bool = True,
     max_backtrack_days: int = 30,
 ) -> str:
-    """Return the latest expected trading day before as_of_date.
+    """Return the latest expected trading day on or before as_of_date.
 
-    as_of_date is only a maintenance boundary. It must not become the formal
-    daily report date.
+    Production repair includes the current boundary date so an evening repair
+    can acquire an absent current-day source. Callers may explicitly retain the
+    legacy exclusive boundary for diagnostics only.
     """
     date_text = normalize_date(as_of_date)
     if not date_text:
         raise ValueError(f"invalid as_of_date: {as_of_date!r}")
-    current = continuity.parse_yyyymmdd(date_text) - timedelta(days=1)
+    current = continuity.parse_yyyymmdd(date_text)
+    if not include_as_of_date:
+        current -= timedelta(days=1)
     for _ in range(max_backtrack_days):
         candidate = continuity.yyyymmdd(current)
         if current.weekday() < 5 and candidate not in non_trading_days:
@@ -80,8 +84,14 @@ def expected_recent_trading_dates(
     as_of_date: str,
     lookback_days: int,
     non_trading_days: set[str],
+    *,
+    include_as_of_date: bool = True,
 ) -> tuple[str, list[str]]:
-    target_end_date = previous_trading_date_before(as_of_date, non_trading_days)
+    target_end_date = latest_trading_date_on_or_before(
+        as_of_date,
+        non_trading_days,
+        include_as_of_date=include_as_of_date,
+    )
     expected_dates = continuity.expected_trading_dates(target_end_date, lookback_days, non_trading_days)
     return target_end_date, expected_dates
 
@@ -103,6 +113,7 @@ def repair_recent_gaps(
     min_full_rows: int = continuity.DEFAULT_MIN_FULL_ROWS,
     non_trading_days_path: Path = continuity.NON_TRADING_DAYS,
     max_repair_dates: int = 5,
+    include_as_of_date: bool = True,
     rebuild_history_if_repaired: bool = False,
     args: argparse.Namespace | None = None,
     repair_func: recovery.RepairFunc = recovery.default_repair_func,
@@ -115,7 +126,12 @@ def repair_recent_gaps(
 
     try:
         non_trading_days = continuity.load_non_trading_days(root, non_trading_days_path)
-        target_end_date, expected_dates = expected_recent_trading_dates(as_of_date, lookback_days, non_trading_days)
+        target_end_date, expected_dates = expected_recent_trading_dates(
+            as_of_date,
+            lookback_days,
+            non_trading_days,
+            include_as_of_date=include_as_of_date,
+        )
     except Exception as exc:
         report = {
             "status": "fail",
@@ -166,7 +182,9 @@ def repair_recent_gaps(
     report = {
         "status": status,
         "as_of_date": as_of_date,
-        "date_boundary": "exclude_as_of_date",
+        "date_boundary": (
+            "include_as_of_date_if_trading" if include_as_of_date else "exclude_as_of_date"
+        ),
         "target_end_date": target_end_date,
         "lookback_days": lookback_days,
         "expected_trading_dates": expected_dates,
@@ -240,7 +258,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=(
             "Proactively repair recent missing official daily price files before report generation. "
-            "The as-of date is only used to exclude the current day; it is not a formal report date."
+            "Production includes the as-of date when it is a trading day so current-day source gaps can be repaired."
         )
     )
     parser.add_argument("--repo-root", default=".", help="Repository root. Default: current directory.")
@@ -253,6 +271,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--sleep-seconds", type=float, default=5.0)
     parser.add_argument("--check-code", default="")
     parser.add_argument("--rebuild-history-if-repaired", action="store_true")
+    parser.add_argument(
+        "--exclude-as-of-date",
+        action="store_true",
+        help="Diagnostics only: retain the legacy exclusive maintenance boundary.",
+    )
     parser.add_argument(
         "--skip-market-session-refresh",
         action="store_true",
@@ -292,6 +315,7 @@ def main() -> int:
         min_full_rows=args.min_full_rows,
         non_trading_days_path=Path(args.non_trading_days),
         max_repair_dates=args.max_repair_dates,
+        include_as_of_date=not args.exclude_as_of_date,
         rebuild_history_if_repaired=args.rebuild_history_if_repaired,
         args=args,
     )

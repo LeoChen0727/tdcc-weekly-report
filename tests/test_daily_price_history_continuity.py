@@ -255,10 +255,12 @@ def test_recent_gap_repair_excludes_as_of_date_and_configured_holidays(tmp_path:
         min_full_rows=1,
         non_trading_days_path=Path("config/twse_non_trading_days.csv"),
         max_repair_dates=2,
+        include_as_of_date=False,
     )
 
     assert result.status == "pass"
     assert result.report["target_end_date"] == "20260622"
+    assert result.report["date_boundary"] == "exclude_as_of_date"
     assert result.report["expected_trading_dates"] == ["20260618", "20260622"]
     assert "20260623" not in result.report["expected_trading_dates"]
     assert "20260619" in result.report["non_trading_days_in_window"]
