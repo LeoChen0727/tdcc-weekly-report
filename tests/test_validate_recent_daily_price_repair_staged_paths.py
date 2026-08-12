@@ -3,6 +3,32 @@ from __future__ import annotations
 from scripts import validate_recent_daily_price_repair_staged_paths as validator
 
 
+def test_date_scoped_source_bundle_paths_are_exactly_allowed() -> None:
+    prefix = "output/history/daily_source_bundles/20260811/daily-source-20260811-run-1/"
+    entries = [
+        ("A", (prefix + "manifest.json",)),
+        ("A", (prefix + "state.json",)),
+        ("A", (prefix + "market_session_status.json",)),
+        ("A", (prefix + "files/01-20260811.csv",)),
+        ("A", (prefix + "files/02-daily_price_20260811.csv",)),
+        ("A", (prefix + "files/03-official_daily_price_latest.csv",)),
+        ("A", (prefix + "files/04-exceptional_non_trading_days.csv",)),
+        ("M", ("output/latest/official_daily_price_latest.csv",)),
+    ]
+    assert validator.validate_entries(entries) == []
+
+
+def test_source_bundle_path_escape_and_extra_payload_are_rejected() -> None:
+    prefix = "output/history/daily_source_bundles/20260811/daily-source-20260811-run-1/"
+    errors = validator.validate_entries(
+        [
+            ("A", (prefix + "files/05-extra.csv",)),
+            ("A", (prefix + "../escaped.json",)),
+        ]
+    )
+    assert len(errors) == 2
+
+
 def test_exact_data_only_repair_paths_are_allowed() -> None:
     entries = [
         ("A", ("data/daily_price/daily_price_20260730.csv",)),

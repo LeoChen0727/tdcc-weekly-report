@@ -10,12 +10,12 @@ on:
         default: "manual"
         type: string
       as_of_date:
-        description: "Optional maintenance boundary date in YYYYMMDD. Empty means today in Asia/Taipei; the date itself is excluded."
+        description: "Optional recovery date in YYYYMMDD. Empty means today in Asia/Taipei; a trading date is included."
         required: false
         default: ""
         type: string
       lookback_days:
-        description: "Recent calendar-day window to inspect, excluding as_of_date"
+        description: "Recent trading-date window to inspect, including as_of_date when it is a trading day"
         required: false
         default: "7"
         type: string
@@ -37,20 +37,25 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
-  group: repair-recent-daily-price-gaps-${{ github.ref }}
+  group: daily-full-pipeline-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
   repair-recent-daily-price-gaps:
     runs-on: ubuntu-latest
-    concurrency:
-      group: daily-full-pipeline-${{ github.ref }}
-      cancel-in-progress: false
     outputs:
       caller_repair_workflow_blob_sha: ${{ steps.caller_workflows.outputs.repair_blob_sha }}
       caller_replay_workflow_blob_sha: ${{ steps.caller_workflows.outputs.replay_blob_sha }}
+      repair_target_date: ${{ steps.repair_result.outputs.target_end_date }}
+      repair_action_count: ${{ steps.repair_result.outputs.action_count }}
+      source_bundle_manifest_path: ${{ steps.source_bundle.outputs.manifest_path }}
+      source_bundle_manifest_sha256: ${{ steps.source_bundle.outputs.manifest_sha256 }}
+      source_bundle_sha: ${{ steps.source_bundle.outputs.source_bundle_sha }}
+      source_bundle_release_id: ${{ steps.source_bundle.outputs.release_id }}
+      source_bundle_commit_sha: ${{ steps.persist_bundle.outputs.source_bundle_commit_sha }}
 
     steps:
       - name: Reject non-main production dispatch
@@ -148,17 +153,43 @@ jobs:
           python scripts/validate_daily_price_history_continuity.py
 
       - name: Summarize recent repair result
+        id: repair_result
         run: |
-          python - <<'PY' >> "$GITHUB_ENV"
+          python - <<'PY'
           import json
+          import os
           from pathlib import Path
 
           report = Path("output/latest/recent_daily_price_gap_repair_latest.json")
           payload = json.loads(report.read_text(encoding="utf-8-sig")) if report.exists() else {}
           actions = payload.get("actions") or []
-          print(f"REPAIR_STATUS={payload.get('status', '')}")
-          print(f"REPAIR_ACTION_COUNT={len(actions)}")
+          values = {
+              "REPAIR_STATUS": payload.get("status", ""),
+              "REPAIR_ACTION_COUNT": len(actions),
+              "REPAIR_TARGET_DATE": payload.get("target_end_date", ""),
+          }
+          with open(os.environ["GITHUB_ENV"], "a", encoding="utf-8") as handle:
+              for key, value in values.items():
+                  handle.write(f"{key}={value}\n")
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as handle:
+              handle.write(f"target_end_date={values['REPAIR_TARGET_DATE']}\n")
+              handle.write(f"action_count={values['REPAIR_ACTION_COUNT']}\n")
           PY
+
+      - name: Build immutable current-day source recovery bundle
+        id: source_bundle
+        env:
+          SOURCE_RECOVERY_RELEASE_ID: daily-source-${{ steps.repair_result.outputs.target_end_date }}-${{ github.run_id }}-${{ github.run_attempt }}
+        run: |
+          python -B scripts/daily_source_recovery_bundle.py build \
+            --repo-root . \
+            --trading-date "$REPAIR_TARGET_DATE" \
+            --release-id "$SOURCE_RECOVERY_RELEASE_ID" \
+            --source-base-sha "$REPAIR_BASE_SHA" \
+            --run-id "$GITHUB_RUN_ID" \
+            --run-attempt "$GITHUB_RUN_ATTEMPT" \
+            --github-output "$GITHUB_OUTPUT"
+          echo "release_id=$SOURCE_RECOVERY_RELEASE_ID" >> "$GITHUB_OUTPUT"
 
       - name: Upload recent daily price gap repair evidence
         if: always()
@@ -173,11 +204,12 @@ jobs:
             output/latest/repair_daily_price_range_check_code_latest.csv
             output/latest/stock_price_history_manifest.*
             output/latest/daily_price_history_continuity_latest.*
+            output/history/daily_source_bundles/${{ steps.repair_result.outputs.target_end_date }}/${{ steps.source_bundle.outputs.release_id }}/
           if-no-files-found: ignore
           retention-days: 30
 
       - name: Commit repaired recent daily price gaps
-        if: env.REPAIR_ACTION_COUNT != '0'
+        id: persist_bundle
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
@@ -188,10 +220,13 @@ jobs:
           git add output/latest/repair_daily_price_range_check_code_latest.csv || true
           git add output/latest/stock_price_history_manifest.* || true
           git add output/latest/daily_price_history_continuity_latest.* || true
+          git add output/latest/official_daily_price_latest.csv
           git add docs/latest/stock_price_history_manifest.* || true
+          git add output/history/daily_source_bundles/"$REPAIR_TARGET_DATE"/"${{ steps.source_bundle.outputs.release_id }}"/
           git status --short
           if git diff --cached --quiet; then
-            echo "No staged recent price changes to commit."
+            echo "::error::Immutable source bundle produced no staged commit."
+            exit 1
           else
             python scripts/validate_recent_daily_price_repair_staged_paths.py
             remote_main_sha="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
@@ -199,15 +234,15 @@ jobs:
               echo "::error::Remote main drifted during recent price repair; refusing to commit or rebase stale outputs."
               exit 1
             fi
-            git commit -m "Refresh recent price gaps and market session evidence"
-            export CI_PUSH_EXPECTED_REMOTE_SHA="$REPAIR_BASE_SHA"
-            bash scripts/ci_push_with_retry.sh main 5
+            git commit -m "Persist ${REPAIR_TARGET_DATE} daily source recovery bundle"
+            git push origin HEAD:main
             local_sha="$(git rev-parse HEAD)"
             remote_main_sha="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
             if [ -z "$remote_main_sha" ] || [ "$local_sha" != "$remote_main_sha" ]; then
               echo "::error::Remote main does not equal the persisted recent price repair commit."
               exit 1
             fi
+            echo "source_bundle_commit_sha=$local_sha" >> "$GITHUB_OUTPUT"
           fi
 
   plan-structured-objective-source-catch-up:
@@ -314,3 +349,352 @@ jobs:
       expected_main_sha: ${{ needs.plan-structured-objective-source-catch-up.outputs.expected_main_sha }}
     secrets:
       PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}
+
+  resume-daily-full-from-source-bundle:
+    needs:
+      - repair-recent-daily-price-gaps
+      - plan-structured-objective-source-catch-up
+      - replay-structured-objective-sources
+    if: >-
+      ${{ always() &&
+          needs.repair-recent-daily-price-gaps.result == 'success' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      SOURCE_TRADING_DATE: ${{ needs.repair-recent-daily-price-gaps.outputs.repair_target_date }}
+      SOURCE_BUNDLE_COMMIT_SHA: ${{ needs.repair-recent-daily-price-gaps.outputs.source_bundle_commit_sha }}
+      SOURCE_BUNDLE_MANIFEST_PATH: ${{ needs.repair-recent-daily-price-gaps.outputs.source_bundle_manifest_path }}
+      SOURCE_BUNDLE_MANIFEST_SHA256: ${{ needs.repair-recent-daily-price-gaps.outputs.source_bundle_manifest_sha256 }}
+      SOURCE_BUNDLE_SHA: ${{ needs.repair-recent-daily-price-gaps.outputs.source_bundle_sha }}
+      SOURCE_BUNDLE_RELEASE_ID: ${{ needs.repair-recent-daily-price-gaps.outputs.source_bundle_release_id }}
+      REPAIR_ACTION_COUNT: ${{ needs.repair-recent-daily-price-gaps.outputs.repair_action_count }}
+      STRUCTURED_PLAN_RESULT: ${{ needs.plan-structured-objective-source-catch-up.result }}
+      STRUCTURED_REPLAY_REQUIRED: ${{ needs.plan-structured-objective-source-catch-up.outputs.should_replay }}
+      STRUCTURED_REPLAY_RESULT: ${{ needs.replay-structured-objective-sources.result }}
+
+    steps:
+      - name: Require production artifact write deploy key
+        shell: bash
+        env:
+          PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}
+        run: |
+          if [ -z "${PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY}" ]; then
+            echo "::error::PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY is required for durable recovery reservation."
+            exit 1
+          fi
+
+      - name: Checkout current main for immutable resume
+        uses: actions/checkout@v6
+        with:
+          ssh-key: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}
+          persist-credentials: true
+          ref: main
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Verify bundle and dispatch exactly one Daily Full resume
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          resume_head_sha="$(git rev-parse origin/main)"
+          if [ "$(git rev-parse HEAD)" != "$resume_head_sha" ]; then
+            echo "::error::Resume checkout does not equal current main."
+            exit 1
+          fi
+          if ! git merge-base --is-ancestor "$SOURCE_BUNDLE_COMMIT_SHA" "$resume_head_sha"; then
+            echo "::error::Source bundle commit is not an ancestor of current main."
+            exit 1
+          fi
+
+          state_path="$RUNNER_TEMP/daily-source-recovery-state.json"
+          fail_recovery() {
+            message="$1"
+            echo "::error::$message"
+            if [ -f "$state_path" ]; then
+              if python -B scripts/daily_source_recovery_bundle.py transition \
+                --state "$state_path" --to failed --output "$state_path.next" \
+                --error "$message"; then
+                mv "$state_path.next" "$state_path"
+              else
+                echo "::error::Unable to persist terminal source-recovery failure state."
+              fi
+            fi
+            exit 1
+          }
+          python -B scripts/daily_source_recovery_bundle.py verify \
+            --repo-root . \
+            --source-commit-sha "$SOURCE_BUNDLE_COMMIT_SHA" \
+            --manifest-path "$SOURCE_BUNDLE_MANIFEST_PATH" \
+            --manifest-sha256 "$SOURCE_BUNDLE_MANIFEST_SHA256" \
+            --source-bundle-sha "$SOURCE_BUNDLE_SHA" \
+            --trading-date "$SOURCE_TRADING_DATE" \
+            --state-output "$state_path"
+          python -B scripts/daily_source_recovery_bundle.py transition \
+            --state "$state_path" --to bundle_committed --output "$state_path.next" \
+            --source-bundle-commit-sha "$SOURCE_BUNDLE_COMMIT_SHA"
+          mv "$state_path.next" "$state_path"
+          if [ "$STRUCTURED_PLAN_RESULT" != success ]; then
+            fail_recovery "Structured objective-source plan completed with result=$STRUCTURED_PLAN_RESULT"
+          fi
+          if [ "$STRUCTURED_REPLAY_RESULT" != success ] && [ "$STRUCTURED_REPLAY_RESULT" != skipped ]; then
+            fail_recovery "Structured objective-source replay completed with result=$STRUCTURED_REPLAY_RESULT"
+          fi
+
+          authority_path="$RUNNER_TEMP/existing-authority.json"
+          if [ "$REPAIR_ACTION_COUNT" = 0 ] && [ "$STRUCTURED_REPLAY_REQUIRED" != true ]; then
+            python -B scripts/daily_source_recovery_bundle.py authority-status \
+              --repo-root . \
+              --trading-date "$SOURCE_TRADING_DATE" \
+              --source-commit-sha "$SOURCE_BUNDLE_COMMIT_SHA" \
+              --manifest-path "$SOURCE_BUNDLE_MANIFEST_PATH" \
+              --manifest-sha256 "$SOURCE_BUNDLE_MANIFEST_SHA256" \
+              --source-bundle-sha "$SOURCE_BUNDLE_SHA" \
+              --output "$authority_path"
+          else
+            printf '%s\n' '{"resume_required":true,"existing_authority":{}}' > "$authority_path"
+          fi
+          if [ "$(python -c 'import json,sys; print(str(json.load(open(sys.argv[1], encoding="utf-8"))["resume_required"]).lower())' "$authority_path")" = false ]; then
+            authority_fields="$(python - "$authority_path" <<'PY'
+          import json
+          import sys
+
+          identity = json.load(open(sys.argv[1], encoding="utf-8"))["existing_authority"]
+          print(identity["release_id"], identity["generation_id"], identity["commit_sha"])
+          PY
+            )"
+            read -r authority_release_id authority_generation_id authority_commit_sha <<< "$authority_fields"
+            python -B scripts/daily_source_recovery_bundle.py transition \
+              --state "$state_path" --to resume_not_required --output "$state_path.next" \
+              --existing-authority-release-id "$authority_release_id" \
+              --existing-authority-generation-id "$authority_generation_id" \
+              --existing-authority-commit-sha "$authority_commit_sha"
+            mv "$state_path.next" "$state_path"
+            python -B scripts/daily_source_recovery_bundle.py transition \
+              --state "$state_path" --to confirm_source_gate --output "$state_path.next"
+            mv "$state_path.next" "$state_path"
+            exit 0
+          fi
+
+          correlation_id="daily-source-${SOURCE_TRADING_DATE}"
+          expected_title="Daily Full Pipeline | recovery=${correlation_id}"
+          existing_runs="$RUNNER_TEMP/daily-full-existing-runs.json"
+          api_ok=false
+          for api_attempt in 1 2 3; do
+            if gh run list --workflow daily_full_pipeline.yml --branch main --event workflow_dispatch --limit 100 \
+              --json databaseId,attempt,createdAt,event,workflowName,headSha,displayTitle,status,conclusion,url \
+              > "$existing_runs"; then
+              api_ok=true
+              break
+            fi
+            sleep 5
+          done
+          if [ "$api_ok" != true ]; then
+            fail_recovery "Unable to list existing Daily Full recovery runs after bounded API retries"
+          fi
+          if ! python - "$existing_runs" "$expected_title" <<'PY'
+          import json
+          import sys
+          from pathlib import Path
+          from scripts.daily_source_recovery_bundle import reject_existing_recovery_run
+
+          reject_existing_recovery_run(
+              json.loads(Path(sys.argv[1]).read_text(encoding="utf-8")),
+              expected_display_title=sys.argv[2],
+          )
+          PY
+          then
+            fail_recovery "Daily Full recovery run already exists for this trading date"
+          fi
+          baseline_run_id="$(python - "$existing_runs" <<'PY'
+          import json
+          import sys
+          from pathlib import Path
+
+          runs = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+          print(max((int(item.get("databaseId") or 0) for item in runs), default=0))
+          PY
+          )"
+          dispatch_started_at="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          reservation_path="output/history/daily_source_recovery_reservations/${SOURCE_TRADING_DATE}.json"
+          if [ -e "$reservation_path" ]; then
+            fail_recovery "Daily Full recovery dispatch reservation already exists for this trading date"
+          fi
+          python -B scripts/daily_source_recovery_bundle.py reserve \
+            --repo-root . \
+            --trading-date "$SOURCE_TRADING_DATE" \
+            --source-commit-sha "$SOURCE_BUNDLE_COMMIT_SHA" \
+            --manifest-path "$SOURCE_BUNDLE_MANIFEST_PATH" \
+            --manifest-sha256 "$SOURCE_BUNDLE_MANIFEST_SHA256" \
+            --source-bundle-sha "$SOURCE_BUNDLE_SHA" \
+            --baseline-run-id "$baseline_run_id" \
+            --dispatch-started-at "$dispatch_started_at" \
+            --expected-display-title "$expected_title"
+          reservation_sha256="$(python -c 'import hashlib,sys; print(hashlib.sha256(open(sys.argv[1], "rb").read()).hexdigest())' "$reservation_path")"
+          git add -- output/history/daily_source_recovery_reservations/"${SOURCE_TRADING_DATE}.json"
+          staged_paths="$(git diff --cached --name-only)"
+          if [ "$staged_paths" != "$reservation_path" ]; then
+            fail_recovery "Durable recovery reservation staged path set is not exact: $staged_paths"
+          fi
+          git diff --cached --check
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Reserve Daily Full recovery for ${SOURCE_TRADING_DATE}"
+          if ! git push origin HEAD:main; then
+            fail_recovery "Durable Daily Full recovery reservation push failed or is uncertain"
+          fi
+          resume_head_sha="$(git rev-parse HEAD)"
+          remote_main_after_reservation="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+          if [ "$remote_main_after_reservation" != "$resume_head_sha" ]; then
+            fail_recovery "Durable recovery reservation commit does not equal remote main"
+          fi
+          python -B scripts/daily_source_recovery_bundle.py transition \
+            --state "$state_path" --to resume_dispatched --output "$state_path.next" \
+            --resume-workflow-path ".github/workflows/daily_full_pipeline.yml" \
+            --resume-baseline-run-id "$baseline_run_id" \
+            --resume-dispatch-started-at "$dispatch_started_at" \
+            --resume-expected-head-sha "$resume_head_sha" \
+            --resume-expected-display-title "$expected_title" \
+            --resume-reservation-path "$reservation_path" \
+            --resume-reservation-sha256 "$reservation_sha256"
+          mv "$state_path.next" "$state_path"
+
+          if ! gh workflow run daily_full_pipeline.yml --ref main \
+              -f run_raw_health_check=false \
+              -f recovery_correlation_id="$correlation_id" \
+              -f recovery_expected_head_sha="$resume_head_sha" \
+              -f recovery_reservation_path="$reservation_path" \
+              -f recovery_reservation_sha256="$reservation_sha256" \
+              -f recovery_source_bundle_commit_sha="$SOURCE_BUNDLE_COMMIT_SHA" \
+              -f recovery_source_bundle_manifest_path="$SOURCE_BUNDLE_MANIFEST_PATH" \
+              -f recovery_source_bundle_manifest_sha256="$SOURCE_BUNDLE_MANIFEST_SHA256" \
+              -f recovery_source_bundle_sha="$SOURCE_BUNDLE_SHA" \
+              -f recovery_source_bundle_trading_date="$SOURCE_TRADING_DATE"; then
+            fail_recovery "Daily Full dispatch command failed or is uncertain"
+          fi
+
+          correlated_json=""
+          for poll_attempt in $(seq 1 30); do
+            runs_json="$RUNNER_TEMP/daily-full-runs.json"
+            api_ok=false
+            for api_attempt in 1 2 3; do
+              if gh run list --workflow daily_full_pipeline.yml --branch main --event workflow_dispatch --limit 30 \
+                --json databaseId,attempt,createdAt,event,workflowName,headSha,displayTitle,status,conclusion,url \
+                > "$runs_json"; then
+                api_ok=true
+                break
+              fi
+              sleep 5
+            done
+            if [ "$api_ok" != true ]; then
+              fail_recovery "Unable to list Daily Full runs after bounded API retries"
+            fi
+            if ! correlated_json="$(python - "$runs_json" "$baseline_run_id" "$dispatch_started_at" "$resume_head_sha" "$expected_title" <<'PY'
+          import json
+          import sys
+          from pathlib import Path
+          from scripts.daily_source_recovery_bundle import select_correlated_run
+
+          runs = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+          selected = select_correlated_run(
+              runs,
+              baseline_run_id=int(sys.argv[2]),
+              dispatch_started_at=sys.argv[3],
+              expected_head_sha=sys.argv[4],
+              expected_display_title=sys.argv[5],
+          )
+          print(json.dumps(selected or {}, separators=(",", ":")))
+          PY
+            )"; then
+              fail_recovery "Daily Full run correlation is ambiguous or invalid"
+            fi
+            if [ "$correlated_json" != "{}" ]; then
+              break
+            fi
+            sleep 10
+          done
+          if [ -z "$correlated_json" ] || [ "$correlated_json" = "{}" ]; then
+            fail_recovery "No unique Daily Full run matched the bounded dispatch window"
+          fi
+          if ! run_id="$(python -c 'import json,sys; print(json.loads(sys.argv[1])["databaseId"])' "$correlated_json")" || \
+             ! run_url="$(python -c 'import json,sys; print(json.loads(sys.argv[1])["url"])' "$correlated_json")"; then
+            fail_recovery "Correlated Daily Full run identity is incomplete"
+          fi
+          python -B scripts/daily_source_recovery_bundle.py transition \
+            --state "$state_path" --to resume_running --output "$state_path.next" \
+            --resume-workflow-run-id "$run_id" \
+            --resume-workflow-run-attempt 1 \
+            --resume-workflow-run-url "$run_url"
+          mv "$state_path.next" "$state_path"
+
+          for completion_poll in $(seq 1 240); do
+            view_json="$RUNNER_TEMP/daily-full-run-view.json"
+            api_ok=false
+            for api_attempt in 1 2 3; do
+              if gh run view "$run_id" --json databaseId,attempt,event,workflowName,headSha,displayTitle,status,conclusion,url > "$view_json"; then
+                api_ok=true
+                break
+              fi
+              sleep 5
+            done
+            if [ "$api_ok" != true ]; then
+              fail_recovery "Unable to poll Daily Full completion after bounded API retries"
+            fi
+            if ! status_line="$(python - "$view_json" "$run_id" "$resume_head_sha" "$expected_title" <<'PY'
+          import json
+          import sys
+          from pathlib import Path
+
+          run = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+          if int(run.get("databaseId") or 0) != int(sys.argv[2]):
+              raise SystemExit("Daily Full run id changed during completion polling")
+          if run.get("headSha") != sys.argv[3] or run.get("displayTitle") != sys.argv[4]:
+              raise SystemExit("Daily Full run identity changed during completion polling")
+          if run.get("event") != "workflow_dispatch" or int(run.get("attempt") or 0) != 1:
+              raise SystemExit("Daily Full run event/attempt identity mismatch")
+          print(run.get("status") or "", run.get("conclusion") or "")
+          PY
+            )"; then
+              fail_recovery "Daily Full completion identity changed or is invalid"
+            fi
+            read -r status conclusion <<< "$status_line"
+            if [ "$status" = completed ]; then
+              if [ "$conclusion" != success ]; then
+                python -B scripts/daily_source_recovery_bundle.py transition \
+                  --state "$state_path" --to failed --output "$state_path.next" \
+                  --error "Daily Full resume completed with conclusion=$conclusion"
+                mv "$state_path.next" "$state_path"
+                exit 1
+              fi
+              python -B scripts/daily_source_recovery_bundle.py transition \
+                --state "$state_path" --to resume_succeeded --output "$state_path.next" \
+                --resume-conclusion success
+              mv "$state_path.next" "$state_path"
+              python -B scripts/daily_source_recovery_bundle.py transition \
+                --state "$state_path" --to confirm_source_gate --output "$state_path.next"
+              mv "$state_path.next" "$state_path"
+              exit 0
+            fi
+            sleep 30
+          done
+          python -B scripts/daily_source_recovery_bundle.py transition \
+            --state "$state_path" --to failed --output "$state_path.next" \
+            --error "Daily Full resume completion polling timed out"
+          mv "$state_path.next" "$state_path"
+          exit 1
+
+      - name: Upload source recovery resume state
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-source-recovery-state-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/daily-source-recovery-state.json
+          if-no-files-found: error
+          retention-days: 30

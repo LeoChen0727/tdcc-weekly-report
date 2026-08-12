@@ -8,6 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 ALLOWED_EXACT = {
+    "data/market_calendar/exceptional_non_trading_days.csv",
     "output/latest/recent_daily_price_gap_repair_latest.json",
     "output/latest/recent_daily_price_gap_repair_latest.md",
     "output/latest/repair_daily_price_range_check_code_latest.csv",
@@ -24,6 +25,15 @@ ALLOWED_PATTERNS = (
     re.compile(r"^data/daily_price/(?:daily_price_)?20\d{6}\.csv$"),
     re.compile(r"^data/stock_price_history/[0-9A-Za-z_-]+\.csv$"),
     re.compile(r"^output/latest/repair_daily_price_range_latest\.(?:csv|json|md)$"),
+    re.compile(r"^output/latest/official_daily_price_latest\.csv$"),
+    re.compile(
+        r"^output/history/daily_source_bundles/(20\d{6})/"
+        r"[A-Za-z0-9][A-Za-z0-9._:-]{7,127}/(?:"
+        r"manifest\.json|state\.json|market_session_status\.json|"
+        r"files/01-20\d{6}\.csv|files/02-daily_price_20\d{6}\.csv|"
+        r"files/03-official_daily_price_latest\.csv|"
+        r"files/04-exceptional_non_trading_days\.csv)$"
+    ),
 )
 
 

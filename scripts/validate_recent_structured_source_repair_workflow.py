@@ -9,6 +9,7 @@ RECENT_REPAIR_WORKFLOW = ROOT / ".github" / "workflows" / "repair_recent_daily_p
 HISTORICAL_REPLAY_WORKFLOW = (
     ROOT / ".github" / "workflows" / "historical_structured_source_replay.yml"
 )
+DAILY_FULL_WORKFLOW = ROOT / ".github" / "workflows" / "daily_full_pipeline.yml"
 
 
 def _job_block(text: str, job_name: str) -> str:
@@ -16,6 +17,14 @@ def _job_block(text: str, job_name: str) -> str:
         rf"(?ms)^  {re.escape(job_name)}:\s*\n(.*?)(?=^  [A-Za-z0-9_-]+:\s*$|\Z)"
     )
     match = pattern.search(text)
+    return match.group(0) if match else ""
+
+
+def _step_block(job_block: str, step_name: str) -> str:
+    pattern = re.compile(
+        rf"(?ms)^      - name: {re.escape(step_name)}\s*\n(.*?)(?=^      - name: |\Z)"
+    )
+    match = pattern.search(job_block)
     return match.group(0) if match else ""
 
 
@@ -37,7 +46,7 @@ def _job_mapping(block: str, section: str) -> dict[str, str]:
     return mapping
 
 
-def validate(recent_text: str, replay_text: str) -> list[str]:
+def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[str]:
     errors: list[str] = []
     workflow_call_marker = "\n  workflow_call:\n"
     workflow_dispatch_marker = "\n  workflow_dispatch:\n"
@@ -114,8 +123,8 @@ def validate(recent_text: str, replay_text: str) -> list[str]:
         'remote_main_sha" != "$REPAIR_BASE_SHA"': (
             "raw repair must reject remote-main drift before committing outputs"
         ),
-        'export CI_PUSH_EXPECTED_REMOTE_SHA="$REPAIR_BASE_SHA"': (
-            "raw repair push helper must use immutable-base mode"
+        'git push origin HEAD:main': (
+            "raw repair must publish one fail-closed source-bundle commit without rebase/retry"
         ),
         "python scripts/validate_recent_daily_price_repair_staged_paths.py": (
             "raw repair must validate an exact data-only staged index before commit"
@@ -171,6 +180,97 @@ def validate(recent_text: str, replay_text: str) -> list[str]:
         "repair_market_index_base_date: \"\"": (
             "automatic catch-up must not invent a base repair"
         ),
+        "Build immutable current-day source recovery bundle": (
+            "recent repair must build a durable date-scoped source bundle before commit"
+        ),
+        "python -B scripts/daily_source_recovery_bundle.py build": (
+            "recent repair must use the canonical source bundle builder"
+        ),
+        'git add output/history/daily_source_bundles/"$REPAIR_TARGET_DATE"/': (
+            "recent repair must stage the immutable source bundle in the same source commit"
+        ),
+        "resume-daily-full-from-source-bundle:": (
+            "recent repair must contain one bounded Daily Full resume job"
+        ),
+        "fail_recovery() {": (
+            "resume uncertainty and downstream prerequisite failures must persist a terminal state"
+        ),
+        "STRUCTURED_PLAN_RESULT: ${{ needs.plan-structured-objective-source-catch-up.result }}": (
+            "resume must observe the structured plan result even when it failed"
+        ),
+        "STRUCTURED_REPLAY_RESULT: ${{ needs.replay-structured-objective-sources.result }}": (
+            "resume must observe the structured replay result even when it failed or was skipped"
+        ),
+        "source_bundle_commit_sha": "resume must retain the immutable source commit identity",
+        "REPAIR_ACTION_COUNT: ${{ needs.repair-recent-daily-price-gaps.outputs.repair_action_count }}": (
+            "resume must receive the exact raw repair action count"
+        ),
+        "STRUCTURED_REPLAY_REQUIRED: ${{ needs.plan-structured-objective-source-catch-up.outputs.should_replay }}": (
+            "resume must distinguish a structured replay from a no-op plan"
+        ),
+        'if [ "$REPAIR_ACTION_COUNT" = 0 ] && [ "$STRUCTURED_REPLAY_REQUIRED" != true ]; then': (
+            "completed authority may suppress dispatch only for a true zero-change recovery"
+        ),
+        "authority-status": (
+            "resume must prove whether the current date already has completed authority"
+        ),
+        '--source-commit-sha "$SOURCE_BUNDLE_COMMIT_SHA"': (
+            "authority shortcut must bind the exact immutable bundle commit"
+        ),
+        '--source-bundle-sha "$SOURCE_BUNDLE_SHA"': (
+            "authority shortcut must bind the exact immutable bundle identity"
+        ),
+        "--to resume_not_required": (
+            "completed same-date authority must use the no-dispatch terminal path"
+        ),
+        'correlation_id="daily-source-${SOURCE_TRADING_DATE}"': (
+            "resume must use one durable display-title reservation per trading date"
+        ),
+        "reject_existing_recovery_run": (
+            "resume must reject an existing same-date Daily Full run before POST"
+        ),
+        "python -B scripts/daily_source_recovery_bundle.py reserve": (
+            "resume must persist an append-only date-scoped reservation before POST"
+        ),
+        'git add -- output/history/daily_source_recovery_reservations/"${SOURCE_TRADING_DATE}.json"': (
+            "resume must stage only the durable reservation path"
+        ),
+        'git push origin HEAD:main': (
+            "resume must publish the reservation with a direct fail-closed push"
+        ),
+        '--resume-reservation-path "$reservation_path"': (
+            "resume state must retain the durable reservation path"
+        ),
+        '--resume-reservation-sha256 "$reservation_sha256"': (
+            "resume state must retain the durable reservation SHA"
+        ),
+        "baseline_run_id=\"$(python - \"$existing_runs\"": (
+            "resume must capture the pre-dispatch Daily Full baseline run id"
+        ),
+        "dispatch_started_at=\"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"": (
+            "resume must preserve its exact dispatch execution time"
+        ),
+        "expected_title=\"Daily Full Pipeline | recovery=${correlation_id}\"": (
+            "resume must use an exact unique display title"
+        ),
+        "resume_head_sha=\"$(git rev-parse origin/main)\"": (
+            "resume must bind the dispatch to an exact current-main head SHA"
+        ),
+        '-f recovery_expected_head_sha="$resume_head_sha"': (
+            "resume must pass the reserved event head SHA to Daily Full"
+        ),
+        '-f recovery_reservation_path="$reservation_path"': (
+            "resume must pass the exact durable reservation path to Daily Full"
+        ),
+        '-f recovery_reservation_sha256="$reservation_sha256"': (
+            "resume must pass the exact durable reservation SHA to Daily Full"
+        ),
+        "--resume-workflow-run-attempt 1": "resume must bind the correlated run to attempt 1",
+        "for poll_attempt in $(seq 1 30)": "resume correlation polling must be bounded",
+        "for completion_poll in $(seq 1 240)": "resume completion polling must be bounded",
+        "for api_attempt in 1 2 3": "resume API retries must be bounded",
+        "select_correlated_run": "resume must use the exact correlation contract",
+        "--to confirm_source_gate": "successful resume must close the source-gate state machine",
     }
     for literal, purpose in replay_required.items():
         if literal not in workflow_call_block:
@@ -200,7 +300,29 @@ def validate(recent_text: str, replay_text: str) -> list[str]:
         "uses: ./.github/workflows/historical_structured_source_replay.yml"
     ) != 1:
         errors.append("recent repair must call the reusable replay workflow exactly once")
+    authority_start = recent_text.find(
+        "python -B scripts/daily_source_recovery_bundle.py authority-status"
+    )
+    authority_end = recent_text.find('--output "$authority_path"', authority_start)
+    authority_call = (
+        recent_text[authority_start : authority_end + len('--output "$authority_path"')]
+        if authority_start >= 0 and authority_end >= authority_start
+        else ""
+    )
+    for literal, purpose in {
+        '--source-commit-sha "$SOURCE_BUNDLE_COMMIT_SHA"': "exact immutable bundle commit",
+        '--manifest-path "$SOURCE_BUNDLE_MANIFEST_PATH"': "exact immutable manifest path",
+        '--manifest-sha256 "$SOURCE_BUNDLE_MANIFEST_SHA256"': "exact immutable manifest SHA",
+        '--source-bundle-sha "$SOURCE_BUNDLE_SHA"': "exact immutable bundle identity",
+    }.items():
+        if literal not in authority_call:
+            errors.append(f"authority shortcut must bind the {purpose}")
     reusable_job = _job_block(recent_text, "replay-structured-objective-sources")
+    repair_job = _job_block(recent_text, "repair-recent-daily-price-gaps")
+    if "    concurrency:" in repair_job:
+        errors.append(
+            "recent repair must hold the shared Daily Full concurrency lock for the entire workflow"
+        )
     expected_secrets = {
         "PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY": (
             "${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}"
@@ -216,7 +338,6 @@ def validate(recent_text: str, replay_text: str) -> list[str]:
         "python scripts/replay_historical_structured_sources.py": (
             "must not bypass the reusable replay workflow"
         ),
-        "gh workflow run": "must not self-dispatch GitHub Actions",
         "actions/github-script": "must not self-dispatch GitHub Actions",
         "build_daily_candidate_model_layer.py": "must remain data-only",
         "research_backtest_pipeline": "must remain data-only",
@@ -232,6 +353,37 @@ def validate(recent_text: str, replay_text: str) -> list[str]:
     for literal, purpose in forbidden.items():
         if literal in recent_text:
             errors.append(f"recent structured-source catch-up {purpose}: found {literal!r}")
+    if "ci_push_with_retry.sh" in recent_text:
+        errors.append("recent source-bundle commit must not rebase or retry a post-validation push")
+    if recent_text.count("gh workflow run daily_full_pipeline.yml") != 1:
+        errors.append("recent recovery must dispatch Daily Full exactly once")
+    uncertainty_failures = (
+        "Unable to list existing Daily Full recovery runs after bounded API retries",
+        "Daily Full recovery run already exists for this trading date",
+        "Daily Full recovery dispatch reservation already exists for this trading date",
+        "Durable recovery reservation staged path set is not exact",
+        "Durable Daily Full recovery reservation push failed or is uncertain",
+        "Durable recovery reservation commit does not equal remote main",
+        "Daily Full dispatch command failed or is uncertain",
+        "Unable to list Daily Full runs after bounded API retries",
+        "Daily Full run correlation is ambiguous or invalid",
+        "No unique Daily Full run matched the bounded dispatch window",
+        "Unable to poll Daily Full completion after bounded API retries",
+        "Daily Full completion identity changed or is invalid",
+    )
+    for message in uncertainty_failures:
+        if f'fail_recovery "{message}' not in recent_text:
+            errors.append(
+                "recent recovery must persist every dispatch/API/correlation uncertainty "
+                f"as terminal: missing {message!r}"
+            )
+    other_dispatches = [
+        line.strip()
+        for line in recent_text.splitlines()
+        if "gh workflow run" in line and "daily_full_pipeline.yml" not in line
+    ]
+    if other_dispatches:
+        errors.append(f"recent recovery contains an unapproved workflow dispatch: {other_dispatches}")
     if "git add output/latest/data_freshness_latest" in replay_text:
         errors.append(
             "historical structured-source replay must not independently publish the authoritative freshness surface"
@@ -241,7 +393,138 @@ def validate(recent_text: str, replay_text: str) -> list[str]:
     ):
         errors.append("recent repair market-session preflight must be decision-only with write_files=False")
 
+    daily_full_required = {
+        "run-name: ${{ inputs.recovery_correlation_id != '' && format('Daily Full Pipeline | recovery={0}', inputs.recovery_correlation_id) || 'Daily Full Pipeline' }}": (
+            "Daily Full must expose the exact recovery display-title contract"
+        ),
+        "recovery_expected_head_sha:": "Daily Full must declare the reserved event head input",
+        "recovery_reservation_path:": "Daily Full must declare the durable reservation path input",
+        "recovery_reservation_sha256:": "Daily Full must declare the durable reservation SHA input",
+        "recovery event SHA mismatch": "Daily Full must reject ref-resolution drift before source work",
+        "recovery correlation id must equal the date-scoped bundle identity": (
+            "Daily Full must reject arbitrary recovery concurrency identities"
+        ),
+        "ref: ${{ github.sha }}": "Daily Full preflight must checkout its immutable event SHA",
+        "group: ${{ inputs.recovery_correlation_id != '' && format('daily-full-recovery-{0}', inputs.recovery_correlation_id) || format('daily-full-pipeline-{0}', github.ref) }}": (
+            "Daily Full recovery must avoid deadlocking behind the repair workflow while normal runs remain serialized"
+        ),
+        "recovery_source_bundle_commit_sha:": "Daily Full must declare immutable source commit input",
+        "recovery_source_bundle_manifest_path:": "Daily Full must declare exact manifest path input",
+        "recovery_source_bundle_manifest_sha256:": "Daily Full must declare exact manifest SHA input",
+        "recovery_source_bundle_sha:": "Daily Full must declare canonical bundle identity input",
+        "recovery_source_bundle_trading_date:": "Daily Full must declare exact recovery date input",
+        "recovery source bundle inputs must be all-or-none": (
+            "Daily Full must reject partial recovery identities"
+        ),
+        "recovery dispatch requires github.run_attempt=1": (
+            "Daily Full must reject rerun attempts for a reserved recovery dispatch"
+        ),
+        "Materialize immutable recovery source bundle for preflight": (
+            "Daily Full preflight must materialize the immutable source bundle"
+        ),
+        "Verify durable recovery dispatch reservation": (
+            "Daily Full must reject recovery dispatches without an exact reservation commit"
+        ),
+        "verify-reservation": "Daily Full must use the canonical reservation verifier",
+        "Materialize immutable recovery source bundle for production": (
+            "Daily Full production must independently rematerialize the immutable source bundle"
+        ),
+        "market-session preflight recovery bundle identity mismatch": (
+            "Daily Full must carry bundle identity across job artifacts"
+        ),
+        "if: env.RECOVERY_SOURCE_BUNDLE_COMMIT_SHA == ''": (
+            "mutable price acquisition must be skipped for a verified recovery bundle"
+        ),
+    }
+    for literal, purpose in daily_full_required.items():
+        if literal not in daily_full_text:
+            errors.append(f"{purpose}: missing {literal!r}")
+    if daily_full_text.count("python -B scripts/daily_source_recovery_bundle.py verify \\") != 2:
+        errors.append("Daily Full must verify the immutable source bundle exactly twice")
+    if daily_full_text.count("if: env.RECOVERY_SOURCE_BUNDLE_COMMIT_SHA == ''") != 3:
+        errors.append("Daily Full must skip exactly the fetch, inspect, and repair mutable source steps")
+    daily_full_job = _job_block(daily_full_text, "daily-full-pipeline")
+    preflight_job = _job_block(daily_full_text, "market-session-preflight")
+    pdf_job = _job_block(daily_full_text, "daily-pdf-dfkai-replay")
+    production_required = {
+        "if: github.run_attempt == 1 && needs.market-session-preflight.outputs.should_run_daily_pipeline == 'true'": (
+            "production job must independently reject rerun attempts"
+        ),
+        "RECOVERY_EXPECTED_HEAD_SHA: ${{ inputs.recovery_expected_head_sha }}": (
+            "production job must receive the reserved event SHA"
+        ),
+        "RECOVERY_SOURCE_BUNDLE_COMMIT_SHA: ${{ inputs.recovery_source_bundle_commit_sha }}": (
+            "production job must receive the immutable bundle commit"
+        ),
+        "RECOVERY_RESERVATION_PATH: ${{ inputs.recovery_reservation_path }}": (
+            "production job must receive the exact reservation path"
+        ),
+        "RECOVERY_RESERVATION_SHA256: ${{ inputs.recovery_reservation_sha256 }}": (
+            "production job must receive the exact reservation SHA"
+        ),
+        "RECOVERY_SOURCE_BUNDLE_MANIFEST_PATH: ${{ inputs.recovery_source_bundle_manifest_path }}": (
+            "production job must receive the exact bundle manifest path"
+        ),
+        "RECOVERY_SOURCE_BUNDLE_MANIFEST_SHA256: ${{ inputs.recovery_source_bundle_manifest_sha256 }}": (
+            "production job must receive the exact bundle manifest SHA"
+        ),
+        "RECOVERY_SOURCE_BUNDLE_SHA: ${{ inputs.recovery_source_bundle_sha }}": (
+            "production job must receive the canonical bundle SHA"
+        ),
+        "RECOVERY_SOURCE_BUNDLE_TRADING_DATE: ${{ inputs.recovery_source_bundle_trading_date }}": (
+            "production job must receive the exact bundle trading date"
+        ),
+        "Materialize immutable recovery source bundle for production": (
+            "production job must materialize the immutable bundle before validators and producers"
+        ),
+        "market-session preflight recovery bundle identity mismatch": (
+            "production job must verify the downloaded bundle identity"
+        ),
+    }
+    for literal, purpose in production_required.items():
+        if literal not in daily_full_job:
+            errors.append(f"{purpose}: missing {literal!r} from daily-full-pipeline job")
+    if daily_full_job.count("if: env.RECOVERY_SOURCE_BUNDLE_COMMIT_SHA == ''") != 3:
+        errors.append("Daily Full production job must skip exactly its three mutable source steps")
+    for step_name in (
+        "Fetch latest official daily price",
+        "Inspect official daily price fetch result",
+        "Repair missing daily price source files",
+    ):
+        step = _step_block(daily_full_job, step_name)
+        if "if: env.RECOVERY_SOURCE_BUNDLE_COMMIT_SHA == ''" not in step:
+            errors.append(
+                f"Daily Full mutable source step must be recovery-gated: {step_name}"
+            )
+    if "Materialize immutable recovery source bundle for production" in pdf_job:
+        errors.append("PDF replay job must not materialize the Daily Full recovery source bundle")
+    reservation_position = preflight_job.find("Verify durable recovery dispatch reservation")
+    preflight_materialize_position = preflight_job.find(
+        "Materialize immutable recovery source bundle for preflight"
+    )
+    if (
+        reservation_position < 0
+        or preflight_materialize_position < 0
+        or reservation_position >= preflight_materialize_position
+    ):
+        errors.append(
+            "Daily Full preflight must verify the durable reservation before bundle materialization"
+        )
+    production_order = (
+        "Materialize immutable recovery source bundle for production",
+        "Download market-session preflight evidence",
+        "Validate market-session preflight artifact identity",
+        "Capture pre-run freshness baseline",
+        "Validate Apps Script workflow triggers",
+    )
+    positions = [daily_full_job.find(literal) for literal in production_order]
+    if any(position < 0 for position in positions) or positions != sorted(positions):
+        errors.append(
+            "Daily Full production must materialize the immutable bundle before artifact identity and all validators"
+        )
+
     ordered = (
+        "Build immutable current-day source recovery bundle",
         "Commit repaired recent daily price gaps",
         "plan-structured-objective-source-catch-up:",
         "Checkout current main for structured catch-up planning",
@@ -253,6 +536,12 @@ def validate(recent_text: str, replay_text: str) -> list[str]:
         "remote_main_sha_after_plan=",
         "replay-structured-objective-sources:",
         "uses: ./.github/workflows/historical_structured_source_replay.yml",
+        "resume-daily-full-from-source-bundle:",
+        "Verify bundle and dispatch exactly one Daily Full resume",
+        "reject_existing_recovery_run",
+        "python -B scripts/daily_source_recovery_bundle.py reserve",
+        'git push origin HEAD:main',
+        "gh workflow run daily_full_pipeline.yml",
     )
     cursor = -1
     for literal in ordered:
@@ -273,11 +562,14 @@ def main() -> int:
         errors.append(f"missing workflow: {RECENT_REPAIR_WORKFLOW}")
     if not HISTORICAL_REPLAY_WORKFLOW.exists():
         errors.append(f"missing workflow: {HISTORICAL_REPLAY_WORKFLOW}")
+    if not DAILY_FULL_WORKFLOW.exists():
+        errors.append(f"missing workflow: {DAILY_FULL_WORKFLOW}")
     if not errors:
         errors.extend(
             validate(
                 RECENT_REPAIR_WORKFLOW.read_text(encoding="utf-8"),
                 HISTORICAL_REPLAY_WORKFLOW.read_text(encoding="utf-8"),
+                DAILY_FULL_WORKFLOW.read_text(encoding="utf-8"),
             )
         )
     if errors:
