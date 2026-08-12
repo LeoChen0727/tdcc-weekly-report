@@ -2163,7 +2163,10 @@ def test_recent_price_gap_workflow_bundles_zero_repair_without_publishing_market
     assert "Reject non-main production dispatch" in text
     assert "github.ref_name != 'main'" in text
     assert "ref: main" in text
-    assert "if: env.REPAIR_ACTION_COUNT != '0'" not in text
+    assert not any(
+        line.strip().lower().startswith("if:") and "REPAIR_ACTION_COUNT" in line
+        for line in text.splitlines()
+    )
     assert "Build immutable current-day source recovery bundle" in text
     assert "resume-daily-full-from-source-bundle:" in text
     assert "MARKET_SESSION_CHANGE_COUNT" not in text
@@ -2179,14 +2182,21 @@ def test_recent_price_gap_boundary_rejects_zero_repair_commit_guard() -> None:
     )
     assert boundaries.validate_recent_price_gap_workflow_contract(text) == []
 
-    guarded = text.replace(
-        "      - name: Commit repaired recent daily price gaps\n",
-        "      - name: Commit repaired recent daily price gaps\n"
+    for guard in (
         "        if: env.REPAIR_ACTION_COUNT != '0'\n",
-        1,
-    )
-    errors = boundaries.validate_recent_price_gap_workflow_contract(guarded)
-    assert any("even when repair action count is zero" in error for error in errors)
+        "        if: ${{ env.REPAIR_ACTION_COUNT != '0' }}\n",
+        "        if: >-\n"
+        "          ${{ env.REPAIR_ACTION_COUNT != '0' }}\n",
+        "        if: >- # folded condition\n"
+        "          ${{ env.REPAIR_ACTION_COUNT != '0' }}\n",
+    ):
+        guarded = text.replace(
+            "      - name: Commit repaired recent daily price gaps\n",
+            "      - name: Commit repaired recent daily price gaps\n" + guard,
+            1,
+        )
+        errors = boundaries.validate_recent_price_gap_workflow_contract(guarded)
+        assert any("even when repair action count is zero" in error for error in errors)
 
 
 def test_recent_price_gap_boundary_requires_immutable_bundle_resume() -> None:

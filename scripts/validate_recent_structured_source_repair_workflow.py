@@ -416,6 +416,9 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         "recovery source bundle inputs must be all-or-none": (
             "Daily Full must reject partial recovery identities"
         ),
+        "recovery dispatch requires github.run_attempt=1": (
+            "Daily Full must reject rerun attempts for a reserved recovery dispatch"
+        ),
         "Materialize immutable recovery source bundle for preflight": (
             "Daily Full preflight must materialize the immutable source bundle"
         ),
@@ -444,6 +447,9 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
     preflight_job = _job_block(daily_full_text, "market-session-preflight")
     pdf_job = _job_block(daily_full_text, "daily-pdf-dfkai-replay")
     production_required = {
+        "if: github.run_attempt == 1 && needs.market-session-preflight.outputs.should_run_daily_pipeline == 'true'": (
+            "production job must independently reject rerun attempts"
+        ),
         "RECOVERY_EXPECTED_HEAD_SHA: ${{ inputs.recovery_expected_head_sha }}": (
             "production job must receive the reserved event SHA"
         ),

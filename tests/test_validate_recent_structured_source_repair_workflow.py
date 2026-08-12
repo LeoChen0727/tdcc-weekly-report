@@ -142,6 +142,14 @@ def test_resume_identity_polling_and_current_day_contract_fail_closed() -> None:
         "recovery source bundle inputs must be all-or-none",
         "recovery inputs optional",
         1,
+    ).replace(
+        "recovery dispatch requires github.run_attempt=1",
+        "recovery rerun attempts are allowed",
+        1,
+    ).replace(
+        "if: github.run_attempt == 1 && needs.market-session-preflight.outputs.should_run_daily_pipeline == 'true'",
+        "if: needs.market-session-preflight.outputs.should_run_daily_pipeline == 'true'",
+        1,
     )
 
     errors = validator.validate(invalid_recent, replay_text, invalid_daily)
@@ -150,6 +158,8 @@ def test_resume_identity_polling_and_current_day_contract_fail_closed() -> None:
     assert any("dispatch Daily Full exactly once" in error for error in errors)
     assert any("unapproved workflow dispatch" in error for error in errors)
     assert any("reject partial recovery identities" in error for error in errors)
+    assert any("reject rerun attempts" in error for error in errors)
+    assert any("independently reject rerun attempts" in error for error in errors)
 
 
 def test_resume_requires_completed_authority_shortcut_and_durable_date_reservation() -> None:

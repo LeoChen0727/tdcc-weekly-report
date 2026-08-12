@@ -930,6 +930,33 @@ def validate_authority_workflow_publishers() -> list[str]:
     return errors
 
 
+def yaml_if_conditions(workflow_text: str) -> list[str]:
+    conditions: list[str] = []
+    lines = workflow_text.splitlines()
+    for index, raw_line in enumerate(lines):
+        match = re.match(
+            r"^(?P<indent>[ \t]*)if\s*:\s*(?P<value>.*)$",
+            raw_line,
+            flags=re.IGNORECASE,
+        )
+        if match is None:
+            continue
+        value = match.group("value").strip()
+        if value == "" or re.fullmatch(r"[>|][+-]?(?:\s+#.*)?", value):
+            base_indent = len(match.group("indent").expandtabs(2))
+            continuation: list[str] = []
+            for candidate in lines[index + 1 :]:
+                if not candidate.strip():
+                    continue
+                candidate_indent = len(candidate) - len(candidate.lstrip(" \t"))
+                if candidate_indent <= base_indent:
+                    break
+                continuation.append(candidate.strip())
+            value = " ".join(continuation)
+        conditions.append(value)
+    return conditions
+
+
 def validate_recent_price_gap_workflow_contract(repair_text: str) -> list[str]:
     errors: list[str] = []
     repair_literals = {
@@ -948,8 +975,12 @@ def validate_recent_price_gap_workflow_contract(repair_text: str) -> list[str]:
         if literal not in repair_text:
             errors.append(f"{message}: missing {literal!r}")
 
-    zero_repair_guard = "if: env.REPAIR_ACTION_COUNT != '0'"
-    if zero_repair_guard in repair_text:
+    zero_repair_guards = [
+        condition
+        for condition in yaml_if_conditions(repair_text)
+        if "REPAIR_ACTION_COUNT" in condition
+    ]
+    for zero_repair_guard in zero_repair_guards:
         errors.append(
             "recent price-gap workflow must persist the immutable current-day source bundle "
             "even when repair action count is zero: "

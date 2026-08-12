@@ -128,6 +128,12 @@ jobs:
           if populated and populated != set(names):
               raise SystemExit(f"recovery source bundle inputs must be all-or-none: {sorted(populated)}")
           if populated:
+              run_attempt = os.environ.get("GITHUB_RUN_ATTEMPT", "").strip()
+              if run_attempt != "1":
+                  raise SystemExit(
+                      "recovery dispatch requires github.run_attempt=1: "
+                      f"observed={run_attempt!r}"
+                  )
               expected_head = values["RECOVERY_EXPECTED_HEAD_SHA"]
               event_head = os.environ.get("GITHUB_SHA", "").strip().lower()
               expected_correlation = (
@@ -560,7 +566,7 @@ jobs:
 
   daily-full-pipeline:
     needs: market-session-preflight
-    if: needs.market-session-preflight.outputs.should_run_daily_pipeline == 'true'
+    if: github.run_attempt == 1 && needs.market-session-preflight.outputs.should_run_daily_pipeline == 'true'
     runs-on: ubuntu-latest
 
     env:
