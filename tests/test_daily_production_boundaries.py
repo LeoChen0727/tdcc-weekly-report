@@ -2092,7 +2092,10 @@ def test_daily_workflow_market_session_gate_is_main_only_and_fail_closed() -> No
     assert "github.ref_name != 'main'" in text
     assert "python scripts/market_session_calendar.py --phase preflight" in text
     assert "record-market-closure:" in text
-    assert "if: needs.market-session-preflight.outputs.should_run_daily_pipeline == 'true'" in text
+    assert (
+        "if: github.run_attempt == 1 && "
+        "needs.market-session-preflight.outputs.should_run_daily_pipeline == 'true'"
+    ) in text
     assert (
         "OFFICIAL_PRICE_TARGET_DATE: "
         "${{ needs.market-session-preflight.outputs.expected_main_price_date }}"
