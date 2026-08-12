@@ -328,6 +328,67 @@ PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_TARGET_SHA256_BY_PATH = {
 PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_PATHS = frozenset(
     PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_TARGET_SHA256_BY_PATH
 )
+PR_SAFE_REVENUE_PROMOTION_PREPARATION_TARGET_ID = (
+    "revenue-unreacted-range-promotion-preparation-exact-target-v1"
+)
+PR_SAFE_REVENUE_PROMOTION_PREPARATION_BASE_CONTENT_REF_SHA = (
+    "6c6f43b6e2bf326ad4da550ec19b14e2675b9aab"
+)
+PR_SAFE_REVENUE_PROMOTION_PREPARATION_HELPER = (
+    "scripts/validate_model_research_workflow_isolation.py"
+)
+PR_SAFE_REVENUE_PROMOTION_PREPARATION_TEST = (
+    "tests/test_model_research_workflow_isolation.py"
+)
+PR_SAFE_REVENUE_PROMOTION_PREPARATION_BASE_SHA256_BY_PATH = {
+    ".github/workflows/daily_model_maintenance_pr_validation.yml": "d714ea85d7a47102186a6f2612eff9e1cc25efd3a50fbc3846e0f997c10ac405",
+    ".github/workflows/research_backtest_pipeline.yml": "72297d14df7a39d290c13b7853ef2e6a30df3c5aa207fb73db4056ac4187c02a",
+    "config/daily_model_validator_independence.csv": "a76e2e232c9b063eb5e62a7f5a562610f305f9069fe20b6db583159e60d720d3",
+    "config/repo_file_lifecycle_inventory.csv": "279a7a44a9f16962fe04cba11c8d4acfcab73c2811f44e6af508ba655c1ba619",
+    "config/repo_production_inventory.csv": "7daee6c91eb11ffb9eba82af552f8dfa11792b8021492ba6907bfcc650dff434",
+    "config/revenue_unreacted_range_anomaly_disposition_registry.csv": None,
+    "config/revenue_unreacted_range_promotion_preparation_registry.csv": None,
+    "docs/latest/model_data_independence_audit_latest.csv": "21ff57d0f79fdcb861ad7284bbc46853ccbd47984a62ea7c05b9cd64ffeaf0fc",
+    "docs/latest/model_data_independence_audit_latest.md": "91aeff1b79e2a318b249354a56e33f88cff39d96d690d5b2413f9727cd8d8335",
+    "docs/specs/revenue_unreacted_range_promotion_preparation_20260812.md": None,
+    "output/latest/model_data_independence_audit_latest.csv": "21ff57d0f79fdcb861ad7284bbc46853ccbd47984a62ea7c05b9cd64ffeaf0fc",
+    "output/latest/model_data_independence_audit_latest.md": "91aeff1b79e2a318b249354a56e33f88cff39d96d690d5b2413f9727cd8d8335",
+    "scripts/model_data_independence.py": "0142a9a26d502c947d8f061ef312f988be2edaac9cd6232b7d064db44c7dbd28",
+    "scripts/validate_model_research_workflow_isolation.py": "c9f5b0a2491136c9c0b4201d48a16674076fb964f39103f553dfcb93d28f97b4",
+    "scripts/validate_revenue_unreacted_range_promotion_preparation.py": None,
+    "tests/test_daily_model_maintenance_pr_validation_workflow.py": "8eca7620ed1eb32abe10618ea1f76078e838643e5f34a79c2de2b6abe796967a",
+    "tests/test_daily_model_parameter_research.py": "9435cd06cada7de500032707a19a626110d5b39d5e2044a365f746877eb62526",
+    "tests/test_daily_published_model_snapshots_pr_safe.py": "05d47d133b2afe0654c1c9755c632ecafdd6b12e5f9311d05a12c105b835d641",
+    "tests/test_model_data_independence.py": "3a713e0ca5778f3d56772dc3fad6f0c5dcf0956cf446ded133eb970e4a16b5c6",
+    "tests/test_model_research_workflow_isolation.py": "682d2083e8fb59c9e48f4e2778693305e4731a5d40b70688278804021bac7d9f",
+    "tests/test_validate_revenue_unreacted_range_promotion_preparation.py": None,
+}
+PR_SAFE_REVENUE_PROMOTION_PREPARATION_TARGET_SHA256_BY_PATH = {
+    ".github/workflows/daily_model_maintenance_pr_validation.yml": "8e3ef3c072749dfcfd3be871a973f4983d79cb7823d485f200c84b6cd129ff25",
+    ".github/workflows/research_backtest_pipeline.yml": "681117802a20c4fc5fb2c7bd143155bfd3bf2ddb3025c8a345fe29e281bb9099",
+    "config/daily_model_validator_independence.csv": "1162da43004570b2836b86f7e0f58ef2f814bfc6e994b4c472de66b5d946c61a",
+    "config/repo_file_lifecycle_inventory.csv": "471c77280afe9322df3df62e9c345abb432d28a40707cfa1d2650fadfa3db80c",
+    "config/repo_production_inventory.csv": "e019a84107f263f77e0e4f7f9e014841ebdb470ad29d58fee91441d00258b17f",
+    "config/revenue_unreacted_range_anomaly_disposition_registry.csv": "8d13efcce3feecf23231b53ec3e880cf82f72bfd4efcb9aaccc99eab18905ecc",
+    "config/revenue_unreacted_range_promotion_preparation_registry.csv": "27251680b40c1f01a516f1243cefbd69282a120ae1f2b573cdc27b78ffea02b4",
+    "docs/latest/model_data_independence_audit_latest.csv": "3b71b276152f93e50ca72c99a459627aa40c75abd15df3a2d9150aca6aab199e",
+    "docs/latest/model_data_independence_audit_latest.md": "ebffaebdfec5a59dc89b742438a494fadebed90922748d2db672eaf21fdf5c6f",
+    "docs/specs/revenue_unreacted_range_promotion_preparation_20260812.md": "3ab32414f4471952bef4e619703556068cd7e12d43439556d4a424559ac0008d",
+    "output/latest/model_data_independence_audit_latest.csv": "3b71b276152f93e50ca72c99a459627aa40c75abd15df3a2d9150aca6aab199e",
+    "output/latest/model_data_independence_audit_latest.md": "ebffaebdfec5a59dc89b742438a494fadebed90922748d2db672eaf21fdf5c6f",
+    "scripts/model_data_independence.py": "031a7a013b9bf04f5b9a1b3c20b716094c2d9f48a1dcbfd851c57cb5cc0b124e",
+    "scripts/validate_model_research_workflow_isolation.py": "9a75b27d0b061061ba946e697a666ebd7177ecd328f325413088e4d32713f8b8",
+    "scripts/validate_revenue_unreacted_range_promotion_preparation.py": "5b151732eba84fd13c1d8d6631d9b1bd0df3352d37705b9d5efeff167298b8a0",
+    "tests/test_daily_model_maintenance_pr_validation_workflow.py": "84ddebfcf48886cc9cec4daa4249977aaaf0e5d169edca8d9a1ba94d28e4bb64",
+    "tests/test_daily_model_parameter_research.py": "32d7a95ce495953f5d85a02fc322bf320d275bbe381797a512fcb49486da862b",
+    "tests/test_daily_published_model_snapshots_pr_safe.py": "36f10cb06865076ae950ad1e2e5783c42eb0a4a2f2d829ce746462e2f33cd226",
+    "tests/test_model_data_independence.py": "fd3485916ca6741bc743d1b04d8e14502fcfd7fca878287953e0d49f59b7be65",
+    "tests/test_model_research_workflow_isolation.py": "07f55055d31505ef7e5e0c5d6ade4dbe28b16db1d3e307576e33f8d4dc06f543",
+    "tests/test_validate_revenue_unreacted_range_promotion_preparation.py": "74f295fd6f22d20c9048e3ad44cda034b392a683e531140bd0589eeee2ac4fdc",
+}
+PR_SAFE_REVENUE_PROMOTION_PREPARATION_PATHS = frozenset(
+    PR_SAFE_REVENUE_PROMOTION_PREPARATION_TARGET_SHA256_BY_PATH
+)
 PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TARGET_ID = (
     "daily-runtime-authority-containment-exact-target-v1"
 )
@@ -2621,6 +2682,16 @@ def pr_safe_revenue_forward_holdout_target_profile(
             PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_TARGET_SHA256_BY_PATH,
             PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_PATHS,
         )
+    if normalized_paths == PR_SAFE_REVENUE_PROMOTION_PREPARATION_PATHS:
+        return (
+            PR_SAFE_REVENUE_PROMOTION_PREPARATION_TARGET_ID,
+            PR_SAFE_REVENUE_PROMOTION_PREPARATION_BASE_CONTENT_REF_SHA,
+            PR_SAFE_REVENUE_PROMOTION_PREPARATION_HELPER,
+            PR_SAFE_REVENUE_PROMOTION_PREPARATION_TEST,
+            PR_SAFE_REVENUE_PROMOTION_PREPARATION_BASE_SHA256_BY_PATH,
+            PR_SAFE_REVENUE_PROMOTION_PREPARATION_TARGET_SHA256_BY_PATH,
+            PR_SAFE_REVENUE_PROMOTION_PREPARATION_PATHS,
+        )
     return None
 
 
@@ -3079,6 +3150,7 @@ def validate_pr_safe_control_plane_delta(
     elif migration_id in {
         PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_ID,
         PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_TARGET_ID,
+        PR_SAFE_REVENUE_PROMOTION_PREPARATION_TARGET_ID,
     }:
         target_profile = pr_safe_revenue_forward_holdout_target_profile(
             authorized_paths
@@ -3361,6 +3433,7 @@ def validate_pr_safe_control_plane_migration(base_sha: str, head_sha: str) -> li
                         PR_SAFE_INPUT_BOUND_VALIDATOR_REGISTRATION_PATHS,
                         PR_SAFE_REVENUE_FORWARD_HOLDOUT_PATHS,
                         PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_PATHS,
+                        PR_SAFE_REVENUE_PROMOTION_PREPARATION_PATHS,
                         PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_PATHS,
                         PR_SAFE_LOCAL_VALIDATION_REPLAY_ADVANCED_PATHS,
                         PR_SAFE_AUTHORIZED_STAGE1_PATHS,

@@ -2042,7 +2042,7 @@ def test_input_bound_validator_stage_a_preauthorizations_are_exact() -> None:
     payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
     rows, errors = inventory.parse_pr_safe_authorizations(payload)
     assert errors == []
-    assert [row["migration_id"] for row in rows[-9:]] == [
+    assert [row["migration_id"] for row in rows[-10:]] == [
         inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_MIGRATION_ID,
         inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_STAGE_A_MIGRATION_ID,
         inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_ID,
@@ -2052,6 +2052,7 @@ def test_input_bound_validator_stage_a_preauthorizations_are_exact() -> None:
         inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_TARGET_ID,
         inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V3_TARGET_ID,
         inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V4_TARGET_ID,
+        inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_TARGET_ID,
     ]
     rows_by_id = {row["migration_id"]: row for row in rows}
     assert rows_by_id[inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_MIGRATION_ID] == {
@@ -2164,6 +2165,43 @@ def test_input_bound_validator_stage_a_preauthorizations_are_exact() -> None:
     assert inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_TARGET_SHA256_BY_PATH[
         "config/repo_file_lifecycle_inventory.csv"
     ] == "fc1fb68e6d4a4910e79386d23aed7837ce41ea9c738ad43a2992eef9c8f9e632"
+    assert rows_by_id[inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_TARGET_ID] == {
+        "migration_id": inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_TARGET_ID,
+        "status": "preauthorized",
+        "approval_reference": "user_authorized_pr536_exact_target_preauthorization_20260812",
+        "base_helper_sha256": (
+            inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_BASE_SHA256_BY_PATH[
+                inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_HELPER
+            ]
+        ),
+        "current_helper_sha256": (
+            inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_TARGET_SHA256_BY_PATH[
+                inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_HELPER
+            ]
+        ),
+        "current_test_sha256": (
+            inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_TARGET_SHA256_BY_PATH[
+                inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_TEST
+            ]
+        ),
+        "changed_paths": ";".join(
+            sorted(inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_PATHS)
+        ),
+    }
+    assert len(inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_PATHS) == 21
+    assert {
+        path
+        for path, expected_sha in (
+            inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_BASE_SHA256_BY_PATH.items()
+        )
+        if expected_sha is None
+    } == {
+        "config/revenue_unreacted_range_anomaly_disposition_registry.csv",
+        "config/revenue_unreacted_range_promotion_preparation_registry.csv",
+        "docs/specs/revenue_unreacted_range_promotion_preparation_20260812.md",
+        "scripts/validate_revenue_unreacted_range_promotion_preparation.py",
+        "tests/test_validate_revenue_unreacted_range_promotion_preparation.py",
+    }
     assert rows_by_id[inventory.PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TARGET_ID] == {
         "migration_id": inventory.PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TARGET_ID,
         "status": "preauthorized",
@@ -2808,6 +2846,166 @@ def test_revenue_forward_holdout_replay_detail_target_uses_base_owned_ledger() -
         current_test=current_test,
         authorization_payload=authorization_payload,
     )
+
+
+def test_revenue_promotion_preparation_target_matches_frozen_git_objects(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    base_ref = inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_BASE_CONTENT_REF_SHA
+    target_ref = "e28a0269ba8cea5e6dbb6d09419d566998343aaa"
+    paths = set(inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_PATHS)
+    kwargs = {
+        "base_ref": base_ref,
+        "changed_paths": paths,
+        "repository_root": ROOT,
+        "head_ref": target_ref,
+    }
+
+    assert inventory.is_preauthorized_revenue_forward_holdout_target(**kwargs)
+    assert not inventory.is_preauthorized_revenue_forward_holdout_target(
+        **{**kwargs, "changed_paths": {*paths, "scripts/unregistered.py"}}
+    )
+
+    helper = inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_HELPER
+    expected_helper_sha = (
+        inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_TARGET_SHA256_BY_PATH[helper]
+    )
+    monkeypatch.setitem(
+        inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_TARGET_SHA256_BY_PATH,
+        helper,
+        "0" * 64,
+    )
+    assert not inventory.is_preauthorized_revenue_forward_holdout_target(**kwargs)
+    monkeypatch.setitem(
+        inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_TARGET_SHA256_BY_PATH,
+        helper,
+        expected_helper_sha,
+    )
+
+    original_mode = inventory._pr_safe_repo_blob_mode
+    monkeypatch.setattr(
+        inventory,
+        "_pr_safe_repo_blob_mode",
+        lambda root, ref, path: (
+            "100755"
+            if ref == target_ref and path == helper
+            else original_mode(root, ref, path)
+        ),
+    )
+    assert not inventory.is_preauthorized_revenue_forward_holdout_target(**kwargs)
+    monkeypatch.setattr(inventory, "_pr_safe_repo_blob_mode", original_mode)
+
+    added_path = next(
+        path
+        for path, expected_base_sha in (
+            inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_BASE_SHA256_BY_PATH.items()
+        )
+        if expected_base_sha is None
+    )
+    original_blob = inventory._pr_safe_repo_blob
+    monkeypatch.setattr(
+        inventory,
+        "_pr_safe_repo_blob",
+        lambda root, ref, path: (
+            b"unexpected base collision\n"
+            if ref == base_ref and path == added_path
+            else original_blob(root, ref, path)
+        ),
+    )
+    monkeypatch.setattr(
+        inventory,
+        "_pr_safe_repo_blob_mode",
+        lambda root, ref, path: (
+            "100644"
+            if ref == base_ref and path == added_path
+            else original_mode(root, ref, path)
+        ),
+    )
+    assert not inventory.is_preauthorized_revenue_forward_holdout_target(**kwargs)
+    monkeypatch.setattr(inventory, "_pr_safe_repo_blob", original_blob)
+    monkeypatch.setattr(inventory, "_pr_safe_repo_blob_mode", original_mode)
+
+    monkeypatch.setattr(
+        inventory,
+        "_pr_safe_repo_ref_is_ancestor",
+        lambda _root, _ancestor, _descendant: False,
+    )
+    assert not inventory.is_preauthorized_revenue_forward_holdout_target(**kwargs)
+
+
+def test_revenue_promotion_preparation_target_uses_base_owned_ledger() -> None:
+    base_ref = inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_BASE_CONTENT_REF_SHA
+    target_ref = "e28a0269ba8cea5e6dbb6d09419d566998343aaa"
+    helper = inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_HELPER
+    direct_test = inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_TEST
+    base_helper = inventory.git_blob_at_ref(base_ref, helper)
+    current_helper = inventory.git_blob_at_ref(target_ref, helper)
+    current_test = inventory.git_blob_at_ref(target_ref, direct_test)
+    authorization_payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
+
+    assert inventory.validate_pr_safe_control_plane_delta(
+        set(inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_PATHS),
+        base_helper=base_helper,
+        current_helper=current_helper,
+        current_test=current_test,
+        authorization_payload=authorization_payload,
+    ) == []
+    assert current_helper is not None
+    assert inventory.validate_pr_safe_control_plane_delta(
+        set(inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_PATHS),
+        base_helper=base_helper,
+        current_helper=current_helper + b"drift",
+        current_test=current_test,
+        authorization_payload=authorization_payload,
+    )
+
+
+def test_revenue_promotion_preparation_manifest_is_exact_and_verified(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    base_ref = inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_BASE_CONTENT_REF_SHA
+    target_ref = "e28a0269ba8cea5e6dbb6d09419d566998343aaa"
+    authorization_payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
+    original_git_blob_at_ref = inventory.git_blob_at_ref
+
+    monkeypatch.setattr(
+        inventory,
+        "git_blob_at_ref",
+        lambda ref, path: (
+            authorization_payload
+            if ref == base_ref and path == inventory.PR_SAFE_AUTHORIZATION_PATH
+            else original_git_blob_at_ref(ref, path)
+        ),
+    )
+    assert inventory.validate_pr_safe_control_plane_migration(base_ref, target_ref) == []
+    manifest = inventory.build_pr_safe_audit_manifest(
+        base_sha=base_ref,
+        head_sha=target_ref,
+        validation_errors=[],
+        repository=inventory.PR_SAFE_REPOSITORY,
+        workflow_ref=inventory.PR_SAFE_EXPECTED_WORKFLOW_REF,
+        workflow_sha=base_ref,
+        run_id="31592284306",
+        run_attempt="1",
+        event_name="pull_request_target",
+        event_action="opened",
+        base_ref="main",
+        base_repository=inventory.PR_SAFE_REPOSITORY,
+        head_repository=inventory.PR_SAFE_REPOSITORY,
+        pull_request_number="536",
+    )
+
+    assert manifest["validation"] == {"passed": True, "errors": []}
+    assert manifest["manual_gate_eligible"] is True
+    assert manifest["changed_paths_match_allowlist"] is True
+    assert manifest["changed_path_allowlist"] == sorted(
+        inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_PATHS
+    )
+    exact_target = manifest["exact_research_target_preauthorization"]
+    assert exact_target["target_id"] == (
+        inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_TARGET_ID
+    )
+    assert exact_target["verified"] is True
 
 
 def test_daily_authority_containment_target_is_exact_and_fail_closed(
