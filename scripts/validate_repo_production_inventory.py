@@ -462,6 +462,42 @@ PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_TARGET_SHA256_BY_PATH = {
 PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_PATHS = frozenset(
     PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_TARGET_SHA256_BY_PATH
 )
+PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V3_TARGET_ID = (
+    "daily-runtime-recovery-architecture-exact-target-v3"
+)
+PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V3_BASE_CONTENT_REF_SHA = (
+    PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_BASE_CONTENT_REF_SHA
+)
+PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V3_HELPER = (
+    PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_HELPER
+)
+PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V3_TEST = (
+    PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_TEST
+)
+PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V3_BASE_SHA256_BY_PATH = {
+    **PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_BASE_SHA256_BY_PATH,
+}
+PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V3_TARGET_SHA256_BY_PATH = {
+    **PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_TARGET_SHA256_BY_PATH,
+    ".github/workflows/daily_full_pipeline.yml": (
+        "245f4e15a3e1aded0c1694c21d954e494b2f83dfecedc9ec5441c44c142fa906"
+    ),
+    "scripts/validate_daily_production_boundaries.py": (
+        "1271234fbf38bbebfdb99617ccab239d466a29c0ed2f1eb1ece30cade55a668f"
+    ),
+    "scripts/validate_recent_structured_source_repair_workflow.py": (
+        "aecb4ba2aa06e24c2b8d7c5bd097c489f2eaa89957233e6ccd571dc1dc20605b"
+    ),
+    "tests/test_daily_production_boundaries.py": (
+        "d0cff54c9e57344856d4aad16c2286afda5d015aeccf6a0921dc9cbcb00c381e"
+    ),
+    "tests/test_validate_recent_structured_source_repair_workflow.py": (
+        "5ba11898291dcbec297c7b4ea971ee713fb2a565ddf98e8f7bc5a5d61460bbce"
+    ),
+}
+PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V3_PATHS = frozenset(
+    PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V3_TARGET_SHA256_BY_PATH
+)
 PR_SAFE_SNAPSHOT_MIGRATION_ID = "daily-full-checkpoint-replay-snapshot-pr-safe-v1"
 PR_SAFE_SNAPSHOT_HELPER = "scripts/validate_daily_published_model_snapshots_pr_safe.py"
 PR_SAFE_SNAPSHOT_TEST = "tests/test_daily_published_model_snapshots_pr_safe.py"
@@ -2188,6 +2224,10 @@ def build_daily_full_checkpoint_replay_integrated_lifecycle_inventory(
 
 def pr_safe_migration_contract_for_paths(
     changed_paths: set[str],
+    *,
+    base_helper_sha256: str | None = None,
+    current_helper_sha256: str | None = None,
+    current_test_sha256: str | None = None,
 ) -> tuple[str, str, str, frozenset[str]] | None:
     revenue_target = pr_safe_revenue_forward_holdout_target_profile(changed_paths)
     if revenue_target is not None:
@@ -2197,7 +2237,27 @@ def pr_safe_migration_contract_for_paths(
             revenue_target[3],
             revenue_target[6],
         )
-    authority_target = pr_safe_daily_authority_containment_target_profile(changed_paths)
+    authority_profiles = pr_safe_daily_authority_containment_target_profiles(
+        changed_paths
+    )
+    authority_target = authority_profiles[0] if authority_profiles else None
+    observed_hashes = (
+        base_helper_sha256,
+        current_helper_sha256,
+        current_test_sha256,
+    )
+    if authority_profiles and all(observed_hashes):
+        exact_profiles = [
+            profile
+            for profile in authority_profiles
+            if (
+                profile[4][profile[2]],
+                profile[5][profile[2]],
+                profile[5][profile[3]],
+            )
+            == observed_hashes
+        ]
+        authority_target = exact_profiles[0] if len(exact_profiles) == 1 else None
     if authority_target is not None:
         return (
             authority_target[0],
@@ -2594,9 +2654,9 @@ def is_preauthorized_revenue_forward_holdout_target(
     return True
 
 
-def pr_safe_daily_authority_containment_target_profile(
+def pr_safe_daily_authority_containment_target_profiles(
     changed_paths: set[str],
-) -> tuple[
+) -> tuple[tuple[
     str,
     str,
     str,
@@ -2604,9 +2664,18 @@ def pr_safe_daily_authority_containment_target_profile(
     dict[str, str | None],
     dict[str, str],
     frozenset[str],
-] | None:
+], ...]:
     normalized_paths = frozenset(str(path).replace("\\", "/") for path in changed_paths)
     profiles = (
+        (
+            PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V3_TARGET_ID,
+            PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V3_BASE_CONTENT_REF_SHA,
+            PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V3_HELPER,
+            PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V3_TEST,
+            PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V3_BASE_SHA256_BY_PATH,
+            PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V3_TARGET_SHA256_BY_PATH,
+            PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V3_PATHS,
+        ),
         (
             PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TARGET_ID,
             PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_BASE_CONTENT_REF_SHA,
@@ -2635,7 +2704,26 @@ def pr_safe_daily_authority_containment_target_profile(
             PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_PATHS,
         ),
     )
-    return next((profile for profile in profiles if normalized_paths == profile[6]), None)
+    return tuple(profile for profile in profiles if normalized_paths == profile[6])
+
+
+def pr_safe_daily_authority_containment_target_profile(
+    changed_paths: set[str],
+    *,
+    target_id: str | None = None,
+) -> tuple[
+    str,
+    str,
+    str,
+    str,
+    dict[str, str | None],
+    dict[str, str],
+    frozenset[str],
+] | None:
+    profiles = pr_safe_daily_authority_containment_target_profiles(changed_paths)
+    if target_id is None:
+        return profiles[0] if profiles else None
+    return next((profile for profile in profiles if profile[0] == target_id), None)
 
 
 def is_preauthorized_daily_authority_containment_target(
@@ -2645,50 +2733,59 @@ def is_preauthorized_daily_authority_containment_target(
     repository_root: Path = ROOT,
     head_ref: str = "HEAD",
 ) -> bool:
-    profile = pr_safe_daily_authority_containment_target_profile(changed_paths)
-    if profile is None:
-        return False
-    (
-        _target_id,
-        base_content_ref_sha,
-        _helper_path,
-        _test_path,
-        base_sha256_by_path,
-        target_sha256_by_path,
-        target_paths,
-    ) = profile
-    if set(base_sha256_by_path) != target_paths:
+    profiles = pr_safe_daily_authority_containment_target_profiles(changed_paths)
+    if not profiles:
         return False
     if not re.fullmatch(r"[0-9a-f]{40}", str(base_ref)):
         return False
 
     root = Path(repository_root).resolve()
-    if not _pr_safe_repo_ref_is_ancestor(root, base_content_ref_sha, base_ref):
-        return False
     if not _pr_safe_repo_ref_is_ancestor(root, base_ref, head_ref):
         return False
-
-    for path in sorted(target_paths):
-        base_blob = _pr_safe_repo_blob(root, base_ref, path)
-        target_blob = _pr_safe_repo_blob(root, head_ref, path)
-        expected_base_sha = base_sha256_by_path[path]
-        expected_target_sha = target_sha256_by_path[path]
-        if expected_base_sha is None:
-            if base_blob is not None or _pr_safe_repo_blob_mode(root, base_ref, path) is not None:
-                return False
-        elif (
-            base_blob is None
-            or canonical_blob_sha256(base_blob) != expected_base_sha
-            or _pr_safe_repo_blob_mode(root, base_ref, path) != "100644"
-        ):
-            return False
-        if (
-            target_blob is None
-            or canonical_blob_sha256(target_blob) != expected_target_sha
-            or _pr_safe_repo_blob_mode(root, head_ref, path) != "100644"
-        ):
-            return False
-    return True
+    for profile in profiles:
+        (
+            _target_id,
+            base_content_ref_sha,
+            _helper_path,
+            _test_path,
+            base_sha256_by_path,
+            target_sha256_by_path,
+            target_paths,
+        ) = profile
+        if set(base_sha256_by_path) != target_paths:
+            continue
+        if not _pr_safe_repo_ref_is_ancestor(root, base_content_ref_sha, base_ref):
+            continue
+        exact_profile = True
+        for path in sorted(target_paths):
+            base_blob = _pr_safe_repo_blob(root, base_ref, path)
+            target_blob = _pr_safe_repo_blob(root, head_ref, path)
+            expected_base_sha = base_sha256_by_path[path]
+            expected_target_sha = target_sha256_by_path[path]
+            if expected_base_sha is None:
+                if (
+                    base_blob is not None
+                    or _pr_safe_repo_blob_mode(root, base_ref, path) is not None
+                ):
+                    exact_profile = False
+                    break
+            elif (
+                base_blob is None
+                or canonical_blob_sha256(base_blob) != expected_base_sha
+                or _pr_safe_repo_blob_mode(root, base_ref, path) != "100644"
+            ):
+                exact_profile = False
+                break
+            if (
+                target_blob is None
+                or canonical_blob_sha256(target_blob) != expected_target_sha
+                or _pr_safe_repo_blob_mode(root, head_ref, path) != "100644"
+            ):
+                exact_profile = False
+                break
+        if exact_profile:
+            return True
+    return False
 
 
 def parse_pr_safe_authorizations(payload: bytes) -> tuple[list[dict[str, str]], list[str]]:
@@ -2859,7 +2956,15 @@ def validate_pr_safe_control_plane_delta(
     protected_changes = changed_paths & PR_SAFE_ALL_AUTHORIZED_MIGRATION_PATHS
     if not protected_changes:
         return errors
-    contract = pr_safe_migration_contract_for_paths(changed_paths)
+    if base_helper is None or current_helper is None or current_test is None:
+        errors.append("preauthorized PR-safe helper/test blobs must all exist")
+        return errors
+    contract = pr_safe_migration_contract_for_paths(
+        changed_paths,
+        base_helper_sha256=canonical_blob_sha256(base_helper),
+        current_helper_sha256=canonical_blob_sha256(current_helper),
+        current_test_sha256=canonical_blob_sha256(current_test),
+    )
     if contract is None:
         errors.append(
             "PR-safe helper migration must change exactly the preauthorized paths: "
@@ -2892,9 +2997,6 @@ def validate_pr_safe_control_plane_delta(
         )
         return errors
     authorization = matching[0]
-    if base_helper is None or current_helper is None or current_test is None:
-        errors.append("preauthorized PR-safe helper/test blobs must all exist")
-        return errors
 
     observed_paths = {
         path.strip()
@@ -2961,9 +3063,11 @@ def validate_pr_safe_control_plane_delta(
         PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TARGET_ID,
         PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_TARGET_ID,
         PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_TARGET_ID,
+        PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V3_TARGET_ID,
     }:
         target_profile = pr_safe_daily_authority_containment_target_profile(
-            authorized_paths
+            authorized_paths,
+            target_id=migration_id,
         )
         if target_profile is None:
             errors.append("daily authority containment target profile is missing")
