@@ -101,6 +101,7 @@ REVENUE_PROJECTION_CHAIN_VALIDATOR_COMMANDS = {
     "python scripts/validate_revenue_unreacted_range_operation_lag_bucket_audit.py",
     "python scripts/validate_revenue_unreacted_range_position_shape_transition_matrix.py",
     "python scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
+    "python scripts/validate_revenue_unreacted_range_promotion_preparation.py --require-source-artifacts",
 }
 
 PUBLISH_COMMIT = 'git commit -m "Update research backtest outputs"'

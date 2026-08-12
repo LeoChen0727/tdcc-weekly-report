@@ -305,6 +305,7 @@ REPO_PRODUCTION_INVENTORY_COLUMNS = (
 )
 VALID_INDEPENDENT_VALIDATOR_ROLES = {
     "independent_contract_ast_guard",
+    "independent_contract_artifact_binding_validator",
     "independent_source_lineage_validator",
     "independent_research_replay_validator",
     "input_bound_in_process_independent_validator",

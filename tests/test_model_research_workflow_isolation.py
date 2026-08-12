@@ -180,6 +180,7 @@ def test_revenue_projection_chain_stage_is_not_a_second_producer_entrypoint() ->
         "python scripts/validate_revenue_unreacted_range_lag_strength_matrix.py",
         "python scripts/validate_revenue_unreacted_range_launch_timing_feature_audit.py",
         "python scripts/validate_revenue_unreacted_range_forward_confirmation_feature_audit.py",
+        "python scripts/validate_revenue_unreacted_range_promotion_preparation.py --require-source-artifacts",
     }
     assert projection_chain_validators <= validator.REVENUE_PROJECTION_CHAIN_VALIDATOR_COMMANDS
     assert projection_chain_validators <= {line.strip() for line in text.splitlines()}

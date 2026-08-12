@@ -209,6 +209,7 @@ def test_daily_model_maintenance_pr_workflow_triggers_on_independence_guard_chan
         "tests/test_model_surface_registry.py",
         "tests/test_repo_code_isolation_policy.py",
         "tests/test_validate_revenue_unreacted_range_*.py",
+        "docs/specs/revenue_unreacted_range_*.md",
         "docs/latest/model_data_independence_audit_latest.*",
         "output/latest/model_data_independence_audit_latest.*",
         "output/latest/research_backtest/financial_statement_pit_coverage_latest.*",
@@ -292,6 +293,7 @@ def test_daily_model_maintenance_pr_workflow_runs_contract_validators() -> None:
         "python scripts/validate_revenue_unreacted_range_rearmed_operation_grid.py",
         "python scripts/validate_revenue_unreacted_range_operation_lag_bucket_audit.py",
         "python scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
+        "python scripts/validate_revenue_unreacted_range_promotion_preparation.py",
         "python scripts/build_mature_model_row_level_metric_contract_audit.py",
         "python scripts/validate_mature_model_row_level_metric_contract_audit.py",
         "python scripts/validate_research_against_stock_model_contract.py",
@@ -312,6 +314,7 @@ def test_daily_model_maintenance_pr_workflow_runs_contract_validators() -> None:
         "python scripts/validate_revenue_unreacted_range_operation_lag_bucket_audit.py",
         "python scripts/validate_revenue_unreacted_range_position_shape_transition_matrix.py",
         "python scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
+        "python scripts/validate_revenue_unreacted_range_promotion_preparation.py",
     )
     positions = [text.index(command) for command in revenue_validator_order]
     assert positions == sorted(positions)
@@ -354,6 +357,7 @@ def test_daily_model_maintenance_pr_workflow_runs_focused_pdf_operation_tests() 
         "tests/test_revenue_unreacted_range_operation_lag_bucket_audit.py",
         "tests/test_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
         "tests/test_validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
+        "tests/test_validate_revenue_unreacted_range_promotion_preparation.py",
         "tests/test_revenue_unreacted_range_forward_holdout.py",
         "tests/test_validate_revenue_unreacted_range_forward_holdout.py",
         "tests/test_repo_hidden_coupling_audit.py",
