@@ -2042,12 +2042,13 @@ def test_input_bound_validator_stage_a_preauthorizations_are_exact() -> None:
     payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
     rows, errors = inventory.parse_pr_safe_authorizations(payload)
     assert errors == []
-    assert [row["migration_id"] for row in rows[-5:]] == [
+    assert [row["migration_id"] for row in rows[-6:]] == [
         inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_MIGRATION_ID,
         inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_STAGE_A_MIGRATION_ID,
         inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_ID,
         inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_TARGET_ID,
         inventory.PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TARGET_ID,
+        inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_TARGET_ID,
     ]
     rows_by_id = {row["migration_id"]: row for row in rows}
     assert rows_by_id[inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_MIGRATION_ID] == {
@@ -2184,6 +2185,93 @@ def test_input_bound_validator_stage_a_preauthorizations_are_exact() -> None:
         ),
     }
     assert len(inventory.PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_PATHS) == 20
+    assert rows_by_id[inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_TARGET_ID] == {
+        "migration_id": inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_TARGET_ID,
+        "status": "preauthorized",
+        "approval_reference": "user_authorized_daily_runtime_recovery_architecture_20260812",
+        "base_helper_sha256": (
+            inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_BASE_SHA256_BY_PATH[
+                inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_HELPER
+            ]
+        ),
+        "current_helper_sha256": (
+            inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_TARGET_SHA256_BY_PATH[
+                inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_HELPER
+            ]
+        ),
+        "current_test_sha256": (
+            inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_TARGET_SHA256_BY_PATH[
+                inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_TEST
+            ]
+        ),
+        "changed_paths": ";".join(
+            sorted(inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_PATHS)
+        ),
+    }
+    assert len(inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_PATHS) == 14
+
+
+def test_daily_recovery_architecture_target_is_exact_and_fail_closed(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    base_ref = "a" * 40
+    head_ref = "b" * 40
+    base_blobs = {
+        path: None if expected is None else f"base:{path}\n".encode()
+        for path, expected in inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_BASE_SHA256_BY_PATH.items()
+    }
+    target_blobs = {
+        path: f"target:{path}\n".encode()
+        for path in inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_PATHS
+    }
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_BASE_SHA256_BY_PATH",
+        {
+            path: None if payload is None else inventory.canonical_blob_sha256(payload)
+            for path, payload in base_blobs.items()
+        },
+    )
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_TARGET_SHA256_BY_PATH",
+        {path: inventory.canonical_blob_sha256(payload) for path, payload in target_blobs.items()},
+    )
+    monkeypatch.setattr(
+        inventory,
+        "_pr_safe_repo_ref_is_ancestor",
+        lambda _root, _ancestor, _descendant: True,
+    )
+    monkeypatch.setattr(
+        inventory,
+        "_pr_safe_repo_blob",
+        lambda _root, ref, path: base_blobs[path] if ref == base_ref else target_blobs[path],
+    )
+    modes = {
+        (ref, path): None if ref == base_ref and base_blobs[path] is None else "100644"
+        for ref in (base_ref, head_ref)
+        for path in inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_PATHS
+    }
+    monkeypatch.setattr(
+        inventory,
+        "_pr_safe_repo_blob_mode",
+        lambda _root, ref, path: modes[(ref, path)],
+    )
+    kwargs = {
+        "base_ref": base_ref,
+        "changed_paths": set(inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_PATHS),
+        "repository_root": tmp_path,
+        "head_ref": head_ref,
+    }
+    assert inventory.is_preauthorized_daily_authority_containment_target(**kwargs)
+    helper = inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_HELPER
+    target_blobs[helper] += b"drift\n"
+    assert not inventory.is_preauthorized_daily_authority_containment_target(**kwargs)
+    target_blobs[helper] = f"target:{helper}\n".encode()
+    assert not inventory.is_preauthorized_daily_authority_containment_target(
+        **{**kwargs, "changed_paths": {*kwargs["changed_paths"], "scripts/extra.py"}}
+    )
 
 
 def test_input_bound_validator_stage_a_rejects_mixed_or_drifted_target() -> None:
