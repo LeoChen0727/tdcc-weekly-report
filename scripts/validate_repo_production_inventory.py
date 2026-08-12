@@ -432,6 +432,36 @@ PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_TARGET_SHA256_BY_PATH = {
 PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_PATHS = frozenset(
     PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_TARGET_SHA256_BY_PATH
 )
+PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_TARGET_ID = (
+    "daily-runtime-recovery-architecture-exact-target-v2"
+)
+PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_BASE_CONTENT_REF_SHA = (
+    PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_BASE_CONTENT_REF_SHA
+)
+PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_HELPER = (
+    PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_HELPER
+)
+PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_TEST = (
+    PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_TEST
+)
+PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_BASE_SHA256_BY_PATH = {
+    **PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_BASE_SHA256_BY_PATH,
+    "scripts/validate_daily_production_boundaries.py": (
+        "1df727afdf9a4579e0f908d1c886924d76699c2a0203249e6997d9c64610f60f"
+    ),
+}
+PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_TARGET_SHA256_BY_PATH = {
+    **PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_TARGET_SHA256_BY_PATH,
+    "scripts/validate_daily_production_boundaries.py": (
+        "e043f3c6eb0bd0d2cf77333ff5461908d9a3f58a05336a7848486f77a6ca4ffe"
+    ),
+    "tests/test_daily_production_boundaries.py": (
+        "168c3f1a1b5094f0336166571c5870e9a9760c44722ee5f34495a820aba1d3cc"
+    ),
+}
+PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_PATHS = frozenset(
+    PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_TARGET_SHA256_BY_PATH
+)
 PR_SAFE_SNAPSHOT_MIGRATION_ID = "daily-full-checkpoint-replay-snapshot-pr-safe-v1"
 PR_SAFE_SNAPSHOT_HELPER = "scripts/validate_daily_published_model_snapshots_pr_safe.py"
 PR_SAFE_SNAPSHOT_TEST = "tests/test_daily_published_model_snapshots_pr_safe.py"
@@ -2595,6 +2625,15 @@ def pr_safe_daily_authority_containment_target_profile(
             PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_TARGET_SHA256_BY_PATH,
             PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_PATHS,
         ),
+        (
+            PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_TARGET_ID,
+            PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_BASE_CONTENT_REF_SHA,
+            PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_HELPER,
+            PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_TEST,
+            PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_BASE_SHA256_BY_PATH,
+            PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_TARGET_SHA256_BY_PATH,
+            PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_PATHS,
+        ),
     )
     return next((profile for profile in profiles if normalized_paths == profile[6]), None)
 
@@ -2921,6 +2960,7 @@ def validate_pr_safe_control_plane_delta(
     elif migration_id in {
         PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TARGET_ID,
         PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_TARGET_ID,
+        PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_TARGET_ID,
     }:
         target_profile = pr_safe_daily_authority_containment_target_profile(
             authorized_paths
