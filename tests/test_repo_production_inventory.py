@@ -2042,13 +2042,14 @@ def test_input_bound_validator_stage_a_preauthorizations_are_exact() -> None:
     payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
     rows, errors = inventory.parse_pr_safe_authorizations(payload)
     assert errors == []
-    assert [row["migration_id"] for row in rows[-6:]] == [
+    assert [row["migration_id"] for row in rows[-7:]] == [
         inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_MIGRATION_ID,
         inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_STAGE_A_MIGRATION_ID,
         inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_ID,
         inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_TARGET_ID,
         inventory.PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TARGET_ID,
         inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_TARGET_ID,
+        inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_TARGET_ID,
     ]
     rows_by_id = {row["migration_id"]: row for row in rows}
     assert rows_by_id[inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_MIGRATION_ID] == {
@@ -2209,6 +2210,95 @@ def test_input_bound_validator_stage_a_preauthorizations_are_exact() -> None:
         ),
     }
     assert len(inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_PATHS) == 14
+    assert rows_by_id[inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_TARGET_ID] == {
+        "migration_id": inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_TARGET_ID,
+        "status": "preauthorized",
+        "approval_reference": "user_authorized_daily_runtime_recovery_architecture_20260812",
+        "base_helper_sha256": (
+            inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_BASE_SHA256_BY_PATH[
+                inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_HELPER
+            ]
+        ),
+        "current_helper_sha256": (
+            inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_TARGET_SHA256_BY_PATH[
+                inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_HELPER
+            ]
+        ),
+        "current_test_sha256": (
+            inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_TARGET_SHA256_BY_PATH[
+                inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_TEST
+            ]
+        ),
+        "changed_paths": ";".join(
+            sorted(inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_PATHS)
+        ),
+    }
+    assert len(inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_PATHS) == 15
+
+
+def test_daily_recovery_architecture_v2_profile_is_exact() -> None:
+    v1_paths = inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_PATHS
+    v2_paths = inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_PATHS
+    boundary_validator = "scripts/validate_daily_production_boundaries.py"
+    assert v2_paths == {*v1_paths, boundary_validator}
+
+    profile = inventory.pr_safe_daily_authority_containment_target_profile(set(v2_paths))
+    assert profile is not None
+    assert profile[0] == inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_TARGET_ID
+    assert profile[6] == v2_paths
+    assert inventory.pr_safe_daily_authority_containment_target_profile(
+        {*v2_paths, "scripts/extra.py"}
+    ) is None
+    assert inventory.pr_safe_daily_authority_containment_target_profile(
+        set(v2_paths) - {boundary_validator}
+    )[0] == inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_TARGET_ID
+
+
+def test_daily_recovery_architecture_v2_ledger_is_supported(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    base_helper = b"base recovery workflow validator\n"
+    current_helper = b"target recovery workflow validator\n"
+    current_test = b"target recovery workflow regressions\n"
+    base_hashes = dict(
+        inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_BASE_SHA256_BY_PATH
+    )
+    target_hashes = dict(
+        inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_TARGET_SHA256_BY_PATH
+    )
+    base_hashes[inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_HELPER] = (
+        inventory.canonical_blob_sha256(base_helper)
+    )
+    target_hashes[inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_HELPER] = (
+        inventory.canonical_blob_sha256(current_helper)
+    )
+    target_hashes[inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_TEST] = (
+        inventory.canonical_blob_sha256(current_test)
+    )
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_BASE_SHA256_BY_PATH",
+        base_hashes,
+    )
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_TARGET_SHA256_BY_PATH",
+        target_hashes,
+    )
+    payload = pr_safe_authorization_payload(
+        base_helper,
+        current_helper,
+        current_test,
+        migration_id=inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_TARGET_ID,
+        authorized_paths=inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_PATHS,
+    )
+    assert inventory.validate_pr_safe_control_plane_delta(
+        set(inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V2_PATHS),
+        base_helper=base_helper,
+        current_helper=current_helper,
+        current_test=current_test,
+        authorization_payload=payload,
+    ) == []
 
 
 def test_daily_recovery_architecture_target_is_exact_and_fail_closed(
