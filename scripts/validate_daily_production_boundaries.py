@@ -930,6 +930,45 @@ def validate_authority_workflow_publishers() -> list[str]:
     return errors
 
 
+def validate_recent_price_gap_workflow_contract(repair_text: str) -> list[str]:
+    errors: list[str] = []
+    repair_literals = {
+        "Reject non-main production dispatch": (
+            "recent price-gap workflow must reject branch dispatch"
+        ),
+        "ref: main": "recent price-gap workflow must operate on main",
+        "Build immutable current-day source recovery bundle": (
+            "recent price-gap workflow must build an immutable current-day source bundle"
+        ),
+        "resume-daily-full-from-source-bundle:": (
+            "recent price-gap workflow must resume Daily Full only from the immutable bundle"
+        ),
+    }
+    for literal, message in repair_literals.items():
+        if literal not in repair_text:
+            errors.append(f"{message}: missing {literal!r}")
+
+    zero_repair_guard = "if: env.REPAIR_ACTION_COUNT != '0'"
+    if zero_repair_guard in repair_text:
+        errors.append(
+            "recent price-gap workflow must persist the immutable current-day source bundle "
+            "even when repair action count is zero: "
+            f"found {zero_repair_guard!r}"
+        )
+
+    for forbidden in (
+        "MARKET_SESSION_CHANGE_COUNT",
+        "git add output/latest/market_session_status_latest.json",
+        "git add data/market_calendar/exceptional_non_trading_days.csv",
+    ):
+        if forbidden in repair_text:
+            errors.append(
+                "recent price-gap workflow must not independently publish market authority: "
+                f"found {forbidden!r}"
+            )
+    return errors
+
+
 def main() -> int:
     errors: list[str] = []
     daily_text = read_text(DAILY_WORKFLOW)
@@ -1045,26 +1084,7 @@ def main() -> int:
         errors.append(f"missing recent price-gap workflow: {RECENT_PRICE_GAP_WORKFLOW.relative_to(ROOT).as_posix()}")
     else:
         repair_text = read_text(RECENT_PRICE_GAP_WORKFLOW)
-        repair_literals = {
-            "Reject non-main production dispatch": "recent price-gap workflow must reject branch dispatch",
-            "ref: main": "recent price-gap workflow must operate on main",
-            "if: env.REPAIR_ACTION_COUNT != '0'": (
-                "recent price-gap workflow must commit only actual repair actions"
-            ),
-        }
-        for literal, message in repair_literals.items():
-            if literal not in repair_text:
-                errors.append(f"{message}: missing {literal!r}")
-        for forbidden in (
-            "MARKET_SESSION_CHANGE_COUNT",
-            "git add output/latest/market_session_status_latest.json",
-            "git add data/market_calendar/exceptional_non_trading_days.csv",
-        ):
-            if forbidden in repair_text:
-                errors.append(
-                    "recent price-gap workflow must not independently publish market authority: "
-                    f"found {forbidden!r}"
-                )
+        errors.extend(validate_recent_price_gap_workflow_contract(repair_text))
 
     calendar_precheck_literals = {
         "Record calendar source status before integrity gate": "daily_full_pipeline must record calendar status before the external-source hard gate",

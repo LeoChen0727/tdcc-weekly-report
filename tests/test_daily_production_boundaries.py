@@ -2173,6 +2173,35 @@ def test_recent_price_gap_workflow_bundles_zero_repair_without_publishing_market
     assert "git push origin HEAD:main" in text
 
 
+def test_recent_price_gap_boundary_rejects_zero_repair_commit_guard() -> None:
+    text = (ROOT / ".github" / "workflows" / "repair_recent_daily_price_gaps.yml").read_text(
+        encoding="utf-8"
+    )
+    assert boundaries.validate_recent_price_gap_workflow_contract(text) == []
+
+    guarded = text.replace(
+        "      - name: Commit repaired recent daily price gaps\n",
+        "      - name: Commit repaired recent daily price gaps\n"
+        "        if: env.REPAIR_ACTION_COUNT != '0'\n",
+        1,
+    )
+    errors = boundaries.validate_recent_price_gap_workflow_contract(guarded)
+    assert any("even when repair action count is zero" in error for error in errors)
+
+
+def test_recent_price_gap_boundary_requires_immutable_bundle_resume() -> None:
+    text = (ROOT / ".github" / "workflows" / "repair_recent_daily_price_gaps.yml").read_text(
+        encoding="utf-8"
+    )
+    missing_bundle = text.replace(
+        "Build immutable current-day source recovery bundle",
+        "Build disabled source recovery bundle",
+        1,
+    )
+    errors = boundaries.validate_recent_price_gap_workflow_contract(missing_bundle)
+    assert any("must build an immutable current-day source bundle" in error for error in errors)
+
+
 def test_only_daily_full_pipeline_can_stage_authoritative_latest_surfaces() -> None:
     workflows = ROOT / ".github" / "workflows"
     for path in workflows.glob("*.yml"):
