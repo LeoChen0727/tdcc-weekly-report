@@ -2,6 +2,9 @@ from __future__ import annotations
 
 import re
 import importlib.util
+import fnmatch
+import posixpath
+import shlex
 import sys
 from pathlib import Path
 
@@ -693,9 +696,244 @@ def validate_historical_source_replay_workflow(text: str) -> list[str]:
     return errors
 
 
+AUTHORITY_SURFACE_PATHS = {
+    "output/latest/market_session_status_latest.json",
+    "output/latest/data_freshness_latest.csv",
+    "output/latest/data_freshness_latest.md",
+    "output/latest/daily_authority_release_latest.json",
+}
+
+
+def _git_subcommand_tokens(command: str, expected: str) -> list[str] | None:
+    try:
+        tokens = shlex.split(command, posix=True)
+    except ValueError:
+        return [] if re.search(r"\bgit\b.*\b" + re.escape(expected) + r"\b", command) else None
+    while tokens:
+        if tokens[0] == "command":
+            tokens = tokens[1:]
+            continue
+        if tokens[0] == "env":
+            tokens = tokens[1:]
+            while tokens and (tokens[0].startswith("-") or "=" in tokens[0]):
+                tokens = tokens[1:]
+            continue
+        executable = tokens[0].replace("\\", "/").rsplit("/", 1)[-1]
+        if executable in {"bash", "sh"}:
+            for option_index, option in enumerate(tokens[1:], start=1):
+                if option.startswith("-") and "c" in option[1:]:
+                    command_index = option_index + 1
+                    if command_index >= len(tokens):
+                        return []
+                    return _git_subcommand_tokens(tokens[command_index], expected)
+        break
+    if not tokens or tokens[0].replace("\\", "/").rsplit("/", 1)[-1] not in {"git", "git.exe"}:
+        return None
+    cursor = 1
+    while cursor < len(tokens) and tokens[cursor] != expected:
+        token = tokens[cursor]
+        if token in {"-C", "-c", "--git-dir", "--work-tree", "--namespace", "--config-env"} and cursor + 1 < len(tokens):
+            cursor += 2
+            continue
+        if token.startswith(("-C", "-c", "--git-dir=", "--work-tree=", "--namespace=", "--config-env=")) or token in {"--no-pager", "--literal-pathspecs"}:
+            cursor += 1
+            continue
+        if token.startswith("-") and expected in tokens[cursor + 1 :]:
+            return []
+        return None
+    if cursor >= len(tokens):
+        return None
+    return tokens[cursor + 1 :]
+
+
+def _contains_git_subcommand(command: str, expected: str) -> bool:
+    pattern = re.compile(
+        r"(?<![A-Za-z0-9_-])(?:[^\s'\";|&()]+[\\/])?git(?:\.exe)?\s+"
+        r"(?:(?:(?:-C|-c|--git-dir|--work-tree|--namespace|--config-env)\s+\S+|"
+        r"(?:--git-dir|--work-tree|--namespace|--config-env)=\S+|--no-pager|--literal-pathspecs)\s+)*"
+        + re.escape(expected)
+        + r"(?=\s|$|[;|&])"
+    )
+    return pattern.search(command) is not None
+
+
+def git_add_command_covers_authority(command: str) -> bool:
+    add_tokens = _git_subcommand_tokens(command, "add")
+    if add_tokens is None and not _contains_git_subcommand(command, "add"):
+        add_tokens = _git_subcommand_tokens(command, "stage")
+        if add_tokens is None:
+            return _contains_git_subcommand(command, "stage")
+    elif add_tokens is None:
+        return True
+    if not add_tokens:
+        return True
+    path_tokens: list[str] = []
+    for token in add_tokens:
+        if token in {"||", "true"}:
+            break
+        if token in {"-A", "--all", "-u", "--update"}:
+            return True
+        if token.startswith("--pathspec-from-file"):
+            return True
+        if token == "--" or token.startswith("-"):
+            continue
+        path_tokens.append(token.replace("\\", "/"))
+    for token in path_tokens:
+        if token.startswith((":", "@")):
+            return True
+        if "$" in token or "`" in token:
+            static_prefix = re.split(r"[$`]", token, maxsplit=1)[0].rstrip("/")
+            normalized_prefix = posixpath.normpath(static_prefix.removeprefix("./"))
+            if normalized_prefix in {".", "output", "output/latest"} or any(
+                path.startswith(normalized_prefix + "/") for path in AUTHORITY_SURFACE_PATHS
+            ):
+                return True
+            continue
+        normalized = posixpath.normpath(token.removeprefix("./"))
+        if normalized in {".", "output", "output/latest"}:
+            return True
+        if normalized in AUTHORITY_SURFACE_PATHS:
+            return True
+        if any(fnmatch.fnmatchcase(path, normalized) for path in AUTHORITY_SURFACE_PATHS):
+            return True
+    return False
+
+
+def _path_tokens_cover_authority(path_tokens: list[str]) -> bool:
+    synthetic = "git add -- " + " ".join(shlex.quote(token) for token in path_tokens)
+    return git_add_command_covers_authority(synthetic)
+
+
+def git_commit_command_covers_authority(command: str) -> bool:
+    commit_tokens = _git_subcommand_tokens(command, "commit")
+    if commit_tokens is None:
+        return _contains_git_subcommand(command, "commit")
+    path_tokens: list[str] = []
+    skip_value = False
+    value_options = {"-m", "--message", "-F", "--file", "-C", "-c", "--reuse-message", "--fixup", "--squash"}
+    for token in commit_tokens:
+        if skip_value:
+            skip_value = False
+            continue
+        if token in {"-a", "--all"} or (
+            token.startswith("-") and not token.startswith("--") and "a" in token[1:]
+        ):
+            return True
+        if token.startswith("--pathspec-from-file"):
+            return True
+        if token in value_options:
+            skip_value = True
+            continue
+        if token == "--" or token == "--only" or token.startswith("-"):
+            continue
+        path_tokens.append(token)
+    return bool(path_tokens) and _path_tokens_cover_authority(path_tokens)
+
+
+def git_update_index_command_may_stage(command: str) -> bool:
+    update_tokens = _git_subcommand_tokens(command, "update-index")
+    return update_tokens is not None or _contains_git_subcommand(command, "update-index")
+
+
+def git_native_mutation_may_publish_authority(command: str) -> bool:
+    unconditional = {
+        "read-tree",
+        "reset",
+        "checkout",
+        "switch",
+        "merge",
+        "rebase",
+        "cherry-pick",
+        "revert",
+        "am",
+        "commit-tree",
+        "mktree",
+        "update-ref",
+    }
+    for subcommand in unconditional:
+        tokens = _git_subcommand_tokens(command, subcommand)
+        if tokens is not None or _contains_git_subcommand(command, subcommand):
+            return True
+
+    apply_tokens = _git_subcommand_tokens(command, "apply")
+    if apply_tokens is None:
+        if _contains_git_subcommand(command, "apply"):
+            return True
+    elif any(token in {"--cached", "--index", "-3", "--3way"} for token in apply_tokens):
+        return True
+
+    restore_tokens = _git_subcommand_tokens(command, "restore")
+    if restore_tokens is None:
+        if _contains_git_subcommand(command, "restore"):
+            return True
+    elif any(
+        token == "--staged"
+        or (token.startswith("-") and not token.startswith("--") and "S" in token[1:])
+        or token.startswith("--source")
+        for token in restore_tokens
+    ):
+        return True
+
+    stash_tokens = _git_subcommand_tokens(command, "stash")
+    if stash_tokens is None:
+        if _contains_git_subcommand(command, "stash"):
+            return True
+    elif any(token == "--index" for token in stash_tokens):
+        return True
+
+    for subcommand in ("rm", "mv"):
+        tokens = _git_subcommand_tokens(command, subcommand)
+        if tokens is None:
+            if _contains_git_subcommand(command, subcommand):
+                return True
+            continue
+        path_tokens = [
+            token.replace("\\", "/")
+            for token in tokens
+            if token != "--" and not token.startswith("-")
+        ]
+        if not path_tokens or _path_tokens_cover_authority(path_tokens):
+            return True
+    return False
+
+
+def workflow_paths(workflow_root: Path) -> list[Path]:
+    return sorted({*workflow_root.glob("*.yml"), *workflow_root.glob("*.yaml")})
+
+
+def validate_authority_workflow_publishers() -> list[str]:
+    errors: list[str] = []
+    workflow_root = ROOT / ".github" / "workflows"
+    allowed_staging_helpers = {"python scripts/stage_daily_published_snapshot_revisions.py"}
+    for path in workflow_paths(workflow_root):
+        if path == DAILY_WORKFLOW:
+            continue
+        text = read_text(path)
+        if "scripts/daily_authority_release.py publish" in text:
+            errors.append(f"only daily_full_pipeline may publish daily authority: {path.name}")
+        normalized = re.sub(r"\\\r?\n\s*", " ", text)
+        for raw_line in normalized.splitlines():
+            command = raw_line.strip()
+            if git_add_command_covers_authority(command):
+                errors.append(
+                    f"non-authority workflow may stage a daily authority surface: {path.name}: {command}"
+                )
+            if git_commit_command_covers_authority(command):
+                errors.append(f"non-authority workflow commit may publish daily authority: {path.name}: {command}")
+            if git_update_index_command_may_stage(command):
+                errors.append(f"non-authority workflow may stage via update-index: {path.name}: {command}")
+            if git_native_mutation_may_publish_authority(command):
+                errors.append(f"non-authority workflow uses unsafe native Git mutation: {path.name}: {command}")
+        for helper in re.findall(r"python\s+scripts/stage_[A-Za-z0-9_./-]+\.py", normalized):
+            if helper not in allowed_staging_helpers:
+                errors.append(f"non-authority workflow uses an unregistered staging helper: {path.name}: {helper}")
+    return errors
+
+
 def main() -> int:
     errors: list[str] = []
     daily_text = read_text(DAILY_WORKFLOW)
+    errors.extend(validate_authority_workflow_publishers())
 
     if not HISTORICAL_SOURCE_REPLAY_WORKFLOW.exists():
         errors.append("missing historical structured-source replay workflow")
@@ -796,7 +1034,6 @@ def main() -> int:
     for forbidden in (
         "fetch_official_daily_price.py",
         "git add data/daily_price/",
-        "build_data_freshness_latest.py",
         "generate_chatgpt_side_daily_reports.py",
         "validate_chatgpt_daily_report_new_conversation_replay.py",
         "pages.yml",
@@ -811,19 +1048,23 @@ def main() -> int:
         repair_literals = {
             "Reject non-main production dispatch": "recent price-gap workflow must reject branch dispatch",
             "ref: main": "recent price-gap workflow must operate on main",
-            "output/latest/market_session_status_latest.json": (
-                "recent price-gap workflow must persist market-session status"
-            ),
-            "data/market_calendar/exceptional_non_trading_days.csv": (
-                "recent price-gap workflow must persist exceptional closure evidence"
-            ),
-            "MARKET_SESSION_CHANGE_COUNT": (
-                "recent price-gap workflow must commit market evidence even when no price row is repaired"
+            "if: env.REPAIR_ACTION_COUNT != '0'": (
+                "recent price-gap workflow must commit only actual repair actions"
             ),
         }
         for literal, message in repair_literals.items():
             if literal not in repair_text:
                 errors.append(f"{message}: missing {literal!r}")
+        for forbidden in (
+            "MARKET_SESSION_CHANGE_COUNT",
+            "git add output/latest/market_session_status_latest.json",
+            "git add data/market_calendar/exceptional_non_trading_days.csv",
+        ):
+            if forbidden in repair_text:
+                errors.append(
+                    "recent price-gap workflow must not independently publish market authority: "
+                    f"found {forbidden!r}"
+                )
 
     calendar_precheck_literals = {
         "Record calendar source status before integrity gate": "daily_full_pipeline must record calendar status before the external-source hard gate",

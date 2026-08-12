@@ -4,6 +4,7 @@ import argparse
 import csv
 import json
 import re
+from datetime import datetime
 import sys
 import time
 import urllib.error
@@ -77,6 +78,86 @@ def normalize_date(value: object) -> str:
     if re.fullmatch(r"20\d{6}", digits):
         return digits
     return ""
+
+
+def market_session_transition_errors(
+    previous: dict[str, Any],
+    candidate: dict[str, Any],
+) -> list[str]:
+    if not previous:
+        return []
+    errors: list[str] = []
+    previous_date = normalize_date(previous.get("market_session_date"))
+    candidate_date = normalize_date(candidate.get("market_session_date"))
+    if not previous_date or not candidate_date:
+        return ["market_session_date must be present on both states"]
+    previous_generated = str(previous.get("generated_at") or "").strip()
+    candidate_generated = str(candidate.get("generated_at") or "").strip()
+    try:
+        previous_timestamp = datetime.fromisoformat(previous_generated.replace("Z", "+00:00"))
+        candidate_timestamp = datetime.fromisoformat(candidate_generated.replace("Z", "+00:00"))
+        if previous_timestamp.tzinfo is None or candidate_timestamp.tzinfo is None:
+            raise ValueError("timezone offset is required")
+        if candidate_timestamp < previous_timestamp:
+            errors.append(
+                "market-session generated_at cannot move backward within one session: "
+                f"{previous_generated} -> {candidate_generated}"
+            )
+    except ValueError as exc:
+        errors.append(f"market-session generated_at must be timezone-aware ISO-8601: {exc}")
+    if candidate_date < previous_date:
+        errors.append(f"market_session_date cannot move backward: {previous_date} -> {candidate_date}")
+    if candidate_date != previous_date:
+        return errors
+
+    previous_status = str(previous.get("market_status") or "")
+    candidate_status = str(candidate.get("market_status") or "")
+    previous_phase = str(previous.get("phase") or "")
+    candidate_phase = str(candidate.get("phase") or "")
+    previous_expected = normalize_date(previous.get("expected_main_price_date"))
+    candidate_expected = normalize_date(candidate.get("expected_main_price_date"))
+    if previous_expected != candidate_expected:
+        errors.append(
+            "expected_main_price_date cannot change within one market session: "
+            f"{previous_expected} -> {candidate_expected}"
+        )
+    terminal = {OPEN_CONFIRMED, CLOSED_SCHEDULED, CLOSED_EMERGENCY}
+    if previous_status in terminal and (
+        candidate_status != previous_status or candidate_phase != previous_phase
+    ):
+        errors.append(
+            "terminal market session state cannot transition: "
+            f"{previous_status}/{previous_phase} -> {candidate_status}/{candidate_phase}"
+        )
+    phase_rank = {"preflight": 0, "confirm": 1}
+    if phase_rank.get(candidate_phase, -1) < phase_rank.get(previous_phase, -1):
+        errors.append(f"market session phase cannot move backward: {previous_phase} -> {candidate_phase}")
+    return errors
+
+
+def write_market_session_status(root: Path, status: dict[str, Any]) -> None:
+    status_path = root / MARKET_SESSION_STATUS
+    previous: dict[str, Any] = {}
+    if status_path.exists():
+        try:
+            loaded = json.loads(status_path.read_text(encoding="utf-8-sig"))
+            if isinstance(loaded, dict):
+                previous = loaded
+        except Exception as exc:
+            raise MarketSessionError(f"existing market-session state is unreadable: {exc}") from exc
+    errors = market_session_transition_errors(previous, status)
+    if errors:
+        raise MarketSessionError("; ".join(errors))
+    status_path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = status_path.with_name(f".{status_path.name}.tmp")
+    try:
+        temporary.write_text(
+            json.dumps(status, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+            encoding="utf-8",
+        )
+        temporary.replace(status_path)
+    finally:
+        temporary.unlink(missing_ok=True)
 
 
 def parse_date(value: str) -> datetime:
@@ -505,12 +586,7 @@ def confirm_reusable_preflight(
             }
         )
     if write_files:
-        status_path = root / MARKET_SESSION_STATUS
-        status_path.parent.mkdir(parents=True, exist_ok=True)
-        status_path.write_text(
-            json.dumps(status, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
-            encoding="utf-8",
-        )
+        write_market_session_status(root, status)
     return status
 
 
@@ -791,12 +867,7 @@ def refresh_market_session_status(
     if status["market_status"] not in MARKET_STATUSES:
         raise AssertionError(f"invalid market status: {status['market_status']}")
     if write_files:
-        status_path = root / MARKET_SESSION_STATUS
-        status_path.parent.mkdir(parents=True, exist_ok=True)
-        status_path.write_text(
-            json.dumps(status, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
-            encoding="utf-8",
-        )
+        write_market_session_status(root, status)
     return status
 
 

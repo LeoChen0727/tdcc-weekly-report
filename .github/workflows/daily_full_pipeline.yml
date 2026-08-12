@@ -30,6 +30,7 @@ jobs:
       expected_main_price_date: ${{ steps.decision.outputs.expected_main_price_date }}
       should_run_daily_pipeline: ${{ steps.decision.outputs.should_run_daily_pipeline }}
       reason_code: ${{ steps.decision.outputs.reason_code }}
+      source_sha: ${{ steps.decision.outputs.source_sha }}
 
     steps:
       - name: Reject non-main production dispatch
@@ -58,8 +59,10 @@ jobs:
         shell: bash
         run: |
           python - <<'PY'
+          import hashlib
           import json
           import os
+          import subprocess
           from pathlib import Path
 
           path = Path("output/latest/market_session_status_latest.json")
@@ -69,6 +72,24 @@ jobs:
           expected_date = str(payload.get("expected_main_price_date") or "")
           reason_code = str(payload.get("reason_code") or "")
           should_run = payload.get("should_run_daily_pipeline") is True
+          source_sha = subprocess.check_output(
+              ["git", "rev-parse", "HEAD"], text=True
+          ).strip()
+          if len(source_sha) != 40 or any(char not in "0123456789abcdef" for char in source_sha):
+              raise SystemExit(f"invalid preflight source SHA: {source_sha!r}")
+          calendar_path = Path("data/market_calendar/exceptional_non_trading_days.csv")
+          identity = {
+              "schema_version": "daily_market_session_preflight_identity_v1",
+              "source_sha": source_sha,
+              "files": {
+                  path.as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
+                  for path in (path, calendar_path)
+              },
+          }
+          Path("market_session_preflight_identity.json").write_text(
+              json.dumps(identity, indent=2, sort_keys=True) + "\n",
+              encoding="utf-8",
+          )
           allowed = {"open_confirmed", "closed_scheduled", "closed_emergency", "unknown"}
           if market_status not in allowed:
               raise SystemExit(f"invalid market_status={market_status!r}")
@@ -80,6 +101,7 @@ jobs:
               handle.write(f"expected_main_price_date={expected_date}\n")
               handle.write(f"should_run_daily_pipeline={'true' if should_run else 'false'}\n")
               handle.write(f"reason_code={reason_code}\n")
+              handle.write(f"source_sha={source_sha}\n")
           PY
 
       - name: Upload market-session preflight evidence
@@ -90,6 +112,7 @@ jobs:
           path: |
             output/latest/market_session_status_latest.json
             data/market_calendar/exceptional_non_trading_days.csv
+            market_session_preflight_identity.json
           if-no-files-found: warn
           retention-days: 30
 
@@ -105,6 +128,7 @@ jobs:
       MARKET_SESSION_DATE: ${{ needs.market-session-preflight.outputs.market_session_date }}
       EXPECTED_MAIN_PRICE_DATE: ${{ needs.market-session-preflight.outputs.expected_main_price_date }}
       REASON_CODE: ${{ needs.market-session-preflight.outputs.reason_code }}
+      PREFLIGHT_SOURCE_SHA: ${{ needs.market-session-preflight.outputs.source_sha }}
 
     steps:
       - name: Require production artifact write deploy key
@@ -122,17 +146,53 @@ jobs:
         with:
           ssh-key: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}
           persist-credentials: true
-          ref: main
+          ref: ${{ needs.market-session-preflight.outputs.source_sha }}
           fetch-depth: 0
 
-      - name: Synchronize main before closure evidence
-        run: git pull --ff-only origin main
+      - name: Verify exact preflight source before closure evidence
+        shell: bash
+        run: |
+          git fetch origin main
+          CURRENT_HEAD="$(git rev-parse HEAD)"
+          REMOTE_MAIN="$(git rev-parse origin/main)"
+          if [ "$CURRENT_HEAD" != "$PREFLIGHT_SOURCE_SHA" ] || [ "$REMOTE_MAIN" != "$PREFLIGHT_SOURCE_SHA" ]; then
+            echo "::error::Preflight source drift: expected=$PREFLIGHT_SOURCE_SHA head=$CURRENT_HEAD origin/main=$REMOTE_MAIN"
+            exit 1
+          fi
 
       - name: Download market-session preflight evidence
         uses: actions/download-artifact@v4
         with:
           name: daily-market-session-preflight
           path: .
+
+      - name: Validate market-session preflight artifact identity
+        shell: bash
+        run: |
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+
+          identity = json.loads(Path("market_session_preflight_identity.json").read_text(encoding="utf-8"))
+          expected_sha = os.environ["PREFLIGHT_SOURCE_SHA"]
+          if identity.get("schema_version") != "daily_market_session_preflight_identity_v1":
+              raise SystemExit("invalid market-session preflight identity schema")
+          if identity.get("source_sha") != expected_sha:
+              raise SystemExit("market-session preflight source SHA mismatch")
+          expected_files = {
+              "output/latest/market_session_status_latest.json",
+              "data/market_calendar/exceptional_non_trading_days.csv",
+          }
+          files = identity.get("files")
+          if not isinstance(files, dict) or set(files) != expected_files:
+              raise SystemExit("market-session preflight identity file set mismatch")
+          for relative_path, expected_digest in files.items():
+              observed = hashlib.sha256(Path(relative_path).read_bytes()).hexdigest()
+              if observed != expected_digest:
+                  raise SystemExit(f"market-session preflight artifact SHA mismatch: {relative_path}")
+          PY
 
       - name: Validate closed market decision
         run: |
@@ -161,15 +221,27 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
+          python build_data_freshness_latest.py
+          authority_release_id="daily-authority-${MARKET_SESSION_DATE}-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          python scripts/daily_authority_release.py publish \
+            --release-id "$authority_release_id" \
+            --producer daily_full_pipeline \
+            --base-sha "$(git rev-parse HEAD)"
           git add data/market_calendar/exceptional_non_trading_days.csv || true
-          git add output/latest/market_session_status_latest.json || true
+          git add \
+            output/latest/market_session_status_latest.json \
+            output/latest/data_freshness_latest.csv \
+            output/latest/data_freshness_latest.md \
+            output/latest/daily_authority_release_latest.json
           python scripts/validate_daily_staged_paths.py
+          python scripts/daily_authority_release.py validate-staged \
+            --expected-release-id "$authority_release_id"
           git status --short
           if git diff --cached --quiet; then
             echo "No closed-market evidence changes to commit"
           else
             git commit -m "Record closed market session"
-            bash scripts/ci_push_with_retry.sh main 5
+            git push origin "HEAD:refs/heads/main"
           fi
 
   daily-pdf-dfkai-replay:
@@ -332,6 +404,7 @@ jobs:
       GH_TOKEN: ${{ github.token }}
       TARGET_BRANCH: main
       EXPECTED_MAIN_PRICE_DATE: ${{ needs.market-session-preflight.outputs.expected_main_price_date }}
+      PREFLIGHT_SOURCE_SHA: ${{ needs.market-session-preflight.outputs.source_sha }}
 
     steps:
       - name: Require production artifact write deploy key
@@ -349,14 +422,53 @@ jobs:
         with:
           ssh-key: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}
           persist-credentials: true
-          ref: main
+          ref: ${{ needs.market-session-preflight.outputs.source_sha }}
           fetch-depth: 0
+
+      - name: Verify exact preflight source before production
+        shell: bash
+        run: |
+          git fetch origin main
+          CURRENT_HEAD="$(git rev-parse HEAD)"
+          REMOTE_MAIN="$(git rev-parse origin/main)"
+          if [ "$CURRENT_HEAD" != "$PREFLIGHT_SOURCE_SHA" ] || [ "$REMOTE_MAIN" != "$PREFLIGHT_SOURCE_SHA" ]; then
+            echo "::error::Preflight source drift: expected=$PREFLIGHT_SOURCE_SHA head=$CURRENT_HEAD origin/main=$REMOTE_MAIN"
+            exit 1
+          fi
 
       - name: Download market-session preflight evidence
         uses: actions/download-artifact@v4
         with:
           name: daily-market-session-preflight
           path: .
+
+      - name: Validate market-session preflight artifact identity
+        shell: bash
+        run: |
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+
+          identity = json.loads(Path("market_session_preflight_identity.json").read_text(encoding="utf-8"))
+          expected_sha = os.environ["PREFLIGHT_SOURCE_SHA"]
+          if identity.get("schema_version") != "daily_market_session_preflight_identity_v1":
+              raise SystemExit("invalid market-session preflight identity schema")
+          if identity.get("source_sha") != expected_sha:
+              raise SystemExit("market-session preflight source SHA mismatch")
+          expected_files = {
+              "output/latest/market_session_status_latest.json",
+              "data/market_calendar/exceptional_non_trading_days.csv",
+          }
+          files = identity.get("files")
+          if not isinstance(files, dict) or set(files) != expected_files:
+              raise SystemExit("market-session preflight identity file set mismatch")
+          for relative_path, expected_digest in files.items():
+              observed = hashlib.sha256(Path(relative_path).read_bytes()).hexdigest()
+              if observed != expected_digest:
+                  raise SystemExit(f"market-session preflight artifact SHA mismatch: {relative_path}")
+          PY
 
       - name: Capture pre-run freshness baseline
         run: |
@@ -940,7 +1052,13 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-          git pull --rebase --autostash origin "$TARGET_BRANCH"
+          git fetch origin "$TARGET_BRANCH"
+          local_head="$(git rev-parse HEAD)"
+          remote_head="$(git rev-parse "origin/$TARGET_BRANCH")"
+          if [[ "$local_head" != "$remote_head" ]]; then
+            echo "Remote branch advanced after production inputs were generated: local=$local_head remote=$remote_head" >&2
+            exit 1
+          fi
           python scripts/validate_no_conflict_markers.py
 
           snapshot_report_date="$(python -c 'import re; import pandas as pd; print(re.sub(r"[^0-9]", "", str(pd.read_csv("output/latest/data_freshness_latest.csv", dtype=str).iloc[0]["main_price_date"])))')"
@@ -948,6 +1066,11 @@ jobs:
             echo "Invalid snapshot report date: $snapshot_report_date" >&2
             exit 1
           fi
+          authority_release_id="daily-authority-${snapshot_report_date}-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          python scripts/daily_authority_release.py publish \
+            --release-id "$authority_release_id" \
+            --producer daily_full_pipeline \
+            --base-sha "$(git rev-parse HEAD)"
 
           # Daily pipeline only stages daily report outputs and source data.
           # Heavy research/backtest outputs are maintained by research_backtest_pipeline.yml.
@@ -1003,12 +1126,17 @@ jobs:
 
           python scripts/stage_daily_latest_mirrors.py
           python scripts/validate_daily_staged_paths.py
+          python scripts/daily_authority_release.py validate-staged \
+            --expected-release-id "$authority_release_id"
           python scripts/validate_daily_published_model_snapshots.py
           python scripts/validate_no_conflict_markers.py
           git status --short
-          git commit -m "Update daily report artifacts and packets" || echo "No changes to commit"
-
-          bash scripts/ci_push_with_retry.sh "$TARGET_BRANCH" 5
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update daily report artifacts and packets"
+            git push origin "HEAD:$TARGET_BRANCH"
+          fi
 
           ARTIFACT_COMMIT_SHA=$(git rev-parse HEAD)
           echo "ARTIFACT_COMMIT_SHA=$ARTIFACT_COMMIT_SHA" >> "$GITHUB_ENV"
@@ -1037,7 +1165,13 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-          git pull --rebase --autostash origin "$TARGET_BRANCH"
+          git fetch origin "$TARGET_BRANCH"
+          local_head="$(git rev-parse HEAD)"
+          remote_head="$(git rev-parse "origin/$TARGET_BRANCH")"
+          if [[ "$local_head" != "$remote_head" ]]; then
+            echo "Remote branch advanced before readme publication: local=$local_head remote=$remote_head" >&2
+            exit 1
+          fi
           python scripts/validate_no_conflict_markers.py
 
           # Publish step only commits readme, URL checks, ChatGPT entry files, and small daily surfaces.
@@ -1069,9 +1203,12 @@ jobs:
           python scripts/validate_daily_staged_paths.py
           python scripts/validate_no_conflict_markers.py
           git status --short
-          git commit -m "Publish daily report readme and ChatGPT entries" || echo "No changes to commit"
-
-          bash scripts/ci_push_with_retry.sh "$TARGET_BRANCH" 5
+          if git diff --cached --quiet; then
+            echo "No readme or ChatGPT entry changes to commit"
+          else
+            git commit -m "Publish daily report readme and ChatGPT entries"
+            git push origin "HEAD:$TARGET_BRANCH"
+          fi
 
       - name: Dispatch and wait for GitHub Pages deploy
         if: ${{ github.ref == 'refs/heads/main' }}
