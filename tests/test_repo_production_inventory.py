@@ -2967,6 +2967,12 @@ def test_revenue_promotion_preparation_manifest_is_exact_and_verified(
     target_ref = "e28a0269ba8cea5e6dbb6d09419d566998343aaa"
     authorization_payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
     original_git_blob_at_ref = inventory.git_blob_at_ref
+    original_git_output_bytes = inventory.git_output_bytes
+
+    def git_output_from_base_checkout(*args: str) -> bytes:
+        if args == ("rev-parse", "HEAD"):
+            return f"{base_ref}\n".encode("ascii")
+        return original_git_output_bytes(*args)
 
     monkeypatch.setattr(
         inventory,
@@ -2977,6 +2983,7 @@ def test_revenue_promotion_preparation_manifest_is_exact_and_verified(
             else original_git_blob_at_ref(ref, path)
         ),
     )
+    monkeypatch.setattr(inventory, "git_output_bytes", git_output_from_base_checkout)
     assert inventory.validate_pr_safe_control_plane_migration(base_ref, target_ref) == []
     manifest = inventory.build_pr_safe_audit_manifest(
         base_sha=base_ref,
