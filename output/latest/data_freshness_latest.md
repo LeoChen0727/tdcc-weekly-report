@@ -36,3 +36,13 @@
 ## Rule
 
 When an upstream daily snapshot has a raw date newer than the latest validated all-market price history date, the effective report date is capped to the validated price date. A stock price history date is rejected when many symbols have the exact same OHLCV as recent prior rows, because that indicates a copied or stale upstream snapshot rather than a trustworthy trading-day close.
+
+## Daily Authority Release
+
+- release_id: `daily-authority-20260811-forward-recovery-84c581087953`
+- generation_id: `daily-authority-20260811-forward-recovery-84c581087953`
+- producer: `daily_full_pipeline`
+- base_commit_sha: `84c58108795303951e0a97b1f4f450ee07bcdcdd`
+- market_session_date: `20260811`
+- expected_main_price_date: `20260811`
+- market_status: `open_confirmed`
