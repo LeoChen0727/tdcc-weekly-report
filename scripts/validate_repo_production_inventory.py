@@ -385,6 +385,53 @@ PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TARGET_SHA256_BY_PATH = {
 PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_PATHS = frozenset(
     PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TARGET_SHA256_BY_PATH
 )
+PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_TARGET_ID = (
+    "daily-runtime-recovery-architecture-exact-target-v1"
+)
+PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_BASE_CONTENT_REF_SHA = (
+    "99271e96ce59b1651d327065480115a6a52887b8"
+)
+PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_HELPER = (
+    "scripts/validate_recent_structured_source_repair_workflow.py"
+)
+PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_TEST = (
+    "tests/test_validate_recent_structured_source_repair_workflow.py"
+)
+PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_BASE_SHA256_BY_PATH = {
+    ".github/workflows/daily_full_pipeline.yml": "4bc3e52c69aba1d3dfda2074760a37f64af771c884ad147ad9356087dabe722b",
+    ".github/workflows/repair_recent_daily_price_gaps.yml": "7e6b7ccf8bcbe776d747c7526007aeda2e80d71b101161f521c4b70b91723c56",
+    "config/repo_file_lifecycle_inventory.csv": "3b6f5e7ff545a7ae5cab1fe3364fd17379a8daaaab2d6538b610bd95a1662a9b",
+    "config/repo_production_inventory.csv": "0769a088ef4f1bb394bf33397a17307cbe7960d165fe56f2668cc88a24ae9fe2",
+    "config/report_artifact_lineage.csv": "9b71464838e786a85cad3c85f37e83cc019fce0ff9cc22a9004981bfff46b155",
+    "scripts/daily_source_recovery_bundle.py": None,
+    "scripts/repair_recent_daily_price_gaps.py": "2dcab2ba980c8b394567d16cd2dbd9a8bcf2937863571ef1e0cb5e8970bbc0b1",
+    "scripts/validate_recent_daily_price_repair_staged_paths.py": "81c9225afb4e1c885d5f29cffa2f2bd97952546eaf6c237428f34b5357151ca8",
+    "scripts/validate_recent_structured_source_repair_workflow.py": "5ff826ffd0ca207a686e0ed87ba710bd9315735a2c2dfb5d091a8dc9ed941676",
+    "tests/test_daily_price_history_continuity.py": "7d6b99544893ccbf2c61c37db651a6651ceafddded6ed8450ac91ffb51b6f05c",
+    "tests/test_daily_production_boundaries.py": "c6464e7afe88d9cbc786592bc4269415e9370774e111b55e0a226bb951453669",
+    "tests/test_daily_source_recovery_bundle.py": None,
+    "tests/test_validate_recent_daily_price_repair_staged_paths.py": "a4e5a43f76f179dee0034cf05783bf5b96619218df367fe09e6d7781cb98ad3d",
+    "tests/test_validate_recent_structured_source_repair_workflow.py": "eea49e7f70a4787a5a0aa065e60b59e3a795eeac9377c5d70255564a3e5cc36b",
+}
+PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_TARGET_SHA256_BY_PATH = {
+    ".github/workflows/daily_full_pipeline.yml": "8fc456bfbcb9701f0168a838cee9b5407112ab0ec634d582a3a1b3ca21480ea6",
+    ".github/workflows/repair_recent_daily_price_gaps.yml": "b8675aba39faeea26b0de8b7d377e1d344c8d7f8b63f4528a46c69434a39dce2",
+    "config/repo_file_lifecycle_inventory.csv": "279a7a44a9f16962fe04cba11c8d4acfcab73c2811f44e6af508ba655c1ba619",
+    "config/repo_production_inventory.csv": "7daee6c91eb11ffb9eba82af552f8dfa11792b8021492ba6907bfcc650dff434",
+    "config/report_artifact_lineage.csv": "02d4da43c7aec79cb873c120f7040d20e96235fd2352f886a70c91e2c399c65d",
+    "scripts/daily_source_recovery_bundle.py": "8b44388a53c66a72b3669409f53a32210264aaadd1a32ccc1ac326a0ad32b6ba",
+    "scripts/repair_recent_daily_price_gaps.py": "35975f124172082180da7deedf5f23825c484be9feb7044894c8823bffdac2b5",
+    "scripts/validate_recent_daily_price_repair_staged_paths.py": "95ce98d3f74c871e6f522b62368e8d0bfd22148186f590fc5fc59d40cf1a9c8c",
+    "scripts/validate_recent_structured_source_repair_workflow.py": "149998534996ae05fff5de64a8e616ce0528017cf455f0189fbf1e807440356d",
+    "tests/test_daily_price_history_continuity.py": "20d3f10fc69c0e2ada12ceb34c0ed0e7331d61343bb2335fc1ad6466d849c3aa",
+    "tests/test_daily_production_boundaries.py": "80e72199372ed4ec71725f898f57d6f62214bc7285e86e5764df3b792cd586b1",
+    "tests/test_daily_source_recovery_bundle.py": "ab888cd8edcf6cdf92ed2be12612ebd2f7de801a737c4e4561bfa5bf9bf8cce2",
+    "tests/test_validate_recent_daily_price_repair_staged_paths.py": "6818e353e2f776a2b6bd6bc625ba2bfa864872c7747dc30a854939d67ee97671",
+    "tests/test_validate_recent_structured_source_repair_workflow.py": "153549586fa43eeedf93fc93dba1c78f4e8345f0ae2fe1c08310fb89568364f1",
+}
+PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_PATHS = frozenset(
+    PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_TARGET_SHA256_BY_PATH
+)
 PR_SAFE_SNAPSHOT_MIGRATION_ID = "daily-full-checkpoint-replay-snapshot-pr-safe-v1"
 PR_SAFE_SNAPSHOT_HELPER = "scripts/validate_daily_published_model_snapshots_pr_safe.py"
 PR_SAFE_SNAPSHOT_TEST = "tests/test_daily_published_model_snapshots_pr_safe.py"
@@ -2529,17 +2576,27 @@ def pr_safe_daily_authority_containment_target_profile(
     frozenset[str],
 ] | None:
     normalized_paths = frozenset(str(path).replace("\\", "/") for path in changed_paths)
-    if normalized_paths != PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_PATHS:
-        return None
-    return (
-        PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TARGET_ID,
-        PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_BASE_CONTENT_REF_SHA,
-        PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_HELPER,
-        PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TEST,
-        PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_BASE_SHA256_BY_PATH,
-        PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TARGET_SHA256_BY_PATH,
-        PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_PATHS,
+    profiles = (
+        (
+            PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TARGET_ID,
+            PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_BASE_CONTENT_REF_SHA,
+            PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_HELPER,
+            PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TEST,
+            PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_BASE_SHA256_BY_PATH,
+            PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TARGET_SHA256_BY_PATH,
+            PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_PATHS,
+        ),
+        (
+            PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_TARGET_ID,
+            PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_BASE_CONTENT_REF_SHA,
+            PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_HELPER,
+            PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_TEST,
+            PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_BASE_SHA256_BY_PATH,
+            PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_TARGET_SHA256_BY_PATH,
+            PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_PATHS,
+        ),
     )
+    return next((profile for profile in profiles if normalized_paths == profile[6]), None)
 
 
 def is_preauthorized_daily_authority_containment_target(
@@ -2861,7 +2918,10 @@ def validate_pr_safe_control_plane_delta(
         for field, expected_sha in target_expected.items():
             if expected[field] != expected_sha:
                 errors.append(f"revenue forward-holdout target pinned {field} mismatch")
-    elif migration_id == PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TARGET_ID:
+    elif migration_id in {
+        PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TARGET_ID,
+        PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_TARGET_ID,
+    }:
         target_profile = pr_safe_daily_authority_containment_target_profile(
             authorized_paths
         )
@@ -2876,7 +2936,7 @@ def validate_pr_safe_control_plane_delta(
         }
         for field, expected_sha in target_expected.items():
             if expected[field] != expected_sha:
-                errors.append(f"daily authority containment target pinned {field} mismatch")
+                errors.append(f"daily runtime target pinned {field} mismatch")
     else:
         errors.append(f"unsupported PR-safe migration id: {migration_id}")
     return errors
