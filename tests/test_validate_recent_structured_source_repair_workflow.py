@@ -129,7 +129,8 @@ def test_reusable_replay_entrypoint_and_secret_are_required() -> None:
 
 def test_resume_identity_polling_and_current_day_contract_fail_closed() -> None:
     recent_text, replay_text, daily_full_text = _texts()
-    assert daily_full_text.count("github.run_attempt == 1") == 2
+    assert daily_full_text.count("github.run_attempt == 1") == 1
+    assert daily_full_text.count("recovery dispatch requires github.run_attempt=1") == 1
     invalid_recent = recent_text.replace(
         "for completion_poll in $(seq 1 240)",
         "while true",
