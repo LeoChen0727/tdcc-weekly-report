@@ -2042,7 +2042,7 @@ def test_input_bound_validator_stage_a_preauthorizations_are_exact() -> None:
     payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
     rows, errors = inventory.parse_pr_safe_authorizations(payload)
     assert errors == []
-    assert [row["migration_id"] for row in rows[-10:]] == [
+    assert [row["migration_id"] for row in rows[-11:]] == [
         inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_MIGRATION_ID,
         inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_STAGE_A_MIGRATION_ID,
         inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_ID,
@@ -2053,6 +2053,7 @@ def test_input_bound_validator_stage_a_preauthorizations_are_exact() -> None:
         inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V3_TARGET_ID,
         inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V4_TARGET_ID,
         inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_TARGET_ID,
+        inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_TARGET_ID,
     ]
     rows_by_id = {row["migration_id"]: row for row in rows}
     assert rows_by_id[inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_MIGRATION_ID] == {
@@ -2202,6 +2203,46 @@ def test_input_bound_validator_stage_a_preauthorizations_are_exact() -> None:
         "scripts/validate_revenue_unreacted_range_promotion_preparation.py",
         "tests/test_validate_revenue_unreacted_range_promotion_preparation.py",
     }
+    assert rows_by_id[
+        inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_TARGET_ID
+    ] == {
+        "migration_id": inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_TARGET_ID,
+        "status": "preauthorized",
+        "approval_reference": (
+            "user_authorized_pr536_exact_target_preauthorization_v2_20260812"
+        ),
+        "base_helper_sha256": (
+            inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_BASE_SHA256_BY_PATH[
+                inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_HELPER
+            ]
+        ),
+        "current_helper_sha256": (
+            inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_TARGET_SHA256_BY_PATH[
+                inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_HELPER
+            ]
+        ),
+        "current_test_sha256": (
+            inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_TARGET_SHA256_BY_PATH[
+                inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_TEST
+            ]
+        ),
+        "changed_paths": ";".join(
+            sorted(inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_PATHS)
+        ),
+    }
+    assert inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_PATHS == (
+        inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_PATHS
+    )
+    assert {
+        path
+        for path in inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_PATHS
+        if inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_TARGET_SHA256_BY_PATH[
+            path
+        ]
+        != inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_TARGET_SHA256_BY_PATH[
+            path
+        ]
+    } == {"config/repo_file_lifecycle_inventory.csv"}
     assert rows_by_id[inventory.PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TARGET_ID] == {
         "migration_id": inventory.PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TARGET_ID,
         "status": "preauthorized",
@@ -2949,6 +2990,7 @@ def test_revenue_promotion_preparation_target_uses_base_owned_ledger() -> None:
         current_helper=current_helper,
         current_test=current_test,
         authorization_payload=authorization_payload,
+        target_id=inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_TARGET_ID,
     ) == []
     assert current_helper is not None
     assert inventory.validate_pr_safe_control_plane_delta(
@@ -2957,6 +2999,7 @@ def test_revenue_promotion_preparation_target_uses_base_owned_ledger() -> None:
         current_helper=current_helper + b"drift",
         current_test=current_test,
         authorization_payload=authorization_payload,
+        target_id=inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_TARGET_ID,
     )
 
 
@@ -3012,6 +3055,203 @@ def test_revenue_promotion_preparation_manifest_is_exact_and_verified(
     assert exact_target["target_id"] == (
         inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_TARGET_ID
     )
+    assert exact_target["verified"] is True
+
+
+def test_revenue_promotion_preparation_multi_profiles_are_content_exact(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    paths = set(inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_PATHS)
+    v1_base = inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_BASE_CONTENT_REF_SHA
+    v1_target = "e28a0269ba8cea5e6dbb6d09419d566998343aaa"
+    v2_base = inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_BASE_CONTENT_REF_SHA
+    v2_target = "ad20c6d4c52f5d8d345b71921a971044f98de106"
+    profiles = inventory.pr_safe_revenue_forward_holdout_target_profiles(paths)
+
+    assert [profile[0] for profile in profiles] == [
+        inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_TARGET_ID,
+        inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_TARGET_ID,
+    ]
+    assert inventory.pr_safe_migration_contract_for_paths(paths) is None
+    assert inventory.pr_safe_migration_contract_for_paths(
+        paths,
+        target_id=inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_TARGET_ID,
+    )[0] == inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_TARGET_ID
+    assert inventory.pr_safe_migration_contract_for_paths(
+        paths,
+        target_id=inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_TARGET_ID,
+    )[0] == inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_TARGET_ID
+
+    v1_profile = inventory.preauthorized_revenue_forward_holdout_target_profile(
+        v1_base,
+        paths,
+        repository_root=ROOT,
+        head_ref=v1_target,
+    )
+    v2_profile = inventory.preauthorized_revenue_forward_holdout_target_profile(
+        v2_base,
+        paths,
+        repository_root=ROOT,
+        head_ref=v2_target,
+    )
+    assert v1_profile is not None and v1_profile[0] == (
+        inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_TARGET_ID
+    )
+    assert v2_profile is not None and v2_profile[0] == (
+        inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_TARGET_ID
+    )
+
+    common_kwargs = {"changed_paths": paths, "repository_root": ROOT}
+    assert inventory.is_preauthorized_revenue_forward_holdout_target(
+        v1_base,
+        head_ref=v1_target,
+        target_id=inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_TARGET_ID,
+        **common_kwargs,
+    )
+    assert not inventory.is_preauthorized_revenue_forward_holdout_target(
+        v1_base,
+        head_ref=v1_target,
+        target_id=inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_TARGET_ID,
+        **common_kwargs,
+    )
+    assert inventory.is_preauthorized_revenue_forward_holdout_target(
+        v2_base,
+        head_ref=v2_target,
+        target_id=inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_TARGET_ID,
+        **common_kwargs,
+    )
+    assert not inventory.is_preauthorized_revenue_forward_holdout_target(
+        v2_base,
+        head_ref=v2_target,
+        target_id=inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_TARGET_ID,
+        **common_kwargs,
+    )
+
+    lifecycle_path = "config/repo_file_lifecycle_inventory.csv"
+    expected_lifecycle_sha = (
+        inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_TARGET_SHA256_BY_PATH[
+            lifecycle_path
+        ]
+    )
+    monkeypatch.setitem(
+        inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_TARGET_SHA256_BY_PATH,
+        lifecycle_path,
+        "0" * 64,
+    )
+    assert not inventory.is_preauthorized_revenue_forward_holdout_target(
+        v2_base,
+        head_ref=v2_target,
+        target_id=inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_TARGET_ID,
+        **common_kwargs,
+    )
+    monkeypatch.setitem(
+        inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_TARGET_SHA256_BY_PATH,
+        lifecycle_path,
+        expected_lifecycle_sha,
+    )
+
+    original_mode = inventory._pr_safe_repo_blob_mode
+    monkeypatch.setattr(
+        inventory,
+        "_pr_safe_repo_blob_mode",
+        lambda root, ref, path: (
+            "100755"
+            if ref == v2_target and path == lifecycle_path
+            else original_mode(root, ref, path)
+        ),
+    )
+    assert not inventory.is_preauthorized_revenue_forward_holdout_target(
+        v2_base,
+        head_ref=v2_target,
+        target_id=inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_TARGET_ID,
+        **common_kwargs,
+    )
+    monkeypatch.setattr(inventory, "_pr_safe_repo_blob_mode", original_mode)
+    monkeypatch.setattr(
+        inventory,
+        "_pr_safe_repo_ref_is_ancestor",
+        lambda _root, _ancestor, _descendant: False,
+    )
+    assert not inventory.is_preauthorized_revenue_forward_holdout_target(
+        v2_base,
+        head_ref=v2_target,
+        target_id=inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_TARGET_ID,
+        **common_kwargs,
+    )
+
+
+def test_revenue_promotion_preparation_v2_uses_base_owned_ledger() -> None:
+    base_ref = inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_BASE_CONTENT_REF_SHA
+    target_ref = "ad20c6d4c52f5d8d345b71921a971044f98de106"
+    helper = inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_HELPER
+    direct_test = inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_TEST
+    base_helper = inventory.git_blob_at_ref(base_ref, helper)
+    current_helper = inventory.git_blob_at_ref(target_ref, helper)
+    current_test = inventory.git_blob_at_ref(target_ref, direct_test)
+    authorization_payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
+
+    assert inventory.validate_pr_safe_control_plane_delta(
+        set(inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_PATHS),
+        base_helper=base_helper,
+        current_helper=current_helper,
+        current_test=current_test,
+        authorization_payload=authorization_payload,
+        target_id=inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_TARGET_ID,
+    ) == []
+    assert current_helper is not None
+    assert inventory.validate_pr_safe_control_plane_delta(
+        set(inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_PATHS),
+        base_helper=base_helper,
+        current_helper=current_helper + b"drift",
+        current_test=current_test,
+        authorization_payload=authorization_payload,
+        target_id=inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_TARGET_ID,
+    )
+
+
+def test_revenue_promotion_preparation_v2_manifest_is_exact_and_verified(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    base_ref = inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_BASE_CONTENT_REF_SHA
+    target_ref = "ad20c6d4c52f5d8d345b71921a971044f98de106"
+    authorization_payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
+    original_git_blob_at_ref = inventory.git_blob_at_ref
+
+    monkeypatch.setattr(
+        inventory,
+        "git_blob_at_ref",
+        lambda ref, path: (
+            authorization_payload
+            if ref == base_ref and path == inventory.PR_SAFE_AUTHORIZATION_PATH
+            else original_git_blob_at_ref(ref, path)
+        ),
+    )
+    assert inventory.validate_pr_safe_control_plane_migration(base_ref, target_ref) == []
+    manifest = inventory.build_pr_safe_audit_manifest(
+        base_sha=base_ref,
+        head_sha=target_ref,
+        validation_errors=[],
+        repository=inventory.PR_SAFE_REPOSITORY,
+        workflow_ref=inventory.PR_SAFE_EXPECTED_WORKFLOW_REF,
+        workflow_sha=base_ref,
+        run_id="31593800000",
+        run_attempt="1",
+        event_name="pull_request_target",
+        event_action="synchronize",
+        base_ref="main",
+        base_repository=inventory.PR_SAFE_REPOSITORY,
+        head_repository=inventory.PR_SAFE_REPOSITORY,
+        pull_request_number="536",
+    )
+
+    assert manifest["validation"] == {"passed": True, "errors": []}
+    assert manifest["manual_gate_eligible"] is True
+    assert manifest["changed_paths_match_allowlist"] is True
+    exact_target = manifest["exact_research_target_preauthorization"]
+    assert exact_target["target_id"] == (
+        inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_TARGET_ID
+    )
+    assert exact_target["base_content_ref_sha"] == base_ref
     assert exact_target["verified"] is True
 
 

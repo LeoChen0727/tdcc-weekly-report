@@ -389,6 +389,61 @@ PR_SAFE_REVENUE_PROMOTION_PREPARATION_TARGET_SHA256_BY_PATH = {
 PR_SAFE_REVENUE_PROMOTION_PREPARATION_PATHS = frozenset(
     PR_SAFE_REVENUE_PROMOTION_PREPARATION_TARGET_SHA256_BY_PATH
 )
+PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_TARGET_ID = (
+    "revenue-unreacted-range-promotion-preparation-exact-target-v2"
+)
+PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_BASE_CONTENT_REF_SHA = (
+    "8613b166cb86e91ef3a4f357a9f5ce40f2ec5da8"
+)
+PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_BASE_SHA256_BY_PATH = {
+    ".github/workflows/daily_model_maintenance_pr_validation.yml": "d714ea85d7a47102186a6f2612eff9e1cc25efd3a50fbc3846e0f997c10ac405",
+    ".github/workflows/research_backtest_pipeline.yml": "72297d14df7a39d290c13b7853ef2e6a30df3c5aa207fb73db4056ac4187c02a",
+    "config/daily_model_validator_independence.csv": "a76e2e232c9b063eb5e62a7f5a562610f305f9069fe20b6db583159e60d720d3",
+    "config/repo_file_lifecycle_inventory.csv": "279a7a44a9f16962fe04cba11c8d4acfcab73c2811f44e6af508ba655c1ba619",
+    "config/repo_production_inventory.csv": "7daee6c91eb11ffb9eba82af552f8dfa11792b8021492ba6907bfcc650dff434",
+    "config/revenue_unreacted_range_anomaly_disposition_registry.csv": None,
+    "config/revenue_unreacted_range_promotion_preparation_registry.csv": None,
+    "docs/latest/model_data_independence_audit_latest.csv": "21ff57d0f79fdcb861ad7284bbc46853ccbd47984a62ea7c05b9cd64ffeaf0fc",
+    "docs/latest/model_data_independence_audit_latest.md": "91aeff1b79e2a318b249354a56e33f88cff39d96d690d5b2413f9727cd8d8335",
+    "docs/specs/revenue_unreacted_range_promotion_preparation_20260812.md": None,
+    "output/latest/model_data_independence_audit_latest.csv": "21ff57d0f79fdcb861ad7284bbc46853ccbd47984a62ea7c05b9cd64ffeaf0fc",
+    "output/latest/model_data_independence_audit_latest.md": "91aeff1b79e2a318b249354a56e33f88cff39d96d690d5b2413f9727cd8d8335",
+    "scripts/model_data_independence.py": "0142a9a26d502c947d8f061ef312f988be2edaac9cd6232b7d064db44c7dbd28",
+    "scripts/validate_model_research_workflow_isolation.py": "c9f5b0a2491136c9c0b4201d48a16674076fb964f39103f553dfcb93d28f97b4",
+    "scripts/validate_revenue_unreacted_range_promotion_preparation.py": None,
+    "tests/test_daily_model_maintenance_pr_validation_workflow.py": "8eca7620ed1eb32abe10618ea1f76078e838643e5f34a79c2de2b6abe796967a",
+    "tests/test_daily_model_parameter_research.py": "9435cd06cada7de500032707a19a626110d5b39d5e2044a365f746877eb62526",
+    "tests/test_daily_published_model_snapshots_pr_safe.py": "05d47d133b2afe0654c1c9755c632ecafdd6b12e5f9311d05a12c105b835d641",
+    "tests/test_model_data_independence.py": "3a713e0ca5778f3d56772dc3fad6f0c5dcf0956cf446ded133eb970e4a16b5c6",
+    "tests/test_model_research_workflow_isolation.py": "682d2083e8fb59c9e48f4e2778693305e4731a5d40b70688278804021bac7d9f",
+    "tests/test_validate_revenue_unreacted_range_promotion_preparation.py": None,
+}
+PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_TARGET_SHA256_BY_PATH = {
+    ".github/workflows/daily_model_maintenance_pr_validation.yml": "8e3ef3c072749dfcfd3be871a973f4983d79cb7823d485f200c84b6cd129ff25",
+    ".github/workflows/research_backtest_pipeline.yml": "681117802a20c4fc5fb2c7bd143155bfd3bf2ddb3025c8a345fe29e281bb9099",
+    "config/daily_model_validator_independence.csv": "1162da43004570b2836b86f7e0f58ef2f814bfc6e994b4c472de66b5d946c61a",
+    "config/repo_file_lifecycle_inventory.csv": "6822365492111e83297a16a930b58b120234ba68d24024762c5e2cd99873bacd",
+    "config/repo_production_inventory.csv": "e019a84107f263f77e0e4f7f9e014841ebdb470ad29d58fee91441d00258b17f",
+    "config/revenue_unreacted_range_anomaly_disposition_registry.csv": "8d13efcce3feecf23231b53ec3e880cf82f72bfd4efcb9aaccc99eab18905ecc",
+    "config/revenue_unreacted_range_promotion_preparation_registry.csv": "27251680b40c1f01a516f1243cefbd69282a120ae1f2b573cdc27b78ffea02b4",
+    "docs/latest/model_data_independence_audit_latest.csv": "3b71b276152f93e50ca72c99a459627aa40c75abd15df3a2d9150aca6aab199e",
+    "docs/latest/model_data_independence_audit_latest.md": "ebffaebdfec5a59dc89b742438a494fadebed90922748d2db672eaf21fdf5c6f",
+    "docs/specs/revenue_unreacted_range_promotion_preparation_20260812.md": "3ab32414f4471952bef4e619703556068cd7e12d43439556d4a424559ac0008d",
+    "output/latest/model_data_independence_audit_latest.csv": "3b71b276152f93e50ca72c99a459627aa40c75abd15df3a2d9150aca6aab199e",
+    "output/latest/model_data_independence_audit_latest.md": "ebffaebdfec5a59dc89b742438a494fadebed90922748d2db672eaf21fdf5c6f",
+    "scripts/model_data_independence.py": "031a7a013b9bf04f5b9a1b3c20b716094c2d9f48a1dcbfd851c57cb5cc0b124e",
+    "scripts/validate_model_research_workflow_isolation.py": "9a75b27d0b061061ba946e697a666ebd7177ecd328f325413088e4d32713f8b8",
+    "scripts/validate_revenue_unreacted_range_promotion_preparation.py": "5b151732eba84fd13c1d8d6631d9b1bd0df3352d37705b9d5efeff167298b8a0",
+    "tests/test_daily_model_maintenance_pr_validation_workflow.py": "84ddebfcf48886cc9cec4daa4249977aaaf0e5d169edca8d9a1ba94d28e4bb64",
+    "tests/test_daily_model_parameter_research.py": "32d7a95ce495953f5d85a02fc322bf320d275bbe381797a512fcb49486da862b",
+    "tests/test_daily_published_model_snapshots_pr_safe.py": "36f10cb06865076ae950ad1e2e5783c42eb0a4a2f2d829ce746462e2f33cd226",
+    "tests/test_model_data_independence.py": "fd3485916ca6741bc743d1b04d8e14502fcfd7fca878287953e0d49f59b7be65",
+    "tests/test_model_research_workflow_isolation.py": "07f55055d31505ef7e5e0c5d6ade4dbe28b16db1d3e307576e33f8d4dc06f543",
+    "tests/test_validate_revenue_unreacted_range_promotion_preparation.py": "74f295fd6f22d20c9048e3ad44cda034b392a683e531140bd0589eeee2ac4fdc",
+}
+PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_PATHS = frozenset(
+    PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_TARGET_SHA256_BY_PATH
+)
 PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TARGET_ID = (
     "daily-runtime-authority-containment-exact-target-v1"
 )
@@ -2316,8 +2371,31 @@ def pr_safe_migration_contract_for_paths(
     base_helper_sha256: str | None = None,
     current_helper_sha256: str | None = None,
     current_test_sha256: str | None = None,
+    target_id: str | None = None,
 ) -> tuple[str, str, str, frozenset[str]] | None:
-    revenue_target = pr_safe_revenue_forward_holdout_target_profile(changed_paths)
+    revenue_profiles = pr_safe_revenue_forward_holdout_target_profiles(changed_paths)
+    if target_id is not None:
+        revenue_profiles = tuple(
+            profile for profile in revenue_profiles if profile[0] == target_id
+        )
+    revenue_target = revenue_profiles[0] if len(revenue_profiles) == 1 else None
+    observed_hashes = (
+        base_helper_sha256,
+        current_helper_sha256,
+        current_test_sha256,
+    )
+    if revenue_profiles and all(observed_hashes):
+        exact_profiles = [
+            profile
+            for profile in revenue_profiles
+            if (
+                profile[4][profile[2]],
+                profile[5][profile[2]],
+                profile[5][profile[3]],
+            )
+            == observed_hashes
+        ]
+        revenue_target = exact_profiles[0] if len(exact_profiles) == 1 else None
     if revenue_target is not None:
         return (
             revenue_target[0],
@@ -2329,11 +2407,6 @@ def pr_safe_migration_contract_for_paths(
         changed_paths
     )
     authority_target = authority_profiles[0] if authority_profiles else None
-    observed_hashes = (
-        base_helper_sha256,
-        current_helper_sha256,
-        current_test_sha256,
-    )
     if authority_profiles and all(observed_hashes):
         exact_profiles = [
             profile
@@ -2650,8 +2723,63 @@ def is_preauthorized_daily_full_checkpoint_replay_migration(
     return current_workflow == base_workflow.replace(anchor, insertion + anchor, 1)
 
 
+def pr_safe_revenue_forward_holdout_target_profiles(
+    changed_paths: set[str],
+) -> tuple[tuple[
+    str,
+    str,
+    str,
+    str,
+    dict[str, str | None],
+    dict[str, str],
+    frozenset[str],
+], ...]:
+    normalized_paths = frozenset(str(path).replace("\\", "/") for path in changed_paths)
+    profiles = (
+        (
+            PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_ID,
+            PR_SAFE_REVENUE_FORWARD_HOLDOUT_BASE_CONTENT_REF_SHA,
+            PR_SAFE_REVENUE_FORWARD_HOLDOUT_HELPER,
+            PR_SAFE_REVENUE_FORWARD_HOLDOUT_TEST,
+            PR_SAFE_REVENUE_FORWARD_HOLDOUT_BASE_SHA256_BY_PATH,
+            PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_SHA256_BY_PATH,
+            PR_SAFE_REVENUE_FORWARD_HOLDOUT_PATHS,
+        ),
+        (
+            PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_TARGET_ID,
+            PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_BASE_CONTENT_REF_SHA,
+            PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_HELPER,
+            PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_TEST,
+            PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_BASE_SHA256_BY_PATH,
+            PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_TARGET_SHA256_BY_PATH,
+            PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_PATHS,
+        ),
+        (
+            PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_TARGET_ID,
+            PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_BASE_CONTENT_REF_SHA,
+            PR_SAFE_REVENUE_PROMOTION_PREPARATION_HELPER,
+            PR_SAFE_REVENUE_PROMOTION_PREPARATION_TEST,
+            PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_BASE_SHA256_BY_PATH,
+            PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_TARGET_SHA256_BY_PATH,
+            PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_PATHS,
+        ),
+        (
+            PR_SAFE_REVENUE_PROMOTION_PREPARATION_TARGET_ID,
+            PR_SAFE_REVENUE_PROMOTION_PREPARATION_BASE_CONTENT_REF_SHA,
+            PR_SAFE_REVENUE_PROMOTION_PREPARATION_HELPER,
+            PR_SAFE_REVENUE_PROMOTION_PREPARATION_TEST,
+            PR_SAFE_REVENUE_PROMOTION_PREPARATION_BASE_SHA256_BY_PATH,
+            PR_SAFE_REVENUE_PROMOTION_PREPARATION_TARGET_SHA256_BY_PATH,
+            PR_SAFE_REVENUE_PROMOTION_PREPARATION_PATHS,
+        ),
+    )
+    return tuple(profile for profile in profiles if normalized_paths == profile[6])
+
+
 def pr_safe_revenue_forward_holdout_target_profile(
     changed_paths: set[str],
+    *,
+    target_id: str | None = None,
 ) -> tuple[
     str,
     str,
@@ -2661,38 +2789,82 @@ def pr_safe_revenue_forward_holdout_target_profile(
     dict[str, str],
     frozenset[str],
 ] | None:
-    normalized_paths = frozenset(str(path).replace("\\", "/") for path in changed_paths)
-    if normalized_paths == PR_SAFE_REVENUE_FORWARD_HOLDOUT_PATHS:
-        return (
-            PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_ID,
-            PR_SAFE_REVENUE_FORWARD_HOLDOUT_BASE_CONTENT_REF_SHA,
-            PR_SAFE_REVENUE_FORWARD_HOLDOUT_HELPER,
-            PR_SAFE_REVENUE_FORWARD_HOLDOUT_TEST,
-            PR_SAFE_REVENUE_FORWARD_HOLDOUT_BASE_SHA256_BY_PATH,
-            PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_SHA256_BY_PATH,
-            PR_SAFE_REVENUE_FORWARD_HOLDOUT_PATHS,
-        )
-    if normalized_paths == PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_PATHS:
-        return (
-            PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_TARGET_ID,
-            PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_BASE_CONTENT_REF_SHA,
-            PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_HELPER,
-            PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_TEST,
-            PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_BASE_SHA256_BY_PATH,
-            PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_TARGET_SHA256_BY_PATH,
-            PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_PATHS,
-        )
-    if normalized_paths == PR_SAFE_REVENUE_PROMOTION_PREPARATION_PATHS:
-        return (
-            PR_SAFE_REVENUE_PROMOTION_PREPARATION_TARGET_ID,
-            PR_SAFE_REVENUE_PROMOTION_PREPARATION_BASE_CONTENT_REF_SHA,
-            PR_SAFE_REVENUE_PROMOTION_PREPARATION_HELPER,
-            PR_SAFE_REVENUE_PROMOTION_PREPARATION_TEST,
-            PR_SAFE_REVENUE_PROMOTION_PREPARATION_BASE_SHA256_BY_PATH,
-            PR_SAFE_REVENUE_PROMOTION_PREPARATION_TARGET_SHA256_BY_PATH,
-            PR_SAFE_REVENUE_PROMOTION_PREPARATION_PATHS,
-        )
-    return None
+    profiles = pr_safe_revenue_forward_holdout_target_profiles(changed_paths)
+    if target_id is None:
+        return profiles[0] if profiles else None
+    return next((profile for profile in profiles if profile[0] == target_id), None)
+
+
+def preauthorized_revenue_forward_holdout_target_profile(
+    base_ref: str,
+    changed_paths: set[str],
+    *,
+    repository_root: Path = ROOT,
+    head_ref: str = "HEAD",
+    target_id: str | None = None,
+) -> tuple[
+    str,
+    str,
+    str,
+    str,
+    dict[str, str | None],
+    dict[str, str],
+    frozenset[str],
+] | None:
+    if not re.fullmatch(r"[0-9a-f]{40}", str(base_ref)):
+        return None
+    profiles = pr_safe_revenue_forward_holdout_target_profiles(changed_paths)
+    if target_id is not None:
+        profiles = tuple(profile for profile in profiles if profile[0] == target_id)
+    root = Path(repository_root).resolve()
+    matching_profiles = []
+    for profile in profiles:
+        (
+            _profile_target_id,
+            base_content_ref_sha,
+            _helper_path,
+            _test_path,
+            base_sha256_by_path,
+            target_sha256_by_path,
+            target_paths,
+        ) = profile
+        if (
+            set(base_sha256_by_path) != target_paths
+            or set(target_sha256_by_path) != target_paths
+            or not _pr_safe_repo_ref_is_ancestor(root, base_content_ref_sha, base_ref)
+            or not _pr_safe_repo_ref_is_ancestor(root, base_ref, head_ref)
+        ):
+            continue
+        profile_matches = True
+        for path in sorted(target_paths):
+            base_blob = _pr_safe_repo_blob(root, base_ref, path)
+            target_blob = _pr_safe_repo_blob(root, head_ref, path)
+            expected_base_sha = base_sha256_by_path[path]
+            expected_target_sha = target_sha256_by_path[path]
+            if expected_base_sha is None:
+                if (
+                    base_blob is not None
+                    or _pr_safe_repo_blob_mode(root, base_ref, path) is not None
+                ):
+                    profile_matches = False
+                    break
+            elif (
+                base_blob is None
+                or canonical_blob_sha256(base_blob) != expected_base_sha
+                or _pr_safe_repo_blob_mode(root, base_ref, path) != "100644"
+            ):
+                profile_matches = False
+                break
+            if (
+                target_blob is None
+                or canonical_blob_sha256(target_blob) != expected_target_sha
+                or _pr_safe_repo_blob_mode(root, head_ref, path) != "100644"
+            ):
+                profile_matches = False
+                break
+        if profile_matches:
+            matching_profiles.append(profile)
+    return matching_profiles[0] if len(matching_profiles) == 1 else None
 
 
 def is_preauthorized_revenue_forward_holdout_target(
@@ -2701,55 +2873,15 @@ def is_preauthorized_revenue_forward_holdout_target(
     *,
     repository_root: Path = ROOT,
     head_ref: str = "HEAD",
+    target_id: str | None = None,
 ) -> bool:
-    profile = pr_safe_revenue_forward_holdout_target_profile(changed_paths)
-    if profile is None:
-        return False
-    (
-        _target_id,
-        base_content_ref_sha,
-        _helper_path,
-        _test_path,
-        base_sha256_by_path,
-        target_sha256_by_path,
-        target_paths,
-    ) = profile
-    if set(base_sha256_by_path) != target_paths:
-        return False
-    if not re.fullmatch(r"[0-9a-f]{40}", str(base_ref)):
-        return False
-
-    root = Path(repository_root).resolve()
-    if not _pr_safe_repo_ref_is_ancestor(
-        root,
-        base_content_ref_sha,
+    return preauthorized_revenue_forward_holdout_target_profile(
         base_ref,
-    ):
-        return False
-    if not _pr_safe_repo_ref_is_ancestor(root, base_ref, head_ref):
-        return False
-
-    for path in sorted(target_paths):
-        base_blob = _pr_safe_repo_blob(root, base_ref, path)
-        target_blob = _pr_safe_repo_blob(root, head_ref, path)
-        expected_base_sha = base_sha256_by_path[path]
-        expected_target_sha = target_sha256_by_path[path]
-        if expected_base_sha is None:
-            if base_blob is not None or _pr_safe_repo_blob_mode(root, base_ref, path) is not None:
-                return False
-        elif (
-            base_blob is None
-            or canonical_blob_sha256(base_blob) != expected_base_sha
-            or _pr_safe_repo_blob_mode(root, base_ref, path) != "100644"
-        ):
-            return False
-        if (
-            target_blob is None
-            or canonical_blob_sha256(target_blob) != expected_target_sha
-            or _pr_safe_repo_blob_mode(root, head_ref, path) != "100644"
-        ):
-            return False
-    return True
+        changed_paths,
+        repository_root=repository_root,
+        head_ref=head_ref,
+        target_id=target_id,
+    ) is not None
 
 
 def pr_safe_daily_authority_containment_target_profiles(
@@ -3038,6 +3170,7 @@ def validate_pr_safe_control_plane_delta(
     current_test: bytes | None,
     authorization_payload: bytes,
     changed_workflow_blobs: dict[str, bytes | None] | None = None,
+    target_id: str | None = None,
 ) -> list[str]:
     errors: list[str] = []
     immutable_changes = sorted(changed_paths & PR_SAFE_IMMUTABLE_TRUST_ROOT_PATHS)
@@ -3071,6 +3204,7 @@ def validate_pr_safe_control_plane_delta(
         base_helper_sha256=canonical_blob_sha256(base_helper),
         current_helper_sha256=canonical_blob_sha256(current_helper),
         current_test_sha256=canonical_blob_sha256(current_test),
+        target_id=target_id,
     )
     if contract is None:
         errors.append(
@@ -3150,10 +3284,12 @@ def validate_pr_safe_control_plane_delta(
     elif migration_id in {
         PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_ID,
         PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_TARGET_ID,
+        PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_TARGET_ID,
         PR_SAFE_REVENUE_PROMOTION_PREPARATION_TARGET_ID,
     }:
         target_profile = pr_safe_revenue_forward_holdout_target_profile(
-            authorized_paths
+            authorized_paths,
+            target_id=migration_id,
         )
         if target_profile is None:
             errors.append("revenue forward-holdout target profile is missing")
@@ -3387,6 +3523,7 @@ def validate_pr_safe_control_plane_migration(base_sha: str, head_sha: str) -> li
     is_replay_target = False
     is_local_replay_target = False
     is_revenue_forward_holdout_target = False
+    revenue_forward_holdout_target_profile = None
     is_daily_authority_containment_target = False
     if not re.fullmatch(r"[0-9a-fA-F]{40}", base_sha):
         return [f"invalid base SHA: {base_sha!r}"]
@@ -3411,20 +3548,40 @@ def validate_pr_safe_control_plane_migration(base_sha: str, head_sha: str) -> li
         )
         changed_paths, diff_errors = parse_git_name_status_z(diff_payload)
         errors.extend(diff_errors)
-        contract = pr_safe_migration_contract_for_paths(changed_paths)
         is_replay_target = (
             changed_paths == PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_PATHS
         )
         is_local_replay_target = (
             changed_paths == PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_PATHS
         )
-        is_revenue_forward_holdout_target = (
-            pr_safe_revenue_forward_holdout_target_profile(changed_paths) is not None
+        is_revenue_forward_holdout_target = bool(
+            pr_safe_revenue_forward_holdout_target_profiles(changed_paths)
+        )
+        revenue_forward_holdout_target_profile = (
+            preauthorized_revenue_forward_holdout_target_profile(
+                base_sha,
+                changed_paths,
+                repository_root=ROOT,
+                head_ref=head_sha,
+            )
+        )
+        contract = pr_safe_migration_contract_for_paths(
+            changed_paths,
+            target_id=(
+                revenue_forward_holdout_target_profile[0]
+                if revenue_forward_holdout_target_profile is not None
+                else None
+            ),
         )
         is_daily_authority_containment_target = (
             pr_safe_daily_authority_containment_target_profile(changed_paths) is not None
         )
-        if contract is None and not is_replay_target and not is_local_replay_target:
+        if (
+            contract is None
+            and not is_replay_target
+            and not is_local_replay_target
+            and not is_revenue_forward_holdout_target
+        ):
             errors.append(
                 "PR-safe audit requires exactly the preauthorized changed paths: "
                 + "; or ".join(
@@ -3493,7 +3650,7 @@ def validate_pr_safe_control_plane_migration(base_sha: str, head_sha: str) -> li
             errors.append(
                 "base-owned audit rejected the exact validation replay target"
             )
-    else:
+    elif contract is not None:
         errors.extend(
             validate_pr_safe_control_plane_delta(
                 changed_paths,
@@ -3508,20 +3665,21 @@ def validate_pr_safe_control_plane_migration(base_sha: str, head_sha: str) -> li
                     if path.startswith(".github/workflows/")
                     and Path(path).suffix in {".yml", ".yaml"}
                 },
+                target_id=(
+                    revenue_forward_holdout_target_profile[0]
+                    if revenue_forward_holdout_target_profile is not None
+                    else None
+                ),
             )
         )
-        if (
-            is_revenue_forward_holdout_target
-            and not is_preauthorized_revenue_forward_holdout_target(
-                base_sha,
-                changed_paths,
-                repository_root=ROOT,
-                head_ref=head_sha,
-            )
-        ):
-            errors.append(
-                "base-owned audit rejected the exact revenue forward-holdout target"
-            )
+    if (
+        is_revenue_forward_holdout_target
+        and revenue_forward_holdout_target_profile is None
+    ):
+        errors.append(
+            "base-owned audit rejected the exact revenue forward-holdout target"
+        )
+    if contract is not None and not (is_replay_target or is_local_replay_target):
         if (
             is_daily_authority_containment_target
             and not is_preauthorized_daily_authority_containment_target(
@@ -3670,18 +3828,30 @@ def build_pr_safe_audit_manifest(
         )
         changed_paths, diff_errors = parse_git_name_status_z(diff_payload)
         errors.extend(diff_errors)
-        migration_contract = pr_safe_migration_contract_for_paths(changed_paths)
         is_replay_target = (
             changed_paths == PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_PATHS
         )
         is_local_replay_target = (
             changed_paths == PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_PATHS
         )
-        revenue_forward_holdout_target_profile = (
-            pr_safe_revenue_forward_holdout_target_profile(changed_paths)
+        is_revenue_forward_holdout_target = bool(
+            pr_safe_revenue_forward_holdout_target_profiles(changed_paths)
         )
-        is_revenue_forward_holdout_target = (
-            revenue_forward_holdout_target_profile is not None
+        revenue_forward_holdout_target_profile = (
+            preauthorized_revenue_forward_holdout_target_profile(
+                base_sha,
+                changed_paths,
+                repository_root=ROOT,
+                head_ref=head_sha,
+            )
+        )
+        migration_contract = pr_safe_migration_contract_for_paths(
+            changed_paths,
+            target_id=(
+                revenue_forward_holdout_target_profile[0]
+                if revenue_forward_holdout_target_profile is not None
+                else None
+            ),
         )
         daily_authority_containment_target_profile = (
             pr_safe_daily_authority_containment_target_profile(changed_paths)
@@ -3693,6 +3863,7 @@ def build_pr_safe_audit_manifest(
             migration_contract is None
             and not is_replay_target
             and not is_local_replay_target
+            and not is_revenue_forward_holdout_target
         ):
             errors.append(
                 "audit manifest changed paths do not match the exact preauthorization"
@@ -3744,12 +3915,7 @@ def build_pr_safe_audit_manifest(
     revenue_forward_holdout_target_verified = False
     if is_revenue_forward_holdout_target:
         revenue_forward_holdout_target_verified = (
-            is_preauthorized_revenue_forward_holdout_target(
-                base_sha,
-                changed_paths,
-                repository_root=ROOT,
-                head_ref=head_sha,
-            )
+            revenue_forward_holdout_target_profile is not None
         )
         if not revenue_forward_holdout_target_verified:
             errors.append(
