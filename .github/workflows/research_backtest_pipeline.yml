@@ -248,6 +248,7 @@ jobs:
             python scripts/validate_revenue_unreacted_range_operation_lag_bucket_audit.py
             python scripts/validate_revenue_unreacted_range_position_shape_transition_matrix.py
             python scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py
+            python scripts/validate_revenue_unreacted_range_promotion_preparation.py --require-source-artifacts
           else
             python scripts/build_revenue_unreacted_range_research.py
             python scripts/validate_daily_model_revenue_condition_matrix.py
@@ -265,6 +266,7 @@ jobs:
             python scripts/validate_revenue_unreacted_range_operation_lag_bucket_audit.py
             python scripts/validate_revenue_unreacted_range_position_shape_transition_matrix.py
             python scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py
+            python scripts/validate_revenue_unreacted_range_promotion_preparation.py --require-source-artifacts
           fi
 
       - name: Build volume breakout watch backtest

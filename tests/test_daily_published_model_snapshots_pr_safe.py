@@ -400,6 +400,7 @@ RESEARCH_VALIDATORS = (
     "scripts/validate_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py",
     "scripts/validate_revenue_unreacted_range_source_snapshot_projection.py",
     "scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
+    "scripts/validate_revenue_unreacted_range_promotion_preparation.py",
 )
 RESEARCH_TESTS = (
     "tests/test_revenue_unreacted_range_source_snapshot_projection.py",
@@ -407,6 +408,7 @@ RESEARCH_TESTS = (
     "tests/test_validate_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py",
     "tests/test_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
     "tests/test_validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
+    "tests/test_validate_revenue_unreacted_range_promotion_preparation.py",
 )
 
 
@@ -480,6 +482,7 @@ jobs:
         RESEARCH_VALIDATORS[0]: RESEARCH_TESTS[2],
         RESEARCH_VALIDATORS[1]: RESEARCH_TESTS[0],
         RESEARCH_VALIDATORS[2]: RESEARCH_TESTS[4],
+        RESEARCH_VALIDATORS[3]: RESEARCH_TESTS[5],
     }
     for path in (*RESEARCH_VALIDATORS, *RESEARCH_TESTS):
         target = repo / path

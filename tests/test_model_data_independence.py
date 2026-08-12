@@ -1829,17 +1829,22 @@ def test_production_importing_audits_cannot_claim_independent_evidence() -> None
         in {
             "scripts/validate_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py",
             "scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
+            "scripts/validate_revenue_unreacted_range_promotion_preparation.py",
         }
     }
     assert set(research_independent) == {
         "scripts/validate_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py",
         "scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
+        "scripts/validate_revenue_unreacted_range_promotion_preparation.py",
     }
     expected_sources = {
         "scripts/validate_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py": (
             "scripts/revenue_unreacted_range_monthly_revenue_cross_market_resolution.py"
         ),
         "scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py": (
+            "scripts/revenue_unreacted_range_low_mid_falling_candidate_audit.py"
+        ),
+        "scripts/validate_revenue_unreacted_range_promotion_preparation.py": (
             "scripts/revenue_unreacted_range_low_mid_falling_candidate_audit.py"
         ),
     }
@@ -1860,6 +1865,7 @@ def test_production_importing_audits_cannot_claim_independent_evidence() -> None
 def test_input_bound_independent_validator_role_is_closed_set_and_registered() -> None:
     assert VALID_INDEPENDENT_VALIDATOR_ROLES == {
         "independent_contract_ast_guard",
+        "independent_contract_artifact_binding_validator",
         "independent_source_lineage_validator",
         "independent_research_replay_validator",
         "input_bound_in_process_independent_validator",
