@@ -703,6 +703,57 @@ PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_MODE_BY_PATH = {
 PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_OBJECT_TYPE_BY_PATH = {
     path: "blob" for path in PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_PATHS
 }
+PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_TARGET_ID = (
+    "daily-runtime-integration-regressions-exact-target-v2"
+)
+PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_BASE_CONTENT_REF_SHA = (
+    "c128cedaf36f1176d539539d580d014598cfc743"
+)
+PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_HELPER = (
+    PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_HELPER
+)
+PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_TEST = (
+    PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_TEST
+)
+PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_BASE_SHA256_BY_PATH = {
+    **PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_BASE_SHA256_BY_PATH,
+}
+PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_TARGET_SHA256_BY_PATH = {
+    ".github/workflows/daily_full_pipeline.yml": "4b0b07ebd4e38f6383eaa5630638b17eee21e8e4c7685df1d6a386b54576151b",
+    ".github/workflows/repair_recent_daily_price_gaps.yml": "d7fc0adc10c6984957e973512b44bb61a5b4a4947915f2c2060ad8fa1def04f1",
+    "config/repo_file_lifecycle_inventory.csv": "22c79ea3915ebe7c66bb1b2bdd8721e501db79715111dfd2e8073ef9d9029c6b",
+    "fetch_official_daily_price.py": "cdf155d5bd78d19e16a14e9cc09aef22e535560d25feace8aa618b2ada26dca4",
+    "scripts/daily_source_recovery_bundle.py": "d09c8a2c5e1fa3a1a0d12e99c63bfb2d6e6f415bacbf4ca15e424102cdb2531d",
+    "scripts/market_session_calendar.py": "2e7fedb433adea4a7e417f4e1aa58f85bc55d12128e82e487d071b669d6bf3a2",
+    "scripts/repair_recent_daily_price_gaps.py": "82f49361cafeea3506c0338ba16dbc509168bed5e549cd774dff9b4df25fd860",
+    "scripts/run_daily_full_validation_replay.py": "0ff9cfc5927312bfac6aa62b6dce237435461a86772a7b569c759ac0923c28e1",
+    "scripts/validate_daily_full_validation_replay.py": "3278b57a5b745fd0f9612c4315fca0c4dcdccb5fa5ff59be8e19baa437cb71c7",
+    "scripts/validate_recent_daily_price_repair_staged_paths.py": "a7ee88cc0c4fa24bb344a6377d72122f9f7f2e464898b1bf462d8d3b18ea6b35",
+    "scripts/validate_recent_structured_source_repair_workflow.py": "2b9ff401efe48ae2d51d0b25ff0263d1a3987cd5b0b67e80506408fccb0a3e6a",
+    "tests/test_daily_full_validation_replay.py": "09d8e62f41dd69fa30192e6610c59d05b2e85b311a2ba573eeae384d83c94097",
+    "tests/test_daily_production_boundaries.py": "6202fc24f60b06caecb73539a1d2ba3856ed852f27c83e03a13cf46709ac749f",
+    "tests/test_daily_source_recovery_bundle.py": "863a29e2fde8e3ae8aaa93727371b53cdca01afeb8e2fd10b6acbb1679e96e8b",
+    "tests/test_market_session_calendar.py": "e4395cfcb46bc8b1f0a5d007961b10c864dced030dcaa0ffa68ce283da44ac45",
+    "tests/test_validate_recent_daily_price_repair_staged_paths.py": "ab7b648bd136afaa09d3701c82d05253167f3170bf23c358daffc0b5de923420",
+    "tests/test_validate_recent_structured_source_repair_workflow.py": "d3b02cb30b181f9521c785fb7f61a26038d9f1ced813831c031736a0e71ae620",
+}
+PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_PATHS = frozenset(
+    PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_TARGET_SHA256_BY_PATH
+)
+PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_BASE_RAW_SHA256_BY_PATH = {
+    **PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_BASE_SHA256_BY_PATH,
+}
+PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_TARGET_RAW_SHA256_BY_PATH = {
+    **PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_TARGET_SHA256_BY_PATH,
+}
+PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_MODE_BY_PATH = {
+    path: "100644"
+    for path in PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_PATHS
+}
+PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_OBJECT_TYPE_BY_PATH = {
+    path: "blob"
+    for path in PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_PATHS
+}
 PR_SAFE_SNAPSHOT_MIGRATION_ID = "daily-full-checkpoint-replay-snapshot-pr-safe-v1"
 PR_SAFE_SNAPSHOT_HELPER = "scripts/validate_daily_published_model_snapshots_pr_safe.py"
 PR_SAFE_SNAPSHOT_TEST = "tests/test_daily_published_model_snapshots_pr_safe.py"
@@ -3009,6 +3060,15 @@ def pr_safe_daily_authority_containment_target_profiles(
     normalized_paths = frozenset(str(path).replace("\\", "/") for path in changed_paths)
     profiles = (
         (
+            PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_TARGET_ID,
+            PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_BASE_CONTENT_REF_SHA,
+            PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_HELPER,
+            PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_TEST,
+            PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_BASE_SHA256_BY_PATH,
+            PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_TARGET_SHA256_BY_PATH,
+            PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_PATHS,
+        ),
+        (
             PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_TARGET_ID,
             PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_BASE_CONTENT_REF_SHA,
             PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_HELPER,
@@ -3085,6 +3145,31 @@ def pr_safe_daily_authority_containment_target_profile(
     return next((profile for profile in profiles if profile[0] == target_id), None)
 
 
+def daily_runtime_integration_regressions_identity_contract(
+    target_id: str,
+) -> tuple[
+    dict[str, str] | None,
+    dict[str, str] | None,
+    dict[str, str],
+    dict[str, str],
+] | None:
+    if target_id == PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_TARGET_ID:
+        return (
+            PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_BASE_RAW_SHA256_BY_PATH,
+            PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_TARGET_RAW_SHA256_BY_PATH,
+            PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_MODE_BY_PATH,
+            PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_OBJECT_TYPE_BY_PATH,
+        )
+    if target_id == PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_TARGET_ID:
+        return (
+            None,
+            None,
+            PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_MODE_BY_PATH,
+            PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_OBJECT_TYPE_BY_PATH,
+        )
+    return None
+
+
 def is_preauthorized_daily_authority_containment_target(
     base_ref: str,
     changed_paths: set[str],
@@ -3142,25 +3227,34 @@ def is_preauthorized_daily_authority_containment_target(
             ):
                 exact_profile = False
                 break
-        if exact_profile and _target_id == (
-            PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_TARGET_ID
-        ):
-            if set(PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_MODE_BY_PATH) != (
-                target_paths
-            ):
+        identity_contract = daily_runtime_integration_regressions_identity_contract(
+            _target_id
+        )
+        if exact_profile and identity_contract is not None:
+            base_raw_hashes, target_raw_hashes, modes, object_types = identity_contract
+            if set(modes) != target_paths:
                 exact_profile = False
-            elif set(
-                PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_OBJECT_TYPE_BY_PATH
-            ) != target_paths:
+            elif set(object_types) != target_paths:
                 exact_profile = False
             elif any(
-                PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_MODE_BY_PATH[path]
-                != "100644"
-                or PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_OBJECT_TYPE_BY_PATH[
-                    path
-                ]
-                != "blob"
+                modes[path] != "100644" or object_types[path] != "blob"
                 for path in target_paths
+            ):
+                exact_profile = False
+            elif base_raw_hashes is not None and (
+                set(base_raw_hashes) != target_paths
+                or set(target_raw_hashes or {}) != target_paths
+                or any(
+                    hashlib.sha256(
+                        _pr_safe_repo_blob(root, base_ref, path) or b""
+                    ).hexdigest()
+                    != base_raw_hashes[path]
+                    or hashlib.sha256(
+                        _pr_safe_repo_blob(root, head_ref, path) or b""
+                    ).hexdigest()
+                    != (target_raw_hashes or {})[path]
+                    for path in target_paths
+                )
             ):
                 exact_profile = False
             elif not _pr_safe_repo_exact_modified_paths(
@@ -3184,7 +3278,10 @@ def validate_daily_runtime_integration_regressions_audit_metadata(
     run_attempt: str,
     pull_request_number: str,
 ) -> list[str]:
-    if target_id != PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_TARGET_ID:
+    if target_id not in {
+        PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_TARGET_ID,
+        PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_TARGET_ID,
+    }:
         return []
     errors: list[str] = []
     expected_repository = PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_REPOSITORY
@@ -3482,6 +3579,7 @@ def validate_pr_safe_control_plane_delta(
             if expected[field] != expected_sha:
                 errors.append(f"revenue forward-holdout target pinned {field} mismatch")
     elif migration_id in {
+        PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_TARGET_ID,
         PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_TARGET_ID,
         PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TARGET_ID,
         PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_TARGET_ID,
@@ -4272,6 +4370,34 @@ def build_pr_safe_audit_manifest(
             "target_sha256_by_path": (
                 daily_authority_containment_target_profile[5]
                 if daily_authority_containment_target_profile is not None
+                else {}
+            ),
+            "base_raw_sha256_by_path": (
+                PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_BASE_RAW_SHA256_BY_PATH
+                if daily_authority_containment_target_profile is not None
+                and daily_authority_containment_target_profile[0]
+                == PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_TARGET_ID
+                else {}
+            ),
+            "target_raw_sha256_by_path": (
+                PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_TARGET_RAW_SHA256_BY_PATH
+                if daily_authority_containment_target_profile is not None
+                and daily_authority_containment_target_profile[0]
+                == PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_TARGET_ID
+                else {}
+            ),
+            "mode_by_path": (
+                PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_MODE_BY_PATH
+                if daily_authority_containment_target_profile is not None
+                and daily_authority_containment_target_profile[0]
+                == PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_TARGET_ID
+                else {}
+            ),
+            "object_type_by_path": (
+                PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_OBJECT_TYPE_BY_PATH
+                if daily_authority_containment_target_profile is not None
+                and daily_authority_containment_target_profile[0]
+                == PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_TARGET_ID
                 else {}
             ),
             "verified": daily_authority_containment_target_verified,
