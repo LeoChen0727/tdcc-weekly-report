@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 import argparse
+import csv
 import hashlib
+import io
 import json
 import re
 import subprocess
@@ -250,6 +252,47 @@ def validate_bundle_identity(
         return errors
     if canonical_price != latest_price:
         errors.append("recent daily-price repair official latest price bytes mismatch")
+    try:
+        rows = list(
+            csv.DictReader(io.StringIO(canonical_price.decode("utf-8-sig")))
+        )
+    except Exception as exc:
+        errors.append(f"recent daily-price repair official price CSV is invalid: {exc}")
+        rows = []
+    market_counts = {"TWSE": 0, "TPEx": 0}
+    wrong_date_rows = 0
+    invalid_rows = 0
+    for row in rows:
+        if str(row.get("date") or "").replace("-", "") != target_date:
+            wrong_date_rows += 1
+            continue
+        if not str(row.get("stock_id") or "").strip():
+            invalid_rows += 1
+            continue
+        market_name = str(row.get("market") or "").strip().lower()
+        if market_name in {"twse", "listed"}:
+            market_counts["TWSE"] += 1
+        elif market_name in {"tpex", "otc", "emerging"}:
+            market_counts["TPEx"] += 1
+        else:
+            invalid_rows += 1
+    observed_counts = {
+        "twse_rows": market_counts["TWSE"],
+        "tpex_rows": market_counts["TPEx"],
+        "total_rows": market_counts["TWSE"] + market_counts["TPEx"],
+        "wrong_date_rows": wrong_date_rows,
+    }
+    if (
+        market_counts["TWSE"] <= 0
+        or market_counts["TPEx"] <= 0
+        or wrong_date_rows
+        or invalid_rows
+    ):
+        errors.append(
+            "recent daily-price repair official price CSV is not exact full-market data: "
+            f"TWSE={market_counts['TWSE']} TPEx={market_counts['TPEx']} "
+            f"wrong_date_rows={wrong_date_rows} invalid_rows={invalid_rows}"
+        )
     expected_status = {
         "target_date": target_date,
         "saved_price_date": target_date,
@@ -260,6 +303,11 @@ def validate_bundle_identity(
         if fetch_status.get(field) != expected:
             errors.append(
                 f"recent daily-price repair official fetch {field} mismatch"
+            )
+    for field, observed in observed_counts.items():
+        if int(fetch_status.get(field) or 0) != observed:
+            errors.append(
+                f"recent daily-price repair official fetch {field} row count mismatch"
             )
     if (
         int(fetch_status.get("latest_price_bytes") or -1) != len(latest_price)
@@ -305,6 +353,11 @@ def validate_bundle_identity(
                 errors.append(
                     f"recent daily-price repair staged confirmation {label} identity mismatch"
                 )
+        for field, observed in observed_counts.items():
+            if int(confirmation.get(field) or 0) != observed:
+                errors.append(
+                    f"recent daily-price repair staged confirmation {field} row count mismatch"
+                )
 
     market = manifest.get("market_session")
     market_path = f"{bundle_root}/market_session_status.json"
@@ -322,7 +375,11 @@ def validate_bundle_identity(
         "market_session_date": target_date,
         "expected_main_price_date": target_date,
     }
-    if not isinstance(market, dict) or market.get("payload") != market_status:
+    if (
+        not isinstance(market, dict)
+        or market.get("bundle_path") != market_path
+        or market.get("payload") != market_status
+    ):
         errors.append("recent daily-price repair staged market payload mismatch")
     else:
         if (

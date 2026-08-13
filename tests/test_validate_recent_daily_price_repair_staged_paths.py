@@ -14,12 +14,19 @@ def _json_bytes(payload: dict[str, object]) -> bytes:
     ).encode("utf-8")
 
 
-def _bundle_fixture() -> dict[str, object]:
+def _bundle_fixture(
+    *,
+    include_tpex: bool = True,
+    market_bundle_path_override: str = "",
+) -> dict[str, object]:
     target_date = "20260811"
     release_id = "daily-source-20260811-run-1"
     source_base_sha = "a" * 40
     bundle_root = f"output/history/daily_source_bundles/{target_date}/{release_id}"
-    price = f"date,stock_id,market\n{target_date},2330,TWSE\n".encode()
+    price_rows = [f"{target_date},2330,TWSE"]
+    if include_tpex:
+        price_rows.append(f"{target_date},6488,TPEx")
+    price = ("date,stock_id,market\n" + "\n".join(price_rows) + "\n").encode()
     markdown = b"# official price fetch\n"
     fetch = _json_bytes(
         {
@@ -27,6 +34,10 @@ def _bundle_fixture() -> dict[str, object]:
             "saved_price_date": target_date,
             "is_target_date": True,
             "full_market_ok": True,
+            "twse_rows": 1,
+            "tpex_rows": 1,
+            "total_rows": 2,
+            "wrong_date_rows": 0,
             "latest_price_bytes": len(price),
             "latest_price_sha256": hashlib.sha256(price).hexdigest(),
             "fetch_markdown_bytes": len(markdown),
@@ -81,6 +92,7 @@ def _bundle_fixture() -> dict[str, object]:
         "twse_rows": 1,
         "tpex_rows": 1,
         "total_rows": 2,
+        "wrong_date_rows": 0,
     }
     identity: dict[str, object] = {
         "schema_version": validator.BUNDLE_SCHEMA,
@@ -93,7 +105,7 @@ def _bundle_fixture() -> dict[str, object]:
         "files": files,
         "official_price_confirmation": confirmation,
         "market_session": {
-            "bundle_path": market_path,
+            "bundle_path": market_bundle_path_override or market_path,
             "mode": "100644",
             "bytes": len(market_payload),
             "sha256": hashlib.sha256(market_payload).hexdigest(),
@@ -150,6 +162,21 @@ def _validate_fixture(fixture: dict[str, object]) -> list[str]:
 
 def test_exact_staged_bundle_identity_passes() -> None:
     assert _validate_fixture(_bundle_fixture()) == []
+
+
+def test_staged_bundle_recomputes_full_market_rows_from_index_csv() -> None:
+    errors = _validate_fixture(_bundle_fixture(include_tpex=False))
+    assert any("full-market" in error for error in errors)
+    assert any("row count mismatch" in error for error in errors)
+
+
+def test_staged_bundle_rejects_manifest_market_object_path_drift() -> None:
+    errors = _validate_fixture(
+        _bundle_fixture(
+            market_bundle_path_override="output/latest/market_session_status_latest.json"
+        )
+    )
+    assert any("market payload mismatch" in error for error in errors)
 
 
 @pytest.mark.parametrize(
