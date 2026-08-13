@@ -160,6 +160,7 @@ def _validate_fixture(fixture: dict[str, object]) -> list[str]:
         source_bundle_sha=str(fixture["source_bundle_sha"]),
         read_index_bytes=lambda path: payloads[path],
         read_index_mode=lambda path: modes[path],
+        read_index_type=lambda _path: "blob",
     )
 
 
@@ -269,6 +270,7 @@ def test_git_index_allows_unchanged_price_member_with_stale_status_repair(
         source_bundle_sha=str(fixture["source_bundle_sha"]),
         read_index_bytes=validator.read_staged_bytes,
         read_index_mode=validator.read_staged_mode,
+        read_index_type=validator.read_staged_object_type,
     )
     assert errors == []
     history_path.write_bytes(b"date,close\n20260810,11\n")
@@ -282,6 +284,83 @@ def test_git_index_allows_unchanged_price_member_with_stale_status_repair(
     errors = validator.validate_no_unstaged_or_untracked_paths(observed)
     assert len(errors) == 2
     assert all("before commit" in error for error in errors)
+
+
+@pytest.mark.parametrize(
+    ("path", "mode", "object_kind", "expected_error"),
+    [
+        (
+            "data/stock_price_history/2330.csv",
+            "120000",
+            "blob",
+            "mode must be 100644",
+        ),
+        (
+            "output/latest/recent_daily_price_gap_repair_latest.json",
+            "160000",
+            "commit",
+            "object type must be blob",
+        ),
+    ],
+)
+def test_allowed_staged_paths_must_be_regular_blobs_in_real_git_index(
+    tmp_path,
+    monkeypatch: pytest.MonkeyPatch,
+    path: str,
+    mode: str,
+    object_kind: str,
+    expected_error: str,
+) -> None:
+    repo = tmp_path / "repo"
+    repo.mkdir()
+    subprocess.run(
+        ["git", "init", "-q", "--initial-branch=main"], cwd=repo, check=True
+    )
+    subprocess.run(
+        ["git", "config", "user.email", "repair@example.invalid"],
+        cwd=repo,
+        check=True,
+    )
+    subprocess.run(
+        ["git", "config", "user.name", "Repair Test"], cwd=repo, check=True
+    )
+    subprocess.run(
+        ["git", "commit", "--allow-empty", "-qm", "baseline"],
+        cwd=repo,
+        check=True,
+    )
+    if object_kind == "blob":
+        object_id = subprocess.check_output(
+            ["git", "hash-object", "-w", "--stdin"],
+            cwd=repo,
+            input=b"symlink-target\n",
+        ).decode("ascii").strip()
+    else:
+        object_id = subprocess.check_output(
+            ["git", "rev-parse", "HEAD"], cwd=repo, text=True
+        ).strip()
+    subprocess.run(
+        [
+            "git",
+            "update-index",
+            "--add",
+            "--cacheinfo",
+            f"{mode},{object_id},{path}",
+        ],
+        cwd=repo,
+        check=True,
+    )
+
+    monkeypatch.setattr(validator, "ROOT", repo)
+    entries = validator.staged_entries()
+    assert entries == [("A", (path,))]
+    assert validator.validate_entries(entries) == []
+    errors = validator.validate_staged_object_identities(
+        entries,
+        read_index_mode=validator.read_staged_mode,
+        read_index_type=validator.read_staged_object_type,
+    )
+    assert any(expected_error in error for error in errors)
 
 
 def test_date_scoped_source_bundle_paths_are_exactly_allowed() -> None:

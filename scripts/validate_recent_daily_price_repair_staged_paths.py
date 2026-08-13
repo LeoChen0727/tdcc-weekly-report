@@ -84,6 +84,39 @@ def validate_entries(entries: list[tuple[str, tuple[str, ...]]]) -> list[str]:
     return errors
 
 
+def validate_staged_object_identities(
+    entries: list[tuple[str, tuple[str, ...]]],
+    *,
+    read_index_mode: Callable[[str], str],
+    read_index_type: Callable[[str], str],
+) -> list[str]:
+    errors: list[str] = []
+    for status, paths in entries:
+        if status not in {"A", "M"} or len(paths) != 1:
+            continue
+        path = paths[0].replace("\\", "/")
+        try:
+            mode = read_index_mode(path)
+            object_type = read_index_type(path)
+        except Exception as exc:
+            errors.append(
+                "recent daily-price repair staged object identity is unreadable: "
+                f"{path}: {exc}"
+            )
+            continue
+        if mode != "100644":
+            errors.append(
+                "recent daily-price repair staged path mode must be 100644: "
+                f"path={path} observed={mode}"
+            )
+        if object_type != "blob":
+            errors.append(
+                "recent daily-price repair staged path object type must be blob: "
+                f"path={path} observed={object_type}"
+            )
+    return errors
+
+
 def _json_bytes(payload: dict[str, object]) -> bytes:
     return (
         json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
@@ -116,8 +149,16 @@ def validate_bundle_identity(
     source_bundle_sha: str,
     read_index_bytes: Callable[[str], bytes],
     read_index_mode: Callable[[str], str],
+    read_index_type: Callable[[str], str],
 ) -> list[str]:
     errors = validate_entries(entries)
+    if errors:
+        return errors
+    errors = validate_staged_object_identities(
+        entries,
+        read_index_mode=read_index_mode,
+        read_index_type=read_index_type,
+    )
     if errors:
         return errors
     if not DATE_RE.fullmatch(target_date):
@@ -465,17 +506,28 @@ def read_staged_bytes(path: str) -> bytes:
     return subprocess.check_output(["git", "show", f":{path}"], cwd=ROOT)
 
 
-def read_staged_mode(path: str) -> str:
+def _read_staged_index_record(path: str) -> tuple[str, str]:
     raw = subprocess.check_output(
         ["git", "ls-files", "--stage", "-z", "--", path], cwd=ROOT
     )
     records = [item for item in raw.decode("utf-8").split("\0") if item]
     if len(records) != 1:
         raise RuntimeError(f"staged path has ambiguous index identity: {path}")
-    match = re.fullmatch(r"([0-9]{6}) [0-9a-f]{40} 0\t(.+)", records[0])
-    if not match or match.group(2).replace("\\", "/") != path:
+    match = re.fullmatch(r"([0-9]{6}) ([0-9a-f]{40,64}) 0\t(.+)", records[0])
+    if not match or match.group(3).replace("\\", "/") != path:
         raise RuntimeError(f"staged path identity is malformed: {path}")
-    return match.group(1)
+    return match.group(1), match.group(2)
+
+
+def read_staged_mode(path: str) -> str:
+    return _read_staged_index_record(path)[0]
+
+
+def read_staged_object_type(path: str) -> str:
+    object_id = _read_staged_index_record(path)[1]
+    return subprocess.check_output(
+        ["git", "cat-file", "-t", object_id], cwd=ROOT, text=True
+    ).strip()
 
 
 def repository_head_sha() -> str:
@@ -508,6 +560,7 @@ def main() -> int:
         source_bundle_sha=args.source_bundle_sha,
         read_index_bytes=read_staged_bytes,
         read_index_mode=read_staged_mode,
+        read_index_type=read_staged_object_type,
     )
     errors.extend(
         validate_no_unstaged_or_untracked_paths(unstaged_or_untracked_paths())
