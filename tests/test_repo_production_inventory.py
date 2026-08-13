@@ -4,6 +4,7 @@ import csv
 import hashlib
 import io
 from pathlib import Path
+import subprocess
 
 import pytest
 
@@ -2042,7 +2043,7 @@ def test_input_bound_validator_stage_a_preauthorizations_are_exact() -> None:
     payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
     rows, errors = inventory.parse_pr_safe_authorizations(payload)
     assert errors == []
-    assert [row["migration_id"] for row in rows[-11:]] == [
+    assert [row["migration_id"] for row in rows[-12:]] == [
         inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_MIGRATION_ID,
         inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_STAGE_A_MIGRATION_ID,
         inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_ID,
@@ -2054,8 +2055,33 @@ def test_input_bound_validator_stage_a_preauthorizations_are_exact() -> None:
         inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V4_TARGET_ID,
         inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_TARGET_ID,
         inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_TARGET_ID,
+        inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_TARGET_ID,
     ]
     rows_by_id = {row["migration_id"]: row for row in rows}
+    assert rows_by_id[
+        inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_TARGET_ID
+    ] == {
+        "migration_id": (
+            inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_TARGET_ID
+        ),
+        "status": "preauthorized",
+        "approval_reference": (
+            "current_user_explicit_first_stage_trust_root_bootstrap_"
+            "authorization_20260813"
+        ),
+        "base_helper_sha256": (
+            "aecb4ba2aa06e24c2b8d7c5bd097c489f2eaa89957233e6ccd571dc1dc20605b"
+        ),
+        "current_helper_sha256": (
+            "b7bc22b49f552ab957cfcac73eeaf3974a00aeb6fb8037b3797c6c0e2b50cf4b"
+        ),
+        "current_test_sha256": (
+            "5f1635e79b0ab4c1ad2c1314b8c72b7f273dbd23e51398a24444f5ec3999b0a1"
+        ),
+        "changed_paths": ";".join(
+            sorted(inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_PATHS)
+        ),
+    }
     assert rows_by_id[inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_MIGRATION_ID] == {
         "migration_id": inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_MIGRATION_ID,
         "status": "preauthorized",
@@ -2425,6 +2451,236 @@ def test_daily_recovery_architecture_v4_profile_is_exact() -> None:
     assert inventory.pr_safe_daily_authority_containment_target_profile(
         set(v4_paths)
     )[0] == inventory.PR_SAFE_DAILY_RECOVERY_ARCHITECTURE_V4_TARGET_ID
+
+
+def test_daily_runtime_integration_authorization_is_append_only() -> None:
+    payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
+    lines = payload.splitlines(keepends=True)
+    assert len(lines) >= 2
+    assert inventory.canonical_blob_sha256(b"".join(lines[:-1])) == (
+        "f5fe5040731cb4a92cf9665954f3404decad4c0d245e7008df3b60bc330dd826"
+    )
+
+
+def test_daily_runtime_integration_profile_is_exact_and_frozen(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    paths = inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_PATHS
+    profile = inventory.pr_safe_daily_authority_containment_target_profile(
+        set(paths),
+        target_id=inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_TARGET_ID,
+    )
+    assert profile is not None
+    assert profile[0] == inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_TARGET_ID
+    assert profile[1] == "fa75fe901b21f791107dd0c3d284e4263d241c05"
+    assert profile[2] == inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_HELPER
+    assert profile[3] == inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_TEST
+    assert set(profile[4]) == paths
+    assert set(profile[5]) == paths
+    assert set(inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_MODE_BY_PATH) == paths
+    assert set(
+        inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_OBJECT_TYPE_BY_PATH
+    ) == paths
+    assert inventory.pr_safe_daily_authority_containment_target_profile(
+        set(paths) - {next(iter(paths))}
+    ) is None
+    assert inventory.pr_safe_daily_authority_containment_target_profile(
+        {*paths, "rogue_root.json"}
+    ) is None
+
+    base_ref = "1" * 40
+    head_ref = "2" * 40
+    base_payloads = {path: f"base:{path}\n".encode() for path in paths}
+    target_payloads = {path: f"target:{path}\n".encode() for path in paths}
+    base_hashes = {
+        path: inventory.canonical_blob_sha256(payload)
+        for path, payload in base_payloads.items()
+    }
+    target_hashes = {
+        path: inventory.canonical_blob_sha256(payload)
+        for path, payload in target_payloads.items()
+    }
+    exact_modes = {path: "100644" for path in paths}
+    exact_types = {path: "blob" for path in paths}
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_BASE_SHA256_BY_PATH",
+        base_hashes,
+    )
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_TARGET_SHA256_BY_PATH",
+        target_hashes,
+    )
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_MODE_BY_PATH",
+        exact_modes,
+    )
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_OBJECT_TYPE_BY_PATH",
+        exact_types,
+    )
+    monkeypatch.setattr(inventory, "_pr_safe_repo_ref_is_ancestor", lambda *_: True)
+    monkeypatch.setattr(
+        inventory,
+        "_pr_safe_repo_blob",
+        lambda _root, ref, path: (
+            base_payloads[path] if ref == base_ref else target_payloads[path]
+        ),
+    )
+    monkeypatch.setattr(inventory, "_pr_safe_repo_blob_mode", lambda *_: "100644")
+    monkeypatch.setattr(inventory, "_pr_safe_repo_exact_modified_paths", lambda *_: True)
+
+    def accepted() -> bool:
+        return inventory.is_preauthorized_daily_authority_containment_target(
+            base_ref,
+            set(paths),
+            repository_root=ROOT,
+            head_ref=head_ref,
+        )
+
+    assert accepted()
+    for path in sorted(paths):
+        drifted = dict(base_hashes)
+        drifted[path] = "0" * 64
+        monkeypatch.setattr(
+            inventory,
+            "PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_BASE_SHA256_BY_PATH",
+            drifted,
+        )
+        assert not accepted()
+        monkeypatch.setattr(
+            inventory,
+            "PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_BASE_SHA256_BY_PATH",
+            base_hashes,
+        )
+    for path in sorted(paths):
+        drifted = dict(target_hashes)
+        drifted[path] = "0" * 64
+        monkeypatch.setattr(
+            inventory,
+            "PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_TARGET_SHA256_BY_PATH",
+            drifted,
+        )
+        assert not accepted()
+        monkeypatch.setattr(
+            inventory,
+            "PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_TARGET_SHA256_BY_PATH",
+            target_hashes,
+        )
+    for path in sorted(paths):
+        drifted = dict(exact_modes)
+        drifted[path] = "100755"
+        monkeypatch.setattr(
+            inventory,
+            "PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_MODE_BY_PATH",
+            drifted,
+        )
+        assert not accepted()
+        monkeypatch.setattr(
+            inventory,
+            "PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_MODE_BY_PATH",
+            exact_modes,
+        )
+    for path in sorted(paths):
+        drifted = dict(exact_types)
+        drifted[path] = "commit"
+        monkeypatch.setattr(
+            inventory,
+            "PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_OBJECT_TYPE_BY_PATH",
+            drifted,
+        )
+        assert not accepted()
+        monkeypatch.setattr(
+            inventory,
+            "PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_OBJECT_TYPE_BY_PATH",
+            exact_types,
+        )
+    for path in sorted(paths):
+        monkeypatch.setattr(
+            inventory,
+            "_pr_safe_repo_blob_mode",
+            lambda _root, _ref, observed_path, drift_path=path: (
+                "100755" if observed_path == drift_path else "100644"
+            ),
+        )
+        assert not accepted()
+    for path in sorted(paths):
+        monkeypatch.setattr(
+            inventory,
+            "_pr_safe_repo_blob_mode",
+            lambda _root, _ref, observed_path, drift_path=path: (
+                None if observed_path == drift_path else "100644"
+            ),
+        )
+        assert not accepted()
+    monkeypatch.setattr(inventory, "_pr_safe_repo_blob_mode", lambda *_: "100644")
+    monkeypatch.setattr(inventory, "_pr_safe_repo_ref_is_ancestor", lambda *_: False)
+    assert not accepted()
+
+
+def test_daily_runtime_integration_requires_exact_modified_paths(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    paths = frozenset({"a.txt", "b.txt"})
+
+    def observed(payload: bytes, returncode: int = 0) -> bool:
+        monkeypatch.setattr(
+            inventory.subprocess,
+            "run",
+            lambda *args, **kwargs: subprocess.CompletedProcess(
+                args=args,
+                returncode=returncode,
+                stdout=payload,
+                stderr=b"",
+            ),
+        )
+        return inventory._pr_safe_repo_exact_modified_paths(
+            ROOT,
+            "1" * 40,
+            "2" * 40,
+            paths,
+        )
+
+    assert observed(b"M\0a.txt\0M\0b.txt\0")
+    assert not observed(b"M\0a.txt\0")
+    assert not observed(b"M\0a.txt\0M\0b.txt\0M\0extra.txt\0")
+    assert not observed(b"M\0a.txt\0M\0a.txt\0")
+    for status in (b"A", b"D", b"T"):
+        assert not observed(status + b"\0a.txt\0M\0b.txt\0")
+    assert not observed(b"R100\0old.txt\0a.txt\0M\0b.txt\0")
+    assert not observed(b"C100\0old.txt\0a.txt\0M\0b.txt\0")
+    assert not observed(b"", returncode=1)
+
+
+def test_daily_runtime_integration_audit_metadata_is_exact() -> None:
+    target_id = inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_TARGET_ID
+    expected = {
+        "repository": inventory.PR_SAFE_REPOSITORY,
+        "base_repository": inventory.PR_SAFE_REPOSITORY,
+        "head_repository": inventory.PR_SAFE_REPOSITORY,
+        "run_attempt": "1",
+        "pull_request_number": "539",
+    }
+    assert inventory.validate_daily_runtime_integration_regressions_audit_metadata(
+        target_id,
+        **expected,
+    ) == []
+    for field, wrong_value in {
+        "repository": "other/repository",
+        "base_repository": "other/repository",
+        "head_repository": "fork/repository",
+        "run_attempt": "2",
+        "pull_request_number": "540",
+    }.items():
+        observed = dict(expected)
+        observed[field] = wrong_value
+        assert inventory.validate_daily_runtime_integration_regressions_audit_metadata(
+            target_id,
+            **observed,
+        )
 
 
 def test_daily_recovery_architecture_v2_ledger_is_supported(
