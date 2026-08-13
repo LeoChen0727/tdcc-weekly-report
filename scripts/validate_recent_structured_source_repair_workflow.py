@@ -490,8 +490,11 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
     continuity_lines = _step_run_executable_lines(
         repair_job, "Validate exact repaired target-date continuity"
     )
+    stage_lines = _step_run_executable_lines(
+        repair_job, "Stage exact current-day source recovery bundle"
+    )
     staged_validation_lines = _step_run_executable_lines(
-        repair_job, "Commit repaired recent daily price gaps"
+        repair_job, "Validate exact staged current-day source recovery bundle"
     )
     expected_staged_validation = (
         "python scripts/validate_recent_daily_price_repair_staged_paths.py \\",
@@ -501,28 +504,44 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         '--manifest-sha256 "${{ steps.source_bundle.outputs.manifest_sha256 }}" \\',
         '--source-bundle-sha "${{ steps.source_bundle.outputs.source_bundle_sha }}"',
     )
+    expected_stage = (
+        'git config user.name "github-actions"',
+        'git config user.email "github-actions@github.com"',
+        "git add data/daily_price/ || true",
+        "git add data/stock_price_history/",
+        "git add output/latest/recent_daily_price_gap_repair_latest.* || true",
+        "git add output/latest/repair_daily_price_range_latest.* || true",
+        "git add output/latest/repair_daily_price_range_check_code_latest.csv || true",
+        "git add output/latest/stock_price_history_manifest.* || true",
+        "git add output/latest/daily_price_history_continuity_latest.* || true",
+        "git add output/latest/official_daily_price_latest.csv",
+        "git add output/latest/official_price_fetch_latest.json",
+        "git add output/latest/official_price_fetch_latest.md",
+        "git add docs/latest/stock_price_history_manifest.* || true",
+        'git add output/history/daily_source_bundles/"$REPAIR_TARGET_DATE"/"${{ steps.source_bundle.outputs.release_id }}"/',
+        "git status --short",
+        "if git diff --cached --quiet; then",
+        'echo "::error::Immutable source bundle produced no staged commit."',
+        "exit 1",
+        "fi",
+    )
     history_stage = "git add data/stock_price_history/"
     if f"{history_stage} || true" in recent_text:
         errors.append(
             "recent repair must not swallow required stock-price history staging failure"
         )
-    elif history_stage not in {line.strip() for line in recent_text.splitlines()}:
+    elif stage_lines != list(expected_stage):
         errors.append(
-            "recent repair must fail closed while staging required stock-price history"
+            "recent repair must use the exact unconditional staging step and fail "
+            "closed while staging required stock-price history"
         )
-    if not _has_unique_exact_command(
-        continuity_lines,
-        (exact_continuity,),
-        command_marker="scripts/validate_daily_price_history_continuity.py",
-    ):
+    if continuity_lines != [exact_continuity]:
         errors.append(
             "recent repair continuity validation must be one direct command, bind "
             "the exact REPAIR_TARGET_DATE, and run before commit/push"
         )
-    staged_validator_is_exact = _has_unique_exact_command(
-        staged_validation_lines,
-        expected_staged_validation,
-        command_marker="scripts/validate_recent_daily_price_repair_staged_paths.py",
+    staged_validator_is_exact = staged_validation_lines == list(
+        expected_staged_validation
     )
     if not staged_validator_is_exact:
         errors.append(
@@ -530,8 +549,11 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         )
     step_names = (
         "Summarize recent repair result",
+        "Validate repaired target-date identity",
         "Validate exact repaired target-date continuity",
         "Build immutable current-day source recovery bundle",
+        "Stage exact current-day source recovery bundle",
+        "Validate exact staged current-day source recovery bundle",
         "Commit repaired recent daily price gaps",
     )
     step_markers = [f"      - name: {name}" for name in step_names]
@@ -540,29 +562,6 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
     ] != sorted(recent_text.index(marker) for marker in step_markers):
         errors.append(
             "recent repair must order continuity, bundle build, and persistence steps"
-        )
-    commit_command = 'git commit -m "Persist ${REPAIR_TARGET_DATE} daily source recovery bundle"'
-    push_command = "git push origin HEAD:main"
-    commit_is_exact = _has_unique_exact_command(
-        staged_validation_lines,
-        (commit_command,),
-        command_marker=commit_command,
-    )
-    push_is_exact = _has_unique_exact_command(
-        staged_validation_lines,
-        (push_command,),
-        command_marker=push_command,
-    )
-    persistence_order_is_exact = False
-    if staged_validator_is_exact and commit_is_exact and push_is_exact:
-        persistence_order_is_exact = (
-            staged_validation_lines.index(expected_staged_validation[0])
-            < staged_validation_lines.index(commit_command)
-            < staged_validation_lines.index(push_command)
-        )
-    if not persistence_order_is_exact:
-        errors.append(
-            "recent repair must validate the exact staged bundle before direct commit/push"
         )
 
     daily_full_required = {

@@ -99,6 +99,56 @@ def test_repair_safety_validators_must_be_direct_shell_commands() -> None:
         assert any("staged-path validator" in error for error in errors)
 
 
+def test_repair_safety_gates_reject_dead_shell_control_flow() -> None:
+    recent_text, replay_text, daily_full_text = _texts()
+    continuity = (
+        'python scripts/validate_daily_price_history_continuity.py '
+        '--main-price-date "$REPAIR_TARGET_DATE"'
+    )
+    staged_validator = (
+        "python scripts/validate_recent_daily_price_repair_staged_paths.py \\"
+    )
+    history_stage = "git add data/stock_price_history/"
+    mutations = (
+        recent_text.replace(
+            continuity,
+            f"if false; then\n          {continuity}\n          fi",
+            1,
+        ),
+        recent_text.replace(
+            staged_validator,
+            f"if false; then\n          {staged_validator}",
+            1,
+        ).replace(
+            '--source-bundle-sha "${{ steps.source_bundle.outputs.source_bundle_sha }}"',
+            '--source-bundle-sha "${{ steps.source_bundle.outputs.source_bundle_sha }}"\n          fi',
+            1,
+        ),
+        recent_text.replace(
+            history_stage,
+            f"if false; then\n          {history_stage}\n          fi",
+            1,
+        ),
+        recent_text.replace(continuity, f"false && {continuity}", 1),
+        recent_text.replace(
+            history_stage,
+            f"case never in always) {history_stage} ;; esac",
+            1,
+        ),
+    )
+    for invalid in mutations:
+        errors = validator.validate(invalid, replay_text, daily_full_text)
+        assert any(
+            marker in error
+            for error in errors
+            for marker in (
+                "one direct command",
+                "staged-path validator",
+                "exact unconditional staging step",
+            )
+        )
+
+
 def test_required_history_staging_failure_cannot_be_swallowed() -> None:
     recent_text, replay_text, daily_full_text = _texts()
     safe_stage = "git add data/stock_price_history/"
