@@ -730,3 +730,174 @@ def test_historical_repair_does_not_publish_current_latest_evidence(
     )
     assert result.report["current_day_confirmation"] == {}
     assert {path: path.read_bytes() for path in protected} == protected
+
+
+def _full_market_repair_payload(date_text: str) -> bytes:
+    lines = ["date,stock_id,market,open,high,low,close,volume,source"]
+    for index in range(1300):
+        market = "TWSE" if index < 800 else "TPEx"
+        lines.append(
+            f"{date_text},{1000 + index},{market},9,11,8,10,1000,"
+            f"{market}_TEST_SOURCE"
+        )
+    return ("\n".join(lines) + "\n").encode("utf-8")
+
+
+def _seed_zero_repair_current_day(root: Path, date_text: str) -> dict[Path, bytes]:
+    _prepare_root(root)
+    _bind_official_price_evidence(root, "20260710")
+    payload = _full_market_repair_payload(date_text)
+    price_dir = root / "data/daily_price"
+    for name in (date_text, f"daily_price_{date_text}"):
+        (price_dir / f"{name}.csv").write_bytes(payload)
+    latest = root / "output/latest"
+    authority = {
+        latest / "market_session_status_latest.json": json.dumps(
+            {
+                "market_status": "open_confirmed",
+                "phase": "confirm",
+                "market_session_date": date_text,
+                "expected_main_price_date": date_text,
+                "should_run_daily_pipeline": True,
+            },
+            sort_keys=True,
+        ).encode("utf-8"),
+        latest / "data_freshness_latest.csv": (
+            "market_session_status,market_session_date,expected_main_price_date,"
+            "main_price_date,report_ready,daily_pdf_ready\n"
+            f"open_confirmed,{date_text},{date_text},{date_text},True,True\n"
+        ).encode("utf-8"),
+        latest / "data_freshness_latest.md": b"# immutable authority\n",
+    }
+    for path, content in authority.items():
+        path.write_bytes(content)
+    return authority
+
+
+def test_zero_raw_repair_rebuilds_missing_target_history_before_deferred_commit(
+    tmp_path: Path,
+) -> None:
+    from scripts import repair_recent_daily_price_gaps as recent_repair
+
+    date_text = "20260713"
+    authority = _seed_zero_repair_current_day(tmp_path, date_text)
+    calls: list[str] = []
+
+    def validate(root: Path, **kwargs: object):
+        assert kwargs["main_price_date_override"] == date_text
+        calls.append("continuity")
+        if calls.count("continuity") == 1:
+            return recent_repair.continuity.ValidationResult(
+                "fail", {}, ["target history missing"]
+            )
+        return recent_repair.continuity.ValidationResult("pass", {}, [])
+
+    def build(root: Path, _args: object) -> int:
+        calls.append("history")
+        assert (root / recent_repair.official_price_fetch.OFFICIAL_PRICE_TRANSACTION_DIR).is_dir()
+        assert json.loads(
+            (root / "output/latest/official_price_fetch_latest.json").read_text(
+                encoding="utf-8"
+            )
+        )["saved_price_date"] == date_text
+        return 0
+
+    result = recent_repair.repair_recent_gaps(
+        tmp_path,
+        as_of_date=date_text,
+        authority_date=date_text,
+        lookback_days=1,
+        min_full_rows=1,
+        max_repair_dates=1,
+        rebuild_history_if_repaired=True,
+        repair_func=lambda *_args: (_ for _ in ()).throw(
+            AssertionError("zero raw repair must not refetch existing current-day prices")
+        ),
+        build_history_func=build,
+        continuity_validate_func=validate,
+        market_session_fetch_bytes=_fetcher(_feed(_closure_entry("20260710"))),
+    )
+    assert result.status == "pass"
+    assert result.report["actions"] == []
+    assert result.report["rebuild_history_status"] == "completed"
+    assert calls == ["continuity", "history", "continuity"]
+    assert result.report["current_day_confirmation"]["market_session"]["market_status"] == "open_confirmed"
+    assert {
+        path: path.read_bytes() for path in authority
+    } == authority
+    assert not (
+        tmp_path / recent_repair.official_price_fetch.OFFICIAL_PRICE_TRANSACTION_DIR
+    ).exists()
+
+
+@pytest.mark.parametrize(
+    "failure_kind",
+    [
+        "confirm_source_exception",
+        "history_nonzero",
+        "history_exception",
+        "continuity_nonzero",
+        "continuity_exception",
+    ],
+)
+def test_current_day_deferred_confirmation_failures_restore_previous_latest(
+    tmp_path: Path,
+    failure_kind: str,
+) -> None:
+    from scripts import repair_recent_daily_price_gaps as recent_repair
+
+    date_text = "20260713"
+    _prepare_root(tmp_path)
+    _bind_official_price_evidence(tmp_path, "20260710")
+    payload = _full_market_repair_payload(date_text)
+    price_dir = tmp_path / "data/daily_price"
+    for name in (date_text, f"daily_price_{date_text}"):
+        (price_dir / f"{name}.csv").write_bytes(payload)
+    triplet = [
+        tmp_path / recent_repair.official_price_fetch.LATEST_PRICE_CSV,
+        tmp_path / recent_repair.official_price_fetch.LATEST_FETCH_JSON,
+        tmp_path / recent_repair.official_price_fetch.LATEST_FETCH_MD,
+    ]
+    before = {path: path.read_bytes() for path in triplet}
+
+    def validate(_root: Path, **_kwargs: object):
+        if failure_kind == "continuity_exception":
+            raise RuntimeError("injected continuity exception")
+        if failure_kind in {"continuity_nonzero", "history_nonzero", "history_exception"}:
+            return recent_repair.continuity.ValidationResult(
+                "fail", {}, ["injected continuity failure"]
+            )
+        return recent_repair.continuity.ValidationResult("pass", {}, [])
+
+    def build(_root: Path, _args: object) -> int:
+        if failure_kind == "history_exception":
+            raise RuntimeError("injected history exception")
+        return 7 if failure_kind == "history_nonzero" else 0
+
+    if failure_kind == "confirm_source_exception":
+        def fetch_bytes(_url: str, _timeout: int) -> bytes:
+            raise RuntimeError("injected official source exception")
+    else:
+        fetch_bytes = _fetcher(_feed(_closure_entry("20260710")))
+
+    result = recent_repair.repair_recent_gaps(
+        tmp_path,
+        as_of_date=date_text,
+        authority_date=date_text,
+        lookback_days=1,
+        min_full_rows=1,
+        max_repair_dates=1,
+        rebuild_history_if_repaired=failure_kind.startswith("history_"),
+        repair_func=lambda *_args: (_ for _ in ()).throw(
+            AssertionError("existing current-day bytes must not be refetched")
+        ),
+        build_history_func=build,
+        continuity_validate_func=validate,
+        market_session_fetch_bytes=fetch_bytes,
+    )
+    assert result.status == "fail"
+    assert result.report["current_day_confirmation"] == {}
+    assert {path: path.read_bytes() for path in triplet} == before
+    assert not (
+        tmp_path / recent_repair.official_price_fetch.OFFICIAL_PRICE_TRANSACTION_DIR
+    ).exists()

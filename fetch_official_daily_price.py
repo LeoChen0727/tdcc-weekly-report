@@ -1553,6 +1553,113 @@ def _remove_official_price_transaction(transaction_root: Path) -> None:
         shutil.rmtree(transaction_root)
 
 
+def _write_official_price_transaction_journal(
+    transaction_root: Path,
+    journal: dict[str, Any],
+) -> None:
+    payload = (
+        json.dumps(journal, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
+    ).encode("utf-8")
+    prepare = transaction_root / "journal.prepare"
+    prepare.unlink(missing_ok=True)
+    _write_durable_file(prepare, payload)
+    os.replace(prepare, transaction_root / "journal.json")
+
+
+def _load_official_price_transaction(
+    root: Path,
+) -> tuple[Path, dict[str, Any], list[tuple[dict[str, Any], Path, bytes | None]]]:
+    root = Path(os.path.abspath(root))
+    transaction_root = _safe_repo_path(root, OFFICIAL_PRICE_TRANSACTION_DIR)
+    if not transaction_root.is_dir() or transaction_root.is_symlink():
+        raise ValueError(
+            "official price evidence transaction root is not a safe directory"
+        )
+    journal_path = transaction_root / "journal.json"
+    if not journal_path.is_file() or journal_path.is_symlink():
+        raise ValueError("official price evidence transaction journal is unsafe")
+    try:
+        journal = json.loads(journal_path.read_text(encoding="utf-8"))
+    except Exception as exc:
+        raise ValueError(
+            f"official price evidence transaction journal is unreadable: {exc}"
+        ) from exc
+    schema = journal.get("schema_version")
+    state = safe_str(journal.get("state"))
+    if schema == "official_price_evidence_transaction_v1" and not state:
+        state = "pending"
+    if schema not in {
+        "official_price_evidence_transaction_v1",
+        "official_price_evidence_transaction_v2",
+    } or state not in {"pending", "committed"}:
+        raise ValueError("official price evidence transaction journal is invalid")
+    entries = journal.get("entries")
+    if not isinstance(entries, list) or not entries:
+        raise ValueError("official price evidence transaction journal is invalid")
+    allowed_paths = {
+        LATEST_PRICE_CSV.as_posix(),
+        LATEST_FETCH_JSON.as_posix(),
+        LATEST_FETCH_MD.as_posix(),
+    }
+    observed_paths: set[str] = set()
+    validated: list[tuple[dict[str, Any], Path, bytes | None]] = []
+    for entry in entries:
+        if not isinstance(entry, dict):
+            raise ValueError("official price evidence transaction entry is invalid")
+        relative_text = safe_str(entry.get("path"))
+        if relative_text not in allowed_paths or relative_text in observed_paths:
+            raise ValueError("official price evidence transaction path set is invalid")
+        observed_paths.add(relative_text)
+        target = _safe_repo_path(root, Path(relative_text))
+        if target.exists() and (not target.is_file() or target.is_symlink()):
+            raise ValueError(
+                f"official price evidence recovery target is unsafe: {relative_text}"
+            )
+        try:
+            previous_bytes = int(entry.get("previous_bytes"))
+            next_bytes = int(entry.get("next_bytes"))
+        except (TypeError, ValueError) as exc:
+            raise ValueError(
+                "official price evidence transaction byte identity is invalid"
+            ) from exc
+        if previous_bytes < 0 or next_bytes < 0:
+            raise ValueError(
+                "official price evidence transaction byte identity is invalid"
+            )
+        previous_payload: bytes | None = None
+        if entry.get("previous_existed") is True:
+            backup_name = safe_str(entry.get("previous_file"))
+            if not re.fullmatch(r"previous-[0-9]+\.bin", backup_name):
+                raise ValueError(
+                    "official price evidence recovery backup identity is invalid"
+                )
+            backup_path = transaction_root / backup_name
+            if not backup_path.is_file() or backup_path.is_symlink():
+                raise ValueError(
+                    "official price evidence recovery backup is missing or unsafe"
+                )
+            previous_payload = backup_path.read_bytes()
+            if (
+                len(previous_payload) != previous_bytes
+                or hashlib.sha256(previous_payload).hexdigest()
+                != entry.get("previous_sha256")
+            ):
+                raise ValueError(
+                    "official price evidence recovery backup identity mismatch"
+                )
+        elif safe_str(entry.get("previous_file")) or previous_bytes != 0:
+            raise ValueError(
+                "official price evidence absent-target identity is invalid"
+            )
+        if not re.fullmatch(r"[0-9a-f]{64}", safe_str(entry.get("next_sha256"))):
+            raise ValueError(
+                "official price evidence prepared payload SHA identity is invalid"
+            )
+        validated.append((entry, target, previous_payload))
+    journal["state"] = state
+    return transaction_root, journal, validated
+
+
 def recover_official_price_evidence_transaction(root: Path) -> bool:
     root = Path(os.path.abspath(root))
     transaction_root = _safe_repo_path(
@@ -1568,67 +1675,31 @@ def recover_official_price_evidence_transaction(root: Path) -> bool:
     if not journal_path.exists():
         _remove_official_price_transaction(transaction_root)
         return True
-    if not journal_path.is_file() or journal_path.is_symlink():
-        raise ValueError("official price evidence transaction journal is unsafe")
-    try:
-        journal = json.loads(journal_path.read_text(encoding="utf-8"))
-    except Exception as exc:
-        raise ValueError(
-            f"official price evidence transaction journal is unreadable: {exc}"
-        ) from exc
-    entries = journal.get("entries")
-    if (
-        journal.get("schema_version") != "official_price_evidence_transaction_v1"
-        or not isinstance(entries, list)
-        or not entries
-    ):
-        raise ValueError("official price evidence transaction journal is invalid")
-    allowed_paths = {
-        LATEST_PRICE_CSV.as_posix(),
-        LATEST_FETCH_JSON.as_posix(),
-        LATEST_FETCH_MD.as_posix(),
-    }
-    observed_paths: set[str] = set()
-    for entry in entries:
-        if not isinstance(entry, dict):
-            raise ValueError("official price evidence transaction entry is invalid")
-        relative_text = safe_str(entry.get("path"))
-        if relative_text not in allowed_paths or relative_text in observed_paths:
-            raise ValueError(
-                "official price evidence transaction path set is invalid"
-            )
-        observed_paths.add(relative_text)
-        target = _safe_repo_path(root, Path(relative_text))
-        if target.exists() and (not target.is_file() or target.is_symlink()):
-            raise ValueError(
-                f"official price evidence recovery target is unsafe: {relative_text}"
-            )
-        existed = entry.get("previous_existed") is True
-        if existed:
-            backup_name = safe_str(entry.get("previous_file"))
-            if not re.fullmatch(r"previous-[0-9]+\.bin", backup_name):
+    transaction_root, journal, validated = _load_official_price_transaction(root)
+    if journal["state"] == "committed":
+        for entry, target, _ in validated:
+            if not target.is_file() or target.is_symlink():
                 raise ValueError(
-                    "official price evidence recovery backup identity is invalid"
+                    "committed official price evidence target is missing or unsafe: "
+                    f"{entry['path']}"
                 )
-            backup_path = transaction_root / backup_name
-            if not backup_path.is_file() or backup_path.is_symlink():
-                raise ValueError(
-                    "official price evidence recovery backup is missing or unsafe"
-                )
-            backup_payload = backup_path.read_bytes()
+            payload = target.read_bytes()
             if (
-                len(backup_payload) != int(entry.get("previous_bytes") or -1)
-                or hashlib.sha256(backup_payload).hexdigest()
-                != entry.get("previous_sha256")
+                len(payload) != int(entry["next_bytes"])
+                or hashlib.sha256(payload).hexdigest() != entry["next_sha256"]
             ):
                 raise ValueError(
-                    "official price evidence recovery backup identity mismatch"
+                    "committed official price evidence target identity mismatch: "
+                    f"{entry['path']}"
                 )
+        _remove_official_price_transaction(transaction_root)
+        return True
+
+    for index, (entry, target, previous_payload) in enumerate(validated):
+        if previous_payload is not None:
             target.parent.mkdir(parents=True, exist_ok=True)
-            restore = target.with_name(
-                f".{target.name}.recovery-{uuid.uuid4().hex}"
-            )
-            _write_durable_file(restore, backup_payload)
+            restore = transaction_root / f"restore-{index}.bin"
+            _write_durable_file(restore, previous_payload)
             os.replace(restore, target)
         else:
             target.unlink(missing_ok=True)
@@ -1636,13 +1707,14 @@ def recover_official_price_evidence_transaction(root: Path) -> bool:
     return True
 
 
-def _atomic_publish_payloads(
+def _begin_official_price_evidence_transaction(
     root: Path,
     payloads: dict[Path, bytes],
     *,
     fail_after_replace: int = 0,
     crash_after_replace: int = 0,
-) -> None:
+    require_exact_triplet: bool = False,
+) -> str:
     root = Path(os.path.abspath(root))
     recover_official_price_evidence_transaction(root)
     allowed_paths = {
@@ -1652,64 +1724,65 @@ def _atomic_publish_payloads(
     }
     if not payloads or not set(payloads).issubset(allowed_paths):
         raise ValueError("official price evidence transaction path set is invalid")
+    if require_exact_triplet and set(payloads) != allowed_paths:
+        raise ValueError(
+            "deferred official price evidence transaction requires the exact triplet"
+        )
     transaction_root = _safe_repo_path(
         root, OFFICIAL_PRICE_TRANSACTION_DIR
     )
     if transaction_root.exists() or transaction_root.is_symlink():
         raise ValueError("official price evidence transaction root collision")
     transaction_root.mkdir(parents=True, exist_ok=False)
-    entries: list[dict[str, Any]] = []
-    targets: list[tuple[Path, Path]] = []
-    for index, (relative_path, payload) in enumerate(
-        sorted(payloads.items(), key=lambda item: item[0].as_posix())
-    ):
-        target = _safe_repo_path(root, relative_path)
-        if target.exists() and (not target.is_file() or target.is_symlink()):
-            raise ValueError(f"official price evidence path is not a safe regular file: {relative_path}")
-        target.parent.mkdir(parents=True, exist_ok=True)
-        previous_existed = target.exists()
-        previous_payload = target.read_bytes() if previous_existed else b""
-        previous_name = f"previous-{index}.bin" if previous_existed else ""
-        if previous_existed:
-            _write_durable_file(
-                transaction_root / previous_name,
-                previous_payload,
+    transaction_id = uuid.uuid4().hex
+    try:
+        entries: list[dict[str, Any]] = []
+        targets: list[tuple[Path, Path]] = []
+        for index, (relative_path, payload) in enumerate(
+            sorted(payloads.items(), key=lambda item: item[0].as_posix())
+        ):
+            target = _safe_repo_path(root, relative_path)
+            if target.exists() and (not target.is_file() or target.is_symlink()):
+                raise ValueError(
+                    "official price evidence path is not a safe regular file: "
+                    f"{relative_path}"
+                )
+            target.parent.mkdir(parents=True, exist_ok=True)
+            previous_existed = target.exists()
+            previous_payload = target.read_bytes() if previous_existed else b""
+            previous_name = f"previous-{index}.bin" if previous_existed else ""
+            if previous_existed:
+                _write_durable_file(
+                    transaction_root / previous_name,
+                    previous_payload,
+                )
+            next_name = f"next-{index}.bin"
+            next_path = transaction_root / next_name
+            _write_durable_file(next_path, payload)
+            entries.append(
+                {
+                    "path": relative_path.as_posix(),
+                    "previous_existed": previous_existed,
+                    "previous_file": previous_name,
+                    "previous_bytes": len(previous_payload),
+                    "previous_sha256": hashlib.sha256(previous_payload).hexdigest(),
+                    "next_file": next_name,
+                    "next_bytes": len(payload),
+                    "next_sha256": hashlib.sha256(payload).hexdigest(),
+                }
             )
-        next_name = f"next-{index}.bin"
-        next_path = transaction_root / next_name
-        _write_durable_file(next_path, payload)
-        entries.append(
+            targets.append((target, next_path))
+        _write_official_price_transaction_journal(
+            transaction_root,
             {
-                "path": relative_path.as_posix(),
-                "previous_existed": previous_existed,
-                "previous_file": previous_name,
-                "previous_bytes": len(previous_payload),
-                "previous_sha256": hashlib.sha256(previous_payload).hexdigest(),
-                "next_file": next_name,
-                "next_bytes": len(payload),
-                "next_sha256": hashlib.sha256(payload).hexdigest(),
-            }
-        )
-        targets.append((target, next_path))
-
-    journal_payload = (
-        json.dumps(
-            {
-                "schema_version": "official_price_evidence_transaction_v1",
+                "schema_version": "official_price_evidence_transaction_v2",
+                "transaction_id": transaction_id,
+                "state": "pending",
                 "entries": entries,
             },
-            ensure_ascii=False,
-            indent=2,
-            sort_keys=True,
         )
-        + "\n"
-    ).encode("utf-8")
-    journal_prepare = transaction_root / "journal.prepare"
-    _write_durable_file(journal_prepare, journal_payload)
-    os.replace(journal_prepare, transaction_root / "journal.json")
 
-    replaced = 0
-    try:
+        replaced = 0
         for index, (target, next_path) in enumerate(targets):
             entry = entries[index]
             next_payload = next_path.read_bytes()
@@ -1727,10 +1800,80 @@ def _atomic_publish_payloads(
                 os._exit(91)
             if fail_after_replace and replaced >= fail_after_replace:
                 raise OSError("injected official price evidence transaction failure")
-    except Exception:
-        recover_official_price_evidence_transaction(root)
+    except Exception as exc:
+        try:
+            if (transaction_root / "journal.json").exists():
+                recover_official_price_evidence_transaction(root)
+            else:
+                _remove_official_price_transaction(transaction_root)
+        except Exception as rollback_exc:
+            raise RuntimeError(
+                "official price evidence transaction failed and rollback failed: "
+                f"original={exc}; rollback={rollback_exc}"
+            ) from rollback_exc
         raise
+    return transaction_id
+
+
+def commit_official_price_evidence_transaction(
+    root: Path,
+    *,
+    crash_after_commit_marker: bool = False,
+) -> str:
+    root = Path(os.path.abspath(root))
+    transaction_root, journal, validated = _load_official_price_transaction(root)
+    if journal["state"] == "committed":
+        recover_official_price_evidence_transaction(root)
+        return safe_str(journal.get("transaction_id"))
+    try:
+        for entry, target, _ in validated:
+            if not target.is_file() or target.is_symlink():
+                raise ValueError(
+                    "official price evidence commit target is missing or unsafe: "
+                    f"{entry['path']}"
+                )
+            payload = target.read_bytes()
+            if (
+                len(payload) != int(entry["next_bytes"])
+                or hashlib.sha256(payload).hexdigest() != entry["next_sha256"]
+            ):
+                raise ValueError(
+                    "official price evidence commit target identity mismatch: "
+                    f"{entry['path']}"
+                )
+    except Exception as exc:
+        try:
+            recover_official_price_evidence_transaction(root)
+        except Exception as rollback_exc:
+            raise RuntimeError(
+                "official price evidence commit validation failed and rollback failed: "
+                f"original={exc}; rollback={rollback_exc}"
+            ) from rollback_exc
+        raise
+    committed = dict(journal)
+    committed["schema_version"] = "official_price_evidence_transaction_v2"
+    committed["state"] = "committed"
+    _write_official_price_transaction_journal(transaction_root, committed)
+    if crash_after_commit_marker:
+        os._exit(92)
     _remove_official_price_transaction(transaction_root)
+    return safe_str(committed.get("transaction_id"))
+
+
+def _atomic_publish_payloads(
+    root: Path,
+    payloads: dict[Path, bytes],
+    *,
+    fail_after_replace: int = 0,
+    crash_after_replace: int = 0,
+) -> None:
+    _begin_official_price_evidence_transaction(
+        root,
+        payloads,
+        fail_after_replace=fail_after_replace,
+        crash_after_replace=crash_after_replace,
+    )
+    commit_official_price_evidence_transaction(root)
 
 
 def _price_projection(price_payload: bytes, saved_date: str) -> dict[str, int]:
@@ -1835,6 +1978,7 @@ def publish_official_price_evidence_transaction(
     log: list[str] | None = None,
     fail_after_replace: int = 0,
     crash_after_replace: int = 0,
+    deferred: bool = False,
 ) -> dict[str, Any]:
     root = root.resolve()
     target_date = normalize_date_text(result.get("target_date"))
@@ -1878,16 +2022,26 @@ def publish_official_price_evidence_transaction(
     json_payload = (
         json.dumps(enriched, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
     ).encode("utf-8")
-    _atomic_publish_payloads(
-        root,
-        {
-            LATEST_PRICE_CSV: price_payload,
-            LATEST_FETCH_JSON: json_payload,
-            LATEST_FETCH_MD: markdown_payload,
-        },
-        fail_after_replace=fail_after_replace,
-        crash_after_replace=crash_after_replace,
-    )
+    payloads = {
+        LATEST_PRICE_CSV: price_payload,
+        LATEST_FETCH_JSON: json_payload,
+        LATEST_FETCH_MD: markdown_payload,
+    }
+    if deferred:
+        _begin_official_price_evidence_transaction(
+            root,
+            payloads,
+            fail_after_replace=fail_after_replace,
+            crash_after_replace=crash_after_replace,
+            require_exact_triplet=True,
+        )
+    else:
+        _atomic_publish_payloads(
+            root,
+            payloads,
+            fail_after_replace=fail_after_replace,
+            crash_after_replace=crash_after_replace,
+        )
     return enriched
 
 

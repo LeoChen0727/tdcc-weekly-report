@@ -25,6 +25,40 @@ def test_current_workflows_pass_data_only_catch_up_contract() -> None:
             encoding="utf-8"
         )
     )
+    exact_continuity = (
+        'python scripts/validate_daily_price_history_continuity.py '
+        '--main-price-date "$REPAIR_TARGET_DATE"'
+    )
+    assert exact_continuity in recent_text
+    assert recent_text.index("Summarize recent repair result") < recent_text.index(
+        exact_continuity
+    ) < recent_text.index("Build immutable current-day source recovery bundle") < recent_text.index(
+        "python scripts/validate_recent_daily_price_repair_staged_paths.py"
+    ) < recent_text.index('git commit -m "Persist ${REPAIR_TARGET_DATE} daily source recovery bundle"')
+
+
+def test_repair_continuity_must_bind_target_date_and_precede_commit() -> None:
+    recent_text, replay_text, daily_full_text = _texts()
+    exact_continuity = (
+        'python scripts/validate_daily_price_history_continuity.py '
+        '--main-price-date "$REPAIR_TARGET_DATE"'
+    )
+    missing_date = recent_text.replace(
+        exact_continuity,
+        "python scripts/validate_daily_price_history_continuity.py",
+        1,
+    )
+    errors = validator.validate(missing_date, replay_text, daily_full_text)
+    assert any("bind the exact REPAIR_TARGET_DATE" in error for error in errors)
+
+    moved_after_commit = recent_text.replace(exact_continuity, "echo deferred-continuity", 1).replace(
+        'git commit -m "Persist ${REPAIR_TARGET_DATE} daily source recovery bundle"',
+        'git commit -m "Persist ${REPAIR_TARGET_DATE} daily source recovery bundle"\n'
+        f"            {exact_continuity}",
+        1,
+    )
+    errors = validator.validate(moved_after_commit, replay_text, daily_full_text)
+    assert any("before commit/push" in error for error in errors)
 
 
 def test_direct_replay_or_model_work_is_rejected() -> None:

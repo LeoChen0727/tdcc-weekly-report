@@ -2177,6 +2177,16 @@ def test_recent_price_gap_workflow_bundles_zero_repair_without_publishing_market
     assert "git add data/market_calendar/exceptional_non_trading_days.csv" not in text
     assert "bash scripts/ci_push_with_retry.sh main 5" not in text
     assert "git push origin HEAD:main" in text
+    exact_continuity = (
+        'python scripts/validate_daily_price_history_continuity.py '
+        '--main-price-date "$REPAIR_TARGET_DATE"'
+    )
+    assert exact_continuity in text
+    assert text.index("Summarize recent repair result") < text.index(
+        exact_continuity
+    ) < text.index("Build immutable current-day source recovery bundle") < text.index(
+        "python scripts/validate_recent_daily_price_repair_staged_paths.py"
+    ) < text.index('git commit -m "Persist ${REPAIR_TARGET_DATE} daily source recovery bundle"')
 
 
 def test_recent_price_gap_boundary_rejects_zero_repair_commit_guard() -> None:

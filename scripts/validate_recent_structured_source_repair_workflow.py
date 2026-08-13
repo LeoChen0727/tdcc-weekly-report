@@ -405,6 +405,41 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         errors.append(
             "current-day repair must publish official price CSV/JSON/MD through the canonical transaction"
         )
+    for literal, message in {
+        "deferred_transaction=True": (
+            "current-day repair must defer official latest commit until confirmation and continuity pass"
+        ),
+        "commit_official_price_evidence_transaction": (
+            "current-day repair must durably commit the deferred official latest transaction"
+        ),
+        "recover_official_price_evidence_transaction": (
+            "current-day repair must roll back failed deferred official latest transactions"
+        ),
+    }.items():
+        if literal not in repair_script:
+            errors.append(f"{message}: missing {literal!r}")
+    exact_continuity = (
+        'python scripts/validate_daily_price_history_continuity.py '
+        '--main-price-date "$REPAIR_TARGET_DATE"'
+    )
+    if exact_continuity not in recent_text:
+        errors.append(
+            "recent repair continuity validation must bind the exact REPAIR_TARGET_DATE"
+        )
+    else:
+        required_order = [
+            "Summarize recent repair result",
+            exact_continuity,
+            "Build immutable current-day source recovery bundle",
+            "python scripts/validate_recent_daily_price_repair_staged_paths.py",
+            'git commit -m "Persist ${REPAIR_TARGET_DATE} daily source recovery bundle"',
+            "git push origin HEAD:main",
+        ]
+        positions = [recent_text.index(item) for item in required_order]
+        if positions != sorted(positions):
+            errors.append(
+                "recent repair must validate exact target continuity and staged bundle before commit/push"
+            )
 
     daily_full_required = {
         "run-name: ${{ inputs.recovery_correlation_id != '' && format('Daily Full Pipeline | recovery={0}', inputs.recovery_correlation_id) || 'Daily Full Pipeline' }}": (

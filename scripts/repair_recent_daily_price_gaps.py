@@ -36,6 +36,7 @@ class RecentGapRepairResult:
 
 
 BuildHistoryFunc = Callable[[Path, argparse.Namespace], int]
+ContinuityValidateFunc = Callable[..., continuity.ValidationResult]
 
 
 def safe_str(value: object) -> str:
@@ -178,12 +179,14 @@ def publish_current_day_repair_confirmation(
     fail_after_evidence_replace: int = 0,
     require_repair_report: bool = True,
     min_full_rows: int = continuity.DEFAULT_MIN_FULL_ROWS,
-) -> dict[str, Any]:
+    deferred_transaction: bool = False,
+) -> tuple[dict[str, Any], bool]:
     row, price_payload = _load_current_day_repair_evidence(
         root,
         date_text,
         require_repair_report=require_repair_report,
     )
+    transaction_pending = False
     if (
         int(row.get("twse_rows") or 0) < official_price_fetch.MIN_TWSE_ROWS
         or int(row.get("tpex_rows") or 0) < official_price_fetch.MIN_TPEX_ROWS
@@ -256,7 +259,9 @@ def publish_current_day_repair_confirmation(
             result=status,
             log=[f"current-day repair evidence date={date_text}"],
             fail_after_replace=fail_after_evidence_replace,
+            deferred=deferred_transaction,
         )
+        transaction_pending = deferred_transaction
     refresh_kwargs: dict[str, Any] = {
         "phase": "confirm",
         "assessment_date": date_text,
@@ -264,16 +269,30 @@ def publish_current_day_repair_confirmation(
     }
     if market_session_fetch_bytes is not None:
         refresh_kwargs["fetch_bytes"] = market_session_fetch_bytes
-    market = market_session_calendar.refresh_market_session_status(root, **refresh_kwargs)
-    if market.get("market_status") != market_session_calendar.OPEN_CONFIRMED:
-        raise ValueError(
-            "current-day repair evidence did not produce open_confirmed: "
-            f"status={market.get('market_status')} reason={market.get('reason')}"
-        )
-    return {
-        "official_price_fetch": published,
-        "market_session": market,
-    }
+    try:
+        market = market_session_calendar.refresh_market_session_status(root, **refresh_kwargs)
+        if market.get("market_status") != market_session_calendar.OPEN_CONFIRMED:
+            raise ValueError(
+                "current-day repair evidence did not produce open_confirmed: "
+                f"status={market.get('market_status')} reason={market.get('reason')}"
+            )
+    except Exception as exc:
+        if transaction_pending:
+            try:
+                official_price_fetch.recover_official_price_evidence_transaction(root)
+            except Exception as rollback_exc:
+                raise RuntimeError(
+                    "current-day confirmation failed and official latest rollback failed: "
+                    f"original={exc}; rollback={rollback_exc}"
+                ) from rollback_exc
+        raise
+    return (
+        {
+            "official_price_fetch": published,
+            "market_session": market,
+        },
+        transaction_pending,
+    )
 
 
 def repair_recent_gaps(
@@ -289,6 +308,7 @@ def repair_recent_gaps(
     args: argparse.Namespace | None = None,
     repair_func: recovery.RepairFunc = recovery.default_repair_func,
     build_history_func: BuildHistoryFunc = default_build_history_func,
+    continuity_validate_func: ContinuityValidateFunc = continuity.validate,
     market_session_fetch_bytes: market_session_calendar.FetchBytes | None = None,
     fail_after_evidence_replace: int = 0,
     authority_date: str = "",
@@ -298,6 +318,19 @@ def repair_recent_gaps(
     as_of_date = normalize_date(as_of_date) or current_taipei_date()
     authority_date = normalize_date(authority_date) or current_taipei_date()
     errors: list[str] = []
+
+    try:
+        official_price_fetch.recover_official_price_evidence_transaction(root)
+    except Exception as exc:
+        report = {
+            "status": "fail",
+            "as_of_date": as_of_date,
+            "current_day_confirmation": {},
+            "errors": [
+                "official price evidence transaction recovery failed: " + str(exc)
+            ],
+        }
+        return RecentGapRepairResult("fail", report, report["errors"])
 
     try:
         non_trading_days = continuity.load_non_trading_days(root, non_trading_days_path)
@@ -337,24 +370,81 @@ def repair_recent_gaps(
         errors.append(f"canonical daily price files still missing after recent repair: {', '.join(missing_after)}")
 
     current_day_confirmation: dict[str, Any] = {}
-    if (
+    current_day_authority = (
         not errors
         and as_of_date == authority_date
         and target_end_date == authority_date
-    ):
+    )
+    if current_day_authority:
+        transaction_pending = False
         try:
-            current_day_confirmation = publish_current_day_repair_confirmation(
+            prospective_confirmation, transaction_pending = publish_current_day_repair_confirmation(
                 root,
                 date_text=target_end_date,
                 market_session_fetch_bytes=market_session_fetch_bytes,
                 fail_after_evidence_replace=fail_after_evidence_replace,
                 require_repair_report=target_end_date in missing,
                 min_full_rows=min_full_rows,
+                deferred_transaction=True,
             )
+            initial_continuity = continuity_validate_func(
+                root,
+                main_price_date_override=target_end_date,
+                lookback_days=lookback_days,
+                min_full_rows=min_full_rows,
+                non_trading_days_path=non_trading_days_path,
+            )
+            needs_history_rebuild = bool(actions) or bool(initial_continuity.errors)
+            final_continuity = initial_continuity
+            if rebuild_history_if_repaired and needs_history_rebuild:
+                try:
+                    return_code = build_history_func(root, args)
+                except Exception as exc:
+                    rebuild_history_return_code = "exception"
+                    rebuild_history_status = "failed"
+                    raise RuntimeError(
+                        f"stock price history rebuild raised an exception: {exc}"
+                    ) from exc
+                rebuild_history_return_code = str(return_code)
+                rebuild_history_status = "completed" if return_code == 0 else "failed"
+                if return_code != 0:
+                    raise RuntimeError(
+                        f"stock price history rebuild failed with exit code {return_code}"
+                    )
+                final_continuity = continuity_validate_func(
+                    root,
+                    main_price_date_override=target_end_date,
+                    lookback_days=lookback_days,
+                    min_full_rows=min_full_rows,
+                    non_trading_days_path=non_trading_days_path,
+                )
+            elif rebuild_history_if_repaired:
+                rebuild_history_status = "skipped_history_current"
+            if final_continuity.errors:
+                raise ValueError(
+                    "target-date stock price history continuity validation failed: "
+                    + "; ".join(final_continuity.errors)
+                )
+            if transaction_pending:
+                official_price_fetch.commit_official_price_evidence_transaction(root)
+                transaction_pending = False
+            current_day_confirmation = prospective_confirmation
         except Exception as exc:
+            rollback_error = ""
+            transaction_root = root / official_price_fetch.OFFICIAL_PRICE_TRANSACTION_DIR
+            if transaction_pending or transaction_root.exists():
+                try:
+                    official_price_fetch.recover_official_price_evidence_transaction(root)
+                except Exception as rollback_exc:
+                    rollback_error = (
+                        "; official latest rollback failed: " + str(rollback_exc)
+                    )
+            current_day_confirmation = {}
             errors.append(f"current-day official price confirmation failed: {exc}")
+            if rollback_error:
+                errors.append(rollback_error.lstrip("; "))
 
-    if rebuild_history_if_repaired:
+    if rebuild_history_if_repaired and not current_day_authority:
         if actions and not errors:
             return_code = build_history_func(root, args)
             rebuild_history_return_code = str(return_code)
