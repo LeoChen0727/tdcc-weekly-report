@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 from pathlib import Path
 import re
 
@@ -10,6 +11,14 @@ HISTORICAL_REPLAY_WORKFLOW = (
     ROOT / ".github" / "workflows" / "historical_structured_source_replay.yml"
 )
 DAILY_FULL_WORKFLOW = ROOT / ".github" / "workflows" / "daily_full_pipeline.yml"
+RECENT_REPAIR_WORKFLOW_CANONICAL_SHA256 = (
+    "51b9863503985d3d18ff064d2a29705a13e7f97baa6fd5de4d91951d20c53841"
+)
+
+
+def _canonical_text_sha256(text: str) -> str:
+    canonical = text.replace("\r\n", "\n").replace("\r", "\n")
+    return hashlib.sha256(canonical.encode("utf-8")).hexdigest()
 
 
 def _job_block(text: str, job_name: str) -> str:
@@ -22,7 +31,7 @@ def _job_block(text: str, job_name: str) -> str:
 
 def _step_blocks(job_block: str, step_name: str) -> list[str]:
     pattern = re.compile(
-        rf"(?ms)^      - name: {re.escape(step_name)}\s*\n(.*?)(?=^      - name: |\Z)"
+        rf"(?ms)^      - name: {re.escape(step_name)}\s*\n(.*?)(?=^      - |\Z)"
     )
     return [match.group(0) for match in pattern.finditer(job_block)]
 
@@ -32,8 +41,19 @@ def _step_block(job_block: str, step_name: str) -> str:
     return blocks[0] if len(blocks) == 1 else ""
 
 
+def _step_item_blocks(job_block: str) -> list[str]:
+    return [
+        match.group(0)
+        for match in re.finditer(r"(?ms)^      - .*?(?=^      - |\Z)", job_block)
+    ]
+
+
 def _step_names(job_block: str) -> list[str]:
-    return re.findall(r"(?m)^      - name: (.+?)\s*$", job_block)
+    names: list[str] = []
+    for block in _step_item_blocks(job_block):
+        match = re.match(r"^      - name: (.+?)\s*$", block.splitlines()[0])
+        names.append(match.group(1) if match else "")
+    return names
 
 
 def _step_run_executable_lines(job_block: str, step_name: str) -> list[str]:
@@ -101,9 +121,15 @@ def _step_has_exact_contract(
     except ValueError:
         return False
     observed_metadata = tuple(line for line in lines[1:run_index] if line.strip())
-    return observed_metadata == metadata_lines and _step_run_executable_lines(
-        job_block, step_name
-    ) == list(executable_lines)
+    run_tail_is_shell_only = all(
+        not line.strip() or line.startswith("          ")
+        for line in lines[run_index + 1 :]
+    )
+    return (
+        observed_metadata == metadata_lines
+        and run_tail_is_shell_only
+        and _step_run_executable_lines(job_block, step_name) == list(executable_lines)
+    )
 
 
 def _job_mapping(block: str, section: str) -> dict[str, str]:
@@ -126,6 +152,13 @@ def _job_mapping(block: str, section: str) -> dict[str, str]:
 
 def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[str]:
     errors: list[str] = []
+    observed_recent_sha = _canonical_text_sha256(recent_text)
+    if observed_recent_sha != RECENT_REPAIR_WORKFLOW_CANONICAL_SHA256:
+        errors.append(
+            "recent repair workflow canonical SHA-256 mismatch: "
+            f"expected={RECENT_REPAIR_WORKFLOW_CANONICAL_SHA256} "
+            f"observed={observed_recent_sha}"
+        )
     workflow_call_marker = "\n  workflow_call:\n"
     workflow_dispatch_marker = "\n  workflow_dispatch:\n"
     if workflow_call_marker not in replay_text:
@@ -422,6 +455,22 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         errors.append(
             "recent repair must hold the shared Daily Full concurrency lock for the entire workflow"
         )
+    forbidden_job_keys = {"if", "continue-on-error"}
+    for line in repair_job.splitlines():
+        match = re.match(r"^    (\S[^:\n]*?)\s*:", line)
+        if not match:
+            continue
+        raw_key = match.group(1).strip()
+        if raw_key.startswith(("'", '"', "?")):
+            errors.append(
+                "recent repair job keys must use canonical unquoted YAML spelling"
+            )
+            continue
+        if raw_key in forbidden_job_keys:
+            errors.append(
+                "recent repair job must be unconditional and fail closed; forbidden "
+                f"job key: {raw_key}"
+            )
     expected_secrets = {
         "PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY": (
             "${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}"
@@ -626,6 +675,11 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         "Commit repaired recent daily price gaps",
     )
     observed_step_names = _step_names(repair_job)
+    if any(not name for name in observed_step_names):
+        errors.append(
+            "recent repair requires every step to be explicitly named so ordering and "
+            "write boundaries remain auditable"
+        )
     critical_indices: list[int] = []
     for name in critical_step_names:
         if observed_step_names.count(name) != 1:
@@ -650,20 +704,27 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         errors.append(
             "recent repair must use one exact fail-closed commit/push step"
         )
+    normalized_git_scan_text = re.sub(
+        r"\\[ \t]*\r?\n[ \t]*", " ", recent_text
+    )
     git_write_lines = [
-        line
-        for step_name in observed_step_names
-        for line in _step_run_executable_lines(repair_job, step_name)
-        if re.search(r"\bgit(?:\s+(?:-[^\s]+\s+\S+))*\s+(?:commit|push)\b", line)
+        line.strip()
+        for line in normalized_git_scan_text.splitlines()
+        if re.search(
+            r"\bgit(?:\s+(?:-[^\s]+\s+\S+))*\s+(?:commit|push)\b",
+            line,
+        )
     ]
     expected_git_write_lines = [
         expected_persist[5],
         expected_persist[6],
+        'git commit -m "Reserve Daily Full recovery for ${SOURCE_TRADING_DATE}"',
+        "if ! git push origin HEAD:main; then",
     ]
     if git_write_lines != expected_git_write_lines:
         errors.append(
             "recent repair Git commit/push commands must be globally unique and "
-            "confined to the exact persistence step"
+            "confined to the exact persistence and recovery-reservation steps"
         )
 
     daily_full_required = {

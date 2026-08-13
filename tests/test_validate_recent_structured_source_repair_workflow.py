@@ -14,7 +14,50 @@ def _texts() -> tuple[str, str, str]:
 def test_current_workflows_pass_data_only_catch_up_contract() -> None:
     recent_text, replay_text, daily_full_text = _texts()
 
+    assert (
+        validator._canonical_text_sha256(recent_text)
+        == validator.RECENT_REPAIR_WORKFLOW_CANONICAL_SHA256
+    )
     assert validator.validate(recent_text, replay_text, daily_full_text) == []
+
+
+def test_repair_rejects_any_unreviewed_workflow_byte_mutation() -> None:
+    recent_text, replay_text, daily_full_text = _texts()
+    mutations = (
+        recent_text.replace(
+            "jobs:\n",
+            "defaults:\n  run:\n    shell: bash {0} || true\njobs:\n",
+            1,
+        ),
+        recent_text.replace(
+            "  repair-recent-daily-price-gaps:\n",
+            "  repair-recent-daily-price-gaps:\n"
+            "    defaults:\n"
+            "      run:\n"
+            "        shell: bash {0} || true\n",
+            1,
+        ),
+        recent_text
+        + "\n  rogue-variable-write:\n"
+        "    runs-on: ubuntu-latest\n"
+        "    steps:\n"
+        "      - name: Unauthorized variable repository write\n"
+        "        run: |\n"
+        "          G=git\n"
+        '          "$G" commit -m "cross-job write"\n'
+        '          "$G" push origin HEAD:main\n',
+        recent_text
+        + "\n  rogue-ifs-write:\n"
+        "    runs-on: ubuntu-latest\n"
+        "    steps:\n"
+        "      - name: Unauthorized IFS repository write\n"
+        "        run: |\n"
+        '          git${IFS}commit -m "cross-job write"\n'
+        "          git${IFS}push origin HEAD:main\n",
+    )
+    for invalid in mutations:
+        errors = validator.validate(invalid, replay_text, daily_full_text)
+        assert any("canonical SHA-256 mismatch" in error for error in errors)
     assert recent_text.index("Commit repaired recent daily price gaps") < recent_text.index(
         "Checkout current main for structured catch-up planning"
     ) < recent_text.index("Plan bounded structured objective-source catch-up")
@@ -192,6 +235,94 @@ def test_repair_rejects_duplicate_or_interposed_critical_steps() -> None:
     )
     errors = validator.validate(interposed, replay_text, daily_full_text)
     assert any("exact adjacent" in error for error in errors)
+    assert any("globally unique" in error for error in errors)
+
+
+def test_repair_rejects_unnamed_interposed_git_write_step() -> None:
+    recent_text, replay_text, daily_full_text = _texts()
+    staged_marker = "      - name: Validate exact staged current-day source recovery bundle\n"
+    unnamed_write = (
+        "      - run: |\n"
+        '          git commit -m "premature unnamed"\n'
+        "          git push origin HEAD:main\n\n"
+    )
+    invalid = recent_text.replace(
+        staged_marker, unnamed_write + staged_marker, 1
+    )
+    errors = validator.validate(invalid, replay_text, daily_full_text)
+    assert any("every step" in error for error in errors)
+    assert any("exact adjacent" in error for error in errors)
+    assert any("globally unique" in error for error in errors)
+
+
+def test_repair_rejects_safety_metadata_after_run_block() -> None:
+    recent_text, replay_text, daily_full_text = _texts()
+    job_block = validator._job_block(recent_text, "repair-recent-daily-price-gaps")
+    step_name = "Validate exact staged current-day source recovery bundle"
+    staged_block = validator._step_block(job_block, step_name)
+    assert staged_block
+    for metadata in (
+        "        if: ${{ false }}",
+        "        continue-on-error: true",
+        "        shell: pwsh",
+    ):
+        invalid_block = staged_block.rstrip() + f"\n{metadata}\n"
+        invalid = recent_text.replace(staged_block, invalid_block, 1)
+        errors = validator.validate(invalid, replay_text, daily_full_text)
+        assert any("staged-path validator" in error for error in errors)
+
+
+def test_repair_rejects_job_level_bypass_metadata() -> None:
+    recent_text, replay_text, daily_full_text = _texts()
+    job_marker = "  repair-recent-daily-price-gaps:\n"
+    for metadata in (
+        "    if: ${{ false }}\n",
+        "    continue-on-error: true\n",
+        '    "if": ${{ false }}\n',
+        "    'continue-on-error': true\n",
+    ):
+        invalid = recent_text.replace(job_marker, job_marker + metadata, 1)
+        errors = validator.validate(invalid, replay_text, daily_full_text)
+        assert any(
+            "job must be unconditional" in error
+            or "canonical unquoted YAML" in error
+            for error in errors
+        )
+
+
+def test_repair_rejects_git_write_in_any_other_job() -> None:
+    recent_text, replay_text, daily_full_text = _texts()
+    rogue_job = (
+        "\n  rogue-write:\n"
+        "    runs-on: ubuntu-latest\n"
+        "    steps:\n"
+        "      - name: Unauthorized repository write\n"
+        "        run: |\n"
+        '          git commit -m "cross-job write"\n'
+        "          git push origin HEAD:main\n"
+    )
+    errors = validator.validate(
+        recent_text + rogue_job, replay_text, daily_full_text
+    )
+    assert any("globally unique" in error for error in errors)
+
+
+def test_repair_rejects_multiline_git_write_in_any_other_job() -> None:
+    recent_text, replay_text, daily_full_text = _texts()
+    rogue_job = (
+        "\n  rogue-multiline-write:\n"
+        "    runs-on: ubuntu-latest\n"
+        "    steps:\n"
+        "      - name: Unauthorized multiline repository write\n"
+        "        run: |\n"
+        "          git \\\n"
+        '            commit -m "cross-job write"\n'
+        "          git \\\n"
+        "            push origin HEAD:main\n"
+    )
+    errors = validator.validate(
+        recent_text + rogue_job, replay_text, daily_full_text
+    )
     assert any("globally unique" in error for error in errors)
 
 
