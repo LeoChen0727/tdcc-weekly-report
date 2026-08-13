@@ -139,38 +139,38 @@ def materialize_market_session_preflight_artifact(
 
     snapshots: dict[Path, tuple[bool, bytes]] = {}
     staged: dict[Path, Path] = {}
-    for relative_path in sorted(expected_payloads):
-        source = artifact_root / relative_path
-        source_payload = source.read_bytes()
-        observed_sha = hashlib.sha256(source_payload).hexdigest()
-        if observed_sha != payload_identities[relative_path]:
-            raise MarketSessionError(
-                f"market-session preflight artifact SHA mismatch: {relative_path}"
-            )
-        target = (repo_root / relative_path).resolve()
-        try:
-            target.relative_to(repo_root)
-        except ValueError as exc:
-            raise MarketSessionError(
-                f"market-session preflight destination escapes repository: {relative_path}"
-            ) from exc
-        if target.exists() and (not target.is_file() or target.is_symlink()):
-            raise MarketSessionError(
-                f"market-session preflight destination is unsafe: {relative_path}"
-            )
-        target.parent.mkdir(parents=True, exist_ok=True)
-        snapshots[target] = (
-            target.exists(),
-            target.read_bytes() if target.exists() else b"",
-        )
-        temporary = target.with_name(
-            f".{target.name}.preflight-{uuid.uuid4().hex}"
-        )
-        temporary.write_bytes(source_payload)
-        staged[target] = temporary
-
-    replaced = 0
     try:
+        for relative_path in sorted(expected_payloads):
+            source = artifact_root / relative_path
+            source_payload = source.read_bytes()
+            observed_sha = hashlib.sha256(source_payload).hexdigest()
+            if observed_sha != payload_identities[relative_path]:
+                raise MarketSessionError(
+                    f"market-session preflight artifact SHA mismatch: {relative_path}"
+                )
+            target = (repo_root / relative_path).resolve()
+            try:
+                target.relative_to(repo_root)
+            except ValueError as exc:
+                raise MarketSessionError(
+                    f"market-session preflight destination escapes repository: {relative_path}"
+                ) from exc
+            if target.exists() and (not target.is_file() or target.is_symlink()):
+                raise MarketSessionError(
+                    f"market-session preflight destination is unsafe: {relative_path}"
+                )
+            target.parent.mkdir(parents=True, exist_ok=True)
+            snapshots[target] = (
+                target.exists(),
+                target.read_bytes() if target.exists() else b"",
+            )
+            temporary = target.with_name(
+                f".{target.name}.preflight-{uuid.uuid4().hex}"
+            )
+            staged[target] = temporary
+            temporary.write_bytes(source_payload)
+
+        replaced = 0
         for target, temporary in staged.items():
             os.replace(temporary, target)
             replaced += 1

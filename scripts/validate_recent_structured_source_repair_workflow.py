@@ -129,6 +129,21 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         "python scripts/validate_recent_daily_price_repair_staged_paths.py": (
             "raw repair must validate an exact data-only staged index before commit"
         ),
+        '--target-date "$REPAIR_TARGET_DATE"': (
+            "staged repair validation must bind the exact target date"
+        ),
+        '--source-base-sha "$REPAIR_BASE_SHA"': (
+            "staged repair validation must bind the exact source base SHA"
+        ),
+        '--manifest-path "${{ steps.source_bundle.outputs.manifest_path }}"': (
+            "staged repair validation must bind the exact bundle manifest path"
+        ),
+        '--manifest-sha256 "${{ steps.source_bundle.outputs.manifest_sha256 }}"': (
+            "staged repair validation must bind the exact bundle manifest SHA"
+        ),
+        '--source-bundle-sha "${{ steps.source_bundle.outputs.source_bundle_sha }}"': (
+            "staged repair validation must bind the canonical bundle identity"
+        ),
         "python scripts/plan_historical_structured_source_replay.py": (
             "recent repair must use the canonical bounded planner"
         ),

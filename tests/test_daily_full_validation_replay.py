@@ -1693,6 +1693,54 @@ def test_runner_temp_preflight_identity_materializes_only_allowed_evidence_befor
         replay_runner.capture_production_checkpoint(args)
 
 
+def test_runner_temp_preflight_preparation_failure_removes_partial_temporary_files(
+    tmp_path: Path,
+) -> None:
+    repo = tmp_path / "repo"
+    runner_temp = tmp_path / "runner-temp"
+    artifact_root = runner_temp / "daily-market-session-preflight"
+    repo.mkdir()
+    artifact_root.mkdir(parents=True)
+    source_sha = "a" * 40
+    payloads = {
+        "data/market_calendar/exceptional_non_trading_days.csv": b"date,reason\n",
+        "output/latest/market_session_status_latest.json": b"{}\n",
+    }
+    for relative, payload in payloads.items():
+        path = artifact_root / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(payload)
+    identity = {
+        "schema_version": "daily_market_session_preflight_identity_v1",
+        "source_sha": source_sha,
+        "recovery_source_bundle": {"mode": "none"},
+        "files": {
+            relative: hashlib.sha256(payload).hexdigest()
+            for relative, payload in payloads.items()
+        },
+    }
+    identity["files"]["output/latest/market_session_status_latest.json"] = "0" * 64
+    (artifact_root / "market_session_preflight_identity.json").write_text(
+        json.dumps(identity), encoding="utf-8"
+    )
+
+    with pytest.raises(
+        market_session.MarketSessionError,
+        match="artifact SHA mismatch",
+    ):
+        market_session.materialize_market_session_preflight_artifact(
+            repo_root=repo,
+            runner_temp=runner_temp,
+            artifact_root=artifact_root,
+            expected_source_sha=source_sha,
+            expected_recovery={"mode": "none"},
+        )
+
+    assert not list(repo.rglob("*.preflight-*"))
+    assert not (repo / "data/market_calendar/exceptional_non_trading_days.csv").exists()
+    assert not (repo / "output/latest/market_session_status_latest.json").exists()
+
+
 def test_production_workflow_checkpoint_precedes_original_step41() -> None:
     workflow = (
         Path(__file__).resolve().parents[1]

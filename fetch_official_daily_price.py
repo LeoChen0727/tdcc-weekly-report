@@ -1633,20 +1633,27 @@ def _load_official_price_transaction(
                 raise ValueError(
                     "official price evidence recovery backup identity is invalid"
                 )
-            backup_path = transaction_root / backup_name
-            if not backup_path.is_file() or backup_path.is_symlink():
-                raise ValueError(
-                    "official price evidence recovery backup is missing or unsafe"
-                )
-            previous_payload = backup_path.read_bytes()
-            if (
-                len(previous_payload) != previous_bytes
-                or hashlib.sha256(previous_payload).hexdigest()
-                != entry.get("previous_sha256")
+            if not re.fullmatch(
+                r"[0-9a-f]{64}", safe_str(entry.get("previous_sha256"))
             ):
                 raise ValueError(
-                    "official price evidence recovery backup identity mismatch"
+                    "official price evidence recovery backup SHA identity is invalid"
                 )
+            if state == "pending":
+                backup_path = transaction_root / backup_name
+                if not backup_path.is_file() or backup_path.is_symlink():
+                    raise ValueError(
+                        "official price evidence recovery backup is missing or unsafe"
+                    )
+                previous_payload = backup_path.read_bytes()
+                if (
+                    len(previous_payload) != previous_bytes
+                    or hashlib.sha256(previous_payload).hexdigest()
+                    != entry.get("previous_sha256")
+                ):
+                    raise ValueError(
+                        "official price evidence recovery backup identity mismatch"
+                    )
         elif safe_str(entry.get("previous_file")) or previous_bytes != 0:
             raise ValueError(
                 "official price evidence absent-target identity is invalid"

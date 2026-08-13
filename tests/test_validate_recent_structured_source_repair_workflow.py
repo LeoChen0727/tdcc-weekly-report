@@ -30,6 +30,14 @@ def test_current_workflows_pass_data_only_catch_up_contract() -> None:
         '--main-price-date "$REPAIR_TARGET_DATE"'
     )
     assert exact_continuity in recent_text
+    for identity_arg in (
+        '--target-date "$REPAIR_TARGET_DATE"',
+        '--source-base-sha "$REPAIR_BASE_SHA"',
+        '--manifest-path "${{ steps.source_bundle.outputs.manifest_path }}"',
+        '--manifest-sha256 "${{ steps.source_bundle.outputs.manifest_sha256 }}"',
+        '--source-bundle-sha "${{ steps.source_bundle.outputs.source_bundle_sha }}"',
+    ):
+        assert identity_arg in recent_text
     assert recent_text.index("Summarize recent repair result") < recent_text.index(
         exact_continuity
     ) < recent_text.index("Build immutable current-day source recovery bundle") < recent_text.index(

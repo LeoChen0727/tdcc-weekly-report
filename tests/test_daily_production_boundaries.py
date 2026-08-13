@@ -2182,6 +2182,14 @@ def test_recent_price_gap_workflow_bundles_zero_repair_without_publishing_market
         '--main-price-date "$REPAIR_TARGET_DATE"'
     )
     assert exact_continuity in text
+    for identity_arg in (
+        '--target-date "$REPAIR_TARGET_DATE"',
+        '--source-base-sha "$REPAIR_BASE_SHA"',
+        '--manifest-path "${{ steps.source_bundle.outputs.manifest_path }}"',
+        '--manifest-sha256 "${{ steps.source_bundle.outputs.manifest_sha256 }}"',
+        '--source-bundle-sha "${{ steps.source_bundle.outputs.source_bundle_sha }}"',
+    ):
+        assert identity_arg in text
     assert text.index("Summarize recent repair result") < text.index(
         exact_continuity
     ) < text.index("Build immutable current-day source recovery bundle") < text.index(

@@ -395,6 +395,9 @@ def test_deferred_commit_marker_survives_cleanup_crash_without_rollback(
     transaction_root = root / official_price.OFFICIAL_PRICE_TRANSACTION_DIR
     journal = json.loads((transaction_root / "journal.json").read_text(encoding="utf-8"))
     assert journal["state"] == "committed"
+    backups = sorted(transaction_root.glob("previous-*.bin"))
+    assert backups
+    backups[0].unlink()
     assert official_price.recover_official_price_evidence_transaction(root)
     assert not transaction_root.exists()
     assert (root / official_price.LATEST_PRICE_CSV).read_bytes() == payload

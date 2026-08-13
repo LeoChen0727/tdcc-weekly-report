@@ -242,7 +242,12 @@ jobs:
             echo "::error::Immutable source bundle produced no staged commit."
             exit 1
           else
-            python scripts/validate_recent_daily_price_repair_staged_paths.py
+            python scripts/validate_recent_daily_price_repair_staged_paths.py \
+              --target-date "$REPAIR_TARGET_DATE" \
+              --source-base-sha "$REPAIR_BASE_SHA" \
+              --manifest-path "${{ steps.source_bundle.outputs.manifest_path }}" \
+              --manifest-sha256 "${{ steps.source_bundle.outputs.manifest_sha256 }}" \
+              --source-bundle-sha "${{ steps.source_bundle.outputs.source_bundle_sha }}"
             remote_main_sha="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
             if [ -z "$remote_main_sha" ] || [ "$remote_main_sha" != "$REPAIR_BASE_SHA" ]; then
               echo "::error::Remote main drifted during recent price repair; refusing to commit or rebase stale outputs."
