@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import subprocess
 
 import pytest
 
@@ -18,10 +19,11 @@ def _bundle_fixture(
     *,
     include_tpex: bool = True,
     market_bundle_path_override: str = "",
+    source_base_sha: str = "",
 ) -> dict[str, object]:
     target_date = "20260811"
     release_id = "daily-source-20260811-run-1"
-    source_base_sha = "a" * 40
+    source_base_sha = source_base_sha or "a" * 40
     bundle_root = f"output/history/daily_source_bundles/{target_date}/{release_id}"
     price_rows = [f"{target_date},2330,TWSE"]
     if include_tpex:
@@ -152,6 +154,7 @@ def _validate_fixture(fixture: dict[str, object]) -> list[str]:
         fixture["entries"],
         target_date=str(fixture["target_date"]),
         source_base_sha=str(fixture["source_base_sha"]),
+        observed_head_sha=str(fixture["source_base_sha"]),
         manifest_path=str(fixture["manifest_path"]),
         manifest_sha256=str(fixture["manifest_sha256"]),
         source_bundle_sha=str(fixture["source_bundle_sha"]),
@@ -181,17 +184,11 @@ def test_staged_bundle_rejects_manifest_market_object_path_drift() -> None:
 
 @pytest.mark.parametrize(
     "mutation",
-    ["partial_triplet", "bundle_bytes", "mode", "base_sha"],
+    ["bundle_bytes", "mode", "base_sha"],
 )
 def test_staged_bundle_identity_drift_fails_closed(mutation: str) -> None:
     fixture = _bundle_fixture()
-    if mutation == "partial_triplet":
-        fixture["entries"] = [
-            entry
-            for entry in fixture["entries"]
-            if entry[1] != ("output/latest/official_price_fetch_latest.md",)
-        ]
-    elif mutation == "bundle_bytes":
+    if mutation == "bundle_bytes":
         manifest = json.loads(
             fixture["payloads"][fixture["manifest_path"]].decode("utf-8")
         )
@@ -201,6 +198,76 @@ def test_staged_bundle_identity_drift_fails_closed(mutation: str) -> None:
     else:
         fixture["source_base_sha"] = "b" * 40
     assert _validate_fixture(fixture)
+
+
+def test_git_index_allows_unchanged_price_member_with_stale_status_repair(
+    tmp_path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    repo = tmp_path / "repo"
+    repo.mkdir()
+    subprocess.run(
+        ["git", "init", "-q", "--initial-branch=main"], cwd=repo, check=True
+    )
+    subprocess.run(
+        ["git", "config", "user.email", "repair@example.invalid"],
+        cwd=repo,
+        check=True,
+    )
+    subprocess.run(
+        ["git", "config", "user.name", "Repair Test"], cwd=repo, check=True
+    )
+    initial_fixture = _bundle_fixture()
+    payloads = initial_fixture["payloads"]
+    assert isinstance(payloads, dict)
+    baseline_paths = [
+        path
+        for path in payloads
+        if not path.startswith("output/history/daily_source_bundles/")
+    ]
+    for relative in baseline_paths:
+        path = repo / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        if relative == "output/latest/official_price_fetch_latest.json":
+            path.write_bytes(b'{"saved_price_date":"20260810"}\n')
+        elif relative == "output/latest/official_price_fetch_latest.md":
+            path.write_bytes(b"# stale status\n")
+        else:
+            path.write_bytes(payloads[relative])
+    subprocess.run(["git", "add", "."], cwd=repo, check=True)
+    subprocess.run(["git", "commit", "-qm", "baseline"], cwd=repo, check=True)
+    source_base_sha = subprocess.check_output(
+        ["git", "rev-parse", "HEAD"], cwd=repo, text=True
+    ).strip()
+    fixture = _bundle_fixture(source_base_sha=source_base_sha)
+    payloads = fixture["payloads"]
+    manifest_path = fixture["manifest_path"]
+
+    for relative, payload in payloads.items():
+        path = repo / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(payload)
+    subprocess.run(["git", "add", "."], cwd=repo, check=True)
+    changed = subprocess.check_output(
+        ["git", "diff", "--cached", "--name-only"], cwd=repo, text=True
+    ).splitlines()
+    assert "output/latest/official_daily_price_latest.csv" not in changed
+    assert "output/latest/official_price_fetch_latest.json" in changed
+    assert "output/latest/official_price_fetch_latest.md" in changed
+
+    monkeypatch.setattr(validator, "ROOT", repo)
+    errors = validator.validate_bundle_identity(
+        validator.staged_entries(),
+        target_date=str(fixture["target_date"]),
+        source_base_sha=str(fixture["source_base_sha"]),
+        observed_head_sha=validator.repository_head_sha(),
+        manifest_path=str(manifest_path),
+        manifest_sha256=str(fixture["manifest_sha256"]),
+        source_bundle_sha=str(fixture["source_bundle_sha"]),
+        read_index_bytes=validator.read_staged_bytes,
+        read_index_mode=validator.read_staged_mode,
+    )
+    assert errors == []
 
 
 def test_date_scoped_source_bundle_paths_are_exactly_allowed() -> None:

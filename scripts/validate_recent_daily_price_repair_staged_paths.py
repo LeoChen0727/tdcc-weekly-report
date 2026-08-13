@@ -110,6 +110,7 @@ def validate_bundle_identity(
     *,
     target_date: str,
     source_base_sha: str,
+    observed_head_sha: str,
     manifest_path: str,
     manifest_sha256: str,
     source_bundle_sha: str,
@@ -123,6 +124,8 @@ def validate_bundle_identity(
         return ["recent daily-price repair target date is invalid"]
     if not SHA1_RE.fullmatch(source_base_sha):
         return ["recent daily-price repair source base SHA is invalid"]
+    if observed_head_sha != source_base_sha:
+        return ["recent daily-price repair source base SHA does not equal repository HEAD"]
     if not SHA256_RE.fullmatch(manifest_sha256):
         return ["recent daily-price repair manifest SHA-256 is invalid"]
     if not SHA256_RE.fullmatch(source_bundle_sha):
@@ -131,13 +134,6 @@ def validate_bundle_identity(
     changed_paths = {
         paths[0].replace("\\", "/") for _status, paths in entries if len(paths) == 1
     }
-    changed_triplet = changed_paths & OFFICIAL_TRIPLET
-    if changed_triplet and changed_triplet != OFFICIAL_TRIPLET:
-        errors.append(
-            "recent daily-price repair official latest triplet must change together: "
-            f"observed={sorted(changed_triplet)}"
-        )
-
     try:
         manifest_payload = read_index_bytes(manifest_path)
     except Exception as exc:
@@ -456,6 +452,12 @@ def read_staged_mode(path: str) -> str:
     return match.group(1)
 
 
+def repository_head_sha() -> str:
+    return subprocess.check_output(
+        ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True
+    ).strip()
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Validate recent repair staged paths and immutable bundle identity."
@@ -474,6 +476,7 @@ def main() -> int:
         staged_entries(),
         target_date=args.target_date,
         source_base_sha=args.source_base_sha,
+        observed_head_sha=repository_head_sha(),
         manifest_path=args.manifest_path,
         manifest_sha256=args.manifest_sha256,
         source_bundle_sha=args.source_bundle_sha,
