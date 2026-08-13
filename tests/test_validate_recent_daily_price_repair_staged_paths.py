@@ -12,8 +12,12 @@ def test_date_scoped_source_bundle_paths_are_exactly_allowed() -> None:
         ("A", (prefix + "files/01-20260811.csv",)),
         ("A", (prefix + "files/02-daily_price_20260811.csv",)),
         ("A", (prefix + "files/03-official_daily_price_latest.csv",)),
-        ("A", (prefix + "files/04-exceptional_non_trading_days.csv",)),
+        ("A", (prefix + "files/04-official_price_fetch_latest.json",)),
+        ("A", (prefix + "files/05-official_price_fetch_latest.md",)),
+        ("A", (prefix + "files/06-exceptional_non_trading_days.csv",)),
         ("M", ("output/latest/official_daily_price_latest.csv",)),
+        ("M", ("output/latest/official_price_fetch_latest.json",)),
+        ("M", ("output/latest/official_price_fetch_latest.md",)),
     ]
     assert validator.validate_entries(entries) == []
 
@@ -36,6 +40,9 @@ def test_exact_data_only_repair_paths_are_allowed() -> None:
         ("M", ("data/stock_price_history/2330.csv",)),
         ("M", ("data/market_calendar/exceptional_non_trading_days.csv",)),
         ("M", ("output/latest/recent_daily_price_gap_repair_latest.json",)),
+        ("M", ("output/latest/official_daily_price_latest.csv",)),
+        ("M", ("output/latest/official_price_fetch_latest.json",)),
+        ("M", ("output/latest/official_price_fetch_latest.md",)),
         ("M", ("output/latest/repair_daily_" + "price_range_latest.csv",)),
         ("M", ("output/latest/stock_price_history_manifest.md",)),
         ("M", ("docs/latest/stock_price_history_manifest.json",)),

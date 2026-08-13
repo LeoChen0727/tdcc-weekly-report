@@ -26,13 +26,16 @@ ALLOWED_PATTERNS = (
     re.compile(r"^data/stock_price_history/[0-9A-Za-z_-]+\.csv$"),
     re.compile(r"^output/latest/repair_daily_price_range_latest\.(?:csv|json|md)$"),
     re.compile(r"^output/latest/official_daily_price_latest\.csv$"),
+    re.compile(r"^output/latest/official_price_fetch_latest\.(?:json|md)$"),
     re.compile(
         r"^output/history/daily_source_bundles/(20\d{6})/"
         r"[A-Za-z0-9][A-Za-z0-9._:-]{7,127}/(?:"
         r"manifest\.json|state\.json|market_session_status\.json|"
         r"files/01-20\d{6}\.csv|files/02-daily_price_20\d{6}\.csv|"
         r"files/03-official_daily_price_latest\.csv|"
-        r"files/04-exceptional_non_trading_days\.csv)$"
+        r"files/04-official_price_fetch_latest\.json|"
+        r"files/05-official_price_fetch_latest\.md|"
+        r"files/06-exceptional_non_trading_days\.csv)$"
     ),
 )
 

@@ -2328,7 +2328,16 @@ def test_daily_full_preflight_artifact_is_bound_to_exact_source_sha() -> None:
     assert 'handle.write(f"source_sha={source_sha}\\n")' in text
     assert "market_session_preflight_identity.json" in text
     assert '"daily_market_session_preflight_identity_v1"' in text
-    assert "market-session preflight artifact SHA mismatch" in text
+    assert "materialize_market_session_preflight_artifact" in text
+    assert text.count("runner.temp }}/daily-market-session-preflight") == 3
+    assert text.count("materialize_market_session_preflight_artifact(") == 2
+    assert 'Path("market_session_preflight_identity.json")' not in text
+    assert '(artifact_root / "market_session_preflight_identity.json")' in text
+    assert text.count("from scripts.market_session_calendar import (") == 2
+    assert (
+        "from scripts.run_daily_full_validation_replay import (\n"
+        "              materialize_market_session_preflight_artifact"
+    ) not in text
     assert text.count("ref: ${{ needs.market-session-preflight.outputs.source_sha }}") == 2
     assert text.count("REMOTE_MAIN=\"$(git rev-parse origin/main)\"") >= 2
 

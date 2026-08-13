@@ -202,6 +202,9 @@ jobs:
             output/latest/recent_daily_price_gap_repair_latest.md
             output/latest/repair_daily_price_range_latest.*
             output/latest/repair_daily_price_range_check_code_latest.csv
+            output/latest/official_daily_price_latest.csv
+            output/latest/official_price_fetch_latest.json
+            output/latest/official_price_fetch_latest.md
             output/latest/stock_price_history_manifest.*
             output/latest/daily_price_history_continuity_latest.*
             output/history/daily_source_bundles/${{ steps.repair_result.outputs.target_end_date }}/${{ steps.source_bundle.outputs.release_id }}/
@@ -221,6 +224,8 @@ jobs:
           git add output/latest/stock_price_history_manifest.* || true
           git add output/latest/daily_price_history_continuity_latest.* || true
           git add output/latest/official_daily_price_latest.csv
+          git add output/latest/official_price_fetch_latest.json
+          git add output/latest/official_price_fetch_latest.md
           git add docs/latest/stock_price_history_manifest.* || true
           git add output/history/daily_source_bundles/"$REPAIR_TARGET_DATE"/"${{ steps.source_bundle.outputs.release_id }}"/
           git status --short

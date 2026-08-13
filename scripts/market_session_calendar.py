@@ -2,13 +2,16 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import json
+import os
 import re
 from datetime import datetime
 import sys
 import time
 import urllib.error
 import urllib.request
+import uuid
 import xml.etree.ElementTree as ET
 from collections import defaultdict
 from dataclasses import asdict, dataclass
@@ -34,6 +37,7 @@ STATIC_NON_TRADING_DAYS = Path("config/twse_non_trading_days.csv")
 EXCEPTIONAL_NON_TRADING_DAYS = Path("data/market_calendar/exceptional_non_trading_days.csv")
 MARKET_SESSION_STATUS = Path("output/latest/market_session_status_latest.json")
 OFFICIAL_PRICE_FETCH_STATUS = Path("output/latest/official_price_fetch_latest.json")
+OFFICIAL_PRICE_FETCH_MARKDOWN = Path("output/latest/official_price_fetch_latest.md")
 DAILY_PRICE_DIR = Path("data/daily_price")
 
 DEFAULT_DATA_READY_HOUR = 18
@@ -58,6 +62,147 @@ EXCEPTIONAL_FIELDS = (
 
 class MarketSessionError(RuntimeError):
     pass
+
+
+def materialize_market_session_preflight_artifact(
+    *,
+    repo_root: Path,
+    runner_temp: Path,
+    artifact_root: Path,
+    expected_source_sha: str,
+    expected_recovery: dict[str, str],
+    fail_after_replace: int = 0,
+) -> dict[str, Any]:
+    repo_root = repo_root.resolve()
+    runner_temp = runner_temp.resolve()
+    artifact_root = artifact_root.resolve()
+    if artifact_root != runner_temp / "daily-market-session-preflight":
+        raise MarketSessionError(
+            "market-session preflight artifact root must be the exact runner-temp location"
+        )
+    if not artifact_root.is_dir() or artifact_root.is_symlink():
+        raise MarketSessionError(
+            "market-session preflight artifact root is missing or unsafe"
+        )
+    expected_files = {
+        "market_session_preflight_identity.json",
+        "output/latest/market_session_status_latest.json",
+        "data/market_calendar/exceptional_non_trading_days.csv",
+    }
+    observed_files: set[str] = set()
+    for path in artifact_root.rglob("*"):
+        if path.is_symlink():
+            raise MarketSessionError(
+                f"market-session preflight artifact contains a symlink: {path}"
+            )
+        if path.is_file():
+            observed_files.add(path.relative_to(artifact_root).as_posix())
+    if observed_files != expected_files:
+        raise MarketSessionError(
+            "market-session preflight artifact file set mismatch: "
+            f"expected={sorted(expected_files)} observed={sorted(observed_files)}"
+        )
+    identity_path = artifact_root / "market_session_preflight_identity.json"
+    try:
+        identity = json.loads(identity_path.read_text(encoding="utf-8"))
+    except Exception as exc:
+        raise MarketSessionError(
+            f"market-session preflight identity is unreadable: {exc}"
+        ) from exc
+    if identity.get("schema_version") != "daily_market_session_preflight_identity_v1":
+        raise MarketSessionError("invalid market-session preflight identity schema")
+    source_sha = str(expected_source_sha).strip().lower()
+    if not re.fullmatch(r"[0-9a-f]{40}", source_sha):
+        raise MarketSessionError(
+            "market-session preflight source SHA must be an exact 40-character Git SHA"
+        )
+    if identity.get("source_sha") != source_sha:
+        raise MarketSessionError("market-session preflight source SHA mismatch")
+    if identity.get("recovery_source_bundle") != expected_recovery:
+        raise MarketSessionError(
+            "market-session preflight recovery bundle identity mismatch"
+        )
+    payload_identities = identity.get("files")
+    expected_payloads = expected_files - {"market_session_preflight_identity.json"}
+    if (
+        not isinstance(payload_identities, dict)
+        or set(payload_identities) != expected_payloads
+    ):
+        raise MarketSessionError(
+            "market-session preflight identity file set mismatch"
+        )
+    repo_identity = repo_root / "market_session_preflight_identity.json"
+    if repo_identity.exists() or repo_identity.is_symlink():
+        raise MarketSessionError(
+            "market-session preflight identity must remain outside the repository"
+        )
+
+    snapshots: dict[Path, tuple[bool, bytes]] = {}
+    staged: dict[Path, Path] = {}
+    for relative_path in sorted(expected_payloads):
+        source = artifact_root / relative_path
+        source_payload = source.read_bytes()
+        observed_sha = hashlib.sha256(source_payload).hexdigest()
+        if observed_sha != payload_identities[relative_path]:
+            raise MarketSessionError(
+                f"market-session preflight artifact SHA mismatch: {relative_path}"
+            )
+        target = (repo_root / relative_path).resolve()
+        try:
+            target.relative_to(repo_root)
+        except ValueError as exc:
+            raise MarketSessionError(
+                f"market-session preflight destination escapes repository: {relative_path}"
+            ) from exc
+        if target.exists() and (not target.is_file() or target.is_symlink()):
+            raise MarketSessionError(
+                f"market-session preflight destination is unsafe: {relative_path}"
+            )
+        target.parent.mkdir(parents=True, exist_ok=True)
+        snapshots[target] = (
+            target.exists(),
+            target.read_bytes() if target.exists() else b"",
+        )
+        temporary = target.with_name(
+            f".{target.name}.preflight-{uuid.uuid4().hex}"
+        )
+        temporary.write_bytes(source_payload)
+        staged[target] = temporary
+
+    replaced = 0
+    try:
+        for target, temporary in staged.items():
+            os.replace(temporary, target)
+            replaced += 1
+            if fail_after_replace and replaced >= fail_after_replace:
+                raise OSError(
+                    "injected market-session preflight materialization failure"
+                )
+        if repo_identity.exists() or repo_identity.is_symlink():
+            raise MarketSessionError(
+                "market-session preflight identity must remain outside the repository"
+            )
+    except Exception:
+        for target, (existed, previous_payload) in reversed(
+            tuple(snapshots.items())
+        ):
+            if existed:
+                rollback = target.with_name(
+                    f".{target.name}.rollback-{uuid.uuid4().hex}"
+                )
+                rollback.write_bytes(previous_payload)
+                os.replace(rollback, target)
+            else:
+                target.unlink(missing_ok=True)
+        raise
+    finally:
+        for temporary in staged.values():
+            temporary.unlink(missing_ok=True)
+    return {
+        "artifact_root": str(artifact_root),
+        "source_sha": source_sha,
+        "materialized_paths": sorted(expected_payloads),
+    }
 
 
 @dataclass(frozen=True)
@@ -428,10 +573,14 @@ def previous_trading_date(
 
 def read_official_price_confirmation(root: Path, expected_date: str) -> tuple[bool, dict[str, Any], str]:
     report_path = root / OFFICIAL_PRICE_FETCH_STATUS
-    if not report_path.exists():
+    markdown_path = root / OFFICIAL_PRICE_FETCH_MARKDOWN
+    if not report_path.is_file() or report_path.is_symlink():
         return False, {}, f"missing {OFFICIAL_PRICE_FETCH_STATUS.as_posix()}"
+    if not markdown_path.is_file() or markdown_path.is_symlink():
+        return False, {}, f"missing {OFFICIAL_PRICE_FETCH_MARKDOWN.as_posix()}"
+    report_payload = report_path.read_bytes()
     try:
-        report = json.loads(report_path.read_text(encoding="utf-8-sig"))
+        report = json.loads(report_payload.decode("utf-8-sig"))
     except Exception as exc:
         return False, {}, f"unreadable official price fetch status: {exc}"
 
@@ -445,8 +594,40 @@ def read_official_price_confirmation(root: Path, expected_date: str) -> tuple[bo
         return False, report, "official fetch did not confirm target-date full-market data"
 
     price_path = root / DAILY_PRICE_DIR / f"daily_price_{expected_date}.csv"
-    if not price_path.exists():
+    if not price_path.is_file() or price_path.is_symlink():
         return False, report, f"missing {price_path.relative_to(root).as_posix()}"
+    price_payload = price_path.read_bytes()
+    expected_price_path = price_path.relative_to(root).as_posix()
+    if str(report.get("price_path") or "") != expected_price_path:
+        return False, report, "official fetch price_path does not identify the canonical target-date file"
+    if int(report.get("price_bytes") or -1) != len(price_payload):
+        return False, report, "official fetch price byte count does not match the canonical target-date file"
+    price_sha256 = hashlib.sha256(price_payload).hexdigest()
+    if str(report.get("price_sha256") or "").lower() != price_sha256:
+        return False, report, "official fetch price SHA-256 does not match the canonical target-date file"
+    latest_price_path = root / "output/latest/official_daily_price_latest.csv"
+    if not latest_price_path.is_file() or latest_price_path.is_symlink():
+        return False, report, "official daily price latest path is missing or unsafe"
+    latest_price_payload = latest_price_path.read_bytes()
+    if latest_price_payload != price_payload:
+        return False, report, "official daily price latest bytes differ from the canonical target-date file"
+    if str(report.get("latest_price_path") or "") != "output/latest/official_daily_price_latest.csv":
+        return False, report, "official fetch latest_price_path is not canonical"
+    if int(report.get("latest_price_bytes") or -1) != len(latest_price_payload):
+        return False, report, "official fetch latest price byte count mismatch"
+    if str(report.get("latest_price_sha256") or "").lower() != hashlib.sha256(
+        latest_price_payload
+    ).hexdigest():
+        return False, report, "official fetch latest price SHA-256 mismatch"
+    markdown_payload = markdown_path.read_bytes()
+    if str(report.get("fetch_markdown_path") or "") != OFFICIAL_PRICE_FETCH_MARKDOWN.as_posix():
+        return False, report, "official fetch markdown path is not canonical"
+    if int(report.get("fetch_markdown_bytes") or -1) != len(markdown_payload):
+        return False, report, "official fetch markdown byte count mismatch"
+    if str(report.get("fetch_markdown_sha256") or "").lower() != hashlib.sha256(
+        markdown_payload
+    ).hexdigest():
+        return False, report, "official fetch markdown SHA-256 mismatch"
 
     market_rows = {"TWSE": 0, "TPEx": 0}
     wrong_date_rows = 0
@@ -464,16 +645,31 @@ def read_official_price_confirmation(root: Path, expected_date: str) -> tuple[bo
 
     confirmation = {
         "path": price_path.relative_to(root).as_posix(),
+        "price_bytes": len(price_payload),
+        "price_sha256": price_sha256,
         "twse_rows": market_rows["TWSE"],
         "tpex_rows": market_rows["TPEx"],
+        "total_rows": market_rows["TWSE"] + market_rows["TPEx"],
         "wrong_date_rows": wrong_date_rows,
         "fetch_result": str(report.get("result") or ""),
+        "fetch_status_path": OFFICIAL_PRICE_FETCH_STATUS.as_posix(),
+        "fetch_status_bytes": len(report_payload),
+        "fetch_status_sha256": hashlib.sha256(report_payload).hexdigest(),
+        "fetch_markdown_path": OFFICIAL_PRICE_FETCH_MARKDOWN.as_posix(),
+        "fetch_markdown_bytes": len(markdown_payload),
+        "fetch_markdown_sha256": hashlib.sha256(markdown_payload).hexdigest(),
     }
     if market_rows["TWSE"] <= 0 or market_rows["TPEx"] <= 0 or wrong_date_rows:
         return False, confirmation, (
             "target-date price file does not contain clean TWSE and TPEx rows: "
             f"TWSE={market_rows['TWSE']} TPEx={market_rows['TPEx']} wrong_date_rows={wrong_date_rows}"
         )
+    for field in ("twse_rows", "tpex_rows", "total_rows"):
+        if int(report.get(field) or -1) != confirmation[field]:
+            return False, confirmation, (
+                f"official fetch {field} does not match the canonical target-date file: "
+                f"reported={report.get(field)!r} observed={confirmation[field]}"
+            )
     return True, confirmation, "TWSE and TPEx target-date prices confirmed"
 
 

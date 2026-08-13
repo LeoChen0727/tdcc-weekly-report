@@ -99,6 +99,8 @@ def required_source_paths(trading_date: str) -> tuple[str, ...]:
         f"data/daily_price/{date_text}.csv",
         f"data/daily_price/daily_price_{date_text}.csv",
         "output/latest/official_daily_price_latest.csv",
+        "output/latest/official_price_fetch_latest.json",
+        "output/latest/official_price_fetch_latest.md",
         "data/market_calendar/exceptional_non_trading_days.csv",
     )
 
@@ -714,6 +716,41 @@ def _validate_manifest_shape(manifest: dict[str, Any], *, expected_date: str = "
         raise DailySourceRecoveryError("source bundle market-session evidence is missing")
     _validate_market_session(market.get("payload") or {}, trading_date)
     checked_sha256(market.get("sha256"), "market-session evidence SHA-256")
+    confirmation = manifest.get("official_price_confirmation")
+    if not isinstance(confirmation, dict):
+        raise DailySourceRecoveryError("source bundle official-price confirmation is missing")
+    entries_by_path = {str(entry.get("path") or ""): entry for entry in files}
+    expected_confirmation_paths = {
+        "path": f"data/daily_price/daily_price_{trading_date}.csv",
+        "fetch_status_path": "output/latest/official_price_fetch_latest.json",
+        "fetch_markdown_path": "output/latest/official_price_fetch_latest.md",
+    }
+    for field, expected_path in expected_confirmation_paths.items():
+        if confirmation.get(field) != expected_path:
+            raise DailySourceRecoveryError(
+                f"source bundle official-price confirmation {field} mismatch"
+            )
+    identity_fields = {
+        "path": ("price_bytes", "price_sha256"),
+        "fetch_status_path": ("fetch_status_bytes", "fetch_status_sha256"),
+        "fetch_markdown_path": ("fetch_markdown_bytes", "fetch_markdown_sha256"),
+    }
+    for path_field, (bytes_field, sha_field) in identity_fields.items():
+        entry = entries_by_path[confirmation[path_field]]
+        if (
+            int(confirmation.get(bytes_field) or -1) != int(entry.get("bytes") or -1)
+            or confirmation.get(sha_field) != entry.get("sha256")
+        ):
+            raise DailySourceRecoveryError(
+                f"source bundle official-price confirmation identity mismatch: {confirmation[path_field]}"
+            )
+    if (
+        int(confirmation.get("twse_rows") or 0) <= 0
+        or int(confirmation.get("tpex_rows") or 0) <= 0
+        or int(confirmation.get("total_rows") or 0)
+        != int(confirmation.get("twse_rows") or 0) + int(confirmation.get("tpex_rows") or 0)
+    ):
+        raise DailySourceRecoveryError("source bundle official-price row confirmation is invalid")
     identity = dict(manifest)
     observed_bundle_sha = checked_sha256(identity.pop("source_bundle_sha", ""), "source bundle SHA-256")
     expected_bundle_sha = sha256_bytes(json_bytes(identity))
@@ -758,15 +795,22 @@ def build_bundle(
         raise DailySourceRecoveryError("daily price canonical and legacy row projections are not byte-identical")
     price_payload = price_payloads[0]
     official_latest = root / "output/latest/official_daily_price_latest.csv"
-    if official_latest.exists() and (not official_latest.is_file() or official_latest.is_symlink()):
+    if not official_latest.is_file() or official_latest.is_symlink():
         raise DailySourceRecoveryError("official daily price latest path is not a safe regular file")
-    previous_official_payload = official_latest.read_bytes() if official_latest.exists() else None
-    official_published = False
+    if official_latest.read_bytes() != price_payload:
+        raise DailySourceRecoveryError(
+            "official daily price latest does not match the date-bound repair projection"
+        )
+    confirmed, confirmation, confirmation_reason = (
+        market_session_calendar.read_official_price_confirmation(root, date_text)
+    )
+    if not confirmed:
+        raise DailySourceRecoveryError(
+            f"official price confirmation is not date-bound: {confirmation_reason}"
+        )
     final_published = False
     entries: list[dict[str, Any]] = []
     try:
-        _write_atomic(official_latest, price_payload)
-        official_published = True
         if fail_after_official_publish:
             raise DailySourceRecoveryError("injected source bundle publish failure")
         market = market_session or market_session_calendar.refresh_market_session_status(
@@ -812,6 +856,7 @@ def build_bundle(
             "source_workflow_run_attempt": int(run_attempt),
             "source_identities": sorted(source_identities),
             "files": entries,
+            "official_price_confirmation": confirmation,
             "market_session": {
                 "bundle_path": (root_rel / "market_session_status.json").as_posix(),
                 "mode": "100644",
@@ -845,11 +890,6 @@ def build_bundle(
     except Exception:
         if final_published and final_root.exists():
             shutil.rmtree(final_root)
-        if official_published:
-            if previous_official_payload is None:
-                official_latest.unlink(missing_ok=True)
-            else:
-                _write_atomic(official_latest, previous_official_payload)
         raise
     finally:
         if preparing.exists():

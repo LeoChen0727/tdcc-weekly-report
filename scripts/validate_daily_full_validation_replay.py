@@ -81,6 +81,9 @@ def validate_production_workflow(
         text,
         [
             "capture-production-checkpoint",
+            "materialize_market_session_preflight_artifact",
+            "from scripts.market_session_calendar import (",
+            "path: ${{ runner.temp }}/daily-market-session-preflight",
             '--replay-date "$EXPECTED_MAIN_PRICE_DATE"',
             '--source-sha "$GITHUB_SHA"',
             '--run-id "$GITHUB_RUN_ID"',
@@ -92,6 +95,22 @@ def validate_production_workflow(
         "Daily Full Pipeline",
         errors,
     )
+    if text.count("materialize_market_session_preflight_artifact(") != 2:
+        errors.append(
+            "Daily Full Pipeline must materialize both closure and production preflight evidence through the exact helper"
+        )
+    if text.count("path: ${{ runner.temp }}/daily-market-session-preflight") != 3:
+        errors.append(
+            "Daily Full Pipeline must upload once and download twice through the exact runner-temp preflight root"
+        )
+    if 'Path("market_session_preflight_identity.json")' in text:
+        errors.append(
+            "Daily Full Pipeline must never create preflight identity in the repository root"
+        )
+    if "from scripts.run_daily_full_validation_replay import (\n              materialize_market_session_preflight_artifact" in text:
+        errors.append(
+            "Daily Full Pipeline preflight identity validation must not import the dependency-heavy replay runner"
+        )
 
 
 def validate_replay_workflow(

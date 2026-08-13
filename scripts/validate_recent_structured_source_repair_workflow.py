@@ -186,6 +186,12 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         "python -B scripts/daily_source_recovery_bundle.py build": (
             "recent repair must use the canonical source bundle builder"
         ),
+        "git add output/latest/official_price_fetch_latest.json": (
+            "recent repair must stage the date-bound official fetch status"
+        ),
+        "git add output/latest/official_price_fetch_latest.md": (
+            "recent repair must stage the date-bound human-readable fetch status"
+        ),
         'git add output/history/daily_source_bundles/"$REPAIR_TARGET_DATE"/': (
             "recent repair must stage the immutable source bundle in the same source commit"
         ),
@@ -392,6 +398,13 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         encoding="utf-8"
     ):
         errors.append("recent repair market-session preflight must be decision-only with write_files=False")
+    repair_script = (ROOT / "scripts" / "repair_recent_daily_price_gaps.py").read_text(
+        encoding="utf-8"
+    )
+    if "publish_official_price_evidence_transaction" not in repair_script:
+        errors.append(
+            "current-day repair must publish official price CSV/JSON/MD through the canonical transaction"
+        )
 
     daily_full_required = {
         "run-name: ${{ inputs.recovery_correlation_id != '' && format('Daily Full Pipeline | recovery={0}', inputs.recovery_correlation_id) || 'Daily Full Pipeline' }}": (
@@ -429,8 +442,8 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         "Materialize immutable recovery source bundle for production": (
             "Daily Full production must independently rematerialize the immutable source bundle"
         ),
-        "market-session preflight recovery bundle identity mismatch": (
-            "Daily Full must carry bundle identity across job artifacts"
+        "materialize_market_session_preflight_artifact": (
+            "Daily Full must carry and validate preflight identity through the canonical helper"
         ),
         "if: env.RECOVERY_SOURCE_BUNDLE_COMMIT_SHA == ''": (
             "mutable price acquisition must be skipped for a verified recovery bundle"
@@ -477,8 +490,8 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         "Materialize immutable recovery source bundle for production": (
             "production job must materialize the immutable bundle before validators and producers"
         ),
-        "market-session preflight recovery bundle identity mismatch": (
-            "production job must verify the downloaded bundle identity"
+        "materialize_market_session_preflight_artifact": (
+            "production job must verify the downloaded preflight identity through the canonical helper"
         ),
     }
     for literal, purpose in production_required.items():

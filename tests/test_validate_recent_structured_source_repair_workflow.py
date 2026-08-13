@@ -18,6 +18,13 @@ def test_current_workflows_pass_data_only_catch_up_contract() -> None:
     assert recent_text.index("Commit repaired recent daily price gaps") < recent_text.index(
         "Checkout current main for structured catch-up planning"
     ) < recent_text.index("Plan bounded structured objective-source catch-up")
+    assert "output/latest/official_price_fetch_latest.json" in recent_text
+    assert "output/latest/official_price_fetch_latest.md" in recent_text
+    assert "publish_current_day_repair_confirmation" in (
+        (validator.ROOT / "scripts/repair_recent_daily_price_gaps.py").read_text(
+            encoding="utf-8"
+        )
+    )
 
 
 def test_direct_replay_or_model_work_is_rejected() -> None:

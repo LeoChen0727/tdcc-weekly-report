@@ -3,6 +3,7 @@ from __future__ import annotations
 import csv
 import html
 import json
+import pytest
 from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -161,30 +162,38 @@ def test_weekend_emergency_notice_is_not_recorded_as_exceptional_market_closure(
     assert status["exceptional_non_trading_days"] == ["20260710"]
 
 
+def _bind_official_price_evidence(root: Path, date_text: str = "20260713") -> bytes:
+    from fetch_official_daily_price import publish_official_price_evidence_transaction
+
+    payload = (
+        "date,stock_id,market,open,high,low,close,volume\n"
+        f"{date_text},2330,TWSE,990,1010,980,1000,1000\n"
+        f"{date_text},6488,TPEx,490,510,480,500,1000\n"
+    ).encode("utf-8")
+    price_dir = root / "data" / "daily_price"
+    price_dir.mkdir(parents=True, exist_ok=True)
+    (price_dir / f"daily_price_{date_text}.csv").write_bytes(payload)
+    publish_official_price_evidence_transaction(
+        root,
+        price_payload=payload,
+        result={
+            "target_date": date_text,
+            "saved_price_date": date_text,
+            "is_target_date": True,
+            "full_market_ok": True,
+            "result": "success_target_full_market",
+            "twse_rows": 1,
+            "tpex_rows": 1,
+            "total_rows": 2,
+        },
+        log=["test evidence"],
+    )
+    return payload
+
+
 def test_confirm_requires_target_date_twse_and_tpex_prices(tmp_path: Path) -> None:
     _prepare_root(tmp_path)
-    latest = tmp_path / "output" / "latest"
-    latest.mkdir(parents=True)
-    (latest / "official_price_fetch_latest.json").write_text(
-        json.dumps(
-            {
-                "target_date": "20260713",
-                "saved_price_date": "20260713",
-                "is_target_date": True,
-                "full_market_ok": True,
-                "result": "success_target_full_market",
-            }
-        ),
-        encoding="utf-8",
-    )
-    price_dir = tmp_path / "data" / "daily_price"
-    price_dir.mkdir(parents=True)
-    (price_dir / "daily_price_20260713.csv").write_text(
-        "date,stock_id,market,close\n"
-        "20260713,2330,TWSE,1000\n"
-        "20260713,6488,TPEx,500\n",
-        encoding="utf-8",
-    )
+    _bind_official_price_evidence(tmp_path)
 
     status = market_session.refresh_market_session_status(
         tmp_path,
@@ -208,24 +217,7 @@ def test_confirm_reuses_recent_successful_preflight_without_refetching_sources(t
         as_of=datetime(2026, 7, 14, 3, 0, tzinfo=TAIPEI_TZ),
         fetch_bytes=_fetcher(feed),
     )
-    latest = tmp_path / "output" / "latest"
-    (latest / "official_price_fetch_latest.json").write_text(
-        json.dumps(
-            {
-                "target_date": "20260713",
-                "saved_price_date": "20260713",
-                "is_target_date": True,
-                "full_market_ok": True,
-            }
-        ),
-        encoding="utf-8",
-    )
-    price_dir = tmp_path / "data" / "daily_price"
-    price_dir.mkdir(parents=True, exist_ok=True)
-    (price_dir / "daily_price_20260713.csv").write_text(
-        "date,stock_id,market\n20260713,2330,TWSE\n20260713,6488,TPEx\n",
-        encoding="utf-8",
-    )
+    _bind_official_price_evidence(tmp_path)
 
     def must_not_fetch(url: str, timeout: int) -> bytes:
         raise AssertionError(f"unexpected refetch: {url}")
@@ -242,21 +234,221 @@ def test_confirm_reuses_recent_successful_preflight_without_refetching_sources(t
     assert status["preflight_generated_at"] == "2026-07-14T03:00:00+08:00"
 
 
+@pytest.mark.parametrize("mutation", ["wrong_date", "row_count", "price_hash", "markdown"])
+def test_confirm_rejects_date_bound_official_price_evidence_drift(
+    tmp_path: Path, mutation: str
+) -> None:
+    _prepare_root(tmp_path)
+    _bind_official_price_evidence(tmp_path)
+    latest = tmp_path / "output" / "latest"
+    status_path = latest / "official_price_fetch_latest.json"
+    status = json.loads(status_path.read_text(encoding="utf-8"))
+    if mutation == "wrong_date":
+        status["saved_price_date"] = "20260710"
+        status_path.write_text(json.dumps(status), encoding="utf-8")
+    elif mutation == "row_count":
+        status["twse_rows"] = 2
+        status_path.write_text(json.dumps(status), encoding="utf-8")
+    elif mutation == "price_hash":
+        (latest / "official_daily_price_latest.csv").write_bytes(b"tampered\n")
+    else:
+        (latest / "official_price_fetch_latest.md").write_text(
+            "tampered\n", encoding="utf-8"
+        )
+
+    observed = market_session.refresh_market_session_status(
+        tmp_path,
+        phase="confirm",
+        as_of=datetime(2026, 7, 14, 3, 0, tzinfo=TAIPEI_TZ),
+        fetch_bytes=_fetcher(_feed(_closure_entry("20260710"))),
+    )
+    assert observed["market_status"] == market_session.UNKNOWN
+    assert observed["reason_code"] == "official_price_not_confirmed"
+
+
+def test_current_day_repair_publishes_real_confirmation_and_verifiable_bundle(
+    tmp_path: Path,
+) -> None:
+    import subprocess
+    from scripts import daily_source_recovery_bundle as source_bundle
+    from scripts import repair_recent_daily_price_gaps as recent_repair
+
+    _prepare_root(tmp_path)
+    subprocess.run(["git", "init", "-q", "--initial-branch=main"], cwd=tmp_path, check=True)
+    subprocess.run(["git", "config", "user.email", "repair@example.invalid"], cwd=tmp_path, check=True)
+    subprocess.run(["git", "config", "user.name", "Repair Test"], cwd=tmp_path, check=True)
+
+    def repair(root: Path, date_text: str, _args: object) -> int:
+        lines = [
+            "date,stock_id,market,open,high,low,close,volume,source"
+        ]
+        for index in range(1300):
+            market = "TWSE" if index < 800 else "TPEx"
+            lines.append(
+                f"{date_text},{1000 + index},{market},9,11,8,10,1000,"
+                f"{market}_TEST_SOURCE"
+            )
+        payload = ("\n".join(lines) + "\n").encode("utf-8")
+        saved = [
+            f"data/daily_price/{date_text}.csv",
+            f"data/daily_price/daily_price_{date_text}.csv",
+        ]
+        for relative in saved:
+            path = root / relative
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(payload)
+        report = root / "output/latest/repair_daily_price_range_latest.json"
+        report.parent.mkdir(parents=True, exist_ok=True)
+        report.write_text(
+            json.dumps(
+                {
+                    "rows": [
+                        {
+                            "date": date_text,
+                            "status": "repaired",
+                            "saved_files": ";".join(saved),
+                            "twse_rows": 800,
+                            "tpex_rows": 500,
+                            "total_rows": 1300,
+                        }
+                    ]
+                }
+            ),
+            encoding="utf-8",
+        )
+        return 0
+
+    result = recent_repair.repair_recent_gaps(
+        tmp_path,
+        as_of_date="20260713",
+        lookback_days=1,
+        min_full_rows=1,
+        max_repair_dates=1,
+        repair_func=repair,
+        market_session_fetch_bytes=_fetcher(_feed(_closure_entry("20260710"))),
+        authority_date="20260713",
+    )
+    confirmation = result.report["current_day_confirmation"]
+    assert confirmation["market_session"]["market_status"] == market_session.OPEN_CONFIRMED
+    assert confirmation["market_session"]["phase"] == "confirm"
+    assert confirmation["market_session"]["market_session_date"] == "20260713"
+    calendar_path = tmp_path / "data/market_calendar/exceptional_non_trading_days.csv"
+    calendar_path.parent.mkdir(parents=True, exist_ok=True)
+    calendar_path.write_bytes(b"date,reason\n")
+
+    subprocess.run(["git", "add", "."], cwd=tmp_path, check=True)
+    subprocess.run(["git", "commit", "-qm", "date-bound source"], cwd=tmp_path, check=True)
+    source_sha = subprocess.check_output(
+        ["git", "rev-parse", "HEAD"], cwd=tmp_path, text=True
+    ).strip()
+    built = source_bundle.build_bundle(
+        tmp_path,
+        trading_date="20260713",
+        release_id="src-chain1",
+        source_base_sha=source_sha,
+        run_id="31596733427",
+        run_attempt=1,
+        market_session=confirmation["market_session"],
+    )
+    subprocess.run(["git", "add", "."], cwd=tmp_path, check=True)
+    subprocess.run(["git", "commit", "-qm", "immutable source bundle"], cwd=tmp_path, check=True)
+    bundle_commit = subprocess.check_output(
+        ["git", "rev-parse", "HEAD"], cwd=tmp_path, text=True
+    ).strip()
+    verified = source_bundle.verify_bundle_from_git(
+        tmp_path,
+        source_commit_sha=bundle_commit,
+        manifest_path=built["manifest_path"],
+        manifest_sha256=built["manifest_sha256"],
+        source_bundle_sha=built["manifest"]["source_bundle_sha"],
+        trading_date="20260713",
+    )
+    assert verified["official_price_confirmation"]["total_rows"] == 1300
+
+    reservation = source_bundle.create_dispatch_reservation(
+        tmp_path,
+        trading_date="20260713",
+        source_commit_sha=bundle_commit,
+        manifest_path=built["manifest_path"],
+        manifest_sha256=built["manifest_sha256"],
+        source_bundle_sha=built["manifest"]["source_bundle_sha"],
+        baseline_run_id=100,
+        dispatch_started_at="2026-07-13T12:30:00Z",
+        expected_display_title="Daily Full Pipeline | recovery=daily-source-20260713",
+    )
+    subprocess.run(["git", "add", reservation["path"]], cwd=tmp_path, check=True)
+    subprocess.run(["git", "commit", "-qm", "reserve resume"], cwd=tmp_path, check=True)
+    reservation_commit = subprocess.check_output(
+        ["git", "rev-parse", "HEAD"], cwd=tmp_path, text=True
+    ).strip()
+    verified_reservation = source_bundle.verify_dispatch_reservation(
+        tmp_path,
+        trading_date="20260713",
+        reservation_path=reservation["path"],
+        reservation_sha256=reservation["sha256"],
+        expected_head_sha=reservation_commit,
+        source_commit_sha=bundle_commit,
+        manifest_path=built["manifest_path"],
+        manifest_sha256=built["manifest_sha256"],
+        source_bundle_sha=built["manifest"]["source_bundle_sha"],
+        correlation_id="daily-source-20260713",
+    )
+    assert verified_reservation["source_bundle_commit_sha"] == bundle_commit
+
+
+def test_historical_repair_does_not_mutate_current_official_price_surfaces(
+    tmp_path: Path,
+) -> None:
+    from scripts import repair_recent_daily_price_gaps as recent_repair
+
+    _prepare_root(tmp_path)
+    _bind_official_price_evidence(tmp_path, "20260710")
+    latest = tmp_path / "output/latest"
+    surfaces = [
+        latest / "official_daily_price_latest.csv",
+        latest / "official_price_fetch_latest.json",
+        latest / "official_price_fetch_latest.md",
+    ]
+    before = {path: path.read_bytes() for path in surfaces}
+
+    def repair(root: Path, date_text: str, _args: object) -> int:
+        payload = (
+            "date,stock_id,market\n"
+            f"{date_text},2330,TWSE\n"
+            f"{date_text},6488,TPEx\n"
+        ).encode("utf-8")
+        for relative in (
+            f"data/daily_price/{date_text}.csv",
+            f"data/daily_price/daily_price_{date_text}.csv",
+        ):
+            path = root / relative
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(payload)
+        return 0
+
+    result = recent_repair.repair_recent_gaps(
+        tmp_path,
+        as_of_date="20260714",
+        lookback_days=1,
+        min_full_rows=1,
+        max_repair_dates=1,
+        include_as_of_date=False,
+        repair_func=repair,
+    )
+    assert result.status == "repaired"
+    assert {path: path.read_bytes() for path in surfaces} == before
+
+
 def test_confirm_rejects_previous_day_fallback(tmp_path: Path) -> None:
     _prepare_root(tmp_path)
+    _bind_official_price_evidence(tmp_path)
     latest = tmp_path / "output" / "latest"
-    latest.mkdir(parents=True)
-    (latest / "official_price_fetch_latest.json").write_text(
-        json.dumps(
-            {
-                "target_date": "20260713",
-                "saved_price_date": "20260709",
-                "is_target_date": False,
-                "full_market_ok": False,
-            }
-        ),
-        encoding="utf-8",
-    )
+    status_path = latest / "official_price_fetch_latest.json"
+    payload = json.loads(status_path.read_text(encoding="utf-8"))
+    payload["saved_price_date"] = "20260709"
+    payload["is_target_date"] = False
+    payload["full_market_ok"] = False
+    status_path.write_text(json.dumps(payload), encoding="utf-8")
 
     status = market_session.refresh_market_session_status(
         tmp_path,
@@ -304,3 +496,237 @@ def test_afternoon_work_suspension_does_not_close_day_market(tmp_path: Path) -> 
     assert status["market_status"] == market_session.UNKNOWN
     assert status["reason_code"] == "awaiting_official_price_confirmation"
     assert status["expected_main_price_date"] == "20260710"
+
+
+@pytest.mark.parametrize("existing_mode", ["legacy_only", "canonical"])
+def test_current_day_existing_price_bytes_repair_stale_confirmation(
+    tmp_path: Path,
+    existing_mode: str,
+) -> None:
+    from scripts import repair_recent_daily_price_gaps as recent_repair
+
+    _prepare_root(tmp_path)
+    date_text = "20260713"
+    lines = [
+        "date,stock_id,market,open,high,low,close,volume,source"
+    ]
+    for index in range(1300):
+        market = "TWSE" if index < 800 else "TPEx"
+        lines.append(
+            f"{date_text},{1000 + index},{market},9,11,8,10,1000,"
+            f"{market}_TEST_SOURCE"
+        )
+    payload = ("\n".join(lines) + "\n").encode("utf-8")
+    legacy = tmp_path / f"data/daily_price/{date_text}.csv"
+    legacy.parent.mkdir(parents=True, exist_ok=True)
+    legacy.write_bytes(payload)
+    if existing_mode == "canonical":
+        (legacy.parent / f"daily_price_{date_text}.csv").write_bytes(payload)
+    output = tmp_path / "output/latest"
+    output.mkdir(parents=True, exist_ok=True)
+    (output / "official_price_fetch_latest.json").write_text(
+        json.dumps(
+            {"target_date": "20260710", "saved_price_date": "20260710"}
+        ),
+        encoding="utf-8",
+    )
+    (output / "official_price_fetch_latest.md").write_text(
+        "# stale\n", encoding="utf-8"
+    )
+
+    def unexpected_repair(_root: Path, _date: str, _args: object) -> int:
+        raise AssertionError("existing current-day bytes must not be refetched")
+
+    result = recent_repair.repair_recent_gaps(
+        tmp_path,
+        as_of_date=date_text,
+        authority_date=date_text,
+        lookback_days=1,
+        min_full_rows=1,
+        max_repair_dates=1,
+        repair_func=unexpected_repair,
+        market_session_fetch_bytes=_fetcher(
+            _feed(_closure_entry("20260710"))
+        ),
+    )
+    assert result.status in {"pass", "repaired"}
+    confirmation = result.report["current_day_confirmation"]
+    assert confirmation["official_price_fetch"]["saved_price_date"] == date_text
+    assert confirmation["official_price_fetch"]["total_rows"] == 1300
+    assert (
+        confirmation["market_session"]["market_status"]
+        == market_session.OPEN_CONFIRMED
+    )
+    surfaces = [
+        output / "official_daily_price_latest.csv",
+        output / "official_price_fetch_latest.json",
+        output / "official_price_fetch_latest.md",
+    ]
+    before_reinvoke = {path: path.read_bytes() for path in surfaces}
+    reinvoked = recent_repair.repair_recent_gaps(
+        tmp_path,
+        as_of_date=date_text,
+        authority_date=date_text,
+        lookback_days=1,
+        min_full_rows=1,
+        max_repair_dates=1,
+        repair_func=unexpected_repair,
+        market_session_fetch_bytes=_fetcher(
+            _feed(_closure_entry("20260710"))
+        ),
+    )
+    assert reinvoked.status == "pass"
+    assert {path: path.read_bytes() for path in surfaces} == before_reinvoke
+
+
+@pytest.mark.parametrize(
+    "quality_failure",
+    [
+        "market_threshold",
+        "stale_duplicate",
+        "duplicate_stock_id",
+        "non_numeric",
+        "invalid_ohlc",
+    ],
+)
+def test_current_day_existing_price_requires_official_full_market_quality(
+    tmp_path: Path,
+    quality_failure: str,
+) -> None:
+    from scripts import repair_recent_daily_price_gaps as recent_repair
+
+    _prepare_root(tmp_path)
+    date_text = "20260713"
+
+    def payload(payload_date: str, twse_rows: int, tpex_rows: int) -> bytes:
+        lines = [
+            "date,stock_id,market,open,high,low,close,volume,source"
+        ]
+        for index in range(twse_rows + tpex_rows):
+            market = "TWSE" if index < twse_rows else "TPEx"
+            lines.append(
+                f"{payload_date},{1000 + index},{market},9,11,8,10,1000,"
+                f"{market}_TEST_SOURCE"
+            )
+        return ("\n".join(lines) + "\n").encode("utf-8")
+
+    current_payload = payload(
+        date_text,
+        699 if quality_failure == "market_threshold" else 800,
+        601 if quality_failure == "market_threshold" else 500,
+    )
+    current_lines = current_payload.decode("utf-8").splitlines()
+    if quality_failure == "duplicate_stock_id":
+        fields = current_lines[-1].split(",")
+        fields[1] = "1000"
+        current_lines[-1] = ",".join(fields)
+        current_payload = ("\n".join(current_lines) + "\n").encode("utf-8")
+    elif quality_failure == "non_numeric":
+        fields = current_lines[1].split(",")
+        fields[3] = "not-a-number"
+        current_lines[1] = ",".join(fields)
+        current_payload = ("\n".join(current_lines) + "\n").encode("utf-8")
+    elif quality_failure == "invalid_ohlc":
+        fields = current_lines[1].split(",")
+        fields[4] = "7"
+        current_lines[1] = ",".join(fields)
+        current_payload = ("\n".join(current_lines) + "\n").encode("utf-8")
+    price_dir = tmp_path / "data/daily_price"
+    price_dir.mkdir(parents=True, exist_ok=True)
+    for name in (date_text, f"daily_price_{date_text}"):
+        (price_dir / f"{name}.csv").write_bytes(current_payload)
+    if quality_failure == "stale_duplicate":
+        previous_payload = payload("20260710", 800, 500)
+        (price_dir / "daily_price_20260710.csv").write_bytes(previous_payload)
+
+    result = recent_repair.repair_recent_gaps(
+        tmp_path,
+        as_of_date=date_text,
+        authority_date=date_text,
+        lookback_days=1,
+        min_full_rows=1,
+        max_repair_dates=1,
+        repair_func=lambda *_args: (_ for _ in ()).throw(
+            AssertionError("existing bytes must not be refetched")
+        ),
+        market_session_fetch_bytes=_fetcher(
+            _feed(_closure_entry("20260710"))
+        ),
+    )
+    assert result.status == "fail"
+    assert result.report["current_day_confirmation"] == {}
+    assert len(result.errors) == 1
+    assert result.errors[0].startswith(
+        "current-day official price confirmation failed:"
+    )
+    if quality_failure in {"market_threshold", "stale_duplicate"}:
+        assert "full-market" in result.errors[0]
+    else:
+        assert "clean unique target-date TWSE/TPEx OHLCV rows" in result.errors[0]
+
+
+def test_historical_repair_does_not_publish_current_latest_evidence(
+    tmp_path: Path,
+) -> None:
+    from scripts import repair_recent_daily_price_gaps as recent_repair
+
+    _prepare_root(tmp_path)
+    output = tmp_path / "output/latest"
+    output.mkdir(parents=True, exist_ok=True)
+    protected = {
+        output / "official_daily_price_latest.csv": b"current-price\n",
+        output / "official_price_fetch_latest.json": b'{"current":true}\n',
+        output / "official_price_fetch_latest.md": b"# current\n",
+    }
+    for path, payload in protected.items():
+        path.write_bytes(payload)
+    date_text = "20260713"
+
+    def repair(root: Path, requested_date: str, _args: object) -> int:
+        lines = ["date,stock_id,market,close,source"]
+        for index in range(1300):
+            market = "TWSE" if index < 800 else "TPEx"
+            lines.append(
+                f"{requested_date},{1000 + index},{market},10,"
+                f"{market}_TEST_SOURCE"
+            )
+        payload = ("\n".join(lines) + "\n").encode("utf-8")
+        saved = [
+            f"data/daily_price/{requested_date}.csv",
+            f"data/daily_price/daily_price_{requested_date}.csv",
+        ]
+        for relative in saved:
+            path = root / relative
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(payload)
+        report = root / "output/latest/repair_daily_price_range_latest.json"
+        report.write_text(
+            json.dumps(
+                {
+                    "rows": [
+                        {
+                            "date": requested_date,
+                            "status": "repaired",
+                            "saved_files": ";".join(saved),
+                            "twse_rows": 800,
+                            "tpex_rows": 500,
+                            "total_rows": 1300,
+                        }
+                    ]
+                }
+            ),
+            encoding="utf-8",
+        )
+        return 0
+
+    result = recent_repair.repair_recent_gaps(
+        tmp_path,
+        as_of_date=date_text,
+        authority_date="20260813",
+        lookback_days=1,
+        min_full_rows=1,
+        max_repair_dates=1,
+        repair_func=repair,
+    )
+    assert result.report["current_day_confirmation"] == {}
+    assert {path: path.read_bytes() for path in protected} == protected
