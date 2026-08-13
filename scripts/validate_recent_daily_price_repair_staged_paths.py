@@ -228,18 +228,42 @@ def validate_bundle_identity(
         errors.append("recent daily-price repair staged bundle file set mismatch")
         return errors
     entries_by_path = {str(item["path"]): item for item in files}
+    expected_bundle_payload_paths: list[str] = []
     for index, source_path in enumerate(required_paths, start=1):
         item = entries_by_path[source_path]
         bundle_path = f"{bundle_root}/files/{index:02d}-{Path(source_path).name}"
+        expected_bundle_payload_paths.append(bundle_path)
         if item.get("bundle_path") != bundle_path:
             errors.append(
                 f"recent daily-price repair staged bundle path mismatch: {source_path}"
             )
-            continue
         if item.get("mode") != "100644":
             errors.append(
                 f"recent daily-price repair manifest mode mismatch: {source_path}"
             )
+    expected_bundle_paths = {
+        expected_manifest_path,
+        f"{bundle_root}/state.json",
+        f"{bundle_root}/market_session_status.json",
+        *expected_bundle_payload_paths,
+    }
+    observed_bundle_paths = {
+        path
+        for path in changed_paths
+        if path.startswith("output/history/daily_source_bundles/")
+    }
+    if observed_bundle_paths != expected_bundle_paths:
+        errors.append(
+            "recent daily-price repair staged bundle path set mismatch: "
+            f"missing={sorted(expected_bundle_paths - observed_bundle_paths)} "
+            f"extra={sorted(observed_bundle_paths - expected_bundle_paths)}"
+        )
+        return errors
+
+    for source_path, bundle_path in zip(
+        required_paths, expected_bundle_payload_paths, strict=True
+    ):
+        item = entries_by_path[source_path]
         try:
             source_payload = read_index_bytes(source_path)
             bundle_payload = read_index_bytes(bundle_path)

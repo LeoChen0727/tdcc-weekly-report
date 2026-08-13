@@ -363,6 +363,72 @@ def test_allowed_staged_paths_must_be_regular_blobs_in_real_git_index(
     assert any(expected_error in error for error in errors)
 
 
+@pytest.mark.parametrize(
+    "rogue_path",
+    [
+        "output/history/daily_source_bundles/20260810/"
+        "daily-source-20260810-run-1/manifest.json",
+        "output/history/daily_source_bundles/20260810/"
+        "daily-source-20260810-run-1/state.json",
+        "output/history/daily_source_bundles/20260811/"
+        "daily-source-20260811-run-2/manifest.json",
+        "output/history/daily_source_bundles/20260811/"
+        "daily-source-20260811-run-2/state.json",
+    ],
+)
+def test_second_bundle_date_or_release_fails_closed_in_real_git_index(
+    tmp_path,
+    monkeypatch: pytest.MonkeyPatch,
+    rogue_path: str,
+) -> None:
+    repo = tmp_path / "repo"
+    repo.mkdir()
+    subprocess.run(
+        ["git", "init", "-q", "--initial-branch=main"], cwd=repo, check=True
+    )
+    subprocess.run(
+        ["git", "config", "user.email", "repair@example.invalid"],
+        cwd=repo,
+        check=True,
+    )
+    subprocess.run(
+        ["git", "config", "user.name", "Repair Test"], cwd=repo, check=True
+    )
+    subprocess.run(
+        ["git", "commit", "--allow-empty", "-qm", "baseline"],
+        cwd=repo,
+        check=True,
+    )
+    source_base_sha = subprocess.check_output(
+        ["git", "rev-parse", "HEAD"], cwd=repo, text=True
+    ).strip()
+    fixture = _bundle_fixture(source_base_sha=source_base_sha)
+    for relative, payload in fixture["payloads"].items():
+        path = repo / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(payload)
+    rogue = repo / rogue_path
+    rogue.parent.mkdir(parents=True, exist_ok=True)
+    rogue.write_bytes(b"{}\n")
+    subprocess.run(["git", "add", "."], cwd=repo, check=True)
+
+    monkeypatch.setattr(validator, "ROOT", repo)
+    errors = validator.validate_bundle_identity(
+        validator.staged_entries(),
+        target_date=str(fixture["target_date"]),
+        source_base_sha=source_base_sha,
+        observed_head_sha=validator.repository_head_sha(),
+        manifest_path=str(fixture["manifest_path"]),
+        manifest_sha256=str(fixture["manifest_sha256"]),
+        source_bundle_sha=str(fixture["source_bundle_sha"]),
+        read_index_bytes=validator.read_staged_bytes,
+        read_index_mode=validator.read_staged_mode,
+        read_index_type=validator.read_staged_object_type,
+    )
+    assert any("staged bundle path set mismatch" in error for error in errors)
+    assert any(rogue_path in error for error in errors)
+
+
 def test_date_scoped_source_bundle_paths_are_exactly_allowed() -> None:
     prefix = "output/history/daily_source_bundles/20260811/daily-source-20260811-run-1/"
     entries = [

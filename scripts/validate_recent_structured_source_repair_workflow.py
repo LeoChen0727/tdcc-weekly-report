@@ -28,6 +28,55 @@ def _step_block(job_block: str, step_name: str) -> str:
     return match.group(0) if match else ""
 
 
+def _step_run_executable_lines(job_block: str, step_name: str) -> list[str]:
+    block = _step_block(job_block, step_name)
+    lines = block.splitlines()
+    try:
+        run_index = next(
+            index
+            for index, line in enumerate(lines)
+            if re.fullmatch(r"        run:\s*\|\s*", line)
+        )
+    except StopIteration:
+        return []
+    executable: list[str] = []
+    heredoc_delimiter = ""
+    for raw_line in lines[run_index + 1 :]:
+        if raw_line.strip() and not raw_line.startswith("          "):
+            break
+        line = raw_line[10:].strip() if raw_line.startswith("          ") else ""
+        if heredoc_delimiter:
+            if line == heredoc_delimiter:
+                heredoc_delimiter = ""
+            continue
+        if not line or line.startswith("#"):
+            continue
+        executable.append(line)
+        heredoc = re.search(
+            r"<<-?\s*(?:'([^']+)'|\"([^\"]+)\"|([A-Za-z_][A-Za-z0-9_]*))",
+            line,
+        )
+        if heredoc:
+            heredoc_delimiter = next(
+                value for value in heredoc.groups() if value is not None
+            )
+    return executable
+
+
+def _has_unique_exact_command(
+    lines: list[str],
+    expected_lines: tuple[str, ...],
+    *,
+    command_marker: str,
+) -> bool:
+    matching_blocks = sum(
+        tuple(lines[index : index + len(expected_lines)]) == expected_lines
+        for index in range(len(lines) - len(expected_lines) + 1)
+    )
+    marker_lines = [line for line in lines if command_marker in line]
+    return matching_blocks == 1 and marker_lines == [expected_lines[0]]
+
+
 def _job_mapping(block: str, section: str) -> dict[str, str]:
     mapping: dict[str, str] = {}
     lines = block.splitlines()
@@ -437,6 +486,21 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         'python scripts/validate_daily_price_history_continuity.py '
         '--main-price-date "$REPAIR_TARGET_DATE"'
     )
+    repair_job = _job_block(recent_text, "repair-recent-daily-price-gaps")
+    continuity_lines = _step_run_executable_lines(
+        repair_job, "Validate exact repaired target-date continuity"
+    )
+    staged_validation_lines = _step_run_executable_lines(
+        repair_job, "Commit repaired recent daily price gaps"
+    )
+    expected_staged_validation = (
+        "python scripts/validate_recent_daily_price_repair_staged_paths.py \\",
+        '--target-date "$REPAIR_TARGET_DATE" \\',
+        '--source-base-sha "$REPAIR_BASE_SHA" \\',
+        '--manifest-path "${{ steps.source_bundle.outputs.manifest_path }}" \\',
+        '--manifest-sha256 "${{ steps.source_bundle.outputs.manifest_sha256 }}" \\',
+        '--source-bundle-sha "${{ steps.source_bundle.outputs.source_bundle_sha }}"',
+    )
     history_stage = "git add data/stock_price_history/"
     if f"{history_stage} || true" in recent_text:
         errors.append(
@@ -446,24 +510,60 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         errors.append(
             "recent repair must fail closed while staging required stock-price history"
         )
-    if exact_continuity not in recent_text:
+    if not _has_unique_exact_command(
+        continuity_lines,
+        (exact_continuity,),
+        command_marker="scripts/validate_daily_price_history_continuity.py",
+    ):
         errors.append(
-            "recent repair continuity validation must bind the exact REPAIR_TARGET_DATE"
+            "recent repair continuity validation must be one direct command, bind "
+            "the exact REPAIR_TARGET_DATE, and run before commit/push"
         )
-    else:
-        required_order = [
-            "Summarize recent repair result",
-            exact_continuity,
-            "Build immutable current-day source recovery bundle",
-            "python scripts/validate_recent_daily_price_repair_staged_paths.py",
-            'git commit -m "Persist ${REPAIR_TARGET_DATE} daily source recovery bundle"',
-            "git push origin HEAD:main",
-        ]
-        positions = [recent_text.index(item) for item in required_order]
-        if positions != sorted(positions):
-            errors.append(
-                "recent repair must validate exact target continuity and staged bundle before commit/push"
-            )
+    staged_validator_is_exact = _has_unique_exact_command(
+        staged_validation_lines,
+        expected_staged_validation,
+        command_marker="scripts/validate_recent_daily_price_repair_staged_paths.py",
+    )
+    if not staged_validator_is_exact:
+        errors.append(
+            "recent repair staged-path validator must be one exact direct command"
+        )
+    step_names = (
+        "Summarize recent repair result",
+        "Validate exact repaired target-date continuity",
+        "Build immutable current-day source recovery bundle",
+        "Commit repaired recent daily price gaps",
+    )
+    step_markers = [f"      - name: {name}" for name in step_names]
+    if not all(marker in recent_text for marker in step_markers) or [
+        recent_text.index(marker) for marker in step_markers
+    ] != sorted(recent_text.index(marker) for marker in step_markers):
+        errors.append(
+            "recent repair must order continuity, bundle build, and persistence steps"
+        )
+    commit_command = 'git commit -m "Persist ${REPAIR_TARGET_DATE} daily source recovery bundle"'
+    push_command = "git push origin HEAD:main"
+    commit_is_exact = _has_unique_exact_command(
+        staged_validation_lines,
+        (commit_command,),
+        command_marker=commit_command,
+    )
+    push_is_exact = _has_unique_exact_command(
+        staged_validation_lines,
+        (push_command,),
+        command_marker=push_command,
+    )
+    persistence_order_is_exact = False
+    if staged_validator_is_exact and commit_is_exact and push_is_exact:
+        persistence_order_is_exact = (
+            staged_validation_lines.index(expected_staged_validation[0])
+            < staged_validation_lines.index(commit_command)
+            < staged_validation_lines.index(push_command)
+        )
+    if not persistence_order_is_exact:
+        errors.append(
+            "recent repair must validate the exact staged bundle before direct commit/push"
+        )
 
     daily_full_required = {
         "run-name: ${{ inputs.recovery_correlation_id != '' && format('Daily Full Pipeline | recovery={0}', inputs.recovery_correlation_id) || 'Daily Full Pipeline' }}": (

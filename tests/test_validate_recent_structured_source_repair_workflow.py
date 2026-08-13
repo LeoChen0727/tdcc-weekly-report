@@ -69,6 +69,36 @@ def test_repair_continuity_must_bind_target_date_and_precede_commit() -> None:
     assert any("before commit/push" in error for error in errors)
 
 
+def test_repair_safety_validators_must_be_direct_shell_commands() -> None:
+    recent_text, replay_text, daily_full_text = _texts()
+    exact_continuity = (
+        'python scripts/validate_daily_price_history_continuity.py '
+        '--main-price-date "$REPAIR_TARGET_DATE"'
+    )
+    staged_validator = (
+        "python scripts/validate_recent_daily_price_repair_staged_paths.py \\"
+    )
+    for carrier in (
+        f"echo '{exact_continuity}'",
+        f"printf '%s\\n' '{exact_continuity}'",
+        f"cat <<'EOF'\n          {exact_continuity}\n          EOF",
+        f'result="$({exact_continuity})"',
+    ):
+        invalid = recent_text.replace(exact_continuity, carrier, 1)
+        errors = validator.validate(invalid, replay_text, daily_full_text)
+        assert any("one direct command" in error for error in errors)
+
+    for carrier in (
+        f"echo {staged_validator}",
+        f"printf '%s\\n' '{staged_validator}'",
+        f"cat <<'EOF'\n              {staged_validator}\n              EOF",
+        f'result="$({staged_validator})"',
+    ):
+        invalid = recent_text.replace(staged_validator, carrier, 1)
+        errors = validator.validate(invalid, replay_text, daily_full_text)
+        assert any("staged-path validator" in error for error in errors)
+
+
 def test_required_history_staging_failure_cannot_be_swallowed() -> None:
     recent_text, replay_text, daily_full_text = _texts()
     safe_stage = "git add data/stock_price_history/"
