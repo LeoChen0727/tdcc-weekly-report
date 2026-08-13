@@ -226,7 +226,7 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add data/daily_price/ || true
-          git add data/stock_price_history/ || true
+          git add data/stock_price_history/
           git add output/latest/recent_daily_price_gap_repair_latest.* || true
           git add output/latest/repair_daily_price_range_latest.* || true
           git add output/latest/repair_daily_price_range_check_code_latest.csv || true

@@ -234,6 +234,9 @@ def test_git_index_allows_unchanged_price_member_with_stale_status_repair(
             path.write_bytes(b"# stale status\n")
         else:
             path.write_bytes(payloads[relative])
+    history_path = repo / "data/stock_price_history/2330.csv"
+    history_path.parent.mkdir(parents=True, exist_ok=True)
+    history_path.write_bytes(b"date,close\n20260810,10\n")
     subprocess.run(["git", "add", "."], cwd=repo, check=True)
     subprocess.run(["git", "commit", "-qm", "baseline"], cwd=repo, check=True)
     source_base_sha = subprocess.check_output(
@@ -268,6 +271,17 @@ def test_git_index_allows_unchanged_price_member_with_stale_status_repair(
         read_index_mode=validator.read_staged_mode,
     )
     assert errors == []
+    history_path.write_bytes(b"date,close\n20260810,11\n")
+    untracked_history = repo / "data/stock_price_history/2317.csv"
+    untracked_history.write_bytes(b"date,close\n20260810,20\n")
+    observed = validator.unstaged_or_untracked_paths()
+    assert observed == [
+        "data/stock_price_history/2317.csv",
+        "data/stock_price_history/2330.csv",
+    ]
+    errors = validator.validate_no_unstaged_or_untracked_paths(observed)
+    assert len(errors) == 2
+    assert all("before commit" in error for error in errors)
 
 
 def test_date_scoped_source_bundle_paths_are_exactly_allowed() -> None:

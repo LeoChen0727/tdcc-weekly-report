@@ -435,6 +435,32 @@ def staged_entries() -> list[tuple[str, tuple[str, ...]]]:
     return entries
 
 
+def unstaged_or_untracked_paths() -> list[str]:
+    unstaged = subprocess.check_output(
+        ["git", "diff", "--name-only", "-z"],
+        cwd=ROOT,
+    )
+    untracked = subprocess.check_output(
+        ["git", "ls-files", "--others", "--exclude-standard", "-z"],
+        cwd=ROOT,
+    )
+    paths: set[str] = set()
+    for payload in (unstaged, untracked):
+        for path in payload.decode("utf-8", errors="strict").split("\0"):
+            normalized = path.replace("\\", "/")
+            if normalized:
+                paths.add(normalized)
+    return sorted(paths)
+
+
+def validate_no_unstaged_or_untracked_paths(paths: list[str]) -> list[str]:
+    return [
+        "recent daily-price repair has unstaged or untracked output before "
+        f"commit: {path}"
+        for path in sorted(set(paths))
+    ]
+
+
 def read_staged_bytes(path: str) -> bytes:
     return subprocess.check_output(["git", "show", f":{path}"], cwd=ROOT)
 
@@ -482,6 +508,9 @@ def main() -> int:
         source_bundle_sha=args.source_bundle_sha,
         read_index_bytes=read_staged_bytes,
         read_index_mode=read_staged_mode,
+    )
+    errors.extend(
+        validate_no_unstaged_or_untracked_paths(unstaged_or_untracked_paths())
     )
     if errors:
         for error in errors:

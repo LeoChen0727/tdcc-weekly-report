@@ -69,6 +69,21 @@ def test_repair_continuity_must_bind_target_date_and_precede_commit() -> None:
     assert any("before commit/push" in error for error in errors)
 
 
+def test_required_history_staging_failure_cannot_be_swallowed() -> None:
+    recent_text, replay_text, daily_full_text = _texts()
+    safe_stage = "git add data/stock_price_history/"
+    assert safe_stage in {line.strip() for line in recent_text.splitlines()}
+    assert f"{safe_stage} || true" not in recent_text
+
+    permissive = recent_text.replace(safe_stage, f"{safe_stage} || true", 1)
+    errors = validator.validate(permissive, replay_text, daily_full_text)
+    assert any("must not swallow" in error for error in errors)
+
+    missing = recent_text.replace(safe_stage, "echo skip-history-stage", 1)
+    errors = validator.validate(missing, replay_text, daily_full_text)
+    assert any("fail closed while staging" in error for error in errors)
+
+
 def test_direct_replay_or_model_work_is_rejected() -> None:
     recent_text, replay_text, daily_full_text = _texts()
     replay_script = "replay_historical_structured" + "_sources.py"

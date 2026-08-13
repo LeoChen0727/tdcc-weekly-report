@@ -437,6 +437,15 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         'python scripts/validate_daily_price_history_continuity.py '
         '--main-price-date "$REPAIR_TARGET_DATE"'
     )
+    history_stage = "git add data/stock_price_history/"
+    if f"{history_stage} || true" in recent_text:
+        errors.append(
+            "recent repair must not swallow required stock-price history staging failure"
+        )
+    elif history_stage not in {line.strip() for line in recent_text.splitlines()}:
+        errors.append(
+            "recent repair must fail closed while staging required stock-price history"
+        )
     if exact_continuity not in recent_text:
         errors.append(
             "recent repair continuity validation must bind the exact REPAIR_TARGET_DATE"

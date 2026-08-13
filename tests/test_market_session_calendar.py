@@ -901,3 +901,116 @@ def test_current_day_deferred_confirmation_failures_restore_previous_latest(
     assert not (
         tmp_path / recent_repair.official_price_fetch.OFFICIAL_PRICE_TRANSACTION_DIR
     ).exists()
+
+
+def _seed_pending_exact_triplet_transaction(tmp_path: Path):
+    import fetch_official_daily_price as official_price
+
+    old_payloads = {
+        official_price.LATEST_PRICE_CSV: b"old-price\n",
+        official_price.LATEST_FETCH_JSON: b'{"old":true}\n',
+        official_price.LATEST_FETCH_MD: b"# old\n",
+    }
+    next_payloads = {
+        official_price.LATEST_PRICE_CSV: b"new-price\n",
+        official_price.LATEST_FETCH_JSON: b'{"new":true}\n',
+        official_price.LATEST_FETCH_MD: b"# new\n",
+    }
+    for relative, payload in old_payloads.items():
+        target = tmp_path / relative
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(payload)
+    official_price._begin_official_price_evidence_transaction(
+        tmp_path,
+        next_payloads,
+        require_exact_triplet=True,
+    )
+    transaction_root = tmp_path / official_price.OFFICIAL_PRICE_TRANSACTION_DIR
+    targets = [tmp_path / path for path in sorted(next_payloads)]
+    return official_price, transaction_root, targets, old_payloads
+
+
+def test_deferred_transaction_journal_binds_exact_triplet_and_recovers_all(
+    tmp_path: Path,
+) -> None:
+    official_price, transaction_root, targets, old_payloads = (
+        _seed_pending_exact_triplet_transaction(tmp_path)
+    )
+    journal = json.loads(
+        (transaction_root / "journal.json").read_text(encoding="utf-8")
+    )
+    assert journal["schema_version"] == "official_price_evidence_transaction_v3"
+    assert journal["transaction_kind"] == "deferred_official_latest_triplet"
+    assert set(journal["required_paths"]) == {
+        path.as_posix()
+        for path in (
+            official_price.LATEST_PRICE_CSV,
+            official_price.LATEST_FETCH_JSON,
+            official_price.LATEST_FETCH_MD,
+        )
+    }
+    assert official_price.recover_official_price_evidence_transaction(tmp_path)
+    assert {
+        relative: (tmp_path / relative).read_bytes() for relative in old_payloads
+    } == old_payloads
+    assert not transaction_root.exists()
+
+
+@pytest.mark.parametrize(
+    "mutation",
+    [
+        "missing_journal",
+        "truncated_entries",
+        "extra_entry",
+        "malformed_json",
+        "journal_hash",
+        "required_path",
+        "backup_hash",
+    ],
+)
+def test_invalid_deferred_transaction_journal_fails_before_target_write(
+    tmp_path: Path,
+    mutation: str,
+) -> None:
+    official_price, transaction_root, targets, _old_payloads = (
+        _seed_pending_exact_triplet_transaction(tmp_path)
+    )
+    journal_path = transaction_root / "journal.json"
+    journal = json.loads(journal_path.read_text(encoding="utf-8"))
+    if mutation == "missing_journal":
+        journal_path.unlink()
+    elif mutation == "truncated_entries":
+        journal["entries"].pop()
+        official_price._write_official_price_transaction_journal(
+            transaction_root, journal
+        )
+    elif mutation == "extra_entry":
+        extra = dict(journal["entries"][0])
+        extra["path"] = "output/latest/unapproved.json"
+        extra["previous_file"] = "previous-3.bin"
+        extra["next_file"] = "next-3.bin"
+        journal["entries"].append(extra)
+        official_price._write_official_price_transaction_journal(
+            transaction_root, journal
+        )
+    elif mutation == "malformed_json":
+        journal_path.write_bytes(b"{not-json")
+    elif mutation == "journal_hash":
+        journal["journal_sha256"] = "0" * 64
+        journal_path.write_text(
+            json.dumps(journal, sort_keys=True), encoding="utf-8"
+        )
+    elif mutation == "required_path":
+        journal["required_paths"][0] = "output/latest/unapproved.json"
+        official_price._write_official_price_transaction_journal(
+            transaction_root, journal
+        )
+    else:
+        (transaction_root / journal["entries"][0]["previous_file"]).write_bytes(
+            b"tampered-backup"
+        )
+    before = {path: path.read_bytes() for path in targets}
+    with pytest.raises(ValueError):
+        official_price.recover_official_price_evidence_transaction(tmp_path)
+    assert {path: path.read_bytes() for path in targets} == before
+    assert transaction_root.exists()
