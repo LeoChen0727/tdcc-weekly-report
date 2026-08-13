@@ -149,6 +149,52 @@ def test_repair_safety_gates_reject_dead_shell_control_flow() -> None:
         )
 
 
+def test_repair_safety_steps_reject_skip_metadata_and_permissive_persist() -> None:
+    recent_text, replay_text, daily_full_text = _texts()
+    staged_step = "      - name: Validate exact staged current-day source recovery bundle\n"
+    for metadata in (
+        "        if: ${{ false }}\n",
+        "        continue-on-error: true\n",
+        "        shell: pwsh\n",
+    ):
+        invalid = recent_text.replace(staged_step, staged_step + metadata, 1)
+        errors = validator.validate(invalid, replay_text, daily_full_text)
+        assert any("staged-path validator" in error for error in errors)
+
+    permissive_commit = recent_text.replace(
+        'git commit -m "Persist ${REPAIR_TARGET_DATE} daily source recovery bundle"',
+        'git commit -m "Persist ${REPAIR_TARGET_DATE} daily source recovery bundle" || true',
+        1,
+    )
+    errors = validator.validate(permissive_commit, replay_text, daily_full_text)
+    assert any("fail-closed commit/push step" in error for error in errors)
+
+
+def test_repair_rejects_duplicate_or_interposed_critical_steps() -> None:
+    recent_text, replay_text, daily_full_text = _texts()
+    staged_step = validator._step_block(
+        validator._job_block(recent_text, "repair-recent-daily-price-gaps"),
+        "Validate exact staged current-day source recovery bundle",
+    )
+    duplicate = recent_text.replace(staged_step, staged_step + staged_step, 1)
+    errors = validator.validate(duplicate, replay_text, daily_full_text)
+    assert any("must exist exactly once" in error for error in errors)
+
+    staged_marker = "      - name: Validate exact staged current-day source recovery bundle\n"
+    malicious_step = (
+        "      - name: Premature remote mutation\n"
+        "        run: |\n"
+        '          git commit -m "premature"\n'
+        "          git push origin HEAD:main\n\n"
+    )
+    interposed = recent_text.replace(
+        staged_marker, malicious_step + staged_marker, 1
+    )
+    errors = validator.validate(interposed, replay_text, daily_full_text)
+    assert any("exact adjacent" in error for error in errors)
+    assert any("globally unique" in error for error in errors)
+
+
 def test_required_history_staging_failure_cannot_be_swallowed() -> None:
     recent_text, replay_text, daily_full_text = _texts()
     safe_stage = "git add data/stock_price_history/"

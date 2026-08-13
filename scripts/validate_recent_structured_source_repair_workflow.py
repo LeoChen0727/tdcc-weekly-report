@@ -20,12 +20,20 @@ def _job_block(text: str, job_name: str) -> str:
     return match.group(0) if match else ""
 
 
-def _step_block(job_block: str, step_name: str) -> str:
+def _step_blocks(job_block: str, step_name: str) -> list[str]:
     pattern = re.compile(
         rf"(?ms)^      - name: {re.escape(step_name)}\s*\n(.*?)(?=^      - name: |\Z)"
     )
-    match = pattern.search(job_block)
-    return match.group(0) if match else ""
+    return [match.group(0) for match in pattern.finditer(job_block)]
+
+
+def _step_block(job_block: str, step_name: str) -> str:
+    blocks = _step_blocks(job_block, step_name)
+    return blocks[0] if len(blocks) == 1 else ""
+
+
+def _step_names(job_block: str) -> list[str]:
+    return re.findall(r"(?m)^      - name: (.+?)\s*$", job_block)
 
 
 def _step_run_executable_lines(job_block: str, step_name: str) -> list[str]:
@@ -75,6 +83,27 @@ def _has_unique_exact_command(
     )
     marker_lines = [line for line in lines if command_marker in line]
     return matching_blocks == 1 and marker_lines == [expected_lines[0]]
+
+
+def _step_has_exact_contract(
+    job_block: str,
+    step_name: str,
+    *,
+    metadata_lines: tuple[str, ...],
+    executable_lines: tuple[str, ...],
+) -> bool:
+    block = _step_block(job_block, step_name)
+    if not block:
+        return False
+    lines = block.splitlines()
+    try:
+        run_index = lines.index("        run: |")
+    except ValueError:
+        return False
+    observed_metadata = tuple(line for line in lines[1:run_index] if line.strip())
+    return observed_metadata == metadata_lines and _step_run_executable_lines(
+        job_block, step_name
+    ) == list(executable_lines)
 
 
 def _job_mapping(block: str, section: str) -> dict[str, str]:
@@ -487,14 +516,15 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         '--main-price-date "$REPAIR_TARGET_DATE"'
     )
     repair_job = _job_block(recent_text, "repair-recent-daily-price-gaps")
-    continuity_lines = _step_run_executable_lines(
-        repair_job, "Validate exact repaired target-date continuity"
+    exact_env_metadata = (
+        "        env:",
+        "          REPAIR_TARGET_DATE: ${{ steps.repair_result.outputs.target_end_date }}",
     )
-    stage_lines = _step_run_executable_lines(
-        repair_job, "Stage exact current-day source recovery bundle"
-    )
-    staged_validation_lines = _step_run_executable_lines(
-        repair_job, "Validate exact staged current-day source recovery bundle"
+    expected_target_date_identity = (
+        'if [[ ! "$REPAIR_TARGET_DATE" =~ ^20[0-9]{6}$ ]]; then',
+        'echo "::error::Recent repair target date is invalid or missing: $REPAIR_TARGET_DATE"',
+        "exit 1",
+        "fi",
     )
     expected_staged_validation = (
         "python scripts/validate_recent_daily_price_repair_staged_paths.py \\",
@@ -525,43 +555,115 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         "exit 1",
         "fi",
     )
+    expected_persist = (
+        'remote_main_sha="$(git ls-remote origin refs/heads/main | awk \'{print $1}\')"',
+        'if [ -z "$remote_main_sha" ] || [ "$remote_main_sha" != "$REPAIR_BASE_SHA" ]; then',
+        'echo "::error::Remote main drifted during recent price repair; refusing to commit or rebase stale outputs."',
+        "exit 1",
+        "fi",
+        'git commit -m "Persist ${REPAIR_TARGET_DATE} daily source recovery bundle"',
+        "git push origin HEAD:main",
+        'local_sha="$(git rev-parse HEAD)"',
+        'remote_main_sha="$(git ls-remote origin refs/heads/main | awk \'{print $1}\')"',
+        'if [ -z "$remote_main_sha" ] || [ "$local_sha" != "$remote_main_sha" ]; then',
+        'echo "::error::Remote main does not equal the persisted recent price repair commit."',
+        "exit 1",
+        "fi",
+        'echo "source_bundle_commit_sha=$local_sha" >> "$GITHUB_OUTPUT"',
+    )
     history_stage = "git add data/stock_price_history/"
     if f"{history_stage} || true" in recent_text:
         errors.append(
             "recent repair must not swallow required stock-price history staging failure"
         )
-    elif stage_lines != list(expected_stage):
+    elif not _step_has_exact_contract(
+        repair_job,
+        "Stage exact current-day source recovery bundle",
+        metadata_lines=(),
+        executable_lines=expected_stage,
+    ):
         errors.append(
             "recent repair must use the exact unconditional staging step and fail "
             "closed while staging required stock-price history"
         )
-    if continuity_lines != [exact_continuity]:
+    if not _step_has_exact_contract(
+        repair_job,
+        "Validate repaired target-date identity",
+        metadata_lines=exact_env_metadata,
+        executable_lines=expected_target_date_identity,
+    ):
+        errors.append(
+            "recent repair target-date identity must be one unconditional exact step"
+        )
+    if not _step_has_exact_contract(
+        repair_job,
+        "Validate exact repaired target-date continuity",
+        metadata_lines=exact_env_metadata,
+        executable_lines=(exact_continuity,),
+    ):
         errors.append(
             "recent repair continuity validation must be one direct command, bind "
             "the exact REPAIR_TARGET_DATE, and run before commit/push"
         )
-    staged_validator_is_exact = staged_validation_lines == list(
-        expected_staged_validation
+    staged_validator_is_exact = _step_has_exact_contract(
+        repair_job,
+        "Validate exact staged current-day source recovery bundle",
+        metadata_lines=(),
+        executable_lines=expected_staged_validation,
     )
     if not staged_validator_is_exact:
         errors.append(
             "recent repair staged-path validator must be one exact direct command"
         )
-    step_names = (
+    critical_step_names = (
         "Summarize recent repair result",
         "Validate repaired target-date identity",
         "Validate exact repaired target-date continuity",
         "Build immutable current-day source recovery bundle",
+        "Upload recent daily price gap repair evidence",
         "Stage exact current-day source recovery bundle",
         "Validate exact staged current-day source recovery bundle",
         "Commit repaired recent daily price gaps",
     )
-    step_markers = [f"      - name: {name}" for name in step_names]
-    if not all(marker in recent_text for marker in step_markers) or [
-        recent_text.index(marker) for marker in step_markers
-    ] != sorted(recent_text.index(marker) for marker in step_markers):
+    observed_step_names = _step_names(repair_job)
+    critical_indices: list[int] = []
+    for name in critical_step_names:
+        if observed_step_names.count(name) != 1:
+            errors.append(
+                f"recent repair critical step must exist exactly once: {name}"
+            )
+        else:
+            critical_indices.append(observed_step_names.index(name))
+    if len(critical_indices) != len(critical_step_names) or critical_indices != list(
+        range(critical_indices[0], critical_indices[0] + len(critical_indices))
+    ):
         errors.append(
-            "recent repair must order continuity, bundle build, and persistence steps"
+            "recent repair must keep the exact adjacent continuity, bundle, stage, "
+            "validation, and persistence step sequence"
+        )
+    if not _step_has_exact_contract(
+        repair_job,
+        "Commit repaired recent daily price gaps",
+        metadata_lines=("        id: persist_bundle",),
+        executable_lines=expected_persist,
+    ):
+        errors.append(
+            "recent repair must use one exact fail-closed commit/push step"
+        )
+    git_write_lines = [
+        line
+        for step_name in observed_step_names
+        for line in _step_run_executable_lines(repair_job, step_name)
+        if re.search(r"\bgit(?:\s+(?:-[^\s]+\s+\S+))*\s+(?:commit|push)\b", line)
+    ]
+    expected_git_write_lines = [
+        expected_persist[5],
+        expected_persist[6],
+    ]
+    if git_write_lines != expected_git_write_lines:
+        errors.append(
+            "recent repair Git commit/push commands must be globally unique and "
+            "confined to the exact persistence step"
         )
 
     daily_full_required = {

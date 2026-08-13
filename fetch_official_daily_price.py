@@ -1595,78 +1595,69 @@ def _load_official_price_transaction(
         raise ValueError("official price evidence transaction journal is invalid")
     schema = journal.get("schema_version")
     state = safe_str(journal.get("state"))
-    if schema == "official_price_evidence_transaction_v1" and not state:
-        state = "pending"
-    if schema not in {
-        "official_price_evidence_transaction_v1",
-        "official_price_evidence_transaction_v2",
-        "official_price_evidence_transaction_v3",
-    } or state not in {"pending", "committed"}:
+    if (
+        schema != "official_price_evidence_transaction_v3"
+        or state not in {"pending", "committed"}
+    ):
         raise ValueError("official price evidence transaction journal is invalid")
     allowed_paths = {
         LATEST_PRICE_CSV.as_posix(),
         LATEST_FETCH_JSON.as_posix(),
         LATEST_FETCH_MD.as_posix(),
     }
-    required_paths: set[str] | None = None
-    if schema == "official_price_evidence_transaction_v3":
-        expected_journal_sha = safe_str(journal.get("journal_sha256"))
-        identity = dict(journal)
-        identity.pop("journal_sha256", None)
-        identity_payload = (
-            json.dumps(
-                identity,
-                ensure_ascii=False,
-                sort_keys=True,
-                separators=(",", ":"),
-            )
-            + "\n"
-        ).encode("utf-8")
-        if (
-            not re.fullmatch(r"[0-9a-f]{64}", expected_journal_sha)
-            or hashlib.sha256(identity_payload).hexdigest() != expected_journal_sha
-        ):
-            raise ValueError(
-                "official price evidence transaction journal identity mismatch"
-            )
-        if not re.fullmatch(
-            r"[0-9a-f]{32}", safe_str(journal.get("transaction_id"))
-        ):
-            raise ValueError(
-                "official price evidence transaction identity is invalid"
-            )
-        transaction_kind = safe_str(journal.get("transaction_kind"))
-        required_path_values = journal.get("required_paths")
-        if (
-            transaction_kind
-            not in {
-                "atomic_official_price_evidence",
-                "deferred_official_latest_triplet",
-            }
-            or not isinstance(required_path_values, list)
-            or not required_path_values
-            or any(not isinstance(path, str) for path in required_path_values)
-            or len(required_path_values) != len(set(required_path_values))
-        ):
-            raise ValueError(
-                "official price evidence transaction required path identity is invalid"
-            )
-        required_paths = set(required_path_values)
-        if not required_paths.issubset(allowed_paths):
-            raise ValueError(
-                "official price evidence transaction required path identity is invalid"
-            )
-        if (
-            transaction_kind == "deferred_official_latest_triplet"
-            and required_paths != allowed_paths
-        ):
-            raise ValueError(
-                "deferred official price evidence transaction journal requires the exact triplet"
-            )
-    elif schema == "official_price_evidence_transaction_v2":
-        # v2 was introduced for deferred publication but did not bind its complete
-        # path set. Recovery therefore accepts only the exact canonical triplet.
-        required_paths = set(allowed_paths)
+    expected_journal_sha = safe_str(journal.get("journal_sha256"))
+    identity = dict(journal)
+    identity.pop("journal_sha256", None)
+    identity_payload = (
+        json.dumps(
+            identity,
+            ensure_ascii=False,
+            sort_keys=True,
+            separators=(",", ":"),
+        )
+        + "\n"
+    ).encode("utf-8")
+    if (
+        not re.fullmatch(r"[0-9a-f]{64}", expected_journal_sha)
+        or hashlib.sha256(identity_payload).hexdigest() != expected_journal_sha
+    ):
+        raise ValueError(
+            "official price evidence transaction journal identity mismatch"
+        )
+    if not re.fullmatch(
+        r"[0-9a-f]{32}", safe_str(journal.get("transaction_id"))
+    ):
+        raise ValueError(
+            "official price evidence transaction identity is invalid"
+        )
+    transaction_kind = safe_str(journal.get("transaction_kind"))
+    required_path_values = journal.get("required_paths")
+    if (
+        transaction_kind
+        not in {
+            "atomic_official_price_evidence",
+            "deferred_official_latest_triplet",
+        }
+        or not isinstance(required_path_values, list)
+        or not required_path_values
+        or any(not isinstance(path, str) for path in required_path_values)
+        or len(required_path_values) != len(set(required_path_values))
+    ):
+        raise ValueError(
+            "official price evidence transaction required path identity is invalid"
+        )
+    required_paths = set(required_path_values)
+    if not required_paths.issubset(allowed_paths):
+        raise ValueError(
+            "official price evidence transaction required path identity is invalid"
+        )
+    if (
+        transaction_kind == "deferred_official_latest_triplet"
+        and required_paths != allowed_paths
+    ):
+        raise ValueError(
+            "deferred official price evidence transaction journal requires the exact triplet"
+        )
     entries = journal.get("entries")
     if not isinstance(entries, list) or not entries:
         raise ValueError("official price evidence transaction journal is invalid")
@@ -1745,7 +1736,7 @@ def _load_official_price_transaction(
                 "official price evidence prepared payload SHA identity is invalid"
             )
         validated.append((entry, target, previous_payload))
-    if required_paths is not None and observed_paths != required_paths:
+    if observed_paths != required_paths:
         raise ValueError(
             "official price evidence transaction journal path set is incomplete"
         )

@@ -964,6 +964,8 @@ def test_deferred_transaction_journal_binds_exact_triplet_and_recovers_all(
         "extra_entry",
         "malformed_json",
         "journal_hash",
+        "schema_downgrade_v1",
+        "schema_downgrade_v2",
         "required_path",
         "backup_hash",
     ],
@@ -997,6 +999,16 @@ def test_invalid_deferred_transaction_journal_fails_before_target_write(
         journal_path.write_bytes(b"{not-json")
     elif mutation == "journal_hash":
         journal["journal_sha256"] = "0" * 64
+        journal_path.write_text(
+            json.dumps(journal, sort_keys=True), encoding="utf-8"
+        )
+    elif mutation.startswith("schema_downgrade_"):
+        journal["schema_version"] = (
+            "official_price_evidence_transaction_"
+            + mutation.removeprefix("schema_downgrade_")
+        )
+        journal.pop("journal_sha256", None)
+        journal["entries"].pop()
         journal_path.write_text(
             json.dumps(journal, sort_keys=True), encoding="utf-8"
         )
