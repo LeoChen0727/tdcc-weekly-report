@@ -833,15 +833,18 @@ def test_zero_raw_repair_rebuilds_missing_target_history_before_deferred_commit(
 @pytest.mark.parametrize(
     "failure_kind",
     [
+        "confirm_unknown",
         "confirm_source_exception",
         "history_nonzero",
         "history_exception",
         "continuity_nonzero",
         "continuity_exception",
+        "post_history_continuity_nonzero",
     ],
 )
 def test_current_day_deferred_confirmation_failures_restore_previous_latest(
     tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
     failure_kind: str,
 ) -> None:
     from scripts import repair_recent_daily_price_gaps as recent_repair
@@ -859,21 +862,50 @@ def test_current_day_deferred_confirmation_failures_restore_previous_latest(
         tmp_path / recent_repair.official_price_fetch.LATEST_FETCH_MD,
     ]
     before = {path: path.read_bytes() for path in triplet}
+    authority = {
+        tmp_path / "output/latest/market_session_status_latest.json": b'{"market_status":"open_confirmed","phase":"confirm"}\n',
+        tmp_path / "output/latest/data_freshness_latest.csv": b"main_price_date,report_ready,daily_pdf_ready\n20260713,True,True\n",
+        tmp_path / "output/latest/data_freshness_latest.md": b"# immutable authority\n",
+    }
+    for path, payload_bytes in authority.items():
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(payload_bytes)
+    continuity_calls = 0
+    history_calls = 0
 
     def validate(_root: Path, **_kwargs: object):
+        nonlocal continuity_calls
+        continuity_calls += 1
         if failure_kind == "continuity_exception":
             raise RuntimeError("injected continuity exception")
-        if failure_kind in {"continuity_nonzero", "history_nonzero", "history_exception"}:
+        if failure_kind in {
+            "continuity_nonzero",
+            "history_nonzero",
+            "history_exception",
+            "post_history_continuity_nonzero",
+        }:
             return recent_repair.continuity.ValidationResult(
                 "fail", {}, ["injected continuity failure"]
             )
         return recent_repair.continuity.ValidationResult("pass", {}, [])
 
     def build(_root: Path, _args: object) -> int:
+        nonlocal history_calls
+        history_calls += 1
         if failure_kind == "history_exception":
             raise RuntimeError("injected history exception")
         return 7 if failure_kind == "history_nonzero" else 0
 
+    if failure_kind == "confirm_unknown":
+        monkeypatch.setattr(
+            recent_repair.market_session_calendar,
+            "refresh_market_session_status",
+            lambda *_args, **_kwargs: {
+                "market_status": recent_repair.market_session_calendar.UNKNOWN,
+                "phase": "confirm",
+                "reason": "injected unknown confirmation",
+            },
+        )
     if failure_kind == "confirm_source_exception":
         def fetch_bytes(_url: str, _timeout: int) -> bytes:
             raise RuntimeError("injected official source exception")
@@ -887,7 +919,10 @@ def test_current_day_deferred_confirmation_failures_restore_previous_latest(
         lookback_days=1,
         min_full_rows=1,
         max_repair_dates=1,
-        rebuild_history_if_repaired=failure_kind.startswith("history_"),
+        rebuild_history_if_repaired=(
+            failure_kind.startswith("history_")
+            or failure_kind == "post_history_continuity_nonzero"
+        ),
         repair_func=lambda *_args: (_ for _ in ()).throw(
             AssertionError("existing current-day bytes must not be refetched")
         ),
@@ -898,6 +933,10 @@ def test_current_day_deferred_confirmation_failures_restore_previous_latest(
     assert result.status == "fail"
     assert result.report["current_day_confirmation"] == {}
     assert {path: path.read_bytes() for path in triplet} == before
+    assert {path: path.read_bytes() for path in authority} == authority
+    if failure_kind == "post_history_continuity_nonzero":
+        assert continuity_calls == 2
+        assert history_calls == 1
     assert not (
         tmp_path / recent_repair.official_price_fetch.OFFICIAL_PRICE_TRANSACTION_DIR
     ).exists()
@@ -962,8 +1001,10 @@ def test_deferred_transaction_journal_binds_exact_triplet_and_recovers_all(
         "missing_journal",
         "truncated_entries",
         "extra_entry",
+        "duplicate_path",
         "malformed_json",
         "journal_hash",
+        "transaction_id",
         "schema_downgrade_v1",
         "schema_downgrade_v2",
         "required_path",
@@ -995,12 +1036,27 @@ def test_invalid_deferred_transaction_journal_fails_before_target_write(
         official_price._write_official_price_transaction_journal(
             transaction_root, journal
         )
+    elif mutation == "duplicate_path":
+        journal["entries"][1]["path"] = journal["entries"][0]["path"]
+        journal["transaction_id"] = official_price._derive_official_price_transaction_id(
+            journal
+        )
+        official_price._write_official_price_transaction_journal(
+            transaction_root, journal
+        )
     elif mutation == "malformed_json":
         journal_path.write_bytes(b"{not-json")
     elif mutation == "journal_hash":
         journal["journal_sha256"] = "0" * 64
         journal_path.write_text(
             json.dumps(journal, sort_keys=True), encoding="utf-8"
+        )
+    elif mutation == "transaction_id":
+        journal["transaction_id"] = (
+            "0" * 32 if journal["transaction_id"] != "0" * 32 else "1" * 32
+        )
+        official_price._write_official_price_transaction_journal(
+            transaction_root, journal
         )
     elif mutation.startswith("schema_downgrade_"):
         journal["schema_version"] = (

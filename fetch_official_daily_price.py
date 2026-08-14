@@ -1553,6 +1553,23 @@ def _remove_official_price_transaction(transaction_root: Path) -> None:
         shutil.rmtree(transaction_root)
 
 
+def _derive_official_price_transaction_id(journal: dict[str, Any]) -> str:
+    identity = {
+        key: journal.get(key)
+        for key in (
+            "schema_version",
+            "transaction_kind",
+            "required_paths",
+            "entries",
+        )
+    }
+    payload = (
+        json.dumps(identity, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+        + "\n"
+    ).encode("utf-8")
+    return hashlib.sha256(payload).hexdigest()[:32]
+
+
 def _write_official_price_transaction_journal(
     transaction_root: Path,
     journal: dict[str, Any],
@@ -1624,11 +1641,13 @@ def _load_official_price_transaction(
         raise ValueError(
             "official price evidence transaction journal identity mismatch"
         )
-    if not re.fullmatch(
-        r"[0-9a-f]{32}", safe_str(journal.get("transaction_id"))
+    transaction_id = safe_str(journal.get("transaction_id"))
+    if (
+        not re.fullmatch(r"[0-9a-f]{32}", transaction_id)
+        or transaction_id != _derive_official_price_transaction_id(journal)
     ):
         raise ValueError(
-            "official price evidence transaction identity is invalid"
+            "official price evidence transaction identity mismatch"
         )
     transaction_kind = safe_str(journal.get("transaction_kind"))
     required_path_values = journal.get("required_paths")
@@ -1820,7 +1839,6 @@ def _begin_official_price_evidence_transaction(
     if transaction_root.exists() or transaction_root.is_symlink():
         raise ValueError("official price evidence transaction root collision")
     transaction_root.mkdir(parents=True, exist_ok=False)
-    transaction_id = uuid.uuid4().hex
     try:
         entries: list[dict[str, Any]] = []
         targets: list[tuple[Path, Path]] = []
@@ -1858,23 +1876,22 @@ def _begin_official_price_evidence_transaction(
                 }
             )
             targets.append((target, next_path))
-        _write_official_price_transaction_journal(
-            transaction_root,
-            {
-                "schema_version": "official_price_evidence_transaction_v3",
-                "transaction_id": transaction_id,
-                "transaction_kind": (
-                    "deferred_official_latest_triplet"
-                    if require_exact_triplet
-                    else "atomic_official_price_evidence"
-                ),
-                "required_paths": sorted(
-                    relative_path.as_posix() for relative_path in payloads
-                ),
-                "state": "pending",
-                "entries": entries,
-            },
-        )
+        journal = {
+            "schema_version": "official_price_evidence_transaction_v3",
+            "transaction_kind": (
+                "deferred_official_latest_triplet"
+                if require_exact_triplet
+                else "atomic_official_price_evidence"
+            ),
+            "required_paths": sorted(
+                relative_path.as_posix() for relative_path in payloads
+            ),
+            "state": "pending",
+            "entries": entries,
+        }
+        transaction_id = _derive_official_price_transaction_id(journal)
+        journal["transaction_id"] = transaction_id
+        _write_official_price_transaction_journal(transaction_root, journal)
 
         replaced = 0
         for index, (target, next_path) in enumerate(targets):

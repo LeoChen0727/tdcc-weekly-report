@@ -213,8 +213,10 @@ def test_current_day_fetch_evidence_transaction_rolls_back_all_surfaces(
     assert {path: path.read_bytes() for path in paths} == before
 
 
+@pytest.mark.parametrize("crash_after_replace", [1, 2, 3])
 def test_current_day_fetch_evidence_recovers_after_abrupt_process_exit(
     tmp_path: Path,
+    crash_after_replace: int,
 ) -> None:
     root, _ = _repo(tmp_path)
     paths = [
@@ -245,7 +247,7 @@ def test_current_day_fetch_evidence_recovers_after_abrupt_process_exit(
             "        'tpex_rows': 500,",
             "        'total_rows': 1300,",
             "    },",
-            "    crash_after_replace=1,",
+            f"    crash_after_replace={crash_after_replace},",
             ")",
         ]
     )
