@@ -54,8 +54,11 @@
 | data_family_ownership | revenue_unreacted_range_launch_timing_feature_audit | PASS | model_owned_not_shared | none |
 | data_family_ownership | revenue_unreacted_range_source_first_condition_audit | PASS | model_owned_not_shared | none |
 | data_family_ownership | revenue_unreacted_range_source_snapshot_projection | PASS | model_owned_not_shared | none |
+| data_family_ownership | revenue_unreacted_range_source_snapshot_projection_v1_archive | PASS | model_owned_not_shared | none |
 | data_family_ownership | revenue_unreacted_range_source_snapshot_projection_rebaseline_v2 | PASS | model_owned_not_shared | none |
 | data_family_ownership | revenue_unreacted_range_source_snapshot_projection_v1_v2_diff | PASS | model_owned_not_shared | none |
+| data_family_ownership | revenue_unreacted_range_source_snapshot_projection_v1_v2_diff_history | PASS | model_owned_not_shared | none |
+| data_family_ownership | revenue_unreacted_range_source_snapshot_projection_v1_v2_diff_docs | PASS | model_owned_not_shared | none |
 | data_family_ownership | revenue_unreacted_range_source_snapshot_projection_v1_v2_operation_diff | PASS | model_owned_not_shared | none |
 | data_family_ownership | revenue_unreacted_range_forward_confirmation_feature_audit | PASS | model_owned_not_shared | none |
 | data_family_ownership | revenue_unreacted_range_rearmed_operation_grid | PASS | model_owned_not_shared | none |
