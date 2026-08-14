@@ -223,7 +223,11 @@ def _operation_rows(
     return rows
 
 
-def _build_fixture(root: Path) -> dict[str, Path]:
+def _build_fixture(
+    root: Path,
+    *,
+    source_projection_artifact_version: str = projection.ARTIFACT_VERSION,
+) -> dict[str, Path]:
     specs = (
         ("1111", "low-60", 160, "low", 25.0, True, True),
         ("2222", "mid-50", 170, "mid", -10.0, False, False),
@@ -308,19 +312,6 @@ def _build_fixture(root: Path) -> dict[str, Path]:
         )
     source = pd.DataFrame(source_rows)
     operations = pd.DataFrame(operation_rows)
-    summary, detail, paired, contrast = producer.build_low_mid_falling_candidate_audit(
-        source,
-        operations,
-        daily,
-        generated_at=GENERATED_AT,
-    )
-    paths = producer.write_low_mid_falling_candidate_audit(
-        summary,
-        detail,
-        paired,
-        contrast,
-        output_root=root,
-    )
     source_path = root / validator.SOURCE_RELATIVE_PATHS["source_first"]
     source_path.parent.mkdir(parents=True, exist_ok=True)
     source.to_csv(source_path, index=False, encoding="utf-8-sig")
@@ -330,7 +321,12 @@ def _build_fixture(root: Path) -> dict[str, Path]:
         keep_default_na=False,
         low_memory=False,
     )
-    manifest_row = {column: "" for column in projection.MANIFEST_COLUMNS}
+    manifest_columns = (
+        projection.V2_MANIFEST_COLUMNS
+        if source_projection_artifact_version == projection.REBASELINE_ARTIFACT_VERSION
+        else projection.MANIFEST_COLUMNS
+    )
+    manifest_row = {column: "" for column in manifest_columns}
     source_dates = (
         projected_source["qualifying_source_dates"]
         .astype(str)
@@ -350,9 +346,9 @@ def _build_fixture(root: Path) -> dict[str, Path]:
             "generated_at": GENERATED_AT,
             "model_id": projection.MODEL_ID,
             "artifact_id": projection.ARTIFACT_ID,
-            "artifact_version": projection.ARTIFACT_VERSION,
+            "artifact_version": source_projection_artifact_version,
             "projection_id": projection.PROJECTION_ID,
-            "projection_version": projection.PROJECTION_VERSION,
+            "projection_version": source_projection_artifact_version,
             "projection_policy_id": projection.PROJECTION_POLICY_ID,
             "cutoff_date": projection.CUTOFF_DATE,
             "full_source_artifact_id": validator.SOURCE_FIRST_ARTIFACT_ID,
@@ -394,13 +390,62 @@ def _build_fixture(root: Path) -> dict[str, Path]:
             "pdf_consumption_allowed": False,
         }
     )
+    if source_projection_artifact_version == projection.REBASELINE_ARTIFACT_VERSION:
+        manifest_row.update(
+            {
+                "predecessor_manifest_git_blob_sha": (
+                    projection.V1_PREDECESSOR_MANIFEST_GIT_BLOB_SHA
+                ),
+                "predecessor_manifest_git_blob_raw_sha256": (
+                    projection.V1_PREDECESSOR_MANIFEST_GIT_BLOB_RAW_SHA256
+                ),
+                "predecessor_detail_git_blob_sha": (
+                    projection.V1_PREDECESSOR_DETAIL_GIT_BLOB_SHA
+                ),
+                "predecessor_detail_git_blob_raw_sha256": (
+                    projection.V1_PREDECESSOR_DETAIL_GIT_BLOB_RAW_SHA256
+                ),
+                "predecessor_detail_semantic_sha256": (
+                    projection.V1_PREDECESSOR_DETAIL_SEMANTIC_SHA256
+                ),
+                "source_repair_input_head_sha": projection.SOURCE_REPAIR_INPUT_HEAD_SHA,
+                "source_repair_artifact_commit_sha": (
+                    projection.SOURCE_REPAIR_ARTIFACT_COMMIT_SHA
+                ),
+                "source_repair_workflow_run_id": (
+                    projection.SOURCE_REPAIR_WORKFLOW_RUN_ID
+                ),
+                "source_repair_report_git_blob_sha": (
+                    projection.SOURCE_REPAIR_REPORT_GIT_BLOB_SHA
+                ),
+                "source_repair_report_git_blob_raw_sha256": (
+                    projection.SOURCE_REPAIR_REPORT_GIT_BLOB_RAW_SHA256
+                ),
+            }
+        )
     projection_manifest_path = root / validator.SOURCE_RELATIVE_PATHS[
         "projection_manifest"
     ]
     projection_manifest_path.parent.mkdir(parents=True, exist_ok=True)
-    pd.DataFrame([manifest_row], columns=projection.MANIFEST_COLUMNS).to_csv(
+    projection_manifest = pd.DataFrame([manifest_row], columns=manifest_columns)
+    projection_manifest.to_csv(
         projection_manifest_path,
         index=False,
+    )
+    summary, detail, paired, contrast = producer.build_low_mid_falling_candidate_audit(
+        source,
+        operations,
+        daily,
+        source_projection_manifest=projection_manifest,
+        source_projection_artifact_version=source_projection_artifact_version,
+        generated_at=GENERATED_AT,
+    )
+    paths = producer.write_low_mid_falling_candidate_audit(
+        summary,
+        detail,
+        paired,
+        contrast,
+        output_root=root,
     )
     rearmed_path = root / validator.SOURCE_RELATIVE_PATHS["rearmed"]
     serialized_operations = operations.copy()
@@ -441,6 +486,10 @@ def test_validator_is_independent_and_accepts_synthetic_replay(tmp_path: Path) -
         "revenue_unreacted_range_low_mid_falling_candidate_audit"
         not in imported_modules
     )
+    assert (
+        "validate_revenue_unreacted_range_source_snapshot_projection"
+        not in imported_modules
+    )
     assert validator.validate(artifact_root=tmp_path, source_root=tmp_path) == []
     detail = pd.read_csv(
         paths["detail_latest"],
@@ -457,6 +506,109 @@ def test_validator_is_independent_and_accepts_synthetic_replay(tmp_path: Path) -
         str(row["asof_latest_qualifying_canonical_source_table_date"])
         == str(row["asof_latest_qualifying_source_date"])
     )
+
+
+def test_validator_accepts_explicit_v2_projection_binding(tmp_path: Path) -> None:
+    paths = _build_fixture(
+        tmp_path,
+        source_projection_artifact_version=projection.REBASELINE_ARTIFACT_VERSION,
+    )
+
+    assert validator.validate(
+        artifact_root=tmp_path,
+        source_root=tmp_path,
+        source_projection_artifact_version=(
+            validator.SOURCE_PROJECTION_REBASELINE_ARTIFACT_VERSION
+        ),
+    ) == []
+    detail = pd.read_csv(paths["detail_latest"], keep_default_na=False)
+    assert set(detail["source_projection_artifact_version"].astype(str)) == {
+        projection.REBASELINE_ARTIFACT_VERSION
+    }
+
+
+@pytest.mark.parametrize(
+    ("fixture_version", "expected_version"),
+    (
+        (
+            projection.ARTIFACT_VERSION,
+            validator.SOURCE_PROJECTION_REBASELINE_ARTIFACT_VERSION,
+        ),
+        (
+            projection.REBASELINE_ARTIFACT_VERSION,
+            validator.SOURCE_PROJECTION_ARTIFACT_VERSION,
+        ),
+    ),
+)
+def test_validator_rejects_v1_v2_expected_version_mismatch(
+    tmp_path: Path,
+    fixture_version: str,
+    expected_version: str,
+) -> None:
+    _build_fixture(
+        tmp_path,
+        source_projection_artifact_version=fixture_version,
+    )
+
+    errors = validator.validate(
+        artifact_root=tmp_path,
+        source_root=tmp_path,
+        source_projection_artifact_version=expected_version,
+    )
+    assert any("manifest schema mismatch" in error for error in errors)
+
+
+def test_validator_rejects_v1_manifest_forged_as_v2(tmp_path: Path) -> None:
+    _build_fixture(tmp_path)
+    manifest_path = tmp_path / validator.SOURCE_RELATIVE_PATHS["projection_manifest"]
+    manifest = pd.read_csv(manifest_path, keep_default_na=False)
+    manifest.loc[0, "artifact_version"] = projection.REBASELINE_ARTIFACT_VERSION
+    manifest.loc[0, "projection_version"] = projection.REBASELINE_ARTIFACT_VERSION
+    manifest.to_csv(manifest_path, index=False)
+
+    errors = validator.validate(
+        artifact_root=tmp_path,
+        source_root=tmp_path,
+        source_projection_artifact_version=(
+            validator.SOURCE_PROJECTION_REBASELINE_ARTIFACT_VERSION
+        ),
+    )
+    assert any("manifest schema mismatch" in error for error in errors)
+
+
+def test_validator_rejects_forged_v2_repair_provenance(tmp_path: Path) -> None:
+    _build_fixture(
+        tmp_path,
+        source_projection_artifact_version=projection.REBASELINE_ARTIFACT_VERSION,
+    )
+    manifest_path = tmp_path / validator.SOURCE_RELATIVE_PATHS["projection_manifest"]
+    manifest = pd.read_csv(manifest_path, keep_default_na=False)
+    manifest.loc[0, "source_repair_workflow_run_id"] = 31799699473
+    manifest.to_csv(manifest_path, index=False)
+
+    errors = validator.validate(
+        artifact_root=tmp_path,
+        source_root=tmp_path,
+        source_projection_artifact_version=(
+            validator.SOURCE_PROJECTION_REBASELINE_ARTIFACT_VERSION
+        ),
+    )
+    assert any(
+        "source_repair_workflow_run_id mismatch" in error for error in errors
+    )
+
+
+def test_validator_rejects_unregistered_expected_projection_version(
+    tmp_path: Path,
+) -> None:
+    _build_fixture(tmp_path)
+
+    errors = validator.validate(
+        artifact_root=tmp_path,
+        source_root=tmp_path,
+        source_projection_artifact_version="source_snapshot_projection_v999",
+    )
+    assert any("expected artifact version is not registered" in error for error in errors)
 
 
 def test_validator_rejects_latest_known_source_and_watch_horizon_drift(

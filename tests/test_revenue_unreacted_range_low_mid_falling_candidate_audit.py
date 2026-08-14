@@ -36,7 +36,7 @@ from revenue_unreacted_range_low_mid_falling_candidate_audit import (  # noqa: E
     SOURCE_FIRST_ARTIFACT_ID,
     SOURCE_FIRST_ARTIFACT_VERSION,
     VARIANT_SPECS,
-    build_low_mid_falling_candidate_audit,
+    build_low_mid_falling_candidate_audit as _build_low_mid_falling_candidate_audit,
     write_low_mid_falling_candidate_audit,
 )
 
@@ -116,6 +116,7 @@ def _source_row(
         "qualifying_canonical_source_table_dates": source_date,
         "qualifying_trade_dates": source_date,
         "qualifying_sequence_indices": str(source_index),
+        "episode_end_date": source_date,
     }
 
 
@@ -212,6 +213,148 @@ def _inputs() -> tuple[pd.DataFrame, pd.DataFrame, dict[str, pd.DataFrame]]:
             )
         )
     return pd.DataFrame(source_rows), pd.DataFrame(operation_rows), daily
+
+
+def _source_projection_manifest(
+    source: pd.DataFrame,
+    *,
+    artifact_version: str = low_mid_producer.SOURCE_PROJECTION_ARTIFACT_VERSION,
+) -> pd.DataFrame:
+    projection = low_mid_producer.source_projection
+    monthly_table_sha = str(
+        source["monthly_revenue_canonical_table_sha256"].iloc[0]
+    )
+    schema = (
+        projection.V2_MANIFEST_COLUMNS
+        if artifact_version
+        == low_mid_producer.SOURCE_PROJECTION_REBASELINE_ARTIFACT_VERSION
+        else projection.MANIFEST_COLUMNS
+    )
+    source_dates = [
+        str(value)
+        for column in (
+            "episode_start_source_date",
+            "latest_qualifying_source_date",
+            "qualifying_source_dates",
+        )
+        for value in source[column].astype(str)
+    ]
+    trade_dates = [
+        str(value)
+        for column in (
+            "episode_start_trade_date",
+            "latest_qualifying_trade_date",
+            "qualifying_trade_dates",
+        )
+        for value in source[column].astype(str)
+    ]
+    row: dict[str, object] = {
+        "generated_at": GENERATED_AT,
+        "model_id": "revenue_unreacted_range",
+        "artifact_id": low_mid_producer.SOURCE_PROJECTION_ARTIFACT_ID,
+        "artifact_version": artifact_version,
+        "projection_id": projection.PROJECTION_ID,
+        "projection_version": artifact_version,
+        "projection_policy_id": projection.PROJECTION_POLICY_ID,
+        "cutoff_date": low_mid_producer.SOURCE_PROJECTION_CUTOFF_DATE,
+        "full_source_artifact_id": SOURCE_FIRST_ARTIFACT_ID,
+        "full_source_artifact_version": SOURCE_FIRST_ARTIFACT_VERSION,
+        "full_source_episode_row_count": len(source),
+        "full_source_episode_semantic_sha256": "5" * 64,
+        "monthly_revenue_history_blob_sha256": "1" * 64,
+        "monthly_revenue_canonical_table_sha256": monthly_table_sha,
+        "cross_market_resolution_registry_canonical_sha256": "3" * 64,
+        "cutoff_revenue_subset_row_count": len(source),
+        "cutoff_revenue_subset_semantic_sha256": monthly_table_sha,
+        "cutoff_price_input_stock_count": source["stock_id"].nunique(),
+        "cutoff_price_input_row_count": 1,
+        "cutoff_price_input_file_semantic_sha256s": "6" * 64,
+        "cutoff_price_input_semantic_sha256": "7" * 64,
+        "applied_monthly_resolution_count": 0,
+        "applied_monthly_resolution_ids": "none",
+        "applied_monthly_resolution_semantic_sha256": "8" * 64,
+        "applied_price_resolution_count": 0,
+        "applied_price_resolution_ids": "none",
+        "applied_price_resolution_semantic_sha256": "9" * 64,
+        "projected_episode_row_count": len(source),
+        "projected_episode_semantic_sha256": (
+            projection.canonical_projected_source_detail_semantic_sha256(source)
+        ),
+        "projected_max_source_date": max(source_dates),
+        "projected_max_trade_date": max(trade_dates),
+        "projected_max_episode_end_date": max(
+            source["episode_end_date"].astype(str)
+        ),
+        "research_only": True,
+        "formal_model_use_allowed": False,
+        "approved_for_daily": False,
+        "production_change": False,
+        "promotion_evidence_allowed": False,
+        "ranking_consumption_allowed": False,
+        "pdf_consumption_allowed": False,
+    }
+    if artifact_version == low_mid_producer.SOURCE_PROJECTION_REBASELINE_ARTIFACT_VERSION:
+        row.update(
+            {
+                "predecessor_manifest_git_blob_sha": (
+                    projection.V1_PREDECESSOR_MANIFEST_GIT_BLOB_SHA
+                ),
+                "predecessor_manifest_git_blob_raw_sha256": (
+                    projection.V1_PREDECESSOR_MANIFEST_GIT_BLOB_RAW_SHA256
+                ),
+                "predecessor_detail_git_blob_sha": (
+                    projection.V1_PREDECESSOR_DETAIL_GIT_BLOB_SHA
+                ),
+                "predecessor_detail_git_blob_raw_sha256": (
+                    projection.V1_PREDECESSOR_DETAIL_GIT_BLOB_RAW_SHA256
+                ),
+                "predecessor_detail_semantic_sha256": (
+                    projection.V1_PREDECESSOR_DETAIL_SEMANTIC_SHA256
+                ),
+                "source_repair_input_head_sha": projection.SOURCE_REPAIR_INPUT_HEAD_SHA,
+                "source_repair_artifact_commit_sha": (
+                    projection.SOURCE_REPAIR_ARTIFACT_COMMIT_SHA
+                ),
+                "source_repair_workflow_run_id": (
+                    projection.SOURCE_REPAIR_WORKFLOW_RUN_ID
+                ),
+                "source_repair_report_git_blob_sha": (
+                    projection.SOURCE_REPAIR_REPORT_GIT_BLOB_SHA
+                ),
+                "source_repair_report_git_blob_raw_sha256": (
+                    projection.SOURCE_REPAIR_REPORT_GIT_BLOB_RAW_SHA256
+                ),
+            }
+        )
+    return pd.DataFrame([row], columns=list(schema))
+
+
+def build_low_mid_falling_candidate_audit(
+    source: pd.DataFrame,
+    operations: pd.DataFrame,
+    daily: dict[str, pd.DataFrame],
+    *,
+    source_projection_manifest: pd.DataFrame | None = None,
+    source_projection_artifact_version: str = (
+        low_mid_producer.SOURCE_PROJECTION_ARTIFACT_VERSION
+    ),
+    **kwargs: object,
+) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    return _build_low_mid_falling_candidate_audit(
+        source,
+        operations,
+        daily,
+        source_projection_manifest=(
+            _source_projection_manifest(
+                source,
+                artifact_version=source_projection_artifact_version,
+            )
+            if source_projection_manifest is None
+            else source_projection_manifest
+        ),
+        source_projection_artifact_version=source_projection_artifact_version,
+        **kwargs,
+    )
 
 
 def _build() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
@@ -609,6 +752,57 @@ def test_asof_source_payload_lineage_is_selected_from_aligned_lists() -> None:
     assert detail["asof_latest_qualifying_canonical_source_table_date"].astype(
         str
     ).eq(detail["asof_latest_qualifying_source_date"].astype(str)).all()
+
+
+def test_source_projection_manifest_version_is_explicitly_bound_and_recorded() -> None:
+    source, operations, daily = _inputs()
+    manifest = _source_projection_manifest(source)
+    summary, detail, paired, contrast = build_low_mid_falling_candidate_audit(
+        source,
+        operations,
+        daily,
+        source_projection_manifest=manifest,
+        source_projection_artifact_version=(
+            low_mid_producer.SOURCE_PROJECTION_ARTIFACT_VERSION
+        ),
+        generated_at=GENERATED_AT,
+    )
+    for frame in (summary, detail, paired, contrast):
+        assert set(frame["source_projection_artifact_version"].astype(str)) == {
+            low_mid_producer.SOURCE_PROJECTION_ARTIFACT_VERSION
+        }
+        assert set(frame["source_projection_projection_version"].astype(str)) == {
+            low_mid_producer.SOURCE_PROJECTION_ARTIFACT_VERSION
+        }
+
+    with pytest.raises(RuntimeError, match="schema mismatch|artifact_version mismatch"):
+        build_low_mid_falling_candidate_audit(
+            source,
+            operations,
+            daily,
+            source_projection_manifest=manifest,
+            source_projection_artifact_version=(
+                low_mid_producer.SOURCE_PROJECTION_REBASELINE_ARTIFACT_VERSION
+            ),
+            generated_at=GENERATED_AT,
+        )
+
+
+def test_source_projection_v2_can_only_be_used_with_explicit_v2_binding() -> None:
+    source, operations, daily = _inputs()
+    version = low_mid_producer.SOURCE_PROJECTION_REBASELINE_ARTIFACT_VERSION
+    manifest = _source_projection_manifest(source, artifact_version=version)
+    _summary, detail, _paired, _contrast = build_low_mid_falling_candidate_audit(
+        source,
+        operations,
+        daily,
+        source_projection_manifest=manifest,
+        source_projection_artifact_version=version,
+        generated_at=GENERATED_AT,
+    )
+    assert set(detail["source_projection_artifact_version"].astype(str)) == {
+        version
+    }
 
 
 @pytest.mark.parametrize(

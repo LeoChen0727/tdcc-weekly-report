@@ -34,6 +34,17 @@ from test_revenue_unreacted_range_forward_holdout import (  # noqa: E402
 )
 
 
+@pytest.fixture(autouse=True)
+def _accept_synthetic_training_projection_pair(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(
+        validator,
+        "validate_projection_binding_frames",
+        lambda *_args, **_kwargs: [],
+    )
+
+
 def _valid_bundle():
     source, daily, source_manifest = holdout_inputs()
     manifest, detail, summary, comparison, anomaly = build_forward_holdout(
@@ -51,6 +62,9 @@ def _valid_bundle():
         "source": source,
         "daily": daily,
         "source_manifest": source_manifest,
+        "training_source_projection_detail": pd.DataFrame(
+            [{"synthetic_training_projection": "v1"}]
+        ),
     }
 
 
@@ -64,6 +78,10 @@ def _errors(bundle: dict[str, object]) -> list[str]:
         source_detail=bundle["source"],
         daily_by_stock=bundle["daily"],
         source_manifest=bundle["source_manifest"],
+        training_source_projection_detail=bundle.get(
+            "training_source_projection_detail",
+            pd.DataFrame([{"synthetic_training_projection": "v1"}]),
+        ),
         history_frames=bundle.get("history"),
         immutable_history_base_frames=bundle.get("history_base"),
     )
@@ -78,6 +96,21 @@ def _assert_error(errors: list[str], *needles: str) -> None:
 def test_bare_cli_fails_closed_without_explicit_inputs() -> None:
     with pytest.raises(SystemExit):
         validator.main([])
+
+
+def test_validator_defaults_pin_versioned_v1_projection_pair() -> None:
+    assert validator.DEFAULT_PATHS["source_manifest"] == (
+        validator.TRAINING_SOURCE_PROJECTION_MANIFEST_CSV
+    )
+    assert validator.DEFAULT_PATHS["training_source_projection_detail"] == (
+        validator.TRAINING_SOURCE_PROJECTION_DETAIL_CSV
+    )
+    assert "output/history/research" in (
+        validator.TRAINING_SOURCE_PROJECTION_MANIFEST_CSV.as_posix()
+    )
+    assert "output/latest" not in (
+        validator.TRAINING_SOURCE_PROJECTION_MANIFEST_CSV.as_posix()
+    )
 
 
 def _persist_standalone_cli_fixture(
@@ -96,6 +129,11 @@ def _persist_standalone_cli_fixture(
     )
     source_manifest_path = tmp_path / "source_projection_manifest.csv"
     bundle["source_manifest"].to_csv(source_manifest_path, index=False)
+    training_projection_detail_path = tmp_path / "source_projection_detail.csv"
+    pd.DataFrame([{"synthetic_training_projection": "v1"}]).to_csv(
+        training_projection_detail_path,
+        index=False,
+    )
     price_directory = tmp_path / "price_inputs"
     price_directory.mkdir()
     for stock_id, frame in bundle["daily"].items():
@@ -106,6 +144,8 @@ def _persist_standalone_cli_fixture(
         str(paths["manifest_latest"]),
         "--source-manifest",
         str(source_manifest_path),
+        "--training-source-projection-detail",
+        str(training_projection_detail_path),
         "--source-detail",
         str(paths["replay_source_latest"]),
         "--price-input-directory",
@@ -286,8 +326,26 @@ def test_standalone_cli_accepts_persisted_enriched_replay_source(
         "load_history_base_frames_from_git",
         lambda *_args, **_kwargs: {},
     )
+    observed: dict[str, object] = {}
+    monkeypatch.setattr(
+        validator,
+        "validate_projection_binding_frames",
+        lambda manifest, detail, **kwargs: observed.update(
+            {
+                "manifest_rows": len(manifest),
+                "detail_rows": len(detail),
+                "expected_version": kwargs["expected_artifact_version"],
+            }
+        )
+        or [],
+    )
 
     assert validator.main(args) == 0
+    assert observed == {
+        "manifest_rows": 1,
+        "detail_rows": 1,
+        "expected_version": validator.SOURCE_PROJECTION_ARTIFACT_VERSION,
+    }
     assert replay_source_path.is_file()
     assert "independently validated" in capsys.readouterr().out
 
@@ -310,6 +368,11 @@ def test_standalone_cli_rejects_replay_source_missing_anomaly_lineage(
         "load_history_base_frames_from_git",
         lambda *_args, **_kwargs: {},
     )
+    monkeypatch.setattr(
+        validator,
+        "validate_projection_binding_frames",
+        lambda *_args, **_kwargs: [],
+    )
 
     assert validator.main(args) == 1
     output = capsys.readouterr().out
@@ -327,6 +390,43 @@ def test_validator_is_independent_and_accepts_exact_replay() -> None:
             imported.add(node.module)
     assert "revenue_unreacted_range_forward_holdout" not in imported
     assert _errors(_valid_bundle()) == []
+
+
+def test_validator_checks_explicit_versioned_v1_projection_pair(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    bundle = _valid_bundle()
+    observed: dict[str, object] = {}
+
+    def fake_projection_validator(manifest, detail, **kwargs):
+        observed["manifest"] = manifest
+        observed["detail"] = detail
+        observed["expected_version"] = kwargs["expected_artifact_version"]
+        return ["synthetic versioned-v1 pair drift"]
+
+    monkeypatch.setattr(
+        validator,
+        "validate_projection_binding_frames",
+        fake_projection_validator,
+    )
+    training_detail = pd.DataFrame([{"training": "v1"}])
+    errors = validator.validate_frames(
+        bundle["manifest"],
+        bundle["detail"],
+        bundle["summary"],
+        bundle["comparison"],
+        bundle["anomaly"],
+        source_detail=bundle["source"],
+        daily_by_stock=bundle["daily"],
+        source_manifest=bundle["source_manifest"],
+        training_source_projection_detail=training_detail,
+    )
+    assert "synthetic versioned-v1 pair drift" in errors
+    assert observed["manifest"] is bundle["source_manifest"]
+    assert observed["detail"] is training_detail
+    assert observed["expected_version"] == (
+        validator.SOURCE_PROJECTION_ARTIFACT_VERSION
+    )
 
 
 def test_validator_recomputes_capture_envelope_and_checks_all_five_surfaces() -> None:
@@ -936,6 +1036,9 @@ def test_validator_accepts_pr462_authoritative_prepared_ma_rounding() -> None:
         source_detail=source,
         daily_by_stock=rounded,
         source_manifest=source_manifest,
+        training_source_projection_detail=pd.DataFrame(
+            [{"synthetic_training_projection": "v1"}]
+        ),
     ) == []
 
 

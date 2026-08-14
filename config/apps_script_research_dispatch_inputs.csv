@@ -1,5 +1,6 @@
 workflow_path,workflow_input,dispatch_value,activation_mode,owner,producer,notes
 .github/workflows/research_backtest_pipeline.yml,run_revenue_unreacted_range_forward_holdout_only,true,workflow_only,revenue_unreacted_range,scripts/build_revenue_unreacted_range_research.py,workflow-only forward holdout input; forbidden from Apps Script dispatch
+.github/workflows/research_backtest_pipeline.yml,run_revenue_unreacted_range_source_snapshot_projection_rebaseline_only,true,workflow_only,revenue_unreacted_range,scripts/build_revenue_unreacted_range_research.py,workflow-only one-time v2 projection rebaseline input; forbidden from Apps Script dispatch and all production PDF packet paths
 .github/workflows/research_backtest_pipeline.yml,run_market_timing,true,required,research_backtest,,scheduled full research input
 .github/workflows/research_backtest_pipeline.yml,run_weekly_surge,true,required,research_backtest,,scheduled full research input
 .github/workflows/research_backtest_pipeline.yml,run_explosive_volume,true,required,research_backtest,,scheduled full research input

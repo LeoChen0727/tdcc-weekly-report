@@ -3,9 +3,11 @@ from __future__ import annotations
 import argparse
 from decimal import Decimal, InvalidOperation
 import hashlib
+import io
 import json
 from pathlib import Path
 import re
+import subprocess
 
 import numpy as np
 import pandas as pd
@@ -15,6 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 MODEL_ID = "revenue_unreacted_range"
 ARTIFACT_ID = "revenue_unreacted_range_source_snapshot_projection"
 ARTIFACT_VERSION = "source_snapshot_projection_v1_20260731"
+REBASELINE_ARTIFACT_VERSION = "source_snapshot_projection_v2_20260814"
 PROJECTION_ID = "revenue_unreacted_range_source_snapshot_asof_20260713"
 PROJECTION_VERSION = ARTIFACT_VERSION
 PROJECTION_POLICY_ID = (
@@ -22,6 +25,32 @@ PROJECTION_POLICY_ID = (
 )
 CUTOFF_DATE = "20260713"
 SOURCE_FIRST_ARTIFACT_ID = "revenue_unreacted_range_source_first_condition_audit"
+SUPPORTED_ARTIFACT_VERSIONS = (
+    ARTIFACT_VERSION,
+    REBASELINE_ARTIFACT_VERSION,
+)
+SOURCE_REPAIR_INPUT_HEAD_SHA = "8176fee986d1659896a681e89f99f0171c481b0a"
+SOURCE_REPAIR_ARTIFACT_COMMIT_SHA = "7a9e981e2436af3dfc733905ec26b53f8cdd9f9e"
+SOURCE_REPAIR_WORKFLOW_RUN_ID = "31799699472"
+SOURCE_REPAIR_REPORT_GIT_BLOB_SHA = "f2d569b122e448f87e956cca771748946a9d7363"
+SOURCE_REPAIR_REPORT_GIT_BLOB_RAW_SHA256 = (
+    "77bf1a1d7ee16beae5e0b0a0eb97212088d7ef7ca883644cdcf39b59fea8d447"
+)
+V1_PREDECESSOR_MANIFEST_GIT_BLOB_SHA = (
+    "163f9874124fd3d1fd27f1d1564ac8ac1892e4a1"
+)
+V1_PREDECESSOR_MANIFEST_GIT_BLOB_RAW_SHA256 = (
+    "d2dde5a1f05bc2f15baf4d77f326a7ea90b481492178fa6d2fd6262bf316c79e"
+)
+V1_PREDECESSOR_DETAIL_GIT_BLOB_SHA = (
+    "849f72c39588c47f1bfd2fe8acd96255087efdcb"
+)
+V1_PREDECESSOR_DETAIL_GIT_BLOB_RAW_SHA256 = (
+    "b9784e4df2d2eba2c511b1c87f4255a6485a1fe1d7ac67490802e396614ee49a"
+)
+V1_PREDECESSOR_DETAIL_SEMANTIC_SHA256 = (
+    "92c68810ac2b5718d714d450fe83bf23f2f3469fec5db0ae2753330950ab2cf5"
+)
 CANONICAL_JSON_VERSION = "revenue_source_snapshot_projection_canonical_json_v1"
 MONTHLY_CANONICAL_JSON_VERSION = "canonical_json_v1"
 NO_RESOLUTION_ID = "none"
@@ -297,6 +326,19 @@ MANIFEST_COLUMNS = (
     "ranking_consumption_allowed",
     "pdf_consumption_allowed",
 )
+V2_PROVENANCE_COLUMNS = (
+    "predecessor_manifest_git_blob_sha",
+    "predecessor_manifest_git_blob_raw_sha256",
+    "predecessor_detail_git_blob_sha",
+    "predecessor_detail_git_blob_raw_sha256",
+    "predecessor_detail_semantic_sha256",
+    "source_repair_input_head_sha",
+    "source_repair_artifact_commit_sha",
+    "source_repair_workflow_run_id",
+    "source_repair_report_git_blob_sha",
+    "source_repair_report_git_blob_raw_sha256",
+)
+V2_MANIFEST_COLUMNS = MANIFEST_COLUMNS + V2_PROVENANCE_COLUMNS
 SHA256_PATTERN = re.compile(r"^[0-9a-f]{64}$")
 
 
@@ -327,6 +369,116 @@ def _file_sha256(path: Path) -> str:
         for chunk in iter(lambda: handle.read(1024 * 1024), b""):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+def _git_blob_payload(
+    blob_sha: str,
+    raw_sha256: str,
+    *,
+    repo_root: Path,
+) -> bytes:
+    try:
+        payload = subprocess.check_output(
+            ["git", "cat-file", "blob", blob_sha],
+            cwd=repo_root,
+            stderr=subprocess.PIPE,
+        )
+    except subprocess.CalledProcessError as exc:
+        message = exc.stderr.decode("utf-8", errors="replace").strip()
+        raise RuntimeError(
+            f"pinned Git blob is unavailable: {blob_sha}: {message}"
+        ) from exc
+    actual = hashlib.sha256(payload).hexdigest()
+    if actual != raw_sha256:
+        raise RuntimeError(
+            f"pinned Git blob raw SHA-256 drift: {blob_sha}: {actual}/{raw_sha256}"
+        )
+    return payload
+
+
+def _v2_external_provenance_errors(*, repo_root: Path) -> list[str]:
+    errors: list[str] = []
+    try:
+        predecessor_manifest = _git_blob_payload(
+            V1_PREDECESSOR_MANIFEST_GIT_BLOB_SHA,
+            V1_PREDECESSOR_MANIFEST_GIT_BLOB_RAW_SHA256,
+            repo_root=repo_root,
+        )
+        predecessor_detail_payload = _git_blob_payload(
+            V1_PREDECESSOR_DETAIL_GIT_BLOB_SHA,
+            V1_PREDECESSOR_DETAIL_GIT_BLOB_RAW_SHA256,
+            repo_root=repo_root,
+        )
+        predecessor_detail = pd.read_csv(
+            io.BytesIO(predecessor_detail_payload),
+            dtype={"stock_id": str},
+            keep_default_na=False,
+            low_memory=False,
+        )
+        if _projected_source_detail_sha256(predecessor_detail) != (
+            V1_PREDECESSOR_DETAIL_SEMANTIC_SHA256
+        ):
+            errors.append("v1 predecessor detail semantic SHA-256 drift")
+        parsed_predecessor_manifest = pd.read_csv(
+            io.BytesIO(predecessor_manifest),
+            dtype=str,
+            keep_default_na=False,
+        )
+        errors.extend(
+            _binding_errors(
+                parsed_predecessor_manifest,
+                predecessor_detail,
+                expected_artifact_version=ARTIFACT_VERSION,
+            )
+        )
+        report_payload = _git_blob_payload(
+            SOURCE_REPAIR_REPORT_GIT_BLOB_SHA,
+            SOURCE_REPAIR_REPORT_GIT_BLOB_RAW_SHA256,
+            repo_root=repo_root,
+        )
+        report = json.loads(report_payload.decode("utf-8"))
+        if str(report.get("source_base_sha", "")).strip() != SOURCE_REPAIR_INPUT_HEAD_SHA:
+            errors.append("source repair report source_base_sha drift")
+        if "20250908" not in {
+            str(value).strip() for value in report.get("selected_dates", [])
+        }:
+            errors.append("source repair report omits repaired date 20250908")
+        bound_blob = subprocess.check_output(
+            [
+                "git",
+                "rev-parse",
+                f"{SOURCE_REPAIR_ARTIFACT_COMMIT_SHA}:"
+                "output/latest/repair_daily_price_range_latest.json",
+            ],
+            cwd=repo_root,
+            stderr=subprocess.PIPE,
+            text=True,
+        ).strip()
+        if bound_blob != SOURCE_REPAIR_REPORT_GIT_BLOB_SHA:
+            errors.append("source repair artifact commit/report blob mismatch")
+        ancestor = subprocess.run(
+            [
+                "git",
+                "merge-base",
+                "--is-ancestor",
+                SOURCE_REPAIR_ARTIFACT_COMMIT_SHA,
+                "HEAD",
+            ],
+            cwd=repo_root,
+            check=False,
+            capture_output=True,
+        )
+        if ancestor.returncode != 0:
+            errors.append("source repair commit is not an ancestor of HEAD")
+    except (
+        OSError,
+        RuntimeError,
+        ValueError,
+        json.JSONDecodeError,
+        subprocess.CalledProcessError,
+    ) as exc:
+        errors.append(str(exc))
+    return errors
 
 
 def _stock_id(value: object) -> str:
@@ -1559,25 +1711,75 @@ def _constant(frame: pd.DataFrame, column: str, *, label: str) -> str:
     return values[0]
 
 
-def _binding_errors(manifest: pd.DataFrame, detail: pd.DataFrame) -> list[str]:
+def _binding_errors(
+    manifest: pd.DataFrame,
+    detail: pd.DataFrame,
+    *,
+    expected_artifact_version: str = ARTIFACT_VERSION,
+) -> list[str]:
     errors: list[str] = []
-    if list(manifest.columns) != list(MANIFEST_COLUMNS):
+    expected_columns = (
+        V2_MANIFEST_COLUMNS
+        if expected_artifact_version == REBASELINE_ARTIFACT_VERSION
+        else MANIFEST_COLUMNS
+    )
+    if list(manifest.columns) != list(expected_columns):
         return ["projection manifest schema mismatch"]
     if len(manifest) != 1:
         return [f"projection manifest must have exactly one row: {len(manifest)}"]
     row = manifest.iloc[0]
+    artifact_version = _payload_value(row["artifact_version"])
+    if expected_artifact_version not in SUPPORTED_ARTIFACT_VERSIONS:
+        errors.append(
+            "expected projection artifact_version is not registered: "
+            f"{expected_artifact_version}"
+        )
+    if artifact_version not in SUPPORTED_ARTIFACT_VERSIONS:
+        errors.append(
+            "projection manifest artifact_version is not registered: "
+            f"{artifact_version}"
+        )
+    if artifact_version != expected_artifact_version:
+        errors.append(
+            "projection manifest artifact_version mismatch: "
+            f"{artifact_version}/{expected_artifact_version}"
+        )
     for column, expected in {
         "model_id": MODEL_ID,
         "artifact_id": ARTIFACT_ID,
-        "artifact_version": ARTIFACT_VERSION,
         "projection_id": PROJECTION_ID,
-        "projection_version": PROJECTION_VERSION,
+        "projection_version": expected_artifact_version,
         "projection_policy_id": PROJECTION_POLICY_ID,
         "cutoff_date": CUTOFF_DATE,
         "full_source_artifact_id": SOURCE_FIRST_ARTIFACT_ID,
     }.items():
         if _payload_value(row[column]) != expected:
             errors.append(f"projection manifest {column} mismatch")
+    if expected_artifact_version == REBASELINE_ARTIFACT_VERSION:
+        for column, expected in {
+            "predecessor_manifest_git_blob_sha": (
+                V1_PREDECESSOR_MANIFEST_GIT_BLOB_SHA
+            ),
+            "predecessor_manifest_git_blob_raw_sha256": (
+                V1_PREDECESSOR_MANIFEST_GIT_BLOB_RAW_SHA256
+            ),
+            "predecessor_detail_git_blob_sha": V1_PREDECESSOR_DETAIL_GIT_BLOB_SHA,
+            "predecessor_detail_git_blob_raw_sha256": (
+                V1_PREDECESSOR_DETAIL_GIT_BLOB_RAW_SHA256
+            ),
+            "predecessor_detail_semantic_sha256": (
+                V1_PREDECESSOR_DETAIL_SEMANTIC_SHA256
+            ),
+            "source_repair_input_head_sha": SOURCE_REPAIR_INPUT_HEAD_SHA,
+            "source_repair_artifact_commit_sha": SOURCE_REPAIR_ARTIFACT_COMMIT_SHA,
+            "source_repair_workflow_run_id": SOURCE_REPAIR_WORKFLOW_RUN_ID,
+            "source_repair_report_git_blob_sha": SOURCE_REPAIR_REPORT_GIT_BLOB_SHA,
+            "source_repair_report_git_blob_raw_sha256": (
+                SOURCE_REPAIR_REPORT_GIT_BLOB_RAW_SHA256
+            ),
+        }.items():
+            if _payload_value(row[column]) != expected:
+                errors.append(f"projection manifest {column} mismatch")
     try:
         if _constant(detail, "artifact_id", label="projected detail") != _payload_value(
             row["full_source_artifact_id"]
@@ -1641,10 +1843,16 @@ def _binding_errors(manifest: pd.DataFrame, detail: pd.DataFrame) -> list[str]:
 def validate_projection_binding_frames(
     manifest: pd.DataFrame,
     projected_detail: pd.DataFrame,
+    *,
+    expected_artifact_version: str = ARTIFACT_VERSION,
 ) -> list[str]:
     """Validate manifest/detail binding without importing the projection producer."""
 
-    return _binding_errors(manifest, projected_detail)
+    return _binding_errors(
+        manifest,
+        projected_detail,
+        expected_artifact_version=expected_artifact_version,
+    )
 
 
 def validate_frames(
@@ -1655,6 +1863,8 @@ def validate_frames(
     price_dir: Path,
     monthly_resolution_path: Path,
     price_resolution_path: Path,
+    expected_artifact_version: str = ARTIFACT_VERSION,
+    repo_root: Path = ROOT,
 ) -> list[str]:
     """Validate the pinned cutoff projection against cutoff-only current inputs.
 
@@ -1664,9 +1874,17 @@ def validate_frames(
     replay below independently verifies every cutoff-scoped input and row.
     """
 
-    errors = _binding_errors(manifest, projected_detail)
+    errors = _binding_errors(
+        manifest,
+        projected_detail,
+        expected_artifact_version=expected_artifact_version,
+    )
     if errors:
         return errors
+    if expected_artifact_version == REBASELINE_ARTIFACT_VERSION:
+        errors.extend(_v2_external_provenance_errors(repo_root=repo_root))
+        if errors:
+            return errors
     try:
         row = manifest.iloc[0]
         raw = pd.read_csv(
@@ -1769,6 +1987,8 @@ def validate(
     price_dir: Path = PRICE_HISTORY_DIR,
     monthly_resolution_path: Path = MONTHLY_RESOLUTION_CSV,
     price_resolution_path: Path = PRICE_RESOLUTION_CSV,
+    expected_artifact_version: str = ARTIFACT_VERSION,
+    repo_root: Path = ROOT,
 ) -> list[str]:
     required_paths = (
         manifest_path,
@@ -1794,6 +2014,8 @@ def validate(
         price_dir=Path(price_dir),
         monthly_resolution_path=Path(monthly_resolution_path),
         price_resolution_path=Path(price_resolution_path),
+        expected_artifact_version=expected_artifact_version,
+        repo_root=repo_root,
     )
 
 
@@ -1807,6 +2029,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--price-dir", type=Path, default=PRICE_HISTORY_DIR)
     parser.add_argument("--monthly-resolution", type=Path, default=MONTHLY_RESOLUTION_CSV)
     parser.add_argument("--price-resolution", type=Path, default=PRICE_RESOLUTION_CSV)
+    parser.add_argument(
+        "--expected-artifact-version",
+        choices=SUPPORTED_ARTIFACT_VERSIONS,
+        default=ARTIFACT_VERSION,
+    )
     return parser.parse_args()
 
 
@@ -1819,6 +2046,7 @@ def main() -> int:
         price_dir=args.price_dir,
         monthly_resolution_path=args.monthly_resolution,
         price_resolution_path=args.price_resolution,
+        expected_artifact_version=args.expected_artifact_version,
     )
     if errors:
         for error in errors:

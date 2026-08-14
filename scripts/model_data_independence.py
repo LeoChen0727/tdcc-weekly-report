@@ -688,6 +688,23 @@ def _revenue_cross_market_resolution_registry_canonical_sha256(
     return hashlib.sha256(encoded).hexdigest()
 
 
+def _data_sharing_write_scope_matches_background(
+    background: dict[str, str],
+    sharing: dict[str, str],
+) -> bool:
+    """Allow a future exact scope only while the family is explicitly blocked."""
+
+    if sharing["producer_write_scope"] == background["artifact_path"]:
+        return True
+    return (
+        background["cleanup_status"] == "blocked_missing_source_or_validator"
+        and not background["artifact_path"]
+        and bool(sharing["producer_write_scope"])
+        and "no_consumer_until" in sharing["consumer_access_mode"]
+        and sharing["formal_evidence_policy"].startswith("research_only_pending")
+    )
+
+
 def _validate_revenue_cross_market_resolution_contract_binding(
     background_by_id: dict[str, dict[str, str]],
     resolution_sha256: str,
@@ -1554,7 +1571,7 @@ def validate_data_sharing(*, base_ref: str | None = None) -> tuple[list[str], li
             )
         if row["registered_producers"] != bg["producer"]:
             errors.append(f"{family}: registered producer does not match background registry")
-        if row["producer_write_scope"] != bg["artifact_path"]:
+        if not _data_sharing_write_scope_matches_background(bg, row):
             errors.append(f"{family}: producer_write_scope does not match artifact_path")
         expected_contract_sha = data_contract_sha256(bg)
         if row["data_contract_sha256"] != expected_contract_sha:

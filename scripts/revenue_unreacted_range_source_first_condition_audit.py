@@ -1239,17 +1239,27 @@ def _markdown(summary: pd.DataFrame, detail: pd.DataFrame) -> str:
     return "\n".join(lines)
 
 
-def write_source_first_condition_audit(summary: pd.DataFrame, detail: pd.DataFrame) -> None:
+def write_source_first_condition_audit(
+    summary: pd.DataFrame,
+    detail: pd.DataFrame,
+    *,
+    latest_csv_path: Path = LATEST_CSV,
+    detail_csv_path: Path = DETAIL_CSV,
+    history_csv_path: Path = HISTORY_CSV,
+    docs_csv_path: Path = DOCS_CSV,
+    latest_markdown_path: Path = LATEST_MD,
+    docs_markdown_path: Path = DOCS_MD,
+) -> None:
     for path, frame in (
-        (LATEST_CSV, summary),
-        (DETAIL_CSV, detail),
-        (HISTORY_CSV, summary),
-        (DOCS_CSV, summary),
+        (latest_csv_path, summary),
+        (detail_csv_path, detail),
+        (history_csv_path, summary),
+        (docs_csv_path, summary),
     ):
         path.parent.mkdir(parents=True, exist_ok=True)
         frame.to_csv(path, index=False, encoding="utf-8-sig", lineterminator="\n")
     markdown = _markdown(summary, detail)
-    for path in (LATEST_MD, DOCS_MD):
+    for path in (latest_markdown_path, docs_markdown_path):
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(markdown, encoding="utf-8", newline="\n")
 

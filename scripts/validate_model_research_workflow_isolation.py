@@ -71,6 +71,9 @@ REVENUE_PROJECTION_CHAIN_STAGE_INPUT = (
 REVENUE_FORWARD_HOLDOUT_STAGE_INPUT = (
     "run_revenue_unreacted_range_forward_holdout_only"
 )
+REVENUE_PROJECTION_REBASELINE_STAGE_INPUT = (
+    "run_revenue_unreacted_range_source_snapshot_projection_rebaseline_only"
+)
 REVENUE_PRODUCER = "scripts/build_revenue_unreacted_range_research.py"
 REVENUE_FULL_BUILD_COMMAND = f"python {REVENUE_PRODUCER}"
 REVENUE_FORWARD_HOLDOUT_BUILD_COMMAND = (
@@ -102,6 +105,28 @@ REVENUE_PROJECTION_CHAIN_VALIDATOR_COMMANDS = {
     "python scripts/validate_revenue_unreacted_range_position_shape_transition_matrix.py",
     "python scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
     "python scripts/validate_revenue_unreacted_range_promotion_preparation.py --require-source-artifacts",
+}
+REVENUE_PROJECTION_REBASELINE_BUILD_COMMAND = (
+    f"{REVENUE_FULL_BUILD_COMMAND} --stage source_snapshot_projection_rebaseline"
+)
+REVENUE_PROJECTION_REBASELINE_VALIDATOR_COMMANDS = {
+    "python scripts/validate_revenue_unreacted_range_source_snapshot_projection.py \\",
+    "python scripts/validate_revenue_unreacted_range_source_snapshot_projection_v1_v2_diff.py \\",
+}
+REVENUE_PROJECTION_REBASELINE_STAGE_COMMANDS = {
+    "git add -- output/latest/research_backtest/revenue_unreacted_range_source_first_condition_audit_latest.csv",
+    "git add -- output/latest/research_backtest/revenue_unreacted_range_source_first_condition_audit_detail_latest.csv",
+    "git add -- output/latest/research_backtest/revenue_unreacted_range_source_first_condition_audit_latest.md",
+    "git add -- output/history/research/revenue_unreacted_range_source_first_condition_audit.csv",
+    "git add -- docs/latest/revenue_unreacted_range_source_first_condition_audit_latest.csv",
+    "git add -- docs/latest/revenue_unreacted_range_source_first_condition_audit_latest.md",
+    "git add -- output/history/research/revenue_unreacted_range_source_snapshot_projection_v1_20260731_manifest.csv",
+    "git add -- output/history/research/revenue_unreacted_range_source_snapshot_projection_v1_20260731_detail.csv",
+    "git add -- output/history/research/revenue_unreacted_range_source_snapshot_projection_v2_20260814_manifest.csv",
+    "git add -- output/history/research/revenue_unreacted_range_source_snapshot_projection_v2_20260814_detail.csv",
+    "git add -- output/history/research/revenue_unreacted_range_source_snapshot_projection_v1_v2_diff_v1_20260814.csv",
+    "git add -- output/latest/research_backtest/revenue_unreacted_range_source_snapshot_projection_v1_v2_diff_latest.csv",
+    "git add -- docs/latest/revenue_unreacted_range_source_snapshot_projection_v1_v2_diff_latest.csv",
 }
 
 PUBLISH_COMMIT = 'git commit -m "Update research backtest outputs"'
@@ -354,6 +379,7 @@ def validate_workflow_text(
     stage_inputs = (
         REVENUE_FORWARD_HOLDOUT_STAGE_INPUT,
         REVENUE_PROJECTION_CHAIN_STAGE_INPUT,
+        REVENUE_PROJECTION_REBASELINE_STAGE_INPUT,
     )
     for stage_input in stage_inputs:
         if defaults.get(stage_input) != "false":
@@ -384,6 +410,15 @@ def validate_workflow_text(
         'if [[ "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" && '
         '"$REVENUE_SOURCE_PROJECTION_CHAIN_ONLY" == "true" ]]; then'
     )
+    rebaseline_requires_primary = (
+        'if [[ "$REVENUE_SOURCE_PROJECTION_REBASELINE_ONLY" == "true" && '
+        '"$REVENUE_RESEARCH_ENABLED" != "true" ]]; then'
+    )
+    rebaseline_exclusive_modes = (
+        'if [[ "$REVENUE_SOURCE_PROJECTION_REBASELINE_ONLY" == "true" && '
+        '( "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" || '
+        '"$REVENUE_SOURCE_PROJECTION_CHAIN_ONLY" == "true" ) ]]; then'
+    )
     if holdout_requires_primary not in text:
         errors.append(
             "revenue forward holdout stage must fail closed unless the primary revenue "
@@ -394,12 +429,23 @@ def validate_workflow_text(
             "revenue forward holdout and source projection chain stage modes must be "
             "mutually exclusive"
         )
+    if rebaseline_requires_primary not in text:
+        errors.append(
+            "revenue projection rebaseline stage must fail closed unless the primary "
+            "revenue workflow input is selected"
+        )
+    if rebaseline_exclusive_modes not in text:
+        errors.append(
+            "revenue projection rebaseline stage must be mutually exclusive with "
+            "forward holdout and projection chain modes"
+        )
 
     revenue_blocks = [
         block
         for block in blocks
         if REVENUE_PROJECTION_CHAIN_BUILD_COMMAND in block
         or REVENUE_FORWARD_HOLDOUT_BUILD_COMMAND in block
+        or REVENUE_PROJECTION_REBASELINE_BUILD_COMMAND in block
     ]
     if len(revenue_blocks) != 1:
         errors.append(
@@ -419,11 +465,20 @@ def validate_workflow_text(
             f'{REVENUE_PROJECTION_CHAIN_STAGE_INPUT}'
             ' }}" == "true" ]]; then'
         )
+        rebaseline_if = (
+            'if [[ "${{ github.event.inputs.'
+            f'{REVENUE_PROJECTION_REBASELINE_STAGE_INPUT}'
+            ' }}" == "true" ]]; then'
+        )
         try:
             holdout_index = revenue_lines.index(holdout_if)
             holdout_fi_index = revenue_lines.index("fi", holdout_index + 1)
+            rebaseline_index = revenue_lines.index(
+                rebaseline_if, holdout_fi_index + 1
+            )
+            rebaseline_fi_index = revenue_lines.index("fi", rebaseline_index + 1)
             projection_index = revenue_lines.index(
-                projection_if, holdout_fi_index + 1
+                projection_if, rebaseline_fi_index + 1
             )
             else_index = revenue_lines.index("else", projection_index + 1)
             fi_index = revenue_lines.index("fi", else_index + 1)
@@ -439,6 +494,13 @@ def validate_workflow_text(
             }
             projection_python = {
                 line for line in revenue_lines[projection_index + 1 : else_index]
+                if line.startswith("python ")
+            }
+            rebaseline_python = {
+                line
+                for line in revenue_lines[
+                    rebaseline_index + 1 : rebaseline_fi_index
+                ]
                 if line.startswith("python ")
             }
             full_python = {
@@ -463,6 +525,16 @@ def validate_workflow_text(
                     "revenue source projection chain stage mode must contain only its "
                     "existing producer stage and cutoff-chain validators: "
                     f"actual={sorted(projection_python)}"
+                )
+            expected_rebaseline_python = {
+                REVENUE_PROJECTION_REBASELINE_BUILD_COMMAND,
+                *REVENUE_PROJECTION_REBASELINE_VALIDATOR_COMMANDS,
+            }
+            if rebaseline_python != expected_rebaseline_python:
+                errors.append(
+                    "revenue source projection rebaseline mode must contain only its "
+                    "transactional producer and independent v2/diff validators: "
+                    f"actual={sorted(rebaseline_python)}"
                 )
             if REVENUE_FULL_BUILD_COMMAND not in full_python:
                 errors.append(
@@ -503,12 +575,18 @@ def validate_workflow_text(
         holdout_stage_if = (
             'if [[ "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" ]]; then'
         )
+        rebaseline_stage_elif = (
+            'elif [[ "$REVENUE_SOURCE_PROJECTION_REBASELINE_ONLY" == "true" ]]; then'
+        )
         try:
             revenue_stage_index = commit_lines.index(revenue_stage_if)
             holdout_stage_index = commit_lines.index(
                 holdout_stage_if, revenue_stage_index + 1
             )
-            stage_else_index = commit_lines.index("else", holdout_stage_index + 1)
+            rebaseline_stage_index = commit_lines.index(
+                rebaseline_stage_elif, holdout_stage_index + 1
+            )
+            stage_else_index = commit_lines.index("else", rebaseline_stage_index + 1)
             stage_fi_index = commit_lines.index("fi", stage_else_index + 1)
         except ValueError:
             errors.append(
@@ -518,7 +596,16 @@ def validate_workflow_text(
         else:
             holdout_stage_commands = {
                 line
-                for line in commit_lines[holdout_stage_index + 1 : stage_else_index]
+                for line in commit_lines[
+                    holdout_stage_index + 1 : rebaseline_stage_index
+                ]
+                if line.startswith("git add ")
+            }
+            rebaseline_stage_commands = {
+                line
+                for line in commit_lines[
+                    rebaseline_stage_index + 1 : stage_else_index
+                ]
                 if line.startswith("git add ")
             }
             full_stage_commands = {
@@ -537,6 +624,15 @@ def validate_workflow_text(
                     "revenue full research commit stage must retain its existing "
                     "latest/history/docs artifact prefixes: "
                     f"actual={sorted(full_stage_commands)}"
+                )
+            if (
+                rebaseline_stage_commands
+                != REVENUE_PROJECTION_REBASELINE_STAGE_COMMANDS
+            ):
+                errors.append(
+                    "revenue projection rebaseline commit stage must contain exactly "
+                    "its thirteen transaction artifacts: "
+                    f"actual={sorted(rebaseline_stage_commands)}"
                 )
 
     volume_source = "python scripts/build_volume_breakout_confirmed_operation_backtest.py"

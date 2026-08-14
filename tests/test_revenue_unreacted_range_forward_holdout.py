@@ -48,6 +48,17 @@ EXPECTED_VARIANTS = {
 }
 
 
+@pytest.fixture(autouse=True)
+def _accept_synthetic_training_projection_pair(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(
+        holdout_validator,
+        "validate_projection_binding_frames",
+        lambda *_args, **_kwargs: [],
+    )
+
+
 def _flag(value: object) -> bool:
     return str(value).strip().lower() in {"1", "true", "yes"}
 
@@ -582,6 +593,9 @@ def test_expired_watch_trigger_does_not_block_later_qualifying_update() -> None:
         source_detail=pd.DataFrame([source_row]),
         daily_by_stock={"7780": price},
         source_manifest=_source_manifest(),
+        training_source_projection_detail=pd.DataFrame(
+            [{"synthetic_training_projection": "v1"}]
+        ),
     ) == []
 
 
@@ -620,6 +634,9 @@ def test_in_horizon_nonmember_trigger_still_consumes_full_universe_lifecycle() -
         source_detail=source,
         daily_by_stock={"7781": price},
         source_manifest=_source_manifest(),
+        training_source_projection_detail=pd.DataFrame(
+            [{"synthetic_training_projection": "v1"}]
+        ),
     ) == []
 
     # Without that earlier source-valid operation, the later qualifier/trigger
@@ -1790,6 +1807,9 @@ def test_current_wrapper_caps_source_materialization_at_observed_price_date(
         return {"1111": prepared_frame.copy()}
 
     source_manifest = pd.DataFrame([{"sentinel": "source-manifest"}])
+    training_projection_detail = pd.DataFrame(
+        [{"sentinel": "training-projection-detail"}]
+    )
     sentinel_outputs = tuple(pd.DataFrame([{"sentinel": index}]) for index in range(5))
 
     def fake_build(source_detail, daily_by_stock, *, source_manifest, generated_at=None):
@@ -1812,7 +1832,31 @@ def test_current_wrapper_caps_source_materialization_at_observed_price_date(
     monkeypatch.setattr(
         holdout_module,
         "load_source_snapshot_projection_manifest",
-        lambda: source_manifest.copy(),
+        lambda path: (
+            observed.setdefault("training_manifest_path", Path(path))
+            and source_manifest.copy()
+        ),
+    )
+    monkeypatch.setattr(
+        holdout_module,
+        "load_projected_source_detail",
+        lambda path: (
+            observed.setdefault("training_detail_path", Path(path))
+            and training_projection_detail.copy()
+        ),
+    )
+    monkeypatch.setattr(
+        holdout_module,
+        "validate_projection_binding",
+        lambda manifest, detail, **kwargs: observed.update(
+            {
+                "training_pair_manifest": manifest.iloc[0]["sentinel"],
+                "training_pair_detail": detail.iloc[0]["sentinel"],
+                "training_pair_expected_version": kwargs[
+                    "expected_artifact_version"
+                ],
+            }
+        ),
     )
     monkeypatch.setattr(holdout_module, "build_forward_holdout", fake_build)
 
@@ -1824,6 +1868,17 @@ def test_current_wrapper_caps_source_materialization_at_observed_price_date(
     assert observed["build_source_dates"] == ["20260810"]
     assert observed["daily_keys"] == ["1111"]
     assert observed["source_manifest"] == "source-manifest"
+    assert observed["training_manifest_path"] == (
+        holdout_module.TRAINING_SOURCE_PROJECTION_MANIFEST_CSV
+    )
+    assert observed["training_detail_path"] == (
+        holdout_module.TRAINING_SOURCE_PROJECTION_DETAIL_CSV
+    )
+    assert observed["training_pair_manifest"] == "source-manifest"
+    assert observed["training_pair_detail"] == "training-projection-detail"
+    assert observed["training_pair_expected_version"] == (
+        holdout_module.SOURCE_PROJECTION_ARTIFACT_VERSION
+    )
 
 
 def _install_stage_validation_harness(
@@ -1836,6 +1891,7 @@ def _install_stage_validation_harness(
     persisted_source = source_detail.copy()
     daily_by_stock = {"1111": pd.DataFrame([{"date": "20260810"}])}
     source_manifest = pd.DataFrame([{"manifest": "pinned"}])
+    training_projection_detail = pd.DataFrame([{"projection": "v1-pinned"}])
     frames = tuple(
         pd.DataFrame([{"surface": name}])
         for name in ("manifest", "detail", "summary", "comparison", "anomaly")
@@ -1864,7 +1920,12 @@ def _install_stage_validation_harness(
     monkeypatch.setattr(
         holdout_module,
         "_materialize_current_forward_holdout_inputs",
-        lambda: (source_detail, daily_by_stock, source_manifest),
+        lambda: (
+            source_detail,
+            daily_by_stock,
+            source_manifest,
+            training_projection_detail,
+        ),
     )
     def fake_build(source, daily, *, source_manifest):
         observed["events"].append("build")
@@ -1922,6 +1983,7 @@ def _install_stage_validation_harness(
         source_detail,
         daily_by_stock,
         source_manifest,
+        training_source_projection_detail,
         history_frames=None,
         immutable_history_base_frames=None,
     ):
@@ -1937,6 +1999,7 @@ def _install_stage_validation_harness(
             assert source_detail is not observed["in_memory_source"]
         assert daily_by_stock is daily_fixture
         assert source_manifest is source_manifest_fixture
+        assert training_source_projection_detail is training_projection_detail
         if int(observed["validate_calls"]) > 1:
             assert history_frames is not None
             assert set(history_frames) == set(name_to_frame)
