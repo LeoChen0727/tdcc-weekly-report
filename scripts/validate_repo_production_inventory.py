@@ -2608,7 +2608,20 @@ def pr_safe_migration_contract_for_paths(
     authority_profiles = pr_safe_daily_authority_containment_target_profiles(
         changed_paths
     )
-    authority_target = authority_profiles[0] if authority_profiles else None
+    # The PR #539 runtime-integration profiles are ordered newest-first and all
+    # bind the same PR/path set.  V4 supersedes its older target bytes; other
+    # authority profile families retain their existing migration semantics.
+    if (
+        authority_profiles
+        and authority_profiles[0][0]
+        == PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V4_TARGET_ID
+    ):
+        authority_profiles = authority_profiles[:1]
+    if target_id is not None:
+        authority_profiles = tuple(
+            profile for profile in authority_profiles if profile[0] == target_id
+        )
+    authority_target = authority_profiles[0] if len(authority_profiles) == 1 else None
     if authority_profiles and all(observed_hashes):
         exact_profiles = [
             profile
@@ -3291,103 +3304,138 @@ def daily_runtime_integration_regressions_identity_contract(
     return None
 
 
+def preauthorized_daily_authority_containment_target_profile(
+    base_ref: str,
+    changed_paths: set[str],
+    *,
+    repository_root: Path = ROOT,
+    head_ref: str = "HEAD",
+    target_id: str | None = None,
+) -> tuple[
+    str,
+    str,
+    str,
+    str,
+    dict[str, str | None],
+    dict[str, str],
+    frozenset[str],
+] | None:
+    profiles = pr_safe_daily_authority_containment_target_profiles(changed_paths)
+    if not profiles:
+        return None
+    # Only PR #539's newest runtime-integration profile is active.  Explicitly
+    # requesting one of its superseded target IDs must not reactivate old bytes.
+    if (
+        profiles[0][0]
+        == PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V4_TARGET_ID
+    ):
+        profiles = profiles[:1]
+    if target_id is not None:
+        profiles = tuple(profile for profile in profiles if profile[0] == target_id)
+    if len(profiles) != 1:
+        return None
+    profile = profiles[0]
+    if not re.fullmatch(r"[0-9a-f]{40}", str(base_ref)):
+        return None
+
+    root = Path(repository_root).resolve()
+    if not _pr_safe_repo_ref_is_ancestor(root, base_ref, head_ref):
+        return None
+    (
+        profile_target_id,
+        base_content_ref_sha,
+        _helper_path,
+        _test_path,
+        base_sha256_by_path,
+        target_sha256_by_path,
+        target_paths,
+    ) = profile
+    if set(base_sha256_by_path) != target_paths:
+        return None
+    if not _pr_safe_repo_ref_is_ancestor(root, base_content_ref_sha, base_ref):
+        return None
+    exact_profile = True
+    for path in sorted(target_paths):
+        base_blob = _pr_safe_repo_blob(root, base_ref, path)
+        target_blob = _pr_safe_repo_blob(root, head_ref, path)
+        expected_base_sha = base_sha256_by_path[path]
+        expected_target_sha = target_sha256_by_path[path]
+        if expected_base_sha is None:
+            if (
+                base_blob is not None
+                or _pr_safe_repo_blob_mode(root, base_ref, path) is not None
+            ):
+                exact_profile = False
+                break
+        elif (
+            base_blob is None
+            or canonical_blob_sha256(base_blob) != expected_base_sha
+            or _pr_safe_repo_blob_mode(root, base_ref, path) != "100644"
+        ):
+            exact_profile = False
+            break
+        if (
+            target_blob is None
+            or canonical_blob_sha256(target_blob) != expected_target_sha
+            or _pr_safe_repo_blob_mode(root, head_ref, path) != "100644"
+        ):
+            exact_profile = False
+            break
+    identity_contract = daily_runtime_integration_regressions_identity_contract(
+        profile_target_id
+    )
+    if exact_profile and identity_contract is not None:
+        base_raw_hashes, target_raw_hashes, modes, object_types = identity_contract
+        if set(modes) != target_paths:
+            exact_profile = False
+        elif set(object_types) != target_paths:
+            exact_profile = False
+        elif any(
+            modes[path] != "100644" or object_types[path] != "blob"
+            for path in target_paths
+        ):
+            exact_profile = False
+        elif base_raw_hashes is not None and (
+            set(base_raw_hashes) != target_paths
+            or set(target_raw_hashes or {}) != target_paths
+            or any(
+                hashlib.sha256(
+                    _pr_safe_repo_blob(root, base_ref, path) or b""
+                ).hexdigest()
+                != base_raw_hashes[path]
+                or hashlib.sha256(
+                    _pr_safe_repo_blob(root, head_ref, path) or b""
+                ).hexdigest()
+                != (target_raw_hashes or {})[path]
+                for path in target_paths
+            )
+        ):
+            exact_profile = False
+        elif not _pr_safe_repo_exact_modified_paths(
+            root,
+            base_ref,
+            head_ref,
+            target_paths,
+        ):
+            exact_profile = False
+    return profile if exact_profile else None
+
+
 def is_preauthorized_daily_authority_containment_target(
     base_ref: str,
     changed_paths: set[str],
     *,
     repository_root: Path = ROOT,
     head_ref: str = "HEAD",
+    target_id: str | None = None,
 ) -> bool:
-    profiles = pr_safe_daily_authority_containment_target_profiles(changed_paths)
-    if not profiles:
-        return False
-    if not re.fullmatch(r"[0-9a-f]{40}", str(base_ref)):
-        return False
-
-    root = Path(repository_root).resolve()
-    if not _pr_safe_repo_ref_is_ancestor(root, base_ref, head_ref):
-        return False
-    for profile in profiles:
-        (
-            _target_id,
-            base_content_ref_sha,
-            _helper_path,
-            _test_path,
-            base_sha256_by_path,
-            target_sha256_by_path,
-            target_paths,
-        ) = profile
-        if set(base_sha256_by_path) != target_paths:
-            continue
-        if not _pr_safe_repo_ref_is_ancestor(root, base_content_ref_sha, base_ref):
-            continue
-        exact_profile = True
-        for path in sorted(target_paths):
-            base_blob = _pr_safe_repo_blob(root, base_ref, path)
-            target_blob = _pr_safe_repo_blob(root, head_ref, path)
-            expected_base_sha = base_sha256_by_path[path]
-            expected_target_sha = target_sha256_by_path[path]
-            if expected_base_sha is None:
-                if (
-                    base_blob is not None
-                    or _pr_safe_repo_blob_mode(root, base_ref, path) is not None
-                ):
-                    exact_profile = False
-                    break
-            elif (
-                base_blob is None
-                or canonical_blob_sha256(base_blob) != expected_base_sha
-                or _pr_safe_repo_blob_mode(root, base_ref, path) != "100644"
-            ):
-                exact_profile = False
-                break
-            if (
-                target_blob is None
-                or canonical_blob_sha256(target_blob) != expected_target_sha
-                or _pr_safe_repo_blob_mode(root, head_ref, path) != "100644"
-            ):
-                exact_profile = False
-                break
-        identity_contract = daily_runtime_integration_regressions_identity_contract(
-            _target_id
-        )
-        if exact_profile and identity_contract is not None:
-            base_raw_hashes, target_raw_hashes, modes, object_types = identity_contract
-            if set(modes) != target_paths:
-                exact_profile = False
-            elif set(object_types) != target_paths:
-                exact_profile = False
-            elif any(
-                modes[path] != "100644" or object_types[path] != "blob"
-                for path in target_paths
-            ):
-                exact_profile = False
-            elif base_raw_hashes is not None and (
-                set(base_raw_hashes) != target_paths
-                or set(target_raw_hashes or {}) != target_paths
-                or any(
-                    hashlib.sha256(
-                        _pr_safe_repo_blob(root, base_ref, path) or b""
-                    ).hexdigest()
-                    != base_raw_hashes[path]
-                    or hashlib.sha256(
-                        _pr_safe_repo_blob(root, head_ref, path) or b""
-                    ).hexdigest()
-                    != (target_raw_hashes or {})[path]
-                    for path in target_paths
-                )
-            ):
-                exact_profile = False
-            elif not _pr_safe_repo_exact_modified_paths(
-                root,
-                base_ref,
-                head_ref,
-                target_paths,
-            ):
-                exact_profile = False
-        if exact_profile:
-            return True
-    return False
+    return preauthorized_daily_authority_containment_target_profile(
+        base_ref,
+        changed_paths,
+        repository_root=repository_root,
+        head_ref=head_ref,
+        target_id=target_id,
+    ) is not None
 
 
 def validate_daily_runtime_integration_regressions_audit_metadata(
@@ -3977,19 +4025,22 @@ def validate_pr_safe_control_plane_migration(
                 head_ref=head_sha,
             )
         )
-        contract = pr_safe_migration_contract_for_paths(
-            changed_paths,
-            target_id=(
-                revenue_forward_holdout_target_profile[0]
-                if revenue_forward_holdout_target_profile is not None
-                else None
-            ),
-        )
         daily_authority_containment_target_profile = (
             pr_safe_daily_authority_containment_target_profile(changed_paths)
         )
         is_daily_authority_containment_target = (
             daily_authority_containment_target_profile is not None
+        )
+        selected_target_id = (
+            revenue_forward_holdout_target_profile[0]
+            if revenue_forward_holdout_target_profile is not None
+            else daily_authority_containment_target_profile[0]
+            if daily_authority_containment_target_profile is not None
+            else None
+        )
+        contract = pr_safe_migration_contract_for_paths(
+            changed_paths,
+            target_id=selected_target_id,
         )
         if (
             contract is None
@@ -4099,6 +4150,8 @@ def validate_pr_safe_control_plane_migration(
                 target_id=(
                     revenue_forward_holdout_target_profile[0]
                     if revenue_forward_holdout_target_profile is not None
+                    else daily_authority_containment_target_profile[0]
+                    if daily_authority_containment_target_profile is not None
                     else None
                 ),
             )
@@ -4118,6 +4171,7 @@ def validate_pr_safe_control_plane_migration(
                 changed_paths,
                 repository_root=ROOT,
                 head_ref=head_sha,
+                target_id=daily_authority_containment_target_profile[0],
             )
         ):
             errors.append(
@@ -4276,19 +4330,22 @@ def build_pr_safe_audit_manifest(
                 head_ref=head_sha,
             )
         )
-        migration_contract = pr_safe_migration_contract_for_paths(
-            changed_paths,
-            target_id=(
-                revenue_forward_holdout_target_profile[0]
-                if revenue_forward_holdout_target_profile is not None
-                else None
-            ),
-        )
         daily_authority_containment_target_profile = (
             pr_safe_daily_authority_containment_target_profile(changed_paths)
         )
         is_daily_authority_containment_target = (
             daily_authority_containment_target_profile is not None
+        )
+        selected_target_id = (
+            revenue_forward_holdout_target_profile[0]
+            if revenue_forward_holdout_target_profile is not None
+            else daily_authority_containment_target_profile[0]
+            if daily_authority_containment_target_profile is not None
+            else None
+        )
+        migration_contract = pr_safe_migration_contract_for_paths(
+            changed_paths,
+            target_id=selected_target_id,
         )
         errors.extend(
             validate_daily_runtime_integration_regressions_audit_metadata(
@@ -4375,6 +4432,7 @@ def build_pr_safe_audit_manifest(
                 changed_paths,
                 repository_root=ROOT,
                 head_ref=head_sha,
+                target_id=daily_authority_containment_target_profile[0],
             )
         )
         if not daily_authority_containment_target_verified:
