@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 from pathlib import Path
 import re
 
@@ -10,6 +11,14 @@ HISTORICAL_REPLAY_WORKFLOW = (
     ROOT / ".github" / "workflows" / "historical_structured_source_replay.yml"
 )
 DAILY_FULL_WORKFLOW = ROOT / ".github" / "workflows" / "daily_full_pipeline.yml"
+RECENT_REPAIR_WORKFLOW_CANONICAL_SHA256 = (
+    "51b9863503985d3d18ff064d2a29705a13e7f97baa6fd5de4d91951d20c53841"
+)
+
+
+def _canonical_text_sha256(text: str) -> str:
+    canonical = text.replace("\r\n", "\n").replace("\r", "\n")
+    return hashlib.sha256(canonical.encode("utf-8")).hexdigest()
 
 
 def _job_block(text: str, job_name: str) -> str:
@@ -20,12 +29,107 @@ def _job_block(text: str, job_name: str) -> str:
     return match.group(0) if match else ""
 
 
-def _step_block(job_block: str, step_name: str) -> str:
+def _step_blocks(job_block: str, step_name: str) -> list[str]:
     pattern = re.compile(
-        rf"(?ms)^      - name: {re.escape(step_name)}\s*\n(.*?)(?=^      - name: |\Z)"
+        rf"(?ms)^      - name: {re.escape(step_name)}\s*\n(.*?)(?=^      - |\Z)"
     )
-    match = pattern.search(job_block)
-    return match.group(0) if match else ""
+    return [match.group(0) for match in pattern.finditer(job_block)]
+
+
+def _step_block(job_block: str, step_name: str) -> str:
+    blocks = _step_blocks(job_block, step_name)
+    return blocks[0] if len(blocks) == 1 else ""
+
+
+def _step_item_blocks(job_block: str) -> list[str]:
+    return [
+        match.group(0)
+        for match in re.finditer(r"(?ms)^      - .*?(?=^      - |\Z)", job_block)
+    ]
+
+
+def _step_names(job_block: str) -> list[str]:
+    names: list[str] = []
+    for block in _step_item_blocks(job_block):
+        match = re.match(r"^      - name: (.+?)\s*$", block.splitlines()[0])
+        names.append(match.group(1) if match else "")
+    return names
+
+
+def _step_run_executable_lines(job_block: str, step_name: str) -> list[str]:
+    block = _step_block(job_block, step_name)
+    lines = block.splitlines()
+    try:
+        run_index = next(
+            index
+            for index, line in enumerate(lines)
+            if re.fullmatch(r"        run:\s*\|\s*", line)
+        )
+    except StopIteration:
+        return []
+    executable: list[str] = []
+    heredoc_delimiter = ""
+    for raw_line in lines[run_index + 1 :]:
+        if raw_line.strip() and not raw_line.startswith("          "):
+            break
+        line = raw_line[10:].strip() if raw_line.startswith("          ") else ""
+        if heredoc_delimiter:
+            if line == heredoc_delimiter:
+                heredoc_delimiter = ""
+            continue
+        if not line or line.startswith("#"):
+            continue
+        executable.append(line)
+        heredoc = re.search(
+            r"<<-?\s*(?:'([^']+)'|\"([^\"]+)\"|([A-Za-z_][A-Za-z0-9_]*))",
+            line,
+        )
+        if heredoc:
+            heredoc_delimiter = next(
+                value for value in heredoc.groups() if value is not None
+            )
+    return executable
+
+
+def _has_unique_exact_command(
+    lines: list[str],
+    expected_lines: tuple[str, ...],
+    *,
+    command_marker: str,
+) -> bool:
+    matching_blocks = sum(
+        tuple(lines[index : index + len(expected_lines)]) == expected_lines
+        for index in range(len(lines) - len(expected_lines) + 1)
+    )
+    marker_lines = [line for line in lines if command_marker in line]
+    return matching_blocks == 1 and marker_lines == [expected_lines[0]]
+
+
+def _step_has_exact_contract(
+    job_block: str,
+    step_name: str,
+    *,
+    metadata_lines: tuple[str, ...],
+    executable_lines: tuple[str, ...],
+) -> bool:
+    block = _step_block(job_block, step_name)
+    if not block:
+        return False
+    lines = block.splitlines()
+    try:
+        run_index = lines.index("        run: |")
+    except ValueError:
+        return False
+    observed_metadata = tuple(line for line in lines[1:run_index] if line.strip())
+    run_tail_is_shell_only = all(
+        not line.strip() or line.startswith("          ")
+        for line in lines[run_index + 1 :]
+    )
+    return (
+        observed_metadata == metadata_lines
+        and run_tail_is_shell_only
+        and _step_run_executable_lines(job_block, step_name) == list(executable_lines)
+    )
 
 
 def _job_mapping(block: str, section: str) -> dict[str, str]:
@@ -48,6 +152,13 @@ def _job_mapping(block: str, section: str) -> dict[str, str]:
 
 def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[str]:
     errors: list[str] = []
+    observed_recent_sha = _canonical_text_sha256(recent_text)
+    if observed_recent_sha != RECENT_REPAIR_WORKFLOW_CANONICAL_SHA256:
+        errors.append(
+            "recent repair workflow canonical SHA-256 mismatch: "
+            f"expected={RECENT_REPAIR_WORKFLOW_CANONICAL_SHA256} "
+            f"observed={observed_recent_sha}"
+        )
     workflow_call_marker = "\n  workflow_call:\n"
     workflow_dispatch_marker = "\n  workflow_dispatch:\n"
     if workflow_call_marker not in replay_text:
@@ -129,6 +240,21 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         "python scripts/validate_recent_daily_price_repair_staged_paths.py": (
             "raw repair must validate an exact data-only staged index before commit"
         ),
+        '--target-date "$REPAIR_TARGET_DATE"': (
+            "staged repair validation must bind the exact target date"
+        ),
+        '--source-base-sha "$REPAIR_BASE_SHA"': (
+            "staged repair validation must bind the exact source base SHA"
+        ),
+        '--manifest-path "${{ steps.source_bundle.outputs.manifest_path }}"': (
+            "staged repair validation must bind the exact bundle manifest path"
+        ),
+        '--manifest-sha256 "${{ steps.source_bundle.outputs.manifest_sha256 }}"': (
+            "staged repair validation must bind the exact bundle manifest SHA"
+        ),
+        '--source-bundle-sha "${{ steps.source_bundle.outputs.source_bundle_sha }}"': (
+            "staged repair validation must bind the canonical bundle identity"
+        ),
         "python scripts/plan_historical_structured_source_replay.py": (
             "recent repair must use the canonical bounded planner"
         ),
@@ -185,6 +311,12 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         ),
         "python -B scripts/daily_source_recovery_bundle.py build": (
             "recent repair must use the canonical source bundle builder"
+        ),
+        "git add output/latest/official_price_fetch_latest.json": (
+            "recent repair must stage the date-bound official fetch status"
+        ),
+        "git add output/latest/official_price_fetch_latest.md": (
+            "recent repair must stage the date-bound human-readable fetch status"
         ),
         'git add output/history/daily_source_bundles/"$REPAIR_TARGET_DATE"/': (
             "recent repair must stage the immutable source bundle in the same source commit"
@@ -323,6 +455,22 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         errors.append(
             "recent repair must hold the shared Daily Full concurrency lock for the entire workflow"
         )
+    forbidden_job_keys = {"if", "continue-on-error"}
+    for line in repair_job.splitlines():
+        match = re.match(r"^    (\S[^:\n]*?)\s*:", line)
+        if not match:
+            continue
+        raw_key = match.group(1).strip()
+        if raw_key.startswith(("'", '"', "?")):
+            errors.append(
+                "recent repair job keys must use canonical unquoted YAML spelling"
+            )
+            continue
+        if raw_key in forbidden_job_keys:
+            errors.append(
+                "recent repair job must be unconditional and fail closed; forbidden "
+                f"job key: {raw_key}"
+            )
     expected_secrets = {
         "PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY": (
             "${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}"
@@ -392,6 +540,192 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         encoding="utf-8"
     ):
         errors.append("recent repair market-session preflight must be decision-only with write_files=False")
+    repair_script = (ROOT / "scripts" / "repair_recent_daily_price_gaps.py").read_text(
+        encoding="utf-8"
+    )
+    if "publish_official_price_evidence_transaction" not in repair_script:
+        errors.append(
+            "current-day repair must publish official price CSV/JSON/MD through the canonical transaction"
+        )
+    for literal, message in {
+        "deferred_transaction=True": (
+            "current-day repair must defer official latest commit until confirmation and continuity pass"
+        ),
+        "commit_official_price_evidence_transaction": (
+            "current-day repair must durably commit the deferred official latest transaction"
+        ),
+        "recover_official_price_evidence_transaction": (
+            "current-day repair must roll back failed deferred official latest transactions"
+        ),
+    }.items():
+        if literal not in repair_script:
+            errors.append(f"{message}: missing {literal!r}")
+    exact_continuity = (
+        'python scripts/validate_daily_price_history_continuity.py '
+        '--main-price-date "$REPAIR_TARGET_DATE"'
+    )
+    repair_job = _job_block(recent_text, "repair-recent-daily-price-gaps")
+    exact_env_metadata = (
+        "        env:",
+        "          REPAIR_TARGET_DATE: ${{ steps.repair_result.outputs.target_end_date }}",
+    )
+    expected_target_date_identity = (
+        'if [[ ! "$REPAIR_TARGET_DATE" =~ ^20[0-9]{6}$ ]]; then',
+        'echo "::error::Recent repair target date is invalid or missing: $REPAIR_TARGET_DATE"',
+        "exit 1",
+        "fi",
+    )
+    expected_staged_validation = (
+        "python scripts/validate_recent_daily_price_repair_staged_paths.py \\",
+        '--target-date "$REPAIR_TARGET_DATE" \\',
+        '--source-base-sha "$REPAIR_BASE_SHA" \\',
+        '--manifest-path "${{ steps.source_bundle.outputs.manifest_path }}" \\',
+        '--manifest-sha256 "${{ steps.source_bundle.outputs.manifest_sha256 }}" \\',
+        '--source-bundle-sha "${{ steps.source_bundle.outputs.source_bundle_sha }}"',
+    )
+    expected_stage = (
+        'git config user.name "github-actions"',
+        'git config user.email "github-actions@github.com"',
+        "git add data/daily_price/ || true",
+        "git add data/stock_price_history/",
+        "git add output/latest/recent_daily_price_gap_repair_latest.* || true",
+        "git add output/latest/repair_daily_price_range_latest.* || true",
+        "git add output/latest/repair_daily_price_range_check_code_latest.csv || true",
+        "git add output/latest/stock_price_history_manifest.* || true",
+        "git add output/latest/daily_price_history_continuity_latest.* || true",
+        "git add output/latest/official_daily_price_latest.csv",
+        "git add output/latest/official_price_fetch_latest.json",
+        "git add output/latest/official_price_fetch_latest.md",
+        "git add docs/latest/stock_price_history_manifest.* || true",
+        'git add output/history/daily_source_bundles/"$REPAIR_TARGET_DATE"/"${{ steps.source_bundle.outputs.release_id }}"/',
+        "git status --short",
+        "if git diff --cached --quiet; then",
+        'echo "::error::Immutable source bundle produced no staged commit."',
+        "exit 1",
+        "fi",
+    )
+    expected_persist = (
+        'remote_main_sha="$(git ls-remote origin refs/heads/main | awk \'{print $1}\')"',
+        'if [ -z "$remote_main_sha" ] || [ "$remote_main_sha" != "$REPAIR_BASE_SHA" ]; then',
+        'echo "::error::Remote main drifted during recent price repair; refusing to commit or rebase stale outputs."',
+        "exit 1",
+        "fi",
+        'git commit -m "Persist ${REPAIR_TARGET_DATE} daily source recovery bundle"',
+        "git push origin HEAD:main",
+        'local_sha="$(git rev-parse HEAD)"',
+        'remote_main_sha="$(git ls-remote origin refs/heads/main | awk \'{print $1}\')"',
+        'if [ -z "$remote_main_sha" ] || [ "$local_sha" != "$remote_main_sha" ]; then',
+        'echo "::error::Remote main does not equal the persisted recent price repair commit."',
+        "exit 1",
+        "fi",
+        'echo "source_bundle_commit_sha=$local_sha" >> "$GITHUB_OUTPUT"',
+    )
+    history_stage = "git add data/stock_price_history/"
+    if f"{history_stage} || true" in recent_text:
+        errors.append(
+            "recent repair must not swallow required stock-price history staging failure"
+        )
+    elif not _step_has_exact_contract(
+        repair_job,
+        "Stage exact current-day source recovery bundle",
+        metadata_lines=(),
+        executable_lines=expected_stage,
+    ):
+        errors.append(
+            "recent repair must use the exact unconditional staging step and fail "
+            "closed while staging required stock-price history"
+        )
+    if not _step_has_exact_contract(
+        repair_job,
+        "Validate repaired target-date identity",
+        metadata_lines=exact_env_metadata,
+        executable_lines=expected_target_date_identity,
+    ):
+        errors.append(
+            "recent repair target-date identity must be one unconditional exact step"
+        )
+    if not _step_has_exact_contract(
+        repair_job,
+        "Validate exact repaired target-date continuity",
+        metadata_lines=exact_env_metadata,
+        executable_lines=(exact_continuity,),
+    ):
+        errors.append(
+            "recent repair continuity validation must be one direct command, bind "
+            "the exact REPAIR_TARGET_DATE, and run before commit/push"
+        )
+    staged_validator_is_exact = _step_has_exact_contract(
+        repair_job,
+        "Validate exact staged current-day source recovery bundle",
+        metadata_lines=(),
+        executable_lines=expected_staged_validation,
+    )
+    if not staged_validator_is_exact:
+        errors.append(
+            "recent repair staged-path validator must be one exact direct command"
+        )
+    critical_step_names = (
+        "Summarize recent repair result",
+        "Validate repaired target-date identity",
+        "Validate exact repaired target-date continuity",
+        "Build immutable current-day source recovery bundle",
+        "Upload recent daily price gap repair evidence",
+        "Stage exact current-day source recovery bundle",
+        "Validate exact staged current-day source recovery bundle",
+        "Commit repaired recent daily price gaps",
+    )
+    observed_step_names = _step_names(repair_job)
+    if any(not name for name in observed_step_names):
+        errors.append(
+            "recent repair requires every step to be explicitly named so ordering and "
+            "write boundaries remain auditable"
+        )
+    critical_indices: list[int] = []
+    for name in critical_step_names:
+        if observed_step_names.count(name) != 1:
+            errors.append(
+                f"recent repair critical step must exist exactly once: {name}"
+            )
+        else:
+            critical_indices.append(observed_step_names.index(name))
+    if len(critical_indices) != len(critical_step_names) or critical_indices != list(
+        range(critical_indices[0], critical_indices[0] + len(critical_indices))
+    ):
+        errors.append(
+            "recent repair must keep the exact adjacent continuity, bundle, stage, "
+            "validation, and persistence step sequence"
+        )
+    if not _step_has_exact_contract(
+        repair_job,
+        "Commit repaired recent daily price gaps",
+        metadata_lines=("        id: persist_bundle",),
+        executable_lines=expected_persist,
+    ):
+        errors.append(
+            "recent repair must use one exact fail-closed commit/push step"
+        )
+    normalized_git_scan_text = re.sub(
+        r"\\[ \t]*\r?\n[ \t]*", " ", recent_text
+    )
+    git_write_lines = [
+        line.strip()
+        for line in normalized_git_scan_text.splitlines()
+        if re.search(
+            r"\bgit(?:\s+(?:-[^\s]+\s+\S+))*\s+(?:commit|push)\b",
+            line,
+        )
+    ]
+    expected_git_write_lines = [
+        expected_persist[5],
+        expected_persist[6],
+        'git commit -m "Reserve Daily Full recovery for ${SOURCE_TRADING_DATE}"',
+        "if ! git push origin HEAD:main; then",
+    ]
+    if git_write_lines != expected_git_write_lines:
+        errors.append(
+            "recent repair Git commit/push commands must be globally unique and "
+            "confined to the exact persistence and recovery-reservation steps"
+        )
 
     daily_full_required = {
         "run-name: ${{ inputs.recovery_correlation_id != '' && format('Daily Full Pipeline | recovery={0}', inputs.recovery_correlation_id) || 'Daily Full Pipeline' }}": (
@@ -429,8 +763,8 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         "Materialize immutable recovery source bundle for production": (
             "Daily Full production must independently rematerialize the immutable source bundle"
         ),
-        "market-session preflight recovery bundle identity mismatch": (
-            "Daily Full must carry bundle identity across job artifacts"
+        "materialize_market_session_preflight_artifact": (
+            "Daily Full must carry and validate preflight identity through the canonical helper"
         ),
         "if: env.RECOVERY_SOURCE_BUNDLE_COMMIT_SHA == ''": (
             "mutable price acquisition must be skipped for a verified recovery bundle"
@@ -477,8 +811,8 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         "Materialize immutable recovery source bundle for production": (
             "production job must materialize the immutable bundle before validators and producers"
         ),
-        "market-session preflight recovery bundle identity mismatch": (
-            "production job must verify the downloaded bundle identity"
+        "materialize_market_session_preflight_artifact": (
+            "production job must verify the downloaded preflight identity through the canonical helper"
         ),
     }
     for literal, purpose in production_required.items():

@@ -1,10 +1,13 @@
 from __future__ import annotations
 
 import json
+import os
 import subprocess
+import sys
 from pathlib import Path
 
 import pytest
+import fetch_official_daily_price as official_price
 
 from scripts import daily_source_recovery_bundle as bundle
 from scripts import repair_recent_daily_price_gaps as recent
@@ -22,9 +25,10 @@ def _git(root: Path, *args: str) -> str:
 
 def _price_payload(date_text: str = DATE) -> bytes:
     lines = ["date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source"]
-    for index in range(1000):
+    for index in range(1300):
+        market = "TWSE" if index < 800 else "TPEx"
         lines.append(
-            f"{date_text},{1000 + index},Stock {index},TWSE,10,11,9,10.5,1000,10500,TWSE_TEST_SOURCE"
+            f"{date_text},{1000 + index},Stock {index},{market},10,11,9,10.5,1000,10500,{market}_TEST_SOURCE"
         )
     return ("\n".join(lines) + "\n").encode()
 
@@ -49,10 +53,31 @@ def _repo(tmp_path: Path) -> tuple[Path, str]:
     subprocess.run(["git", "config", "user.name", "Test"], cwd=root, check=True)
     subprocess.run(["git", "config", "user.email", "test@example.com"], cwd=root, check=True)
     payload = _price_payload()
-    for relative in bundle.required_source_paths(DATE):
+    for relative in (
+        f"data/daily_price/{DATE}.csv",
+        f"data/daily_price/daily_price_{DATE}.csv",
+    ):
         path = root / relative
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_bytes(payload if "daily_price" in relative else b"date,reason\n")
+        path.write_bytes(payload)
+    calendar = root / "data/market_calendar/exceptional_non_trading_days.csv"
+    calendar.parent.mkdir(parents=True, exist_ok=True)
+    calendar.write_bytes(b"date,reason\n")
+    official_price.publish_official_price_evidence_transaction(
+        root,
+        price_payload=payload,
+        result={
+            "target_date": DATE,
+            "saved_price_date": DATE,
+            "is_target_date": True,
+            "full_market_ok": True,
+            "result": "success_target_full_market",
+            "twse_rows": 800,
+            "tpex_rows": 500,
+            "total_rows": 1300,
+        },
+        log=["bundle fixture"],
+    )
     subprocess.run(["git", "add", "."], cwd=root, check=True)
     subprocess.run(["git", "commit", "-m", "base"], cwd=root, check=True, capture_output=True)
     return root, _git(root, "rev-parse", "HEAD")
@@ -113,8 +138,8 @@ def test_recent_repair_includes_current_trading_day_and_handles_weekend() -> Non
 def test_bundle_build_git_verify_and_materialize_exact_sources(tmp_path: Path) -> None:
     root, base_sha = _repo(tmp_path)
     official_latest = root / "output/latest/official_daily_price_latest.csv"
-    official_latest.write_bytes(b"stale mutable latest\n")
     result, commit_sha = _build_and_commit(root, base_sha)
+    official_latest.write_bytes(b"stale mutable latest\n")
     canonical = root / f"data/daily_price/daily_price_{DATE}.csv"
     expected = canonical.read_bytes()
     canonical.write_text("wrong current data\n", encoding="utf-8")
@@ -139,21 +164,8 @@ def test_bundle_build_git_verify_and_materialize_exact_sources(tmp_path: Path) -
     assert json.loads((root / "state-copy.json").read_text())["phase"] == "bundle_ready"
 
 
-def test_bundle_market_confirmation_reads_date_locked_official_projection(
-    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
-) -> None:
+def test_bundle_market_confirmation_reads_date_locked_official_projection(tmp_path: Path) -> None:
     root, base_sha = _repo(tmp_path)
-    official_latest = root / "output/latest/official_daily_price_latest.csv"
-    official_latest.write_bytes(b"stale mutable latest\n")
-
-    def fake_refresh(observed_root: Path, *, phase: str, write_files: bool) -> dict[str, object]:
-        assert observed_root == root
-        assert phase == "confirm"
-        assert write_files is False
-        assert official_latest.read_bytes() == _price_payload()
-        return _market()
-
-    monkeypatch.setattr(bundle.market_session_calendar, "refresh_market_session_status", fake_refresh)
     result = bundle.build_bundle(
         root,
         trading_date=DATE,
@@ -161,10 +173,333 @@ def test_bundle_market_confirmation_reads_date_locked_official_projection(
         source_base_sha=base_sha,
         run_id="124",
         run_attempt=1,
+        market_session=_market(),
     )
 
     assert result["manifest"]["market_session"]["payload"]["phase"] == "confirm"
-    assert official_latest.read_bytes() == _price_payload()
+    assert result["manifest"]["official_price_confirmation"]["twse_rows"] == 800
+    assert result["manifest"]["official_price_confirmation"]["tpex_rows"] == 500
+    assert (root / "output/latest/official_daily_price_latest.csv").read_bytes() == _price_payload()
+
+
+@pytest.mark.parametrize("fail_after_replace", [1, 2, 3])
+def test_current_day_fetch_evidence_transaction_rolls_back_all_surfaces(
+    tmp_path: Path,
+    fail_after_replace: int,
+) -> None:
+    root, _ = _repo(tmp_path)
+    paths = [
+        root / "output/latest/official_daily_price_latest.csv",
+        root / "output/latest/official_price_fetch_latest.json",
+        root / "output/latest/official_price_fetch_latest.md",
+    ]
+    before = {path: path.read_bytes() for path in paths}
+    with pytest.raises(OSError, match="injected"):
+        official_price.publish_official_price_evidence_transaction(
+            root,
+            price_payload=_price_payload("20260812"),
+            result={
+                "target_date": "20260812",
+                "saved_price_date": "20260812",
+                "is_target_date": True,
+                "full_market_ok": True,
+                "result": "success_current_day_repair_full_market",
+                "twse_rows": 800,
+                "tpex_rows": 500,
+                "total_rows": 1300,
+            },
+            fail_after_replace=fail_after_replace,
+        )
+    assert {path: path.read_bytes() for path in paths} == before
+
+
+@pytest.mark.parametrize("crash_after_replace", [1, 2, 3])
+def test_current_day_fetch_evidence_recovers_after_abrupt_process_exit(
+    tmp_path: Path,
+    crash_after_replace: int,
+) -> None:
+    root, _ = _repo(tmp_path)
+    paths = [
+        root / "output/latest/official_daily_price_latest.csv",
+        root / "output/latest/official_price_fetch_latest.json",
+        root / "output/latest/official_price_fetch_latest.md",
+    ]
+    before = {path: path.read_bytes() for path in paths}
+    next_payload_path = tmp_path / "next-price.csv"
+    next_payload_path.write_bytes(_price_payload("20260812"))
+    repo_source = Path(__file__).resolve().parents[1]
+    script = "\n".join(
+        [
+            "from pathlib import Path",
+            "import fetch_official_daily_price as publisher",
+            f"root = Path({str(root)!r})",
+            f"payload = Path({str(next_payload_path)!r}).read_bytes()",
+            "publisher.publish_official_price_evidence_transaction(",
+            "    root,",
+            "    price_payload=payload,",
+            "    result={",
+            "        'target_date': '20260812',",
+            "        'saved_price_date': '20260812',",
+            "        'is_target_date': True,",
+            "        'full_market_ok': True,",
+            "        'result': 'success_current_day_repair_full_market',",
+            "        'twse_rows': 800,",
+            "        'tpex_rows': 500,",
+            "        'total_rows': 1300,",
+            "    },",
+            f"    crash_after_replace={crash_after_replace},",
+            ")",
+        ]
+    )
+    env = dict(os.environ)
+    env["PYTHONPATH"] = str(repo_source)
+    crashed = subprocess.run(
+        [sys.executable, "-B", "-c", script],
+        cwd=root,
+        env=env,
+        check=False,
+    )
+    assert crashed.returncode == 91
+    transaction_root = root / official_price.OFFICIAL_PRICE_TRANSACTION_DIR
+    assert (transaction_root / "journal.json").is_file()
+    assert official_price.recover_official_price_evidence_transaction(root)
+    assert {path: path.read_bytes() for path in paths} == before
+    assert not transaction_root.exists()
+
+
+def test_deferred_official_price_transaction_commits_only_after_explicit_commit(
+    tmp_path: Path,
+) -> None:
+    root, _ = _repo(tmp_path)
+    payload = _price_payload("20260812")
+    official_price.publish_official_price_evidence_transaction(
+        root,
+        price_payload=payload,
+        result={
+            "target_date": "20260812",
+            "saved_price_date": "20260812",
+            "is_target_date": True,
+            "full_market_ok": True,
+            "result": "success_current_day_repair_full_market",
+            "twse_rows": 800,
+            "tpex_rows": 500,
+            "total_rows": 1300,
+        },
+        deferred=True,
+    )
+    transaction_root = root / official_price.OFFICIAL_PRICE_TRANSACTION_DIR
+    journal = json.loads((transaction_root / "journal.json").read_text(encoding="utf-8"))
+    assert journal["state"] == "pending"
+    assert (root / official_price.LATEST_PRICE_CSV).read_bytes() == payload
+    official_price.commit_official_price_evidence_transaction(root)
+    assert not transaction_root.exists()
+    assert (root / official_price.LATEST_PRICE_CSV).read_bytes() == payload
+
+
+def test_deferred_official_price_transaction_target_tamper_rolls_back(
+    tmp_path: Path,
+) -> None:
+    root, _ = _repo(tmp_path)
+    paths = [
+        root / official_price.LATEST_PRICE_CSV,
+        root / official_price.LATEST_FETCH_JSON,
+        root / official_price.LATEST_FETCH_MD,
+    ]
+    before = {path: path.read_bytes() for path in paths}
+    official_price.publish_official_price_evidence_transaction(
+        root,
+        price_payload=_price_payload("20260812"),
+        result={
+            "target_date": "20260812",
+            "saved_price_date": "20260812",
+            "is_target_date": True,
+            "full_market_ok": True,
+            "result": "success_current_day_repair_full_market",
+            "twse_rows": 800,
+            "tpex_rows": 500,
+            "total_rows": 1300,
+        },
+        deferred=True,
+    )
+    paths[1].write_bytes(b"tampered-before-commit\n")
+    with pytest.raises(ValueError, match="commit target identity mismatch"):
+        official_price.commit_official_price_evidence_transaction(root)
+    assert {path: path.read_bytes() for path in paths} == before
+    assert not (root / official_price.OFFICIAL_PRICE_TRANSACTION_DIR).exists()
+
+
+def test_deferred_official_price_transaction_restores_original_absence(
+    tmp_path: Path,
+) -> None:
+    root = tmp_path / "empty-repo"
+    root.mkdir()
+    payload = _price_payload("20260812")
+    official_price.publish_official_price_evidence_transaction(
+        root,
+        price_payload=payload,
+        result={
+            "target_date": "20260812",
+            "saved_price_date": "20260812",
+            "is_target_date": True,
+            "full_market_ok": True,
+            "result": "success_current_day_repair_full_market",
+            "twse_rows": 800,
+            "tpex_rows": 500,
+            "total_rows": 1300,
+        },
+        deferred=True,
+    )
+    assert official_price.recover_official_price_evidence_transaction(root)
+    for relative in (
+        official_price.LATEST_PRICE_CSV,
+        official_price.LATEST_FETCH_JSON,
+        official_price.LATEST_FETCH_MD,
+    ):
+        assert not (root / relative).exists()
+
+
+def test_deferred_commit_marker_survives_cleanup_crash_without_rollback(
+    tmp_path: Path,
+) -> None:
+    root, _ = _repo(tmp_path)
+    payload = _price_payload("20260812")
+    official_price.publish_official_price_evidence_transaction(
+        root,
+        price_payload=payload,
+        result={
+            "target_date": "20260812",
+            "saved_price_date": "20260812",
+            "is_target_date": True,
+            "full_market_ok": True,
+            "result": "success_current_day_repair_full_market",
+            "twse_rows": 800,
+            "tpex_rows": 500,
+            "total_rows": 1300,
+        },
+        deferred=True,
+    )
+    repo_source = Path(__file__).resolve().parents[1]
+    script = (
+        "from pathlib import Path\n"
+        "import fetch_official_daily_price as publisher\n"
+        f"publisher.commit_official_price_evidence_transaction(Path({str(root)!r}), "
+        "crash_after_commit_marker=True)\n"
+    )
+    env = dict(os.environ)
+    env["PYTHONPATH"] = str(repo_source)
+    crashed = subprocess.run(
+        [sys.executable, "-B", "-c", script],
+        cwd=root,
+        env=env,
+        check=False,
+    )
+    assert crashed.returncode == 92
+    transaction_root = root / official_price.OFFICIAL_PRICE_TRANSACTION_DIR
+    journal = json.loads((transaction_root / "journal.json").read_text(encoding="utf-8"))
+    assert journal["state"] == "committed"
+    backups = sorted(transaction_root.glob("previous-*.bin"))
+    assert backups
+    backups[0].unlink()
+    assert official_price.recover_official_price_evidence_transaction(root)
+    assert not transaction_root.exists()
+    assert (root / official_price.LATEST_PRICE_CSV).read_bytes() == payload
+
+
+def test_pending_transaction_with_missing_backup_fails_closed(
+    tmp_path: Path,
+) -> None:
+    root, _ = _repo(tmp_path)
+    official_price.publish_official_price_evidence_transaction(
+        root,
+        price_payload=_price_payload("20260812"),
+        result={
+            "target_date": "20260812",
+            "saved_price_date": "20260812",
+            "is_target_date": True,
+            "full_market_ok": True,
+            "result": "success_current_day_repair_full_market",
+            "twse_rows": 800,
+            "tpex_rows": 500,
+            "total_rows": 1300,
+        },
+        deferred=True,
+    )
+    transaction_root = root / official_price.OFFICIAL_PRICE_TRANSACTION_DIR
+    (transaction_root / "previous-0.bin").unlink()
+    with pytest.raises(ValueError, match="backup is missing"):
+        official_price.recover_official_price_evidence_transaction(root)
+    assert transaction_root.exists()
+
+
+def test_transaction_recovery_rejects_reparse_root_without_touching_target(
+    tmp_path: Path,
+) -> None:
+    root, _ = _repo(tmp_path)
+    transaction_root = root / official_price.OFFICIAL_PRICE_TRANSACTION_DIR
+    external = tmp_path / "external-transaction-target"
+    external.mkdir()
+    marker = external / "keep.txt"
+    marker.write_text("keep\n", encoding="utf-8")
+    try:
+        transaction_root.symlink_to(external, target_is_directory=True)
+    except OSError as exc:
+        pytest.skip(f"directory symlink unavailable: {exc}")
+
+    with pytest.raises(ValueError, match="reparse point"):
+        official_price.recover_official_price_evidence_transaction(root)
+    assert marker.read_text(encoding="utf-8") == "keep\n"
+    assert transaction_root.is_symlink()
+
+
+def test_failed_target_fetch_publishes_previous_payload_identity(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    root, _ = _repo(tmp_path)
+    previous_path = root / f"data/daily_price/daily_price_{DATE}.csv"
+    monkeypatch.chdir(root)
+    monkeypatch.setattr(
+        official_price,
+        "detect_target_date",
+        lambda: "20260812",
+    )
+    monkeypatch.setattr(
+        official_price,
+        "fetch_price_for_date",
+        lambda *_args, **_kwargs: (
+            official_price.pd.DataFrame(),
+            {
+                "date": "20260812",
+                "twse_rows": 0,
+                "tpex_rows": 0,
+                "total_rows": 0,
+                "full_market_ok": False,
+            },
+        ),
+    )
+    monkeypatch.setattr(
+        official_price,
+        "publish_previous_valid_latest",
+        lambda *_args, **_kwargs: {
+            "previous_valid_csv": str(previous_path),
+            "latest_csv": official_price.LATEST_PRICE_CSV.as_posix(),
+        },
+    )
+
+    assert official_price.main() == 1
+    published = json.loads(
+        (root / official_price.LATEST_FETCH_JSON).read_text(encoding="utf-8")
+    )
+    assert published["target_date"] == "20260812"
+    assert published["saved_price_date"] == DATE
+    assert published["is_target_date"] is False
+    assert published["full_market_ok"] is False
+    assert published["twse_rows"] == 800
+    assert published["tpex_rows"] == 500
+    assert published["total_rows"] == 1300
+    assert (
+        root / official_price.LATEST_PRICE_CSV
+    ).read_bytes() == previous_path.read_bytes()
 
 
 @pytest.mark.parametrize("failure", ["missing", "wrong_date", "row_drift"])
@@ -196,8 +531,7 @@ def test_bundle_build_failure_rolls_back_without_partial_final_root(tmp_path: Pa
     root, base_sha = _repo(tmp_path)
     final_root = root / bundle.bundle_root_path(DATE, TEST_RELEASE_ID)
     official_latest = root / "output/latest/official_daily_price_latest.csv"
-    previous_official = b"previous official latest\n"
-    official_latest.write_bytes(previous_official)
+    previous_official = official_latest.read_bytes()
 
     with pytest.raises(bundle.DailySourceRecoveryError, match="injected"):
         bundle.build_bundle(
@@ -208,7 +542,7 @@ def test_bundle_build_failure_rolls_back_without_partial_final_root(tmp_path: Pa
             run_id="123",
             run_attempt=1,
             market_session=_market(),
-            fail_after_official_publish=True,
+            fail_after_copy=1,
         )
 
     assert not final_root.exists()
@@ -430,6 +764,21 @@ def test_completed_authority_rejects_same_day_source_revision(
         for relative in bundle.required_source_paths(DATE):
             if "daily_price" in relative:
                 (root / relative).write_bytes(revised_price)
+        official_price.publish_official_price_evidence_transaction(
+            root,
+            price_payload=revised_price,
+            result={
+                "target_date": DATE,
+                "saved_price_date": DATE,
+                "is_target_date": True,
+                "full_market_ok": True,
+                "result": "success_target_full_market",
+                "twse_rows": 800,
+                "tpex_rows": 500,
+                "total_rows": 1300,
+            },
+            log=["source revision"],
+        )
     else:
         (root / "data/market_calendar/exceptional_non_trading_days.csv").write_bytes(
             b"date,reason\n20260811,test revision\n"

@@ -217,6 +217,14 @@ jobs:
           if len(source_sha) != 40 or any(char not in "0123456789abcdef" for char in source_sha):
               raise SystemExit(f"invalid preflight source SHA: {source_sha!r}")
           calendar_path = Path("data/market_calendar/exceptional_non_trading_days.csv")
+          artifact_root = Path(os.environ["RUNNER_TEMP"]) / "daily-market-session-preflight"
+          artifact_root.mkdir(parents=True, exist_ok=False)
+          source_paths = (path, calendar_path)
+          source_payloads = {}
+          for source_path in source_paths:
+              if not source_path.is_file() or source_path.is_symlink():
+                  raise SystemExit(f"unsafe preflight evidence source: {source_path}")
+              source_payloads[source_path] = source_path.read_bytes()
           identity = {
               "schema_version": "daily_market_session_preflight_identity_v1",
               "source_sha": source_sha,
@@ -231,11 +239,15 @@ jobs:
                   "trading_date": os.environ.get("RECOVERY_SOURCE_BUNDLE_TRADING_DATE", ""),
               },
               "files": {
-                  path.as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
-                  for path in (path, calendar_path)
+                  source_path.as_posix(): hashlib.sha256(payload).hexdigest()
+                  for source_path, payload in source_payloads.items()
               },
           }
-          Path("market_session_preflight_identity.json").write_text(
+          for source_path, payload in source_payloads.items():
+              target = artifact_root / source_path
+              target.parent.mkdir(parents=True, exist_ok=True)
+              target.write_bytes(payload)
+          (artifact_root / "market_session_preflight_identity.json").write_text(
               json.dumps(identity, indent=2, sort_keys=True) + "\n",
               encoding="utf-8",
           )
@@ -258,11 +270,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: daily-market-session-preflight
-          path: |
-            output/latest/market_session_status_latest.json
-            data/market_calendar/exceptional_non_trading_days.csv
-            market_session_preflight_identity.json
-          if-no-files-found: warn
+          path: ${{ runner.temp }}/daily-market-session-preflight
+          if-no-files-found: error
           retention-days: 30
 
   record-market-closure:
@@ -321,34 +330,18 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: daily-market-session-preflight
-          path: .
+          path: ${{ runner.temp }}/daily-market-session-preflight
 
       - name: Validate market-session preflight artifact identity
         shell: bash
         run: |
           python - <<'PY'
-          import hashlib
-          import json
           import os
           from pathlib import Path
+          from scripts.market_session_calendar import (
+              materialize_market_session_preflight_artifact,
+          )
 
-          identity = json.loads(Path("market_session_preflight_identity.json").read_text(encoding="utf-8"))
-          expected_sha = os.environ["PREFLIGHT_SOURCE_SHA"]
-          if identity.get("schema_version") != "daily_market_session_preflight_identity_v1":
-              raise SystemExit("invalid market-session preflight identity schema")
-          if identity.get("source_sha") != expected_sha:
-              raise SystemExit("market-session preflight source SHA mismatch")
-          expected_files = {
-              "output/latest/market_session_status_latest.json",
-              "data/market_calendar/exceptional_non_trading_days.csv",
-          }
-          files = identity.get("files")
-          if not isinstance(files, dict) or set(files) != expected_files:
-              raise SystemExit("market-session preflight identity file set mismatch")
-          for relative_path, expected_digest in files.items():
-              observed = hashlib.sha256(Path(relative_path).read_bytes()).hexdigest()
-              if observed != expected_digest:
-                  raise SystemExit(f"market-session preflight artifact SHA mismatch: {relative_path}")
           expected_recovery = {
               "expected_head_sha": os.environ.get("RECOVERY_EXPECTED_HEAD_SHA", ""),
               "reservation_path": os.environ.get("RECOVERY_RESERVATION_PATH", ""),
@@ -359,8 +352,14 @@ jobs:
               "source_bundle_sha": os.environ.get("RECOVERY_SOURCE_BUNDLE_SHA", ""),
               "trading_date": os.environ.get("RECOVERY_SOURCE_BUNDLE_TRADING_DATE", ""),
           }
-          if identity.get("recovery_source_bundle") != expected_recovery:
-              raise SystemExit("market-session preflight recovery bundle identity mismatch")
+          runner_temp = Path(os.environ["RUNNER_TEMP"])
+          materialize_market_session_preflight_artifact(
+              repo_root=Path("."),
+              runner_temp=runner_temp,
+              artifact_root=runner_temp / "daily-market-session-preflight",
+              expected_source_sha=os.environ["PREFLIGHT_SOURCE_SHA"],
+              expected_recovery=expected_recovery,
+          )
           PY
 
       - name: Validate closed market decision
@@ -634,34 +633,18 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: daily-market-session-preflight
-          path: .
+          path: ${{ runner.temp }}/daily-market-session-preflight
 
       - name: Validate market-session preflight artifact identity
         shell: bash
         run: |
           python - <<'PY'
-          import hashlib
-          import json
           import os
           from pathlib import Path
+          from scripts.market_session_calendar import (
+              materialize_market_session_preflight_artifact,
+          )
 
-          identity = json.loads(Path("market_session_preflight_identity.json").read_text(encoding="utf-8"))
-          expected_sha = os.environ["PREFLIGHT_SOURCE_SHA"]
-          if identity.get("schema_version") != "daily_market_session_preflight_identity_v1":
-              raise SystemExit("invalid market-session preflight identity schema")
-          if identity.get("source_sha") != expected_sha:
-              raise SystemExit("market-session preflight source SHA mismatch")
-          expected_files = {
-              "output/latest/market_session_status_latest.json",
-              "data/market_calendar/exceptional_non_trading_days.csv",
-          }
-          files = identity.get("files")
-          if not isinstance(files, dict) or set(files) != expected_files:
-              raise SystemExit("market-session preflight identity file set mismatch")
-          for relative_path, expected_digest in files.items():
-              observed = hashlib.sha256(Path(relative_path).read_bytes()).hexdigest()
-              if observed != expected_digest:
-                  raise SystemExit(f"market-session preflight artifact SHA mismatch: {relative_path}")
           expected_recovery = {
               "expected_head_sha": os.environ.get("RECOVERY_EXPECTED_HEAD_SHA", ""),
               "reservation_path": os.environ.get("RECOVERY_RESERVATION_PATH", ""),
@@ -672,8 +655,14 @@ jobs:
               "source_bundle_sha": os.environ.get("RECOVERY_SOURCE_BUNDLE_SHA", ""),
               "trading_date": os.environ.get("RECOVERY_SOURCE_BUNDLE_TRADING_DATE", ""),
           }
-          if identity.get("recovery_source_bundle") != expected_recovery:
-              raise SystemExit("market-session preflight recovery bundle identity mismatch")
+          runner_temp = Path(os.environ["RUNNER_TEMP"])
+          materialize_market_session_preflight_artifact(
+              repo_root=Path("."),
+              runner_temp=runner_temp,
+              artifact_root=runner_temp / "daily-market-session-preflight",
+              expected_source_sha=os.environ["PREFLIGHT_SOURCE_SHA"],
+              expected_recovery=expected_recovery,
+          )
           PY
 
       - name: Capture pre-run freshness baseline

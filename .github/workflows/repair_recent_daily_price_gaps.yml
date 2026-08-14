@@ -150,7 +150,6 @@ jobs:
             args+=(--check-code "$CHECK_CODE")
           fi
           python scripts/repair_recent_daily_price_gaps.py "${args[@]}"
-          python scripts/validate_daily_price_history_continuity.py
 
       - name: Summarize recent repair result
         id: repair_result
@@ -175,6 +174,21 @@ jobs:
               handle.write(f"target_end_date={values['REPAIR_TARGET_DATE']}\n")
               handle.write(f"action_count={values['REPAIR_ACTION_COUNT']}\n")
           PY
+
+      - name: Validate repaired target-date identity
+        env:
+          REPAIR_TARGET_DATE: ${{ steps.repair_result.outputs.target_end_date }}
+        run: |
+          if [[ ! "$REPAIR_TARGET_DATE" =~ ^20[0-9]{6}$ ]]; then
+            echo "::error::Recent repair target date is invalid or missing: $REPAIR_TARGET_DATE"
+            exit 1
+          fi
+
+      - name: Validate exact repaired target-date continuity
+        env:
+          REPAIR_TARGET_DATE: ${{ steps.repair_result.outputs.target_end_date }}
+        run: |
+          python scripts/validate_daily_price_history_continuity.py --main-price-date "$REPAIR_TARGET_DATE"
 
       - name: Build immutable current-day source recovery bundle
         id: source_bundle
@@ -202,48 +216,63 @@ jobs:
             output/latest/recent_daily_price_gap_repair_latest.md
             output/latest/repair_daily_price_range_latest.*
             output/latest/repair_daily_price_range_check_code_latest.csv
+            output/latest/official_daily_price_latest.csv
+            output/latest/official_price_fetch_latest.json
+            output/latest/official_price_fetch_latest.md
             output/latest/stock_price_history_manifest.*
             output/latest/daily_price_history_continuity_latest.*
             output/history/daily_source_bundles/${{ steps.repair_result.outputs.target_end_date }}/${{ steps.source_bundle.outputs.release_id }}/
           if-no-files-found: ignore
           retention-days: 30
 
-      - name: Commit repaired recent daily price gaps
-        id: persist_bundle
+      - name: Stage exact current-day source recovery bundle
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add data/daily_price/ || true
-          git add data/stock_price_history/ || true
+          git add data/stock_price_history/
           git add output/latest/recent_daily_price_gap_repair_latest.* || true
           git add output/latest/repair_daily_price_range_latest.* || true
           git add output/latest/repair_daily_price_range_check_code_latest.csv || true
           git add output/latest/stock_price_history_manifest.* || true
           git add output/latest/daily_price_history_continuity_latest.* || true
           git add output/latest/official_daily_price_latest.csv
+          git add output/latest/official_price_fetch_latest.json
+          git add output/latest/official_price_fetch_latest.md
           git add docs/latest/stock_price_history_manifest.* || true
           git add output/history/daily_source_bundles/"$REPAIR_TARGET_DATE"/"${{ steps.source_bundle.outputs.release_id }}"/
           git status --short
           if git diff --cached --quiet; then
             echo "::error::Immutable source bundle produced no staged commit."
             exit 1
-          else
-            python scripts/validate_recent_daily_price_repair_staged_paths.py
-            remote_main_sha="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
-            if [ -z "$remote_main_sha" ] || [ "$remote_main_sha" != "$REPAIR_BASE_SHA" ]; then
-              echo "::error::Remote main drifted during recent price repair; refusing to commit or rebase stale outputs."
-              exit 1
-            fi
-            git commit -m "Persist ${REPAIR_TARGET_DATE} daily source recovery bundle"
-            git push origin HEAD:main
-            local_sha="$(git rev-parse HEAD)"
-            remote_main_sha="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
-            if [ -z "$remote_main_sha" ] || [ "$local_sha" != "$remote_main_sha" ]; then
-              echo "::error::Remote main does not equal the persisted recent price repair commit."
-              exit 1
-            fi
-            echo "source_bundle_commit_sha=$local_sha" >> "$GITHUB_OUTPUT"
           fi
+
+      - name: Validate exact staged current-day source recovery bundle
+        run: |
+          python scripts/validate_recent_daily_price_repair_staged_paths.py \
+            --target-date "$REPAIR_TARGET_DATE" \
+            --source-base-sha "$REPAIR_BASE_SHA" \
+            --manifest-path "${{ steps.source_bundle.outputs.manifest_path }}" \
+            --manifest-sha256 "${{ steps.source_bundle.outputs.manifest_sha256 }}" \
+            --source-bundle-sha "${{ steps.source_bundle.outputs.source_bundle_sha }}"
+
+      - name: Commit repaired recent daily price gaps
+        id: persist_bundle
+        run: |
+          remote_main_sha="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+          if [ -z "$remote_main_sha" ] || [ "$remote_main_sha" != "$REPAIR_BASE_SHA" ]; then
+            echo "::error::Remote main drifted during recent price repair; refusing to commit or rebase stale outputs."
+            exit 1
+          fi
+          git commit -m "Persist ${REPAIR_TARGET_DATE} daily source recovery bundle"
+          git push origin HEAD:main
+          local_sha="$(git rev-parse HEAD)"
+          remote_main_sha="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+          if [ -z "$remote_main_sha" ] || [ "$local_sha" != "$remote_main_sha" ]; then
+            echo "::error::Remote main does not equal the persisted recent price repair commit."
+            exit 1
+          fi
+          echo "source_bundle_commit_sha=$local_sha" >> "$GITHUB_OUTPUT"
 
   plan-structured-objective-source-catch-up:
     needs: repair-recent-daily-price-gaps

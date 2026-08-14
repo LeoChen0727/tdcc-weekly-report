@@ -24,6 +24,7 @@ from scripts.daily_full_validation_replay_checkpoint import (
     verify_checkpoint,
 )
 import scripts.run_daily_full_validation_replay as replay_runner
+import scripts.market_session_calendar as market_session
 import scripts.validate_daily_full_validation_replay as replay_validator
 import scripts.validate_repo_file_lifecycle_inventory as lifecycle_validator
 
@@ -1581,6 +1582,163 @@ def _write_csv(
         )
         writer.writeheader()
         writer.writerows(rows)
+
+
+def test_runner_temp_preflight_identity_materializes_only_allowed_evidence_before_checkpoint(
+    tmp_path: Path,
+) -> None:
+    repo = tmp_path / "repo"
+    runner_temp = tmp_path / "runner-temp"
+    artifact_root = runner_temp / "daily-market-session-preflight"
+    repo.mkdir()
+    artifact_root.mkdir(parents=True)
+    _git(repo, "init", "-q", "--initial-branch=main")
+    _git(repo, "config", "user.email", "replay@example.invalid")
+    _git(repo, "config", "user.name", "Replay Test")
+    date_text = "20260812"
+    csv_payload = f"date,stock_id,market\n{date_text},2330,TWSE\n".encode()
+    tracked = {
+        replay_runner.MARKET_SESSION_PATH: json.dumps(
+            {"expected_main_price_date": date_text, "market_status": "unknown"}
+        ).encode(),
+        Path(f"data/daily_price/{date_text}.csv"): csv_payload,
+        Path(f"data/daily_price/daily_price_{date_text}.csv"): csv_payload,
+        replay_runner.ALL_CANDIDATES_PATH: csv_payload,
+        Path("output/latest/warrant_daily_raw_latest.csv"): csv_payload,
+        replay_runner.WARRANT_FLOW_PATH: csv_payload,
+        Path("data/market_calendar/exceptional_non_trading_days.csv"): b"date,reason\n",
+    }
+    for relative, payload in tracked.items():
+        path = repo / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(payload)
+    _git(repo, "add", ".")
+    _git(repo, "commit", "-qm", "baseline")
+    source_sha = subprocess.check_output(
+        ["git", "rev-parse", "HEAD"], cwd=repo, text=True
+    ).strip()
+    market_payload = json.dumps(
+        {
+            "expected_main_price_date": date_text,
+            "market_session_date": date_text,
+            "market_status": "open_confirmed",
+            "phase": "confirm",
+        },
+        sort_keys=True,
+    ).encode()
+    artifact_payloads = {
+        "output/latest/market_session_status_latest.json": market_payload,
+        "data/market_calendar/exceptional_non_trading_days.csv": b"date,reason\n",
+    }
+    for relative, payload in artifact_payloads.items():
+        path = artifact_root / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(payload)
+    recovery = {"mode": "none"}
+    identity = {
+        "schema_version": "daily_market_session_preflight_identity_v1",
+        "source_sha": source_sha,
+        "recovery_source_bundle": recovery,
+        "files": {
+            relative: hashlib.sha256(payload).hexdigest()
+            for relative, payload in artifact_payloads.items()
+        },
+    }
+    (artifact_root / "market_session_preflight_identity.json").write_text(
+        json.dumps(identity), encoding="utf-8"
+    )
+    before = {
+        relative: (repo / relative).read_bytes()
+        for relative in artifact_payloads
+    }
+    repo_identity = repo / "market_session_preflight_identity.json"
+    repo_identity.write_text("{}\n", encoding="utf-8")
+    with pytest.raises(
+        market_session.MarketSessionError,
+        match="identity must remain outside",
+    ):
+        market_session.materialize_market_session_preflight_artifact(
+            repo_root=repo,
+            runner_temp=runner_temp,
+            artifact_root=artifact_root,
+            expected_source_sha=source_sha,
+            expected_recovery=recovery,
+        )
+    assert {
+        relative: (repo / relative).read_bytes()
+        for relative in artifact_payloads
+    } == before
+    repo_identity.unlink()
+    result = market_session.materialize_market_session_preflight_artifact(
+        repo_root=repo,
+        runner_temp=runner_temp,
+        artifact_root=artifact_root,
+        expected_source_sha=source_sha,
+        expected_recovery=recovery,
+    )
+    assert result["materialized_paths"] == sorted(artifact_payloads)
+    assert not (repo / "market_session_preflight_identity.json").exists()
+    args = argparse.Namespace(
+        repo_root=repo,
+        runner_temp=runner_temp,
+        source_sha=source_sha,
+        replay_date=date_text,
+        bundle_dir=tmp_path / "checkpoint",
+        run_id="31592670186",
+    )
+    assert replay_runner.capture_production_checkpoint(args) == 0
+    (repo / "rogue_root.json").write_text("{}\n", encoding="utf-8")
+    args.bundle_dir = tmp_path / "rogue-checkpoint"
+    with pytest.raises(ReplayCheckpointError, match="outside checkpoint allowlist"):
+        replay_runner.capture_production_checkpoint(args)
+
+
+def test_runner_temp_preflight_preparation_failure_removes_partial_temporary_files(
+    tmp_path: Path,
+) -> None:
+    repo = tmp_path / "repo"
+    runner_temp = tmp_path / "runner-temp"
+    artifact_root = runner_temp / "daily-market-session-preflight"
+    repo.mkdir()
+    artifact_root.mkdir(parents=True)
+    source_sha = "a" * 40
+    payloads = {
+        "data/market_calendar/exceptional_non_trading_days.csv": b"date,reason\n",
+        "output/latest/market_session_status_latest.json": b"{}\n",
+    }
+    for relative, payload in payloads.items():
+        path = artifact_root / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(payload)
+    identity = {
+        "schema_version": "daily_market_session_preflight_identity_v1",
+        "source_sha": source_sha,
+        "recovery_source_bundle": {"mode": "none"},
+        "files": {
+            relative: hashlib.sha256(payload).hexdigest()
+            for relative, payload in payloads.items()
+        },
+    }
+    identity["files"]["output/latest/market_session_status_latest.json"] = "0" * 64
+    (artifact_root / "market_session_preflight_identity.json").write_text(
+        json.dumps(identity), encoding="utf-8"
+    )
+
+    with pytest.raises(
+        market_session.MarketSessionError,
+        match="artifact SHA mismatch",
+    ):
+        market_session.materialize_market_session_preflight_artifact(
+            repo_root=repo,
+            runner_temp=runner_temp,
+            artifact_root=artifact_root,
+            expected_source_sha=source_sha,
+            expected_recovery={"mode": "none"},
+        )
+
+    assert not list(repo.rglob("*.preflight-*"))
+    assert not (repo / "data/market_calendar/exceptional_non_trading_days.csv").exists()
+    assert not (repo / "output/latest/market_session_status_latest.json").exists()
 
 
 def test_production_workflow_checkpoint_precedes_original_step41() -> None:

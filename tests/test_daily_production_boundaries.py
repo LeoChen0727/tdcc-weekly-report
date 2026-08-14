@@ -2177,6 +2177,24 @@ def test_recent_price_gap_workflow_bundles_zero_repair_without_publishing_market
     assert "git add data/market_calendar/exceptional_non_trading_days.csv" not in text
     assert "bash scripts/ci_push_with_retry.sh main 5" not in text
     assert "git push origin HEAD:main" in text
+    exact_continuity = (
+        'python scripts/validate_daily_price_history_continuity.py '
+        '--main-price-date "$REPAIR_TARGET_DATE"'
+    )
+    assert exact_continuity in text
+    for identity_arg in (
+        '--target-date "$REPAIR_TARGET_DATE"',
+        '--source-base-sha "$REPAIR_BASE_SHA"',
+        '--manifest-path "${{ steps.source_bundle.outputs.manifest_path }}"',
+        '--manifest-sha256 "${{ steps.source_bundle.outputs.manifest_sha256 }}"',
+        '--source-bundle-sha "${{ steps.source_bundle.outputs.source_bundle_sha }}"',
+    ):
+        assert identity_arg in text
+    assert text.index("Summarize recent repair result") < text.index(
+        exact_continuity
+    ) < text.index("Build immutable current-day source recovery bundle") < text.index(
+        "python scripts/validate_recent_daily_price_repair_staged_paths.py"
+    ) < text.index('git commit -m "Persist ${REPAIR_TARGET_DATE} daily source recovery bundle"')
 
 
 def test_recent_price_gap_boundary_rejects_zero_repair_commit_guard() -> None:
@@ -2328,7 +2346,16 @@ def test_daily_full_preflight_artifact_is_bound_to_exact_source_sha() -> None:
     assert 'handle.write(f"source_sha={source_sha}\\n")' in text
     assert "market_session_preflight_identity.json" in text
     assert '"daily_market_session_preflight_identity_v1"' in text
-    assert "market-session preflight artifact SHA mismatch" in text
+    assert "materialize_market_session_preflight_artifact" in text
+    assert text.count("runner.temp }}/daily-market-session-preflight") == 3
+    assert text.count("materialize_market_session_preflight_artifact(") == 2
+    assert 'Path("market_session_preflight_identity.json")' not in text
+    assert '(artifact_root / "market_session_preflight_identity.json")' in text
+    assert text.count("from scripts.market_session_calendar import (") == 2
+    assert (
+        "from scripts.run_daily_full_validation_replay import (\n"
+        "              materialize_market_session_preflight_artifact"
+    ) not in text
     assert text.count("ref: ${{ needs.market-session-preflight.outputs.source_sha }}") == 2
     assert text.count("REMOTE_MAIN=\"$(git rev-parse origin/main)\"") >= 2
 

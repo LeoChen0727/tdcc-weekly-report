@@ -14,10 +14,331 @@ def _texts() -> tuple[str, str, str]:
 def test_current_workflows_pass_data_only_catch_up_contract() -> None:
     recent_text, replay_text, daily_full_text = _texts()
 
+    assert (
+        validator._canonical_text_sha256(recent_text)
+        == validator.RECENT_REPAIR_WORKFLOW_CANONICAL_SHA256
+    )
     assert validator.validate(recent_text, replay_text, daily_full_text) == []
+
+
+def test_repair_rejects_any_unreviewed_workflow_byte_mutation() -> None:
+    recent_text, replay_text, daily_full_text = _texts()
+    mutations = (
+        recent_text.replace(
+            "jobs:\n",
+            "defaults:\n  run:\n    shell: bash {0} || true\njobs:\n",
+            1,
+        ),
+        recent_text.replace(
+            "  repair-recent-daily-price-gaps:\n",
+            "  repair-recent-daily-price-gaps:\n"
+            "    defaults:\n"
+            "      run:\n"
+            "        shell: bash {0} || true\n",
+            1,
+        ),
+        recent_text
+        + "\n  rogue-variable-write:\n"
+        "    runs-on: ubuntu-latest\n"
+        "    steps:\n"
+        "      - name: Unauthorized variable repository write\n"
+        "        run: |\n"
+        "          G=git\n"
+        '          "$G" commit -m "cross-job write"\n'
+        '          "$G" push origin HEAD:main\n',
+        recent_text
+        + "\n  rogue-ifs-write:\n"
+        "    runs-on: ubuntu-latest\n"
+        "    steps:\n"
+        "      - name: Unauthorized IFS repository write\n"
+        "        run: |\n"
+        '          git${IFS}commit -m "cross-job write"\n'
+        "          git${IFS}push origin HEAD:main\n",
+    )
+    for invalid in mutations:
+        errors = validator.validate(invalid, replay_text, daily_full_text)
+        assert any("canonical SHA-256 mismatch" in error for error in errors)
     assert recent_text.index("Commit repaired recent daily price gaps") < recent_text.index(
         "Checkout current main for structured catch-up planning"
     ) < recent_text.index("Plan bounded structured objective-source catch-up")
+    assert "output/latest/official_price_fetch_latest.json" in recent_text
+    assert "output/latest/official_price_fetch_latest.md" in recent_text
+    assert "publish_current_day_repair_confirmation" in (
+        (validator.ROOT / "scripts/repair_recent_daily_price_gaps.py").read_text(
+            encoding="utf-8"
+        )
+    )
+    exact_continuity = (
+        'python scripts/validate_daily_price_history_continuity.py '
+        '--main-price-date "$REPAIR_TARGET_DATE"'
+    )
+    assert exact_continuity in recent_text
+    for identity_arg in (
+        '--target-date "$REPAIR_TARGET_DATE"',
+        '--source-base-sha "$REPAIR_BASE_SHA"',
+        '--manifest-path "${{ steps.source_bundle.outputs.manifest_path }}"',
+        '--manifest-sha256 "${{ steps.source_bundle.outputs.manifest_sha256 }}"',
+        '--source-bundle-sha "${{ steps.source_bundle.outputs.source_bundle_sha }}"',
+    ):
+        assert identity_arg in recent_text
+    assert recent_text.index("Summarize recent repair result") < recent_text.index(
+        exact_continuity
+    ) < recent_text.index("Build immutable current-day source recovery bundle") < recent_text.index(
+        "python scripts/validate_recent_daily_price_repair_staged_paths.py"
+    ) < recent_text.index('git commit -m "Persist ${REPAIR_TARGET_DATE} daily source recovery bundle"')
+
+
+def test_repair_continuity_must_bind_target_date_and_precede_commit() -> None:
+    recent_text, replay_text, daily_full_text = _texts()
+    exact_continuity = (
+        'python scripts/validate_daily_price_history_continuity.py '
+        '--main-price-date "$REPAIR_TARGET_DATE"'
+    )
+    missing_date = recent_text.replace(
+        exact_continuity,
+        "python scripts/validate_daily_price_history_continuity.py",
+        1,
+    )
+    errors = validator.validate(missing_date, replay_text, daily_full_text)
+    assert any("bind the exact REPAIR_TARGET_DATE" in error for error in errors)
+
+    moved_after_commit = recent_text.replace(exact_continuity, "echo deferred-continuity", 1).replace(
+        'git commit -m "Persist ${REPAIR_TARGET_DATE} daily source recovery bundle"',
+        'git commit -m "Persist ${REPAIR_TARGET_DATE} daily source recovery bundle"\n'
+        f"            {exact_continuity}",
+        1,
+    )
+    errors = validator.validate(moved_after_commit, replay_text, daily_full_text)
+    assert any("before commit/push" in error for error in errors)
+
+
+def test_repair_safety_validators_must_be_direct_shell_commands() -> None:
+    recent_text, replay_text, daily_full_text = _texts()
+    exact_continuity = (
+        'python scripts/validate_daily_price_history_continuity.py '
+        '--main-price-date "$REPAIR_TARGET_DATE"'
+    )
+    staged_validator = (
+        "python scripts/validate_recent_daily_price_repair_staged_paths.py \\"
+    )
+    for carrier in (
+        f"echo '{exact_continuity}'",
+        f"printf '%s\\n' '{exact_continuity}'",
+        f"cat <<'EOF'\n          {exact_continuity}\n          EOF",
+        f'result="$({exact_continuity})"',
+    ):
+        invalid = recent_text.replace(exact_continuity, carrier, 1)
+        errors = validator.validate(invalid, replay_text, daily_full_text)
+        assert any("one direct command" in error for error in errors)
+
+    for carrier in (
+        f"echo {staged_validator}",
+        f"printf '%s\\n' '{staged_validator}'",
+        f"cat <<'EOF'\n              {staged_validator}\n              EOF",
+        f'result="$({staged_validator})"',
+    ):
+        invalid = recent_text.replace(staged_validator, carrier, 1)
+        errors = validator.validate(invalid, replay_text, daily_full_text)
+        assert any("staged-path validator" in error for error in errors)
+
+
+def test_repair_safety_gates_reject_dead_shell_control_flow() -> None:
+    recent_text, replay_text, daily_full_text = _texts()
+    continuity = (
+        'python scripts/validate_daily_price_history_continuity.py '
+        '--main-price-date "$REPAIR_TARGET_DATE"'
+    )
+    staged_validator = (
+        "python scripts/validate_recent_daily_price_repair_staged_paths.py \\"
+    )
+    history_stage = "git add data/stock_price_history/"
+    mutations = (
+        recent_text.replace(
+            continuity,
+            f"if false; then\n          {continuity}\n          fi",
+            1,
+        ),
+        recent_text.replace(
+            staged_validator,
+            f"if false; then\n          {staged_validator}",
+            1,
+        ).replace(
+            '--source-bundle-sha "${{ steps.source_bundle.outputs.source_bundle_sha }}"',
+            '--source-bundle-sha "${{ steps.source_bundle.outputs.source_bundle_sha }}"\n          fi',
+            1,
+        ),
+        recent_text.replace(
+            history_stage,
+            f"if false; then\n          {history_stage}\n          fi",
+            1,
+        ),
+        recent_text.replace(continuity, f"false && {continuity}", 1),
+        recent_text.replace(
+            history_stage,
+            f"case never in always) {history_stage} ;; esac",
+            1,
+        ),
+    )
+    for invalid in mutations:
+        errors = validator.validate(invalid, replay_text, daily_full_text)
+        assert any(
+            marker in error
+            for error in errors
+            for marker in (
+                "one direct command",
+                "staged-path validator",
+                "exact unconditional staging step",
+            )
+        )
+
+
+def test_repair_safety_steps_reject_skip_metadata_and_permissive_persist() -> None:
+    recent_text, replay_text, daily_full_text = _texts()
+    staged_step = "      - name: Validate exact staged current-day source recovery bundle\n"
+    for metadata in (
+        "        if: ${{ false }}\n",
+        "        continue-on-error: true\n",
+        "        shell: pwsh\n",
+    ):
+        invalid = recent_text.replace(staged_step, staged_step + metadata, 1)
+        errors = validator.validate(invalid, replay_text, daily_full_text)
+        assert any("staged-path validator" in error for error in errors)
+
+    permissive_commit = recent_text.replace(
+        'git commit -m "Persist ${REPAIR_TARGET_DATE} daily source recovery bundle"',
+        'git commit -m "Persist ${REPAIR_TARGET_DATE} daily source recovery bundle" || true',
+        1,
+    )
+    errors = validator.validate(permissive_commit, replay_text, daily_full_text)
+    assert any("fail-closed commit/push step" in error for error in errors)
+
+
+def test_repair_rejects_duplicate_or_interposed_critical_steps() -> None:
+    recent_text, replay_text, daily_full_text = _texts()
+    staged_step = validator._step_block(
+        validator._job_block(recent_text, "repair-recent-daily-price-gaps"),
+        "Validate exact staged current-day source recovery bundle",
+    )
+    duplicate = recent_text.replace(staged_step, staged_step + staged_step, 1)
+    errors = validator.validate(duplicate, replay_text, daily_full_text)
+    assert any("must exist exactly once" in error for error in errors)
+
+    staged_marker = "      - name: Validate exact staged current-day source recovery bundle\n"
+    malicious_step = (
+        "      - name: Premature remote mutation\n"
+        "        run: |\n"
+        '          git commit -m "premature"\n'
+        "          git push origin HEAD:main\n\n"
+    )
+    interposed = recent_text.replace(
+        staged_marker, malicious_step + staged_marker, 1
+    )
+    errors = validator.validate(interposed, replay_text, daily_full_text)
+    assert any("exact adjacent" in error for error in errors)
+    assert any("globally unique" in error for error in errors)
+
+
+def test_repair_rejects_unnamed_interposed_git_write_step() -> None:
+    recent_text, replay_text, daily_full_text = _texts()
+    staged_marker = "      - name: Validate exact staged current-day source recovery bundle\n"
+    unnamed_write = (
+        "      - run: |\n"
+        '          git commit -m "premature unnamed"\n'
+        "          git push origin HEAD:main\n\n"
+    )
+    invalid = recent_text.replace(
+        staged_marker, unnamed_write + staged_marker, 1
+    )
+    errors = validator.validate(invalid, replay_text, daily_full_text)
+    assert any("every step" in error for error in errors)
+    assert any("exact adjacent" in error for error in errors)
+    assert any("globally unique" in error for error in errors)
+
+
+def test_repair_rejects_safety_metadata_after_run_block() -> None:
+    recent_text, replay_text, daily_full_text = _texts()
+    job_block = validator._job_block(recent_text, "repair-recent-daily-price-gaps")
+    step_name = "Validate exact staged current-day source recovery bundle"
+    staged_block = validator._step_block(job_block, step_name)
+    assert staged_block
+    for metadata in (
+        "        if: ${{ false }}",
+        "        continue-on-error: true",
+        "        shell: pwsh",
+    ):
+        invalid_block = staged_block.rstrip() + f"\n{metadata}\n"
+        invalid = recent_text.replace(staged_block, invalid_block, 1)
+        errors = validator.validate(invalid, replay_text, daily_full_text)
+        assert any("staged-path validator" in error for error in errors)
+
+
+def test_repair_rejects_job_level_bypass_metadata() -> None:
+    recent_text, replay_text, daily_full_text = _texts()
+    job_marker = "  repair-recent-daily-price-gaps:\n"
+    for metadata in (
+        "    if: ${{ false }}\n",
+        "    continue-on-error: true\n",
+        '    "if": ${{ false }}\n',
+        "    'continue-on-error': true\n",
+    ):
+        invalid = recent_text.replace(job_marker, job_marker + metadata, 1)
+        errors = validator.validate(invalid, replay_text, daily_full_text)
+        assert any(
+            "job must be unconditional" in error
+            or "canonical unquoted YAML" in error
+            for error in errors
+        )
+
+
+def test_repair_rejects_git_write_in_any_other_job() -> None:
+    recent_text, replay_text, daily_full_text = _texts()
+    rogue_job = (
+        "\n  rogue-write:\n"
+        "    runs-on: ubuntu-latest\n"
+        "    steps:\n"
+        "      - name: Unauthorized repository write\n"
+        "        run: |\n"
+        '          git commit -m "cross-job write"\n'
+        "          git push origin HEAD:main\n"
+    )
+    errors = validator.validate(
+        recent_text + rogue_job, replay_text, daily_full_text
+    )
+    assert any("globally unique" in error for error in errors)
+
+
+def test_repair_rejects_multiline_git_write_in_any_other_job() -> None:
+    recent_text, replay_text, daily_full_text = _texts()
+    rogue_job = (
+        "\n  rogue-multiline-write:\n"
+        "    runs-on: ubuntu-latest\n"
+        "    steps:\n"
+        "      - name: Unauthorized multiline repository write\n"
+        "        run: |\n"
+        "          git \\\n"
+        '            commit -m "cross-job write"\n'
+        "          git \\\n"
+        "            push origin HEAD:main\n"
+    )
+    errors = validator.validate(
+        recent_text + rogue_job, replay_text, daily_full_text
+    )
+    assert any("globally unique" in error for error in errors)
+
+
+def test_required_history_staging_failure_cannot_be_swallowed() -> None:
+    recent_text, replay_text, daily_full_text = _texts()
+    safe_stage = "git add data/stock_price_history/"
+    assert safe_stage in {line.strip() for line in recent_text.splitlines()}
+    assert f"{safe_stage} || true" not in recent_text
+
+    permissive = recent_text.replace(safe_stage, f"{safe_stage} || true", 1)
+    errors = validator.validate(permissive, replay_text, daily_full_text)
+    assert any("must not swallow" in error for error in errors)
+
+    missing = recent_text.replace(safe_stage, "echo skip-history-stage", 1)
+    errors = validator.validate(missing, replay_text, daily_full_text)
+    assert any("fail closed while staging" in error for error in errors)
 
 
 def test_direct_replay_or_model_work_is_rejected() -> None:
