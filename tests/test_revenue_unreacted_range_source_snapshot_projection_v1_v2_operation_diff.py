@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from io import BytesIO
+import json
 from pathlib import Path
 import sys
 
@@ -14,6 +15,7 @@ if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
 
 import revenue_unreacted_range_source_snapshot_projection_v1_v2_operation_diff as producer  # noqa: E402
+import revenue_unreacted_range_source_snapshot_projection_v1_v2_diff as source_diff_builder  # noqa: E402
 import validate_revenue_unreacted_range_source_snapshot_projection_v1_v2_operation_diff as validator  # noqa: E402
 
 
@@ -89,39 +91,210 @@ def _source_diff(lineage: dict[str, str]) -> pd.DataFrame:
     rows: list[dict[str, object]] = []
     for index in range(8):
         episode_key = f"episode|{2400 + index}|{index}"
+        stock_id = str(2400 + index)
         original_source_sha = f"{100 + index:064x}"
         if index == 7:
             relation_status = "absent_after_repair"
             absence_reason = "no_shared_qualifying_source_row"
             corrected_episode_key = ""
-            corrected_source_sha = ""
+            corrected_start_sha = ""
+            corrected_source_shas = ""
+            corrected_tokens: set[str] = set()
+            component_type = "v1_no_edge"
+            mapping_role = "original_without_corrected_edge"
+            mapping_basis = "no_shared_qualifying_source_row"
+            boundary_status = "original_episode_absent_after_price_repair"
         else:
             relation_status = "exact_episode_key_successor"
             absence_reason = ""
             corrected_episode_key = episode_key
-            corrected_source_sha = (
+            corrected_start_sha = (
                 f"{900 + index:064x}" if index == 6 else original_source_sha
             )
+            corrected_source_shas = (
+                f"{original_source_sha}|{corrected_start_sha}"
+                if index == 6
+                else original_source_sha
+            )
+            corrected_tokens = set(corrected_source_shas.split("|"))
+            component_type = "one_to_one"
+            mapping_role = "exact_key_anchor"
+            mapping_basis = "exact_episode_key_with_token_overlap"
+            boundary_status = "episode_boundary_preserved"
+        original_tokens = {original_source_sha}
+        overlap = original_tokens & corrected_tokens
+        added = corrected_tokens - original_tokens
+        removed = original_tokens - corrected_tokens
+        original_keys = [episode_key]
+        corrected_keys = [corrected_episode_key] if corrected_episode_key else []
+        edge_payload = (
+            [
+                {
+                    "original_episode_key": episode_key,
+                    "corrected_episode_key": corrected_episode_key,
+                    "overlap_tokens": sorted(overlap),
+                }
+            ]
+            if corrected_episode_key
+            else []
+        )
+        component_id = producer._canonical_json_sha256(
+            {
+                "condition_variant_id": "absolute_or_two_month_yoy_ge15",
+                "stock_id": stock_id,
+                "component_type": component_type,
+                "original_episode_keys": original_keys,
+                "corrected_episode_keys": corrected_keys,
+                "edges": edge_payload,
+                "original_token_union": sorted(original_tokens),
+                "corrected_token_union": sorted(corrected_tokens),
+                "original_start_date": "20250917",
+                "original_end_date": "20260713",
+                "corrected_start_date": "20250917" if corrected_episode_key else "",
+                "corrected_end_date": "20260713" if corrected_episode_key else "",
+            }
+        )
         episode = {
             "generated_at": "2026-08-14 00:00:00 Asia/Taipei",
+            "model_id": producer.MODEL_ID,
+            "artifact_id": "revenue_unreacted_range_source_snapshot_projection_v1_v2_diff",
             "artifact_version": producer.SOURCE_DIFF_ARTIFACT_VERSION,
             "record_type": "episode_relation",
             "relation_status": relation_status,
             "absence_reason": absence_reason,
+            "relation_component_id": component_id,
+            "relation_component_type": component_type,
+            "relation_cardinality": "1:1" if corrected_episode_key else "1:0",
+            "relation_component_original_count": "1",
+            "relation_component_corrected_count": "1" if corrected_episode_key else "0",
+            "relation_component_edge_count": "1" if corrected_episode_key else "0",
+            "relation_component_original_episode_keys_json": json.dumps(original_keys, separators=(",", ":")),
+            "relation_component_corrected_episode_keys_json": json.dumps(corrected_keys, separators=(",", ":")),
+            "relation_component_original_start_date": "20250917",
+            "relation_component_original_end_date": "20260713",
+            "relation_component_corrected_start_date": "20250917" if corrected_episode_key else "",
+            "relation_component_corrected_end_date": "20260713" if corrected_episode_key else "",
+            "condition_variant_id": "absolute_or_two_month_yoy_ge15",
+            "stock_id": stock_id,
             "relation_row_sha256": "",
             "relation_row_set_sha256": "",
             "original_operation_key": "",
             "original_candidate_detail_row_sha256": "",
             "original_episode_key": episode_key,
+            "original_episode_number": "1",
+            "original_episode_start_source_date": "20250917",
             "corrected_episode_key": corrected_episode_key,
+            "corrected_episode_number": "1" if corrected_episode_key else "",
+            "corrected_episode_start_source_date": "20250917" if corrected_episode_key else "",
             "original_episode_start_source_row_canonical_sha256": original_source_sha,
-            "corrected_episode_start_source_row_canonical_sha256": corrected_source_sha,
+            "corrected_episode_start_source_row_canonical_sha256": corrected_start_sha,
             "original_qualifying_source_row_canonical_sha256s": original_source_sha,
-            "corrected_qualifying_source_row_canonical_sha256s": corrected_source_sha,
+            "corrected_qualifying_source_row_canonical_sha256s": corrected_source_shas,
+            "original_episode_end_date": "20260713",
+            "original_episode_status": "right_censored_before_active_horizon",
+            "corrected_episode_end_date": "20260713" if corrected_episode_key else "",
+            "corrected_episode_status": "right_censored_before_active_horizon" if corrected_episode_key else "",
+            "mapping_role": mapping_role,
+            "mapping_basis": mapping_basis,
+            "edge_overlap_source_row_canonical_sha256s": "|".join(sorted(overlap)),
+            "edge_overlap_count": str(len(overlap)),
+            "mapping_overlap_count": str(len(overlap)),
+            "original_token_fully_contained": str(original_tokens <= corrected_tokens).lower() if corrected_episode_key else "",
+            "corrected_token_fully_contained": str(corrected_tokens <= original_tokens).lower() if corrected_episode_key else "",
+            "component_original_source_row_canonical_sha256s": "|".join(sorted(original_tokens)),
+            "component_corrected_source_row_canonical_sha256s": "|".join(sorted(corrected_tokens)),
+            "component_added_source_row_canonical_sha256s": "|".join(sorted(added)),
+            "component_removed_source_row_canonical_sha256s": "|".join(sorted(removed)),
+            "component_original_token_union_sha256": producer._canonical_json_sha256(sorted(original_tokens)),
+            "component_corrected_token_union_sha256": producer._canonical_json_sha256(sorted(corrected_tokens)),
+            "component_added_token_set_sha256": producer._canonical_json_sha256(sorted(added)),
+            "component_removed_token_set_sha256": producer._canonical_json_sha256(sorted(removed)),
+            "component_token_set_relation": (
+                "token_sets_equal"
+                if original_tokens == corrected_tokens
+                else "original_token_union_strict_subset_of_corrected"
+                if original_tokens < corrected_tokens
+                else "corrected_token_union_strict_subset_of_original"
+            ),
+            "boundary_change_status": boundary_status,
+            "promotion_gate_status": "not_promotion_evidence_source_diff_only",
+            "research_only": True,
+            "formal_model_use_allowed": False,
+            "approved_for_daily": False,
+            "presentation_allowed": False,
+            "production_change": False,
+            "promotion_evidence_allowed": False,
+            "ranking_consumption_allowed": False,
+            "pdf_consumption_allowed": False,
             **lineage,
         }
         rows.append(episode)
     return _attach_source_hashes(pd.DataFrame(rows))
+
+
+def _source_episode(
+    episode_key: str,
+    *,
+    stock_id: str,
+    episode_number: int,
+    start_date: str,
+    end_date: str,
+    tokens: str,
+) -> pd.Series:
+    return pd.Series(
+        {
+            "condition_variant_id": "absolute_or_two_month_yoy_ge15",
+            "stock_id": stock_id,
+            "episode_key": episode_key,
+            "episode_number": str(episode_number),
+            "episode_start_source_date": start_date,
+            "episode_start_source_row_canonical_sha256": tokens.split("|")[0],
+            "qualifying_source_row_canonical_sha256s": tokens,
+            "episode_end_date": end_date,
+            "episode_status": "right_censored_before_active_horizon",
+        }
+    )
+
+
+def _replace_source_component(
+    source_diff: pd.DataFrame,
+    *,
+    stock_id: str,
+    originals: list[pd.Series],
+    corrected: list[pd.Series],
+) -> pd.DataFrame:
+    lineage = source_diff.iloc[0]
+    base = source_diff_builder._base_row(
+        generated_at="2026-08-14 00:00:00 Asia/Taipei",
+        v2_manifest_sha256=lineage["projection_v2_manifest_canonical_sha256"],
+        v2_detail_sha256=lineage["projection_v2_detail_semantic_sha256"],
+    )
+    edges = []
+    for original in originals:
+        original_tokens = set(original["qualifying_source_row_canonical_sha256s"].split("|"))
+        for successor in corrected:
+            corrected_tokens = set(successor["qualifying_source_row_canonical_sha256s"].split("|"))
+            overlap = original_tokens & corrected_tokens
+            if overlap:
+                edges.append((original, successor, overlap))
+    rows = source_diff_builder._component_rows(
+        originals,
+        corrected,
+        edges,
+        group_key=("absolute_or_two_month_yoy_ge15", stock_id),
+        base=base,
+    )
+    replacement = pd.DataFrame(rows, columns=list(source_diff_builder.RELATION_COLUMNS))
+    retained = source_diff.loc[source_diff["stock_id"].ne(stock_id)].copy()
+    raw = pd.concat(
+        [
+            retained.drop(columns=["relation_row_sha256", "relation_row_set_sha256"]),
+            replacement.drop(columns=["relation_row_sha256", "relation_row_set_sha256"]),
+        ],
+        ignore_index=True,
+        sort=False,
+    ).fillna("")
+    return _attach_source_hashes(raw)
 
 
 def _anomaly_registry() -> pd.DataFrame:
@@ -353,6 +526,97 @@ def _inputs():
     )
 
 
+def _inputs_with_merge_and_split():
+    inputs = list(_inputs())
+    a, b, c, d = (character * 64 for character in "abcd")
+    source_diff = _replace_source_component(
+        inputs[1],
+        stock_id="2400",
+        originals=[
+            _source_episode(
+                "episode|2400|0",
+                stock_id="2400",
+                episode_number=1,
+                start_date="20250917",
+                end_date="20251216",
+                tokens=a,
+            ),
+            _source_episode(
+                "episode|2400|merge2",
+                stock_id="2400",
+                episode_number=2,
+                start_date="20251217",
+                end_date="20260713",
+                tokens=b,
+            ),
+        ],
+        corrected=[
+            _source_episode(
+                "episode|2400|0",
+                stock_id="2400",
+                episode_number=1,
+                start_date="20250917",
+                end_date="20260713",
+                tokens=f"{a}|{b}",
+            )
+        ],
+    )
+    source_diff = _replace_source_component(
+        source_diff,
+        stock_id="2401",
+        originals=[
+            _source_episode(
+                "episode|2401|1",
+                stock_id="2401",
+                episode_number=1,
+                start_date="20250917",
+                end_date="20260713",
+                tokens=f"{c}|{d}",
+            )
+        ],
+        corrected=[
+            _source_episode(
+                "episode|2401|1",
+                stock_id="2401",
+                episode_number=1,
+                start_date="20250917",
+                end_date="20251216",
+                tokens=c,
+            ),
+            _source_episode(
+                "episode|2401|split2",
+                stock_id="2401",
+                episode_number=2,
+                start_date="20251217",
+                end_date="20260713",
+                tokens=d,
+            ),
+        ],
+    )
+    inputs[1] = source_diff
+    lineage = {
+        column: source_diff.iloc[0][column]
+        for column in producer.SOURCE_LINEAGE_COLUMNS
+    }
+    report = _report(
+        source_diff,
+        inputs[4],
+        inputs[5],
+        inputs[6],
+        lineage,
+    )
+    report.loc[0, "repair_changed_relevant_input"] = "true"
+    report.loc[0, "source_replay_relation"] = (
+        "source_replay_episode_merged_into_successor"
+    )
+    report.loc[1, "repair_changed_relevant_input"] = "true"
+    report.loc[1, "source_replay_relation"] = (
+        "source_replay_episode_split_into_successors"
+    )
+    inputs[7] = report
+    return tuple(inputs)
+
+
 def test_operation_diff_exact_eight_final_rows_and_machine_facts() -> None:
     inputs = _inputs()
     frame = producer.build_operation_diff(
@@ -375,6 +639,41 @@ def test_operation_diff_exact_eight_final_rows_and_machine_facts() -> None:
     assert set(frame["promotion_allowed"]) == {False}
     assert frame["original_entry_price"].ne("").all()
     assert set(frame["asof_latest_date"]) == {ASOF_LATEST_DATE}
+
+
+def test_operation_diff_merge_and_split_require_exact_corrected_operation_replay() -> None:
+    inputs = _inputs_with_merge_and_split()
+    frame = producer.build_operation_diff(*inputs)
+    assert validator.validate_frames(*inputs, frame) == []
+    assert {
+        "source_replay_episode_merged_into_successor",
+        "source_replay_episode_split_into_successors",
+    } <= set(frame["source_replay_relation"])
+
+    forged_inputs = list(inputs)
+    forged_report = forged_inputs[7].copy()
+    forged_report.loc[1, "corrected_operation_key"] = "episode|2401|split2"
+    forged_inputs[7] = forged_report
+    with pytest.raises(RuntimeError, match="exactly one corrected detail row"):
+        producer.build_operation_diff(*forged_inputs)
+
+
+def test_operation_diff_rejects_mutated_source_component_metadata() -> None:
+    inputs = list(_inputs_with_merge_and_split())
+    forged_source = inputs[1].copy()
+    target = forged_source.index[
+        forged_source["relation_component_type"].eq("many_v1_to_one_v2")
+    ][0]
+    forged_source.loc[target, "relation_component_original_count"] = "99"
+    inputs[1] = _attach_source_hashes(
+        forged_source.drop(columns=["relation_row_sha256", "relation_row_set_sha256"])
+    )
+    inputs[7] = inputs[7].copy()
+    inputs[7]["source_diff_relation_row_set_sha256"] = inputs[1].iloc[0][
+        "relation_row_set_sha256"
+    ]
+    with pytest.raises(RuntimeError, match="must have one value|component count"):
+        producer.build_operation_diff(*inputs)
 
 
 def test_operation_diff_rejects_pending_and_freely_labeled_machine_fact() -> None:
@@ -421,7 +720,7 @@ def test_operation_diff_rejects_ambiguous_or_unproven_source_absence() -> None:
     inputs[7]["source_diff_relation_row_set_sha256"] = inputs[1].iloc[0][
         "relation_row_set_sha256"
     ]
-    with pytest.raises(RuntimeError, match="source episode relation is not final"):
+    with pytest.raises(RuntimeError, match="component edge semantics"):
         producer.build_operation_diff(*inputs)
 
     inputs = list(_inputs())
@@ -437,7 +736,7 @@ def test_operation_diff_rejects_ambiguous_or_unproven_source_absence() -> None:
     inputs[7]["source_diff_relation_row_set_sha256"] = inputs[1].iloc[0][
         "relation_row_set_sha256"
     ]
-    with pytest.raises(RuntimeError, match="exact no-successor evidence"):
+    with pytest.raises(RuntimeError, match="component edge semantics"):
         producer.build_operation_diff(*inputs)
 
 

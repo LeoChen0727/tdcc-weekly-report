@@ -81,6 +81,47 @@ SOURCE_LINEAGE_COLUMNS = (
     "source_repair_report_git_blob_sha",
     "source_repair_report_git_blob_raw_sha256",
 )
+SOURCE_COMPONENT_COLUMNS = (
+    "relation_component_id",
+    "relation_component_type",
+    "relation_cardinality",
+    "relation_component_original_count",
+    "relation_component_corrected_count",
+    "relation_component_edge_count",
+    "relation_component_original_episode_keys_json",
+    "relation_component_corrected_episode_keys_json",
+    "relation_component_original_start_date",
+    "relation_component_original_end_date",
+    "relation_component_corrected_start_date",
+    "relation_component_corrected_end_date",
+    "condition_variant_id",
+    "stock_id",
+    "original_episode_number",
+    "original_episode_start_source_date",
+    "original_episode_end_date",
+    "original_episode_status",
+    "corrected_episode_number",
+    "corrected_episode_start_source_date",
+    "corrected_episode_end_date",
+    "corrected_episode_status",
+    "mapping_role",
+    "mapping_basis",
+    "edge_overlap_source_row_canonical_sha256s",
+    "edge_overlap_count",
+    "mapping_overlap_count",
+    "original_token_fully_contained",
+    "corrected_token_fully_contained",
+    "component_original_source_row_canonical_sha256s",
+    "component_corrected_source_row_canonical_sha256s",
+    "component_added_source_row_canonical_sha256s",
+    "component_removed_source_row_canonical_sha256s",
+    "component_original_token_union_sha256",
+    "component_corrected_token_union_sha256",
+    "component_added_token_set_sha256",
+    "component_removed_token_set_sha256",
+    "component_token_set_relation",
+    "boundary_change_status",
+)
 OUTPUT_COLUMNS = (
     "generated_at",
     "model_id",
@@ -335,6 +376,449 @@ def _original_detail_context(
     )
 
 
+def _source_tokens(value: object) -> set[str]:
+    return {token for token in _value(value).split("|") if token}
+
+
+def _source_component_value(
+    frame: pd.DataFrame,
+    column: str,
+    label: str,
+) -> str:
+    values = set(frame[column].map(_value))
+    if len(values) != 1:
+        raise RuntimeError(f"{label} {column} must have one value")
+    return next(iter(values))
+
+
+def _source_token_set_sha256(tokens: set[str]) -> str:
+    return _canonical_json_sha256(sorted(tokens))
+
+
+def _source_json_keys(value: object, label: str) -> list[str]:
+    try:
+        parsed = json.loads(_value(value))
+    except json.JSONDecodeError as exc:
+        raise RuntimeError(f"source diff {label} is not canonical JSON") from exc
+    if (
+        not isinstance(parsed, list)
+        or any(not isinstance(item, str) or not item for item in parsed)
+        or parsed != sorted(set(parsed))
+    ):
+        raise RuntimeError(f"source diff {label} must be sorted unique string keys")
+    if _value(value) != json.dumps(parsed, ensure_ascii=False, separators=(",", ":")):
+        raise RuntimeError(f"source diff {label} is not canonical JSON")
+    return parsed
+
+
+def _source_episode_records(
+    component: pd.DataFrame,
+    prefix: str,
+) -> list[pd.Series]:
+    key_column = f"{prefix}_episode_key"
+    payload_columns = (
+        key_column,
+        f"{prefix}_episode_number",
+        f"{prefix}_episode_start_source_date",
+        f"{prefix}_episode_start_source_row_canonical_sha256",
+        f"{prefix}_qualifying_source_row_canonical_sha256s",
+        f"{prefix}_episode_end_date",
+        f"{prefix}_episode_status",
+    )
+    records: dict[str, pd.Series] = {}
+    signatures: dict[str, tuple[str, ...]] = {}
+    for _, row in component.iterrows():
+        key = _value(row[key_column])
+        if not key:
+            continue
+        signature = tuple(_value(row[column]) for column in payload_columns)
+        if key in signatures and signatures[key] != signature:
+            raise RuntimeError(
+                f"source diff repeats {prefix} episode with inconsistent payload: {key}"
+            )
+        records[key] = row
+        signatures[key] = signature
+    return sorted(
+        records.values(),
+        key=lambda row: (
+            _value(row[f"{prefix}_episode_start_source_date"]),
+            int(_value(row[f"{prefix}_episode_number"])),
+            _value(row[key_column]),
+        ),
+    )
+
+
+def _validate_source_episode_sequence(
+    records: list[pd.Series],
+    prefix: str,
+) -> None:
+    numbers = [int(_value(row[f"{prefix}_episode_number"])) for row in records]
+    if numbers != list(range(numbers[0], numbers[0] + len(numbers))):
+        raise RuntimeError(f"source diff {prefix} episode sequence is not consecutive")
+    for previous, current in zip(records, records[1:], strict=False):
+        if _require_date(
+            previous[f"{prefix}_episode_end_date"], f"{prefix} episode_end_date"
+        ) >= _require_date(
+            current[f"{prefix}_episode_start_source_date"],
+            f"{prefix} episode_start_source_date",
+        ):
+            raise RuntimeError(f"source diff {prefix} episode boundaries overlap")
+
+
+def _source_token_relation(original: set[str], corrected: set[str]) -> str:
+    if original == corrected:
+        return "token_sets_equal"
+    if original < corrected:
+        return "original_token_union_strict_subset_of_corrected"
+    if corrected < original:
+        return "corrected_token_union_strict_subset_of_original"
+    if original & corrected:
+        return "token_unions_partially_overlap"
+    return "token_unions_disjoint"
+
+
+def _validate_source_components(source_diff: pd.DataFrame) -> None:
+    if source_diff["relation_component_id"].map(_value).eq("").any():
+        raise RuntimeError("source diff relation_component_id must be nonblank")
+    governance = {
+        "promotion_gate_status": "not_promotion_evidence_source_diff_only",
+        "research_only": "true",
+        "formal_model_use_allowed": "false",
+        "approved_for_daily": "false",
+        "presentation_allowed": "false",
+        "production_change": "false",
+        "promotion_evidence_allowed": "false",
+        "ranking_consumption_allowed": "false",
+        "pdf_consumption_allowed": "false",
+    }
+    for column, expected in governance.items():
+        if _single_value(source_diff, column, "source diff") != expected:
+            raise RuntimeError(f"source diff governance flag mismatch: {column}")
+    for component_id, component in source_diff.groupby(
+        "relation_component_id", sort=False, dropna=False
+    ):
+        component_id = _require_sha256(component_id, "source relation_component_id")
+        constant_columns = (
+            "relation_component_type",
+            "relation_cardinality",
+            "relation_component_original_count",
+            "relation_component_corrected_count",
+            "relation_component_edge_count",
+            "relation_component_original_episode_keys_json",
+            "relation_component_corrected_episode_keys_json",
+            "relation_component_original_start_date",
+            "relation_component_original_end_date",
+            "relation_component_corrected_start_date",
+            "relation_component_corrected_end_date",
+            "condition_variant_id",
+            "stock_id",
+            "component_original_source_row_canonical_sha256s",
+            "component_corrected_source_row_canonical_sha256s",
+            "component_added_source_row_canonical_sha256s",
+            "component_removed_source_row_canonical_sha256s",
+            "component_original_token_union_sha256",
+            "component_corrected_token_union_sha256",
+            "component_added_token_set_sha256",
+            "component_removed_token_set_sha256",
+            "component_token_set_relation",
+            "boundary_change_status",
+        )
+        values = {
+            column: _source_component_value(
+                component, column, f"source component {component_id}"
+            )
+            for column in constant_columns
+        }
+        originals = _source_episode_records(component, "original")
+        corrected = _source_episode_records(component, "corrected")
+        original_keys = [_value(row["original_episode_key"]) for row in originals]
+        corrected_keys = [_value(row["corrected_episode_key"]) for row in corrected]
+        declared_original_keys = _source_json_keys(
+            values["relation_component_original_episode_keys_json"],
+            "original episode keys",
+        )
+        declared_corrected_keys = _source_json_keys(
+            values["relation_component_corrected_episode_keys_json"],
+            "corrected episode keys",
+        )
+        if original_keys != declared_original_keys or corrected_keys != declared_corrected_keys:
+            raise RuntimeError("source diff component episode key set mismatch")
+        original_count = int(values["relation_component_original_count"])
+        corrected_count = int(values["relation_component_corrected_count"])
+        edge_count = int(values["relation_component_edge_count"])
+        if (original_count, corrected_count) != (len(originals), len(corrected)):
+            raise RuntimeError("source diff component count mismatch")
+        if values["relation_cardinality"] != f"{original_count}:{corrected_count}":
+            raise RuntimeError("source diff component cardinality mismatch")
+        if original_count > 1 and corrected_count > 1:
+            raise RuntimeError("source diff many-to-many component is forbidden")
+        if original_count == corrected_count == 1:
+            expected_type = "one_to_one"
+        elif original_count > 1 and corrected_count == 1:
+            expected_type = "many_v1_to_one_v2"
+        elif original_count == 1 and corrected_count > 1:
+            expected_type = "one_v1_to_many_v2"
+        elif (original_count, corrected_count) == (1, 0):
+            expected_type = "v1_no_edge"
+        elif (original_count, corrected_count) == (0, 1):
+            expected_type = "v2_no_edge"
+        else:
+            raise RuntimeError("source diff component cardinality is invalid")
+        if values["relation_component_type"] != expected_type:
+            raise RuntimeError("source diff relation_component_type mismatch")
+        edges = component.loc[
+            component["original_episode_key"].map(_value).ne("")
+            & component["corrected_episode_key"].map(_value).ne("")
+        ]
+        if len(edges) != edge_count or len(component) != (edge_count or 1):
+            raise RuntimeError("source diff component edge count mismatch")
+        edge_pairs = list(
+            zip(
+                edges["original_episode_key"].map(_value),
+                edges["corrected_episode_key"].map(_value),
+                strict=True,
+            )
+        )
+        if len(edge_pairs) != len(set(edge_pairs)):
+            raise RuntimeError("source diff component edge pair must be unique")
+        original_union: set[str] = set()
+        corrected_union: set[str] = set()
+        for records, prefix, union in (
+            (originals, "original", original_union),
+            (corrected, "corrected", corrected_union),
+        ):
+            owners: dict[str, str] = {}
+            for record in records:
+                key = _value(record[f"{prefix}_episode_key"])
+                tokens = _source_tokens(
+                    record[f"{prefix}_qualifying_source_row_canonical_sha256s"]
+                )
+                if not tokens:
+                    raise RuntimeError("source diff episode token set must be nonempty")
+                for token in tokens:
+                    _require_sha256(token, f"{prefix} qualifying source token")
+                    if token in owners:
+                        raise RuntimeError(
+                            f"source diff {prefix} token belongs to multiple episodes"
+                        )
+                    owners[token] = key
+                union.update(tokens)
+        added = corrected_union - original_union
+        removed = original_union - corrected_union
+        token_fields = {
+            "component_original_source_row_canonical_sha256s": "|".join(sorted(original_union)),
+            "component_corrected_source_row_canonical_sha256s": "|".join(sorted(corrected_union)),
+            "component_added_source_row_canonical_sha256s": "|".join(sorted(added)),
+            "component_removed_source_row_canonical_sha256s": "|".join(sorted(removed)),
+            "component_original_token_union_sha256": _source_token_set_sha256(original_union),
+            "component_corrected_token_union_sha256": _source_token_set_sha256(corrected_union),
+            "component_added_token_set_sha256": _source_token_set_sha256(added),
+            "component_removed_token_set_sha256": _source_token_set_sha256(removed),
+            "component_token_set_relation": _source_token_relation(original_union, corrected_union),
+        }
+        for column, expected in token_fields.items():
+            if values[column] != expected:
+                raise RuntimeError(f"source diff component token field mismatch: {column}")
+        edge_payload = []
+        for _, row in edges.iterrows():
+            original_tokens = _source_tokens(
+                row["original_qualifying_source_row_canonical_sha256s"]
+            )
+            corrected_tokens = _source_tokens(
+                row["corrected_qualifying_source_row_canonical_sha256s"]
+            )
+            overlap = original_tokens & corrected_tokens
+            overlap_text = "|".join(sorted(overlap))
+            if not overlap or _value(row["edge_overlap_source_row_canonical_sha256s"]) != overlap_text:
+                raise RuntimeError("source diff edge overlap token set mismatch")
+            if {
+                _value(row["edge_overlap_count"]),
+                _value(row["mapping_overlap_count"]),
+            } != {str(len(overlap))}:
+                raise RuntimeError("source diff edge overlap count mismatch")
+            if _value(row["original_token_fully_contained"]) != _value(
+                original_tokens <= corrected_tokens
+            ) or _value(row["corrected_token_fully_contained"]) != _value(
+                corrected_tokens <= original_tokens
+            ):
+                raise RuntimeError("source diff edge containment flag mismatch")
+            edge_payload.append(
+                {
+                    "original_episode_key": _value(row["original_episode_key"]),
+                    "corrected_episode_key": _value(row["corrected_episode_key"]),
+                    "overlap_tokens": sorted(overlap),
+                }
+            )
+        original_start = min(
+            (_value(row["original_episode_start_source_date"]) for row in originals),
+            default="",
+        )
+        original_end = max(
+            (_value(row["original_episode_end_date"]) for row in originals), default=""
+        )
+        corrected_start = min(
+            (_value(row["corrected_episode_start_source_date"]) for row in corrected),
+            default="",
+        )
+        corrected_end = max(
+            (_value(row["corrected_episode_end_date"]) for row in corrected), default=""
+        )
+        boundaries = {
+            "relation_component_original_start_date": original_start,
+            "relation_component_original_end_date": original_end,
+            "relation_component_corrected_start_date": corrected_start,
+            "relation_component_corrected_end_date": corrected_end,
+        }
+        for column, expected in boundaries.items():
+            if values[column] != expected:
+                raise RuntimeError(f"source diff component boundary mismatch: {column}")
+        if expected_type == "many_v1_to_one_v2":
+            _validate_source_episode_sequence(originals, "original")
+            successor = corrected[0]
+            successor_tokens = _source_tokens(
+                successor["corrected_qualifying_source_row_canonical_sha256s"]
+            )
+            if any(
+                not _source_tokens(row["original_qualifying_source_row_canonical_sha256s"])
+                <= successor_tokens
+                for row in originals
+            ):
+                raise RuntimeError("source diff merge token containment mismatch")
+            anchor = originals[0]
+            if any(
+                _value(anchor[left]) != _value(successor[right])
+                for left, right in (
+                    ("original_episode_key", "corrected_episode_key"),
+                    (
+                        "original_episode_start_source_date",
+                        "corrected_episode_start_source_date",
+                    ),
+                    (
+                        "original_episode_start_source_row_canonical_sha256",
+                        "corrected_episode_start_source_row_canonical_sha256",
+                    ),
+                )
+            ):
+                raise RuntimeError("source diff merge anchor mismatch")
+            if _value(successor["corrected_episode_end_date"]) < original_end:
+                raise RuntimeError("source diff merge boundary coverage mismatch")
+            expected_boundary = "episode_boundaries_merged_after_price_repair"
+        elif expected_type == "one_v1_to_many_v2":
+            _validate_source_episode_sequence(corrected, "corrected")
+            predecessor = originals[0]
+            anchor = corrected[0]
+            if any(
+                _value(predecessor[left]) != _value(anchor[right])
+                for left, right in (
+                    ("original_episode_key", "corrected_episode_key"),
+                    (
+                        "original_episode_start_source_date",
+                        "corrected_episode_start_source_date",
+                    ),
+                    (
+                        "original_episode_start_source_row_canonical_sha256",
+                        "corrected_episode_start_source_row_canonical_sha256",
+                    ),
+                )
+            ):
+                raise RuntimeError("source diff split anchor mismatch")
+            if _value(predecessor["original_episode_end_date"]) < corrected_end:
+                raise RuntimeError("source diff split boundary coverage mismatch")
+            expected_boundary = "episode_boundary_split_after_price_repair"
+        elif expected_type == "one_to_one":
+            expected_boundary = (
+                "episode_boundary_preserved"
+                if all(
+                    _value(originals[0][left]) == _value(corrected[0][right])
+                    for left, right in (
+                        ("original_episode_key", "corrected_episode_key"),
+                        (
+                            "original_episode_start_source_date",
+                            "corrected_episode_start_source_date",
+                        ),
+                        ("original_episode_end_date", "corrected_episode_end_date"),
+                    )
+                )
+                else "episode_boundary_changed_after_price_repair"
+            )
+        elif expected_type == "v1_no_edge":
+            expected_boundary = "original_episode_absent_after_price_repair"
+        else:
+            expected_boundary = "new_corrected_episode_after_price_repair"
+        if values["boundary_change_status"] != expected_boundary:
+            raise RuntimeError("source diff boundary_change_status mismatch")
+        component_payload = {
+            "condition_variant_id": values["condition_variant_id"],
+            "stock_id": values["stock_id"],
+            "component_type": expected_type,
+            "original_episode_keys": original_keys,
+            "corrected_episode_keys": corrected_keys,
+            "edges": sorted(
+                edge_payload,
+                key=lambda edge: (
+                    edge["original_episode_key"], edge["corrected_episode_key"]
+                ),
+            ),
+            "original_token_union": sorted(original_union),
+            "corrected_token_union": sorted(corrected_union),
+            "original_start_date": original_start,
+            "original_end_date": original_end,
+            "corrected_start_date": corrected_start,
+            "corrected_end_date": corrected_end,
+        }
+        if _canonical_json_sha256(component_payload) != component_id:
+            raise RuntimeError("source diff relation_component_id mismatch")
+        for _, row in component.iterrows():
+            status = _value(row["relation_status"])
+            reason = _value(row["absence_reason"])
+            original_key = _value(row["original_episode_key"])
+            corrected_key = _value(row["corrected_episode_key"])
+            if expected_type == "one_to_one":
+                exact = original_key == corrected_key
+                expected_row = (
+                    "exact_episode_key_successor" if exact else "qualifying_source_overlap_successor",
+                    "exact_key_anchor" if exact else "unique_overlap_successor",
+                    "exact_episode_key_with_token_overlap" if exact else "unique_qualifying_source_token_overlap",
+                    "",
+                )
+            elif expected_type == "many_v1_to_one_v2":
+                expected_row = (
+                    "many_to_one_merged_successor",
+                    "exact_key_anchor" if original_key == corrected_key else "merge_member",
+                    "many_to_one_component_token_overlap",
+                    "",
+                )
+            elif expected_type == "one_v1_to_many_v2":
+                expected_row = (
+                    "one_to_many_split_successor",
+                    "exact_key_anchor" if original_key == corrected_key else "split_member",
+                    "one_to_many_component_token_overlap",
+                    "",
+                )
+            elif expected_type == "v1_no_edge":
+                expected_row = (
+                    "absent_after_repair",
+                    "original_without_corrected_edge",
+                    "no_shared_qualifying_source_row",
+                    "no_shared_qualifying_source_row",
+                )
+            else:
+                expected_row = (
+                    "v2_only_successor",
+                    "corrected_without_original_edge",
+                    "no_v1_predecessor_episode",
+                    "no_v1_predecessor_episode",
+                )
+            actual_row = (
+                status,
+                _value(row["mapping_role"]),
+                _value(row["mapping_basis"]),
+                reason,
+            )
+            if actual_row != expected_row:
+                raise RuntimeError("source diff component edge semantics mismatch")
+
+
 def _source_diff_context(
     source_diff: pd.DataFrame,
 ) -> dict[str, str]:
@@ -351,6 +835,16 @@ def _source_diff_context(
         "corrected_episode_start_source_row_canonical_sha256",
         "original_qualifying_source_row_canonical_sha256s",
         "corrected_qualifying_source_row_canonical_sha256s",
+        "promotion_gate_status",
+        "research_only",
+        "formal_model_use_allowed",
+        "approved_for_daily",
+        "presentation_allowed",
+        "production_change",
+        "promotion_evidence_allowed",
+        "ranking_consumption_allowed",
+        "pdf_consumption_allowed",
+        *SOURCE_COMPONENT_COLUMNS,
         *SOURCE_LINEAGE_COLUMNS,
     }
     _require_columns(source_diff, required, "source projection v1/v2 diff")
@@ -381,6 +875,7 @@ def _source_diff_context(
         raise RuntimeError("source diff relation_row_set_sha256 mismatch")
     if set(source_diff["record_type"].map(_value)) != {"episode_relation"}:
         raise RuntimeError("source diff must contain episode_relation rows only")
+    _validate_source_components(source_diff)
     context = {
         "source_diff_artifact_version": SOURCE_DIFF_ARTIFACT_VERSION,
         "source_diff_relation_row_set_sha256": relation_row_set_sha256,
@@ -626,17 +1121,34 @@ def _source_replay_facts(
         source_diff["record_type"].map(_value).eq("episode_relation")
         & source_diff["original_episode_key"].map(_value).eq(episode_key)
     ]
-    if not episode_key or len(matches) != 1:
+    if not episode_key or matches.empty:
         raise RuntimeError(
-            "each original operation must bind exactly one source episode relation: "
+            "each original operation must bind a source episode relation: "
             f"{_value(original_detail_row['operation_key'])}"
         )
+    if len(matches) > 1:
+        if (
+            set(matches["relation_status"].map(_value))
+            != {"one_to_many_split_successor"}
+            or set(matches["relation_component_type"].map(_value))
+            != {"one_v1_to_many_v2"}
+            or len(set(matches["relation_component_id"].map(_value))) != 1
+            or len(set(matches["corrected_episode_key"].map(_value))) != len(matches)
+        ):
+            raise RuntimeError(
+                "multiple source relations are not one audited split component"
+            )
+        # A source split describes structural episode successors only.  It never
+        # selects the corrected operation; the report must still bind exactly one
+        # corrected operation key and candidate-row SHA in _validated_report_rows.
+        return "true", "source_replay_episode_split_into_successors"
     relation = matches.iloc[0]
     status = _value(relation["relation_status"])
     relation_reason = _value(relation["absence_reason"])
     if status not in {
         "exact_episode_key_successor",
         "qualifying_source_overlap_successor",
+        "many_to_one_merged_successor",
         "absent_after_repair",
     }:
         raise RuntimeError(f"source episode relation is not final: {status!r}")
@@ -653,6 +1165,10 @@ def _source_replay_facts(
         raise RuntimeError("source successor relation requires corrected_episode_key")
     if relation_reason:
         raise RuntimeError("source successor relation must not carry absence_reason")
+    if status == "many_to_one_merged_successor":
+        if _value(relation["relation_component_type"]) != "many_v1_to_one_v2":
+            raise RuntimeError("source merge relation component type mismatch")
+        return "true", "source_replay_episode_merged_into_successor"
     comparable_columns = (
         (
             "original_episode_start_source_row_canonical_sha256",
