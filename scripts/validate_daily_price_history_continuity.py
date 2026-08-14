@@ -13,6 +13,7 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any
 
+import numpy as np
 import pandas as pd
 
 
@@ -507,19 +508,34 @@ def _selected_base_records(
     excluded_dates = excluded_dates or set()
     normalized = _normalize_selected_base(frame)
     normalized = normalized[~normalized["date"].isin(excluded_dates)]
-    records: list[dict[str, str]] = []
-    for _, row in normalized.sort_values(["stock_id", "date"]).iterrows():
-        records.append(
-            {
-                column: (
-                    _canonical_number(row[column])
-                    if column in SELECTED_NUMERIC_COLUMNS
-                    else safe_str(row[column])
-                )
-                for column in SELECTED_BASE_COLUMNS
-            }
-        )
-    return records
+    normalized = normalized.sort_values(["stock_id", "date"]).reset_index(
+        drop=True
+    )
+
+    numeric_columns = [
+        column
+        for column in SELECTED_BASE_COLUMNS
+        if column in SELECTED_NUMERIC_COLUMNS
+    ]
+    numeric_values = normalized[numeric_columns].to_numpy(
+        dtype="float64", na_value=np.nan
+    )
+    canonical_values = np.char.mod("%.15g", numeric_values)
+    canonical_values[pd.isna(numeric_values)] = ""
+    canonical_numeric = pd.DataFrame(
+        canonical_values,
+        index=normalized.index,
+        columns=numeric_columns,
+    )
+    identity_columns = [
+        column
+        for column in SELECTED_BASE_COLUMNS
+        if column not in SELECTED_NUMERIC_COLUMNS
+    ]
+    canonical = pd.concat(
+        [normalized[identity_columns], canonical_numeric], axis=1
+    )
+    return canonical[SELECTED_BASE_COLUMNS].to_dict(orient="records")
 
 
 def _selected_indicator_records(
@@ -533,16 +549,44 @@ def _selected_indicator_records(
     filtered["date"] = filtered["date"].map(safe_str)
     if before_date:
         filtered = filtered[filtered["date"].lt(before_date)]
-    records: list[dict[str, str]] = []
-    for _, row in filtered.sort_values("date").iterrows():
-        record = {
-            "date": safe_str(row.get("date")),
-            "stock_id": _normalize_selected_stock_id(row.get("stock_id")),
-        }
-        for column in SELECTED_INDICATOR_COLUMNS:
-            record[column] = _canonical_number(row.get(column, ""))
-        records.append(record)
-    return records
+    filtered = filtered.sort_values("date")
+
+    identity = pd.DataFrame(index=filtered.index)
+    identity["date"] = filtered["date"]
+    if "stock_id" in filtered.columns:
+        identity["stock_id"] = filtered["stock_id"].map(
+            _normalize_selected_stock_id
+        )
+    else:
+        identity["stock_id"] = ""
+
+    # The former row loop constructed a one-element Series for every indicator
+    # value. Convert the complete indicator matrix once, then apply the same
+    # float/.15g canonical form in one NumPy batch. NaN (including blanks and
+    # missing columns) remains the empty canonical value; signed zero remains
+    # "-0".
+    indicator_source = filtered.reindex(columns=SELECTED_INDICATOR_COLUMNS)
+    numeric = indicator_source.apply(pd.to_numeric, errors="coerce")
+    numeric_values = numeric.to_numpy(dtype="float64", na_value=np.nan)
+    canonical_values = np.char.mod("%.15g", numeric_values)
+    canonical_values[pd.isna(numeric_values)] = ""
+    # A singleton integer string such as "-0" was formerly inferred as int64,
+    # so its sign was discarded; a float -0.0 remained "-0". Inspect only the
+    # rare batch values formatted as signed zero to preserve that distinction.
+    for row_position, column_position in np.argwhere(canonical_values == "-0"):
+        source_value = indicator_source.iat[
+            int(row_position), int(column_position)
+        ]
+        if isinstance(source_value, str) and re.fullmatch(
+            r"\s*-0+\s*", source_value
+        ):
+            canonical_values[row_position, column_position] = "0"
+    canonical = pd.DataFrame(
+        canonical_values,
+        index=filtered.index,
+        columns=SELECTED_INDICATOR_COLUMNS,
+    )
+    return pd.concat([identity, canonical], axis=1).to_dict(orient="records")
 
 
 def _replay_selected_indicators(frame: pd.DataFrame) -> pd.DataFrame:
@@ -594,6 +638,49 @@ def _git_file_bytes(root: Path, base_sha: str, path_text: str) -> bytes | None:
         check=False,
     )
     return result.stdout if result.returncode == 0 else None
+
+
+def _git_tree_csv_paths(root: Path, base_sha: str, directory: str) -> set[str]:
+    result = subprocess.run(
+        ["git", "ls-tree", "-r", "--name-only", base_sha, "--", directory],
+        cwd=root,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if result.returncode != 0:
+        raise ValueError("selected repair cannot enumerate source-base history tree")
+    prefix = directory.rstrip("/") + "/"
+    return {
+        path_text.replace("\\", "/")
+        for path_text in result.stdout.splitlines()
+        if path_text.startswith(prefix) and path_text.lower().endswith(".csv")
+    }
+
+
+def _validate_git_filtered_paths_unchanged(
+    root: Path,
+    base_sha: str,
+    paths: set[str],
+) -> None:
+    """Compare working files to Git blobs through configured text filters."""
+
+    ordered_paths = sorted(paths)
+    for offset in range(0, len(ordered_paths), 128):
+        batch = ordered_paths[offset : offset + 128]
+        result = subprocess.run(
+            ["git", "diff", "--quiet", base_sha, "--", *batch],
+            cwd=root,
+            capture_output=True,
+            check=False,
+        )
+        if result.returncode == 1:
+            raise ValueError(
+                "selected repair changed outside-union history: "
+                + ",".join(batch[:5])
+            )
+        if result.returncode != 0:
+            raise ValueError("selected repair cannot compare outside-union histories")
 
 
 def _validate_selected_canonical_name_source_bindings(
@@ -988,12 +1075,18 @@ def validate_selected_repair(
         if path.is_file() and not path.is_symlink()
     }
     untouched_paths = current_history_paths - eligible_paths
-    if len(untouched_paths) != expected_untouched_history_count:
-        raise ValueError("selected repair independently derived untouched count mismatch")
-    for path_text in sorted(untouched_paths):
-        previous_payload = _git_file_bytes(root, source_base_sha, path_text)
-        if previous_payload is None or (root / path_text).read_bytes() != previous_payload:
-            raise ValueError(f"selected repair changed outside-union history: {path_text}")
+    base_history_paths = _git_tree_csv_paths(
+        root, source_base_sha, STOCK_HISTORY_DIR.as_posix()
+    )
+    base_untouched_paths = base_history_paths - eligible_paths
+    if (
+        len(untouched_paths) != expected_untouched_history_count
+        or base_untouched_paths != untouched_paths
+    ):
+        raise ValueError("selected repair outside-union history path set mismatch")
+    _validate_git_filtered_paths_unchanged(
+        root, source_base_sha, untouched_paths
+    )
 
     manifest_hashes = history.get("manifest_sha256s")
     expected_manifest_paths = {

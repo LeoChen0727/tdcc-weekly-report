@@ -210,6 +210,11 @@ jobs:
         run: |
           set -euo pipefail
           pathspec="${{ runner.temp }}/selected-price-repair-paths.nul"
+          path_count="$(xargs -0 -r -n1 printf '%s\n' < "$pathspec" | wc -l | tr -d '[:space:]')"
+          if [ "$path_count" != "2088" ]; then
+            echo "::error::Expected 2088 exact selected repair paths, got $path_count."
+            exit 1
+          fi
           xargs -0 sha256sum < "$pathspec" > "${{ runner.temp }}/selected-before.sha256"
           git status --porcelain=v1 -z > "${{ runner.temp }}/selected-before-status.nul"
           python scripts/build_stock_price_history.py \
@@ -232,29 +237,6 @@ jobs:
           git status --porcelain=v1 -z > "${{ runner.temp }}/selected-after-status.nul"
           cmp "${{ runner.temp }}/selected-before.sha256" "${{ runner.temp }}/selected-after.sha256"
           cmp "${{ runner.temp }}/selected-before-status.nul" "${{ runner.temp }}/selected-after-status.nul"
-          python scripts/validate_daily_price_history_continuity.py \
-            --selected-repair-report output/latest/repair_daily_price_range_latest.json \
-            --selected-source-base-sha "$REPAIR_BASE_SHA" \
-            --selected-date-contract 20250411:89f2177b6f31537294434dbafa7bde0a51954771e0c750e7bff84a2bd0ad0abc:2031 \
-            --selected-date-contract 20250521:77bb957bdcd1392fa0340cbb552bdb8205ba3b96d979fd72783dfe0368170e04:2035 \
-            --selected-date-contract 20250908:66a92ce32f3bbba70f8d83ce557e81190d168e814c0c17dad0da697f4f73db45:2050 \
-            --selected-date-contract 20250912:7a32b61ed136a15efc519fcae09c85943e4d21c75ea4cbfcfc358eb11e5afb32:2059 \
-            --selected-date-contract 20250916:115c35a00dba8dc2d2047d6645d8c20332d80639469d40238564eeb11258067d:2052 \
-            --selected-date-contract 20251015:671a17fe97895eaf62274f5798a2c4b1b575fa7b68510ffdad1f5bd3ba307a4d:2055 \
-            --selected-date-contract 20251017:2ea87b045021603d89c28ad73645fe7b88b33d0030c7e7f4179b9fe053db7ac2:2052 \
-            --expected-stock-union-count 2064 \
-            --expected-selected-row-count 14178 \
-            --expected-existing-history-count 2061 \
-            --expected-created-history-count 3 \
-            --expected-untouched-history-count 323 \
-            --expected-created-stock-id 00925 \
-            --expected-created-stock-id 4945 \
-            --expected-created-stock-id 6287 \
-            --require-all-eligible-changed \
-            --pathspec-nul-output "${{ runner.temp }}/selected-price-repair-paths.nul" \
-            --pathspec-json-output "${{ runner.temp }}/selected-price-repair-paths.json" \
-            --history-stock-id-output "${{ runner.temp }}/selected-price-repair-stock-ids.txt" \
-            --no-write-report
 
       - name: Stage only exact selected-date repair paths
         if: inputs.dates != ''

@@ -5,6 +5,7 @@ import json
 import subprocess
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
 import pytest
 
@@ -14,6 +15,271 @@ from scripts import repair_missing_daily_price_files as recovery
 from scripts import validate_daily_price_history_continuity as validator
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def _rowwise_selected_base_records_reference(
+    frame: pd.DataFrame,
+    *,
+    excluded_dates: set[str] | None = None,
+) -> list[dict[str, str]]:
+    """Frozen reference for the pre-vectorization base comparison semantics."""
+
+    excluded_dates = excluded_dates or set()
+    normalized = validator._normalize_selected_base(frame)
+    normalized = normalized[~normalized["date"].isin(excluded_dates)]
+    records: list[dict[str, str]] = []
+    for _, row in normalized.sort_values(["stock_id", "date"]).iterrows():
+        records.append(
+            {
+                column: (
+                    validator._canonical_number(row[column])
+                    if column in validator.SELECTED_NUMERIC_COLUMNS
+                    else validator.safe_str(row[column])
+                )
+                for column in validator.SELECTED_BASE_COLUMNS
+            }
+        )
+    return records
+
+
+def _rowwise_selected_indicator_records_reference(
+    frame: pd.DataFrame,
+    *,
+    before_date: str = "",
+) -> list[dict[str, str]]:
+    """Frozen reference for the pre-vectorization comparison semantics."""
+
+    if "date" not in frame.columns:
+        return []
+    filtered = frame.copy()
+    filtered["date"] = filtered["date"].map(validator.safe_str)
+    if before_date:
+        filtered = filtered[filtered["date"].lt(before_date)]
+    records: list[dict[str, str]] = []
+    for _, row in filtered.sort_values("date").iterrows():
+        record = {
+            "date": validator.safe_str(row.get("date")),
+            "stock_id": validator._normalize_selected_stock_id(row.get("stock_id")),
+        }
+        for column in validator.SELECTED_INDICATOR_COLUMNS:
+            record[column] = validator._canonical_number(row.get(column, ""))
+        records.append(record)
+    return records
+
+
+def test_selected_base_records_batch_matches_rowwise_edge_semantics() -> None:
+    frame = pd.DataFrame(
+        [
+            {
+                "date": "20250103",
+                "stock_id": "1.0",
+                "stock_name": " One ",
+                "market": " TWSE ",
+                "open": "",
+                "high": float("nan"),
+                "low": -0.0,
+                "close": "1",
+                "volume": "1.0",
+                "trading_value": 1.2345678901234567,
+                "source": " TEST ",
+                "source_file": r"C:\repo\data\daily_price\20250103.csv",
+            },
+            {
+                "date": "20250101",
+                "stock_id": "AB-12",
+                "stock_name": None,
+                "market": "TPEx",
+                "open": " 1.0 ",
+                "high": float("inf"),
+                "low": float("-inf"),
+                "close": "-0",
+                "volume": "0.000000123456789",
+                "trading_value": "1e20",
+                "source": "TPEX_TEST",
+                "source_file": "data/daily_price/daily_price_20250101.csv",
+            },
+            {
+                "date": "20250102",
+                "stock_id": None,
+                "stock_name": "Excluded",
+                "market": "TWSE",
+                "open": "not-a-number",
+                "high": "2.5",
+                "low": 0.0,
+                "close": "1.0",
+                "volume": None,
+                "trading_value": float("nan"),
+                "source": "TWSE_TEST",
+                "source_file": "data/daily_price/20250102.csv",
+            },
+        ]
+    )
+    excluded_dates = {"20250102"}
+
+    observed = validator._selected_base_records(
+        frame, excluded_dates=excluded_dates
+    )
+    expected = _rowwise_selected_base_records_reference(
+        frame, excluded_dates=excluded_dates
+    )
+    assert observed == expected
+    assert [(row["stock_id"], row["date"]) for row in observed] == [
+        ("0001", "20250103"),
+        ("AB12", "20250101"),
+    ]
+    assert observed[0]["open"] == observed[0]["high"] == ""
+    assert observed[0]["low"] == "-0"
+    assert observed[0]["close"] == observed[0]["volume"] == "1"
+    assert observed[0]["trading_value"] == "1.23456789012346"
+    assert observed[0]["source_file"] == "data/daily_price/20250103.csv"
+    assert observed[1]["close"] == "-0"
+    assert observed[1]["high"] == "inf"
+    assert observed[1]["low"] == "-inf"
+
+
+def test_selected_base_records_batch_matches_rowwise_random_semantics() -> None:
+    rng = np.random.default_rng(20260814)
+    row_count = 256
+    frame = pd.DataFrame(
+        {
+            "date": [f"2025{month:02d}{day:02d}" for month, day in zip(
+                rng.integers(1, 13, row_count),
+                rng.integers(1, 29, row_count),
+            )],
+            "stock_id": rng.choice(["2330", "1.0", "00925", "AB-12"], row_count),
+            "stock_name": rng.choice(["Alpha", " Beta ", ""], row_count),
+            "market": rng.choice(["TWSE", "TPEx"], row_count),
+            "source": rng.choice(["TWSE_TEST", "TPEX_TEST"], row_count),
+            "source_file": [
+                f"C:/repo/data/daily_price/{index:08d}.csv"
+                for index in range(row_count)
+            ],
+        }
+    )
+    edge_values: list[object] = [
+        "",
+        None,
+        float("nan"),
+        -0.0,
+        0,
+        "1",
+        "1.0",
+        float("inf"),
+        float("-inf"),
+        "1.2345678901234567",
+    ]
+    for column in sorted(validator.SELECTED_NUMERIC_COLUMNS):
+        values: list[object] = rng.normal(size=row_count).astype(object).tolist()
+        for index, value in enumerate(edge_values):
+            values[index] = value
+        frame[column] = values
+
+    excluded_dates = {frame.loc[7, "date"], frame.loc[31, "date"]}
+    assert validator._selected_base_records(
+        frame, excluded_dates=excluded_dates
+    ) == _rowwise_selected_base_records_reference(
+        frame, excluded_dates=excluded_dates
+    )
+
+
+def test_selected_base_records_detects_single_canonical_value_drift() -> None:
+    baseline = pd.DataFrame(
+        [
+            {"date": "20250101", "stock_id": "2330", "close": "100.0"},
+            {"date": "20250102", "stock_id": "2330", "close": "101.0"},
+        ]
+    )
+    changed = baseline.copy()
+    changed.loc[changed["date"].eq("20250102"), "close"] = "101.0001"
+
+    before = validator._selected_base_records(baseline)
+    after = validator._selected_base_records(changed)
+    differences = [
+        (row_index, column)
+        for row_index, (left, right) in enumerate(zip(before, after))
+        for column in left
+        if left[column] != right[column]
+    ]
+    assert differences == [(1, "close")]
+
+
+def test_selected_indicator_records_batch_matches_rowwise_canonical_semantics() -> None:
+    frame = pd.DataFrame(
+        [
+            {
+                "date": "20250103",
+                "stock_id": "1.0",
+                "ma5": "",
+                "ma20": float("nan"),
+                "ma60": -0.0,
+                "ma120": "1",
+                "ema23": "1.0",
+                "return_1d": 1.2345678901234567,
+            },
+            {
+                "date": "20250101",
+                "stock_id": "AB-12",
+                "ma5": " 1.0 ",
+                "ma20": None,
+                "ma60": "-0",
+                "ma120": 1.0,
+                "ema23": 1,
+                "return_1d": "0.000000123456789",
+            },
+            {
+                "date": "20250102",
+                "stock_id": None,
+                "ma5": "not-a-number",
+                "ma20": "2.5",
+                "ma60": 0.0,
+                "ma120": "1e20",
+                "ema23": float("inf"),
+                "return_1d": float("-inf"),
+            },
+        ]
+    )
+
+    observed = validator._selected_indicator_records(frame)
+    expected = _rowwise_selected_indicator_records_reference(frame)
+    assert observed == expected
+    assert [row["date"] for row in observed] == [
+        "20250101",
+        "20250102",
+        "20250103",
+    ]
+    assert observed[0]["stock_id"] == "AB12"
+    assert observed[2]["stock_id"] == "0001"
+    assert observed[2]["ma5"] == ""
+    assert observed[2]["ma20"] == ""
+    assert observed[2]["ma60"] == "-0"
+    assert observed[2]["ma120"] == observed[2]["ema23"] == "1"
+    assert observed[2]["return_1d"] == "1.23456789012346"
+    assert validator._selected_indicator_records(
+        frame, before_date="20250103"
+    ) == _rowwise_selected_indicator_records_reference(
+        frame, before_date="20250103"
+    )
+
+
+def test_selected_indicator_records_detects_single_canonical_value_drift() -> None:
+    baseline = pd.DataFrame(
+        [
+            {"date": "20250101", "stock_id": "2330", "volume_ratio": "1.0"},
+            {"date": "20250102", "stock_id": "2330", "volume_ratio": "1.0"},
+        ]
+    )
+    changed = baseline.copy()
+    changed.loc[changed["date"].eq("20250102"), "volume_ratio"] = "1.0001"
+
+    before = validator._selected_indicator_records(baseline)
+    after = validator._selected_indicator_records(changed)
+    differences = [
+        (row_index, column)
+        for row_index, (left, right) in enumerate(zip(before, after))
+        for column in left
+        if left[column] != right[column]
+    ]
+    assert differences == [(1, "volume_ratio")]
 
 
 def _write_freshness(root: Path, main_price_date: str) -> None:
@@ -456,6 +722,7 @@ def _setup_selected_validator_case(tmp_path: Path) -> tuple[str, str, dict[str, 
     subprocess.run(["git", "config", "user.email", "test@example.invalid"], cwd=tmp_path, check=True)
     subprocess.run(["git", "config", "user.name", "Test"], cwd=tmp_path, check=True)
     subprocess.run(["git", "config", "core.autocrlf", "false"], cwd=tmp_path, check=True)
+    (tmp_path / ".gitattributes").write_bytes(b"*.csv text\n")
     history_dir = tmp_path / "data" / "stock_price_history"
     history_dir.mkdir(parents=True)
     base_2330 = _selected_history(
@@ -476,7 +743,14 @@ def _setup_selected_validator_case(tmp_path: Path) -> tuple[str, str, dict[str, 
             f"stock_id,stock_name\n{1000 + index},Name {index}\n".encode("utf-8")
         )
     subprocess.run(
-        ["git", "add", "data/stock_price_history", "output/latest", "docs/latest"],
+        [
+            "git",
+            "add",
+            ".gitattributes",
+            "data/stock_price_history",
+            "output/latest",
+            "docs/latest",
+        ],
         cwd=tmp_path,
         check=True,
     )
@@ -657,6 +931,75 @@ def test_selected_repair_validator_independently_replays_and_writes_exact_pathsp
     assert len(expected_paths) == 14
     assert pathspec_nul.read_bytes().endswith(b"\0")
     assert stock_ids.read_text(encoding="ascii") == "00925\n2330\n"
+
+
+def test_selected_repair_untouched_history_uses_git_filtered_content(
+    tmp_path: Path,
+) -> None:
+    base_sha, _, contracts = _setup_selected_validator_case(tmp_path)
+    untouched = tmp_path / "data/stock_price_history/9999.csv"
+    lf_payload = untouched.read_bytes().replace(b"\r\n", b"\n")
+    crlf_payload = lf_payload.replace(b"\n", b"\r\n")
+    assert hashlib.sha256(crlf_payload).digest() != hashlib.sha256(lf_payload).digest()
+    untouched.write_bytes(crlf_payload)
+    base_blob = subprocess.check_output(
+        ["git", "rev-parse", f"{base_sha}:data/stock_price_history/9999.csv"],
+        cwd=tmp_path,
+        text=True,
+    ).strip()
+    filtered_blob = subprocess.check_output(
+        ["git", "hash-object", "--", "data/stock_price_history/9999.csv"],
+        cwd=tmp_path,
+        text=True,
+    ).strip()
+    assert filtered_blob == base_blob
+
+    summary = validator.validate_selected_repair(
+        tmp_path,
+        report_path=Path("output/latest/repair_daily_price_range_latest.json"),
+        source_base_sha=base_sha,
+        date_contracts=contracts,
+        expected_stock_union_count=2,
+        expected_selected_row_count=2,
+        expected_existing_history_count=1,
+        expected_created_history_count=1,
+        expected_untouched_history_count=1,
+        expected_created_stock_ids={"00925"},
+        require_all_eligible_changed=True,
+    )
+    assert summary["stock_union_count"] == 2
+
+
+@pytest.mark.parametrize("mutation", ["value", "deletion"])
+def test_selected_repair_untouched_history_rejects_semantic_change_or_deletion(
+    tmp_path: Path,
+    mutation: str,
+) -> None:
+    base_sha, _, contracts = _setup_selected_validator_case(tmp_path)
+    untouched = tmp_path / "data/stock_price_history/9999.csv"
+    if mutation == "value":
+        frame = pd.read_csv(untouched, dtype=str).fillna("")
+        frame.loc[0, "close"] = "999"
+        frame.to_csv(untouched, index=False, lineterminator="\n")
+        expected_message = "changed outside-union history"
+    else:
+        untouched.unlink()
+        expected_message = "outside-union history path set mismatch"
+
+    with pytest.raises(ValueError, match=expected_message):
+        validator.validate_selected_repair(
+            tmp_path,
+            report_path=Path("output/latest/repair_daily_price_range_latest.json"),
+            source_base_sha=base_sha,
+            date_contracts=contracts,
+            expected_stock_union_count=2,
+            expected_selected_row_count=2,
+            expected_existing_history_count=1,
+            expected_created_history_count=1,
+            expected_untouched_history_count=1,
+            expected_created_stock_ids={"00925"},
+            require_all_eligible_changed=True,
+        )
 
 
 def test_selected_repair_validator_rejects_canonical_name_source_drift(
@@ -1023,6 +1366,9 @@ def test_exact_selected_workflow_is_opt_in_bounded_and_no_full_rebuild() -> None
     )[1].split(
         "      - name: Prove controlled history repair second apply is byte-identical", 1
     )[0]
+    idempotency_step = workflow.split(
+        "      - name: Prove controlled history repair second apply is byte-identical", 1
+    )[1].split("      - name: Stage only exact selected-date repair paths", 1)[0]
 
     assert 'default: ""' in dates_input
     assert "daily-full-pipeline-${{ github.ref }}" in workflow
@@ -1037,7 +1383,7 @@ def test_exact_selected_workflow_is_opt_in_bounded_and_no_full_rebuild() -> None
         "20251017": ("2ea87b045021603d89c28ad73645fe7b88b33d0030c7e7f4179b9fe053db7ac2", 2052),
     }
     for date_text, (expected_sha, expected_rows) in expected_contracts.items():
-        assert workflow.count(f"{date_text}:{expected_sha}:{expected_rows}") == 3
+        assert workflow.count(f"{date_text}:{expected_sha}:{expected_rows}") == 2
     assert "--repair-date 20250411" in exact_step
     assert "--repair-date 20251017" in exact_step
     assert "--expected-stock-union-count 2064" in exact_step
@@ -1050,10 +1396,25 @@ def test_exact_selected_workflow_is_opt_in_bounded_and_no_full_rebuild() -> None
     assert "--selected-repair-report" in workflow
     assert "python - <<'PY'" not in workflow
     assert workflow.count("--repair-date 20250411") == 2
-    assert workflow.count("--selected-repair-report") == 2
-    assert "selected-before.sha256" in workflow
-    assert "selected-after.sha256" in workflow
-    assert workflow.count("cmp \"") >= 2
+    assert workflow.count("--selected-repair-report") == 1
+    assert validator_step.count(
+        "python scripts/validate_daily_price_history_continuity.py"
+    ) == 1
+    assert validator_step.count("--selected-date-contract") == 7
+    assert "--require-all-eligible-changed" in validator_step
+    assert "--pathspec-nul-output" in validator_step
+    assert "python scripts/validate_daily_price_history_continuity.py" not in (
+        idempotency_step
+    )
+    assert "path_count" in idempotency_step
+    assert '"$path_count" != "2088"' in idempotency_step
+    assert idempotency_step.count("xargs -0 sha256sum") == 2
+    assert idempotency_step.count("git status --porcelain=v1 -z") == 2
+    assert idempotency_step.count("cmp \"") == 2
+    assert "selected-before.sha256" in idempotency_step
+    assert "selected-after.sha256" in idempotency_step
+    assert "selected-before-status.nul" in idempotency_step
+    assert "selected-after-status.nul" in idempotency_step
     assert "git add --pathspec-from-file=" not in stage_step
     assert 'git add -- "data/stock_price_history/${stock_id}.csv"' in stage_step
     assert stage_step.count("data/daily_price/") == 14
