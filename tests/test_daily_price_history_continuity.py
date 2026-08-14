@@ -1,14 +1,285 @@
 from __future__ import annotations
 
+import hashlib
+import json
+import subprocess
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
+import pytest
 
+from scripts import build_stock_price_history as history_builder
 from scripts import repair_recent_daily_price_gaps as recent_repair
 from scripts import repair_missing_daily_price_files as recovery
 from scripts import validate_daily_price_history_continuity as validator
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def _rowwise_selected_base_records_reference(
+    frame: pd.DataFrame,
+    *,
+    excluded_dates: set[str] | None = None,
+) -> list[dict[str, str]]:
+    """Frozen reference for the pre-vectorization base comparison semantics."""
+
+    excluded_dates = excluded_dates or set()
+    normalized = validator._normalize_selected_base(frame)
+    normalized = normalized[~normalized["date"].isin(excluded_dates)]
+    records: list[dict[str, str]] = []
+    for _, row in normalized.sort_values(["stock_id", "date"]).iterrows():
+        records.append(
+            {
+                column: (
+                    validator._canonical_number(row[column])
+                    if column in validator.SELECTED_NUMERIC_COLUMNS
+                    else validator.safe_str(row[column])
+                )
+                for column in validator.SELECTED_BASE_COLUMNS
+            }
+        )
+    return records
+
+
+def _rowwise_selected_indicator_records_reference(
+    frame: pd.DataFrame,
+    *,
+    before_date: str = "",
+) -> list[dict[str, str]]:
+    """Frozen reference for the pre-vectorization comparison semantics."""
+
+    if "date" not in frame.columns:
+        return []
+    filtered = frame.copy()
+    filtered["date"] = filtered["date"].map(validator.safe_str)
+    if before_date:
+        filtered = filtered[filtered["date"].lt(before_date)]
+    records: list[dict[str, str]] = []
+    for _, row in filtered.sort_values("date").iterrows():
+        record = {
+            "date": validator.safe_str(row.get("date")),
+            "stock_id": validator._normalize_selected_stock_id(row.get("stock_id")),
+        }
+        for column in validator.SELECTED_INDICATOR_COLUMNS:
+            record[column] = validator._canonical_number(row.get(column, ""))
+        records.append(record)
+    return records
+
+
+def test_selected_base_records_batch_matches_rowwise_edge_semantics() -> None:
+    frame = pd.DataFrame(
+        [
+            {
+                "date": "20250103",
+                "stock_id": "1.0",
+                "stock_name": " One ",
+                "market": " TWSE ",
+                "open": "",
+                "high": float("nan"),
+                "low": -0.0,
+                "close": "1",
+                "volume": "1.0",
+                "trading_value": 1.2345678901234567,
+                "source": " TEST ",
+                "source_file": r"C:\repo\data\daily_price\20250103.csv",
+            },
+            {
+                "date": "20250101",
+                "stock_id": "AB-12",
+                "stock_name": None,
+                "market": "TPEx",
+                "open": " 1.0 ",
+                "high": float("inf"),
+                "low": float("-inf"),
+                "close": "-0",
+                "volume": "0.000000123456789",
+                "trading_value": "1e20",
+                "source": "TPEX_TEST",
+                "source_file": "data/daily_price/daily_price_20250101.csv",
+            },
+            {
+                "date": "20250102",
+                "stock_id": None,
+                "stock_name": "Excluded",
+                "market": "TWSE",
+                "open": "not-a-number",
+                "high": "2.5",
+                "low": 0.0,
+                "close": "1.0",
+                "volume": None,
+                "trading_value": float("nan"),
+                "source": "TWSE_TEST",
+                "source_file": "data/daily_price/20250102.csv",
+            },
+        ]
+    )
+    excluded_dates = {"20250102"}
+
+    observed = validator._selected_base_records(
+        frame, excluded_dates=excluded_dates
+    )
+    expected = _rowwise_selected_base_records_reference(
+        frame, excluded_dates=excluded_dates
+    )
+    assert observed == expected
+    assert [(row["stock_id"], row["date"]) for row in observed] == [
+        ("0001", "20250103"),
+        ("AB12", "20250101"),
+    ]
+    assert observed[0]["open"] == observed[0]["high"] == ""
+    assert observed[0]["low"] == "-0"
+    assert observed[0]["close"] == observed[0]["volume"] == "1"
+    assert observed[0]["trading_value"] == "1.23456789012346"
+    assert observed[0]["source_file"] == "data/daily_price/20250103.csv"
+    assert observed[1]["close"] == "-0"
+    assert observed[1]["high"] == "inf"
+    assert observed[1]["low"] == "-inf"
+
+
+def test_selected_base_records_batch_matches_rowwise_random_semantics() -> None:
+    rng = np.random.default_rng(20260814)
+    row_count = 256
+    frame = pd.DataFrame(
+        {
+            "date": [f"2025{month:02d}{day:02d}" for month, day in zip(
+                rng.integers(1, 13, row_count),
+                rng.integers(1, 29, row_count),
+            )],
+            "stock_id": rng.choice(["2330", "1.0", "00925", "AB-12"], row_count),
+            "stock_name": rng.choice(["Alpha", " Beta ", ""], row_count),
+            "market": rng.choice(["TWSE", "TPEx"], row_count),
+            "source": rng.choice(["TWSE_TEST", "TPEX_TEST"], row_count),
+            "source_file": [
+                f"C:/repo/data/daily_price/{index:08d}.csv"
+                for index in range(row_count)
+            ],
+        }
+    )
+    edge_values: list[object] = [
+        "",
+        None,
+        float("nan"),
+        -0.0,
+        0,
+        "1",
+        "1.0",
+        float("inf"),
+        float("-inf"),
+        "1.2345678901234567",
+    ]
+    for column in sorted(validator.SELECTED_NUMERIC_COLUMNS):
+        values: list[object] = rng.normal(size=row_count).astype(object).tolist()
+        for index, value in enumerate(edge_values):
+            values[index] = value
+        frame[column] = values
+
+    excluded_dates = {frame.loc[7, "date"], frame.loc[31, "date"]}
+    assert validator._selected_base_records(
+        frame, excluded_dates=excluded_dates
+    ) == _rowwise_selected_base_records_reference(
+        frame, excluded_dates=excluded_dates
+    )
+
+
+def test_selected_base_records_detects_single_canonical_value_drift() -> None:
+    baseline = pd.DataFrame(
+        [
+            {"date": "20250101", "stock_id": "2330", "close": "100.0"},
+            {"date": "20250102", "stock_id": "2330", "close": "101.0"},
+        ]
+    )
+    changed = baseline.copy()
+    changed.loc[changed["date"].eq("20250102"), "close"] = "101.0001"
+
+    before = validator._selected_base_records(baseline)
+    after = validator._selected_base_records(changed)
+    differences = [
+        (row_index, column)
+        for row_index, (left, right) in enumerate(zip(before, after))
+        for column in left
+        if left[column] != right[column]
+    ]
+    assert differences == [(1, "close")]
+
+
+def test_selected_indicator_records_batch_matches_rowwise_canonical_semantics() -> None:
+    frame = pd.DataFrame(
+        [
+            {
+                "date": "20250103",
+                "stock_id": "1.0",
+                "ma5": "",
+                "ma20": float("nan"),
+                "ma60": -0.0,
+                "ma120": "1",
+                "ema23": "1.0",
+                "return_1d": 1.2345678901234567,
+            },
+            {
+                "date": "20250101",
+                "stock_id": "AB-12",
+                "ma5": " 1.0 ",
+                "ma20": None,
+                "ma60": "-0",
+                "ma120": 1.0,
+                "ema23": 1,
+                "return_1d": "0.000000123456789",
+            },
+            {
+                "date": "20250102",
+                "stock_id": None,
+                "ma5": "not-a-number",
+                "ma20": "2.5",
+                "ma60": 0.0,
+                "ma120": "1e20",
+                "ema23": float("inf"),
+                "return_1d": float("-inf"),
+            },
+        ]
+    )
+
+    observed = validator._selected_indicator_records(frame)
+    expected = _rowwise_selected_indicator_records_reference(frame)
+    assert observed == expected
+    assert [row["date"] for row in observed] == [
+        "20250101",
+        "20250102",
+        "20250103",
+    ]
+    assert observed[0]["stock_id"] == "AB12"
+    assert observed[2]["stock_id"] == "0001"
+    assert observed[2]["ma5"] == ""
+    assert observed[2]["ma20"] == ""
+    assert observed[2]["ma60"] == "-0"
+    assert observed[2]["ma120"] == observed[2]["ema23"] == "1"
+    assert observed[2]["return_1d"] == "1.23456789012346"
+    assert validator._selected_indicator_records(
+        frame, before_date="20250103"
+    ) == _rowwise_selected_indicator_records_reference(
+        frame, before_date="20250103"
+    )
+
+
+def test_selected_indicator_records_detects_single_canonical_value_drift() -> None:
+    baseline = pd.DataFrame(
+        [
+            {"date": "20250101", "stock_id": "2330", "volume_ratio": "1.0"},
+            {"date": "20250102", "stock_id": "2330", "volume_ratio": "1.0"},
+        ]
+    )
+    changed = baseline.copy()
+    changed.loc[changed["date"].eq("20250102"), "volume_ratio"] = "1.0001"
+
+    before = validator._selected_indicator_records(baseline)
+    after = validator._selected_indicator_records(changed)
+    differences = [
+        (row_index, column)
+        for row_index, (left, right) in enumerate(zip(before, after))
+        for column in left
+        if left[column] != right[column]
+    ]
+    assert differences == [(1, "volume_ratio")]
 
 
 def _write_freshness(root: Path, main_price_date: str) -> None:
@@ -334,3 +605,819 @@ def test_repair_workflows_use_shared_repair_script_not_deleted_fetch_functions()
         assert "fetch_twse_daily_price" not in text
         assert "fetch_tpex_daily_price" not in text
         assert "is_valid_trading_day_data" not in text
+
+
+def _selected_history(rows: list[dict[str, object]]) -> pd.DataFrame:
+    return history_builder.round_numeric_columns(
+        history_builder.add_indicators(
+            history_builder.normalize_base_frame(pd.DataFrame(rows))
+        )
+    )
+
+
+def _selected_row(
+    date_text: str,
+    stock_id: str,
+    *,
+    close: float,
+    source: str,
+) -> dict[str, object]:
+    return {
+        "date": date_text,
+        "stock_id": stock_id,
+        "stock_name": f"Name {stock_id}",
+        "market": "TWSE" if source.startswith("TWSE") else "TPEx",
+        "open": close - 1,
+        "high": close + 1,
+        "low": close - 2,
+        "close": close,
+        "volume": 1000,
+        "trading_value": 100000,
+        "source": source,
+        "source_file": f"data/daily_price/daily_price_{date_text}.csv",
+    }
+
+
+def _selected_manifest_frame(root: Path) -> pd.DataFrame:
+    rows: list[dict[str, object]] = []
+    for path in sorted((root / "data" / "stock_price_history").glob("*.csv")):
+        frame = pd.read_csv(path, dtype=str).fillna("").sort_values("date")
+        latest = frame.iloc[-1]
+        stock_id = path.stem
+        rows.append(
+            {
+                "stock_id": stock_id,
+                "stock_name": latest["stock_name"],
+                "market": latest["market"],
+                "rows": len(frame),
+                "start_date": frame["date"].iloc[0],
+                "end_date": frame["date"].iloc[-1],
+                "latest_close": latest["close"],
+                "latest_volume": latest["volume"],
+                "file_path": f"data/stock_price_history/{stock_id}.csv",
+                "raw_url": (
+                    "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/"
+                    f"data/stock_price_history/{stock_id}.csv"
+                ),
+            }
+        )
+    return pd.DataFrame(rows)
+
+
+def _write_selected_manifest_mirrors(
+    root: Path,
+    *,
+    generated_at: str,
+    status: str,
+) -> dict[str, str]:
+    latest = root / "output" / "latest"
+    docs_latest = root / "docs" / "latest"
+    latest.mkdir(parents=True, exist_ok=True)
+    docs_latest.mkdir(parents=True, exist_ok=True)
+    manifest = _selected_manifest_frame(root)
+    payloads = {
+        "stock_price_history_manifest.csv": manifest.to_csv(
+            index=False, lineterminator="\n"
+        ).encode("utf-8"),
+        "stock_price_history_manifest.json": (
+            json.dumps(
+                {
+                    "generated_at": generated_at,
+                    "status": status,
+                    "stock_count": len(manifest),
+                    "daily_price_file_count": len(
+                        list((root / "data" / "daily_price").glob("*.csv"))
+                    ),
+                    "manifest_csv": "output/latest/stock_price_history_manifest.csv",
+                    "manifest_raw_url": (
+                        "https://raw.githubusercontent.com/LeoChen0727/"
+                        "tdcc-weekly-report/main/output/latest/"
+                        "stock_price_history_manifest.csv"
+                    ),
+                    "manifest_pages_url": (
+                        "https://LeoChen0727.github.io/tdcc-weekly-report/"
+                        "latest/stock_price_history_manifest.csv"
+                    ),
+                    "history_dir": "data/stock_price_history",
+                    "preserved_extension": {"source": "base"},
+                },
+                sort_keys=True,
+            )
+            + "\n"
+        ).encode("utf-8"),
+        "stock_price_history_manifest.md": (
+            "# manifest\n\n" + ",".join(manifest["stock_id"].astype(str)) + "\n"
+        ).encode("utf-8"),
+    }
+    hashes: dict[str, str] = {}
+    for name, payload in payloads.items():
+        for directory, prefix in ((latest, "output/latest"), (docs_latest, "docs/latest")):
+            (directory / name).write_bytes(payload)
+            hashes[f"{prefix}/{name}"] = hashlib.sha256(payload).hexdigest()
+    return hashes
+
+
+def _setup_selected_validator_case(tmp_path: Path) -> tuple[str, str, dict[str, tuple[str, int]]]:
+    subprocess.run(["git", "init", "-q"], cwd=tmp_path, check=True)
+    subprocess.run(["git", "config", "user.email", "test@example.invalid"], cwd=tmp_path, check=True)
+    subprocess.run(["git", "config", "user.name", "Test"], cwd=tmp_path, check=True)
+    subprocess.run(["git", "config", "core.autocrlf", "false"], cwd=tmp_path, check=True)
+    (tmp_path / ".gitattributes").write_bytes(b"*.csv text\n")
+    history_dir = tmp_path / "data" / "stock_price_history"
+    history_dir.mkdir(parents=True)
+    base_2330 = _selected_history(
+        [_selected_row("20250410", "2330", close=100, source="TWSE_TEST")]
+    )
+    base_9999 = _selected_history(
+        [_selected_row("20250410", "9999", close=50, source="TWSE_TEST")]
+    )
+    base_2330.to_csv(history_dir / "2330.csv", index=False, lineterminator="\n")
+    base_9999.to_csv(history_dir / "9999.csv", index=False, lineterminator="\n")
+    _write_selected_manifest_mirrors(tmp_path, generated_at="before", status="generated")
+    for index, path_text in enumerate(
+        validator.SELECTED_CANONICAL_STOCK_NAME_SOURCE_PATHS
+    ):
+        path = tmp_path / path_text
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(
+            f"stock_id,stock_name\n{1000 + index},Name {index}\n".encode("utf-8")
+        )
+    subprocess.run(
+        [
+            "git",
+            "add",
+            ".gitattributes",
+            "data/stock_price_history",
+            "output/latest",
+            "docs/latest",
+        ],
+        cwd=tmp_path,
+        check=True,
+    )
+    subprocess.run(["git", "commit", "-qm", "base"], cwd=tmp_path, check=True)
+    base_sha = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=tmp_path, text=True).strip()
+    canonical_name_bindings = []
+    for path_text in validator.SELECTED_CANONICAL_STOCK_NAME_SOURCE_PATHS:
+        blob_sha = subprocess.check_output(
+            ["git", "rev-parse", f"{base_sha}:{path_text}"], cwd=tmp_path, text=True
+        ).strip()
+        blob_payload = subprocess.check_output(
+            ["git", "show", f"{base_sha}:{path_text}"], cwd=tmp_path
+        )
+        canonical_name_bindings.append(
+            {
+                "path": path_text,
+                "git_blob_sha": blob_sha,
+                "git_blob_raw_sha256": hashlib.sha256(blob_payload).hexdigest(),
+            }
+        )
+
+    date_text = "20250411"
+    selected_rows = [
+        _selected_row(date_text, "2330", close=105, source="TWSE_TEST"),
+        _selected_row(date_text, "00925", close=20, source="TPEX_TEST"),
+    ]
+    raw_rows = selected_rows + [
+        _selected_row(date_text, "707631", close=1, source="TPEX_TEST"),
+        _selected_row(date_text, "ABC1234", close=2, source="TWSE_TEST"),
+    ]
+    daily = pd.DataFrame(raw_rows).drop(columns=["source_file"])
+    daily_dir = tmp_path / "data" / "daily_price"
+    daily_dir.mkdir(parents=True)
+    canonical = daily_dir / f"daily_price_{date_text}.csv"
+    daily.to_csv(canonical, index=False, encoding="utf-8-sig", lineterminator="\n")
+    (daily_dir / f"{date_text}.csv").write_bytes(canonical.read_bytes())
+    daily_sha = hashlib.sha256(canonical.read_bytes()).hexdigest()
+
+    current_2330 = _selected_history(
+        [
+            _selected_row("20250410", "2330", close=100, source="TWSE_TEST"),
+            selected_rows[0],
+        ]
+    )
+    created_00925 = _selected_history([selected_rows[1]])
+    current_2330.to_csv(history_dir / "2330.csv", index=False, lineterminator="\n")
+    created_00925.to_csv(history_dir / "00925.csv", index=False, lineterminator="\n")
+
+    latest = tmp_path / "output" / "latest"
+    manifest_hashes = _write_selected_manifest_mirrors(
+        tmp_path, generated_at="after", status="selected_date_repair"
+    )
+
+    changed_hashes = {
+        "data/stock_price_history/00925.csv": hashlib.sha256(
+            (history_dir / "00925.csv").read_bytes()
+        ).hexdigest(),
+        "data/stock_price_history/2330.csv": hashlib.sha256(
+            (history_dir / "2330.csv").read_bytes()
+        ).hexdigest(),
+    }
+    report = {
+        "schema_version": "repair_daily_price_range_v2",
+        "mode": "selected_dates",
+        "source_base_sha": base_sha,
+        "selected_dates": [date_text],
+        "expected_date_contracts": [
+            {"date": date_text, "sha256": daily_sha, "row_count": 4}
+        ],
+        "canonical_stock_name_source_bindings": canonical_name_bindings,
+        "rows": [
+            {
+                "date": date_text,
+                "status": "repaired",
+                "total_rows": 4,
+                "saved_files": (
+                    f"data/daily_price/{date_text}.csv;"
+                    f"data/daily_price/daily_price_{date_text}.csv"
+                ),
+                "canonical_path": f"data/daily_price/daily_price_{date_text}.csv",
+                "legacy_path": f"data/daily_price/{date_text}.csv",
+                "price_sha256": daily_sha,
+                "fetch_response_provenance": [
+                    {
+                        "source_name": "TWSE_TEST",
+                        "endpoint": "https://example.test/twse",
+                        "attempt": 1,
+                        "status_code": 200,
+                        "expected_response_date": date_text,
+                        "exact_date_match": True,
+                        "raw_sha256": "a" * 64,
+                        "normalized_sha256": "b" * 64,
+                    },
+                    {
+                        "source_name": "TPEX_TEST",
+                        "endpoint": "https://example.test/tpex",
+                        "attempt": 1,
+                        "status_code": 200,
+                        "expected_response_date": date_text,
+                        "exact_date_match": True,
+                        "raw_sha256": "c" * 64,
+                        "normalized_sha256": "d" * 64,
+                    },
+                ],
+            }
+        ],
+        "history_repair": {
+            "eligible_stock_union_count": 2,
+            "eligible_stock_date_row_count": 2,
+            "existing_history_count": 1,
+            "created_history_count": 1,
+            "created_history_stock_ids": ["00925"],
+            "eligible_history_paths": sorted(changed_hashes),
+            "changed_history_paths": sorted(changed_hashes),
+            "changed_history_sha256s": changed_hashes,
+            "selected_rows_injected_existing_histories": 1,
+            "selected_rows_created_histories": 1,
+            "new_history_source_coverage": [
+                {
+                    "stock_id": "00925",
+                    "new_history_source_coverage": "target_dates_only",
+                    "source_rows": 1,
+                    "outside_selected_date_source_rows": 0,
+                }
+            ],
+            "non_selected_base_before_sha256": "a" * 64,
+            "non_selected_base_after_sha256": "a" * 64,
+            "pre_repair_indicator_before_sha256": "b" * 64,
+            "pre_repair_indicator_after_sha256": "b" * 64,
+            "untouched_history_count": 1,
+            "untouched_history_before_sha256": "c" * 64,
+            "untouched_history_after_sha256": "c" * 64,
+            "manifest_sha256s": manifest_hashes,
+            "manifest_paths": sorted(manifest_hashes),
+            "generated_at": "after",
+        },
+    }
+    report_path = latest / "repair_daily_price_range_latest.json"
+    report_path.write_text(json.dumps(report), encoding="utf-8")
+    for name in (
+        "repair_daily_price_range_latest.csv",
+        "repair_daily_price_range_check_code_latest.csv",
+        "repair_daily_price_range_latest.md",
+    ):
+        (latest / name).write_text("test\n", encoding="utf-8")
+    return base_sha, date_text, {date_text: (daily_sha, 4)}
+
+
+def test_selected_repair_validator_independently_replays_and_writes_exact_pathspec(
+    tmp_path: Path,
+) -> None:
+    base_sha, _, contracts = _setup_selected_validator_case(tmp_path)
+    pathspec_nul = tmp_path / "temp" / "paths.nul"
+    pathspec_json = tmp_path / "temp" / "paths.json"
+    stock_ids = tmp_path / "temp" / "stock-ids.txt"
+
+    summary = validator.validate_selected_repair(
+        tmp_path,
+        report_path=Path("output/latest/repair_daily_price_range_latest.json"),
+        source_base_sha=base_sha,
+        date_contracts=contracts,
+        expected_stock_union_count=2,
+        expected_selected_row_count=2,
+        expected_existing_history_count=1,
+        expected_created_history_count=1,
+        expected_untouched_history_count=1,
+        expected_created_stock_ids={"00925"},
+        require_all_eligible_changed=True,
+        pathspec_nul_output=pathspec_nul,
+        pathspec_json_output=pathspec_json,
+        history_stock_id_output=stock_ids,
+    )
+
+    assert summary["selected_row_count"] == 2
+    assert summary["stock_union_count"] == 2
+    assert summary["changed_history_count"] == 2
+    expected_paths = json.loads(pathspec_json.read_text(encoding="utf-8"))
+    assert len(expected_paths) == 14
+    assert pathspec_nul.read_bytes().endswith(b"\0")
+    assert stock_ids.read_text(encoding="ascii") == "00925\n2330\n"
+
+
+def test_selected_repair_untouched_history_uses_git_filtered_content(
+    tmp_path: Path,
+) -> None:
+    base_sha, _, contracts = _setup_selected_validator_case(tmp_path)
+    untouched = tmp_path / "data/stock_price_history/9999.csv"
+    lf_payload = untouched.read_bytes().replace(b"\r\n", b"\n")
+    crlf_payload = lf_payload.replace(b"\n", b"\r\n")
+    assert hashlib.sha256(crlf_payload).digest() != hashlib.sha256(lf_payload).digest()
+    untouched.write_bytes(crlf_payload)
+    base_blob = subprocess.check_output(
+        ["git", "rev-parse", f"{base_sha}:data/stock_price_history/9999.csv"],
+        cwd=tmp_path,
+        text=True,
+    ).strip()
+    filtered_blob = subprocess.check_output(
+        ["git", "hash-object", "--", "data/stock_price_history/9999.csv"],
+        cwd=tmp_path,
+        text=True,
+    ).strip()
+    assert filtered_blob == base_blob
+
+    summary = validator.validate_selected_repair(
+        tmp_path,
+        report_path=Path("output/latest/repair_daily_price_range_latest.json"),
+        source_base_sha=base_sha,
+        date_contracts=contracts,
+        expected_stock_union_count=2,
+        expected_selected_row_count=2,
+        expected_existing_history_count=1,
+        expected_created_history_count=1,
+        expected_untouched_history_count=1,
+        expected_created_stock_ids={"00925"},
+        require_all_eligible_changed=True,
+    )
+    assert summary["stock_union_count"] == 2
+
+
+@pytest.mark.parametrize("mutation", ["value", "deletion"])
+def test_selected_repair_untouched_history_rejects_semantic_change_or_deletion(
+    tmp_path: Path,
+    mutation: str,
+) -> None:
+    base_sha, _, contracts = _setup_selected_validator_case(tmp_path)
+    untouched = tmp_path / "data/stock_price_history/9999.csv"
+    if mutation == "value":
+        frame = pd.read_csv(untouched, dtype=str).fillna("")
+        frame.loc[0, "close"] = "999"
+        frame.to_csv(untouched, index=False, lineterminator="\n")
+        expected_message = "changed outside-union history"
+    else:
+        untouched.unlink()
+        expected_message = "outside-union history path set mismatch"
+
+    with pytest.raises(ValueError, match=expected_message):
+        validator.validate_selected_repair(
+            tmp_path,
+            report_path=Path("output/latest/repair_daily_price_range_latest.json"),
+            source_base_sha=base_sha,
+            date_contracts=contracts,
+            expected_stock_union_count=2,
+            expected_selected_row_count=2,
+            expected_existing_history_count=1,
+            expected_created_history_count=1,
+            expected_untouched_history_count=1,
+            expected_created_stock_ids={"00925"},
+            require_all_eligible_changed=True,
+        )
+
+
+def test_selected_repair_validator_rejects_canonical_name_source_drift(
+    tmp_path: Path,
+) -> None:
+    base_sha, _, contracts = _setup_selected_validator_case(tmp_path)
+    source_path = tmp_path / validator.SELECTED_CANONICAL_STOCK_NAME_SOURCE_PATHS[0]
+    source_path.write_bytes(source_path.read_bytes() + b"9999,Drift\n")
+
+    with pytest.raises(
+        ValueError, match="canonical stock-name source differs from source base"
+    ):
+        validator.validate_selected_repair(
+            tmp_path,
+            report_path=Path("output/latest/repair_daily_price_range_latest.json"),
+            source_base_sha=base_sha,
+            date_contracts=contracts,
+            expected_stock_union_count=2,
+            expected_selected_row_count=2,
+            expected_existing_history_count=1,
+            expected_created_history_count=1,
+            expected_untouched_history_count=1,
+            expected_created_stock_ids={"00925"},
+            require_all_eligible_changed=True,
+        )
+
+
+@pytest.mark.parametrize(
+    ("mutation", "expected_message"),
+    [
+        ("missing_report_binding", "canonical stock-name bindings are missing"),
+        ("forged_blob_sha", "canonical stock-name evidence mismatch"),
+        ("forged_blob_raw_sha", "canonical stock-name evidence mismatch"),
+        ("missing_materialized_source", "canonical stock-name source is not materialized"),
+    ],
+)
+def test_selected_repair_validator_rejects_canonical_name_binding_failures(
+    tmp_path: Path,
+    mutation: str,
+    expected_message: str,
+) -> None:
+    base_sha, _, contracts = _setup_selected_validator_case(tmp_path)
+    report_path = tmp_path / "output/latest/repair_daily_price_range_latest.json"
+    report = json.loads(report_path.read_text(encoding="utf-8"))
+    if mutation == "missing_report_binding":
+        report.pop("canonical_stock_name_source_bindings")
+        report_path.write_text(json.dumps(report), encoding="utf-8")
+    elif mutation == "forged_blob_sha":
+        report["canonical_stock_name_source_bindings"][0]["git_blob_sha"] = "f" * 40
+        report_path.write_text(json.dumps(report), encoding="utf-8")
+    elif mutation == "forged_blob_raw_sha":
+        report["canonical_stock_name_source_bindings"][0][
+            "git_blob_raw_sha256"
+        ] = "f" * 64
+        report_path.write_text(json.dumps(report), encoding="utf-8")
+    else:
+        source_path = (
+            tmp_path / validator.SELECTED_CANONICAL_STOCK_NAME_SOURCE_PATHS[0]
+        )
+        source_path.unlink()
+
+    with pytest.raises(ValueError, match=expected_message):
+        validator.validate_selected_repair(
+            tmp_path,
+            report_path=Path("output/latest/repair_daily_price_range_latest.json"),
+            source_base_sha=base_sha,
+            date_contracts=contracts,
+            expected_stock_union_count=2,
+            expected_selected_row_count=2,
+            expected_existing_history_count=1,
+            expected_created_history_count=1,
+            expected_untouched_history_count=1,
+            expected_created_stock_ids={"00925"},
+            require_all_eligible_changed=True,
+        )
+
+
+def test_selected_repair_validator_rejects_crlf_even_when_hash_contract_is_updated(
+    tmp_path: Path,
+) -> None:
+    base_sha, date_text, contracts = _setup_selected_validator_case(tmp_path)
+    canonical = tmp_path / f"data/daily_price/daily_price_{date_text}.csv"
+    legacy = tmp_path / f"data/daily_price/{date_text}.csv"
+    crlf_payload = canonical.read_bytes().replace(b"\n", b"\r\n")
+    assert crlf_payload.startswith(b"\xef\xbb\xbf")
+    canonical.write_bytes(crlf_payload)
+    legacy.write_bytes(crlf_payload)
+    crlf_sha = hashlib.sha256(crlf_payload).hexdigest()
+
+    report_path = tmp_path / "output/latest/repair_daily_price_range_latest.json"
+    report = json.loads(report_path.read_text(encoding="utf-8"))
+    report["expected_date_contracts"][0]["sha256"] = crlf_sha
+    report["rows"][0]["price_sha256"] = crlf_sha
+    report_path.write_text(json.dumps(report), encoding="utf-8")
+    contracts[date_text] = (crlf_sha, contracts[date_text][1])
+
+    with pytest.raises(ValueError, match="source encoding/line-ending mismatch"):
+        validator.validate_selected_repair(
+            tmp_path,
+            report_path=Path("output/latest/repair_daily_price_range_latest.json"),
+            source_base_sha=base_sha,
+            date_contracts=contracts,
+            expected_stock_union_count=2,
+            expected_selected_row_count=2,
+            expected_existing_history_count=1,
+            expected_created_history_count=1,
+            expected_untouched_history_count=1,
+            expected_created_stock_ids={"00925"},
+            require_all_eligible_changed=True,
+        )
+
+
+def test_selected_repair_validator_rejects_missing_bom_even_when_hash_contract_is_updated(
+    tmp_path: Path,
+) -> None:
+    base_sha, date_text, contracts = _setup_selected_validator_case(tmp_path)
+    canonical = tmp_path / f"data/daily_price/daily_price_{date_text}.csv"
+    legacy = tmp_path / f"data/daily_price/{date_text}.csv"
+    payload = canonical.read_bytes()
+    assert payload.startswith(b"\xef\xbb\xbf")
+    no_bom_payload = payload[3:]
+    assert b"\r\n" not in no_bom_payload
+    canonical.write_bytes(no_bom_payload)
+    legacy.write_bytes(no_bom_payload)
+    no_bom_sha = hashlib.sha256(no_bom_payload).hexdigest()
+
+    report_path = tmp_path / "output/latest/repair_daily_price_range_latest.json"
+    report = json.loads(report_path.read_text(encoding="utf-8"))
+    report["expected_date_contracts"][0]["sha256"] = no_bom_sha
+    report["rows"][0]["price_sha256"] = no_bom_sha
+    report_path.write_text(json.dumps(report), encoding="utf-8")
+    contracts[date_text] = (no_bom_sha, contracts[date_text][1])
+
+    with pytest.raises(ValueError, match="source encoding/line-ending mismatch"):
+        validator.validate_selected_repair(
+            tmp_path,
+            report_path=Path("output/latest/repair_daily_price_range_latest.json"),
+            source_base_sha=base_sha,
+            date_contracts=contracts,
+            expected_stock_union_count=2,
+            expected_selected_row_count=2,
+            expected_existing_history_count=1,
+            expected_created_history_count=1,
+            expected_untouched_history_count=1,
+            expected_created_stock_ids={"00925"},
+            require_all_eligible_changed=True,
+        )
+
+
+def test_selected_repair_validator_rejects_independent_indicator_drift(
+    tmp_path: Path,
+) -> None:
+    base_sha, _, contracts = _setup_selected_validator_case(tmp_path)
+    path = tmp_path / "data" / "stock_price_history" / "2330.csv"
+    frame = pd.read_csv(path, dtype=str).fillna("")
+    frame.loc[frame["date"].eq("20250411"), "return_1d"] = "999"
+    frame.to_csv(path, index=False, lineterminator="\n")
+    report_path = tmp_path / "output" / "latest" / "repair_daily_price_range_latest.json"
+    report = json.loads(report_path.read_text(encoding="utf-8"))
+    report["history_repair"]["changed_history_sha256s"][
+        "data/stock_price_history/2330.csv"
+    ] = hashlib.sha256(path.read_bytes()).hexdigest()
+    report_path.write_text(json.dumps(report), encoding="utf-8")
+
+    with pytest.raises(ValueError, match="independent indicator replay mismatch"):
+        validator.validate_selected_repair(
+            tmp_path,
+            report_path=Path("output/latest/repair_daily_price_range_latest.json"),
+            source_base_sha=base_sha,
+            date_contracts=contracts,
+            expected_stock_union_count=2,
+            expected_selected_row_count=2,
+            expected_existing_history_count=1,
+            expected_created_history_count=1,
+            expected_untouched_history_count=1,
+            expected_created_stock_ids={"00925"},
+            require_all_eligible_changed=True,
+        )
+
+
+def test_selected_repair_validator_rejects_missing_final_market_provenance(
+    tmp_path: Path,
+) -> None:
+    base_sha, _, contracts = _setup_selected_validator_case(tmp_path)
+    report_path = tmp_path / "output/latest/repair_daily_price_range_latest.json"
+    report = json.loads(report_path.read_text(encoding="utf-8"))
+    report["rows"][0]["fetch_response_provenance"] = [
+        item
+        for item in report["rows"][0]["fetch_response_provenance"]
+        if not item["source_name"].startswith("TPEX_")
+    ]
+    report_path.write_text(json.dumps(report), encoding="utf-8")
+
+    with pytest.raises(ValueError, match="TWSE/TPEx provenance is incomplete"):
+        validator.validate_selected_repair(
+            tmp_path,
+            report_path=Path("output/latest/repair_daily_price_range_latest.json"),
+            source_base_sha=base_sha,
+            date_contracts=contracts,
+            expected_stock_union_count=2,
+            expected_selected_row_count=2,
+            expected_existing_history_count=1,
+            expected_created_history_count=1,
+            expected_untouched_history_count=1,
+            expected_created_stock_ids={"00925"},
+            require_all_eligible_changed=True,
+        )
+
+
+def test_selected_repair_validator_rejects_hidden_raw_outside_date_for_created_id(
+    tmp_path: Path,
+) -> None:
+    base_sha, _, contracts = _setup_selected_validator_case(tmp_path)
+    hidden = tmp_path / "data/daily_price/daily_price_20250410.csv"
+    pd.DataFrame(
+        [
+            {
+                "date": "20250410",
+                "stock_id": "00925",
+                "close": "",
+                "source": "TPEX_TEST",
+            }
+        ]
+    ).to_csv(hidden, index=False)
+
+    with pytest.raises(ValueError, match="raw source rows outside selected dates"):
+        validator.validate_selected_repair(
+            tmp_path,
+            report_path=Path("output/latest/repair_daily_price_range_latest.json"),
+            source_base_sha=base_sha,
+            date_contracts=contracts,
+            expected_stock_union_count=2,
+            expected_selected_row_count=2,
+            expected_existing_history_count=1,
+            expected_created_history_count=1,
+            expected_untouched_history_count=1,
+            expected_created_stock_ids={"00925"},
+            require_all_eligible_changed=True,
+        )
+
+
+def test_selected_repair_validator_rejects_manifest_identity_mutation(
+    tmp_path: Path,
+) -> None:
+    base_sha, _, contracts = _setup_selected_validator_case(tmp_path)
+    output_csv = tmp_path / "output/latest/stock_price_history_manifest.csv"
+    docs_csv = tmp_path / "docs/latest/stock_price_history_manifest.csv"
+    manifest = pd.read_csv(output_csv, dtype=str).fillna("")
+    manifest.loc[manifest["stock_id"].eq("9999"), "stock_id"] = "00925"
+    payload = manifest.to_csv(index=False, lineterminator="\n").encode("utf-8")
+    output_csv.write_bytes(payload)
+    docs_csv.write_bytes(payload)
+    report_path = tmp_path / "output/latest/repair_daily_price_range_latest.json"
+    report = json.loads(report_path.read_text(encoding="utf-8"))
+    digest = hashlib.sha256(payload).hexdigest()
+    report["history_repair"]["manifest_sha256s"][
+        "output/latest/stock_price_history_manifest.csv"
+    ] = digest
+    report["history_repair"]["manifest_sha256s"][
+        "docs/latest/stock_price_history_manifest.csv"
+    ] = digest
+    report_path.write_text(json.dumps(report), encoding="utf-8")
+
+    with pytest.raises(ValueError, match="manifest stock identity is invalid"):
+        validator.validate_selected_repair(
+            tmp_path,
+            report_path=Path("output/latest/repair_daily_price_range_latest.json"),
+            source_base_sha=base_sha,
+            date_contracts=contracts,
+            expected_stock_union_count=2,
+            expected_selected_row_count=2,
+            expected_existing_history_count=1,
+            expected_created_history_count=1,
+            expected_untouched_history_count=1,
+            expected_created_stock_ids={"00925"},
+            require_all_eligible_changed=True,
+        )
+
+
+@pytest.mark.parametrize(
+    ("field", "value"),
+    [
+        ("generated_at", "different"),
+        ("manifest_raw_url", "https://example.invalid/manifest.csv"),
+        ("preserved_extension", {"source": "mutated"}),
+    ],
+)
+def test_selected_repair_validator_rejects_manifest_json_semantic_mutation(
+    tmp_path: Path,
+    field: str,
+    value: object,
+) -> None:
+    base_sha, _, contracts = _setup_selected_validator_case(tmp_path)
+    output_json = tmp_path / "output/latest/stock_price_history_manifest.json"
+    docs_json = tmp_path / "docs/latest/stock_price_history_manifest.json"
+    manifest = json.loads(output_json.read_text(encoding="utf-8"))
+    manifest[field] = value
+    payload = (json.dumps(manifest, sort_keys=True) + "\n").encode("utf-8")
+    output_json.write_bytes(payload)
+    docs_json.write_bytes(payload)
+    report_path = tmp_path / "output/latest/repair_daily_price_range_latest.json"
+    report = json.loads(report_path.read_text(encoding="utf-8"))
+    digest = hashlib.sha256(payload).hexdigest()
+    report["history_repair"]["manifest_sha256s"][
+        "output/latest/stock_price_history_manifest.json"
+    ] = digest
+    report["history_repair"]["manifest_sha256s"][
+        "docs/latest/stock_price_history_manifest.json"
+    ] = digest
+    report_path.write_text(json.dumps(report), encoding="utf-8")
+
+    with pytest.raises(ValueError, match="manifest JSON semantic contract mismatch"):
+        validator.validate_selected_repair(
+            tmp_path,
+            report_path=Path("output/latest/repair_daily_price_range_latest.json"),
+            source_base_sha=base_sha,
+            date_contracts=contracts,
+            expected_stock_union_count=2,
+            expected_selected_row_count=2,
+            expected_existing_history_count=1,
+            expected_created_history_count=1,
+            expected_untouched_history_count=1,
+            expected_created_stock_ids={"00925"},
+            require_all_eligible_changed=True,
+        )
+
+
+def test_selected_repair_staged_path_validator_rejects_untracked_residue(
+    tmp_path: Path,
+) -> None:
+    repo = tmp_path / "repo"
+    repo.mkdir()
+    subprocess.run(["git", "init", "-q"], cwd=repo, check=True)
+    subprocess.run(["git", "config", "user.email", "test@example.invalid"], cwd=repo, check=True)
+    subprocess.run(["git", "config", "user.name", "Test"], cwd=repo, check=True)
+    path = repo / "bounded.txt"
+    path.write_text("before\n", encoding="utf-8")
+    subprocess.run(["git", "add", "bounded.txt"], cwd=repo, check=True)
+    subprocess.run(["git", "commit", "-qm", "base"], cwd=repo, check=True)
+    path.write_text("after\n", encoding="utf-8")
+    subprocess.run(["git", "add", "bounded.txt"], cwd=repo, check=True)
+    plan = tmp_path / "paths.json"
+    plan.write_text(json.dumps(["bounded.txt"]), encoding="utf-8")
+
+    assert validator.verify_selected_repair_staged_paths(repo, plan) == 1
+    (repo / "unexpected.txt").write_text("unexpected\n", encoding="utf-8")
+    with pytest.raises(ValueError, match="unstaged or untracked"):
+        validator.verify_selected_repair_staged_paths(repo, plan)
+
+
+def test_exact_selected_workflow_is_opt_in_bounded_and_no_full_rebuild() -> None:
+    workflow = (ROOT / ".github" / "workflows" / "repair_daily_price_range.yml").read_text(
+        encoding="utf-8"
+    )
+    dates_input = workflow.split("      dates:", 1)[1].split("      start_date:", 1)[0]
+    exact_step = workflow.split(
+        "      - name: Repair exact selected daily prices and controlled stock histories", 1
+    )[1].split("      - name: Validate selected repair continuity", 1)[0]
+    stage_step = workflow.split(
+        "      - name: Stage only exact selected-date repair paths", 1
+    )[1].split("      - name: Stage legacy range repair outputs", 1)[0]
+    validator_step = workflow.split(
+        "      - name: Validate exact seven-date source and history repair", 1
+    )[1].split(
+        "      - name: Prove controlled history repair second apply is byte-identical", 1
+    )[0]
+    idempotency_step = workflow.split(
+        "      - name: Prove controlled history repair second apply is byte-identical", 1
+    )[1].split("      - name: Stage only exact selected-date repair paths", 1)[0]
+
+    assert 'default: ""' in dates_input
+    assert "daily-full-pipeline-${{ github.ref }}" in workflow
+    assert exact_step.count("--expected-date-contract ") == 7
+    expected_contracts = {
+        "20250411": ("89f2177b6f31537294434dbafa7bde0a51954771e0c750e7bff84a2bd0ad0abc", 2031),
+        "20250521": ("77bb957bdcd1392fa0340cbb552bdb8205ba3b96d979fd72783dfe0368170e04", 2035),
+        "20250908": ("66a92ce32f3bbba70f8d83ce557e81190d168e814c0c17dad0da697f4f73db45", 2050),
+        "20250912": ("7a32b61ed136a15efc519fcae09c85943e4d21c75ea4cbfcfc358eb11e5afb32", 2059),
+        "20250916": ("115c35a00dba8dc2d2047d6645d8c20332d80639469d40238564eeb11258067d", 2052),
+        "20251015": ("671a17fe97895eaf62274f5798a2c4b1b575fa7b68510ffdad1f5bd3ba307a4d", 2055),
+        "20251017": ("2ea87b045021603d89c28ad73645fe7b88b33d0030c7e7f4179b9fe053db7ac2", 2052),
+    }
+    for date_text, (expected_sha, expected_rows) in expected_contracts.items():
+        assert workflow.count(f"{date_text}:{expected_sha}:{expected_rows}") == 2
+    assert "--repair-date 20250411" in exact_step
+    assert "--repair-date 20251017" in exact_step
+    assert "--expected-stock-union-count 2064" in exact_step
+    assert "python scripts/build_stock_price_history.py\n" not in exact_step
+    assert "--full-rebuild" not in exact_step
+    assert "--market-session-already-refreshed" not in exact_step
+    assert "--main-price-date 20260811" in workflow
+    assert "--lookback-days 500" not in workflow
+    assert "--no-write-report" in workflow
+    assert "--selected-repair-report" in workflow
+    assert "python - <<'PY'" not in workflow
+    assert workflow.count("--repair-date 20250411") == 2
+    assert workflow.count("--selected-repair-report") == 1
+    assert validator_step.count(
+        "python scripts/validate_daily_price_history_continuity.py"
+    ) == 1
+    assert validator_step.count("--selected-date-contract") == 7
+    assert "--require-all-eligible-changed" in validator_step
+    assert "--pathspec-nul-output" in validator_step
+    assert "python scripts/validate_daily_price_history_continuity.py" not in (
+        idempotency_step
+    )
+    assert "path_count" in idempotency_step
+    assert '"$path_count" != "2088"' in idempotency_step
+    assert idempotency_step.count("xargs -0 sha256sum") == 2
+    assert idempotency_step.count("git status --porcelain=v1 -z") == 2
+    assert idempotency_step.count("cmp \"") == 2
+    assert "selected-before.sha256" in idempotency_step
+    assert "selected-after.sha256" in idempotency_step
+    assert "selected-before-status.nul" in idempotency_step
+    assert "selected-after-status.nul" in idempotency_step
+    assert "git add --pathspec-from-file=" not in stage_step
+    assert 'git add -- "data/stock_price_history/${stock_id}.csv"' in stage_step
+    assert stage_step.count("data/daily_price/") == 14
+    assert "--history-stock-id-output" in validator_step
+    assert "--verify-staged-paths-json" in stage_step
+    assert "git add data/daily_price/" not in stage_step

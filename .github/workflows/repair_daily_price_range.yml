@@ -3,21 +3,28 @@ name: Repair Daily Price Range
 on:
   workflow_dispatch:
     inputs:
+      dates:
+        description: "Exact selected dates; the frozen 20260814 repair accepts only the seven pre-authorized dates"
+        required: false
+        default: ""
+        type: string
       start_date:
-        description: "Start date in YYYYMMDD, example: 20260301"
-        required: true
+        description: "Legacy range-mode start date in YYYYMMDD; leave empty for selected-date repair"
+        required: false
+        default: ""
         type: string
       end_date:
-        description: "End date in YYYYMMDD, example: 20260519"
-        required: true
+        description: "Legacy range-mode end date in YYYYMMDD; leave empty for selected-date repair"
+        required: false
+        default: ""
         type: string
       check_code:
-        description: "Optional stock code to check after repair, example: 5291"
+        description: "Optional stock code to check after repair"
         required: false
         default: "5291"
         type: string
       max_days:
-        description: "Safety limit for max calendar days to process"
+        description: "Safety limit for date count/calendar range"
         required: false
         default: "120"
         type: string
@@ -25,18 +32,28 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: daily-full-pipeline-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   repair-daily-price-range:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Reject non-main source-data dispatch
+        if: github.ref_name != 'main'
+        run: |
+          echo "::error::Repair Daily Price Range is main-only."
+          exit 1
+
       - name: Require production artifact write deploy key
         shell: bash
         env:
           PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}
         run: |
           if [ -z "${PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY}" ]; then
-            echo "::error::PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY is required for artifact publishing."
+            echo "::error::PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY is required for source-data publishing."
             exit 1
           fi
 
@@ -45,6 +62,30 @@ jobs:
         with:
           ssh-key: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}
           persist-credentials: true
+          ref: main
+          fetch-depth: 0
+
+      - name: Bind repair to exact current main and workflow definition
+        shell: bash
+        env:
+          CALLER_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          checkout_sha="$(git rev-parse HEAD)"
+          remote_main_sha="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+          if [[ ! "$CALLER_SHA" =~ ^[0-9a-f]{40}$ ]] || \
+             [ -z "$remote_main_sha" ] || \
+             [ "$checkout_sha" != "$remote_main_sha" ]; then
+            echo "::error::Repair checkout must equal current remote main before data work."
+            exit 1
+          fi
+          caller_blob_sha="$(git rev-parse "${CALLER_SHA}:.github/workflows/repair_daily_price_range.yml")"
+          checkout_blob_sha="$(git rev-parse HEAD:.github/workflows/repair_daily_price_range.yml)"
+          if [ "$caller_blob_sha" != "$checkout_blob_sha" ]; then
+            echo "::error::Executing repair workflow differs from checked-out main."
+            exit 1
+          fi
+          echo "REPAIR_BASE_SHA=$checkout_sha" >> "$GITHUB_ENV"
 
       - name: Set up Python
         uses: actions/setup-python@v6
@@ -56,8 +97,76 @@ jobs:
           python -m pip install --upgrade pip
           pip install pandas requests lxml html5lib tabulate
 
-      - name: Repair selected daily price range
+      - name: Repair exact selected daily prices and controlled stock histories
+        if: inputs.dates != ''
+        shell: bash
+        env:
+          SELECTED_DATES: ${{ inputs.dates }}
+          START_DATE: ${{ inputs.start_date }}
+          END_DATE: ${{ inputs.end_date }}
+          CHECK_CODE: ${{ inputs.check_code }}
+          MAX_DAYS: ${{ inputs.max_days }}
         run: |
+          set -euo pipefail
+          exact_dates="20250411,20250521,20250908,20250912,20250916,20251015,20251017"
+          if [ -n "$START_DATE" ] || [ -n "$END_DATE" ]; then
+            echo "::error::Selected-date mode is mutually exclusive with range mode."
+            exit 1
+          fi
+          if [ "$SELECTED_DATES" != "$exact_dates" ]; then
+            echo "::error::This repair is frozen to the seven user-authorized dates."
+            exit 1
+          fi
+          python scripts/repair_daily_price_range.py \
+            --dates "$SELECTED_DATES" \
+            --source-base-sha "$REPAIR_BASE_SHA" \
+            --expected-date-contract 20250411:89f2177b6f31537294434dbafa7bde0a51954771e0c750e7bff84a2bd0ad0abc:2031 \
+            --expected-date-contract 20250521:77bb957bdcd1392fa0340cbb552bdb8205ba3b96d979fd72783dfe0368170e04:2035 \
+            --expected-date-contract 20250908:66a92ce32f3bbba70f8d83ce557e81190d168e814c0c17dad0da697f4f73db45:2050 \
+            --expected-date-contract 20250912:7a32b61ed136a15efc519fcae09c85943e4d21c75ea4cbfcfc358eb11e5afb32:2059 \
+            --expected-date-contract 20250916:115c35a00dba8dc2d2047d6645d8c20332d80639469d40238564eeb11258067d:2052 \
+            --expected-date-contract 20251015:671a17fe97895eaf62274f5798a2c4b1b575fa7b68510ffdad1f5bd3ba307a4d:2055 \
+            --expected-date-contract 20251017:2ea87b045021603d89c28ad73645fe7b88b33d0030c7e7f4179b9fe053db7ac2:2052 \
+            --check-code "$CHECK_CODE" \
+            --max-days "$MAX_DAYS"
+          python scripts/build_stock_price_history.py \
+            --repair-date 20250411 \
+            --repair-date 20250521 \
+            --repair-date 20250908 \
+            --repair-date 20250912 \
+            --repair-date 20250916 \
+            --repair-date 20251015 \
+            --repair-date 20251017 \
+            --allow-create-stock-id 00925 \
+            --allow-create-stock-id 4945 \
+            --allow-create-stock-id 6287 \
+            --expected-stock-union-count 2064 \
+            --expected-selected-row-count 14178 \
+            --expected-existing-history-count 2061 \
+            --expected-created-history-count 3 \
+            --expected-untouched-history-count 323
+
+      - name: Validate selected repair continuity without report writes
+        if: inputs.dates != ''
+        run: |
+          python scripts/validate_daily_price_history_continuity.py \
+            --main-price-date 20260811 \
+            --no-write-report
+
+      - name: Repair legacy daily price range and rebuild histories
+        if: inputs.dates == ''
+        shell: bash
+        env:
+          START_DATE: ${{ inputs.start_date }}
+          END_DATE: ${{ inputs.end_date }}
+          CHECK_CODE: ${{ inputs.check_code }}
+          MAX_DAYS: ${{ inputs.max_days }}
+        run: |
+          set -euo pipefail
+          if [ -z "$START_DATE" ] || [ -z "$END_DATE" ]; then
+            echo "::error::Legacy range mode requires both start_date and end_date."
+            exit 1
+          fi
           python scripts/repair_daily_price_range.py \
             --start-date "$START_DATE" \
             --end-date "$END_DATE" \
@@ -65,17 +174,152 @@ jobs:
             --max-days "$MAX_DAYS"
           python scripts/build_stock_price_history.py
           python scripts/validate_daily_price_history_continuity.py
-        env:
-          START_DATE: ${{ inputs.start_date }}
-          END_DATE: ${{ inputs.end_date }}
-          CHECK_CODE: ${{ inputs.check_code }}
-          MAX_DAYS: ${{ inputs.max_days }}
 
-      - name: Commit repaired daily price range
+      - name: Validate exact seven-date source and history repair
+        if: inputs.dates != ''
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/validate_daily_price_history_continuity.py \
+            --selected-repair-report output/latest/repair_daily_price_range_latest.json \
+            --selected-source-base-sha "$REPAIR_BASE_SHA" \
+            --selected-date-contract 20250411:89f2177b6f31537294434dbafa7bde0a51954771e0c750e7bff84a2bd0ad0abc:2031 \
+            --selected-date-contract 20250521:77bb957bdcd1392fa0340cbb552bdb8205ba3b96d979fd72783dfe0368170e04:2035 \
+            --selected-date-contract 20250908:66a92ce32f3bbba70f8d83ce557e81190d168e814c0c17dad0da697f4f73db45:2050 \
+            --selected-date-contract 20250912:7a32b61ed136a15efc519fcae09c85943e4d21c75ea4cbfcfc358eb11e5afb32:2059 \
+            --selected-date-contract 20250916:115c35a00dba8dc2d2047d6645d8c20332d80639469d40238564eeb11258067d:2052 \
+            --selected-date-contract 20251015:671a17fe97895eaf62274f5798a2c4b1b575fa7b68510ffdad1f5bd3ba307a4d:2055 \
+            --selected-date-contract 20251017:2ea87b045021603d89c28ad73645fe7b88b33d0030c7e7f4179b9fe053db7ac2:2052 \
+            --expected-stock-union-count 2064 \
+            --expected-selected-row-count 14178 \
+            --expected-existing-history-count 2061 \
+            --expected-created-history-count 3 \
+            --expected-untouched-history-count 323 \
+            --expected-created-stock-id 00925 \
+            --expected-created-stock-id 4945 \
+            --expected-created-stock-id 6287 \
+            --require-all-eligible-changed \
+            --pathspec-nul-output "${{ runner.temp }}/selected-price-repair-paths.nul" \
+            --pathspec-json-output "${{ runner.temp }}/selected-price-repair-paths.json" \
+            --history-stock-id-output "${{ runner.temp }}/selected-price-repair-stock-ids.txt" \
+            --no-write-report
+
+      - name: Prove controlled history repair second apply is byte-identical
+        if: inputs.dates != ''
+        shell: bash
+        run: |
+          set -euo pipefail
+          pathspec="${{ runner.temp }}/selected-price-repair-paths.nul"
+          path_count="$(xargs -0 -r -n1 printf '%s\n' < "$pathspec" | wc -l | tr -d '[:space:]')"
+          if [ "$path_count" != "2088" ]; then
+            echo "::error::Expected 2088 exact selected repair paths, got $path_count."
+            exit 1
+          fi
+          xargs -0 sha256sum < "$pathspec" > "${{ runner.temp }}/selected-before.sha256"
+          git status --porcelain=v1 -z > "${{ runner.temp }}/selected-before-status.nul"
+          python scripts/build_stock_price_history.py \
+            --repair-date 20250411 \
+            --repair-date 20250521 \
+            --repair-date 20250908 \
+            --repair-date 20250912 \
+            --repair-date 20250916 \
+            --repair-date 20251015 \
+            --repair-date 20251017 \
+            --allow-create-stock-id 00925 \
+            --allow-create-stock-id 4945 \
+            --allow-create-stock-id 6287 \
+            --expected-stock-union-count 2064 \
+            --expected-selected-row-count 14178 \
+            --expected-existing-history-count 2064 \
+            --expected-created-history-count 0 \
+            --expected-untouched-history-count 323
+          xargs -0 sha256sum < "$pathspec" > "${{ runner.temp }}/selected-after.sha256"
+          git status --porcelain=v1 -z > "${{ runner.temp }}/selected-after-status.nul"
+          cmp "${{ runner.temp }}/selected-before.sha256" "${{ runner.temp }}/selected-after.sha256"
+          cmp "${{ runner.temp }}/selected-before-status.nul" "${{ runner.temp }}/selected-after-status.nul"
+
+      - name: Stage only exact selected-date repair paths
+        if: inputs.dates != ''
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          while IFS= read -r stock_id; do
+            if [[ ! "$stock_id" =~ ^[0-9]{4}$|^00[0-9]{3,4}$ ]]; then
+              echo "::error::Invalid selected history stock id: $stock_id"
+              exit 1
+            fi
+            git add -- "data/stock_price_history/${stock_id}.csv"
+          done < "${{ runner.temp }}/selected-price-repair-stock-ids.txt"
+          git add -- \
+            data/daily_price/20250411.csv \
+            data/daily_price/daily_price_20250411.csv \
+            data/daily_price/20250521.csv \
+            data/daily_price/daily_price_20250521.csv \
+            data/daily_price/20250908.csv \
+            data/daily_price/daily_price_20250908.csv \
+            data/daily_price/20250912.csv \
+            data/daily_price/daily_price_20250912.csv \
+            data/daily_price/20250916.csv \
+            data/daily_price/daily_price_20250916.csv \
+            data/daily_price/20251015.csv \
+            data/daily_price/daily_price_20251015.csv \
+            data/daily_price/20251017.csv \
+            data/daily_price/daily_price_20251017.csv \
+            output/latest/stock_price_history_manifest.csv \
+            output/latest/stock_price_history_manifest.json \
+            output/latest/stock_price_history_manifest.md \
+            docs/latest/stock_price_history_manifest.csv \
+            docs/latest/stock_price_history_manifest.json \
+            docs/latest/stock_price_history_manifest.md \
+            output/latest/repair_daily_price_range_latest.csv \
+            output/latest/repair_daily_price_range_check_code_latest.csv \
+            output/latest/repair_daily_price_range_latest.json \
+            output/latest/repair_daily_price_range_latest.md
+          python scripts/validate_daily_price_history_continuity.py \
+            --verify-staged-paths-json "${{ runner.temp }}/selected-price-repair-paths.json" \
+            --no-write-report
+          git status --short
+
+      - name: Stage legacy range repair outputs
+        if: inputs.dates == ''
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add data/daily_price/ data/stock_price_history/ output/latest/repair_daily_price_range_latest.* output/latest/repair_daily_price_range_check_code_latest.csv output/latest/stock_price_history_manifest.* output/latest/daily_price_history_continuity_latest.* docs/latest/stock_price_history_manifest.* || true
-          git status --short
-          git commit -m "Repair daily price range" || echo "No changes to commit"
-          git push
+          git add data/daily_price/ data/stock_price_history/
+          git add output/latest/repair_daily_price_range_latest.*
+          git add output/latest/repair_daily_price_range_check_code_latest.csv
+          git add output/latest/stock_price_history_manifest.*
+          git add output/latest/daily_price_history_continuity_latest.* || true
+          git add docs/latest/stock_price_history_manifest.* || true
+
+      - name: Commit repaired daily price range
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --cached --quiet; then
+            echo "::error::Repair produced no staged changes."
+            exit 1
+          fi
+          remote_main_sha="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+          if [ -z "$remote_main_sha" ] || [ "$remote_main_sha" != "$REPAIR_BASE_SHA" ]; then
+            echo "::error::Remote main drifted during repair; refusing commit/rebase."
+            exit 1
+          fi
+          if [ -n "${{ inputs.dates }}" ]; then
+            commit_message="Repair exact official price dates"
+          else
+            commit_message="Repair daily price range"
+          fi
+          git commit -m "$commit_message"
+          git push origin HEAD:main
+          local_sha="$(git rev-parse HEAD)"
+          remote_main_sha="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+          if [ "$local_sha" != "$remote_main_sha" ]; then
+            echo "::error::Remote main does not equal repair commit."
+            exit 1
+          fi
+          report_blob_sha="$(git rev-parse HEAD:output/latest/repair_daily_price_range_latest.json)"
+          echo "repair_commit_sha=$local_sha"
+          echo "repair_report_blob_sha=$report_blob_sha"
