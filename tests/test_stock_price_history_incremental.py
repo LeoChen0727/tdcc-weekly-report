@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import subprocess
 from pathlib import Path
 
 import pandas as pd
@@ -688,12 +689,174 @@ def selected_source_fake_fetch(date_text: str, retries: int, sleep_seconds: floa
     )
 
 
+def test_legacy_report_payload_schema_and_bytes_do_not_gain_selected_binding() -> None:
+    args = selected_source_args("")
+    payloads = repair._report_payloads([], [], args, selected_dates=[])
+    expected_report = {
+        "schema_version": "repair_daily_price_range_v2",
+        "mode": "date_range",
+        "source_base_sha": "a" * 40,
+        "selected_dates": [],
+        "expected_date_contracts": [],
+        "rows": [],
+        "check_rows": [],
+    }
+    expected_payload = (
+        json.dumps(
+            expected_report, ensure_ascii=False, indent=2, sort_keys=True
+        )
+        + "\n"
+    ).encode("utf-8")
+
+    assert payloads[repair.REPORT_JSON] == expected_payload
+    assert b"canonical_stock_name_source_bindings" not in expected_payload
+
+
+def selected_source_test_bindings() -> list[dict[str, str]]:
+    return [
+        {
+            "path": path_text,
+            "git_blob_sha": "b" * 40,
+            "git_blob_raw_sha256": "c" * 64,
+        }
+        for path_text in repair.SELECTED_CANONICAL_STOCK_NAME_SOURCE_PATHS
+    ]
+
+
+def bind_selected_source_test_environment(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setattr(repair, "_repository_head", lambda root: "a" * 40)
+    monkeypatch.setattr(
+        repair,
+        "validate_selected_canonical_name_sources",
+        lambda root, source_base_sha: selected_source_test_bindings(),
+    )
+
+
+def selected_source_name_sensitive_fetch(
+    date_text: str, retries: int, sleep_seconds: float
+):
+    frame, status, log = selected_source_fake_fetch(
+        date_text, retries, sleep_seconds
+    )
+    return repair.fetcher.apply_canonical_stock_names(frame, log), status, log
+
+
+def test_selected_dates_preserve_canonical_name_semantics_and_restore_exact_mode(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.chdir(tmp_path)
+    bind_selected_source_test_environment(monkeypatch)
+    canonical_names = tmp_path / "optional-canonical-names.csv"
+    pd.DataFrame([{"stock_id": "1000", "stock_name": "Dirty Alias"}]).to_csv(
+        canonical_names, index=False
+    )
+    monkeypatch.setattr(
+        repair.fetcher, "CANONICAL_STOCK_NAME_SOURCES", [canonical_names]
+    )
+    monkeypatch.setattr(
+        repair.fetcher, "REQUIRE_EXACT_HISTORICAL_RESPONSE_DATES", False
+    )
+    assert repair.fetcher.load_canonical_stock_names()["1000"] == "Dirty Alias"
+
+    expected_frame = selected_source_full_market_frame("20250411")
+    expected_frame.loc[expected_frame["stock_id"].eq("1000"), "stock_name"] = (
+        "Dirty Alias"
+    )
+    args = selected_source_args("20250411")
+    args.expected_date_contract = [
+        "20250411:"
+        + hashlib.sha256(repair.dataframe_csv_bytes(expected_frame)).hexdigest()
+        + ":1300"
+    ]
+    assert (
+        repair.run_selected_dates(args, fetch_func=selected_source_name_sensitive_fetch)
+        == 0
+    )
+    published_frame = pd.read_csv(
+        tmp_path / "data/daily_price/daily_price_20250411.csv", dtype=str
+    )
+    assert (
+        published_frame.loc[
+            published_frame["stock_id"].eq("1000"), "stock_name"
+        ].iloc[0]
+        == "Dirty Alias"
+    )
+    assert repair.fetcher.REQUIRE_EXACT_HISTORICAL_RESPONSE_DATES is False
+
+
+def setup_selected_canonical_name_source_repo(
+    root: Path, monkeypatch: pytest.MonkeyPatch
+) -> str:
+    subprocess.run(["git", "init", "-q"], cwd=root, check=True)
+    subprocess.run(
+        ["git", "config", "user.email", "test@example.invalid"], cwd=root, check=True
+    )
+    subprocess.run(["git", "config", "user.name", "Test"], cwd=root, check=True)
+    subprocess.run(["git", "config", "core.autocrlf", "true"], cwd=root, check=True)
+    for index, path_text in enumerate(
+        repair.SELECTED_CANONICAL_STOCK_NAME_SOURCE_PATHS
+    ):
+        path = root / path_text
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(
+            f"stock_id,stock_name\n{1000 + index},Name {index}\n".encode("utf-8")
+        )
+    subprocess.run(
+        ["git", "add", "output/latest", "docs/latest"], cwd=root, check=True
+    )
+    subprocess.run(["git", "commit", "-qm", "base"], cwd=root, check=True)
+    base_sha = subprocess.check_output(
+        ["git", "rev-parse", "HEAD"], cwd=root, text=True
+    ).strip()
+    # Simulate a Windows checkout: filtered Git identity must match even when raw
+    # working bytes use CRLF instead of the LF bytes stored in the Git blob.
+    for path_text in repair.SELECTED_CANONICAL_STOCK_NAME_SOURCE_PATHS:
+        path = root / path_text
+        path.write_bytes(path.read_bytes().replace(b"\n", b"\r\n"))
+    monkeypatch.setattr(
+        repair.fetcher,
+        "CANONICAL_STOCK_NAME_SOURCES",
+        [Path(path) for path in repair.SELECTED_CANONICAL_STOCK_NAME_SOURCE_PATHS],
+    )
+    return base_sha
+
+
+@pytest.mark.parametrize("mutation", ["none", "missing", "drift"])
+def test_selected_canonical_name_sources_are_git_blob_bound(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    mutation: str,
+) -> None:
+    base_sha = setup_selected_canonical_name_source_repo(tmp_path, monkeypatch)
+    target = tmp_path / repair.SELECTED_CANONICAL_STOCK_NAME_SOURCE_PATHS[0]
+    if mutation == "missing":
+        target.unlink()
+    elif mutation == "drift":
+        target.write_bytes(target.read_bytes() + b"corrupt\r\n")
+
+    if mutation == "none":
+        evidence = repair.validate_selected_canonical_name_sources(tmp_path, base_sha)
+        assert len(evidence) == 4
+        assert {item["path"] for item in evidence} == set(
+            repair.SELECTED_CANONICAL_STOCK_NAME_SOURCE_PATHS
+        )
+        assert all(len(item["git_blob_sha"]) == 40 for item in evidence)
+        assert all(len(item["git_blob_raw_sha256"]) == 64 for item in evidence)
+    else:
+        with pytest.raises(
+            ValueError,
+            match=("not materialized" if mutation == "missing" else "differs from source-base blob"),
+        ):
+            repair.validate_selected_canonical_name_sources(tmp_path, base_sha)
+
+
 def test_selected_dates_publish_only_exact_files_and_hash_bound_report(
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     monkeypatch.chdir(tmp_path)
-    monkeypatch.setattr(repair, "_repository_head", lambda root: "a" * 40)
+    bind_selected_source_test_environment(monkeypatch)
     marker = tmp_path / "data" / "daily_price" / "daily_price_20250101.csv"
     marker.parent.mkdir(parents=True)
     marker.write_bytes(b"unchanged")
@@ -719,6 +882,7 @@ def test_selected_dates_publish_only_exact_files_and_hash_bound_report(
         legacy = tmp_path / "data" / "daily_price" / f"{date_text}.csv"
         assert canonical.read_bytes() == legacy.read_bytes()
         assert canonical.read_bytes().startswith(b"\xef\xbb\xbf")
+        assert b"\r\n" not in canonical.read_bytes()
 
     report = json.loads(
         (tmp_path / "output" / "latest" / "repair_daily_price_range_latest.json").read_text(
@@ -729,6 +893,9 @@ def test_selected_dates_publish_only_exact_files_and_hash_bound_report(
     assert report["mode"] == "selected_dates"
     assert report["selected_dates"] == ["20250411", "20250521"]
     assert len(report["expected_date_contracts"]) == 2
+    assert report["canonical_stock_name_source_bindings"] == (
+        selected_source_test_bindings()
+    )
     assert len(report["rows"]) == 2
     for row in report["rows"]:
         payload = (tmp_path / row["canonical_path"]).read_bytes()
@@ -743,7 +910,7 @@ def test_selected_dates_transaction_rolls_back_every_replaced_target(
     fail_after_replace: int,
 ) -> None:
     monkeypatch.chdir(tmp_path)
-    monkeypatch.setattr(repair, "_repository_head", lambda root: "a" * 40)
+    bind_selected_source_test_environment(monkeypatch)
     real_replace = repair.os.replace
 
     def same_volume_replace(source, target):
@@ -822,7 +989,10 @@ def test_selected_dates_expected_contract_fails_before_any_publish(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     monkeypatch.chdir(tmp_path)
-    monkeypatch.setattr(repair, "_repository_head", lambda root: "a" * 40)
+    bind_selected_source_test_environment(monkeypatch)
+    monkeypatch.setattr(
+        repair.fetcher, "REQUIRE_EXACT_HISTORICAL_RESPONSE_DATES", False
+    )
     marker = tmp_path / "data/daily_price/daily_price_20250411.csv"
     marker.parent.mkdir(parents=True)
     marker.write_bytes(b"old canonical")
@@ -834,6 +1004,7 @@ def test_selected_dates_expected_contract_fails_before_any_publish(
 
     assert marker.read_bytes() == b"old canonical"
     assert not (tmp_path / "output/latest/repair_daily_price_range_latest.json").exists()
+    assert repair.fetcher.REQUIRE_EXACT_HISTORICAL_RESPONSE_DATES is False
 
 
 def test_selected_dates_expected_contract_must_cover_exact_date_set() -> None:

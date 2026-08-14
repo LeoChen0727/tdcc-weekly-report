@@ -467,6 +467,14 @@ def _setup_selected_validator_case(tmp_path: Path) -> tuple[str, str, dict[str, 
     base_2330.to_csv(history_dir / "2330.csv", index=False, lineterminator="\n")
     base_9999.to_csv(history_dir / "9999.csv", index=False, lineterminator="\n")
     _write_selected_manifest_mirrors(tmp_path, generated_at="before", status="generated")
+    for index, path_text in enumerate(
+        validator.SELECTED_CANONICAL_STOCK_NAME_SOURCE_PATHS
+    ):
+        path = tmp_path / path_text
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(
+            f"stock_id,stock_name\n{1000 + index},Name {index}\n".encode("utf-8")
+        )
     subprocess.run(
         ["git", "add", "data/stock_price_history", "output/latest", "docs/latest"],
         cwd=tmp_path,
@@ -474,6 +482,21 @@ def _setup_selected_validator_case(tmp_path: Path) -> tuple[str, str, dict[str, 
     )
     subprocess.run(["git", "commit", "-qm", "base"], cwd=tmp_path, check=True)
     base_sha = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=tmp_path, text=True).strip()
+    canonical_name_bindings = []
+    for path_text in validator.SELECTED_CANONICAL_STOCK_NAME_SOURCE_PATHS:
+        blob_sha = subprocess.check_output(
+            ["git", "rev-parse", f"{base_sha}:{path_text}"], cwd=tmp_path, text=True
+        ).strip()
+        blob_payload = subprocess.check_output(
+            ["git", "show", f"{base_sha}:{path_text}"], cwd=tmp_path
+        )
+        canonical_name_bindings.append(
+            {
+                "path": path_text,
+                "git_blob_sha": blob_sha,
+                "git_blob_raw_sha256": hashlib.sha256(blob_payload).hexdigest(),
+            }
+        )
 
     date_text = "20250411"
     selected_rows = [
@@ -523,6 +546,7 @@ def _setup_selected_validator_case(tmp_path: Path) -> tuple[str, str, dict[str, 
         "expected_date_contracts": [
             {"date": date_text, "sha256": daily_sha, "row_count": 4}
         ],
+        "canonical_stock_name_source_bindings": canonical_name_bindings,
         "rows": [
             {
                 "date": date_text,
@@ -633,6 +657,153 @@ def test_selected_repair_validator_independently_replays_and_writes_exact_pathsp
     assert len(expected_paths) == 14
     assert pathspec_nul.read_bytes().endswith(b"\0")
     assert stock_ids.read_text(encoding="ascii") == "00925\n2330\n"
+
+
+def test_selected_repair_validator_rejects_canonical_name_source_drift(
+    tmp_path: Path,
+) -> None:
+    base_sha, _, contracts = _setup_selected_validator_case(tmp_path)
+    source_path = tmp_path / validator.SELECTED_CANONICAL_STOCK_NAME_SOURCE_PATHS[0]
+    source_path.write_bytes(source_path.read_bytes() + b"9999,Drift\n")
+
+    with pytest.raises(
+        ValueError, match="canonical stock-name source differs from source base"
+    ):
+        validator.validate_selected_repair(
+            tmp_path,
+            report_path=Path("output/latest/repair_daily_price_range_latest.json"),
+            source_base_sha=base_sha,
+            date_contracts=contracts,
+            expected_stock_union_count=2,
+            expected_selected_row_count=2,
+            expected_existing_history_count=1,
+            expected_created_history_count=1,
+            expected_untouched_history_count=1,
+            expected_created_stock_ids={"00925"},
+            require_all_eligible_changed=True,
+        )
+
+
+@pytest.mark.parametrize(
+    ("mutation", "expected_message"),
+    [
+        ("missing_report_binding", "canonical stock-name bindings are missing"),
+        ("forged_blob_sha", "canonical stock-name evidence mismatch"),
+        ("forged_blob_raw_sha", "canonical stock-name evidence mismatch"),
+        ("missing_materialized_source", "canonical stock-name source is not materialized"),
+    ],
+)
+def test_selected_repair_validator_rejects_canonical_name_binding_failures(
+    tmp_path: Path,
+    mutation: str,
+    expected_message: str,
+) -> None:
+    base_sha, _, contracts = _setup_selected_validator_case(tmp_path)
+    report_path = tmp_path / "output/latest/repair_daily_price_range_latest.json"
+    report = json.loads(report_path.read_text(encoding="utf-8"))
+    if mutation == "missing_report_binding":
+        report.pop("canonical_stock_name_source_bindings")
+        report_path.write_text(json.dumps(report), encoding="utf-8")
+    elif mutation == "forged_blob_sha":
+        report["canonical_stock_name_source_bindings"][0]["git_blob_sha"] = "f" * 40
+        report_path.write_text(json.dumps(report), encoding="utf-8")
+    elif mutation == "forged_blob_raw_sha":
+        report["canonical_stock_name_source_bindings"][0][
+            "git_blob_raw_sha256"
+        ] = "f" * 64
+        report_path.write_text(json.dumps(report), encoding="utf-8")
+    else:
+        source_path = (
+            tmp_path / validator.SELECTED_CANONICAL_STOCK_NAME_SOURCE_PATHS[0]
+        )
+        source_path.unlink()
+
+    with pytest.raises(ValueError, match=expected_message):
+        validator.validate_selected_repair(
+            tmp_path,
+            report_path=Path("output/latest/repair_daily_price_range_latest.json"),
+            source_base_sha=base_sha,
+            date_contracts=contracts,
+            expected_stock_union_count=2,
+            expected_selected_row_count=2,
+            expected_existing_history_count=1,
+            expected_created_history_count=1,
+            expected_untouched_history_count=1,
+            expected_created_stock_ids={"00925"},
+            require_all_eligible_changed=True,
+        )
+
+
+def test_selected_repair_validator_rejects_crlf_even_when_hash_contract_is_updated(
+    tmp_path: Path,
+) -> None:
+    base_sha, date_text, contracts = _setup_selected_validator_case(tmp_path)
+    canonical = tmp_path / f"data/daily_price/daily_price_{date_text}.csv"
+    legacy = tmp_path / f"data/daily_price/{date_text}.csv"
+    crlf_payload = canonical.read_bytes().replace(b"\n", b"\r\n")
+    assert crlf_payload.startswith(b"\xef\xbb\xbf")
+    canonical.write_bytes(crlf_payload)
+    legacy.write_bytes(crlf_payload)
+    crlf_sha = hashlib.sha256(crlf_payload).hexdigest()
+
+    report_path = tmp_path / "output/latest/repair_daily_price_range_latest.json"
+    report = json.loads(report_path.read_text(encoding="utf-8"))
+    report["expected_date_contracts"][0]["sha256"] = crlf_sha
+    report["rows"][0]["price_sha256"] = crlf_sha
+    report_path.write_text(json.dumps(report), encoding="utf-8")
+    contracts[date_text] = (crlf_sha, contracts[date_text][1])
+
+    with pytest.raises(ValueError, match="source encoding/line-ending mismatch"):
+        validator.validate_selected_repair(
+            tmp_path,
+            report_path=Path("output/latest/repair_daily_price_range_latest.json"),
+            source_base_sha=base_sha,
+            date_contracts=contracts,
+            expected_stock_union_count=2,
+            expected_selected_row_count=2,
+            expected_existing_history_count=1,
+            expected_created_history_count=1,
+            expected_untouched_history_count=1,
+            expected_created_stock_ids={"00925"},
+            require_all_eligible_changed=True,
+        )
+
+
+def test_selected_repair_validator_rejects_missing_bom_even_when_hash_contract_is_updated(
+    tmp_path: Path,
+) -> None:
+    base_sha, date_text, contracts = _setup_selected_validator_case(tmp_path)
+    canonical = tmp_path / f"data/daily_price/daily_price_{date_text}.csv"
+    legacy = tmp_path / f"data/daily_price/{date_text}.csv"
+    payload = canonical.read_bytes()
+    assert payload.startswith(b"\xef\xbb\xbf")
+    no_bom_payload = payload[3:]
+    assert b"\r\n" not in no_bom_payload
+    canonical.write_bytes(no_bom_payload)
+    legacy.write_bytes(no_bom_payload)
+    no_bom_sha = hashlib.sha256(no_bom_payload).hexdigest()
+
+    report_path = tmp_path / "output/latest/repair_daily_price_range_latest.json"
+    report = json.loads(report_path.read_text(encoding="utf-8"))
+    report["expected_date_contracts"][0]["sha256"] = no_bom_sha
+    report["rows"][0]["price_sha256"] = no_bom_sha
+    report_path.write_text(json.dumps(report), encoding="utf-8")
+    contracts[date_text] = (no_bom_sha, contracts[date_text][1])
+
+    with pytest.raises(ValueError, match="source encoding/line-ending mismatch"):
+        validator.validate_selected_repair(
+            tmp_path,
+            report_path=Path("output/latest/repair_daily_price_range_latest.json"),
+            source_base_sha=base_sha,
+            date_contracts=contracts,
+            expected_stock_union_count=2,
+            expected_selected_row_count=2,
+            expected_existing_history_count=1,
+            expected_created_history_count=1,
+            expected_untouched_history_count=1,
+            expected_created_stock_ids={"00925"},
+            require_all_eligible_changed=True,
+        )
 
 
 def test_selected_repair_validator_rejects_independent_indicator_drift(
@@ -856,6 +1027,17 @@ def test_exact_selected_workflow_is_opt_in_bounded_and_no_full_rebuild() -> None
     assert 'default: ""' in dates_input
     assert "daily-full-pipeline-${{ github.ref }}" in workflow
     assert exact_step.count("--expected-date-contract ") == 7
+    expected_contracts = {
+        "20250411": ("89f2177b6f31537294434dbafa7bde0a51954771e0c750e7bff84a2bd0ad0abc", 2031),
+        "20250521": ("77bb957bdcd1392fa0340cbb552bdb8205ba3b96d979fd72783dfe0368170e04", 2035),
+        "20250908": ("66a92ce32f3bbba70f8d83ce557e81190d168e814c0c17dad0da697f4f73db45", 2050),
+        "20250912": ("7a32b61ed136a15efc519fcae09c85943e4d21c75ea4cbfcfc358eb11e5afb32", 2059),
+        "20250916": ("115c35a00dba8dc2d2047d6645d8c20332d80639469d40238564eeb11258067d", 2052),
+        "20251015": ("671a17fe97895eaf62274f5798a2c4b1b575fa7b68510ffdad1f5bd3ba307a4d", 2055),
+        "20251017": ("2ea87b045021603d89c28ad73645fe7b88b33d0030c7e7f4179b9fe053db7ac2", 2052),
+    }
+    for date_text, (expected_sha, expected_rows) in expected_contracts.items():
+        assert workflow.count(f"{date_text}:{expected_sha}:{expected_rows}") == 3
     assert "--repair-date 20250411" in exact_step
     assert "--repair-date 20251017" in exact_step
     assert "--expected-stock-union-count 2064" in exact_step

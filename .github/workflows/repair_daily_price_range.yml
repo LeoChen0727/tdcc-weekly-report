@@ -120,13 +120,13 @@ jobs:
           python scripts/repair_daily_price_range.py \
             --dates "$SELECTED_DATES" \
             --source-base-sha "$REPAIR_BASE_SHA" \
-            --expected-date-contract 20250411:002e70a2ba7a81764bfa0fd54b586393e351f85207d43c2c31938efe352d1382:2031 \
-            --expected-date-contract 20250521:e86986b60ed7494c6712f02ac57143c12d54e0313545148d0f9fc8242f30db1c:2035 \
-            --expected-date-contract 20250908:6a9071f67ea04c6d83ab04c2626c12bcd6090b413833ca5beced52a659a5d2aa:2050 \
-            --expected-date-contract 20250912:f2561a5a598a2580d27bace5bf60ec67d8478d5629269fc06a59b526f3b33db2:2059 \
-            --expected-date-contract 20250916:c270d41227a1444ed489c58cf7ef5d5a1ce2efcb2b9e7365bb4620f54d150966:2052 \
-            --expected-date-contract 20251015:ae100cf40123ae1702af10fceae47f846f0ad7fd0449c407f8cb0ab76a04626a:2055 \
-            --expected-date-contract 20251017:1c7fce134974e1b961a70e5a850bcf780e931a15a9ce62bbe1f9c8e41dfc53ed:2052 \
+            --expected-date-contract 20250411:89f2177b6f31537294434dbafa7bde0a51954771e0c750e7bff84a2bd0ad0abc:2031 \
+            --expected-date-contract 20250521:77bb957bdcd1392fa0340cbb552bdb8205ba3b96d979fd72783dfe0368170e04:2035 \
+            --expected-date-contract 20250908:66a92ce32f3bbba70f8d83ce557e81190d168e814c0c17dad0da697f4f73db45:2050 \
+            --expected-date-contract 20250912:7a32b61ed136a15efc519fcae09c85943e4d21c75ea4cbfcfc358eb11e5afb32:2059 \
+            --expected-date-contract 20250916:115c35a00dba8dc2d2047d6645d8c20332d80639469d40238564eeb11258067d:2052 \
+            --expected-date-contract 20251015:671a17fe97895eaf62274f5798a2c4b1b575fa7b68510ffdad1f5bd3ba307a4d:2055 \
+            --expected-date-contract 20251017:2ea87b045021603d89c28ad73645fe7b88b33d0030c7e7f4179b9fe053db7ac2:2052 \
             --check-code "$CHECK_CODE" \
             --max-days "$MAX_DAYS"
           python scripts/build_stock_price_history.py \
@@ -183,13 +183,13 @@ jobs:
           python scripts/validate_daily_price_history_continuity.py \
             --selected-repair-report output/latest/repair_daily_price_range_latest.json \
             --selected-source-base-sha "$REPAIR_BASE_SHA" \
-            --selected-date-contract 20250411:002e70a2ba7a81764bfa0fd54b586393e351f85207d43c2c31938efe352d1382:2031 \
-            --selected-date-contract 20250521:e86986b60ed7494c6712f02ac57143c12d54e0313545148d0f9fc8242f30db1c:2035 \
-            --selected-date-contract 20250908:6a9071f67ea04c6d83ab04c2626c12bcd6090b413833ca5beced52a659a5d2aa:2050 \
-            --selected-date-contract 20250912:f2561a5a598a2580d27bace5bf60ec67d8478d5629269fc06a59b526f3b33db2:2059 \
-            --selected-date-contract 20250916:c270d41227a1444ed489c58cf7ef5d5a1ce2efcb2b9e7365bb4620f54d150966:2052 \
-            --selected-date-contract 20251015:ae100cf40123ae1702af10fceae47f846f0ad7fd0449c407f8cb0ab76a04626a:2055 \
-            --selected-date-contract 20251017:1c7fce134974e1b961a70e5a850bcf780e931a15a9ce62bbe1f9c8e41dfc53ed:2052 \
+            --selected-date-contract 20250411:89f2177b6f31537294434dbafa7bde0a51954771e0c750e7bff84a2bd0ad0abc:2031 \
+            --selected-date-contract 20250521:77bb957bdcd1392fa0340cbb552bdb8205ba3b96d979fd72783dfe0368170e04:2035 \
+            --selected-date-contract 20250908:66a92ce32f3bbba70f8d83ce557e81190d168e814c0c17dad0da697f4f73db45:2050 \
+            --selected-date-contract 20250912:7a32b61ed136a15efc519fcae09c85943e4d21c75ea4cbfcfc358eb11e5afb32:2059 \
+            --selected-date-contract 20250916:115c35a00dba8dc2d2047d6645d8c20332d80639469d40238564eeb11258067d:2052 \
+            --selected-date-contract 20251015:671a17fe97895eaf62274f5798a2c4b1b575fa7b68510ffdad1f5bd3ba307a4d:2055 \
+            --selected-date-contract 20251017:2ea87b045021603d89c28ad73645fe7b88b33d0030c7e7f4179b9fe053db7ac2:2052 \
             --expected-stock-union-count 2064 \
             --expected-selected-row-count 14178 \
             --expected-existing-history-count 2061 \
@@ -235,13 +235,13 @@ jobs:
           python scripts/validate_daily_price_history_continuity.py \
             --selected-repair-report output/latest/repair_daily_price_range_latest.json \
             --selected-source-base-sha "$REPAIR_BASE_SHA" \
-            --selected-date-contract 20250411:002e70a2ba7a81764bfa0fd54b586393e351f85207d43c2c31938efe352d1382:2031 \
-            --selected-date-contract 20250521:e86986b60ed7494c6712f02ac57143c12d54e0313545148d0f9fc8242f30db1c:2035 \
-            --selected-date-contract 20250908:6a9071f67ea04c6d83ab04c2626c12bcd6090b413833ca5beced52a659a5d2aa:2050 \
-            --selected-date-contract 20250912:f2561a5a598a2580d27bace5bf60ec67d8478d5629269fc06a59b526f3b33db2:2059 \
-            --selected-date-contract 20250916:c270d41227a1444ed489c58cf7ef5d5a1ce2efcb2b9e7365bb4620f54d150966:2052 \
-            --selected-date-contract 20251015:ae100cf40123ae1702af10fceae47f846f0ad7fd0449c407f8cb0ab76a04626a:2055 \
-            --selected-date-contract 20251017:1c7fce134974e1b961a70e5a850bcf780e931a15a9ce62bbe1f9c8e41dfc53ed:2052 \
+            --selected-date-contract 20250411:89f2177b6f31537294434dbafa7bde0a51954771e0c750e7bff84a2bd0ad0abc:2031 \
+            --selected-date-contract 20250521:77bb957bdcd1392fa0340cbb552bdb8205ba3b96d979fd72783dfe0368170e04:2035 \
+            --selected-date-contract 20250908:66a92ce32f3bbba70f8d83ce557e81190d168e814c0c17dad0da697f4f73db45:2050 \
+            --selected-date-contract 20250912:7a32b61ed136a15efc519fcae09c85943e4d21c75ea4cbfcfc358eb11e5afb32:2059 \
+            --selected-date-contract 20250916:115c35a00dba8dc2d2047d6645d8c20332d80639469d40238564eeb11258067d:2052 \
+            --selected-date-contract 20251015:671a17fe97895eaf62274f5798a2c4b1b575fa7b68510ffdad1f5bd3ba307a4d:2055 \
+            --selected-date-contract 20251017:2ea87b045021603d89c28ad73645fe7b88b33d0030c7e7f4179b9fe053db7ac2:2052 \
             --expected-stock-union-count 2064 \
             --expected-selected-row-count 14178 \
             --expected-existing-history-count 2061 \

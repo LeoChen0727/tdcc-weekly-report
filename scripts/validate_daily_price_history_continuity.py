@@ -88,6 +88,12 @@ SELECTED_INDICATOR_COLUMNS = [
     "distance_to_low_60_pct",
     "distance_to_low_120_pct",
 ]
+SELECTED_CANONICAL_STOCK_NAME_SOURCE_PATHS = (
+    "output/latest/company_industry_snapshot_latest.csv",
+    "docs/latest/company_industry_snapshot_latest.csv",
+    "output/latest/stock_theme_taxonomy_latest.csv",
+    "docs/latest/stock_theme_taxonomy_latest.csv",
+)
 
 
 @dataclass
@@ -590,6 +596,81 @@ def _git_file_bytes(root: Path, base_sha: str, path_text: str) -> bytes | None:
     return result.stdout if result.returncode == 0 else None
 
 
+def _validate_selected_canonical_name_source_bindings(
+    root: Path, source_base_sha: str, report: dict[str, Any]
+) -> None:
+    bindings = report.get("canonical_stock_name_source_bindings")
+    if not isinstance(bindings, list) or len(bindings) != len(
+        SELECTED_CANONICAL_STOCK_NAME_SOURCE_PATHS
+    ):
+        raise ValueError("selected repair canonical stock-name bindings are missing")
+    by_path: dict[str, dict[str, Any]] = {}
+    for item in bindings:
+        if not isinstance(item, dict):
+            raise ValueError("selected repair canonical stock-name binding is malformed")
+        path_text = safe_str(item.get("path")).replace("\\", "/")
+        if path_text in by_path:
+            raise ValueError("selected repair canonical stock-name bindings are duplicated")
+        by_path[path_text] = item
+    if set(by_path) != set(SELECTED_CANONICAL_STOCK_NAME_SOURCE_PATHS):
+        raise ValueError("selected repair canonical stock-name path set is not exact")
+
+    for path_text in SELECTED_CANONICAL_STOCK_NAME_SOURCE_PATHS:
+        full_path = (root / path_text).resolve()
+        try:
+            full_path.relative_to(root)
+        except ValueError as exc:
+            raise ValueError(
+                f"selected repair canonical stock-name source escapes repository: {path_text}"
+            ) from exc
+        current = root
+        for part in Path(path_text).parts:
+            current = current / part
+            if current.is_symlink():
+                raise ValueError(
+                    f"selected repair canonical stock-name source is symlinked: {path_text}"
+                )
+        if not full_path.is_file():
+            raise ValueError(
+                f"selected repair canonical stock-name source is not materialized: {path_text}"
+            )
+        expected_blob_result = subprocess.run(
+            ["git", "rev-parse", f"{source_base_sha}:{path_text}"],
+            cwd=root,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        expected_blob_sha = expected_blob_result.stdout.strip()
+        observed_blob_result = subprocess.run(
+            ["git", "hash-object", "--", path_text],
+            cwd=root,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        git_payload = _git_file_bytes(root, source_base_sha, path_text)
+        if (
+            expected_blob_result.returncode != 0
+            or not re.fullmatch(r"[0-9a-f]{40}", expected_blob_sha)
+            or observed_blob_result.returncode != 0
+            or observed_blob_result.stdout.strip() != expected_blob_sha
+            or git_payload is None
+        ):
+            raise ValueError(
+                f"selected repair canonical stock-name source differs from source base: {path_text}"
+            )
+        binding = by_path[path_text]
+        if (
+            safe_str(binding.get("git_blob_sha")) != expected_blob_sha
+            or safe_str(binding.get("git_blob_raw_sha256"))
+            != _sha256_bytes(git_payload)
+        ):
+            raise ValueError(
+                f"selected repair canonical stock-name evidence mismatch: {path_text}"
+            )
+
+
 def validate_selected_repair(
     root: Path,
     *,
@@ -626,6 +707,7 @@ def validate_selected_repair(
         or report.get("selected_dates") != dates
     ):
         raise ValueError("selected repair report schema/base/date identity mismatch")
+    _validate_selected_canonical_name_source_bindings(root, source_base_sha, report)
     reported_contracts = report.get("expected_date_contracts")
     if not isinstance(reported_contracts, list):
         raise ValueError("selected repair report expected date contracts are missing")
@@ -673,6 +755,13 @@ def validate_selected_repair(
         legacy_payload = (root / legacy_text).read_bytes()
         if canonical_payload != legacy_payload:
             raise ValueError(f"selected repair canonical/legacy mismatch: {date_text}")
+        if (
+            not canonical_payload.startswith(b"\xef\xbb\xbf")
+            or b"\r\n" in canonical_payload
+        ):
+            raise ValueError(
+                f"selected repair source encoding/line-ending mismatch: {date_text}"
+            )
         if (
             _sha256_bytes(canonical_payload) != expected_sha
             or safe_str(row.get("price_sha256")) != expected_sha

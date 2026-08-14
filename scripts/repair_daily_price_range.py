@@ -32,6 +32,12 @@ REPORT_CSV = LATEST_DIR / "repair_daily_price_range_latest.csv"
 CHECK_CSV = LATEST_DIR / "repair_daily_price_range_check_code_latest.csv"
 REPORT_JSON = LATEST_DIR / "repair_daily_price_range_latest.json"
 REPORT_MD = LATEST_DIR / "repair_daily_price_range_latest.md"
+SELECTED_CANONICAL_STOCK_NAME_SOURCE_PATHS = (
+    "output/latest/company_industry_snapshot_latest.csv",
+    "docs/latest/company_industry_snapshot_latest.csv",
+    "output/latest/stock_theme_taxonomy_latest.csv",
+    "docs/latest/stock_theme_taxonomy_latest.csv",
+)
 
 
 def parse_yyyymmdd(value: str) -> datetime:
@@ -354,6 +360,89 @@ def _repository_head(root: Path) -> str:
     return result.stdout.strip()
 
 
+def validate_selected_canonical_name_sources(
+    root: Path, source_base_sha: str
+) -> list[dict[str, str]]:
+    """Bind selected-date stock names to four materialized source-base blobs."""
+
+    root = root.resolve()
+    configured = tuple(
+        Path(path).as_posix() for path in fetcher.CANONICAL_STOCK_NAME_SOURCES
+    )
+    if configured != SELECTED_CANONICAL_STOCK_NAME_SOURCE_PATHS:
+        raise ValueError(
+            "selected-date canonical stock-name source configuration is not exact"
+        )
+    evidence: list[dict[str, str]] = []
+    for path_text in SELECTED_CANONICAL_STOCK_NAME_SOURCE_PATHS:
+        full_path = (root / path_text).resolve()
+        try:
+            full_path.relative_to(root)
+        except ValueError as exc:
+            raise ValueError(
+                f"selected-date canonical stock-name source escapes repository: {path_text}"
+            ) from exc
+        current = root
+        for part in Path(path_text).parts:
+            current = current / part
+            if current.is_symlink():
+                raise ValueError(
+                    f"selected-date canonical stock-name source is symlinked: {path_text}"
+                )
+        if not full_path.is_file():
+            raise ValueError(
+                f"selected-date canonical stock-name source is not materialized: {path_text}"
+            )
+
+        blob_result = subprocess.run(
+            ["git", "rev-parse", f"{source_base_sha}:{path_text}"],
+            cwd=root,
+            capture_output=True,
+            text=True,
+            check=False,
+            timeout=15,
+        )
+        expected_blob_sha = blob_result.stdout.strip()
+        if blob_result.returncode != 0 or not re.fullmatch(
+            r"[0-9a-f]{40}", expected_blob_sha
+        ):
+            raise ValueError(
+                f"selected-date canonical stock-name source is not tracked at source base: {path_text}"
+            )
+        observed_blob_result = subprocess.run(
+            ["git", "hash-object", "--", path_text],
+            cwd=root,
+            capture_output=True,
+            text=True,
+            check=False,
+            timeout=15,
+        )
+        observed_blob_sha = observed_blob_result.stdout.strip()
+        git_payload_result = subprocess.run(
+            ["git", "show", f"{source_base_sha}:{path_text}"],
+            cwd=root,
+            capture_output=True,
+            check=False,
+            timeout=15,
+        )
+        if (
+            observed_blob_result.returncode != 0
+            or observed_blob_sha != expected_blob_sha
+            or git_payload_result.returncode != 0
+        ):
+            raise ValueError(
+                f"selected-date canonical stock-name source differs from source-base blob: {path_text}"
+            )
+        evidence.append(
+            {
+                "path": path_text,
+                "git_blob_sha": expected_blob_sha,
+                "git_blob_raw_sha256": sha256_bytes(git_payload_result.stdout),
+            }
+        )
+    return evidence
+
+
 def _report_payloads(
     rows: list[dict[str, Any]],
     check_rows: list[dict[str, Any]],
@@ -361,6 +450,7 @@ def _report_payloads(
     *,
     selected_dates: list[str],
     expected_date_contracts: dict[str, tuple[str, int]] | None = None,
+    canonical_name_source_bindings: list[dict[str, str]] | None = None,
 ) -> dict[Path, bytes]:
     result_df = pd.DataFrame(rows)
     check_df = pd.DataFrame(check_rows)
@@ -380,6 +470,10 @@ def _report_payloads(
         "rows": rows,
         "check_rows": check_rows,
     }
+    if selected_dates:
+        report["canonical_stock_name_source_bindings"] = (
+            canonical_name_source_bindings or []
+        )
     return {
         REPORT_CSV: dataframe_csv_bytes(result_df),
         CHECK_CSV: dataframe_csv_bytes(check_df),
@@ -423,6 +517,9 @@ def run_selected_dates(
         raise ValueError("source_base_sha must be a lowercase 40-character git SHA")
     if _repository_head(Path.cwd()) != source_base_sha:
         raise ValueError("selected-date repair source_base_sha does not equal repository HEAD")
+    canonical_name_source_bindings = validate_selected_canonical_name_sources(
+        Path.cwd(), source_base_sha
+    )
 
     rows: list[dict[str, Any]] = []
     check_rows: list[dict[str, Any]] = []
@@ -484,6 +581,7 @@ def run_selected_dates(
         args,
         selected_dates=selected_dates,
         expected_date_contracts=expected_contracts,
+        canonical_name_source_bindings=canonical_name_source_bindings,
     )
     payloads.update(report_payloads)
     publish_payloads_transaction(
