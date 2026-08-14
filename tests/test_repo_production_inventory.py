@@ -2043,7 +2043,7 @@ def test_input_bound_validator_stage_a_preauthorizations_are_exact() -> None:
     payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
     rows, errors = inventory.parse_pr_safe_authorizations(payload)
     assert errors == []
-    assert [row["migration_id"] for row in rows[-15:]] == [
+    assert [row["migration_id"] for row in rows[-16:]] == [
         inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_MIGRATION_ID,
         inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_STAGE_A_MIGRATION_ID,
         inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_ID,
@@ -2059,6 +2059,7 @@ def test_input_bound_validator_stage_a_preauthorizations_are_exact() -> None:
         inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_TARGET_ID,
         inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V3_TARGET_ID,
         inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V4_TARGET_ID,
+        inventory.PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_TARGET_ID,
     ]
     rows_by_id = {row["migration_id"]: row for row in rows}
     assert rows_by_id[
@@ -2344,6 +2345,56 @@ def test_input_bound_validator_stage_a_preauthorizations_are_exact() -> None:
             path
         ]
     } == {"config/repo_file_lifecycle_inventory.csv"}
+    assert rows_by_id[
+        inventory.PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_TARGET_ID
+    ] == {
+        "migration_id": (
+            inventory.PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_TARGET_ID
+        ),
+        "status": "preauthorized",
+        "approval_reference": (
+            "current_user_explicit_pr545_projection_v2_exact_target_"
+            "preauthorization_20260815"
+        ),
+        "base_helper_sha256": (
+            inventory.PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_BASE_SHA256_BY_PATH[
+                inventory.PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_HELPER
+            ]
+        ),
+        "current_helper_sha256": (
+            inventory.PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_TARGET_SHA256_BY_PATH[
+                inventory.PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_HELPER
+            ]
+        ),
+        "current_test_sha256": (
+            inventory.PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_TARGET_SHA256_BY_PATH[
+                inventory.PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_TEST
+            ]
+        ),
+        "changed_paths": ";".join(
+            sorted(inventory.PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_PATHS)
+        ),
+    }
+    assert len(inventory.PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_PATHS) == 35
+    assert set(
+        inventory.PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_BASE_SHA256_BY_PATH
+    ) == set(
+        inventory.PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_TARGET_SHA256_BY_PATH
+    ) == set(inventory.PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_PATHS)
+    assert {
+        path
+        for path, expected_sha in (
+            inventory.PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_BASE_SHA256_BY_PATH.items()
+        )
+        if expected_sha is None
+    } == {
+        "scripts/revenue_unreacted_range_source_snapshot_projection_v1_v2_diff.py",
+        "scripts/revenue_unreacted_range_source_snapshot_projection_v1_v2_operation_diff.py",
+        "scripts/validate_revenue_unreacted_range_source_snapshot_projection_v1_v2_diff.py",
+        "scripts/validate_revenue_unreacted_range_source_snapshot_projection_v1_v2_operation_diff.py",
+        "tests/test_revenue_unreacted_range_source_snapshot_projection_v1_v2_diff.py",
+        "tests/test_revenue_unreacted_range_source_snapshot_projection_v1_v2_operation_diff.py",
+    }
     assert rows_by_id[inventory.PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TARGET_ID] == {
         "migration_id": inventory.PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TARGET_ID,
         "status": "preauthorized",
@@ -2531,12 +2582,18 @@ def test_daily_recovery_architecture_v4_profile_is_exact() -> None:
 def test_daily_runtime_integration_authorization_is_append_only() -> None:
     payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
     lines = payload.splitlines(keepends=True)
-    assert len(lines) >= 2
-    assert inventory.canonical_blob_sha256(b"".join(lines[:-1])) == (
+    assert len(lines) >= 3
+    assert inventory.canonical_blob_sha256(b"".join(lines[:-2])) == (
         "973a917eec1cd82d1b7f116793197676987ee7b04ddaeb528107645f28e73e15"
     )
-    assert lines[-1].startswith(
+    assert lines[-2].startswith(
         b"daily-runtime-integration-regressions-exact-target-v4,"
+    )
+    assert inventory.canonical_blob_sha256(b"".join(lines[:-1])) == (
+        "0336f7d65b5f16efaef68126756d6f547f7885e7497d69d5a578602bcdedfd74"
+    )
+    assert lines[-1].startswith(
+        b"revenue-unreacted-range-source-projection-v2-rebaseline-exact-target-v1,"
     )
 
 
@@ -3701,6 +3758,170 @@ def test_revenue_promotion_preparation_target_uses_base_owned_ledger() -> None:
         current_test=current_test,
         authorization_payload=authorization_payload,
         target_id=inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_TARGET_ID,
+    )
+
+
+def test_revenue_source_projection_v2_rebaseline_matches_frozen_git_objects() -> None:
+    base_ref = (
+        inventory.PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_BASE_CONTENT_REF_SHA
+    )
+    target_ref = "d4e379237673c1381b88b24c1290d5219f025038"
+    paths = set(inventory.PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_PATHS)
+    diff_payload = inventory.git_output_bytes(
+        "diff",
+        "--name-status",
+        "-z",
+        "--find-renames",
+        "--find-copies",
+        "--diff-filter=ACDMRT",
+        f"{base_ref}...{target_ref}",
+        "--",
+    )
+    observed_paths, diff_errors = inventory.parse_git_name_status_z(diff_payload)
+
+    assert diff_errors == []
+    assert observed_paths == paths
+    assert inventory.is_preauthorized_revenue_forward_holdout_target(
+        base_ref,
+        paths,
+        repository_root=ROOT,
+        head_ref=target_ref,
+        target_id=inventory.PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_TARGET_ID,
+    )
+
+
+def test_revenue_source_projection_v2_rebaseline_rejects_extra_and_cross_profile() -> None:
+    base_ref = (
+        inventory.PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_BASE_CONTENT_REF_SHA
+    )
+    target_ref = "d4e379237673c1381b88b24c1290d5219f025038"
+    paths = set(inventory.PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_PATHS)
+    kwargs = {
+        "base_ref": base_ref,
+        "repository_root": ROOT,
+        "head_ref": target_ref,
+    }
+
+    assert not inventory.is_preauthorized_revenue_forward_holdout_target(
+        **kwargs,
+        changed_paths={*paths, "scripts/unregistered.py"},
+        target_id=inventory.PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_TARGET_ID,
+    )
+    assert not inventory.is_preauthorized_revenue_forward_holdout_target(
+        **kwargs,
+        changed_paths=paths,
+        target_id=inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_TARGET_ID,
+    )
+
+
+def test_revenue_source_projection_v2_rebaseline_rejects_hash_and_mode_drift(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    base_ref = (
+        inventory.PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_BASE_CONTENT_REF_SHA
+    )
+    target_ref = "d4e379237673c1381b88b24c1290d5219f025038"
+    paths = set(inventory.PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_PATHS)
+    target_id = inventory.PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_TARGET_ID
+    helper = inventory.PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_HELPER
+    kwargs = {
+        "base_ref": base_ref,
+        "changed_paths": paths,
+        "repository_root": ROOT,
+        "head_ref": target_ref,
+        "target_id": target_id,
+    }
+    expected_helper_sha = (
+        inventory.PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_TARGET_SHA256_BY_PATH[
+            helper
+        ]
+    )
+
+    monkeypatch.setitem(
+        inventory.PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_TARGET_SHA256_BY_PATH,
+        helper,
+        "0" * 64,
+    )
+    assert not inventory.is_preauthorized_revenue_forward_holdout_target(**kwargs)
+    monkeypatch.setitem(
+        inventory.PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_TARGET_SHA256_BY_PATH,
+        helper,
+        expected_helper_sha,
+    )
+
+    original_mode = inventory._pr_safe_repo_blob_mode
+    monkeypatch.setattr(
+        inventory,
+        "_pr_safe_repo_blob_mode",
+        lambda root, ref, path: (
+            "100755"
+            if ref == target_ref and path == helper
+            else original_mode(root, ref, path)
+        ),
+    )
+    assert not inventory.is_preauthorized_revenue_forward_holdout_target(**kwargs)
+
+
+def test_revenue_source_projection_v2_rebaseline_rejects_base_and_ancestry(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    base_ref = (
+        inventory.PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_BASE_CONTENT_REF_SHA
+    )
+    target_ref = "d4e379237673c1381b88b24c1290d5219f025038"
+    paths = set(inventory.PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_PATHS)
+    kwargs = {
+        "changed_paths": paths,
+        "repository_root": ROOT,
+        "head_ref": target_ref,
+        "target_id": (
+            inventory.PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_TARGET_ID
+        ),
+    }
+
+    assert not inventory.is_preauthorized_revenue_forward_holdout_target(
+        "0" * 40,
+        **kwargs,
+    )
+    monkeypatch.setattr(
+        inventory,
+        "_pr_safe_repo_ref_is_ancestor",
+        lambda _root, _ancestor, _descendant: False,
+    )
+    assert not inventory.is_preauthorized_revenue_forward_holdout_target(
+        base_ref,
+        **kwargs,
+    )
+
+
+def test_revenue_source_projection_v2_rebaseline_uses_base_owned_ledger() -> None:
+    base_ref = (
+        inventory.PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_BASE_CONTENT_REF_SHA
+    )
+    target_ref = "d4e379237673c1381b88b24c1290d5219f025038"
+    helper = inventory.PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_HELPER
+    direct_test = inventory.PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_TEST
+    paths = set(inventory.PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_PATHS)
+    base_helper = inventory.git_blob_at_ref(base_ref, helper)
+    current_helper = inventory.git_blob_at_ref(target_ref, helper)
+    current_test = inventory.git_blob_at_ref(target_ref, direct_test)
+    authorization_payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
+
+    assert inventory.validate_pr_safe_control_plane_delta(
+        paths,
+        base_helper=base_helper,
+        current_helper=current_helper,
+        current_test=current_test,
+        authorization_payload=authorization_payload,
+        target_id=inventory.PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_TARGET_ID,
+    ) == []
+    assert inventory.validate_pr_safe_control_plane_delta(
+        paths,
+        base_helper=base_helper,
+        current_helper=current_helper,
+        current_test=current_test,
+        authorization_payload=authorization_payload,
+        target_id=inventory.PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_TARGET_ID,
     )
 
 

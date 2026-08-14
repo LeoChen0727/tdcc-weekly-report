@@ -444,6 +444,95 @@ PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_TARGET_SHA256_BY_PATH = {
 PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_PATHS = frozenset(
     PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_TARGET_SHA256_BY_PATH
 )
+PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_TARGET_ID = (
+    "revenue-unreacted-range-source-projection-v2-rebaseline-exact-target-v1"
+)
+PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_BASE_CONTENT_REF_SHA = (
+    "7d47662490326fc3e76cfb2aee41608effa27638"
+)
+PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_HELPER = (
+    "scripts/model_data_independence.py"
+)
+PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_TEST = (
+    "tests/test_model_data_independence.py"
+)
+PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_BASE_SHA256_BY_PATH = {
+    ".github/workflows/research_backtest_pipeline.yml": "681117802a20c4fc5fb2c7bd143155bfd3bf2ddb3025c8a345fe29e281bb9099",
+    "config/apps_script_research_dispatch_inputs.csv": "ea5ddbfcc63d43f9071e157aabc130368eeeddf6b611bb2348570e51b1aa1346",
+    "config/daily_model_background_data_registry.csv": "e161cd1826197072039a5f5f2aaebb7c97af31e9bc335529c936db600fbb2d08",
+    "config/daily_model_data_sharing_migrations.csv": "6f82c52cb0799971621eafac0a676c2e1e7fdbdb65a6c1354a5a4fa86da2cd02",
+    "config/daily_model_data_sharing_registry.csv": "7aa4fdde0f0ca9ea9aacb727ef060d89430018480b69d92dd6cf520695ef41d8",
+    "config/daily_model_validator_independence.csv": "1162da43004570b2836b86f7e0f58ef2f814bfc6e994b4c472de66b5d946c61a",
+    "config/repo_file_lifecycle_inventory.csv": "22c79ea3915ebe7c66bb1b2bdd8721e501db79715111dfd2e8073ef9d9029c6b",
+    "config/repo_production_inventory.csv": "e019a84107f263f77e0e4f7f9e014841ebdb470ad29d58fee91441d00258b17f",
+    "docs/latest/model_data_independence_audit_latest.csv": "3b71b276152f93e50ca72c99a459627aa40c75abd15df3a2d9150aca6aab199e",
+    "docs/latest/model_data_independence_audit_latest.md": "ebffaebdfec5a59dc89b742438a494fadebed90922748d2db672eaf21fdf5c6f",
+    "output/latest/model_data_independence_audit_latest.csv": "3b71b276152f93e50ca72c99a459627aa40c75abd15df3a2d9150aca6aab199e",
+    "output/latest/model_data_independence_audit_latest.md": "ebffaebdfec5a59dc89b742438a494fadebed90922748d2db672eaf21fdf5c6f",
+    "scripts/build_revenue_unreacted_range_research.py": "70d549218cde2b7917bb13f54c8b41bd9e74c770896cdf4c43351bc2439df29b",
+    "scripts/model_data_independence.py": "031a7a013b9bf04f5b9a1b3c20b716094c2d9f48a1dcbfd851c57cb5cc0b124e",
+    "scripts/revenue_unreacted_range_forward_holdout.py": "11fb0878c6b9678c8321e7c6a460e5d06eb976a7f9dfd5d3dd3c9f851ea953c3",
+    "scripts/revenue_unreacted_range_low_mid_falling_candidate_audit.py": "0ed8a7240a9abe10e89b70e462390c5c3a7245ee013e37e88d1323374d072000",
+    "scripts/revenue_unreacted_range_source_first_condition_audit.py": "2ffc0a9206a1088621561183b748804b490658b46f4a21b7fffe58ef7e88be39",
+    "scripts/revenue_unreacted_range_source_snapshot_projection.py": "5041dfe02010ed14e6c0f822f26d537ad4bd2380094517d32b7dc9023e2585dd",
+    "scripts/revenue_unreacted_range_source_snapshot_projection_v1_v2_diff.py": None,
+    "scripts/revenue_unreacted_range_source_snapshot_projection_v1_v2_operation_diff.py": None,
+    "scripts/validate_model_research_workflow_isolation.py": "9a75b27d0b061061ba946e697a666ebd7177ecd328f325413088e4d32713f8b8",
+    "scripts/validate_revenue_unreacted_range_forward_holdout.py": "1371af6babf3c6fd2916bb806a1c1ad167015faf732717f336ff87d16cda02d1",
+    "scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py": "f02652ea7fd3f0618668381e2f93a9b7f66a46d68aba1197deee45bb291277a4",
+    "scripts/validate_revenue_unreacted_range_source_first_condition_audit.py": "5bdda8d7767169251c092f28f22ef2c6d5237b3bb24a110256524e147d4667f0",
+    "scripts/validate_revenue_unreacted_range_source_snapshot_projection.py": "e6310b057be193ac05575aa0ac2090d728366ef0d9ce3ee5d4baf14bae3980e6",
+    "scripts/validate_revenue_unreacted_range_source_snapshot_projection_v1_v2_diff.py": None,
+    "scripts/validate_revenue_unreacted_range_source_snapshot_projection_v1_v2_operation_diff.py": None,
+    "tests/test_model_data_independence.py": "fd3485916ca6741bc743d1b04d8e14502fcfd7fca878287953e0d49f59b7be65",
+    "tests/test_revenue_unreacted_range_forward_holdout.py": "81b1dbfdedd95faf0f04058c0f7c78ae87cf291c1fc5653becafaa0ed9704e3c",
+    "tests/test_revenue_unreacted_range_low_mid_falling_candidate_audit.py": "ced427f66ad1bab45c6b7db350d8e196c3cf2cfb51e41ce3b930d4023352800f",
+    "tests/test_revenue_unreacted_range_source_snapshot_projection.py": "3f961c84b0cc92e5b32619081183dc7ab5004da42b310ad68aa9f9ed770554fe",
+    "tests/test_revenue_unreacted_range_source_snapshot_projection_v1_v2_diff.py": None,
+    "tests/test_revenue_unreacted_range_source_snapshot_projection_v1_v2_operation_diff.py": None,
+    "tests/test_validate_revenue_unreacted_range_forward_holdout.py": "9cbb43937b619d6af63dc9b4b50f954077c2448d95185ba4b5ef0f8f8b362a35",
+    "tests/test_validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py": "5bfdd3d753eaf98340d0811a51a96396d549dc670a8e90a188d44cf19621da5e",
+}
+PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_TARGET_SHA256_BY_PATH = {
+    ".github/workflows/research_backtest_pipeline.yml": "e4dff5b5c9fb92eca72d00c405dc28b9be92c9af1c217d6b8ac1240c9fc25ad5",
+    "config/apps_script_research_dispatch_inputs.csv": "6b8ce76e26af531579b18cb5c1f46935ead78231c58034f564328d773e0d8806",
+    "config/daily_model_background_data_registry.csv": "f50bc663e7d8d23fe59913aac4c8adf0fca84fd971e45eba6930fc9c42c9168b",
+    "config/daily_model_data_sharing_migrations.csv": "703297d943713a25cec2886ebc5a70e2009357e57f8795c3e2141e0f1acc925a",
+    "config/daily_model_data_sharing_registry.csv": "c0e5584b4ed2a7b17f6ee2dc806203c892d46f5a0c6eed1c14b0e93211fe61a6",
+    "config/daily_model_validator_independence.csv": "41f35fd5d707c677bb5f7c96147c24d71eabf441fb2506c2865b248acd65a0b1",
+    "config/repo_file_lifecycle_inventory.csv": "6d888ed49e876252a0281414f1c96b205f09bb27f03cfd0e32bc6458ac046450",
+    "config/repo_production_inventory.csv": "ebe147f03803dbc0d93b1a1ba21f00e4b68312ef4cf69ad0bbbe1b6fb52ca782",
+    "docs/latest/model_data_independence_audit_latest.csv": "a06fd6d2d5bb36d157834c8c0cc2f26555f1062b7598c482d95119732abb7714",
+    "docs/latest/model_data_independence_audit_latest.md": "23cbbb3b1b7798986b6d9eb3073ae101f26393b4177015052343eab76eaf3f41",
+    "output/latest/model_data_independence_audit_latest.csv": "a06fd6d2d5bb36d157834c8c0cc2f26555f1062b7598c482d95119732abb7714",
+    "output/latest/model_data_independence_audit_latest.md": "23cbbb3b1b7798986b6d9eb3073ae101f26393b4177015052343eab76eaf3f41",
+    "scripts/build_revenue_unreacted_range_research.py": "ecb13d54453a0168cbca00a9653bef4607ddb53d20409ef6de699f262330963d",
+    "scripts/model_data_independence.py": "b72cc3edfb53da4f8956eeb49188119bfd7ebe4f960339cc01b5e4e977f7a064",
+    "scripts/revenue_unreacted_range_forward_holdout.py": "53ed3feecffbef27b6e79e7161bda890af611b47769944ebc2fcfabb3a866bb6",
+    "scripts/revenue_unreacted_range_low_mid_falling_candidate_audit.py": "78acce0f5274aebb6708645ace8b4e5c35a8a48a357dba8735a4061e23c6f94a",
+    "scripts/revenue_unreacted_range_source_first_condition_audit.py": "7602a8618fe6adfb44b929721012022ab2af2876eee2c7d54f9a6fb1c7d7a650",
+    "scripts/revenue_unreacted_range_source_snapshot_projection.py": "652c53b7158c1dbb87d8df1f35257f306ce6c4eb853bd5754f62f8003c660f27",
+    "scripts/revenue_unreacted_range_source_snapshot_projection_v1_v2_diff.py": "bb5cb3027f69444423a1b64ea6d4156e0c3c63736c291605d5a891e40d63ba60",
+    "scripts/revenue_unreacted_range_source_snapshot_projection_v1_v2_operation_diff.py": "697c51395329bd214d3c257112abbc3b7bf41c81f505ee6501eab160796d1ecc",
+    "scripts/validate_model_research_workflow_isolation.py": "abb3a6b89a671350315cd690002c56793c5c83bb9e47cf2331e84e7e04835019",
+    "scripts/validate_revenue_unreacted_range_forward_holdout.py": "a614030df65948eb622fb1f2294a72dd4c78aff5c94b245d97fe786b23c473a6",
+    "scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py": "ecd8ddffaf1523d3ae9423dd30ba459c52a5bc2420d408b8074f21b33aad2a71",
+    "scripts/validate_revenue_unreacted_range_source_first_condition_audit.py": "044435daf54d183b0264a39b45f3379ba7f97d46af353c70191d160db071a81a",
+    "scripts/validate_revenue_unreacted_range_source_snapshot_projection.py": "3f507c4589a9d7305692014c628c92102a4cf4c4e5ae95649f94855748ba29b8",
+    "scripts/validate_revenue_unreacted_range_source_snapshot_projection_v1_v2_diff.py": "c71d11629583c54e276edd6b62de63e4e5bf8a9926029467e8b4a155a12899a2",
+    "scripts/validate_revenue_unreacted_range_source_snapshot_projection_v1_v2_operation_diff.py": "cdc198daf23b5a6f9b3f75c80285a33ee390eee632666a1b750954952c21a523",
+    "tests/test_model_data_independence.py": "c2308fda7d243287ed2c12ef25b4f1bb451bdd96a61ca433dd760e88f1a5e08b",
+    "tests/test_revenue_unreacted_range_forward_holdout.py": "af650ab9228c3a1ab93b54ff750a44af0e76fee155ce298024c0c503fa7fecd6",
+    "tests/test_revenue_unreacted_range_low_mid_falling_candidate_audit.py": "48bdee626f2103bc4a6b93ce7a53d1427c0bcccd43df7b488530d315a47571dd",
+    "tests/test_revenue_unreacted_range_source_snapshot_projection.py": "7f802dbbf6c014cba1e5efc2ae0840291f71bf630476324cdf0b6143f7511730",
+    "tests/test_revenue_unreacted_range_source_snapshot_projection_v1_v2_diff.py": "867efaec74750c1277c9a8708085a1f581533ba87a9be265d5bb819a3c3c746b",
+    "tests/test_revenue_unreacted_range_source_snapshot_projection_v1_v2_operation_diff.py": "97cf198a60026f907a5d401a0c6c70472361d1d9a027ab747ff6e343287635b8",
+    "tests/test_validate_revenue_unreacted_range_forward_holdout.py": "9dc851b4fb1eed9e76aa19d78c0ae330e9dbdc5ed2a8133cb00ee41293f718f1",
+    "tests/test_validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py": "4da811ad4f339c2147a5adcea75f847829ac5c2da909da0e6ea1eb18808eff63",
+}
+PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_PATHS = frozenset(
+    PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_TARGET_SHA256_BY_PATH
+)
 PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_TARGET_ID = (
     "daily-runtime-authority-containment-exact-target-v1"
 )
@@ -3001,6 +3090,15 @@ def pr_safe_revenue_forward_holdout_target_profiles(
     normalized_paths = frozenset(str(path).replace("\\", "/") for path in changed_paths)
     profiles = (
         (
+            PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_TARGET_ID,
+            PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_BASE_CONTENT_REF_SHA,
+            PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_HELPER,
+            PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_TEST,
+            PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_BASE_SHA256_BY_PATH,
+            PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_TARGET_SHA256_BY_PATH,
+            PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_PATHS,
+        ),
+        (
             PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_ID,
             PR_SAFE_REVENUE_FORWARD_HOLDOUT_BASE_CONTENT_REF_SHA,
             PR_SAFE_REVENUE_FORWARD_HOLDOUT_HELPER,
@@ -3728,6 +3826,7 @@ def validate_pr_safe_control_plane_delta(
         elif canonical_blob_sha256(base_test) != PR_SAFE_SNAPSHOT_BASE_TEST_SHA256:
             errors.append("snapshot preauthorization pinned base_test_sha256 mismatch")
     elif migration_id in {
+        PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_TARGET_ID,
         PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_ID,
         PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_TARGET_ID,
         PR_SAFE_REVENUE_PROMOTION_PREPARATION_V2_TARGET_ID,
@@ -4057,6 +4156,7 @@ def validate_pr_safe_control_plane_migration(
                         PR_SAFE_REVENUE_FORWARD_HOLDOUT_PATHS,
                         PR_SAFE_REVENUE_FORWARD_HOLDOUT_REPLAY_DETAIL_PATHS,
                         PR_SAFE_REVENUE_PROMOTION_PREPARATION_PATHS,
+                        PR_SAFE_REVENUE_SOURCE_PROJECTION_V2_REBASELINE_PATHS,
                         PR_SAFE_DAILY_AUTHORITY_CONTAINMENT_PATHS,
                         PR_SAFE_LOCAL_VALIDATION_REPLAY_ADVANCED_PATHS,
                         PR_SAFE_AUTHORIZED_STAGE1_PATHS,
