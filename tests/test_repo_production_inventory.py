@@ -2043,7 +2043,7 @@ def test_input_bound_validator_stage_a_preauthorizations_are_exact() -> None:
     payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
     rows, errors = inventory.parse_pr_safe_authorizations(payload)
     assert errors == []
-    assert [row["migration_id"] for row in rows[-14:]] == [
+    assert [row["migration_id"] for row in rows[-15:]] == [
         inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_MIGRATION_ID,
         inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_STAGE_A_MIGRATION_ID,
         inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_ID,
@@ -2058,6 +2058,7 @@ def test_input_bound_validator_stage_a_preauthorizations_are_exact() -> None:
         inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_TARGET_ID,
         inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_TARGET_ID,
         inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V3_TARGET_ID,
+        inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V4_TARGET_ID,
     ]
     rows_by_id = {row["migration_id"]: row for row in rows}
     assert rows_by_id[
@@ -2130,6 +2131,30 @@ def test_input_bound_validator_stage_a_preauthorizations_are_exact() -> None:
         ),
         "changed_paths": ";".join(
             sorted(inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V3_PATHS)
+        ),
+    }
+    assert rows_by_id[
+        inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V4_TARGET_ID
+    ] == {
+        "migration_id": (
+            inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V4_TARGET_ID
+        ),
+        "status": "preauthorized",
+        "approval_reference": (
+            "current_user_explicit_final_review_p1_fix_and_end_to_end_"
+            "delivery_authorization_20260814"
+        ),
+        "base_helper_sha256": (
+            "aecb4ba2aa06e24c2b8d7c5bd097c489f2eaa89957233e6ccd571dc1dc20605b"
+        ),
+        "current_helper_sha256": (
+            "df28e2f36096e59ce88401df36d38beab7b4a15d400eb9e4afb1b11e7e525f59"
+        ),
+        "current_test_sha256": (
+            "6477736164b2ef1e7129ec742496b0a7b5b83388161a1c051858ca271a50a52a"
+        ),
+        "changed_paths": ";".join(
+            sorted(inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V4_PATHS)
         ),
     }
     assert rows_by_id[inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_MIGRATION_ID] == {
@@ -2508,10 +2533,10 @@ def test_daily_runtime_integration_authorization_is_append_only() -> None:
     lines = payload.splitlines(keepends=True)
     assert len(lines) >= 2
     assert inventory.canonical_blob_sha256(b"".join(lines[:-1])) == (
-        "720aa173c58bcb8d1177739c3b95616bf6b094b92d8c86c796e6eadeaa1099a2"
+        "973a917eec1cd82d1b7f116793197676987ee7b04ddaeb528107645f28e73e15"
     )
     assert lines[-1].startswith(
-        b"daily-runtime-integration-regressions-exact-target-v3,"
+        b"daily-runtime-integration-regressions-exact-target-v4,"
     )
 
 
@@ -2690,7 +2715,7 @@ def test_daily_runtime_integration_v2_profile_is_exact_and_fail_closed(
     assert profile[2] == inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_HELPER
     assert profile[3] == inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_TEST
     assert inventory.pr_safe_daily_authority_containment_target_profile(set(paths))[0] == (
-        inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V3_TARGET_ID
+        inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V4_TARGET_ID
     )
     assert inventory.pr_safe_daily_authority_containment_target_profile(
         set(paths) - {next(iter(paths))}
@@ -2784,12 +2809,26 @@ def test_daily_runtime_integration_v2_profile_is_exact_and_fail_closed(
     )[0] == target_id
 
 
-def test_daily_runtime_integration_v3_profile_is_exact_and_fail_closed(
+@pytest.mark.parametrize(
+    ("target_id", "constant_prefix"),
+    [
+        (
+            inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V3_TARGET_ID,
+            "PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V3",
+        ),
+        (
+            inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V4_TARGET_ID,
+            "PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V4",
+        ),
+    ],
+)
+def test_daily_runtime_integration_v3_v4_profile_is_exact_and_fail_closed(
     monkeypatch: pytest.MonkeyPatch,
     tmp_path: Path,
+    target_id: str,
+    constant_prefix: str,
 ) -> None:
-    paths = inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V3_PATHS
-    target_id = inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V3_TARGET_ID
+    paths = getattr(inventory, f"{constant_prefix}_PATHS")
     profile = inventory.pr_safe_daily_authority_containment_target_profile(
         set(paths), target_id=target_id
     )
@@ -2797,7 +2836,7 @@ def test_daily_runtime_integration_v3_profile_is_exact_and_fail_closed(
     assert profile[1] == "4909056fe11bb3667df355aa406ac6bd82528a10"
     assert inventory.pr_safe_daily_authority_containment_target_profile(
         set(paths)
-    )[0] == target_id
+    )[0] == inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V4_TARGET_ID
     assert inventory.pr_safe_daily_authority_containment_target_profile(
         set(paths) - {next(iter(paths))}
     ) is None
@@ -2828,12 +2867,12 @@ def test_daily_runtime_integration_v3_profile_is_exact_and_fail_closed(
     exact_modes = {path: "100644" for path in paths}
     exact_types = {path: "blob" for path in paths}
     patched_maps = {
-        "PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V3_BASE_SHA256_BY_PATH": base_hashes,
-        "PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V3_TARGET_SHA256_BY_PATH": target_hashes,
-        "PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V3_BASE_RAW_SHA256_BY_PATH": base_raw_hashes,
-        "PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V3_TARGET_RAW_SHA256_BY_PATH": target_raw_hashes,
-        "PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V3_MODE_BY_PATH": exact_modes,
-        "PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V3_OBJECT_TYPE_BY_PATH": exact_types,
+        f"{constant_prefix}_BASE_SHA256_BY_PATH": base_hashes,
+        f"{constant_prefix}_TARGET_SHA256_BY_PATH": target_hashes,
+        f"{constant_prefix}_BASE_RAW_SHA256_BY_PATH": base_raw_hashes,
+        f"{constant_prefix}_TARGET_RAW_SHA256_BY_PATH": target_raw_hashes,
+        f"{constant_prefix}_MODE_BY_PATH": exact_modes,
+        f"{constant_prefix}_OBJECT_TYPE_BY_PATH": exact_types,
     }
     for name, value in patched_maps.items():
         monkeypatch.setattr(inventory, name, value)
@@ -2940,6 +2979,7 @@ def test_daily_runtime_integration_audit_metadata_is_exact() -> None:
         inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_TARGET_ID,
         inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_TARGET_ID,
         inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V3_TARGET_ID,
+        inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V4_TARGET_ID,
     ):
         assert inventory.validate_daily_runtime_integration_regressions_audit_metadata(
             target_id,
