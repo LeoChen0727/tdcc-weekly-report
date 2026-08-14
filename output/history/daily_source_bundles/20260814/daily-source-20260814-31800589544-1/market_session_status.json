@@ -1,0 +1,74 @@
+{
+  "assessment_date": "20260814",
+  "exceptional_non_trading_days": [
+    "20260710"
+  ],
+  "expected_main_price_date": "20260814",
+  "generated_at": "2026-08-14T20:44:44+08:00",
+  "market_session_date": "20260814",
+  "market_status": "open_confirmed",
+  "official_sources": {
+    "dgpa_emergency_closure": {
+      "conflict_dates": [],
+      "latest_taipei_notice_dates": [],
+      "queried_at": "2026-08-14T20:44:44+08:00",
+      "status": "ok",
+      "taipei_notice_count": 0,
+      "url": "https://alerts.ncdr.nat.gov.tw/RssAtomFeed.ashx?AlertType=33"
+    },
+    "twse_annual_calendar": {
+      "closed_weekday_count": 18,
+      "covered_years": [
+        2026
+      ],
+      "queried_at": "2026-08-14T20:44:44+08:00",
+      "status": "ok",
+      "url": "https://openapi.twse.com.tw/v1/holidaySchedule/holidaySchedule"
+    },
+    "twse_emergency_rule": {
+      "status": "reference",
+      "url": "https://www.twse.com.tw/zh/about/suspended_faq.html"
+    }
+  },
+  "phase": "confirm",
+  "price_confirmation": {
+    "fetch_markdown_bytes": 717,
+    "fetch_markdown_path": "output/latest/official_price_fetch_latest.md",
+    "fetch_markdown_sha256": "6222f63c6be0ff8853983c97f3ed2f1a1039b6f7065f03cb39e3a242c228a0ce",
+    "fetch_result": "success_current_day_repair_full_market",
+    "fetch_status_bytes": 4269,
+    "fetch_status_path": "output/latest/official_price_fetch_latest.json",
+    "fetch_status_sha256": "0c06c7259029c28861b44a2733a0f6c1df2e9cd813b4bf10fffb7e6a5303cb75",
+    "path": "data/daily_price/daily_price_20260814.csv",
+    "price_bytes": 194859,
+    "price_sha256": "9cf3d18b2c189cef2dfd3f45633040b5dd665007b406a28400a9dcc956b1c8f1",
+    "total_rows": 2133,
+    "tpex_rows": 888,
+    "twse_rows": 1245,
+    "wrong_date_rows": 0
+  },
+  "reason": "TWSE and TPEx target-date prices confirmed",
+  "reason_code": "twse_tpex_target_date_confirmed",
+  "scheduled_non_trading_days": [
+    "20260101",
+    "20260212",
+    "20260213",
+    "20260216",
+    "20260217",
+    "20260218",
+    "20260219",
+    "20260220",
+    "20260227",
+    "20260403",
+    "20260406",
+    "20260501",
+    "20260619",
+    "20260925",
+    "20260928",
+    "20261009",
+    "20261026",
+    "20261225"
+  ],
+  "schema_version": 1,
+  "should_run_daily_pipeline": true
+}
