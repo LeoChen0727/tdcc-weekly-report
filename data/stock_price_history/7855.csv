@@ -1,2 +1,5 @@
 date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,source_file,ma5,ma20,ma60,ma120,ema23,return_1d,return_5d,return_20d,return_60d,return_120d,volume_ma20,volume_ratio,high_20,high_60,high_120,low_20,low_60,low_120,distance_to_ma20_pct,distance_to_ma60_pct,distance_to_ma120_pct,distance_to_ema23_pct,distance_to_high_20_pct,distance_to_high_60_pct,distance_to_high_120_pct,distance_to_low_60_pct,distance_to_low_120_pct
 20260811,7855,和運租車,TWSE,44.0,45.0,42.0,43.75,13128507.0,575884843.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260811.csv,,,,,,,,,,,,,,,,,,,,,,,,,,,
+20260812,7855,和運租車,TWSE,44.1,44.9,43.1,44.4,6304558.0,277307502.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260812.csv,,,,,,1.4857,,,,,,,,,,,,,,,,,,,,,
+20260813,7855,和運租車,TWSE,44.7,44.8,44.25,44.35,4641228.0,206707491.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260813.csv,,,,,,-0.1126,,,,,,,,,,,,,,,,,,,,,
+20260814,7855,和運租車,TWSE,44.4,44.65,43.95,44.05,4000933.0,176671218.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260814.csv,,,,,,-0.6764,,,,,,,,,,,,,,,,,,,,,
