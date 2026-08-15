@@ -1,47 +1,47 @@
 {
   "status": "pass",
-  "signal_date": "20260807",
+  "signal_date": "20260814",
   "tdcc_dataset_contract": {
-    "dataset_id": "tdcc-20260807-01698d0b1c2355ac",
-    "signal_date": "20260807",
+    "dataset_id": "tdcc-20260814-4a7d44bd65038f59",
+    "signal_date": "20260814",
     "manifest_path": "output/latest/tdcc_dataset_manifest_latest.json"
   },
   "date_contract": {
     "date_source": "report_ready_csv_signal_date",
-    "report_date": "20260807",
+    "report_date": "20260814",
     "highlight_report_ready_signal_dates": [
-      "20260807"
+      "20260814"
     ],
     "full_report_ready_signal_dates": [
-      "20260807"
+      "20260814"
     ],
     "weekly_source_signal_dates": [
-      "20260807"
+      "20260814"
     ],
     "consecutive_source_signal_dates": [
-      "20260807"
+      "20260814"
     ]
   },
   "row_counts": {
-    "weekly_increase": 422,
-    "consecutive_accumulation": 5,
-    "model_cross": 5,
-    "highlight_report": 20,
-    "full_report": 60,
+    "weekly_increase": 463,
+    "consecutive_accumulation": 27,
+    "model_cross": 4,
+    "highlight_report": 24,
+    "full_report": 81,
     "manifest_sections": 4
   },
   "section_counts": {
     "highlight": {
       "weekly_increase": 10,
-      "consecutive_accumulation": 5,
-      "model_cross_weekly_increase_tdcc_short_term_continuation_d5_d10": 5,
-      "model_cross_consecutive_accumulation_tdcc_short_term_continuation_d5_d10": 0
+      "consecutive_accumulation": 10,
+      "model_cross_weekly_increase_tdcc_short_term_continuation_d5_d10": 2,
+      "model_cross_consecutive_accumulation_tdcc_short_term_continuation_d5_d10": 2
     },
     "full": {
       "weekly_increase": 50,
-      "consecutive_accumulation": 5,
-      "model_cross_weekly_increase_tdcc_short_term_continuation_d5_d10": 5,
-      "model_cross_consecutive_accumulation_tdcc_short_term_continuation_d5_d10": 0
+      "consecutive_accumulation": 27,
+      "model_cross_weekly_increase_tdcc_short_term_continuation_d5_d10": 2,
+      "model_cross_consecutive_accumulation_tdcc_short_term_continuation_d5_d10": 2
     }
   },
   "manifest_sections": [
@@ -97,20 +97,17 @@
       "/AAAAAB+TW-Kai-98_1",
       "/Helvetica"
     ],
-    "output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_精華版_20260807.pdf": [
+    "output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_精華版_20260814.pdf": [
       "/AAAAAA+TW-Kai-98_1",
       "/AAAAAB+TW-Kai-98_1",
       "/Helvetica"
     ],
-    "output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_完整版_20260807.pdf": [
+    "output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_完整版_20260814.pdf": [
       "/AAAAAA+TW-Kai-98_1",
       "/AAAAAB+TW-Kai-98_1",
       "/Helvetica"
     ]
   },
   "errors": [],
-  "warnings": [
-    "highlight report-ready CSV section has no rows and will render an explicit empty state: model_cross_consecutive_accumulation_tdcc_short_term_continuation_d5_d10",
-    "full report-ready CSV section has no rows and will render an explicit empty state: model_cross_consecutive_accumulation_tdcc_short_term_continuation_d5_d10"
-  ]
+  "warnings": []
 }
