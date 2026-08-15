@@ -1,9 +1,9 @@
 # Volume Attack Theme Stocks
 
-- generated_at: `2026-08-11 20:00:33 Asia/Taipei`
+- generated_at: `2026-08-15 21:09:14 Asia/Taipei`
 - signal_date: `20260811`
 - source_watch: `output/latest/volume_breakout_watch_latest.csv`
-- source_watch_sha256: `1271d7b8e78e158c4a294dca7576f2d069508e50b52816bffd2fecc0de5ccc44`
+- source_watch_sha256: `5c2a3c60aa5dcba1ac0791886c0c933a415ee36677259efa966cc4dbf67959e9`
 - warrant_projection_source: `output/latest/all_candidates_latest.csv`
 - warrant_projection_source_sha256: `2adb89a475409a558199b51eaba27e24748c14ff390c3997dcf1abdd8cf095ba`
 - warrant_official_parity_source: `output/latest/warrant_flow_latest.csv`
