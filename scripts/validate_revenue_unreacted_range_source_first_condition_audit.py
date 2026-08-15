@@ -223,9 +223,12 @@ def validate(
     revenue_path: Path = REVENUE_HISTORY_CSV,
     resolution_path: Path = MONTHLY_REVENUE_CROSS_MARKET_RESOLUTION_CSV,
     projection_manifest_path: Path = SOURCE_SNAPSHOT_PROJECTION_MANIFEST_CSV,
+    summary_path: Path = LATEST_CSV,
+    detail_path: Path = DETAIL_CSV,
+    markdown_path: Path = LATEST_MD,
 ) -> list[str]:
     errors: list[str] = []
-    for path in (LATEST_CSV, DETAIL_CSV, LATEST_MD):
+    for path in (summary_path, detail_path, markdown_path):
         if not path.is_file():
             errors.append(f"source-first revenue condition artifact is missing: {path}")
     if not projection_manifest_path.is_file():
@@ -265,14 +268,14 @@ def validate(
             f"expected={expected_cutoff_semantic_sha}"
         )
 
-    summary = pd.read_csv(LATEST_CSV, keep_default_na=False, low_memory=False)
+    summary = pd.read_csv(summary_path, keep_default_na=False, low_memory=False)
     detail = pd.read_csv(
-        DETAIL_CSV,
+        detail_path,
         dtype=DETAIL_DTYPES,
         keep_default_na=False,
         low_memory=False,
     )
-    markdown = LATEST_MD.read_text(encoding="utf-8")
+    markdown = markdown_path.read_text(encoding="utf-8")
     if list(summary.columns) != SUMMARY_COLUMNS:
         errors.append("source-first revenue condition summary schema drift")
     if list(detail.columns) != DETAIL_COLUMNS:

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 from pathlib import Path
 import sys
 
@@ -28,17 +29,23 @@ from revenue_unreacted_range_source_snapshot_projection import (  # noqa: E402
     MANIFEST_COLUMNS,
     MONTHLY_RESOLUTION_COLUMNS,
     PROJECTION_POLICY_ID,
+    REBASELINE_ARTIFACT_VERSION,
+    V1_PREDECESSOR_DETAIL_GIT_BLOB_RAW_SHA256,
+    V1_PREDECESSOR_MANIFEST_GIT_BLOB_RAW_SHA256,
     SOURCE_FIRST_ARTIFACT_ID,
     build_source_snapshot_projection_manifest,
     canonical_projected_source_detail_semantic_sha256,
     cutoff_price_input_lineage,
     cutoff_price_input_stock_ids,
     load_cutoff_monthly_revenue_subset,
+    load_committed_v1_projection_predecessor,
     load_projected_source_detail,
     load_source_snapshot_projection_manifest,
+    projection_binding_errors,
     validate_projection_binding,
     write_source_snapshot_projection,
 )
+import revenue_unreacted_range_source_snapshot_projection as projection_producer  # noqa: E402
 from revenue_unreacted_range_source_first_condition_audit import (  # noqa: E402
     build_source_first_condition_audit,
 )
@@ -480,6 +487,158 @@ def test_projection_manifest_binds_cutoff_inputs_and_round_trips(
         )
 
 
+def test_v2_rebaseline_manifest_uses_separate_versioned_history_without_rewriting_v1(
+    source_inputs: dict[str, object],
+    tmp_path: Path,
+) -> None:
+    v1_manifest = _build(source_inputs)
+    v2_manifest = build_source_snapshot_projection_manifest(
+        source_inputs["full_detail"],
+        source_inputs["projected_detail"],
+        revenue_path=source_inputs["revenue_path"],
+        price_dir=source_inputs["price_dir"],
+        monthly_resolution_path=source_inputs["monthly_registry_path"],
+        price_resolution_path=source_inputs["price_registry_path"],
+        generated_at="2026-08-14 00:00:00 Asia/Taipei",
+        artifact_version=REBASELINE_ARTIFACT_VERSION,
+    )
+    assert v2_manifest.iloc[0]["artifact_version"] == REBASELINE_ARTIFACT_VERSION
+    assert v2_manifest.iloc[0]["projection_version"] == REBASELINE_ARTIFACT_VERSION
+    assert bool(v2_manifest.iloc[0]["research_only"])
+    for column in (
+        "formal_model_use_allowed",
+        "approved_for_daily",
+        "production_change",
+        "promotion_evidence_allowed",
+        "ranking_consumption_allowed",
+        "pdf_consumption_allowed",
+    ):
+        assert not bool(v2_manifest.iloc[0][column])
+
+    errors = validator.validate_frames(
+        v2_manifest,
+        source_inputs["projected_detail"],
+        revenue_path=source_inputs["revenue_path"],
+        price_dir=source_inputs["price_dir"],
+        monthly_resolution_path=source_inputs["monthly_registry_path"],
+        price_resolution_path=source_inputs["price_registry_path"],
+        expected_artifact_version=REBASELINE_ARTIFACT_VERSION,
+    )
+    assert errors == []
+    forged_v1 = v2_manifest.copy()
+    forged_v1.loc[0, "artifact_version"] = ARTIFACT_VERSION
+    forged_v1.loc[0, "projection_version"] = ARTIFACT_VERSION
+    assert "projection manifest artifact_version mismatch: " + (
+        f"{ARTIFACT_VERSION}/{REBASELINE_ARTIFACT_VERSION}"
+    ) in validator.validate_frames(
+        forged_v1,
+        source_inputs["projected_detail"],
+        revenue_path=source_inputs["revenue_path"],
+        price_dir=source_inputs["price_dir"],
+        monthly_resolution_path=source_inputs["monthly_registry_path"],
+        price_resolution_path=source_inputs["price_registry_path"],
+        expected_artifact_version=REBASELINE_ARTIFACT_VERSION,
+    )
+
+    v1_manifest_path = tmp_path / "v1_manifest.csv"
+    v1_detail_path = tmp_path / "v1_detail.csv"
+    v1_history = tmp_path / "v1_history.csv"
+    v1_docs = tmp_path / "v1_docs.csv"
+    write_source_snapshot_projection(
+        v1_manifest,
+        source_inputs["projected_detail"],
+        latest_manifest_path=v1_manifest_path,
+        latest_detail_path=v1_detail_path,
+        history_manifest_path=v1_history,
+        docs_manifest_path=v1_docs,
+        expected_artifact_version=ARTIFACT_VERSION,
+    )
+    v1_payloads_before = {
+        path: path.read_bytes()
+        for path in (v1_manifest_path, v1_detail_path, v1_history, v1_docs)
+    }
+    with pytest.raises(RuntimeError, match="dedicated transactional"):
+        write_source_snapshot_projection(
+            v2_manifest,
+            source_inputs["projected_detail"],
+            latest_manifest_path=tmp_path / "v2_manifest.csv",
+            latest_detail_path=tmp_path / "v2_detail.csv",
+            history_manifest_path=tmp_path / "v2_history.csv",
+            docs_manifest_path=tmp_path / "v2_docs.csv",
+            expected_artifact_version=REBASELINE_ARTIFACT_VERSION,
+        )
+    assert all(path.read_bytes() == payload for path, payload in v1_payloads_before.items())
+
+
+def test_v1_archive_preflight_uses_exact_committed_git_blob_bytes() -> None:
+    manifest, detail, manifest_payload, detail_payload = (
+        load_committed_v1_projection_predecessor()
+    )
+    assert len(manifest) == 1
+    assert not detail.empty
+    assert hashlib.sha256(manifest_payload).hexdigest() == (
+        V1_PREDECESSOR_MANIFEST_GIT_BLOB_RAW_SHA256
+    )
+    assert hashlib.sha256(detail_payload).hexdigest() == (
+        V1_PREDECESSOR_DETAIL_GIT_BLOB_RAW_SHA256
+    )
+
+
+def test_v1_archive_preflight_fails_closed_when_pinned_blob_is_unavailable(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(
+        projection_producer,
+        "_git_blob_bytes",
+        lambda *_args, **_kwargs: (_ for _ in ()).throw(
+            RuntimeError("injected missing predecessor blob")
+        ),
+    )
+    with pytest.raises(RuntimeError, match="missing predecessor blob"):
+        load_committed_v1_projection_predecessor()
+
+
+def test_projection_rejects_unregistered_rebaseline_version(
+    source_inputs: dict[str, object],
+) -> None:
+    with pytest.raises(
+        RuntimeError,
+        match="unsupported source snapshot projection artifact version",
+    ):
+        build_source_snapshot_projection_manifest(
+            source_inputs["full_detail"],
+            source_inputs["projected_detail"],
+            revenue_path=source_inputs["revenue_path"],
+            price_dir=source_inputs["price_dir"],
+            monthly_resolution_path=source_inputs["monthly_registry_path"],
+            price_resolution_path=source_inputs["price_registry_path"],
+            artifact_version="source_snapshot_projection_unregistered",
+        )
+
+    manifest = _build(source_inputs)
+    manifest.loc[0, "artifact_version"] = "source_snapshot_projection_unregistered"
+    manifest.loc[0, "projection_version"] = "source_snapshot_projection_unregistered"
+    assert projection_binding_errors(
+        manifest,
+        source_inputs["projected_detail"],
+    ) == [
+        "projection manifest artifact_version is not registered: "
+        "source_snapshot_projection_unregistered"
+    ]
+    independent_errors = validator.validate_frames(
+        manifest,
+        source_inputs["projected_detail"],
+        revenue_path=source_inputs["revenue_path"],
+        price_dir=source_inputs["price_dir"],
+        monthly_resolution_path=source_inputs["monthly_registry_path"],
+        price_resolution_path=source_inputs["price_registry_path"],
+    )
+    assert (
+        "projection manifest artifact_version is not registered: "
+        "source_snapshot_projection_unregistered"
+    ) in independent_errors
+
+
 def test_projection_binding_rejects_row_mutation_and_post_cutoff_date(
     source_inputs: dict[str, object],
 ) -> None:
@@ -833,7 +992,13 @@ def test_projection_stage_reuses_immutable_capture_without_current_source_rebuil
             "projection stage rebuilt the mutable current source"
         ),
     )
-    assert not hasattr(orchestrator, "build_source_snapshot_projection_manifest")
+    monkeypatch.setattr(
+        orchestrator,
+        "build_source_snapshot_projection_manifest",
+        lambda *_args, **_kwargs: pytest.fail(
+            "projection replay stage built a replacement immutable capture"
+        ),
+    )
     monkeypatch.setattr(
         orchestrator,
         "write_source_first_condition_audit",
@@ -854,6 +1019,185 @@ def test_projection_stage_reuses_immutable_capture_without_current_source_rebuil
     assert calls == [
         ("projection", manifest, projected_detail),
     ]
+
+
+def test_projection_rebaseline_stage_has_exact_thirteen_path_contract() -> None:
+    allowed = list(
+        orchestrator.SOURCE_SNAPSHOT_PROJECTION_REBASELINE_ALLOWED_ARTIFACT_PATHS
+    )
+    assert len(allowed) == 13
+    assert orchestrator.validate_source_snapshot_projection_rebaseline_stage_changed_paths(
+        allowed,
+        existing_paths=allowed,
+    ) == []
+    extra_errors = orchestrator.validate_source_snapshot_projection_rebaseline_stage_changed_paths(
+        [*allowed, "output/latest/model_operation_readiness_latest.csv"],
+        existing_paths=allowed,
+    )
+    assert extra_errors == [
+        "source snapshot projection rebaseline stage artifact allowlist violation: "
+        "output/latest/model_operation_readiness_latest.csv"
+    ]
+    for missing_path in allowed:
+        existing = [path for path in allowed if path != missing_path]
+        errors = orchestrator.validate_source_snapshot_projection_rebaseline_stage_changed_paths(
+            existing,
+            existing_paths=existing,
+        )
+        assert errors == [
+            "source snapshot projection rebaseline stage expected artifact unchanged: "
+            + missing_path,
+            "source snapshot projection rebaseline stage required artifact missing: "
+            + missing_path,
+        ]
+
+
+def _seed_transaction_bundle(temp_root: Path, target_root: Path) -> dict[str, bytes]:
+    prior: dict[str, bytes] = {}
+    for index, relative_path in enumerate(
+        orchestrator.SOURCE_SNAPSHOT_PROJECTION_REBASELINE_ALLOWED_ARTIFACT_PATHS
+    ):
+        prior_payload = f"prior-{index}".encode()
+        replacement_payload = f"replacement-{index}".encode()
+        prior[relative_path] = prior_payload
+        target = target_root / relative_path
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(prior_payload)
+        staged = temp_root / relative_path
+        staged.parent.mkdir(parents=True, exist_ok=True)
+        staged.write_bytes(replacement_payload)
+    return prior
+
+
+@pytest.mark.parametrize("failure_index", range(13))
+def test_projection_rebaseline_transaction_rolls_back_each_replace_failure(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+    failure_index: int,
+) -> None:
+    target_root = tmp_path / f"target-{failure_index}"
+    temp_root = tmp_path / f"temp-{failure_index}"
+    prior = _seed_transaction_bundle(temp_root, target_root)
+    call_count = 0
+
+    def injected_replace(source: Path, destination: Path) -> None:
+        nonlocal call_count
+        current = call_count
+        call_count += 1
+        if current == failure_index:
+            raise OSError(f"injected replace failure {failure_index}")
+        source.replace(destination)
+
+    monkeypatch.setattr(orchestrator, "_replace_rebaseline_path", injected_replace)
+    with pytest.raises(OSError, match="injected replace failure"):
+        orchestrator._publish_rebaseline_temp_bundle(temp_root, root=target_root)
+    for relative_path, payload in prior.items():
+        assert (target_root / relative_path).read_bytes() == payload
+
+
+def test_projection_rebaseline_transaction_publishes_exact_bundle(
+    tmp_path: Path,
+) -> None:
+    target_root = tmp_path / "target"
+    temp_root = tmp_path / "temp"
+    _seed_transaction_bundle(temp_root, target_root)
+    orchestrator._publish_rebaseline_temp_bundle(temp_root, root=target_root)
+    for index, relative_path in enumerate(
+        orchestrator.SOURCE_SNAPSHOT_PROJECTION_REBASELINE_ALLOWED_ARTIFACT_PATHS
+    ):
+        assert (target_root / relative_path).read_bytes() == f"replacement-{index}".encode()
+
+
+@pytest.mark.parametrize("mutation", ["missing", "extra", "renamed"])
+def test_projection_rebaseline_transaction_rejects_non_exact_bundle(
+    tmp_path: Path,
+    mutation: str,
+) -> None:
+    target_root = tmp_path / f"target-{mutation}"
+    temp_root = tmp_path / f"temp-{mutation}"
+    prior = _seed_transaction_bundle(temp_root, target_root)
+    first = orchestrator.SOURCE_SNAPSHOT_PROJECTION_REBASELINE_ALLOWED_ARTIFACT_PATHS[0]
+    if mutation == "missing":
+        (temp_root / first).unlink()
+    elif mutation == "extra":
+        extra = temp_root / "output/latest/research_backtest/unregistered.csv"
+        extra.parent.mkdir(parents=True, exist_ok=True)
+        extra.write_text("extra", encoding="utf-8")
+    else:
+        source = temp_root / first
+        source.rename(source.with_name(source.name + ".renamed"))
+    with pytest.raises(RuntimeError, match="exact-set validation failed"):
+        orchestrator._publish_rebaseline_temp_bundle(temp_root, root=target_root)
+    for relative_path, payload in prior.items():
+        assert (target_root / relative_path).read_bytes() == payload
+
+
+@pytest.mark.parametrize(
+    "validator_name",
+    [
+        "validate_source_first_condition_audit_independently",
+        "validate_source_snapshot_projection_independently",
+        "validate_source_snapshot_projection_diff_independently",
+    ],
+)
+def test_projection_rebaseline_independent_validator_failure_stops_before_publish(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+    validator_name: str,
+) -> None:
+    for name in (
+        "validate_source_first_condition_audit_independently",
+        "validate_source_snapshot_projection_independently",
+        "validate_source_snapshot_projection_diff_independently",
+    ):
+        monkeypatch.setattr(
+            orchestrator,
+            name,
+            (lambda *args, **kwargs: ["injected validator failure"])
+            if name == validator_name
+            else (lambda *args, **kwargs: []),
+        )
+    with pytest.raises(RuntimeError, match="injected validator failure"):
+        orchestrator._validate_rebaseline_temp_bundle(
+            temp_root=tmp_path,
+            v1_manifest_path=tmp_path / "v1-manifest.csv",
+            v1_detail_path=tmp_path / "v1-detail.csv",
+            v2_manifest_path=tmp_path / "v2-manifest.csv",
+            v2_detail_path=tmp_path / "v2-detail.csv",
+        )
+
+
+def test_projection_rebaseline_guard_rolls_back_allowed_paths_on_failure(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    allowed = list(
+        orchestrator.SOURCE_SNAPSHOT_PROJECTION_REBASELINE_ALLOWED_ARTIFACT_PATHS
+    )
+    prior_payloads: dict[str, bytes] = {}
+    for index, relative_path in enumerate(allowed):
+        payload = f"prior-{index}".encode()
+        prior_payloads[relative_path] = payload
+        path = tmp_path / relative_path
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(payload)
+
+    monkeypatch.setattr(orchestrator, "_dirty_snapshot", lambda _root: {})
+    monkeypatch.setattr(
+        orchestrator,
+        "changed_during_run",
+        lambda _root, _before: allowed,
+    )
+    with pytest.raises(RuntimeError, match="injected publish failure"):
+        with orchestrator.source_snapshot_projection_rebaseline_stage_artifact_guard(
+            root=tmp_path,
+        ):
+            (tmp_path / allowed[0]).write_bytes(b"replacement")
+            (tmp_path / allowed[1]).unlink()
+            raise RuntimeError("injected publish failure")
+
+    for relative_path, prior_payload in prior_payloads.items():
+        assert (tmp_path / relative_path).read_bytes() == prior_payload
 
 
 def test_projection_chain_stage_rebuilds_cutoff_consumers_in_dependency_order(
@@ -905,7 +1249,13 @@ def test_projection_chain_stage_rebuilds_cutoff_consumers_in_dependency_order(
             "projection chain rebuilt the mutable current source"
         ),
     )
-    assert not hasattr(orchestrator, "build_source_snapshot_projection_manifest")
+    monkeypatch.setattr(
+        orchestrator,
+        "build_source_snapshot_projection_manifest",
+        lambda *_args, **_kwargs: pytest.fail(
+            "projection chain built a replacement immutable capture"
+        ),
+    )
     monkeypatch.setattr(
         orchestrator,
         "build_revenue_unreacted_range_research_frame",
@@ -1011,10 +1361,19 @@ def test_projection_chain_stage_rebuilds_cutoff_consumers_in_dependency_order(
 
     monkeypatch.setattr(orchestrator, "build_operation_lag_bucket_audit", fake_lag)
 
-    def fake_low_mid(source, rearmed, daily):
+    def fake_low_mid(
+        source,
+        rearmed,
+        daily,
+        *,
+        source_projection_manifest,
+        source_projection_artifact_version,
+    ):
         assert source is frames["projected_detail"]
         assert rearmed is frames["rearmed_detail"]
         assert daily is projected_daily
+        assert source_projection_manifest is frames["manifest"]
+        assert source_projection_artifact_version == ARTIFACT_VERSION
         return (
             frames["low_mid_summary"],
             frames["low_mid_detail"],

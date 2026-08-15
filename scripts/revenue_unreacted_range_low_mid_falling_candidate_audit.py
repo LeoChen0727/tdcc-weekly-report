@@ -43,6 +43,13 @@ POSITION_SHAPE_ARTIFACT_VERSION = "position_shape_transition_matrix_v1_20260717"
 PRICE_HISTORY_CUTOFF_DATE = "20260713"
 SOURCE_PROJECTION_ARTIFACT_ID = "revenue_unreacted_range_source_snapshot_projection"
 SOURCE_PROJECTION_ARTIFACT_VERSION = "source_snapshot_projection_v1_20260731"
+SOURCE_PROJECTION_REBASELINE_ARTIFACT_VERSION = (
+    "source_snapshot_projection_v2_20260814"
+)
+SOURCE_PROJECTION_ARTIFACT_VERSIONS = (
+    SOURCE_PROJECTION_ARTIFACT_VERSION,
+    SOURCE_PROJECTION_REBASELINE_ARTIFACT_VERSION,
+)
 SOURCE_PROJECTION_CUTOFF_DATE = "20260713"
 POSITION_POLICY = (
     "anchor adjusted close positioned within the adjusted analysis-high/analysis-low range "
@@ -388,6 +395,11 @@ def _assert_literal_upstream_contracts() -> None:
             SOURCE_PROJECTION_ARTIFACT_VERSION,
         ),
         (
+            "source projection rebaseline artifact version",
+            source_projection.REBASELINE_ARTIFACT_VERSION,
+            SOURCE_PROJECTION_REBASELINE_ARTIFACT_VERSION,
+        ),
+        (
             "source projection cutoff date",
             source_projection.CUTOFF_DATE,
             SOURCE_PROJECTION_CUTOFF_DATE,
@@ -455,6 +467,44 @@ def _assert_literal_upstream_contracts() -> None:
                 f"low/mid falling pinned upstream contract drift: {label}; "
                 f"observed={observed!r} expected={literal!r}"
             )
+
+
+def _validated_source_projection_lineage(
+    source_projection_manifest: pd.DataFrame,
+    source_first_detail: pd.DataFrame,
+    *,
+    expected_artifact_version: str,
+) -> dict[str, object]:
+    expected_version = str(expected_artifact_version).strip()
+    if expected_version not in SOURCE_PROJECTION_ARTIFACT_VERSIONS:
+        raise RuntimeError(
+            "low/mid falling source projection version is not registered: "
+            f"{expected_version}"
+        )
+    source_projection.validate_projection_binding(
+        source_projection_manifest,
+        source_first_detail,
+        expected_cutoff_date=SOURCE_PROJECTION_CUTOFF_DATE,
+        expected_artifact_version=expected_version,
+    )
+    row = source_projection_manifest.iloc[0]
+    return {
+        "source_projection_artifact_id": str(row["artifact_id"]),
+        "source_projection_artifact_version": str(row["artifact_version"]),
+        "source_projection_projection_id": str(row["projection_id"]),
+        "source_projection_projection_version": str(row["projection_version"]),
+        "source_projection_cutoff_date": str(row["cutoff_date"]),
+        "source_projection_projected_episode_row_count": int(
+            row["projected_episode_row_count"]
+        ),
+        "source_projection_projected_episode_semantic_sha256": _require_sha256(
+            row["projected_episode_semantic_sha256"],
+            label="source projection projected episode semantic SHA-256",
+        ),
+        "source_projection_manifest_canonical_sha256": _canonical_table_sha256(
+            source_projection_manifest
+        ),
+    }
 
 
 def _require_constant(
@@ -1112,6 +1162,7 @@ def _build_detail(
     rearmed_producer_semantic_sha256: str,
     position_shape_producer_semantic_sha256: str,
     data_contract_sha256: str,
+    source_projection_lineage: Mapping[str, object],
 ) -> pd.DataFrame:
     daily = {
         _stock_id(stock_id): _normalize_price_frame(frame, _stock_id(stock_id))
@@ -1206,6 +1257,7 @@ def _build_detail(
                 ),
                 "source_first_artifact_id": SOURCE_FIRST_ARTIFACT_ID,
                 "source_first_artifact_version": SOURCE_FIRST_ARTIFACT_VERSION,
+                **source_projection_lineage,
                 "source_variant_id": SOURCE_VARIANT_ID,
                 **{
                     column: str(episode[column]).strip().lower()
@@ -1425,6 +1477,30 @@ def _artifact_lineage(detail: pd.DataFrame) -> dict[str, str]:
         "source_first_artifact_id": str(first["source_first_artifact_id"]),
         "source_first_artifact_version": str(
             first["source_first_artifact_version"]
+        ),
+        "source_projection_artifact_id": str(
+            first["source_projection_artifact_id"]
+        ),
+        "source_projection_artifact_version": str(
+            first["source_projection_artifact_version"]
+        ),
+        "source_projection_projection_id": str(
+            first["source_projection_projection_id"]
+        ),
+        "source_projection_projection_version": str(
+            first["source_projection_projection_version"]
+        ),
+        "source_projection_cutoff_date": str(
+            first["source_projection_cutoff_date"]
+        ),
+        "source_projection_projected_episode_row_count": str(
+            first["source_projection_projected_episode_row_count"]
+        ),
+        "source_projection_projected_episode_semantic_sha256": str(
+            first["source_projection_projected_episode_semantic_sha256"]
+        ),
+        "source_projection_manifest_canonical_sha256": str(
+            first["source_projection_manifest_canonical_sha256"]
         ),
         **{
             column: str(first[column])
@@ -1764,6 +1840,8 @@ def build_low_mid_falling_candidate_audit(
     rearmed_detail: pd.DataFrame,
     daily_by_stock: Mapping[str, pd.DataFrame],
     *,
+    source_projection_manifest: pd.DataFrame,
+    source_projection_artifact_version: str,
     generated_at: str | None = None,
     data_contract_sha256: str | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
@@ -1794,6 +1872,11 @@ def build_low_mid_falling_candidate_audit(
     )
     source = _normalize_source(source_first_detail)
     operations = _normalize_operations(rearmed_detail)
+    source_projection_lineage = _validated_source_projection_lineage(
+        source_projection_manifest,
+        source_first_detail,
+        expected_artifact_version=source_projection_artifact_version,
+    )
     detail = _build_detail(
         source,
         operations,
@@ -1804,6 +1887,7 @@ def build_low_mid_falling_candidate_audit(
         rearmed_producer_semantic_sha256=rearmed_producer_sha,
         position_shape_producer_semantic_sha256=position_shape_producer_sha,
         data_contract_sha256=contract_sha,
+        source_projection_lineage=source_projection_lineage,
     )
     summary = _build_summary(detail)
     paired = _build_paired_confirmation(detail)

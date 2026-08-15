@@ -3,8 +3,11 @@ from __future__ import annotations
 import argparse
 import gc
 from contextlib import contextmanager
+import os
 from pathlib import Path
+import shutil
 import sys
+import tempfile
 from typing import Iterator, Mapping
 
 import pandas as pd
@@ -83,18 +86,154 @@ from revenue_unreacted_range_source_first_condition_audit import (
     write_source_first_condition_audit,
 )
 from revenue_unreacted_range_source_snapshot_projection import (
+    ARTIFACT_VERSION as SOURCE_SNAPSHOT_LEGACY_ARTIFACT_VERSION,
+    CUTOFF_DATE as SOURCE_SNAPSHOT_PROJECTION_CUTOFF_DATE,
+    MONTHLY_RESOLUTION_CSV as SOURCE_SNAPSHOT_MONTHLY_RESOLUTION_CSV,
+    PRICE_HISTORY_DIR as SOURCE_SNAPSHOT_PRICE_HISTORY_DIR,
+    PRICE_RESOLUTION_CSV as SOURCE_SNAPSHOT_PRICE_RESOLUTION_CSV,
+    REBASELINE_ARTIFACT_VERSION as SOURCE_SNAPSHOT_REBASELINE_ARTIFACT_VERSION,
+    REVENUE_HISTORY_CSV as SOURCE_SNAPSHOT_REVENUE_HISTORY_CSV,
+    VERSIONED_V1_DETAIL_CSV,
+    VERSIONED_V1_MANIFEST_CSV,
+    VERSIONED_V2_DETAIL_CSV,
+    VERSIONED_V2_MANIFEST_CSV,
+    build_source_snapshot_projection_manifest,
+    load_committed_v1_projection_predecessor,
     load_projected_source_detail,
     load_source_snapshot_projection_manifest,
+    source_repair_provenance,
     validate_projection_binding,
     write_source_snapshot_projection,
 )
+from revenue_unreacted_range_source_snapshot_projection_v1_v2_diff import (
+    DOCS_CSV as SOURCE_SNAPSHOT_DIFF_DOCS_CSV,
+    HISTORY_CSV as SOURCE_SNAPSHOT_DIFF_HISTORY_CSV,
+    LATEST_CSV as SOURCE_SNAPSHOT_DIFF_LATEST_CSV,
+    build_projection_v1_v2_diff,
+    write_projection_v1_v2_diff,
+)
+from revenue_unreacted_range_source_snapshot_projection_v1_v2_operation_diff import (
+    DOCS_CSV as SOURCE_SNAPSHOT_OPERATION_DIFF_DOCS_CSV,
+    HISTORY_CSV as SOURCE_SNAPSHOT_OPERATION_DIFF_HISTORY_CSV,
+    LATEST_CSV as SOURCE_SNAPSHOT_OPERATION_DIFF_LATEST_CSV,
+    build_operation_diff as build_source_snapshot_operation_diff,
+    write_operation_diff as write_source_snapshot_operation_diff,
+)
 from revenue_unreacted_range_research_frame import (
     build_revenue_unreacted_range_research_frame,
+)
+from validate_revenue_unreacted_range_source_first_condition_audit import (
+    validate as validate_source_first_condition_audit_independently,
+)
+from validate_revenue_unreacted_range_source_snapshot_projection import (
+    validate as validate_source_snapshot_projection_independently,
+)
+from validate_revenue_unreacted_range_source_snapshot_projection_v1_v2_diff import (
+    validate_paths as validate_source_snapshot_projection_diff_independently,
+)
+from validate_revenue_unreacted_range_source_snapshot_projection_v1_v2_operation_diff import (
+    validate_frames as validate_source_snapshot_operation_diff_independently,
 )
 
 
 MODEL_ID = "revenue_unreacted_range"
 PRODUCER = "scripts/build_revenue_unreacted_range_research.py"
+SOURCE_SNAPSHOT_PROJECTION_REBASELINE_ALLOWED_ARTIFACT_PATHS = (
+    "output/latest/research_backtest/revenue_unreacted_range_source_first_condition_audit_latest.csv",
+    "output/latest/research_backtest/revenue_unreacted_range_source_first_condition_audit_detail_latest.csv",
+    "output/latest/research_backtest/revenue_unreacted_range_source_first_condition_audit_latest.md",
+    "output/history/research/revenue_unreacted_range_source_first_condition_audit.csv",
+    "docs/latest/revenue_unreacted_range_source_first_condition_audit_latest.csv",
+    "docs/latest/revenue_unreacted_range_source_first_condition_audit_latest.md",
+    "output/history/research/revenue_unreacted_range_source_snapshot_projection_v1_20260731_manifest.csv",
+    "output/history/research/revenue_unreacted_range_source_snapshot_projection_v1_20260731_detail.csv",
+    "output/history/research/revenue_unreacted_range_source_snapshot_projection_v2_20260814_manifest.csv",
+    "output/history/research/revenue_unreacted_range_source_snapshot_projection_v2_20260814_detail.csv",
+    "output/history/research/revenue_unreacted_range_source_snapshot_projection_v1_v2_diff_v1_20260814.csv",
+    "output/latest/research_backtest/revenue_unreacted_range_source_snapshot_projection_v1_v2_diff_latest.csv",
+    "docs/latest/revenue_unreacted_range_source_snapshot_projection_v1_v2_diff_latest.csv",
+)
+
+
+def validate_source_snapshot_projection_rebaseline_stage_changed_paths(
+    changed_paths: list[str],
+    *,
+    existing_paths: list[str] | None = None,
+) -> list[str]:
+    allowed = set(SOURCE_SNAPSHOT_PROJECTION_REBASELINE_ALLOWED_ARTIFACT_PATHS)
+    changed = set(changed_paths)
+    errors = [
+        f"source snapshot projection rebaseline stage artifact allowlist violation: {path}"
+        for path in sorted(changed - allowed)
+    ]
+    errors.extend(
+        f"source snapshot projection rebaseline stage expected artifact unchanged: {path}"
+        for path in sorted(allowed - changed)
+    )
+    if existing_paths is not None:
+        errors.extend(
+            f"source snapshot projection rebaseline stage required artifact missing: {path}"
+            for path in sorted(allowed - set(existing_paths))
+        )
+    return errors
+
+
+def _source_snapshot_projection_rebaseline_payload_snapshot(
+    root: Path,
+) -> dict[str, bytes | None]:
+    return {
+        relative_path: (
+            (root / relative_path).read_bytes()
+            if (root / relative_path).is_file()
+            else None
+        )
+        for relative_path in SOURCE_SNAPSHOT_PROJECTION_REBASELINE_ALLOWED_ARTIFACT_PATHS
+    }
+
+
+def _restore_source_snapshot_projection_rebaseline_payloads(
+    root: Path,
+    payloads: Mapping[str, bytes | None],
+) -> None:
+    for relative_path, payload in payloads.items():
+        path = root / relative_path
+        if payload is None:
+            if path.exists():
+                path.unlink()
+            continue
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(payload)
+
+
+@contextmanager
+def source_snapshot_projection_rebaseline_stage_artifact_guard(
+    *,
+    root: Path = ROOT,
+) -> Iterator[None]:
+    before = _dirty_snapshot(root)
+    before_payloads = _source_snapshot_projection_rebaseline_payload_snapshot(root)
+    try:
+        yield
+        existing_paths = [
+            relative_path
+            for relative_path in SOURCE_SNAPSHOT_PROJECTION_REBASELINE_ALLOWED_ARTIFACT_PATHS
+            if (root / relative_path).is_file()
+        ]
+        errors = validate_source_snapshot_projection_rebaseline_stage_changed_paths(
+            changed_during_run(root, before),
+            existing_paths=existing_paths,
+        )
+        if errors:
+            details = "\n".join(f"- {error}" for error in errors)
+            raise RuntimeError(
+                "source snapshot projection rebaseline stage artifact guard failed:\n"
+                + details
+            )
+    except BaseException:
+        _restore_source_snapshot_projection_rebaseline_payloads(root, before_payloads)
+        raise
+
+
 def validate_forward_holdout_stage_changed_paths(
     changed_paths: list[str],
 ) -> list[str]:
@@ -133,6 +272,7 @@ def load_immutable_source_snapshot_projection() -> tuple[pd.DataFrame, pd.DataFr
         manifest,
         projected_detail,
         expected_cutoff_date=PRICE_HISTORY_CUTOFF_DATE,
+        expected_artifact_version=SOURCE_SNAPSHOT_LEGACY_ARTIFACT_VERSION,
     )
     return manifest, projected_detail
 
@@ -204,6 +344,10 @@ def build_and_write() -> None:
         projected_source_detail,
         rearmed_detail,
         projected_daily_by_stock,
+        source_projection_manifest=source_projection_manifest,
+        source_projection_artifact_version=(
+            SOURCE_SNAPSHOT_LEGACY_ARTIFACT_VERSION
+        ),
     )
 
     write_revenue_unreacted_range_revenue_condition_matrix(condition_matrix)
@@ -274,6 +418,335 @@ def build_and_write_source_first_condition_audit() -> None:
 def build_and_write_source_snapshot_projection() -> None:
     manifest, projected_detail = load_immutable_source_snapshot_projection()
     write_source_snapshot_projection(manifest, projected_detail)
+
+
+def _rebaseline_temp_path(temp_root: Path, target: Path) -> Path:
+    relative = target.resolve().relative_to(ROOT.resolve())
+    return temp_root / relative
+
+
+def _write_projection_frame(path: Path, frame: pd.DataFrame) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    frame.to_csv(path, index=False, lineterminator="\n")
+
+
+def _replace_rebaseline_path(source: Path, destination: Path) -> None:
+    """Injection seam used by transaction rollback regression tests."""
+
+    os.replace(source, destination)
+
+
+def _validate_rebaseline_temp_bundle(
+    *,
+    temp_root: Path,
+    v1_manifest_path: Path,
+    v1_detail_path: Path,
+    v2_manifest_path: Path,
+    v2_detail_path: Path,
+) -> None:
+    source_summary = _rebaseline_temp_path(
+        temp_root,
+        ROOT
+        / "output/latest/research_backtest/"
+        "revenue_unreacted_range_source_first_condition_audit_latest.csv",
+    )
+    source_detail = _rebaseline_temp_path(
+        temp_root,
+        ROOT
+        / "output/latest/research_backtest/"
+        "revenue_unreacted_range_source_first_condition_audit_detail_latest.csv",
+    )
+    source_markdown = _rebaseline_temp_path(
+        temp_root,
+        ROOT
+        / "output/latest/research_backtest/"
+        "revenue_unreacted_range_source_first_condition_audit_latest.md",
+    )
+    errors = validate_source_first_condition_audit_independently(
+        revenue_path=SOURCE_SNAPSHOT_REVENUE_HISTORY_CSV,
+        resolution_path=SOURCE_SNAPSHOT_MONTHLY_RESOLUTION_CSV,
+        projection_manifest_path=v2_manifest_path,
+        summary_path=source_summary,
+        detail_path=source_detail,
+        markdown_path=source_markdown,
+    )
+    if errors:
+        raise RuntimeError(
+            "independent source-first rebaseline validation failed: "
+            + "; ".join(errors)
+        )
+    errors = validate_source_snapshot_projection_independently(
+        manifest_path=v2_manifest_path,
+        projected_detail_path=v2_detail_path,
+        revenue_path=SOURCE_SNAPSHOT_REVENUE_HISTORY_CSV,
+        price_dir=SOURCE_SNAPSHOT_PRICE_HISTORY_DIR,
+        monthly_resolution_path=SOURCE_SNAPSHOT_MONTHLY_RESOLUTION_CSV,
+        price_resolution_path=SOURCE_SNAPSHOT_PRICE_RESOLUTION_CSV,
+        expected_artifact_version=SOURCE_SNAPSHOT_REBASELINE_ARTIFACT_VERSION,
+        repo_root=ROOT,
+    )
+    if errors:
+        raise RuntimeError(
+            "independent v2 projection rebaseline validation failed: "
+            + "; ".join(errors)
+        )
+    errors = validate_source_snapshot_projection_diff_independently(
+        v1_manifest_path=v1_manifest_path,
+        v1_detail_path=v1_detail_path,
+        v2_manifest_path=v2_manifest_path,
+        v2_detail_path=v2_detail_path,
+        history_path=_rebaseline_temp_path(
+            temp_root, SOURCE_SNAPSHOT_DIFF_HISTORY_CSV
+        ),
+        latest_path=_rebaseline_temp_path(temp_root, SOURCE_SNAPSHOT_DIFF_LATEST_CSV),
+        docs_path=_rebaseline_temp_path(temp_root, SOURCE_SNAPSHOT_DIFF_DOCS_CSV),
+    )
+    if errors:
+        raise RuntimeError(
+            "independent v1/v2 diff validation failed: " + "; ".join(errors)
+        )
+
+
+def _publish_rebaseline_temp_bundle(
+    temp_root: Path,
+    *,
+    root: Path = ROOT,
+) -> None:
+    targets = [
+        root / relative_path
+        for relative_path in SOURCE_SNAPSHOT_PROJECTION_REBASELINE_ALLOWED_ARTIFACT_PATHS
+    ]
+    staged = [
+        temp_root / relative_path
+        for relative_path in SOURCE_SNAPSHOT_PROJECTION_REBASELINE_ALLOWED_ARTIFACT_PATHS
+    ]
+    missing = [
+        target.relative_to(root).as_posix()
+        for target, staged_path in zip(targets, staged)
+        if not staged_path.is_file() or staged_path.is_symlink()
+    ]
+    staged_files = {
+        path.relative_to(temp_root).as_posix()
+        for path in temp_root.rglob("*")
+        if path.is_file()
+    }
+    expected_files = set(SOURCE_SNAPSHOT_PROJECTION_REBASELINE_ALLOWED_ARTIFACT_PATHS)
+    target_symlinks = [
+        target.relative_to(root).as_posix() for target in targets if target.is_symlink()
+    ]
+    if missing or staged_files != expected_files or target_symlinks:
+        raise RuntimeError(
+            "rebaseline temp bundle exact-set validation failed: "
+            f"missing={missing}; extra={sorted(staged_files - expected_files)}; "
+            f"target_symlinks={target_symlinks}"
+        )
+    backup_root = temp_root / "__backup__"
+    prior_exists: dict[Path, bool] = {}
+    for target in targets:
+        prior_exists[target] = target.is_file()
+        if target.is_file():
+            backup = backup_root / target.relative_to(root)
+            backup.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(target, backup)
+    replaced: list[Path] = []
+    try:
+        for staged_path, target in zip(staged, targets):
+            target.parent.mkdir(parents=True, exist_ok=True)
+            _replace_rebaseline_path(staged_path, target)
+            replaced.append(target)
+    except BaseException as publish_error:
+        rollback_errors: list[str] = []
+        for target in reversed(replaced):
+            try:
+                if prior_exists[target]:
+                    backup = backup_root / target.relative_to(root)
+                    os.replace(backup, target)
+                elif target.exists():
+                    target.unlink()
+            except OSError as rollback_error:
+                rollback_errors.append(f"{target}: {rollback_error}")
+        if rollback_errors:
+            raise RuntimeError(
+                "rebaseline transaction publish and rollback both failed: "
+                f"publish={publish_error}; rollback={rollback_errors}"
+            ) from publish_error
+        raise
+
+
+def build_and_write_source_snapshot_projection_rebaseline() -> None:
+    """Build, independently validate, then atomically publish the v2 capture."""
+
+    (
+        v1_manifest,
+        v1_detail,
+        v1_manifest_payload,
+        v1_detail_payload,
+    ) = load_committed_v1_projection_predecessor(root=ROOT)
+    repair_provenance = source_repair_provenance(root=ROOT)
+    full_summary, full_detail = build_source_first_condition_audit()
+    _projected_summary, projected_detail = build_source_first_condition_audit(
+        observation_cutoff_date=SOURCE_SNAPSHOT_PROJECTION_CUTOFF_DATE,
+    )
+    v2_manifest = build_source_snapshot_projection_manifest(
+        full_detail,
+        projected_detail,
+        artifact_version=SOURCE_SNAPSHOT_REBASELINE_ARTIFACT_VERSION,
+        predecessor_manifest=v1_manifest,
+        predecessor_detail=v1_detail,
+        repair_provenance_payload=repair_provenance,
+    )
+    diff = build_projection_v1_v2_diff(
+        v1_manifest,
+        v1_detail,
+        v2_manifest,
+        projected_detail,
+    )
+
+    with tempfile.TemporaryDirectory(
+        prefix=".revenue-source-projection-rebaseline-",
+        dir=ROOT,
+    ) as temporary_directory:
+        temp_root = Path(temporary_directory)
+        write_source_first_condition_audit(
+            full_summary,
+            full_detail,
+            latest_csv_path=_rebaseline_temp_path(
+                temp_root,
+                ROOT
+                / "output/latest/research_backtest/"
+                "revenue_unreacted_range_source_first_condition_audit_latest.csv",
+            ),
+            detail_csv_path=_rebaseline_temp_path(
+                temp_root,
+                ROOT
+                / "output/latest/research_backtest/"
+                "revenue_unreacted_range_source_first_condition_audit_detail_latest.csv",
+            ),
+            history_csv_path=_rebaseline_temp_path(
+                temp_root,
+                ROOT
+                / "output/history/research/"
+                "revenue_unreacted_range_source_first_condition_audit.csv",
+            ),
+            docs_csv_path=_rebaseline_temp_path(
+                temp_root,
+                ROOT
+                / "docs/latest/"
+                "revenue_unreacted_range_source_first_condition_audit_latest.csv",
+            ),
+            latest_markdown_path=_rebaseline_temp_path(
+                temp_root,
+                ROOT
+                / "output/latest/research_backtest/"
+                "revenue_unreacted_range_source_first_condition_audit_latest.md",
+            ),
+            docs_markdown_path=_rebaseline_temp_path(
+                temp_root,
+                ROOT
+                / "docs/latest/"
+                "revenue_unreacted_range_source_first_condition_audit_latest.md",
+            ),
+        )
+        v1_manifest_path = _rebaseline_temp_path(temp_root, VERSIONED_V1_MANIFEST_CSV)
+        v1_detail_path = _rebaseline_temp_path(temp_root, VERSIONED_V1_DETAIL_CSV)
+        v1_manifest_path.parent.mkdir(parents=True, exist_ok=True)
+        v1_detail_path.parent.mkdir(parents=True, exist_ok=True)
+        v1_manifest_path.write_bytes(v1_manifest_payload)
+        v1_detail_path.write_bytes(v1_detail_payload)
+        v2_manifest_path = _rebaseline_temp_path(temp_root, VERSIONED_V2_MANIFEST_CSV)
+        v2_detail_path = _rebaseline_temp_path(temp_root, VERSIONED_V2_DETAIL_CSV)
+        _write_projection_frame(v2_manifest_path, v2_manifest)
+        _write_projection_frame(v2_detail_path, projected_detail)
+        write_projection_v1_v2_diff(
+            diff,
+            history_path=_rebaseline_temp_path(temp_root, SOURCE_SNAPSHOT_DIFF_HISTORY_CSV),
+            latest_path=_rebaseline_temp_path(temp_root, SOURCE_SNAPSHOT_DIFF_LATEST_CSV),
+            docs_path=_rebaseline_temp_path(temp_root, SOURCE_SNAPSHOT_DIFF_DOCS_CSV),
+        )
+        _validate_rebaseline_temp_bundle(
+            temp_root=temp_root,
+            v1_manifest_path=v1_manifest_path,
+            v1_detail_path=v1_detail_path,
+            v2_manifest_path=v2_manifest_path,
+            v2_detail_path=v2_detail_path,
+        )
+        _publish_rebaseline_temp_bundle(temp_root)
+
+
+def build_and_write_source_snapshot_projection_operation_diff(
+    *,
+    anomaly_registry_path: Path,
+    source_diff_path: Path,
+    projection_v2_manifest_path: Path,
+    projection_v2_detail_path: Path,
+    original_detail_path: Path,
+    corrected_summary_path: Path,
+    corrected_detail_path: Path,
+    corrected_report_path: Path,
+    history_path: Path = SOURCE_SNAPSHOT_OPERATION_DIFF_HISTORY_CSV,
+    latest_path: Path = SOURCE_SNAPSHOT_OPERATION_DIFF_LATEST_CSV,
+    docs_path: Path = SOURCE_SNAPSHOT_OPERATION_DIFF_DOCS_CSV,
+) -> pd.DataFrame:
+    """Build the future corrected-chain operation diff only after all inputs exist.
+
+    This callable intentionally is not a CLI stage yet.  The corrected summary,
+    detail, and final report do not have approved canonical history paths, so the
+    operation diff must remain fail-closed and unpublished until a separate
+    consumer/writer migration binds those paths.
+    """
+
+    input_paths = tuple(
+        Path(path)
+        for path in (
+            anomaly_registry_path,
+            source_diff_path,
+            projection_v2_manifest_path,
+            projection_v2_detail_path,
+            original_detail_path,
+            corrected_summary_path,
+            corrected_detail_path,
+            corrected_report_path,
+        )
+    )
+    missing = [path.as_posix() for path in input_paths if not path.is_file()]
+    if missing:
+        raise RuntimeError(
+            "operation diff publication requires all eight exact-bound inputs "
+            f"before write: {missing}"
+        )
+
+    def read_frame(path: Path) -> pd.DataFrame:
+        return pd.read_csv(
+            path,
+            dtype=str,
+            keep_default_na=False,
+            low_memory=False,
+        )
+
+    inputs = (
+        read_frame(input_paths[0]),
+        read_frame(input_paths[1]),
+        input_paths[2].read_bytes(),
+        input_paths[3].read_bytes(),
+        read_frame(input_paths[4]),
+        read_frame(input_paths[5]),
+        read_frame(input_paths[6]),
+        read_frame(input_paths[7]),
+    )
+    frame = build_source_snapshot_operation_diff(*inputs)
+    errors = validate_source_snapshot_operation_diff_independently(*inputs, frame)
+    if errors:
+        raise RuntimeError(
+            "independent corrected-chain operation diff validation failed: "
+            + "; ".join(errors)
+        )
+    write_source_snapshot_operation_diff(
+        frame,
+        history_path=history_path,
+        latest_path=latest_path,
+        docs_path=docs_path,
+    )
+    return frame
 
 
 def build_and_write_source_snapshot_projection_chain() -> None:
@@ -348,6 +821,10 @@ def build_and_write_source_snapshot_projection_chain() -> None:
         projected_detail,
         rearmed_detail,
         projected_daily_by_stock,
+        source_projection_manifest=manifest,
+        source_projection_artifact_version=(
+            SOURCE_SNAPSHOT_LEGACY_ARTIFACT_VERSION
+        ),
     )
 
     # Persist the cutoff consumers in dependency order before the position/shape
@@ -437,7 +914,11 @@ def build_and_write_position_shape_transition_matrix() -> None:
 def build_and_write_low_mid_falling_candidate_audit() -> None:
     source_first_detail = load_projected_source_detail()
     source_projection_manifest = load_source_snapshot_projection_manifest()
-    validate_projection_binding(source_projection_manifest, source_first_detail)
+    validate_projection_binding(
+        source_projection_manifest,
+        source_first_detail,
+        expected_artifact_version=SOURCE_SNAPSHOT_LEGACY_ARTIFACT_VERSION,
+    )
     frame = build_revenue_unreacted_range_research_frame()
     if frame.empty:
         raise RuntimeError(
@@ -465,6 +946,10 @@ def build_and_write_low_mid_falling_candidate_audit() -> None:
         source_first_detail,
         rearmed_detail,
         daily_by_stock,
+        source_projection_manifest=source_projection_manifest,
+        source_projection_artifact_version=(
+            SOURCE_SNAPSHOT_LEGACY_ARTIFACT_VERSION
+        ),
     )
     write_low_mid_falling_candidate_audit(
         summary,
@@ -482,6 +967,7 @@ def validate_forward_holdout_persisted_frames(
     anomaly_readback: pd.DataFrame,
     *,
     source_detail: pd.DataFrame,
+    training_source_projection_detail: pd.DataFrame,
     price_inputs: Mapping[str, pd.DataFrame],
     source_manifest: pd.DataFrame,
     history_frames: Mapping[str, pd.DataFrame],
@@ -494,6 +980,7 @@ def validate_forward_holdout_persisted_frames(
         comparison_readback,
         anomaly_readback,
         source_detail=source_detail,
+        training_source_projection_detail=training_source_projection_detail,
         daily_by_stock=price_inputs,
         source_manifest=source_manifest,
         history_frames=history_frames,
@@ -521,6 +1008,7 @@ def parse_args() -> argparse.Namespace:
             "launch_timing_feature_audit",
             "source_first_condition_audit",
             "source_snapshot_projection",
+            "source_snapshot_projection_rebaseline",
             "source_snapshot_projection_chain",
             "forward_confirmation_feature_audit",
             "rearmed_operation_grid",
@@ -544,6 +1032,9 @@ def main() -> int:
             build_and_write_source_first_condition_audit()
         elif args.stage == "source_snapshot_projection":
             build_and_write_source_snapshot_projection()
+        elif args.stage == "source_snapshot_projection_rebaseline":
+            with source_snapshot_projection_rebaseline_stage_artifact_guard():
+                build_and_write_source_snapshot_projection_rebaseline()
         elif args.stage == "source_snapshot_projection_chain":
             build_and_write_source_snapshot_projection_chain()
         elif args.stage == "forward_confirmation_feature_audit":

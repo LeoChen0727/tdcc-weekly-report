@@ -8,13 +8,10 @@ import math
 import numbers
 from pathlib import Path
 import re
+from typing import Mapping
 
 import numpy as np
 import pandas as pd
-
-from validate_revenue_unreacted_range_source_snapshot_projection import (
-    validate_projection_binding_frames,
-)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -26,6 +23,109 @@ EXPECTED_DATA_CONTRACT_SHA256 = (
 )
 SOURCE_FIRST_ARTIFACT_ID = "revenue_unreacted_range_source_first_condition_audit"
 SOURCE_FIRST_ARTIFACT_VERSION = "source_first_condition_v3_20260720"
+SOURCE_PROJECTION_ARTIFACT_ID = "revenue_unreacted_range_source_snapshot_projection"
+SOURCE_PROJECTION_ARTIFACT_VERSION = "source_snapshot_projection_v1_20260731"
+SOURCE_PROJECTION_REBASELINE_ARTIFACT_VERSION = (
+    "source_snapshot_projection_v2_20260814"
+)
+SOURCE_PROJECTION_ARTIFACT_VERSIONS = (
+    SOURCE_PROJECTION_ARTIFACT_VERSION,
+    SOURCE_PROJECTION_REBASELINE_ARTIFACT_VERSION,
+)
+SOURCE_PROJECTION_ID = "revenue_unreacted_range_source_snapshot_asof_20260713"
+SOURCE_PROJECTION_POLICY_ID = (
+    "raw_source_and_price_truncated_before_source_first_episode_assembly_v1"
+)
+SOURCE_PROJECTION_CANONICAL_JSON_VERSION = (
+    "revenue_source_snapshot_projection_canonical_json_v1"
+)
+SOURCE_PROJECTION_DETAIL_EXCLUDED_COLUMNS = {
+    "generated_at",
+    "monthly_revenue_history_blob_sha256",
+    "cross_market_resolution_registry_canonical_sha256",
+}
+SOURCE_PROJECTION_MANIFEST_COLUMNS = (
+    "generated_at",
+    "model_id",
+    "artifact_id",
+    "artifact_version",
+    "projection_id",
+    "projection_version",
+    "projection_policy_id",
+    "cutoff_date",
+    "full_source_artifact_id",
+    "full_source_artifact_version",
+    "full_source_episode_row_count",
+    "full_source_episode_semantic_sha256",
+    "monthly_revenue_history_blob_sha256",
+    "monthly_revenue_canonical_table_sha256",
+    "cross_market_resolution_registry_canonical_sha256",
+    "cutoff_revenue_subset_row_count",
+    "cutoff_revenue_subset_semantic_sha256",
+    "cutoff_price_input_stock_count",
+    "cutoff_price_input_row_count",
+    "cutoff_price_input_file_semantic_sha256s",
+    "cutoff_price_input_semantic_sha256",
+    "applied_monthly_resolution_count",
+    "applied_monthly_resolution_ids",
+    "applied_monthly_resolution_semantic_sha256",
+    "applied_price_resolution_count",
+    "applied_price_resolution_ids",
+    "applied_price_resolution_semantic_sha256",
+    "projected_episode_row_count",
+    "projected_episode_semantic_sha256",
+    "projected_max_source_date",
+    "projected_max_trade_date",
+    "projected_max_episode_end_date",
+    "research_only",
+    "formal_model_use_allowed",
+    "approved_for_daily",
+    "production_change",
+    "promotion_evidence_allowed",
+    "ranking_consumption_allowed",
+    "pdf_consumption_allowed",
+)
+SOURCE_PROJECTION_V2_PROVENANCE_COLUMNS = (
+    "predecessor_manifest_git_blob_sha",
+    "predecessor_manifest_git_blob_raw_sha256",
+    "predecessor_detail_git_blob_sha",
+    "predecessor_detail_git_blob_raw_sha256",
+    "predecessor_detail_semantic_sha256",
+    "source_repair_input_head_sha",
+    "source_repair_artifact_commit_sha",
+    "source_repair_workflow_run_id",
+    "source_repair_report_git_blob_sha",
+    "source_repair_report_git_blob_raw_sha256",
+)
+SOURCE_PROJECTION_V2_MANIFEST_COLUMNS = (
+    SOURCE_PROJECTION_MANIFEST_COLUMNS + SOURCE_PROJECTION_V2_PROVENANCE_COLUMNS
+)
+SOURCE_PROJECTION_V2_PROVENANCE = {
+    "predecessor_manifest_git_blob_sha": (
+        "163f9874124fd3d1fd27f1d1564ac8ac1892e4a1"
+    ),
+    "predecessor_manifest_git_blob_raw_sha256": (
+        "d2dde5a1f05bc2f15baf4d77f326a7ea90b481492178fa6d2fd6262bf316c79e"
+    ),
+    "predecessor_detail_git_blob_sha": "849f72c39588c47f1bfd2fe8acd96255087efdcb",
+    "predecessor_detail_git_blob_raw_sha256": (
+        "b9784e4df2d2eba2c511b1c87f4255a6485a1fe1d7ac67490802e396614ee49a"
+    ),
+    "predecessor_detail_semantic_sha256": (
+        "92c68810ac2b5718d714d450fe83bf23f2f3469fec5db0ae2753330950ab2cf5"
+    ),
+    "source_repair_input_head_sha": "8176fee986d1659896a681e89f99f0171c481b0a",
+    "source_repair_artifact_commit_sha": (
+        "7a9e981e2436af3dfc733905ec26b53f8cdd9f9e"
+    ),
+    "source_repair_workflow_run_id": "31799699472",
+    "source_repair_report_git_blob_sha": (
+        "f2d569b122e448f87e956cca771748946a9d7363"
+    ),
+    "source_repair_report_git_blob_raw_sha256": (
+        "77bf1a1d7ee16beae5e0b0a0eb97212088d7ef7ca883644cdcf39b59fea8d447"
+    ),
+}
 REARMED_ARTIFACT_ID = "revenue_unreacted_range_rearmed_operation_grid"
 REARMED_ARTIFACT_VERSION = "rearmed_operation_grid_v1_20260713"
 POSITION_SHAPE_ARTIFACT_ID = (
@@ -327,6 +427,158 @@ def _canonical_table_sha256(
         separators=(",", ":"),
     ).encode("utf-8")
     return hashlib.sha256(encoded).hexdigest()
+
+
+def _projection_value(value: object) -> str:
+    if value is None or pd.isna(value):
+        return ""
+    if isinstance(value, bool):
+        return "true" if value else "false"
+    text = str(value).strip()
+    return text.lower() if text.lower() in {"true", "false"} else text
+
+
+def _projection_detail_semantic_sha256(frame: pd.DataFrame) -> str:
+    selected = [
+        column
+        for column in frame.columns
+        if column not in SOURCE_PROJECTION_DETAIL_EXCLUDED_COLUMNS
+    ]
+    rows = [
+        [_projection_value(value) for value in row]
+        for row in frame.loc[:, selected].itertuples(index=False, name=None)
+    ]
+    rows.sort()
+    return hashlib.sha256(
+        json.dumps(
+            [SOURCE_PROJECTION_CANONICAL_JSON_VERSION, selected, rows],
+            ensure_ascii=False,
+            separators=(",", ":"),
+        ).encode("utf-8")
+    ).hexdigest()
+
+
+def validate_projection_binding_frames(
+    manifest: pd.DataFrame,
+    detail: pd.DataFrame,
+    *,
+    expected_artifact_version: str,
+) -> list[str]:
+    """Independently validate an explicitly selected projection version."""
+
+    expected_version = str(expected_artifact_version).strip()
+    if expected_version not in SOURCE_PROJECTION_ARTIFACT_VERSIONS:
+        return [
+            "source projection expected artifact version is not registered: "
+            f"{expected_version}"
+        ]
+    expected_columns = (
+        SOURCE_PROJECTION_V2_MANIFEST_COLUMNS
+        if expected_version == SOURCE_PROJECTION_REBASELINE_ARTIFACT_VERSION
+        else SOURCE_PROJECTION_MANIFEST_COLUMNS
+    )
+    if list(manifest.columns) != list(expected_columns):
+        return [
+            "source projection manifest schema mismatch for expected artifact "
+            f"version {expected_version}: expected={list(expected_columns)}; "
+            f"actual={list(manifest.columns)}"
+        ]
+    if len(manifest) != 1:
+        return [f"source projection manifest must have exactly one row: {len(manifest)}"]
+    row = manifest.iloc[0]
+    errors: list[str] = []
+    for column, expected in {
+        "model_id": MODEL_ID,
+        "artifact_id": SOURCE_PROJECTION_ARTIFACT_ID,
+        "artifact_version": expected_version,
+        "projection_id": SOURCE_PROJECTION_ID,
+        "projection_version": expected_version,
+        "projection_policy_id": SOURCE_PROJECTION_POLICY_ID,
+        "cutoff_date": PRICE_HISTORY_CUTOFF_DATE,
+        "full_source_artifact_id": SOURCE_FIRST_ARTIFACT_ID,
+        "full_source_artifact_version": SOURCE_FIRST_ARTIFACT_VERSION,
+    }.items():
+        if _projection_value(row.get(column, "")) != expected:
+            errors.append(f"source projection manifest {column} mismatch")
+    if expected_version == SOURCE_PROJECTION_REBASELINE_ARTIFACT_VERSION:
+        for column, expected in SOURCE_PROJECTION_V2_PROVENANCE.items():
+            if _projection_value(row.get(column, "")) != expected:
+                errors.append(f"source projection manifest {column} mismatch")
+    row_count_text = _projection_value(row.get("projected_episode_row_count", ""))
+    if not re.fullmatch(r"\d+", row_count_text):
+        errors.append("source projection row count is not an exact integer")
+    elif len(detail) != int(row_count_text):
+        errors.append("source projection detail row-count binding mismatch")
+    try:
+        if _projection_detail_semantic_sha256(detail) != _projection_value(
+            row.get("projected_episode_semantic_sha256", "")
+        ).lower():
+            errors.append("projected detail semantic SHA-256 binding mismatch")
+        for detail_column, manifest_column in (
+            ("artifact_id", "full_source_artifact_id"),
+            ("artifact_version", "full_source_artifact_version"),
+            (
+                "monthly_revenue_history_blob_sha256",
+                "monthly_revenue_history_blob_sha256",
+            ),
+            (
+                "monthly_revenue_canonical_table_sha256",
+                "cutoff_revenue_subset_semantic_sha256",
+            ),
+            (
+                "cross_market_resolution_registry_canonical_sha256",
+                "cross_market_resolution_registry_canonical_sha256",
+            ),
+        ):
+            if detail_column not in detail.columns:
+                errors.append(f"source projection detail missing {detail_column}")
+                continue
+            values = {_projection_value(value) for value in detail[detail_column]}
+            if len(values) != 1 or next(iter(values), "") != _projection_value(
+                row.get(manifest_column, "")
+            ):
+                errors.append(f"source projection detail {detail_column} lineage mismatch")
+    except (KeyError, RuntimeError, TypeError, ValueError) as exc:
+        errors.append(str(exc))
+    if _projection_value(row.get("research_only", "")) != "true":
+        errors.append("source projection research_only must be true")
+    for column in (
+        "formal_model_use_allowed",
+        "approved_for_daily",
+        "production_change",
+        "promotion_evidence_allowed",
+        "ranking_consumption_allowed",
+        "pdf_consumption_allowed",
+    ):
+        if _projection_value(row.get(column, "")) != "false":
+            errors.append(f"source projection {column} must be false")
+    return errors
+
+
+def _source_projection_lineage(manifest: pd.DataFrame) -> dict[str, object]:
+    if len(manifest) != 1:
+        raise RuntimeError(
+            "source projection manifest must contain exactly one row for lineage"
+        )
+    row = manifest.iloc[0]
+    if str(row["artifact_id"]) != SOURCE_PROJECTION_ARTIFACT_ID:
+        raise RuntimeError("source projection artifact id drift")
+    return {
+        "source_projection_artifact_id": str(row["artifact_id"]),
+        "source_projection_artifact_version": str(row["artifact_version"]),
+        "source_projection_projection_id": str(row["projection_id"]),
+        "source_projection_projection_version": str(row["projection_version"]),
+        "source_projection_cutoff_date": str(row["cutoff_date"]),
+        "source_projection_projected_episode_row_count": int(
+            row["projected_episode_row_count"]
+        ),
+        "source_projection_projected_episode_semantic_sha256": str(
+            row["projected_episode_semantic_sha256"]
+        ).strip().lower(),
+        "source_projection_manifest_canonical_sha256": _canonical_table_sha256(
+            manifest
+        ),
+    }
 
 
 def _canonical_frame_sha256(frame: pd.DataFrame) -> str:
@@ -1092,6 +1344,7 @@ def _expected_detail(
     operations: pd.DataFrame,
     source_root: Path,
     price_stock_ids: set[str],
+    source_projection_lineage: Mapping[str, object],
 ) -> pd.DataFrame:
     price_dir = source_root / SOURCE_RELATIVE_PATHS["price_dir"]
     resolutions = _load_resolutions(source_root / SOURCE_RELATIVE_PATHS["resolution"])
@@ -1285,6 +1538,7 @@ def _expected_detail(
                 ),
                 "source_first_artifact_id": SOURCE_FIRST_ARTIFACT_ID,
                 "source_first_artifact_version": SOURCE_FIRST_ARTIFACT_VERSION,
+                **source_projection_lineage,
                 "source_variant_id": SOURCE_VARIANT_ID,
                 **{
                     column: str(episode[column]).strip().lower()
@@ -1438,6 +1692,30 @@ def _artifact_lineage(detail: pd.DataFrame) -> dict[str, str]:
         ),
         "source_first_artifact_id": str(first["source_first_artifact_id"]),
         "source_first_artifact_version": str(first["source_first_artifact_version"]),
+        "source_projection_artifact_id": str(
+            first["source_projection_artifact_id"]
+        ),
+        "source_projection_artifact_version": str(
+            first["source_projection_artifact_version"]
+        ),
+        "source_projection_projection_id": str(
+            first["source_projection_projection_id"]
+        ),
+        "source_projection_projection_version": str(
+            first["source_projection_projection_version"]
+        ),
+        "source_projection_cutoff_date": str(
+            first["source_projection_cutoff_date"]
+        ),
+        "source_projection_projected_episode_row_count": str(
+            first["source_projection_projected_episode_row_count"]
+        ),
+        "source_projection_projected_episode_semantic_sha256": str(
+            first["source_projection_projected_episode_semantic_sha256"]
+        ),
+        "source_projection_manifest_canonical_sha256": str(
+            first["source_projection_manifest_canonical_sha256"]
+        ),
         **{
             column: str(first[column])
             for column in MONTHLY_REVENUE_RUN_LINEAGE_COLUMNS
@@ -2174,6 +2452,7 @@ def validate(
     *,
     artifact_root: Path = ROOT,
     source_root: Path = ROOT,
+    source_projection_artifact_version: str = SOURCE_PROJECTION_ARTIFACT_VERSION,
 ) -> list[str]:
     artifact_root = artifact_root.resolve()
     source_root = source_root.resolve()
@@ -2187,7 +2466,11 @@ def validate(
     try:
         projection_manifest, source_raw, rearmed_raw = _read_sources(source_root)
         errors.extend(
-            validate_projection_binding_frames(projection_manifest, source_raw)
+            validate_projection_binding_frames(
+                projection_manifest,
+                source_raw,
+                expected_artifact_version=source_projection_artifact_version,
+            )
         )
         if errors:
             return errors
@@ -2200,6 +2483,7 @@ def validate(
             operations,
             source_root,
             {_stock_id(value) for value in source_raw["stock_id"]},
+            _source_projection_lineage(projection_manifest),
         )
         expected_paired = _expected_paired(expected_detail)
         summary = pd.read_csv(
@@ -2253,12 +2537,25 @@ def parse_args() -> argparse.Namespace:
         default=ROOT,
         help="Repository root containing source-first/rearmed data and price history.",
     )
+    parser.add_argument(
+        "--source-projection-artifact-version",
+        choices=SOURCE_PROJECTION_ARTIFACT_VERSIONS,
+        default=SOURCE_PROJECTION_ARTIFACT_VERSION,
+        help=(
+            "Explicit source projection artifact version expected by this replay; "
+            "defaults to the archived v1 input."
+        ),
+    )
     return parser.parse_args()
 
 
 def main() -> int:
     args = parse_args()
-    errors = validate(artifact_root=args.artifact_root, source_root=args.source_root)
+    errors = validate(
+        artifact_root=args.artifact_root,
+        source_root=args.source_root,
+        source_projection_artifact_version=args.source_projection_artifact_version,
+    )
     if errors:
         for error in errors:
             print(f"ERROR: {error}")

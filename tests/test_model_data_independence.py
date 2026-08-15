@@ -26,6 +26,8 @@ from model_data_independence import (  # noqa: E402
     _production_imports,
     _active_repo_python_sources,
     _active_stock_models,
+    _artifact_rule_matches,
+    _data_sharing_write_scope_matches_background,
     _governed_business_import_contract,
     _python_source_module_map,
     _revenue_cross_market_resolution_registry_canonical_sha256,
@@ -728,7 +730,7 @@ def test_data_sharing_registry_uses_model_owned_research_entrypoints() -> None:
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
-    assert len(rows) == 26
+    assert len(rows) == 28
     baseline = rows[0]
     assert tuple(baseline) == DATA_SHARING_MIGRATION_COLUMNS
     assert data_migration_row_sha256(baseline) == BASELINE_DATA_MIGRATION_ROW_SHA256
@@ -1373,7 +1375,7 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
         "revenue_unreacted_range_source_snapshot_projection"
     ]
     assert projection["data_contract_sha256"] == (
-        "d941b53613e393cc016e4f7b777787b0e9118e6e9d30aa4e00e5a04f959daa79"
+        "ed3b8b86d35f21a21baf0a85e462c797b501b4b7471c3c50330e32bd93b59d37"
     )
     assert projection["ownership_mode"] == "model_owned_not_shared"
     projection_background = background_by_family[
@@ -1514,6 +1516,285 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     ]
 
 
+def test_revenue_source_projection_v1_archive_v2_rebaseline_registry_split() -> None:
+    migration_id = (
+        "revenue_source_snapshot_projection_v1_archive_v2_rebaseline_20260814"
+    )
+    approval_reference = (
+        "user_authorized_revenue_unreacted_range_formal_model_preparation_20260814"
+    )
+    v1_family = "revenue_unreacted_range_source_snapshot_projection"
+    v1_archive_family = (
+        "revenue_unreacted_range_source_snapshot_projection_v1_archive"
+    )
+    v2_family = (
+        "revenue_unreacted_range_source_snapshot_projection_rebaseline_v2"
+    )
+    diff_family = "revenue_unreacted_range_source_snapshot_projection_v1_v2_diff"
+    diff_history_family = f"{diff_family}_history"
+    diff_docs_family = f"{diff_family}_docs"
+    v1_hash = "ed3b8b86d35f21a21baf0a85e462c797b501b4b7471c3c50330e32bd93b59d37"
+    v1_archive_hash = (
+        "192c59a53aaf087e691c73ea247d270aa0d92a37b1386102c090f341c3ba921d"
+    )
+    v2_hash = "3edcf14701a0378d940d9677ffe998eabdbe7bfe522b93e32d1caaa3bad76f12"
+    diff_hash = "65011691cb6b7e92153c5cb55bc7e7938e990d0eadbbc553f176f310495ee40a"
+    diff_history_hash = (
+        "0860d8b798e5d282d9d9e8ceb4193da3e99ccd7970d0f88729b1269582800cbc"
+    )
+    diff_docs_hash = (
+        "1e500b54afea007c9e4601a975bdeedabaa7866f4d0a8a4fbe99c1c16c59f5ab"
+    )
+
+    migrations = read_csv("config/daily_model_data_sharing_migrations.csv")
+    migration = next(
+        row for row in migrations if row["migration_id"] == migration_id
+    )
+    assert migration is migrations[-2]
+    assert migration["changed_data_families"].split(";") == [
+        v1_family,
+        v1_archive_family,
+        v2_family,
+        diff_family,
+        diff_history_family,
+        diff_docs_family,
+    ]
+    assert migration["previous_contract_sha256s"].split(";") == [
+        "d941b53613e393cc016e4f7b777787b0e9118e6e9d30aa4e00e5a04f959daa79",
+        "NEW",
+        "NEW",
+        "NEW",
+        "NEW",
+        "NEW",
+    ]
+    assert migration["new_contract_sha256s"].split(";") == [
+        v1_hash,
+        v1_archive_hash,
+        v2_hash,
+        diff_hash,
+        diff_history_hash,
+        diff_docs_hash,
+    ]
+    assert migration["affected_models"] == "revenue_unreacted_range"
+    assert migration["user_approval_reference"] == approval_reference
+    assert migration["migration_status"] == "validated_user_approved_migration"
+
+    backgrounds = {
+        row["data_family_id"]: row
+        for row in read_csv("config/daily_model_background_data_registry.csv")
+    }
+    sharing = {
+        row["data_family_id"]: row
+        for row in read_csv("config/daily_model_data_sharing_registry.csv")
+    }
+    for family, expected_hash in (
+        (v1_family, v1_hash),
+        (v1_archive_family, v1_archive_hash),
+        (v2_family, v2_hash),
+        (diff_family, diff_hash),
+        (diff_history_family, diff_history_hash),
+        (diff_docs_family, diff_docs_hash),
+    ):
+        assert data_contract_sha256(backgrounds[family]) == expected_hash
+        assert sharing[family]["data_contract_sha256"] == expected_hash
+        assert sharing[family]["last_migration_id"] == migration_id
+        assert sharing[family]["sharing_decision_reference"] == approval_reference
+        assert sharing[family]["ownership_mode"] == "model_owned_not_shared"
+        assert sharing[family]["approved_consumer_models"] == (
+            "revenue_unreacted_range"
+        )
+        assert "never_formal_evidence" in sharing[family][
+            "formal_evidence_policy"
+        ]
+
+    v1_background = backgrounds[v1_family]
+    assert "legacy_v1" in v1_background["point_in_time_status"]
+    assert v1_background["artifact_path"] == (
+        "output/latest/research_backtest/"
+        "revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv"
+    )
+    assert v1_background["cleanup_status"] == "active"
+    assert "distinct source_snapshot_projection_v1_archive" in v1_background[
+        "notes"
+    ]
+    assert "do not rebuild overwrite or reinterpret" in v1_background["forbidden_use"]
+    assert sharing[v1_family]["producer_write_scope"] == v1_background[
+        "artifact_path"
+    ]
+    assert sharing[v1_family]["consumer_access_mode"] == (
+        "owner_model_legacy_v1_replay_only"
+    )
+
+    v1_archive_background = backgrounds[v1_archive_family]
+    assert "versioned_v1_archive" in v1_archive_background["point_in_time_status"]
+    assert v1_archive_background["artifact_path"] == ""
+    assert v1_archive_background["cleanup_status"] == (
+        "blocked_missing_source_or_validator"
+    )
+    assert v1_archive_background["allowed_use"].startswith("none until")
+    assert "do not publish consume reinterpret" in v1_archive_background[
+        "forbidden_use"
+    ]
+    assert "source_snapshot_projection_v1_20260731" in v1_archive_background[
+        "notes"
+    ]
+    assert sharing[v1_archive_family]["producer_write_scope"] == (
+        "output/history/research/"
+        "revenue_unreacted_range_source_snapshot_projection_v1_20260731_*.csv"
+    )
+    assert "no_consumer_until" in sharing[v1_archive_family][
+        "consumer_access_mode"
+    ]
+    assert sharing[v1_archive_family]["formal_evidence_policy"].startswith(
+        "research_only_pending"
+    )
+
+    v2_background = backgrounds[v2_family]
+    assert "rebaseline_v2" in v2_background["point_in_time_status"]
+    assert "source_snapshot_projection_v2_20260814" in v2_background["notes"]
+    assert v2_background["artifact_path"] == ""
+    assert v2_background["cleanup_status"] == (
+        "blocked_missing_source_or_validator"
+    )
+    assert v2_background["allowed_use"].startswith("none until")
+    assert "do not publish consume or interpret" in v2_background["forbidden_use"]
+    assert "no_consumer_until" in sharing[v2_family]["consumer_access_mode"]
+    assert sharing[v2_family]["formal_evidence_policy"].startswith(
+        "research_only_pending"
+    )
+    assert "quarterly or annual financial-statement" in v2_background[
+        "forbidden_use"
+    ]
+    diff_background = backgrounds[diff_family]
+    assert "v1_v2_projection_diff" in diff_background["point_in_time_status"]
+    assert diff_background["artifact_path"] == ""
+    assert diff_background["cleanup_status"] == (
+        "blocked_missing_source_or_validator"
+    )
+    assert diff_background["allowed_use"].startswith("none until")
+    assert "no_consumer_until" in sharing[diff_family]["consumer_access_mode"]
+    assert sharing[diff_family]["formal_evidence_policy"].startswith(
+        "research_only_pending"
+    )
+    assert "formal evidence" in diff_background["forbidden_use"]
+    assert "owns only the future output/latest" in diff_background["notes"]
+    for mirror_family, expected_scope in (
+        (
+            diff_history_family,
+            "output/history/research/"
+            "revenue_unreacted_range_source_snapshot_projection_v1_v2_diff_v1_20260814.csv",
+        ),
+        (
+            diff_docs_family,
+            "docs/latest/"
+            "revenue_unreacted_range_source_snapshot_projection_v1_v2_diff_latest.csv",
+        ),
+    ):
+        mirror_background = backgrounds[mirror_family]
+        assert mirror_background["artifact_path"] == ""
+        assert mirror_background["cleanup_status"] == (
+            "blocked_missing_source_or_validator"
+        )
+        assert mirror_background["allowed_use"].startswith("none until")
+        assert "no_consumer_until" in sharing[mirror_family][
+            "consumer_access_mode"
+        ]
+        assert sharing[mirror_family]["producer_write_scope"] == expected_scope
+
+
+def test_projection_candidate_future_exact7_has_one_data_family_per_path() -> None:
+    sharing = read_csv("config/daily_model_data_sharing_registry.csv")
+    producer = "scripts/build_revenue_unreacted_range_research.py"
+    expected = {
+        "output/history/research/revenue_unreacted_range_source_snapshot_projection_v1_20260731_manifest.csv": "revenue_unreacted_range_source_snapshot_projection_v1_archive",
+        "output/history/research/revenue_unreacted_range_source_snapshot_projection_v1_20260731_detail.csv": "revenue_unreacted_range_source_snapshot_projection_v1_archive",
+        "output/history/research/revenue_unreacted_range_source_snapshot_projection_v2_20260814_manifest.csv": "revenue_unreacted_range_source_snapshot_projection_rebaseline_v2",
+        "output/history/research/revenue_unreacted_range_source_snapshot_projection_v2_20260814_detail.csv": "revenue_unreacted_range_source_snapshot_projection_rebaseline_v2",
+        "output/latest/research_backtest/revenue_unreacted_range_source_snapshot_projection_v1_v2_diff_latest.csv": "revenue_unreacted_range_source_snapshot_projection_v1_v2_diff",
+        "output/history/research/revenue_unreacted_range_source_snapshot_projection_v1_v2_diff_v1_20260814.csv": "revenue_unreacted_range_source_snapshot_projection_v1_v2_diff_history",
+        "docs/latest/revenue_unreacted_range_source_snapshot_projection_v1_v2_diff_latest.csv": "revenue_unreacted_range_source_snapshot_projection_v1_v2_diff_docs",
+    }
+    for path, expected_family in expected.items():
+        matches = [
+            row["data_family_id"]
+            for row in sharing
+            if row["registered_producers"] == producer
+            and _artifact_rule_matches(path, row["producer_write_scope"])
+        ]
+        assert matches == [expected_family], f"{path}: {matches}"
+
+
+def test_revenue_source_projection_operation_diff_is_registered_pending_exact_inputs() -> None:
+    family = (
+        "revenue_unreacted_range_source_snapshot_projection_v1_v2_operation_diff"
+    )
+    migration_id = "revenue_source_snapshot_projection_operation_diff_pending_20260814"
+    contract_hash = "ee220b92593f86600b4fb54c997c1eb432cb51793f7421769cf076119e487ec6"
+    backgrounds = {
+        row["data_family_id"]: row
+        for row in read_csv("config/daily_model_background_data_registry.csv")
+    }
+    sharing = {
+        row["data_family_id"]: row
+        for row in read_csv("config/daily_model_data_sharing_registry.csv")
+    }
+    migrations = read_csv("config/daily_model_data_sharing_migrations.csv")
+    migration = next(
+        row for row in migrations if row["migration_id"] == migration_id
+    )
+    background = backgrounds[family]
+    assert data_contract_sha256(background) == contract_hash
+    assert "blocked_pending_exact_corrected_history" in background[
+        "point_in_time_status"
+    ]
+    assert background["artifact_path"] == ""
+    assert background["cleanup_status"] == "blocked_missing_source_or_validator"
+    assert background["allowed_use"].startswith("none until")
+    assert "do not publish consume or interpret" in background["forbidden_use"]
+    assert "no CLI or workflow stage is enabled" in background["notes"]
+    assert sharing[family]["data_contract_sha256"] == contract_hash
+    assert sharing[family]["producer_write_scope"] == (
+        "output/latest/research_backtest/"
+        "revenue_unreacted_range_source_snapshot_projection_v1_v2_operation_diff_latest.csv"
+    )
+    assert sharing[family]["last_migration_id"] == migration_id
+    assert "never_formal_evidence" in sharing[family]["formal_evidence_policy"]
+    assert migration is migrations[-1]
+    assert migration["changed_data_families"] == family
+    assert migration["previous_contract_sha256s"] == "NEW"
+    assert migration["new_contract_sha256s"] == contract_hash
+    assert migration["affected_models"] == "revenue_unreacted_range"
+
+
+def test_pending_future_write_scope_exception_is_narrow_and_fail_closed() -> None:
+    background = {
+        "artifact_path": "",
+        "cleanup_status": "blocked_missing_source_or_validator",
+    }
+    sharing = {
+        "producer_write_scope": "output/latest/research_backtest/future.csv",
+        "consumer_access_mode": "owner_model_no_consumer_until_exact_input_migration",
+        "formal_evidence_policy": "research_only_pending_exact_inputs",
+    }
+    assert _data_sharing_write_scope_matches_background(background, sharing)
+
+    active = {**background, "cleanup_status": "active"}
+    assert not _data_sharing_write_scope_matches_background(active, sharing)
+    consumer_enabled = {
+        **sharing,
+        "consumer_access_mode": "owner_model_read_write",
+    }
+    assert not _data_sharing_write_scope_matches_background(
+        background,
+        consumer_enabled,
+    )
+    formal_enabled = {
+        **sharing,
+        "formal_evidence_policy": "formal_evidence_allowed",
+    }
+    assert not _data_sharing_write_scope_matches_background(background, formal_enabled)
+
+
 def test_forward_confirmation_artifact_lineage_uses_projection_not_current_source() -> None:
     rows = {
         row["artifact_path"]: row
@@ -1629,6 +1910,19 @@ def test_revenue_cross_market_research_artifact_lineage_is_complete() -> None:
     rows = read_csv("config/report_artifact_lineage.csv")
     artifact_paths = [row["artifact_path"] for row in rows]
     assert len(artifact_paths) == len(set(artifact_paths))
+    pending_projection_paths = {
+        "output/history/research/revenue_unreacted_range_source_snapshot_projection_v1_20260731_manifest.csv",
+        "output/history/research/revenue_unreacted_range_source_snapshot_projection_v1_20260731_detail.csv",
+        "output/history/research/revenue_unreacted_range_source_snapshot_projection_v2_20260814_manifest.csv",
+        "output/history/research/revenue_unreacted_range_source_snapshot_projection_v2_20260814_detail.csv",
+        "output/history/research/revenue_unreacted_range_source_snapshot_projection_v1_v2_diff_v1_20260814.csv",
+        "output/latest/research_backtest/revenue_unreacted_range_source_snapshot_projection_v1_v2_diff_latest.csv",
+        "docs/latest/revenue_unreacted_range_source_snapshot_projection_v1_v2_diff_latest.csv",
+        "output/history/research/revenue_unreacted_range_source_snapshot_projection_v1_v2_operation_diff_v1_20260814.csv",
+        "output/latest/research_backtest/revenue_unreacted_range_source_snapshot_projection_v1_v2_operation_diff_latest.csv",
+        "docs/latest/revenue_unreacted_range_source_snapshot_projection_v1_v2_operation_diff_latest.csv",
+    }
+    assert pending_projection_paths.isdisjoint(artifact_paths)
 
     expected_by_family = {
         "revenue_unreacted_range_launch_timing_feature_audit": {
@@ -1651,6 +1945,12 @@ def test_revenue_cross_market_research_artifact_lineage_is_complete() -> None:
             "output/history/research/revenue_unreacted_range_source_snapshot_projection_manifest.csv",
             "docs/latest/revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv",
         },
+        "revenue_unreacted_range_source_snapshot_projection_v1_archive": set(),
+        "revenue_unreacted_range_source_snapshot_projection_v2_20260814": set(),
+        "revenue_unreacted_range_source_snapshot_projection_v1_v2_diff": set(),
+        "revenue_unreacted_range_source_snapshot_projection_v1_v2_diff_history": set(),
+        "revenue_unreacted_range_source_snapshot_projection_v1_v2_diff_docs": set(),
+        "revenue_unreacted_range_source_snapshot_projection_v1_v2_operation_diff": set(),
         "revenue_unreacted_range_forward_confirmation_feature_audit": {
             "output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_latest.csv",
             "output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_detail_latest.csv",
@@ -1710,16 +2010,49 @@ def test_revenue_cross_market_research_artifact_lineage_is_complete() -> None:
         },
     }
     row_by_path = {row["artifact_path"]: row for row in rows}
+    family_by_artifact_path = {
+        path: max(
+            (
+                family
+                for family in expected_by_family
+                if Path(path).name.startswith(family)
+            ),
+            key=len,
+        )
+        for path in artifact_paths
+        if any(
+            Path(path).name.startswith(family)
+            for family in expected_by_family
+        )
+    }
     for family, expected_paths in expected_by_family.items():
         actual_paths = {
-            path for path in artifact_paths if Path(path).name.startswith(family)
+            path
+            for path, resolved_family in family_by_artifact_path.items()
+            if resolved_family == family
         }
         assert actual_paths == expected_paths
         for path in expected_paths:
             row = row_by_path[path]
-            if "_latest.csv" in path and "output/latest/" in path:
+            if (
+                "_latest.csv" in path
+                and "output/latest/" in path
+                and family
+                != "revenue_unreacted_range_source_snapshot_projection_v1_v2_operation_diff"
+            ):
                 assert (
                     "config/revenue_unreacted_range_monthly_revenue_cross_market_resolution.csv"
+                    in row["source_artifacts"].split(";")
+                )
+            if (
+                "_latest.csv" in path
+                and "output/latest/" in path
+                and family
+                == "revenue_unreacted_range_source_snapshot_projection_v1_v2_operation_diff"
+            ):
+                assert (
+                    "output/latest/research_backtest/"
+                    "revenue_unreacted_range_source_snapshot_projection_v1_v2_diff_latest.csv"
                     in row["source_artifacts"].split(";")
                 )
 

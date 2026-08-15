@@ -33,7 +33,11 @@ from revenue_unreacted_range_source_first_condition_audit import (
 from revenue_unreacted_range_source_snapshot_projection import (
     ARTIFACT_ID as SOURCE_PROJECTION_ARTIFACT_ID,
     ARTIFACT_VERSION as SOURCE_PROJECTION_ARTIFACT_VERSION,
+    VERSIONED_V1_DETAIL_CSV as TRAINING_SOURCE_PROJECTION_DETAIL_CSV,
+    VERSIONED_V1_MANIFEST_CSV as TRAINING_SOURCE_PROJECTION_MANIFEST_CSV,
+    load_projected_source_detail,
     load_source_snapshot_projection_manifest,
+    validate_projection_binding,
 )
 
 
@@ -2317,6 +2321,7 @@ def _materialize_current_forward_holdout_inputs() -> tuple[
     pd.DataFrame,
     dict[str, pd.DataFrame],
     pd.DataFrame,
+    pd.DataFrame,
 ]:
     """Materialize one explicitly bounded input bundle for build and replay."""
 
@@ -2345,8 +2350,23 @@ def _materialize_current_forward_holdout_inputs() -> tuple[
     )
     source_detail = _attach_qualifying_anomaly_flags(source_detail, prepared)
     daily_by_stock = prepare_daily_by_stock(prepared, source_detail)
-    source_manifest = load_source_snapshot_projection_manifest()
-    return source_detail, daily_by_stock, source_manifest
+    source_manifest = load_source_snapshot_projection_manifest(
+        TRAINING_SOURCE_PROJECTION_MANIFEST_CSV
+    )
+    training_source_projection_detail = load_projected_source_detail(
+        TRAINING_SOURCE_PROJECTION_DETAIL_CSV
+    )
+    validate_projection_binding(
+        source_manifest,
+        training_source_projection_detail,
+        expected_artifact_version=SOURCE_PROJECTION_ARTIFACT_VERSION,
+    )
+    return (
+        source_detail,
+        daily_by_stock,
+        source_manifest,
+        training_source_projection_detail,
+    )
 
 
 def build_current_forward_holdout() -> tuple[
@@ -2358,7 +2378,7 @@ def build_current_forward_holdout() -> tuple[
 ]:
     """Build current forward evidence from one price-capped input bundle."""
 
-    source_detail, daily_by_stock, source_manifest = (
+    source_detail, daily_by_stock, source_manifest, _training_projection_detail = (
         _materialize_current_forward_holdout_inputs()
     )
     return build_forward_holdout(
@@ -2372,7 +2392,12 @@ def build_and_write_current_forward_holdout(
     *,
     final_validation: Callable[..., None] | None = None,
 ) -> dict[str, Path]:
-    source_detail, daily_by_stock, source_manifest = (
+    (
+        source_detail,
+        daily_by_stock,
+        source_manifest,
+        training_source_projection_detail,
+    ) = (
         _materialize_current_forward_holdout_inputs()
     )
     frames = build_forward_holdout(
@@ -2399,6 +2424,7 @@ def build_and_write_current_forward_holdout(
             source_detail=source_input,
             daily_by_stock=daily_by_stock,
             source_manifest=source_manifest,
+            training_source_projection_detail=training_source_projection_detail,
             history_frames=history_frames,
             immutable_history_base_frames=immutable_history_base_frames,
         )
@@ -2473,6 +2499,9 @@ def build_and_write_current_forward_holdout(
                 source_detail=persisted_source,
                 price_inputs=daily_by_stock,
                 source_manifest=source_manifest,
+                training_source_projection_detail=(
+                    training_source_projection_detail
+                ),
                 history_frames=persisted_histories,
                 immutable_history_base_frames=immutable_bases,
             )

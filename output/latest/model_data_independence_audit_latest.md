@@ -1,7 +1,7 @@
 # 每日股票模型與資料獨立性稽核
 
-- 產生時間：`2026-08-12 19:27:53 Asia/Taipei`
-- 結果：`CONTAINED=28, DISCLOSED_NOT_INDEPENDENT=4, PASS=58`
+- 產生時間：`2026-08-14 22:41:26 Asia/Taipei`
+- 結果：`CONTAINED=28, DISCLOSED_NOT_INDEPENDENT=4, PASS=63`
 - 原則：新模型與新資料 family 預設獨立；跨模型共用商業語意必須先有使用者核准與 migration evidence。
 - `CONTAINED` 代表既有共用已被凍結與精確盤點，不代表已物理拆分。
 - `DISCLOSED_NOT_INDEPENDENT` 代表該 validator 只能做 implementation consistency，不得當成獨立模型正確性證據。
@@ -54,6 +54,12 @@
 | data_family_ownership | revenue_unreacted_range_launch_timing_feature_audit | PASS | model_owned_not_shared | none |
 | data_family_ownership | revenue_unreacted_range_source_first_condition_audit | PASS | model_owned_not_shared | none |
 | data_family_ownership | revenue_unreacted_range_source_snapshot_projection | PASS | model_owned_not_shared | none |
+| data_family_ownership | revenue_unreacted_range_source_snapshot_projection_v1_archive | PASS | model_owned_not_shared | none |
+| data_family_ownership | revenue_unreacted_range_source_snapshot_projection_rebaseline_v2 | PASS | model_owned_not_shared | none |
+| data_family_ownership | revenue_unreacted_range_source_snapshot_projection_v1_v2_diff | PASS | model_owned_not_shared | none |
+| data_family_ownership | revenue_unreacted_range_source_snapshot_projection_v1_v2_diff_history | PASS | model_owned_not_shared | none |
+| data_family_ownership | revenue_unreacted_range_source_snapshot_projection_v1_v2_diff_docs | PASS | model_owned_not_shared | none |
+| data_family_ownership | revenue_unreacted_range_source_snapshot_projection_v1_v2_operation_diff | PASS | model_owned_not_shared | none |
 | data_family_ownership | revenue_unreacted_range_forward_confirmation_feature_audit | PASS | model_owned_not_shared | none |
 | data_family_ownership | revenue_unreacted_range_rearmed_operation_grid | PASS | model_owned_not_shared | none |
 | data_family_ownership | revenue_unreacted_range_operation_lag_bucket_audit | PASS | model_owned_not_shared | none |
@@ -97,4 +103,6 @@
 | validator_independence | scripts/validate_revenue_unreacted_range_promotion_preparation.py | PASS | independent_contract_artifact_binding_validator | none |
 | validator_independence | scripts/validate_research_against_stock_model_contract.py | DISCLOSED_NOT_INDEPENDENT | production_research_contract_consistency | may verify implementation consistency only; cannot prove model correctness independently |
 | validator_independence | scripts/validate_revenue_unreacted_range_source_snapshot_projection.py | PASS | independent_source_lineage_validator | none |
+| validator_independence | scripts/validate_revenue_unreacted_range_source_snapshot_projection_v1_v2_diff.py | PASS | independent_source_lineage_validator | none |
+| validator_independence | scripts/validate_revenue_unreacted_range_source_snapshot_projection_v1_v2_operation_diff.py | PASS | independent_research_replay_validator | none |
 | validator_independence | scripts/validate_revenue_unreacted_range_forward_holdout.py | PASS | input_bound_in_process_independent_validator | none |

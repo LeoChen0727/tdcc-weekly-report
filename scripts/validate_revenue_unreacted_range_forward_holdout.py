@@ -34,6 +34,24 @@ BRIDGE_END_DATE = "20260803"
 HOLDOUT_START_DATE = "20260804"
 SOURCE_PROJECTION_ARTIFACT_ID = "revenue_unreacted_range_source_snapshot_projection"
 SOURCE_PROJECTION_ARTIFACT_VERSION = "source_snapshot_projection_v1_20260731"
+SOURCE_PROJECTION_CANONICAL_JSON_VERSION = (
+    "revenue_source_snapshot_projection_canonical_json_v1"
+)
+SOURCE_PROJECTION_DETAIL_EXCLUDED_COLUMNS = {
+    "generated_at",
+    "monthly_revenue_history_blob_sha256",
+    "cross_market_resolution_registry_canonical_sha256",
+}
+TRAINING_SOURCE_PROJECTION_MANIFEST_CSV = (
+    ROOT
+    / "output/history/research/"
+    "revenue_unreacted_range_source_snapshot_projection_v1_20260731_manifest.csv"
+)
+TRAINING_SOURCE_PROJECTION_DETAIL_CSV = (
+    ROOT
+    / "output/history/research/"
+    "revenue_unreacted_range_source_snapshot_projection_v1_20260731_detail.csv"
+)
 SOURCE_ARTIFACT_ID = "revenue_unreacted_range_source_first_condition_audit"
 SOURCE_ARTIFACT_VERSION = "source_first_condition_v3_20260720"
 SOURCE_VARIANT_ID = "absolute_or_two_month_yoy_ge15"
@@ -240,7 +258,8 @@ DEFAULT_PATHS = {
     "summary_history": ROOT / f"output/history/research/{ARTIFACT_ID}_maturity_status.csv",
     "comparison_history": ROOT / f"output/history/research/{ARTIFACT_ID}_comparison.csv",
     "anomaly_history": ROOT / f"output/history/research/{ARTIFACT_ID}_anomaly_sensitivity.csv",
-    "source_manifest": ROOT / "output/latest/research_backtest/revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv",
+    "source_manifest": TRAINING_SOURCE_PROJECTION_MANIFEST_CSV,
+    "training_source_projection_detail": TRAINING_SOURCE_PROJECTION_DETAIL_CSV,
 }
 
 
@@ -713,6 +732,103 @@ def _price_lineage(
         len(rows),
         sum(len(frame) for frame in prices.values()),
     )
+
+
+def _projection_value(value: object) -> str:
+    if value is None or pd.isna(value):
+        return ""
+    if isinstance(value, bool):
+        return "true" if value else "false"
+    text = str(value).strip()
+    return text.lower() if text.lower() in {"true", "false"} else text
+
+
+def _projection_detail_semantic_sha256(frame: pd.DataFrame) -> str:
+    selected = [
+        column
+        for column in frame.columns
+        if column not in SOURCE_PROJECTION_DETAIL_EXCLUDED_COLUMNS
+    ]
+    rows = [
+        [_projection_value(value) for value in row]
+        for row in frame.loc[:, selected].itertuples(index=False, name=None)
+    ]
+    rows.sort()
+    return hashlib.sha256(
+        json.dumps(
+            [SOURCE_PROJECTION_CANONICAL_JSON_VERSION, selected, rows],
+            ensure_ascii=False,
+            separators=(",", ":"),
+        ).encode("utf-8")
+    ).hexdigest()
+
+
+def validate_projection_binding_frames(
+    manifest: pd.DataFrame,
+    detail: pd.DataFrame,
+    *,
+    expected_artifact_version: str,
+) -> list[str]:
+    """Independently validate the exact archived-v1 manifest/detail pair."""
+
+    if expected_artifact_version != SOURCE_PROJECTION_ARTIFACT_VERSION:
+        return [
+            "training projection expected artifact version mismatch: "
+            f"{expected_artifact_version}"
+        ]
+    if len(manifest) != 1:
+        return [f"training projection manifest must have exactly one row: {len(manifest)}"]
+    row = manifest.iloc[0]
+    errors: list[str] = []
+    for column, expected in {
+        "artifact_id": SOURCE_PROJECTION_ARTIFACT_ID,
+        "artifact_version": SOURCE_PROJECTION_ARTIFACT_VERSION,
+        "projection_version": SOURCE_PROJECTION_ARTIFACT_VERSION,
+        "cutoff_date": TRAINING_CUTOFF_DATE,
+    }.items():
+        if _projection_value(row.get(column, "")) != expected:
+            errors.append(f"training projection manifest {column} mismatch")
+    valid_count, projected_count = _exact_integer_value(
+        row.get("projected_episode_row_count", "")
+    )
+    if not valid_count or projected_count is None:
+        errors.append("training projected episode row count is not an exact integer")
+    elif len(detail) != projected_count:
+        errors.append("training projected detail row-count binding mismatch")
+    try:
+        if _projection_detail_semantic_sha256(detail) != _projection_value(
+            row.get("projected_episode_semantic_sha256", "")
+        ).lower():
+            errors.append("training projected detail semantic SHA-256 binding mismatch")
+        for detail_column, manifest_column in (
+            ("artifact_id", "full_source_artifact_id"),
+            ("artifact_version", "full_source_artifact_version"),
+            (
+                "monthly_revenue_history_blob_sha256",
+                "monthly_revenue_history_blob_sha256",
+            ),
+            (
+                "monthly_revenue_canonical_table_sha256",
+                "cutoff_revenue_subset_semantic_sha256",
+            ),
+            (
+                "cross_market_resolution_registry_canonical_sha256",
+                "cross_market_resolution_registry_canonical_sha256",
+            ),
+        ):
+            if detail_column not in detail.columns:
+                errors.append(f"training projected detail missing {detail_column}")
+                continue
+            values = {_projection_value(value) for value in detail[detail_column]}
+            if len(values) != 1 or next(iter(values), "") != _projection_value(
+                row.get(manifest_column, "")
+            ):
+                errors.append(
+                    f"training projected detail {detail_column} lineage mismatch"
+                )
+    except (KeyError, RuntimeError, TypeError, ValueError) as exc:
+        errors.append(str(exc))
+    return errors
 
 
 def _training_lineage(source_manifest: pd.DataFrame) -> dict[str, object]:
@@ -1426,12 +1542,20 @@ def validate_frames(
     source_detail: pd.DataFrame,
     daily_by_stock: Mapping[str, pd.DataFrame],
     source_manifest: pd.DataFrame,
+    training_source_projection_detail: pd.DataFrame,
     history_frames: Mapping[str, pd.DataFrame] | None = None,
     immutable_history_base_frames: Mapping[str, pd.DataFrame] | None = None,
 ) -> list[str]:
     """Independently replay the frozen forward-holdout contract."""
 
     errors: list[str] = []
+    errors.extend(
+        validate_projection_binding_frames(
+            source_manifest,
+            training_source_projection_detail,
+            expected_artifact_version=SOURCE_PROJECTION_ARTIFACT_VERSION,
+        )
+    )
     frames = {
         "manifest": manifest,
         "detail": detail,
@@ -2072,7 +2196,11 @@ def main(argv: list[str] | None = None) -> int:
         description="Validate the independent revenue forward holdout replay"
     )
     for name, path in DEFAULT_PATHS.items():
-        if name in {"manifest", "source_manifest"}:
+        if name in {
+            "manifest",
+            "source_manifest",
+            "training_source_projection_detail",
+        }:
             continue
         parser.add_argument(f"--{name.replace('_', '-')}", type=Path, default=path)
     parser.add_argument(
@@ -2084,8 +2212,14 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--source-manifest",
         type=Path,
-        required=True,
-        help="Explicit immutable PR #462 source-projection manifest",
+        default=TRAINING_SOURCE_PROJECTION_MANIFEST_CSV,
+        help="Immutable versioned-v1 PR #462 source-projection manifest",
+    )
+    parser.add_argument(
+        "--training-source-projection-detail",
+        type=Path,
+        default=TRAINING_SOURCE_PROJECTION_DETAIL_CSV,
+        help="Immutable versioned-v1 PR #462 source-projection detail",
     )
     parser.add_argument(
         "--source-detail",
@@ -2124,6 +2258,9 @@ def main(argv: list[str] | None = None) -> int:
         source_detail=source,
         daily_by_stock=daily,
         source_manifest=_read_csv(args.source_manifest),
+        training_source_projection_detail=_read_csv(
+            args.training_source_projection_detail
+        ),
         history_frames={
             name: _read_csv(path) for name, path in history_paths.items()
         },

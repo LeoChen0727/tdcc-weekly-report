@@ -63,6 +63,11 @@ on:
         description: "When revenue research is selected, rebuild only its downstream chain from the pinned 20260713 source snapshot projection"
         required: false
         default: "false"
+      run_revenue_unreacted_range_source_snapshot_projection_rebaseline_only:
+        description: "When revenue research is selected, transactionally capture only the research-only corrected-price v2 source projection and v1/v2 diff"
+        required: false
+        default: false
+        type: boolean
       run_volume_range_breakout_v2_research:
         description: "Run model-owned volume breakout v2 research only"
         required: false
@@ -122,6 +127,7 @@ jobs:
           REVENUE_FORWARD_HOLDOUT_ONLY: ${{ github.event.inputs.run_revenue_unreacted_range_forward_holdout_only }}
           REVENUE_RESEARCH_ENABLED: ${{ github.event.inputs.run_revenue_unreacted_range_research }}
           REVENUE_SOURCE_PROJECTION_CHAIN_ONLY: ${{ github.event.inputs.run_revenue_unreacted_range_source_snapshot_projection_chain_only }}
+          REVENUE_SOURCE_PROJECTION_REBASELINE_ONLY: ${{ github.event.inputs.run_revenue_unreacted_range_source_snapshot_projection_rebaseline_only }}
         run: |
           if [[ "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" && "$REVENUE_RESEARCH_ENABLED" != "true" ]]; then
             echo "::error::Revenue forward holdout mode requires run_revenue_unreacted_range_research=true."
@@ -129,6 +135,14 @@ jobs:
           fi
           if [[ "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" && "$REVENUE_SOURCE_PROJECTION_CHAIN_ONLY" == "true" ]]; then
             echo "::error::Revenue forward holdout mode and source snapshot projection chain mode are mutually exclusive."
+            exit 1
+          fi
+          if [[ "$REVENUE_SOURCE_PROJECTION_REBASELINE_ONLY" == "true" && "$REVENUE_RESEARCH_ENABLED" != "true" ]]; then
+            echo "::error::Revenue source snapshot projection rebaseline mode requires run_revenue_unreacted_range_research=true."
+            exit 1
+          fi
+          if [[ "$REVENUE_SOURCE_PROJECTION_REBASELINE_ONLY" == "true" && ( "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" || "$REVENUE_SOURCE_PROJECTION_CHAIN_ONLY" == "true" ) ]]; then
+            echo "::error::Revenue source snapshot projection rebaseline mode is mutually exclusive with forward holdout and projection chain modes."
             exit 1
           fi
           python scripts/validate_apps_script_workflow_triggers.py
@@ -237,6 +251,19 @@ jobs:
             python scripts/build_revenue_unreacted_range_research.py --stage forward_holdout
             exit 0
           fi
+          if [[ "${{ github.event.inputs.run_revenue_unreacted_range_source_snapshot_projection_rebaseline_only }}" == "true" ]]; then
+            python scripts/build_revenue_unreacted_range_research.py --stage source_snapshot_projection_rebaseline
+            python scripts/validate_revenue_unreacted_range_source_snapshot_projection.py \
+              --manifest output/history/research/revenue_unreacted_range_source_snapshot_projection_v2_20260814_manifest.csv \
+              --projected-detail output/history/research/revenue_unreacted_range_source_snapshot_projection_v2_20260814_detail.csv \
+              --expected-artifact-version source_snapshot_projection_v2_20260814
+            python scripts/validate_revenue_unreacted_range_source_snapshot_projection_v1_v2_diff.py \
+              --v1-manifest output/history/research/revenue_unreacted_range_source_snapshot_projection_v1_20260731_manifest.csv \
+              --v1-detail output/history/research/revenue_unreacted_range_source_snapshot_projection_v1_20260731_detail.csv \
+              --v2-manifest output/history/research/revenue_unreacted_range_source_snapshot_projection_v2_20260814_manifest.csv \
+              --v2-detail output/history/research/revenue_unreacted_range_source_snapshot_projection_v2_20260814_detail.csv
+            exit 0
+          fi
           if [[ "${{ github.event.inputs.run_revenue_unreacted_range_source_snapshot_projection_chain_only }}" == "true" ]]; then
             python scripts/build_revenue_unreacted_range_research.py --stage source_snapshot_projection_chain
             python scripts/validate_revenue_unreacted_range_source_first_condition_audit.py
@@ -331,6 +358,7 @@ jobs:
         if: ${{ env.ANY_RESEARCH_SELECTED == 'true' }}
         env:
           REVENUE_FORWARD_HOLDOUT_ONLY: ${{ github.event.inputs.run_revenue_unreacted_range_forward_holdout_only }}
+          REVENUE_SOURCE_PROJECTION_REBASELINE_ONLY: ${{ github.event.inputs.run_revenue_unreacted_range_source_snapshot_projection_rebaseline_only }}
         run: |
           set -euo pipefail
           git config user.name "github-actions"
@@ -357,6 +385,20 @@ jobs:
               git add output/latest/research_backtest/revenue_unreacted_range_forward_holdout_* || true
               git add output/history/research/revenue_unreacted_range_forward_holdout_* || true
               git add docs/latest/revenue_unreacted_range_forward_holdout_* || true
+            elif [[ "$REVENUE_SOURCE_PROJECTION_REBASELINE_ONLY" == "true" ]]; then
+              git add -- output/latest/research_backtest/revenue_unreacted_range_source_first_condition_audit_latest.csv
+              git add -- output/latest/research_backtest/revenue_unreacted_range_source_first_condition_audit_detail_latest.csv
+              git add -- output/latest/research_backtest/revenue_unreacted_range_source_first_condition_audit_latest.md
+              git add -- output/history/research/revenue_unreacted_range_source_first_condition_audit.csv
+              git add -- docs/latest/revenue_unreacted_range_source_first_condition_audit_latest.csv
+              git add -- docs/latest/revenue_unreacted_range_source_first_condition_audit_latest.md
+              git add -- output/history/research/revenue_unreacted_range_source_snapshot_projection_v1_20260731_manifest.csv
+              git add -- output/history/research/revenue_unreacted_range_source_snapshot_projection_v1_20260731_detail.csv
+              git add -- output/history/research/revenue_unreacted_range_source_snapshot_projection_v2_20260814_manifest.csv
+              git add -- output/history/research/revenue_unreacted_range_source_snapshot_projection_v2_20260814_detail.csv
+              git add -- output/history/research/revenue_unreacted_range_source_snapshot_projection_v1_v2_diff_v1_20260814.csv
+              git add -- output/latest/research_backtest/revenue_unreacted_range_source_snapshot_projection_v1_v2_diff_latest.csv
+              git add -- docs/latest/revenue_unreacted_range_source_snapshot_projection_v1_v2_diff_latest.csv
             else
               git add output/latest/research_backtest/revenue_unreacted_range_* || true
               git add output/history/research/revenue_unreacted_range_* || true

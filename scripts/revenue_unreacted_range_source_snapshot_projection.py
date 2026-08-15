@@ -2,9 +2,11 @@ from __future__ import annotations
 
 from datetime import datetime
 import hashlib
+import io
 import json
 from pathlib import Path
 import re
+import subprocess
 from zoneinfo import ZoneInfo
 
 import pandas as pd
@@ -26,13 +28,19 @@ ROOT = Path(__file__).resolve().parents[1]
 MODEL_ID = "revenue_unreacted_range"
 ARTIFACT_ID = "revenue_unreacted_range_source_snapshot_projection"
 ARTIFACT_VERSION = "source_snapshot_projection_v1_20260731"
+REBASELINE_ARTIFACT_VERSION = "source_snapshot_projection_v2_20260814"
 PROJECTION_ID = "revenue_unreacted_range_source_snapshot_asof_20260713"
 PROJECTION_VERSION = ARTIFACT_VERSION
+REBASELINE_PROJECTION_VERSION = REBASELINE_ARTIFACT_VERSION
 PROJECTION_POLICY_ID = (
     "raw_source_and_price_truncated_before_source_first_episode_assembly_v1"
 )
 CUTOFF_DATE = "20260713"
 SOURCE_FIRST_ARTIFACT_ID = "revenue_unreacted_range_source_first_condition_audit"
+SUPPORTED_ARTIFACT_VERSIONS = (
+    ARTIFACT_VERSION,
+    REBASELINE_ARTIFACT_VERSION,
+)
 
 REVENUE_HISTORY_CSV = ROOT / "data/monthly_revenue_history/monthly_revenue_history.csv"
 PRICE_HISTORY_DIR = ROOT / "data/stock_price_history"
@@ -66,6 +74,49 @@ DOCS_MANIFEST_CSV = (
     ROOT
     / "docs/latest/"
     "revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv"
+)
+VERSIONED_V1_MANIFEST_CSV = (
+    ROOT
+    / "output/history/research/"
+    "revenue_unreacted_range_source_snapshot_projection_v1_20260731_manifest.csv"
+)
+VERSIONED_V1_DETAIL_CSV = (
+    ROOT
+    / "output/history/research/"
+    "revenue_unreacted_range_source_snapshot_projection_v1_20260731_detail.csv"
+)
+VERSIONED_V2_MANIFEST_CSV = (
+    ROOT
+    / "output/history/research/"
+    "revenue_unreacted_range_source_snapshot_projection_v2_20260814_manifest.csv"
+)
+VERSIONED_V2_DETAIL_CSV = (
+    ROOT
+    / "output/history/research/"
+    "revenue_unreacted_range_source_snapshot_projection_v2_20260814_detail.csv"
+)
+
+SOURCE_REPAIR_INPUT_HEAD_SHA = "8176fee986d1659896a681e89f99f0171c481b0a"
+SOURCE_REPAIR_ARTIFACT_COMMIT_SHA = "7a9e981e2436af3dfc733905ec26b53f8cdd9f9e"
+SOURCE_REPAIR_WORKFLOW_RUN_ID = "31799699472"
+SOURCE_REPAIR_REPORT_GIT_BLOB_SHA = "f2d569b122e448f87e956cca771748946a9d7363"
+SOURCE_REPAIR_REPORT_GIT_BLOB_RAW_SHA256 = (
+    "77bf1a1d7ee16beae5e0b0a0eb97212088d7ef7ca883644cdcf39b59fea8d447"
+)
+V1_PREDECESSOR_MANIFEST_GIT_BLOB_SHA = (
+    "163f9874124fd3d1fd27f1d1564ac8ac1892e4a1"
+)
+V1_PREDECESSOR_MANIFEST_GIT_BLOB_RAW_SHA256 = (
+    "d2dde5a1f05bc2f15baf4d77f326a7ea90b481492178fa6d2fd6262bf316c79e"
+)
+V1_PREDECESSOR_DETAIL_GIT_BLOB_SHA = (
+    "849f72c39588c47f1bfd2fe8acd96255087efdcb"
+)
+V1_PREDECESSOR_DETAIL_GIT_BLOB_RAW_SHA256 = (
+    "b9784e4df2d2eba2c511b1c87f4255a6485a1fe1d7ac67490802e396614ee49a"
+)
+V1_PREDECESSOR_DETAIL_SEMANTIC_SHA256 = (
+    "92c68810ac2b5718d714d450fe83bf23f2f3469fec5db0ae2753330950ab2cf5"
 )
 
 CANONICAL_JSON_VERSION = "revenue_source_snapshot_projection_canonical_json_v1"
@@ -135,7 +186,21 @@ MANIFEST_COLUMNS = (
     "ranking_consumption_allowed",
     "pdf_consumption_allowed",
 )
+V2_PROVENANCE_COLUMNS = (
+    "predecessor_manifest_git_blob_sha",
+    "predecessor_manifest_git_blob_raw_sha256",
+    "predecessor_detail_git_blob_sha",
+    "predecessor_detail_git_blob_raw_sha256",
+    "predecessor_detail_semantic_sha256",
+    "source_repair_input_head_sha",
+    "source_repair_artifact_commit_sha",
+    "source_repair_workflow_run_id",
+    "source_repair_report_git_blob_sha",
+    "source_repair_report_git_blob_raw_sha256",
+)
+V2_MANIFEST_COLUMNS = MANIFEST_COLUMNS + V2_PROVENANCE_COLUMNS
 SHA256_PATTERN = re.compile(r"^[0-9a-f]{64}$")
+GIT_SHA_PATTERN = re.compile(r"^[0-9a-f]{40}$")
 NO_RESOLUTION_ID = "none"
 PROJECTED_CAPTURE_LINEAGE_COLUMNS = (
     "monthly_revenue_history_blob_sha256",
@@ -175,6 +240,140 @@ def _file_sha256(path: Path) -> str:
         for chunk in iter(lambda: handle.read(1024 * 1024), b""):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+def _git_blob_bytes(blob_sha: str, *, root: Path = ROOT) -> bytes:
+    if not GIT_SHA_PATTERN.fullmatch(blob_sha):
+        raise RuntimeError(f"invalid pinned Git blob SHA: {blob_sha}")
+    try:
+        return subprocess.check_output(
+            ["git", "cat-file", "blob", blob_sha],
+            cwd=root,
+            stderr=subprocess.PIPE,
+        )
+    except subprocess.CalledProcessError as exc:
+        message = exc.stderr.decode("utf-8", errors="replace").strip()
+        raise RuntimeError(
+            f"pinned Git blob is unavailable: {blob_sha}: {message}"
+        ) from exc
+
+
+def _require_git_blob_payload(
+    blob_sha: str,
+    raw_sha256: str,
+    *,
+    root: Path = ROOT,
+) -> bytes:
+    payload = _git_blob_bytes(blob_sha, root=root)
+    actual = hashlib.sha256(payload).hexdigest()
+    if actual != raw_sha256:
+        raise RuntimeError(
+            f"pinned Git blob raw SHA-256 drift: {blob_sha}: {actual}/{raw_sha256}"
+        )
+    return payload
+
+
+def load_committed_v1_projection_predecessor(
+    *,
+    root: Path = ROOT,
+) -> tuple[pd.DataFrame, pd.DataFrame, bytes, bytes]:
+    manifest_payload = _require_git_blob_payload(
+        V1_PREDECESSOR_MANIFEST_GIT_BLOB_SHA,
+        V1_PREDECESSOR_MANIFEST_GIT_BLOB_RAW_SHA256,
+        root=root,
+    )
+    detail_payload = _require_git_blob_payload(
+        V1_PREDECESSOR_DETAIL_GIT_BLOB_SHA,
+        V1_PREDECESSOR_DETAIL_GIT_BLOB_RAW_SHA256,
+        root=root,
+    )
+    manifest = pd.read_csv(
+        io.BytesIO(manifest_payload),
+        dtype=str,
+        keep_default_na=False,
+    )
+    detail = pd.read_csv(
+        io.BytesIO(detail_payload),
+        dtype={"stock_id": str},
+        keep_default_na=False,
+        low_memory=False,
+    )
+    validate_projection_binding(
+        manifest,
+        detail,
+        expected_artifact_version=ARTIFACT_VERSION,
+    )
+    semantic_sha = canonical_projected_source_detail_semantic_sha256(detail)
+    if semantic_sha != V1_PREDECESSOR_DETAIL_SEMANTIC_SHA256:
+        raise RuntimeError(
+            "committed v1 predecessor detail semantic SHA-256 drift: "
+            f"{semantic_sha}/{V1_PREDECESSOR_DETAIL_SEMANTIC_SHA256}"
+        )
+    return manifest, detail, manifest_payload, detail_payload
+
+
+def source_repair_provenance(*, root: Path = ROOT) -> dict[str, str]:
+    report_payload = _require_git_blob_payload(
+        SOURCE_REPAIR_REPORT_GIT_BLOB_SHA,
+        SOURCE_REPAIR_REPORT_GIT_BLOB_RAW_SHA256,
+        root=root,
+    )
+    try:
+        bound_blob = subprocess.check_output(
+            [
+                "git",
+                "rev-parse",
+                f"{SOURCE_REPAIR_ARTIFACT_COMMIT_SHA}:"
+                "output/latest/repair_daily_price_range_latest.json",
+            ],
+            cwd=root,
+            stderr=subprocess.PIPE,
+            text=True,
+        ).strip()
+        ancestor = subprocess.run(
+            [
+                "git",
+                "merge-base",
+                "--is-ancestor",
+                SOURCE_REPAIR_ARTIFACT_COMMIT_SHA,
+                "HEAD",
+            ],
+            cwd=root,
+            check=False,
+            capture_output=True,
+        )
+    except subprocess.CalledProcessError as exc:
+        message = exc.stderr.strip()
+        raise RuntimeError(
+            f"source repair Git provenance is unavailable: {message}"
+        ) from exc
+    if bound_blob != SOURCE_REPAIR_REPORT_GIT_BLOB_SHA:
+        raise RuntimeError(
+            "source repair commit/report Git blob mismatch: "
+            f"{bound_blob}/{SOURCE_REPAIR_REPORT_GIT_BLOB_SHA}"
+        )
+    if ancestor.returncode != 0:
+        raise RuntimeError(
+            "source repair artifact commit is not an ancestor of repository HEAD"
+        )
+    try:
+        report = json.loads(report_payload.decode("utf-8"))
+    except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+        raise RuntimeError("source repair report Git blob is not valid JSON") from exc
+    if str(report.get("source_base_sha", "")).strip() != SOURCE_REPAIR_INPUT_HEAD_SHA:
+        raise RuntimeError("source repair report source_base_sha drift")
+    selected_dates = {str(value).strip() for value in report.get("selected_dates", [])}
+    if "20250908" not in selected_dates:
+        raise RuntimeError("source repair report omits required repaired date 20250908")
+    return {
+        "source_repair_input_head_sha": SOURCE_REPAIR_INPUT_HEAD_SHA,
+        "source_repair_artifact_commit_sha": SOURCE_REPAIR_ARTIFACT_COMMIT_SHA,
+        "source_repair_workflow_run_id": SOURCE_REPAIR_WORKFLOW_RUN_ID,
+        "source_repair_report_git_blob_sha": SOURCE_REPAIR_REPORT_GIT_BLOB_SHA,
+        "source_repair_report_git_blob_raw_sha256": (
+            SOURCE_REPAIR_REPORT_GIT_BLOB_RAW_SHA256
+        ),
+    }
 
 
 def _normalize_stock_id(value: object) -> str:
@@ -506,10 +705,40 @@ def build_source_snapshot_projection_manifest(
     price_resolution_path: Path = PRICE_RESOLUTION_CSV,
     cutoff_date: str = CUTOFF_DATE,
     generated_at: str | None = None,
+    artifact_version: str = ARTIFACT_VERSION,
+    predecessor_manifest: pd.DataFrame | None = None,
+    predecessor_detail: pd.DataFrame | None = None,
+    repair_provenance_payload: dict[str, str] | None = None,
 ) -> pd.DataFrame:
     cutoff = _digits(cutoff_date, 8, label="projection cutoff_date")
     if cutoff != CUTOFF_DATE:
         raise RuntimeError(f"projection cutoff drift: {cutoff}/{CUTOFF_DATE}")
+    if artifact_version not in SUPPORTED_ARTIFACT_VERSIONS:
+        raise RuntimeError(
+            "unsupported source snapshot projection artifact version: "
+            f"{artifact_version}"
+        )
+    if artifact_version == REBASELINE_ARTIFACT_VERSION:
+        if predecessor_manifest is None or predecessor_detail is None:
+            (
+                predecessor_manifest,
+                predecessor_detail,
+                _predecessor_manifest_payload,
+                _predecessor_detail_payload,
+            ) = load_committed_v1_projection_predecessor()
+        validate_projection_binding(
+            predecessor_manifest,
+            predecessor_detail,
+            expected_artifact_version=ARTIFACT_VERSION,
+        )
+        predecessor_semantic_sha = (
+            canonical_projected_source_detail_semantic_sha256(predecessor_detail)
+        )
+        if predecessor_semantic_sha != V1_PREDECESSOR_DETAIL_SEMANTIC_SHA256:
+            raise RuntimeError("v2 projection predecessor semantic SHA-256 drift")
+        repair_provenance_payload = (
+            repair_provenance_payload or source_repair_provenance()
+        )
     source_artifact_id, source_artifact_version = _require_source_identity(
         full_source_detail,
         projected_detail,
@@ -595,9 +824,9 @@ def build_source_snapshot_projection_manifest(
         "generated_at": generated_at or _now_text(),
         "model_id": MODEL_ID,
         "artifact_id": ARTIFACT_ID,
-        "artifact_version": ARTIFACT_VERSION,
+        "artifact_version": artifact_version,
         "projection_id": PROJECTION_ID,
-        "projection_version": PROJECTION_VERSION,
+        "projection_version": artifact_version,
         "projection_policy_id": PROJECTION_POLICY_ID,
         "cutoff_date": cutoff,
         "full_source_artifact_id": source_artifact_id,
@@ -638,8 +867,35 @@ def build_source_snapshot_projection_manifest(
         "ranking_consumption_allowed": False,
         "pdf_consumption_allowed": False,
     }
-    manifest = pd.DataFrame([row], columns=list(MANIFEST_COLUMNS))
-    validate_projection_binding(manifest, projected_detail)
+    manifest_columns = MANIFEST_COLUMNS
+    if artifact_version == REBASELINE_ARTIFACT_VERSION:
+        row.update(
+            {
+                "predecessor_manifest_git_blob_sha": (
+                    V1_PREDECESSOR_MANIFEST_GIT_BLOB_SHA
+                ),
+                "predecessor_manifest_git_blob_raw_sha256": (
+                    V1_PREDECESSOR_MANIFEST_GIT_BLOB_RAW_SHA256
+                ),
+                "predecessor_detail_git_blob_sha": (
+                    V1_PREDECESSOR_DETAIL_GIT_BLOB_SHA
+                ),
+                "predecessor_detail_git_blob_raw_sha256": (
+                    V1_PREDECESSOR_DETAIL_GIT_BLOB_RAW_SHA256
+                ),
+                "predecessor_detail_semantic_sha256": (
+                    V1_PREDECESSOR_DETAIL_SEMANTIC_SHA256
+                ),
+                **repair_provenance_payload,
+            }
+        )
+        manifest_columns = V2_MANIFEST_COLUMNS
+    manifest = pd.DataFrame([row], columns=list(manifest_columns))
+    validate_projection_binding(
+        manifest,
+        projected_detail,
+        expected_artifact_version=artifact_version,
+    )
     return manifest
 
 
@@ -648,24 +904,53 @@ def projection_binding_errors(
     projected_detail: pd.DataFrame,
     *,
     expected_cutoff_date: str = CUTOFF_DATE,
+    expected_artifact_version: str | None = None,
 ) -> list[str]:
     errors: list[str] = []
-    if list(manifest.columns) != list(MANIFEST_COLUMNS):
+    artifact_version = (
+        _payload_value(manifest.iloc[0]["artifact_version"])
+        if len(manifest) == 1 and "artifact_version" in manifest.columns
+        else ""
+    )
+    version_for_schema = expected_artifact_version or artifact_version
+    expected_columns = (
+        V2_MANIFEST_COLUMNS
+        if version_for_schema == REBASELINE_ARTIFACT_VERSION
+        else MANIFEST_COLUMNS
+    )
+    if list(manifest.columns) != list(expected_columns):
         errors.append(
             "projection manifest schema mismatch: "
-            f"expected={list(MANIFEST_COLUMNS)}; actual={list(manifest.columns)}"
+            f"expected={list(expected_columns)}; actual={list(manifest.columns)}"
         )
         return errors
     if len(manifest) != 1:
         errors.append(f"projection manifest must have exactly one row: {len(manifest)}")
         return errors
     row = manifest.iloc[0]
+    artifact_version = _payload_value(row["artifact_version"])
+    if expected_artifact_version is not None:
+        if expected_artifact_version not in SUPPORTED_ARTIFACT_VERSIONS:
+            errors.append(
+                "expected projection artifact_version is not registered: "
+                f"{expected_artifact_version}"
+            )
+        if artifact_version != expected_artifact_version:
+            errors.append(
+                "projection manifest artifact_version mismatch: "
+                f"{artifact_version}/{expected_artifact_version}"
+            )
+    elif artifact_version not in SUPPORTED_ARTIFACT_VERSIONS:
+        errors.append(
+            "projection manifest artifact_version is not registered: "
+            f"{artifact_version}"
+        )
+    bound_version = expected_artifact_version or artifact_version
     expected_constants = {
         "model_id": MODEL_ID,
         "artifact_id": ARTIFACT_ID,
-        "artifact_version": ARTIFACT_VERSION,
         "projection_id": PROJECTION_ID,
-        "projection_version": PROJECTION_VERSION,
+        "projection_version": bound_version,
         "projection_policy_id": PROJECTION_POLICY_ID,
         "cutoff_date": expected_cutoff_date,
         "full_source_artifact_id": SOURCE_FIRST_ARTIFACT_ID,
@@ -675,6 +960,35 @@ def projection_binding_errors(
             errors.append(
                 f"projection manifest {column} mismatch: {_payload_value(row[column])}/{expected}"
             )
+    if bound_version == REBASELINE_ARTIFACT_VERSION:
+        provenance_expected = {
+            "predecessor_manifest_git_blob_sha": (
+                V1_PREDECESSOR_MANIFEST_GIT_BLOB_SHA
+            ),
+            "predecessor_manifest_git_blob_raw_sha256": (
+                V1_PREDECESSOR_MANIFEST_GIT_BLOB_RAW_SHA256
+            ),
+            "predecessor_detail_git_blob_sha": V1_PREDECESSOR_DETAIL_GIT_BLOB_SHA,
+            "predecessor_detail_git_blob_raw_sha256": (
+                V1_PREDECESSOR_DETAIL_GIT_BLOB_RAW_SHA256
+            ),
+            "predecessor_detail_semantic_sha256": (
+                V1_PREDECESSOR_DETAIL_SEMANTIC_SHA256
+            ),
+            "source_repair_input_head_sha": SOURCE_REPAIR_INPUT_HEAD_SHA,
+            "source_repair_artifact_commit_sha": SOURCE_REPAIR_ARTIFACT_COMMIT_SHA,
+            "source_repair_workflow_run_id": SOURCE_REPAIR_WORKFLOW_RUN_ID,
+            "source_repair_report_git_blob_sha": SOURCE_REPAIR_REPORT_GIT_BLOB_SHA,
+            "source_repair_report_git_blob_raw_sha256": (
+                SOURCE_REPAIR_REPORT_GIT_BLOB_RAW_SHA256
+            ),
+        }
+        for column, expected in provenance_expected.items():
+            if _payload_value(row[column]) != expected:
+                errors.append(
+                    f"projection manifest {column} mismatch: "
+                    f"{_payload_value(row[column])}/{expected}"
+                )
     try:
         detail_artifact_id = _constant(
             projected_detail,
@@ -757,11 +1071,13 @@ def validate_projection_binding(
     projected_detail: pd.DataFrame,
     *,
     expected_cutoff_date: str = CUTOFF_DATE,
+    expected_artifact_version: str | None = None,
 ) -> None:
     errors = projection_binding_errors(
         manifest,
         projected_detail,
         expected_cutoff_date=expected_cutoff_date,
+        expected_artifact_version=expected_artifact_version,
     )
     if errors:
         raise RuntimeError("source snapshot projection binding failed: " + "; ".join(errors))
@@ -775,8 +1091,26 @@ def write_source_snapshot_projection(
     latest_detail_path: Path = LATEST_DETAIL_CSV,
     history_manifest_path: Path = HISTORY_MANIFEST_CSV,
     docs_manifest_path: Path = DOCS_MANIFEST_CSV,
+    expected_artifact_version: str | None = None,
 ) -> None:
-    validate_projection_binding(manifest, projected_detail)
+    validate_projection_binding(
+        manifest,
+        projected_detail,
+        expected_artifact_version=expected_artifact_version,
+    )
+    bound_version = expected_artifact_version or _payload_value(
+        manifest.iloc[0]["artifact_version"]
+    )
+    if bound_version != ARTIFACT_VERSION:
+        raise RuntimeError(
+            "v2 source snapshot projection publication requires the dedicated "
+            "transactional source_snapshot_projection_rebaseline stage"
+        )
+    manifest_columns = (
+        V2_MANIFEST_COLUMNS
+        if bound_version == REBASELINE_ARTIFACT_VERSION
+        else MANIFEST_COLUMNS
+    )
     for path in (
         latest_manifest_path,
         latest_detail_path,
@@ -786,7 +1120,7 @@ def write_source_snapshot_projection(
         Path(path).parent.mkdir(parents=True, exist_ok=True)
     if Path(history_manifest_path).is_file():
         history = pd.read_csv(history_manifest_path, dtype=str, keep_default_na=False)
-        if list(history.columns) != list(MANIFEST_COLUMNS):
+        if list(history.columns) != list(manifest_columns):
             raise RuntimeError("source snapshot projection history schema mismatch")
         key_columns = ("projection_id", "projection_version", "cutoff_date")
         key_mask = pd.Series(True, index=history.index)
@@ -803,7 +1137,7 @@ def write_source_snapshot_projection(
                 "cross_market_resolution_registry_canonical_sha256",
             }
             immutable_columns = [
-                column for column in MANIFEST_COLUMNS if column not in capture_columns
+                column for column in manifest_columns if column not in capture_columns
             ]
             current_immutable_sha = _canonical_frame_sha256(
                 manifest,
@@ -821,7 +1155,7 @@ def write_source_snapshot_projection(
                     "source snapshot projection immutable history key changed semantics"
                 )
             capture_identity_columns = [
-                column for column in MANIFEST_COLUMNS if column != "generated_at"
+                column for column in manifest_columns if column != "generated_at"
             ]
             current_capture_sha = _canonical_frame_sha256(
                 manifest,
