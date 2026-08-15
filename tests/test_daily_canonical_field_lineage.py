@@ -28,6 +28,9 @@ SOURCE_IDENTITY_MIGRATION_ID = "volume_v2_candidate_projection_lineage_20260731"
 FORMAL_OUTCOME_NUMERIC_MIGRATION_ID = (
     "volume_v2_formal_outcome_numeric_canonicalization_20260810"
 )
+PINNED_WATCH_LINEAGE_MIGRATION_ID = (
+    "volume_v2_formal_current_pinned_watch_lineage_replay_20260815"
+)
 REPORT_SIGNAL_SCHEMA_CONSUMER_MIGRATION_ID = (
     "daily_pipeline_report_signal_schema_consumer_20260808"
 )
@@ -430,6 +433,40 @@ def rehash_formal_resolution_row(row: dict[str, str]) -> None:
     ).hexdigest()
 
 
+def write_current_formal_resolution_pair(
+    root: Path,
+) -> tuple[dict[str, str], dict[str, str]]:
+    source_rows = [
+        {
+            **source_identity_fixture(
+                root,
+                artifact="output/latest/range_rebound_watch_latest.csv",
+                producer="stock_daily_monitor.py",
+            ),
+            "category": "range_rebound",
+        }
+    ]
+    write_csv(
+        root / lineage.ALL_CANDIDATES_ARTIFACT,
+        list(source_rows[0]),
+        source_rows,
+    )
+    raw = formal_resolution_row(source_rows, root)
+    report = formal_resolution_row(source_rows, root, report_surface=True)
+    columns = list(raw)
+    write_csv(
+        root / "output/latest/daily_candidate_model_signals_latest.csv",
+        columns,
+        [raw],
+    )
+    write_csv(
+        root / "output/latest/daily_candidate_model_signals_for_report_latest.csv",
+        columns,
+        [report],
+    )
+    return raw, report
+
+
 def test_formal_outcome_numeric_contract_is_stable_across_all_four_surfaces(
     tmp_path: Path,
 ) -> None:
@@ -777,6 +814,208 @@ def test_current_formal_resolution_rejects_self_consistent_wrong_watch_source(
 
     assert any(
         "formal presentation watch row SHA-256 mismatch" in error
+        for error in errors
+    )
+
+
+def test_ordinary_current_validation_accepts_uncommitted_rebuilt_formal_consumers(
+    tmp_path: Path,
+) -> None:
+    raw, report = write_current_formal_resolution_pair(tmp_path)
+    base_sha = initialize_git_fixture(tmp_path)
+    watch_path = tmp_path / lineage.VOLUME_WATCH_ARTIFACT
+    watch_columns, watch_rows = lineage._read_artifact(watch_path)
+    watch_rows[0]["volume_breakout_type"] = "fresh_live_current_payload"
+    write_csv(watch_path, watch_columns, watch_rows)
+    watch_sha = lineage._canonical_text_sha256(watch_path.read_bytes())
+    watch_row_sha = lineage._ordered_row_sha256(watch_columns, watch_rows[0])
+
+    for row in (raw, report):
+        descriptor = json.loads(row["candidate_presentation_source_artifact"])
+        descriptor["watch"]["artifact_sha256"] = watch_sha
+        descriptor["watch"]["row_sha256"] = watch_row_sha
+        row["candidate_presentation_source_artifact"] = json.dumps(
+            descriptor,
+            ensure_ascii=False,
+            sort_keys=True,
+            separators=(",", ":"),
+        )
+        rehash_formal_resolution_row(row)
+    write_csv(
+        tmp_path / "output/latest/daily_candidate_model_signals_latest.csv",
+        list(raw),
+        [raw],
+    )
+    write_csv(
+        tmp_path / "output/latest/daily_candidate_model_signals_for_report_latest.csv",
+        list(report),
+        [report],
+    )
+
+    assert lineage._validate_formal_resolution_lineage(tmp_path) == []
+    assert lineage._validate_formal_resolution_lineage(
+        tmp_path,
+        trusted_ref=base_sha,
+    ) == []
+    committed_refresh_errors = lineage._validate_formal_resolution_lineage(
+        tmp_path,
+        trusted_ref="HEAD",
+        committed_refresh_mode=True,
+    )
+    assert any(
+        "committed-refresh formal resolution consumer must match a committed payload"
+        in error
+        for error in committed_refresh_errors
+    )
+
+
+def test_current_formal_resolution_replays_pinned_watch_from_trusted_history(
+    tmp_path: Path,
+) -> None:
+    write_current_formal_resolution_pair(tmp_path)
+    consumer_revision = initialize_git_fixture(tmp_path)
+    watch_path = tmp_path / lineage.VOLUME_WATCH_ARTIFACT
+    watch_columns, watch_rows = lineage._read_artifact(watch_path)
+    watch_rows[0]["volume_breakout_type"] = "advanced_after_consumer"
+    write_csv(watch_path, watch_columns, watch_rows)
+    subprocess.run(
+        ["git", "add", lineage.VOLUME_WATCH_ARTIFACT],
+        cwd=tmp_path,
+        check=True,
+    )
+    subprocess.run(
+        ["git", "commit", "-m", "advance watch after formal consumers"],
+        cwd=tmp_path,
+        check=True,
+        capture_output=True,
+    )
+    trusted_ref = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=tmp_path,
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.strip()
+
+    errors = lineage._validate_formal_resolution_lineage(
+        tmp_path,
+        trusted_ref=trusted_ref,
+        committed_refresh_mode=True,
+    )
+
+    assert errors == []
+    assert consumer_revision != trusted_ref
+
+
+def test_committed_refresh_keeps_taxonomy_current_only_without_history_replay(
+    tmp_path: Path,
+) -> None:
+    write_current_formal_resolution_pair(tmp_path)
+    initialize_git_fixture(tmp_path)
+    taxonomy_path = tmp_path / lineage.VOLUME_TAXONOMY_ARTIFACT
+    taxonomy_columns, taxonomy_rows = lineage._read_artifact(taxonomy_path)
+    taxonomy_columns.append("current_only_marker")
+    taxonomy_rows[0]["current_only_marker"] = "advanced_after_consumer"
+    write_csv(taxonomy_path, taxonomy_columns, taxonomy_rows)
+    subprocess.run(
+        ["git", "add", lineage.VOLUME_TAXONOMY_ARTIFACT],
+        cwd=tmp_path,
+        check=True,
+    )
+    subprocess.run(
+        ["git", "commit", "-m", "advance current taxonomy after formal consumers"],
+        cwd=tmp_path,
+        check=True,
+        capture_output=True,
+    )
+
+    errors = lineage._validate_formal_resolution_lineage(
+        tmp_path,
+        trusted_ref="HEAD",
+        committed_refresh_mode=True,
+    )
+
+    assert any(
+        "formal presentation taxonomy artifact SHA-256 mismatch" in error
+        for error in errors
+    )
+    assert not any(
+        "formal presentation watch" in error
+        for error in errors
+    )
+
+
+def test_current_formal_resolution_rejects_pinned_source_later_than_consumer(
+    tmp_path: Path,
+) -> None:
+    raw, report = write_current_formal_resolution_pair(tmp_path)
+    initialize_git_fixture(tmp_path, empty_commit=True)
+    watch_path = tmp_path / lineage.VOLUME_WATCH_ARTIFACT
+    watch_columns, watch_rows = lineage._read_artifact(watch_path)
+    original_watch_payload = watch_path.read_bytes()
+    watch_rows[0]["volume_breakout_type"] = "future_source_revision"
+    write_csv(watch_path, watch_columns, watch_rows)
+    future_watch_payload = watch_path.read_bytes()
+    future_watch_sha = lineage._canonical_text_sha256(future_watch_payload)
+    future_watch_row_sha = lineage._ordered_row_sha256(
+        watch_columns,
+        watch_rows[0],
+    )
+    watch_path.write_bytes(original_watch_payload)
+
+    for row in (raw, report):
+        descriptor = json.loads(row["candidate_presentation_source_artifact"])
+        descriptor["watch"]["artifact_sha256"] = future_watch_sha
+        descriptor["watch"]["row_sha256"] = future_watch_row_sha
+        descriptor_text = json.dumps(
+            descriptor,
+            ensure_ascii=False,
+            sort_keys=True,
+            separators=(",", ":"),
+        )
+        row["candidate_presentation_source_artifact"] = descriptor_text
+        row["candidate_presentation_source_artifact_sha256"] = hashlib.sha256(
+            descriptor_text.encode("utf-8")
+        ).hexdigest()
+    write_csv(
+        tmp_path / "output/latest/daily_candidate_model_signals_latest.csv",
+        list(raw),
+        [raw],
+    )
+    write_csv(
+        tmp_path / "output/latest/daily_candidate_model_signals_for_report_latest.csv",
+        list(report),
+        [report],
+    )
+    subprocess.run(["git", "add", "."], cwd=tmp_path, check=True)
+    subprocess.run(
+        ["git", "commit", "-m", "commit consumer with future source pin"],
+        cwd=tmp_path,
+        check=True,
+        capture_output=True,
+    )
+    watch_path.write_bytes(future_watch_payload)
+    subprocess.run(
+        ["git", "add", lineage.VOLUME_WATCH_ARTIFACT],
+        cwd=tmp_path,
+        check=True,
+    )
+    subprocess.run(
+        ["git", "commit", "-m", "publish pinned source too late"],
+        cwd=tmp_path,
+        check=True,
+        capture_output=True,
+    )
+
+    errors = lineage._validate_formal_resolution_lineage(
+        tmp_path,
+        trusted_ref="HEAD",
+        committed_refresh_mode=True,
+    )
+
+    assert any(
+        "formal presentation watch source revision is later than its committed "
+        "consumer revision" in error
         for error in errors
     )
 
@@ -1512,6 +1751,7 @@ def build_valid_repo(root: Path) -> None:
         SOURCE_IDENTITY_MIGRATION_ID,
         REPORT_SIGNAL_SCHEMA_CONSUMER_MIGRATION_ID,
         FORMAL_OUTCOME_NUMERIC_MIGRATION_ID,
+        PINNED_WATCH_LINEAGE_MIGRATION_ID,
     ]
     write_csv(
         root / lineage.MIGRATIONS_PATH,
@@ -2932,6 +3172,73 @@ def test_append_only_validation_rejects_unresolvable_base_ref(tmp_path: Path) ->
         "cannot resolve append-only migration validation base" in error
         for error in errors
     )
+
+
+def test_explicit_trusted_ref_accepts_one_clean_direct_child(tmp_path: Path) -> None:
+    base_sha = initialize_git_fixture(tmp_path, empty_commit=True)
+    subprocess.run(
+        ["git", "commit", "--allow-empty", "-m", "bounded refresh"],
+        cwd=tmp_path,
+        check=True,
+        capture_output=True,
+    )
+    trusted_sha = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=tmp_path,
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.strip()
+
+    resolved, errors = lineage._validate_explicit_trusted_ref_boundary(
+        tmp_path,
+        base_sha,
+        trusted_sha,
+    )
+
+    assert errors == []
+    assert resolved == trusted_sha
+
+
+def test_explicit_trusted_ref_rejects_non_direct_child(tmp_path: Path) -> None:
+    base_sha = initialize_git_fixture(tmp_path, empty_commit=True)
+    for message in ("bounded refresh", "unexpected extra commit"):
+        subprocess.run(
+            ["git", "commit", "--allow-empty", "-m", message],
+            cwd=tmp_path,
+            check=True,
+            capture_output=True,
+        )
+
+    resolved, errors = lineage._validate_explicit_trusted_ref_boundary(
+        tmp_path,
+        base_sha,
+        "HEAD",
+    )
+
+    assert resolved is None
+    assert any("direct single-parent child" in error for error in errors)
+    assert any("exactly one committed revision" in error for error in errors)
+
+
+def test_explicit_trusted_ref_rejects_uncommitted_residue(tmp_path: Path) -> None:
+    base_sha = initialize_git_fixture(tmp_path, empty_commit=True)
+    subprocess.run(
+        ["git", "commit", "--allow-empty", "-m", "bounded refresh"],
+        cwd=tmp_path,
+        check=True,
+        capture_output=True,
+    )
+    (tmp_path / "untracked-residue.txt").write_text("not committed\n", encoding="utf-8")
+
+    resolved, errors = lineage._validate_explicit_trusted_ref_boundary(
+        tmp_path,
+        base_sha,
+        "HEAD",
+    )
+
+    assert resolved is None
+    assert any("forbids staged, unstaged, or untracked residue" in error for error in errors)
 
 
 def test_sparse_historical_artifacts_are_read_from_head(tmp_path: Path) -> None:

@@ -1403,6 +1403,24 @@ def _artifact_rule_matches(artifact_path: str, rule_glob: str) -> bool:
     return fnmatch.fnmatch(_glob_sample(artifact_path), rule_glob)
 
 
+def _data_write_scopes_overlap(left_scope: str, right_scope: str) -> bool:
+    glob_magic = "*?["
+    left_is_glob = any(token in left_scope for token in glob_magic)
+    right_is_glob = any(token in right_scope for token in glob_magic)
+    if left_is_glob and not right_is_glob:
+        return fnmatch.fnmatch(right_scope, left_scope)
+    if right_is_glob and not left_is_glob:
+        return fnmatch.fnmatch(left_scope, right_scope)
+    if not left_is_glob and not right_is_glob:
+        return left_scope == right_scope
+
+    left_prefix = left_scope.split("*", 1)[0].split("?", 1)[0].split("[", 1)[0]
+    right_prefix = right_scope.split("*", 1)[0].split("?", 1)[0].split("[", 1)[0]
+    if not left_prefix or not right_prefix:
+        return True
+    return left_prefix.startswith(right_prefix) or right_prefix.startswith(left_prefix)
+
+
 def _validate_data_migration_chain(
     sharing_rows: list[dict[str, str]],
     migration_rows: list[dict[str, str]],
@@ -1598,13 +1616,10 @@ def validate_data_sharing(*, base_ref: str | None = None) -> tuple[list[str], li
 
     rows = list(sharing_by_id.values())
     for idx, left in enumerate(rows):
-        left_prefix = left["producer_write_scope"].split("*", 1)[0]
         for right in rows[idx + 1 :]:
-            right_prefix = right["producer_write_scope"].split("*", 1)[0]
-            if not left_prefix or not right_prefix:
-                continue
-            overlap = left_prefix.startswith(right_prefix) or right_prefix.startswith(left_prefix)
-            if not overlap:
+            if not _data_write_scopes_overlap(
+                left["producer_write_scope"], right["producer_write_scope"]
+            ):
                 continue
             same_owner = (
                 left["owner_model_or_family"] == right["owner_model_or_family"]

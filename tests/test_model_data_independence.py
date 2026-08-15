@@ -23,6 +23,7 @@ from model_data_independence import (  # noqa: E402
     SEMANTIC_MIGRATION_COLUMNS,
     VALID_INDEPENDENT_VALIDATOR_ROLES,
     SourceSemanticGraph,
+    _data_write_scopes_overlap,
     _production_imports,
     _active_repo_python_sources,
     _active_stock_models,
@@ -674,6 +675,31 @@ def test_strict_csv_rejects_silent_overflow_fields(tmp_path: Path) -> None:
     assert any("field count 3 does not match header count 2" in error for error in errors)
 
 
+def test_data_write_scope_overlap_ignores_non_matching_exact_path_with_shared_prefix() -> None:
+    assert not _data_write_scopes_overlap(
+        "output/latest/volume_breakout_*operation*_latest.csv",
+        "output/latest/volume_breakout_watch_latest.csv",
+    )
+
+
+@pytest.mark.parametrize(
+    "exact_path",
+    [
+        "output/latest/volume_breakout_formal_operation_backtest_latest.csv",
+        "output/latest/volume_breakout_formal_operation_lifecycle_latest.csv",
+        "output/latest/volume_breakout_confirmed_operation_rank_latest.csv",
+        "output/latest/volume_breakout_pending_operation_queue_latest.csv",
+    ],
+)
+def test_data_write_scope_overlap_rejects_exact_path_that_matches_glob(
+    exact_path: str,
+) -> None:
+    assert _data_write_scopes_overlap(
+        "output/latest/volume_breakout_*operation*_latest.csv",
+        exact_path,
+    )
+
+
 def test_data_sharing_registry_uses_model_owned_research_entrypoints() -> None:
     errors, rows = validate_data_sharing(base_ref="")
     assert errors == []
@@ -726,9 +752,78 @@ def test_data_sharing_registry_uses_model_owned_research_entrypoints() -> None:
     ]["consumer_surfaces"].split(";")
 
 
+def test_volume_v2_watch_committed_lineage_audit_is_exactly_registered() -> None:
+    approval = "user_authorized_volume_v2_advisory_lineage_refresh_1a_20260815"
+    migration_id = "volume_v2_watch_committed_lineage_audit_20260815"
+    v2_models = {
+        "volume_range_breakout_v2_high_position_volume_attack",
+        "volume_range_breakout_v2_low_position_volume_attack",
+        "volume_range_breakout_v2_mid_position_momentum_attack",
+    }
+    background = {
+        row["data_family_id"]: row
+        for row in read_csv("config/daily_model_background_data_registry.csv")
+    }
+    sharing = {
+        row["data_family_id"]: row
+        for row in read_csv("config/daily_model_data_sharing_registry.csv")
+    }
+    migrations = {
+        row["migration_id"]: row
+        for row in read_csv("config/daily_model_data_sharing_migrations.csv")
+    }
+
+    watch_background = background["volume_v2_watch_committed_lineage_audit"]
+    watch_sharing = sharing["volume_v2_watch_committed_lineage_audit"]
+    assert watch_background["artifact_path"] == (
+        "output/latest/volume_breakout_watch_latest.csv"
+    )
+    assert watch_background["producer"] == "scripts/build_volume_breakout_watch.py"
+    assert set(watch_background["consumer_models"].split(";")) == v2_models
+    assert "historical features" in watch_background["forbidden_use"]
+    assert "taxonomy historical replay" in watch_background["forbidden_use"]
+    assert watch_sharing["ownership_mode"] == "model_family_owned_not_shared"
+    assert watch_sharing["data_contract_sha256"] == data_contract_sha256(
+        watch_background
+    )
+    assert watch_sharing["last_migration_id"] == migration_id
+    assert watch_sharing["sharing_decision_reference"] == approval
+
+    legacy_background = background["volume_breakout_operation_research_outputs"]
+    legacy_sharing = sharing["volume_breakout_operation_research_outputs"]
+    assert legacy_background["artifact_path"] == (
+        "output/latest/volume_breakout_*operation*_latest.csv"
+    )
+    assert legacy_sharing["data_contract_sha256"] == data_contract_sha256(
+        legacy_background
+    )
+    assert legacy_sharing["last_migration_id"] == migration_id
+    assert legacy_sharing["sharing_decision_reference"] == approval
+
+    migration = migrations[migration_id]
+    assert migration["changed_data_families"].split(";") == [
+        "volume_breakout_operation_research_outputs",
+        "volume_v2_watch_committed_lineage_audit",
+    ]
+    assert migration["previous_contract_sha256s"].split(";") == [
+        "07a5a51735d24d0c78c9d412be9dbe5cdcebe8fd6c88e05f19f4d0d24d712f48",
+        "NEW",
+    ]
+    assert migration["new_contract_sha256s"].split(";") == [
+        legacy_sharing["data_contract_sha256"],
+        watch_sharing["data_contract_sha256"],
+    ]
+    assert set(migration["affected_models"].split(";")) == {
+        "volume_range_breakout",
+        *v2_models,
+    }
+    assert migration["user_approval_reference"] == approval
+    assert migration["migration_status"] == "validated_user_approved_migration"
+
+
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
-    assert len(rows) == 26
+    assert len(rows) == 27
     baseline = rows[0]
     assert tuple(baseline) == DATA_SHARING_MIGRATION_COLUMNS
     assert data_migration_row_sha256(baseline) == BASELINE_DATA_MIGRATION_ROW_SHA256

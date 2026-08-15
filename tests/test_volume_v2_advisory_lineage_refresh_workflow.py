@@ -91,6 +91,14 @@ def test_workflow_is_manual_main_only_and_exactly_bounded() -> None:
     assert "Validate committed refresh before publication" in text
     assert "--phase committed" in text
     assert "REFRESH_COMMIT_SHA=$refresh_commit_sha" in text
+    assert '--base-ref "$REFRESH_BASE_SHA"' in committed_block
+    assert '--trusted-ref "$REFRESH_COMMIT_SHA"' in committed_block
+    committed_guard_position = committed_block.index("--phase committed")
+    canonical_lineage_position = committed_block.index(
+        "python -B scripts/validate_daily_canonical_field_lineage.py"
+    )
+    assert committed_guard_position < canonical_lineage_position
+    assert "|| true" not in committed_block
     for forbidden in (
         "git add -A",
         "git add --all",
