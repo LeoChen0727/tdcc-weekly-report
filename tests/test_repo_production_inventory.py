@@ -2057,7 +2057,7 @@ def test_input_bound_validator_stage_a_preauthorizations_are_exact() -> None:
     payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
     rows, errors = inventory.parse_pr_safe_authorizations(payload)
     assert errors == []
-    assert [row["migration_id"] for row in rows[-16:]] == [
+    assert [row["migration_id"] for row in rows[-17:]] == [
         inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_MIGRATION_ID,
         inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_STAGE_A_MIGRATION_ID,
         inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_ID,
@@ -2074,6 +2074,7 @@ def test_input_bound_validator_stage_a_preauthorizations_are_exact() -> None:
         inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V3_TARGET_ID,
         inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V4_TARGET_ID,
         inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_ID,
+        inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_TARGET_ID,
     ]
     rows_by_id = {row["migration_id"]: row for row in rows}
     assert rows_by_id[
@@ -2574,18 +2575,24 @@ def test_daily_recovery_architecture_v4_profile_is_exact() -> None:
 def test_daily_runtime_integration_authorization_is_append_only() -> None:
     payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
     lines = payload.splitlines(keepends=True)
-    assert len(lines) >= 3
-    assert inventory.canonical_blob_sha256(b"".join(lines[:-2])) == (
+    assert len(lines) >= 4
+    assert inventory.canonical_blob_sha256(b"".join(lines[:-3])) == (
         "973a917eec1cd82d1b7f116793197676987ee7b04ddaeb528107645f28e73e15"
     )
-    assert lines[-2].startswith(
+    assert lines[-3].startswith(
         b"daily-runtime-integration-regressions-exact-target-v4,"
     )
-    assert inventory.canonical_blob_sha256(b"".join(lines[:-1])) == (
+    assert inventory.canonical_blob_sha256(b"".join(lines[:-2])) == (
         "0336f7d65b5f16efaef68126756d6f547f7885e7497d69d5a578602bcdedfd74"
     )
-    assert lines[-1].startswith(
+    assert lines[-2].startswith(
         b"volume-v2-advisory-lineage-refresh-exact-target-v1,"
+    )
+    assert inventory.canonical_blob_sha256(b"".join(lines[:-1])) == (
+        "852e698dcaf8aadfc95f6a8fa4812cd11dccc2668c3552611b967d74135b480b"
+    )
+    assert lines[-1].startswith(
+        b"volume-v2-postcommit-lineage-trusted-ref-exact-target-v1,"
     )
 
 
@@ -3041,6 +3048,296 @@ def test_volume_v2_advisory_lineage_refresh_manifest_is_exact_and_verified(
         ),
         "change_status_by_path": (
             inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_CHANGE_STATUS_BY_PATH
+        ),
+        "verified": True,
+    }
+
+
+def test_volume_v2_postcommit_lineage_profile_matches_frozen_git_objects(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    base_ref = (
+        inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_BASE_CONTENT_REF_SHA
+    )
+    target_ref = (
+        inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_FROZEN_TARGET_REF_SHA
+    )
+    target_id = inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_TARGET_ID
+    paths = inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_PATHS
+    statuses = (
+        inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_CHANGE_STATUS_BY_PATH
+    )
+    base_hashes = (
+        inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_BASE_SHA256_BY_PATH
+    )
+    target_hashes = (
+        inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_TARGET_SHA256_BY_PATH
+    )
+    base_raw_hashes = (
+        inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_BASE_RAW_SHA256_BY_PATH
+    )
+    target_raw_hashes = (
+        inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_TARGET_RAW_SHA256_BY_PATH
+    )
+    modes = inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_MODE_BY_PATH
+    object_types = (
+        inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_OBJECT_TYPE_BY_PATH
+    )
+    profile = inventory.pr_safe_daily_authority_containment_target_profile(
+        set(paths),
+        target_id=target_id,
+    )
+
+    assert profile is not None
+    assert profile[:4] == (
+        target_id,
+        base_ref,
+        inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_HELPER,
+        inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_TEST,
+    )
+    assert (
+        inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_HELPER
+        not in Path(__file__).read_text(encoding="utf-8")
+    )
+    assert len(paths) == 16
+    assert set(base_hashes) == set(paths)
+    assert set(target_hashes) == set(paths)
+    assert base_raw_hashes == base_hashes
+    assert target_raw_hashes == target_hashes
+    assert statuses == {path: "M" for path in paths}
+    assert modes == {path: "100644" for path in paths}
+    assert object_types == {path: "blob" for path in paths}
+    assert inventory.git_output_bytes("cat-file", "-t", base_ref) == b"commit\n"
+    assert inventory.git_output_bytes("cat-file", "-t", target_ref) == b"commit\n"
+    assert inventory.git_output_bytes(
+        "show", "-s", "--format=%P", target_ref
+    ).decode().strip().split() == [base_ref]
+    assert inventory._pr_safe_repo_ref_is_ancestor(ROOT, base_ref, target_ref)
+    assert inventory._pr_safe_repo_exact_change_statuses(
+        ROOT,
+        base_ref,
+        target_ref,
+        statuses,
+    )
+
+    for path in sorted(paths):
+        base_blob = inventory.git_blob_at_ref(base_ref, path)
+        target_blob = inventory.git_blob_at_ref(target_ref, path)
+        assert base_blob is not None
+        assert target_blob is not None
+        assert inventory.canonical_blob_sha256(base_blob) == base_hashes[path]
+        assert inventory.hashlib.sha256(base_blob).hexdigest() == base_raw_hashes[path]
+        assert inventory.canonical_blob_sha256(target_blob) == target_hashes[path]
+        assert inventory.hashlib.sha256(target_blob).hexdigest() == (
+            target_raw_hashes[path]
+        )
+        assert inventory.git_tree_entry_at_ref(base_ref, path)[:2] == (
+            "100644",
+            "blob",
+        )
+        assert inventory.git_tree_entry_at_ref(target_ref, path)[:2] == (
+            "100644",
+            "blob",
+        )
+
+    kwargs = {
+        "base_ref": base_ref,
+        "changed_paths": set(paths),
+        "repository_root": ROOT,
+        "head_ref": target_ref,
+        "target_id": target_id,
+    }
+    assert inventory.is_preauthorized_daily_authority_containment_target(**kwargs)
+    assert not inventory.is_preauthorized_daily_authority_containment_target(
+        **{**kwargs, "changed_paths": {*paths, "scripts/unregistered.py"}}
+    )
+    assert not inventory.is_preauthorized_daily_authority_containment_target(
+        **{**kwargs, "changed_paths": set(paths) - {next(iter(paths))}}
+    )
+    assert not inventory.is_preauthorized_daily_authority_containment_target(
+        **{**kwargs, "head_ref": base_ref}
+    )
+    assert not inventory.is_preauthorized_daily_authority_containment_target(
+        **{
+            **kwargs,
+            "target_id": inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_ID,
+        }
+    )
+
+    helper = inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_HELPER
+    drift_contracts = (
+        (
+            inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_BASE_SHA256_BY_PATH,
+            "0" * 64,
+        ),
+        (
+            inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_TARGET_SHA256_BY_PATH,
+            "0" * 64,
+        ),
+        (
+            inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_BASE_RAW_SHA256_BY_PATH,
+            "0" * 64,
+        ),
+        (
+            inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_TARGET_RAW_SHA256_BY_PATH,
+            "0" * 64,
+        ),
+        (
+            inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_MODE_BY_PATH,
+            "100755",
+        ),
+        (
+            inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_OBJECT_TYPE_BY_PATH,
+            "commit",
+        ),
+        (
+            inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_CHANGE_STATUS_BY_PATH,
+            "A",
+        ),
+    )
+    for contract, wrong_value in drift_contracts:
+        with monkeypatch.context() as patcher:
+            patcher.setitem(contract, helper, wrong_value)
+            assert not inventory.is_preauthorized_daily_authority_containment_target(
+                **kwargs
+            )
+
+
+def test_volume_v2_postcommit_lineage_uses_exact_base_owned_ledger() -> None:
+    base_ref = (
+        inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_BASE_CONTENT_REF_SHA
+    )
+    target_ref = (
+        inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_FROZEN_TARGET_REF_SHA
+    )
+    target_id = inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_TARGET_ID
+    paths = inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_PATHS
+    helper = inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_HELPER
+    direct_test = inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_TEST
+    base_helper = inventory.git_blob_at_ref(base_ref, helper)
+    current_helper = inventory.git_blob_at_ref(target_ref, helper)
+    current_test = inventory.git_blob_at_ref(target_ref, direct_test)
+    authorization_payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
+    authorization_rows, authorization_errors = inventory.parse_pr_safe_authorizations(
+        authorization_payload
+    )
+
+    assert base_helper is not None
+    assert current_helper is not None
+    assert current_test is not None
+    assert authorization_errors == []
+    matching = [row for row in authorization_rows if row["migration_id"] == target_id]
+    assert matching == [
+        {
+            "migration_id": target_id,
+            "status": "preauthorized",
+            "approval_reference": (
+                "current_user_explicit_volume_v2_postcommit_lineage_trusted_ref_"
+                "1a_preauthorization_20260815"
+            ),
+            "base_helper_sha256": inventory.canonical_blob_sha256(base_helper),
+            "current_helper_sha256": inventory.canonical_blob_sha256(current_helper),
+            "current_test_sha256": inventory.canonical_blob_sha256(current_test),
+            "changed_paths": ";".join(sorted(paths)),
+        }
+    ]
+    kwargs = {
+        "changed_paths": set(paths),
+        "base_helper": base_helper,
+        "current_helper": current_helper,
+        "current_test": current_test,
+        "authorization_payload": authorization_payload,
+        "target_id": target_id,
+    }
+    assert inventory.validate_pr_safe_control_plane_delta(**kwargs) == []
+    assert inventory.validate_pr_safe_control_plane_delta(
+        **{**kwargs, "current_test": current_test + b"drift"}
+    )
+    assert inventory.validate_pr_safe_control_plane_delta(
+        **{
+            **kwargs,
+            "target_id": inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_ID,
+        }
+    )
+
+
+def test_volume_v2_postcommit_lineage_manifest_is_exact_and_verified(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    base_ref = (
+        inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_BASE_CONTENT_REF_SHA
+    )
+    target_ref = (
+        inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_FROZEN_TARGET_REF_SHA
+    )
+    target_id = inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_TARGET_ID
+    paths = inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_PATHS
+    authorization_payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
+    original_git_blob_at_ref = inventory.git_blob_at_ref
+    original_git_output_bytes = inventory.git_output_bytes
+
+    def git_output_from_base_checkout(*args: str) -> bytes:
+        if args == ("rev-parse", "HEAD"):
+            return f"{base_ref}\n".encode("ascii")
+        return original_git_output_bytes(*args)
+
+    monkeypatch.setattr(
+        inventory,
+        "git_blob_at_ref",
+        lambda ref, path: (
+            authorization_payload
+            if ref == base_ref and path == inventory.PR_SAFE_AUTHORIZATION_PATH
+            else original_git_blob_at_ref(ref, path)
+        ),
+    )
+    monkeypatch.setattr(inventory, "git_output_bytes", git_output_from_base_checkout)
+
+    assert inventory.validate_pr_safe_control_plane_migration(base_ref, target_ref) == []
+    manifest = inventory.build_pr_safe_audit_manifest(
+        base_sha=base_ref,
+        head_sha=target_ref,
+        validation_errors=[],
+        repository=inventory.PR_SAFE_REPOSITORY,
+        workflow_ref=inventory.PR_SAFE_EXPECTED_WORKFLOW_REF,
+        workflow_sha=base_ref,
+        run_id="31880000000",
+        run_attempt="1",
+        event_name="pull_request_target",
+        event_action="synchronize",
+        base_ref="main",
+        base_repository=inventory.PR_SAFE_REPOSITORY,
+        head_repository=inventory.PR_SAFE_REPOSITORY,
+        pull_request_number="552",
+    )
+
+    assert manifest["validation"] == {"passed": True, "errors": []}
+    assert manifest["manual_gate_eligible"] is True
+    assert manifest["changed_paths_match_allowlist"] is True
+    assert manifest["changed_path_allowlist"] == sorted(paths)
+    exact_target = manifest["daily_authority_containment_target_preauthorization"]
+    assert exact_target == {
+        "target_id": target_id,
+        "base_content_ref_sha": base_ref,
+        "base_sha256_by_path": (
+            inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_BASE_SHA256_BY_PATH
+        ),
+        "target_sha256_by_path": (
+            inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_TARGET_SHA256_BY_PATH
+        ),
+        "base_raw_sha256_by_path": (
+            inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_BASE_RAW_SHA256_BY_PATH
+        ),
+        "target_raw_sha256_by_path": (
+            inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_TARGET_RAW_SHA256_BY_PATH
+        ),
+        "mode_by_path": (
+            inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_MODE_BY_PATH
+        ),
+        "object_type_by_path": (
+            inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_OBJECT_TYPE_BY_PATH
+        ),
+        "change_status_by_path": (
+            inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_CHANGE_STATUS_BY_PATH
         ),
         "verified": True,
     }
