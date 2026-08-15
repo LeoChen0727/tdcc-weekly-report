@@ -1,0 +1,217 @@
+name: Volume V2 Advisory Lineage Refresh
+
+on:
+  workflow_dispatch:
+    inputs:
+      expected_base_sha:
+        description: "Exact current main SHA that owns the stale advisory artifacts"
+        required: true
+        type: string
+      confirmation:
+        description: "Type refresh_volume_v2_advisory_lineage"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-full-pipeline-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  refresh-volume-v2-advisory-lineage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Require production artifact write deploy key
+        shell: bash
+        env:
+          PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}
+        run: |
+          if [ -z "${PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY}" ]; then
+            echo "::error::PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY is required for artifact publishing."
+            exit 1
+          fi
+
+      - name: Checkout exact main source
+        uses: actions/checkout@v6.0.3
+        with:
+          ssh-key: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}
+          persist-credentials: true
+          fetch-depth: 0
+          ref: main
+
+      - name: Enforce main-only exact-base dispatch
+        shell: bash
+        env:
+          EXPECTED_BASE_SHA: ${{ inputs.expected_base_sha }}
+          CONFIRMATION: ${{ inputs.confirmation }}
+        run: |
+          set -euo pipefail
+          if [ "$GITHUB_REF" != "refs/heads/main" ] || [ "$(git branch --show-current)" != "main" ]; then
+            echo "::error::Volume V2 advisory lineage refresh is main-only."
+            exit 1
+          fi
+          if [ "$CONFIRMATION" != "refresh_volume_v2_advisory_lineage" ]; then
+            echo "::error::Exact confirmation token is required."
+            exit 1
+          fi
+          if ! [[ "$EXPECTED_BASE_SHA" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "::error::expected_base_sha must be an exact lowercase commit SHA."
+            exit 1
+          fi
+          current_sha="$(git rev-parse HEAD)"
+          remote_main_sha="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+          if [ "$current_sha" != "$EXPECTED_BASE_SHA" ] || [ "$remote_main_sha" != "$EXPECTED_BASE_SHA" ]; then
+            echo "::error::Main/base binding mismatch before refresh."
+            exit 1
+          fi
+          if [ -n "$(git status --porcelain=v1)" ]; then
+            echo "::error::Refresh checkout must start clean."
+            exit 1
+          fi
+          echo "REFRESH_BASE_SHA=$EXPECTED_BASE_SHA" >> "$GITHUB_ENV"
+
+      - name: Set up Python
+        uses: actions/setup-python@v6.2.0
+        with:
+          python-version: "3.11"
+
+      - name: Install bounded refresh dependencies
+        run: |
+          python -m pip install --disable-pip-version-check \
+            pandas requests tabulate pyyaml pytest
+
+      - name: Validate repository contracts before refresh
+        run: |
+          python -B scripts/validate_repo_file_lifecycle_inventory.py
+          python scripts/validate_repo_production_inventory.py
+          python -B scripts/validate_daily_production_boundaries.py
+          python -B scripts/validate_model_data_independence.py
+          python -B scripts/validate_repo_code_isolation_policy.py
+          warrant_scope_snapshot="$RUNNER_TEMP/volume_v2_advisory_warrant_scope_before.json"
+          python -B scripts/validate_daily_warrant_formal_sync_scope.py \
+            --write-snapshot "$warrant_scope_snapshot"
+          echo "WARRANT_SCOPE_SNAPSHOT=$warrant_scope_snapshot" >> "$GITHUB_ENV"
+
+      - name: Refresh watch and dependent theme lineage
+        env:
+          VOLUME_V2_ADVISORY_REFRESH_CONFIRMATION: refresh_volume_v2_advisory_lineage
+        run: |
+          python -B scripts/run_volume_v2_advisory_lineage_refresh.py \
+            --base-sha "$REFRESH_BASE_SHA"
+
+      - name: Stage exact seven-artifact refresh
+        run: |
+          git add -- \
+            output/latest/volume_breakout_watch_latest.csv \
+            output/latest/volume_attack_theme_layer_latest.md \
+            output/latest/volume_attack_theme_stocks_latest.csv \
+            output/latest/volume_attack_theme_stocks_latest.md \
+            docs/latest/volume_attack_theme_layer_latest.md \
+            docs/latest/volume_attack_theme_stocks_latest.csv \
+            docs/latest/volume_attack_theme_stocks_latest.md
+          python -B scripts/validate_volume_v2_advisory_lineage_refresh.py \
+            --repo-root . \
+            --base-sha "$REFRESH_BASE_SHA" \
+            --phase staged
+
+      - name: Create one bounded local artifact commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --cached --quiet; then
+            echo "::error::Refresh produced no staged changes."
+            exit 1
+          fi
+          remote_main_sha="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+          if [ -z "$remote_main_sha" ] || [ "$remote_main_sha" != "$REFRESH_BASE_SHA" ]; then
+            echo "::error::Remote main drifted during refresh; refusing commit or rebase."
+            exit 1
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Refresh Volume V2 advisory lineage"
+          refresh_commit_sha="$(git rev-parse HEAD)"
+          refresh_parent_sha="$(git rev-parse HEAD^)"
+          refresh_commit_count="$(git rev-list --count "$REFRESH_BASE_SHA..HEAD")"
+          if [ "$refresh_parent_sha" != "$REFRESH_BASE_SHA" ] || [ "$refresh_commit_count" != "1" ]; then
+            echo "::error::Refresh publication must be exactly one commit directly above the frozen base."
+            exit 1
+          fi
+          if [ -n "$(git status --porcelain=v1)" ]; then
+            echo "::error::Refresh commit left worktree or index residue."
+            exit 1
+          fi
+          echo "REFRESH_COMMIT_SHA=$refresh_commit_sha" >> "$GITHUB_ENV"
+          echo "refresh_commit_sha=$refresh_commit_sha"
+
+      - name: Validate committed refresh before publication
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ "$(git rev-parse HEAD)" != "$REFRESH_COMMIT_SHA" ]; then
+            echo "::error::Committed refresh identity drifted before validation."
+            exit 1
+          fi
+          python -B scripts/validate_volume_attack_theme_layer.py
+          if [ -n "$(git status --porcelain=v1)" ]; then
+            echo "::error::Legacy theme validation reports were not byte-identical to committed base artifacts."
+            exit 1
+          fi
+          python -B scripts/validate_volume_v2_advisory_lineage_refresh.py \
+            --repo-root . \
+            --base-sha "$REFRESH_BASE_SHA" \
+            --phase committed
+          python -B scripts/validate_volume_breakout_watch.py --latest-only
+          python -B scripts/validate_daily_canonical_field_lineage.py --base-ref "$REFRESH_BASE_SHA"
+          python -B scripts/validate_daily_warrant_formal_sync_scope.py \
+            --compare-snapshot "$WARRANT_SCOPE_SNAPSHOT"
+          python -B scripts/validate_repo_file_lifecycle_inventory.py
+          python scripts/validate_repo_production_inventory.py
+          python -B scripts/validate_model_data_independence.py
+          python -B scripts/validate_repo_code_isolation_policy.py
+          python -B -m pytest -q \
+            tests/test_volume_breakout_watch.py \
+            tests/test_daily_canonical_field_lineage.py \
+            tests/test_daily_warrant_formal_sync_scope.py \
+            tests/test_model_data_independence.py \
+            tests/test_daily_production_boundaries.py \
+            tests/test_repo_file_lifecycle_inventory.py \
+            tests/test_repo_production_inventory.py
+          if [ -n "$(git status --porcelain=v1)" ]; then
+            echo "::error::Committed refresh validation left worktree or index residue."
+            exit 1
+          fi
+
+      - name: Push one validated bounded artifact commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          refresh_commit_sha="$(git rev-parse HEAD)"
+          refresh_parent_sha="$(git rev-parse HEAD^)"
+          refresh_commit_count="$(git rev-list --count "$REFRESH_BASE_SHA..HEAD")"
+          if [ "$refresh_commit_sha" != "$REFRESH_COMMIT_SHA" ] || \
+             [ "$refresh_parent_sha" != "$REFRESH_BASE_SHA" ] || \
+             [ "$refresh_commit_count" != "1" ]; then
+            echo "::error::Validated refresh commit identity or ancestry drifted before push."
+            exit 1
+          fi
+          if [ -n "$(git status --porcelain=v1)" ]; then
+            echo "::error::Validated refresh checkout is not clean before push."
+            exit 1
+          fi
+          remote_main_sha="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+          if [ -z "$remote_main_sha" ] || [ "$remote_main_sha" != "$REFRESH_BASE_SHA" ]; then
+            echo "::error::Remote main drifted after validation; refusing push."
+            exit 1
+          fi
+          git push origin HEAD:refs/heads/main
+          remote_main_sha="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+          if [ "$refresh_commit_sha" != "$remote_main_sha" ]; then
+            echo "::error::Remote main does not equal the refresh commit."
+            exit 1
+          fi
+          echo "refresh_commit_sha=$refresh_commit_sha"
