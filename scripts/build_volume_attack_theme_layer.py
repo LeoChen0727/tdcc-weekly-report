@@ -70,62 +70,69 @@ WATCH_TYPES = {
 FAILED_TYPES = {"failed_range_breakout_risk"}
 BULLISH_WARRANT_SIGNALS = {"call_inflow", "call_strong_inflow", "call_put_bullish", "low_float_call_spike"}
 
-VOLUME_THEME_WATCH_ALLOWED_FIELDS = frozenset(
+# Preserve the committed stock-artifact schema independently of hash randomization
+# and of the incoming watch CSV column order.
+VOLUME_THEME_WATCH_PROJECTED_FIELD_ORDER = (
+    "return_1d",
+    "distance_to_ma60_pct",
+    "return_5d",
+    "volume_ratio",
+    "signal_date",
+    "high",
+    "range_low",
+    "advisory_score_source_sha256",
+    "stock_id",
+    "market",
+    "previous_20d_high",
+    "industry",
+    "range_breakout_pct",
+    "close_above_range_high",
+    "volume_breakout_notes",
+    "return_20d",
+    "distance_to_previous_20d_high_pct",
+    "next_volume_breakout_confirmation",
+    "overheated_breakout",
+    "previous_60d_low",
+    "pattern_stage",
+    "risk_flags",
+    "advisory_score_source_artifact",
+    "range_high",
+    "false_breakout_risk_calc",
+    "open",
+    "tdcc_status",
+    "ma20",
+    "low",
+    "volume",
+    "volume_watch_scope",
+    "category",
+    "close",
+    "stock_name",
+    "distance_to_previous_60d_high_pct",
+    "high_above_range_high",
+    "ema23",
+    "distance_to_ma20_pct",
+    "volume_breakout_type",
+    "volume_ma20",
+    "selection_status",
+    "previous_60d_high",
+    "ma60",
+    "range_window",
+    "previous_20d_low",
+    "range_width_pct",
+    "volume_breakout_priority",
+    "repeat_appear_label",
+    "not_selected_reason",
+)
+VOLUME_THEME_WATCH_REQUIRED_ADVISORY_FIELDS = frozenset(
     {
-        "advisory_volume_breakout_rank",
-        "signal_date",
-        "advisory_score_as_of",
-        "advisory_score_source_artifact",
-        "advisory_score_source_sha256",
-        "stock_id",
-        "stock_name",
-        "market",
-        "close",
-        "open",
-        "high",
-        "low",
-        "volume",
-        "volume_ma20",
-        "volume_ratio",
-        "return_1d",
-        "return_5d",
-        "return_20d",
-        "distance_to_ma20_pct",
-        "distance_to_ma60_pct",
-        "distance_to_previous_20d_high_pct",
-        "distance_to_previous_60d_high_pct",
-        "ma20",
-        "ma60",
-        "ema23",
-        "previous_20d_high",
-        "previous_60d_high",
-        "previous_20d_low",
-        "previous_60d_low",
-        "range_window",
-        "range_high",
-        "range_low",
-        "range_width_pct",
-        "range_breakout_pct",
-        "close_above_range_high",
-        "high_above_range_high",
-        "volume_breakout_type",
-        "volume_watch_scope",
         "advisory_volume_breakout_score",
-        "volume_breakout_notes",
-        "false_breakout_risk_calc",
-        "overheated_breakout",
-        "industry",
-        "category",
-        "pattern_stage",
-        "tdcc_status",
-        "repeat_appear_label",
-        "volume_breakout_priority",
-        "selection_status",
-        "not_selected_reason",
-        "risk_flags",
-        "next_volume_breakout_confirmation",
+        "advisory_volume_breakout_rank",
+        "advisory_score_as_of",
     }
 )
+VOLUME_THEME_WATCH_ALLOWED_FIELDS = frozenset(
+    VOLUME_THEME_WATCH_PROJECTED_FIELD_ORDER
+) | VOLUME_THEME_WATCH_REQUIRED_ADVISORY_FIELDS
 
 VOLUME_THEME_CANDIDATE_ALLOWED_FIELDS = frozenset(
     {
@@ -443,11 +450,7 @@ def enrich_stocks(
 
     for _, row in watch.iterrows():
         raw_source = row.to_dict()
-        required_advisory_fields = {
-            "advisory_volume_breakout_score",
-            "advisory_volume_breakout_rank",
-            "advisory_score_as_of",
-        }
+        required_advisory_fields = VOLUME_THEME_WATCH_REQUIRED_ADVISORY_FIELDS
         missing_advisory_fields = required_advisory_fields - set(raw_source)
         if missing_advisory_fields:
             raise RuntimeError(
@@ -495,8 +498,8 @@ def enrich_stocks(
             )
         source = {
             key: raw_source[key]
-            for key in VOLUME_THEME_WATCH_ALLOWED_FIELDS
-            if key in raw_source and key not in required_advisory_fields
+            for key in VOLUME_THEME_WATCH_PROJECTED_FIELD_ORDER
+            if key in raw_source
         }
         stock_id = safe_str(source.get("stock_id", ""))
         theme_name = theme_name_of(pd.Series(source))
