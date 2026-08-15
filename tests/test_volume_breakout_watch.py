@@ -1,13 +1,15 @@
 from __future__ import annotations
 
-import os
+import csv
 import io
+import json
+import os
 import subprocess
 import sys
 import tempfile
 import unittest
-from unittest.mock import patch
 from pathlib import Path
+from unittest.mock import patch
 
 import pandas as pd
 
@@ -34,9 +36,13 @@ from build_daily_candidate_model_layer import (  # noqa: E402
     volume_v2_canonical_text_sha256 as consumer_canonical_csv_slice_sha256,
 )
 from build_volume_attack_theme_layer import (  # noqa: E402
+    VOLUME_THEME_WATCH_ALLOWED_FIELDS,
+    VOLUME_THEME_WATCH_PROJECTED_FIELD_ORDER,
+    VOLUME_THEME_WATCH_REQUIRED_ADVISORY_FIELDS,
     apply_theme_status_to_stocks,
     build_candidate_scoped_official_warrant_projection,
     build_theme_layer,
+    canonical_text_sha256 as theme_payload_sha256,
     enrich_stocks,
     read_csv_revision,
     sha256_file as theme_canonical_text_sha256,
@@ -158,6 +164,172 @@ class VolumeBreakoutWatchTest(unittest.TestCase):
             "output/latest/warrant_flow_latest.csv",
         )
         self.assertEqual(out.iloc[0]["warrant_flow_official_source_sha256"], "f" * 64)
+
+    def test_theme_builder_preserves_committed_stock_schema_across_hash_seeds(
+        self,
+    ) -> None:
+        payload = git_show_text(
+            ROOT,
+            "HEAD",
+            "output/latest/volume_attack_theme_stocks_latest.csv",
+        )
+        expected_columns = next(csv.reader(io.StringIO(payload)))
+        expected_projected_columns = expected_columns[
+            : expected_columns.index("theme_name")
+        ]
+        self.assertEqual(
+            list(VOLUME_THEME_WATCH_PROJECTED_FIELD_ORDER),
+            expected_projected_columns,
+        )
+        self.assertEqual(
+            VOLUME_THEME_WATCH_ALLOWED_FIELDS,
+            frozenset(expected_projected_columns)
+            | VOLUME_THEME_WATCH_REQUIRED_ADVISORY_FIELDS,
+        )
+
+        script = """
+import json
+import os
+import sys
+
+import pandas as pd
+
+sys.path.insert(0, "scripts")
+import build_volume_attack_theme_layer as theme_builder
+
+projected_columns = list(theme_builder.VOLUME_THEME_WATCH_PROJECTED_FIELD_ORDER)
+order = os.environ["VOLUME_THEME_TEST_COLUMN_ORDER"]
+if order == "reverse":
+    projected_columns.reverse()
+elif order == "sorted":
+    projected_columns.sort()
+elif order != "contract":
+    raise AssertionError(f"unexpected test column order: {order}")
+row = {field: "" for field in projected_columns}
+row.update(
+    {
+        "signal_date": "20260811",
+        "advisory_score_as_of": "20260811",
+        "advisory_volume_breakout_score": "1",
+        "advisory_volume_breakout_rank": "1",
+        "stock_id": "1111",
+        "stock_name": "Test",
+        "advisory_score_source_artifact": "data/stock_price_history/1111.csv",
+        "advisory_score_source_sha256": "a" * 64,
+    }
+)
+watch = pd.DataFrame([row])
+candidates = pd.DataFrame(
+    [{"stock_id": "1111", "signal_date": "20260811", "warrant_flow_signal": ""}]
+)
+official_warrant = pd.DataFrame(
+    [{"stock_id": "1111", "date": "20260811", "warrant_flow_signal": ""}]
+)
+stocks = theme_builder.enrich_stocks(
+    watch,
+    pd.DataFrame(),
+    pd.DataFrame(),
+    candidates,
+    pd.DataFrame(),
+    official_warrant,
+    warrant_as_of="20260811",
+    volume_watch_source_sha256="b" * 64,
+    candidate_source_sha256="c" * 64,
+    official_warrant_source_sha256="d" * 64,
+)
+theme_layer = theme_builder.build_theme_layer(stocks)
+stock_layer = theme_builder.apply_theme_status_to_stocks(stocks, theme_layer)
+print(json.dumps(stock_layer.columns.tolist()))
+"""
+        observed_by_seed: dict[str, list[str]] = {}
+        for seed, input_order in (
+            ("1", "contract"),
+            ("2", "reverse"),
+            ("42", "sorted"),
+        ):
+            environment = os.environ.copy()
+            environment["PYTHONHASHSEED"] = seed
+            environment["VOLUME_THEME_TEST_COLUMN_ORDER"] = input_order
+            proc = subprocess.run(
+                [sys.executable, "-B", "-c", script],
+                cwd=ROOT,
+                env=environment,
+                check=True,
+                capture_output=True,
+                text=True,
+                encoding="utf-8",
+            )
+            observed_by_seed[seed] = json.loads(proc.stdout)
+
+        self.assertEqual(
+            {tuple(columns) for columns in observed_by_seed.values()},
+            {tuple(expected_columns)},
+        )
+
+    def test_theme_builder_replays_committed_thirteen_row_business_values(
+        self,
+    ) -> None:
+        def read_blob(relative_path: str) -> tuple[pd.DataFrame, bytes]:
+            text = git_show_text(ROOT, "HEAD", relative_path)
+            return (
+                pd.read_csv(
+                    io.StringIO(text),
+                    dtype=str,
+                    keep_default_na=False,
+                ),
+                text.encode("utf-8"),
+            )
+
+        watch, watch_payload = read_blob(
+            "output/latest/volume_breakout_watch_latest.csv"
+        )
+        candidates, candidate_payload = read_blob(
+            "output/latest/all_candidates_latest.csv"
+        )
+        official_warrant, official_warrant_payload = read_blob(
+            "output/latest/warrant_flow_latest.csv"
+        )
+        theme, _ = read_blob("output/latest/daily_theme_leadership_latest.csv")
+        two_line, _ = read_blob(
+            "output/latest/daily_candidate_two_line_view_latest.csv"
+        )
+        taxonomy, _ = read_blob("output/latest/stock_theme_taxonomy_latest.csv")
+        expected, _ = read_blob(
+            "output/latest/volume_attack_theme_stocks_latest.csv"
+        )
+        signal_date = str(watch.iloc[0]["signal_date"])
+        warrant_as_of = validate_official_warrant_source_revision(
+            official_warrant,
+            expected_as_of=signal_date,
+            source_sha256=theme_payload_sha256(official_warrant_payload),
+        )
+        official_projection = build_candidate_scoped_official_warrant_projection(
+            candidates,
+            official_warrant,
+        )
+        stocks = enrich_stocks(
+            watch,
+            theme,
+            two_line,
+            candidates,
+            taxonomy,
+            official_warrant,
+            warrant_as_of=warrant_as_of,
+            volume_watch_source_sha256=theme_payload_sha256(watch_payload),
+            candidate_source_sha256=theme_payload_sha256(candidate_payload),
+            official_warrant_source_sha256=theme_payload_sha256(
+                official_warrant_payload
+            ),
+            official_warrant_projection=official_projection,
+        )
+        theme_layer = build_theme_layer(stocks)
+        replayed = apply_theme_status_to_stocks(stocks, theme_layer)
+
+        self.assertEqual(len(replayed), 13)
+        pd.testing.assert_frame_equal(
+            replayed.reset_index(drop=True),
+            expected.reset_index(drop=True),
+        )
 
     def test_theme_official_source_revision_requires_one_matching_as_of(self) -> None:
         official = pd.DataFrame(
