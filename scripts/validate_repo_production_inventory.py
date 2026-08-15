@@ -923,6 +923,142 @@ PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_CHANGE_STATUS_BY_PATH = {
     "tests/test_volume_v2_advisory_lineage_refresh.py": "A",
     "tests/test_volume_v2_advisory_lineage_refresh_workflow.py": "A",
 }
+PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_TARGET_ID = (
+    "volume-v2-postcommit-lineage-trusted-ref-exact-target-v1"
+)
+PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_BASE_CONTENT_REF_SHA = (
+    "1168891c0e95e7e321b43484188c58032f21d68b"
+)
+PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_FROZEN_TARGET_REF_SHA = (
+    "be1675c930cc9ee3b7ecc579fbbbaa5bb75a881e"
+)
+PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_HELPER = (
+    "scripts/validate_daily_canonical_field_lineage.py"
+)
+PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_TEST = (
+    "tests/test_daily_canonical_field_lineage.py"
+)
+PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_BASE_SHA256_BY_PATH = {
+    ".github/workflows/volume_v2_advisory_lineage_refresh.yml": (
+        "33e423c73785dabefbe8472c1a5cddaf06c9062717c6f19459f8569818461132"
+    ),
+    "config/daily_model_background_data_registry.csv": (
+        "e161cd1826197072039a5f5f2aaebb7c97af31e9bc335529c936db600fbb2d08"
+    ),
+    "config/daily_model_canonical_field_lineage_migrations.csv": (
+        "b4ff6594285fea072ca0c1cc1e43e5e5b806857f1a50dd38db3462f5cea36d9b"
+    ),
+    "config/daily_model_canonical_field_lineage_registry.csv": (
+        "e216995707d2aeb34c77531c446dc036ac3141538e8895ffa82a2296aea42fc2"
+    ),
+    "config/daily_model_data_sharing_migrations.csv": (
+        "6f82c52cb0799971621eafac0a676c2e1e7fdbdb65a6c1354a5a4fa86da2cd02"
+    ),
+    "config/daily_model_data_sharing_registry.csv": (
+        "7aa4fdde0f0ca9ea9aacb727ef060d89430018480b69d92dd6cf520695ef41d8"
+    ),
+    "config/repo_file_lifecycle_inventory.csv": (
+        "7e152d13fb9affa8a72c42f3918d32ead6e64fc4352278ee73358b77eb909eb1"
+    ),
+    "docs/latest/model_data_independence_audit_latest.csv": (
+        "3b71b276152f93e50ca72c99a459627aa40c75abd15df3a2d9150aca6aab199e"
+    ),
+    "docs/latest/model_data_independence_audit_latest.md": (
+        "ebffaebdfec5a59dc89b742438a494fadebed90922748d2db672eaf21fdf5c6f"
+    ),
+    "output/latest/model_data_independence_audit_latest.csv": (
+        "3b71b276152f93e50ca72c99a459627aa40c75abd15df3a2d9150aca6aab199e"
+    ),
+    "output/latest/model_data_independence_audit_latest.md": (
+        "ebffaebdfec5a59dc89b742438a494fadebed90922748d2db672eaf21fdf5c6f"
+    ),
+    "scripts/model_data_independence.py": (
+        "031a7a013b9bf04f5b9a1b3c20b716094c2d9f48a1dcbfd851c57cb5cc0b124e"
+    ),
+    "scripts/validate_daily_canonical_field_lineage.py": (
+        "33aad82d6d8ade06831e40ad5147b91f077513db300b8cf6f61f459b464eb94f"
+    ),
+    "tests/test_daily_canonical_field_lineage.py": (
+        "eeb1f13c4a47f12a0543d693ee6f1cfa60b51ef32fab915b215d6c5b8a209658"
+    ),
+    "tests/test_model_data_independence.py": (
+        "fd3485916ca6741bc743d1b04d8e14502fcfd7fca878287953e0d49f59b7be65"
+    ),
+    "tests/test_volume_v2_advisory_lineage_refresh_workflow.py": (
+        "2551aabc181dfe6306f0021eff35c6eb83516be4c70373c2ea434b8ceb75cb42"
+    ),
+}
+PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_TARGET_SHA256_BY_PATH = {
+    ".github/workflows/volume_v2_advisory_lineage_refresh.yml": (
+        "ed184d864636b39a12564f80a9bcd86c49f502fd4f5e09172c081c899be270a4"
+    ),
+    "config/daily_model_background_data_registry.csv": (
+        "53d954d8e1e9f710e885adac1e46dedd8d750bbbc9b71005f8d1bbaf4c1df381"
+    ),
+    "config/daily_model_canonical_field_lineage_migrations.csv": (
+        "c22b997e4edbc804a78b0a8e49813de9ddceb47dc815d10b5bbcbcd21a614fca"
+    ),
+    "config/daily_model_canonical_field_lineage_registry.csv": (
+        "3bd8ddebe22464537c700d423efbabb918e170f6f43748c1701d3ef6aa0bdb99"
+    ),
+    "config/daily_model_data_sharing_migrations.csv": (
+        "f51acbc0c6b552f130af03f6654ba15f1c978334b77cc14c35eff80538bf7b03"
+    ),
+    "config/daily_model_data_sharing_registry.csv": (
+        "f2e2bdff16d1480dc8fb881c27ca8f14aa4a795ba57b9e8d437197402ef312e6"
+    ),
+    "config/repo_file_lifecycle_inventory.csv": (
+        "784f7bf3f7cb758abfd58e6d870d8e43833e6f52e428133c7152732b9f46c7f8"
+    ),
+    "docs/latest/model_data_independence_audit_latest.csv": (
+        "798058b03ef09b74429e91fdf2a5b69b4313c74ee19bee16ba31db0c680a52bb"
+    ),
+    "docs/latest/model_data_independence_audit_latest.md": (
+        "1dd6979e46d647568080046820156a9fd08d061cff1593bed3c9f3c7cdd9f639"
+    ),
+    "output/latest/model_data_independence_audit_latest.csv": (
+        "798058b03ef09b74429e91fdf2a5b69b4313c74ee19bee16ba31db0c680a52bb"
+    ),
+    "output/latest/model_data_independence_audit_latest.md": (
+        "1dd6979e46d647568080046820156a9fd08d061cff1593bed3c9f3c7cdd9f639"
+    ),
+    "scripts/model_data_independence.py": (
+        "f101cc8708f4412e5c54a809c1aa545c4f9116cf7924bd4dcff64441c2e340ca"
+    ),
+    "scripts/validate_daily_canonical_field_lineage.py": (
+        "df1121056e26f511cd501e52876ee2e38335a095d35dadcf09d3fcb7c2b6f97f"
+    ),
+    "tests/test_daily_canonical_field_lineage.py": (
+        "bb7c6303ebbdd6d4fcac3a9f6762edda2167002d0d9ecb87e2bacdf67303c82f"
+    ),
+    "tests/test_model_data_independence.py": (
+        "24beede64906b295d749b7962df1bfcbb34e9a9a302584f8e715c6565bfacc61"
+    ),
+    "tests/test_volume_v2_advisory_lineage_refresh_workflow.py": (
+        "a0bb668b0fb3fc9628ccfb4fd6017636d966e693fa844d719b69ee2df3e1505a"
+    ),
+}
+PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_PATHS = frozenset(
+    PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_TARGET_SHA256_BY_PATH
+)
+PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_BASE_RAW_SHA256_BY_PATH = {
+    **PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_BASE_SHA256_BY_PATH,
+}
+PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_TARGET_RAW_SHA256_BY_PATH = {
+    **PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_TARGET_SHA256_BY_PATH,
+}
+PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_MODE_BY_PATH = {
+    path: "100644"
+    for path in PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_TARGET_SHA256_BY_PATH
+}
+PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_OBJECT_TYPE_BY_PATH = {
+    path: "blob"
+    for path in PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_TARGET_SHA256_BY_PATH
+}
+PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_CHANGE_STATUS_BY_PATH = {
+    path: "M"
+    for path in PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_TARGET_SHA256_BY_PATH
+}
 PR_SAFE_SNAPSHOT_MIGRATION_ID = "daily-full-checkpoint-replay-snapshot-pr-safe-v1"
 PR_SAFE_SNAPSHOT_HELPER = "scripts/validate_daily_published_model_snapshots_pr_safe.py"
 PR_SAFE_SNAPSHOT_TEST = "tests/test_daily_published_model_snapshots_pr_safe.py"
@@ -3353,6 +3489,15 @@ def pr_safe_daily_authority_containment_target_profiles(
     normalized_paths = frozenset(str(path).replace("\\", "/") for path in changed_paths)
     profiles = (
         (
+            PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_TARGET_ID,
+            PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_BASE_CONTENT_REF_SHA,
+            PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_HELPER,
+            PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_TEST,
+            PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_BASE_SHA256_BY_PATH,
+            PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_TARGET_SHA256_BY_PATH,
+            PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_PATHS,
+        ),
+        (
             PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_ID,
             PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_BASE_CONTENT_REF_SHA,
             PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_HELPER,
@@ -3473,6 +3618,13 @@ def daily_runtime_integration_regressions_identity_contract(
     dict[str, str],
     dict[str, str],
 ] | None:
+    if target_id == PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_TARGET_ID:
+        return (
+            PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_BASE_RAW_SHA256_BY_PATH,
+            PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_TARGET_RAW_SHA256_BY_PATH,
+            PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_MODE_BY_PATH,
+            PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_OBJECT_TYPE_BY_PATH,
+        )
     if target_id == PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_ID:
         return (
             PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_BASE_RAW_SHA256_BY_PATH,
@@ -3514,6 +3666,8 @@ def daily_runtime_integration_regressions_identity_contract(
 def daily_authority_containment_change_status_contract(
     target_id: str,
 ) -> dict[str, str]:
+    if target_id == PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_TARGET_ID:
+        return PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_CHANGE_STATUS_BY_PATH
     if target_id == PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_ID:
         return PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_CHANGE_STATUS_BY_PATH
     return {}
@@ -3978,6 +4132,7 @@ def validate_pr_safe_control_plane_delta(
             if expected[field] != expected_sha:
                 errors.append(f"revenue forward-holdout target pinned {field} mismatch")
     elif migration_id in {
+        PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_TARGET_ID,
         PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_ID,
         PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V4_TARGET_ID,
         PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V3_TARGET_ID,
@@ -4294,6 +4449,7 @@ def validate_pr_safe_control_plane_migration(
                         PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_PATHS,
                         PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_PATHS,
                         PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_PATHS,
+                        PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_PATHS,
                     )
                 )
             )
