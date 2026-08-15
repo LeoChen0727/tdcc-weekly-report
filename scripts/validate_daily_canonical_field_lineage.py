@@ -715,6 +715,110 @@ def _validate_append_only_base(root: Path, base_ref: str) -> list[str]:
     return []
 
 
+def _validate_explicit_trusted_ref_boundary(
+    root: Path,
+    base_ref: str | None,
+    trusted_ref: str,
+) -> tuple[str | None, list[str]]:
+    """Bind post-commit lineage replay to one clean direct-child HEAD commit."""
+
+    if base_ref is None or not base_ref.strip():
+        return None, ["explicit trusted ref requires a nonblank base ref"]
+    if not trusted_ref.strip():
+        return None, ["explicit trusted ref is blank"]
+
+    resolved: dict[str, str] = {}
+    errors: list[str] = []
+    for label, ref in (("base", base_ref), ("trusted", trusted_ref), ("HEAD", "HEAD")):
+        result, run_errors = _run_git(
+            root,
+            ["rev-parse", "--verify", f"{ref}^{{commit}}"],
+            operation=f"resolve {label} lineage ref {ref!r}",
+        )
+        errors.extend(run_errors)
+        if run_errors:
+            continue
+        assert result is not None
+        value = result.stdout.decode("ascii", errors="replace").strip().lower()
+        if result.returncode != 0 or re.fullmatch(r"[0-9a-f]{40}", value) is None:
+            detail = result.stderr.decode("utf-8", errors="replace").strip()
+            errors.append(
+                f"cannot resolve {label} lineage ref {ref!r}"
+                + (f": {detail}" if detail else "")
+            )
+            continue
+        resolved[label] = value
+    if errors:
+        return None, errors
+
+    resolved_base = resolved["base"]
+    resolved_trusted = resolved["trusted"]
+    if resolved_trusted != resolved["HEAD"]:
+        errors.append(
+            "explicit trusted ref must resolve to the current HEAD commit: "
+            f"trusted={resolved_trusted} head={resolved['HEAD']}"
+        )
+
+    parents_result, run_errors = _run_git(
+        root,
+        ["rev-list", "--parents", "-n", "1", resolved_trusted],
+        operation=f"inspect trusted lineage ref parents {resolved_trusted}",
+    )
+    errors.extend(run_errors)
+    if not run_errors:
+        assert parents_result is not None
+        tokens = (
+            parents_result.stdout.decode("ascii", errors="replace")
+            .strip()
+            .lower()
+            .split()
+        )
+        parents = tokens[1:] if tokens and tokens[0] == resolved_trusted else []
+        if parents != [resolved_base]:
+            errors.append(
+                "explicit trusted ref must be one direct single-parent child of base: "
+                f"base={resolved_base} trusted={resolved_trusted} parents={parents!r}"
+            )
+
+    count_result, run_errors = _run_git(
+        root,
+        ["rev-list", "--count", f"{resolved_base}..{resolved_trusted}"],
+        operation=(
+            "count committed lineage revisions between base and explicit trusted ref"
+        ),
+    )
+    errors.extend(run_errors)
+    if not run_errors:
+        assert count_result is not None
+        count_text = count_result.stdout.decode("ascii", errors="replace").strip()
+        if count_result.returncode != 0 or count_text != "1":
+            errors.append(
+                "explicit trusted ref requires exactly one committed revision "
+                f"in base..trusted: count={count_text or 'unavailable'}"
+            )
+
+    status_result, run_errors = _run_git(
+        root,
+        ["status", "--porcelain=v1", "--untracked-files=all"],
+        operation="verify explicit trusted ref worktree and index are clean",
+    )
+    errors.extend(run_errors)
+    if not run_errors:
+        assert status_result is not None
+        if status_result.returncode != 0:
+            detail = status_result.stderr.decode("utf-8", errors="replace").strip()
+            errors.append(
+                "cannot verify explicit trusted ref worktree and index cleanliness"
+                + (f": {detail}" if detail else "")
+            )
+        elif status_result.stdout:
+            errors.append(
+                "explicit trusted ref forbids staged, unstaged, or untracked residue"
+            )
+
+    return (resolved_trusted if not errors else None), errors
+
+
 def _validate_migration_ledger_append_only(
     root: Path,
     base_ref: str,
@@ -2836,9 +2940,80 @@ def _validate_current_presentation_descriptor_sources(
     descriptor: dict[str, object],
     label: str,
     row_number: int,
+    *,
+    trusted_ref: str = "HEAD",
+    consumer_revision: str | None = None,
+    committed_refresh_mode: bool = False,
 ) -> list[str]:
     errors: list[str] = []
     stock_id = _normalize_stock_id(row.get("stock_id"))
+
+    def resolve_pinned_source(
+        artifact: str,
+        expected_sha256: str,
+        source_label: str,
+    ) -> tuple[list[str], list[dict[str, str]]] | None:
+        try:
+            payload, source_revision = _resolve_pinned_canonical_source_revision(
+                root,
+                artifact,
+                expected_sha256,
+                trusted_ref=trusted_ref,
+                allow_live=False,
+            )
+            columns, rows = _read_csv_payload(payload)
+        except (RuntimeError, UnicodeError) as exc:
+            errors.append(
+                f"unable to resolve formal presentation {source_label} source: "
+                f"artifact={label} row={row_number} error={exc}"
+            )
+            return None
+
+        if consumer_revision is not None:
+            if source_revision == LIVE_SOURCE_REVISION:
+                errors.append(
+                    f"formal presentation {source_label} source is live while its "
+                    "consumer is committed: "
+                    f"artifact={label} row={row_number} "
+                    f"consumer_revision={consumer_revision}"
+                )
+            elif not _source_precedes_consumer(
+                root,
+                source_revision,
+                consumer_revision,
+            ):
+                errors.append(
+                    f"formal presentation {source_label} source revision is later "
+                    "than its committed consumer revision: "
+                    f"artifact={label} row={row_number} "
+                    f"source_revision={source_revision} "
+                    f"consumer_revision={consumer_revision}"
+                )
+        return columns, rows
+
+    def resolve_current_source(
+        artifact: str,
+        expected_sha256: str,
+        source_label: str,
+    ) -> tuple[list[str], list[dict[str, str]]] | None:
+        path = root / artifact
+        try:
+            payload = _artifact_payload(path, root)
+            actual_artifact_sha = _canonical_text_sha256(payload)
+            columns, rows = _read_csv_payload(payload)
+        except (FileNotFoundError, OSError, UnicodeError) as exc:
+            errors.append(
+                f"unable to read formal presentation {source_label} source: "
+                f"artifact={label} row={row_number} error={exc}"
+            )
+            return None
+        if actual_artifact_sha != expected_sha256:
+            errors.append(
+                f"formal presentation {source_label} artifact SHA-256 mismatch: "
+                f"artifact={label} row={row_number} "
+                f"expected={expected_sha256!r} actual={actual_artifact_sha!r}"
+            )
+        return columns, rows
 
     watch = descriptor.get("watch")
     if isinstance(watch, dict):
@@ -2849,25 +3024,22 @@ def _validate_current_presentation_descriptor_sources(
                 f"artifact={label} row={row_number} value={artifact!r}"
             )
         else:
-            path = root / artifact
-            try:
-                payload = _artifact_payload(path, root)
-                actual_artifact_sha = _canonical_text_sha256(payload)
-                columns, rows = _read_artifact(path, root)
-            except (FileNotFoundError, OSError, UnicodeError) as exc:
-                errors.append(
-                    "unable to read formal presentation watch source: "
-                    f"artifact={label} row={row_number} error={exc}"
+            expected_artifact_sha = _text(watch.get("artifact_sha256"))
+            resolved_watch = (
+                resolve_pinned_source(
+                    artifact,
+                    expected_artifact_sha,
+                    "watch",
                 )
-            else:
-                expected_artifact_sha = _text(watch.get("artifact_sha256"))
-                if actual_artifact_sha != expected_artifact_sha:
-                    errors.append(
-                        "formal presentation watch artifact SHA-256 mismatch: "
-                        f"artifact={label} row={row_number} "
-                        f"expected={expected_artifact_sha!r} "
-                        f"actual={actual_artifact_sha!r}"
-                    )
+                if committed_refresh_mode
+                else resolve_current_source(
+                    artifact,
+                    expected_artifact_sha,
+                    "watch",
+                )
+            )
+            if resolved_watch is not None:
+                columns, rows = resolved_watch
                 record_number = watch.get("record_number")
                 if not isinstance(record_number, int) or record_number < 2:
                     errors.append(
@@ -2912,6 +3084,7 @@ def _validate_current_presentation_descriptor_sources(
                 f"artifact={label} row={row_number} value={artifact!r}"
             )
         else:
+            expected_artifact_sha = _text(taxonomy.get("artifact_sha256"))
             path = root / artifact
             try:
                 payload = _artifact_payload(path, root)
@@ -2923,7 +3096,6 @@ def _validate_current_presentation_descriptor_sources(
                     f"artifact={label} row={row_number} error={exc}"
                 )
             else:
-                expected_artifact_sha = _text(taxonomy.get("artifact_sha256"))
                 if actual_artifact_sha != expected_artifact_sha:
                     errors.append(
                         "formal presentation taxonomy artifact SHA-256 mismatch: "
@@ -2931,6 +3103,40 @@ def _validate_current_presentation_descriptor_sources(
                         f"expected={expected_artifact_sha!r} "
                         f"actual={actual_artifact_sha!r}"
                     )
+                if committed_refresh_mode and consumer_revision is not None:
+                    try:
+                        taxonomy_revision = _committed_artifact_revision(
+                            root,
+                            artifact,
+                            payload,
+                            trusted_ref=trusted_ref,
+                        )
+                    except RuntimeError as exc:
+                        errors.append(
+                            "formal presentation taxonomy revision cannot be "
+                            f"identified: artifact={label} row={row_number} "
+                            f"error={exc}"
+                        )
+                        taxonomy_revision = None
+                    if taxonomy_revision is None:
+                        errors.append(
+                            "formal presentation taxonomy source is not committed "
+                            "while its consumer is committed: "
+                            f"artifact={label} row={row_number} "
+                            f"consumer_revision={consumer_revision}"
+                        )
+                    elif not _source_precedes_consumer(
+                        root,
+                        taxonomy_revision,
+                        consumer_revision,
+                    ):
+                        errors.append(
+                            "formal presentation taxonomy source revision is later "
+                            "than its committed consumer revision: "
+                            f"artifact={label} row={row_number} "
+                            f"source_revision={taxonomy_revision} "
+                            f"consumer_revision={consumer_revision}"
+                        )
                 matches = [
                     source_row
                     for source_row in rows
@@ -2962,6 +3168,9 @@ def _validate_formal_projection_hashes(
     *,
     root: Path | None = None,
     validate_current_sources: bool = False,
+    trusted_ref: str = "HEAD",
+    consumer_revision: str | None = None,
+    committed_refresh_mode: bool = False,
 ) -> list[str]:
     errors: list[str] = []
     source_ids_text = _text(row.get("candidate_source_row_ids"))
@@ -3205,12 +3414,20 @@ def _validate_formal_projection_hashes(
                 descriptor,
                 label,
                 row_number,
+                trusted_ref=trusted_ref,
+                consumer_revision=consumer_revision,
+                committed_refresh_mode=committed_refresh_mode,
             )
         )
     return errors
 
 
-def _validate_formal_resolution_lineage(root: Path) -> list[str]:
+def _validate_formal_resolution_lineage(
+    root: Path,
+    *,
+    trusted_ref: str = "HEAD",
+    committed_refresh_mode: bool = False,
+) -> list[str]:
     errors: list[str] = []
     artifacts = {
         "raw": root / "output/latest/daily_candidate_model_signals_latest.csv",
@@ -3251,6 +3468,26 @@ def _validate_formal_resolution_lineage(root: Path) -> list[str]:
             errors.append(f"unable to read formal resolution artifact {label}: {exc}")
             indexed[label] = {}
             continue
+        consumer_revision: str | None = None
+        if committed_refresh_mode:
+            try:
+                consumer_payload = _artifact_payload(path, root)
+                consumer_revision = _committed_artifact_revision(
+                    root,
+                    path.relative_to(root).as_posix(),
+                    consumer_payload,
+                    trusted_ref=trusted_ref,
+                )
+            except (FileNotFoundError, OSError, RuntimeError, UnicodeError) as exc:
+                errors.append(
+                    "committed-refresh formal resolution consumer revision cannot "
+                    f"be identified: artifact={label} error={exc}"
+                )
+            if consumer_revision is None:
+                errors.append(
+                    "committed-refresh formal resolution consumer must match a "
+                    f"committed payload: artifact={label} trusted_ref={trusted_ref}"
+                )
         effective_rows = [
             row
             for row in rows
@@ -3299,6 +3536,9 @@ def _validate_formal_resolution_lineage(root: Path) -> list[str]:
                     row_number,
                     root=root,
                     validate_current_sources=True,
+                    trusted_ref=trusted_ref,
+                    consumer_revision=consumer_revision,
+                    committed_refresh_mode=committed_refresh_mode,
                 )
             )
 
@@ -4231,9 +4471,28 @@ def _validate_historical_projection(root: Path) -> list[str]:
     return errors
 
 
-def validate(root: Path = ROOT, *, base_ref: str | None = None) -> list[str]:
+def validate(
+    root: Path = ROOT,
+    *,
+    base_ref: str | None = None,
+    trusted_ref: str | None = None,
+) -> list[str]:
     root = root.resolve()
     errors: list[str] = []
+    projection_trusted_ref = base_ref or "HEAD"
+    if trusted_ref is not None:
+        resolved_trusted_ref, boundary_errors = (
+            _validate_explicit_trusted_ref_boundary(
+                root,
+                base_ref,
+                trusted_ref,
+            )
+        )
+        errors.extend(boundary_errors)
+        if boundary_errors:
+            return errors
+        assert resolved_trusted_ref is not None
+        projection_trusted_ref = resolved_trusted_ref
     if base_ref is not None:
         errors.extend(validate_migration_ledgers_append_only(root, base_ref))
     registry_rows = _strict_csv_rows(root / REGISTRY_PATH, REGISTRY_COLUMNS, errors)
@@ -4262,7 +4521,13 @@ def validate(root: Path = ROOT, *, base_ref: str | None = None) -> list[str]:
         errors.extend(_validate_registry(root, registry_rows))
         errors.extend(_validate_artifact_headers(root, registry_rows))
         errors.extend(_validate_all_candidates_source_identity(root))
-        errors.extend(_validate_formal_resolution_lineage(root))
+        errors.extend(
+            _validate_formal_resolution_lineage(
+                root,
+                trusted_ref=projection_trusted_ref,
+                committed_refresh_mode=trusted_ref is not None,
+            )
+        )
     if registry_rows:
         errors.extend(
             _validate_reverse_current_consumers(
@@ -4290,7 +4555,7 @@ def validate(root: Path = ROOT, *, base_ref: str | None = None) -> list[str]:
     errors.extend(
         _validate_current_projection(
             root,
-            trusted_ref=base_ref or "HEAD",
+            trusted_ref=projection_trusted_ref,
         )
     )
     errors.extend(_validate_historical_projection(root))
@@ -4315,8 +4580,22 @@ def main() -> int:
             "exact append-only prefix"
         ),
     )
+    parser.add_argument(
+        "--trusted-ref",
+        default=None,
+        help=(
+            "Exact clean current HEAD commit used as the upper Git-history trust "
+            "bound for post-commit pinned-source replay. It requires --base-ref, "
+            "must be one direct child of that base, and cannot include worktree, "
+            "index, or untracked residue."
+        ),
+    )
     args = parser.parse_args()
-    errors = validate(args.repo_root, base_ref=args.base_ref)
+    errors = validate(
+        args.repo_root,
+        base_ref=args.base_ref,
+        trusted_ref=args.trusted_ref,
+    )
     if errors:
         for error in errors:
             print(f"ERROR: {error}")
