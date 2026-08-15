@@ -12,6 +12,20 @@ from scripts import validate_repo_production_inventory as inventory
 
 
 ROOT = Path(__file__).resolve().parents[1]
+VOLUME_V2_ADVISORY_LINEAGE_REFRESH_WORKFLOW = (
+    ".github/workflows/volume_v2_advisory_lineage_refresh.yml"
+)
+BASELINE_ARTIFACT_WRITER_COUNT = 14
+
+
+def assert_transition_safe_artifact_writer_count(
+    writer_count: int,
+    workflow_paths: set[str],
+) -> None:
+    expected_count = BASELINE_ARTIFACT_WRITER_COUNT + int(
+        VOLUME_V2_ADVISORY_LINEAGE_REFRESH_WORKFLOW in workflow_paths
+    )
+    assert writer_count == expected_count
 
 
 def pr_safe_authorization_payload(
@@ -4698,8 +4712,20 @@ def test_all_inventory_artifact_writers_use_the_deploy_key() -> None:
 
     inventory.validate_production_artifact_writer_auth(rows, workflow_paths, errors)
 
-    assert len(writer_rows) == 14
+    assert_transition_safe_artifact_writer_count(len(writer_rows), workflow_paths)
     assert errors == []
+
+
+def test_artifact_writer_count_transition_accepts_only_the_target_workflow() -> None:
+    target = VOLUME_V2_ADVISORY_LINEAGE_REFRESH_WORKFLOW
+    rogue = ".github/workflows/rogue_artifact_writer.yml"
+
+    assert_transition_safe_artifact_writer_count(14, set())
+    assert_transition_safe_artifact_writer_count(15, {target})
+    with pytest.raises(AssertionError):
+        assert_transition_safe_artifact_writer_count(15, {rogue})
+    with pytest.raises(AssertionError):
+        assert_transition_safe_artifact_writer_count(16, {target, rogue})
 
 
 def test_reusable_writer_may_declare_the_required_deploy_key() -> None:
