@@ -3092,8 +3092,12 @@ def test_volume_v2_postcommit_lineage_profile_matches_frozen_git_objects(
     assert profile[:4] == (
         target_id,
         base_ref,
-        "scripts/validate_daily_canonical_field_lineage.py",
-        "tests/test_daily_canonical_field_lineage.py",
+        inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_HELPER,
+        inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_TEST,
+    )
+    assert (
+        inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_HELPER
+        not in Path(__file__).read_text(encoding="utf-8")
     )
     assert len(paths) == 16
     assert set(base_hashes) == set(paths)
