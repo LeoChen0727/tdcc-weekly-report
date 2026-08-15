@@ -31,6 +31,7 @@ PRODUCTION_ARTIFACT_WRITER_WORKFLOWS = (
     ".github/workflows/research_backtest_pipeline.yml",
     ".github/workflows/tdcc_history_backfill.yml",
     ".github/workflows/tdcc_weekly.yml",
+    ".github/workflows/volume_v2_advisory_lineage_refresh.yml",
     ".github/workflows/warrant_flow.yml",
 )
 
@@ -105,6 +106,13 @@ def test_scope_covers_every_registered_production_artifact_writer() -> None:
         scope.is_affected_path(path)
         for path in PRODUCTION_ARTIFACT_WRITER_WORKFLOWS
     )
+
+
+def test_volume_v2_advisory_lineage_refresh_writer_is_affected() -> None:
+    workflow_path = ".github/workflows/volume_v2_advisory_lineage_refresh.yml"
+
+    assert workflow_path in scope.AFFECTED_EXACT_PATHS
+    assert scope.matched_affected_paths([workflow_path]) == [workflow_path]
 
 
 def test_individual_stock_history_root_is_affected() -> None:

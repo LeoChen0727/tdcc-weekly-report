@@ -23,6 +23,7 @@ AFFECTED_EXACT_PATHS = frozenset(
         ".github/workflows/research_backtest_pipeline.yml",
         ".github/workflows/tdcc_history_backfill.yml",
         ".github/workflows/tdcc_weekly.yml",
+        ".github/workflows/volume_v2_advisory_lineage_refresh.yml",
         ".github/workflows/warrant_flow.yml",
         "config/repo_file_lifecycle_inventory.csv",
         "config/repo_production_inventory.csv",
