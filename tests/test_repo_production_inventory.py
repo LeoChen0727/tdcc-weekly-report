@@ -2581,27 +2581,69 @@ def test_volume_v2_advisory_lineage_refresh_owner_and_commands_are_exact() -> No
         "daily_production",
         "repo_infrastructure",
     }
-    assert inventory.REQUIRED_WORKFLOW_COMMANDS[workflow_path] == (
-        "python scripts/validate_repo_production_inventory.py",
-        "python -B scripts/validate_repo_file_lifecycle_inventory.py",
-        "python -B scripts/validate_daily_production_boundaries.py",
-        "python -B scripts/validate_model_data_independence.py",
-        "python -B scripts/validate_repo_code_isolation_policy.py",
-        "python -B scripts/run_volume_v2_advisory_lineage_refresh.py",
-        "python -B scripts/validate_volume_breakout_watch.py --latest-only",
-        "python -B scripts/validate_volume_attack_theme_layer.py",
-        "python -B scripts/validate_daily_canonical_field_lineage.py",
-        "python -B scripts/validate_daily_warrant_formal_sync_scope.py",
-        "python -B scripts/validate_volume_v2_advisory_lineage_refresh.py",
-    )
+    registered_commands = inventory.REQUIRED_WORKFLOW_COMMANDS[workflow_path]
     target_workflow = inventory.git_blob_at_ref(
         inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_FROZEN_TARGET_REF_SHA,
         workflow_path,
     )
     assert target_workflow is not None
     target_text = target_workflow.decode("utf-8")
-    for command in inventory.REQUIRED_WORKFLOW_COMMANDS[workflow_path]:
-        assert command in target_text
+    registered_targets = inventory.required_workflow_python_targets(
+        "\n".join(registered_commands)
+    )
+    frozen_workflow_targets = inventory.required_workflow_python_targets(target_text)
+    assert len(registered_commands) == 11
+    assert len(registered_targets) == 11
+    assert registered_targets == frozen_workflow_targets
+    commands_payload = "\n".join(registered_commands).encode("utf-8")
+    expected_commands_sha = (
+        "c3ba23f1c50069b1a93e50c6f30b06df271ed250ff1e4b1f581a4684250b749f"
+    )
+    assert inventory.canonical_blob_sha256(commands_payload) == expected_commands_sha
+    weakened_commands = tuple(
+        command.removesuffix(" --latest-only")
+        if command.endswith(" --latest-only")
+        else command
+        for command in registered_commands
+    )
+    assert weakened_commands != registered_commands
+    weakened_commands_payload = "\n".join(weakened_commands).encode("utf-8")
+    assert inventory.canonical_blob_sha256(
+        weakened_commands_payload
+    ) != expected_commands_sha
+    errors: list[str] = []
+    inventory.validate_required_workflow_commands(
+        workflow_path,
+        target_text,
+        registered_commands,
+        errors,
+    )
+    assert errors == []
+
+
+def test_required_workflow_command_validation_rejects_missing_command() -> None:
+    workflow_path = ".github/workflows/fixture_required_commands.yml"
+    fixture_commands = (
+        "python fixtures/required_gate_fixture.py",
+        "python fixtures/second_required_gate_fixture.py --required-mode",
+    )
+    expected_error = f"{workflow_path} must run {fixture_commands[1]}"
+    for workflow_text in (
+        f"{fixture_commands[0]}\n",
+        (
+            f"{fixture_commands[0]}\n"
+            "python fixtures/second_required_gate_fixture.py "
+            "--required-mode-extra\n"
+        ),
+    ):
+        errors: list[str] = []
+        inventory.validate_required_workflow_commands(
+            workflow_path,
+            workflow_text,
+            fixture_commands,
+            errors,
+        )
+        assert errors == [expected_error]
 
 
 def test_volume_v2_advisory_lineage_refresh_profile_matches_frozen_git_objects(

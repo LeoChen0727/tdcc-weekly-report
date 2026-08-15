@@ -1560,6 +1560,10 @@ REQUIRED_WORKFLOW_COMMANDS = {
 }
 
 PYTHON_INVOKE_RE = re.compile(r"\bpython(?:3)?\s+([A-Za-z0-9_./\\-]+\.py)")
+REQUIRED_WORKFLOW_PYTHON_TARGET_RE = re.compile(
+    r"\bpython(?:3)?\s+(?:-[A-Za-z]+\s+)*"
+    r"([A-Za-z0-9_./\\-]+\.py)"
+)
 SHELL_INVOKE_RE = re.compile(r"\b(?:bash|sh)\s+([A-Za-z0-9_./\\-]+\.sh)")
 
 EXECUTABLE_SCRIPT_SUFFIXES = {
@@ -2525,14 +2529,44 @@ def validate_workflow_invocations(rows_by_path: dict[str, InventoryRow], workflo
                 )
 
 
+def required_workflow_python_targets(text: str) -> frozenset[str]:
+    return frozenset(
+        match.group(1).replace("\\", "/").removeprefix("./")
+        for match in REQUIRED_WORKFLOW_PYTHON_TARGET_RE.finditer(text)
+    )
+
+
+def workflow_contains_required_command(
+    workflow_text: str,
+    command: str,
+) -> bool:
+    return re.search(
+        rf"(?m)^[ \t]*{re.escape(command)}(?=$|[ \t\r\\])",
+        workflow_text,
+    ) is not None
+
+
+def validate_required_workflow_commands(
+    workflow_path: str,
+    workflow_text: str,
+    command_list: tuple[str, ...],
+    errors: list[str],
+) -> None:
+    for command in command_list:
+        if not workflow_contains_required_command(workflow_text, command):
+            errors.append(f"{workflow_path} must run {command}")
+
+
 def validate_workflow_snippets(errors: list[str]) -> None:
     for workflow_path, command_list in REQUIRED_WORKFLOW_COMMANDS.items():
         if not (ROOT / workflow_path).exists():
             continue
-        text = read_text(workflow_path)
-        for command in command_list:
-            if command not in text:
-                errors.append(f"{workflow_path} must run {command}")
+        validate_required_workflow_commands(
+            workflow_path,
+            read_text(workflow_path),
+            command_list,
+            errors,
+        )
 
     for workflow_path, grouped_snippets in FORBIDDEN_WORKFLOW_SNIPPETS.items():
         if not (ROOT / workflow_path).exists():
