@@ -2043,7 +2043,7 @@ def test_input_bound_validator_stage_a_preauthorizations_are_exact() -> None:
     payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
     rows, errors = inventory.parse_pr_safe_authorizations(payload)
     assert errors == []
-    assert [row["migration_id"] for row in rows[-15:]] == [
+    assert [row["migration_id"] for row in rows[-16:]] == [
         inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_MIGRATION_ID,
         inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_STAGE_A_MIGRATION_ID,
         inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_ID,
@@ -2059,6 +2059,7 @@ def test_input_bound_validator_stage_a_preauthorizations_are_exact() -> None:
         inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_TARGET_ID,
         inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V3_TARGET_ID,
         inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V4_TARGET_ID,
+        inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_ID,
     ]
     rows_by_id = {row["migration_id"]: row for row in rows}
     assert rows_by_id[
@@ -2155,6 +2156,34 @@ def test_input_bound_validator_stage_a_preauthorizations_are_exact() -> None:
         ),
         "changed_paths": ";".join(
             sorted(inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V4_PATHS)
+        ),
+    }
+    assert rows_by_id[
+        inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_ID
+    ] == {
+        "migration_id": inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_ID,
+        "status": "preauthorized",
+        "approval_reference": (
+            "current_user_explicit_volume_v2_advisory_lineage_refresh_1a_"
+            "preauthorization_20260815"
+        ),
+        "base_helper_sha256": (
+            inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_BASE_SHA256_BY_PATH[
+                inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_HELPER
+            ]
+        ),
+        "current_helper_sha256": (
+            inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_SHA256_BY_PATH[
+                inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_HELPER
+            ]
+        ),
+        "current_test_sha256": (
+            inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_SHA256_BY_PATH[
+                inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TEST
+            ]
+        ),
+        "changed_paths": ";".join(
+            sorted(inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_PATHS)
         ),
     }
     assert rows_by_id[inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_MIGRATION_ID] == {
@@ -2531,13 +2560,476 @@ def test_daily_recovery_architecture_v4_profile_is_exact() -> None:
 def test_daily_runtime_integration_authorization_is_append_only() -> None:
     payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
     lines = payload.splitlines(keepends=True)
-    assert len(lines) >= 2
-    assert inventory.canonical_blob_sha256(b"".join(lines[:-1])) == (
+    assert len(lines) >= 3
+    assert inventory.canonical_blob_sha256(b"".join(lines[:-2])) == (
         "973a917eec1cd82d1b7f116793197676987ee7b04ddaeb528107645f28e73e15"
     )
-    assert lines[-1].startswith(
+    assert lines[-2].startswith(
         b"daily-runtime-integration-regressions-exact-target-v4,"
     )
+    assert inventory.canonical_blob_sha256(b"".join(lines[:-1])) == (
+        "0336f7d65b5f16efaef68126756d6f547f7885e7497d69d5a578602bcdedfd74"
+    )
+    assert lines[-1].startswith(
+        b"volume-v2-advisory-lineage-refresh-exact-target-v1,"
+    )
+
+
+def test_volume_v2_advisory_lineage_refresh_owner_and_commands_are_exact() -> None:
+    workflow_path = ".github/workflows/volume_v2_advisory_lineage_refresh.yml"
+    assert inventory.WORKFLOW_ALLOWED_OWNERS[workflow_path] == {
+        "daily_production",
+        "repo_infrastructure",
+    }
+    registered_commands = inventory.REQUIRED_WORKFLOW_COMMANDS[workflow_path]
+    target_workflow = inventory.git_blob_at_ref(
+        inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_FROZEN_TARGET_REF_SHA,
+        workflow_path,
+    )
+    assert target_workflow is not None
+    target_text = target_workflow.decode("utf-8")
+    registered_targets = inventory.required_workflow_python_targets(
+        "\n".join(registered_commands)
+    )
+    frozen_workflow_targets = inventory.required_workflow_python_targets(target_text)
+    assert len(registered_commands) == 11
+    assert len(registered_targets) == 11
+    assert registered_targets == frozen_workflow_targets
+    commands_payload = "\n".join(registered_commands).encode("utf-8")
+    expected_commands_sha = (
+        "c3ba23f1c50069b1a93e50c6f30b06df271ed250ff1e4b1f581a4684250b749f"
+    )
+    assert inventory.canonical_blob_sha256(commands_payload) == expected_commands_sha
+    weakened_commands = tuple(
+        command.removesuffix(" --latest-only")
+        if command.endswith(" --latest-only")
+        else command
+        for command in registered_commands
+    )
+    assert weakened_commands != registered_commands
+    weakened_commands_payload = "\n".join(weakened_commands).encode("utf-8")
+    assert inventory.canonical_blob_sha256(
+        weakened_commands_payload
+    ) != expected_commands_sha
+    errors: list[str] = []
+    inventory.validate_required_workflow_commands(
+        workflow_path,
+        target_text,
+        registered_commands,
+        errors,
+    )
+    assert errors == []
+
+
+def test_required_workflow_command_validation_rejects_missing_command() -> None:
+    workflow_path = ".github/workflows/fixture_required_commands.yml"
+    fixture_commands = (
+        "python fixtures/required_gate_fixture.py",
+        "python fixtures/second_required_gate_fixture.py --required-mode",
+    )
+    expected_error = f"{workflow_path} must run {fixture_commands[1]}"
+    for workflow_text in (
+        f"{fixture_commands[0]}\n",
+        (
+            f"{fixture_commands[0]}\n"
+            "python fixtures/second_required_gate_fixture.py "
+            "--required-mode-extra\n"
+        ),
+    ):
+        errors: list[str] = []
+        inventory.validate_required_workflow_commands(
+            workflow_path,
+            workflow_text,
+            fixture_commands,
+            errors,
+        )
+        assert errors == [expected_error]
+
+
+def test_volume_v2_advisory_lineage_refresh_profile_matches_frozen_git_objects(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    base_ref = inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_BASE_CONTENT_REF_SHA
+    target_ref = inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_FROZEN_TARGET_REF_SHA
+    paths = inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_PATHS
+    statuses = inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_CHANGE_STATUS_BY_PATH
+    profile = inventory.pr_safe_daily_authority_containment_target_profile(
+        set(paths),
+        target_id=inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_ID,
+    )
+
+    assert profile is not None
+    assert profile[:4] == (
+        inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_ID,
+        base_ref,
+        "config/repo_production_inventory.csv",
+        "tests/test_volume_v2_advisory_lineage_refresh_workflow.py",
+    )
+    assert len(paths) == 8
+    assert set(statuses) == set(paths)
+    assert list(statuses.values()).count("A") == 6
+    assert list(statuses.values()).count("M") == 2
+    assert inventory._pr_safe_repo_ref_is_ancestor(ROOT, base_ref, target_ref)
+    assert inventory._pr_safe_repo_exact_change_statuses(
+        ROOT,
+        base_ref,
+        target_ref,
+        statuses,
+    )
+
+    for path in sorted(paths):
+        base_blob = inventory.git_blob_at_ref(base_ref, path)
+        target_blob = inventory.git_blob_at_ref(target_ref, path)
+        expected_base = (
+            inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_BASE_SHA256_BY_PATH[
+                path
+            ]
+        )
+        assert target_blob is not None
+        if expected_base is None:
+            assert base_blob is None
+            assert inventory._pr_safe_repo_blob_mode(ROOT, base_ref, path) is None
+        else:
+            assert base_blob is not None
+            assert inventory.canonical_blob_sha256(base_blob) == expected_base
+            assert inventory.hashlib.sha256(base_blob).hexdigest() == (
+                inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_BASE_RAW_SHA256_BY_PATH[
+                    path
+                ]
+            )
+        assert inventory.canonical_blob_sha256(target_blob) == (
+            inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_SHA256_BY_PATH[
+                path
+            ]
+        )
+        assert inventory.hashlib.sha256(target_blob).hexdigest() == (
+            inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_RAW_SHA256_BY_PATH[
+                path
+            ]
+        )
+        tree = subprocess.run(
+            ["git", "ls-tree", target_ref, "--", path],
+            cwd=ROOT,
+            check=True,
+            text=True,
+            encoding="utf-8",
+            stdout=subprocess.PIPE,
+        ).stdout.rstrip("\n")
+        metadata, observed_path = tree.split("\t", 1)
+        mode, object_type, _object_sha = metadata.split()
+        assert observed_path == path
+        assert mode == inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_MODE_BY_PATH[path]
+        assert object_type == (
+            inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_OBJECT_TYPE_BY_PATH[path]
+        )
+
+    kwargs = {
+        "base_ref": base_ref,
+        "changed_paths": set(paths),
+        "repository_root": ROOT,
+        "head_ref": target_ref,
+        "target_id": inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_ID,
+    }
+    assert inventory.is_preauthorized_daily_authority_containment_target(**kwargs)
+    assert not inventory.is_preauthorized_daily_authority_containment_target(
+        **{**kwargs, "changed_paths": {*paths, "scripts/unregistered.py"}}
+    )
+    assert not inventory.is_preauthorized_daily_authority_containment_target(
+        **{**kwargs, "changed_paths": set(paths) - {next(iter(paths))}}
+    )
+    assert not inventory.is_preauthorized_daily_authority_containment_target(
+        **{**kwargs, "base_ref": "0" * 40}
+    )
+
+    helper = inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_HELPER
+    expected_target_sha = (
+        inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_SHA256_BY_PATH[
+            helper
+        ]
+    )
+    monkeypatch.setitem(
+        inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_SHA256_BY_PATH,
+        helper,
+        "0" * 64,
+    )
+    assert not inventory.is_preauthorized_daily_authority_containment_target(**kwargs)
+    monkeypatch.setitem(
+        inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_SHA256_BY_PATH,
+        helper,
+        expected_target_sha,
+    )
+
+    expected_raw_sha = (
+        inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_RAW_SHA256_BY_PATH[
+            helper
+        ]
+    )
+    monkeypatch.setitem(
+        inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_RAW_SHA256_BY_PATH,
+        helper,
+        "0" * 64,
+    )
+    assert not inventory.is_preauthorized_daily_authority_containment_target(**kwargs)
+    monkeypatch.setitem(
+        inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_RAW_SHA256_BY_PATH,
+        helper,
+        expected_raw_sha,
+    )
+
+    monkeypatch.setitem(
+        inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_MODE_BY_PATH,
+        helper,
+        "100755",
+    )
+    assert not inventory.is_preauthorized_daily_authority_containment_target(**kwargs)
+    monkeypatch.setitem(
+        inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_MODE_BY_PATH,
+        helper,
+        "100644",
+    )
+    monkeypatch.setitem(
+        inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_OBJECT_TYPE_BY_PATH,
+        helper,
+        "commit",
+    )
+    assert not inventory.is_preauthorized_daily_authority_containment_target(**kwargs)
+    monkeypatch.setitem(
+        inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_OBJECT_TYPE_BY_PATH,
+        helper,
+        "blob",
+    )
+    monkeypatch.setitem(
+        inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_CHANGE_STATUS_BY_PATH,
+        helper,
+        "A",
+    )
+    assert not inventory.is_preauthorized_daily_authority_containment_target(**kwargs)
+
+
+def test_volume_v2_advisory_lineage_refresh_accepts_post_preauth_merge_ref(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    frozen_base = inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_BASE_CONTENT_REF_SHA
+    frozen_target = inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_FROZEN_TARGET_REF_SHA
+    future_base_ref = "1" * 40
+    future_merge_ref = "2" * 40
+    paths = inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_PATHS
+    base_blobs = {
+        path: inventory.git_blob_at_ref(frozen_base, path) for path in paths
+    }
+    target_blobs = {
+        path: inventory.git_blob_at_ref(frozen_target, path) for path in paths
+    }
+    base_modes = {
+        path: inventory._pr_safe_repo_blob_mode(ROOT, frozen_base, path)
+        for path in paths
+    }
+    target_modes = {
+        path: inventory._pr_safe_repo_blob_mode(ROOT, frozen_target, path)
+        for path in paths
+    }
+
+    monkeypatch.setattr(inventory, "_pr_safe_repo_ref_is_ancestor", lambda *_: True)
+    monkeypatch.setattr(
+        inventory,
+        "_pr_safe_repo_blob",
+        lambda _root, ref, path: (
+            base_blobs[path] if ref == future_base_ref else target_blobs[path]
+        ),
+    )
+    monkeypatch.setattr(
+        inventory,
+        "_pr_safe_repo_blob_mode",
+        lambda _root, ref, path: (
+            base_modes[path] if ref == future_base_ref else target_modes[path]
+        ),
+    )
+    monkeypatch.setattr(
+        inventory,
+        "_pr_safe_repo_exact_change_statuses",
+        lambda _root, base_ref, head_ref, expected: (
+            base_ref == future_base_ref
+            and head_ref == future_merge_ref
+            and expected
+            == inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_CHANGE_STATUS_BY_PATH
+        ),
+    )
+
+    assert future_merge_ref != frozen_target
+    assert inventory.is_preauthorized_daily_authority_containment_target(
+        future_base_ref,
+        set(paths),
+        repository_root=tmp_path,
+        head_ref=future_merge_ref,
+        target_id=inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_ID,
+    )
+    monkeypatch.setattr(inventory, "_pr_safe_repo_ref_is_ancestor", lambda *_: False)
+    assert not inventory.is_preauthorized_daily_authority_containment_target(
+        future_base_ref,
+        set(paths),
+        repository_root=tmp_path,
+        head_ref=future_merge_ref,
+        target_id=inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_ID,
+    )
+
+
+def test_volume_v2_advisory_lineage_refresh_change_status_gate_is_exact(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    expected = {"added.txt": "A", "modified.txt": "M"}
+
+    def observed(payload: bytes, returncode: int = 0) -> bool:
+        monkeypatch.setattr(
+            inventory.subprocess,
+            "run",
+            lambda *args, **kwargs: subprocess.CompletedProcess(
+                args=args,
+                returncode=returncode,
+                stdout=payload,
+                stderr=b"",
+            ),
+        )
+        return inventory._pr_safe_repo_exact_change_statuses(
+            ROOT,
+            "1" * 40,
+            "2" * 40,
+            expected,
+        )
+
+    assert observed(b"A\0added.txt\0M\0modified.txt\0")
+    assert not observed(b"M\0added.txt\0M\0modified.txt\0")
+    assert not observed(b"A\0added.txt\0")
+    assert not observed(b"A\0added.txt\0M\0modified.txt\0A\0extra.txt\0")
+    assert not observed(b"A\0added.txt\0M\0added.txt\0")
+    for status in (b"D", b"T"):
+        assert not observed(status + b"\0added.txt\0M\0modified.txt\0")
+    assert not observed(b"R100\0old.txt\0added.txt\0M\0modified.txt\0")
+    assert not observed(b"C100\0old.txt\0added.txt\0M\0modified.txt\0")
+    assert not observed(b"", returncode=1)
+    assert not inventory._pr_safe_repo_exact_change_statuses(
+        ROOT,
+        "1" * 40,
+        "2" * 40,
+        {"added.txt": "D"},
+    )
+
+
+def test_volume_v2_advisory_lineage_refresh_uses_exact_base_owned_ledger() -> None:
+    base_ref = inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_BASE_CONTENT_REF_SHA
+    target_ref = inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_FROZEN_TARGET_REF_SHA
+    helper = inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_HELPER
+    direct_test = inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TEST
+    base_helper = inventory.git_blob_at_ref(base_ref, helper)
+    current_helper = inventory.git_blob_at_ref(target_ref, helper)
+    current_test = inventory.git_blob_at_ref(target_ref, direct_test)
+    authorization_payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
+
+    assert base_helper is not None
+    assert current_helper is not None
+    assert current_test is not None
+    assert inventory.validate_pr_safe_control_plane_delta(
+        set(inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_PATHS),
+        base_helper=base_helper,
+        current_helper=current_helper,
+        current_test=current_test,
+        authorization_payload=authorization_payload,
+        target_id=inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_ID,
+    ) == []
+    assert inventory.validate_pr_safe_control_plane_delta(
+        set(inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_PATHS),
+        base_helper=base_helper,
+        current_helper=current_helper + b"drift",
+        current_test=current_test,
+        authorization_payload=authorization_payload,
+        target_id=inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_ID,
+    )
+    assert inventory.validate_pr_safe_control_plane_delta(
+        set(inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_PATHS),
+        base_helper=base_helper,
+        current_helper=current_helper,
+        current_test=current_test,
+        authorization_payload=authorization_payload,
+        target_id=inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V4_TARGET_ID,
+    )
+
+
+def test_volume_v2_advisory_lineage_refresh_manifest_is_exact_and_verified(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    base_ref = inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_BASE_CONTENT_REF_SHA
+    target_ref = inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_FROZEN_TARGET_REF_SHA
+    authorization_payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
+    original_git_blob_at_ref = inventory.git_blob_at_ref
+    original_git_output_bytes = inventory.git_output_bytes
+
+    def git_output_from_base_checkout(*args: str) -> bytes:
+        if args == ("rev-parse", "HEAD"):
+            return f"{base_ref}\n".encode("ascii")
+        return original_git_output_bytes(*args)
+
+    monkeypatch.setattr(
+        inventory,
+        "git_blob_at_ref",
+        lambda ref, path: (
+            authorization_payload
+            if ref == base_ref and path == inventory.PR_SAFE_AUTHORIZATION_PATH
+            else original_git_blob_at_ref(ref, path)
+        ),
+    )
+    monkeypatch.setattr(inventory, "git_output_bytes", git_output_from_base_checkout)
+
+    assert inventory.validate_pr_safe_control_plane_migration(base_ref, target_ref) == []
+    manifest = inventory.build_pr_safe_audit_manifest(
+        base_sha=base_ref,
+        head_sha=target_ref,
+        validation_errors=[],
+        repository=inventory.PR_SAFE_REPOSITORY,
+        workflow_ref=inventory.PR_SAFE_EXPECTED_WORKFLOW_REF,
+        workflow_sha=base_ref,
+        run_id="31700000000",
+        run_attempt="1",
+        event_name="pull_request_target",
+        event_action="synchronize",
+        base_ref="main",
+        base_repository=inventory.PR_SAFE_REPOSITORY,
+        head_repository=inventory.PR_SAFE_REPOSITORY,
+        pull_request_number="547",
+    )
+
+    assert manifest["validation"] == {"passed": True, "errors": []}
+    assert manifest["manual_gate_eligible"] is True
+    assert manifest["changed_paths_match_allowlist"] is True
+    assert manifest["changed_path_allowlist"] == sorted(
+        inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_PATHS
+    )
+    exact_target = manifest["daily_authority_containment_target_preauthorization"]
+    assert exact_target == {
+        "target_id": inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_ID,
+        "base_content_ref_sha": base_ref,
+        "base_sha256_by_path": (
+            inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_BASE_SHA256_BY_PATH
+        ),
+        "target_sha256_by_path": (
+            inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_SHA256_BY_PATH
+        ),
+        "base_raw_sha256_by_path": (
+            inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_BASE_RAW_SHA256_BY_PATH
+        ),
+        "target_raw_sha256_by_path": (
+            inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_RAW_SHA256_BY_PATH
+        ),
+        "mode_by_path": (
+            inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_MODE_BY_PATH
+        ),
+        "object_type_by_path": (
+            inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_OBJECT_TYPE_BY_PATH
+        ),
+        "change_status_by_path": (
+            inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_CHANGE_STATUS_BY_PATH
+        ),
+        "verified": True,
+    }
 
 
 def test_daily_runtime_integration_profile_is_exact_and_frozen(
@@ -4150,7 +4642,18 @@ def test_inventory_covers_revenue_operation_lag_bucket_audit() -> None:
 
 def test_all_lane_workflows_run_repo_inventory_gate() -> None:
     for workflow_path in inventory.REQUIRED_WORKFLOW_COMMANDS:
-        workflow_text = (ROOT / workflow_path).read_text(encoding="utf-8")
+        if (ROOT / workflow_path).exists():
+            workflow_text = (ROOT / workflow_path).read_text(encoding="utf-8")
+        else:
+            assert workflow_path == (
+                ".github/workflows/volume_v2_advisory_lineage_refresh.yml"
+            )
+            frozen_workflow = inventory.git_blob_at_ref(
+                inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_FROZEN_TARGET_REF_SHA,
+                workflow_path,
+            )
+            assert frozen_workflow is not None
+            workflow_text = frozen_workflow.decode("utf-8")
         assert "python scripts/validate_repo_production_inventory.py" in workflow_text
 
 

@@ -843,6 +843,86 @@ PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V4_OBJECT_TYPE_BY_PATH = {
     path: "blob"
     for path in PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V4_PATHS
 }
+PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_ID = (
+    "volume-v2-advisory-lineage-refresh-exact-target-v1"
+)
+PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_BASE_CONTENT_REF_SHA = (
+    "7d47662490326fc3e76cfb2aee41608effa27638"
+)
+PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_FROZEN_TARGET_REF_SHA = (
+    "84e1285a470803c9e6d3bb4ec4dfff6920ec79b3"
+)
+PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_HELPER = (
+    "config/repo_production_inventory.csv"
+)
+PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TEST = (
+    "tests/test_volume_v2_advisory_lineage_refresh_workflow.py"
+)
+PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_BASE_SHA256_BY_PATH = {
+    ".github/workflows/volume_v2_advisory_lineage_refresh.yml": None,
+    "config/repo_file_lifecycle_inventory.csv": (
+        "22c79ea3915ebe7c66bb1b2bdd8721e501db79715111dfd2e8073ef9d9029c6b"
+    ),
+    "config/repo_production_inventory.csv": (
+        "e019a84107f263f77e0e4f7f9e014841ebdb470ad29d58fee91441d00258b17f"
+    ),
+    "docs/specs/volume_v2_advisory_lineage_refresh_v1.md": None,
+    "scripts/run_volume_v2_advisory_lineage_refresh.py": None,
+    "scripts/validate_volume_v2_advisory_lineage_refresh.py": None,
+    "tests/test_volume_v2_advisory_lineage_refresh.py": None,
+    "tests/test_volume_v2_advisory_lineage_refresh_workflow.py": None,
+}
+PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_SHA256_BY_PATH = {
+    ".github/workflows/volume_v2_advisory_lineage_refresh.yml": (
+        "33e423c73785dabefbe8472c1a5cddaf06c9062717c6f19459f8569818461132"
+    ),
+    "config/repo_file_lifecycle_inventory.csv": (
+        "7e152d13fb9affa8a72c42f3918d32ead6e64fc4352278ee73358b77eb909eb1"
+    ),
+    "config/repo_production_inventory.csv": (
+        "250e69dc3e7c57ccc64e13527161983ac123e30d8acc77851f1ffd4292e0a60a"
+    ),
+    "docs/specs/volume_v2_advisory_lineage_refresh_v1.md": (
+        "9bb5b293ab9020684653cb8eaf4d7e3e977e35aef6b3707e9e967546f2346b91"
+    ),
+    "scripts/run_volume_v2_advisory_lineage_refresh.py": (
+        "13caac4d37afe87231da1a619dec793d967a0e954bb62397490f4b76d2d97357"
+    ),
+    "scripts/validate_volume_v2_advisory_lineage_refresh.py": (
+        "32339c60d15f18327c2ab36b9c040739a595f251d704aa9ad2efef19421255ff"
+    ),
+    "tests/test_volume_v2_advisory_lineage_refresh.py": (
+        "39dc83c975ce36c1002e5351b966c4454da6856f443b992ee3c6228bf9313755"
+    ),
+    "tests/test_volume_v2_advisory_lineage_refresh_workflow.py": (
+        "2551aabc181dfe6306f0021eff35c6eb83516be4c70373c2ea434b8ceb75cb42"
+    ),
+}
+PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_PATHS = frozenset(
+    PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_SHA256_BY_PATH
+)
+PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_BASE_RAW_SHA256_BY_PATH = {
+    **PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_BASE_SHA256_BY_PATH,
+}
+PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_RAW_SHA256_BY_PATH = {
+    **PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_SHA256_BY_PATH,
+}
+PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_MODE_BY_PATH = {
+    path: "100644" for path in PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_PATHS
+}
+PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_OBJECT_TYPE_BY_PATH = {
+    path: "blob" for path in PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_PATHS
+}
+PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_CHANGE_STATUS_BY_PATH = {
+    ".github/workflows/volume_v2_advisory_lineage_refresh.yml": "A",
+    "config/repo_file_lifecycle_inventory.csv": "M",
+    "config/repo_production_inventory.csv": "M",
+    "docs/specs/volume_v2_advisory_lineage_refresh_v1.md": "A",
+    "scripts/run_volume_v2_advisory_lineage_refresh.py": "A",
+    "scripts/validate_volume_v2_advisory_lineage_refresh.py": "A",
+    "tests/test_volume_v2_advisory_lineage_refresh.py": "A",
+    "tests/test_volume_v2_advisory_lineage_refresh_workflow.py": "A",
+}
 PR_SAFE_SNAPSHOT_MIGRATION_ID = "daily-full-checkpoint-replay-snapshot-pr-safe-v1"
 PR_SAFE_SNAPSHOT_HELPER = "scripts/validate_daily_published_model_snapshots_pr_safe.py"
 PR_SAFE_SNAPSHOT_TEST = "tests/test_daily_published_model_snapshots_pr_safe.py"
@@ -1238,6 +1318,10 @@ WORKFLOW_ALLOWED_OWNERS = {
     ".github/workflows/tdcc_weekly_pr_validation.yml": {"tdcc_weekly", "repo_infrastructure"},
     ".github/workflows/tdcc_weekly.yml": {"tdcc_weekly", "repo_infrastructure"},
     ".github/workflows/test_tdcc_trend.yml": {"tdcc_weekly", "diagnostics", "repo_infrastructure"},
+    ".github/workflows/volume_v2_advisory_lineage_refresh.yml": {
+        "daily_production",
+        "repo_infrastructure",
+    },
     ".github/workflows/warrant_flow.yml": {
         "catalyst_event",
         "daily_production",
@@ -1460,9 +1544,26 @@ REQUIRED_WORKFLOW_COMMANDS = {
         "python scripts/validate_repo_semantic_integrity.py",
         "python scripts/validate_recent_structured_source_repair_workflow.py",
     ),
+    ".github/workflows/volume_v2_advisory_lineage_refresh.yml": (
+        "python scripts/validate_repo_production_inventory.py",
+        "python -B scripts/validate_repo_file_lifecycle_inventory.py",
+        "python -B scripts/validate_daily_production_boundaries.py",
+        "python -B scripts/validate_model_data_independence.py",
+        "python -B scripts/validate_repo_code_isolation_policy.py",
+        "python -B scripts/run_volume_v2_advisory_lineage_refresh.py",
+        "python -B scripts/validate_volume_breakout_watch.py --latest-only",
+        "python -B scripts/validate_volume_attack_theme_layer.py",
+        "python -B scripts/validate_daily_canonical_field_lineage.py",
+        "python -B scripts/validate_daily_warrant_formal_sync_scope.py",
+        "python -B scripts/validate_volume_v2_advisory_lineage_refresh.py",
+    ),
 }
 
 PYTHON_INVOKE_RE = re.compile(r"\bpython(?:3)?\s+([A-Za-z0-9_./\\-]+\.py)")
+REQUIRED_WORKFLOW_PYTHON_TARGET_RE = re.compile(
+    r"\bpython(?:3)?\s+(?:-[A-Za-z]+\s+)*"
+    r"([A-Za-z0-9_./\\-]+\.py)"
+)
 SHELL_INVOKE_RE = re.compile(r"\b(?:bash|sh)\s+([A-Za-z0-9_./\\-]+\.sh)")
 
 EXECUTABLE_SCRIPT_SUFFIXES = {
@@ -2428,14 +2529,44 @@ def validate_workflow_invocations(rows_by_path: dict[str, InventoryRow], workflo
                 )
 
 
+def required_workflow_python_targets(text: str) -> frozenset[str]:
+    return frozenset(
+        match.group(1).replace("\\", "/").removeprefix("./")
+        for match in REQUIRED_WORKFLOW_PYTHON_TARGET_RE.finditer(text)
+    )
+
+
+def workflow_contains_required_command(
+    workflow_text: str,
+    command: str,
+) -> bool:
+    return re.search(
+        rf"(?m)^[ \t]*{re.escape(command)}(?=$|[ \t\r\\])",
+        workflow_text,
+    ) is not None
+
+
+def validate_required_workflow_commands(
+    workflow_path: str,
+    workflow_text: str,
+    command_list: tuple[str, ...],
+    errors: list[str],
+) -> None:
+    for command in command_list:
+        if not workflow_contains_required_command(workflow_text, command):
+            errors.append(f"{workflow_path} must run {command}")
+
+
 def validate_workflow_snippets(errors: list[str]) -> None:
     for workflow_path, command_list in REQUIRED_WORKFLOW_COMMANDS.items():
         if not (ROOT / workflow_path).exists():
             continue
-        text = read_text(workflow_path)
-        for command in command_list:
-            if command not in text:
-                errors.append(f"{workflow_path} must run {command}")
+        validate_required_workflow_commands(
+            workflow_path,
+            read_text(workflow_path),
+            command_list,
+            errors,
+        )
 
     for workflow_path, grouped_snippets in FORBIDDEN_WORKFLOW_SNIPPETS.items():
         if not (ROOT / workflow_path).exists():
@@ -2710,6 +2841,15 @@ def _pr_safe_repo_blob(
     return result.stdout if result.returncode == 0 else None
 
 
+def _pr_safe_repo_raw_blob_sha256(
+    repository_root: Path,
+    ref: str,
+    path: str,
+) -> str | None:
+    payload = _pr_safe_repo_blob(repository_root, ref, path)
+    return None if payload is None else hashlib.sha256(payload).hexdigest()
+
+
 def _pr_safe_repo_blob_mode(
     repository_root: Path,
     ref: str,
@@ -2789,6 +2929,57 @@ def _pr_safe_repo_exact_modified_paths(
         len(observed_paths) == len(set(observed_paths))
         and frozenset(observed_paths) == expected_paths
     )
+
+
+def _pr_safe_repo_exact_change_statuses(
+    repository_root: Path,
+    base_ref: str,
+    head_ref: str,
+    expected_status_by_path: dict[str, str],
+) -> bool:
+    if not expected_status_by_path or any(
+        status not in {"A", "M"} for status in expected_status_by_path.values()
+    ):
+        return False
+    try:
+        result = subprocess.run(
+            [
+                "git",
+                "diff",
+                "--name-status",
+                "-z",
+                "--find-renames",
+                "--find-copies",
+                "--diff-filter=ACDMRT",
+                f"{base_ref}...{head_ref}",
+                "--",
+            ],
+            cwd=repository_root,
+            check=False,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            timeout=30,
+        )
+    except (OSError, subprocess.TimeoutExpired):
+        return False
+    if result.returncode != 0:
+        return False
+    fields = result.stdout.split(b"\0")
+    if fields and fields[-1] == b"":
+        fields.pop()
+    if len(fields) % 2 != 0:
+        return False
+    observed_status_by_path: dict[str, str] = {}
+    for index in range(0, len(fields), 2):
+        try:
+            status = fields[index].decode("ascii")
+            path = fields[index + 1].decode("utf-8").replace("\\", "/")
+        except UnicodeError:
+            return False
+        if status not in {"A", "M"} or path in observed_status_by_path:
+            return False
+        observed_status_by_path[path] = status
+    return observed_status_by_path == expected_status_by_path
 
 
 def is_preauthorized_local_validation_replay_routing_migration(
@@ -3162,6 +3353,15 @@ def pr_safe_daily_authority_containment_target_profiles(
     normalized_paths = frozenset(str(path).replace("\\", "/") for path in changed_paths)
     profiles = (
         (
+            PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_ID,
+            PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_BASE_CONTENT_REF_SHA,
+            PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_HELPER,
+            PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TEST,
+            PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_BASE_SHA256_BY_PATH,
+            PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_SHA256_BY_PATH,
+            PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_PATHS,
+        ),
+        (
             PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V4_TARGET_ID,
             PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V4_BASE_CONTENT_REF_SHA,
             PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V4_HELPER,
@@ -3268,11 +3468,18 @@ def pr_safe_daily_authority_containment_target_profile(
 def daily_runtime_integration_regressions_identity_contract(
     target_id: str,
 ) -> tuple[
-    dict[str, str] | None,
+    dict[str, str | None] | None,
     dict[str, str] | None,
     dict[str, str],
     dict[str, str],
 ] | None:
+    if target_id == PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_ID:
+        return (
+            PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_BASE_RAW_SHA256_BY_PATH,
+            PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_RAW_SHA256_BY_PATH,
+            PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_MODE_BY_PATH,
+            PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_OBJECT_TYPE_BY_PATH,
+        )
     if target_id == PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V4_TARGET_ID:
         return (
             PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V4_BASE_RAW_SHA256_BY_PATH,
@@ -3302,6 +3509,14 @@ def daily_runtime_integration_regressions_identity_contract(
             PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_OBJECT_TYPE_BY_PATH,
         )
     return None
+
+
+def daily_authority_containment_change_status_contract(
+    target_id: str,
+) -> dict[str, str]:
+    if target_id == PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_ID:
+        return PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_CHANGE_STATUS_BY_PATH
+    return {}
 
 
 def preauthorized_daily_authority_containment_target_profile(
@@ -3399,25 +3614,38 @@ def preauthorized_daily_authority_containment_target_profile(
             set(base_raw_hashes) != target_paths
             or set(target_raw_hashes or {}) != target_paths
             or any(
-                hashlib.sha256(
-                    _pr_safe_repo_blob(root, base_ref, path) or b""
-                ).hexdigest()
+                _pr_safe_repo_raw_blob_sha256(root, base_ref, path)
                 != base_raw_hashes[path]
-                or hashlib.sha256(
-                    _pr_safe_repo_blob(root, head_ref, path) or b""
-                ).hexdigest()
+                or _pr_safe_repo_raw_blob_sha256(root, head_ref, path)
                 != (target_raw_hashes or {})[path]
                 for path in target_paths
             )
         ):
             exact_profile = False
-        elif not _pr_safe_repo_exact_modified_paths(
-            root,
-            base_ref,
-            head_ref,
-            target_paths,
-        ):
-            exact_profile = False
+        else:
+            expected_change_statuses = (
+                daily_authority_containment_change_status_contract(
+                    profile_target_id
+                )
+            )
+            if expected_change_statuses:
+                if (
+                    set(expected_change_statuses) != target_paths
+                    or not _pr_safe_repo_exact_change_statuses(
+                        root,
+                        base_ref,
+                        head_ref,
+                        expected_change_statuses,
+                    )
+                ):
+                    exact_profile = False
+            elif not _pr_safe_repo_exact_modified_paths(
+                root,
+                base_ref,
+                head_ref,
+                target_paths,
+            ):
+                exact_profile = False
     return profile if exact_profile else None
 
 
@@ -3750,6 +3978,7 @@ def validate_pr_safe_control_plane_delta(
             if expected[field] != expected_sha:
                 errors.append(f"revenue forward-holdout target pinned {field} mismatch")
     elif migration_id in {
+        PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_ID,
         PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V4_TARGET_ID,
         PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V3_TARGET_ID,
         PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_TARGET_ID,
@@ -4064,6 +4293,7 @@ def validate_pr_safe_control_plane_migration(
                         PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_PATHS,
                         PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_PATHS,
                         PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_PATHS,
+                        PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_PATHS,
                     )
                 )
             )
@@ -4446,6 +4676,13 @@ def build_pr_safe_audit_manifest(
         if daily_authority_containment_target_profile is not None
         else None
     )
+    daily_authority_change_status_contract = (
+        daily_authority_containment_change_status_contract(
+            daily_authority_containment_target_profile[0]
+        )
+        if daily_authority_containment_target_profile is not None
+        else {}
+    )
 
     migration_id = (
         migration_contract[0]
@@ -4582,6 +4819,7 @@ def build_pr_safe_audit_manifest(
                 if daily_runtime_identity_contract is not None
                 else {}
             ),
+            "change_status_by_path": daily_authority_change_status_contract,
             "verified": daily_authority_containment_target_verified,
         },
         "replay_target_preauthorization": {
