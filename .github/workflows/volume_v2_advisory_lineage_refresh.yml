@@ -166,7 +166,9 @@ jobs:
             --base-sha "$REFRESH_BASE_SHA" \
             --phase committed
           python -B scripts/validate_volume_breakout_watch.py --latest-only
-          python -B scripts/validate_daily_canonical_field_lineage.py --base-ref "$REFRESH_BASE_SHA"
+          python -B scripts/validate_daily_canonical_field_lineage.py \
+            --base-ref "$REFRESH_BASE_SHA" \
+            --trusted-ref "$REFRESH_COMMIT_SHA"
           python -B scripts/validate_daily_warrant_formal_sync_scope.py \
             --compare-snapshot "$WARRANT_SCOPE_SNAPSHOT"
           python -B scripts/validate_repo_file_lifecycle_inventory.py
