@@ -4,6 +4,7 @@ import csv
 import io
 import json
 import os
+import re
 import subprocess
 import sys
 import tempfile
@@ -74,6 +75,57 @@ def git_show_text(repo: Path, ref: str, relative_path: str) -> str:
         ],
         cwd=repo,
     ).decode("utf-8-sig")
+
+
+def pinned_git_blob(
+    repo: Path,
+    revision: str,
+    relative_path: str,
+    *,
+    trusted_ref: str,
+) -> bytes:
+    """Read one immutable, trusted historical blob without consulting the worktree."""
+
+    if re.fullmatch(r"[0-9a-f]{40}", revision) is None:
+        raise RuntimeError(f"pinned Git revision is malformed: {revision!r}")
+    relative = Path(relative_path)
+    if relative.is_absolute() or ".." in relative.parts:
+        raise RuntimeError(f"pinned Git artifact path is unsafe: {relative_path!r}")
+
+    resolved = subprocess.run(
+        ["git", "rev-parse", "--verify", f"{revision}^{{commit}}"],
+        cwd=repo,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        check=False,
+    )
+    if resolved.returncode != 0 or resolved.stdout.decode("ascii", errors="ignore").strip() != revision:
+        raise RuntimeError(f"pinned Git revision is unavailable: {revision}")
+    trusted = subprocess.run(
+        ["git", "merge-base", "--is-ancestor", revision, trusted_ref],
+        cwd=repo,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        check=False,
+    )
+    if trusted.returncode != 0:
+        raise RuntimeError(
+            "pinned Git revision is outside trusted ref ancestry: "
+            f"revision={revision} trusted_ref={trusted_ref}"
+        )
+    blob = subprocess.run(
+        ["git", "show", "--no-textconv", f"{revision}:{relative.as_posix()}"],
+        cwd=repo,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        check=False,
+    )
+    if blob.returncode != 0:
+        raise RuntimeError(
+            "pinned Git artifact blob is unavailable: "
+            f"revision={revision} artifact={relative.as_posix()}"
+        )
+    return blob.stdout
 
 
 class VolumeBreakoutWatchTest(unittest.TestCase):
@@ -1318,8 +1370,123 @@ print(json.dumps(stock_layer.columns.tolist()))
                     with self.assertRaisesRegex(RuntimeError, "CSV is invalid"):
                         hasher(malformed, "20260718")
 
+    def test_pinned_git_blob_ignores_mutable_worktree_drift(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            relative_path = "data/stock_price_history/6505.csv"
+            source = root / relative_path
+            source.parent.mkdir(parents=True)
+            committed_payload = b"date,stock_id,close\n20260717,6505,41\n"
+            source.write_bytes(committed_payload)
+            subprocess.run(["git", "init"], cwd=root, check=True, capture_output=True)
+            subprocess.run(
+                ["git", "config", "user.email", "volume-test@example.invalid"],
+                cwd=root,
+                check=True,
+            )
+            subprocess.run(
+                ["git", "config", "user.name", "Volume Test"],
+                cwd=root,
+                check=True,
+            )
+            subprocess.run(["git", "add", relative_path], cwd=root, check=True)
+            subprocess.run(
+                ["git", "commit", "-m", "trusted source"],
+                cwd=root,
+                check=True,
+                capture_output=True,
+            )
+            trusted_sha = subprocess.check_output(
+                ["git", "rev-parse", "HEAD"], cwd=root, text=True
+            ).strip()
+            source.write_bytes(b"date,stock_id,close\n20260717,6505,999\n")
+
+            self.assertEqual(
+                pinned_git_blob(
+                    root,
+                    trusted_sha,
+                    relative_path,
+                    trusted_ref=trusted_sha,
+                ),
+                committed_payload,
+            )
+
+    def test_pinned_git_blob_rejects_branch_only_and_unreachable_revisions(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            relative_path = "data/stock_price_history/6505.csv"
+            source = root / relative_path
+            source.parent.mkdir(parents=True)
+            source.write_text("date,stock_id,close\n20260717,6505,41\n", encoding="utf-8")
+            subprocess.run(["git", "init"], cwd=root, check=True, capture_output=True)
+            subprocess.run(
+                ["git", "config", "user.email", "volume-test@example.invalid"],
+                cwd=root,
+                check=True,
+            )
+            subprocess.run(
+                ["git", "config", "user.name", "Volume Test"],
+                cwd=root,
+                check=True,
+            )
+            subprocess.run(["git", "add", relative_path], cwd=root, check=True)
+            subprocess.run(
+                ["git", "commit", "-m", "trusted source"],
+                cwd=root,
+                check=True,
+                capture_output=True,
+            )
+            trusted_sha = subprocess.check_output(
+                ["git", "rev-parse", "HEAD"], cwd=root, text=True
+            ).strip()
+
+            source.write_text("date,stock_id,close\n20260717,6505,42\n", encoding="utf-8")
+            subprocess.run(["git", "add", relative_path], cwd=root, check=True)
+            subprocess.run(
+                ["git", "commit", "-m", "branch-only source"],
+                cwd=root,
+                check=True,
+                capture_output=True,
+            )
+            branch_only_sha = subprocess.check_output(
+                ["git", "rev-parse", "HEAD"], cwd=root, text=True
+            ).strip()
+            with self.assertRaisesRegex(RuntimeError, "outside trusted ref ancestry"):
+                pinned_git_blob(
+                    root,
+                    branch_only_sha,
+                    relative_path,
+                    trusted_ref=trusted_sha,
+                )
+
+            subprocess.run(
+                ["git", "checkout", "--orphan", "unreachable"],
+                cwd=root,
+                check=True,
+                capture_output=True,
+            )
+            subprocess.run(["git", "rm", "-rf", "."], cwd=root, check=True, capture_output=True)
+            source.parent.mkdir(parents=True, exist_ok=True)
+            source.write_text("date,stock_id,close\n20260717,6505,43\n", encoding="utf-8")
+            subprocess.run(["git", "add", relative_path], cwd=root, check=True)
+            subprocess.run(
+                ["git", "commit", "-m", "unreachable source"],
+                cwd=root,
+                check=True,
+                capture_output=True,
+            )
+            unreachable_sha = subprocess.check_output(
+                ["git", "rev-parse", "HEAD"], cwd=root, text=True
+            ).strip()
+            with self.assertRaisesRegex(RuntimeError, "outside trusted ref ancestry"):
+                pinned_git_blob(
+                    root,
+                    unreachable_sha,
+                    relative_path,
+                    trusted_ref=trusted_sha,
+                )
+
     def test_pinned_20260717_artifact_hashes_are_slice_compatible(self) -> None:
-        artifact_root = Path(os.environ.get("TDCC_VOLUME_LINEAGE_REPO_ROOT", ROOT))
         expected = {
             "4139": "28cbde51ca0eb7a03631839d06c647647cf58cb8557964cd3632243458546e61",
             "6243": "418e3ed7d1dfa2e2f0d6cf8e02393204942b7e5bc97611e6458d1d0ef0716b8f",
@@ -1343,29 +1510,29 @@ print(json.dumps(stock_layer.columns.tolist()))
             dict(zip(current["stock_id"], current["advisory_score_source_sha256"])),
             expected,
         )
-        missing_sources = [
-            (artifact_root / row["advisory_score_source_artifact"]).as_posix()
-            for row in current.to_dict("records")
-            if not (artifact_root / row["advisory_score_source_artifact"]).is_file()
-        ]
-        if missing_sources:
-            self.skipTest(
-                "current-main advisory source artifacts are not materialized: "
-                + ", ".join(missing_sources)
-            )
-        for row in current.to_dict("records"):
-            source = artifact_root / row["advisory_score_source_artifact"]
-            self.assertTrue(source.is_file(), source.as_posix())
-            for hasher in (
-                canonical_csv_slice_sha256,
-                validator_canonical_csv_slice_sha256,
-                consumer_canonical_csv_slice_sha256,
-            ):
-                with self.subTest(stock_id=row["stock_id"], hasher=hasher.__module__):
-                    self.assertEqual(
-                        hasher(source, row["advisory_score_as_of"]),
-                        row["advisory_score_source_sha256"],
+        with tempfile.TemporaryDirectory() as directory:
+            replay_root = Path(directory)
+            for row in current.to_dict("records"):
+                source = replay_root / row["advisory_score_source_artifact"]
+                source.parent.mkdir(parents=True, exist_ok=True)
+                source.write_bytes(
+                    pinned_git_blob(
+                        ROOT,
+                        PINNED_20260717_WATCH_COMMIT,
+                        row["advisory_score_source_artifact"],
+                        trusted_ref="origin/main",
                     )
+                )
+                for hasher in (
+                    canonical_csv_slice_sha256,
+                    validator_canonical_csv_slice_sha256,
+                    consumer_canonical_csv_slice_sha256,
+                ):
+                    with self.subTest(stock_id=row["stock_id"], hasher=hasher.__module__):
+                        self.assertEqual(
+                            hasher(source, row["advisory_score_as_of"]),
+                            row["advisory_score_source_sha256"],
+                        )
 
     def test_pinned_20260717_artifact_hashes_survive_origin_main_future_appends(
         self,
@@ -1398,13 +1565,19 @@ print(json.dumps(stock_layer.columns.tolist()))
             dict(zip(current["stock_id"], current["advisory_score_source_sha256"])),
             expected,
         )
-        for row in current.to_dict("records"):
-            source_text = git_show_text(
-                repo,
-                "origin/main",
-                row["advisory_score_source_artifact"],
-            )
-            with patch.object(Path, "read_text", return_value=source_text):
+        with tempfile.TemporaryDirectory() as directory:
+            replay_root = Path(directory)
+            for row in current.to_dict("records"):
+                source = replay_root / row["advisory_score_source_artifact"]
+                source.parent.mkdir(parents=True, exist_ok=True)
+                source.write_bytes(
+                    pinned_git_blob(
+                        repo,
+                        PINNED_20260717_WATCH_COMMIT,
+                        row["advisory_score_source_artifact"],
+                        trusted_ref="origin/main",
+                    )
+                )
                 for hasher in (
                     canonical_csv_slice_sha256,
                     validator_canonical_csv_slice_sha256,
@@ -1415,10 +1588,7 @@ print(json.dumps(stock_layer.columns.tolist()))
                         hasher=hasher.__module__,
                     ):
                         self.assertEqual(
-                            hasher(
-                                Path(row["advisory_score_source_artifact"]),
-                                row["advisory_score_as_of"],
-                            ),
+                            hasher(source, row["advisory_score_as_of"]),
                             row["advisory_score_source_sha256"],
                         )
 
