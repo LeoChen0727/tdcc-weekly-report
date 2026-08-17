@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-08-11 19:58:07 Asia/Taipei",
+  "generated_at": "2026-08-17 08:18:15 Asia/Taipei",
   "files": {
     "company_event_calendar": {
       "path": "data/company_calendar/company_event_calendar.csv",
-      "rows": 4457
+      "rows": 4491
     },
     "macro_event_calendar": {
       "path": "data/macro_events/macro_event_calendar.csv",
@@ -11,28 +11,28 @@
     },
     "upcoming_catalyst_calendar": {
       "path": "output/latest/upcoming_catalyst_calendar_latest.csv",
-      "rows": 656
+      "rows": 650
     },
     "upcoming_macro_event_calendar": {
       "path": "output/latest/upcoming_macro_event_calendar_latest.csv",
-      "rows": 19
+      "rows": 18
     }
   },
   "sources": {
     "twse_ex_right_ex_dividend": {
       "url": "https://www.twse.com.tw/rwd/zh/exRight/TWT48U?response=json",
       "status": "ok",
-      "rows": 124,
+      "rows": 142,
       "error": "",
       "http_status": 200,
-      "live_rows": 124,
+      "live_rows": 142,
       "consecutive_live_failures": 0,
       "calendar_effect_allowed": true
     },
     "twse_shareholder_meeting_from_dividend_distribution": {
       "url": "https://openapi.twse.com.tw/v1/opendata/t187ap45_L",
       "status": "ok",
-      "rows": 549,
+      "rows": 550,
       "error": "",
       "http_status": 200,
       "note": "TWSE-listed shareholder meeting dates parsed from official OpenAPI t187ap45_L when available."
@@ -68,15 +68,15 @@
     "bls_employment_release_schedule": {
       "url": "https://www.bls.gov/schedule/news_release/empsit.htm",
       "status": "ok",
-      "rows": 5,
+      "rows": 4,
       "error": "",
       "http_status": 200,
-      "note": "Parsed 5 release rows from the official BLS schedule table."
+      "note": "Parsed 4 release rows from the official BLS schedule table."
     },
     "mops_shareholder_meeting_calendar": {
       "url": "https://mops.twse.com.tw/mops/web/t108sb31new",
       "status": "partial_coverage_twse_only",
-      "rows": 549,
+      "rows": 550,
       "note": "TWSE-listed shareholder meeting dates are stored from t187ap45_L. Direct MOPS shareholder pages are blocked or unavailable from this environment, and OTC coverage still needs a stable official endpoint."
     }
   }
