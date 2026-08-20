@@ -2057,7 +2057,7 @@ def test_input_bound_validator_stage_a_preauthorizations_are_exact() -> None:
     payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
     rows, errors = inventory.parse_pr_safe_authorizations(payload)
     assert errors == []
-    assert [row["migration_id"] for row in rows[-18:]] == [
+    assert [row["migration_id"] for row in rows[-19:]] == [
         inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_MIGRATION_ID,
         inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_STAGE_A_MIGRATION_ID,
         inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_ID,
@@ -2076,6 +2076,7 @@ def test_input_bound_validator_stage_a_preauthorizations_are_exact() -> None:
         inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_ID,
         inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_TARGET_ID,
         inventory.PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_TARGET_ID,
+        inventory.PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_V2_TARGET_ID,
     ]
     rows_by_id = {row["migration_id"]: row for row in rows}
     assert rows_by_id[
@@ -2576,29 +2577,29 @@ def test_daily_recovery_architecture_v4_profile_is_exact() -> None:
 def test_daily_runtime_integration_authorization_is_append_only() -> None:
     payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
     lines = payload.splitlines(keepends=True)
-    assert len(lines) >= 4
-    assert inventory.canonical_blob_sha256(b"".join(lines[:-4])) == (
+    assert len(lines) >= 5
+    assert inventory.canonical_blob_sha256(b"".join(lines[:-5])) == (
         "973a917eec1cd82d1b7f116793197676987ee7b04ddaeb528107645f28e73e15"
     )
-    assert lines[-4].startswith(
+    assert lines[-5].startswith(
         b"daily-runtime-integration-regressions-exact-target-v4,"
     )
-    assert inventory.canonical_blob_sha256(b"".join(lines[:-3])) == (
+    assert inventory.canonical_blob_sha256(b"".join(lines[:-4])) == (
         "0336f7d65b5f16efaef68126756d6f547f7885e7497d69d5a578602bcdedfd74"
     )
-    assert lines[-3].startswith(
+    assert lines[-4].startswith(
         b"volume-v2-advisory-lineage-refresh-exact-target-v1,"
     )
-    assert inventory.canonical_blob_sha256(b"".join(lines[:-2])) == (
+    assert inventory.canonical_blob_sha256(b"".join(lines[:-3])) == (
         "852e698dcaf8aadfc95f6a8fa4812cd11dccc2668c3552611b967d74135b480b"
     )
-    assert lines[-2].startswith(
+    assert lines[-3].startswith(
         b"volume-v2-postcommit-lineage-trusted-ref-exact-target-v1,"
     )
-    assert inventory.canonical_blob_sha256(b"".join(lines[:-1])) == (
+    assert inventory.canonical_blob_sha256(b"".join(lines[:-2])) == (
         "f53c5fdebb5d08df17e5a37a5aeecb14c3dd3b2d27fa2935978d8f5b3ac7f49f"
     )
-    assert lines[-1].startswith(
+    assert lines[-2].startswith(
         b"daily-authority-snapshot-replay-concurrency-exact-target-v1,"
     )
 
@@ -5090,33 +5091,75 @@ def test_daily_authority_snapshot_replay_metadata_is_pr555_only() -> None:
         )
 
 
-def test_daily_authority_snapshot_replay_authorization_is_row30_append_only() -> None:
+def test_daily_authority_snapshot_replay_v2_authorization_is_row31_append_only() -> None:
     base_payload = inventory.git_blob_at_ref(
-        inventory.PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_BASE_CONTENT_REF_SHA,
+        inventory.PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_V2_BASE_CONTENT_REF_SHA,
         inventory.PR_SAFE_AUTHORIZATION_PATH,
     )
     assert base_payload is not None
     current_payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
     rows, errors = inventory.parse_pr_safe_authorizations(current_payload)
     assert errors == []
-    assert len(rows) == 30
+    assert len(rows) == 31
     matches = [
         row
         for row in rows
         if row["migration_id"]
-        == inventory.PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_TARGET_ID
+        == inventory.PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_V2_TARGET_ID
     ]
     assert len(matches) == 1
     row = matches[0]
     assert row["approval_reference"] == (
-        "current_user_explicit_exact10_ordinary_delivery_authorization_20260820"
+        "current_user_explicit_pr555_final_p1_fix_exact10_delivery_authorization_20260820"
     )
     assert row["changed_paths"].split(";") == sorted(
-        inventory.PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_PATHS
+        inventory.PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_V2_PATHS
+    )
+    assert rows[-2]["migration_id"] == (
+        inventory.PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_TARGET_ID
     )
     canonical_current = current_payload.replace(b"\r\n", b"\n")
     assert canonical_current[: len(base_payload)] == base_payload
     assert canonical_current[len(base_payload) :].count(b"\n") == 1
+
+
+def test_daily_authority_snapshot_replay_v2_updates_only_reviewed_target_hashes() -> None:
+    changed = {
+        path
+        for path in inventory.PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_V2_PATHS
+        if inventory.PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_V2_TARGET_SHA256_BY_PATH[path]
+        != inventory.PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_TARGET_SHA256_BY_PATH[path]
+    }
+    assert inventory.PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_V2_PATHS == (
+        inventory.PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_PATHS
+    )
+    assert inventory.PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_V2_BASE_SHA256_BY_PATH == (
+        inventory.PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_BASE_SHA256_BY_PATH
+    )
+    assert len(changed) == 4
+    assert {
+        inventory.PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_V2_TARGET_SHA256_BY_PATH[path]
+        for path in changed
+    } == {
+        "7193b64c5e1e66dccd579e9f9fb4b91d39419cd93aae5bfd268f91895f3190e0",
+        "c060e43930ef268fd34aff0e642d05e47a25975fde6dc2f2884e240cb4ecdc72",
+        "b0e8de8459b42df5491f4eb207220b70c4cc50990d26e48d230c926ad1539c86",
+        "6290786573960255a97a7576684f4ce6410a5f215aa22899e11daa7df7b7d06a",
+    }
+    profile = inventory.pr_safe_daily_authority_containment_target_profile(
+        set(inventory.PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_V2_PATHS),
+        target_id=inventory.PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_V2_TARGET_ID,
+    )
+    assert profile is not None
+    assert profile[0] == inventory.PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_V2_TARGET_ID
+    assert inventory.validate_daily_runtime_integration_regressions_audit_metadata(
+        inventory.PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_V2_TARGET_ID,
+        repository=inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_REPOSITORY,
+        base_repository=inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_REPOSITORY,
+        head_repository=inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_REPOSITORY,
+        run_attempt="1",
+        pull_request_number="555",
+    ) == []
 
 
 def test_daily_authority_containment_stage_a_cannot_self_authorize() -> None:
