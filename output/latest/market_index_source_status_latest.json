@@ -1,39 +1,36 @@
 {
-  "generated_at": "2026-08-21 01:58:18 Asia/Taipei",
-  "mode": "reconstructed_source_tail_gap",
-  "requested_date": "20260820",
+  "generated_at": "2026-08-21 04:34:53 Asia/Taipei",
+  "mode": "latest_refresh",
+  "requested_date": "",
   "observed_dates": {
-    "TPEX": "20260820",
-    "TWSE": "20260820"
+    "TPEX": "",
+    "TWSE": ""
   },
   "requested_index_codes": [
     "TPEX",
     "TWSE"
   ],
-  "publication_status": "reconstructed_not_as_published",
-  "as_published": false,
+  "publication_status": "as_published",
+  "as_published": true,
   "fallback_used": false,
   "future_rows_used": false,
-  "calculation_context_max_date_by_index": {
-    "TPEX": "20260820",
-    "TWSE": "20260820"
-  },
+  "calculation_context_max_date_by_index": {},
   "before_state": {
     "data/market_index_history.csv": {
       "tail_by_index": {
-        "TPEX": "20260819",
-        "TWSE": "20260819"
+        "TPEX": "20260820",
+        "TWSE": "20260820"
       },
-      "future_rows": 0,
-      "future_rows_sha256": "0f5570959b27bf658b75995ae74e702919cdaf85a79e5ce5fcea3cc3531cb60c"
+      "future_rows": 896,
+      "future_rows_sha256": "7e06ff9e6749c4f02f199fd11568c3e01986ac69f64527c29ffd9a4ec96c4065"
     },
     "data/market_index_ohlc_history.csv": {
       "tail_by_index": {
-        "TPEX": "20260819",
-        "TWSE": "20260819"
+        "TPEX": "20260820",
+        "TWSE": "20260820"
       },
-      "future_rows": 0,
-      "future_rows_sha256": "1d1320b334317c72e6360d13460a405435f18d76914b47ff9b6390ad5c9da169"
+      "future_rows": 896,
+      "future_rows_sha256": "0bdf6fd54e1258085efbe4f72a2ba7789caf2090affce539abc7fd5f68ded085"
     }
   },
   "after_state": {
@@ -42,42 +39,56 @@
         "TPEX": "20260820",
         "TWSE": "20260820"
       },
-      "future_rows": 0,
-      "future_rows_sha256": "0f5570959b27bf658b75995ae74e702919cdaf85a79e5ce5fcea3cc3531cb60c"
+      "future_rows": 896,
+      "future_rows_sha256": "7e06ff9e6749c4f02f199fd11568c3e01986ac69f64527c29ffd9a4ec96c4065"
     },
     "data/market_index_ohlc_history.csv": {
       "tail_by_index": {
         "TPEX": "20260820",
         "TWSE": "20260820"
       },
-      "future_rows": 0,
-      "future_rows_sha256": "1d1320b334317c72e6360d13460a405435f18d76914b47ff9b6390ad5c9da169"
+      "future_rows": 896,
+      "future_rows_sha256": "0bdf6fd54e1258085efbe4f72a2ba7789caf2090affce539abc7fd5f68ded085"
     }
   },
-  "future_rows_preserved": true,
+  "future_rows_preserved": "not_applicable",
   "turnover_contract": {
     "TWSE": "official_historical_month_endpoint",
     "TPEX": "unavailable_from_official_historical_index_month_endpoint"
   },
   "sources": [
     {
+      "endpoint": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20260701&response=json",
+      "params": {},
+      "fetched_at": "2026-08-21 04:34:45 Asia/Taipei",
+      "raw_sha256": "a6fc2d6b2dc31fe7ed26364d12a70e8a3d7af3a3b1d36304b22a0358cfa08a7d",
+      "normalized_sha256": "8e2aa9c2e5567274f41444f41c8e050fe9dc82da91cd3c8532400bb036781357"
+    },
+    {
+      "endpoint": "https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=115/07&response=json",
+      "params": {},
+      "fetched_at": "2026-08-21 04:34:46 Asia/Taipei",
+      "raw_sha256": "3e4d47ada9f1c8eb63979e3cfc2219d296180f3e570c419b31301dbf5fabbd36",
+      "normalized_sha256": "bcc7c8acca5d19fcbf2135c599c6244e2c30d7ab125b4bee04c0031d2adf2c39"
+    },
+    {
       "endpoint": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20260801&response=json",
       "params": {},
-      "fetched_at": "2026-08-21 01:58:16 Asia/Taipei",
+      "fetched_at": "2026-08-21 04:34:47 Asia/Taipei",
       "raw_sha256": "c43d61eadfbaf6f568da862d257344b18fc2d03189818beb6801e58995c1decf",
       "normalized_sha256": "75ab5cdd59e76cd1f64e105efc41d279b64e5ac7af80865f2eb4dcf5ba4b2d3f"
     },
     {
-      "endpoint": "https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=115/08&response=json",
+      "endpoint": "https://www.twse.com.tw/rwd/zh/afterTrading/FMTQIK?date=20260701&response=json",
       "params": {},
-      "fetched_at": "2026-08-21 01:58:17 Asia/Taipei",
-      "raw_sha256": "89e7fc47dcb32531a588925cf3160ddc49681306ae396b02721c366ea2610637",
-      "normalized_sha256": "7e379222fd55ec271fd04070f95b0ab5279660b3e2d3040cd0e6fa4f9537970f"
+      "fetched_at": "2026-08-21 04:34:52 Asia/Taipei",
+      "raw_sha256": "988f05a25e28f70d0b048ee1114d4b787813dc6ef2a132b36505bdc792c7ae10",
+      "normalized_sha256": "36a0ee1015ce1bca26073d68d54bc080c1a9c2814982feeed7275d47e84b0668"
     },
     {
       "endpoint": "https://www.twse.com.tw/rwd/zh/afterTrading/FMTQIK?date=20260801&response=json",
       "params": {},
-      "fetched_at": "2026-08-21 01:58:18 Asia/Taipei",
+      "fetched_at": "2026-08-21 04:34:53 Asia/Taipei",
       "raw_sha256": "8d7ef01d806948bcb8a7ca11e0896fb2fe394e90ea904d01700da02f4d212e93",
       "normalized_sha256": "2e8bc9b68160e8150f4c48b9ccce7270d91d50e42e1a107d6b2e4209923a864c"
     }

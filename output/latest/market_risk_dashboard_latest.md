@@ -1,7 +1,7 @@
 # 市場風險與大盤期權背景
 
-- generated_at: `2026-08-11 20:05:53 Asia/Taipei`
-- data_date: `20260811`
+- generated_at: `2026-08-21 04:35:09 Asia/Taipei`
+- data_date: `20260820`
 - market_regime: `high_risk`
 - risk_level: `very_high_risk`
 - risk_score: `7`
@@ -13,42 +13,42 @@
 
 | source | status | rows | latest_date |
 | --- | --- | ---: | --- |
-| institutional_fo | ok | 3 | 20260811 |
-| futures_contracts | ok | 66 | 20260811 |
-| options_call_put | ok | 30 | 20260811 |
-| put_call_ratio | ok | 22 | 20260811 |
-| taiwan_vix | ok | 70 | 20260811 |
+| institutional_fo | ok | 3 | 20260819 |
+| futures_contracts | ok | 66 | 20260819 |
+| options_call_put | ok | 30 | 20260819 |
+| put_call_ratio | ok | 22 | 20260819 |
+| taiwan_vix | ok | 77 | 20260820 |
 
 ## 大盤指數結構
 
 | index | close | 5d | 20d | MA20 | MA60 | regime |
 | --- | --- | --- | --- | --- | --- | --- |
-| TWSE | 45,120.72 | +4.06% | +0.86% | True | True | mild_bull |
-| TPEx | 391.68 | +4.44% | -3.86% | True | False | high_risk |
+| TWSE | 44,933.74 | -2.36% | +0.18% | True | True | mild_bull |
+| TPEx | 389.96 | -3.98% | -0.55% | True | False | high_risk |
 
 ## 期貨選擇權部位
 
 | indicator | value | state |
 | --- | --- | --- |
-| Foreign TX futures net OI | -88,924 | foreign_heavy_net_short |
-| Dealer TX futures net OI | +1,899 |  |
-| Trust TX futures net OI | +83,418 |  |
-| Retail MTX net OI proxy | +9,790 | neutral |
-| Foreign TXO call net OI | +3,395 |  |
-| Foreign TXO put net OI | +5,799 |  |
-| TXO put/call OI ratio | 123.58% | neutral |
-| Taiwan VIX | 33.55 | risk_elevated |
+| Foreign TX futures net OI | -81,501 | foreign_heavy_net_short |
+| Dealer TX futures net OI | +2,562 |  |
+| Trust TX futures net OI | +74,789 |  |
+| Retail MTX net OI proxy | +8,964 | neutral |
+| Foreign TXO call net OI | -2,195 |  |
+| Foreign TXO put net OI | +267 |  |
+| TXO put/call OI ratio | 102.27% | neutral |
+| Taiwan VIX | 30.83 | risk_elevated |
 
 ## 近期總經事件日曆
 
-- 20260804 US_trade: U.S. International Trade in Goods and Services, June 2026 (days=-7, importance=medium)
-- 20260807 US_employment_situation: Employment Situation release schedule: July 2026 (days=-4, importance=high)
-- 20260812 US_CPI: CPI release schedule: July 2026 (days=1, importance=high)
-- 20260826 US_GDP: GDP (Second Estimate) and Corporate Profits, 2nd Quarter 2026 (days=15, importance=medium)
-- 20260826 US_PCE_personal_income: Personal Income and Outlays, July 2026 (days=15, importance=high)
-- 20260903 US_trade: U.S. International Trade in Goods and Services, July 2026 (days=23, importance=medium)
-- 20260904 US_employment_situation: Employment Situation release schedule: August 2026 (days=24, importance=high)
-- 20260911 US_CPI: CPI release schedule: August 2026 (days=31, importance=high)
+- 20260826 US_GDP: GDP (Second Estimate) and Corporate Profits, 2nd Quarter 2026 (days=5, importance=medium)
+- 20260826 US_PCE_personal_income: Personal Income and Outlays, July 2026 (days=5, importance=high)
+- 20260903 US_trade: U.S. International Trade in Goods and Services, July 2026 (days=13, importance=medium)
+- 20260904 US_employment_situation: Employment Situation release schedule: August 2026 (days=14, importance=high)
+- 20260911 US_CPI: CPI release schedule: August 2026 (days=21, importance=high)
+- 20260916 FOMC: FOMC decision (September 15-16, 2026) (days=26, importance=high)
+- 20260930 US_PCE_personal_income: GDP (Third Estimate), Industries, Corporate Profits, State GDP, and State Personal Income, 2nd Quarter 2026; State PCE, 2025 (days=40, importance=high)
+- 20260930 US_PCE_personal_income: Personal Income and Outlays, August 2026 (days=40, importance=high)
 
 ## 半年技術圖表
 
@@ -63,13 +63,13 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 
 ## 技術與型態重點
 
-- TWSE / TAIEX: mild_bull; close 45,120.72; 6M range 31,722.99-47,741.51; distance from 6M high -5.49%; above MA20=True, above MA60=True.
-- TPEx / OTC: high_risk; close 391.68; 6M range 288.96-453.50; distance from 6M high -13.63%; above MA20=True, above MA60=False.
+- TWSE / TAIEX: mild_bull; close 44,933.74; 6M range 31,722.99-47,741.51; distance from 6M high -5.88%; above MA20=True, above MA60=True.
+- TPEx / OTC: high_risk; close 389.96; 6M range 288.96-453.50; distance from 6M high -14.01%; above MA20=True, above MA60=False.
 
 ## 散戶小台 proxy
 
 - 這是反向情緒輔助指標，以三大法人小台淨未平倉的反向 proxy 估算。
-- latest_proxy_value: `+9,790`
+- latest_proxy_value: `+8,964`
 - state: `neutral`
 - proxy 為正代表非三大法人帳戶偏多；擁擠偏多只能視為追高風險，不是單獨放空訊號。
 - proxy 為負代表非三大法人帳戶偏空；極端偏空可列反彈觀察，但仍需指數與廣度確認。
@@ -89,27 +89,27 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 <!-- MARKET_SENTIMENT_CONTEXT_START -->
 ## VIX Historical Context
 
-- Taiwan VIX latest: `33.55`
-- 252D high / low / percentile: `44.33` / `25.68` / `25%`
+- Taiwan VIX latest: `30.83`
+- 252D high / low / percentile: `44.33` / `25.68` / `22.14%`
 - 504D percentile: `-`
-- z-score: `-0.48`
-- vix_return_5d / 10d / 20d: `-13.78%` / `-17.08%` / `-8.36%`
-- TWSE / TPEx position: TWSE dist 60D high `-5.49%`, TPEx dist 60D high `-13.63%`
+- z-score: `-1.05`
+- vix_return_5d / 10d / 20d: `-3.29%` / `-12.84%` / `-14.69%`
+- TWSE / TPEx position: TWSE dist 60D high `-5.88%`, TPEx dist 60D high `-14.01%`
 - vix_index_interpretation: `vix_context_neutral_observe`
 
 ## Retail MTX Historical Context
 
-- retail_mtx_net_oi_proxy latest: `9,790`
+- retail_mtx_net_oi_proxy latest: `8,964`
 - proxy method: `negative_sum_of_three_institution_mtx_net_oi`
-- 252D high / low / percentile: `-` / `-` / `-`
+- 252D high / low / percentile: `16,227` / `1,266` / `60.66%`
 - 504D percentile: `-`
-- retail_mtx_index_interpretation: `insufficient_history_observe_only`
+- retail_mtx_index_interpretation: `retail_positioning_normal`
 
 ## Combined Sentiment Interpretation
 
-- combined_sentiment_interpretation: `insufficient_history_observe_only`
-- sentiment_warning_level: `insufficient`
-- data_quality_note: 資料不足 / 僅能觀察：VIX 或散戶小台歷史樣本未達 60 筆，不能判斷是否達歷史極端。
+- combined_sentiment_interpretation: `sentiment_mixed_observe`
+- sentiment_warning_level: `low`
+- data_quality_note: short_history：可提供短樣本分位，但未達 252 日完整歷史。
 
 Operation meaning: use sentiment context only with TWSE / TPEx technical position, market_regime, Put/Call, and foreign TX futures net OI. Do not use VIX or retail MTX as standalone buy/sell signals.
 <!-- MARKET_SENTIMENT_CONTEXT_END -->
