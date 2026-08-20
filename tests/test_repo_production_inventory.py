@@ -5258,14 +5258,19 @@ def test_weekly_and_warrant_workflows_do_not_stage_source_files() -> None:
         assert "git add .github/workflows/" not in workflow_text
 
 
-def test_daily_workflow_runs_repo_inventory_before_daily_generation() -> None:
-    workflow_text = (ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(
-        encoding="utf-8"
-    )
+def test_repo_inventory_runs_in_pr_static_job_not_daily_runtime() -> None:
+    command = "python scripts/validate_repo_production_inventory.py"
+    pr_workflow = (
+        ROOT / ".github" / "workflows" / "individual_stock_pr_validation.yml"
+    ).read_text(encoding="utf-8")
+    daily_workflow = (ROOT / inventory.DAILY_WORKFLOW).read_text(encoding="utf-8")
 
-    repo_inventory_at = workflow_text.index("python scripts/validate_repo_production_inventory.py")
-    price_fetch_at = workflow_text.index("python fetch_official_daily_price.py")
-    assert repo_inventory_at < price_fetch_at
+    assert inventory.validate_regular_pr_static_validation_step(pr_workflow) == []
+    static_step_start = pr_workflow.index("      - name: Validate repository static contracts")
+    static_step_end = pr_workflow.index("\n      - name:", static_step_start + 1)
+    static_step = pr_workflow[static_step_start:static_step_end]
+    assert static_step.count(command) == 1
+    assert command not in daily_workflow
 
 
 def test_daily_boundary_validator_runs_repo_inventory_gate() -> None:
