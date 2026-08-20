@@ -521,7 +521,7 @@ print(json.dumps(stock_layer.columns.tolist()))
             source.parent.mkdir(parents=True)
             source.write_text(
                 "date,stock_id,warrant_flow_signal\n"
-                "20260820,2059,no_signal\n",
+                "20260820,6505,call_strong_inflow\n",
                 encoding="utf-8",
             )
             declared_sha = theme_validator_payload_sha256(source.read_bytes())
@@ -550,12 +550,30 @@ print(json.dumps(stock_layer.columns.tolist()))
                 capture_output=True,
                 text=True,
             ).stdout.strip()
+            unrelated = root / "scripts/recovery_code_marker.txt"
+            unrelated.parent.mkdir(parents=True)
+            unrelated.write_text("unrelated code descendant\n", encoding="utf-8")
+            subprocess.run(["git", "add", unrelated.as_posix()], cwd=root, check=True)
+            subprocess.run(
+                ["git", "commit", "-m", "advance recovery code only"],
+                cwd=root,
+                check=True,
+                capture_output=True,
+            )
+            trusted_head = subprocess.run(
+                ["git", "rev-parse", "HEAD"],
+                cwd=root,
+                check=True,
+                capture_output=True,
+                text=True,
+            ).stdout.strip()
+            self.assertNotEqual(source_revision, trusted_head)
 
             payload, resolved_revision = resolve_pinned_canonical_source_revision(
                 root,
                 "output/latest/warrant_flow_latest.csv",
                 declared_sha,
-                trusted_ref="HEAD",
+                trusted_ref=trusted_head,
                 allow_live=True,
             )
 
@@ -570,9 +588,84 @@ print(json.dumps(stock_layer.columns.tolist()))
                     "output/latest/warrant_flow_latest.csv",
                     declared_sha,
                     resolved_revision,
-                    trusted_ref="HEAD",
+                    trusted_ref=trusted_head,
                 )
             )
+
+            watch, theme_context, two_line, candidates, taxonomy, _official = (
+                self._theme_enrichment_inputs()
+            )
+            watch["signal_date"] = "20260820"
+            watch["advisory_score_as_of"] = "20260820"
+            watch["volume_ratio"] = "2.0"
+            candidates["signal_date"] = "20260820"
+            official = pd.read_csv(source, dtype=str, keep_default_na=False)
+            latest = root / "output/latest"
+            watch_path = latest / "volume_breakout_watch_latest.csv"
+            candidate_path = latest / "all_candidates_latest.csv"
+            watch.to_csv(watch_path, index=False, lineterminator="\n")
+            candidates.to_csv(candidate_path, index=False, lineterminator="\n")
+            watch_sha = theme_validator_payload_sha256(watch_path.read_bytes())
+            candidate_sha = theme_validator_payload_sha256(candidate_path.read_bytes())
+            stocks = enrich_stocks(
+                watch,
+                theme_context,
+                two_line,
+                candidates,
+                taxonomy,
+                official,
+                warrant_as_of="20260820",
+                volume_watch_source_sha256=watch_sha,
+                candidate_source_sha256=candidate_sha,
+                official_warrant_source_sha256=declared_sha,
+            )
+            themes = build_theme_layer(stocks)
+            stocks = apply_theme_status_to_stocks(stocks, themes)
+            themes.to_csv(
+                latest / "volume_attack_theme_layer_latest.csv",
+                index=False,
+                lineterminator="\n",
+            )
+            stocks.to_csv(
+                latest / "volume_attack_theme_stocks_latest.csv",
+                index=False,
+                lineterminator="\n",
+            )
+            lineage_tokens = "\n".join(
+                [
+                    "source_watch: `output/latest/volume_breakout_watch_latest.csv`",
+                    f"source_watch_sha256: `{watch_sha}`",
+                    "warrant_projection_source: `output/latest/all_candidates_latest.csv`",
+                    f"warrant_projection_source_sha256: `{candidate_sha}`",
+                    "warrant_official_parity_source: `output/latest/warrant_flow_latest.csv`",
+                    f"warrant_official_parity_source_sha256: `{declared_sha}`",
+                    "",
+                ]
+            )
+            (latest / "volume_attack_theme_layer_latest.md").write_text(
+                lineage_tokens,
+                encoding="utf-8",
+            )
+            (latest / "volume_attack_theme_stocks_latest.md").write_text(
+                lineage_tokens,
+                encoding="utf-8",
+            )
+
+            original_cwd = Path.cwd()
+            try:
+                os.chdir(root)
+                with patch.object(theme_layer_validator, "ROOT", root), patch.dict(
+                    os.environ,
+                    {"BASE_SHA": trusted_head},
+                ):
+                    self.assertEqual(theme_layer_validator.main(), 0)
+            finally:
+                os.chdir(original_cwd)
+            result = pd.read_json(
+                latest / "volume_attack_theme_layer_validation_latest.json",
+                typ="series",
+            )
+            self.assertEqual(result["status"], "pass")
 
     def test_theme_validator_rejects_stale_or_untrusted_committed_source_for_live_consumer(
         self,
