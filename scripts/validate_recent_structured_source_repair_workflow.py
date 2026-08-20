@@ -139,6 +139,73 @@ def _job_mapping(block: str, section: str) -> dict[str, str]:
     return mapping
 
 
+HISTORICAL_REPLAY_FRESHNESS_STAGE_STEP = "Stage exact structured-source artifact families"
+HISTORICAL_REPLAY_FRESHNESS_STAGE_COMMAND = (
+    "git add output/latest/data_freshness_latest.csv "
+    "output/latest/data_freshness_latest.md"
+)
+
+
+def _validate_historical_replay_freshness_stage(replay_text: str) -> list[str]:
+    errors: list[str] = []
+    job_block = _job_block(replay_text, "replay-historical-structured-sources")
+    if not job_block:
+        return ["historical replay workflow is missing replay-historical-structured-sources job"]
+
+    if _step_names(job_block).count(HISTORICAL_REPLAY_FRESHNESS_STAGE_STEP) != 1:
+        errors.append(
+            "historical replay workflow must define exactly one "
+            f"{HISTORICAL_REPLAY_FRESHNESS_STAGE_STEP!r} step"
+        )
+        return errors
+
+    executable_lines = _step_run_executable_lines(
+        job_block, HISTORICAL_REPLAY_FRESHNESS_STAGE_STEP
+    )
+    if sum(
+        line == HISTORICAL_REPLAY_FRESHNESS_STAGE_COMMAND
+        for line in executable_lines
+    ) != 1:
+        errors.append(
+            "historical replay freshness markers must be staged exactly once by the "
+            "direct exact command in the exact artifact-family step"
+        )
+    if replay_text.count(HISTORICAL_REPLAY_FRESHNESS_STAGE_COMMAND) != 1:
+        errors.append(
+            "historical replay freshness staging command must occur exactly once in the workflow"
+        )
+
+    protected_names = (
+        "data_freshness_latest.csv",
+        "data_freshness_latest.md",
+        "market_session_status_latest.json",
+        "daily_authority_release_latest.json",
+    )
+    for line in executable_lines:
+        if any(name in line for name in protected_names) and (
+            line != HISTORICAL_REPLAY_FRESHNESS_STAGE_COMMAND
+        ):
+            errors.append(
+                "historical replay exact artifact-family step contains a non-exact "
+                f"authority-surface command: {line}"
+            )
+
+    if HISTORICAL_REPLAY_FRESHNESS_STAGE_COMMAND in executable_lines:
+        stage_index = executable_lines.index(HISTORICAL_REPLAY_FRESHNESS_STAGE_COMMAND)
+        validator_indexes = [
+            index
+            for index, line in enumerate(executable_lines)
+            if line.startswith(
+                "python scripts/validate_historical_source_replay_staged_paths.py"
+            )
+        ]
+        if not validator_indexes or stage_index >= validator_indexes[0]:
+            errors.append(
+                "historical replay freshness markers must be staged before staged-path validation"
+            )
+    return errors
+
+
 def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[str]:
     errors: list[str] = []
     replay_concurrency = "group: historical-structured-source-replay-${{ github.ref }}"
@@ -435,6 +502,7 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
     for literal, purpose in replay_runtime_required.items():
         if literal not in replay_text:
             errors.append(f"{purpose}: missing {literal!r}")
+    errors.extend(_validate_historical_replay_freshness_stage(replay_text))
     for literal, purpose in recent_required.items():
         if literal not in recent_text:
             errors.append(f"{purpose}: missing {literal!r}")
@@ -543,10 +611,6 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
     ]
     if other_dispatches:
         errors.append(f"recent recovery contains an unapproved workflow dispatch: {other_dispatches}")
-    if "git add output/latest/data_freshness_latest" in replay_text:
-        errors.append(
-            "historical structured-source replay must not independently publish the authoritative freshness surface"
-        )
     if "write_files=False" not in (ROOT / "scripts" / "repair_recent_daily_price_gaps.py").read_text(
         encoding="utf-8"
     ):

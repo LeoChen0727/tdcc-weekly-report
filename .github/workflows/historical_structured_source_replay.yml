@@ -184,6 +184,7 @@ jobs:
           if [ -z "$PRICE_HISTORY_HIGH_WATER_DATE" ]; then
             git add docs/latest/stock_price_history_manifest.csv docs/latest/stock_price_history_manifest.json docs/latest/stock_price_history_manifest.md
           fi
+          git add output/latest/data_freshness_latest.csv output/latest/data_freshness_latest.md
           python scripts/validate_historical_source_replay_staged_paths.py \
             --price-history-high-water-date "$PRICE_HISTORY_HIGH_WATER_DATE"
           if git diff --cached --quiet; then

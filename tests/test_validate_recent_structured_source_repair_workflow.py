@@ -18,6 +18,41 @@ def test_current_workflows_pass_data_only_catch_up_contract() -> None:
     assert validator.validate(recent_text, replay_text, daily_full_text) == []
 
 
+def test_historical_replay_freshness_staging_is_exact_and_fail_closed() -> None:
+    recent_text, replay_text, daily_full_text = _texts()
+    command = validator.HISTORICAL_REPLAY_FRESHNESS_STAGE_COMMAND
+    assert validator.validate(recent_text, replay_text, daily_full_text) == []
+
+    mutants = {
+        "missing_csv": "git add output/latest/data_freshness_latest.md",
+        "missing_md": "git add output/latest/data_freshness_latest.csv",
+        "broad_directory": "git add output/latest/",
+        "glob": "git add output/latest/data_freshness_latest.*",
+        "conditional_carrier": f"if true; then {command}; fi",
+        "extra_market_session": (
+            f"{command} output/latest/market_session_status_latest.json"
+        ),
+        "extra_release": f"{command} output/latest/daily_authority_release_latest.json",
+    }
+    for label, replacement in mutants.items():
+        errors = validator.validate(
+            recent_text,
+            replay_text.replace(command, replacement, 1),
+            daily_full_text,
+        )
+        assert errors, label
+
+    duplicate = replay_text.replace(command, f"{command}\n          {command}", 1)
+    assert validator.validate(recent_text, duplicate, daily_full_text)
+
+    wrong_step = replay_text.replace(
+        f"- name: {validator.HISTORICAL_REPLAY_FRESHNESS_STAGE_STEP}",
+        "- name: Wrong artifact-family staging step",
+        1,
+    )
+    assert validator.validate(recent_text, wrong_step, daily_full_text)
+
+
 def test_repair_contract_is_not_locked_to_unrelated_workflow_bytes() -> None:
     recent_text, replay_text, daily_full_text = _texts()
 
