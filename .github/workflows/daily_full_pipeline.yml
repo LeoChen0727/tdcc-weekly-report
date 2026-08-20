@@ -1,5 +1,5 @@
 name: Daily Full Pipeline
-run-name: ${{ inputs.recovery_correlation_id != '' && format('Daily Full Pipeline | recovery={0}', inputs.recovery_correlation_id) || 'Daily Full Pipeline' }}
+run-name: ${{ inputs.recovery_retry_of_run_id != '' && format('Daily Full Pipeline | recovery=daily-source-{0}', inputs.recovery_source_bundle_trading_date) || inputs.recovery_correlation_id != '' && format('Daily Full Pipeline | recovery={0}', inputs.recovery_correlation_id) || 'Daily Full Pipeline' }}
 
 on:
   workflow_dispatch:
@@ -20,6 +20,16 @@ on:
         type: string
       recovery_expected_head_sha:
         description: "Exact Daily Full event SHA reserved by the source-recovery workflow"
+        required: false
+        default: ""
+        type: string
+      recovery_reservation_commit_sha:
+        description: "Original exact one-path reservation commit for a failed-run code-only retry"
+        required: false
+        default: ""
+        type: string
+      recovery_retry_of_run_id:
+        description: "Exact attempt-1 failed Daily Full run resumed without rebuilding sources"
         required: false
         default: ""
         type: string
@@ -64,7 +74,7 @@ permissions:
   actions: write
 
 concurrency:
-  group: ${{ inputs.recovery_correlation_id != '' && format('daily-full-recovery-{0}', inputs.recovery_correlation_id) || format('daily-full-pipeline-{0}', github.ref) }}
+  group: ${{ inputs.recovery_retry_of_run_id != '' && format('daily-full-retry-{0}-{1}', inputs.recovery_source_bundle_trading_date, inputs.recovery_retry_of_run_id) || inputs.recovery_correlation_id != '' && format('daily-full-recovery-{0}', inputs.recovery_correlation_id) || format('daily-full-pipeline-{0}', github.ref) }}
   cancel-in-progress: false
 
 jobs:
@@ -101,6 +111,8 @@ jobs:
         env:
           RECOVERY_CORRELATION_ID: ${{ inputs.recovery_correlation_id }}
           RECOVERY_EXPECTED_HEAD_SHA: ${{ inputs.recovery_expected_head_sha }}
+          RECOVERY_RESERVATION_COMMIT_SHA: ${{ inputs.recovery_reservation_commit_sha }}
+          RECOVERY_RETRY_OF_RUN_ID: ${{ inputs.recovery_retry_of_run_id }}
           RECOVERY_RESERVATION_PATH: ${{ inputs.recovery_reservation_path }}
           RECOVERY_RESERVATION_SHA256: ${{ inputs.recovery_reservation_sha256 }}
           RECOVERY_SOURCE_BUNDLE_COMMIT_SHA: ${{ inputs.recovery_source_bundle_commit_sha }}
@@ -111,6 +123,7 @@ jobs:
         run: |
           python - <<'PY'
           import os
+          import re
 
           names = (
               "RECOVERY_CORRELATION_ID",
@@ -127,6 +140,20 @@ jobs:
           populated = {name for name, value in values.items() if value}
           if populated and populated != set(names):
               raise SystemExit(f"recovery source bundle inputs must be all-or-none: {sorted(populated)}")
+          retry_names = (
+              "RECOVERY_RESERVATION_COMMIT_SHA",
+              "RECOVERY_RETRY_OF_RUN_ID",
+          )
+          retry_values = {
+              name: os.environ.get(name, "").strip() for name in retry_names
+          }
+          retry_populated = {name for name, value in retry_values.items() if value}
+          if retry_populated and retry_populated != set(retry_names):
+              raise SystemExit(
+                  f"failed-recovery retry inputs must be paired: {sorted(retry_populated)}"
+              )
+          if retry_populated and not populated:
+              raise SystemExit("failed-recovery retry requires the complete source bundle input set")
           if populated:
               run_attempt = os.environ.get("GITHUB_RUN_ATTEMPT", "").strip()
               if run_attempt != "1":
@@ -136,14 +163,34 @@ jobs:
                   )
               expected_head = values["RECOVERY_EXPECTED_HEAD_SHA"]
               event_head = os.environ.get("GITHUB_SHA", "").strip().lower()
-              expected_correlation = (
-                  "daily-source-" + values["RECOVERY_SOURCE_BUNDLE_TRADING_DATE"]
-              )
-              if values["RECOVERY_CORRELATION_ID"] != expected_correlation:
-                  raise SystemExit(
-                      "recovery correlation id must equal the date-scoped bundle identity: "
-                      f"expected={expected_correlation} observed={values['RECOVERY_CORRELATION_ID']}"
-                  )
+              trading_date = values["RECOVERY_SOURCE_BUNDLE_TRADING_DATE"]
+              if retry_populated:
+                  reservation_commit = retry_values["RECOVERY_RESERVATION_COMMIT_SHA"]
+                  retry_run_id = retry_values["RECOVERY_RETRY_OF_RUN_ID"]
+                  if len(reservation_commit) != 40 or any(
+                      char not in "0123456789abcdef" for char in reservation_commit
+                  ):
+                      raise SystemExit(
+                          f"invalid recovery reservation commit SHA: {reservation_commit!r}"
+                      )
+                  if not retry_run_id.isdigit() or int(retry_run_id) <= 0:
+                      raise SystemExit(f"invalid failed recovery run id: {retry_run_id!r}")
+                  expected_prefix = f"manual-resume-{trading_date}-"
+                  correlation = values["RECOVERY_CORRELATION_ID"]
+                  if not correlation.startswith(expected_prefix) or re.fullmatch(
+                      r"[A-Za-z0-9._-]{16,128}", correlation
+                  ) is None:
+                      raise SystemExit(
+                          "failed-recovery retry correlation id is invalid: "
+                          f"expected_prefix={expected_prefix!r} observed={correlation!r}"
+                      )
+              else:
+                  expected_correlation = "daily-source-" + trading_date
+                  if values["RECOVERY_CORRELATION_ID"] != expected_correlation:
+                      raise SystemExit(
+                          "recovery correlation id must equal the date-scoped bundle identity: "
+                          f"expected={expected_correlation} observed={values['RECOVERY_CORRELATION_ID']}"
+                      )
               if len(expected_head) != 40 or any(char not in "0123456789abcdef" for char in expected_head):
                   raise SystemExit(f"invalid recovery expected head SHA: {expected_head!r}")
               if event_head != expected_head:
@@ -165,7 +212,29 @@ jobs:
             --manifest-path "${{ inputs.recovery_source_bundle_manifest_path }}" \
             --manifest-sha256 "${{ inputs.recovery_source_bundle_manifest_sha256 }}" \
             --source-bundle-sha "${{ inputs.recovery_source_bundle_sha }}" \
-            --correlation-id "${{ inputs.recovery_correlation_id }}"
+            --correlation-id "${{ inputs.recovery_correlation_id }}" \
+            --reservation-commit-sha "${{ inputs.recovery_reservation_commit_sha }}" \
+            --retry-of-run-id "${{ inputs.recovery_retry_of_run_id }}"
+
+      - name: Validate single failed-recovery retry
+        if: inputs.recovery_retry_of_run_id != ''
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          runs_json="$RUNNER_TEMP/daily-full-failed-recovery-runs.json"
+          python -B scripts/daily_source_recovery_bundle.py collect-retry-runs \
+            --repository "$GITHUB_REPOSITORY" \
+            --output "$runs_json"
+          python -B scripts/daily_source_recovery_bundle.py verify-retry-runs \
+            --repo-root . \
+            --runs-json "$runs_json" \
+            --reservation-commit-sha "${{ inputs.recovery_reservation_commit_sha }}" \
+            --reservation-path "${{ inputs.recovery_reservation_path }}" \
+            --trading-date "${{ inputs.recovery_source_bundle_trading_date }}" \
+            --retry-of-run-id "${{ inputs.recovery_retry_of_run_id }}" \
+            --current-run-id "${{ github.run_id }}" \
+            --current-head-sha "${{ github.sha }}"
 
       - name: Materialize immutable recovery source bundle for preflight
         if: inputs.recovery_source_bundle_commit_sha != ''
