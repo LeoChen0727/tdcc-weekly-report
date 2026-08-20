@@ -1775,6 +1775,15 @@ def test_production_workflow_checkpoint_precedes_original_step41() -> None:
     assert "if:" not in step41_block
 
 
+def test_replay_validator_names_production_checkpoint_as_diagnostic(
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    assert replay_validator.main() == 0
+    output = capsys.readouterr().out
+    assert "pre_step41_checkpoint=diagnostic_non_blocking" in output
+    assert "pre_step41_checkpoint=fail_safe" not in output
+
+
 @pytest.mark.parametrize(
     ("old", "new"),
     [
