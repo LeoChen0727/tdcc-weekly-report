@@ -85,23 +85,21 @@ def test_numerical_anomaly_disposition_requires_bottom_level_evidence() -> None:
         assert legacy_threshold_artifact not in formal_pins
 
 
-def test_daily_full_pipeline_runs_code_isolation_gates() -> None:
+def test_daily_full_pipeline_preserves_pdf_runtime_isolation_gates() -> None:
     workflow_text = (ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(
         encoding="utf-8"
     )
 
-    assert "python scripts/validate_repo_code_isolation_policy.py" in workflow_text
-    assert "python scripts/validate_chatgpt_side_pdf_layout_independence.py" in workflow_text
     assert "python scripts/validate_daily_pdf_shared_path_isolation.py" in workflow_text
     assert "python scripts/validate_daily_pdf_completion_hard_gate.py" in workflow_text
 
 
-def test_daily_boundary_validator_runs_code_isolation_policy() -> None:
-    boundary_text = (ROOT / "scripts" / "validate_daily_production_boundaries.py").read_text(
+def test_pr_static_workflow_runs_code_isolation_policy() -> None:
+    workflow_text = (ROOT / ".github/workflows/individual_stock_pr_validation.yml").read_text(
         encoding="utf-8"
     )
 
-    assert "validate_repo_code_isolation_policy.py" in boundary_text
+    assert "python scripts/validate_repo_code_isolation_policy.py" in workflow_text
 
 
 def test_research_pipeline_runs_model_parity_validator() -> None:
@@ -156,8 +154,7 @@ def test_research_workflow_isolation_validator_runs_on_all_required_surfaces() -
     command = "python scripts/validate_model_research_workflow_isolation.py"
     for path in (
         ROOT / ".github" / "workflows" / "research_backtest_pipeline.yml",
-        ROOT / ".github" / "workflows" / "daily_full_pipeline.yml",
-        ROOT / ".github" / "workflows" / "daily_model_maintenance_pr_validation.yml",
+        ROOT / ".github" / "workflows" / "individual_stock_pr_validation.yml",
     ):
         assert command in path.read_text(encoding="utf-8")
 

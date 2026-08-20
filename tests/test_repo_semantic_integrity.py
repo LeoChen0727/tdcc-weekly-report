@@ -13,16 +13,12 @@ def test_repo_semantic_integrity_validator_passes() -> None:
     assert validator.main() == 0
 
 
-def test_semantic_integrity_gate_is_hooked_into_daily_pipeline() -> None:
-    workflow = (ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(
-        encoding="utf-8"
-    )
-    boundary = (ROOT / "scripts" / "validate_daily_production_boundaries.py").read_text(
+def test_semantic_integrity_gate_is_hooked_into_pr_static_workflow() -> None:
+    workflow = (ROOT / ".github" / "workflows" / "individual_stock_pr_validation.yml").read_text(
         encoding="utf-8"
     )
 
     assert "python scripts/validate_repo_semantic_integrity.py" in workflow
-    assert "validate_repo_semantic_integrity.py" in boundary
 
 
 def test_report_artifact_lineage_manifest_has_required_artifacts() -> None:

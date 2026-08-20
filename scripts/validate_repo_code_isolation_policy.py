@@ -18,8 +18,8 @@ ROOT = Path(__file__).resolve().parents[1]
 
 AGENTS = ROOT / "AGENTS.md"
 DAILY_WORKFLOW = ROOT / ".github" / "workflows" / "daily_full_pipeline.yml"
+PR_WORKFLOW = ROOT / ".github" / "workflows" / "individual_stock_pr_validation.yml"
 RESEARCH_WORKFLOW = ROOT / ".github" / "workflows" / "research_backtest_pipeline.yml"
-BOUNDARY_VALIDATOR = ROOT / "scripts" / "validate_daily_production_boundaries.py"
 PDF_LAYOUT_VALIDATOR = ROOT / "scripts" / "validate_chatgpt_side_pdf_layout_independence.py"
 PDF_SHARED_PATH_VALIDATOR = ROOT / "scripts" / "validate_daily_pdf_shared_path_isolation.py"
 PDF_COMPLETION_HARD_GATE = ROOT / "scripts" / "validate_daily_pdf_completion_hard_gate.py"
@@ -205,13 +205,16 @@ REQUIRED_POLICY_TEXT = {
 }
 
 
-REQUIRED_WORKFLOW_COMMANDS = [
+REQUIRED_PR_WORKFLOW_COMMANDS = [
     "python scripts/validate_repo_code_isolation_policy.py",
     "python scripts/validate_model_research_workflow_isolation.py",
     "python scripts/validate_chatgpt_side_pdf_layout_independence.py",
+    "python scripts/validate_daily_production_boundaries.py",
+]
+
+REQUIRED_DAILY_PDF_RUNTIME_COMMANDS = [
     "python scripts/validate_daily_pdf_shared_path_isolation.py",
     "python scripts/validate_daily_pdf_completion_hard_gate.py",
-    "python scripts/validate_daily_production_boundaries.py",
 ]
 
 
@@ -413,8 +416,8 @@ def validate() -> list[str]:
     required_files = [
         AGENTS,
         DAILY_WORKFLOW,
+        PR_WORKFLOW,
         RESEARCH_WORKFLOW,
-        BOUNDARY_VALIDATOR,
         PDF_LAYOUT_VALIDATOR,
         PDF_SHARED_PATH_VALIDATOR,
         PDF_COMPLETION_HARD_GATE,
@@ -478,9 +481,15 @@ def validate() -> list[str]:
 
     if DAILY_WORKFLOW.exists():
         workflow_text = read_text(DAILY_WORKFLOW)
-        for command in REQUIRED_WORKFLOW_COMMANDS:
+        for command in REQUIRED_DAILY_PDF_RUNTIME_COMMANDS:
             if command not in workflow_text:
                 errors.append(f"daily_full_pipeline.yml must run {command}")
+
+    if PR_WORKFLOW.exists():
+        workflow_text = read_text(PR_WORKFLOW)
+        for command in REQUIRED_PR_WORKFLOW_COMMANDS:
+            if command not in workflow_text:
+                errors.append(f"individual_stock_pr_validation.yml must run {command}")
 
     if RESEARCH_WORKFLOW.exists():
         research_workflow_text = read_text(RESEARCH_WORKFLOW)
@@ -490,11 +499,6 @@ def validate() -> list[str]:
                     "research_backtest_pipeline.yml must not rebuild or stage daily production route files: "
                     f"{snippet}"
                 )
-
-    if BOUNDARY_VALIDATOR.exists():
-        boundary_text = read_text(BOUNDARY_VALIDATOR)
-        if "validate_repo_code_isolation_policy.py" not in boundary_text:
-            errors.append("daily production boundary validator must invoke repo code-isolation policy validation")
 
     if POLICY_TEST.exists():
         policy_test_text = read_text(POLICY_TEST)
@@ -528,7 +532,8 @@ def main() -> int:
     print(f"validated_master_rules={RULES_MASTER.relative_to(ROOT).as_posix()}")
     print(f"validated_daily_rules={RULES_DAILY.relative_to(ROOT).as_posix()}")
     print(f"validated_pdf_shared_path={PDF_SHARED_PATH_VALIDATOR.relative_to(ROOT).as_posix()}")
-    print(f"validated_workflow={DAILY_WORKFLOW.relative_to(ROOT).as_posix()}")
+    print(f"validated_pr_workflow={PR_WORKFLOW.relative_to(ROOT).as_posix()}")
+    print(f"validated_daily_workflow={DAILY_WORKFLOW.relative_to(ROOT).as_posix()}")
     print(f"validated_research_workflow={RESEARCH_WORKFLOW.relative_to(ROOT).as_posix()}")
     print(
         "validated_numerical_anomaly_contract="

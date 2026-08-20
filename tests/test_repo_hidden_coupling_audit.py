@@ -26,14 +26,10 @@ def test_hidden_coupling_audit_has_required_categories_and_actions() -> None:
     assert all(row["owner_lane"].strip() for row in rows)
 
 
-def test_hidden_coupling_audit_is_hooked_into_workflows() -> None:
+def test_hidden_coupling_audit_is_hooked_into_pr_static_workflow() -> None:
     command = "python scripts/validate_repo_hidden_coupling_audit.py"
-    daily = (ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(
+    pr = (ROOT / ".github" / "workflows" / "individual_stock_pr_validation.yml").read_text(
         encoding="utf-8"
     )
-    pr = (
-        ROOT / ".github" / "workflows" / "daily_model_maintenance_pr_validation.yml"
-    ).read_text(encoding="utf-8")
 
-    assert command in daily
     assert command in pr

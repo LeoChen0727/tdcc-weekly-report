@@ -10,8 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 INVENTORY_CSV = ROOT / "config" / "repo_production_inventory.csv"
 LINEAGE_CSV = ROOT / "config" / "report_artifact_lineage.csv"
-DAILY_WORKFLOW = ROOT / ".github" / "workflows" / "daily_full_pipeline.yml"
-DAILY_BOUNDARY_VALIDATOR = ROOT / "scripts" / "validate_daily_production_boundaries.py"
+PR_WORKFLOW = ROOT / ".github" / "workflows" / "individual_stock_pr_validation.yml"
 TAXONOMY_CSV = ROOT / "output" / "latest" / "stock_theme_taxonomy_latest.csv"
 MODEL_PARITY_CSV = ROOT / "output" / "latest" / "research_backtest" / "daily_model_research_parity_latest.csv"
 MODEL_PARAMETERS_CSV = ROOT / "output" / "latest" / "daily_candidate_model_parameters_latest.csv"
@@ -606,13 +605,10 @@ def validate_model_parameter_independence() -> list[str]:
 
 def validate_workflow_hooks() -> list[str]:
     errors: list[str] = []
-    workflow = read_text(DAILY_WORKFLOW)
+    workflow = read_text(PR_WORKFLOW)
     command = "python scripts/validate_repo_semantic_integrity.py"
     if command not in workflow:
-        errors.append(f"daily_full_pipeline.yml must run {command}")
-    boundary = read_text(DAILY_BOUNDARY_VALIDATOR)
-    if "validate_repo_semantic_integrity.py" not in boundary:
-        errors.append("daily production boundary validator must invoke repo semantic integrity validation")
+        errors.append(f"individual_stock_pr_validation.yml must run {command}")
     return errors
 
 

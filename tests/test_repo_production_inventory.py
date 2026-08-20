@@ -2675,6 +2675,30 @@ def test_required_workflow_command_validation_rejects_missing_command() -> None:
         assert errors == [expected_error]
 
 
+def test_individual_pr_static_command_contract_is_exact() -> None:
+    workflow_path = ".github/workflows/individual_stock_pr_validation.yml"
+    workflow_text = (ROOT / workflow_path).read_text(encoding="utf-8")
+
+    assert inventory.validate_regular_pr_static_validation_step(workflow_text) == []
+    registered = inventory.REQUIRED_WORKFLOW_COMMANDS[workflow_path]
+    assert registered[: len(inventory.PR_STATIC_VALIDATION_COMMANDS)] == (
+        inventory.PR_STATIC_VALIDATION_COMMANDS
+    )
+    assert "python scripts/validate_individual_pdf_contract_consumers.py" in registered
+
+
+def test_daily_required_commands_keep_pdf_runtime_gates_not_repo_static_self_hooks() -> None:
+    commands = inventory.REQUIRED_WORKFLOW_COMMANDS[inventory.DAILY_WORKFLOW]
+
+    assert "python scripts/validate_pdf_production_inventory.py" in commands
+    assert "python scripts/validate_daily_pdf_contract_consumers.py" in commands
+    assert "python scripts/validate_daily_pdf_shared_path_isolation.py" in commands
+    assert "python scripts/validate_daily_pdf_completion_hard_gate.py" in commands
+    assert "python scripts/validate_repo_production_inventory.py" not in commands
+    assert "python scripts/validate_repo_code_isolation_policy.py" not in commands
+    assert "python scripts/validate_model_research_workflow_isolation.py" not in commands
+
+
 def test_volume_v2_advisory_lineage_refresh_profile_matches_frozen_git_objects(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
@@ -5205,8 +5229,8 @@ def test_inventory_covers_revenue_operation_lag_bucket_audit() -> None:
         assert rows[path]["status"] == "active"
 
 
-def test_all_lane_workflows_run_repo_inventory_gate() -> None:
-    for workflow_path in inventory.REQUIRED_WORKFLOW_COMMANDS:
+def test_all_registered_workflow_commands_match_their_call_graph() -> None:
+    for workflow_path, commands in inventory.REQUIRED_WORKFLOW_COMMANDS.items():
         if (ROOT / workflow_path).exists():
             workflow_text = (ROOT / workflow_path).read_text(encoding="utf-8")
         else:
@@ -5219,7 +5243,8 @@ def test_all_lane_workflows_run_repo_inventory_gate() -> None:
             )
             assert frozen_workflow is not None
             workflow_text = frozen_workflow.decode("utf-8")
-        assert "python scripts/validate_repo_production_inventory.py" in workflow_text
+        for command in commands:
+            assert inventory.workflow_contains_required_command(workflow_text, command)
 
 
 def test_weekly_and_warrant_workflows_do_not_stage_source_files() -> None:

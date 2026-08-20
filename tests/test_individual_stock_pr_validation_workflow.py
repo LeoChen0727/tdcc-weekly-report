@@ -3,6 +3,8 @@ from __future__ import annotations
 import subprocess
 from pathlib import Path
 
+import pytest
+
 from scripts import detect_individual_stock_pr_scope as scope
 from scripts import validate_repo_production_inventory as inventory
 
@@ -143,6 +145,83 @@ def test_workflow_contains_required_affected_validation_commands() -> None:
     for command in commands:
         assert command in text
     assert text.count("if: steps.scope.outputs.affected == 'true'") >= 2
+
+
+def test_pull_request_static_validation_step_is_exact_and_unconditional() -> None:
+    text = workflow_text()
+
+    assert inventory.validate_regular_pr_static_validation_step(text) == []
+    regular_job = inventory.workflow_job_blocks(text)["individual-stock-pr-validation"]
+    steps = inventory.workflow_step_blocks(regular_job)
+    names = [inventory.workflow_step_name(step) for step in steps]
+    assert names.count(inventory.PR_STATIC_DEPENDENCY_STEP_NAME) == 1
+    assert names.count(inventory.PR_STATIC_VALIDATION_STEP_NAME) == 1
+    assert names.index(inventory.PR_STATIC_DEPENDENCY_STEP_NAME) < names.index(
+        inventory.PR_STATIC_VALIDATION_STEP_NAME
+    )
+
+
+@pytest.mark.parametrize("command", inventory.PR_STATIC_VALIDATION_COMMANDS)
+def test_pull_request_static_validation_rejects_each_missing_command(command: str) -> None:
+    text = workflow_text()
+    exact_line = f"          {command}\n"
+    assert text.count(exact_line) == 1
+
+    mutated = text.replace(exact_line, "", 1)
+
+    assert inventory.validate_regular_pr_static_validation_step(mutated)
+
+
+@pytest.mark.parametrize(
+    "mutation",
+    ("condition", "continue_on_error", "dead_branch", "duplicate"),
+)
+def test_pull_request_static_validation_rejects_inert_or_non_failing_carriers(
+    mutation: str,
+) -> None:
+    text = workflow_text()
+    name_line = f"      - name: {inventory.PR_STATIC_VALIDATION_STEP_NAME}\n"
+    assert text.count(name_line) == 1
+    if mutation == "condition":
+        mutated = text.replace(name_line, name_line + "        if: false\n", 1)
+    elif mutation == "continue_on_error":
+        mutated = text.replace(
+            name_line,
+            name_line + "        continue-on-error: true\n",
+            1,
+        )
+    elif mutation == "dead_branch":
+        first = f"          {inventory.PR_STATIC_VALIDATION_COMMANDS[0]}\n"
+        last = f"          {inventory.PR_STATIC_VALIDATION_COMMANDS[-1]}\n"
+        mutated = text.replace(first, "          if false; then\n" + first, 1)
+        mutated = mutated.replace(last, last + "          fi\n", 1)
+    else:
+        regular_job = inventory.workflow_job_blocks(text)["individual-stock-pr-validation"]
+        static_step = next(
+            step
+            for step in inventory.workflow_step_blocks(regular_job)
+            if inventory.workflow_step_name(step) == inventory.PR_STATIC_VALIDATION_STEP_NAME
+        )
+        mutated = text.replace(static_step, static_step + static_step, 1)
+
+    assert inventory.validate_regular_pr_static_validation_step(mutated)
+
+
+def test_pull_request_target_cannot_checkout_or_execute_pr_head_code() -> None:
+    text = workflow_text()
+    audit_job = inventory.workflow_job_blocks(text)["pr-safe-base-audit-runner"]
+    assert inventory.PR_STATIC_VALIDATION_STEP_NAME not in audit_job
+    assert "ref: ${{ github.event.pull_request.base.sha }}" in audit_job
+    assert "ref: ${{ github.event.pull_request.head.sha }}" not in audit_job
+    assert "git checkout " not in audit_job
+    assert "git switch " not in audit_job
+
+    mutated = text.replace(
+        "          ref: ${{ github.event.pull_request.base.sha }}",
+        "          ref: ${{ github.event.pull_request.head.sha }}",
+        1,
+    )
+    assert inventory.validate_pr_safe_base_guard_workflow_text(mutated)
 
 
 def test_workflow_cannot_commit_push_or_deploy_artifacts() -> None:

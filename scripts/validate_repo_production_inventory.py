@@ -51,6 +51,26 @@ PR_SAFE_REGULAR_JOB_NAME_EXPRESSION = (
     "'individual-stock-pr-validation-pull-request-target-skip' }}"
 )
 PR_SAFE_READ_ONLY_PERMISSIONS = {"contents": "read"}
+PR_STATIC_DEPENDENCY_STEP_NAME = "Install PR static validation dependencies"
+PR_STATIC_DEPENDENCY_COMMAND = (
+    "python -m pip install --disable-pip-version-check pytest pandas requests "
+    "PyYAML==6.0.2 pypdf"
+)
+PR_STATIC_VALIDATION_STEP_NAME = "Validate repository static contracts"
+PR_STATIC_VALIDATION_COMMANDS = (
+    "python scripts/validate_apps_script_workflow_triggers.py",
+    "python scripts/validate_repo_production_inventory.py",
+    "python scripts/validate_repo_file_lifecycle_inventory.py",
+    "python scripts/validate_repo_hidden_coupling_audit.py",
+    "python scripts/validate_daily_model_background_data_registry.py",
+    "python scripts/validate_repo_semantic_integrity.py",
+    "python scripts/validate_repo_code_isolation_policy.py",
+    "python scripts/validate_model_research_workflow_isolation.py",
+    "python scripts/validate_chatgpt_side_pdf_layout_independence.py",
+    "python scripts/validate_daily_pdf_role_manifest_contract.py",
+    "python scripts/validate_pdf_production_inventory.py --phase prebuild",
+    "python scripts/validate_daily_production_boundaries.py",
+)
 PR_SAFE_AUDIT_STEP_NAMES = (
     "Checkout pull request base only",
     "Fetch pull request head object without checkout",
@@ -1528,6 +1548,7 @@ WORKFLOW_ALLOWED_OWNERS = {
         "repo_infrastructure",
     },
     ".github/workflows/individual_stock_pr_validation.yml": {
+        "daily_production",
         "individual_stock",
         "repo_infrastructure",
     },
@@ -1711,13 +1732,10 @@ FORBIDDEN_WORKFLOW_SNIPPETS = {
 
 REQUIRED_WORKFLOW_COMMANDS = {
     DAILY_WORKFLOW: (
-        "python scripts/validate_repo_production_inventory.py",
         "python scripts/validate_pdf_production_inventory.py",
         "python scripts/validate_daily_pdf_contract_consumers.py",
         "python scripts/validate_daily_pdf_shared_path_isolation.py",
         "python scripts/validate_daily_pdf_completion_hard_gate.py",
-        "python scripts/validate_repo_code_isolation_policy.py",
-        "python scripts/validate_model_research_workflow_isolation.py",
     ),
     ".github/workflows/historical_structured_source_replay.yml": (
         "python scripts/validate_apps_script_workflow_triggers.py",
@@ -1770,8 +1788,7 @@ REQUIRED_WORKFLOW_COMMANDS = {
     ".github/workflows/individual_stock_report.yml": ("python scripts/validate_repo_production_inventory.py",),
     ".github/workflows/individual_stock_data_refresh.yml": ("python scripts/validate_repo_production_inventory.py",),
     ".github/workflows/individual_stock_pr_validation.yml": (
-        "python scripts/validate_repo_file_lifecycle_inventory.py",
-        "python scripts/validate_repo_production_inventory.py",
+        *PR_STATIC_VALIDATION_COMMANDS,
         "python scripts/validate_individual_pdf_contract_consumers.py",
     ),
     ".github/workflows/warrant_flow.yml": ("python scripts/validate_repo_production_inventory.py",),
@@ -2174,6 +2191,74 @@ def workflow_step_blocks(job_block: str) -> list[str]:
 def workflow_step_name(step_block: str) -> str:
     match = re.search(r"^      - name:\s*(.+?)\s*$", step_block, flags=re.MULTILINE)
     return match.group(1) if match else ""
+
+
+def canonical_workflow_step_text(step_block: str) -> str:
+    normalized = step_block.replace("\r\n", "\n").replace("\r", "\n")
+    return "\n".join(line.rstrip() for line in normalized.strip().split("\n"))
+
+
+def validate_regular_pr_static_validation_step(text: str) -> list[str]:
+    errors: list[str] = []
+    jobs = workflow_job_blocks(text)
+    regular_job = jobs.get("individual-stock-pr-validation", "")
+    if not regular_job:
+        return ["regular individual-stock PR validation job is missing"]
+
+    steps = workflow_step_blocks(regular_job)
+    dependency_steps = [
+        (index, step)
+        for index, step in enumerate(steps)
+        if workflow_step_name(step) == PR_STATIC_DEPENDENCY_STEP_NAME
+    ]
+    static_steps = [
+        (index, step)
+        for index, step in enumerate(steps)
+        if workflow_step_name(step) == PR_STATIC_VALIDATION_STEP_NAME
+    ]
+    if len(dependency_steps) != 1:
+        errors.append("pull_request job must contain exactly one PR static dependency step")
+    if len(static_steps) != 1:
+        errors.append("pull_request job must contain exactly one repository static validation step")
+    if len(dependency_steps) != 1 or len(static_steps) != 1:
+        return errors
+
+    dependency_index, dependency_step = dependency_steps[0]
+    static_index, static_step = static_steps[0]
+    if dependency_index >= static_index:
+        errors.append("PR static validation dependencies must be installed before validation")
+
+    expected_dependency = canonical_workflow_step_text(
+        "      - name: "
+        f"{PR_STATIC_DEPENDENCY_STEP_NAME}\n"
+        f"        run: {PR_STATIC_DEPENDENCY_COMMAND}\n"
+    )
+    if canonical_workflow_step_text(dependency_step) != expected_dependency:
+        errors.append("PR static dependency step must match the exact unconditional contract")
+
+    expected_static = canonical_workflow_step_text(
+        "      - name: "
+        f"{PR_STATIC_VALIDATION_STEP_NAME}\n"
+        "        run: |\n"
+        + "".join(f"          {command}\n" for command in PR_STATIC_VALIDATION_COMMANDS)
+    )
+    if canonical_workflow_step_text(static_step) != expected_static:
+        errors.append(
+            "repository static validation step must match the exact unconditional command contract"
+        )
+    if workflow_step_condition(static_step):
+        errors.append("repository static validation step must not have an if condition")
+    if re.search(r"^        continue-on-error\s*:", static_step, flags=re.MULTILINE):
+        errors.append("repository static validation step must fail closed")
+
+    audit_job = jobs.get("pr-safe-base-audit-runner", "")
+    if PR_STATIC_VALIDATION_STEP_NAME in audit_job:
+        errors.append("pull_request_target base-owned runner must not contain the PR-head static step")
+    if "ref: ${{ github.event.pull_request.head.sha }}" in audit_job:
+        errors.append("pull_request_target base-owned runner must not checkout the PR head SHA")
+    if "git checkout " in audit_job or "git switch " in audit_job:
+        errors.append("pull_request_target base-owned runner must not transition to PR-head code")
+    return errors
 
 
 def workflow_job_scalar_values(job_block: str, key: str) -> tuple[str, ...]:
@@ -2805,6 +2890,8 @@ def validate_workflow_snippets(errors: list[str]) -> None:
             command_list,
             errors,
         )
+        if workflow_path == PR_SAFE_BASE_GUARD_WORKFLOW:
+            errors.extend(validate_regular_pr_static_validation_step(read_text(workflow_path)))
 
     for workflow_path, grouped_snippets in FORBIDDEN_WORKFLOW_SNIPPETS.items():
         if not (ROOT / workflow_path).exists():
