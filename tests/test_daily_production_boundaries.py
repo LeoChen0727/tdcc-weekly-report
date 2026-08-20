@@ -2281,6 +2281,11 @@ def test_only_daily_full_pipeline_can_stage_authoritative_latest_surfaces() -> N
         for line in normalized.splitlines():
             command = line.strip()
             if command.startswith("git add"):
+                if (
+                    path == boundaries.HISTORICAL_SOURCE_REPLAY_WORKFLOW
+                    and command == boundaries.HISTORICAL_REPLAY_FRESHNESS_STAGE_COMMAND
+                ):
+                    continue
                 assert not boundaries.git_add_command_covers_authority(command), (path.name, command)
     daily = (workflows / "daily_full_pipeline.yml").read_text(encoding="utf-8")
     assert "output/latest/market_session_status_latest.json" in daily
@@ -2802,7 +2807,51 @@ def test_historical_structured_source_replay_workflow_wires_optional_price_high_
     ) == 4
     assert 'if [ -z "$PRICE_HISTORY_HIGH_WATER_DATE" ]; then\n            git add data/daily_price/' in text
     assert "git add output/latest/official_daily_price_latest.csv" in text
-    assert "git add output/latest/data_freshness_latest" not in text
+    assert text.count(boundaries.HISTORICAL_REPLAY_FRESHNESS_STAGE_COMMAND) == 1
+
+
+def test_historical_replay_freshness_staging_narrow_exception_rejects_mutations() -> None:
+    text = boundaries.HISTORICAL_SOURCE_REPLAY_WORKFLOW.read_text(encoding="utf-8")
+    command = boundaries.HISTORICAL_REPLAY_FRESHNESS_STAGE_COMMAND
+    assert boundaries.validate_historical_source_replay_workflow(text) == []
+
+    mutants = {
+        "missing_csv": "git add output/latest/data_freshness_latest.md",
+        "missing_md": "git add output/latest/data_freshness_latest.csv",
+        "broad_directory": "git add output/latest/",
+        "glob": "git add output/latest/data_freshness_latest.*",
+        "conditional_carrier": f"if true; then {command}; fi",
+        "extra_market_session": (
+            f"{command} output/latest/market_session_status_latest.json"
+        ),
+        "extra_release": f"{command} output/latest/daily_authority_release_latest.json",
+    }
+    for label, replacement in mutants.items():
+        errors = boundaries.validate_historical_source_replay_workflow(
+            text.replace(command, replacement, 1)
+        )
+        assert errors, label
+
+    duplicate = text.replace(command, f"{command}\n          {command}", 1)
+    assert boundaries.validate_historical_source_replay_workflow(duplicate)
+
+    wrong_step = text.replace(
+        f"- name: {boundaries.HISTORICAL_REPLAY_FRESHNESS_STAGE_STEP}",
+        "- name: Wrong artifact-family staging step",
+        1,
+    )
+    assert boundaries.validate_historical_source_replay_workflow(wrong_step)
+
+
+def test_historical_replay_freshness_stage_exception_is_path_scoped() -> None:
+    command = boundaries.HISTORICAL_REPLAY_FRESHNESS_STAGE_COMMAND
+    assert boundaries.git_add_command_covers_authority(command)
+    assert boundaries.HISTORICAL_SOURCE_REPLAY_WORKFLOW.name == (
+        "historical_structured_source_replay.yml"
+    )
+    assert (ROOT / ".github/workflows/event_catalyst_update.yml") != (
+        boundaries.HISTORICAL_SOURCE_REPLAY_WORKFLOW
+    )
 
 
 def test_historical_structured_source_replay_rejects_broad_stage_and_retry_push() -> None:

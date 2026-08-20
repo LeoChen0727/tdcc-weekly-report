@@ -606,8 +606,90 @@ def run_repo_advanced_integrity_validation() -> list[str]:
     return list(module.validate(include_external_sources=False))
 
 
+HISTORICAL_REPLAY_FRESHNESS_STAGE_STEP = "Stage exact structured-source artifact families"
+HISTORICAL_REPLAY_FRESHNESS_STAGE_COMMAND = (
+    "git add output/latest/data_freshness_latest.csv "
+    "output/latest/data_freshness_latest.md"
+)
+
+
+def _workflow_step_executable_lines(step_block: str) -> list[str]:
+    lines: list[str] = []
+    run_indent: int | None = None
+    for raw_line in step_block.splitlines():
+        stripped = raw_line.strip()
+        indent = len(raw_line) - len(raw_line.lstrip())
+        if run_indent is None:
+            if stripped in {"run: |", "run: |-", "run: |+"}:
+                run_indent = indent
+            continue
+        if stripped and indent <= run_indent:
+            break
+        if stripped and not stripped.startswith("#"):
+            lines.append(stripped)
+    return lines
+
+
+def _validate_historical_replay_freshness_stage(text: str) -> list[str]:
+    errors: list[str] = []
+    job_block = workflow_job_block(text, "replay-historical-structured-sources")
+    if not job_block:
+        return ["historical replay workflow is missing replay-historical-structured-sources job"]
+
+    step_marker = f"- name: {HISTORICAL_REPLAY_FRESHNESS_STAGE_STEP}"
+    if sum(line.strip() == step_marker for line in job_block.splitlines()) != 1:
+        return [
+            "historical replay workflow must define exactly one exact artifact-family staging step"
+        ]
+
+    step_block = workflow_step_block(job_block, HISTORICAL_REPLAY_FRESHNESS_STAGE_STEP)
+    executable_lines = _workflow_step_executable_lines(step_block)
+    if sum(
+        line == HISTORICAL_REPLAY_FRESHNESS_STAGE_COMMAND
+        for line in executable_lines
+    ) != 1:
+        errors.append(
+            "historical replay freshness markers require one direct exact staging command"
+        )
+    if text.count(HISTORICAL_REPLAY_FRESHNESS_STAGE_COMMAND) != 1:
+        errors.append(
+            "historical replay freshness staging command must occur exactly once in the workflow"
+        )
+
+    protected_names = (
+        "data_freshness_latest.csv",
+        "data_freshness_latest.md",
+        "market_session_status_latest.json",
+        "daily_authority_release_latest.json",
+    )
+    for line in executable_lines:
+        if any(name in line for name in protected_names) and (
+            line != HISTORICAL_REPLAY_FRESHNESS_STAGE_COMMAND
+        ):
+            errors.append(
+                "historical replay exact artifact-family step contains a non-exact "
+                f"authority-surface command: {line}"
+            )
+
+    if HISTORICAL_REPLAY_FRESHNESS_STAGE_COMMAND in executable_lines:
+        stage_index = executable_lines.index(HISTORICAL_REPLAY_FRESHNESS_STAGE_COMMAND)
+        validator_indexes = [
+            index
+            for index, line in enumerate(executable_lines)
+            if line.startswith(
+                "python scripts/validate_historical_source_replay_staged_paths.py"
+            )
+        ]
+        if not validator_indexes or stage_index >= validator_indexes[0]:
+            errors.append(
+                "historical replay freshness markers must be staged before staged-path validation"
+            )
+    return errors
+
+
 def validate_historical_source_replay_workflow(text: str) -> list[str]:
     errors: list[str] = []
+    errors.extend(_validate_historical_replay_freshness_stage(text))
     required_literals = {
         "workflow_dispatch:": "must be manually and explicitly dispatched",
         "expected_main_sha:": "must require an immutable authorized main SHA",
@@ -914,6 +996,11 @@ def validate_authority_workflow_publishers() -> list[str]:
         normalized = re.sub(r"\\\r?\n\s*", " ", text)
         for raw_line in normalized.splitlines():
             command = raw_line.strip()
+            if (
+                path == HISTORICAL_SOURCE_REPLAY_WORKFLOW
+                and command == HISTORICAL_REPLAY_FRESHNESS_STAGE_COMMAND
+            ):
+                continue
             if git_add_command_covers_authority(command):
                 errors.append(
                     f"non-authority workflow may stage a daily authority surface: {path.name}: {command}"
