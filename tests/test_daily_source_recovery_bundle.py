@@ -1190,15 +1190,18 @@ def _retry_run(
     status: str = "completed",
     conclusion: str | None = "failure",
 ) -> dict[str, object]:
+    title = f"Daily Full Pipeline | recovery=daily-source-{DATE}"
     return {
         "id": run_id,
         "run_attempt": 1,
         "status": status,
         "conclusion": conclusion,
         "event": "workflow_dispatch",
-        "name": "Daily Full Pipeline",
+        "name": title,
+        "path": ".github/workflows/daily_full_pipeline.yml",
+        "head_branch": "main",
         "head_sha": head_sha,
-        "display_title": f"Daily Full Pipeline | recovery=daily-source-{DATE}",
+        "display_title": title,
         "created_at": created_at,
     }
 
@@ -1212,6 +1215,16 @@ def _commit_retry_fix(root: Path, name: str) -> str:
         ["git", "commit", "-m", name], cwd=root, check=True, capture_output=True
     )
     return _git(root, "rev-parse", "HEAD")
+
+
+@pytest.mark.parametrize(
+    "raw_run_id",
+    ("32402031739", "032402031739", " 32402031739 "),
+)
+def test_failed_recovery_retry_run_id_variants_normalize_to_one_identity(
+    raw_run_id: str,
+) -> None:
+    assert bundle.checked_run_id(raw_run_id, "retry run id") == 32402031739
 
 
 def test_failed_recovery_retry_accepts_historical_failures_and_latest_prior(
@@ -1250,6 +1263,72 @@ def test_failed_recovery_retry_accepts_historical_failures_and_latest_prior(
         current_head_sha=current_head,
     )
     assert verified == {"anchor": anchor, "prior": prior, "current": current}
+
+    legacy_runs = []
+    for run in (anchor, older, prior, current):
+        legacy = dict(run)
+        legacy.pop("name")
+        legacy["workflowName"] = "Daily Full Pipeline"
+        legacy_runs.append(legacy)
+    legacy_verified = bundle.verify_failed_recovery_retry_runs(
+        root,
+        legacy_runs,
+        reservation_commit_sha=reservation_commit,
+        reservation_payload=reserved["payload"],
+        trading_date=DATE,
+        retry_of_run_id=300,
+        current_run_id=400,
+        current_head_sha=current_head,
+    )
+    assert legacy_verified["prior"]["id"] == 300
+    feature_branch_failure = older | {"id": 275, "head_branch": "feature/recovery-test"}
+    feature_excluded = bundle.verify_failed_recovery_retry_runs(
+        root,
+        [anchor, feature_branch_failure, prior, current],
+        reservation_commit_sha=reservation_commit,
+        reservation_payload=reserved["payload"],
+        trading_date=DATE,
+        retry_of_run_id=300,
+        current_run_id=400,
+        current_head_sha=current_head,
+    )
+    assert feature_excluded["prior"] == prior
+    with pytest.raises(bundle.DailySourceRecoveryError, match="designated prior failure"):
+        bundle.verify_failed_recovery_retry_runs(
+            root,
+            [anchor, prior | {"head_branch": "feature/recovery-test"}, current],
+            reservation_commit_sha=reservation_commit,
+            reservation_payload=reserved["payload"],
+            trading_date=DATE,
+            retry_of_run_id=300,
+            current_run_id=400,
+            current_head_sha=current_head,
+        )
+    outside_window_same_head = _retry_run(
+        300, head_sha=reservation_commit, created_at="2026-08-11T13:30:00Z"
+    )
+    with pytest.raises(bundle.DailySourceRecoveryError, match="latest related"):
+        bundle.verify_failed_recovery_retry_runs(
+            root,
+            [anchor, outside_window_same_head, current],
+            reservation_commit_sha=reservation_commit,
+            reservation_payload=reserved["payload"],
+            trading_date=DATE,
+            retry_of_run_id=300,
+            current_run_id=400,
+            current_head_sha=current_head,
+        )
+    anchor_only = bundle.verify_failed_recovery_retry_runs(
+        root,
+        [anchor, outside_window_same_head, current],
+        reservation_commit_sha=reservation_commit,
+        reservation_payload=reserved["payload"],
+        trading_date=DATE,
+        retry_of_run_id=201,
+        current_run_id=400,
+        current_head_sha=current_head,
+    )
+    assert anchor_only["prior"] == anchor
     with pytest.raises(bundle.DailySourceRecoveryError, match="latest related"):
         bundle.verify_failed_recovery_retry_runs(
             root,
@@ -1296,6 +1375,46 @@ def test_failed_recovery_retry_accepts_historical_failures_and_latest_prior(
                 current_head_sha=current_head,
             )
 
+
+@pytest.mark.parametrize(
+    ("field", "value"),
+    (
+        ("path", ".github/workflows/other.yml"),
+        ("head_branch", "feature/recovery-test"),
+        ("name", "Daily Full Pipeline"),
+        ("display_title", "Daily Full Pipeline | recovery=daily-source-20260819"),
+    ),
+)
+def test_failed_recovery_retry_rejects_rest_identity_near_miss(
+    tmp_path: Path,
+    field: str,
+    value: str,
+) -> None:
+    root, base_sha = _repo(tmp_path)
+    result, source_commit = _build_and_commit(root, base_sha)
+    reserved, reservation_commit = _reserve_and_commit(root, result, source_commit)
+    current_head = _commit_retry_fix(root, "current_fix")
+    anchor = _retry_run(
+        201, head_sha=reservation_commit, created_at="2026-08-11T12:30:10Z"
+    )
+    current = _retry_run(
+        400,
+        head_sha=current_head,
+        created_at="2026-08-11T14:00:00Z",
+        status="in_progress",
+        conclusion=None,
+    )
+    with pytest.raises(bundle.DailySourceRecoveryError, match="designated prior failure"):
+        bundle.verify_failed_recovery_retry_runs(
+            root,
+            [anchor, current | {field: value}],
+            reservation_commit_sha=reservation_commit,
+            reservation_payload=reserved["payload"],
+            trading_date=DATE,
+            retry_of_run_id=201,
+            current_run_id=400,
+            current_head_sha=current_head,
+        )
 
 def test_failed_recovery_retry_collection_is_stable_beyond_first_page() -> None:
     rows = [
@@ -1345,7 +1464,8 @@ def test_failed_recovery_retry_workflow_uses_stable_group_and_direct_cli() -> No
     text = (bundle.ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(
         encoding="utf-8"
     )
-    assert "daily-full-retry-{0}-{1}" in text
+    assert "daily-full-retry-{0}" in text
+    assert "daily-full-retry-{0}-{1}" not in text
     assert "collect-retry-runs" in text
     assert "daily_source_recovery_bundle.py verify-retry-runs" in text
     assert "&per_page=100" not in text

@@ -1153,8 +1153,8 @@ def validate_daily_failed_recovery_retry_contract(daily_text: str) -> list[str]:
     errors: list[str] = []
     expected_concurrency = (
         "  group: ${{ inputs.recovery_retry_of_run_id != '' && "
-        "format('daily-full-retry-{0}-{1}', inputs.recovery_source_bundle_trading_date, "
-        "inputs.recovery_retry_of_run_id) || inputs.recovery_correlation_id != '' && "
+        "format('daily-full-retry-{0}', inputs.recovery_source_bundle_trading_date) || "
+        "inputs.recovery_correlation_id != '' && "
         "format('daily-full-recovery-{0}', inputs.recovery_correlation_id) || "
         "format('daily-full-pipeline-{0}', github.ref) }}"
     )
@@ -1189,8 +1189,8 @@ def validate_daily_failed_recovery_retry_contract(daily_text: str) -> list[str]:
         "Daily Full Pipeline | recovery=daily-source-{0}": (
             "Daily Full retry must retain the stable date-scoped production title"
         ),
-        "daily-full-retry-{0}-{1}": (
-            "Daily Full retry concurrency must bind trading date and failed run id"
+        "daily-full-retry-{0}": (
+            "Daily Full retry concurrency must bind the normalized trading date"
         ),
         '--reservation-path "${{ inputs.recovery_reservation_path }}"': (
             "Daily Full run validation must read the immutable reservation payload"
@@ -1205,8 +1205,8 @@ def validate_daily_failed_recovery_retry_contract(daily_text: str) -> list[str]:
         errors.append("Daily Full retry failed-run input must be declared exactly once")
     if daily_text.splitlines().count(expected_concurrency) != 1:
         errors.append(
-            "Daily Full retry concurrency must be the exact trading-date/failed-run identity "
-            "and must not depend on recovery correlation"
+            "Daily Full retry concurrency must be the exact trading-date identity and must "
+            "not depend on raw failed-run id or recovery correlation"
         )
     return errors
 

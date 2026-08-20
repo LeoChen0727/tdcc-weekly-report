@@ -375,7 +375,10 @@ def _workflow_run_identity(run: dict[str, Any]) -> tuple[object, ...]:
         checked_run_id(_run_value(run, "databaseId", "id"), "observed recovery run id"),
         int(_run_value(run, "attempt", "run_attempt") or 0),
         str(_run_value(run, "event") or ""),
-        str(_run_value(run, "workflowName", "name") or ""),
+        str(_run_value(run, "workflowName") or ""),
+        str(_run_value(run, "name") or ""),
+        str(_run_value(run, "path") or ""),
+        str(_run_value(run, "headBranch", "head_branch") or ""),
         checked_sha1(_run_value(run, "headSha", "head_sha"), "observed recovery head SHA"),
         str(_run_value(run, "displayTitle", "display_title") or ""),
         _parse_utc(
@@ -473,6 +476,26 @@ def fetch_stable_workflow_dispatch_runs(repository: str) -> list[dict[str, Any]]
     return collect_stable_paginated_workflow_runs(fetch_page)
 
 
+def _matches_daily_full_run_identity(
+    run: dict[str, Any], *, expected_title: str
+) -> bool:
+    if _run_value(run, "event") != "workflow_dispatch":
+        return False
+    if _run_value(run, "path") != WORKFLOW_PATH:
+        return False
+    if _run_value(run, "headBranch", "head_branch") != "main":
+        return False
+    if _run_value(run, "displayTitle", "display_title") != expected_title:
+        return False
+    legacy_name = str(_run_value(run, "workflowName") or "").strip()
+    rest_name = _run_value(run, "name")
+    if legacy_name:
+        if legacy_name != "Daily Full Pipeline":
+            return False
+        return rest_name is None or str(rest_name) == expected_title
+    return str(rest_name or "") == expected_title
+
+
 def verify_failed_recovery_retry_runs(
     root: Path,
     runs: list[dict[str, Any]],
@@ -519,9 +542,7 @@ def verify_failed_recovery_retry_runs(
     matches = [
         run
         for run in runs
-        if _run_value(run, "event") == "workflow_dispatch"
-        and _run_value(run, "workflowName", "name") == "Daily Full Pipeline"
-        and _run_value(run, "displayTitle", "display_title") == expected_title
+        if _matches_daily_full_run_identity(run, expected_title=expected_title)
     ]
     by_id: dict[int, dict[str, Any]] = {}
     for run in matches:
@@ -580,6 +601,8 @@ def verify_failed_recovery_retry_runs(
         if run_head == reservation_commit:
             if anchor_earliest <= created_at <= anchor_latest:
                 anchors.append(run)
+            else:
+                continue
         else:
             verify_code_only_retry_descendant(
                 root,

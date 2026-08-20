@@ -2414,14 +2414,21 @@ def test_daily_full_failed_recovery_retry_contract_is_explicit_and_paired() -> N
     assert "failed-recovery retry inputs must be paired" in text
     assert "verify-retry-runs" in text
     assert "collect-retry-runs" in text
-    assert "daily-full-retry-{0}-{1}" in text
+    assert "daily-full-retry-{0}" in text
+    assert "daily-full-retry-{0}-{1}" not in text
     assert "--reservation-commit-sha" in text
     assert "--reservation-path" in text
     assert "--retry-of-run-id" in text
     group_line = next(
-        line for line in text.splitlines() if "daily-full-retry-{0}-{1}" in line
+        line for line in text.splitlines() if "daily-full-retry-{0}" in line
     )
     retry_branch = group_line.split("||", 1)[0]
+    retry_format = retry_branch.split("&&", 1)[1].strip()
+    assert retry_format == (
+        "format('daily-full-retry-{0}', "
+        "inputs.recovery_source_bundle_trading_date)"
+    )
+    assert retry_branch.count("inputs.recovery_retry_of_run_id") == 1
     assert "recovery_correlation_id" not in retry_branch
 
 
@@ -2437,7 +2444,7 @@ def test_daily_full_failed_recovery_retry_contract_rejects_missing_guards() -> N
         "Validate single failed-recovery retry",
         "collect-retry-runs",
         "verify-retry-runs",
-        "daily-full-retry-{0}-{1}",
+        "daily-full-retry-{0}",
         '--reservation-commit-sha "${{ inputs.recovery_reservation_commit_sha }}"',
         '--reservation-path "${{ inputs.recovery_reservation_path }}"',
         '--retry-of-run-id "${{ inputs.recovery_retry_of_run_id }}"',
@@ -2445,11 +2452,21 @@ def test_daily_full_failed_recovery_retry_contract_rejects_missing_guards() -> N
         mutated = text.replace(required, "disabled-retry-contract-token")
         assert boundaries.validate_daily_failed_recovery_retry_contract(mutated)
     group_line = next(
-        line for line in text.splitlines() if "daily-full-retry-{0}-{1}" in line
+        line for line in text.splitlines() if "daily-full-retry-{0}" in line
+    )
+    raw_retry_id_bound = group_line.replace(
+        "format('daily-full-retry-{0}', inputs.recovery_source_bundle_trading_date)",
+        "format('daily-full-retry-{0}-{1}', inputs.recovery_source_bundle_trading_date, "
+        "inputs.recovery_retry_of_run_id)",
+        1,
+    )
+    assert boundaries.validate_daily_failed_recovery_retry_contract(
+        text.replace(group_line, raw_retry_id_bound)
     )
     correlation_bound = group_line.replace(
-        "inputs.recovery_retry_of_run_id)",
-        "inputs.recovery_retry_of_run_id, inputs.recovery_correlation_id)",
+        "format('daily-full-retry-{0}', inputs.recovery_source_bundle_trading_date)",
+        "format('daily-full-retry-{0}-{1}', inputs.recovery_source_bundle_trading_date, "
+        "inputs.recovery_correlation_id)",
         1,
     )
     assert boundaries.validate_daily_failed_recovery_retry_contract(
