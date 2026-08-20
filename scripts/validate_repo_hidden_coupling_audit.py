@@ -8,8 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 AUDIT_CSV = ROOT / "config" / "repo_hidden_coupling_audit.csv"
 AUDIT_DOC = ROOT / "docs" / "repo_hidden_coupling_audit.md"
-DAILY_WORKFLOW = ROOT / ".github" / "workflows" / "daily_full_pipeline.yml"
-PR_WORKFLOW = ROOT / ".github" / "workflows" / "daily_model_maintenance_pr_validation.yml"
+PR_WORKFLOW = ROOT / ".github" / "workflows" / "individual_stock_pr_validation.yml"
 
 REQUIRED_COLUMNS = {
     "issue_id",
@@ -138,10 +137,9 @@ def validate_doc(rows: list[dict[str, str]], errors: list[str]) -> None:
 
 
 def validate_workflows(errors: list[str]) -> None:
-    for workflow in (DAILY_WORKFLOW, PR_WORKFLOW):
-        text = read_text(workflow)
-        if WORKFLOW_COMMAND not in text:
-            errors.append(f"{workflow.relative_to(ROOT).as_posix()} must run {WORKFLOW_COMMAND}")
+    text = read_text(PR_WORKFLOW)
+    if WORKFLOW_COMMAND not in text:
+        errors.append(f"{PR_WORKFLOW.relative_to(ROOT).as_posix()} must run {WORKFLOW_COMMAND}")
 
 
 def validate() -> list[str]:

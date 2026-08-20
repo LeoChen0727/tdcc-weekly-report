@@ -53,11 +53,26 @@ jobs:
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: git diff --check "$BASE_SHA...$HEAD_SHA" --
 
-      - name: Install workflow test dependency
-        run: python -m pip install --disable-pip-version-check pytest
+      - name: Install PR static validation dependencies
+        run: python -m pip install --disable-pip-version-check pytest pandas requests PyYAML==6.0.2 pypdf
 
       - name: Validate workflow and scope contract
         run: python -m pytest tests/test_individual_stock_pr_validation_workflow.py -q
+
+      - name: Validate repository static contracts
+        run: |
+          python scripts/validate_apps_script_workflow_triggers.py
+          python scripts/validate_repo_production_inventory.py
+          python scripts/validate_repo_file_lifecycle_inventory.py
+          python scripts/validate_repo_hidden_coupling_audit.py
+          python scripts/validate_daily_model_background_data_registry.py
+          python scripts/validate_repo_semantic_integrity.py
+          python scripts/validate_repo_code_isolation_policy.py
+          python scripts/validate_model_research_workflow_isolation.py
+          python scripts/validate_chatgpt_side_pdf_layout_independence.py
+          python scripts/validate_daily_pdf_role_manifest_contract.py
+          python scripts/validate_pdf_production_inventory.py --phase prebuild
+          python scripts/validate_daily_production_boundaries.py
 
       - name: Install affected-path dependencies
         if: steps.scope.outputs.affected == 'true'
@@ -66,8 +81,6 @@ jobs:
       - name: Validate affected individual-stock contracts
         if: steps.scope.outputs.affected == 'true'
         run: |
-          python scripts/validate_repo_file_lifecycle_inventory.py
-          python scripts/validate_repo_production_inventory.py
           python scripts/validate_individual_pdf_contract_consumers.py
           python -m pytest tests/test_repo_production_inventory.py -q
           python -m pytest tests/test_individual_tdcc_dataset_consumer.py -q
