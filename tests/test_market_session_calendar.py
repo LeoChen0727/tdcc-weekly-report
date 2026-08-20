@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import csv
+import hashlib
 import html
 import json
 import pytest
@@ -76,6 +77,42 @@ def _fetcher(feed_payload: bytes):
         raise AssertionError(url)
 
     return fetch
+
+
+def _sequenced_fetch(
+    *,
+    twse_payloads: list[bytes],
+    dgpa_payloads: list[bytes],
+) -> tuple[object, dict[str, int]]:
+    payloads = {
+        market_session.TWSE_ANNUAL_CALENDAR_URL: twse_payloads,
+        market_session.DGPA_EMERGENCY_FEED_URL: dgpa_payloads,
+    }
+    calls = {url: 0 for url in payloads}
+
+    def fetch(url: str, timeout: int) -> bytes:
+        assert timeout > 0
+        index = calls[url]
+        calls[url] += 1
+        if index >= len(payloads[url]):
+            raise AssertionError(f"unexpected extra fetch for {url}")
+        return payloads[url][index]
+
+    return fetch, calls
+
+
+class _BytesResponse:
+    def __init__(self, payload: bytes) -> None:
+        self.payload = payload
+
+    def __enter__(self) -> "_BytesResponse":
+        return self
+
+    def __exit__(self, *_args: object) -> None:
+        return None
+
+    def read(self) -> bytes:
+        return self.payload
 
 
 def _prepare_root(root: Path) -> None:
@@ -480,6 +517,176 @@ def test_official_source_failure_is_unknown(tmp_path: Path) -> None:
     assert status["market_status"] == market_session.UNKNOWN
     assert status["reason_code"] == "official_source_unavailable"
     assert status["should_run_daily_pipeline"] is False
+
+
+def test_fetch_parse_preserves_http_retry_after_transport_retry(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    calls = 0
+    sleeps: list[float] = []
+
+    def urlopen(_request: object, *, timeout: int) -> _BytesResponse:
+        nonlocal calls
+        assert timeout > 0
+        calls += 1
+        if calls == 1:
+            raise market_session.urllib.error.HTTPError(
+                market_session.TWSE_ANNUAL_CALENDAR_URL,
+                429,
+                "rate limited",
+                {"Retry-After": "7"},
+                None,
+            )
+        return _BytesResponse(_annual_calendar())
+
+    monkeypatch.setattr(market_session.urllib.request, "urlopen", urlopen)
+    monkeypatch.setattr(market_session.time, "sleep", sleeps.append)
+    diagnostics: dict[str, object] = {}
+
+    market_session.fetch_and_parse_official_source(
+        source="twse_annual_calendar",
+        url=market_session.TWSE_ANNUAL_CALENDAR_URL,
+        timeout_seconds=3,
+        fetch_bytes=market_session.fetch_url_bytes,
+        parse_bytes=market_session.parse_twse_annual_calendar,
+        diagnostics=diagnostics,
+    )
+
+    assert calls == 2
+    assert sleeps == [7]
+    assert diagnostics["attempt_count"] == 1
+
+
+@pytest.mark.parametrize(
+    "transport_error",
+    [
+        market_session.urllib.error.URLError("offline"),
+        TimeoutError("timed out"),
+    ],
+)
+def test_fetch_parse_preserves_urlerror_and_timeout_transport_backoff(
+    monkeypatch: pytest.MonkeyPatch,
+    transport_error: BaseException,
+) -> None:
+    calls = 0
+    sleeps: list[float] = []
+
+    def urlopen(_request: object, *, timeout: int) -> _BytesResponse:
+        nonlocal calls
+        assert timeout > 0
+        calls += 1
+        if calls < 3:
+            raise transport_error
+        return _BytesResponse(_annual_calendar())
+
+    monkeypatch.setattr(market_session.urllib.request, "urlopen", urlopen)
+    monkeypatch.setattr(market_session.time, "sleep", sleeps.append)
+    diagnostics: dict[str, object] = {}
+
+    market_session.fetch_and_parse_official_source(
+        source="twse_annual_calendar",
+        url=market_session.TWSE_ANNUAL_CALENDAR_URL,
+        timeout_seconds=3,
+        fetch_bytes=market_session.fetch_url_bytes,
+        parse_bytes=market_session.parse_twse_annual_calendar,
+        diagnostics=diagnostics,
+    )
+
+    assert calls == 3
+    assert sleeps == [5, 10]
+    assert diagnostics["attempt_count"] == 1
+
+
+@pytest.mark.parametrize("invalid_payload", [b"", b"   \r\n", b"<html>temporary</html>"])
+def test_twse_parser_failure_fresh_fetches_then_recovers(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    invalid_payload: bytes,
+) -> None:
+    _prepare_root(tmp_path)
+    monkeypatch.setattr(market_session.time, "sleep", lambda _seconds: None)
+    fetch, calls = _sequenced_fetch(
+        twse_payloads=[invalid_payload, _annual_calendar()],
+        dgpa_payloads=[_feed()],
+    )
+
+    status = market_session.refresh_market_session_status(
+        tmp_path,
+        phase="preflight",
+        as_of=datetime(2026, 7, 10, 19, 30, tzinfo=TAIPEI_TZ),
+        fetch_bytes=fetch,
+        write_files=False,
+    )
+
+    source = status["official_sources"]["twse_annual_calendar"]
+    assert source["status"] == "ok"
+    assert source["attempt_count"] == 2
+    assert source["byte_len"] == len(_annual_calendar())
+    assert source["sha256"] == hashlib.sha256(_annual_calendar()).hexdigest()
+    assert calls[market_session.TWSE_ANNUAL_CALENDAR_URL] == 2
+
+
+def test_twse_three_invalid_payloads_fail_closed_without_write_or_fallback(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    _prepare_root(tmp_path)
+    monkeypatch.setattr(market_session.time, "sleep", lambda _seconds: None)
+    invalid = b"<html>temporary upstream response</html>"
+    fetch, calls = _sequenced_fetch(
+        twse_payloads=[invalid, invalid, invalid],
+        dgpa_payloads=[_feed()],
+    )
+
+    status = market_session.refresh_market_session_status(
+        tmp_path,
+        phase="preflight",
+        as_of=datetime(2026, 7, 10, 19, 30, tzinfo=TAIPEI_TZ),
+        fetch_bytes=fetch,
+        write_files=False,
+    )
+
+    source = status["official_sources"]["twse_annual_calendar"]
+    assert status["market_status"] == market_session.UNKNOWN
+    assert status["reason_code"] == "official_source_unavailable"
+    assert "source=twse_annual_calendar attempts=3" in status["reason"]
+    assert f"byte_len={len(invalid)}" in status["reason"]
+    assert hashlib.sha256(invalid).hexdigest() in status["reason"]
+    assert source["attempt_count"] == 3
+    assert source["byte_len"] == len(invalid)
+    assert source["sha256"] == hashlib.sha256(invalid).hexdigest()
+    assert calls[market_session.TWSE_ANNUAL_CALENDAR_URL] == 3
+    assert not (tmp_path / market_session.MARKET_SESSION_STATUS).exists()
+    assert not (tmp_path / market_session.EXCEPTIONAL_NON_TRADING_DAYS).exists()
+
+
+def test_dgpa_malformed_xml_fresh_fetches_then_recovers(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    _prepare_root(tmp_path)
+    monkeypatch.setattr(market_session.time, "sleep", lambda _seconds: None)
+    valid_feed = _feed(_closure_entry("20260710"))
+    fetch, calls = _sequenced_fetch(
+        twse_payloads=[_annual_calendar()],
+        dgpa_payloads=[b"<feed>", valid_feed],
+    )
+
+    status = market_session.refresh_market_session_status(
+        tmp_path,
+        phase="preflight",
+        as_of=datetime(2026, 7, 10, 19, 30, tzinfo=TAIPEI_TZ),
+        fetch_bytes=fetch,
+        write_files=False,
+    )
+
+    source = status["official_sources"]["dgpa_emergency_closure"]
+    assert status["market_status"] == market_session.CLOSED_EMERGENCY
+    assert source["status"] == "ok"
+    assert source["attempt_count"] == 2
+    assert source["byte_len"] == len(valid_feed)
+    assert source["sha256"] == hashlib.sha256(valid_feed).hexdigest()
+    assert calls[market_session.DGPA_EMERGENCY_FEED_URL] == 2
 
 
 def test_afternoon_work_suspension_does_not_close_day_market(tmp_path: Path) -> None:

@@ -42,6 +42,8 @@ DAILY_PRICE_DIR = Path("data/daily_price")
 
 DEFAULT_DATA_READY_HOUR = 18
 DEFAULT_TIMEOUT_SECONDS = 30
+OFFICIAL_SOURCE_FETCH_PARSE_ATTEMPTS = 3
+OFFICIAL_SOURCE_FETCH_PARSE_BACKOFF_SECONDS = 0.1
 ATOM_NS = {"atom": "http://www.w3.org/2005/Atom"}
 EXCEPTIONAL_FIELDS = (
     "date",
@@ -216,6 +218,7 @@ class EmergencyNotice:
 
 
 FetchBytes = Callable[[str, int], bytes]
+ParseBytes = Callable[[bytes], Any]
 
 
 def normalize_date(value: object) -> str:
@@ -332,7 +335,14 @@ def parse_as_of(value: str) -> datetime:
     return parsed.astimezone(TAIPEI_TZ)
 
 
-def fetch_url_bytes(url: str, timeout_seconds: int = DEFAULT_TIMEOUT_SECONDS) -> bytes:
+def fetch_url_bytes(
+    url: str,
+    timeout_seconds: int = DEFAULT_TIMEOUT_SECONDS,
+    *,
+    max_attempts: int = 3,
+) -> bytes:
+    if max_attempts < 1:
+        raise ValueError("max_attempts must be positive")
     request = urllib.request.Request(
         url,
         headers={
@@ -340,22 +350,81 @@ def fetch_url_bytes(url: str, timeout_seconds: int = DEFAULT_TIMEOUT_SECONDS) ->
             "User-Agent": "tdcc-weekly-report-market-session/1.0",
         },
     )
-    for attempt in range(1, 4):
+    for attempt in range(1, max_attempts + 1):
         try:
             with urllib.request.urlopen(request, timeout=timeout_seconds) as response:
                 return response.read()
         except urllib.error.HTTPError as exc:
             retryable = exc.code == 429 or 500 <= exc.code < 600
-            if not retryable or attempt == 3:
+            if not retryable or attempt == max_attempts:
                 raise
             retry_after = str(exc.headers.get("Retry-After") or "").strip()
             delay = int(retry_after) if retry_after.isdigit() else 5 * attempt
             time.sleep(min(max(delay, 1), 30))
         except (TimeoutError, urllib.error.URLError):
-            if attempt == 3:
+            if attempt == max_attempts:
                 raise
             time.sleep(5 * attempt)
     raise AssertionError("unreachable official source retry loop")
+
+
+def fetch_and_parse_official_source(
+    *,
+    source: str,
+    url: str,
+    timeout_seconds: int,
+    fetch_bytes: FetchBytes,
+    parse_bytes: ParseBytes,
+    diagnostics: dict[str, Any],
+) -> Any:
+    for attempt in range(1, OFFICIAL_SOURCE_FETCH_PARSE_ATTEMPTS + 1):
+        if fetch_bytes is fetch_url_bytes:
+            payload = fetch_url_bytes(url, timeout_seconds)
+        else:
+            payload = fetch_bytes(url, timeout_seconds)
+        if not isinstance(payload, bytes):
+            raise TypeError(f"{source} fetcher returned a non-bytes payload")
+        try:
+            if not payload.strip():
+                raise MarketSessionError(
+                    f"{source} returned an empty or whitespace-only payload"
+                )
+            parsed = parse_bytes(payload)
+            diagnostics.clear()
+            diagnostics.update(
+                {
+                    "source": source,
+                    "attempt_count": attempt,
+                    "byte_len": len(payload),
+                    "sha256": hashlib.sha256(payload).hexdigest(),
+                }
+            )
+            return parsed
+        except (
+            UnicodeDecodeError,
+            json.JSONDecodeError,
+            ET.ParseError,
+            MarketSessionError,
+        ) as exc:
+            diagnostics.clear()
+            diagnostics.update(
+                {
+                    "source": source,
+                    "attempt_count": attempt,
+                    "byte_len": len(payload),
+                    "sha256": hashlib.sha256(payload).hexdigest(),
+                    "error_type": type(exc).__name__,
+                }
+            )
+            if attempt < OFFICIAL_SOURCE_FETCH_PARSE_ATTEMPTS:
+                time.sleep(OFFICIAL_SOURCE_FETCH_PARSE_BACKOFF_SECONDS * attempt)
+                continue
+            raise MarketSessionError(
+                f"source={source} attempts={attempt} byte_len={len(payload)} "
+                f"sha256={hashlib.sha256(payload).hexdigest()} "
+                f"error={type(exc).__name__}: {exc}"
+            ) from exc
+    raise AssertionError("unreachable official source fetch/parse retry loop")
 
 
 def roc_date_to_yyyymmdd(value: object) -> str:
@@ -427,6 +496,8 @@ def classify_taipei_closure_scope(detail: str) -> str:
 
 def parse_dgpa_emergency_feed(payload: bytes) -> list[EmergencyNotice]:
     root = ET.fromstring(payload)
+    if root.tag != f"{{{ATOM_NS['atom']}}}feed":
+        raise MarketSessionError("DGPA emergency feed root is not an Atom feed")
     notices: list[EmergencyNotice] = []
     for entry in root.findall("atom:entry", ATOM_NS):
         record_id = (entry.findtext("atom:id", default="", namespaces=ATOM_NS) or "").strip()
@@ -848,12 +919,19 @@ def refresh_market_session_status(
     scheduled_reasons: dict[str, str] = {}
     covered_years: set[int] = set()
     annual_error = ""
+    annual_diagnostics: dict[str, Any] = {}
     try:
-        scheduled_reasons, covered_years = parse_twse_annual_calendar(
-            fetch_bytes(TWSE_ANNUAL_CALENDAR_URL, timeout_seconds)
+        scheduled_reasons, covered_years = fetch_and_parse_official_source(
+            source="twse_annual_calendar",
+            url=TWSE_ANNUAL_CALENDAR_URL,
+            timeout_seconds=timeout_seconds,
+            fetch_bytes=fetch_bytes,
+            parse_bytes=parse_twse_annual_calendar,
+            diagnostics=annual_diagnostics,
         )
         official_sources["twse_annual_calendar"].update(
             {
+                **annual_diagnostics,
                 "status": "ok",
                 "closed_weekday_count": len(scheduled_reasons),
                 "covered_years": sorted(covered_years),
@@ -861,16 +939,26 @@ def refresh_market_session_status(
         )
     except Exception as exc:
         annual_error = str(exc)
+        official_sources["twse_annual_calendar"].update(annual_diagnostics)
         official_sources["twse_annual_calendar"]["error"] = annual_error
 
     latest_notices: dict[str, EmergencyNotice] = {}
     notice_conflicts: dict[str, str] = {}
     feed_error = ""
+    feed_diagnostics: dict[str, Any] = {}
     try:
-        notices = parse_dgpa_emergency_feed(fetch_bytes(DGPA_EMERGENCY_FEED_URL, timeout_seconds))
+        notices = fetch_and_parse_official_source(
+            source="dgpa_emergency_closure",
+            url=DGPA_EMERGENCY_FEED_URL,
+            timeout_seconds=timeout_seconds,
+            fetch_bytes=fetch_bytes,
+            parse_bytes=parse_dgpa_emergency_feed,
+            diagnostics=feed_diagnostics,
+        )
         latest_notices, notice_conflicts = consolidate_emergency_notices(notices)
         official_sources["dgpa_emergency_closure"].update(
             {
+                **feed_diagnostics,
                 "status": "ok",
                 "taipei_notice_count": len(notices),
                 "latest_taipei_notice_dates": sorted(latest_notices),
@@ -879,6 +967,7 @@ def refresh_market_session_status(
         )
     except Exception as exc:
         feed_error = str(exc)
+        official_sources["dgpa_emergency_closure"].update(feed_diagnostics)
         official_sources["dgpa_emergency_closure"]["error"] = feed_error
 
     if not feed_error and write_files:
