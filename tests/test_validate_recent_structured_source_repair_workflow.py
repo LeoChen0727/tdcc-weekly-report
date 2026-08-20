@@ -1173,6 +1173,22 @@ def test_historical_replay_critical_steps_reject_bypass_metadata() -> None:
         assert any("critical step" in error for error in errors)
 
 
+def test_historical_replay_runtime_job_rejects_job_level_bypass_metadata() -> None:
+    recent_text, replay_text, daily_full_text = _texts()
+    marker = "  replay-historical-structured-sources:\n"
+    variants = (
+        "    if: ${{ false }}\n",
+        '    "if": ${{ true }}\n',
+        "    continue-on-error: true\n",
+        "    'continue-on-error': ${{ true }}\n",
+    )
+
+    for metadata in variants:
+        invalid = replay_text.replace(marker, marker + metadata, 1)
+        errors = validator.validate(recent_text, invalid, daily_full_text)
+        assert any("runtime job must use the exact unconditional" in error for error in errors)
+
+
 def test_terminal_finalizer_rejects_inert_run_wrapping() -> None:
     recent_text, replay_text, daily_full_text = _texts()
     marker = f"      - name: {validator.TERMINAL_FINALIZER_STEP_NAME}\n"

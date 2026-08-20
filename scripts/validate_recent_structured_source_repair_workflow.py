@@ -397,6 +397,11 @@ def _validate_structured_workflow_nodes(
         )
         errors.extend(_validate_execution_scope(replay_root, "historical replay workflow"))
         errors.extend(_validate_execution_scope(runtime_job, "historical replay runtime job"))
+        if set(runtime_job) != {"runs-on", "timeout-minutes", "env", "steps"}:
+            errors.append(
+                "historical replay runtime job must use the exact unconditional fail-closed "
+                "node contract without job-level if or continue-on-error"
+            )
         runtime_steps = _yaml_named_steps(runtime_job, "historical replay runtime job")
         for step_name, expected_keys in HISTORICAL_REPLAY_CRITICAL_STEP_KEYS.items():
             matches = [step for name, step in runtime_steps if name == step_name]

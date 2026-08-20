@@ -126,6 +126,64 @@ def test_workflow_dependency_install_precedes_boundary_validator(
             assert "pyyaml==6.0.2" in workflow_path.read_text(encoding="utf-8").lower()
 
 
+def test_daily_authority_prepare_step_rejects_inactive_or_modified_contract() -> None:
+    workflow_path = boundaries.ROOT / ".github" / "workflows" / "daily_full_pipeline.yml"
+    text = workflow_path.read_text(encoding="utf-8")
+    marker = "      - name: Prepare daily authority release before immutable snapshot finalization\n"
+    start = text.index(marker)
+    end = text.index(
+        "      - name: Publish final immutable freshness snapshot revision\n", start
+    )
+    block = text[start:end]
+    variants = [
+        text.replace(marker, marker + "        if: ${{ false }}\n", 1),
+        text.replace(marker, marker + "        continue-on-error: true\n", 1),
+        text.replace(marker, marker + "        shell: bash\n", 1),
+        text.replace(marker, marker + '        "if": ${{ true }}\n', 1),
+        text.replace(
+            block,
+            block.replace(
+                "        run: |\n",
+                "        run: |\n          if false; then\n",
+                1,
+            ).rstrip()
+            + "\n          fi\n\n",
+            1,
+        ),
+        text.replace(
+            block,
+            block.replace("        run: |\n", "        run: |\n          exit 0\n", 1),
+            1,
+        ),
+    ]
+
+    assert boundaries.validate_daily_authority_snapshot_finalization(text) == []
+    for invalid in variants:
+        assert invalid != text
+        errors = boundaries.validate_daily_authority_snapshot_finalization(invalid)
+        assert any("exact active authority publish prepare step" in error for error in errors)
+
+
+def test_historical_replay_runtime_job_rejects_job_level_bypass_metadata() -> None:
+    workflow_path = (
+        boundaries.ROOT / ".github" / "workflows" / "historical_structured_source_replay.yml"
+    )
+    text = workflow_path.read_text(encoding="utf-8")
+    marker = "  replay-historical-structured-sources:\n"
+    variants = (
+        "    if: ${{ false }}\n",
+        '    "if": ${{ true }}\n',
+        "    continue-on-error: true\n",
+        "    'continue-on-error': ${{ true }}\n",
+    )
+
+    assert boundaries.validate_historical_source_replay_workflow(text) == []
+    for metadata in variants:
+        invalid = text.replace(marker, marker + metadata, 1)
+        errors = boundaries.validate_historical_source_replay_workflow(invalid)
+        assert any("runtime job must use the exact unconditional" in error for error in errors)
+
+
 def test_daily_production_boundary_validator_passes_current_repo() -> None:
     assert boundaries.main() == 0
 

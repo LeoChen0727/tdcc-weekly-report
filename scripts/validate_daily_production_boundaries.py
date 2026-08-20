@@ -680,6 +680,19 @@ def validate_historical_source_replay_workflow(text: str) -> list[str]:
                 "historical replay cancel-in-progress",
             )
         )
+        runtime_root = yaml_document_mapping(text, "historical replay runtime workflow")
+        runtime_jobs = yaml_unique_mapping(
+            runtime_root.get("jobs"), "historical replay runtime jobs"
+        )
+        runtime_job = yaml_unique_mapping(
+            runtime_jobs.get("replay-historical-structured-sources"),
+            "historical replay runtime job",
+        )
+        if set(runtime_job) != {"runs-on", "timeout-minutes", "env", "steps"}:
+            errors.append(
+                "historical structured-source replay runtime job must use the exact "
+                "unconditional fail-closed node contract without job-level if or continue-on-error"
+            )
         critical_step_keys = {
             "Replay structured objective sources in ascending order": {"name", "run", "shell"},
             "Validate final replay artifacts and target-slice parity": {"name", "run", "shell"},
@@ -790,6 +803,34 @@ def validate_daily_authority_snapshot_finalization(text: str) -> list[str]:
     validate_name = "Validate immutable published snapshot revisions"
     commit_name = "Commit report artifacts, packets, and rules first"
     authority_command = "python scripts/daily_authority_release.py publish"
+    prepare_command = "\n".join(
+        (
+            'git config user.name "github-actions"',
+            'git config user.email "github-actions@github.com"',
+            "",
+            'git fetch origin "$TARGET_BRANCH"',
+            'local_head="$(git rev-parse HEAD)"',
+            'remote_head="$(git rev-parse "origin/$TARGET_BRANCH")"',
+            'if [[ "$local_head" != "$remote_head" ]]; then',
+            '  echo "Remote branch advanced after production inputs were generated: local=$local_head remote=$remote_head" >&2',
+            "  exit 1",
+            "fi",
+            "python scripts/validate_no_conflict_markers.py",
+            "",
+            '''snapshot_report_date="$(python -c 'import re; import pandas as pd; print(re.sub(r"[^0-9]", "", str(pd.read_csv("output/latest/data_freshness_latest.csv", dtype=str).iloc[0]["main_price_date"])))')"''',
+            'if [[ ! "$snapshot_report_date" =~ ^[0-9]{8}$ ]]; then',
+            '  echo "Invalid snapshot report date: $snapshot_report_date" >&2',
+            "  exit 1",
+            "fi",
+            'authority_release_id="daily-authority-${snapshot_report_date}-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"',
+            "python scripts/daily_authority_release.py publish \\",
+            '  --release-id "$authority_release_id" \\',
+            "  --producer daily_full_pipeline \\",
+            '  --base-sha "$(git rev-parse HEAD)"',
+            'echo "SNAPSHOT_REPORT_DATE=$snapshot_report_date" >> "$GITHUB_ENV"',
+            'echo "AUTHORITY_RELEASE_ID=$authority_release_id" >> "$GITHUB_ENV"',
+        )
+    ) + "\n"
     final_snapshot_command = (
         "python scripts/update_daily_published_model_snapshots.py "
         "--artifact-id data_freshness "
@@ -887,6 +928,15 @@ def validate_daily_authority_snapshot_finalization(text: str) -> list[str]:
             "daily authority workflow must not publish protected execution overrides through GITHUB_ENV"
         )
     if (
+        set(prepare_step) != {"name", "run"}
+        or prepare_run != prepare_command
+        or sum(authority_command in run for run in all_run_scalars) != 1
+    ):
+        errors.append(
+            "daily authority workflow must use one dedicated exact active authority publish "
+            "prepare step without if/continue-on-error/shell overrides or inert shell control flow"
+        )
+    if (
         set(snapshot_step) != {"name", "shell", "env", "run"}
         or snapshot_shell != PROTECTED_STEP_SHELL
         or not protected_envs_are_exact
@@ -924,7 +974,7 @@ def validate_daily_authority_snapshot_finalization(text: str) -> list[str]:
         and snapshot_index + 1 == stage_index
         and stage_index + 1 == validate_index
         and validate_index + 1 == commit_index
-        and authority_command in prepare_run
+        and prepare_run == prepare_command
         and final_snapshot_command not in prepare_run
         and final_snapshot_command not in commit_run
         and stage_command not in commit_run
