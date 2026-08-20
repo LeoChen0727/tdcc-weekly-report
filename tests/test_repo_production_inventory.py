@@ -2057,7 +2057,7 @@ def test_input_bound_validator_stage_a_preauthorizations_are_exact() -> None:
     payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
     rows, errors = inventory.parse_pr_safe_authorizations(payload)
     assert errors == []
-    assert [row["migration_id"] for row in rows[-17:]] == [
+    assert [row["migration_id"] for row in rows[-18:]] == [
         inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_MIGRATION_ID,
         inventory.PR_SAFE_INPUT_BOUND_VALIDATOR_STAGE_A_MIGRATION_ID,
         inventory.PR_SAFE_REVENUE_FORWARD_HOLDOUT_TARGET_ID,
@@ -2075,6 +2075,7 @@ def test_input_bound_validator_stage_a_preauthorizations_are_exact() -> None:
         inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V4_TARGET_ID,
         inventory.PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_ID,
         inventory.PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_TARGET_ID,
+        inventory.PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_TARGET_ID,
     ]
     rows_by_id = {row["migration_id"]: row for row in rows}
     assert rows_by_id[
@@ -2576,23 +2577,29 @@ def test_daily_runtime_integration_authorization_is_append_only() -> None:
     payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
     lines = payload.splitlines(keepends=True)
     assert len(lines) >= 4
-    assert inventory.canonical_blob_sha256(b"".join(lines[:-3])) == (
+    assert inventory.canonical_blob_sha256(b"".join(lines[:-4])) == (
         "973a917eec1cd82d1b7f116793197676987ee7b04ddaeb528107645f28e73e15"
     )
-    assert lines[-3].startswith(
+    assert lines[-4].startswith(
         b"daily-runtime-integration-regressions-exact-target-v4,"
     )
-    assert inventory.canonical_blob_sha256(b"".join(lines[:-2])) == (
+    assert inventory.canonical_blob_sha256(b"".join(lines[:-3])) == (
         "0336f7d65b5f16efaef68126756d6f547f7885e7497d69d5a578602bcdedfd74"
     )
-    assert lines[-2].startswith(
+    assert lines[-3].startswith(
         b"volume-v2-advisory-lineage-refresh-exact-target-v1,"
     )
-    assert inventory.canonical_blob_sha256(b"".join(lines[:-1])) == (
+    assert inventory.canonical_blob_sha256(b"".join(lines[:-2])) == (
         "852e698dcaf8aadfc95f6a8fa4812cd11dccc2668c3552611b967d74135b480b"
     )
-    assert lines[-1].startswith(
+    assert lines[-2].startswith(
         b"volume-v2-postcommit-lineage-trusted-ref-exact-target-v1,"
+    )
+    assert inventory.canonical_blob_sha256(b"".join(lines[:-1])) == (
+        "f53c5fdebb5d08df17e5a37a5aeecb14c3dd3b2d27fa2935978d8f5b3ac7f49f"
+    )
+    assert lines[-1].startswith(
+        b"daily-authority-snapshot-replay-concurrency-exact-target-v1,"
     )
 
 
@@ -4906,6 +4913,210 @@ def test_daily_authority_containment_target_uses_base_owned_ledger(
         current_test=current_test,
         authorization_payload=payload,
     )
+
+
+def test_daily_authority_snapshot_replay_target_is_exact_and_fail_closed(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    target_id = inventory.PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_TARGET_ID
+    paths = set(inventory.PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_PATHS)
+    base_ref = "a" * 40
+    head_ref = "b" * 40
+    base_blobs = {path: f"base:{path}\n".encode() for path in paths}
+    target_blobs = {path: f"target:{path}\n".encode() for path in paths}
+    base_hashes = {
+        path: inventory.canonical_blob_sha256(payload)
+        for path, payload in base_blobs.items()
+    }
+    target_hashes = {
+        path: inventory.canonical_blob_sha256(payload)
+        for path, payload in target_blobs.items()
+    }
+    base_raw_hashes = dict(base_hashes)
+    target_raw_hashes = dict(target_hashes)
+    observed_base_raw_hashes = dict(base_raw_hashes)
+    observed_target_raw_hashes = dict(target_raw_hashes)
+    modes = {
+        (ref, path): "100644"
+        for ref in (base_ref, head_ref)
+        for path in paths
+    }
+    object_types = {path: "blob" for path in paths}
+    statuses = {path: "M" for path in paths}
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_BASE_SHA256_BY_PATH",
+        base_hashes,
+    )
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_TARGET_SHA256_BY_PATH",
+        target_hashes,
+    )
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_BASE_RAW_SHA256_BY_PATH",
+        base_raw_hashes,
+    )
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_TARGET_RAW_SHA256_BY_PATH",
+        target_raw_hashes,
+    )
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_MODE_BY_PATH",
+        {path: "100644" for path in paths},
+    )
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_OBJECT_TYPE_BY_PATH",
+        object_types,
+    )
+    monkeypatch.setattr(
+        inventory,
+        "PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_CHANGE_STATUS_BY_PATH",
+        statuses,
+    )
+    monkeypatch.setattr(inventory, "_pr_safe_repo_ref_is_ancestor", lambda *_: True)
+    monkeypatch.setattr(
+        inventory,
+        "_pr_safe_repo_blob",
+        lambda _root, ref, path: (
+            base_blobs[path] if ref == base_ref else target_blobs[path]
+        ),
+    )
+    monkeypatch.setattr(
+        inventory,
+        "_pr_safe_repo_raw_blob_sha256",
+        lambda _root, ref, path: (
+            observed_base_raw_hashes[path]
+            if ref == base_ref
+            else observed_target_raw_hashes[path]
+        ),
+    )
+    monkeypatch.setattr(
+        inventory,
+        "_pr_safe_repo_blob_mode",
+        lambda _root, ref, path: modes[(ref, path)],
+    )
+    status_ok = True
+    monkeypatch.setattr(
+        inventory,
+        "_pr_safe_repo_exact_change_statuses",
+        lambda *_args: status_ok,
+    )
+    kwargs = {
+        "base_ref": base_ref,
+        "changed_paths": paths,
+        "repository_root": tmp_path,
+        "head_ref": head_ref,
+        "target_id": target_id,
+    }
+    assert inventory.is_preauthorized_daily_authority_containment_target(**kwargs)
+    assert inventory.pr_safe_migration_contract_for_paths(
+        paths,
+        target_id=target_id,
+    )
+
+    for path in sorted(paths):
+        original = target_blobs[path]
+        target_blobs[path] = original + b"drift"
+        assert not inventory.is_preauthorized_daily_authority_containment_target(
+            **kwargs
+        )
+        target_blobs[path] = original
+        original_raw = observed_target_raw_hashes[path]
+        observed_target_raw_hashes[path] = "0" * 64
+        assert not inventory.is_preauthorized_daily_authority_containment_target(
+            **kwargs
+        )
+        observed_target_raw_hashes[path] = original_raw
+        for ref in (base_ref, head_ref):
+            for bad_mode in ("100755", "120000", "160000"):
+                modes[(ref, path)] = bad_mode
+                assert not inventory.is_preauthorized_daily_authority_containment_target(
+                    **kwargs
+                )
+            modes[(ref, path)] = "100644"
+
+    first_path = sorted(paths)[0]
+    object_types[first_path] = "tree"
+    assert not inventory.is_preauthorized_daily_authority_containment_target(**kwargs)
+    object_types[first_path] = "blob"
+    status_ok = False
+    assert not inventory.is_preauthorized_daily_authority_containment_target(**kwargs)
+    status_ok = True
+    assert not inventory.is_preauthorized_daily_authority_containment_target(
+        **{**kwargs, "changed_paths": paths - {first_path}}
+    )
+    assert not inventory.is_preauthorized_daily_authority_containment_target(
+        **{**kwargs, "changed_paths": {*paths, "scripts/extra.py"}}
+    )
+    assert not inventory.is_preauthorized_daily_authority_containment_target(
+        **{**kwargs, "target_id": "wrong-target"}
+    )
+    monkeypatch.setattr(inventory, "_pr_safe_repo_ref_is_ancestor", lambda *_: False)
+    assert not inventory.is_preauthorized_daily_authority_containment_target(**kwargs)
+
+
+def test_daily_authority_snapshot_replay_metadata_is_pr555_only() -> None:
+    target_id = inventory.PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_TARGET_ID
+    repository = inventory.PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_REPOSITORY
+    common = {
+        "target_id": target_id,
+        "repository": repository,
+        "base_repository": repository,
+        "head_repository": repository,
+        "run_attempt": "1",
+        "pull_request_number": "555",
+    }
+    assert (
+        inventory.validate_daily_runtime_integration_regressions_audit_metadata(
+            **common
+        )
+        == []
+    )
+    for field, value in (
+        ("repository", "other/repo"),
+        ("base_repository", "other/repo"),
+        ("head_repository", "other/repo"),
+        ("run_attempt", "2"),
+        ("pull_request_number", "539"),
+    ):
+        assert inventory.validate_daily_runtime_integration_regressions_audit_metadata(
+            **{**common, field: value}
+        )
+
+
+def test_daily_authority_snapshot_replay_authorization_is_row30_append_only() -> None:
+    base_payload = inventory.git_blob_at_ref(
+        inventory.PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_BASE_CONTENT_REF_SHA,
+        inventory.PR_SAFE_AUTHORIZATION_PATH,
+    )
+    assert base_payload is not None
+    current_payload = (ROOT / inventory.PR_SAFE_AUTHORIZATION_PATH).read_bytes()
+    rows, errors = inventory.parse_pr_safe_authorizations(current_payload)
+    assert errors == []
+    assert len(rows) == 30
+    matches = [
+        row
+        for row in rows
+        if row["migration_id"]
+        == inventory.PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_TARGET_ID
+    ]
+    assert len(matches) == 1
+    row = matches[0]
+    assert row["approval_reference"] == (
+        "current_user_explicit_exact10_ordinary_delivery_authorization_20260820"
+    )
+    assert row["changed_paths"].split(";") == sorted(
+        inventory.PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_PATHS
+    )
+    canonical_current = current_payload.replace(b"\r\n", b"\n")
+    assert canonical_current[: len(base_payload)] == base_payload
+    assert canonical_current[len(base_payload) :].count(b"\n") == 1
 
 
 def test_daily_authority_containment_stage_a_cannot_self_authorize() -> None:
