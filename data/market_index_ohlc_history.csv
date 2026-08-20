@@ -409,6 +409,13 @@ date,index_code,index_name,open,high,low,close,ohlc_source,ohlc_available,volume
 20260807,TPEX,TPEx,391.77,394.28,382.71,384.19,https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=115/08&response=json,True,818224403.0,206043637049.0,924146.0,https://www.tpex.org.tw/openapi/v1/tpex_daily_trading_index,True
 20260810,TPEX,TPEx,386.32,396.92,386.32,391.61,https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=115/08&response=json,True,871511726.0,188766082227.0,920975.0,https://www.tpex.org.tw/openapi/v1/tpex_daily_trading_index,True
 20260811,TPEX,TPEx,390.93,393.12,386.09,391.68,https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=115/08&response=json,True,853989399.0,183880347003.0,915282.0,https://www.tpex.org.tw/openapi/v1/tpex_daily_trading_index,True
+20260812,TPEX,TPEx,392.0,402.12,392.0,402.02,https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=115/08&response=json,True,,,,,False
+20260813,TPEX,TPEx,403.76,411.25,403.76,406.12,https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=115/08&response=json,True,,,,,False
+20260814,TPEX,TPEx,406.45,409.29,399.48,400.95,https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=115/08&response=json,True,,,,,False
+20260817,TPEX,TPEx,400.91,401.03,395.19,398.32,https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=115/08&response=json,True,,,,,False
+20260818,TPEX,TPEx,398.61,400.81,389.92,390.83,https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=115/08&response=json,True,,,,,False
+20260819,TPEX,TPEx,387.57,389.78,379.93,384.79,https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=115/08&response=json,True,,,,,False
+20260820,TPEX,TPEx,386.94,392.69,383.94,389.96,https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=115/08&response=json,True,,,,,False
 20170202,TWSE,TAIEX,9502.25,9521.34,9413.77,9428.97,https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20250201&response=json,True,,,,,False
 20170203,TWSE,TAIEX,9450.06,9478.01,9423.93,9455.56,https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20250201&response=json,True,,,,,False
 20170206,TWSE,TAIEX,9467.67,9548.68,9467.67,9538.01,https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20250201&response=json,True,,,,,False
@@ -881,3 +888,10 @@ date,index_code,index_name,open,high,low,close,ohlc_source,ohlc_available,volume
 20260807,TWSE,TAIEX,44450.19,44827.13,43941.56,44225.91,https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20260801&response=json,True,9376069669.0,850815189087.0,4398054.0,https://www.twse.com.tw/rwd/zh/afterTrading/FMTQIK?date=20260801&response=json,True
 20260810,TWSE,TAIEX,44540.71,45219.4,44540.71,44928.76,https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20260801&response=json,True,10238975923.0,880440723750.0,4441614.0,https://www.twse.com.tw/rwd/zh/afterTrading/FMTQIK?date=20260801&response=json,True
 20260811,TWSE,TAIEX,44883.9,45195.41,44652.06,45120.72,https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20260801&response=json,True,9740372114.0,902052207533.0,4473307.0,https://www.twse.com.tw/rwd/zh/afterTrading/FMTQIK?date=20260801&response=json,True
+20260812,TWSE,TAIEX,45175.7,45529.48,45175.7,45518.07,https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20260801&response=json,True,9972596202.0,892659784922.0,4570191.0,https://www.twse.com.tw/rwd/zh/afterTrading/FMTQIK?date=20260801&response=json,True
+20260813,TWSE,TAIEX,45676.54,46216.41,45676.54,46021.48,https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20260801&response=json,True,11492166298.0,1104024642159.0,5240402.0,https://www.twse.com.tw/rwd/zh/afterTrading/FMTQIK?date=20260801&response=json,True
+20260814,TWSE,TAIEX,46103.81,46402.6,45798.31,45811.01,https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20260801&response=json,True,11975502093.0,1109746702006.0,5369692.0,https://www.twse.com.tw/rwd/zh/afterTrading/FMTQIK?date=20260801&response=json,True
+20260817,TWSE,TAIEX,45841.17,46189.3,45765.07,45857.27,https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20260801&response=json,True,10616088292.0,981055134845.0,4740651.0,https://www.twse.com.tw/rwd/zh/afterTrading/FMTQIK?date=20260801&response=json,True
+20260818,TWSE,TAIEX,45922.4,46064.09,45225.42,45308.68,https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20260801&response=json,True,10333808272.0,1007881760816.0,5224454.0,https://www.twse.com.tw/rwd/zh/afterTrading/FMTQIK?date=20260801&response=json,True
+20260819,TWSE,TAIEX,45071.34,45071.34,44308.71,44719.35,https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20260801&response=json,True,10230116335.0,890269743542.0,4880908.0,https://www.twse.com.tw/rwd/zh/afterTrading/FMTQIK?date=20260801&response=json,True
+20260820,TWSE,TAIEX,44942.01,45160.05,44446.36,44933.74,https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20260801&response=json,True,9068926422.0,834412514041.0,4140846.0,https://www.twse.com.tw/rwd/zh/afterTrading/FMTQIK?date=20260801&response=json,True
