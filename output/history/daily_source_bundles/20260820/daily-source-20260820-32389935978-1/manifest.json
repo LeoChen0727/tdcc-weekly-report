@@ -1,0 +1,161 @@
+{
+  "files": [
+    {
+      "bundle_path": "output/history/daily_source_bundles/20260820/daily-source-20260820-32389935978-1/files/01-20260820.csv",
+      "bytes": 193671,
+      "mode": "100644",
+      "path": "data/daily_price/20260820.csv",
+      "sha256": "f5c69eaa43c19617800f1403c62841b3cfbf96254c0b86d11cb19cafd8289177"
+    },
+    {
+      "bundle_path": "output/history/daily_source_bundles/20260820/daily-source-20260820-32389935978-1/files/02-daily_price_20260820.csv",
+      "bytes": 193671,
+      "mode": "100644",
+      "path": "data/daily_price/daily_price_20260820.csv",
+      "sha256": "f5c69eaa43c19617800f1403c62841b3cfbf96254c0b86d11cb19cafd8289177"
+    },
+    {
+      "bundle_path": "output/history/daily_source_bundles/20260820/daily-source-20260820-32389935978-1/files/03-official_daily_price_latest.csv",
+      "bytes": 193671,
+      "mode": "100644",
+      "path": "output/latest/official_daily_price_latest.csv",
+      "sha256": "f5c69eaa43c19617800f1403c62841b3cfbf96254c0b86d11cb19cafd8289177"
+    },
+    {
+      "bundle_path": "output/history/daily_source_bundles/20260820/daily-source-20260820-32389935978-1/files/04-official_price_fetch_latest.json",
+      "bytes": 4269,
+      "mode": "100644",
+      "path": "output/latest/official_price_fetch_latest.json",
+      "sha256": "6ace04eaaf3b0b627980867a84f1dedcd798e4b19af6f39f0cb78b64d7994338"
+    },
+    {
+      "bundle_path": "output/history/daily_source_bundles/20260820/daily-source-20260820-32389935978-1/files/05-official_price_fetch_latest.md",
+      "bytes": 717,
+      "mode": "100644",
+      "path": "output/latest/official_price_fetch_latest.md",
+      "sha256": "fd2b9b3eadb7c5c0623b410d561ee43b5e90165b18acd294255767601e7fbcf0"
+    },
+    {
+      "bundle_path": "output/history/daily_source_bundles/20260820/daily-source-20260820-32389935978-1/files/06-exceptional_non_trading_days.csv",
+      "bytes": 674,
+      "mode": "100644",
+      "path": "data/market_calendar/exceptional_non_trading_days.csv",
+      "sha256": "1b6ceabcead6241ab8d70e51c28a058e3ebc921e295ab344520e338c4c21170b"
+    }
+  ],
+  "market_session": {
+    "bundle_path": "output/history/daily_source_bundles/20260820/daily-source-20260820-32389935978-1/market_session_status.json",
+    "bytes": 2602,
+    "mode": "100644",
+    "payload": {
+      "assessment_date": "20260821",
+      "exceptional_non_trading_days": [
+        "20260710"
+      ],
+      "expected_main_price_date": "20260820",
+      "generated_at": "2026-08-21T00:10:24+08:00",
+      "market_session_date": "20260820",
+      "market_status": "open_confirmed",
+      "official_sources": {
+        "dgpa_emergency_closure": {
+          "attempt_count": 1,
+          "byte_len": 1967,
+          "conflict_dates": [],
+          "latest_taipei_notice_dates": [],
+          "queried_at": "2026-08-21T00:10:24+08:00",
+          "sha256": "e07f96ed706d8c74d4291fbc2cbecd47d17f2a73109fd2ef5e13a15a3af699c0",
+          "source": "dgpa_emergency_closure",
+          "status": "ok",
+          "taipei_notice_count": 0,
+          "url": "https://alerts.ncdr.nat.gov.tw/RssAtomFeed.ashx?AlertType=33"
+        },
+        "twse_annual_calendar": {
+          "attempt_count": 1,
+          "byte_len": 3774,
+          "closed_weekday_count": 18,
+          "covered_years": [
+            2026
+          ],
+          "queried_at": "2026-08-21T00:10:24+08:00",
+          "sha256": "7644c1a8af784c09f54670fd7413f536b13eb76c54d658058e8873d1aee32117",
+          "source": "twse_annual_calendar",
+          "status": "ok",
+          "url": "https://openapi.twse.com.tw/v1/holidaySchedule/holidaySchedule"
+        },
+        "twse_emergency_rule": {
+          "status": "reference",
+          "url": "https://www.twse.com.tw/zh/about/suspended_faq.html"
+        }
+      },
+      "phase": "confirm",
+      "price_confirmation": {
+        "fetch_markdown_bytes": 717,
+        "fetch_markdown_path": "output/latest/official_price_fetch_latest.md",
+        "fetch_markdown_sha256": "fd2b9b3eadb7c5c0623b410d561ee43b5e90165b18acd294255767601e7fbcf0",
+        "fetch_result": "success_current_day_repair_full_market",
+        "fetch_status_bytes": 4269,
+        "fetch_status_path": "output/latest/official_price_fetch_latest.json",
+        "fetch_status_sha256": "6ace04eaaf3b0b627980867a84f1dedcd798e4b19af6f39f0cb78b64d7994338",
+        "path": "data/daily_price/daily_price_20260820.csv",
+        "price_bytes": 193671,
+        "price_sha256": "f5c69eaa43c19617800f1403c62841b3cfbf96254c0b86d11cb19cafd8289177",
+        "total_rows": 2125,
+        "tpex_rows": 887,
+        "twse_rows": 1238,
+        "wrong_date_rows": 0
+      },
+      "reason": "TWSE and TPEx target-date prices confirmed",
+      "reason_code": "twse_tpex_target_date_confirmed",
+      "scheduled_non_trading_days": [
+        "20260101",
+        "20260212",
+        "20260213",
+        "20260216",
+        "20260217",
+        "20260218",
+        "20260219",
+        "20260220",
+        "20260227",
+        "20260403",
+        "20260406",
+        "20260501",
+        "20260619",
+        "20260925",
+        "20260928",
+        "20261009",
+        "20261026",
+        "20261225"
+      ],
+      "schema_version": 1,
+      "should_run_daily_pipeline": true
+    },
+    "sha256": "5b7080c1eaa0476dfa0ff6b5d831e87e2f198584a2bd5a7b4ceb3e075d3c1f81"
+  },
+  "official_price_confirmation": {
+    "fetch_markdown_bytes": 717,
+    "fetch_markdown_path": "output/latest/official_price_fetch_latest.md",
+    "fetch_markdown_sha256": "fd2b9b3eadb7c5c0623b410d561ee43b5e90165b18acd294255767601e7fbcf0",
+    "fetch_result": "success_current_day_repair_full_market",
+    "fetch_status_bytes": 4269,
+    "fetch_status_path": "output/latest/official_price_fetch_latest.json",
+    "fetch_status_sha256": "6ace04eaaf3b0b627980867a84f1dedcd798e4b19af6f39f0cb78b64d7994338",
+    "path": "data/daily_price/daily_price_20260820.csv",
+    "price_bytes": 193671,
+    "price_sha256": "f5c69eaa43c19617800f1403c62841b3cfbf96254c0b86d11cb19cafd8289177",
+    "total_rows": 2125,
+    "tpex_rows": 887,
+    "twse_rows": 1238,
+    "wrong_date_rows": 0
+  },
+  "release_id": "daily-source-20260820-32389935978-1",
+  "schema_version": "daily_source_recovery_bundle_v1",
+  "source_base_sha": "ab8d41548e2d2781126aba75708042cfab2cd9e1",
+  "source_bundle_sha": "c44b1b72ee626cf52105f01f20a8b8a962bc1f443a66c54bd7df8fed526c7200",
+  "source_identities": [
+    "TPEX_OTC_QUOTES_NO1430_JSON",
+    "TWSE_RWD_JSON_MI_INDEX"
+  ],
+  "source_workflow_run_attempt": 1,
+  "source_workflow_run_id": "32389935978",
+  "trading_date": "20260820"
+}
