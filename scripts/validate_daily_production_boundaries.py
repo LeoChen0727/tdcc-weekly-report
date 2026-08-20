@@ -1149,10 +1149,52 @@ def validate_daily_authority_snapshot_publish_contract(daily_text: str) -> list[
     return errors
 
 
+def validate_daily_failed_recovery_retry_contract(daily_text: str) -> list[str]:
+    errors: list[str] = []
+    required_literals = {
+        "recovery_reservation_commit_sha:": (
+            "Daily Full must declare the original reservation commit for code-only retry"
+        ),
+        "recovery_retry_of_run_id:": (
+            "Daily Full must declare the exact failed run resumed by code-only retry"
+        ),
+        "failed-recovery retry inputs must be paired": (
+            "Daily Full must fail closed on a partial retry input pair"
+        ),
+        "Validate single failed-recovery retry": (
+            "Daily Full must enforce the one-retry run set before production"
+        ),
+        "daily-full-failed-recovery-runs.json": (
+            "Daily Full must use isolated run evidence for retry correlation"
+        ),
+        "daily_source_recovery_bundle.py verify-retry-runs": (
+            "Daily Full must validate the old failure and current attempt=1"
+        ),
+        '--reservation-commit-sha "${{ inputs.recovery_reservation_commit_sha }}"': (
+            "Daily Full must verify the immutable original reservation commit"
+        ),
+        '--retry-of-run-id "${{ inputs.recovery_retry_of_run_id }}"': (
+            "Daily Full must bind reservation verification to the failed run"
+        ),
+        "Daily Full Pipeline | recovery=daily-source-{0}": (
+            "Daily Full retry must retain the stable date-scoped production title"
+        ),
+    }
+    for literal, message in required_literals.items():
+        if literal not in daily_text:
+            errors.append(f"{message}: missing {literal!r}")
+    if daily_text.count("recovery_reservation_commit_sha:") != 1:
+        errors.append("Daily Full retry reservation commit input must be declared exactly once")
+    if daily_text.count("recovery_retry_of_run_id:") != 1:
+        errors.append("Daily Full retry failed-run input must be declared exactly once")
+    return errors
+
+
 def main() -> int:
     errors: list[str] = []
     daily_text = read_text(DAILY_WORKFLOW)
     errors.extend(validate_daily_authority_snapshot_publish_contract(daily_text))
+    errors.extend(validate_daily_failed_recovery_retry_contract(daily_text))
     errors.extend(validate_authority_workflow_publishers())
 
     if not HISTORICAL_SOURCE_REPLAY_WORKFLOW.exists():

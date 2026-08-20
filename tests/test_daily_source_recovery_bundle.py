@@ -98,6 +98,32 @@ def _build_and_commit(root: Path, base_sha: str) -> tuple[dict[str, object], str
     return result, _git(root, "rev-parse", "HEAD")
 
 
+def _reserve_and_commit(
+    root: Path,
+    result: dict[str, object],
+    source_commit: str,
+) -> tuple[dict[str, object], str]:
+    reserved = bundle.create_dispatch_reservation(
+        root,
+        trading_date=DATE,
+        source_commit_sha=source_commit,
+        manifest_path=str(result["manifest_path"]),
+        manifest_sha256=str(result["manifest_sha256"]),
+        source_bundle_sha=str(result["manifest"]["source_bundle_sha"]),
+        baseline_run_id=200,
+        dispatch_started_at="2026-08-11T12:30:00Z",
+        expected_display_title=f"Daily Full Pipeline | recovery=daily-source-{DATE}",
+    )
+    subprocess.run(["git", "add", reserved["path"]], cwd=root, check=True)
+    subprocess.run(
+        ["git", "commit", "-m", "reserve recovery"],
+        cwd=root,
+        check=True,
+        capture_output=True,
+    )
+    return reserved, _git(root, "rev-parse", "HEAD")
+
+
 def _commit_authority_surfaces(root: Path) -> str:
     (root / "output/latest/market_session_status_latest.json").write_bytes(
         bundle.json_bytes(_market())
@@ -1008,4 +1034,198 @@ def test_dispatch_reservation_is_date_scoped_immutable_and_bundle_bound(tmp_path
             baseline_run_id=200,
             dispatch_started_at="2026-08-11T12:30:00Z",
             expected_display_title="Daily Full Pipeline | recovery=other-date",
+        )
+
+
+def test_failed_recovery_retry_accepts_exact_code_only_descendant(tmp_path: Path) -> None:
+    root, base_sha = _repo(tmp_path)
+    result, source_commit = _build_and_commit(root, base_sha)
+    reserved, reservation_commit = _reserve_and_commit(root, result, source_commit)
+    for relative in (
+        ".github/workflows/retry.yml",
+        "scripts/retry_fix.py",
+        "tests/test_retry_fix.py",
+    ):
+        path = root / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(f"# {relative}\n", encoding="utf-8")
+    subprocess.run(["git", "add", ".github/workflows", "scripts", "tests"], cwd=root, check=True)
+    subprocess.run(
+        ["git", "commit", "-m", "code-only retry fix"],
+        cwd=root,
+        check=True,
+        capture_output=True,
+    )
+    current_head = _git(root, "rev-parse", "HEAD")
+
+    verified = bundle.verify_dispatch_reservation(
+        root,
+        trading_date=DATE,
+        reservation_path=str(reserved["path"]),
+        reservation_sha256=str(reserved["sha256"]),
+        expected_head_sha=current_head,
+        source_commit_sha=source_commit,
+        manifest_path=str(result["manifest_path"]),
+        manifest_sha256=str(result["manifest_sha256"]),
+        source_bundle_sha=str(result["manifest"]["source_bundle_sha"]),
+        correlation_id=f"manual-resume-{DATE}-post-code-fix-v1",
+        reservation_commit_sha=reservation_commit,
+        retry_of_run_id="32402031739",
+    )
+
+    assert verified == reserved["payload"]
+    assert bundle.verify_code_only_retry_descendant(
+        root,
+        reservation_commit_sha=reservation_commit,
+        current_head_sha=current_head,
+    ) == [
+        ".github/workflows/retry.yml",
+        "scripts/retry_fix.py",
+        "tests/test_retry_fix.py",
+    ]
+
+
+@pytest.mark.parametrize(
+    "relative_path",
+    (
+        "config/retry.csv",
+        "data/retry.csv",
+        "output/latest/retry.json",
+        "docs/retry.md",
+        "published/retry.json",
+        "chatgpt/retry.json",
+    ),
+)
+def test_failed_recovery_retry_rejects_non_code_descendant(
+    tmp_path: Path,
+    relative_path: str,
+) -> None:
+    root, base_sha = _repo(tmp_path)
+    result, source_commit = _build_and_commit(root, base_sha)
+    _reserved, reservation_commit = _reserve_and_commit(root, result, source_commit)
+    target = root / relative_path
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text("forbidden\n", encoding="utf-8")
+    subprocess.run(["git", "add", relative_path], cwd=root, check=True)
+    subprocess.run(
+        ["git", "commit", "-m", "forbidden retry change"],
+        cwd=root,
+        check=True,
+        capture_output=True,
+    )
+
+    with pytest.raises(bundle.DailySourceRecoveryError, match="outside code-only scope"):
+        bundle.verify_code_only_retry_descendant(
+            root,
+            reservation_commit_sha=reservation_commit,
+            current_head_sha=_git(root, "rev-parse", "HEAD"),
+        )
+
+
+@pytest.mark.parametrize("mutation", ("delete", "rename", "mode", "type"))
+def test_failed_recovery_retry_rejects_path_or_type_drift(
+    tmp_path: Path,
+    mutation: str,
+) -> None:
+    root, base_sha = _repo(tmp_path)
+    result, source_commit = _build_and_commit(root, base_sha)
+    original = root / "scripts/original.py"
+    original.parent.mkdir(parents=True, exist_ok=True)
+    original.write_text("VALUE = 1\n", encoding="utf-8")
+    subprocess.run(["git", "add", "scripts/original.py"], cwd=root, check=True)
+    subprocess.run(
+        ["git", "commit", "-m", "add pre-reservation code"],
+        cwd=root,
+        check=True,
+        capture_output=True,
+    )
+    reserved, reservation_commit = _reserve_and_commit(root, result, source_commit)
+    assert reserved["path"].endswith(f"/{DATE}.json")
+    if mutation == "delete":
+        original.unlink()
+        subprocess.run(["git", "add", "-u", "scripts/original.py"], cwd=root, check=True)
+    elif mutation == "rename":
+        subprocess.run(
+            ["git", "mv", "scripts/original.py", "scripts/renamed.py"],
+            cwd=root,
+            check=True,
+        )
+    elif mutation == "mode":
+        subprocess.run(
+            ["git", "update-index", "--chmod=+x", "scripts/original.py"],
+            cwd=root,
+            check=True,
+        )
+    else:
+        subprocess.run(
+            [
+                "git",
+                "update-index",
+                "--cacheinfo",
+                f"160000,{reservation_commit},scripts/original.py",
+            ],
+            cwd=root,
+            check=True,
+        )
+    subprocess.run(
+        ["git", "commit", "-m", f"{mutation} retry path"],
+        cwd=root,
+        check=True,
+        capture_output=True,
+    )
+
+    with pytest.raises(bundle.DailySourceRecoveryError, match="cannot|mode/type drift"):
+        bundle.verify_code_only_retry_descendant(
+            root,
+            reservation_commit_sha=reservation_commit,
+            current_head_sha=_git(root, "rev-parse", "HEAD"),
+        )
+
+
+def test_failed_recovery_retry_run_set_is_exact_and_attempt_one() -> None:
+    title = f"Daily Full Pipeline | recovery=daily-source-{DATE}"
+    prior = {
+        "id": 32402031739,
+        "run_attempt": 1,
+        "status": "completed",
+        "conclusion": "failure",
+        "event": "workflow_dispatch",
+        "name": "Daily Full Pipeline",
+        "head_sha": "a" * 40,
+        "display_title": title,
+    }
+    current = {
+        "id": 400,
+        "run_attempt": 1,
+        "status": "in_progress",
+        "conclusion": None,
+        "event": "workflow_dispatch",
+        "name": "Daily Full Pipeline",
+        "head_sha": "b" * 40,
+        "display_title": title,
+    }
+
+    verified = bundle.verify_failed_recovery_retry_runs(
+        [prior, current],
+        trading_date=DATE,
+        retry_of_run_id=32402031739,
+        current_run_id=400,
+        current_head_sha="b" * 40,
+    )
+    assert verified == {"prior": prior, "current": current}
+    with pytest.raises(bundle.DailySourceRecoveryError, match="exactly"):
+        bundle.verify_failed_recovery_retry_runs(
+            [prior, current, current | {"id": 401}],
+            trading_date=DATE,
+            retry_of_run_id=32402031739,
+            current_run_id=400,
+            current_head_sha="b" * 40,
+        )
+    with pytest.raises(bundle.DailySourceRecoveryError, match="completed failure"):
+        bundle.verify_failed_recovery_retry_runs(
+            [prior | {"conclusion": "success"}, current],
+            trading_date=DATE,
+            retry_of_run_id=32402031739,
+            current_run_id=400,
+            current_head_sha="b" * 40,
         )

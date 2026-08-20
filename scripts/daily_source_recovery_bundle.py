@@ -30,6 +30,11 @@ SHA1_RE = re.compile(r"[0-9a-f]{40}")
 SHA256_RE = re.compile(r"[0-9a-f]{64}")
 DATE_RE = re.compile(r"20\d{6}")
 RELEASE_RE = re.compile(r"[A-Za-z0-9][A-Za-z0-9._:-]{7,127}")
+RECOVERY_RETRY_ALLOWED_PREFIXES = (
+    ".github/workflows/",
+    "scripts/",
+    "tests/",
+)
 
 ALLOWED_TRANSITIONS = {
     "source_absent": {"repairing", "failed"},
@@ -348,6 +353,143 @@ def reject_existing_recovery_run(
         )
 
 
+def _run_value(run: dict[str, Any], *names: str) -> Any:
+    for name in names:
+        if name in run:
+            return run[name]
+    return None
+
+
+def checked_run_id(value: object, label: str) -> int:
+    text = str(value or "").strip()
+    if not text.isdigit() or int(text) <= 0:
+        raise DailySourceRecoveryError(f"invalid {label}: {value!r}")
+    return int(text)
+
+
+def verify_failed_recovery_retry_runs(
+    runs: list[dict[str, Any]],
+    *,
+    trading_date: str,
+    retry_of_run_id: object,
+    current_run_id: object,
+    current_head_sha: str,
+) -> dict[str, dict[str, Any]]:
+    date_text = normalized_date(trading_date)
+    prior_id = checked_run_id(retry_of_run_id, "failed recovery run id")
+    current_id = checked_run_id(current_run_id, "current recovery run id")
+    if prior_id == current_id:
+        raise DailySourceRecoveryError("failed and current recovery run ids must differ")
+    head_sha = checked_sha1(current_head_sha, "current recovery head SHA")
+    expected_title = f"Daily Full Pipeline | recovery=daily-source-{date_text}"
+    matches = [
+        run
+        for run in runs
+        if _run_value(run, "event") == "workflow_dispatch"
+        and _run_value(run, "workflowName", "name") == "Daily Full Pipeline"
+        and _run_value(run, "displayTitle", "display_title") == expected_title
+    ]
+    by_id = {
+        checked_run_id(_run_value(run, "databaseId", "id"), "observed recovery run id"): run
+        for run in matches
+    }
+    if set(by_id) != {prior_id, current_id} or len(matches) != 2:
+        raise DailySourceRecoveryError(
+            "failed-recovery retry title set must contain exactly the prior failed run "
+            f"and current attempt: observed={sorted(by_id)}"
+        )
+    prior = by_id[prior_id]
+    current = by_id[current_id]
+    if (
+        int(_run_value(prior, "attempt", "run_attempt") or 0) != 1
+        or _run_value(prior, "status") != "completed"
+        or _run_value(prior, "conclusion") != "failure"
+    ):
+        raise DailySourceRecoveryError(
+            "retry source run must be completed failure with run_attempt=1"
+        )
+    if (
+        int(_run_value(current, "attempt", "run_attempt") or 0) != 1
+        or _run_value(current, "status") not in {"queued", "in_progress"}
+        or str(_run_value(current, "conclusion") or "") != ""
+        or _run_value(current, "headSha", "head_sha") != head_sha
+    ):
+        raise DailySourceRecoveryError(
+            "current retry run must be the unique attempt=1 run at the current head"
+        )
+    return {"prior": prior, "current": current}
+
+
+def verify_code_only_retry_descendant(
+    root: Path,
+    *,
+    reservation_commit_sha: str,
+    current_head_sha: str,
+) -> list[str]:
+    root = root.resolve()
+    reservation_commit = checked_sha1(
+        reservation_commit_sha, "recovery reservation commit SHA"
+    )
+    current_head = checked_sha1(current_head_sha, "recovery current head SHA")
+    if reservation_commit == current_head:
+        raise DailySourceRecoveryError(
+            "failed-recovery retry requires a strict descendant of the reservation commit"
+        )
+    git_output(root, "merge-base", "--is-ancestor", reservation_commit, current_head)
+    raw = git_output(
+        root,
+        "diff",
+        "--raw",
+        "--no-abbrev",
+        "--no-renames",
+        reservation_commit,
+        current_head,
+        "--",
+    ).decode("utf-8", errors="strict")
+    paths: list[str] = []
+    for line in raw.splitlines():
+        try:
+            metadata, raw_path = line.split("\t", 1)
+        except ValueError as exc:
+            raise DailySourceRecoveryError(
+                f"malformed failed-recovery retry diff record: {line!r}"
+            ) from exc
+        fields = metadata.removeprefix(":").split()
+        if len(fields) != 5:
+            raise DailySourceRecoveryError(
+                f"malformed failed-recovery retry diff metadata: {metadata!r}"
+            )
+        old_mode, new_mode, _old_oid, _new_oid, status = fields
+        path = checked_relative_path(raw_path)
+        if status not in {"A", "M"}:
+            raise DailySourceRecoveryError(
+                f"failed-recovery retry cannot {status} path: {path}"
+            )
+        if status == "A":
+            valid_mode = old_mode == "000000" and new_mode == "100644"
+        else:
+            valid_mode = old_mode == new_mode == "100644"
+        if not valid_mode:
+            raise DailySourceRecoveryError(
+                "failed-recovery retry path mode/type drift is forbidden: "
+                f"path={path} old_mode={old_mode} new_mode={new_mode}"
+            )
+        if not path.startswith(RECOVERY_RETRY_ALLOWED_PREFIXES):
+            raise DailySourceRecoveryError(
+                f"failed-recovery retry changed path is outside code-only scope: {path}"
+            )
+        if path in paths:
+            raise DailySourceRecoveryError(
+                f"failed-recovery retry changed path is duplicated: {path}"
+            )
+        paths.append(path)
+    if not paths:
+        raise DailySourceRecoveryError(
+            "failed-recovery retry descendant has no code/workflow/test changes"
+        )
+    return paths
+
+
 def dispatch_reservation_path(trading_date: str) -> PurePosixPath:
     return PurePosixPath(
         "output/history/daily_source_recovery_reservations"
@@ -430,12 +572,31 @@ def verify_dispatch_reservation(
     manifest_sha256: str,
     source_bundle_sha: str,
     correlation_id: str,
+    reservation_commit_sha: str = "",
+    retry_of_run_id: str = "",
 ) -> dict[str, Any]:
     root = root.resolve()
     date_text = normalized_date(trading_date)
     head_sha = checked_sha1(expected_head_sha, "recovery expected head SHA")
     if git_head(root) != head_sha:
         raise DailySourceRecoveryError("dispatch reservation checkout does not equal expected head")
+    retry_values = (str(reservation_commit_sha or "").strip(), str(retry_of_run_id or "").strip())
+    if bool(retry_values[0]) != bool(retry_values[1]):
+        raise DailySourceRecoveryError(
+            "recovery reservation commit and retry run id must be supplied together"
+        )
+    if retry_values[0]:
+        reservation_commit = checked_sha1(
+            retry_values[0], "recovery reservation commit SHA"
+        )
+        checked_run_id(retry_values[1], "failed recovery run id")
+        verify_code_only_retry_descendant(
+            root,
+            reservation_commit_sha=reservation_commit,
+            current_head_sha=head_sha,
+        )
+    else:
+        reservation_commit = head_sha
     path = checked_relative_path(reservation_path)
     expected_path = dispatch_reservation_path(date_text).as_posix()
     if path != expected_path:
@@ -451,19 +612,25 @@ def verify_dispatch_reservation(
         source_bundle_sha=source_bundle_sha,
         trading_date=date_text,
     )
-    payload_bytes = git_blob(root, head_sha, path)
+    source_commit = checked_sha1(source_commit_sha, "source bundle commit SHA")
+    git_output(root, "merge-base", "--is-ancestor", source_commit, head_sha)
+    payload_bytes = git_blob(root, reservation_commit, path)
     if sha256_bytes(payload_bytes) != expected_sha:
         raise DailySourceRecoveryError("dispatch reservation Git object SHA-256 mismatch")
-    if git_mode(root, head_sha, path) != "100644":
+    if git_mode(root, reservation_commit, path) != "100644":
         raise DailySourceRecoveryError("dispatch reservation Git mode must equal 100644")
+    if git_blob(root, head_sha, path) != payload_bytes or git_mode(root, head_sha, path) != "100644":
+        raise DailySourceRecoveryError(
+            "current HEAD reservation bytes or mode differ from reservation commit"
+        )
     working_path = root / path
     if not working_path.is_file() or working_path.read_bytes() != payload_bytes:
         raise DailySourceRecoveryError("dispatch reservation working bytes differ from Git object")
     parent_sha = subprocess.check_output(
-        ["git", "rev-parse", f"{head_sha}^"], cwd=root, text=True
+        ["git", "rev-parse", f"{reservation_commit}^"], cwd=root, text=True
     ).strip()
     changed_paths = subprocess.check_output(
-        ["git", "diff-tree", "--no-commit-id", "--name-only", "-r", head_sha],
+        ["git", "diff-tree", "--no-commit-id", "--name-only", "-r", reservation_commit],
         cwd=root,
         text=True,
     ).splitlines()
@@ -515,7 +682,15 @@ def verify_dispatch_reservation(
                 f"dispatch reservation identity mismatch for {key}: "
                 f"expected={expected_value!r} observed={payload.get(key)!r}"
             )
-    if correlation_id != expected_correlation:
+    if retry_values[0]:
+        expected_prefix = f"manual-resume-{date_text}-"
+        if not str(correlation_id).startswith(expected_prefix) or re.fullmatch(
+            r"[A-Za-z0-9._-]{16,128}", str(correlation_id)
+        ) is None:
+            raise DailySourceRecoveryError(
+                "failed-recovery retry correlation id is invalid"
+            )
+    elif correlation_id != expected_correlation:
         raise DailySourceRecoveryError("dispatch reservation correlation id is not date-scoped")
     if int(payload.get("resume_baseline_run_id") or -1) < 0:
         raise DailySourceRecoveryError("dispatch reservation baseline run id is invalid")
@@ -1062,6 +1237,14 @@ def parse_args() -> argparse.Namespace:
     verify_reservation.add_argument("--manifest-sha256", required=True)
     verify_reservation.add_argument("--source-bundle-sha", required=True)
     verify_reservation.add_argument("--correlation-id", required=True)
+    verify_reservation.add_argument("--reservation-commit-sha", default="")
+    verify_reservation.add_argument("--retry-of-run-id", default="")
+    retry_runs = sub.add_parser("verify-retry-runs")
+    retry_runs.add_argument("--runs-json", required=True)
+    retry_runs.add_argument("--trading-date", required=True)
+    retry_runs.add_argument("--retry-of-run-id", required=True)
+    retry_runs.add_argument("--current-run-id", required=True)
+    retry_runs.add_argument("--current-head-sha", required=True)
     authority = sub.add_parser("authority-status")
     authority.add_argument("--repo-root", default=".")
     authority.add_argument("--trading-date", required=True)
@@ -1149,6 +1332,19 @@ def main() -> int:
                 manifest_sha256=args.manifest_sha256,
                 source_bundle_sha=args.source_bundle_sha,
                 correlation_id=args.correlation_id,
+                reservation_commit_sha=args.reservation_commit_sha,
+                retry_of_run_id=args.retry_of_run_id,
+            )
+        elif args.command == "verify-retry-runs":
+            runs = json.loads(Path(args.runs_json).read_text(encoding="utf-8"))
+            if not isinstance(runs, list) or not all(isinstance(run, dict) for run in runs):
+                raise DailySourceRecoveryError("retry run evidence must be a JSON list of objects")
+            verify_failed_recovery_retry_runs(
+                runs,
+                trading_date=args.trading_date,
+                retry_of_run_id=args.retry_of_run_id,
+                current_run_id=args.current_run_id,
+                current_head_sha=args.current_head_sha,
             )
         elif args.command == "authority-status":
             identity = existing_authority_completion(

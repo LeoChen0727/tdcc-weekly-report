@@ -2403,6 +2403,38 @@ def test_daily_full_preflight_artifact_is_bound_to_exact_source_sha() -> None:
     assert "REMOTE_MAIN=\"$(git rev-parse origin/main)\"" not in text
 
 
+def test_daily_full_failed_recovery_retry_contract_is_explicit_and_paired() -> None:
+    text = (ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(
+        encoding="utf-8"
+    )
+
+    assert boundaries.validate_daily_failed_recovery_retry_contract(text) == []
+    assert text.count("recovery_reservation_commit_sha:") == 1
+    assert text.count("recovery_retry_of_run_id:") == 1
+    assert "failed-recovery retry inputs must be paired" in text
+    assert "verify-retry-runs" in text
+    assert "--reservation-commit-sha" in text
+    assert "--retry-of-run-id" in text
+
+
+def test_daily_full_failed_recovery_retry_contract_rejects_missing_guards() -> None:
+    text = (ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(
+        encoding="utf-8"
+    )
+
+    for required in (
+        "recovery_reservation_commit_sha:",
+        "recovery_retry_of_run_id:",
+        "failed-recovery retry inputs must be paired",
+        "Validate single failed-recovery retry",
+        "daily_source_recovery_bundle.py verify-retry-runs",
+        '--reservation-commit-sha "${{ inputs.recovery_reservation_commit_sha }}"',
+        '--retry-of-run-id "${{ inputs.recovery_retry_of_run_id }}"',
+    ):
+        mutated = text.replace(required, "disabled-retry-contract-token")
+        assert boundaries.validate_daily_failed_recovery_retry_contract(mutated)
+
+
 def test_authority_workflow_scanner_includes_yaml_suffix(tmp_path: Path) -> None:
     workflow_root = tmp_path / ".github" / "workflows"
     workflow_root.mkdir(parents=True)
