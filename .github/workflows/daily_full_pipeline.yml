@@ -74,7 +74,7 @@ permissions:
   actions: write
 
 concurrency:
-  group: ${{ inputs.recovery_retry_of_run_id != '' && format('daily-full-retry-{0}-{1}', inputs.recovery_source_bundle_trading_date, inputs.recovery_retry_of_run_id) || inputs.recovery_correlation_id != '' && format('daily-full-recovery-{0}', inputs.recovery_correlation_id) || format('daily-full-pipeline-{0}', github.ref) }}
+  group: ${{ inputs.recovery_retry_of_run_id != '' && format('daily-full-retry-{0}', inputs.recovery_source_bundle_trading_date) || inputs.recovery_correlation_id != '' && format('daily-full-recovery-{0}', inputs.recovery_correlation_id) || format('daily-full-pipeline-{0}', github.ref) }}
   cancel-in-progress: false
 
 jobs:
