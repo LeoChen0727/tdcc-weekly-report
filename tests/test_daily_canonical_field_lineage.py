@@ -2730,6 +2730,448 @@ def test_theme_rejects_branch_committed_pair_outside_trusted_ref(
     )
 
 
+def test_pr_safe_base_history_replays_only_unrelated_pr_changes(tmp_path: Path) -> None:
+    write_current_formal_resolution_pair(tmp_path)
+    unrelated = tmp_path / "tests/test_repo_production_inventory.py"
+    unrelated.parent.mkdir(parents=True, exist_ok=True)
+    unrelated.write_text("base control test\n", encoding="utf-8")
+    initialize_git_fixture(tmp_path)
+    watch_path = tmp_path / lineage.VOLUME_WATCH_ARTIFACT
+    watch_columns, watch_rows = lineage._read_artifact(watch_path)
+    watch_rows[0]["volume_breakout_type"] = "base_watch_v2"
+    write_csv(watch_path, watch_columns, watch_rows)
+    subprocess.run(
+        ["git", "add", lineage.VOLUME_WATCH_ARTIFACT], cwd=tmp_path, check=True
+    )
+    subprocess.run(
+        ["git", "commit", "-m", "advance watch at PR base"],
+        cwd=tmp_path,
+        check=True,
+        capture_output=True,
+    )
+    base_sha = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=tmp_path,
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.strip()
+    unrelated.write_text("PR control test\n", encoding="utf-8")
+    subprocess.run(
+        ["git", "add", "tests/test_repo_production_inventory.py"],
+        cwd=tmp_path,
+        check=True,
+    )
+    subprocess.run(
+        ["git", "commit", "-m", "unrelated PR change"],
+        cwd=tmp_path,
+        check=True,
+        capture_output=True,
+    )
+
+    assert any(
+        "formal presentation watch artifact SHA-256 mismatch" in error
+        for error in lineage._validate_formal_resolution_lineage(tmp_path)
+    )
+    assert any(
+        "formal presentation watch artifact SHA-256 mismatch" in error
+        for error in lineage._validate_formal_resolution_lineage(
+            tmp_path, trusted_ref=base_sha
+        )
+    )
+    resolved, replay, evidence, errors = lineage._select_pr_safe_base_history(
+        tmp_path, base_sha
+    )
+    assert errors == []
+    assert replay is True
+    assert resolved == base_sha
+    assert "selected_mode=pr_safe_base_history" in evidence
+    assert (
+        lineage._validate_formal_resolution_lineage(
+            tmp_path,
+            trusted_ref=resolved,
+            committed_refresh_mode=True,
+        )
+        == []
+    )
+
+
+def test_pr_safe_base_history_falls_back_for_governed_changes(tmp_path: Path) -> None:
+    write_current_formal_resolution_pair(tmp_path)
+    base_sha = initialize_git_fixture(tmp_path)
+    raw_path = tmp_path / lineage.FORMAL_RAW_ARTIFACT
+    raw_path.write_bytes(raw_path.read_bytes() + b"\n")
+    subprocess.run(
+        ["git", "add", lineage.FORMAL_RAW_ARTIFACT], cwd=tmp_path, check=True
+    )
+    subprocess.run(
+        ["git", "commit", "-m", "change governed formal consumer"],
+        cwd=tmp_path,
+        check=True,
+        capture_output=True,
+    )
+
+    resolved, replay, evidence, errors = lineage._select_pr_safe_base_history(
+        tmp_path, base_sha
+    )
+    assert errors == []
+    assert replay is False
+    assert resolved == base_sha
+    assert "selected_mode=strict_current" in evidence
+    assert any(lineage.FORMAL_RAW_ARTIFACT in item for item in evidence)
+
+
+def test_pr_safe_base_history_rejects_governed_rename_and_delete(tmp_path: Path) -> None:
+    write_current_formal_resolution_pair(tmp_path)
+    base_sha = initialize_git_fixture(tmp_path)
+    subprocess.run(
+        [
+            "git",
+            "mv",
+            lineage.FORMAL_REPORT_ARTIFACT,
+            "output/latest/renamed_report.csv",
+        ],
+        cwd=tmp_path,
+        check=True,
+    )
+    subprocess.run(
+        ["git", "commit", "-m", "rename governed consumer"],
+        cwd=tmp_path,
+        check=True,
+        capture_output=True,
+    )
+
+    _, replay, evidence, errors = lineage._select_pr_safe_base_history(
+        tmp_path, base_sha
+    )
+    assert errors == []
+    assert replay is False
+    assert any("D:" + lineage.FORMAL_REPORT_ARTIFACT in item for item in evidence)
+    assert any("A:output/latest/renamed_report.csv" in item for item in evidence)
+
+
+def test_pr_safe_changed_path_parser_is_nul_safe_and_fail_closed() -> None:
+    changes, errors = lineage._parse_pr_safe_changed_paths(
+        b"M\0tests/ok.py\0T\0output/latest/volume_breakout_watch_latest.csv\0"
+    )
+    assert errors == []
+    assert changes == [
+        ("M", "tests/ok.py"),
+        ("T", lineage.VOLUME_WATCH_ARTIFACT),
+    ]
+    for malformed in (
+        b"M\0tests/unterminated.py",
+        b"M\0",
+        b"R100\0old.py\0new.py\0",
+        b"M\0../escape.py\0",
+        b"M\0bad\\path.py\0",
+        b"M\0bad\xff.py\0",
+    ):
+        _, malformed_errors = lineage._parse_pr_safe_changed_paths(malformed)
+        assert malformed_errors
+
+
+@pytest.mark.parametrize("residue", ["staged", "unstaged", "untracked"])
+def test_pr_safe_base_history_rejects_dirty_checkout(
+    tmp_path: Path, residue: str
+) -> None:
+    write_current_formal_resolution_pair(tmp_path)
+    base_sha = initialize_git_fixture(tmp_path)
+    residue_path = tmp_path / "tests/residue.txt"
+    residue_path.parent.mkdir(parents=True, exist_ok=True)
+    residue_path.write_text("residue\n", encoding="utf-8")
+    if residue == "staged":
+        subprocess.run(["git", "add", "tests/residue.txt"], cwd=tmp_path, check=True)
+    elif residue == "unstaged":
+        subprocess.run(
+            ["git", "add", "tests/residue.txt"], cwd=tmp_path, check=True
+        )
+        subprocess.run(
+            ["git", "commit", "-m", "track residue"],
+            cwd=tmp_path,
+            check=True,
+            capture_output=True,
+        )
+        residue_path.write_text("changed\n", encoding="utf-8")
+
+    _, replay, _, errors = lineage._select_pr_safe_base_history(tmp_path, base_sha)
+    assert replay is False
+    assert any("staged, unstaged, or untracked residue" in error for error in errors)
+
+
+def test_pr_safe_base_history_rejects_invalid_base_and_mode_combinations(
+    tmp_path: Path,
+) -> None:
+    for base_ref in (None, "", "HEAD", "f" * 39, "G" * 40):
+        _, replay, _, errors = lineage._select_pr_safe_base_history(tmp_path, base_ref)
+        assert replay is False
+        assert errors
+    write_current_formal_resolution_pair(tmp_path)
+    initialize_git_fixture(tmp_path)
+    _, replay, _, errors = lineage._select_pr_safe_base_history(tmp_path, "f" * 40)
+    assert replay is False
+    assert any("unable to resolve" in error for error in errors)
+    assert any(
+        "mutually exclusive" in error
+        for error in lineage.validate(
+            tmp_path,
+            base_ref="a" * 40,
+            trusted_ref="b" * 40,
+            pr_safe_base_history=True,
+        )
+    )
+
+
+def test_pr_safe_base_history_rejects_nonancestor_base(tmp_path: Path) -> None:
+    write_current_formal_resolution_pair(tmp_path)
+    initialize_git_fixture(tmp_path)
+    branch = subprocess.run(
+        ["git", "branch", "--show-current"],
+        cwd=tmp_path,
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.strip()
+    subprocess.run(
+        ["git", "checkout", "-b", "side"],
+        cwd=tmp_path,
+        check=True,
+        capture_output=True,
+    )
+    subprocess.run(
+        ["git", "commit", "--allow-empty", "-m", "side commit"],
+        cwd=tmp_path,
+        check=True,
+        capture_output=True,
+    )
+    side_sha = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=tmp_path,
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.strip()
+    subprocess.run(
+        ["git", "checkout", branch], cwd=tmp_path, check=True, capture_output=True
+    )
+    subprocess.run(
+        ["git", "commit", "--allow-empty", "-m", "main commit"],
+        cwd=tmp_path,
+        check=True,
+        capture_output=True,
+    )
+
+    _, replay, _, errors = lineage._select_pr_safe_base_history(tmp_path, side_sha)
+    assert replay is False
+    assert any("ancestor of HEAD" in error for error in errors)
+
+
+def test_pr_safe_tree_entry_parser_rejects_type_and_identity_drift() -> None:
+    path = "tests/test_repo_production_inventory.py"
+    entry, errors = lineage._parse_pr_safe_tree_entry(
+        f"100644 blob {'a' * 40}\t{path}\0".encode(), path
+    )
+    assert errors == []
+    assert entry == ("100644", "blob", "a" * 40)
+    for malformed in (
+        f"120000 blob {'a' * 40}\t{path}\0".encode(),
+        f"160000 commit {'a' * 40}\t{path}\0".encode(),
+        f"100644 blob {'a' * 40}\ttests/wrong.py\0".encode(),
+        f"100644 blob not-a-sha\t{path}\0".encode(),
+        f"100644 blob {'a' * 40}\t{path}".encode(),
+    ):
+        parsed, malformed_errors = lineage._parse_pr_safe_tree_entry(malformed, path)
+        if parsed is not None:
+            assert parsed[:2] != ("100644", "blob")
+        else:
+            assert malformed_errors
+
+
+def test_pr_safe_base_history_rejects_mode_drift_on_safe_path(tmp_path: Path) -> None:
+    write_current_formal_resolution_pair(tmp_path)
+    safe_path = tmp_path / "tests/test_repo_production_inventory.py"
+    safe_path.parent.mkdir(parents=True, exist_ok=True)
+    safe_path.write_text("control test\n", encoding="utf-8")
+    base_sha = initialize_git_fixture(tmp_path)
+    subprocess.run(
+        ["git", "update-index", "--chmod=+x", "tests/test_repo_production_inventory.py"],
+        cwd=tmp_path,
+        check=True,
+    )
+    subprocess.run(
+        ["git", "commit", "-m", "change safe path mode"],
+        cwd=tmp_path,
+        check=True,
+        capture_output=True,
+    )
+
+    _, replay, evidence, errors = lineage._select_pr_safe_base_history(
+        tmp_path, base_sha
+    )
+    assert errors == []
+    assert replay is False
+    assert any("non_regular_blob" in item for item in evidence)
+
+
+def test_pr_safe_base_history_rejects_replace_refs_and_grafts(tmp_path: Path) -> None:
+    replace_root = tmp_path / "replace"
+    write_current_formal_resolution_pair(replace_root)
+    base_sha = initialize_git_fixture(replace_root)
+    subprocess.run(
+        ["git", "commit", "--allow-empty", "-m", "replacement target"],
+        cwd=replace_root,
+        check=True,
+        capture_output=True,
+    )
+    replacement_sha = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=replace_root,
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.strip()
+    subprocess.run(
+        ["git", "update-ref", f"refs/replace/{base_sha}", replacement_sha],
+        cwd=replace_root,
+        check=True,
+    )
+    _, replay, _, errors = lineage._select_pr_safe_base_history(
+        replace_root, base_sha
+    )
+    assert replay is False
+    assert any("refs/replace" in error for error in errors)
+
+    graft_root = tmp_path / "graft"
+    write_current_formal_resolution_pair(graft_root)
+    graft_sha = initialize_git_fixture(graft_root)
+    git_dir = subprocess.run(
+        ["git", "rev-parse", "--git-dir"],
+        cwd=graft_root,
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.strip()
+    graft_file = graft_root / git_dir / "info/grafts"
+    graft_file.parent.mkdir(parents=True, exist_ok=True)
+    graft_file.write_text(graft_sha + "\n", encoding="utf-8")
+    _, replay, _, errors = lineage._select_pr_safe_base_history(graft_root, graft_sha)
+    assert replay is False
+    assert any("graft state" in error for error in errors)
+
+
+def test_pr_safe_base_history_propagates_git_failure_and_malformed_output(
+    tmp_path: Path, monkeypatch,
+) -> None:
+    original = lineage._run_git
+
+    def failed_diff(root, args, *, operation):
+        if operation == "collect PR-safe base-history changed paths":
+            return subprocess.CompletedProcess(args, 1, b"", b"failed"), []
+        return original(root, args, operation=operation)
+
+    write_current_formal_resolution_pair(tmp_path)
+    base_sha = initialize_git_fixture(tmp_path)
+    monkeypatch.setattr(lineage, "_run_git", failed_diff)
+    _, replay, _, errors = lineage._select_pr_safe_base_history(tmp_path, base_sha)
+    assert replay is False
+    assert any("cannot collect changed paths" in error for error in errors)
+
+    def malformed_diff(root, args, *, operation):
+        if operation == "collect PR-safe base-history changed paths":
+            return subprocess.CompletedProcess(args, 0, b"M\0bad\xff.py\0", b""), []
+        return original(root, args, operation=operation)
+
+    monkeypatch.setattr(lineage, "_run_git", malformed_diff)
+    _, replay, _, errors = lineage._select_pr_safe_base_history(tmp_path, base_sha)
+    assert replay is False
+    assert any("not valid UTF-8" in error for error in errors)
+
+
+def test_pr_safe_base_history_propagates_git_timeout(tmp_path: Path, monkeypatch) -> None:
+    def timeout(*args, **kwargs):
+        raise subprocess.TimeoutExpired(cmd="git", timeout=15)
+
+    monkeypatch.setattr(lineage.subprocess, "run", timeout)
+    _, replay, _, errors = lineage._select_pr_safe_base_history(tmp_path, "a" * 40)
+    assert replay is False
+    assert any("timed out" in error for error in errors)
+
+
+def test_cli_forwards_pr_safe_mode_and_prints_selection(
+    monkeypatch, tmp_path: Path, capsys
+) -> None:
+    observed = {}
+
+    def fake_validate(
+        root, *, base_ref, trusted_ref, pr_safe_base_history, mode_evidence
+    ):
+        observed.update(
+            root=root,
+            base_ref=base_ref,
+            trusted_ref=trusted_ref,
+            pr_safe_base_history=pr_safe_base_history,
+        )
+        mode_evidence.extend(
+            ("resolved_base_sha=" + "a" * 40, "selected_mode=pr_safe_base_history")
+        )
+        return []
+
+    monkeypatch.setattr(lineage, "validate", fake_validate)
+    monkeypatch.setattr(
+        "sys.argv",
+        [
+            "validate_daily_canonical_field_lineage.py",
+            "--repo-root",
+            str(tmp_path),
+            "--base-ref",
+            "a" * 40,
+            "--pr-safe-base-history",
+        ],
+    )
+    assert lineage.main() == 0
+    assert observed == {
+        "root": tmp_path,
+        "base_ref": "a" * 40,
+        "trusted_ref": None,
+        "pr_safe_base_history": True,
+    }
+    assert "selected_mode=pr_safe_base_history" in capsys.readouterr().out
+
+
+def test_cli_existing_modes_do_not_enable_pr_safe_history(
+    monkeypatch, tmp_path: Path
+) -> None:
+    observed = []
+
+    def fake_validate(
+        root, *, base_ref, trusted_ref, pr_safe_base_history, mode_evidence
+    ):
+        observed.append((base_ref, trusted_ref, pr_safe_base_history))
+        return []
+
+    monkeypatch.setattr(lineage, "validate", fake_validate)
+    for argv in (
+        ["validator", "--repo-root", str(tmp_path)],
+        ["validator", "--repo-root", str(tmp_path), "--base-ref", "a" * 40],
+        [
+            "validator",
+            "--repo-root",
+            str(tmp_path),
+            "--base-ref",
+            "a" * 40,
+            "--trusted-ref",
+            "b" * 40,
+        ],
+    ):
+        monkeypatch.setattr("sys.argv", argv)
+        assert lineage.main() == 0
+    assert observed == [
+        (None, None, False),
+        ("a" * 40, None, False),
+        ("a" * 40, "b" * 40, False),
+    ]
+
+
 def test_theme_accepts_true_uncommitted_live_source_pair(tmp_path: Path) -> None:
     build_valid_repo(tmp_path)
     trusted_base = initialize_git_fixture(tmp_path)
@@ -3414,3 +3856,57 @@ def test_workflows_run_canonical_lineage_after_model_build() -> None:
     warrant_workflow = contents["warrant_flow"]
     assert warrant_workflow.count(theme_build) == 1
     assert warrant_workflow.index(theme_build) < warrant_workflow.index(model_build)
+def test_pr_safe_base_history_safe_paths_reject_near_misses() -> None:
+    import hashlib
+
+    from scripts import validate_daily_canonical_field_lineage as lineage
+
+    safe_paths = lineage.PR_SAFE_BASE_HISTORY_SAFE_CONTROL_PATHS
+    safe_path_identity = ("\n".join(sorted(safe_paths)) + "\n").encode("utf-8")
+    assert len(safe_paths) == 17
+    assert hashlib.sha256(safe_path_identity).hexdigest() == (
+        "823ea9275c2ca98d162c4e171672da472402c9194b997fce1c85e1144393ac74"
+    )
+    for path in sorted(safe_paths):
+        near_misses = {
+            f"{path}.bak",
+            f"{path}/child",
+            path.swapcase(),
+            path.replace("/", "\\"),
+        }
+        assert path not in near_misses
+        for near_miss in near_misses:
+            assert near_miss not in safe_paths
+            assert lineage._is_pr_safe_base_history_governed_path(near_miss)
+
+
+def test_all_validator_git_subprocesses_disable_replace_objects() -> None:
+    import ast
+    from pathlib import Path
+
+    source_path = (
+        Path(__file__).resolve().parents[1]
+        / "scripts"
+        / "validate_daily_canonical_field_lineage.py"
+    )
+    tree = ast.parse(source_path.read_text(encoding="utf-8"), filename=str(source_path))
+    subprocess_calls = [
+        node
+        for node in ast.walk(tree)
+        if isinstance(node, ast.Call)
+        and isinstance(node.func, ast.Attribute)
+        and isinstance(node.func.value, ast.Name)
+        and node.func.value.id == "subprocess"
+        and node.func.attr == "run"
+    ]
+
+    assert len(subprocess_calls) == 10
+    for call in subprocess_calls:
+        assert call.args
+        command = call.args[0]
+        assert isinstance(command, (ast.List, ast.Tuple))
+        assert len(command.elts) >= 2
+        assert isinstance(command.elts[0], ast.Constant)
+        assert command.elts[0].value == "git"
+        assert isinstance(command.elts[1], ast.Constant)
+        assert command.elts[1].value == "--no-replace-objects"
