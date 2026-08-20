@@ -4,12 +4,6 @@ on:
   pull_request:
   pull_request_target:
     types: [opened, synchronize, reopened, edited]
-    paths:
-      - "config/repo_file_lifecycle_inventory.csv"
-      - "scripts/validate_daily_published_model_snapshots_pr_safe.py"
-      - "scripts/validate_repo_advanced_integrity_pr_safe.py"
-      - "tests/test_daily_published_model_snapshots_pr_safe.py"
-      - "tests/test_repo_advanced_integrity_pr_safe.py"
 
 permissions:
   contents: read
@@ -92,7 +86,7 @@ jobs:
           echo "matched_count=${{ steps.scope.outputs.matched_count }}"
 
   pr-safe-base-audit-runner:
-    name: pr-safe-base-audit-runner
+    name: pr-safe-trust-root-self-change-guard
     if: >-
       github.event_name == 'pull_request_target' &&
       github.event.pull_request.base.ref == 'main' &&
@@ -107,65 +101,36 @@ jobs:
         uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
         with:
           ref: ${{ github.event.pull_request.base.sha }}
-          fetch-depth: 0
+          fetch-depth: 1
           persist-credentials: false
 
       - name: Fetch pull request head object without checkout
         env:
-          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        shell: bash
         run: |
-          LOCAL_HEAD_REF="refs/remotes/origin/pr-safe-guard/$PR_NUMBER"
-          git fetch --no-tags origin "+refs/pull/$PR_NUMBER/head:$LOCAL_HEAD_REF"
+          set -euo pipefail
+          test -n "$PR_NUMBER"
+          test -n "$HEAD_SHA"
+          LOCAL_HEAD_REF="refs/remotes/origin/pr-safe-head"
+          git fetch --no-tags --depth=1 origin "+refs/pull/$PR_NUMBER/head:$LOCAL_HEAD_REF"
           test "$(git rev-parse "$LOCAL_HEAD_REF")" = "$HEAD_SHA"
 
-      - name: Validate PR head blobs and write audit-only manifest
-        id: audit
-        continue-on-error: true
+      - name: Validate trust-root self-change from base code
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-          AUDIT_MANIFEST: ${{ runner.temp }}/pr-safe-control-plane-audit-manifest.json
+          BASE_REPOSITORY: ${{ github.event.pull_request.base.repo.full_name }}
+          HEAD_REPOSITORY: ${{ github.event.pull_request.head.repo.full_name }}
+          MAINTAINER_APPROVED: ${{ contains(github.event.pull_request.labels.*.name, 'trust-root-maintenance-approved') }}
+        shell: bash
         run: |
+          set -euo pipefail
           python scripts/validate_repo_production_inventory.py \
-            --validate-pr-safe-control-plane-migration \
+            --validate-pr-trust-root-change \
             --base-sha "$BASE_SHA" \
             --head-sha "$HEAD_SHA" \
-            --audit-manifest "$AUDIT_MANIFEST" \
-            --repository "$GITHUB_REPOSITORY" \
-            --workflow-ref "$GITHUB_WORKFLOW_REF" \
-            --workflow-sha "$GITHUB_WORKFLOW_SHA" \
-            --run-id "$GITHUB_RUN_ID" \
-            --run-attempt "$GITHUB_RUN_ATTEMPT" \
-            --event-name "$GITHUB_EVENT_NAME" \
-            --event-action "${{ github.event.action }}" \
-            --base-ref "${{ github.event.pull_request.base.ref }}" \
-            --base-repository "${{ github.event.pull_request.base.repo.full_name }}" \
-            --head-repository "${{ github.event.pull_request.head.repo.full_name }}" \
-            --pull-request-number "$PR_NUMBER"
-
-      - name: Record audit manifest SHA-256
-        if: always()
-        env:
-          AUDIT_MANIFEST: ${{ runner.temp }}/pr-safe-control-plane-audit-manifest.json
-        run: |
-          manifest_dir="$(dirname "$AUDIT_MANIFEST")"
-          manifest_name="$(basename "$AUDIT_MANIFEST")"
-          (cd "$manifest_dir" && sha256sum "$manifest_name" > "${manifest_name}.sha256")
-
-      - name: Upload audit-only evidence
-        if: always()
-        id: upload-audit
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
-        with:
-          name: pr-safe-control-plane-audit-${{ github.run_id }}-${{ github.run_attempt }}
-          path: |
-            ${{ runner.temp }}/pr-safe-control-plane-audit-manifest.json
-            ${{ runner.temp }}/pr-safe-control-plane-audit-manifest.json.sha256
-          if-no-files-found: error
-          retention-days: 30
-
-      - name: Fail runner when audit validator rejects
-        if: always() && steps.audit.outcome != 'success'
-        run: exit 1
+            --base-repository "$BASE_REPOSITORY" \
+            --head-repository "$HEAD_REPOSITORY" \
+            --maintainer-approved "$MAINTAINER_APPROVED"
