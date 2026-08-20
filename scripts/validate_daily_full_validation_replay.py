@@ -591,7 +591,7 @@ def main() -> int:
         return 1
     print(
         "Daily Full validation-only historical replay contract passed: "
-        "date=20260807 pre_step41_checkpoint=fail_safe "
+        "date=20260807 pre_step41_checkpoint=diagnostic_non_blocking "
         "canary=controlled_failure replay=exact_artifact "
         "pdf_count=6 production_not_run=true"
     )
