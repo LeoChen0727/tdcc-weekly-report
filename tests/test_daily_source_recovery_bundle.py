@@ -1182,50 +1182,201 @@ def test_failed_recovery_retry_rejects_path_or_type_drift(
         )
 
 
-def test_failed_recovery_retry_run_set_is_exact_and_attempt_one() -> None:
-    title = f"Daily Full Pipeline | recovery=daily-source-{DATE}"
-    prior = {
-        "id": 32402031739,
+def _retry_run(
+    run_id: int,
+    *,
+    head_sha: str,
+    created_at: str,
+    status: str = "completed",
+    conclusion: str | None = "failure",
+) -> dict[str, object]:
+    return {
+        "id": run_id,
         "run_attempt": 1,
-        "status": "completed",
-        "conclusion": "failure",
+        "status": status,
+        "conclusion": conclusion,
         "event": "workflow_dispatch",
         "name": "Daily Full Pipeline",
-        "head_sha": "a" * 40,
-        "display_title": title,
-    }
-    current = {
-        "id": 400,
-        "run_attempt": 1,
-        "status": "in_progress",
-        "conclusion": None,
-        "event": "workflow_dispatch",
-        "name": "Daily Full Pipeline",
-        "head_sha": "b" * 40,
-        "display_title": title,
+        "head_sha": head_sha,
+        "display_title": f"Daily Full Pipeline | recovery=daily-source-{DATE}",
+        "created_at": created_at,
     }
 
-    verified = bundle.verify_failed_recovery_retry_runs(
-        [prior, current],
-        trading_date=DATE,
-        retry_of_run_id=32402031739,
-        current_run_id=400,
-        current_head_sha="b" * 40,
+
+def _commit_retry_fix(root: Path, name: str) -> str:
+    path = root / "scripts" / f"{name}.py"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(f"VALUE = {name!r}\n", encoding="utf-8")
+    subprocess.run(["git", "add", path.relative_to(root).as_posix()], cwd=root, check=True)
+    subprocess.run(
+        ["git", "commit", "-m", name], cwd=root, check=True, capture_output=True
     )
-    assert verified == {"prior": prior, "current": current}
-    with pytest.raises(bundle.DailySourceRecoveryError, match="exactly"):
+    return _git(root, "rev-parse", "HEAD")
+
+
+def test_failed_recovery_retry_accepts_historical_failures_and_latest_prior(
+    tmp_path: Path,
+) -> None:
+    root, base_sha = _repo(tmp_path)
+    result, source_commit = _build_and_commit(root, base_sha)
+    reserved, reservation_commit = _reserve_and_commit(root, result, source_commit)
+    intermediate_head = _commit_retry_fix(root, "intermediate_fix")
+    current_head = _commit_retry_fix(root, "current_fix")
+    anchor = _retry_run(
+        201, head_sha=reservation_commit, created_at="2026-08-11T12:30:10Z"
+    )
+    older = _retry_run(
+        250, head_sha=intermediate_head, created_at="2026-08-11T13:00:00Z"
+    )
+    prior = _retry_run(
+        300, head_sha=intermediate_head, created_at="2026-08-11T13:30:00Z"
+    )
+    current = _retry_run(
+        400,
+        head_sha=current_head,
+        created_at="2026-08-11T14:00:00Z",
+        status="in_progress",
+        conclusion=None,
+    )
+
+    verified = bundle.verify_failed_recovery_retry_runs(
+        root,
+        [anchor, older, prior, current],
+        reservation_commit_sha=reservation_commit,
+        reservation_payload=reserved["payload"],
+        trading_date=DATE,
+        retry_of_run_id=300,
+        current_run_id=400,
+        current_head_sha=current_head,
+    )
+    assert verified == {"anchor": anchor, "prior": prior, "current": current}
+    with pytest.raises(bundle.DailySourceRecoveryError, match="latest related"):
         bundle.verify_failed_recovery_retry_runs(
-            [prior, current, current | {"id": 401}],
+            root,
+            [anchor, older, prior, current],
+            reservation_commit_sha=reservation_commit,
+            reservation_payload=reserved["payload"],
             trading_date=DATE,
-            retry_of_run_id=32402031739,
+            retry_of_run_id=250,
             current_run_id=400,
-            current_head_sha="b" * 40,
+            current_head_sha=current_head,
         )
-    with pytest.raises(bundle.DailySourceRecoveryError, match="completed failure"):
+
+    for mutation in (
+        anchor | {"head_sha": intermediate_head},
+        anchor | {"id": 200},
+        anchor | {"created_at": "2026-08-11T12:20:00Z"},
+        anchor | {"created_at": "2026-08-11T13:00:01Z"},
+    ):
+        with pytest.raises(bundle.DailySourceRecoveryError, match="anchor|baseline"):
+            bundle.verify_failed_recovery_retry_runs(
+                root,
+                [mutation, older, prior, current],
+                reservation_commit_sha=reservation_commit,
+                reservation_payload=reserved["payload"],
+                trading_date=DATE,
+                retry_of_run_id=300,
+                current_run_id=400,
+                current_head_sha=current_head,
+            )
+
+    for mutation in (
+        older | {"conclusion": "success"},
+        older | {"status": "in_progress", "conclusion": None},
+    ):
+        with pytest.raises(bundle.DailySourceRecoveryError, match="completed failure"):
+            bundle.verify_failed_recovery_retry_runs(
+                root,
+                [anchor, mutation, prior, current],
+                reservation_commit_sha=reservation_commit,
+                reservation_payload=reserved["payload"],
+                trading_date=DATE,
+                retry_of_run_id=300,
+                current_run_id=400,
+                current_head_sha=current_head,
+            )
+
+
+def test_failed_recovery_retry_collection_is_stable_beyond_first_page() -> None:
+    rows = [
+        _retry_run(
+            run_id,
+            head_sha="a" * 40,
+            created_at=f"2026-08-11T12:{run_id % 60:02d}:00Z",
+        )
+        for run_id in range(1000, 1150)
+    ]
+    calls: list[int] = []
+
+    def fetch_page(page: int, page_size: int) -> list[dict[str, object]]:
+        calls.append(page)
+        start = (page - 1) * page_size
+        return rows[start : start + page_size]
+
+    assert bundle.collect_stable_paginated_workflow_runs(fetch_page) == rows
+    assert calls == [1, 2, 1, 2]
+
+    pass_number = 0
+
+    def unstable_page(page: int, page_size: int) -> list[dict[str, object]]:
+        nonlocal pass_number
+        if page == 1:
+            pass_number += 1
+        current_rows = list(rows)
+        if pass_number == 2:
+            current_rows[0] = current_rows[0] | {"head_sha": "b" * 40}
+        start = (page - 1) * page_size
+        return current_rows[start : start + page_size]
+
+    with pytest.raises(bundle.DailySourceRecoveryError, match="changed between"):
+        bundle.collect_stable_paginated_workflow_runs(unstable_page)
+
+    duplicated_rows = rows[:100] + [rows[0]]
+
+    def duplicate_page(page: int, page_size: int) -> list[dict[str, object]]:
+        start = (page - 1) * page_size
+        return duplicated_rows[start : start + page_size]
+
+    with pytest.raises(bundle.DailySourceRecoveryError, match="duplicate run id"):
+        bundle.collect_stable_paginated_workflow_runs(duplicate_page)
+
+
+def test_failed_recovery_retry_workflow_uses_stable_group_and_direct_cli() -> None:
+    text = (bundle.ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(
+        encoding="utf-8"
+    )
+    assert "daily-full-retry-{0}-{1}" in text
+    assert "collect-retry-runs" in text
+    assert "daily_source_recovery_bundle.py verify-retry-runs" in text
+    assert "&per_page=100" not in text
+    assert text.index("Verify durable recovery dispatch reservation") < text.index(
+        "Validate single failed-recovery retry"
+    )
+
+
+def test_failed_recovery_retry_rejects_duplicate_title_run(tmp_path: Path) -> None:
+    root, base_sha = _repo(tmp_path)
+    result, source_commit = _build_and_commit(root, base_sha)
+    reserved, reservation_commit = _reserve_and_commit(root, result, source_commit)
+    current_head = _commit_retry_fix(root, "current_fix")
+    anchor = _retry_run(
+        201, head_sha=reservation_commit, created_at="2026-08-11T12:30:10Z"
+    )
+    current = _retry_run(
+        400,
+        head_sha=current_head,
+        created_at="2026-08-11T14:00:00Z",
+        status="in_progress",
+        conclusion=None,
+    )
+    with pytest.raises(bundle.DailySourceRecoveryError, match="duplicate run id"):
         bundle.verify_failed_recovery_retry_runs(
-            [prior | {"conclusion": "success"}, current],
+            root,
+            [anchor, anchor, current],
+            reservation_commit_sha=reservation_commit,
+            reservation_payload=reserved["payload"],
             trading_date=DATE,
-            retry_of_run_id=32402031739,
+            retry_of_run_id=201,
             current_run_id=400,
-            current_head_sha="b" * 40,
+            current_head_sha=current_head,
         )

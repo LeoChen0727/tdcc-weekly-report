@@ -1151,6 +1151,13 @@ def validate_daily_authority_snapshot_publish_contract(daily_text: str) -> list[
 
 def validate_daily_failed_recovery_retry_contract(daily_text: str) -> list[str]:
     errors: list[str] = []
+    expected_concurrency = (
+        "  group: ${{ inputs.recovery_retry_of_run_id != '' && "
+        "format('daily-full-retry-{0}-{1}', inputs.recovery_source_bundle_trading_date, "
+        "inputs.recovery_retry_of_run_id) || inputs.recovery_correlation_id != '' && "
+        "format('daily-full-recovery-{0}', inputs.recovery_correlation_id) || "
+        "format('daily-full-pipeline-{0}', github.ref) }}"
+    )
     required_literals = {
         "recovery_reservation_commit_sha:": (
             "Daily Full must declare the original reservation commit for code-only retry"
@@ -1167,8 +1174,11 @@ def validate_daily_failed_recovery_retry_contract(daily_text: str) -> list[str]:
         "daily-full-failed-recovery-runs.json": (
             "Daily Full must use isolated run evidence for retry correlation"
         ),
-        "daily_source_recovery_bundle.py verify-retry-runs": (
-            "Daily Full must validate the old failure and current attempt=1"
+        "collect-retry-runs": (
+            "Daily Full must collect a complete stable paginated workflow run set"
+        ),
+        "verify-retry-runs": (
+            "Daily Full must validate historical failures and current attempt=1"
         ),
         '--reservation-commit-sha "${{ inputs.recovery_reservation_commit_sha }}"': (
             "Daily Full must verify the immutable original reservation commit"
@@ -1179,6 +1189,12 @@ def validate_daily_failed_recovery_retry_contract(daily_text: str) -> list[str]:
         "Daily Full Pipeline | recovery=daily-source-{0}": (
             "Daily Full retry must retain the stable date-scoped production title"
         ),
+        "daily-full-retry-{0}-{1}": (
+            "Daily Full retry concurrency must bind trading date and failed run id"
+        ),
+        '--reservation-path "${{ inputs.recovery_reservation_path }}"': (
+            "Daily Full run validation must read the immutable reservation payload"
+        ),
     }
     for literal, message in required_literals.items():
         if literal not in daily_text:
@@ -1187,6 +1203,11 @@ def validate_daily_failed_recovery_retry_contract(daily_text: str) -> list[str]:
         errors.append("Daily Full retry reservation commit input must be declared exactly once")
     if daily_text.count("recovery_retry_of_run_id:") != 1:
         errors.append("Daily Full retry failed-run input must be declared exactly once")
+    if daily_text.splitlines().count(expected_concurrency) != 1:
+        errors.append(
+            "Daily Full retry concurrency must be the exact trading-date/failed-run identity "
+            "and must not depend on recovery correlation"
+        )
     return errors
 
 

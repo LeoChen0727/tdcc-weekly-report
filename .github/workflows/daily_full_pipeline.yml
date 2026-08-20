@@ -74,7 +74,7 @@ permissions:
   actions: write
 
 concurrency:
-  group: ${{ inputs.recovery_correlation_id != '' && format('daily-full-recovery-{0}', inputs.recovery_correlation_id) || format('daily-full-pipeline-{0}', github.ref) }}
+  group: ${{ inputs.recovery_retry_of_run_id != '' && format('daily-full-retry-{0}-{1}', inputs.recovery_source_bundle_trading_date, inputs.recovery_retry_of_run_id) || inputs.recovery_correlation_id != '' && format('daily-full-recovery-{0}', inputs.recovery_correlation_id) || format('daily-full-pipeline-{0}', github.ref) }}
   cancel-in-progress: false
 
 jobs:
@@ -199,22 +199,6 @@ jobs:
                   )
           PY
 
-      - name: Validate single failed-recovery retry
-        if: inputs.recovery_retry_of_run_id != ''
-        shell: bash
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          runs_json="$RUNNER_TEMP/daily-full-failed-recovery-runs.json"
-          gh api "/repos/${GITHUB_REPOSITORY}/actions/workflows/daily_full_pipeline.yml/runs?event=workflow_dispatch&per_page=100" \
-            --jq '.workflow_runs' > "$runs_json"
-          python -B scripts/daily_source_recovery_bundle.py verify-retry-runs \
-            --runs-json "$runs_json" \
-            --trading-date "${{ inputs.recovery_source_bundle_trading_date }}" \
-            --retry-of-run-id "${{ inputs.recovery_retry_of_run_id }}" \
-            --current-run-id "${{ github.run_id }}" \
-            --current-head-sha "${{ github.sha }}"
-
       - name: Verify durable recovery dispatch reservation
         if: inputs.recovery_source_bundle_commit_sha != ''
         run: |
@@ -231,6 +215,26 @@ jobs:
             --correlation-id "${{ inputs.recovery_correlation_id }}" \
             --reservation-commit-sha "${{ inputs.recovery_reservation_commit_sha }}" \
             --retry-of-run-id "${{ inputs.recovery_retry_of_run_id }}"
+
+      - name: Validate single failed-recovery retry
+        if: inputs.recovery_retry_of_run_id != ''
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          runs_json="$RUNNER_TEMP/daily-full-failed-recovery-runs.json"
+          python -B scripts/daily_source_recovery_bundle.py collect-retry-runs \
+            --repository "$GITHUB_REPOSITORY" \
+            --output "$runs_json"
+          python -B scripts/daily_source_recovery_bundle.py verify-retry-runs \
+            --repo-root . \
+            --runs-json "$runs_json" \
+            --reservation-commit-sha "${{ inputs.recovery_reservation_commit_sha }}" \
+            --reservation-path "${{ inputs.recovery_reservation_path }}" \
+            --trading-date "${{ inputs.recovery_source_bundle_trading_date }}" \
+            --retry-of-run-id "${{ inputs.recovery_retry_of_run_id }}" \
+            --current-run-id "${{ github.run_id }}" \
+            --current-head-sha "${{ github.sha }}"
 
       - name: Materialize immutable recovery source bundle for preflight
         if: inputs.recovery_source_bundle_commit_sha != ''

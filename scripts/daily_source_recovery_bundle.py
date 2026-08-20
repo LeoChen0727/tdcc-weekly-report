@@ -35,6 +35,9 @@ RECOVERY_RETRY_ALLOWED_PREFIXES = (
     "scripts/",
     "tests/",
 )
+RECOVERY_RUN_PAGE_SIZE = 100
+RECOVERY_RUN_MAX_PAGES = 10
+RECOVERY_DISPATCH_WINDOW_SECONDS = 900
 
 ALLOWED_TRANSITIONS = {
     "source_absent": {"repairing", "failed"},
@@ -367,21 +370,152 @@ def checked_run_id(value: object, label: str) -> int:
     return int(text)
 
 
+def _workflow_run_identity(run: dict[str, Any]) -> tuple[object, ...]:
+    return (
+        checked_run_id(_run_value(run, "databaseId", "id"), "observed recovery run id"),
+        int(_run_value(run, "attempt", "run_attempt") or 0),
+        str(_run_value(run, "event") or ""),
+        str(_run_value(run, "workflowName", "name") or ""),
+        checked_sha1(_run_value(run, "headSha", "head_sha"), "observed recovery head SHA"),
+        str(_run_value(run, "displayTitle", "display_title") or ""),
+        _parse_utc(
+            _run_value(run, "createdAt", "created_at"), "workflow run created_at"
+        ).isoformat(),
+    )
+
+
+def collect_paginated_workflow_runs(
+    fetch_page: Callable[[int, int], list[dict[str, Any]]],
+    *,
+    page_size: int = RECOVERY_RUN_PAGE_SIZE,
+    max_pages: int = RECOVERY_RUN_MAX_PAGES,
+) -> list[dict[str, Any]]:
+    if page_size <= 0 or max_pages <= 0:
+        raise DailySourceRecoveryError("workflow run pagination bounds must be positive")
+    collected: list[dict[str, Any]] = []
+    seen_ids: set[int] = set()
+    for page in range(1, max_pages + 1):
+        rows = fetch_page(page, page_size)
+        if not isinstance(rows, list) or not all(isinstance(row, dict) for row in rows):
+            raise DailySourceRecoveryError("workflow run API page must be a JSON list of objects")
+        if len(rows) > page_size:
+            raise DailySourceRecoveryError("workflow run API page exceeds the requested page size")
+        for row in rows:
+            run_id = checked_run_id(
+                _run_value(row, "databaseId", "id"), "observed recovery run id"
+            )
+            if run_id in seen_ids:
+                raise DailySourceRecoveryError(
+                    f"workflow run pagination returned duplicate run id: {run_id}"
+                )
+            seen_ids.add(run_id)
+            collected.append(row)
+        if len(rows) < page_size:
+            return collected
+    raise DailySourceRecoveryError(
+        f"workflow run collection exceeded the bounded {max_pages}-page limit"
+    )
+
+
+def collect_stable_paginated_workflow_runs(
+    fetch_page: Callable[[int, int], list[dict[str, Any]]],
+) -> list[dict[str, Any]]:
+    first = collect_paginated_workflow_runs(fetch_page)
+    second = collect_paginated_workflow_runs(fetch_page)
+    if [_workflow_run_identity(run) for run in first] != [
+        _workflow_run_identity(run) for run in second
+    ]:
+        raise DailySourceRecoveryError(
+            "workflow run pagination changed between bounded collection passes"
+        )
+    return second
+
+
+def fetch_stable_workflow_dispatch_runs(repository: str) -> list[dict[str, Any]]:
+    repo = str(repository or "").strip()
+    if re.fullmatch(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", repo) is None:
+        raise DailySourceRecoveryError(f"invalid GitHub repository identity: {repo!r}")
+
+    def fetch_page(page: int, page_size: int) -> list[dict[str, Any]]:
+        url = (
+            f"/repos/{repo}/actions/workflows/daily_full_pipeline.yml/runs"
+            f"?event=workflow_dispatch&per_page={page_size}&page={page}"
+        )
+        try:
+            proc = subprocess.run(
+                ["gh", "api", url],
+                check=False,
+                capture_output=True,
+                timeout=30,
+            )
+        except subprocess.TimeoutExpired as exc:
+            raise DailySourceRecoveryError(
+                f"GitHub workflow run page {page} timed out"
+            ) from exc
+        if proc.returncode != 0:
+            detail = (proc.stderr or proc.stdout).decode("utf-8", errors="replace").strip()
+            raise DailySourceRecoveryError(
+                f"GitHub workflow run page {page} failed: {detail}"
+            )
+        try:
+            payload = json.loads(proc.stdout.decode("utf-8", errors="strict"))
+        except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+            raise DailySourceRecoveryError(
+                f"GitHub workflow run page {page} is not valid UTF-8 JSON"
+            ) from exc
+        rows = payload.get("workflow_runs") if isinstance(payload, dict) else None
+        if not isinstance(rows, list):
+            raise DailySourceRecoveryError(
+                f"GitHub workflow run page {page} has no workflow_runs list"
+            )
+        return rows
+
+    return collect_stable_paginated_workflow_runs(fetch_page)
+
+
 def verify_failed_recovery_retry_runs(
+    root: Path,
     runs: list[dict[str, Any]],
     *,
+    reservation_commit_sha: str,
+    reservation_payload: dict[str, Any],
     trading_date: str,
     retry_of_run_id: object,
     current_run_id: object,
     current_head_sha: str,
 ) -> dict[str, dict[str, Any]]:
+    root = root.resolve()
     date_text = normalized_date(trading_date)
+    reservation_commit = checked_sha1(
+        reservation_commit_sha, "recovery reservation commit SHA"
+    )
     prior_id = checked_run_id(retry_of_run_id, "failed recovery run id")
     current_id = checked_run_id(current_run_id, "current recovery run id")
     if prior_id == current_id:
         raise DailySourceRecoveryError("failed and current recovery run ids must differ")
     head_sha = checked_sha1(current_head_sha, "current recovery head SHA")
     expected_title = f"Daily Full Pipeline | recovery=daily-source-{date_text}"
+    if reservation_payload.get("trading_date") != date_text:
+        raise DailySourceRecoveryError("retry reservation trading date mismatch")
+    if reservation_payload.get("resume_expected_display_title") != expected_title:
+        raise DailySourceRecoveryError("retry reservation display title mismatch")
+    try:
+        baseline_run_id = int(reservation_payload.get("resume_baseline_run_id"))
+    except (TypeError, ValueError) as exc:
+        raise DailySourceRecoveryError("retry reservation baseline run id is invalid") from exc
+    if baseline_run_id < 0:
+        raise DailySourceRecoveryError("retry reservation baseline run id is invalid")
+    dispatch_started = _parse_utc(
+        reservation_payload.get("resume_dispatch_started_at"),
+        "retry reservation dispatch time",
+    )
+    anchor_earliest = dispatch_started - timedelta(seconds=15)
+    anchor_latest = dispatch_started + timedelta(seconds=RECOVERY_DISPATCH_WINDOW_SECONDS)
+    verify_code_only_retry_descendant(
+        root,
+        reservation_commit_sha=reservation_commit,
+        current_head_sha=head_sha,
+    )
     matches = [
         run
         for run in runs
@@ -389,25 +523,22 @@ def verify_failed_recovery_retry_runs(
         and _run_value(run, "workflowName", "name") == "Daily Full Pipeline"
         and _run_value(run, "displayTitle", "display_title") == expected_title
     ]
-    by_id = {
-        checked_run_id(_run_value(run, "databaseId", "id"), "observed recovery run id"): run
-        for run in matches
-    }
-    if set(by_id) != {prior_id, current_id} or len(matches) != 2:
+    by_id: dict[int, dict[str, Any]] = {}
+    for run in matches:
+        run_id = checked_run_id(
+            _run_value(run, "databaseId", "id"), "observed recovery run id"
+        )
+        if run_id in by_id:
+            raise DailySourceRecoveryError(
+                f"failed-recovery retry title set contains duplicate run id: {run_id}"
+            )
+        by_id[run_id] = run
+    if current_id not in by_id or prior_id not in by_id:
         raise DailySourceRecoveryError(
-            "failed-recovery retry title set must contain exactly the prior failed run "
+            "failed-recovery retry title set must contain the designated prior failure "
             f"and current attempt: observed={sorted(by_id)}"
         )
-    prior = by_id[prior_id]
     current = by_id[current_id]
-    if (
-        int(_run_value(prior, "attempt", "run_attempt") or 0) != 1
-        or _run_value(prior, "status") != "completed"
-        or _run_value(prior, "conclusion") != "failure"
-    ):
-        raise DailySourceRecoveryError(
-            "retry source run must be completed failure with run_attempt=1"
-        )
     if (
         int(_run_value(current, "attempt", "run_attempt") or 0) != 1
         or _run_value(current, "status") not in {"queued", "in_progress"}
@@ -417,7 +548,58 @@ def verify_failed_recovery_retry_runs(
         raise DailySourceRecoveryError(
             "current retry run must be the unique attempt=1 run at the current head"
         )
-    return {"prior": prior, "current": current}
+    current_created = _parse_utc(
+        _run_value(current, "createdAt", "created_at"), "current retry created_at"
+    )
+    historical: list[tuple[datetime, int, dict[str, Any]]] = []
+    anchors: list[dict[str, Any]] = []
+    for run_id, run in by_id.items():
+        if run_id == current_id:
+            continue
+        if (
+            run_id <= baseline_run_id
+            or run_id >= current_id
+            or int(_run_value(run, "attempt", "run_attempt") or 0) != 1
+            or _run_value(run, "status") != "completed"
+            or _run_value(run, "conclusion") != "failure"
+        ):
+            raise DailySourceRecoveryError(
+                "every historical recovery run must be a newer-than-baseline "
+                "completed failure with run_attempt=1"
+            )
+        created_at = _parse_utc(
+            _run_value(run, "createdAt", "created_at"), "historical retry created_at"
+        )
+        if created_at >= current_created:
+            raise DailySourceRecoveryError(
+                "historical recovery run must predate the current retry"
+            )
+        run_head = checked_sha1(
+            _run_value(run, "headSha", "head_sha"), "historical recovery head SHA"
+        )
+        if run_head == reservation_commit:
+            if anchor_earliest <= created_at <= anchor_latest:
+                anchors.append(run)
+        else:
+            verify_code_only_retry_descendant(
+                root,
+                reservation_commit_sha=reservation_commit,
+                current_head_sha=run_head,
+            )
+        git_output(root, "merge-base", "--is-ancestor", run_head, head_sha)
+        historical.append((created_at, run_id, run))
+    if len(anchors) != 1:
+        raise DailySourceRecoveryError(
+            "failed-recovery history must contain exactly one reservation-commit anchor "
+            "inside the original dispatch window"
+        )
+    _latest_created, latest_id, prior = max(historical, key=lambda item: (item[0], item[1]))
+    if latest_id != prior_id:
+        raise DailySourceRecoveryError(
+            "retry_of_run_id must identify the latest related completed failure: "
+            f"expected={latest_id} observed={prior_id}"
+        )
+    return {"anchor": anchors[0], "prior": prior, "current": current}
 
 
 def verify_code_only_retry_descendant(
@@ -1239,8 +1421,14 @@ def parse_args() -> argparse.Namespace:
     verify_reservation.add_argument("--correlation-id", required=True)
     verify_reservation.add_argument("--reservation-commit-sha", default="")
     verify_reservation.add_argument("--retry-of-run-id", default="")
+    collect_retry_runs = sub.add_parser("collect-retry-runs")
+    collect_retry_runs.add_argument("--repository", required=True)
+    collect_retry_runs.add_argument("--output", required=True)
     retry_runs = sub.add_parser("verify-retry-runs")
+    retry_runs.add_argument("--repo-root", default=".")
     retry_runs.add_argument("--runs-json", required=True)
+    retry_runs.add_argument("--reservation-commit-sha", required=True)
+    retry_runs.add_argument("--reservation-path", required=True)
     retry_runs.add_argument("--trading-date", required=True)
     retry_runs.add_argument("--retry-of-run-id", required=True)
     retry_runs.add_argument("--current-run-id", required=True)
@@ -1335,12 +1523,38 @@ def main() -> int:
                 reservation_commit_sha=args.reservation_commit_sha,
                 retry_of_run_id=args.retry_of_run_id,
             )
+        elif args.command == "collect-retry-runs":
+            runs = fetch_stable_workflow_dispatch_runs(args.repository)
+            _write_atomic(
+                Path(args.output).resolve(),
+                (json.dumps(runs, ensure_ascii=False, indent=2) + "\n").encode("utf-8"),
+            )
         elif args.command == "verify-retry-runs":
             runs = json.loads(Path(args.runs_json).read_text(encoding="utf-8"))
             if not isinstance(runs, list) or not all(isinstance(run, dict) for run in runs):
                 raise DailySourceRecoveryError("retry run evidence must be a JSON list of objects")
+            root = Path(args.repo_root).resolve()
+            reservation_commit = checked_sha1(
+                args.reservation_commit_sha, "recovery reservation commit SHA"
+            )
+            reservation_path = checked_relative_path(args.reservation_path)
+            try:
+                reservation_payload = json.loads(
+                    git_blob(root, reservation_commit, reservation_path).decode(
+                        "utf-8", errors="strict"
+                    )
+                )
+            except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+                raise DailySourceRecoveryError(
+                    "retry reservation Git object is not valid UTF-8 JSON"
+                ) from exc
+            if not isinstance(reservation_payload, dict):
+                raise DailySourceRecoveryError("retry reservation payload must be a JSON object")
             verify_failed_recovery_retry_runs(
+                root,
                 runs,
+                reservation_commit_sha=reservation_commit,
+                reservation_payload=reservation_payload,
                 trading_date=args.trading_date,
                 retry_of_run_id=args.retry_of_run_id,
                 current_run_id=args.current_run_id,

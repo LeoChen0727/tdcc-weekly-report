@@ -2413,8 +2413,16 @@ def test_daily_full_failed_recovery_retry_contract_is_explicit_and_paired() -> N
     assert text.count("recovery_retry_of_run_id:") == 1
     assert "failed-recovery retry inputs must be paired" in text
     assert "verify-retry-runs" in text
+    assert "collect-retry-runs" in text
+    assert "daily-full-retry-{0}-{1}" in text
     assert "--reservation-commit-sha" in text
+    assert "--reservation-path" in text
     assert "--retry-of-run-id" in text
+    group_line = next(
+        line for line in text.splitlines() if "daily-full-retry-{0}-{1}" in line
+    )
+    retry_branch = group_line.split("||", 1)[0]
+    assert "recovery_correlation_id" not in retry_branch
 
 
 def test_daily_full_failed_recovery_retry_contract_rejects_missing_guards() -> None:
@@ -2427,12 +2435,26 @@ def test_daily_full_failed_recovery_retry_contract_rejects_missing_guards() -> N
         "recovery_retry_of_run_id:",
         "failed-recovery retry inputs must be paired",
         "Validate single failed-recovery retry",
-        "daily_source_recovery_bundle.py verify-retry-runs",
+        "collect-retry-runs",
+        "verify-retry-runs",
+        "daily-full-retry-{0}-{1}",
         '--reservation-commit-sha "${{ inputs.recovery_reservation_commit_sha }}"',
+        '--reservation-path "${{ inputs.recovery_reservation_path }}"',
         '--retry-of-run-id "${{ inputs.recovery_retry_of_run_id }}"',
     ):
         mutated = text.replace(required, "disabled-retry-contract-token")
         assert boundaries.validate_daily_failed_recovery_retry_contract(mutated)
+    group_line = next(
+        line for line in text.splitlines() if "daily-full-retry-{0}-{1}" in line
+    )
+    correlation_bound = group_line.replace(
+        "inputs.recovery_retry_of_run_id)",
+        "inputs.recovery_retry_of_run_id, inputs.recovery_correlation_id)",
+        1,
+    )
+    assert boundaries.validate_daily_failed_recovery_retry_contract(
+        text.replace(group_line, correlation_bound)
+    )
 
 
 def test_authority_workflow_scanner_includes_yaml_suffix(tmp_path: Path) -> None:
