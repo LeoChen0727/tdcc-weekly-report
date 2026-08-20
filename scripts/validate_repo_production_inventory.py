@@ -843,6 +843,65 @@ PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V4_OBJECT_TYPE_BY_PATH = {
     path: "blob"
     for path in PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V4_PATHS
 }
+PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_TARGET_ID = (
+    "daily-authority-snapshot-replay-concurrency-exact-target-v1"
+)
+PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_BASE_CONTENT_REF_SHA = (
+    "477e6acf72453281e3ebb5919561e31aa4ea60e0"
+)
+PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_FROZEN_TARGET_REF_SHA = (
+    "c61c34e0d14223027a9b5513f9afb11b7eaf33dd"
+)
+PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_PULL_REQUEST_NUMBER = 555
+PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_RUN_ATTEMPT = 1
+PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_HELPER = (
+    "scripts/validate_daily_production_boundaries.py"
+)
+PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_TEST = (
+    "tests/test_daily_production_boundaries.py"
+)
+PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_BASE_SHA256_BY_PATH = {
+    ".github/workflows/daily_full_pipeline.yml": "4b0b07ebd4e38f6383eaa5630638b17eee21e8e4c7685df1d6a386b54576151b",
+    ".github/workflows/daily_pdf_replay_pr_validation.yml": "7ea93f931aecc6e6c044d726a10cfd243e62b18f21a07cf29fcd3d4206cdcbd4",
+    ".github/workflows/event_catalyst_update.yml": "49888c3b5828cc0b6ff0126ccf5dcdd12db9656c2252a9efd7cca4e0875af278",
+    ".github/workflows/historical_structured_source_replay.yml": "ef89646660b52954533b2a78412c1c67d56afb914adfa1300f687de93e04cd03",
+    ".github/workflows/repair_recent_daily_price_gaps.yml": "51b9863503985d3d18ff064d2a29705a13e7f97baa6fd5de4d91951d20c53841",
+    "scripts/validate_daily_production_boundaries.py": "1271234fbf38bbebfdb99617ccab239d466a29c0ed2f1eb1ece30cade55a668f",
+    "scripts/validate_recent_structured_source_repair_workflow.py": "df28e2f36096e59ce88401df36d38beab7b4a15d400eb9e4afb1b11e7e525f59",
+    "tests/test_daily_production_boundaries.py": "6202fc24f60b06caecb73539a1d2ba3856ed852f27c83e03a13cf46709ac749f",
+    "tests/test_daily_published_model_snapshots.py": "bf5d5de54274cae7fd7e19ea21d37a9d0077dc720f66d19b9e8ac7b5e39e9881",
+    "tests/test_validate_recent_structured_source_repair_workflow.py": "6477736164b2ef1e7129ec742496b0a7b5b83388161a1c051858ca271a50a52a",
+}
+PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_TARGET_SHA256_BY_PATH = {
+    ".github/workflows/daily_full_pipeline.yml": "43cac779ea5552c1550db5b09c1ecf981aaf4727d074c804d1c044b2bff4aa15",
+    ".github/workflows/daily_pdf_replay_pr_validation.yml": "de11f95a32b53d41f9d76a0bd7f6cfb7500ae2b50e6b91d45a34dfc625ac6848",
+    ".github/workflows/event_catalyst_update.yml": "832e7daf1da51ab6e956ba4951fbfcdf54bcb6cf74824634145c90594018628a",
+    ".github/workflows/historical_structured_source_replay.yml": "bee91153a0bc77cd097c661b5b5b548aa963479c79449216b72e213220c36e46",
+    ".github/workflows/repair_recent_daily_price_gaps.yml": "573447ade1ce03e416b3148e65b1d3d1111f5fdc9525b06b0ea7feed42da2dfb",
+    "scripts/validate_daily_production_boundaries.py": "201803176bcaa1de322eb122013faf767a147614192c50d4a2c3c18cf5fbcd00",
+    "scripts/validate_recent_structured_source_repair_workflow.py": "9b045a47a7667b025bc964e532c45101317b1bea7112b8e723bb4e6c082ec7d0",
+    "tests/test_daily_production_boundaries.py": "6059786143501553c753e9b329b2bbdfe7a2bfe6711c7773231423e71bcfa3b4",
+    "tests/test_daily_published_model_snapshots.py": "20cbd6af5c99368729676715352531cc4353c035179e4f1d135ff0c8f26cdf8f",
+    "tests/test_validate_recent_structured_source_repair_workflow.py": "04e58658c787c9cf6909aa4647977cac093a662a42f3d8dd0d0ca536e0b78e01",
+}
+PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_PATHS = frozenset(
+    PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_TARGET_SHA256_BY_PATH
+)
+PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_BASE_RAW_SHA256_BY_PATH = {
+    **PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_BASE_SHA256_BY_PATH,
+}
+PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_TARGET_RAW_SHA256_BY_PATH = {
+    **PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_TARGET_SHA256_BY_PATH,
+}
+PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_MODE_BY_PATH = {
+    path: "100644" for path in PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_PATHS
+}
+PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_OBJECT_TYPE_BY_PATH = {
+    path: "blob" for path in PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_PATHS
+}
+PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_CHANGE_STATUS_BY_PATH = {
+    path: "M" for path in PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_PATHS
+}
 PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_ID = (
     "volume-v2-advisory-lineage-refresh-exact-target-v1"
 )
@@ -3489,6 +3548,15 @@ def pr_safe_daily_authority_containment_target_profiles(
     normalized_paths = frozenset(str(path).replace("\\", "/") for path in changed_paths)
     profiles = (
         (
+            PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_TARGET_ID,
+            PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_BASE_CONTENT_REF_SHA,
+            PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_HELPER,
+            PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_TEST,
+            PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_BASE_SHA256_BY_PATH,
+            PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_TARGET_SHA256_BY_PATH,
+            PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_PATHS,
+        ),
+        (
             PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_TARGET_ID,
             PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_BASE_CONTENT_REF_SHA,
             PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_HELPER,
@@ -3618,6 +3686,13 @@ def daily_runtime_integration_regressions_identity_contract(
     dict[str, str],
     dict[str, str],
 ] | None:
+    if target_id == PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_TARGET_ID:
+        return (
+            PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_BASE_RAW_SHA256_BY_PATH,
+            PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_TARGET_RAW_SHA256_BY_PATH,
+            PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_MODE_BY_PATH,
+            PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_OBJECT_TYPE_BY_PATH,
+        )
     if target_id == PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_TARGET_ID:
         return (
             PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_BASE_RAW_SHA256_BY_PATH,
@@ -3666,6 +3741,8 @@ def daily_runtime_integration_regressions_identity_contract(
 def daily_authority_containment_change_status_contract(
     target_id: str,
 ) -> dict[str, str]:
+    if target_id == PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_TARGET_ID:
+        return PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_CHANGE_STATUS_BY_PATH
     if target_id == PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_TARGET_ID:
         return PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_CHANGE_STATUS_BY_PATH
     if target_id == PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_ID:
@@ -3830,6 +3907,7 @@ def validate_daily_runtime_integration_regressions_audit_metadata(
     pull_request_number: str,
 ) -> list[str]:
     if target_id not in {
+        PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_TARGET_ID,
         PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_TARGET_ID,
         PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V2_TARGET_ID,
         PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V3_TARGET_ID,
@@ -3838,19 +3916,25 @@ def validate_daily_runtime_integration_regressions_audit_metadata(
         return []
     errors: list[str] = []
     expected_repository = PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_REPOSITORY
+    expected_run_attempt = (
+        PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_RUN_ATTEMPT
+        if target_id == PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_TARGET_ID
+        else PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_RUN_ATTEMPT
+    )
+    expected_pull_request_number = (
+        PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_PULL_REQUEST_NUMBER
+        if target_id == PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_TARGET_ID
+        else PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_PULL_REQUEST_NUMBER
+    )
     if repository != expected_repository:
         errors.append("daily runtime integration target repository mismatch")
     if base_repository != expected_repository:
         errors.append("daily runtime integration target base repository mismatch")
     if head_repository != expected_repository:
         errors.append("daily runtime integration target head repository mismatch")
-    if run_attempt != str(
-        PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_RUN_ATTEMPT
-    ):
+    if run_attempt != str(expected_run_attempt):
         errors.append("daily runtime integration target run_attempt mismatch")
-    if pull_request_number != str(
-        PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_PULL_REQUEST_NUMBER
-    ):
+    if pull_request_number != str(expected_pull_request_number):
         errors.append("daily runtime integration target pull request mismatch")
     return errors
 
@@ -4132,6 +4216,7 @@ def validate_pr_safe_control_plane_delta(
             if expected[field] != expected_sha:
                 errors.append(f"revenue forward-holdout target pinned {field} mismatch")
     elif migration_id in {
+        PR_SAFE_DAILY_AUTHORITY_SNAPSHOT_REPLAY_TARGET_ID,
         PR_SAFE_VOLUME_V2_POSTCOMMIT_LINEAGE_TRUSTED_REF_TARGET_ID,
         PR_SAFE_VOLUME_V2_ADVISORY_LINEAGE_REFRESH_TARGET_ID,
         PR_SAFE_DAILY_RUNTIME_INTEGRATION_REGRESSIONS_V4_TARGET_ID,
