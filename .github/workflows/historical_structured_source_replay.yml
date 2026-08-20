@@ -58,7 +58,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: daily-full-pipeline-${{ github.ref }}
+  group: historical-structured-source-replay-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:

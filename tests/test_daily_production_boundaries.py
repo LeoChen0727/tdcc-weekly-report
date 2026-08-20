@@ -20,6 +20,43 @@ ROOT = Path(__file__).resolve().parents[1]
 BUNDLED_NODE = Path(r"C:\Users\p4693\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe")
 
 
+def test_daily_authority_snapshot_and_nonoverlap_publish_contract() -> None:
+    daily_text = boundaries.DAILY_WORKFLOW.read_text(encoding="utf-8")
+
+    assert boundaries.validate_daily_authority_snapshot_publish_contract(daily_text) == []
+
+    missing_final_revision = daily_text.replace(
+        "Publish final immutable freshness snapshot revision",
+        "Publish stale freshness snapshot revision",
+        1,
+    )
+    errors = boundaries.validate_daily_authority_snapshot_publish_contract(
+        missing_final_revision
+    )
+    assert any("publish/final snapshot order" in error for error in errors)
+
+    global_main_pin = daily_text.replace(
+        'if [ "$CURRENT_HEAD" != "$PREFLIGHT_SOURCE_SHA" ]; then',
+        'if [ "$CURRENT_HEAD" != "$PREFLIGHT_SOURCE_SHA" ] || '
+        '[ "$REMOTE_MAIN" != "$PREFLIGHT_SOURCE_SHA" ]; then',
+        1,
+    )
+    errors = boundaries.validate_daily_authority_snapshot_publish_contract(
+        global_main_pin
+    )
+    assert any("globally equal" in error for error in errors)
+
+    unbounded_publish = daily_text.replace(
+        "for push_attempt in 1 2 3",
+        "while true",
+        1,
+    )
+    errors = boundaries.validate_daily_authority_snapshot_publish_contract(
+        unbounded_publish
+    )
+    assert any("bound non-force push retries" in error for error in errors)
+
+
 def resolve_test_node() -> str:
     node = shutil.which("node")
     if node:
@@ -2357,7 +2394,8 @@ def test_daily_full_preflight_artifact_is_bound_to_exact_source_sha() -> None:
         "              materialize_market_session_preflight_artifact"
     ) not in text
     assert text.count("ref: ${{ needs.market-session-preflight.outputs.source_sha }}") == 2
-    assert text.count("REMOTE_MAIN=\"$(git rev-parse origin/main)\"") >= 2
+    assert text.count("CURRENT_HEAD=\"$(git rev-parse HEAD)\"") >= 2
+    assert "REMOTE_MAIN=\"$(git rev-parse origin/main)\"" not in text
 
 
 def test_authority_workflow_scanner_includes_yaml_suffix(tmp_path: Path) -> None:
@@ -2429,7 +2467,7 @@ def test_daily_workflow_publishes_as_published_model_snapshots() -> None:
         post_audit_publish_start:monthly_revenue_start
     ]
 
-    assert text.count("python scripts/update_daily_published_model_snapshots.py") == 2
+    assert text.count("python scripts/update_daily_published_model_snapshots.py") == 3
     assert text.count("python scripts/build_volume_v2_warrant_lineage_history_audit.py") == 1
     assert text.count("python scripts/build_daily_volume_breakout_operation_section.py") == 1
 
@@ -2528,11 +2566,17 @@ def test_daily_workflow_publishes_as_published_model_snapshots() -> None:
         < post_audit_publish_start
         < text.index("- name: Commit report artifacts, packets, and rules first")
     )
-    commit_block = text[
-        text.index("- name: Commit report artifacts, packets, and rules first") :
-        text.index("- name: Wait briefly for GitHub Pages and raw propagation")
-    ]
-    assert "python scripts/validate_daily_published_model_snapshots.py" in commit_block
+    authority_prepare_start = text.index(
+        "- name: Prepare daily authority release before immutable snapshot finalization"
+    )
+    final_snapshot_start = text.index(
+        "- name: Publish final immutable freshness snapshot revision"
+    )
+    commit_start = text.index("- name: Commit report artifacts, packets, and rules first")
+    final_snapshot_block = text[final_snapshot_start:commit_start]
+    assert authority_prepare_start < final_snapshot_start < commit_start
+    assert "python scripts/update_daily_published_model_snapshots.py" in final_snapshot_block
+    assert "python scripts/validate_daily_published_model_snapshots.py" in final_snapshot_block
 
 
 def test_docs_daily_rules_match_authoritative_rules() -> None:

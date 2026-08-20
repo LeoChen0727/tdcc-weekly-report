@@ -1208,6 +1208,67 @@ def test_snapshot_validator_checks_all_revision_hashes_and_current_max_revision(
     assert any("max revision does not match current source" in error for error in errors)
 
 
+def test_authority_publish_mutation_requires_and_accepts_final_freshness_revision(
+    tmp_path: Path,
+) -> None:
+    latest_dir = tmp_path / "output" / "latest"
+    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    manifest_path = snapshot_dir / "daily_published_model_snapshot_manifest.csv"
+    report_date = "20260615"
+    write_minimal_latest_artifacts(latest_dir, report_date=report_date)
+    update_snapshots.build_daily_published_model_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        generated_at="2026-06-16 08:00:00 Asia/Taipei",
+        commit_sha="pre-authority-sha",
+        artifact_ids={"data_freshness"},
+    )
+
+    freshness_path = latest_dir / "data_freshness_latest.csv"
+    freshness = pd.read_csv(freshness_path, dtype=str)
+    freshness.loc[0, "authority_release_id"] = "daily-authority-20260615-123-1"
+    freshness.loc[0, "authority_generation_id"] = "daily-authority-20260615-123-1"
+    freshness.loc[0, "authority_base_commit_sha"] = "a" * 40
+    freshness.loc[0, "authority_producer"] = "daily_full_pipeline"
+    freshness.to_csv(
+        freshness_path,
+        index=False,
+        encoding="utf-8",
+        lineterminator="\n",
+    )
+
+    before_final_publish = validate_snapshots.validate_current_report_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        artifact_ids={"data_freshness"},
+    )
+    assert any(
+        "max revision does not match current source" in error
+        for error in before_final_publish
+    )
+
+    final_rows = update_snapshots.build_daily_published_model_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        generated_at="2026-06-16 09:00:00 Asia/Taipei",
+        commit_sha="authority-release-sha",
+        artifact_ids={"data_freshness"},
+        revision_reason="daily_authority_release_final",
+    )
+    assert final_rows.iloc[0]["snapshot_report_date"] == report_date
+    assert final_rows.iloc[0]["snapshot_revision"] == "r2"
+    assert final_rows.iloc[0]["revision_reason"] == "daily_authority_release_final"
+    assert validate_snapshots.validate_current_report_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        artifact_ids={"data_freshness"},
+    ) == []
+
+
 def test_snapshot_validator_does_not_apply_current_schema_to_historical_revision(
     tmp_path: Path,
 ) -> None:

@@ -613,7 +613,7 @@ def validate_historical_source_replay_workflow(text: str) -> list[str]:
         "expected_main_sha:": "must require an immutable authorized main SHA",
         "github.ref != 'refs/heads/main'": "must reject non-main dispatches",
         "ref: main": "must checkout main",
-        "group: daily-full-pipeline-${{ github.ref }}": "must serialize with Daily Full Pipeline",
+        "group: historical-structured-source-replay-${{ github.ref }}": "must use an independent replay concurrency group",
         "cancel-in-progress: false": "must not cancel an in-flight official producer",
         "Require production artifact write deploy key": "must fail closed on missing writer credentials",
         "Checkout exact main source": "must checkout only after credential preflight",
@@ -1000,9 +1000,72 @@ def validate_recent_price_gap_workflow_contract(repair_text: str) -> list[str]:
     return errors
 
 
+def validate_daily_authority_snapshot_publish_contract(daily_text: str) -> list[str]:
+    errors: list[str] = []
+    ordered_literals = (
+        "Prepare daily authority release before immutable snapshot finalization",
+        "python scripts/daily_authority_release.py publish",
+        "Publish final immutable freshness snapshot revision",
+        "python scripts/update_daily_published_model_snapshots.py --artifact-id data_freshness --revision-reason daily_authority_release_final",
+        "Stage immutable published snapshot revisions",
+        "Validate immutable published snapshot revisions",
+        "Commit report artifacts, packets, and rules first",
+    )
+    cursor = -1
+    for literal in ordered_literals:
+        position = daily_text.find(literal, cursor + 1)
+        if position < 0:
+            errors.append(
+                "daily authority publish/final snapshot order is incomplete: "
+                f"missing {literal!r} after position {cursor}"
+            )
+            break
+        cursor = position
+
+    pinned_checkout_gate = 'if [ "$CURRENT_HEAD" != "$PREFLIGHT_SOURCE_SHA" ]; then'
+    if daily_text.count(pinned_checkout_gate) != 2:
+        errors.append(
+            "closed-market and production checkouts must each remain pinned to PREFLIGHT_SOURCE_SHA"
+        )
+    if '"$REMOTE_MAIN" != "$PREFLIGHT_SOURCE_SHA"' in daily_text:
+        errors.append(
+            "daily workflow must not require origin/main to remain globally equal to PREFLIGHT_SOURCE_SHA"
+        )
+    required_publish_literals = {
+        'git diff --cached --name-only -z > "$staged_paths_file"': (
+            "daily publish must capture the actual staged path set"
+        ),
+        'git diff --name-only --no-renames -z "$PREFLIGHT_SOURCE_SHA..$remote_head"': (
+            "daily publish must compare pinned-source-to-current-main paths"
+        ),
+        "overlap = sorted(staged_paths & main_paths)": (
+            "daily publish must fail closed only on an actual path overlap"
+        ),
+        'git merge --no-edit "origin/$TARGET_BRANCH"': (
+            "daily publish must ordinary-merge a non-overlapping main advance"
+        ),
+        "for push_attempt in 1 2 3": (
+            "daily publish must bound non-force push retries"
+        ),
+        'git push origin "HEAD:$TARGET_BRANCH"': (
+            "daily publish must retain a normal non-force push"
+        ),
+    }
+    for literal, message in required_publish_literals.items():
+        if literal not in daily_text:
+            errors.append(f"{message}: missing {literal!r}")
+    for forbidden in ("git rebase", "git push --force", "git push -f"):
+        if forbidden in daily_text:
+            errors.append(
+                f"daily publish must not use rebase or force during bounded retry: found {forbidden!r}"
+            )
+    return errors
+
+
 def main() -> int:
     errors: list[str] = []
     daily_text = read_text(DAILY_WORKFLOW)
+    errors.extend(validate_daily_authority_snapshot_publish_contract(daily_text))
     errors.extend(validate_authority_workflow_publishers())
 
     if not HISTORICAL_SOURCE_REPLAY_WORKFLOW.exists():

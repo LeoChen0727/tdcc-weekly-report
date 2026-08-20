@@ -318,11 +318,9 @@ jobs:
       - name: Verify exact preflight source before closure evidence
         shell: bash
         run: |
-          git fetch origin main
           CURRENT_HEAD="$(git rev-parse HEAD)"
-          REMOTE_MAIN="$(git rev-parse origin/main)"
-          if [ "$CURRENT_HEAD" != "$PREFLIGHT_SOURCE_SHA" ] || [ "$REMOTE_MAIN" != "$PREFLIGHT_SOURCE_SHA" ]; then
-            echo "::error::Preflight source drift: expected=$PREFLIGHT_SOURCE_SHA head=$CURRENT_HEAD origin/main=$REMOTE_MAIN"
+          if [ "$CURRENT_HEAD" != "$PREFLIGHT_SOURCE_SHA" ]; then
+            echo "::error::Preflight checkout drift: expected=$PREFLIGHT_SOURCE_SHA head=$CURRENT_HEAD"
             exit 1
           fi
 
@@ -604,11 +602,9 @@ jobs:
       - name: Verify exact preflight source before production
         shell: bash
         run: |
-          git fetch origin main
           CURRENT_HEAD="$(git rev-parse HEAD)"
-          REMOTE_MAIN="$(git rev-parse origin/main)"
-          if [ "$CURRENT_HEAD" != "$PREFLIGHT_SOURCE_SHA" ] || [ "$REMOTE_MAIN" != "$PREFLIGHT_SOURCE_SHA" ]; then
-            echo "::error::Preflight source drift: expected=$PREFLIGHT_SOURCE_SHA head=$CURRENT_HEAD origin/main=$REMOTE_MAIN"
+          if [ "$CURRENT_HEAD" != "$PREFLIGHT_SOURCE_SHA" ]; then
+            echo "::error::Preflight checkout drift: expected=$PREFLIGHT_SOURCE_SHA head=$CURRENT_HEAD"
             exit 1
           fi
 
@@ -1240,16 +1236,14 @@ jobs:
             echo "rules_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/CHATGPT_DAILY_REPORT_RULES.txt"
           } > docs/latest/READ_ME_FIRST_DAILY_REPORT.txt
 
-      - name: Commit report artifacts, packets, and rules first
+      - name: Prepare daily authority release before immutable snapshot finalization
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-          git fetch origin "$TARGET_BRANCH"
           local_head="$(git rev-parse HEAD)"
-          remote_head="$(git rev-parse "origin/$TARGET_BRANCH")"
-          if [[ "$local_head" != "$remote_head" ]]; then
-            echo "Remote branch advanced after production inputs were generated: local=$local_head remote=$remote_head" >&2
+          if [[ "$local_head" != "$PREFLIGHT_SOURCE_SHA" ]]; then
+            echo "Production checkout no longer matches pinned preflight source: expected=$PREFLIGHT_SOURCE_SHA observed=$local_head" >&2
             exit 1
           fi
           python scripts/validate_no_conflict_markers.py
@@ -1264,7 +1258,50 @@ jobs:
             --release-id "$authority_release_id" \
             --producer daily_full_pipeline \
             --base-sha "$(git rev-parse HEAD)"
+          echo "SNAPSHOT_REPORT_DATE=$snapshot_report_date" >> "$GITHUB_ENV"
+          echo "AUTHORITY_RELEASE_ID=$authority_release_id" >> "$GITHUB_ENV"
 
+      - name: Publish final immutable freshness snapshot revision
+        shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+        env:
+          BASH_ENV: /dev/null
+          ENV: /dev/null
+          PYTHONHOME: ""
+          PYTHONPATH: ""
+        run: python scripts/update_daily_published_model_snapshots.py --artifact-id data_freshness --revision-reason daily_authority_release_final
+
+      - name: Stage immutable published snapshot revisions
+        shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+        env:
+          BASH_ENV: /dev/null
+          ENV: /dev/null
+          PYTHONHOME: ""
+          PYTHONPATH: ""
+        run: >-
+          python scripts/stage_daily_published_snapshot_revisions.py
+          --report-date "$SNAPSHOT_REPORT_DATE"
+          --artifact-id data_freshness
+          --artifact-id model_signals_for_report
+          --artifact-id all_candidates_source_rows
+          --artifact-id model_summary_for_report
+          --artifact-id model_registry
+          --artifact-id model_parameters
+          --artifact-id volume_breakout_operation_section
+          --artifact-id volume_breakout_operation_evidence_audit
+          --artifact-id w_bottom_right_side_operation_section
+          --artifact-id neckline_volume_breakout_confirmation_operation_section
+
+      - name: Validate immutable published snapshot revisions
+        shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+        env:
+          BASH_ENV: /dev/null
+          ENV: /dev/null
+          PYTHONHOME: ""
+          PYTHONPATH: ""
+        run: python scripts/validate_daily_published_model_snapshots.py
+
+      - name: Commit report artifacts, packets, and rules first
+        run: |
           # Daily pipeline only stages daily report outputs and source data.
           # Heavy research/backtest outputs are maintained by research_backtest_pipeline.yml.
           git add data/daily_price/ data/stock_price_history/ || true
@@ -1302,33 +1339,68 @@ jobs:
           git add output/history/daily_candidate_models/ || true
           git add output/history/daily_signals/daily_candidate_signal_log.csv || true
           git add output/history/daily_signals/daily_theme_status_history.csv || true
-          python scripts/stage_daily_published_snapshot_revisions.py \
-            --report-date "$snapshot_report_date" \
-            --artifact-id data_freshness \
-            --artifact-id model_signals_for_report \
-            --artifact-id all_candidates_source_rows \
-            --artifact-id model_summary_for_report \
-            --artifact-id model_registry \
-            --artifact-id model_parameters \
-            --artifact-id volume_breakout_operation_section \
-            --artifact-id volume_breakout_operation_evidence_audit \
-            --artifact-id w_bottom_right_side_operation_section \
-            --artifact-id neckline_volume_breakout_confirmation_operation_section
           git add output/history/daily_candidates/daily_theme_status_history.csv || true
           git add output/history/market_risk/ || true
 
           python scripts/stage_daily_latest_mirrors.py
           python scripts/validate_daily_staged_paths.py
           python scripts/daily_authority_release.py validate-staged \
-            --expected-release-id "$authority_release_id"
-          python scripts/validate_daily_published_model_snapshots.py
+            --expected-release-id "$AUTHORITY_RELEASE_ID"
           python scripts/validate_no_conflict_markers.py
           git status --short
+          staged_paths_file="$RUNNER_TEMP/daily-publish-staged-paths.txt"
+          git diff --cached --name-only -z > "$staged_paths_file"
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
             git commit -m "Update daily report artifacts and packets"
-            git push origin "HEAD:$TARGET_BRANCH"
+            publish_succeeded=false
+            for push_attempt in 1 2 3; do
+              git fetch origin "$TARGET_BRANCH"
+              remote_head="$(git rev-parse "origin/$TARGET_BRANCH")"
+              if ! git merge-base --is-ancestor "$PREFLIGHT_SOURCE_SHA" "$remote_head"; then
+                echo "Current main no longer descends from pinned source: source=$PREFLIGHT_SOURCE_SHA main=$remote_head" >&2
+                exit 1
+              fi
+              if git merge-base --is-ancestor HEAD "$remote_head"; then
+                git merge --ff-only "origin/$TARGET_BRANCH"
+              elif ! git merge-base --is-ancestor "$remote_head" HEAD; then
+                main_paths_file="$RUNNER_TEMP/daily-publish-main-paths.txt"
+                git diff --name-only --no-renames -z "$PREFLIGHT_SOURCE_SHA..$remote_head" > "$main_paths_file"
+                python - "$staged_paths_file" "$main_paths_file" <<'PY'
+          from pathlib import Path
+          import sys
+
+          def read_paths(path: str) -> set[str]:
+              return {
+                  item.decode("utf-8")
+                  for item in Path(path).read_bytes().split(b"\0")
+                  if item
+              }
+
+          staged_paths = read_paths(sys.argv[1])
+          main_paths = read_paths(sys.argv[2])
+          overlap = sorted(staged_paths & main_paths)
+          if overlap:
+              raise SystemExit(
+                  "Current main overlaps staged daily publish paths: "
+                  + ",".join(overlap)
+              )
+          PY
+                git merge --no-edit "origin/$TARGET_BRANCH"
+              fi
+              if git push origin "HEAD:$TARGET_BRANCH"; then
+                publish_succeeded=true
+                break
+              fi
+              if [ "$push_attempt" -lt 3 ]; then
+                sleep 5
+              fi
+            done
+            if [ "$publish_succeeded" != true ]; then
+              echo "Daily publish push failed after 3 bounded non-force attempts" >&2
+              exit 1
+            fi
           fi
 
           ARTIFACT_COMMIT_SHA=$(git rev-parse HEAD)

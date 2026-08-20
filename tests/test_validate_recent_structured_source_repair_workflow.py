@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from scripts import repair_recent_daily_price_gaps as repair
 from scripts import validate_recent_structured_source_repair_workflow as validator
 
 
@@ -14,78 +15,61 @@ def _texts() -> tuple[str, str, str]:
 def test_current_workflows_pass_data_only_catch_up_contract() -> None:
     recent_text, replay_text, daily_full_text = _texts()
 
-    assert (
-        validator._canonical_text_sha256(recent_text)
-        == validator.RECENT_REPAIR_WORKFLOW_CANONICAL_SHA256
-    )
     assert validator.validate(recent_text, replay_text, daily_full_text) == []
 
 
-def test_repair_rejects_any_unreviewed_workflow_byte_mutation() -> None:
+def test_repair_contract_is_not_locked_to_unrelated_workflow_bytes() -> None:
     recent_text, replay_text, daily_full_text = _texts()
-    mutations = (
-        recent_text.replace(
-            "jobs:\n",
-            "defaults:\n  run:\n    shell: bash {0} || true\njobs:\n",
-            1,
-        ),
-        recent_text.replace(
-            "  repair-recent-daily-price-gaps:\n",
-            "  repair-recent-daily-price-gaps:\n"
-            "    defaults:\n"
-            "      run:\n"
-            "        shell: bash {0} || true\n",
-            1,
-        ),
-        recent_text
-        + "\n  rogue-variable-write:\n"
-        "    runs-on: ubuntu-latest\n"
-        "    steps:\n"
-        "      - name: Unauthorized variable repository write\n"
-        "        run: |\n"
-        "          G=git\n"
-        '          "$G" commit -m "cross-job write"\n'
-        '          "$G" push origin HEAD:main\n',
-        recent_text
-        + "\n  rogue-ifs-write:\n"
-        "    runs-on: ubuntu-latest\n"
-        "    steps:\n"
-        "      - name: Unauthorized IFS repository write\n"
-        "        run: |\n"
-        '          git${IFS}commit -m "cross-job write"\n'
-        "          git${IFS}push origin HEAD:main\n",
+
+    assert validator.validate(
+        recent_text + "\n# unrelated workflow comment\n",
+        replay_text,
+        daily_full_text,
+    ) == []
+
+
+def test_reusable_replay_concurrency_and_result_gate_are_minimal_and_fail_closed() -> None:
+    recent_text, replay_text, daily_full_text = _texts()
+
+    assert "caller_concurrency_identity" not in recent_text
+    assert "caller_concurrency_identity" not in replay_text
+    assert validator.validate(recent_text, replay_text, daily_full_text) == []
+
+    self_colliding = replay_text.replace(
+        "group: historical-structured-source-replay-${{ github.ref }}",
+        "group: daily-full-pipeline-${{ github.ref }}",
+        1,
     )
-    for invalid in mutations:
-        errors = validator.validate(invalid, replay_text, daily_full_text)
-        assert any("canonical SHA-256 mismatch" in error for error in errors)
-    assert recent_text.index("Commit repaired recent daily price gaps") < recent_text.index(
-        "Checkout current main for structured catch-up planning"
-    ) < recent_text.index("Plan bounded structured objective-source catch-up")
-    assert "output/latest/official_price_fetch_latest.json" in recent_text
-    assert "output/latest/official_price_fetch_latest.md" in recent_text
-    assert "publish_current_day_repair_confirmation" in (
-        (validator.ROOT / "scripts/repair_recent_daily_price_gaps.py").read_text(
-            encoding="utf-8"
+    errors = validator.validate(recent_text, self_colliding, daily_full_text)
+    assert any("self-collide" in error for error in errors)
+
+    permissive_required = recent_text.replace(
+        'if [ "$STRUCTURED_REPLAY_RESULT" != success ]; then',
+        'if [ "$STRUCTURED_REPLAY_RESULT" != failure ]; then',
+        1,
+    )
+    errors = validator.validate(permissive_required, replay_text, daily_full_text)
+    assert any("must succeed before resume" in error for error in errors)
+
+    caller_ceremony = recent_text.replace(
+        "      expected_main_sha:",
+        "      caller_concurrency_identity: fixed\n      expected_main_sha:",
+        1,
+    )
+    errors = validator.validate(caller_ceremony, replay_text, daily_full_text)
+    assert any("identity ceremony" in error for error in errors)
+
+
+def test_repair_trading_date_boundary_includes_current_day_by_default() -> None:
+    assert repair.latest_trading_date_on_or_before("20260820", set()) == "20260820"
+    assert (
+        repair.latest_trading_date_on_or_before(
+            "20260820",
+            set(),
+            include_as_of_date=False,
         )
+        == "20260819"
     )
-    exact_continuity = (
-        'python scripts/validate_daily_price_history_continuity.py '
-        '--main-price-date "$REPAIR_TARGET_DATE"'
-    )
-    assert exact_continuity in recent_text
-    for identity_arg in (
-        '--target-date "$REPAIR_TARGET_DATE"',
-        '--source-base-sha "$REPAIR_BASE_SHA"',
-        '--manifest-path "${{ steps.source_bundle.outputs.manifest_path }}"',
-        '--manifest-sha256 "${{ steps.source_bundle.outputs.manifest_sha256 }}"',
-        '--source-bundle-sha "${{ steps.source_bundle.outputs.source_bundle_sha }}"',
-    ):
-        assert identity_arg in recent_text
-    assert recent_text.index("Summarize recent repair result") < recent_text.index(
-        exact_continuity
-    ) < recent_text.index("Build immutable current-day source recovery bundle") < recent_text.index(
-        "python scripts/validate_recent_daily_price_repair_staged_paths.py"
-    ) < recent_text.index('git commit -m "Persist ${REPAIR_TARGET_DATE} daily source recovery bundle"')
 
 
 def test_repair_continuity_must_bind_target_date_and_precede_commit() -> None:

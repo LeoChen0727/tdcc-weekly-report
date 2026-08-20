@@ -473,9 +473,21 @@ jobs:
           if [ "$STRUCTURED_PLAN_RESULT" != success ]; then
             fail_recovery "Structured objective-source plan completed with result=$STRUCTURED_PLAN_RESULT"
           fi
-          if [ "$STRUCTURED_REPLAY_RESULT" != success ] && [ "$STRUCTURED_REPLAY_RESULT" != skipped ]; then
-            fail_recovery "Structured objective-source replay completed with result=$STRUCTURED_REPLAY_RESULT"
-          fi
+          case "$STRUCTURED_REPLAY_REQUIRED" in
+            true)
+              if [ "$STRUCTURED_REPLAY_RESULT" != success ]; then
+                fail_recovery "Required structured objective-source replay completed with result=$STRUCTURED_REPLAY_RESULT"
+              fi
+              ;;
+            false)
+              if [ "$STRUCTURED_REPLAY_RESULT" != skipped ]; then
+                fail_recovery "No-op structured objective-source replay completed with result=$STRUCTURED_REPLAY_RESULT"
+              fi
+              ;;
+            *)
+              fail_recovery "Structured objective-source replay requirement is invalid: $STRUCTURED_REPLAY_REQUIRED"
+              ;;
+          esac
 
           authority_path="$RUNNER_TEMP/existing-authority.json"
           if [ "$REPAIR_ACTION_COUNT" = 0 ] && [ "$STRUCTURED_REPLAY_REQUIRED" != true ]; then

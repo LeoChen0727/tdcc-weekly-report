@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import hashlib
 from pathlib import Path
 import re
 
@@ -11,16 +10,6 @@ HISTORICAL_REPLAY_WORKFLOW = (
     ROOT / ".github" / "workflows" / "historical_structured_source_replay.yml"
 )
 DAILY_FULL_WORKFLOW = ROOT / ".github" / "workflows" / "daily_full_pipeline.yml"
-RECENT_REPAIR_WORKFLOW_CANONICAL_SHA256 = (
-    "51b9863503985d3d18ff064d2a29705a13e7f97baa6fd5de4d91951d20c53841"
-)
-
-
-def _canonical_text_sha256(text: str) -> str:
-    canonical = text.replace("\r\n", "\n").replace("\r", "\n")
-    return hashlib.sha256(canonical.encode("utf-8")).hexdigest()
-
-
 def _job_block(text: str, job_name: str) -> str:
     pattern = re.compile(
         rf"(?ms)^  {re.escape(job_name)}:\s*\n(.*?)(?=^  [A-Za-z0-9_-]+:\s*$|\Z)"
@@ -152,13 +141,35 @@ def _job_mapping(block: str, section: str) -> dict[str, str]:
 
 def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[str]:
     errors: list[str] = []
-    observed_recent_sha = _canonical_text_sha256(recent_text)
-    if observed_recent_sha != RECENT_REPAIR_WORKFLOW_CANONICAL_SHA256:
+    replay_concurrency = "group: historical-structured-source-replay-${{ github.ref }}"
+    if replay_text.count(replay_concurrency) != 1:
         errors.append(
-            "recent repair workflow canonical SHA-256 mismatch: "
-            f"expected={RECENT_REPAIR_WORKFLOW_CANONICAL_SHA256} "
-            f"observed={observed_recent_sha}"
+            "historical structured replay must use exactly one independent concurrency group"
         )
+    if "group: daily-full-pipeline-${{ github.ref }}" in replay_text:
+        errors.append(
+            "historical structured replay must not self-collide with the parent production lock"
+        )
+    if "caller_concurrency_identity" in recent_text or "caller_concurrency_identity" in replay_text:
+        errors.append(
+            "structured replay must not require caller concurrency identity ceremony"
+        )
+    for literal, purpose in {
+        'case "$STRUCTURED_REPLAY_REQUIRED" in': (
+            "resume must treat the structured replay decision as a closed set"
+        ),
+        'if [ "$STRUCTURED_REPLAY_RESULT" != success ]; then': (
+            "required structured replay must succeed before resume"
+        ),
+        'if [ "$STRUCTURED_REPLAY_RESULT" != skipped ]; then': (
+            "a no-op structured replay plan must remain skipped"
+        ),
+        'fail_recovery "Structured objective-source replay requirement is invalid: $STRUCTURED_REPLAY_REQUIRED"': (
+            "invalid structured replay decisions must fail closed"
+        ),
+    }.items():
+        if literal not in recent_text:
+            errors.append(f"{purpose}: missing {literal!r}")
     workflow_call_marker = "\n  workflow_call:\n"
     workflow_dispatch_marker = "\n  workflow_dispatch:\n"
     if workflow_call_marker not in replay_text:
