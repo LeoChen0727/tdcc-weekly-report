@@ -255,14 +255,35 @@ def test_daily_model_maintenance_pr_workflow_pins_append_only_validation_base() 
         '--base-ref "$BASE_SHA"'
         in text
     )
+    assert 'lineage_args=(--base-ref "$BASE_SHA")' in text
+    assert 'if [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then' in text
+    assert "lineage_args+=(--pr-safe-base-history)" in text
     assert (
-        'python scripts/validate_daily_canonical_field_lineage.py '
-        '--base-ref "$BASE_SHA"'
+        'python scripts/validate_daily_canonical_field_lineage.py "${lineage_args[@]}"'
         in text
     )
     assert "python scripts/validate_model_data_independence.py\n" not in text
     assert "python scripts/validate_model_research_shared_utilities.py\n" not in text
     assert "python scripts/validate_daily_canonical_field_lineage.py\n" not in text
+
+
+def test_daily_model_pr_lineage_base_history_is_pull_request_only() -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+    marker = 'lineage_args=(--base-ref "$BASE_SHA")'
+    start = text.index(marker)
+    end = text.index(
+        "python scripts/build_volume_v2_warrant_lineage_history_audit.py", start
+    )
+    block = text[start:end]
+
+    assert block.count("--pr-safe-base-history") == 1
+    assert block.count('if [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then') == 1
+    assert (
+        'python scripts/validate_daily_canonical_field_lineage.py "${lineage_args[@]}"'
+        in block
+    )
+    assert "eval " not in block
+    assert "workflow_dispatch" not in block
 
 
 def test_daily_model_maintenance_pr_workflow_runs_contract_validators() -> None:

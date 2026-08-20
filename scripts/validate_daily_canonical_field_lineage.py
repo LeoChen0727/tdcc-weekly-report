@@ -232,6 +232,31 @@ VOLUME_WATCH_PRODUCER = "scripts/build_volume_breakout_watch.py"
 VOLUME_TAXONOMY_ARTIFACT = "output/latest/stock_theme_taxonomy_latest.csv"
 FORMAL_PRESENTATION_PROJECTION_CONTRACT = "volume_v2_formal_presentation_v1"
 VOLUME_DISPATCHER_CONSUMER = "scripts/build_daily_candidate_model_layer.py"
+FORMAL_RAW_ARTIFACT = "output/latest/daily_candidate_model_signals_latest.csv"
+FORMAL_REPORT_ARTIFACT = (
+    "output/latest/daily_candidate_model_signals_for_report_latest.csv"
+)
+PR_SAFE_BASE_HISTORY_SAFE_CONTROL_PATHS = frozenset(
+    {
+        ".github/workflows/daily_full_pipeline.yml",
+        ".github/workflows/daily_model_maintenance_pr_validation.yml",
+        ".github/workflows/daily_pdf_replay_pr_validation.yml",
+        ".github/workflows/event_catalyst_update.yml",
+        ".github/workflows/historical_structured_source_replay.yml",
+        ".github/workflows/repair_recent_daily_price_gaps.yml",
+        "config/daily_model_pr_safe_self_migration_authorizations.csv",
+        "scripts/validate_daily_canonical_field_lineage.py",
+        "scripts/validate_daily_production_boundaries.py",
+        "scripts/validate_recent_structured_source_repair_workflow.py",
+        "scripts/validate_repo_production_inventory.py",
+        "tests/test_daily_canonical_field_lineage.py",
+        "tests/test_daily_model_maintenance_pr_validation_workflow.py",
+        "tests/test_daily_production_boundaries.py",
+        "tests/test_daily_published_model_snapshots.py",
+        "tests/test_repo_production_inventory.py",
+        "tests/test_validate_recent_structured_source_repair_workflow.py",
+    }
+)
 REQUIRED_ALL_CANDIDATE_WARRANT_CONSUMERS = frozenset(
     {
         "scripts/build_daily_theme_leadership_layer.py",
@@ -667,7 +692,7 @@ def _run_git(
 ) -> tuple[subprocess.CompletedProcess[bytes] | None, list[str]]:
     try:
         result = subprocess.run(
-            ["git", *args],
+            ["git", "--no-replace-objects", *args],
             cwd=root,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
@@ -713,6 +738,262 @@ def _validate_append_only_base(root: Path, base_ref: str) -> list[str]:
             "is not an ancestor of HEAD"
         ]
     return []
+
+
+def _parse_pr_safe_changed_paths(
+    payload: bytes,
+) -> tuple[list[tuple[str, str]], list[str]]:
+    if not payload:
+        return [], []
+    if not payload.endswith(b"\0"):
+        return [], ["PR-safe changed-path output is not NUL terminated"]
+    tokens = payload[:-1].split(b"\0")
+    if len(tokens) % 2:
+        return [], ["PR-safe changed-path output has an incomplete status/path pair"]
+    changes: list[tuple[str, str]] = []
+    errors: list[str] = []
+    for offset in range(0, len(tokens), 2):
+        try:
+            status = tokens[offset].decode("utf-8", errors="strict")
+            path = tokens[offset + 1].decode("utf-8", errors="strict")
+        except UnicodeDecodeError:
+            errors.append("PR-safe changed-path output is not valid UTF-8")
+            continue
+        if status not in {"A", "D", "M", "T", "U", "X", "B"}:
+            errors.append(f"PR-safe changed-path status is malformed: {status!r}")
+        if (
+            not path
+            or path.startswith("/")
+            or "\\" in path
+            or "\r" in path
+            or "\n" in path
+            or any(part in {"", ".", ".."} for part in path.split("/"))
+        ):
+            errors.append(f"PR-safe changed path is malformed: {path!r}")
+        changes.append((status, path))
+    return changes, errors
+
+
+def _parse_pr_safe_tree_entry(
+    payload: bytes,
+    expected_path: str,
+) -> tuple[tuple[str, str, str] | None, list[str]]:
+    if not payload.endswith(b"\0"):
+        return None, [f"PR-safe tree entry is not NUL terminated: {expected_path}"]
+    records = payload[:-1].split(b"\0")
+    if len(records) != 1:
+        return None, [f"PR-safe tree entry count is not exactly one: {expected_path}"]
+    try:
+        record = records[0].decode("utf-8", errors="strict")
+    except UnicodeDecodeError:
+        return None, [f"PR-safe tree entry is not valid UTF-8: {expected_path}"]
+    if "\t" not in record:
+        return None, [f"PR-safe tree entry is malformed: {expected_path}"]
+    metadata, observed_path = record.split("\t", 1)
+    fields = metadata.split(" ")
+    if observed_path != expected_path or len(fields) != 3:
+        return None, [f"PR-safe tree entry identity is malformed: {expected_path}"]
+    mode, object_type, object_sha = fields
+    if not re.fullmatch(r"[0-7]{6}", mode) or not re.fullmatch(
+        r"[0-9a-f]{40}", object_sha
+    ):
+        return None, [f"PR-safe tree entry metadata is malformed: {expected_path}"]
+    return (mode, object_type, object_sha), []
+
+
+def _read_pr_safe_tree_entry(
+    root: Path,
+    commit_sha: str,
+    path: str,
+) -> tuple[tuple[str, str, str] | None, list[str]]:
+    result, errors = _run_git(
+        root,
+        ["ls-tree", "-z", commit_sha, "--", path],
+        operation=f"read PR-safe tree entry {commit_sha}:{path}",
+    )
+    if errors or result is None:
+        return None, errors
+    if result.returncode != 0:
+        return None, [f"unable to read PR-safe tree entry: {commit_sha}:{path}"]
+    return _parse_pr_safe_tree_entry(result.stdout, path)
+
+
+def _is_pr_safe_base_history_governed_path(path: str) -> bool:
+    return path not in PR_SAFE_BASE_HISTORY_SAFE_CONTROL_PATHS
+
+
+def _select_pr_safe_base_history(
+    root: Path,
+    base_ref: str | None,
+) -> tuple[str | None, bool, list[str], list[str]]:
+    evidence = ["requested_mode=pr_safe_base_history"]
+    errors: list[str] = []
+    if base_ref is None or not base_ref.strip():
+        return None, False, evidence, [
+            "PR-safe base history requires a nonblank --base-ref"
+        ]
+    base_sha = base_ref.strip()
+    if not re.fullmatch(r"[0-9a-f]{40}", base_sha):
+        return None, False, evidence, [
+            "PR-safe base history requires --base-ref to be an exact lowercase "
+            "40-hex commit SHA"
+        ]
+
+    replace_refs, git_errors = _run_git(
+        root,
+        ["for-each-ref", "--format=%(refname)", "refs/replace"],
+        operation="inspect PR-safe replacement refs",
+    )
+    errors.extend(git_errors)
+    if replace_refs is None or replace_refs.returncode != 0:
+        errors.append("PR-safe base history cannot inspect replacement refs")
+    elif replace_refs.stdout.strip():
+        errors.append("PR-safe base history forbids refs/replace state")
+
+    common_dir_result, git_errors = _run_git(
+        root,
+        ["rev-parse", "--git-common-dir"],
+        operation="resolve PR-safe Git common directory",
+    )
+    errors.extend(git_errors)
+    if common_dir_result is None or common_dir_result.returncode != 0:
+        errors.append("PR-safe base history cannot resolve Git common directory")
+    else:
+        try:
+            common_dir_text = common_dir_result.stdout.decode(
+                "utf-8", errors="strict"
+            ).strip()
+        except UnicodeDecodeError:
+            common_dir_text = ""
+            errors.append("PR-safe Git common directory is not valid UTF-8")
+        if not common_dir_text:
+            errors.append("PR-safe Git common directory is blank")
+        else:
+            common_dir = Path(common_dir_text)
+            if not common_dir.is_absolute():
+                common_dir = root / common_dir
+            if (common_dir.resolve() / "info" / "grafts").exists():
+                errors.append("PR-safe base history forbids Git graft state")
+    if errors:
+        return None, False, evidence, errors
+
+    resolved: dict[str, str] = {}
+    for label, ref in (("base", base_sha), ("HEAD", "HEAD")):
+        result, git_errors = _run_git(
+            root,
+            ["rev-parse", "--verify", f"{ref}^{{commit}}"],
+            operation=f"resolve PR-safe {label} commit",
+        )
+        errors.extend(git_errors)
+        if git_errors or result is None:
+            continue
+        if result.returncode != 0:
+            errors.append(f"unable to resolve PR-safe {label} commit {ref!r}")
+            continue
+        try:
+            values = result.stdout.decode("utf-8", errors="strict").splitlines()
+        except UnicodeDecodeError:
+            errors.append(f"resolved PR-safe {label} commit is not valid UTF-8")
+            continue
+        if len(values) != 1 or not re.fullmatch(r"[0-9a-f]{40}", values[0]):
+            errors.append(f"resolved PR-safe {label} commit identity is malformed")
+            continue
+        resolved[label] = values[0]
+    if errors:
+        return None, False, evidence, errors
+    if resolved["base"] != base_sha:
+        return None, False, evidence, [
+            "PR-safe base history resolved a different commit than the literal "
+            f"--base-ref: expected={base_sha} actual={resolved['base']}"
+        ]
+
+    ancestor, git_errors = _run_git(
+        root,
+        ["merge-base", "--is-ancestor", base_sha, resolved["HEAD"]],
+        operation="verify PR-safe base ancestry",
+    )
+    errors.extend(git_errors)
+    if ancestor is None or ancestor.returncode != 0:
+        errors.append("PR-safe base history requires base SHA to be an ancestor of HEAD")
+
+    status, git_errors = _run_git(
+        root,
+        ["status", "--porcelain=v1", "-z", "--untracked-files=all"],
+        operation="verify PR-safe clean checkout",
+    )
+    errors.extend(git_errors)
+    if status is None or status.returncode != 0:
+        errors.append("PR-safe base history cannot verify a clean checkout")
+    elif status.stdout:
+        errors.append(
+            "PR-safe base history forbids staged, unstaged, or untracked residue"
+        )
+
+    changed, git_errors = _run_git(
+        root,
+        [
+            "diff",
+            "--name-status",
+            "-z",
+            "--no-renames",
+            base_sha,
+            resolved["HEAD"],
+            "--",
+        ],
+        operation="collect PR-safe base-history changed paths",
+    )
+    errors.extend(git_errors)
+    changes: list[tuple[str, str]] = []
+    if changed is None or changed.returncode != 0:
+        errors.append("PR-safe base history cannot collect changed paths")
+    else:
+        changes, parse_errors = _parse_pr_safe_changed_paths(changed.stdout)
+        errors.extend(parse_errors)
+    if errors:
+        return None, False, evidence, errors
+
+    governed_changes: list[str] = []
+    for status_code, path in changes:
+        if status_code != "M":
+            governed_changes.append(f"{status_code}:{path}:status_not_M")
+            continue
+        base_entry, entry_errors = _read_pr_safe_tree_entry(root, base_sha, path)
+        errors.extend(entry_errors)
+        head_entry, entry_errors = _read_pr_safe_tree_entry(
+            root, resolved["HEAD"], path
+        )
+        errors.extend(entry_errors)
+        if errors:
+            continue
+        assert base_entry is not None and head_entry is not None
+        if base_entry[:2] != ("100644", "blob") or head_entry[:2] != (
+            "100644",
+            "blob",
+        ):
+            governed_changes.append(
+                f"{status_code}:{path}:non_regular_blob:"
+                f"base={base_entry[0]}/{base_entry[1]}:"
+                f"head={head_entry[0]}/{head_entry[1]}"
+            )
+            continue
+        if _is_pr_safe_base_history_governed_path(path):
+            governed_changes.append(f"{status_code}:{path}:not_safe_control_path")
+    if errors:
+        return None, False, evidence, errors
+    evidence.extend(
+        (
+            f"resolved_base_sha={base_sha}",
+            f"resolved_head_sha={resolved['HEAD']}",
+            "changed_paths="
+            + (";".join(f"{status_code}:{path}" for status_code, path in changes) or "none"),
+            "governed_changes=" + (";".join(governed_changes) or "none"),
+        )
+    )
+    if governed_changes:
+        evidence.append("selected_mode=strict_current")
+        return base_sha, False, evidence, []
+    evidence.append("selected_mode=pr_safe_base_history")
+    return base_sha, True, evidence, []
 
 
 def _validate_explicit_trusted_ref_boundary(
@@ -944,7 +1225,7 @@ def _artifact_paths(root: Path, pattern: str) -> list[Path]:
 
     try:
         completed = subprocess.run(
-            ["git", "ls-files", "-z"],
+            ["git", "--no-replace-objects", "ls-files", "-z"],
             cwd=root,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
@@ -967,7 +1248,7 @@ def _artifact_payload(path: Path, root: Path | None = None) -> bytes:
         raise FileNotFoundError(path)
     relative = path.relative_to(root).as_posix()
     completed = subprocess.run(
-        ["git", "show", f"HEAD:{relative}"],
+        ["git", "--no-replace-objects", "show", f"HEAD:{relative}"],
         cwd=root,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
@@ -1031,7 +1312,12 @@ def _resolve_pinned_canonical_source_revision(
             current_payload = None
     if allow_live and current_payload is not None and current_sha == declared_sha256:
         head_payload = subprocess.run(
-            ["git", "show", f"HEAD:{relative.as_posix()}"],
+            [
+                "git",
+                "--no-replace-objects",
+                "show",
+                f"HEAD:{relative.as_posix()}",
+            ],
             cwd=root,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
@@ -1051,6 +1337,7 @@ def _resolve_pinned_canonical_source_revision(
     completed = subprocess.run(
         [
             "git",
+            "--no-replace-objects",
             "log",
             "--format=%H",
             trusted_ref,
@@ -1076,7 +1363,12 @@ def _resolve_pinned_canonical_source_revision(
     ]
     for commit_sha in commits:
         revision = subprocess.run(
-            ["git", "show", f"{commit_sha}:{relative.as_posix()}"],
+            [
+                "git",
+                "--no-replace-objects",
+                "show",
+                f"{commit_sha}:{relative.as_posix()}",
+            ],
             cwd=root,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
@@ -1107,7 +1399,12 @@ def _committed_artifact_revision(
 ) -> str | None:
     relative = Path(artifact_path)
     committed = subprocess.run(
-        ["git", "show", f"HEAD:{relative.as_posix()}"],
+        [
+            "git",
+            "--no-replace-objects",
+            "show",
+            f"HEAD:{relative.as_posix()}",
+        ],
         cwd=root,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
@@ -1123,6 +1420,7 @@ def _committed_artifact_revision(
     revision = subprocess.run(
         [
             "git",
+            "--no-replace-objects",
             "log",
             "-1",
             "--format=%H",
@@ -1143,7 +1441,14 @@ def _committed_artifact_revision(
             f"artifact={artifact_path}"
         )
     trusted = subprocess.run(
-        ["git", "merge-base", "--is-ancestor", commit_sha, trusted_ref],
+        [
+            "git",
+            "--no-replace-objects",
+            "merge-base",
+            "--is-ancestor",
+            commit_sha,
+            trusted_ref,
+        ],
         cwd=root,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
@@ -1164,7 +1469,14 @@ def _source_precedes_consumer(
     consumer_revision: str,
 ) -> bool:
     completed = subprocess.run(
-        ["git", "merge-base", "--is-ancestor", source_revision, consumer_revision],
+        [
+            "git",
+            "--no-replace-objects",
+            "merge-base",
+            "--is-ancestor",
+            source_revision,
+            consumer_revision,
+        ],
         cwd=root,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
@@ -4476,10 +4788,29 @@ def validate(
     *,
     base_ref: str | None = None,
     trusted_ref: str | None = None,
+    pr_safe_base_history: bool = False,
+    mode_evidence: list[str] | None = None,
 ) -> list[str]:
     root = root.resolve()
     errors: list[str] = []
     projection_trusted_ref = base_ref or "HEAD"
+    formal_trusted_ref = projection_trusted_ref
+    formal_committed_refresh_mode = trusted_ref is not None
+    if pr_safe_base_history and trusted_ref is not None:
+        return ["--pr-safe-base-history and --trusted-ref are mutually exclusive"]
+    if pr_safe_base_history:
+        resolved_base, replay_base_history, evidence, selection_errors = (
+            _select_pr_safe_base_history(root, base_ref)
+        )
+        if mode_evidence is not None:
+            mode_evidence.extend(evidence)
+        errors.extend(selection_errors)
+        if selection_errors:
+            return errors
+        if replay_base_history:
+            assert resolved_base is not None
+            formal_trusted_ref = resolved_base
+            formal_committed_refresh_mode = True
     if trusted_ref is not None:
         resolved_trusted_ref, boundary_errors = (
             _validate_explicit_trusted_ref_boundary(
@@ -4524,8 +4855,8 @@ def validate(
         errors.extend(
             _validate_formal_resolution_lineage(
                 root,
-                trusted_ref=projection_trusted_ref,
-                committed_refresh_mode=trusted_ref is not None,
+                trusted_ref=formal_trusted_ref,
+                committed_refresh_mode=formal_committed_refresh_mode,
             )
         )
     if registry_rows:
@@ -4590,12 +4921,26 @@ def main() -> int:
             "index, or untracked residue."
         ),
     )
+    parser.add_argument(
+        "--pr-safe-base-history",
+        action="store_true",
+        help=(
+            "For a clean pull-request checkout only, permit formal raw/report watch "
+            "lineage to resolve from exact base ancestry when no governed business, "
+            "artifact, config, or model-source path changed."
+        ),
+    )
     args = parser.parse_args()
+    mode_evidence: list[str] = []
     errors = validate(
         args.repo_root,
         base_ref=args.base_ref,
         trusted_ref=args.trusted_ref,
+        pr_safe_base_history=args.pr_safe_base_history,
+        mode_evidence=mode_evidence,
     )
+    for item in mode_evidence:
+        print(f"lineage_validation_mode: {item}")
     if errors:
         for error in errors:
             print(f"ERROR: {error}")
