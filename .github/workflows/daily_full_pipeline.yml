@@ -687,7 +687,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pandas requests tabulate matplotlib pillow openpyxl lxml html5lib beautifulsoup4 reportlab pypdf fonttools
+          pip install pandas requests tabulate matplotlib pillow openpyxl lxml html5lib beautifulsoup4 reportlab pypdf fonttools pyyaml==6.0.2
 
       - name: Validate daily production boundaries
         run: |
@@ -1240,7 +1240,7 @@ jobs:
             echo "rules_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/CHATGPT_DAILY_REPORT_RULES.txt"
           } > docs/latest/READ_ME_FIRST_DAILY_REPORT.txt
 
-      - name: Commit report artifacts, packets, and rules first
+      - name: Prepare daily authority release before immutable snapshot finalization
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
@@ -1264,7 +1264,50 @@ jobs:
             --release-id "$authority_release_id" \
             --producer daily_full_pipeline \
             --base-sha "$(git rev-parse HEAD)"
+          echo "SNAPSHOT_REPORT_DATE=$snapshot_report_date" >> "$GITHUB_ENV"
+          echo "AUTHORITY_RELEASE_ID=$authority_release_id" >> "$GITHUB_ENV"
 
+      - name: Publish final immutable freshness snapshot revision
+        shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+        env:
+          BASH_ENV: /dev/null
+          ENV: /dev/null
+          PYTHONHOME: ""
+          PYTHONPATH: ""
+        run: python scripts/update_daily_published_model_snapshots.py --artifact-id data_freshness --revision-reason daily_authority_release_final
+
+      - name: Stage immutable published snapshot revisions
+        shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+        env:
+          BASH_ENV: /dev/null
+          ENV: /dev/null
+          PYTHONHOME: ""
+          PYTHONPATH: ""
+        run: >-
+          python scripts/stage_daily_published_snapshot_revisions.py
+          --report-date "$SNAPSHOT_REPORT_DATE"
+          --artifact-id data_freshness
+          --artifact-id model_signals_for_report
+          --artifact-id all_candidates_source_rows
+          --artifact-id model_summary_for_report
+          --artifact-id model_registry
+          --artifact-id model_parameters
+          --artifact-id volume_breakout_operation_section
+          --artifact-id volume_breakout_operation_evidence_audit
+          --artifact-id w_bottom_right_side_operation_section
+          --artifact-id neckline_volume_breakout_confirmation_operation_section
+
+      - name: Validate immutable published snapshot revisions
+        shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+        env:
+          BASH_ENV: /dev/null
+          ENV: /dev/null
+          PYTHONHOME: ""
+          PYTHONPATH: ""
+        run: python scripts/validate_daily_published_model_snapshots.py
+
+      - name: Commit report artifacts, packets, and rules first
+        run: |
           # Daily pipeline only stages daily report outputs and source data.
           # Heavy research/backtest outputs are maintained by research_backtest_pipeline.yml.
           git add data/daily_price/ data/stock_price_history/ || true
@@ -1302,26 +1345,13 @@ jobs:
           git add output/history/daily_candidate_models/ || true
           git add output/history/daily_signals/daily_candidate_signal_log.csv || true
           git add output/history/daily_signals/daily_theme_status_history.csv || true
-          python scripts/stage_daily_published_snapshot_revisions.py \
-            --report-date "$snapshot_report_date" \
-            --artifact-id data_freshness \
-            --artifact-id model_signals_for_report \
-            --artifact-id all_candidates_source_rows \
-            --artifact-id model_summary_for_report \
-            --artifact-id model_registry \
-            --artifact-id model_parameters \
-            --artifact-id volume_breakout_operation_section \
-            --artifact-id volume_breakout_operation_evidence_audit \
-            --artifact-id w_bottom_right_side_operation_section \
-            --artifact-id neckline_volume_breakout_confirmation_operation_section
           git add output/history/daily_candidates/daily_theme_status_history.csv || true
           git add output/history/market_risk/ || true
 
           python scripts/stage_daily_latest_mirrors.py
           python scripts/validate_daily_staged_paths.py
           python scripts/daily_authority_release.py validate-staged \
-            --expected-release-id "$authority_release_id"
-          python scripts/validate_daily_published_model_snapshots.py
+            --expected-release-id "$AUTHORITY_RELEASE_ID"
           python scripts/validate_no_conflict_markers.py
           git status --short
           if git diff --cached --quiet; then

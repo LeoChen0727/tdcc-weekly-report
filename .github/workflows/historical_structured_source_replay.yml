@@ -20,6 +20,10 @@ on:
         required: false
         default: ""
         type: string
+      caller_concurrency_identity:
+        description: "Exact caller run-id and attempt identity used only to avoid reusable-workflow self-collision"
+        required: true
+        type: string
       expected_main_sha:
         description: "Exact 40-character main SHA authorized for this replay"
         required: true
@@ -58,7 +62,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: daily-full-pipeline-${{ github.ref }}
+  group: ${{ inputs.caller_concurrency_identity != '' && format('historical-structured-source-replay-call-{0}', inputs.caller_concurrency_identity) || format('daily-full-pipeline-{0}', github.ref) }}
   cancel-in-progress: false
 
 jobs:
@@ -74,6 +78,28 @@ jobs:
       HISTORICAL_SOURCE_REPLAY_ID: github-run-${{ github.run_id }}-${{ github.run_attempt }}
 
     steps:
+      - name: Validate reusable caller concurrency identity
+        if: inputs.caller_concurrency_identity != ''
+        shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+        env:
+          BASH_ENV: /dev/null
+          CALLER_CONCURRENCY_IDENTITY: ${{ inputs.caller_concurrency_identity }}
+          CALLER_WORKFLOW_REF: ${{ github.workflow_ref }}
+          ENV: /dev/null
+          PYTHONHOME: ""
+          PYTHONPATH: ""
+        run: |
+          expected_caller_concurrency_identity="${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          if [ "$CALLER_CONCURRENCY_IDENTITY" != "$expected_caller_concurrency_identity" ]; then
+            echo "Reusable caller concurrency identity mismatch: expected=$expected_caller_concurrency_identity observed=$CALLER_CONCURRENCY_IDENTITY" >&2
+            exit 1
+          fi
+          expected_caller_workflow_ref="LeoChen0727/tdcc-weekly-report/.github/workflows/repair_recent_daily_price_gaps.yml@refs/heads/main"
+          if [ "$CALLER_WORKFLOW_REF" != "$expected_caller_workflow_ref" ]; then
+            echo "Reusable caller workflow identity mismatch: expected=$expected_caller_workflow_ref observed=$CALLER_WORKFLOW_REF" >&2
+            exit 1
+          fi
+
       - name: Reject non-main production dispatch
         if: github.ref != 'refs/heads/main'
         run: |
@@ -122,7 +148,7 @@ jobs:
       - name: Install replay dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pandas requests lxml html5lib beautifulsoup4 openpyxl tabulate
+          pip install pandas requests lxml html5lib beautifulsoup4 openpyxl tabulate pyyaml==6.0.2
 
       - name: Validate repository automation boundaries
         run: |

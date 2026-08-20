@@ -4,6 +4,9 @@ import hashlib
 from pathlib import Path
 import re
 
+import yaml
+from yaml.nodes import MappingNode, Node, ScalarNode, SequenceNode
+
 
 ROOT = Path(__file__).resolve().parents[1]
 RECENT_REPAIR_WORKFLOW = ROOT / ".github" / "workflows" / "repair_recent_daily_price_gaps.yml"
@@ -12,13 +15,709 @@ HISTORICAL_REPLAY_WORKFLOW = (
 )
 DAILY_FULL_WORKFLOW = ROOT / ".github" / "workflows" / "daily_full_pipeline.yml"
 RECENT_REPAIR_WORKFLOW_CANONICAL_SHA256 = (
-    "51b9863503985d3d18ff064d2a29705a13e7f97baa6fd5de4d91951d20c53841"
+    "573447ade1ce03e416b3148e65b1d3d1111f5fdc9525b06b0ea7feed42da2dfb"
 )
+REUSABLE_REPLAY_CONCURRENCY_GROUP = (
+    "group: ${{ inputs.caller_concurrency_identity != '' && "
+    "format('historical-structured-source-replay-call-{0}', "
+    "inputs.caller_concurrency_identity) || "
+    "format('daily-full-pipeline-{0}', github.ref) }}"
+)
+REPLAY_RESULT_GATE_STEP_NAME = "Validate structured replay completion contract"
+PROTECTED_STEP_SHELL = "/bin/bash --noprofile --norc -e -o pipefail {0}"
+PROTECTED_STEP_ENV = {
+    "BASH_ENV": "/dev/null",
+    "ENV": "/dev/null",
+    "PYTHONHOME": "",
+    "PYTHONPATH": "",
+}
+FORBIDDEN_EXECUTION_ENV_KEYS = {
+    "BASH_ENV",
+    "ENV",
+    "PATH",
+    "PYTHONHOME",
+    "PYTHONPATH",
+    "SHELLOPTS",
+}
+REPLAY_RESULT_GATE_RUN = """set -euo pipefail
+gate_error_path="$RUNNER_TEMP/structured-replay-gate-error.txt"
+rm -f -- "$gate_error_path"
+case "${STRUCTURED_REPLAY_REQUIRED-}" in
+  true)
+    if [ "$STRUCTURED_REPLAY_RESULT" != success ]; then
+      printf '%s\\n' "Required structured objective-source replay completed with result=$STRUCTURED_REPLAY_RESULT" > "$gate_error_path"
+    fi
+    ;;
+  false)
+    if [ "$STRUCTURED_REPLAY_RESULT" != skipped ]; then
+      printf '%s\\n' "Unexpected structured objective-source replay result for no-op plan: $STRUCTURED_REPLAY_RESULT" > "$gate_error_path"
+    fi
+    ;;
+  *)
+    printf '%s\\n' "Invalid structured objective-source replay requirement: ${STRUCTURED_REPLAY_REQUIRED-}" > "$gate_error_path"
+    ;;
+esac
+"""
+REPLAY_GATE_FAILURE_PERSISTENCE_BLOCK = """gate_error_path="$RUNNER_TEMP/structured-replay-gate-error.txt"
+if [ -e "$gate_error_path" ]; then
+  if [ ! -f "$gate_error_path" ] || [ ! -s "$gate_error_path" ]; then
+    fail_recovery "Structured replay completion gate evidence is malformed"
+  fi
+  if ! gate_error="$(cat -- "$gate_error_path")"; then
+    fail_recovery "Unable to read structured replay completion gate evidence"
+  fi
+  if [ -z "$gate_error" ]; then
+    fail_recovery "Structured replay completion gate evidence is blank"
+  fi
+  fail_recovery "$gate_error"
+fi
+"""
+BUNDLE_COMMITTED_STATE_BLOCK = """if ! python -B scripts/daily_source_recovery_bundle.py transition \\
+  --state "$state_path" --to bundle_committed --output "$state_path.next" \\
+  --source-bundle-commit-sha "$SOURCE_BUNDLE_COMMIT_SHA"; then
+  fail_prestate "Unable to persist bundle-committed source recovery state"
+fi
+if ! mv "$state_path.next" "$state_path"; then
+  fail_prestate "Unable to activate bundle-committed source recovery state"
+fi
+"""
+PRE_STATE_FAILURE_SCHEMA = "daily_source_recovery_preflight_failure.v1"
+TERMINAL_FAILURE_SCHEMA = "daily_source_recovery_terminal_failure.v1"
+TERMINAL_FAILURE_REQUIRED_MARKERS = (
+    "write_terminal_failure_fallback() {",
+    f'"{TERMINAL_FAILURE_SCHEMA}"',
+    '"resume_terminal_failure" "$1" "$2"',
+    '"persistence_error": os.environ["FAILURE_PERSISTENCE_ERROR"]',
+    "write_terminal_failure_emergency() {",
+    "Terminal source-recovery state writer failed after the recovery operation failed",
+    'elif ! mv "$state_path.next" "$state_path"; then',
+    'if ! write_terminal_failure_fallback "$message" "$persistence_error"; then',
+    "write_terminal_failure_emergency",
+)
+TERMINAL_FINALIZER_STEP_NAME = "Finalize truthful source recovery terminal evidence"
+TERMINAL_FINALIZER_REQUIRED_MARKERS = (
+    'job_status not in {"success", "failure", "cancelled"}',
+    'existing.get("status") != "confirm_source_gate"',
+    '"schema_version": "daily_source_recovery_terminal_failure.v1"',
+    '"status": "failed"',
+    '"phase": "resume_terminal_finalizer"',
+    'temporary = state_path.with_name(state_path.name + ".terminal-next")',
+    "os.replace(temporary, state_path)",
+    'expected_status = "confirm_source_gate" if job_status == "success" else "failed"',
+    'state_path.stat().st_size <= 0',
+)
+TERMINAL_FINALIZER_RUN_SHA256 = "2f10ac0372b85c30f83496feda6704f24bbe0ce157522ba5f40d1b1efb8e8575"
+HISTORICAL_REPLAY_CRITICAL_STEP_KEYS = {
+    "Replay structured objective sources in ascending order": {"name", "run", "shell"},
+    "Validate final replay artifacts and target-slice parity": {"name", "run", "shell"},
+    "Create and push exactly one replay output commit": {"name", "run", "shell"},
+    "Revalidate pushed replay against immutable code base": {"name", "run", "shell"},
+}
+HISTORICAL_REPLAY_CRITICAL_RUN_SHA256 = {
+    "Replay structured objective sources in ascending order": (
+        "585a642e6e0ac2533b4ae1fa6f786f45fe0b306cbfbff696fb10f3acca567990"
+    ),
+    "Validate final replay artifacts and target-slice parity": (
+        "4b8482ddd878c613e653e6de43cd7ee3d8db1bd6abbc94210292d305d992f0be"
+    ),
+    "Create and push exactly one replay output commit": (
+        "d25ebf473b507540a1342937739ae1318d70430bba85e1766459bc75ebe0c304"
+    ),
+    "Revalidate pushed replay against immutable code base": (
+        "4b8482ddd878c613e653e6de43cd7ee3d8db1bd6abbc94210292d305d992f0be"
+    ),
+}
+RESUME_AUTHORITY_DECISION_REQUIRED_MARKERS = (
+    'if ! resume_required="$(python -c',
+    "resume_required must be boolean",
+    'fail_recovery "Unable to parse the source recovery authority decision"',
+    'case "$resume_required" in',
+    "false)",
+    "true)",
+    'fail_recovery "Invalid source recovery authority decision: $resume_required"',
+)
+PRE_STATE_FAILURE_REQUIRED_MARKERS = (
+    'state_path="$RUNNER_TEMP/daily-source-recovery-state.json"',
+    "write_failure_evidence() {",
+    "write_prestate_failure() {",
+    f'"{PRE_STATE_FAILURE_SCHEMA}"',
+    '"resume_preflight" "$1" ""',
+    '"status": "failed"',
+    "os.replace(temporary, target)",
+    "fail_prestate() {",
+    'write_prestate_failure "Source recovery resume preflight did not complete"',
+    'if ! git fetch origin main; then\n  fail_prestate "Unable to fetch current main for source recovery resume"',
+    'if ! resume_head_sha="$(git rev-parse origin/main)"; then',
+    'if ! checkout_head_sha="$(git rev-parse HEAD)"; then',
+    'fail_prestate "Resume checkout does not equal current main"',
+    'if git merge-base --is-ancestor "$SOURCE_BUNDLE_COMMIT_SHA" "$resume_head_sha"; then',
+    "merge_base_status=$?",
+    'fail_prestate "Source bundle commit is not an ancestor of current main"',
+    'fail_prestate "Unable to verify source bundle ancestry against current main"',
+    'if ! python -B scripts/daily_source_recovery_bundle.py verify \\',
+    'fail_prestate "Immutable source recovery bundle verification failed"',
+    'fail_prestate "Unable to persist bundle-committed source recovery state"',
+    'fail_prestate "Unable to activate bundle-committed source recovery state"',
+)
+CALLER_IDENTITY_RUN = """expected_caller_concurrency_identity="${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+if [ "$CALLER_CONCURRENCY_IDENTITY" != "$expected_caller_concurrency_identity" ]; then
+  echo "Reusable caller concurrency identity mismatch: expected=$expected_caller_concurrency_identity observed=$CALLER_CONCURRENCY_IDENTITY" >&2
+  exit 1
+fi
+expected_caller_workflow_ref="LeoChen0727/tdcc-weekly-report/.github/workflows/repair_recent_daily_price_gaps.yml@refs/heads/main"
+if [ "$CALLER_WORKFLOW_REF" != "$expected_caller_workflow_ref" ]; then
+  echo "Reusable caller workflow identity mismatch: expected=$expected_caller_workflow_ref observed=$CALLER_WORKFLOW_REF" >&2
+  exit 1
+fi
+"""
 
 
 def _canonical_text_sha256(text: str) -> str:
     canonical = text.replace("\r\n", "\n").replace("\r", "\n")
     return hashlib.sha256(canonical.encode("utf-8")).hexdigest()
+
+
+class YamlContractError(ValueError):
+    pass
+
+
+def _yaml_reject_duplicate_keys(node: Node | None, label: str) -> None:
+    if isinstance(node, MappingNode):
+        seen: set[str] = set()
+        for key_node, value_node in node.value:
+            if not isinstance(key_node, ScalarNode):
+                raise YamlContractError(f"{label} contains a non-scalar key")
+            key = key_node.value
+            if key in seen:
+                raise YamlContractError(f"{label} contains duplicate canonical key {key!r}")
+            seen.add(key)
+            _yaml_reject_duplicate_keys(value_node, f"{label}.{key}")
+    elif isinstance(node, SequenceNode):
+        for index, item in enumerate(node.value):
+            _yaml_reject_duplicate_keys(item, f"{label}[{index}]")
+
+
+def _yaml_unique_mapping(node: Node | None, label: str) -> dict[str, Node]:
+    if not isinstance(node, MappingNode):
+        raise YamlContractError(f"{label} must be a mapping")
+    result: dict[str, Node] = {}
+    for key_node, value_node in node.value:
+        if not isinstance(key_node, ScalarNode):
+            raise YamlContractError(f"{label} contains a non-scalar key")
+        key = key_node.value
+        if key in result:
+            raise YamlContractError(f"{label} contains duplicate canonical key {key!r}")
+        result[key] = value_node
+    return result
+
+
+def _yaml_document_mapping(text: str, label: str) -> dict[str, Node]:
+    try:
+        node = yaml.compose(text, Loader=yaml.SafeLoader)
+    except yaml.YAMLError as exc:
+        raise YamlContractError(f"{label} is not valid YAML: {exc}") from exc
+    _yaml_reject_duplicate_keys(node, label)
+    return _yaml_unique_mapping(node, label)
+
+
+def _yaml_scalar(node: Node | None, label: str) -> str:
+    if not isinstance(node, ScalarNode):
+        raise YamlContractError(f"{label} must be a scalar")
+    return node.value
+
+
+def _yaml_string(node: Node | None, label: str) -> str:
+    if not isinstance(node, ScalarNode) or node.tag != "tag:yaml.org,2002:str":
+        raise YamlContractError(f"{label} must be a YAML string scalar")
+    return node.value
+
+
+def _yaml_boolean(node: Node | None, label: str) -> bool:
+    if not isinstance(node, ScalarNode) or node.tag != "tag:yaml.org,2002:bool":
+        raise YamlContractError(f"{label} must be a YAML boolean scalar")
+    if node.value not in {"true", "false"}:
+        raise YamlContractError(f"{label} must be true or false")
+    return node.value == "true"
+
+
+def _validate_execution_scope(
+    scope: dict[str, Node],
+    label: str,
+) -> list[str]:
+    errors: list[str] = []
+    if "defaults" in scope:
+        errors.append(f"{label} must not override the protected run shell through defaults")
+    env_node = scope.get("env")
+    if env_node is not None:
+        env = _yaml_unique_mapping(env_node, f"{label} env")
+        forbidden = sorted(set(env) & FORBIDDEN_EXECUTION_ENV_KEYS)
+        if forbidden:
+            errors.append(
+                f"{label} must not override protected execution environment keys: {forbidden}"
+            )
+    return errors
+
+
+def _yaml_sequence(node: Node | None, label: str) -> list[Node]:
+    if not isinstance(node, SequenceNode):
+        raise YamlContractError(f"{label} must be a sequence")
+    return list(node.value)
+
+
+def _yaml_named_steps(job: dict[str, Node], label: str) -> list[tuple[str, dict[str, Node]]]:
+    steps: list[tuple[str, dict[str, Node]]] = []
+    for index, step_node in enumerate(_yaml_sequence(job.get("steps"), f"{label} steps")):
+        step = _yaml_unique_mapping(step_node, f"{label} step {index}")
+        name = _yaml_scalar(step.get("name"), f"{label} step {index} name")
+        steps.append((name, step))
+    return steps
+
+
+def _validate_structured_workflow_nodes(
+    recent_text: str,
+    replay_text: str,
+) -> list[str]:
+    errors: list[str] = []
+    try:
+        replay_root = _yaml_document_mapping(replay_text, "historical replay workflow")
+        triggers = _yaml_unique_mapping(replay_root.get("on"), "historical replay on")
+        workflow_call = _yaml_unique_mapping(
+            triggers.get("workflow_call"), "historical replay workflow_call"
+        )
+        call_inputs = _yaml_unique_mapping(
+            workflow_call.get("inputs"), "historical replay workflow_call inputs"
+        )
+        expected_call_required = {
+            "start_date": True,
+            "end_date": True,
+            "price_history_high_water_date": True,
+            "repair_market_index_base_date": False,
+            "caller_concurrency_identity": True,
+            "expected_main_sha": True,
+        }
+        if set(call_inputs) != set(expected_call_required):
+            errors.append(
+                "reusable replay workflow_call inputs must be the exact closed set"
+            )
+        for input_name, required in expected_call_required.items():
+            if input_name not in call_inputs:
+                continue
+            definition = _yaml_unique_mapping(
+                call_inputs[input_name], f"historical replay workflow_call input {input_name}"
+            )
+            expected_keys = {"description", "required", "type"}
+            if input_name == "repair_market_index_base_date":
+                expected_keys.add("default")
+            if (
+                set(definition) != expected_keys
+                or _yaml_boolean(definition.get("required"), f"{input_name} required")
+                is not required
+                or _yaml_string(definition.get("type"), f"{input_name} type") != "string"
+                or (
+                    "default" in definition
+                    and _yaml_string(definition.get("default"), f"{input_name} default") != ""
+                )
+            ):
+                errors.append(
+                    f"reusable replay workflow_call input {input_name} has an invalid typed contract"
+                )
+        call_secrets = _yaml_unique_mapping(
+            workflow_call.get("secrets"), "historical replay workflow_call secrets"
+        )
+        writer_secret = _yaml_unique_mapping(
+            call_secrets.get("PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY"),
+            "historical replay production writer secret",
+        )
+        if (
+            set(call_secrets) != {"PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY"}
+            or set(writer_secret) != {"required"}
+            or not _yaml_boolean(writer_secret.get("required"), "production writer required")
+        ):
+            errors.append(
+                "reusable replay must declare exactly one required typed production writer secret"
+            )
+
+        dispatch = _yaml_unique_mapping(
+            triggers.get("workflow_dispatch"), "historical replay workflow_dispatch"
+        )
+        dispatch_inputs = _yaml_unique_mapping(
+            dispatch.get("inputs"), "historical replay workflow_dispatch inputs"
+        )
+        expected_dispatch_required = {
+            "start_date": True,
+            "end_date": True,
+            "price_history_high_water_date": False,
+            "repair_market_index_base_date": False,
+            "expected_main_sha": True,
+        }
+        if set(dispatch_inputs) != set(expected_dispatch_required):
+            errors.append(
+                "standalone historical replay dispatch must use the exact input set and must "
+                "not expose the reusable caller concurrency identity"
+            )
+        for input_name, required in expected_dispatch_required.items():
+            if input_name not in dispatch_inputs:
+                continue
+            definition = _yaml_unique_mapping(
+                dispatch_inputs[input_name],
+                f"historical replay workflow_dispatch input {input_name}",
+            )
+            if (
+                _yaml_boolean(definition.get("required"), f"dispatch {input_name} required")
+                is not required
+                or _yaml_string(definition.get("type"), f"dispatch {input_name} type")
+                != "string"
+            ):
+                errors.append(
+                    f"historical replay workflow_dispatch input {input_name} has an invalid typed contract"
+                )
+
+        concurrency = _yaml_unique_mapping(
+            replay_root.get("concurrency"), "historical replay concurrency"
+        )
+        if not (
+            set(concurrency) == {"group", "cancel-in-progress"}
+            and _yaml_scalar(concurrency.get("group"), "historical replay concurrency group")
+            == REUSABLE_REPLAY_CONCURRENCY_GROUP.removeprefix("group: ")
+            and not _yaml_boolean(
+                concurrency.get("cancel-in-progress"),
+                "historical replay cancel-in-progress",
+            )
+        ):
+            errors.append(
+                "workflow_call replay must define exactly one active top-level concurrency "
+                "section and one exact run-scoped group while standalone dispatch remains "
+                "production-serialized"
+            )
+
+        replay_jobs = _yaml_unique_mapping(replay_root.get("jobs"), "historical replay jobs")
+        runtime_job = _yaml_unique_mapping(
+            replay_jobs.get("replay-historical-structured-sources"),
+            "historical replay runtime job",
+        )
+        errors.extend(_validate_execution_scope(replay_root, "historical replay workflow"))
+        errors.extend(_validate_execution_scope(runtime_job, "historical replay runtime job"))
+        runtime_steps = _yaml_named_steps(runtime_job, "historical replay runtime job")
+        for step_name, expected_keys in HISTORICAL_REPLAY_CRITICAL_STEP_KEYS.items():
+            matches = [step for name, step in runtime_steps if name == step_name]
+            step = matches[0] if len(matches) == 1 else {}
+            run = _yaml_scalar(step.get("run"), f"historical replay critical run {step_name}")
+            if (
+                len(matches) != 1
+                or set(step) != expected_keys
+                or _yaml_scalar(step.get("shell"), f"historical replay critical shell {step_name}")
+                != "bash"
+                or hashlib.sha256(run.encode("utf-8")).hexdigest()
+                != HISTORICAL_REPLAY_CRITICAL_RUN_SHA256[step_name]
+            ):
+                errors.append(
+                    "historical replay critical step must have one exact active node contract "
+                    f"without if/continue-on-error bypass metadata: {step_name}"
+                )
+        identity_steps = [
+            step for name, step in runtime_steps if name == "Validate reusable caller concurrency identity"
+        ]
+        if len(identity_steps) != 1:
+            raise YamlContractError("caller identity validation step must exist exactly once")
+        identity_step = identity_steps[0]
+        identity_env = _yaml_unique_mapping(
+            identity_step.get("env"), "caller identity validation env"
+        )
+        identity_valid = (
+            set(identity_step) == {"name", "if", "shell", "env", "run"}
+            and _yaml_scalar(identity_step.get("if"), "caller identity validation if")
+            == "inputs.caller_concurrency_identity != ''"
+            and _yaml_scalar(identity_step.get("shell"), "caller identity validation shell")
+            == PROTECTED_STEP_SHELL
+            and set(identity_env)
+            == set(PROTECTED_STEP_ENV) | {"CALLER_CONCURRENCY_IDENTITY", "CALLER_WORKFLOW_REF"}
+            and all(
+                _yaml_string(identity_env.get(key), f"caller identity validation env {key}")
+                == value
+                for key, value in PROTECTED_STEP_ENV.items()
+            )
+            and _yaml_scalar(
+                identity_env.get("CALLER_CONCURRENCY_IDENTITY"),
+                "caller identity validation env value",
+            )
+            == "${{ inputs.caller_concurrency_identity }}"
+            and _yaml_scalar(
+                identity_env.get("CALLER_WORKFLOW_REF"),
+                "caller workflow identity env value",
+            )
+            == "${{ github.workflow_ref }}"
+            and _yaml_scalar(identity_step.get("run"), "caller identity validation run")
+            == CALLER_IDENTITY_RUN
+        )
+        if not identity_valid:
+            errors.append(
+                "reusable replay must fail closed unless an active workflow_call identity "
+                "matches the actual GitHub run-id and attempt"
+            )
+
+        recent_root = _yaml_document_mapping(recent_text, "recent repair workflow")
+        recent_concurrency = _yaml_unique_mapping(
+            recent_root.get("concurrency"), "recent repair concurrency"
+        )
+        if not (
+            set(recent_concurrency) == {"group", "cancel-in-progress"}
+            and _yaml_scalar(
+                recent_concurrency.get("group"), "recent repair concurrency group"
+            )
+            == "daily-full-pipeline-${{ github.ref }}"
+            and not _yaml_boolean(
+                recent_concurrency.get("cancel-in-progress"),
+                "recent repair concurrency cancel-in-progress",
+            )
+        ):
+            errors.append(
+                "recent repair must hold the exact top-level global production concurrency "
+                "for the entire workflow"
+            )
+        recent_jobs = _yaml_unique_mapping(recent_root.get("jobs"), "recent repair jobs")
+        errors.extend(_validate_execution_scope(recent_root, "recent repair workflow"))
+        for job_name, job_node in recent_jobs.items():
+            job_scope = _yaml_unique_mapping(job_node, f"recent repair job {job_name}")
+            errors.extend(_validate_execution_scope(job_scope, f"recent repair job {job_name}"))
+        reusable_job = _yaml_unique_mapping(
+            recent_jobs.get("replay-structured-objective-sources"),
+            "recent repair reusable replay job",
+        )
+        reusable_with = _yaml_unique_mapping(
+            reusable_job.get("with"), "recent repair reusable replay with"
+        )
+        expected_with_keys = {
+            "start_date",
+            "end_date",
+            "price_history_high_water_date",
+            "repair_market_index_base_date",
+            "caller_concurrency_identity",
+            "expected_main_sha",
+        }
+        if (
+            set(reusable_with) != expected_with_keys
+            or _yaml_scalar(
+                reusable_with.get("caller_concurrency_identity"),
+                "recent repair caller concurrency identity",
+            )
+            != "${{ format('{0}-{1}', github.run_id, github.run_attempt) }}"
+        ):
+            errors.append(
+                "recent repair reusable replay job must pass its exact run-id and attempt "
+                "through the active with mapping"
+            )
+        reusable_secrets = _yaml_unique_mapping(
+            reusable_job.get("secrets"), "recent repair reusable replay secrets"
+        )
+        if (
+            set(reusable_secrets) != {"PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY"}
+            or _yaml_scalar(
+                reusable_secrets.get("PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY"),
+                "recent repair reusable replay secret",
+            )
+            != "${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}"
+        ):
+            errors.append(
+                "recent repair reusable replay job must pass exactly the named production "
+                "writer secret and must not inherit or add secrets"
+            )
+
+        resume_job = _yaml_unique_mapping(
+            recent_jobs.get("resume-daily-full-from-source-bundle"),
+            "recent repair resume job",
+        )
+        resume_env = _yaml_unique_mapping(resume_job.get("env"), "recent repair resume env")
+        if (
+            _yaml_scalar(
+                resume_env.get("STRUCTURED_PLAN_RESULT"),
+                "structured replay plan result env",
+            )
+            != "${{ needs.plan-structured-objective-source-catch-up.result }}"
+            or _yaml_scalar(
+                resume_env.get("STRUCTURED_REPLAY_REQUIRED"),
+                "structured replay required env",
+            )
+            != "${{ needs.plan-structured-objective-source-catch-up.outputs.should_replay }}"
+            or _yaml_scalar(
+                resume_env.get("STRUCTURED_REPLAY_RESULT"),
+                "structured replay result env",
+            )
+            != "${{ needs.replay-structured-objective-sources.result }}"
+        ):
+            errors.append(
+                "structured replay result gate must consume the exact planner and reusable-job outputs"
+            )
+        resume_steps = _yaml_named_steps(resume_job, "recent repair resume job")
+        gate_matches = [
+            (index, step)
+            for index, (name, step) in enumerate(resume_steps)
+            if name == REPLAY_RESULT_GATE_STEP_NAME
+        ]
+        verify_matches = [
+            (index, step)
+            for index, (name, step) in enumerate(resume_steps)
+            if name == "Verify bundle and dispatch exactly one Daily Full resume"
+        ]
+        finalizer_matches = [
+            (index, step)
+            for index, (name, step) in enumerate(resume_steps)
+            if name == TERMINAL_FINALIZER_STEP_NAME
+        ]
+        upload_matches = [
+            (index, step)
+            for index, (name, step) in enumerate(resume_steps)
+            if name == "Upload source recovery resume state"
+        ]
+        if (
+            len(gate_matches) != 1
+            or len(verify_matches) != 1
+            or len(finalizer_matches) != 1
+            or len(upload_matches) != 1
+        ):
+            raise YamlContractError(
+                "structured replay gate, resume, terminal finalizer, and upload steps must each exist exactly once"
+            )
+        gate_index, gate_step = gate_matches[0]
+        verify_index, verify_step = verify_matches[0]
+        finalizer_index, finalizer_step = finalizer_matches[0]
+        upload_index, upload_step = upload_matches[0]
+        gate_env = _yaml_unique_mapping(
+            gate_step.get("env"), "structured replay gate env"
+        )
+        verify_env = _yaml_unique_mapping(
+            verify_step.get("env"), "structured replay resume env"
+        )
+        expected_gate_env = {
+            **PROTECTED_STEP_ENV,
+            "STRUCTURED_REPLAY_REQUIRED": (
+                "${{ needs.plan-structured-objective-source-catch-up.outputs.should_replay }}"
+            ),
+            "STRUCTURED_REPLAY_RESULT": "${{ needs.replay-structured-objective-sources.result }}",
+        }
+        expected_verify_env = {
+            **expected_gate_env,
+            "STRUCTURED_PLAN_RESULT": (
+                "${{ needs.plan-structured-objective-source-catch-up.result }}"
+            ),
+        }
+        gate_valid = (
+            gate_index + 1 == verify_index
+            and set(gate_step) == {"name", "shell", "env", "run"}
+            and _yaml_scalar(gate_step.get("shell"), "structured replay gate shell")
+            == PROTECTED_STEP_SHELL
+            and set(gate_env) == set(expected_gate_env)
+            and all(
+                _yaml_string(gate_env.get(key), f"structured replay gate env {key}")
+                == value
+                for key, value in expected_gate_env.items()
+            )
+            and _yaml_scalar(gate_step.get("run"), "structured replay gate run")
+            == REPLAY_RESULT_GATE_RUN
+        )
+        verify_valid = (
+            set(verify_step) == {"name", "shell", "env", "run"}
+            and _yaml_scalar(verify_step.get("shell"), "structured replay resume shell")
+            == PROTECTED_STEP_SHELL
+            and set(verify_env) == set(expected_verify_env)
+            and all(
+                _yaml_string(verify_env.get(key), f"structured replay resume env {key}")
+                == value
+                for key, value in expected_verify_env.items()
+            )
+        )
+        verify_run = _yaml_scalar(
+            verify_step.get("run"), "structured replay resume run"
+        )
+        finalizer_env = _yaml_unique_mapping(
+            finalizer_step.get("env"), "source recovery terminal finalizer env"
+        )
+        finalizer_run = _yaml_scalar(
+            finalizer_step.get("run"), "source recovery terminal finalizer run"
+        )
+        finalizer_valid = (
+            verify_index + 1 == finalizer_index
+            and finalizer_index + 1 == upload_index
+            and set(finalizer_step) == {"name", "id", "if", "shell", "env", "run"}
+            and _yaml_scalar(finalizer_step.get("id"), "terminal finalizer id")
+            == "finalize_source_recovery_state"
+            and _yaml_scalar(finalizer_step.get("if"), "terminal finalizer if") == "always()"
+            and _yaml_scalar(finalizer_step.get("shell"), "terminal finalizer shell")
+            == PROTECTED_STEP_SHELL
+            and set(finalizer_env) == {"RESUME_JOB_STATUS"}
+            and _yaml_scalar(
+                finalizer_env.get("RESUME_JOB_STATUS"), "terminal finalizer job status"
+            )
+            == "${{ job.status }}"
+            and all(marker in finalizer_run for marker in TERMINAL_FINALIZER_REQUIRED_MARKERS)
+            and hashlib.sha256(finalizer_run.encode("utf-8")).hexdigest()
+            == TERMINAL_FINALIZER_RUN_SHA256
+        )
+        upload_with = _yaml_unique_mapping(
+            upload_step.get("with"), "source recovery terminal evidence upload with"
+        )
+        upload_valid = (
+            set(upload_step) == {"name", "if", "uses", "with"}
+            and _yaml_scalar(upload_step.get("if"), "terminal evidence upload if")
+            == "always() && steps.finalize_source_recovery_state.outcome == 'success'"
+            and _yaml_scalar(upload_step.get("uses"), "terminal evidence upload action")
+            == "actions/upload-artifact@v4"
+            and set(upload_with)
+            == {"name", "path", "if-no-files-found", "retention-days"}
+            and _yaml_scalar(upload_with.get("path"), "terminal evidence upload path")
+            == "${{ runner.temp }}/daily-source-recovery-state.json"
+            and _yaml_scalar(
+                upload_with.get("if-no-files-found"), "terminal evidence missing-file policy"
+            )
+            == "error"
+            and _yaml_scalar(upload_with.get("retention-days"), "terminal evidence retention")
+            == "30"
+        )
+        prestate_evidence_valid = (
+            all(verify_run.count(marker) == 1 for marker in PRE_STATE_FAILURE_REQUIRED_MARKERS)
+            and verify_run.index("write_prestate_failure() {")
+            < verify_run.index("if ! git fetch origin main; then")
+            < verify_run.index(
+                "if ! python -B scripts/daily_source_recovery_bundle.py verify"
+            )
+        )
+        stateful_gate_valid = (
+            verify_run.count(REPLAY_GATE_FAILURE_PERSISTENCE_BLOCK) == 1
+            and verify_run.count(BUNDLE_COMMITTED_STATE_BLOCK) == 1
+            and all(marker in verify_run for marker in TERMINAL_FAILURE_REQUIRED_MARKERS)
+            and all(marker in verify_run for marker in RESUME_AUTHORITY_DECISION_REQUIRED_MARKERS)
+            and 'trap post_bundle_failure_trap ERR' in verify_run
+            and 'trap - ERR\n  fail_recovery "Source recovery resume command failed with exit=$exit_code"'
+            in verify_run
+            and verify_run.index(BUNDLE_COMMITTED_STATE_BLOCK)
+            < verify_run.index(REPLAY_GATE_FAILURE_PERSISTENCE_BLOCK)
+        )
+        marker_count = sum(
+            isinstance(step.get("run"), ScalarNode)
+            and 'case "${STRUCTURED_REPLAY_REQUIRED-}" in' in step["run"].value
+            for _, step in resume_steps
+        )
+        if (
+            not gate_valid
+            or not verify_valid
+            or not prestate_evidence_valid
+            or not stateful_gate_valid
+            or not finalizer_valid
+            or not upload_valid
+            or marker_count != 1
+        ):
+            errors.append(
+                "structured replay result gate must be one dedicated exact true/false step: "
+                "true must materialize and succeed; a false no-op structured replay plan "
+                "must be skipped; missing, blank, or malformed values, plus environment-overridden values, "
+                "must be persisted as terminal failure evidence by the immediately adjacent resume step; "
+                "all pre-state Git, immutable-bundle verification, transition, and activation failures "
+                "must also atomically persist truthful preflight failure evidence; every post-bundle command "
+                "failure must enter the terminal failure trap, and the always-run finalizer must overwrite "
+                "stale bundle-committed state before the gated evidence upload"
+            )
+    except YamlContractError as exc:
+        errors.append(f"structured workflow YAML contract invalid: {exc}")
+    return errors
 
 
 def _job_block(text: str, job_name: str) -> str:
@@ -81,7 +780,7 @@ def _step_run_executable_lines(job_block: str, step_name: str) -> list[str]:
             continue
         executable.append(line)
         heredoc = re.search(
-            r"<<-?\s*(?:'([^']+)'|\"([^\"]+)\"|([A-Za-z_][A-Za-z0-9_]*))",
+            r"(?<!<)<<-?(?!<)\s*(?:'([^']+)'|\"([^\"]+)\"|\\?([A-Za-z_][A-Za-z0-9_]*))",
             line,
         )
         if heredoc:
@@ -89,6 +788,75 @@ def _step_run_executable_lines(job_block: str, step_name: str) -> list[str]:
                 value for value in heredoc.groups() if value is not None
             )
     return executable
+
+
+def _shell_control_depths(lines: list[str]) -> list[int]:
+    depths: list[int] = []
+    depth = 0
+    for line in lines:
+        if re.match(r"^(?:fi|done|esac|\})(?:\s*[;>|&].*)?$", line) or re.match(
+            r"^\)(?:\s*[;>|&].*)?$", line
+        ):
+            depth = max(0, depth - 1)
+            depths.append(depth)
+            continue
+        depths.append(depth)
+        if (
+            re.match(r"^(?:if|for|while|until|case|select)\b", line)
+            or re.match(
+                r"^(?:function\s+[A-Za-z_][A-Za-z0-9_]*|"
+                r"[A-Za-z_][A-Za-z0-9_]*\s*\(\s*\))\s*\{?\s*$",
+                line,
+            )
+            or line in {"{", "("}
+            or re.search(r"(?:&&|\|\||;)\s*[\{\(]\s*$", line)
+        ):
+            depth += 1
+    return depths
+
+
+def _shell_line_is_unconditional_terminator(line: str) -> bool:
+    return bool(
+        re.search(
+            r"(?:^|&&\s*|\|\|\s*|;\s*)(?:exit|return|exec)(?:\s|$)",
+            line,
+        )
+        or re.fullmatch(r"false\s*;?(?:\s+#.*)?", line)
+    )
+
+
+def _has_unique_reachable_top_level_block(
+    lines: list[str],
+    expected_lines: tuple[str, ...],
+    *,
+    command_marker: str,
+    before_markers: tuple[str, ...],
+) -> bool:
+    starts = [index for index, line in enumerate(lines) if line == command_marker]
+    if len(starts) != 1:
+        return False
+    start = starts[0]
+    if tuple(lines[start : start + len(expected_lines)]) != expected_lines:
+        return False
+    depths = _shell_control_depths(lines)
+    if depths[start] != 0:
+        return False
+    if start and (
+        lines[start - 1].rstrip().endswith("\\")
+        or re.search(r"(?:&&|\|\||\|)\s*$", lines[start - 1])
+    ):
+        return False
+    if any(
+        depths[index] == 0 and _shell_line_is_unconditional_terminator(lines[index])
+        for index in range(start)
+    ):
+        return False
+    block_end = start + len(expected_lines)
+    for marker in before_markers:
+        positions = [index for index, line in enumerate(lines) if marker in line]
+        if not positions or block_end > min(positions):
+            return False
+    return True
 
 
 def _has_unique_exact_command(
@@ -159,20 +927,28 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
             f"expected={RECENT_REPAIR_WORKFLOW_CANONICAL_SHA256} "
             f"observed={observed_recent_sha}"
         )
+    errors.extend(_validate_structured_workflow_nodes(recent_text, replay_text))
+
+    # Structural security checks above use duplicate-rejecting YAML nodes. Keep
+    # this textual slice only for the legacy workflow_call literal inventory so
+    # workflow_dispatch declarations cannot satisfy compatibility checks.
     workflow_call_marker = "\n  workflow_call:\n"
     workflow_dispatch_marker = "\n  workflow_dispatch:\n"
-    if workflow_call_marker not in replay_text:
-        errors.append("historical replay must expose a reusable workflow entrypoint")
-        workflow_call_block = ""
-    else:
-        workflow_call_block = replay_text.split(workflow_call_marker, 1)[1]
-        workflow_call_block = workflow_call_block.split(workflow_dispatch_marker, 1)[0]
+    workflow_call_block = ""
+    if workflow_call_marker in replay_text and workflow_dispatch_marker in replay_text:
+        workflow_call_block = replay_text.split(workflow_call_marker, 1)[1].split(
+            workflow_dispatch_marker, 1
+        )[0]
+
     replay_required = {
         "secrets:\n      PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY:\n        required: true": (
             "reusable replay must declare only the production writer secret"
         ),
         "price_history_high_water_date:": (
             "reusable replay must preserve the raw price/history high-water"
+        ),
+        "caller_concurrency_identity:": (
+            "reusable replay must require an explicit caller run/attempt concurrency identity"
         ),
         "expected_main_sha:": "reusable replay must bind to an immutable main SHA",
     }
@@ -293,6 +1069,9 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         ),
         "replay-structured-objective-sources:": (
             "recent repair must contain a dedicated structured replay job"
+        ),
+        "caller_concurrency_identity: ${{ format('{0}-{1}', github.run_id, github.run_attempt) }}": (
+            "repair caller must pass its exact run-id and attempt to the reusable replay"
         ),
         "needs: plan-structured-objective-source-catch-up": (
             "structured replay must consume only the fresh planner result"
@@ -427,6 +1206,13 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
     for literal, purpose in recent_required.items():
         if literal not in recent_text:
             errors.append(f"{purpose}: missing {literal!r}")
+    if re.search(
+        r"(?m)^  group:\s*daily-full-pipeline-\$\{\{ github\.ref \}\}\s*$",
+        replay_text,
+    ):
+        errors.append(
+            "reusable replay workflow_call must not self-collide with the caller's production concurrency group"
+        )
 
     if recent_text.count(
         "uses: ./.github/workflows/historical_structured_source_replay.yml"
@@ -471,17 +1257,6 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
                 "recent repair job must be unconditional and fail closed; forbidden "
                 f"job key: {raw_key}"
             )
-    expected_secrets = {
-        "PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY": (
-            "${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}"
-        )
-    }
-    if _job_mapping(reusable_job, "secrets") != expected_secrets:
-        errors.append(
-            "recent repair reusable replay job must pass exactly the named production "
-            "writer secret and must not inherit or add secrets"
-        )
-
     forbidden = {
         "python scripts/replay_historical_structured_sources.py": (
             "must not bypass the reusable replay workflow"

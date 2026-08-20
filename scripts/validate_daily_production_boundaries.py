@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import re
 import importlib.util
 import fnmatch
@@ -7,6 +8,9 @@ import posixpath
 import shlex
 import sys
 from pathlib import Path
+
+import yaml
+from yaml.nodes import MappingNode, Node, ScalarNode, SequenceNode
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -608,12 +612,17 @@ def run_repo_advanced_integrity_validation() -> list[str]:
 
 def validate_historical_source_replay_workflow(text: str) -> list[str]:
     errors: list[str] = []
+    expected_concurrency_group = (
+        "group: ${{ inputs.caller_concurrency_identity != '' && "
+        "format('historical-structured-source-replay-call-{0}', "
+        "inputs.caller_concurrency_identity) || "
+        "format('daily-full-pipeline-{0}', github.ref) }}"
+    )
     required_literals = {
         "workflow_dispatch:": "must be manually and explicitly dispatched",
         "expected_main_sha:": "must require an immutable authorized main SHA",
         "github.ref != 'refs/heads/main'": "must reject non-main dispatches",
         "ref: main": "must checkout main",
-        "group: daily-full-pipeline-${{ github.ref }}": "must serialize with Daily Full Pipeline",
         "cancel-in-progress: false": "must not cancel an in-flight official producer",
         "Require production artifact write deploy key": "must fail closed on missing writer credentials",
         "Checkout exact main source": "must checkout only after credential preflight",
@@ -641,6 +650,83 @@ def validate_historical_source_replay_workflow(text: str) -> list[str]:
     for literal, purpose in required_literals.items():
         if literal not in text:
             errors.append(f"historical structured-source replay {purpose}: missing {literal!r}")
+
+    try:
+        root = yaml_document_mapping(text, "historical replay workflow")
+        triggers = yaml_unique_mapping(root.get("on"), "historical replay on")
+        dispatch = yaml_unique_mapping(
+            triggers.get("workflow_dispatch"),
+            "historical replay workflow_dispatch",
+        )
+        dispatch_inputs = yaml_unique_mapping(
+            dispatch.get("inputs"),
+            "historical replay workflow_dispatch inputs",
+        )
+        if "caller_concurrency_identity" in dispatch_inputs:
+            errors.append(
+                "standalone historical replay dispatch must not expose the reusable "
+                "caller concurrency identity"
+            )
+        concurrency = yaml_unique_mapping(
+            root.get("concurrency"),
+            "historical replay concurrency",
+        )
+        concurrency_valid = (
+            set(concurrency) == {"group", "cancel-in-progress"}
+            and yaml_scalar(concurrency.get("group"), "historical replay concurrency group")
+            == expected_concurrency_group.removeprefix("group: ")
+            and not yaml_boolean(
+                concurrency.get("cancel-in-progress"),
+                "historical replay cancel-in-progress",
+            )
+        )
+        critical_step_keys = {
+            "Replay structured objective sources in ascending order": {"name", "run", "shell"},
+            "Validate final replay artifacts and target-slice parity": {"name", "run", "shell"},
+            "Create and push exactly one replay output commit": {"name", "run", "shell"},
+            "Revalidate pushed replay against immutable code base": {"name", "run", "shell"},
+        }
+        critical_run_sha256 = {
+            "Replay structured objective sources in ascending order": (
+                "585a642e6e0ac2533b4ae1fa6f786f45fe0b306cbfbff696fb10f3acca567990"
+            ),
+            "Validate final replay artifacts and target-slice parity": (
+                "4b8482ddd878c613e653e6de43cd7ee3d8db1bd6abbc94210292d305d992f0be"
+            ),
+            "Create and push exactly one replay output commit": (
+                "d25ebf473b507540a1342937739ae1318d70430bba85e1766459bc75ebe0c304"
+            ),
+            "Revalidate pushed replay against immutable code base": (
+                "4b8482ddd878c613e653e6de43cd7ee3d8db1bd6abbc94210292d305d992f0be"
+            ),
+        }
+        replay_steps = yaml_named_steps(text, "replay-historical-structured-sources")
+        for step_name, expected_keys in critical_step_keys.items():
+            matches = [step for name, step in replay_steps if name == step_name]
+            step = matches[0] if len(matches) == 1 else {}
+            run = yaml_scalar(step.get("run"), f"historical replay critical run {step_name}")
+            if (
+                len(matches) != 1
+                or set(step) != expected_keys
+                or yaml_scalar(step.get("shell"), f"historical replay critical shell {step_name}")
+                != "bash"
+                or hashlib.sha256(run.encode("utf-8")).hexdigest()
+                != critical_run_sha256[step_name]
+            ):
+                errors.append(
+                    "historical structured-source replay critical step must have one exact active "
+                    "node contract without if/continue-on-error bypass metadata: "
+                    f"{step_name}"
+                )
+    except YamlContractError as exc:
+        errors.append(f"historical structured-source replay YAML contract invalid: {exc}")
+        concurrency_valid = False
+    if not concurrency_valid:
+        errors.append(
+            "historical structured-source replay must define exactly one active top-level "
+            "concurrency section and one exact run-scoped group while standalone dispatch "
+            "remains serialized with Daily Full Pipeline"
+        )
 
     if text.count("python scripts/validate_historical_structured_source_replay.py") != 2:
         errors.append(
@@ -693,6 +779,162 @@ def validate_historical_source_replay_workflow(text: str) -> list[str]:
             )
             break
         cursor = position
+    return errors
+
+
+def validate_daily_authority_snapshot_finalization(text: str) -> list[str]:
+    errors: list[str] = []
+    prepare_name = "Prepare daily authority release before immutable snapshot finalization"
+    snapshot_name = "Publish final immutable freshness snapshot revision"
+    stage_name = "Stage immutable published snapshot revisions"
+    validate_name = "Validate immutable published snapshot revisions"
+    commit_name = "Commit report artifacts, packets, and rules first"
+    authority_command = "python scripts/daily_authority_release.py publish"
+    final_snapshot_command = (
+        "python scripts/update_daily_published_model_snapshots.py "
+        "--artifact-id data_freshness "
+        "--revision-reason daily_authority_release_final"
+    )
+    stage_command = (
+        "python scripts/stage_daily_published_snapshot_revisions.py "
+        '--report-date "$SNAPSHOT_REPORT_DATE" '
+        "--artifact-id data_freshness "
+        "--artifact-id model_signals_for_report "
+        "--artifact-id all_candidates_source_rows "
+        "--artifact-id model_summary_for_report "
+        "--artifact-id model_registry "
+        "--artifact-id model_parameters "
+        "--artifact-id volume_breakout_operation_section "
+        "--artifact-id volume_breakout_operation_evidence_audit "
+        "--artifact-id w_bottom_right_side_operation_section "
+        "--artifact-id neckline_volume_breakout_confirmation_operation_section"
+    )
+    validate_command = "python scripts/validate_daily_published_model_snapshots.py"
+    try:
+        root = yaml_document_mapping(text, "daily authority workflow")
+        jobs = yaml_unique_mapping(root.get("jobs"), "daily authority workflow jobs")
+        job = yaml_unique_mapping(
+            jobs.get("daily-full-pipeline"), "daily authority workflow job"
+        )
+        steps = yaml_named_steps(text, "daily-full-pipeline")
+    except YamlContractError as exc:
+        return [f"daily authority workflow YAML contract invalid: {exc}"]
+    errors.extend(validate_execution_scope(root, "daily authority workflow"))
+    errors.extend(validate_execution_scope(job, "daily authority workflow job"))
+
+    named = {
+        name: []
+        for name in (prepare_name, snapshot_name, stage_name, validate_name, commit_name)
+    }
+    for index, (name, step) in enumerate(steps):
+        if name in named:
+            named[name].append((index, step))
+    if any(len(matches) != 1 for matches in named.values()):
+        return [
+            "daily authority prepare, final snapshot, stage, validate, and commit "
+            "steps must each exist exactly once"
+        ]
+
+    prepare_index, prepare_step = named[prepare_name][0]
+    snapshot_index, snapshot_step = named[snapshot_name][0]
+    stage_index, stage_step = named[stage_name][0]
+    validate_index, validate_step = named[validate_name][0]
+    commit_index, commit_step = named[commit_name][0]
+    try:
+        prepare_run = yaml_scalar(prepare_step.get("run"), "daily authority prepare run")
+        snapshot_run = yaml_scalar(snapshot_step.get("run"), "daily final snapshot run")
+        stage_run = yaml_scalar(stage_step.get("run"), "daily snapshot stage run")
+        validate_run = yaml_scalar(validate_step.get("run"), "daily snapshot validate run")
+        commit_run = yaml_scalar(commit_step.get("run"), "daily authority commit run")
+        snapshot_shell = yaml_string(snapshot_step.get("shell"), "daily final snapshot shell")
+        stage_shell = yaml_string(stage_step.get("shell"), "daily snapshot stage shell")
+        validate_shell = yaml_string(validate_step.get("shell"), "daily snapshot validate shell")
+        snapshot_env = yaml_unique_mapping(snapshot_step.get("env"), "daily final snapshot env")
+        stage_env = yaml_unique_mapping(stage_step.get("env"), "daily snapshot stage env")
+        validate_env = yaml_unique_mapping(validate_step.get("env"), "daily snapshot validate env")
+    except YamlContractError as exc:
+        return [f"daily authority step contract invalid: {exc}"]
+
+    try:
+        protected_envs_are_exact = all(
+            set(env) == set(PROTECTED_STEP_ENV)
+            and all(
+                yaml_string(env.get(key), f"daily protected step env {key}") == value
+                for key, value in PROTECTED_STEP_ENV.items()
+            )
+            for env in (snapshot_env, stage_env, validate_env)
+        )
+    except YamlContractError as exc:
+        return [f"daily authority protected environment contract invalid: {exc}"]
+
+    all_run_scalars = []
+    for _, step in steps:
+        run_node = step.get("run")
+        if isinstance(run_node, ScalarNode):
+            all_run_scalars.append(run_node.value)
+    if any("GITHUB_PATH" in run for run in all_run_scalars):
+        errors.append(
+            "daily authority workflow must not mutate GITHUB_PATH before protected snapshot commands"
+        )
+    dangerous_env_pattern = re.compile(
+        r"(?<![A-Za-z0-9_])(?:BASH_ENV|ENV|PATH|PYTHONHOME|PYTHONPATH|SHELLOPTS)="
+    )
+    if any(
+        "GITHUB_ENV" in run and dangerous_env_pattern.search(run)
+        for run in all_run_scalars
+    ):
+        errors.append(
+            "daily authority workflow must not publish protected execution overrides through GITHUB_ENV"
+        )
+    if (
+        set(snapshot_step) != {"name", "shell", "env", "run"}
+        or snapshot_shell != PROTECTED_STEP_SHELL
+        or not protected_envs_are_exact
+        or snapshot_run != final_snapshot_command
+        or sum(final_snapshot_command in run for run in all_run_scalars) != 1
+    ):
+        errors.append(
+            "daily authority workflow must use one dedicated final immutable freshness "
+            "snapshot step whose run scalar is the exact single command"
+        )
+    if (
+        set(stage_step) != {"name", "shell", "env", "run"}
+        or stage_shell != PROTECTED_STEP_SHELL
+        or not protected_envs_are_exact
+        or stage_run != stage_command
+        or sum(stage_command in run for run in all_run_scalars) != 1
+    ):
+        errors.append(
+            "daily authority workflow must use one dedicated immutable snapshot stage "
+            "step whose run scalar is the exact fixed command"
+        )
+    if (
+        set(validate_step) != {"name", "shell", "env", "run"}
+        or validate_shell != PROTECTED_STEP_SHELL
+        or not protected_envs_are_exact
+        or validate_run != validate_command
+        or sum(run == validate_command for run in all_run_scalars) != 1
+    ):
+        errors.append(
+            "daily authority workflow must use one dedicated immutable snapshot validation "
+            "step whose run scalar is the exact single command"
+        )
+    if not (
+        prepare_index + 1 == snapshot_index
+        and snapshot_index + 1 == stage_index
+        and stage_index + 1 == validate_index
+        and validate_index + 1 == commit_index
+        and authority_command in prepare_run
+        and final_snapshot_command not in prepare_run
+        and final_snapshot_command not in commit_run
+        and stage_command not in commit_run
+        and validate_command not in commit_run
+    ):
+        errors.append(
+            "daily authority workflow must publish authority, publish its final freshness "
+            "revision, stage exact revisions, validate, then enter the commit step as one "
+            "contiguous protected sequence"
+        )
     return errors
 
 
@@ -901,6 +1143,195 @@ def workflow_paths(workflow_root: Path) -> list[Path]:
     return sorted({*workflow_root.glob("*.yml"), *workflow_root.glob("*.yaml")})
 
 
+def active_multiline_shell_commands(text: str) -> list[str]:
+    """Return unconditional top-level shell commands, excluding inert text."""
+    commands: list[str] = []
+    parts: list[str] = []
+    parts_depth = 0
+    control_depth = 0
+    heredoc_delimiter = ""
+    terminated = False
+    for raw_line in text.splitlines():
+        stripped = raw_line.strip()
+        if heredoc_delimiter:
+            if stripped == heredoc_delimiter:
+                heredoc_delimiter = ""
+            continue
+        if not stripped or stripped.startswith("#"):
+            continue
+
+        if re.match(r"^(?:fi|done|esac|\}|\))(?:\s*[;>|&].*)?$", stripped):
+            control_depth = max(0, control_depth - 1)
+            continue
+        if re.match(r"^(?:elif|else|then|do)\b", stripped):
+            continue
+        opens_control = bool(
+            re.match(r"^(?:if|for|while|until|case|select)\b", stripped)
+            or re.match(
+                r"^(?:function\s+[A-Za-z_][A-Za-z0-9_]*|"
+                r"[A-Za-z_][A-Za-z0-9_]*\s*\(\s*\))\s*\{?\s*$",
+                stripped,
+            )
+            or stripped in {"{", "("}
+            or re.search(r"(?:&&|\|\||;)\s*[\{\(]\s*$", stripped)
+        )
+        if opens_control:
+            control_depth += 1
+            continue
+
+        backslash_continued = stripped.endswith("\\")
+        operator_continued = bool(re.search(r"(?:&&|\|\||\|)\s*$", stripped))
+        continued = backslash_continued or operator_continued
+        token = stripped[:-1].rstrip() if backslash_continued else stripped
+        if parts:
+            parts.append(token)
+            if not continued:
+                command = " ".join(parts)
+                command_depth = parts_depth
+                parts = []
+            else:
+                continue
+        elif continued:
+            parts = [token]
+            parts_depth = control_depth
+            continue
+        else:
+            command = token
+            command_depth = control_depth
+
+        heredoc = re.search(
+            r"(?<!<)<<-?(?!<)\s*(?:'([^']+)'|\"([^\"]+)\"|\\?([A-Za-z_][A-Za-z0-9_]*))",
+            command,
+        )
+        if heredoc:
+            heredoc_delimiter = next(
+                value for value in heredoc.groups() if value is not None
+            )
+        if command_depth == 0 and not terminated:
+            commands.append(command)
+            if re.search(
+                r"(?:^|&&\s*|\|\|\s*|;\s*)(?:exit|return|exec)(?:\s|$)",
+                command,
+            ) or re.fullmatch(r"false\s*;?(?:\s+#.*)?", command):
+                terminated = True
+    return commands
+
+
+class YamlContractError(ValueError):
+    pass
+
+
+PROTECTED_STEP_SHELL = "/bin/bash --noprofile --norc -e -o pipefail {0}"
+PROTECTED_STEP_ENV = {
+    "BASH_ENV": "/dev/null",
+    "ENV": "/dev/null",
+    "PYTHONHOME": "",
+    "PYTHONPATH": "",
+}
+FORBIDDEN_EXECUTION_ENV_KEYS = {
+    "BASH_ENV",
+    "ENV",
+    "PATH",
+    "PYTHONHOME",
+    "PYTHONPATH",
+    "SHELLOPTS",
+}
+
+
+def yaml_reject_duplicate_keys(node: Node | None, label: str) -> None:
+    if isinstance(node, MappingNode):
+        seen: set[str] = set()
+        for key_node, value_node in node.value:
+            if not isinstance(key_node, ScalarNode):
+                raise YamlContractError(f"{label} contains a non-scalar key")
+            key = key_node.value
+            if key in seen:
+                raise YamlContractError(f"{label} contains duplicate canonical key {key!r}")
+            seen.add(key)
+            yaml_reject_duplicate_keys(value_node, f"{label}.{key}")
+    elif isinstance(node, SequenceNode):
+        for index, item in enumerate(node.value):
+            yaml_reject_duplicate_keys(item, f"{label}[{index}]")
+
+
+def yaml_unique_mapping(node: Node | None, label: str) -> dict[str, Node]:
+    if not isinstance(node, MappingNode):
+        raise YamlContractError(f"{label} must be a mapping")
+    result: dict[str, Node] = {}
+    for key_node, value_node in node.value:
+        if not isinstance(key_node, ScalarNode):
+            raise YamlContractError(f"{label} contains a non-scalar key")
+        key = key_node.value
+        if key in result:
+            raise YamlContractError(f"{label} contains duplicate canonical key {key!r}")
+        result[key] = value_node
+    return result
+
+
+def yaml_document_mapping(text: str, label: str) -> dict[str, Node]:
+    try:
+        node = yaml.compose(text, Loader=yaml.SafeLoader)
+    except yaml.YAMLError as exc:
+        raise YamlContractError(f"{label} is not valid YAML: {exc}") from exc
+    yaml_reject_duplicate_keys(node, label)
+    return yaml_unique_mapping(node, label)
+
+
+def yaml_scalar(node: Node | None, label: str) -> str:
+    if not isinstance(node, ScalarNode):
+        raise YamlContractError(f"{label} must be a scalar")
+    return node.value
+
+
+def yaml_string(node: Node | None, label: str) -> str:
+    if not isinstance(node, ScalarNode) or node.tag != "tag:yaml.org,2002:str":
+        raise YamlContractError(f"{label} must be a YAML string scalar")
+    return node.value
+
+
+def yaml_boolean(node: Node | None, label: str) -> bool:
+    if not isinstance(node, ScalarNode) or node.tag != "tag:yaml.org,2002:bool":
+        raise YamlContractError(f"{label} must be a YAML boolean scalar")
+    if node.value not in {"true", "false"}:
+        raise YamlContractError(f"{label} must be true or false")
+    return node.value == "true"
+
+
+def validate_execution_scope(scope: dict[str, Node], label: str) -> list[str]:
+    errors: list[str] = []
+    if "defaults" in scope:
+        errors.append(f"{label} must not override the protected run shell through defaults")
+    env_node = scope.get("env")
+    if env_node is not None:
+        env = yaml_unique_mapping(env_node, f"{label} env")
+        forbidden = sorted(set(env) & FORBIDDEN_EXECUTION_ENV_KEYS)
+        if forbidden:
+            errors.append(
+                f"{label} must not override protected execution environment keys: {forbidden}"
+            )
+    return errors
+
+
+def yaml_sequence(node: Node | None, label: str) -> list[Node]:
+    if not isinstance(node, SequenceNode):
+        raise YamlContractError(f"{label} must be a sequence")
+    return list(node.value)
+
+
+def yaml_named_steps(text: str, job_name: str) -> list[tuple[str, dict[str, Node]]]:
+    root = yaml_document_mapping(text, "workflow")
+    jobs = yaml_unique_mapping(root.get("jobs"), "workflow jobs")
+    job = yaml_unique_mapping(jobs.get(job_name), f"workflow job {job_name}")
+    step_nodes = yaml_sequence(job.get("steps"), f"workflow job {job_name} steps")
+    steps: list[tuple[str, dict[str, Node]]] = []
+    for index, step_node in enumerate(step_nodes):
+        step = yaml_unique_mapping(step_node, f"workflow job {job_name} step {index}")
+        name_node = step.get("name")
+        name = yaml_scalar(name_node, f"workflow job {job_name} step {index} name")
+        steps.append((name, step))
+    return steps
+
+
 def validate_authority_workflow_publishers() -> list[str]:
     errors: list[str] = []
     workflow_root = ROOT / ".github" / "workflows"
@@ -959,6 +1390,106 @@ def yaml_if_conditions(workflow_text: str) -> list[str]:
 
 def validate_recent_price_gap_workflow_contract(repair_text: str) -> list[str]:
     errors: list[str] = []
+    try:
+        root = yaml_document_mapping(repair_text, "recent price-gap workflow")
+        concurrency = yaml_unique_mapping(
+            root.get("concurrency"), "recent price-gap concurrency"
+        )
+        if not (
+            set(concurrency) == {"group", "cancel-in-progress"}
+            and yaml_scalar(concurrency.get("group"), "recent price-gap concurrency group")
+            == "daily-full-pipeline-${{ github.ref }}"
+            and not yaml_boolean(
+                concurrency.get("cancel-in-progress"),
+                "recent price-gap cancel-in-progress",
+            )
+        ):
+            errors.append(
+                "recent price-gap workflow must hold the exact duplicate-free global production lock"
+            )
+
+        jobs = yaml_unique_mapping(root.get("jobs"), "recent price-gap jobs")
+        reusable_job = yaml_unique_mapping(
+            jobs.get("replay-structured-objective-sources"),
+            "recent price-gap reusable replay job",
+        )
+        reusable_with = yaml_unique_mapping(
+            reusable_job.get("with"), "recent price-gap reusable replay with"
+        )
+        if (
+            set(reusable_with)
+            != {
+                "start_date",
+                "end_date",
+                "price_history_high_water_date",
+                "repair_market_index_base_date",
+                "caller_concurrency_identity",
+                "expected_main_sha",
+            }
+            or yaml_scalar(
+                reusable_with.get("caller_concurrency_identity"),
+                "recent price-gap caller concurrency identity",
+            )
+            != "${{ format('{0}-{1}', github.run_id, github.run_attempt) }}"
+        ):
+            errors.append(
+                "recent price-gap reusable replay must bind the exact caller run-id and attempt"
+            )
+
+        resume_steps = yaml_named_steps(repair_text, "resume-daily-full-from-source-bundle")
+        expected_step_contracts = {
+            "Validate structured replay completion contract": (
+                {"name", "shell", "env", "run"},
+                "/bin/bash --noprofile --norc -e -o pipefail {0}",
+                "dfbad5f8289cfe2c55bfd362b8c05d714cdf220e5df53f4bccf27a1a87fd2d49",
+            ),
+            "Verify bundle and dispatch exactly one Daily Full resume": (
+                {"name", "shell", "env", "run"},
+                "/bin/bash --noprofile --norc -e -o pipefail {0}",
+                "bda7e937b2d2d130bf5ef72fdabe7bb3f25f96c7f076e69723513fdb5a9da448",
+            ),
+            "Finalize truthful source recovery terminal evidence": (
+                {"name", "id", "if", "shell", "env", "run"},
+                "/bin/bash --noprofile --norc -e -o pipefail {0}",
+                "2f10ac0372b85c30f83496feda6704f24bbe0ce157522ba5f40d1b1efb8e8575",
+            ),
+        }
+        for step_name, (expected_keys, expected_shell, expected_run_sha256) in (
+            expected_step_contracts.items()
+        ):
+            matches = [step for name, step in resume_steps if name == step_name]
+            step = matches[0] if len(matches) == 1 else {}
+            run = yaml_scalar(step.get("run"), f"recent price-gap protected run {step_name}")
+            if (
+                len(matches) != 1
+                or set(step) != expected_keys
+                or yaml_scalar(
+                    step.get("shell"), f"recent price-gap protected shell {step_name}"
+                )
+                != expected_shell
+                or hashlib.sha256(run.encode("utf-8")).hexdigest()
+                != expected_run_sha256
+            ):
+                errors.append(
+                    "recent price-gap protected step must match its exact active node/run contract: "
+                    f"{step_name}"
+                )
+        upload_matches = [
+            step for name, step in resume_steps if name == "Upload source recovery resume state"
+        ]
+        upload_step = upload_matches[0] if len(upload_matches) == 1 else {}
+        if (
+            len(upload_matches) != 1
+            or set(upload_step) != {"name", "if", "uses", "with"}
+            or yaml_scalar(upload_step.get("if"), "recent price-gap evidence upload if")
+            != "always() && steps.finalize_source_recovery_state.outcome == 'success'"
+        ):
+            errors.append(
+                "recent price-gap terminal evidence upload must be gated by the exact finalizer outcome"
+            )
+    except YamlContractError as exc:
+        errors.append(f"recent price-gap workflow YAML contract invalid: {exc}")
+
     repair_literals = {
         "Reject non-main production dispatch": (
             "recent price-gap workflow must reject branch dispatch"
@@ -1004,6 +1535,7 @@ def main() -> int:
     errors: list[str] = []
     daily_text = read_text(DAILY_WORKFLOW)
     errors.extend(validate_authority_workflow_publishers())
+    errors.extend(validate_daily_authority_snapshot_finalization(daily_text))
 
     if not HISTORICAL_SOURCE_REPLAY_WORKFLOW.exists():
         errors.append("missing historical structured-source replay workflow")

@@ -118,7 +118,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pandas requests lxml html5lib tabulate
+          pip install pandas requests lxml html5lib tabulate pyyaml==6.0.2
 
       - name: Validate workflow automation boundaries
         run: |
@@ -375,6 +375,7 @@ jobs:
       end_date: ${{ needs.plan-structured-objective-source-catch-up.outputs.end_date }}
       price_history_high_water_date: ${{ needs.plan-structured-objective-source-catch-up.outputs.price_history_high_water_date }}
       repair_market_index_base_date: ""
+      caller_concurrency_identity: ${{ format('{0}-{1}', github.run_id, github.run_attempt) }}
       expected_main_sha: ${{ needs.plan-structured-objective-source-catch-up.outputs.expected_main_sha }}
     secrets:
       PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}
@@ -428,55 +429,172 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Verify bundle and dispatch exactly one Daily Full resume
-        shell: bash
+      - name: Validate structured replay completion contract
+        shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+        env:
+          BASH_ENV: /dev/null
+          ENV: /dev/null
+          PYTHONHOME: ""
+          PYTHONPATH: ""
+          STRUCTURED_REPLAY_REQUIRED: ${{ needs.plan-structured-objective-source-catch-up.outputs.should_replay }}
+          STRUCTURED_REPLAY_RESULT: ${{ needs.replay-structured-objective-sources.result }}
         run: |
           set -euo pipefail
-          git fetch origin main
-          resume_head_sha="$(git rev-parse origin/main)"
-          if [ "$(git rev-parse HEAD)" != "$resume_head_sha" ]; then
-            echo "::error::Resume checkout does not equal current main."
-            exit 1
-          fi
-          if ! git merge-base --is-ancestor "$SOURCE_BUNDLE_COMMIT_SHA" "$resume_head_sha"; then
-            echo "::error::Source bundle commit is not an ancestor of current main."
-            exit 1
-          fi
+          gate_error_path="$RUNNER_TEMP/structured-replay-gate-error.txt"
+          rm -f -- "$gate_error_path"
+          case "${STRUCTURED_REPLAY_REQUIRED-}" in
+            true)
+              if [ "$STRUCTURED_REPLAY_RESULT" != success ]; then
+                printf '%s\n' "Required structured objective-source replay completed with result=$STRUCTURED_REPLAY_RESULT" > "$gate_error_path"
+              fi
+              ;;
+            false)
+              if [ "$STRUCTURED_REPLAY_RESULT" != skipped ]; then
+                printf '%s\n' "Unexpected structured objective-source replay result for no-op plan: $STRUCTURED_REPLAY_RESULT" > "$gate_error_path"
+              fi
+              ;;
+            *)
+              printf '%s\n' "Invalid structured objective-source replay requirement: ${STRUCTURED_REPLAY_REQUIRED-}" > "$gate_error_path"
+              ;;
+          esac
 
+      - name: Verify bundle and dispatch exactly one Daily Full resume
+        shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+        env:
+          BASH_ENV: /dev/null
+          ENV: /dev/null
+          PYTHONHOME: ""
+          PYTHONPATH: ""
+          STRUCTURED_PLAN_RESULT: ${{ needs.plan-structured-objective-source-catch-up.result }}
+          STRUCTURED_REPLAY_REQUIRED: ${{ needs.plan-structured-objective-source-catch-up.outputs.should_replay }}
+          STRUCTURED_REPLAY_RESULT: ${{ needs.replay-structured-objective-sources.result }}
+        run: |
+          set -Eeuo pipefail
           state_path="$RUNNER_TEMP/daily-source-recovery-state.json"
-          fail_recovery() {
+          write_failure_evidence() {
+            evidence_schema="$1"
+            evidence_phase="$2"
+            message="$3"
+            persistence_error="$4"
+            failure_writer='import json, os, sys; from pathlib import Path; '
+            failure_writer+='target = Path(sys.argv[1]); temporary = target.with_name(target.name + ".next"); '
+            failure_writer+='(target.is_symlink() or temporary.is_symlink()) and sys.exit("source recovery failure state path must not be a symlink"); '
+            failure_writer+='payload = {"schema_version": os.environ["FAILURE_SCHEMA"], "status": "failed", "phase": os.environ["FAILURE_PHASE"], "error": os.environ["FAILURE_ERROR"], "persistence_error": os.environ["FAILURE_PERSISTENCE_ERROR"]}; '
+            failure_writer+='payload.update({"workflow": "repair_recent_daily_price_gaps", "run_id": os.environ.get("GITHUB_RUN_ID", ""), "run_attempt": os.environ.get("GITHUB_RUN_ATTEMPT", ""), "source_trading_date": os.environ.get("SOURCE_TRADING_DATE", "")}); '
+            failure_writer+='payload.update({"source_bundle_commit_sha": os.environ.get("SOURCE_BUNDLE_COMMIT_SHA", ""), "source_bundle_manifest_path": os.environ.get("SOURCE_BUNDLE_MANIFEST_PATH", ""), "source_bundle_manifest_sha256": os.environ.get("SOURCE_BUNDLE_MANIFEST_SHA256", ""), "source_bundle_sha": os.environ.get("SOURCE_BUNDLE_SHA", "")}); '
+            failure_writer+='temporary.write_text(json.dumps(payload, ensure_ascii=True, sort_keys=True, separators=(",", ":")) + "\n", encoding="utf-8"); os.replace(temporary, target)'
+            FAILURE_SCHEMA="$evidence_schema" FAILURE_PHASE="$evidence_phase" \
+              FAILURE_ERROR="$message" FAILURE_PERSISTENCE_ERROR="$persistence_error" \
+              python -B -c "$failure_writer" "$state_path"
+          }
+          write_prestate_failure() {
+            write_failure_evidence \
+              "daily_source_recovery_preflight_failure.v1" \
+              "resume_preflight" "$1" ""
+          }
+          fail_prestate() {
             message="$1"
             echo "::error::$message"
-            if [ -f "$state_path" ]; then
-              if python -B scripts/daily_source_recovery_bundle.py transition \
-                --state "$state_path" --to failed --output "$state_path.next" \
-                --error "$message"; then
-                mv "$state_path.next" "$state_path"
-              else
-                echo "::error::Unable to persist terminal source-recovery failure state."
+            write_prestate_failure "$message"
+            exit 1
+          }
+          write_prestate_failure "Source recovery resume preflight did not complete"
+          if ! git fetch origin main; then
+            fail_prestate "Unable to fetch current main for source recovery resume"
+          fi
+          if ! resume_head_sha="$(git rev-parse origin/main)"; then
+            fail_prestate "Unable to resolve current main for source recovery resume"
+          fi
+          if ! checkout_head_sha="$(git rev-parse HEAD)"; then
+            fail_prestate "Unable to resolve resume checkout HEAD"
+          fi
+          if [ "$checkout_head_sha" != "$resume_head_sha" ]; then
+            fail_prestate "Resume checkout does not equal current main"
+          fi
+          if git merge-base --is-ancestor "$SOURCE_BUNDLE_COMMIT_SHA" "$resume_head_sha"; then
+            :
+          else
+            merge_base_status=$?
+            if [ "$merge_base_status" -eq 1 ]; then
+              fail_prestate "Source bundle commit is not an ancestor of current main"
+            fi
+            fail_prestate "Unable to verify source bundle ancestry against current main"
+          fi
+
+          write_terminal_failure_fallback() {
+            write_failure_evidence \
+              "daily_source_recovery_terminal_failure.v1" \
+              "resume_terminal_failure" "$1" "$2"
+          }
+          write_terminal_failure_emergency() {
+            emergency_path="$state_path.terminal-emergency"
+            printf '%s\n' '{"schema_version":"daily_source_recovery_terminal_failure.v1","status":"failed","phase":"resume_terminal_failure","error":"Terminal source-recovery state writer failed after the recovery operation failed","persistence_error":"canonical and fallback terminal-state writers failed"}' > "$emergency_path"
+            command mv -- "$emergency_path" "$state_path"
+          }
+          fail_recovery() {
+            message="$1"
+            trap - ERR
+            echo "::error::$message"
+            persistence_error=""
+            if [ ! -f "$state_path" ]; then
+              persistence_error="Source recovery state is missing before terminal failure persistence"
+            elif ! python -B scripts/daily_source_recovery_bundle.py transition \
+              --state "$state_path" --to failed --output "$state_path.next" \
+              --error "$message"; then
+              persistence_error="Unable to persist terminal source-recovery failure transition"
+            elif ! mv "$state_path.next" "$state_path"; then
+              persistence_error="Unable to activate terminal source-recovery failure state"
+            fi
+            if [ -n "$persistence_error" ]; then
+              echo "::error::$persistence_error"
+              rm -f -- "$state_path.next"
+              if ! write_terminal_failure_fallback "$message" "$persistence_error"; then
+                echo "::error::Unable to write atomic terminal source-recovery fallback state."
+                write_terminal_failure_emergency
               fi
             fi
             exit 1
           }
-          python -B scripts/daily_source_recovery_bundle.py verify \
+          if ! python -B scripts/daily_source_recovery_bundle.py verify \
             --repo-root . \
             --source-commit-sha "$SOURCE_BUNDLE_COMMIT_SHA" \
             --manifest-path "$SOURCE_BUNDLE_MANIFEST_PATH" \
             --manifest-sha256 "$SOURCE_BUNDLE_MANIFEST_SHA256" \
             --source-bundle-sha "$SOURCE_BUNDLE_SHA" \
             --trading-date "$SOURCE_TRADING_DATE" \
-            --state-output "$state_path"
-          python -B scripts/daily_source_recovery_bundle.py transition \
+            --state-output "$state_path"; then
+            fail_prestate "Immutable source recovery bundle verification failed"
+          fi
+          if ! python -B scripts/daily_source_recovery_bundle.py transition \
             --state "$state_path" --to bundle_committed --output "$state_path.next" \
-            --source-bundle-commit-sha "$SOURCE_BUNDLE_COMMIT_SHA"
-          mv "$state_path.next" "$state_path"
+            --source-bundle-commit-sha "$SOURCE_BUNDLE_COMMIT_SHA"; then
+            fail_prestate "Unable to persist bundle-committed source recovery state"
+          fi
+          if ! mv "$state_path.next" "$state_path"; then
+            fail_prestate "Unable to activate bundle-committed source recovery state"
+          fi
+          post_bundle_failure_trap() {
+            exit_code=$?
+            trap - ERR
+            fail_recovery "Source recovery resume command failed with exit=$exit_code"
+          }
+          trap post_bundle_failure_trap ERR
+          gate_error_path="$RUNNER_TEMP/structured-replay-gate-error.txt"
+          if [ -e "$gate_error_path" ]; then
+            if [ ! -f "$gate_error_path" ] || [ ! -s "$gate_error_path" ]; then
+              fail_recovery "Structured replay completion gate evidence is malformed"
+            fi
+            if ! gate_error="$(cat -- "$gate_error_path")"; then
+              fail_recovery "Unable to read structured replay completion gate evidence"
+            fi
+            if [ -z "$gate_error" ]; then
+              fail_recovery "Structured replay completion gate evidence is blank"
+            fi
+            fail_recovery "$gate_error"
+          fi
           if [ "$STRUCTURED_PLAN_RESULT" != success ]; then
             fail_recovery "Structured objective-source plan completed with result=$STRUCTURED_PLAN_RESULT"
           fi
-          if [ "$STRUCTURED_REPLAY_RESULT" != success ] && [ "$STRUCTURED_REPLAY_RESULT" != skipped ]; then
-            fail_recovery "Structured objective-source replay completed with result=$STRUCTURED_REPLAY_RESULT"
-          fi
-
           authority_path="$RUNNER_TEMP/existing-authority.json"
           if [ "$REPAIR_ACTION_COUNT" = 0 ] && [ "$STRUCTURED_REPLAY_REQUIRED" != true ]; then
             python -B scripts/daily_source_recovery_bundle.py authority-status \
@@ -490,7 +608,11 @@ jobs:
           else
             printf '%s\n' '{"resume_required":true,"existing_authority":{}}' > "$authority_path"
           fi
-          if [ "$(python -c 'import json,sys; print(str(json.load(open(sys.argv[1], encoding="utf-8"))["resume_required"]).lower())' "$authority_path")" = false ]; then
+          if ! resume_required="$(python -c 'import json,sys; value=json.load(open(sys.argv[1], encoding="utf-8"))["resume_required"]; isinstance(value, bool) or sys.exit("resume_required must be boolean"); print(str(value).lower())' "$authority_path")"; then
+            fail_recovery "Unable to parse the source recovery authority decision"
+          fi
+          case "$resume_required" in
+          false)
             authority_fields="$(python - "$authority_path" <<'PY'
           import json
           import sys
@@ -509,8 +631,15 @@ jobs:
             python -B scripts/daily_source_recovery_bundle.py transition \
               --state "$state_path" --to confirm_source_gate --output "$state_path.next"
             mv "$state_path.next" "$state_path"
+            trap - ERR
             exit 0
-          fi
+            ;;
+          true)
+            ;;
+          *)
+            fail_recovery "Invalid source recovery authority decision: $resume_required"
+            ;;
+          esac
 
           correlation_id="daily-source-${SOURCE_TRADING_DATE}"
           expected_title="Daily Full Pipeline | recovery=${correlation_id}"
@@ -696,11 +825,7 @@ jobs:
             read -r status conclusion <<< "$status_line"
             if [ "$status" = completed ]; then
               if [ "$conclusion" != success ]; then
-                python -B scripts/daily_source_recovery_bundle.py transition \
-                  --state "$state_path" --to failed --output "$state_path.next" \
-                  --error "Daily Full resume completed with conclusion=$conclusion"
-                mv "$state_path.next" "$state_path"
-                exit 1
+                fail_recovery "Daily Full resume completed with conclusion=$conclusion"
               fi
               python -B scripts/daily_source_recovery_bundle.py transition \
                 --state "$state_path" --to resume_succeeded --output "$state_path.next" \
@@ -709,18 +834,107 @@ jobs:
               python -B scripts/daily_source_recovery_bundle.py transition \
                 --state "$state_path" --to confirm_source_gate --output "$state_path.next"
               mv "$state_path.next" "$state_path"
+              trap - ERR
               exit 0
             fi
             sleep 30
           done
-          python -B scripts/daily_source_recovery_bundle.py transition \
-            --state "$state_path" --to failed --output "$state_path.next" \
-            --error "Daily Full resume completion polling timed out"
-          mv "$state_path.next" "$state_path"
-          exit 1
+          fail_recovery "Daily Full resume completion polling timed out"
+
+      - name: Finalize truthful source recovery terminal evidence
+        id: finalize_source_recovery_state
+        if: always()
+        shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+        env:
+          RESUME_JOB_STATUS: ${{ job.status }}
+        run: |
+          set -euo pipefail
+          state_path="$RUNNER_TEMP/daily-source-recovery-state.json"
+          python -B - "$state_path" "$RESUME_JOB_STATUS" <<'PY'
+          import json
+          import os
+          import sys
+          from pathlib import Path
+
+          state_path = Path(sys.argv[1])
+          job_status = sys.argv[2]
+          if job_status not in {"success", "failure", "cancelled"}:
+              raise SystemExit(f"unexpected resume job status: {job_status!r}")
+          if state_path.is_symlink():
+              raise SystemExit("source recovery terminal state path must not be a symlink")
+
+          existing: dict[str, object] = {}
+          if state_path.is_file() and state_path.stat().st_size > 0:
+              try:
+                  loaded = json.loads(state_path.read_text(encoding="utf-8"))
+              except (OSError, json.JSONDecodeError) as exc:
+                  loaded = {"invalid_state_error": str(exc)}
+              if isinstance(loaded, dict):
+                  existing = loaded
+
+          if job_status == "success":
+              if existing.get("status") != "confirm_source_gate":
+                  raise SystemExit(
+                      "successful source recovery resume is missing confirm_source_gate terminal state"
+                  )
+          else:
+              previous_status = str(existing.get("status") or "missing")
+              previous_error = str(existing.get("error") or "").strip()
+              error = previous_error or (
+                  f"Source recovery resume job ended with status={job_status} before a truthful "
+                  "terminal failure state was durably recorded"
+              )
+              payload = {
+                  "schema_version": "daily_source_recovery_terminal_failure.v1",
+                  "status": "failed",
+                  "phase": "resume_terminal_finalizer",
+                  "error": error,
+                  "persistence_error": (
+                      f"terminal finalizer replaced prior state status={previous_status}"
+                  ),
+                  "workflow": "repair_recent_daily_price_gaps",
+                  "run_id": os.environ.get("GITHUB_RUN_ID", ""),
+                  "run_attempt": os.environ.get("GITHUB_RUN_ATTEMPT", ""),
+                  "source_trading_date": os.environ.get("SOURCE_TRADING_DATE", ""),
+                  "source_bundle_commit_sha": os.environ.get("SOURCE_BUNDLE_COMMIT_SHA", ""),
+                  "source_bundle_manifest_path": os.environ.get(
+                      "SOURCE_BUNDLE_MANIFEST_PATH", ""
+                  ),
+                  "source_bundle_manifest_sha256": os.environ.get(
+                      "SOURCE_BUNDLE_MANIFEST_SHA256", ""
+                  ),
+                  "source_bundle_sha": os.environ.get("SOURCE_BUNDLE_SHA", ""),
+              }
+              temporary = state_path.with_name(state_path.name + ".terminal-next")
+              if temporary.is_symlink():
+                  raise SystemExit("source recovery terminal temporary path must not be a symlink")
+              temporary.write_text(
+                  json.dumps(
+                      payload,
+                      ensure_ascii=True,
+                      sort_keys=True,
+                      separators=(",", ":"),
+                  )
+                  + "\n",
+                  encoding="utf-8",
+              )
+              os.replace(temporary, state_path)
+
+          observed = json.loads(state_path.read_text(encoding="utf-8"))
+          expected_status = "confirm_source_gate" if job_status == "success" else "failed"
+          if observed.get("status") != expected_status:
+              raise SystemExit(
+                  "source recovery terminal state status mismatch: "
+                  f"expected={expected_status!r} observed={observed.get('status')!r}"
+              )
+          if not str(observed.get("error") or "").strip() and expected_status == "failed":
+              raise SystemExit("source recovery terminal failure evidence has a blank error")
+          if state_path.stat().st_size <= 0:
+              raise SystemExit("source recovery terminal state evidence is empty")
+          PY
 
       - name: Upload source recovery resume state
-        if: always()
+        if: always() && steps.finalize_source_recovery_state.outcome == 'success'
         uses: actions/upload-artifact@v4
         with:
           name: daily-source-recovery-state-${{ github.run_id }}-${{ github.run_attempt }}

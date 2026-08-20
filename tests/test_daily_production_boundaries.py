@@ -83,7 +83,10 @@ def _collect_workflow_validation_steps(file_path: Path) -> tuple[dict[str, list[
 
         if line.startswith("      - name:"):
             current_step_index += 1
-            current_step_is_install = line.split(":", 1)[1].strip() == "Install dependencies"
+            step_name = line.split(":", 1)[1].strip().lower()
+            current_step_is_install = step_name.startswith("install ") and step_name.endswith(
+                "dependencies"
+            )
             continue
 
         if current_step_is_install and "pip install" in line:
@@ -101,6 +104,8 @@ def _collect_workflow_validation_steps(file_path: Path) -> tuple[dict[str, list[
     [
         ".github/workflows/daily_full_pipeline.yml",
         ".github/workflows/repair_recent_daily_price_gaps.yml",
+        ".github/workflows/daily_pdf_replay_pr_validation.yml",
+        ".github/workflows/event_catalyst_update.yml",
     ],
 )
 def test_workflow_dependency_install_precedes_boundary_validator(
@@ -118,6 +123,7 @@ def test_workflow_dependency_install_precedes_boundary_validator(
                 f"{workflow_path} job={job}: no Install dependencies step before validator step "
                 f"{validator_step_index}"
             )
+            assert "pyyaml==6.0.2" in workflow_path.read_text(encoding="utf-8").lower()
 
 
 def test_daily_production_boundary_validator_passes_current_repo() -> None:
@@ -2429,7 +2435,7 @@ def test_daily_workflow_publishes_as_published_model_snapshots() -> None:
         post_audit_publish_start:monthly_revenue_start
     ]
 
-    assert text.count("python scripts/update_daily_published_model_snapshots.py") == 2
+    assert text.count("python scripts/update_daily_published_model_snapshots.py") == 3
     assert text.count("python scripts/build_volume_v2_warrant_lineage_history_audit.py") == 1
     assert text.count("python scripts/build_daily_volume_breakout_operation_section.py") == 1
 
@@ -2528,11 +2534,63 @@ def test_daily_workflow_publishes_as_published_model_snapshots() -> None:
         < post_audit_publish_start
         < text.index("- name: Commit report artifacts, packets, and rules first")
     )
-    commit_block = text[
-        text.index("- name: Commit report artifacts, packets, and rules first") :
-        text.index("- name: Wait briefly for GitHub Pages and raw propagation")
-    ]
-    assert "python scripts/validate_daily_published_model_snapshots.py" in commit_block
+    prepare_start = text.index(
+        "- name: Prepare daily authority release before immutable snapshot finalization"
+    )
+    final_snapshot_start = text.index(
+        "- name: Publish final immutable freshness snapshot revision"
+    )
+    snapshot_stage_start = text.index(
+        "- name: Stage immutable published snapshot revisions"
+    )
+    snapshot_validate_start = text.index(
+        "- name: Validate immutable published snapshot revisions"
+    )
+    commit_start = text.index("- name: Commit report artifacts, packets, and rules first")
+    wait_start = text.index("- name: Wait briefly for GitHub Pages and raw propagation")
+    prepare_block = text[prepare_start:final_snapshot_start]
+    final_snapshot_block = text[final_snapshot_start:snapshot_stage_start]
+    snapshot_stage_block = text[snapshot_stage_start:snapshot_validate_start]
+    snapshot_validate_block = text[snapshot_validate_start:commit_start]
+    commit_block = text[commit_start:wait_start]
+    authority_publish = prepare_block.index(
+        "python scripts/daily_authority_release.py publish"
+    )
+    assert authority_publish >= 0
+    assert final_snapshot_block.strip() == (
+        "- name: Publish final immutable freshness snapshot revision\n"
+        "        shell: /bin/bash --noprofile --norc -e -o pipefail {0}\n"
+        "        env:\n"
+        "          BASH_ENV: /dev/null\n"
+        "          ENV: /dev/null\n"
+        '          PYTHONHOME: ""\n'
+        '          PYTHONPATH: ""\n'
+        "        run: python scripts/update_daily_published_model_snapshots.py "
+        "--artifact-id data_freshness --revision-reason daily_authority_release_final"
+    )
+    assert "python scripts/stage_daily_published_snapshot_revisions.py" in snapshot_stage_block
+    assert '--report-date "$SNAPSHOT_REPORT_DATE"' in snapshot_stage_block
+    assert snapshot_validate_block.strip() == (
+        "- name: Validate immutable published snapshot revisions\n"
+        "        shell: /bin/bash --noprofile --norc -e -o pipefail {0}\n"
+        "        env:\n"
+        "          BASH_ENV: /dev/null\n"
+        "          ENV: /dev/null\n"
+        '          PYTHONHOME: ""\n'
+        '          PYTHONPATH: ""\n'
+        "        run: python scripts/validate_daily_published_model_snapshots.py"
+    )
+    assert "python scripts/stage_daily_published_snapshot_revisions.py" not in commit_block
+    assert "python scripts/validate_daily_published_model_snapshots.py" not in commit_block
+    assert (
+        prepare_start
+        < final_snapshot_start
+        < snapshot_stage_start
+        < snapshot_validate_start
+        < commit_start
+        < wait_start
+    )
+    assert boundaries.validate_daily_authority_snapshot_finalization(text) == []
 
 
 def test_docs_daily_rules_match_authoritative_rules() -> None:
@@ -2742,10 +2800,323 @@ def test_research_workflow_does_not_stage_generated_recommendations_as_config() 
     assert 'Path("config/daily_model_parameter_recommendations.csv")' not in recommender
 
 
+def test_daily_authority_snapshot_finalization_rejects_commented_command_spoof() -> None:
+    text = boundaries.DAILY_WORKFLOW.read_text(encoding="utf-8")
+    invalid = text.replace(
+        "        run: python scripts/update_daily_published_model_snapshots.py "
+        "--artifact-id data_freshness --revision-reason daily_authority_release_final",
+        "        run: '# python scripts/update_daily_published_model_snapshots.py "
+        "--artifact-id data_freshness --revision-reason daily_authority_release_final'",
+        1,
+    )
+
+    errors = boundaries.validate_daily_authority_snapshot_finalization(invalid)
+
+    assert any("dedicated final immutable freshness" in error for error in errors)
+
+
+def test_daily_authority_snapshot_finalization_rejects_inert_shell_spoofs() -> None:
+    text = boundaries.DAILY_WORKFLOW.read_text(encoding="utf-8")
+    command = (
+        "        run: python scripts/update_daily_published_model_snapshots.py "
+        "--artifact-id data_freshness --revision-reason daily_authority_release_final"
+    )
+    replacements = (
+        "        run: |\n          if false; then\n            " + command.strip().removeprefix("run: ") + "\n          fi",
+        "        run: |\n          cat <<$'INERT_FINAL_SNAPSHOT'\n          " + command.strip().removeprefix("run: ") + "\n          INERT_FINAL_SNAPSHOT",
+        "        run: |\n          : <<123\n          " + command.strip().removeprefix("run: ") + "\n          123",
+        "        run: |\n          builtin exit 0\n          " + command.strip().removeprefix("run: "),
+        "        run: |\n          command false\n          " + command.strip().removeprefix("run: "),
+        "        run: |\n          false | true\n          " + command.strip().removeprefix("run: "),
+    )
+
+    for replacement in replacements:
+        invalid = text.replace(command, replacement, 1)
+        assert invalid != text
+        errors = boundaries.validate_daily_authority_snapshot_finalization(invalid)
+        assert any(
+            "dedicated final immutable freshness" in error
+            for error in errors
+        )
+
+
+def test_daily_authority_snapshot_stage_and_validation_steps_are_exact_and_active() -> None:
+    text = boundaries.DAILY_WORKFLOW.read_text(encoding="utf-8")
+    stage_name = "      - name: Stage immutable published snapshot revisions\n"
+    stage_command = "          python scripts/stage_daily_published_snapshot_revisions.py"
+    validate_block = (
+        "      - name: Validate immutable published snapshot revisions\n"
+        "        shell: /bin/bash --noprofile --norc -e -o pipefail {0}\n"
+    )
+    variants = (
+        text.replace(stage_name, stage_name + "        if: false\n", 1),
+        text.replace(stage_command, "          true && python scripts/stage_daily_published_snapshot_revisions.py", 1),
+        text.replace(validate_block, validate_block + "        if: false\n", 1),
+        text.replace(
+            "        run: python scripts/validate_daily_published_model_snapshots.py\n\n"
+            "      - name: Commit report artifacts, packets, and rules first",
+            "        run: true && python scripts/validate_daily_published_model_snapshots.py\n\n"
+            "      - name: Commit report artifacts, packets, and rules first",
+            1,
+        ),
+        text.replace(
+            "permissions:\n",
+            "defaults:\n  run:\n    shell: bash\n\npermissions:\n",
+            1,
+        ),
+        text.replace(
+            "permissions:\n",
+            "env:\n  BASH_ENV: /tmp/attacker\n\npermissions:\n",
+            1,
+        ),
+        text.replace(
+            stage_name,
+            "      - name: Hijack protected Python path\n"
+            "        run: echo \"$RUNNER_TEMP/attacker-bin\" >> \"$GITHUB_PATH\"\n\n"
+            + stage_name,
+            1,
+        ),
+        text.replace(
+            stage_name,
+            "      - name: Insert unverified command boundary\n"
+            "        run: echo harmless\n\n"
+            + stage_name,
+            1,
+        ),
+        text.replace(
+            stage_name,
+            "      - name: Override protected Python path through env\n"
+            "        run: echo \"PATH=$RUNNER_TEMP/attacker-bin:$PATH\" >> \"$GITHUB_ENV\"\n\n"
+            + stage_name,
+            1,
+        ),
+    )
+
+    for invalid in variants:
+        assert invalid != text
+        errors = boundaries.validate_daily_authority_snapshot_finalization(invalid)
+        assert errors
+
+
+def test_production_workflow_validators_install_pinned_pyyaml_first() -> None:
+    contracts = (
+        (
+            boundaries.DAILY_WORKFLOW,
+            "daily-full-pipeline",
+            "Install dependencies",
+            "Validate daily production boundaries",
+        ),
+        (
+            boundaries.HISTORICAL_SOURCE_REPLAY_WORKFLOW,
+            "replay-historical-structured-sources",
+            "Install replay dependencies",
+            "Validate repository automation boundaries",
+        ),
+        (
+            ROOT / ".github" / "workflows" / "repair_recent_daily_price_gaps.yml",
+            "repair-recent-daily-price-gaps",
+            "Install dependencies",
+            "Validate workflow automation boundaries",
+        ),
+    )
+
+    for path, job_name, install_name, validate_name in contracts:
+        text = path.read_text(encoding="utf-8")
+        steps = boundaries.yaml_named_steps(text, job_name)
+        names = [name for name, _ in steps]
+        assert names.count(install_name) == 1
+        assert names.count(validate_name) == 1
+        assert names.index(install_name) < names.index(validate_name)
+        install_step = next(step for name, step in steps if name == install_name)
+        install_run = boundaries.yaml_scalar(
+            install_step.get("run"), f"{path.name} dependency installation run"
+        )
+        pip_lines = [line.strip().split() for line in install_run.splitlines() if line.strip().startswith("pip install ")]
+        assert len(pip_lines) == 1
+        assert "pyyaml==6.0.2" in pip_lines[0]
+
+
 def test_historical_structured_source_replay_workflow_is_fail_closed() -> None:
     text = boundaries.HISTORICAL_SOURCE_REPLAY_WORKFLOW.read_text(encoding="utf-8")
 
     assert boundaries.validate_historical_source_replay_workflow(text) == []
+
+
+def test_historical_structured_source_replay_rejects_critical_step_bypass_metadata() -> None:
+    text = boundaries.HISTORICAL_SOURCE_REPLAY_WORKFLOW.read_text(encoding="utf-8")
+    step_names = (
+        "Replay structured objective sources in ascending order",
+        "Validate final replay artifacts and target-slice parity",
+        "Create and push exactly one replay output commit",
+        "Revalidate pushed replay against immutable code base",
+    )
+    variants = []
+    for index, step_name in enumerate(step_names):
+        marker = f"      - name: {step_name}\n"
+        metadata = "        continue-on-error: true\n" if index % 2 == 0 else "        if: ${{ false }}\n"
+        variants.append(text.replace(marker, marker + metadata, 1))
+        start = text.index(marker)
+        end = text.find("\n      - name: ", start + len(marker))
+        block = text[start:] if end < 0 else text[start:end]
+        variants.append(
+            text.replace(block, block.replace("        shell: bash", "        shell: true {0}", 1), 1)
+        )
+        variants.append(
+            text.replace(
+                block,
+                block.replace("        run: |\n", "        run: |\n          if false; then\n          fi\n", 1),
+                1,
+            )
+        )
+
+    for invalid in variants:
+        assert invalid != text
+        errors = boundaries.validate_historical_source_replay_workflow(invalid)
+        assert any("critical step" in error for error in errors)
+
+
+def test_recent_price_gap_structured_guard_rejects_lock_gate_identity_and_finalizer_bypasses() -> None:
+    text = boundaries.RECENT_PRICE_GAP_WORKFLOW.read_text(encoding="utf-8")
+    variants = (
+        text + '\n"concu\\u0072rency": {group: rogue, cancel-in-progress: false}\n',
+        text.replace(
+            "      caller_concurrency_identity: ${{ format('{0}-{1}', github.run_id, github.run_attempt) }}",
+            "      caller_concurrency_identity: fixed-spoof",
+            1,
+        ),
+        text.replace(
+            '          case "${STRUCTURED_REPLAY_REQUIRED-}" in',
+            '          case "${STRUCTURED_REPLAY_REQUIRED-false}" in',
+            1,
+        ),
+        text.replace(
+            "          job_status = sys.argv[2]",
+            "          if False:\n              job_status = sys.argv[2]\n          job_status = 'success'",
+            1,
+        ),
+        text.replace(
+            "        if: always() && steps.finalize_source_recovery_state.outcome == 'success'",
+            "        if: always()",
+            1,
+        ),
+    )
+
+    for invalid in variants:
+        assert invalid != text
+        assert boundaries.validate_recent_price_gap_workflow_contract(invalid)
+
+
+def test_historical_structured_source_replay_rejects_commented_concurrency_spoof() -> None:
+    text = boundaries.HISTORICAL_SOURCE_REPLAY_WORKFLOW.read_text(encoding="utf-8")
+    expected = (
+        "  group: ${{ inputs.caller_concurrency_identity != '' && "
+        "format('historical-structured-source-replay-call-{0}', "
+        "inputs.caller_concurrency_identity) || "
+        "format('daily-full-pipeline-{0}', github.ref) }}"
+    )
+    invalid = text.replace(
+        expected,
+        "  group: daily-full-pipeline-${{ github.ref }}\n  # " + expected.strip(),
+        1,
+    )
+
+    errors = boundaries.validate_historical_source_replay_workflow(invalid)
+
+    assert any("exactly one active top-level concurrency" in error for error in errors)
+
+
+def test_historical_structured_source_replay_rejects_duplicate_concurrency_group() -> None:
+    text = boundaries.HISTORICAL_SOURCE_REPLAY_WORKFLOW.read_text(encoding="utf-8")
+    expected = (
+        "  group: ${{ inputs.caller_concurrency_identity != '' && "
+        "format('historical-structured-source-replay-call-{0}', "
+        "inputs.caller_concurrency_identity) || "
+        "format('daily-full-pipeline-{0}', github.ref) }}"
+    )
+    duplicate_forms = (
+        "  group: daily-full-pipeline-${{ github.ref }}",
+        '  "group": daily-full-pipeline-${{ github.ref }}',
+        "  group : daily-full-pipeline-${{ github.ref }}",
+        '"concurrency":\n  "group": daily-full-pipeline-${{ github.ref }}',
+        '  "gr\\u006fup": daily-full-pipeline-${{ github.ref }}',
+        '  "\\x67roup": daily-full-pipeline-${{ github.ref }}',
+        "  ? group\n  : daily-full-pipeline-${{ github.ref }}",
+        "  !!str group: daily-full-pipeline-${{ github.ref }}",
+        'concurrency: {group: "manual-bypass-${{ github.run_id }}", cancel-in-progress: false}',
+        '"concu\\u0072rency": {group: "manual-bypass-${{ github.run_id }}"}',
+        "!!str concurrency: {group: manual-bypass-${{ github.run_id }}}",
+    )
+
+    for duplicate in duplicate_forms:
+        invalid = text.replace(expected, expected + "\n" + duplicate, 1)
+        errors = boundaries.validate_historical_source_replay_workflow(invalid)
+        assert any(
+            "exactly one active top-level concurrency" in error for error in errors
+        )
+
+
+def test_historical_structured_source_replay_rejects_nested_duplicates_and_string_booleans() -> None:
+    text = boundaries.HISTORICAL_SOURCE_REPLAY_WORKFLOW.read_text(encoding="utf-8")
+    variants = (
+        text.replace(
+            "        required: true\n        type: string",
+            '        required: true\n        "required": false\n        type: string',
+            1,
+        ),
+        text.replace(
+            "  cancel-in-progress: false",
+            '  cancel-in-progress: "false"',
+            1,
+        ),
+    )
+
+    for invalid in variants:
+        errors = boundaries.validate_historical_source_replay_workflow(invalid)
+        assert any("YAML contract invalid" in error for error in errors)
+
+
+def test_historical_structured_source_replay_hides_caller_identity_from_dispatch() -> None:
+    text = boundaries.HISTORICAL_SOURCE_REPLAY_WORKFLOW.read_text(encoding="utf-8")
+    for key in (
+        "caller_concurrency_identity:",
+        '"caller_concurrency_identity":',
+        "caller_concurrency_identity :",
+    ):
+        invalid = text.replace(
+            "  workflow_dispatch:\n    inputs:\n",
+            "  workflow_dispatch:\n    inputs:\n"
+            f"      {key}\n"
+            "        required: false\n"
+            "        default: ''\n"
+            "        type: string\n",
+            1,
+        )
+        errors = boundaries.validate_historical_source_replay_workflow(invalid)
+        assert any("must not expose" in error for error in errors)
+
+
+def test_historical_structured_source_replay_rejects_node_equivalent_dispatch_identity_keys() -> None:
+    text = boundaries.HISTORICAL_SOURCE_REPLAY_WORKFLOW.read_text(encoding="utf-8")
+    entries = (
+        '      "caller_concurrency_\\u0069dentity":\n'
+        "        required: false\n"
+        "        type: string\n",
+        "      ? caller_concurrency_identity\n"
+        "      :\n"
+        "        required: false\n"
+        "        type: string\n",
+        "      !!str caller_concurrency_identity:\n"
+        "        required: false\n"
+        "        type: string\n",
+    )
+    for entry in entries:
+        invalid = text.replace(
+            "  workflow_dispatch:\n    inputs:\n",
+            "  workflow_dispatch:\n    inputs:\n" + entry,
+            1,
+        )
+        errors = boundaries.validate_historical_source_replay_workflow(invalid)
+        assert any("must not expose" in error for error in errors)
 
 
 def test_historical_structured_source_replay_workflow_wires_optional_price_high_water() -> None:

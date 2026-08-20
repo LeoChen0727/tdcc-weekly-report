@@ -37,7 +37,7 @@ jobs:
       - name: Install contract-test dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pandas requests tabulate matplotlib pillow openpyxl lxml html5lib beautifulsoup4 reportlab pypdf pytest fonttools
+          pip install pandas requests tabulate matplotlib pillow openpyxl lxml html5lib beautifulsoup4 reportlab pypdf pytest fonttools pyyaml==6.0.2
 
       - name: Validate PDF replay workflow contracts
         run: |
