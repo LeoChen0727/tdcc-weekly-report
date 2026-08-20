@@ -12,6 +12,13 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 INVENTORY = ROOT / "docs" / "pdf_production_inventory.md"
 DAILY_WORKFLOW = ROOT / ".github" / "workflows" / "daily_full_pipeline.yml"
+PDF_PREBUILD_STEP_NAME = "Validate PDF prebuild contract"
+PDF_PREBUILD_COMMAND = "python scripts/validate_pdf_production_inventory.py --phase prebuild"
+PDF_PREBUILD_STEP = (
+    f"      - name: {PDF_PREBUILD_STEP_NAME}\n"
+    "        run: |\n"
+    f"          {PDF_PREBUILD_COMMAND}"
+)
 PUBLISHER = ROOT / "publish_chatgpt_report_readme_and_check.py"
 PACKET_BUILDER = ROOT / "build_chatgpt_daily_report_packet.py"
 DAILY_MARKET_ARTIFACT_BUILDER = ROOT / "build_daily_market_report_artifacts.py"
@@ -482,7 +489,7 @@ def validate_workflow_hooks(errors: list[str]) -> None:
     workflow = read_text(DAILY_WORKFLOW)
     commands = [line.strip() for line in workflow.splitlines()]
     full_command = "python scripts/validate_pdf_production_inventory.py"
-    prebuild_command = f"{full_command} --phase prebuild"
+    prebuild_command = PDF_PREBUILD_COMMAND
     if commands.count(prebuild_command) != 1:
         errors.append(
             "Daily Full Pipeline must run exactly one prebuild PDF production inventory validation"
@@ -490,7 +497,16 @@ def validate_workflow_hooks(errors: list[str]) -> None:
     if commands.count(full_command) < 2:
         errors.append("Daily Full Pipeline must run validate_pdf_production_inventory.py before and after publish")
     try:
-        prebuild_step_index = workflow.index("- name: Validate Apps Script workflow triggers")
+        prebuild_step_marker = f"      - name: {PDF_PREBUILD_STEP_NAME}"
+        if workflow.count(prebuild_step_marker) != 1:
+            raise ValueError("missing or duplicate PDF prebuild step")
+        prebuild_step_index = workflow.index(prebuild_step_marker)
+        next_step_index = workflow.index("\n      - name:", prebuild_step_index + 1)
+        observed_prebuild_step = workflow[prebuild_step_index:next_step_index].rstrip()
+        if observed_prebuild_step != PDF_PREBUILD_STEP:
+            errors.append(
+                "Daily Full Pipeline PDF prebuild step must contain only the exact prebuild command"
+            )
         install_index = workflow.index("- name: Install dependencies", prebuild_step_index)
         workflow.index(prebuild_command, prebuild_step_index, install_index)
         build_index = workflow.index("- name: Build daily market report artifacts", install_index)

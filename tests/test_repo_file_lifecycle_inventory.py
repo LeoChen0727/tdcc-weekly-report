@@ -89,15 +89,19 @@ def test_active_guidance_does_not_point_to_retired_daily_pdf_artifacts() -> None
         assert "daily_market_full_table_report_latest.pdf" not in text
 
 
-def test_lifecycle_gate_is_hooked_into_daily_pipeline() -> None:
-    workflow = (ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(
+def test_lifecycle_gate_is_hooked_into_pull_request_static_validation() -> None:
+    daily_workflow = (ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(
         encoding="utf-8"
     )
+    pr_workflow = (
+        ROOT / ".github" / "workflows" / "individual_stock_pr_validation.yml"
+    ).read_text(encoding="utf-8")
     boundary = (ROOT / "scripts" / "validate_daily_production_boundaries.py").read_text(
         encoding="utf-8"
     )
 
-    assert "python scripts/validate_repo_file_lifecycle_inventory.py" in workflow
+    assert "python scripts/validate_repo_file_lifecycle_inventory.py" not in daily_workflow
+    assert "python scripts/validate_repo_file_lifecycle_inventory.py" in pr_workflow
     assert "validate_repo_file_lifecycle_inventory.py" in boundary
 
 
