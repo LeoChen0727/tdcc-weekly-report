@@ -3,6 +3,8 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+import pytest
+
 import ensure_report_aliases
 from scripts import validate_pdf_production_inventory as inventory
 
@@ -210,10 +212,9 @@ def test_daily_workflow_uses_prebuild_once_and_keeps_two_full_validations() -> N
     ) == 1
     assert commands.count("python scripts/validate_pdf_production_inventory.py") >= 2
 
-    prebuild_step = workflow[workflow.index("- name: Validate Apps Script workflow triggers") :]
-    prebuild_step = prebuild_step[: prebuild_step.index("- name: Install dependencies")]
-    assert "python scripts/validate_pdf_production_inventory.py --phase prebuild" in prebuild_step
-    assert "\n          python scripts/validate_pdf_production_inventory.py\n" not in prebuild_step
+    prebuild_start = workflow.index(f"      - name: {inventory.PDF_PREBUILD_STEP_NAME}")
+    prebuild_end = workflow.index("\n      - name:", prebuild_start + 1)
+    assert workflow[prebuild_start:prebuild_end].rstrip() == inventory.PDF_PREBUILD_STEP
 
     build_index = workflow.index("- name: Build daily market report artifacts")
     post_build_full_index = workflow.index(
@@ -229,6 +230,45 @@ def test_daily_workflow_uses_prebuild_once_and_keeps_two_full_validations() -> N
         publish_index,
     )
     assert build_index < post_build_full_index < publish_index < post_publish_full_index
+
+
+@pytest.mark.parametrize(
+    "removed_command",
+    (
+        "python scripts/validate_apps_script_workflow_triggers.py",
+        "python scripts/validate_repo_production_inventory.py",
+        "python scripts/validate_repo_file_lifecycle_inventory.py",
+        "python scripts/validate_repo_hidden_coupling_audit.py",
+        "python scripts/validate_daily_model_background_data_registry.py",
+        "python scripts/validate_repo_semantic_integrity.py",
+        "python scripts/validate_repo_code_isolation_policy.py",
+        "python scripts/validate_model_research_workflow_isolation.py",
+        "python scripts/validate_chatgpt_side_pdf_layout_independence.py",
+        "python scripts/validate_daily_pdf_role_manifest_contract.py",
+    ),
+)
+def test_daily_workflow_rejects_repo_static_command_in_pdf_prebuild_step(
+    removed_command: str,
+    monkeypatch,
+) -> None:
+    workflow = inventory.DAILY_WORKFLOW.read_text(encoding="utf-8")
+    mutated = workflow.replace(
+        inventory.PDF_PREBUILD_STEP,
+        f"{inventory.PDF_PREBUILD_STEP}\n          {removed_command}",
+        1,
+    )
+    original_read_text = inventory.read_text
+
+    def read_mutated(path: Path) -> str:
+        if path == inventory.DAILY_WORKFLOW:
+            return mutated
+        return original_read_text(path)
+
+    monkeypatch.setattr(inventory, "read_text", read_mutated)
+    errors: list[str] = []
+    inventory.validate_workflow_hooks(errors)
+
+    assert "Daily Full Pipeline PDF prebuild step must contain only the exact prebuild command" in errors
 
 
 def test_daily_workflow_cleans_stale_readmes_before_pdf_inventory_validation() -> None:

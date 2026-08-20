@@ -42,7 +42,7 @@ def test_daily_pipeline_validates_external_sources_after_catalyst_refresh() -> N
         "python scripts/validate_data_freshness_latest.py", freshness_idx
     )
     advanced_idx = workflow.index("python scripts/validate_repo_advanced_integrity.py")
-    preflight_idx = workflow.index("- name: Validate Apps Script workflow triggers")
+    preflight_idx = workflow.index("- name: Validate PDF prebuild contract")
     install_idx = workflow.index("- name: Install dependencies")
 
     assert (

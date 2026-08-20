@@ -165,6 +165,32 @@ def test_runtime_critical_mode_passes_current_repo() -> None:
     assert boundaries.main(["--runtime-critical-only"]) == 0
 
 
+def test_daily_full_early_validation_is_runtime_only() -> None:
+    workflow = boundaries.read_text(boundaries.DAILY_WORKFLOW)
+    prebuild_start = workflow.index("      - name: Validate PDF prebuild contract")
+    prebuild_end = workflow.index("\n      - name:", prebuild_start + 1)
+    prebuild_step = workflow[prebuild_start:prebuild_end].rstrip()
+    assert prebuild_step == (
+        "      - name: Validate PDF prebuild contract\n"
+        "        run: |\n"
+        "          python scripts/validate_pdf_production_inventory.py --phase prebuild"
+    )
+
+    boundary_start = workflow.index("      - name: Validate daily production boundaries")
+    boundary_end = workflow.index("\n      - name:", boundary_start + 1)
+    boundary_step = workflow[boundary_start:boundary_end].rstrip()
+    assert boundary_step == (
+        "      - name: Validate daily production boundaries\n"
+        "        run: |\n"
+        "          python scripts/validate_daily_production_boundaries.py --runtime-critical-only"
+    )
+
+    assert workflow.index("- name: Validate refreshed external-source integrity") > prebuild_end
+    assert "python scripts/validate_repo_advanced_integrity.py" in workflow
+    assert "python scripts/validate_daily_pdf_role_manifest_contract.py" in workflow
+    assert workflow.count("python scripts/validate_pdf_production_inventory.py") >= 2
+
+
 def test_runtime_critical_mode_does_not_call_repo_static_validators(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
