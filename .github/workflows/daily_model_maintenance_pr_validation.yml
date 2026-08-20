@@ -188,7 +188,11 @@ jobs:
           python scripts/validate_model_research_shared_utilities.py --base-ref "$BASE_SHA"
           python scripts/validate_volume_breakout_watch.py --latest-only
           python scripts/validate_volume_attack_theme_layer.py
-          python scripts/validate_daily_canonical_field_lineage.py --base-ref "$BASE_SHA"
+          lineage_args=(--base-ref "$BASE_SHA")
+          if [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then
+            lineage_args+=(--pr-safe-base-history)
+          fi
+          python scripts/validate_daily_canonical_field_lineage.py "${lineage_args[@]}"
           python scripts/build_volume_v2_warrant_lineage_history_audit.py
           python scripts/validate_volume_v2_warrant_lineage_history_audit.py
           git diff --exit-code -- \
