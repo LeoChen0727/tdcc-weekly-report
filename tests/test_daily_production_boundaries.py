@@ -161,6 +161,152 @@ def test_daily_production_boundary_validator_passes_current_repo() -> None:
     assert boundaries.main() == 0
 
 
+def test_runtime_critical_mode_passes_current_repo() -> None:
+    assert boundaries.main(["--runtime-critical-only"]) == 0
+
+
+def test_runtime_critical_mode_does_not_call_repo_static_validators(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    def unexpected_static_validation() -> list[str]:
+        raise AssertionError("runtime-critical mode called a repo-static validator")
+
+    for name in (
+        "run_code_isolation_policy_validation",
+        "run_repo_production_inventory_validation",
+        "run_repo_file_lifecycle_inventory_validation",
+        "run_repo_semantic_integrity_validation",
+        "run_repo_advanced_integrity_validation",
+    ):
+        monkeypatch.setattr(boundaries, name, unexpected_static_validation)
+
+    assert boundaries.main(["--runtime-critical-only"]) == 0
+
+
+@pytest.mark.parametrize(
+    "target_name",
+    (
+        "run_code_isolation_policy_validation",
+        "run_repo_production_inventory_validation",
+        "run_repo_file_lifecycle_inventory_validation",
+        "run_repo_semantic_integrity_validation",
+        "run_repo_advanced_integrity_validation",
+    ),
+)
+def test_runtime_critical_mode_preserves_no_arg_static_validator_calls(
+    monkeypatch: pytest.MonkeyPatch,
+    target_name: str,
+) -> None:
+    for name in (
+        "run_code_isolation_policy_validation",
+        "run_repo_production_inventory_validation",
+        "run_repo_file_lifecycle_inventory_validation",
+        "run_repo_semantic_integrity_validation",
+        "run_repo_advanced_integrity_validation",
+    ):
+        monkeypatch.setattr(
+            boundaries,
+            name,
+            lambda: [],
+        )
+    monkeypatch.setattr(
+        boundaries,
+        target_name,
+        lambda: (_ for _ in ()).throw(RuntimeError(target_name)),
+    )
+
+    with pytest.raises(RuntimeError, match=target_name):
+        boundaries.main()
+
+
+@pytest.mark.parametrize(
+    ("old", "new"),
+    (
+        (
+            "OFFICIAL_PRICE_TARGET_DATE: ${{ needs.market-session-preflight.outputs.expected_main_price_date }}",
+            "OFFICIAL_PRICE_TARGET_DATE: 20260820",
+        ),
+        (
+            "Publish final immutable freshness snapshot revision",
+            "Publish premature immutable freshness snapshot revision",
+        ),
+        (
+            "Materialize immutable recovery source bundle for production",
+            "Skip immutable recovery source bundle for production",
+        ),
+        (
+            'git diff --name-only --no-renames -z "$PREFLIGHT_SOURCE_SHA..$remote_head"',
+            'git diff --name-only "$PREFLIGHT_SOURCE_SHA..$remote_head"',
+        ),
+        (
+            '--expected-main-price-date "$EXPECTED_MAIN_PRICE_DATE"',
+            '--expected-main-price-date "20260820"',
+        ),
+    ),
+)
+def test_runtime_critical_mode_rejects_core_contract_mutations(
+    old: str,
+    new: str,
+) -> None:
+    text = boundaries.read_text(boundaries.DAILY_WORKFLOW)
+    assert old in text
+    mutated = text.replace(old, new, 1)
+    assert boundaries.validate_daily_runtime_critical_contracts(mutated)
+
+
+@pytest.mark.parametrize(
+    ("old", "new"),
+    (
+        ("continue-on-error: true", "continue-on-error: false"),
+        (
+            "if: ${{ steps.diagnostic_checkpoint_capture.outcome == 'success' }}",
+            "if: ${{ always() }}",
+        ),
+        ("if-no-files-found: error", "if-no-files-found: warn"),
+        ('--source-sha "$GITHUB_SHA"', ""),
+    ),
+)
+def test_runtime_critical_mode_rejects_checkpoint_diagnostic_drift(
+    old: str,
+    new: str,
+) -> None:
+    text = boundaries.read_text(boundaries.DAILY_WORKFLOW)
+    capture_start = text.index("Create diagnostic immutable pre-step41 checkpoint")
+    assert old in text[capture_start:]
+    mutated = text[:capture_start] + text[capture_start:].replace(old, new, 1)
+    assert boundaries.validate_daily_runtime_critical_contracts(mutated)
+
+
+def test_runtime_critical_mode_requires_checkpoint_upload_non_blocking() -> None:
+    text = boundaries.read_text(boundaries.DAILY_WORKFLOW)
+    upload_start = text.index("Upload diagnostic immutable pre-step41 checkpoint")
+    suffix = text[upload_start:]
+    assert "continue-on-error: true" in suffix
+    mutated = text[:upload_start] + suffix.replace(
+        "continue-on-error: true",
+        "continue-on-error: false",
+        1,
+    )
+    assert boundaries.validate_daily_runtime_critical_contracts(mutated)
+
+
+def test_runtime_critical_mode_rejects_checkpoint_after_step41() -> None:
+    text = boundaries.read_text(boundaries.DAILY_WORKFLOW)
+    capture_name = "Create diagnostic immutable pre-step41 checkpoint"
+    step41_name = "Build volume attack theme layer"
+    assert text.index(capture_name) < text.index(step41_name)
+    mutated = text.replace(capture_name, "__TEMP_STEP_NAME__", 1)
+    mutated = mutated.replace(step41_name, capture_name, 1)
+    mutated = mutated.replace("__TEMP_STEP_NAME__", step41_name, 1)
+    assert boundaries.validate_daily_runtime_critical_contracts(mutated)
+
+
+def test_runtime_critical_mode_rejects_unknown_argument() -> None:
+    with pytest.raises(SystemExit) as exc_info:
+        boundaries.main(["--not-a-real-mode"])
+    assert exc_info.value.code == 2
+
+
 def test_daily_operation_packet_uses_row_metric_contract_without_baseline_fallback() -> None:
     assert boundaries.validate_daily_operation_packet_row_metric_contract() == []
 

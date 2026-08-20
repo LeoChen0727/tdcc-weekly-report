@@ -1,11 +1,13 @@
 from __future__ import annotations
 
+import argparse
 import re
 import importlib.util
 import fnmatch
 import posixpath
 import shlex
 import sys
+from collections.abc import Sequence
 from pathlib import Path
 
 
@@ -1211,7 +1213,189 @@ def validate_daily_failed_recovery_retry_contract(daily_text: str) -> list[str]:
     return errors
 
 
-def main() -> int:
+def _named_workflow_step_block(workflow_text: str, step_name: str) -> str:
+    marker = f"      - name: {step_name}"
+    start = workflow_text.find(marker)
+    if start < 0:
+        return ""
+    end = workflow_text.find("\n      - name:", start + len(marker))
+    if end < 0:
+        end = len(workflow_text)
+    return workflow_text[start:end]
+
+
+def validate_daily_checkpoint_diagnostic_contract(daily_text: str) -> list[str]:
+    errors: list[str] = []
+    step40_name = "Build volume breakout watch"
+    capture_name = "Create diagnostic immutable pre-step41 checkpoint"
+    upload_name = "Upload diagnostic immutable pre-step41 checkpoint"
+    step41_name = "Build volume attack theme layer"
+    ordered_names = (step40_name, capture_name, upload_name, step41_name)
+    positions = [daily_text.find(f"- name: {name}") for name in ordered_names]
+    if any(position < 0 for position in positions) or positions != sorted(positions):
+        errors.append(
+            "daily workflow must keep step40 < diagnostic checkpoint capture < "
+            "diagnostic checkpoint upload < volume attack step41"
+        )
+
+    capture_block = _named_workflow_step_block(daily_text, capture_name)
+    capture_literals = (
+        "id: diagnostic_checkpoint_capture",
+        "continue-on-error: true",
+        "capture-production-checkpoint",
+        '--runner-temp "$RUNNER_TEMP/daily-full-pre-step41-checkpoint-work"',
+        '--replay-date "$EXPECTED_MAIN_PRICE_DATE"',
+        '--source-sha "$GITHUB_SHA"',
+        '--run-id "$GITHUB_RUN_ID"',
+        '--bundle-dir "$RUNNER_TEMP/daily-full-pre-step41-checkpoint"',
+    )
+    for literal in capture_literals:
+        if literal not in capture_block:
+            errors.append(
+                "daily workflow diagnostic checkpoint capture is missing exact contract: "
+                f"{literal}"
+            )
+
+    upload_block = _named_workflow_step_block(daily_text, upload_name)
+    upload_literals = (
+        "if: ${{ steps.diagnostic_checkpoint_capture.outcome == 'success' }}",
+        "continue-on-error: true",
+        "if-no-files-found: error",
+    )
+    for literal in upload_literals:
+        if literal not in upload_block:
+            errors.append(
+                "daily workflow diagnostic checkpoint upload is missing exact contract: "
+                f"{literal}"
+            )
+    if "always()" in upload_block:
+        errors.append(
+            "daily workflow diagnostic checkpoint upload must run only after successful capture"
+        )
+    return errors
+
+
+def validate_daily_runtime_critical_contracts(
+    daily_text: str | None = None,
+) -> list[str]:
+    errors: list[str] = []
+    if daily_text is None:
+        if not DAILY_WORKFLOW.exists():
+            return [f"missing daily workflow: {DAILY_WORKFLOW.relative_to(ROOT)}"]
+        daily_text = read_text(DAILY_WORKFLOW)
+
+    errors.extend(validate_daily_authority_snapshot_publish_contract(daily_text))
+    errors.extend(validate_daily_failed_recovery_retry_contract(daily_text))
+    errors.extend(validate_daily_checkpoint_diagnostic_contract(daily_text))
+
+    market_literals = (
+        "market-session-preflight:",
+        "Reject non-main production dispatch",
+        "github.ref_name != 'main'",
+        "python scripts/market_session_calendar.py --phase preflight",
+        "should_run_daily_pipeline",
+        "Verify open-confirmed target date",
+        "open_confirmed",
+        "OFFICIAL_PRICE_TARGET_DATE: ${{ needs.market-session-preflight.outputs.expected_main_price_date }}",
+    )
+    for literal in market_literals:
+        if literal not in daily_text:
+            errors.append(f"daily workflow runtime market-session contract missing: {literal}")
+
+    recovery_literals = (
+        "recovery_source_bundle_commit_sha",
+        "recovery_source_bundle_manifest_path",
+        "recovery_source_bundle_manifest_sha256",
+        "recovery_source_bundle_sha",
+        "recovery_source_bundle_trading_date",
+        "recovery source bundle inputs must be all-or-none",
+        "Validate immutable recovery input set",
+        "Materialize immutable recovery source bundle for preflight",
+        "Materialize immutable recovery source bundle for production",
+        "daily_source_recovery_bundle.py verify",
+        "--materialize",
+    )
+    for literal in recovery_literals:
+        if literal not in daily_text:
+            errors.append(f"daily workflow runtime source-bundle contract missing: {literal}")
+    if daily_text.count("ref: ${{ needs.market-session-preflight.outputs.source_sha }}") < 2:
+        errors.append(
+            "daily workflow runtime production checkouts must remain pinned to the preflight source SHA"
+        )
+    if daily_text.count('if [ "$CURRENT_HEAD" != "$PREFLIGHT_SOURCE_SHA" ]; then') != 2:
+        errors.append(
+            "daily workflow runtime must verify both pinned production checkouts against the preflight source SHA"
+        )
+
+    if daily_text.count("python scripts/validate_daily_staged_paths.py") < 3:
+        errors.append(
+            "daily workflow runtime must validate staged publication boundaries before each production commit"
+        )
+    if not STAGED_PATH_VALIDATOR.exists():
+        errors.append(
+            f"missing daily staged path validator: {STAGED_PATH_VALIDATOR.relative_to(ROOT)}"
+        )
+    else:
+        staged_validator_text = read_text(STAGED_PATH_VALIDATOR)
+        staged_validator_literals = (
+            "git\", \"diff\", \"--cached\", \"--name-only",
+            "FORBIDDEN_STAGED_PATTERNS",
+            '"output/history/research/*"',
+            "validate_docs_latest_mirrors()",
+            "validate_indicator_guide_counts()",
+        )
+        for literal in staged_validator_literals:
+            if literal not in staged_validator_text:
+                errors.append(
+                    "daily staged path validator publication boundary missing: "
+                    f"{literal}"
+                )
+
+    pdf_block = workflow_job_block(daily_text, "daily-pdf-dfkai-replay")
+    if not pdf_block:
+        errors.append("daily workflow runtime is missing the daily-pdf-dfkai-replay job")
+    else:
+        pdf_literals = (
+            "always()",
+            "needs.market-session-preflight.result == 'success'",
+            "needs.daily-full-pipeline.result == 'success'",
+            "EXPECTED_MAIN_PRICE_DATE: ${{ needs.market-session-preflight.outputs.expected_main_price_date }}",
+            '--expected-main-price-date "$EXPECTED_MAIN_PRICE_DATE"',
+        )
+        for literal in pdf_literals:
+            if literal not in pdf_block:
+                errors.append(f"daily PDF runtime contract missing: {literal}")
+        for forbidden in (
+            "inputs.validate_latest_daily_pdf_replay",
+            "closed_scheduled",
+            "closed_emergency",
+        ):
+            if forbidden in pdf_block:
+                errors.append(
+                    "daily PDF runtime must not use manual, closed-market, or stale replay fallback: "
+                    f"{forbidden}"
+                )
+    return errors
+
+
+def main(argv: Sequence[str] = ()) -> int:
+    parser = argparse.ArgumentParser(description="Validate daily production boundaries")
+    parser.add_argument(
+        "--runtime-critical-only",
+        action="store_true",
+        help="validate only runtime-critical Daily Full workflow contracts",
+    )
+    args = parser.parse_args(list(argv))
+    if args.runtime_critical_only:
+        errors = validate_daily_runtime_critical_contracts()
+        if errors:
+            for error in errors:
+                print(f"ERROR: {error}")
+            return 1
+        print("daily production runtime-critical boundary validation passed")
+        print(f"validated_workflow={DAILY_WORKFLOW.relative_to(ROOT)}")
+        return 0
+
     errors: list[str] = []
     daily_text = read_text(DAILY_WORKFLOW)
     errors.extend(validate_daily_authority_snapshot_publish_contract(daily_text))
@@ -1802,4 +1986,4 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    raise SystemExit(main(sys.argv[1:]))
