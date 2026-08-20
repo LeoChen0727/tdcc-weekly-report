@@ -52,6 +52,7 @@ from build_volume_attack_theme_layer import (  # noqa: E402
 import validate_volume_attack_theme_layer as theme_layer_validator  # noqa: E402
 from validate_volume_attack_theme_layer import (  # noqa: E402
     canonical_text_sha256 as theme_validator_payload_sha256,
+    is_current_trusted_source_revision,
     resolve_pinned_canonical_source_revision,
     sha256_file as theme_validator_canonical_text_sha256,
 )
@@ -510,6 +511,155 @@ print(json.dumps(stock_layer.columns.tolist()))
 
             self.assertEqual(theme_validator_payload_sha256(payload), old_sha)
             self.assertNotEqual(revision, "working_tree")
+
+    def test_theme_validator_accepts_current_equal_committed_source_for_live_consumer(
+        self,
+    ) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source = root / "output/latest/warrant_flow_latest.csv"
+            source.parent.mkdir(parents=True)
+            source.write_text(
+                "date,stock_id,warrant_flow_signal\n"
+                "20260820,2059,no_signal\n",
+                encoding="utf-8",
+            )
+            declared_sha = theme_validator_payload_sha256(source.read_bytes())
+            subprocess.run(["git", "init"], cwd=root, check=True, capture_output=True)
+            subprocess.run(
+                ["git", "config", "user.email", "theme-test@example.invalid"],
+                cwd=root,
+                check=True,
+            )
+            subprocess.run(
+                ["git", "config", "user.name", "Theme Test"],
+                cwd=root,
+                check=True,
+            )
+            subprocess.run(["git", "add", "."], cwd=root, check=True)
+            subprocess.run(
+                ["git", "commit", "-m", "historical replay source"],
+                cwd=root,
+                check=True,
+                capture_output=True,
+            )
+            source_revision = subprocess.run(
+                ["git", "rev-parse", "HEAD"],
+                cwd=root,
+                check=True,
+                capture_output=True,
+                text=True,
+            ).stdout.strip()
+
+            payload, resolved_revision = resolve_pinned_canonical_source_revision(
+                root,
+                "output/latest/warrant_flow_latest.csv",
+                declared_sha,
+                trusted_ref="HEAD",
+                allow_live=True,
+            )
+
+            self.assertEqual(
+                theme_validator_payload_sha256(payload),
+                theme_validator_payload_sha256(source.read_bytes()),
+            )
+            self.assertEqual(resolved_revision, source_revision)
+            self.assertTrue(
+                is_current_trusted_source_revision(
+                    root,
+                    "output/latest/warrant_flow_latest.csv",
+                    declared_sha,
+                    resolved_revision,
+                    trusted_ref="HEAD",
+                )
+            )
+
+    def test_theme_validator_rejects_stale_or_untrusted_committed_source_for_live_consumer(
+        self,
+    ) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source = root / "output/latest/warrant_flow_latest.csv"
+            source.parent.mkdir(parents=True)
+            source.write_text(
+                "date,stock_id,warrant_flow_signal\n"
+                "20260819,2059,no_signal\n",
+                encoding="utf-8",
+            )
+            old_sha = theme_validator_payload_sha256(source.read_bytes())
+            subprocess.run(["git", "init"], cwd=root, check=True, capture_output=True)
+            subprocess.run(
+                ["git", "config", "user.email", "theme-test@example.invalid"],
+                cwd=root,
+                check=True,
+            )
+            subprocess.run(
+                ["git", "config", "user.name", "Theme Test"],
+                cwd=root,
+                check=True,
+            )
+            subprocess.run(["git", "add", "."], cwd=root, check=True)
+            subprocess.run(
+                ["git", "commit", "-m", "trusted old source"],
+                cwd=root,
+                check=True,
+                capture_output=True,
+            )
+            trusted_base = subprocess.run(
+                ["git", "rev-parse", "HEAD"],
+                cwd=root,
+                check=True,
+                capture_output=True,
+                text=True,
+            ).stdout.strip()
+            source.write_text(
+                "date,stock_id,warrant_flow_signal\n"
+                "20260820,2059,call_inflow\n",
+                encoding="utf-8",
+            )
+            current_sha = theme_validator_payload_sha256(source.read_bytes())
+            subprocess.run(["git", "add", "."], cwd=root, check=True)
+            subprocess.run(
+                ["git", "commit", "-m", "new source outside trusted base"],
+                cwd=root,
+                check=True,
+                capture_output=True,
+            )
+            current_revision = subprocess.run(
+                ["git", "rev-parse", "HEAD"],
+                cwd=root,
+                check=True,
+                capture_output=True,
+                text=True,
+            ).stdout.strip()
+
+            self.assertFalse(
+                is_current_trusted_source_revision(
+                    root,
+                    "output/latest/warrant_flow_latest.csv",
+                    old_sha,
+                    trusted_base,
+                    trusted_ref="HEAD",
+                )
+            )
+            self.assertFalse(
+                is_current_trusted_source_revision(
+                    root,
+                    "output/latest/warrant_flow_latest.csv",
+                    current_sha,
+                    current_revision,
+                    trusted_ref=trusted_base,
+                )
+            )
+            self.assertFalse(
+                is_current_trusted_source_revision(
+                    root,
+                    "output/latest/warrant_flow_latest.csv",
+                    "f" * 64,
+                    current_revision,
+                    trusted_ref="HEAD",
+                )
+            )
 
     def test_theme_validator_main_uses_pinned_revision_after_latest_advances(
         self,

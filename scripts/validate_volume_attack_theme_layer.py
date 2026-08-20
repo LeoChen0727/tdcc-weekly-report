@@ -273,6 +273,107 @@ def source_precedes_consumer(
     return completed.returncode == 0
 
 
+def is_current_trusted_source_revision(
+    root: Path,
+    artifact_path: str,
+    declared_sha256: str,
+    source_revision: str,
+    *,
+    trusted_ref: str,
+) -> bool:
+    """Return whether a committed source is the exact current trusted payload."""
+
+    if re.fullmatch(r"[0-9a-f]{40}", source_revision) is None:
+        return False
+    relative = Path(artifact_path)
+    if relative.is_absolute() or ".." in relative.parts:
+        return False
+    current_path = root / relative
+    try:
+        current_payload = current_path.read_bytes()
+    except OSError:
+        return False
+    try:
+        if canonical_text_sha256(current_payload) != declared_sha256:
+            return False
+    except UnicodeError:
+        return False
+
+    resolved_trusted = subprocess.run(
+        ["git", "rev-parse", "--verify", f"{trusted_ref}^{{commit}}"],
+        cwd=root,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        check=False,
+    )
+    trusted_commit = resolved_trusted.stdout.decode(
+        "ascii", errors="ignore"
+    ).strip()
+    if resolved_trusted.returncode != 0 or re.fullmatch(
+        r"[0-9a-f]{40}", trusted_commit
+    ) is None:
+        return False
+    trusted_is_current = subprocess.run(
+        ["git", "merge-base", "--is-ancestor", trusted_commit, "HEAD"],
+        cwd=root,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        check=False,
+    )
+    if trusted_is_current.returncode != 0:
+        return False
+
+    latest_revision = subprocess.run(
+        [
+            "git",
+            "log",
+            "-1",
+            "--format=%H",
+            trusted_commit,
+            "--",
+            relative.as_posix(),
+        ],
+        cwd=root,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        check=False,
+    )
+    if latest_revision.returncode != 0:
+        return False
+    if (
+        latest_revision.stdout.decode("ascii", errors="ignore").strip()
+        != source_revision
+    ):
+        return False
+
+    source_is_trusted = subprocess.run(
+        ["git", "merge-base", "--is-ancestor", source_revision, trusted_commit],
+        cwd=root,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        check=False,
+    )
+    if source_is_trusted.returncode != 0:
+        return False
+
+    for revision in (source_revision, trusted_commit):
+        payload = subprocess.run(
+            ["git", "show", "--no-textconv", f"{revision}:{relative.as_posix()}"],
+            cwd=root,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            check=False,
+        )
+        if payload.returncode != 0:
+            return False
+        try:
+            if canonical_text_sha256(payload.stdout) != declared_sha256:
+                return False
+        except UnicodeError:
+            return False
+    return True
+
+
 def read_csv_payload(payload: bytes) -> pd.DataFrame:
     return pd.read_csv(
         io.StringIO(payload.decode("utf-8-sig")),
@@ -368,7 +469,17 @@ def main() -> int:
                     trusted_ref=trusted_ref,
                     allow_live=stock_revision is None,
                 )
-                if stock_revision is None and official_revision != LIVE_SOURCE_REVISION:
+                if (
+                    stock_revision is None
+                    and official_revision != LIVE_SOURCE_REVISION
+                    and not is_current_trusted_source_revision(
+                        ROOT,
+                        expected_artifact,
+                        declared_official_sha,
+                        official_revision,
+                        trusted_ref=trusted_ref,
+                    )
+                ):
                     errors.append(
                         "live stock_layer cannot consume a historical official warrant "
                         f"revision: source_revision={official_revision}"
