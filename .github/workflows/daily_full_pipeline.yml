@@ -1051,7 +1051,9 @@ jobs:
           python scripts/build_volume_breakout_watch.py --latest-only
           python scripts/validate_volume_breakout_watch.py --latest-only
 
-      - name: Create failure-safe immutable pre-step41 checkpoint
+      - name: Create diagnostic immutable pre-step41 checkpoint
+        id: diagnostic_checkpoint_capture
+        continue-on-error: true
         shell: bash
         run: |
           set -euo pipefail
@@ -1063,8 +1065,9 @@ jobs:
             --run-id "$GITHUB_RUN_ID" \
             --bundle-dir "$RUNNER_TEMP/daily-full-pre-step41-checkpoint"
 
-      - name: Upload failure-safe immutable pre-step41 checkpoint
-        if: always()
+      - name: Upload diagnostic immutable pre-step41 checkpoint
+        if: ${{ steps.diagnostic_checkpoint_capture.outcome == 'success' }}
+        continue-on-error: true
         uses: actions/upload-artifact@v4
         with:
           name: daily-full-pre-step41-checkpoint-${{ github.run_id }}-${{ github.run_attempt }}

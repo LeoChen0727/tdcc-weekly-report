@@ -51,10 +51,10 @@ def validate_production_workflow(
     text: str, errors: list[str]
 ) -> None:
     create = (
-        "- name: Create failure-safe immutable pre-step41 checkpoint"
+        "- name: Create diagnostic immutable pre-step41 checkpoint"
     )
     upload = (
-        "- name: Upload failure-safe immutable pre-step41 checkpoint"
+        "- name: Upload diagnostic immutable pre-step41 checkpoint"
     )
     before = "- name: Build volume breakout watch"
     failure = "- name: Build volume attack theme layer"
@@ -77,6 +77,88 @@ def validate_production_workflow(
             "Daily Full Pipeline checkpoint must upload after step40 "
             "and before original step41"
         )
+
+    def step_block(name: str) -> str:
+        marker = f"      {name}\n"
+        start = text.find(marker)
+        if start < 0:
+            return ""
+        end = text.find("\n      - name:", start + len(marker))
+        return text[start:] if end < 0 else text[start:end]
+
+    capture_block = step_block(create)
+    upload_block = step_block(upload)
+    step41_block = step_block(failure)
+    require_fragments(
+        capture_block,
+        [
+            "id: diagnostic_checkpoint_capture",
+            "continue-on-error: true",
+            "shell: bash",
+            "capture-production-checkpoint",
+            '--runner-temp "$RUNNER_TEMP/daily-full-pre-step41-checkpoint-work"',
+            '--replay-date "$EXPECTED_MAIN_PRICE_DATE"',
+            '--source-sha "$GITHUB_SHA"',
+            '--run-id "$GITHUB_RUN_ID"',
+            '--bundle-dir "$RUNNER_TEMP/daily-full-pre-step41-checkpoint"',
+        ],
+        "Daily Full Pipeline diagnostic checkpoint capture",
+        errors,
+    )
+    if capture_block.count("id: diagnostic_checkpoint_capture") != 1:
+        errors.append(
+            "Daily Full Pipeline diagnostic checkpoint capture must have "
+            "one fixed step id"
+        )
+    if capture_block.count("continue-on-error: true") != 1:
+        errors.append(
+            "Daily Full Pipeline diagnostic checkpoint capture must be "
+            "explicitly non-blocking"
+        )
+    require_fragments(
+        upload_block,
+        [
+            "if: ${{ steps.diagnostic_checkpoint_capture.outcome == 'success' }}",
+            "continue-on-error: true",
+            "uses: actions/upload-artifact@v4",
+            "daily-full-pre-step41-checkpoint-${{ github.run_id }}-${{ github.run_attempt }}",
+            "path: ${{ runner.temp }}/daily-full-pre-step41-checkpoint/",
+            "if-no-files-found: error",
+            "retention-days: 30",
+        ],
+        "Daily Full Pipeline diagnostic checkpoint upload",
+        errors,
+    )
+    upload_conditions = re.findall(
+        r"(?m)^        if:\s*(.+?)\s*$", upload_block
+    )
+    if upload_conditions != [
+        "${{ steps.diagnostic_checkpoint_capture.outcome == 'success' }}"
+    ]:
+        errors.append(
+            "Daily Full Pipeline diagnostic checkpoint upload must depend "
+            "only on successful capture"
+        )
+    if upload_block.count("continue-on-error: true") != 1:
+        errors.append(
+            "Daily Full Pipeline diagnostic checkpoint upload must be "
+            "explicitly non-blocking"
+        )
+    if "if: always()" in upload_block:
+        errors.append(
+            "Daily Full Pipeline diagnostic checkpoint upload must not run "
+            "after failed capture"
+        )
+    if re.search(r"(?m)^        if:", step41_block):
+        errors.append(
+            "Daily Full Pipeline original step41 must remain independent "
+            "of diagnostic checkpoint outcomes"
+        )
+    if "failure-safe immutable pre-step41 checkpoint" in text:
+        errors.append(
+            "Daily Full Pipeline production checkpoint must be named as "
+            "diagnostic evidence, not a failure-safe gate"
+        )
     require_fragments(
         text,
         [
@@ -87,7 +169,6 @@ def validate_production_workflow(
             '--replay-date "$EXPECTED_MAIN_PRICE_DATE"',
             '--source-sha "$GITHUB_SHA"',
             '--run-id "$GITHUB_RUN_ID"',
-            "if: always()",
             "if-no-files-found: error",
             "retention-days: 30",
             "daily-full-pre-step41-checkpoint-${{ github.run_id }}-${{ github.run_attempt }}",

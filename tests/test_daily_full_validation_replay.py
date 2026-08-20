@@ -1748,21 +1748,104 @@ def test_production_workflow_checkpoint_precedes_original_step41() -> None:
     ).read_text(encoding="utf-8")
     step40 = workflow.index("- name: Build volume breakout watch")
     capture = workflow.index(
-        "- name: Create failure-safe immutable pre-step41 checkpoint"
+        "- name: Create diagnostic immutable pre-step41 checkpoint"
     )
     upload = workflow.index(
-        "- name: Upload failure-safe immutable pre-step41 checkpoint"
+        "- name: Upload diagnostic immutable pre-step41 checkpoint"
     )
     step41 = workflow.index(
         "- name: Build volume attack theme layer"
     )
     assert step40 < capture < upload < step41
+    checkpoint_block = workflow[capture:step41]
+    assert "id: diagnostic_checkpoint_capture" in checkpoint_block
+    assert checkpoint_block.count("continue-on-error: true") == 2
+    assert (
+        "if: ${{ steps.diagnostic_checkpoint_capture.outcome == 'success' }}"
+        in checkpoint_block
+    )
+    assert "if: always()" not in checkpoint_block
     assert (
         "daily-full-pre-step41-checkpoint-"
         "${{ github.run_id }}-${{ github.run_attempt }}"
     ) in workflow
-    assert "if-no-files-found: error" in workflow[capture:step41]
-    assert "retention-days: 30" in workflow[capture:step41]
+    assert "if-no-files-found: error" in checkpoint_block
+    assert "retention-days: 30" in checkpoint_block
+    step41_block = workflow[step41:workflow.index("\n      - name:", step41 + 1)]
+    assert "if:" not in step41_block
+
+
+@pytest.mark.parametrize(
+    ("old", "new"),
+    [
+        ("        id: diagnostic_checkpoint_capture\n", ""),
+        (
+            "        id: diagnostic_checkpoint_capture\n"
+            "        continue-on-error: true\n",
+            "        id: diagnostic_checkpoint_capture\n",
+        ),
+        (
+            "      - name: Upload diagnostic immutable pre-step41 checkpoint\n"
+            "        if: ${{ steps.diagnostic_checkpoint_capture.outcome == 'success' }}\n"
+            "        continue-on-error: true\n",
+            "      - name: Upload diagnostic immutable pre-step41 checkpoint\n"
+            "        if: ${{ steps.diagnostic_checkpoint_capture.outcome == 'success' }}\n",
+        ),
+        (
+            "if: ${{ steps.diagnostic_checkpoint_capture.outcome == 'success' }}",
+            "if: always()",
+        ),
+        (
+            "path: ${{ runner.temp }}/daily-full-pre-step41-checkpoint/\n"
+            "          if-no-files-found: error",
+            "path: ${{ runner.temp }}/daily-full-pre-step41-checkpoint/\n"
+            "          if-no-files-found: warn",
+        ),
+        (
+            '--runner-temp "$RUNNER_TEMP/daily-full-pre-step41-checkpoint-work"',
+            '--runner-temp "$RUNNER_TEMP/other"',
+        ),
+        (
+            '--replay-date "$EXPECTED_MAIN_PRICE_DATE"',
+            '--replay-date "20260820"',
+        ),
+        ('--source-sha "$GITHUB_SHA"', '--source-sha "HEAD"'),
+        ('--run-id "$GITHUB_RUN_ID"', '--run-id "0"'),
+        (
+            '--bundle-dir "$RUNNER_TEMP/daily-full-pre-step41-checkpoint"',
+            '--bundle-dir "$RUNNER_TEMP/other"',
+        ),
+    ],
+)
+def test_production_workflow_rejects_weakened_diagnostic_checkpoint(
+    old: str,
+    new: str,
+) -> None:
+    workflow = (
+        Path(__file__).resolve().parents[1]
+        / ".github/workflows/daily_full_pipeline.yml"
+    ).read_text(encoding="utf-8")
+    mutated = workflow.replace(old, new, 1)
+    assert mutated != workflow
+    errors: list[str] = []
+    replay_validator.validate_production_workflow(mutated, errors)
+    assert errors
+
+
+def test_production_workflow_rejects_checkpoint_after_original_step41() -> None:
+    workflow = (
+        Path(__file__).resolve().parents[1]
+        / ".github/workflows/daily_full_pipeline.yml"
+    ).read_text(encoding="utf-8")
+    capture = "- name: Create diagnostic immutable pre-step41 checkpoint"
+    step41 = "- name: Build volume attack theme layer"
+    placeholder = "- name: __checkpoint_order_placeholder__"
+    mutated = workflow.replace(step41, placeholder, 1)
+    mutated = mutated.replace(capture, step41, 1)
+    mutated = mutated.replace(placeholder, capture, 1)
+    errors: list[str] = []
+    replay_validator.validate_production_workflow(mutated, errors)
+    assert any("before original step41" in error for error in errors)
 
 
 def test_validation_workflow_has_exact_two_mode_canary_replay_contract() -> None:
