@@ -527,6 +527,94 @@ def test_scope_aggregate_and_domain_contracts_are_exact_and_fail_closed() -> Non
         )
 
 
+def test_repo_current_runs_legacy_removal_guards_exactly_once_and_fail_closed() -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+
+    assert boundaries.validate_daily_model_legacy_removal_guard(text) == []
+
+
+@pytest.mark.parametrize("command", boundaries.LEGACY_REMOVAL_GUARD_COMMANDS)
+@pytest.mark.parametrize(
+    "mutation",
+    (
+        "remove",
+        "duplicate",
+        "conditional",
+        "continue",
+        "env",
+        "comment",
+        "anonymous",
+        "step_shell",
+        "job_default_shell",
+    ),
+)
+def test_repo_current_legacy_removal_guards_reject_contract_mutations(
+    command: str,
+    mutation: str,
+) -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+    line = f"          {command}\n"
+    assert text.count(line) == 1
+    if mutation == "remove":
+        mutated = text.replace(line, "", 1)
+    elif mutation == "duplicate":
+        mutated = text.replace(line, line + line, 1)
+    elif mutation == "conditional":
+        mutated = text.replace(line, f"          if true; then {command}; fi\n", 1)
+    elif mutation == "continue":
+        step_marker = (
+            f"      - name: {boundaries.DAILY_MODEL_LEGACY_REMOVAL_GUARD_STEP}\n"
+        )
+        assert step_marker in text
+        mutated = text.replace(
+            step_marker,
+            step_marker + "        continue-on-error: true\n",
+            1,
+        )
+    elif mutation == "env":
+        step_marker = (
+            f"      - name: {boundaries.DAILY_MODEL_LEGACY_REMOVAL_GUARD_STEP}\n"
+        )
+        mutated = text.replace(line, "", 1).replace(
+            step_marker,
+            step_marker + f"        env:\n          LEGACY_GUARD: {command}\n",
+            1,
+        )
+    elif mutation == "comment":
+        mutated = text.replace(line, f"          # {command}\n", 1)
+    elif mutation == "anonymous":
+        step_marker = (
+            f"      - name: {boundaries.DAILY_MODEL_LEGACY_REMOVAL_GUARD_STEP}\n"
+        )
+        mutated = text.replace(line, "", 1).replace(
+            step_marker,
+            f"      - run: {command}\n" + step_marker,
+            1,
+        )
+    elif mutation == "step_shell":
+        step_marker = (
+            f"      - name: {boundaries.DAILY_MODEL_LEGACY_REMOVAL_GUARD_STEP}\n"
+        )
+        mutated = text.replace(
+            step_marker,
+            step_marker + "        shell: bash\n",
+            1,
+        )
+    else:
+        job = job_block("repo_current_contracts", text)
+        mutated_job = job.replace(
+            "    runs-on: ubuntu-latest\n",
+            "    runs-on: ubuntu-latest\n"
+            "    defaults:\n"
+            "      run:\n"
+            "        shell: bash\n",
+            1,
+        )
+        mutated = text.replace(job, mutated_job, 1)
+
+    assert boundaries.validate_daily_model_legacy_removal_guard(mutated)
+
+
 def test_active_node_scanner_ignores_comments() -> None:
     text = WORKFLOW.read_text(encoding="utf-8")
     commented = text.replace(
