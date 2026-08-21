@@ -350,153 +350,10 @@ def test_related_strict_surface_cannot_inherit_not_ready_state(
     assert changed_path in errors[0]
 
 
-def test_exact_daily_full_checkpoint_replay_migration_inherits_not_ready_state(
-    historical_replay_repo: Path,
-    monkeypatch: pytest.MonkeyPatch,
-) -> None:
-    observed: dict[str, object] = {}
-
-    def exact_preauthorization(
-        base_ref: str,
-        changed_paths: set[str],
-        strict_surface_changes: set[str],
-        **kwargs: object,
-    ) -> bool:
-        observed.update(
-            base_ref=base_ref,
-            changed_paths=set(changed_paths),
-            strict_surface_changes=set(strict_surface_changes),
-            **kwargs,
-        )
-        return (
-            changed_paths == set(pr_safe.PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_PATHS)
-            and strict_surface_changes
-            == set(pr_safe.PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_STRICT_SURFACES)
-        )
-
-    monkeypatch.setattr(
-        pr_safe,
-        "changed_paths_from_base",
-        lambda *_args, **_kwargs: (
-            set(pr_safe.PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_PATHS),
-            [],
-        ),
-    )
-    monkeypatch.setattr(
-        pr_safe,
-        "is_preauthorized_daily_full_checkpoint_replay_migration",
-        exact_preauthorization,
-    )
-
-    assert (
-        pr_safe.validate_pr_safe_advanced_integrity_contract(
-            "base-sha",
-            repository_root=historical_replay_repo,
-        )
-        == []
-    )
-    assert observed == {
-        "base_ref": "base-sha",
-        "changed_paths": set(pr_safe.PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_PATHS),
-        "strict_surface_changes": set(
-            pr_safe.PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_STRICT_SURFACES
-        ),
-        "repository_root": historical_replay_repo,
-        "head_ref": "HEAD",
-    }
 
 
-def test_daily_full_checkpoint_replay_migration_rejects_extra_path(
-    historical_replay_repo: Path,
-    monkeypatch: pytest.MonkeyPatch,
-) -> None:
-    changed_paths = {
-        *pr_safe.PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_PATHS,
-        "scripts/unapproved_replay_mutation.py",
-    }
-    monkeypatch.setattr(
-        pr_safe,
-        "changed_paths_from_base",
-        lambda *_args, **_kwargs: (set(changed_paths), []),
-    )
-    monkeypatch.setattr(
-        pr_safe,
-        "is_preauthorized_daily_full_checkpoint_replay_migration",
-        lambda *_args, **_kwargs: False,
-    )
-
-    errors = pr_safe.validate_pr_safe_advanced_integrity_contract(
-        "base-sha",
-        repository_root=historical_replay_repo,
-    )
-
-    assert errors
-    assert "full runtime repo advanced-integrity validation is required" in errors[0]
-    assert pr_safe.PRODUCTION_INVENTORY_PATH in errors[0]
 
 
-def test_exact_local_validation_replay_routing_migration_inherits_not_ready_state(
-    historical_replay_repo: Path,
-    monkeypatch: pytest.MonkeyPatch,
-) -> None:
-    assert pr_safe.LOCAL_VALIDATION_REPLAY_ADVANCED_MIGRATION_ID == (
-        "local-validation-replay-advanced-integrity-pr-safe-v2"
-    )
-    observed: dict[str, object] = {}
-
-    def exact_preauthorization(
-        base_ref: str,
-        changed_paths: set[str],
-        strict_surface_changes: set[str],
-        **kwargs: object,
-    ) -> bool:
-        observed.update(
-            base_ref=base_ref,
-            changed_paths=set(changed_paths),
-            strict_surface_changes=set(strict_surface_changes),
-            **kwargs,
-        )
-        return (
-            changed_paths
-            == set(pr_safe.PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_PATHS)
-            and strict_surface_changes
-            == set(
-                pr_safe.PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_STRICT_SURFACES
-            )
-        )
-
-    monkeypatch.setattr(
-        pr_safe,
-        "changed_paths_from_base",
-        lambda *_args, **_kwargs: (
-            set(pr_safe.PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_PATHS),
-            [],
-        ),
-    )
-    monkeypatch.setattr(
-        pr_safe,
-        "is_preauthorized_daily_full_checkpoint_replay_migration",
-        exact_preauthorization,
-    )
-
-    assert (
-        pr_safe.validate_pr_safe_advanced_integrity_contract(
-            "base-sha",
-            repository_root=historical_replay_repo,
-        )
-        == []
-    )
-    assert observed == {
-        "base_ref": "base-sha",
-        "changed_paths": set(
-            pr_safe.PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_PATHS
-        ),
-        "strict_surface_changes": set(
-            pr_safe.PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_STRICT_SURFACES
-        ),
-        "repository_root": historical_replay_repo,
-        "head_ref": "HEAD",
-    }
 
 
 def test_changed_freshness_bytes_fail_closed(
@@ -2163,113 +2020,18 @@ def test_additive_research_registration_cannot_cover_readiness_change(
     assert pr_safe.FRESHNESS_RELATIVE_PATH in errors[0]
 
 
-def test_additive_research_gate_self_update_is_exact_and_one_time(
-    historical_replay_repo: Path,
-    monkeypatch: pytest.MonkeyPatch,
-) -> None:
-    helper_path = historical_replay_repo / pr_safe.PR_SAFE_HELPER_PATH
-    test_path = historical_replay_repo / pr_safe.SOURCE_IDENTITY_GATE_TEST_PATH
-    authorization_path = (
-        historical_replay_repo
-        / pr_safe.ADDITIVE_RESEARCH_GATE_AUTHORIZATIONS_PATH
+def test_legacy_exact_target_bypasses_are_retired() -> None:
+    source = Path(pr_safe.__file__).read_text(encoding="utf-8")
+    retired_symbols = (
+        "is_additive_research_gate_" + "self_update",
+        "is_preauthorized_daily_full_checkpoint_replay_"
+        + "advanced_integrity_migration",
+        "is_preauthorized_local_validation_replay_routing_"
+        + "advanced_integrity_migration",
     )
-    lifecycle_path = (
-        historical_replay_repo
-        / pr_safe.ADDITIVE_RESEARCH_GATE_LIFECYCLE_INVENTORY_PATH
+    for symbol in retired_symbols:
+        assert symbol not in source
+    production_validator_module = "_".join(
+        ("validate", "repo", "production", "inventory")
     )
-    helper_path.parent.mkdir(parents=True, exist_ok=True)
-    test_path.parent.mkdir(parents=True, exist_ok=True)
-    authorization_path.parent.mkdir(parents=True, exist_ok=True)
-    current_helper = (
-        f"GATE_ID = '{pr_safe.ADDITIVE_RESEARCH_GATE_SELF_UPDATE_ID}'\n"
-        "def enforce_additive_research_contract() -> bool:\n"
-        "    return True\n"
-    ).encode("utf-8")
-    current_tests = (
-        "def test_additive_research_contract_is_fail_closed() -> None:\n"
-        "    assert True\n"
-    ).encode("utf-8")
-    helper_path.write_bytes(current_helper)
-    test_path.write_bytes(current_tests)
-    base_helper = b"exact additive research gate base helper\n"
-    base_lifecycle = b"path,imported_by\nbase.py,\n"
-    current_lifecycle = b"path,imported_by\nbase.py,scripts/new_consumer.py\n"
-    lifecycle_path.write_bytes(current_lifecycle)
-    monkeypatch.setattr(
-        pr_safe,
-        "ADDITIVE_RESEARCH_GATE_BASE_LIFECYCLE_INVENTORY_SHA256",
-        pr_safe.canonical_sha256(base_lifecycle),
-    )
-    monkeypatch.setattr(
-        pr_safe,
-        "ADDITIVE_RESEARCH_GATE_CURRENT_LIFECYCLE_INVENTORY_SHA256",
-        pr_safe.canonical_sha256(current_lifecycle),
-    )
-    authorization_row = {
-        "migration_id": pr_safe.ADDITIVE_RESEARCH_GATE_SELF_UPDATE_ID,
-        "status": "preauthorized",
-        "approval_reference": "user-approved-stage0",
-        "base_helper_sha256": pr_safe.canonical_sha256(base_helper),
-        "current_helper_sha256": pr_safe.canonical_sha256(current_helper),
-        "current_test_sha256": pr_safe.canonical_sha256(current_tests),
-        "changed_paths": ";".join(
-            sorted(pr_safe.ADDITIVE_RESEARCH_GATE_SELF_UPDATE_PATHS)
-        ),
-    }
-    write_csv(authorization_path, [authorization_row])
-    base_authorizations = csv_payload([authorization_row])
-    base_payloads = {
-        pr_safe.PR_SAFE_HELPER_PATH: base_helper,
-        pr_safe.ADDITIVE_RESEARCH_GATE_AUTHORIZATIONS_PATH: base_authorizations,
-        pr_safe.ADDITIVE_RESEARCH_GATE_LIFECYCLE_INVENTORY_PATH: base_lifecycle,
-    }
-    monkeypatch.setattr(
-        pr_safe,
-        "git_blob_at_ref",
-        lambda _ref, path, **_kwargs: base_payloads.get(path),
-    )
-    monkeypatch.setattr(
-        pr_safe,
-        "changed_paths_from_base",
-        lambda *_args, **_kwargs: (
-            set(pr_safe.ADDITIVE_RESEARCH_GATE_SELF_UPDATE_PATHS),
-            [],
-        ),
-    )
-
-    assert (
-        pr_safe.validate_pr_safe_advanced_integrity_contract(
-            "base-sha",
-            repository_root=historical_replay_repo,
-        )
-        == []
-    )
-
-    helper_path.write_bytes(
-        current_helper
-        + b"\n# marker remains, but this unapproved semantic mutation must fail\n"
-    )
-    errors = pr_safe.validate_pr_safe_advanced_integrity_contract(
-        "base-sha",
-        repository_root=historical_replay_repo,
-    )
-    assert errors
-    assert "full runtime repo advanced-integrity validation is required" in errors[0]
-
-    helper_path.write_bytes(current_helper)
-    test_path.write_bytes(current_tests + b"\n# unapproved test mutation\n")
-    assert not pr_safe.is_additive_research_gate_self_update(
-        "base-sha",
-        set(pr_safe.ADDITIVE_RESEARCH_GATE_SELF_UPDATE_PATHS),
-        {pr_safe.PR_SAFE_HELPER_PATH},
-        repository_root=historical_replay_repo,
-    )
-
-    test_path.write_bytes(current_tests)
-    lifecycle_path.write_bytes(current_lifecycle + b"unapproved.py,consumer.py\n")
-    assert not pr_safe.is_additive_research_gate_self_update(
-        "base-sha",
-        set(pr_safe.ADDITIVE_RESEARCH_GATE_SELF_UPDATE_PATHS),
-        {pr_safe.PR_SAFE_HELPER_PATH},
-        repository_root=historical_replay_repo,
-    )
+    assert production_validator_module not in source

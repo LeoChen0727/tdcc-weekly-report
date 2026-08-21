@@ -20,22 +20,8 @@ if str(SCRIPT_DIR) not in sys.path:
 
 try:
     from . import validate_repo_advanced_integrity as strict_validator  # type: ignore
-    from .validate_repo_production_inventory import (
-        PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_PATHS,
-        PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_STRICT_SURFACES,
-        PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_PATHS,
-        PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_STRICT_SURFACES,
-        is_preauthorized_daily_full_checkpoint_replay_migration,
-    )
 except ImportError:
     import validate_repo_advanced_integrity as strict_validator  # noqa: E402
-    from validate_repo_production_inventory import (  # noqa: E402
-        PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_PATHS,
-        PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_STRICT_SURFACES,
-        PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_PATHS,
-        PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_STRICT_SURFACES,
-        is_preauthorized_daily_full_checkpoint_replay_migration,
-    )
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -107,37 +93,6 @@ CANONICAL_LINEAGE_PR_COMMAND = (
     'python scripts/validate_daily_canonical_field_lineage.py --base-ref "$BASE_SHA"'
 )
 
-ADDITIVE_RESEARCH_GATE_SELF_UPDATE_ID = (
-    "additive-research-validation-registration-pr-safe-v4"
-)
-ADDITIVE_RESEARCH_GATE_LIFECYCLE_INVENTORY_PATH = (
-    "config/repo_file_lifecycle_inventory.csv"
-)
-ADDITIVE_RESEARCH_GATE_SELF_UPDATE_PATHS = frozenset(
-    {
-        ADDITIVE_RESEARCH_GATE_LIFECYCLE_INVENTORY_PATH,
-        PR_SAFE_HELPER_PATH,
-        SOURCE_IDENTITY_GATE_TEST_PATH,
-    }
-)
-ADDITIVE_RESEARCH_GATE_BASE_LIFECYCLE_INVENTORY_SHA256 = (
-    "45eae9722c4d8587ff483a8e550eb5054cc8a6ab26a836d7f8f80e30a9c3a3d7"
-)
-ADDITIVE_RESEARCH_GATE_CURRENT_LIFECYCLE_INVENTORY_SHA256 = (
-    "69831c7ef8b922ddb763af94cbf4df694ee2d981c7a7d475567f67587ed07ce5"
-)
-ADDITIVE_RESEARCH_GATE_AUTHORIZATIONS_PATH = (
-    "config/daily_model_pr_safe_self_migration_authorizations.csv"
-)
-ADDITIVE_RESEARCH_GATE_AUTHORIZATION_COLUMNS = (
-    "migration_id",
-    "status",
-    "approval_reference",
-    "base_helper_sha256",
-    "current_helper_sha256",
-    "current_test_sha256",
-    "changed_paths",
-)
 RESEARCH_OWNER = "research_backtest"
 RESEARCH_WORKFLOW_PATH = ".github/workflows/research_backtest_pipeline.yml"
 RESEARCH_ALLOWED_WORKFLOWS = frozenset(
@@ -255,15 +210,6 @@ STRICT_PATH_PREFIXES = (
     "output/latest/published_reports/",
 )
 
-DAILY_FULL_CHECKPOINT_REPLAY_ADVANCED_STRICT_SURFACES = frozenset(
-    {
-        *PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_STRICT_SURFACES,
-        PRODUCTION_INVENTORY_PATH,
-    }
-)
-LOCAL_VALIDATION_REPLAY_ADVANCED_MIGRATION_ID = (
-    "local-validation-replay-advanced-integrity-pr-safe-v2"
-)
 
 HISTORICAL_REPLAY_REPORT_READY_NOTE = (
     "historical structured-source replay updates objective-source freshness only; "
@@ -2220,135 +2166,10 @@ def is_registered_source_identity_gate_self_update(
     )
 
 
-def is_additive_research_gate_self_update(
-    base_ref: str,
-    changed_paths: set[str],
-    strict_surface_changes: set[str],
-    *,
-    repository_root: Path,
-) -> bool:
-    if changed_paths != ADDITIVE_RESEARCH_GATE_SELF_UPDATE_PATHS:
-        return False
-    if strict_surface_changes != {PR_SAFE_HELPER_PATH}:
-        return False
-    base_authorizations = git_blob_at_ref(
-        base_ref,
-        ADDITIVE_RESEARCH_GATE_AUTHORIZATIONS_PATH,
-        repository_root=repository_root,
-    )
-    base_helper = git_blob_at_ref(
-        base_ref,
-        PR_SAFE_HELPER_PATH,
-        repository_root=repository_root,
-    )
-    base_lifecycle_inventory = git_blob_at_ref(
-        base_ref,
-        ADDITIVE_RESEARCH_GATE_LIFECYCLE_INVENTORY_PATH,
-        repository_root=repository_root,
-    )
-    if (
-        base_authorizations is None
-        or base_helper is None
-        or base_lifecycle_inventory is None
-    ):
-        return False
-    authorization_rows, authorization_errors = parse_csv_payload(
-        base_authorizations,
-        source=f"{base_ref}:{ADDITIVE_RESEARCH_GATE_AUTHORIZATIONS_PATH}",
-    )
-    if authorization_errors or not authorization_rows:
-        return False
-    if tuple(authorization_rows[0]) != ADDITIVE_RESEARCH_GATE_AUTHORIZATION_COLUMNS:
-        return False
-    matching = [
-        row
-        for row in authorization_rows
-        if row.get("migration_id", "").strip()
-        == ADDITIVE_RESEARCH_GATE_SELF_UPDATE_ID
-    ]
-    if len(matching) != 1:
-        return False
-    authorization = matching[0]
-    try:
-        base_helper_text = base_helper.decode("utf-8")
-        current_helper = (repository_root / PR_SAFE_HELPER_PATH).read_bytes()
-        current_tests = (repository_root / SOURCE_IDENTITY_GATE_TEST_PATH).read_bytes()
-        current_lifecycle_inventory = (
-            repository_root / ADDITIVE_RESEARCH_GATE_LIFECYCLE_INVENTORY_PATH
-        ).read_bytes()
-        current_authorizations = (
-            repository_root / ADDITIVE_RESEARCH_GATE_AUTHORIZATIONS_PATH
-        ).read_bytes()
-    except (OSError, UnicodeError):
-        return False
-    sha_fields = (
-        "base_helper_sha256",
-        "current_helper_sha256",
-        "current_test_sha256",
-    )
-    if any(
-        not re.fullmatch(r"[0-9a-f]{64}", authorization.get(field, "").strip())
-        for field in sha_fields
-    ):
-        return False
-    return bool(
-        authorization.get("status", "").strip() == "preauthorized"
-        and bool(authorization.get("approval_reference", "").strip())
-        and set(split_list(authorization.get("changed_paths", "")))
-        == set(ADDITIVE_RESEARCH_GATE_SELF_UPDATE_PATHS)
-        and canonical_repository_bytes(current_authorizations)
-        == canonical_repository_bytes(base_authorizations)
-        and canonical_sha256(base_helper)
-        == authorization.get("base_helper_sha256", "").strip()
-        and canonical_sha256(current_helper)
-        == authorization.get("current_helper_sha256", "").strip()
-        and canonical_sha256(current_tests)
-        == authorization.get("current_test_sha256", "").strip()
-        and canonical_sha256(base_lifecycle_inventory)
-        == ADDITIVE_RESEARCH_GATE_BASE_LIFECYCLE_INVENTORY_SHA256
-        and canonical_sha256(current_lifecycle_inventory)
-        == ADDITIVE_RESEARCH_GATE_CURRENT_LIFECYCLE_INVENTORY_SHA256
-        and ADDITIVE_RESEARCH_GATE_SELF_UPDATE_ID.encode("utf-8") in current_helper
-        and ADDITIVE_RESEARCH_GATE_SELF_UPDATE_ID not in base_helper_text
-    )
 
 
-def is_preauthorized_daily_full_checkpoint_replay_advanced_integrity_migration(
-    base_ref: str,
-    changed_paths: set[str],
-    strict_surface_changes: set[str],
-    *,
-    repository_root: Path,
-) -> bool:
-    if strict_surface_changes != DAILY_FULL_CHECKPOINT_REPLAY_ADVANCED_STRICT_SURFACES:
-        return False
-    return is_preauthorized_daily_full_checkpoint_replay_migration(
-        base_ref,
-        changed_paths,
-        set(PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_STRICT_SURFACES),
-        repository_root=repository_root,
-        head_ref="HEAD",
-    )
 
 
-def is_preauthorized_local_validation_replay_routing_advanced_integrity_migration(
-    base_ref: str,
-    changed_paths: set[str],
-    strict_surface_changes: set[str],
-    *,
-    repository_root: Path,
-) -> bool:
-    if changed_paths != PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_PATHS:
-        return False
-    if strict_surface_changes != PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_STRICT_SURFACES:
-        return False
-    return is_preauthorized_daily_full_checkpoint_replay_migration(
-        base_ref,
-        changed_paths,
-        strict_surface_changes,
-        repository_root=repository_root,
-        head_ref="HEAD",
-    )
 
 
 def validate_registered_source_identity_migration(
@@ -2761,27 +2582,6 @@ def validate_pr_safe_advanced_integrity_contract(
     ):
         strict_surface_changes = set()
     elif is_registered_source_identity_gate_self_update(
-        base_ref,
-        changed_paths,
-        strict_surface_changes,
-        repository_root=repository_root,
-    ):
-        strict_surface_changes = set()
-    elif is_additive_research_gate_self_update(
-        base_ref,
-        changed_paths,
-        strict_surface_changes,
-        repository_root=repository_root,
-    ):
-        strict_surface_changes = set()
-    elif is_preauthorized_local_validation_replay_routing_advanced_integrity_migration(
-        base_ref,
-        changed_paths,
-        strict_surface_changes,
-        repository_root=repository_root,
-    ):
-        strict_surface_changes = set()
-    elif is_preauthorized_daily_full_checkpoint_replay_advanced_integrity_migration(
         base_ref,
         changed_paths,
         strict_surface_changes,
