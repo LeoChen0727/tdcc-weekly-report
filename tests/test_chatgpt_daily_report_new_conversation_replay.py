@@ -945,15 +945,26 @@ def test_rendered_model_regression_contract_records_formal_operation_models() ->
     ]["required_text_tokens"]
 
 
-def test_daily_workflow_runs_new_conversation_replay_gate() -> None:
-    workflow = (ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(
+def test_pdf_replay_stays_in_pr_validation_not_daily_full_runtime() -> None:
+    daily_workflow = (ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(
+        encoding="utf-8",
+        errors="replace",
+    )
+    pr_workflow = (
+        ROOT / ".github" / "workflows" / "daily_pdf_replay_pr_validation.yml"
+    ).read_text(
         encoding="utf-8",
         errors="replace",
     )
 
-    assert "Replay ChatGPT-side daily PDF new conversation" in workflow
-    assert "python scripts/validate_chatgpt_daily_report_new_conversation_replay.py" in workflow
-    assert "timeout-minutes: 20" in workflow
-    assert "timeout 20m python scripts/validate_chatgpt_daily_report_new_conversation_replay.py" in workflow
-    assert "PDF replay output_dir=chatgpt_side_outputs_new_conversation_replay" in workflow
-    assert "--output-dir chatgpt_side_outputs_new_conversation_replay" in workflow
+    assert "daily-pdf-dfkai-replay:" not in daily_workflow
+    assert "Replay ChatGPT-side daily PDF new conversation" not in daily_workflow
+    assert "chatgpt_side_outputs_new_conversation_replay" not in daily_workflow
+
+    assert "daily-pdf-dfkai-replay:" in pr_workflow
+    assert "Replay ChatGPT-side daily PDF new conversation" in pr_workflow
+    assert "python scripts/validate_chatgpt_daily_report_new_conversation_replay.py" in pr_workflow
+    assert "timeout-minutes: 20" in pr_workflow
+    assert "timeout 20m python scripts/validate_chatgpt_daily_report_new_conversation_replay.py" in pr_workflow
+    assert "PDF replay output_dir=chatgpt_side_outputs_pr_validation" in pr_workflow
+    assert "--output-dir chatgpt_side_outputs_pr_validation" in pr_workflow

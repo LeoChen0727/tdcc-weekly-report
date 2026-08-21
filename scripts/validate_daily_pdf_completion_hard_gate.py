@@ -24,10 +24,6 @@ DAILY_MODEL_SIGNALS = ROOT / "output" / "latest" / "daily_candidate_model_signal
 STOCK_THEME_TAXONOMY = ROOT / "output" / "latest" / "stock_theme_taxonomy_latest.csv"
 
 STATIC_COMPLETION_GATE_COMMAND = "python scripts/validate_daily_pdf_completion_hard_gate.py"
-DAILY_FULL_OUTPUT_GATE_COMMAND = (
-    "python scripts/validate_daily_pdf_completion_hard_gate.py "
-    "--require-output-dir chatgpt_side_outputs_new_conversation_replay"
-)
 PR_OUTPUT_GATE_COMMAND = (
     "python scripts/validate_daily_pdf_completion_hard_gate.py "
     "--require-output-dir chatgpt_side_outputs_pr_validation"
@@ -401,28 +397,24 @@ def validate_workflow_gates() -> list[str]:
         errors.extend(
             require_literals(
                 text,
-                (
-                    STATIC_COMPLETION_GATE_COMMAND,
-                    REPLAY_COMMAND,
-                    "PDF replay output_dir=chatgpt_side_outputs_new_conversation_replay",
-                    "--output-dir chatgpt_side_outputs_new_conversation_replay",
-                    DAILY_FULL_OUTPUT_GATE_COMMAND,
-                ),
+                (STATIC_COMPLETION_GATE_COMMAND,),
                 rel(DAILY_FULL_WORKFLOW),
             )
         )
-        errors.extend(
-            require_ordered(
-                text,
-                (
-                    "- name: Replay ChatGPT-side daily PDF new conversation",
-                    REPLAY_COMMAND,
-                    DAILY_FULL_OUTPUT_GATE_COMMAND,
-                    "- name: Dispatch and wait for GitHub Pages deploy",
-                ),
-                rel(DAILY_FULL_WORKFLOW),
-            )
-        )
+        for forbidden in (
+            "daily-pdf-dfkai-replay:",
+            REPLAY_COMMAND,
+            "scripts/validate_chatgpt_daily_report_new_conversation_replay.py",
+            "Install and validate DFKai-SB",
+            "daily-pdf-replay-main",
+            "PDF replay output_dir=chatgpt_side_outputs_new_conversation_replay",
+            "--output-dir chatgpt_side_outputs_new_conversation_replay",
+        ):
+            if forbidden in text:
+                errors.append(
+                    f"{rel(DAILY_FULL_WORKFLOW)} must leave formal six-PDF production to the "
+                    f"official owner and PR replay workflow: found {forbidden!r}"
+                )
 
     if DAILY_MODEL_PR_WORKFLOW.exists():
         text = read_text(DAILY_MODEL_PR_WORKFLOW)

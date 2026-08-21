@@ -1177,34 +1177,349 @@ def validate_daily_authority_snapshot_publish_contract(daily_text: str) -> list[
         errors.append(
             "daily workflow must not require origin/main to remain globally equal to PREFLIGHT_SOURCE_SHA"
         )
+    publish_block = workflow_step_block(
+        daily_text,
+        "Commit report artifacts, packets, and rules first",
+    )
+    if not publish_block:
+        errors.append("daily workflow is missing the authority artifact publication commit step")
+        return errors
     required_publish_literals = {
-        'git diff --cached --name-only -z > "$staged_paths_file"': (
-            "daily publish must capture the actual staged path set"
+        "git add data/daily_price/ data/stock_price_history/": (
+            "daily publish must stage required price and current-day history data"
         ),
-        'git diff --name-only --no-renames -z "$PREFLIGHT_SOURCE_SHA..$remote_head"': (
+        "docs/latest/company_industry_snapshot_latest.csv": (
+            "daily publish must stage the generated company-industry snapshot"
+        ),
+        "docs/latest/market_timing_chatgpt_packet_latest.md": (
+            "daily publish must stage the generated market-timing packet"
+        ),
+        "docs/latest/stock_price_history_manifest.csv": (
+            "daily publish must stage every stock-price-history manifest surface"
+        ),
+        "docs/latest/stock_price_history_manifest.json": (
+            "daily publish must stage every stock-price-history manifest surface"
+        ),
+        "docs/latest/stock_price_history_manifest.md": (
+            "daily publish must stage every stock-price-history manifest surface"
+        ),
+        "docs/latest/stock_theme_authorized_seed_preview_latest.csv": (
+            "daily publish must stage every generated stock-theme seed preview surface"
+        ),
+        "docs/latest/stock_theme_authorized_seed_preview_latest.md": (
+            "daily publish must stage every generated stock-theme seed preview surface"
+        ),
+        "docs/latest/stock_theme_manual_fill_template_latest.csv": (
+            "daily publish must stage every generated stock-theme manual-fill template"
+        ),
+        "docs/latest/stock_theme_manual_fill_template_latest.xlsx": (
+            "daily publish must stage every generated stock-theme manual-fill template"
+        ),
+        "docs/latest/stock_theme_taxonomy_latest.csv": (
+            "daily publish must stage every generated stock-theme taxonomy surface"
+        ),
+        "docs/latest/stock_theme_taxonomy_latest.md": (
+            "daily publish must stage every generated stock-theme taxonomy surface"
+        ),
+        "docs/latest/stock_theme_taxonomy_validation_latest.json": (
+            "daily publish must stage every generated stock-theme validation surface"
+        ),
+        "docs/latest/stock_theme_taxonomy_validation_latest.md": (
+            "daily publish must stage every generated stock-theme validation surface"
+        ),
+        "git add -- output/history/daily_candidates/daily_candidate_signal_log.csv": (
+            "daily publish must stage the generated candidate signal history"
+        ),
+        'git diff --cached --name-only --no-renames -z > "$staged_paths_file"': (
+            "daily publish must capture both sides of staged renames"
+        ),
+        'git diff --name-only --no-renames -z > "$unstaged_paths_file"': (
+            "daily publish must capture tracked unstaged writes without rename collapsing"
+        ),
+        'git ls-files --others --exclude-standard -z > "$untracked_paths_file"': (
+            "daily publish must capture nonignored untracked writes"
+        ),
+        'python - "$staged_paths_file" "$unstaged_paths_file" "$untracked_paths_file" "$write_paths_file"': (
+            "daily publish must build one NUL-safe staged and worktree write-path union"
+        ),
+        "for source in sys.argv[1:4]": (
+            "daily publish must include all three write-path sources in its union"
+        ),
+        'python - "$comparison_base" "$remote_head" "$write_paths_file"': (
+            "daily publish must compare moving main with the full write-path union"
+        ),
+        '["git", "diff", "--name-only", "--no-renames", "-z", sys.argv[1], sys.argv[2], "--"]': (
             "daily publish must compare pinned-source-to-current-main paths"
         ),
-        "overlap = sorted(staged_paths & main_paths)": (
+        "overlap = sorted(changed & written)": (
             "daily publish must fail closed only on an actual path overlap"
         ),
-        'git merge --no-edit "origin/$TARGET_BRANCH"': (
+        "Current main overlaps daily publish write paths": (
+            "daily publish must report exact staged or worktree conflicts"
+        ),
+        'git merge --no-edit "$remote_head"': (
             "daily publish must ordinary-merge a non-overlapping main advance"
         ),
         "for push_attempt in 1 2 3": (
             "daily publish must bound non-force push retries"
         ),
-        'git push origin "HEAD:$TARGET_BRANCH"': (
-            "daily publish must retain a normal non-force push"
+        "fetch_artifact_main_bounded()": (
+            "daily publish must isolate transient fetch failures"
+        ),
+        "for fetch_attempt in 1 2 3": (
+            "daily publish must bound remote fetch attempts"
+        ),
+        "if ! fetch_artifact_main_bounded; then": (
+            "daily publish must continue after a bounded transient fetch failure"
+        ),
+        'candidate_published_head_sha="$(git rev-parse HEAD)"': (
+            "daily publish must freeze each exact push candidate"
+        ),
+        'if git push origin "HEAD:$TARGET_BRANCH"; then': (
+            "daily publish must treat a successful normal push as its linearization point"
+        ),
+        'git merge-base --is-ancestor "$candidate_published_head_sha" "$remote_head"': (
+            "daily publish must recognize an accepted push after an acknowledgement failure"
+        ),
+        "fetch_artifact_main_bounded &&": (
+            "daily publish must perform a final bounded remote verification"
         ),
     }
     for literal, message in required_publish_literals.items():
-        if literal not in daily_text:
+        if literal not in publish_block:
             errors.append(f"{message}: missing {literal!r}")
-    for forbidden in ("git rebase", "git push --force", "git push -f"):
-        if forbidden in daily_text:
+    exact_counts = {
+        'git diff --cached --name-only --no-renames -z > "$staged_paths_file"': 1,
+        'git diff --name-only --no-renames -z > "$unstaged_paths_file"': 1,
+        'git ls-files --others --exclude-standard -z > "$untracked_paths_file"': 1,
+        'python - "$staged_paths_file" "$unstaged_paths_file" "$untracked_paths_file" "$write_paths_file"': 1,
+        'python - "$comparison_base" "$remote_head" "$write_paths_file"': 1,
+        "fetch_artifact_main_bounded()": 1,
+        "for push_attempt in 1 2 3; do": 1,
+        'if git push origin "HEAD:$TARGET_BRANCH"; then': 1,
+        "fetch_artifact_main_bounded &&": 1,
+    }
+    for literal, expected_count in exact_counts.items():
+        actual_count = publish_block.count(literal)
+        if actual_count != expected_count:
             errors.append(
-                f"daily publish must not use rebase or force during bounded retry: found {forbidden!r}"
+                "daily artifact publish contract count mismatch: "
+                f"literal={literal!r} expected={expected_count} actual={actual_count}"
             )
+    if publish_block.count(
+        'git merge-base --is-ancestor "$candidate_published_head_sha" "$remote_head"'
+    ) != 2:
+        errors.append(
+            "daily artifact publish must prove candidate ancestry both before a new push "
+            "and in the final acknowledgement-loss check"
+        )
+    errors.extend(
+        require_workflow_order(
+            publish_block,
+            [
+                "fetch_artifact_main_bounded() {",
+                "for push_attempt in 1 2 3; do",
+                'if git push origin "HEAD:$TARGET_BRANCH"; then',
+                '            done\n            if [ "$publish_succeeded" != true ] &&',
+                "fetch_artifact_main_bounded &&",
+                'if [ "$publish_succeeded" != true ]; then',
+            ],
+        )
+    )
+    forbidden_publish_literals = {
+        "git rebase": "daily publish must not rebase validated artifacts",
+        "git push --force": "daily publish must not force-push",
+        "git push -f": "daily publish must not force-push",
+        "git add data/daily_price/ data/stock_price_history/ || true": (
+            "daily publish must not ignore required price-history staging failures"
+        ),
+        "docs/latest/daily_signal_performance_": (
+            "daily publish must not stage research-owned signal-performance PDFs"
+        ),
+        "output/debug/": "daily publish must not stage diagnostic output",
+        "data/market_abnormal_status/": (
+            "daily publish must not stage wall-date market-abnormal raw files"
+        ),
+        "output/history/market_abnormal_status/": (
+            "daily publish must not stage wall-date market-abnormal history"
+        ),
+    }
+    for forbidden, message in forbidden_publish_literals.items():
+        if forbidden in publish_block:
+            errors.append(f"{message}: found {forbidden!r}")
+    return errors
+
+
+def validate_daily_readme_publish_contract(daily_text: str) -> list[str]:
+    errors: list[str] = []
+    block = workflow_step_block(daily_text, "Commit readme and publish check")
+    if not block:
+        return ["daily workflow is missing the readme publication commit step"]
+
+    required_literals = {
+        'readme_publish_base_sha="$(git rev-parse HEAD)"': (
+            "readme publish must pin the actual pre-publication base"
+        ),
+        'git diff --cached --name-only --no-renames -z > "$staged_paths_file"': (
+            "readme publish must capture its actual staged paths without rename collapsing"
+        ),
+        'git diff --name-only --no-renames -z > "$unstaged_paths_file"': (
+            "readme publish must capture tracked unstaged writes without rename collapsing"
+        ),
+        'git ls-files --others --exclude-standard -z > "$untracked_paths_file"': (
+            "readme publish must capture nonignored untracked writes"
+        ),
+        'python - "$staged_paths_file" "$unstaged_paths_file" "$untracked_paths_file" "$write_paths_file"': (
+            "readme publish must build one NUL-safe staged and worktree write-path union"
+        ),
+        "for source in sys.argv[1:4]": (
+            "readme publish must include all three write-path sources in its union"
+        ),
+        'python - "$comparison_base" "$remote_head" "$write_paths_file"': (
+            "readme publish must compare moving main with the full write-path union"
+        ),
+        "docs/latest/daily_candidate_two_line_view_latest.csv": (
+            "readme publish must stage every generated candidate two-line view"
+        ),
+        "docs/latest/daily_candidate_two_line_view_latest.md": (
+            "readme publish must stage every generated candidate two-line view"
+        ),
+        "docs/latest/daily_theme_leadership_latest.csv": (
+            "readme publish must stage every generated theme-leadership surface"
+        ),
+        "docs/latest/daily_theme_leadership_latest.md": (
+            "readme publish must stage every generated theme-leadership surface"
+        ),
+        "docs/rules/rules_index_latest.md": (
+            "readme publish must stage the generated rules index"
+        ),
+        '"docs/history/reports/${SNAPSHOT_REPORT_DATE}_READ_ME_FIRST_DAILY_REPORT.txt"': (
+            "readme publish must stage its date-bound docs history mirror"
+        ),
+        '"output/history/reports/${SNAPSHOT_REPORT_DATE}_READ_ME_FIRST_DAILY_REPORT.txt"': (
+            "readme publish must stage its date-bound output history copy"
+        ),
+        'git merge-base --is-ancestor "$readme_publish_base_sha" "$remote_head"': (
+            "readme publish must require moving main to descend from its pinned base"
+        ),
+        '["git", "diff", "--name-only", "--no-renames", "-z", sys.argv[1], sys.argv[2], "--"]': (
+            "readme publish must compare moving-main changes with its write paths"
+        ),
+        "overlap = sorted(changed & written)": (
+            "readme publish must fail only on an actual publication-path overlap"
+        ),
+        "Current main overlaps readme publish write paths": (
+            "readme publish must report the exact conflicting paths"
+        ),
+        'git merge --no-edit "$remote_head"': (
+            "readme publish must ordinary-merge non-overlapping main changes"
+        ),
+        "for push_attempt in 1 2 3": (
+            "readme publish must bound normal push attempts"
+        ),
+        "fetch_readme_main_bounded()": (
+            "readme publish must isolate transient fetch failures"
+        ),
+        "for fetch_attempt in 1 2 3": (
+            "readme publish must bound remote fetch attempts"
+        ),
+        "if ! fetch_readme_main_bounded; then": (
+            "readme publish must continue after a bounded transient fetch failure"
+        ),
+        'candidate_published_head_sha="$(git rev-parse HEAD)"': (
+            "readme publish must freeze each exact push candidate"
+        ),
+        'if git push origin "HEAD:$TARGET_BRANCH"; then': (
+            "readme publish must treat a successful normal push as its linearization point"
+        ),
+        'git merge-base --is-ancestor "$candidate_published_head_sha" "$remote_head"': (
+            "readme publish must recognize an accepted push after an acknowledgement failure"
+        ),
+        "fetch_readme_main_bounded &&": (
+            "readme publish must perform a final bounded remote verification"
+        ),
+        "Daily readme publish push failed after 3 bounded non-force attempts": (
+            "readme publish must fail after its bounded attempts"
+        ),
+    }
+    for literal, message in required_literals.items():
+        if literal not in block:
+            errors.append(f"{message}: missing {literal!r}")
+
+    forbidden_literals = {
+        "Remote branch advanced before readme publication": (
+            "readme publish must not reject a non-overlapping main advance"
+        ),
+        "git rebase": "readme publish must not rebase validated output",
+        "git push --force": "readme publish must not force-push",
+        "git push -f": "readme publish must not force-push",
+        "docs/latest/daily_signal_performance_": (
+            "readme publish must not stage research-owned signal-performance PDFs"
+        ),
+        "output/debug/": "readme publish must not stage diagnostic output",
+        "data/market_abnormal_status/": (
+            "readme publish must not stage wall-date market-abnormal raw files"
+        ),
+        "output/history/market_abnormal_status/": (
+            "readme publish must not stage wall-date market-abnormal history"
+        ),
+    }
+    for literal, message in forbidden_literals.items():
+        if literal in block:
+            errors.append(f"{message}: found {literal!r}")
+
+    exact_counts = {
+        'git diff --cached --name-only --no-renames -z > "$staged_paths_file"': 1,
+        'git diff --name-only --no-renames -z > "$unstaged_paths_file"': 1,
+        'git ls-files --others --exclude-standard -z > "$untracked_paths_file"': 1,
+        'python - "$staged_paths_file" "$unstaged_paths_file" "$untracked_paths_file" "$write_paths_file"': 1,
+        'python - "$comparison_base" "$remote_head" "$write_paths_file"': 1,
+        "fetch_readme_main_bounded()": 1,
+        "for push_attempt in 1 2 3; do": 1,
+        'if git push origin "HEAD:$TARGET_BRANCH"; then': 1,
+        "fetch_readme_main_bounded &&": 1,
+    }
+    for literal, expected_count in exact_counts.items():
+        actual_count = block.count(literal)
+        if actual_count != expected_count:
+            errors.append(
+                "daily readme publish contract count mismatch: "
+                f"literal={literal!r} expected={expected_count} actual={actual_count}"
+            )
+    if block.count(
+        'git merge-base --is-ancestor "$candidate_published_head_sha" "$remote_head"'
+    ) != 2:
+        errors.append(
+            "daily readme publish must prove candidate ancestry both before a new push "
+            "and in the final acknowledgement-loss check"
+        )
+    errors.extend(
+        require_workflow_order(
+            block,
+            [
+                "fetch_readme_main_bounded() {",
+                "for push_attempt in 1 2 3; do",
+                'if git push origin "HEAD:$TARGET_BRANCH"; then',
+                '            done\n            if [ "$readme_publish_succeeded" != true ] &&',
+                "fetch_readme_main_bounded &&",
+                'if [ "$readme_publish_succeeded" != true ]; then',
+            ],
+        )
+    )
+
+    for literal in (
+        "Dispatch and wait for GitHub Pages deploy",
+        "gh workflow run pages.yml",
+    ):
+        if literal in daily_text:
+            errors.append(
+                "daily workflow must rely on the pages.yml docs push trigger instead of "
+                f"dispatching a duplicate Pages run: found {literal!r}"
+            )
+    if "  actions: read" not in daily_text:
+        errors.append("daily workflow must retain read access for recovery run inspection")
+    if "  actions: write" in daily_text:
+        errors.append("daily workflow must not retain actions: write after removing Pages dispatch")
     return errors
 
 
@@ -1289,6 +1604,7 @@ def validate_daily_runtime_critical_contracts(
         daily_text = read_text(DAILY_WORKFLOW)
 
     errors.extend(validate_daily_authority_snapshot_publish_contract(daily_text))
+    errors.extend(validate_daily_readme_publish_contract(daily_text))
     errors.extend(validate_daily_failed_recovery_retry_contract(daily_text))
 
     market_literals = (
@@ -1354,30 +1670,10 @@ def validate_daily_runtime_critical_contracts(
                     f"{literal}"
                 )
 
-    pdf_block = workflow_job_block(daily_text, "daily-pdf-dfkai-replay")
-    if not pdf_block:
-        errors.append("daily workflow runtime is missing the daily-pdf-dfkai-replay job")
-    else:
-        pdf_literals = (
-            "always()",
-            "needs.market-session-preflight.result == 'success'",
-            "needs.daily-full-pipeline.result == 'success'",
-            "EXPECTED_MAIN_PRICE_DATE: ${{ needs.market-session-preflight.outputs.expected_main_price_date }}",
-            '--expected-main-price-date "$EXPECTED_MAIN_PRICE_DATE"',
+    if workflow_job_block(daily_text, "daily-pdf-dfkai-replay"):
+        errors.append(
+            "daily workflow runtime must not make the non-delivery Windows PDF replay a hard job"
         )
-        for literal in pdf_literals:
-            if literal not in pdf_block:
-                errors.append(f"daily PDF runtime contract missing: {literal}")
-        for forbidden in (
-            "inputs.validate_latest_daily_pdf_replay",
-            "closed_scheduled",
-            "closed_emergency",
-        ):
-            if forbidden in pdf_block:
-                errors.append(
-                    "daily PDF runtime must not use manual, closed-market, or stale replay fallback: "
-                    f"{forbidden}"
-                )
     return errors
 
 
@@ -1402,6 +1698,7 @@ def main(argv: Sequence[str] = ()) -> int:
     errors: list[str] = []
     daily_text = read_text(DAILY_WORKFLOW)
     errors.extend(validate_daily_authority_snapshot_publish_contract(daily_text))
+    errors.extend(validate_daily_readme_publish_contract(daily_text))
     errors.extend(validate_daily_failed_recovery_retry_contract(daily_text))
     errors.extend(validate_authority_workflow_publishers())
 
@@ -1545,44 +1842,11 @@ def main(argv: Sequence[str] = ()) -> int:
             ],
         )
     )
-    errors.extend(
-        validate_dfkai_pdf_replay_job(
-            daily_text,
-            workflow_label="daily_full_pipeline",
-            needs_job="[market-session-preflight, record-market-closure, daily-full-pipeline]",
-            output_dir="chatgpt_side_outputs_new_conversation_replay",
-            upload_step="Upload main daily PDF replay evidence",
+    if workflow_job_block(daily_text, "daily-pdf-dfkai-replay"):
+        errors.append(
+            "daily_full_pipeline must leave actual six-PDF rendering to the formal PDF owner; "
+            "daily-pdf-dfkai-replay is not a production completion gate"
         )
-    )
-    daily_replay_block = workflow_job_block(daily_text, "daily-pdf-dfkai-replay")
-    required_main_replay_literals = {
-        "always()": "main PDF replay must evaluate after skipped mutually exclusive jobs",
-        "needs.market-session-preflight.result == 'success'": (
-            "main PDF replay must require a successful live market-session preflight"
-        ),
-        "needs.daily-full-pipeline.result == 'success'": (
-            "main PDF replay must follow a successful open-market production job"
-        ),
-        "EXPECTED_MAIN_PRICE_DATE: ${{ needs.market-session-preflight.outputs.expected_main_price_date }}": (
-            "main PDF replay must bind to the market-session expected date"
-        ),
-        '--expected-main-price-date "$EXPECTED_MAIN_PRICE_DATE"': (
-            "main PDF replay must pass the exact expected date to the replay validator"
-        ),
-    }
-    for literal, message in required_main_replay_literals.items():
-        if literal not in daily_replay_block:
-            errors.append(f"{message}: missing {literal!r}")
-    for forbidden in (
-        "inputs.validate_latest_daily_pdf_replay",
-        "closed_scheduled",
-        "closed_emergency",
-    ):
-        if forbidden in daily_replay_block:
-            errors.append(
-                "Windows DFKai replay must be limited to successful open-market production; "
-                f"found {forbidden!r}"
-            )
 
     source_gate_block = workflow_job_block(
         daily_text,
@@ -1802,16 +2066,6 @@ def main(argv: Sequence[str] = ()) -> int:
             )
         )
         errors.extend(validate_pr_pdf_replay_source_pin(pdf_replay_workflow_text))
-        daily_dfkai_step = workflow_step_block(daily_text, "Install and validate DFKai-SB")
-        pr_dfkai_step = workflow_step_block(
-            pdf_replay_workflow_text,
-            "Install and validate DFKai-SB",
-        )
-        if daily_dfkai_step and pr_dfkai_step and daily_dfkai_step != pr_dfkai_step:
-            errors.append(
-                "daily_full_pipeline and daily_pdf_replay_pr_validation must use identical DFKai install and final-validation steps"
-            )
-
     if not CANONICAL_CHATGPT_PDF_ENTRYPOINT.exists():
         errors.append(f"missing canonical ChatGPT-side PDF entrypoint: {CANONICAL_CHATGPT_PDF_ENTRYPOINT}")
     else:
