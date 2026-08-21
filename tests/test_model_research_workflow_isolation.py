@@ -1,5 +1,9 @@
 from __future__ import annotations
 
+from dataclasses import replace
+
+import pytest
+
 from scripts import validate_model_research_workflow_isolation as validator
 
 
@@ -404,14 +408,48 @@ def test_research_workflow_rejects_wrong_post_run_full_validation_condition() ->
     assert any("post-run full background artifact validation" in error for error in errors)
 
 
-def test_pr_validation_requires_each_registered_model_namespace() -> None:
+@pytest.mark.parametrize("filter_key", ("paths", "paths-ignore"))
+def test_pr_validation_requires_unfiltered_pull_request_scope(
+    filter_key: str,
+) -> None:
+    rows = validator.load_registry()
+    text = validator.PR_VALIDATION_WORKFLOW.read_text(encoding="utf-8")
+    assert validator.validate_pr_workflow_text(text, rows) == []
+    mutated = text.replace(
+        "  pull_request:\n",
+        f"  pull_request:\n    {filter_key}:\n      - scripts/**\n",
+        1,
+    )
+
+    errors = validator.validate_pr_workflow_text(mutated, rows)
+
+    assert any("must remain unfiltered" in error for error in errors)
+
+
+def test_pr_validation_requires_cheap_scope_detector() -> None:
     rows = validator.load_registry()
     text = validator.PR_VALIDATION_WORKFLOW.read_text(encoding="utf-8").replace(
-        '      - "scripts/revenue_unreacted_range_*.py"\n',
-        "",
+        "python scripts/detect_daily_model_pr_validation_scope.py",
+        "echo scope-detector-disabled",
         1,
     )
 
     errors = validator.validate_pr_workflow_text(text, rows)
 
-    assert any("scripts/revenue_unreacted_range_*.py" in error for error in errors)
+    assert any("missing scope contract" in error for error in errors)
+
+
+def test_pr_validation_rejects_unrouted_registered_model_namespace() -> None:
+    rows = validator.load_registry()
+    rows.append(
+        replace(
+            rows[0],
+            model_id="foo_bar",
+            producer="scripts/foo_bar_research.py",
+        )
+    )
+    text = validator.PR_VALIDATION_WORKFLOW.read_text(encoding="utf-8")
+
+    errors = validator.validate_pr_workflow_text(text, rows)
+
+    assert any("scripts/foo_bar_research.py" in error for error in errors)

@@ -84,6 +84,36 @@ def test_contract_validator_passes() -> None:
     assert contract.main() == 0
 
 
+@pytest.mark.parametrize("filter_key", ("paths", "paths-ignore"))
+def test_daily_model_pr_contract_rejects_filtered_pull_request_trigger(
+    filter_key: str,
+) -> None:
+    text = _source(contract.PR_VALIDATION_WORKFLOW)
+    assert contract.daily_model_pr_scope_contract_errors(text) == []
+    mutated = text.replace(
+        "  pull_request:\n",
+        f"  pull_request:\n    {filter_key}:\n      - scripts/**\n",
+        1,
+    )
+
+    errors = contract.daily_model_pr_scope_contract_errors(mutated)
+
+    assert any("must remain unfiltered" in error for error in errors)
+
+
+def test_daily_model_pr_contract_requires_cheap_scope_detector() -> None:
+    text = _source(contract.PR_VALIDATION_WORKFLOW)
+    mutated = text.replace(
+        "python scripts/detect_daily_model_pr_validation_scope.py",
+        "echo scope-detector-disabled",
+        1,
+    )
+
+    errors = contract.daily_model_pr_scope_contract_errors(mutated)
+
+    assert any("missing scope contract" in error for error in errors)
+
+
 def test_daily_history_pdf_contract_rejects_chinese_history_alias_producers() -> None:
     for path in (
         contract.DAILY_MARKET_ARTIFACT_BUILDER,

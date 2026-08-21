@@ -4,7 +4,11 @@ import re
 import subprocess
 from pathlib import Path
 
+import pytest
+import yaml
+
 from scripts import validate_daily_production_boundaries as boundaries
+from scripts import detect_daily_model_pr_validation_scope as model_scope
 from scripts.update_daily_published_model_snapshots import ARTIFACTS_BY_ID
 
 
@@ -15,11 +19,258 @@ WARRANT_WORKFLOW = ROOT / ".github" / "workflows" / "warrant_flow.yml"
 PDF_REPLAY_WORKFLOW = ROOT / ".github" / "workflows" / "daily_pdf_replay_pr_validation.yml"
 
 
+def workflow_jobs(text: str | None = None) -> dict:
+    workflow = yaml.load(
+        text if text is not None else WORKFLOW.read_text(encoding="utf-8"),
+        Loader=yaml.BaseLoader,
+    )
+    return workflow["jobs"]
+
+
+def job_step(job_id: str, step_name: str, text: str | None = None) -> dict:
+    return next(
+        (
+            step
+            for step in workflow_jobs(text)[job_id]["steps"]
+            if step.get("name") == step_name
+        ),
+        {},
+    )
+
+
+def run_commands(step: dict) -> tuple[str, ...]:
+    commands: list[str] = []
+    current: list[str] = []
+    for raw_line in step.get("run", "").splitlines():
+        stripped = raw_line.strip()
+        if not stripped:
+            continue
+        continued = stripped.endswith("\\")
+        current.append(stripped[:-1].rstrip() if continued else stripped)
+        if not continued:
+            commands.append(" ".join(current))
+            current = []
+    if current:
+        commands.append(" ".join(current))
+    return tuple(commands)
+
+
+def job_run_text(job_id: str, text: str | None = None) -> str:
+    return "\n".join(
+        step.get("run", "") for step in workflow_jobs(text)[job_id]["steps"]
+    )
+
+
+def workflow_run_text(text: str | None = None) -> str:
+    return "\n".join(
+        step.get("run", "")
+        for job in workflow_jobs(text).values()
+        for step in job.get("steps", ())
+    )
+
+
+def scope_job_contract_ok(text: str) -> bool:
+    job = workflow_jobs(text)["scope"]
+    block = job_run_text("scope", text)
+    required = (
+        "git --no-replace-objects init .",
+        'remote add origin "$REPOSITORY_URL"',
+        "config remote.origin.promisor true",
+        "config remote.origin.partialclonefilter blob:none",
+        "--depth=\"$fetch_depth\"",
+        "--filter=blob:none",
+        '"+$FETCH_REF:refs/remotes/origin/pr-scope"',
+        'if [ "$fetched_sha" != "$MERGE_SHA" ]; then',
+        'update-ref --no-deref HEAD "$MERGE_SHA"',
+        '"$MERGE_SHA:scripts/detect_daily_model_pr_validation_scope.py"',
+    )
+    forbidden = (
+        "actions/checkout@",
+        "fetch-depth: 0",
+        "persist-credentials: true",
+        "GITHUB_TOKEN",
+        "github.token",
+        "secrets.",
+        "pip install",
+        "pytest",
+        "python scripts/validate_",
+        "python scripts/build_",
+    )
+    return (
+        all(literal in block for literal in required)
+        and not any(literal in block for literal in forbidden)
+        and not any("uses" in step for step in job["steps"])
+    )
+
+
+def aggregate_contract_ok(text: str) -> bool:
+    job = workflow_jobs(text)["daily-model-maintenance-pr-validation"]
+    block = job_run_text("daily-model-maintenance-pr-validation", text)
+    expected_needs = (
+        "scope",
+        "repo_current_contracts",
+        "shared_model_research",
+        "volume_v2_research",
+        "revenue_research",
+        "financial_statement_research",
+    )
+    required = (
+        'if [ "$SCOPE_RESULT" != "success" ]; then',
+        'if [ "$result" != "success" ]; then',
+        'if [ "$result" != "skipped" ]; then',
+        'require_domain_result repo-current-contracts "$CORE_SELECTED" "$CORE_RESULT"',
+        'require_domain_result shared-model-research "$SHARED_SELECTED" "$SHARED_RESULT"',
+        'require_domain_result volume-v2-research "$VOLUME_SELECTED" "$VOLUME_RESULT"',
+        'require_domain_result revenue-research "$REVENUE_SELECTED" "$REVENUE_RESULT"',
+        'require_domain_result financial-statement-research "$FINANCIAL_SELECTED" "$FINANCIAL_RESULT"',
+    )
+    return (
+        job.get("name") == "daily-model-maintenance-pr-validation"
+        and job.get("if") == "always()"
+        and tuple(job.get("needs", ())) == expected_needs
+        and all(literal in block for literal in required)
+        and not any("continue-on-error" in step for step in job["steps"])
+    )
+
+
+VOLUME_GENERATED_TARGETS = tuple(
+    f"{root}/volume_v2_warrant_lineage_history_audit_latest.{suffix}"
+    for root in ("docs/latest", "output/latest")
+    for suffix in ("csv", "md")
+)
+
+FINANCIAL_GENERATED_TARGETS = tuple(
+    f"{root}/financial_statement_historical_pit_source_audit_latest.{suffix}"
+    for root in ("docs/latest", "output/latest/research_backtest")
+    for suffix in ("csv", "md")
+)
+
+REVENUE_VALIDATOR_COMMANDS = (
+    "python scripts/validate_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py",
+    "python scripts/validate_revenue_unreacted_range_source_first_condition_audit.py",
+    "python scripts/validate_revenue_unreacted_range_source_snapshot_projection.py",
+    "python scripts/validate_revenue_unreacted_range_forward_confirmation_feature_audit.py",
+    "python scripts/validate_revenue_unreacted_range_rearmed_operation_grid.py",
+    "python scripts/validate_revenue_unreacted_range_operation_lag_bucket_audit.py",
+    "python scripts/validate_revenue_unreacted_range_position_shape_transition_matrix.py",
+    "python scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
+    "python scripts/validate_revenue_unreacted_range_promotion_preparation.py",
+    "python scripts/validate_revenue_unreacted_range_financial_statement_fail_closed.py",
+)
+
+SHARED_VALIDATION_COMMANDS = (
+    "python scripts/validate_daily_model_background_data_registry.py",
+    'python scripts/validate_model_data_independence.py --base-ref "$BASE_SHA"',
+    'python scripts/validate_model_research_shared_utilities.py --base-ref "$BASE_SHA"',
+    "python scripts/build_mature_model_row_level_metric_contract_audit.py",
+    "python scripts/validate_mature_model_row_level_metric_contract_audit.py",
+    "python scripts/validate_research_against_stock_model_contract.py",
+    "python scripts/validate_daily_model_research_parity.py",
+)
+
+VOLUME_VALIDATION_COMMANDS = (
+    "python scripts/validate_volume_breakout_watch.py --latest-only",
+    "python scripts/validate_volume_attack_theme_layer.py",
+    'python scripts/validate_daily_canonical_field_lineage.py --base-ref "$BASE_SHA" $LINEAGE_HISTORY_MODE',
+    "python scripts/build_volume_v2_warrant_lineage_history_audit.py",
+    "python scripts/validate_volume_v2_warrant_lineage_history_audit.py",
+    "git --no-replace-objects diff --exit-code -- "
+    + " ".join(VOLUME_GENERATED_TARGETS),
+)
+
+FINANCIAL_VALIDATION_COMMANDS = (
+    "python scripts/validate_financial_statement_pit.py",
+    "python scripts/build_financial_statement_historical_pit_source_audit.py",
+    "python scripts/validate_financial_statement_historical_pit_source_audit.py",
+    "git --no-replace-objects diff --exit-code -- "
+    + " ".join(FINANCIAL_GENERATED_TARGETS),
+)
+
+DOMAIN_CONTRACTS = {
+    "repo_current_contracts": (model_scope.REPO_CURRENT_CONTRACTS, "", ()),
+    "shared_model_research": (
+        model_scope.SHARED_MODEL_RESEARCH,
+        "Validate shared model research contracts",
+        SHARED_VALIDATION_COMMANDS,
+    ),
+    "volume_v2_research": (
+        model_scope.VOLUME_V2_RESEARCH,
+        "Validate Volume V2 research contracts",
+        VOLUME_VALIDATION_COMMANDS,
+    ),
+    "revenue_research": (
+        model_scope.REVENUE_RESEARCH,
+        "Validate revenue research contracts",
+        REVENUE_VALIDATOR_COMMANDS,
+    ),
+    "financial_statement_research": (
+        model_scope.FINANCIAL_STATEMENT_RESEARCH,
+        "Validate financial-statement research contracts",
+        FINANCIAL_VALIDATION_COMMANDS,
+    ),
+}
+
+def domain_workload_contract_ok(text: str) -> bool:
+    core = job_run_text("repo_current_contracts", text)
+    for job_id, (_, step_name, expected_commands) in DOMAIN_CONTRACTS.items():
+        if not step_name:
+            continue
+        step = job_step(job_id, step_name, text)
+        if (
+            not step
+            or "if" in step
+            or "continue-on-error" in step
+            or run_commands(step) != expected_commands
+        ):
+            return False
+    all_runs = workflow_run_text(text)
+    return (
+        not re.search(r"(?m)^\s*python scripts/build_", core)
+        and "diff --exit-code" not in core
+        and all(all_runs.count(command) == 1 for command in REVENUE_VALIDATOR_COMMANDS)
+    )
+
+
+def direct_dependency_closure_ok(text: str) -> bool:
+    path_pattern = re.compile(
+        r"(?P<path>(?:scripts|tests|docs/latest|output/latest)/"
+        r"[A-Za-z0-9_.*{}/$-]+\.(?:py|csv|json|md))"
+    )
+    for job_id, (expected_domain, _, _) in DOMAIN_CONTRACTS.items():
+        block = job_run_text(job_id, text)
+        paths = sorted({match.group("path") for match in path_pattern.finditer(block)})
+        if not paths:
+            return False
+        for path in paths:
+            if not (
+                model_scope.is_watched_path(path)
+                or model_scope.is_model_like_path(path)
+            ):
+                return False
+            try:
+                domains = model_scope.domains_for_path(path)
+            except model_scope.ScopeDetectionError:
+                return False
+            if expected_domain not in domains:
+                return False
+    return True
+
+
+def git_invocation_contract_ok(text: str) -> bool:
+    runs = workflow_run_text(text)
+    for match in re.finditer(r"(?<![A-Za-z0-9_./-])git\s+", runs):
+        tail = runs[match.start() : match.start() + 80]
+        if not tail.startswith("git --no-replace-objects "):
+            return False
+    return True
+
+
 def test_every_formal_snapshot_workflow_pins_an_explicit_revision_reason() -> None:
     expected_callers = {
         "daily_full_pipeline.yml": (
             "daily_full_volume_v2_audit_sources",
             "daily_full_post_audit_artifacts",
+            "daily_authority_release_final",
         ),
         "weekly_theme_review.yml": ("weekly_theme_formal_sync",),
         "warrant_flow.yml": ("warrant_formal_sync",),
@@ -54,13 +305,21 @@ def test_every_formal_snapshot_workflow_uses_registered_artifact_ids() -> None:
 
 def test_daily_full_stages_only_exact_manifest_snapshot_revisions() -> None:
     text = DAILY_WORKFLOW.read_text(encoding="utf-8")
-    commit_block = text[
-        text.index("- name: Commit report artifacts, packets, and rules first") :
-        text.index("- name: Wait briefly for GitHub Pages and raw propagation")
+    finalization_block = text[
+        text.index(
+            "- name: Prepare daily authority release before immutable snapshot finalization"
+        ) : text.index("- name: Commit report artifacts, packets, and rules first")
     ]
-    assert 're.sub(r"[^0-9]", ""' in commit_block
-    assert 'if [[ ! "$snapshot_report_date" =~ ^[0-9]{8}$ ]]; then' in commit_block
-    assert "git add output/history/daily_model_snapshots/ || true" not in commit_block
+    assert 're.sub(r"[^0-9]", ""' in finalization_block
+    assert (
+        'if [[ ! "$snapshot_report_date" =~ ^[0-9]{8}$ ]]; then'
+        in finalization_block
+    )
+    assert "git add output/history/daily_model_snapshots/ || true" not in text
+    stage_block = text[
+        text.index("- name: Stage immutable published snapshot revisions") :
+        text.index("- name: Validate immutable published snapshot revisions")
+    ]
 
     artifact_ids = (
         "data_freshness",
@@ -74,12 +333,15 @@ def test_daily_full_stages_only_exact_manifest_snapshot_revisions() -> None:
         "w_bottom_right_side_operation_section",
         "neckline_volume_breakout_confirmation_operation_section",
     )
-    assert commit_block.count(
+    assert stage_block.count(
         "python scripts/stage_daily_published_snapshot_revisions.py"
     ) == 1
     for artifact_id in artifact_ids:
-        assert commit_block.count(f"--artifact-id {artifact_id}") == 1
-    assert 'daily_model_snapshots/data_freshness_${snapshot_report_date}"*.csv' not in commit_block
+        assert stage_block.count(f"--artifact-id {artifact_id}") == 1
+    assert (
+        'daily_model_snapshots/data_freshness_${snapshot_report_date}"*.csv'
+        not in finalization_block
+    )
 
 
 def run_git(repo: Path, *args: str) -> str:
@@ -97,18 +359,186 @@ def test_daily_model_maintenance_pr_workflow_exists_for_model_pdf_paths() -> Non
     text = WORKFLOW.read_text(encoding="utf-8")
 
     assert "pull_request:" in text
+    assert "workflow_dispatch:" in text
     assert "fetch-depth: 0" in text
-    assert "scripts/generate_chatgpt_side_daily_reports.py" in text
-    assert "scripts/run_chatgpt_daily_report_entrypoint.py" in text
-    assert "scripts/update_daily_published_model_snapshots.py" in text
-    assert "config/daily_pdf_rendered_model_regression_contract.csv" in text
-    assert "config/daily_pdf_semantic_golden_cases.csv" in text
+    assert "scripts/generate_chatgpt_side_daily_reports.py" in model_scope.WATCHED_PATH_PATTERNS
+    assert "scripts/run_chatgpt_daily_report_entrypoint.py" in model_scope.WATCHED_PATH_PATTERNS
+    assert "scripts/update_daily_published_model_snapshots.py" in model_scope.WATCHED_PATH_PATTERNS
+    assert (
+        "config/daily_pdf_rendered_model_regression_contract.csv"
+        in model_scope.WATCHED_PATH_PATTERNS
+    )
+    assert (
+        "config/daily_pdf_semantic_golden_cases.csv"
+        in model_scope.WATCHED_PATH_PATTERNS
+    )
     assert "tests/test_chatgpt_daily_report_new_conversation_replay.py" in text
     assert "tests/test_chatgpt_daily_report_entrypoint.py" in text
-    assert "docs/specs/daily_mature_model_row_level_metric_contract.md" in text
+    assert model_scope.is_watched_path(
+        "docs/specs/daily_mature_model_row_level_metric_contract.md"
+    )
     assert "scripts/build_mature_model_row_level_metric_contract_audit.py" in text
     assert "scripts/validate_mature_model_row_level_metric_contract_audit.py" in text
     assert "tests/test_mature_model_row_level_metric_contract_audit.py" in text
+
+
+def test_scope_aggregate_and_domain_contracts_are_exact_and_fail_closed() -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+    jobs = workflow_jobs(text)
+    block = job_run_text("scope", text)
+
+    assert scope_job_contract_ok(text)
+    assert aggregate_contract_ok(text)
+    assert domain_workload_contract_ok(text)
+    assert direct_dependency_closure_ok(text)
+    assert git_invocation_contract_ok(text)
+    assert "fetch_depth=1" in block
+    assert 'fetch_depth=2' in block
+    assert "public merge ref" in jobs["scope"]["steps"][0]["name"]
+    assert (
+        jobs["scope"]["steps"][0]["env"]["REPOSITORY_URL"]
+        == "${{ github.server_url }}/${{ github.repository }}.git"
+    )
+    for job_id in DOMAIN_CONTRACTS:
+        job = jobs[job_id]
+        assert job["needs"] == "scope"
+        assert "needs.scope.result == 'success'" in job["if"]
+        assert f"needs.scope.outputs.{job_id} == 'true'" in job["if"]
+        assert "continue-on-error" not in job
+        assert all("continue-on-error" not in step for step in job["steps"])
+
+
+@pytest.mark.parametrize(
+    ("needle", "replacement"),
+    (
+        ("            --filter=blob:none \\\n", ""),
+        ("          fetch_depth=1", "          fetch-depth: 0"),
+        (
+            "          set -euo pipefail",
+            "          set -euo pipefail\n          echo $GITHUB_TOKEN",
+        ),
+        ("git --no-replace-objects init .", "git init ."),
+        (
+            "          set -euo pipefail",
+            "          set -euo pipefail\n          pip install pandas",
+        ),
+    ),
+)
+def test_scope_job_contract_rejects_expensive_or_credentialed_mutations(
+    needle: str, replacement: str
+) -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+    assert needle in text
+    assert not scope_job_contract_ok(text.replace(needle, replacement, 1))
+
+
+@pytest.mark.parametrize(
+    ("needle", "replacement"),
+    (
+        ("      - revenue_research\n", ""),
+        ('if [ "$result" != "skipped" ]; then', 'if [ "$result" != "success" ]; then'),
+        (
+            'require_domain_result volume-v2-research "$VOLUME_SELECTED" "$VOLUME_RESULT"',
+            "echo volume-result-ignored",
+        ),
+    ),
+)
+def test_stable_aggregate_rejects_missing_or_weakened_domain_contract(
+    needle: str, replacement: str
+) -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+    assert needle in text
+
+    assert not aggregate_contract_ok(text.replace(needle, replacement, 1))
+
+
+@pytest.mark.parametrize(
+    ("needle", "replacement"),
+    (
+        (
+            "          python scripts/validate_repo_file_lifecycle_inventory.py\n",
+            "          python scripts/validate_repo_file_lifecycle_inventory.py\n"
+            "          python scripts/build_fake_research.py\n",
+        ),
+        (
+            "          python scripts/validate_repo_production_inventory.py\n",
+            "          python scripts/validate_repo_production_inventory.py\n"
+            "          git --no-replace-objects diff --exit-code -- output/latest/fake.csv\n",
+        ),
+        ("git --no-replace-objects diff --exit-code --", "echo diff-disabled --"),
+        (
+            "python scripts/build_volume_v2_warrant_lineage_history_audit.py",
+            "python scripts/build_volume_v2_warrant_lineage_history_audit.py || true",
+        ),
+        (
+            "python scripts/build_financial_statement_historical_pit_source_audit.py\n"
+            "          python scripts/validate_financial_statement_historical_pit_source_audit.py",
+            "python scripts/validate_financial_statement_historical_pit_source_audit.py\n"
+            "          python scripts/build_financial_statement_historical_pit_source_audit.py",
+        ),
+        (
+            "python scripts/validate_financial_statement_historical_pit_source_audit.py",
+            "python scripts/validate_financial_statement_historical_pit_source_audit.py || :",
+        ),
+        (
+            "financial_statement_historical_pit_source_audit_latest.md\n",
+            "financial_statement_historical_pit_source_audit_latest.md \\\n"
+            "            output/latest/research_backtest/extra_volatile_audit.csv\n",
+        ),
+        (f"          {REVENUE_VALIDATOR_COMMANDS[0]}\n", ""),
+        (
+            f"{REVENUE_VALIDATOR_COMMANDS[0]}\n          {REVENUE_VALIDATOR_COMMANDS[1]}",
+            f"{REVENUE_VALIDATOR_COMMANDS[1]}\n          {REVENUE_VALIDATOR_COMMANDS[0]}",
+        ),
+        (
+            "          python scripts/validate_repo_production_inventory.py\n",
+            "          python scripts/validate_repo_production_inventory.py\n"
+            f"          {REVENUE_VALIDATOR_COMMANDS[0]}\n",
+        ),
+        (
+            f"          {REVENUE_VALIDATOR_COMMANDS[0]}\n",
+            f"          {REVENUE_VALIDATOR_COMMANDS[0]}\n"
+            "          python scripts/build_revenue_unreacted_range_extra.py\n",
+        ),
+        (
+            "      - name: Validate shared model research contracts\n",
+            "      - name: Validate shared model research contracts\n"
+            "        \"if\": ${{ false }}\n",
+        ),
+    ),
+)
+def test_domain_workload_contract_rejects_representative_mutations(
+    needle: str, replacement: str
+) -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+    assert needle in text
+    assert not domain_workload_contract_ok(text.replace(needle, replacement, 1))
+
+
+def test_direct_dependency_closure_rejects_unclassified_new_core_validator() -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+    marker = "          python scripts/validate_repo_file_lifecycle_inventory.py\n"
+    assert marker in text
+    mutated = text.replace(
+        marker,
+        marker + "          python scripts/unclassified_repo_gate.py\n",
+        1,
+    )
+
+    assert not direct_dependency_closure_ok(mutated)
+
+
+def test_git_invocation_contract_catches_command_substitution_without_protection() -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+    protected = 'fetched_sha="$(git --no-replace-objects rev-parse FETCH_HEAD)"'
+    assert protected in text
+    mutated = text.replace(
+        protected,
+        'fetched_sha="$(git rev-parse FETCH_HEAD)"',
+        1,
+    )
+
+    assert not git_invocation_contract_ok(mutated)
 
 
 def test_production_snapshot_updates_are_followed_by_dynamic_lineage_parity() -> None:
@@ -193,8 +623,6 @@ def test_daily_model_pr_workflow_does_not_install_dfkai_or_render_pdfs() -> None
 
 
 def test_daily_model_maintenance_pr_workflow_triggers_on_independence_guard_changes() -> None:
-    text = WORKFLOW.read_text(encoding="utf-8")
-
     required_paths = (
         "config/daily_model_*.csv",
         "config/revenue_unreacted_range_*.csv",
@@ -235,7 +663,7 @@ def test_daily_model_maintenance_pr_workflow_triggers_on_independence_guard_chan
         "tests/test_stage_daily_published_snapshot_revisions.py",
     )
     for path in required_paths:
-        assert path in text
+        assert model_scope.is_watched_path(path)
 
 
 def test_daily_model_maintenance_pr_workflow_pins_append_only_validation_base() -> None:
@@ -243,9 +671,10 @@ def test_daily_model_maintenance_pr_workflow_pins_append_only_validation_base() 
 
     assert "fetch-depth: 0" in text
     assert "BASE_SHA: ${{ github.event.pull_request.base.sha || 'origin/main' }}" in text
-    assert 'if [ "$BASE_SHA" = "origin/main" ]; then' in text
-    assert "git fetch --no-tags origin main:refs/remotes/origin/main" in text
-    assert 'git cat-file -e "${BASE_SHA}^{commit}"' in text
+    assert '--base-sha "$BASE_SHA"' in text
+    assert '--head-sha "$HEAD_SHA"' in text
+    assert '--merge-sha "$MERGE_SHA"' in text
+    assert "git --no-replace-objects" in text
     assert (
         'python scripts/validate_model_data_independence.py --base-ref "$BASE_SHA"'
         in text
@@ -255,11 +684,14 @@ def test_daily_model_maintenance_pr_workflow_pins_append_only_validation_base() 
         '--base-ref "$BASE_SHA"'
         in text
     )
-    assert 'lineage_args=(--base-ref "$BASE_SHA")' in text
-    assert 'if [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then' in text
-    assert "lineage_args+=(--pr-safe-base-history)" in text
     assert (
-        'python scripts/validate_daily_canonical_field_lineage.py "${lineage_args[@]}"'
+        "LINEAGE_HISTORY_MODE: ${{ github.event_name == 'pull_request' && "
+        "'--pr-safe-base-history' || '' }}"
+        in text
+    )
+    assert (
+        'python scripts/validate_daily_canonical_field_lineage.py --base-ref "$BASE_SHA" '
+        "$LINEAGE_HISTORY_MODE"
         in text
     )
     assert "python scripts/validate_model_data_independence.py\n" not in text
@@ -269,21 +701,22 @@ def test_daily_model_maintenance_pr_workflow_pins_append_only_validation_base() 
 
 def test_daily_model_pr_lineage_base_history_is_pull_request_only() -> None:
     text = WORKFLOW.read_text(encoding="utf-8")
-    marker = 'lineage_args=(--base-ref "$BASE_SHA")'
-    start = text.index(marker)
-    end = text.index(
-        "python scripts/build_volume_v2_warrant_lineage_history_audit.py", start
-    )
-    block = text[start:end]
+    job = workflow_jobs(text)["volume_v2_research"]
+    block = job_run_text("volume_v2_research", text)
 
-    assert block.count("--pr-safe-base-history") == 1
-    assert block.count('if [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then') == 1
+    assert str(job).count("--pr-safe-base-history") == 1
     assert (
-        'python scripts/validate_daily_canonical_field_lineage.py "${lineage_args[@]}"'
+        job["env"]["LINEAGE_HISTORY_MODE"]
+        == "${{ github.event_name == 'pull_request' && "
+        "'--pr-safe-base-history' || '' }}"
+    )
+    assert (
+        'python scripts/validate_daily_canonical_field_lineage.py --base-ref "$BASE_SHA" '
+        "$LINEAGE_HISTORY_MODE"
         in block
     )
+    assert 'if [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then' not in block
     assert "eval " not in block
-    assert "workflow_dispatch" not in block
 
 
 def test_daily_model_maintenance_pr_workflow_runs_contract_validators() -> None:
@@ -390,17 +823,15 @@ def test_daily_model_maintenance_pr_workflow_runs_focused_pdf_operation_tests() 
 
 def test_daily_model_pr_focused_suite_replaces_only_strict_runtime_integrity_test() -> None:
     text = WORKFLOW.read_text(encoding="utf-8")
-    focused = text.split("- name: Run focused regression tests", 1)[1]
     strict_node = (
         "tests/test_repo_advanced_integrity.py::"
         "test_repo_advanced_integrity_validator_passes"
     )
 
-    assert "tests/test_repo_advanced_integrity.py" in focused
-    assert f"--deselect {strict_node}" in focused
-    assert focused.count("--deselect") == 1
-    assert "--ignore=tests/test_repo_advanced_integrity.py" not in focused
-    assert "-k " not in focused
+    assert "tests/test_repo_advanced_integrity.py" in text
+    assert f"--deselect {strict_node}" in text
+    assert text.count("--deselect") == 1
+    assert "--ignore=tests/test_repo_advanced_integrity.py" not in text
 
 
 def test_pdf_impact_pr_workflow_runs_actual_pdf_replay_and_uploads_evidence() -> None:
