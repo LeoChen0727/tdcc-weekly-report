@@ -5,3 +5,4 @@
 *.xlsx binary
 *.parquet binary
 *.duckdb binary
+data/market_abnormal_status/bundles/** -text
