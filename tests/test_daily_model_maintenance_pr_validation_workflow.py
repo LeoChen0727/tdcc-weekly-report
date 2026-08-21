@@ -5,7 +5,6 @@ import subprocess
 from pathlib import Path
 
 import pytest
-import yaml
 
 from scripts import validate_daily_production_boundaries as boundaries
 from scripts import detect_daily_model_pr_validation_scope as model_scope
@@ -19,29 +18,123 @@ WARRANT_WORKFLOW = ROOT / ".github" / "workflows" / "warrant_flow.yml"
 PDF_REPLAY_WORKFLOW = ROOT / ".github" / "workflows" / "daily_pdf_replay_pr_validation.yml"
 
 
-def workflow_jobs(text: str | None = None) -> dict:
-    workflow = yaml.load(
-        text if text is not None else WORKFLOW.read_text(encoding="utf-8"),
-        Loader=yaml.BaseLoader,
+JOB_LINE = re.compile(
+    r"(?m)^  (?P<quote>['\"]?)(?P<job_id>[A-Za-z0-9_-]+)(?P=quote):"
+    r"[ \t]*(?:#.*)?$"
+)
+STEP_LINE = re.compile(r"(?m)^      -(?:[ \t].*)?$")
+
+
+def key_pattern(key: str) -> str:
+    escaped = re.escape(key)
+    return rf'''(?:{escaped}|'{escaped}'|"{escaped}")'''
+
+
+def workflow_jobs(text: str | None = None) -> dict[str, str]:
+    workflow_text = text if text is not None else WORKFLOW.read_text(encoding="utf-8")
+    jobs = re.search(r"(?m)^jobs:[ \t]*(?:#.*)?$", workflow_text)
+    matches = list(JOB_LINE.finditer(workflow_text, jobs.end())) if jobs else []
+    ids = [match.group("job_id") for match in matches]
+    if len(ids) != len(set(ids)):
+        raise ValueError("duplicate active workflow job id")
+    ends = [match.start() for match in matches[1:]] + [len(workflow_text)]
+    return {
+        job_id: workflow_text[match.start() : end]
+        for job_id, match, end in zip(ids, matches, ends)
+    }
+
+
+def job_block(job_id: str, text: str | None = None) -> str:
+    return workflow_jobs(text).get(job_id, "")
+
+
+def active_field(block: str, key: str, indent: int = 8) -> str | None:
+    first_line, separator, remainder = block.partition("\n")
+    if first_line.startswith("      - "):
+        block = "        " + first_line[8:] + separator + remainder
+    matches = list(
+        re.finditer(
+            rf"(?m)^{' ' * indent}{key_pattern(key)}:"
+            r"[ \t]*(?P<value>.*)$",
+            block,
+        )
     )
-    return workflow["jobs"]
+    if not matches:
+        return None
+    if len(matches) != 1:
+        return ""
+    match = matches[0]
+    value = match.group("value").strip()
+    if value not in {">", ">-", "|", "|-"}:
+        return value.strip("'\"")
+    content: list[str] = []
+    for line in block[match.end() :].lstrip("\n").splitlines():
+        line_indent = len(line) - len(line.lstrip())
+        if line.strip() and line_indent <= indent:
+            break
+        if line_indent >= indent + 2:
+            content.append(line[indent + 2 :])
+    return (
+        " ".join(line.strip() for line in content if line.strip())
+        if value.startswith(">")
+        else "\n".join(content)
+    )
 
 
-def job_step(job_id: str, step_name: str, text: str | None = None) -> dict:
+def active_list(block: str, key: str, indent: int = 4) -> tuple[str, ...]:
+    markers = list(re.finditer(
+        rf"(?m)^{' ' * indent}{key_pattern(key)}:[ \t]*(?:#.*)?$", block
+    ))
+    if len(markers) != 1:
+        return ()
+    marker = markers[0]
+    values: list[str] = []
+    for line in block[marker.end() :].lstrip("\n").splitlines():
+        line_indent = len(line) - len(line.lstrip())
+        if line.strip() and line_indent <= indent:
+            break
+        item = re.match(rf"^{' ' * (indent + 2)}-\s*(?P<value>.+)$", line)
+        if item:
+            values.append(item.group("value").strip().strip("'\""))
+    return tuple(values)
+
+
+def active_step_blocks(job_block: str) -> tuple[str, ...]:
+    markers = list(re.finditer(
+        rf"(?m)^    {key_pattern('steps')}:[ \t]*(?:#.*)?$", job_block
+    ))
+    if len(markers) != 1:
+        return ()
+    steps_text = job_block[markers[0].end() :]
+    next_job_field = re.search(r"(?m)^    (?![ #\r\n])", steps_text)
+    steps_text = steps_text[: next_job_field.start()] if next_job_field else steps_text
+    starts = list(STEP_LINE.finditer(steps_text))
+    ends = [match.start() for match in starts[1:]] + [len(steps_text)]
+    blocks = tuple(
+        steps_text[match.start() : end] for match, end in zip(starts, ends)
+    )
+    key_token = r'''(?:[A-Za-z0-9_-]+|'[A-Za-z0-9_-]+'|"[A-Za-z0-9_-]+")'''
+    valid_head = re.compile(rf"^      -(?:[ \t]+{key_token}:[ \t]*.*)?$")
+    if any(not valid_head.fullmatch(block.splitlines()[0]) for block in blocks):
+        return ()
+    return blocks
+
+
+def job_step(job_id: str, step_name: str, text: str | None = None) -> str:
     return next(
         (
-            step
-            for step in workflow_jobs(text)[job_id]["steps"]
-            if step.get("name") == step_name
+            block
+            for block in active_step_blocks(workflow_jobs(text)[job_id])
+            if active_field(block, "name") == step_name
         ),
-        {},
+        "",
     )
 
 
-def run_commands(step: dict) -> tuple[str, ...]:
+def run_commands(run_text: str) -> tuple[str, ...]:
     commands: list[str] = []
     current: list[str] = []
-    for raw_line in step.get("run", "").splitlines():
+    for raw_line in run_text.splitlines():
         stripped = raw_line.strip()
         if not stripped:
             continue
@@ -57,20 +150,17 @@ def run_commands(step: dict) -> tuple[str, ...]:
 
 def job_run_text(job_id: str, text: str | None = None) -> str:
     return "\n".join(
-        step.get("run", "") for step in workflow_jobs(text)[job_id]["steps"]
+        active_field(step, "run") or ""
+        for step in active_step_blocks(workflow_jobs(text)[job_id])
     )
 
 
 def workflow_run_text(text: str | None = None) -> str:
-    return "\n".join(
-        step.get("run", "")
-        for job in workflow_jobs(text).values()
-        for step in job.get("steps", ())
-    )
+    return "\n".join(job_run_text(job_id, text) for job_id in workflow_jobs(text))
 
 
 def scope_job_contract_ok(text: str) -> bool:
-    job = workflow_jobs(text)["scope"]
+    steps = active_step_blocks(job_block("scope", text))
     block = job_run_text("scope", text)
     required = (
         "git --no-replace-objects init .",
@@ -100,13 +190,18 @@ def scope_job_contract_ok(text: str) -> bool:
     return (
         all(literal in block for literal in required)
         and not any(literal in block for literal in forbidden)
-        and not any("uses" in step for step in job["steps"])
+        and all(active_field(step, "uses") is None for step in steps)
     )
 
 
 def aggregate_contract_ok(text: str) -> bool:
-    job = workflow_jobs(text)["daily-model-maintenance-pr-validation"]
+    job = job_block("daily-model-maintenance-pr-validation", text)
+    steps = active_step_blocks(job)
     block = job_run_text("daily-model-maintenance-pr-validation", text)
+    executable_lines = {
+        line.strip() for line in block.splitlines()
+        if line.strip() and not line.lstrip().startswith("#")
+    }
     expected_needs = (
         "scope",
         "repo_current_contracts",
@@ -126,11 +221,14 @@ def aggregate_contract_ok(text: str) -> bool:
         'require_domain_result financial-statement-research "$FINANCIAL_SELECTED" "$FINANCIAL_RESULT"',
     )
     return (
-        job.get("name") == "daily-model-maintenance-pr-validation"
-        and job.get("if") == "always()"
-        and tuple(job.get("needs", ())) == expected_needs
-        and all(literal in block for literal in required)
-        and not any("continue-on-error" in step for step in job["steps"])
+        active_field(job, "name", 4) == "daily-model-maintenance-pr-validation"
+        and active_field(job, "if", 4) == "always()"
+        and active_list(job, "needs") == expected_needs
+        and all(literal in executable_lines for literal in required)
+        and active_field(job, "continue-on-error", 4) is None
+        and all(
+            active_field(step, "continue-on-error") is None for step in steps
+        )
     )
 
 
@@ -217,11 +315,24 @@ def domain_workload_contract_ok(text: str) -> bool:
         if not step_name:
             continue
         step = job_step(job_id, step_name, text)
+        job_commands = run_commands(job_run_text(job_id, text))
+        workload_commands = tuple(
+            command
+            for command in job_commands
+            if command.startswith(
+                (
+                    "python scripts/build_",
+                    "python scripts/validate_",
+                    "git --no-replace-objects diff --exit-code",
+                )
+            )
+        )
         if (
             not step
-            or "if" in step
-            or "continue-on-error" in step
-            or run_commands(step) != expected_commands
+            or active_field(step, "if") is not None
+            or active_field(step, "continue-on-error") is not None
+            or run_commands(active_field(step, "run") or "") != expected_commands
+            or workload_commands != expected_commands
         ):
             return False
     all_runs = workflow_run_text(text)
@@ -385,7 +496,6 @@ def test_daily_model_maintenance_pr_workflow_exists_for_model_pdf_paths() -> Non
 
 def test_scope_aggregate_and_domain_contracts_are_exact_and_fail_closed() -> None:
     text = WORKFLOW.read_text(encoding="utf-8")
-    jobs = workflow_jobs(text)
     block = job_run_text("scope", text)
 
     assert scope_job_contract_ok(text)
@@ -393,20 +503,77 @@ def test_scope_aggregate_and_domain_contracts_are_exact_and_fail_closed() -> Non
     assert domain_workload_contract_ok(text)
     assert direct_dependency_closure_ok(text)
     assert git_invocation_contract_ok(text)
+    assert tuple(workflow_jobs(text)) == (
+        "scope", *DOMAIN_CONTRACTS, "daily-model-maintenance-pr-validation"
+    )
     assert "fetch_depth=1" in block
     assert 'fetch_depth=2' in block
-    assert "public merge ref" in jobs["scope"]["steps"][0]["name"]
+    scope_first_step = active_step_blocks(job_block("scope", text))[0]
+    assert "public merge ref" in (active_field(scope_first_step, "name") or "")
     assert (
-        jobs["scope"]["steps"][0]["env"]["REPOSITORY_URL"]
-        == "${{ github.server_url }}/${{ github.repository }}.git"
+        "          REPOSITORY_URL: ${{ github.server_url }}/${{ github.repository }}.git"
+        in scope_first_step
     )
     for job_id in DOMAIN_CONTRACTS:
-        job = jobs[job_id]
-        assert job["needs"] == "scope"
-        assert "needs.scope.result == 'success'" in job["if"]
-        assert f"needs.scope.outputs.{job_id} == 'true'" in job["if"]
-        assert "continue-on-error" not in job
-        assert all("continue-on-error" not in step for step in job["steps"])
+        job = job_block(job_id, text)
+        assert active_field(job, "needs", 4) == "scope"
+        condition = active_field(job, "if", 4) or ""
+        assert "needs.scope.result == 'success'" in condition
+        assert f"needs.scope.outputs.{job_id} == 'true'" in condition
+        assert active_field(job, "continue-on-error", 4) is None
+        assert not any(
+            active_field(step, "continue-on-error")
+            for step in active_step_blocks(job)
+        )
+
+
+def test_active_node_scanner_ignores_comments() -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+    commented = text.replace(
+        "jobs:\n",
+        "jobs:\n#  fake_job:\n#      - name: fake step\n#        run: false\n",
+        1,
+    )
+    assert tuple(workflow_jobs(commented)) == tuple(workflow_jobs(text))
+    assert "fake step" not in workflow_run_text(commented)
+    with pytest.raises(ValueError, match="duplicate active workflow job id"):
+        workflow_jobs(text + '\n  "scope":\n    steps: []\n')
+
+
+@pytest.mark.parametrize(
+    "active_step",
+    (
+        "      - run: python scripts/build_fake_research.py\n",
+        "      - if: ${{ false }}\n"
+        "        run: python scripts/build_fake_research.py\n",
+        "      - uses: actions/cache@v4\n"
+        "        run: python scripts/build_fake_research.py\n",
+    ),
+)
+def test_anonymous_or_if_first_core_step_cannot_hide_a_research_builder(
+    active_step: str,
+) -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+    marker = "      - name: Checkout repository\n"
+    mutated = text.replace(marker, active_step + marker, 1)
+
+    assert "python scripts/build_fake_research.py" in workflow_run_text(mutated)
+    assert not domain_workload_contract_ok(mutated)
+
+
+def test_anonymous_research_step_cannot_extend_exact_workload() -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+    marker = "      - name: Validate Volume V2 research contracts\n"
+    mutated = text.replace(
+        marker,
+        "      - id: hidden-extra\n"
+        "        run: python scripts/build_volume_v2_extra.py\n"
+        + marker,
+        1,
+    )
+
+    assert "python scripts/build_volume_v2_extra.py" in workflow_run_text(mutated)
+    assert not domain_workload_contract_ok(mutated)
 
 
 @pytest.mark.parametrize(
@@ -437,10 +604,25 @@ def test_scope_job_contract_rejects_expensive_or_credentialed_mutations(
     ("needle", "replacement"),
     (
         ("      - revenue_research\n", ""),
+        ("    if: always()\n", "    if: always()\n    \"if\": false\n"),
+        (
+            "      - financial_statement_research\n    runs-on: ubuntu-latest",
+            "      - financial_statement_research\n    needs:\n"
+            "      - scope\n    runs-on: ubuntu-latest",
+        ),
+        (
+            "    steps:\n      - name: Validate selected and skipped domain results",
+            "    steps:\n      - run: exit 0\n    \"steps\":\n"
+            "      - name: Validate selected and skipped domain results",
+        ),
         ('if [ "$result" != "skipped" ]; then', 'if [ "$result" != "success" ]; then'),
         (
             'require_domain_result volume-v2-research "$VOLUME_SELECTED" "$VOLUME_RESULT"',
             "echo volume-result-ignored",
+        ),
+        (
+            'require_domain_result financial-statement-research "$FINANCIAL_SELECTED" "$FINANCIAL_RESULT"',
+            '# require_domain_result financial-statement-research "$FINANCIAL_SELECTED" "$FINANCIAL_RESULT"',
         ),
     ),
 )
@@ -505,6 +687,11 @@ def test_stable_aggregate_rejects_missing_or_weakened_domain_contract(
             "      - name: Validate shared model research contracts\n",
             "      - name: Validate shared model research contracts\n"
             "        \"if\": ${{ false }}\n",
+        ),
+        (
+            "      - name: Validate shared model research contracts\n",
+            "      - {run: python scripts/build_fake.py}\n"
+            "      - name: Validate shared model research contracts\n",
         ),
     ),
 )
@@ -702,14 +889,14 @@ def test_daily_model_maintenance_pr_workflow_pins_append_only_validation_base() 
 
 def test_daily_model_pr_lineage_base_history_is_pull_request_only() -> None:
     text = WORKFLOW.read_text(encoding="utf-8")
-    job = workflow_jobs(text)["volume_v2_research"]
+    job = job_block("volume_v2_research", text)
     block = job_run_text("volume_v2_research", text)
 
-    assert str(job).count("--pr-safe-base-history") == 1
+    assert job.count("--pr-safe-base-history") == 1
     assert (
-        job["env"]["LINEAGE_HISTORY_MODE"]
-        == "${{ github.event_name == 'pull_request' && "
+        "      LINEAGE_HISTORY_MODE: ${{ github.event_name == 'pull_request' && "
         "'--pr-safe-base-history' || '' }}"
+        in job
     )
     assert (
         'python scripts/validate_daily_canonical_field_lineage.py --base-ref "$BASE_SHA" '
