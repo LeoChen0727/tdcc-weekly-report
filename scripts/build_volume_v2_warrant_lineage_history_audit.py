@@ -1383,7 +1383,19 @@ def formal_artifact_report_date(payload: bytes, source: str) -> str:
     return formal_report_date(read_csv_bytes(payload, source), source)
 
 
-def build_audit_sources(root: Path, manifest: pd.DataFrame) -> list[dict[str, Any]]:
+def head_audit_frame(root: Path) -> pd.DataFrame:
+    repo_path = OUTPUT_CSV.relative_to(ROOT).as_posix()
+    audit = read_csv_bytes(run_git(root, "show", f"HEAD:{repo_path}"), f"HEAD:{repo_path}")
+    valid = list(audit.columns) == AUDIT_COLUMNS and not audit.empty
+    valid = valid and set(audit["audit_version"].map(normalize_text)) == {AUDIT_VERSION}
+    if not valid:
+        raise RuntimeError("trusted HEAD volume v2 audit failed schema/version/nonempty checks")
+    return audit
+
+
+def build_audit_sources(
+    root: Path, manifest: pd.DataFrame, *, phase: str = "full"
+) -> list[dict[str, Any]]:
     """Resolve every immutable v2 snapshot plus an unpublished current snapshot.
 
     A just-published snapshot may not have a Git commit yet inside the producing
@@ -1392,16 +1404,38 @@ def build_audit_sources(root: Path, manifest: pd.DataFrame) -> list[dict[str, An
     resolves the same snapshot SHA to its immutable Git commit.
     """
 
-    selected = validated_revision_manifest_rows(manifest)
-    recovered_sources, legacy_date_status = recover_legacy_git_manifest_sources(
-        root, selected
+    if phase not in {"full", "runtime"}:
+        raise RuntimeError(f"unsupported volume v2 audit source phase: {phase}")
+    current_formal_payload = file_payload(root, FORMAL_SOURCE_PATH)
+    current_report_date = formal_artifact_report_date(
+        current_formal_payload, FORMAL_SOURCE_PATH
     )
+    selected_manifest = manifest
+    if phase == "runtime":
+        selected_manifest = manifest[manifest["snapshot_report_date"].map(
+            normalize_text
+        ).eq(current_report_date)].copy()
+    selected = validated_revision_manifest_rows(selected_manifest)
+    if phase == "runtime":
+        if selected.empty:
+            raise RuntimeError(
+                "snapshot manifest has no current model_signals_for_report revision: "
+                f"report_date={current_report_date}"
+            )
+        selected = selected.tail(1).reset_index(drop=True)
+        recovered_sources, legacy_date_status = [], {
+            current_report_date: LEGACY_HISTORY_COMPLETE
+        }
+    else:
+        recovered_sources, legacy_date_status = recover_legacy_git_manifest_sources(
+            root, selected
+        )
     unresolved_legacy_dates = {
         report_date
         for report_date, status in legacy_date_status.items()
         if status == LEGACY_HISTORY_INCOMPLETE
     }
-    publication_commits = manifest_history_commits(root)
+    publication_commits = manifest_history_commits(root) if phase == "full" else []
     publication_manifest_cache: dict[str, pd.DataFrame] = {}
     publication_changed_paths_cache: dict[str, set[str]] = {}
     publication_blob_cache: dict[tuple[str, str], bytes] = {}
@@ -1409,10 +1443,6 @@ def build_audit_sources(root: Path, manifest: pd.DataFrame) -> list[dict[str, An
     sources: list[dict[str, Any]] = []
     snapshot_dates: set[str] = set()
     previous_canonical_snapshot_sha_by_date: dict[str, str] = {}
-    current_formal_payload = file_payload(root, FORMAL_SOURCE_PATH)
-    current_report_date = formal_artifact_report_date(
-        current_formal_payload, FORMAL_SOURCE_PATH
-    )
     head_sha = run_git(root, "rev-parse", "HEAD").decode("ascii").strip()
 
     for _, manifest_row in selected.iterrows():
@@ -1427,7 +1457,23 @@ def build_audit_sources(root: Path, manifest: pd.DataFrame) -> list[dict[str, An
                 f"unexpected formal source path for {report_date}: {manifest_row['source_path']}"
             )
         snapshot_path = normalize_text(manifest_row["snapshot_path"])
+        if phase == "runtime" and snapshot_path == legacy_snapshot_repo_path(
+            report_date
+        ):
+            raise RuntimeError(
+                "runtime current audit requires a content-addressed versioned snapshot: "
+                f"report_date={report_date} revision={snapshot_revision}"
+            )
         manifest_snapshot_sha256 = normalize_text(manifest_row["snapshot_sha256"])
+        if (
+            phase == "runtime"
+            and normalize_text(manifest_row.get("source_sha256"))
+            != manifest_snapshot_sha256
+        ):
+            raise RuntimeError(
+                "current formal source_sha256 must equal snapshot_sha256: "
+                f"report_date={report_date} revision={snapshot_revision}"
+            )
         pipeline_commit_sha = normalize_text(manifest_row["pipeline_commit_sha"])
         snapshot_payload = file_payload(root, snapshot_path)
         snapshot_frame = read_csv_bytes(snapshot_payload, snapshot_path)
@@ -1472,14 +1518,18 @@ def build_audit_sources(root: Path, manifest: pd.DataFrame) -> list[dict[str, An
                 f"formal snapshot signal date differs from manifest: report_date={report_date}"
             )
 
-        publication, hidden_same_canonical_lineage = resolve_exact_formal_publication(
-            root,
-            manifest_row,
-            snapshot_payload,
-            commits=publication_commits,
-            manifest_cache=publication_manifest_cache,
-            changed_paths_cache=publication_changed_paths_cache,
-            blob_cache=publication_blob_cache,
+        publication, hidden_same_canonical_lineage = (
+            resolve_exact_formal_publication(
+                root,
+                manifest_row,
+                snapshot_payload,
+                commits=publication_commits,
+                manifest_cache=publication_manifest_cache,
+                changed_paths_cache=publication_changed_paths_cache,
+                blob_cache=publication_blob_cache,
+            )
+            if phase == "full"
+            else (None, False)
         )
         if publication is not None:
             snapshot_commit_sha = normalize_text(publication["commit_sha"])
@@ -1554,7 +1604,7 @@ def build_audit_sources(root: Path, manifest: pd.DataFrame) -> list[dict[str, An
 
     sources.extend(recovered_sources)
 
-    if current_report_date:
+    if current_report_date and phase == "full":
         if current_report_date in snapshot_dates:
             matching = max(
                 (
@@ -1674,12 +1724,20 @@ def build_audit_sources(root: Path, manifest: pd.DataFrame) -> list[dict[str, An
     )
 
 
-def build_audit_dataframe(root: Path = ROOT) -> pd.DataFrame:
+def build_audit_dataframe(
+    root: Path = ROOT,
+    *,
+    audit_sources: list[dict[str, Any]] | None = None,
+) -> pd.DataFrame:
     root = root.resolve()
-    manifest = manifest_rows(root)
     records: list[dict[str, str]] = []
+    sources = (
+        build_audit_sources(root, manifest_rows(root))
+        if audit_sources is None
+        else audit_sources
+    )
 
-    for source in build_audit_sources(root, manifest):
+    for source in sources:
         report_date = source["report_date"]
         manifest_row = source["manifest_row"]
         snapshot_path = source["snapshot_path"]
@@ -2224,7 +2282,46 @@ def build_audit_dataframe(root: Path = ROOT) -> pd.DataFrame:
     return result[AUDIT_COLUMNS].reset_index(drop=True)
 
 
-def render_markdown(audit: pd.DataFrame) -> str:
+def build_runtime_audit_dataframe(root: Path = ROOT) -> pd.DataFrame:
+    """Replace only the current manifest-max revision in trusted HEAD audit data."""
+
+    root = root.resolve()
+    sources = build_audit_sources(root, manifest_rows(root), phase="runtime")
+    if len(sources) != 1:
+        raise RuntimeError(
+            f"runtime current audit must resolve exactly one revision: {len(sources)}"
+        )
+    source = sources[0]
+    current = build_audit_dataframe(root, audit_sources=[source])
+    baseline = head_audit_frame(root)
+    current_key = (source["report_date"], source["snapshot_revision"])
+    head_max = max(
+        map(
+            snapshot_revision_number,
+            baseline.loc[
+                baseline["snapshot_report_date"].map(normalize_text).eq(current_key[0]),
+                "snapshot_revision",
+            ],
+        ),
+        default=0,
+    )
+    if head_max > snapshot_revision_number(current_key[1]):
+        raise RuntimeError(
+            "runtime audit revision rollback is forbidden: "
+            f"report_date={current_key[0]} current={current_key[1]} HEAD_max=r{head_max}"
+        )
+    replace_mask = (
+        baseline["snapshot_report_date"].map(normalize_text).eq(current_key[0])
+        & baseline["snapshot_revision"].map(normalize_text).eq(current_key[1])
+    )
+    combined = pd.concat(
+        [baseline.loc[~replace_mask, AUDIT_COLUMNS], current],
+        ignore_index=True,
+    )
+    return combined[AUDIT_COLUMNS].reset_index(drop=True)
+
+
+def render_markdown(audit: pd.DataFrame, phase: str = "full") -> str:
     formal_audit = audit[audit["audit_row_type"].astype(str).eq(FORMAL_ROW_TYPE)]
     coverage_audit = audit[
         audit["audit_row_type"].astype(str).eq(REVISION_COVERAGE_ROW_TYPE)
@@ -2278,12 +2375,23 @@ def render_markdown(audit: pd.DataFrame) -> str:
         )
         for field in COLLISION_FIELDS
     }
+    runtime = phase == "runtime"
+    coverage_summary = (
+        f"Runtime combined coverage: `{revision_count}` revisions; current replay plus trusted HEAD baseline"
+        if runtime
+        else f"Dynamic source coverage: `{revision_count}/{revision_count}` revisions"
+    )
+    history_note = (
+        "- Non-current rows were preserved from trusted HEAD and were not revalidated or replayed."
+        if runtime
+        else "- Historical daily snapshots were read only and were not rewritten."
+    )
     lines = [
         "# Volume v2 warrant lineage history audit",
         "",
         f"- Audit version: `{AUDIT_VERSION}`",
         f"- Audited trading dates: `{', '.join(audit_dates)}`",
-        f"- Dynamic source coverage: `{revision_count}/{revision_count}` revisions",
+        f"- {coverage_summary}",
         f"- Formal volume v2 rows: `{len(formal_audit)}`",
         f"- Formal verified clean: `{formal_counts.get('verified_clean', 0)}`",
         f"- Formal superseded: `{formal_counts.get('superseded', 0)}`",
@@ -2299,7 +2407,7 @@ def render_markdown(audit: pd.DataFrame) -> str:
         f"- False-breakout collision rows: `{collision_counts['false_breakout_risk']}`",
         f"- Watch/candidate source score collisions: `{score_collisions}`",
         f"- Watch/candidate source rank collisions: `{rank_collisions}`",
-        "- Historical daily snapshots were read only and were not rewritten.",
+        history_note,
         "",
         "## Daily coverage",
         "",
@@ -2371,11 +2479,12 @@ def render_markdown(audit: pd.DataFrame) -> str:
                 "{formal_row_disposition} |".format(**row.to_dict())
             )
 
-    lines.extend(
-        [
-            "",
-            "## Conclusion",
-            "",
+    conclusion = (
+        "Runtime mode independently replays only the current manifest-max revision. "
+        "All non-current audit rows are preserved exactly from the trusted HEAD baseline "
+        "and are not revalidated or replayed in this run."
+        if runtime
+        else (
             "The dynamic historical/current coverage replays the legacy candidate-plus-watch collision context "
             "and the canonical candidate-only collision context independently for warrant, TDCC "
             "status, and false-breakout risk. Component deltas are applied to base_model_score, "
@@ -2386,10 +2495,10 @@ def render_markdown(audit: pd.DataFrame) -> str:
             "Legacy date-only blobs are recovered only when the same commit contains an exact "
             "manifest row, matching formal latest source, and every paired source. Any missing "
             "precontract revision keeps historical promotion evidence fail closed without "
-            "quarantining an independently exact versioned revision.",
-            "",
-        ]
+            "quarantining an independently exact versioned revision."
+        )
     )
+    lines.extend(["", "## Conclusion", "", conclusion, ""])
     return "\n".join(lines)
 
 
@@ -2405,9 +2514,10 @@ def write_audit_artifacts(
     output_md: Path = OUTPUT_MD,
     docs_csv: Path = DOCS_CSV,
     docs_md: Path = DOCS_MD,
+    phase: str = "full",
 ) -> None:
     csv_payload = audit.to_csv(index=False, lineterminator="\n").encode("utf-8")
-    markdown_payload = render_markdown(audit).encode("utf-8")
+    markdown_payload = render_markdown(audit, phase=phase).encode("utf-8")
     write_bytes_identically(csv_payload, (output_csv, docs_csv))
     write_bytes_identically(markdown_payload, (output_md, docs_md))
 
@@ -2417,31 +2527,42 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         description="Build the deterministic volume v2 warrant lineage history audit."
     )
     parser.add_argument("--root", type=Path, default=ROOT)
+    parser.add_argument("--phase", choices=("full", "runtime"), default="full")
     return parser.parse_args(argv)
 
 
 def main(argv: list[str] | None = None) -> int:
     args = parse_args(argv)
     root = args.root.resolve()
-    audit = build_audit_dataframe(root)
+    audit = build_runtime_audit_dataframe(root) if args.phase == "runtime" else build_audit_dataframe(root)
     write_audit_artifacts(
         audit,
         root / OUTPUT_CSV.relative_to(ROOT),
         root / OUTPUT_MD.relative_to(ROOT),
         root / DOCS_CSV.relative_to(ROOT),
         root / DOCS_MD.relative_to(ROOT),
+        phase=args.phase,
     )
     formal_audit = audit[audit["audit_row_type"].eq(FORMAL_ROW_TYPE)]
+    phase_status = (
+        "runtime_current_revision=verified head_baseline=preserved "
+        "head_history_revalidation=not_run"
+        if args.phase == "runtime"
+        else (
+            "formal_verified_clean="
+            f"{int(formal_audit['formal_row_disposition'].eq('verified_clean').sum())} "
+            "watch_superseded="
+            f"{int(formal_audit['watch_disposition'].eq('superseded_advisory_snapshot').sum())}"
+        )
+    )
     print(
         "volume v2 warrant lineage history audit built: "
+        f"phase={args.phase} "
         f"dates={audit['snapshot_report_date'].nunique()} "
         f"formal_rows={len(formal_audit)} coverage_rows={len(audit) - len(formal_audit)} "
         "revisions="
         f"{len(audit[['snapshot_report_date', 'snapshot_revision']].drop_duplicates())} "
-        "formal_verified_clean="
-        f"{int(formal_audit['formal_row_disposition'].eq('verified_clean').sum())} "
-        "watch_superseded="
-        f"{int(formal_audit['watch_disposition'].eq('superseded_advisory_snapshot').sum())}"
+        f"{phase_status}"
     )
     return 0
 

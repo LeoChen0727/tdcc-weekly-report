@@ -950,15 +950,15 @@ jobs:
             --artifact-id model_signals_for_report \
             --artifact-id all_candidates_source_rows \
             --revision-reason daily_full_volume_v2_audit_sources
-          python scripts/validate_daily_published_model_snapshots.py \
+          python scripts/validate_daily_published_model_snapshots.py --phase runtime \
             --artifact-id model_signals_for_report \
             --artifact-id all_candidates_source_rows
           python scripts/validate_daily_canonical_field_lineage.py --runtime-scope audit-sources
 
       - name: Build volume v2 lineage audit from published snapshots
         run: |
-          python scripts/build_volume_v2_warrant_lineage_history_audit.py
-          python scripts/validate_volume_v2_warrant_lineage_history_audit.py
+          python scripts/build_volume_v2_warrant_lineage_history_audit.py --phase runtime
+          python scripts/validate_volume_v2_warrant_lineage_history_audit.py --phase runtime
 
       - name: Build volume v2 formal operation adapter
         run: |
@@ -1074,9 +1074,8 @@ jobs:
             --artifact-id w_bottom_right_side_operation_section \
             --artifact-id neckline_volume_breakout_confirmation_operation_section \
             --revision-reason daily_full_post_audit_artifacts
-          python scripts/validate_daily_published_model_snapshots.py
+          python scripts/validate_daily_published_model_snapshots.py --phase runtime
           python scripts/validate_daily_canonical_field_lineage.py --runtime-scope complete-current
-          python scripts/validate_volume_v2_warrant_lineage_history_audit.py
 
       - name: Validate catalyst layer
         run: |
@@ -1217,7 +1216,7 @@ jobs:
           ENV: /dev/null
           PYTHONHOME: ""
           PYTHONPATH: ""
-        run: python scripts/validate_daily_published_model_snapshots.py
+        run: python scripts/validate_daily_published_model_snapshots.py --phase runtime
 
       - name: Commit report artifacts, packets, and rules first
         run: |

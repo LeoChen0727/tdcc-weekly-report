@@ -303,6 +303,77 @@ def _setup_dynamic_repo(
     )
 
 
+def _root_audit_artifact_paths(root: Path) -> tuple[Path, Path, Path, Path]:
+    return tuple(
+        root / path.relative_to(builder.ROOT)
+        for path in (
+            builder.OUTPUT_CSV,
+            builder.OUTPUT_MD,
+            builder.DOCS_CSV,
+            builder.DOCS_MD,
+        )
+    )
+
+
+def _commit_full_audit_head_baseline(
+    root: Path,
+    head_revision: str = "",
+) -> pd.DataFrame:
+    baseline = builder.build_audit_dataframe(root)
+    if head_revision:
+        current_date = baseline["snapshot_report_date"].max()
+        baseline.loc[
+            baseline["snapshot_report_date"].eq(current_date), "snapshot_revision"
+        ] = head_revision
+    paths = _root_audit_artifact_paths(root)
+    builder.write_audit_artifacts(baseline, *paths)
+    relative_paths = [path.relative_to(root).as_posix() for path in paths]
+    _git(root, "add", "--", *relative_paths)
+    _git(root, "commit", "-m", "trusted full audit baseline")
+    assert set(_git(root, "show", "--format=", "--name-only", "HEAD").splitlines()) == set(relative_paths)
+    return baseline
+
+
+def _publish_current_manifest_revision(
+    root: Path,
+    report_date: str = "20260718",
+    revision: str = "r1",
+    supersedes_snapshot_sha256: str = "",
+) -> dict[str, str]:
+    snapshot_payload = (root / builder.FORMAL_SOURCE_PATH).read_bytes()
+    manifest_sha = _manifest_v1_sha256(snapshot_payload)
+    snapshot_path = (
+        "output/history/daily_model_snapshots/"
+        f"daily_candidate_model_signals_for_report_{report_date}_{revision}_"
+        f"{manifest_sha[:12]}.csv"
+    )
+    (root / snapshot_path).write_bytes(snapshot_payload)
+    manifest_path = root / builder.MANIFEST_PATH.relative_to(builder.ROOT)
+    manifest = pd.read_csv(manifest_path, dtype=str, keep_default_na=False)
+    if "snapshot_revision" not in manifest:
+        manifest["snapshot_revision"] = "r1"
+        manifest["supersedes_snapshot_sha256"] = ""
+        manifest["revision_reason"] = "legacy_v1_manifest"
+    current_row = _manifest_row(
+        root,
+        report_date,
+        snapshot_path=snapshot_path,
+        snapshot_revision=revision,
+        supersedes_snapshot_sha256=supersedes_snapshot_sha256,
+        revision_reason=(
+            "daily_full_current_publication" if revision == "r1" else "test_append"
+        ),
+    )
+    current_row["pipeline_commit_sha"] = _git(root, "rev-parse", "HEAD")
+    current_row["source_sha256"] = current_row["snapshot_sha256"]
+    pd.concat([manifest, pd.DataFrame([current_row])], ignore_index=True).fillna("").to_csv(
+        manifest_path,
+        index=False,
+        lineterminator="\n",
+    )
+    return current_row
+
+
 def _setup_zero_volume_manifest_repo(root: Path) -> None:
     (root / "scripts").mkdir(parents=True)
     snapshot_dir = root / "output" / "history" / "daily_model_snapshots"
@@ -360,6 +431,153 @@ def _formal_audit_rows(audit: pd.DataFrame) -> pd.DataFrame:
 
 def _coverage_audit_rows(audit: pd.DataFrame) -> pd.DataFrame:
     return audit[audit["audit_row_type"].eq("revision_coverage")]
+
+
+def test_runtime_phase_preserves_head_noncurrent_rows_without_full_history(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    root = tmp_path / "repo"
+    root.mkdir()
+    _setup_dynamic_repo(root)
+    current_row = _publish_current_manifest_revision(root)
+    baseline = _commit_full_audit_head_baseline(root)
+
+    def reject_full_history(*args: object, **kwargs: object) -> object:
+        raise AssertionError("full-history traversal invoked")
+
+    for name in (
+        "manifest_history_commits",
+        "resolve_exact_formal_publication",
+        "distinct_git_path_history",
+        "recover_legacy_git_manifest_source",
+        "recover_legacy_git_manifest_sources",
+    ):
+        monkeypatch.setattr(builder, name, reject_full_history)
+    for name in (
+        "independent_manifest_history_commits",
+        "independently_resolve_exact_formal_publication",
+        "independent_distinct_git_path_history",
+        "independently_recover_legacy_source",
+        "independently_recover_legacy_sources",
+    ):
+        monkeypatch.setattr(validator, name, reject_full_history)
+
+    truth_stdout = (
+        "runtime_current_revision=verified head_baseline=preserved "
+        "head_history_revalidation=not_run"
+    )
+    assert builder.main(["--root", str(root), "--phase", "runtime"]) == 0
+    builder_stdout = capsys.readouterr().out
+    assert truth_stdout in builder_stdout and "head_baseline=verified" not in builder_stdout
+    assert validator.main(["--root", str(root), "--phase", "runtime"]) == 0
+    validator_stdout = capsys.readouterr().out
+    assert truth_stdout in validator_stdout and "head_baseline=verified" not in validator_stdout
+    paths = _root_audit_artifact_paths(root)
+    output_csv, output_md, docs_csv, docs_md = paths
+    runtime = pd.read_csv(output_csv, dtype=str, keep_default_na=False)
+    current_key = ("20260718", "r1")
+    runtime_current = runtime[
+        runtime["snapshot_report_date"].eq(current_key[0])
+        & runtime["snapshot_revision"].eq(current_key[1])
+    ]
+    runtime_noncurrent = runtime.drop(runtime_current.index).reset_index(drop=True)
+    baseline_current = baseline[
+        baseline["snapshot_report_date"].eq(current_key[0])
+        & baseline["snapshot_revision"].eq(current_key[1])
+    ]
+    baseline_noncurrent = baseline.drop(baseline_current.index).reset_index(drop=True)
+    assert runtime_noncurrent.to_csv(index=False, lineterminator="\n").encode(
+        "utf-8"
+    ) == baseline_noncurrent.to_csv(index=False, lineterminator="\n").encode("utf-8")
+    assert {
+        column: set(runtime_current[column])
+        for column in (
+            "expected_session_status",
+            "paired_source_resolution",
+            "legacy_revision_history_status",
+            "formal_snapshot_path",
+        )
+    } == {
+        "expected_session_status": {"published_snapshot_pending_commit"},
+        "paired_source_resolution": {builder.PUBLISHED_PENDING_SOURCE_RESOLUTION},
+        "legacy_revision_history_status": {builder.VERSIONED_REVISION_EXACT},
+        "formal_snapshot_path": {current_row["snapshot_path"]},
+    }
+
+    formal_path = root / builder.FORMAL_SOURCE_PATH
+    formal = pd.read_csv(formal_path, dtype=str, keep_default_na=False)
+    formal.loc[0, ["pattern_score", "final_rank_score"]] = ["1.0", "51.0"]
+    formal.to_csv(formal_path, index=False, lineterminator="\n")
+    _publish_current_manifest_revision(
+        root,
+        revision="r2",
+        supersedes_snapshot_sha256=current_row["snapshot_sha256"],
+    )
+    appended = builder.build_runtime_audit_dataframe(root)
+    builder.write_audit_artifacts(appended, *paths, phase="runtime")
+    assert validator.validate(root, *paths, phase="runtime") == []
+    assert set(
+        appended.loc[
+            appended["snapshot_report_date"].eq("20260718"), "snapshot_revision"
+        ]
+    ) == {"r1", "r2"}
+
+    runtime_markdown = output_md.read_text(encoding="utf-8")
+    runtime_truth = "Runtime mode independently replays only the current manifest-max revision."
+    full_truth = "The dynamic historical/current coverage replays"
+    assert runtime_truth in runtime_markdown and full_truth not in runtime_markdown
+    assert full_truth in builder.render_markdown(baseline)
+    expected_rows = len(appended[appended["audit_row_type"].eq(builder.FORMAL_ROW_TYPE)])
+    forged_markdown = runtime_markdown.replace(
+        f"Formal volume v2 rows: `{expected_rows}`",
+        "Formal volume v2 rows: `999`",
+        1,
+    )
+    for path in (output_md, docs_md):
+        path.write_text(forged_markdown, encoding="utf-8", newline="\n")
+    errors = validator.validate(root, *paths, phase="runtime")
+    assert any("Markdown audit missing required token: Formal volume v2 rows" in error for error in errors)
+
+    tampered = appended.copy()
+    noncurrent_index = tampered.index[
+        tampered["snapshot_report_date"].eq("20260717")
+    ][0]
+    tampered.loc[noncurrent_index, "reason"] = "tampered trusted baseline row"
+    builder.write_audit_artifacts(tampered, *paths, phase="runtime")
+    errors = validator.validate(root, *paths, phase="runtime")
+    assert any("changed rows outside the current report-date/revision" in error for error in errors)
+    builder.write_audit_artifacts(appended, *paths, phase="runtime")
+    formal.loc[0, ["pattern_score", "final_rank_score"]] = ["2.0", "52.0"]
+    formal.to_csv(formal_path, index=False, lineterminator="\n")
+    with pytest.raises(RuntimeError, match="byte-match.*current source"):
+        builder.build_runtime_audit_dataframe(root)
+    errors = validator.validate(root, *paths, phase="runtime")
+    assert any("byte-match" in error and "current source" in error for error in errors)
+
+
+def test_volume_audit_phase_defaults_to_full() -> None:
+    assert builder.parse_args([]).phase == "full"
+    assert validator.parse_args([]).phase == "full"
+    assert builder.parse_args(["--phase", "runtime"]).phase == "runtime"
+    assert validator.parse_args(["--phase", "runtime"]).phase == "runtime"
+
+
+def test_runtime_phase_rejects_same_date_revision_rollback_end_to_end(
+    tmp_path: Path,
+) -> None:
+    root = tmp_path / "repo"
+    root.mkdir()
+    _setup_dynamic_repo(root)
+    _publish_current_manifest_revision(root)
+    _commit_full_audit_head_baseline(root, head_revision="r2")
+    paths = _root_audit_artifact_paths(root)
+
+    with pytest.raises(RuntimeError, match="revision rollback"):
+        builder.build_runtime_audit_dataframe(root)
+    errors = validator.validate(root, *paths, phase="runtime")
+    assert any("revision rollback" in error for error in errors)
 
 
 def test_same_date_line_ending_only_reuses_max_manifest_revision(
@@ -1857,6 +2075,22 @@ def test_daily_model_pr_workflow_rebuilds_and_pins_history_audit() -> None:
     assert "python scripts/build_volume_v2_warrant_lineage_history_audit.py" in workflow
     assert "python scripts/validate_volume_v2_warrant_lineage_history_audit.py" in workflow
     assert "tests/test_volume_v2_warrant_lineage_history_audit.py" in workflow
+    build_lines = [
+        line.strip()
+        for line in workflow.splitlines()
+        if "build_volume_v2_warrant_lineage_history_audit.py" in line
+    ]
+    validate_lines = [
+        line.strip()
+        for line in workflow.splitlines()
+        if "validate_volume_v2_warrant_lineage_history_audit.py" in line
+    ]
+    assert build_lines == [
+        "python scripts/build_volume_v2_warrant_lineage_history_audit.py"
+    ]
+    assert validate_lines == [
+        "python scripts/validate_volume_v2_warrant_lineage_history_audit.py"
+    ]
     for governed_path in (
         "scripts/build_volume_v2_warrant_lineage_history_audit.py",
         "scripts/validate_volume_v2_warrant_lineage_history_audit.py",
@@ -1872,9 +2106,11 @@ def test_daily_model_pr_workflow_rebuilds_and_pins_history_audit() -> None:
 def test_production_workflows_build_audit_from_their_published_snapshot_state() -> None:
     build_command = "python scripts/build_volume_v2_warrant_lineage_history_audit.py"
     validate_command = "python scripts/validate_volume_v2_warrant_lineage_history_audit.py"
+    daily_build_command = f"{build_command} --phase runtime"
+    daily_validate_command = f"{validate_command} --phase runtime"
     publish_command = "python scripts/update_daily_published_model_snapshots.py"
     snapshot_validate_command = (
-        "python scripts/validate_daily_published_model_snapshots.py"
+        "python scripts/validate_daily_published_model_snapshots.py --phase runtime"
     )
 
     daily = (ROOT / ".github/workflows/daily_full_pipeline.yml").read_text(
@@ -1886,8 +2122,8 @@ def test_production_workflows_build_audit_from_their_published_snapshot_state() 
         snapshot_validate_command,
         audit_source_publish,
     )
-    first_build = daily.index(build_command, scoped_snapshot_validate)
-    first_validate = daily.index(validate_command, first_build)
+    first_build = daily.index(daily_build_command, scoped_snapshot_validate)
+    first_validate = daily.index(daily_validate_command, first_build)
     operation_index = daily.index(
         "python scripts/build_daily_volume_breakout_operation_section.py",
         first_validate,
@@ -1897,7 +2133,6 @@ def test_production_workflows_build_audit_from_their_published_snapshot_state() 
         snapshot_validate_command,
         post_audit_publish,
     )
-    final_audit_validate = daily.index(validate_command, post_audit_publish)
     assert (
         candidate_index
         < audit_source_publish
@@ -1907,10 +2142,11 @@ def test_production_workflows_build_audit_from_their_published_snapshot_state() 
         < operation_index
         < post_audit_publish
         < full_snapshot_validate
-        < final_audit_validate
     )
-    assert daily.count(publish_command) == 2
-    assert daily.count(build_command) == 1
+    assert daily.count(publish_command) == 3
+    assert daily.count(daily_build_command) == 1
+    assert daily.count(daily_validate_command) == 1
+    assert daily.count(validate_command) == 1
 
     warrant = (ROOT / ".github/workflows/warrant_flow.yml").read_text(
         encoding="utf-8"

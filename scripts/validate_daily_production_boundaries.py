@@ -1825,6 +1825,127 @@ def validate_daily_retired_historical_diagnostics_contract(
     return errors
 
 
+def validate_daily_runtime_current_snapshot_and_volume_contract(
+    daily_text: str,
+) -> list[str]:
+    daily_job = workflow_job_block(daily_text, "daily-full-pipeline")
+    if not daily_job:
+        return ["daily workflow is missing the daily-full-pipeline job"]
+
+    def python_commands(block: str) -> tuple[str, ...]:
+        collapsed = re.sub(r"\\\r?\n\s*", " ", block)
+        commands = (
+            " ".join(line.strip().removeprefix("run: ").split())
+            for line in collapsed.splitlines()
+        )
+        return tuple(command for command in commands if command.startswith("python "))
+
+    def step_guard_errors(block: str, step_name: str) -> list[str]:
+        found = [
+            key
+            for key in ("if", "continue-on-error")
+            if re.search(rf'(?m)^ {{8}}(?:{key}|["\']{key}["\'])\s*:', block)
+        ]
+        if "|| true" in block:
+            found.append("|| true")
+        shells = tuple(
+            value.strip()
+            for value in re.findall(
+                r'(?m)^ {8}(?:shell|["\']shell["\'])\s*:\s*(.*?)\s*$', block
+            )
+        )
+        expected_shells = (
+            ("/bin/bash --noprofile --norc -e -o pipefail {0}",)
+            if step_name == "Validate immutable published snapshot revisions"
+            else ()
+        )
+        if shells != expected_shells:
+            found.append("shell")
+        return [] if not found else [
+            "Daily Full runtime-current step must be unconditional and fail closed: "
+            f"step={step_name} found={','.join(found)}"
+        ]
+
+    snapshot_base = "python scripts/validate_daily_published_model_snapshots.py"
+    snapshot_runtime = f"{snapshot_base} --phase runtime"
+    scoped_snapshot_runtime = (
+        f"{snapshot_runtime} --artifact-id model_signals_for_report "
+        "--artifact-id all_candidates_source_rows"
+    )
+    volume_build_runtime = "python scripts/build_volume_v2_warrant_lineage_history_audit.py --phase runtime"
+    volume_validate_base = "python scripts/validate_volume_v2_warrant_lineage_history_audit.py"
+    volume_validate_runtime = f"{volume_validate_base} --phase runtime"
+    lineage_step_name = "Build volume v2 lineage audit from published snapshots"
+    step_contracts = (
+        ("Publish and validate volume v2 audit-source snapshots", (scoped_snapshot_runtime,), snapshot_base, "snapshot"),
+        ("Publish and validate post-audit daily model snapshots", (snapshot_runtime,), snapshot_base, "snapshot"),
+        ("Validate immutable published snapshot revisions", (snapshot_runtime,), snapshot_base, "snapshot"),
+        (lineage_step_name, (volume_build_runtime, volume_validate_runtime), "python ", "Volume v2"),
+    )
+    errors: list[str] = []
+    if re.search(
+        r'(?m)^ {4}(?:defaults|["\']defaults["\'])\s*:\s*\r?\n'
+        r' {6}(?:run|["\']run["\'])\s*:\s*\r?\n'
+        r' {8}(?:shell|["\']shell["\'])\s*:',
+        daily_job,
+    ):
+        errors.append("Daily Full job must not override defaults.run.shell")
+    for step_name, expected, prefix, label in step_contracts:
+        block = workflow_step_block(daily_job, step_name)
+        if not block:
+            errors.append(f"Daily Full is missing runtime {label} step: {step_name}")
+            continue
+        observed = tuple(
+            command for command in python_commands(block) if command.startswith(prefix)
+        )
+        if observed != expected:
+            errors.append(
+                f"Daily Full {label} step must contain its exact runtime-current "
+                "commands in order: "
+                f"step={step_name} actual={observed} expected={expected}"
+            )
+        errors.extend(step_guard_errors(block, step_name))
+
+    job_commands = python_commands(daily_job)
+    snapshot_commands = tuple(
+        command for command in job_commands if command.startswith(snapshot_base)
+    )
+    if sorted(snapshot_commands) != sorted(
+        (scoped_snapshot_runtime, snapshot_runtime, snapshot_runtime)
+    ):
+        errors.append(
+            "Daily Full must run exactly three runtime-current snapshot validations "
+            "with only the early audit-source call scoped"
+        )
+
+    for command, label in (
+        (volume_build_runtime, "build"),
+        (volume_validate_runtime, "validation"),
+    ):
+        if job_commands.count(command) != 1:
+            errors.append(f"Daily Full must run exactly one runtime-current Volume v2 audit {label}")
+    if any(
+        command.startswith(volume_validate_base)
+        and command != volume_validate_runtime
+        for command in job_commands
+    ):
+        errors.append("Daily Full must not run a full or unphased Volume v2 audit validation")
+
+    ordered_markers = (
+        snapshot_base,
+        volume_build_runtime,
+        volume_validate_runtime,
+        "- name: Build volume v2 formal operation adapter",
+    )
+    positions = tuple(daily_job.find(marker) for marker in ordered_markers)
+    if any(position < 0 for position in positions) or list(positions) != sorted(positions):
+        errors.append(
+            "Daily Full current snapshot validation, Volume v2 build/validate, and "
+            "operation adapter must remain in fail-closed order"
+        )
+    return errors
+
+
 def validate_daily_runtime_critical_contracts(
     daily_text: str | None = None,
 ) -> list[str]:
@@ -1839,6 +1960,7 @@ def validate_daily_runtime_critical_contracts(
     errors.extend(validate_daily_failed_recovery_retry_contract(daily_text))
     errors.extend(validate_daily_pdf_runtime_inventory_contract(daily_text))
     errors.extend(validate_daily_retired_historical_diagnostics_contract(daily_text))
+    errors.extend(validate_daily_runtime_current_snapshot_and_volume_contract(daily_text))
 
     market_literals = (
         "market-session-preflight:",
@@ -1934,6 +2056,7 @@ def main(argv: Sequence[str] = ()) -> int:
     errors.extend(validate_daily_readme_publish_contract(daily_text))
     errors.extend(validate_daily_failed_recovery_retry_contract(daily_text))
     errors.extend(validate_daily_retired_historical_diagnostics_contract(daily_text))
+    errors.extend(validate_daily_runtime_current_snapshot_and_volume_contract(daily_text))
     errors.extend(validate_authority_workflow_publishers())
 
     if not HISTORICAL_SOURCE_REPLAY_WORKFLOW.exists():

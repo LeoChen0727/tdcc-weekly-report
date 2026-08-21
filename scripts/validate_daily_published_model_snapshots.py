@@ -123,6 +123,7 @@ def validate_no_unreferenced_versioned_snapshots(
     manifest: pd.DataFrame,
     snapshot_dir: Path = SNAPSHOT_DIR,
     artifacts: Collection[SnapshotArtifact] = ARTIFACTS,
+    report_date: str = "",
 ) -> list[str]:
     """Reject content-addressed snapshot files absent from the manifest."""
 
@@ -159,6 +160,8 @@ def validate_no_unreferenced_versioned_snapshots(
     for path in snapshot_dir.glob("*.csv"):
         if not any(pattern.fullmatch(path.name) for pattern in patterns):
             continue
+        if report_date and f"_{report_date}_" not in path.name:
+            continue
         if path.resolve() not in referenced:
             errors.append(
                 "unreferenced versioned daily snapshot file is forbidden: "
@@ -193,8 +196,11 @@ def validate_current_report_snapshots(
     snapshot_dir: Path = SNAPSHOT_DIR,
     manifest_path: Path = MANIFEST_PATH,
     artifact_ids: Collection[str] | None = None,
+    phase: str = "full",
 ) -> list[str]:
     errors: list[str] = []
+    if phase not in {"full", "runtime"}:
+        return [f"unsupported daily snapshot validation phase: {phase}"]
     try:
         state = freshness_state(latest_dir)
     except Exception as exc:
@@ -202,9 +208,15 @@ def validate_current_report_snapshots(
 
     report_date = state["main_price_date"]
     try:
-        manifest = load_manifest(manifest_path)
+        full_manifest = load_manifest(manifest_path)
     except Exception as exc:
         return [str(exc)]
+
+    manifest = full_manifest.copy()
+    if phase == "runtime":
+        manifest = manifest[
+            manifest["snapshot_report_date"].map(normalize_date).eq(report_date)
+        ].copy()
 
     try:
         artifacts = selected_artifacts(artifact_ids)
@@ -232,6 +244,7 @@ def validate_current_report_snapshots(
             manifest,
             snapshot_dir,
             artifacts,
+            report_date=report_date if phase == "runtime" else "",
         )
     )
     manifest = manifest.copy()
@@ -430,12 +443,24 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
             "repeat for multiple artifacts. Omit for the full contract."
         ),
     )
+    parser.add_argument(
+        "--phase",
+        choices=("full", "runtime"),
+        default="full",
+        help=(
+            "Use runtime to validate only the current report-date revision chains; "
+            "the default full phase preserves complete manifest/history validation."
+        ),
+    )
     return parser.parse_args(argv)
 
 
 def main(argv: list[str] | None = None) -> int:
     args = parse_args(argv)
-    errors = validate_current_report_snapshots(artifact_ids=args.artifact_id)
+    errors = validate_current_report_snapshots(
+        artifact_ids=args.artifact_id,
+        phase=args.phase,
+    )
     if errors:
         print("ERROR: daily published model snapshot validation failed")
         for error in errors:
@@ -445,7 +470,7 @@ def main(argv: list[str] | None = None) -> int:
     scope = ",".join(args.artifact_id or []) or "full"
     print(
         "daily published model snapshot validation passed for "
-        f"report_date={state['main_price_date']} scope={scope}"
+        f"report_date={state['main_price_date']} scope={scope} phase={args.phase}"
     )
     return 0
 
