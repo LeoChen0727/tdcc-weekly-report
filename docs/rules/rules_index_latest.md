@@ -42,3 +42,6 @@ If rules conflict:
 4. Task-specific rule files win over generic generated task text.
 
 If a required rule file is missing, state `rules_missing` and continue with `output/latest/CHATGPT_DAILY_REPORT_RULES.txt`, but do not pretend the master rule file was read.
+
+Formal ChatGPT-side daily PDF generation must use:
+`python scripts/run_chatgpt_daily_report_entrypoint.py`.

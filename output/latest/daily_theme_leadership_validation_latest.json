@@ -1,9 +1,9 @@
 {
   "status": "pass",
-  "main_price_date": "20260820",
+  "main_price_date": "20260821",
   "theme_rows": 36,
-  "two_line_rows": 516,
-  "all_candidate_rows": 516,
+  "two_line_rows": 512,
+  "all_candidate_rows": 512,
   "errors": [],
   "warnings": []
 }

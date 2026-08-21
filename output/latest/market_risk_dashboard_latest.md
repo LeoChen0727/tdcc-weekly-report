@@ -1,10 +1,10 @@
 # 市場風險與大盤期權背景
 
-- generated_at: `2026-08-21 04:35:09 Asia/Taipei`
-- data_date: `20260820`
-- market_regime: `high_risk`
-- risk_level: `very_high_risk`
-- risk_score: `7`
+- generated_at: `2026-08-21 20:03:34 Asia/Taipei`
+- data_date: `20260821`
+- market_regime: `range_bound`
+- risk_level: `high_risk`
+- risk_score: `5`
 - futures_options_source_status: `ready`
 
 ## 資料狀態
@@ -17,14 +17,14 @@
 | futures_contracts | ok | 66 | 20260819 |
 | options_call_put | ok | 30 | 20260819 |
 | put_call_ratio | ok | 22 | 20260819 |
-| taiwan_vix | ok | 77 | 20260820 |
+| taiwan_vix | ok | 78 | 20260821 |
 
 ## 大盤指數結構
 
 | index | close | 5d | 20d | MA20 | MA60 | regime |
 | --- | --- | --- | --- | --- | --- | --- |
-| TWSE | 44,933.74 | -2.36% | +0.18% | True | True | mild_bull |
-| TPEx | 389.96 | -3.98% | -0.55% | True | False | high_risk |
+| TWSE | 45,224.29 | -1.28% | +3.60% | True | True | mild_bull |
+| TPEx | 387.27 | -3.41% | +2.55% | True | False | range_bound |
 
 ## 期貨選擇權部位
 
@@ -63,8 +63,8 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 
 ## 技術與型態重點
 
-- TWSE / TAIEX: mild_bull; close 44,933.74; 6M range 31,722.99-47,741.51; distance from 6M high -5.88%; above MA20=True, above MA60=True.
-- TPEx / OTC: high_risk; close 389.96; 6M range 288.96-453.50; distance from 6M high -14.01%; above MA20=True, above MA60=False.
+- TWSE / TAIEX: mild_bull; close 45,224.29; 6M range 31,722.99-47,741.51; distance from 6M high -5.27%; above MA20=True, above MA60=True.
+- TPEx / OTC: range_bound; close 387.27; 6M range 288.96-453.50; distance from 6M high -14.60%; above MA20=True, above MA60=False.
 
 ## 散戶小台 proxy
 
@@ -76,7 +76,7 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 
 ## 風險提醒
 
-- TPEx below MA60 and 20d return negative
+- TPEx range bound
 - Taiwan VIX elevated
 - Foreign TX futures heavy net short
 
@@ -90,18 +90,18 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 ## VIX Historical Context
 
 - Taiwan VIX latest: `30.83`
-- 252D high / low / percentile: `44.33` / `25.68` / `22.14%`
+- 252D high / low / percentile: `44.33` / `25.68` / `22.73%`
 - 504D percentile: `-`
-- z-score: `-1.05`
+- z-score: `-1.04`
 - vix_return_5d / 10d / 20d: `-3.29%` / `-12.84%` / `-14.69%`
-- TWSE / TPEx position: TWSE dist 60D high `-5.88%`, TPEx dist 60D high `-14.01%`
+- TWSE / TPEx position: TWSE dist 60D high `-5.27%`, TPEx dist 60D high `-14.6%`
 - vix_index_interpretation: `vix_context_neutral_observe`
 
 ## Retail MTX Historical Context
 
 - retail_mtx_net_oi_proxy latest: `8,964`
 - proxy method: `negative_sum_of_three_institution_mtx_net_oi`
-- 252D high / low / percentile: `16,227` / `1,266` / `60.66%`
+- 252D high / low / percentile: `16,227` / `1,266` / `59.68%`
 - 504D percentile: `-`
 - retail_mtx_index_interpretation: `retail_positioning_normal`
 

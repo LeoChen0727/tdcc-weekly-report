@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21 04:34:54 Asia/Taipei",
+  "generated_at": "2026-08-21 20:03:20 Asia/Taipei",
   "mode": "open_data_latest",
   "requested_window": {
     "start_date": "",
@@ -18,7 +18,7 @@
         "params": {
           "data_name": "MarketDataOfMajorInstitutionalTradersDividedByFuturesAndOptionsBytheDate"
         },
-        "fetched_at": "2026-08-21 04:34:54 Asia/Taipei",
+        "fetched_at": "2026-08-21 20:03:20 Asia/Taipei",
         "encoding": "utf-8",
         "raw_sha256": "",
         "normalized_sha256": "",
@@ -42,7 +42,7 @@
         "params": {
           "data_name": "MarketDataOfMajorInstitutionalTradersDetailsOfFuturesContractsBytheDate"
         },
-        "fetched_at": "2026-08-21 04:34:55 Asia/Taipei",
+        "fetched_at": "2026-08-21 20:03:20 Asia/Taipei",
         "encoding": "utf-8",
         "raw_sha256": "",
         "normalized_sha256": "",
@@ -66,7 +66,7 @@
         "params": {
           "data_name": "MarketDataOfMajorInstitutionalTradersDetailsOfCallsAndPutsBytheDate"
         },
-        "fetched_at": "2026-08-21 04:34:56 Asia/Taipei",
+        "fetched_at": "2026-08-21 20:03:21 Asia/Taipei",
         "encoding": "utf-8",
         "raw_sha256": "",
         "normalized_sha256": "",
@@ -90,7 +90,7 @@
         "params": {
           "data_name": "PutCallRatio"
         },
-        "fetched_at": "2026-08-21 04:34:56 Asia/Taipei",
+        "fetched_at": "2026-08-21 20:03:21 Asia/Taipei",
         "encoding": "utf-8",
         "raw_sha256": "",
         "normalized_sha256": "",
@@ -104,8 +104,8 @@
     },
     "taiwan_vix": {
       "status": "ok",
-      "rows": 77,
-      "latest_date": "20260820",
+      "rows": 78,
+      "latest_date": "20260821",
       "message": "",
       "provenance": {
         "endpoint": "https://www.taifex.com.tw/file/taifex/Dailydownload/vix/log2data/{yyyymm}new.txt",
@@ -154,13 +154,13 @@
             "endpoint": "https://www.taifex.com.tw/file/taifex/Dailydownload/vix/log2data/202608new.txt",
             "yyyymm": "202608",
             "encoding": "cp950",
-            "raw_sha256": "d10240958fecc6c03f8dbfff391717040c44b1ef5030c671e173a4856dbb6c28",
-            "normalized_sha256": "178b857e4c777cb94f1518c988cad0acf62497e2fb4466f05bd6842a5b828f9e",
-            "rows": 14
+            "raw_sha256": "183d358819b5ecf561513bc6a642f7e2f992f848e6b2aef08353cdc24077e327",
+            "normalized_sha256": "1111787f23cb2abce09fd7aa5835c92c80afcb1fe40c5eb1bd7a5d889fd3a506",
+            "rows": 15
           }
         ],
-        "source_manifest_sha256": "9de469a67c41d5a4673445f1539cfe043fa1e5a2227fcc279c25c46b807c5909",
-        "rows": 77,
+        "source_manifest_sha256": "c06bf10bc734b4d1f90ccc2fdd06decb2036b4ef5bcd2c2438c7c5432933faef",
+        "rows": 78,
         "publication_status": "as_published"
       }
     }
