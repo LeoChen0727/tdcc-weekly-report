@@ -123,6 +123,12 @@ FORBIDDEN_DAILY_STAGE_PATTERNS = {
     "all output/latest and docs/latest outputs": r"git add\s+output/latest/\s+docs/latest/\s*\|\|\s*true",
 }
 
+RETIRED_DAILY_HISTORICAL_DIAGNOSTIC_COMMANDS = (
+    "python scripts/validate_daily_candidate_regression_cases.py",
+    "python scripts/build_monthly_revenue_coverage_backfill_audit.py",
+    "python scripts/validate_monthly_revenue_coverage_backfill_audit.py",
+)
+
 
 FORMAL_REPORT_DATE_HARD_GATE_FILES = {
     DAILY_MARKET_ARTIFACT_BUILDER: [
@@ -1797,6 +1803,28 @@ def validate_daily_pdf_runtime_inventory_contract(daily_text: str) -> list[str]:
     return errors
 
 
+def validate_daily_retired_historical_diagnostics_contract(
+    daily_text: str,
+) -> list[str]:
+    daily_job = workflow_job_block(daily_text, "daily-full-pipeline")
+    if not daily_job:
+        return ["daily workflow is missing the daily-full-pipeline job"]
+
+    active_lines = tuple(
+        line.strip()
+        for line in daily_job.splitlines()
+        if line.strip() and not line.lstrip().startswith("#")
+    )
+    errors: list[str] = []
+    for command in RETIRED_DAILY_HISTORICAL_DIAGNOSTIC_COMMANDS:
+        if any(command in line for line in active_lines):
+            errors.append(
+                "Daily Full must not run retired historical diagnostic command: "
+                f"{command}"
+            )
+    return errors
+
+
 def validate_daily_runtime_critical_contracts(
     daily_text: str | None = None,
 ) -> list[str]:
@@ -1810,6 +1838,7 @@ def validate_daily_runtime_critical_contracts(
     errors.extend(validate_daily_readme_publish_contract(daily_text))
     errors.extend(validate_daily_failed_recovery_retry_contract(daily_text))
     errors.extend(validate_daily_pdf_runtime_inventory_contract(daily_text))
+    errors.extend(validate_daily_retired_historical_diagnostics_contract(daily_text))
 
     market_literals = (
         "market-session-preflight:",
@@ -1904,6 +1933,7 @@ def main(argv: Sequence[str] = ()) -> int:
     errors.extend(validate_daily_authority_snapshot_publish_contract(daily_text))
     errors.extend(validate_daily_readme_publish_contract(daily_text))
     errors.extend(validate_daily_failed_recovery_retry_contract(daily_text))
+    errors.extend(validate_daily_retired_historical_diagnostics_contract(daily_text))
     errors.extend(validate_authority_workflow_publishers())
 
     if not HISTORICAL_SOURCE_REPLAY_WORKFLOW.exists():

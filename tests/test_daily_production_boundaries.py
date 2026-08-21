@@ -759,6 +759,41 @@ def test_runtime_critical_mode_passes_current_repo() -> None:
     assert boundaries.main(["--runtime-critical-only"]) == 0
 
 
+@pytest.mark.parametrize(
+    "command",
+    boundaries.RETIRED_DAILY_HISTORICAL_DIAGNOSTIC_COMMANDS,
+)
+def test_runtime_critical_mode_rejects_retired_historical_diagnostic_command(
+    command: str,
+) -> None:
+    text = boundaries.read_text(boundaries.DAILY_WORKFLOW)
+    marker = "      - name: Validate catalyst layer\n        run: |\n"
+    mutated = text.replace(marker, f"{marker}          {command}\n", 1)
+
+    errors = boundaries.validate_daily_runtime_critical_contracts(mutated)
+
+    assert any("retired historical diagnostic command" in error for error in errors)
+
+
+def test_daily_full_omits_retired_diagnostics_and_keeps_runtime_neighbors() -> None:
+    text = boundaries.read_text(boundaries.DAILY_WORKFLOW)
+    daily_job = boundaries.workflow_job_block(text, "daily-full-pipeline")
+
+    assert boundaries.RETIRED_DAILY_HISTORICAL_DIAGNOSTIC_COMMANDS == (
+        "python scripts/validate_daily_candidate_regression_cases.py",
+        "python scripts/build_monthly_revenue_coverage_backfill_audit.py",
+        "python scripts/validate_monthly_revenue_coverage_backfill_audit.py",
+    )
+    for command in boundaries.RETIRED_DAILY_HISTORICAL_DIAGNOSTIC_COMMANDS:
+        assert daily_job.count(command) == 0
+    for required_step in (
+        "Build monthly revenue history",
+        "Run daily stock monitor",
+        "Validate catalyst layer",
+    ):
+        assert daily_job.count(f"- name: {required_step}") == 1
+
+
 def test_daily_full_early_validation_is_runtime_only() -> None:
     workflow = boundaries.read_text(boundaries.DAILY_WORKFLOW)
     install_start = workflow.index("      - name: Install dependencies")
@@ -3455,8 +3490,8 @@ def test_daily_workflow_publishes_as_published_model_snapshots() -> None:
     post_audit_publish_start = text.index(
         "- name: Publish and validate post-audit daily model snapshots"
     )
-    monthly_revenue_start = text.index(
-        "- name: Build monthly revenue coverage/backfill audit"
+    catalyst_validation_start = text.index(
+        "- name: Validate catalyst layer"
     )
 
     audit_source_publish_block = text[
@@ -3467,7 +3502,7 @@ def test_daily_workflow_publishes_as_published_model_snapshots() -> None:
         operation_adapter_start:remaining_artifacts_start
     ]
     post_audit_publish_block = text[
-        post_audit_publish_start:monthly_revenue_start
+        post_audit_publish_start:catalyst_validation_start
     ]
 
     assert text.count("python scripts/update_daily_published_model_snapshots.py") == 3

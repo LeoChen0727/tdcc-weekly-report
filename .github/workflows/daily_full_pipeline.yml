@@ -718,10 +718,6 @@ jobs:
         run: |
           python stock_daily_monitor.py
 
-      - name: Validate daily candidate regression cases
-        run: |
-          python scripts/validate_daily_candidate_regression_cases.py
-
       - name: Build revenue breakout low response candidates
         run: |
           python build_revenue_breakout_low_response.py
@@ -1081,11 +1077,6 @@ jobs:
           python scripts/validate_daily_published_model_snapshots.py
           python scripts/validate_daily_canonical_field_lineage.py --runtime-scope complete-current
           python scripts/validate_volume_v2_warrant_lineage_history_audit.py
-
-      - name: Build monthly revenue coverage/backfill audit
-        run: |
-          python scripts/build_monthly_revenue_coverage_backfill_audit.py
-          python scripts/validate_monthly_revenue_coverage_backfill_audit.py
 
       - name: Validate catalyst layer
         run: |
