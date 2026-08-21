@@ -204,6 +204,7 @@ stock_id,stock_name,industry,market,industry_source
 1773,勝一,化學工業,TWSE,official_twse
 1776,展宇,化學工業,TWSE,official_twse
 1777,生泰,生技醫療業,TPEX,official_tpex
+1780,立弘,食品工業,TPEX,official_tpex
 1781,合世,生技醫療業,TPEX,official_tpex
 1783,和康生,生技醫療業,TWSE,official_twse
 1784,訊聯,生技醫療業,TPEX,official_tpex
@@ -293,6 +294,7 @@ stock_id,stock_name,industry,market,industry_source
 2233,宇隆,汽車工業,TWSE,official_twse
 2235,謚源,電機機械,TPEX,official_tpex
 2236,百達-KY,汽車工業,TWSE,official_twse
+2237,華德動能-創,汽車工業,TWSE,official_twse
 2239,英利-KY,汽車工業,TWSE,official_twse
 2241,艾姆勒,汽車工業,TWSE,official_twse
 2243,宏旭-KY,汽車工業,TWSE,official_twse
@@ -903,7 +905,6 @@ stock_id,stock_name,industry,market,industry_source
 4127,天良,生技醫療業,TPEX,official_tpex
 4128,中天,生技醫療業,TPEX,official_tpex
 4129,聯合,生技醫療業,TPEX,official_tpex
-4130,健亞,生技醫療業,TPEX,official_tpex
 4131,浩泰,生技醫療業,TPEX,official_tpex
 4133,亞諾法,生技醫療業,TWSE,official_twse
 4137,麗豐-KY,生技醫療業,TWSE,official_twse
@@ -970,7 +971,7 @@ stock_id,stock_name,industry,market,industry_source
 4527,方方土霖,電機機械,TPEX,official_tpex
 4528,江興鍛,電機機械,TPEX,official_tpex
 4529,淳紳,其他業,TPEX,official_tpex
-4530,宏易,觀光餐旅,TPEX,official_tpex
+4530,天意能創,觀光餐旅,TPEX,official_tpex
 4532,瑞智,電機機械,TWSE,official_twse
 4533,協易機,電機機械,TPEX,official_tpex
 4534,慶騰,電機機械,TPEX,official_tpex
@@ -1124,7 +1125,7 @@ stock_id,stock_name,industry,market,industry_source
 5228,鈺鎧,電子零組件業,TPEX,official_tpex
 5230,雷笛克光學,光電業,TPEX,official_tpex
 5234,達興材料,光電業,TWSE,official_twse
-5236,凌陽創新,半導體業,TPEX,official_tpex
+5236,凌陽創新,半導體業,TWSE,official_twse
 5243,乙盛-KY,光電業,TWSE,official_twse
 5244,弘凱,光電業,TWSE,official_twse
 5245,智晶,光電業,TPEX,official_tpex
@@ -1243,7 +1244,7 @@ stock_id,stock_name,industry,market,industry_source
 5880,合庫金,金融保險業,TWSE,official_twse
 5902,德記,居家生活,TPEX,official_tpex
 5903,全家,居家生活,TPEX,official_tpex
-5904,寶雅,居家生活,TPEX,official_tpex
+5904,寶雅*,居家生活,TPEX,official_tpex
 5905,南仁湖,觀光餐旅,TPEX,official_tpex
 5906,台南-KY,貿易百貨,TWSE,official_twse
 5907,大洋-KY,貿易百貨,TWSE,official_twse
@@ -1601,7 +1602,6 @@ stock_id,stock_name,industry,market,industry_source
 6803,崑鼎,綠能環保,TPEX,official_tpex
 6804,明係,運動休閒,TPEX,official_tpex
 6805,富世達,電子零組件業,TWSE,official_twse
-6806,森崴能源,綠能環保,TWSE,official_twse
 6807,峰源-KY,居家生活,TWSE,official_twse
 6811,宏碁資訊,數位雲端,TPEX,official_tpex
 6821,聯寶,電子零組件業,TPEX,official_tpex
@@ -1668,6 +1668,7 @@ stock_id,stock_name,industry,market,industry_source
 6937,天虹,半導體業,TWSE,official_twse
 6944,兆聯實業,綠能環保,TWSE,official_twse
 6945,圓祥生技,生技醫療業,TPEX,official_tpex
+6947,台鎔科技,綠能環保,TWSE,official_twse
 6949,沛爾生醫-創,生技醫療業,TWSE,official_twse
 6951,青新-創,綠能環保,TWSE,official_twse
 6952,大武山,其他業,TWSE,official_twse
@@ -1684,6 +1685,7 @@ stock_id,stock_name,industry,market,industry_source
 6971,惠民實業,綠能環保,TPEX,official_tpex
 6982,大井泵浦,電機機械,TPEX,official_tpex
 6983,華洋精機,其他電子業,TPEX,official_tpex
+6986,和迅,生技醫療業,TPEX,official_tpex
 6988,威力暘-創,汽車工業,TWSE,official_twse
 6994,富威電力,綠能環保,TWSE,official_twse
 6996,力領科技,半導體業,TPEX,official_tpex
@@ -1695,6 +1697,7 @@ stock_id,stock_name,industry,market,industry_source
 7610,聯友金屬-創,綠能環保,TWSE,official_twse
 7631,聚賢研發-創,其他電子業,TWSE,official_twse
 7642,昶瑞機電,電機機械,TPEX,official_tpex
+7689,大鵬科CLMX,通信網路業,TWSE,official_twse
 7703,銳澤,其他電子業,TPEX,official_tpex
 7704,明遠精密,半導體業,TPEX,official_tpex
 7705,三商餐飲,觀光餐旅,TWSE,official_twse
@@ -1747,6 +1750,7 @@ stock_id,stock_name,industry,market,industry_source
 7805,威聯通,數位雲端,TPEX,official_tpex
 7810,捷創科技,半導體業,TPEX,official_tpex
 7811,民盛,運動休閒,TPEX,official_tpex
+7814,海昌生技,生技醫療業,TPEX,official_tpex
 7818,溢泰實業,綠能環保,TWSE,official_twse
 7819,精誠金融,資訊服務業,TPEX,official_tpex
 7820,立盈,綠能環保,TPEX,official_tpex
@@ -1755,8 +1759,10 @@ stock_id,stock_name,industry,market,industry_source
 7823,奧義賽博-KY創,數位雲端,TWSE,official_twse
 7827,漢康-KY創,生技醫療業,TWSE,official_twse
 7828,創新服務,半導體業,TPEX,official_tpex
+7835,永悅健康-創,數位雲端,TWSE,official_twse
 7839,達人網,數位雲端,TPEX,official_tpex
 7842,天能綠電,綠能環保,TPEX,official_tpex
+7855,和運租車,其他業,TWSE,official_twse
 8011,台通,通信網路業,TWSE,official_twse
 8016,矽創,半導體業,TWSE,official_twse
 8021,尖點,其他電子業,TWSE,official_twse
@@ -1890,7 +1896,7 @@ stock_id,stock_name,industry,market,industry_source
 8464,億豐,居家生活,TWSE,official_twse
 8466,美吉吉-KY,其他業,TWSE,official_twse
 8467,波力-KY,運動休閒,TWSE,official_twse
-8472,夠麻吉,數位雲端,TPEX,official_tpex
+8472,納維康,數位雲端,TPEX,official_tpex
 8473,山林水,綠能環保,TWSE,official_twse
 8476,台境*,綠能環保,TWSE,official_twse
 8477,創業家,數位雲端,TPEX,official_tpex

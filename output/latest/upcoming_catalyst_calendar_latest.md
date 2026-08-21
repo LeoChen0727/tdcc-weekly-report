@@ -1,7 +1,7 @@
 # Upcoming Catalyst Calendar
 
-- generated_at: `2026-08-21 04:27:52 Asia/Taipei`
-- rows: `750`
+- generated_at: `2026-08-21 19:56:09 Asia/Taipei`
+- rows: `785`
 - note: Calendar proximity is a reminder, not a confirmed bullish catalyst.
 
 ## Company / Stock Calendar
@@ -80,7 +80,7 @@
 | 20260824 | 20260824 | 2527 | 宏璟 | ex_dividend | confirmed | 3 | within_3d | dividend_calendar | cash_dividend=1.50000000; ex_right_dividend_flag=息 |
 | 20260824 | 20260824 | 4746 | 台耀 | ex_dividend | confirmed | 3 | within_3d | dividend_calendar | cash_dividend=3.00000000; ex_right_dividend_flag=息 |
 | 20260824 | 20260824 | 9958 | 世紀鋼 | ex_right | confirmed | 3 | within_3d | dividend_calendar | cash_dividend=0.00000000; ex_right_dividend_flag=權 |
-| 20260825 | 20260825 | 00907 | 永豐優息存股 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=<p style= text-align:center;>待公告實際收益分配金額</p>; ex_right_dividend_fl... |
+| 20260825 | 20260825 | 00907 | 永豐優息存股 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=0.24000000; ex_right_dividend_flag=息 |
 | 20260825 | 20260825 | 1722 | 台肥 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=2.00000000; ex_right_dividend_flag=息 |
 | 20260825 | 20260825 | 2012 | 春雨 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=0.30000000; ex_right_dividend_flag=息 |
 | 20260825 | 20260825 | 2201 | 裕隆 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=0.56000000; ex_right_dividend_flag=息 |

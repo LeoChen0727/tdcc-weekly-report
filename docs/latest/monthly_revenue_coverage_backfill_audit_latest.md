@@ -1,6 +1,6 @@
 # Monthly Revenue Coverage / Backfill Audit
 
-- generated_at: `2026-08-21 04:37:38 Asia/Taipei`
+- generated_at: `2026-08-21 20:06:08 Asia/Taipei`
 - audit_id: `monthly_revenue_coverage_backfill_audit`
 - audit_version: `coverage_backfill_audit_v1`
 - formal_model_revenue_gate_ready: `True`
@@ -15,32 +15,32 @@
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | canonical_monthly_revenue_history | history_found | 27 | 202405 | 202607 | 0 |  |  | True | False | signal_scope_not_evaluated_in_history_row |
 | monthly_revenue_point_in_time_panel | panel_found | 2 | 202605 | 202606 | 0 |  |  | False | True | coverage_limited_candidate_snapshot_observed_values_not_full_market_history |
-| daily_model_signal_log_all_models | signal_rows_found | 27 | 202405 | 202607 | 13131 | 99.64 | 99.20 | True | False |  |
-| model:price_pullback_23ema | signal_rows_found | 27 | 202405 | 202607 | 4088 | 99.34 | 99.28 | True | False |  |
-| model:revenue_unreacted_range | signal_rows_found | 27 | 202405 | 202607 | 3811 | 100.00 | 100.00 | True | False |  |
-| model:hot_theme_pullback | signal_rows_found | 27 | 202405 | 202607 | 1352 | 100.00 | 100.00 | True | False |  |
-| model:pullback_short_reclaim | signal_rows_found | 27 | 202405 | 202607 | 2470 | 99.23 | 99.33 | True | False |  |
-| model:tdcc_short_term_continuation_d5_d10 | signal_rows_found | 27 | 202405 | 202607 | 705 | 100.00 | 100.00 | True | False |  |
+| daily_model_signal_log_all_models | signal_rows_found | 27 | 202405 | 202607 | 13519 | 99.65 | 99.21 | True | False |  |
+| model:price_pullback_23ema | signal_rows_found | 27 | 202405 | 202607 | 4168 | 99.35 | 99.28 | True | False |  |
+| model:revenue_unreacted_range | signal_rows_found | 27 | 202405 | 202607 | 3972 | 100.00 | 100.00 | True | False |  |
+| model:hot_theme_pullback | signal_rows_found | 27 | 202405 | 202607 | 1397 | 100.00 | 100.00 | True | False |  |
+| model:pullback_short_reclaim | signal_rows_found | 27 | 202405 | 202607 | 2529 | 99.25 | 99.34 | True | False |  |
+| model:tdcc_short_term_continuation_d5_d10 | signal_rows_found | 27 | 202405 | 202607 | 733 | 100.00 | 100.00 | True | False |  |
 | model:tdcc_stealth_accumulation | signal_rows_found | 27 | 202405 | 202607 | 555 | 100.00 | 100.00 | True | False |  |
-| model:volume_range_breakout_v2_high_position_volume_attack | signal_rows_found | 27 | 202405 | 202607 | 23 | 100.00 | 100.00 | True | False |  |
-| model:volume_range_breakout_v2_low_position_volume_attack | signal_rows_found | 27 | 202405 | 202607 | 13 | 92.31 | 92.31 | False | True | signal_row_coverage_lt_95pct;signal_stock_coverage_lt_95pct |
-| model:volume_range_breakout_v2_mid_position_momentum_attack | signal_rows_found | 27 | 202405 | 202607 | 4 | 100.00 | 100.00 | True | False |  |
-| model:w_bottom_right_side | signal_rows_found | 27 | 202405 | 202607 | 110 | 100.00 | 100.00 | True | False |  |
+| model:volume_range_breakout_v2_high_position_volume_attack | signal_rows_found | 27 | 202405 | 202607 | 26 | 100.00 | 100.00 | True | False |  |
+| model:volume_range_breakout_v2_low_position_volume_attack | signal_rows_found | 27 | 202405 | 202607 | 19 | 94.74 | 94.44 | False | True | signal_row_coverage_lt_95pct;signal_stock_coverage_lt_95pct |
+| model:volume_range_breakout_v2_mid_position_momentum_attack | signal_rows_found | 27 | 202405 | 202607 | 7 | 100.00 | 100.00 | True | False |  |
+| model:w_bottom_right_side | signal_rows_found | 27 | 202405 | 202607 | 113 | 100.00 | 100.00 | True | False |  |
 
 ## Target Models
 
 | model_id | signal_rows | signal_date_min | signal_date_max | asof_covered_rows | asof_row_coverage_pct | missing_asof_rows | formal_model_revenue_gate_ready | backfill_recommendation |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| price_pullback_23ema | 4088 | 20260529 | 20260820 | 4061 | 99.34 | 0 | True | no_backfill_required_for_this_scope |
-| revenue_unreacted_range | 3811 | 20260529 | 20260820 | 3811 | 100.00 | 0 | True | no_backfill_required_for_this_scope |
-| hot_theme_pullback | 1352 | 20260601 | 20260820 | 1352 | 100.00 | 0 | True | no_backfill_required_for_this_scope |
-| pullback_short_reclaim | 2470 | 20260529 | 20260820 | 2451 | 99.23 | 0 | True | no_backfill_required_for_this_scope |
-| tdcc_short_term_continuation_d5_d10 | 705 | 20260529 | 20260820 | 705 | 100.00 | 0 | True | no_backfill_required_for_this_scope |
+| price_pullback_23ema | 4168 | 20260529 | 20260821 | 4141 | 99.35 | 0 | True | no_backfill_required_for_this_scope |
+| revenue_unreacted_range | 3972 | 20260529 | 20260821 | 3972 | 100.00 | 0 | True | no_backfill_required_for_this_scope |
+| hot_theme_pullback | 1397 | 20260601 | 20260821 | 1397 | 100.00 | 0 | True | no_backfill_required_for_this_scope |
+| pullback_short_reclaim | 2529 | 20260529 | 20260821 | 2510 | 99.25 | 0 | True | no_backfill_required_for_this_scope |
+| tdcc_short_term_continuation_d5_d10 | 733 | 20260529 | 20260821 | 733 | 100.00 | 0 | True | no_backfill_required_for_this_scope |
 | tdcc_stealth_accumulation | 555 | 20260529 | 20260605 | 555 | 100.00 | 0 | True | no_backfill_required_for_this_scope |
-| volume_range_breakout_v2_high_position_volume_attack | 23 | 20260709 | 20260811 | 23 | 100.00 | 0 | True | no_backfill_required_for_this_scope |
-| volume_range_breakout_v2_low_position_volume_attack | 13 | 20260708 | 20260820 | 12 | 92.31 | 0 | False | open_validated_historical_backfill_pr |
-| volume_range_breakout_v2_mid_position_momentum_attack | 4 | 20260810 | 20260820 | 4 | 100.00 | 0 | True | no_backfill_required_for_this_scope |
-| w_bottom_right_side | 110 | 20260529 | 20260820 | 110 | 100.00 | 0 | True | no_backfill_required_for_this_scope |
+| volume_range_breakout_v2_high_position_volume_attack | 26 | 20260709 | 20260821 | 26 | 100.00 | 0 | True | no_backfill_required_for_this_scope |
+| volume_range_breakout_v2_low_position_volume_attack | 19 | 20260708 | 20260821 | 18 | 94.74 | 0 | False | open_validated_historical_backfill_pr |
+| volume_range_breakout_v2_mid_position_momentum_attack | 7 | 20260810 | 20260821 | 7 | 100.00 | 0 | True | no_backfill_required_for_this_scope |
+| w_bottom_right_side | 113 | 20260529 | 20260821 | 113 | 100.00 | 0 | True | no_backfill_required_for_this_scope |
 
 ## Detail Sample
 

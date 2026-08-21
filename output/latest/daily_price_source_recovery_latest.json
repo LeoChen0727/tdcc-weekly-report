@@ -1,28 +1,28 @@
 {
   "status": "pass",
-  "required_end_date": "20260811",
+  "required_end_date": "20260821",
   "date_candidates": {
-    "main_price_date": "20260810",
-    "official_fetch_saved_price_date": "20260811",
-    "latest_daily_price_file_date": "20260811"
+    "main_price_date": "20260820",
+    "official_fetch_saved_price_date": "20260821",
+    "latest_daily_price_file_date": "20260821"
   },
   "lookback_days": 20,
   "expected_trading_dates": [
-    "20260722",
-    "20260723",
-    "20260724",
-    "20260727",
-    "20260728",
-    "20260729",
-    "20260730",
-    "20260731",
     "20260803",
     "20260804",
     "20260805",
     "20260806",
     "20260807",
     "20260810",
-    "20260811"
+    "20260811",
+    "20260812",
+    "20260813",
+    "20260814",
+    "20260817",
+    "20260818",
+    "20260819",
+    "20260820",
+    "20260821"
   ],
   "legacy_only_before": [],
   "missing_before": [],
