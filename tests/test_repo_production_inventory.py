@@ -1699,8 +1699,8 @@ def test_pr_safe_trust_root_set_is_exact_and_routine_profiles_are_retired() -> N
     assert inventory.PR_SAFE_TRUST_ROOT_PATHS == {
         ".github/workflows/individual_stock_pr_validation.yml",
         "scripts/validate_repo_production_inventory.py",
-        "scripts/validate_repo_advanced_integrity_pr_safe.py",
-        "scripts/validate_daily_published_model_snapshots_pr_safe.py",
+        inventory.PR_SAFE_ADVANCED_HELPER,
+        inventory.PR_SAFE_SNAPSHOT_HELPER,
         "config/daily_model_pr_safe_self_migration_authorizations.csv",
         "config/repo_file_lifecycle_semantic_migrations.csv",
     }
@@ -1718,6 +1718,13 @@ def test_pr_safe_trust_root_set_is_exact_and_routine_profiles_are_retired() -> N
     ]
     assert not hasattr(inventory, "validate_pr_safe_control_plane_migration")
     assert not hasattr(inventory, "build_pr_safe_audit_manifest")
+    validator_source = (
+        ROOT / "scripts" / "validate_repo_production_inventory.py"
+    ).read_text(encoding="utf-8")
+    assert (
+        '"scripts/validate_revenue_unreacted_range_promotion_preparation.py"'
+        not in validator_source
+    )
     assert inventory.PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_PATHS
     assert inventory.PR_SAFE_DAILY_FULL_CHECKPOINT_REPLAY_STRICT_SURFACES
     assert inventory.PR_SAFE_LOCAL_VALIDATION_REPLAY_ROUTING_PATHS
