@@ -775,6 +775,96 @@ def test_runtime_critical_mode_rejects_retired_historical_diagnostic_command(
     assert any("retired historical diagnostic command" in error for error in errors)
 
 
+@pytest.mark.parametrize(
+    ("step_name", "old", "new", "expected_error"),
+    (
+        (
+            "Publish and validate volume v2 audit-source snapshots",
+            "validate_daily_published_model_snapshots.py --phase runtime",
+            "validate_daily_published_model_snapshots.py",
+            "snapshot",
+        ),
+        (
+            "Build volume v2 lineage audit from published snapshots",
+            "build_volume_v2_warrant_lineage_history_audit.py --phase runtime",
+            "build_volume_v2_warrant_lineage_history_audit.py",
+            "Volume v2",
+        ),
+        (
+            "Build volume v2 lineage audit from published snapshots",
+            "validate_volume_v2_warrant_lineage_history_audit.py --phase runtime",
+            "validate_volume_v2_warrant_lineage_history_audit.py --phase runtime || true",
+            "fail closed",
+        ),
+        (
+            "Publish and validate post-audit daily model snapshots",
+            "          python scripts/validate_daily_canonical_field_lineage.py",
+            "          python scripts/validate_volume_v2_warrant_lineage_history_audit.py --phase runtime\n"
+            "          python scripts/validate_daily_canonical_field_lineage.py",
+            "exactly one",
+        ),
+        (
+            "Build volume v2 lineage audit from published snapshots",
+            "          python scripts/build_volume_v2_warrant_lineage_history_audit.py --phase runtime\n"
+            "          python scripts/validate_volume_v2_warrant_lineage_history_audit.py --phase runtime",
+            "          python scripts/validate_volume_v2_warrant_lineage_history_audit.py --phase runtime\n"
+            "          python scripts/build_volume_v2_warrant_lineage_history_audit.py --phase runtime",
+            "in order",
+        ),
+        (
+            "Build volume v2 lineage audit from published snapshots",
+            "      - name: Build volume v2 lineage audit from published snapshots",
+            "      - name: Build volume v2 lineage audit from published snapshots\n        if: false",
+            "unconditional",
+        ),
+        (
+            "Publish and validate volume v2 audit-source snapshots",
+            "      - name: Publish and validate volume v2 audit-source snapshots",
+            "      - name: Publish and validate volume v2 audit-source snapshots\n        if: false",
+            "unconditional",
+        ),
+        (
+            "Validate immutable published snapshot revisions",
+            "      - name: Validate immutable published snapshot revisions",
+            "      - name: Validate immutable published snapshot revisions\n        continue-on-error: true",
+            "continue-on-error",
+        ),
+        (
+            "Build volume v2 lineage audit from published snapshots",
+            "      - name: Build volume v2 lineage audit from published snapshots",
+            "      - name: Build volume v2 lineage audit from published snapshots\n        shell: bash {0}",
+            "shell",
+        ),
+    ),
+)
+def test_runtime_current_snapshot_and_volume_contract_rejects_regressions(
+    step_name: str,
+    old: str,
+    new: str,
+    expected_error: str,
+) -> None:
+    text = boundaries.read_text(boundaries.DAILY_WORKFLOW)
+    text = replace_workflow_step_literal(text, step_name, old, new)
+
+    errors = boundaries.validate_daily_runtime_current_snapshot_and_volume_contract(
+        text
+    )
+
+    assert any(expected_error in error for error in errors)
+
+
+def test_runtime_current_contract_rejects_job_default_shell_override() -> None:
+    text = boundaries.read_text(boundaries.DAILY_WORKFLOW).replace(
+        "  daily-full-pipeline:\n",
+        "  daily-full-pipeline:\n    defaults:\n      run:\n        shell: bash {0}\n",
+        1,
+    )
+
+    errors = boundaries.validate_daily_runtime_current_snapshot_and_volume_contract(text)
+
+    assert any("defaults.run.shell" in error for error in errors)
+
+
 def test_daily_full_omits_retired_diagnostics_and_keeps_runtime_neighbors() -> None:
     text = boundaries.read_text(boundaries.DAILY_WORKFLOW)
     daily_job = boundaries.workflow_job_block(text, "daily-full-pipeline")
@@ -3506,7 +3596,9 @@ def test_daily_workflow_publishes_as_published_model_snapshots() -> None:
     ]
 
     assert text.count("python scripts/update_daily_published_model_snapshots.py") == 3
+    assert text.count("python scripts/validate_daily_published_model_snapshots.py") == 3
     assert text.count("python scripts/build_volume_v2_warrant_lineage_history_audit.py") == 1
+    assert text.count("python scripts/validate_volume_v2_warrant_lineage_history_audit.py") == 1
     assert text.count("python scripts/build_daily_volume_breakout_operation_section.py") == 1
 
     assert audit_source_publish_block.count("--artifact-id model_signals_for_report") == 2
@@ -3522,6 +3614,10 @@ def test_daily_workflow_publishes_as_published_model_snapshots() -> None:
         audit_source_publish_block
     )
     assert (
+        "python scripts/validate_daily_published_model_snapshots.py --phase runtime"
+        in audit_source_publish_block
+    )
+    assert (
         audit_source_publish_block.index(
             "python scripts/update_daily_published_model_snapshots.py"
         )
@@ -3533,11 +3629,14 @@ def test_daily_workflow_publishes_as_published_model_snapshots() -> None:
         )
     )
 
-    assert "python scripts/build_volume_v2_warrant_lineage_history_audit.py" in (
-        lineage_audit_block
+    lineage_commands = tuple(
+        line.strip()
+        for line in lineage_audit_block.splitlines()
+        if line.strip().startswith("python ")
     )
-    assert "python scripts/validate_volume_v2_warrant_lineage_history_audit.py" in (
-        lineage_audit_block
+    assert lineage_commands == (
+        "python scripts/build_volume_v2_warrant_lineage_history_audit.py --phase runtime",
+        "python scripts/validate_volume_v2_warrant_lineage_history_audit.py --phase runtime",
     )
     assert "python scripts/build_daily_volume_breakout_operation_section.py" in (
         operation_adapter_block
@@ -3567,8 +3666,13 @@ def test_daily_workflow_publishes_as_published_model_snapshots() -> None:
         "python scripts/build_volume_v2_warrant_lineage_history_audit.py"
         not in post_audit_publish_block
     )
+    assert (
+        "python scripts/validate_volume_v2_warrant_lineage_history_audit.py"
+        not in post_audit_publish_block
+    )
     assert any(
-        line.strip() == "python scripts/validate_daily_published_model_snapshots.py"
+        line.strip()
+        == "python scripts/validate_daily_published_model_snapshots.py --phase runtime"
         for line in post_audit_publish_block.splitlines()
     )
     assert (
@@ -3580,9 +3684,6 @@ def test_daily_workflow_publishes_as_published_model_snapshots() -> None:
         )
         < post_audit_publish_block.index(
             "python scripts/validate_daily_canonical_field_lineage.py"
-        )
-        < post_audit_publish_block.index(
-            "python scripts/validate_volume_v2_warrant_lineage_history_audit.py"
         )
     )
 
@@ -3614,7 +3715,10 @@ def test_daily_workflow_publishes_as_published_model_snapshots() -> None:
     final_snapshot_block = text[final_snapshot_start:commit_start]
     assert authority_prepare_start < final_snapshot_start < commit_start
     assert "python scripts/update_daily_published_model_snapshots.py" in final_snapshot_block
-    assert "python scripts/validate_daily_published_model_snapshots.py" in final_snapshot_block
+    assert (
+        "run: python scripts/validate_daily_published_model_snapshots.py --phase runtime"
+        in final_snapshot_block
+    )
 
 
 def test_docs_daily_rules_match_authoritative_rules() -> None:

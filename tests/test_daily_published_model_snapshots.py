@@ -1195,6 +1195,17 @@ def test_snapshot_validator_checks_all_revision_hashes_and_current_max_revision(
         manifest_path=manifest_path,
     )
     assert any("r1: snapshot_sha256 does not match snapshot file" in error for error in errors)
+    runtime_errors = validate_snapshots.validate_current_report_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        phase="runtime",
+    )
+    assert any(
+        "r1: snapshot_sha256 does not match snapshot file"
+        in error
+        for error in runtime_errors
+    )
 
     initial_freshness_path.write_bytes(initial_payload)
     current = pd.read_csv(freshness_path, dtype=str)
@@ -1322,6 +1333,23 @@ def test_snapshot_validator_does_not_apply_current_schema_to_historical_revision
         snapshot_dir=snapshot_dir,
         manifest_path=manifest_path,
     ) == []
+    legacy_path.write_text("tampered prior-date snapshot\n", encoding="utf-8")
+    assert validate_snapshots.validate_current_report_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        phase="runtime",
+    ) == []
+    full_errors = validate_snapshots.validate_current_report_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+    )
+    assert any(
+        "20260615/model_signals_for_report/r1" in error
+        and "snapshot_sha256 does not match" in error
+        for error in full_errors
+    )
 
 
 def test_snapshot_validator_rejects_unreferenced_versioned_file(
@@ -1749,6 +1777,8 @@ def test_scoped_validator_requires_only_requested_current_artifacts_but_full_cha
 
     args = validate_snapshots.parse_args(
         [
+            "--phase",
+            "runtime",
             "--artifact-id",
             "model_signals_for_report",
             "--artifact-id",
@@ -1759,6 +1789,8 @@ def test_scoped_validator_requires_only_requested_current_artifacts_but_full_cha
         "model_signals_for_report",
         "all_candidates_source_rows",
     ]
+    assert args.phase == "runtime"
+    assert validate_snapshots.parse_args([]).phase == "full"
 
 
 def test_model_signal_snapshot_contract_keeps_volume_v2_score_columns_required() -> None:

@@ -1170,10 +1170,13 @@ def formal_artifact_report_date(payload: bytes, source: str) -> str:
     return formal_report_date(csv_bytes(payload), source)
 
 
-def expected_audit_sources(root: Path, manifest: pd.DataFrame) -> list[dict[str, Any]]:
+def independently_validated_revision_manifest_rows(
+    manifest: pd.DataFrame,
+    source: str,
+) -> pd.DataFrame:
     manifest = independent_normalize_revision_manifest_schema(
         manifest,
-        "current snapshot manifest",
+        source,
     )
     selected = manifest[
         manifest["artifact_id"].astype(str).eq("model_signals_for_report")
@@ -1228,28 +1231,122 @@ def expected_audit_sources(root: Path, manifest: pd.DataFrame) -> list[dict[str,
                         f"report_date={report_date} revision={revision}"
                     )
             previous_snapshot_sha = text(row.get("snapshot_sha256"))
-    selected = (
+    return (
         selected.sort_values(["snapshot_report_date", "_revision_number"])
         .drop(columns=["_revision_number"])
         .reset_index(drop=True)
     )
-    recovered_sources, legacy_date_status = independently_recover_legacy_sources(
-        root, selected
+
+
+def trusted_head_audit_frame(root: Path) -> pd.DataFrame:
+    repo_path = CSV_PATH.relative_to(ROOT).as_posix()
+    audit = csv_bytes(git(root, "show", f"HEAD:{repo_path}"))
+    valid = list(audit.columns) == AUDIT_COLUMNS and not audit.empty
+    valid = valid and set(audit["audit_version"].map(text)) == {AUDIT_VERSION}
+    if not valid:
+        raise RuntimeError("trusted HEAD volume v2 audit failed schema/version/nonempty checks")
+    return audit
+
+
+def validate_runtime_baseline_preservation(
+    root: Path,
+    audit: pd.DataFrame,
+    current_key: tuple[str, str],
+) -> list[str]:
+    try:
+        baseline = trusted_head_audit_frame(root)
+    except RuntimeError as exc:
+        return [str(exc)]
+    head_max = max(
+        map(
+            snapshot_revision_number,
+            baseline.loc[
+                baseline["snapshot_report_date"].map(text).eq(current_key[0]),
+                "snapshot_revision",
+            ],
+        ),
+        default=0,
     )
+    if head_max > snapshot_revision_number(current_key[1]):
+        return [
+            "runtime audit revision rollback is forbidden: "
+            f"report_date={current_key[0]} current={current_key[1]} HEAD_max=r{head_max}"
+        ]
+    baseline_mask = (
+        baseline["snapshot_report_date"].map(text).eq(current_key[0])
+        & baseline["snapshot_revision"].map(text).eq(current_key[1])
+    )
+    audit_mask = (
+        audit["snapshot_report_date"].map(text).eq(current_key[0])
+        & audit["snapshot_revision"].map(text).eq(current_key[1])
+    )
+    baseline_other = baseline.loc[~baseline_mask, AUDIT_COLUMNS].reset_index(drop=True)
+    audit_other = audit.loc[~audit_mask, AUDIT_COLUMNS].reset_index(drop=True)
+    try:
+        pd.testing.assert_frame_equal(
+            audit_other,
+            baseline_other,
+            check_dtype=False,
+            check_exact=True,
+        )
+    except AssertionError as exc:
+        detail = str(exc).splitlines()[0]
+        return [
+            "runtime audit changed rows outside the current report-date/revision "
+            f"grain {current_key}: {detail}"
+        ]
+    return []
+
+
+def expected_audit_sources(
+    root: Path,
+    manifest: pd.DataFrame,
+    *,
+    phase: str = "full",
+) -> list[dict[str, Any]]:
+    if phase not in {"full", "runtime"}:
+        raise RuntimeError(f"unsupported volume v2 audit source phase: {phase}")
+    manifest = independent_normalize_revision_manifest_schema(
+        manifest, "current snapshot manifest"
+    )
+    current_formal_payload = file_blob(root, FORMAL_SOURCE_PATH)
+    current_report_date = formal_artifact_report_date(
+        current_formal_payload, FORMAL_SOURCE_PATH
+    )
+    selected_manifest = manifest
+    if phase == "runtime":
+        selected_manifest = manifest[
+            manifest["snapshot_report_date"].map(text).eq(current_report_date)
+        ].copy()
+    selected = independently_validated_revision_manifest_rows(
+        selected_manifest,
+        "current snapshot manifest",
+    )
+    if phase == "runtime":
+        if selected.empty:
+            raise RuntimeError(
+                "snapshot manifest has no current model_signals_for_report revision: "
+                f"report_date={current_report_date}"
+            )
+        selected = selected.tail(1).reset_index(drop=True)
+        recovered_sources: list[dict[str, Any]] = []
+        legacy_date_status = {current_report_date: LEGACY_HISTORY_COMPLETE}
+    else:
+        recovered_sources, legacy_date_status = independently_recover_legacy_sources(
+            root, selected
+        )
     unresolved_legacy_dates = {
         report_date
         for report_date, status in legacy_date_status.items()
         if status == LEGACY_HISTORY_INCOMPLETE
     }
-    publication_commits = independent_manifest_history_commits(root)
+    publication_commits = (
+        independent_manifest_history_commits(root) if phase == "full" else []
+    )
     publication_manifest_cache: dict[str, pd.DataFrame] = {}
     publication_changed_paths_cache: dict[str, set[str]] = {}
     publication_blob_cache: dict[tuple[str, str], bytes] = {}
 
-    current_formal_payload = file_blob(root, FORMAL_SOURCE_PATH)
-    current_report_date = formal_artifact_report_date(
-        current_formal_payload, FORMAL_SOURCE_PATH
-    )
     head_sha = git(root, "rev-parse", "HEAD").decode("ascii").strip()
     sources: list[dict[str, Any]] = []
     snapshot_dates: set[str] = set()
@@ -1267,7 +1364,22 @@ def expected_audit_sources(root: Path, manifest: pd.DataFrame) -> list[dict[str,
                 f"unexpected formal source path for {report_date}: {manifest_row.get('source_path')}"
             )
         snapshot_path = text(manifest_row.get("snapshot_path"))
+        if phase == "runtime" and snapshot_path == legacy_snapshot_repo_path(
+            report_date
+        ):
+            raise RuntimeError(
+                "runtime current audit requires a content-addressed versioned snapshot: "
+                f"report_date={report_date} revision={snapshot_revision}"
+            )
         manifest_snapshot_sha = text(manifest_row.get("snapshot_sha256"))
+        if (
+            phase == "runtime"
+            and text(manifest_row.get("source_sha256")) != manifest_snapshot_sha
+        ):
+            raise RuntimeError(
+                "current formal source_sha256 must equal snapshot_sha256: "
+                f"report_date={report_date} revision={snapshot_revision}"
+            )
         pipeline_sha = text(manifest_row.get("pipeline_commit_sha"))
         snapshot_payload = file_blob(root, snapshot_path)
         snapshot_frame = csv_bytes(snapshot_payload)
@@ -1308,15 +1420,19 @@ def expected_audit_sources(root: Path, manifest: pd.DataFrame) -> list[dict[str,
                 f"formal snapshot signal date differs from manifest: report_date={report_date}"
             )
         publication, hidden_same_canonical_lineage = (
-            independently_resolve_exact_formal_publication(
-                root,
-                manifest_row,
-                snapshot_payload,
-                commits=publication_commits,
-                manifest_cache=publication_manifest_cache,
-                changed_paths_cache=publication_changed_paths_cache,
-                blob_cache=publication_blob_cache,
+            (
+                independently_resolve_exact_formal_publication(
+                    root,
+                    manifest_row,
+                    snapshot_payload,
+                    commits=publication_commits,
+                    manifest_cache=publication_manifest_cache,
+                    changed_paths_cache=publication_changed_paths_cache,
+                    blob_cache=publication_blob_cache,
+                )
             )
+            if phase == "full"
+            else (None, False)
         )
         if publication is not None:
             snapshot_commit = text(publication["commit_sha"])
@@ -1391,7 +1507,7 @@ def expected_audit_sources(root: Path, manifest: pd.DataFrame) -> list[dict[str,
 
     sources.extend(recovered_sources)
 
-    if current_report_date:
+    if current_report_date and phase == "full":
         if current_report_date in snapshot_dates:
             matching = max(
                 (
@@ -1515,10 +1631,13 @@ def validate(
     md_path: Path = MD_PATH,
     docs_csv_path: Path = DOCS_CSV_PATH,
     docs_md_path: Path = DOCS_MD_PATH,
+    phase: str = "full",
 ) -> list[str]:
     root = root.resolve()
     paths = [csv_path, md_path, docs_csv_path, docs_md_path]
     errors: list[str] = []
+    if phase not in {"full", "runtime"}:
+        return [f"unsupported volume v2 audit validation phase: {phase}"]
     for path in paths:
         if not path.exists():
             errors.append(f"missing audit artifact: {path.as_posix()}")
@@ -1539,6 +1658,7 @@ def validate(
             f"audit columns differ: actual={list(audit.columns)} expected={AUDIT_COLUMNS}"
         )
         return errors
+    combined_audit = audit
     if "audited_at" in audit.columns or "generated_at" in audit.columns:
         errors.append("deterministic audit must not contain dynamic timestamp columns")
     if set(audit["audit_version"].astype(str)) != {AUDIT_VERSION}:
@@ -1573,7 +1693,22 @@ def validate(
             dtype=str,
             keep_default_na=False,
         )
-        sources = expected_audit_sources(root, manifest)
+        sources = expected_audit_sources(root, manifest, phase=phase)
+        if phase == "runtime":
+            if len(sources) != 1:
+                raise RuntimeError(
+                    "runtime current audit must resolve exactly one revision: "
+                    f"{len(sources)}"
+                )
+            source = sources[0]
+            current_key = (source["report_date"], source["snapshot_revision"])
+            errors.extend(
+                validate_runtime_baseline_preservation(root, audit, current_key)
+            )
+            audit = audit.loc[
+                audit["snapshot_report_date"].map(text).eq(current_key[0])
+                & audit["snapshot_revision"].map(text).eq(current_key[1])
+            ].copy()
     except Exception as exc:
         return [*errors, f"failed to resolve dynamic audit sources: {exc}"]
 
@@ -2460,6 +2595,11 @@ def validate(
         errors.append("unresolved published component formulas must be marked unmatched")
 
     markdown = md_path.read_text(encoding="utf-8")
+    if phase == "runtime":
+        current_source = sources[0]
+        audit = combined_audit
+        formal_audit = audit[audit["audit_row_type"].eq(FORMAL_ROW_TYPE)]
+        resolved = formal_audit["replay_status"].astype(str).eq("resolved")
     formal_counts = (
         formal_audit["formal_row_disposition"].astype(str).value_counts().to_dict()
     )
@@ -2511,21 +2651,38 @@ def validate(
         f"`{int(formal_audit['watch_candidate_score_collision'].astype(str).eq('True').sum())}`",
         "Watch/candidate source rank collisions: "
         f"`{int(formal_audit['watch_candidate_rank_collision'].astype(str).eq('True').sum())}`",
-        "Historical daily snapshots were read only and were not rewritten.",
+        (
+            "Non-current rows were preserved from trusted HEAD and were not revalidated or replayed."
+            if phase == "runtime"
+            else "Historical daily snapshots were read only and were not rewritten."
+        ),
+        *(
+            (
+                f"| {current_source['report_date']} | {current_source['snapshot_revision']} |",
+                "Runtime mode independently replays only the current manifest-max revision.",
+            )
+            if phase == "runtime"
+            else ()
+        ),
     )
     for token in required_markdown:
         if token not in markdown:
             errors.append(f"Markdown audit missing required token: {token}")
-    revision_count = len(expected_revisions)
-    coverage_tokens = (
+    revision_count = len(audit[["snapshot_report_date", "snapshot_revision"]].drop_duplicates())
+    coverage_tokens = ((
+        f"Runtime combined coverage: `{revision_count}` revisions; current replay plus trusted HEAD baseline",
+    ) if phase == "runtime" else (
         f"Dynamic source coverage: `{revision_count}/{revision_count}` revisions",
         f"Paired snapshot coverage: `{revision_count}/{revision_count}` revisions",
-    )
+    ))
     if not any(token in markdown for token in coverage_tokens):
         errors.append(
             "Markdown audit missing dynamic coverage token: "
             f"expected_one_of={coverage_tokens}"
         )
+    if phase == "runtime":
+        if "The dynamic historical/current coverage replays" in markdown:
+            errors.append("runtime Markdown must not claim full-history source replay")
     if "audited_at" in markdown or "generated_at" in markdown:
         errors.append("deterministic Markdown must not contain a generated timestamp")
     return errors
@@ -2540,6 +2697,15 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--md", type=Path)
     parser.add_argument("--docs-csv", type=Path)
     parser.add_argument("--docs-md", type=Path)
+    parser.add_argument(
+        "--phase",
+        choices=("full", "runtime"),
+        default="full",
+        help=(
+            "Use runtime to validate trusted-baseline preservation plus only the "
+            "current manifest-max revision; the default full phase replays history."
+        ),
+    )
     return parser.parse_args(argv)
 
 
@@ -2552,6 +2718,7 @@ def main(argv: list[str] | None = None) -> int:
         args.md or root / MD_PATH.relative_to(ROOT),
         args.docs_csv or root / DOCS_CSV_PATH.relative_to(ROOT),
         args.docs_md or root / DOCS_MD_PATH.relative_to(ROOT),
+        phase=args.phase,
     )
     if errors:
         for error in errors:
@@ -2560,7 +2727,14 @@ def main(argv: list[str] | None = None) -> int:
         return 1
     print(
         "volume v2 warrant lineage history audit validation passed: "
-        "dynamic_historical_and_current_coverage=verified"
+        f"phase={args.phase} "
+        + (
+            "runtime_current_revision=verified "
+            "head_baseline=preserved "
+            "head_history_revalidation=not_run"
+            if args.phase == "runtime"
+            else "dynamic_historical_and_current_coverage=verified"
+        )
     )
     return 0
 
