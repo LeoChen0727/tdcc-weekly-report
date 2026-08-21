@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 import ast
 import csv
 import json
@@ -674,7 +675,7 @@ def validate_model_condition_spec() -> list[str]:
     return errors
 
 
-def validate_external_source_contract() -> list[str]:
+def validate_external_source_contract(*, include_static_ownership: bool = True) -> list[str]:
     errors: list[str] = []
     rows = read_csv_rows(EXTERNAL_SOURCE_CONTRACT)
     if not rows:
@@ -682,7 +683,11 @@ def validate_external_source_contract() -> list[str]:
     freshness_rows = read_csv_rows(FRESHNESS_CSV)
     freshness = freshness_rows[0] if freshness_rows else {}
     main_date = freshness.get("main_price_date", "")
-    inventory_paths = {row["path"] for row in read_csv_rows(INVENTORY_CSV)}
+    inventory_paths = (
+        {row["path"] for row in read_csv_rows(INVENTORY_CSV)}
+        if include_static_ownership
+        else set()
+    )
     for row in rows:
         source_id = row.get("source_id", "")
         artifact = row.get("status_artifact", "")
@@ -690,10 +695,14 @@ def validate_external_source_contract() -> list[str]:
         if not path.exists():
             errors.append(f"external source contract artifact missing for {source_id}: {artifact}")
             continue
-        for field in ("producer", "validator"):
-            for entry in split_list(row.get(field, "")):
-                if entry.endswith(".py") and entry not in inventory_paths:
-                    errors.append(f"external source contract {source_id} references non-inventoried {field}: {entry}")
+        if include_static_ownership:
+            for field in ("producer", "validator"):
+                for entry in split_list(row.get(field, "")):
+                    if entry.endswith(".py") and entry not in inventory_paths:
+                        errors.append(
+                            f"external source contract {source_id} references "
+                            f"non-inventoried {field}: {entry}"
+                        )
         date_col = row.get("freshness_date_column", "").strip()
         ready_col = row.get("readiness_column", "").strip()
         if date_col:
@@ -734,12 +743,28 @@ def validate(*, include_external_sources: bool = True) -> list[str]:
     return errors
 
 
-def main() -> int:
-    errors = validate()
+def validate_runtime_external_sources() -> list[str]:
+    return validate_external_source_contract(include_static_ownership=False)
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description="Validate repository advanced integrity contracts.")
+    parser.add_argument(
+        "--runtime-external-sources-only",
+        action="store_true",
+        help="Validate only runtime external-source artifacts, dates, readiness, and statuses.",
+    )
+    args = parser.parse_args([] if argv is None else argv)
+
+    errors = validate_runtime_external_sources() if args.runtime_external_sources_only else validate()
     if errors:
         for error in errors:
             print(f"ERROR: {error}")
         return 1
+    if args.runtime_external_sources_only:
+        print("runtime external-source integrity validation passed")
+        print(f"validated_external_sources={rel(EXTERNAL_SOURCE_CONTRACT)}")
+        return 0
     print("repo advanced integrity validation passed")
     print(f"validated_runtime_lineage={rel(RUNTIME_LINEAGE_CONTRACT)}")
     print(f"validated_pdf_golden={rel(PDF_GOLDEN_CONTRACT)}")
@@ -750,4 +775,4 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    raise SystemExit(main(sys.argv[1:]))

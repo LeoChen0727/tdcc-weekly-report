@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import csv
+import json
 from pathlib import Path
 
 from scripts import trace_runtime_file_lineage
@@ -9,6 +10,33 @@ from scripts.daily_snapshot_revision_utils import snapshot_file_sha256
 
 
 ROOT = Path(__file__).resolve().parents[1]
+RUNTIME_EXTERNAL_COMMAND = (
+    "python scripts/validate_repo_advanced_integrity.py --runtime-external-sources-only"
+)
+RUNTIME_EXTERNAL_STEP_NAME = "Validate refreshed external-source integrity"
+
+
+def _workflow_step_block(workflow: str, name: str) -> str:
+    marker = f"      - name: {name}\n"
+    assert workflow.count(marker) == 1
+    start = workflow.index(marker)
+    end = workflow.find("\n      - name:", start + len(marker))
+    return workflow[start : len(workflow) if end < 0 else end].rstrip()
+
+
+def _runtime_external_step_errors(workflow: str) -> list[str]:
+    marker = f"      - name: {RUNTIME_EXTERNAL_STEP_NAME}\n"
+    if workflow.count(marker) != 1:
+        return ["runtime external-source validation step must appear exactly once"]
+    block = _workflow_step_block(workflow, RUNTIME_EXTERNAL_STEP_NAME)
+    expected = (
+        f"      - name: {RUNTIME_EXTERNAL_STEP_NAME}\n"
+        "        run: |\n"
+        f"          {RUNTIME_EXTERNAL_COMMAND}"
+    )
+    if block != expected:
+        return ["runtime external-source validation step must use the exact unmasked command"]
+    return []
 
 
 def test_repo_advanced_integrity_validator_passes() -> None:
@@ -23,7 +51,7 @@ def test_advanced_integrity_gate_is_hooked_into_daily_pipeline() -> None:
         encoding="utf-8"
     )
 
-    assert "python scripts/validate_repo_advanced_integrity.py" in workflow
+    assert RUNTIME_EXTERNAL_COMMAND in workflow
     assert "validate_repo_advanced_integrity.py" in boundary
     assert "validate(include_external_sources=False)" in boundary
 
@@ -41,7 +69,7 @@ def test_daily_pipeline_validates_external_sources_after_catalyst_refresh() -> N
     freshness_validate_idx = workflow.index(
         "python scripts/validate_data_freshness_latest.py", freshness_idx
     )
-    advanced_idx = workflow.index("python scripts/validate_repo_advanced_integrity.py")
+    advanced_idx = workflow.index(RUNTIME_EXTERNAL_COMMAND)
     preflight_idx = workflow.index("- name: Validate PDF prebuild contract")
     install_idx = workflow.index("- name: Install dependencies")
 
@@ -53,6 +81,247 @@ def test_daily_pipeline_validates_external_sources_after_catalyst_refresh() -> N
         < freshness_validate_idx
         < advanced_idx
     )
+    assert _runtime_external_step_errors(workflow) == []
+
+
+def test_daily_pipeline_runtime_external_gate_rejects_masking_and_conditions() -> None:
+    workflow = (ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(
+        encoding="utf-8"
+    )
+    baseline = _workflow_step_block(workflow, RUNTIME_EXTERNAL_STEP_NAME)
+    mutations = (
+        baseline.replace(RUNTIME_EXTERNAL_COMMAND, f"{RUNTIME_EXTERNAL_COMMAND} || true"),
+        baseline.replace("        run: |", "        if: false\n        run: |"),
+        baseline.replace(
+            "        run: |",
+            "        continue-on-error: true\n        run: |",
+        ),
+    )
+
+    for mutated_block in mutations:
+        mutated_workflow = workflow.replace(baseline, mutated_block, 1)
+        assert _runtime_external_step_errors(mutated_workflow), mutated_block
+
+
+def test_runtime_external_mode_skips_all_static_and_history_validators(monkeypatch) -> None:
+    def unexpected_static_validation() -> list[str]:
+        raise AssertionError("runtime external-source mode called a static/history validator")
+
+    for name in (
+        "validate_required_configs",
+        "validate_runtime_file_lineage_contract",
+        "validate_pdf_golden_contract",
+        "validate_historical_replay_semantics",
+        "validate_model_condition_spec",
+    ):
+        monkeypatch.setattr(validator, name, unexpected_static_validation)
+
+    ownership_modes: list[bool] = []
+
+    def external_only(*, include_static_ownership: bool = True) -> list[str]:
+        ownership_modes.append(include_static_ownership)
+        return []
+
+    monkeypatch.setattr(validator, "validate_external_source_contract", external_only)
+
+    assert validator.main(["--runtime-external-sources-only"]) == 0
+    assert ownership_modes == [False]
+
+    monkeypatch.setattr(
+        validator,
+        "validate_external_source_contract",
+        lambda **_: ["runtime external-source failure"],
+    )
+    assert validator.main(["--runtime-external-sources-only"]) == 1
+
+
+def test_no_arg_mode_still_runs_all_advanced_integrity_validators(monkeypatch) -> None:
+    calls: list[str] = []
+
+    def record(name: str):
+        def run() -> list[str]:
+            calls.append(name)
+            return []
+
+        return run
+
+    for name in (
+        "validate_required_configs",
+        "validate_runtime_file_lineage_contract",
+        "validate_pdf_golden_contract",
+        "validate_historical_replay_semantics",
+        "validate_model_condition_spec",
+    ):
+        monkeypatch.setattr(validator, name, record(name))
+
+    def external(*, include_static_ownership: bool = True) -> list[str]:
+        calls.append(f"validate_external_source_contract:{include_static_ownership}")
+        return []
+
+    monkeypatch.setattr(validator, "validate_external_source_contract", external)
+
+    assert validator.main([]) == 0
+    assert calls == [
+        "validate_required_configs",
+        "validate_runtime_file_lineage_contract",
+        "validate_pdf_golden_contract",
+        "validate_historical_replay_semantics",
+        "validate_model_condition_spec",
+        "validate_external_source_contract:True",
+    ]
+
+
+def test_include_external_sources_false_preserves_static_validation(monkeypatch) -> None:
+    calls: list[str] = []
+
+    def record(name: str):
+        def run() -> list[str]:
+            calls.append(name)
+            return []
+
+        return run
+
+    for name in (
+        "validate_required_configs",
+        "validate_runtime_file_lineage_contract",
+        "validate_pdf_golden_contract",
+        "validate_historical_replay_semantics",
+        "validate_model_condition_spec",
+    ):
+        monkeypatch.setattr(validator, name, record(name))
+    monkeypatch.setattr(
+        validator,
+        "validate_external_source_contract",
+        lambda **_: (_ for _ in ()).throw(AssertionError("external validation must be skipped")),
+    )
+
+    assert validator.validate(include_external_sources=False) == []
+    assert calls == [
+        "validate_required_configs",
+        "validate_runtime_file_lineage_contract",
+        "validate_pdf_golden_contract",
+        "validate_historical_replay_semantics",
+        "validate_model_condition_spec",
+    ]
+
+
+def _write_runtime_external_fixture(
+    tmp_path: Path,
+    monkeypatch,
+    *,
+    main_date: str = "20260623",
+    source_date: str = "20260623",
+    readiness: str = "True",
+    status: str = "ok",
+    status_payload: dict[str, object] | None = None,
+) -> tuple[Path, Path]:
+    output_latest = tmp_path / "output" / "latest"
+    output_latest.mkdir(parents=True, exist_ok=True)
+    freshness = output_latest / "data_freshness_latest.csv"
+    freshness.write_text(
+        "main_price_date,runtime_source_date,runtime_source_ready\n"
+        f"{main_date},{source_date},{readiness}\n",
+        encoding="utf-8",
+    )
+    status_path = output_latest / "runtime_external_status.json"
+    status_path.write_text(
+        json.dumps(status_payload if status_payload is not None else {"status": status}),
+        encoding="utf-8",
+    )
+    contract = tmp_path / "external_data_source_contract.csv"
+    contract.write_text(
+        "source_id,owner,status_artifact,freshness_date_column,readiness_column,require_matches_main_price_date,json_status_path,allowed_statuses,producer,validator\n"
+        "calendar_sources,runtime,output/latest/runtime_external_status.json,runtime_source_date,runtime_source_ready,True,status,ok;stale_ok,scripts/not_in_inventory.py,scripts/also_not_in_inventory.py\n",
+        encoding="utf-8",
+    )
+    inventory = tmp_path / "repo_production_inventory.csv"
+    inventory.write_text("path\n", encoding="utf-8")
+
+    monkeypatch.setattr(validator, "ROOT", tmp_path)
+    monkeypatch.setattr(validator, "EXTERNAL_SOURCE_CONTRACT", contract)
+    monkeypatch.setattr(validator, "FRESHNESS_CSV", freshness)
+    monkeypatch.setattr(validator, "INVENTORY_CSV", inventory)
+    return freshness, status_path
+
+
+def test_runtime_external_contract_skips_static_ownership_only(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    _write_runtime_external_fixture(tmp_path, monkeypatch)
+
+    validator.INVENTORY_CSV.unlink()
+    validator.INVENTORY_CSV.mkdir()
+    assert validator.validate_runtime_external_sources() == []
+    validator.INVENTORY_CSV.rmdir()
+    validator.INVENTORY_CSV.write_text("path\n", encoding="utf-8")
+    assert validator.validate_external_source_contract() == [
+        "external source contract calendar_sources references non-inventoried producer: scripts/not_in_inventory.py",
+        "external source contract calendar_sources references non-inventoried validator: scripts/also_not_in_inventory.py",
+    ]
+
+
+def test_runtime_external_contract_fails_on_missing_date_readiness_and_status(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    _, status_path = _write_runtime_external_fixture(tmp_path, monkeypatch)
+    assert validator.validate_runtime_external_sources() == []
+
+    status_path.unlink()
+    errors = validator.validate_runtime_external_sources()
+    assert any("artifact missing" in error for error in errors)
+
+    _, status_path = _write_runtime_external_fixture(
+        tmp_path,
+        monkeypatch,
+        source_date="20260620",
+    )
+    errors = validator.validate_runtime_external_sources()
+    assert any("does not match main_price_date" in error for error in errors)
+
+    _write_runtime_external_fixture(tmp_path, monkeypatch, readiness="False")
+    errors = validator.validate_runtime_external_sources()
+    assert any("readiness runtime_source_ready is not True" in error for error in errors)
+
+    status_path.write_text('{"status":"unexpected"}', encoding="utf-8")
+    errors = validator.validate_runtime_external_sources()
+    assert any("not in ['ok', 'stale_ok']" in error for error in errors)
+
+def test_runtime_external_contract_preserves_degraded_effect_guards(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    good_payload: dict[str, object] = {
+        "status": "stale_ok",
+        "sources": {
+            "twse_ex_right_ex_dividend": {
+                "cached_rows": 1,
+                "stale_max_trading_days": 3,
+                "cache_age_trading_days_max": 1,
+                "consecutive_live_failures": 1,
+                "max_consecutive_live_failures": 2,
+                "model_effect_allowed": False,
+                "pdf_effect_allowed": False,
+                "calendar_effect_allowed": False,
+                "note": "cached stale reminder-only data",
+            }
+        },
+    }
+    _, status_path = _write_runtime_external_fixture(
+        tmp_path,
+        monkeypatch,
+        status="stale_ok",
+        status_payload=good_payload,
+    )
+    assert validator.validate_runtime_external_sources() == []
+
+    bad_payload = json.loads(json.dumps(good_payload))
+    bad_payload["sources"]["twse_ex_right_ex_dividend"]["model_effect_allowed"] = True
+    status_path.write_text(json.dumps(bad_payload), encoding="utf-8")
+
+    errors = validator.validate_runtime_external_sources()
+    assert any("model_effect_allowed=False" in error for error in errors)
 
 
 def test_warrant_external_source_allows_legacy_ready_freshness(tmp_path: Path, monkeypatch) -> None:
