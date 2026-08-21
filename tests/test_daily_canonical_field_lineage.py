@@ -4204,10 +4204,15 @@ def test_pr_safe_base_history_safe_paths_reject_near_misses() -> None:
 
     safe_paths = lineage.PR_SAFE_BASE_HISTORY_SAFE_CONTROL_PATHS
     safe_path_identity = ("\n".join(sorted(safe_paths)) + "\n").encode("utf-8")
-    assert len(safe_paths) == 17
+    assert len(safe_paths) == 16
     assert hashlib.sha256(safe_path_identity).hexdigest() == (
-        "823ea9275c2ca98d162c4e171672da472402c9194b997fce1c85e1144393ac74"
+        "b37d1ee652dde9424b2bbbe422060bd33532b90a1256005b0a18a5ebe5625fe0"
     )
+    retired_ledger_path = (
+        "config/daily_model_pr_safe_self_"
+        "migration_authorizations.csv"
+    )
+    assert retired_ledger_path not in safe_paths
     for path in sorted(safe_paths):
         near_misses = {
             f"{path}.bak",
