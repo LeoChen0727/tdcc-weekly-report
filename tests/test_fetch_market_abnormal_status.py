@@ -4,6 +4,7 @@ from datetime import datetime
 import hashlib
 import json
 from pathlib import Path
+import subprocess
 import sys
 from zoneinfo import ZoneInfo
 
@@ -662,3 +663,64 @@ def test_legacy_history_target_date_is_not_guessed(
 def test_cli_requires_explicit_target_date() -> None:
     with pytest.raises(SystemExit):
         market_abnormal.main([])
+
+
+def test_bundle_git_attribute_preserves_literal_raw_bytes_with_autocrlf(
+    tmp_path: Path,
+) -> None:
+    repo = tmp_path / "repo"
+    repo.mkdir()
+
+    def git(*args: str) -> subprocess.CompletedProcess[bytes]:
+        return subprocess.run(
+            ["git", *args], cwd=repo, check=True, capture_output=True
+        )
+
+    git("init", "-q")
+    git("config", "user.email", "market-abnormal-test@example.invalid")
+    git("config", "user.name", "Market Abnormal Test")
+    git("config", "core.autocrlf", "true")
+
+    attributes_path = repo / ".gitattributes"
+    attributes_path.write_bytes((ROOT / ".gitattributes").read_bytes())
+    bundle_path_text = (
+        "data/market_abnormal_status/bundles/20260821/"
+        "sources/twse_attention.json"
+    )
+    bundle_path = repo / bundle_path_text
+    bundle_path.parent.mkdir(parents=True)
+    raw_payload = b'[\n  {"Code":"2330","Name":"TSMC"}\n]\n'
+    raw_sha256 = hashlib.sha256(raw_payload).hexdigest()
+    bundle_path.write_bytes(raw_payload)
+
+    git("add", "--", ".gitattributes", bundle_path_text)
+    git("commit", "-qm", "fixture with literal bundle bytes")
+    attribute = git("check-attr", "text", "--", bundle_path_text)
+    assert attribute.stdout.decode().strip() == f"{bundle_path_text}: text: unset"
+    assert git("show", f"HEAD:{bundle_path_text}").stdout == raw_payload
+
+    bundle_path.unlink()
+    git("checkout", "--", bundle_path_text)
+    checked_out = bundle_path.read_bytes()
+    assert checked_out == raw_payload
+    assert hashlib.sha256(checked_out).hexdigest() == raw_sha256
+
+    attribute_rule = "data/market_abnormal_status/bundles/** -text"
+    without_rule = "\n".join(
+        line
+        for line in attributes_path.read_text(encoding="utf-8").splitlines()
+        if line != attribute_rule
+    )
+    attributes_path.write_text(without_rule + "\n", encoding="utf-8", newline="\n")
+    git("add", "--", ".gitattributes")
+    git("commit", "-qm", "remove literal bundle byte protection")
+    missing_attribute = git("check-attr", "text", "--", bundle_path_text)
+    assert missing_attribute.stdout.decode().strip() == (
+        f"{bundle_path_text}: text: unspecified"
+    )
+
+    bundle_path.unlink()
+    git("checkout", "--", bundle_path_text)
+    mutated_checkout = bundle_path.read_bytes()
+    assert mutated_checkout == raw_payload.replace(b"\n", b"\r\n")
+    assert hashlib.sha256(mutated_checkout).hexdigest() != raw_sha256
