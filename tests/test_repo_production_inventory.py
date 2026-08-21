@@ -1818,7 +1818,7 @@ def test_pr_trust_root_workflow_change_is_validated_from_base_code(
 ) -> None:
     workflow_payload = (
         ROOT / inventory.PR_SAFE_BASE_GUARD_WORKFLOW
-    ).read_bytes()
+    ).read_bytes().replace(b"\r\n", b"\n")
     target_path = inventory.PR_SAFE_BASE_GUARD_WORKFLOW
     diff_payload = b"M\0" + target_path.encode("utf-8") + b"\0"
     base_sha, head_sha = _install_trust_guard_git_stub(
