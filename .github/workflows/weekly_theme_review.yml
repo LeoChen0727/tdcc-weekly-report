@@ -126,6 +126,9 @@ jobs:
           PY
             LC_ALL=C sort -k2,2 -u "$output_file" -o "$output_file"
           }
+          sentinel_helper="$RUNNER_TEMP/event-catalyst-mature-sentinel-helper.sh"
+          declare -p mature_sentinel_patterns > "$sentinel_helper"
+          declare -f capture_mature_sentinels >> "$sentinel_helper"
           python scripts/validate_data_freshness_latest.py
           python scripts/validate_daily_published_model_snapshots.py
           capture_mature_sentinels "$mature_sentinel_before"
@@ -140,7 +143,16 @@ jobs:
           python scripts/validate_catalyst_layer.py
           python scripts/build_daily_candidate_model_layer.py
           python scripts/validate_daily_candidate_model_layer.py
-          python scripts/validate_revenue_unreacted_range_financial_statement_fail_closed.py
+
+      - name: Validate revenue current artifact fail-closed contract
+        run: python scripts/validate_revenue_unreacted_range_financial_statement_fail_closed.py --phase runtime
+
+      - name: Build weekly theme downstream formal sync artifacts
+        run: |
+          mature_sentinel_before="$RUNNER_TEMP/event-catalyst-mature-model-before.sha256"
+          mature_sentinel_after="$RUNNER_TEMP/event-catalyst-mature-model-after.sha256"
+          formal_sync_scope_before="$RUNNER_TEMP/event-catalyst-formal-sync-scope-before.json"
+          source "$RUNNER_TEMP/event-catalyst-mature-sentinel-helper.sh"
           python scripts/build_daily_report_model_summary.py
           python scripts/audit_daily_candidate_model_selection_correctness.py
           python scripts/audit_daily_candidate_pipeline_integrity.py

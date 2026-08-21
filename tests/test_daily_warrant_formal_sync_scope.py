@@ -1468,7 +1468,7 @@ def test_warrant_workflow_rebuilds_formal_consumers_and_fails_closed() -> None:
         "python scripts/validate_daily_candidate_model_layer.py",
         "python scripts/validate_daily_canonical_field_lineage.py",
         "python scripts/validate_volume_v2_warrant_lineage_history_audit.py",
-        "python scripts/validate_revenue_unreacted_range_financial_statement_fail_closed.py",
+        "python scripts/validate_revenue_unreacted_range_financial_statement_fail_closed.py --phase runtime",
         "python scripts/build_daily_report_model_summary.py",
         "python scripts/build_theme_event_watch.py",
         "python scripts/update_daily_published_model_snapshots.py",
