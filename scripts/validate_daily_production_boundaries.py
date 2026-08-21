@@ -62,6 +62,11 @@ PDF_CONSUMER_FULL_COMMAND = "python scripts/validate_daily_pdf_contract_consumer
 PDF_CONSUMER_RUNTIME_COMMAND = f"{PDF_CONSUMER_FULL_COMMAND} --phase runtime"
 PDF_COMPLETION_FULL_COMMAND = "python scripts/validate_daily_pdf_completion_hard_gate.py"
 PDF_COMPLETION_RUNTIME_COMMAND = f"{PDF_COMPLETION_FULL_COMMAND} --phase runtime"
+LEGACY_REMOVAL_GUARD_COMMANDS = (
+    "python scripts/validate_daily_legacy_volume_range_breakout_removed.py",
+    "python scripts/validate_daily_legacy_mature_model_paths_removed.py",
+)
+DAILY_MODEL_LEGACY_REMOVAL_GUARD_STEP = "Validate current repository and PDF contracts"
 
 PACKET_ROW_METRIC_REQUIRED_LITERALS = {
     'operation-row performance must consume row_metric_* only',
@@ -348,6 +353,109 @@ def workflow_step_block(text: str, step_name: str) -> str:
     if next_step < 0:
         return text[start:]
     return text[start:next_step]
+
+
+def workflow_logical_commands(text: str) -> tuple[str, ...]:
+    collapsed = re.sub(r"\\\r?\n\s*", " ", text)
+    return tuple(
+        command
+        for line in collapsed.splitlines()
+        if (command := " ".join(line.strip().removeprefix("run: ").split()))
+        and not command.startswith("#")
+    )
+
+
+def validate_daily_full_legacy_removal_guard(daily_text: str) -> list[str]:
+    logical_commands = workflow_logical_commands(daily_text)
+    errors: list[str] = []
+    for command in LEGACY_REMOVAL_GUARD_COMMANDS:
+        script_path = command.removeprefix("python ")
+        active_call = re.compile(
+            rf"(?<![A-Za-z0-9_.-])python\s+(?:\./)?{re.escape(script_path)}"
+            r"(?=$|[\s;&|)])"
+        )
+        if any(active_call.search(line) for line in logical_commands):
+            errors.append(
+                "Daily Full must not run repo-current legacy-removal guards: "
+                f"{command}"
+            )
+    return errors
+
+
+def validate_daily_model_legacy_removal_guard(pr_workflow_text: str) -> list[str]:
+    errors: list[str] = []
+    job_match = re.search(
+        r"(?m)^  repo_current_contracts:\s*(?:#.*)?$",
+        pr_workflow_text,
+    )
+    if job_match is None:
+        return ["Daily Model PR workflow missing repo_current_contracts job"]
+    repo_current_job = workflow_job_block(
+        pr_workflow_text[job_match.start() :],
+        "repo_current_contracts",
+    )
+    step = workflow_step_block(
+        repo_current_job,
+        DAILY_MODEL_LEGACY_REMOVAL_GUARD_STEP,
+    )
+    if not step:
+        return [
+            "Daily Model repo_current_contracts missing legacy-removal guard step: "
+            f"{DAILY_MODEL_LEGACY_REMOVAL_GUARD_STEP}"
+        ]
+
+    run_match = re.search(
+        r'(?m)^ {8}(?:run|["\']run["\'])\s*:\s*(?P<value>.*)$',
+        step,
+    )
+    if run_match is None:
+        return ["Daily Model legacy-removal guard step missing active run body"]
+    run_value = run_match.group("value").strip()
+    if run_value in {"|", "|-", ">", ">-"}:
+        run_lines: list[str] = []
+        for line in step[run_match.end() :].lstrip("\n").splitlines():
+            indent = len(line) - len(line.lstrip())
+            if line.strip() and indent <= 8:
+                break
+            if indent >= 10:
+                run_lines.append(line[10:])
+        run_body = "\n".join(run_lines)
+    else:
+        run_body = run_value.strip('"\'')
+
+    run_commands = workflow_logical_commands(run_body)
+    for command in LEGACY_REMOVAL_GUARD_COMMANDS:
+        carriers = [line for line in run_commands if command in line]
+        if len(carriers) != 1 or carriers[0] != command:
+            errors.append(
+                "Daily Model repo_current_contracts must run exactly one standalone "
+                f"legacy-removal guard: {command}"
+            )
+    if re.search(r'(?m)^ {8}(?:if|["\']if["\'])\s*:', step):
+        errors.append("Daily Model legacy-removal guard step must be unconditional")
+    if re.search(
+        r'(?m)^ {8}(?:continue-on-error|["\']continue-on-error["\'])\s*:',
+        step,
+    ):
+        errors.append(
+            "Daily Model legacy-removal guard step must not use continue-on-error"
+        )
+    if re.search(r'(?m)^ {8}(?:shell|["\']shell["\'])\s*:', step):
+        errors.append("Daily Model legacy-removal guard step must not override shell")
+    defaults_match = re.search(r"(?m)^    defaults:\s*(?:#.*)?$", repo_current_job)
+    if defaults_match is not None:
+        defaults_tail = repo_current_job[defaults_match.end() :]
+        next_job_field = re.search(r"(?m)^    (?![ #\r\n])", defaults_tail)
+        defaults_block = defaults_tail[
+            : next_job_field.start() if next_job_field is not None else None
+        ]
+        if re.search(r"(?m)^      run:\s*(?:#.*)?$", defaults_block) and re.search(
+            r"(?m)^        shell\s*:", defaults_block
+        ):
+            errors.append(
+                "Daily Model repo_current_contracts must not override defaults.run.shell"
+            )
+    return errors
 
 
 def workflow_pull_request_paths(text: str) -> set[str]:
@@ -1833,12 +1941,11 @@ def validate_daily_runtime_current_snapshot_and_volume_contract(
         return ["daily workflow is missing the daily-full-pipeline job"]
 
     def python_commands(block: str) -> tuple[str, ...]:
-        collapsed = re.sub(r"\\\r?\n\s*", " ", block)
-        commands = (
-            " ".join(line.strip().removeprefix("run: ").split())
-            for line in collapsed.splitlines()
+        return tuple(
+            command
+            for command in workflow_logical_commands(block)
+            if command.startswith("python ")
         )
-        return tuple(command for command in commands if command.startswith("python "))
 
     def step_guard_errors(block: str, step_name: str) -> list[str]:
         found = [
@@ -1961,6 +2068,7 @@ def validate_daily_runtime_critical_contracts(
     errors.extend(validate_daily_pdf_runtime_inventory_contract(daily_text))
     errors.extend(validate_daily_retired_historical_diagnostics_contract(daily_text))
     errors.extend(validate_daily_runtime_current_snapshot_and_volume_contract(daily_text))
+    errors.extend(validate_daily_full_legacy_removal_guard(daily_text))
 
     market_literals = (
         "market-session-preflight:",
@@ -2052,6 +2160,7 @@ def main(argv: Sequence[str] = ()) -> int:
 
     errors: list[str] = []
     daily_text = read_text(DAILY_WORKFLOW)
+    errors.extend(validate_daily_full_legacy_removal_guard(daily_text))
     errors.extend(validate_daily_authority_snapshot_publish_contract(daily_text))
     errors.extend(validate_daily_readme_publish_contract(daily_text))
     errors.extend(validate_daily_failed_recovery_retry_contract(daily_text))
@@ -2290,6 +2399,7 @@ def main(argv: Sequence[str] = ()) -> int:
     else:
         pr_workflow_text = read_text(DAILY_MODEL_MAINTENANCE_PR_WORKFLOW)
         errors.extend(validate_daily_model_pr_scope_contract(pr_workflow_text))
+        errors.extend(validate_daily_model_legacy_removal_guard(pr_workflow_text))
         required_pr_workflow_literals = {
             "python scripts/validate_daily_pdf_contract_consumers.py": (
                 "daily model maintenance PR workflow must validate daily PDF consumer contracts"

@@ -884,6 +884,47 @@ def test_daily_full_omits_retired_diagnostics_and_keeps_runtime_neighbors() -> N
         assert daily_job.count(f"- name: {required_step}") == 1
 
 
+def test_daily_full_omits_repo_current_legacy_removal_guards() -> None:
+    text = boundaries.read_text(boundaries.DAILY_WORKFLOW)
+
+    assert boundaries.validate_daily_full_legacy_removal_guard(text) == []
+
+
+@pytest.mark.parametrize("command", boundaries.LEGACY_REMOVAL_GUARD_COMMANDS)
+@pytest.mark.parametrize("carrier_kind", ("canonical", "dot_slash", "continuation"))
+def test_daily_full_rejects_active_legacy_removal_guard_reinsertion(
+    command: str,
+    carrier_kind: str,
+) -> None:
+    text = boundaries.read_text(boundaries.DAILY_WORKFLOW)
+    marker = "      - name: Build remaining daily model artifacts\n        run: |\n"
+    assert marker in text
+    if carrier_kind == "canonical":
+        carrier = command
+    elif carrier_kind == "dot_slash":
+        carrier = command.replace(" scripts/", " ./scripts/", 1)
+    else:
+        carrier = command.replace("python scripts/", "python \\\n            ./scripts/", 1)
+    mutated = text.replace(marker, marker + f"          {carrier}\n", 1)
+
+    errors = boundaries.validate_daily_full_legacy_removal_guard(mutated)
+
+    assert any(command in error for error in errors)
+
+
+def test_daily_full_legacy_removal_guard_ignores_comment_decoys() -> None:
+    text = boundaries.read_text(boundaries.DAILY_WORKFLOW)
+    marker = "      - name: Build remaining daily model artifacts\n        run: |\n"
+    decoys = "".join(
+        f"          # {command}\n"
+        for command in boundaries.LEGACY_REMOVAL_GUARD_COMMANDS
+    )
+
+    mutated = text.replace(marker, marker + decoys, 1)
+
+    assert boundaries.validate_daily_full_legacy_removal_guard(mutated) == []
+
+
 def test_daily_full_early_validation_is_runtime_only() -> None:
     workflow = boundaries.read_text(boundaries.DAILY_WORKFLOW)
     install_start = workflow.index("      - name: Install dependencies")

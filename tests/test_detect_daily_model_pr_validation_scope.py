@@ -6,10 +6,40 @@ from pathlib import Path
 import pytest
 
 from scripts import detect_daily_model_pr_validation_scope as scope
+from scripts import validate_daily_legacy_mature_model_paths_removed as mature_legacy
+from scripts import validate_daily_legacy_volume_range_breakout_removed as volume_legacy
 
 
 ROOT = Path(__file__).resolve().parents[1]
 WORKFLOW = ROOT / ".github" / "workflows" / "daily_model_maintenance_pr_validation.yml"
+
+LEGACY_GUARD_SCOPE_CASES = (
+    ("output/latest/daily_report_model_registry_latest.csv", {scope.REPO_CURRENT_CONTRACTS}),
+    ("output/latest/model_operation_readiness_latest.csv", {scope.REPO_CURRENT_CONTRACTS}),
+    ("output/latest/daily_candidate_model_signals_for_report_latest.csv", {scope.REPO_CURRENT_CONTRACTS}),
+    ("output/latest/daily_candidate_model_signals_latest.csv", {scope.REPO_CURRENT_CONTRACTS}),
+    ("output/latest/approved_operation_patterns_latest.csv", {scope.REPO_CURRENT_CONTRACTS}),
+    ("output/latest/model_contract_parity_latest.csv", {scope.REPO_CURRENT_CONTRACTS}),
+    ("output/latest/daily_w_bottom_right_side_operation_section_latest.csv", {scope.REPO_CURRENT_CONTRACTS}),
+    ("output/latest/daily_price_pullback_23ema_operation_section_latest.csv", {scope.REPO_CURRENT_CONTRACTS}),
+    ("output/latest/chatgpt_daily_report_packet_latest.txt", {scope.REPO_CURRENT_CONTRACTS}),
+    ("output/latest/CHATGPT_DAILY_REPORT_PACKET.txt", {scope.REPO_CURRENT_CONTRACTS}),
+    ("docs/latest/chatgpt_daily_report_packet_latest.txt", {scope.REPO_CURRENT_CONTRACTS}),
+    ("scripts/build_approved_operation_patterns.py", {scope.REPO_CURRENT_CONTRACTS, scope.SHARED_MODEL_RESEARCH}),
+    ("scripts/audit_daily_candidate_model_selection_correctness.py", {scope.REPO_CURRENT_CONTRACTS, scope.SHARED_MODEL_RESEARCH}),
+    ("build_chatgpt_daily_report_packet.py", {scope.REPO_CURRENT_CONTRACTS}),
+)
+
+
+def legacy_validator_input_paths() -> set[str]:
+    paths = set()
+    for module in (volume_legacy, mature_legacy):
+        paths.update(module.FORMAL_MODEL_ID_CSVS)
+        paths.update(module.PACKET_TEXTS)
+        paths.update(module.FORBIDDEN_SOURCE_SNIPPETS)
+    paths.update(mature_legacy.EXPECTED_ADAPTER_MODELS)
+    paths.add(ROOT / "config" / "daily_model_background_data_registry.csv")
+    return {path.relative_to(ROOT).as_posix() for path in paths}
 
 
 def run_git(repo: Path, *args: str) -> str:
@@ -71,6 +101,9 @@ def test_every_current_tracked_owned_path_has_a_declared_domain() -> None:
         for field in result.stdout.split(b"\0")
         if field
     ]
+    explicit_owned = {path for path, _ in LEGACY_GUARD_SCOPE_CASES}
+    assert explicit_owned <= set(tracked)
+    assert explicit_owned <= legacy_validator_input_paths()
     watched = [
         path
         for path in tracked
@@ -78,8 +111,12 @@ def test_every_current_tracked_owned_path_has_a_declared_domain() -> None:
     ]
 
     assert watched
-    for path in watched:
-        assert scope.REPO_CURRENT_CONTRACTS in scope.domains_for_path(path), path
+    unclassified = [
+        path
+        for path in sorted(set(watched) | explicit_owned)
+        if scope.REPO_CURRENT_CONTRACTS not in scope.domains_for_path(path)
+    ]
+    assert unclassified == []
 
 
 @pytest.mark.parametrize(
@@ -93,6 +130,19 @@ def test_every_current_tracked_owned_path_has_a_declared_domain() -> None:
             ".github/workflows/daily_pdf_replay_pr_validation.yml",
             {scope.REPO_CURRENT_CONTRACTS},
         ),
+        (
+            "scripts/build_approved_operation_patterns.py",
+            {scope.REPO_CURRENT_CONTRACTS, scope.SHARED_MODEL_RESEARCH},
+        ),
+        (
+            "scripts/audit_daily_candidate_model_selection_correctness.py",
+            {scope.REPO_CURRENT_CONTRACTS, scope.SHARED_MODEL_RESEARCH},
+        ),
+        (
+            "build_chatgpt_daily_report_packet.py",
+            {scope.REPO_CURRENT_CONTRACTS},
+        ),
+        *LEGACY_GUARD_SCOPE_CASES[:11],
         (
             "scripts/model_data_independence.py",
             {scope.REPO_CURRENT_CONTRACTS, scope.SHARED_MODEL_RESEARCH},
@@ -170,6 +220,15 @@ def test_paths_select_only_their_declared_domains(
     path: str, expected: set[str]
 ) -> None:
     assert set(scope.domains_for_path(path)) == expected
+
+
+def test_all_tracked_legacy_validator_inputs_route_repo_current() -> None:
+    unclassified = [
+        path
+        for path in sorted(legacy_validator_input_paths())
+        if scope.REPO_CURRENT_CONTRACTS not in scope.domains_for_path(path)
+    ]
+    assert unclassified == []
 
 
 def test_unrelated_path_is_ignored() -> None:

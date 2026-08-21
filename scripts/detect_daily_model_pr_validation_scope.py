@@ -74,6 +74,17 @@ WATCHED_PATH_PATTERNS = (
     "output/latest/research_backtest/financial_statement_pit_coverage_latest.*",
     "output/latest/research_backtest/financial_statement_historical_pit_source_audit_latest.*",
     "output/latest/volume_v2_warrant_lineage_history_audit_latest.*",
+    "output/latest/daily_report_model_registry_latest.csv",
+    "output/latest/model_operation_readiness_latest.csv",
+    "output/latest/daily_candidate_model_signals_for_report_latest.csv",
+    "output/latest/daily_candidate_model_signals_latest.csv",
+    "output/latest/approved_operation_patterns_latest.csv",
+    "output/latest/model_contract_parity_latest.csv",
+    "output/latest/daily_w_bottom_right_side_operation_section_latest.csv",
+    "output/latest/daily_price_pullback_23ema_operation_section_latest.csv",
+    "output/latest/chatgpt_daily_report_packet_latest.txt",
+    "output/latest/CHATGPT_DAILY_REPORT_PACKET.txt",
+    "docs/latest/chatgpt_daily_report_packet_latest.txt",
     "docs/specs/*operation*.md",
     "docs/specs/revenue_unreacted_range_*.md",
     "docs/specs/daily_mature_model_row_level_metric_contract.md",
@@ -92,6 +103,9 @@ WATCHED_PATH_PATTERNS = (
     "scripts/build_monthly_revenue_coverage_backfill_audit.py",
     "scripts/build_monthly_revenue_point_in_time_panel.py",
     "scripts/build_daily_report_model_summary.py",
+    "scripts/build_approved_operation_patterns.py",
+    "scripts/audit_daily_candidate_model_selection_correctness.py",
+    "build_chatgpt_daily_report_packet.py",
     "scripts/build_model_operation_readiness.py",
     "scripts/build_model_data_independence_audit.py",
     "scripts/build_financial_statement_pit.py",
@@ -192,7 +206,19 @@ CORE_EXACT_PATHS = frozenset(
         "docs/rules/master_priority_rules.md",
         "docs/repo_hidden_coupling_audit.md",
         "docs/rules/git_worktree_materialization_safety.md",
+        "output/latest/daily_report_model_registry_latest.csv",
+        "output/latest/model_operation_readiness_latest.csv",
+        "output/latest/daily_candidate_model_signals_for_report_latest.csv",
+        "output/latest/daily_candidate_model_signals_latest.csv",
+        "output/latest/approved_operation_patterns_latest.csv",
+        "output/latest/model_contract_parity_latest.csv",
+        "output/latest/daily_w_bottom_right_side_operation_section_latest.csv",
+        "output/latest/daily_price_pullback_23ema_operation_section_latest.csv",
+        "output/latest/chatgpt_daily_report_packet_latest.txt",
+        "output/latest/CHATGPT_DAILY_REPORT_PACKET.txt",
+        "docs/latest/chatgpt_daily_report_packet_latest.txt",
         "scripts/detect_daily_model_pr_validation_scope.py",
+        "build_chatgpt_daily_report_packet.py",
         "scripts/validate_repo_file_lifecycle_inventory.py",
         "scripts/validate_repo_production_inventory.py",
         "scripts/validate_chatgpt_side_pdf_layout_independence.py",
@@ -294,6 +320,13 @@ CENTRAL_SHARED_VOLUME_REVENUE_EXACT_PATHS = frozenset(
     }
 )
 
+REPO_CURRENT_AND_SHARED_EXACT_PATHS = frozenset(
+    {
+        "scripts/build_approved_operation_patterns.py",
+        "scripts/audit_daily_candidate_model_selection_correctness.py",
+    }
+)
+
 VOLUME_SNAPSHOT_PREFIXES = ("output/history/daily_model_snapshots/",)
 
 
@@ -341,6 +374,8 @@ def domains_for_path(value: str) -> frozenset[str]:
 
     if path == ".github/workflows/research_backtest_pipeline.yml":
         return frozenset(DOMAINS)
+    if path in REPO_CURRENT_AND_SHARED_EXACT_PATHS:
+        return frozenset({REPO_CURRENT_CONTRACTS, SHARED_MODEL_RESEARCH})
     if path in CENTRAL_SHARED_VOLUME_REVENUE_EXACT_PATHS:
         return frozenset(
             {
