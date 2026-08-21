@@ -5,6 +5,11 @@ import re
 from dataclasses import dataclass
 from pathlib import Path
 
+try:
+    from scripts import detect_daily_model_pr_validation_scope as pr_scope
+except ModuleNotFoundError:  # Direct execution from the scripts directory.
+    import detect_daily_model_pr_validation_scope as pr_scope
+
 
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT / "config/model_research_workflow_entrypoints.csv"
@@ -276,16 +281,53 @@ def validate_publish_block(text: str, blocks: list[str]) -> list[str]:
 
 def validate_pr_workflow_text(text: str, rows: list[WorkflowEntrypoint]) -> list[str]:
     errors: list[str] = []
-    for model_id in sorted({row.model_id for row in rows}):
-        required_patterns = {
-            f'      - "scripts/{model_id}_*.py"',
-            f'      - "tests/test_{model_id}_*.py"',
-        }
-        for pattern in sorted(required_patterns):
-            if pattern not in text:
+    if not rows:
+        errors.append("daily model PR validation requires registered model namespaces")
+    trigger = text.split("\njobs:", 1)[0]
+    lines = trigger.splitlines()
+    try:
+        pull_request_index = lines.index("  pull_request:")
+    except ValueError:
+        errors.append("daily model PR validation must trigger on every pull request")
+    else:
+        nested = []
+        for line in lines[pull_request_index + 1 :]:
+            if not line.strip():
+                continue
+            if len(line) - len(line.lstrip()) <= 2:
+                break
+            nested.append(line.strip())
+        if nested:
+            errors.append(
+                "daily model PR validation pull_request trigger must remain unfiltered"
+            )
+    for literal in (
+        "  workflow_dispatch:",
+        "  scope:",
+        "python scripts/detect_daily_model_pr_validation_scope.py",
+        "  daily-model-maintenance-pr-validation:",
+    ):
+        if literal not in text:
+            errors.append(f"daily model PR validation missing scope contract: {literal}")
+    for row in rows:
+        for path in (
+            row.producer,
+            f"tests/test_{row.model_id}_scope_probe.py",
+        ):
+            try:
+                domains = pr_scope.domains_for_path(path)
+            except pr_scope.ScopeDetectionError as exc:
                 errors.append(
-                    "daily model PR validation path filter missing model research namespace: "
-                    f"{pattern.strip()}"
+                    f"registered model namespace is not routed by PR scope: {path}: {exc}"
+                )
+                continue
+            research_domains = set(domains) - {pr_scope.REPO_CURRENT_CONTRACTS}
+            if (
+                pr_scope.REPO_CURRENT_CONTRACTS not in domains
+                or not research_domains
+            ):
+                errors.append(
+                    f"registered model namespace is not routed to core and research: {path}"
                 )
     return errors
 

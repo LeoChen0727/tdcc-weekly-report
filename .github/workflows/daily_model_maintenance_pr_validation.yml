@@ -2,128 +2,6 @@ name: Daily Model Maintenance PR Validation
 
 on:
   pull_request:
-    paths:
-      - ".github/workflows/daily_full_pipeline.yml"
-      - ".github/workflows/daily_model_maintenance_pr_validation.yml"
-      - ".github/workflows/daily_pdf_replay_pr_validation.yml"
-      - ".github/workflows/warrant_flow.yml"
-      - ".github/workflows/event_catalyst_update.yml"
-      - ".github/workflows/research_backtest_pipeline.yml"
-      - ".github/workflows/weekly_theme_review.yml"
-      - "config/formal_model_evidence_pins.csv"
-      - "config/historical_replay_semantic_contract.csv"
-      - "config/git_worktree_materialization_contract.csv"
-      - "config/model_research_*.csv"
-      - "config/daily_model_*.csv"
-      - "config/revenue_unreacted_range_*.csv"
-      - "data/financial_statement_history/*.csv"
-      - "config/daily_pdf_rendered_model_regression_contract.csv"
-      - "config/daily_pdf_semantic_golden_cases.csv"
-      - "config/daily_pdf_shared_path_inventory.csv"
-      - "config/repo_hidden_coupling_audit.csv"
-      - "config/model_surface_registry.csv"
-      - "config/report_artifact_lineage.csv"
-      - "config/runtime_file_lineage_contract.csv"
-      - "config/stock_model_contract_registry.csv"
-      - "AGENTS.md"
-      - "rules/master_priority_rules.md"
-      - "docs/rules/master_priority_rules.md"
-      - "docs/latest/model_data_independence_audit_latest.*"
-      - "docs/latest/financial_statement_pit_coverage_latest.*"
-      - "docs/latest/financial_statement_historical_pit_source_audit_latest.*"
-      - "docs/latest/volume_v2_warrant_lineage_history_audit_latest.*"
-      - "output/latest/model_data_independence_audit_latest.*"
-      - "output/latest/research_backtest/financial_statement_pit_coverage_latest.*"
-      - "output/latest/research_backtest/financial_statement_historical_pit_source_audit_latest.*"
-      - "output/latest/volume_v2_warrant_lineage_history_audit_latest.*"
-      - "docs/specs/*operation*.md"
-      - "docs/specs/revenue_unreacted_range_*.md"
-      - "docs/specs/daily_mature_model_row_level_metric_contract.md"
-      - "docs/repo_hidden_coupling_audit.md"
-      - "docs/rules/git_worktree_materialization_safety.md"
-      - "scripts/build_daily_*model*.py"
-      - "scripts/build_daily_*operation*.py"
-      - "scripts/build_daily_published_snapshot_ranking_backtest.py"
-      - "scripts/daily_snapshot_revision_utils.py"
-      - "scripts/stage_daily_published_snapshot_revisions.py"
-      - "scripts/backfill_historical_all_candidates_snapshots_from_git_history.py"
-      - "scripts/build_monthly_revenue_coverage_backfill_audit.py"
-      - "scripts/build_monthly_revenue_point_in_time_panel.py"
-      - "scripts/build_daily_report_model_summary.py"
-      - "scripts/build_model_operation_readiness.py"
-      - "scripts/build_model_data_independence_audit.py"
-      - "scripts/build_financial_statement_pit.py"
-      - "scripts/build_financial_statement_historical_pit_source_audit.py"
-      - "scripts/build_volume_breakout_watch.py"
-      - "scripts/build_volume_attack_theme_layer.py"
-      - "scripts/build_volume_v2_warrant_lineage_history_audit.py"
-      - "scripts/model_data_independence.py"
-      - "scripts/build_*_research.py"
-      - "scripts/price_pullback_23ema_*.py"
-      - "scripts/revenue_unreacted_range_*.py"
-      - "scripts/validate_revenue_unreacted_range_*.py"
-      - "scripts/volume_range_breakout_v2_*.py"
-      - "scripts/build_mature_model_row_level_metric_contract_audit.py"
-      - "scripts/generate_chatgpt_side_daily_reports.py"
-      - "scripts/git_worktree_safety.py"
-      - "scripts/resolve_daily_report_source_state.py"
-      - "scripts/run_chatgpt_daily_report_entrypoint.py"
-      - "scripts/stage_daily_latest_mirrors.py"
-      - "scripts/validate_chatgpt_side_pdf_contract.py"
-      - "scripts/update_daily_published_model_snapshots.py"
-      - "scripts/validate_chatgpt_daily_report_new_conversation_replay.py"
-      - "scripts/validate_daily_*.py"
-      - "scripts/validate_model_operation_readiness.py"
-      - "scripts/validate_model_data_independence.py"
-      - "scripts/validate_financial_statement_pit.py"
-      - "scripts/validate_financial_statement_historical_pit_source_audit.py"
-      - "scripts/validate_volume_breakout_watch.py"
-      - "scripts/validate_volume_attack_theme_layer.py"
-      - "scripts/validate_volume_v2_warrant_lineage_history_audit.py"
-      - "scripts/validate_model_surface_registry.py"
-      - "scripts/validate_model_research_*.py"
-      - "scripts/validate_mature_model_row_level_metric_contract_audit.py"
-      - "scripts/validate_daily_legacy_volume_range_breakout_removed.py"
-      - "scripts/validate_research_against_stock_model_contract.py"
-      - "scripts/validate_repo_hidden_coupling_audit.py"
-      - "scripts/validate_git_worktree_safety.py"
-      - "scripts/validate_repo_code_isolation_policy.py"
-      - "scripts/validate_repo_advanced_integrity.py"
-      - "scripts/validate_repo_advanced_integrity_pr_safe.py"
-      - "scripts/validate_stock_model_contract_registry.py"
-      - "scripts/validate_warrant_source_status.py"
-      - "tests/test_chatgpt_daily_report_new_conversation_replay.py"
-      - "tests/test_chatgpt_daily_report_entrypoint.py"
-      - "tests/test_chatgpt_side_pdf_contract.py"
-      - "tests/test_catalyst_pages_sync.py"
-      - "tests/test_daily_*.py"
-      - "tests/test_daily_snapshot_revision_utils.py"
-      - "tests/test_stage_daily_published_snapshot_revisions.py"
-      - "tests/test_backfill_historical_all_candidates_snapshots.py"
-      - "tests/test_warrant_source_status.py"
-      - "tests/test_repo_hidden_coupling_audit.py"
-      - "tests/test_git_worktree_safety.py"
-      - "tests/test_model_operation_readiness.py"
-      - "tests/test_model_data_independence.py"
-      - "tests/test_financial_statement_pit.py"
-      - "tests/test_financial_statement_historical_pit_source_audit.py"
-      - "tests/test_volume_breakout_watch.py"
-      - "tests/test_daily_canonical_field_lineage.py"
-      - "tests/test_daily_model_maintenance_pr_validation_workflow.py"
-      - "tests/test_volume_v2_warrant_lineage_history_audit.py"
-      - "tests/test_model_surface_registry.py"
-      - "tests/test_repo_code_isolation_policy.py"
-      - "tests/test_model_research_*.py"
-      - "tests/test_price_pullback_23ema_*.py"
-      - "tests/test_price_pullback_daily_row_parity.py"
-      - "tests/test_monthly_revenue_point_in_time_panel.py"
-      - "tests/test_repo_advanced_integrity.py"
-      - "tests/test_repo_advanced_integrity_pr_safe.py"
-      - "tests/test_revenue_unreacted_range_*.py"
-      - "tests/test_validate_revenue_unreacted_range_*.py"
-      - "tests/test_volume_range_breakout_v2_*.py"
-      - "tests/test_mature_model_row_level_metric_contract_audit.py"
-      - "tests/test_stock_model_contract_registry.py"
   workflow_dispatch:
 
 permissions:
@@ -134,10 +12,82 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  daily-model-maintenance-pr-validation:
+  scope:
+    name: daily-model-validation-scope
+    runs-on: ubuntu-latest
+    outputs:
+      repo_current_contracts: ${{ steps.scope.outputs.repo_current_contracts }}
+      shared_model_research: ${{ steps.scope.outputs.shared_model_research }}
+      volume_v2_research: ${{ steps.scope.outputs.volume_v2_research }}
+      revenue_research: ${{ steps.scope.outputs.revenue_research }}
+      financial_statement_research: ${{ steps.scope.outputs.financial_statement_research }}
+
+    steps:
+      - name: Materialize only the scope detector from the public merge ref
+        env:
+          FETCH_REF: ${{ github.ref }}
+          MERGE_SHA: ${{ github.sha }}
+          REPOSITORY_URL: ${{ github.server_url }}/${{ github.repository }}.git
+        shell: bash
+        run: |
+          set -euo pipefail
+          git --no-replace-objects init .
+          git --no-replace-objects remote add origin "$REPOSITORY_URL"
+          git --no-replace-objects config remote.origin.promisor true
+          git --no-replace-objects config remote.origin.partialclonefilter blob:none
+          fetch_depth=1
+          if [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then
+            fetch_depth=2
+          fi
+          git --no-replace-objects -c protocol.version=2 fetch \
+            --no-tags \
+            --depth="$fetch_depth" \
+            --filter=blob:none \
+            origin \
+            "+$FETCH_REF:refs/remotes/origin/pr-scope"
+          fetched_sha="$(git --no-replace-objects rev-parse FETCH_HEAD)"
+          if [ "$fetched_sha" != "$MERGE_SHA" ]; then
+            echo "scope fetch SHA mismatch: actual=$fetched_sha expected=$MERGE_SHA" >&2
+            exit 1
+          fi
+          mkdir -p scripts
+          git --no-replace-objects show \
+            "$MERGE_SHA:scripts/detect_daily_model_pr_validation_scope.py" \
+            > scripts/detect_daily_model_pr_validation_scope.py
+
+      - name: Detect changed-path validation scope
+        id: scope
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          MERGE_SHA: ${{ github.sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          scope_args=(
+            --event-name "$EVENT_NAME"
+            --github-output "$GITHUB_OUTPUT"
+          )
+          if [ "$EVENT_NAME" = "pull_request" ]; then
+            scope_args+=(
+              --base-sha "$BASE_SHA"
+              --head-sha "$HEAD_SHA"
+              --merge-sha "$MERGE_SHA"
+            )
+          fi
+          python scripts/detect_daily_model_pr_validation_scope.py "${scope_args[@]}"
+
+  repo_current_contracts:
+    name: repo-current-contracts
+    needs: scope
+    if: >-
+      needs.scope.result == 'success' &&
+      needs.scope.outputs.repo_current_contracts == 'true'
     runs-on: ubuntu-latest
     env:
       BASE_SHA: ${{ github.event.pull_request.base.sha || 'origin/main' }}
+      HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
       SNAPSHOT_PR_SAFE_CONTROL_HELPER_SHA256: 4329b48823dc844fc565f09d6af4aa0495a16b3713cb842c55f63d28949e31c2
 
     steps:
@@ -145,14 +95,6 @@ jobs:
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
-
-      - name: Ensure append-only validation base is available
-        shell: bash
-        run: |
-          if [ "$BASE_SHA" = "origin/main" ]; then
-            git fetch --no-tags origin main:refs/remotes/origin/main
-          fi
-          git cat-file -e "${BASE_SHA}^{commit}"
 
       - name: Set up Python
         uses: actions/setup-python@v6
@@ -164,12 +106,22 @@ jobs:
           python -m pip install --upgrade pip
           pip install pandas requests tabulate matplotlib pillow openpyxl lxml html5lib beautifulsoup4 reportlab pypdf pytest fonttools pyyaml
 
+      - name: Check patch whitespace
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then
+            git --no-replace-objects diff --check "$BASE_SHA...$HEAD_SHA" --
+          else
+            git --no-replace-objects diff --check HEAD --
+          fi
+
       - name: Validate production lineage parity ordering contract
         run: |
           python -m pytest -q tests/test_daily_model_maintenance_pr_validation_workflow.py \
             -k production_snapshot_updates_are_followed_by_dynamic_lineage_parity
 
-      - name: Validate daily model and PDF contracts
+      - name: Validate current repository and PDF contracts
         run: |
           python scripts/validate_repo_file_lifecycle_inventory.py
           python scripts/validate_repo_production_inventory.py
@@ -183,45 +135,6 @@ jobs:
           python scripts/validate_daily_production_boundaries.py
           python scripts/validate_daily_published_model_snapshots_pr_safe.py --base-ref "$BASE_SHA"
           python scripts/validate_repo_advanced_integrity_pr_safe.py --base-ref "$BASE_SHA"
-          python scripts/validate_daily_model_background_data_registry.py
-          python scripts/validate_model_data_independence.py --base-ref "$BASE_SHA"
-          python scripts/validate_model_research_shared_utilities.py --base-ref "$BASE_SHA"
-          python scripts/validate_volume_breakout_watch.py --latest-only
-          python scripts/validate_volume_attack_theme_layer.py
-          lineage_args=(--base-ref "$BASE_SHA")
-          if [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then
-            lineage_args+=(--pr-safe-base-history)
-          fi
-          python scripts/validate_daily_canonical_field_lineage.py "${lineage_args[@]}"
-          python scripts/build_volume_v2_warrant_lineage_history_audit.py
-          python scripts/validate_volume_v2_warrant_lineage_history_audit.py
-          git diff --exit-code -- \
-            docs/latest/volume_v2_warrant_lineage_history_audit_latest.csv \
-            docs/latest/volume_v2_warrant_lineage_history_audit_latest.md \
-            output/latest/volume_v2_warrant_lineage_history_audit_latest.csv \
-            output/latest/volume_v2_warrant_lineage_history_audit_latest.md
-          python scripts/validate_financial_statement_pit.py
-          python scripts/build_financial_statement_historical_pit_source_audit.py
-          python scripts/validate_financial_statement_historical_pit_source_audit.py
-          git diff --exit-code -- \
-            docs/latest/financial_statement_historical_pit_source_audit_latest.csv \
-            docs/latest/financial_statement_historical_pit_source_audit_latest.md \
-            output/latest/research_backtest/financial_statement_historical_pit_source_audit_latest.csv \
-            output/latest/research_backtest/financial_statement_historical_pit_source_audit_latest.md
-          python scripts/validate_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py
-          python scripts/validate_revenue_unreacted_range_source_first_condition_audit.py
-          python scripts/validate_revenue_unreacted_range_source_snapshot_projection.py
-          python scripts/validate_revenue_unreacted_range_forward_confirmation_feature_audit.py
-          python scripts/validate_revenue_unreacted_range_rearmed_operation_grid.py
-          python scripts/validate_revenue_unreacted_range_operation_lag_bucket_audit.py
-          python scripts/validate_revenue_unreacted_range_position_shape_transition_matrix.py
-          python scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py
-          python scripts/validate_revenue_unreacted_range_promotion_preparation.py
-          python scripts/validate_revenue_unreacted_range_financial_statement_fail_closed.py
-          python scripts/build_mature_model_row_level_metric_contract_audit.py
-          python scripts/validate_mature_model_row_level_metric_contract_audit.py
-          python scripts/validate_research_against_stock_model_contract.py
-          python scripts/validate_daily_model_research_parity.py
           python scripts/validate_repo_hidden_coupling_audit.py
           python scripts/validate_git_worktree_safety.py
           python scripts/validate_chatgpt_side_pdf_contract.py
@@ -229,7 +142,7 @@ jobs:
           python scripts/validate_model_research_workflow_isolation.py
           python scripts/validate_chatgpt_side_pdf_layout_independence.py
 
-      - name: Run focused regression tests
+      - name: Run current repository and PDF regression tests
         run: |
           python -m pytest \
             tests/test_chatgpt_daily_report_new_conversation_replay.py \
@@ -240,35 +153,164 @@ jobs:
             tests/test_daily_event_catalyst_formal_sync_scope.py \
             tests/test_daily_warrant_formal_sync_scope.py \
             tests/test_warrant_source_status.py \
-            tests/test_daily_candidate_model_layer.py \
-            tests/test_volume_breakout_watch.py \
-            tests/test_daily_canonical_field_lineage.py \
             tests/test_daily_model_maintenance_pr_validation_workflow.py \
-            tests/test_volume_v2_warrant_lineage_history_audit.py \
+            tests/test_detect_daily_model_pr_validation_scope.py \
             tests/test_daily_pdf_contract_consumers.py \
             tests/test_daily_pdf_completion_hard_gate.py \
             tests/test_daily_pdf_shared_path_isolation.py \
-            tests/test_daily_published_model_snapshots.py \
             tests/test_daily_published_model_snapshots_pr_safe.py \
+            tests/test_repo_advanced_integrity.py \
+            tests/test_repo_advanced_integrity_pr_safe.py \
+            tests/test_daily_report_model_summary.py \
+            tests/test_daily_production_boundaries.py \
+            tests/test_repo_hidden_coupling_audit.py \
+            tests/test_git_worktree_safety.py \
+            tests/test_model_research_workflow_isolation.py \
+            tests/test_stock_model_contract_registry.py \
+            --deselect tests/test_repo_advanced_integrity.py::test_repo_advanced_integrity_validator_passes
+
+  shared_model_research:
+    name: shared-model-research
+    needs: scope
+    if: >-
+      needs.scope.result == 'success' &&
+      needs.scope.outputs.shared_model_research == 'true'
+    runs-on: ubuntu-latest
+    env:
+      BASE_SHA: ${{ github.event.pull_request.base.sha || 'origin/main' }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas requests tabulate matplotlib pillow openpyxl lxml html5lib beautifulsoup4 reportlab pypdf pytest fonttools pyyaml
+
+      - name: Validate shared model research contracts
+        run: |
+          python scripts/validate_daily_model_background_data_registry.py
+          python scripts/validate_model_data_independence.py --base-ref "$BASE_SHA"
+          python scripts/validate_model_research_shared_utilities.py --base-ref "$BASE_SHA"
+          python scripts/build_mature_model_row_level_metric_contract_audit.py
+          python scripts/validate_mature_model_row_level_metric_contract_audit.py
+          python scripts/validate_research_against_stock_model_contract.py
+          python scripts/validate_daily_model_research_parity.py
+
+      - name: Run shared model research regression tests
+        run: |
+          python -m pytest \
+            tests/test_daily_candidate_model_layer.py \
+            tests/test_daily_published_model_snapshots.py \
             tests/test_backfill_historical_all_candidates_snapshots.py \
             tests/test_daily_published_snapshot_ranking_backtest.py \
             tests/test_daily_snapshot_revision_utils.py \
             tests/test_stage_daily_published_snapshot_revisions.py \
             tests/test_daily_legacy_mature_model_paths_removed.py \
             tests/test_daily_operation_adapter_protected_fields.py \
-            tests/test_daily_volume_breakout_operation_section.py \
             tests/test_daily_w_bottom_operation_sections.py \
             tests/test_daily_price_pullback_23ema_operation_section.py \
             tests/test_price_pullback_daily_row_parity.py \
-            tests/test_monthly_revenue_point_in_time_panel.py \
-            tests/test_repo_advanced_integrity.py \
-            tests/test_repo_advanced_integrity_pr_safe.py \
             tests/test_mature_model_row_level_metric_contract_audit.py \
-            tests/test_daily_report_model_summary.py \
-            tests/test_daily_production_boundaries.py \
-            tests/test_model_data_independence.py \
-            tests/test_financial_statement_pit.py \
-            tests/test_financial_statement_historical_pit_source_audit.py \
+            tests/test_model_data_independence.py
+
+  volume_v2_research:
+    name: volume-v2-research
+    needs: scope
+    if: >-
+      needs.scope.result == 'success' &&
+      needs.scope.outputs.volume_v2_research == 'true'
+    runs-on: ubuntu-latest
+    env:
+      BASE_SHA: ${{ github.event.pull_request.base.sha || 'origin/main' }}
+      LINEAGE_HISTORY_MODE: ${{ github.event_name == 'pull_request' && '--pr-safe-base-history' || '' }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas requests tabulate matplotlib pillow openpyxl lxml html5lib beautifulsoup4 reportlab pypdf pytest fonttools pyyaml
+
+      - name: Validate Volume V2 research contracts
+        run: |
+          python scripts/validate_volume_breakout_watch.py --latest-only
+          python scripts/validate_volume_attack_theme_layer.py
+          python scripts/validate_daily_canonical_field_lineage.py --base-ref "$BASE_SHA" $LINEAGE_HISTORY_MODE
+          python scripts/build_volume_v2_warrant_lineage_history_audit.py
+          python scripts/validate_volume_v2_warrant_lineage_history_audit.py
+          git --no-replace-objects diff --exit-code -- \
+            docs/latest/volume_v2_warrant_lineage_history_audit_latest.csv \
+            docs/latest/volume_v2_warrant_lineage_history_audit_latest.md \
+            output/latest/volume_v2_warrant_lineage_history_audit_latest.csv \
+            output/latest/volume_v2_warrant_lineage_history_audit_latest.md
+
+      - name: Run Volume V2 research regression tests
+        run: |
+          python -m pytest \
+            tests/test_volume_breakout_watch.py \
+            tests/test_daily_canonical_field_lineage.py \
+            tests/test_volume_v2_warrant_lineage_history_audit.py \
+            tests/test_daily_volume_breakout_operation_section.py
+
+  revenue_research:
+    name: revenue-research
+    needs: scope
+    if: >-
+      needs.scope.result == 'success' &&
+      needs.scope.outputs.revenue_research == 'true'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas requests tabulate matplotlib pillow openpyxl lxml html5lib beautifulsoup4 reportlab pypdf pytest fonttools pyyaml
+
+      - name: Validate revenue research contracts
+        run: |
+          python scripts/validate_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py
+          python scripts/validate_revenue_unreacted_range_source_first_condition_audit.py
+          python scripts/validate_revenue_unreacted_range_source_snapshot_projection.py
+          python scripts/validate_revenue_unreacted_range_forward_confirmation_feature_audit.py
+          python scripts/validate_revenue_unreacted_range_rearmed_operation_grid.py
+          python scripts/validate_revenue_unreacted_range_operation_lag_bucket_audit.py
+          python scripts/validate_revenue_unreacted_range_position_shape_transition_matrix.py
+          python scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py
+          python scripts/validate_revenue_unreacted_range_promotion_preparation.py
+          python scripts/validate_revenue_unreacted_range_financial_statement_fail_closed.py
+
+      - name: Run revenue research regression tests
+        run: |
+          python -m pytest \
+            tests/test_monthly_revenue_point_in_time_panel.py \
             tests/test_revenue_unreacted_range_source_first_condition_audit.py \
             tests/test_revenue_unreacted_range_source_snapshot_projection.py \
             tests/test_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py \
@@ -282,9 +324,108 @@ jobs:
             tests/test_validate_revenue_unreacted_range_promotion_preparation.py \
             tests/test_revenue_unreacted_range_forward_holdout.py \
             tests/test_validate_revenue_unreacted_range_forward_holdout.py \
-            tests/test_revenue_unreacted_range_financial_statement_fail_closed.py \
-            tests/test_repo_hidden_coupling_audit.py \
-            tests/test_git_worktree_safety.py \
-            tests/test_model_research_workflow_isolation.py \
-            tests/test_stock_model_contract_registry.py \
-            --deselect tests/test_repo_advanced_integrity.py::test_repo_advanced_integrity_validator_passes
+            tests/test_revenue_unreacted_range_financial_statement_fail_closed.py
+
+  financial_statement_research:
+    name: financial-statement-research
+    needs: scope
+    if: >-
+      needs.scope.result == 'success' &&
+      needs.scope.outputs.financial_statement_research == 'true'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas requests tabulate matplotlib pillow openpyxl lxml html5lib beautifulsoup4 reportlab pypdf pytest fonttools pyyaml
+
+      - name: Validate financial-statement research contracts
+        run: |
+          python scripts/validate_financial_statement_pit.py
+          python scripts/build_financial_statement_historical_pit_source_audit.py
+          python scripts/validate_financial_statement_historical_pit_source_audit.py
+          git --no-replace-objects diff --exit-code -- \
+            docs/latest/financial_statement_historical_pit_source_audit_latest.csv \
+            docs/latest/financial_statement_historical_pit_source_audit_latest.md \
+            output/latest/research_backtest/financial_statement_historical_pit_source_audit_latest.csv \
+            output/latest/research_backtest/financial_statement_historical_pit_source_audit_latest.md
+
+      - name: Run financial-statement research regression tests
+        run: |
+          python -m pytest \
+            tests/test_financial_statement_pit.py \
+            tests/test_financial_statement_historical_pit_source_audit.py
+
+  daily-model-maintenance-pr-validation:
+    name: daily-model-maintenance-pr-validation
+    if: always()
+    needs:
+      - scope
+      - repo_current_contracts
+      - shared_model_research
+      - volume_v2_research
+      - revenue_research
+      - financial_statement_research
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Validate selected and skipped domain results
+        env:
+          SCOPE_RESULT: ${{ needs.scope.result }}
+          CORE_SELECTED: ${{ needs.scope.outputs.repo_current_contracts }}
+          CORE_RESULT: ${{ needs.repo_current_contracts.result }}
+          SHARED_SELECTED: ${{ needs.scope.outputs.shared_model_research }}
+          SHARED_RESULT: ${{ needs.shared_model_research.result }}
+          VOLUME_SELECTED: ${{ needs.scope.outputs.volume_v2_research }}
+          VOLUME_RESULT: ${{ needs.volume_v2_research.result }}
+          REVENUE_SELECTED: ${{ needs.scope.outputs.revenue_research }}
+          REVENUE_RESULT: ${{ needs.revenue_research.result }}
+          FINANCIAL_SELECTED: ${{ needs.scope.outputs.financial_statement_research }}
+          FINANCIAL_RESULT: ${{ needs.financial_statement_research.result }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ "$SCOPE_RESULT" != "success" ]; then
+            echo "scope job must succeed; observed=$SCOPE_RESULT" >&2
+            exit 1
+          fi
+          require_domain_result() {
+            local domain="$1"
+            local selected="$2"
+            local result="$3"
+            case "$selected" in
+              true)
+                if [ "$result" != "success" ]; then
+                  echo "selected domain must succeed: domain=$domain result=$result" >&2
+                  exit 1
+                fi
+                ;;
+              false)
+                if [ "$result" != "skipped" ]; then
+                  echo "unselected domain must be skipped: domain=$domain result=$result" >&2
+                  exit 1
+                fi
+                ;;
+              *)
+                echo "domain selection output must be true or false: domain=$domain selected=$selected" >&2
+                exit 1
+                ;;
+            esac
+          }
+
+          require_domain_result repo-current-contracts "$CORE_SELECTED" "$CORE_RESULT"
+          require_domain_result shared-model-research "$SHARED_SELECTED" "$SHARED_RESULT"
+          require_domain_result volume-v2-research "$VOLUME_SELECTED" "$VOLUME_RESULT"
+          require_domain_result revenue-research "$REVENUE_SELECTED" "$REVENUE_RESULT"
+          require_domain_result financial-statement-research "$FINANCIAL_SELECTED" "$FINANCIAL_RESULT"
