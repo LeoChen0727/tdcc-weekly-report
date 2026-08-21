@@ -736,7 +736,7 @@ jobs:
 
       - name: Fetch market abnormal status
         run: |
-          python scripts/fetch_market_abnormal_status.py
+          python scripts/fetch_market_abnormal_status.py --target-date "$EXPECTED_MAIN_PRICE_DATE"
 
       - name: Inspect daily stock monitor output
         run: |
@@ -1242,6 +1242,13 @@ jobs:
           git add data/daily_price/ data/stock_price_history/
           git add data/market_calendar/ || true
           git add output/latest/ || true
+          git add -- "data/market_abnormal_status/bundles/${EXPECTED_MAIN_PRICE_DATE}/"
+          git add -- output/history/market_abnormal_status/market_abnormal_status_history.csv
+          git add -- \
+            output/latest/market_abnormal_status_latest.csv \
+            output/latest/market_abnormal_status_latest.md \
+            docs/latest/market_abnormal_status_latest.csv \
+            docs/latest/market_abnormal_status_latest.md
           git add -A -- "docs/latest/READ_ME_FIRST_DAILY_REPORT*.txt" || true
           git add docs/latest/chatgpt_daily_report_packet_latest.txt docs/latest/CHATGPT_DAILY_REPORT_RULES.txt || true
           git add docs/latest/pdf_kline_chart_status_latest.md || true

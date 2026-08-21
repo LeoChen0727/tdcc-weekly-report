@@ -397,6 +397,97 @@ def test_daily_publish_contract_rejects_unowned_runtime_staging(
     assert any(expected_error in error for error in errors)
 
 
+@pytest.mark.parametrize(
+    ("step_name", "old", "new", "expected_error"),
+    (
+        (
+            "Fetch market abnormal status",
+            'python scripts/fetch_market_abnormal_status.py --target-date "$EXPECTED_MAIN_PRICE_DATE"',
+            "python scripts/fetch_market_abnormal_status.py",
+            "expected main price date",
+        ),
+        (
+            "Fetch market abnormal status",
+            'python scripts/fetch_market_abnormal_status.py --target-date "$EXPECTED_MAIN_PRICE_DATE"',
+            'python scripts/fetch_market_abnormal_status.py --target-date "$EXPECTED_MAIN_PRICE_DATE" || true',
+            "fail closed",
+        ),
+        (
+            "Commit report artifacts, packets, and rules first",
+            'git add -- "data/market_abnormal_status/bundles/${EXPECTED_MAIN_PRICE_DATE}/"',
+            "true # removed exact-target market-abnormal bundle staging",
+            "must stage the exact-target market-abnormal bundle",
+        ),
+        (
+            "Commit report artifacts, packets, and rules first",
+            "git add -- output/history/market_abnormal_status/market_abnormal_status_history.csv",
+            "true # removed target-keyed market-abnormal history staging",
+            "must stage target-keyed market-abnormal history",
+        ),
+        (
+            "Commit report artifacts, packets, and rules first",
+            "output/latest/market_abnormal_status_latest.md",
+            "REMOVED_MARKET_ABNORMAL_OUTPUT_MARKDOWN",
+            "must stage the exact-target market-abnormal latest Markdown",
+        ),
+        (
+            "Commit report artifacts, packets, and rules first",
+            "docs/latest/market_abnormal_status_latest.csv",
+            "REMOVED_MARKET_ABNORMAL_DOCS_CSV",
+            "must stage the exact-target market-abnormal docs CSV mirror",
+        ),
+        (
+            "Commit report artifacts, packets, and rules first",
+            'git add -- "data/market_abnormal_status/bundles/${EXPECTED_MAIN_PRICE_DATE}/"',
+            'git add -- "data/market_abnormal_status/bundles/${EXPECTED_MAIN_PRICE_DATE}/" || true',
+            "must not ignore exact-target market-abnormal bundle",
+        ),
+        (
+            "Commit report artifacts, packets, and rules first",
+            'git add -- "data/market_abnormal_status/bundles/${EXPECTED_MAIN_PRICE_DATE}/"',
+            'git add -- "data/market_abnormal_status/bundles/20260821/"',
+            "must not hard-code a wall-date",
+        ),
+    ),
+)
+def test_daily_market_abnormal_target_lineage_contract_rejects_mutations(
+    step_name: str,
+    old: str,
+    new: str,
+    expected_error: str,
+) -> None:
+    daily_text = boundaries.DAILY_WORKFLOW.read_text(encoding="utf-8")
+    mutated = replace_workflow_step_literal(daily_text, step_name, old, new)
+
+    errors = boundaries.validate_daily_authority_snapshot_publish_contract(mutated)
+
+    assert any(expected_error in error for error in errors)
+
+
+@pytest.mark.parametrize(
+    ("injected_key", "expected_error"),
+    (
+        ("if: false", "must be unconditional"),
+        ("continue-on-error: true", "explicit false"),
+        ("continue-on-error: ${{ github.event_name == 'workflow_dispatch' }}", "explicit false"),
+    ),
+)
+def test_daily_market_abnormal_fetch_step_cannot_skip_or_ignore_failure(
+    injected_key: str,
+    expected_error: str,
+) -> None:
+    daily_text = boundaries.DAILY_WORKFLOW.read_text(encoding="utf-8")
+    block = boundaries.workflow_step_block(daily_text, "Fetch market abnormal status")
+    marker = "      - name: Fetch market abnormal status"
+    mutated_block = block.replace(marker, f"{marker}\n        {injected_key}", 1)
+
+    errors = boundaries.validate_daily_authority_snapshot_publish_contract(
+        daily_text.replace(block, mutated_block, 1)
+    )
+
+    assert any(expected_error in error for error in errors)
+
+
 def test_publish_write_set_detects_tracked_unstaged_remote_overlap(
     tmp_path: Path,
 ) -> None:
