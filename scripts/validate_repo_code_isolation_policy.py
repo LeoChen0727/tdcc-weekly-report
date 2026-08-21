@@ -212,12 +212,6 @@ REQUIRED_PR_WORKFLOW_COMMANDS = [
     "python scripts/validate_daily_production_boundaries.py",
 ]
 
-REQUIRED_DAILY_PDF_RUNTIME_COMMANDS = [
-    "python scripts/validate_daily_pdf_shared_path_isolation.py",
-    "python scripts/validate_daily_pdf_completion_hard_gate.py",
-]
-
-
 FORBIDDEN_RESEARCH_WORKFLOW_SNIPPETS = [
     "python build_chatgpt_daily_report_packet.py",
     "python build_chatgpt_daily_report_rules.py",
@@ -478,12 +472,6 @@ def validate() -> list[str]:
     if RULES_DAILY.exists() and DOCS_RULES_DAILY.exists():
         if read_text(RULES_DAILY) != read_text(DOCS_RULES_DAILY):
             errors.append("docs/rules/daily_stock_candidate_rules.md must match rules/daily_stock_candidate_rules.md")
-
-    if DAILY_WORKFLOW.exists():
-        workflow_text = read_text(DAILY_WORKFLOW)
-        for command in REQUIRED_DAILY_PDF_RUNTIME_COMMANDS:
-            if command not in workflow_text:
-                errors.append(f"daily_full_pipeline.yml must run {command}")
 
     if PR_WORKFLOW.exists():
         workflow_text = read_text(PR_WORKFLOW)

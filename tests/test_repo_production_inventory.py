@@ -174,16 +174,23 @@ def test_individual_pr_static_command_contract_is_exact() -> None:
     assert "python scripts/validate_individual_pdf_contract_consumers.py" in registered
 
 
-def test_daily_required_commands_keep_pdf_runtime_gates_not_repo_static_self_hooks() -> None:
-    commands = inventory.REQUIRED_WORKFLOW_COMMANDS[inventory.DAILY_WORKFLOW]
+def test_daily_pdf_runtime_command_contract_is_owned_by_daily_production_boundaries() -> None:
+    assert inventory.DAILY_WORKFLOW not in inventory.REQUIRED_WORKFLOW_COMMANDS
 
-    assert "python scripts/validate_pdf_production_inventory.py" in commands
-    assert "python scripts/validate_daily_pdf_contract_consumers.py" in commands
-    assert "python scripts/validate_daily_pdf_shared_path_isolation.py" in commands
-    assert "python scripts/validate_daily_pdf_completion_hard_gate.py" in commands
-    assert "python scripts/validate_repo_production_inventory.py" not in commands
-    assert "python scripts/validate_repo_code_isolation_policy.py" not in commands
-    assert "python scripts/validate_model_research_workflow_isolation.py" not in commands
+
+def test_daily_model_workflow_keeps_five_static_pdf_contracts() -> None:
+    commands = inventory.REQUIRED_WORKFLOW_COMMANDS[
+        ".github/workflows/daily_model_maintenance_pr_validation.yml"
+    ]
+    required = {
+        "python scripts/validate_chatgpt_side_pdf_contract.py",
+        "python scripts/validate_daily_pdf_contract_consumers.py",
+        "python scripts/validate_daily_pdf_role_manifest_contract.py",
+        "python scripts/validate_daily_pdf_shared_path_isolation.py",
+        "python scripts/validate_daily_pdf_completion_hard_gate.py",
+    }
+
+    assert required.issubset(commands)
 
 
 def test_repair_and_historical_runtime_do_not_require_repo_static_self_hooks() -> None:

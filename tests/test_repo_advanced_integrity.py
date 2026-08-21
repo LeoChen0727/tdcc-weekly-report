@@ -70,17 +70,18 @@ def test_daily_pipeline_validates_external_sources_after_catalyst_refresh() -> N
         "python scripts/validate_data_freshness_latest.py", freshness_idx
     )
     advanced_idx = workflow.index(RUNTIME_EXTERNAL_COMMAND)
-    preflight_idx = workflow.index("- name: Validate PDF prebuild contract")
     install_idx = workflow.index("- name: Install dependencies")
+    boundary_idx = workflow.index("- name: Validate daily production boundaries")
 
     assert (
-        preflight_idx
-        < install_idx
+        install_idx
+        < boundary_idx
         < refresh_idx
         < freshness_build_idx
         < freshness_validate_idx
         < advanced_idx
     )
+    assert "- name: Validate PDF prebuild contract" not in workflow
     assert _runtime_external_step_errors(workflow) == []
 
 

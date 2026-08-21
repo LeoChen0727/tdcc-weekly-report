@@ -85,13 +85,13 @@ def test_numerical_anomaly_disposition_requires_bottom_level_evidence() -> None:
         assert legacy_threshold_artifact not in formal_pins
 
 
-def test_daily_full_pipeline_preserves_pdf_runtime_isolation_gates() -> None:
-    workflow_text = (ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(
+def test_daily_full_pdf_runtime_commands_are_not_owned_by_code_isolation_policy() -> None:
+    source = (ROOT / "scripts" / "validate_repo_code_isolation_policy.py").read_text(
         encoding="utf-8"
     )
 
-    assert "python scripts/validate_daily_pdf_shared_path_isolation.py" in workflow_text
-    assert "python scripts/validate_daily_pdf_completion_hard_gate.py" in workflow_text
+    assert "REQUIRED_DAILY_PDF_RUNTIME_COMMANDS" not in source
+    assert "daily_full_pipeline.yml must run" not in source
 
 
 def test_pr_static_workflow_runs_code_isolation_policy() -> None:

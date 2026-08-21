@@ -869,6 +869,29 @@ def test_daily_full_materializes_before_identity_and_validators() -> None:
     assert any("before artifact identity" in error for error in errors)
 
 
+def test_daily_full_requires_retained_runtime_boundary_after_materialization() -> None:
+    recent_text, replay_text, daily_full_text = _texts()
+    boundary = "      - name: Validate daily production boundaries"
+    materialize = "      - name: Materialize immutable recovery source bundle for production"
+
+    missing_boundary = daily_full_text.replace(
+        boundary,
+        "      - name: Skip daily production boundaries",
+        1,
+    )
+    errors = validator.validate(recent_text, replay_text, missing_boundary)
+    assert any("before artifact identity" in error for error in errors)
+
+    moved_before_materialize = daily_full_text.replace(materialize, "__MATERIALIZE__", 1)
+    moved_before_materialize = moved_before_materialize.replace(
+        boundary,
+        materialize,
+        1,
+    ).replace("__MATERIALIZE__", boundary, 1)
+    errors = validator.validate(recent_text, replay_text, moved_before_materialize)
+    assert any("before artifact identity" in error for error in errors)
+
+
 def test_recovery_daily_full_uses_a_non_deadlocking_correlation_scoped_group() -> None:
     recent_text, replay_text, daily_full_text = _texts()
     invalid_daily = daily_full_text.replace(

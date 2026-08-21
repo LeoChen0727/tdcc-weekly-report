@@ -366,12 +366,6 @@ FORBIDDEN_WORKFLOW_SNIPPETS = {
 }
 
 REQUIRED_WORKFLOW_COMMANDS = {
-    DAILY_WORKFLOW: (
-        "python scripts/validate_pdf_production_inventory.py",
-        "python scripts/validate_daily_pdf_contract_consumers.py",
-        "python scripts/validate_daily_pdf_shared_path_isolation.py",
-        "python scripts/validate_daily_pdf_completion_hard_gate.py",
-    ),
     ".github/workflows/historical_structured_source_replay.yml": (
         "python scripts/replay_historical_structured_sources.py",
         "python scripts/validate_historical_structured_source_replay.py",
@@ -384,7 +378,9 @@ REQUIRED_WORKFLOW_COMMANDS = {
     ),
     ".github/workflows/daily_model_maintenance_pr_validation.yml": (
         "python scripts/validate_repo_production_inventory.py",
+        "python scripts/validate_chatgpt_side_pdf_contract.py",
         "python scripts/validate_daily_pdf_contract_consumers.py",
+        "python scripts/validate_daily_pdf_role_manifest_contract.py",
         "python scripts/validate_daily_pdf_shared_path_isolation.py",
         "python scripts/validate_daily_pdf_completion_hard_gate.py",
         "python scripts/validate_daily_production_boundaries.py",

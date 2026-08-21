@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 import csv
 import ast
 import re
@@ -239,6 +240,9 @@ FORBIDDEN_RESEARCH_RECOMMENDATION_COLUMNS = {
 }
 
 DISPLAY_MODEL_VISIBILITIES = {"pdf_core_model", "pdf_specialty_section"}
+VALIDATION_PHASE_FULL = "full"
+VALIDATION_PHASE_RUNTIME = "runtime"
+VALIDATION_PHASES = (VALIDATION_PHASE_FULL, VALIDATION_PHASE_RUNTIME)
 MODEL_EMPTY_STATE_TEXT = "本日無股票推薦"
 OPERATION_ACTIVE_EMPTY_STATE_TEXT = "目前無操作中追蹤列"
 OPERATION_CONFIRMED_BUY_TABLE_TITLE = "本日可買 / 已確認買入候選"
@@ -692,6 +696,7 @@ def validate_pdf_integrated_operation_adapter_contract(
     required_columns_by_model: dict[str, set[str]] | None = None,
     allowed_sections_by_model: dict[str, set[str]] | None = None,
     required_model_ids: set[str] | None = None,
+    require_renderer_contract: bool = True,
 ) -> list[str]:
     errors: list[str] = []
     artifacts = artifact_paths if artifact_paths is not None else PDF_OPERATION_ADAPTER_ARTIFACTS
@@ -702,8 +707,10 @@ def validate_pdf_integrated_operation_adapter_contract(
     allowed_sections = (
         allowed_sections_by_model if allowed_sections_by_model is not None else PDF_OPERATION_ALLOWED_SECTIONS_BY_MODEL
     )
-    renderer_text, renderer_errors = renderer_text_for_operation_contract(source_paths)
-    errors.extend(renderer_errors)
+    renderer_text = ""
+    if require_renderer_contract:
+        renderer_text, renderer_errors = renderer_text_for_operation_contract(source_paths)
+        errors.extend(renderer_errors)
 
     readiness_by_model = rows_by_model_id(readiness_rows)
     target_model_ids = {
@@ -732,17 +739,18 @@ def validate_pdf_integrated_operation_adapter_contract(
                 f"{model_id}"
             )
             continue
-        missing_tokens = [token for token in tokens_by_model.get(model_id, ()) if token not in renderer_text]
-        if model_id not in tokens_by_model:
-            errors.append(
-                "PDF-integrated operation model missing renderer-consumption token contract: "
-                f"{model_id}"
-            )
-        elif missing_tokens:
-            errors.append(
-                "PDF-integrated operation model is not consumed from its dedicated adapter by renderer: "
-                f"{model_id} missing " + ";".join(missing_tokens)
-            )
+        if require_renderer_contract:
+            missing_tokens = [token for token in tokens_by_model.get(model_id, ()) if token not in renderer_text]
+            if model_id not in tokens_by_model:
+                errors.append(
+                    "PDF-integrated operation model missing renderer-consumption token contract: "
+                    f"{model_id}"
+                )
+            elif missing_tokens:
+                errors.append(
+                    "PDF-integrated operation model is not consumed from its dedicated adapter by renderer: "
+                    f"{model_id} missing " + ";".join(missing_tokens)
+                )
         readiness_sections = split_tokens(ready.get("daily_adapter_sections", ""))
         missing_readiness_sections = sorted(PDF_OPERATION_REQUIRED_SECTIONS - readiness_sections)
         if missing_readiness_sections:
@@ -1034,7 +1042,7 @@ def validate_research_recommendations_not_direct_pdf_inputs() -> list[str]:
     return errors
 
 
-def validate() -> tuple[
+def validate(phase: str = VALIDATION_PHASE_FULL) -> tuple[
     list[str],
     set[str],
     set[str],
@@ -1042,12 +1050,19 @@ def validate() -> tuple[
     list[dict[str, str]],
     list[dict[str, str]],
 ]:
-    errors = validate_required_contracts()
+    if phase not in VALIDATION_PHASES:
+        raise ValueError(f"unsupported daily PDF consumer validation phase: {phase}")
+
+    errors: list[str] = []
+    if not STOCK_MODEL_CONTRACT.exists():
+        errors.append(f"missing required contract: {rel(STOCK_MODEL_CONTRACT)}")
+    if phase == VALIDATION_PHASE_FULL and not EVENT_CATALYST_CONTRACT.exists():
+        errors.append(f"missing required contract: {rel(EVENT_CATALYST_CONTRACT)}")
     if errors:
         return errors, set(), set(), [], [], []
 
     model_rows = load_csv_rows(STOCK_MODEL_CONTRACT)
-    event_rows = load_csv_rows(EVENT_CATALYST_CONTRACT)
+    event_rows = load_csv_rows(EVENT_CATALYST_CONTRACT) if phase == VALIDATION_PHASE_FULL else []
     registry_rows = load_csv_rows(DAILY_MODEL_REGISTRY)
     parameter_rows = load_csv_rows(DAILY_MODEL_PARAMETERS)
     readiness_rows = load_csv_rows(DAILY_MODEL_READINESS)
@@ -1056,7 +1071,7 @@ def validate() -> tuple[
         approved_pdf_contract_model_ids(model_rows)
         | display_roster_model_ids(registry_rows, parameter_rows, readiness_rows)
     )
-    event_usages = discover_event_field_usages(event_rows)
+    event_usages = discover_event_field_usages(event_rows) if phase == VALIDATION_PHASE_FULL else []
 
     errors.extend(validate_model_ids(used_model_ids, model_rows))
     errors.extend(
@@ -1068,45 +1083,62 @@ def validate() -> tuple[
             readiness_rows,
         )
     )
-    errors.extend(validate_event_field_usages(event_usages, event_rows))
-    errors.extend(validate_private_pdf_rules())
-    errors.extend(validate_renderer_fixed_model_table_contract())
-    errors.extend(validate_operation_row_metric_renderer_contract())
+    if phase == VALIDATION_PHASE_FULL:
+        errors.extend(validate_event_field_usages(event_usages, event_rows))
+        errors.extend(validate_private_pdf_rules())
+        errors.extend(validate_renderer_fixed_model_table_contract())
+        errors.extend(validate_operation_row_metric_renderer_contract())
     errors.extend(
         validate_pdf_integrated_operation_adapter_contract(
             readiness_rows,
             required_model_ids=set(W_BOTTOM_OPERATION_ARTIFACTS),
+            require_renderer_contract=phase == VALIDATION_PHASE_FULL,
         )
     )
-    errors.extend(validate_research_recommendations_not_direct_pdf_inputs())
+    if phase == VALIDATION_PHASE_FULL:
+        errors.extend(validate_research_recommendations_not_direct_pdf_inputs())
     return errors, used_model_ids, required_display_model_ids, event_usages, model_rows, event_rows
 
 
-def main() -> int:
-    errors, used_model_ids, required_display_model_ids, event_usages, model_rows, event_rows = validate()
+def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Validate daily PDF contract consumers.")
+    parser.add_argument(
+        "--phase",
+        choices=VALIDATION_PHASES,
+        default=VALIDATION_PHASE_FULL,
+        help="runtime checks current model approvals, display roster, and data adapter consistency only",
+    )
+    return parser.parse_args(argv)
+
+
+def main(argv: list[str] | None = None) -> int:
+    args = parse_args(argv)
+    errors, used_model_ids, required_display_model_ids, event_usages, model_rows, event_rows = validate(args.phase)
     if errors:
         for error in errors:
             print(f"ERROR: {error}")
         return 1
 
     approved_daily_models = sorted(row["model_id"] for row in model_rows if bool_value(row, "approved_for_daily_pdf"))
-    approved_event_rows = [row for row in event_rows if bool_value(row, "approved_for_daily_pdf")]
-    used_event_fields = sorted({usage.field_name for usage in event_usages})
-    output_state = "present" if CHATGPT_OUTPUT_ROOT.exists() else "not_present"
 
     print("daily PDF contract consumer validation passed")
+    print(f"validation_phase={args.phase}")
     print(f"stock_model_contract={rel(STOCK_MODEL_CONTRACT)}")
-    print(f"event_catalyst_contract={rel(EVENT_CATALYST_CONTRACT)}")
     print("daily_contract_approved_model_ids=" + ";".join(approved_daily_models))
     print(
         "daily_required_display_model_ids="
         + (";".join(sorted(required_display_model_ids)) if required_display_model_ids else "none")
     )
     print("daily_used_model_ids=" + (";".join(sorted(used_model_ids)) if used_model_ids else "none"))
-    print(f"daily_event_contract_approved_rows={len(approved_event_rows)}")
-    print("daily_used_event_fields=" + (";".join(used_event_fields) if used_event_fields else "none"))
-    print(f"chatgpt_side_outputs_official={output_state}")
-    print("blocked_contract_fields=none")
+    if args.phase == VALIDATION_PHASE_FULL:
+        approved_event_rows = [row for row in event_rows if bool_value(row, "approved_for_daily_pdf")]
+        used_event_fields = sorted({usage.field_name for usage in event_usages})
+        output_state = "present" if CHATGPT_OUTPUT_ROOT.exists() else "not_present"
+        print(f"event_catalyst_contract={rel(EVENT_CATALYST_CONTRACT)}")
+        print(f"daily_event_contract_approved_rows={len(approved_event_rows)}")
+        print("daily_used_event_fields=" + (";".join(used_event_fields) if used_event_fields else "none"))
+        print(f"chatgpt_side_outputs_official={output_state}")
+        print("blocked_contract_fields=none")
     return 0
 
 

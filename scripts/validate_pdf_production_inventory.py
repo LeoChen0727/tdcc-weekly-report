@@ -12,13 +12,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 INVENTORY = ROOT / "docs" / "pdf_production_inventory.md"
 DAILY_WORKFLOW = ROOT / ".github" / "workflows" / "daily_full_pipeline.yml"
-PDF_PREBUILD_STEP_NAME = "Validate PDF prebuild contract"
 PDF_PREBUILD_COMMAND = "python scripts/validate_pdf_production_inventory.py --phase prebuild"
-PDF_PREBUILD_STEP = (
-    f"      - name: {PDF_PREBUILD_STEP_NAME}\n"
-    "        run: |\n"
-    f"          {PDF_PREBUILD_COMMAND}"
-)
+PDF_RUNTIME_COMMAND = "python scripts/validate_pdf_production_inventory.py --phase runtime"
 PUBLISHER = ROOT / "publish_chatgpt_report_readme_and_check.py"
 PACKET_BUILDER = ROOT / "build_chatgpt_daily_report_packet.py"
 DAILY_MARKET_ARTIFACT_BUILDER = ROOT / "build_daily_market_report_artifacts.py"
@@ -222,7 +217,18 @@ PUBLIC_SURFACES = (*STATIC_PUBLIC_SURFACES, *RUNTIME_PUBLIC_SURFACES)
 
 VALIDATION_PHASE_FULL = "full"
 VALIDATION_PHASE_PREBUILD = "prebuild"
-VALIDATION_PHASES = (VALIDATION_PHASE_FULL, VALIDATION_PHASE_PREBUILD)
+VALIDATION_PHASE_RUNTIME = "runtime"
+VALIDATION_PHASES = (
+    VALIDATION_PHASE_FULL,
+    VALIDATION_PHASE_PREBUILD,
+    VALIDATION_PHASE_RUNTIME,
+)
+RUNTIME_VALIDATED_SURFACES = (
+    "output_latest",
+    "report_manifest_history",
+    "runtime_public_surfaces",
+    "docs_latest",
+)
 
 
 def read_text(path: Path) -> str:
@@ -489,36 +495,36 @@ def validate_workflow_hooks(errors: list[str]) -> None:
     workflow = read_text(DAILY_WORKFLOW)
     commands = [line.strip() for line in workflow.splitlines()]
     full_command = "python scripts/validate_pdf_production_inventory.py"
-    prebuild_command = PDF_PREBUILD_COMMAND
-    if commands.count(prebuild_command) != 1:
+    if commands.count(PDF_PREBUILD_COMMAND) != 0:
+        errors.append("Daily Full Pipeline must not run static PDF prebuild validation")
+    if commands.count(full_command) != 0:
+        errors.append("Daily Full Pipeline must not run mixed full PDF inventory validation")
+    if commands.count(PDF_RUNTIME_COMMAND) != 2:
         errors.append(
-            "Daily Full Pipeline must run exactly one prebuild PDF production inventory validation"
+            "Daily Full Pipeline must run exactly two runtime-only PDF inventory validations"
         )
-    if commands.count(full_command) < 2:
-        errors.append("Daily Full Pipeline must run validate_pdf_production_inventory.py before and after publish")
     try:
-        prebuild_step_marker = f"      - name: {PDF_PREBUILD_STEP_NAME}"
-        if workflow.count(prebuild_step_marker) != 1:
-            raise ValueError("missing or duplicate PDF prebuild step")
-        prebuild_step_index = workflow.index(prebuild_step_marker)
-        next_step_index = workflow.index("\n      - name:", prebuild_step_index + 1)
-        observed_prebuild_step = workflow[prebuild_step_index:next_step_index].rstrip()
-        if observed_prebuild_step != PDF_PREBUILD_STEP:
-            errors.append(
-                "Daily Full Pipeline PDF prebuild step must contain only the exact prebuild command"
-            )
-        install_index = workflow.index("- name: Install dependencies", prebuild_step_index)
-        workflow.index(prebuild_command, prebuild_step_index, install_index)
+        install_index = workflow.index("- name: Install dependencies")
         build_index = workflow.index("- name: Build daily market report artifacts", install_index)
-        post_build_full_index = workflow.index(full_command, build_index)
+        aliases_index = workflow.index("- name: Ensure English report aliases", build_index)
+        post_build_runtime_index = workflow.index(PDF_RUNTIME_COMMAND, aliases_index)
         publish_index = workflow.index(
             "- name: Publish readme and multi-entry URL check",
-            post_build_full_index,
+            post_build_runtime_index,
         )
-        workflow.index(full_command, publish_index)
+        post_publish_runtime_index = workflow.index(PDF_RUNTIME_COMMAND, publish_index)
+        if not (
+            install_index
+            < build_index
+            < aliases_index
+            < post_build_runtime_index
+            < publish_index
+            < post_publish_runtime_index
+        ):
+            raise ValueError("invalid runtime PDF inventory ordering")
     except ValueError:
         errors.append(
-            "Daily Full Pipeline must run prebuild validation before dependencies and full validation "
+            "Daily Full Pipeline must run runtime-only PDF inventory validation "
             "after both report build and publish"
         )
     deletion_aware_readme_staging = (
@@ -543,12 +549,13 @@ def validate(phase: str = VALIDATION_PHASE_FULL) -> list[str]:
         raise ValueError(f"unsupported PDF production inventory validation phase: {phase}")
 
     errors: list[str] = []
-    validate_inventory_document(errors)
-    validate_paths_exist(errors)
-    validate_daily_history_producer_contract(errors)
-    validate_public_surface_text(errors, STATIC_PUBLIC_SURFACES)
-    validate_workflow_hooks(errors)
-    if phase == VALIDATION_PHASE_FULL:
+    if phase != VALIDATION_PHASE_RUNTIME:
+        validate_inventory_document(errors)
+        validate_paths_exist(errors)
+        validate_daily_history_producer_contract(errors)
+        validate_public_surface_text(errors, STATIC_PUBLIC_SURFACES)
+        validate_workflow_hooks(errors)
+    if phase != VALIDATION_PHASE_PREBUILD:
         validate_output_latest(errors)
         validate_report_manifest_history_contract(errors)
         validate_public_surface_text(errors, RUNTIME_PUBLIC_SURFACES)
@@ -562,7 +569,10 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
         "--phase",
         choices=VALIDATION_PHASES,
         default=VALIDATION_PHASE_FULL,
-        help="prebuild checks static contracts only; full also requires current runtime artifacts",
+        help=(
+            "prebuild checks static contracts only; runtime checks current artifacts only; "
+            "full checks both"
+        ),
     )
     return parser.parse_args(argv)
 
@@ -576,8 +586,12 @@ def main(argv: list[str] | None = None) -> int:
         return 1
     print("PDF production inventory validation passed")
     print(f"validation_phase={args.phase}")
-    for producer in PDF_PRODUCERS:
-        print(f"validated_pdf_purpose={producer.purpose}")
+    if args.phase != VALIDATION_PHASE_RUNTIME:
+        for producer in PDF_PRODUCERS:
+            print(f"validated_pdf_purpose={producer.purpose}")
+    if args.phase != VALIDATION_PHASE_PREBUILD:
+        for surface in RUNTIME_VALIDATED_SURFACES:
+            print(f"validated_runtime_surface={surface}")
     return 0
 
 

@@ -632,10 +632,6 @@ jobs:
           mkdir -p "$RUNNER_TEMP/tdcc_daily_baseline"
           cp output/latest/data_freshness_latest.csv "$RUNNER_TEMP/tdcc_daily_baseline/data_freshness_latest.csv"
 
-      - name: Validate PDF prebuild contract
-        run: |
-          python scripts/validate_pdf_production_inventory.py --phase prebuild
-
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -1054,12 +1050,9 @@ jobs:
 
       - name: Validate official daily PDF contract
         run: |
-          python scripts/validate_chatgpt_side_pdf_contract.py
-          python scripts/validate_daily_pdf_shared_path_isolation.py
-          python scripts/validate_daily_pdf_contract_consumers.py
-          python scripts/validate_daily_pdf_role_manifest_contract.py
-          python scripts/validate_daily_pdf_completion_hard_gate.py
-          python scripts/validate_pdf_production_inventory.py
+          python scripts/validate_daily_pdf_contract_consumers.py --phase runtime
+          python scripts/validate_daily_pdf_completion_hard_gate.py --phase runtime
+          python scripts/validate_pdf_production_inventory.py --phase runtime
 
       - name: Build ChatGPT indicator usage guide
         run: |
@@ -1439,7 +1432,7 @@ jobs:
         run: |
           python publish_chatgpt_report_readme_and_check.py
           python scripts/audit_daily_data_layer_consistency.py --include-readme
-          python scripts/validate_pdf_production_inventory.py
+          python scripts/validate_pdf_production_inventory.py --phase runtime
 
       - name: Commit readme and publish check
         run: |

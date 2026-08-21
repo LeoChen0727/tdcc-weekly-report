@@ -106,6 +106,85 @@ def test_pdf_production_inventory_prebuild_validator_passes() -> None:
     assert inventory.main(["--phase", "prebuild"]) == 0
 
 
+@pytest.mark.parametrize(
+    ("phase", "expected_calls"),
+    (
+        (
+            inventory.VALIDATION_PHASE_PREBUILD,
+            (
+                "validate_inventory_document",
+                "validate_paths_exist",
+                "validate_daily_history_producer_contract",
+                "static_public_surfaces",
+                "validate_workflow_hooks",
+            ),
+        ),
+        (
+            inventory.VALIDATION_PHASE_RUNTIME,
+            (
+                "validate_output_latest",
+                "validate_report_manifest_history_contract",
+                "runtime_public_surfaces",
+                "validate_docs_latest",
+            ),
+        ),
+        (
+            inventory.VALIDATION_PHASE_FULL,
+            (
+                "validate_inventory_document",
+                "validate_paths_exist",
+                "validate_daily_history_producer_contract",
+                "static_public_surfaces",
+                "validate_workflow_hooks",
+                "validate_output_latest",
+                "validate_report_manifest_history_contract",
+                "runtime_public_surfaces",
+                "validate_docs_latest",
+            ),
+        ),
+    ),
+)
+def test_validation_phases_keep_static_and_runtime_calls_separate(
+    monkeypatch,
+    tmp_path: Path,
+    phase: str,
+    expected_calls: tuple[str, ...],
+) -> None:
+    calls: list[str] = []
+    static_surfaces = (tmp_path / "static",)
+    runtime_surfaces = (tmp_path / "runtime",)
+    monkeypatch.setattr(inventory, "STATIC_PUBLIC_SURFACES", static_surfaces)
+    monkeypatch.setattr(inventory, "RUNTIME_PUBLIC_SURFACES", runtime_surfaces)
+
+    for function_name in (
+        "validate_inventory_document",
+        "validate_paths_exist",
+        "validate_daily_history_producer_contract",
+        "validate_workflow_hooks",
+        "validate_output_latest",
+        "validate_report_manifest_history_contract",
+        "validate_docs_latest",
+    ):
+        monkeypatch.setattr(
+            inventory,
+            function_name,
+            lambda errors, name=function_name: calls.append(name),
+        )
+
+    def record_public_surfaces(errors: list[str], paths: tuple[Path, ...]) -> None:
+        if paths is static_surfaces:
+            calls.append("static_public_surfaces")
+        elif paths is runtime_surfaces:
+            calls.append("runtime_public_surfaces")
+        else:
+            raise AssertionError(f"unexpected public surfaces: {paths}")
+
+    monkeypatch.setattr(inventory, "validate_public_surface_text", record_public_surfaces)
+
+    assert inventory.validate(phase) == []
+    assert tuple(calls) == expected_calls
+
+
 def test_prebuild_allows_old_runtime_but_full_requires_completed_new_artifacts(
     monkeypatch, tmp_path: Path
 ) -> None:
@@ -118,12 +197,16 @@ def test_prebuild_allows_old_runtime_but_full_requires_completed_new_artifacts(
 
     assert inventory.validate(inventory.VALIDATION_PHASE_PREBUILD) == []
     old_runtime_errors = inventory.validate()
+    runtime_only_errors = inventory.validate(inventory.VALIDATION_PHASE_RUNTIME)
     assert any("published daily market PDF missing" in error for error in old_runtime_errors)
+    assert any("published daily market PDF missing" in error for error in runtime_only_errors)
     assert any("history_summary_md must equal canonical path" in error for error in old_runtime_errors)
+    assert any("history_summary_md must equal canonical path" in error for error in runtime_only_errors)
 
     _write_complete_runtime_inventory("20260731")
 
     assert inventory.validate() == []
+    assert inventory.validate(inventory.VALIDATION_PHASE_RUNTIME) == []
 
 
 def test_pdf_production_inventory_cli_defaults_to_full(monkeypatch) -> None:
@@ -137,6 +220,21 @@ def test_pdf_production_inventory_cli_defaults_to_full(monkeypatch) -> None:
 
     assert inventory.main([]) == 0
     assert observed_phases == [inventory.VALIDATION_PHASE_FULL]
+
+
+def test_runtime_cli_reports_only_runtime_surfaces(monkeypatch, capsys) -> None:
+    monkeypatch.setattr(inventory, "validate", lambda phase: [])
+
+    assert inventory.main(["--phase", "runtime"]) == 0
+    output = capsys.readouterr().out
+
+    assert "validation_phase=runtime" in output
+    assert "validated_pdf_purpose=" not in output
+    assert {
+        line.removeprefix("validated_runtime_surface=")
+        for line in output.splitlines()
+        if line.startswith("validated_runtime_surface=")
+    } == set(inventory.RUNTIME_VALIDATED_SURFACES)
 
 
 def test_inventory_tracks_every_pdf_purpose() -> None:
@@ -201,60 +299,52 @@ def test_retired_daily_pdf_paths_are_not_in_public_surfaces() -> None:
             assert name not in text, f"{path.relative_to(ROOT).as_posix()} exposes {name}"
 
 
-def test_daily_workflow_uses_prebuild_once_and_keeps_two_full_validations() -> None:
+def test_daily_workflow_uses_two_runtime_only_inventory_validations() -> None:
     workflow = (ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(
         encoding="utf-8"
     )
     commands = [line.strip() for line in workflow.splitlines()]
 
-    assert commands.count(
-        "python scripts/validate_pdf_production_inventory.py --phase prebuild"
-    ) == 1
-    assert commands.count("python scripts/validate_pdf_production_inventory.py") >= 2
-
-    prebuild_start = workflow.index(f"      - name: {inventory.PDF_PREBUILD_STEP_NAME}")
-    prebuild_end = workflow.index("\n      - name:", prebuild_start + 1)
-    assert workflow[prebuild_start:prebuild_end].rstrip() == inventory.PDF_PREBUILD_STEP
+    runtime_command = "python scripts/validate_pdf_production_inventory.py --phase runtime"
+    assert commands.count(runtime_command) == 2
+    assert commands.count("python scripts/validate_pdf_production_inventory.py --phase prebuild") == 0
+    assert commands.count("python scripts/validate_pdf_production_inventory.py") == 0
+    assert "- name: Validate PDF prebuild contract" not in workflow
 
     build_index = workflow.index("- name: Build daily market report artifacts")
-    post_build_full_index = workflow.index(
-        "python scripts/validate_pdf_production_inventory.py",
-        build_index,
-    )
+    aliases_index = workflow.index("- name: Ensure English report aliases", build_index)
+    post_build_runtime_index = workflow.index(runtime_command, aliases_index)
     publish_index = workflow.index(
         "- name: Publish readme and multi-entry URL check",
-        post_build_full_index,
+        post_build_runtime_index,
     )
-    post_publish_full_index = workflow.index(
-        "python scripts/validate_pdf_production_inventory.py",
-        publish_index,
+    post_publish_runtime_index = workflow.index(runtime_command, publish_index)
+    assert (
+        build_index
+        < aliases_index
+        < post_build_runtime_index
+        < publish_index
+        < post_publish_runtime_index
     )
-    assert build_index < post_build_full_index < publish_index < post_publish_full_index
 
 
 @pytest.mark.parametrize(
-    "removed_command",
+    "replacement",
     (
-        "python scripts/validate_apps_script_workflow_triggers.py",
-        "python scripts/validate_repo_production_inventory.py",
-        "python scripts/validate_repo_file_lifecycle_inventory.py",
-        "python scripts/validate_repo_hidden_coupling_audit.py",
-        "python scripts/validate_daily_model_background_data_registry.py",
-        "python scripts/validate_repo_semantic_integrity.py",
-        "python scripts/validate_repo_code_isolation_policy.py",
-        "python scripts/validate_model_research_workflow_isolation.py",
-        "python scripts/validate_chatgpt_side_pdf_layout_independence.py",
-        "python scripts/validate_daily_pdf_role_manifest_contract.py",
+        "",
+        "python scripts/validate_pdf_production_inventory.py",
+        "python scripts/validate_pdf_production_inventory.py --phase prebuild",
     ),
 )
-def test_daily_workflow_rejects_repo_static_command_in_pdf_prebuild_step(
-    removed_command: str,
+def test_daily_workflow_rejects_missing_or_non_runtime_inventory_command(
+    replacement: str,
     monkeypatch,
 ) -> None:
     workflow = inventory.DAILY_WORKFLOW.read_text(encoding="utf-8")
+    runtime_command = "python scripts/validate_pdf_production_inventory.py --phase runtime"
     mutated = workflow.replace(
-        inventory.PDF_PREBUILD_STEP,
-        f"{inventory.PDF_PREBUILD_STEP}\n          {removed_command}",
+        runtime_command,
+        replacement,
         1,
     )
     original_read_text = inventory.read_text
@@ -268,7 +358,25 @@ def test_daily_workflow_rejects_repo_static_command_in_pdf_prebuild_step(
     errors: list[str] = []
     inventory.validate_workflow_hooks(errors)
 
-    assert "Daily Full Pipeline PDF prebuild step must contain only the exact prebuild command" in errors
+    assert errors
+
+
+def test_daily_workflow_rejects_duplicate_runtime_inventory_command(monkeypatch) -> None:
+    workflow = inventory.DAILY_WORKFLOW.read_text(encoding="utf-8")
+    runtime_command = "python scripts/validate_pdf_production_inventory.py --phase runtime"
+    mutated = workflow.replace(runtime_command, f"{runtime_command}\n          {runtime_command}", 1)
+    original_read_text = inventory.read_text
+
+    def read_mutated(path: Path) -> str:
+        if path == inventory.DAILY_WORKFLOW:
+            return mutated
+        return original_read_text(path)
+
+    monkeypatch.setattr(inventory, "read_text", read_mutated)
+    errors: list[str] = []
+    inventory.validate_workflow_hooks(errors)
+
+    assert errors
 
 
 def test_daily_workflow_cleans_stale_readmes_before_pdf_inventory_validation() -> None:

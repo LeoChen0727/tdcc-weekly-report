@@ -1145,7 +1145,7 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         "Download market-session preflight evidence",
         "Validate market-session preflight artifact identity",
         "Capture pre-run freshness baseline",
-        "Validate PDF prebuild contract",
+        "Validate daily production boundaries",
     )
     positions = [daily_full_job.find(literal) for literal in production_order]
     if any(position < 0 for position in positions) or positions != sorted(positions):

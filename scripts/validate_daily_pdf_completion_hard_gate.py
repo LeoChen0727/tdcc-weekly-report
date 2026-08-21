@@ -24,18 +24,21 @@ DAILY_MODEL_SIGNALS = ROOT / "output" / "latest" / "daily_candidate_model_signal
 STOCK_THEME_TAXONOMY = ROOT / "output" / "latest" / "stock_theme_taxonomy_latest.csv"
 
 STATIC_COMPLETION_GATE_COMMAND = "python scripts/validate_daily_pdf_completion_hard_gate.py"
+RUNTIME_CONSUMER_COMMAND = "python scripts/validate_daily_pdf_contract_consumers.py --phase runtime"
+RUNTIME_COMPLETION_GATE_COMMAND = (
+    "python scripts/validate_daily_pdf_completion_hard_gate.py --phase runtime"
+)
+RUNTIME_INVENTORY_COMMAND = "python scripts/validate_pdf_production_inventory.py --phase runtime"
 PR_OUTPUT_GATE_COMMAND = (
     "python scripts/validate_daily_pdf_completion_hard_gate.py "
     "--require-output-dir chatgpt_side_outputs_pr_validation"
 )
 REPLAY_COMMAND = "timeout 20m python scripts/validate_chatgpt_daily_report_new_conversation_replay.py"
 
-REQUIRED_STATIC_VALIDATORS = (
-    "python scripts/validate_chatgpt_side_pdf_contract.py",
-    "python scripts/validate_daily_pdf_shared_path_isolation.py",
-    "python scripts/validate_daily_pdf_contract_consumers.py",
-    "python scripts/validate_daily_pdf_role_manifest_contract.py",
-    "python scripts/validate_pdf_production_inventory.py",
+REQUIRED_DAILY_FULL_RUNTIME_VALIDATORS = (
+    RUNTIME_CONSUMER_COMMAND,
+    RUNTIME_COMPLETION_GATE_COMMAND,
+    RUNTIME_INVENTORY_COMMAND,
 )
 REQUIRED_PR_VALIDATORS = (
     "python scripts/validate_repo_production_inventory.py",
@@ -69,6 +72,9 @@ OPERATION_SECTION_EMPTY_TEXT = {
 HIGHLIGHT_OPERATION_SECTIONS = ("confirmed_operation", "active_operation")
 OPERATION_MODEL_SUMMARY_REQUIRED_TOKENS = ("買入：", "賣出：", "停損：", "基礎模型績效：", "勝：", "和：", "敗：")
 RENDERED_STOCK_ID_SAMPLE_SIZE = 3
+VALIDATION_PHASE_FULL = "full"
+VALIDATION_PHASE_RUNTIME = "runtime"
+VALIDATION_PHASES = (VALIDATION_PHASE_FULL, VALIDATION_PHASE_RUNTIME)
 
 
 def rel(path: Path) -> str:
@@ -393,14 +399,7 @@ def validate_workflow_gates() -> list[str]:
 
     if DAILY_FULL_WORKFLOW.exists():
         text = read_text(DAILY_FULL_WORKFLOW)
-        errors.extend(require_literals(text, REQUIRED_STATIC_VALIDATORS, rel(DAILY_FULL_WORKFLOW)))
-        errors.extend(
-            require_literals(
-                text,
-                (STATIC_COMPLETION_GATE_COMMAND,),
-                rel(DAILY_FULL_WORKFLOW),
-            )
-        )
+        errors.extend(require_literals(text, REQUIRED_DAILY_FULL_RUNTIME_VALIDATORS, rel(DAILY_FULL_WORKFLOW)))
         for forbidden in (
             "daily-pdf-dfkai-replay:",
             REPLAY_COMMAND,
@@ -513,7 +512,7 @@ def rows_by_model_id(rows: Iterable[dict[str, str]]) -> dict[str, dict[str, str]
     return {row.get("model_id", "").strip(): row for row in rows if row.get("model_id", "").strip()}
 
 
-def validate_readiness_pdf_consistency() -> list[str]:
+def validate_readiness_pdf_consistency(*, require_renderer_contract: bool = True) -> list[str]:
     errors: list[str] = []
     readiness_rows = load_csv_rows(DAILY_MODEL_READINESS)
     if not readiness_rows:
@@ -551,6 +550,7 @@ def validate_readiness_pdf_consistency() -> list[str]:
         pdf_consumers.validate_pdf_integrated_operation_adapter_contract(
             readiness_rows,
             required_model_ids=set(pdf_consumers.PDF_OPERATION_ADAPTER_ARTIFACTS),
+            require_renderer_contract=require_renderer_contract,
         )
     )
     return errors
@@ -631,18 +631,40 @@ def validate_output_dir(output_dir: Path) -> list[str]:
     return errors
 
 
-def validate(require_output_dirs: Iterable[Path] = ()) -> list[str]:
+def validate(
+    require_output_dirs: Iterable[Path] = (),
+    *,
+    phase: str = VALIDATION_PHASE_FULL,
+) -> list[str]:
+    if phase not in VALIDATION_PHASES:
+        raise ValueError(f"unsupported daily PDF completion validation phase: {phase}")
+    output_dirs = tuple(require_output_dirs)
+    if phase == VALIDATION_PHASE_RUNTIME and output_dirs:
+        raise ValueError("runtime completion validation cannot require PDF output directories")
+
     errors: list[str] = []
-    errors.extend(validate_workflow_gates())
-    errors.extend(validate_regression_contract())
-    errors.extend(validate_readiness_pdf_consistency())
-    for output_dir in require_output_dirs:
-        errors.extend(validate_output_dir(output_dir))
+    if phase == VALIDATION_PHASE_FULL:
+        errors.extend(validate_workflow_gates())
+        errors.extend(validate_regression_contract())
+    errors.extend(
+        validate_readiness_pdf_consistency(
+            require_renderer_contract=phase == VALIDATION_PHASE_FULL,
+        )
+    )
+    if phase == VALIDATION_PHASE_FULL:
+        for output_dir in output_dirs:
+            errors.extend(validate_output_dir(output_dir))
     return errors
 
 
-def parse_args() -> argparse.Namespace:
+def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Validate daily PDF completion hard gates.")
+    parser.add_argument(
+        "--phase",
+        choices=VALIDATION_PHASES,
+        default=VALIDATION_PHASE_FULL,
+        help="runtime checks current readiness and data adapter consistency only",
+    )
     parser.add_argument(
         "--require-output-dir",
         type=Path,
@@ -650,23 +672,28 @@ def parse_args() -> argparse.Namespace:
         default=[],
         help="Require a replay output directory with six PDFs, runtime manifest, and text regression pass.",
     )
-    return parser.parse_args()
+    return parser.parse_args(argv)
 
 
-def main() -> int:
-    args = parse_args()
-    errors = validate(args.require_output_dir)
+def main(argv: list[str] | None = None) -> int:
+    args = parse_args(argv)
+    if args.phase == VALIDATION_PHASE_RUNTIME and args.require_output_dir:
+        print("ERROR: --phase runtime cannot be combined with --require-output-dir")
+        return 1
+    errors = validate(args.require_output_dir, phase=args.phase)
     if errors:
         for error in errors:
             print(f"ERROR: {error}")
         return 1
     print("daily PDF completion hard-gate validation passed")
-    print(
-        "validated_workflows="
-        f"{rel(DAILY_FULL_WORKFLOW)};"
-        f"{rel(DAILY_MODEL_PR_WORKFLOW)};"
-        f"{rel(DAILY_PDF_REPLAY_PR_WORKFLOW)}"
-    )
+    print(f"validation_phase={args.phase}")
+    if args.phase == VALIDATION_PHASE_FULL:
+        print(
+            "validated_workflows="
+            f"{rel(DAILY_FULL_WORKFLOW)};"
+            f"{rel(DAILY_MODEL_PR_WORKFLOW)};"
+            f"{rel(DAILY_PDF_REPLAY_PR_WORKFLOW)}"
+        )
     print(f"validated_readiness={rel(DAILY_MODEL_READINESS)}")
     if args.require_output_dir:
         print("validated_output_dirs=" + ";".join(str(path) for path in args.require_output_dir))

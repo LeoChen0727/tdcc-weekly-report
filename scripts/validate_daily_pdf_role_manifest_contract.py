@@ -228,10 +228,9 @@ def validate_rendered_regression_contract_roles() -> list[str]:
 def validate_workflow_hooks() -> list[str]:
     errors: list[str] = []
     command = "python scripts/validate_daily_pdf_role_manifest_contract.py"
-    for workflow in (DAILY_WORKFLOW, PR_WORKFLOW):
-        text = read_text(workflow)
-        if command not in text:
-            errors.append(f"{rel(workflow)} must run {command}")
+    text = read_text(PR_WORKFLOW)
+    if command not in text:
+        errors.append(f"{rel(PR_WORKFLOW)} must run {command}")
     return errors
 
 
