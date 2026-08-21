@@ -1213,68 +1213,6 @@ def validate_daily_failed_recovery_retry_contract(daily_text: str) -> list[str]:
     return errors
 
 
-def _named_workflow_step_block(workflow_text: str, step_name: str) -> str:
-    marker = f"      - name: {step_name}"
-    start = workflow_text.find(marker)
-    if start < 0:
-        return ""
-    end = workflow_text.find("\n      - name:", start + len(marker))
-    if end < 0:
-        end = len(workflow_text)
-    return workflow_text[start:end]
-
-
-def validate_daily_checkpoint_diagnostic_contract(daily_text: str) -> list[str]:
-    errors: list[str] = []
-    step40_name = "Build volume breakout watch"
-    capture_name = "Create diagnostic immutable pre-step41 checkpoint"
-    upload_name = "Upload diagnostic immutable pre-step41 checkpoint"
-    step41_name = "Build volume attack theme layer"
-    ordered_names = (step40_name, capture_name, upload_name, step41_name)
-    positions = [daily_text.find(f"- name: {name}") for name in ordered_names]
-    if any(position < 0 for position in positions) or positions != sorted(positions):
-        errors.append(
-            "daily workflow must keep step40 < diagnostic checkpoint capture < "
-            "diagnostic checkpoint upload < volume attack step41"
-        )
-
-    capture_block = _named_workflow_step_block(daily_text, capture_name)
-    capture_literals = (
-        "id: diagnostic_checkpoint_capture",
-        "continue-on-error: true",
-        "capture-production-checkpoint",
-        '--runner-temp "$RUNNER_TEMP/daily-full-pre-step41-checkpoint-work"',
-        '--replay-date "$EXPECTED_MAIN_PRICE_DATE"',
-        '--source-sha "$GITHUB_SHA"',
-        '--run-id "$GITHUB_RUN_ID"',
-        '--bundle-dir "$RUNNER_TEMP/daily-full-pre-step41-checkpoint"',
-    )
-    for literal in capture_literals:
-        if literal not in capture_block:
-            errors.append(
-                "daily workflow diagnostic checkpoint capture is missing exact contract: "
-                f"{literal}"
-            )
-
-    upload_block = _named_workflow_step_block(daily_text, upload_name)
-    upload_literals = (
-        "if: ${{ steps.diagnostic_checkpoint_capture.outcome == 'success' }}",
-        "continue-on-error: true",
-        "if-no-files-found: error",
-    )
-    for literal in upload_literals:
-        if literal not in upload_block:
-            errors.append(
-                "daily workflow diagnostic checkpoint upload is missing exact contract: "
-                f"{literal}"
-            )
-    if "always()" in upload_block:
-        errors.append(
-            "daily workflow diagnostic checkpoint upload must run only after successful capture"
-        )
-    return errors
-
-
 def validate_daily_runtime_critical_contracts(
     daily_text: str | None = None,
 ) -> list[str]:
@@ -1286,7 +1224,6 @@ def validate_daily_runtime_critical_contracts(
 
     errors.extend(validate_daily_authority_snapshot_publish_contract(daily_text))
     errors.extend(validate_daily_failed_recovery_retry_contract(daily_text))
-    errors.extend(validate_daily_checkpoint_diagnostic_contract(daily_text))
 
     market_literals = (
         "market-session-preflight:",

@@ -151,14 +151,6 @@ WORKFLOW_ALLOWED_OWNERS = {
         "market_risk",
         "repo_infrastructure",
     },
-    ".github/workflows/daily_full_validation_replay_20260807.yml": {
-        "daily_production",
-        "official_price_data",
-        "warrant",
-        "catalyst_event",
-        "market_risk",
-        "repo_infrastructure",
-    },
     ".github/workflows/daily_pdf_replay_pr_validation.yml": {
         "daily_production",
         "repo_infrastructure",

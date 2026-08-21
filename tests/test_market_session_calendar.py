@@ -1289,3 +1289,117 @@ def test_invalid_deferred_transaction_journal_fails_before_target_write(
         official_price.recover_official_price_evidence_transaction(tmp_path)
     assert {path: path.read_bytes() for path in targets} == before
     assert transaction_root.exists()
+
+
+def test_preflight_identity_materializes_only_allowed_evidence(tmp_path: Path) -> None:
+    repo = tmp_path / "repo"
+    runner_temp = tmp_path / "runner-temp"
+    artifact_root = runner_temp / "daily-market-session-preflight"
+    repo.mkdir()
+    artifact_root.mkdir(parents=True)
+    source_sha = "a" * 40
+    recovery = {"mode": "none"}
+    artifact_payloads = {
+        "output/latest/market_session_status_latest.json": b"{}\n",
+        "data/market_calendar/exceptional_non_trading_days.csv": b"date,reason\n",
+    }
+    for relative, payload in artifact_payloads.items():
+        artifact_path = artifact_root / relative
+        artifact_path.parent.mkdir(parents=True, exist_ok=True)
+        artifact_path.write_bytes(payload)
+        target = repo / relative
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(b"previous\n")
+    identity = {
+        "schema_version": "daily_market_session_preflight_identity_v1",
+        "source_sha": source_sha,
+        "recovery_source_bundle": recovery,
+        "files": {
+            relative: hashlib.sha256(payload).hexdigest()
+            for relative, payload in artifact_payloads.items()
+        },
+    }
+    (artifact_root / "market_session_preflight_identity.json").write_text(
+        json.dumps(identity), encoding="utf-8"
+    )
+    before = {
+        relative: (repo / relative).read_bytes() for relative in artifact_payloads
+    }
+    repo_identity = repo / "market_session_preflight_identity.json"
+    repo_identity.write_text("{}\n", encoding="utf-8")
+    with pytest.raises(
+        market_session.MarketSessionError,
+        match="identity must remain outside",
+    ):
+        market_session.materialize_market_session_preflight_artifact(
+            repo_root=repo,
+            runner_temp=runner_temp,
+            artifact_root=artifact_root,
+            expected_source_sha=source_sha,
+            expected_recovery=recovery,
+        )
+    assert {
+        relative: (repo / relative).read_bytes() for relative in artifact_payloads
+    } == before
+
+    repo_identity.unlink()
+    result = market_session.materialize_market_session_preflight_artifact(
+        repo_root=repo,
+        runner_temp=runner_temp,
+        artifact_root=artifact_root,
+        expected_source_sha=source_sha,
+        expected_recovery=recovery,
+    )
+    assert result["materialized_paths"] == sorted(artifact_payloads)
+    assert not repo_identity.exists()
+    assert {
+        relative: (repo / relative).read_bytes() for relative in artifact_payloads
+    } == artifact_payloads
+
+
+def test_preflight_materialization_sha_failure_removes_partial_files(
+    tmp_path: Path,
+) -> None:
+    repo = tmp_path / "repo"
+    runner_temp = tmp_path / "runner-temp"
+    artifact_root = runner_temp / "daily-market-session-preflight"
+    repo.mkdir()
+    artifact_root.mkdir(parents=True)
+    source_sha = "a" * 40
+    payloads = {
+        "data/market_calendar/exceptional_non_trading_days.csv": b"date,reason\n",
+        "output/latest/market_session_status_latest.json": b"{}\n",
+    }
+    for relative, payload in payloads.items():
+        path = artifact_root / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(payload)
+    identity = {
+        "schema_version": "daily_market_session_preflight_identity_v1",
+        "source_sha": source_sha,
+        "recovery_source_bundle": {"mode": "none"},
+        "files": {
+            relative: hashlib.sha256(payload).hexdigest()
+            for relative, payload in payloads.items()
+        },
+    }
+    identity["files"]["output/latest/market_session_status_latest.json"] = "0" * 64
+    (artifact_root / "market_session_preflight_identity.json").write_text(
+        json.dumps(identity), encoding="utf-8"
+    )
+
+    with pytest.raises(
+        market_session.MarketSessionError,
+        match="artifact SHA mismatch",
+    ):
+        market_session.materialize_market_session_preflight_artifact(
+            repo_root=repo,
+            runner_temp=runner_temp,
+            artifact_root=artifact_root,
+            expected_source_sha=source_sha,
+            expected_recovery={"mode": "none"},
+        )
+
+    assert not list(repo.rglob("*.preflight-*"))
+    assert not (repo / "data/market_calendar/exceptional_non_trading_days.csv").exists()
+    assert not (repo / "output/latest/market_session_status_latest.json").exists()
