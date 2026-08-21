@@ -20,10 +20,101 @@ ROOT = Path(__file__).resolve().parents[1]
 BUNDLED_NODE = Path(r"C:\Users\p4693\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe")
 
 
+def replace_workflow_step_literal(
+    text: str,
+    step_name: str,
+    old: str,
+    new: str,
+) -> str:
+    block = boundaries.workflow_step_block(text, step_name)
+    assert block
+    assert old in block
+    mutated_block = block.replace(old, new, 1)
+    return text.replace(block, mutated_block, 1)
+
+
+def run_fixture_git(repo: Path, *args: str) -> subprocess.CompletedProcess[bytes]:
+    return subprocess.run(
+        ["git", "-c", "core.autocrlf=false", *args],
+        cwd=repo,
+        check=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+
+
+def fixture_git_sha(repo: Path, ref: str = "HEAD") -> str:
+    return run_fixture_git(repo, "rev-parse", ref).stdout.decode("ascii").strip()
+
+
+def fixture_git_nul_paths(repo: Path, *args: str) -> set[str]:
+    return {
+        item.decode("utf-8", errors="strict")
+        for item in run_fixture_git(repo, *args).stdout.split(b"\0")
+        if item
+    }
+
+
+def fixture_write_paths(repo: Path) -> set[str]:
+    return set().union(
+        fixture_git_nul_paths(
+            repo,
+            "diff",
+            "--cached",
+            "--name-only",
+            "--no-renames",
+            "-z",
+        ),
+        fixture_git_nul_paths(
+            repo,
+            "diff",
+            "--name-only",
+            "--no-renames",
+            "-z",
+        ),
+        fixture_git_nul_paths(
+            repo,
+            "ls-files",
+            "--others",
+            "--exclude-standard",
+            "-z",
+        ),
+    )
+
+
+def initialize_moving_main_fixture(repo: Path) -> str:
+    repo.mkdir()
+    run_fixture_git(repo, "init", "--quiet")
+    run_fixture_git(repo, "config", "user.name", "Daily Publish Test")
+    run_fixture_git(repo, "config", "user.email", "daily-publish-test@example.invalid")
+    (repo / "tracked.txt").write_text("base\n", encoding="utf-8")
+    run_fixture_git(repo, "add", "--", "tracked.txt")
+    run_fixture_git(repo, "commit", "--quiet", "-m", "base")
+    return fixture_git_sha(repo)
+
+
+def create_remote_main_commit(
+    repo: Path,
+    base_sha: str,
+    path: str,
+    content: str,
+) -> str:
+    run_fixture_git(repo, "switch", "--quiet", "-c", "remote-main", base_sha)
+    target = repo / path
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text(content, encoding="utf-8")
+    run_fixture_git(repo, "add", "--", path)
+    run_fixture_git(repo, "commit", "--quiet", "-m", "remote main")
+    remote_sha = fixture_git_sha(repo)
+    run_fixture_git(repo, "switch", "--quiet", "-c", "local-publish", base_sha)
+    return remote_sha
+
+
 def test_daily_authority_snapshot_and_nonoverlap_publish_contract() -> None:
     daily_text = boundaries.DAILY_WORKFLOW.read_text(encoding="utf-8")
 
     assert boundaries.validate_daily_authority_snapshot_publish_contract(daily_text) == []
+    assert boundaries.validate_daily_readme_publish_contract(daily_text) == []
 
     missing_final_revision = daily_text.replace(
         "Publish final immutable freshness snapshot revision",
@@ -55,6 +146,419 @@ def test_daily_authority_snapshot_and_nonoverlap_publish_contract() -> None:
         unbounded_publish
     )
     assert any("bound non-force push retries" in error for error in errors)
+
+
+@pytest.mark.parametrize(
+    ("old", "new", "expected_error"),
+    (
+        (
+            "if ! fetch_artifact_main_bounded; then",
+            'git fetch origin "$TARGET_BRANCH"',
+            "transient fetch failure",
+        ),
+        (
+            "fetch_artifact_main_bounded &&",
+            "true &&",
+            "final bounded remote verification",
+        ),
+        (
+            'if git push origin "HEAD:$TARGET_BRANCH"; then',
+            'git push origin "HEAD:$TARGET_BRANCH" || true\n              if true; then',
+            "linearization point",
+        ),
+        (
+            'git diff --cached --name-only --no-renames -z > "$staged_paths_file"',
+            'git diff --cached --name-only -z > "$staged_paths_file"',
+            "staged renames",
+        ),
+        (
+            'git diff --name-only --no-renames -z > "$unstaged_paths_file"',
+            'git diff --name-only -z > "$unstaged_paths_file"',
+            "tracked unstaged writes",
+        ),
+        (
+            'git ls-files --others --exclude-standard -z > "$untracked_paths_file"',
+            'git ls-files --others -z > "$untracked_paths_file"',
+            "nonignored untracked writes",
+        ),
+        (
+            'python - "$comparison_base" "$remote_head" "$write_paths_file"',
+            'python - "$comparison_base" "$remote_head" "$staged_paths_file"',
+            "full write-path union",
+        ),
+        (
+            "for source in sys.argv[1:4]",
+            "for source in sys.argv[1:3]",
+            "all three write-path sources",
+        ),
+        (
+            '["git", "diff", "--name-only", "--no-renames", "-z", sys.argv[1], sys.argv[2], "--"]',
+            '["git", "diff", "--name-only", "-z", sys.argv[1], sys.argv[2], "--"]',
+            "pinned-source-to-current-main paths",
+        ),
+        (
+            "git add data/daily_price/ data/stock_price_history/",
+            "git add data/daily_price/ data/stock_price_history/ || true",
+            "price-history staging failures",
+        ),
+    ),
+)
+def test_daily_artifact_publish_contract_rejects_runtime_failure_regressions(
+    old: str,
+    new: str,
+    expected_error: str,
+) -> None:
+    daily_text = boundaries.DAILY_WORKFLOW.read_text(encoding="utf-8")
+    errors = boundaries.validate_daily_authority_snapshot_publish_contract(
+        replace_workflow_step_literal(
+            daily_text,
+            "Commit report artifacts, packets, and rules first",
+            old,
+            new,
+        )
+    )
+
+    assert any(expected_error in error for error in errors)
+
+
+@pytest.mark.parametrize(
+    ("old", "new", "expected_error"),
+    (
+        (
+            "if ! fetch_readme_main_bounded; then",
+            'git fetch origin "$TARGET_BRANCH"',
+            "transient fetch failure",
+        ),
+        (
+            "fetch_readme_main_bounded &&",
+            "true &&",
+            "final bounded remote verification",
+        ),
+        (
+            'if git push origin "HEAD:$TARGET_BRANCH"; then',
+            'git push origin "HEAD:$TARGET_BRANCH" || true\n              if true; then',
+            "linearization point",
+        ),
+        (
+            '["git", "diff", "--name-only", "--no-renames", "-z", sys.argv[1], sys.argv[2], "--"]',
+            '["git", "diff", "--name-only", "-z", sys.argv[1], sys.argv[2], "--"]',
+            "moving-main changes",
+        ),
+        (
+            'git diff --name-only --no-renames -z > "$unstaged_paths_file"',
+            'git diff --name-only -z > "$unstaged_paths_file"',
+            "tracked unstaged writes",
+        ),
+        (
+            'git ls-files --others --exclude-standard -z > "$untracked_paths_file"',
+            'git ls-files --others -z > "$untracked_paths_file"',
+            "nonignored untracked writes",
+        ),
+        (
+            'python - "$comparison_base" "$remote_head" "$write_paths_file"',
+            'python - "$comparison_base" "$remote_head" "$staged_paths_file"',
+            "full write-path union",
+        ),
+    ),
+)
+def test_daily_readme_publish_contract_rejects_runtime_failure_regressions(
+    old: str,
+    new: str,
+    expected_error: str,
+) -> None:
+    daily_text = boundaries.DAILY_WORKFLOW.read_text(encoding="utf-8")
+    errors = boundaries.validate_daily_readme_publish_contract(
+        replace_workflow_step_literal(
+            daily_text,
+            "Commit readme and publish check",
+            old,
+            new,
+        )
+    )
+
+    assert any(expected_error in error for error in errors)
+
+
+@pytest.mark.parametrize(
+    ("step_name", "required_path", "validator_fn"),
+    (
+        (
+            "Commit report artifacts, packets, and rules first",
+            "docs/latest/company_industry_snapshot_latest.csv",
+            boundaries.validate_daily_authority_snapshot_publish_contract,
+        ),
+        (
+            "Commit report artifacts, packets, and rules first",
+            "docs/latest/stock_price_history_manifest.csv",
+            boundaries.validate_daily_authority_snapshot_publish_contract,
+        ),
+        (
+            "Commit report artifacts, packets, and rules first",
+            "docs/latest/stock_theme_authorized_seed_preview_latest.csv",
+            boundaries.validate_daily_authority_snapshot_publish_contract,
+        ),
+        (
+            "Commit report artifacts, packets, and rules first",
+            "docs/latest/stock_theme_taxonomy_validation_latest.json",
+            boundaries.validate_daily_authority_snapshot_publish_contract,
+        ),
+        (
+            "Commit report artifacts, packets, and rules first",
+            "output/history/daily_candidates/daily_candidate_signal_log.csv",
+            boundaries.validate_daily_authority_snapshot_publish_contract,
+        ),
+        (
+            "Commit readme and publish check",
+            "docs/latest/daily_candidate_two_line_view_latest.csv",
+            boundaries.validate_daily_readme_publish_contract,
+        ),
+        (
+            "Commit readme and publish check",
+            "docs/latest/daily_theme_leadership_latest.md",
+            boundaries.validate_daily_readme_publish_contract,
+        ),
+        (
+            "Commit readme and publish check",
+            "docs/rules/rules_index_latest.md",
+            boundaries.validate_daily_readme_publish_contract,
+        ),
+        (
+            "Commit readme and publish check",
+            '"docs/history/reports/${SNAPSHOT_REPORT_DATE}_READ_ME_FIRST_DAILY_REPORT.txt"',
+            boundaries.validate_daily_readme_publish_contract,
+        ),
+        (
+            "Commit readme and publish check",
+            '"output/history/reports/${SNAPSHOT_REPORT_DATE}_READ_ME_FIRST_DAILY_REPORT.txt"',
+            boundaries.validate_daily_readme_publish_contract,
+        ),
+    ),
+)
+def test_daily_publish_contract_requires_generated_runtime_staging(
+    step_name: str,
+    required_path: str,
+    validator_fn,
+) -> None:
+    daily_text = boundaries.DAILY_WORKFLOW.read_text(encoding="utf-8")
+    mutated = replace_workflow_step_literal(
+        daily_text,
+        step_name,
+        required_path,
+        "REMOVED_REQUIRED_RUNTIME_STAGE_PATH",
+    )
+
+    errors = validator_fn(mutated)
+
+    assert any("must stage" in error for error in errors)
+
+
+@pytest.mark.parametrize(
+    ("step_name", "forbidden_path", "validator_fn", "expected_error"),
+    (
+        (
+            "Commit report artifacts, packets, and rules first",
+            "docs/latest/daily_signal_performance_weekly_latest.pdf",
+            boundaries.validate_daily_authority_snapshot_publish_contract,
+            "research-owned",
+        ),
+        (
+            "Commit report artifacts, packets, and rules first",
+            "output/debug/warrant_fetch_debug_latest.csv",
+            boundaries.validate_daily_authority_snapshot_publish_contract,
+            "diagnostic output",
+        ),
+        (
+            "Commit readme and publish check",
+            "data/market_abnormal_status/20260821_twse_attention.csv",
+            boundaries.validate_daily_readme_publish_contract,
+            "wall-date market-abnormal raw",
+        ),
+        (
+            "Commit readme and publish check",
+            "output/history/market_abnormal_status/market_abnormal_status_history.csv",
+            boundaries.validate_daily_readme_publish_contract,
+            "wall-date market-abnormal history",
+        ),
+    ),
+)
+def test_daily_publish_contract_rejects_unowned_runtime_staging(
+    step_name: str,
+    forbidden_path: str,
+    validator_fn,
+    expected_error: str,
+) -> None:
+    daily_text = boundaries.DAILY_WORKFLOW.read_text(encoding="utf-8")
+    block = boundaries.workflow_step_block(daily_text, step_name)
+    assert block
+    mutated_block = block.replace("        run: |", f"        run: |\n          git add -- {forbidden_path}", 1)
+
+    errors = validator_fn(daily_text.replace(block, mutated_block, 1))
+
+    assert any(expected_error in error for error in errors)
+
+
+def test_publish_write_set_detects_tracked_unstaged_remote_overlap(
+    tmp_path: Path,
+) -> None:
+    repo = tmp_path / "tracked-overlap"
+    base_sha = initialize_moving_main_fixture(repo)
+    remote_sha = create_remote_main_commit(repo, base_sha, "tracked.txt", "remote\n")
+    (repo / "tracked.txt").write_text("local generated write\n", encoding="utf-8")
+
+    write_paths = fixture_write_paths(repo)
+    remote_paths = fixture_git_nul_paths(
+        repo,
+        "diff",
+        "--name-only",
+        "--no-renames",
+        "-z",
+        base_sha,
+        remote_sha,
+        "--",
+    )
+
+    assert write_paths == {"tracked.txt"}
+    assert remote_paths & write_paths == {"tracked.txt"}
+
+
+def test_publish_write_set_detects_untracked_remote_add_overlap(
+    tmp_path: Path,
+) -> None:
+    repo = tmp_path / "untracked-overlap"
+    base_sha = initialize_moving_main_fixture(repo)
+    path = "generated/new-report.txt"
+    remote_sha = create_remote_main_commit(repo, base_sha, path, "remote\n")
+    target = repo / path
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text("local generated write\n", encoding="utf-8")
+
+    write_paths = fixture_write_paths(repo)
+    remote_paths = fixture_git_nul_paths(
+        repo,
+        "diff",
+        "--name-only",
+        "--no-renames",
+        "-z",
+        base_sha,
+        remote_sha,
+        "--",
+    )
+
+    assert write_paths == {path}
+    assert remote_paths & write_paths == {path}
+
+
+def test_publish_write_set_allows_nonoverlap_merge_with_dirty_worktree(
+    tmp_path: Path,
+) -> None:
+    repo = tmp_path / "dirty-nonoverlap"
+    base_sha = initialize_moving_main_fixture(repo)
+    remote_sha = create_remote_main_commit(
+        repo,
+        base_sha,
+        "remote-only.txt",
+        "remote\n",
+    )
+    (repo / "tracked.txt").write_text("local generated write\n", encoding="utf-8")
+    (repo / "local-untracked.txt").write_text("local untracked write\n", encoding="utf-8")
+
+    write_paths = fixture_write_paths(repo)
+    remote_paths = fixture_git_nul_paths(
+        repo,
+        "diff",
+        "--name-only",
+        "--no-renames",
+        "-z",
+        base_sha,
+        remote_sha,
+        "--",
+    )
+    assert write_paths == {"local-untracked.txt", "tracked.txt"}
+    assert remote_paths & write_paths == set()
+
+    run_fixture_git(repo, "merge", "--no-edit", "remote-main")
+
+    assert (repo / "tracked.txt").read_text(encoding="utf-8") == "local generated write\n"
+    assert (repo / "local-untracked.txt").read_text(encoding="utf-8") == "local untracked write\n"
+    assert (repo / "remote-only.txt").read_text(encoding="utf-8") == "remote\n"
+
+
+def test_publish_staged_rename_write_set_preserves_old_and_new_paths(
+    tmp_path: Path,
+) -> None:
+    repo = tmp_path / "staged-rename"
+    initialize_moving_main_fixture(repo)
+    run_fixture_git(repo, "mv", "tracked.txt", "renamed.txt")
+
+    assert fixture_git_nul_paths(
+        repo,
+        "diff",
+        "--cached",
+        "--name-only",
+        "--no-renames",
+        "-z",
+    ) == {"tracked.txt", "renamed.txt"}
+
+
+def test_daily_readme_publish_contract_rejects_duplicate_pages_dispatch() -> None:
+    daily_text = boundaries.DAILY_WORKFLOW.read_text(encoding="utf-8")
+    mutated = daily_text + "\n      - name: Dispatch and wait for GitHub Pages deploy\n"
+
+    errors = boundaries.validate_daily_readme_publish_contract(mutated)
+
+    assert any("duplicate Pages run" in error for error in errors)
+
+
+def test_daily_readme_publish_contract_rejects_actions_write_permission() -> None:
+    daily_text = boundaries.DAILY_WORKFLOW.read_text(encoding="utf-8")
+    assert "  actions: read" in daily_text
+    mutated = daily_text.replace("  actions: read", "  actions: write", 1)
+
+    errors = boundaries.validate_daily_readme_publish_contract(mutated)
+
+    assert any("actions: write" in error for error in errors)
+
+
+@pytest.mark.parametrize(
+    ("step_name", "success_var", "fetch_helper", "validator_fn"),
+    (
+        (
+            "Commit report artifacts, packets, and rules first",
+            "publish_succeeded",
+            "fetch_artifact_main_bounded",
+            boundaries.validate_daily_authority_snapshot_publish_contract,
+        ),
+        (
+            "Commit readme and publish check",
+            "readme_publish_succeeded",
+            "fetch_readme_main_bounded",
+            boundaries.validate_daily_readme_publish_contract,
+        ),
+    ),
+)
+def test_daily_publish_contract_requires_ack_loss_proof_after_push_loop(
+    step_name: str,
+    success_var: str,
+    fetch_helper: str,
+    validator_fn,
+) -> None:
+    daily_text = boundaries.DAILY_WORKFLOW.read_text(encoding="utf-8")
+    block = boundaries.workflow_step_block(daily_text, step_name)
+    proof_start = block.index(f'            if [ "${success_var}" != true ] &&')
+    terminal_start = block.index(
+        f'            if [ "${success_var}" != true ]; then',
+        proof_start,
+    )
+    proof = block[proof_start:terminal_start]
+    without_proof = block[:proof_start] + block[terminal_start:]
+    loop_start = without_proof.index("            for push_attempt in 1 2 3; do")
+    mutated_block = without_proof[:loop_start] + proof + without_proof[loop_start:]
+    mutated = daily_text.replace(block, mutated_block, 1)
+
+    errors = validator_fn(mutated)
+
+    assert any("missing workflow marker" in error for error in errors)
+    assert fetch_helper in proof
 
 
 def resolve_test_node() -> str:
@@ -260,12 +764,8 @@ def test_runtime_critical_mode_preserves_no_arg_static_validator_calls(
             "Skip immutable recovery source bundle for production",
         ),
         (
-            'git diff --name-only --no-renames -z "$PREFLIGHT_SOURCE_SHA..$remote_head"',
-            'git diff --name-only "$PREFLIGHT_SOURCE_SHA..$remote_head"',
-        ),
-        (
-            '--expected-main-price-date "$EXPECTED_MAIN_PRICE_DATE"',
-            '--expected-main-price-date "20260820"',
+            '["git", "diff", "--name-only", "--no-renames", "-z", sys.argv[1], sys.argv[2], "--"]',
+            '["git", "diff", "--name-only", "-z", sys.argv[1], sys.argv[2], "--"]',
         ),
     ),
 )
@@ -2265,9 +2765,9 @@ def test_daily_workflow_market_session_gate_is_main_only_and_fail_closed() -> No
 
     preflight_start = text.index("  market-session-preflight:")
     closure_start = text.index("  record-market-closure:")
-    replay_start = text.index("  daily-pdf-dfkai-replay:")
+    source_gate_start = text.index("  daily-pdf-source-gate-validation:")
     preflight_block = text[preflight_start:closure_start]
-    closure_block = text[closure_start:replay_start]
+    closure_block = text[closure_start:source_gate_start]
 
     for forbidden in ("git commit", "git push", "pages.yml"):
         assert forbidden not in preflight_block
@@ -2283,22 +2783,12 @@ def test_daily_workflow_market_session_gate_is_main_only_and_fail_closed() -> No
     assert "python scripts/daily_authority_release.py publish" in closure_block
     assert "python scripts/daily_authority_release.py validate-staged" in closure_block
 
-    replay_block = boundaries.workflow_job_block(text, "daily-pdf-dfkai-replay")
     source_gate_block = boundaries.workflow_job_block(
         text,
         "daily-pdf-source-gate-validation",
     )
-    assert "needs: [market-session-preflight, record-market-closure, daily-full-pipeline]" in replay_block
-    assert "always()" in replay_block
-    assert "needs.daily-full-pipeline.result == 'success'" in replay_block
-    assert "inputs.validate_latest_daily_pdf_replay" not in replay_block
-    assert "closed_scheduled" not in replay_block
-    assert "closed_emergency" not in replay_block
-    assert (
-        "EXPECTED_MAIN_PRICE_DATE: "
-        "${{ needs.market-session-preflight.outputs.expected_main_price_date }}"
-    ) in replay_block
-    assert '--expected-main-price-date "$EXPECTED_MAIN_PRICE_DATE"' in replay_block
+    assert boundaries.workflow_job_block(text, "daily-pdf-dfkai-replay") == ""
+    assert "chatgpt_side_outputs_new_conversation_replay" not in text
 
     assert "runs-on: ubuntu-latest" in source_gate_block
     assert "inputs.validate_latest_daily_pdf_replay == true" in source_gate_block

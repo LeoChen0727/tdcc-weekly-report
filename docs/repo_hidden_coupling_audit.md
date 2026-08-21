@@ -7,10 +7,12 @@ research/backtest baselines, PDF layout, or generated report content.
 
 ## Plain-Language Conclusion
 
-The original daily PDF substring bug class is now guarded for the six
-ChatGPT-side daily PDFs: role matching must use the runtime `pdf_role` manifest,
-and output PDF replay must pass the completion hard gate before the daily
-pipeline can succeed.
+The original daily PDF substring bug class is guarded for the six ChatGPT-side
+daily PDFs: role matching must use the runtime `pdf_role` manifest, and every
+renderer/font pull-request replay must pass the generated-output completion
+gate. Routine Daily Full runs publish authoritative source surfaces without
+rendering a second, non-delivery PDF bundle; formal output remains owned by the
+official Daily PDF entrypoint and its delivery validation.
 
 The remaining repo risk is broader: several production surfaces still depend on
 large shared files, manually interpreted fallback behavior, validators that may

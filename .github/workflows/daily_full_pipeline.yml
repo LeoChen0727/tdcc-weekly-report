@@ -71,7 +71,7 @@ on:
 
 permissions:
   contents: write
-  actions: write
+  actions: read
 
 concurrency:
   group: ${{ inputs.recovery_retry_of_run_id != '' && format('daily-full-retry-{0}', inputs.recovery_source_bundle_trading_date) || inputs.recovery_correlation_id != '' && format('daily-full-recovery-{0}', inputs.recovery_correlation_id) || format('daily-full-pipeline-{0}', github.ref) }}
@@ -475,106 +475,6 @@ jobs:
             git commit -m "Record closed market session"
             git push origin "HEAD:refs/heads/main"
           fi
-
-  daily-pdf-dfkai-replay:
-    needs: [market-session-preflight, record-market-closure, daily-full-pipeline]
-    if: >-
-      ${{ always() &&
-          needs.market-session-preflight.result == 'success' &&
-          needs.daily-full-pipeline.result == 'success' }}
-    runs-on: windows-2025
-    env:
-      EXPECTED_MAIN_PRICE_DATE: ${{ needs.market-session-preflight.outputs.expected_main_price_date }}
-
-    steps:
-      - name: Checkout updated daily branch
-        uses: actions/checkout@v6
-        with:
-          ref: main
-          fetch-depth: 0
-
-      - name: Set up Python
-        uses: actions/setup-python@v6
-        with:
-          python-version: "3.11"
-
-      - name: Install PDF replay dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install pandas requests tabulate matplotlib pillow openpyxl lxml html5lib beautifulsoup4 reportlab pypdf fonttools
-
-      - name: Install and validate DFKai-SB
-        timeout-minutes: 20
-        shell: pwsh
-        run: |
-          $ErrorActionPreference = "Stop"
-          $PSNativeCommandUseErrorActionPreference = $false
-          $fontCapability = "Language.Fonts.Hant~~~und-HANT~0.0.1.0"
-          $fontPath = "C:\Windows\Fonts\kaiu.ttf"
-          $dismExitCode = 0
-          if (-not (Test-Path -LiteralPath $fontPath)) {
-            $windowsUpdatePolicy = "HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate"
-            $windowsUpdateAuPolicy = "$windowsUpdatePolicy\AU"
-            New-Item -Path $windowsUpdateAuPolicy -Force | Out-Null
-            New-ItemProperty -Path $windowsUpdatePolicy -Name DoNotConnectToWindowsUpdateInternetLocations -PropertyType DWord -Value 0 -Force | Out-Null
-            New-ItemProperty -Path $windowsUpdatePolicy -Name DisableWindowsUpdateAccess -PropertyType DWord -Value 0 -Force | Out-Null
-            New-ItemProperty -Path $windowsUpdateAuPolicy -Name UseWUServer -PropertyType DWord -Value 0 -Force | Out-Null
-            Set-Service -Name wuauserv -StartupType Manual
-            Start-Service -Name wuauserv
-            $capability = Get-WindowsCapability -Online -Name $fontCapability
-            Write-Host "font_capability_state_before=$($capability.State)"
-            if ($capability.State -ne "Installed") {
-              & "$env:SystemRoot\System32\dism.exe" /Online /Add-Capability "/CapabilityName:$fontCapability" /NoRestart
-              $dismExitCode = $LASTEXITCODE
-              Write-Host "font_capability_install_exit_code=$dismExitCode"
-            }
-          }
-          if (-not (Test-Path -LiteralPath $fontPath)) {
-            throw "Required DFKai-SB font file is missing after capability install: $fontPath (DISM exit code $dismExitCode)"
-          }
-          "CHATGPT_DAILY_DFKAI_FONT_PATH=$fontPath" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
-          python -c 'from fontTools.ttLib import TTFont; p=r"C:\Windows\Fonts\kaiu.ttf"; f=TTFont(p); names={n.toUnicode() for n in f["name"].names}; accepted={"DFKai-SB","DFKaiShu-SB-Estd-BF"}; assert names & accepted, f"unexpected font names: {sorted(names)}"; cmap={cp for table in f["cmap"].tables for cp in table.cmap}; canary="\u6a19\u6977\u9ad4\u7e41\u9ad4\u4e2d\u6587\u6e2c\u8a66"; missing=[f"U+{ord(char):04X}" for char in canary if ord(char) not in cmap]; assert not missing, f"missing canary glyphs: {missing}"; print(f"validated_font={p} names={sorted(names & accepted)}")'
-          $fontValidationExitCode = $LASTEXITCODE
-          if ($fontValidationExitCode -ne 0) {
-            throw "DFKai-SB final font validation failed with exit code $fontValidationExitCode (DISM exit code $dismExitCode)"
-          }
-          if ($dismExitCode -ne 0) {
-            Write-Warning "DISM returned exit code $dismExitCode, but canonical DFKai-SB passed final file, identity, and glyph validation"
-          }
-
-      - name: Prepare Windows long-path PDF replay runtime
-        shell: pwsh
-        run: |
-          $ErrorActionPreference = "Stop"
-          git config --global core.longpaths true
-          $shortTemp = "C:\tdcc-pdf-temp"
-          New-Item -ItemType Directory -Path $shortTemp -Force | Out-Null
-          "TEMP=$shortTemp" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
-          "TMP=$shortTemp" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
-          "TMPDIR=$shortTemp" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
-
-      - name: Replay ChatGPT-side daily PDF new conversation
-        timeout-minutes: 20
-        shell: bash
-        run: |
-          echo "PDF replay source_ref=workflow default"
-          echo "PDF replay expected_main_price_date=$EXPECTED_MAIN_PRICE_DATE"
-          echo "PDF replay output_dir=chatgpt_side_outputs_new_conversation_replay"
-          timeout 20m python scripts/validate_chatgpt_daily_report_new_conversation_replay.py \
-            --expected-main-price-date "$EXPECTED_MAIN_PRICE_DATE" \
-            --output-dir chatgpt_side_outputs_new_conversation_replay
-          python scripts/validate_daily_pdf_completion_hard_gate.py --require-output-dir chatgpt_side_outputs_new_conversation_replay
-
-      - name: Upload main daily PDF replay evidence
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: daily-pdf-replay-main
-          path: |
-            chatgpt_side_outputs_new_conversation_replay/*.pdf
-            chatgpt_side_outputs_new_conversation_replay/chatgpt_daily_report_runtime_manifest.json
-            chatgpt_side_outputs_new_conversation_replay/chatgpt_daily_pdf_semantic_manifest.csv
-          if-no-files-found: error
 
   daily-pdf-source-gate-validation:
     needs: [market-session-preflight, record-market-closure, daily-full-pipeline]
@@ -1339,7 +1239,7 @@ jobs:
         run: |
           # Daily pipeline only stages daily report outputs and source data.
           # Heavy research/backtest outputs are maintained by research_backtest_pipeline.yml.
-          git add data/daily_price/ data/stock_price_history/ || true
+          git add data/daily_price/ data/stock_price_history/
           git add data/market_calendar/ || true
           git add output/latest/ || true
           git add -A -- "docs/latest/READ_ME_FIRST_DAILY_REPORT*.txt" || true
@@ -1366,6 +1266,20 @@ jobs:
           git add docs/latest/volume_v2_warrant_lineage_history_audit_latest.* || true
           git add docs/latest/monthly_revenue_* || true
           git add docs/latest/fundamental_catalyst_layer_latest.md docs/latest/catalyst_data_source_status_latest.* || true
+          git add -- \
+            docs/latest/company_industry_snapshot_latest.csv \
+            docs/latest/market_timing_chatgpt_packet_latest.md \
+            docs/latest/stock_price_history_manifest.csv \
+            docs/latest/stock_price_history_manifest.json \
+            docs/latest/stock_price_history_manifest.md \
+            docs/latest/stock_theme_authorized_seed_preview_latest.csv \
+            docs/latest/stock_theme_authorized_seed_preview_latest.md \
+            docs/latest/stock_theme_manual_fill_template_latest.csv \
+            docs/latest/stock_theme_manual_fill_template_latest.xlsx \
+            docs/latest/stock_theme_taxonomy_latest.csv \
+            docs/latest/stock_theme_taxonomy_latest.md \
+            docs/latest/stock_theme_taxonomy_validation_latest.json \
+            docs/latest/stock_theme_taxonomy_validation_latest.md
           git add data/institutional_investor_flow/ data/warrant_daily/ data/warrant_flow_by_stock/ data/futures_options/ || true
           git add data/monthly_revenue_history/ || true
           git add data/theme_events/ data/company_calendar/ data/macro_events/ data/fundamental_catalysts/ data/event_catalysts/ || true
@@ -1373,6 +1287,7 @@ jobs:
           git add output/history/reports/ output/history/warrant_daily/ output/history/warrant_flow/ || true
           git add output/history/daily_candidate_models/ || true
           git add output/history/daily_signals/daily_candidate_signal_log.csv || true
+          git add -- output/history/daily_candidates/daily_candidate_signal_log.csv
           git add output/history/daily_signals/daily_theme_status_history.csv || true
           git add output/history/daily_candidates/daily_theme_status_history.csv || true
           git add output/history/market_risk/ || true
@@ -1383,59 +1298,118 @@ jobs:
             --expected-release-id "$AUTHORITY_RELEASE_ID"
           python scripts/validate_no_conflict_markers.py
           git status --short
-          staged_paths_file="$RUNNER_TEMP/daily-publish-staged-paths.txt"
-          git diff --cached --name-only -z > "$staged_paths_file"
+          staged_paths_file="$RUNNER_TEMP/daily-publish-staged-paths.z"
+          unstaged_paths_file="$RUNNER_TEMP/daily-publish-unstaged-paths.z"
+          untracked_paths_file="$RUNNER_TEMP/daily-publish-untracked-paths.z"
+          write_paths_file="$RUNNER_TEMP/daily-publish-write-paths.z"
+          git diff --cached --name-only --no-renames -z > "$staged_paths_file"
+          git diff --name-only --no-renames -z > "$unstaged_paths_file"
+          git ls-files --others --exclude-standard -z > "$untracked_paths_file"
+          python - "$staged_paths_file" "$unstaged_paths_file" "$untracked_paths_file" "$write_paths_file" <<'PY'
+          import sys
+          from pathlib import Path
+
+          written = {
+              item.decode("utf-8", errors="strict")
+              for source in sys.argv[1:4]
+              for item in Path(source).read_bytes().split(b"\0")
+              if item
+          }
+          Path(sys.argv[4]).write_bytes(
+              b"".join(path.encode("utf-8") + b"\0" for path in sorted(written))
+          )
+          PY
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
             git commit -m "Update daily report artifacts and packets"
+            artifact_commit_sha="$(git rev-parse HEAD)"
             publish_succeeded=false
+            artifact_published_head_sha=""
+            candidate_published_head_sha=""
+            fetch_artifact_main_bounded() {
+              for fetch_attempt in 1 2 3; do
+                if git fetch origin "$TARGET_BRANCH" && \
+                   remote_head="$(git rev-parse "origin/$TARGET_BRANCH")" && \
+                   [[ "$remote_head" =~ ^[0-9a-f]{40}$ ]]; then
+                  return 0
+                fi
+                sleep 5
+              done
+              return 1
+            }
             for push_attempt in 1 2 3; do
-              git fetch origin "$TARGET_BRANCH"
-              remote_head="$(git rev-parse "origin/$TARGET_BRANCH")"
+              if ! fetch_artifact_main_bounded; then
+                continue
+              fi
+              if [[ "$candidate_published_head_sha" =~ ^[0-9a-f]{40}$ ]] && \
+                 git merge-base --is-ancestor "$artifact_commit_sha" "$candidate_published_head_sha" && \
+                 git merge-base --is-ancestor "$candidate_published_head_sha" "$remote_head"; then
+                publish_succeeded=true
+                artifact_published_head_sha="$candidate_published_head_sha"
+                break
+              fi
               if ! git merge-base --is-ancestor "$PREFLIGHT_SOURCE_SHA" "$remote_head"; then
                 echo "Current main no longer descends from pinned source: source=$PREFLIGHT_SOURCE_SHA main=$remote_head" >&2
                 exit 1
               fi
-              if git merge-base --is-ancestor HEAD "$remote_head"; then
-                git merge --ff-only "origin/$TARGET_BRANCH"
-              elif ! git merge-base --is-ancestor "$remote_head" HEAD; then
-                main_paths_file="$RUNNER_TEMP/daily-publish-main-paths.txt"
-                git diff --name-only --no-renames -z "$PREFLIGHT_SOURCE_SHA..$remote_head" > "$main_paths_file"
-                python - "$staged_paths_file" "$main_paths_file" <<'PY'
-          from pathlib import Path
+              comparison_base="$PREFLIGHT_SOURCE_SHA"
+              if git merge-base --is-ancestor "$artifact_commit_sha" "$remote_head"; then
+                comparison_base="$artifact_commit_sha"
+              fi
+              python - "$comparison_base" "$remote_head" "$write_paths_file" <<'PY'
+          import subprocess
           import sys
+          from pathlib import Path
 
-          def read_paths(path: str) -> set[str]:
-              return {
-                  item.decode("utf-8")
-                  for item in Path(path).read_bytes().split(b"\0")
-                  if item
-              }
-
-          staged_paths = read_paths(sys.argv[1])
-          main_paths = read_paths(sys.argv[2])
-          overlap = sorted(staged_paths & main_paths)
+          changed = {
+              item.decode("utf-8", errors="strict")
+              for item in subprocess.check_output(
+                  ["git", "diff", "--name-only", "--no-renames", "-z", sys.argv[1], sys.argv[2], "--"]
+              ).split(b"\0")
+              if item
+          }
+          written = {
+              item.decode("utf-8", errors="strict")
+              for item in Path(sys.argv[3]).read_bytes().split(b"\0")
+              if item
+          }
+          overlap = sorted(changed & written)
           if overlap:
               raise SystemExit(
-                  "Current main overlaps staged daily publish paths: "
+                  "Current main overlaps daily publish write paths: "
                   + ",".join(overlap)
               )
           PY
-                git merge --no-edit "origin/$TARGET_BRANCH"
+              if ! git merge-base --is-ancestor "$remote_head" HEAD; then
+                git merge --no-edit "$remote_head"
+              fi
+              candidate_published_head_sha="$(git rev-parse HEAD)"
+              if [[ ! "$candidate_published_head_sha" =~ ^[0-9a-f]{40}$ ]] || \
+                 ! git merge-base --is-ancestor "$artifact_commit_sha" "$candidate_published_head_sha"; then
+                echo "Daily artifact publish candidate is invalid" >&2
+                exit 1
               fi
               if git push origin "HEAD:$TARGET_BRANCH"; then
                 publish_succeeded=true
+                artifact_published_head_sha="$candidate_published_head_sha"
                 break
               fi
-              if [ "$push_attempt" -lt 3 ]; then
-                sleep 5
-              fi
+              sleep 5
             done
+            if [ "$publish_succeeded" != true ] && \
+               [[ "$candidate_published_head_sha" =~ ^[0-9a-f]{40}$ ]] && \
+               fetch_artifact_main_bounded && \
+               git merge-base --is-ancestor "$artifact_commit_sha" "$candidate_published_head_sha" && \
+               git merge-base --is-ancestor "$candidate_published_head_sha" "$remote_head"; then
+              publish_succeeded=true
+              artifact_published_head_sha="$candidate_published_head_sha"
+            fi
             if [ "$publish_succeeded" != true ]; then
               echo "Daily publish push failed after 3 bounded non-force attempts" >&2
               exit 1
             fi
+            echo "Daily artifact published head sha: $artifact_published_head_sha"
           fi
 
           ARTIFACT_COMMIT_SHA=$(git rev-parse HEAD)
@@ -1465,13 +1439,7 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-          git fetch origin "$TARGET_BRANCH"
-          local_head="$(git rev-parse HEAD)"
-          remote_head="$(git rev-parse "origin/$TARGET_BRANCH")"
-          if [[ "$local_head" != "$remote_head" ]]; then
-            echo "Remote branch advanced before readme publication: local=$local_head remote=$remote_head" >&2
-            exit 1
-          fi
+          readme_publish_base_sha="$(git rev-parse HEAD)"
           python scripts/validate_no_conflict_markers.py
 
           # Publish step only commits readme, URL checks, ChatGPT entry files, and small daily surfaces.
@@ -1499,66 +1467,128 @@ jobs:
           git add docs/latest/CHATGPT_DAILY_REPORT_RULES.txt || true
           git add docs/latest/chatgpt_indicator_usage_guide_latest.md || true
           git add docs/latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt || true
+          git add -- \
+            docs/latest/daily_candidate_two_line_view_latest.csv \
+            docs/latest/daily_candidate_two_line_view_latest.md \
+            docs/latest/daily_theme_leadership_latest.csv \
+            docs/latest/daily_theme_leadership_latest.md \
+            docs/rules/rules_index_latest.md \
+            "docs/history/reports/${SNAPSHOT_REPORT_DATE}_READ_ME_FIRST_DAILY_REPORT.txt" \
+            "output/history/reports/${SNAPSHOT_REPORT_DATE}_READ_ME_FIRST_DAILY_REPORT.txt"
 
           python scripts/validate_daily_staged_paths.py
           python scripts/validate_no_conflict_markers.py
           git status --short
+          staged_paths_file="$RUNNER_TEMP/daily-readme-publish-staged-paths.z"
+          unstaged_paths_file="$RUNNER_TEMP/daily-readme-publish-unstaged-paths.z"
+          untracked_paths_file="$RUNNER_TEMP/daily-readme-publish-untracked-paths.z"
+          write_paths_file="$RUNNER_TEMP/daily-readme-publish-write-paths.z"
+          git diff --cached --name-only --no-renames -z > "$staged_paths_file"
+          git diff --name-only --no-renames -z > "$unstaged_paths_file"
+          git ls-files --others --exclude-standard -z > "$untracked_paths_file"
+          python - "$staged_paths_file" "$unstaged_paths_file" "$untracked_paths_file" "$write_paths_file" <<'PY'
+          import sys
+          from pathlib import Path
+
+          written = {
+              item.decode("utf-8", errors="strict")
+              for source in sys.argv[1:4]
+              for item in Path(source).read_bytes().split(b"\0")
+              if item
+          }
+          Path(sys.argv[4]).write_bytes(
+              b"".join(path.encode("utf-8") + b"\0" for path in sorted(written))
+          )
+          PY
           if git diff --cached --quiet; then
             echo "No readme or ChatGPT entry changes to commit"
           else
             git commit -m "Publish daily report readme and ChatGPT entries"
-            git push origin "HEAD:$TARGET_BRANCH"
-          fi
-
-      - name: Dispatch and wait for GitHub Pages deploy
-        if: ${{ github.ref == 'refs/heads/main' }}
-        timeout-minutes: 40
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          pages_deploy_attempts=3
-          for deploy_attempt in $(seq 1 "$pages_deploy_attempts"); do
-            previous_pages_run_id="$(gh run list --workflow pages.yml --branch "$TARGET_BRANCH" --limit 1 --json databaseId --jq '.[0].databaseId // ""')"
-            echo "Previous Pages run id: ${previous_pages_run_id:-none}"
-            echo "Dispatching GitHub Pages deploy attempt=${deploy_attempt}/${pages_deploy_attempts}"
-
-            gh workflow run pages.yml --ref "$TARGET_BRANCH"
-
-            pages_run_id=""
-            attempt_result="timeout"
-            for poll_attempt in {1..44}; do
-              latest_pages_run_id="$(gh run list --workflow pages.yml --branch "$TARGET_BRANCH" --limit 1 --json databaseId --jq '.[0].databaseId // ""')"
-
-              if [ -n "$latest_pages_run_id" ] && [ "$latest_pages_run_id" != "$previous_pages_run_id" ]; then
-                pages_run_id="$latest_pages_run_id"
-                status="$(gh run view "$pages_run_id" --json status --jq '.status')"
-                conclusion="$(gh run view "$pages_run_id" --json conclusion --jq '.conclusion // ""')"
-                echo "Pages run $pages_run_id poll_attempt=$poll_attempt status=$status conclusion=${conclusion:-pending}"
-
-                if [ "$status" = "completed" ]; then
-                  if [ "$conclusion" = "success" ]; then
-                    exit 0
-                  fi
-
-                  attempt_result="$conclusion"
-                  echo "::warning::GitHub Pages deploy attempt ${deploy_attempt}/${pages_deploy_attempts} finished with conclusion=$conclusion run_id=$pages_run_id"
-                  break
+            readme_commit_sha="$(git rev-parse HEAD)"
+            readme_publish_succeeded=false
+            readme_published_head_sha=""
+            candidate_published_head_sha=""
+            fetch_readme_main_bounded() {
+              for fetch_attempt in 1 2 3; do
+                if git fetch origin "$TARGET_BRANCH" && \
+                   remote_head="$(git rev-parse "origin/$TARGET_BRANCH")" && \
+                   [[ "$remote_head" =~ ^[0-9a-f]{40}$ ]]; then
+                  return 0
                 fi
-              else
-                echo "Waiting for new Pages run to appear, deploy_attempt=$deploy_attempt poll_attempt=$poll_attempt"
+                sleep 5
+              done
+              return 1
+            }
+            for push_attempt in 1 2 3; do
+              if ! fetch_readme_main_bounded; then
+                continue
               fi
+              if [[ "$candidate_published_head_sha" =~ ^[0-9a-f]{40}$ ]] && \
+                 git merge-base --is-ancestor "$readme_commit_sha" "$candidate_published_head_sha" && \
+                 git merge-base --is-ancestor "$candidate_published_head_sha" "$remote_head"; then
+                readme_publish_succeeded=true
+                readme_published_head_sha="$candidate_published_head_sha"
+                break
+              fi
+              if ! git merge-base --is-ancestor "$readme_publish_base_sha" "$remote_head"; then
+                echo "Current main no longer descends from readme publish base: base=$readme_publish_base_sha main=$remote_head" >&2
+                exit 1
+              fi
+              comparison_base="$readme_publish_base_sha"
+              if git merge-base --is-ancestor "$readme_commit_sha" "$remote_head"; then
+                comparison_base="$readme_commit_sha"
+              fi
+              python - "$comparison_base" "$remote_head" "$write_paths_file" <<'PY'
+          import subprocess
+          import sys
+          from pathlib import Path
 
-              sleep 15
+          changed = {
+              item.decode("utf-8", errors="strict")
+              for item in subprocess.check_output(
+                  ["git", "diff", "--name-only", "--no-renames", "-z", sys.argv[1], sys.argv[2], "--"]
+              ).split(b"\0")
+              if item
+          }
+          written = {
+              item.decode("utf-8", errors="strict")
+              for item in Path(sys.argv[3]).read_bytes().split(b"\0")
+              if item
+          }
+          overlap = sorted(changed & written)
+          if overlap:
+              raise SystemExit(
+                  "Current main overlaps readme publish write paths: "
+                  + ",".join(overlap)
+              )
+          PY
+              if ! git merge-base --is-ancestor "$remote_head" HEAD; then
+                git merge --no-edit "$remote_head"
+              fi
+              candidate_published_head_sha="$(git rev-parse HEAD)"
+              if [[ ! "$candidate_published_head_sha" =~ ^[0-9a-f]{40}$ ]] || \
+                 ! git merge-base --is-ancestor "$readme_commit_sha" "$candidate_published_head_sha"; then
+                echo "Daily readme publish candidate is invalid" >&2
+                exit 1
+              fi
+              if git push origin "HEAD:$TARGET_BRANCH"; then
+                readme_publish_succeeded=true
+                readme_published_head_sha="$candidate_published_head_sha"
+                break
+              fi
+              sleep 5
             done
-
-            if [ "$attempt_result" = "timeout" ]; then
-              echo "::warning::Timed out waiting for GitHub Pages deploy attempt ${deploy_attempt}/${pages_deploy_attempts}"
+            if [ "$readme_publish_succeeded" != true ] && \
+               [[ "$candidate_published_head_sha" =~ ^[0-9a-f]{40}$ ]] && \
+               fetch_readme_main_bounded && \
+               git merge-base --is-ancestor "$readme_commit_sha" "$candidate_published_head_sha" && \
+               git merge-base --is-ancestor "$candidate_published_head_sha" "$remote_head"; then
+              readme_publish_succeeded=true
+              readme_published_head_sha="$candidate_published_head_sha"
             fi
-
-            if [ "$deploy_attempt" -lt "$pages_deploy_attempts" ]; then
-              sleep 60
+            if [ "$readme_publish_succeeded" != true ]; then
+              echo "Daily readme publish push failed after 3 bounded non-force attempts" >&2
+              exit 1
             fi
-          done
-
-          echo "::error::GitHub Pages deploy did not succeed after ${pages_deploy_attempts} attempts"
-          exit 1
+            echo "Daily readme published head sha: $readme_published_head_sha"
+          fi

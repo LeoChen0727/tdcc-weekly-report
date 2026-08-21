@@ -497,17 +497,13 @@ jobs:
     assert any("immutable PR head SHA" in error for error in errors)
 
 
-def test_daily_pdf_replay_jobs_require_windows_dfkai_runtime() -> None:
+def test_pr_pdf_replay_requires_windows_dfkai_runtime_without_daily_full_hard_job() -> None:
     daily_text = DAILY_WORKFLOW.read_text(encoding="utf-8")
     pr_text = PDF_REPLAY_WORKFLOW.read_text(encoding="utf-8")
 
-    assert boundaries.validate_dfkai_pdf_replay_job(
-        daily_text,
-        workflow_label="daily_full_pipeline",
-        needs_job="[market-session-preflight, record-market-closure, daily-full-pipeline]",
-        output_dir="chatgpt_side_outputs_new_conversation_replay",
-        upload_step="Upload main daily PDF replay evidence",
-    ) == []
+    assert boundaries.workflow_job_block(daily_text, "daily-pdf-dfkai-replay") == ""
+    assert "Install and validate DFKai-SB" not in daily_text
+    assert "chatgpt_side_outputs_new_conversation_replay" not in daily_text
     assert boundaries.validate_dfkai_pdf_replay_job(
         pr_text,
         workflow_label="daily_pdf_replay_pr_validation",
@@ -515,13 +511,6 @@ def test_daily_pdf_replay_jobs_require_windows_dfkai_runtime() -> None:
         output_dir="chatgpt_side_outputs_pr_validation",
         upload_step="Upload PR daily PDF replay evidence",
     ) == []
-    assert boundaries.workflow_step_block(
-        daily_text,
-        "Install and validate DFKai-SB",
-    ) == boundaries.workflow_step_block(
-        pr_text,
-        "Install and validate DFKai-SB",
-    )
     assert "Replay ChatGPT-side daily PDF" not in boundaries.workflow_job_block(
         daily_text,
         "daily-full-pipeline",

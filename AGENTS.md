@@ -426,10 +426,14 @@ crossed, that required first-page and candidate-area sections such as `newly
 listed` and `consecutive listed` remain present, and that mainstream,
 non-mainstream, warrant, and market-risk PDFs do not contaminate each other.
 
-Daily Full Pipeline must run the PDF contract validator after official PDF
-generation. Tests must prove that the workflow invokes the validator and that
-the validator covers all six PDFs, digest/full boundaries, and newly-listed /
-consecutive-listed section checks.
+Daily Full Pipeline validates source, consumer, readiness, and static PDF
+contracts before publishing the authoritative daily surfaces; it does not
+generate a second six-PDF bundle. The formal Daily PDF owner must use the
+official entrypoint, run the generated-output completion gate, and inspect all
+six delivered PDFs. Renderer/font-impact pull requests retain the dedicated
+PDF replay regression. Tests must prove these ownership boundaries and that the
+generated-output validator covers all six PDFs, digest/full boundaries, and
+newly-listed / consecutive-listed section checks.
 
 Do not modify `generate_repo_chatgpt_side_reports.py` for this work. Do not put
 research or backtest artifacts directly into production PDFs.

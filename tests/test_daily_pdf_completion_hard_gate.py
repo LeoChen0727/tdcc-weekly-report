@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
+import pytest
+
 from scripts import validate_daily_pdf_completion_hard_gate as validator
 
 
@@ -375,12 +377,6 @@ def test_completion_gate_rejects_pr_workflow_without_post_replay_gate(
             [
                 *validator.REQUIRED_STATIC_VALIDATORS,
                 validator.STATIC_COMPLETION_GATE_COMMAND,
-                "- name: Replay ChatGPT-side daily PDF new conversation",
-                validator.REPLAY_COMMAND,
-                "PDF replay output_dir=chatgpt_side_outputs_new_conversation_replay",
-                "--output-dir chatgpt_side_outputs_new_conversation_replay",
-                validator.DAILY_FULL_OUTPUT_GATE_COMMAND,
-                "- name: Dispatch and wait for GitHub Pages deploy",
             ]
         ),
         encoding="utf-8",
@@ -426,3 +422,47 @@ def test_completion_gate_rejects_pr_workflow_without_post_replay_gate(
     errors = validator.validate_workflow_gates()
 
     assert any(validator.PR_OUTPUT_GATE_COMMAND in error for error in errors)
+
+
+def test_completion_gate_rejects_daily_full_pdf_replay_hard_job(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    full_workflow = tmp_path / "daily_full_pipeline.yml"
+    full_workflow.write_text(
+        validator.DAILY_FULL_WORKFLOW.read_text(encoding="utf-8")
+        + "\n  daily-pdf-dfkai-replay:\n"
+        + "    runs-on: windows-2025\n",
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(validator, "DAILY_FULL_WORKFLOW", full_workflow)
+
+    errors = validator.validate_workflow_gates()
+
+    assert any("official owner and PR replay workflow" in error for error in errors)
+
+
+@pytest.mark.parametrize(
+    "forbidden_literal",
+    (
+        validator.REPLAY_COMMAND,
+        "Install and validate DFKai-SB",
+        "daily-pdf-replay-main",
+    ),
+)
+def test_completion_gate_rejects_renamed_daily_full_pdf_replay_surface(
+    tmp_path: Path,
+    monkeypatch,
+    forbidden_literal: str,
+) -> None:
+    full_workflow = tmp_path / "daily_full_pipeline.yml"
+    full_workflow.write_text(
+        validator.DAILY_FULL_WORKFLOW.read_text(encoding="utf-8")
+        + f"\n# renamed replay surface\n{forbidden_literal}\n",
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(validator, "DAILY_FULL_WORKFLOW", full_workflow)
+
+    errors = validator.validate_workflow_gates()
+
+    assert any(forbidden_literal in error for error in errors)

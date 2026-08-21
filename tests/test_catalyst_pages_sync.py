@@ -371,9 +371,14 @@ def test_daily_workflow_syncs_catalyst_pages_artifacts() -> None:
     text = (ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(
         encoding="utf-8"
     )
+    pages_text = (ROOT / ".github" / "workflows" / "pages.yml").read_text(
+        encoding="utf-8"
+    )
     assert "python scripts/sync_catalyst_pages_artifacts.py" in text
-    assert "Dispatch and wait for GitHub Pages deploy" in text
-    assert "timeout-minutes: 40" in text
-    assert "pages_deploy_attempts=3" in text
-    assert "for poll_attempt in {1..44}" in text
-    assert "GitHub Pages deploy did not succeed after" in text
+    assert "Dispatch and wait for GitHub Pages deploy" not in text
+    assert "gh workflow run pages.yml" not in text
+    assert "  actions: read" in text
+    assert "  actions: write" not in text
+    assert "  push:" in pages_text
+    assert "      - main" in pages_text
+    assert '      - "docs/**"' in pages_text
