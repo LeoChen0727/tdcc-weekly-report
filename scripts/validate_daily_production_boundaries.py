@@ -1194,6 +1194,33 @@ def validate_recent_price_gap_workflow_contract(repair_text: str) -> list[str]:
 
 def validate_daily_authority_snapshot_publish_contract(daily_text: str) -> list[str]:
     errors: list[str] = []
+    fetch_block = workflow_step_block(daily_text, "Fetch market abnormal status")
+    exact_fetch = (
+        'python scripts/fetch_market_abnormal_status.py --target-date '
+        '"$EXPECTED_MAIN_PRICE_DATE"'
+    )
+    if fetch_block.count(exact_fetch) != 1:
+        errors.append(
+            "daily market-abnormal fetch must receive the exact expected main price date"
+        )
+    if f"{exact_fetch} || true" in fetch_block:
+        errors.append("daily market-abnormal fetch must fail closed")
+    if re.search(r'(?m)^ {8}(?:if|["\']if["\'])\s*:', fetch_block):
+        errors.append("daily market-abnormal fetch step must be unconditional")
+    continue_values = [
+        match.group(1).split("#", 1)[0].strip()
+        for line in fetch_block.splitlines()
+        if (
+            match := re.fullmatch(
+                r' {8}(?:continue-on-error|["\']continue-on-error["\'])\s*:\s*(.*)',
+                line,
+            )
+        )
+    ]
+    if continue_values and continue_values != ["false"]:
+        errors.append(
+            "daily market-abnormal fetch step continue-on-error must be absent or explicit false"
+        )
     ordered_literals = (
         "Prepare daily authority release before immutable snapshot finalization",
         "python scripts/daily_authority_release.py publish",
@@ -1233,6 +1260,24 @@ def validate_daily_authority_snapshot_publish_contract(daily_text: str) -> list[
     required_publish_literals = {
         "git add data/daily_price/ data/stock_price_history/": (
             "daily publish must stage required price and current-day history data"
+        ),
+        'git add -- "data/market_abnormal_status/bundles/${EXPECTED_MAIN_PRICE_DATE}/"': (
+            "daily publish must stage the exact-target market-abnormal bundle"
+        ),
+        "git add -- output/history/market_abnormal_status/market_abnormal_status_history.csv": (
+            "daily publish must stage target-keyed market-abnormal history"
+        ),
+        "output/latest/market_abnormal_status_latest.csv": (
+            "daily publish must stage the exact-target market-abnormal latest CSV"
+        ),
+        "output/latest/market_abnormal_status_latest.md": (
+            "daily publish must stage the exact-target market-abnormal latest Markdown"
+        ),
+        "docs/latest/market_abnormal_status_latest.csv": (
+            "daily publish must stage the exact-target market-abnormal docs CSV mirror"
+        ),
+        "docs/latest/market_abnormal_status_latest.md": (
+            "daily publish must stage the exact-target market-abnormal docs Markdown mirror"
         ),
         "docs/latest/company_industry_snapshot_latest.csv": (
             "daily publish must stage the generated company-industry snapshot"
@@ -1379,20 +1424,22 @@ def validate_daily_authority_snapshot_publish_contract(daily_text: str) -> list[
         "git add data/daily_price/ data/stock_price_history/ || true": (
             "daily publish must not ignore required price-history staging failures"
         ),
+        'git add -- "data/market_abnormal_status/bundles/${EXPECTED_MAIN_PRICE_DATE}/" || true': (
+            "daily publish must not ignore exact-target market-abnormal bundle staging failures"
+        ),
+        "git add -- output/history/market_abnormal_status/market_abnormal_status_history.csv || true": (
+            "daily publish must not ignore target-keyed market-abnormal history staging failures"
+        ),
         "docs/latest/daily_signal_performance_": (
             "daily publish must not stage research-owned signal-performance PDFs"
         ),
         "output/debug/": "daily publish must not stage diagnostic output",
-        "data/market_abnormal_status/": (
-            "daily publish must not stage wall-date market-abnormal raw files"
-        ),
-        "output/history/market_abnormal_status/": (
-            "daily publish must not stage wall-date market-abnormal history"
-        ),
     }
     for forbidden, message in forbidden_publish_literals.items():
         if forbidden in publish_block:
             errors.append(f"{message}: found {forbidden!r}")
+    if re.search(r"data/market_abnormal_status/(?:bundles/)?20\d{6}", publish_block):
+        errors.append("daily publish must not hard-code a wall-date market-abnormal raw path")
     return errors
 
 

@@ -290,6 +290,7 @@ tests/test_event_catalyst_source_parsers.py,test_python,catalyst_event,active,ca
 tests/test_fundamental_catalyst_layer.py,test_python,catalyst_event,active,catalyst/event test: test_fundamental_catalyst_layer,,
 tests/test_fetch_official_daily_price_quality.py,test_python,official_price_data,active,official price data test: test_fetch_official_daily_price_quality,,
 tests/test_fetch_futures_options_indicators.py,test_python,market_risk,active,market risk historical-source date and provenance regression tests,,
+tests/test_fetch_market_abnormal_status.py,test_python,market_risk,active,exact-target market abnormal raw bundle retry lineage and atomic publish regression tests,,
 tests/test_individual_pdf_contract_consumers.py,test_python,individual_stock,active,Individual PDF model/catalyst contract consumer validator test,,
 tests/test_individual_tdcc_dataset_consumer.py,test_python,individual_stock,active,individual canonical TDCC date sequence lineage and typhoon-gap regression tests,.github/workflows/individual_stock_pr_validation.yml,
 tests/test_individual_stock_outputs.py,test_python,individual_stock,active,individual stock artifact and official TDCC freshness regression tests,.github/workflows/individual_stock_pr_validation.yml,
