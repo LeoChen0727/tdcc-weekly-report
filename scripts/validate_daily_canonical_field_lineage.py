@@ -244,7 +244,6 @@ PR_SAFE_BASE_HISTORY_SAFE_CONTROL_PATHS = frozenset(
         ".github/workflows/event_catalyst_update.yml",
         ".github/workflows/historical_structured_source_replay.yml",
         ".github/workflows/repair_recent_daily_price_gaps.yml",
-        "config/daily_model_pr_safe_self_migration_authorizations.csv",
         "scripts/validate_daily_canonical_field_lineage.py",
         "scripts/validate_daily_production_boundaries.py",
         "scripts/validate_recent_structured_source_repair_workflow.py",
