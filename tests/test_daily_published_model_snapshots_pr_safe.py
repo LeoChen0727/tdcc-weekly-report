@@ -784,10 +784,23 @@ def test_freshness_canonical_self_migration_is_exact_and_one_time(
     )
 
 
-def test_snapshot_helper_delegates_checkpoint_replay_to_base_owned_guard() -> None:
+def test_snapshot_helper_has_no_legacy_replay_preauthorization_dependency() -> None:
+    source = Path(pr_safe.__file__).read_text(encoding="utf-8")
+    retired_symbol = (
+        "is_preauthorized_daily_full_checkpoint_replay_" + "migration"
+    )
+    assert retired_symbol not in source
+    production_validator_module = "_".join(
+        ("validate", "repo", "production", "inventory")
+    )
+    assert production_validator_module not in source
+
+
+def test_snapshot_retirement_keeps_production_guard_ledger_free() -> None:
     source = (
-        ROOT / pr_safe.PR_SAFE_HELPER_PATH
+        ROOT / "scripts/validate_repo_production_inventory.py"
     ).read_text(encoding="utf-8")
-    assert "from validate_repo_production_inventory import" in source
-    assert "is_preauthorized_daily_full_checkpoint_replay_migration(" in source
-    assert "DAILY_FULL_CHECKPOINT_REPLAY_TARGET_SHA256" not in source
+    retired_path = (
+        "config/daily_model_pr_safe_" + "self_migration_authorizations.csv"
+    )
+    assert retired_path not in source
