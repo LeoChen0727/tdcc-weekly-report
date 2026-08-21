@@ -696,15 +696,14 @@ def validate_historical_source_replay_workflow(text: str) -> list[str]:
         "workflow_dispatch:": "must be manually and explicitly dispatched",
         "expected_main_sha:": "must require an immutable authorized main SHA",
         "github.ref != 'refs/heads/main'": "must reject non-main dispatches",
-        "ref: main": "must checkout main",
+        "ref: ${{ inputs.expected_main_sha }}": "must checkout the pinned expected SHA",
         "group: historical-structured-source-replay-${{ github.ref }}": "must use an independent replay concurrency group",
         "cancel-in-progress: false": "must not cancel an in-flight official producer",
         "Require production artifact write deploy key": "must fail closed on missing writer credentials",
         "Checkout exact main source": "must checkout only after credential preflight",
-        "Install replay dependencies": "must install runtime dependencies before repository validators",
-        "Validate repository automation boundaries": "must validate repository contracts before replay",
+        "Install replay dependencies": "must install runtime dependencies before replay",
         '"$base_sha" != "$EXPECTED_MAIN_SHA"': "must bind checkout to expected_main_sha",
-        '"$base_sha" != "$remote_main_sha"': "must bind checkout to remote main",
+        'git merge-base --is-ancestor "$base_sha" "$remote_main_sha"': "must require the pinned base to remain a current-main ancestor",
         "python scripts/replay_historical_structured_sources.py": "must use the canonical replay orchestrator",
         "--repair-market-index-base-date \"$BASE_REPAIR_DATE\"": "must explicitly route the TPEX base repair",
         "--replay-id \"$HISTORICAL_SOURCE_REPLAY_ID\"": "must use the immutable run namespace",
@@ -719,7 +718,16 @@ def validate_historical_source_replay_workflow(text: str) -> list[str]:
         "REMOTE_MAIN_SHA_PRECOMMIT": "must record the precommit remote SHA",
         "REMOTE_MAIN_SHA_AFTER": "must verify the post-push remote SHA",
         "commit_count_after - commit_count_before": "must prove exactly one output commit",
+        'git diff --cached --name-only --no-renames -z > "$staged_paths_file"': "must capture both sides of staged renames",
+        '"git", "diff", "--name-only", "--no-renames", "-z"': "must compare moving-main paths without rename ambiguity",
+        "moving main overlaps staged historical replay paths": "must fail closed on a publication-path overlap",
+        "for push_attempt in 1 2 3": "must bound normal publication attempts",
+        "for fetch_attempt in 1 2 3": "must bound fetch convergence independently",
+        'candidate_published_head_sha="$(git rev-parse HEAD)"': "must freeze the exact candidate before normal push",
+        'git merge --no-edit "$remote_main_sha"': "must integrate non-overlapping main drift with an ordinary merge",
         "git push origin HEAD:refs/heads/main": "must use one fail-closed non-force push",
+        'echo "domain_output_commit_sha=$output_commit_sha"': "must expose the unique domain output commit",
+        'echo "published_head_sha=$published_head_sha"': "must expose the exact published head separately",
         "Revalidate pushed replay against immutable code base": "must validate again after the output commit is pushed",
     }
     for literal, purpose in required_literals.items():
@@ -732,14 +740,24 @@ def validate_historical_source_replay_workflow(text: str) -> list[str]:
         )
     if len(re.findall(r"(?m)^\s*git commit\s", text)) != 1:
         errors.append("historical structured-source replay must create exactly one Git commit")
-    if len(re.findall(r"(?m)^\s*git push\s", text)) != 1:
+    if len(re.findall(r"(?m)^\s*(?:if\s+)?git push\s", text)) != 1:
         errors.append("historical structured-source replay must execute exactly one Git push")
+    if text.count("for push_attempt in 1 2 3; do") != 1:
+        errors.append("historical structured-source replay must have one bounded push loop")
+    if text.count("for fetch_attempt in 1 2 3; do") != 1:
+        errors.append("historical structured-source replay must have one bounded fetch loop")
+    if text.count('"git", "diff", "--name-only", "--no-renames", "-z"') != 2:
+        errors.append("historical structured-source replay must make both overlap checks rename-safe")
+    if text.count("git diff --cached --name-only --no-renames -z") != 1:
+        errors.append("historical structured-source replay must make its staged path set rename-safe")
 
     forbidden_literals = {
         "git add -A": "must not broad-stage the repository",
         "ci_push_with_retry.sh": "must not rebase or regenerate on a moving main",
         "git rebase": "must not rebase after replay validation",
+        "git reset": "must not reset validated replay output",
         "git push --force": "must not force-push production artifacts",
+        "Validate repository automation boundaries": "must not run repo-static governance in production replay",
         "generate_chatgpt_side_daily_reports.py": "must not reconstruct historical PDFs",
         "build_daily_candidate_model_layer.py": "must not reconstruct historical model outputs",
         "build_theme_event_watch.py": "must not reconstruct historical event/catalyst outputs",
@@ -756,12 +774,11 @@ def validate_historical_source_replay_workflow(text: str) -> list[str]:
         "Require production artifact write deploy key",
         "Checkout exact main source",
         "Install replay dependencies",
-        "Validate repository automation boundaries",
         "python scripts/replay_historical_structured_sources.py",
         "python scripts/validate_historical_structured_source_replay.py",
         "git add data/daily_price/",
         "python scripts/validate_historical_source_replay_staged_paths.py",
-        "Reject remote-main drift before the only output commit",
+        "Validate moving-main path isolation before the domain output commit",
         "git commit -m",
         "git push origin HEAD:refs/heads/main",
         "Verify pushed main and output commit",
@@ -1011,7 +1028,11 @@ def validate_authority_workflow_publishers() -> list[str]:
                 errors.append(f"non-authority workflow commit may publish daily authority: {path.name}: {command}")
             if git_update_index_command_may_stage(command):
                 errors.append(f"non-authority workflow may stage via update-index: {path.name}: {command}")
-            if git_native_mutation_may_publish_authority(command):
+            allowed_ordinary_merge = (
+                path in {RECENT_PRICE_GAP_WORKFLOW, HISTORICAL_SOURCE_REPLAY_WORKFLOW}
+                and command == 'git merge --no-edit "$remote_main_sha"'
+            )
+            if git_native_mutation_may_publish_authority(command) and not allowed_ordinary_merge:
                 errors.append(f"non-authority workflow uses unsafe native Git mutation: {path.name}: {command}")
         for helper in re.findall(r"python\s+scripts/stage_[A-Za-z0-9_./-]+\.py", normalized):
             if helper not in allowed_staging_helpers:
@@ -1052,7 +1073,34 @@ def validate_recent_price_gap_workflow_contract(repair_text: str) -> list[str]:
         "Reject non-main production dispatch": (
             "recent price-gap workflow must reject branch dispatch"
         ),
-        "ref: main": "recent price-gap workflow must operate on main",
+        "ref: ${{ github.sha }}": "recent price-gap workflow must checkout its pinned event SHA",
+        'git merge-base --is-ancestor "$checkout_sha" "$remote_main_sha"': (
+            "recent price-gap pinned event SHA must remain a current-main ancestor"
+        ),
+        "moving main overlaps staged repair source-bundle paths": (
+            "recent price-gap publication must reject staged-path overlap"
+        ),
+        "for push_attempt in 1 2 3": (
+            "recent price-gap publication must use bounded normal push attempts"
+        ),
+        "for fetch_attempt in 1 2 3": (
+            "recent price-gap publication must use independent bounded fetch convergence"
+        ),
+        '"git", "diff", "--name-only", "--no-renames", "-z"': (
+            "recent price-gap overlap checks must expose both sides of renames"
+        ),
+        'git diff --cached --name-only --no-renames -z': (
+            "recent price-gap staged sets must expose both sides of renames"
+        ),
+        'if [ "$head_before_commit" != "$REPAIR_BASE_SHA" ]; then': (
+            "recent price-gap domain commit must start at the pinned repair base"
+        ),
+        'source_bundle_commit_count="$(git rev-list --count "$REPAIR_BASE_SHA..$source_bundle_commit_sha")"': (
+            "recent price-gap workflow must create one exact domain commit"
+        ),
+        'git merge --no-edit "$remote_main_sha"': (
+            "recent price-gap publication must ordinary-merge non-overlapping main"
+        ),
         "Build immutable current-day source recovery bundle": (
             "recent price-gap workflow must build an immutable current-day source bundle"
         ),
@@ -1063,6 +1111,14 @@ def validate_recent_price_gap_workflow_contract(repair_text: str) -> list[str]:
     for literal, message in repair_literals.items():
         if literal not in repair_text:
             errors.append(f"{message}: missing {literal!r}")
+    if repair_text.count("for push_attempt in 1 2 3; do") != 2:
+        errors.append("recent price-gap workflow must have exactly two bounded publish loops")
+    if repair_text.count("for fetch_attempt in 1 2 3; do") != 2:
+        errors.append("recent price-gap workflow must have exactly two bounded fetch loops")
+    if repair_text.count('"git", "diff", "--name-only", "--no-renames", "-z"') != 2:
+        errors.append("recent price-gap workflow must make both overlap checks rename-safe")
+    if repair_text.count("git diff --cached --name-only --no-renames -z") != 2:
+        errors.append("recent price-gap workflow must make both staged path sets rename-safe")
 
     zero_repair_guards = [
         condition
@@ -1080,6 +1136,7 @@ def validate_recent_price_gap_workflow_contract(repair_text: str) -> list[str]:
         "MARKET_SESSION_CHANGE_COUNT",
         "git add output/latest/market_session_status_latest.json",
         "git add data/market_calendar/exceptional_non_trading_days.csv",
+        "Validate workflow automation boundaries",
     ):
         if forbidden in repair_text:
             errors.append(
@@ -1167,8 +1224,14 @@ def validate_daily_failed_recovery_retry_contract(daily_text: str) -> list[str]:
         "recovery_retry_of_run_id:": (
             "Daily Full must declare the exact failed run resumed by code-only retry"
         ),
-        "failed-recovery retry inputs must be paired": (
-            "Daily Full must fail closed on a partial retry input pair"
+        "failed-recovery retry run id requires a reservation commit": (
+            "Daily Full must fail closed when retry provenance lacks its reservation commit"
+        ),
+        "failed-recovery retry requires recovery_expected_head_sha": (
+            "Daily Full failed-recovery retry must require its exact reviewed event head"
+        ),
+        "if expected_head and event_head != expected_head:": (
+            "Daily Full failed-recovery retry must reject event-head drift"
         ),
         "Validate single failed-recovery retry": (
             "Daily Full must enforce the one-retry run set before production"
@@ -1196,6 +1259,9 @@ def validate_daily_failed_recovery_retry_contract(daily_text: str) -> list[str]:
         ),
         '--reservation-path "${{ inputs.recovery_reservation_path }}"': (
             "Daily Full run validation must read the immutable reservation payload"
+        ),
+        '--expected-head-sha "${{ github.sha }}"': (
+            "Daily Full reservation verification must use the actual event head"
         ),
     }
     for literal, message in required_literals.items():

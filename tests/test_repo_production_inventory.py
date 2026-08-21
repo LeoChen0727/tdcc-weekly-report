@@ -186,6 +186,24 @@ def test_daily_required_commands_keep_pdf_runtime_gates_not_repo_static_self_hoo
     assert "python scripts/validate_model_research_workflow_isolation.py" not in commands
 
 
+def test_repair_and_historical_runtime_do_not_require_repo_static_self_hooks() -> None:
+    historical = ".github/workflows/historical_structured_source_replay.yml"
+    repair = ".github/workflows/repair_recent_daily_price_gaps.yml"
+    static_commands = {
+        "python scripts/validate_apps_script_workflow_triggers.py",
+        "python scripts/validate_repo_production_inventory.py",
+        "python scripts/validate_repo_file_lifecycle_inventory.py",
+        "python scripts/validate_repo_semantic_integrity.py",
+        "python scripts/validate_daily_production_boundaries.py",
+        "python scripts/validate_recent_structured_source_repair_workflow.py",
+    }
+
+    assert set(inventory.REQUIRED_WORKFLOW_COMMANDS[historical]).isdisjoint(
+        static_commands
+    )
+    assert repair not in inventory.REQUIRED_WORKFLOW_COMMANDS
+
+
 
 
 

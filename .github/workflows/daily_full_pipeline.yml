@@ -19,12 +19,12 @@ on:
         default: ""
         type: string
       recovery_expected_head_sha:
-        description: "Exact Daily Full event SHA reserved by the source-recovery workflow"
+        description: "Optional legacy exact Daily Full event SHA assertion"
         required: false
         default: ""
         type: string
       recovery_reservation_commit_sha:
-        description: "Original exact one-path reservation commit for a failed-run code-only retry"
+        description: "Exact one-path reservation commit for ordinary recovery or failed-run retry"
         required: false
         default: ""
         type: string
@@ -127,7 +127,6 @@ jobs:
 
           names = (
               "RECOVERY_CORRELATION_ID",
-              "RECOVERY_EXPECTED_HEAD_SHA",
               "RECOVERY_RESERVATION_PATH",
               "RECOVERY_RESERVATION_SHA256",
               "RECOVERY_SOURCE_BUNDLE_COMMIT_SHA",
@@ -140,20 +139,16 @@ jobs:
           populated = {name for name, value in values.items() if value}
           if populated and populated != set(names):
               raise SystemExit(f"recovery source bundle inputs must be all-or-none: {sorted(populated)}")
-          retry_names = (
-              "RECOVERY_RESERVATION_COMMIT_SHA",
-              "RECOVERY_RETRY_OF_RUN_ID",
-          )
-          retry_values = {
-              name: os.environ.get(name, "").strip() for name in retry_names
-          }
-          retry_populated = {name for name, value in retry_values.items() if value}
-          if retry_populated and retry_populated != set(retry_names):
+          reservation_commit = os.environ.get(
+              "RECOVERY_RESERVATION_COMMIT_SHA", ""
+          ).strip()
+          retry_run_id = os.environ.get("RECOVERY_RETRY_OF_RUN_ID", "").strip()
+          if retry_run_id and not reservation_commit:
               raise SystemExit(
-                  f"failed-recovery retry inputs must be paired: {sorted(retry_populated)}"
+                  "failed-recovery retry run id requires a reservation commit"
               )
-          if retry_populated and not populated:
-              raise SystemExit("failed-recovery retry requires the complete source bundle input set")
+          if (reservation_commit or retry_run_id) and not populated:
+              raise SystemExit("recovery reservation inputs require the complete source bundle input set")
           if populated:
               run_attempt = os.environ.get("GITHUB_RUN_ATTEMPT", "").strip()
               if run_attempt != "1":
@@ -161,17 +156,19 @@ jobs:
                       "recovery dispatch requires github.run_attempt=1: "
                       f"observed={run_attempt!r}"
                   )
-              expected_head = values["RECOVERY_EXPECTED_HEAD_SHA"]
+              expected_head = os.environ.get("RECOVERY_EXPECTED_HEAD_SHA", "").strip()
               event_head = os.environ.get("GITHUB_SHA", "").strip().lower()
               trading_date = values["RECOVERY_SOURCE_BUNDLE_TRADING_DATE"]
-              if retry_populated:
-                  reservation_commit = retry_values["RECOVERY_RESERVATION_COMMIT_SHA"]
-                  retry_run_id = retry_values["RECOVERY_RETRY_OF_RUN_ID"]
-                  if len(reservation_commit) != 40 or any(
-                      char not in "0123456789abcdef" for char in reservation_commit
-                  ):
+              if len(reservation_commit) != 40 or any(
+                  char not in "0123456789abcdef" for char in reservation_commit
+              ):
+                  raise SystemExit(
+                      f"invalid recovery reservation commit SHA: {reservation_commit!r}"
+                  )
+              if retry_run_id:
+                  if not expected_head:
                       raise SystemExit(
-                          f"invalid recovery reservation commit SHA: {reservation_commit!r}"
+                          "failed-recovery retry requires recovery_expected_head_sha"
                       )
                   if not retry_run_id.isdigit() or int(retry_run_id) <= 0:
                       raise SystemExit(f"invalid failed recovery run id: {retry_run_id!r}")
@@ -191,9 +188,9 @@ jobs:
                           "recovery correlation id must equal the date-scoped bundle identity: "
                           f"expected={expected_correlation} observed={values['RECOVERY_CORRELATION_ID']}"
                       )
-              if len(expected_head) != 40 or any(char not in "0123456789abcdef" for char in expected_head):
-                  raise SystemExit(f"invalid recovery expected head SHA: {expected_head!r}")
-              if event_head != expected_head:
+              if len(event_head) != 40 or any(char not in "0123456789abcdef" for char in event_head):
+                  raise SystemExit(f"invalid recovery event SHA: {event_head!r}")
+              if expected_head and event_head != expected_head:
                   raise SystemExit(
                       f"recovery event SHA mismatch: expected={expected_head} observed={event_head}"
                   )
@@ -207,7 +204,7 @@ jobs:
             --trading-date "${{ inputs.recovery_source_bundle_trading_date }}" \
             --reservation-path "${{ inputs.recovery_reservation_path }}" \
             --reservation-sha256 "${{ inputs.recovery_reservation_sha256 }}" \
-            --expected-head-sha "${{ inputs.recovery_expected_head_sha }}" \
+            --expected-head-sha "${{ github.sha }}" \
             --source-commit-sha "${{ inputs.recovery_source_bundle_commit_sha }}" \
             --manifest-path "${{ inputs.recovery_source_bundle_manifest_path }}" \
             --manifest-sha256 "${{ inputs.recovery_source_bundle_manifest_sha256 }}" \
@@ -257,7 +254,7 @@ jobs:
         id: decision
         shell: bash
         env:
-          RECOVERY_EXPECTED_HEAD_SHA: ${{ inputs.recovery_expected_head_sha }}
+          RECOVERY_EXPECTED_HEAD_SHA: ${{ github.sha }}
           RECOVERY_RESERVATION_PATH: ${{ inputs.recovery_reservation_path }}
           RECOVERY_RESERVATION_SHA256: ${{ inputs.recovery_reservation_sha256 }}
           RECOVERY_SOURCE_BUNDLE_COMMIT_SHA: ${{ inputs.recovery_source_bundle_commit_sha }}
@@ -357,7 +354,7 @@ jobs:
       REASON_CODE: ${{ needs.market-session-preflight.outputs.reason_code }}
       PREFLIGHT_SOURCE_SHA: ${{ needs.market-session-preflight.outputs.source_sha }}
       RECOVERY_SOURCE_BUNDLE_COMMIT_SHA: ${{ inputs.recovery_source_bundle_commit_sha }}
-      RECOVERY_EXPECTED_HEAD_SHA: ${{ inputs.recovery_expected_head_sha }}
+      RECOVERY_EXPECTED_HEAD_SHA: ${{ needs.market-session-preflight.outputs.source_sha }}
       RECOVERY_RESERVATION_PATH: ${{ inputs.recovery_reservation_path }}
       RECOVERY_RESERVATION_SHA256: ${{ inputs.recovery_reservation_sha256 }}
       RECOVERY_SOURCE_BUNDLE_MANIFEST_PATH: ${{ inputs.recovery_source_bundle_manifest_path }}
@@ -640,7 +637,7 @@ jobs:
       TARGET_BRANCH: main
       EXPECTED_MAIN_PRICE_DATE: ${{ needs.market-session-preflight.outputs.expected_main_price_date }}
       PREFLIGHT_SOURCE_SHA: ${{ needs.market-session-preflight.outputs.source_sha }}
-      RECOVERY_EXPECTED_HEAD_SHA: ${{ inputs.recovery_expected_head_sha }}
+      RECOVERY_EXPECTED_HEAD_SHA: ${{ needs.market-session-preflight.outputs.source_sha }}
       RECOVERY_RESERVATION_PATH: ${{ inputs.recovery_reservation_path }}
       RECOVERY_RESERVATION_SHA256: ${{ inputs.recovery_reservation_sha256 }}
       RECOVERY_SOURCE_BUNDLE_COMMIT_SHA: ${{ inputs.recovery_source_bundle_commit_sha }}

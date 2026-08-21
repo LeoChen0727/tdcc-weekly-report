@@ -137,7 +137,6 @@ def _collect_workflow_validation_steps(file_path: Path) -> tuple[dict[str, list[
     "workflow_file",
     [
         ".github/workflows/daily_full_pipeline.yml",
-        ".github/workflows/repair_recent_daily_price_gaps.yml",
     ],
 )
 def test_workflow_dependency_install_precedes_boundary_validator(
@@ -2327,7 +2326,9 @@ def test_recent_price_gap_workflow_bundles_zero_repair_without_publishing_market
 
     assert "Reject non-main production dispatch" in text
     assert "github.ref_name != 'main'" in text
-    assert "ref: main" in text
+    assert "ref: ${{ github.sha }}" in text
+    assert "ref: ${{ needs.repair-recent-daily-price-gaps.outputs.source_bundle_commit_sha }}" in text
+    assert "Validate workflow automation boundaries" not in text
     assert not any(
         line.strip().lower().startswith("if:") and "REPAIR_ACTION_COUNT" in line
         for line in text.splitlines()
@@ -2339,6 +2340,11 @@ def test_recent_price_gap_workflow_bundles_zero_repair_without_publishing_market
     assert "git add data/market_calendar/exceptional_non_trading_days.csv" not in text
     assert "bash scripts/ci_push_with_retry.sh main 5" not in text
     assert "git push origin HEAD:main" in text
+    assert "for push_attempt in 1 2 3" in text
+    assert text.count("for push_attempt in 1 2 3; do") == 2
+    assert text.count("for fetch_attempt in 1 2 3; do") == 2
+    assert "moving main overlaps staged repair source-bundle paths" in text
+    assert 'git merge --no-edit "$remote_main_sha"' in text
     exact_continuity = (
         'python scripts/validate_daily_price_history_continuity.py '
         '--main-price-date "$REPAIR_TARGET_DATE"'
@@ -2532,12 +2538,15 @@ def test_daily_full_failed_recovery_retry_contract_is_explicit_and_paired() -> N
     assert boundaries.validate_daily_failed_recovery_retry_contract(text) == []
     assert text.count("recovery_reservation_commit_sha:") == 1
     assert text.count("recovery_retry_of_run_id:") == 1
-    assert "failed-recovery retry inputs must be paired" in text
+    assert "failed-recovery retry run id requires a reservation commit" in text
+    assert "failed-recovery retry requires recovery_expected_head_sha" in text
+    assert "if expected_head and event_head != expected_head:" in text
     assert "verify-retry-runs" in text
     assert "collect-retry-runs" in text
     assert "daily-full-retry-{0}" in text
     assert "daily-full-retry-{0}-{1}" not in text
     assert "--reservation-commit-sha" in text
+    assert '--expected-head-sha "${{ github.sha }}"' in text
     assert "--reservation-path" in text
     assert "--retry-of-run-id" in text
     group_line = next(
@@ -2561,7 +2570,9 @@ def test_daily_full_failed_recovery_retry_contract_rejects_missing_guards() -> N
     for required in (
         "recovery_reservation_commit_sha:",
         "recovery_retry_of_run_id:",
-        "failed-recovery retry inputs must be paired",
+        "failed-recovery retry run id requires a reservation commit",
+        "failed-recovery retry requires recovery_expected_head_sha",
+        "if expected_head and event_head != expected_head:",
         "Validate single failed-recovery retry",
         "collect-retry-runs",
         "verify-retry-runs",
@@ -2569,6 +2580,7 @@ def test_daily_full_failed_recovery_retry_contract_rejects_missing_guards() -> N
         '--reservation-commit-sha "${{ inputs.recovery_reservation_commit_sha }}"',
         '--reservation-path "${{ inputs.recovery_reservation_path }}"',
         '--retry-of-run-id "${{ inputs.recovery_retry_of_run_id }}"',
+        '--expected-head-sha "${{ github.sha }}"',
     ):
         mutated = text.replace(required, "disabled-retry-contract-token")
         assert boundaries.validate_daily_failed_recovery_retry_contract(mutated)
@@ -3056,16 +3068,16 @@ def test_historical_structured_source_replay_rejects_broad_stage_and_retry_push(
     assert any("moving main" in error for error in errors)
 
 
-def test_historical_structured_source_replay_rejects_dependency_validator_order_swap() -> None:
+def test_historical_structured_source_replay_rejects_runtime_static_block() -> None:
     text = boundaries.HISTORICAL_SOURCE_REPLAY_WORKFLOW.read_text(encoding="utf-8")
-    text = text.replace("Install replay dependencies", "TEMP STEP NAME", 1)
     text = text.replace(
-        "Validate repository automation boundaries",
-        "Install replay dependencies",
+        "      - name: Replay structured objective sources in ascending order",
+        "      - name: Validate repository automation boundaries\n"
+        "        run: python scripts/validate_repo_production_inventory.py\n\n"
+        "      - name: Replay structured objective sources in ascending order",
         1,
     )
-    text = text.replace("TEMP STEP NAME", "Validate repository automation boundaries", 1)
 
     errors = boundaries.validate_historical_source_replay_workflow(text)
 
-    assert any("fail-closed order" in error for error in errors)
+    assert any("must not run repo-static governance" in error for error in errors)

@@ -56,6 +56,7 @@ jobs:
       source_bundle_sha: ${{ steps.source_bundle.outputs.source_bundle_sha }}
       source_bundle_release_id: ${{ steps.source_bundle.outputs.release_id }}
       source_bundle_commit_sha: ${{ steps.persist_bundle.outputs.source_bundle_commit_sha }}
+      published_head_sha: ${{ steps.persist_bundle.outputs.published_head_sha }}
 
     steps:
       - name: Reject non-main production dispatch
@@ -79,7 +80,7 @@ jobs:
         with:
           ssh-key: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}
           persist-credentials: true
-          ref: main
+          ref: ${{ github.sha }}
           fetch-depth: 0
 
       - name: Verify and capture caller-pinned workflow definitions
@@ -89,10 +90,12 @@ jobs:
           CALLER_SHA: ${{ github.sha }}
         run: |
           checkout_sha="$(git rev-parse HEAD)"
-          remote_main_sha="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+          git fetch origin main
+          remote_main_sha="$(git rev-parse origin/main)"
           if [[ ! "$CALLER_SHA" =~ ^[0-9a-f]{40}$ ]] || \
-             [ -z "$remote_main_sha" ] || [ "$checkout_sha" != "$remote_main_sha" ]; then
-            echo "::error::Recent repair checkout must equal current remote main before any data work."
+             [ "$checkout_sha" != "$CALLER_SHA" ] || \
+             ! git merge-base --is-ancestor "$checkout_sha" "$remote_main_sha"; then
+            echo "::error::Recent repair checkout must equal the pinned event SHA and remain an ancestor of current main."
             exit 1
           fi
           echo "REPAIR_BASE_SHA=$checkout_sha" >> "$GITHUB_ENV"
@@ -119,15 +122,6 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install pandas requests lxml html5lib tabulate
-
-      - name: Validate workflow automation boundaries
-        run: |
-          python scripts/validate_apps_script_workflow_triggers.py
-          python scripts/validate_repo_production_inventory.py
-          python scripts/validate_repo_file_lifecycle_inventory.py
-          python scripts/validate_repo_semantic_integrity.py
-          python scripts/validate_daily_production_boundaries.py
-          python scripts/validate_recent_structured_source_repair_workflow.py
 
       - name: Repair recent daily price gaps
         env:
@@ -258,21 +252,115 @@ jobs:
 
       - name: Commit repaired recent daily price gaps
         id: persist_bundle
+        shell: bash
         run: |
-          remote_main_sha="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
-          if [ -z "$remote_main_sha" ] || [ "$remote_main_sha" != "$REPAIR_BASE_SHA" ]; then
-            echo "::error::Remote main drifted during recent price repair; refusing to commit or rebase stale outputs."
+          set -euo pipefail
+          staged_paths_file="$RUNNER_TEMP/repair-source-bundle-staged-paths.z"
+          git diff --cached --name-only --no-renames -z > "$staged_paths_file"
+          head_before_commit="$(git rev-parse HEAD)"
+          if [ "$head_before_commit" != "$REPAIR_BASE_SHA" ]; then
+            echo "::error::Repair HEAD changed before the unique source-bundle domain commit."
             exit 1
           fi
+          commit_count_before="$(git rev-list --count HEAD)"
           git commit -m "Persist ${REPAIR_TARGET_DATE} daily source recovery bundle"
-          git push origin HEAD:main
-          local_sha="$(git rev-parse HEAD)"
-          remote_main_sha="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
-          if [ -z "$remote_main_sha" ] || [ "$local_sha" != "$remote_main_sha" ]; then
-            echo "::error::Remote main does not equal the persisted recent price repair commit."
+          commit_count_after="$(git rev-list --count HEAD)"
+          source_bundle_commit_sha="$(git rev-parse HEAD)"
+          source_bundle_commit_count="$(git rev-list --count "$REPAIR_BASE_SHA..$source_bundle_commit_sha")"
+          if [ "$((commit_count_after - commit_count_before))" -ne 1 ] || \
+             [ "$source_bundle_commit_count" -ne 1 ] || \
+             [[ ! "$source_bundle_commit_sha" =~ ^[0-9a-f]{40}$ ]] || \
+             ! git merge-base --is-ancestor "$REPAIR_BASE_SHA" "$source_bundle_commit_sha"; then
+            echo "::error::Repair must create exactly one source-bundle domain commit above REPAIR_BASE_SHA."
             exit 1
           fi
-          echo "source_bundle_commit_sha=$local_sha" >> "$GITHUB_OUTPUT"
+          published=false
+          published_head_sha=""
+          candidate_published_head_sha=""
+          fetch_main_bounded() {
+            for fetch_attempt in 1 2 3; do
+              if git fetch origin main && \
+                 remote_main_sha="$(git rev-parse origin/main)" && \
+                 [[ "$remote_main_sha" =~ ^[0-9a-f]{40}$ ]]; then
+                return 0
+              fi
+              sleep 5
+            done
+            return 1
+          }
+          for push_attempt in 1 2 3; do
+            if ! fetch_main_bounded; then
+              continue
+            fi
+            if [[ "$candidate_published_head_sha" =~ ^[0-9a-f]{40}$ ]] && \
+               git merge-base --is-ancestor "$source_bundle_commit_sha" "$candidate_published_head_sha" && \
+               git merge-base --is-ancestor "$candidate_published_head_sha" "$remote_main_sha"; then
+              published=true
+              published_head_sha="$candidate_published_head_sha"
+              break
+            fi
+            if ! git merge-base --is-ancestor "$REPAIR_BASE_SHA" "$remote_main_sha"; then
+              echo "::error::Current main is not a descendant of the pinned repair base."
+              exit 1
+            fi
+            comparison_base="$REPAIR_BASE_SHA"
+            if git merge-base --is-ancestor "$source_bundle_commit_sha" "$remote_main_sha"; then
+              comparison_base="$source_bundle_commit_sha"
+            fi
+            python - "$comparison_base" "$remote_main_sha" "$staged_paths_file" <<'PY'
+          import subprocess
+          import sys
+          from pathlib import Path
+
+          changed = {
+              item.decode("utf-8", errors="strict")
+              for item in subprocess.check_output(
+                  ["git", "diff", "--name-only", "--no-renames", "-z", sys.argv[1], sys.argv[2], "--"]
+              ).split(b"\0")
+              if item
+          }
+          staged = {
+              item.decode("utf-8", errors="strict")
+              for item in Path(sys.argv[3]).read_bytes().split(b"\0")
+              if item
+          }
+          overlap = sorted(changed & staged)
+          if overlap:
+              raise SystemExit(
+                  "moving main overlaps staged repair source-bundle paths: "
+                  + ",".join(overlap)
+              )
+          PY
+            if ! git merge-base --is-ancestor "$remote_main_sha" HEAD; then
+              git merge --no-edit "$remote_main_sha"
+            fi
+            candidate_published_head_sha="$(git rev-parse HEAD)"
+            if [[ ! "$candidate_published_head_sha" =~ ^[0-9a-f]{40}$ ]] || \
+               ! git merge-base --is-ancestor "$source_bundle_commit_sha" "$candidate_published_head_sha"; then
+              echo "::error::Repair source-bundle publish candidate is invalid."
+              exit 1
+            fi
+            if git push origin HEAD:main; then
+              published=true
+              published_head_sha="$candidate_published_head_sha"
+              break
+            fi
+            sleep 5
+          done
+          if [ "$published" != true ] && \
+             [[ "$candidate_published_head_sha" =~ ^[0-9a-f]{40}$ ]] && \
+             fetch_main_bounded && \
+             git merge-base --is-ancestor "$source_bundle_commit_sha" "$candidate_published_head_sha" && \
+             git merge-base --is-ancestor "$candidate_published_head_sha" "$remote_main_sha"; then
+            published=true
+            published_head_sha="$candidate_published_head_sha"
+          fi
+          if [ "$published" != true ]; then
+            echo "::error::Unable to publish repair source bundle after three normal non-force attempts."
+            exit 1
+          fi
+          echo "source_bundle_commit_sha=$source_bundle_commit_sha" >> "$GITHUB_OUTPUT"
+          echo "published_head_sha=$published_head_sha" >> "$GITHUB_OUTPUT"
 
   plan-structured-objective-source-catch-up:
     needs: repair-recent-daily-price-gaps
@@ -287,10 +375,10 @@ jobs:
       expected_main_sha: ${{ steps.structured_replay_plan.outputs.expected_main_sha }}
 
     steps:
-      - name: Checkout current main for structured catch-up planning
+      - name: Checkout published source-bundle commit for structured catch-up planning
         uses: actions/checkout@v6
         with:
-          ref: main
+          ref: ${{ needs.repair-recent-daily-price-gaps.outputs.source_bundle_commit_sha }}
           fetch-depth: 0
           persist-credentials: false
 
@@ -315,17 +403,19 @@ jobs:
           git fetch origin main
           local_sha="$(git rev-parse HEAD)"
           remote_main_sha="$(git rev-parse origin/main)"
-          if [ -z "$local_sha" ] || [ "$local_sha" != "$remote_main_sha" ]; then
-            echo "::error::Recent price repair checkout must equal origin/main before planning structured replay."
+          if [ -z "$local_sha" ] || \
+             [ "$local_sha" != "${{ needs.repair-recent-daily-price-gaps.outputs.source_bundle_commit_sha }}" ] || \
+             ! git merge-base --is-ancestor "$local_sha" "$remote_main_sha"; then
+            echo "::error::Structured replay planner must use the published source-bundle commit and it must remain a current-main ancestor."
             exit 1
           fi
-          remote_repair_workflow_blob_sha="$(git rev-parse origin/main:.github/workflows/repair_recent_daily_price_gaps.yml)"
-          remote_replay_workflow_blob_sha="$(git rev-parse origin/main:.github/workflows/historical_structured_source_replay.yml)"
+          local_repair_workflow_blob_sha="$(git rev-parse HEAD:.github/workflows/repair_recent_daily_price_gaps.yml)"
+          local_replay_workflow_blob_sha="$(git rev-parse HEAD:.github/workflows/historical_structured_source_replay.yml)"
           if [[ ! "$CALLER_REPAIR_WORKFLOW_BLOB_SHA" =~ ^[0-9a-f]{40}$ ]] || \
              [[ ! "$CALLER_REPLAY_WORKFLOW_BLOB_SHA" =~ ^[0-9a-f]{40}$ ]] || \
-             [ "$remote_repair_workflow_blob_sha" != "$CALLER_REPAIR_WORKFLOW_BLOB_SHA" ] || \
-             [ "$remote_replay_workflow_blob_sha" != "$CALLER_REPLAY_WORKFLOW_BLOB_SHA" ]; then
-            echo "::error::Caller workflow definitions differ from current main; refusing structured replay."
+             [ "$local_repair_workflow_blob_sha" != "$CALLER_REPAIR_WORKFLOW_BLOB_SHA" ] || \
+             [ "$local_replay_workflow_blob_sha" != "$CALLER_REPLAY_WORKFLOW_BLOB_SHA" ]; then
+            echo "::error::Caller workflow definitions differ from the pinned source-bundle commit."
             exit 1
           fi
 
@@ -334,13 +424,14 @@ jobs:
             --max-replay-dates "$MAX_REPLAY_DATES" \
             --output "$plan_path"
 
-          remote_main_sha_after_plan="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
-          if [ -z "$remote_main_sha_after_plan" ] || [ "$remote_main_sha_after_plan" != "$local_sha" ]; then
-            echo "::error::Remote main drifted while planning structured replay; refusing stale success."
+          git fetch origin main
+          remote_main_sha_after_plan="$(git rev-parse origin/main)"
+          if ! git merge-base --is-ancestor "$local_sha" "$remote_main_sha_after_plan"; then
+            echo "::error::Published source-bundle commit stopped being a current-main ancestor during planning."
             exit 1
           fi
 
-          python - "$plan_path" "$remote_main_sha" <<'PY' >> "$GITHUB_OUTPUT"
+          python - "$plan_path" "$local_sha" <<'PY' >> "$GITHUB_OUTPUT"
           import json
           from pathlib import Path
           import sys
@@ -403,8 +494,33 @@ jobs:
       STRUCTURED_PLAN_RESULT: ${{ needs.plan-structured-objective-source-catch-up.result }}
       STRUCTURED_REPLAY_REQUIRED: ${{ needs.plan-structured-objective-source-catch-up.outputs.should_replay }}
       STRUCTURED_REPLAY_RESULT: ${{ needs.replay-structured-objective-sources.result }}
+      REPAIR_PUBLISHED_HEAD_SHA: ${{ needs.repair-recent-daily-price-gaps.outputs.published_head_sha }}
+      REPLAY_DOMAIN_OUTPUT_COMMIT_SHA: ${{ needs.replay-structured-objective-sources.outputs.domain_output_commit_sha }}
+      REPLAY_PUBLISHED_HEAD_SHA: ${{ needs.replay-structured-objective-sources.outputs.published_head_sha }}
 
     steps:
+      - name: Resolve exact published resume head
+        id: resolve_resume_head
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ ! "$REPAIR_PUBLISHED_HEAD_SHA" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "::error::Repair published head SHA is missing or invalid."
+            exit 1
+          fi
+          resume_published_base_sha="$REPAIR_PUBLISHED_HEAD_SHA"
+          if [ "$STRUCTURED_REPLAY_REQUIRED" = true ] && \
+             [ "$STRUCTURED_REPLAY_RESULT" = success ]; then
+            if [[ ! "$REPLAY_DOMAIN_OUTPUT_COMMIT_SHA" =~ ^[0-9a-f]{40}$ ]] || \
+               [[ ! "$REPLAY_PUBLISHED_HEAD_SHA" =~ ^[0-9a-f]{40}$ ]]; then
+              echo "::error::Successful structured replay must expose exact domain and published SHAs."
+              exit 1
+            fi
+            resume_published_base_sha="$REPLAY_PUBLISHED_HEAD_SHA"
+          fi
+          echo "resume_published_base_sha=$resume_published_base_sha" >> "$GITHUB_OUTPUT"
+          echo "RESUME_PUBLISHED_BASE_SHA=$resume_published_base_sha" >> "$GITHUB_ENV"
+
       - name: Require production artifact write deploy key
         shell: bash
         env:
@@ -415,12 +531,12 @@ jobs:
             exit 1
           fi
 
-      - name: Checkout current main for immutable resume
+      - name: Checkout pinned published head for immutable resume
         uses: actions/checkout@v6
         with:
           ssh-key: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}
           persist-credentials: true
-          ref: main
+          ref: ${{ steps.resolve_resume_head.outputs.resume_published_base_sha }}
           fetch-depth: 0
 
       - name: Set up Python
@@ -433,14 +549,28 @@ jobs:
         run: |
           set -euo pipefail
           git fetch origin main
-          resume_head_sha="$(git rev-parse origin/main)"
-          if [ "$(git rev-parse HEAD)" != "$resume_head_sha" ]; then
-            echo "::error::Resume checkout does not equal current main."
+          resume_base_sha="$(git rev-parse HEAD)"
+          remote_main_sha="$(git rev-parse origin/main)"
+          if [ "$resume_base_sha" != "$RESUME_PUBLISHED_BASE_SHA" ] || \
+             ! git merge-base --is-ancestor "$resume_base_sha" "$remote_main_sha"; then
+            echo "::error::Resume checkout must equal the pinned published head and remain a current-main ancestor."
             exit 1
           fi
-          if ! git merge-base --is-ancestor "$SOURCE_BUNDLE_COMMIT_SHA" "$resume_head_sha"; then
+          if ! git merge-base --is-ancestor "$SOURCE_BUNDLE_COMMIT_SHA" "$resume_base_sha"; then
             echo "::error::Source bundle commit is not an ancestor of current main."
             exit 1
+          fi
+          if [ "$STRUCTURED_REPLAY_REQUIRED" = true ] && \
+             [ "$STRUCTURED_REPLAY_RESULT" = success ]; then
+            if [[ ! "$REPLAY_DOMAIN_OUTPUT_COMMIT_SHA" =~ ^[0-9a-f]{40}$ ]] || \
+               [[ ! "$REPLAY_PUBLISHED_HEAD_SHA" =~ ^[0-9a-f]{40}$ ]] || \
+               [ "$resume_base_sha" != "$REPLAY_PUBLISHED_HEAD_SHA" ] || \
+               ! git merge-base --is-ancestor "$SOURCE_BUNDLE_COMMIT_SHA" "$REPLAY_DOMAIN_OUTPUT_COMMIT_SHA" || \
+               ! git merge-base --is-ancestor "$REPLAY_DOMAIN_OUTPUT_COMMIT_SHA" "$resume_base_sha" || \
+               ! git merge-base --is-ancestor "$REPAIR_PUBLISHED_HEAD_SHA" "$resume_base_sha"; then
+              echo "::error::Successful structured replay outputs do not form the required published ancestry."
+              exit 1
+            fi
           fi
 
           state_path="$RUNNER_TEMP/daily-source-recovery-state.json"
@@ -587,30 +717,102 @@ jobs:
           git diff --cached --check
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          reservation_base_sha="$(git rev-parse HEAD)"
+          reservation_paths_file="$RUNNER_TEMP/recovery-reservation-staged-paths.z"
+          git diff --cached --name-only --no-renames -z > "$reservation_paths_file"
           git commit -m "Reserve Daily Full recovery for ${SOURCE_TRADING_DATE}"
-          if ! git push origin HEAD:main; then
-            fail_recovery "Durable Daily Full recovery reservation push failed or is uncertain"
-          fi
-          resume_head_sha="$(git rev-parse HEAD)"
-          remote_main_after_reservation="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
-          if [ "$remote_main_after_reservation" != "$resume_head_sha" ]; then
-            fail_recovery "Durable recovery reservation commit does not equal remote main"
-          fi
-          python -B scripts/daily_source_recovery_bundle.py transition \
-            --state "$state_path" --to resume_dispatched --output "$state_path.next" \
-            --resume-workflow-path ".github/workflows/daily_full_pipeline.yml" \
-            --resume-baseline-run-id "$baseline_run_id" \
-            --resume-dispatch-started-at "$dispatch_started_at" \
-            --resume-expected-head-sha "$resume_head_sha" \
-            --resume-expected-display-title "$expected_title" \
-            --resume-reservation-path "$reservation_path" \
-            --resume-reservation-sha256 "$reservation_sha256"
-          mv "$state_path.next" "$state_path"
+          reservation_commit_sha="$(git rev-parse HEAD)"
+          reservation_published=false
+          reservation_published_head_sha=""
+          reservation_candidate_head_sha=""
+          fetch_reservation_main_bounded() {
+            for fetch_attempt in 1 2 3; do
+              if git fetch origin main && \
+                 remote_main_sha="$(git rev-parse origin/main)" && \
+                 [[ "$remote_main_sha" =~ ^[0-9a-f]{40}$ ]]; then
+                return 0
+              fi
+              sleep 5
+            done
+            return 1
+          }
+          for push_attempt in 1 2 3; do
+            if ! fetch_reservation_main_bounded; then
+              continue
+            fi
+            if [[ "$reservation_candidate_head_sha" =~ ^[0-9a-f]{40}$ ]] && \
+               git merge-base --is-ancestor "$reservation_commit_sha" "$reservation_candidate_head_sha" && \
+               git merge-base --is-ancestor "$reservation_candidate_head_sha" "$remote_main_sha"; then
+              reservation_published=true
+              reservation_published_head_sha="$reservation_candidate_head_sha"
+              break
+            fi
+            if ! git merge-base --is-ancestor "$reservation_base_sha" "$remote_main_sha"; then
+              fail_recovery "Current main is not a descendant of the pinned reservation base"
+            fi
+            comparison_base="$reservation_base_sha"
+            if git merge-base --is-ancestor "$reservation_commit_sha" "$remote_main_sha"; then
+              comparison_base="$reservation_commit_sha"
+            fi
+            if ! python - "$comparison_base" "$remote_main_sha" "$reservation_paths_file" <<'PY'
+          import subprocess
+          import sys
+          from pathlib import Path
 
+          changed = {
+              item.decode("utf-8", errors="strict")
+              for item in subprocess.check_output(
+                  ["git", "diff", "--name-only", "--no-renames", "-z", sys.argv[1], sys.argv[2], "--"]
+              ).split(b"\0")
+              if item
+          }
+          staged = {
+              item.decode("utf-8", errors="strict")
+              for item in Path(sys.argv[3]).read_bytes().split(b"\0")
+              if item
+          }
+          overlap = sorted(changed & staged)
+          if overlap:
+              raise SystemExit(
+                  "moving main overlaps the date-scoped recovery reservation: "
+                  + ",".join(overlap)
+              )
+          PY
+            then
+              fail_recovery "Current main overlaps the date-scoped recovery reservation"
+            fi
+            if ! git merge-base --is-ancestor "$remote_main_sha" HEAD; then
+              git merge --no-edit "$remote_main_sha"
+            fi
+            reservation_candidate_head_sha="$(git rev-parse HEAD)"
+            if [[ ! "$reservation_candidate_head_sha" =~ ^[0-9a-f]{40}$ ]] || \
+               ! git merge-base --is-ancestor "$reservation_commit_sha" "$reservation_candidate_head_sha"; then
+              fail_recovery "Recovery reservation publish candidate is invalid"
+            fi
+            if git push origin HEAD:main; then
+              reservation_published=true
+              reservation_published_head_sha="$reservation_candidate_head_sha"
+              break
+            fi
+            sleep 5
+          done
+          if [ "$reservation_published" != true ] && \
+             [[ "$reservation_candidate_head_sha" =~ ^[0-9a-f]{40}$ ]] && \
+             fetch_reservation_main_bounded && \
+             git merge-base --is-ancestor "$reservation_commit_sha" "$reservation_candidate_head_sha" && \
+             git merge-base --is-ancestor "$reservation_candidate_head_sha" "$remote_main_sha"; then
+            reservation_published=true
+            reservation_published_head_sha="$reservation_candidate_head_sha"
+          fi
+          if [ "$reservation_published" != true ]; then
+            fail_recovery "Durable recovery reservation was not published after three normal non-force attempts"
+          fi
+
+          dispatch_result=success
           if ! gh workflow run daily_full_pipeline.yml --ref main \
               -f run_raw_health_check=false \
               -f recovery_correlation_id="$correlation_id" \
-              -f recovery_expected_head_sha="$resume_head_sha" \
+              -f recovery_reservation_commit_sha="$reservation_commit_sha" \
               -f recovery_reservation_path="$reservation_path" \
               -f recovery_reservation_sha256="$reservation_sha256" \
               -f recovery_source_bundle_commit_sha="$SOURCE_BUNDLE_COMMIT_SHA" \
@@ -618,7 +820,7 @@ jobs:
               -f recovery_source_bundle_manifest_sha256="$SOURCE_BUNDLE_MANIFEST_SHA256" \
               -f recovery_source_bundle_sha="$SOURCE_BUNDLE_SHA" \
               -f recovery_source_bundle_trading_date="$SOURCE_TRADING_DATE"; then
-            fail_recovery "Daily Full dispatch command failed or is uncertain"
+            dispatch_result=uncertain
           fi
 
           correlated_json=""
@@ -637,7 +839,7 @@ jobs:
             if [ "$api_ok" != true ]; then
               fail_recovery "Unable to list Daily Full runs after bounded API retries"
             fi
-            if ! correlated_json="$(python - "$runs_json" "$baseline_run_id" "$dispatch_started_at" "$resume_head_sha" "$expected_title" <<'PY'
+            if ! correlated_json="$(python - "$runs_json" "$baseline_run_id" "$dispatch_started_at" "$expected_title" <<'PY'
           import json
           import sys
           from pathlib import Path
@@ -648,8 +850,8 @@ jobs:
               runs,
               baseline_run_id=int(sys.argv[2]),
               dispatch_started_at=sys.argv[3],
-              expected_head_sha=sys.argv[4],
-              expected_display_title=sys.argv[5],
+              expected_head_sha="",
+              expected_display_title=sys.argv[4],
           )
           print(json.dumps(selected or {}, separators=(",", ":")))
           PY
@@ -662,12 +864,26 @@ jobs:
             sleep 10
           done
           if [ -z "$correlated_json" ] || [ "$correlated_json" = "{}" ]; then
-            fail_recovery "No unique Daily Full run matched the bounded dispatch window"
+            fail_recovery "No unique Daily Full run matched the bounded dispatch window; dispatch_result=$dispatch_result"
           fi
           if ! run_id="$(python -c 'import json,sys; print(json.loads(sys.argv[1])["databaseId"])' "$correlated_json")" || \
-             ! run_url="$(python -c 'import json,sys; print(json.loads(sys.argv[1])["url"])' "$correlated_json")"; then
+             ! run_url="$(python -c 'import json,sys; print(json.loads(sys.argv[1])["url"])' "$correlated_json")" || \
+             ! run_head_sha="$(python -c 'import json,sys; print(json.loads(sys.argv[1])["headSha"])' "$correlated_json")"; then
             fail_recovery "Correlated Daily Full run identity is incomplete"
           fi
+          if [[ ! "$run_head_sha" =~ ^[0-9a-f]{40}$ ]]; then
+            fail_recovery "Correlated Daily Full event head SHA is invalid"
+          fi
+          python -B scripts/daily_source_recovery_bundle.py transition \
+            --state "$state_path" --to resume_dispatched --output "$state_path.next" \
+            --resume-workflow-path ".github/workflows/daily_full_pipeline.yml" \
+            --resume-baseline-run-id "$baseline_run_id" \
+            --resume-dispatch-started-at "$dispatch_started_at" \
+            --resume-expected-head-sha "$run_head_sha" \
+            --resume-expected-display-title "$expected_title" \
+            --resume-reservation-path "$reservation_path" \
+            --resume-reservation-sha256 "$reservation_sha256"
+          mv "$state_path.next" "$state_path"
           python -B scripts/daily_source_recovery_bundle.py transition \
             --state "$state_path" --to resume_running --output "$state_path.next" \
             --resume-workflow-run-id "$run_id" \
@@ -688,7 +904,7 @@ jobs:
             if [ "$api_ok" != true ]; then
               fail_recovery "Unable to poll Daily Full completion after bounded API retries"
             fi
-            if ! status_line="$(python - "$view_json" "$run_id" "$resume_head_sha" "$expected_title" <<'PY'
+            if ! status_line="$(python - "$view_json" "$run_id" "$run_head_sha" "$expected_title" <<'PY'
           import json
           import sys
           from pathlib import Path

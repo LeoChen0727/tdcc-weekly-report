@@ -373,11 +373,6 @@ REQUIRED_WORKFLOW_COMMANDS = {
         "python scripts/validate_daily_pdf_completion_hard_gate.py",
     ),
     ".github/workflows/historical_structured_source_replay.yml": (
-        "python scripts/validate_apps_script_workflow_triggers.py",
-        "python scripts/validate_repo_production_inventory.py",
-        "python scripts/validate_repo_file_lifecycle_inventory.py",
-        "python scripts/validate_repo_semantic_integrity.py",
-        "python scripts/validate_daily_production_boundaries.py",
         "python scripts/replay_historical_structured_sources.py",
         "python scripts/validate_historical_structured_source_replay.py",
         "python scripts/validate_historical_source_replay_staged_paths.py",
@@ -427,13 +422,6 @@ REQUIRED_WORKFLOW_COMMANDS = {
         "python scripts/validate_individual_pdf_contract_consumers.py",
     ),
     ".github/workflows/warrant_flow.yml": ("python scripts/validate_repo_production_inventory.py",),
-    ".github/workflows/repair_recent_daily_price_gaps.yml": (
-        "python scripts/validate_apps_script_workflow_triggers.py",
-        "python scripts/validate_repo_production_inventory.py",
-        "python scripts/validate_repo_file_lifecycle_inventory.py",
-        "python scripts/validate_repo_semantic_integrity.py",
-        "python scripts/validate_recent_structured_source_repair_workflow.py",
-    ),
     ".github/workflows/volume_v2_advisory_lineage_refresh.yml": (
         "python scripts/validate_repo_production_inventory.py",
         "python -B scripts/validate_repo_file_lifecycle_inventory.py",
