@@ -761,15 +761,7 @@ def test_runtime_critical_mode_passes_current_repo() -> None:
 
 def test_daily_full_early_validation_is_runtime_only() -> None:
     workflow = boundaries.read_text(boundaries.DAILY_WORKFLOW)
-    prebuild_start = workflow.index("      - name: Validate PDF prebuild contract")
-    prebuild_end = workflow.index("\n      - name:", prebuild_start + 1)
-    prebuild_step = workflow[prebuild_start:prebuild_end].rstrip()
-    assert prebuild_step == (
-        "      - name: Validate PDF prebuild contract\n"
-        "        run: |\n"
-        "          python scripts/validate_pdf_production_inventory.py --phase prebuild"
-    )
-
+    install_start = workflow.index("      - name: Install dependencies")
     boundary_start = workflow.index("      - name: Validate daily production boundaries")
     boundary_end = workflow.index("\n      - name:", boundary_start + 1)
     boundary_step = workflow[boundary_start:boundary_end].rstrip()
@@ -779,10 +771,185 @@ def test_daily_full_early_validation_is_runtime_only() -> None:
         "          python scripts/validate_daily_production_boundaries.py --runtime-critical-only"
     )
 
-    assert workflow.index("- name: Validate refreshed external-source integrity") > prebuild_end
+    consumer_runtime = "python scripts/validate_daily_pdf_contract_consumers.py --phase runtime"
+    completion_runtime = "python scripts/validate_daily_pdf_completion_hard_gate.py --phase runtime"
+    inventory_runtime = "python scripts/validate_pdf_production_inventory.py --phase runtime"
+    commands = [line.strip() for line in workflow.splitlines()]
+    assert "- name: Validate PDF prebuild contract" not in workflow
+    assert commands.count("python scripts/validate_pdf_production_inventory.py --phase prebuild") == 0
+    assert commands.count("python scripts/validate_pdf_production_inventory.py") == 0
+    assert commands.count(consumer_runtime) == 1
+    assert commands.count(completion_runtime) == 1
+    assert commands.count(inventory_runtime) == 2
+    assert commands.count("python scripts/validate_daily_pdf_contract_consumers.py") == 0
+    assert commands.count("python scripts/validate_daily_pdf_completion_hard_gate.py") == 0
+    assert install_start < boundary_start
+    assert workflow.index("- name: Validate refreshed external-source integrity") > boundary_end
     assert "python scripts/validate_repo_advanced_integrity.py" in workflow
-    assert "python scripts/validate_daily_pdf_role_manifest_contract.py" in workflow
-    assert workflow.count("python scripts/validate_pdf_production_inventory.py") >= 2
+    assert "python scripts/validate_daily_pdf_role_manifest_contract.py" not in workflow
+
+
+@pytest.mark.parametrize(
+    ("runtime_command", "replacement"),
+    (
+        (
+            "python scripts/validate_daily_pdf_contract_consumers.py --phase runtime",
+            "python scripts/validate_daily_pdf_contract_consumers.py",
+        ),
+        (
+            "python scripts/validate_daily_pdf_completion_hard_gate.py --phase runtime",
+            "",
+        ),
+    ),
+)
+def test_runtime_critical_mode_rejects_missing_or_full_consumer_completion_gate(
+    runtime_command: str,
+    replacement: str,
+) -> None:
+    text = boundaries.read_text(boundaries.DAILY_WORKFLOW)
+    mutated = text.replace(runtime_command, replacement, 1)
+
+    errors = boundaries.validate_daily_runtime_critical_contracts(mutated)
+
+    assert any("PDF" in error for error in errors)
+
+
+def test_runtime_critical_mode_rejects_static_or_reordered_post_alias_command() -> None:
+    text = boundaries.read_text(boundaries.DAILY_WORKFLOW)
+    consumer = "python scripts/validate_daily_pdf_contract_consumers.py --phase runtime"
+    completion = "python scripts/validate_daily_pdf_completion_hard_gate.py --phase runtime"
+    mutated = text.replace(
+        f"          {consumer}\n          {completion}",
+        f"          {completion}\n          {consumer}\n"
+        "          python scripts/validate_daily_pdf_shared_path_isolation.py",
+        1,
+    )
+
+    errors = boundaries.validate_daily_runtime_critical_contracts(mutated)
+
+    assert any("contain only the exact consumer" in error for error in errors)
+
+
+@pytest.mark.parametrize(
+    "replacement",
+    (
+        "",
+        "python scripts/validate_pdf_production_inventory.py",
+        "python scripts/validate_pdf_production_inventory.py --phase prebuild",
+        "python scripts/validate_pdf_production_inventory.py --phase runtime || true",
+    ),
+)
+def test_runtime_critical_mode_rejects_missing_or_mixed_pdf_inventory_gate(
+    replacement: str,
+) -> None:
+    text = boundaries.read_text(boundaries.DAILY_WORKFLOW)
+    runtime_command = "python scripts/validate_pdf_production_inventory.py --phase runtime"
+    mutated = text.replace(runtime_command, replacement, 1)
+
+    errors = boundaries.validate_daily_runtime_critical_contracts(mutated)
+
+    assert any("PDF inventory" in error for error in errors)
+
+
+def test_runtime_critical_mode_rejects_duplicate_pdf_inventory_gate() -> None:
+    text = boundaries.read_text(boundaries.DAILY_WORKFLOW)
+    runtime_command = "python scripts/validate_pdf_production_inventory.py --phase runtime"
+    mutated = text.replace(runtime_command, f"{runtime_command}\n          {runtime_command}", 1)
+
+    errors = boundaries.validate_daily_runtime_critical_contracts(mutated)
+
+    assert any("exactly two" in error for error in errors)
+
+
+@pytest.mark.parametrize(
+    "mutation",
+    (
+        "if: false",
+        "continue-on-error: true",
+        "continue-on-error: ${{ github.event_name == 'workflow_dispatch' }}",
+    ),
+)
+@pytest.mark.parametrize(
+    "step_name",
+    (
+        "Validate official daily PDF contract",
+        "Publish readme and multi-entry URL check",
+    ),
+)
+def test_runtime_critical_mode_rejects_conditional_or_masked_pdf_inventory_step(
+    step_name: str,
+    mutation: str,
+) -> None:
+    text = boundaries.read_text(boundaries.DAILY_WORKFLOW)
+    marker = f"      - name: {step_name}\n"
+    mutated = text.replace(marker, f"{marker}        {mutation}\n", 1)
+
+    errors = boundaries.validate_daily_runtime_critical_contracts(mutated)
+
+    assert any("PDF runtime inventory step" in error for error in errors)
+
+
+@pytest.mark.parametrize(
+    "step_name",
+    (
+        "Validate official daily PDF contract",
+        "Publish readme and multi-entry URL check",
+    ),
+)
+def test_runtime_critical_mode_rejects_non_terminal_pdf_inventory_command(
+    step_name: str,
+) -> None:
+    text = boundaries.read_text(boundaries.DAILY_WORKFLOW)
+    block = boundaries.workflow_step_block(text, step_name)
+    runtime_command = "python scripts/validate_pdf_production_inventory.py --phase runtime"
+    mutated_block = block.replace(
+        runtime_command,
+        f"{runtime_command}\n          echo masked",
+        1,
+    )
+    mutated = text.replace(block, mutated_block, 1)
+
+    errors = boundaries.validate_daily_runtime_critical_contracts(mutated)
+
+    assert any("final executable line" in error for error in errors)
+
+
+def test_runtime_critical_mode_rejects_moved_pdf_inventory_command() -> None:
+    text = boundaries.read_text(boundaries.DAILY_WORKFLOW)
+    runtime_command = "python scripts/validate_pdf_production_inventory.py --phase runtime"
+    official_block = boundaries.workflow_step_block(text, "Validate official daily PDF contract")
+    mutated_official = official_block.replace(f"\n          {runtime_command}", "", 1)
+    build_marker = "      - name: Build daily market report artifacts\n"
+    mutated = text.replace(official_block, mutated_official, 1).replace(
+        build_marker,
+        "      - name: Premature PDF runtime inventory\n"
+        "        run: |\n"
+        f"          {runtime_command}\n\n"
+        f"{build_marker}",
+        1,
+    )
+
+    errors = boundaries.validate_daily_runtime_critical_contracts(mutated)
+
+    assert any("post-alias PDF runtime step" in error for error in errors)
+
+
+def test_runtime_critical_mode_rejects_post_alias_gate_after_artifact_commit() -> None:
+    text = boundaries.read_text(boundaries.DAILY_WORKFLOW)
+    official_block = boundaries.workflow_step_block(text, "Validate official daily PDF contract")
+    artifact_block = boundaries.workflow_step_block(
+        text,
+        "Commit report artifacts, packets, and rules first",
+    )
+    mutated = text.replace(official_block + "\n", "", 1).replace(
+        artifact_block,
+        artifact_block + "\n" + official_block,
+        1,
+    )
+
+    errors = boundaries.validate_daily_runtime_critical_contracts(mutated)
+
+    assert any("before the artifact commit" in error for error in errors)
 
 
 def test_runtime_critical_mode_does_not_call_repo_static_validators(

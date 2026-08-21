@@ -29,6 +29,180 @@ def test_daily_pdf_completion_hard_gate_passes_current_repo() -> None:
     assert validator.validate() == []
 
 
+def test_runtime_phase_runs_readiness_data_contract_only(monkeypatch) -> None:
+    def forbidden(*args, **kwargs):
+        raise AssertionError("runtime phase invoked a static workflow/regression/output scan")
+
+    monkeypatch.setattr(validator, "validate_workflow_gates", forbidden)
+    monkeypatch.setattr(validator, "validate_regression_contract", forbidden)
+    monkeypatch.setattr(validator, "validate_output_dir", forbidden)
+    readiness_calls: list[bool] = []
+
+    def validate_readiness(*, require_renderer_contract: bool = True) -> list[str]:
+        readiness_calls.append(require_renderer_contract)
+        return ["runtime readiness sentinel"]
+
+    monkeypatch.setattr(validator, "validate_readiness_pdf_consistency", validate_readiness)
+
+    assert validator.validate(phase=validator.VALIDATION_PHASE_RUNTIME) == [
+        "runtime readiness sentinel"
+    ]
+    assert readiness_calls == [False]
+    assert validator.parse_args([]).phase == validator.VALIDATION_PHASE_FULL
+
+
+def test_full_phase_keeps_workflow_regression_readiness_and_output_checks(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    calls: list[str] = []
+    monkeypatch.setattr(validator, "validate_workflow_gates", lambda: calls.append("workflow") or [])
+    monkeypatch.setattr(validator, "validate_regression_contract", lambda: calls.append("regression") or [])
+    monkeypatch.setattr(
+        validator,
+        "validate_readiness_pdf_consistency",
+        lambda *, require_renderer_contract=True: calls.append(f"readiness:{require_renderer_contract}") or [],
+    )
+    monkeypatch.setattr(
+        validator,
+        "validate_output_dir",
+        lambda path: calls.append(f"output:{path.name}") or [],
+    )
+
+    assert validator.validate([tmp_path], phase=validator.VALIDATION_PHASE_FULL) == []
+    assert calls == ["workflow", "regression", "readiness:True", f"output:{tmp_path.name}"]
+
+
+def test_runtime_phase_rejects_output_directory_cli_combination(tmp_path: Path) -> None:
+    with pytest.raises(ValueError, match="cannot require PDF output directories"):
+        validator.validate([tmp_path], phase=validator.VALIDATION_PHASE_RUNTIME)
+    assert validator.main(["--phase", "runtime", "--require-output-dir", str(tmp_path)]) == 1
+
+
+def test_completion_cli_preserves_full_output_mode_and_truthful_runtime_output(
+    tmp_path: Path,
+    monkeypatch,
+    capsys,
+) -> None:
+    calls: list[tuple[tuple[Path, ...], str]] = []
+
+    def validate(require_output_dirs=(), *, phase=validator.VALIDATION_PHASE_FULL):
+        calls.append((tuple(require_output_dirs), phase))
+        return []
+
+    monkeypatch.setattr(validator, "validate", validate)
+
+    assert validator.main(["--phase", "runtime"]) == 0
+    runtime_output = capsys.readouterr().out
+    assert "validation_phase=runtime" in runtime_output
+    assert "validated_workflows=" not in runtime_output
+
+    assert validator.main(["--require-output-dir", str(tmp_path)]) == 0
+    full_output = capsys.readouterr().out
+    assert "validation_phase=full" in full_output
+    assert "validated_workflows=" in full_output
+    assert calls == [
+        ((), validator.VALIDATION_PHASE_RUNTIME),
+        ((tmp_path,), validator.VALIDATION_PHASE_FULL),
+    ]
+
+
+@pytest.mark.parametrize(
+    ("rows", "expected_error"),
+    (
+        ([], "missing or empty model operation readiness artifact"),
+        (
+            [
+                {
+                    "model_id": "other_model",
+                    "pdf_integration_status": "pdf_integrated_daily_adapter",
+                    "presentation_allowed": "true",
+                    "approved_for_daily": "true",
+                }
+            ],
+            "PDF operation model missing readiness row: runtime_model",
+        ),
+        (
+            [
+                {
+                    "model_id": "runtime_model",
+                    "pdf_integration_status": "pending_pdf_renderer",
+                    "presentation_allowed": "true",
+                    "approved_for_daily": "true",
+                }
+            ],
+            "is not marked pdf_integrated_daily_adapter",
+        ),
+        (
+            [
+                {
+                    "model_id": "runtime_model",
+                    "pdf_integration_status": "pdf_integrated_daily_adapter",
+                    "presentation_allowed": "false",
+                    "approved_for_daily": "true",
+                }
+            ],
+            "is not presentation_allowed",
+        ),
+        (
+            [
+                {
+                    "model_id": "runtime_model",
+                    "pdf_integration_status": "pdf_integrated_daily_adapter",
+                    "presentation_allowed": "true",
+                    "approved_for_daily": "false",
+                }
+            ],
+            "is not approved_for_daily",
+        ),
+    ),
+)
+def test_runtime_readiness_rejects_missing_or_inconsistent_rows(
+    monkeypatch,
+    rows: list[dict[str, str]],
+    expected_error: str,
+) -> None:
+    monkeypatch.setattr(validator, "REQUIRED_REGRESSION_MODEL_IDS", {"runtime_model"})
+    monkeypatch.setattr(validator.pdf_consumers, "PDF_OPERATION_ADAPTER_ARTIFACTS", {"runtime_model": Path("x")})
+    monkeypatch.setattr(validator, "load_csv_rows", lambda path: rows)
+    monkeypatch.setattr(
+        validator.pdf_consumers,
+        "validate_pdf_integrated_operation_adapter_contract",
+        lambda *args, **kwargs: [],
+    )
+
+    errors = validator.validate_readiness_pdf_consistency(require_renderer_contract=False)
+
+    assert any(expected_error in error for error in errors)
+
+
+def test_runtime_readiness_propagates_data_adapter_failure(monkeypatch) -> None:
+    rows = [
+        {
+            "model_id": "runtime_model",
+            "pdf_integration_status": "pdf_integrated_daily_adapter",
+            "presentation_allowed": "true",
+            "approved_for_daily": "true",
+        }
+    ]
+    monkeypatch.setattr(validator, "REQUIRED_REGRESSION_MODEL_IDS", {"runtime_model"})
+    monkeypatch.setattr(validator.pdf_consumers, "PDF_OPERATION_ADAPTER_ARTIFACTS", {"runtime_model": Path("x")})
+    monkeypatch.setattr(validator, "load_csv_rows", lambda path: rows)
+    def validate_adapter(*args, **kwargs):
+        assert kwargs["require_renderer_contract"] is False
+        return ["data adapter contract failed"]
+
+    monkeypatch.setattr(
+        validator.pdf_consumers,
+        "validate_pdf_integrated_operation_adapter_contract",
+        validate_adapter,
+    )
+
+    errors = validator.validate_readiness_pdf_consistency(require_renderer_contract=False)
+
+    assert "data adapter contract failed" in errors
+
+
 def test_completion_gate_rejects_missing_runtime_manifest(tmp_path: Path) -> None:
     output_dir = tmp_path / "chatgpt_side_outputs"
     output_dir.mkdir()
@@ -375,8 +549,7 @@ def test_completion_gate_rejects_pr_workflow_without_post_replay_gate(
     full_workflow.write_text(
         "\n".join(
             [
-                *validator.REQUIRED_STATIC_VALIDATORS,
-                validator.STATIC_COMPLETION_GATE_COMMAND,
+                *validator.REQUIRED_DAILY_FULL_RUNTIME_VALIDATORS,
             ]
         ),
         encoding="utf-8",

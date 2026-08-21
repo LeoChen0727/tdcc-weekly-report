@@ -119,7 +119,7 @@ def test_remote_latest_csv_read_falls_back_to_clean_source_latest_on_http_429(mo
     assert not frame.empty
 
 
-def test_daily_workflows_run_shared_path_validator() -> None:
+def test_pr_static_workflow_runs_shared_path_validator_but_daily_full_does_not() -> None:
     daily_workflow = (ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(
         encoding="utf-8",
         errors="replace",
@@ -129,5 +129,5 @@ def test_daily_workflows_run_shared_path_validator() -> None:
     ).read_text(encoding="utf-8", errors="replace")
 
     command = "python scripts/validate_daily_pdf_shared_path_isolation.py"
-    assert command in daily_workflow
+    assert command not in daily_workflow
     assert command in pr_workflow

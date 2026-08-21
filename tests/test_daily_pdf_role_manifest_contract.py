@@ -9,6 +9,24 @@ def test_daily_pdf_role_manifest_contract_passes_current_repo() -> None:
     assert validator.validate() == []
 
 
+def test_role_manifest_workflow_hook_is_owned_by_pr_static_validation(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    command = "python scripts/validate_daily_pdf_role_manifest_contract.py"
+    pr_workflow = tmp_path / "daily_model_maintenance_pr_validation.yml"
+    pr_workflow.write_text(command + "\n", encoding="utf-8")
+    monkeypatch.setattr(validator, "PR_WORKFLOW", pr_workflow)
+    monkeypatch.setattr(validator, "DAILY_WORKFLOW", tmp_path / "missing_daily_full.yml")
+
+    assert validator.validate_workflow_hooks() == []
+
+    pr_workflow.write_text("python scripts/validate_daily_production_boundaries.py\n", encoding="utf-8")
+    errors = validator.validate_workflow_hooks()
+
+    assert errors == [f"{validator.rel(pr_workflow)} must run {command}"]
+
+
 def test_daily_pdf_role_manifest_contract_rejects_title_token_role_mapping(
     tmp_path: Path,
     monkeypatch,

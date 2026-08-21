@@ -55,6 +55,13 @@ REPO_PRODUCTION_INVENTORY_VALIDATOR = ROOT / "scripts" / "validate_repo_producti
 REPO_FILE_LIFECYCLE_INVENTORY_VALIDATOR = ROOT / "scripts" / "validate_repo_file_lifecycle_inventory.py"
 REPO_SEMANTIC_INTEGRITY_VALIDATOR = ROOT / "scripts" / "validate_repo_semantic_integrity.py"
 REPO_ADVANCED_INTEGRITY_VALIDATOR = ROOT / "scripts" / "validate_repo_advanced_integrity.py"
+PDF_INVENTORY_FULL_COMMAND = "python scripts/validate_pdf_production_inventory.py"
+PDF_INVENTORY_PREBUILD_COMMAND = f"{PDF_INVENTORY_FULL_COMMAND} --phase prebuild"
+PDF_INVENTORY_RUNTIME_COMMAND = f"{PDF_INVENTORY_FULL_COMMAND} --phase runtime"
+PDF_CONSUMER_FULL_COMMAND = "python scripts/validate_daily_pdf_contract_consumers.py"
+PDF_CONSUMER_RUNTIME_COMMAND = f"{PDF_CONSUMER_FULL_COMMAND} --phase runtime"
+PDF_COMPLETION_FULL_COMMAND = "python scripts/validate_daily_pdf_completion_hard_gate.py"
+PDF_COMPLETION_RUNTIME_COMMAND = f"{PDF_COMPLETION_FULL_COMMAND} --phase runtime"
 
 PACKET_ROW_METRIC_REQUIRED_LITERALS = {
     'operation-row performance must consume row_metric_* only',
@@ -1687,6 +1694,109 @@ def validate_daily_failed_recovery_retry_contract(daily_text: str) -> list[str]:
     return errors
 
 
+def validate_daily_pdf_runtime_inventory_contract(daily_text: str) -> list[str]:
+    errors: list[str] = []
+    daily_job = workflow_job_block(daily_text, "daily-full-pipeline")
+    if not daily_job:
+        return ["daily workflow is missing the daily-full-pipeline job"]
+
+    commands = [line.strip() for line in daily_job.splitlines()]
+    expected_runtime_commands = (
+        PDF_CONSUMER_RUNTIME_COMMAND,
+        PDF_COMPLETION_RUNTIME_COMMAND,
+        PDF_INVENTORY_RUNTIME_COMMAND,
+    )
+    if commands.count(PDF_CONSUMER_RUNTIME_COMMAND) != 1:
+        errors.append("Daily Full must run exactly one runtime-only PDF consumer validation")
+    if commands.count(PDF_COMPLETION_RUNTIME_COMMAND) != 1:
+        errors.append("Daily Full must run exactly one runtime-only PDF completion validation")
+    if commands.count(PDF_INVENTORY_RUNTIME_COMMAND) != 2:
+        errors.append(
+            "Daily Full must run exactly two runtime-only PDF inventory validations"
+        )
+    if commands.count(PDF_INVENTORY_PREBUILD_COMMAND):
+        errors.append("Daily Full must not run static PDF prebuild validation")
+    for command in (
+        PDF_CONSUMER_FULL_COMMAND,
+        PDF_COMPLETION_FULL_COMMAND,
+        PDF_INVENTORY_FULL_COMMAND,
+    ):
+        if commands.count(command):
+            errors.append(f"Daily Full must not run mixed full PDF validation: {command}")
+    if "      - name: Validate PDF prebuild contract" in daily_job:
+        errors.append("Daily Full must not retain the static PDF prebuild step")
+
+    post_alias_step_name = "Validate official daily PDF contract"
+    post_alias_block = workflow_step_block(daily_job, post_alias_step_name)
+    if not post_alias_block:
+        errors.append(f"Daily Full is missing PDF runtime step: {post_alias_step_name}")
+    else:
+        executable_lines = tuple(
+            line.strip()
+            for line in post_alias_block.splitlines()
+            if line.startswith("          ") and line.strip() and not line.strip().startswith("#")
+        )
+        if executable_lines != expected_runtime_commands:
+            errors.append(
+                "Daily Full post-alias PDF runtime step must contain only the exact consumer, "
+                "completion, and inventory runtime commands in order"
+            )
+
+    publish_step_name = "Publish readme and multi-entry URL check"
+    publish_block = workflow_step_block(daily_job, publish_step_name)
+    if not publish_block:
+        errors.append(f"Daily Full is missing PDF runtime step: {publish_step_name}")
+
+    for step_name, block in (
+        (post_alias_step_name, post_alias_block),
+        (publish_step_name, publish_block),
+    ):
+        if not block:
+            continue
+        if step_name == publish_step_name and block.count(PDF_INVENTORY_RUNTIME_COMMAND) != 1:
+            errors.append(
+                f"Daily Full step must run one exact runtime-only PDF inventory validation: {step_name}"
+            )
+        if re.search(r'(?m)^ {8}(?:if|["\']if["\'])\s*:', block):
+            errors.append(f"Daily Full PDF runtime inventory step must be unconditional: {step_name}")
+        if re.search(
+            r'(?m)^ {8}(?:continue-on-error|["\']continue-on-error["\'])\s*:',
+            block,
+        ):
+            errors.append(
+                f"Daily Full PDF runtime inventory step must not use continue-on-error: {step_name}"
+            )
+        if "|| true" in block:
+            errors.append(f"Daily Full PDF runtime step must fail closed: {step_name}")
+        if not block.rstrip().endswith(f"          {PDF_INVENTORY_RUNTIME_COMMAND}"):
+            errors.append(
+                f"Daily Full PDF runtime inventory command must be the final executable line: {step_name}"
+            )
+
+    build_position = daily_job.find("- name: Build daily market report artifacts")
+    aliases_position = daily_job.find("- name: Ensure English report aliases")
+    post_build_position = daily_job.find("- name: Validate official daily PDF contract")
+    artifact_commit_position = daily_job.find("- name: Commit report artifacts, packets, and rules first")
+    publish_position = daily_job.find("- name: Publish readme and multi-entry URL check")
+    readme_commit_position = daily_job.find("- name: Commit readme and publish check")
+    positions = (
+        build_position,
+        aliases_position,
+        post_build_position,
+        artifact_commit_position,
+        publish_position,
+        readme_commit_position,
+    )
+    if any(position < 0 for position in positions) or list(positions) != sorted(positions):
+        errors.append(
+            "Daily Full PDF runtime validations must remain after build/aliases and before the "
+            "artifact commit, with the second inventory check after publication and before the "
+            "readme commit"
+        )
+
+    return errors
+
+
 def validate_daily_runtime_critical_contracts(
     daily_text: str | None = None,
 ) -> list[str]:
@@ -1699,6 +1809,7 @@ def validate_daily_runtime_critical_contracts(
     errors.extend(validate_daily_authority_snapshot_publish_contract(daily_text))
     errors.extend(validate_daily_readme_publish_contract(daily_text))
     errors.extend(validate_daily_failed_recovery_retry_contract(daily_text))
+    errors.extend(validate_daily_pdf_runtime_inventory_contract(daily_text))
 
     market_literals = (
         "market-session-preflight:",

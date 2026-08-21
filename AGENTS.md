@@ -426,12 +426,14 @@ crossed, that required first-page and candidate-area sections such as `newly
 listed` and `consecutive listed` remain present, and that mainstream,
 non-mainstream, warrant, and market-risk PDFs do not contaminate each other.
 
-Daily Full Pipeline validates source, consumer, readiness, and static PDF
-contracts before publishing the authoritative daily surfaces; it does not
-generate a second six-PDF bundle. The formal Daily PDF owner must use the
-official entrypoint, run the generated-output completion gate, and inspect all
-six delivered PDFs. Renderer/font-impact pull requests retain the dedicated
-PDF replay regression. Tests must prove these ownership boundaries and that the
+For PDF enforcement, Daily Full Pipeline validates current source, reference,
+readiness, and published-artifact surfaces before publishing authoritative
+daily data. Repo-static PDF contracts run in the all-PR Daily Model or dedicated
+PDF replay workflow; Daily Full does not generate a second six-PDF bundle. The
+formal Daily PDF owner must use the official entrypoint, run the generated-output
+completion gate, and inspect all six delivered PDFs. Renderer/font-impact pull
+requests retain the dedicated PDF replay regression. Tests must prove these
+ownership boundaries and that the
 generated-output validator covers all six PDFs, digest/full boundaries, and
 newly-listed / consecutive-listed section checks.
 

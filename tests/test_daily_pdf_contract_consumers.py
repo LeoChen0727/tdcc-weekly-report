@@ -1,6 +1,9 @@
 from __future__ import annotations
 
+import csv
 from pathlib import Path
+
+import pytest
 
 from scripts import validate_daily_pdf_contract_consumers as validator
 
@@ -53,7 +56,172 @@ def event_row(
 
 
 def test_daily_pdf_contract_consumer_validator_passes() -> None:
-    assert validator.main() == 0
+    assert validator.main([]) == 0
+
+
+def test_runtime_phase_runs_current_data_contracts_without_static_scans(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    stock_contract = tmp_path / "stock_model_contract_registry.csv"
+    stock_contract.write_text("model_id,approved_for_daily_pdf,pdf_visibility\n", encoding="utf-8")
+    monkeypatch.setattr(validator, "STOCK_MODEL_CONTRACT", stock_contract)
+    monkeypatch.setattr(validator, "EVENT_CATALYST_CONTRACT", tmp_path / "missing_event_contract.csv")
+
+    rows = {
+        stock_contract: [model_row("runtime_model")],
+        validator.DAILY_MODEL_REGISTRY: [
+            {
+                "model_id": "runtime_model",
+                "model_registry_active": "true",
+                "report_line_applicability": "both",
+            }
+        ],
+        validator.DAILY_MODEL_PARAMETERS: [
+            {"model_id": "runtime_model", "pdf_visibility": "pdf_core_model"}
+        ],
+        validator.DAILY_MODEL_READINESS: [
+            {
+                "model_id": "runtime_model",
+                "presentation_allowed": "true",
+                "pdf_integration_status": "pdf_integrated_daily_adapter",
+            }
+        ],
+    }
+    monkeypatch.setattr(validator, "load_csv_rows", lambda path: rows.get(path, []))
+    monkeypatch.setattr(validator, "model_ids_from_report_outputs", lambda: {"runtime_model"})
+
+    def forbidden(*args, **kwargs):
+        raise AssertionError("runtime phase invoked a static source/AST/research scan")
+
+    for name in (
+        "discover_event_field_usages",
+        "validate_event_field_usages",
+        "validate_private_pdf_rules",
+        "validate_renderer_fixed_model_table_contract",
+        "validate_operation_row_metric_renderer_contract",
+        "validate_research_recommendations_not_direct_pdf_inputs",
+    ):
+        monkeypatch.setattr(validator, name, forbidden)
+
+    adapter_calls: list[bool] = []
+
+    def validate_adapter(readiness_rows, **kwargs):
+        assert readiness_rows == rows[validator.DAILY_MODEL_READINESS]
+        adapter_calls.append(kwargs["require_renderer_contract"])
+        return []
+
+    monkeypatch.setattr(validator, "validate_pdf_integrated_operation_adapter_contract", validate_adapter)
+
+    errors, used, required, usages, _, event_rows = validator.validate(
+        validator.VALIDATION_PHASE_RUNTIME
+    )
+
+    assert errors == []
+    assert used == {"runtime_model"}
+    assert required == {"runtime_model"}
+    assert usages == []
+    assert event_rows == []
+    assert adapter_calls == [False]
+    assert validator.parse_args([]).phase == validator.VALIDATION_PHASE_FULL
+
+
+def test_runtime_phase_propagates_model_display_and_adapter_errors(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    stock_contract = tmp_path / "stock.csv"
+    stock_contract.write_text("model_id\n", encoding="utf-8")
+    monkeypatch.setattr(validator, "STOCK_MODEL_CONTRACT", stock_contract)
+    monkeypatch.setattr(validator, "load_csv_rows", lambda path: [])
+    monkeypatch.setattr(validator, "model_ids_from_report_outputs", lambda: set())
+    monkeypatch.setattr(validator, "validate_model_ids", lambda *args: ["model approval sentinel"])
+    monkeypatch.setattr(
+        validator,
+        "validate_required_display_model_coverage",
+        lambda *args: ["display roster sentinel"],
+    )
+
+    def validate_adapter(*args, **kwargs):
+        assert kwargs["require_renderer_contract"] is False
+        return ["data adapter sentinel"]
+
+    monkeypatch.setattr(validator, "validate_pdf_integrated_operation_adapter_contract", validate_adapter)
+
+    errors, *_ = validator.validate(validator.VALIDATION_PHASE_RUNTIME)
+
+    assert errors == [
+        "model approval sentinel",
+        "display roster sentinel",
+        "data adapter sentinel",
+    ]
+
+
+def test_full_phase_keeps_event_renderer_and_research_scans(tmp_path: Path, monkeypatch) -> None:
+    stock_contract = tmp_path / "stock.csv"
+    event_contract = tmp_path / "event.csv"
+    stock_contract.write_text("model_id\n", encoding="utf-8")
+    event_contract.write_text("field_name\n", encoding="utf-8")
+    monkeypatch.setattr(validator, "STOCK_MODEL_CONTRACT", stock_contract)
+    monkeypatch.setattr(validator, "EVENT_CATALYST_CONTRACT", event_contract)
+    monkeypatch.setattr(validator, "load_csv_rows", lambda path: [])
+    monkeypatch.setattr(validator, "model_ids_from_report_outputs", lambda: set())
+    monkeypatch.setattr(validator, "validate_model_ids", lambda *args: [])
+    monkeypatch.setattr(validator, "validate_required_display_model_coverage", lambda *args: [])
+
+    calls: list[str] = []
+    monkeypatch.setattr(
+        validator,
+        "discover_event_field_usages",
+        lambda rows: calls.append("discover_event") or [],
+    )
+    for name in (
+        "validate_event_field_usages",
+        "validate_private_pdf_rules",
+        "validate_renderer_fixed_model_table_contract",
+        "validate_operation_row_metric_renderer_contract",
+        "validate_research_recommendations_not_direct_pdf_inputs",
+    ):
+        monkeypatch.setattr(
+            validator,
+            name,
+            lambda *args, function_name=name: calls.append(function_name) or [],
+        )
+    monkeypatch.setattr(
+        validator,
+        "validate_pdf_integrated_operation_adapter_contract",
+        lambda *args, **kwargs: calls.append(f"adapter:{kwargs['require_renderer_contract']}") or [],
+    )
+
+    errors, *_ = validator.validate(validator.VALIDATION_PHASE_FULL)
+
+    assert errors == []
+    assert calls == [
+        "discover_event",
+        "validate_event_field_usages",
+        "validate_private_pdf_rules",
+        "validate_renderer_fixed_model_table_contract",
+        "validate_operation_row_metric_renderer_contract",
+        "adapter:True",
+        "validate_research_recommendations_not_direct_pdf_inputs",
+    ]
+
+
+def test_runtime_output_does_not_claim_skipped_event_or_private_scans(monkeypatch, capsys) -> None:
+    monkeypatch.setattr(
+        validator,
+        "validate",
+        lambda phase: ([], {"m"}, {"m"}, [], [model_row("m")], []),
+    )
+
+    assert validator.main(["--phase", "runtime"]) == 0
+    output = capsys.readouterr().out
+
+    assert "validation_phase=runtime" in output
+    assert "event_catalyst_contract=" not in output
+    assert "daily_event_contract_approved_rows=" not in output
+    assert "daily_used_event_fields=" not in output
+    assert "blocked_contract_fields=" not in output
 
 
 def test_daily_pdf_model_ids_must_exist_and_be_approved() -> None:
@@ -610,6 +778,85 @@ def write_price_pullback_adapter(path: Path, extra_column_drop: str | None = Non
     lines = [",".join(columns)]
     lines.extend(",".join(row[column] for column in columns) for row in rows)
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+@pytest.mark.parametrize(
+    ("mutation", "expected_error"),
+    (
+        ("valid", None),
+        ("missing_file", "missing PDF operation adapter artifact"),
+        ("missing_column", "row_metric_status"),
+        ("empty_rows", "has no rows"),
+        ("wrong_model", "mixes model_ids"),
+        ("missing_section", "missing required sections"),
+        ("missing_view", "missing required pdf_view"),
+        ("incomplete_metric", "incomplete row_metric payload"),
+        ("missing_readiness", "readiness row missing"),
+    ),
+)
+def test_data_only_operation_adapter_keeps_csv_contract_without_renderer_scan(
+    tmp_path: Path,
+    monkeypatch,
+    mutation: str,
+    expected_error: str | None,
+) -> None:
+    model_id = "price_pullback_23ema"
+    adapter = tmp_path / "daily_price_pullback_23ema_operation_section_latest.csv"
+    if mutation != "missing_file":
+        write_price_pullback_adapter(
+            adapter,
+            extra_column_drop="row_metric_status" if mutation == "missing_column" else None,
+        )
+
+    if adapter.exists() and mutation not in {"valid", "missing_column"}:
+        with adapter.open("r", encoding="utf-8", newline="") as handle:
+            reader = csv.DictReader(handle)
+            fieldnames = list(reader.fieldnames or [])
+            rows = list(reader)
+        if mutation == "empty_rows":
+            rows = []
+        elif mutation == "wrong_model":
+            for row in rows:
+                row["model_id"] = "wrong_model"
+        elif mutation == "missing_section":
+            rows = [row for row in rows if row["pdf_section"] != "active_operation"]
+        elif mutation == "missing_view":
+            rows = [row for row in rows if row["pdf_view"] != "highlight"]
+        elif mutation == "incomplete_metric":
+            rows[0]["row_type"] = "data"
+            rows[0]["row_metric_status"] = "ready"
+            rows[0]["row_metric_label_zh"] = ""
+        with adapter.open("w", encoding="utf-8", newline="") as handle:
+            writer = csv.DictWriter(handle, fieldnames=fieldnames)
+            writer.writeheader()
+            writer.writerows(rows)
+
+    def forbidden_renderer_scan(*args, **kwargs):
+        raise AssertionError("data-only adapter validation read renderer source")
+
+    monkeypatch.setattr(validator, "renderer_text_for_operation_contract", forbidden_renderer_scan)
+    readiness_rows = [] if mutation == "missing_readiness" else [
+        {
+            "model_id": model_id,
+            "pdf_integration_status": "pdf_integrated_daily_adapter",
+            "daily_adapter_sections": "confirmed_operation,active_operation",
+        }
+    ]
+    errors = validator.validate_pdf_integrated_operation_adapter_contract(
+        readiness_rows,
+        source_paths=[tmp_path / "missing_renderer.py"],
+        artifact_paths={model_id: adapter},
+        renderer_tokens={model_id: ("must_not_be_read",)},
+        required_columns_by_model={model_id: validator.PRICE_PULLBACK_OPERATION_REQUIRED_COLUMNS},
+        allowed_sections_by_model={model_id: validator.PDF_OPERATION_REQUIRED_SECTIONS},
+        required_model_ids={model_id},
+        require_renderer_contract=False,
+    )
+
+    if expected_error is None:
+        assert errors == []
+    else:
+        assert any(expected_error in error for error in errors)
 
 
 def test_w_bottom_operation_adapter_contract_requires_integrated_readiness_and_sections(

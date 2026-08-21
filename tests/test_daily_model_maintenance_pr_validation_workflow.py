@@ -913,8 +913,10 @@ def test_daily_model_maintenance_pr_workflow_runs_contract_validators() -> None:
     required_commands = (
         "python scripts/validate_repo_production_inventory.py",
         "python scripts/validate_stock_model_contract_registry.py",
+        "python scripts/validate_chatgpt_side_pdf_contract.py",
         "python scripts/validate_daily_pdf_contract_consumers.py",
         "python scripts/validate_daily_pdf_role_manifest_contract.py",
+        "python scripts/validate_daily_pdf_shared_path_isolation.py",
         "python scripts/validate_daily_pdf_completion_hard_gate.py",
         "python scripts/validate_daily_production_boundaries.py",
         'python scripts/validate_daily_published_model_snapshots_pr_safe.py --base-ref "$BASE_SHA"',
