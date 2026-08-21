@@ -93,6 +93,37 @@ def read_text(path: Path) -> str:
     return path.read_text(encoding="utf-8", errors="replace")
 
 
+def daily_model_pr_scope_contract_errors(text: str) -> list[str]:
+    errors: list[str] = []
+    trigger = text.split("\njobs:", 1)[0]
+    lines = trigger.splitlines()
+    try:
+        pull_request_index = lines.index("  pull_request:")
+    except ValueError:
+        errors.append("daily model PR validation must trigger on every pull request")
+    else:
+        nested = []
+        for line in lines[pull_request_index + 1 :]:
+            if not line.strip():
+                continue
+            if len(line) - len(line.lstrip()) <= 2:
+                break
+            nested.append(line.strip())
+        if nested:
+            errors.append(
+                "daily model PR validation pull_request trigger must remain unfiltered"
+            )
+    for literal in (
+        "  workflow_dispatch:",
+        "  scope:",
+        "python scripts/detect_daily_model_pr_validation_scope.py",
+        "  daily-model-maintenance-pr-validation:",
+    ):
+        if literal not in text:
+            errors.append(f"daily model PR validation missing scope contract: {literal}")
+    return errors
+
+
 def official_entrypoint_worktree_contract_errors(source: str) -> list[str]:
     errors: list[str] = []
     try:
@@ -1221,13 +1252,7 @@ def validate() -> list[str]:
     errors.extend(official_entrypoint_worktree_contract_errors(entrypoint))
     errors.extend(official_entrypoint_dfkai_preflight_contract_errors(entrypoint))
 
-    pr_trigger = pr_validation_workflow.split("\njobs:", 1)[0]
-    for path_literal in (
-        '"scripts/validate_chatgpt_side_pdf_contract.py"',
-        '"tests/test_chatgpt_side_pdf_contract.py"',
-    ):
-        if path_literal not in pr_trigger:
-            errors.append(f"daily model PR validation trigger missing PDF contract path: {path_literal}")
+    errors.extend(daily_model_pr_scope_contract_errors(pr_validation_workflow))
     for command_literal in (
         "python scripts/validate_chatgpt_side_pdf_contract.py",
         "tests/test_chatgpt_side_pdf_contract.py",

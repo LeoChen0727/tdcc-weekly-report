@@ -346,6 +346,52 @@ def workflow_pull_request_paths(text: str) -> set[str]:
     }
 
 
+def validate_daily_model_pr_scope_contract(text: str) -> list[str]:
+    errors: list[str] = []
+    pull_request_match = re.search(r"(?m)^  pull_request:\s*(?:#.*)?$", text)
+    if pull_request_match is None:
+        errors.append("daily model maintenance PR workflow must run on pull_request")
+    else:
+        next_event = re.search(
+            r"(?m)^  [A-Za-z0-9_-]+:\s*(?:#.*)?$",
+            text[pull_request_match.end() :],
+        )
+        pull_request_block = text[
+            pull_request_match.start() : (
+                pull_request_match.end() + next_event.start()
+                if next_event is not None
+                else len(text)
+            )
+        ]
+        if re.search(r"(?m)^\s{4}(?:paths|paths-ignore):", pull_request_block):
+            errors.append(
+                "daily model maintenance PR workflow pull_request trigger must remain all-PR "
+                "without paths or paths-ignore filters"
+            )
+
+    if re.search(r"(?m)^  workflow_dispatch:\s*(?:#.*)?$", text) is None:
+        errors.append("daily model maintenance PR workflow must support workflow_dispatch")
+
+    scope_block = workflow_job_block(text, "scope")
+    if not scope_block:
+        errors.append("daily model maintenance PR workflow missing changed-path scope job")
+    elif "python scripts/detect_daily_model_pr_validation_scope.py" not in scope_block:
+        errors.append("daily model maintenance PR scope job must execute the scope detector")
+
+    aggregate_block = workflow_job_block(
+        text,
+        "daily-model-maintenance-pr-validation",
+    )
+    if not aggregate_block:
+        errors.append("daily model maintenance PR workflow missing stable aggregate job")
+    else:
+        if "name: daily-model-maintenance-pr-validation" not in aggregate_block:
+            errors.append("daily model maintenance PR aggregate must keep its stable check name")
+        if "if: always()" not in aggregate_block:
+            errors.append("daily model maintenance PR aggregate must evaluate all domain results")
+    return errors
+
+
 def validate_pdf_replay_automatic_paths(text: str) -> list[str]:
     observed_paths = workflow_pull_request_paths(text)
     errors: list[str] = []
@@ -836,7 +882,7 @@ def _git_subcommand_tokens(command: str, expected: str) -> list[str] | None:
         if token in {"-C", "-c", "--git-dir", "--work-tree", "--namespace", "--config-env"} and cursor + 1 < len(tokens):
             cursor += 2
             continue
-        if token.startswith(("-C", "-c", "--git-dir=", "--work-tree=", "--namespace=", "--config-env=")) or token in {"--no-pager", "--literal-pathspecs"}:
+        if token.startswith(("-C", "-c", "--git-dir=", "--work-tree=", "--namespace=", "--config-env=")) or token in {"--no-pager", "--literal-pathspecs", "--no-replace-objects"}:
             cursor += 1
             continue
         if token.startswith("-") and expected in tokens[cursor + 1 :]:
@@ -851,7 +897,7 @@ def _contains_git_subcommand(command: str, expected: str) -> bool:
     pattern = re.compile(
         r"(?<![A-Za-z0-9_-])(?:[^\s'\";|&()]+[\\/])?git(?:\.exe)?\s+"
         r"(?:(?:(?:-C|-c|--git-dir|--work-tree|--namespace|--config-env)\s+\S+|"
-        r"(?:--git-dir|--work-tree|--namespace|--config-env)=\S+|--no-pager|--literal-pathspecs)\s+)*"
+        r"(?:--git-dir|--work-tree|--namespace|--config-env)=\S+|--no-pager|--literal-pathspecs|--no-replace-objects)\s+)*"
         + re.escape(expected)
         + r"(?=\s|$|[;|&])"
     )
@@ -1979,23 +2025,8 @@ def main(argv: Sequence[str] = ()) -> int:
         )
     else:
         pr_workflow_text = read_text(DAILY_MODEL_MAINTENANCE_PR_WORKFLOW)
+        errors.extend(validate_daily_model_pr_scope_contract(pr_workflow_text))
         required_pr_workflow_literals = {
-            "pull_request:": "daily model maintenance PR workflow must run on pull_request",
-            "scripts/generate_chatgpt_side_daily_reports.py": (
-                "daily model maintenance PR workflow must trigger on PDF renderer changes"
-            ),
-            "scripts/update_daily_published_model_snapshots.py": (
-                "daily model maintenance PR workflow must trigger on published snapshot changes"
-            ),
-            "scripts/resolve_daily_report_source_state.py": (
-                "daily model maintenance PR workflow must trigger on source-gate changes"
-            ),
-            "config/daily_pdf_rendered_model_regression_contract.csv": (
-                "daily model maintenance PR workflow must trigger on rendered PDF regression contract changes"
-            ),
-            "config/daily_pdf_semantic_golden_cases.csv": (
-                "daily model maintenance PR workflow must trigger on semantic PDF golden case changes"
-            ),
             "python scripts/validate_daily_pdf_contract_consumers.py": (
                 "daily model maintenance PR workflow must validate daily PDF consumer contracts"
             ),

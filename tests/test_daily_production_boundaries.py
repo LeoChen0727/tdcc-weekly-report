@@ -3040,6 +3040,15 @@ def test_non_daily_workflow_broad_staging_cannot_bypass_authority_ownership(comm
     assert boundaries.git_add_command_covers_authority(command)
 
 
+def test_no_replace_objects_remote_add_is_not_mistaken_for_authority_staging() -> None:
+    assert not boundaries.git_add_command_covers_authority(
+        'git --no-replace-objects remote add origin "$REPOSITORY_URL"'
+    )
+    assert boundaries.git_add_command_covers_authority(
+        "git --no-replace-objects add output/latest/"
+    )
+
+
 @pytest.mark.parametrize(
     "command",
     (
@@ -3091,6 +3100,43 @@ def test_non_daily_workflow_update_index_cannot_bypass_authority_ownership(comma
 )
 def test_non_daily_native_git_mutation_cannot_bypass_authority_ownership(command: str) -> None:
     assert boundaries.git_native_mutation_may_publish_authority(command)
+
+
+def test_daily_model_scope_avoids_update_ref_without_weakening_native_git_boundary() -> None:
+    text = boundaries.DAILY_MODEL_MAINTENANCE_PR_WORKFLOW.read_text(encoding="utf-8")
+    scope_block = boundaries.workflow_job_block(text, "scope")
+
+    assert "update-ref" not in scope_block
+    assert "rev-parse HEAD" not in scope_block
+    assert boundaries.git_native_mutation_may_publish_authority(
+        'git --no-replace-objects update-ref --no-deref HEAD "$MERGE_SHA"'
+    )
+
+
+def test_daily_model_scope_contract_requires_all_pr_and_stable_aggregate() -> None:
+    text = boundaries.DAILY_MODEL_MAINTENANCE_PR_WORKFLOW.read_text(encoding="utf-8")
+
+    assert boundaries.validate_daily_model_pr_scope_contract(text) == []
+
+    filtered = text.replace(
+        "  pull_request:\n",
+        '  pull_request:\n    paths:\n      - "scripts/**"\n',
+        1,
+    )
+    assert any(
+        "must remain all-PR" in error
+        for error in boundaries.validate_daily_model_pr_scope_contract(filtered)
+    )
+
+    missing_aggregate = text.replace(
+        "  daily-model-maintenance-pr-validation:",
+        "  renamed-daily-model-aggregate:",
+        1,
+    )
+    assert any(
+        "missing stable aggregate job" in error
+        for error in boundaries.validate_daily_model_pr_scope_contract(missing_aggregate)
+    )
 
 
 def test_daily_full_preflight_artifact_is_bound_to_exact_source_sha() -> None:
