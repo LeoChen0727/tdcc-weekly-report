@@ -3103,13 +3103,20 @@ def test_cli_forwards_pr_safe_mode_and_prints_selection(
     observed = {}
 
     def fake_validate(
-        root, *, base_ref, trusted_ref, pr_safe_base_history, mode_evidence
+        root,
+        *,
+        base_ref,
+        trusted_ref,
+        pr_safe_base_history,
+        runtime_scope,
+        mode_evidence,
     ):
         observed.update(
             root=root,
             base_ref=base_ref,
             trusted_ref=trusted_ref,
             pr_safe_base_history=pr_safe_base_history,
+            runtime_scope=runtime_scope,
         )
         mode_evidence.extend(
             ("resolved_base_sha=" + "a" * 40, "selected_mode=pr_safe_base_history")
@@ -3134,6 +3141,7 @@ def test_cli_forwards_pr_safe_mode_and_prints_selection(
         "base_ref": "a" * 40,
         "trusted_ref": None,
         "pr_safe_base_history": True,
+        "runtime_scope": None,
     }
     assert "selected_mode=pr_safe_base_history" in capsys.readouterr().out
 
@@ -3144,9 +3152,15 @@ def test_cli_existing_modes_do_not_enable_pr_safe_history(
     observed = []
 
     def fake_validate(
-        root, *, base_ref, trusted_ref, pr_safe_base_history, mode_evidence
+        root,
+        *,
+        base_ref,
+        trusted_ref,
+        pr_safe_base_history,
+        runtime_scope,
+        mode_evidence,
     ):
-        observed.append((base_ref, trusted_ref, pr_safe_base_history))
+        observed.append((base_ref, trusted_ref, pr_safe_base_history, runtime_scope))
         return []
 
     monkeypatch.setattr(lineage, "validate", fake_validate)
@@ -3166,10 +3180,322 @@ def test_cli_existing_modes_do_not_enable_pr_safe_history(
         monkeypatch.setattr("sys.argv", argv)
         assert lineage.main() == 0
     assert observed == [
-        (None, None, False),
-        ("a" * 40, None, False),
-        ("a" * 40, "b" * 40, False),
+        (None, None, False, None),
+        ("a" * 40, None, False, None),
+        ("a" * 40, "b" * 40, False, None),
     ]
+
+
+def test_runtime_scope_node_partitions_are_exact() -> None:
+    assert len(lineage.GOVERNED_FIELD_NODES) == 65
+    assert len(lineage.CURRENT_LINEAGE_NODES) == 42
+    assert len(lineage.AUDIT_SOURCE_CURRENT_LINEAGE_NODES) == 41
+    assert len(lineage.HISTORY_LINEAGE_NODES) == 23
+    assert len(lineage.SNAPSHOT_HISTORY_LINEAGE_NODES) == 16
+    assert len(lineage.LIFECYCLE_HISTORY_LINEAGE_NODES) == 7
+    assert lineage.CURRENT_LINEAGE_NODES.isdisjoint(lineage.HISTORY_LINEAGE_NODES)
+    assert (
+        lineage.CURRENT_LINEAGE_NODES | lineage.HISTORY_LINEAGE_NODES
+        == set(lineage.GOVERNED_FIELD_NODES)
+    )
+    assert (
+        lineage.SNAPSHOT_HISTORY_LINEAGE_NODES
+        | lineage.LIFECYCLE_HISTORY_LINEAGE_NODES
+        == lineage.HISTORY_LINEAGE_NODES
+    )
+    assert lineage.OPERATION_CURRENT_NODE in lineage.CURRENT_LINEAGE_NODES
+    assert lineage.OPERATION_CURRENT_NODE not in lineage.AUDIT_SOURCE_CURRENT_LINEAGE_NODES
+
+
+@pytest.mark.parametrize("runtime_scope", ["audit-sources", "complete-current"])
+def test_runtime_scopes_skip_historical_and_static_validators(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+    runtime_scope: str,
+) -> None:
+    build_valid_repo(tmp_path)
+
+    def forbidden(*_args, **_kwargs):
+        raise AssertionError("historical/static validator must not run in runtime scope")
+
+    for name in (
+        "validate_migration_ledgers_append_only",
+        "_validate_reverse_current_consumers",
+        "_validate_migrations",
+        "_validate_consumer_exclusion_migrations",
+        "_validate_collision_migrations",
+        "_validate_dispatcher_ast",
+        "_validate_historical_projection",
+        "_dispatcher_collision_field_sets",
+    ):
+        monkeypatch.setattr(lineage, name, forbidden)
+
+    assert lineage.validate(tmp_path, runtime_scope=runtime_scope) == []
+
+
+def test_no_arg_full_mode_still_calls_historical_and_static_validators(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    build_valid_repo(tmp_path)
+    observed: set[str] = set()
+
+    def record(name: str):
+        def validator(*_args, **_kwargs):
+            observed.add(name)
+            return []
+
+        return validator
+
+    for name in (
+        "_validate_reverse_current_consumers",
+        "_validate_migrations",
+        "_validate_collision_migrations",
+        "_validate_dispatcher_ast",
+        "_validate_historical_projection",
+    ):
+        monkeypatch.setattr(lineage, name, record(name))
+
+    assert lineage.validate(tmp_path) == []
+    assert observed == {
+        "_validate_reverse_current_consumers",
+        "_validate_migrations",
+        "_validate_collision_migrations",
+        "_validate_dispatcher_ast",
+        "_validate_historical_projection",
+    }
+
+
+@pytest.mark.parametrize(
+    "relative_path",
+    [
+        "output/history/warrant_flow/warrant_flow_20260717.csv",
+        "output/history/daily_model_snapshots/daily_published_model_snapshot_manifest.csv",
+        lineage.FORMAL_SIGNAL_LOG_ARTIFACT,
+        lineage.MIGRATIONS_PATH.as_posix(),
+    ],
+)
+def test_runtime_scopes_ignore_corrupt_historical_only_inputs(
+    tmp_path: Path,
+    relative_path: str,
+) -> None:
+    build_valid_repo(tmp_path)
+    (tmp_path / relative_path).write_text("corrupt\n", encoding="utf-8")
+
+    assert lineage.validate(tmp_path, runtime_scope="audit-sources") == []
+    assert lineage.validate(tmp_path, runtime_scope="complete-current") == []
+    assert lineage.validate(tmp_path)
+
+
+@pytest.mark.parametrize(
+    "mutation",
+    [
+        "registry_hash",
+        "current_header",
+        "source_row",
+        "raw_report",
+        "pinned_source",
+        "collision",
+    ],
+)
+def test_runtime_scopes_fail_closed_on_current_lineage_drift(
+    tmp_path: Path,
+    mutation: str,
+) -> None:
+    build_valid_repo(tmp_path)
+    if mutation == "registry_hash":
+        path = tmp_path / lineage.REGISTRY_PATH
+        columns, rows = lineage._read_artifact(path)
+        current = next(
+            row for row in rows if row["artifact_path"].startswith("output/latest/")
+        )
+        current["contract_sha256"] = "0" * 64
+        write_csv(path, columns, rows)
+    elif mutation == "current_header":
+        path = tmp_path / "output/latest/warrant_flow_latest.csv"
+        columns, rows = lineage._read_artifact(path)
+        columns.remove(lineage.FIELD_NAME)
+        for row in rows:
+            row.pop(lineage.FIELD_NAME, None)
+        write_csv(path, columns, rows)
+    elif mutation == "source_row":
+        path = tmp_path / lineage.ALL_CANDIDATES_ARTIFACT
+        columns, rows = lineage._read_artifact(path)
+        rows[0]["candidate_source_row_sha256"] = "0" * 64
+        write_csv(path, columns, rows)
+    elif mutation == "raw_report":
+        path = tmp_path / lineage.FORMAL_REPORT_ARTIFACT
+        columns, rows = lineage._read_artifact(path)
+        row = next(row for row in rows if row["model_id"] in lineage.VOLUME_V2_MODELS)
+        row[lineage.FIELD_NAME] = "put_inflow"
+        write_csv(path, columns, rows)
+    elif mutation == "pinned_source":
+        path = tmp_path / lineage.THEME_ADVISORY_ARTIFACT
+        columns, rows = lineage._read_artifact(path)
+        rows[0]["warrant_flow_official_source_sha256"] = "0" * 64
+        write_csv(path, columns, rows)
+    else:
+        for relative in (lineage.ALL_CANDIDATES_ARTIFACT, lineage.VOLUME_WATCH_ARTIFACT):
+            path = tmp_path / relative
+            columns, rows = lineage._read_artifact(path)
+            columns.append("runtime_collision_drift")
+            for row in rows:
+                row["runtime_collision_drift"] = "drift"
+            write_csv(path, columns, rows)
+
+    assert lineage.validate(tmp_path, runtime_scope="audit-sources")
+    assert lineage.validate(tmp_path, runtime_scope="complete-current")
+
+
+def test_operation_drift_only_blocks_complete_current_runtime_scope(
+    tmp_path: Path,
+) -> None:
+    build_valid_repo(tmp_path)
+    path = tmp_path / "output/latest/daily_volume_breakout_operation_section_latest.csv"
+    columns, rows = lineage._read_artifact(path)
+    rows[0]["final_rank_score"] = "999"
+    write_csv(path, columns, rows)
+
+    assert lineage.validate(tmp_path, runtime_scope="audit-sources") == []
+    errors = lineage.validate(tmp_path, runtime_scope="complete-current")
+    assert any("current_operation" in error for error in errors)
+
+
+def test_runtime_audit_requires_selected_current_file_in_worktree(
+    tmp_path: Path,
+) -> None:
+    build_valid_repo(tmp_path)
+    (tmp_path / "output/latest/warrant_flow_latest.csv").unlink()
+
+    errors = lineage.validate(tmp_path, runtime_scope="audit-sources")
+    assert "runtime selected current artifact is missing: output/latest/warrant_flow_latest.csv" in errors
+
+
+def test_runtime_audit_rejects_unreadable_selected_current_file(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    build_valid_repo(tmp_path)
+    target = tmp_path / "output/latest/warrant_flow_latest.csv"
+    original_open = Path.open
+
+    def deny_binary_read(path: Path, mode: str = "r", *args, **kwargs):
+        if path == target and mode == "rb":
+            raise PermissionError("blocked by regression")
+        return original_open(path, mode, *args, **kwargs)
+
+    monkeypatch.setattr(Path, "open", deny_binary_read)
+    errors = lineage.validate(tmp_path, runtime_scope="audit-sources")
+    assert any(
+        "runtime selected current artifact is unreadable: "
+        "output/latest/warrant_flow_latest.csv" in error
+        for error in errors
+    )
+
+
+def test_runtime_complete_requires_operation_file_but_audit_does_not(
+    tmp_path: Path,
+) -> None:
+    build_valid_repo(tmp_path)
+    operation_path = (
+        tmp_path / "output/latest/daily_volume_breakout_operation_section_latest.csv"
+    )
+    operation_path.unlink()
+
+    assert lineage.validate(tmp_path, runtime_scope="audit-sources") == []
+    errors = lineage.validate(tmp_path, runtime_scope="complete-current")
+    assert any(
+        "runtime selected current artifact is missing: "
+        "output/latest/daily_volume_breakout_operation_section_latest.csv" in error
+        for error in errors
+    )
+
+
+@pytest.mark.parametrize(
+    ("runtime_scope", "expected_missing"),
+    [("audit-sources", 41), ("complete-current", 42)],
+)
+def test_runtime_scope_rejects_header_only_zero_row_registry(
+    tmp_path: Path,
+    runtime_scope: str,
+    expected_missing: int,
+) -> None:
+    build_valid_repo(tmp_path)
+    path = tmp_path / lineage.REGISTRY_PATH
+    columns, _rows = lineage._read_artifact(path)
+    write_csv(path, columns, [])
+
+    errors = lineage.validate(tmp_path, runtime_scope=runtime_scope)
+    node_error = next(
+        error
+        for error in errors
+        if "canonical field registry governed volume-v2 node set mismatch" in error
+    )
+    assert node_error.count("(") >= expected_missing
+
+
+@pytest.mark.parametrize("runtime_scope", ["audit-sources", "complete-current"])
+def test_runtime_scope_rejects_header_only_zero_row_collision_registry(
+    tmp_path: Path,
+    runtime_scope: str,
+) -> None:
+    build_valid_repo(tmp_path)
+    path = tmp_path / lineage.COLLISION_REGISTRY_PATH
+    columns, _rows = lineage._read_artifact(path)
+    write_csv(path, columns, [])
+
+    errors = lineage.validate(tmp_path, runtime_scope=runtime_scope)
+    assert any(
+        "unregistered volume-v2 dispatcher same-name collision" in error
+        for error in errors
+    )
+
+
+def test_cli_runtime_scope_is_forwarded_and_mutually_exclusive(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    observed: list[str | None] = []
+
+    def fake_validate(
+        root,
+        *,
+        base_ref,
+        trusted_ref,
+        pr_safe_base_history,
+        runtime_scope,
+        mode_evidence,
+    ):
+        observed.append(runtime_scope)
+        return []
+
+    monkeypatch.setattr(lineage, "validate", fake_validate)
+    monkeypatch.setattr(
+        "sys.argv",
+        [
+            "validator",
+            "--repo-root",
+            str(tmp_path),
+            "--runtime-scope",
+            "audit-sources",
+        ],
+    )
+    assert lineage.main() == 0
+    assert observed == ["audit-sources"]
+    assert "scope=runtime_audit_sources governed_nodes=41" in capsys.readouterr().out
+
+    for extra in (
+        ["--base-ref", "a" * 40],
+        ["--trusted-ref", "a" * 40],
+        ["--pr-safe-base-history"],
+    ):
+        monkeypatch.setattr(
+            "sys.argv",
+            ["validator", "--runtime-scope", "complete-current", *extra],
+        )
+        with pytest.raises(SystemExit):
+            lineage.main()
 
 
 def test_theme_accepts_true_uncommitted_live_source_pair(tmp_path: Path) -> None:
@@ -3851,6 +4177,17 @@ def test_workflows_run_canonical_lineage_after_model_build() -> None:
         )
         assert snapshot_update_position < post_update_snapshot_validation
         assert post_update_snapshot_validation < canonical_positions[1]
+
+    daily_full = contents["daily_full"]
+    audit_validation = f"{canonical_validation} --runtime-scope audit-sources"
+    complete_validation = f"{canonical_validation} --runtime-scope complete-current"
+    operation_build = "python scripts/build_daily_volume_breakout_operation_section.py"
+    assert daily_full.count(audit_validation) == 1
+    assert daily_full.count(complete_validation) == 1
+    assert daily_full.index(model_build) < daily_full.index(audit_validation)
+    assert daily_full.index(audit_validation) < daily_full.index(operation_build)
+    assert daily_full.index(operation_build) < daily_full.index(complete_validation)
+    assert contents["warrant_flow"].count("--runtime-scope") == 0
 
     theme_build = "python scripts/build_volume_attack_theme_layer.py"
     warrant_workflow = contents["warrant_flow"]
