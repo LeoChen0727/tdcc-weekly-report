@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0052 富邦科技
 
 ## Metadata
-- generated_at: 2026-08-10 22:26:16 Asia/Taipei
+- generated_at: 2026-08-21 22:26:32 Asia/Taipei
 - stock_id: 0052
 - stock_name: 富邦科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 180
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 197
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 60.65
-- high: 60.75
-- low: 59.65
-- close: 60.2
-- volume: 24490891
-- ma5: 59.82
-- ema23_primary: 59.66
-- distance_to_ema23_pct: 0.9
-- ma20: 59.4
-- ma60: 60.3
-- ma120: 54.22
-- return_5d: 0.84
-- return_20d: -2.9
-- volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: 1.35
-- distance_to_high_60_pct: -8.79
+- date: 20260821
+- open: 60.45
+- high: 61.1
+- low: 60.2
+- close: 60.85
+- volume: 9079497
+- ma5: 60.83
+- ema23_primary: 60.51
+- distance_to_ema23_pct: 0.56
+- ma20: 59.77
+- ma60: 60.98
+- ma120: 55.54
+- return_5d: -1.78
+- return_20d: 2.27
+- volume_ratio: 0.35
+- distance_to_ma20_pct_auxiliary: 1.8
+- distance_to_high_60_pct: -7.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,62.3,62.95,61.8,62.1,24847266,61.99,0.18,62.66,58.52,0.87
-20260714,61.6,61.8,59.85,61.15,38947848,61.92,-1.24,62.74,58.7,1.32
-20260715,61.45,62.35,61.1,62.25,18375422,61.95,0.49,62.77,58.9,0.64
-20260716,61.75,62.45,61.1,62.2,17870324,61.97,0.37,62.79,59.12,0.63
-20260717,59.75,60.15,57.9,57.9,66848132,61.63,-6.05,62.58,59.25,2.19
-20260720,58.3,58.4,57.1,57.6,38675342,61.29,-6.03,62.32,59.37,1.24
-20260721,58.3,60.3,58.3,60.3,30090838,61.21,-1.49,62.07,59.54,0.99
-20260722,61.3,61.45,60.35,60.6,22694690,61.16,-0.92,61.87,59.67,0.76
-20260723,60.95,61.15,60.25,60.9,13157819,61.14,-0.39,61.76,59.77,0.47
-20260724,59.9,60.3,59.3,59.5,28851027,61,-2.46,61.59,59.86,1.01
 20260727,59.2,59.45,58.5,59.3,16021621,60.86,-2.56,61.52,59.97,0.6
 20260728,57.3,57.5,56.6,56.65,40995190,60.51,-6.38,61.29,60.03,1.49
 20260729,56.6,56.6,53.35,54.4,63119428,60,-9.33,60.84,60.02,2.16
@@ -168,6 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,60.7,61.3,60.2,60.65,40325712,59.54,1.87,59.57,60.17,1.22
 20260806,60.2,60.6,59.85,60.45,16265978,59.61,1.4,59.49,60.23,0.5
 20260807,60.65,60.75,59.65,60.2,24490891,59.66,0.9,59.4,60.3,0.74
+20260810,60.75,61.25,60.6,60.95,19177147,59.77,1.98,59.34,60.37,0.59
+20260811,60.6,61.2,60.2,61.05,13041360,59.88,1.96,59.34,60.46,0.41
+20260812,61.3,61.65,61.1,61.5,17052528,60.01,2.48,59.3,60.55,0.54
+20260813,62.5,62.7,62.1,62.4,20437587,60.21,3.64,59.31,60.68,0.65
+20260814,62.7,62.8,61.85,61.95,28112743,60.36,2.64,59.51,60.8,0.95
+20260817,61.95,62.2,61.7,61.8,17886201,60.48,2.19,59.72,60.89,0.63
+20260818,61.85,61.9,60.85,60.9,15282196,60.51,0.64,59.75,60.95,0.55
+20260819,59.65,60.45,59.65,60.15,12817722,60.48,-0.55,59.73,60.96,0.47
+20260820,60.65,60.7,59.95,60.45,7577786,60.48,-0.05,59.7,60.98,0.28
+20260821,60.45,61.1,60.2,60.85,9079497,60.51,0.56,59.77,60.98,0.35
 ```
 
 ## Latest TDCC Snapshot
@@ -191,19 +191,19 @@ no_rows,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 0052 | 富邦科技 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 0052 | 富邦科技 | 1 | 1 | 3 | 3 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 0052 | 富邦科技 | 20 | 3 | 5751750.0 | 190.0 | 30272.37 | call_put_bullish |
+| 20260821 | 0052 | 富邦科技 | 27 | 2 | 1341990.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

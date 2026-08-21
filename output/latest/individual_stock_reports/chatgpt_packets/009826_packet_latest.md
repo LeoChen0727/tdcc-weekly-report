@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009826 貝萊德世界股票
 
 ## Metadata
-- generated_at: 2026-08-10 22:26:22 Asia/Taipei
+- generated_at: 2026-08-21 22:26:36 Asia/Taipei
 - stock_id: 009826
 - stock_name: 貝萊德世界股票
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260807
-- price_rows: 5
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 15
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -126,23 +126,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 10.24
-- high: 10.24
-- low: 10.2
-- close: 10.22
-- volume: 24539467
-- ma5: 10.21
-- ema23_primary: 10.13
-- distance_to_ema23_pct: 0.91
-- ma20: 10.21
-- ma60: 10.21
-- ma120: 10.21
-- return_5d:
+- date: 20260821
+- open: 10.12
+- high: 10.14
+- low: 10.11
+- close: 10.13
+- volume: 16761940
+- ma5: 10.17
+- ema23_primary: 10.18
+- distance_to_ema23_pct: -0.52
+- ma20: 10.23
+- ma60: 10.23
+- ma120: 10.23
+- return_5d: -1.65
 - return_20d:
-- volume_ratio: 0.51
-- distance_to_ma20_pct_auxiliary: 0.1
-- distance_to_high_60_pct: -1.64
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: -0.98
+- distance_to_high_60_pct: -2.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -153,6 +153,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,10.38,10.39,10.28,10.29,51361328,,,,,
 20260806,10.29,10.29,10.24,10.28,37038290,,,,,
 20260807,10.24,10.24,10.2,10.22,24539467,10.13,0.91,10.21,10.21,0.51
+20260810,10.31,10.32,10.29,10.32,23700947,10.14,1.73,10.23,10.23,0.54
+20260811,10.31,10.32,10.3,10.32,22360188,10.16,1.59,10.24,10.24,0.55
+20260812,10.29,10.3,10.27,10.29,23159847,10.17,1.18,10.25,10.25,0.6
+20260813,10.32,10.32,10.29,10.31,24721847,10.18,1.26,10.25,10.25,0.67
+20260814,10.32,10.33,10.29,10.3,24828431,10.19,1.07,10.26,10.26,0.69
+20260817,10.3,10.3,10.26,10.28,22679715,10.2,0.8,10.26,10.26,0.66
+20260818,10.25,10.25,10.16,10.18,32164847,10.2,-0.17,10.25,10.25,0.94
+20260819,10.13,10.13,10.1,10.12,23735382,10.19,-0.69,10.24,10.24,0.71
+20260820,10.15,10.17,10.14,10.16,9277477,10.19,-0.28,10.24,10.24,0.29
+20260821,10.12,10.14,10.11,10.13,16761940,10.18,-0.52,10.23,10.23,0.54
 ```
 
 ## Latest TDCC Snapshot

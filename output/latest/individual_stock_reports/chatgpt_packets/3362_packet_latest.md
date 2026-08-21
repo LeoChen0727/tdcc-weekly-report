@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3362 先進光
 
 ## Metadata
-- generated_at: 2026-08-10 22:27:29 Asia/Taipei
+- generated_at: 2026-08-21 22:27:20 Asia/Taipei
 - stock_id: 3362
 - stock_name: 先進光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 186
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 203
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -103,7 +103,6 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -118,7 +117,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -126,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 180
-- high: 181
-- low: 173
-- close: 173.5
-- volume: 1056000
-- ma5: 176.7
-- ema23_primary: 169.49
-- distance_to_ema23_pct: 2.36
-- ma20: 166.8
-- ma60: 159.26
-- ma120: 131.03
-- return_5d: 0.87
-- return_20d: -3.61
-- volume_ratio: 0.13
-- distance_to_ma20_pct_auxiliary: 4.02
-- distance_to_high_60_pct: -20.41
+- date: 20260821
+- open: 186
+- high: 200
+- low: 180
+- close: 194.5
+- volume: 9033000
+- ma5: 183.1
+- ema23_primary: 176.23
+- distance_to_ema23_pct: 10.37
+- ma20: 175.45
+- ma60: 169.98
+- ma120: 137.36
+- return_5d: 13.08
+- return_20d: 29.24
+- volume_ratio: 1.03
+- distance_to_ma20_pct_auxiliary: 10.86
+- distance_to_high_60_pct: -10.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,187.5,198,185,188.5,12009000,174.7,7.9,186.78,141.42,1.52
-20260714,187.5,189.5,170,172,6370000,174.48,-1.42,187.35,142.39,0.83
-20260715,176,177.5,169,171,2368000,174.19,-1.83,187.07,143.36,0.32
-20260716,168,181,164,169.5,4973000,173.8,-2.47,185.85,144.16,0.71
-20260717,161,165,155,156,3156000,172.32,-9.47,183.28,144.8,0.52
-20260720,156,156.5,144.5,148.5,2490000,170.33,-12.82,180.15,145.37,0.46
-20260721,149.5,154,146,151.5,1758000,168.76,-10.23,177.47,146.03,0.34
-20260722,156,160.5,152.5,156.5,1670000,167.74,-6.7,176,146.83,0.34
-20260723,158.5,165.5,158,163,3162000,167.34,-2.6,174.55,147.72,0.65
-20260724,159,159.5,150.5,150.5,1429000,165.94,-9.31,171.53,148.43,0.34
 20260727,153,165.5,153,165.5,6852000,165.9,-0.24,170.3,149.42,1.68
 20260728,160,171,157,158,24672000,165.25,-4.38,169.07,150.25,4.85
 20260729,159.5,173.5,158,173.5,22991000,165.93,4.56,168.3,151.34,3.85
@@ -168,18 +157,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,183,183,172.5,174.5,2298000,168.5,3.56,166.72,156.87,0.26
 20260806,173,180,171.5,176,793000,169.13,4.06,167.12,158.06,0.09
 20260807,180,181,173,173.5,1056000,169.49,2.36,166.8,159.26,0.13
+20260810,176,180,175,178,665000,170.2,4.58,166.28,160.37,0.09
+20260811,178.5,178.5,171,174.5,637000,170.56,2.31,166.4,161.4,0.08
+20260812,174.5,179.5,172,179,958000,171.26,4.52,166.8,162.47,0.13
+20260813,181,181.5,177.5,181,1439000,172.07,5.19,167.38,163.51,0.2
+20260814,185.5,191.5,170.5,172,5669000,172.07,-0.04,168.18,164.48,0.77
+20260817,173,186,171,178.5,7490000,172.6,3.42,169.68,165.44,0.98
+20260818,180.5,185.5,175,175,4637000,172.8,1.27,170.85,166.36,0.59
+20260819,171,184.5,171,181.5,3958000,173.53,4.59,172.1,167.43,0.5
+20260820,183.5,194.5,182.5,186,12262000,174.57,6.55,173.25,168.62,1.47
+20260821,186,200,180,194.5,9033000,176.23,10.37,175.45,169.98,1.03
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 59.72
-- over_600_ratio: 55.53
-- over_800_ratio: 51.32
-- over_1000_ratio: 48.76
-- over_400_change_1w: 1.18
-- over_800_change_1w: 0.6
-- over_1000_change_1w: 0.68
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260814
+- over_400_ratio: 60.1
+- over_600_ratio: 55.56
+- over_800_ratio: 51.48
+- over_1000_ratio: 48.96
+- over_400_change_1w: 0.38
+- over_800_change_1w: 0.16
+- over_1000_change_1w: 0.2
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -187,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,60.34,-0.22,51.72,0,49.09,0,0,False,False
 20260529,59.74,-0.6,51.07,-0.65,48.33,-0.76,0,False,False
 20260605,61.12,1.38,52.32,1.25,50.42,2.09,1,True,True
 20260612,61.09,-0.03,52.41,0.09,49.8,-0.62,2,False,True
@@ -199,17 +197,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,59.32,-0.5,51.33,-0.66,48.78,0.01,2,False,True
 20260731,58.54,-0.78,50.72,-0.61,48.08,-0.7,0,False,False
 20260807,59.72,1.18,51.32,0.6,48.76,0.68,1,True,True
+20260814,60.1,0.38,51.48,0.16,48.96,0.2,2,True,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 3362 | 先進光 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 55.0 |  |  | neckline_challenge |  |  | stale_signal | 1.重要子公司名稱:科雅光電股份有限公司 2.發生緣由(降低持股比例（或出資額）或喪失控制力):降低持股比例 3.降低持股（或出資額）比例之方式(請分別列示各次發生日期、發生原因 、方式、降低持股比例、交易數量、每單位價格及交易總金額): 發生日期：115年5月7日及115年7月9日本公司董事會決議。 發生原因：配合科雅公司股票上(市)櫃規劃，依法令規定辦理股權分散。 方式：處分科雅光電公司10%股權，共計 3,680,000 股，處分後本公司仍 持有該子公司90%股權，仍保有實質控制權與經營決策影響力。 降低持股比例：10% 交易數量：3,680,000股 每單位價格：每股新台幣68元 交易總金額：新台幣250,240千元 4.喪失控制力之方式(請列示發生日期、發生原因及方式):不適用 5.股權(或出資額)受讓對象或所洽特定對象(請分別列示各次交易對象): 大立光電股份有限公司 6.與交易對象之關係(請分別列示各次交易對象與公司之關係):無 7.處分利益(或損失)(請分別列示各次處分損益，若無處分損益請填寫不適用): 不適用 8.迄目前為止(含本次交易)，對重要子公司累積降低持股比例:10% 9.迄目前為止(含本次交易)，對重要子公司持股比例:90% 10.獨立專家姓名及其就歷次價格合理性之意見: 勝傑會計師事務所塗勝傑會計師/價格尚屬合理。 11.獨立專家姓名及其就降低持股或喪失控制力對上櫃公司股東權益影響之意見: 勝傑會計師事務所塗勝傑會計師 降低持股對本公司之股東權益並無重大影響。 12.是否影響母公司繼續上櫃:否 13.審計委員會決議日期:115/05/07及115/07/09 14.審計委員會決議內容:本案經全體出席委員同意照案通過。 15.董事會決議日期:115/05/07及115/07/09 16.董事會決議內容:本案經全體出席董事同意照案通過。 17.其他應敘明事項: 1.本次補充公告所洽特定對象、每單位價格及交易總金額。 2.本次處分案若有其他未盡事宜，擬授權董事長視實際情況 依相關法令規定辦理及擬授權董事長代表本公司簽署一切有 關辦理契約及文件，並代表本公司辦理相關事項。 3.科雅釋股案己經115年6月29日股東會決議通過。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 3362 | 先進光 | 2 | 2 | 2 | 6 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

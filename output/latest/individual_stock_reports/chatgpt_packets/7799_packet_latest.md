@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7799 禾榮科
 
 ## Metadata
-- generated_at: 2026-08-10 22:29:02 Asia/Taipei
+- generated_at: 2026-08-21 22:28:19 Asia/Taipei
 - stock_id: 7799
 - stock_name: 禾榮科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 212
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 225
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 361
-- high: 363
-- low: 353.5
-- close: 355
-- volume: 151078
-- ma5: 356.1
-- ema23_primary: 376.76
-- distance_to_ema23_pct: -5.78
-- ma20: 384.52
-- ma60: 370.09
-- ma120: 388.99
-- return_5d: 1.87
-- return_20d: -18.48
-- volume_ratio: 0.22
-- distance_to_ma20_pct_auxiliary: -7.68
-- distance_to_high_60_pct: -24.95
+- date: 20260821
+- open: 372
+- high: 376
+- low: 358.5
+- close: 358.5
+- volume: 398303
+- ma5: 356.8
+- ema23_primary: 366.77
+- distance_to_ema23_pct: -2.25
+- ma20: 358.12
+- ma60: 376.98
+- ma120: 378.67
+- return_5d: -2.32
+- return_20d: -10.26
+- volume_ratio: 1.2
+- distance_to_ma20_pct_auxiliary: 0.1
+- distance_to_high_60_pct: -24.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,439,441,397,402.5,1332154,397.7,1.21,397.75,366.42,1.18
-20260714,402.5,408,380,396,670172,397.55,-0.39,400.25,366.43,0.58
-20260715,405.5,423,393,418.5,626665,399.3,4.81,403.57,366.93,0.54
-20260716,420,460,418.5,437,2459096,402.44,8.59,407.65,367.52,1.96
-20260717,426.5,458,406,415.5,1662962,403.53,2.97,410.57,367.67,1.25
-20260720,417.5,430,406,420.5,623294,404.94,3.84,413.5,367.77,0.47
-20260721,420.5,443.5,420.5,425,593525,406.62,4.52,415.45,368.2,0.46
-20260722,432.5,435,410,410,585718,406.9,0.76,414.73,368.6,0.46
-20260723,408.5,413.5,397,398.5,491253,406.2,-1.9,414,368.95,0.42
-20260724,400,407,392.5,399.5,301915,405.64,-1.51,414.32,369.33,0.26
 20260727,404,407.5,394.5,396,260463,404.84,-2.18,415.18,369.57,0.23
 20260728,383.5,384.5,358,359,862867,401.02,-10.48,412.3,369.37,0.76
 20260729,365.5,371,333.5,343.5,1046729,396.22,-13.31,408.98,369.06,0.94
@@ -167,17 +158,27 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,360,364,356.5,361.5,246867,380.71,-5.05,392.8,369.24,0.3
 20260806,360.5,364.5,354,357,249181,378.74,-5.74,388.55,369.65,0.33
 20260807,361,363,353.5,355,151078,376.76,-5.78,384.52,370.09,0.22
+20260810,358,365.5,355,358,161687,375.2,-4.58,382.3,370.69,0.26
+20260811,355.5,360,347,359,203679,373.85,-3.97,380.45,371.59,0.34
+20260812,365,371,361.5,362,206640,372.86,-2.91,377.62,372.45,0.36
+20260813,365,368.5,359,365,114530,372.2,-1.94,374.02,373.48,0.25
+20260814,365,369.5,360.5,367,166094,371.77,-1.28,371.6,374.48,0.44
+20260817,367,367.5,350,350,275371,369.96,-5.39,368.07,375.03,0.76
+20260818,351.5,352.5,347,351,98768,368.38,-4.72,364.38,375.41,0.29
+20260819,350.5,353,345,345,128144,366.43,-5.85,361.12,375.52,0.41
+20260820,348.5,379.5,348,379.5,737333,367.52,3.26,360.18,376.37,2.25
+20260821,372,376,358.5,358.5,398303,366.77,-2.25,358.12,376.98,1.2
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 79.01
-- over_600_ratio: 74.27
-- over_800_ratio: 73.83
-- over_1000_ratio: 70.94
-- over_400_change_1w: -0.07
-- over_800_change_1w: -0.38
-- over_1000_change_1w: -0.36
+- as_of_date: 20260814
+- over_400_ratio: 78.96
+- over_600_ratio: 74.21
+- over_800_ratio: 73.77
+- over_1000_ratio: 70.88
+- over_400_change_1w: -0.05
+- over_800_change_1w: -0.06
+- over_1000_change_1w: -0.06
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -186,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,80.34,-0.12,74.77,0,71.19,0,0,False,False
 20260529,80.39,0.05,74.77,0,71.19,0,1,False,False
 20260605,80.34,-0.05,74.74,-0.03,71.8,0.61,2,False,True
 20260612,80.18,-0.16,74.77,0.03,71.83,0.03,3,False,True
@@ -198,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,79.5,0.36,74.41,0.07,71.5,0.07,1,True,True
 20260731,79.08,-0.42,74.21,-0.2,71.3,-0.2,0,False,False
 20260807,79.01,-0.07,73.83,-0.38,70.94,-0.36,0,False,False
+20260814,78.96,-0.05,73.77,-0.06,70.88,-0.06,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 7799 | 禾榮科 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | continued_2_3d | 1.事實發生日:115/07/15 2.研發新藥名稱或代號:B10 L-BPA注射液 3.用途:評估硼中子捕獲治療(BNCT)作為術前輔助治療局部晚期口腔癌的安全性和有效性 4.預計進行之所有研發階段:第一及第二期臨床試驗 5.目前進行中之研發階段(請說明目前之研發階段係屬提出申請/通過核准/ 不通過核准，若未通過者，請說明公司所面臨之風險及因應措施； 另請說明未來經營方向及已投入累積研發費用): (1)提出申請/ 通過核准/ 不通過核准/ 各期人體臨床試驗   (含期中分析)結果/發生其他影響新藥研發之重大事件：本   公司研發之B10 L-BPA注射液通過台灣衛生福利部食品藥物   管理署(TFDA)新藥臨床試驗(IND)審查，將啟動前輔助治療   局部晚期口腔癌之第一及第二期學術研究用人體臨床試驗。 (2)未通過目的事業主管機關許可、各期人體臨床試驗(含期中    分析)結果未達統計上顯著意義或發生其他影響新藥研發之    重大事件者，公司所面臨之風險及因應措施：    不適用。 (3)已通過目的事業主管機關許可、各期人體臨床試驗(含期中    分析)結果達統計上顯著意義或發生其他影響新藥研發之重    大事件者，未來經營方向：不適用。 (4)已投入之累積研發費用：因涉及未來市場行銷策略及授權資訊   ，為保障公司及投投資人權益，暫不予公開揭露。 6.將再進行之下一階段研發(請說明預計完成時間及預計應負擔之義務): (1)預計完成時間：實際時程將依台灣衛生福利部食品藥物管理署(TFDA)審核進度而定。 (2)預計應負擔之義務：不適用。 7.市場現況:在頭頸癌治療領域，針對局部晚期（Locally Advanced）  可手術切除腫瘤之患者，先透過術前輔助治療（Neoadjuvant  Therapy）達到手術前有效縮減腫瘤體積、提升手術切除率並保留 器官功能，一直是臨床上的重大挑戰。傳統的術前輔助治療，包括 誘導化療或同步放化療，常因全身性毒性副作用及對周邊健康組織 的潛在損傷，可能增加術後併發症或影響傷口癒合，在臨床應用中 面臨一定侷限。目前硼中子捕獲治療BNCT的臨床試驗絕大多數集中 在復發性或無法手術或難治性腫瘤，尚未有臨床試驗將BNCT用於術 前輔助治療，先進行有效縮減腫瘤體積，再執行手術切除腫瘤之療 法。根據現有的臨床研究數據顯示，硼中子捕獲療法BNCT具細胞級 精準殺傷的潛力；其中，口腔癌屬頭頸癌的一種癌種，有機會以此 類患者提供一項潛在療法之選擇。 從市場規模來看，頭頸癌每年全球新診斷病例達 170 萬例，其中 約有 30%-40%的患者屬於局部晚期，是術前輔助治療的目標群體， 此臨床應用可補足口腔癌治療期別與類型更全面之潛在市場。本次 研究將進一步評估BNCT作為術前輔助治療(Neoadjuvant Therapy) 策略之一，是否有機會協助部分腫瘤位置或範圍較具挑戰性的患者 ，透過腫瘤控制與後續外科手術整合，建立新的臨床應用方向。 8.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第8款所定 對股東權益或證券價格有重大影響之事項): 學術型臨床試驗偏向以科學或醫療研究為主要目的，由醫療院所、學術單位或研究人員 主導進行，公司多為贊助者(Sponsor)，提供資源支持學研單位進行研究。 其臨床成果用途偏向學術發表、臨床指引修訂、醫療品質提升。 9.新藥開發時程長、投入經費高且未保證一定能成功，此等可能使投資面臨風險，投    資人應審慎判斷謹慎投資。:；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 7799 | 禾榮科 | 2 | 1 | 3 | 6 | 9 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

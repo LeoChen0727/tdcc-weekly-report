@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6861 睿生光電
 
 ## Metadata
-- generated_at: 2026-08-10 22:28:47 Asia/Taipei
+- generated_at: 2026-08-21 22:28:10 Asia/Taipei
 - stock_id: 6861
 - stock_name: 睿生光電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,7 +101,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -126,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 209.5
-- high: 215
-- low: 204.5
-- close: 207
-- volume: 264722
-- ma5: 206.2
-- ema23_primary: 228.41
-- distance_to_ema23_pct: -9.37
-- ma20: 212.72
-- ma60: 314.62
-- ma120: 249.34
-- return_5d: 8.38
-- return_20d: -29.11
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: -2.69
-- distance_to_high_60_pct: -57.76
+- date: 20260821
+- open: 195.5
+- high: 196
+- low: 185.5
+- close: 187
+- volume: 460578
+- ma5: 196.8
+- ema23_primary: 214.39
+- distance_to_ema23_pct: -12.78
+- ma20: 202.32
+- ma60: 276.08
+- ma120: 259.61
+- return_5d: -13.02
+- return_20d: -9.22
+- volume_ratio: 1.23
+- distance_to_ma20_pct_auxiliary: -7.57
+- distance_to_high_60_pct: -60.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,288,288,263,263,1009014,325.02,-19.08,325.4,343.24,1.39
-20260714,247,253,237,237,901827,317.69,-25.4,322.05,344.73,1.21
-20260715,237,243,233.5,238.5,906792,311.09,-23.33,318.43,346.01,1.19
-20260716,252,258,237.5,250,1209956,306,-18.3,313.82,347.22,1.52
-20260717,245,245,225,225,676294,299.25,-24.81,308.2,347.72,0.89
-20260720,222.5,224,204.5,215.5,746212,292.27,-26.27,300.43,347.73,1.03
-20260721,216.5,223,207,211,418164,285.5,-26.09,292.05,347.32,0.62
-20260722,224,224,213,218,374356,279.87,-22.11,285.05,346.64,0.58
-20260723,222,222,210,214,225496,274.38,-22.01,278.1,345.74,0.37
-20260724,214,214,201,206,358140,268.68,-23.33,271.73,344.62,0.6
 20260727,206,209,200,207,377323,263.54,-21.46,266.93,343.08,0.65
 20260728,200,200,191,192.5,357917,257.62,-25.28,260.57,340.82,0.63
 20260729,189,192.5,173.5,181,934011,251.24,-27.96,252.97,337.83,1.57
@@ -168,18 +157,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,210,215.5,206,209.5,368945,232.17,-9.76,221.32,321.77,0.63
 20260806,209.5,214,203.5,210.5,277715,230.36,-8.62,216.97,318.18,0.5
 20260807,209.5,215,204.5,207,264722,228.41,-9.37,212.72,314.62,0.49
+20260810,215,227.5,213.5,220.5,739197,227.75,-3.19,210.6,310.8,1.41
+20260811,219.5,221.5,210.5,218,407046,226.94,-3.94,209.65,306.92,0.81
+20260812,216.5,221.5,212,212,277562,225.7,-6.07,208.32,302.87,0.59
+20260813,216,223,213.5,220.5,334872,225.26,-2.11,206.85,299.72,0.79
+20260814,223.5,226.5,213,215,429515,224.41,-4.19,206.35,296.52,1.04
+20260817,215,215,207,209,189107,223.12,-6.33,206.03,292.88,0.49
+20260818,208,209,197,198.5,297814,221.07,-10.21,205.4,288.7,0.79
+20260819,194.5,203,193,193,199947,218.73,-11.76,204.15,284.88,0.54
+20260820,194,197,191.5,196.5,200125,216.88,-9.4,203.28,280.67,0.54
+20260821,195.5,196,185.5,187,460578,214.39,-12.78,202.32,276.08,1.23
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 55.43
+- as_of_date: 20260814
+- over_400_ratio: 54.37
 - over_600_ratio: 52.16
 - over_800_ratio: 52.16
 - over_1000_ratio: 52.16
-- over_400_change_1w: 1.09
+- over_400_change_1w: -1.06
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 2
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -187,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,57.88,-0.68,51.01,-0.41,51.01,-0.41,0,False,False
 20260529,57.64,-0.24,51.08,0.07,51.08,0.07,1,False,True
 20260605,57.45,-0.19,52.16,1.08,52.16,1.08,2,False,True
 20260612,57.13,-0.32,52.16,0,52.16,0,0,False,False
@@ -199,6 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,53.26,0,52.16,0,52.16,0,0,False,False
 20260731,54.34,1.08,52.16,0,52.16,0,1,False,False
 20260807,55.43,1.09,52.16,0,52.16,0,2,False,False
+20260814,54.37,-1.06,52.16,0,52.16,0,0,False,False
 ```
 
 ## Candidate Context
@@ -214,7 +213,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 6861 | 睿生光電 | 3 | 0 | 113200.0 | 0.0 |  | no_signal |
+| 20260821 | 6861 | 睿生光電 | 7 | 0 | 874240.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

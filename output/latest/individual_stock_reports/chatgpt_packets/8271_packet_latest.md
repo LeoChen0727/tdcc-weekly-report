@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8271 宇瞻
 
 ## Metadata
-- generated_at: 2026-08-10 22:29:11 Asia/Taipei
+- generated_at: 2026-08-21 22:28:25 Asia/Taipei
 - stock_id: 8271
 - stock_name: 宇瞻
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 回檔後短線轉強
+- model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 回檔後短線轉強 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
+- risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 回檔後短線轉強 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -87,7 +87,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_distribution_risk
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -104,6 +104,7 @@
 - near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -117,7 +118,6 @@
 
 ### downgrade_reason
 - tdcc_distribution_warning
-- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -125,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 240
-- high: 244.5
-- low: 235
-- close: 235.5
-- volume: 9432917
-- ma5: 230.6
-- ema23_primary: 212.89
-- distance_to_ema23_pct: 10.62
-- ma20: 206.78
-- ma60: 212.17
-- ma120: 190.45
-- return_5d: 5.61
-- return_20d: 30.11
-- volume_ratio: 1.18
-- distance_to_ma20_pct_auxiliary: 13.89
-- distance_to_high_60_pct: -10.96
+- date: 20260821
+- open: 233
+- high: 237
+- low: 230.5
+- close: 232.5
+- volume: 7334224
+- ma5: 227.2
+- ema23_primary: 222.59
+- distance_to_ema23_pct: 4.45
+- ma20: 226.3
+- ma60: 212.13
+- ma120: 199.92
+- return_5d: -0.21
+- return_20d: 9.41
+- volume_ratio: 0.91
+- distance_to_ma20_pct_auxiliary: 2.74
+- distance_to_high_60_pct: -12.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,183,185.5,181,183,1923999,198.32,-7.72,197.18,217.12,0.81
-20260714,182,183,166,173.5,2483386,196.25,-11.59,195.72,217.29,1.09
-20260715,176,182.5,176,181.5,1416832,195.02,-6.93,194.38,217.32,0.63
-20260716,178.5,189.5,177.5,187.5,2131919,194.39,-3.55,193.45,217.17,0.97
-20260717,185.5,205.5,184,190,10777264,194.03,-2.08,192.53,216.72,4.02
-20260720,191,192.5,175.5,184,3821743,193.19,-4.76,191.18,215.82,1.38
-20260721,188.5,194.5,186.5,191.5,2564859,193.05,-0.8,189.97,215.32,0.94
-20260722,200,202.5,196,196.5,3630322,193.34,1.64,189.53,215.26,1.32
-20260723,199,210.5,193,210,5041082,194.73,7.84,189.85,215.24,1.72
-20260724,211,223,204,212.5,14806388,196.21,8.3,190.25,215.03,4.18
 20260727,211,218,206,218,6353352,198.02,10.09,191.25,215.03,1.71
 20260728,208.5,211.5,204,205,4729092,198.61,3.22,191.82,214.78,1.23
 20260729,210,225.5,201.5,222.5,18407423,200.6,10.92,193.22,214.78,3.93
@@ -167,26 +157,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,228.5,238,225,227,10429154,207.55,9.37,200.75,212.41,1.52
 20260806,225,249.5,221.5,247,17296783,210.83,17.15,204.05,212.38,2.27
 20260807,240,244.5,235,235.5,9432917,212.89,10.62,206.78,212.17,1.18
+20260810,233.5,237.5,228.5,235.5,6983213,214.77,9.65,209.4,211.89,0.84
+20260811,232.5,235,229,234.5,4354343,216.42,8.36,212.45,211.77,0.52
+20260812,236,238.5,231,232,4782916,217.72,6.56,214.97,211.7,0.56
+20260813,233.5,235,228.5,229.5,4357104,218.7,4.94,217.07,211.83,0.5
+20260814,231.5,236.5,224.5,233,8476251,219.89,5.96,219.22,212.13,0.99
+20260817,233.5,233.5,227.5,228,3195900,220.57,3.37,221.43,212.27,0.38
+20260818,229,232,223,223,2874908,220.77,1.01,223,212.24,0.34
+20260819,218,221,215.5,219.5,2443973,220.66,-0.53,224.15,212.08,0.29
+20260820,223.5,233,221.5,233,5119447,221.69,5.1,225.3,212.13,0.6
+20260821,233,237,230.5,232.5,7334224,222.59,4.45,226.3,212.13,0.91
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 48.09
-- over_600_ratio: 45.53
-- over_800_ratio: 42.73
-- over_1000_ratio: 41.97
-- over_400_change_1w: 5.57
-- over_800_change_1w: 5.29
-- over_1000_change_1w: 5.29
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260814
+- over_400_ratio: 45.17
+- over_600_ratio: 42.19
+- over_800_ratio: 40.58
+- over_1000_ratio: 39.09
+- over_400_change_1w: -2.92
+- over_800_change_1w: -2.15
+- over_1000_change_1w: -2.88
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,50.1,0.31,43.54,-0.51,42.19,-0.44,1,False,False
 20260529,48.79,-1.31,40.98,-2.56,40.35,-1.84,0,False,False
 20260605,48.27,-0.52,40.76,-0.22,40.09,-0.26,0,False,False
 20260612,44.86,-3.41,38.22,-2.54,38.22,-1.87,0,False,False
@@ -198,23 +197,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,42.89,0.78,37.95,1.5,37.22,0.77,2,True,True
 20260731,42.52,-0.37,37.44,-0.51,36.68,-0.54,0,False,False
 20260807,48.09,5.57,42.73,5.29,41.97,5.29,1,True,True
+20260814,45.17,-2.92,40.58,-2.15,39.09,-2.88,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 8271 | 宇瞻 | pullback_rebound | 回檔後短線轉強 | 62.0 |  |  |  |  | call_put_bullish | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/24 1.召開法人說明會之日期：115/07/24 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：臺灣證券交易所1樓資訊展示中心 (台北市信義區信義路五段7號101大樓1樓) 4.法人說明會擇要訊息：民國115年上半年經營績效與產業概況說明 5.其他應敘明事項：完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
-| 20260717 | 8271 | 宇瞻 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | call_put_bullish | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/24 1.召開法人說明會之日期：115/07/24 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：臺灣證券交易所1樓資訊展示中心 (台北市信義區信義路五段7號101大樓1樓) 4.法人說明會擇要訊息：民國115年上半年經營績效與產業概況說明 5.其他應敘明事項：完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 8271 | 宇瞻 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/24 1.召開法人說明會之日期：115/07/24 2.召開法人說明會之時間：14 時 30 分 3.召開法人說明會之地點：臺灣證券交易所1樓資訊展示中心 (台北市信義區信義路五段7號101大樓1樓) 4.法人說明會擇要訊息：民國115年上半年經營績效與產業概況說明 5.其他應敘明事項：完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| 20260821 | 8271 | 宇瞻 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/24 1.召開法人說明會之日期：115/07/24 2.召開法人說明會之時間：14 時 30 分 3.召開法人說明會之地點：臺灣證券交易所1樓資訊展示中心 (台北市信義區信義路五段7號101大樓1樓) 4.法人說明會擇要訊息：民國115年上半年經營績效與產業概況說明 5.其他應敘明事項：完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 8271 | 宇瞻 | 2 | 2 | 4 | 9 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260821 | 8271 | 宇瞻 | 3 | 3 | 4 | 8 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 8271 | 宇瞻 | 57 | 8 | 14511960.0 | 117870.0 | 123.12 | call_put_bullish |
+| 20260821 | 8271 | 宇瞻 | 71 | 11 | 19243240.0 | 710.0 | 27103.15 | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

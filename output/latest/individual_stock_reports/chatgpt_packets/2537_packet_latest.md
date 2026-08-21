@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2537 聯上發
 
 ## Metadata
-- generated_at: 2026-08-10 22:27:03 Asia/Taipei
+- generated_at: 2026-08-21 22:27:03 Asia/Taipei
 - stock_id: 2537
 - stock_name: 聯上發
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,23 +70,23 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
-- model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
 - action_rating: scale_in
 - action_rating_label_zh: 可分批買進
-- confidence_level: high
+- confidence_level: medium
 - thesis_state: healthy_pullback
 - entry_style: pullback_to_23ema
 - position_sizing: half_position
@@ -105,7 +105,6 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -132,38 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 11
-- high: 11.2
-- low: 11
-- close: 11.05
-- volume: 638748
-- ma5: 10.98
-- ema23_primary: 10.99
-- distance_to_ema23_pct: 0.53
-- ma20: 11.02
-- ma60: 10.69
-- ma120: 10.52
-- return_5d: -0.45
-- return_20d: -1.34
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: 0.29
-- distance_to_high_60_pct: -10.89
+- date: 20260821
+- open: 11.6
+- high: 11.9
+- low: 11.6
+- close: 11.7
+- volume: 1504347
+- ma5: 11.46
+- ema23_primary: 11.16
+- distance_to_ema23_pct: 4.79
+- ma20: 11.11
+- ma60: 10.95
+- ma120: 10.58
+- return_5d: 6.85
+- return_20d: 5.88
+- volume_ratio: 1.26
+- distance_to_ma20_pct_auxiliary: 5.36
+- distance_to_high_60_pct: -5.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,11.3,11.3,10.9,11,1393988,10.94,0.58,11.19,10.48,0.48
-20260714,10.95,11.05,10.9,10.9,921084,10.93,-0.31,11.17,10.49,0.34
-20260715,11.05,11.25,10.95,11.2,891187,10.96,2.23,11.12,10.51,0.39
-20260716,11.25,11.4,11.2,11.3,1138627,10.98,2.87,11.12,10.52,0.56
-20260717,11.3,11.3,10.85,10.95,1176262,10.98,-0.29,11.06,10.53,0.68
-20260720,11.5,11.5,10.8,10.95,1435596,10.98,-0.26,11.01,10.53,0.99
-20260721,11.1,11.15,10.95,11.05,379003,10.98,0.59,11.01,10.54,0.31
-20260722,11.1,11.15,11.05,11.1,536690,10.99,0.96,11.03,10.55,0.47
-20260723,11.1,11.25,10.9,11,823008,10.99,0.05,11.02,10.56,0.75
-20260724,10.95,11.1,10.95,11.05,918653,11,0.46,11.02,10.57,0.84
 20260727,11.05,11.15,11,11.05,748922,11,0.42,11.03,10.58,0.72
 20260728,11,11.05,10.85,10.95,1702645,11,-0.45,11.03,10.59,1.56
 20260729,11,11.05,10.7,10.85,2474133,10.99,-1.25,11.03,10.6,2.1
@@ -174,18 +163,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,10.95,11,10.9,10.95,483923,10.99,-0.36,11.03,10.66,0.48
 20260806,11,11,10.85,10.95,321292,10.99,-0.33,11.03,10.68,0.33
 20260807,11,11.2,11,11.05,638748,10.99,0.53,11.02,10.69,0.66
+20260810,11.05,11.1,10.9,11,862829,10.99,0.07,11.02,10.71,0.92
+20260811,11.05,11.05,10.95,10.95,394403,10.99,-0.35,11.02,10.73,0.43
+20260812,10.95,11.05,10.95,11.05,734455,10.99,0.51,11.01,10.75,0.81
+20260813,11.05,11.05,10.85,11,2142659,10.99,0.05,11,10.78,2.25
+20260814,11,11,10.7,10.95,1554644,10.99,-0.37,11,10.8,1.6
+20260817,10.95,11.25,10.95,11.25,2068673,11.01,2.16,11.01,10.82,2.06
+20260818,11.2,11.25,11.05,11.15,1105484,11.02,1.14,11.02,10.85,1.06
+20260819,11.1,11.65,11.1,11.55,2689304,11.07,4.36,11.04,10.88,2.35
+20260820,11.55,11.8,11.45,11.65,1152851,11.12,4.8,11.07,10.91,0.99
+20260821,11.6,11.9,11.6,11.7,1504347,11.16,4.79,11.11,10.95,1.26
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 60.19
-- over_600_ratio: 56.84
-- over_800_ratio: 53.48
-- over_1000_ratio: 51.45
-- over_400_change_1w: -0.07
-- over_800_change_1w: 0.26
-- over_1000_change_1w: -0.05
-- tdcc_consecutive_up_weeks: 6
+- as_of_date: 20260814
+- over_400_ratio: 59.98
+- over_600_ratio: 56.8
+- over_800_ratio: 53.78
+- over_1000_ratio: 51.46
+- over_400_change_1w: -0.21
+- over_800_change_1w: 0.3
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 7
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -193,7 +192,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,58.39,-0.17,52.82,-0.1,51.63,-0.15,0,False,False
 20260529,58.99,0.6,53.37,0.55,52.5,0.87,1,True,True
 20260605,59.27,0.28,53.85,0.48,52.69,0.19,2,False,True
 20260612,58.64,-0.63,53.1,-0.75,51.94,-0.75,0,False,False
@@ -205,17 +203,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,59.61,0.39,52.97,-0.02,51.24,-0.01,4,False,False
 20260731,60.26,0.65,53.22,0.25,51.5,0.26,5,True,True
 20260807,60.19,-0.07,53.48,0.26,51.45,-0.05,6,False,True
+20260814,59.98,-0.21,53.78,0.3,51.46,0.01,7,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2537 | 聯上發 | revenue_pullback | 營收成長股價回檔 | 82.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | 1.董事會決議日期或發生變動日期:115/06/23 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:蘇永義。 4.舊任者簡歷:聯上投資(股)公司代表人。 5.新任者姓名:蘇永義。 6.新任者簡歷:聯上投資(股)公司代表人。 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿，續任。 9.新任生效日期:115/06/23 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260821 | 2537 | 聯上發 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | 1.董事會決議日期或發生變動日期:115/06/23 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:蘇永義。 4.舊任者簡歷:聯上投資(股)公司代表人。 5.新任者姓名:蘇永義。 6.新任者簡歷:聯上投資(股)公司代表人。 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿，續任。 9.新任生效日期:115/06/23 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2537 | 聯上發 | 2 | 2 | 3 | 6 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260821 | 2537 | 聯上發 | 2 | 1 | 3 | 5 | 10 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

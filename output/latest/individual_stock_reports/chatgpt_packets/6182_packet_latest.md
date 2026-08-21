@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6182 合晶
 
 ## Metadata
-- generated_at: 2026-08-10 22:28:21 Asia/Taipei
+- generated_at: 2026-08-21 22:27:53 Asia/Taipei
 - stock_id: 6182
 - stock_name: 合晶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 186
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 203
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 106
-- high: 106
-- low: 100
-- close: 101
-- volume: 4843000
-- ma5: 99.6
-- ema23_primary: 114.65
-- distance_to_ema23_pct: -11.9
-- ma20: 124.59
-- ma60: 109.49
-- ma120: 73.68
-- return_5d: 13.48
-- return_20d: -41.45
-- volume_ratio: 0.08
-- distance_to_ma20_pct_auxiliary: -18.93
-- distance_to_high_60_pct: -48.07
+- date: 20260821
+- open: 109
+- high: 110.5
+- low: 103.5
+- close: 106
+- volume: 38486000
+- ma5: 113.6
+- ema23_primary: 111.55
+- distance_to_ema23_pct: -4.98
+- ma20: 103.44
+- ma60: 116.44
+- ma120: 79.79
+- return_5d: -4.93
+- return_20d: -7.02
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: 2.47
+- distance_to_high_60_pct: -45.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,189.5,189.5,185.5,189.5,70003000,131.52,44.08,131.21,85.57,0.74
-20260714,185,194.5,171,186.5,175721000,136.1,37.03,136.09,88.06,1.71
-20260715,187.5,189,175,179.5,116638000,139.72,28.47,140.18,90.46,1.08
-20260716,174.5,184,165,166,108578000,141.91,16.98,143.12,92.57,0.96
-20260717,150.5,156.5,149.5,149.5,56889000,142.54,4.88,144.9,94.34,0.53
-20260720,140,143,135,135,96006000,141.91,-4.87,145.65,95.84,0.9
-20260721,136,139,124,130,127097000,140.92,-7.75,146.32,97.33,1.17
-20260722,134,143,129,129,132415000,139.93,-7.81,147.05,98.8,1.18
-20260723,135,139.5,120,126.5,126232000,138.81,-8.87,147.57,100.24,1.09
-20260724,121.5,124,114,114,20154000,136.74,-16.63,147.03,101.47,0.18
 20260727,110,116,103.5,116,24039000,135.01,-14.08,146.85,102.75,0.23
 20260728,105.5,107,104.5,104.5,11403000,132.47,-21.11,146.47,103.83,0.11
 20260729,97.3,97.3,94.1,94.1,5998000,129.27,-27.21,145.03,104.66,0.06
@@ -167,26 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,105,105,98,104,10545000,116.6,-10.81,130.76,107.87,0.14
 20260806,100.5,108,99,108,5564000,115.89,-6.8,128.16,108.73,0.08
 20260807,106,106,100,101,4843000,114.65,-11.9,124.59,109.49,0.08
+20260810,101.5,102.5,91.2,93,59515000,112.84,-17.58,119.77,110.08,1.04
+20260811,93.5,98,89.8,94,39809000,111.27,-15.52,115.14,110.73,0.79
+20260812,94.3,103,94.1,103,55450000,110.58,-6.86,111.31,111.53,1.18
+20260813,107.5,113,105.5,113,31874000,110.78,2,108.67,112.49,0.74
+20260814,116.5,119.5,108,111.5,122342000,110.84,0.59,106.77,113.38,2.63
+20260817,111,122.5,108.5,122.5,83591000,111.81,9.56,106.14,114.36,1.82
+20260818,122,131,119,120,207926000,112.5,6.67,105.64,115.2,4.16
+20260819,114,117.5,109,110,75213000,112.29,-2.04,104.69,115.75,1.6
+20260820,113,114.5,107,109.5,56477000,112.06,-2.28,103.84,116.17,1.29
+20260821,109,110.5,103.5,106,38486000,111.55,-4.98,103.44,116.44,0.86
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 38.7
-- over_600_ratio: 36.9
-- over_800_ratio: 36.26
-- over_1000_ratio: 34.41
-- over_400_change_1w: 0.21
-- over_800_change_1w: 0.42
-- over_1000_change_1w: -0.01
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260814
+- over_400_ratio: 37.42
+- over_600_ratio: 35.49
+- over_800_ratio: 34.63
+- over_1000_ratio: 33.37
+- over_400_change_1w: -1.28
+- over_800_change_1w: -1.63
+- over_1000_change_1w: -1.04
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,32.23,3.37,29.82,3.29,28.54,2.97,1,True,True
 20260529,38.36,6.13,35.75,5.93,33.88,5.34,2,True,True
 20260605,39.65,1.29,35.96,0.21,34.86,0.98,3,True,True
 20260612,40.21,0.56,36.92,0.96,35.75,0.89,4,True,True
@@ -198,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,39.71,-2.72,36.71,-2.31,35,-2.45,0,False,False
 20260731,38.49,-1.22,35.84,-0.87,34.42,-0.58,0,False,False
 20260807,38.7,0.21,36.26,0.42,34.41,-0.01,1,False,True
+20260814,37.42,-1.28,34.63,-1.63,33.37,-1.04,0,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 6182 | 合晶 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日:115/07/14 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理。 3.財務業務資訊:合晶八(61828)可轉債相關資訊 到期日期：118/09/27 實際發行總額：1,500,000,000元 發行餘額：564,500,000元(截至115/06/30) 最新轉(交)換價格：33.10 轉換標的收盤價格(6182)：      186.50    (115/07/14收盤價) 轉換債開盤參考價格(61828)：   545.00    (115/07/14收盤價) 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無。 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無。 6.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 6182 | 合晶 | 1 | 1 | 1 | 4 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

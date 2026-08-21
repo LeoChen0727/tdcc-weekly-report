@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2630 亞航
 
 ## Metadata
-- generated_at: 2026-08-10 22:27:06 Asia/Taipei
+- generated_at: 2026-08-21 22:27:05 Asia/Taipei
 - stock_id: 2630
 - stock_name: 亞航
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -103,7 +103,6 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -118,7 +117,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -126,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 49
-- high: 49.45
-- low: 48.2
-- close: 48.2
-- volume: 1421510
-- ma5: 48.79
-- ema23_primary: 50.25
-- distance_to_ema23_pct: -4.08
-- ma20: 52.49
-- ma60: 46.87
-- ma120: 48.03
-- return_5d: -0.21
-- return_20d: -10.58
-- volume_ratio: 0.14
-- distance_to_ma20_pct_auxiliary: -8.17
-- distance_to_high_60_pct: -22.63
+- date: 20260821
+- open: 52.7
+- high: 52.9
+- low: 51
+- close: 51.3
+- volume: 2575909
+- ma5: 51.92
+- ema23_primary: 50.64
+- distance_to_ema23_pct: 1.29
+- ma20: 49.66
+- ma60: 48.17
+- ma120: 48.02
+- return_5d: -3.39
+- return_20d: -4.82
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: 3.31
+- distance_to_high_60_pct: -17.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,54.2,57.8,54.2,56.7,14155513,48.56,16.76,46.77,45.74,1.89
-20260714,57.5,62.3,56.7,62.3,41250222,49.71,25.34,47.94,45.97,4.33
-20260715,58.5,60.9,56.7,60.5,21053473,50.61,19.55,49,46.15,2
-20260716,59.2,60.5,56.5,56.9,9973781,51.13,11.28,49.91,46.27,0.91
-20260717,55.9,58.4,53.4,53.4,10665607,51.32,4.05,50.62,46.34,0.93
-20260720,54,58,52.7,53.6,12965648,51.51,4.06,51.3,46.38,1.07
-20260721,53,58.9,52.5,58.9,10053046,52.13,13,52.1,46.5,0.81
-20260722,59.2,61.2,53.1,53.2,22495116,52.21,1.89,52.66,46.55,1.66
-20260723,53.7,55.2,51.9,53.3,8232152,52.31,1.9,53.2,46.62,0.59
-20260724,53.4,56.5,53,53.9,16335777,52.44,2.79,53.79,46.71,1.11
 20260727,53.3,53.6,50.4,51.2,4137735,52.34,-2.17,54.27,46.78,0.28
 20260728,50,52,49.55,49.6,4302788,52.11,-4.81,54.52,46.82,0.29
 20260729,50.1,50.8,46.2,48.1,4513163,51.77,-7.09,54.48,46.81,0.31
@@ -168,26 +157,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,49.95,50.9,49.35,49.9,3823400,50.56,-1.31,53.12,46.74,0.35
 20260806,49.95,50.4,48.7,49,1805900,50.43,-2.84,52.77,46.8,0.18
 20260807,49,49.45,48.2,48.2,1421510,50.25,-4.08,52.49,46.87,0.14
+20260810,48.3,48.85,48.05,48.3,935377,50.09,-3.57,52.07,46.96,0.1
+20260811,48.05,49.85,46.6,48.8,3748549,49.98,-2.36,51.4,47.05,0.51
+20260812,48.8,48.8,47.65,47.9,1677336,49.81,-3.83,50.77,47.13,0.26
+20260813,47.9,49,47.9,48.3,1367242,49.68,-2.78,50.34,47.22,0.23
+20260814,48.7,53.1,47.75,53.1,5282246,49.96,6.27,50.32,47.4,0.93
+20260817,54.7,56.2,50.5,52.4,12849841,50.17,4.45,50.26,47.54,2.27
+20260818,51.7,54.9,51.4,51.7,8252419,50.3,2.79,49.9,47.68,1.48
+20260819,51.1,53.7,50.9,51.9,4607847,50.43,2.92,49.84,47.83,0.98
+20260820,51.7,56,51.7,52.3,11835104,50.59,3.39,49.78,48,2.43
+20260821,52.7,52.9,51,51.3,2575909,50.64,1.29,49.66,48.17,0.62
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 64.95
-- over_600_ratio: 63.97
-- over_800_ratio: 62.89
-- over_1000_ratio: 62.43
-- over_400_change_1w: 0.03
-- over_800_change_1w: -0.43
-- over_1000_change_1w: -0.01
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260814
+- over_400_ratio: 64.91
+- over_600_ratio: 64.25
+- over_800_ratio: 62.92
+- over_1000_ratio: 62.46
+- over_400_change_1w: -0.04
+- over_800_change_1w: 0.03
+- over_1000_change_1w: 0.03
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,65.7,0.06,64.14,0.36,62.49,0,1,False,True
 20260529,65.72,0.02,64.23,0.09,62.99,0.5,2,False,True
 20260605,65.53,-0.19,64.04,-0.19,62.8,-0.19,0,False,False
 20260612,65.26,-0.27,63.54,-0.5,62.31,-0.49,0,False,False
@@ -199,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,65.3,-0.63,63.19,-0.62,62.33,-0.17,0,False,False
 20260731,64.92,-0.38,63.32,0.13,62.44,0.11,1,False,True
 20260807,64.95,0.03,62.89,-0.43,62.43,-0.01,2,False,False
+20260814,64.91,-0.04,62.92,0.03,62.46,0.03,3,False,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 2630 | 亞航 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/07/06 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理 3.財務業務資訊: 期間                      (月)                   (季)         (最近四季累計) ==============  =========== ========== ============ ========= ============== 科目             最近一月     與去年     最近一季    與去年    114年第二季至                  115年5月    同期增減   115年第一季  同期增減  115年第一季                   自結數       (%)        核閱數        (%)    核閱數/查核數 ==============  =========== ========== ============ ========= ============== 營業收入(百萬)    361.09       -29.25%     1096.14    -12.92%        5291.47 稅前淨利(百萬)     (1.36)     -102.54%       22.78    -39.39%         246.98 本期淨利(百萬)     (1.09)     -102.54%       18.00    -40.12%         197.66 每股盈餘(元)       (0.01)     -105.00%        0.09    -35.71%           0.94 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 2630 | 亞航 | 3 | 3 | 3 | 6 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2630 | 亞航 | 15 | 0 | 4171750.0 | 0.0 |  | no_signal |
+| 20260821 | 2630 | 亞航 | 32 | 0 | 2047650.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

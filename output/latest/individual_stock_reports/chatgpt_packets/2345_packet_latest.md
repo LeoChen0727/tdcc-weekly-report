@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2345 智邦
 
 ## Metadata
-- generated_at: 2026-08-10 22:26:51 Asia/Taipei
+- generated_at: 2026-08-21 22:26:55 Asia/Taipei
 - stock_id: 2345
 - stock_name: 智邦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 2395
-- high: 2395
-- low: 2185
-- close: 2215
-- volume: 4227407
-- ma5: 2333
-- ema23_primary: 2274.24
-- distance_to_ema23_pct: -2.6
-- ma20: 2224.5
-- ma60: 2398.42
-- ma120: 2081.58
-- return_5d: 4.24
-- return_20d: -10.32
-- volume_ratio: 1.47
-- distance_to_ma20_pct_auxiliary: -0.43
-- distance_to_high_60_pct: -21.59
+- date: 20260821
+- open: 2090
+- high: 2110
+- low: 2020
+- close: 2035
+- volume: 2809274
+- ma5: 2156
+- ema23_primary: 2217.24
+- distance_to_ema23_pct: -8.22
+- ma20: 2189
+- ma60: 2343.67
+- ma120: 2152.96
+- return_5d: -11.52
+- return_20d: -8.33
+- volume_ratio: 0.89
+- distance_to_ma20_pct_auxiliary: -7.04
+- distance_to_high_60_pct: -27.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,2565,2565,2400,2405,2111638,2485.71,-3.25,2487.5,2424.5,0.61
-20260714,2350,2415,2195,2280,3090709,2468.57,-7.64,2484.75,2428.58,0.89
-20260715,2395,2420,2315,2340,2058964,2457.86,-4.8,2480.25,2433.08,0.6
-20260716,2350,2350,2255,2320,1274880,2446.37,-5.17,2470.25,2438.33,0.38
-20260717,2190,2205,2090,2090,3429156,2416.67,-13.52,2450,2436.67,1.02
-20260720,2035,2150,2000,2090,3939531,2389.45,-12.53,2432.75,2434.83,1.18
-20260721,2150,2220,2140,2220,2272779,2375.33,-6.54,2414,2437.17,0.69
-20260722,2295,2310,2240,2285,3027115,2367.8,-3.5,2406.5,2439.58,0.93
-20260723,2305,2390,2280,2325,2178658,2364.23,-1.66,2404,2442.08,0.68
-20260724,2315,2330,2205,2220,1607977,2352.21,-5.62,2396,2440.83,0.53
 20260727,2280,2285,2170,2240,1809334,2342.86,-4.39,2389,2441.33,0.62
 20260728,2165,2180,2040,2040,2796586,2317.62,-11.98,2374,2437.33,0.97
 20260729,2040,2110,1840,1910,4161040,2283.66,-16.36,2344.75,2427.42,1.43
@@ -168,17 +158,27 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,2420,2480,2375,2385,2914548,2267.77,5.17,2237.5,2404,1.05
 20260806,2590,2595,2390,2410,4044919,2279.63,5.72,2237.25,2402.08,1.44
 20260807,2395,2395,2185,2215,4227407,2274.24,-2.6,2224.5,2398.42,1.47
+20260810,2255,2280,2135,2165,2810982,2265.14,-4.42,2212.5,2389.92,0.97
+20260811,2140,2150,2075,2135,3575999,2254.29,-5.29,2205.25,2383.75,1.22
+20260812,2140,2255,2125,2215,2859759,2251.02,-1.6,2199,2379.08,0.96
+20260813,2275,2310,2235,2270,3000738,2252.6,0.77,2196.5,2377.08,0.98
+20260814,2305,2385,2275,2300,3328996,2256.55,1.93,2207,2376.17,1.09
+20260817,2300,2335,2245,2290,2439612,2259.34,1.36,2217,2373,0.82
+20260818,2280,2350,2210,2225,3175549,2256.48,-1.39,2217.25,2368.92,1.05
+20260819,2060,2145,2060,2125,4040971,2245.52,-5.37,2209.25,2362,1.31
+20260820,2125,2135,2070,2105,2410579,2233.81,-5.77,2198.25,2353.42,0.78
+20260821,2090,2110,2020,2035,2809274,2217.24,-8.22,2189,2343.67,0.89
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 71.06
-- over_600_ratio: 65.75
-- over_800_ratio: 61.02
-- over_1000_ratio: 57.09
-- over_400_change_1w: -0.35
-- over_800_change_1w: -0.27
-- over_1000_change_1w: -0.42
+- as_of_date: 20260814
+- over_400_ratio: 71.02
+- over_600_ratio: 65.24
+- over_800_ratio: 60.68
+- over_1000_ratio: 56.74
+- over_400_change_1w: -0.04
+- over_800_change_1w: -0.34
+- over_1000_change_1w: -0.35
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,70.63,0.32,60.26,0.08,57.65,0.23,3,False,True
 20260529,70.58,-0.05,60.03,-0.23,57.08,-0.57,0,False,False
 20260605,71.01,0.43,60.33,0.3,57.02,-0.06,1,False,True
 20260612,70.97,-0.04,60.55,0.22,56.62,-0.4,2,False,True
@@ -199,22 +198,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,71.37,0.28,60.99,0,57.25,0.02,8,False,True
 20260731,71.41,0.04,61.29,0.3,57.51,0.26,9,False,True
 20260807,71.06,-0.35,61.02,-0.27,57.09,-0.42,0,False,False
+20260814,71.02,-0.04,60.68,-0.34,56.74,-0.35,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2345 | 智邦 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | put_inflow | stale_signal | calendar event: ex_dividend on 20260730; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 2345 | 智邦 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 2345 | 智邦 | revenue_breakout_low_response | 營收爆發低反應股 | 11 | 49 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2345 | 智邦 | 2 | 2 | 4 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260821 | 2345 | 智邦 | 6 | 6 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2345 | 智邦 | 266 | 29 | 21850500.0 | 2227940.0 | 9.81 | put_inflow |
+| 20260821 | 2345 | 智邦 | 288 | 30 | 15454180.0 | 311090.0 | 49.68 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

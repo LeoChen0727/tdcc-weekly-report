@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4760 勤凱科技
 
 ## Metadata
-- generated_at: 2026-08-10 22:27:56 Asia/Taipei
+- generated_at: 2026-08-21 22:27:37 Asia/Taipei
 - stock_id: 4760
 - stock_name: 勤凱科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 186
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 203
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -103,6 +103,7 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -117,7 +118,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -125,60 +126,60 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 254.5
-- high: 254.5
-- low: 236
-- close: 236.5
-- volume: 372000
-- ma5: 237.9
-- ema23_primary: 255.94
-- distance_to_ema23_pct: -7.59
-- ma20: 244.1
-- ma60: 321.78
-- ma120: 268.6
-- return_5d: 11.03
-- return_20d: -26.09
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: -3.11
-- distance_to_high_60_pct: -53.63
+- date: 20260821
+- open: 255.5
+- high: 259
+- low: 250.5
+- close: 255
+- volume: 220000
+- ma5: 251.4
+- ema23_primary: 255.7
+- distance_to_ema23_pct: -0.27
+- ma20: 241.12
+- ma60: 309.13
+- ma120: 274.85
+- return_5d: -2.3
+- return_20d: 7.14
+- volume_ratio: 0.46
+- distance_to_ma20_pct_auxiliary: 5.75
+- distance_to_high_60_pct: -50
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,320,320,294,300.5,680000,340.25,-11.68,345.77,327.23,0.69
-20260714,300.5,303,270.5,286,1277000,335.73,-14.81,341.25,327.56,1.29
-20260715,288.5,288.5,280,284.5,548000,331.46,-14.17,335.4,327.85,0.58
-20260716,281,284,274,275.5,338000,326.79,-15.7,329.68,328.09,0.38
-20260717,270,270,248,250,1327000,320.39,-21.97,323.77,327.88,1.49
-20260720,253.5,253.5,229,234,1042000,313.19,-25.29,316.73,327.43,1.17
-20260721,237.5,250,235.5,246.5,534000,307.64,-19.87,309.95,327.48,0.63
-20260722,260,265,249.5,255,598000,303.25,-15.91,305.23,327.93,0.75
-20260723,255,259.5,246.5,249,302000,298.73,-16.65,300.35,328.37,0.39
-20260724,248.5,249,237,238,304000,293.67,-18.96,295.23,328.43,0.41
 20260727,241,245.5,232,241,353000,289.28,-16.69,291.52,328.48,0.49
 20260728,231,233.5,217,217,415000,283.26,-23.39,286.27,328.07,0.58
 20260729,217.5,222,196,205,938000,276.74,-25.92,279.32,327.29,1.29
 20260730,202,211,195,197.5,531000,270.13,-26.89,272.45,326.52,0.74
-20260731,214,216,211,213,355000,265.37,-19.74,266.82,326.02,0.49
+20260731,214,216,211,213,355000,265.37,-19.73,266.82,326.02,0.49
 20260803,210,223.5,208,220,434000,261.59,-15.9,260.5,325.23,0.64
 20260804,226,238,220,237.5,375000,259.58,-8.51,255.78,324.4,0.56
 20260805,260.5,260.5,243,246,682000,258.45,-4.82,252.38,323.84,1.07
 20260806,244.5,253,236,249.5,393000,257.7,-3.18,248.28,322.98,0.65
 20260807,254.5,254.5,236,236.5,372000,255.94,-7.59,244.1,321.78,0.63
+20260810,236,247,236,245,225000,255.03,-3.93,241.32,320.51,0.4
+20260811,245,260,245,256,487000,255.11,0.35,239.82,319.79,0.92
+20260812,253.5,263.5,252,257.5,348000,255.31,0.86,238.47,319.02,0.67
+20260813,265,283,265,283,441000,257.61,9.85,238.85,318.68,0.84
+20260814,283.5,289.5,260,261,1660000,257.9,1.2,239.4,318.32,3.08
+20260817,261,261,250,251.5,331000,257.36,-2.28,240.28,317.35,0.66
+20260818,252,257,245,246,264000,256.42,-4.06,240.25,315.77,0.54
+20260819,246.5,257,240.5,250,546000,255.88,-2.3,240,313.68,1.12
+20260820,254,258.5,247,254.5,234000,255.77,-0.5,240.28,311.33,0.48
+20260821,255.5,259,250.5,255,220000,255.7,-0.27,241.12,309.13,0.46
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 37.97
+- as_of_date: 20260814
+- over_400_ratio: 39.33
 - over_600_ratio: 34.95
 - over_800_ratio: 34.95
 - over_1000_ratio: 34.95
-- over_400_change_1w: 0
+- over_400_change_1w: 1.36
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -186,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,48.15,-1.61,37.41,0.08,34.69,-0.1,1,False,True
 20260529,50.08,1.93,37.5,0.09,34.67,-0.02,2,False,True
 20260605,48.24,-1.84,34.8,-2.7,34.8,0.13,3,False,True
 20260612,44.64,-3.6,34.76,-0.04,34.76,-0.04,0,False,False
@@ -198,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,36.49,-1.23,34.78,0.01,34.78,0.01,1,False,True
 20260731,37.97,1.48,34.95,0.17,34.95,0.17,2,True,True
 20260807,37.97,0,34.95,0,34.95,0,0,False,False
+20260814,39.33,1.36,34.95,0,34.95,0,1,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 4760 | 勤凱科技 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管 (如:執行長、營運長、行銷長及策略長等)、財務主管、會計 主管、公司治理主管、資訊安全長、研發主管、內部稽核主管或訴訟及非 訟代理人）:內部稽核主管 2.發生變動日期:115/07/02 3.舊任者姓名、級職及簡歷:程益利/內部稽核主管 4.新任者姓名、級職及簡歷:待人選確定另行公告 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、 「退休」、「死亡」、「新任」或「解任」）:辭職 6.異動原因:個人生涯規劃 7.生效日期:115/07/02 8.其他應敘明事項: (1)內部稽核主管職務暫由代理人代行職務。 (2)新任內部稽核主管待審計委員會及董事會決議通過任用後另行公告。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 4760 | 勤凱科技 | 1 | 1 | 2 | 5 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

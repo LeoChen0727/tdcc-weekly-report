@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7689 大鵬科CLMX
 
 ## Metadata
-- generated_at: 2026-08-10 22:28:58 Asia/Taipei
+- generated_at: 2026-08-21 22:28:17 Asia/Taipei
 - stock_id: 7689
 - stock_name: 大鵬科CLMX
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260807
-- price_rows: 9
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 19
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -126,23 +126,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 162.5
-- high: 165
-- low: 160.5
-- close: 164
-- volume: 185225
-- ma5: 166.6
-- ema23_primary: 172.18
-- distance_to_ema23_pct: -4.75
-- ma20: 170.89
-- ma60: 170.89
-- ma120: 170.89
-- return_5d: -6.82
+- date: 20260821
+- open: 173
+- high: 173.5
+- low: 171.5
+- close: 172
+- volume: 42678
+- ma5: 172.6
+- ema23_primary: 172.54
+- distance_to_ema23_pct: -0.31
+- ma20: 171.92
+- ma60: 171.92
+- ma120: 171.92
+- return_5d: -0.58
 - return_20d:
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: -4.03
-- distance_to_high_60_pct: -8.64
+- volume_ratio: 0.24
+- distance_to_ma20_pct_auxiliary: 0.05
+- distance_to_high_60_pct: -4.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -157,6 +157,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,168.5,170.5,166.5,167,168199,173.73,-3.88,172.86,172.86,0.57
 20260806,166,166.5,156,164,272177,172.92,-5.16,171.75,171.75,0.93
 20260807,162.5,165,160.5,164,185225,172.18,-4.75,170.89,170.89,0.66
+20260810,163.5,172,163.5,171.5,195428,172.12,-0.36,170.95,170.95,0.71
+20260811,172.5,175,169.5,173,133918,172.2,0.47,171.14,171.14,0.51
+20260812,173,174,171,174,101669,172.35,0.96,171.38,171.38,0.41
+20260813,174,175,171,174,86860,172.48,0.88,171.58,171.58,0.37
+20260814,174.5,174.5,170.5,173,89139,172.53,0.27,171.68,171.68,0.4
+20260817,174,174,170,174,64374,172.65,0.78,171.83,171.83,0.3
+20260818,173,173,170.5,172,51947,172.6,-0.35,171.84,171.84,0.25
+20260819,172,172.5,170.5,172,47846,172.55,-0.32,171.85,171.85,0.25
+20260820,172,174.5,171.5,173,68171,172.58,0.24,171.92,171.92,0.36
+20260821,173,173.5,171.5,172,42678,172.54,-0.31,171.92,171.92,0.24
 ```
 
 ## Latest TDCC Snapshot

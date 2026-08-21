@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1434 福懋
 
 ## Metadata
-- generated_at: 2026-08-10 22:26:28 Asia/Taipei
+- generated_at: 2026-08-21 22:26:40 Asia/Taipei
 - stock_id: 1434
 - stock_name: 福懋
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 17.1
-- high: 17.4
-- low: 17.1
-- close: 17.25
-- volume: 1623834
-- ma5: 17.21
-- ema23_primary: 17.78
-- distance_to_ema23_pct: -2.98
-- ma20: 18.26
-- ma60: 17.04
-- ma120: 16.88
-- return_5d: 0
-- return_20d: -2.54
-- volume_ratio: 0.19
-- distance_to_ma20_pct_auxiliary: -5.52
-- distance_to_high_60_pct: -17.86
+- date: 20260821
+- open: 17.6
+- high: 18.15
+- low: 17.6
+- close: 18.1
+- volume: 3124973
+- ma5: 17.69
+- ema23_primary: 17.72
+- distance_to_ema23_pct: 2.12
+- ma20: 17.57
+- ma60: 17.46
+- ma120: 16.87
+- return_5d: 3.43
+- return_20d: -5.48
+- volume_ratio: 1.19
+- distance_to_ma20_pct_auxiliary: 3
+- distance_to_high_60_pct: -13.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,17.85,18.9,17.85,18.5,7199441,17.34,6.66,17.36,16.36,1.21
-20260714,18.7,18.8,18.15,18.3,7171826,17.42,5.03,17.44,16.38,1.16
-20260715,18.5,19.55,18.5,19.55,15072285,17.6,11.07,17.58,16.43,2.21
-20260716,19.1,20.45,19,19.45,19036727,17.76,9.54,17.71,16.47,2.48
-20260717,19.5,20.2,19,19.2,25296096,17.88,7.41,17.83,16.52,2.86
-20260720,19.3,19.3,18.4,18.55,6977965,17.93,3.45,17.91,16.55,0.77
-20260721,18.85,19.35,18.8,19,8451307,18.02,5.43,18.01,16.6,0.92
-20260722,19.15,19.85,19.05,19.2,15919780,18.12,5.97,18.14,16.66,1.63
-20260723,19.1,21,19.05,19.5,24676001,18.23,6.94,18.27,16.73,2.28
-20260724,19.45,19.5,18.8,19.15,7623825,18.31,4.58,18.36,16.78,0.7
 20260727,19.1,19.1,18.2,18.5,5906076,18.33,0.95,18.45,16.82,0.54
 20260728,18.25,18.25,17.7,18,4077232,18.3,-1.63,18.5,16.86,0.37
 20260729,18.2,18.2,17.2,17.6,5899741,18.24,-3.51,18.53,16.88,0.52
@@ -168,26 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,17.4,17.6,17.25,17.25,1963927,17.89,-3.6,18.33,16.99,0.22
 20260806,17.15,17.3,17.05,17.1,1927525,17.83,-4.08,18.28,17.01,0.22
 20260807,17.1,17.4,17.1,17.25,1623834,17.78,-2.98,18.26,17.04,0.19
+20260810,17.45,17.75,17.2,17.7,2632508,17.77,-0.41,18.22,17.08,0.31
+20260811,17.65,17.85,17.45,17.75,2005744,17.77,-0.12,18.19,17.12,0.25
+20260812,17.8,17.95,17.7,17.7,1167869,17.77,-0.37,18.1,17.17,0.16
+20260813,17.95,17.95,17.55,17.6,1334669,17.75,-0.85,18,17.21,0.2
+20260814,17.7,17.75,17.45,17.5,1810648,17.73,-1.3,17.92,17.25,0.33
+20260817,17.5,17.65,17.5,17.6,1102623,17.72,-0.68,17.87,17.28,0.22
+20260818,17.6,17.75,17.5,17.55,1312193,17.71,-0.88,17.8,17.32,0.28
+20260819,17.55,17.6,17.35,17.5,1152963,17.69,-1.07,17.71,17.36,0.29
+20260820,17.6,17.85,17.6,17.7,1037990,17.69,0.06,17.62,17.41,0.36
+20260821,17.6,18.15,17.6,18.1,3124973,17.72,2.12,17.57,17.46,1.19
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 71.87
-- over_600_ratio: 70.13
-- over_800_ratio: 69.26
-- over_1000_ratio: 68.46
-- over_400_change_1w: -0.09
-- over_800_change_1w: -0.11
-- over_1000_change_1w: -0.27
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260814
+- over_400_ratio: 71.96
+- over_600_ratio: 70.25
+- over_800_ratio: 69.42
+- over_1000_ratio: 68.61
+- over_400_change_1w: 0.09
+- over_800_change_1w: 0.16
+- over_1000_change_1w: 0.15
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,71.71,0.02,68.79,0.07,68.04,-0.04,3,False,True
 20260529,71.65,-0.06,68.92,0.13,68.02,-0.02,4,False,True
 20260605,71.84,0.19,69.02,0.1,68.33,0.31,5,True,True
 20260612,71.93,0.09,69.07,0.05,68.27,-0.06,6,False,True
@@ -199,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,71.83,-0.29,69.28,-0.49,68.53,-0.4,0,False,False
 20260731,71.96,0.13,69.37,0.09,68.73,0.2,1,True,True
 20260807,71.87,-0.09,69.26,-0.11,68.46,-0.27,0,False,False
+20260814,71.96,0.09,69.42,0.16,68.61,0.15,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 1434 | 福懋 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.董事會決議日期或發生變動日期:115/06/26 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:王文淵 4.舊任者簡歷:本公司董事長 5.新任者姓名:王文淵 6.新任者簡歷:本公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿改選 9.新任生效日期:115/06/26 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
+| 20260821 | 1434 | 福懋 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 55.0 |  |  | neckline_challenge |  |  | stale_signal | 1.董事會決議日期或發生變動日期:115/06/26 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:王文淵 4.舊任者簡歷:本公司董事長 5.新任者姓名:王文淵 6.新任者簡歷:本公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿改選 9.新任生效日期:115/06/26 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 1434 | 福懋 | 6 | 1 | 5 | 9 | 17 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260821 | 1434 | 福懋 | 2 | 1 | 3 | 8 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

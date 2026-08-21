@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5434 崇越
 
 ## Metadata
-- generated_at: 2026-08-10 22:28:08 Asia/Taipei
+- generated_at: 2026-08-21 22:27:45 Asia/Taipei
 - stock_id: 5434
 - stock_name: 崇越
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -103,6 +103,7 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -117,7 +118,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -125,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 507
-- high: 515
-- low: 498
-- close: 499
-- volume: 776294
-- ma5: 507
-- ema23_primary: 517.2
-- distance_to_ema23_pct: -3.52
-- ma20: 532.6
-- ma60: 492.84
-- ma120: 427.71
-- return_5d: -0.2
-- return_20d: -1.96
-- volume_ratio: 0.46
-- distance_to_ma20_pct_auxiliary: -6.31
-- distance_to_high_60_pct: -17.11
+- date: 20260821
+- open: 526
+- high: 526
+- low: 511
+- close: 513
+- volume: 658947
+- ma5: 527.6
+- ema23_primary: 522.08
+- distance_to_ema23_pct: -1.74
+- ma20: 515.8
+- ma60: 508.48
+- ma120: 443.79
+- return_5d: -1.54
+- return_20d: -7.07
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: -0.54
+- distance_to_high_60_pct: -14.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,536,559,527,559,3038091,504.14,10.88,507.38,457.12,1.67
-20260714,545,563,523,550,2819534,507.96,8.28,511.57,459.33,1.49
-20260715,550,569,536,556,2010014,511.96,8.6,515.98,461.65,1.03
-20260716,543,596,542,596,4298845,518.97,14.84,522.25,464.61,2.03
-20260717,579,602,562,562,3120683,522.55,7.55,526.45,466.74,1.4
-20260720,553,556,510,544,2014510,524.34,3.75,529.88,468.61,0.88
-20260721,542,555,532,547,1282070,526.23,3.95,531.92,470.73,0.57
-20260722,556,571,545,565,1613988,529.46,6.71,535.6,473.22,0.71
-20260723,571,574,542,559,1103471,531.92,5.09,539.1,475.75,0.48
-20260724,550,562,542,552,560882,533.59,3.45,541.45,478.06,0.25
 20260727,546,555,535,543,855276,534.38,1.61,544.1,480.31,0.39
 20260728,531,532,511,517,933784,532.93,-2.99,543,482.16,0.45
 20260729,520,523,480,491.5,1507824,529.48,-7.17,540.12,483.42,0.8
@@ -167,26 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,523,532,509,512,1222577,519.74,-1.49,533.1,489.98,0.71
 20260806,512,513,495,509,1126521,518.85,-1.9,533.1,491.4,0.66
 20260807,507,515,498,499,776294,517.2,-3.52,532.6,492.84,0.46
+20260810,500,527,500,514,687175,516.93,-0.57,530.35,494.52,0.44
+20260811,514,533,509,522,926408,517.35,0.9,528.95,496.51,0.62
+20260812,534,543,525,532,1065206,518.57,2.59,527.75,498.7,0.74
+20260813,538,539,526,527,531953,519.27,1.49,524.3,500.92,0.43
+20260814,532,532,521,521,412824,519.42,0.3,522.25,502.98,0.37
+20260817,520,525,513,516,443874,519.13,-0.6,520.85,504.6,0.43
+20260818,539,567,523,553,2802574,521.96,5.95,521.15,506.32,2.53
+20260819,542,565,528,530,1627243,522.63,1.41,519.4,507.07,1.47
+20260820,538,538,516,526,882201,522.91,0.59,517.75,507.82,0.8
+20260821,526,526,511,513,658947,522.08,-1.74,515.8,508.48,0.6
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 54.47
-- over_600_ratio: 48.69
-- over_800_ratio: 43.24
-- over_1000_ratio: 38.69
-- over_400_change_1w: 0.04
-- over_800_change_1w: -0.03
-- over_1000_change_1w: -0.05
-- tdcc_consecutive_up_weeks: 11
+- as_of_date: 20260814
+- over_400_ratio: 54.68
+- over_600_ratio: 48.56
+- over_800_ratio: 43.87
+- over_1000_ratio: 39.34
+- over_400_change_1w: 0.21
+- over_800_change_1w: 0.63
+- over_1000_change_1w: 0.65
+- tdcc_consecutive_up_weeks: 12
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,54.19,-0.33,44.43,-0.53,39.87,-1.02,0,False,False
 20260529,54.32,0.13,44.82,0.39,40.27,0.4,1,True,True
 20260605,54.13,-0.19,44.74,-0.08,39.81,-0.46,2,False,False
 20260612,53.53,-0.6,44.7,-0.04,39.91,0.1,3,False,True
@@ -198,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,55.08,0.64,43.95,0.99,39,0.59,9,False,True
 20260731,54.43,-0.65,43.27,-0.68,38.74,-0.26,10,False,False
 20260807,54.47,0.04,43.24,-0.03,38.69,-0.05,11,False,False
+20260814,54.68,0.21,43.87,0.63,39.34,0.65,12,False,True
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 5434 | 崇越 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_strong_inflow | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/30 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:盈餘發放現金股利 (1)原發放股利種類及金額: 普通股現金股利新台幣2,603,217,717元，每股配發  現金13.5元。 (2)變更後發放股利種類及金額: 普通股現金股利新台幣2,603,217,717元，每股配發  現金13.41809587元。 4.除權（息）交易日:115/07/16 5.最後過戶日:115/07/17 6.停止過戶起始日期:115/07/18 7.停止過戶截止日期:115/07/22 8.除權（息）基準日:115/07/22 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/12 13.其他應敘明事項:因可轉換公司債之債權人提出申請轉換成普通股, 致流通在外 股數增加。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 5434 | 崇越 | 9 | 1 | 5 | 9 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 5434 | 崇越 | 12 | 0 | 5864010.0 | 0.0 |  | call_strong_inflow |
+| 20260821 | 5434 | 崇越 | 18 | 0 | 602970.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,10 +1,10 @@
 # Individual Stock Available Raw Data Index
 
-- generated_at: 2026-08-10 22:30:21 Asia/Taipei
-- total_stocks: 2405
-- standard_rawdata_report: 1978
-- partial_rawdata_report: 404
-- insufficient_data: 23
+- generated_at: 2026-08-21 22:29:46 Asia/Taipei
+- total_stocks: 2413
+- standard_rawdata_report: 2126
+- partial_rawdata_report: 262
+- insufficient_data: 25
 - insufficient_tdcc_history: 2
 - csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_reports/individual_stock_available_raw_data_index.csv
 
@@ -22,202 +22,202 @@
 | 0001 |  | 0 | 0 |  |  | False | False | insufficient_data | price_history_missing; tdcc_history_missing |
 | 0027 |  | 0 | 0 |  |  | False | False | insufficient_data | price_history_missing; tdcc_history_missing |
 | 0039 |  | 0 | 0 |  |  | False | False | insufficient_data | price_history_missing; tdcc_history_missing |
-| 0050 | 元大台灣50 | 185 | 0 | 20260807 |  | False | False | standard_rawdata_report | tdcc_history_missing |
-| 0051 | 元大中型100 | 185 | 0 | 20260807 |  | False | False | standard_rawdata_report | tdcc_history_missing |
-| 0052 | 富邦科技 | 180 | 0 | 20260807 |  | False | False | standard_rawdata_report | tdcc_history_missing |
-| 0053 | 元大電子 | 185 | 0 | 20260807 |  | False | False | standard_rawdata_report | tdcc_history_missing |
-| 0055 | 元大MSCI金融 | 185 | 0 | 20260807 |  | False | False | standard_rawdata_report | tdcc_history_missing |
-| 0056 | 元大高股息 | 185 | 0 | 20260807 |  | False | False | standard_rawdata_report | tdcc_history_missing |
-| 0057 | 富邦摩台 | 185 | 0 | 20260807 |  | False | False | standard_rawdata_report | tdcc_history_missing |
-| 0061 | 元大寶滬深 | 185 | 0 | 20260807 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 0050 | 元大台灣50 | 202 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 0051 | 元大中型100 | 202 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 0052 | 富邦科技 | 197 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 0053 | 元大電子 | 202 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 0055 | 元大MSCI金融 | 202 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 0056 | 元大高股息 | 202 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 0057 | 富邦摩台 | 202 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 0061 | 元大寶滬深 | 202 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
 | 0062 |  | 0 | 0 |  |  | False | False | insufficient_data | price_history_missing; tdcc_history_missing |
-| 006201 | 元大富櫃50 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 006203 | 元大MSCI台灣 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 006204 | 永豐臺灣加權 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 006205 | 富邦上証 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 006206 | 元大上證50 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 006207 | 復華滬深 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 006208 | 富邦台50 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
+| 006201 | 元大富櫃50 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 006203 | 元大MSCI台灣 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 006204 | 永豐臺灣加權 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 006205 | 富邦上証 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 006206 | 元大上證50 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 006207 | 復華滬深 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 006208 | 富邦台50 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
 | 0063 |  | 0 | 0 |  |  | False | False | insufficient_data | price_history_missing; tdcc_history_missing |
-| 00636 | 國泰中國A50 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00639 | 富邦深100 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
+| 00636 | 國泰中國A50 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00639 | 富邦深100 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
 | 0064 |  | 0 | 0 |  |  | False | False | insufficient_data | price_history_missing; tdcc_history_missing |
-| 00643 | 群益深証中小 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00645 | 富邦日本 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00646 | 元大S&P500 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
+| 00643 | 群益深証中小 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00645 | 富邦日本 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00646 | 元大S&P500 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
 | 0065 |  | 0 | 0 |  |  | False | False | insufficient_data | price_history_missing; tdcc_history_missing |
-| 00652 | 富邦印度 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00657 | 國泰日經225 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
+| 00652 | 富邦印度 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00657 | 國泰日經225 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
 | 0066 |  | 0 | 0 |  |  | False | False | insufficient_data | price_history_missing; tdcc_history_missing |
-| 00660 | 元大歐洲50 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00661 | 元大日經225 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00662 | 富邦NASDAQ | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00668 | 國泰美國道瓊 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
+| 00660 | 元大歐洲50 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00661 | 元大日經225 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00662 | 富邦NASDAQ | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00668 | 國泰美國道瓊 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
 | 0067 |  | 0 | 0 |  |  | False | False | insufficient_data | price_history_missing; tdcc_history_missing |
-| 00678 | 群益那斯達克生技 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
+| 00678 | 群益那斯達克生技 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
 | 0068 |  | 0 | 0 |  |  | False | False | insufficient_data | price_history_missing; tdcc_history_missing |
 | 0069 |  | 0 | 0 |  |  | False | False | insufficient_data | price_history_missing; tdcc_history_missing |
-| 00690 | 兆豐藍籌30 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00692 | 富邦公司治理 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
+| 00690 | 兆豐藍籌30 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00692 | 富邦公司治理 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
 | 0070 |  | 0 | 0 |  |  | False | False | insufficient_data | price_history_missing; tdcc_history_missing |
-| 00700 | 富邦恒生國企 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00701 | 國泰股利精選30 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00702 | 國泰標普低波高息 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00703 | 台新MSCI中國 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00709 | 富邦歐洲 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
+| 00700 | 富邦恒生國企 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00701 | 國泰股利精選30 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00702 | 國泰標普低波高息 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00703 | 台新MSCI中國 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00709 | 富邦歐洲 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
 | 0071 |  | 0 | 0 |  |  | False | False | insufficient_data | price_history_missing; tdcc_history_missing |
-| 00712 | 復華富時不動產 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00713 | 元大台灣高息低波 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00714 | 群益道瓊美國地產 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00717 | 富邦美國特別股 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00728 | 第一金工業30 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
+| 00712 | 復華富時不動產 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00713 | 元大台灣高息低波 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00714 | 群益道瓊美國地產 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00717 | 富邦美國特別股 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00728 | 第一金工業30 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
 | 0073 |  | 0 | 0 |  |  | False | False | insufficient_data | price_history_missing; tdcc_history_missing |
-| 00730 | 富邦臺灣優質高息 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00731 | 復華富時高息低波 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00733 | 富邦臺灣中小 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00735 | 國泰臺韓科技 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00736 | 國泰新興市場 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00737 | 國泰AI機器人 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00739 | 元大MSCI A股 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
+| 00730 | 富邦臺灣優質高息 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00731 | 復華富時高息低波 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00733 | 富邦臺灣中小 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00735 | 國泰臺韓科技 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00736 | 國泰新興市場 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00737 | 國泰AI機器人 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00739 | 元大MSCI A股 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
 | 0075 |  | 0 | 0 |  |  | False | False | insufficient_data | price_history_missing; tdcc_history_missing |
-| 00752 | 中信中國50 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00757 | 統一FANG+ | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
+| 00752 | 中信中國50 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00757 | 統一FANG+ | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
 | 0076 |  | 0 | 0 |  |  | False | False | insufficient_data | price_history_missing; tdcc_history_missing |
-| 00762 | 元大全球AI | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00770 | 國泰北美科技 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00771 | 元大US高息特別股 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00783 | 富邦中証500 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
+| 00762 | 元大全球AI | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00770 | 國泰北美科技 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00771 | 元大US高息特別股 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00783 | 富邦中証500 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
 | 0083 |  | 0 | 0 |  |  | False | False | insufficient_data | price_history_missing; tdcc_history_missing |
-| 00830 | 國泰費城半導體 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
+| 00830 | 國泰費城半導體 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
 | 0085 |  | 0 | 0 |  |  | False | False | insufficient_data | price_history_missing; tdcc_history_missing |
-| 00850 | 元大臺灣ESG永續 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00851 | 台新全球AI | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00858 | 永豐美國500大 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00861 | 元大全球未來通訊 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00875 | 國泰網路資安 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00876 | 元大全球5G | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00877 | 復華中國5G | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00878 | 國泰永續高股息 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
+| 00850 | 元大臺灣ESG永續 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00851 | 台新全球AI | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00858 | 永豐美國500大 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00861 | 元大全球未來通訊 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 0087 |  | 0 | 0 |  |  | False | False | insufficient_data | price_history_missing; tdcc_history_missing |
+| 00875 | 國泰網路資安 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00876 | 元大全球5G | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00877 | 復華中國5G | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00878 | 國泰永續高股息 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
 | 0088 |  | 0 | 0 |  |  | False | False | insufficient_data | price_history_missing; tdcc_history_missing |
-| 00881 | 國泰台灣科技龍頭 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00882 | 中信中國高股息 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00885 | 富邦越南 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00886 | 永豐美國科技 | 49 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00887 | 永豐中國科技50大 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00888 | 永豐台灣ESG | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
+| 00881 | 國泰台灣科技龍頭 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00882 | 中信中國高股息 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00885 | 富邦越南 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00886 | 永豐美國科技 | 64 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00887 | 永豐中國科技50大 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00888 | 永豐台灣ESG | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
 | 0089 |  | 0 | 0 |  |  | False | False | insufficient_data | price_history_missing; tdcc_history_missing |
-| 00891 | 中信關鍵半導體 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00892 | 富邦台灣半導體 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00893 | 國泰智能電動車 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00894 | 中信小資高價30 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00895 | 富邦未來車 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00896 | 中信綠能及電動車 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00897 | 富邦基因免疫生技 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00898 | 國泰基因免疫革命 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00899 | FT潔淨能源 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00900 | 富邦特選高股息30 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00901 | 永豐智能車供應鏈 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00902 | 中信電池及儲能 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00903 | 富邦元宇宙 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00904 | 新光臺灣半導體30 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00905 | FT臺灣Smart | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00907 | 永豐優息存股 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00908 | 富邦入息REITs+ | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00909 | 國泰數位支付服務 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
+| 00891 | 中信關鍵半導體 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00892 | 富邦台灣半導體 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00893 | 國泰智能電動車 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00894 | 中信小資高價30 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00895 | 富邦未來車 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00896 | 中信綠能及電動車 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00897 | 富邦基因免疫生技 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00898 | 國泰基因免疫革命 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00899 | FT潔淨能源 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00900 | 富邦特選高股息30 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00901 | 永豐智能車供應鏈 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00902 | 中信電池及儲能 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00903 | 富邦元宇宙 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00904 | 新光臺灣半導體30 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00905 | FT臺灣Smart | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00907 | 永豐優息存股 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00908 | 富邦入息REITs+ | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00909 | 國泰數位支付服務 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
 | 0091 |  | 0 | 0 |  |  | False | False | insufficient_data | price_history_missing; tdcc_history_missing |
-| 00910 | 第一金太空衛星 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00911 | 兆豐洲際半導體 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00912 | 中信臺灣智慧50 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00913 | 兆豐台灣晶圓製造 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00915 | 凱基優選高股息30 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00916 | 國泰全球品牌50 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00917 | 中信特選金融 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00918 | 大華優利高填息30 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00919 | 群益台灣精選高息 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
+| 00910 | 第一金太空衛星 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00911 | 兆豐洲際半導體 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00912 | 中信臺灣智慧50 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00913 | 兆豐台灣晶圓製造 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00915 | 凱基優選高股息30 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00916 | 國泰全球品牌50 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00917 | 中信特選金融 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00918 | 大華優利高填息30 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00919 | 群益台灣精選高息 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
 | 0092 |  | 0 | 0 |  |  | False | False | insufficient_data | price_history_missing; tdcc_history_missing |
-| 00920 | 富邦ESG綠色電力 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00921 | 兆豐龍頭等權重 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00922 | 國泰台灣領袖50 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00923 | 群益台ESG低碳50 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00924 | 復華S&P500成長 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00926 | 凱基全球菁英55 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00927 | 群益半導體收益 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00928 | 中信上櫃ESG 30 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00929 | 復華台灣科技優息 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00930 | 永豐ESG低碳高息 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00932 | 兆豐永續高息等權 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00934 | 中信成長高股息 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00935 | 野村臺灣新科技50 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00936 | 台新永續高息中小 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00938 | 凱基優選30 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00939 | 統一台灣高息動能 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00940 | 元大台灣價值高息 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00941 | 中信上游半導體 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00943 | 兆豐電子高息等權 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00944 | 野村趨勢動能高息 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00946 | 群益科技高息成長 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00947 | 台新臺灣IC設計 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00949 | 復華日本龍頭 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00951 | 台新日本半導體 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00952 | 凱基台灣AI50 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00954 | 中信日本半導體 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00955 | 中信日本商社 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00956 | 中信日經高股息 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00960 | 野村全球航運龍頭 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00961 | FT臺灣永續高息 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00962 | 台新AI優息動能 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00963 | 中信全球高股息 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00964 | 中信亞太高股息 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00965 | 元大航太防衛科技 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00971 | 野村美國研發龍頭 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 00972 | 野村日本動能高息 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
+| 00920 | 富邦ESG綠色電力 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00921 | 兆豐龍頭等權重 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00922 | 國泰台灣領袖50 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00923 | 群益台ESG低碳50 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00924 | 復華S&P500成長 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00925 | 新光標普電動車 | 2 | 0 | 20250521 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
+| 00926 | 凱基全球菁英55 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00927 | 群益半導體收益 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00928 | 中信上櫃ESG 30 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00929 | 復華台灣科技優息 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00930 | 永豐ESG低碳高息 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00932 | 兆豐永續高息等權 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00934 | 中信成長高股息 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00935 | 野村臺灣新科技50 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00936 | 台新永續高息中小 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00938 | 凱基優選30 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00939 | 統一台灣高息動能 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00940 | 元大台灣價值高息 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00941 | 中信上游半導體 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00943 | 兆豐電子高息等權 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00944 | 野村趨勢動能高息 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00946 | 群益科技高息成長 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00947 | 台新臺灣IC設計 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00949 | 復華日本龍頭 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00951 | 台新日本半導體 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00952 | 凱基台灣AI50 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00954 | 中信日本半導體 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00955 | 中信日本商社 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00956 | 中信日經高股息 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00960 | 野村全球航運龍頭 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00961 | FT臺灣永續高息 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00962 | 台新AI優息動能 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00963 | 中信全球高股息 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00964 | 中信亞太高股息 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00965 | 元大航太防衛科技 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00971 | 野村美國研發龍頭 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 00972 | 野村日本動能高息 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
 | 0098 |  | 0 | 0 |  |  | False | False | insufficient_data | price_history_missing; tdcc_history_missing |
-| 009800 | 中信NASDAQ | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 009801 | 中信美國創新科技 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 009802 | 富邦旗艦50 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 009803 | 玉山市值動能50 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 009804 | 聯邦台精彩50 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 009805 | 新光美國電力基建 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 009806 | 台新標普500 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 009807 | 台新標普科技精選 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 009808 | 華南永昌優選50 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 009809 | 富邦淨零ESG50 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 009810 | 玉山全球藍籌100 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 009811 | 統一美國50 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 009812 | 野村日本東證 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 009813 | 貝萊德標普卓越50 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 009814 | 富邦標普500 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 009815 | 大華美國MAG7+ | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 009816 | 凱基台灣TOP50 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 009817 | 國泰日本不動產 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 009818 | 華南永昌NASDAQxT | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 009819 | 中信數據及電力 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 009820 | 元大納斯達克精選 | 54 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 009821 | 野村稀土關鍵資源 | 36 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 009822 | 華南永昌未來金融 | 46 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 009823 | 群益S&P500 | 31 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 009824 | 群益美國科技巨頭 | 31 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 009825 | 聯邦美國金融創新 | 16 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 009826 | 貝萊德世界股票 | 5 | 0 | 20260807 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
+| 009800 | 中信NASDAQ | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 009801 | 中信美國創新科技 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 009802 | 富邦旗艦50 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 009803 | 玉山市值動能50 | 71 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 009804 | 聯邦台精彩50 | 70 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 009805 | 新光美國電力基建 | 70 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 009806 | 台新標普500 | 69 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 009807 | 台新標普科技精選 | 69 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 009808 | 華南永昌優選50 | 70 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 009809 | 富邦淨零ESG50 | 66 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 009810 | 玉山全球藍籌100 | 69 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 009811 | 統一美國50 | 69 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 009812 | 野村日本東證 | 66 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 009813 | 貝萊德標普卓越50 | 64 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 009814 | 富邦標普500 | 64 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 009815 | 大華美國MAG7+ | 64 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 009816 | 凱基台灣TOP50 | 64 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 009817 | 國泰日本不動產 | 64 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 009818 | 華南永昌NASDAQxT | 64 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 009819 | 中信數據及電力 | 64 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 009820 | 元大納斯達克精選 | 64 | 0 | 20260821 |  | False | False | standard_rawdata_report | tdcc_history_missing |
+| 009821 | 野村稀土關鍵資源 | 46 | 0 | 20260821 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
+| 009822 | 華南永昌未來金融 | 56 | 0 | 20260821 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
+| 009823 | 群益S&P500 | 41 | 0 | 20260821 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
+| 009824 | 群益美國科技巨頭 | 41 | 0 | 20260821 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
+| 009825 | 聯邦美國金融創新 | 26 | 0 | 20260821 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
+| 009826 | 貝萊德世界股票 | 15 | 0 | 20260821 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
+| 009829 | 大華韓國KOSPI50 | 1 | 0 | 20260821 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
+| 0099 |  | 0 | 0 |  |  | False | False | insufficient_data | price_history_missing; tdcc_history_missing |
 | 0200 | 兆豐半導體氣候N | 1 | 0 | 20250407 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 1101 | 台泥 | 320 | 15 | 20260807 | 20260807 | False | False | standard_rawdata_report |  |
-| 1102 | 亞泥 | 321 | 15 | 20260807 | 20260807 | False | False | standard_rawdata_report |  |
-| 1103 | 嘉泥 | 321 | 15 | 20260807 | 20260807 | False | False | standard_rawdata_report |  |
-| 1104 | 環泥 | 321 | 15 | 20260807 | 20260807 | False | False | standard_rawdata_report |  |
-| 1108 | 幸福 | 321 | 15 | 20260807 | 20260807 | False | False | standard_rawdata_report |  |
-| 1109 | 信大 | 321 | 15 | 20260807 | 20260807 | False | False | standard_rawdata_report |  |
-| 1110 | 東泥 | 321 | 15 | 20260807 | 20260807 | False | False | standard_rawdata_report |  |
-| 1201 | 味全 | 321 | 15 | 20260807 | 20260807 | False | False | standard_rawdata_report |  |
-| 1203 | 味王 | 320 | 15 | 20260807 | 20260807 | False | False | standard_rawdata_report |  |
-| 1210 | 大成 | 321 | 15 | 20260807 | 20260807 | False | False | standard_rawdata_report |  |
-| 1213 | 大飲 | 299 | 15 | 20260807 | 20260807 | False | False | standard_rawdata_report |  |
-| 1215 | 卜蜂 | 321 | 15 | 20260807 | 20260807 | False | False | standard_rawdata_report |  |
-| 1216 | 統一 | 321 | 15 | 20260807 | 20260807 | False | False | standard_rawdata_report |  |
-| 1217 | 愛之味 | 321 | 37 | 20260807 | 20260807 | False | False | standard_rawdata_report |  |
-| 1218 | 泰山 | 321 | 15 | 20260807 | 20260807 | False | False | standard_rawdata_report |  |
-| 1219 | 福壽 | 321 | 15 | 20260807 | 20260807 | False | False | standard_rawdata_report |  |
-| 1220 | 台榮 | 321 | 15 | 20260807 | 20260807 | False | False | standard_rawdata_report |  |
-| 1225 | 福懋油 | 270 | 15 | 20260807 | 20260807 | False | False | standard_rawdata_report |  |
-| 1227 | 佳格 | 321 | 15 | 20260807 | 20260807 | False | False | standard_rawdata_report |  |
+| 1101 | 台泥 | 337 | 16 | 20260821 | 20260814 | False | False | standard_rawdata_report |  |
+| 1102 | 亞泥 | 338 | 16 | 20260821 | 20260814 | False | False | standard_rawdata_report |  |
+| 1103 | 嘉泥 | 338 | 16 | 20260821 | 20260814 | False | False | standard_rawdata_report |  |
+| 1104 | 環泥 | 338 | 16 | 20260821 | 20260814 | False | False | standard_rawdata_report |  |
+| 1108 | 幸福 | 338 | 16 | 20260821 | 20260814 | False | False | standard_rawdata_report |  |
+| 1109 | 信大 | 338 | 16 | 20260821 | 20260814 | False | False | standard_rawdata_report |  |
+| 1110 | 東泥 | 338 | 16 | 20260821 | 20260814 | False | False | standard_rawdata_report |  |
+| 1201 | 味全 | 338 | 16 | 20260821 | 20260814 | False | False | standard_rawdata_report |  |
+| 1203 | 味王 | 337 | 16 | 20260821 | 20260814 | False | False | standard_rawdata_report |  |
+| 1210 | 大成 | 338 | 16 | 20260821 | 20260814 | False | False | standard_rawdata_report |  |
+| 1213 | 大飲 | 314 | 16 | 20260820 | 20260814 | False | False | standard_rawdata_report |  |
+| 1215 | 卜蜂 | 338 | 16 | 20260821 | 20260814 | False | False | standard_rawdata_report |  |
+| 1216 | 統一 | 338 | 16 | 20260821 | 20260814 | False | False | standard_rawdata_report |  |
+| 1217 | 愛之味 | 338 | 38 | 20260821 | 20260814 | False | False | standard_rawdata_report |  |
+| 1218 | 泰山 | 337 | 16 | 20260821 | 20260814 | False | False | standard_rawdata_report |  |
 
 _Only first 200 rows shown. Use the CSV for the full index._

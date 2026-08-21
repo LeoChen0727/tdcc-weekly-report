@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2472 立隆電
 
 ## Metadata
-- generated_at: 2026-08-10 22:27:00 Asia/Taipei
+- generated_at: 2026-08-21 22:27:01 Asia/Taipei
 - stock_id: 2472
 - stock_name: 立隆電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -101,8 +101,8 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -117,7 +117,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -125,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 238
-- high: 239.5
-- low: 224.5
-- close: 229.5
-- volume: 2175626
-- ma5: 234.9
-- ema23_primary: 271.19
-- distance_to_ema23_pct: -15.37
-- ma20: 264.07
-- ma60: 321.56
-- ma120: 233.42
-- return_5d: 4.32
-- return_20d: -38.96
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: -13.09
-- distance_to_high_60_pct: -52.97
+- date: 20260821
+- open: 225
+- high: 226.5
+- low: 217
+- close: 218
+- volume: 1240327
+- ma5: 229
+- ema23_primary: 250.44
+- distance_to_ema23_pct: -12.95
+- ma20: 234.55
+- ma60: 317.52
+- ma120: 243.82
+- return_5d: -11.02
+- return_20d: -15.67
+- volume_ratio: 0.35
+- distance_to_ma20_pct_auxiliary: -7.06
+- distance_to_high_60_pct: -55.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,375,379,338.5,343,7766648,373.76,-8.23,387.55,299.66,0.57
-20260714,334,346.5,310,321,10827028,369.37,-13.09,385.02,302.02,0.78
-20260715,331,341,311.5,341,7787709,367,-7.08,382.77,304.63,0.57
-20260716,330,339,318.5,320,5034285,363.09,-11.87,381.4,306.92,0.39
-20260717,293.5,307.5,288,288,4980041,356.83,-19.29,377.52,308.58,0.4
-20260720,275.5,282,259.5,265.5,5994228,349.22,-23.97,370.7,309.94,0.51
-20260721,270.5,277.5,262.5,273,4163287,342.87,-20.38,364.68,311.62,0.37
-20260722,287,293,277,282.5,4904890,337.84,-16.38,360.65,313.46,0.45
-20260723,285.5,285.5,270,276,3172339,332.68,-17.04,356.4,315.24,0.3
-20260724,268.5,272.5,257,258.5,2393862,326.5,-20.83,349.48,316.63,0.24
 20260727,258,265,250,260.5,2337106,321,-18.85,343.7,318.02,0.25
 20260728,246,247,234.5,235,3454399,313.83,-25.12,334.82,318.99,0.4
 20260729,238.5,242,211.5,220,5908644,306.01,-28.11,323.15,319.59,0.78
@@ -167,26 +157,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,241.5,249.5,237,240.5,3619962,278.34,-13.59,277.05,321.38,0.69
 20260806,240,242.5,224,238,3656273,274.98,-13.45,271.4,321.62,0.72
 20260807,238,239.5,224.5,229.5,2175626,271.19,-15.37,264.07,321.56,0.45
+20260810,234,241.5,234,240.5,2344173,268.63,-10.47,258.95,321.71,0.52
+20260811,237.5,257.5,236.5,244.5,6116074,266.62,-8.3,255.12,322.17,1.42
+20260812,244.5,258,242.5,250,4458172,265.23,-5.74,250.57,322.42,1.08
+20260813,253.5,267.5,250,253,7032947,264.21,-4.24,247.22,322.77,1.66
+20260814,253,254,242.5,245,2804732,262.61,-6.71,245.07,322.6,0.68
+20260817,240.5,244.5,236,241,1349324,260.81,-7.6,243.85,322.18,0.35
+20260818,239.5,242.5,227,228.5,2295271,258.12,-11.47,241.62,321.66,0.6
+20260819,218.5,238.5,218.5,234,2844558,256.11,-8.63,239.2,320.9,0.77
+20260820,234.5,235.5,220,223.5,2265391,253.39,-11.8,236.57,319.51,0.62
+20260821,225,226.5,217,218,1240327,250.44,-12.95,234.55,317.52,0.35
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 60.26
-- over_600_ratio: 56.79
-- over_800_ratio: 54.28
-- over_1000_ratio: 50.39
-- over_400_change_1w: -0.22
-- over_800_change_1w: 0.83
-- over_1000_change_1w: 0.27
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260814
+- over_400_ratio: 59.43
+- over_600_ratio: 55.49
+- over_800_ratio: 53.45
+- over_1000_ratio: 50.05
+- over_400_change_1w: -0.83
+- over_800_change_1w: -0.83
+- over_1000_change_1w: -0.34
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,57.45,0.07,52.96,2.34,50.12,2.25,1,True,True
 20260529,61.53,4.08,57.03,4.07,52.09,1.97,2,True,True
 20260605,60.41,-1.12,54.12,-2.91,50.85,-1.24,0,False,False
 20260612,59.88,-0.53,54.07,-0.05,50.73,-0.12,0,False,False
@@ -198,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,59.29,1.17,52.02,0.6,48.61,0.49,2,True,True
 20260731,60.48,1.19,53.45,1.43,50.12,1.51,3,True,True
 20260807,60.26,-0.22,54.28,0.83,50.39,0.27,4,False,True
+20260814,59.43,-0.83,53.45,-0.83,50.05,-0.34,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2472 | 立隆電 | revenue_pullback | 營收成長股價回檔 | 60.0 |  |  |  |  | put_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/15 1.召開法人說明會之日期：115/07/15 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：台北市松山區民生東路三段115號14樓 4.法人說明會擇要訊息：本公司受邀參加玉山證券舉辦之法人說明會，說明本公司之營運概況、財務及業務狀況相關事宜。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2472 | 立隆電 | 8 | 2 | 5 | 8 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2472 | 立隆電 | 108 | 2 | 3891960.0 | 2334540.0 | 1.67 | put_inflow |
+| 20260821 | 2472 | 立隆電 | 133 | 6 | 5060320.0 | 45460.0 | 111.31 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

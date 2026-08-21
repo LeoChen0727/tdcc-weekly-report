@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2892 第一金
 
 ## Metadata
-- generated_at: 2026-08-10 22:27:12 Asia/Taipei
+- generated_at: 2026-08-21 22:27:09 Asia/Taipei
 - stock_id: 2892
 - stock_name: 第一金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 35.85
-- high: 35.85
-- low: 35.3
-- close: 35.55
-- volume: 32436418
-- ma5: 35.64
-- ema23_primary: 34.57
-- distance_to_ema23_pct: 2.82
-- ma20: 34.72
-- ma60: 31.92
-- ma120: 30.41
-- return_5d: -3.27
-- return_20d: 5.8
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: 2.38
-- distance_to_high_60_pct: -3.66
+- date: 20260821
+- open: 33.25
+- high: 33.8
+- low: 33.2
+- close: 33.65
+- volume: 32059690
+- ma5: 33.53
+- ema23_primary: 33.94
+- distance_to_ema23_pct: -0.86
+- ma20: 34.49
+- ma60: 32.79
+- ma120: 30.74
+- return_5d: 0.9
+- return_20d: -1.9
+- volume_ratio: 0.71
+- distance_to_ma20_pct_auxiliary: -2.44
+- distance_to_high_60_pct: -8.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,34,34.05,33.35,33.65,19179499,32.24,4.39,32.63,30.02,0.4
-20260714,33.85,33.85,33.1,33.55,24985789,32.34,3.73,32.76,30.1,0.53
-20260715,33.4,33.8,33.1,33.1,54871514,32.41,2.14,32.85,30.17,1.15
-20260716,33.1,34.15,33.1,33.95,37194127,32.54,4.34,32.96,30.26,0.79
-20260717,33.8,34.3,33.55,34.1,45041190,32.67,4.39,33.04,30.35,0.98
-20260720,34.15,34.25,33.5,33.95,38105765,32.77,3.59,33.1,30.43,0.86
-20260721,33.9,34.5,33.75,34.45,40357898,32.91,4.67,33.21,30.54,0.92
-20260722,34.05,34.75,34.05,34.4,31044488,33.04,4.12,33.31,30.64,0.73
-20260723,34.4,34.4,33.7,34.15,35275097,33.13,3.08,33.41,30.74,0.83
-20260724,33.4,34.45,33.4,34.3,30998922,33.23,3.23,33.49,30.84,0.75
 20260727,34.6,35.1,34.1,34.8,38731144,33.36,4.32,33.59,30.94,0.94
 20260728,34.6,35.1,34.5,34.8,42613912,33.48,3.95,33.69,31.04,1.04
 20260729,34.8,35.1,34.15,34.8,49837213,33.59,3.61,33.79,31.15,1.22
@@ -168,26 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,35.3,36.1,35.2,35.9,50836332,34.39,4.38,34.55,31.72,1.24
 20260806,35.8,36.3,35.5,35.5,50732746,34.48,2.94,34.62,31.82,1.21
 20260807,35.85,35.85,35.3,35.55,32436418,34.57,2.82,34.72,31.92,0.76
+20260810,35.7,35.7,34.9,34.95,51369106,34.61,1,34.79,32.01,1.16
+20260811,33.55,33.7,32.6,32.7,85137348,34.45,-5.07,34.74,32.07,1.8
+20260812,32.7,33.15,32.45,33.15,42976191,34.34,-3.46,34.75,32.14,0.92
+20260813,33.35,33.35,32.65,33.15,28066711,34.24,-3.18,34.71,32.21,0.61
+20260814,33.15,33.7,32.75,33.35,39847913,34.17,-2.39,34.67,32.3,0.87
+20260817,33.1,33.55,32.55,33.4,45847450,34.1,-2.06,34.64,32.4,0.99
+20260818,33.4,34.25,33.25,33.7,40530045,34.07,-1.08,34.6,32.5,0.87
+20260819,33.65,33.8,33.3,33.6,16299693,34.03,-1.26,34.56,32.6,0.36
+20260820,33.7,33.75,33.2,33.3,27060212,33.97,-1.97,34.52,32.69,0.6
+20260821,33.25,33.8,33.2,33.65,32059690,33.94,-0.86,34.49,32.79,0.71
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 71.95
-- over_600_ratio: 70.12
-- over_800_ratio: 68.94
-- over_1000_ratio: 68.07
-- over_400_change_1w: 0.13
-- over_800_change_1w: 0.16
-- over_1000_change_1w: 0.14
-- tdcc_consecutive_up_weeks: 10
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260814
+- over_400_ratio: 71.69
+- over_600_ratio: 69.86
+- over_800_ratio: 68.69
+- over_1000_ratio: 67.81
+- over_400_change_1w: -0.26
+- over_800_change_1w: -0.25
+- over_1000_change_1w: -0.26
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,69.55,-0.97,66.35,-1.06,65.48,-1.04,0,False,False
 20260529,68.95,-0.6,65.73,-0.62,64.85,-0.63,0,False,False
 20260605,69.48,0.53,66.29,0.56,65.42,0.57,1,True,True
 20260612,70.35,0.87,67.24,0.95,66.37,0.95,2,True,True
@@ -199,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,71.56,0.18,68.5,0.16,67.65,0.19,8,True,True
 20260731,71.82,0.26,68.78,0.28,67.93,0.28,9,True,True
 20260807,71.95,0.13,68.94,0.16,68.07,0.14,10,True,True
+20260814,71.69,-0.26,68.69,-0.25,67.81,-0.26,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2892 | 第一金 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_2_3d | 1.董事會決議日: 115/07/17 2.許可從事競業行為之經理人姓名及職稱:蔡淑慧(第一銀行副總經理) 3.許可從事競業行為之項目:擔任國票金融控股股份有限公司董事職務 4.許可從事競業行為之期間:任職期間 5.決議情形（請依公司法第32條說明表決結果）:全體出席董事無異議照案通過 6.所許可之競業行為如屬大陸地區事業之營業者，經理人姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用 7.所擔任該大陸地區事業之公司名稱及職務:不適用 8.所擔任該大陸地區事業地址:不適用 9.所擔任該大陸地區事業營業項目:不適用 10.對本公司財務業務之影響程度:無 11.經理人如有對該大陸地區事業從事投資者，其投資金額及持股比例: 不適用 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2892 | 第一金 | 2 | 2 | 3 | 7 | 17 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2892 | 第一金 | 6 | 0 | 430160.0 | 0.0 |  | no_signal |
+| 20260821 | 2892 | 第一金 | 8 | 0 | 49340.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

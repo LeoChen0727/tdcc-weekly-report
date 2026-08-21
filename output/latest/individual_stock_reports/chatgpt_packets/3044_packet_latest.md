@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3044 健鼎
 
 ## Metadata
-- generated_at: 2026-08-10 22:27:18 Asia/Taipei
+- generated_at: 2026-08-21 22:27:13 Asia/Taipei
 - stock_id: 3044
 - stock_name: 健鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,29 +69,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 可分批買進
+- model_category_display_zh: 營收成長股價回檔
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -100,6 +104,7 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -126,38 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 401.5
-- high: 403
-- low: 392.5
-- close: 394
-- volume: 2043936
-- ma5: 391.2
-- ema23_primary: 407.98
-- distance_to_ema23_pct: -3.43
-- ma20: 393.57
-- ma60: 468.07
-- ma120: 434.38
-- return_5d: 6.78
-- return_20d: -12.15
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: 0.11
-- distance_to_high_60_pct: -34.11
+- date: 20260821
+- open: 504
+- high: 515
+- low: 455
+- close: 459
+- volume: 9309480
+- ma5: 479.3
+- ema23_primary: 446.09
+- distance_to_ema23_pct: 2.89
+- ma20: 423.23
+- ma60: 465.04
+- ma120: 441.1
+- return_5d: -5.94
+- return_20d: 16.79
+- volume_ratio: 2.12
+- distance_to_ma20_pct_auxiliary: 8.45
+- distance_to_high_60_pct: -23.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,455,459,433.5,439,3231388,497.14,-11.7,513.02,491.55,0.78
-20260714,439,439,402,421.5,3886229,490.84,-14.13,509.25,491.73,0.92
-20260715,428,428.5,421,426,2321460,485.44,-12.24,504.55,491.98,0.56
-20260716,427,431.5,417.5,422,4231150,480.15,-12.11,498.35,492.12,1.05
-20260717,408,412,394,397.5,4152785,473.26,-16.01,489.68,491.34,1.06
-20260720,399.5,400.5,374,388,2865239,466.16,-16.77,480.43,490.15,0.77
-20260721,396,404.5,390,404.5,2173977,461.02,-12.26,472.35,489.18,0.59
-20260722,415,421,409,417.5,3383672,457.39,-8.72,466.68,488.13,0.94
-20260723,415.5,415.5,402,406,3110458,453.11,-10.4,460.68,486.82,0.86
-20260724,404.5,407,390,393,2056383,448.1,-12.3,453.73,485.82,0.57
 20260727,400,400,385,390.5,1354486,443.3,-11.91,447.85,484.76,0.39
 20260728,377,379,358.5,359.5,2532780,436.32,-17.61,440.85,483.27,0.75
 20260729,360,361,327,339.5,5677503,428.25,-20.72,431.93,481.18,1.65
@@ -168,26 +163,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,399,409.5,395,398.5,4190490,410.32,-2.88,400.02,471.72,1.25
 20260806,395,405,383.5,397.5,2466063,409.26,-2.87,396.3,470.32,0.74
 20260807,401.5,403,392.5,394,2043936,407.98,-3.43,393.57,468.07,0.64
+20260810,396.5,410.5,396.5,401.5,2116540,407.44,-1.46,391.7,466.23,0.68
+20260811,441.5,441.5,430,441.5,8896410,410.28,7.61,392.7,465.63,2.64
+20260812,485.5,485.5,485.5,485.5,2995810,416.55,16.55,395.68,465.91,0.88
+20260813,502,524,485.5,495,14144741,423.09,17,399.32,466.45,3.63
+20260814,492,505,486,488,5439626,428.5,13.89,403.85,466.88,1.37
+20260817,481,491,480,483,2654773,433.04,11.54,408.6,466.79,0.67
+20260818,493,502,482,488.5,3068950,437.66,11.62,412.8,466.76,0.77
+20260819,474.5,501,468,480.5,4782368,441.23,8.9,415.95,466.53,1.18
+20260820,485,490,470,485.5,2505588,444.92,9.12,419.93,466.12,0.62
+20260821,504,515,455,459,9309480,446.09,2.89,423.23,465.04,2.12
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 79.2
-- over_600_ratio: 74.79
-- over_800_ratio: 71.5
-- over_1000_ratio: 69.34
-- over_400_change_1w: -0.2
-- over_800_change_1w: -0.87
-- over_1000_change_1w: -0.82
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260814
+- over_400_ratio: 79.57
+- over_600_ratio: 75.03
+- over_800_ratio: 71.73
+- over_1000_ratio: 69.87
+- over_400_change_1w: 0.37
+- over_800_change_1w: 0.23
+- over_1000_change_1w: 0.53
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,80.99,-0.49,73.34,-0.04,71.04,-0.23,0,False,False
 20260529,80.86,-0.13,73.36,0.02,70.53,-0.51,1,False,True
 20260605,80.63,-0.23,72.85,-0.51,70.56,0.03,2,False,True
 20260612,80.53,-0.1,72.55,-0.3,70.63,0.07,3,False,True
@@ -199,22 +203,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,79.43,-0.1,72.19,0.25,70.03,0.47,1,False,True
 20260731,79.4,-0.03,72.37,0.18,70.16,0.13,2,False,True
 20260807,79.2,-0.2,71.5,-0.87,69.34,-0.82,0,False,False
+20260814,79.57,0.37,71.73,0.23,69.87,0.53,1,True,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 3044 | 健鼎 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/07/09 2.接受資金貸與之: (1)公司名稱:Tripod Overseas Co.,Ltd. (2)與資金貸與他人公司之關係: Tripod Overseas Co., Ltd為J & J Holding Co., Ltd.直接持有百分之百之子公司。 (3)資金貸與之限額(仟元):130,850,979 (4)原資金貸與之餘額(仟元):17,055,038 (5)本次新增資金貸與之金額(仟元):2,659,475 (6)是否為董事會授權董事長對同一貸與對象分次撥貸或循環動用之資金貸與:否 (7)迄事實發生日止資金貸與餘額(仟元):19,714,513 (8)本次新增資金貸與之原因: 短期融通資金需求 3.接受資金貸與公司所提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.接受資金貸與公司最近期財務報表之: (1)資本(仟元):4,076,800 (2)累積盈虧金額(仟元):45,186,870 5.計息方式: 不計息。 6.還款之: (1)條件: 借款到期之次日，全數清償本金及利息，亦得提前償還。 (2)日期: 116年07月08日 7.迄事實發生日為止，資金貸與餘額(仟元): 32,620,325 8.迄事實發生日為止，資金貸與餘額占公開發行公司最近期財務報表淨值之比率: 55.95 9.公司貸與他人資金之來源: 子公司本身 10.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 3044 | 健鼎 | revenue_breakout_low_response | 營收爆發低反應股 | 16 | 32 | B_可觀察 |  |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/07/09 2.接受資金貸與之: (1)公司名稱:Tripod Overseas Co.,Ltd. (2)與資金貸與他人公司之關係: Tripod Overseas Co., Ltd為J & J Holding Co., Ltd.直接持有百分之百之子公司。 (3)資金貸與之限額(仟元):130,850,979 (4)原資金貸與之餘額(仟元):17,055,038 (5)本次新增資金貸與之金額(仟元):2,659,475 (6)是否為董事會授權董事長對同一貸與對象分次撥貸或循環動用之資金貸與:否 (7)迄事實發生日止資金貸與餘額(仟元):19,714,513 (8)本次新增資金貸與之原因: 短期融通資金需求 3.接受資金貸與公司所提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.接受資金貸與公司最近期財務報表之: (1)資本(仟元):4,076,800 (2)累積盈虧金額(仟元):45,186,870 5.計息方式: 不計息。 6.還款之: (1)條件: 借款到期之次日，全數清償本金及利息，亦得提前償還。 (2)日期: 116年07月08日 7.迄事實發生日為止，資金貸與餘額(仟元): 32,620,325 8.迄事實發生日為止，資金貸與餘額占公開發行公司最近期財務報表淨值之比率: 55.95 9.公司貸與他人資金之來源: 子公司本身 10.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 3044 | 健鼎 | 4 | 4 | 4 | 5 | 14 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 14 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 3044 | 健鼎 | 70 | 2 | 1611260.0 | 0.0 |  | no_signal |
+| 20260821 | 3044 | 健鼎 | 84 | 2 | 15232960.0 | 14760.0 | 1032.04 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

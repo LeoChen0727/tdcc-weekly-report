@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5475 德宏
 
 ## Metadata
-- generated_at: 2026-08-10 22:28:09 Asia/Taipei
+- generated_at: 2026-08-21 22:27:46 Asia/Taipei
 - stock_id: 5475
 - stock_name: 德宏
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 186
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 203
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -87,7 +87,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: high_level_consolidation
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -101,10 +101,9 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -117,7 +116,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -125,38 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 123.5
-- high: 134.5
-- low: 121
-- close: 123.5
-- volume: 6796000
-- ma5: 125.4
-- ema23_primary: 150.73
-- distance_to_ema23_pct: -18.06
-- ma20: 140
-- ma60: 222.18
-- ma120: 238.9
-- return_5d: 11.26
-- return_20d: -35.84
-- volume_ratio: 1.87
-- distance_to_ma20_pct_auxiliary: -11.79
-- distance_to_high_60_pct: -63.46
+- date: 20260821
+- open: 177
+- high: 177
+- low: 170
+- close: 174.5
+- volume: 1378000
+- ma5: 176.4
+- ema23_primary: 159.74
+- distance_to_ema23_pct: 9.24
+- ma20: 141.18
+- ma60: 200.14
+- ma120: 238.6
+- return_5d: 2.35
+- return_20d: 29.26
+- volume_ratio: 0.2
+- distance_to_ma20_pct_auxiliary: 23.61
+- distance_to_high_60_pct: -46.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,173.5,193.5,173.5,179.5,7411000,237.12,-24.3,236.12,290.04,3.18
-20260714,177,186,166,178.5,3996000,232.23,-23.14,233.05,287.43,1.62
-20260715,183,185,175.5,178,2314000,227.71,-21.83,230.03,284.26,0.93
-20260716,179,179,170,175.5,1679000,223.36,-21.43,227.28,280.52,0.69
-20260717,168,173,158,158,3505000,217.92,-27.5,223.7,276.73,1.38
-20260720,156.5,157.5,142.5,147,3576000,212.01,-30.66,218.45,272.75,1.36
-20260721,148,152.5,141.5,146.5,3366000,206.55,-29.07,211.93,269.14,1.29
-20260722,150.5,157,149,153,2574000,202.09,-24.29,205.62,266.1,0.99
-20260723,156,160,149,149.5,1810000,197.7,-24.38,199.3,263.45,0.69
-20260724,147.5,148,135,135,3050000,192.48,-29.86,192.6,260.05,1.13
 20260727,125.5,133.5,125,132,2872000,187.44,-29.58,187.07,256.32,1.05
 20260728,126.5,126.5,119.5,119.5,2824000,181.78,-34.26,181.82,252.34,1.02
 20260729,113,117,108,109,3007000,175.71,-37.97,175.05,248.22,1.06
@@ -167,17 +156,27 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,147,147,124.5,124.5,9832000,155.95,-20.17,147.97,228.58,2.92
 20260806,121.5,127.5,119,123,5435000,153.2,-19.71,143.45,225.3,1.57
 20260807,123.5,134.5,121,123.5,6796000,150.73,-18.06,140,222.18,1.87
+20260810,122,130.5,122,125,3880000,148.58,-15.87,137.28,219,1.12
+20260811,131.5,137.5,131,135,15263000,147.45,-8.44,135.1,216.27,3.8
+20260812,136,148.5,136,148.5,15151000,147.54,0.65,133.62,213.77,3.25
+20260813,157.5,163,148.5,163,24104000,148.83,9.52,133,211.62,4.17
+20260814,167,179,166,170.5,27380000,150.63,13.19,133.62,209.82,3.93
+20260817,170.5,170.5,157.5,169,2825000,152.16,11.06,134.72,207.86,0.41
+20260818,175.5,184,174,182.5,4091000,154.69,17.98,136.53,205.95,0.59
+20260819,172.5,181,171,180,2410000,156.8,14.8,137.88,204.16,0.35
+20260820,180.5,187,170,176,1353000,158.4,11.11,139.2,202.01,0.2
+20260821,177,177,170,174.5,1378000,159.74,9.24,141.18,200.14,0.2
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 39.73
-- over_600_ratio: 37.92
-- over_800_ratio: 35.87
-- over_1000_ratio: 35.17
-- over_400_change_1w: -4.58
-- over_800_change_1w: -4.26
-- over_1000_change_1w: -3.5
+- as_of_date: 20260814
+- over_400_ratio: 31.91
+- over_600_ratio: 29.65
+- over_800_ratio: 28.65
+- over_1000_ratio: 26.67
+- over_400_change_1w: -7.82
+- over_800_change_1w: -7.22
+- over_1000_change_1w: -8.5
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -186,7 +185,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,40.39,1.18,35.16,-0.15,33.74,0.63,2,False,True
 20260529,37.32,-3.07,31.37,-3.79,30.6,-3.14,0,False,False
 20260605,38.97,1.65,34.41,3.04,34.41,3.81,1,True,True
 20260612,39.61,0.64,34.71,0.3,33.97,-0.44,2,False,True
@@ -198,17 +196,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,42.36,1.07,36.19,1.58,36.19,1.58,3,True,True
 20260731,44.31,1.95,40.13,3.94,38.67,2.48,4,True,True
 20260807,39.73,-4.58,35.87,-4.26,35.17,-3.5,0,False,False
+20260814,31.91,-7.82,28.65,-7.22,26.67,-8.5,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 5475 | 德宏 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 5475 | 德宏 | 2 | 2 | 4 | 7 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

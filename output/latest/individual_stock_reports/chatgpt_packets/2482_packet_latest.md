@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2482 連宇
 
 ## Metadata
-- generated_at: 2026-08-10 22:27:01 Asia/Taipei
+- generated_at: 2026-08-21 22:27:02 Asia/Taipei
 - stock_id: 2482
 - stock_name: 連宇
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 16.2
-- high: 16.45
-- low: 16.1
-- close: 16.2
-- volume: 114582
-- ma5: 16.29
-- ema23_primary: 17.01
-- distance_to_ema23_pct: -4.77
-- ma20: 17.48
-- ma60: 17.06
-- ma120: 17.05
-- return_5d: 0.62
-- return_20d: -8.22
-- volume_ratio: 0.17
-- distance_to_ma20_pct_auxiliary: -7.3
-- distance_to_high_60_pct: -22.67
+- date: 20260821
+- open: 15.85
+- high: 16.2
+- low: 15.8
+- close: 16.15
+- volume: 79784
+- ma5: 15.83
+- ema23_primary: 16.38
+- distance_to_ema23_pct: -1.43
+- ma20: 16.23
+- ma60: 16.98
+- ma120: 16.89
+- return_5d: 0.94
+- return_20d: -8.5
+- volume_ratio: 0.38
+- distance_to_ma20_pct_auxiliary: -0.49
+- distance_to_high_60_pct: -22.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,17.8,19,17.75,18.2,1094975,17.17,5.97,17.17,16.94,2.78
-20260714,18.2,18.2,17.5,18.2,587526,17.26,5.44,17.25,16.96,1.4
-20260715,18.2,20,18.05,20,2041575,17.49,14.36,17.4,17,4.03
-20260716,19.85,20.95,19.15,19.2,3690809,17.63,8.9,17.52,17.02,5.38
-20260717,18.75,19.2,18,18.1,1031069,17.67,2.43,17.55,17.02,1.45
-20260720,18.5,18.8,17.65,18.35,661464,17.73,3.51,17.61,17.03,0.9
-20260721,18.8,18.8,18.25,18.45,367144,17.79,3.73,17.67,17.05,0.5
-20260722,18.7,19.25,18.5,18.5,556368,17.85,3.66,17.71,17.07,0.78
-20260723,18.65,18.65,17.8,17.8,300898,17.84,-0.24,17.72,17.08,0.42
-20260724,17.5,17.8,17.3,17.65,216292,17.83,-0.99,17.74,17.09,0.31
 20260727,17.6,18.2,17.3,18,181947,17.84,0.89,17.8,17.11,0.26
 20260728,17.7,17.7,17.1,17.25,494758,17.79,-3.05,17.84,17.11,0.69
 20260729,17.4,17.4,15.75,16.25,679071,17.66,-8,17.82,17.11,0.92
@@ -168,26 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,16.35,16.7,16.35,16.5,94818,17.16,-3.87,17.61,17.07,0.14
 20260806,16.5,16.5,16,16.2,206292,17.08,-5.18,17.55,17.06,0.31
 20260807,16.2,16.45,16.1,16.2,114582,17.01,-4.77,17.48,17.06,0.17
+20260810,16.25,16.45,16.15,16.15,170979,16.94,-4.66,17.37,17.06,0.28
+20260811,16.15,16.15,15.95,16,179790,16.86,-5.1,17.26,17.05,0.3
+20260812,16.1,16.25,15.95,16.15,171481,16.8,-3.88,17.07,17.05,0.34
+20260813,16.2,16.2,15.95,16.1,214677,16.74,-3.84,16.91,17.05,0.65
+20260814,16,16.1,15.8,16,123542,16.68,-4.08,16.81,17.04,0.44
+20260817,16,16.15,15.9,15.9,100231,16.62,-4.31,16.69,17.04,0.39
+20260818,15.9,15.95,15.75,15.75,143228,16.54,-4.8,16.55,17.02,0.59
+20260819,15.75,15.8,15.55,15.6,157805,16.47,-5.25,16.41,17,0.71
+20260820,15.65,15.9,15.65,15.75,180864,16.41,-4,16.3,16.98,0.83
+20260821,15.85,16.2,15.8,16.15,79784,16.38,-1.43,16.23,16.98,0.38
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 40.49
-- over_600_ratio: 38.43
-- over_800_ratio: 35.02
+- as_of_date: 20260814
+- over_400_ratio: 40.71
+- over_600_ratio: 38.63
+- over_800_ratio: 36.05
 - over_1000_ratio: 35.02
-- over_400_change_1w: 0
-- over_800_change_1w: 0
+- over_400_change_1w: 0.22
+- over_800_change_1w: 1.03
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,41.36,0.1,36.2,0.11,35.02,0,3,False,True
 20260529,40.87,-0.49,36.22,0.02,35.02,0,4,False,True
 20260605,41.28,0.41,36.11,-0.11,35.02,0,5,False,False
 20260612,41.38,0.1,36.16,0.05,35.02,0,6,False,True
@@ -199,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,41.13,-0.44,36.07,0.02,35.02,0,2,False,True
 20260731,40.49,-0.64,35.02,-1.05,35.02,0,3,False,False
 20260807,40.49,0,35.02,0,35.02,0,0,False,False
+20260814,40.71,0.22,36.05,1.03,35.02,0,1,False,True
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2482 | 連宇 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_2_3d | calendar event: ex_dividend on 20260729; status=confirmed; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2482 | 連宇 | 3 | 1 | 4 | 5 | 6 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

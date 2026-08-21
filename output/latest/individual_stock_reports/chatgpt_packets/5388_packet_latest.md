@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5388 中磊
 
 ## Metadata
-- generated_at: 2026-08-10 22:28:07 Asia/Taipei
+- generated_at: 2026-08-21 22:27:45 Asia/Taipei
 - stock_id: 5388
 - stock_name: 中磊
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -130,38 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 94.6
-- high: 95
-- low: 90.5
-- close: 91.4
-- volume: 5068086
-- ma5: 90.28
-- ema23_primary: 86.55
-- distance_to_ema23_pct: 5.6
-- ma20: 86.75
-- ma60: 84.58
-- ma120: 82.53
-- return_5d: 11.06
-- return_20d: 8.04
-- volume_ratio: 0.96
-- distance_to_ma20_pct_auxiliary: 5.36
-- distance_to_high_60_pct: -3.79
+- date: 20260821
+- open: 77.9
+- high: 78.4
+- low: 77.5
+- close: 77.6
+- volume: 2412760
+- ma5: 78.2
+- ema23_primary: 83.22
+- distance_to_ema23_pct: -6.75
+- ma20: 84.53
+- ma60: 84.62
+- ma120: 82.42
+- return_5d: -2.76
+- return_20d: -12.51
+- volume_ratio: 0.4
+- distance_to_ma20_pct_auxiliary: -8.2
+- distance_to_high_60_pct: -18.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,86.3,86.3,84.2,85.4,3975298,82.74,3.21,82.2,82.77,1.06
-20260714,84.4,85.8,82.8,85.7,4439309,82.99,3.27,82.22,82.81,1.17
-20260715,86.5,91.1,86.4,89.4,13182437,83.52,7.04,82.37,82.93,3.05
-20260716,88.8,89.2,86.5,86.6,5017963,83.78,3.37,82.49,82.98,1.13
-20260717,85,86.2,83.1,83.3,4564591,83.74,-0.52,82.39,82.98,1
-20260720,83.5,84.6,81.8,82.8,3021772,83.66,-1.03,82.32,82.95,0.66
-20260721,83.1,85.4,83.1,85.1,2783991,83.78,1.58,82.45,83.01,0.62
-20260722,86.2,87.7,86,87.2,3680007,84.06,3.73,82.82,83.15,0.82
-20260723,87.9,89.3,87.7,89.1,5259527,84.48,5.46,83.19,83.35,1.14
-20260724,88.5,90.5,87.9,88.7,3607945,84.84,4.55,83.61,83.54,0.78
 20260727,89.8,94.7,89.7,90.6,10755390,85.32,6.19,84.31,83.77,2.21
 20260728,88.2,90,86.2,86.4,4970904,85.41,1.16,84.77,83.93,0.99
 20260729,87.6,87.8,79.2,81.9,7966935,85.11,-3.78,84.82,84,1.51
@@ -172,26 +162,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,90,92.8,89.7,91.6,5001820,85.59,7.02,85.97,84.32,0.93
 20260806,91.3,92.2,89.9,91.8,2815297,86.11,6.61,86.41,84.38,0.52
 20260807,94.6,95,90.5,91.4,5068086,86.55,5.6,86.75,84.58,0.96
+20260810,93.1,94.7,90.7,93.6,4818108,87.14,7.42,87.16,84.85,0.9
+20260811,93.6,94.1,91,91.1,3697798,87.47,4.15,87.43,85.07,0.7
+20260812,88.7,88.7,82,82.4,19410824,87.05,-5.34,87.08,85.15,3.46
+20260813,82.3,82.4,80.4,81.1,9499354,86.55,-6.3,86.81,85.18,1.63
+20260814,81.2,81.2,79.2,79.8,8550021,85.99,-7.2,86.63,85.15,1.42
+20260817,80.8,80.8,78.9,79.3,3598243,85.43,-7.18,86.45,85.08,0.59
+20260818,79.8,80,78.1,78.1,4471274,84.82,-7.92,86.11,84.97,0.73
+20260819,77.4,79.2,77,78.4,3304135,84.28,-6.98,85.67,84.83,0.54
+20260820,79.4,79.4,77.3,77.6,4463556,83.73,-7.32,85.09,84.72,0.73
+20260821,77.9,78.4,77.5,77.6,2412760,83.22,-6.75,84.53,84.62,0.4
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 56.03
-- over_600_ratio: 51.65
-- over_800_ratio: 47.65
-- over_1000_ratio: 45.63
-- over_400_change_1w: 1.75
-- over_800_change_1w: 2.35
-- over_1000_change_1w: 2.69
-- tdcc_consecutive_up_weeks: 5
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260814
+- over_400_ratio: 51.96
+- over_600_ratio: 47.39
+- over_800_ratio: 44.03
+- over_1000_ratio: 40.65
+- over_400_change_1w: -4.07
+- over_800_change_1w: -3.62
+- over_1000_change_1w: -4.98
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,51.11,0.57,43.48,0.93,40.89,0.68,1,True,True
 20260529,53.66,2.55,45.5,2.02,43.47,2.58,2,True,True
 20260605,53.05,-0.61,45.13,-0.37,42.86,-0.61,0,False,False
 20260612,53.14,0.09,44.3,-0.83,42.31,-0.55,1,False,False
@@ -203,23 +202,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,53.21,0.79,45.3,1.62,42.41,1.37,3,True,True
 20260731,54.28,1.07,45.3,0,42.94,0.53,4,False,True
 20260807,56.03,1.75,47.65,2.35,45.63,2.69,5,True,True
+20260814,51.96,-4.07,44.03,-3.62,40.65,-4.98,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 5388 | 中磊 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.法律事件之當事人: 原告: 華為技術有限公司 被告: 中磊電子德國子公司Sercomm Deutschland GmbH 2.法律事件之法院名稱或處分機關: 歐洲統一專利法院 3.法律事件之相關文書案號: UPC_CFI_9/2023, UPC_CFI_752/2025 4.事實發生日:115/06/21 5.發生原委(含爭訟標的): 本公司德國子公司Sercomm Deutschland GmbH收到華為公司訴訟書，針對中磊於 德國等地區銷售之部分產品提起專利訴訟。 6.處理過程: 本公司已委任國際專利訴訟專業團隊積極應訴，以維護本公司之最佳利益。 7.對公司財務業務影響及預估影響金額: 本公司於德國地區營收比重甚低，預估對本公司財務、營運影響極為有限。 8.因應措施及改善情形: 本公司專注自主技術研發，對於智慧財產權的投入與保護，向以最嚴格標準，謹慎 處理智慧財產權相關事宜。本公司對該訴訟案件將審慎評估，並委任專業律師妥善 因應，以維護公司最佳權益。 9.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第2款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260717 | 5388 | 中磊 | revenue_breakout_low_response | 營收爆發低反應股 | 15.0 | 30.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.法律事件之當事人: 原告: 華為技術有限公司 被告: 中磊電子德國子公司Sercomm Deutschland GmbH 2.法律事件之法院名稱或處分機關: 歐洲統一專利法院 3.法律事件之相關文書案號: UPC_CFI_9/2023, UPC_CFI_752/2025 4.事實發生日:115/06/21 5.發生原委(含爭訟標的): 本公司德國子公司Sercomm Deutschland GmbH收到華為公司訴訟書，針對中磊於 德國等地區銷售之部分產品提起專利訴訟。 6.處理過程: 本公司已委任國際專利訴訟專業團隊積極應訴，以維護本公司之最佳利益。 7.對公司財務業務影響及預估影響金額: 本公司於德國地區營收比重甚低，預估對本公司財務、營運影響極為有限。 8.因應措施及改善情形: 本公司專注自主技術研發，對於智慧財產權的投入與保護，向以最嚴格標準，謹慎 處理智慧財產權相關事宜。本公司對該訴訟案件將審慎評估，並委任專業律師妥善 因應，以維護公司最佳權益。 9.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第2款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 5388 | 中磊 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | 1.法律事件之當事人: 原告: 華為技術有限公司 被告: 中磊電子德國子公司Sercomm Deutschland GmbH 2.法律事件之法院名稱或處分機關: 歐洲統一專利法院 3.法律事件之相關文書案號: UPC_CFI_9/2023, UPC_CFI_752/2025 4.事實發生日:115/06/21 5.發生原委(含爭訟標的): 本公司德國子公司Sercomm Deutschland GmbH收到華為公司訴訟書，針對中磊於 德國等地區銷售之部分產品提起專利訴訟。 6.處理過程: 本公司已委任國際專利訴訟專業團隊積極應訴，以維護本公司之最佳利益。 7.對公司財務業務影響及預估影響金額: 本公司於德國地區營收比重甚低，預估對本公司財務、營運影響極為有限。 8.因應措施及改善情形: 本公司專注自主技術研發，對於智慧財產權的投入與保護，向以最嚴格標準，謹慎 處理智慧財產權相關事宜。本公司對該訴訟案件將審慎評估，並委任專業律師妥善 因應，以維護公司最佳權益。 9.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第2款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 5388 | 中磊 | revenue_breakout_low_response | 營收爆發低反應股 | 13 | 45 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.法律事件之當事人: 原告: 華為技術有限公司 被告: 中磊電子德國子公司Sercomm Deutschland GmbH 2.法律事件之法院名稱或處分機關: 歐洲統一專利法院 3.法律事件之相關文書案號: UPC_CFI_9/2023, UPC_CFI_752/2025 4.事實發生日:115/06/21 5.發生原委(含爭訟標的): 本公司德國子公司Sercomm Deutschland GmbH收到華為公司訴訟書，針對中磊於 德國等地區銷售之部分產品提起專利訴訟。 6.處理過程: 本公司已委任國際專利訴訟專業團隊積極應訴，以維護本公司之最佳利益。 7.對公司財務業務影響及預估影響金額: 本公司於德國地區營收比重甚低，預估對本公司財務、營運影響極為有限。 8.因應措施及改善情形: 本公司專注自主技術研發，對於智慧財產權的投入與保護，向以最嚴格標準，謹慎 處理智慧財產權相關事宜。本公司對該訴訟案件將審慎評估，並委任專業律師妥善 因應，以維護公司最佳權益。 9.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第2款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 5388 | 中磊 | 18 | 2 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260821 | 5388 | 中磊 | 22 | 6 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 5388 | 中磊 | 29 | 0 | 952520.0 | 0.0 |  | no_signal |
+| 20260821 | 5388 | 中磊 | 35 | 1 | 853350.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

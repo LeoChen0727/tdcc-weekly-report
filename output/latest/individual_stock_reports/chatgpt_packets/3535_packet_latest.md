@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3535 晶彩科
 
 ## Metadata
-- generated_at: 2026-08-10 22:27:35 Asia/Taipei
+- generated_at: 2026-08-21 22:27:24 Asia/Taipei
 - stock_id: 3535
 - stock_name: 晶彩科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -103,6 +103,7 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -117,7 +118,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -125,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 87.3
-- high: 88.1
-- low: 84.4
-- close: 85.2
-- volume: 538352
-- ma5: 84.34
-- ema23_primary: 90.54
-- distance_to_ema23_pct: -5.9
-- ma20: 87.17
-- ma60: 111.3
-- ma120: 116.91
-- return_5d: 10.51
-- return_20d: -18.47
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: -2.25
-- distance_to_high_60_pct: -41.44
+- date: 20260821
+- open: 88.3
+- high: 89.1
+- low: 86.2
+- close: 86.8
+- volume: 358082
+- ma5: 88.64
+- ema23_primary: 89.98
+- distance_to_ema23_pct: -3.53
+- ma20: 85.51
+- ma60: 105.41
+- ma120: 115.35
+- return_5d: -5.65
+- return_20d: -0.34
+- volume_ratio: 0.42
+- distance_to_ma20_pct_auxiliary: 1.51
+- distance_to_high_60_pct: -40.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,104.5,106,98.6,100,1646339,116.12,-13.88,117.97,124.19,1.17
-20260714,101,101.5,91.5,99.9,2296238,114.77,-12.96,116.69,123.76,1.55
-20260715,101,102.5,98.2,100.5,1299068,113.58,-11.52,115.27,123.42,0.86
-20260716,99.9,99.9,95.7,97.1,1054683,112.21,-13.46,113.72,122.97,0.69
-20260717,93.7,94.4,90,91.7,1919406,110.5,-17.01,111.58,122.36,1.22
-20260720,92,92.2,84,88,1483552,108.62,-18.99,109.28,121.7,0.94
-20260721,88.1,90.5,87.4,88.5,755037,106.95,-17.25,107.28,121.22,0.53
-20260722,90.3,92.4,89.2,90,691471,105.53,-14.72,105.69,120.82,0.53
-20260723,90.2,91.8,88.8,89.5,583679,104.2,-14.11,104.03,120.37,0.46
-20260724,88,89.6,86.4,87.1,690129,102.77,-15.25,102.36,119.72,0.56
 20260727,90,90.9,86.4,87.7,895010,101.52,-13.61,101.15,119.08,0.77
 20260728,85,85.1,80,80,1236001,99.72,-19.78,99.55,118.28,1.07
 20260729,79.2,80.4,72,74.4,2928207,97.61,-23.78,97.47,117.17,2.34
@@ -167,26 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,86.5,87.5,85.1,85.1,810225,91.37,-6.86,89.02,112.63,0.66
 20260806,85.9,87.5,83.1,87.3,742495,91.03,-4.1,88.13,111.96,0.62
 20260807,87.3,88.1,84.4,85.2,538352,90.54,-5.9,87.17,111.3,0.45
+20260810,86.5,90.2,85.6,90.2,878153,90.52,-0.35,86.67,110.77,0.76
+20260811,89.2,91.7,88.4,89,831599,90.39,-1.54,86.13,110.21,0.77
+20260812,89.6,93.5,89.6,92.5,721914,90.57,2.14,85.73,109.75,0.69
+20260813,93.2,93.8,91.7,92.3,636509,90.71,1.75,85.49,109.09,0.62
+20260814,92.9,93.8,91.3,92,499232,90.82,1.3,85.5,108.59,0.52
+20260817,92,92.6,91.3,92.3,320310,90.94,1.49,85.72,108.05,0.36
+20260818,92.6,92.7,88.5,89,542023,90.78,-1.96,85.75,107.41,0.61
+20260819,87.1,89.9,86.8,87.1,429422,90.47,-3.73,85.6,106.69,0.49
+20260820,88.5,89,87.1,88,348487,90.27,-2.51,85.53,106.02,0.4
+20260821,88.3,89.1,86.2,86.8,358082,89.98,-3.53,85.51,105.41,0.42
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 26.46
-- over_600_ratio: 25.95
-- over_800_ratio: 25.06
-- over_1000_ratio: 23.91
-- over_400_change_1w: 0.42
-- over_800_change_1w: -0.04
-- over_1000_change_1w: -1.19
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260814
+- over_400_ratio: 26.74
+- over_600_ratio: 26.21
+- over_800_ratio: 25.23
+- over_1000_ratio: 24.04
+- over_400_change_1w: 0.28
+- over_800_change_1w: 0.17
+- over_1000_change_1w: 0.13
+- tdcc_consecutive_up_weeks: 5
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,25.86,0.27,21.88,0.01,21.88,0.01,2,True,True
 20260529,25.72,-0.14,21.96,0.08,21.96,0.08,3,False,True
 20260605,27.92,2.2,26.04,4.08,22.69,0.73,4,True,True
 20260612,28.65,0.73,24.77,-1.27,22.65,-0.04,5,False,False
@@ -198,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,26.16,0.64,23.13,0.5,23.13,0.5,2,True,True
 20260731,26.04,-0.12,25.1,1.97,25.1,1.97,3,False,True
 20260807,26.46,0.42,25.06,-0.04,23.91,-1.19,4,False,False
+20260814,26.74,0.28,25.23,0.17,24.04,0.13,5,True,True
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 3535 | 晶彩科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-
-## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 3535 | 晶彩科 | 2 | 2 | 4 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
-
-## Warrant Context
 | status |
 | --- |
 | no rows |
+
+## Repeat Appearance Context
+| status |
+| --- |
+| no rows |
+
+## Warrant Context
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 3535 | 晶彩科 | 2 | 0 | 983000.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

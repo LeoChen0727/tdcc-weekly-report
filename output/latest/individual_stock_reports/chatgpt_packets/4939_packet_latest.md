@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4939 亞電
 
 ## Metadata
-- generated_at: 2026-08-10 22:27:59 Asia/Taipei
+- generated_at: 2026-08-21 22:27:39 Asia/Taipei
 - stock_id: 4939
 - stock_name: 亞電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 186
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 203
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,29 +69,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 可分批買進
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -100,6 +104,7 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -125,38 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 61.4
-- high: 67.2
-- low: 60.7
-- close: 60.8
-- volume: 21724000
-- ma5: 58.74
-- ema23_primary: 58.99
-- distance_to_ema23_pct: 3.06
-- ma20: 59.97
-- ma60: 56.71
-- ma120: 45.89
-- return_5d: 19.68
-- return_20d: 7.42
-- volume_ratio: 1.03
-- distance_to_ma20_pct_auxiliary: 1.38
-- distance_to_high_60_pct: -22.25
+- date: 20260821
+- open: 62.7
+- high: 68.5
+- low: 60.8
+- close: 66.5
+- volume: 25219000
+- ma5: 62.04
+- ema23_primary: 60.82
+- distance_to_ema23_pct: 9.35
+- ma20: 58.81
+- ma60: 60.46
+- ma120: 48.21
+- return_5d: 8.31
+- return_20d: 6.06
+- volume_ratio: 2.04
+- distance_to_ma20_pct_auxiliary: 13.08
+- distance_to_high_60_pct: -14.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,57.8,59.4,56.3,57.2,2768000,59.16,-3.31,62.09,51.09,0.34
-20260714,57,59.2,53.2,55.3,4943000,58.84,-6.01,61.55,51.38,0.63
-20260715,56.9,60.8,56.2,60.8,3664000,59,3.05,61.06,51.71,0.57
-20260716,60.3,66.8,60.3,66.8,31453000,59.65,11.99,61.17,52.07,4.46
-20260717,65,67.6,60.2,60.2,32107000,59.7,0.85,60.95,52.31,3.86
-20260720,62.9,66.2,59.8,66.2,28967000,60.24,9.9,61.01,52.66,3.04
-20260721,67.7,72.8,67.1,72.8,36348000,61.28,18.79,61.51,53.15,3.32
-20260722,76.9,78.2,70.3,70.9,72865000,62.09,14.2,62.05,53.64,5.09
-20260723,70.9,77.2,68.3,69.6,56606000,62.71,10.98,62.41,54.13,3.36
-20260724,71,72.8,62.7,62.7,31932000,62.71,-0.02,62.56,54.45,1.75
 20260727,62.4,63.9,57.8,60.4,12686000,62.52,-3.39,62.55,54.72,0.69
 20260728,58.5,58.6,54.9,55.5,7082000,61.93,-10.39,62.2,54.91,0.38
 20260729,54,55.2,49.95,49.95,5940000,60.93,-18.03,61.49,55.01,0.33
@@ -167,18 +162,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,58.4,61.8,58.4,59.4,11789000,58.6,1.37,59.57,55.96,0.61
 20260806,59.4,65,59.3,61.4,17629000,58.83,4.37,59.76,56.32,0.87
 20260807,61.4,67.2,60.7,60.8,21724000,58.99,3.06,59.97,56.71,1.03
+20260810,60.8,62.8,60.1,61.3,10420000,59.19,3.57,60.17,57.1,0.48
+20260811,60.8,62,59.1,61.7,5990000,59.4,3.88,60.49,57.5,0.28
+20260812,61,62.8,60.8,60.8,5770000,59.51,2.16,60.49,57.87,0.27
+20260813,61.1,64.9,61.1,63.9,14405000,59.88,6.72,60.35,58.3,0.69
+20260814,65.4,65.5,61,61.4,19797000,60.01,2.32,60.41,58.69,0.98
+20260817,61,62.4,59.1,60.4,4706000,60.04,0.6,60.12,59.06,0.25
+20260818,59.9,63.9,59.7,60.1,9984000,60.04,0.09,59.48,59.41,0.56
+20260819,60.2,63.1,60.1,60.5,7892000,60.08,0.7,58.97,59.76,0.55
+20260820,60.8,66.4,60.8,62.7,21786000,60.3,3.98,58.62,60.07,1.71
+20260821,62.7,68.5,60.8,66.5,25219000,60.82,9.35,58.81,60.46,2.04
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 36.16
-- over_600_ratio: 30.5
-- over_800_ratio: 29.73
-- over_1000_ratio: 28.91
-- over_400_change_1w: -0.79
-- over_800_change_1w: -0.69
-- over_1000_change_1w: 0.15
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260814
+- over_400_ratio: 35.77
+- over_600_ratio: 31.72
+- over_800_ratio: 31.72
+- over_1000_ratio: 29.89
+- over_400_change_1w: -0.39
+- over_800_change_1w: 1.99
+- over_1000_change_1w: 0.98
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -186,7 +191,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,24.82,-0.15,18.02,0.11,15.39,0,2,False,True
 20260529,28.87,4.05,20.85,2.83,18.37,2.98,3,True,True
 20260605,34.32,5.45,27.97,7.12,25.34,6.97,4,True,True
 20260612,33.8,-0.52,27.07,-0.9,24.49,-0.85,0,False,False
@@ -198,17 +202,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,35.13,-1.34,29.09,-1.28,25.42,-4.13,0,False,False
 20260731,36.95,1.82,30.42,1.33,28.76,3.34,1,True,True
 20260807,36.16,-0.79,29.73,-0.69,28.91,0.15,2,False,True
+20260814,35.77,-0.39,31.72,1.99,29.89,0.98,3,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 4939 | 亞電 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
+| 20260821 | 4939 | 亞電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 4939 | 亞電 | 3 | 1 | 3 | 5 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260821 | 4939 | 亞電 | 7 | 1 | 5 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

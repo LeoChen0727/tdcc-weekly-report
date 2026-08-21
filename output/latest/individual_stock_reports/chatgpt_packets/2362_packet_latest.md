@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2362 藍天
 
 ## Metadata
-- generated_at: 2026-08-10 22:26:53 Asia/Taipei
+- generated_at: 2026-08-21 22:26:56 Asia/Taipei
 - stock_id: 2362
 - stock_name: 藍天
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 50.7
-- high: 51.4
-- low: 49.4
-- close: 50.5
-- volume: 4212114
-- ma5: 47.64
-- ema23_primary: 44.69
-- distance_to_ema23_pct: 13
-- ma20: 43.78
-- ma60: 44.02
-- ma120: 41.29
-- return_5d: 20.38
-- return_20d: 16.36
-- volume_ratio: 2.32
-- distance_to_ma20_pct_auxiliary: 15.36
-- distance_to_high_60_pct: -3.07
+- date: 20260821
+- open: 47.35
+- high: 47.5
+- low: 46.7
+- close: 47.35
+- volume: 777376
+- ma5: 47.51
+- ema23_primary: 46.49
+- distance_to_ema23_pct: 1.84
+- ma20: 46.44
+- ma60: 45.33
+- ma120: 42.06
+- return_5d: -5.11
+- return_20d: 7.25
+- volume_ratio: 0.31
+- distance_to_ma20_pct_auxiliary: 1.95
+- distance_to_high_60_pct: -9.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,43.15,43.25,41.7,42.15,1345177,43.77,-3.71,44.53,42.47,0.73
-20260714,42.7,42.7,40.5,41.55,820728,43.59,-4.68,44.21,42.53,0.51
-20260715,41.7,42.3,41.35,42.1,468227,43.46,-3.14,43.87,42.59,0.31
-20260716,42.1,42.75,41.8,42.4,423990,43.38,-2.25,43.56,42.65,0.3
-20260717,41.85,42.15,40.4,40.4,1224294,43.13,-6.33,43.18,42.68,0.86
-20260720,41.3,42.2,40.9,41.9,1381960,43.03,-2.62,42.9,42.72,1
-20260721,41.9,43.25,41.85,43.25,864490,43.04,0.48,42.7,42.8,0.65
-20260722,43.25,43.9,43.05,43.3,551358,43.07,0.54,42.56,42.88,0.43
-20260723,43.3,44.4,43.3,43.85,907926,43.13,1.67,42.45,42.97,0.73
-20260724,43.85,44.4,43.15,44.15,860524,43.22,2.16,42.47,43.06,0.73
 20260727,44.15,44.4,43.15,44.05,639547,43.29,1.77,42.56,43.15,0.59
 20260728,43.85,43.85,42.6,43,749397,43.26,-0.6,42.66,43.23,0.71
 20260729,43.5,43.55,41.1,41.85,1489413,43.14,-3,42.66,43.29,1.38
@@ -168,26 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,48.55,48.55,45.8,47.15,3032869,43.53,8.31,43.02,43.64,2.9
 20260806,47.5,51.8,46.8,51.1,12720265,44.16,15.71,43.42,43.83,7.76
 20260807,50.7,51.4,49.4,50.5,4212114,44.69,13,43.78,44.02,2.32
+20260810,49.05,49.2,46,46.8,6118894,44.87,4.31,44.01,44.15,2.97
+20260811,46.8,47.35,45.6,47.3,1973469,45.07,4.95,44.3,44.3,0.93
+20260812,47.5,49.6,47.5,48.9,3397358,45.39,7.74,44.64,44.46,1.5
+20260813,49.2,49.25,47.75,47.9,2065542,45.6,5.05,44.91,44.62,0.88
+20260814,47.9,50.5,47.9,49.9,4128637,45.96,8.58,45.39,44.8,1.66
+20260817,49.9,49.9,48.15,48.5,1978450,46.17,5.05,45.72,44.95,0.79
+20260818,48.35,48.35,47.15,47.2,1259041,46.25,2.04,45.91,45.05,0.5
+20260819,46.75,47.6,46.35,47.15,842228,46.33,1.77,46.11,45.13,0.33
+20260820,47.4,48,47.1,47.35,705051,46.41,2.02,46.28,45.23,0.28
+20260821,47.35,47.5,46.7,47.35,777376,46.49,1.84,46.44,45.33,0.31
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 80.69
-- over_600_ratio: 79.16
-- over_800_ratio: 78.28
-- over_1000_ratio: 77.27
-- over_400_change_1w: 0.96
-- over_800_change_1w: 0.9
-- over_1000_change_1w: 1.15
-- tdcc_consecutive_up_weeks: 5
-- all_thresholds_up: True
+- as_of_date: 20260814
+- over_400_ratio: 80.78
+- over_600_ratio: 79.12
+- over_800_ratio: 78.58
+- over_1000_ratio: 77.29
+- over_400_change_1w: 0.09
+- over_800_change_1w: 0.3
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 6
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,80.43,0.12,77.38,-0.04,76.52,-0.05,3,False,False
 20260529,80.43,0,77.21,-0.17,76.34,-0.18,4,False,False
 20260605,79.93,-0.5,77.43,0.22,76.26,-0.08,5,False,True
 20260612,79.83,-0.1,77.42,-0.01,76.28,0.02,6,False,True
@@ -199,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,79.65,0.22,77,-0.12,75.85,-0.1,3,False,False
 20260731,79.73,0.08,77.38,0.38,76.12,0.27,4,True,True
 20260807,80.69,0.96,78.28,0.9,77.27,1.15,5,True,True
+20260814,80.78,0.09,78.58,0.3,77.29,0.02,6,False,True
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2362 | 藍天 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2362 | 藍天 | 1 | 1 | 2 | 3 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2362 | 藍天 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

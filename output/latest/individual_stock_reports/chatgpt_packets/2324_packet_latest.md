@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2324 仁寶
 
 ## Metadata
-- generated_at: 2026-08-10 22:26:50 Asia/Taipei
+- generated_at: 2026-08-21 22:26:55 Asia/Taipei
 - stock_id: 2324
 - stock_name: 仁寶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 37.5
-- high: 37.5
-- low: 36.4
-- close: 36.55
-- volume: 30472602
-- ma5: 36.83
-- ema23_primary: 36.14
-- distance_to_ema23_pct: 1.13
-- ma20: 36.07
-- ma60: 35.84
-- ma120: 33.1
-- return_5d: 1.53
-- return_20d: -0.14
-- volume_ratio: 0.6
-- distance_to_ma20_pct_auxiliary: 1.32
-- distance_to_high_60_pct: -23.46
+- date: 20260821
+- open: 38.4
+- high: 39
+- low: 37.9
+- close: 38.95
+- volume: 42759328
+- ma5: 39.8
+- ema23_primary: 38.11
+- distance_to_ema23_pct: 2.21
+- ma20: 37.73
+- ma60: 37.31
+- ma120: 33.83
+- return_5d: -9.84
+- return_20d: 4.7
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: 3.23
+- distance_to_high_60_pct: -18.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,37.95,38.2,36.2,36.65,64219539,35.96,1.91,36.19,33.98,1.08
-20260714,36.8,36.85,34.7,35.55,45695887,35.93,-1.05,36.15,34.09,0.79
-20260715,35.75,36.65,35.4,36.15,33170793,35.95,0.57,36.07,34.18,0.6
-20260716,36,36.5,35.6,35.95,28718535,35.95,0.01,35.99,34.28,0.53
-20260717,35.6,36.95,35.2,36,100499425,35.95,0.14,35.93,34.35,1.77
-20260720,36.05,36.2,33.7,34.4,58621914,35.82,-3.97,35.76,34.38,1.04
-20260721,34.8,36,34.45,36,31499837,35.84,0.45,35.69,34.46,0.59
-20260722,36.45,37,36.05,36.2,46804122,35.87,0.93,35.67,34.56,0.89
-20260723,36.6,37.7,36.4,36.75,57790237,35.94,2.25,35.61,34.67,1.14
-20260724,36.45,37.3,36.1,37.2,43851839,36.05,3.2,35.63,34.79,0.88
 20260727,37.5,37.5,36.05,37.15,40216063,36.14,2.8,35.75,34.92,0.84
 20260728,36.1,36.1,34.5,34.7,46332721,36.02,-3.66,35.77,35.01,0.98
 20260729,35,36.3,33.9,34.85,82704423,35.92,-2.98,35.75,35.11,1.68
@@ -167,18 +157,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,37.8,37.9,36.85,36.95,48333032,36,2.65,35.98,35.63,0.92
 20260806,36.8,37.3,36.5,37.3,29594069,36.1,3.31,36.08,35.76,0.56
 20260807,37.5,37.5,36.4,36.55,30472602,36.14,1.13,36.07,35.84,0.6
+20260810,36.75,36.85,35.85,36.3,29167345,36.16,0.4,36.05,35.95,0.6
+20260811,36.3,36.5,35.65,36.3,25357342,36.17,0.37,36.09,36.07,0.53
+20260812,36.75,39.9,36.6,39.9,171747289,36.48,9.38,36.28,36.27,3.13
+20260813,40.1,41.7,39.1,39.3,211415757,36.71,7.05,36.45,36.46,3.3
+20260814,40.3,43.2,40.3,43.2,402245118,37.25,15.96,36.81,36.72,5.08
+20260817,43.35,44.95,40.95,41.65,263419042,37.62,10.71,37.17,36.91,2.95
+20260818,41.75,43.2,40.15,40.6,138341095,37.87,7.21,37.4,37.06,1.46
+20260819,39,39.5,38.05,39.3,92963808,37.99,3.45,37.55,37.14,0.96
+20260820,39.3,40.1,38.25,38.5,66894669,38.03,1.23,37.64,37.22,0.69
+20260821,38.4,39,37.9,38.95,42759328,38.11,2.21,37.73,37.31,0.44
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 64.35
-- over_600_ratio: 62.8
-- over_800_ratio: 61.63
-- over_1000_ratio: 60.64
-- over_400_change_1w: 0.93
-- over_800_change_1w: 0.96
-- over_1000_change_1w: 0.84
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260814
+- over_400_ratio: 65.75
+- over_600_ratio: 64.17
+- over_800_ratio: 63.05
+- over_1000_ratio: 62
+- over_400_change_1w: 1.4
+- over_800_change_1w: 1.42
+- over_1000_change_1w: 1.36
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,65.9,-1.3,62.97,-1.48,61.87,-1.42,0,False,False
 20260529,66.02,0.12,63.14,0.17,61.99,0.12,1,True,True
 20260605,64.3,-1.72,61.63,-1.51,60.64,-1.35,0,False,False
 20260612,63.87,-0.43,61.3,-0.33,60.4,-0.24,0,False,False
@@ -198,24 +197,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,63.7,0.95,60.96,0.96,60.11,1.05,3,True,True
 20260731,63.42,-0.28,60.67,-0.29,59.8,-0.31,0,False,False
 20260807,64.35,0.93,61.63,0.96,60.64,0.84,1,True,True
+20260814,65.75,1.4,63.05,1.42,62,1.36,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2324 | 仁寶 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | call_inflow | stale_signal | 1.證券名稱: 台灣大 2.交易日期:115/6/2~115/6/10 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:董事長核決 民國115年5月28日 5.交易數量、每單位價格及交易總金額: 3,197,294股；115元；新台幣367,682,000元 6.處分利益（或損失）（取得有價證券者不適用）: 處分利益50,510,435元(帳入保留盈餘) 7.與交易標的公司之關係: 無 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 0股；0元；-%；無 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 總資產比例：35.46%；股東權益比例：107.50%； 營運資金數額；3,048,110,000元 10.取得或處分之具體目的: 營運資金規劃 11.本次交易表示異議董事之意見: 無 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 無 14.監察人承認或審計委員會同意日期: 不適用 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
-| 20260717 | 2324 | 仁寶 | pullback_rebound | 回檔後短線轉強 | 63.0 |  |  |  |  | call_inflow | stale_signal | 1.證券名稱: 台灣大 2.交易日期:115/6/2~115/6/10 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:董事長核決 民國115年5月28日 5.交易數量、每單位價格及交易總金額: 3,197,294股；115元；新台幣367,682,000元 6.處分利益（或損失）（取得有價證券者不適用）: 處分利益50,510,435元(帳入保留盈餘) 7.與交易標的公司之關係: 無 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 0股；0元；-%；無 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 總資產比例：35.46%；股東權益比例：107.50%； 營運資金數額；3,048,110,000元 10.取得或處分之具體目的: 營運資金規劃 11.本次交易表示異議董事之意見: 無 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 無 14.監察人承認或審計委員會同意日期: 不適用 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
-| 20260717 | 2324 | 仁寶 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | call_inflow | stale_signal | 1.證券名稱: 台灣大 2.交易日期:115/6/2~115/6/10 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:董事長核決 民國115年5月28日 5.交易數量、每單位價格及交易總金額: 3,197,294股；115元；新台幣367,682,000元 6.處分利益（或損失）（取得有價證券者不適用）: 處分利益50,510,435元(帳入保留盈餘) 7.與交易標的公司之關係: 無 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 0股；0元；-%；無 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 總資產比例：35.46%；股東權益比例：107.50%； 營運資金數額；3,048,110,000元 10.取得或處分之具體目的: 營運資金規劃 11.本次交易表示異議董事之意見: 無 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 無 14.監察人承認或審計委員會同意日期: 不適用 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 2324 | 仁寶 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.證券名稱: 台灣大 2.交易日期:115/6/2~115/6/10 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:董事長核決 民國115年5月28日 5.交易數量、每單位價格及交易總金額: 3,197,294股；115元；新台幣367,682,000元 6.處分利益（或損失）（取得有價證券者不適用）: 處分利益50,510,435元(帳入保留盈餘) 7.與交易標的公司之關係: 無 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 0股；0元；-%；無 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 總資產比例：35.46%；股東權益比例：107.50%； 營運資金數額；3,048,110,000元 10.取得或處分之具體目的: 營運資金規劃 11.本次交易表示異議董事之意見: 無 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 無 14.監察人承認或審計委員會同意日期: 不適用 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| 20260821 | 2324 | 仁寶 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.證券名稱: 台灣大 2.交易日期:115/6/2~115/6/10 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:董事長核決 民國115年5月28日 5.交易數量、每單位價格及交易總金額: 3,197,294股；115元；新台幣367,682,000元 6.處分利益（或損失）（取得有價證券者不適用）: 處分利益50,510,435元(帳入保留盈餘) 7.與交易標的公司之關係: 無 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 0股；0元；-%；無 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 總資產比例：35.46%；股東權益比例：107.50%； 營運資金數額；3,048,110,000元 10.取得或處分之具體目的: 營運資金規劃 11.本次交易表示異議董事之意見: 無 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 無 14.監察人承認或審計委員會同意日期: 不適用 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2324 | 仁寶 | 6 | 3 | 5 | 7 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260821 | 2324 | 仁寶 | 10 | 6 | 5 | 10 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2324 | 仁寶 | 97 | 4 | 9274900.0 | 26640.0 | 348.16 | call_inflow |
+| 20260821 | 2324 | 仁寶 | 108 | 4 | 11726910.0 | 55850.0 | 209.97 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

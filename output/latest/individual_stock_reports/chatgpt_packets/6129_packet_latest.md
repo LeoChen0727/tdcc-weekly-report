@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6129 普誠
 
 ## Metadata
-- generated_at: 2026-08-10 22:28:17 Asia/Taipei
+- generated_at: 2026-08-21 22:27:51 Asia/Taipei
 - stock_id: 6129
 - stock_name: 普誠
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 186
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 203
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 15.1
-- high: 15.2
-- low: 14.5
-- close: 14.5
-- volume: 453000
-- ma5: 14.48
-- ema23_primary: 15.3
-- distance_to_ema23_pct: -5.23
-- ma20: 15.12
-- ma60: 16.25
-- ma120: 16.04
-- return_5d: 3.94
-- return_20d: -23.68
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: -4.13
-- distance_to_high_60_pct: -31.12
+- date: 20260821
+- open: 13.75
+- high: 14.15
+- low: 13.6
+- close: 13.7
+- volume: 528000
+- ma5: 13.79
+- ema23_primary: 14.57
+- distance_to_ema23_pct: -5.99
+- ma20: 14.17
+- ma60: 16.04
+- ma120: 15.94
+- return_5d: -3.18
+- return_20d: -8.67
+- volume_ratio: 1.22
+- distance_to_ma20_pct_auxiliary: -3.3
+- distance_to_high_60_pct: -34.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,18.6,19.25,17.7,18,1605000,18.02,-0.14,17.98,16.83,0.63
-20260714,18,18.15,16.45,17.3,1330000,17.96,-3.7,18.08,16.85,0.52
-20260715,17.4,17.5,17.2,17.3,725000,17.91,-3.4,18.16,16.87,0.28
-20260716,17.3,17.3,16.6,16.65,844000,17.8,-6.48,18.2,16.87,0.33
-20260717,16.35,16.35,15.25,15.35,1543000,17.6,-12.78,18.16,16.83,0.59
-20260720,15.55,15.65,14.7,15.15,686000,17.4,-12.91,18.13,16.79,0.26
-20260721,15.3,15.6,15.2,15.25,574000,17.22,-11.42,18.04,16.76,0.23
-20260722,15.25,15.55,15.25,15.35,529000,17.06,-10.03,17.95,16.73,0.21
-20260723,15.4,15.45,15,15.15,530000,16.9,-10.36,17.76,16.7,0.23
-20260724,15.15,15.35,14.95,15,624000,16.74,-10.41,17.53,16.67,0.33
 20260727,14.95,14.95,14.6,14.8,497000,16.58,-10.74,17.34,16.64,0.28
 20260728,14.8,14.8,14.05,14.05,706000,16.37,-14.17,17.12,16.59,0.41
 20260729,14.05,14.1,13,13.6,1103000,16.14,-15.73,16.89,16.53,0.65
@@ -168,18 +158,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,14.65,14.85,14.35,14.5,534000,15.41,-5.88,15.53,16.29,0.66
 20260806,14.5,15.1,14.2,15,516000,15.37,-2.42,15.35,16.27,0.68
 20260807,15.1,15.2,14.5,14.5,453000,15.3,-5.23,15.12,16.25,0.63
+20260810,15,15,14.6,14.65,279000,15.25,-3.91,14.96,16.23,0.43
+20260811,14.6,14.6,14.4,14.6,203000,15.19,-3.9,14.82,16.22,0.34
+20260812,14.65,14.75,14.5,14.55,315000,15.14,-3.89,14.69,16.21,0.55
+20260813,14.6,14.75,14.35,14.45,284000,15.08,-4.18,14.57,16.21,0.52
+20260814,14.35,14.45,14.1,14.15,510000,15,-5.69,14.52,16.19,1.03
+20260817,14.05,14.1,13.9,13.9,372000,14.91,-6.78,14.45,16.16,0.78
+20260818,13.8,14,13.65,13.8,428000,14.82,-6.88,14.38,16.13,0.91
+20260819,13.65,13.85,13.6,13.7,187000,14.73,-6.96,14.3,16.09,0.41
+20260820,13.85,13.9,13.65,13.85,225000,14.65,-5.48,14.23,16.07,0.51
+20260821,13.75,14.15,13.6,13.7,528000,14.57,-5.99,14.17,16.04,1.22
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 17.1
-- over_600_ratio: 15.56
+- as_of_date: 20260814
+- over_400_ratio: 17.05
+- over_600_ratio: 15.23
 - over_800_ratio: 14
 - over_1000_ratio: 14
-- over_400_change_1w: 0.04
-- over_800_change_1w: -0.04
-- over_1000_change_1w: -0.04
-- tdcc_consecutive_up_weeks: 1
+- over_400_change_1w: -0.05
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,16.71,-0.6,13.92,-0.48,13.43,0,0,False,False
 20260529,16.95,0.24,13.92,0,13.43,0,1,False,False
 20260605,16.44,-0.51,13.92,0,13.43,0,0,False,False
 20260612,16.1,-0.34,13.92,0,13.43,0,0,False,False
@@ -199,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,17.46,0.14,14.19,-0.25,14.19,-0.25,6,False,False
 20260731,17.06,-0.4,14.04,-0.15,14.04,-0.15,0,False,False
 20260807,17.1,0.04,14,-0.04,14,-0.04,1,False,False
+20260814,17.05,-0.05,14,0,14,0,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 6129 | 普誠 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  |  | stale_signal | 1.董事會決議日期:NA 2.減資基準日:115/07/17 3.減資換發股票作業計畫:本公司於民國115年6月16日股東會決議通過辦理減資彌補虧 損案，業經證券櫃檯買賣中心民國115年7月16日證櫃監字第1150004330號函申報生效 在案；惟本次減資換發股票作業計畫，待辦理變更登記完成後，另行公告之。 4.換發股票基準日:NA 5.停止過戶起始日期:NA 6.停止過戶截止日期:NA 7.減資後新股權利義務:NA 8.新股預計上櫃日:NA 9.預計減資新股上櫃後之上櫃普通股股數:160,574,120股 10.預計減資新股上櫃後之上櫃普通股股數占已發行普通股比 率（減資後上櫃普通股股數/減資後已發行普通股股數）:100% 11.前二項預計減資後上櫃普通股股數未達500萬股且未達25%者， 請說明股權流通性偏低之因應措施:不適用 12.其他應敘明事項: (1)本公司於民國115年6月16日經股東常會決議通過減資彌補虧損案，並授權董事長 訂定減資基準日。俟呈奉經濟部核准減資變更登記後，授權董事長全權處理減資換 發股票作業計畫申請，並訂定減資換發股票基準日及新股預計上市買賣日等相關事 宜及另行公告。 (2)證券櫃檯買賣中心民國115年7月16日證櫃監字第1150004330號函申報生效。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 6129 | 普誠 | 1 | 1 | 3 | 8 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

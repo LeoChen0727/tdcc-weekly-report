@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2646 星宇航空
 
 ## Metadata
-- generated_at: 2026-08-10 22:27:07 Asia/Taipei
+- generated_at: 2026-08-21 22:27:06 Asia/Taipei
 - stock_id: 2646
 - stock_name: 星宇航空
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
+- date: 20260821
 - open: 21.15
-- high: 21.35
-- low: 21.15
+- high: 21.4
+- low: 21.1
 - close: 21.3
-- volume: 2416999
-- ma5: 21.25
-- ema23_primary: 21.33
-- distance_to_ema23_pct: -0.13
-- ma20: 21.39
-- ma60: 20.97
-- ma120: 21.19
-- return_5d: -1.62
+- volume: 3845701
+- ma5: 20.98
+- ema23_primary: 21.04
+- distance_to_ema23_pct: 1.25
+- ma20: 21.11
+- ma60: 21.06
+- ma120: 21.01
+- return_5d: 4.41
 - return_20d: 0.71
-- volume_ratio: 0.43
-- distance_to_ma20_pct_auxiliary: -0.43
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: 0.92
 - distance_to_high_60_pct: -5.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,21.15,21.3,21.05,21.2,3747627,21.08,0.57,21.21,20.68,0.52
-20260714,21.35,21.45,20.9,21.15,5968852,21.09,0.31,21.24,20.68,0.83
-20260715,21.2,21.35,21.15,21.3,4133164,21.1,0.93,21.24,20.69,0.6
-20260716,21.35,21.65,21.3,21.55,6258838,21.14,1.94,21.27,20.7,0.9
-20260717,21.55,21.55,21.1,21.2,6506005,21.15,0.26,21.27,20.71,0.99
-20260720,21.35,21.4,20.9,21.3,5661730,21.16,0.67,21.27,20.72,0.88
-20260721,21.4,22.05,21.35,22,11226352,21.23,3.64,21.32,20.74,1.69
-20260722,22,22.2,21.35,21.4,8176169,21.24,0.74,21.32,20.77,1.26
-20260723,21.4,21.45,21.15,21.25,4292003,21.24,0.03,21.3,20.78,0.7
-20260724,21.05,21.25,21.05,21.15,3464753,21.24,-0.4,21.26,20.8,0.63
 20260727,21.3,21.6,21.2,21.6,3956571,21.27,1.57,21.28,20.82,0.75
 20260728,21.55,21.85,21.45,21.8,8864340,21.31,2.3,21.32,20.84,1.62
 20260729,21.85,22,21.15,21.5,8982690,21.33,0.82,21.34,20.86,1.58
@@ -168,26 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,21.35,21.45,21.2,21.3,3681432,21.35,-0.22,21.39,20.94,0.64
 20260806,21.2,21.4,21.05,21.15,3711385,21.33,-0.84,21.39,20.95,0.64
 20260807,21.15,21.35,21.15,21.3,2416999,21.33,-0.13,21.39,20.97,0.43
+20260810,21.15,21.15,20.55,20.75,11937552,21.28,-2.49,21.37,20.98,1.97
+20260811,20.8,20.8,20.6,20.75,4619356,21.24,-2.28,21.35,20.99,0.77
+20260812,20.65,20.7,20.45,20.55,5954409,21.18,-2.97,21.31,21,0.98
+20260813,20.55,20.6,20.35,20.4,5574137,21.11,-3.38,21.25,21,0.92
+20260814,20.4,20.45,20.2,20.4,5058719,21.05,-3.11,21.21,21,0.84
+20260817,20.4,20.75,20.25,20.75,3702980,21.03,-1.32,21.19,21.01,0.63
+20260818,20.7,20.9,20.7,20.8,5529984,21.01,-1,21.13,21.01,0.99
+20260819,20.75,21,20.4,20.9,4379336,21,-0.48,21.1,21.02,0.81
+20260820,20.9,21.4,20.85,21.15,6505365,21.01,0.65,21.1,21.04,1.18
+20260821,21.15,21.4,21.1,21.3,3845701,21.04,1.25,21.11,21.06,0.69
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 65.71
-- over_600_ratio: 64.86
-- over_800_ratio: 64.6
-- over_1000_ratio: 64.01
-- over_400_change_1w: 0.07
-- over_800_change_1w: 0.03
-- over_1000_change_1w: 0.03
-- tdcc_consecutive_up_weeks: 5
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260814
+- over_400_ratio: 65.4
+- over_600_ratio: 64.48
+- over_800_ratio: 64.22
+- over_1000_ratio: 63.66
+- over_400_change_1w: -0.31
+- over_800_change_1w: -0.38
+- over_1000_change_1w: -0.35
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,64.77,0.04,63.59,0.08,63.03,0.13,3,True,True
 20260529,64.85,0.08,63.78,0.19,63.13,0.1,4,True,True
 20260605,64.95,0.1,63.82,0.04,63.23,0.1,5,True,True
 20260612,64.86,-0.09,63.66,-0.16,63.13,-0.1,0,False,False
@@ -199,23 +198,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,65.33,0.13,64.25,0.1,63.63,0.16,3,True,True
 20260731,65.64,0.31,64.57,0.32,63.98,0.35,4,True,True
 20260807,65.71,0.07,64.6,0.03,64.01,0.03,5,True,True
+20260814,65.4,-0.31,64.22,-0.38,63.66,-0.35,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2646 | 星宇航空 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/07/03 2.公司名稱:星宇航空股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司以自購方式取得1架A350客機。 6.因應措施:本案已於108/3/15董事會決議通過。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
-| 20260717 | 2646 | 星宇航空 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/07/03 2.公司名稱:星宇航空股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司以自購方式取得1架A350客機。 6.因應措施:本案已於108/3/15董事會決議通過。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 2646 | 星宇航空 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.事實發生日:115/07/03 2.公司名稱:星宇航空股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司以自購方式取得1架A350客機。 6.因應措施:本案已於108/3/15董事會決議通過。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| 20260821 | 2646 | 星宇航空 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/03 2.公司名稱:星宇航空股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司以自購方式取得1架A350客機。 6.因應措施:本案已於108/3/15董事會決議通過。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2646 | 星宇航空 | 5 | 3 | 5 | 9 | 18 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 18 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260821 | 2646 | 星宇航空 | 9 | 6 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2646 | 星宇航空 | 6 | 0 | 360730.0 | 0.0 |  | no_signal |
+| 20260821 | 2646 | 星宇航空 | 7 | 0 | 199180.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

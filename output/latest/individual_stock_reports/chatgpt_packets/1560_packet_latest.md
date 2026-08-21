@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1560 中砂
 
 ## Metadata
-- generated_at: 2026-08-10 22:26:34 Asia/Taipei
+- generated_at: 2026-08-21 22:26:44 Asia/Taipei
 - stock_id: 1560
 - stock_name: 中砂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 697
-- high: 703
-- low: 662
-- close: 662
-- volume: 831704
-- ma5: 676.2
-- ema23_primary: 673.99
-- distance_to_ema23_pct: -1.78
-- ma20: 671.35
-- ma60: 689.48
-- ma120: 592.64
-- return_5d: 3.44
-- return_20d: -6.63
-- volume_ratio: 0.51
-- distance_to_ma20_pct_auxiliary: -1.39
-- distance_to_high_60_pct: -16.2
+- date: 20260821
+- open: 692
+- high: 694
+- low: 675
+- close: 679
+- volume: 804373
+- ma5: 706.8
+- ema23_primary: 692.64
+- distance_to_ema23_pct: -1.97
+- ma20: 679.55
+- ma60: 694.97
+- ma120: 614.52
+- return_5d: -6.34
+- return_20d: 1.04
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: -0.08
+- distance_to_high_60_pct: -14.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,727,727,695,700,721561,710.81,-1.52,718.05,654.72,0.54
-20260714,694,700,648,675,1103802,707.82,-4.64,719.2,656.9,0.83
-20260715,728,742,715,742,2353166,710.67,4.41,721.15,660.38,1.76
-20260716,740,765,715,728,3142849,712.12,2.23,723.6,663.48,2.22
-20260717,688,702,656,656,1886676,707.44,-7.27,722.05,665.58,1.28
-20260720,656,672,607,647,2601632,702.4,-7.89,719.4,667.43,1.68
-20260721,662,686,647,676,1812046,700.2,-3.46,717.55,670.02,1.17
-20260722,708,729,699,707,1753543,700.77,0.89,717.65,672.88,1.11
-20260723,714,722,693,702,1213601,700.87,0.16,715.3,675.83,0.82
-20260724,695,697,666,672,1300304,698.47,-3.79,712.4,678.2,0.88
 20260727,669,701,664,690,1626831,697.76,-1.11,711.75,681.02,1.09
 20260728,670,670,635,635,1224060,692.53,-8.31,706.6,682.6,0.83
 20260729,625,634,573,594,1950808,684.32,-13.2,698.2,683.22,1.34
@@ -168,26 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,700,702,680,680,1176761,673.45,0.97,673.95,688.58,0.72
 20260806,681,695,673,693,878600,675.08,2.65,673.7,689,0.54
 20260807,697,703,662,662,831704,673.99,-1.78,671.35,689.48,0.51
+20260810,680,704,680,688,782733,675.16,1.9,670.75,690.12,0.48
+20260811,680,691,668,687,780970,676.14,1.61,671.35,690.87,0.49
+20260812,704,735,680,728,3308658,680.46,6.99,670.65,692.18,2
+20260813,729,738,705,707,1454076,682.68,3.56,669.6,693.23,0.93
+20260814,720,732,714,725,1883642,686.2,5.65,673.05,695.17,1.2
+20260817,725,749,715,742,2199587,690.85,7.4,677.8,696.38,1.42
+20260818,742,743,704,708,1743350,692.28,2.27,679.4,696.72,1.13
+20260819,696,719,696,707,1284823,693.51,1.95,679.4,696.5,0.84
+20260820,715,717,690,698,1118733,693.88,0.59,679.2,695.77,0.74
+20260821,692,694,675,679,804373,692.64,-1.97,679.55,694.97,0.54
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 64.68
-- over_600_ratio: 59.54
-- over_800_ratio: 54.38
-- over_1000_ratio: 49.51
-- over_400_change_1w: -0.57
-- over_800_change_1w: 0.77
-- over_1000_change_1w: 1.45
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
+- as_of_date: 20260814
+- over_400_ratio: 65.21
+- over_600_ratio: 59.87
+- over_800_ratio: 55.1
+- over_1000_ratio: 49.64
+- over_400_change_1w: 0.53
+- over_800_change_1w: 0.72
+- over_1000_change_1w: 0.13
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,66.78,-0.24,56.1,-1.46,51.1,-0.26,0,False,False
 20260529,66.11,-0.67,56.32,0.22,50.85,-0.25,1,False,True
 20260605,65.82,-0.29,53.74,-2.58,48.86,-1.99,0,False,False
 20260612,64.91,-0.91,54.71,0.97,49.87,1.01,1,False,True
@@ -199,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,65.68,-0.89,54.33,-1.43,49.94,-0.78,0,False,False
 20260731,65.25,-0.43,53.61,-0.72,48.06,-1.88,0,False,False
 20260807,64.68,-0.57,54.38,0.77,49.51,1.45,1,False,True
+20260814,65.21,0.53,55.1,0.72,49.64,0.13,2,True,True
 ```
 
 ## Candidate Context
@@ -214,7 +214,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 1560 | 中砂 | 126 | 10 | 2654270.0 | 873620.0 | 3.04 | no_signal |
+| 20260821 | 1560 | 中砂 | 127 | 9 | 1504760.0 | 1833100.0 | 0.82 | put_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

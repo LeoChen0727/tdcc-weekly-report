@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1785 光洋科
 
 ## Metadata
-- generated_at: 2026-08-10 22:26:40 Asia/Taipei
+- generated_at: 2026-08-21 22:26:48 Asia/Taipei
 - stock_id: 1785
 - stock_name: 光洋科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 186
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 203
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 116
-- high: 116
-- low: 112.5
-- close: 114.5
-- volume: 5310000
-- ma5: 111.7
-- ema23_primary: 114.59
-- distance_to_ema23_pct: -0.08
-- ma20: 109.14
-- ma60: 132.71
-- ma120: 119.95
-- return_5d: 15.19
-- return_20d: -19.93
-- volume_ratio: 0.55
-- distance_to_ma20_pct_auxiliary: 4.92
-- distance_to_high_60_pct: -31.85
+- date: 20260821
+- open: 104
+- high: 104
+- low: 100.5
+- close: 101
+- volume: 2849000
+- ma5: 102.1
+- ema23_primary: 108.81
+- distance_to_ema23_pct: -7.17
+- ma20: 105.39
+- ma60: 126.06
+- ma120: 123.68
+- return_5d: -3.35
+- return_20d: -4.72
+- volume_ratio: 0.37
+- distance_to_ma20_pct_auxiliary: -4.16
+- distance_to_high_60_pct: -39.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,134.5,135,129,129,27835000,143.71,-10.24,144.45,148.94,1.46
-20260714,126.5,127,116.5,120,24108000,141.73,-15.33,143.38,148.57,1.32
-20260715,123,123.5,120,121,7669000,140.01,-13.57,142.15,147.99,0.43
-20260716,119,119.5,114,114,8077000,137.84,-17.29,140.72,147.33,0.46
-20260717,108,111,105,107.5,14304000,135.31,-20.55,138.93,146.54,0.79
-20260720,108,108,99,104.5,14399000,132.74,-21.28,136.7,145.68,0.8
-20260721,108,108.5,105.5,107.5,5234000,130.64,-17.71,134.57,145.06,0.31
-20260722,109.5,113.5,109,111.5,5664000,129.04,-13.6,132.68,144.48,0.36
-20260723,113,113,108.5,110,4370000,127.46,-13.7,130.97,143.83,0.29
-20260724,108,110.5,106,106,4487000,125.67,-15.65,129.15,142.88,0.31
 20260727,105,107,103,107,4141000,124.11,-13.79,127.65,141.76,0.3
 20260728,103,104,100.5,101,5875000,122.19,-17.34,125.67,140.68,0.43
 20260729,101.5,102.5,91.8,95.4,14818000,119.95,-20.47,123.22,139.44,1.08
@@ -167,26 +157,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,116.5,116.5,111.5,111.5,6936000,114.57,-2.68,111.98,134.09,0.69
 20260806,112,116,110,115,6323000,114.6,0.35,110.56,133.37,0.64
 20260807,116,116,112.5,114.5,5310000,114.59,-0.08,109.14,132.71,0.55
+20260810,116,119.5,116,118.5,7613000,114.92,3.12,108.61,132.2,0.88
+20260811,107,107,107,107,5342000,114.26,-6.35,107.96,131.44,0.69
+20260812,107,110,103,106.5,17878000,113.61,-6.26,107.23,130.82,2.18
+20260813,107.5,112,107,109,10913000,113.23,-3.73,106.98,130.25,1.31
+20260814,109.5,109.5,103,104.5,9054000,112.5,-7.11,106.83,129.69,1.12
+20260817,104,105,103,105,3742000,111.88,-6.15,106.86,129.07,0.5
+20260818,106,106,99.9,100,6450000,110.89,-9.82,106.48,128.34,0.85
+20260819,97.8,101.5,97.4,101,7822000,110.06,-8.23,105.96,127.5,1.01
+20260820,108,108,101.5,103.5,6150000,109.52,-5.49,105.64,126.76,0.79
+20260821,104,104,100.5,101,2849000,108.81,-7.17,105.39,126.06,0.37
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 44.44
-- over_600_ratio: 41.85
-- over_800_ratio: 39.83
-- over_1000_ratio: 38.44
-- over_400_change_1w: 0.69
-- over_800_change_1w: 0.5
-- over_1000_change_1w: 0.94
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
+- as_of_date: 20260814
+- over_400_ratio: 44.02
+- over_600_ratio: 41.77
+- over_800_ratio: 39.73
+- over_1000_ratio: 38.64
+- over_400_change_1w: -0.42
+- over_800_change_1w: -0.1
+- over_1000_change_1w: 0.2
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,52.46,-0.82,47.71,-0.75,46.5,-0.51,0,False,False
 20260529,50.34,-2.12,45.84,-1.87,44.94,-1.56,0,False,False
 20260605,47.07,-3.27,42.74,-3.1,41.68,-3.26,0,False,False
 20260612,48.22,1.15,43.19,0.45,42.3,0.62,1,True,True
@@ -198,17 +197,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,43.75,-0.05,39.08,-0.57,37.55,-0.61,0,False,False
 20260731,43.75,0,39.33,0.25,37.5,-0.05,1,False,True
 20260807,44.44,0.69,39.83,0.5,38.44,0.94,2,True,True
+20260814,44.02,-0.42,39.73,-0.1,38.64,0.2,3,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 1785 | 光洋科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 現金股利每股配發2.0元，共計新臺幣1,191,960,486元。 3.變更後發放股利種類及金額: 現金股利每股配發2.000099元，共計新臺幣1,191,960,486元。 4.變更原因:因本公司執行限制員工權利新股，致影響本公司流通在外股數，爰依 民國115年5月25日股東會決議，授權董事長調整配股配息率。 5.其他應敘明事項: 1.本公司於除息交易日前，如因發行或收回限制員工權利新股及其他因法令等因素 致影響本公司流通在外股份總數，而需配合變更股東配息率時，將另行公告。 2.本次股利發放通知，另委託集保結算所辦理以電子化通知。請股東於除權（息）停止 過戶起始日一營業日前(即115年07月17日前)，逕登入集保結算所「股東e服務」 (網址https://stockservices.tdcc.com.tw)之股務電子通知(eNotice)平台登記同意 接收電子通知，即可以留存之email接收股利發放通知，環保減碳愛地球！ (115年07月17日以後同意者，適用下次股利發放電子通知)；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 1785 | 光洋科 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/08/10 2.公司名稱:光洋應用材料科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 本公司為償還既有金融機構借款暨充實購料週轉金及中期營運 週轉金，委任彰化商業銀行為統籌主辦銀行，籌組5年期新臺 幣70億元以內之聯合授信案，於總額度正負20% 範圍內調整總 授信額度、各分項額度及合用額度。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項): 董事會授權董事長全權處理聯貸案相關事宜。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 1785 | 光洋科 | 2 | 2 | 3 | 8 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260821 | 1785 | 光洋科 | 3 | 3 | 4 | 7 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

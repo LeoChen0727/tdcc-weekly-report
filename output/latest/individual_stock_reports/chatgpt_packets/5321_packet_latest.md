@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5321 美而快
 
 ## Metadata
-- generated_at: 2026-08-10 22:28:06 Asia/Taipei
+- generated_at: 2026-08-21 22:27:44 Asia/Taipei
 - stock_id: 5321
 - stock_name: 美而快
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 186
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 203
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,43 +69,41 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- action_rating_display_zh: 等待回檔
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
+- entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: wait_pullback
+- action_rating_label_zh: 等待回檔
 - confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_support
 - position_sizing: observe_only
 
 ### management_plan
-- take_profit_near_prior_high
-- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -118,7 +116,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -126,38 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 55.6
-- high: 56
-- low: 53.7
-- close: 54
-- volume: 184000
-- ma5: 54.16
-- ema23_primary: 54.34
-- distance_to_ema23_pct: -0.62
-- ma20: 55.04
-- ma60: 49.75
-- ma120: 37.2
-- return_5d: 1.31
-- return_20d: -11.76
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: -1.89
-- distance_to_high_60_pct: -29.5
+- date: 20260821
+- open: 70.7
+- high: 78
+- low: 70.7
+- close: 72.9
+- volume: 1151000
+- ma5: 71.34
+- ema23_primary: 61.5
+- distance_to_ema23_pct: 18.53
+- ma20: 59.49
+- ma60: 54.74
+- ma120: 40.31
+- return_5d: 14.62
+- return_20d: 23.77
+- volume_ratio: 2.05
+- distance_to_ma20_pct_auxiliary: 22.54
+- distance_to_high_60_pct: -6.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,63,63.5,60,60,354000,54.04,11.03,53.29,39.69,0.77
-20260714,57.9,59.9,54,56.6,948000,54.26,4.32,54.32,40.23,1.9
-20260715,55.9,58.8,52.2,58,562000,54.57,6.29,55.42,40.79,1.09
-20260716,57.6,58.7,56.2,57.6,306000,54.82,5.07,56.47,41.35,0.59
-20260717,54.7,56.9,51.9,54,540000,54.75,-1.37,57.16,41.85,1.01
-20260720,53.9,57.5,51.5,53.8,543000,54.67,-1.6,57.85,42.35,1.01
-20260721,53.7,57.4,52.5,52.6,380000,54.5,-3.49,58.3,42.84,0.72
-20260722,52.5,55.2,52.1,54.9,232000,54.53,0.67,58.65,43.36,0.45
-20260723,54.9,55.6,52.9,55.5,187000,54.61,1.62,58.8,43.89,0.37
-20260724,55.3,61,55.3,58.9,1207000,54.97,7.15,58.85,44.48,2.25
 20260727,57.6,63,54.3,55,892000,54.97,0.05,58.42,45.02,1.74
 20260728,55.3,57,52.7,54,311000,54.89,-1.63,57.63,45.54,0.65
 20260729,54.1,57.4,51.8,53.8,489000,54.8,-1.83,57.18,46.07,1.07
@@ -168,26 +156,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,53.8,54.1,52.5,53,249000,54.38,-2.53,55.72,48.7,0.59
 20260806,53.2,55.1,52.6,54.3,189000,54.37,-0.13,55.4,49.23,0.45
 20260807,55.6,56,53.7,54,184000,54.34,-0.62,55.04,49.75,0.44
+20260810,54.9,56.1,54.5,56.1,173000,54.48,2.96,54.84,50.29,0.42
+20260811,56.1,57.4,54.6,55.6,216000,54.58,1.87,54.8,50.82,0.57
+20260812,55.6,57.5,55.6,56.9,158000,54.77,3.89,54.74,51.32,0.44
+20260813,57,62.5,56.9,62,1062000,55.37,11.97,54.96,51.87,2.69
+20260814,60,65,59.8,63.6,701000,56.06,13.45,55.44,52.39,1.74
+20260817,63.6,69.9,62.2,68,1647000,57.05,19.18,56.15,52.93,3.6
+20260818,69.4,73,69,72.9,1500000,58.37,24.88,57.16,53.5,2.92
+20260819,71.5,72,67.5,71,760000,59.43,19.47,57.97,53.97,1.41
+20260820,71.5,72.7,67.5,71.9,660000,60.47,18.91,58.79,54.38,1.17
+20260821,70.7,78,70.7,72.9,1151000,61.5,18.53,59.49,54.74,2.05
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 61.89
-- over_600_ratio: 54.12
-- over_800_ratio: 50.79
-- over_1000_ratio: 48.08
-- over_400_change_1w: -0.11
-- over_800_change_1w: 0.01
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260814
+- over_400_ratio: 60.84
+- over_600_ratio: 51.38
+- over_800_ratio: 50.19
+- over_1000_ratio: 47.48
+- over_400_change_1w: -1.05
+- over_800_change_1w: -0.6
+- over_1000_change_1w: -0.6
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,62.62,-0.3,50.85,0.11,45.8,-3.07,3,False,True
 20260529,62.43,-0.19,49.44,-1.41,46.04,0.24,4,False,True
 20260605,60.58,-1.85,49.48,0.04,46.08,0.04,5,False,True
 20260612,60.53,-0.05,49.5,0.02,46.1,0.02,6,False,True
@@ -199,17 +196,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,57.46,-0.35,44.97,-1.71,41.93,-0.07,0,False,False
 20260731,62,4.54,50.78,5.81,48.07,6.14,1,True,True
 20260807,61.89,-0.11,50.79,0.01,48.08,0.01,2,False,True
+20260814,60.84,-1.05,50.19,-0.6,47.48,-0.6,0,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 5321 | 美而快 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | 1.事實發生日:115/06/26 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理 3.財務業務資訊: (1)單月                      最近一月單月       去年同月       與去年同期增減%                       (115/05)         (114/05) ----------------------------------------------------------------------- 營業收入(百萬元)         191.62         234.69            -18.35% 稅前淨利(百萬元)          -8.90           3.80            由盈轉虧 歸屬於母公司 稅後純益(百萬元)          -7.94           0.03            由盈轉虧 每股盈餘(元)              -0.15           0.00            由盈轉虧 ======================================================================== (2)單季                      最近一季單季       去年同期       與去年同期增減%                        (115第1季)       (114第1季) ----------------------------------------------------------------------- 營業收入(百萬元)         568.52           734.12          -22.56% 稅前淨利(百萬元)        -129.84            22.14          由盈轉虧 歸屬於母公司 稅後純益(百萬元)        -126.14             3.29          由盈轉虧 每股盈餘(元)              -2.37             0.06          由盈轉虧 ======================================================================= (3)最近四季累計                           114年第2季至115年第1季 營業收入(百萬元)               2,676.72 稅前淨利(百萬元)                -102.34 歸屬於母公司 稅後純益(百萬元)                -143.80 每股盈餘(元)                      -2.70 (4)公司每股面額:10元 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無。 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無。 6.其他應敘明事項: (1)：以上115年05月及去年同期比較數之財務資料係本公司採IFRS會計準則 編製之合併自結數，未經會計師查核(閱)，僅供投資人參考。 (2)：最近一季115年第1季係指單季數字，非為最近財務報告中之累計數字， 且係本公司採IFRS下編製之合併數，業經會計師查核(閱)，僅供投資人參考。 (3)：最近四季累計係本公司114年第2季至115年第1季採IFRS編製之合併數， 業經會計師查核(閱)，僅供投資人參考。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 5321 | 美而快 | 1 | 1 | 1 | 1 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | status |

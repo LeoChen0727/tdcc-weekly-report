@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4147 中裕
 
 ## Metadata
-- generated_at: 2026-08-10 22:27:45 Asia/Taipei
+- generated_at: 2026-08-21 22:27:30 Asia/Taipei
 - stock_id: 4147
 - stock_name: 中裕
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 186
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 203
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 57.8
-- high: 58.5
-- low: 56.4
-- close: 56.8
-- volume: 720000
-- ma5: 57.78
-- ema23_primary: 59.22
-- distance_to_ema23_pct: -4.09
-- ma20: 59.33
-- ma60: 58.12
-- ma120: 55.06
-- return_5d: 3.27
-- return_20d: -18.27
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: -4.26
-- distance_to_high_60_pct: -24.67
+- date: 20260821
+- open: 63.7
+- high: 64.7
+- low: 63.1
+- close: 63.1
+- volume: 1213000
+- ma5: 62.78
+- ema23_primary: 61.73
+- distance_to_ema23_pct: 2.22
+- ma20: 60.49
+- ma60: 60.42
+- ma120: 55.91
+- return_5d: -1.71
+- return_20d: 7.68
+- volume_ratio: 1.03
+- distance_to_ma20_pct_auxiliary: 4.31
+- distance_to_high_60_pct: -16.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,68.5,69.6,64,64.3,2609000,63.37,1.46,63.45,55.2,1.09
-20260714,64.4,65.2,63.2,64.2,1240000,63.44,1.19,63.8,55.38,0.54
-20260715,64.5,65.8,64.2,65.3,806000,63.6,2.68,64.26,55.58,0.35
-20260716,65.9,67.4,65,66,1527000,63.8,3.45,64.72,55.83,0.66
-20260717,65.4,67.6,59.4,59.9,3288000,63.47,-5.63,64.86,55.98,1.34
-20260720,60.7,60.7,58.5,58.9,1545000,63.09,-6.64,64.94,56.12,0.62
-20260721,59.4,60.1,58.2,58.5,985000,62.71,-6.71,64.98,56.26,0.4
-20260722,59.1,59.1,57.8,58.4,1148000,62.35,-6.34,64.73,56.43,0.49
-20260723,58.8,59.9,58.3,59,856000,62.07,-4.95,64.45,56.61,0.41
-20260724,59,59.7,57.9,58.6,678000,61.78,-5.15,64.23,56.78,0.34
 20260727,58.5,59.6,58.3,58.9,547000,61.54,-4.29,64.17,56.94,0.28
 20260728,58.7,59.1,57.4,58,819000,61.25,-5.3,63.88,57.09,0.43
 20260729,58.4,58.7,55,56.5,1309000,60.85,-7.15,63.46,57.22,0.71
@@ -168,26 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,57.8,59.3,57.8,59.1,573000,59.53,-0.72,60.58,57.85,0.45
 20260806,59.5,59.5,57.8,58.5,323000,59.45,-1.59,59.97,57.99,0.27
 20260807,57.8,58.5,56.4,56.8,720000,59.22,-4.09,59.33,58.12,0.65
+20260810,58.3,62.1,58.2,61,1330000,59.37,2.74,59.16,58.24,1.28
+20260811,60.2,64.5,60.2,63.5,1833000,59.72,6.34,59.13,58.45,1.71
+20260812,63.5,69.8,63.4,68.5,5204000,60.45,13.32,59.29,58.76,4.04
+20260813,66.5,67.8,64.9,65.2,1606000,60.84,7.16,59.25,59.02,1.24
+20260814,65.2,65.2,63.3,64.2,917000,61.12,5.03,59.47,59.28,0.78
+20260817,65.5,65.5,61.2,61.6,961000,61.16,0.71,59.6,59.49,0.84
+20260818,62.6,64.6,60.9,63.1,1690000,61.33,2.89,59.83,59.7,1.43
+20260819,62.9,63.3,62.2,62.4,441000,61.41,1.6,60.03,59.91,0.39
+20260820,63.9,64.5,62.9,63.7,1016000,61.61,3.4,60.27,60.16,0.88
+20260821,63.7,64.7,63.1,63.1,1213000,61.73,2.22,60.49,60.42,1.03
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 52.6
-- over_600_ratio: 50.06
-- over_800_ratio: 45.56
-- over_1000_ratio: 43.65
-- over_400_change_1w: -0.1
-- over_800_change_1w: 0.08
-- over_1000_change_1w: 0.1
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: False
+- as_of_date: 20260814
+- over_400_ratio: 53.32
+- over_600_ratio: 50.37
+- over_800_ratio: 45.79
+- over_1000_ratio: 44.49
+- over_400_change_1w: 0.72
+- over_800_change_1w: 0.23
+- over_1000_change_1w: 0.84
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,52.23,-0.42,45.28,-0.31,42.99,-0.3,0,False,False
 20260529,51.93,-0.3,45.37,0.09,43.42,0.43,1,False,True
 20260605,52.76,0.83,45.9,0.53,43.63,0.21,2,True,True
 20260612,52.69,-0.07,45.73,-0.17,43.2,-0.43,3,False,False
@@ -199,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,52.48,-0.09,45.35,-0.41,43.75,-0.38,0,False,False
 20260731,52.7,0.22,45.48,0.13,43.55,-0.2,1,False,True
 20260807,52.6,-0.1,45.56,0.08,43.65,0.1,2,False,True
+20260814,53.32,0.72,45.79,0.23,44.49,0.84,3,True,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 4147 | 中裕 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | 1.事實發生日:115/06/22 2.契約或承諾相對人:Samsung Biologics Co., Ltd. 3.與公司關係:無 4.契約或承諾起迄日期（或解除日期）:115/06/22 5.主要內容（解除者不適用）:本公司與Samsung Biologics Co., Ltd.簽訂TMB-365 商業產品藥物原料之產品專屬協議（Product Specific Agreement–Commercial Product Drug Substance） 6.限制條款（解除者不適用）:無 7.承諾事項（解除者不適用）:無 8.其他重要約定事項（解除者不適用）:無 9.對公司財務、業務之影響:本公司與Samsung Biologics Co., Ltd.達成深度合作， 全面啟動 TMB-365 的技術移轉與規模化量產，以全力支持臨床試驗以及未來的 全球市場上市供應。 10.具體目的:本公司與Samsung Biologics Co., Ltd.達成深度合作，全面啟動 TMB-365 的技術移轉與規模化量產，以全力支持臨床試驗以及未來的全球市場 上市供應。 11.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第8款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 4147 | 中裕 | 4 | 2 | 4 | 7 | 13 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 13 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

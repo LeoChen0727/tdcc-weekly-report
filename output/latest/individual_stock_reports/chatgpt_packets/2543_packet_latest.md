@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2543 皇昌
 
 ## Metadata
-- generated_at: 2026-08-10 22:27:04 Asia/Taipei
+- generated_at: 2026-08-21 22:27:04 Asia/Taipei
 - stock_id: 2543
 - stock_name: 皇昌
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -103,6 +103,7 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -117,7 +118,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -125,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 37.5
-- high: 40.5
-- low: 37.5
-- close: 39.25
-- volume: 2681346
-- ma5: 37.7
-- ema23_primary: 38.56
-- distance_to_ema23_pct: 1.78
-- ma20: 38.32
-- ma60: 41.24
-- ma120: 50.23
-- return_5d: 6.08
-- return_20d: 1.16
-- volume_ratio: 1.98
-- distance_to_ma20_pct_auxiliary: 2.42
-- distance_to_high_60_pct: -23.64
+- date: 20260821
+- open: 38.9
+- high: 38.95
+- low: 38.5
+- close: 38.95
+- volume: 430518
+- ma5: 38.6
+- ema23_primary: 38.81
+- distance_to_ema23_pct: 0.36
+- ma20: 38.3
+- ma60: 40.87
+- ma120: 48.36
+- return_5d: 0.13
+- return_20d: 0.91
+- volume_ratio: 0.35
+- distance_to_ma20_pct_auxiliary: 1.69
+- distance_to_high_60_pct: -24.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,39.65,40.75,39.45,39.75,1873125,41.03,-3.13,41.06,44.19,1.19
-20260714,40.7,40.7,38.4,38.7,1494093,40.84,-5.24,40.65,43.88,0.96
-20260715,38.55,39.65,38.55,39.55,788252,40.73,-2.9,40.29,43.58,0.52
-20260716,39.85,40.25,39.1,39.75,866331,40.65,-2.21,39.93,43.32,0.58
-20260717,39.5,40.6,38.2,38.25,2345321,40.45,-5.44,39.52,43.08,1.51
-20260720,38.7,39.3,37.75,38.5,1321648,40.29,-4.44,39.24,42.87,0.89
-20260721,38.65,41,38.65,40,1590952,40.26,-0.65,39.09,42.7,1.09
-20260722,39.9,40.35,39,39,1053872,40.16,-2.88,38.95,42.55,0.74
-20260723,39,39.25,38.75,39.05,613734,40.07,-2.53,38.95,42.43,0.53
-20260724,39.05,39.8,38.55,38.6,675812,39.94,-3.36,38.9,42.3,0.61
 20260727,40.1,40.8,38.35,39,1383554,39.86,-2.17,38.93,42.19,1.26
 20260728,38.7,39.4,38.4,38.75,1324364,39.77,-2.57,38.94,42.06,1.18
 20260729,38.85,39.5,35.9,36.5,2975037,39.5,-7.59,38.83,41.91,2.48
@@ -167,18 +158,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,36.65,37.55,36.4,37.45,931835,38.57,-2.92,38.35,41.36,0.74
 20260806,37.1,37.7,37.1,37.7,530830,38.5,-2.08,38.3,41.28,0.42
 20260807,37.5,40.5,37.5,39.25,2681346,38.56,1.78,38.32,41.24,1.98
+20260810,39.4,39.6,38.35,38.9,1032724,38.59,0.8,38.28,41.22,0.79
+20260811,38.75,39.65,38.7,39.3,879226,38.65,1.68,38.31,41.25,0.69
+20260812,39.75,41,38.95,41,2088047,38.85,5.54,38.38,41.31,1.55
+20260813,41.15,41.75,39.2,39.65,1882758,38.91,1.89,38.38,41.32,1.35
+20260814,39.65,39.65,38.8,38.9,681902,38.91,-0.03,38.41,41.26,0.52
+20260817,38.7,38.85,38.4,38.75,649756,38.9,-0.38,38.42,41.14,0.51
+20260818,38.75,38.8,38.2,38.25,532397,38.84,-1.53,38.34,41.02,0.43
+20260819,38,38.65,37.8,38.1,998458,38.78,-1.76,38.29,40.95,0.81
+20260820,38.6,39.45,38.45,38.95,1011631,38.8,0.4,38.28,40.92,0.81
+20260821,38.9,38.95,38.5,38.95,430518,38.81,0.36,38.3,40.87,0.35
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 71.91
-- over_600_ratio: 70.05
-- over_800_ratio: 68.48
-- over_1000_ratio: 67.3
-- over_400_change_1w: 0.04
-- over_800_change_1w: 0.11
-- over_1000_change_1w: -0.26
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260814
+- over_400_ratio: 71.9
+- over_600_ratio: 70
+- over_800_ratio: 68.15
+- over_1000_ratio: 67.34
+- over_400_change_1w: -0.01
+- over_800_change_1w: -0.33
+- over_1000_change_1w: 0.04
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -186,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,70.96,-0.44,67.76,0.11,67.11,-0.21,1,False,True
 20260529,70.59,-0.37,67.22,-0.54,66.38,-0.73,0,False,False
 20260605,71.26,0.67,67.8,0.58,66.99,0.61,1,True,True
 20260612,71.72,0.46,68.1,0.3,67.62,0.63,2,True,True
@@ -198,23 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,71.85,0.57,68.4,0.72,67.39,0.57,2,True,True
 20260731,71.87,0.02,68.37,-0.03,67.56,0.17,3,False,True
 20260807,71.91,0.04,68.48,0.11,67.3,-0.26,4,False,True
+20260814,71.9,-0.01,68.15,-0.33,67.34,0.04,5,False,True
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2543 | 皇昌 | revenue_pullback | 營收成長股價回檔 | 62.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | 1.原預定買回股份總金額上限(元):4,192,993,463 2.原預定買回之期間:115/05/19~115/07/18 3.原預定買回之數量(股):20,000,000 4.原預定買回區間價格(元):35.00~70.00 5.本次實際買回期間:115/05/21~115/06/16 6.本次已買回股份數量(股):14,235,000 7.本次已買回股份總金額(元):661,434,108 8.本次平均每股買回價格(元):46.47 9.累積已持有自己公司股份數量(股):14,235,000 10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):2.69 11.本次未執行完畢之原因: 維護股東權益並兼顧市場機制，視股價變化及成交量狀況分批買回， 故未能執行完畢 12.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260717 | 2543 | 皇昌 | revenue_breakout_low_response | 營收爆發低反應股 | 11.0 | 37.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.原預定買回股份總金額上限(元):4,192,993,463 2.原預定買回之期間:115/05/19~115/07/18 3.原預定買回之數量(股):20,000,000 4.原預定買回區間價格(元):35.00~70.00 5.本次實際買回期間:115/05/21~115/06/16 6.本次已買回股份數量(股):14,235,000 7.本次已買回股份總金額(元):661,434,108 8.本次平均每股買回價格(元):46.47 9.累積已持有自己公司股份數量(股):14,235,000 10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):2.69 11.本次未執行完畢之原因: 維護股東權益並兼顧市場機制，視股價變化及成交量狀況分批買回， 故未能執行完畢 12.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2543 | 皇昌 | 1 | 1 | 3 | 3 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2543 | 皇昌 | 20 | 0 | 52830.0 | 0.0 |  | no_signal |
+| 20260821 | 2543 | 皇昌 | 19 | 0 | 15230.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

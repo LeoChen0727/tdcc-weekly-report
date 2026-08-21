@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4916 事欣科
 
 ## Metadata
-- generated_at: 2026-08-10 22:27:58 Asia/Taipei
+- generated_at: 2026-08-21 22:27:38 Asia/Taipei
 - stock_id: 4916
 - stock_name: 事欣科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 18
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -132,38 +132,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 108
-- high: 111
-- low: 106.5
-- close: 108
-- volume: 5054760
-- ma5: 103.4
-- ema23_primary: 102.57
-- distance_to_ema23_pct: 5.29
-- ma20: 103.05
-- ma60: 103.45
-- ma120: 82.55
-- return_5d: 13.68
-- return_20d: 0
-- volume_ratio: 0.83
-- distance_to_ma20_pct_auxiliary: 4.8
-- distance_to_high_60_pct: -15.29
+- date: 20260821
+- open: 99.3
+- high: 100
+- low: 98.2
+- close: 98.7
+- volume: 1578571
+- ma5: 100.6
+- ema23_primary: 102.09
+- distance_to_ema23_pct: -3.32
+- ma20: 100.59
+- ma60: 105.83
+- ma120: 85.81
+- return_5d: -6.89
+- return_20d: -4.17
+- volume_ratio: 0.38
+- distance_to_ma20_pct_auxiliary: -1.88
+- distance_to_high_60_pct: -22.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,112.5,118.5,112.5,118,21558219,106.7,10.59,105.41,91.66,2.11
-20260714,115,117,106.5,110,16101066,106.98,2.82,105.53,92.41,1.56
-20260715,111.5,113,110,113,6549209,107.48,5.14,106.2,93.16,0.66
-20260716,111,113,109,110.5,4695699,107.73,2.57,106.78,93.86,0.48
-20260717,106,108.5,100,102,6467375,107.25,-4.9,106.94,94.44,0.67
-20260720,102,104,96.5,97.7,5480006,106.46,-8.23,106.66,94.91,0.57
-20260721,100,107,99,107,4515662,106.5,0.47,106.75,95.59,0.49
-20260722,109,112.5,106,106.5,8787291,106.5,-0,107.08,96.27,0.94
-20260723,108,108,101.5,103.5,3625577,106.25,-2.59,107.18,96.96,0.39
-20260724,103,108,102,103,4630010,105.98,-2.81,107.36,97.64,0.49
 20260727,103,103.5,99.7,102,2144382,105.65,-3.45,107.67,98.3,0.23
 20260728,99,101,97.1,97.1,2590639,104.94,-7.47,107.72,98.89,0.28
 20260729,97.5,99.6,87.4,90.2,5060226,103.71,-13.03,107.1,99.34,0.56
@@ -174,26 +164,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,103,107,103,104.5,4991120,101.54,2.91,103.2,102.07,0.81
 20260806,104,109.5,104,108,5058435,102.08,5.8,103.05,102.73,0.84
 20260807,108,111,106.5,108,5054760,102.57,5.29,103.05,103.45,0.83
+20260810,103.5,106,100.5,104,8850710,102.69,1.27,102.35,104.06,1.63
+20260811,104,108,102.5,104.5,6366135,102.84,1.61,102.08,104.68,1.29
+20260812,105,105,102.5,103,2747205,102.86,0.14,101.58,105.16,0.58
+20260813,103.5,105,101.5,101.5,2882164,102.74,-1.21,101.12,105.48,0.62
+20260814,102,108,101,106,7652239,103.01,2.9,101.33,105.75,1.62
+20260817,108,111,103,104,6825530,103.1,0.88,101.64,105.84,1.42
+20260818,103,105,99.1,100.5,3708301,102.88,-2.31,101.31,105.88,0.78
+20260819,98,101,98,100.5,1832612,102.68,-2.13,101.02,105.86,0.42
+20260820,101,102.5,99,99.3,1996165,102.4,-3.03,100.81,105.84,0.46
+20260821,99.3,100,98.2,98.7,1578571,102.09,-3.32,100.59,105.83,0.38
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 28.36
-- over_600_ratio: 25.33
-- over_800_ratio: 23.78
-- over_1000_ratio: 23.08
-- over_400_change_1w: 0.51
-- over_800_change_1w: 0.16
-- over_1000_change_1w: 0.9
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260814
+- over_400_ratio: 25.27
+- over_600_ratio: 23.72
+- over_800_ratio: 21.61
+- over_1000_ratio: 20.91
+- over_400_change_1w: -3.09
+- over_800_change_1w: -2.17
+- over_1000_change_1w: -2.17
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,48.13,11.92,44.47,13.15,43.01,12.36,3,True,True
 20260529,45,-3.13,40.45,-4.02,39.74,-3.27,0,False,False
 20260605,44.95,-0.05,41.33,0.88,39.94,0.2,1,False,True
 20260612,43.64,-1.31,40.22,-1.11,39.56,-0.38,0,False,False
@@ -205,22 +204,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,28.67,-0.56,24.54,-1.73,23.05,-1.05,0,False,False
 20260731,27.85,-0.82,23.62,-0.92,22.18,-0.87,1,False,False
 20260807,28.36,0.51,23.78,0.16,23.08,0.9,2,False,True
+20260814,25.27,-3.09,21.61,-2.17,20.91,-2.17,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 4916 | 事欣科 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | call_inflow | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/15 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: (1)原發放股利種類及金額：    普通股現金股利NT$61,855,871，每股配發現金0.5元。 (2)調整後發放股利種類及金額：    普通股現金股利NT$61,855,871，每股配發現金0.49850584元。 4.除權（息）交易日:115/07/30 5.最後過戶日:115/07/31 6.停止過戶起始日期:115/08/01 7.停止過戶截止日期:115/08/05 8.除權（息）基準日:115/08/05 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/20 13.現金股利之一部或全部是否以外幣發放(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項:   本公司因可轉換公司債持有人申請轉換普通股，致流通在外股數增加，   故調整配息率。；calendar event: ex_dividend on 20260730; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 4916 | 事欣科 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/15 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: (1)原發放股利種類及金額：    普通股現金股利NT$61,855,871，每股配發現金0.5元。 (2)調整後發放股利種類及金額：    普通股現金股利NT$61,855,871，每股配發現金0.49850584元。 4.除權（息）交易日:115/07/30 5.最後過戶日:115/07/31 6.停止過戶起始日期:115/08/01 7.停止過戶截止日期:115/08/05 8.除權（息）基準日:115/08/05 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/20 13.現金股利之一部或全部是否以外幣發放(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項:   本公司因可轉換公司債持有人申請轉換普通股，致流通在外股數增加，   故調整配息率。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 4916 | 事欣科 | 24 | 2 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260821 | 4916 | 事欣科 | 28 | 6 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 4916 | 事欣科 | 37 | 0 | 4532810.0 | 0.0 |  | call_inflow |
+| 20260821 | 4916 | 事欣科 | 38 | 0 | 998170.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

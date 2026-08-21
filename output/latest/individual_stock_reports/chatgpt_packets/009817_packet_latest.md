@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009817 國泰日本不動產
 
 ## Metadata
-- generated_at: 2026-08-10 22:26:21 Asia/Taipei
+- generated_at: 2026-08-21 22:26:36 Asia/Taipei
 - stock_id: 009817
 - stock_name: 國泰日本不動產
-- packet_status: partial_rawdata_packet
-- latest_price_date: 20260807
-- price_rows: 54
-- current_main_price_date: 20260807
+- packet_status: standard_rawdata_packet
+- latest_price_date: 20260821
+- price_rows: 64
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 9.3
-- high: 9.3
-- low: 9.19
-- close: 9.19
-- volume: 1135762
-- ma5: 9.3
-- ema23_primary: 9.2
-- distance_to_ema23_pct: -0.11
-- ma20: 9.23
-- ma60: 8.96
-- ma120: 8.96
-- return_5d: -2.44
-- return_20d: 1.77
-- volume_ratio: 0.6
-- distance_to_ma20_pct_auxiliary: -0.49
-- distance_to_high_60_pct: -3.47
+- date: 20260821
+- open: 9.1
+- high: 9.1
+- low: 9.05
+- close: 9.05
+- volume: 671136
+- ma5: 9.06
+- ema23_primary: 9.14
+- distance_to_ema23_pct: -1.01
+- ma20: 9.22
+- ma60: 8.99
+- ma120: 8.98
+- return_5d: -0.55
+- return_20d: -1.31
+- volume_ratio: 0.47
+- distance_to_ma20_pct_auxiliary: -1.84
+- distance_to_high_60_pct: -4.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,9.03,9.07,9.02,9.05,562750,8.89,1.75,8.86,8.81,0.29
-20260714,9.05,9.13,9.05,9.09,2272661,8.91,2.02,8.87,8.81,1.22
-20260715,9.15,9.19,9.13,9.16,3180451,8.93,2.56,8.89,8.82,1.66
-20260716,9.15,9.15,9.06,9.06,571656,8.94,1.32,8.91,8.83,0.3
-20260717,9.15,9.23,9.11,9.12,3629939,8.96,1.82,8.93,8.84,1.82
-20260720,9.13,9.21,9.13,9.18,1218730,8.98,2.28,8.95,8.85,0.62
-20260721,9.23,9.28,9.21,9.24,1033447,9,2.7,8.99,8.86,0.54
-20260722,9.28,9.28,9.19,9.21,1263640,9.02,2.16,9.02,8.86,0.67
-20260723,9.28,9.28,9.15,9.15,1459299,9.03,1.37,9.04,8.87,0.78
-20260724,9.12,9.19,9.12,9.17,619375,9.04,1.46,9.06,8.88,0.35
 20260727,9.21,9.32,9.21,9.3,2473230,9.06,2.65,9.07,8.89,1.51
 20260728,9.3,9.33,9.22,9.29,2807807,9.08,2.32,9.09,8.9,1.68
 20260729,9.33,9.42,9.33,9.4,5581276,9.11,3.23,9.12,8.91,2.97
@@ -168,6 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,9.34,9.34,9.23,9.26,1948336,9.2,0.68,9.22,8.95,1.04
 20260806,9.26,9.26,9.21,9.23,1326553,9.2,0.32,9.23,8.96,0.7
 20260807,9.3,9.3,9.19,9.19,1135762,9.2,-0.11,9.23,8.96,0.6
+20260810,9.2,9.2,9.19,9.2,710034,9.2,0,9.24,8.97,0.38
+20260811,9.19,9.2,9.17,9.19,699744,9.2,-0.1,9.25,8.97,0.39
+20260812,9.17,9.19,9.12,9.15,699813,9.19,-0.49,9.25,8.97,0.41
+20260813,9.24,9.24,9.16,9.19,776809,9.19,-0.05,9.25,8.98,0.46
+20260814,9.19,9.19,9.09,9.1,509152,9.19,-0.94,9.25,8.98,0.33
+20260817,9.15,9.19,9.09,9.09,914824,9.18,-0.96,9.25,8.98,0.6
+20260818,9.07,9.07,8.97,8.99,914939,9.16,-1.89,9.24,8.98,0.6
+20260819,9.02,9.02,9,9.02,203514,9.15,-1.43,9.23,8.98,0.14
+20260820,9.03,9.15,9.03,9.15,637826,9.15,-0.01,9.23,8.99,0.45
+20260821,9.1,9.1,9.05,9.05,671136,9.14,-1.01,9.22,8.99,0.47
 ```
 
 ## Latest TDCC Snapshot

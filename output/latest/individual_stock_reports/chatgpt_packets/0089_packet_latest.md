@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0089 中信關鍵半導體
 
 ## Metadata
-- generated_at: 2026-08-10 22:26:18 Asia/Taipei
+- generated_at: 2026-08-21 22:26:34 Asia/Taipei
 - stock_id: 0089
 - stock_name: 中信關鍵半導體
 - packet_status: insufficient_price_data
 - latest_price_date: 
 - price_rows: 0
-- current_main_price_date: 20260807
+- current_main_price_date: 20260821
 - current_main_price_universe_status: historical_only_noncurrent
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -183,7 +183,7 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 0089 | 中信關鍵半導體 | 4 | 0 | 279660.0 | 0.0 |  | no_signal |
+| 20260821 | 0089 | 中信關鍵半導體 | 4 | 0 | 163590.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

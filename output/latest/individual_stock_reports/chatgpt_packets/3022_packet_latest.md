@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3022 威強電
 
 ## Metadata
-- generated_at: 2026-08-10 22:27:16 Asia/Taipei
+- generated_at: 2026-08-21 22:27:12 Asia/Taipei
 - stock_id: 3022
 - stock_name: 威強電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,33 +69,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可分批買進
-- model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
-- confidence_level: high
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: no_entry_now
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -104,8 +100,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
-- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -132,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 101
-- high: 106
-- low: 100
-- close: 103
-- volume: 6864806
-- ma5: 96.8
-- ema23_primary: 90.27
-- distance_to_ema23_pct: 14.1
-- ma20: 89.45
-- ma60: 82.95
-- ma120: 73.89
-- return_5d: 21.18
-- return_20d: 15.73
-- volume_ratio: 2.09
-- distance_to_ma20_pct_auxiliary: 15.14
-- distance_to_high_60_pct: -2.83
+- date: 20260821
+- open: 92.6
+- high: 92.6
+- low: 89.2
+- close: 90.2
+- volume: 1932554
+- ma5: 92.78
+- ema23_primary: 93.97
+- distance_to_ema23_pct: -4.01
+- ma20: 95.2
+- ma60: 87.61
+- ma120: 76.96
+- return_5d: -4.25
+- return_20d: -4.04
+- volume_ratio: 0.46
+- distance_to_ma20_pct_auxiliary: -5.26
+- distance_to_high_60_pct: -22.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,89,89.1,86,88.3,2010384,84.51,4.49,85.2,76.92,0.76
-20260714,86.2,87.6,84,86.3,2100649,84.66,1.94,85.17,77.22,0.81
-20260715,87.8,89,86.7,87.3,1105733,84.88,2.85,85.27,77.53,0.44
-20260716,87.3,87.3,84.8,84.8,943417,84.87,-0.09,85.38,77.76,0.38
-20260717,83,84.3,79.4,79.5,1371158,84.42,-5.83,85.17,77.91,0.55
-20260720,79.1,80.1,77.2,78.3,849791,83.91,-6.69,84.86,78.01,0.35
-20260721,78.5,86.1,78.5,86.1,1905501,84.1,2.38,85,78.3,0.76
-20260722,87.5,93.7,87.5,90.9,5626855,84.66,7.37,85.45,78.67,2.13
-20260723,91,93.2,89.6,92.2,2883577,85.29,8.1,85.92,79.06,1.06
-20260724,91.5,95,91.4,94,4197953,86.02,9.28,86.49,79.47,1.45
 20260727,95.1,95.6,89.2,91.7,4536164,86.49,6.02,87.01,79.86,1.58
 20260728,87.2,92.1,87.2,89.2,2185862,86.72,2.86,87.36,80.19,0.75
 20260729,91.8,92.1,85.1,88,2959550,86.82,1.36,87.56,80.48,0.99
@@ -174,26 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,91.9,99,91.9,97.6,7195625,88.08,10.8,88.44,81.84,2.31
 20260806,98.1,101,96,100.5,8930801,89.12,12.77,88.75,82.36,2.83
 20260807,101,106,100,103,6864806,90.27,14.1,89.45,82.95,2.09
+20260810,105,113,102,113,8598306,92.17,22.6,90.69,83.69,2.38
+20260811,115.5,116.5,107,108,9166888,93.49,15.52,91.78,84.37,2.31
+20260812,107.5,107.5,104,105.5,3562326,94.49,11.65,92.69,85,0.87
+20260813,106.5,107,98,98.1,4976917,94.79,3.49,93.35,85.51,1.16
+20260814,98.1,99.2,93.6,94.2,4037597,94.74,-0.57,94.08,85.94,0.91
+20260817,94.4,97,94.4,96.5,2686056,94.89,1.7,95,86.39,0.59
+20260818,93.3,94.5,92.5,92.8,2122490,94.71,-2.02,95.33,86.74,0.47
+20260819,90.5,93.6,90.1,91.9,1336376,94.48,-2.73,95.38,87.05,0.31
+20260820,93.8,96.5,91.2,92.5,2601986,94.31,-1.92,95.39,87.34,0.61
+20260821,92.6,92.6,89.2,90.2,1932554,93.97,-4.01,95.2,87.61,0.46
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 66.52
-- over_600_ratio: 62.95
-- over_800_ratio: 61.39
-- over_1000_ratio: 57.52
-- over_400_change_1w: 1.53
-- over_800_change_1w: 1.03
-- over_1000_change_1w: -0.43
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: False
+- as_of_date: 20260814
+- over_400_ratio: 68.26
+- over_600_ratio: 65.43
+- over_800_ratio: 64.3
+- over_1000_ratio: 60.86
+- over_400_change_1w: 1.74
+- over_800_change_1w: 2.91
+- over_1000_change_1w: 3.34
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,59.27,0.39,55.22,0.71,52.13,0.15,1,True,True
 20260529,60.08,0.81,56.42,1.2,53.39,1.26,2,True,True
 20260605,61.13,1.05,56.65,0.23,54.74,1.35,3,True,True
 20260612,61.86,0.73,57.22,0.57,54.75,0.01,4,True,True
@@ -205,22 +198,25 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,64.16,1.53,59.7,1.63,56.62,1.59,1,True,True
 20260731,64.99,0.83,60.36,0.66,57.95,1.33,2,True,True
 20260807,66.52,1.53,61.39,1.03,57.52,-0.43,3,False,True
+20260814,68.26,1.74,64.3,2.91,60.86,3.34,4,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 3022 | 威強電 | revenue_pullback | 營收成長股價回檔 | 83.0 |  |  |  |  | no_signal | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:副總經理 2.發生變動日期:115/06/30 3.舊任者姓名、級職及簡歷:杜俊穎 本公司機構系統研發處及品質處副總經理 4.新任者姓名、級職及簡歷:不適用 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:辭職 6.異動原因:辭職 7.生效日期:115/06/30 8.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 3022 | 威強電 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:副總經理 2.發生變動日期:115/06/30 3.舊任者姓名、級職及簡歷:杜俊穎 本公司機構系統研發處及品質處副總經理 4.新任者姓名、級職及簡歷:不適用 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:辭職 6.異動原因:辭職 7.生效日期:115/06/30 8.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| 20260821 | 3022 | 威強電 | revenue_pullback | 營收成長股價回檔 | 83.0 |  |  |  |  | no_signal | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:副總經理 2.發生變動日期:115/06/30 3.舊任者姓名、級職及簡歷:杜俊穎 本公司機構系統研發處及品質處副總經理 4.新任者姓名、級職及簡歷:不適用 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:辭職 6.異動原因:辭職 7.生效日期:115/06/30 8.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 3022 | 威強電 | revenue_breakout_low_response | 營收爆發低反應股 | 18 | 18 | A_優先追蹤 |  |  | no_signal | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:副總經理 2.發生變動日期:115/06/30 3.舊任者姓名、級職及簡歷:杜俊穎 本公司機構系統研發處及品質處副總經理 4.新任者姓名、級職及簡歷:不適用 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:辭職 6.異動原因:辭職 7.生效日期:115/06/30 8.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 3022 | 威強電 | 1 | 1 | 4 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260821 | 3022 | 威強電 | 5 | 2 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 3022 | 威強電 | 17 | 0 | 46650.0 | 0.0 |  | no_signal |
+| 20260821 | 3022 | 威強電 | 25 | 0 | 1343950.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3034 聯詠
 
 ## Metadata
-- generated_at: 2026-08-10 22:27:17 Asia/Taipei
+- generated_at: 2026-08-21 22:27:12 Asia/Taipei
 - stock_id: 3034
 - stock_name: 聯詠
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 541
-- high: 546
-- low: 532
-- close: 542
-- volume: 3483829
-- ma5: 535.6
-- ema23_primary: 513.84
-- distance_to_ema23_pct: 5.48
-- ma20: 499.4
-- ma60: 503.81
-- ma120: 451.55
-- return_5d: 4.43
-- return_20d: 0
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: 8.53
-- distance_to_high_60_pct: -10.56
+- date: 20260821
+- open: 528
+- high: 531
+- low: 526
+- close: 530
+- volume: 1443424
+- ma5: 521
+- ema23_primary: 521.05
+- distance_to_ema23_pct: 1.72
+- ma20: 523.88
+- ma60: 511.56
+- ma120: 464.16
+- return_5d: 3.52
+- return_20d: 4.54
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: 1.17
+- distance_to_high_60_pct: -12.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,494,505,467.5,467.5,13046938,518.77,-9.88,526.8,482.77,1.9
-20260714,463,469,451,468,11707262,514.54,-9.04,525.77,483.71,1.62
-20260715,473.5,480.5,462,472,4539797,510.99,-7.63,524.62,484.66,0.62
-20260716,471,474,461.5,471.5,4023886,507.7,-7.13,523.2,485.6,0.55
-20260717,461,473,456,460.5,5508622,503.77,-8.59,520.48,486.35,0.76
-20260720,470,473,452,458,4215309,499.96,-8.39,517.58,486.77,0.6
-20260721,462.5,479.5,462.5,476,4333720,497.96,-4.41,513.02,487.94,0.65
-20260722,484.5,507,484.5,501,6652240,498.21,0.56,510.88,489.32,1.07
-20260723,501,509,495,503,4409880,498.61,0.88,508.88,490.77,0.71
-20260724,500,509,497,507,4205145,499.31,1.54,506.18,492.34,0.69
 20260727,510,525,507,518,3669875,500.87,3.42,506.62,494.17,0.64
 20260728,499,514,492.5,492.5,3358030,500.17,-1.53,505.1,495.56,0.6
 20260729,505,522,493,505,6245317,500.57,0.88,503.6,497.05,1.13
@@ -167,26 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,540,572,538,550,7764412,508.39,8.18,499.45,501.95,1.34
 20260806,547,556,540,543,2991197,511.28,6.21,499.4,502.88,0.53
 20260807,541,546,532,542,3483829,513.84,5.48,499.4,503.81,0.64
+20260810,546,557,541,544,3004623,516.35,5.36,503.23,504.66,0.6
+20260811,543,546,533,538,2428903,518.15,3.83,506.73,505.85,0.54
+20260812,538,544,532,537,3050823,519.72,3.32,509.98,506.88,0.69
+20260813,542,545,531,538,3781700,521.25,3.21,513.3,508.07,0.85
+20260814,538,538,507,512,3726982,520.48,-1.63,515.88,508.73,0.86
+20260817,510,513,498.5,509,3210961,519.52,-2.02,518.42,509.14,0.75
+20260818,502,508,499.5,505,2567924,518.31,-2.57,519.88,509.47,0.61
+20260819,504,535,501,534,4731319,519.62,2.77,521.52,510.22,1.15
+20260820,545,553,520,527,4176369,520.23,1.3,522.73,510.81,1.02
+20260821,528,531,526,530,1443424,521.05,1.72,523.88,511.56,0.36
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 71.57
-- over_600_ratio: 66.79
+- as_of_date: 20260814
+- over_400_ratio: 71.12
+- over_600_ratio: 66.35
 - over_800_ratio: 62.78
-- over_1000_ratio: 60.19
-- over_400_change_1w: 0.54
-- over_800_change_1w: 0.94
-- over_1000_change_1w: 1.27
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- over_1000_ratio: 60.18
+- over_400_change_1w: -0.45
+- over_800_change_1w: 0
+- over_1000_change_1w: -0.01
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,70.05,-0.32,62.4,-0.56,59,-0.14,0,False,False
 20260529,70.61,0.56,62.1,-0.3,58.58,-0.42,1,False,False
 20260605,70.16,-0.45,62.23,0.13,58.43,-0.15,2,False,True
 20260612,69.99,-0.17,62.35,0.12,59.27,0.84,3,False,True
@@ -198,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,70.78,0.82,61.9,0.3,58.7,0.42,1,False,True
 20260731,71.03,0.25,61.84,-0.06,58.92,0.22,2,False,True
 20260807,71.57,0.54,62.78,0.94,60.19,1.27,3,True,True
+20260814,71.12,-0.45,62.78,0,60.18,-0.01,0,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 3034 | 聯詠 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:內部稽核主管 2.發生變動日期:115/06/30 3.舊任者姓名、級職及簡歷: 葉育芬 聯詠科技內部稽核主管 4.新任者姓名、級職及簡歷: 徐韻筑 聯詠科技主任管理師 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:退休 6.異動原因:退休 7.生效日期:115/06/30 8.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 3034 | 聯詠 | 1 | 1 | 1 | 2 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 3034 | 聯詠 | 92 | 7 | 6368670.0 | 19620.0 | 324.6 | call_put_bullish |
+| 20260821 | 3034 | 聯詠 | 100 | 7 | 4056370.0 | 20980.0 | 193.34 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

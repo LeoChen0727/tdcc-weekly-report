@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2836 高雄銀
 
 ## Metadata
-- generated_at: 2026-08-10 22:27:10 Asia/Taipei
+- generated_at: 2026-08-21 22:27:08 Asia/Taipei
 - stock_id: 2836
 - stock_name: 高雄銀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 11.85
-- high: 11.9
-- low: 11.8
-- close: 11.85
-- volume: 983111
-- ma5: 11.86
-- ema23_primary: 12.25
-- distance_to_ema23_pct: -3.27
-- ma20: 12.4
-- ma60: 12.2
-- ma120: 12.18
-- return_5d: -2.07
-- return_20d: -4.82
-- volume_ratio: 0.17
-- distance_to_ma20_pct_auxiliary: -4.45
-- distance_to_high_60_pct: -8.85
+- date: 20260821
+- open: 12.1
+- high: 12.1
+- low: 12
+- close: 12.1
+- volume: 857578
+- ma5: 12.04
+- ema23_primary: 12.09
+- distance_to_ema23_pct: 0.09
+- ma20: 12.05
+- ma60: 12.22
+- ma120: 12.15
+- return_5d: 2.54
+- return_20d: -5.84
+- volume_ratio: 0.24
+- distance_to_ma20_pct_auxiliary: 0.44
+- distance_to_high_60_pct: -6.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,12.45,12.65,12.45,12.55,8103125,12.29,2.1,12.32,12.06,2.56
-20260714,12.6,12.65,12.4,12.55,4122131,12.31,1.92,12.34,12.06,1.36
-20260715,12.5,12.6,12.5,12.55,1844514,12.33,1.76,12.35,12.07,0.63
-20260716,12.6,12.8,12.6,12.7,14457189,12.36,2.72,12.38,12.08,4.05
-20260717,12.7,12.7,12.55,12.6,2957101,12.38,1.75,12.39,12.09,0.84
-20260720,12.6,12.7,12.45,12.55,2020019,12.4,1.23,12.4,12.1,0.58
-20260721,12.55,12.8,12.55,12.65,6653951,12.42,1.86,12.42,12.11,1.78
-20260722,12.65,12.85,12.65,12.8,6682718,12.45,2.81,12.44,12.12,1.68
-20260723,12.8,12.85,12.7,12.85,4921342,12.48,2.93,12.47,12.14,1.18
-20260724,12.75,12.9,12.75,12.85,3465254,12.51,2.68,12.5,12.16,0.82
 20260727,12.85,12.95,12.75,12.9,7682928,12.55,2.82,12.53,12.17,1.7
 20260728,12.9,13,12.8,13,12821515,12.58,3.3,12.57,12.19,2.51
 20260729,12.4,12.45,11.8,11.95,16936736,12.53,-4.64,12.55,12.2,2.88
@@ -168,17 +158,27 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,11.9,11.95,11.8,11.8,2026719,12.33,-4.31,12.46,12.2,0.36
 20260806,11.8,11.85,11.75,11.8,1388298,12.29,-3.96,12.43,12.2,0.25
 20260807,11.85,11.9,11.8,11.85,983111,12.25,-3.27,12.4,12.2,0.17
+20260810,11.95,11.95,11.8,11.9,1750977,12.22,-2.63,12.37,12.2,0.33
+20260811,11.95,11.95,11.8,11.85,1311019,12.19,-2.79,12.34,12.2,0.25
+20260812,11.85,11.95,11.8,11.9,988631,12.17,-2.19,12.3,12.21,0.19
+20260813,11.95,11.95,11.85,11.9,810259,12.14,-2.01,12.26,12.21,0.18
+20260814,11.9,11.9,11.8,11.8,2116769,12.12,-2.6,12.22,12.21,0.48
+20260817,11.8,12.1,11.8,12.1,3764470,12.11,-0.12,12.2,12.21,0.84
+20260818,12,12.05,11.95,12,980604,12.1,-0.86,12.17,12.21,0.23
+20260819,12,12,11.9,11.9,886413,12.09,-1.55,12.12,12.22,0.23
+20260820,11.95,12.1,11.95,12.1,767264,12.09,0.09,12.09,12.22,0.21
+20260821,12.1,12.1,12,12.1,857578,12.09,0.09,12.05,12.22,0.24
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 85.4
-- over_600_ratio: 83.9
-- over_800_ratio: 83.13
-- over_1000_ratio: 82.55
-- over_400_change_1w: -0.32
-- over_800_change_1w: -0.14
-- over_1000_change_1w: -0.24
+- as_of_date: 20260814
+- over_400_ratio: 85.36
+- over_600_ratio: 83.82
+- over_800_ratio: 83.09
+- over_1000_ratio: 82.52
+- over_400_change_1w: -0.04
+- over_800_change_1w: -0.04
+- over_1000_change_1w: -0.03
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,84.79,0.12,82.28,0.04,81.66,0.05,3,True,True
 20260529,84.8,0.01,82.11,-0.17,81.67,0.01,4,False,True
 20260605,85.01,0.21,82.36,0.25,81.87,0.2,5,True,True
 20260612,85.23,0.22,82.65,0.29,82.06,0.19,6,True,True
@@ -199,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,85.73,0.27,83.25,0.17,82.86,0.16,12,True,True
 20260731,85.72,-0.01,83.27,0.02,82.79,-0.07,13,False,True
 20260807,85.4,-0.32,83.13,-0.14,82.55,-0.24,0,False,False
+20260814,85.36,-0.04,83.09,-0.04,82.52,-0.03,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2836 | 高雄銀 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | continued_2_3d | 1.董事會、股東會決議或公司決定日期:115/07/07 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除權息 3.普通股發放股利種類及金額:現金股利新台幣735,966,794元，每股分派新台幣0.4元 盈餘股票股利新台幣91,995,840元，每股分派新台幣0.05元 資本公積股票股利新台幣91,995,840元，每股分派新台幣0.05元 4.除權（息）交易日:115/07/29 5.最後過戶日:115/07/30 6.停止過戶起始日期:115/07/31 7.停止過戶截止日期:115/08/04 8.除權（息）基準日:115/08/04 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/09/02 13.現金股利之一部或全部是否以外幣發放(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項:無；calendar event: ex_right_dividend on 20260729; status=confirmed; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2836 | 高雄銀 | 3 | 1 | 4 | 6 | 13 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

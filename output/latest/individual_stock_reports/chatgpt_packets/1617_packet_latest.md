@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1617 榮星
 
 ## Metadata
-- generated_at: 2026-08-10 22:26:37 Asia/Taipei
+- generated_at: 2026-08-21 22:26:46 Asia/Taipei
 - stock_id: 1617
 - stock_name: 榮星
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 37
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 38
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 18.35
-- high: 19
-- low: 18.2
-- close: 18.2
-- volume: 916027
-- ma5: 18
-- ema23_primary: 18.74
-- distance_to_ema23_pct: -2.89
-- ma20: 19.31
-- ma60: 18.06
-- ma120: 16.64
-- return_5d: 12.35
-- return_20d: -22.55
-- volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: -5.75
-- distance_to_high_60_pct: -32.47
+- date: 20260821
+- open: 17.6
+- high: 17.65
+- low: 17.4
+- close: 17.55
+- volume: 112755
+- ma5: 17.67
+- ema23_primary: 18.37
+- distance_to_ema23_pct: -4.45
+- ma20: 17.78
+- ma60: 18.68
+- ma120: 16.83
+- return_5d: -5.39
+- return_20d: -3.31
+- volume_ratio: 0.11
+- distance_to_ma20_pct_auxiliary: -1.31
+- distance_to_high_60_pct: -34.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,23.8,24.5,23.4,24.5,1366937,20.51,19.44,19.85,16.87,0.84
-20260714,24.4,24.5,22.9,23.4,865585,20.75,12.76,20.2,17,0.52
-20260715,23.4,24.3,23.35,23.9,643025,21.01,13.73,20.57,17.14,0.38
-20260716,24,24.15,23.55,23.9,478474,21.26,12.44,20.95,17.27,0.28
-20260717,22.65,23,21.55,21.55,1113023,21.28,1.27,21.21,17.36,0.63
-20260720,21.05,21.05,19.4,19.4,1202051,21.12,-8.16,21.37,17.43,0.66
-20260721,19,20,18.6,19.25,1591585,20.97,-8.19,21.53,17.49,0.84
-20260722,19.9,20.95,19.5,19.7,1293654,20.86,-5.57,21.73,17.56,0.67
-20260723,20.1,20.15,18.8,19.25,1249130,20.73,-7.13,21.89,17.63,0.62
-20260724,18.55,18.85,17.9,18.15,787170,20.51,-11.52,21.95,17.68,0.4
 20260727,17.7,18.15,17.3,17.95,592509,20.3,-11.57,21.98,17.73,0.31
 20260728,17.25,17.85,16.95,17.25,529798,20.04,-13.94,21.9,17.76,0.28
 20260729,17.05,17.25,15.6,16.3,1290535,19.73,-17.4,21.68,17.78,0.68
@@ -168,26 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,19.4,19.8,18.45,18.55,4156953,18.83,-1.46,19.88,17.95,3.29
 20260806,18.4,19,18.2,18.4,1016038,18.79,-2.08,19.57,18.01,0.81
 20260807,18.35,19,18.2,18.2,916027,18.74,-2.89,19.31,18.06,0.74
+20260810,18.45,19.3,18.45,18.95,1182957,18.76,1.02,19.03,18.13,0.96
+20260811,19.1,19.45,18.7,19,672769,18.78,1.18,18.81,18.21,0.55
+20260812,19,19.15,18.85,19,574681,18.8,1.08,18.57,18.29,0.47
+20260813,19.2,19.45,18.6,18.6,955503,18.78,-0.96,18.3,18.36,0.77
+20260814,18.6,19.2,18.5,18.55,652756,18.76,-1.13,18.15,18.43,0.53
+20260817,18.5,18.7,18.2,18.2,572760,18.71,-2.75,18.09,18.49,0.48
+20260818,18.2,18.4,17.6,17.7,455555,18.63,-4.99,18.02,18.54,0.4
+20260819,17.5,17.75,17.35,17.35,351131,18.52,-6.33,17.9,18.58,0.32
+20260820,17.6,17.7,17.45,17.55,143489,18.44,-4.84,17.81,18.63,0.14
+20260821,17.6,17.65,17.4,17.55,112755,18.37,-4.45,17.78,18.68,0.11
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 75.45
-- over_600_ratio: 73.17
+- as_of_date: 20260814
+- over_400_ratio: 75.66
+- over_600_ratio: 73.64
 - over_800_ratio: 72.41
 - over_1000_ratio: 69.12
-- over_400_change_1w: -0.9
-- over_800_change_1w: 0.01
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 3
+- over_400_change_1w: 0.21
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,75,0.05,72.92,0.04,69.67,0.02,6,True,True
 20260529,75.11,0.11,73.02,0.1,69.81,0.14,7,True,True
 20260605,75.7,0.59,73.25,0.23,70.05,0.24,8,True,True
 20260612,75.7,0,73.32,0.07,70.12,0.07,9,False,True
@@ -199,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,76.26,-0.18,73.37,0.3,69.1,-0.68,1,False,True
 20260731,76.35,0.09,72.4,-0.97,69.11,0.01,2,False,True
 20260807,75.45,-0.9,72.41,0.01,69.12,0.01,3,False,True
+20260814,75.66,0.21,72.41,0,69.12,0,4,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 1617 | 榮星 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/07/02 2.發生緣由:依臺灣證券交易所股份有限公司指示辦理。 3.財務業務資訊: 期間      (月)                      (季)                      (最近四季累計)         最近一月     與去年同期   最近一季      與去年同期   (114年第2季至 科目   (115年5月)      增減％   (115年1季)       增減％         115年1季)        (IFRS合併自結數)        (IFRS合併核閱數)            (IFRS合併核閱數) ---------------------------------------------------------------------------- 營業收入 (百萬)     345          38% 	    911	           18.31% 	        3,504 稅前淨利 (百萬)       2        105.41% 	     16 	  17677.78% 	          251 歸屬母公司 業主淨利 (百萬)     0.6        100.85% 	     14 	   170.00% 	          149 每股盈餘 (元)         0        100.87%      0.08 	   166.67% 	          0.88 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:較同期獲利減少主係營收下降所致；calendar event: ex_dividend on 20260724; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 1617 | 榮星 | 1 | 1 | 1 | 3 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

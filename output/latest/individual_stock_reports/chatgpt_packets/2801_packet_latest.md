@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2801 彰銀
 
 ## Metadata
-- generated_at: 2026-08-10 22:27:10 Asia/Taipei
+- generated_at: 2026-08-21 22:27:08 Asia/Taipei
 - stock_id: 2801
 - stock_name: 彰銀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 23.2
-- high: 23.3
-- low: 23
-- close: 23.15
-- volume: 18173246
-- ma5: 24.11
-- ema23_primary: 24.03
-- distance_to_ema23_pct: -3.65
-- ma20: 24.23
-- ma60: 22.73
-- ma120: 21.81
-- return_5d: -8.13
-- return_20d: -3.74
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: -4.48
-- distance_to_high_60_pct: -10.1
+- date: 20260821
+- open: 23.85
+- high: 24.15
+- low: 23.7
+- close: 24.1
+- volume: 13355207
+- ma5: 23.9
+- ema23_primary: 23.85
+- distance_to_ema23_pct: 1.04
+- ma20: 24.04
+- ma60: 23.29
+- ma120: 22.03
+- return_5d: 2.34
+- return_20d: -1.03
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: 0.24
+- distance_to_high_60_pct: -6.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,24.05,24.2,23.85,23.85,22219932,23.08,3.33,23.33,21.72,0.68
-20260714,24,24,23.35,23.6,16497347,23.12,2.05,23.38,21.76,0.53
-20260715,23.6,23.9,23.6,23.75,12944249,23.18,2.47,23.43,21.79,0.43
-20260716,23.8,24.05,23.7,23.95,15103001,23.24,3.05,23.49,21.83,0.5
-20260717,23.75,24.05,23.75,23.9,26104491,23.3,2.59,23.54,21.87,0.87
-20260720,24.15,24.2,23.55,23.85,36648175,23.34,2.17,23.59,21.92,1.23
-20260721,23.85,24.3,23.85,24.3,39441368,23.42,3.75,23.66,21.97,1.28
-20260722,24.2,24.65,24.2,24.65,38539954,23.52,4.78,23.73,22.03,1.23
-20260723,24.75,24.75,24.1,24.25,37914912,23.59,2.82,23.8,22.08,1.17
-20260724,24.05,24.45,24,24.35,21111093,23.65,2.97,23.84,22.14,0.66
 20260727,24.55,24.85,24.35,24.7,35947136,23.74,4.06,23.91,22.19,1.1
 20260728,24.5,24.75,24.35,24.55,31435900,23.8,3.13,23.96,22.25,0.95
 20260729,24.7,24.8,24,24.45,41420959,23.86,2.48,23.98,22.31,1.31
@@ -167,17 +157,27 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,24,24.1,23.55,23.65,66850684,24.19,-2.24,24.32,22.64,1.87
 20260806,23.5,23.75,23.15,23.15,36697237,24.11,-3.96,24.28,22.68,1
 20260807,23.2,23.3,23,23.15,18173246,24.03,-3.65,24.23,22.73,0.5
+20260810,23.2,23.3,23,23.2,15481308,23.96,-3.16,24.2,22.77,0.43
+20260811,23.2,23.2,23.05,23.1,16531829,23.89,-3.29,24.18,22.82,0.46
+20260812,23.1,23.7,23.1,23.7,24738757,23.87,-0.71,24.18,22.88,0.68
+20260813,23.75,23.8,23.3,23.55,17736241,23.84,-1.23,24.16,22.93,0.48
+20260814,23.45,23.7,23.35,23.55,12838820,23.82,-1.13,24.14,22.98,0.36
+20260817,23.5,23.75,23.45,23.75,10363647,23.81,-0.27,24.13,23.04,0.3
+20260818,23.65,24,23.65,23.9,14905210,23.82,0.33,24.11,23.1,0.44
+20260819,23.8,23.9,23.65,23.9,10549551,23.83,0.31,24.07,23.16,0.33
+20260820,23.9,23.9,23.65,23.85,7446161,23.83,0.09,24.05,23.22,0.24
+20260821,23.85,24.15,23.7,24.1,13355207,23.85,1.04,24.04,23.29,0.44
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 77.55
-- over_600_ratio: 75.9
-- over_800_ratio: 74.76
-- over_1000_ratio: 73.84
-- over_400_change_1w: -0.28
-- over_800_change_1w: -0.32
-- over_1000_change_1w: -0.33
+- as_of_date: 20260814
+- over_400_ratio: 77.46
+- over_600_ratio: 75.83
+- over_800_ratio: 74.69
+- over_1000_ratio: 73.71
+- over_400_change_1w: -0.09
+- over_800_change_1w: -0.07
+- over_1000_change_1w: -0.13
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,76.35,-0.21,73.39,-0.26,72.39,-0.31,0,False,False
 20260529,76.11,-0.24,73.08,-0.31,72.12,-0.27,0,False,False
 20260605,76.4,0.29,73.47,0.39,72.51,0.39,1,True,True
 20260612,77,0.6,74.09,0.62,73.2,0.69,2,True,True
@@ -198,17 +197,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,77.63,0.14,74.86,0.19,73.96,0.18,8,True,True
 20260731,77.83,0.2,75.08,0.22,74.17,0.21,9,True,True
 20260807,77.55,-0.28,74.76,-0.32,73.84,-0.33,0,False,False
+20260814,77.46,-0.09,74.69,-0.07,73.71,-0.13,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2801 | 彰銀 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | 1.事實發生日:115/07/08 2.公司名稱:彰化銀行　 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公告本公司115年6月份合併自結盈餘。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 本公司115年6月份合併稅前盈餘24.01億元，合併稅後盈餘22.04億元，累計合併稅前盈 餘131.13億元，累計合併稅前每股盈餘1.09元，累計合併稅後盈餘113.14億元，累計合 併稅後每股盈餘0.94元。以上數字係本公司自行結算金額。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
+| 20260821 | 2801 | 彰銀 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.發生變動日期:115/08/20 2.法人名稱:財政部 3.舊任者姓名:無 4.舊任者簡歷:無 5.新任者姓名:董事陳佩君(財政部代表) 6.新任者簡歷:兆豐國際證券投資信託股份有限公司董事長 7.異動原因:財政部改派 8.原任期（例xx/xx/xx至xx/xx/xx）:115/6/19~118/6/18 9.新任生效日期:115/08/20 10.其他應敘明事項:依財政部115年8月20日台財庫字第11503716340號函辦理。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2801 | 彰銀 | 22 | 11 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260821 | 2801 | 彰銀 | 1 | 1 | 2 | 7 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

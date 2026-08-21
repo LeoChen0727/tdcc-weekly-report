@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8039 台虹
 
 ## Metadata
-- generated_at: 2026-08-10 22:29:04 Asia/Taipei
+- generated_at: 2026-08-21 22:28:21 Asia/Taipei
 - stock_id: 8039
 - stock_name: 台虹
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -124,38 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 230.5
-- high: 237.5
-- low: 230.5
-- close: 237.5
-- volume: 7221614
-- ma5: 212.8
-- ema23_primary: 194.35
-- distance_to_ema23_pct: 22.2
-- ma20: 202.18
-- ma60: 164.03
-- ma120: 141.56
-- return_5d: 36.89
-- return_20d: 54.22
-- volume_ratio: 0.24
-- distance_to_ma20_pct_auxiliary: 17.47
-- distance_to_high_60_pct: -7.77
+- date: 20260821
+- open: 274
+- high: 306
+- low: 261
+- close: 282
+- volume: 68745448
+- ma5: 274.6
+- ema23_primary: 233.5
+- distance_to_ema23_pct: 20.77
+- ma20: 227.28
+- ma60: 182.61
+- ma120: 155.71
+- return_5d: 3.49
+- return_20d: 17.5
+- volume_ratio: 2.28
+- distance_to_ma20_pct_auxiliary: 24.08
+- distance_to_high_60_pct: -7.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,169,169,169,169,8932894,147.1,14.88,147.1,143.72,1.04
-20260714,173,185.5,169,185.5,48874130,150.3,23.42,148.9,144.5,4.84
-20260715,186,194,180,181.5,47034147,152.9,18.7,150.6,145.13,3.96
-20260716,189,199.5,189,199.5,14171335,156.79,27.24,153.5,146.07,1.16
-20260717,194,201,188,192.5,57744349,159.76,20.49,155.82,146.84,3.93
-20260720,199.5,202,178,193,54015044,162.53,18.75,158.2,147.38,3.15
-20260721,196,212,194,212,13174670,166.66,27.21,161.15,148.49,0.76
-20260722,226.5,233,219,233,27683012,172.18,35.32,165.53,150.07,1.51
-20260723,242,256,231,256,47776123,179.17,42.88,170.93,152.06,2.34
-20260724,251.5,257.5,235,240,56202359,184.24,30.27,175.75,153.76,2.44
 20260727,235,244,216,216,43179948,186.88,15.58,179.68,155.03,1.73
 20260728,194.5,194.5,194.5,194.5,3614646,187.52,3.72,182.53,156,0.14
 20260729,180,181.5,175.5,175.5,7223361,186.52,-5.91,183.85,156.69,0.29
@@ -166,26 +156,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,214.5,220,214.5,220,7676388,188.1,16.96,194.2,161.07,0.27
 20260806,222.5,229.5,214,216,29210307,190.43,13.43,198,162.37,0.97
 20260807,230.5,237.5,230.5,237.5,7221614,194.35,22.2,202.18,164.03,0.24
+20260810,250,254,224.5,226,44723032,196.99,14.73,205.03,165.3,1.42
+20260811,226,229,215,216,13319589,198.57,8.78,206.55,166.5,0.45
+20260812,215,231,210.5,227,30336296,200.94,12.97,208.82,167.94,1.05
+20260813,228,249.5,227.5,249.5,22824959,204.99,21.71,211.32,169.88,0.78
+20260814,259.5,274,246.5,272.5,55936944,210.61,29.38,215.32,172.31,1.92
+20260817,274,286.5,253,259,32146039,214.65,20.66,218.62,174.31,1.15
+20260818,258,284.5,258,277.5,31881009,219.88,26.2,221.9,176.42,1.1
+20260819,270,284,266,271.5,42064679,224.19,21.11,223.82,178.45,1.42
+20260820,286,298.5,271.5,283,43646872,229.09,23.53,225.18,180.57,1.48
+20260821,274,306,261,282,68745448,233.5,20.77,227.28,182.61,2.28
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 66.43
-- over_600_ratio: 63.34
-- over_800_ratio: 60.35
-- over_1000_ratio: 58.6
-- over_400_change_1w: -0.04
-- over_800_change_1w: -0.08
-- over_1000_change_1w: 0.5
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
+- as_of_date: 20260814
+- over_400_ratio: 68.33
+- over_600_ratio: 65.2
+- over_800_ratio: 62.06
+- over_1000_ratio: 61.07
+- over_400_change_1w: 1.9
+- over_800_change_1w: 1.71
+- over_1000_change_1w: 2.47
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,56.16,-1.76,49.53,-2.24,48.48,-1.56,0,False,False
 20260529,59.19,3.03,52.61,3.08,50.56,2.08,1,True,True
 20260605,56.61,-2.58,49.21,-3.4,47.9,-2.66,0,False,False
 20260612,56.05,-0.56,48.85,-0.36,46.46,-1.44,0,False,False
@@ -197,22 +196,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,68.88,0.87,63.79,1.98,61.41,1.29,6,True,True
 20260731,66.47,-2.41,60.43,-3.36,58.1,-3.31,0,False,False
 20260807,66.43,-0.04,60.35,-0.08,58.6,0.5,1,False,True
+20260814,68.33,1.9,62.06,1.71,61.07,2.47,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 8039 | 台虹 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | continued_overheated | 1.事實發生日:115/07/17 2.發生緣由:依據臺灣證券交易所股份有限公司通知辦理。 3.財務業務資訊: 期間        最近一月    與去年同    最近一季   與去年同    最近四季累計 科目        115年5月     期增減%   115年第1季   期增減%  114年第2季至115年                                                                第1季          (IFRS合併自結數)           (查核數)                  (查核數) ============================================================================ 營業收入       914.40      1%      2415.48        8%         10797.92 (百萬元) 稅前淨利        90.78    646%       219.82      109%           729.52 (百萬元) 歸屬母公司淨利  69.45    814%       171.37      108%           623.95 (百萬元) 每股盈餘         0.26    801%         0.65      104%             2.40 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:115年5月為本公司自結數，未經會計師查核。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
+| 20260821 | 8039 | 台虹 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  | put_inflow | repeated_but_no_breakout | 1.事實發生日:115/07/17 2.發生緣由:依據臺灣證券交易所股份有限公司通知辦理。 3.財務業務資訊: 期間        最近一月    與去年同    最近一季   與去年同    最近四季累計 科目        115年5月     期增減%   115年第1季   期增減%  114年第2季至115年                                                                第1季          (IFRS合併自結數)           (查核數)                  (查核數) ============================================================================ 營業收入       914.40      1%      2415.48        8%         10797.92 (百萬元) 稅前淨利        90.78    646%       219.82      109%           729.52 (百萬元) 歸屬母公司淨利  69.45    814%       171.37      108%           623.95 (百萬元) 每股盈餘         0.26    801%         0.65      104%             2.40 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:115年5月為本公司自結數，未經會計師查核。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 8039 | 台虹 | 6 | 1 | 5 | 8 | 13 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260821 | 8039 | 台虹 | 1 | 1 | 2 | 7 | 12 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 8039 | 台虹 | 115 | 4 | 17716200.0 | 327150.0 | 54.15 | call_inflow |
+| 20260821 | 8039 | 台虹 | 115 | 3 | 27319800.0 | 2331220.0 | 11.72 | put_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

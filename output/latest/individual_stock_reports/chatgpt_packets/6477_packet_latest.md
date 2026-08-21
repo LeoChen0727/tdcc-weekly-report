@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6477 安集
 
 ## Metadata
-- generated_at: 2026-08-10 22:28:31 Asia/Taipei
+- generated_at: 2026-08-21 22:28:00 Asia/Taipei
 - stock_id: 6477
 - stock_name: 安集
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -124,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 35.2
-- high: 35.4
-- low: 34
-- close: 34.05
-- volume: 855474
-- ma5: 35.44
-- ema23_primary: 36.28
-- distance_to_ema23_pct: -6.15
-- ma20: 37.79
-- ma60: 35.08
-- ma120: 35.22
-- return_5d: -4.76
-- return_20d: -14.55
-- volume_ratio: 0.14
-- distance_to_ma20_pct_auxiliary: -9.89
-- distance_to_high_60_pct: -24.5
+- date: 20260821
+- open: 37.8
+- high: 38.25
+- low: 37
+- close: 37
+- volume: 1579854
+- ma5: 37.9
+- ema23_primary: 36.63
+- distance_to_ema23_pct: 1.01
+- ma20: 35.86
+- ma60: 35.51
+- ma120: 35.33
+- return_5d: -3.27
+- return_20d: -4.76
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: 3.17
+- distance_to_high_60_pct: -17.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,39.85,42.8,39.2,40.55,16101177,35.04,15.71,34.07,34.07,5.07
-20260714,40.7,44.2,40.45,41.5,15427042,35.58,16.63,34.47,34.18,4.03
-20260715,41.6,42.95,39.75,42.2,8415956,36.13,16.79,34.9,34.31,2
-20260716,41.05,42.45,41,41,4381730,36.54,12.21,35.35,34.42,1
-20260717,39.75,41.25,38.1,38.1,5899872,36.67,3.9,35.63,34.48,1.27
-20260720,38.25,41.9,38.05,41,8771674,37.03,10.72,36.08,34.57,1.73
-20260721,41,45.1,40.7,42.35,21753433,37.47,13.01,36.57,34.71,3.55
-20260722,41.45,43.9,39.9,40.15,11733915,37.7,6.51,37,34.82,1.76
-20260723,40.65,40.95,38.2,38.5,3961129,37.76,1.95,37.34,34.9,0.58
-20260724,38.3,40.25,37.85,38.85,5892182,37.85,2.63,37.73,35,0.83
 20260727,39,39.05,35.85,36.55,2867609,37.74,-3.17,38.07,35.05,0.4
 20260728,35.5,36.7,35,35.2,2866943,37.53,-6.22,38.31,35.08,0.39
 20260729,36.05,36.15,32.75,34.25,3004313,37.26,-8.08,38.35,35.06,0.41
@@ -166,18 +157,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,36.4,37.05,35.8,36.3,1858650,36.6,-0.81,38.22,35.07,0.28
 20260806,36.35,36.8,35.2,35.25,1141088,36.48,-3.38,38.08,35.08,0.17
 20260807,35.2,35.4,34,34.05,855474,36.28,-6.15,37.79,35.08,0.14
+20260810,34.05,34.75,33.15,33.95,1206262,36.09,-5.92,37.46,35.09,0.22
+20260811,33.8,35.2,32.75,34.95,2080487,35.99,-2.9,37.13,35.13,0.44
+20260812,34.6,34.8,34,34.25,933587,35.85,-4.46,36.73,35.13,0.21
+20260813,34.3,35.85,34.3,34.8,1365286,35.76,-2.68,36.42,35.15,0.32
+20260814,35.75,38.25,34.05,38.25,4939016,35.97,6.35,36.43,35.22,1.17
+20260817,40.15,41.25,37.3,38.45,11477732,36.17,6.29,36.3,35.29,2.64
+20260818,37.8,40.3,37.8,38.4,5552916,36.36,5.61,36.1,35.35,1.57
+20260819,38.2,39,36.8,37.5,2860960,36.45,2.87,35.97,35.4,0.93
+20260820,38.15,41,38,38.15,5134244,36.6,4.25,35.95,35.46,1.63
+20260821,37.8,38.25,37,37,1579854,36.63,1.01,35.86,35.51,0.54
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 43.54
-- over_600_ratio: 40.06
-- over_800_ratio: 37.85
-- over_1000_ratio: 37.1
-- over_400_change_1w: 0.79
-- over_800_change_1w: -0.27
-- over_1000_change_1w: 1.16
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260814
+- over_400_ratio: 43.49
+- over_600_ratio: 40.38
+- over_800_ratio: 38.13
+- over_1000_ratio: 37.38
+- over_400_change_1w: -0.05
+- over_800_change_1w: 0.28
+- over_1000_change_1w: 0.28
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -185,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,43.8,0.05,38.91,0.06,38.24,0.05,1,True,True
 20260529,44.03,0.23,38.96,0.05,38.27,0.03,2,True,True
 20260605,43.88,-0.15,40.32,1.36,37.46,-0.81,3,False,True
 20260612,44.05,0.17,38.29,-2.03,37.5,0.04,4,False,True
@@ -197,17 +197,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,43.47,0.32,38.13,0.64,35.9,-0.15,1,False,True
 20260731,42.75,-0.72,38.12,-0.01,35.94,0.04,2,False,True
 20260807,43.54,0.79,37.85,-0.27,37.1,1.16,3,False,True
+20260814,43.49,-0.05,38.13,0.28,37.38,0.28,4,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 6477 | 安集 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | 1.事實發生日:115/07/16 2.公司名稱:安集科技股股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 本公司國內第三次無擔保轉換公司債自民國110年08月04日開始發行， 至民國115年08月04日到期，擬依本債券發行及轉換辦法辦理到期還本 事宜，並終止上櫃買賣。 6.因應措施:債券到期時，依債券面額之102.53%(到期年收益率為0.5%) 以現金一次償還。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (1)本公司國內第三次無擔保轉換公司債截至目前尚有餘額未轉換，    將於115年08月04日到期，並於到期之次一營業日115年08月05日    終止上櫃買賣。 (2)債券持有人如擬申請轉換，最遲應於115年08月04日向往來券商    提出申請轉換手續。 (3)本公司預計於115年08月18日將到期償還款項以匯款或郵寄支票    方式交付債權人，匯費及郵費將自償還價款中扣除。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
+| 20260821 | 6477 | 安集 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日:115/07/16 2.公司名稱:安集科技股股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 本公司國內第三次無擔保轉換公司債自民國110年08月04日開始發行， 至民國115年08月04日到期，擬依本債券發行及轉換辦法辦理到期還本 事宜，並終止上櫃買賣。 6.因應措施:債券到期時，依債券面額之102.53%(到期年收益率為0.5%) 以現金一次償還。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (1)本公司國內第三次無擔保轉換公司債截至目前尚有餘額未轉換，    將於115年08月04日到期，並於到期之次一營業日115年08月05日    終止上櫃買賣。 (2)債券持有人如擬申請轉換，最遲應於115年08月04日向往來券商    提出申請轉換手續。 (3)本公司預計於115年08月18日將到期償還款項以匯款或郵寄支票    方式交付債權人，匯費及郵費將自償還價款中扣除。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 6477 | 安集 | 1 | 1 | 4 | 9 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260821 | 6477 | 安集 | 3 | 3 | 4 | 8 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

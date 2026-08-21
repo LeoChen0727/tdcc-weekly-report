@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2006 東和鋼鐵
 
 ## Metadata
-- generated_at: 2026-08-10 22:26:43 Asia/Taipei
+- generated_at: 2026-08-21 22:26:50 Asia/Taipei
 - stock_id: 2006
 - stock_name: 東和鋼鐵
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -72,14 +72,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
+- risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -87,7 +87,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_distribution_risk
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -101,8 +101,10 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -116,7 +118,6 @@
 
 ### downgrade_reason
 - tdcc_distribution_warning
-- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -124,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 85.6
-- high: 88.5
-- low: 85.3
-- close: 88.5
-- volume: 7445964
-- ma5: 83.2
-- ema23_primary: 75.57
-- distance_to_ema23_pct: 17.12
-- ma20: 74.61
-- ma60: 69.97
-- ma120: 70.92
-- return_5d: 18.63
-- return_20d: 26.07
-- volume_ratio: 1.7
-- distance_to_ma20_pct_auxiliary: 18.61
-- distance_to_high_60_pct: 0
+- date: 20260821
+- open: 81.2
+- high: 81.8
+- low: 80.3
+- close: 81.6
+- volume: 1100952
+- ma5: 81.14
+- ema23_primary: 79.51
+- distance_to_ema23_pct: 2.63
+- ma20: 80.45
+- ma60: 72.82
+- ma120: 71.83
+- return_5d: 0.87
+- return_20d: 13.65
+- volume_ratio: 0.27
+- distance_to_ma20_pct_auxiliary: 1.42
+- distance_to_high_60_pct: -8.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,70.2,71.2,69.5,70.2,2583556,68.83,2,69.23,67.75,0.57
-20260714,70.9,70.9,69.4,70.2,2398608,68.94,1.83,69.31,67.74,0.54
-20260715,70.4,72.6,70.4,71.8,3379521,69.18,3.79,69.45,67.74,0.76
-20260716,72,72.6,71.9,72.4,4556582,69.45,4.25,69.64,67.78,1
-20260717,72.3,72.3,70,70.2,2363507,69.51,0.99,69.67,67.78,0.52
-20260720,71.2,71.2,69.5,70,3116691,69.55,0.65,69.69,67.79,0.73
-20260721,70,71.8,70,71.5,3384280,69.71,2.56,69.79,67.86,0.84
-20260722,71.5,72.2,71.1,71.1,2870139,69.83,1.82,69.86,67.94,0.77
-20260723,71.1,72,70.9,71.2,1879763,69.94,1.8,69.93,68,0.57
-20260724,71,72.1,70.9,71.8,2031167,70.1,2.43,70.02,68.05,0.69
 20260727,71.8,73.1,71.6,73,3176868,70.34,3.78,70.18,68.15,1.11
 20260728,72.9,72.9,71.8,72.5,2094278,70.52,2.81,70.31,68.27,0.76
 20260729,72.8,73.3,69,72.4,2318461,70.68,2.44,70.56,68.36,0.88
@@ -166,26 +157,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,81.9,81.9,77.9,78.4,5039468,73.32,6.93,72.83,69.25,1.34
 20260806,78.4,86.2,78,86.2,11103363,74.39,15.88,73.7,69.58,2.66
 20260807,85.6,88.5,85.3,88.5,7445964,75.57,17.12,74.61,69.97,1.7
+20260810,88.6,89.2,85.3,85.9,3234983,76.43,12.39,75.4,70.3,0.73
+20260811,86.4,86.5,84.1,85.5,3463974,77.18,10.78,76.17,70.64,0.78
+20260812,85.4,85.4,82.9,83.8,3227686,77.73,7.8,76.77,70.95,0.72
+20260813,83.9,85.5,83.1,85.4,2649988,78.37,8.97,77.42,71.28,0.61
+20260814,85.3,85.3,80.2,80.9,3455095,78.58,2.95,77.95,71.55,0.78
+20260817,80.5,81.5,80,80,1207128,78.7,1.65,78.45,71.79,0.28
+20260818,79.2,81,78.5,80.8,1884791,78.88,2.44,78.92,72.04,0.44
+20260819,80.3,82.3,79.6,81.3,1400677,79.08,2.81,79.42,72.29,0.34
+20260820,81.3,83,81,82,2104882,79.32,3.38,79.97,72.57,0.5
+20260821,81.2,81.8,80.3,81.6,1100952,79.51,2.63,80.45,72.82,0.27
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 81.1
-- over_600_ratio: 79.28
-- over_800_ratio: 77.04
-- over_1000_ratio: 75.14
-- over_400_change_1w: 1.05
-- over_800_change_1w: 1.43
-- over_1000_change_1w: 1.16
-- tdcc_consecutive_up_weeks: 10
-- all_thresholds_up: True
+- as_of_date: 20260814
+- over_400_ratio: 81.41
+- over_600_ratio: 79.73
+- over_800_ratio: 77.25
+- over_1000_ratio: 75.02
+- over_400_change_1w: 0.31
+- over_800_change_1w: 0.21
+- over_1000_change_1w: -0.12
+- tdcc_consecutive_up_weeks: 11
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,79.49,-0.05,75.26,-0.02,73.88,0.01,1,False,True
 20260529,79.18,-0.31,75.14,-0.12,73.51,-0.37,0,False,False
 20260605,79.02,-0.16,75.21,0.07,73.57,0.06,1,False,True
 20260612,79.09,0.07,75.05,-0.16,73.55,-0.02,2,False,False
@@ -197,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,79.67,0.09,75.65,0.14,73.43,-0.36,8,False,True
 20260731,80.05,0.38,75.61,-0.04,73.98,0.55,9,False,True
 20260807,81.1,1.05,77.04,1.43,75.14,1.16,10,True,True
+20260814,81.41,0.31,77.25,0.21,75.02,-0.12,11,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2006 | 東和鋼鐵 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
+| 20260821 | 2006 | 東和鋼鐵 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2006 | 東和鋼鐵 | 6 | 1 | 5 | 8 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260821 | 2006 | 東和鋼鐵 | 2 | 2 | 3 | 8 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2006 | 東和鋼鐵 | 3 | 0 | 351490.0 | 0.0 |  | no_signal |
+| 20260821 | 2006 | 東和鋼鐵 | 7 | 0 | 85670.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

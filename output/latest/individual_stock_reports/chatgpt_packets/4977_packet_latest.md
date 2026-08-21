@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4977 眾達-KY
 
 ## Metadata
-- generated_at: 2026-08-10 22:28:00 Asia/Taipei
+- generated_at: 2026-08-21 22:27:40 Asia/Taipei
 - stock_id: 4977
 - stock_name: 眾達-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 320
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 337
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 136
-- high: 141.5
-- low: 131.5
-- close: 133.5
-- volume: 2134747
-- ma5: 133.4
-- ema23_primary: 138.01
-- distance_to_ema23_pct: -3.27
-- ma20: 132.53
-- ma60: 171.24
-- ma120: 179.82
-- return_5d: 14.1
-- return_20d: -12.46
-- volume_ratio: 0.81
-- distance_to_ma20_pct_auxiliary: 0.74
-- distance_to_high_60_pct: -46.17
+- date: 20260821
+- open: 159
+- high: 160
+- low: 150
+- close: 150.5
+- volume: 6080444
+- ma5: 152.2
+- ema23_primary: 145.28
+- distance_to_ema23_pct: 3.59
+- ma20: 138.07
+- ma60: 159.83
+- ma120: 181
+- return_5d: 4.51
+- return_20d: 8.27
+- volume_ratio: 1.73
+- distance_to_ma20_pct_auxiliary: 9
+- distance_to_high_60_pct: -35.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,153.5,154.5,148.5,151.5,1448051,171.04,-11.42,169.38,201.76,0.74
-20260714,150,155,138,147,2165540,169.04,-13.04,167.7,200.96,1.11
-20260715,151.5,151.5,147,149,872351,167.37,-10.97,166.15,199.87,0.46
-20260716,147,147.5,143,144,826220,165.42,-12.95,164.32,198.34,0.47
-20260717,137,139.5,130,130,1711769,162.47,-19.98,161.88,196.48,0.97
-20260720,131,132.5,117,127.5,1948090,159.55,-20.09,159.03,194.41,1.11
-20260721,131,134,128,134,1016383,157.43,-14.88,156.18,192.61,0.6
-20260722,135.5,138,133.5,134,1808745,155.47,-13.81,153.6,191.08,1.09
-20260723,135,144,134,134.5,2313495,153.73,-12.51,151.2,189.73,1.36
-20260724,134,147.5,132,139,8626255,152.5,-8.85,149.3,188.63,4.23
 20260727,135,138.5,130,133.5,4368038,150.92,-11.54,147.75,187.31,2.05
 20260728,126,132,123.5,124,3177754,148.67,-16.59,145.6,185.87,1.44
 20260729,123,125,112,112,2229870,145.62,-23.09,142.72,184.11,0.98
@@ -168,26 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,140,144,138.5,142.5,5144394,138.41,2.95,134.22,175.28,2.07
 20260806,139.5,141.5,134,138.5,3430888,138.42,0.06,133.47,173.07,1.33
 20260807,136,141.5,131.5,133.5,2134747,138.01,-3.27,132.53,171.24,0.81
+20260810,134.5,145,134.5,144.5,3104053,138.55,4.29,132.18,169.72,1.14
+20260811,147,153,143,146.5,5239211,139.21,5.23,132.15,168.39,1.83
+20260812,147,158,147,154,5316331,140.45,9.65,132.4,167.47,1.72
+20260813,158,161,150,151.5,4313153,141.37,7.17,132.78,166.62,1.32
+20260814,150,150,143.5,144,1886956,141.59,1.7,133.47,165.67,0.58
+20260817,147,158,143.5,158,3202647,142.95,10.53,135,164.89,0.96
+20260818,157,160,149,151,4511096,143.62,5.14,135.85,163.75,1.28
+20260819,146,151,144.5,145,1961724,143.74,0.88,136.4,162.32,0.56
+20260820,147,157,144.5,156.5,4598590,144.8,8.08,137.5,161.01,1.27
+20260821,159,160,150,150.5,6080444,145.28,3.59,138.07,159.83,1.73
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 19.39
+- as_of_date: 20260814
+- over_400_ratio: 20.15
 - over_600_ratio: 17.01
-- over_800_ratio: 12.84
+- over_800_ratio: 11.81
 - over_1000_ratio: 10.73
-- over_400_change_1w: -0.49
-- over_800_change_1w: 0.07
+- over_400_change_1w: 0.76
+- over_800_change_1w: -1.03
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,17.52,-2.41,8.7,-1.59,8.7,-1.59,0,False,False
 20260529,16.81,-0.71,8.7,0,8.7,0,1,False,False
 20260605,16.15,-0.66,11.79,3.09,8.7,0,2,False,True
 20260612,17.15,1,11.85,0.06,8.7,0,3,False,True
@@ -199,22 +198,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,22.09,-0.73,12.96,-0.5,10.73,-1.67,0,False,False
 20260731,19.88,-2.21,12.77,-0.19,10.73,0,0,False,False
 20260807,19.39,-0.49,12.84,0.07,10.73,0,1,False,True
+20260814,20.15,0.76,11.81,-1.03,10.73,0,2,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 4977 | 眾達-KY | pattern | 型態觀察 | 47.0 |  |  | platform_right_side |  | call_inflow | stale_signal | 1.事實發生日:115/08/20 2.背書保證餘額達該公開發行公司最近期財務報表淨值百分之五十以上者: (1)被背書保證之公司名稱:PCL TECHNOLOGIES TRADING, INC. (2)與提供背書保證公司之關係: 本公司100%持股之子公司。 (3)迄事實發生日為止背書保證原因: 短期綜合額度及金融交易額度信用保證。 (4)背書保證之限額(仟元):7,780,500 (5)原背書保證之餘額(仟元):419,384 (6)迄事實發生日為止背書保證餘額(仟元):586,750 (7)被背書保證公司實際動支金額(仟元):27,367 (8)本次新增背書保證之金額(仟元):167,366 (9)本次新增背書保證之原因: 短期綜合額度及金融交易額度續約(遠東銀行)。 (1)被背書保證之公司名稱:眾達光電股份有限公司 (2)與提供背書保證公司之關係: 本公司100%持股之子公司。 (3)迄事實發生日為止背書保證原因: 短期放款額度及聯貸授信額度信用保證。 (4)背書保證之限額(仟元):7,780,500 (5)原背書保證之餘額(仟元):1,139,000 (6)迄事實發生日為止背書保證餘額(仟元):1,229,000 (7)被背書保證公司實際動支金額(仟元):1,009,000 (8)本次新增背書保證之金額(仟元):90,000 (9)本次新增背書保證之原因: 短期放款額度年度續約(遠東銀行)。 (1)被背書保證之公司名稱:眾達光通科技股份有限公司 (2)與提供背書保證公司之關係: 本公司100%持股之孫公司。 (3)迄事實發生日為止背書保證原因: 短期放款額度信用保證。 (4)背書保證之限額(仟元):7,780,500 (5)原背書保證之餘額(仟元):90,000 (6)迄事實發生日為止背書保證餘額(仟元):180,000 (7)被背書保證公司實際動支金額(仟元):0 (8)本次新增背書保證之金額(仟元):90,000 (9)本次新增背書保證之原因: 短期放款額度年度續約(遠東銀行)。 (1)被背書保證之公司名稱:PCL INTERNATIONAL TECHNOLOGIES (PENANG) SDN. BHD. (2)與提供背書保證公司之關係: 本公司100%持股之孫公司。 (3)迄事實發生日為止背書保證原因: 廠房貸款額度及營運週轉額度信用保證。 (4)背書保證之限額(仟元):7,780,500 (5)原背書保證之餘額(仟元):0 (6)迄事實發生日為止背書保證餘額(仟元):608,546 (7)被背書保證公司實際動支金額(仟元):0 (8)本次新增背書保證之金額(仟元):608,546 (9)本次新增背書保證之原因: 廠房貸款額度及營運週轉額度信用保證(Maybank Islamic Berhad)。 2.背書保證之總限額(仟元): 7,780,500 3.迄事實發生日為止，背書保證餘額(仟元): 4,430,296 3.迄事實發生日為止，提供背書保證餘額占公開發行公司最近期財務報表淨值之比 率: 113.88 4.其他應敘明事項: 美金匯率以1:32.31折算為新台幣。；calendar event: ex_right on 20260901; status=confirmed; proximity=within_14d |
+| 20260821 | 4977 | 眾達-KY | revenue_breakout_low_response | 營收爆發低反應股 | 12 | 46 | D_降級_TDCC轉弱 |  |  | call_inflow | stale_signal | 1.事實發生日:115/08/20 2.背書保證餘額達該公開發行公司最近期財務報表淨值百分之五十以上者: (1)被背書保證之公司名稱:PCL TECHNOLOGIES TRADING, INC. (2)與提供背書保證公司之關係: 本公司100%持股之子公司。 (3)迄事實發生日為止背書保證原因: 短期綜合額度及金融交易額度信用保證。 (4)背書保證之限額(仟元):7,780,500 (5)原背書保證之餘額(仟元):419,384 (6)迄事實發生日為止背書保證餘額(仟元):586,750 (7)被背書保證公司實際動支金額(仟元):27,367 (8)本次新增背書保證之金額(仟元):167,366 (9)本次新增背書保證之原因: 短期綜合額度及金融交易額度續約(遠東銀行)。 (1)被背書保證之公司名稱:眾達光電股份有限公司 (2)與提供背書保證公司之關係: 本公司100%持股之子公司。 (3)迄事實發生日為止背書保證原因: 短期放款額度及聯貸授信額度信用保證。 (4)背書保證之限額(仟元):7,780,500 (5)原背書保證之餘額(仟元):1,139,000 (6)迄事實發生日為止背書保證餘額(仟元):1,229,000 (7)被背書保證公司實際動支金額(仟元):1,009,000 (8)本次新增背書保證之金額(仟元):90,000 (9)本次新增背書保證之原因: 短期放款額度年度續約(遠東銀行)。 (1)被背書保證之公司名稱:眾達光通科技股份有限公司 (2)與提供背書保證公司之關係: 本公司100%持股之孫公司。 (3)迄事實發生日為止背書保證原因: 短期放款額度信用保證。 (4)背書保證之限額(仟元):7,780,500 (5)原背書保證之餘額(仟元):90,000 (6)迄事實發生日為止背書保證餘額(仟元):180,000 (7)被背書保證公司實際動支金額(仟元):0 (8)本次新增背書保證之金額(仟元):90,000 (9)本次新增背書保證之原因: 短期放款額度年度續約(遠東銀行)。 (1)被背書保證之公司名稱:PCL INTERNATIONAL TECHNOLOGIES (PENANG) SDN. BHD. (2)與提供背書保證公司之關係: 本公司100%持股之孫公司。 (3)迄事實發生日為止背書保證原因: 廠房貸款額度及營運週轉額度信用保證。 (4)背書保證之限額(仟元):7,780,500 (5)原背書保證之餘額(仟元):0 (6)迄事實發生日為止背書保證餘額(仟元):608,546 (7)被背書保證公司實際動支金額(仟元):0 (8)本次新增背書保證之金額(仟元):608,546 (9)本次新增背書保證之原因: 廠房貸款額度及營運週轉額度信用保證(Maybank Islamic Berhad)。 2.背書保證之總限額(仟元): 7,780,500 3.迄事實發生日為止，背書保證餘額(仟元): 4,430,296 3.迄事實發生日為止，提供背書保證餘額占公開發行公司最近期財務報表淨值之比 率: 113.88 4.其他應敘明事項: 美金匯率以1:32.31折算為新台幣。；calendar event: ex_right on 20260901; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 4977 | 眾達-KY | 3 | 1 | 3 | 3 | 3 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 4977 | 眾達-KY | 105 | 6 | 818380.0 | 2710.0 | 301.99 | no_signal |
+| 20260821 | 4977 | 眾達-KY | 109 | 6 | 9993600.0 | 1380.0 | 7241.74 | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

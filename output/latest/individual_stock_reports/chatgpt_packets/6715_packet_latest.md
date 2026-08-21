@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6715 嘉基
 
 ## Metadata
-- generated_at: 2026-08-10 22:28:41 Asia/Taipei
+- generated_at: 2026-08-21 22:28:06 Asia/Taipei
 - stock_id: 6715
 - stock_name: 嘉基
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -87,7 +87,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: high_level_consolidation
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -104,7 +104,6 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -117,7 +116,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -125,38 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 358.5
-- high: 363
-- low: 332.5
-- close: 333.5
-- volume: 486212
-- ma5: 351.1
-- ema23_primary: 374.89
-- distance_to_ema23_pct: -11.04
-- ma20: 367.73
-- ma60: 425.99
-- ma120: 374.24
-- return_5d: 7.23
-- return_20d: -14.81
-- volume_ratio: 0.68
-- distance_to_ma20_pct_auxiliary: -9.31
-- distance_to_high_60_pct: -41.39
+- date: 20260821
+- open: 498
+- high: 500
+- low: 443
+- close: 448
+- volume: 1959487
+- ma5: 441.6
+- ema23_primary: 400.94
+- distance_to_ema23_pct: 11.74
+- ma20: 377.43
+- ma60: 414.45
+- ma120: 395.63
+- return_5d: 14.87
+- return_20d: 5.54
+- volume_ratio: 1.97
+- distance_to_ma20_pct_auxiliary: 18.7
+- distance_to_high_60_pct: -21.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,391.5,396,368,373,696392,443.26,-15.85,452.82,445.74,1.17
-20260714,367,380,341.5,367.5,603046,436.94,-15.89,451.62,444.88,0.99
-20260715,367,383.5,365,374,258936,431.7,-13.37,450.68,444.01,0.42
-20260716,372,411,358.5,411,478571,429.97,-4.41,449.62,443.05,0.81
-20260717,392,412.5,385,391,660291,426.73,-8.37,445.43,442.1,1.15
-20260720,391,399,361.5,375,760504,422.42,-11.22,440.6,441.34,1.3
-20260721,375,407.5,371.5,386.5,910897,419.42,-7.85,434.02,441.12,1.6
-20260722,400,413.5,372,387,1306707,416.72,-7.13,424.93,440.84,2.5
-20260723,399,425.5,380.5,425.5,1185470,417.45,1.93,420.55,441.58,2.3
-20260724,421,463,410.5,424.5,1067102,418.04,1.55,417.77,442.43,1.94
 20260727,415,418.5,388,398,819941,416.37,-4.41,414.93,442.88,1.42
 20260728,366.5,376.5,358.5,360,615294,411.67,-12.55,411.73,442.21,1.03
 20260729,378,378,320.5,320.5,487158,404.07,-20.68,405.98,440.45,0.8
@@ -167,26 +156,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,366.5,383,357,371.5,824135,380.35,-2.33,374.38,430.23,1.13
 20260806,365.5,373.5,355,360,644117,378.65,-4.93,370.62,428.23,0.85
 20260807,358.5,363,332.5,333.5,486212,374.89,-11.04,367.73,425.99,0.68
+20260810,335.5,365.5,335.5,363.5,324682,373.94,-2.79,367.25,423.93,0.47
+20260811,363,377,355,360.5,363860,372.82,-3.3,366.9,421.96,0.53
+20260812,356,396.5,356,396.5,802589,374.79,5.79,368.02,419.8,1.13
+20260813,400,430,383.5,390.5,1351246,376.1,3.83,367,418.24,1.8
+20260814,400,408,387,390,632728,377.26,3.38,366.95,416.73,0.84
+20260817,395,427.5,393,401.5,841588,379.28,5.86,368.27,415.47,1.12
+20260818,405,428,393,419,1164315,382.59,9.52,369.9,414.76,1.52
+20260819,400,460.5,395,447.5,2792369,388,15.34,372.93,414.56,3.32
+20260820,472,492,452.5,492,3323695,396.67,24.03,376.25,414.77,3.51
+20260821,498,500,443,448,1959487,400.94,11.74,377.43,414.45,1.97
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 79.98
-- over_600_ratio: 74.55
-- over_800_ratio: 72.43
-- over_1000_ratio: 68.49
-- over_400_change_1w: -0.35
-- over_800_change_1w: 1.16
-- over_1000_change_1w: -0.1
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260814
+- over_400_ratio: 79.36
+- over_600_ratio: 74.43
+- over_800_ratio: 72.31
+- over_1000_ratio: 68.42
+- over_400_change_1w: -0.62
+- over_800_change_1w: -0.12
+- over_1000_change_1w: -0.07
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,80.62,0.71,74.53,0.81,69.32,0.58,3,False,True
 20260529,79.7,-0.92,74.47,-0.06,69.23,-0.09,0,False,False
 20260605,79.07,-0.63,73.48,-0.99,69.69,0.46,1,False,True
 20260612,78.73,-0.34,71.5,-1.98,67.77,-1.92,0,False,False
@@ -198,22 +196,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,80.07,-0.48,71.73,0.42,67.94,-0.77,2,False,True
 20260731,80.33,0.26,71.27,-0.46,68.59,0.65,3,False,True
 20260807,79.98,-0.35,72.43,1.16,68.49,-0.1,4,False,True
+20260814,79.36,-0.62,72.31,-0.12,68.42,-0.07,0,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 6715 | 嘉基 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 6715 | 嘉基 | 2 | 1 | 2 | 2 | 3 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 6715 | 嘉基 | 10 | 0 | 1051890.0 | 0.0 |  | call_inflow |
+| 20260821 | 6715 | 嘉基 | 16 | 0 | 1295290.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3490 單井
 
 ## Metadata
-- generated_at: 2026-08-10 22:27:32 Asia/Taipei
+- generated_at: 2026-08-21 22:27:22 Asia/Taipei
 - stock_id: 3490
 - stock_name: 單井
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 186
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 203
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 嚴格突破 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 嚴格突破 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -87,7 +87,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: high_level_consolidation
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -101,11 +101,9 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -118,7 +116,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -126,38 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 29.7
-- high: 30.75
-- low: 29.6
-- close: 30.4
-- volume: 5058000
-- ma5: 29.09
-- ema23_primary: 29.11
-- distance_to_ema23_pct: 4.41
-- ma20: 28.25
-- ma60: 32.92
-- ma120: 29.92
-- return_5d: 9.75
-- return_20d: -4.4
-- volume_ratio: 4.53
-- distance_to_ma20_pct_auxiliary: 7.61
-- distance_to_high_60_pct: -32.07
+- date: 20260821
+- open: 50.1
+- high: 53.9
+- low: 50.1
+- close: 53.9
+- volume: 3465000
+- ma5: 47.36
+- ema23_primary: 37.09
+- distance_to_ema23_pct: 45.34
+- ma20: 34.5
+- ma60: 33.22
+- ma120: 31.31
+- return_5d: 35.94
+- return_20d: 98.89
+- volume_ratio: 0.79
+- distance_to_ma20_pct_auxiliary: 56.24
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,31.75,31.9,30.85,31.4,452000,33.04,-4.97,32.53,33.56,0.57
-20260714,30.9,31.1,29.05,29.8,524000,32.77,-9.07,32.41,33.58,0.67
-20260715,29.95,30.95,29.45,30.25,383000,32.56,-7.1,32.24,33.6,0.51
-20260716,30.05,30.75,29.5,29.8,419000,32.33,-7.83,32.09,33.59,0.57
-20260717,29.45,29.45,27.5,27.5,710000,31.93,-13.87,31.8,33.55,0.98
-20260720,27.5,27.9,26.3,26.75,589000,31.5,-15.07,31.52,33.48,0.83
-20260721,26.9,28,26.9,27.8,458000,31.19,-10.87,31.23,33.45,0.66
-20260722,28.65,28.7,27.65,27.65,533000,30.89,-10.5,30.99,33.41,0.78
-20260723,27.7,28.15,27.2,27.4,418000,30.6,-10.47,30.73,33.39,0.62
-20260724,27.4,27.7,27,27.1,222000,30.31,-10.59,30.5,33.34,0.33
 20260727,27.1,27.8,26.55,27.75,671000,30.1,-7.8,30.37,33.3,1
 20260728,27.4,27.75,26.45,26.65,912000,29.81,-10.6,30.19,33.24,1.31
 20260729,27,27,25.3,25.85,760000,29.48,-12.31,29.94,33.19,1.06
@@ -168,17 +156,27 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,28.5,29.2,28.4,28.55,1844000,28.93,-1.33,28.47,32.98,2.28
 20260806,28.55,29.7,28.05,29.7,1924000,29,2.42,28.32,32.96,2.18
 20260807,29.7,30.75,29.6,30.4,5058000,29.11,4.41,28.25,32.92,4.53
+20260810,31.05,31.75,30.55,31.6,4766000,29.32,7.77,28.26,32.85,3.58
+20260811,30.75,32.45,30.75,32,3479000,29.55,8.31,28.37,32.77,2.35
+20260812,32.25,33.95,32.05,33.5,5433000,29.87,12.13,28.53,32.7,3.14
+20260813,36.85,36.85,36.8,36.85,3112000,30.46,20.99,28.89,32.69,1.67
+20260814,37.85,40.45,37.2,39.65,12684000,31.22,26.99,29.49,32.73,5.14
+20260817,39.9,43,39.5,42.45,11362000,32.16,32,30.28,32.76,3.78
+20260818,42.65,44.5,41.8,44.5,10224000,33.19,34.09,31.11,32.78,2.93
+20260819,43.7,47.95,43.05,46.8,11824000,34.32,36.36,32.07,32.86,2.91
+20260820,47.5,49.25,47.15,49.15,3502000,35.56,38.23,33.16,32.98,0.83
+20260821,50.1,53.9,50.1,53.9,3465000,37.09,45.34,34.5,33.22,0.79
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 16.98
-- over_600_ratio: 14.16
-- over_800_ratio: 14.16
-- over_1000_ratio: 14.16
-- over_400_change_1w: -0.17
-- over_800_change_1w: -0.1
-- over_1000_change_1w: -0.1
+- as_of_date: 20260814
+- over_400_ratio: 15.72
+- over_600_ratio: 12.1
+- over_800_ratio: 12.1
+- over_1000_ratio: 12.1
+- over_400_change_1w: -1.26
+- over_800_change_1w: -2.06
+- over_1000_change_1w: -2.06
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -187,7 +185,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,20.09,-0.63,14.53,-3.23,14.53,-3.23,0,False,False
 20260529,14.81,-5.28,12.01,-2.52,12.01,-2.52,0,False,False
 20260605,16.45,1.64,12.01,0,12.01,0,1,False,False
 20260612,18.12,1.67,12.04,0.03,12.04,0.03,2,True,True
@@ -199,17 +196,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,15.93,-0.1,12.07,0,12.07,0,1,False,False
 20260731,17.15,1.22,14.26,2.19,14.26,2.19,2,True,True
 20260807,16.98,-0.17,14.16,-0.1,14.16,-0.1,0,False,False
+20260814,15.72,-1.26,12.1,-2.06,12.1,-2.06,0,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 3490 | 單井 | true_breakout | 嚴格突破 | 61.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 3490 | 單井 | 1 | 1 | 3 | 3 | 5 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | status |

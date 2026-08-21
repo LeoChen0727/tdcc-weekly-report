@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6781 AES-KY
 
 ## Metadata
-- generated_at: 2026-08-10 22:28:44 Asia/Taipei
+- generated_at: 2026-08-21 22:28:08 Asia/Taipei
 - stock_id: 6781
 - stock_name: AES-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 1115
-- high: 1190
-- low: 1115
-- close: 1145
-- volume: 2633730
-- ma5: 1054.8
-- ema23_primary: 1031.17
-- distance_to_ema23_pct: 11.04
-- ma20: 996.3
-- ma60: 1110.35
-- ma120: 1097.88
-- return_5d: 25
-- return_20d: 1.33
-- volume_ratio: 3.2
-- distance_to_ma20_pct_auxiliary: 14.93
-- distance_to_high_60_pct: -14.23
+- date: 20260821
+- open: 1075
+- high: 1075
+- low: 1040
+- close: 1050
+- volume: 333115
+- ma5: 1069
+- ema23_primary: 1070.87
+- distance_to_ema23_pct: -1.95
+- ma20: 1045.6
+- ma60: 1098.68
+- ma120: 1093.79
+- return_5d: -6.25
+- return_20d: 6.17
+- volume_ratio: 0.39
+- distance_to_ma20_pct_auxiliary: 0.42
+- distance_to_high_60_pct: -21.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,1145,1165,1100,1105,652214,1165.63,-5.2,1170.25,1158.75,0.53
-20260714,1120,1120,1000,1060,1219624,1156.83,-8.37,1166,1159.5,0.99
-20260715,1060,1070,1040,1040,844443,1147.09,-9.34,1159.5,1159.5,0.7
-20260716,1040,1050,1005,1045,611660,1138.58,-8.22,1154,1160.08,0.52
-20260717,1010,1020,946,960,1317599,1123.7,-14.57,1143.25,1159.08,1.08
-20260720,970,975,894,926,1060540,1107.23,-16.37,1130.55,1155.85,0.87
-20260721,960,972,933,969,422356,1095.71,-11.56,1118.75,1153.42,0.36
-20260722,995,1020,985,1005,655536,1088.15,-7.64,1110.5,1151.58,0.57
-20260723,1010,1025,987,1020,448939,1082.47,-5.77,1103.25,1148.17,0.39
-20260724,1000,1015,989,989,395189,1074.68,-7.97,1093.2,1144.57,0.36
 20260727,995,997,967,990,406482,1067.62,-7.27,1087.45,1142.23,0.39
 20260728,961,961,915,915,486224,1054.9,-13.26,1076.7,1139.07,0.47
 20260729,922,934,840,870,1063807,1039.5,-16.31,1061.2,1134.65,1.06
@@ -167,18 +158,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,1040,1080,1040,1065,936446,1014.53,4.97,999.3,1115.18,1.2
 20260806,1045,1105,1045,1090,1045874,1020.82,6.78,995.55,1111.93,1.44
 20260807,1115,1190,1115,1145,2633730,1031.17,11.04,996.3,1110.35,3.2
+20260810,1160,1220,1140,1195,1873258,1044.82,14.37,1000.8,1110.52,2.12
+20260811,1210,1230,1165,1175,1652919,1055.67,11.3,1006.55,1110.77,1.83
+20260812,1190,1195,1140,1145,1395878,1063.12,7.7,1011.8,1110.1,1.5
+20260813,1155,1160,1120,1125,636443,1068.27,5.31,1015.8,1110.1,0.68
+20260814,1130,1140,1115,1120,494905,1072.58,4.42,1023.8,1110.6,0.55
+20260817,1135,1135,1090,1095,365609,1074.45,1.91,1032.25,1109.85,0.43
+20260818,1100,1110,1055,1060,548495,1073.25,-1.23,1036.8,1107.35,0.63
+20260819,1035,1065,1035,1065,346179,1072.56,-0.7,1039.8,1104.1,0.41
+20260820,1075,1095,1050,1075,432765,1072.76,0.21,1042.55,1101.27,0.51
+20260821,1075,1075,1040,1050,333115,1070.87,-1.95,1045.6,1098.68,0.39
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 69.45
-- over_600_ratio: 68.44
-- over_800_ratio: 67.68
-- over_1000_ratio: 67.68
-- over_400_change_1w: 0.64
-- over_800_change_1w: 0.13
-- over_1000_change_1w: 0.13
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260814
+- over_400_ratio: 70.54
+- over_600_ratio: 69.38
+- over_800_ratio: 67.77
+- over_1000_ratio: 67.77
+- over_400_change_1w: 1.09
+- over_800_change_1w: 0.09
+- over_1000_change_1w: 0.09
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -186,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,71.65,0.09,70.85,0.94,69.91,0,1,False,True
 20260529,72.25,0.6,70.96,0.11,69.91,0,2,False,True
 20260605,71.36,-0.89,69.99,-0.97,69.99,0.08,3,False,True
 20260612,70.27,-1.09,69.41,-0.58,68.25,-1.74,0,False,False
@@ -198,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,68.86,-0.7,67.55,-0.11,67.55,-0.11,0,False,False
 20260731,68.81,-0.05,67.55,0,67.55,0,0,False,False
 20260807,69.45,0.64,67.68,0.13,67.68,0.13,1,True,True
+20260814,70.54,1.09,67.77,0.09,67.77,0.09,2,True,True
 ```
 
 ## Candidate Context
@@ -213,7 +214,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 6781 | AES-KY | 166 | 2 | 12502650.0 | 50280.0 | 248.66 | no_signal |
+| 20260821 | 6781 | AES-KY | 176 | 3 | 9270710.0 | 22460.0 | 412.77 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3005 神基
 
 ## Metadata
-- generated_at: 2026-08-10 22:27:15 Asia/Taipei
+- generated_at: 2026-08-21 22:27:11 Asia/Taipei
 - stock_id: 3005
 - stock_name: 神基
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 115.5
-- high: 117
-- low: 114.5
-- close: 115
-- volume: 2580913
-- ma5: 114.8
-- ema23_primary: 111.76
-- distance_to_ema23_pct: 2.9
-- ma20: 113.15
-- ma60: 106.85
-- ma120: 108.47
-- return_5d: 0.88
-- return_20d: 2.68
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: 1.64
-- distance_to_high_60_pct: -4.17
+- date: 20260821
+- open: 117
+- high: 118.5
+- low: 116
+- close: 117
+- volume: 1971541
+- ma5: 118.2
+- ema23_primary: 114.71
+- distance_to_ema23_pct: 2
+- ma20: 114.65
+- ma60: 109.34
+- ma120: 108.87
+- return_5d: 0.43
+- return_20d: 3.54
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: 2.05
+- distance_to_high_60_pct: -6.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,114,117.5,112,115,10075428,105.34,9.17,103.81,102.27,1.52
-20260714,114.5,115,110.5,114.5,6988599,106.11,7.91,104.26,102.53,1.06
-20260715,115.5,116,113.5,115.5,4352179,106.89,8.05,104.83,102.81,0.66
-20260716,115,116,113.5,113.5,4137243,107.44,5.64,105.44,103.03,0.63
-20260717,111,114.5,109,110,6620178,107.65,2.18,105.81,103.18,0.98
-20260720,112,112,108.5,109.5,3702385,107.81,1.57,106.21,103.3,0.55
-20260721,110.5,120,110,116.5,10271721,108.53,7.34,107.01,103.61,1.48
-20260722,115.5,118.5,114,114.5,5193842,109.03,5.02,107.73,103.91,0.75
-20260723,115.5,116,112.5,113.5,2400359,109.4,3.75,108.44,104.19,0.35
-20260724,113,115,112.5,113,2291953,109.7,3.01,109.17,104.44,0.34
 20260727,114,114,111,112.5,2546372,109.94,2.33,110,104.68,0.39
 20260728,111.5,112.5,109,110,3288636,109.94,0.05,110.58,104.89,0.5
 20260729,110,111.5,104,107,5318267,109.7,-2.46,110.88,105.03,0.82
@@ -167,26 +157,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,115,116,114.5,115,2819818,111.1,3.51,112.6,106.28,0.55
 20260806,114.5,116,113.5,115.5,2753066,111.46,3.62,113,106.56,0.54
 20260807,115.5,117,114.5,115,2580913,111.76,2.9,113.15,106.85,0.56
+20260810,114,115,112,114.5,3515172,111.99,2.24,113.12,107.03,0.82
+20260811,114,115,112.5,114.5,2070798,112.2,2.05,113.12,107.28,0.51
+20260812,114,116,114,114.5,2143916,112.39,1.88,113.08,107.53,0.54
+20260813,116.5,117,114,114.5,3499035,112.56,1.72,113.12,107.8,0.89
+20260814,114.5,117.5,114,116.5,4165527,112.89,3.2,113.45,108.09,1.1
+20260817,118,125,116.5,121.5,13860419,113.61,6.95,114.05,108.42,3.22
+20260818,122,123,116.5,117.5,6556208,113.93,3.13,114.1,108.64,1.59
+20260819,116.5,119,115,117.5,3204424,114.23,2.86,114.25,108.88,0.8
+20260820,118.5,119,117,117.5,2070490,114.5,2.62,114.45,109.1,0.52
+20260821,117,118.5,116,117,1971541,114.71,2,114.65,109.34,0.49
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 72.95
-- over_600_ratio: 71.48
-- over_800_ratio: 69.69
-- over_1000_ratio: 67.91
-- over_400_change_1w: 0.54
-- over_800_change_1w: 0.7
-- over_1000_change_1w: 0.12
-- tdcc_consecutive_up_weeks: 6
-- all_thresholds_up: True
+- as_of_date: 20260814
+- over_400_ratio: 73.08
+- over_600_ratio: 71.64
+- over_800_ratio: 69.59
+- over_1000_ratio: 68.24
+- over_400_change_1w: 0.13
+- over_800_change_1w: -0.1
+- over_1000_change_1w: 0.33
+- tdcc_consecutive_up_weeks: 7
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,73.2,-0.4,69.73,-0.43,68.55,-0.44,0,False,False
 20260529,73.09,-0.11,69.7,-0.03,68.22,-0.33,0,False,False
 20260605,72.29,-0.8,68.84,-0.86,67.64,-0.58,0,False,False
 20260612,72.16,-0.13,68.47,-0.37,67.13,-0.51,0,False,False
@@ -198,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,72.32,0.52,68.98,0.91,67.5,0.62,4,True,True
 20260731,72.41,0.09,68.99,0.01,67.79,0.29,5,True,True
 20260807,72.95,0.54,69.69,0.7,67.91,0.12,6,True,True
+20260814,73.08,0.13,69.59,-0.1,68.24,0.33,7,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 3005 | 神基 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | 1.事實發生日:115/07/08 2.公司名稱:神基控股股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 神基控股股份有限公司(股票代碼：3005)今日(2026/07/08)公佈一百一十五年 六月份自結合併營收為新台幣42.54億元，與去年同期的33.08億元成長28.59%。 累計營收方面，一月至六月份為止，累計合併營收為新台幣208.21億元，較去年 同期的193.61億元成長7.54%。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
+| 20260821 | 3005 | 神基 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.股東常會日期:115/08/19 2.重要決議事項一、盈餘分配或盈虧撥補:無。 3.重要決議事項二、章程修訂: 通過修正「公司章程」部分條文案。 4.重要決議事項三、營業報告書及財務報表:無。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:無。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 3005 | 神基 | 12 | 3 | 5 | 10 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260821 | 3005 | 神基 | 2 | 2 | 4 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 3005 | 神基 | 38 | 0 | 4298820.0 | 0.0 |  | no_signal |
+| 20260821 | 3005 | 神基 | 48 | 1 | 1275060.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

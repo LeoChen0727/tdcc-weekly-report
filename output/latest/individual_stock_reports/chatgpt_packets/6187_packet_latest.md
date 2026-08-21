@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6187 萬潤
 
 ## Metadata
-- generated_at: 2026-08-10 22:28:21 Asia/Taipei
+- generated_at: 2026-08-21 22:27:53 Asia/Taipei
 - stock_id: 6187
 - stock_name: 萬潤
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 186
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 203
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
+- model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -125,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 1175
-- high: 1185
-- low: 1110
-- close: 1130
-- volume: 2477000
-- ma5: 1094
-- ema23_primary: 1030.93
-- distance_to_ema23_pct: 9.61
-- ma20: 1011.8
-- ma60: 1068.55
-- ma120: 964.67
-- return_5d: 21.64
-- return_20d: 7.62
-- volume_ratio: 1
-- distance_to_ma20_pct_auxiliary: 11.68
-- distance_to_high_60_pct: -12.4
+- date: 20260821
+- open: 1275
+- high: 1285
+- low: 1150
+- close: 1195
+- volume: 4413000
+- ma5: 1282
+- ema23_primary: 1150.86
+- distance_to_ema23_pct: 3.84
+- ma20: 1119.05
+- ma60: 1083.97
+- ma120: 1031.48
+- return_5d: -6.27
+- return_20d: 26.86
+- volume_ratio: 1.2
+- distance_to_ma20_pct_auxiliary: 6.79
+- distance_to_high_60_pct: -14.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,1110,1125,1010,1035,2302000,1060.07,-2.36,1077.1,1129.2,1.26
-20260714,1020,1050,933,985,1902000,1053.81,-6.53,1072.1,1127.2,1.04
-20260715,1020,1080,1005,1080,1604000,1055.99,2.27,1069.6,1124.95,0.91
-20260716,1055,1110,1045,1075,3056000,1057.58,1.65,1066.35,1122.45,1.72
-20260717,1020,1035,971,975,2462000,1050.7,-7.2,1057.35,1116.53,1.31
-20260720,960,988,910,935,1788000,1041.06,-10.19,1042.35,1108.95,0.95
-20260721,960,1010,932,998,1474000,1037.47,-3.8,1029.25,1104.67,0.77
-20260722,1020,1090,1000,1055,3409000,1038.93,1.55,1023.5,1102.75,1.68
-20260723,1080,1100,1010,1025,1869000,1037.77,-1.23,1021.75,1101.83,0.92
-20260724,999,1015,940,942,2055000,1029.79,-8.52,1013.6,1098.95,0.98
 20260727,975,1035,957,1035,3145000,1030.22,0.46,1011.6,1097.87,1.43
 20260728,990,1040,958,962,2892000,1024.54,-6.1,1010.7,1093.73,1.28
 20260729,978,1005,866,890,4097000,1013.32,-12.17,1005.3,1086.4,1.71
@@ -167,26 +157,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,1090,1130,1065,1070,4131000,1008.01,6.15,996.8,1070.88,1.73
 20260806,1070,1175,1035,1175,4118000,1021.92,14.98,1007.8,1070.13,1.65
 20260807,1175,1185,1110,1130,2477000,1030.93,9.61,1011.8,1068.55,1
+20260810,1165,1220,1080,1090,3918000,1035.85,5.23,1014.55,1067.72,1.53
+20260811,1165,1195,1035,1050,5630000,1037.03,1.25,1017.8,1066.47,2.04
+20260812,1060,1155,1055,1155,4335000,1046.86,10.33,1021.55,1066.8,1.5
+20260813,1190,1270,1185,1270,5819000,1065.46,19.2,1031.3,1069.38,1.92
+20260814,1275,1320,1250,1275,4487000,1082.92,17.74,1046.3,1072.55,1.43
+20260817,1275,1400,1265,1385,5106000,1108.09,24.99,1068.8,1077.47,1.55
+20260818,1360,1360,1250,1260,3894000,1120.75,12.42,1081.9,1079.47,1.14
+20260819,1210,1355,1205,1305,4731000,1136.1,14.87,1094.4,1081.05,1.36
+20260820,1320,1320,1240,1265,3110000,1146.85,10.3,1106.4,1082.88,0.88
+20260821,1275,1285,1150,1195,4413000,1150.86,3.84,1119.05,1083.97,1.2
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 54.1
-- over_600_ratio: 43.96
-- over_800_ratio: 41.89
-- over_1000_ratio: 32.77
-- over_400_change_1w: 2.56
-- over_800_change_1w: 2.16
-- over_1000_change_1w: -1.72
-- tdcc_consecutive_up_weeks: 7
-- all_thresholds_up: False
+- as_of_date: 20260814
+- over_400_ratio: 55.39
+- over_600_ratio: 45.62
+- over_800_ratio: 42.17
+- over_1000_ratio: 35.61
+- over_400_change_1w: 1.29
+- over_800_change_1w: 0.28
+- over_1000_change_1w: 2.84
+- tdcc_consecutive_up_weeks: 8
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,57.32,1.55,43.01,-0.69,38.39,-1.73,3,False,False
 20260529,58.16,0.84,46.14,3.13,42.25,3.86,4,True,True
 20260605,52,-6.16,40.7,-5.44,36.86,-5.39,0,False,False
 20260612,53.34,1.34,40.83,0.13,36.1,-0.76,1,False,True
@@ -198,17 +197,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,51.93,0.44,37.78,0.64,33.1,-0.31,5,False,True
 20260731,51.54,-0.39,39.73,1.95,34.49,1.39,6,False,True
 20260807,54.1,2.56,41.89,2.16,32.77,-1.72,7,False,True
+20260814,55.39,1.29,42.17,0.28,35.61,2.84,8,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 6187 | 萬潤 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/07/16 2.公司名稱:萬潤科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依本公司國內第六次無擔保轉換公司債發行及轉換辦法規定調整轉換價格。 6.因應措施:本公司因配發現金股利，依國內115年第六次無擔保轉換公司債發行及轉換 辦法第11條規定，轉換價格應予以調整，故自115年8月9日起，國內第六次無擔保轉換 公司債轉換價格由新臺幣1,150元調整為新臺幣1,136.8元。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 6187 | 萬潤 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | 1.事實發生日:115/08/20 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知處理及辦理公告。 3.財務業務資訊:  	                        單月  科目	      最近一月單月    去年同月         與去年同期增減﹪              (115年7月)     (114年7月) ----------------------------------------------------------------  營業收入 （百萬元）       1,055               608                    74%   稅前淨利 （百萬元）         422               194                   118%  歸屬母公司  業主淨利 （百萬元）         346               159                   118%   每股盈餘  （元）           3.52               1.66                   113%  	                             單季  科目	         最近一季           去年同期      與去年同期增減﹪              (單季115第2季)       (114第2季) --------------------------------------------------------------------------  營業收入 （百萬元）        2,355               1,524               55%   稅前淨利 （百萬元）          957                 506               89%  歸屬母公司  業主淨利 （百萬元）          827                 399              107%   每股盈餘  （元）             8.5                4.16              104%    科目	                   最近四季累計                   (114年第3季至115年第2季) -------------------------------------------------  營業收入 （百萬元）                   6,362   稅前淨利 （百萬元）                   2,230  歸屬母公司  業主淨利 （百萬元）                   1,894   每股盈餘  （元）                      19.62 公司每股面額：10元 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無。 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無。 6.其他應敘明事項: (1)以上115年7月及去年同期比較數之財務資料係本公司採IFRS會計準則編製之合併數    ，未經會計師查核(閱)，僅供投資人參考。。 (2)最近一季115年第2季係指單季數字，非為最近財務報告中之累計數字，且係本公司    採IFRS下編製之合併數，業經會計師查核(閱)，僅供投資人參考。 (3)最近四季累計係本公司114年第3季至115年第2季採IFRS編製之合併數，業經會計師    查核(閱)，僅供投資人參考。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| 20260821 | 6187 | 萬潤 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/08/20 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知處理及辦理公告。 3.財務業務資訊:  	                        單月  科目	      最近一月單月    去年同月         與去年同期增減﹪              (115年7月)     (114年7月) ----------------------------------------------------------------  營業收入 （百萬元）       1,055               608                    74%   稅前淨利 （百萬元）         422               194                   118%  歸屬母公司  業主淨利 （百萬元）         346               159                   118%   每股盈餘  （元）           3.52               1.66                   113%  	                             單季  科目	         最近一季           去年同期      與去年同期增減﹪              (單季115第2季)       (114第2季) --------------------------------------------------------------------------  營業收入 （百萬元）        2,355               1,524               55%   稅前淨利 （百萬元）          957                 506               89%  歸屬母公司  業主淨利 （百萬元）          827                 399              107%   每股盈餘  （元）             8.5                4.16              104%    科目	                   最近四季累計                   (114年第3季至115年第2季) -------------------------------------------------  營業收入 （百萬元）                   6,362   稅前淨利 （百萬元）                   2,230  歸屬母公司  業主淨利 （百萬元）                   1,894   每股盈餘  （元）                      19.62 公司每股面額：10元 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無。 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無。 6.其他應敘明事項: (1)以上115年7月及去年同期比較數之財務資料係本公司採IFRS會計準則編製之合併數    ，未經會計師查核(閱)，僅供投資人參考。。 (2)最近一季115年第2季係指單季數字，非為最近財務報告中之累計數字，且係本公司    採IFRS下編製之合併數，業經會計師查核(閱)，僅供投資人參考。 (3)最近四季累計係本公司114年第3季至115年第2季採IFRS編製之合併數，業經會計師    查核(閱)，僅供投資人參考。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 6187 | 萬潤 | 3 | 2 | 4 | 7 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260821 | 6187 | 萬潤 | 1 | 1 | 4 | 8 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

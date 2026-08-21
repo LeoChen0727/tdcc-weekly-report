@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1102 亞泥
 
 ## Metadata
-- generated_at: 2026-08-10 22:26:22 Asia/Taipei
+- generated_at: 2026-08-21 22:26:36 Asia/Taipei
 - stock_id: 1102
 - stock_name: 亞泥
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,29 +69,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 可分批買進
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -100,10 +104,10 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -118,7 +122,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -126,38 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 32.8
-- high: 33.05
-- low: 32.8
-- close: 32.85
-- volume: 4786576
-- ma5: 32.7
-- ema23_primary: 33.41
-- distance_to_ema23_pct: -1.69
-- ma20: 33.14
-- ma60: 34.32
-- ma120: 34.7
-- return_5d: -0.45
-- return_20d: -7.98
-- volume_ratio: 0.31
-- distance_to_ma20_pct_auxiliary: -0.88
-- distance_to_high_60_pct: -11.46
+- date: 20260821
+- open: 34.7
+- high: 35.05
+- low: 34.6
+- close: 34.95
+- volume: 16339386
+- ma5: 34.08
+- ema23_primary: 33.49
+- distance_to_ema23_pct: 4.37
+- ma20: 33.09
+- ma60: 34.16
+- ma120: 34.52
+- return_5d: 4.48
+- return_20d: 6.72
+- volume_ratio: 1.32
+- distance_to_ma20_pct_auxiliary: 5.61
+- distance_to_high_60_pct: -5.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,36,36,34.85,34.9,20417794,35.5,-1.7,35.76,35.01,1.02
-20260714,35,35,34.2,34.2,23864398,35.4,-3.38,35.71,34.99,1.16
-20260715,34.45,34.85,34,34.8,25410949,35.35,-1.55,35.67,34.97,1.21
-20260716,32.5,33.2,32,33,38052067,35.15,-6.12,35.55,34.94,1.73
-20260717,32.8,33.75,32.8,33.25,30738998,34.99,-4.98,35.43,34.91,1.35
-20260720,33.25,33.6,32.7,33,14124752,34.83,-5.24,35.29,34.86,0.63
-20260721,33,33.5,32.9,33.15,12025438,34.69,-4.43,35.13,34.81,0.54
-20260722,33,33.25,32.4,32.45,21672998,34.5,-5.94,34.97,34.76,0.97
-20260723,32.7,32.8,32.4,32.7,7387571,34.35,-4.8,34.8,34.71,0.33
-20260724,32.5,32.95,32.5,32.75,6016270,34.22,-4.29,34.63,34.67,0.28
 20260727,33.1,33.15,32.7,33.1,7626983,34.12,-3,34.5,34.63,0.36
 20260728,33.1,33.25,32.75,33,7469256,34.03,-3.03,34.38,34.6,0.36
 20260729,33.15,33.3,32.25,32.8,13231020,33.93,-3.32,34.27,34.56,0.65
@@ -168,17 +162,27 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,32.4,32.6,32.25,32.6,8109403,33.51,-2.72,33.42,34.38,0.5
 20260806,32.5,32.95,32.5,32.95,6106789,33.47,-1.54,33.28,34.36,0.38
 20260807,32.8,33.05,32.8,32.85,4786576,33.41,-1.69,33.14,34.32,0.31
+20260810,33,33,32.5,32.95,4654967,33.38,-1.27,33.04,34.28,0.31
+20260811,32.85,33,32.35,32.45,8219126,33.3,-2.55,32.95,34.25,0.58
+20260812,32.6,32.65,32.3,32.35,7111395,33.22,-2.62,32.83,34.21,0.54
+20260813,32.55,32.55,31.6,31.7,19553836,33.09,-4.21,32.77,34.16,1.6
+20260814,32.5,33.45,32.45,33.45,26219343,33.12,0.99,32.78,34.14,2.18
+20260817,33.3,33.8,33.2,33.45,8435593,33.15,0.91,32.8,34.12,0.72
+20260818,33.3,33.5,33.2,33.5,5619606,33.18,0.97,32.82,34.1,0.49
+20260819,33.5,33.85,33.15,33.8,11995199,33.23,1.71,32.88,34.11,1.1
+20260820,33.95,34.9,33.9,34.7,25215460,33.35,4.04,32.98,34.13,2.13
+20260821,34.7,35.05,34.6,34.95,16339386,33.49,4.37,33.09,34.16,1.32
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 81.35
-- over_600_ratio: 80.25
-- over_800_ratio: 79.51
-- over_1000_ratio: 79.11
-- over_400_change_1w: -0.08
-- over_800_change_1w: -0.13
-- over_1000_change_1w: -0.08
+- as_of_date: 20260814
+- over_400_ratio: 80.92
+- over_600_ratio: 79.76
+- over_800_ratio: 79.03
+- over_1000_ratio: 78.58
+- over_400_change_1w: -0.43
+- over_800_change_1w: -0.48
+- over_1000_change_1w: -0.53
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -187,7 +191,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,82.19,-0.19,80.12,-0.07,79.52,0.03,2,False,True
 20260529,81.19,-1,79.03,-1.09,78.36,-1.16,0,False,False
 20260605,81.23,0.04,79.4,0.37,79,0.64,1,True,True
 20260612,81.17,-0.06,79.26,-0.14,78.86,-0.14,0,False,False
@@ -199,22 +202,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,81.13,0,79.34,-0.07,78.91,-0.07,0,False,False
 20260731,81.43,0.3,79.64,0.3,79.19,0.28,1,True,True
 20260807,81.35,-0.08,79.51,-0.13,79.11,-0.08,0,False,False
+20260814,80.92,-0.43,79.03,-0.48,78.58,-0.53,0,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 1102 | 亞泥 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | 1.事實發生日:自民國115/6/24至民國115/6/24 2.本次新增（減少）投資方式: 亞東工業投資私人有限公司100%直接持有之亞東投資有限公司以發行新股 方式取得亞東工業投資私人有限公司持有之江西亞東水泥有限公司85%股權， 股份交換後本公司間接投資大陸金額增加。 3.董事會通過日期: 民國115年6月24日 4.其他核決日期: 不適用 5.交易單位數量、每單位價格及交易總金額: 交易總金額人民幣5,437,557,443.53元 6.大陸被投資公司之公司名稱: 江西亞東水泥有限公司 7.前開大陸被投資公司之實收資本額: 美金356,104仟元 8.前開大陸被投資公司本次擬新增資本額: 不適用 9.前開大陸被投資公司主要營業項目: 熟料、水泥的生產及銷售 10.前開大陸被投資公司最近年度財務報表會計師意見型態: 無保留意見 11.前開大陸被投資公司最近年度財務報表權益總額: 人民幣6,460,726仟元 12.前開大陸被投資公司最近年度財務報表損益金額: 人民幣123,516仟元 13.迄目前為止，對前開大陸被投資公司之實際投資金額: 美金277,505仟元 14.交易相對人及其與公司之關係: 1.亞東工業投資私人有限公司直接持有亞東投資有限公司100%股權及江西亞東水泥 有限公司85%股權； 2.亞東投資有限公司為亞東工業投資私人有限公司100%直接持有之子公司， 並直接持有江西亞東水泥有限公司10%股權； 3.亞東工業投資私人有限公司及亞東投資有限公司皆為本公司間接持有之重要子公司。 15.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉 之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期及移轉金額: 1.選定關係人為交易對象之原因：集團內部組織架構調整； 2.前次移轉之所有人：亞洲投資私人有限公司； 3.前次移轉之所有人與公司之關係：亞洲投資私人有限公司為本公司 間接持有之重要子公司； 4.前次移轉之所有人與交易相對人之關係：亞洲投資私人有限公司100% 直接持有亞東工業投資私人有限公司； 5.前次移轉日期：114年4月29日； 6.前次交易總金額：人民幣5,386,628,948.48元。 16.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取得 及處分日期、價格及交易當時與公司之關係: 1.亞東工業投資私人有限公司取得江西亞東水泥有限公司85%股權日期： 114年4月29日 2.亞東工業投資私人有限公司取得江西亞東水泥有限公司85%股權價格： 人民幣5,386,628,948.48元 3.所有權人亞東工業投資私人有限公司交易當時與公司之關係： 為本公司間接持有之重要子公司。 17.處分利益（或損失）: 不適用 18.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定事項: 交付或付款條件：以股份交換方式執行 契約限制條款及其他重要約定事項：無 19.本次交易之決定方式、價格決定之參考依據及決策單位: 本次交易之決定方式：依亞東工業投資私人有限公司與亞東投資有限公司董事會決議辦理 價格決定之參考依據：江西亞東水泥有限公司115年4月30日財務報表之帳面淨值 決策單位：亞東工業投資私人有限公司與亞東投資有限公司董事會 20.經紀人: 無 21.取得或處分之具體目的: 集團內部組織架構調整 22.本次交易表示異議董事之意見: 無 23.本次交易為關係人交易:是 24.監察人承認或審計委員會同意日期: 民國115年06月24日 25.迄目前為止，投審會核准赴大陸地區投資總額（含本次投資）: 美金4,158,892仟元 26.迄目前為止，投審會核准赴大陸地區投資總額（含本次投資）占最近期財務報表 實收資本額之比率: 370.85% 27.迄目前為止，投審會核准赴大陸地區投資總額（含本次投資）占最近期財務報表 總資產之比率: 52.4% 28.迄目前為止，投審會核准赴大陸地區投資總額（含本次投資）占最近期財務報表 歸屬於母公司業主之權益之比率: 72.96% 29.迄目前為止，實際赴大陸地區投資總額: 美金2,184,042仟元 30.迄目前為止，實際赴大陸地區投資總額占最近期財務報表實收資本額之比率: 194.75% 31.迄目前為止，實際赴大陸地區投資總額占最近期財務報表總資產之比率: 27.52% 32.迄目前為止，實際赴大陸地區投資總額占最近期財務報表歸屬於母公司業主之權益之比率: 38.31% 33.最近三年度認列投資大陸損益金額: 112年 人民幣263,978仟元 113年 人民&#24164;-906仟元 114年 人民幣181,776仟元 34.最近三年度獲利匯回金額: 112年 人民幣169,793仟元 113年 人民幣43,510仟元 114年 人民幣0仟元 35.本次交易會計師出具非合理性意見:否 36.會計師事務所名稱: 致和聯合會計師事務所 37.會計師姓名: 施炳全 38.會計師開業證書字號: 北市會證字第3325號 39.前已就同一件事件發布重大訊息日期: 不適用 40.其他敘明事項: 本案需經投審司核准後實行；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 1102 | 亞泥 | 2 | 2 | 2 | 2 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 1102 | 亞泥 | 2 | 0 | 512230.0 | 0.0 |  | no_signal |
+| 20260821 | 1102 | 亞泥 | 2 | 0 | 1050530.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

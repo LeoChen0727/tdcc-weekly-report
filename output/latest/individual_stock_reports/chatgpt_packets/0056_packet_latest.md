@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0056 元大高股息
 
 ## Metadata
-- generated_at: 2026-08-10 22:26:16 Asia/Taipei
+- generated_at: 2026-08-21 22:26:32 Asia/Taipei
 - stock_id: 0056
 - stock_name: 元大高股息
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 185
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 202
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 51.4
-- high: 51.5
-- low: 51
-- close: 51.05
-- volume: 15000744
-- ma5: 50.84
-- ema23_primary: 50.44
-- distance_to_ema23_pct: 1.21
-- ma20: 50.34
-- ma60: 50.44
-- ma120: 45.16
-- return_5d: 3.17
-- return_20d: -3.04
-- volume_ratio: 0.21
-- distance_to_ma20_pct_auxiliary: 1.41
-- distance_to_high_60_pct: -7.01
+- date: 20260821
+- open: 52.05
+- high: 52.45
+- low: 51.8
+- close: 52.4
+- volume: 13677478
+- ma5: 52.43
+- ema23_primary: 51.67
+- distance_to_ema23_pct: 1.4
+- ma20: 51.05
+- ma60: 51.54
+- ma120: 46.32
+- return_5d: -1.87
+- return_20d: 4.38
+- volume_ratio: 0.28
+- distance_to_ma20_pct_auxiliary: 2.65
+- distance_to_high_60_pct: -4.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,53.1,53.45,52.15,52.4,49611568,51.87,1.02,52.49,48,1.08
-20260714,52.3,52.35,50.5,51.75,129993435,51.86,-0.21,52.55,48.18,2.58
-20260715,52.5,53.05,52.35,53,31702521,51.95,2.01,52.63,48.38,0.63
-20260716,52.55,52.9,52.2,52.65,43385188,52.01,1.23,52.68,48.57,0.85
-20260717,51.4,51.45,50.4,50.75,186636686,51.91,-2.23,52.62,48.71,3.18
-20260720,50.85,50.85,49.07,49.95,166201337,51.74,-3.47,52.48,48.83,2.54
-20260721,49.41,49.7,48.71,49.55,59195074,51.56,-3.9,52.26,48.98,0.9
-20260722,50.1,51.2,50.1,50.95,63366135,51.51,-1.09,52.12,49.15,0.95
-20260723,51.3,51.55,50.35,50.65,29851078,51.44,-1.53,52,49.31,0.46
-20260724,50.25,50.85,50.05,50.2,29539419,51.34,-2.21,51.85,49.46,0.45
 20260727,50.15,50.25,49.32,50,58413669,51.22,-2.39,51.77,49.61,0.9
 20260728,49.11,49.26,48.14,48.19,114563140,50.97,-5.46,51.59,49.74,1.67
 20260729,48.31,48.67,45.98,46.73,136986451,50.62,-7.68,51.27,49.82,1.87
@@ -168,6 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,51.95,52.1,51.45,51.45,59266052,50.3,2.28,50.47,50.25,0.8
 20260806,51.35,51.7,51,51.3,21910193,50.39,1.82,50.42,50.34,0.3
 20260807,51.4,51.5,51,51.05,15000744,50.44,1.21,50.34,50.44,0.21
+20260810,51.9,52.45,51.65,52.45,67918629,50.61,3.64,50.34,50.56,0.93
+20260811,52.4,52.4,51.8,52.3,25285813,50.75,3.06,50.37,50.69,0.37
+20260812,52.5,53.05,52.5,52.7,36316524,50.91,3.51,50.35,50.83,0.54
+20260813,53.4,53.5,52.9,53,44643011,51.09,3.75,50.37,50.98,0.66
+20260814,53.35,54,53.3,53.4,49247717,51.28,4.14,50.5,51.13,0.81
+20260817,53.4,53.65,52.85,53,26728227,51.42,3.07,50.66,51.26,0.49
+20260818,53.1,53.2,52.4,52.7,30911033,51.53,2.27,50.81,51.37,0.59
+20260819,51.7,52.15,51.5,52,29889911,51.57,0.84,50.87,51.43,0.59
+20260820,52.35,52.55,51.75,52.05,18583817,51.61,0.86,50.94,51.49,0.37
+20260821,52.05,52.45,51.8,52.4,13677478,51.67,1.4,51.05,51.54,0.28
 ```
 
 ## Latest TDCC Snapshot
@@ -191,19 +191,19 @@ no_rows,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 0056 | 元大高股息 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 0056 | 元大高股息 | 4 | 4 | 4 | 6 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 0056 | 元大高股息 | 2 | 0 | 436090.0 | 0.0 |  | no_signal |
+| 20260821 | 0056 | 元大高股息 | 5 | 0 | 39200.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2611 志信
 
 ## Metadata
-- generated_at: 2026-08-10 22:27:05 Asia/Taipei
+- generated_at: 2026-08-21 22:27:05 Asia/Taipei
 - stock_id: 2611
 - stock_name: 志信
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,25 +69,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- action_rating_display_zh: 停利
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
+- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
+- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
-- confidence_level: medium
-- thesis_state: unclear
+- action_rating: take_profit
+- action_rating_label_zh: 停利
+- confidence_level: low
+- thesis_state: high_level_distribution_risk
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -100,12 +100,11 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
+- decision_score_high
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -118,7 +117,8 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- tdcc_distribution_warning
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 13.5
-- high: 14.15
-- low: 13.5
-- close: 13.95
-- volume: 469662
-- ma5: 13.51
-- ema23_primary: 13.76
-- distance_to_ema23_pct: 1.37
-- ma20: 13.88
-- ma60: 13.7
-- ma120: 14.03
-- return_5d: 4.49
-- return_20d: -4.45
-- volume_ratio: 1.68
-- distance_to_ma20_pct_auxiliary: 0.47
-- distance_to_high_60_pct: -6.06
+- date: 20260821
+- open: 15.9
+- high: 17.5
+- low: 15.6
+- close: 17.2
+- volume: 6954522
+- ma5: 15.85
+- ema23_primary: 14.67
+- distance_to_ema23_pct: 17.25
+- ma20: 14.3
+- ma60: 14.06
+- ma120: 14.08
+- return_5d: 15.05
+- return_20d: 21.13
+- volume_ratio: 6.6
+- distance_to_ma20_pct_auxiliary: 20.3
+- distance_to_high_60_pct: -1.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,14.8,14.8,14.4,14.55,631487,13.98,4.06,13.96,13.68,1.45
-20260714,14.75,14.75,14.05,14.25,368479,14.01,1.75,13.98,13.67,0.85
-20260715,14.3,14.4,14.2,14.35,242842,14.03,2.25,14,13.66,0.56
-20260716,14.35,14.45,14.2,14.25,239089,14.05,1.41,14.02,13.66,0.56
-20260717,14.45,14.45,13.95,14,419352,14.05,-0.34,14.02,13.65,1
-20260720,14.4,14.4,13.85,14.2,261994,14.06,0.99,14.03,13.65,0.63
-20260721,14.2,14.55,14.2,14.4,368625,14.09,2.21,14.05,13.66,0.9
-20260722,14.55,14.55,14.3,14.3,193567,14.11,1.37,14.09,13.67,0.48
-20260723,14.45,14.45,14.1,14.25,166592,14.12,0.93,14.11,13.68,0.42
-20260724,14.2,14.3,14.15,14.2,146926,14.12,0.53,14.13,13.69,0.37
 20260727,14.3,14.3,13.8,13.9,230747,14.11,-1.46,14.16,13.7,0.6
 20260728,13.8,13.85,13.65,13.65,172850,14.07,-2.97,14.16,13.7,0.45
 20260729,13.95,13.95,13.2,13.4,566672,14.01,-4.37,14.15,13.7,1.44
@@ -168,26 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,13.5,13.5,13.4,13.4,137203,13.78,-2.72,13.96,13.69,0.48
 20260806,13.4,13.5,13.3,13.4,153315,13.74,-2.5,13.92,13.69,0.56
 20260807,13.5,14.15,13.5,13.95,469662,13.76,1.37,13.88,13.7,1.68
+20260810,13.95,14.25,13.9,14.25,277660,13.8,3.25,13.87,13.72,1.06
+20260811,14.25,14.25,13.9,14.05,221972,13.82,1.65,13.86,13.74,0.87
+20260812,14.05,14.1,13.9,13.9,149875,13.83,0.51,13.84,13.76,0.6
+20260813,14,14.6,14,14.6,669853,13.89,5.09,13.86,13.79,2.47
+20260814,14.45,15.15,14,14.95,1765436,13.98,6.93,13.9,13.82,5.22
+20260817,14.95,15.25,14.8,15.15,1041947,14.08,7.61,13.95,13.86,2.76
+20260818,15.15,15.45,15.05,15.4,1357726,14.19,8.54,14,13.9,3.18
+20260819,15.4,15.65,15.25,15.5,1821819,14.3,8.41,14.06,13.94,3.59
+20260820,16.3,17,15.7,16,4290291,14.44,10.8,14.15,13.99,6.01
+20260821,15.9,17.5,15.6,17.2,6954522,14.67,17.25,14.3,14.06,6.6
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 47.94
-- over_600_ratio: 46.19
-- over_800_ratio: 43.38
+- as_of_date: 20260814
+- over_400_ratio: 47.98
+- over_600_ratio: 46.05
+- over_800_ratio: 43.83
 - over_1000_ratio: 43.38
-- over_400_change_1w: 0.01
-- over_800_change_1w: 0
+- over_400_change_1w: 0.04
+- over_800_change_1w: 0.45
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 12
+- tdcc_consecutive_up_weeks: 13
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,45.06,0.14,42.43,0.18,41.91,0.18,1,True,True
 20260529,45.43,0.37,42.47,0.04,42.47,0.56,2,True,True
 20260605,45.71,0.28,42.47,0,42.47,0,3,False,False
 20260612,46.08,0.37,43,0.53,43,0.53,4,True,True
@@ -199,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,47.71,0.42,43.38,0.06,43.38,0.06,10,True,True
 20260731,47.93,0.22,43.38,0,43.38,0,11,False,False
 20260807,47.94,0.01,43.38,0,43.38,0,12,False,False
+20260814,47.98,0.04,43.83,0.45,43.38,0,13,False,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 2611 | 志信 | true_breakout | 嚴格突破 | 106.0 |  |  | breakout_confirmed |  |  | continued_overheated | 符合條款第四條第XX款：12 事實發生日：115/08/21 1.召開法人說明會之日期：115/08/21 2.召開法人說明會之時間：14 時 30 分 3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：114年度及115年上半年度營運及財務業務相關資訊報告 5.其他應敘明事項：網路會議網址：https://youtube.com/live/M1JE4g_etPA 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 2611 | 志信 | 2 | 2 | 2 | 2 | 2 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

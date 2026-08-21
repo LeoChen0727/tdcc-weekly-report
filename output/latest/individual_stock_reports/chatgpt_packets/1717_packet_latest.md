@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1717 長興
 
 ## Metadata
-- generated_at: 2026-08-10 22:26:38 Asia/Taipei
+- generated_at: 2026-08-21 22:26:47 Asia/Taipei
 - stock_id: 1717
 - stock_name: 長興
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -103,7 +103,6 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -118,7 +117,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -126,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 66.5
-- high: 67.5
-- low: 66
-- close: 66.2
-- volume: 5561622
-- ma5: 64.84
-- ema23_primary: 65.19
-- distance_to_ema23_pct: 1.55
-- ma20: 63.66
-- ma60: 71.81
-- ma120: 70.2
-- return_5d: 10.52
-- return_20d: -10.3
-- volume_ratio: 0.51
-- distance_to_ma20_pct_auxiliary: 3.98
-- distance_to_high_60_pct: -26.36
+- date: 20260821
+- open: 70.3
+- high: 72
+- low: 69.7
+- close: 71.6
+- volume: 6746269
+- ma5: 70.74
+- ema23_primary: 69.21
+- distance_to_ema23_pct: 3.45
+- ma20: 66.89
+- ma60: 70.68
+- ma120: 71.3
+- return_5d: -0.14
+- return_20d: 18.94
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: 7.04
+- distance_to_high_60_pct: -19.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,74.6,76.2,71.8,72.6,13039765,75.17,-3.42,74.05,76.94,0.61
-20260714,72.9,72.9,66.6,70,19053752,74.74,-6.34,74.03,76.83,0.87
-20260715,70.5,72.2,70.3,71.5,9367210,74.47,-3.99,74.05,76.68,0.43
-20260716,71.5,72.1,69.5,70.8,6395430,74.17,-4.54,74.08,76.53,0.29
-20260717,68.6,69.3,64.1,64.5,18722852,73.36,-12.08,73.75,76.25,0.83
-20260720,64.3,65.2,59.7,62.1,13114082,72.42,-14.25,73.24,75.91,0.58
-20260721,62.5,63.9,62.3,63.2,7532077,71.65,-11.8,72.67,75.65,0.34
-20260722,64.8,65,62.4,62.6,10748355,70.9,-11.71,72.21,75.4,0.48
-20260723,63.5,64.2,61.4,62.1,7251935,70.17,-11.5,71.62,75.18,0.33
-20260724,61.5,61.8,60.1,60.2,8124298,69.34,-13.18,70.83,74.91,0.38
 20260727,61.4,61.5,59.2,61.3,8276301,68.67,-10.73,70.42,74.57,0.4
 20260728,59,62.1,57.8,57.8,15364576,67.76,-14.7,69.67,74.22,0.73
 20260729,59,59.8,52.8,54.8,16745735,66.68,-17.82,68.71,73.81,0.78
@@ -168,18 +157,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,65,67.5,64.9,66.5,10614919,65,2.31,64.57,72.32,0.88
 20260806,67,67.2,65.4,66.2,7475376,65.1,1.69,64.05,72.04,0.65
 20260807,66.5,67.5,66,66.2,5561622,65.19,1.55,63.66,71.81,0.51
+20260810,67.7,70.5,67.1,70,13570718,65.59,6.72,63.53,71.64,1.24
+20260811,69.5,73.5,68.9,71.9,18128262,66.12,8.75,63.63,71.53,1.67
+20260812,72.5,79,72.3,78.6,44658735,67.16,17.04,63.98,71.61,3.53
+20260813,78.7,79.8,77.4,78.2,28253535,68.08,14.87,64.36,71.67,2.06
+20260814,79.1,79.2,71.5,71.7,31147515,68.38,4.86,64.72,71.66,2.17
+20260817,71.3,73.6,70.5,71.8,10371497,68.67,4.57,65.2,71.53,0.73
+20260818,72.1,72.2,69.6,70.5,7562403,68.82,2.44,65.56,71.32,0.53
+20260819,69,72.8,68.8,69.6,8960905,68.88,1.04,65.92,71.11,0.63
+20260820,71.1,71.8,69.7,70.2,5886109,68.99,1.75,66.32,70.89,0.42
+20260821,70.3,72,69.7,71.6,6746269,69.21,3.45,66.89,70.68,0.48
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 64.55
-- over_600_ratio: 61.95
-- over_800_ratio: 60.02
-- over_1000_ratio: 58.03
-- over_400_change_1w: 0.54
-- over_800_change_1w: 0.51
-- over_1000_change_1w: 0.29
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260814
+- over_400_ratio: 67.01
+- over_600_ratio: 64.37
+- over_800_ratio: 62.69
+- over_1000_ratio: 61.02
+- over_400_change_1w: 2.46
+- over_800_change_1w: 2.67
+- over_1000_change_1w: 2.99
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -187,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,65.1,0.55,61.26,0.39,59.1,0.9,2,True,True
 20260529,67.6,2.5,63.44,2.18,61.42,2.32,3,True,True
 20260605,65.83,-1.77,61.64,-1.8,59.62,-1.8,0,False,False
 20260612,64.64,-1.19,60.2,-1.44,58.4,-1.22,0,False,False
@@ -199,22 +197,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,64.62,-1.01,60.52,-1.1,58.59,-1.24,0,False,False
 20260731,64.01,-0.61,59.51,-1.01,57.74,-0.85,0,False,False
 20260807,64.55,0.54,60.02,0.51,58.03,0.29,1,True,True
+20260814,67.01,2.46,62.69,2.67,61.02,2.99,2,True,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 1717 | 長興 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_inflow | stale_signal | 1.事實發生日:115/07/06 2.公司名稱:長興材料工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:因應本公司辦理現金增資發行普通股，依本公司國內第二次 無擔保轉換公司債發行及轉換辦法第11條規定調整轉換價格。 6.因應措施:自現金增資股款收足日(增資基準日)115年7月22日起， 國內第二次無擔保轉換公司債價格自新台幣76.0元調整為75.7元。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| 20260821 | 1717 | 長興 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | stale_signal | 1.事實發生日:115/07/06 2.公司名稱:長興材料工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:因應本公司辦理現金增資發行普通股，依本公司國內第二次 無擔保轉換公司債發行及轉換辦法第11條規定調整轉換價格。 6.因應措施:自現金增資股款收足日(增資基準日)115年7月22日起， 國內第二次無擔保轉換公司債價格自新台幣76.0元調整為75.7元。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 1717 | 長興 | 4 | 2 | 4 | 5 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 1717 | 長興 | 121 | 2 | 6947320.0 | 76010.0 | 91.4 | call_inflow |
+| 20260821 | 1717 | 長興 | 117 | 1 | 4710080.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

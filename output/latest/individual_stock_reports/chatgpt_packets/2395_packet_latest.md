@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2395 研華
 
 ## Metadata
-- generated_at: 2026-08-10 22:26:55 Asia/Taipei
+- generated_at: 2026-08-21 22:26:58 Asia/Taipei
 - stock_id: 2395
 - stock_name: 研華
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 621
-- high: 648
-- low: 616
-- close: 634
-- volume: 6309278
-- ma5: 608.2
-- ema23_primary: 565.67
-- distance_to_ema23_pct: 12.08
-- ma20: 566.75
-- ma60: 515.74
-- ma120: 433.73
-- return_5d: 12.61
-- return_20d: 17.41
-- volume_ratio: 1.34
-- distance_to_ma20_pct_auxiliary: 11.87
-- distance_to_high_60_pct: -5.65
+- date: 20260821
+- open: 672
+- high: 672
+- low: 643
+- close: 649
+- volume: 4085882
+- ma5: 673.8
+- ema23_primary: 629.59
+- distance_to_ema23_pct: 3.08
+- ma20: 629.9
+- ma60: 549.17
+- ma120: 464.56
+- return_5d: -4.98
+- return_20d: 11.7
+- volume_ratio: 0.82
+- distance_to_ma20_pct_auxiliary: 3.03
+- distance_to_high_60_pct: -8.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,557,593,535,536,4473042,500.99,6.99,497.43,461.34,1.49
-20260714,552,553,508,529,2602857,503.33,5.1,500.23,464.24,0.84
-20260715,530,539,526,533,1927304,505.8,5.38,502.62,467.02,0.63
-20260716,530,531,520,530,2286309,507.82,4.37,505.12,469.8,0.74
-20260717,518,519,502,513,2570650,508.25,0.93,506.35,472.27,0.83
-20260720,519,521,493.5,516,3844639,508.89,1.4,507.45,474.86,1.24
-20260721,525,567,519,567,4357157,513.74,10.37,510.82,478.37,1.38
-20260722,589,618,584,596,9512024,520.59,14.48,516.25,482.4,2.71
-20260723,605,607,582,600,3860896,527.21,13.81,522.58,486.35,1.08
-20260724,585,616,578,581,4213688,531.69,9.27,527.62,489.92,1.14
 20260727,586,588,557,577,3909996,535.47,7.76,533.7,493.43,1.03
 20260728,555,570,547,556,3455170,537.18,3.5,537.88,496.71,0.93
 20260729,549,565,529,550,5325464,538.25,2.18,540.77,499.29,1.38
@@ -167,26 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,590,633,590,633,4139154,553.77,14.31,558.25,510.79,0.9
 20260806,670,672,614,622,10832014,559.46,11.18,562.05,512.92,2.29
 20260807,621,648,616,634,6309278,565.67,12.08,566.75,515.74,1.34
+20260810,648,695,648,667,7375844,574.12,16.18,573.3,519.11,1.52
+20260811,660,672,644,661,4204762,581.36,13.7,579.9,522.47,0.85
+20260812,672,699,667,686,6001172,590.08,16.26,587.55,526.27,1.17
+20260813,695,709,690,698,4155071,599.07,16.51,595.95,530.22,0.79
+20260814,690,699,676,683,3683416,606.06,12.69,604.45,533.85,0.7
+20260817,659,686,657,674,3492618,611.73,10.18,612.35,537.36,0.66
+20260818,674,682,666,679,3694654,617.33,9.99,617.95,540.86,0.7
+20260819,674,704,667,694,4739840,623.72,11.27,622.85,544.12,0.95
+20260820,698,698,667,673,3588564,627.83,7.2,626.5,546.83,0.72
+20260821,672,672,643,649,4085882,629.59,3.08,629.9,549.17,0.82
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 85.76
-- over_600_ratio: 82.17
-- over_800_ratio: 80.03
-- over_1000_ratio: 78.49
-- over_400_change_1w: 0.11
-- over_800_change_1w: -0.18
-- over_1000_change_1w: 0.47
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20260814
+- over_400_ratio: 85.78
+- over_600_ratio: 82.09
+- over_800_ratio: 79.81
+- over_1000_ratio: 77.95
+- over_400_change_1w: 0.02
+- over_800_change_1w: -0.22
+- over_1000_change_1w: -0.54
+- tdcc_consecutive_up_weeks: 8
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,85.93,-0.15,80.58,-0.33,78.35,-0.64,0,False,False
 20260529,85.51,-0.42,80.23,-0.35,78.36,0.01,1,False,True
 20260605,85.23,-0.28,79.55,-0.68,77.65,-0.71,0,False,False
 20260612,85.03,-0.2,80,0.45,78,0.35,1,False,True
@@ -198,23 +198,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,85.69,0.02,80.13,-0.13,78.15,-0.02,5,False,False
 20260731,85.65,-0.04,80.21,0.08,78.02,-0.13,6,False,True
 20260807,85.76,0.11,80.03,-0.18,78.49,0.47,7,False,True
+20260814,85.78,0.02,79.81,-0.22,77.95,-0.54,8,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2395 | 研華 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/08/05 1.召開法人說明會之日期：115/08/05 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：研華內湖辦公室(台北市內湖區瑞光路26巷20弄1號) 4.法人說明會擇要訊息：(1)公布本公司2026年第二季財務報告及2026年第三季業績展望。 (2)參加方式：請參見  https://advt.ch/2Q26-Investor-Conference 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
-| 20260717 | 2395 | 研華 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/08/05 1.召開法人說明會之日期：115/08/05 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：研華內湖辦公室(台北市內湖區瑞光路26巷20弄1號) 4.法人說明會擇要訊息：(1)公布本公司2026年第二季財務報告及2026年第三季業績展望。 (2)參加方式：請參見  https://advt.ch/2Q26-Investor-Conference 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 2395 | 研華 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | continued_2_3d | 符合條款第四條第XX款：12 事實發生日：115/08/05 1.召開法人說明會之日期：115/08/05 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：研華內湖辦公室(台北市內湖區瑞光路26巷20弄1號) 4.法人說明會擇要訊息：(1)公布本公司2026年第二季財務報告及2026年第三季業績展望。 (2)參加方式：請參見  https://advt.ch/2Q26-Investor-Conference 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| 20260821 | 2395 | 研華 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | continued_2_3d | 符合條款第四條第XX款：12 事實發生日：115/08/05 1.召開法人說明會之日期：115/08/05 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：研華內湖辦公室(台北市內湖區瑞光路26巷20弄1號) 4.法人說明會擇要訊息：(1)公布本公司2026年第二季財務報告及2026年第三季業績展望。 (2)參加方式：請參見  https://advt.ch/2Q26-Investor-Conference 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2395 | 研華 | 26 | 2 | 5 | 10 | 20 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260821 | 2395 | 研華 | 2 | 2 | 4 | 9 | 19 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2395 | 研華 | 66 | 0 | 10881660.0 | 0.0 |  | no_signal |
+| 20260821 | 2395 | 研華 | 107 | 0 | 6108110.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2367 燿華
 
 ## Metadata
-- generated_at: 2026-08-10 22:26:53 Asia/Taipei
+- generated_at: 2026-08-21 22:26:56 Asia/Taipei
 - stock_id: 2367
 - stock_name: 燿華
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
+- date: 20260821
 - open: 42.5
-- high: 42.85
-- low: 40.8
-- close: 41.4
-- volume: 4831537
-- ma5: 40.77
-- ema23_primary: 43.95
-- distance_to_ema23_pct: -5.8
-- ma20: 42.6
-- ma60: 54.9
-- ma120: 60.81
-- return_5d: 14.05
-- return_20d: -19.61
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: -2.81
-- distance_to_high_60_pct: -42.9
+- high: 42.8
+- low: 41.95
+- close: 42.1
+- volume: 2322788
+- ma5: 42.54
+- ema23_primary: 43.6
+- distance_to_ema23_pct: -3.43
+- ma20: 41.29
+- ma60: 51.28
+- ma120: 59.71
+- return_5d: -3.44
+- return_20d: 0
+- volume_ratio: 0.32
+- distance_to_ma20_pct_auxiliary: 1.96
+- distance_to_high_60_pct: -39.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,51.6,52,50,50.5,14693380,56.42,-10.49,56.49,61.36,0.81
-20260714,50.1,50.8,46.2,48.3,17219810,55.74,-13.35,55.77,60.99,1.07
-20260715,49.3,52.5,49.1,51.6,16873728,55.39,-6.85,55.21,60.71,1.09
-20260716,50,51,48.3,48.4,10698425,54.81,-11.7,54.59,60.42,0.74
-20260717,46.5,46.75,44.65,44.8,13846991,53.98,-17,53.71,59.99,1.02
-20260720,45,45,41.45,43.25,12233663,53.08,-18.52,52.81,59.59,0.92
-20260721,43.55,43.9,42.85,43.85,7187376,52.31,-16.18,51.97,59.3,0.57
-20260722,44.85,45.6,44.4,45.3,6907181,51.73,-12.43,51.33,59.1,0.58
-20260723,45.7,45.9,43.8,44.1,6799159,51.09,-13.69,50.62,58.84,0.59
-20260724,43.4,43.75,42,42.1,5620595,50.34,-16.38,49.88,58.54,0.5
 20260727,42.1,43.2,41.15,41.95,6162205,49.64,-15.5,49.34,58.28,0.58
 20260728,40.95,41,38.3,38.4,9487299,48.71,-21.16,48.52,57.96,0.91
 20260729,38.65,38.95,34.6,35.85,15652651,47.64,-24.74,47.48,57.57,1.48
@@ -168,26 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,41.2,42.85,41,41.6,10002437,44.34,-6.19,43.6,55.61,0.97
 20260806,41.65,42.4,39.65,42.4,6904823,44.18,-4.03,43.1,55.23,0.68
 20260807,42.5,42.85,40.8,41.4,4831537,43.95,-5.8,42.6,54.9,0.49
+20260810,42,44.85,42,44.25,10974547,43.98,0.62,42.28,54.56,1.13
+20260811,44.7,45,43.35,44.75,7656582,44.04,1.61,42.11,54.27,0.83
+20260812,44.75,45.75,44.5,45.75,6480238,44.18,3.55,41.81,53.96,0.75
+20260813,46,46.4,45,45,8866087,44.25,1.69,41.65,53.66,1.03
+20260814,45,45.15,43.15,43.6,6588227,44.2,-1.35,41.59,53.32,0.8
+20260817,43.5,43.5,42.5,43.45,3561282,44.13,-1.55,41.59,52.97,0.46
+20260818,43.4,43.8,42.4,42.6,3808962,44.01,-3.2,41.53,52.57,0.5
+20260819,41.95,42.95,41.4,42,4079271,43.84,-4.2,41.37,52.1,0.54
+20260820,42.8,43.5,42.1,42.55,4488349,43.73,-2.7,41.29,51.7,0.61
+20260821,42.5,42.8,41.95,42.1,2322788,43.6,-3.43,41.29,51.28,0.32
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 27.97
-- over_600_ratio: 26.4
-- over_800_ratio: 25.49
-- over_1000_ratio: 24.47
-- over_400_change_1w: -0.37
-- over_800_change_1w: -0.87
-- over_1000_change_1w: -1
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260814
+- over_400_ratio: 28.17
+- over_600_ratio: 26.62
+- over_800_ratio: 25.69
+- over_1000_ratio: 25.06
+- over_400_change_1w: 0.2
+- over_800_change_1w: 0.2
+- over_1000_change_1w: 0.59
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,28.25,-2.99,25.73,-2.98,25.11,-2.99,0,False,False
 20260529,27.5,-0.75,24.79,-0.94,23.89,-1.22,0,False,False
 20260605,27.22,-0.28,24.58,-0.21,24.06,0.17,1,False,True
 20260612,27.64,0.42,24.98,0.4,24.34,0.28,2,True,True
@@ -199,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,28.45,1.21,26.26,1.61,25.51,1.98,4,True,True
 20260731,28.34,-0.11,26.36,0.1,25.47,-0.04,5,False,True
 20260807,27.97,-0.37,25.49,-0.87,24.47,-1,0,False,False
+20260814,28.17,0.2,25.69,0.2,25.06,0.59,1,True,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 2367 | 燿華 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 2367 | 燿華 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2367 | 燿華 | 97 | 3 | 1002000.0 | 661290.0 | 1.52 | no_signal |
+| 20260821 | 2367 | 燿華 | 97 | 3 | 326140.0 | 12850.0 | 25.38 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

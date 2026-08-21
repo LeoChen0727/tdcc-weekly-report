@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2049 上銀
 
 ## Metadata
-- generated_at: 2026-08-10 22:26:45 Asia/Taipei
+- generated_at: 2026-08-21 22:26:51 Asia/Taipei
 - stock_id: 2049
 - stock_name: 上銀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 股價乖離過大
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -87,7 +87,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -101,9 +101,11 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -116,7 +118,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- price_too_extended
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -124,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 370
-- high: 398
-- low: 368
-- close: 387
-- volume: 17347288
-- ma5: 355.6
-- ema23_primary: 331.26
-- distance_to_ema23_pct: 16.83
-- ma20: 322.27
-- ma60: 342.93
-- ma120: 302.05
-- return_5d: 27.09
-- return_20d: 16.74
-- volume_ratio: 4.2
-- distance_to_ma20_pct_auxiliary: 20.08
-- distance_to_high_60_pct: -9.15
+- date: 20260821
+- open: 366.5
+- high: 368.5
+- low: 348
+- close: 349
+- volume: 5394098
+- ma5: 366.4
+- ema23_primary: 353.34
+- distance_to_ema23_pct: -1.23
+- ma20: 349.48
+- ma60: 340.7
+- ma120: 313.73
+- return_5d: -6.56
+- return_20d: 11.5
+- volume_ratio: 0.81
+- distance_to_ma20_pct_auxiliary: -0.14
+- distance_to_high_60_pct: -16.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,337,351,326,332,2540069,339.8,-2.29,334.93,340.46,0.78
-20260714,334.5,334.5,300,317,3774096,337.9,-6.18,334.6,341.09,1.14
-20260715,323,331,318,321.5,2161215,336.53,-4.47,334.2,341.6,0.66
-20260716,317.5,337,309.5,332,2241411,336.15,-1.24,334.57,342.24,0.68
-20260717,321,325,306,306,2852114,333.64,-8.28,333.68,342.32,0.87
-20260720,307,310,291,300,2284977,330.84,-9.32,331.93,342.12,0.72
-20260721,303,309,299,305,1758238,328.68,-7.21,330,342.17,0.57
-20260722,307.5,326.5,307.5,320.5,2470512,328,-2.29,329.07,342.62,0.8
-20260723,324.5,327,313,319.5,1813006,327.29,-2.38,328.45,343.02,0.59
-20260724,314.5,319.5,311,313,1107594,326.1,-4.02,327.38,343.23,0.36
 20260727,316,324.5,306.5,323,1420137,325.84,-0.87,328.18,343.47,0.49
 20260728,314,314,300,300,2141856,323.69,-7.32,327.25,343.26,0.74
 20260729,306,314.5,281,290.5,3939420,320.92,-9.48,325.52,342.79,1.33
@@ -166,18 +158,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,343,365,340.5,365,7751136,322.93,13.03,318.4,342.65,2.71
 20260806,360,383.5,357,362,12613423,326.19,10.98,319.5,342.56,3.75
 20260807,370,398,368,387,17347288,331.26,16.83,322.27,342.93,4.2
+20260810,381,389,365,387,9126898,335.9,15.21,325.02,343.14,2.05
+20260811,381,384,360,368,7314735,338.58,8.69,327.57,342.73,1.58
+20260812,367,374,363.5,369,3426951,341.11,8.18,329.95,342.57,0.73
+20260813,383,404.5,377.5,381,13188894,344.44,10.62,332.4,342.66,2.51
+20260814,387,388.5,367.5,373.5,4910831,346.86,7.68,335.77,342.89,0.92
+20260817,370,395,370,381.5,7052470,349.74,9.08,339.85,343.02,1.26
+20260818,383,385,366,368,4108074,351.27,4.76,343,342.88,0.72
+20260819,360,378,350,367,6809824,352.58,4.09,345.32,342.42,1.15
+20260820,376,392,364,366.5,11847316,353.74,3.61,347.68,341.7,1.84
+20260821,366.5,368.5,348,349,5394098,353.34,-1.23,349.48,340.7,0.81
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 70.34
-- over_600_ratio: 66.01
-- over_800_ratio: 63.47
-- over_1000_ratio: 60.61
-- over_400_change_1w: 1.82
-- over_800_change_1w: 0.56
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 6
+- as_of_date: 20260814
+- over_400_ratio: 71.63
+- over_600_ratio: 67.26
+- over_800_ratio: 64.88
+- over_1000_ratio: 61.77
+- over_400_change_1w: 1.29
+- over_800_change_1w: 1.41
+- over_1000_change_1w: 1.16
+- tdcc_consecutive_up_weeks: 7
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -185,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,70.45,-0.37,63.7,0.27,61.68,0.07,3,False,True
 20260529,70.36,-0.09,63.49,-0.21,61.51,-0.17,4,False,False
 20260605,69.59,-0.77,61.99,-1.5,60.23,-1.28,0,False,False
 20260612,68.67,-0.92,62.11,0.12,60.35,0.12,1,False,True
@@ -197,22 +198,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,68.98,0.31,62.6,0.32,60.54,0.05,4,True,True
 20260731,68.52,-0.46,62.91,0.31,60.6,0.06,5,False,True
 20260807,70.34,1.82,63.47,0.56,60.61,0.01,6,True,True
+20260814,71.63,1.29,64.88,1.41,61.77,1.16,7,True,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 2049 | 上銀 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/08/20 2.公司名稱:上銀科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:115/08/20經濟日報C6版 6.報導內容:  上銀科技董事長卓文恒昨(19)日宣布，...。  展望今年營運，...，全年營運目標年增雙位數百分比。 7.發生緣由: (1)該篇報導非本公司發布之新聞，請投資人審慎判斷，以保障自身權益。 (2)本公司未公告財務預測，有關本公司財務、業務資訊，    請投資人以公開資訊觀測站之公告為準。 8.因應措施:無。 9.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| 20260821 | 2049 | 上銀 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/08/20 2.公司名稱:上銀科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:115/08/20經濟日報C6版 6.報導內容:  上銀科技董事長卓文恒昨(19)日宣布，...。  展望今年營運，...，全年營運目標年增雙位數百分比。 7.發生緣由: (1)該篇報導非本公司發布之新聞，請投資人審慎判斷，以保障自身權益。 (2)本公司未公告財務預測，有關本公司財務、業務資訊，    請投資人以公開資訊觀測站之公告為準。 8.因應措施:無。 9.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 2049 | 上銀 | 4 | 2 | 4 | 7 | 17 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2049 | 上銀 | 120 | 6 | 15483270.0 | 112100.0 | 138.12 | call_put_bullish |
+| 20260821 | 2049 | 上銀 | 152 | 8 | 18991250.0 | 312010.0 | 60.87 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

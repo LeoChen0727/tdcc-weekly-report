@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6190 萬泰科
 
 ## Metadata
-- generated_at: 2026-08-10 22:28:21 Asia/Taipei
+- generated_at: 2026-08-21 22:27:54 Asia/Taipei
 - stock_id: 6190
 - stock_name: 萬泰科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 186
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 203
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 69
-- high: 69
-- low: 65.8
-- close: 65.8
-- volume: 1190000
-- ma5: 66.7
-- ema23_primary: 69.92
-- distance_to_ema23_pct: -5.89
-- ma20: 68.91
-- ma60: 77.42
-- ma120: 68.13
-- return_5d: 6.47
-- return_20d: -19.85
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: -4.51
-- distance_to_high_60_pct: -33.94
+- date: 20260821
+- open: 65.5
+- high: 66.2
+- low: 64.3
+- close: 66.2
+- volume: 1113000
+- ma5: 65.74
+- ema23_primary: 68.05
+- distance_to_ema23_pct: -2.72
+- ma20: 65.95
+- ma60: 75.48
+- ma120: 69.6
+- return_5d: -1.19
+- return_20d: -6.5
+- volume_ratio: 0.81
+- distance_to_ma20_pct_auxiliary: 0.38
+- distance_to_high_60_pct: -33.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,83.1,83.5,78,78.4,2536000,82.04,-4.44,82.14,78.49,0.63
-20260714,78,79.1,73,75.7,2742000,81.51,-7.13,81.91,78.7,0.69
-20260715,75.7,79.8,75.7,78.1,2651000,81.23,-3.85,81.84,78.95,0.67
-20260716,75.9,76.8,74.3,75.2,1819000,80.72,-6.84,81.8,79.14,0.47
-20260717,74,74.6,68.4,68.4,2773000,79.7,-14.18,81.3,79.21,0.72
-20260720,68.7,69.9,63.6,69.2,2715000,78.82,-12.21,80.61,79.27,0.73
-20260721,69.6,70.4,68.7,69.8,1422000,78.07,-10.59,79.92,79.28,0.43
-20260722,71.1,73.2,71.1,71.5,1774000,77.52,-7.77,79.41,79.23,0.55
-20260723,73,73.3,71.7,72.4,1570000,77.1,-6.09,78.88,79.23,0.5
-20260724,71.8,72.5,70.3,70.8,1331000,76.57,-7.54,78.25,79.21,0.44
 20260727,71.2,71.9,68.9,71.2,1420000,76.12,-6.47,77.72,79.22,0.49
 20260728,69.1,69.1,64.8,64.8,1804000,75.18,-13.81,77.01,79.13,0.63
 20260729,65.8,66.3,58.4,60.2,3733000,73.93,-18.57,75.82,78.94,1.35
@@ -168,18 +158,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,68.4,69.8,67.9,67.9,1280000,70.5,-3.68,70.48,77.85,0.64
 20260806,68.4,68.7,66,68,907000,70.29,-3.26,69.72,77.64,0.47
 20260807,69,69,65.8,65.8,1190000,69.92,-5.89,68.91,77.42,0.63
+20260810,68.4,69.5,67.6,68.8,1536000,69.82,-1.46,68.43,77.27,0.83
+20260811,69,69.9,67.8,68.8,921000,69.74,-1.34,68.08,77.13,0.52
+20260812,69.9,70.4,68.4,68.8,1462000,69.66,-1.23,67.62,76.96,0.86
+20260813,70,70.4,68.1,68.2,1230000,69.54,-1.92,67.27,76.8,0.74
+20260814,69.1,69.1,66.6,67,1249000,69.33,-3.35,67.2,76.62,0.78
+20260817,67,67.5,66.2,66.8,640000,69.12,-3.35,67.08,76.42,0.43
+20260818,67,67,65.1,65.5,936000,68.81,-4.82,66.86,76.17,0.64
+20260819,65.1,65.8,64,65,736000,68.5,-5.1,66.54,75.93,0.52
+20260820,65.6,66.4,64.6,65.2,953000,68.22,-4.43,66.18,75.72,0.69
+20260821,65.5,66.2,64.3,66.2,1113000,68.05,-2.72,65.95,75.48,0.81
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 35.96
-- over_600_ratio: 33.06
-- over_800_ratio: 29.89
-- over_1000_ratio: 28.53
-- over_400_change_1w: -0.8
-- over_800_change_1w: -0.21
-- over_1000_change_1w: -0.2
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260814
+- over_400_ratio: 36.19
+- over_600_ratio: 33.03
+- over_800_ratio: 29.86
+- over_1000_ratio: 28.49
+- over_400_change_1w: 0.23
+- over_800_change_1w: -0.03
+- over_1000_change_1w: -0.04
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,38.47,0.36,30.5,-0.29,29.53,-0.34,1,False,False
 20260529,36.58,-1.89,30.27,-0.23,29.3,-0.23,0,False,False
 20260605,36.25,-0.33,31.87,1.6,28.71,-0.59,1,False,True
 20260612,36.22,-0.03,31.41,-0.46,29.57,0.86,2,False,True
@@ -199,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,35.8,-0.85,29.44,-0.96,28.01,-1.45,0,False,False
 20260731,36.76,0.96,30.1,0.66,28.73,0.72,1,True,True
 20260807,35.96,-0.8,29.89,-0.21,28.53,-0.2,0,False,False
+20260814,36.19,0.23,29.86,-0.03,28.49,-0.04,1,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 6190 | 萬泰科 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.原預定買回股份總金額上限(元):1,303,686,388 2.原預定買回之期間:115/05/13~115/07/10 3.原預定買回之數量(股):2,000,000 4.原預定買回區間價格(元):60.00~110.00 5.本次實際買回期間:115/05/13~115/06/25 6.本次已買回股份數量(股):1,536,000 7.本次已買回股份總金額(元):123,190,630 8.本次平均每股買回價格(元):80.20 9.累積已持有自己公司股份數量(股):6,600,000 10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):3.54 11.本次未執行完畢之原因: 考量後續整體資金運用之效益，故未予以執行完畢 12.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 6190 | 萬泰科 | 1 | 1 | 2 | 6 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

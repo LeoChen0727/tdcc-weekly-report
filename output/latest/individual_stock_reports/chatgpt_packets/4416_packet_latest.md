@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4416 三圓
 
 ## Metadata
-- generated_at: 2026-08-10 22:27:48 Asia/Taipei
+- generated_at: 2026-08-21 22:27:32 Asia/Taipei
 - stock_id: 4416
 - stock_name: 三圓
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 186
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 201
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,25 +69,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- action_rating_display_zh: 停利
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
+- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
+- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
-- confidence_level: medium
-- thesis_state: unclear
+- action_rating: take_profit
+- action_rating_label_zh: 停利
+- confidence_level: low
+- thesis_state: breakout_confirmed
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -100,12 +100,12 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
+- decision_score_high
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -118,7 +118,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 10.6
-- high: 10.8
-- low: 10.5
-- close: 10.55
-- volume: 112000
-- ma5: 10.41
-- ema23_primary: 10.54
-- distance_to_ema23_pct: 0.12
-- ma20: 10.41
-- ma60: 10.92
-- ma120: 13.71
-- return_5d: 3.94
-- return_20d: -7.86
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: 1.3
-- distance_to_high_60_pct: -21.27
+- date: 20260821
+- open: 12.7
+- high: 13.75
+- low: 12.4
+- close: 13.75
+- volume: 2050000
+- ma5: 12.4
+- ema23_primary: 11.23
+- distance_to_ema23_pct: 22.46
+- ma20: 10.9
+- ma60: 10.91
+- ma120: 12.39
+- return_5d: 26.73
+- return_20d: 29.72
+- volume_ratio: 2.92
+- distance_to_ma20_pct_auxiliary: 26.18
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,11.45,11.45,11,11,656000,11.18,-1.64,10.98,11.86,0.67
-20260714,11.1,11.1,10.15,10.4,673000,11.12,-6.46,10.98,11.81,0.67
-20260715,10.4,10.6,10.2,10.35,482000,11.05,-6.37,10.96,11.73,0.47
-20260716,10.35,10.6,10.35,10.5,164000,11.01,-4.62,10.97,11.64,0.16
-20260717,10.5,10.6,10,10.25,453000,10.95,-6.35,11.02,11.56,0.48
-20260720,10.25,10.55,10.1,10.3,265000,10.89,-5.43,11.03,11.49,0.31
-20260721,10.3,10.55,10.25,10.35,131000,10.85,-4.58,11.05,11.42,0.16
-20260722,10.35,10.5,10.3,10.3,152000,10.8,-4.64,11.06,11.36,0.19
-20260723,10.3,11.05,10.3,10.95,392000,10.81,1.27,11.05,11.33,0.49
-20260724,11,11.35,10.35,10.6,459000,10.8,-1.81,10.97,11.29,0.59
 20260727,10.6,10.6,10.35,10.5,99000,10.77,-2.51,10.84,11.25,0.18
 20260728,10.3,10.35,10.1,10.15,272000,10.72,-5.31,10.76,11.21,0.56
 20260729,10.2,10.5,9.98,10.2,390000,10.68,-4.46,10.7,11.17,0.89
@@ -168,17 +158,27 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,10.25,10.35,10.25,10.3,98000,10.53,-2.19,10.47,10.98,0.28
 20260806,10.25,10.8,10.25,10.6,217000,10.54,0.61,10.46,10.95,0.62
 20260807,10.6,10.8,10.5,10.55,112000,10.54,0.12,10.41,10.92,0.4
+20260810,10.6,10.6,10.35,10.55,190000,10.54,0.11,10.39,10.89,0.75
+20260811,10.5,10.55,10.4,10.45,194000,10.53,-0.77,10.39,10.87,0.85
+20260812,10.45,10.6,10.4,10.45,159000,10.52,-0.71,10.4,10.85,0.75
+20260813,10.45,10.55,10.3,10.35,118000,10.51,-1.52,10.39,10.83,0.56
+20260814,11,11.35,10.85,10.85,1764000,10.54,2.96,10.42,10.83,6.38
+20260817,10.9,11.25,10.75,11.15,1194000,10.59,5.3,10.46,10.82,3.7
+20260818,11.25,12.25,11.25,12.25,2168000,10.73,14.19,10.56,10.84,5.1
+20260819,12.4,12.95,12.1,12.35,3341000,10.86,13.69,10.66,10.84,5.72
+20260820,12.4,12.85,12.3,12.5,1140000,11,13.65,10.74,10.86,1.83
+20260821,12.7,13.75,12.4,13.75,2050000,11.23,22.46,10.9,10.91,2.92
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 72.63
-- over_600_ratio: 68.29
-- over_800_ratio: 63.61
-- over_1000_ratio: 60.94
+- as_of_date: 20260814
+- over_400_ratio: 72.53
+- over_600_ratio: 68.19
+- over_800_ratio: 63.45
+- over_1000_ratio: 60.78
 - over_400_change_1w: -0.1
-- over_800_change_1w: -0.14
-- over_1000_change_1w: -0.14
+- over_800_change_1w: -0.16
+- over_1000_change_1w: -0.16
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,82.73,0.05,72.88,0.03,70.21,0.03,2,True,True
 20260529,80.22,-2.51,69.98,-2.9,67.31,-2.9,0,False,False
 20260605,79.96,-0.26,69.77,-0.21,67.1,-0.21,0,False,False
 20260612,79.28,-0.68,69.77,0,67.1,0,0,False,False
@@ -199,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,73.53,0.39,64.02,-0.2,61.35,-0.2,1,False,False
 20260731,72.73,-0.8,63.75,-0.27,61.08,-0.27,0,False,False
 20260807,72.63,-0.1,63.61,-0.14,60.94,-0.14,0,False,False
+20260814,72.53,-0.1,63.45,-0.16,60.78,-0.16,0,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 4416 | 三圓 | true_breakout | 嚴格突破 | 101.0 |  |  | breakout_confirmed |  |  | continued_overheated | 1.關係人或主要債務人或其連帶保證人名稱:山圓建設股份有限公司 2.事實發生日:115/08/20 3.發生緣由:本公司於115/08/20接獲通知，關係人山圓建設(股)公司遭潘仁德先生 在新台幣60,0000,000元之內聲請假扣押。 4.債權種類或背書保證金額及其所占資產比例:不適用 5.債權有無保全措施:不適用 6.對公司財務、業務之影響及預計可能損失:本公司第二季財報帳列 (1)其他應收款-其他關係人-山圓共計新台幣373,579仟元，提列減損新台幣373,579仟元 (2)資金融通-其他關係人-山圓共計新台幣87,795仟元，提列減損新台幣87,795仟元 7.因應措施:目前山圓建設已與執票人進行協商中。 8.其他應敘明事項:不適用；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 4416 | 三圓 | 2 | 1 | 2 | 3 | 6 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

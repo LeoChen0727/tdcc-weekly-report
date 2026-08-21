@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3303 岱稜
 
 ## Metadata
-- generated_at: 2026-08-10 22:27:27 Asia/Taipei
+- generated_at: 2026-08-21 22:27:19 Asia/Taipei
 - stock_id: 3303
 - stock_name: 岱稜
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 186
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 203
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,33 +69,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可分批買進
-- model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- thesis_state: unclear
+- entry_style: no_entry_now
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -104,7 +100,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -131,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 54.3
-- high: 54.9
-- low: 53.7
-- close: 54.8
-- volume: 552000
-- ma5: 55.14
-- ema23_primary: 54.35
-- distance_to_ema23_pct: 0.83
-- ma20: 54.02
-- ma60: 54.09
-- ma120: 50.7
-- return_5d: -0.36
-- return_20d: -7.43
-- volume_ratio: 0.47
-- distance_to_ma20_pct_auxiliary: 1.45
-- distance_to_high_60_pct: -15.3
+- date: 20260821
+- open: 53.9
+- high: 54.3
+- low: 53.5
+- close: 53.7
+- volume: 224000
+- ma5: 52.98
+- ema23_primary: 53.73
+- distance_to_ema23_pct: -0.06
+- ma20: 53.35
+- ma60: 54.82
+- ma120: 51.28
+- return_5d: 2.87
+- return_20d: 4.88
+- volume_ratio: 0.4
+- distance_to_ma20_pct_auxiliary: 0.65
+- distance_to_high_60_pct: -17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,57.6,58.2,55.4,56,1336000,56.74,-1.31,58.71,52.58,0.73
-20260714,56.5,58,55.4,57.4,1931000,56.8,1.06,58.63,52.76,1.1
-20260715,57.4,62.7,54.5,62.7,3699000,57.29,9.44,58.62,53.03,2.71
-20260716,62.4,62.5,57.2,57.4,4351000,57.3,0.18,58.51,53.22,3.11
-20260717,56.5,57,52.5,53.8,1661000,57.01,-5.63,58.19,53.32,1.22
-20260720,53.2,53.2,50.7,51.7,1246000,56.57,-8.6,57.72,53.39,0.92
-20260721,51.3,52.4,51.3,52.2,420000,56.2,-7.12,57.32,53.48,0.33
-20260722,52.4,53.2,51.7,52.5,663000,55.89,-6.07,56.99,53.55,0.53
-20260723,52.3,52.4,51.7,52.2,322000,55.59,-6.09,56.58,53.62,0.26
-20260724,51.8,52.3,51.1,51.2,351000,55.22,-7.28,56.2,53.67,0.3
 20260727,51.2,51.6,50.9,51.5,290000,54.91,-6.21,55.95,53.71,0.25
 20260728,50.7,51.2,49.85,50,444000,54.5,-8.26,55.58,53.73,0.38
 20260729,50.5,51.1,48.3,50.5,947000,54.17,-6.77,55.2,53.74,0.8
@@ -173,26 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,56.4,56.6,54.5,54.9,783000,54.32,1.06,54.31,53.94,0.61
 20260806,55.5,55.5,53.3,54.1,668000,54.31,-0.38,54.23,54.01,0.52
 20260807,54.3,54.9,53.7,54.8,552000,54.35,0.83,54.02,54.09,0.47
+20260810,55.6,56.6,55.2,56,443000,54.48,2.78,54.02,54.18,0.4
+20260811,57,57,54.2,54.2,1038000,54.46,-0.48,53.85,54.26,0.97
+20260812,54.3,55.1,53.4,53.4,596000,54.37,-1.79,53.39,54.34,0.65
+20260813,53.9,53.9,53.1,53.2,289000,54.28,-1.98,53.18,54.42,0.4
+20260814,53,53.1,52.2,52.2,298000,54.1,-3.52,53.1,54.5,0.46
+20260817,52.2,52.6,51.7,52.3,203000,53.95,-3.06,53.13,54.55,0.34
+20260818,52.8,52.8,52.1,52.5,169000,53.83,-2.47,53.15,54.6,0.29
+20260819,51.3,53.1,51.3,52.8,141000,53.75,-1.76,53.16,54.66,0.25
+20260820,53.9,55.1,53.1,53.6,532000,53.73,-0.25,53.23,54.73,0.94
+20260821,53.9,54.3,53.5,53.7,224000,53.73,-0.06,53.35,54.82,0.4
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 48.29
-- over_600_ratio: 43.47
-- over_800_ratio: 40.59
-- over_1000_ratio: 36.72
-- over_400_change_1w: 0.3
-- over_800_change_1w: -0.07
-- over_1000_change_1w: 0.03
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260814
+- over_400_ratio: 48.51
+- over_600_ratio: 42.69
+- over_800_ratio: 40.46
+- over_1000_ratio: 36.59
+- over_400_change_1w: 0.22
+- over_800_change_1w: -0.13
+- over_1000_change_1w: -0.13
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,45.62,-0.46,38.62,0.35,36.54,0.35,3,False,True
 20260529,45.64,0.02,38.71,0.09,36.63,0.09,4,True,True
 20260605,45.64,0,38.72,0.01,36.64,0.01,5,False,True
 20260612,46.16,0.52,38.72,0,36.64,0,6,False,False
@@ -204,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,47.69,0.88,39.53,0.16,36.43,0.06,1,True,True
 20260731,47.99,0.3,40.66,1.13,36.69,0.26,2,True,True
 20260807,48.29,0.3,40.59,-0.07,36.72,0.03,3,False,True
+20260814,48.51,0.22,40.46,-0.13,36.59,-0.13,4,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 3303 | 岱稜 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/18 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放股利種類及金額:現金股利NT$44,500,000元(每股NT$4.45元) 4.除權（息）交易日:不適用 5.最後過戶日:115/07/16 6.停止過戶起始日期:115/07/17 7.停止過戶截止日期:115/07/21 8.除權（息）基準日:115/07/21 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.現金股利發放日期:115/07/24 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 3303 | 岱稜 | 6 | 2 | 5 | 6 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

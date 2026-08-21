@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6491 晶碩
 
 ## Metadata
-- generated_at: 2026-08-10 22:28:32 Asia/Taipei
+- generated_at: 2026-08-21 22:28:00 Asia/Taipei
 - stock_id: 6491
 - stock_name: 晶碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 369.5
-- high: 379.5
-- low: 369.5
-- close: 373
-- volume: 750774
-- ma5: 370.5
-- ema23_primary: 348.91
-- distance_to_ema23_pct: 6.9
-- ma20: 347
-- ma60: 333.38
-- ma120: 309.09
-- return_5d: 15.12
-- return_20d: -0.53
-- volume_ratio: 1.27
-- distance_to_ma20_pct_auxiliary: 7.49
-- distance_to_high_60_pct: -4.36
+- date: 20260821
+- open: 374
+- high: 374.5
+- low: 367
+- close: 372
+- volume: 225535
+- ma5: 369.3
+- ema23_primary: 362.08
+- distance_to_ema23_pct: 2.74
+- ma20: 360.1
+- ma60: 344.43
+- ma120: 315.93
+- return_5d: 0.81
+- return_20d: 12.22
+- volume_ratio: 0.38
+- distance_to_ma20_pct_auxiliary: 3.3
+- distance_to_high_60_pct: -4.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,375,376.5,362,365.5,611546,344.64,6.05,340.35,313.98,0.75
-20260714,367.5,367.5,350,357.5,763524,345.71,3.41,342.35,315.02,0.92
-20260715,358,365,354.5,365,375080,347.32,5.09,345.05,316.22,0.46
-20260716,367,367,356.5,359.5,369580,348.33,3.21,347.48,317.41,0.46
-20260717,353,356.5,333,335,613660,347.22,-3.52,348.65,318.27,0.74
-20260720,335,340,330,335.5,329484,346.24,-3.1,349.05,319.07,0.41
-20260721,335.5,338,333,335,224446,345.31,-2.98,349.45,319.88,0.28
-20260722,337.5,345,336,338,331495,344.7,-1.94,350.07,320.79,0.41
-20260723,338,339,333,336,314670,343.97,-2.32,350.57,321.62,0.39
-20260724,333,337,330,331.5,203283,342.93,-3.33,350.9,322.44,0.25
 20260727,334.5,338.5,332,338,409171,342.52,-1.32,351.7,323.38,0.5
 20260728,329,335,321,323.5,514916,340.94,-5.11,351.32,324.12,0.64
 20260729,325,330,309,322,564631,339.36,-5.12,350.18,324.83,0.72
@@ -167,26 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,365.5,387,365.5,379,1034648,343.79,10.24,346.9,330.39,1.8
 20260806,380,381,369,379,816654,346.72,9.31,347.1,331.92,1.41
 20260807,369.5,379.5,369.5,373,750774,348.91,6.9,347,333.38,1.27
+20260810,375,379,368,379,542542,351.42,7.85,347.68,334.88,0.92
+20260811,379.5,380.5,373.5,378,348775,353.63,6.89,348.7,336.27,0.62
+20260812,383,386.5,374,378,477483,355.66,6.28,349.35,337.68,0.84
+20260813,384,384,368,370,328551,356.86,3.68,349.88,338.76,0.58
+20260814,372.5,378,368,369,374678,357.87,3.11,351.57,339.86,0.67
+20260817,368.5,370.5,357,363.5,270063,358.34,1.44,352.98,340.8,0.49
+20260818,363,365,358,361.5,226372,358.6,0.81,354.3,341.69,0.41
+20260819,361.5,377.5,359,375.5,515759,360.01,4.3,356.18,342.82,0.91
+20260820,379.5,390,372.5,374,834881,361.18,3.55,358.07,343.64,1.42
+20260821,374,374.5,367,372,225535,362.08,2.74,360.1,344.43,0.38
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 64.3
-- over_600_ratio: 60.42
-- over_800_ratio: 58.71
-- over_1000_ratio: 56.38
-- over_400_change_1w: 2.4
-- over_800_change_1w: 3.37
-- over_1000_change_1w: 4.48
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260814
+- over_400_ratio: 65.78
+- over_600_ratio: 60.03
+- over_800_ratio: 58.24
+- over_1000_ratio: 54.86
+- over_400_change_1w: 1.48
+- over_800_change_1w: -0.47
+- over_1000_change_1w: -1.52
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,57.69,0.02,54.91,0,53.63,0,2,False,False
 20260529,58.84,1.15,54.91,0,53.63,0,3,False,False
 20260605,58.32,-0.52,54.91,0,53.63,0,4,False,False
 20260612,58.96,0.64,52.91,-2,51.63,-2,5,False,False
@@ -198,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,63.07,-0.28,56.15,-0.05,53.76,-0.05,5,False,False
 20260731,61.9,-1.17,55.34,-0.81,51.9,-1.86,0,False,False
 20260807,64.3,2.4,58.71,3.37,56.38,4.48,1,True,True
+20260814,65.78,1.48,58.24,-0.47,54.86,-1.52,2,False,False
 ```
 
 ## Candidate Context
@@ -213,7 +214,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 6491 | 晶碩 | 6 | 0 | 1528500.0 | 0.0 |  | call_inflow |
+| 20260821 | 6491 | 晶碩 | 8 | 0 | 280280.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

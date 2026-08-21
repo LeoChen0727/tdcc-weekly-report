@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2363 矽統
 
 ## Metadata
-- generated_at: 2026-08-10 22:26:53 Asia/Taipei
+- generated_at: 2026-08-21 22:26:56 Asia/Taipei
 - stock_id: 2363
 - stock_name: 矽統
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 54.5
-- high: 54.7
-- low: 53.4
-- close: 53.7
-- volume: 7685807
-- ma5: 52.13
-- ema23_primary: 55.53
-- distance_to_ema23_pct: -3.29
-- ma20: 55.09
-- ma60: 61.55
-- ma120: 56.82
-- return_5d: 9.15
-- return_20d: -18.14
-- volume_ratio: 1.01
-- distance_to_ma20_pct_auxiliary: -2.52
-- distance_to_high_60_pct: -29.43
+- date: 20260821
+- open: 51.1
+- high: 51.5
+- low: 50.4
+- close: 50.7
+- volume: 1788029
+- ma5: 51.38
+- ema23_primary: 53.86
+- distance_to_ema23_pct: -5.87
+- ma20: 51.75
+- ma60: 59.76
+- ma120: 56.84
+- return_5d: -5.06
+- return_20d: -8.32
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: -2.03
+- distance_to_high_60_pct: -33.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,67.4,69.2,64.5,65.5,10939349,66.32,-1.24,66.73,62.07,0.44
-20260714,65,65.2,59.1,62.1,12840585,65.97,-5.87,66.91,62.22,0.51
-20260715,63.2,66.2,63.1,65,11498615,65.89,-1.35,67.09,62.39,0.45
-20260716,64,64.8,62.3,63,6274386,65.65,-4.03,67.3,62.52,0.25
-20260717,60,60.4,56.7,56.7,13570328,64.9,-12.64,67.18,62.51,0.52
-20260720,56.7,56.7,52.5,56.7,6243986,64.22,-11.71,66.87,62.46,0.24
-20260721,57.4,57.7,56.3,57.4,6031244,63.65,-9.82,66.28,62.51,0.24
-20260722,58.4,59.8,57.9,59,7328382,63.26,-6.74,65.94,62.58,0.31
-20260723,59.3,60,56.6,57.1,5630352,62.75,-9,65.33,62.65,0.26
-20260724,56.1,57.2,55.1,55.3,3832369,62.13,-10.99,64.3,62.68,0.21
 20260727,55.3,55.7,53.2,54.6,4002762,61.5,-11.22,63.59,62.74,0.26
 20260728,52,52,49.15,49.2,6439163,60.48,-18.65,62.62,62.69,0.43
 20260729,49.5,49.5,44.3,45.5,9591290,59.23,-23.18,61.45,62.54,0.68
@@ -168,26 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,54,54.4,52.6,52.7,7093254,55.94,-5.79,56.38,61.82,0.89
 20260806,52.3,53,51.2,53,3600056,55.69,-4.83,55.68,61.65,0.48
 20260807,54.5,54.7,53.4,53.7,7685807,55.53,-3.29,55.09,61.55,1.01
+20260810,54.6,54.8,53.6,54,5470781,55.4,-2.53,54.51,61.4,0.75
+20260811,54.2,57.3,53.3,57,9332065,55.53,2.64,54.26,61.34,1.31
+20260812,56.9,58.5,55.3,55.4,7614052,55.52,-0.22,53.78,61.24,1.1
+20260813,55.6,56.5,54.4,54.4,5577288,55.43,-1.85,53.35,61.14,0.81
+20260814,54.7,55.2,53.4,53.4,2955221,55.26,-3.36,53.18,61.03,0.46
+20260817,53.3,54.1,53,53.1,2216280,55.08,-3.59,53,60.86,0.36
+20260818,53.1,53.6,51.3,51.3,3297620,54.76,-6.33,52.7,60.61,0.55
+20260819,50,51.4,49.85,50.8,2060933,54.43,-6.68,52.29,60.3,0.36
+20260820,51.9,52.2,50.5,51,1511296,54.15,-5.81,51.98,60.02,0.27
+20260821,51.1,51.5,50.4,50.7,1788029,53.86,-5.87,51.75,59.76,0.33
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 35.85
-- over_600_ratio: 34.51
-- over_800_ratio: 33.06
-- over_1000_ratio: 31.18
-- over_400_change_1w: 0.64
-- over_800_change_1w: 1.11
-- over_1000_change_1w: 0.78
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
+- as_of_date: 20260814
+- over_400_ratio: 35.71
+- over_600_ratio: 34.32
+- over_800_ratio: 33
+- over_1000_ratio: 31.47
+- over_400_change_1w: -0.14
+- over_800_change_1w: -0.06
+- over_1000_change_1w: 0.29
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,37.38,0.35,34.03,0.01,32.8,1.04,3,True,True
 20260529,37.16,-0.22,34.29,0.26,32.89,0.09,4,False,True
 20260605,37.21,0.05,34.12,-0.17,32.55,-0.34,5,False,False
 20260612,36.63,-0.58,33.17,-0.95,31.62,-0.93,0,False,False
@@ -199,22 +198,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,35.95,-0.78,32.97,-1.23,30.53,-0.74,0,False,False
 20260731,35.21,-0.74,31.95,-1.02,30.4,-0.13,0,False,False
 20260807,35.85,0.64,33.06,1.11,31.18,0.78,1,True,True
+20260814,35.71,-0.14,33,-0.06,31.47,0.29,2,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2363 | 矽統 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.董事會召集通知日:115/07/17 2.董事會預計召開日期:115/07/27 3.預計提報董事會或經董事會決議之財務報告或 年度自結財務資訊年季:民國115年第二季 4.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 2363 | 矽統 | revenue_pullback | 營收成長股價回檔 | 64.0 |  |  |  |  | no_signal | stale_signal | 1.提報董事會或經董事會決議日期:115/07/27 2.審計委員會通過日期:115/07/27 3.財務報告或年度自結財務資訊報導期間 起訖日期(XXX/XX/XX~XXX/XX/XX):2026/01/01~2026/06/30 4.1月1日累計至本期止營業收入(仟元):2,211,081 5.1月1日累計至本期止營業毛利(毛損) (仟元):628,335 6.1月1日累計至本期止營業利益(損失) (仟元):121,979 7.1月1日累計至本期止稅前淨利(淨損) (仟元):175,408 8.1月1日累計至本期止本期淨利(淨損) (仟元):106,329 9.1月1日累計至本期止歸屬於母公司業主淨利(損) (仟元):103,177 10.1月1日累計至本期止基本每股盈餘(損失) (元):0.20 11.期末總資產(仟元):52,079,509 12.期末總負債(仟元):3,088,848 13.期末歸屬於母公司業主之權益(仟元):48,864,470 14.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 2363 | 矽統 | revenue_breakout_low_response | 營收爆發低反應股 | 17 | 21 | A_優先追蹤 |  |  | no_signal | stale_signal | 1.提報董事會或經董事會決議日期:115/07/27 2.審計委員會通過日期:115/07/27 3.財務報告或年度自結財務資訊報導期間 起訖日期(XXX/XX/XX~XXX/XX/XX):2026/01/01~2026/06/30 4.1月1日累計至本期止營業收入(仟元):2,211,081 5.1月1日累計至本期止營業毛利(毛損) (仟元):628,335 6.1月1日累計至本期止營業利益(損失) (仟元):121,979 7.1月1日累計至本期止稅前淨利(淨損) (仟元):175,408 8.1月1日累計至本期止本期淨利(淨損) (仟元):106,329 9.1月1日累計至本期止歸屬於母公司業主淨利(損) (仟元):103,177 10.1月1日累計至本期止基本每股盈餘(損失) (元):0.20 11.期末總資產(仟元):52,079,509 12.期末總負債(仟元):3,088,848 13.期末歸屬於母公司業主之權益(仟元):48,864,470 14.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2363 | 矽統 | 35 | 2 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260821 | 2363 | 矽統 | 39 | 6 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2363 | 矽統 | 87 | 5 | 2916250.0 | 7930.0 | 367.75 | no_signal |
+| 20260821 | 2363 | 矽統 | 91 | 5 | 466490.0 | 51860.0 | 9.0 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

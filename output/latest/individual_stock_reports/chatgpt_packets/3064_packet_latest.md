@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3064 泰偉
 
 ## Metadata
-- generated_at: 2026-08-10 22:27:20 Asia/Taipei
+- generated_at: 2026-08-21 22:27:14 Asia/Taipei
 - stock_id: 3064
 - stock_name: 泰偉
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260804
-- price_rows: 134
-- current_main_price_date: 20260807
+- price_rows: 138
+- current_main_price_date: 20260821
 - current_main_price_universe_status: historical_only_noncurrent
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: historical_only_noncurrent
 - tdcc_freshness_status: historical_only_noncurrent
 - tdcc_continuity_status: complete
@@ -149,19 +149,19 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260604,18.45,18.6,18.45,18.6,18000,20.24,-8.1,19.54,28.09,1.9
-20260605,18.6,20,17,18.6,18000,20.1,-7.47,19.47,27.6,1.8
+20260605,18.6,20,17,18.6,18000,20.1,-7.48,19.47,27.6,1.8
 20260608,18,18,18,18,1000,19.93,-9.67,19.32,27.09,0.1
 20260611,17.1,18,17.05,18,3000,19.77,-8.94,19.18,26.59,0.3
-20260616,18,19.2,18,19.2,7000,19.72,-2.63,19.1,26.11,0.68
+20260616,18,19.2,18,19.2,7000,19.72,-2.64,19.1,26.11,0.68
 20260617,19.2,19.2,19.2,19.2,1000,19.68,-2.42,19.1,25.63,0.1
-20260618,19.2,19.3,19.2,19.3,3000,19.64,-1.75,19.07,25.16,0.3
-20260623,20,20,20,20,1000,19.67,1.66,19.02,24.72,0.1
-20260626,20,20,20,20,2000,19.7,1.52,18.98,24.27,0.2
+20260618,19.2,19.3,19.2,19.3,3000,19.64,-1.76,19.07,25.16,0.3
+20260623,20,20,20,20,1000,19.67,1.65,19.02,24.72,0.1
+20260626,20,20,20,20,2000,19.7,1.51,18.98,24.27,0.2
 20260629,19.95,20,19.95,20,2000,19.73,1.39,18.95,23.82,0.2
 20260701,20,20,20,20,1000,19.75,1.27,18.93,23.45,0.1
 20260702,19.05,19.1,19.05,19.1,3000,19.7,-3.02,18.96,23.08,0.31
 20260703,19.7,19.7,19.7,19.7,1000,19.7,0.02,18.98,22.78,0.11
-20260706,20.3,20.3,20,20,31000,19.72,1.42,19.03,22.53,3.07
+20260706,20.3,20.3,20,20,31000,19.72,1.41,19.03,22.53,3.07
 20260707,19.5,19.5,19.5,19.5,1000,19.7,-1.03,19.1,22.27,0.11
 20260709,19.2,19.2,19.2,19.2,1000,19.66,-2.34,19.16,22.06,0.12
 20260717,18,18,17.9,17.9,4000,19.51,-8.27,19.14,21.8,0.52
@@ -171,7 +171,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
+- as_of_date: 20260814
 - over_400_ratio: 63.47
 - over_600_ratio: 60.15
 - over_800_ratio: 60.15
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,63.47,0,60.15,0,60.15,0,0,False,False
 20260529,63.47,0,60.15,0,60.15,0,0,False,False
 20260605,63.47,0,60.15,0,60.15,0,0,False,False
 20260612,63.47,0,60.15,0,60.15,0,0,False,False
@@ -199,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,63.47,0,60.15,0,60.15,0,0,False,False
 20260731,63.47,0,60.15,0,60.15,0,0,False,False
 20260807,63.47,0,60.15,0,60.15,0,0,False,False
+20260814,63.47,0,60.15,0,60.15,0,0,False,False
 ```
 
 ## Candidate Context

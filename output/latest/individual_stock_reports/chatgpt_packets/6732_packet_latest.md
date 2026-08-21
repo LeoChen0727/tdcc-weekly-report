@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6732 昇佳電子
 
 ## Metadata
-- generated_at: 2026-08-10 22:28:42 Asia/Taipei
+- generated_at: 2026-08-21 22:28:07 Asia/Taipei
 - stock_id: 6732
 - stock_name: 昇佳電子
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 186
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 203
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -101,7 +101,9 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -116,7 +118,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -124,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 159.5
-- high: 160
-- low: 157
-- close: 158
-- volume: 107000
-- ma5: 156.9
-- ema23_primary: 168.62
-- distance_to_ema23_pct: -6.3
-- ma20: 175.5
-- ma60: 172.65
-- ma120: 166.48
-- return_5d: 4.29
-- return_20d: -19.39
-- volume_ratio: 0.18
-- distance_to_ma20_pct_auxiliary: -9.97
-- distance_to_high_60_pct: -27.19
+- date: 20260821
+- open: 150.5
+- high: 154
+- low: 150.5
+- close: 151.5
+- volume: 72000
+- ma5: 151.6
+- ema23_primary: 159.77
+- distance_to_ema23_pct: -5.17
+- ma20: 154.78
+- ma60: 169.36
+- ma120: 164.88
+- return_5d: -4.11
+- return_20d: -11.4
+- volume_ratio: 0.34
+- distance_to_ma20_pct_auxiliary: -2.12
+- distance_to_high_60_pct: -30.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,200,203.5,193,197.5,776000,179.04,10.31,174.4,167.48,1.53
-20260714,201.5,210,192.5,206,1494000,181.28,13.63,177.05,168.38,2.59
-20260715,205,205,195.5,201,817000,182.93,9.88,179.25,169.1,1.34
-20260716,200,217,193,214,1164000,185.52,15.35,182.22,170.07,1.75
-20260717,210,213,193,193.5,1262000,186.18,3.93,184.1,170.68,1.75
-20260720,193.5,201,190,195.5,664000,186.96,4.57,185.6,171.19,0.89
-20260721,198,212,198,204,744000,188.38,8.29,187.47,171.98,0.96
-20260722,204,208,190.5,191.5,1020000,188.64,1.52,188.57,172.5,1.27
-20260723,193.5,193.5,177,179.5,785000,187.88,-4.46,189.07,172.92,0.95
-20260724,179,179,170,171,482000,186.47,-8.3,189.1,173.25,0.57
 20260727,171,173.5,166.5,168.5,301000,184.97,-8.91,189.45,173.53,0.36
 20260728,167,167,155,155.5,338000,182.52,-14.8,189.12,173.61,0.39
 20260729,156,158.5,143,150,610000,179.81,-16.58,188.3,173.59,0.69
@@ -166,18 +158,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,160,162,156.5,159.5,367000,170.68,-6.55,179.45,172.99,0.56
 20260806,159,159.5,154.5,157.5,218000,169.58,-7.12,177.4,172.78,0.35
 20260807,159.5,160,157,158,107000,168.62,-6.3,175.5,172.65,0.18
+20260810,154.5,156.5,154,155.5,169000,167.52,-7.18,173.4,172.37,0.3
+20260811,157.5,157.5,152.5,154.5,132000,166.44,-7.17,170.82,172.17,0.26
+20260812,157,158,155,156.5,110000,165.61,-5.5,168.6,172.01,0.23
+20260813,157.5,158.5,156,156.5,107000,164.85,-5.07,165.72,171.91,0.26
+20260814,157.5,160,154,158,227000,164.28,-3.82,163.95,171.79,0.62
+20260817,159.5,161,154.5,155,142000,163.51,-5.2,161.93,171.46,0.42
+20260818,155,155,150.5,150.5,142000,162.42,-7.34,159.25,170.95,0.46
+20260819,149,152,148,150.5,136000,161.43,-6.77,157.2,170.43,0.52
+20260820,150.5,152,150,150.5,94000,160.52,-6.24,155.75,169.88,0.41
+20260821,150.5,154,150.5,151.5,72000,159.77,-5.17,154.78,169.36,0.34
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 49.43
+- as_of_date: 20260814
+- over_400_ratio: 49.45
 - over_600_ratio: 46.31
 - over_800_ratio: 46.31
 - over_1000_ratio: 46.31
 - over_400_change_1w: 0.02
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -185,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,50.46,0.92,46.31,0,46.31,0,1,False,False
 20260529,50.39,-0.07,46.31,0,46.31,0,0,False,False
 20260605,50.23,-0.16,46.31,0,46.31,0,0,False,False
 20260612,49.45,-0.78,46.31,0,46.31,0,0,False,False
@@ -197,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,49.49,-0.16,46.31,0,46.31,0,0,False,False
 20260731,49.41,-0.08,46.31,0,46.31,0,0,False,False
 20260807,49.43,0.02,46.31,0,46.31,0,1,False,False
+20260814,49.45,0.02,46.31,0,46.31,0,2,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 6732 | 昇佳電子 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 6732 | 昇佳電子 | 2 | 1 | 3 | 6 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

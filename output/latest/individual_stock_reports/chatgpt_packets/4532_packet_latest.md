@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4532 瑞智
 
 ## Metadata
-- generated_at: 2026-08-10 22:27:50 Asia/Taipei
+- generated_at: 2026-08-21 22:27:34 Asia/Taipei
 - stock_id: 4532
 - stock_name: 瑞智
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -103,6 +103,7 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -117,7 +118,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -125,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 24.75
-- high: 24.9
-- low: 24.5
-- close: 24.5
-- volume: 684737
-- ma5: 24.26
-- ema23_primary: 24.62
-- distance_to_ema23_pct: -0.48
-- ma20: 24.51
-- ma60: 24.72
-- ma120: 24.92
-- return_5d: 3.59
-- return_20d: -5.95
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: -0.03
-- distance_to_high_60_pct: -19.41
+- date: 20260821
+- open: 24.05
+- high: 24.15
+- low: 23.9
+- close: 24.1
+- volume: 512482
+- ma5: 23.84
+- ema23_primary: 24.15
+- distance_to_ema23_pct: -0.2
+- ma20: 23.91
+- ma60: 24.78
+- ma120: 24.75
+- return_5d: 2.34
+- return_20d: -1.23
+- volume_ratio: 0.59
+- distance_to_ma20_pct_auxiliary: 0.82
+- distance_to_high_60_pct: -20.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,26.2,26.7,25.85,26.2,1879537,26.08,0.45,25.89,24.41,0.5
-20260714,26.4,26.4,25,25.4,2481260,26.02,-2.4,25.93,24.43,0.64
-20260715,25.65,25.75,25.4,25.7,1015139,26,-1.15,25.99,24.45,0.26
-20260716,25.5,25.8,25.35,25.4,821030,25.95,-2.11,26.05,24.46,0.21
-20260717,25.25,25.3,24.4,24.7,2128943,25.84,-4.43,26.08,24.46,0.54
-20260720,24.7,24.9,24.1,24.4,1527689,25.72,-5.15,26.11,24.47,0.39
-20260721,24.4,24.7,24.4,24.7,1806981,25.64,-3.66,26.14,24.48,0.46
-20260722,24.7,25,24.6,24.65,763756,25.56,-3.55,26.17,24.51,0.19
-20260723,24.6,24.75,24.35,24.45,892368,25.46,-3.98,26.19,24.52,0.23
-20260724,24.35,24.65,24.25,24.4,893086,25.38,-3.84,26.21,24.55,0.23
 20260727,24.55,24.65,24.1,24.4,751365,25.29,-3.53,26.25,24.57,0.2
 20260728,24.25,24.25,23.8,23.95,1259547,25.18,-4.89,26.14,24.59,0.35
 20260729,24.25,24.25,22.95,23.35,2432868,25.03,-6.71,25.89,24.59,0.86
@@ -167,18 +158,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,24.4,24.6,24.05,24.1,768467,24.63,-2.15,24.72,24.67,0.54
 20260806,24.05,24.65,24.05,24.6,1017589,24.63,-0.11,24.59,24.69,0.76
 20260807,24.75,24.9,24.5,24.5,684737,24.62,-0.48,24.51,24.72,0.56
+20260810,24.65,24.65,23.9,24,1307452,24.57,-2.3,24.4,24.73,1.1
+20260811,24.15,24.15,23.5,23.7,1423165,24.49,-3.24,24.31,24.74,1.25
+20260812,23.75,23.95,23.75,23.8,484702,24.44,-2.6,24.22,24.74,0.44
+20260813,24,24,23.7,23.7,528895,24.37,-2.77,24.13,24.75,0.48
+20260814,23.8,23.8,23.5,23.55,610652,24.31,-3.11,24.07,24.76,0.6
+20260817,23.5,23.9,23.5,23.8,406499,24.26,-1.91,24.05,24.76,0.42
+20260818,23.6,23.8,23.5,23.6,633327,24.21,-2.51,23.99,24.77,0.7
+20260819,23.5,23.75,23.5,23.65,688122,24.16,-2.12,23.94,24.76,0.76
+20260820,23.65,24.1,23.65,24.05,670914,24.15,-0.42,23.92,24.77,0.75
+20260821,24.05,24.15,23.9,24.1,512482,24.15,-0.2,23.91,24.78,0.59
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 70.19
-- over_600_ratio: 68.49
-- over_800_ratio: 66.97
-- over_1000_ratio: 64.53
-- over_400_change_1w: 0.18
-- over_800_change_1w: -0.01
-- over_1000_change_1w: -0.54
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260814
+- over_400_ratio: 70.08
+- over_600_ratio: 67.89
+- over_800_ratio: 66.66
+- over_1000_ratio: 64.39
+- over_400_change_1w: -0.11
+- over_800_change_1w: -0.31
+- over_1000_change_1w: -0.14
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -186,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,69.13,0.08,64.84,0.13,63.53,0.34,1,False,True
 20260529,69.22,0.09,65.11,0.27,63.63,0.1,2,True,True
 20260605,69.76,0.54,65.91,0.8,64.42,0.79,3,True,True
 20260612,69.77,0.01,66.22,0.31,64.53,0.11,4,True,True
@@ -198,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,70.32,-0.08,67.2,-0.17,65.48,0.01,1,False,True
 20260731,70.01,-0.31,66.98,-0.22,65.07,-0.41,0,False,False
 20260807,70.19,0.18,66.97,-0.01,64.53,-0.54,1,False,False
+20260814,70.08,-0.11,66.66,-0.31,64.39,-0.14,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 4532 | 瑞智 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/07/07 2.公司名稱:瑞智精密股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年06月自結合併營收情形 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 瑞智精密自結合併海外廠淨銷售量(扣除內部轉銷交易後)115年6月206.36萬台， 較去年同期增加約24.05%。1-6月累計合併淨銷售量約1,347.05萬台， 較去年同期增加約6.25%。 瑞智精密自結合併海外廠營業收入(扣除內部轉銷交易後)115年6月約19.74億， 較去年同期增加約28.80%。1-6月累計合併淨營收約123.65億， 較去年同期增加約1.91%。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 4532 | 瑞智 | 1 | 1 | 4 | 8 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 4532 | 瑞智 | 3 | 0 | 821820.0 | 0.0 |  | no_signal |
+| 20260821 | 4532 | 瑞智 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4763 材料*-KY
 
 ## Metadata
-- generated_at: 2026-08-10 22:27:56 Asia/Taipei
+- generated_at: 2026-08-21 22:27:37 Asia/Taipei
 - stock_id: 4763
 - stock_name: 材料*-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 314
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 331
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 50
-- high: 51.7
-- low: 49.5
-- close: 49.9
-- volume: 13796150
-- ma5: 49.26
-- ema23_primary: 48.37
-- distance_to_ema23_pct: 3.16
-- ma20: 48.45
-- ma60: 45.86
-- ma120: 45.28
-- return_5d: 3.42
-- return_20d: 4.83
-- volume_ratio: 1.47
-- distance_to_ma20_pct_auxiliary: 3
-- distance_to_high_60_pct: -6.73
+- date: 20260821
+- open: 50.2
+- high: 50.3
+- low: 49.1
+- close: 49.65
+- volume: 5896996
+- ma5: 50.21
+- ema23_primary: 49.73
+- distance_to_ema23_pct: -0.16
+- ma20: 49.74
+- ma60: 47.33
+- ma120: 45.38
+- return_5d: -3.59
+- return_20d: -1.49
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: -0.19
+- distance_to_high_60_pct: -9.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,46.95,48.2,46.3,47.25,5785188,46.73,1.11,46.75,44.25,0.54
-20260714,47.65,47.65,45.15,45.75,7677384,46.65,-1.93,46.82,44.23,0.71
-20260715,45.8,47.1,45.7,46.95,4123731,46.67,0.59,46.92,44.22,0.38
-20260716,46.95,48.2,46.15,47.45,3919371,46.74,1.52,47.06,44.24,0.36
-20260717,46.8,47.75,45.1,45.35,9555433,46.62,-2.73,47.1,44.24,0.86
-20260720,46.15,49.35,45.1,48.6,12820596,46.79,3.87,47.31,44.31,1.12
-20260721,49.25,51.4,48.6,50.6,18691699,47.11,7.42,47.56,44.45,1.56
-20260722,50.8,53.5,50,50.3,19851298,47.37,6.18,47.74,44.57,1.64
-20260723,50.6,51.2,48.5,49.75,9292955,47.57,4.58,47.98,44.67,0.76
-20260724,49.35,50.4,49.05,50.4,5450325,47.81,5.43,48.28,44.81,0.44
 20260727,50.4,50.9,49,49.7,6493150,47.96,3.62,48.59,44.92,0.53
 20260728,49.25,49.4,47.5,47.65,6514036,47.94,-0.6,48.58,45.01,0.56
 20260729,48,48.65,45.9,47,11634861,47.86,-1.8,48.56,45.08,1.06
@@ -167,18 +157,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,48.8,49.15,48,48.45,6408651,48.1,0.72,48.29,45.59,0.7
 20260806,48.2,49.7,48.1,49.65,5523871,48.23,2.94,48.33,45.72,0.61
 20260807,50,51.7,49.5,49.9,13796150,48.37,3.16,48.45,45.86,1.47
+20260810,50.2,50.3,49.4,50,5341877,48.51,3.08,48.58,45.99,0.57
+20260811,50,52.3,49.6,51.6,15188059,48.76,5.81,48.88,46.16,1.56
+20260812,52.1,55,51.9,52.6,20458651,49.08,7.16,49.16,46.34,1.94
+20260813,53,53.1,51.3,51.6,10357351,49.29,4.68,49.37,46.51,0.95
+20260814,51.6,51.7,50.5,51.5,6432404,49.48,4.09,49.67,46.68,0.6
+20260817,51.9,52,49.5,50.1,11732088,49.53,1.15,49.75,46.81,1.1
+20260818,50.1,50.8,49.75,50.4,4233566,49.6,1.61,49.74,46.92,0.43
+20260819,49.8,50.7,49.7,50.7,3005171,49.69,2.03,49.76,47.05,0.33
+20260820,50.9,51.1,50,50.2,3500103,49.74,0.93,49.78,47.19,0.4
+20260821,50.2,50.3,49.1,49.65,5896996,49.73,-0.16,49.74,47.33,0.67
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 60.66
-- over_600_ratio: 58.8
-- over_800_ratio: 57.62
-- over_1000_ratio: 56.61
-- over_400_change_1w: 0.08
-- over_800_change_1w: 0.09
-- over_1000_change_1w: 0.18
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260814
+- over_400_ratio: 61.12
+- over_600_ratio: 59.23
+- over_800_ratio: 58.05
+- over_1000_ratio: 57.03
+- over_400_change_1w: 0.46
+- over_800_change_1w: 0.43
+- over_1000_change_1w: 0.42
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,59.79,-0.04,56.92,0.11,55.74,-0.16,2,False,True
 20260529,59.42,-0.37,56.3,-0.62,55.38,-0.36,0,False,False
 20260605,60.11,0.69,57.36,1.06,56.21,0.83,1,True,True
 20260612,60.09,-0.02,57.48,0.12,56.14,-0.07,2,False,True
@@ -198,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,60.44,0.84,57.38,0.83,56.47,0.9,1,True,True
 20260731,60.58,0.14,57.53,0.15,56.43,-0.04,2,False,True
 20260807,60.66,0.08,57.62,0.09,56.61,0.18,3,True,True
+20260814,61.12,0.46,58.05,0.43,57.03,0.42,4,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 4763 | 材料*-KY | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
+| 20260821 | 4763 | 材料*-KY | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會或股東會決議日期:115/08/20 2.原發放股利種類及金額:  現金股利人民幣2,137,379,400元。 3.變更後發放股利種類及金額:  現金股利人民幣1,954,697,400元。 4.變更原因:為符合相關法令對於盈餘公積發放項目之限制，  經重新檢視可供分配盈餘之結構後，由董事會決議調整本次盈餘分派金額。 5.其他應敘明事項:本公司原於115年7月30日代重要子公司濟南大自然新材料有限公司  公告董事會決議發放現金股利人民幣2,137,379,400元。  嗣後為符合相關法令對於盈餘公積發放項目之限制，經重新檢視可供分配盈餘結構，  於115年8月20日經子公司董事會重新決議，  將發放現金股利總計變更為人民幣1,954,697,400元。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 4763 | 材料*-KY | 6 | 6 | 5 | 8 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260821 | 4763 | 材料*-KY | 3 | 2 | 4 | 9 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 4763 | 材料*-KY | 51 | 0 | 3711910.0 | 0.0 |  | no_signal |
+| 20260821 | 4763 | 材料*-KY | 54 | 1 | 2502320.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

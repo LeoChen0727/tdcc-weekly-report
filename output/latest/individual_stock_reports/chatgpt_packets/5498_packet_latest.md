@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5498 凱崴
 
 ## Metadata
-- generated_at: 2026-08-10 22:28:10 Asia/Taipei
+- generated_at: 2026-08-21 22:27:47 Asia/Taipei
 - stock_id: 5498
 - stock_name: 凱崴
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 186
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 203
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 50
-- high: 50.5
-- low: 48.1
-- close: 48.5
-- volume: 1372000
-- ma5: 47.53
-- ema23_primary: 49.64
-- distance_to_ema23_pct: -2.3
-- ma20: 48.02
-- ma60: 58.84
-- ma120: 61.43
-- return_5d: 15.61
-- return_20d: -18.76
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: 1
-- distance_to_high_60_pct: -38.06
+- date: 20260821
+- open: 53
+- high: 54.8
+- low: 50.3
+- close: 50.4
+- volume: 4222000
+- ma5: 50.26
+- ema23_primary: 50.5
+- distance_to_ema23_pct: -0.2
+- ma20: 48.13
+- ma60: 56.1
+- ma120: 60.79
+- return_5d: -2.7
+- return_20d: 10.16
+- volume_ratio: 1.95
+- distance_to_ma20_pct_auxiliary: 4.71
+- distance_to_high_60_pct: -30.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,61,62.8,58,58.1,3070000,62.15,-6.51,62.81,67.07,0.59
-20260714,57,57.9,52.3,54.7,3194000,61.53,-11.09,62.08,66.83,0.81
-20260715,55.5,56.4,54.8,56.4,1266000,61.1,-7.69,61.51,66.62,0.38
-20260716,55.3,55.6,53.8,54,1429000,60.51,-10.75,60.9,66.26,0.46
-20260717,52,52,48.7,49.05,3666000,59.55,-17.64,60.03,65.69,1.2
-20260720,49.25,49.75,44.2,47.1,2496000,58.51,-19.51,59.03,65.14,0.84
-20260721,48,48.8,46.4,47.5,1483000,57.6,-17.53,57.96,64.64,0.59
-20260722,48.7,50.5,48,49.65,1951000,56.93,-12.79,57.19,64.28,0.83
-20260723,50,51.1,48,48.7,1700000,56.25,-13.42,56.44,63.99,0.74
-20260724,47.3,48.7,45.35,45.75,1593000,55.37,-17.38,55.62,63.6,0.72
 20260727,46.4,47.9,45.4,47.25,1758000,54.7,-13.61,55.08,63.18,0.85
 20260728,46,46,43.4,43.4,1990000,53.76,-19.26,54.34,62.67,0.96
 20260729,43.95,44.3,39.1,41,3282000,52.69,-22.19,53.35,62.12,1.52
@@ -167,18 +157,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,48.55,49.45,47.45,47.65,1462000,49.71,-4.15,49.13,59.62,0.7
 20260806,47.9,50.9,46.1,50.1,2275000,49.74,0.72,48.58,59.24,1.09
 20260807,50,50.5,48.1,48.5,1372000,49.64,-2.3,48.02,58.84,0.66
+20260810,49.5,51.2,48.65,50.6,1667000,49.72,1.77,47.64,58.44,0.83
+20260811,50.6,53.2,50.5,51.1,2773000,49.83,2.54,47.46,58.12,1.39
+20260812,50.9,56,50.9,55.2,4016000,50.28,9.78,47.4,57.89,1.89
+20260813,55.9,56.2,53,53.3,3942000,50.53,5.47,47.37,57.69,1.75
+20260814,53.7,53.7,51.8,51.8,1590000,50.64,2.29,47.51,57.53,0.74
+20260817,51.9,52.4,50.6,51.2,1122000,50.69,1.01,47.71,57.34,0.54
+20260818,51.5,52.2,49.8,49.8,1290000,50.61,-1.6,47.83,57.06,0.62
+20260819,48.4,50.3,48.2,49.2,1174000,50.49,-2.56,47.8,56.74,0.58
+20260820,49.85,52.2,49.05,50.7,1617000,50.51,0.37,47.9,56.41,0.8
+20260821,53,54.8,50.3,50.4,4222000,50.5,-0.2,48.13,56.1,1.95
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 34.57
-- over_600_ratio: 33.13
-- over_800_ratio: 31.71
-- over_1000_ratio: 29.92
-- over_400_change_1w: -0.49
-- over_800_change_1w: 0.53
-- over_1000_change_1w: 0.53
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260814
+- over_400_ratio: 34.62
+- over_600_ratio: 33.08
+- over_800_ratio: 32.06
+- over_1000_ratio: 29.39
+- over_400_change_1w: 0.05
+- over_800_change_1w: 0.35
+- over_1000_change_1w: -0.53
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,33.43,-1.63,31.13,-0.64,30.25,-0.64,0,False,False
 20260529,33.71,0.28,31.13,0,30.25,0,1,False,False
 20260605,33.43,-0.28,31.13,0,30.25,0,0,False,False
 20260612,35.35,1.92,33,1.87,32.12,1.87,1,True,True
@@ -198,17 +197,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,34.19,1,31.18,0.21,29.39,-0.28,2,False,True
 20260731,35.06,0.87,31.18,0,29.39,0,3,False,False
 20260807,34.57,-0.49,31.71,0.53,29.92,0.53,4,False,True
+20260814,34.62,0.05,32.06,0.35,29.39,-0.53,5,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 5498 | 凱崴 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.股東常會日期:115/06/17 2.重要決議事項一、盈餘分配或盈虧撥補: 通過承認本公司114年度盈餘分配表案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表: 通過承認本公司114年度營業報告書及財務報表(含合併財務報表)決算表冊案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:無。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 5498 | 凱崴 | revenue_pullback | 營收成長股價回檔 | 50.0 |  |  |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/20 1.召開法人說明會之日期：115/08/20 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：(實體)台北市中山區明水路700號(凱基證券大樓)、(線上)Webex系統 4.法人說明會擇要訊息：本公司受邀參加凱基證券所舉辦之法人說明會，就本公司財務及業務相關資訊做說明。 5.其他應敘明事項：完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 5498 | 凱崴 | revenue_breakout_low_response | 營收爆發低反應股 | 20 | 29 | B_可觀察 |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/20 1.召開法人說明會之日期：115/08/20 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：(實體)台北市中山區明水路700號(凱基證券大樓)、(線上)Webex系統 4.法人說明會擇要訊息：本公司受邀參加凱基證券所舉辦之法人說明會，就本公司財務及業務相關資訊做說明。 5.其他應敘明事項：完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 5498 | 凱崴 | 2 | 2 | 3 | 8 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260821 | 5498 | 凱崴 | 6 | 2 | 5 | 8 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

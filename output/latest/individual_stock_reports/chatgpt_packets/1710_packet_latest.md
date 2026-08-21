@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1710 東聯
 
 ## Metadata
-- generated_at: 2026-08-10 22:26:37 Asia/Taipei
+- generated_at: 2026-08-21 22:26:46 Asia/Taipei
 - stock_id: 1710
 - stock_name: 東聯
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -72,14 +72,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「初步突破」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「初步突破」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -87,7 +87,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: breakout_initial
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -101,7 +101,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -126,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 13.85
-- high: 14.3
-- low: 13.65
-- close: 14.15
-- volume: 5753928
-- ma5: 13.76
-- ema23_primary: 14.69
-- distance_to_ema23_pct: -3.68
-- ma20: 14.99
-- ma60: 14.65
-- ma120: 14.09
-- return_5d: 9.69
-- return_20d: -13.72
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: -5.62
-- distance_to_high_60_pct: -29.78
+- date: 20260821
+- open: 15.1
+- high: 15.9
+- low: 15.1
+- close: 15.85
+- volume: 7678000
+- ma5: 15.23
+- ema23_primary: 14.94
+- distance_to_ema23_pct: 6.06
+- ma20: 14.34
+- ma60: 15.09
+- ma120: 14.27
+- return_5d: 5.32
+- return_20d: 0.63
+- volume_ratio: 1.28
+- distance_to_ma20_pct_auxiliary: 10.57
+- distance_to_high_60_pct: -21.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,16.5,16.9,15.85,16.1,7172491,15.84,1.64,15.55,14.03,0.49
-20260714,15.9,16.05,15.1,15.4,9543566,15.8,-2.55,15.64,14.05,0.64
-20260715,15.55,16,15.3,15.95,7787262,15.82,0.85,15.76,14.09,0.52
-20260716,15.8,17.5,15.65,17.5,20506724,15.96,9.68,15.96,14.16,1.29
-20260717,17.2,17.55,16.05,16.4,20656606,15.99,2.54,16.09,14.21,1.23
-20260720,16.5,16.5,15.35,15.45,8337541,15.95,-3.12,16.18,14.24,0.49
-20260721,15.45,16.95,15.35,16.95,13437908,16.03,5.73,16.32,14.29,0.78
-20260722,17,18.5,16.95,17.55,23400633,16.16,8.62,16.52,14.36,1.29
-20260723,17.6,17.9,16.6,16.8,11598912,16.21,3.63,16.68,14.43,0.62
-20260724,16.7,16.85,15.75,15.75,9383238,16.17,-2.62,16.77,14.47,0.5
 20260727,15.6,15.6,14.2,14.65,12235003,16.05,-8.7,16.79,14.49,0.65
 20260728,14.25,14.25,13.65,13.8,10851316,15.86,-12.98,16.72,14.51,0.58
 20260729,13.95,13.95,12.7,13.15,11713504,15.63,-15.88,16.54,14.51,0.69
@@ -168,26 +157,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,13.7,14.3,13.7,13.9,5821691,14.82,-6.22,15.28,14.59,0.54
 20260806,13.9,14.1,13.6,13.85,3993662,14.74,-6.04,15.11,14.61,0.38
 20260807,13.85,14.3,13.65,14.15,5753928,14.69,-3.68,14.99,14.65,0.56
+20260810,14.05,14.6,13.95,14.5,5448132,14.68,-1.19,14.91,14.69,0.53
+20260811,14.5,15.1,14.5,14.95,6154488,14.7,1.71,14.89,14.75,0.61
+20260812,15.2,15.35,15,15.25,4850086,14.74,3.43,14.86,14.81,0.49
+20260813,15.3,15.5,14.7,14.8,3399652,14.75,0.35,14.72,14.86,0.38
+20260814,14.85,15.4,14.7,15.05,4997289,14.77,1.87,14.65,14.9,0.61
+20260817,15.2,15.3,14.9,15.2,2984444,14.81,2.64,14.64,14.93,0.37
+20260818,15.1,15.25,14.85,15,2709606,14.83,1.18,14.54,14.97,0.36
+20260819,14.95,15.1,14.75,14.9,3436376,14.83,0.46,14.41,14.99,0.53
+20260820,15.05,15.4,14.9,15.2,4924887,14.86,2.27,14.33,15.04,0.81
+20260821,15.1,15.9,15.1,15.85,7678000,14.94,6.06,14.34,15.09,1.28
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 60.81
-- over_600_ratio: 58.49
-- over_800_ratio: 57.22
-- over_1000_ratio: 55.2
-- over_400_change_1w: -0.22
-- over_800_change_1w: 0
-- over_1000_change_1w: -0.6
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260814
+- over_400_ratio: 61.07
+- over_600_ratio: 59.01
+- over_800_ratio: 57.74
+- over_1000_ratio: 55.72
+- over_400_change_1w: 0.26
+- over_800_change_1w: 0.52
+- over_1000_change_1w: 0.52
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,61.43,-0.32,57.5,0.03,55.56,-0.39,3,False,True
 20260529,61.43,0,57.86,0.36,55.73,0.17,4,False,True
 20260605,61.78,0.35,58.17,0.31,56.15,0.42,5,True,True
 20260612,61.39,-0.39,57.84,-0.33,56.13,-0.02,0,False,False
@@ -199,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,62.54,-0.22,58.69,-0.48,57.17,-0.37,0,False,False
 20260731,61.03,-1.51,57.22,-1.47,55.8,-1.37,0,False,False
 20260807,60.81,-0.22,57.22,0,55.2,-0.6,0,False,False
+20260814,61.07,0.26,57.74,0.52,55.72,0.52,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 1710 | 東聯 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_strong_inflow | repeated_but_no_breakout | 1.事實發生日:115/07/02 2.發生緣由:依據臺灣證券交易所股份有限公司通知辦理 3.財務業務資訊:  	   最近一月    與去年同    最近一季      與去年同       最近四季累計          合併自結數    期增減%    合併核閱數     期增減%        合併核閱數          (115年5月)              (115年第1季)                (114年第2季至                                                               115年第1季) ----------------------------------------------------------------------------- 營業收入   1,293       -28.90%      5,346      -12.84%          21,466 (百萬) 稅前淨利     -28        73.00%       -219      -41.24%          -1,227 (百萬) 歸屬母公司    11       111.87%       -127      -28.19%            -915 業主淨利 (百萬) 每股盈餘    0.01       110.00%      -0.15      -36.36%           -1.05 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
+| 20260821 | 1710 | 東聯 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_inflow | continued_2_3d | 1.事實發生日:115/08/19 2.公司名稱:東聯化學股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:更正本公司115年第二季合併財務報告iXBRL申報資訊之 被投資公司附表揭露資訊 6.更正資訊項目/報表名稱:被投資公司名稱、所在地區…等相關資訊 7.更正前金額/內容/頁次:上述表格缺漏 8.更正後金額/內容/頁次:補正與財報相同 9.因應措施:配合證交所iXBRL系統版本更新，重新上傳至公開資訊觀測站 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 1710 | 東聯 | 5 | 1 | 5 | 7 | 16 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 16 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260821 | 1710 | 東聯 | 3 | 3 | 4 | 8 | 15 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 1710 | 東聯 | 18 | 0 | 4062600.0 | 0.0 |  | call_strong_inflow |
+| 20260821 | 1710 | 東聯 | 24 | 0 | 1485470.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

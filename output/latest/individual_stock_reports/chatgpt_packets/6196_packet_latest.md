@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6196 帆宣
 
 ## Metadata
-- generated_at: 2026-08-10 22:28:22 Asia/Taipei
+- generated_at: 2026-08-21 22:27:54 Asia/Taipei
 - stock_id: 6196
 - stock_name: 帆宣
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -71,7 +71,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -86,7 +86,7 @@
 - internal_use_only: true
 - action_rating: scale_in
 - action_rating_label_zh: 可分批買進
-- confidence_level: high
+- confidence_level: medium
 - thesis_state: healthy_pullback
 - entry_style: pullback_to_23ema
 - position_sizing: half_position
@@ -105,7 +105,6 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -132,38 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 506
-- high: 520
-- low: 491
-- close: 493.5
-- volume: 1712469
-- ma5: 499.3
-- ema23_primary: 510.27
-- distance_to_ema23_pct: -3.29
-- ma20: 515.7
-- ma60: 514.42
-- ma120: 416.73
-- return_5d: 5.45
-- return_20d: -10.11
-- volume_ratio: 0.93
-- distance_to_ma20_pct_auxiliary: -4.3
-- distance_to_high_60_pct: -18.7
+- date: 20260821
+- open: 498.5
+- high: 498.5
+- low: 483.5
+- close: 490.5
+- volume: 1175922
+- ma5: 500.1
+- ema23_primary: 505.76
+- distance_to_ema23_pct: -3.02
+- ma20: 493.48
+- ma60: 524.68
+- ma120: 435.76
+- return_5d: -3.82
+- return_20d: -6.75
+- volume_ratio: 0.79
+- distance_to_ma20_pct_auxiliary: -0.6
+- distance_to_high_60_pct: -19.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,565,565,542,551,1838561,542.25,1.61,555.7,474.7,0.84
-20260714,554,557,510,539,1753187,541.98,-0.55,555.25,478.02,0.85
-20260715,544,590,540,585,2259200,545.57,7.23,555.85,481.78,1.14
-20260716,580,607,569,590,2661272,549.27,7.42,558.3,485.04,1.38
-20260717,557,580,535,542,2481756,548.66,-1.21,558.35,487.45,1.26
-20260720,542,542,497,518,1997918,546.11,-5.15,555.9,489.57,1.02
-20260721,528,540,524,540,1282555,545.6,-1.03,554.8,492.31,0.66
-20260722,554,561,545,548,1322410,545.8,0.4,555.15,495.01,0.68
-20260723,549,553,528,543,1212672,545.57,-0.47,555.3,497.72,0.62
-20260724,537,550,520,526,948153,543.93,-3.3,553.65,500.12,0.49
 20260727,524,532,494.5,510,1564030,541.11,-5.75,552.6,502.35,0.83
 20260728,490,491,472,474.5,1325521,535.56,-11.4,549.73,503.96,0.71
 20260729,474,479,428,447,2410443,528.18,-15.37,544.38,505.02,1.29
@@ -174,18 +163,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,541,541,503,509,2615401,512.14,-0.61,520.38,511.72,1.41
 20260806,501,509,483.5,508,1806856,511.79,-0.74,518.48,513.19,0.98
 20260807,506,520,491,493.5,1712469,510.27,-3.29,515.7,514.42,0.93
+20260810,495,511,495,507,1012950,509.99,-0.59,513.5,515.62,0.56
+20260811,502,513,498,510,882697,510,0,512.05,517.39,0.5
+20260812,511,516,498,499,1189301,509.08,-1.98,507.75,518.87,0.7
+20260813,502,523,502,511,1627939,509.24,0.35,503.8,520.63,0.99
+20260814,524,525,506,510,982576,509.3,0.14,502.2,522.4,0.63
+20260817,511,518,506,511,1075330,509.44,0.31,501.85,523.76,0.71
+20260818,513,520,501,503,1090805,508.91,-1.16,500,524.77,0.72
+20260819,493.5,512,493,500,838780,508.16,-1.61,497.6,525.01,0.56
+20260820,504,509,491,496,798008,507.15,-2.2,495.25,524.84,0.54
+20260821,498.5,498.5,483.5,490.5,1175922,505.76,-3.02,493.48,524.68,0.79
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 71.83
-- over_600_ratio: 70.2
-- over_800_ratio: 67.75
-- over_1000_ratio: 66.95
-- over_400_change_1w: -0.27
-- over_800_change_1w: -0.45
-- over_1000_change_1w: -0.5
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260814
+- over_400_ratio: 71.99
+- over_600_ratio: 69.7
+- over_800_ratio: 66.87
+- over_1000_ratio: 66.46
+- over_400_change_1w: 0.16
+- over_800_change_1w: -0.88
+- over_1000_change_1w: -0.49
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -193,7 +192,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,71.85,-0.34,67.81,-0.55,66.15,-0.99,0,False,False
 20260529,71.86,0.01,69.02,1.21,66.96,0.81,1,True,True
 20260605,72.25,0.39,69.07,0.05,66.59,-0.37,2,False,True
 20260612,72.16,-0.09,68.77,-0.3,66.25,-0.34,0,False,False
@@ -205,22 +203,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,71.66,-0.82,67.49,0.02,66.67,-0.4,2,False,True
 20260731,72.1,0.44,68.2,0.71,67.45,0.78,3,True,True
 20260807,71.83,-0.27,67.75,-0.45,66.95,-0.5,0,False,False
+20260814,71.99,0.16,66.87,-0.88,66.46,-0.49,1,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 6196 | 帆宣 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | call_inflow | repeated_but_no_breakout | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 美國亞利桑那州Phoenix市950 West Rose Garden之建物空間 2.事實發生日:115/7/15~115/7/15 3.董事會通過日期: 民國115年7月15日 4.其他核決日期: 不適用 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 租賃面積：151,415平方英尺 每月平均租金：美元193,442元 交易總金額：92個月租期之租金約計美元17,796,642元(含稅) 使用權資產金額：約計美元14,486,097元(含稅) 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 交易相對人：Sunbelt Rose Garden, L.P. 與公司之關係：非關係人 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 付款金額：每月支付租金美元193,442元 付款條件：月繳 租期：民國115年7月16日至民國123年3月16日，計92個月 契約限制條款及其他重要約定事項：無 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 交易決定方式：議價 價格決定之參考依據：參酌市場行情 決策單位：MARKETECH INTERNATIONAL CORPORATION USA董事會 12.專業估價者事務所或公司名稱及其估價金額: (1)事務所名稱：Kidder Mathews, Inc.  (2)每月平均租金：USD 212,955 13.專業估價師姓名: Mike Ciosek 14.專業估價師開業證書字號: BR531679000 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 公司營運之規劃與考量 24.本次交易表示異議之董事之意見: 無 25.本次交易為關係人交易:否 26.監察人承認或審計委員會同意日期: 不適用 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 6196 | 帆宣 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.董事會召集通知日:115/07/27 2.董事會預計召開日期:115/08/04 3.預計提報董事會或經董事會決議之財務報告或 年度自結財務資訊年季:115年第二季 4.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 6196 | 帆宣 | 9 | 2 | 5 | 9 | 18 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 18 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260821 | 6196 | 帆宣 | 1 | 1 | 3 | 8 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 6196 | 帆宣 | 84 | 1 | 29082670.0 | 93230.0 | 311.95 | call_inflow |
+| 20260821 | 6196 | 帆宣 | 102 | 4 | 2012690.0 | 402880.0 | 5.0 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

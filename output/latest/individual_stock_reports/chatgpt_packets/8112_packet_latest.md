@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8112 至上
 
 ## Metadata
-- generated_at: 2026-08-10 22:29:08 Asia/Taipei
+- generated_at: 2026-08-21 22:28:23 Asia/Taipei
 - stock_id: 8112
 - stock_name: 至上
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -130,38 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 89.9
-- high: 91.9
-- low: 88.8
-- close: 91.2
-- volume: 22269743
-- ma5: 86.6
-- ema23_primary: 85.62
-- distance_to_ema23_pct: 6.51
-- ma20: 84.39
-- ma60: 88.48
-- ma120: 84.53
-- return_5d: 13.57
-- return_20d: 7.29
-- volume_ratio: 1.41
-- distance_to_ma20_pct_auxiliary: 8.07
-- distance_to_high_60_pct: -12.31
+- date: 20260821
+- open: 93.5
+- high: 94.5
+- low: 92.7
+- close: 93.5
+- volume: 9150843
+- ma5: 92.4
+- ema23_primary: 90.55
+- distance_to_ema23_pct: 3.25
+- ma20: 88.65
+- ma60: 90.19
+- ma120: 86.35
+- return_5d: -2.4
+- return_20d: 5.89
+- volume_ratio: 0.47
+- distance_to_ma20_pct_auxiliary: 5.47
+- distance_to_high_60_pct: -10.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,86.8,90.5,86.3,87.5,15198595,90.65,-3.48,92.95,88.84,0.65
-20260714,87.1,87.8,82.5,85.4,12678105,90.22,-5.34,92.28,88.83,0.62
-20260715,86.6,90.6,86.5,87.6,16286379,90,-2.67,91.8,88.84,0.84
-20260716,87,87.7,85.4,85.8,8612525,89.65,-4.29,91.3,88.85,0.46
-20260717,84.3,85.5,81.8,81.9,14255947,89,-7.98,90.55,88.77,0.76
-20260720,82.6,83.3,80.1,80.9,8702716,88.33,-8.41,89.69,88.65,0.48
-20260721,81.5,86.3,81.5,86.2,11014674,88.15,-2.21,88.97,88.69,0.65
-20260722,87.2,92.4,87.1,88.1,32659661,88.15,-0.05,88.58,88.78,1.93
-20260723,88.6,89.3,86.6,88,10625657,88.13,-0.15,88.19,88.76,0.63
-20260724,87.1,91.7,87.1,88.3,26708820,88.15,0.17,87.86,88.8,1.52
 20260727,88,88,81.9,84.3,20410865,87.83,-4.02,87.51,88.79,1.15
 20260728,81,81,78,78.2,14401656,87.03,-10.14,86.81,88.73,0.82
 20260729,78.7,78.7,73.5,76.7,13783602,86.16,-10.98,86.03,88.64,0.8
@@ -172,26 +162,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,87.1,88.4,86.2,86.2,15378648,84.76,1.7,83.9,88.21,0.98
 20260806,86.6,89.2,84.7,89,13976707,85.12,4.56,84.08,88.33,0.93
 20260807,89.9,91.9,88.8,91.2,22269743,85.62,6.51,84.39,88.48,1.41
+20260810,92.9,93,91.2,92.4,16947208,86.19,7.21,84.64,88.61,1.07
+20260811,95,100.5,94.7,100,72928524,87.34,14.5,85.36,88.92,3.87
+20260812,100,101.5,96.6,96.9,37212675,88.14,9.94,85.83,89.13,1.87
+20260813,98.5,100.5,97.6,97.8,23415579,88.94,9.96,86.43,89.36,1.13
+20260814,99.3,99.8,95.1,95.8,20432034,89.51,7.02,87.12,89.56,0.97
+20260817,96.2,96.2,93,93.5,15462674,89.84,4.07,87.75,89.69,0.73
+20260818,93.3,94.2,90.3,90.3,11463283,89.88,0.46,87.96,89.76,0.54
+20260819,88.9,91.8,88.3,91,8972080,89.98,1.14,88.11,89.89,0.45
+20260820,91.8,93.8,90.4,93.7,10851249,90.29,3.78,88.39,90.06,0.54
+20260821,93.5,94.5,92.7,93.5,9150843,90.55,3.25,88.65,90.19,0.47
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 38.65
-- over_600_ratio: 36.62
-- over_800_ratio: 35.48
-- over_1000_ratio: 34.5
-- over_400_change_1w: -0.86
-- over_800_change_1w: -0.88
-- over_1000_change_1w: -1.05
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260814
+- over_400_ratio: 46.06
+- over_600_ratio: 44.24
+- over_800_ratio: 42.26
+- over_1000_ratio: 41.61
+- over_400_change_1w: 7.41
+- over_800_change_1w: 6.78
+- over_1000_change_1w: 7.11
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,39.83,-1.64,37.27,-1.76,35.41,-1.44,0,False,False
 20260529,38.68,-1.15,35.89,-1.38,34.06,-1.35,0,False,False
 20260605,41.62,2.94,39.39,3.5,38.07,4.01,1,True,True
 20260612,38.53,-3.09,35.48,-3.91,34.1,-3.97,0,False,False
@@ -203,22 +202,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,37.39,2.34,34.24,2.67,33.2,2.16,1,True,True
 20260731,39.51,2.12,36.36,2.12,35.55,2.35,2,True,True
 20260807,38.65,-0.86,35.48,-0.88,34.5,-1.05,0,False,False
+20260814,46.06,7.41,42.26,6.78,41.61,7.11,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 8112 | 至上 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/15 2.契約或承諾相對人:合作金庫商業銀行、第一商業銀行等八家聯合授信銀行團。 3.與公司關係:無。 4.契約或承諾起迄日期（或解除日期）::自首次動用日起算5年。 5.主要內容（解除者不適用）:本公司總額度-等值新台幣120億元。 6.限制條款（解除者不適用）:依聯合授信合約辦理。 7.承諾事項（解除者不適用）:依聯合授信合約辦理。 8.其他重要約定事項（解除者不適用）:依聯合授信合約辦理。 9.對公司財務、業務之影響:為償還既有金融負債暨充實營運資金。 10.具體目的:為償還既有金融負債暨充實營運資金。 11.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第8款所定對股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 8112 | 至上 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_put_bullish | stale_signal | 1.事實發生日:115/08/10 2.被背書保證之: (1)公司名稱:高拓國際貿易(上海)有限公司 (2)與提供背書保證公司之關係: 本公司間接持有之100%子公司 (3)背書保證之限額(仟元):26,944,481 (4)原背書保證之餘額(仟元):4,291,850 (5)本次新增背書保證之金額(仟元):666,260 (6)迄事實發生日止背書保證餘額(仟元):4,958,110 (7)被背書保證公司實際動支金額(仟元):2,480,392 (8)本次新增背書保證之原因: 本公司向銀行簽具背書保證票據以取得額度，原額度人民幣14,000萬到期續保， 以因應轉投資子公司營運週轉之需求。 3.被背書保證公司提供擔保品之: (1)內容: 無。 (2)價值(仟元):0 4.被背書保證公司最近期財務報表之: (1)資本(仟元):383,021 (2)累積盈虧金額(仟元):147,332 5.解除背書保證責任之: (1)條件: 背書保證到期即解除背書保證責任。 (2)日期: 一年到期。 6.背書保證之總限額(仟元): 56,134,335 7.迄事實發生日為止，背書保證餘額(仟元): 22,874,005 8.迄事實發生日為止，A提供背書保證餘額占公開發行公司最近期財務報表淨值之 比率: 101.87 9.迄事實發生日為止，背書保證、長期投資及資金貸與餘額合計數達該公開發行公 司最近期財務報表淨值之比率: 23.72 10.其他應敘明事項: 無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 8112 | 至上 | revenue_breakout_low_response | 營收爆發低反應股 | 24 | 1 | A_優先追蹤 |  |  | call_put_bullish | stale_signal | 1.事實發生日:115/08/10 2.被背書保證之: (1)公司名稱:高拓國際貿易(上海)有限公司 (2)與提供背書保證公司之關係: 本公司間接持有之100%子公司 (3)背書保證之限額(仟元):26,944,481 (4)原背書保證之餘額(仟元):4,291,850 (5)本次新增背書保證之金額(仟元):666,260 (6)迄事實發生日止背書保證餘額(仟元):4,958,110 (7)被背書保證公司實際動支金額(仟元):2,480,392 (8)本次新增背書保證之原因: 本公司向銀行簽具背書保證票據以取得額度，原額度人民幣14,000萬到期續保， 以因應轉投資子公司營運週轉之需求。 3.被背書保證公司提供擔保品之: (1)內容: 無。 (2)價值(仟元):0 4.被背書保證公司最近期財務報表之: (1)資本(仟元):383,021 (2)累積盈虧金額(仟元):147,332 5.解除背書保證責任之: (1)條件: 背書保證到期即解除背書保證責任。 (2)日期: 一年到期。 6.背書保證之總限額(仟元): 56,134,335 7.迄事實發生日為止，背書保證餘額(仟元): 22,874,005 8.迄事實發生日為止，A提供背書保證餘額占公開發行公司最近期財務報表淨值之 比率: 101.87 9.迄事實發生日為止，背書保證、長期投資及資金貸與餘額合計數達該公開發行公 司最近期財務報表淨值之比率: 23.72 10.其他應敘明事項: 無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 8112 | 至上 | 2 | 2 | 4 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260821 | 8112 | 至上 | 6 | 2 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 8112 | 至上 | 139 | 3 | 10112830.0 | 78890.0 | 128.19 | no_signal |
+| 20260821 | 8112 | 至上 | 143 | 5 | 27741160.0 | 25450.0 | 1090.03 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

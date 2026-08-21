@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1714 和桐
 
 ## Metadata
-- generated_at: 2026-08-10 22:26:38 Asia/Taipei
+- generated_at: 2026-08-21 22:26:46 Asia/Taipei
 - stock_id: 1714
 - stock_name: 和桐
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -131,38 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
+- date: 20260821
 - open: 17
-- high: 17
-- low: 15.5
-- close: 15.75
-- volume: 47332567
-- ma5: 15.12
-- ema23_primary: 15.29
-- distance_to_ema23_pct: 2.98
-- ma20: 15.04
-- ma60: 14.71
-- ma120: 12.16
-- return_5d: 20.69
-- return_20d: -8.7
-- volume_ratio: 2.22
-- distance_to_ma20_pct_auxiliary: 4.76
-- distance_to_high_60_pct: -37
+- high: 17.35
+- low: 16.85
+- close: 17
+- volume: 12832352
+- ma5: 16.96
+- ema23_primary: 16.21
+- distance_to_ema23_pct: 4.85
+- ma20: 15.56
+- ma60: 15.91
+- ma120: 12.79
+- return_5d: 3.66
+- return_20d: 14.09
+- volume_ratio: 0.64
+- distance_to_ma20_pct_auxiliary: 9.27
+- distance_to_high_60_pct: -32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,17.5,18.25,16.45,16.65,38965011,17.46,-4.65,18.72,13.02,1.06
-20260714,16.45,17.6,16.15,17.05,46880061,17.43,-2.17,18.82,13.14,1.44
-20260715,17.35,17.35,16.3,16.7,22596151,17.37,-3.84,18.82,13.26,0.72
-20260716,16.65,16.75,16.1,16.2,14351865,17.27,-6.19,18.73,13.37,0.47
-20260717,15.85,15.95,15.15,15.3,23016457,17.11,-10.55,18.53,13.46,0.76
-20260720,15.55,15.6,14.5,15,20737149,16.93,-11.4,18.26,13.54,0.7
-20260721,15.55,15.55,14.8,15.2,15506768,16.79,-9.45,18.11,13.63,0.53
-20260722,15.35,16.15,15.25,15.7,21638321,16.7,-5.96,18,13.73,0.75
-20260723,16,16.15,15.1,15.45,12564981,16.59,-6.88,17.82,13.83,0.43
-20260724,15.35,15.45,14.85,14.9,10317224,16.45,-9.43,17.64,13.92,0.36
 20260727,14.8,14.95,14.05,14.45,16338477,16.28,-11.26,17.43,14,0.56
 20260728,14.2,14.2,13.55,13.65,13842768,16.06,-15.03,17.17,14.07,0.47
 20260729,13.85,13.85,12.8,13.2,17962178,15.83,-16.59,16.85,14.14,0.6
@@ -173,26 +163,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,15.15,15.3,14.6,14.75,17469654,15.17,-2.75,15.19,14.51,0.81
 20260806,15.95,16.2,15.9,16.2,19116072,15.25,6.21,15.11,14.61,0.95
 20260807,17,17,15.5,15.75,47332567,15.29,2.98,15.04,14.71,2.22
+20260810,16,17.25,15.95,16.65,35835088,15.41,8.06,15.04,14.82,1.69
+20260811,16.45,17.2,16.25,16.65,23078549,15.51,7.34,15.02,14.94,1.15
+20260812,16.65,17.5,16.65,17.4,24787527,15.67,11.05,15.05,15.06,1.23
+20260813,17.4,17.55,16.55,16.7,28694877,15.75,6,15.07,15.18,1.38
+20260814,16.7,17.1,16.25,16.4,17141341,15.81,3.74,15.13,15.29,0.83
+20260817,16.75,17.5,16.5,17.15,24001086,15.92,7.73,15.24,15.42,1.16
+20260818,17.2,17.3,16.55,16.9,13519524,16,5.61,15.32,15.54,0.66
+20260819,16.65,16.95,16.55,16.75,7761869,16.06,4.27,15.38,15.66,0.39
+20260820,16.9,17.2,16.85,17,10251277,16.14,5.31,15.45,15.78,0.52
+20260821,17,17.35,16.85,17,12832352,16.21,4.85,15.56,15.91,0.64
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 55.09
-- over_600_ratio: 52.83
-- over_800_ratio: 51.52
-- over_1000_ratio: 50.53
-- over_400_change_1w: -0.24
-- over_800_change_1w: 0.1
-- over_1000_change_1w: 0.08
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260814
+- over_400_ratio: 53.07
+- over_600_ratio: 50.63
+- over_800_ratio: 49.09
+- over_1000_ratio: 48.1
+- over_400_change_1w: -2.02
+- over_800_change_1w: -2.43
+- over_1000_change_1w: -2.43
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,63.31,-0.1,58.47,0.02,56.65,-0.08,2,False,True
 20260529,62.96,-0.35,58.13,-0.34,56.32,-0.33,0,False,False
 20260605,64.6,1.64,60.23,2.1,58.37,2.05,1,True,True
 20260612,65.07,0.47,60.98,0.75,59.12,0.75,2,True,True
@@ -204,22 +203,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,54.8,0.14,51.39,0.16,50.22,0.44,1,True,True
 20260731,55.33,0.53,51.42,0.03,50.45,0.23,2,True,True
 20260807,55.09,-0.24,51.52,0.1,50.53,0.08,3,False,True
+20260814,53.07,-2.02,49.09,-2.43,48.1,-2.43,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 1714 | 和桐 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/07 2.公司名稱:和桐化學股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不通用 5.發生緣由:更正115年3月~5月資金貸與資訊揭露明細表 6.更正資訊項目/報表名稱:115年3月~5月資金貸與資訊揭露明細表 7.更正前金額/內容/頁次: (1)115年3月 編號0 資金貸出之公司:和桐化學股份有限公司 貸與對象:中華全球石油股份有限公司 期末餘額:0仟元 (2)115年4月 編號0 資金貸出之公司:和桐化學股份有限公司 貸與對象:中華全球石油股份有限公司 期末餘額:0仟元 (3)115年5月 編號0 資金貸出之公司:和桐化學股份有限公司 貸與對象:中華全球石油股份有限公司 期末餘額:0仟元 8.更正後金額/內容/頁次: (1)115年3月 編號0 資金貸出之公司:和桐化學股份有限公司 貸與對象:中華全球石油股份有限公司 期末餘額:150,000仟元 (2)115年4月 編號0 資金貸出之公司:和桐化學股份有限公司 貸與對象:中華全球石油股份有限公司 期末餘額:150,000仟元 (3)115年5月 編號0 資金貸出之公司:和桐化學股份有限公司 貸與對象:中華全球石油股份有限公司 期末餘額:150,000仟元 9.因應措施:更正後重新上傳至公開資訊觀測站。 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 1714 | 和桐 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_strong_inflow | stale_signal | 1.事實發生日:115/07/07 2.公司名稱:和桐化學股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不通用 5.發生緣由:更正115年3月~5月資金貸與資訊揭露明細表 6.更正資訊項目/報表名稱:115年3月~5月資金貸與資訊揭露明細表 7.更正前金額/內容/頁次: (1)115年3月 編號0 資金貸出之公司:和桐化學股份有限公司 貸與對象:中華全球石油股份有限公司 期末餘額:0仟元 (2)115年4月 編號0 資金貸出之公司:和桐化學股份有限公司 貸與對象:中華全球石油股份有限公司 期末餘額:0仟元 (3)115年5月 編號0 資金貸出之公司:和桐化學股份有限公司 貸與對象:中華全球石油股份有限公司 期末餘額:0仟元 8.更正後金額/內容/頁次: (1)115年3月 編號0 資金貸出之公司:和桐化學股份有限公司 貸與對象:中華全球石油股份有限公司 期末餘額:150,000仟元 (2)115年4月 編號0 資金貸出之公司:和桐化學股份有限公司 貸與對象:中華全球石油股份有限公司 期末餘額:150,000仟元 (3)115年5月 編號0 資金貸出之公司:和桐化學股份有限公司 貸與對象:中華全球石油股份有限公司 期末餘額:150,000仟元 9.因應措施:更正後重新上傳至公開資訊觀測站。 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 1714 | 和桐 | 2 | 2 | 4 | 9 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260821 | 1714 | 和桐 | 6 | 6 | 5 | 9 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 1714 | 和桐 | 4 | 0 | 531970.0 | 0.0 |  | no_signal |
+| 20260821 | 1714 | 和桐 | 14 | 0 | 5474460.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

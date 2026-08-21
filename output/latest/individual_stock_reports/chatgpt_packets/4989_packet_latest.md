@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4989 榮科
 
 ## Metadata
-- generated_at: 2026-08-10 22:28:01 Asia/Taipei
+- generated_at: 2026-08-21 22:27:41 Asia/Taipei
 - stock_id: 4989
 - stock_name: 榮科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 67.7
-- high: 68.1
-- low: 65
-- close: 65.7
-- volume: 6068562
-- ma5: 65.72
-- ema23_primary: 70.26
-- distance_to_ema23_pct: -6.49
-- ma20: 67.44
-- ma60: 84.3
-- ma120: 81.29
-- return_5d: 18.17
-- return_20d: -28.43
-- volume_ratio: 0.77
-- distance_to_ma20_pct_auxiliary: -2.57
-- distance_to_high_60_pct: -44.09
+- date: 20260821
+- open: 62.1
+- high: 63.4
+- low: 61
+- close: 61.9
+- volume: 2917307
+- ma5: 62.62
+- ema23_primary: 66.93
+- distance_to_ema23_pct: -7.51
+- ma20: 63.36
+- ma60: 79.28
+- ma120: 82.29
+- return_5d: -4.48
+- return_20d: -5.06
+- volume_ratio: 0.39
+- distance_to_ma20_pct_auxiliary: -2.3
+- distance_to_high_60_pct: -47.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,92.8,93.1,82.7,82.7,13411924,92.96,-11.04,90.7,96.16,1.03
-20260714,83,83.5,74.8,80,10748547,91.88,-12.93,90.72,95.74,0.81
-20260715,80.8,81.6,79.3,80,5173016,90.89,-11.98,90.68,95.36,0.39
-20260716,79.1,80.6,77.7,78.2,4441435,89.83,-12.95,90.66,94.89,0.33
-20260717,75,76,70.4,70.4,7565468,88.21,-20.19,90.14,94.28,0.55
-20260720,69,69.8,63.4,64.9,7792629,86.27,-24.77,89.11,93.42,0.57
-20260721,66.5,69.2,65,69,10131754,84.83,-18.66,87.86,92.75,0.74
-20260722,75,75.5,70.4,72.5,7543463,83.8,-13.49,86.79,92.14,0.57
-20260723,73.6,74.4,69,70.3,5261701,82.68,-14.97,85.62,91.62,0.4
-20260724,69.4,70.3,65.2,65.2,5014971,81.22,-19.73,84.31,90.91,0.39
 20260727,64.3,66,63.1,65.3,3319994,79.9,-18.27,83.45,90.22,0.26
 20260728,63.1,63.1,59.4,59.5,5007420,78.2,-23.91,82.46,89.33,0.39
 20260729,60.2,60.4,53.6,55.5,8388349,76.3,-27.26,80.87,88.54,0.64
@@ -167,17 +157,27 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,68.5,71.9,66.4,66.9,21028199,70.94,-5.7,70.28,85.19,2.45
 20260806,67.1,69.3,65.5,67.7,10107205,70.67,-4.21,68.74,84.75,1.2
 20260807,67.7,68.1,65,65.7,6068562,70.26,-6.49,67.44,84.3,0.77
+20260810,65.7,68.6,65.7,67.5,5486558,70.03,-3.61,66.67,83.92,0.73
+20260811,67.2,71.4,67.2,68,12242509,69.86,-2.66,66.08,83.59,1.61
+20260812,69.1,71.9,68.8,69,9203577,69.79,-1.13,65.53,83.23,1.18
+20260813,70.2,72.6,68.8,69.3,9863735,69.75,-0.64,65.08,82.91,1.22
+20260814,63.8,69.3,63.8,64.8,11657197,69.33,-6.54,64.8,82.44,1.41
+20260817,65.2,65.9,63.8,64.8,3783488,68.96,-6.03,64.8,81.91,0.47
+20260818,64.2,66.2,62.7,62.7,4680962,68.44,-8.38,64.48,81.3,0.6
+20260819,60.6,62.9,60.3,61.7,3728173,67.87,-9.1,63.94,80.67,0.49
+20260820,62.8,64.4,61,62,3548222,67.38,-7.99,63.52,80,0.47
+20260821,62.1,63.4,61,61.9,2917307,66.93,-7.51,63.36,79.28,0.39
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 19.41
-- over_600_ratio: 15.91
-- over_800_ratio: 14.71
-- over_1000_ratio: 12.53
-- over_400_change_1w: -17.34
-- over_800_change_1w: -17.1
-- over_1000_change_1w: -18.72
+- as_of_date: 20260814
+- over_400_ratio: 18.74
+- over_600_ratio: 15.49
+- over_800_ratio: 13.86
+- over_1000_ratio: 12.24
+- over_400_change_1w: -0.67
+- over_800_change_1w: -0.85
+- over_1000_change_1w: -0.29
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,29.46,-0.69,24.06,-1.72,22.14,-2.27,0,False,False
 20260529,28.8,-0.66,24.39,0.33,23,0.86,1,False,True
 20260605,26.17,-2.63,21.37,-3.02,20.15,-2.85,0,False,False
 20260612,24.28,-1.89,19.47,-1.9,17.59,-2.56,0,False,False
@@ -198,22 +197,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,22.94,-3.38,17.29,-5.83,14.72,-5.72,0,False,False
 20260731,36.75,13.81,31.81,14.52,31.25,16.53,1,True,True
 20260807,19.41,-17.34,14.71,-17.1,12.53,-18.72,0,False,False
+20260814,18.74,-0.67,13.86,-0.85,12.24,-0.29,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 4989 | 榮科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/16 2.公司名稱:李長榮科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司現金增資發行新股認股繳款期限已於115年7月16日截止，依公司法 第142條、266條第3項規定，訂定自115年7月17日至115年8月17日下午3時30分止為尚未 繳款之原股東及認股員工之催告繳款期限。 6.因應措施: (1)尚未繳納股款之股東，請於上述期間內持原繳款書至中國信託營業部分行及 全國各地分行辦理繳款事宜，逾期未繳納者即喪失認購新股之權利。 (2)於催繳期間繳款之股東及員工，本公司將於催繳期間屆滿並經集保結算所作業後， 依所認購之股數，撥入所登記之集保帳號。 (3)若有任何疑問，請洽詢本公司股務代理機構：中國信託商業銀行代理部（地址： 台北市中正區重慶南路一段83號5樓，電話：02-6636-5566）。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 4989 | 榮科 | revenue_pullback | 營收成長股價回檔 | 64.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/16 2.公司名稱:李長榮科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司現金增資發行新股認股繳款期限已於115年7月16日截止，依公司法 第142條、266條第3項規定，訂定自115年7月17日至115年8月17日下午3時30分止為尚未 繳款之原股東及認股員工之催告繳款期限。 6.因應措施: (1)尚未繳納股款之股東，請於上述期間內持原繳款書至中國信託營業部分行及 全國各地分行辦理繳款事宜，逾期未繳納者即喪失認購新股之權利。 (2)於催繳期間繳款之股東及員工，本公司將於催繳期間屆滿並經集保結算所作業後， 依所認購之股數，撥入所登記之集保帳號。 (3)若有任何疑問，請洽詢本公司股務代理機構：中國信託商業銀行代理部（地址： 台北市中正區重慶南路一段83號5樓，電話：02-6636-5566）。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 4989 | 榮科 | revenue_breakout_low_response | 營收爆發低反應股 | 16 | 37 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.事實發生日:115/07/16 2.公司名稱:李長榮科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司現金增資發行新股認股繳款期限已於115年7月16日截止，依公司法 第142條、266條第3項規定，訂定自115年7月17日至115年8月17日下午3時30分止為尚未 繳款之原股東及認股員工之催告繳款期限。 6.因應措施: (1)尚未繳納股款之股東，請於上述期間內持原繳款書至中國信託營業部分行及 全國各地分行辦理繳款事宜，逾期未繳納者即喪失認購新股之權利。 (2)於催繳期間繳款之股東及員工，本公司將於催繳期間屆滿並經集保結算所作業後， 依所認購之股數，撥入所登記之集保帳號。 (3)若有任何疑問，請洽詢本公司股務代理機構：中國信託商業銀行代理部（地址： 台北市中正區重慶南路一段83號5樓，電話：02-6636-5566）。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 4989 | 榮科 | 2 | 2 | 2 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260821 | 4989 | 榮科 | 6 | 6 | 5 | 7 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 4989 | 榮科 | 10 | 1 | 186510.0 | 60200.0 | 3.1 | no_signal |
+| 20260821 | 4989 | 榮科 | 10 | 1 | 403590.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

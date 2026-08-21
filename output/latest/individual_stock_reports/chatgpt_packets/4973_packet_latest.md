@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4973 廣穎電通
 
 ## Metadata
-- generated_at: 2026-08-10 22:28:00 Asia/Taipei
+- generated_at: 2026-08-21 22:27:40 Asia/Taipei
 - stock_id: 4973
 - stock_name: 廣穎電通
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 186
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 203
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,33 +69,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可分批買進
-- model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
-- confidence_level: high
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: no_entry_now
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -104,8 +100,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
-- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -132,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 162.5
+- date: 20260821
+- open: 152
 - high: 164.5
-- low: 155
-- close: 156
-- volume: 4230000
-- ma5: 149.9
-- ema23_primary: 147.33
-- distance_to_ema23_pct: 5.88
-- ma20: 143.25
-- ma60: 154.98
-- ma120: 112.96
-- return_5d: 20.93
-- return_20d: -6.31
-- volume_ratio: 2.13
-- distance_to_ma20_pct_auxiliary: 8.9
-- distance_to_high_60_pct: -28.77
+- low: 151
+- close: 159
+- volume: 3484000
+- ma5: 152.7
+- ema23_primary: 152.2
+- distance_to_ema23_pct: 4.47
+- ma20: 147.65
+- ma60: 161.38
+- ma120: 122.21
+- return_5d: -0.31
+- return_20d: 10.8
+- volume_ratio: 1.52
+- distance_to_ma20_pct_auxiliary: 7.69
+- distance_to_high_60_pct: -27.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,170.5,171,160.5,163,1781000,167.62,-2.75,177.6,138.81,0.58
-20260714,158,160,147,154.5,2657000,166.52,-7.22,175.78,140.11,0.86
-20260715,158.5,164.5,157.5,159.5,1558000,165.94,-3.88,173.25,141.47,0.52
-20260716,155.5,156,150.5,151,1383000,164.69,-8.31,171.32,142.67,0.53
-20260717,144,147,139,141,2083000,162.72,-13.35,168.8,143.56,0.83
-20260720,141,143,129.5,135.5,1841000,160.45,-15.55,165.9,144.32,0.76
-20260721,139,141,136,140,743000,158.75,-11.81,163.32,145.28,0.33
-20260722,153.5,153.5,143.5,144.5,1594000,157.56,-8.29,161.4,146.35,0.74
-20260723,145,146,137.5,142.5,894000,156.3,-8.83,159.28,147.26,0.43
-20260724,140,150,140,143.5,1545000,155.24,-7.56,157.35,148.12,0.75
 20260727,143,143,137,142.5,844000,154.18,-7.57,155.47,149.04,0.43
 20260728,137,137,129,129,1151000,152.08,-15.17,153.5,149.81,0.62
 20260729,125,129,116.5,122.5,2860000,149.61,-18.12,150.95,150.43,1.5
@@ -174,18 +158,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,148,155,146,148,2778000,145.09,2,143.53,153.65,1.61
 20260806,146.5,162.5,143,162.5,5235000,146.54,10.89,143.78,154.36,2.76
 20260807,162.5,164.5,155,156,4230000,147.33,5.88,143.25,154.98,2.13
+20260810,160,165,158.5,162,3750000,148.55,9.05,143.2,155.74,1.8
+20260811,160.5,160.5,152,156,2259000,149.18,4.58,143.28,156.39,1.09
+20260812,156,160,155.5,158.5,1634000,149.95,5.7,143.22,157.03,0.79
+20260813,165,167,162.5,163.5,3428000,151.08,8.22,143.85,157.92,1.58
+20260814,165,168.5,158,159.5,2925000,151.78,5.08,144.78,158.76,1.32
+20260817,159,160.5,153.5,153.5,1183000,151.93,1.04,145.68,159.52,0.54
+20260818,153,157,148.5,148.5,1265000,151.64,-2.07,146.1,160.07,0.57
+20260819,145,151.5,144,150.5,916000,151.55,-0.69,146.4,160.62,0.42
+20260820,151,153.5,148,152,1213000,151.58,0.28,146.88,161.04,0.55
+20260821,152,164.5,151,159,3484000,152.2,4.47,147.65,161.38,1.52
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 24.5
-- over_600_ratio: 19.27
-- over_800_ratio: 17.16
-- over_1000_ratio: 15.7
+- as_of_date: 20260814
+- over_400_ratio: 23.74
+- over_600_ratio: 20.01
+- over_800_ratio: 16.9
+- over_1000_ratio: 15.44
 - over_400_change_1w: -0.76
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- over_800_change_1w: -0.26
+- over_1000_change_1w: -0.26
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -193,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,33.51,1.42,24.11,-0.78,21.34,2.07,3,False,True
 20260529,36.19,2.68,23.42,-0.69,21.96,0.62,4,False,True
 20260605,31.22,-4.97,22.95,-0.47,18.56,-3.4,0,False,False
 20260612,31.49,0.27,23.01,0.06,20.26,1.7,1,True,True
@@ -205,17 +198,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,24.62,0.63,17.16,-0.12,15.7,-0.12,3,False,False
 20260731,25.26,0.64,17.16,0,15.7,0,4,False,False
 20260807,24.5,-0.76,17.16,0,15.7,0,0,False,False
+20260814,23.74,-0.76,16.9,-0.26,15.44,-0.26,1,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 4973 | 廣穎電通 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  |  | stale_signal | 1.發生變動日期:115/06/18 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名: (1)黃清茂 (2)洪敬恒 (3)劉復華 (4)鄭翠玉 4.舊任者簡歷: (1)黃清茂：泰博科技股份有限公司特別助理 (2)洪敬恒：太曼妮企業有限公司代表人 (3)劉復華：頂典有限公司代表人 (4)鄭翠玉：廣展會計師事務所所長 5.新任者姓名: (1)黃清茂 (2)洪敬恒 (3)鄭翠玉 (4)許源卿 6.新任者簡歷: (1)黃清茂：泰博科技股份有限公司特別助理 (2)洪敬恒：太曼妮企業有限公司代表人 (3)鄭翠玉：廣展會計師事務所所長 (4)許源卿：昇佳電子股份有限公司營運長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿，全面改選。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/18~115/06/17 10.新任生效日期:115/06/18 11.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 4973 | 廣穎電通 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | 1.事實發生日:115/08/19 2.公司名稱:廣穎電通股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依據「發行人募集與發行有價證券處理準則」第9條第1項第2款規定辦理， 本公司發行國內第一次無擔保轉換公司債至公告日止，債款代收銀行已收足所有應募 款項共計新台幣伍億元整，並匯撥至存儲專戶銀行，特此公告。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| 20260821 | 4973 | 廣穎電通 | pullback_rebound | 回檔後短線轉強 | 70.0 |  |  |  |  |  | repeated_but_no_breakout | 1.事實發生日:115/08/19 2.公司名稱:廣穎電通股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依據「發行人募集與發行有價證券處理準則」第9條第1項第2款規定辦理， 本公司發行國內第一次無擔保轉換公司債至公告日止，債款代收銀行已收足所有應募 款項共計新台幣伍億元整，並匯撥至存儲專戶銀行，特此公告。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| 20260821 | 4973 | 廣穎電通 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | repeated_but_no_breakout | 1.事實發生日:115/08/19 2.公司名稱:廣穎電通股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依據「發行人募集與發行有價證券處理準則」第9條第1項第2款規定辦理， 本公司發行國內第一次無擔保轉換公司債至公告日止，債款代收銀行已收足所有應募 款項共計新台幣伍億元整，並匯撥至存儲專戶銀行，特此公告。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 4973 | 廣穎電通 | 19 | 2 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260821 | 4973 | 廣穎電通 | 23 | 6 | 5 | 10 | 20 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

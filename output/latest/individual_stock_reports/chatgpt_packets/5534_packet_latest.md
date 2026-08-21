@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5534 長虹
 
 ## Metadata
-- generated_at: 2026-08-10 22:28:12 Asia/Taipei
+- generated_at: 2026-08-21 22:27:48 Asia/Taipei
 - stock_id: 5534
 - stock_name: 長虹
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -131,38 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 77.7
-- high: 78.8
-- low: 77.7
-- close: 78.4
-- volume: 298914
-- ma5: 77.88
-- ema23_primary: 78.78
-- distance_to_ema23_pct: -0.49
-- ma20: 79.17
-- ma60: 78.44
-- ma120: 78.1
-- return_5d: 1.03
-- return_20d: -1.01
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: -0.98
-- distance_to_high_60_pct: -10.4
+- date: 20260821
+- open: 80.5
+- high: 80.9
+- low: 79.2
+- close: 80.4
+- volume: 1817862
+- ma5: 79.74
+- ema23_primary: 79.07
+- distance_to_ema23_pct: 1.68
+- ma20: 78.57
+- ma60: 79.01
+- ma120: 78.25
+- return_5d: 1.39
+- return_20d: 0.63
+- volume_ratio: 2.54
+- distance_to_ma20_pct_auxiliary: 2.33
+- distance_to_high_60_pct: -8.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,79,79.4,78.5,79.4,379190,79.24,0.2,80.17,78.08,0.32
-20260714,79,79.4,78.9,79.4,493435,79.26,0.18,79.97,78.08,0.47
-20260715,79.1,80.2,79.1,80.2,507105,79.34,1.09,79.86,78.09,0.52
-20260716,79.9,81.7,79.9,81.7,795275,79.53,2.73,79.83,78.16,0.82
-20260717,81.7,82.6,80.9,81.2,1169886,79.67,1.92,79.63,78.22,1.32
-20260720,81.3,82,80.2,80.6,548037,79.75,1.07,79.5,78.3,0.7
-20260721,80.6,81.7,80.5,80.9,434732,79.84,1.32,79.6,78.36,0.69
-20260722,80.6,81.5,79.6,79.9,685223,79.85,0.06,79.65,78.4,1.1
-20260723,79.8,80.1,78.9,79.7,437531,79.84,-0.17,79.67,78.43,0.73
-20260724,79.8,80.1,79,79.9,297764,79.84,0.07,79.73,78.47,0.51
 20260727,80.2,80.2,79.2,79.3,257218,79.8,-0.62,79.76,78.48,0.47
 20260728,79,79.1,77.8,77.9,839368,79.64,-2.18,79.73,78.48,1.48
 20260729,78.3,78.5,76.3,78,1207847,79.5,-1.89,79.72,78.49,2.03
@@ -173,26 +163,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,77.8,78.5,77.6,78.1,378649,78.91,-1.03,79.28,78.44,0.63
 20260806,77.3,77.9,77.3,77.8,322976,78.82,-1.29,79.22,78.42,0.53
 20260807,77.7,78.8,77.7,78.4,298914,78.78,-0.49,79.17,78.44,0.49
+20260810,79,79,77.9,78.3,324494,78.74,-0.56,79.12,78.47,0.54
+20260811,78.1,78.2,77.4,77.8,804428,78.67,-1.1,79.04,78.5,1.29
+20260812,77.8,78.4,77.6,78.3,628639,78.64,-0.43,78.94,78.53,1
+20260813,78.3,78.6,77.7,78.4,543374,78.62,-0.27,78.78,78.58,0.88
+20260814,78.4,79.4,78,79.3,571574,78.67,0.8,78.69,78.64,0.98
+20260817,79.6,80,78.9,79.4,952060,78.73,0.85,78.62,78.7,1.57
+20260818,78.7,79.1,78.4,78.8,412021,78.74,0.08,78.52,78.75,0.68
+20260819,79,79.5,78.2,79.2,690504,78.78,0.54,78.48,78.83,1.14
+20260820,79.6,81.7,79.2,80.9,1154626,78.95,2.46,78.55,78.92,1.8
+20260821,80.5,80.9,79.2,80.4,1817862,79.07,1.68,78.57,79.01,2.54
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 69.13
-- over_600_ratio: 66.52
-- over_800_ratio: 63.64
-- over_1000_ratio: 59.96
-- over_400_change_1w: -0.3
-- over_800_change_1w: -0.52
-- over_1000_change_1w: -0.16
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260814
+- over_400_ratio: 68.85
+- over_600_ratio: 66.4
+- over_800_ratio: 63.72
+- over_1000_ratio: 59.47
+- over_400_change_1w: -0.28
+- over_800_change_1w: 0.08
+- over_1000_change_1w: -0.49
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,68.87,-0.09,63.39,0.13,59.43,-0.43,1,False,True
 20260529,68.37,-0.5,62.95,-0.44,58.98,-0.45,0,False,False
 20260605,67.96,-0.41,62.66,-0.29,58.67,-0.31,0,False,False
 20260612,69.44,1.48,64.1,1.44,60.12,1.45,1,True,True
@@ -204,23 +203,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,69.44,-0.1,64.16,0,60.44,-0.32,4,False,False
 20260731,69.43,-0.01,64.16,0,60.12,-0.32,0,False,False
 20260807,69.13,-0.3,63.64,-0.52,59.96,-0.16,0,False,False
+20260814,68.85,-0.28,63.72,0.08,59.47,-0.49,1,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 5534 | 長虹 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260717 | 5534 | 長虹 | revenue_breakout_low_response | 營收爆發低反應股 | 16.0 | 25.0 | D_降級_TDCC轉弱 |  |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260821 | 5534 | 長虹 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | calendar event: ex_dividend on 20260825; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260821 | 5534 | 長虹 | revenue_breakout_low_response | 營收爆發低反應股 | 18 | 33 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | calendar event: ex_dividend on 20260825; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 5534 | 長虹 | 1 | 1 | 1 | 2 | 3 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260821 | 5534 | 長虹 | 2 | 2 | 3 | 3 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 5534 | 長虹 | 5 | 0 | 196850.0 | 0.0 |  | no_signal |
+| 20260821 | 5534 | 長虹 | 4 | 0 | 192980.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

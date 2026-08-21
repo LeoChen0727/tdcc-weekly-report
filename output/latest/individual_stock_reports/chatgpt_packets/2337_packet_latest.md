@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2337 旺宏
 
 ## Metadata
-- generated_at: 2026-08-10 22:26:51 Asia/Taipei
+- generated_at: 2026-08-21 22:26:55 Asia/Taipei
 - stock_id: 2337
 - stock_name: 旺宏
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
+- model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -125,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 130.5
-- high: 130.5
-- low: 120.5
-- close: 121.5
-- volume: 112161182
-- ma5: 119.7
-- ema23_primary: 124.83
-- distance_to_ema23_pct: -2.67
-- ma20: 122.39
-- ma60: 144.21
-- ma120: 136.47
-- return_5d: 20.9
-- return_20d: -15.33
-- volume_ratio: 1.51
-- distance_to_ma20_pct_auxiliary: -0.73
-- distance_to_high_60_pct: -36.72
+- date: 20260821
+- open: 120.5
+- high: 122.5
+- low: 119.5
+- close: 122.5
+- volume: 30188173
+- ma5: 123
+- ema23_primary: 126.52
+- distance_to_ema23_pct: -3.17
+- ma20: 121.11
+- ma60: 140.13
+- ma120: 139.14
+- return_5d: -10.58
+- return_20d: -1.21
+- volume_ratio: 0.35
+- distance_to_ma20_pct_auxiliary: 1.14
+- distance_to_high_60_pct: -36.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,146,147,138,138,51524844,150.61,-8.37,155.25,152.81,0.55
-20260714,140.5,143,130.5,139.5,67740693,149.68,-6.8,154.9,152.82,0.7
-20260715,144.5,150.5,144,148.5,110280005,149.58,-0.72,154.38,153.11,1.1
-20260716,143.5,144,136,136.5,72299473,148.49,-8.08,152.88,153.38,0.71
-20260717,127,129.5,124,125,68546901,146.54,-14.7,151.05,153.25,0.69
-20260720,126,127,115.5,117.5,71475589,144.12,-18.47,148.47,152.97,0.74
-20260721,120.5,123.5,118,123,45753444,142.36,-13.6,145.35,152.92,0.5
-20260722,129.5,135,129.5,135,54882537,141.74,-4.76,143.5,152.97,0.65
-20260723,132,134.5,125.5,129.5,67629271,140.72,-7.98,141.38,152.71,0.82
-20260724,126.5,131,123.5,124,39475036,139.33,-11,139.5,152.12,0.52
 20260727,123.5,125.5,118,125.5,37415793,138.18,-9.17,137.65,151.43,0.55
 20260728,115,116,113,113,37034980,136.08,-16.96,135.38,150.74,0.56
 20260729,110,110.5,102,102,79625991,133.24,-23.45,132.7,149.87,1.22
@@ -167,26 +157,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,123,127.5,117,117.5,173482291,124.78,-5.84,123.97,145.38,2.53
 20260806,117.5,129,116,129,122477212,125.14,3.09,123.49,144.98,1.7
 20260807,130.5,130.5,120.5,121.5,112161182,124.83,-2.67,122.39,144.21,1.51
+20260810,124,133.5,123,133.5,134956954,125.55,6.33,122.17,143.61,1.72
+20260811,134,139,129,132.5,145294276,126.13,5.05,121.81,143.11,1.76
+20260812,135,140,134.5,136.5,104417549,127,7.48,121.22,142.72,1.27
+20260813,140,141.5,136,136.5,88614872,127.79,6.82,121.22,142.6,1.07
+20260814,140.5,144.5,134.5,137,94191178,128.56,6.57,121.81,142.53,1.12
+20260817,135,135,128,129.5,74330232,128.64,0.67,122.42,142.34,0.88
+20260818,130,133.5,121,122,107033213,128.08,-4.75,122.36,141.88,1.22
+20260819,117,120.5,115,119,50155092,127.33,-6.54,121.56,141.32,0.57
+20260820,122,124.5,119.5,122,48743476,126.88,-3.85,121.19,140.68,0.56
+20260821,120.5,122.5,119.5,122.5,30188173,126.52,-3.17,121.11,140.13,0.35
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 43.17
-- over_600_ratio: 40.88
-- over_800_ratio: 39.24
-- over_1000_ratio: 38.37
-- over_400_change_1w: 0.85
-- over_800_change_1w: 0.67
-- over_1000_change_1w: 0.62
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260814
+- over_400_ratio: 43.02
+- over_600_ratio: 40.83
+- over_800_ratio: 39.14
+- over_1000_ratio: 38.04
+- over_400_change_1w: -0.15
+- over_800_change_1w: -0.1
+- over_1000_change_1w: -0.33
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,46.41,-6.36,42.37,-6.57,41.45,-6.51,0,False,False
 20260529,50.71,4.3,46.92,4.55,45.96,4.51,1,True,True
 20260605,52.02,1.31,48.42,1.5,47.46,1.5,2,True,True
 20260612,49.68,-2.34,46.04,-2.38,45.26,-2.2,0,False,False
@@ -198,22 +197,25 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,44.44,0.03,40.71,0.09,39.84,-0.03,1,False,True
 20260731,42.32,-2.12,38.57,-2.14,37.75,-2.09,0,False,False
 20260807,43.17,0.85,39.24,0.67,38.37,0.62,1,True,True
+20260814,43.02,-0.15,39.14,-0.1,38.04,-0.33,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2337 | 旺宏 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/28 1.召開法人說明會之日期：115/07/28 2.召開法人說明會之時間：16 時 00 分  3.召開法人說明會之地點：線上法人說明會 4.法人說明會擇要訊息：旺宏電子2026年第二季營運成果報告 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 2337 | 旺宏 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/28 1.召開法人說明會之日期：115/07/28 2.召開法人說明會之時間：16 時 00 分 3.召開法人說明會之地點：線上法人說明會 4.法人說明會擇要訊息：旺宏電子2026年第二季營運成果報告 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| 20260821 | 2337 | 旺宏 | revenue_pullback | 營收成長股價回檔 | 50.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/28 1.召開法人說明會之日期：115/07/28 2.召開法人說明會之時間：16 時 00 分 3.召開法人說明會之地點：線上法人說明會 4.法人說明會擇要訊息：旺宏電子2026年第二季營運成果報告 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 2337 | 旺宏 | revenue_breakout_low_response | 營收爆發低反應股 | 18 | 34 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/28 1.召開法人說明會之日期：115/07/28 2.召開法人說明會之時間：16 時 00 分 3.召開法人說明會之地點：線上法人說明會 4.法人說明會擇要訊息：旺宏電子2026年第二季營運成果報告 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2337 | 旺宏 | 1 | 1 | 3 | 8 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260821 | 2337 | 旺宏 | 5 | 5 | 5 | 8 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2337 | 旺宏 | 49 | 11 | 721350.0 | 25410.0 | 28.39 | no_signal |
+| 20260821 | 2337 | 旺宏 | 142 | 16 | 13794780.0 | 203630.0 | 67.74 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

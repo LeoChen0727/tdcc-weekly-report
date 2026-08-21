@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2449 京元電子
 
 ## Metadata
-- generated_at: 2026-08-10 22:26:58 Asia/Taipei
+- generated_at: 2026-08-21 22:27:00 Asia/Taipei
 - stock_id: 2449
 - stock_name: 京元電子
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 247
-- high: 251.5
-- low: 242
-- close: 242
-- volume: 14953349
-- ma5: 243.4
-- ema23_primary: 263.98
-- distance_to_ema23_pct: -8.33
-- ma20: 264
-- ma60: 294.27
-- ma120: 294.6
-- return_5d: 8.28
-- return_20d: -21.56
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: -8.33
-- distance_to_high_60_pct: -34.15
+- date: 20260821
+- open: 234
+- high: 236
+- low: 230.5
+- close: 232
+- volume: 10664247
+- ma5: 237.3
+- ema23_primary: 251.37
+- distance_to_ema23_pct: -7.71
+- ma20: 240.45
+- ma60: 284.78
+- ma120: 289.46
+- return_5d: -6.07
+- return_20d: -14.39
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: -3.51
+- distance_to_high_60_pct: -36.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,315,321,306,307,19383018,316.27,-2.93,316.15,306.14,0.54
-20260714,311,311,278.5,291.5,30101109,314.21,-7.23,316.62,306.27,0.82
-20260715,299,311,296,307,23993778,313.61,-2.11,317.93,306.81,0.66
-20260716,307,324,302.5,318,30441207,313.97,1.28,319.93,307.59,0.81
-20260717,306,306,286.5,286.5,38187576,311.68,-8.08,320.23,307.68,0.98
-20260720,279,279,258.5,270.5,30195062,308.25,-12.25,318.32,307.4,0.8
-20260721,276,281,272,279,13598413,305.81,-8.77,315.32,307.43,0.4
-20260722,286,298.5,282,295,22881139,304.91,-3.25,313.6,307.57,0.72
-20260723,300,302,282.5,286,16709456,303.34,-5.72,311.23,307.62,0.55
-20260724,280,285,271,271,14663559,300.64,-9.86,308.05,307.41,0.5
 20260727,273.5,282,265,276,17414631,298.59,-7.57,306.45,307.28,0.63
 20260728,253,254.5,236,236,25729671,293.37,-19.56,302.82,306.18,0.92
 20260729,236,236,212.5,212.5,22273293,286.63,-25.86,296.57,304.18,0.82
@@ -167,26 +157,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,258,261.5,246,247,19763740,267.52,-7.67,270.15,296.19,0.83
 20260806,246,252.5,240,249,15016290,265.98,-6.38,267.32,295.32,0.64
 20260807,247,251.5,242,242,14953349,263.98,-8.33,264,294.27,0.65
+20260810,242,253.5,237,248.5,35251334,262.69,-5.4,261.07,293.48,1.47
+20260811,243,250.5,238.5,246,17657100,261.3,-5.86,258.8,292.59,0.76
+20260812,246,260,243.5,259,21727887,261.11,-0.81,256.4,291.99,0.94
+20260813,261,262,253,253.5,27388181,260.48,-2.68,253.18,291.4,1.19
+20260814,256,256.5,245,247,17138072,259.35,-4.76,251.2,290.89,0.78
+20260817,250.5,258,248.5,248.5,13706934,258.45,-3.85,250.1,290.27,0.65
+20260818,250.5,251,233,236,20381684,256.58,-8.02,247.95,289.27,0.95
+20260819,226.5,237.5,225,235,15479247,254.78,-7.76,244.95,287.9,0.73
+20260820,241,241,230,235,12061896,253.13,-7.16,242.4,286.18,0.58
+20260821,234,236,230.5,232,10664247,251.37,-7.71,240.45,284.78,0.51
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 61.74
-- over_600_ratio: 59.43
-- over_800_ratio: 57.01
-- over_1000_ratio: 55.67
-- over_400_change_1w: -0.6
-- over_800_change_1w: -0.45
-- over_1000_change_1w: 0.17
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260814
+- over_400_ratio: 61
+- over_600_ratio: 58.62
+- over_800_ratio: 56.19
+- over_1000_ratio: 54.83
+- over_400_change_1w: -0.74
+- over_800_change_1w: -0.82
+- over_1000_change_1w: -0.84
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,62.44,-1.62,57.72,-1.47,56.07,-0.83,0,False,False
 20260529,64.72,2.28,59.89,2.17,58.19,2.12,1,True,True
 20260605,64.81,0.09,59.85,-0.04,58.13,-0.06,2,False,False
 20260612,61.82,-2.99,57.05,-2.8,55.78,-2.35,0,False,False
@@ -198,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,64.21,-2.34,59.51,-2.27,57.8,-2.29,0,False,False
 20260731,62.34,-1.87,57.46,-2.05,55.5,-2.3,0,False,False
 20260807,61.74,-0.6,57.01,-0.45,55.67,0.17,1,False,True
+20260814,61,-0.74,56.19,-0.82,54.83,-0.84,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2449 | 京元電子 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  | no_signal | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 廠務設備 2.事實發生日:114/7/17~115/7/13 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:董事長核決 民國115年07月13日 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 交易單位數量：20 批 每單位平均價格：新台幣NT$54,071,128元 總金額：新台幣NT$1,081,422,550元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 盈正豫順電子股份有限公司；非關係人 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依訂單條件付款 契約限制條款:無 其他重要約定事項:無 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 交易決定方式:議價 價格決定之參考依據:按市場行情 決策單位:總經理室暨董事長室 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 無 23.取得或處分之具體目的或用途: 供營運及生產使用 24.本次交易表示異議之董事之意見: 不適用 25.本次交易為關係人交易:否 26.監察人承認或審計委員會同意日期: 不適用 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: ex_right_dividend on 20260728; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 2449 | 京元電子 | revenue_pullback | 營收成長股價回檔 | 54.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/28 1.召開法人說明會之日期：115/08/28 2.召開法人說明會之時間：15 時 30 分 3.召開法人說明會之地點：台北君悅酒店(Grand Hyatt Taipei) 4.法人說明會擇要訊息：本公司115年8月28日受邀參加2026年第3季富邦企業日，簡報資料請參閱公開資訊觀測站。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2449 | 京元電子 | 8 | 2 | 5 | 8 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260821 | 2449 | 京元電子 | 12 | 6 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2449 | 京元電子 | 247 | 11 | 29098350.0 | 220970.0 | 131.68 | no_signal |
+| 20260821 | 2449 | 京元電子 | 291 | 11 | 4140180.0 | 197530.0 | 20.96 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

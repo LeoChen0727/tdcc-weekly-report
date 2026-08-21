@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2497 怡利電
 
 ## Metadata
-- generated_at: 2026-08-10 22:27:02 Asia/Taipei
+- generated_at: 2026-08-21 22:27:02 Asia/Taipei
 - stock_id: 2497
 - stock_name: 怡利電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 320
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 337
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 49.15
-- high: 50.2
-- low: 47.3
-- close: 47.5
-- volume: 765098
-- ma5: 46.99
-- ema23_primary: 51.25
-- distance_to_ema23_pct: -7.31
-- ma20: 51.45
-- ma60: 57.17
-- ma120: 53.42
-- return_5d: 3.83
-- return_20d: -21.88
-- volume_ratio: 0.92
-- distance_to_ma20_pct_auxiliary: -7.69
-- distance_to_high_60_pct: -32.91
+- date: 20260821
+- open: 45.35
+- high: 46.1
+- low: 45.35
+- close: 45.6
+- volume: 166469
+- ma5: 45.4
+- ema23_primary: 48.34
+- distance_to_ema23_pct: -5.66
+- ma20: 46.58
+- ma60: 55.39
+- ma120: 53.44
+- return_5d: -2.04
+- return_20d: -12.48
+- volume_ratio: 0.23
+- distance_to_ma20_pct_auxiliary: -2.11
+- distance_to_high_60_pct: -35.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,60.9,63,60.5,61.6,682466,60.52,1.78,60.22,59.22,0.74
-20260714,63.3,63.3,57.5,59.3,705488,60.42,-1.85,59.98,59.28,0.75
-20260715,60.8,60.8,59.1,59.3,669950,60.33,-1.7,59.84,59.34,0.73
-20260716,59,61,58.9,59.6,428883,60.27,-1.1,59.7,59.39,0.47
-20260717,58.5,59,55.8,55.8,611701,59.89,-6.83,59.41,59.39,0.66
-20260720,56.5,56.5,53.2,53.7,478492,59.38,-9.56,59.09,59.27,0.53
-20260721,53.9,54.9,53.9,54,312510,58.93,-8.36,58.82,59.15,0.36
-20260722,54.2,55.3,54.2,54.4,416329,58.55,-7.09,58.63,59.08,0.48
-20260723,54.6,54.8,51.9,52.8,531595,58.07,-9.08,58.34,59,0.62
-20260724,52,52.1,51.1,52.1,489886,57.57,-9.51,58.05,58.92,0.56
 20260727,52.1,52.8,51.5,52.8,325474,57.18,-7.65,57.94,58.88,0.38
 20260728,49.55,49.55,45.75,45.75,1379338,56.22,-18.63,57.44,58.72,1.53
 20260729,46.3,46.6,41.5,42.8,2813285,55.11,-22.33,56.71,58.54,2.75
@@ -167,26 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,46.7,47.4,46.5,47,390400,51.86,-9.38,52.88,57.53,0.45
 20260806,46.7,48.7,46.7,48.55,547834,51.59,-5.89,52.12,57.36,0.65
 20260807,49.15,50.2,47.3,47.5,765098,51.25,-7.31,51.45,57.17,0.92
+20260810,47.9,48.4,47.5,48.25,270577,51,-5.39,50.79,57.02,0.33
+20260811,47,47.75,46.6,47.55,277106,50.71,-6.23,50.2,56.85,0.35
+20260812,47.8,48.95,47.8,48.8,382706,50.55,-3.46,49.67,56.74,0.5
+20260813,48.45,48.75,46.95,47,848102,50.26,-6.48,49.05,56.59,1.07
+20260814,47.45,47.45,46.45,46.55,278746,49.95,-6.8,48.58,56.44,0.36
+20260817,46.6,46.85,45.8,46.4,226525,49.65,-6.55,48.22,56.26,0.3
+20260818,45.9,46.15,45.05,45.05,276273,49.27,-8.56,47.77,56.06,0.36
+20260819,45.5,45.5,44.5,44.6,212810,48.88,-8.75,47.28,55.82,0.28
+20260820,44.8,45.55,44.8,45.35,174710,48.58,-6.66,46.91,55.6,0.24
+20260821,45.35,46.1,45.35,45.6,166469,48.34,-5.66,46.58,55.39,0.23
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 66.32
-- over_600_ratio: 63.71
-- over_800_ratio: 60.57
-- over_1000_ratio: 57.71
-- over_400_change_1w: 0.17
-- over_800_change_1w: 0.05
-- over_1000_change_1w: 0.06
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
+- as_of_date: 20260814
+- over_400_ratio: 66.18
+- over_600_ratio: 63.25
+- over_800_ratio: 60.59
+- over_1000_ratio: 58.48
+- over_400_change_1w: -0.14
+- over_800_change_1w: 0.02
+- over_1000_change_1w: 0.77
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,68,-0.21,61.1,-0.01,56.87,-0.82,3,False,False
 20260529,68.89,0.89,61.71,0.61,57.54,0.67,4,True,True
 20260605,68.27,-0.62,60.39,-1.32,57.53,-0.01,0,False,False
 20260612,69.43,1.16,61.06,0.67,56.78,-0.75,1,False,True
@@ -198,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,69.25,-0.49,62.83,0.07,58.03,-0.56,7,False,True
 20260731,66.15,-3.1,60.52,-2.31,57.65,-0.38,0,False,False
 20260807,66.32,0.17,60.57,0.05,57.71,0.06,1,True,True
+20260814,66.18,-0.14,60.59,0.02,58.48,0.77,2,False,True
 ```
 
 ## Candidate Context
@@ -213,7 +214,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2497 | 怡利電 | 6 | 0 | 66200.0 | 0.0 |  | no_signal |
+| 20260821 | 2497 | 怡利電 | 6 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

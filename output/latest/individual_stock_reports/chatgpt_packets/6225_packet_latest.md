@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6225 天瀚
 
 ## Metadata
-- generated_at: 2026-08-10 22:28:24 Asia/Taipei
+- generated_at: 2026-08-21 22:27:55 Asia/Taipei
 - stock_id: 6225
 - stock_name: 天瀚
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 311
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 328
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -72,14 +72,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 單一個股分析
 - score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -87,7 +87,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: high_level_consolidation
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -104,7 +104,6 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -117,7 +116,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -125,38 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 26.9
-- high: 27.7
-- low: 25.8
-- close: 25.95
-- volume: 140287
-- ma5: 24.24
-- ema23_primary: 24.15
-- distance_to_ema23_pct: 7.43
-- ma20: 24.64
-- ma60: 24.41
-- ma120: 22.43
-- return_5d: 15.33
-- return_20d: 11.37
-- volume_ratio: 2.97
-- distance_to_ma20_pct_auxiliary: 5.34
-- distance_to_high_60_pct: -25.96
+- date: 20260821
+- open: 64.7
+- high: 64.7
+- low: 64.7
+- close: 64.7
+- volume: 131142
+- ma5: 54.08
+- ema23_primary: 37.34
+- distance_to_ema23_pct: 73.28
+- ma20: 33.95
+- ma60: 27.02
+- ma120: 24.58
+- return_5d: 60.15
+- return_20d: 169.58
+- volume_ratio: 0.95
+- distance_to_ma20_pct_auxiliary: 90.56
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,24.1,25.5,23.8,24.2,18139,22.95,5.46,22.52,23.27,0.79
-20260714,24,25.5,24,24.65,21050,23.09,6.77,22.58,23.37,0.89
-20260715,25.5,27.1,25.5,26.3,18301,23.36,12.61,22.72,23.49,0.74
-20260716,27.2,27.2,25.5,25.55,29450,23.54,8.55,22.84,23.62,1.13
-20260717,26.4,26.5,23.75,26,79019,23.74,9.5,22.95,23.77,2.69
-20260720,26.5,26.6,25.55,25.55,60456,23.89,6.93,23.03,23.89,1.95
-20260721,26.5,26.8,25.95,26.05,6149,24.07,8.21,23.25,24.03,0.21
-20260722,26.9,27,25.15,25.15,17428,24.16,4.08,23.38,24.14,0.58
-20260723,26.45,27,25.35,25.35,28116,24.26,4.48,23.63,24.26,1.06
-20260724,26,26,24,24,40495,24.24,-0.99,23.75,24.35,1.5
 20260727,25.65,25.65,24.05,24.05,9195,24.22,-0.72,23.88,24.42,0.35
 20260728,26,26.45,25.7,25.7,31725,24.35,5.55,24.19,24.51,1.28
 20260729,26.3,28.25,23.25,23.25,138595,24.26,-4.15,24.33,24.54,4.86
@@ -167,26 +156,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,24,24.85,24,24.35,17915,23.88,1.96,24.39,24.48,0.5
 20260806,26.7,26.75,24.55,25.2,105700,23.99,5.04,24.5,24.46,2.6
 20260807,26.9,27.7,25.8,25.95,140287,24.15,7.43,24.64,24.41,2.97
+20260810,26.85,28.5,26.85,27.7,68293,24.45,13.29,24.81,24.34,1.37
+20260811,30.45,30.45,29.6,30.45,110889,24.95,22.04,25.1,24.26,2.04
+20260812,33.45,33.45,33.45,33.45,30081,25.66,30.37,25.46,24.29,0.55
+20260813,36.75,36.75,36.75,36.75,50950,26.58,38.25,26.02,24.43,0.91
+20260814,40.4,40.4,40.4,40.4,396961,27.73,45.67,26.74,24.65,5.53
+20260817,44.4,44.4,44.4,44.4,60888,29.12,52.46,27.68,24.96,0.85
+20260818,48.8,48.8,48.8,48.8,363060,30.76,58.63,28.82,25.35,4.05
+20260819,53.6,53.6,50,53.6,700718,32.67,64.09,30.24,25.83,5.66
+20260820,58.6,58.9,56.5,58.9,228615,34.85,69,31.92,26.38,1.71
+20260821,64.7,64.7,64.7,64.7,131142,37.34,73.28,33.95,27.02,0.95
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 66.34
-- over_600_ratio: 58.79
-- over_800_ratio: 56.46
-- over_1000_ratio: 56.46
-- over_400_change_1w: 0
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260814
+- over_400_ratio: 69.7
+- over_600_ratio: 62.15
+- over_800_ratio: 62.15
+- over_1000_ratio: 62.15
+- over_400_change_1w: 3.36
+- over_800_change_1w: 5.69
+- over_1000_change_1w: 5.69
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,64.01,0,54.13,0,50.7,0,0,False,False
 20260529,64.01,0,54.13,0,50.7,0,0,False,False
 20260605,65.08,1.07,55.2,1.07,55.2,4.5,1,True,True
 20260612,65.08,0,55.2,0,55.2,0,0,False,False
@@ -198,6 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,65.08,0,55.2,0,55.2,0,0,False,False
 20260731,66.34,1.26,56.46,1.26,56.46,1.26,1,True,True
 20260807,66.34,0,56.46,0,56.46,0,0,False,False
+20260814,69.7,3.36,62.15,5.69,62.15,5.69,1,True,True
 ```
 
 ## Candidate Context

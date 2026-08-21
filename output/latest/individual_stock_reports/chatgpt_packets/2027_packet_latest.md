@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2027 大成鋼
 
 ## Metadata
-- generated_at: 2026-08-10 22:26:44 Asia/Taipei
+- generated_at: 2026-08-21 22:26:50 Asia/Taipei
 - stock_id: 2027
 - stock_name: 大成鋼
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 45.95
-- high: 46.85
-- low: 45.9
-- close: 46.6
-- volume: 16824504
-- ma5: 45.15
-- ema23_primary: 43.26
-- distance_to_ema23_pct: 7.73
-- ma20: 42.88
-- ma60: 42.02
-- ma120: 39.74
-- return_5d: 7.87
-- return_20d: 16.5
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: 8.69
-- distance_to_high_60_pct: -0.75
+- date: 20260821
+- open: 50.5
+- high: 50.5
+- low: 49.4
+- close: 50.3
+- volume: 9436777
+- ma5: 50.1
+- ema23_primary: 46.72
+- distance_to_ema23_pct: 7.67
+- ma20: 46.59
+- ma60: 43.31
+- ma120: 40.7
+- return_5d: 5.67
+- return_20d: 15.5
+- volume_ratio: 0.41
+- distance_to_ma20_pct_auxiliary: 7.97
+- distance_to_high_60_pct: -2.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,40.1,40.25,39.35,39.5,20528143,40.9,-3.41,40.98,40.38,1.29
-20260714,38.45,39.2,38.2,39.1,17214567,40.75,-4.04,40.76,40.41,1.07
-20260715,39.5,41.6,39.3,41.3,23957921,40.79,1.24,40.64,40.47,1.43
-20260716,41.2,41.4,40.35,41,9243874,40.81,0.47,40.61,40.54,0.6
-20260717,40.65,41.6,40.4,40.65,15766038,40.8,-0.36,40.55,40.6,1.02
-20260720,40.95,41.35,40.05,40.45,10955143,40.77,-0.78,40.53,40.66,0.74
-20260721,40.5,41.3,40.5,41.15,10093057,40.8,0.86,40.53,40.74,0.69
-20260722,41.35,44.75,41.35,43.75,50852028,41.05,6.59,40.72,40.86,3.13
-20260723,44.7,45.5,43.2,44.4,26272612,41.33,7.44,40.91,41,1.54
-20260724,44,44.4,43.5,43.55,9448801,41.51,4.91,41.08,41.09,0.55
 20260727,44.4,45.15,43.45,44.55,22634085,41.76,6.67,41.31,41.19,1.3
 20260728,43.3,44.05,42,42.2,18884961,41.8,0.96,41.4,41.27,1.06
 20260729,42.1,43.55,42.05,43.25,25417202,41.92,3.17,41.55,41.36,1.37
@@ -168,18 +158,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,44.25,44.75,43.9,44.35,14191524,42.67,3.95,42.27,41.78,0.77
 20260806,44.35,46.95,44.35,46.1,39616735,42.95,7.33,42.55,41.88,1.97
 20260807,45.95,46.85,45.9,46.6,16824504,43.26,7.73,42.88,42.02,0.82
+20260810,47.45,47.8,46.75,47.3,18613189,43.59,8.5,43.27,42.15,0.92
+20260811,47.5,47.75,46,46.45,14988975,43.83,5.98,43.63,42.26,0.74
+20260812,46.45,47.6,46.2,46.85,10107686,44.08,6.28,43.91,42.38,0.52
+20260813,48.5,51.5,48,50.4,58730639,44.61,12.98,44.38,42.56,2.67
+20260814,50,50,46.85,47.6,36686198,44.86,6.11,44.73,42.66,1.59
+20260817,47.9,51.3,47.55,50,43019012,45.29,10.41,45.2,42.79,1.75
+20260818,49.3,50.2,48.8,49.7,15806951,45.65,8.86,45.63,42.92,0.63
+20260819,48.75,50.5,48.2,50,18075115,46.02,8.66,45.95,43.02,0.78
+20260820,50,51.6,49.95,50.5,15981417,46.39,8.86,46.25,43.18,0.7
+20260821,50.5,50.5,49.4,50.3,9436777,46.72,7.67,46.59,43.31,0.41
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 76.61
-- over_600_ratio: 74.82
-- over_800_ratio: 73.57
-- over_1000_ratio: 72.78
-- over_400_change_1w: 0.88
-- over_800_change_1w: 0.89
-- over_1000_change_1w: 0.92
-- tdcc_consecutive_up_weeks: 6
+- as_of_date: 20260814
+- over_400_ratio: 77.72
+- over_600_ratio: 75.88
+- over_800_ratio: 74.77
+- over_1000_ratio: 73.97
+- over_400_change_1w: 1.11
+- over_800_change_1w: 1.2
+- over_1000_change_1w: 1.19
+- tdcc_consecutive_up_weeks: 7
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,72.53,2.31,69.57,2.32,68.81,2.35,3,True,True
 20260529,73.11,0.58,70.19,0.62,69.35,0.54,4,True,True
 20260605,73.68,0.57,70.76,0.57,69.89,0.54,5,True,True
 20260612,74.01,0.33,70.96,0.2,69.98,0.09,6,True,True
@@ -199,23 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,75.45,1.18,72.24,1.22,71.38,1.21,4,True,True
 20260731,75.73,0.28,72.68,0.44,71.86,0.48,5,True,True
 20260807,76.61,0.88,73.57,0.89,72.78,0.92,6,True,True
+20260814,77.72,1.11,74.77,1.2,73.97,1.19,7,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2027 | 大成鋼 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/06/24 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:   現金股利：每股新台幣1.5元，計3,876,390,923元。 4.除權（息）交易日:115/07/14 5.最後過戶日:115/07/15 6.停止過戶起始日期:115/07/16 7.停止過戶截止日期:115/07/20 8.除權（息）基準日:115/07/20 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:預計於115/08/13發放。 13.其他應敘明事項: 本次現金股利按分配比例計算至元為止(元以下捨去)，不足一元之畸零款合計數， 由小數點數字自大至小及戶號由前至後順序調整，至符合現金股利分配總額。匯費 及支票處理費由股東應發股利中扣除，現金股利總額不足以支付匯費或支票處理費 者，僅郵寄股利領取通知書，請股東逕洽本公司股務代理機構洽領。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260717 | 2027 | 大成鋼 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 57.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/06/24 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:   現金股利：每股新台幣1.5元，計3,876,390,923元。 4.除權（息）交易日:115/07/14 5.最後過戶日:115/07/15 6.停止過戶起始日期:115/07/16 7.停止過戶截止日期:115/07/20 8.除權（息）基準日:115/07/20 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:預計於115/08/13發放。 13.其他應敘明事項: 本次現金股利按分配比例計算至元為止(元以下捨去)，不足一元之畸零款合計數， 由小數點數字自大至小及戶號由前至後順序調整，至符合現金股利分配總額。匯費 及支票處理費由股東應發股利中扣除，現金股利總額不足以支付匯費或支票處理費 者，僅郵寄股利領取通知書，請股東逕洽本公司股務代理機構洽領。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
+| 20260821 | 2027 | 大成鋼 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/08/19 2.公司名稱:美國大成國際公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:不適用 5.發生緣由:更正子公司美國大成國際公司115年6月衍生性商品交易資訊 6.更正資訊項目/報表名稱: 非持有供交易-不符避險會計/遠期契約 & 交換 7.更正前金額/內容/頁次: 遠期契約(單位：仟元)  未沖銷契約-契約總金額：0  未沖銷契約-公允價值：0  未沖銷契約-本年度認列未實現損益金額：0 交換(單位：仟元)  未沖銷契約-契約總金額：6,572,525  未沖銷契約-公允價值：164,397  未沖銷契約-本年度認列未實現損益金額：164,397 8.更正後金額/內容/頁次: 遠期契約(單位：仟元)  未沖銷契約-契約總金額：4,991,962  未沖銷契約-公允價值：88,211  未沖銷契約-本年度認列未實現損益金額：88,211 交換(單位：仟元)  未沖銷契約-契約總金額：1,580,563  未沖銷契約-公允價值：76,187  未沖銷契約-本年度認列未實現損益金額：76,187 9.因應措施:重新上傳至公開資訊觀測站。 10.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2027 | 大成鋼 | 18 | 2 | 5 | 10 | 19 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260821 | 2027 | 大成鋼 | 22 | 1 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2027 | 大成鋼 | 62 | 0 | 2686900.0 | 0.0 |  | no_signal |
+| 20260821 | 2027 | 大成鋼 | 64 | 1 | 9266800.0 | 2340.0 | 3960.17 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

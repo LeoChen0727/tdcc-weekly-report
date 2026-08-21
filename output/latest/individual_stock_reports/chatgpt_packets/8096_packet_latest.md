@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8096 擎亞
 
 ## Metadata
-- generated_at: 2026-08-10 22:29:07 Asia/Taipei
+- generated_at: 2026-08-21 22:28:23 Asia/Taipei
 - stock_id: 8096
 - stock_name: 擎亞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 186
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 203
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,33 +69,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可分批買進
+- action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- thesis_state: unclear
+- entry_style: no_entry_now
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -104,8 +100,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
-- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -131,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 135.5
-- high: 141
-- low: 131.5
-- close: 131.5
-- volume: 6829000
-- ma5: 127.6
-- ema23_primary: 132.55
-- distance_to_ema23_pct: -0.79
-- ma20: 132.7
-- ma60: 134.46
-- ma120: 109.29
-- return_5d: 16.89
-- return_20d: -21.02
-- volume_ratio: 1.27
-- distance_to_ma20_pct_auxiliary: -0.9
-- distance_to_high_60_pct: -25.71
+- date: 20260821
+- open: 108
+- high: 108.5
+- low: 105
+- close: 105.5
+- volume: 1917000
+- ma5: 109.1
+- ema23_primary: 121.81
+- distance_to_ema23_pct: -13.39
+- ma20: 119.5
+- ma60: 135.38
+- ma120: 113.24
+- return_5d: -9.44
+- return_20d: -24.91
+- volume_ratio: 0.38
+- distance_to_ma20_pct_auxiliary: -11.72
+- distance_to_high_60_pct: -40.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,167,171.5,156,158.5,14544000,149.7,5.88,153.47,122.54,1.76
-20260714,159.5,162,143,157.5,13627000,150.35,4.76,154.72,123.58,1.64
-20260715,158,158.5,146,146,19871000,149.99,-2.66,154.75,124.49,2.27
-20260716,140,150,140,142,2002000,149.32,-4.9,154.72,125.3,0.25
-20260717,135,135,128,128,2407000,147.54,-13.25,153.62,125.87,0.32
-20260720,125.5,128,115.5,128,1988000,145.91,-12.28,152.25,126.41,0.28
-20260721,133,140,133,140,1064000,145.42,-3.73,151.38,127.23,0.16
-20260722,146.5,146.5,140,140.5,746000,145.01,-3.11,150.88,128.1,0.12
-20260723,143,143,138,140.5,924000,144.64,-2.86,150.1,128.91,0.15
-20260724,140.5,140.5,131.5,140.5,524000,144.29,-2.63,149.35,129.74,0.09
 20260727,137,140,132,140,408000,143.93,-2.73,149.1,130.53,0.07
 20260728,126,129,126,126,1039000,142.44,-11.54,148.15,131.15,0.18
 20260729,122,122,113.5,113.5,900000,140.03,-18.94,146.1,131.48,0.16
@@ -173,26 +157,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,132.5,137,129.5,129.5,9475000,132.39,-2.18,136.15,133.2,1.39
 20260806,128,138,128,135.5,7155000,132.65,2.15,134.45,133.84,1.11
 20260807,135.5,141,131.5,131.5,6829000,132.55,-0.79,132.7,134.46,1.27
+20260810,135,138,123,123,12032000,131.76,-6.65,130.93,134.89,2.29
+20260811,123,126,120,121.5,4865000,130.9,-7.18,129.12,135.32,1.01
+20260812,122.5,126.5,121.5,125.5,4624000,130.45,-3.8,128.1,135.66,1.14
+20260813,125,128,123.5,125.5,5737000,130.04,-3.49,127.28,135.99,1.35
+20260814,127,127.5,114.5,116.5,8065000,128.91,-9.63,126.7,136.14,1.78
+20260817,119.5,119.5,113,114,4323000,127.67,-10.71,126,136.24,0.93
+20260818,115,119,109.5,110,4215000,126.2,-12.83,124.5,136.1,0.88
+20260819,106,110,105.5,108,2983000,124.68,-13.38,122.88,135.82,0.61
+20260820,110,112.5,106,108,2591000,123.29,-12.4,121.25,135.63,0.52
+20260821,108,108.5,105,105.5,1917000,121.81,-13.39,119.5,135.38,0.38
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 51.95
-- over_600_ratio: 50.06
-- over_800_ratio: 47.71
-- over_1000_ratio: 46.41
-- over_400_change_1w: -0.92
-- over_800_change_1w: -1.14
-- over_1000_change_1w: 0.09
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260814
+- over_400_ratio: 47.71
+- over_600_ratio: 45.44
+- over_800_ratio: 44.56
+- over_1000_ratio: 40.27
+- over_400_change_1w: -4.24
+- over_800_change_1w: -3.15
+- over_1000_change_1w: -6.14
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,50.03,3.8,47.16,4.11,45.32,3.45,2,True,True
 20260529,53.61,3.58,49.59,2.43,47.8,2.48,3,True,True
 20260605,54.01,0.4,50.99,1.4,49.22,1.42,4,True,True
 20260612,53.81,-0.2,49.35,-1.64,48.19,-1.03,0,False,False
@@ -204,17 +197,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,53.18,0.66,48.31,0.92,46.46,0.36,1,False,True
 20260731,52.87,-0.31,48.85,0.54,46.32,-0.14,2,False,True
 20260807,51.95,-0.92,47.71,-1.14,46.41,0.09,3,False,True
+20260814,47.71,-4.24,44.56,-3.15,40.27,-6.14,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 8096 | 擎亞 | revenue_pullback | 營收成長股價回檔 | 83.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/07/15 2.公司名稱:擎亞電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:經濟日報115年07月15第C01版 6.報導內容:「...，今年業績創新高在望，全年有機會挑戰600億元大關。」 7.發生緣由:澄清經濟日報115年07月15第C01版。 8.因應措施: (1)有關報導所載「...，全年有機會挑戰600億元大關」之內容，本公司並未對外提供 任何預測性財務資訊，亦未對外公開財務預測資訊，特此澄清。 (2)有關本公司之財務、業務資訊，請依公開資訊觀測站公告為準。 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 8096 | 擎亞 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/07/15 2.公司名稱:擎亞電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:經濟日報115年07月15第C01版 6.報導內容:「...，今年業績創新高在望，全年有機會挑戰600億元大關。」 7.發生緣由:澄清經濟日報115年07月15第C01版。 8.因應措施: (1)有關報導所載「...，全年有機會挑戰600億元大關」之內容，本公司並未對外提供 任何預測性財務資訊，亦未對外公開財務預測資訊，特此澄清。 (2)有關本公司之財務、業務資訊，請依公開資訊觀測站公告為準。 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 8096 | 擎亞 | 2 | 2 | 4 | 8 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260821 | 8096 | 擎亞 | 6 | 6 | 5 | 9 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

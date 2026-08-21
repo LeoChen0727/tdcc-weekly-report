@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2351 順德
 
 ## Metadata
-- generated_at: 2026-08-10 22:26:52 Asia/Taipei
+- generated_at: 2026-08-21 22:26:56 Asia/Taipei
 - stock_id: 2351
 - stock_name: 順德
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 營收成長股價回檔
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 179
-- high: 182.5
-- low: 169.5
-- close: 170
-- volume: 4695348
-- ma5: 166.5
-- ema23_primary: 169.32
-- distance_to_ema23_pct: 0.4
-- ma20: 166.45
-- ma60: 187.64
-- ma120: 151.16
-- return_5d: 16.84
-- return_20d: -15
-- volume_ratio: 1.16
-- distance_to_ma20_pct_auxiliary: 2.13
-- distance_to_high_60_pct: -27.04
+- date: 20260821
+- open: 182
+- high: 185
+- low: 177
+- close: 183
+- volume: 2540595
+- ma5: 179.5
+- ema23_primary: 173.48
+- distance_to_ema23_pct: 5.49
+- ma20: 164.93
+- ma60: 184.9
+- ma120: 158.53
+- return_5d: 7.02
+- return_20d: 13.66
+- volume_ratio: 0.71
+- distance_to_ma20_pct_auxiliary: 10.96
+- distance_to_high_60_pct: -21.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,213,215,207,210.5,8160783,202.75,3.82,202.25,185.4,0.94
-20260714,209.5,211.5,189.5,194.5,7354788,202.06,-3.74,202.82,186.61,0.82
-20260715,195.5,205,195,200.5,5334749,201.93,-0.71,203.65,187.8,0.59
-20260716,197,197,183,191.5,4609143,201.06,-4.75,204.43,188.63,0.5
-20260717,180,183,172.5,172.5,4240446,198.68,-13.18,204.05,188.99,0.46
-20260720,167,167,155.5,156,5734007,195.12,-20.05,202.1,188.82,0.64
-20260721,157,164,157,163.5,2181533,192.49,-15.06,199.55,189.03,0.25
-20260722,169,172.5,164.5,168,2531996,190.45,-11.79,198.05,189.38,0.33
-20260723,169,170.5,161.5,164,1715676,188.24,-12.88,195.38,189.68,0.24
-20260724,162.5,168,158,161,2299713,185.97,-13.43,192.97,189.93,0.37
 20260727,159.5,164,154,160.5,1908528,183.85,-12.7,191.18,190.07,0.33
 20260728,152,152.5,144.5,144.5,4770997,180.57,-19.98,188.53,189.91,0.83
 20260729,145,145.5,130.5,130.5,4975669,176.4,-26.02,184.43,189.45,0.88
@@ -168,26 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,171,177,167,169,3028897,169.05,-0.03,169.55,188.02,0.72
 20260806,169,175,163,171.5,2872807,169.25,1.33,167.95,187.84,0.72
 20260807,179,182.5,169.5,170,4695348,169.32,0.4,166.45,187.64,1.16
+20260810,173.5,174.5,163.5,168.5,2952321,169.25,-0.44,164.35,187.42,0.78
+20260811,166,170.5,165,169.5,1747018,169.27,0.14,163.1,187.24,0.5
+20260812,169.5,172.5,168.5,172,1472360,169.5,1.48,161.68,187.1,0.44
+20260813,173,180,173,173,2177731,169.79,1.89,160.75,187.09,0.68
+20260814,174,175.5,169.5,171,1516109,169.89,0.65,160.68,186.94,0.5
+20260817,171,172,167,170,1331240,169.9,0.06,161.38,186.57,0.47
+20260818,170.5,186,169,176,6305331,170.41,3.28,162,186.4,2.07
+20260819,172,191,170.5,185,7890194,171.62,7.79,162.85,186.21,2.38
+20260820,185,187.5,174,183.5,6630011,172.61,6.31,163.82,185.67,1.87
+20260821,182,185,177,183,2540595,173.48,5.49,164.93,184.9,0.71
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 71.91
-- over_600_ratio: 68.64
-- over_800_ratio: 64.1
-- over_1000_ratio: 61.76
-- over_400_change_1w: 0.2
-- over_800_change_1w: -0.21
-- over_1000_change_1w: 0.18
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260814
+- over_400_ratio: 71.84
+- over_600_ratio: 67.21
+- over_800_ratio: 63.68
+- over_1000_ratio: 60.76
+- over_400_change_1w: -0.07
+- over_800_change_1w: -0.42
+- over_1000_change_1w: -1
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,74.56,0.74,67.18,1.12,64.73,1.56,3,True,True
 20260529,76.34,1.78,68.87,1.69,66.94,2.21,4,True,True
 20260605,73.72,-2.62,65.8,-3.07,62.52,-4.42,0,False,False
 20260612,74.87,1.15,65.19,-0.61,61.82,-0.7,1,False,False
@@ -199,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,71.13,-0.09,63.05,0.24,59.84,-0.6,1,False,True
 20260731,71.71,0.58,64.31,1.26,61.58,1.74,2,True,True
 20260807,71.91,0.2,64.1,-0.21,61.76,0.18,3,False,True
+20260814,71.84,-0.07,63.68,-0.42,60.76,-1,0,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 2351 | 順德 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/09 1.召開法人說明會之日期：115/09/09 2.召開法人說明會之時間：13 時 30 分 3.召開法人說明會之地點：台北晶華酒店 4.法人說明會擇要訊息：本公司受邀參加元大證券舉辦之投資人說明會 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 2351 | 順德 | 1 | 1 | 3 | 8 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2351 | 順德 | 87 | 0 | 7307410.0 | 0.0 |  | no_signal |
+| 20260821 | 2351 | 順德 | 96 | 0 | 12901310.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6271 同欣電
 
 ## Metadata
-- generated_at: 2026-08-10 22:28:27 Asia/Taipei
+- generated_at: 2026-08-21 22:27:57 Asia/Taipei
 - stock_id: 6271
 - stock_name: 同欣電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -103,7 +103,6 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -118,7 +117,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -126,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 191
-- high: 203.5
-- low: 191
-- close: 193.5
-- volume: 11520721
-- ma5: 184.6
-- ema23_primary: 196.39
-- distance_to_ema23_pct: -1.47
-- ma20: 191.38
-- ma60: 223.03
-- ma120: 194.1
-- return_5d: 20.94
-- return_20d: -23.21
-- volume_ratio: 1.53
-- distance_to_ma20_pct_auxiliary: 1.11
-- distance_to_high_60_pct: -35.93
+- date: 20260821
+- open: 195
+- high: 196
+- low: 191.5
+- close: 192.5
+- volume: 2105510
+- ma5: 195.1
+- ema23_primary: 195.94
+- distance_to_ema23_pct: -1.75
+- ma20: 184.45
+- ma60: 220.59
+- ma120: 196.9
+- return_5d: -0.77
+- return_20d: 1.85
+- volume_ratio: 0.35
+- distance_to_ma20_pct_auxiliary: 4.36
+- distance_to_high_60_pct: -36.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,254,255,233.5,236,10006860,249.63,-5.46,253.3,220.26,0.56
-20260714,233.5,239,212.5,225.5,9734387,247.62,-8.93,252.65,220.93,0.54
-20260715,228.5,229,221.5,224,7698599,245.65,-8.82,251.65,221.57,0.43
-20260716,222,234,212.5,224,7888408,243.85,-8.14,251.62,222.22,0.44
-20260717,214.5,220,202,203,8637163,240.45,-15.57,250.53,222.47,0.48
-20260720,201,201,184.5,192.5,6698590,236.45,-18.59,248.03,222.6,0.38
-20260721,194,204,193,200.5,4733765,233.45,-14.12,244.72,223,0.28
-20260722,207.5,212,203,203,4210949,230.92,-12.09,242.65,223.42,0.26
-20260723,204.5,205,195.5,200,2927535,228.34,-12.41,240.07,223.85,0.19
-20260724,195,197,186,189,4033141,225.06,-16.02,235.95,224.07,0.27
 20260727,188,189.5,178.5,183.5,4668055,221.6,-17.19,232.38,224.25,0.35
 20260728,176,176,165.5,165.5,5245331,216.92,-23.71,228.5,224.12,0.41
 20260729,165.5,165.5,149,149,5862270,211.26,-29.47,222.6,223.64,0.48
@@ -168,17 +157,27 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,186,191,183,190,10347174,197.08,-3.59,197.45,222.68,1.37
 20260806,187.5,196,184,192,10924692,196.66,-2.37,194.3,222.83,1.47
 20260807,191,203.5,191,193.5,11520721,196.39,-1.47,191.38,223.03,1.53
+20260810,198,201,196,197,7274599,196.45,0.28,189.43,223.25,0.98
+20260811,196,201.5,193.5,195.5,4630184,196.37,-0.44,187.93,223.56,0.65
+20260812,195.5,201,195.5,198,4618181,196.5,0.76,186.62,223.78,0.66
+20260813,200.5,205,199,199,4435198,196.71,1.16,185.38,224.07,0.65
+20260814,201.5,202,194,194,3637715,196.48,-1.26,184.93,224.18,0.55
+20260817,194,199,191,198,2743075,196.61,0.71,185.2,224.05,0.43
+20260818,196,199.5,193,195,2471066,196.48,-0.75,184.93,223.53,0.39
+20260819,190,198.5,189.5,194,2572129,196.27,-1.16,184.47,222.7,0.42
+20260820,195,197,190.5,196,2115005,196.25,-0.13,184.28,221.62,0.34
+20260821,195,196,191.5,192.5,2105510,195.94,-1.75,184.45,220.59,0.35
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 48.63
-- over_600_ratio: 45.46
-- over_800_ratio: 42.12
-- over_1000_ratio: 39.19
-- over_400_change_1w: -3.22
-- over_800_change_1w: -4.15
-- over_1000_change_1w: -3.66
+- as_of_date: 20260814
+- over_400_ratio: 48.52
+- over_600_ratio: 45.33
+- over_800_ratio: 41.62
+- over_1000_ratio: 38.2
+- over_400_change_1w: -0.11
+- over_800_change_1w: -0.5
+- over_1000_change_1w: -0.99
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -187,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,51.6,4.36,44.61,3.4,41.67,3.51,2,True,True
 20260529,50.64,-0.96,45.86,1.25,44.61,2.94,3,False,True
 20260605,51.34,0.7,45.58,-0.28,45.14,0.53,4,False,True
 20260612,50.89,-0.45,45.66,0.08,44.36,-0.78,5,False,True
@@ -199,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,52.84,-0.01,46.31,0.16,44.24,1.03,1,False,True
 20260731,51.85,-0.99,46.27,-0.04,42.85,-1.39,0,False,False
 20260807,48.63,-3.22,42.12,-4.15,39.19,-3.66,0,False,False
+20260814,48.52,-0.11,41.62,-0.5,38.2,-0.99,0,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 6271 | 同欣電 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/07/09 2.公司名稱:同欣電子工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:不適用 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 本公司115年度6月份合併營收淨額自結數為1,079,530仟元；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 6271 | 同欣電 | 4 | 4 | 4 | 5 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 6271 | 同欣電 | 115 | 0 | 5381220.0 | 0.0 |  | no_signal |
+| 20260821 | 6271 | 同欣電 | 113 | 0 | 3223620.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

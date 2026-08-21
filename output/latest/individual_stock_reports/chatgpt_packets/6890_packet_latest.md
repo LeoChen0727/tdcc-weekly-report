@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6890 來億-KY
 
 ## Metadata
-- generated_at: 2026-08-10 22:28:49 Asia/Taipei
+- generated_at: 2026-08-21 22:28:11 Asia/Taipei
 - stock_id: 6890
 - stock_name: 來億-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,7 +101,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -126,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 170
-- high: 177
-- low: 170
-- close: 173
-- volume: 192343
-- ma5: 168.9
-- ema23_primary: 178.74
-- distance_to_ema23_pct: -3.21
-- ma20: 172.32
-- ma60: 196.54
-- ma120: 184.44
-- return_5d: 2.98
-- return_20d: -16.02
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: 0.39
-- distance_to_high_60_pct: -39.4
+- date: 20260821
+- open: 161.5
+- high: 162
+- low: 158.5
+- close: 159
+- volume: 372873
+- ma5: 161.3
+- ema23_primary: 171.65
+- distance_to_ema23_pct: -7.37
+- ma20: 169.3
+- ma60: 196.77
+- ma120: 181.21
+- return_5d: -5.64
+- return_20d: -7.83
+- volume_ratio: 1.23
+- distance_to_ma20_pct_auxiliary: -6.08
+- distance_to_high_60_pct: -44.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,199,201.5,177.5,181.5,1038997,211.41,-14.15,219.25,193.41,1.76
-20260714,181.5,186.5,178,178,448775,208.63,-14.68,215.35,193.51,0.76
-20260715,182.5,182.5,174,176,412821,205.91,-14.53,212.62,193.52,0.7
-20260716,178.5,178.5,171.5,172.5,431769,203.13,-15.08,209.88,193.59,0.75
-20260717,170,177,168,173,688249,200.62,-13.77,207.12,193.65,1.15
-20260720,175,176.5,167.5,171,308716,198.15,-13.7,203.78,193.68,0.52
-20260721,173.5,177,168.5,177,239931,196.38,-9.87,201.1,193.9,0.41
-20260722,175.5,177,171,171,257768,194.27,-11.98,197.75,194.1,0.44
-20260723,173,173,169,169,116995,192.16,-12.05,194.18,194.32,0.2
-20260724,169,173.5,168,172.5,198467,190.53,-9.46,190.4,194.54,0.34
 20260727,175,183.5,172.5,175.5,570252,189.27,-7.28,188,194.85,0.98
 20260728,175.5,175.5,169,173,319954,187.92,-7.94,186.57,195.12,0.59
 20260729,176,179.5,168,176,665842,186.92,-5.84,185.53,195.44,1.26
@@ -168,18 +157,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,165,172,164,171.5,276773,180.06,-4.75,175.5,196.35,0.66
 20260806,169,171.5,167,170.5,172388,179.26,-4.89,173.97,196.38,0.42
 20260807,170,177,170,173,192343,178.74,-3.21,172.32,196.54,0.5
+20260810,175.5,175.5,172,174.5,81321,178.38,-2.18,171.97,196.76,0.24
+20260811,174.5,177,172.5,174.5,106347,178.06,-2,171.8,196.91,0.33
+20260812,174.5,182,174.5,179.5,225561,178.18,0.74,171.97,197.17,0.72
+20260813,179.5,179.5,176,177.5,192117,178.12,-0.35,172.22,197.34,0.64
+20260814,180,180,168,168.5,440374,177.32,-4.98,172,197.39,1.53
+20260817,168.5,168.5,162.5,162.5,320422,176.09,-7.72,171.57,197.33,1.11
+20260818,162.5,163,159,160.5,273349,174.79,-8.17,170.75,197.19,0.94
+20260819,160.5,165,158,160.5,327398,173.6,-7.54,170.22,197.04,1.12
+20260820,163,166,163,164,164435,172.8,-5.09,169.97,196.96,0.56
+20260821,161.5,162,158.5,159,372873,171.65,-7.37,169.3,196.77,1.23
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 92.61
+- as_of_date: 20260814
+- over_400_ratio: 92.79
 - over_600_ratio: 92.61
 - over_800_ratio: 92.34
 - over_1000_ratio: 91.96
-- over_400_change_1w: -0.16
+- over_400_change_1w: 0.18
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -187,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,89.26,-0.09,88,-0.04,86.87,-0.46,0,False,False
 20260529,89.08,-0.18,88.05,0.05,87.33,0.46,1,False,True
 20260605,89.72,0.64,89.03,0.98,88.3,0.97,2,True,True
 20260612,92.76,3.04,92.49,3.46,92.11,3.81,3,True,True
@@ -199,6 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,92.94,0.17,92.31,0,91.93,0,5,False,False
 20260731,92.77,-0.17,92.34,0.03,91.96,0.03,6,False,True
 20260807,92.61,-0.16,92.34,0,91.96,0,0,False,False
+20260814,92.79,0.18,92.34,0,91.96,0,1,False,False
 ```
 
 ## Candidate Context
@@ -214,7 +213,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 6890 | 來億-KY | 10 | 0 | 12900.0 | 0.0 |  | no_signal |
+| 20260821 | 6890 | 來億-KY | 11 | 0 | 63950.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

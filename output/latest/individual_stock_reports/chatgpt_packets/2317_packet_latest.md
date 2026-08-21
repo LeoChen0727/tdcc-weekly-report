@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2317 鴻海
 
 ## Metadata
-- generated_at: 2026-08-10 22:26:50 Asia/Taipei
+- generated_at: 2026-08-21 22:26:54 Asia/Taipei
 - stock_id: 2317
 - stock_name: 鴻海
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 320
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 337
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -132,38 +132,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 265.5
-- high: 267
-- low: 258
-- close: 260
-- volume: 38813488
-- ma5: 257.2
-- ema23_primary: 249.66
-- distance_to_ema23_pct: 4.14
-- ma20: 246.18
-- ma60: 255.67
-- ma120: 236.64
-- return_5d: 3.79
-- return_20d: 9.47
-- volume_ratio: 0.69
-- distance_to_ma20_pct_auxiliary: 5.62
-- distance_to_high_60_pct: -17.2
+- date: 20260821
+- open: 245
+- high: 247
+- low: 243
+- close: 245.5
+- volume: 25420299
+- ma5: 248.2
+- ema23_primary: 252.2
+- distance_to_ema23_pct: -2.66
+- ma20: 252.7
+- ma60: 256.53
+- ma120: 239.09
+- return_5d: -5.39
+- return_20d: -2.77
+- volume_ratio: 0.47
+- distance_to_ma20_pct_auxiliary: -2.85
+- distance_to_high_60_pct: -21.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,242,242.5,236.5,236.5,37504587,250.03,-5.41,252.15,250.43,0.66
-20260714,236,237,230,235.5,48112076,248.82,-5.35,250.9,250.9,0.86
-20260715,236,241,235.5,239,36108846,248,-3.63,249.47,251.45,0.66
-20260716,240.5,244,238,242.5,39074704,247.54,-2.04,248.15,252.03,0.72
-20260717,238,241.5,233,234,69006897,246.41,-5.04,246.25,252.42,1.25
-20260720,235.5,238.5,230.5,234.5,48579978,245.42,-4.45,244.55,252.64,0.89
-20260721,238,247,236.5,246,51471036,245.47,0.22,243.43,252.99,0.96
-20260722,249,259,248,251.5,67787081,245.97,2.25,243.03,253.49,1.3
-20260723,256.5,259.5,253.5,257.5,63787974,246.93,4.28,243.1,253.98,1.22
-20260724,254,256,251.5,252.5,33694573,247.4,2.06,242.85,254.43,0.65
 20260727,253,254.5,246,253,35908207,247.86,2.07,243.07,254.9,0.72
 20260728,246,247,238,238,52860433,247.04,-3.66,242.65,255.21,1.06
 20260729,240,246.5,231,237,84937463,246.2,-3.74,241.95,255.37,1.65
@@ -174,26 +164,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,257,260.5,256,258.5,72633762,247.29,4.53,243.7,255.28,1.33
 20260806,258.5,265,257.5,264.5,82178728,248.72,6.34,245.05,255.52,1.45
 20260807,265.5,267,258,260,38813488,249.66,4.14,246.18,255.67,0.69
+20260810,262.5,266.5,262,264.5,34854398,250.9,5.42,247.57,256,0.62
+20260811,266,266,260.5,263,24592444,251.91,4.4,248.95,256.24,0.44
+20260812,264.5,270.5,264,270,60316168,253.41,6.54,250.5,256.6,1.07
+20260813,274.5,274.5,261,262,96829809,254.13,3.1,251.47,256.88,1.63
+20260814,262,264.5,257.5,259.5,51013887,254.58,1.93,252.75,257.21,0.87
+20260817,259.5,261,255,255,35551968,254.61,0.15,253.78,257.33,0.61
+20260818,255,256.5,247.5,249,50539577,254.15,-2.02,253.93,257.32,0.87
+20260819,245,247,242.5,245,36592747,253.38,-3.31,253.6,257.05,0.65
+20260820,250.5,250.5,244,246.5,26344428,252.81,-2.5,253.05,256.84,0.48
+20260821,245,247,243,245.5,25420299,252.2,-2.66,252.7,256.53,0.47
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 69.76
-- over_600_ratio: 68.64
-- over_800_ratio: 67.81
-- over_1000_ratio: 67.04
-- over_400_change_1w: 0.83
-- over_800_change_1w: 0.86
-- over_1000_change_1w: 0.82
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260814
+- over_400_ratio: 69.75
+- over_600_ratio: 68.62
+- over_800_ratio: 67.79
+- over_1000_ratio: 67.03
+- over_400_change_1w: -0.01
+- over_800_change_1w: -0.02
+- over_1000_change_1w: -0.01
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,69.76,0.37,67.81,0.4,67.07,0.36,3,True,True
 20260529,70.43,0.67,68.48,0.67,67.79,0.72,4,True,True
 20260605,70.96,0.53,69.05,0.57,68.31,0.52,5,True,True
 20260612,70.52,-0.44,68.59,-0.46,67.84,-0.47,0,False,False
@@ -205,23 +204,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,69.27,0.44,67.29,0.46,66.54,0.5,2,True,True
 20260731,68.93,-0.34,66.95,-0.34,66.22,-0.32,0,False,False
 20260807,69.76,0.83,67.81,0.86,67.04,0.82,1,True,True
+20260814,69.75,-0.01,67.79,-0.02,67.03,-0.01,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2317 | 鴻海 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | 1.證券名稱: 臻鼎科技控股股份有限公司普通股 2.交易日期:115/7/17~115/7/17 3.董事會通過日期: 民國115年7月17日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: 交易數量：5,544,000股 每單位價格及交易總金額：依實際處分價格計算後另行公告 6.處分利益（或損失）（取得有價證券者不適用）: 依實際處分價格計算後另行公告 7.與交易標的公司之關係: 採權益法投資之被投資公司 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 累積持有數量:299,971,627股（扣除本次預計處分股數） 累積持有金額：新台幣35,236,347,902元 持股比例：27.05% 權利受限情形：無 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 占總資產比例：10.34% 占業主權益比例：22.54% 營運資金數額：新台幣-317,913,506仟元 10.取得或處分之具體目的: 實現投資利益 11.本次交易表示異議董事之意見: 無 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 不適用 14.監察人承認或審計委員會同意日期: 不適用 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260717 | 2317 | 鴻海 | revenue_breakout_low_response | 營收爆發低反應股 | 11.0 | 40.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.證券名稱: 臻鼎科技控股股份有限公司普通股 2.交易日期:115/7/17~115/7/17 3.董事會通過日期: 民國115年7月17日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: 交易數量：5,544,000股 每單位價格及交易總金額：依實際處分價格計算後另行公告 6.處分利益（或損失）（取得有價證券者不適用）: 依實際處分價格計算後另行公告 7.與交易標的公司之關係: 採權益法投資之被投資公司 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 累積持有數量:299,971,627股（扣除本次預計處分股數） 累積持有金額：新台幣35,236,347,902元 持股比例：27.05% 權利受限情形：無 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 占總資產比例：10.34% 占業主權益比例：22.54% 營運資金數額：新台幣-317,913,506仟元 10.取得或處分之具體目的: 實現投資利益 11.本次交易表示異議董事之意見: 無 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 不適用 14.監察人承認或審計委員會同意日期: 不適用 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 2317 | 鴻海 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/08/19 2.公司名稱:富士康工業互聯網股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:84.16% 5.發生緣由: 2026年8月19日，公司通過上海證券交易所交易系統以集中競價交易方式首次回購公司 股份2,414,402股，占公司目前總股本0.01%，回購最高價格人民幣61.97元/股，回購 最低價格人民幣61.35元/股，使用資金總額人民幣149,099,932.68元（不含交易傭金 、過戶費等交易費用）。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 2317 | 鴻海 | revenue_breakout_low_response | 營收爆發低反應股 | 16 | 26 | A_優先追蹤 |  |  | no_signal | stale_signal | 1.事實發生日:115/08/19 2.公司名稱:富士康工業互聯網股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:84.16% 5.發生緣由: 2026年8月19日，公司通過上海證券交易所交易系統以集中競價交易方式首次回購公司 股份2,414,402股，占公司目前總股本0.01%，回購最高價格人民幣61.97元/股，回購 最低價格人民幣61.35元/股，使用資金總額人民幣149,099,932.68元（不含交易傭金 、過戶費等交易費用）。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2317 | 鴻海 | 2 | 2 | 4 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260821 | 2317 | 鴻海 | 6 | 6 | 5 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2317 | 鴻海 | 515 | 38 | 44519230.0 | 326830.0 | 136.22 | no_signal |
+| 20260821 | 2317 | 鴻海 | 528 | 35 | 21086970.0 | 139060.0 | 151.64 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

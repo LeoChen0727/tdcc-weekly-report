@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3416 融程電
 
 ## Metadata
-- generated_at: 2026-08-10 22:27:30 Asia/Taipei
+- generated_at: 2026-08-21 22:27:21 Asia/Taipei
 - stock_id: 3416
 - stock_name: 融程電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 186
-- high: 194
-- low: 184
-- close: 191
-- volume: 1333829
-- ma5: 182.8
-- ema23_primary: 176.56
-- distance_to_ema23_pct: 8.18
-- ma20: 174.88
-- ma60: 176.2
-- ma120: 164.17
-- return_5d: 15.41
-- return_20d: 5.23
-- volume_ratio: 1.96
-- distance_to_ma20_pct_auxiliary: 9.22
-- distance_to_high_60_pct: -2.55
+- date: 20260821
+- open: 178
+- high: 178.5
+- low: 174.5
+- close: 177
+- volume: 263296
+- ma5: 178.3
+- ema23_primary: 179.7
+- distance_to_ema23_pct: -1.5
+- ma20: 179
+- ma60: 177.58
+- ma120: 167.28
+- return_5d: -3.8
+- return_20d: -3.54
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: -1.12
+- distance_to_high_60_pct: -11.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,180,187,180,185,474011,178.45,3.67,177.03,172,0.96
-20260714,187.5,187.5,175,181.5,494864,178.7,1.57,177.4,172.38,0.98
-20260715,183,183,172,174,680204,178.31,-2.42,177.22,172.61,1.29
-20260716,174.5,174.5,171,172,253867,177.78,-3.25,177.15,172.83,0.48
-20260717,168.5,170,161,162,618809,176.47,-8.2,176.53,172.93,1.11
-20260720,164.5,164.5,156,159.5,413573,175.05,-8.88,175.7,172.93,0.73
-20260721,161,175,161,175,781057,175.05,-0.03,175.57,173.24,1.32
-20260722,176,183,176,179.5,876184,175.42,2.33,175.97,173.64,1.42
-20260723,179,181,175.5,178.5,394225,175.68,1.61,176.35,174.07,0.63
-20260724,177.5,192,177,183.5,1383476,176.33,4.07,177.03,174.55,2.05
 20260727,186,186,171.5,173,620269,176.05,-1.73,177.5,174.84,0.91
 20260728,170,176,166.5,169.5,640826,175.51,-3.42,177.65,175.04,0.92
 20260729,170,171,157.5,165.5,761930,174.67,-5.25,177.05,175.12,1.11
@@ -167,18 +158,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,177.5,188,172.5,185,1291713,174.22,6.19,174.43,175.53,2.01
 20260806,182,191.5,182,186.5,633625,175.25,6.42,174.4,175.8,1
 20260807,186,194,184,191,1333829,176.56,8.18,174.88,176.2,1.96
+20260810,195,200,191.5,196,1084482,178.18,10,175.43,176.66,1.53
+20260811,198,198,186,186,792878,178.83,4.01,175.65,177.04,1.09
+20260812,186,189,185,187.5,301819,179.55,4.43,176.32,177.36,0.43
+20260813,189,190.5,187,188,347806,180.26,4.3,177.12,177.77,0.49
+20260814,191,192,182,184,601714,180.57,1.9,178.22,178.06,0.85
+20260817,184,187,180.5,184,316151,180.85,1.74,179.45,178.23,0.45
+20260818,184,184,176,176,529238,180.45,-2.47,179.5,178.12,0.76
+20260819,176,178,174,176.5,210353,180.12,-2.01,179.35,177.88,0.32
+20260820,178,178.5,175.5,178,183323,179.94,-1.08,179.32,177.72,0.28
+20260821,178,178.5,174.5,177,263296,179.7,-1.5,179,177.58,0.44
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 57.36
-- over_600_ratio: 55.42
-- over_800_ratio: 53.76
-- over_1000_ratio: 51.51
-- over_400_change_1w: 0.39
-- over_800_change_1w: 0.25
-- over_1000_change_1w: 0.25
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260814
+- over_400_ratio: 59.6
+- over_600_ratio: 58.38
+- over_800_ratio: 54.89
+- over_1000_ratio: 51.64
+- over_400_change_1w: 2.24
+- over_800_change_1w: 1.13
+- over_1000_change_1w: 0.13
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -186,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,56.18,0.08,53.86,0.13,51.6,0.13,1,True,True
 20260529,56.05,-0.13,53.85,-0.01,51.59,-0.01,0,False,False
 20260605,56.13,0.08,53.87,0.02,51.61,0.02,1,True,True
 20260612,55.86,-0.27,53.63,-0.24,51.37,-0.24,0,False,False
@@ -198,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,57.22,0.23,53.7,0.26,51.45,0.26,4,True,True
 20260731,56.97,-0.25,53.51,-0.19,51.26,-0.19,0,False,False
 20260807,57.36,0.39,53.76,0.25,51.51,0.25,1,True,True
+20260814,59.6,2.24,54.89,1.13,51.64,0.13,2,True,True
 ```
 
 ## Candidate Context
@@ -213,7 +214,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 3416 | 融程電 | 16 | 0 | 432640.0 | 0.0 |  | no_signal |
+| 20260821 | 3416 | 融程電 | 14 | 0 | 274590.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

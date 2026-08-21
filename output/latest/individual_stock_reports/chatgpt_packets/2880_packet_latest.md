@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2880 華南金
 
 ## Metadata
-- generated_at: 2026-08-10 22:27:11 Asia/Taipei
+- generated_at: 2026-08-21 22:27:09 Asia/Taipei
 - stock_id: 2880
 - stock_name: 華南金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「初步突破」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「初步突破」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -87,7 +87,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: breakout_initial
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -101,7 +101,9 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -116,7 +118,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -124,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 44.15
-- high: 44.6
-- low: 43.15
-- close: 44.4
-- volume: 24856176
-- ma5: 43.71
-- ema23_primary: 41.41
-- distance_to_ema23_pct: 7.23
-- ma20: 41.5
-- ma60: 37.29
-- ma120: 35.78
-- return_5d: 1.6
-- return_20d: 14.29
-- volume_ratio: 0.89
-- distance_to_ma20_pct_auxiliary: 6.98
-- distance_to_high_60_pct: -1.66
+- date: 20260821
+- open: 38.65
+- high: 39.8
+- low: 38.6
+- close: 39.6
+- volume: 17503839
+- ma5: 39.26
+- ema23_primary: 40.68
+- distance_to_ema23_pct: -2.65
+- ma20: 41.73
+- ma60: 38.78
+- ma120: 36.22
+- return_5d: 1.67
+- return_20d: -2.7
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: -5.12
+- distance_to_high_60_pct: -12.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,38.85,39.45,38.75,39,15365069,37.27,4.65,37.73,34.85,0.53
-20260714,39.25,39.3,38.35,39.25,23428900,37.43,4.85,37.9,34.9,0.83
-20260715,39.1,39.65,38.4,38.85,20014232,37.55,3.46,38,34.95,0.7
-20260716,38.85,39.75,38.7,39.4,29690746,37.71,4.5,38.1,35.01,1.04
-20260717,39.3,40.25,39.05,40.15,40233191,37.91,5.91,38.2,35.09,1.39
-20260720,40.25,40.5,39.65,39.9,45552145,38.07,4.79,38.28,35.16,1.64
-20260721,39.9,40.8,39.8,40.8,22148126,38.3,6.52,38.44,35.26,0.83
-20260722,40.2,41.25,39.85,41.25,27491427,38.55,7.01,38.62,35.36,1.07
-20260723,41.3,41.3,39.65,41.25,30298261,38.77,6.39,38.84,35.46,1.24
-20260724,40.1,41.35,39.95,40.7,27284760,38.93,4.54,38.97,35.59,1.18
 20260727,41.1,41.95,40.35,41.4,21966618,39.14,5.78,39.2,35.73,0.96
 20260728,41,41.65,40.85,41.4,21609607,39.33,5.27,39.4,35.89,0.95
 20260729,41.45,42.5,40.7,41.8,34810991,39.53,5.73,39.59,36.05,1.48
@@ -166,17 +158,27 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,43.3,44.4,43.2,43.8,20929947,40.87,7.17,41.01,36.9,0.79
 20260806,43.2,44.6,43.2,44.05,25496416,41.13,7.09,41.23,37.09,0.94
 20260807,44.15,44.6,43.15,44.4,24856176,41.41,7.23,41.5,37.29,0.89
+20260810,44.7,44.85,43.35,44,25602739,41.62,5.71,41.75,37.48,0.9
+20260811,43.6,44.2,43.4,43.65,24845327,41.79,4.45,41.97,37.67,0.88
+20260812,43.9,43.95,42.85,43.2,30304400,41.91,3.08,42.19,37.85,1.05
+20260813,41.5,41.55,38.3,39.1,72458281,41.68,-6.18,42.17,37.97,2.33
+20260814,39,39,38,38.95,48593396,41.45,-6.03,42.12,38.09,1.55
+20260817,38.6,39.25,38,39.2,46041639,41.26,-4.99,42.08,38.2,1.46
+20260818,38.9,40.1,38.7,39.7,33199568,41.13,-3.48,42.02,38.33,1.04
+20260819,39.55,39.7,38.65,39,24299348,40.95,-4.77,41.91,38.47,0.76
+20260820,39.05,39.2,38.6,38.8,12367958,40.77,-4.84,41.79,38.62,0.4
+20260821,38.65,39.8,38.6,39.6,17503839,40.68,-2.65,41.73,38.78,0.57
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 81.94
-- over_600_ratio: 80.84
-- over_800_ratio: 80.16
-- over_1000_ratio: 79.53
-- over_400_change_1w: -0.05
-- over_800_change_1w: -0.07
-- over_1000_change_1w: -0.05
+- as_of_date: 20260814
+- over_400_ratio: 81.61
+- over_600_ratio: 80.5
+- over_800_ratio: 79.81
+- over_1000_ratio: 79.15
+- over_400_change_1w: -0.33
+- over_800_change_1w: -0.35
+- over_1000_change_1w: -0.38
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -185,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,80.81,-0.03,79.03,0.01,78.37,0.01,1,False,True
 20260529,80.46,-0.35,78.68,-0.35,78.02,-0.35,0,False,False
 20260605,81.06,0.6,79.28,0.6,78.59,0.57,1,True,True
 20260612,81.07,0.01,79.26,-0.02,78.57,-0.02,2,False,False
@@ -197,24 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,81.71,0.21,79.93,0.24,79.28,0.23,8,True,True
 20260731,81.99,0.28,80.23,0.3,79.58,0.3,9,True,True
 20260807,81.94,-0.05,80.16,-0.07,79.53,-0.05,0,False,False
+20260814,81.61,-0.33,79.81,-0.35,79.15,-0.38,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2880 | 華南金 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_many_days | 1.發生變動日期:115/07/14 2.法人名稱:臺灣銀行股份有限公司 3.舊任者姓名:無 4.舊任者簡歷:無 5.新任者姓名:李杏芬 6.新任者簡歷:財政部國庫署組長 7.異動原因:新任 8.原任期（例xx/xx/xx至xx/xx/xx）:114/06/13至117/06/12 9.新任生效日期:115/07/14 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
-| 20260717 | 2880 | 華南金 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  | no_signal | continued_many_days | 1.發生變動日期:115/07/14 2.法人名稱:臺灣銀行股份有限公司 3.舊任者姓名:無 4.舊任者簡歷:無 5.新任者姓名:李杏芬 6.新任者簡歷:財政部國庫署組長 7.異動原因:新任 8.原任期（例xx/xx/xx至xx/xx/xx）:114/06/13至117/06/12 9.新任生效日期:115/07/14 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
-| 20260717 | 2880 | 華南金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | continued_many_days | 1.發生變動日期:115/07/14 2.法人名稱:臺灣銀行股份有限公司 3.舊任者姓名:無 4.舊任者簡歷:無 5.新任者姓名:李杏芬 6.新任者簡歷:財政部國庫署組長 7.異動原因:新任 8.原任期（例xx/xx/xx至xx/xx/xx）:114/06/13至117/06/12 9.新任生效日期:115/07/14 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2880 | 華南金 | 5 | 2 | 5 | 9 | 19 | continued_many_days | 連續 5 日上榜，需區分醞釀延續或訊號鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2880 | 華南金 | 2 | 0 | 94590.0 | 0.0 |  | no_signal |
+| 20260821 | 2880 | 華南金 | 3 | 0 | 188020.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

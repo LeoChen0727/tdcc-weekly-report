@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1301 台塑
 
 ## Metadata
-- generated_at: 2026-08-10 22:26:25 Asia/Taipei
+- generated_at: 2026-08-21 22:26:38 Asia/Taipei
 - stock_id: 1301
 - stock_name: 台塑
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -103,7 +103,6 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -118,7 +117,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -126,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 55.8
-- high: 57.2
-- low: 55.4
-- close: 55.8
-- volume: 24644830
-- ma5: 55.2
-- ema23_primary: 57.31
-- distance_to_ema23_pct: -2.63
-- ma20: 59.72
-- ma60: 53.23
-- ma120: 50.96
-- return_5d: 1.45
-- return_20d: 1.82
-- volume_ratio: 0.39
-- distance_to_ma20_pct_auxiliary: -6.56
-- distance_to_high_60_pct: -20.06
+- date: 20260821
+- open: 57.8
+- high: 59.5
+- low: 57.8
+- close: 59.4
+- volume: 20206463
+- ma5: 58.4
+- ema23_primary: 57.66
+- distance_to_ema23_pct: 3.02
+- ma20: 56.87
+- ma60: 55.26
+- ma120: 51.78
+- return_5d: -1
+- return_20d: -5.26
+- volume_ratio: 0.72
+- distance_to_ma20_pct_auxiliary: 4.46
+- distance_to_high_60_pct: -14.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,56,60.2,56,60.2,52147050,54.33,10.8,54,50.4,0.77
-20260714,61.5,63.6,59.4,63.6,140549256,55.11,15.42,54.92,50.55,1.91
-20260715,64,66.4,63,65.7,146834938,55.99,17.35,55.84,50.75,1.86
-20260716,66.8,68.6,65,65.6,122648333,56.79,15.52,56.78,50.97,1.46
-20260717,65,65.9,62,62.8,73534184,57.29,9.62,57.53,51.15,0.85
-20260720,63.7,63.7,60,60.6,46496573,57.57,5.27,57.97,51.3,0.58
-20260721,61.3,63.7,60.6,63,60422391,58.02,8.59,58.5,51.5,0.76
-20260722,63.1,66.5,63.1,63.5,61438338,58.48,8.59,59.2,51.72,0.76
-20260723,64.8,69.8,64.7,66.2,163615466,59.12,11.98,59.78,51.98,1.92
-20260724,66.5,67,62.1,62.7,63817125,59.42,5.52,60.02,52.18,0.79
 20260727,62.3,62.5,59.8,61.7,38166047,59.61,3.51,60.49,52.36,0.48
 20260728,59.9,59.9,57.2,57.5,42839993,59.43,-3.25,60.71,52.46,0.53
 20260729,57.7,58.1,54.2,56.2,45247394,59.16,-5.01,60.8,52.55,0.56
@@ -168,26 +157,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,55.8,57.2,55.3,56,21040185,57.66,-2.88,59.81,52.96,0.32
 20260806,55.6,55.9,54.7,55.1,12812259,57.44,-4.08,59.66,53.08,0.2
 20260807,55.8,57.2,55.4,55.8,24644830,57.31,-2.63,59.72,53.23,0.39
+20260810,56.2,56.6,55,55.6,14356177,57.17,-2.74,59.48,53.39,0.24
+20260811,55.6,55.9,54.3,55.6,17036831,57.03,-2.52,59.09,53.55,0.31
+20260812,55.7,56.5,55.6,56.2,14712997,56.97,-1.34,58.61,53.73,0.31
+20260813,57.9,59.8,57.5,57.5,33137523,57.01,0.86,58.2,53.92,0.76
+20260814,58,60.6,57.6,60,53464792,57.26,4.79,58.06,54.16,1.26
+20260817,61,61.8,59.1,59.1,30793935,57.41,2.94,57.99,54.38,0.74
+20260818,59.2,60.3,58.7,58.9,20595196,57.54,2.37,57.78,54.61,0.52
+20260819,58.3,58.4,56.8,56.8,23728422,57.48,-1.17,57.45,54.81,0.63
+20260820,57.5,58.9,57.4,57.8,13659989,57.5,0.52,57.03,55.03,0.45
+20260821,57.8,59.5,57.8,59.4,20206463,57.66,3.02,56.87,55.26,0.72
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 74.23
-- over_600_ratio: 73.06
-- over_800_ratio: 72.17
-- over_1000_ratio: 71.4
-- over_400_change_1w: -0.28
-- over_800_change_1w: -0.38
-- over_1000_change_1w: -0.42
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260814
+- over_400_ratio: 74.27
+- over_600_ratio: 73.17
+- over_800_ratio: 72.3
+- over_1000_ratio: 71.49
+- over_400_change_1w: 0.04
+- over_800_change_1w: 0.13
+- over_1000_change_1w: 0.09
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,73.02,-0.17,70.95,-0.23,70.32,-0.26,0,False,False
 20260529,72.89,-0.13,70.84,-0.11,70.18,-0.14,0,False,False
 20260605,73.36,0.47,71.3,0.46,70.67,0.49,1,True,True
 20260612,72.57,-0.79,70.47,-0.83,69.81,-0.86,0,False,False
@@ -199,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,75.21,0.31,73.34,0.32,72.59,0.27,2,True,True
 20260731,74.51,-0.7,72.55,-0.79,71.82,-0.77,0,False,False
 20260807,74.23,-0.28,72.17,-0.38,71.4,-0.42,0,False,False
+20260814,74.27,0.04,72.3,0.13,71.49,0.09,1,True,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 1301 | 台塑 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_strong_inflow | stale_signal | 1.事實發生日:115/07/09 2.公司名稱:台灣塑膠工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公告本公司2026年第2季自結合併損益 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 一、2026年第2季自結合併損益與2026年第1季比較： （一）2026年第2季合併營業額472億元，比上季增加52億元，成長12.5％，說明如下： 1.銷售價差方面，增加127.5億元： 2月底美伊戰爭爆發，荷姆茲海峽遭封鎖，波斯灣原油及輕油供應中斷，推升2026年 第2季布蘭特原油、乙烯及丙烯合約價格，分別比第1季上漲23.3％、36.8％及37.8％， 因此，本公司2026年第2季各主要產品平均價格比第1季上漲，幅度介於27~64％。 2.銷售量差方面，減少74.8億元： 2月底美伊戰爭，中東原油及輕油無法透過荷姆茲海峽出口，中油及台塑石化公司乙烯、 丙烯打折供應，本公司調降各產品開工率，且6月中東局勢趨緩，原油價格走跌，客戶 採購觀望，石化產品需求萎縮，因此，本公司2026年第2季各主要產品銷售量，合計 比第1季減少28萬噸。 （二）2026年第2季本業利益28億元，比上季虧損13億元，增加41億元，合併稅前利益 108億元，比上季增加74億元，每股稅前盈餘為1.71元，合併稅後利益106億元，比上季 增加73億元，歸屬母公司每股稅後盈餘為1.67元，說明如下： 1.受美伊戰爭影響，推升石化產品價格，加上本公司有前期低成本的庫存，產品利差 明顯改善，致使第2季本業轉虧為盈。 2.認列權益法投資收益83.5億元，比上季增加33億元，主要係： A.台塑石化公司：認列59.1億元，比上季增加2.1億元； B.台塑美國公司：認列18.8億元，比上季增加20億元，主要係美伊戰爭導致石化產品 價格大漲，但美國天然氣及能源價格漲幅相對較小，產品利差擴大所致。 C.台塑烯烴美國公司：認列11.1億元，比上季增加9.1億元，主要係原料乙烷價格漲幅 小於產品乙烯漲幅，利差擴大所致。 3.第2季有現金股利收入2.3億元。 4.第2季兌換利益0.3億元，比第1季兌換利益2.3億元，減少利益2億元。 二、2026年上半年自結合併損益與2025年上半年比較： （一）2026年上半年合併營業額892億元，比去年同期減少33億元，衰退3.6％， 說明如下： 1.銷售量差方面，減少114.9億元： 2026年上半年受美伊戰爭，以及中油天然氣管線施工、四輕歲修與新三輕設備故障等 影響，中油及台塑石化公司乙烯、丙烯打折供應，本公司開工率降低，因此，2026年 上半年各主要產品銷售量，合計比去年同期減少39.1萬噸。 2.銷售價差方面，增加81.4億元： 2026年上半年因美伊戰爭，原油及乙烯、丙烯價格大漲，本公司為反應原料成本，調漲 各產品售價，因此，本公司2026年上半年各主要產品平均價格比去年同期上漲，幅度 介於6~19％。 （二）2026年上半年本業利益15億元，比去年同期虧損25億元，增加40億元，合併 稅前利益142億元，比去年同期增加209億元，每股稅前盈餘為2.24元，合併稅後利益 139億元，比去年同期增加204億元，歸屬母公司每股稅後盈餘為2.19元，說明如下： 1.去年上半年因美國實施對等關稅，客戶採購保守，且石化同業新增產能陸續投產， 壓低石化產品市場行情，本業產生虧損，今年受美伊戰爭影響，國際原油及石化產品 價格上漲，利差明顯改善，因此，今年上半年本業轉虧為盈。 2.認列權益法投資收益133.9億元，比去年同期認列虧損12.1億元，增加146億元， 主要係： A.認列台塑石化公司比去年同期增加126億元。 B.認列台塑美國公司比去年同期增加23億元，主要因各產品售價上漲，產品利差擴大。 3.現金股利收入2.3億元，比去年同期增加0.7億元。 4.今年上半年兌換利益2.6億元，比去年同期兌換損失17.1億元，增加利益19.7億元。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 1301 | 台塑 | 4 | 4 | 4 | 8 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 1301 | 台塑 | 114 | 4 | 18945200.0 | 138600.0 | 136.69 | no_signal |
+| 20260821 | 1301 | 台塑 | 124 | 2 | 12872480.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5488 松普
 
 ## Metadata
-- generated_at: 2026-08-10 22:28:10 Asia/Taipei
+- generated_at: 2026-08-21 22:27:46 Asia/Taipei
 - stock_id: 5488
 - stock_name: 松普
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 186
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 203
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 13.2
-- high: 14.5
-- low: 13.05
-- close: 13.5
-- volume: 2271000
-- ma5: 13.19
-- ema23_primary: 13.67
-- distance_to_ema23_pct: -1.25
-- ma20: 14.36
-- ma60: 13.25
-- ma120: 11.64
-- return_5d: 8.87
-- return_20d: -16.67
-- volume_ratio: 0.83
-- distance_to_ma20_pct_auxiliary: -5.99
-- distance_to_high_60_pct: -30.05
+- date: 20260821
+- open: 12.4
+- high: 12.6
+- low: 12.15
+- close: 12.4
+- volume: 301000
+- ma5: 12.44
+- ema23_primary: 13.14
+- distance_to_ema23_pct: -5.61
+- ma20: 12.9
+- ma60: 13.52
+- ma120: 11.88
+- return_5d: -3.5
+- return_20d: -9.16
+- volume_ratio: 0.46
+- distance_to_ma20_pct_auxiliary: -3.91
+- distance_to_high_60_pct: -35.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,17.8,17.8,17.2,17.8,10872000,13.83,28.69,13.61,11.95,4.72
-20260714,18.55,18.6,16.55,17.9,10206000,14.17,26.32,13.89,12.08,3.66
-20260715,18.05,19.3,17.2,17.7,6488000,14.46,22.37,14.15,12.2,2.11
-20260716,17.45,18.05,16.35,16.4,3248000,14.63,12.13,14.36,12.3,1.01
-20260717,15.85,17.8,15.7,16.05,6213000,14.74,8.86,14.53,12.4,1.77
-20260720,16,16.05,14.55,14.6,3029000,14.73,-0.9,14.64,12.47,0.84
-20260721,14.65,14.85,14.05,14.4,2102000,14.7,-2.07,14.69,12.55,0.57
-20260722,14.9,14.95,14.2,14.6,1338000,14.7,-0.65,14.75,12.63,0.36
-20260723,14.65,14.85,14.3,14.55,937000,14.68,-0.91,14.83,12.71,0.25
-20260724,14.05,14.45,13.5,13.65,1635000,14.6,-6.49,14.86,12.77,0.43
 20260727,13.5,13.55,13.1,13.35,641000,14.49,-7.89,14.9,12.83,0.17
 20260728,13.15,13.15,12.7,13,593000,14.37,-9.53,14.91,12.88,0.16
 20260729,13.45,13.45,12.35,12.8,998000,14.24,-10.1,14.9,12.93,0.26
@@ -168,26 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,13.3,13.55,13.15,13.4,602000,13.73,-2.41,14.57,13.15,0.19
 20260806,13.5,13.5,13,13.2,433000,13.69,-3.56,14.49,13.2,0.14
 20260807,13.2,14.5,13.05,13.5,2271000,13.67,-1.25,14.36,13.25,0.83
+20260810,13.25,13.6,13.1,13.45,633000,13.65,-1.48,14.14,13.3,0.28
+20260811,13.35,13.5,13.1,13.35,539000,13.63,-2.04,13.91,13.35,0.31
+20260812,13.35,13.75,13.25,13.65,432000,13.63,0.15,13.71,13.41,0.3
+20260813,13.65,13.65,13,13.05,807000,13.58,-3.91,13.54,13.45,0.61
+20260814,13.05,13.1,12.7,12.85,429000,13.52,-4.96,13.38,13.47,0.42
+20260817,12.7,12.85,12.35,12.6,510000,13.44,-6.27,13.29,13.48,0.57
+20260818,12.65,12.7,12.25,12.45,284000,13.36,-6.82,13.19,13.49,0.35
+20260819,12.1,12.5,12.1,12.35,356000,13.28,-6.98,13.07,13.5,0.47
+20260820,12.5,12.5,12.15,12.4,284000,13.2,-6.08,12.97,13.51,0.39
+20260821,12.4,12.6,12.15,12.4,301000,13.14,-5.61,12.9,13.52,0.46
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 45.84
-- over_600_ratio: 39.28
-- over_800_ratio: 37.77
-- over_1000_ratio: 33.62
-- over_400_change_1w: -0.07
-- over_800_change_1w: -0.93
-- over_1000_change_1w: -1.11
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260814
+- over_400_ratio: 46.05
+- over_600_ratio: 39.47
+- over_800_ratio: 38.01
+- over_1000_ratio: 33.87
+- over_400_change_1w: 0.21
+- over_800_change_1w: 0.24
+- over_1000_change_1w: 0.25
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,44.06,0.84,35.77,0.05,34.88,0.04,3,True,True
 20260529,44.47,0.41,36.88,1.11,35.99,1.11,4,True,True
 20260605,44.1,-0.37,37.34,0.46,36.45,0.46,5,False,True
 20260612,45.03,0.93,37.68,0.34,36.64,0.19,6,True,True
@@ -199,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,45.15,0.19,36.94,0.31,34.94,0.18,2,True,True
 20260731,45.91,0.76,38.7,1.76,34.73,-0.21,3,False,True
 20260807,45.84,-0.07,37.77,-0.93,33.62,-1.11,0,False,False
+20260814,46.05,0.21,38.01,0.24,33.87,0.25,1,True,True
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 5488 | 松普 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/07/08 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:現金股利新台幣5,495,167元(每股配發新台幣0.06元) 4.除權（息）交易日:115/07/24 5.最後過戶日:115/07/27 6.停止過戶起始日期:115/07/28 7.停止過戶截止日期:115/08/01 8.除權（息）基準日:115/08/01 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/20 13.以外幣發放現金股利(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 5488 | 松普 | 1 | 1 | 4 | 9 | 10 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

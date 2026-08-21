@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9958 世紀鋼
 
 ## Metadata
-- generated_at: 2026-08-10 22:29:22 Asia/Taipei
+- generated_at: 2026-08-21 22:28:32 Asia/Taipei
 - stock_id: 9958
 - stock_name: 世紀鋼
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -71,7 +71,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -86,7 +86,7 @@
 - internal_use_only: true
 - action_rating: scale_in
 - action_rating_label_zh: 可分批買進
-- confidence_level: medium
+- confidence_level: high
 - thesis_state: healthy_pullback
 - entry_style: pullback_to_23ema
 - position_sizing: half_position
@@ -105,6 +105,7 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -131,38 +132,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 110.5
-- high: 116
-- low: 110.5
-- close: 113.5
-- volume: 3056041
-- ma5: 108.4
-- ema23_primary: 110.22
-- distance_to_ema23_pct: 2.97
-- ma20: 110.58
-- ma60: 111.13
-- ma120: 113.49
-- return_5d: 8.61
-- return_20d: -2.99
-- volume_ratio: 1.7
-- distance_to_ma20_pct_auxiliary: 2.65
-- distance_to_high_60_pct: -9.56
+- date: 20260821
+- open: 101
+- high: 104
+- low: 101
+- close: 102
+- volume: 1346793
+- ma5: 101.2
+- ema23_primary: 106.57
+- distance_to_ema23_pct: -4.29
+- ma20: 105.8
+- ma60: 111.28
+- ma120: 111.57
+- return_5d: -0.97
+- return_20d: -7.69
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: -3.59
+- distance_to_high_60_pct: -18.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,118,119,116.5,116.5,1294014,115.34,1.01,116.08,109.2,0.51
-20260714,117,117.5,111.5,116.5,2182397,115.43,0.92,116.28,109.37,0.85
-20260715,116.5,120.5,115,119,2252341,115.73,2.83,116.72,109.58,0.88
-20260716,119,119.5,117,118.5,1746562,115.96,2.19,116.97,109.75,0.7
-20260717,116.5,118,111,111,2818095,115.55,-3.94,116.7,109.83,1.13
-20260720,113,114,108.5,113,1335871,115.33,-2.02,116.6,109.9,0.55
-20260721,112.5,116.5,112.5,115,1572737,115.31,-0.27,116.35,110.07,0.69
-20260722,115.5,116.5,115,115.5,1611203,115.32,0.15,116.33,110.28,0.73
-20260723,112,113,109,110,1786092,114.88,-4.25,116.08,110.41,0.81
-20260724,110,113,110,110.5,1141338,114.51,-3.51,115.75,110.53,0.54
 20260727,112,112,107.5,109,2819957,114.06,-4.43,115.6,110.63,1.31
 20260728,107,108,104,105,1837934,113.3,-7.33,115.25,110.7,0.86
 20260729,104.5,106,100.5,104,2191838,112.53,-7.58,114.58,110.73,1.11
@@ -173,18 +164,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,107,107.5,105.5,107,1164820,109.87,-2.61,111.15,110.88,0.68
 20260806,106.5,110.5,106.5,110.5,1618006,109.92,0.52,110.75,110.98,0.94
 20260807,110.5,116,110.5,113.5,3056041,110.22,2.97,110.58,111.13,1.7
+20260810,114.5,116.5,113.5,116,2267484,110.7,4.78,110.55,111.23,1.23
+20260811,115.5,116,112,113.5,1786692,110.94,2.31,110.4,111.38,0.98
+20260812,109,109,106,107,4177436,110.61,-3.26,109.8,111.41,2.18
+20260813,106.5,106.5,104,104.5,2272545,110.1,-5.09,109.1,111.42,1.17
+20260814,105,105.5,102.5,103,2039243,109.51,-5.94,108.7,111.45,1.07
+20260817,103,104,102,102.5,1307328,108.92,-5.9,108.17,111.44,0.69
+20260818,103,103.5,101,101,1815464,108.26,-6.71,107.47,111.43,0.95
+20260819,100,100.5,99.1,99.5,2358541,107.53,-7.47,106.67,111.35,1.21
+20260820,100,101.5,99.9,101,1454551,106.99,-5.6,106.22,111.28,0.75
+20260821,101,104,101,102,1346793,106.57,-4.29,105.8,111.28,0.69
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 53.38
-- over_600_ratio: 48.17
-- over_800_ratio: 44.64
-- over_1000_ratio: 43.22
-- over_400_change_1w: 0.26
-- over_800_change_1w: -0.22
-- over_1000_change_1w: 0.12
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260814
+- over_400_ratio: 52.38
+- over_600_ratio: 47.94
+- over_800_ratio: 44.38
+- over_1000_ratio: 43.33
+- over_400_change_1w: -1
+- over_800_change_1w: -0.26
+- over_1000_change_1w: 0.11
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -192,7 +193,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,55.58,-1.09,46.73,-1.19,45.31,-1.5,0,False,False
 20260529,55.18,-0.4,46.43,-0.3,44.58,-0.73,0,False,False
 20260605,55.89,0.71,47.79,1.36,46.3,1.72,1,True,True
 20260612,53.1,-2.79,45.66,-2.13,43.83,-2.47,0,False,False
@@ -204,23 +204,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,53.36,-0.37,45.63,-0.48,43.4,-1.3,0,False,False
 20260731,53.12,-0.24,44.86,-0.77,43.1,-0.3,0,False,False
 20260807,53.38,0.26,44.64,-0.22,43.22,0.12,1,False,True
+20260814,52.38,-1,44.38,-0.26,43.33,0.11,2,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 9958 | 世紀鋼 | revenue_pullback | 營收成長股價回檔 | 77.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/08 2.公司名稱:世紀鋼鐵結構股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:因配發現金股利，本公司國內第八次無擔保轉換公司債轉換價格調整。 6.因應措施:依據本公司國內第八次無擔保轉換公司債發行及轉換辦法第11條規定， 　　　　　轉換價格應予以調整，故自115/07/31除息基準日起，由新台幣232.7元 　　　　　調整為新台幣元223.8。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: ex_dividend on 20260723; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260717 | 9958 | 世紀鋼 | revenue_breakout_low_response | 營收爆發低反應股 | 12.0 | 35.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.事實發生日:115/07/08 2.公司名稱:世紀鋼鐵結構股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:因配發現金股利，本公司國內第八次無擔保轉換公司債轉換價格調整。 6.因應措施:依據本公司國內第八次無擔保轉換公司債發行及轉換辦法第11條規定， 　　　　　轉換價格應予以調整，故自115/07/31除息基準日起，由新台幣232.7元 　　　　　調整為新台幣元223.8。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: ex_dividend on 20260723; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 9958 | 世紀鋼 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | call_inflow | stale_signal | 1.事實發生日:115/07/08 2.公司名稱:世紀鋼鐵結構股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:因配發現金股利，本公司國內第八次無擔保轉換公司債轉換價格調整。 6.因應措施:依據本公司國內第八次無擔保轉換公司債發行及轉換辦法第11條規定， 　　　　　轉換價格應予以調整，故自115/07/31除息基準日起，由新台幣232.7元 　　　　　調整為新台幣元223.8。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: ex_right on 20260824; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 9958 | 世紀鋼 | revenue_breakout_low_response | 營收爆發低反應股 | 12 | 47 | D_降級_TDCC轉弱 |  |  | call_inflow | stale_signal | 1.事實發生日:115/07/08 2.公司名稱:世紀鋼鐵結構股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:因配發現金股利，本公司國內第八次無擔保轉換公司債轉換價格調整。 6.因應措施:依據本公司國內第八次無擔保轉換公司債發行及轉換辦法第11條規定， 　　　　　轉換價格應予以調整，故自115/07/31除息基準日起，由新台幣232.7元 　　　　　調整為新台幣元223.8。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: ex_right on 20260824; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 9958 | 世紀鋼 | 35 | 2 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260821 | 9958 | 世紀鋼 | 39 | 6 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 9958 | 世紀鋼 | 28 | 0 | 974390.0 | 0.0 |  | no_signal |
+| 20260821 | 9958 | 世紀鋼 | 35 | 0 | 1274240.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

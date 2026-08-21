@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2476 鉅祥
 
 ## Metadata
-- generated_at: 2026-08-10 22:27:00 Asia/Taipei
+- generated_at: 2026-08-21 22:27:01 Asia/Taipei
 - stock_id: 2476
 - stock_name: 鉅祥
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -132,38 +132,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 125.5
-- high: 128
-- low: 124
-- close: 125.5
-- volume: 1042657
-- ma5: 123.1
-- ema23_primary: 120.73
-- distance_to_ema23_pct: 3.95
-- ma20: 119.45
-- ma60: 122.7
-- ma120: 108.96
-- return_5d: 10.57
-- return_20d: -2.71
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: 5.06
-- distance_to_high_60_pct: -10.36
+- date: 20260821
+- open: 119
+- high: 120.5
+- low: 114.5
+- close: 116.5
+- volume: 1915312
+- ma5: 118.8
+- ema23_primary: 120.77
+- distance_to_ema23_pct: -3.53
+- ma20: 119.28
+- ma60: 122.84
+- ma120: 112.16
+- return_5d: -2.92
+- return_20d: -2.1
+- volume_ratio: 1.02
+- distance_to_ma20_pct_auxiliary: -2.33
+- distance_to_high_60_pct: -16.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,129,130.5,123.5,126.5,2682604,127.56,-0.83,128.12,122.08,0.56
-20260714,126.5,127,117,122,4919661,127.09,-4.01,128.07,122.33,1
-20260715,124,129.5,122,129.5,2559740,127.29,1.73,128.15,122.57,0.55
-20260716,127,132,125.5,131.5,2077928,127.64,3.02,128.75,122.73,0.48
-20260717,128,129,118.5,118.5,3795806,126.88,-6.61,128.55,122.67,0.87
-20260720,119,119,107,113.5,5527727,125.77,-9.75,127.97,122.54,1.24
-20260721,117,118,114.5,117,1966598,125.04,-6.43,127.55,122.53,0.45
-20260722,119.5,122,117.5,121,1211004,124.7,-2.97,127.17,122.49,0.29
-20260723,121.5,122.5,118.5,120.5,1286394,124.35,-3.1,126.83,122.49,0.32
-20260724,119.5,123,117.5,119,1123733,123.9,-3.96,126.25,122.5,0.3
 20260727,118.5,120,115.5,118.5,1531494,123.45,-4.01,125.88,122.58,0.43
 20260728,113,114.5,110.5,111,2296392,122.42,-9.33,125.1,122.47,0.65
 20260729,111.5,112.5,100.5,106,3979833,121.05,-12.43,123.9,122.34,1.13
@@ -174,18 +164,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,122,127,122,124.5,2041019,119.64,4.07,119.85,122.43,0.77
 20260806,124,128,120.5,127.5,1879952,120.29,5.99,119.62,122.58,0.79
 20260807,125.5,128,124,125.5,1042657,120.73,3.95,119.45,122.7,0.45
+20260810,128.5,128.5,124.5,126,1948850,121.17,3.99,119.42,122.82,0.86
+20260811,127,127,122,124.5,1580685,121.44,2.52,119.55,122.97,0.75
+20260812,124.5,128,123,128,2235083,121.99,4.93,119.47,123.13,1.07
+20260813,126,126.5,121.5,123,2043314,122.07,0.76,119.05,123.27,0.98
+20260814,123,123,118.5,120,2064328,121.9,-1.56,119.12,123.37,1.03
+20260817,118.5,120,117,119.5,949009,121.7,-1.81,119.42,123.36,0.54
+20260818,118.5,123,117,119.5,2115786,121.52,-1.66,119.55,123.33,1.19
+20260819,117.5,121,117,119,2081413,121.31,-1.9,119.45,123.24,1.14
+20260820,118.5,121,118,119.5,1377367,121.16,-1.37,119.4,123.05,0.75
+20260821,119,120.5,114.5,116.5,1915312,120.77,-3.53,119.28,122.84,1.02
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 68.01
-- over_600_ratio: 64.19
-- over_800_ratio: 62.31
-- over_1000_ratio: 60.28
-- over_400_change_1w: 0.69
-- over_800_change_1w: 1.2
-- over_1000_change_1w: 0.37
-- tdcc_consecutive_up_weeks: 12
+- as_of_date: 20260814
+- over_400_ratio: 67.55
+- over_600_ratio: 64.92
+- over_800_ratio: 62.19
+- over_1000_ratio: 61.02
+- over_400_change_1w: -0.46
+- over_800_change_1w: -0.12
+- over_1000_change_1w: 0.74
+- tdcc_consecutive_up_weeks: 13
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -193,7 +193,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,62.39,1.26,55.57,1.27,54.35,1.23,1,True,True
 20260529,63.26,0.87,56.99,1.42,56.17,1.82,2,True,True
 20260605,62.91,-0.35,57.94,0.95,55.16,-1.01,3,False,True
 20260612,63.65,0.74,57.95,0.01,56.73,1.57,4,True,True
@@ -205,23 +204,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,67.02,-0.19,61.12,0.29,59.53,0.72,10,False,True
 20260731,67.32,0.3,61.11,-0.01,59.91,0.38,11,False,True
 20260807,68.01,0.69,62.31,1.2,60.28,0.37,12,False,True
+20260814,67.55,-0.46,62.19,-0.12,61.02,0.74,13,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2476 | 鉅祥 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | no_signal | stale_signal | 1.發生變動日期:115/07/16 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名:不適用 4.舊任者簡歷:不適用 5.新任者姓名: 馬淑琴小姐 廖雅苓小姐 陳宏毅先生 劉思敏小姐 6.新任者簡歷: 馬淑琴小姐  佳霖會計師事務所會計師 廖雅苓小姐  美商應用材料股份有限公司供應商品管經理 陳宏毅先生  財政部國有財產局科長 劉思敏小姐  信昌機械廠股份有限公司桃園分公司財務處副理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:  新任 8.異動原因:配合本公司115年6月12日股東會董事全面改選，  第5屆薪資報酬委員會委員任期屆滿，故重新委任。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/08/04~115/06/08 10.新任生效日期:115/07/16 11.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260717 | 2476 | 鉅祥 | revenue_breakout_low_response | 營收爆發低反應股 | 15.0 | 9.0 | A_優先追蹤 |  |  | no_signal | stale_signal | 1.發生變動日期:115/07/16 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名:不適用 4.舊任者簡歷:不適用 5.新任者姓名: 馬淑琴小姐 廖雅苓小姐 陳宏毅先生 劉思敏小姐 6.新任者簡歷: 馬淑琴小姐  佳霖會計師事務所會計師 廖雅苓小姐  美商應用材料股份有限公司供應商品管經理 陳宏毅先生  財政部國有財產局科長 劉思敏小姐  信昌機械廠股份有限公司桃園分公司財務處副理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:  新任 8.異動原因:配合本公司115年6月12日股東會董事全面改選，  第5屆薪資報酬委員會委員任期屆滿，故重新委任。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/08/04~115/06/08 10.新任生效日期:115/07/16 11.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 2476 | 鉅祥 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.發生變動日期:115/07/16 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名:不適用 4.舊任者簡歷:不適用 5.新任者姓名: 馬淑琴小姐 廖雅苓小姐 陳宏毅先生 劉思敏小姐 6.新任者簡歷: 馬淑琴小姐  佳霖會計師事務所會計師 廖雅苓小姐  美商應用材料股份有限公司供應商品管經理 陳宏毅先生  財政部國有財產局科長 劉思敏小姐  信昌機械廠股份有限公司桃園分公司財務處副理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:  新任 8.異動原因:配合本公司115年6月12日股東會董事全面改選，  第5屆薪資報酬委員會委員任期屆滿，故重新委任。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/08/04~115/06/08 10.新任生效日期:115/07/16 11.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 2476 | 鉅祥 | revenue_breakout_low_response | 營收爆發低反應股 | 17 | 23 | A_優先追蹤 |  |  | no_signal | repeated_but_no_breakout | 1.發生變動日期:115/07/16 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名:不適用 4.舊任者簡歷:不適用 5.新任者姓名: 馬淑琴小姐 廖雅苓小姐 陳宏毅先生 劉思敏小姐 6.新任者簡歷: 馬淑琴小姐  佳霖會計師事務所會計師 廖雅苓小姐  美商應用材料股份有限公司供應商品管經理 陳宏毅先生  財政部國有財產局科長 劉思敏小姐  信昌機械廠股份有限公司桃園分公司財務處副理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:  新任 8.異動原因:配合本公司115年6月12日股東會董事全面改選，  第5屆薪資報酬委員會委員任期屆滿，故重新委任。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/08/04~115/06/08 10.新任生效日期:115/07/16 11.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2476 | 鉅祥 | 30 | 2 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260821 | 2476 | 鉅祥 | 34 | 6 | 5 | 10 | 20 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2476 | 鉅祥 | 59 | 0 | 15686900.0 | 0.0 |  | no_signal |
+| 20260821 | 2476 | 鉅祥 | 66 | 0 | 4132310.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

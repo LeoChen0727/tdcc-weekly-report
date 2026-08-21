@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2302 麗正
 
 ## Metadata
-- generated_at: 2026-08-10 22:26:49 Asia/Taipei
+- generated_at: 2026-08-21 22:26:54 Asia/Taipei
 - stock_id: 2302
 - stock_name: 麗正
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
+- model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -125,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 43.2
-- high: 44.5
-- low: 42.55
-- close: 42.9
-- volume: 3186253
-- ma5: 42.05
-- ema23_primary: 41.4
-- distance_to_ema23_pct: 3.61
-- ma20: 40.94
-- ma60: 39.52
-- ma120: 29.14
-- return_5d: 16.73
-- return_20d: -7.44
-- volume_ratio: 0.69
-- distance_to_ma20_pct_auxiliary: 4.79
-- distance_to_high_60_pct: -26.16
+- date: 20260821
+- open: 42.8
+- high: 43.15
+- low: 42.05
+- close: 42.45
+- volume: 1857634
+- ma5: 43.78
+- ema23_primary: 42.87
+- distance_to_ema23_pct: -0.98
+- ma20: 41.72
+- ma60: 42.24
+- ma120: 31.26
+- return_5d: 0.59
+- return_20d: -1.28
+- volume_ratio: 0.38
+- distance_to_ma20_pct_auxiliary: 1.75
+- distance_to_high_60_pct: -26.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,47.3,47.6,42.35,43.55,6008739,44.79,-2.77,46.85,32.87,0.54
-20260714,44,45.3,40.5,42.75,5851347,44.62,-4.2,47.26,33.28,0.52
-20260715,43.2,45.9,42,45.7,4650948,44.71,2.21,47.64,33.72,0.41
-20260716,47.8,48.5,44.5,44.7,7975646,44.71,-0.02,47.78,34.15,0.72
-20260717,43.3,44.15,40.25,40.3,3867620,44.34,-9.12,47.55,34.5,0.38
-20260720,40.5,41.1,37.35,39.15,3704657,43.91,-10.84,47.16,34.83,0.41
-20260721,40.7,40.7,38.8,39.6,2292304,43.55,-9.07,46.76,35.18,0.27
-20260722,41,43.55,40,43.55,4545945,43.55,-0,46.65,35.61,0.56
-20260723,45.4,46.1,41.55,42.45,7634130,43.46,-2.32,46.26,36.01,0.96
-20260724,42.45,45.8,42.35,43,10199920,43.42,-0.97,46.01,36.42,1.34
 20260727,42.5,42.8,40.2,41.5,3089415,43.26,-4.07,45.73,36.8,0.42
 20260728,40.3,40.35,37.85,37.9,2436751,42.81,-11.48,45.27,37.12,0.34
 20260729,37.6,39.25,34.15,34.15,2884206,42.09,-18.87,44.58,37.37,0.41
@@ -167,18 +157,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,43.5,44.5,42.25,42.4,4716984,41.11,3.15,41.36,38.92,1.01
 20260806,41.9,43.05,40.65,43.05,2545288,41.27,4.32,41.11,39.24,0.55
 20260807,43.2,44.5,42.55,42.9,3186253,41.4,3.61,40.94,39.52,0.69
+20260810,43.1,44.5,42.5,42.5,2717766,41.49,2.42,40.88,39.81,0.61
+20260811,43.95,46.7,43.7,46.05,8410646,41.87,9.97,41.05,40.16,1.85
+20260812,45.65,47.65,45.05,45.55,6555725,42.18,7.99,41.04,40.5,1.41
+20260813,46,47,44.8,45.2,5045184,42.43,6.52,41.07,40.83,1.12
+20260814,45.55,46,42.2,42.2,4348563,42.41,-0.5,41.16,41.12,0.96
+20260817,42.15,43.7,41.45,43.2,2148842,42.48,1.7,41.37,41.4,0.48
+20260818,42.4,45.95,42.4,45.3,9804427,42.71,6.06,41.65,41.69,2.03
+20260819,46,47.85,44.25,44.7,15905677,42.88,4.25,41.71,41.92,2.95
+20260820,46,46.3,42.4,43.25,5523703,42.91,0.79,41.75,42.07,1.05
+20260821,42.8,43.15,42.05,42.45,1857634,42.87,-0.98,41.72,42.24,0.38
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 60.36
-- over_600_ratio: 59.81
-- over_800_ratio: 58.55
-- over_1000_ratio: 57.45
-- over_400_change_1w: 0.76
-- over_800_change_1w: 0.76
-- over_1000_change_1w: 0.76
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260814
+- over_400_ratio: 61.93
+- over_600_ratio: 60.51
+- over_800_ratio: 59.25
+- over_1000_ratio: 58.19
+- over_400_change_1w: 1.57
+- over_800_change_1w: 0.7
+- over_1000_change_1w: 0.74
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,67.44,0.09,62.56,0.87,62.02,0.88,1,True,True
 20260529,65.53,-1.91,61.32,-1.24,61.32,-0.7,0,False,False
 20260605,63.94,-1.59,60.4,-0.92,58.76,-2.56,0,False,False
 20260612,63.57,-0.37,60.95,0.55,58.85,0.09,1,False,True
@@ -198,22 +197,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,60.68,-0.37,58.31,0.52,56.69,0,2,False,True
 20260731,59.6,-1.08,57.79,-0.52,56.69,0,0,False,False
 20260807,60.36,0.76,58.55,0.76,57.45,0.76,1,True,True
+20260814,61.93,1.57,59.25,0.7,58.19,0.74,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2302 | 麗正 | revenue_pullback | 營收成長股價回檔 | 60.0 |  |  |  |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/15 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:每股配發現金股利0.35元 4.除權（息）交易日:115/07/01 5.最後過戶日:115/07/02 6.停止過戶起始日期:115/07/03 7.停止過戶截止日期:115/07/07 8.除權（息）基準日:115/07/07 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/30 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 2302 | 麗正 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/15 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:每股配發現金股利0.35元 4.除權（息）交易日:115/07/01 5.最後過戶日:115/07/02 6.停止過戶起始日期:115/07/03 7.停止過戶截止日期:115/07/07 8.除權（息）基準日:115/07/07 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/30 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| 20260821 | 2302 | 麗正 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/15 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:每股配發現金股利0.35元 4.除權（息）交易日:115/07/01 5.最後過戶日:115/07/02 6.停止過戶起始日期:115/07/03 7.停止過戶截止日期:115/07/07 8.除權（息）基準日:115/07/07 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/30 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2302 | 麗正 | 5 | 2 | 5 | 6 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260821 | 2302 | 麗正 | 9 | 2 | 5 | 9 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 2302 | 麗正 | 3 | 0 | 253330.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

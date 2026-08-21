@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6224 聚鼎
 
 ## Metadata
-- generated_at: 2026-08-10 22:28:24 Asia/Taipei
+- generated_at: 2026-08-21 22:27:55 Asia/Taipei
 - stock_id: 6224
 - stock_name: 聚鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,25 +69,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- action_rating_display_zh: 停利
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前以風險管理為主，不適合新買第一筆。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 已出現風險管理訊號，操作評級為「停利」。
+- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
-- confidence_level: medium
-- thesis_state: unclear
+- action_rating: take_profit
+- action_rating_label_zh: 停利
+- confidence_level: low
+- thesis_state: breakout_initial
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -100,12 +100,12 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -118,7 +118,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 56.5
-- high: 56.6
-- low: 54.7
-- close: 55
-- volume: 188083
-- ma5: 55.44
-- ema23_primary: 59.64
-- distance_to_ema23_pct: -7.78
-- ma20: 56.98
-- ma60: 72.38
-- ma120: 61.52
-- return_5d: 5.97
-- return_20d: -26.17
-- volume_ratio: 0.35
-- distance_to_ma20_pct_auxiliary: -3.47
-- distance_to_high_60_pct: -43.59
+- date: 20260821
+- open: 73.5
+- high: 77.2
+- low: 72.5
+- close: 75.4
+- volume: 3840134
+- ma5: 69.08
+- ema23_primary: 63.4
+- distance_to_ema23_pct: 18.93
+- ma20: 59.23
+- ma60: 70.05
+- ma120: 63.42
+- return_5d: 19.12
+- return_20d: 34.64
+- volume_ratio: 5.53
+- distance_to_ma20_pct_auxiliary: 27.29
+- distance_to_high_60_pct: -22.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,74.5,74.6,67.1,67.3,1753751,77.7,-13.39,78.15,76.42,0.91
-20260714,68.3,68.3,62.2,65.1,942478,76.65,-15.07,77.59,76.52,0.5
-20260715,66.5,66.5,64.1,64.5,587229,75.64,-14.73,76.84,76.58,0.31
-20260716,64,66,62.9,63,464540,74.58,-15.53,76.22,76.63,0.26
-20260717,61.8,61.8,57.8,58.5,900757,73.24,-20.13,75.22,76.63,0.5
-20260720,58.4,58.4,54,55.5,838569,71.77,-22.67,73.75,76.56,0.51
-20260721,56.5,58.1,56.1,56.5,474055,70.49,-19.85,72.42,76.49,0.31
-20260722,57.8,59.6,57.6,58.3,449706,69.48,-16.09,71.39,76.45,0.3
-20260723,59.5,59.5,57.1,58.4,265071,68.55,-14.81,70.31,76.44,0.18
-20260724,57.4,58.1,55.9,56,251777,67.51,-17.05,69.16,76.36,0.17
 20260727,56,56.7,55,56.1,238335,66.56,-15.71,68.22,76.18,0.17
 20260728,53,54.3,52.1,52.8,563694,65.41,-19.28,67.36,75.84,0.4
 20260729,52,52.9,48.05,50.2,662798,64.14,-21.74,66,75.46,0.48
@@ -168,26 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,57.5,57.7,55.3,55.7,296936,60.38,-7.76,58.88,73.06,0.5
 20260806,55.5,56.5,52.9,56.5,324453,60.06,-5.93,57.95,72.71,0.57
 20260807,56.5,56.6,54.7,55,188083,59.64,-7.78,56.98,72.38,0.35
+20260810,55.5,56.8,55.5,56,224198,59.34,-5.62,56.41,72.08,0.48
+20260811,58.2,61.5,57.7,59.8,864139,59.37,0.72,56.15,71.88,1.86
+20260812,59.7,62.5,59.1,61.2,702047,59.53,2.81,55.98,71.68,1.49
+20260813,61.2,64.5,61.2,62.6,548889,59.78,4.71,55.96,71.52,1.16
+20260814,63.7,63.7,62.4,63.3,348359,60.08,5.37,56.2,71.24,0.78
+20260817,62.8,67.3,62.8,67,703981,60.65,10.47,56.77,70.97,1.6
+20260818,66.2,66.5,64,65.3,530365,61.04,6.98,57.22,70.62,1.2
+20260819,62.6,68.5,62.6,65.6,603088,61.42,6.81,57.58,70.31,1.34
+20260820,66.4,72.1,66.4,72.1,1539463,62.31,15.71,58.27,70.14,2.99
+20260821,73.5,77.2,72.5,75.4,3840134,63.4,18.93,59.23,70.05,5.53
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 37.26
-- over_600_ratio: 33.21
-- over_800_ratio: 29.8
+- as_of_date: 20260814
+- over_400_ratio: 36.9
+- over_600_ratio: 33.97
+- over_800_ratio: 29.85
 - over_1000_ratio: 24.5
-- over_400_change_1w: -1.15
-- over_800_change_1w: -0.15
+- over_400_change_1w: -0.36
+- over_800_change_1w: 0.05
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,38.86,-0.12,29.25,-1.7,25.94,-1.7,0,False,False
 20260529,38.95,0.09,30.2,0.95,26.89,0.95,1,True,True
 20260605,38.32,-0.63,30.74,0.54,24.5,-2.39,2,False,True
 20260612,38.99,0.67,30.76,0.02,24.5,0,3,False,True
@@ -199,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,38.38,-0.18,30.09,-0.98,25.79,0,0,False,False
 20260731,38.41,0.03,29.95,-0.14,24.5,-1.29,1,False,False
 20260807,37.26,-1.15,29.8,-0.15,24.5,0,0,False,False
+20260814,36.9,-0.36,29.85,0.05,24.5,0,1,False,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 6224 | 聚鼎 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | continued_overheated | 符合條款第四條第XX款：12 事實發生日：115/08/25 1.召開法人說明會之日期：115/08/25 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：公告本公司受邀參加凱基證券舉辦之線上法人說明會 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 6224 | 聚鼎 | 2 | 2 | 2 | 2 | 8 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2376 技嘉
 
 ## Metadata
-- generated_at: 2026-08-10 22:26:54 Asia/Taipei
+- generated_at: 2026-08-21 22:26:57 Asia/Taipei
 - stock_id: 2376
 - stock_name: 技嘉
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -131,38 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 348.5
-- high: 351
-- low: 341
-- close: 344
-- volume: 5232862
-- ma5: 337.3
-- ema23_primary: 337.09
-- distance_to_ema23_pct: 2.05
-- ma20: 337.2
-- ma60: 340.11
-- ma120: 296.38
-- return_5d: 2.23
-- return_20d: 2.23
-- volume_ratio: 0.72
-- distance_to_ma20_pct_auxiliary: 2.02
-- distance_to_high_60_pct: -14.43
+- date: 20260821
+- open: 342.5
+- high: 344
+- low: 338.5
+- close: 339.5
+- volume: 3485613
+- ma5: 347.6
+- ema23_primary: 349.37
+- distance_to_ema23_pct: -2.82
+- ma20: 347.2
+- ma60: 346.27
+- ma120: 307.32
+- return_5d: -14.59
+- return_20d: -4.23
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: -2.22
+- distance_to_high_60_pct: -15.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,341.5,342.5,334,335.5,4320187,337,-0.45,337.38,325.38,0.65
-20260714,339,339,323.5,334,4898954,336.75,-0.82,336.98,326.26,0.76
-20260715,337,345.5,335,344,4886987,337.35,1.97,336.7,327.3,0.76
-20260716,342.5,342.5,335.5,337,5415663,337.32,-0.1,336.15,328.27,0.84
-20260717,330,332,323.5,325,8552370,336.3,-3.36,335.02,328.88,1.3
-20260720,328,336,317.5,331,7450480,335.86,-1.45,334.38,329.64,1.15
-20260721,331,341,330.5,341,4891236,336.29,1.4,334.45,330.74,0.8
-20260722,343,350,342.5,348,7898953,337.26,3.18,335.32,331.91,1.31
-20260723,350.5,354.5,344.5,354.5,7441425,338.7,4.67,336.1,333.07,1.23
-20260724,350.5,358,347,354.5,7613423,340.01,4.26,337.12,334.28,1.24
 20260727,355,355,338,349.5,6567620,340.81,2.55,338.62,335.57,1.1
 20260728,340,341,326,327,9088736,339.65,-3.73,338.73,336.47,1.47
 20260729,331,336,315.5,321.5,7550654,338.14,-4.92,337.6,337.18,1.26
@@ -173,26 +163,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,340,347,338,342,10360283,335.78,1.85,336.38,339.22,1.47
 20260806,342,348.5,339,344,7489755,336.46,2.24,336.82,339.6,1.05
 20260807,348.5,351,341,344,5232862,337.09,2.05,337.2,340.11,0.72
+20260810,345.5,352,343,349.5,6544561,338.13,3.36,337.9,340.48,0.89
+20260811,349.5,353,346.5,350.5,4100430,339.16,3.34,338.73,340.88,0.56
+20260812,352,381,352,375.5,17992451,342.19,9.74,340.3,341.63,2.26
+20260813,385.5,395,379.5,393.5,18530239,346.46,13.58,343.12,343.11,2.15
+20260814,390,402,386.5,397.5,14334527,350.71,13.34,346.75,344.7,1.61
+20260817,380,381.5,358,358,22954921,351.32,1.9,348.1,345.39,2.38
+20260818,359,362.5,346,348,13207722,351.04,-0.87,348.45,345.82,1.31
+20260819,343,352.5,339,348.5,6754187,350.83,-0.66,348.48,346.02,0.67
+20260820,354,355,342,344,5861465,350.26,-1.79,347.95,346.15,0.59
+20260821,342.5,344,338.5,339.5,3485613,349.37,-2.82,347.2,346.27,0.36
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 71.06
-- over_600_ratio: 68.52
-- over_800_ratio: 65.38
-- over_1000_ratio: 63.51
-- over_400_change_1w: 0.17
-- over_800_change_1w: -0.12
-- over_1000_change_1w: -0.25
-- tdcc_consecutive_up_weeks: 6
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260814
+- over_400_ratio: 73.31
+- over_600_ratio: 70.19
+- over_800_ratio: 67.19
+- over_1000_ratio: 65.32
+- over_400_change_1w: 2.25
+- over_800_change_1w: 1.81
+- over_1000_change_1w: 1.81
+- tdcc_consecutive_up_weeks: 7
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,69.87,-0.19,65.42,-0.37,63.5,-0.66,0,False,False
 20260529,69.93,0.06,65.56,0.14,63.54,0.04,1,True,True
 20260605,69.98,0.05,64.58,-0.98,62.76,-0.78,2,False,False
 20260612,69.82,-0.16,64.01,-0.57,62.64,-0.12,0,False,False
@@ -204,23 +203,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,70.7,1.1,65.13,1.12,63.14,0.85,4,True,True
 20260731,70.89,0.19,65.5,0.37,63.76,0.62,5,True,True
 20260807,71.06,0.17,65.38,-0.12,63.51,-0.25,6,False,False
+20260814,73.31,2.25,67.19,1.81,65.32,1.81,7,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2376 | 技嘉 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/13 2.契約或承諾相對人:兆豐國際商業銀行、第一商業銀行及國泰世華商業銀行 等聯合授信銀行團 3.與公司關係:無 4.契約或承諾起迄日期（或解除日期）:自首動日起算5年 5.主要內容（解除者不適用）:總額度新臺幣參佰伍拾億元整，於35%範圍內 以等比例增減本聯合授信總額度。 6.限制條款（解除者不適用）:依聯合授信合約辦理 7.承諾事項（解除者不適用）:依聯合授信合約辦理 8.其他重要約定事項（解除者不適用）:依聯合授信合約辦理 9.對公司財務、業務之影響:充實中期營運資金及償還金融負債 10.具體目的:充實中期營運資金及償還金融負債 11.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第8款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260717 | 2376 | 技嘉 | revenue_breakout_low_response | 營收爆發低反應股 | 12.0 | 34.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.事實發生日:115/07/13 2.契約或承諾相對人:兆豐國際商業銀行、第一商業銀行及國泰世華商業銀行 等聯合授信銀行團 3.與公司關係:無 4.契約或承諾起迄日期（或解除日期）:自首動日起算5年 5.主要內容（解除者不適用）:總額度新臺幣參佰伍拾億元整，於35%範圍內 以等比例增減本聯合授信總額度。 6.限制條款（解除者不適用）:依聯合授信合約辦理 7.承諾事項（解除者不適用）:依聯合授信合約辦理 8.其他重要約定事項（解除者不適用）:依聯合授信合約辦理 9.對公司財務、業務之影響:充實中期營運資金及償還金融負債 10.具體目的:充實中期營運資金及償還金融負債 11.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第8款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 2376 | 技嘉 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/13 2.契約或承諾相對人:兆豐國際商業銀行、第一商業銀行及國泰世華商業銀行 等聯合授信銀行團 3.與公司關係:無 4.契約或承諾起迄日期（或解除日期）:自首動日起算5年 5.主要內容（解除者不適用）:總額度新臺幣參佰伍拾億元整，於35%範圍內 以等比例增減本聯合授信總額度。 6.限制條款（解除者不適用）:依聯合授信合約辦理 7.承諾事項（解除者不適用）:依聯合授信合約辦理 8.其他重要約定事項（解除者不適用）:依聯合授信合約辦理 9.對公司財務、業務之影響:充實中期營運資金及償還金融負債 10.具體目的:充實中期營運資金及償還金融負債 11.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第8款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 2376 | 技嘉 | revenue_breakout_low_response | 營收爆發低反應股 | 17 | 22 | A_優先追蹤 |  |  | no_signal | stale_signal | 1.事實發生日:115/07/13 2.契約或承諾相對人:兆豐國際商業銀行、第一商業銀行及國泰世華商業銀行 等聯合授信銀行團 3.與公司關係:無 4.契約或承諾起迄日期（或解除日期）:自首動日起算5年 5.主要內容（解除者不適用）:總額度新臺幣參佰伍拾億元整，於35%範圍內 以等比例增減本聯合授信總額度。 6.限制條款（解除者不適用）:依聯合授信合約辦理 7.承諾事項（解除者不適用）:依聯合授信合約辦理 8.其他重要約定事項（解除者不適用）:依聯合授信合約辦理 9.對公司財務、業務之影響:充實中期營運資金及償還金融負債 10.具體目的:充實中期營運資金及償還金融負債 11.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第8款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2376 | 技嘉 | 6 | 2 | 5 | 6 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260821 | 2376 | 技嘉 | 10 | 6 | 5 | 10 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2376 | 技嘉 | 125 | 0 | 2509140.0 | 0.0 |  | no_signal |
+| 20260821 | 2376 | 技嘉 | 151 | 0 | 10844260.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

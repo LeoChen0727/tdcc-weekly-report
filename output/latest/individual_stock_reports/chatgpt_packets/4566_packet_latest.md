@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4566 時碩工業
 
 ## Metadata
-- generated_at: 2026-08-10 22:27:52 Asia/Taipei
+- generated_at: 2026-08-21 22:27:35 Asia/Taipei
 - stock_id: 4566
 - stock_name: 時碩工業
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -130,38 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 69.8
-- high: 76.3
-- low: 69.8
-- close: 76.3
-- volume: 9812354
-- ma5: 70.04
-- ema23_primary: 68.1
-- distance_to_ema23_pct: 12.04
-- ma20: 68.17
-- ma60: 65.53
-- ma120: 63.75
-- return_5d: 14.91
-- return_20d: 22.87
-- volume_ratio: 2.96
-- distance_to_ma20_pct_auxiliary: 11.93
-- distance_to_high_60_pct: 0
+- date: 20260821
+- open: 68.3
+- high: 68.6
+- low: 65.7
+- close: 67
+- volume: 1896821
+- ma5: 70.68
+- ema23_primary: 70.2
+- distance_to_ema23_pct: -4.56
+- ma20: 70.78
+- ma60: 67.17
+- ma120: 64.87
+- return_5d: -11.38
+- return_20d: -6.03
+- volume_ratio: 0.53
+- distance_to_ma20_pct_auxiliary: -5.34
+- distance_to_high_60_pct: -16.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,64.5,66,63.7,64.8,885720,64.18,0.96,63.81,65.42,1.07
-20260714,65.4,66.9,63.3,66.7,2487322,64.39,3.58,63.98,65.37,2.8
-20260715,67.7,68.6,66,67.2,3622479,64.63,3.98,64.13,65.32,3.47
-20260716,66.6,67.2,65.8,65.9,822745,64.73,1.8,64.27,65.27,0.79
-20260717,65,65.3,60.5,60.6,1225369,64.39,-5.88,64.14,65.12,1.13
-20260720,61.6,66.6,60.8,66.6,2343147,64.57,3.14,64.22,65,2
-20260721,71.6,72.7,68.1,69,6551386,64.94,6.25,64.39,65.01,4.46
-20260722,69.5,70.7,68.4,68.4,2888922,65.23,4.86,64.62,65.03,1.82
-20260723,68.4,71.7,68.4,69.4,3006200,65.58,5.83,64.92,65.13,1.76
-20260724,69.7,76.3,68.8,71.3,10700279,66.05,7.94,65.35,65.22,4.82
 20260727,70.6,73.8,68.3,73.3,3733466,66.66,9.96,66.06,65.37,1.59
 20260728,70.1,73.9,70,71.1,3692258,67.03,6.07,66.56,65.44,1.48
 20260729,71.1,72.6,67.5,69.7,3636147,67.25,3.64,66.88,65.4,1.38
@@ -172,26 +162,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,68.8,71.1,68.2,70.4,1899755,67.17,4.81,67.12,65.24,0.67
 20260806,70.4,70.7,68.2,69.4,1040093,67.36,3.03,67.46,65.3,0.37
 20260807,69.8,76.3,69.8,76.3,9812354,68.1,12.04,68.17,65.53,2.96
+20260810,79.9,80,74.2,74.8,11481637,68.66,8.94,68.67,65.72,2.99
+20260811,74.6,74.6,70,70.4,3980095,68.81,2.32,68.86,65.85,1.02
+20260812,70.8,72.9,70.6,72.4,2253999,69.1,4.77,69.11,66.03,0.59
+20260813,72.5,79.2,72.4,75.5,6482644,69.64,8.42,69.59,66.27,1.57
+20260814,77,77.7,74.2,75.6,4063448,70.13,7.79,70.34,66.52,0.95
+20260817,76.1,76.9,73.9,74.6,3030563,70.51,5.81,70.75,66.73,0.7
+20260818,75,75,73.2,73.5,1639604,70.76,3.88,70.97,66.91,0.4
+20260819,73,74.8,69.8,70,2583342,70.69,-0.98,71.05,67,0.64
+20260820,70.5,71.9,68,68.3,1833039,70.49,-3.11,71,67.08,0.46
+20260821,68.3,68.6,65.7,67,1896821,70.2,-4.56,70.78,67.17,0.53
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 55.45
-- over_600_ratio: 51.82
-- over_800_ratio: 49.13
-- over_1000_ratio: 48.3
-- over_400_change_1w: 0.52
-- over_800_change_1w: -0.1
-- over_1000_change_1w: -0.08
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260814
+- over_400_ratio: 58.16
+- over_600_ratio: 54.59
+- over_800_ratio: 51.41
+- over_1000_ratio: 49.77
+- over_400_change_1w: 2.71
+- over_800_change_1w: 2.28
+- over_1000_change_1w: 1.47
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,53.41,0.07,50.65,0.71,49.89,-0.05,2,False,True
 20260529,53.5,0.09,50.77,0.12,49.9,0.01,3,True,True
 20260605,52.2,-1.3,49.61,-1.16,47.82,-2.08,0,False,False
 20260612,52.26,0.06,50.39,0.78,48.74,0.92,1,True,True
@@ -203,17 +202,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,53.08,0.55,50.14,0.72,48.44,-0.09,1,False,True
 20260731,54.93,1.85,49.23,-0.91,48.38,-0.06,2,False,False
 20260807,55.45,0.52,49.13,-0.1,48.3,-0.08,3,False,False
+20260814,58.16,2.71,51.41,2.28,49.77,1.47,4,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 4566 | 時碩工業 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/20 1.召開法人說明會之日期：115/07/20 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：台北市建國北路一段96號13樓(台北廳) 4.法人說明會擇要訊息：本公司受邀參加台新證券舉辦之法人說明會，說明本公司2026年第一季營運成果。 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 4566 | 時碩工業 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  |  | stale_signal | 1.董事會決議日:115/08/10 2.許可從事競業行為之經理人姓名及職稱: (1)劉思儉 /台灣暨泰國廠區總經理 (2)葉金城 /技術處長 3.許可從事競業行為之項目: 擔任被投資公司「天陽航太科技股份有限公司」之法人董事之代表人職務。 4.許可從事競業行為之期間: 任職本公司經理人職務期間。 5.決議情形（請依公司法第32條說明表決結果）: 照案通過。 6.所許可之競業行為如屬大陸地區事業之營業者，經理人姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用。 7.所擔任該大陸地區事業之公司名稱及職務:不適用。 8.所擔任該大陸地區事業地址:不適用。 9.所擔任該大陸地區事業營業項目:不適用。 10.對本公司財務業務之影響程度: 為本公司合併報表之子公司。 11.經理人如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用。 12.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 4566 | 時碩工業 | 1 | 1 | 2 | 4 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260821 | 4566 | 時碩工業 | 5 | 3 | 5 | 6 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

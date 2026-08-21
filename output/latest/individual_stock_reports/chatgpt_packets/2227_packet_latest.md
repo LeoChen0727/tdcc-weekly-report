@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2227 裕日車
 
 ## Metadata
-- generated_at: 2026-08-10 22:26:48 Asia/Taipei
+- generated_at: 2026-08-21 22:26:53 Asia/Taipei
 - stock_id: 2227
 - stock_name: 裕日車
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 49.5
-- high: 49.5
-- low: 49.2
-- close: 49.4
-- volume: 14024
-- ma5: 49.79
-- ema23_primary: 49.96
-- distance_to_ema23_pct: -1.12
-- ma20: 50.08
-- ma60: 49.66
-- ma120: 51.02
-- return_5d: -1.59
-- return_20d: -1.1
-- volume_ratio: 0.28
-- distance_to_ma20_pct_auxiliary: -1.36
-- distance_to_high_60_pct: -4.08
+- date: 20260821
+- open: 48.9
+- high: 49.05
+- low: 48.4
+- close: 49.05
+- volume: 33377
+- ma5: 48.68
+- ema23_primary: 49.25
+- distance_to_ema23_pct: -0.4
+- ma20: 49.42
+- ma60: 49.62
+- ma120: 50.57
+- return_5d: 1.03
+- return_20d: -2.1
+- volume_ratio: 0.82
+- distance_to_ma20_pct_auxiliary: -0.76
+- distance_to_high_60_pct: -4.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,49.9,49.9,49.4,49.9,16552,49.66,0.47,49.62,50.84,0.48
-20260714,50.4,50.4,49.35,49.85,55241,49.68,0.34,49.62,50.75,1.57
-20260715,50.5,50.5,49.15,50.4,52126,49.74,1.33,49.61,50.66,1.5
-20260716,50.7,50.7,49,50.3,70865,49.79,1.03,49.6,50.57,1.99
-20260717,50.3,50.6,49.8,50.1,86996,49.81,0.58,49.62,50.48,2.23
-20260720,51.5,51.5,49.8,49.8,64127,49.81,-0.02,49.65,50.39,1.62
-20260721,50,50.2,49.45,50.2,23070,49.84,0.71,49.7,50.32,0.6
-20260722,50,50,49.55,49.55,21426,49.82,-0.54,49.69,50.23,0.57
-20260723,49.25,50.4,49.1,50.4,82655,49.87,1.07,49.72,50.19,2.03
-20260724,49.35,50.1,49.2,50.1,49299,49.89,0.43,49.75,50.12,1.16
 20260727,50.1,50.8,50,50.5,75596,49.94,1.12,49.84,50.06,1.74
 20260728,50.7,50.7,49.55,50.4,31534,49.98,0.85,49.92,50.01,0.72
 20260729,50.7,50.8,49.35,50.8,118807,50.05,1.51,49.98,49.98,2.45
@@ -168,10 +158,20 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,49.75,50,49.4,50,25130,50.06,-0.11,50.1,49.73,0.51
 20260806,49.25,49.5,49.15,49.5,36383,50.01,-1.02,50.11,49.68,0.72
 20260807,49.5,49.5,49.2,49.4,14024,49.96,-1.12,50.08,49.66,0.28
+20260810,49.2,49.75,49.05,49.05,47683,49.88,-1.67,50.04,49.65,0.92
+20260811,48.9,49.3,48.9,49,13330,49.81,-1.63,50,49.65,0.27
+20260812,48.75,49.2,48.75,48.85,21441,49.73,-1.77,49.92,49.65,0.44
+20260813,48.85,48.9,48.4,48.6,66920,49.64,-2.09,49.84,49.65,1.39
+20260814,48.55,48.6,48.5,48.55,33917,49.55,-2.01,49.76,49.65,0.75
+20260817,48.5,48.9,48.45,48.75,16510,49.48,-1.47,49.7,49.64,0.38
+20260818,48.35,48.5,48.35,48.4,29231,49.39,-2,49.62,49.63,0.68
+20260819,48.4,48.9,48.35,48.35,39366,49.3,-1.93,49.55,49.62,0.89
+20260820,48.4,48.9,48.35,48.85,32559,49.26,-0.84,49.48,49.61,0.78
+20260821,48.9,49.05,48.4,49.05,33377,49.25,-0.4,49.42,49.62,0.82
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
+- as_of_date: 20260814
 - over_400_ratio: 93.51
 - over_600_ratio: 93.51
 - over_800_ratio: 93.27
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,93.51,0,93.27,0,93.27,0,0,False,False
 20260529,93.51,0,93.27,0,93.27,0,0,False,False
 20260605,93.51,0,93.27,0,93.27,0,0,False,False
 20260612,93.51,0,93.27,0,93.27,0,0,False,False
@@ -199,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,93.51,0,93.27,0,93.27,0,0,False,False
 20260731,93.51,0,93.27,0,93.27,0,0,False,False
 20260807,93.51,0,93.27,0,93.27,0,0,False,False
+20260814,93.51,0,93.27,0,93.27,0,0,False,False
 ```
 
 ## Candidate Context

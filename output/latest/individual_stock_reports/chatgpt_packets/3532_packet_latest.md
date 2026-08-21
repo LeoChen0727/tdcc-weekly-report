@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3532 台勝科
 
 ## Metadata
-- generated_at: 2026-08-10 22:27:34 Asia/Taipei
+- generated_at: 2026-08-21 22:27:24 Asia/Taipei
 - stock_id: 3532
 - stock_name: 台勝科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 316
-- high: 316
-- low: 308
-- close: 312.5
-- volume: 308177
-- ma5: 300.3
-- ema23_primary: 351.2
-- distance_to_ema23_pct: -11.02
-- ma20: 382.1
-- ma60: 343.56
-- ma120: 252.8
-- return_5d: 15.1
-- return_20d: -26.21
-- volume_ratio: 0.04
-- distance_to_ma20_pct_auxiliary: -18.22
-- distance_to_high_60_pct: -43.39
+- date: 20260821
+- open: 350.5
+- high: 353
+- low: 337.5
+- close: 342.5
+- volume: 6281628
+- ma5: 355.9
+- ema23_primary: 345.02
+- distance_to_ema23_pct: -0.73
+- ma20: 321.88
+- ma60: 358.94
+- ma120: 269.1
+- return_5d: -3.79
+- return_20d: -9.75
+- volume_ratio: 0.9
+- distance_to_ma20_pct_auxiliary: 6.41
+- distance_to_high_60_pct: -37.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,465.5,465.5,465.5,465.5,1362260,375.21,24.06,385.98,290.58,0.3
-20260714,459,510,430.5,510,19185008,386.45,31.97,395.15,295.85,3.88
-20260715,535,552,506,523,15236731,397.83,31.46,403.35,301.43,2.75
-20260716,504,519,471,471,7815331,403.92,16.61,407.18,306.18,1.35
-20260717,424,470,424,424,9795006,405.6,4.54,408.6,310.2,1.77
-20260720,434,466,401,466,12923121,410.63,13.48,412.4,314.85,2.22
-20260721,470,470,432,433.5,18628212,412.54,5.08,415.15,319.22,2.78
-20260722,446.5,476.5,440.5,468,14308280,417.16,12.19,419.9,324.14,1.94
-20260723,472,499,421.5,421.5,14814207,417.52,0.95,422.73,328.13,1.83
-20260724,405,410,379.5,379.5,7975692,414.35,-8.41,423.1,331.49,0.94
 20260727,372,380.5,357.5,379.5,6707709,411.45,-7.76,425.27,334.79,0.77
 20260728,350,355.5,342,342,3830521,405.66,-15.69,425.82,337.34,0.43
 20260729,337,339.5,308,308,2899952,397.52,-22.52,423.02,339.02,0.32
@@ -167,26 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,310,319,300,316.5,1134407,358.24,-11.65,392.32,341.6,0.14
 20260806,301,316.5,300,316,938940,354.72,-10.92,387.65,342.46,0.12
 20260807,316,316,308,312.5,308177,351.2,-11.02,382.1,343.56,0.04
+20260810,310,312.5,281.5,283,8467248,345.52,-18.09,372.98,344.18,1.08
+20260811,282.5,290.5,265.5,284,7775673,340.39,-16.57,361.68,345.22,1.07
+20260812,289,312,286.5,312,5998580,338.03,-7.7,351.12,346.73,0.88
+20260813,334.5,343,320.5,343,5508061,338.44,1.35,344.73,349.07,0.82
+20260814,343,358,330,356,15489054,339.9,4.74,341.32,351.58,2.22
+20260817,346,387.5,342,371.5,15693543,342.54,8.46,336.6,354.01,2.2
+20260818,360,402.5,360,369,19319356,344.74,7.04,333.38,356.02,2.7
+20260819,354,369.5,344.5,356.5,7431947,345.72,3.12,327.8,357.41,1.09
+20260820,365,368,331.5,340,19359214,345.25,-1.52,323.73,358.07,2.75
+20260821,350.5,353,337.5,342.5,6281628,345.02,-0.73,321.88,358.94,0.9
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 89.56
-- over_600_ratio: 88.28
-- over_800_ratio: 87.9
-- over_1000_ratio: 87.19
-- over_400_change_1w: -0.54
-- over_800_change_1w: 0.01
-- over_1000_change_1w: 0.03
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: False
+- as_of_date: 20260814
+- over_400_ratio: 89.99
+- over_600_ratio: 89.11
+- over_800_ratio: 88.21
+- over_1000_ratio: 87.27
+- over_400_change_1w: 0.43
+- over_800_change_1w: 0.31
+- over_1000_change_1w: 0.08
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,90.71,-0.04,88.62,-0.17,88.11,-0.19,3,False,False
 20260529,91.31,0.6,89.18,0.56,88.23,0.12,4,True,True
 20260605,91.26,-0.05,89.18,0,88.47,0.24,5,False,True
 20260612,91.36,0.1,88.95,-0.23,87.98,-0.49,6,False,False
@@ -198,23 +198,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,90.01,-0.97,87.73,-0.54,86.74,-0.38,0,False,False
 20260731,90.1,0.09,87.89,0.16,87.16,0.42,1,False,True
 20260807,89.56,-0.54,87.9,0.01,87.19,0.03,2,False,True
+20260814,89.99,0.43,88.21,0.31,87.27,0.08,3,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 3532 | 台勝科 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | repeated_but_no_breakout | 1.事實發生日:115/06/17 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理 3.財務業務資訊:(IFRS合併) 單位:新台幣佰萬元     最近一月          與去年同期 科目                   (115年5月自結數)        增減% ----------------------------------------------------- 營業收入                     1,218               +24.43% 稅前淨利                       -26               +81.56% 歸屬母公司業主淨利             -26               +81.56% 每股盈餘(元)                 -0.07               +81.56%  單位:新台幣佰萬元     最近一季          與去年同期                          (115年第1季核閱數)        增減% 科目 ----------------------------------------------------- 營業收入                     3,309              +10.87% 稅前淨利                       -82              -127.43% 歸屬母公司業主淨利             -68              -128.61% 每股盈餘(元)                 -0.18              -128.61%  科目             最近四季累計(114年第2季至115年第1季查核數) ----------------------------------------------------- 營業收入(百萬)            12,659 稅前淨利(百萬)               397 歸屬母公司業主淨利           308 每股盈餘(元)                0.79 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
-| 20260717 | 3532 | 台勝科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | repeated_but_no_breakout | 1.事實發生日:115/06/17 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理 3.財務業務資訊:(IFRS合併) 單位:新台幣佰萬元     最近一月          與去年同期 科目                   (115年5月自結數)        增減% ----------------------------------------------------- 營業收入                     1,218               +24.43% 稅前淨利                       -26               +81.56% 歸屬母公司業主淨利             -26               +81.56% 每股盈餘(元)                 -0.07               +81.56%  單位:新台幣佰萬元     最近一季          與去年同期                          (115年第1季核閱數)        增減% 科目 ----------------------------------------------------- 營業收入                     3,309              +10.87% 稅前淨利                       -82              -127.43% 歸屬母公司業主淨利             -68              -128.61% 每股盈餘(元)                 -0.18              -128.61%  科目             最近四季累計(114年第2季至115年第1季查核數) ----------------------------------------------------- 營業收入(百萬)            12,659 稅前淨利(百萬)               397 歸屬母公司業主淨利           308 每股盈餘(元)                0.79 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 3532 | 台勝科 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會召集通知日:115/07/27 2.董事會預計召開日期:115/08/04 3.預計提報董事會或經董事會決議之財務報告或 年度自結財務資訊年季:115年第2季 4.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| 20260821 | 3532 | 台勝科 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  | no_signal | stale_signal | 1.董事會召集通知日:115/07/27 2.董事會預計召開日期:115/08/04 3.預計提報董事會或經董事會決議之財務報告或 年度自結財務資訊年季:115年第2季 4.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 3532 | 台勝科 | 1 | 1 | 3 | 5 | 7 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 7 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260821 | 3532 | 台勝科 | 2 | 2 | 3 | 6 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 3532 | 台勝科 | 44 | 0 | 2634630.0 | 0.0 |  | call_inflow |
+| 20260821 | 3532 | 台勝科 | 30 | 0 | 756790.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

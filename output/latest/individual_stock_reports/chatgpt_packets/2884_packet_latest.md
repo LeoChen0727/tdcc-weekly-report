@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2884 玉山金
 
 ## Metadata
-- generated_at: 2026-08-10 22:27:12 Asia/Taipei
+- generated_at: 2026-08-21 22:27:09 Asia/Taipei
 - stock_id: 2884
 - stock_name: 玉山金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 320
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 337
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 回檔後短線轉強
+- model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -125,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 37.8
-- high: 38.3
-- low: 37.8
-- close: 38.15
-- volume: 17374284
-- ma5: 38.13
-- ema23_primary: 36.59
-- distance_to_ema23_pct: 4.26
-- ma20: 36.51
-- ma60: 34.41
-- ma120: 33.62
-- return_5d: -1.29
-- return_20d: 9.78
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: 4.5
-- distance_to_high_60_pct: -2.43
+- date: 20260821
+- open: 37.35
+- high: 38
+- low: 37.15
+- close: 38
+- volume: 21544456
+- ma5: 37.8
+- ema23_primary: 37.17
+- distance_to_ema23_pct: 2.22
+- ma20: 37.58
+- ma60: 35.41
+- ma120: 33.89
+- return_5d: 0.93
+- return_20d: 5.7
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: 1.12
+- distance_to_high_60_pct: -2.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,34.75,34.9,34.45,34.6,32021145,34.2,1.16,34.7,33.05,0.55
-20260714,34.8,34.8,33.95,34.5,67002294,34.23,0.79,34.71,33.08,1.14
-20260715,34.55,35,34.3,34.45,33554186,34.25,0.59,34.7,33.1,0.57
-20260716,34.4,34.95,34.4,34.9,36060832,34.3,1.74,34.68,33.14,0.63
-20260717,34.6,35.5,34.5,35.1,97753866,34.37,2.13,34.66,33.17,1.65
-20260720,35.3,36,35.1,35.85,80234731,34.49,3.94,34.69,33.22,1.38
-20260721,35.85,37.2,35.85,36.95,66290064,34.7,6.49,34.74,33.3,1.18
-20260722,36.75,37.2,36.05,36.05,35080404,34.81,3.56,34.76,33.35,0.64
-20260723,36.3,36.3,35.4,35.65,26137234,34.88,2.21,34.79,33.41,0.49
-20260724,35.05,36,35.05,35.95,28893377,34.97,2.81,34.81,33.47,0.57
 20260727,36.35,36.4,35.9,36.4,29576144,35.09,3.74,34.91,33.53,0.59
 20260728,36.4,36.45,36,36.25,32331292,35.18,3.03,34.99,33.6,0.66
 20260729,36.4,36.9,35.85,36.5,76803920,35.29,3.42,35.09,33.69,1.54
@@ -167,26 +157,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,38.1,38.35,37.6,38.1,35004151,36.31,4.92,36.18,34.2,0.72
 20260806,37.7,38.25,37.7,37.95,22686599,36.45,4.12,36.34,34.3,0.48
 20260807,37.8,38.3,37.8,38.15,17374284,36.59,4.26,36.51,34.41,0.38
+20260810,38.15,38.2,37.25,37.8,26421693,36.69,3.02,36.67,34.51,0.58
+20260811,37.2,37.5,36.65,36.9,37302819,36.71,0.52,36.79,34.59,0.84
+20260812,37.2,37.25,36.3,36.75,28134028,36.71,0.1,36.9,34.67,0.64
+20260813,37,37.3,36.35,37.3,41220940,36.76,1.46,37.02,34.76,0.93
+20260814,37.45,38.2,36.95,37.65,54934800,36.84,2.21,37.15,34.86,1.3
+20260817,37.3,37.9,36.65,37.75,56021095,36.91,2.27,37.24,34.97,1.37
+20260818,38,38.4,37.5,38.1,46641520,37.01,2.94,37.3,35.08,1.17
+20260819,38.3,38.5,37.75,37.8,103424075,37.08,1.95,37.39,35.19,2.38
+20260820,37.75,37.9,37.05,37.35,31116788,37.1,0.68,37.48,35.3,0.71
+20260821,37.35,38,37.15,38,21544456,37.17,2.22,37.58,35.41,0.5
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 73.49
-- over_600_ratio: 71.58
-- over_800_ratio: 70.2
-- over_1000_ratio: 69.11
-- over_400_change_1w: 0.17
-- over_800_change_1w: 0.15
-- over_1000_change_1w: 0.16
-- tdcc_consecutive_up_weeks: 5
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260814
+- over_400_ratio: 73.41
+- over_600_ratio: 71.51
+- over_800_ratio: 70.15
+- over_1000_ratio: 69.05
+- over_400_change_1w: -0.08
+- over_800_change_1w: -0.05
+- over_1000_change_1w: -0.06
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,71,-0.02,67.63,-0.01,66.54,0.02,2,False,True
 20260529,70.67,-0.33,67.27,-0.36,66.17,-0.37,0,False,False
 20260605,71.29,0.62,67.9,0.63,66.8,0.63,1,True,True
 20260612,71.76,0.47,68.42,0.52,67.33,0.53,2,True,True
@@ -198,24 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,73.08,0.42,69.76,0.41,68.66,0.43,3,True,True
 20260731,73.32,0.24,70.05,0.29,68.95,0.29,4,True,True
 20260807,73.49,0.17,70.2,0.15,69.11,0.16,5,True,True
+20260814,73.41,-0.08,70.15,-0.05,69.05,-0.06,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2884 | 玉山金 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/13 2.公司名稱:玉山金融控股公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: (1)本公司擬以股份轉換方式取得三商美邦人壽保險股份有限公司(以下簡稱 三商美邦人壽)100%股權，雙方業已分別於115年1月23日召開股東臨時會通過此收購案 及股份轉換契約，並業經金融監督管理委員會115年7月7日金管保壽字第1150492633號函 核准及公平交易委員會115年4月8日公服字第1151260129號函決議不禁止結合在案。 (2)本案收購對價由本公司以三商美邦人壽每1股普通股換發本公司0.2596股普通股 之比例，經本公司董事會及三商美邦人壽董事長共同訂定股份轉換基準日 為115年9月1日。 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
-| 20260717 | 2884 | 玉山金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/13 2.公司名稱:玉山金融控股公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: (1)本公司擬以股份轉換方式取得三商美邦人壽保險股份有限公司(以下簡稱 三商美邦人壽)100%股權，雙方業已分別於115年1月23日召開股東臨時會通過此收購案 及股份轉換契約，並業經金融監督管理委員會115年7月7日金管保壽字第1150492633號函 核准及公平交易委員會115年4月8日公服字第1151260129號函決議不禁止結合在案。 (2)本案收購對價由本公司以三商美邦人壽每1股普通股換發本公司0.2596股普通股 之比例，經本公司董事會及三商美邦人壽董事長共同訂定股份轉換基準日 為115年9月1日。 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
-| 20260717 | 2884 | 玉山金 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | 1.事實發生日:115/07/13 2.公司名稱:玉山金融控股公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: (1)本公司擬以股份轉換方式取得三商美邦人壽保險股份有限公司(以下簡稱 三商美邦人壽)100%股權，雙方業已分別於115年1月23日召開股東臨時會通過此收購案 及股份轉換契約，並業經金融監督管理委員會115年7月7日金管保壽字第1150492633號函 核准及公平交易委員會115年4月8日公服字第1151260129號函決議不禁止結合在案。 (2)本案收購對價由本公司以三商美邦人壽每1股普通股換發本公司0.2596股普通股 之比例，經本公司董事會及三商美邦人壽董事長共同訂定股份轉換基準日 為115年9月1日。 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
+| 20260821 | 2884 | 玉山金 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.事實發生日:115/07/13 2.公司名稱:玉山金融控股公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: (1)本公司擬以股份轉換方式取得三商美邦人壽保險股份有限公司(以下簡稱 三商美邦人壽)100%股權，雙方業已分別於115年1月23日召開股東臨時會通過此收購案 及股份轉換契約，並業經金融監督管理委員會115年7月7日金管保壽字第1150492633號函 核准及公平交易委員會115年4月8日公服字第1151260129號函決議不禁止結合在案。 (2)本案收購對價由本公司以三商美邦人壽每1股普通股換發本公司0.2596股普通股 之比例，經本公司董事會及三商美邦人壽董事長共同訂定股份轉換基準日 為115年9月1日。 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2884 | 玉山金 | 2 | 2 | 4 | 9 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260821 | 2884 | 玉山金 | 1 | 1 | 4 | 8 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2884 | 玉山金 | 12 | 0 | 1304560.0 | 0.0 |  | no_signal |
+| 20260821 | 2884 | 玉山金 | 14 | 0 | 921180.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

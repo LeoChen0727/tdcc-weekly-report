@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3715 定穎投控
 
 ## Metadata
-- generated_at: 2026-08-10 22:27:42 Asia/Taipei
+- generated_at: 2026-08-21 22:27:28 Asia/Taipei
 - stock_id: 3715
 - stock_name: 定穎投控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 營收成長股價回檔
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 116
-- high: 117.5
-- low: 113
-- close: 114.5
-- volume: 5593699
-- ma5: 109.9
-- ema23_primary: 122.53
-- distance_to_ema23_pct: -6.55
-- ma20: 117.54
-- ma60: 153.56
-- ma120: 162.36
-- return_5d: 14.61
-- return_20d: -24.17
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: -2.59
-- distance_to_high_60_pct: -41.73
+- date: 20260821
+- open: 109.5
+- high: 109.5
+- low: 107
+- close: 107
+- volume: 1813015
+- ma5: 109.8
+- ema23_primary: 117.22
+- distance_to_ema23_pct: -8.72
+- ma20: 110.22
+- ma60: 143.77
+- ma120: 159.64
+- return_5d: -7.76
+- return_20d: -8.15
+- volume_ratio: 0.3
+- distance_to_ma20_pct_auxiliary: -2.92
+- distance_to_high_60_pct: -45.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,153,154.5,143.5,144,7377863,166.55,-13.54,169.47,175.04,0.74
-20260714,144,147,133.5,141,8961148,164.42,-14.24,168.2,174.28,0.89
-20260715,143,147,141.5,142.5,4552766,162.59,-12.36,166.88,173.36,0.45
-20260716,140.5,140.5,136.5,137,3297393,160.46,-14.62,165.18,172.47,0.33
-20260717,132.5,133,123.5,123.5,11026800,157.38,-21.53,162.55,171.32,1.09
-20260720,125,125,115.5,119.5,6644396,154.22,-22.51,159.57,170.17,0.67
-20260721,122,123.5,119.5,122.5,4526169,151.58,-19.18,155.97,169.22,0.56
-20260722,126,129.5,124.5,125.5,4798976,149.4,-16,153.25,168.27,0.65
-20260723,129,130,120,122.5,4364038,147.16,-16.76,150.4,167.35,0.61
-20260724,119.5,121,116,116.5,5114352,144.61,-19.44,147.38,166.31,0.73
 20260727,116.5,116.5,109.5,114,4970547,142.06,-19.75,144.65,165.25,0.73
 20260728,110,110,103.5,104,5475074,138.89,-25.12,141.55,164.08,0.8
 20260729,106,106,93.6,98,10588104,135.48,-27.66,137.65,162.73,1.5
@@ -168,26 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,107,113,105.5,109.5,7350549,123.87,-11.6,121.11,155.66,1.13
 20260806,109.5,120,106,116.5,9057965,123.26,-5.48,119.36,154.59,1.41
 20260807,116,117.5,113,114.5,5593699,122.53,-6.55,117.54,153.56,0.88
+20260810,119,125.5,118.5,125.5,4961217,122.78,2.22,116.61,152.63,0.8
+20260811,124.5,129,122,122,12494182,122.71,-0.58,115.67,151.75,1.96
+20260812,118.5,119.5,117,118,7082626,122.32,-3.53,114.44,150.87,1.09
+20260813,119,122,117.5,117.5,6303302,121.92,-3.62,113.47,150.08,0.95
+20260814,118,119,115,116,4353421,121.42,-4.47,113.09,149.33,0.69
+20260817,114.5,116,111,115,6106615,120.89,-4.87,112.86,148.51,0.97
+20260818,115,115,110,110,3518394,119.98,-8.32,112.24,147.44,0.56
+20260819,107,112.5,106,107.5,4364586,118.94,-9.62,111.34,146.25,0.7
+20260820,109.5,110.5,107,109.5,1972458,118.15,-7.32,110.69,144.97,0.32
+20260821,109.5,109.5,107,107,1813015,117.22,-8.72,110.22,143.77,0.3
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 29.59
-- over_600_ratio: 26.95
-- over_800_ratio: 24.54
-- over_1000_ratio: 22.01
-- over_400_change_1w: -0.16
-- over_800_change_1w: 0.2
-- over_1000_change_1w: 0.54
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260814
+- over_400_ratio: 29.21
+- over_600_ratio: 26.11
+- over_800_ratio: 22.91
+- over_1000_ratio: 20.7
+- over_400_change_1w: -0.38
+- over_800_change_1w: -1.63
+- over_1000_change_1w: -1.31
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,32.25,-3.19,27.48,-1.61,25.92,-1.9,0,False,False
 20260529,33.91,1.66,28.6,1.12,26.17,0.25,1,True,True
 20260605,32.13,-1.78,26.2,-2.4,23.99,-2.18,0,False,False
 20260612,32.19,0.06,27.09,0.89,25.17,1.18,1,True,True
@@ -199,22 +198,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,29.38,-0.52,24.26,0.22,21.11,-0.68,1,False,True
 20260731,29.75,0.37,24.34,0.08,21.47,0.36,2,False,True
 20260807,29.59,-0.16,24.54,0.2,22.01,0.54,3,False,True
+20260814,29.21,-0.38,22.91,-1.63,20.7,-1.31,0,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 3715 | 定穎投控 | revenue_pullback | 營收成長股價回檔 | 64.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/08/19 2.公司名稱:定穎電子(昆山)有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:間接持股86.0989% 5.發生緣由:代子公司更正115年5-7月衍生性商品交易資訊 6.更正資訊項目/報表名稱:115年5-7月衍生性商品交易資訊 7.更正前金額/內容/頁次: 115年5月遠期契約，未沖銷契約公允價值:93,342仟元 115年6月遠期契約，未沖銷契約公允價值:189,540仟元 115年7月遠期契約，未沖銷契約公允價值:192,513仟元 8.更正後金額/內容/頁次: 115年5月遠期契約，未沖銷契約公允價值:46仟元 115年6月遠期契約，未沖銷契約公允價值:-831仟元 115年7月遠期契約，未沖銷契約公允價值:-43仟元 9.因應措施:更正後內容上傳公開資訊觀測站 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 3715 | 定穎投控 | revenue_breakout_low_response | 營收爆發低反應股 | 12 | 48 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.事實發生日:115/08/19 2.公司名稱:定穎電子(昆山)有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:間接持股86.0989% 5.發生緣由:代子公司更正115年5-7月衍生性商品交易資訊 6.更正資訊項目/報表名稱:115年5-7月衍生性商品交易資訊 7.更正前金額/內容/頁次: 115年5月遠期契約，未沖銷契約公允價值:93,342仟元 115年6月遠期契約，未沖銷契約公允價值:189,540仟元 115年7月遠期契約，未沖銷契約公允價值:192,513仟元 8.更正後金額/內容/頁次: 115年5月遠期契約，未沖銷契約公允價值:46仟元 115年6月遠期契約，未沖銷契約公允價值:-831仟元 115年7月遠期契約，未沖銷契約公允價值:-43仟元 9.因應措施:更正後內容上傳公開資訊觀測站 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 3715 | 定穎投控 | 4 | 4 | 4 | 4 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 3715 | 定穎投控 | 224 | 8 | 5011670.0 | 1803650.0 | 2.78 | put_inflow |
+| 20260821 | 3715 | 定穎投控 | 218 | 6 | 1338030.0 | 62540.0 | 21.39 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

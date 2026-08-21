@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2633 台灣高鐵
 
 ## Metadata
-- generated_at: 2026-08-10 22:27:06 Asia/Taipei
+- generated_at: 2026-08-21 22:27:05 Asia/Taipei
 - stock_id: 2633
 - stock_name: 台灣高鐵
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 25.85
-- high: 25.95
-- low: 25.8
-- close: 25.8
-- volume: 2779533
-- ma5: 25.83
-- ema23_primary: 26
-- distance_to_ema23_pct: -0.76
-- ma20: 25.98
-- ma60: 25.88
-- ma120: 26.24
-- return_5d: -0.96
-- return_20d: -3.37
-- volume_ratio: 0.43
-- distance_to_ma20_pct_auxiliary: -0.67
-- distance_to_high_60_pct: -4.09
+- date: 20260821
+- open: 25.95
+- high: 26.2
+- low: 25.95
+- close: 26.15
+- volume: 2955102
+- ma5: 25.99
+- ema23_primary: 25.96
+- distance_to_ema23_pct: 0.71
+- ma20: 25.94
+- ma60: 25.93
+- ma120: 26.14
+- return_5d: 0.97
+- return_20d: 0.38
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: 0.81
+- distance_to_high_60_pct: -2.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,26.75,26.85,26.4,26.45,14795672,26.24,0.79,26.24,26.07,1.22
-20260714,25.55,25.6,25.2,25.5,18826250,26.18,-2.6,26.25,26.05,1.47
-20260715,25.5,26.05,25.45,25.95,6953738,26.16,-0.81,26.27,26.03,0.54
-20260716,25.95,26.15,25.9,26.15,3917594,26.16,-0.04,26.27,26.02,0.32
-20260717,26,26.25,25.8,25.95,6460053,26.14,-0.74,26.25,26.01,0.55
-20260720,26.3,26.35,25.8,25.85,4152046,26.12,-1.03,26.24,26,0.38
-20260721,25.9,26.25,25.85,26.1,4014093,26.12,-0.07,26.25,25.99,0.39
-20260722,26,26.15,25.8,25.95,4689446,26.1,-0.59,26.26,25.98,0.48
-20260723,26.1,26.1,25.85,25.95,3825936,26.09,-0.54,26.26,25.97,0.43
-20260724,25.85,26.15,25.85,26.05,5492846,26.09,-0.14,26.25,25.97,0.67
 20260727,26,26.15,25.95,26.05,2794054,26.08,-0.13,26.25,25.96,0.37
 20260728,25.9,26.1,25.85,26,3245887,26.08,-0.29,26.22,25.95,0.46
 20260729,26.1,26.25,25.7,26.05,8524323,26.07,-0.09,26.2,25.94,1.27
@@ -168,26 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,25.7,25.9,25.7,25.9,4630895,26.03,-0.52,26.06,25.9,0.71
 20260806,25.7,25.85,25.7,25.8,4266103,26.02,-0.83,26.02,25.89,0.65
 20260807,25.85,25.95,25.8,25.8,2779533,26,-0.76,25.98,25.88,0.43
+20260810,26,26,25.65,25.9,4578860,25.99,-0.34,25.95,25.88,0.78
+20260811,25.75,25.9,25.6,25.7,7019165,25.97,-1.02,25.96,25.88,1.32
+20260812,25.8,25.85,25.75,25.8,3217083,25.95,-0.58,25.95,25.88,0.63
+20260813,25.85,25.95,25.7,25.95,5018567,25.95,-0,25.94,25.88,0.97
+20260814,25.95,25.95,25.8,25.9,4165356,25.95,-0.18,25.94,25.88,0.82
+20260817,26,26.2,25.95,26,5473793,25.95,0.19,25.95,25.88,1.07
+20260818,25.95,26.1,25.9,25.9,2960816,25.95,-0.18,25.93,25.89,0.58
+20260819,25.9,26.1,25.8,25.9,2699100,25.94,-0.17,25.93,25.9,0.54
+20260820,25.9,26.15,25.9,26,2572033,25.95,0.2,25.93,25.91,0.52
+20260821,25.95,26.2,25.95,26.15,2955102,25.96,0.71,25.94,25.93,0.62
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 86.71
-- over_600_ratio: 85.96
+- as_of_date: 20260814
+- over_400_ratio: 86.74
+- over_600_ratio: 85.98
 - over_800_ratio: 85.46
 - over_1000_ratio: 84.98
-- over_400_change_1w: 0
-- over_800_change_1w: 0.03
-- over_1000_change_1w: 0.05
-- tdcc_consecutive_up_weeks: 6
+- over_400_change_1w: 0.03
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 7
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,86.81,-0.08,85.35,-0.04,84.74,-0.1,0,False,False
 20260529,86.33,-0.48,84.81,-0.54,84.28,-0.46,0,False,False
 20260605,86.19,-0.14,84.8,-0.01,84.27,-0.01,0,False,False
 20260612,86.19,0,84.79,-0.01,84.28,0.01,1,False,True
@@ -199,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,86.5,0.09,85.17,0.09,84.67,0.09,4,True,True
 20260731,86.71,0.21,85.43,0.26,84.93,0.26,5,True,True
 20260807,86.71,0,85.46,0.03,84.98,0.05,6,False,True
+20260814,86.74,0.03,85.46,0,84.98,0,7,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 2633 | 台灣高鐵 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/24 1.召開法人說明會之日期：115/06/24 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：線上法人說明會 4.法人說明會擇要訊息：115年第一季公司營運狀況說明 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 2633 | 台灣高鐵 | 2 | 2 | 2 | 3 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2633 | 台灣高鐵 | 2 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260821 | 2633 | 台灣高鐵 | 3 | 0 | 39440.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

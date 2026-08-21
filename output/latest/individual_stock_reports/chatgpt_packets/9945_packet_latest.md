@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9945 潤泰新
 
 ## Metadata
-- generated_at: 2026-08-10 22:29:22 Asia/Taipei
+- generated_at: 2026-08-21 22:28:32 Asia/Taipei
 - stock_id: 9945
 - stock_name: 潤泰新
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
+- model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -101,7 +101,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -125,38 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 26.4
-- high: 26.95
-- low: 26.4
-- close: 26.75
-- volume: 5745157
-- ma5: 26.63
-- ema23_primary: 26.41
-- distance_to_ema23_pct: 1.3
-- ma20: 26.39
-- ma60: 25.65
-- ma120: 25.88
-- return_5d: -1.11
-- return_20d: 3.48
-- volume_ratio: 0.9
-- distance_to_ma20_pct_auxiliary: 1.35
-- distance_to_high_60_pct: -4.12
+- date: 20260821
+- open: 29.95
+- high: 30.05
+- low: 29.3
+- close: 29.4
+- volume: 8692959
+- ma5: 29.79
+- ema23_primary: 27.9
+- distance_to_ema23_pct: 5.36
+- ma20: 27.63
+- ma60: 26.54
+- ma120: 25.84
+- return_5d: -1.34
+- return_20d: 12.64
+- volume_ratio: 0.97
+- distance_to_ma20_pct_auxiliary: 6.4
+- distance_to_high_60_pct: -4.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,25.85,26,25.3,25.4,5728891,26.01,-2.36,26.58,24.86,0.52
-20260714,25.75,25.85,25.2,25.85,6240164,26,-0.57,26.53,24.87,0.59
-20260715,25.85,26.45,25.75,26.4,5715956,26.03,1.41,26.5,24.9,0.57
-20260716,26.35,26.95,26.35,26.85,6726953,26.1,2.87,26.5,24.93,0.69
-20260717,26.7,26.9,26,26.25,7713371,26.11,0.52,26.46,24.96,0.8
-20260720,26.7,26.9,26.2,26.4,5071157,26.14,1.01,26.41,24.99,0.57
-20260721,26.4,27.05,26.4,26.65,6298075,26.18,1.8,26.4,25.03,0.73
-20260722,26.55,26.95,26.35,26.4,6777179,26.2,0.77,26.37,25.06,0.78
-20260723,26.5,26.5,26.05,26.25,3433645,26.2,0.18,26.35,25.11,0.41
-20260724,26,26.45,25.9,26.1,4547178,26.19,-0.36,26.31,25.14,0.55
 20260727,26.35,26.35,25.95,26.35,4179188,26.21,0.55,26.3,25.18,0.52
 20260728,26.05,26.2,25.85,26,4955224,26.19,-0.72,26.25,25.22,0.63
 20260729,26.2,26.4,25.55,26.05,9749702,26.18,-0.49,26.21,25.27,1.21
@@ -167,26 +156,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,26.7,26.75,26.4,26.4,5984261,26.38,0.09,26.3,25.54,0.93
 20260806,26.2,26.55,26.2,26.35,3770115,26.37,-0.09,26.35,25.59,0.59
 20260807,26.4,26.95,26.4,26.75,5745157,26.41,1.3,26.39,25.65,0.9
+20260810,26.9,27.25,26.75,27.25,5198981,26.48,2.92,26.48,25.72,0.82
+20260811,27,27.15,26.75,27.05,4883574,26.52,1.98,26.55,25.78,0.78
+20260812,27.05,27.35,27,27.2,5348758,26.58,2.33,26.59,25.84,0.85
+20260813,27.4,27.4,26.8,27.1,4302328,26.62,1.79,26.6,25.89,0.7
+20260814,28.1,29.8,28.05,29.8,37276643,26.89,10.83,26.77,26,4.88
+20260817,30.1,30.85,29.8,30.2,20253757,27.16,11.17,26.96,26.11,2.41
+20260818,30.2,30.2,29.6,29.7,11027127,27.38,8.49,27.12,26.22,1.28
+20260819,29.5,29.95,29.35,29.8,7505342,27.58,8.06,27.29,26.34,0.87
+20260820,29.95,30.2,29.7,29.85,4993004,27.77,7.5,27.47,26.44,0.57
+20260821,29.95,30.05,29.3,29.4,8692959,27.9,5.36,27.63,26.54,0.97
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 65.43
-- over_600_ratio: 63.29
-- over_800_ratio: 61.96
-- over_1000_ratio: 61.3
-- over_400_change_1w: 0.13
-- over_800_change_1w: -0.01
-- over_1000_change_1w: 0.15
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: False
+- as_of_date: 20260814
+- over_400_ratio: 65.6
+- over_600_ratio: 63.44
+- over_800_ratio: 62.18
+- over_1000_ratio: 61.5
+- over_400_change_1w: 0.17
+- over_800_change_1w: 0.22
+- over_1000_change_1w: 0.2
+- tdcc_consecutive_up_weeks: 5
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,64.48,-0.13,61.34,-0.19,60.59,-0.19,0,False,False
 20260529,64.47,-0.01,61.25,-0.09,60.52,-0.07,1,False,False
 20260605,64.71,0.24,61.49,0.24,60.89,0.37,2,True,True
 20260612,64.82,0.11,61.51,0.02,60.97,0.08,3,True,True
@@ -198,22 +196,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,64.96,0.12,61.63,0.25,60.85,0.06,2,True,True
 20260731,65.3,0.34,61.97,0.34,61.15,0.3,3,True,True
 20260807,65.43,0.13,61.96,-0.01,61.3,0.15,4,False,True
+20260814,65.6,0.17,62.18,0.22,61.5,0.2,5,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 9945 | 潤泰新 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/02 1.召開法人說明會之日期：115/07/02 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：臺灣證券交易所1樓資訊展示中心(台北市信義路五段7號) 4.法人說明會擇要訊息：說明本公司近期之營運成果與未來展望 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 9945 | 潤泰新 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/02 1.召開法人說明會之日期：115/07/02 2.召開法人說明會之時間：14 時 30 分 3.召開法人說明會之地點：臺灣證券交易所1樓資訊展示中心(台北市信義路五段7號) 4.法人說明會擇要訊息：說明本公司近期之營運成果與未來展望 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 9945 | 潤泰新 | 2 | 2 | 4 | 8 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260821 | 9945 | 潤泰新 | 6 | 4 | 5 | 8 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 9945 | 潤泰新 | 11 | 0 | 782980.0 | 0.0 |  | no_signal |
+| 20260821 | 9945 | 潤泰新 | 12 | 0 | 284410.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

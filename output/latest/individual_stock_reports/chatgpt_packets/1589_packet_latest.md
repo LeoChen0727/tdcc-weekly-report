@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1589 永冠-KY
 
 ## Metadata
-- generated_at: 2026-08-10 22:26:35 Asia/Taipei
+- generated_at: 2026-08-21 22:26:45 Asia/Taipei
 - stock_id: 1589
 - stock_name: 永冠-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260402
-- price_rows: 235
-- current_main_price_date: 20260807
+- price_rows: 242
+- current_main_price_date: 20260821
 - current_main_price_universe_status: historical_only_noncurrent
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: historical_only_noncurrent
 - tdcc_freshness_status: historical_only_noncurrent
 - tdcc_continuity_status: complete
@@ -136,7 +136,7 @@
 - distance_to_ema23_pct: -34.24
 - ma20: 7.39
 - ma60: 13.22
-- ma120: 16.21
+- ma120: 16.2
 - return_5d: -27.68
 - return_20d: -32.36
 - volume_ratio: 4.02
@@ -170,7 +170,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
+- as_of_date: 20260814
 - over_400_ratio: 28.35
 - over_600_ratio: 24.11
 - over_800_ratio: 23.27
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,28.57,0,23.28,0,21.01,0,0,False,False
 20260529,28.57,0,23.28,0,21.01,0,0,False,False
 20260605,28.57,0,23.28,0,21.01,0,0,False,False
 20260612,28.57,0,23.28,0,21.01,0,0,False,False
@@ -198,6 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,28.36,0,23.28,0,21.01,0,0,False,False
 20260731,28.35,-0.01,23.27,-0.01,21,-0.01,0,False,False
 20260807,28.35,0,23.27,0,21,0,0,False,False
+20260814,28.35,0,23.27,0,21,0,0,False,False
 ```
 
 ## Candidate Context

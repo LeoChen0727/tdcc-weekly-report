@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2379 瑞昱
 
 ## Metadata
-- generated_at: 2026-08-10 22:26:54 Asia/Taipei
+- generated_at: 2026-08-21 22:26:57 Asia/Taipei
 - stock_id: 2379
 - stock_name: 瑞昱
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
+- model_category_display_zh: 營收成長股價回檔
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 737
-- high: 764
-- low: 733
-- close: 750
-- volume: 3482120
-- ma5: 734.4
-- ema23_primary: 736.56
-- distance_to_ema23_pct: 1.82
-- ma20: 733.5
-- ma60: 701.95
-- ma120: 602.68
-- return_5d: 9.81
-- return_20d: -10.71
-- volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: 2.25
-- distance_to_high_60_pct: -22.68
+- date: 20260821
+- open: 703
+- high: 729
+- low: 703
+- close: 714
+- volume: 1902188
+- ma5: 715.8
+- ema23_primary: 733.01
+- distance_to_ema23_pct: -2.59
+- ma20: 731.85
+- ma60: 729.13
+- ma120: 624.44
+- return_5d: -0.97
+- return_20d: -4.03
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: -2.44
+- distance_to_high_60_pct: -26.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,813,819,756,756,6513083,757.24,-0.16,779.2,644.03,1.05
-20260714,751,769,741,754,4042876,756.97,-0.39,786,647.6,0.66
-20260715,776,783,750,753,2864143,756.64,-0.48,791.95,651.3,0.46
-20260716,755,755,712,712,6355950,752.92,-5.43,793.65,654.2,1.01
-20260717,699,733,696,718,7045073,750.01,-4.27,792.3,656.98,1.11
-20260720,721,732,689,709,4306249,746.59,-5.04,786.8,659.35,0.69
-20260721,710,753,704,753,3022098,747.13,0.79,779.45,662.87,0.5
-20260722,749,760,734,743,4502375,746.78,-0.51,773.45,666.27,0.77
-20260723,736,748,726,745,3392330,746.63,-0.22,770.55,669.43,0.6
-20260724,736,765,731,744,3184242,746.42,-0.32,767.05,672.48,0.59
 20260727,754,783,745,762,4836298,747.71,1.91,768.15,676,0.91
 20260728,741,755,727,731,3474938,746.32,-2.05,765.55,679.23,0.67
 20260729,742,777,715,738,5605659,745.63,-1.02,762.15,682.73,1.1
@@ -168,26 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,762,770,745,751,3793663,734.55,2.24,741.65,695.5,0.72
 20260806,746,751,730,744,2368843,735.34,1.18,738,698.65,0.47
 20260807,737,764,733,750,3482120,736.56,1.82,733.5,701.95,0.71
+20260810,752,764,746,758,2612784,738.35,2.66,733.6,705.02,0.56
+20260811,758,780,758,772,2362237,741.15,4.16,734.5,708.95,0.51
+20260812,772,776,760,766,1488017,743.22,3.06,735.15,712.38,0.33
+20260813,775,775,750,758,2067939,744.45,1.82,737.45,715.77,0.48
+20260814,752,759,721,721,2600193,742.5,-2.9,737.6,718.33,0.63
+20260817,712,725,706,717,2663495,740.37,-3.16,738,720.7,0.66
+20260818,710,723,690,707,2427837,737.59,-4.15,735.7,722.85,0.61
+20260819,696,746,692,738,3984481,737.63,0.05,735.45,725.43,1.01
+20260820,742,745,696,703,5015291,734.74,-4.32,733.35,727.32,1.24
+20260821,703,729,703,714,1902188,733.01,-2.59,731.85,729.13,0.48
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 74.72
-- over_600_ratio: 68.51
-- over_800_ratio: 64.18
-- over_1000_ratio: 59.79
-- over_400_change_1w: 0.12
-- over_800_change_1w: 0.78
-- over_1000_change_1w: 0.58
-- tdcc_consecutive_up_weeks: 6
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260814
+- over_400_ratio: 74.5
+- over_600_ratio: 68.33
+- over_800_ratio: 63.84
+- over_1000_ratio: 59.63
+- over_400_change_1w: -0.22
+- over_800_change_1w: -0.34
+- over_1000_change_1w: -0.16
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,74.6,0.58,63.43,-0.12,58.57,-0.14,3,False,False
 20260529,74.93,0.33,63.62,0.19,59.28,0.71,4,False,True
 20260605,74.53,-0.4,63.33,-0.29,58.94,-0.34,0,False,False
 20260612,74.97,0.44,63.77,0.44,59.8,0.86,1,True,True
@@ -199,23 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,74.27,0.38,63.64,0.16,58.92,-0.12,4,False,True
 20260731,74.6,0.33,63.4,-0.24,59.21,0.29,5,False,True
 20260807,74.72,0.12,64.18,0.78,59.79,0.58,6,True,True
+20260814,74.5,-0.22,63.84,-0.34,59.63,-0.16,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2379 | 瑞昱 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | mixed_flow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/30 1.召開法人說明會之日期：115/07/30 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：網路直播 4.法人說明會擇要訊息：瑞昱半導體將於115年07月30日(四)舉行2026年第2季線上法人說明會。 時間：3:00-4:00 pm 語言: 英文 直播網址：https://www.zucast.com/webcast/bv68uLnF建議參與者於法說會前安裝或升級所需播放軟體，或至http://www.zucast.com/help 尋求技術支援。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
-| 20260717 | 2379 | 瑞昱 | revenue_pullback | 營收成長股價回檔 | 60.0 |  |  |  |  | mixed_flow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/30 1.召開法人說明會之日期：115/07/30 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：網路直播 4.法人說明會擇要訊息：瑞昱半導體將於115年07月30日(四)舉行2026年第2季線上法人說明會。 時間：3:00-4:00 pm 語言: 英文 直播網址：https://www.zucast.com/webcast/bv68uLnF建議參與者於法說會前安裝或升級所需播放軟體，或至http://www.zucast.com/help 尋求技術支援。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 2379 | 瑞昱 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/30 1.召開法人說明會之日期：115/07/30 2.召開法人說明會之時間：15 時 00 分 3.召開法人說明會之地點：網路直播 4.法人說明會擇要訊息：瑞昱半導體將於115年07月30日(四)舉行2026年第2季線上法人說明會。 時間：3:00-4:00 pm 語言: 英文 直播網址：https://www.zucast.com/webcast/bv68uLnF建議參與者於法說會前安裝或升級所需播放軟體，或至http://www.zucast.com/help 尋求技術支援。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2379 | 瑞昱 | 9 | 4 | 5 | 9 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260821 | 2379 | 瑞昱 | 13 | 2 | 5 | 10 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2379 | 瑞昱 | 102 | 1 | 12186490.0 | 1466310.0 | 8.31 | mixed_flow |
+| 20260821 | 2379 | 瑞昱 | 107 | 3 | 7967460.0 | 172380.0 | 46.22 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

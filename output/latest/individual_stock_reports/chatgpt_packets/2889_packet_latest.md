@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2889 國票金
 
 ## Metadata
-- generated_at: 2026-08-10 22:27:12 Asia/Taipei
+- generated_at: 2026-08-21 22:27:09 Asia/Taipei
 - stock_id: 2889
 - stock_name: 國票金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 15.25
-- high: 15.35
-- low: 15.25
-- close: 15.3
-- volume: 3382348
-- ma5: 15.38
-- ema23_primary: 15.46
-- distance_to_ema23_pct: -1.05
-- ma20: 15.62
-- ma60: 15.15
-- ma120: 15.44
-- return_5d: -1.92
-- return_20d: -3.16
-- volume_ratio: 0.51
-- distance_to_ma20_pct_auxiliary: -2.03
-- distance_to_high_60_pct: -4.97
+- date: 20260821
+- open: 15.65
+- high: 15.8
+- low: 15.6
+- close: 15.75
+- volume: 6242589
+- ma5: 15.64
+- ema23_primary: 15.52
+- distance_to_ema23_pct: 1.49
+- ma20: 15.51
+- ma60: 15.3
+- ma120: 15.32
+- return_5d: 0
+- return_20d: 0
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: 1.58
+- distance_to_high_60_pct: -2.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,15.9,16.1,15.7,15.85,11883776,15.16,4.55,15.13,14.89,1.29
-20260714,15.95,15.95,15.5,15.7,10264268,15.21,3.25,15.16,14.89,1.11
-20260715,15.8,15.9,15.7,15.8,3988521,15.25,3.57,15.2,14.9,0.44
-20260716,15.8,15.85,15.75,15.85,2917915,15.3,3.57,15.24,14.91,0.33
-20260717,15.8,15.85,15.6,15.7,7668636,15.34,2.36,15.26,14.92,0.9
-20260720,15.75,15.8,15.55,15.7,5457749,15.37,2.16,15.29,14.94,0.65
-20260721,15.7,15.9,15.65,15.8,6260496,15.4,2.57,15.32,14.95,0.75
-20260722,15.75,15.85,15.65,15.7,6958678,15.43,1.76,15.36,14.97,0.84
-20260723,15.75,15.8,15.55,15.65,3908623,15.45,1.32,15.39,14.99,0.48
-20260724,15.6,15.75,15.5,15.75,6052478,15.47,1.8,15.43,15.01,0.73
 20260727,15.75,15.75,15.55,15.7,3998181,15.49,1.35,15.47,15.02,0.51
 20260728,15.6,15.6,15.5,15.6,5477802,15.5,0.64,15.52,15.04,0.69
 20260729,15.6,15.6,15.15,15.4,8337721,15.49,-0.59,15.54,15.06,1.03
@@ -167,17 +157,27 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,15.4,15.45,15.35,15.35,3322036,15.49,-0.92,15.66,15.13,0.38
 20260806,15.3,15.4,15.2,15.3,5830041,15.48,-1.14,15.64,15.14,0.75
 20260807,15.25,15.35,15.25,15.3,3382348,15.46,-1.05,15.62,15.15,0.51
+20260810,15.35,15.4,15.2,15.35,3709124,15.45,-0.67,15.59,15.16,0.59
+20260811,15.3,15.3,15.2,15.2,3722207,15.43,-1.5,15.57,15.17,0.63
+20260812,15.25,15.3,15.15,15.2,4333742,15.41,-1.38,15.54,15.19,0.73
+20260813,15.35,15.55,15.3,15.55,11407417,15.42,0.82,15.52,15.2,1.79
+20260814,15.55,15.75,15.5,15.75,7881644,15.45,1.93,15.53,15.22,1.23
+20260817,15.7,15.75,15.55,15.65,4077745,15.47,1.18,15.52,15.23,0.65
+20260818,15.6,15.7,15.55,15.6,4230034,15.48,0.78,15.51,15.25,0.68
+20260819,15.55,15.6,15.45,15.55,14956287,15.48,0.42,15.51,15.27,2.26
+20260820,15.55,15.7,15.55,15.65,4334020,15.5,0.98,15.51,15.28,0.65
+20260821,15.65,15.8,15.6,15.75,6242589,15.52,1.49,15.51,15.3,0.94
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 73.55
-- over_600_ratio: 72.47
-- over_800_ratio: 71.51
-- over_1000_ratio: 70.92
-- over_400_change_1w: -0.24
-- over_800_change_1w: -0.28
-- over_1000_change_1w: -0.3
+- as_of_date: 20260814
+- over_400_ratio: 73.41
+- over_600_ratio: 72.31
+- over_800_ratio: 71.46
+- over_1000_ratio: 70.81
+- over_400_change_1w: -0.14
+- over_800_change_1w: -0.05
+- over_1000_change_1w: -0.11
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,74.4,0.04,72.58,0.07,71.94,0.07,1,True,True
 20260529,74.39,-0.01,72.52,-0.06,71.9,-0.04,0,False,False
 20260605,74.39,0,72.51,-0.01,71.87,-0.03,0,False,False
 20260612,74.28,-0.11,72.43,-0.08,71.79,-0.08,0,False,False
@@ -198,18 +197,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,73.64,-0.19,71.62,-0.2,71,-0.15,0,False,False
 20260731,73.79,0.15,71.79,0.17,71.22,0.22,1,True,True
 20260807,73.55,-0.24,71.51,-0.28,70.92,-0.3,0,False,False
+20260814,73.41,-0.14,71.46,-0.05,70.81,-0.11,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2889 | 國票金 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/14 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除權 3.發放股利種類及金額: 股票股利每股配發新台幣0.135281元(金額:250,000,000元) 4.除權（息）交易日:NA 5.最後過戶日:NA 6.停止過戶起始日期:115/07/17 7.停止過戶截止日期:115/07/21 8.除權（息）基準日:115/07/21 9.其他應敘明事項: (1).本次發行新股業經金融監督管理委員會民國115年7月8日申報生效在案。 (2).股票股利於經濟部核准變更登記後30日內交付股東。 (3).發放對象為本公司之唯一法人股東國票金融控股股份有限公司。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
-| 20260717 | 2889 | 國票金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/14 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除權 3.發放股利種類及金額: 股票股利每股配發新台幣0.135281元(金額:250,000,000元) 4.除權（息）交易日:NA 5.最後過戶日:NA 6.停止過戶起始日期:115/07/17 7.停止過戶截止日期:115/07/21 8.除權（息）基準日:115/07/21 9.其他應敘明事項: (1).本次發行新股業經金融監督管理委員會民國115年7月8日申報生效在案。 (2).股票股利於經濟部核准變更登記後30日內交付股東。 (3).發放對象為本公司之唯一法人股東國票金融控股股份有限公司。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
+| 20260821 | 2889 | 國票金 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.發生變動日期:115/08/19 2.法人名稱:國票金融控股股份有限公司 3.舊任者姓名:周朝國 4.舊任者簡歷:國際票券監察人 5.新任者姓名:無 6.新任者簡歷:無 7.異動原因:法人監察人代表人周朝國辭職 8.原任期（例xx/xx/xx至xx/xx/xx）:112/08/31至115/08/30 9.新任生效日期:不適用 10.其他應敘明事項:子公司國際票券金融股份有限公司於115年8月19日接獲周監察人 115年8月18日國字第11508180001號函，國票金融控股(股)公司法人監察人代表人 周朝國表明自115年8月18日起辭任國際票券監察人職務。；calendar event: ex_right_dividend on 20260901; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2889 | 國票金 | 11 | 3 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260821 | 2889 | 國票金 | 2 | 2 | 3 | 8 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

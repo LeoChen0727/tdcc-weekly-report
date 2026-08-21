@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1526 日馳
 
 ## Metadata
-- generated_at: 2026-08-10 22:26:33 Asia/Taipei
+- generated_at: 2026-08-21 22:26:43 Asia/Taipei
 - stock_id: 1526
 - stock_name: 日馳
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,33 +69,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可小量試單
-- model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 嚴格突破，價格結構尚未破壞，操作評級為「可小量試單」。
-- entry_strategy_zh: 突破後順勢追蹤；可依「試單 1/3 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 試單 1/3 部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 嚴格突破，價格結構尚未破壞，操作評級為「可小量試單」。 進場策略：突破後順勢追蹤；可依「試單 1/3 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: starter_position
-- action_rating_label_zh: 可小量試單
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: breakout_confirmed
-- entry_style: breakout_follow
-- position_sizing: starter_1_3
+- thesis_state: unclear
+- entry_style: no_entry_now
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -104,9 +100,8 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
-- decision_score_high
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -131,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 19.25
-- high: 19.45
-- low: 18.25
-- close: 18.25
-- volume: 1582264
-- ma5: 18.19
-- ema23_primary: 17.03
-- distance_to_ema23_pct: 7.14
-- ma20: 17.02
-- ma60: 15.38
-- ma120: 16.46
-- return_5d: 0.55
-- return_20d: 26.74
-- volume_ratio: 0.8
-- distance_to_ma20_pct_auxiliary: 7.24
-- distance_to_high_60_pct: -11.84
+- date: 20260821
+- open: 16.7
+- high: 16.95
+- low: 16.65
+- close: 16.8
+- volume: 176574
+- ma5: 16.85
+- ema23_primary: 17.2
+- distance_to_ema23_pct: -2.33
+- ma20: 17.82
+- ma60: 15.87
+- ma120: 16.24
+- return_5d: -2.33
+- return_20d: 4.35
+- volume_ratio: 0.11
+- distance_to_ma20_pct_auxiliary: -5.71
+- distance_to_high_60_pct: -18.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,14.5,14.5,14,14.2,122063,14.53,-2.24,14.44,15.08,1.22
-20260714,14.2,14.2,13.8,14.2,119899,14.5,-2.06,14.43,15.04,1.17
-20260715,14,14.75,14,14.3,90374,14.48,-1.26,14.41,14.99,0.88
-20260716,14.65,15.7,14.65,15.7,1023793,14.58,7.65,14.47,14.98,6.85
-20260717,15.1,17.25,15.05,17.25,4027433,14.81,16.51,14.61,14.99,11.63
-20260720,17.25,18.35,16.8,17.35,5368249,15.02,15.53,14.74,14.99,8.81
-20260721,16.8,17,16.35,16.8,1066141,15.17,10.77,14.86,15,1.62
-20260722,16.65,18.2,16.25,16.25,1144503,15.26,6.51,14.95,15,1.62
-20260723,16.7,16.85,16,16.75,416097,15.38,8.9,15.06,15.01,0.57
-20260724,16.35,16.4,15.9,16.1,560195,15.44,4.27,15.15,15,0.75
 20260727,16.1,17.7,16.1,17.7,1210367,15.63,13.25,15.34,15.02,1.51
 20260728,18,19.4,17.2,17.2,5754829,15.76,9.14,15.5,15.04,5.31
 20260729,17.5,18.9,17.5,18.9,3340489,16.02,17.96,15.73,15.08,2.68
@@ -173,18 +158,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,17.55,17.75,17.25,17.45,729682,16.72,4.36,16.59,15.27,0.4
 20260806,17.6,19.15,17.6,19.15,1775267,16.92,13.15,16.82,15.33,0.93
 20260807,19.25,19.45,18.25,18.25,1582264,17.03,7.14,17.02,15.38,0.8
+20260810,18,19.3,18,18.3,1178378,17.14,6.77,17.22,15.44,0.58
+20260811,18.3,19.2,17.75,19,1281048,17.29,9.86,17.46,15.51,0.61
+20260812,18.5,18.65,18.2,18.55,740211,17.4,6.61,17.68,15.58,0.35
+20260813,18.55,18.65,17.55,17.6,918846,17.42,1.06,17.77,15.63,0.43
+20260814,17.75,17.75,17,17.2,415805,17.4,-1.14,17.77,15.68,0.21
+20260817,17.3,17.65,17.1,17.2,409259,17.38,-1.05,17.76,15.72,0.24
+20260818,17.35,17.35,16.55,16.55,463909,17.31,-4.4,17.75,15.75,0.28
+20260819,16.35,17.1,16.3,17,413612,17.29,-1.66,17.79,15.79,0.26
+20260820,17.25,17.25,16.5,16.7,363687,17.24,-3.12,17.78,15.83,0.23
+20260821,16.7,16.95,16.65,16.8,176574,17.2,-2.33,17.82,15.87,0.11
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 38.78
+- as_of_date: 20260814
+- over_400_ratio: 38.08
 - over_600_ratio: 31.19
 - over_800_ratio: 29.94
 - over_1000_ratio: 29.94
-- over_400_change_1w: 1.58
+- over_400_change_1w: -0.7
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 5
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -192,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,37.1,-0.1,29.94,0,29.94,0,0,False,False
 20260529,36.96,-0.14,29.94,0,29.94,0,0,False,False
 20260605,36.96,0,29.94,0,29.94,0,0,False,False
 20260612,36.96,0,29.94,0,29.94,0,0,False,False
@@ -204,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,37.19,0.12,29.94,0,29.94,0,3,False,False
 20260731,37.2,0.01,29.94,0,29.94,0,4,False,False
 20260807,38.78,1.58,29.94,0,29.94,0,5,False,False
+20260814,38.08,-0.7,29.94,0,29.94,0,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 1526 | 日馳 | true_breakout | 嚴格突破 | 139.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 1526 | 日馳 | 2 | 1 | 2 | 2 | 2 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

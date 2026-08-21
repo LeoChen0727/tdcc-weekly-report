@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2360 致茂
 
 ## Metadata
-- generated_at: 2026-08-10 22:26:52 Asia/Taipei
+- generated_at: 2026-08-21 22:26:56 Asia/Taipei
 - stock_id: 2360
 - stock_name: 致茂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
+- model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -125,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 2070
-- high: 2140
-- low: 2015
-- close: 2030
-- volume: 3166068
-- ma5: 1955
-- ema23_primary: 2005.18
-- distance_to_ema23_pct: 1.24
-- ma20: 1964.25
-- ma60: 2174.33
-- ma120: 1927.01
-- return_5d: -3.33
-- return_20d: 11.54
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: 3.35
-- distance_to_high_60_pct: -27.37
+- date: 20260821
+- open: 2190
+- high: 2190
+- low: 2085
+- close: 2100
+- volume: 1573161
+- ma5: 2205
+- ema23_primary: 2114.68
+- distance_to_ema23_pct: -0.69
+- ma20: 2079.5
+- ma60: 2157.67
+- ma120: 2017.21
+- return_5d: -8.7
+- return_20d: 0.96
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: 0.99
+- distance_to_high_60_pct: -24.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,1840,1915,1830,1850,3247598,2134.81,-13.34,2151.75,2235.17,1.32
-20260714,1885,1905,1730,1820,3375938,2108.57,-13.69,2128,2231.33,1.33
-20260715,1845,1930,1800,1905,2378974,2091.61,-8.92,2110,2225.5,0.93
-20260716,1880,2015,1830,1990,3587331,2083.14,-4.47,2093.25,2224.5,1.37
-20260717,1810,1905,1810,1850,4068026,2063.71,-10.36,2074.25,2221.58,1.52
-20260720,1870,1905,1745,1835,2310803,2044.65,-10.25,2050.5,2218.33,0.86
-20260721,1870,2015,1870,2015,3471378,2042.18,-1.33,2035.75,2219.58,1.27
-20260722,2065,2215,2065,2125,4034157,2049.08,3.7,2028.75,2223,1.41
-20260723,2185,2215,2105,2155,2350458,2057.91,4.72,2028.5,2226.83,0.83
-20260724,2140,2190,2075,2080,2187371,2059.75,0.98,2023.25,2227.08,0.76
 20260727,2100,2115,1980,2100,2200596,2063.11,1.79,2026.5,2227.83,0.77
 20260728,1990,2040,1920,1940,3354014,2052.85,-5.5,2019.5,2224.83,1.14
 20260729,1940,1960,1765,1835,3726482,2034.69,-9.81,2003.25,2216.92,1.25
@@ -167,26 +157,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,2000,2015,1860,1885,3640717,2005.46,-6.01,1947.75,2188.33,0.97
 20260806,1865,1990,1845,1975,2936795,2002.93,-1.39,1953.75,2180.58,0.82
 20260807,2070,2140,2015,2030,3166068,2005.18,1.24,1964.25,2174.33,0.88
+20260810,1980,2115,1980,2030,1587806,2007.25,1.13,1973.25,2170.5,0.45
+20260811,2025,2130,1965,2080,1801664,2013.31,3.31,1986.25,2167.83,0.52
+20260812,2110,2230,2095,2195,2707846,2028.45,8.21,2000.75,2168,0.78
+20260813,2335,2395,2255,2300,3525229,2051.08,12.14,2016.25,2172.08,1.02
+20260814,2335,2365,2280,2300,1729945,2071.83,11.01,2038.75,2176,0.52
+20260817,2335,2400,2250,2360,2123620,2095.84,12.6,2065,2177.5,0.64
+20260818,2350,2390,2290,2305,1770409,2113.27,9.07,2079.5,2178.08,0.54
+20260819,2190,2235,2085,2120,3423570,2113.83,0.29,2079.25,2172.42,1.06
+20260820,2210,2210,2065,2140,1312278,2116.01,1.13,2078.5,2166.42,0.41
+20260821,2190,2190,2085,2100,1573161,2114.68,-0.69,2079.5,2157.67,0.5
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 70.85
-- over_600_ratio: 62.89
-- over_800_ratio: 58.77
-- over_1000_ratio: 53.93
-- over_400_change_1w: -0.37
-- over_800_change_1w: -0.9
-- over_1000_change_1w: 0.15
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260814
+- over_400_ratio: 70.67
+- over_600_ratio: 63.68
+- over_800_ratio: 58.7
+- over_1000_ratio: 53.35
+- over_400_change_1w: -0.18
+- over_800_change_1w: -0.07
+- over_1000_change_1w: -0.58
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,70.75,0.06,59.68,0.2,54.67,0.36,2,True,True
 20260529,71.17,0.42,59.35,-0.33,55.17,0.5,3,False,True
 20260605,71.17,0,59.36,0.01,55.14,-0.03,4,False,True
 20260612,71.33,0.16,59.79,0.43,55.11,-0.03,5,False,True
@@ -198,22 +197,25 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,71.21,0.08,59.13,-0.7,54.23,-0.28,3,False,False
 20260731,71.22,0.01,59.67,0.54,53.78,-0.45,4,False,True
 20260807,70.85,-0.37,58.77,-0.9,53.93,0.15,5,False,True
+20260814,70.67,-0.18,58.7,-0.07,53.35,-0.58,6,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2360 | 致茂 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.發生變動日期:115/06/18 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:自然人董事 3.舊任者職稱及姓名:董事Cheng (Paul) Ying 4.舊任者簡歷:Chroma ATE (USA), Inc.董事 5.新任者職稱及姓名:董事David Y. Huang 6.新任者簡歷:致茂電子(股)公司法人董事代表人 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 辭職 8.異動原因:職務調整 9.新任者選任時持股數:不適用 10.原任期（例xx/xx/xx ~ xx/xx/xx）:不適用 11.新任生效日期:115/07/01 12.同任期董事變動比率:1/3 13.同任期獨立董事變動比率:不適用 14.同任期監察人變動比率:不適用 15.屬三分之一以上董事發生變動（請輸入是或否）:是 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 2360 | 致茂 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/25 1.召開法人說明會之日期：115/08/25 ~ 115/09/08 2.召開法人說明會之時間：09 時 00 分 3.召開法人說明會之地點：(1)Tokyo:8/25~8/26 (2)New York+London:9/2~9/8 4.法人說明會擇要訊息：本公司受邀參加(1).麥格里證券於8/25 ~ 8/26舉辦之Macquarie Japan Tokyo NDR (2).永豐金證券於9/2 ~ 9/8舉辦之2026紐約&倫敦Corporate Access Day，向投資人說明本公司2026年第2季之營運概況。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| 20260821 | 2360 | 致茂 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/25 1.召開法人說明會之日期：115/08/25 ~ 115/09/08 2.召開法人說明會之時間：09 時 00 分 3.召開法人說明會之地點：(1)Tokyo:8/25~8/26 (2)New York+London:9/2~9/8 4.法人說明會擇要訊息：本公司受邀參加(1).麥格里證券於8/25 ~ 8/26舉辦之Macquarie Japan Tokyo NDR (2).永豐金證券於9/2 ~ 9/8舉辦之2026紐約&倫敦Corporate Access Day，向投資人說明本公司2026年第2季之營運概況。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 2360 | 致茂 | revenue_breakout_low_response | 營收爆發低反應股 | 18 | 35 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/25 1.召開法人說明會之日期：115/08/25 ~ 115/09/08 2.召開法人說明會之時間：09 時 00 分 3.召開法人說明會之地點：(1)Tokyo:8/25~8/26 (2)New York+London:9/2~9/8 4.法人說明會擇要訊息：本公司受邀參加(1).麥格里證券於8/25 ~ 8/26舉辦之Macquarie Japan Tokyo NDR (2).永豐金證券於9/2 ~ 9/8舉辦之2026紐約&倫敦Corporate Access Day，向投資人說明本公司2026年第2季之營運概況。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2360 | 致茂 | 35 | 2 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260821 | 2360 | 致茂 | 39 | 6 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2360 | 致茂 | 37 | 1 | 1595380.0 | 0.0 |  | no_signal |
+| 20260821 | 2360 | 致茂 | 31 | 1 | 1118990.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

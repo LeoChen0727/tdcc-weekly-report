@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1708 東鹼
 
 ## Metadata
-- generated_at: 2026-08-10 22:26:37 Asia/Taipei
+- generated_at: 2026-08-21 22:26:46 Asia/Taipei
 - stock_id: 1708
 - stock_name: 東鹼
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 321
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 338
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 回檔後短線轉強
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 50.2
-- high: 50.2
-- low: 48.65
-- close: 48.75
-- volume: 2074005
-- ma5: 49.38
-- ema23_primary: 50.99
-- distance_to_ema23_pct: -4.39
-- ma20: 51.74
-- ma60: 48.64
-- ma120: 44.11
-- return_5d: 1.04
-- return_20d: -17.09
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: -5.79
-- distance_to_high_60_pct: -24.07
+- date: 20260821
+- open: 50.7
+- high: 52.8
+- low: 50.3
+- close: 51.4
+- volume: 9466486
+- ma5: 50.18
+- ema23_primary: 50.32
+- distance_to_ema23_pct: 2.15
+- ma20: 49.39
+- ma60: 50.34
+- ma120: 45.31
+- return_5d: 6.64
+- return_20d: -2.47
+- volume_ratio: 2.92
+- distance_to_ma20_pct_auxiliary: 4.07
+- distance_to_high_60_pct: -19.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,59,60.5,55.3,55.8,7994221,53.2,4.88,53.5,45.05,0.62
-20260714,55.8,57,54.2,56.6,6740360,53.49,5.82,53.93,45.33,0.53
-20260715,57.9,58.3,56.5,56.7,5358204,53.75,5.48,54.4,45.62,0.44
-20260716,57.3,57.3,55.5,55.9,3585209,53.93,3.65,54.89,45.9,0.3
-20260717,55.3,56.4,51.5,52.5,7383483,53.81,-2.44,55.23,46.12,0.6
-20260720,52.6,53.5,50,52.5,5519120,53.7,-2.24,55.34,46.34,0.48
-20260721,52.7,53.5,51.9,53.3,3532903,53.67,-0.69,55.42,46.57,0.33
-20260722,54.8,55.2,53.5,54.1,3503108,53.71,0.73,55.66,46.79,0.34
-20260723,54.5,56,53.7,53.9,4796810,53.72,0.33,55.74,46.98,0.48
-20260724,53.8,54.2,52.3,52.7,2692190,53.64,-1.75,55.74,47.15,0.28
 20260727,53.5,53.5,50.9,52.5,2262044,53.54,-1.95,55.69,47.32,0.26
 20260728,51,51.1,48.5,49.55,4384490,53.21,-6.88,55.47,47.45,0.51
 20260729,50.2,50.2,46.5,47.5,5458012,52.73,-9.93,55.18,47.59,0.66
@@ -168,26 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,50.5,51.1,50,50.1,3120464,51.32,-2.38,52.76,48.39,0.66
 20260806,50,50.7,49.35,49.75,1765715,51.19,-2.81,52.25,48.52,0.4
 20260807,50.2,50.2,48.65,48.75,2074005,50.99,-4.39,51.74,48.64,0.5
+20260810,49.7,50.5,49.15,49.95,2761628,50.9,-1.87,51.45,48.8,0.71
+20260811,49.5,49.85,48.8,49.25,1885892,50.76,-2.98,51.09,48.96,0.52
+20260812,49.65,50.5,49.2,49.3,2264033,50.64,-2.65,50.72,49.12,0.65
+20260813,49.8,50,49.15,49.3,1900708,50.53,-2.43,50.38,49.28,0.56
+20260814,49.6,49.6,48.05,48.2,2513522,50.34,-4.24,50.17,49.42,0.8
+20260817,48.2,49.7,48.2,48.8,1711710,50.21,-2.8,49.98,49.57,0.58
+20260818,49,50.3,48.8,50.1,3299660,50.2,-0.2,49.83,49.75,1.12
+20260819,49.5,50.1,48.85,49.8,2136739,50.16,-0.73,49.61,49.92,0.74
+20260820,50.4,51.7,49.8,50.8,5348357,50.22,1.16,49.45,50.12,1.84
+20260821,50.7,52.8,50.3,51.4,9466486,50.32,2.15,49.39,50.34,2.92
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 39.49
-- over_600_ratio: 38.71
-- over_800_ratio: 35.37
-- over_1000_ratio: 33.9
-- over_400_change_1w: -0.45
-- over_800_change_1w: -0.55
-- over_1000_change_1w: -0.55
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260814
+- over_400_ratio: 39.57
+- over_600_ratio: 37.84
+- over_800_ratio: 35.67
+- over_1000_ratio: 33.88
+- over_400_change_1w: 0.08
+- over_800_change_1w: 0.3
+- over_1000_change_1w: -0.02
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,48.91,-0.71,45.54,-0.83,43.05,-0.08,0,False,False
 20260529,46.58,-2.33,42.63,-2.91,40.43,-2.62,0,False,False
 20260605,49.25,2.67,45.04,2.41,42.48,2.05,1,True,True
 20260612,45.85,-3.4,41.83,-3.21,39.63,-2.85,0,False,False
@@ -199,22 +198,25 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,40.9,-0.31,37.13,-0.75,34.67,-1.02,0,False,False
 20260731,39.94,-0.96,35.92,-1.21,34.45,-0.22,0,False,False
 20260807,39.49,-0.45,35.37,-0.55,33.9,-0.55,1,False,False
+20260814,39.57,0.08,35.67,0.3,33.88,-0.02,2,False,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 1708 | 東鹼 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  | call_inflow | repeated_but_no_breakout | 1.事實發生日:115/08/10 2.被背書保證之: (1)公司名稱:Sesoda Steamship Corporation (2)與提供背書保證公司之關係: 本公司持股達100%之被投資公司 (3)背書保證之限額(仟元):7,618,391 (4)原背書保證之餘額(仟元):1,290,000 (5)本次新增背書保證之金額(仟元):967,500 (6)迄事實發生日止背書保證餘額(仟元):2,257,500 (7)被背書保證公司實際動支金額(仟元):0 (8)本次新增背書保證之原因: 原短期融資額度續約 3.被背書保證公司提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.被背書保證公司最近期財務報表之: (1)資本(仟元):1,757,883 (2)累積盈虧金額(仟元):4,284,914 5.解除背書保證責任之: (1)條件: 依合約約定 (2)日期: 依合約約定 6.背書保證之總限額(仟元): 38,091,955 7.迄事實發生日為止，背書保證餘額(仟元): 3,148,308 8.迄事實發生日為止，A提供背書保證餘額占公開發行公司最近期財務報表淨值之 比率: 41.33 9.迄事實發生日為止，背書保證、長期投資及資金貸與餘額合計數達該公開發行公 司最近期財務報表淨值之比率: 107.83 10.其他應敘明事項: 美金匯率: @32.25 最近期財務報告:115年第二季；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| 20260821 | 1708 | 東鹼 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | repeated_but_no_breakout | 1.事實發生日:115/08/10 2.被背書保證之: (1)公司名稱:Sesoda Steamship Corporation (2)與提供背書保證公司之關係: 本公司持股達100%之被投資公司 (3)背書保證之限額(仟元):7,618,391 (4)原背書保證之餘額(仟元):1,290,000 (5)本次新增背書保證之金額(仟元):967,500 (6)迄事實發生日止背書保證餘額(仟元):2,257,500 (7)被背書保證公司實際動支金額(仟元):0 (8)本次新增背書保證之原因: 原短期融資額度續約 3.被背書保證公司提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.被背書保證公司最近期財務報表之: (1)資本(仟元):1,757,883 (2)累積盈虧金額(仟元):4,284,914 5.解除背書保證責任之: (1)條件: 依合約約定 (2)日期: 依合約約定 6.背書保證之總限額(仟元): 38,091,955 7.迄事實發生日為止，背書保證餘額(仟元): 3,148,308 8.迄事實發生日為止，A提供背書保證餘額占公開發行公司最近期財務報表淨值之 比率: 41.33 9.迄事實發生日為止，背書保證、長期投資及資金貸與餘額合計數達該公開發行公 司最近期財務報表淨值之比率: 107.83 10.其他應敘明事項: 美金匯率: @32.25 最近期財務報告:115年第二季；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 1708 | 東鹼 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | repeated_but_no_breakout | 1.事實發生日:115/08/10 2.被背書保證之: (1)公司名稱:Sesoda Steamship Corporation (2)與提供背書保證公司之關係: 本公司持股達100%之被投資公司 (3)背書保證之限額(仟元):7,618,391 (4)原背書保證之餘額(仟元):1,290,000 (5)本次新增背書保證之金額(仟元):967,500 (6)迄事實發生日止背書保證餘額(仟元):2,257,500 (7)被背書保證公司實際動支金額(仟元):0 (8)本次新增背書保證之原因: 原短期融資額度續約 3.被背書保證公司提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.被背書保證公司最近期財務報表之: (1)資本(仟元):1,757,883 (2)累積盈虧金額(仟元):4,284,914 5.解除背書保證責任之: (1)條件: 依合約約定 (2)日期: 依合約約定 6.背書保證之總限額(仟元): 38,091,955 7.迄事實發生日為止，背書保證餘額(仟元): 3,148,308 8.迄事實發生日為止，A提供背書保證餘額占公開發行公司最近期財務報表淨值之 比率: 41.33 9.迄事實發生日為止，背書保證、長期投資及資金貸與餘額合計數達該公開發行公 司最近期財務報表淨值之比率: 107.83 10.其他應敘明事項: 美金匯率: @32.25 最近期財務報告:115年第二季；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260821 | 1708 | 東鹼 | 4 | 4 | 4 | 6 | 9 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 9 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 1708 | 東鹼 | 35 | 0 | 945480.0 | 0.0 |  | no_signal |
+| 20260821 | 1708 | 東鹼 | 35 | 0 | 1983100.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

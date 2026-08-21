@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5314 世紀*
 
 ## Metadata
-- generated_at: 2026-08-10 22:28:06 Asia/Taipei
+- generated_at: 2026-08-21 22:27:44 Asia/Taipei
 - stock_id: 5314
 - stock_name: 世紀*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 184
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 201
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,33 +69,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可分批買進
+- action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- thesis_state: unclear
+- entry_style: no_entry_now
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -104,8 +100,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
-- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -131,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 60.2
-- high: 60.7
-- low: 58.8
-- close: 60
-- volume: 2493000
-- ma5: 57.56
-- ema23_primary: 58.11
-- distance_to_ema23_pct: 3.26
-- ma20: 57.98
-- ma60: 61.24
-- ma120: 70.29
-- return_5d: 15.61
-- return_20d: -9.09
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: 3.48
-- distance_to_high_60_pct: -20
+- date: 20260821
+- open: 26
+- high: 26
+- low: 26
+- close: 26
+- volume: 1841000
+- ma5: 21.7
+- ema23_primary: 43.77
+- distance_to_ema23_pct: -40.6
+- ma20: 45.94
+- ma60: 56.51
+- ma120: 65.82
+- return_5d: 60.49
+- return_20d: -53.65
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: -43.41
+- distance_to_high_60_pct: -65.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,67,69.1,64.1,64.5,8363000,64.12,0.59,62.38,66.89,0.95
-20260714,65,68.5,64.1,68.2,11578000,64.46,5.8,62.87,66.73,1.25
-20260715,68,68,66.5,66.6,6737000,64.64,3.03,63.29,66.49,0.71
-20260716,66.6,66.6,64.1,64.2,3396000,64.6,-0.62,63.67,66.22,0.36
-20260717,62.9,66,59,59.2,7927000,64.15,-7.72,63.8,65.91,0.8
-20260720,59.2,61.8,57.5,57.7,6065000,63.61,-9.3,63.73,65.59,0.61
-20260721,58.9,61.6,58.1,60.8,4593000,63.38,-4.07,63.72,65.28,0.46
-20260722,61.5,62,58.4,58.4,5566000,62.96,-7.25,63.61,64.97,0.55
-20260723,58.8,58.9,56.2,57,3219000,62.47,-8.75,63.49,64.63,0.32
-20260724,56.6,58.1,56,56.1,2526000,61.94,-9.42,63.4,64.33,0.25
 20260727,56.5,57,55.4,56.7,1944000,61.5,-7.81,63.47,64.03,0.19
 20260728,55.6,55.9,53,53,4093000,60.79,-12.82,63.08,63.7,0.41
 20260729,53.1,53.7,48,50.3,7178000,59.92,-16.05,62.25,63.35,0.75
@@ -173,26 +157,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,58,58.5,56.3,56.8,2437000,57.79,-1.72,58.68,61.65,0.47
 20260806,56.8,59.8,56,59.5,3960000,57.93,2.7,58.28,61.43,0.81
 20260807,60.2,60.7,58.8,60,2493000,58.11,3.26,57.98,61.24,0.53
+20260810,61,62.3,60,62.3,3350000,58.46,6.58,57.87,61.15,0.75
+20260811,61.9,62.5,60.7,61.1,2588000,58.68,4.13,57.52,61.05,0.64
+20260812,61.1,62.8,60.8,62.5,2695000,58.99,5.94,57.31,61.01,0.7
+20260813,62.5,63.4,61.3,61.3,3810000,59.19,3.57,57.17,61,0.99
+20260814,16.2,16.2,16.2,16.2,366000,55.6,-70.87,55.02,60.15,0.11
+20260817,17.8,17.8,17.8,17.8,105000,52.45,-66.07,53.02,59.28,0.03
+20260818,19.55,19.55,19.55,19.55,130000,49.71,-60.67,50.96,58.49,0.04
+20260819,21.5,21.5,21.5,21.5,11013000,47.36,-54.6,49.12,57.77,3.42
+20260820,23.65,23.65,23.65,23.65,4007000,45.39,-47.89,47.45,57.11,1.23
+20260821,26,26,26,26,1841000,43.77,-40.6,45.94,56.51,0.57
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 40.92
-- over_600_ratio: 38.98
-- over_800_ratio: 37.32
-- over_1000_ratio: 36.39
-- over_400_change_1w: 0.98
-- over_800_change_1w: 0.83
-- over_1000_change_1w: 0.18
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
+- as_of_date: 20260814
+- over_400_ratio: 41.22
+- over_600_ratio: 38.97
+- over_800_ratio: 37.75
+- over_1000_ratio: 36.8
+- over_400_change_1w: 0.3
+- over_800_change_1w: 0.43
+- over_1000_change_1w: 0.41
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,47.17,0.22,43.79,0.05,43.48,0.07,1,False,True
 20260529,46.37,-0.8,43.04,-0.75,43.04,-0.44,0,False,False
 20260605,46.27,-0.1,42.62,-0.42,42.62,-0.42,0,False,False
 20260612,45.8,-0.47,42.97,0.35,42.14,-0.48,1,False,True
@@ -204,18 +197,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,40.03,-0.52,36.57,-0.87,35.7,-0.85,0,False,False
 20260731,39.94,-0.09,36.49,-0.08,36.21,0.51,1,False,True
 20260807,40.92,0.98,37.32,0.83,36.39,0.18,2,True,True
+20260814,41.22,0.3,37.75,0.43,36.8,0.41,3,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 5314 | 世紀* | revenue_pullback | 營收成長股價回檔 | 83.0 |  |  |  |  |  | stale_signal | 1.股東常會日期:115/06/24 2.重要決議事項一、盈餘分配或盈虧撥補:                  通過承認114年度盈餘分配案。 3.重要決議事項二、章程修訂:                  通過「公司章程」修訂案。 4.重要決議事項三、營業報告書及財務報表:                  通過承認114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:  (1)114年度盈餘轉增資發行新股案。  (2)本公司擬發行限制員工權利新股案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260717 | 5314 | 世紀* | revenue_breakout_low_response | 營收爆發低反應股 | 11.0 | 36.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | 1.股東常會日期:115/06/24 2.重要決議事項一、盈餘分配或盈虧撥補:                  通過承認114年度盈餘分配案。 3.重要決議事項二、章程修訂:                  通過「公司章程」修訂案。 4.重要決議事項三、營業報告書及財務報表:                  通過承認114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:  (1)114年度盈餘轉增資發行新股案。  (2)本公司擬發行限制員工權利新股案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260821 | 5314 | 世紀* | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.股東常會日期:115/06/24 2.重要決議事項一、盈餘分配或盈虧撥補:                  通過承認114年度盈餘分配案。 3.重要決議事項二、章程修訂:                  通過「公司章程」修訂案。 4.重要決議事項三、營業報告書及財務報表:                  通過承認114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:  (1)114年度盈餘轉增資發行新股案。  (2)本公司擬發行限制員工權利新股案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 5314 | 世紀* | 2 | 2 | 4 | 9 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260821 | 5314 | 世紀* | 6 | 6 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

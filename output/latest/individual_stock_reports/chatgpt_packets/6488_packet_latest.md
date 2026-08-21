@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6488 環球晶
 
 ## Metadata
-- generated_at: 2026-08-10 22:28:32 Asia/Taipei
+- generated_at: 2026-08-21 22:28:00 Asia/Taipei
 - stock_id: 6488
 - stock_name: 環球晶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260807
-- price_rows: 186
-- current_main_price_date: 20260807
+- latest_price_date: 20260821
+- price_rows: 203
+- current_main_price_date: 20260821
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260807-01698d0b1c2355ac
-- official_tdcc_signal_date: 20260807
-- latest_tdcc_date: 20260807
-- tdcc_rows: 15
+- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
+- official_tdcc_signal_date: 20260814
+- latest_tdcc_date: 20260814
+- tdcc_rows: 16
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260807
-- open: 879
-- high: 910
-- low: 855
-- close: 872
-- volume: 9233000
-- ma5: 886.8
-- ema23_primary: 1011.62
-- distance_to_ema23_pct: -13.8
-- ma20: 1095.25
-- ma60: 995.68
-- ma120: 754.58
-- return_5d: 1.99
-- return_20d: -35.41
-- volume_ratio: 0.83
-- distance_to_ma20_pct_auxiliary: -20.38
-- distance_to_high_60_pct: -45.5
+- date: 20260821
+- open: 991
+- high: 1005
+- low: 931
+- close: 941
+- volume: 7461000
+- ma5: 999.4
+- ema23_primary: 990.16
+- distance_to_ema23_pct: -4.96
+- ma20: 931.15
+- ma60: 1031.8
+- ma120: 796.8
+- return_5d: -6.83
+- return_20d: -8.64
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: 1.06
+- distance_to_high_60_pct: -41.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260713,1485,1485,1485,1485,1865000,1109.95,33.79,1111.25,859.03,0.31
-20260714,1495,1575,1385,1515,24347000,1143.7,32.46,1143.8,875.28,3.39
-20260715,1580,1600,1430,1480,10366000,1171.73,26.31,1170.3,891.53,1.39
-20260716,1420,1460,1355,1370,6639000,1188.25,15.3,1186.55,905.18,0.93
-20260717,1235,1320,1235,1240,10870000,1192.56,3.98,1193.55,915.9,1.58
-20260720,1270,1320,1170,1265,11808000,1198.6,5.54,1201.3,926.98,1.71
-20260721,1270,1280,1165,1205,12552000,1199.13,0.49,1205.8,937.53,1.69
-20260722,1230,1305,1205,1240,11378000,1202.54,3.12,1217.3,948.5,1.44
-20260723,1255,1295,1120,1120,8378000,1195.66,-6.33,1225.05,956.83,1.01
-20260724,1070,1100,1020,1030,11863000,1181.85,-12.85,1224.55,964.33,1.35
 20260727,1030,1065,1005,1065,5597000,1172.12,-9.14,1231,973.15,0.62
 20260728,990,998,959,959,5368000,1154.36,-16.92,1233.2,979.47,0.59
 20260729,947,948,864,864,4729000,1130.16,-23.55,1226.15,983.77,0.51
@@ -167,26 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260805,993,996,868,872,25132000,1038.16,-16,1137.05,992.2,2.3
 20260806,877,885,828,872,10781000,1024.31,-14.87,1119.15,993.65,0.98
 20260807,879,910,855,872,9233000,1011.62,-13.8,1095.25,995.68,0.83
+20260810,880,888,852,854,6699000,998.48,-14.47,1063.7,996.78,0.59
+20260811,847,883,823,849,8497000,986.03,-13.9,1030.4,999.1,0.8
+20260812,844,933,844,933,10564000,981.61,-4.95,1003.05,1003.02,1
+20260813,970,1025,950,1025,9647000,985.22,4.04,985.8,1009.02,0.9
+20260814,1025,1045,993,1010,14896000,987.29,2.3,974.3,1015.22,1.36
+20260817,1000,1095,990,1020,10494000,990.01,3.03,962.05,1020.53,0.97
+20260818,1020,1120,1010,1060,13047000,995.85,6.44,954.8,1026.25,1.2
+20260819,1010,1030,972,983,10429000,994.78,-1.18,941.95,1029.5,0.96
+20260820,1005,1015,954,993,8902000,994.63,-0.16,935.6,1031.62,0.82
+20260821,991,1005,931,941,7461000,990.16,-4.96,931.15,1031.8,0.7
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260807
-- over_400_ratio: 78.79
-- over_600_ratio: 75.9
-- over_800_ratio: 73.44
-- over_1000_ratio: 71.2
-- over_400_change_1w: -1.13
-- over_800_change_1w: -1.58
-- over_1000_change_1w: -1.41
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260814
+- over_400_ratio: 79.42
+- over_600_ratio: 76.36
+- over_800_ratio: 73.76
+- over_1000_ratio: 71.31
+- over_400_change_1w: 0.63
+- over_800_change_1w: 0.32
+- over_1000_change_1w: 0.11
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260522,80.33,-0.67,74.07,-1.31,71.7,-0.95,0,False,False
 20260529,81.01,0.68,75.39,1.32,73.12,1.42,1,True,True
 20260605,81.57,0.56,75.67,0.28,72.46,-0.66,2,False,True
 20260612,80.87,-0.7,75.08,-0.59,72.21,-0.25,0,False,False
@@ -198,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260724,80.05,-0.89,75.48,-1.02,71.73,-1.08,0,False,False
 20260731,79.92,-0.13,75.02,-0.46,72.61,0.88,1,False,True
 20260807,78.79,-1.13,73.44,-1.58,71.2,-1.41,0,False,False
+20260814,79.42,0.63,73.76,0.32,71.31,0.11,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 6488 | 環球晶 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | 1.事實發生日:115/07/09 2.契約或承諾相對人:Micron Technology, Inc. 3.與公司關係:本公司之客戶 4.契約或承諾起迄日期（或解除日期）:不適用 5.主要內容（解除者不適用）:此次合作預計包含由美光科技提供5億美元之策略性資金 支持，藉以推動本公司美國業務之發展及供應能力提升，以支援雙方長期合作。 雙方規劃透過10年期長期供應協議（Long-Term Agreement, LTA），建立長期合作 架構，相關合作內容將依雙方後續協議及相關程序推動。 6.限制條款（解除者不適用）:無 7.承諾事項（解除者不適用）:雙方依合作意向書簽訂10年期長期供應協議 8.其他重要約定事項（解除者不適用）:無 9.對公司財務、業務之影響:深化長期策略合作關係，並就長期供應合作及相關合作 架構達成合作意向，進一步提升先進半導體晶圓供應韌性，支援AI、高效能運算與 資料中心應用帶動之先進記憶體需求成長，以及未來世代記憶體技術發展所需之關 鍵材料供應。 10.具體目的:共同強化美國半導體製造生態系與在地關鍵材料供應能力。 11.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第8款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
+| 20260821 | 6488 | 環球晶 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日:115/08/20 2.被背書保證之: (1)公司名稱:環球晶圓股份有限公司 (2)與提供背書保證公司之關係: 本公司之子公司環球晶資本股份有限公司 對本公司提供背書保證 (3)背書保證之限額(仟元):153,943,410 (4)原背書保證之餘額(仟元):0 (5)本次新增背書保證之金額(仟元):8,000,000 (6)迄事實發生日止背書保證餘額(仟元):8,000,000 (7)被背書保證公司實際動支金額(仟元):0 (8)本次新增背書保證之原因: 集團整體資金運用以協助降低銀行融資成本 3.被背書保證公司提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.被背書保證公司最近期財務報表之: (1)資本(仟元):4,781,137 (2)累積盈虧金額(仟元):34,882,093 5.解除背書保證責任之: (1)條件: 被保證額度全數清償 (2)日期: 被保證額度全數清償之日 6.背書保證之總限額(仟元): 967,240,960 7.迄事實發生日為止，背書保證餘額(仟元): 150,850,519 8.迄事實發生日為止，A提供背書保證餘額占公開發行公司最近期財務報表淨值之 比率: 155.96 9.迄事實發生日為止，背書保證、長期投資及資金貸與餘額合計數達該公開發行公 司最近期財務報表淨值之比率: 13.28 10.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 6488 | 環球晶 | 1 | 1 | 3 | 8 | 12 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260821 | 6488 | 環球晶 | 2 | 2 | 3 | 6 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |
