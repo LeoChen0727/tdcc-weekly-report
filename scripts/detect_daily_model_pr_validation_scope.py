@@ -445,14 +445,14 @@ def _require_synthetic_merge_identity(
     _require_commit(base_sha, "base SHA")
     _require_commit(head_sha, "head SHA")
     _require_commit(merge_sha, "merge SHA")
-    result = _run_git(["rev-list", "--parents", "-n", "1", "HEAD"])
+    result = _run_git(["rev-list", "--parents", "-n", "1", merge_sha])
     if result.returncode != 0:
         stderr = result.stderr.decode("utf-8", errors="replace").strip()
-        raise ScopeDetectionError(f"cannot inspect checked-out PR merge identity: {stderr}")
+        raise ScopeDetectionError(f"cannot inspect pull request merge identity: {stderr}")
     fields = result.stdout.decode("ascii", errors="strict").strip().split()
     if len(fields) != 3:
         raise ScopeDetectionError(
-            "checked-out pull request ref must be an exact two-parent synthetic merge"
+            "pull request ref must be an exact two-parent synthetic merge"
         )
     observed_merge, observed_base, observed_head = fields
     if observed_merge != merge_sha:

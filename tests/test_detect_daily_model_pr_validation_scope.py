@@ -345,6 +345,8 @@ def test_git_diff_is_nul_delimited_no_renames_and_disables_replace_objects(
     for args in calls:
         assert args[:2] == ["git", "--no-replace-objects"]
     diff_args = calls[-1]
+    rev_list_args = calls[-2]
+    assert rev_list_args[-1] == "merge"
     assert "--name-status" in diff_args
     assert "--no-renames" in diff_args
     assert "-z" in diff_args
@@ -423,6 +425,26 @@ def test_synthetic_merge_identity_mismatch_fails_closed(
 
     with pytest.raises(scope.ScopeDetectionError, match=message):
         scope.changed_paths_from_git("base", "head", "merge")
+
+
+def test_explicit_merge_identity_does_not_require_head(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    repo, base_sha, head_sha, merge_sha = init_repo(tmp_path)
+    run_git(repo, "symbolic-ref", "HEAD", "refs/heads/unborn")
+    head_probe = subprocess.run(
+        ["git", "--no-replace-objects", "rev-parse", "--verify", "HEAD"],
+        cwd=repo,
+        check=False,
+        capture_output=True,
+    )
+    assert head_probe.returncode != 0
+    monkeypatch.setattr(scope, "ROOT", repo)
+
+    assert scope.changed_paths_from_git(base_sha, head_sha, merge_sha) == [
+        ".github/workflows/daily_full_pipeline.yml"
+    ]
 
 
 def test_real_git_diff_detects_the_routine_workflow_as_core_only(

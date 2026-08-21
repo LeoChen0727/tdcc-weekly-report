@@ -50,11 +50,6 @@ jobs:
             echo "scope fetch SHA mismatch: actual=$fetched_sha expected=$MERGE_SHA" >&2
             exit 1
           fi
-          git --no-replace-objects update-ref --no-deref HEAD "$MERGE_SHA"
-          if [ "$(git --no-replace-objects rev-parse HEAD)" != "$MERGE_SHA" ]; then
-            echo "scope HEAD does not equal the immutable event SHA" >&2
-            exit 1
-          fi
           mkdir -p scripts
           git --no-replace-objects show \
             "$MERGE_SHA:scripts/detect_daily_model_pr_validation_scope.py" \

@@ -81,7 +81,6 @@ def scope_job_contract_ok(text: str) -> bool:
         "--filter=blob:none",
         '"+$FETCH_REF:refs/remotes/origin/pr-scope"',
         'if [ "$fetched_sha" != "$MERGE_SHA" ]; then',
-        'update-ref --no-deref HEAD "$MERGE_SHA"',
         '"$MERGE_SHA:scripts/detect_daily_model_pr_validation_scope.py"',
     )
     forbidden = (
@@ -95,6 +94,8 @@ def scope_job_contract_ok(text: str) -> bool:
         "pytest",
         "python scripts/validate_",
         "python scripts/build_",
+        "update-ref",
+        "rev-parse HEAD",
     )
     return (
         all(literal in block for literal in required)
