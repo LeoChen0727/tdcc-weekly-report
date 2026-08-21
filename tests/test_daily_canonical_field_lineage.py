@@ -4181,7 +4181,11 @@ def test_workflows_run_canonical_lineage_after_model_build() -> None:
     daily_full = contents["daily_full"]
     audit_validation = f"{canonical_validation} --runtime-scope audit-sources"
     complete_validation = f"{canonical_validation} --runtime-scope complete-current"
-    operation_build = "python scripts/build_daily_volume_breakout_operation_section.py"
+    operation_artifact_name = Path(lineage.OPERATION_CURRENT_NODE[1]).name
+    operation_build = (
+        "python scripts/build_"
+        f"{operation_artifact_name.removesuffix('_latest.csv')}.py"
+    )
     assert daily_full.count(audit_validation) == 1
     assert daily_full.count(complete_validation) == 1
     assert daily_full.index(model_build) < daily_full.index(audit_validation)
