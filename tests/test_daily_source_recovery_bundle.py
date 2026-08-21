@@ -936,6 +936,22 @@ def test_run_correlation_requires_unique_title_head_attempt_baseline_and_window(
         expected_display_title="Daily Full Pipeline | recovery=test-token",
     )
     assert observed == expected
+    assert bundle.select_correlated_run(
+        [*(item for item in noise if item["databaseId"] != 203), expected],
+        baseline_run_id=200,
+        dispatch_started_at="2026-08-11T12:30:00Z",
+        expected_head_sha="",
+        expected_display_title="Daily Full Pipeline | recovery=test-token",
+    ) == expected
+
+    with pytest.raises(bundle.DailySourceRecoveryError, match="multiple"):
+        bundle.select_correlated_run(
+            [expected, expected | {"databaseId": 203, "headSha": "e" * 40}],
+            baseline_run_id=200,
+            dispatch_started_at="2026-08-11T12:30:00Z",
+            expected_head_sha="",
+            expected_display_title="Daily Full Pipeline | recovery=test-token",
+        )
 
     with pytest.raises(bundle.DailySourceRecoveryError, match="multiple"):
         bundle.select_correlated_run(
@@ -1007,6 +1023,7 @@ def test_dispatch_reservation_is_date_scoped_immutable_and_bundle_bound(tmp_path
         manifest_sha256=result["manifest_sha256"],
         source_bundle_sha=result["manifest"]["source_bundle_sha"],
         correlation_id=f"daily-source-{DATE}",
+        reservation_commit_sha=reservation_head,
     )
     assert verified == reserved["payload"]
     with pytest.raises(bundle.DailySourceRecoveryError, match="SHA-256 mismatch"):
@@ -1083,6 +1100,97 @@ def test_failed_recovery_retry_accepts_exact_code_only_descendant(tmp_path: Path
         "scripts/retry_fix.py",
         "tests/test_retry_fix.py",
     ]
+
+
+def test_ordinary_recovery_accepts_actual_nonoverlapping_event_descendant(
+    tmp_path: Path,
+) -> None:
+    root, base_sha = _repo(tmp_path)
+    result, source_commit = _build_and_commit(root, base_sha)
+    reserved, reservation_commit = _reserve_and_commit(root, result, source_commit)
+    unrelated = root / "docs" / "unrelated_main_advance.md"
+    unrelated.parent.mkdir(parents=True, exist_ok=True)
+    unrelated.write_text("unrelated documentation advance\n", encoding="utf-8")
+    subprocess.run(["git", "add", unrelated.relative_to(root)], cwd=root, check=True)
+    subprocess.run(
+        ["git", "commit", "-m", "unrelated main advance"],
+        cwd=root,
+        check=True,
+        capture_output=True,
+    )
+    event_head = _git(root, "rev-parse", "HEAD")
+
+    verified = bundle.verify_dispatch_reservation(
+        root,
+        trading_date=DATE,
+        reservation_path=str(reserved["path"]),
+        reservation_sha256=str(reserved["sha256"]),
+        expected_head_sha=event_head,
+        source_commit_sha=source_commit,
+        manifest_path=str(result["manifest_path"]),
+        manifest_sha256=str(result["manifest_sha256"]),
+        source_bundle_sha=str(result["manifest"]["source_bundle_sha"]),
+        correlation_id=f"daily-source-{DATE}",
+        reservation_commit_sha=reservation_commit,
+    )
+
+    assert verified == reserved["payload"]
+    assert event_head != reservation_commit
+
+
+@pytest.mark.parametrize(
+    "protected_kind",
+    ("reservation", "manifest", "state", "market_session", "source", "bundle"),
+)
+@pytest.mark.parametrize("mutation", ("tamper", "delete"))
+def test_ordinary_recovery_rejects_reserved_source_path_drift(
+    tmp_path: Path,
+    protected_kind: str,
+    mutation: str,
+) -> None:
+    root, base_sha = _repo(tmp_path)
+    result, source_commit = _build_and_commit(root, base_sha)
+    reserved, reservation_commit = _reserve_and_commit(root, result, source_commit)
+    if protected_kind == "reservation":
+        relative_path = str(reserved["path"])
+    elif protected_kind == "manifest":
+        relative_path = str(result["manifest_path"])
+    elif protected_kind == "state":
+        relative_path = str(Path(str(result["manifest_path"])).parent / "state.json")
+    elif protected_kind == "market_session":
+        relative_path = str(result["manifest"]["market_session"]["bundle_path"])
+    elif protected_kind == "source":
+        relative_path = str(result["manifest"]["files"][0]["path"])
+    else:
+        relative_path = str(result["manifest"]["files"][0]["bundle_path"])
+    target = root / relative_path
+    if mutation == "tamper":
+        target.write_bytes(target.read_bytes() + b"\n")
+        subprocess.run(["git", "add", relative_path], cwd=root, check=True)
+    else:
+        target.unlink()
+        subprocess.run(["git", "add", "-u", relative_path], cwd=root, check=True)
+    subprocess.run(
+        ["git", "commit", "-m", f"{mutation} {protected_kind}"],
+        cwd=root,
+        check=True,
+        capture_output=True,
+    )
+
+    with pytest.raises(bundle.DailySourceRecoveryError, match="reserved source paths"):
+        bundle.verify_dispatch_reservation(
+            root,
+            trading_date=DATE,
+            reservation_path=str(reserved["path"]),
+            reservation_sha256=str(reserved["sha256"]),
+            expected_head_sha=_git(root, "rev-parse", "HEAD"),
+            source_commit_sha=source_commit,
+            manifest_path=str(result["manifest_path"]),
+            manifest_sha256=str(result["manifest_sha256"]),
+            source_bundle_sha=str(result["manifest"]["source_bundle_sha"]),
+            correlation_id=f"daily-source-{DATE}",
+            reservation_commit_sha=reservation_commit,
+        )
 
 
 @pytest.mark.parametrize(
@@ -1217,6 +1325,17 @@ def _commit_retry_fix(root: Path, name: str) -> str:
     return _git(root, "rev-parse", "HEAD")
 
 
+def _commit_unrelated_doc(root: Path, name: str) -> str:
+    path = root / "docs" / f"{name}.md"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(f"# {name}\n", encoding="utf-8")
+    subprocess.run(["git", "add", path.relative_to(root).as_posix()], cwd=root, check=True)
+    subprocess.run(
+        ["git", "commit", "-m", name], cwd=root, check=True, capture_output=True
+    )
+    return _git(root, "rev-parse", "HEAD")
+
+
 @pytest.mark.parametrize(
     "raw_run_id",
     ("32402031739", "032402031739", " 32402031739 "),
@@ -1304,13 +1423,13 @@ def test_failed_recovery_retry_accepts_historical_failures_and_latest_prior(
             current_run_id=400,
             current_head_sha=current_head,
         )
-    outside_window_same_head = _retry_run(
+    repeated_reservation_head = _retry_run(
         300, head_sha=reservation_commit, created_at="2026-08-11T13:30:00Z"
     )
-    with pytest.raises(bundle.DailySourceRecoveryError, match="latest related"):
+    with pytest.raises(bundle.DailySourceRecoveryError, match="strict descendant"):
         bundle.verify_failed_recovery_retry_runs(
             root,
-            [anchor, outside_window_same_head, current],
+            [anchor, repeated_reservation_head, current],
             reservation_commit_sha=reservation_commit,
             reservation_payload=reserved["payload"],
             trading_date=DATE,
@@ -1318,17 +1437,6 @@ def test_failed_recovery_retry_accepts_historical_failures_and_latest_prior(
             current_run_id=400,
             current_head_sha=current_head,
         )
-    anchor_only = bundle.verify_failed_recovery_retry_runs(
-        root,
-        [anchor, outside_window_same_head, current],
-        reservation_commit_sha=reservation_commit,
-        reservation_payload=reserved["payload"],
-        trading_date=DATE,
-        retry_of_run_id=201,
-        current_run_id=400,
-        current_head_sha=current_head,
-    )
-    assert anchor_only["prior"] == anchor
     with pytest.raises(bundle.DailySourceRecoveryError, match="latest related"):
         bundle.verify_failed_recovery_retry_runs(
             root,
@@ -1342,12 +1450,11 @@ def test_failed_recovery_retry_accepts_historical_failures_and_latest_prior(
         )
 
     for mutation in (
-        anchor | {"head_sha": intermediate_head},
         anchor | {"id": 200},
         anchor | {"created_at": "2026-08-11T12:20:00Z"},
         anchor | {"created_at": "2026-08-11T13:00:01Z"},
     ):
-        with pytest.raises(bundle.DailySourceRecoveryError, match="anchor|baseline"):
+        with pytest.raises(bundle.DailySourceRecoveryError, match="baseline|earliest|window"):
             bundle.verify_failed_recovery_retry_runs(
                 root,
                 [mutation, older, prior, current],
@@ -1375,6 +1482,115 @@ def test_failed_recovery_retry_accepts_historical_failures_and_latest_prior(
                 current_head_sha=current_head,
             )
 
+
+def test_failed_recovery_retry_accepts_nonoverlapping_initial_head_then_code_retry(
+    tmp_path: Path,
+) -> None:
+    root, base_sha = _repo(tmp_path)
+    result, source_commit = _build_and_commit(root, base_sha)
+    reserved, reservation_commit = _reserve_and_commit(root, result, source_commit)
+    initial_head = _commit_unrelated_doc(root, "ordinary_main_advance")
+    current_head = _commit_retry_fix(root, "retry_fix")
+    anchor = _retry_run(
+        201, head_sha=initial_head, created_at="2026-08-11T12:30:10Z"
+    )
+    current = _retry_run(
+        400,
+        head_sha=current_head,
+        created_at="2026-08-11T12:45:00Z",
+        status="in_progress",
+        conclusion=None,
+    )
+
+    verified = bundle.verify_failed_recovery_retry_runs(
+        root,
+        [anchor, current],
+        reservation_commit_sha=reservation_commit,
+        reservation_payload=reserved["payload"],
+        trading_date=DATE,
+        retry_of_run_id=201,
+        current_run_id=400,
+        current_head_sha=current_head,
+    )
+
+    assert verified == {"anchor": anchor, "prior": anchor, "current": current}
+    assert initial_head != reservation_commit
+
+
+def test_failed_recovery_retry_rejects_noncode_change_after_initial_anchor(
+    tmp_path: Path,
+) -> None:
+    root, base_sha = _repo(tmp_path)
+    result, source_commit = _build_and_commit(root, base_sha)
+    reserved, reservation_commit = _reserve_and_commit(root, result, source_commit)
+    initial_head = _commit_unrelated_doc(root, "ordinary_initial_head")
+    _commit_unrelated_doc(root, "forbidden_retry_doc")
+    current_head = _commit_retry_fix(root, "retry_fix_after_doc")
+    anchor = _retry_run(
+        201, head_sha=initial_head, created_at="2026-08-11T12:30:10Z"
+    )
+    current = _retry_run(
+        400,
+        head_sha=current_head,
+        created_at="2026-08-11T12:45:00Z",
+        status="in_progress",
+        conclusion=None,
+    )
+
+    with pytest.raises(bundle.DailySourceRecoveryError, match="outside code-only scope"):
+        bundle.verify_failed_recovery_retry_runs(
+            root,
+            [anchor, current],
+            reservation_commit_sha=reservation_commit,
+            reservation_payload=reserved["payload"],
+            trading_date=DATE,
+            retry_of_run_id=201,
+            current_run_id=400,
+            current_head_sha=current_head,
+        )
+
+
+def test_failed_recovery_retry_uses_earliest_failure_as_anchor_inside_window(
+    tmp_path: Path,
+) -> None:
+    root, base_sha = _repo(tmp_path)
+    result, source_commit = _build_and_commit(root, base_sha)
+    reserved, reservation_commit = _reserve_and_commit(root, result, source_commit)
+    first_retry_head = _commit_retry_fix(root, "first_retry")
+    second_retry_head = _commit_retry_fix(root, "second_retry")
+    current_head = _commit_retry_fix(root, "current_retry")
+    prebaseline = _retry_run(
+        199, head_sha=reservation_commit, created_at="2026-08-11T12:30:01Z"
+    )
+    anchor = _retry_run(
+        201, head_sha=reservation_commit, created_at="2026-08-11T12:30:05Z"
+    )
+    first_retry = _retry_run(
+        250, head_sha=first_retry_head, created_at="2026-08-11T12:31:00Z"
+    )
+    prior = _retry_run(
+        300, head_sha=second_retry_head, created_at="2026-08-11T12:32:00Z"
+    )
+    current = _retry_run(
+        400,
+        head_sha=current_head,
+        created_at="2026-08-11T12:33:00Z",
+        status="in_progress",
+        conclusion=None,
+    )
+
+    verified = bundle.verify_failed_recovery_retry_runs(
+        root,
+        [prebaseline, anchor, first_retry, prior, current],
+        reservation_commit_sha=reservation_commit,
+        reservation_payload=reserved["payload"],
+        trading_date=DATE,
+        retry_of_run_id=300,
+        current_run_id=400,
+        current_head_sha=current_head,
+    )
+
+    assert verified == {"anchor": anchor, "prior": prior, "current": current}
 
 @pytest.mark.parametrize(
     ("field", "value"),

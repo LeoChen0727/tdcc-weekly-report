@@ -208,6 +208,10 @@ def _validate_historical_replay_freshness_stage(replay_text: str) -> list[str]:
 
 def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[str]:
     errors: list[str] = []
+    if "Validate workflow automation boundaries" in recent_text:
+        errors.append("recent repair runtime must not execute repo-static automation validators")
+    if "Validate repository automation boundaries" in replay_text:
+        errors.append("historical replay runtime must not execute repo-static automation validators")
     replay_concurrency = "group: historical-structured-source-replay-${{ github.ref }}"
     if replay_text.count(replay_concurrency) != 1:
         errors.append(
@@ -253,6 +257,12 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
             "reusable replay must preserve the raw price/history high-water"
         ),
         "expected_main_sha:": "reusable replay must bind to an immutable main SHA",
+        "domain_output_commit_sha:\n        value: ${{ jobs.replay-historical-structured-sources.outputs.domain_output_commit_sha }}": (
+            "workflow_call must expose the replay domain commit through the replay job output"
+        ),
+        "published_head_sha:\n        value: ${{ jobs.replay-historical-structured-sources.outputs.published_head_sha }}": (
+            "workflow_call must expose the replay published head through the replay job output"
+        ),
     }
     recent_required = {
         "group: daily-full-pipeline-${{ github.ref }}": (
@@ -273,8 +283,8 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         "needs: repair-recent-daily-price-gaps": (
             "structured planning must wait for raw price/history persistence"
         ),
-        "Checkout current main for structured catch-up planning": (
-            "structured catch-up planning must fresh-checkout current main"
+        "Checkout published source-bundle commit for structured catch-up planning": (
+            "structured catch-up planning must checkout the immutable source-bundle commit"
         ),
         "permissions:\n      contents: read": (
             "structured planner must use a read-only GitHub token"
@@ -285,8 +295,11 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         "Verify and capture caller-pinned workflow definitions": (
             "raw repair must verify the exact dispatch SHA before data work"
         ),
-        '"$checkout_sha" != "$remote_main_sha"': (
-            "raw repair checkout must equal current remote main"
+        '[ "$checkout_sha" != "$CALLER_SHA" ]': (
+            "raw repair checkout must equal the pinned event SHA"
+        ),
+        'git merge-base --is-ancestor "$checkout_sha" "$remote_main_sha"': (
+            "raw repair pinned event SHA must remain a current-main ancestor"
         ),
         'echo "REPAIR_BASE_SHA=$checkout_sha"': (
             "raw repair must bind outputs to an immutable base SHA"
@@ -309,11 +322,26 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         '"$checkout_replay_blob_sha" != "$replay_blob_sha"': (
             "raw repair must reject caller/checkout reusable definition drift"
         ),
-        'remote_main_sha" != "$REPAIR_BASE_SHA"': (
-            "raw repair must reject remote-main drift before committing outputs"
+        'git diff --cached --name-only --no-renames -z > "$staged_paths_file"': (
+            "raw repair must capture the exact staged source-bundle paths"
+        ),
+        '["git", "diff", "--name-only", "--no-renames", "-z"': (
+            "moving-main overlap checks must expose both sides of renames"
         ),
         'git push origin HEAD:main': (
-            "raw repair must publish one fail-closed source-bundle commit without rebase/retry"
+            "raw repair must publish with a normal non-force push"
+        ),
+        "moving main overlaps staged repair source-bundle paths": (
+            "raw repair must fail closed when moving main overlaps its staged paths"
+        ),
+        "for push_attempt in 1 2 3": (
+            "raw repair and reservation publication retries must be bounded"
+        ),
+        "for fetch_attempt in 1 2 3": (
+            "raw repair and reservation fetch convergence must be bounded"
+        ),
+        'git merge --no-edit "$remote_main_sha"': (
+            "raw repair must ordinary-merge non-overlapping current main"
         ),
         "python scripts/validate_recent_daily_price_repair_staged_paths.py": (
             "raw repair must validate an exact data-only staged index before commit"
@@ -342,8 +370,11 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         'remote_main_sha="$(git rev-parse origin/main)"': (
             "planner must capture origin/main"
         ),
-        'if [ -z "$local_sha" ] || [ "$local_sha" != "$remote_main_sha" ]; then': (
-            "planner must reject main drift before authorizing replay"
+        '[ "$local_sha" != "${{ needs.repair-recent-daily-price-gaps.outputs.source_bundle_commit_sha }}" ]': (
+            "planner must pin the published source-bundle domain commit"
+        ),
+        'git merge-base --is-ancestor "$local_sha" "$remote_main_sha"': (
+            "planner source-bundle commit must remain a current-main ancestor"
         ),
         "CALLER_REPAIR_WORKFLOW_BLOB_SHA: ${{ needs.repair-recent-daily-price-gaps.outputs.caller_repair_workflow_blob_sha }}": (
             "planner must consume the caller-pinned repair workflow blob"
@@ -351,23 +382,23 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         "CALLER_REPLAY_WORKFLOW_BLOB_SHA: ${{ needs.repair-recent-daily-price-gaps.outputs.caller_replay_workflow_blob_sha }}": (
             "planner must consume the caller-pinned reusable workflow blob"
         ),
-        "remote_repair_workflow_blob_sha=\"$(git rev-parse origin/main:.github/workflows/repair_recent_daily_price_gaps.yml)\"": (
-            "planner must resolve the fresh-main repair workflow blob"
+        "local_repair_workflow_blob_sha=\"$(git rev-parse HEAD:.github/workflows/repair_recent_daily_price_gaps.yml)\"": (
+            "planner must resolve the pinned repair workflow blob"
         ),
-        "remote_replay_workflow_blob_sha=\"$(git rev-parse origin/main:.github/workflows/historical_structured_source_replay.yml)\"": (
-            "planner must resolve the fresh-main reusable workflow blob"
+        "local_replay_workflow_blob_sha=\"$(git rev-parse HEAD:.github/workflows/historical_structured_source_replay.yml)\"": (
+            "planner must resolve the pinned reusable workflow blob"
         ),
-        '"$remote_repair_workflow_blob_sha" != "$CALLER_REPAIR_WORKFLOW_BLOB_SHA"': (
-            "planner must reject repair workflow definition drift"
+        '"$local_repair_workflow_blob_sha" != "$CALLER_REPAIR_WORKFLOW_BLOB_SHA"': (
+            "planner must reject pinned repair workflow definition drift"
         ),
-        '"$remote_replay_workflow_blob_sha" != "$CALLER_REPLAY_WORKFLOW_BLOB_SHA"': (
-            "planner must reject reusable workflow definition drift"
+        '"$local_replay_workflow_blob_sha" != "$CALLER_REPLAY_WORKFLOW_BLOB_SHA"': (
+            "planner must reject pinned reusable workflow definition drift"
         ),
-        'remote_main_sha_after_plan="$(git ls-remote origin refs/heads/main': (
+        'remote_main_sha_after_plan="$(git rev-parse origin/main)"': (
             "planner must recheck remote main after all local validation"
         ),
-        '"$remote_main_sha_after_plan" != "$local_sha"': (
-            "planner must reject remote-main drift even for a no-op plan"
+        'git merge-base --is-ancestor "$local_sha" "$remote_main_sha_after_plan"': (
+            "planner must revalidate pinned ancestry after planning"
         ),
         "replay-structured-objective-sources:": (
             "recent repair must contain a dedicated structured replay job"
@@ -445,8 +476,8 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         'git add -- output/history/daily_source_recovery_reservations/"${SOURCE_TRADING_DATE}.json"': (
             "resume must stage only the durable reservation path"
         ),
-        'git push origin HEAD:main': (
-            "resume must publish the reservation with a direct fail-closed push"
+        "moving main overlaps the date-scoped recovery reservation": (
+            "resume must reject a same-date reservation overlap"
         ),
         '--resume-reservation-path "$reservation_path"': (
             "resume state must retain the durable reservation path"
@@ -463,11 +494,11 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         "expected_title=\"Daily Full Pipeline | recovery=${correlation_id}\"": (
             "resume must use an exact unique display title"
         ),
-        "resume_head_sha=\"$(git rev-parse origin/main)\"": (
-            "resume must bind the dispatch to an exact current-main head SHA"
+        "reservation_commit_sha=\"$(git rev-parse HEAD)\"": (
+            "resume must retain the exact one-path reservation commit"
         ),
-        '-f recovery_expected_head_sha="$resume_head_sha"': (
-            "resume must pass the reserved event head SHA to Daily Full"
+        '-f recovery_reservation_commit_sha="$reservation_commit_sha"': (
+            "ordinary resume must pass the exact reservation commit to Daily Full"
         ),
         '-f recovery_reservation_path="$reservation_path"': (
             "resume must pass the exact durable reservation path to Daily Full"
@@ -480,7 +511,35 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         "for completion_poll in $(seq 1 240)": "resume completion polling must be bounded",
         "for api_attempt in 1 2 3": "resume API retries must be bounded",
         "select_correlated_run": "resume must use the exact correlation contract",
+        'run_head_sha="$(python -c': "resume must capture the actual correlated Daily Full event head",
+        '--resume-expected-head-sha "$run_head_sha"': (
+            "resume state must bind the actual correlated Daily Full event head"
+        ),
         "--to confirm_source_gate": "successful resume must close the source-gate state machine",
+        "REPAIR_PUBLISHED_HEAD_SHA: ${{ needs.repair-recent-daily-price-gaps.outputs.published_head_sha }}": (
+            "resume must receive the exact repair published head"
+        ),
+        "REPLAY_DOMAIN_OUTPUT_COMMIT_SHA: ${{ needs.replay-structured-objective-sources.outputs.domain_output_commit_sha }}": (
+            "resume must receive the exact replay domain output commit"
+        ),
+        "REPLAY_PUBLISHED_HEAD_SHA: ${{ needs.replay-structured-objective-sources.outputs.published_head_sha }}": (
+            "resume must receive the exact replay published head"
+        ),
+        "Resolve exact published resume head": (
+            "resume must resolve a direct replay-or-repair published head before checkout"
+        ),
+        'resume_published_base_sha="$REPLAY_PUBLISHED_HEAD_SHA"': (
+            "successful replay must resolve to its own published head without fallback"
+        ),
+        "ref: ${{ steps.resolve_resume_head.outputs.resume_published_base_sha }}": (
+            "resume checkout must use the validated resolver output"
+        ),
+        'git merge-base --is-ancestor "$REPLAY_DOMAIN_OUTPUT_COMMIT_SHA" "$resume_base_sha"': (
+            "successful replay must prove its domain commit is in the published resume head"
+        ),
+        "dispatch_result=uncertain": (
+            "an uncertain dispatch acknowledgement must be preserved for bounded correlation"
+        ),
     }
     for literal, purpose in replay_required.items():
         if literal not in workflow_call_block:
@@ -498,6 +557,21 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         'git rev-list --count "$REPLAY_BASE_SHA..HEAD"': (
             "reusable replay must prove exactly one commit above its immutable base"
         ),
+        'echo "domain_output_commit_sha=$output_commit_sha"': (
+            "reusable replay must expose its unique domain output commit"
+        ),
+        'echo "published_head_sha=$published_head_sha"': (
+            "reusable replay must expose the separately published head"
+        ),
+        "domain_output_commit_sha: ${{ steps.publish_replay.outputs.domain_output_commit_sha }}": (
+            "replay job must bind its domain output to the publish step"
+        ),
+        "published_head_sha: ${{ steps.publish_replay.outputs.published_head_sha }}": (
+            "replay job must bind its published head to the publish step"
+        ),
+        "id: publish_replay": (
+            "replay outputs must originate from the exact publish step"
+        ),
     }
     for literal, purpose in replay_runtime_required.items():
         if literal not in replay_text:
@@ -511,6 +585,136 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         "uses: ./.github/workflows/historical_structured_source_replay.yml"
     ) != 1:
         errors.append("recent repair must call the reusable replay workflow exactly once")
+    if "needs.replay-structured-objective-sources.outputs.published_head_sha ||" in recent_text:
+        errors.append(
+            "successful replay published-head resolution must not fall back to the repair head"
+        )
+    rename_safe_diff = '["git", "diff", "--name-only", "--no-renames", "-z"'
+    if recent_text.count(rename_safe_diff) != 2:
+        errors.append("recent repair must make both moving-main overlap checks rename-safe")
+    if replay_text.count(rename_safe_diff) != 2:
+        errors.append("historical replay must make both moving-main overlap checks rename-safe")
+    staged_rename_safe = "git diff --cached --name-only --no-renames -z"
+    if recent_text.count(staged_rename_safe) != 2:
+        errors.append("recent repair must make both staged path sets rename-safe")
+    if replay_text.count(staged_rename_safe) != 1:
+        errors.append("historical replay must make its staged path set rename-safe")
+    source_publish_step = _step_block(
+        _job_block(recent_text, "repair-recent-daily-price-gaps"),
+        "Commit repaired recent daily price gaps",
+    )
+    reservation_publish_step = _step_block(
+        _job_block(recent_text, "resume-daily-full-from-source-bundle"),
+        "Verify bundle and dispatch exactly one Daily Full resume",
+    )
+    replay_publish_step = _step_block(
+        _job_block(replay_text, "replay-historical-structured-sources"),
+        "Create and push exactly one replay output commit",
+    )
+    publish_contracts = (
+        (
+            "source-bundle",
+            source_publish_step,
+            "source_bundle_commit_sha",
+            "candidate_published_head_sha",
+            "published",
+            "published_head_sha",
+            "fetch_main_bounded",
+            "git push origin HEAD:main",
+        ),
+        (
+            "recovery-reservation",
+            reservation_publish_step,
+            "reservation_commit_sha",
+            "reservation_candidate_head_sha",
+            "reservation_published",
+            "reservation_published_head_sha",
+            "fetch_reservation_main_bounded",
+            "git push origin HEAD:main",
+        ),
+        (
+            "historical-replay",
+            replay_publish_step,
+            "output_commit_sha",
+            "candidate_published_head_sha",
+            "published",
+            "published_head_sha",
+            "fetch_main_bounded",
+            "git push origin HEAD:refs/heads/main",
+        ),
+    )
+    for (
+        label,
+        block,
+        domain_var,
+        candidate_var,
+        published_var,
+        published_head_var,
+        fetch_function,
+        push_command,
+    ) in publish_contracts:
+        candidate_line = f'{candidate_var}="$(git rev-parse HEAD)"'
+        push_line = f"if {push_command}; then"
+        success_line = f'{published_head_var}="${candidate_var}"'
+        ancestor_line = (
+            f'git merge-base --is-ancestor "${domain_var}" "${candidate_var}"'
+        )
+        for literal in (
+            candidate_line,
+            push_line,
+            success_line,
+            ancestor_line,
+            "if git fetch origin main &&",
+            '["git", "diff", "--name-only", "--no-renames", "-z"',
+        ):
+            if literal not in block:
+                errors.append(f"{label} publish convergence is missing {literal!r}")
+        if "git ls-remote origin refs/heads/main" in block:
+            errors.append(
+                f"{label} must treat normal push exit 0 as its publication linearization point"
+            )
+        if 'git merge --no-edit "$remote_main_sha"' not in block:
+            errors.append(f"{label} must use an ordinary merge for non-overlapping main drift")
+        normalized_block = re.sub(r"\\[ \t]*\r?\n[ \t]*", " ", block)
+        normalized_block = " ".join(normalized_block.split())
+        candidate_valid = f'[[ "${candidate_var}" =~ ^[0-9a-f]{{40}}$ ]]'
+        domain_to_candidate = (
+            f'git merge-base --is-ancestor "${domain_var}" "${candidate_var}"'
+        )
+        candidate_to_remote = (
+            f'git merge-base --is-ancestor "${candidate_var}" "$remote_main_sha"'
+        )
+        exact_structures = {
+            (
+                f"if {candidate_valid} && {domain_to_candidate} && "
+                f"{candidate_to_remote}; then {published_var}=true "
+                f'{published_head_var}="${candidate_var}" break fi'
+            ): "prior uncertain candidate ancestor acceptance",
+            (
+                'if ! git merge-base --is-ancestor "$remote_main_sha" HEAD; then '
+                'git merge --no-edit "$remote_main_sha" fi '
+                f'{candidate_var}="$(git rev-parse HEAD)"'
+            ): "ordinary merge live branch",
+            (
+                f"if {push_command}; then {published_var}=true "
+                f'{published_head_var}="${candidate_var}" break fi'
+            ): "push-exit-zero immediate publication",
+            (
+                f'done if [ "${published_var}" != true ] && {candidate_valid} && '
+                f"{fetch_function} && {domain_to_candidate} && {candidate_to_remote}; "
+                f'then {published_var}=true {published_head_var}="${candidate_var}" fi '
+                f'if [ "${published_var}" != true ]; then'
+            ): "post-loop uncertain-ack bounded ancestry proof",
+        }
+        for structure, purpose in exact_structures.items():
+            if structure not in normalized_block:
+                errors.append(f"{label} publish convergence is missing its exact {purpose}")
+        if block.count("for push_attempt in 1 2 3; do") != 1:
+            errors.append(f"{label} publication retries must be bounded in its exact publish step")
+        if block.count("for fetch_attempt in 1 2 3; do") != 1:
+            errors.append(f"{label} fetch convergence must be bounded in its exact publish step")
+        if "git push" not in block or "candidate" not in block:
+            errors.append(f"{label} must fix and publish an exact candidate head")
     authority_start = recent_text.find(
         "python -B scripts/daily_source_recovery_bundle.py authority-status"
     )
@@ -589,9 +793,7 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         "Daily Full recovery run already exists for this trading date",
         "Daily Full recovery dispatch reservation already exists for this trading date",
         "Durable recovery reservation staged path set is not exact",
-        "Durable Daily Full recovery reservation push failed or is uncertain",
-        "Durable recovery reservation commit does not equal remote main",
-        "Daily Full dispatch command failed or is uncertain",
+        "Durable recovery reservation was not published after three normal non-force attempts",
         "Unable to list Daily Full runs after bounded API retries",
         "Daily Full run correlation is ambiguous or invalid",
         "No unique Daily Full run matched the bounded dispatch window",
@@ -679,21 +881,24 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         "exit 1",
         "fi",
     )
-    expected_persist = (
-        'remote_main_sha="$(git ls-remote origin refs/heads/main | awk \'{print $1}\')"',
-        'if [ -z "$remote_main_sha" ] || [ "$remote_main_sha" != "$REPAIR_BASE_SHA" ]; then',
-        'echo "::error::Remote main drifted during recent price repair; refusing to commit or rebase stale outputs."',
-        "exit 1",
-        "fi",
+    required_persist_literals = (
+        'staged_paths_file="$RUNNER_TEMP/repair-source-bundle-staged-paths.z"',
+        'git diff --cached --name-only --no-renames -z > "$staged_paths_file"',
         'git commit -m "Persist ${REPAIR_TARGET_DATE} daily source recovery bundle"',
-        "git push origin HEAD:main",
-        'local_sha="$(git rev-parse HEAD)"',
-        'remote_main_sha="$(git ls-remote origin refs/heads/main | awk \'{print $1}\')"',
-        'if [ -z "$remote_main_sha" ] || [ "$local_sha" != "$remote_main_sha" ]; then',
-        'echo "::error::Remote main does not equal the persisted recent price repair commit."',
-        "exit 1",
-        "fi",
-        'echo "source_bundle_commit_sha=$local_sha" >> "$GITHUB_OUTPUT"',
+        'source_bundle_commit_sha="$(git rev-parse HEAD)"',
+        'head_before_commit="$(git rev-parse HEAD)"',
+        'if [ "$head_before_commit" != "$REPAIR_BASE_SHA" ]; then',
+        'commit_count_before="$(git rev-list --count HEAD)"',
+        'commit_count_after="$(git rev-list --count HEAD)"',
+        'source_bundle_commit_count="$(git rev-list --count "$REPAIR_BASE_SHA..$source_bundle_commit_sha")"',
+        'echo "::error::Repair must create exactly one source-bundle domain commit above REPAIR_BASE_SHA."',
+        "for push_attempt in 1 2 3; do",
+        'git merge-base --is-ancestor "$REPAIR_BASE_SHA" "$remote_main_sha"',
+        "moving main overlaps staged repair source-bundle paths",
+        'git merge --no-edit "$remote_main_sha"',
+        "if git push origin HEAD:main; then",
+        'echo "source_bundle_commit_sha=$source_bundle_commit_sha" >> "$GITHUB_OUTPUT"',
+        'echo "published_head_sha=$published_head_sha" >> "$GITHUB_OUTPUT"',
     )
     history_stage = "git add data/stock_price_history/"
     if f"{history_stage} || true" in recent_text:
@@ -770,14 +975,18 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
             "recent repair must keep the exact adjacent continuity, bundle, stage, "
             "validation, and persistence step sequence"
         )
-    if not _step_has_exact_contract(
-        repair_job,
-        "Commit repaired recent daily price gaps",
-        metadata_lines=("        id: persist_bundle",),
-        executable_lines=expected_persist,
+    persist_blocks = _step_blocks(repair_job, "Commit repaired recent daily price gaps")
+    persist_block = persist_blocks[0] if len(persist_blocks) == 1 else ""
+    if (
+        len(persist_blocks) != 1
+        or "        id: persist_bundle" not in persist_block
+        or any(literal not in persist_block for literal in required_persist_literals)
+        or 'git commit -m "Persist ${REPAIR_TARGET_DATE} daily source recovery bundle" ||' in persist_block
+        or "continue-on-error:" in persist_block
+        or re.search(r"(?m)^        if\s*:", persist_block)
     ):
         errors.append(
-            "recent repair must use one exact fail-closed commit/push step"
+            "recent repair must use one unconditional fail-closed domain-commit and bounded ordinary-publish step"
         )
     normalized_git_scan_text = re.sub(
         r"\\[ \t]*\r?\n[ \t]*", " ", recent_text
@@ -791,10 +1000,10 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         )
     ]
     expected_git_write_lines = [
-        expected_persist[5],
-        expected_persist[6],
+        'git commit -m "Persist ${REPAIR_TARGET_DATE} daily source recovery bundle"',
+        "if git push origin HEAD:main; then",
         'git commit -m "Reserve Daily Full recovery for ${SOURCE_TRADING_DATE}"',
-        "if ! git push origin HEAD:main; then",
+        "if git push origin HEAD:main; then",
     ]
     if git_write_lines != expected_git_write_lines:
         errors.append(
@@ -803,7 +1012,7 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         )
 
     daily_full_required = {
-        "run-name: ${{ inputs.recovery_correlation_id != '' && format('Daily Full Pipeline | recovery={0}', inputs.recovery_correlation_id) || 'Daily Full Pipeline' }}": (
+        "Daily Full Pipeline | recovery=daily-source-{0}": (
             "Daily Full must expose the exact recovery display-title contract"
         ),
         "recovery_expected_head_sha:": "Daily Full must declare the reserved event head input",
@@ -814,7 +1023,7 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
             "Daily Full must reject arbitrary recovery concurrency identities"
         ),
         "ref: ${{ github.sha }}": "Daily Full preflight must checkout its immutable event SHA",
-        "group: ${{ inputs.recovery_correlation_id != '' && format('daily-full-recovery-{0}', inputs.recovery_correlation_id) || format('daily-full-pipeline-{0}', github.ref) }}": (
+        "group: ${{ inputs.recovery_retry_of_run_id != '' && format('daily-full-retry-{0}', inputs.recovery_source_bundle_trading_date) || inputs.recovery_correlation_id != '' && format('daily-full-recovery-{0}', inputs.recovery_correlation_id) || format('daily-full-pipeline-{0}', github.ref) }}": (
             "Daily Full recovery must avoid deadlocking behind the repair workflow while normal runs remain serialized"
         ),
         "recovery_source_bundle_commit_sha:": "Daily Full must declare immutable source commit input",
@@ -835,6 +1044,18 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
             "Daily Full must reject recovery dispatches without an exact reservation commit"
         ),
         "verify-reservation": "Daily Full must use the canonical reservation verifier",
+        '--expected-head-sha "${{ github.sha }}"': (
+            "Daily Full must verify the reservation against its actual event head"
+        ),
+        "failed-recovery retry run id requires a reservation commit": (
+            "Daily Full must allow an ordinary reservation commit while keeping retry provenance fail closed"
+        ),
+        "failed-recovery retry requires recovery_expected_head_sha": (
+            "failed-recovery retry must require an exact reviewed event head"
+        ),
+        "if expected_head and event_head != expected_head:": (
+            "failed-recovery retry must reject an event head different from its exact input"
+        ),
         "Materialize immutable recovery source bundle for production": (
             "Daily Full production must independently rematerialize the immutable source bundle"
         ),
@@ -859,8 +1080,8 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         "if: github.run_attempt == 1 && needs.market-session-preflight.outputs.should_run_daily_pipeline == 'true'": (
             "production job must independently reject rerun attempts"
         ),
-        "RECOVERY_EXPECTED_HEAD_SHA: ${{ inputs.recovery_expected_head_sha }}": (
-            "production job must receive the reserved event SHA"
+        "RECOVERY_EXPECTED_HEAD_SHA: ${{ needs.market-session-preflight.outputs.source_sha }}": (
+            "production job must receive the actual preflight event SHA"
         ),
         "RECOVERY_SOURCE_BUNDLE_COMMIT_SHA: ${{ inputs.recovery_source_bundle_commit_sha }}": (
             "production job must receive the immutable bundle commit"
@@ -924,7 +1145,7 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         "Download market-session preflight evidence",
         "Validate market-session preflight artifact identity",
         "Capture pre-run freshness baseline",
-        "Validate Apps Script workflow triggers",
+        "Validate PDF prebuild contract",
     )
     positions = [daily_full_job.find(literal) for literal in production_order]
     if any(position < 0 for position in positions) or positions != sorted(positions):
@@ -936,11 +1157,11 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         "Build immutable current-day source recovery bundle",
         "Commit repaired recent daily price gaps",
         "plan-structured-objective-source-catch-up:",
-        "Checkout current main for structured catch-up planning",
+        "Checkout published source-bundle commit for structured catch-up planning",
         "Plan bounded structured objective-source catch-up",
         "git fetch origin main",
-        "remote_repair_workflow_blob_sha=",
-        "remote_replay_workflow_blob_sha=",
+        "local_repair_workflow_blob_sha=",
+        "local_replay_workflow_blob_sha=",
         "python scripts/plan_historical_structured_source_replay.py",
         "remote_main_sha_after_plan=",
         "replay-structured-objective-sources:",

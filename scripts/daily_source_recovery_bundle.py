@@ -306,7 +306,12 @@ def select_correlated_run(
     expected_display_title: str,
     window_seconds: int = 900,
 ) -> dict[str, Any] | None:
-    head_sha = checked_sha1(expected_head_sha, "resume expected head SHA")
+    expected_head_text = str(expected_head_sha or "").strip()
+    head_sha = (
+        checked_sha1(expected_head_text, "resume expected head SHA")
+        if expected_head_text
+        else ""
+    )
     started = _parse_utc(dispatch_started_at, "resume dispatch time")
     earliest = started - timedelta(seconds=15)
     latest = started + timedelta(seconds=window_seconds)
@@ -323,7 +328,7 @@ def select_correlated_run(
             and run_attempt == 1
             and run.get("event") == "workflow_dispatch"
             and run.get("workflowName") == "Daily Full Pipeline"
-            and run.get("headSha") == head_sha
+            and (not head_sha or run.get("headSha") == head_sha)
             and run.get("displayTitle") == expected_display_title
             and earliest <= created_at <= latest
         ):
@@ -496,6 +501,33 @@ def _matches_daily_full_run_identity(
     return str(rest_name or "") == expected_title
 
 
+def _immutable_recovery_protected_paths(
+    *,
+    reservation_path: str,
+    manifest_path: str,
+    source_manifest: dict[str, Any],
+) -> set[str]:
+    manifest_relative = PurePosixPath(checked_relative_path(manifest_path))
+    market_session = source_manifest.get("market_session")
+    if not isinstance(market_session, dict):
+        raise DailySourceRecoveryError("source bundle market_session contract is missing")
+    market_bundle_path = checked_relative_path(market_session.get("bundle_path"))
+    return {
+        checked_relative_path(reservation_path),
+        manifest_relative.as_posix(),
+        (manifest_relative.parent / "state.json").as_posix(),
+        market_bundle_path,
+        *(
+            checked_relative_path(entry["path"])
+            for entry in source_manifest["files"]
+        ),
+        *(
+            checked_relative_path(entry["bundle_path"])
+            for entry in source_manifest["files"]
+        ),
+    }
+
+
 def verify_failed_recovery_retry_runs(
     root: Path,
     runs: list[dict[str, Any]],
@@ -528,16 +560,32 @@ def verify_failed_recovery_retry_runs(
         raise DailySourceRecoveryError("retry reservation baseline run id is invalid") from exc
     if baseline_run_id < 0:
         raise DailySourceRecoveryError("retry reservation baseline run id is invalid")
+    if prior_id <= baseline_run_id or current_id <= baseline_run_id:
+        raise DailySourceRecoveryError(
+            "failed and current recovery run ids must be newer than the reservation baseline"
+        )
     dispatch_started = _parse_utc(
         reservation_payload.get("resume_dispatch_started_at"),
         "retry reservation dispatch time",
     )
     anchor_earliest = dispatch_started - timedelta(seconds=15)
     anchor_latest = dispatch_started + timedelta(seconds=RECOVERY_DISPATCH_WINDOW_SECONDS)
-    verify_code_only_retry_descendant(
+    source_manifest = verify_bundle_from_git(
         root,
-        reservation_commit_sha=reservation_commit,
-        current_head_sha=head_sha,
+        source_commit_sha=str(reservation_payload.get("source_bundle_commit_sha") or ""),
+        manifest_path=str(reservation_payload.get("source_bundle_manifest_path") or ""),
+        manifest_sha256=str(
+            reservation_payload.get("source_bundle_manifest_sha256") or ""
+        ),
+        source_bundle_sha=str(reservation_payload.get("source_bundle_sha") or ""),
+        trading_date=date_text,
+    )
+    protected_paths = _immutable_recovery_protected_paths(
+        reservation_path=dispatch_reservation_path(date_text).as_posix(),
+        manifest_path=str(
+            reservation_payload.get("source_bundle_manifest_path") or ""
+        ),
+        source_manifest=source_manifest,
     )
     matches = [
         run
@@ -572,14 +620,14 @@ def verify_failed_recovery_retry_runs(
     current_created = _parse_utc(
         _run_value(current, "createdAt", "created_at"), "current retry created_at"
     )
-    historical: list[tuple[datetime, int, dict[str, Any]]] = []
-    anchors: list[dict[str, Any]] = []
+    historical_candidates: list[tuple[datetime, int, str, dict[str, Any]]] = []
     for run_id, run in by_id.items():
         if run_id == current_id:
             continue
+        if run_id <= baseline_run_id:
+            continue
         if (
-            run_id <= baseline_run_id
-            or run_id >= current_id
+            run_id >= current_id
             or int(_run_value(run, "attempt", "run_attempt") or 0) != 1
             or _run_value(run, "status") != "completed"
             or _run_value(run, "conclusion") != "failure"
@@ -591,38 +639,101 @@ def verify_failed_recovery_retry_runs(
         created_at = _parse_utc(
             _run_value(run, "createdAt", "created_at"), "historical retry created_at"
         )
-        if created_at >= current_created:
+        if (created_at, run_id) >= (current_created, current_id):
             raise DailySourceRecoveryError(
                 "historical recovery run must predate the current retry"
             )
         run_head = checked_sha1(
             _run_value(run, "headSha", "head_sha"), "historical recovery head SHA"
         )
-        if run_head == reservation_commit:
-            if anchor_earliest <= created_at <= anchor_latest:
-                anchors.append(run)
-            else:
-                continue
-        else:
-            verify_code_only_retry_descendant(
-                root,
-                reservation_commit_sha=reservation_commit,
-                current_head_sha=run_head,
+        historical_candidates.append((created_at, run_id, run_head, run))
+    if not historical_candidates:
+        raise DailySourceRecoveryError(
+            "failed-recovery history must contain an initial completed failure"
+        )
+    anchor_created, anchor_id, anchor_head, anchor = min(
+        historical_candidates, key=lambda item: (item[0], item[1])
+    )
+    if not anchor_earliest <= anchor_created <= anchor_latest:
+        raise DailySourceRecoveryError(
+            "the earliest post-baseline recovery failure must be inside the original "
+            "reservation dispatch window"
+        )
+    verify_nonoverlapping_dispatch_descendant(
+        root,
+        reservation_commit_sha=reservation_commit,
+        current_head_sha=anchor_head,
+        protected_paths=protected_paths,
+    )
+    verify_code_only_retry_descendant(
+        root,
+        reservation_commit_sha=anchor_head,
+        current_head_sha=head_sha,
+    )
+    historical: list[tuple[datetime, int, dict[str, Any]]] = [
+        (anchor_created, anchor_id, anchor)
+    ]
+    for created_at, run_id, run_head, run in historical_candidates:
+        if run_id == anchor_id:
+            continue
+        if (created_at, run_id) <= (anchor_created, anchor_id):
+            raise DailySourceRecoveryError(
+                "historical retry run must follow the initial recovery anchor"
             )
+        verify_code_only_retry_descendant(
+            root,
+            reservation_commit_sha=anchor_head,
+            current_head_sha=run_head,
+        )
         git_output(root, "merge-base", "--is-ancestor", run_head, head_sha)
         historical.append((created_at, run_id, run))
-    if len(anchors) != 1:
-        raise DailySourceRecoveryError(
-            "failed-recovery history must contain exactly one reservation-commit anchor "
-            "inside the original dispatch window"
-        )
     _latest_created, latest_id, prior = max(historical, key=lambda item: (item[0], item[1]))
     if latest_id != prior_id:
         raise DailySourceRecoveryError(
             "retry_of_run_id must identify the latest related completed failure: "
             f"expected={latest_id} observed={prior_id}"
         )
-    return {"anchor": anchors[0], "prior": prior, "current": current}
+    return {"anchor": anchor, "prior": prior, "current": current}
+
+
+def _git_raw_diff_entries(
+    root: Path,
+    *,
+    base_sha: str,
+    head_sha: str,
+    label: str,
+) -> list[tuple[str, str, str, str]]:
+    raw = git_output(
+        root,
+        "diff",
+        "--raw",
+        "--no-abbrev",
+        "--no-renames",
+        base_sha,
+        head_sha,
+        "--",
+    ).decode("utf-8", errors="strict")
+    entries: list[tuple[str, str, str, str]] = []
+    paths: set[str] = set()
+    for line in raw.splitlines():
+        try:
+            metadata, raw_path = line.split("\t", 1)
+        except ValueError as exc:
+            raise DailySourceRecoveryError(
+                f"malformed {label} diff record: {line!r}"
+            ) from exc
+        fields = metadata.removeprefix(":").split()
+        if len(fields) != 5:
+            raise DailySourceRecoveryError(
+                f"malformed {label} diff metadata: {metadata!r}"
+            )
+        old_mode, new_mode, _old_oid, _new_oid, status = fields
+        path = checked_relative_path(raw_path)
+        if path in paths:
+            raise DailySourceRecoveryError(f"{label} changed path is duplicated: {path}")
+        paths.add(path)
+        entries.append((path, status, old_mode, new_mode))
+    return entries
 
 
 def verify_code_only_retry_descendant(
@@ -641,31 +752,13 @@ def verify_code_only_retry_descendant(
             "failed-recovery retry requires a strict descendant of the reservation commit"
         )
     git_output(root, "merge-base", "--is-ancestor", reservation_commit, current_head)
-    raw = git_output(
-        root,
-        "diff",
-        "--raw",
-        "--no-abbrev",
-        "--no-renames",
-        reservation_commit,
-        current_head,
-        "--",
-    ).decode("utf-8", errors="strict")
     paths: list[str] = []
-    for line in raw.splitlines():
-        try:
-            metadata, raw_path = line.split("\t", 1)
-        except ValueError as exc:
-            raise DailySourceRecoveryError(
-                f"malformed failed-recovery retry diff record: {line!r}"
-            ) from exc
-        fields = metadata.removeprefix(":").split()
-        if len(fields) != 5:
-            raise DailySourceRecoveryError(
-                f"malformed failed-recovery retry diff metadata: {metadata!r}"
-            )
-        old_mode, new_mode, _old_oid, _new_oid, status = fields
-        path = checked_relative_path(raw_path)
+    for path, status, old_mode, new_mode in _git_raw_diff_entries(
+        root,
+        base_sha=reservation_commit,
+        head_sha=current_head,
+        label="failed-recovery retry",
+    ):
         if status not in {"A", "M"}:
             raise DailySourceRecoveryError(
                 f"failed-recovery retry cannot {status} path: {path}"
@@ -683,16 +776,44 @@ def verify_code_only_retry_descendant(
             raise DailySourceRecoveryError(
                 f"failed-recovery retry changed path is outside code-only scope: {path}"
             )
-        if path in paths:
-            raise DailySourceRecoveryError(
-                f"failed-recovery retry changed path is duplicated: {path}"
-            )
         paths.append(path)
     if not paths:
         raise DailySourceRecoveryError(
             "failed-recovery retry descendant has no code/workflow/test changes"
         )
     return paths
+
+
+def verify_nonoverlapping_dispatch_descendant(
+    root: Path,
+    *,
+    reservation_commit_sha: str,
+    current_head_sha: str,
+    protected_paths: set[str],
+) -> list[str]:
+    reservation_commit = checked_sha1(
+        reservation_commit_sha, "recovery reservation commit SHA"
+    )
+    current_head = checked_sha1(current_head_sha, "recovery current head SHA")
+    if reservation_commit == current_head:
+        return []
+    git_output(root, "merge-base", "--is-ancestor", reservation_commit, current_head)
+    changed_paths = [
+        path
+        for path, _status, _old_mode, _new_mode in _git_raw_diff_entries(
+            root,
+            base_sha=reservation_commit,
+            head_sha=current_head,
+            label="recovery dispatch descendant",
+        )
+    ]
+    overlap = sorted(set(changed_paths) & protected_paths)
+    if overlap:
+        raise DailySourceRecoveryError(
+            "recovery dispatch descendant changed reserved source paths: "
+            + ",".join(overlap)
+        )
+    return changed_paths
 
 
 def dispatch_reservation_path(trading_date: str) -> PurePosixPath:
@@ -785,20 +906,15 @@ def verify_dispatch_reservation(
     head_sha = checked_sha1(expected_head_sha, "recovery expected head SHA")
     if git_head(root) != head_sha:
         raise DailySourceRecoveryError("dispatch reservation checkout does not equal expected head")
-    retry_values = (str(reservation_commit_sha or "").strip(), str(retry_of_run_id or "").strip())
-    if bool(retry_values[0]) != bool(retry_values[1]):
+    reservation_commit_text = str(reservation_commit_sha or "").strip()
+    retry_run_text = str(retry_of_run_id or "").strip()
+    if retry_run_text and not reservation_commit_text:
         raise DailySourceRecoveryError(
-            "recovery reservation commit and retry run id must be supplied together"
+            "failed recovery run id requires a recovery reservation commit"
         )
-    if retry_values[0]:
+    if reservation_commit_text:
         reservation_commit = checked_sha1(
-            retry_values[0], "recovery reservation commit SHA"
-        )
-        checked_run_id(retry_values[1], "failed recovery run id")
-        verify_code_only_retry_descendant(
-            root,
-            reservation_commit_sha=reservation_commit,
-            current_head_sha=head_sha,
+            reservation_commit_text, "recovery reservation commit SHA"
         )
     else:
         reservation_commit = head_sha
@@ -819,6 +935,19 @@ def verify_dispatch_reservation(
     )
     source_commit = checked_sha1(source_commit_sha, "source bundle commit SHA")
     git_output(root, "merge-base", "--is-ancestor", source_commit, head_sha)
+    protected_paths = _immutable_recovery_protected_paths(
+        reservation_path=path,
+        manifest_path=manifest_path,
+        source_manifest=source_manifest,
+    )
+    if retry_run_text:
+        checked_run_id(retry_run_text, "failed recovery run id")
+    verify_nonoverlapping_dispatch_descendant(
+        root,
+        reservation_commit_sha=reservation_commit,
+        current_head_sha=head_sha,
+        protected_paths=protected_paths,
+    )
     payload_bytes = git_blob(root, reservation_commit, path)
     if sha256_bytes(payload_bytes) != expected_sha:
         raise DailySourceRecoveryError("dispatch reservation Git object SHA-256 mismatch")
@@ -887,7 +1016,7 @@ def verify_dispatch_reservation(
                 f"dispatch reservation identity mismatch for {key}: "
                 f"expected={expected_value!r} observed={payload.get(key)!r}"
             )
-    if retry_values[0]:
+    if retry_run_text:
         expected_prefix = f"manual-resume-{date_text}-"
         if not str(correlation_id).startswith(expected_prefix) or re.fullmatch(
             r"[A-Za-z0-9._-]{16,128}", str(correlation_id)

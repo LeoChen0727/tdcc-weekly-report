@@ -24,6 +24,11 @@ on:
         description: "Exact 40-character main SHA authorized for this replay"
         required: true
         type: string
+    outputs:
+      domain_output_commit_sha:
+        value: ${{ jobs.replay-historical-structured-sources.outputs.domain_output_commit_sha }}
+      published_head_sha:
+        value: ${{ jobs.replay-historical-structured-sources.outputs.published_head_sha }}
     secrets:
       PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY:
         required: true
@@ -65,6 +70,9 @@ jobs:
   replay-historical-structured-sources:
     runs-on: ubuntu-latest
     timeout-minutes: 120
+    outputs:
+      domain_output_commit_sha: ${{ steps.publish_replay.outputs.domain_output_commit_sha }}
+      published_head_sha: ${{ steps.publish_replay.outputs.published_head_sha }}
     env:
       START_DATE: ${{ inputs.start_date }}
       END_DATE: ${{ inputs.end_date }}
@@ -95,20 +103,22 @@ jobs:
         with:
           ssh-key: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}
           persist-credentials: true
-          ref: main
+          ref: ${{ inputs.expected_main_sha }}
           fetch-depth: 0
 
       - name: Capture immutable main replay base
         shell: bash
         run: |
           base_sha="$(git rev-parse HEAD)"
-          remote_main_sha="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+          git fetch origin main
+          remote_main_sha="$(git rev-parse origin/main)"
           if [[ ! "$EXPECTED_MAIN_SHA" =~ ^[0-9a-f]{40}$ ]]; then
             echo "::error::expected_main_sha must be an exact 40-character Git SHA."
             exit 1
           fi
-          if [ -z "$remote_main_sha" ] || [ "$base_sha" != "$remote_main_sha" ] || [ "$base_sha" != "$EXPECTED_MAIN_SHA" ]; then
-            echo "::error::Checked-out main, remote main, and expected_main_sha must match exactly."
+          if [ "$base_sha" != "$EXPECTED_MAIN_SHA" ] || \
+             ! git merge-base --is-ancestor "$base_sha" "$remote_main_sha"; then
+            echo "::error::Checked-out replay base must equal expected_main_sha and remain a current-main ancestor."
             exit 1
           fi
           echo "REPLAY_BASE_SHA=$base_sha" >> "$GITHUB_ENV"
@@ -123,14 +133,6 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install pandas requests lxml html5lib beautifulsoup4 openpyxl tabulate
-
-      - name: Validate repository automation boundaries
-        run: |
-          python scripts/validate_apps_script_workflow_triggers.py
-          python scripts/validate_repo_production_inventory.py
-          python scripts/validate_repo_file_lifecycle_inventory.py
-          python scripts/validate_repo_semantic_integrity.py
-          python scripts/validate_daily_production_boundaries.py
 
       - name: Replay structured objective sources in ascending order
         shell: bash
@@ -192,19 +194,48 @@ jobs:
             exit 1
           fi
 
-      - name: Reject remote-main drift before the only output commit
+      - name: Validate moving-main path isolation before the domain output commit
         shell: bash
         run: |
-          remote_main_sha="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
-          if [ -z "$remote_main_sha" ] || [ "$remote_main_sha" != "$REPLAY_BASE_SHA" ]; then
-            echo "::error::Remote main drifted during replay; refusing to commit or push."
+          staged_paths_file="$RUNNER_TEMP/historical-replay-staged-paths.z"
+          git diff --cached --name-only --no-renames -z > "$staged_paths_file"
+          git fetch origin main
+          remote_main_sha="$(git rev-parse origin/main)"
+          if ! git merge-base --is-ancestor "$REPLAY_BASE_SHA" "$remote_main_sha"; then
+            echo "::error::Current main is not a descendant of the pinned replay base."
             exit 1
           fi
+          python - "$REPLAY_BASE_SHA" "$remote_main_sha" "$staged_paths_file" <<'PY'
+          import subprocess
+          import sys
+          from pathlib import Path
+
+          changed = {
+              item.decode("utf-8", errors="strict")
+              for item in subprocess.check_output(
+                  ["git", "diff", "--name-only", "--no-renames", "-z", sys.argv[1], sys.argv[2], "--"]
+              ).split(b"\0")
+              if item
+          }
+          staged = {
+              item.decode("utf-8", errors="strict")
+              for item in Path(sys.argv[3]).read_bytes().split(b"\0")
+              if item
+          }
+          overlap = sorted(changed & staged)
+          if overlap:
+              raise SystemExit(
+                  "moving main overlaps staged historical replay paths: "
+                  + ",".join(overlap)
+              )
+          PY
           echo "REMOTE_MAIN_SHA_PRECOMMIT=$remote_main_sha" >> "$GITHUB_ENV"
 
       - name: Create and push exactly one replay output commit
+        id: publish_replay
         shell: bash
         run: |
+          set -euo pipefail
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           head_before_commit="$(git rev-parse HEAD)"
@@ -226,14 +257,117 @@ jobs:
           fi
           output_commit_sha="$(git rev-parse HEAD)"
           echo "OUTPUT_COMMIT_SHA=$output_commit_sha" >> "$GITHUB_ENV"
-          git push origin HEAD:refs/heads/main
+          published=false
+          published_head_sha=""
+          candidate_published_head_sha=""
+          staged_paths_file="$RUNNER_TEMP/historical-replay-staged-paths.z"
+          fetch_main_bounded() {
+            for fetch_attempt in 1 2 3; do
+              if git fetch origin main && \
+                 remote_main_sha="$(git rev-parse origin/main)" && \
+                 [[ "$remote_main_sha" =~ ^[0-9a-f]{40}$ ]]; then
+                return 0
+              fi
+              sleep 5
+            done
+            return 1
+          }
+          for push_attempt in 1 2 3; do
+            if ! fetch_main_bounded; then
+              continue
+            fi
+            if [[ "$candidate_published_head_sha" =~ ^[0-9a-f]{40}$ ]] && \
+               git merge-base --is-ancestor "$output_commit_sha" "$candidate_published_head_sha" && \
+               git merge-base --is-ancestor "$candidate_published_head_sha" "$remote_main_sha"; then
+              published=true
+              published_head_sha="$candidate_published_head_sha"
+              break
+            fi
+            if ! git merge-base --is-ancestor "$REPLAY_BASE_SHA" "$remote_main_sha"; then
+              echo "::error::Current main is not a descendant of the pinned replay base."
+              exit 1
+            fi
+            comparison_base="$REPLAY_BASE_SHA"
+            if git merge-base --is-ancestor "$output_commit_sha" "$remote_main_sha"; then
+              comparison_base="$output_commit_sha"
+            fi
+            python - "$comparison_base" "$remote_main_sha" "$staged_paths_file" <<'PY'
+          import subprocess
+          import sys
+          from pathlib import Path
+
+          changed = {
+              item.decode("utf-8", errors="strict")
+              for item in subprocess.check_output(
+                  ["git", "diff", "--name-only", "--no-renames", "-z", sys.argv[1], sys.argv[2], "--"]
+              ).split(b"\0")
+              if item
+          }
+          staged = {
+              item.decode("utf-8", errors="strict")
+              for item in Path(sys.argv[3]).read_bytes().split(b"\0")
+              if item
+          }
+          overlap = sorted(changed & staged)
+          if overlap:
+              raise SystemExit(
+                  "moving main overlaps staged historical replay paths: "
+                  + ",".join(overlap)
+              )
+          PY
+            if ! git merge-base --is-ancestor "$remote_main_sha" HEAD; then
+              git merge --no-edit "$remote_main_sha"
+            fi
+            candidate_published_head_sha="$(git rev-parse HEAD)"
+            if [[ ! "$candidate_published_head_sha" =~ ^[0-9a-f]{40}$ ]] || \
+               ! git merge-base --is-ancestor "$output_commit_sha" "$candidate_published_head_sha"; then
+              echo "::error::Historical replay publish candidate is invalid."
+              exit 1
+            fi
+            if git push origin HEAD:refs/heads/main; then
+              published=true
+              published_head_sha="$candidate_published_head_sha"
+              break
+            fi
+            sleep 5
+          done
+          if [ "$published" != true ] && \
+             [[ "$candidate_published_head_sha" =~ ^[0-9a-f]{40}$ ]] && \
+             fetch_main_bounded && \
+             git merge-base --is-ancestor "$output_commit_sha" "$candidate_published_head_sha" && \
+             git merge-base --is-ancestor "$candidate_published_head_sha" "$remote_main_sha"; then
+            published=true
+            published_head_sha="$candidate_published_head_sha"
+          fi
+          if [ "$published" != true ]; then
+            echo "::error::Unable to publish historical replay after three normal non-force attempts."
+            exit 1
+          fi
+          echo "domain_output_commit_sha=$output_commit_sha" >> "$GITHUB_OUTPUT"
+          echo "published_head_sha=$published_head_sha" >> "$GITHUB_OUTPUT"
+          echo "PUBLISHED_HEAD_SHA=$published_head_sha" >> "$GITHUB_ENV"
 
       - name: Verify pushed main and output commit
         shell: bash
         run: |
-          remote_main_sha="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
-          if [ -z "$remote_main_sha" ] || [ "$remote_main_sha" != "$OUTPUT_COMMIT_SHA" ]; then
-            echo "::error::Remote main does not equal the replay output commit."
+          verified=false
+          for verify_attempt in 1 2 3; do
+            if git fetch origin main; then
+              remote_main_sha="$(git rev-parse origin/main)"
+              if [[ "$remote_main_sha" =~ ^[0-9a-f]{40}$ ]] && \
+                 [[ "$PUBLISHED_HEAD_SHA" =~ ^[0-9a-f]{40}$ ]] && \
+                 [[ "$OUTPUT_COMMIT_SHA" =~ ^[0-9a-f]{40}$ ]] && \
+                 git merge-base --is-ancestor "$OUTPUT_COMMIT_SHA" "$PUBLISHED_HEAD_SHA" && \
+                 git merge-base --is-ancestor "$PUBLISHED_HEAD_SHA" "$remote_main_sha" && \
+                 git merge-base --is-ancestor "$OUTPUT_COMMIT_SHA" "$remote_main_sha"; then
+                verified=true
+                break
+              fi
+            fi
+            sleep 5
+          done
+          if [ "$verified" != true ]; then
+            echo "::error::Remote main must contain both the published head and the unique replay domain commit."
             exit 1
           fi
           echo "REMOTE_MAIN_SHA_AFTER=$remote_main_sha" >> "$GITHUB_ENV"

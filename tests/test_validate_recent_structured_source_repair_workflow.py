@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+import subprocess
+from pathlib import Path
+
 from scripts import repair_recent_daily_price_gaps as repair
 from scripts import validate_recent_structured_source_repair_workflow as validator
 
@@ -228,8 +231,9 @@ def test_repair_safety_steps_reject_skip_metadata_and_permissive_persist() -> No
         'git commit -m "Persist ${REPAIR_TARGET_DATE} daily source recovery bundle" || true',
         1,
     )
+    assert permissive_commit != recent_text
     errors = validator.validate(permissive_commit, replay_text, daily_full_text)
-    assert any("fail-closed commit/push step" in error for error in errors)
+    assert any("unconditional fail-closed domain-commit" in error for error in errors)
 
 
 def test_repair_rejects_duplicate_or_interposed_critical_steps() -> None:
@@ -375,40 +379,266 @@ def test_direct_replay_or_model_work_is_rejected() -> None:
     assert any("must remain data-only" in error for error in errors)
 
 
-def test_missing_fresh_checkout_or_main_drift_gate_is_rejected() -> None:
+def test_missing_pinned_bundle_checkout_or_ancestry_gate_is_rejected() -> None:
     recent_text, replay_text, daily_full_text = _texts()
     recent_text = recent_text.replace(
-        "Checkout current main for structured catch-up planning",
+        "Checkout published source-bundle commit for structured catch-up planning",
         "Checkout stale source",
         1,
     ).replace(
-        'if [ -z "$local_sha" ] || [ "$local_sha" != "$remote_main_sha" ]; then',
-        'if [ -z "$local_sha" ] || [ "$local_sha" = "$remote_main_sha" ]; then',
+        'git merge-base --is-ancestor "$local_sha" "$remote_main_sha"',
+        'git merge-base --is-ancestor "$remote_main_sha" "$local_sha"',
         1,
     )
 
     errors = validator.validate(recent_text, replay_text, daily_full_text)
 
-    assert any("fresh-checkout" in error for error in errors)
-    assert any("reject main drift" in error for error in errors)
+    assert any("immutable source-bundle" in error for error in errors)
+    assert any("current-main ancestor" in error for error in errors)
 
 
 def test_reusable_workflow_definition_and_post_plan_drift_gates_are_required() -> None:
     recent_text, replay_text, daily_full_text = _texts()
     recent_text = recent_text.replace(
-        '"$remote_replay_workflow_blob_sha" != "$CALLER_REPLAY_WORKFLOW_BLOB_SHA"',
-        '"$remote_replay_workflow_blob_sha" = "$CALLER_REPLAY_WORKFLOW_BLOB_SHA"',
+        '"$local_replay_workflow_blob_sha" != "$CALLER_REPLAY_WORKFLOW_BLOB_SHA"',
+        '"$local_replay_workflow_blob_sha" = "$CALLER_REPLAY_WORKFLOW_BLOB_SHA"',
         1,
     ).replace(
-        '"$remote_main_sha_after_plan" != "$local_sha"',
-        '"$remote_main_sha_after_plan" = "$local_sha"',
+        'git merge-base --is-ancestor "$local_sha" "$remote_main_sha_after_plan"',
+        'git merge-base --is-ancestor "$remote_main_sha_after_plan" "$local_sha"',
         1,
     )
 
     errors = validator.validate(recent_text, replay_text, daily_full_text)
 
-    assert any("reusable workflow definition drift" in error for error in errors)
-    assert any("no-op plan" in error for error in errors)
+    assert any("pinned reusable workflow definition drift" in error for error in errors)
+    assert any("revalidate pinned ancestry" in error for error in errors)
+
+
+def test_runtime_static_blocks_and_unbounded_or_nonordinary_publish_are_rejected() -> None:
+    recent_text, replay_text, daily_full_text = _texts()
+    recent_text = recent_text.replace(
+        "      - name: Repair recent daily price gaps",
+        "      - name: Validate workflow automation boundaries\n"
+        "        run: python scripts/validate_repo_production_inventory.py\n\n"
+        "      - name: Repair recent daily price gaps",
+        1,
+    ).replace("for push_attempt in 1 2 3", "for push_attempt in 1 2 4", 1)
+    replay_text = replay_text.replace(
+        "      - name: Replay structured objective sources in ascending order",
+        "      - name: Validate repository automation boundaries\n"
+        "        run: python scripts/validate_daily_production_boundaries.py\n\n"
+        "      - name: Replay structured objective sources in ascending order",
+        1,
+    ).replace('git merge --no-edit "$remote_main_sha"', "git rebase origin/main", 1)
+    assert "for push_attempt in 1 2 4" in recent_text
+    assert "git rebase origin/main" in replay_text
+
+    errors = validator.validate(recent_text, replay_text, daily_full_text)
+
+    assert any("must not execute repo-static" in error for error in errors)
+    assert any("publication retries must be bounded" in error for error in errors)
+    assert any("ordinary merge" in error for error in errors)
+
+
+def test_all_moving_main_overlap_checks_are_rename_safe_and_counted() -> None:
+    recent_text, replay_text, daily_full_text = _texts()
+    safe = '["git", "diff", "--name-only", "--no-renames", "-z"'
+    unsafe = '["git", "diff", "--name-only", "-z"'
+    staged_safe = "git diff --cached --name-only --no-renames -z"
+    staged_unsafe = "git diff --cached --name-only -z"
+    assert recent_text.count(safe) == 2
+    assert replay_text.count(safe) == 2
+    assert recent_text.count(staged_safe) == 2
+    assert replay_text.count(staged_safe) == 1
+
+    recent_first_unsafe = recent_text.replace(safe, unsafe, 1)
+    recent_last_unsafe = unsafe.join(recent_text.rsplit(safe, 1))
+    replay_first_unsafe = replay_text.replace(safe, unsafe, 1)
+    replay_last_unsafe = unsafe.join(replay_text.rsplit(safe, 1))
+    for invalid_recent, invalid_replay in (
+        (recent_first_unsafe, replay_text),
+        (recent_last_unsafe, replay_text),
+        (recent_text, replay_first_unsafe),
+        (recent_text, replay_last_unsafe),
+    ):
+        errors = validator.validate(invalid_recent, invalid_replay, daily_full_text)
+        assert any("rename" in error for error in errors)
+    for invalid_recent, invalid_replay in (
+        (recent_text.replace(staged_safe, staged_unsafe, 1), replay_text),
+        (staged_unsafe.join(recent_text.rsplit(staged_safe, 1)), replay_text),
+        (recent_text, replay_text.replace(staged_safe, staged_unsafe, 1)),
+    ):
+        errors = validator.validate(invalid_recent, invalid_replay, daily_full_text)
+        assert any("staged" in error and "rename" in error for error in errors)
+
+
+def test_no_renames_diff_exposes_staged_old_path_overlap(tmp_path: Path) -> None:
+    root = tmp_path / "rename-overlap"
+    root.mkdir()
+    subprocess.run(["git", "init", "-b", "main"], cwd=root, check=True, capture_output=True)
+    subprocess.run(["git", "config", "user.name", "Test"], cwd=root, check=True)
+    subprocess.run(["git", "config", "user.email", "test@example.com"], cwd=root, check=True)
+    subprocess.run(["git", "config", "diff.renames", "true"], cwd=root, check=True)
+    staged_old = root / "output" / "latest" / "data_freshness_latest.csv"
+    staged_old.parent.mkdir(parents=True)
+    staged_old.write_text("status\nready\n", encoding="utf-8")
+    subprocess.run(["git", "add", "."], cwd=root, check=True)
+    subprocess.run(["git", "commit", "-m", "base"], cwd=root, check=True, capture_output=True)
+    base_sha = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=root, text=True).strip()
+    renamed = root / "docs" / "renamed_freshness.csv"
+    renamed.parent.mkdir(parents=True)
+    subprocess.run(
+        ["git", "mv", staged_old.relative_to(root).as_posix(), renamed.relative_to(root).as_posix()],
+        cwd=root,
+        check=True,
+    )
+    subprocess.run(["git", "commit", "-m", "rename"], cwd=root, check=True, capture_output=True)
+    head_sha = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=root, text=True).strip()
+    changed = {
+        item.decode("utf-8")
+        for item in subprocess.check_output(
+            ["git", "diff", "--name-only", "--no-renames", "-z", base_sha, head_sha, "--"],
+            cwd=root,
+        ).split(b"\0")
+        if item
+    }
+
+    assert staged_old.relative_to(root).as_posix() in changed
+    assert changed & {staged_old.relative_to(root).as_posix()}
+
+
+def test_staged_and_moving_main_renames_share_the_old_path(tmp_path: Path) -> None:
+    root = tmp_path / "staged-rename-overlap"
+    root.mkdir()
+    subprocess.run(["git", "init", "-b", "main"], cwd=root, check=True, capture_output=True)
+    subprocess.run(["git", "config", "user.name", "Test"], cwd=root, check=True)
+    subprocess.run(["git", "config", "user.email", "test@example.com"], cwd=root, check=True)
+    subprocess.run(["git", "config", "diff.renames", "true"], cwd=root, check=True)
+    old_relative = Path("output/latest/data_freshness_latest.csv")
+    old_path = root / old_relative
+    old_path.parent.mkdir(parents=True)
+    old_path.write_text("status\nready\n", encoding="utf-8")
+    subprocess.run(["git", "add", "."], cwd=root, check=True)
+    subprocess.run(["git", "commit", "-m", "base"], cwd=root, check=True, capture_output=True)
+    base_sha = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=root, text=True).strip()
+    remote_new = Path("docs/remote_freshness.csv")
+    (root / remote_new).parent.mkdir(parents=True)
+    subprocess.run(["git", "mv", old_relative.as_posix(), remote_new.as_posix()], cwd=root, check=True)
+    subprocess.run(["git", "commit", "-m", "remote rename"], cwd=root, check=True, capture_output=True)
+    remote_sha = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=root, text=True).strip()
+    subprocess.run(["git", "checkout", "--detach", base_sha], cwd=root, check=True, capture_output=True)
+    staged_new = Path("archive/staged_freshness.csv")
+    (root / staged_new).parent.mkdir(parents=True)
+    subprocess.run(["git", "mv", old_relative.as_posix(), staged_new.as_posix()], cwd=root, check=True)
+    staged = {
+        item.decode("utf-8")
+        for item in subprocess.check_output(
+            ["git", "diff", "--cached", "--name-only", "--no-renames", "-z"],
+            cwd=root,
+        ).split(b"\0")
+        if item
+    }
+    moving = {
+        item.decode("utf-8")
+        for item in subprocess.check_output(
+            ["git", "diff", "--name-only", "--no-renames", "-z", base_sha, remote_sha, "--"],
+            cwd=root,
+        ).split(b"\0")
+        if item
+    }
+
+    assert old_relative.as_posix() in staged
+    assert old_relative.as_posix() in moving
+    assert staged & moving == {old_relative.as_posix()}
+
+
+def test_publish_convergence_structures_reject_exact_critical_bypasses() -> None:
+    recent_text, replay_text, daily_full_text = _texts()
+    source_final = '''          if [ "$published" != true ] && \\
+             [[ "$candidate_published_head_sha" =~ ^[0-9a-f]{40}$ ]] && \\
+             fetch_main_bounded && \\
+             git merge-base --is-ancestor "$source_bundle_commit_sha" "$candidate_published_head_sha" && \\
+             git merge-base --is-ancestor "$candidate_published_head_sha" "$remote_main_sha"; then
+            published=true
+            published_head_sha="$candidate_published_head_sha"
+          fi
+'''
+    reservation_final = '''          if [ "$reservation_published" != true ] && \\
+             [[ "$reservation_candidate_head_sha" =~ ^[0-9a-f]{40}$ ]] && \\
+             fetch_reservation_main_bounded && \\
+             git merge-base --is-ancestor "$reservation_commit_sha" "$reservation_candidate_head_sha" && \\
+             git merge-base --is-ancestor "$reservation_candidate_head_sha" "$remote_main_sha"; then
+            reservation_published=true
+            reservation_published_head_sha="$reservation_candidate_head_sha"
+          fi
+'''
+    historical_final = '''          if [ "$published" != true ] && \\
+             [[ "$candidate_published_head_sha" =~ ^[0-9a-f]{40}$ ]] && \\
+             fetch_main_bounded && \\
+             git merge-base --is-ancestor "$output_commit_sha" "$candidate_published_head_sha" && \\
+             git merge-base --is-ancestor "$candidate_published_head_sha" "$remote_main_sha"; then
+            published=true
+            published_head_sha="$candidate_published_head_sha"
+          fi
+'''
+    source_first_ancestor = '''               git merge-base --is-ancestor "$source_bundle_commit_sha" "$candidate_published_head_sha" && \\
+'''
+    source_merge = '''            if ! git merge-base --is-ancestor "$remote_main_sha" HEAD; then
+              git merge --no-edit "$remote_main_sha"
+            fi
+'''
+    source_push_success = '''            if git push origin HEAD:main; then
+              published=true
+              published_head_sha="$candidate_published_head_sha"
+              break
+            fi
+'''
+    reservation_push_success = '''            if git push origin HEAD:main; then
+              reservation_published=true
+              reservation_published_head_sha="$reservation_candidate_head_sha"
+              break
+            fi
+'''
+    historical_push_success = '''            if git push origin HEAD:refs/heads/main; then
+              published=true
+              published_head_sha="$candidate_published_head_sha"
+              break
+            fi
+'''
+    dead_merge = '''            if ! git merge-base --is-ancestor "$remote_main_sha" HEAD; then
+              if false; then
+                git merge --no-edit "$remote_main_sha"
+              fi
+            fi
+'''
+    mutations = (
+        (recent_text.replace(source_final, "", 1), replay_text, "post-loop"),
+        (recent_text.replace(reservation_final, "", 1), replay_text, "post-loop"),
+        (recent_text, replay_text.replace(historical_final, "", 1), "post-loop"),
+        (recent_text.replace(source_merge, dead_merge, 1), replay_text, "ordinary merge"),
+        (recent_text.replace(source_first_ancestor, "", 1), replay_text, "candidate ancestor"),
+        (recent_text.replace(source_push_success, "            git push origin HEAD:main\n", 1), replay_text, "push-exit-zero"),
+        (recent_text.replace(reservation_push_success, "            git push origin HEAD:main\n", 1), replay_text, "push-exit-zero"),
+        (recent_text, replay_text.replace(historical_push_success, "            git push origin HEAD:refs/heads/main\n", 1), "push-exit-zero"),
+    )
+    for mutated_recent, mutated_replay, expected in mutations:
+        assert mutated_recent != recent_text or mutated_replay != replay_text
+        errors = validator.validate(mutated_recent, mutated_replay, daily_full_text)
+        assert any(expected in error for error in errors), (expected, errors)
+
+
+def test_repair_domain_commit_is_exactly_one_above_pinned_base() -> None:
+    recent_text, replay_text, daily_full_text = _texts()
+    for token in (
+        'if [ "$head_before_commit" != "$REPAIR_BASE_SHA" ]; then',
+        'source_bundle_commit_count="$(git rev-list --count "$REPAIR_BASE_SHA..$source_bundle_commit_sha")"',
+        'echo "::error::Repair must create exactly one source-bundle domain commit above REPAIR_BASE_SHA."',
+    ):
+        mutated = recent_text.replace(token, "disabled-exact-domain-commit", 1)
+        assert mutated != recent_text
+        errors = validator.validate(mutated, replay_text, daily_full_text)
+        assert any("domain-commit" in error for error in errors)
 
 
 def test_reusable_replay_rejects_inherited_or_extra_secrets() -> None:
@@ -465,6 +695,58 @@ def test_reusable_replay_entrypoint_and_secret_are_required() -> None:
 
     assert any("reusable workflow entrypoint" in error for error in errors)
     assert any("production writer secret" in error for error in errors)
+
+
+def test_reusable_replay_outputs_and_successful_caller_wiring_are_exact() -> None:
+    recent_text, replay_text, daily_full_text = _texts()
+    replay_mutations = (
+        replay_text.replace(
+            "value: ${{ jobs.replay-historical-structured-sources.outputs.published_head_sha }}",
+            "value: ${{ jobs.replay-historical-structured-sources.outputs.domain_output_commit_sha }}",
+            1,
+        ),
+        replay_text.replace(
+            "published_head_sha: ${{ steps.publish_replay.outputs.published_head_sha }}",
+            "published_head_sha: ${{ steps.other.outputs.published_head_sha }}",
+            1,
+        ),
+        replay_text.replace("id: publish_replay", "id: hidden_publish", 1),
+    )
+    for mutated_replay in replay_mutations:
+        errors = validator.validate(recent_text, mutated_replay, daily_full_text)
+        assert any("output" in error or "publish step" in error for error in errors)
+
+    caller_mutations = (
+        recent_text.replace(
+            'resume_published_base_sha="$REPLAY_PUBLISHED_HEAD_SHA"',
+            'resume_published_base_sha="$REPAIR_PUBLISHED_HEAD_SHA"',
+            1,
+        ),
+        recent_text.replace(
+            "ref: ${{ steps.resolve_resume_head.outputs.resume_published_base_sha }}",
+            "ref: ${{ needs.repair-recent-daily-price-gaps.outputs.published_head_sha }}",
+            1,
+        ),
+        recent_text.replace(
+            'git merge-base --is-ancestor "$REPLAY_DOMAIN_OUTPUT_COMMIT_SHA" "$resume_base_sha"',
+            'git merge-base --is-ancestor "$resume_base_sha" "$REPLAY_DOMAIN_OUTPUT_COMMIT_SHA"',
+            1,
+        ),
+    )
+    for mutated_recent in caller_mutations:
+        errors = validator.validate(mutated_recent, replay_text, daily_full_text)
+        assert any("replay" in error or "resume" in error for error in errors)
+
+
+def test_failed_recovery_retry_requires_exact_expected_event_head() -> None:
+    recent_text, replay_text, daily_full_text = _texts()
+    for token in (
+        "failed-recovery retry requires recovery_expected_head_sha",
+        "if expected_head and event_head != expected_head:",
+    ):
+        mutated_daily = daily_full_text.replace(token, "disabled-exact-retry-head", 1)
+        errors = validator.validate(recent_text, replay_text, mutated_daily)
+        assert any("exact reviewed event head" in error or "different from its exact" in error for error in errors)
 
 
 def test_resume_identity_polling_and_current_day_contract_fail_closed() -> None:
@@ -590,10 +872,11 @@ def test_daily_full_materializes_before_identity_and_validators() -> None:
 def test_recovery_daily_full_uses_a_non_deadlocking_correlation_scoped_group() -> None:
     recent_text, replay_text, daily_full_text = _texts()
     invalid_daily = daily_full_text.replace(
-        "group: ${{ inputs.recovery_correlation_id != '' && format('daily-full-recovery-{0}', inputs.recovery_correlation_id) || format('daily-full-pipeline-{0}', github.ref) }}",
+        "group: ${{ inputs.recovery_retry_of_run_id != '' && format('daily-full-retry-{0}', inputs.recovery_source_bundle_trading_date) || inputs.recovery_correlation_id != '' && format('daily-full-recovery-{0}', inputs.recovery_correlation_id) || format('daily-full-pipeline-{0}', github.ref) }}",
         "group: daily-full-pipeline-${{ github.ref }}",
         1,
     )
+    assert invalid_daily != daily_full_text
 
     errors = validator.validate(recent_text, replay_text, invalid_daily)
 
@@ -617,15 +900,16 @@ def test_repair_holds_normal_production_lock_for_entire_recovery_chain() -> None
 def test_resume_prerequisite_and_dispatch_uncertainty_persist_terminal_state() -> None:
     recent_text, replay_text, daily_full_text = _texts()
     invalid_recent = recent_text.replace("fail_recovery() {", "log_failure() {", 1).replace(
-        'fail_recovery "Daily Full dispatch command failed or is uncertain"',
-        'echo "dispatch failed"',
+        "dispatch_result=uncertain",
+        "dispatch_result=success",
         1,
     )
+    assert invalid_recent != recent_text
 
     errors = validator.validate(invalid_recent, replay_text, daily_full_text)
 
     assert any("persist a terminal state" in error for error in errors)
-    assert any("every dispatch/API/correlation uncertainty" in error for error in errors)
+    assert any("uncertain dispatch acknowledgement" in error for error in errors)
 
 
 def test_mutable_fetch_cannot_run_for_recovery_bundle() -> None:
