@@ -1088,7 +1088,7 @@ jobs:
           python scripts/validate_daily_published_model_snapshots.py \
             --artifact-id model_signals_for_report \
             --artifact-id all_candidates_source_rows
-          python scripts/validate_daily_canonical_field_lineage.py
+          python scripts/validate_daily_canonical_field_lineage.py --runtime-scope audit-sources
 
       - name: Build volume v2 lineage audit from published snapshots
         run: |
@@ -1213,7 +1213,7 @@ jobs:
             --artifact-id neckline_volume_breakout_confirmation_operation_section \
             --revision-reason daily_full_post_audit_artifacts
           python scripts/validate_daily_published_model_snapshots.py
-          python scripts/validate_daily_canonical_field_lineage.py
+          python scripts/validate_daily_canonical_field_lineage.py --runtime-scope complete-current
           python scripts/validate_volume_v2_warrant_lineage_history_audit.py
 
       - name: Build monthly revenue coverage/backfill audit

@@ -553,6 +553,32 @@ GOVERNED_FIELD_NODES = {
     **SOURCE_IDENTITY_GOVERNED_NODES,
     **FORMAL_RESOLUTION_GOVERNED_NODES,
 }
+OPERATION_CURRENT_NODE = (
+    "final_rank_score",
+    "output/latest/daily_volume_breakout_operation_section_latest.csv",
+)
+HISTORY_LINEAGE_NODES = frozenset(
+    node for node in GOVERNED_FIELD_NODES if node[1].startswith("output/history/")
+)
+CURRENT_LINEAGE_NODES = frozenset(GOVERNED_FIELD_NODES) - HISTORY_LINEAGE_NODES
+LIFECYCLE_HISTORY_LINEAGE_NODES = frozenset(
+    node for node in HISTORY_LINEAGE_NODES if node[1] == FORMAL_SIGNAL_LOG_ARTIFACT
+)
+SNAPSHOT_HISTORY_LINEAGE_NODES = (
+    HISTORY_LINEAGE_NODES - LIFECYCLE_HISTORY_LINEAGE_NODES
+)
+AUDIT_SOURCE_CURRENT_LINEAGE_NODES = (
+    CURRENT_LINEAGE_NODES - {OPERATION_CURRENT_NODE}
+)
+RUNTIME_SCOPE_GOVERNED_NODES = {
+    "audit-sources": {
+        node: GOVERNED_FIELD_NODES[node]
+        for node in AUDIT_SOURCE_CURRENT_LINEAGE_NODES
+    },
+    "complete-current": {
+        node: GOVERNED_FIELD_NODES[node] for node in CURRENT_LINEAGE_NODES
+    },
+}
 
 
 def _text(value: object) -> str:
@@ -1499,7 +1525,11 @@ def _read_artifact(
     return _read_csv_payload(payload)
 
 
-def _validate_registry(root: Path, rows: list[dict[str, str]]) -> list[str]:
+def _validate_registry(
+    root: Path,
+    rows: list[dict[str, str]],
+    governed_nodes: dict[tuple[str, str], tuple[str, str, str]] = GOVERNED_FIELD_NODES,
+) -> list[str]:
     errors: list[str] = []
     by_id: dict[str, dict[str, str]] = {}
     by_node: dict[tuple[str, str], dict[str, str]] = {}
@@ -1520,7 +1550,7 @@ def _validate_registry(root: Path, rows: list[dict[str, str]]) -> list[str]:
             )
         by_node[node] = row
 
-        expected = GOVERNED_FIELD_NODES.get(node)
+        expected = governed_nodes.get(node)
         if expected is None:
             errors.append(
                 "field/artifact is outside registered volume-v2 lineage scope: "
@@ -1592,14 +1622,19 @@ def _validate_registry(root: Path, rows: list[dict[str, str]]) -> list[str]:
                 if consumer == "none" or not (root / consumer).is_file():
                     errors.append(f"registered consumer does not exist {lineage_id}: {consumer}")
 
-    if set(by_node) != set(GOVERNED_FIELD_NODES):
+    if set(by_node) != set(governed_nodes):
         errors.append(
             "canonical field registry governed volume-v2 node set mismatch: "
-            f"missing={sorted(set(GOVERNED_FIELD_NODES) - set(by_node))} "
-            f"extra={sorted(set(by_node) - set(GOVERNED_FIELD_NODES))}"
+            f"missing={sorted(set(governed_nodes) - set(by_node))} "
+            f"extra={sorted(set(by_node) - set(governed_nodes))}"
         )
 
-    for family in (CURRENT_FAMILY, HISTORY_FAMILY):
+    governed_families = {
+        spec[0]
+        for (field_name, _artifact_path), spec in governed_nodes.items()
+        if field_name == FIELD_NAME and spec[0] in {CURRENT_FAMILY, HISTORY_FAMILY}
+    }
+    for family in sorted(governed_families):
         canonical = canonical_by_family.get((FIELD_NAME, family), [])
         if len(canonical) != 1:
             errors.append(
@@ -2019,10 +2054,15 @@ def _dispatcher_collision_field_sets(
 def _validate_collision_registry(
     root: Path,
     rows: list[dict[str, str]],
+    *,
+    validate_dispatcher_ast: bool = True,
 ) -> list[str]:
     errors: list[str] = []
-    overlay, non_authoritative, ast_errors = _dispatcher_collision_field_sets(root)
-    errors.extend(ast_errors)
+    if validate_dispatcher_ast:
+        overlay, non_authoritative, ast_errors = _dispatcher_collision_field_sets(root)
+        errors.extend(ast_errors)
+    else:
+        overlay, non_authoritative = set(), set()
 
     candidate_path = root / ALL_CANDIDATES_ARTIFACT
     watch_path = root / VOLUME_WATCH_ARTIFACT
@@ -2068,11 +2108,11 @@ def _validate_collision_registry(
                 "source_precedence": "watch_overlays_candidate",
                 "value_parity_policy": "no_value_parity_watch_recomputes_price_volume",
             }
-            if field_name not in overlay:
+            if validate_dispatcher_ast and field_name not in overlay:
                 errors.append(
                     f"watch-overlay collision is absent from {OVERLAY_GLOBAL}: {field_name}"
                 )
-            if field_name in non_authoritative:
+            if validate_dispatcher_ast and field_name in non_authoritative:
                 errors.append(
                     f"watch-overlay collision is also non-authoritative: {field_name}"
                 )
@@ -2085,12 +2125,12 @@ def _validate_collision_registry(
                 "source_precedence": "candidate_preserved_watch_ignored",
                 "value_parity_policy": "no_value_parity_watch_mirror_is_advisory",
             }
-            if field_name not in non_authoritative:
+            if validate_dispatcher_ast and field_name not in non_authoritative:
                 errors.append(
                     "candidate-preserved collision is absent from "
                     f"{NON_AUTHORITATIVE_GLOBAL}: {field_name}"
                 )
-            if field_name in overlay:
+            if validate_dispatcher_ast and field_name in overlay:
                 errors.append(
                     f"candidate-preserved collision is also a watch overlay: {field_name}"
                 )
@@ -2138,20 +2178,23 @@ def _validate_collision_registry(
             f"{','.join(extra)}"
         )
 
-    ast_registered = overlay.union(non_authoritative)
-    ast_missing = sorted(actual_collisions - ast_registered)
-    if ast_missing:
-        errors.append(
-            "volume-v2 dispatcher AST allowlists omit actual collisions: "
-            f"{','.join(ast_missing)}"
-        )
-    for field_name in sorted(actual_collisions.intersection(registered_fields)):
-        policy_count = int(field_name in overlay) + int(field_name in non_authoritative)
-        if policy_count != 1:
+    if validate_dispatcher_ast:
+        ast_registered = overlay.union(non_authoritative)
+        ast_missing = sorted(actual_collisions - ast_registered)
+        if ast_missing:
             errors.append(
-                "volume-v2 dispatcher collision must map to exactly one AST policy: "
-                f"{field_name} count={policy_count}"
+                "volume-v2 dispatcher AST allowlists omit actual collisions: "
+                f"{','.join(ast_missing)}"
             )
+        for field_name in sorted(actual_collisions.intersection(registered_fields)):
+            policy_count = int(field_name in overlay) + int(
+                field_name in non_authoritative
+            )
+            if policy_count != 1:
+                errors.append(
+                    "volume-v2 dispatcher collision must map to exactly one AST policy: "
+                    f"{field_name} count={policy_count}"
+                )
     return errors
 
 
@@ -2622,7 +2665,11 @@ def _validate_dispatcher_ast(root: Path) -> list[str]:
     return errors
 
 
-def _validate_artifact_headers(root: Path, rows: list[dict[str, str]]) -> list[str]:
+def _validate_artifact_headers(
+    root: Path,
+    rows: list[dict[str, str]],
+    governed_nodes: dict[tuple[str, str], tuple[str, str, str]] = GOVERNED_FIELD_NODES,
+) -> list[str]:
     errors: list[str] = []
     artifact_paths_cache: dict[str, list[Path]] = {}
     artifact_columns_cache: dict[Path, list[str]] = {}
@@ -2630,7 +2677,7 @@ def _validate_artifact_headers(root: Path, rows: list[dict[str, str]]) -> list[s
     registered_nodes = {
         (row["field_name"], row["artifact_path"]): row for row in rows
     }
-    for (field_name, pattern), (family, _role, _collision) in GOVERNED_FIELD_NODES.items():
+    for (field_name, pattern), (family, _role, _collision) in governed_nodes.items():
         registry_row = registered_nodes.get((field_name, pattern))
         if pattern not in artifact_paths_cache:
             artifact_paths_cache[pattern] = _artifact_paths(root, pattern)
@@ -4163,6 +4210,7 @@ def _validate_current_projection(
     root: Path,
     *,
     trusted_ref: str = "HEAD",
+    include_operation: bool = True,
 ) -> list[str]:
     paths = {
         "official": root / "output/latest/warrant_flow_latest.csv",
@@ -4171,8 +4219,11 @@ def _validate_current_projection(
         "raw": root / "output/latest/daily_candidate_model_signals_latest.csv",
         "report": root / "output/latest/daily_candidate_model_signals_for_report_latest.csv",
         "theme": root / THEME_ADVISORY_ARTIFACT,
-        "operation": root / "output/latest/daily_volume_breakout_operation_section_latest.csv",
     }
+    if include_operation:
+        paths["operation"] = (
+            root / "output/latest/daily_volume_breakout_operation_section_latest.csv"
+        )
     errors: list[str] = []
     artifacts: dict[str, tuple[list[str], list[dict[str, str]]]] = {}
     for label, path in paths.items():
@@ -4189,9 +4240,12 @@ def _validate_current_projection(
     _, raw_rows = artifacts["raw"]
     _, report_rows = artifacts["report"]
     theme_columns, theme_rows = artifacts["theme"]
-    _, operation_rows = artifacts["operation"]
     errors.extend(_validate_watch_score_rank_rows(watch_rows, "current_watch"))
-    errors.extend(_validate_operation_score_mirror(operation_rows, "current_operation"))
+    if include_operation:
+        _, operation_rows = artifacts["operation"]
+        errors.extend(
+            _validate_operation_score_mirror(operation_rows, "current_operation")
+        )
     raw_errors, raw_index = _validate_projection_set(
         official_rows, candidate_rows, raw_rows, "current_raw"
     )
@@ -4783,15 +4837,113 @@ def _validate_historical_projection(root: Path) -> list[str]:
     return errors
 
 
+def _runtime_registry_rows(
+    rows: list[dict[str, str]],
+    runtime_scope: str,
+) -> list[dict[str, str]]:
+    selected: list[dict[str, str]] = []
+    for row in rows:
+        artifact_path = row["artifact_path"]
+        node = (row["field_name"], artifact_path)
+        if artifact_path.startswith("output/history/"):
+            continue
+        if runtime_scope == "audit-sources" and node == OPERATION_CURRENT_NODE:
+            continue
+        selected.append(row)
+    return selected
+
+
+def _validate_runtime_current_artifact_files(
+    root: Path,
+    governed_nodes: dict[tuple[str, str], tuple[str, str, str]],
+) -> list[str]:
+    errors: list[str] = []
+    for artifact_path in sorted({node[1] for node in governed_nodes}):
+        path = root / artifact_path
+        if not path.exists():
+            errors.append(
+                f"runtime selected current artifact is missing: {artifact_path}"
+            )
+            continue
+        if path.is_symlink() or not path.is_file():
+            errors.append(
+                "runtime selected current artifact is not a regular file: "
+                f"{artifact_path}"
+            )
+            continue
+        try:
+            with path.open("rb") as handle:
+                handle.read(1)
+        except OSError as exc:
+            errors.append(
+                "runtime selected current artifact is unreadable: "
+                f"{artifact_path}: {exc}"
+            )
+    return errors
+
+
+def _validate_runtime_scope(root: Path, runtime_scope: str) -> list[str]:
+    errors: list[str] = []
+    governed_nodes = RUNTIME_SCOPE_GOVERNED_NODES[runtime_scope]
+    registry_rows = _strict_csv_rows(root / REGISTRY_PATH, REGISTRY_COLUMNS, errors)
+    collision_rows = _strict_csv_rows(
+        root / COLLISION_REGISTRY_PATH,
+        COLLISION_REGISTRY_COLUMNS,
+        errors,
+    )
+    selected_rows = _runtime_registry_rows(registry_rows, runtime_scope)
+    errors.extend(_validate_runtime_current_artifact_files(root, governed_nodes))
+    errors.extend(_validate_registry(root, selected_rows, governed_nodes))
+    errors.extend(_validate_artifact_headers(root, selected_rows, governed_nodes))
+    errors.extend(_validate_all_candidates_source_identity(root))
+    errors.extend(
+        _validate_formal_resolution_lineage(
+            root,
+            trusted_ref="HEAD",
+            committed_refresh_mode=False,
+        )
+    )
+    errors.extend(
+        _validate_collision_registry(
+            root,
+            collision_rows,
+            validate_dispatcher_ast=False,
+        )
+    )
+    errors.extend(
+        _validate_current_projection(
+            root,
+            trusted_ref="HEAD",
+            include_operation=runtime_scope == "complete-current",
+        )
+    )
+    return errors
+
+
 def validate(
     root: Path = ROOT,
     *,
     base_ref: str | None = None,
     trusted_ref: str | None = None,
     pr_safe_base_history: bool = False,
+    runtime_scope: str | None = None,
     mode_evidence: list[str] | None = None,
 ) -> list[str]:
     root = root.resolve()
+    if runtime_scope is not None:
+        if runtime_scope not in RUNTIME_SCOPE_GOVERNED_NODES:
+            return [f"unsupported runtime scope: {runtime_scope}"]
+        if base_ref is not None or trusted_ref is not None or pr_safe_base_history:
+            return [
+                "--runtime-scope is mutually exclusive with --base-ref, "
+                "--trusted-ref, and --pr-safe-base-history"
+            ]
+        if mode_evidence is not None:
+            mode_evidence.append(
+                f"selected_mode=runtime_scope runtime_scope={runtime_scope} "
+                f"governed_nodes={len(RUNTIME_SCOPE_GOVERNED_NODES[runtime_scope])}"
+            )
+        return _validate_runtime_scope(root, runtime_scope)
     errors: list[str] = []
     projection_trusted_ref = base_ref or "HEAD"
     formal_trusted_ref = projection_trusted_ref
@@ -4930,13 +5082,32 @@ def main() -> int:
             "artifact, config, or model-source path changed."
         ),
     )
+    parser.add_argument(
+        "--runtime-scope",
+        choices=tuple(RUNTIME_SCOPE_GOVERNED_NODES),
+        default=None,
+        help=(
+            "Validate only Daily Full current runtime lineage. audit-sources excludes "
+            "the operation adapter node; complete-current includes it."
+        ),
+    )
     args = parser.parse_args()
+    if args.runtime_scope is not None and (
+        args.base_ref is not None
+        or args.trusted_ref is not None
+        or args.pr_safe_base_history
+    ):
+        parser.error(
+            "--runtime-scope is mutually exclusive with --base-ref, --trusted-ref, "
+            "and --pr-safe-base-history"
+        )
     mode_evidence: list[str] = []
     errors = validate(
         args.repo_root,
         base_ref=args.base_ref,
         trusted_ref=args.trusted_ref,
         pr_safe_base_history=args.pr_safe_base_history,
+        runtime_scope=args.runtime_scope,
         mode_evidence=mode_evidence,
     )
     for item in mode_evidence:
@@ -4945,12 +5116,21 @@ def main() -> int:
         for error in errors:
             print(f"ERROR: {error}")
         return 1
-    print(
-        "daily canonical field lineage validation passed: "
-        f"scope={VALIDATOR_SCOPE} governed_nodes={len(GOVERNED_FIELD_NODES)} "
-        "consumer_collisions=registered_or_reviewed_exclusion "
-        "dispatcher_collisions=field_registry_exact"
-    )
+    if args.runtime_scope is not None:
+        print(
+            "daily canonical field lineage validation passed: "
+            f"scope=runtime_{args.runtime_scope.replace('-', '_')} "
+            f"governed_nodes={len(RUNTIME_SCOPE_GOVERNED_NODES[args.runtime_scope])} "
+            "consumer_collisions=current_registry_exact "
+            "dispatcher_collisions=current_artifact_field_registry_exact"
+        )
+    else:
+        print(
+            "daily canonical field lineage validation passed: "
+            f"scope={VALIDATOR_SCOPE} governed_nodes={len(GOVERNED_FIELD_NODES)} "
+            "consumer_collisions=registered_or_reviewed_exclusion "
+            "dispatcher_collisions=field_registry_exact"
+        )
     return 0
 
 
