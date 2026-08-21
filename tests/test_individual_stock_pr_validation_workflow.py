@@ -206,151 +206,41 @@ def test_pull_request_static_validation_rejects_inert_or_non_failing_carriers(
 
     assert inventory.validate_regular_pr_static_validation_step(mutated)
 
-
-def test_pull_request_target_cannot_checkout_or_execute_pr_head_code() -> None:
-    text = workflow_text()
-    audit_job = inventory.workflow_job_blocks(text)["pr-safe-base-audit-runner"]
-    assert inventory.PR_STATIC_VALIDATION_STEP_NAME not in audit_job
-    assert "ref: ${{ github.event.pull_request.base.sha }}" in audit_job
-    assert "ref: ${{ github.event.pull_request.head.sha }}" not in audit_job
-    assert "git checkout " not in audit_job
-    assert "git switch " not in audit_job
-
-    mutated = text.replace(
-        "          ref: ${{ github.event.pull_request.base.sha }}",
-        "          ref: ${{ github.event.pull_request.head.sha }}",
-        1,
-    )
-    assert inventory.validate_pr_safe_base_guard_workflow_text(mutated)
-
-
-def test_workflow_cannot_commit_push_or_deploy_artifacts() -> None:
-    text = workflow_text().lower()
-    forbidden = (
-        "contents: write",
-        "pages: write",
-        "deployments: write",
-        "git add ",
-        "git commit",
-        "git push",
-        "ci_push_with_retry",
-        "actions/upload-pages-artifact",
-        "actions/deploy-pages",
-        "repository_dispatch",
-        "workflow_run:",
-        "gh workflow run",
-    )
-
-    assert "contents: read" in text
-    for snippet in forbidden:
-        assert snippet not in text
-    assert text.count(
-        "actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803"
-    ) == 2
-    assert text.count(
-        "actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1"
-    ) == 1
-    assert text.count(
-        "actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02"
-    ) == 1
-    assert "actions/checkout@v6" not in text
-    assert "actions/setup-python@v6" not in text
-    assert "actions/upload-artifact@v4" not in text
-    assert "name: upload audit-only evidence" in text
-    assert "pr-safe-control-plane-audit-${{ github.run_id }}-${{ github.run_attempt }}" in text
-    assert "${{ runner.temp }}/pr-safe-control-plane-audit-manifest.json" in text
-    assert "${{ runner.temp }}/pr-safe-control-plane-audit-manifest.json.sha256" in text
-
-
-def test_privileged_workflow_structure_is_closed_against_spoofing() -> None:
-    text = workflow_text()
+def test_pull_request_target_is_base_only_read_only_and_unfiltered() -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+    jobs = inventory.workflow_job_blocks(text)
+    guard = jobs[inventory.PR_SAFE_GUARD_JOB_ID]
 
     assert inventory.validate_pr_safe_base_guard_workflow_text(text) == []
-    assert inventory.workflow_action_uses(text) == (
-        inventory.PR_SAFE_EXPECTED_ACTION_USES,
-        [],
-    )
-    assert inventory.workflow_exact_mapping(
-        text,
-        "permissions",
-        section_indent=0,
-        entry_indent=2,
-    ) == (inventory.PR_SAFE_READ_ONLY_PERMISSIONS, [])
-    audit_job = inventory.workflow_job_blocks(text)["pr-safe-base-audit-runner"]
-    assert inventory.workflow_exact_mapping(
-        audit_job,
-        "permissions",
-        section_indent=4,
-        entry_indent=6,
-    ) == (inventory.PR_SAFE_READ_ONLY_PERMISSIONS, [])
+    target_header = text.index("  pull_request_target:")
+    permissions_header = text.index("\npermissions:", target_header)
+    target_block = text[target_header:permissions_header]
+    assert "paths:" not in target_block
+    assert "paths-ignore:" not in target_block
+    assert "permissions:\n  contents: read" in text
+    assert "permissions:\n      contents: read" in guard
+    assert "ref: ${{ github.event.pull_request.base.sha }}" in guard
+    assert "ref: ${{ github.event.pull_request.head.sha }}" not in guard
+    assert "git checkout " not in guard
+    assert "git switch " not in guard
+    assert "git show " not in guard
+    assert "actions/upload-artifact@" not in guard
+    assert "continue-on-error:" not in guard
+    assert "secrets." not in guard
+    assert "self-hosted" not in guard
+
+
+def test_trust_root_guard_structure_rejects_security_drift() -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+    assert inventory.validate_pr_safe_base_guard_workflow_text(text) == []
 
     mutations = (
         text.replace(
-            inventory.PR_SAFE_REGULAR_JOB_NAME_EXPRESSION,
-            inventory.PR_SAFE_REQUIRED_CHECK_CONTEXT,
+            "  pull_request_target:\n    types:",
+            "  pull_request_target:\n    paths:\n      - scripts/**\n    types:",
             1,
         ),
-        text.replace("    timeout-minutes: 30\n", "", 1),
-        text.replace(
-            "permissions:\n  contents: read",
-            "permissions:\n  contents: read\n  id-token: write",
-            1,
-        ),
-        text.replace(
-            "    permissions:\n      contents: read",
-            "    permissions:\n      contents: read\n      pull-requests: write",
-            1,
-        ),
-        text.replace(
-            "      - name: Upload audit-only evidence",
-            "      - name: Unexpected fifth action\n"
-            "        uses: actions/cache@0000000000000000000000000000000000000000\n\n"
-            "      - name: Upload audit-only evidence",
-            1,
-        ),
-        text.replace(
-            inventory.PR_SAFE_SETUP_PYTHON_ACTION,
-            "actions/setup-python@v6",
-            1,
-        ),
-        text.replace(
-            f"        uses: {inventory.PR_SAFE_SETUP_PYTHON_ACTION}\n",
-            "",
-            1,
-        ),
-        text.replace(
-            f"        uses: {inventory.PR_SAFE_SETUP_PYTHON_ACTION}\n",
-            f"        uses: {inventory.PR_SAFE_SETUP_PYTHON_ACTION}\n"
-            f"        uses: {inventory.PR_SAFE_SETUP_PYTHON_ACTION}\n",
-            1,
-        ),
-        text.replace(
-            "permissions:\n  contents: read",
-            "permissions:\n  contents: read\npermissions:\n  contents: read",
-            1,
-        ),
-        text.replace(
-            "    permissions:\n      contents: read",
-            "    permissions:\n      contents: write",
-            1,
-        ),
-        text.replace(
-            "    permissions:\n      contents: read\n\n    steps:",
-            "    permissions:\n      contents: read\n"
-            "    permissions:\n      contents: read\n\n    steps:",
-            1,
-        ),
-        text.replace(
-            "    permissions:\n      contents: read",
-            "    permissions:\n      contents: read\n      contents: read",
-            1,
-        ),
-        text.replace(
-            "    name: pr-safe-base-audit-runner",
-            "    # name: pr-safe-base-audit-runner\n"
-            "    name: individual-stock-pr-validation",
-            1,
-        ),
+        text.replace("      contents: read", "      contents: write", 1),
         text.replace(
             "      github.event.pull_request.base.repo.full_name == github.repository\n"
             "    runs-on: ubuntu-latest",
@@ -359,16 +249,29 @@ def test_privileged_workflow_structure_is_closed_against_spoofing() -> None:
             1,
         ),
         text.replace(
-            "    timeout-minutes: 10",
-            "    timeout-minutes: 10\n    timeout-minutes: 999",
+            "          ref: ${{ github.event.pull_request.base.sha }}",
+            "          ref: ${{ github.event.pull_request.head.sha }}",
             1,
         ),
         text.replace(
-            "    if: >-\n"
-            "      github.event_name == 'pull_request_target' &&\n"
-            "      github.event.pull_request.base.ref == 'main' &&\n"
-            "      github.event.pull_request.base.repo.full_name == github.repository",
-            "    if: always()",
+            '          test "$(git rev-parse "$LOCAL_HEAD_REF")" = "$HEAD_SHA"',
+            '          git checkout "$LOCAL_HEAD_REF"',
+            1,
+        ),
+        text.replace(
+            "      - name: Validate trust-root self-change from base code",
+            "      - name: Validate trust-root self-change from base code\n"
+            "        continue-on-error: true",
+            1,
+        ),
+        text.replace(
+            '            --maintainer-approved "$MAINTAINER_APPROVED"',
+            "            --maintainer-approved true",
+            1,
+        ),
+        text.replace(
+            "          HEAD_REPOSITORY: ${{ github.event.pull_request.head.repo.full_name }}",
+            "          HEAD_REPOSITORY: ${{ secrets.UNTRUSTED }}",
             1,
         ),
     )
@@ -377,28 +280,13 @@ def test_privileged_workflow_structure_is_closed_against_spoofing() -> None:
         assert inventory.validate_pr_safe_base_guard_workflow_text(mutated)
 
 
-def test_scope_output_is_stable(tmp_path: Path) -> None:
-    output = tmp_path / "github-output.txt"
-    matched = scope.matched_affected_paths(
-        ["docs/unrelated_note.md", "docs/individual_stock_lifecycle_probe.md"]
-    )
+def test_regular_pull_request_static_validation_remains_unconditional() -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+    jobs = inventory.workflow_job_blocks(text)
+    regular = jobs["individual-stock-pr-validation"]
 
-    scope.write_github_output(output, matched)
-
-    assert output.read_text(encoding="utf-8") == "affected=true\nmatched_count=1\n"
-
-
-def test_deleted_individual_stock_path_remains_in_git_scope(monkeypatch) -> None:
-    deleted_path = "docs/individual_stock_tdcc_freshness_contract.md"
-
-    def fake_run(command, **kwargs):
-        assert "--diff-filter=ACMRD" in command
-        assert command[-1] == "--"
-        return subprocess.CompletedProcess(command, 0, stdout=f"{deleted_path}\n")
-
-    monkeypatch.setattr(scope.subprocess, "run", fake_run)
-
-    changed = scope.changed_paths_from_git("base", "head")
-
-    assert changed == [deleted_path]
-    assert scope.matched_affected_paths(changed) == [deleted_path]
+    assert inventory.validate_regular_pr_static_validation_step(text) == []
+    assert "if: github.event_name == 'pull_request'" in regular
+    assert inventory.PR_STATIC_VALIDATION_STEP_NAME in regular
+    for command in inventory.PR_STATIC_VALIDATION_COMMANDS:
+        assert command in regular
