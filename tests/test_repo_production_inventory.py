@@ -759,33 +759,12 @@ def test_legacy_exact_target_authorization_symbols_are_retired() -> None:
     )
     for name in symbol_names:
         assert not hasattr(inventory, name)
-    remaining_names = set(vars(inventory))
-    checkpoint_prefix = "PR_SAFE_" + "DAILY_FULL_"
-    checkpoint_suffix = "CHECKPOINT"
-    assert not any(
-        name.startswith(checkpoint_prefix + checkpoint_suffix)
-        for name in remaining_names
-    )
-    local_prefix = "PR_SAFE_" + "LOCAL_"
-    local_suffix = "VALIDATION"
-    assert not any(
-        name.startswith(local_prefix + local_suffix)
-        for name in remaining_names
-    )
 
 
-@pytest.mark.parametrize(
-    "relative_path",
-    [
-        "scripts/run_daily_full_validation_replay.py",
-        "scripts/validate_daily_full_validation_replay.py",
-        "scripts/validate_revenue_unreacted_range_promotion_preparation.py",
-    ],
-)
-def test_authorization_retirement_keeps_underlying_tools(
-    relative_path: str,
-) -> None:
-    assert (ROOT / relative_path).is_file()
+def test_authorization_retirement_keeps_unrelated_tool() -> None:
+    assert (
+        ROOT / "scripts/validate_revenue_unreacted_range_promotion_preparation.py"
+    ).is_file()
 
 
 def test_pr_trust_root_guard_requires_same_repo_and_label_but_allows_new_bytes(

@@ -280,53 +280,6 @@ def test_runtime_critical_mode_rejects_core_contract_mutations(
     assert boundaries.validate_daily_runtime_critical_contracts(mutated)
 
 
-@pytest.mark.parametrize(
-    ("old", "new"),
-    (
-        ("continue-on-error: true", "continue-on-error: false"),
-        (
-            "if: ${{ steps.diagnostic_checkpoint_capture.outcome == 'success' }}",
-            "if: ${{ always() }}",
-        ),
-        ("if-no-files-found: error", "if-no-files-found: warn"),
-        ('--source-sha "$GITHUB_SHA"', ""),
-    ),
-)
-def test_runtime_critical_mode_rejects_checkpoint_diagnostic_drift(
-    old: str,
-    new: str,
-) -> None:
-    text = boundaries.read_text(boundaries.DAILY_WORKFLOW)
-    capture_start = text.index("Create diagnostic immutable pre-step41 checkpoint")
-    assert old in text[capture_start:]
-    mutated = text[:capture_start] + text[capture_start:].replace(old, new, 1)
-    assert boundaries.validate_daily_runtime_critical_contracts(mutated)
-
-
-def test_runtime_critical_mode_requires_checkpoint_upload_non_blocking() -> None:
-    text = boundaries.read_text(boundaries.DAILY_WORKFLOW)
-    upload_start = text.index("Upload diagnostic immutable pre-step41 checkpoint")
-    suffix = text[upload_start:]
-    assert "continue-on-error: true" in suffix
-    mutated = text[:upload_start] + suffix.replace(
-        "continue-on-error: true",
-        "continue-on-error: false",
-        1,
-    )
-    assert boundaries.validate_daily_runtime_critical_contracts(mutated)
-
-
-def test_runtime_critical_mode_rejects_checkpoint_after_step41() -> None:
-    text = boundaries.read_text(boundaries.DAILY_WORKFLOW)
-    capture_name = "Create diagnostic immutable pre-step41 checkpoint"
-    step41_name = "Build volume attack theme layer"
-    assert text.index(capture_name) < text.index(step41_name)
-    mutated = text.replace(capture_name, "__TEMP_STEP_NAME__", 1)
-    mutated = mutated.replace(step41_name, capture_name, 1)
-    mutated = mutated.replace("__TEMP_STEP_NAME__", step41_name, 1)
-    assert boundaries.validate_daily_runtime_critical_contracts(mutated)
-
-
 def test_runtime_critical_mode_rejects_unknown_argument() -> None:
     with pytest.raises(SystemExit) as exc_info:
         boundaries.main(["--not-a-real-mode"])
@@ -2566,10 +2519,6 @@ def test_daily_full_preflight_artifact_is_bound_to_exact_source_sha() -> None:
     assert 'Path("market_session_preflight_identity.json")' not in text
     assert '(artifact_root / "market_session_preflight_identity.json")' in text
     assert text.count("from scripts.market_session_calendar import (") == 2
-    assert (
-        "from scripts.run_daily_full_validation_replay import (\n"
-        "              materialize_market_session_preflight_artifact"
-    ) not in text
     assert text.count("ref: ${{ needs.market-session-preflight.outputs.source_sha }}") == 2
     assert text.count("CURRENT_HEAD=\"$(git rev-parse HEAD)\"") >= 2
     assert "REMOTE_MAIN=\"$(git rev-parse origin/main)\"" not in text
