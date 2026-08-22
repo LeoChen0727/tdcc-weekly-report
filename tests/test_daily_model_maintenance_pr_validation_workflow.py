@@ -209,7 +209,6 @@ def aggregate_contract_ok(text: str) -> bool:
         "volume_v2_research",
         "revenue_research",
         "financial_statement_research",
-        "volume_v2_runtime_markdown_normalization_candidate_commit",
     )
     required = (
         'if [ "$SCOPE_RESULT" != "success" ]; then',
@@ -220,15 +219,12 @@ def aggregate_contract_ok(text: str) -> bool:
         'require_domain_result volume-v2-research "$VOLUME_SELECTED" "$VOLUME_RESULT"',
         'require_domain_result revenue-research "$REVENUE_SELECTED" "$REVENUE_RESULT"',
         'require_domain_result financial-statement-research "$FINANCIAL_SELECTED" "$FINANCIAL_RESULT"',
-        'if [ "$REPAIR_RESULT" != "success" ] || [ "$VOLUME_RESULT" != "success" ]; then',
-        'if [ "$REPAIR_RESULT" != "skipped" ]; then',
     )
     return (
         active_field(job, "name", 4) == "daily-model-maintenance-pr-validation"
         and active_field(job, "if", 4) == "always()"
         and active_list(job, "needs") == expected_needs
         and all(literal in executable_lines for literal in required)
-        and block.count('if [ "$result" != "skipped" ]; then') == 2
         and active_field(job, "continue-on-error", 4) is None
         and all(
             active_field(step, "continue-on-error") is None for step in steps
@@ -275,8 +271,8 @@ VOLUME_VALIDATION_COMMANDS = (
     "python scripts/validate_volume_breakout_watch.py --latest-only",
     "python scripts/validate_volume_attack_theme_layer.py",
     'python scripts/validate_daily_canonical_field_lineage.py --base-ref "$BASE_SHA" $LINEAGE_HISTORY_MODE',
-    "python scripts/build_volume_v2_warrant_lineage_history_audit.py --phase runtime",
-    "python scripts/validate_volume_v2_warrant_lineage_history_audit.py --phase runtime",
+    "python scripts/build_volume_v2_warrant_lineage_history_audit.py",
+    "python scripts/validate_volume_v2_warrant_lineage_history_audit.py",
     "git --no-replace-objects diff --exit-code -- "
     + " ".join(VOLUME_GENERATED_TARGETS),
 )
@@ -331,31 +327,11 @@ def domain_workload_contract_ok(text: str) -> bool:
                 )
             )
         )
-        if job_id == "volume_v2_research":
-            workload_commands = tuple(
-                command
-                for command in workload_commands
-                if command
-                != 'git --no-replace-objects diff --exit-code HEAD -- "$output_csv" "$docs_csv"'
-            )
-        step_commands = run_commands(active_field(step, "run") or "")
-        step_workload_commands = tuple(
-            command
-            for command in step_commands
-            if command.startswith(
-                (
-                    "python scripts/build_",
-                    "python scripts/validate_",
-                    "git --no-replace-objects diff --exit-code",
-                )
-            )
-        )
-        exact_step_commands = step_workload_commands if job_id == "volume_v2_research" else step_commands
         if (
             not step
             or active_field(step, "if") is not None
             or active_field(step, "continue-on-error") is not None
-            or exact_step_commands != expected_commands
+            or run_commands(active_field(step, "run") or "") != expected_commands
             or workload_commands != expected_commands
         ):
             return False
@@ -528,10 +504,7 @@ def test_scope_aggregate_and_domain_contracts_are_exact_and_fail_closed() -> Non
     assert direct_dependency_closure_ok(text)
     assert git_invocation_contract_ok(text)
     assert tuple(workflow_jobs(text)) == (
-        "scope",
-        *DOMAIN_CONTRACTS,
-        "volume_v2_runtime_markdown_normalization_candidate_commit",
-        "daily-model-maintenance-pr-validation",
+        "scope", *DOMAIN_CONTRACTS, "daily-model-maintenance-pr-validation"
     )
     assert "fetch_depth=1" in block
     assert 'fetch_depth=2' in block
@@ -552,49 +525,6 @@ def test_scope_aggregate_and_domain_contracts_are_exact_and_fail_closed() -> Non
             active_field(step, "continue-on-error")
             for step in active_step_blocks(job)
         )
-
-    repair_job = job_block(
-        "volume_v2_runtime_markdown_normalization_candidate_commit", text
-    )
-    assert active_list(repair_job, "needs") == ("scope", "volume_v2_research")
-    assert active_field(repair_job, "continue-on-error", 4) is None
-    assert not any(
-        active_field(step, "continue-on-error")
-        for step in active_step_blocks(repair_job)
-    )
-    repair_steps = active_step_blocks(repair_job)
-    repair_key_precheck = repair_steps[0]
-    repair_checkout = repair_steps[1]
-    assert "Require production artifact write deploy key" in repair_key_precheck
-    assert "PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY" in repair_key_precheck
-    assert 'if [ -z "${PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY}" ]; then' in repair_key_precheck
-    assert "ssh-key: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}" in repair_checkout
-    assert "persist-credentials: true" in repair_checkout
-    assert "contents: write" not in repair_job
-    assert "GITHUB_TOKEN" not in repair_job
-    assert "github.token" not in repair_job
-    assert "token:" not in repair_job
-    artifact_step = next(
-        step
-        for step in repair_steps
-        if "Commit and push exact Volume V2 Markdown normalization candidate" in step
-    )
-    assert "EXPECTED_HEAD_SHA: ${{ inputs.expected_head_sha }}" in artifact_step
-    assert "EXPECTED_BASE_SHA" not in artifact_step
-    assert "Volume V2 committed-path mismatch" in job_run_text(
-        "volume_v2_runtime_markdown_normalization_candidate_commit", text
-    )
-    assert text.count('"$GITHUB_RUN_ATTEMPT" != "1"') == 2
-    assert text.count("scripts/build_volume_v2_warrant_lineage_history_audit.py") == 1
-    assert text.count("scripts/validate_volume_v2_warrant_lineage_history_audit.py") == 1
-    normalization_jobs = job_block("volume_v2_research", text) + repair_job
-    assert "remote_main_sha" not in normalization_jobs
-    assert "refs/heads/main" not in normalization_jobs
-    assert "latest-main" not in normalization_jobs
-    assert (
-        boundaries.validate_daily_model_volume_v2_runtime_markdown_contract(text)
-        == []
-    )
 
 
 def test_repo_current_runs_legacy_removal_guards_exactly_once_and_fail_closed() -> None:
@@ -764,8 +694,8 @@ def test_scope_job_contract_rejects_expensive_or_credentialed_mutations(
         ("      - revenue_research\n", ""),
         ("    if: always()\n", "    if: always()\n    \"if\": false\n"),
         (
-            "      - volume_v2_runtime_markdown_normalization_candidate_commit\n    runs-on: ubuntu-latest",
-            "      - volume_v2_runtime_markdown_normalization_candidate_commit\n    needs:\n"
+            "      - financial_statement_research\n    runs-on: ubuntu-latest",
+            "      - financial_statement_research\n    needs:\n"
             "      - scope\n    runs-on: ubuntu-latest",
         ),
         (
@@ -773,10 +703,7 @@ def test_scope_job_contract_rejects_expensive_or_credentialed_mutations(
             "    steps:\n      - run: exit 0\n    \"steps\":\n"
             "      - name: Validate selected and skipped domain results",
         ),
-        (
-            '              false)\n                if [ "$result" != "skipped" ]; then',
-            '              false)\n                if [ "$result" != "success" ]; then',
-        ),
+        ('if [ "$result" != "skipped" ]; then', 'if [ "$result" != "success" ]; then'),
         (
             'require_domain_result volume-v2-research "$VOLUME_SELECTED" "$VOLUME_RESULT"',
             "echo volume-result-ignored",
