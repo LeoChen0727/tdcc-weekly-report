@@ -2,7 +2,7 @@
 
 - Audit version: `volume_v2_warrant_lineage_history_audit_v5`
 - Audited trading dates: `20260615, 20260616, 20260617, 20260618, 20260622, 20260623, 20260624, 20260626, 20260629, 20260630, 20260701, 20260702, 20260703, 20260706, 20260707, 20260708, 20260709, 20260713, 20260714, 20260715, 20260716, 20260717, 20260810, 20260811, 20260820, 20260821`
-- Dynamic source coverage: `113/113` revisions
+- Runtime combined coverage: `113` revisions; current replay plus trusted HEAD baseline
 - Formal volume v2 rows: `120`
 - Formal verified clean: `95`
 - Formal superseded: `3`
@@ -18,7 +18,7 @@
 - False-breakout collision rows: `0`
 - Watch/candidate source score collisions: `11`
 - Watch/candidate source rank collisions: `0`
-- Historical daily snapshots were read only and were not rewritten.
+- Non-current rows were preserved from trusted HEAD and were not revalidated or replayed.
 
 ## Daily coverage
 
@@ -160,4 +160,4 @@
 
 ## Conclusion
 
-The dynamic historical/current coverage replays the legacy candidate-plus-watch collision context and the canonical candidate-only collision context independently for warrant, TDCC status, and false-breakout risk. Component deltas are applied to base_model_score, tdcc_score, and risk_penalty before final_rank_score is clamped, then rank is rebuilt by score descending, stock_id, and source_row_index. Candidate-absent canonical score contexts remain empty. Historical snapshots are never rewritten; superseded, quarantined, or unreplayable rows cannot be used as current formal evidence. Legacy date-only blobs are recovered only when the same commit contains an exact manifest row, matching formal latest source, and every paired source. Any missing precontract revision keeps historical promotion evidence fail closed without quarantining an independently exact versioned revision.
+Runtime mode independently replays only the current manifest-max revision. All non-current audit rows are preserved exactly from the trusted HEAD baseline and are not revalidated or replayed in this run.
