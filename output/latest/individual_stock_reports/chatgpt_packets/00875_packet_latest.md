@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00875 國泰網路資安
 
 ## Metadata
-- generated_at: 2026-08-22 15:59:20 Asia/Taipei
+- generated_at: 2026-08-22 22:26:15 Asia/Taipei
 - stock_id: 00875
 - stock_name: 國泰網路資安
 - packet_status: standard_rawdata_packet

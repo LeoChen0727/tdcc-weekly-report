@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00712 復華富時不動產
 
 ## Metadata
-- generated_at: 2026-08-22 15:59:20 Asia/Taipei
+- generated_at: 2026-08-22 22:26:14 Asia/Taipei
 - stock_id: 00712
 - stock_name: 復華富時不動產
 - packet_status: standard_rawdata_packet

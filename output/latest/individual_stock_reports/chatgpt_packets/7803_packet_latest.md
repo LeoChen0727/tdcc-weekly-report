@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7803 雲象科技-創
 
 ## Metadata
-- generated_at: 2026-08-22 16:01:17 Asia/Taipei
+- generated_at: 2026-08-22 22:29:06 Asia/Taipei
 - stock_id: 7803
 - stock_name: 雲象科技-創
 - packet_status: standard_rawdata_packet

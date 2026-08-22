@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00885 富邦越南
 
 ## Metadata
-- generated_at: 2026-08-22 15:59:20 Asia/Taipei
+- generated_at: 2026-08-22 22:26:16 Asia/Taipei
 - stock_id: 00885
 - stock_name: 富邦越南
 - packet_status: standard_rawdata_packet

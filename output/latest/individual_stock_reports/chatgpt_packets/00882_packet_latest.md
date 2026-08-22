@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00882 中信中國高股息
 
 ## Metadata
-- generated_at: 2026-08-22 15:59:20 Asia/Taipei
+- generated_at: 2026-08-22 22:26:16 Asia/Taipei
 - stock_id: 00882
 - stock_name: 中信中國高股息
 - packet_status: standard_rawdata_packet

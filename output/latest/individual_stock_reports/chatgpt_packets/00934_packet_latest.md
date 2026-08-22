@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00934 中信成長高股息
 
 ## Metadata
-- generated_at: 2026-08-22 15:59:22 Asia/Taipei
+- generated_at: 2026-08-22 22:26:17 Asia/Taipei
 - stock_id: 00934
 - stock_name: 中信成長高股息
 - packet_status: standard_rawdata_packet

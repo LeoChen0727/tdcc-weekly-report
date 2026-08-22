@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00894 中信小資高價30
 
 ## Metadata
-- generated_at: 2026-08-22 15:59:21 Asia/Taipei
+- generated_at: 2026-08-22 22:26:16 Asia/Taipei
 - stock_id: 00894
 - stock_name: 中信小資高價30
 - packet_status: standard_rawdata_packet

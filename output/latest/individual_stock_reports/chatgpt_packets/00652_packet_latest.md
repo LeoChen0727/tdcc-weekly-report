@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00652 富邦印度
 
 ## Metadata
-- generated_at: 2026-08-22 15:59:19 Asia/Taipei
+- generated_at: 2026-08-22 22:26:14 Asia/Taipei
 - stock_id: 00652
 - stock_name: 富邦印度
 - packet_status: standard_rawdata_packet

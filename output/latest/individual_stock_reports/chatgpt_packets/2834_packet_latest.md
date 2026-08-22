@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2834 臺企銀
 
 ## Metadata
-- generated_at: 2026-08-22 15:59:57 Asia/Taipei
+- generated_at: 2026-08-22 22:27:10 Asia/Taipei
 - stock_id: 2834
 - stock_name: 臺企銀
 - packet_status: standard_180d_window_packet

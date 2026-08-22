@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7369 南俊統一57購03
 
 ## Metadata
-- generated_at: 2026-08-22 16:01:13 Asia/Taipei
+- generated_at: 2026-08-22 22:29:00 Asia/Taipei
 - stock_id: 7369
 - stock_name: 南俊統一57購03
 - packet_status: partial_rawdata_packet
