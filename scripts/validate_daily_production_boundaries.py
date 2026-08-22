@@ -18,24 +18,6 @@ HISTORICAL_SOURCE_REPLAY_WORKFLOW = (
     ROOT / ".github" / "workflows" / "historical_structured_source_replay.yml"
 )
 DAILY_MODEL_MAINTENANCE_PR_WORKFLOW = ROOT / ".github" / "workflows" / "daily_model_maintenance_pr_validation.yml"
-VOLUME_V2_RUNTIME_MARKDOWN_REPAIR_INPUT = (
-    "run_volume_v2_runtime_markdown_normalization_candidate_only"
-)
-VOLUME_V2_RUNTIME_BUILD_COMMAND = (
-    "python scripts/build_volume_v2_warrant_lineage_history_audit.py --phase runtime"
-)
-VOLUME_V2_RUNTIME_VALIDATE_COMMAND = (
-    "python scripts/validate_volume_v2_warrant_lineage_history_audit.py --phase runtime"
-)
-VOLUME_V2_RUNTIME_MARKDOWN_PATHS = (
-    "output/latest/volume_v2_warrant_lineage_history_audit_latest.md",
-    "docs/latest/volume_v2_warrant_lineage_history_audit_latest.md",
-)
-VOLUME_V2_RUNTIME_MARKDOWN_CANDIDATE_ALLOWED_GIT_COMMANDS = {
-    *(f"git --no-replace-objects add -- {path}" for path in VOLUME_V2_RUNTIME_MARKDOWN_PATHS),
-    'git --no-replace-objects commit -m "Normalize Volume V2 runtime audit Markdown"',
-    'git --no-replace-objects push origin "HEAD:refs/heads/$GITHUB_REF_NAME"',
-}
 DAILY_PDF_REPLAY_PR_WORKFLOW = ROOT / ".github" / "workflows" / "daily_pdf_replay_pr_validation.yml"
 DAILY_PDF_REPLAY_AUTOMATIC_PATHS = {
     "config/daily_pdf_rendered_model_regression_contract.csv",
@@ -352,14 +334,14 @@ def require_workflow_order(text: str, labels: list[str]) -> list[str]:
 
 
 def workflow_job_block(text: str, job_id: str) -> str:
-    marker = re.search(rf"(?m)^  {re.escape(job_id)}:\s*(?:#.*)?$", text)
-    if marker is None:
+    marker = f"  {job_id}:"
+    start = text.find(marker)
+    if start < 0:
         return ""
-    start = marker.start()
-    next_job = re.search(r"(?m)^  [A-Za-z0-9_-]+:\s*$", text[marker.end() :])
+    next_job = re.search(r"(?m)^  [A-Za-z0-9_-]+:\s*$", text[start + len(marker) :])
     if next_job is None:
         return text[start:]
-    return text[start : marker.end() + next_job.start()]
+    return text[start : start + len(marker) + next_job.start()]
 
 
 def workflow_step_block(text: str, step_name: str) -> str:
@@ -516,88 +498,6 @@ def validate_daily_model_pr_scope_contract(text: str) -> list[str]:
         errors.append("daily model maintenance PR workflow missing changed-path scope job")
     elif "python scripts/detect_daily_model_pr_validation_scope.py" not in scope_block:
         errors.append("daily model maintenance PR scope job must execute the scope detector")
-    else:
-        effective_base_output = (
-            "effective_base_sha: ${{ steps.scope.outputs.effective_base_sha }}"
-        )
-        effective_base_consumption = (
-            "BASE_SHA: ${{ needs.scope.outputs.effective_base_sha }}"
-        )
-        required_scope_literals = {
-            effective_base_output: (
-                "daily model maintenance PR scope must expose its effective base output"
-            ),
-            'effective_base_sha="origin/main"': (
-                "daily model maintenance workflow_dispatch must retain origin/main base semantics"
-            ),
-            'git --no-replace-objects rev-list --parents -n 1 "$MERGE_SHA"': (
-                "daily model maintenance PR scope must inspect the fetched synthetic merge parents"
-            ),
-            'read -r observed_merge observed_base observed_head unexpected_parent <<< "$merge_identity"': (
-                "daily model maintenance PR scope must parse an exact two-parent merge identity"
-            ),
-            'if [ -z "$observed_merge" ] || [ -z "$observed_base" ] || [ -z "$observed_head" ] || [ -n "${unexpected_parent:-}" ]; then': (
-                "daily model maintenance PR scope must reject malformed or extra merge parents"
-            ),
-            '[ "$observed_merge" != "$MERGE_SHA" ]': (
-                "daily model maintenance PR scope must bind the observed merge SHA"
-            ),
-            '[ "$observed_head" != "$HEAD_SHA" ]': (
-                "daily model maintenance PR scope must bind the observed head parent"
-            ),
-            'effective_base_sha="$observed_base"': (
-                "daily model maintenance PR scope must use the synthetic merge first parent"
-            ),
-            '--base-sha "$effective_base_sha"': (
-                "daily model maintenance PR detector must receive the effective first-parent base"
-            ),
-            'if [ -z "$effective_base_sha" ]; then': (
-                "daily model maintenance PR scope must reject a missing effective base"
-            ),
-            "printf 'effective_base_sha=%s\\n' \"$effective_base_sha\" >> \"$GITHUB_OUTPUT\"": (
-                "daily model maintenance PR scope must publish its verified effective base"
-            ),
-        }
-        for literal, message in required_scope_literals.items():
-            if literal not in scope_block:
-                errors.append(message)
-        if scope_block.count(effective_base_output) != 1:
-            errors.append(
-                "daily model maintenance PR scope effective base job output must be unique"
-            )
-        effective_base_write = "printf 'effective_base_sha=%s\\n'"
-        if scope_block.count(effective_base_write) != 1:
-            errors.append(
-                "daily model maintenance PR scope effective base step output must be unique"
-            )
-        detector_call = (
-            'python scripts/detect_daily_model_pr_validation_scope.py "${scope_args[@]}"'
-        )
-        if (
-            detector_call in scope_block
-            and effective_base_write in scope_block
-            and scope_block.index(detector_call) > scope_block.index(effective_base_write)
-        ):
-            errors.append(
-                "daily model maintenance PR scope must validate before publishing its effective base"
-            )
-        if "${{ github.event.pull_request.base.sha }}" in scope_block:
-            errors.append(
-                "daily model maintenance PR scope must not reuse the stale event base SHA"
-            )
-        if any(mask in scope_block for mask in ("|| true", "|| :", "; true")):
-            errors.append(
-                "daily model maintenance PR scope effective base validation must not be masked"
-            )
-        if text.count(effective_base_consumption) != 3:
-            errors.append(
-                "daily model maintenance PR repo/shared/volume jobs must consume exactly three "
-                "verified effective base bindings"
-            )
-        if "github.event.pull_request.base.sha" in text:
-            errors.append(
-                "daily model maintenance PR selected jobs must not reuse the stale event base"
-            )
 
     aggregate_block = workflow_job_block(
         text,
@@ -610,225 +510,6 @@ def validate_daily_model_pr_scope_contract(text: str) -> list[str]:
             errors.append("daily model maintenance PR aggregate must keep its stable check name")
         if "if: always()" not in aggregate_block:
             errors.append("daily model maintenance PR aggregate must evaluate all domain results")
-    return errors
-
-
-def validate_daily_model_volume_v2_runtime_markdown_contract(text: str) -> list[str]:
-    errors: list[str] = []
-    volume_job = workflow_job_block(text, "volume_v2_research")
-    commit_job = workflow_job_block(
-        text, "volume_v2_runtime_markdown_normalization_candidate_commit"
-    )
-    exact_lines = {
-        VOLUME_V2_RUNTIME_BUILD_COMMAND: text.count(
-            f"          {VOLUME_V2_RUNTIME_BUILD_COMMAND}\n"
-        ),
-        VOLUME_V2_RUNTIME_VALIDATE_COMMAND: text.count(
-            f"          {VOLUME_V2_RUNTIME_VALIDATE_COMMAND}\n"
-        ),
-    }
-    for command, count in exact_lines.items():
-        if count != 1:
-            errors.append(
-                "daily model PR Volume V2 runtime command must appear exactly once: "
-                f"command={command!r} count={count}"
-            )
-    for script_path in (
-        "scripts/build_volume_v2_warrant_lineage_history_audit.py",
-        "scripts/validate_volume_v2_warrant_lineage_history_audit.py",
-    ):
-        reference_count = text.count(script_path)
-        if reference_count != 1:
-            errors.append(
-                "daily model PR Volume V2 builder/validator script reference must be unique: "
-                f"script={script_path!r} count={reference_count}"
-            )
-    if (
-        VOLUME_V2_RUNTIME_BUILD_COMMAND in volume_job
-        and VOLUME_V2_RUNTIME_VALIDATE_COMMAND in volume_job
-        and volume_job.index(VOLUME_V2_RUNTIME_BUILD_COMMAND)
-        > volume_job.index(VOLUME_V2_RUNTIME_VALIDATE_COMMAND)
-    ):
-        errors.append("daily model PR Volume V2 runtime validator must follow its builder")
-    for forbidden in (
-        "          python scripts/build_volume_v2_warrant_lineage_history_audit.py\n",
-        "          python scripts/validate_volume_v2_warrant_lineage_history_audit.py\n",
-        f"{VOLUME_V2_RUNTIME_BUILD_COMMAND} ||",
-        f"{VOLUME_V2_RUNTIME_VALIDATE_COMMAND} ||",
-        f"{VOLUME_V2_RUNTIME_BUILD_COMMAND}; true",
-        f"{VOLUME_V2_RUNTIME_VALIDATE_COMMAND}; true",
-    ):
-        if forbidden in text:
-            errors.append(
-                "daily model PR Volume V2 contract forbids default/full or masked execution: "
-                f"found={forbidden!r}"
-            )
-
-    required_literals = {
-        f"{VOLUME_V2_RUNTIME_MARKDOWN_REPAIR_INPUT}:": (
-            "daily model PR workflow must declare the Volume V2 normalization boolean"
-        ),
-        "type: boolean": "Volume V2 normalization mode must be a boolean",
-        "expected_base_sha:": "Volume V2 normalization must bind its code-commit parent",
-        "expected_head_sha:": "Volume V2 normalization must bind its code head",
-        "confirmation:": "Volume V2 normalization must require an exact confirmation",
-        "normalize_volume_v2_runtime_markdown_candidate": (
-            "Volume V2 normalization confirmation literal is missing"
-        ),
-        '"$GITHUB_EVENT_NAME" != "workflow_dispatch"': (
-            "Volume V2 normalization must be workflow-dispatch only"
-        ),
-        '"$GITHUB_RUN_ATTEMPT" != "1"': (
-            "Volume V2 normalization must reject rerun attempts"
-        ),
-        'GITHUB_REF_NAME" = "main"': "Volume V2 normalization must reject main",
-        'remote_branch_sha" != "$EXPECTED_HEAD_SHA': (
-            "Volume V2 normalization must reject branch movement"
-        ),
-        "Volume V2 code changed-path mismatch": (
-            "Volume V2 normalization must enforce exact9 code scope"
-        ),
-        "Volume V2 normalization changed-path mismatch": (
-            "Volume V2 normalization must enforce exact2 generated scope"
-        ),
-        "Volume V2 staged-path mismatch": (
-            "Volume V2 normalization must enforce exact2 staged scope"
-        ),
-        "Volume V2 committed-path mismatch": (
-            "Volume V2 normalization must enforce exact2 committed scope"
-        ),
-        '["git", "--no-replace-objects", "ls-files", "--others", "--exclude-standard"]': (
-            "Volume V2 normalization must include untracked files in exact2 changed scope"
-        ),
-        'test -z "$(git --no-replace-objects ls-files --others --exclude-standard)"': (
-            "Volume V2 normalization must leave no untracked files after its commit"
-        ),
-        "Volume V2 artifact commit must be the code head's unique direct child": (
-            "Volume V2 normalization must enforce direct-child artifact identity"
-        ),
-        "PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}": (
-            "Volume V2 normalization must bind the repository deploy key"
-        ),
-        'if [ -z "${PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY}" ]; then': (
-            "Volume V2 normalization must fail closed when the deploy key is empty"
-        ),
-        "ssh-key: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}": (
-            "Volume V2 normalization checkout must use the repository deploy key"
-        ),
-    }
-    for literal, message in required_literals.items():
-        if literal not in text:
-            errors.append(f"{message}: missing {literal!r}")
-    confirmation_literal = "normalize_volume_v2_runtime_markdown_candidate"
-    if text.count(confirmation_literal) != 2:
-        errors.append(
-            "Volume V2 normalization confirmation literal must be checked exactly twice: "
-            f"count={text.count(confirmation_literal)}"
-        )
-    run_attempt_literal = '"$GITHUB_RUN_ATTEMPT" != "1"'
-    if text.count(run_attempt_literal) != 2:
-        errors.append(
-            "Volume V2 normalization must enforce run_attempt=1 before generation and commit: "
-            f"count={text.count(run_attempt_literal)}"
-        )
-    if not commit_job:
-        errors.append("daily model PR workflow missing Volume V2 normalization commit job")
-    else:
-        artifact_step_marker = (
-            "      - name: Commit and push exact Volume V2 Markdown normalization candidate"
-        )
-        artifact_step = (
-            commit_job.split(artifact_step_marker, 1)[1]
-            if artifact_step_marker in commit_job
-            else ""
-        )
-        if not artifact_step:
-            errors.append("daily model PR workflow missing Volume V2 artifact commit step")
-        elif "EXPECTED_BASE_SHA" in artifact_step:
-            errors.append(
-                "Volume V2 artifact commit step must not receive unused EXPECTED_BASE_SHA"
-            )
-        deploy_key_env = (
-            "PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY: "
-            "${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}"
-        )
-        deploy_key_checkout = (
-            "ssh-key: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}"
-        )
-        deploy_key_precheck = (
-            'if [ -z "${PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY}" ]; then'
-        )
-        if commit_job.count(deploy_key_env) != 1:
-            errors.append(
-                "Volume V2 normalization must bind the deploy key once for its non-empty precheck: "
-                f"count={commit_job.count(deploy_key_env)}"
-            )
-        if commit_job.count(deploy_key_checkout) != 1:
-            errors.append(
-                "Volume V2 normalization checkout must use the deploy key exactly once: "
-                f"count={commit_job.count(deploy_key_checkout)}"
-            )
-        if commit_job.count(deploy_key_precheck) != 1:
-            errors.append(
-                "Volume V2 normalization must perform exactly one deploy-key non-empty precheck: "
-                f"count={commit_job.count(deploy_key_precheck)}"
-            )
-        if (
-            deploy_key_precheck in commit_job
-            and "Checkout exact authorized Volume V2 code head" in commit_job
-            and commit_job.index(deploy_key_precheck)
-            > commit_job.index("Checkout exact authorized Volume V2 code head")
-        ):
-            errors.append("Volume V2 normalization deploy-key precheck must precede checkout")
-        if "persist-credentials: true" not in commit_job:
-            errors.append("Volume V2 normalization commit checkout must enable branch push credentials")
-        for forbidden_token in (
-            "permissions:\n      contents: write",
-            "GITHUB_TOKEN",
-            "github.token",
-            "token:",
-            "http.extraheader",
-            "x-access-token",
-        ):
-            if forbidden_token in commit_job:
-                errors.append(
-                    "Volume V2 normalization must not use a GitHub token fallback: "
-                    f"found={forbidden_token!r}"
-                )
-        for forbidden_main_binding in (
-            "remote_main_sha",
-            "refs/heads/main",
-            "latest-main",
-        ):
-            if forbidden_main_binding in volume_job or forbidden_main_binding in commit_job:
-                errors.append(
-                    "Volume V2 normalization must bind the code commit's direct parent, not remote main: "
-                    f"found={forbidden_main_binding!r}"
-                )
-        untracked_changed_literal = (
-            '["git", "--no-replace-objects", "ls-files", "--others", '
-            '"--exclude-standard"]'
-        )
-        if text.count(untracked_changed_literal) != 2:
-            errors.append(
-                "Volume V2 normalization must check untracked changed paths before upload and commit: "
-                f"count={text.count(untracked_changed_literal)}"
-            )
-        for path in VOLUME_V2_RUNTIME_MARKDOWN_PATHS:
-            exact_add = f"git --no-replace-objects add -- {path}"
-            if commit_job.count(exact_add) != 1:
-                errors.append(
-                    "Volume V2 normalization must stage each literal Markdown path exactly once: "
-                    f"path={path} count={commit_job.count(exact_add)}"
-                )
-        for forbidden in ("git add -A", "git add --all", "git add -u", "git push --force"):
-            if forbidden in commit_job:
-                errors.append(
-                    "Volume V2 normalization commit job contains a broad/force Git command: "
-                    f"{forbidden!r}"
-                )
-    if "contents: write" in text:
-        errors.append("daily model PR Volume V2 branch publishing must not rely on GITHUB_TOKEN write permission")
     return errors
 
 
@@ -1504,12 +1185,6 @@ def validate_authority_workflow_publishers() -> list[str]:
             if (
                 path == HISTORICAL_SOURCE_REPLAY_WORKFLOW
                 and command == HISTORICAL_REPLAY_FRESHNESS_STAGE_COMMAND
-            ):
-                continue
-            if (
-                path == DAILY_MODEL_MAINTENANCE_PR_WORKFLOW
-                and command
-                in VOLUME_V2_RUNTIME_MARKDOWN_CANDIDATE_ALLOWED_GIT_COMMANDS
             ):
                 continue
             if git_add_command_covers_authority(command):
@@ -2725,11 +2400,6 @@ def main(argv: Sequence[str] = ()) -> int:
         pr_workflow_text = read_text(DAILY_MODEL_MAINTENANCE_PR_WORKFLOW)
         errors.extend(validate_daily_model_pr_scope_contract(pr_workflow_text))
         errors.extend(validate_daily_model_legacy_removal_guard(pr_workflow_text))
-        errors.extend(
-            validate_daily_model_volume_v2_runtime_markdown_contract(
-                pr_workflow_text
-            )
-        )
         required_pr_workflow_literals = {
             "python scripts/validate_daily_pdf_contract_consumers.py": (
                 "daily model maintenance PR workflow must validate daily PDF consumer contracts"

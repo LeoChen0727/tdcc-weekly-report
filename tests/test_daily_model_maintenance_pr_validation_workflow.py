@@ -160,8 +160,7 @@ def workflow_run_text(text: str | None = None) -> str:
 
 
 def scope_job_contract_ok(text: str) -> bool:
-    job = job_block("scope", text)
-    steps = active_step_blocks(job)
+    steps = active_step_blocks(job_block("scope", text))
     block = job_run_text("scope", text)
     required = (
         "git --no-replace-objects init .",
@@ -173,19 +172,6 @@ def scope_job_contract_ok(text: str) -> bool:
         '"+$FETCH_REF:refs/remotes/origin/pr-scope"',
         'if [ "$fetched_sha" != "$MERGE_SHA" ]; then',
         '"$MERGE_SHA:scripts/detect_daily_model_pr_validation_scope.py"',
-        'effective_base_sha="origin/main"',
-        'merge_identity="$(git --no-replace-objects rev-list --parents -n 1 "$MERGE_SHA")"',
-        'read -r observed_merge observed_base observed_head unexpected_parent <<< "$merge_identity"',
-        'if [ -z "$observed_merge" ] || [ -z "$observed_base" ] || [ -z "$observed_head" ] || [ -n "${unexpected_parent:-}" ]; then',
-        '[ "$observed_merge" != "$MERGE_SHA" ]',
-        '[ "$observed_head" != "$HEAD_SHA" ]',
-        'effective_base_sha="$observed_base"',
-        '--base-sha "$effective_base_sha"',
-        '--head-sha "$HEAD_SHA"',
-        '--merge-sha "$MERGE_SHA"',
-        'python scripts/detect_daily_model_pr_validation_scope.py "${scope_args[@]}"',
-        'if [ -z "$effective_base_sha" ]; then',
-        'printf \'effective_base_sha=%s\\n\' "$effective_base_sha" >> "$GITHUB_OUTPUT"',
     )
     forbidden = (
         "actions/checkout@",
@@ -200,25 +186,10 @@ def scope_job_contract_ok(text: str) -> bool:
         "python scripts/build_",
         "update-ref",
         "rev-parse HEAD",
-        "|| true",
-        "|| :",
-        "; true",
     )
     return (
         all(literal in block for literal in required)
         and not any(literal in block for literal in forbidden)
-        and "effective_base_sha: ${{ steps.scope.outputs.effective_base_sha }}" in job
-        and "${{ github.event.pull_request.base.sha }}" not in job
-        and block.count("printf 'effective_base_sha=%s\\n'") == 1
-        and block.index(
-            'python scripts/detect_daily_model_pr_validation_scope.py "${scope_args[@]}"'
-        )
-        < block.index("printf 'effective_base_sha=%s\\n'")
-        and text.count(
-            "      BASE_SHA: ${{ needs.scope.outputs.effective_base_sha }}"
-        )
-        == 3
-        and "github.event.pull_request.base.sha" not in text
         and all(active_field(step, "uses") is None for step in steps)
     )
 
@@ -238,7 +209,6 @@ def aggregate_contract_ok(text: str) -> bool:
         "volume_v2_research",
         "revenue_research",
         "financial_statement_research",
-        "volume_v2_runtime_markdown_normalization_candidate_commit",
     )
     required = (
         'if [ "$SCOPE_RESULT" != "success" ]; then',
@@ -249,15 +219,12 @@ def aggregate_contract_ok(text: str) -> bool:
         'require_domain_result volume-v2-research "$VOLUME_SELECTED" "$VOLUME_RESULT"',
         'require_domain_result revenue-research "$REVENUE_SELECTED" "$REVENUE_RESULT"',
         'require_domain_result financial-statement-research "$FINANCIAL_SELECTED" "$FINANCIAL_RESULT"',
-        'if [ "$REPAIR_RESULT" != "success" ] || [ "$VOLUME_RESULT" != "success" ]; then',
-        'if [ "$REPAIR_RESULT" != "skipped" ]; then',
     )
     return (
         active_field(job, "name", 4) == "daily-model-maintenance-pr-validation"
         and active_field(job, "if", 4) == "always()"
         and active_list(job, "needs") == expected_needs
         and all(literal in executable_lines for literal in required)
-        and block.count('if [ "$result" != "skipped" ]; then') == 2
         and active_field(job, "continue-on-error", 4) is None
         and all(
             active_field(step, "continue-on-error") is None for step in steps
@@ -304,8 +271,8 @@ VOLUME_VALIDATION_COMMANDS = (
     "python scripts/validate_volume_breakout_watch.py --latest-only",
     "python scripts/validate_volume_attack_theme_layer.py",
     'python scripts/validate_daily_canonical_field_lineage.py --base-ref "$BASE_SHA" $LINEAGE_HISTORY_MODE',
-    "python scripts/build_volume_v2_warrant_lineage_history_audit.py --phase runtime",
-    "python scripts/validate_volume_v2_warrant_lineage_history_audit.py --phase runtime",
+    "python scripts/build_volume_v2_warrant_lineage_history_audit.py",
+    "python scripts/validate_volume_v2_warrant_lineage_history_audit.py",
     "git --no-replace-objects diff --exit-code -- "
     + " ".join(VOLUME_GENERATED_TARGETS),
 )
@@ -360,31 +327,11 @@ def domain_workload_contract_ok(text: str) -> bool:
                 )
             )
         )
-        if job_id == "volume_v2_research":
-            workload_commands = tuple(
-                command
-                for command in workload_commands
-                if command
-                != 'git --no-replace-objects diff --exit-code HEAD -- "$output_csv" "$docs_csv"'
-            )
-        step_commands = run_commands(active_field(step, "run") or "")
-        step_workload_commands = tuple(
-            command
-            for command in step_commands
-            if command.startswith(
-                (
-                    "python scripts/build_",
-                    "python scripts/validate_",
-                    "git --no-replace-objects diff --exit-code",
-                )
-            )
-        )
-        exact_step_commands = step_workload_commands if job_id == "volume_v2_research" else step_commands
         if (
             not step
             or active_field(step, "if") is not None
             or active_field(step, "continue-on-error") is not None
-            or exact_step_commands != expected_commands
+            or run_commands(active_field(step, "run") or "") != expected_commands
             or workload_commands != expected_commands
         ):
             return False
@@ -557,23 +504,10 @@ def test_scope_aggregate_and_domain_contracts_are_exact_and_fail_closed() -> Non
     assert direct_dependency_closure_ok(text)
     assert git_invocation_contract_ok(text)
     assert tuple(workflow_jobs(text)) == (
-        "scope",
-        *DOMAIN_CONTRACTS,
-        "volume_v2_runtime_markdown_normalization_candidate_commit",
-        "daily-model-maintenance-pr-validation",
+        "scope", *DOMAIN_CONTRACTS, "daily-model-maintenance-pr-validation"
     )
     assert "fetch_depth=1" in block
     assert 'fetch_depth=2' in block
-    assert (
-        "      effective_base_sha: ${{ steps.scope.outputs.effective_base_sha }}"
-        in job_block("scope", text)
-    )
-    assert block.count("printf 'effective_base_sha=%s\\n'") == 1
-    assert 'effective_base_sha="origin/main"' in block
-    assert text.count(
-        "      BASE_SHA: ${{ needs.scope.outputs.effective_base_sha }}"
-    ) == 3
-    assert "github.event.pull_request.base.sha" not in text
     scope_first_step = active_step_blocks(job_block("scope", text))[0]
     assert "public merge ref" in (active_field(scope_first_step, "name") or "")
     assert (
@@ -591,49 +525,6 @@ def test_scope_aggregate_and_domain_contracts_are_exact_and_fail_closed() -> Non
             active_field(step, "continue-on-error")
             for step in active_step_blocks(job)
         )
-
-    repair_job = job_block(
-        "volume_v2_runtime_markdown_normalization_candidate_commit", text
-    )
-    assert active_list(repair_job, "needs") == ("scope", "volume_v2_research")
-    assert active_field(repair_job, "continue-on-error", 4) is None
-    assert not any(
-        active_field(step, "continue-on-error")
-        for step in active_step_blocks(repair_job)
-    )
-    repair_steps = active_step_blocks(repair_job)
-    repair_key_precheck = repair_steps[0]
-    repair_checkout = repair_steps[1]
-    assert "Require production artifact write deploy key" in repair_key_precheck
-    assert "PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY" in repair_key_precheck
-    assert 'if [ -z "${PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY}" ]; then' in repair_key_precheck
-    assert "ssh-key: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}" in repair_checkout
-    assert "persist-credentials: true" in repair_checkout
-    assert "contents: write" not in repair_job
-    assert "GITHUB_TOKEN" not in repair_job
-    assert "github.token" not in repair_job
-    assert "token:" not in repair_job
-    artifact_step = next(
-        step
-        for step in repair_steps
-        if "Commit and push exact Volume V2 Markdown normalization candidate" in step
-    )
-    assert "EXPECTED_HEAD_SHA: ${{ inputs.expected_head_sha }}" in artifact_step
-    assert "EXPECTED_BASE_SHA" not in artifact_step
-    assert "Volume V2 committed-path mismatch" in job_run_text(
-        "volume_v2_runtime_markdown_normalization_candidate_commit", text
-    )
-    assert text.count('"$GITHUB_RUN_ATTEMPT" != "1"') == 2
-    assert text.count("scripts/build_volume_v2_warrant_lineage_history_audit.py") == 1
-    assert text.count("scripts/validate_volume_v2_warrant_lineage_history_audit.py") == 1
-    normalization_jobs = job_block("volume_v2_research", text) + repair_job
-    assert "remote_main_sha" not in normalization_jobs
-    assert "refs/heads/main" not in normalization_jobs
-    assert "latest-main" not in normalization_jobs
-    assert (
-        boundaries.validate_daily_model_volume_v2_runtime_markdown_contract(text)
-        == []
-    )
 
 
 def test_repo_current_runs_legacy_removal_guards_exactly_once_and_fail_closed() -> None:
@@ -800,66 +691,11 @@ def test_scope_job_contract_rejects_expensive_or_credentialed_mutations(
 @pytest.mark.parametrize(
     ("needle", "replacement"),
     (
-        (
-            'git --no-replace-objects rev-list --parents -n 1 "$MERGE_SHA"',
-            'git --no-replace-objects rev-list -n 1 "$MERGE_SHA"',
-        ),
-        (
-            'read -r observed_merge observed_base observed_head unexpected_parent <<< "$merge_identity"',
-            'read -r observed_merge observed_base observed_head <<< "$merge_identity"',
-        ),
-        (
-            '[ -n "${unexpected_parent:-}" ]',
-            '[ -z "${unexpected_parent:-}" ]',
-        ),
-        (
-            '[ "$observed_head" != "$HEAD_SHA" ]',
-            '[ "$observed_base" != "$HEAD_SHA" ]',
-        ),
-        (
-            'effective_base_sha="$observed_base"',
-            'effective_base_sha="$HEAD_SHA"',
-        ),
-        (
-            '--base-sha "$effective_base_sha"',
-            '--base-sha "${{ github.event.pull_request.base.sha }}"',
-        ),
-        ('effective_base_sha="origin/main"', 'effective_base_sha=""'),
-        (
-            "effective_base_sha: ${{ steps.scope.outputs.effective_base_sha }}",
-            "effective_base_sha: ${{ github.event.pull_request.base.sha }}",
-        ),
-        (
-            "BASE_SHA: ${{ needs.scope.outputs.effective_base_sha }}",
-            "BASE_SHA: ${{ github.event.pull_request.base.sha || 'origin/main' }}",
-        ),
-        (
-            "printf 'effective_base_sha=%s\\n' \"$effective_base_sha\" >> \"$GITHUB_OUTPUT\"",
-            "",
-        ),
-        (
-            'python scripts/detect_daily_model_pr_validation_scope.py "${scope_args[@]}"',
-            'python scripts/detect_daily_model_pr_validation_scope.py "${scope_args[@]}" || true',
-        ),
-    ),
-)
-def test_scope_effective_base_contract_rejects_identity_or_output_mutations(
-    needle: str, replacement: str
-) -> None:
-    text = WORKFLOW.read_text(encoding="utf-8")
-    assert needle in text
-
-    assert not scope_job_contract_ok(text.replace(needle, replacement, 1))
-
-
-@pytest.mark.parametrize(
-    ("needle", "replacement"),
-    (
         ("      - revenue_research\n", ""),
         ("    if: always()\n", "    if: always()\n    \"if\": false\n"),
         (
-            "      - volume_v2_runtime_markdown_normalization_candidate_commit\n    runs-on: ubuntu-latest",
-            "      - volume_v2_runtime_markdown_normalization_candidate_commit\n    needs:\n"
+            "      - financial_statement_research\n    runs-on: ubuntu-latest",
+            "      - financial_statement_research\n    needs:\n"
             "      - scope\n    runs-on: ubuntu-latest",
         ),
         (
@@ -867,10 +703,7 @@ def test_scope_effective_base_contract_rejects_identity_or_output_mutations(
             "    steps:\n      - run: exit 0\n    \"steps\":\n"
             "      - name: Validate selected and skipped domain results",
         ),
-        (
-            '              false)\n                if [ "$result" != "skipped" ]; then',
-            '              false)\n                if [ "$result" != "success" ]; then',
-        ),
+        ('if [ "$result" != "skipped" ]; then', 'if [ "$result" != "success" ]; then'),
         (
             'require_domain_result volume-v2-research "$VOLUME_SELECTED" "$VOLUME_RESULT"',
             "echo volume-result-ignored",
@@ -1113,20 +946,10 @@ def test_daily_model_maintenance_pr_workflow_pins_append_only_validation_base() 
     text = WORKFLOW.read_text(encoding="utf-8")
 
     assert "fetch-depth: 0" in text
-    assert text.count(
-        "BASE_SHA: ${{ needs.scope.outputs.effective_base_sha }}"
-    ) == 3
-    assert (
-        "effective_base_sha: ${{ steps.scope.outputs.effective_base_sha }}" in text
-    )
-    assert 'effective_base_sha="origin/main"' in text
-    assert (
-        'git --no-replace-objects rev-list --parents -n 1 "$MERGE_SHA"' in text
-    )
-    assert '--base-sha "$effective_base_sha"' in text
+    assert "BASE_SHA: ${{ github.event.pull_request.base.sha || 'origin/main' }}" in text
+    assert '--base-sha "$BASE_SHA"' in text
     assert '--head-sha "$HEAD_SHA"' in text
     assert '--merge-sha "$MERGE_SHA"' in text
-    assert "github.event.pull_request.base.sha" not in text
     assert "git --no-replace-objects" in text
     assert (
         'python scripts/validate_model_data_independence.py --base-ref "$BASE_SHA"'

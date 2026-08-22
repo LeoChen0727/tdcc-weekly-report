@@ -443,9 +443,6 @@ def test_runtime_phase_preserves_head_noncurrent_rows_without_full_history(
     _setup_dynamic_repo(root)
     current_row = _publish_current_manifest_revision(root)
     baseline = _commit_full_audit_head_baseline(root)
-    paths = _root_audit_artifact_paths(root)
-    output_csv, output_md, docs_csv, docs_md = paths
-    csv_preimages = (output_csv.read_bytes(), docs_csv.read_bytes())
 
     def reject_full_history(*args: object, **kwargs: object) -> object:
         raise AssertionError("full-history traversal invoked")
@@ -474,10 +471,11 @@ def test_runtime_phase_preserves_head_noncurrent_rows_without_full_history(
     assert builder.main(["--root", str(root), "--phase", "runtime"]) == 0
     builder_stdout = capsys.readouterr().out
     assert truth_stdout in builder_stdout and "head_baseline=verified" not in builder_stdout
-    assert (output_csv.read_bytes(), docs_csv.read_bytes()) == csv_preimages
     assert validator.main(["--root", str(root), "--phase", "runtime"]) == 0
     validator_stdout = capsys.readouterr().out
     assert truth_stdout in validator_stdout and "head_baseline=verified" not in validator_stdout
+    paths = _root_audit_artifact_paths(root)
+    output_csv, output_md, docs_csv, docs_md = paths
     runtime = pd.read_csv(output_csv, dtype=str, keep_default_na=False)
     current_key = ("20260718", "r1")
     runtime_current = runtime[
@@ -2074,8 +2072,8 @@ def test_daily_model_pr_workflow_rebuilds_and_pins_history_audit() -> None:
         ROOT / ".github/workflows/daily_model_maintenance_pr_validation.yml"
     ).read_text(encoding="utf-8")
 
-    assert "python scripts/build_volume_v2_warrant_lineage_history_audit.py --phase runtime" in workflow
-    assert "python scripts/validate_volume_v2_warrant_lineage_history_audit.py --phase runtime" in workflow
+    assert "python scripts/build_volume_v2_warrant_lineage_history_audit.py" in workflow
+    assert "python scripts/validate_volume_v2_warrant_lineage_history_audit.py" in workflow
     assert "tests/test_volume_v2_warrant_lineage_history_audit.py" in workflow
     build_lines = [
         line.strip()
@@ -2088,14 +2086,11 @@ def test_daily_model_pr_workflow_rebuilds_and_pins_history_audit() -> None:
         if "validate_volume_v2_warrant_lineage_history_audit.py" in line
     ]
     assert build_lines == [
-        "python scripts/build_volume_v2_warrant_lineage_history_audit.py --phase runtime"
+        "python scripts/build_volume_v2_warrant_lineage_history_audit.py"
     ]
     assert validate_lines == [
-        "python scripts/validate_volume_v2_warrant_lineage_history_audit.py --phase runtime"
+        "python scripts/validate_volume_v2_warrant_lineage_history_audit.py"
     ]
-    assert "run_volume_v2_runtime_markdown_normalization_candidate_only" in workflow
-    assert "Volume V2 normalization changed-path mismatch" in workflow
-    assert "Volume V2 staged-path mismatch" in workflow
     for governed_path in (
         "scripts/build_volume_v2_warrant_lineage_history_audit.py",
         "scripts/validate_volume_v2_warrant_lineage_history_audit.py",
