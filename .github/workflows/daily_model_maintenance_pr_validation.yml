@@ -3,27 +3,6 @@ name: Daily Model Maintenance PR Validation
 on:
   pull_request:
   workflow_dispatch:
-    inputs:
-      run_volume_v2_runtime_markdown_normalization_candidate_only:
-        description: "Normalize only the two Volume V2 runtime Markdown mirrors on a non-main PR branch"
-        required: false
-        default: false
-        type: boolean
-      expected_base_sha:
-        description: "Exact direct parent of the authorized Volume V2 code commit"
-        required: false
-        default: ""
-        type: string
-      expected_head_sha:
-        description: "Exact authorized code commit at the dispatched branch head"
-        required: false
-        default: ""
-        type: string
-      confirmation:
-        description: "Exact confirmation for the one-time Volume V2 runtime Markdown candidate"
-        required: false
-        default: ""
-        type: string
 
 permissions:
   contents: read
@@ -121,7 +100,6 @@ jobs:
     needs: scope
     if: >-
       needs.scope.result == 'success' &&
-      inputs.run_volume_v2_runtime_markdown_normalization_candidate_only != true &&
       needs.scope.outputs.repo_current_contracts == 'true'
     runs-on: ubuntu-latest
     env:
@@ -213,7 +191,6 @@ jobs:
     needs: scope
     if: >-
       needs.scope.result == 'success' &&
-      inputs.run_volume_v2_runtime_markdown_normalization_candidate_only != true &&
       needs.scope.outputs.shared_model_research == 'true'
     runs-on: ubuntu-latest
     env:
@@ -267,87 +244,17 @@ jobs:
     needs: scope
     if: >-
       needs.scope.result == 'success' &&
-      (inputs.run_volume_v2_runtime_markdown_normalization_candidate_only == true ||
-      needs.scope.outputs.volume_v2_research == 'true')
+      needs.scope.outputs.volume_v2_research == 'true'
     runs-on: ubuntu-latest
     env:
       BASE_SHA: ${{ needs.scope.outputs.effective_base_sha }}
       LINEAGE_HISTORY_MODE: ${{ github.event_name == 'pull_request' && '--pr-safe-base-history' || '' }}
-      REPAIR_MODE: ${{ inputs.run_volume_v2_runtime_markdown_normalization_candidate_only }}
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
-
-      - name: Validate authorized Volume V2 normalization identity
-        if: ${{ inputs.run_volume_v2_runtime_markdown_normalization_candidate_only == true }}
-        env:
-          EXPECTED_BASE_SHA: ${{ inputs.expected_base_sha }}
-          EXPECTED_HEAD_SHA: ${{ inputs.expected_head_sha }}
-          CONFIRMATION: ${{ inputs.confirmation }}
-        shell: bash
-        run: |
-          set -euo pipefail
-          if [ "$GITHUB_EVENT_NAME" != "workflow_dispatch" ]; then
-            echo "Volume V2 normalization must use workflow_dispatch" >&2
-            exit 1
-          fi
-          if [ "$GITHUB_RUN_ATTEMPT" != "1" ]; then
-            echo "Volume V2 normalization rejects rerun attempts" >&2
-            exit 1
-          fi
-          if [ "$GITHUB_REF_TYPE" != "branch" ] || [ "$GITHUB_REF_NAME" = "main" ]; then
-            echo "Volume V2 normalization requires a non-main branch ref" >&2
-            exit 1
-          fi
-          if ! [[ "$EXPECTED_BASE_SHA" =~ ^[0-9a-f]{40}$ ]] || ! [[ "$EXPECTED_HEAD_SHA" =~ ^[0-9a-f]{40}$ ]]; then
-            echo "Volume V2 normalization requires full lowercase base/head SHAs" >&2
-            exit 1
-          fi
-          if [ "$CONFIRMATION" != "normalize_volume_v2_runtime_markdown_candidate" ]; then
-            echo "Volume V2 normalization confirmation mismatch" >&2
-            exit 1
-          fi
-          checkout_sha="$(git --no-replace-objects rev-parse HEAD)"
-          parent_sha="$(git --no-replace-objects rev-parse HEAD^)"
-          remote_branch_sha="$(git --no-replace-objects ls-remote origin "refs/heads/$GITHUB_REF_NAME" | awk '{print $1}')"
-          if [ "$GITHUB_SHA" != "$EXPECTED_HEAD_SHA" ] || [ "$checkout_sha" != "$EXPECTED_HEAD_SHA" ] || [ "$remote_branch_sha" != "$EXPECTED_HEAD_SHA" ]; then
-            echo "Volume V2 normalization head identity mismatch" >&2
-            exit 1
-          fi
-          if [ "$parent_sha" != "$EXPECTED_BASE_SHA" ]; then
-            echo "Volume V2 normalization base identity mismatch" >&2
-            exit 1
-          fi
-          if [ "$(git --no-replace-objects rev-list --count "$EXPECTED_BASE_SHA..$EXPECTED_HEAD_SHA")" != "1" ]; then
-            echo "Volume V2 normalization code head must be the unique direct child of its expected parent" >&2
-            exit 1
-          fi
-
-      - name: Capture immutable Volume V2 CSV identities
-        if: ${{ inputs.run_volume_v2_runtime_markdown_normalization_candidate_only == true }}
-        id: volume_csv_preimage
-        shell: bash
-        run: |
-          set -euo pipefail
-          output_csv="output/latest/volume_v2_warrant_lineage_history_audit_latest.csv"
-          docs_csv="docs/latest/volume_v2_warrant_lineage_history_audit_latest.csv"
-          cmp --silent "$output_csv" "$docs_csv"
-          git --no-replace-objects diff --exit-code HEAD -- "$output_csv" "$docs_csv"
-          output_sha256="$(sha256sum "$output_csv" | awk '{print $1}')"
-          docs_sha256="$(sha256sum "$docs_csv" | awk '{print $1}')"
-          output_blob="$(git --no-replace-objects rev-parse "HEAD:$output_csv")"
-          docs_blob="$(git --no-replace-objects rev-parse "HEAD:$docs_csv")"
-          if [ "$output_sha256" != "$docs_sha256" ]; then
-            echo "Volume V2 CSV mirror SHA-256 mismatch before normalization" >&2
-            exit 1
-          fi
-          echo "output_sha256=$output_sha256" >> "$GITHUB_OUTPUT"
-          echo "docs_sha256=$docs_sha256" >> "$GITHUB_OUTPUT"
-          echo "output_blob=$output_blob" >> "$GITHUB_OUTPUT"
-          echo "docs_blob=$docs_blob" >> "$GITHUB_OUTPUT"
 
       - name: Set up Python
         uses: actions/setup-python@v6
@@ -363,77 +270,16 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          if [ "$REPAIR_MODE" != "true" ]; then
-            python scripts/validate_volume_breakout_watch.py --latest-only
-            python scripts/validate_volume_attack_theme_layer.py
-            python scripts/validate_daily_canonical_field_lineage.py --base-ref "$BASE_SHA" $LINEAGE_HISTORY_MODE
-          fi
+          python scripts/validate_volume_breakout_watch.py --latest-only
+          python scripts/validate_volume_attack_theme_layer.py
+          python scripts/validate_daily_canonical_field_lineage.py --base-ref "$BASE_SHA" $LINEAGE_HISTORY_MODE
           python scripts/build_volume_v2_warrant_lineage_history_audit.py --phase runtime
           python scripts/validate_volume_v2_warrant_lineage_history_audit.py --phase runtime
-          if [ "$REPAIR_MODE" != "true" ]; then
-            git --no-replace-objects diff --exit-code -- \
-              docs/latest/volume_v2_warrant_lineage_history_audit_latest.csv \
-              docs/latest/volume_v2_warrant_lineage_history_audit_latest.md \
-              output/latest/volume_v2_warrant_lineage_history_audit_latest.csv \
-              output/latest/volume_v2_warrant_lineage_history_audit_latest.md
-          fi
-
-      - name: Verify exact Volume V2 Markdown normalization candidate
-        if: ${{ inputs.run_volume_v2_runtime_markdown_normalization_candidate_only == true }}
-        env:
-          OUTPUT_CSV_SHA256: ${{ steps.volume_csv_preimage.outputs.output_sha256 }}
-          DOCS_CSV_SHA256: ${{ steps.volume_csv_preimage.outputs.docs_sha256 }}
-          OUTPUT_CSV_BLOB: ${{ steps.volume_csv_preimage.outputs.output_blob }}
-          DOCS_CSV_BLOB: ${{ steps.volume_csv_preimage.outputs.docs_blob }}
-        shell: bash
-        run: |
-          set -euo pipefail
-          output_csv="output/latest/volume_v2_warrant_lineage_history_audit_latest.csv"
-          docs_csv="docs/latest/volume_v2_warrant_lineage_history_audit_latest.csv"
-          output_md="output/latest/volume_v2_warrant_lineage_history_audit_latest.md"
-          docs_md="docs/latest/volume_v2_warrant_lineage_history_audit_latest.md"
-          test "$(sha256sum "$output_csv" | awk '{print $1}')" = "$OUTPUT_CSV_SHA256"
-          test "$(sha256sum "$docs_csv" | awk '{print $1}')" = "$DOCS_CSV_SHA256"
-          test "$(git --no-replace-objects rev-parse "HEAD:$output_csv")" = "$OUTPUT_CSV_BLOB"
-          test "$(git --no-replace-objects rev-parse "HEAD:$docs_csv")" = "$DOCS_CSV_BLOB"
-          git --no-replace-objects diff --exit-code HEAD -- "$output_csv" "$docs_csv"
-          cmp --silent "$output_md" "$docs_md"
-          grep -Fq "Runtime mode independently replays only the current manifest-max revision." "$output_md"
-          if grep -Fq "The dynamic historical/current coverage replays" "$output_md"; then
-            echo "Volume V2 runtime Markdown still claims full-history replay" >&2
-            exit 1
-          fi
-          python - <<'PY'
-          import subprocess
-
-          expected = {
-              "docs/latest/volume_v2_warrant_lineage_history_audit_latest.md",
-              "output/latest/volume_v2_warrant_lineage_history_audit_latest.md",
-          }
-          observed = set(filter(None, subprocess.check_output(
-              ["git", "--no-replace-objects", "diff", "--name-only", "HEAD", "--"],
-              text=True,
-          ).splitlines()))
-          observed.update(filter(None, subprocess.check_output(
-              ["git", "--no-replace-objects", "ls-files", "--others", "--exclude-standard"],
-              text=True,
-          ).splitlines()))
-          if observed != expected:
-              raise SystemExit(
-                  f"Volume V2 normalization changed-path mismatch: observed={sorted(observed)} expected={sorted(expected)}"
-              )
-          PY
-
-      - name: Upload exact Volume V2 Markdown normalization candidate
-        if: ${{ inputs.run_volume_v2_runtime_markdown_normalization_candidate_only == true }}
-        uses: actions/upload-artifact@v4
-        with:
-          name: volume-v2-runtime-markdown-normalization-candidate
-          if-no-files-found: error
-          retention-days: 1
-          path: |
+          git --no-replace-objects diff --exit-code -- \
+            docs/latest/volume_v2_warrant_lineage_history_audit_latest.csv \
+            docs/latest/volume_v2_warrant_lineage_history_audit_latest.md \
+            output/latest/volume_v2_warrant_lineage_history_audit_latest.csv \
             output/latest/volume_v2_warrant_lineage_history_audit_latest.md
-            docs/latest/volume_v2_warrant_lineage_history_audit_latest.md
 
       - name: Run Volume V2 research regression tests
         run: |
@@ -448,7 +294,6 @@ jobs:
     needs: scope
     if: >-
       needs.scope.result == 'success' &&
-      inputs.run_volume_v2_runtime_markdown_normalization_candidate_only != true &&
       needs.scope.outputs.revenue_research == 'true'
     runs-on: ubuntu-latest
 
@@ -505,7 +350,6 @@ jobs:
     needs: scope
     if: >-
       needs.scope.result == 'success' &&
-      inputs.run_volume_v2_runtime_markdown_normalization_candidate_only != true &&
       needs.scope.outputs.financial_statement_research == 'true'
     runs-on: ubuntu-latest
 
@@ -542,202 +386,6 @@ jobs:
             tests/test_financial_statement_pit.py \
             tests/test_financial_statement_historical_pit_source_audit.py
 
-  volume_v2_runtime_markdown_normalization_candidate_commit:
-    name: volume-v2-runtime-markdown-normalization-candidate-commit
-    needs:
-      - scope
-      - volume_v2_research
-    if: >-
-      github.event_name == 'workflow_dispatch' &&
-      github.run_attempt == 1 &&
-      github.ref_type == 'branch' &&
-      github.ref_name != 'main' &&
-      inputs.run_volume_v2_runtime_markdown_normalization_candidate_only == true &&
-      needs.scope.result == 'success' &&
-      needs.volume_v2_research.result == 'success'
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Require production artifact write deploy key
-        shell: bash
-        env:
-          PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}
-        run: |
-          set -euo pipefail
-          if [ -z "${PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY}" ]; then
-            echo "::error::PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY is required for Volume V2 branch artifact publishing."
-            exit 1
-          fi
-
-      - name: Checkout exact authorized Volume V2 code head
-        uses: actions/checkout@v6
-        with:
-          fetch-depth: 0
-          ref: ${{ inputs.expected_head_sha }}
-          ssh-key: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}
-          persist-credentials: true
-
-      - name: Revalidate exact Volume V2 code commit scope
-        env:
-          EXPECTED_BASE_SHA: ${{ inputs.expected_base_sha }}
-          EXPECTED_HEAD_SHA: ${{ inputs.expected_head_sha }}
-          CONFIRMATION: ${{ inputs.confirmation }}
-        shell: bash
-        run: |
-          set -euo pipefail
-          if [ "$GITHUB_EVENT_NAME" != "workflow_dispatch" ] || [ "$GITHUB_REF_TYPE" != "branch" ] || [ "$GITHUB_REF_NAME" = "main" ]; then
-            echo "Volume V2 normalization commit requires a non-main branch dispatch" >&2
-            exit 1
-          fi
-          if [ "$GITHUB_RUN_ATTEMPT" != "1" ]; then
-            echo "Volume V2 normalization commit rejects rerun attempts" >&2
-            exit 1
-          fi
-          if [ "$CONFIRMATION" != "normalize_volume_v2_runtime_markdown_candidate" ]; then
-            echo "Volume V2 normalization confirmation mismatch" >&2
-            exit 1
-          fi
-          checkout_sha="$(git --no-replace-objects rev-parse HEAD)"
-          parent_sha="$(git --no-replace-objects rev-parse HEAD^)"
-          remote_branch_sha="$(git --no-replace-objects ls-remote origin "refs/heads/$GITHUB_REF_NAME" | awk '{print $1}')"
-          if [ "$GITHUB_SHA" != "$EXPECTED_HEAD_SHA" ] || [ "$checkout_sha" != "$EXPECTED_HEAD_SHA" ] || [ "$remote_branch_sha" != "$EXPECTED_HEAD_SHA" ]; then
-            echo "Volume V2 normalization code head moved before commit" >&2
-            exit 1
-          fi
-          if [ "$parent_sha" != "$EXPECTED_BASE_SHA" ]; then
-            echo "Volume V2 normalization code-parent identity mismatch before commit" >&2
-            exit 1
-          fi
-          python - <<'PY'
-          import os
-          import subprocess
-
-          expected = {
-              ".github/workflows/daily_model_maintenance_pr_validation.yml",
-              "config/repo_file_lifecycle_inventory.csv",
-              "config/repo_production_inventory.csv",
-              "scripts/validate_daily_production_boundaries.py",
-              "scripts/validate_repo_production_inventory.py",
-              "tests/test_daily_model_maintenance_pr_validation_workflow.py",
-              "tests/test_daily_production_boundaries.py",
-              "tests/test_repo_production_inventory.py",
-              "tests/test_volume_v2_warrant_lineage_history_audit.py",
-          }
-          observed = set(filter(None, subprocess.check_output(
-              ["git", "--no-replace-objects", "diff", "--name-only", "--no-renames", os.environ["EXPECTED_BASE_SHA"], os.environ["EXPECTED_HEAD_SHA"], "--"],
-              text=True,
-          ).splitlines()))
-          if observed != expected:
-              raise SystemExit(
-                  f"Volume V2 code changed-path mismatch: observed={sorted(observed)} expected={sorted(expected)}"
-              )
-          PY
-
-      - name: Download exact Volume V2 Markdown normalization candidate
-        uses: actions/download-artifact@v4
-        with:
-          name: volume-v2-runtime-markdown-normalization-candidate
-          path: .
-
-      - name: Commit and push exact Volume V2 Markdown normalization candidate
-        env:
-          EXPECTED_HEAD_SHA: ${{ inputs.expected_head_sha }}
-        shell: bash
-        run: |
-          set -euo pipefail
-          output_csv="output/latest/volume_v2_warrant_lineage_history_audit_latest.csv"
-          docs_csv="docs/latest/volume_v2_warrant_lineage_history_audit_latest.csv"
-          output_md="output/latest/volume_v2_warrant_lineage_history_audit_latest.md"
-          docs_md="docs/latest/volume_v2_warrant_lineage_history_audit_latest.md"
-          git --no-replace-objects diff --exit-code HEAD -- "$output_csv" "$docs_csv"
-          test "$(git --no-replace-objects hash-object "$output_csv")" = "$(git --no-replace-objects rev-parse "HEAD:$output_csv")"
-          test "$(git --no-replace-objects hash-object "$docs_csv")" = "$(git --no-replace-objects rev-parse "HEAD:$docs_csv")"
-          cmp --silent "$output_md" "$docs_md"
-          grep -Fq "Runtime mode independently replays only the current manifest-max revision." "$output_md"
-          if grep -Fq "The dynamic historical/current coverage replays" "$output_md"; then
-            echo "Volume V2 runtime Markdown still claims full-history replay" >&2
-            exit 1
-          fi
-          python - <<'PY'
-          import subprocess
-
-          expected = {
-              "docs/latest/volume_v2_warrant_lineage_history_audit_latest.md",
-              "output/latest/volume_v2_warrant_lineage_history_audit_latest.md",
-          }
-          observed = set(filter(None, subprocess.check_output(
-              ["git", "--no-replace-objects", "diff", "--name-only", "HEAD", "--"],
-              text=True,
-          ).splitlines()))
-          observed.update(filter(None, subprocess.check_output(
-              ["git", "--no-replace-objects", "ls-files", "--others", "--exclude-standard"],
-              text=True,
-          ).splitlines()))
-          if observed != expected:
-              raise SystemExit(
-                  f"Volume V2 downloaded changed-path mismatch: observed={sorted(observed)} expected={sorted(expected)}"
-              )
-          PY
-          git --no-replace-objects add -- output/latest/volume_v2_warrant_lineage_history_audit_latest.md
-          git --no-replace-objects add -- docs/latest/volume_v2_warrant_lineage_history_audit_latest.md
-          python - <<'PY'
-          import subprocess
-
-          expected = {
-              "docs/latest/volume_v2_warrant_lineage_history_audit_latest.md",
-              "output/latest/volume_v2_warrant_lineage_history_audit_latest.md",
-          }
-          observed = set(filter(None, subprocess.check_output(
-              ["git", "--no-replace-objects", "diff", "--cached", "--name-only", "--no-renames", "--"],
-              text=True,
-          ).splitlines()))
-          if observed != expected:
-              raise SystemExit(
-                  f"Volume V2 staged-path mismatch: observed={sorted(observed)} expected={sorted(expected)}"
-              )
-          PY
-          test "$(git --no-replace-objects hash-object "$output_md")" = "$(git --no-replace-objects rev-parse ":$output_md")"
-          test "$(git --no-replace-objects hash-object "$docs_md")" = "$(git --no-replace-objects rev-parse ":$docs_md")"
-          git --no-replace-objects config user.name "github-actions[bot]"
-          git --no-replace-objects config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git --no-replace-objects commit -m "Normalize Volume V2 runtime audit Markdown"
-          artifact_commit_sha="$(git --no-replace-objects rev-parse HEAD)"
-          artifact_parent_sha="$(git --no-replace-objects rev-parse HEAD^)"
-          if [ "$artifact_parent_sha" != "$EXPECTED_HEAD_SHA" ] || [ "$(git --no-replace-objects rev-list --count "$EXPECTED_HEAD_SHA..$artifact_commit_sha")" != "1" ]; then
-            echo "Volume V2 artifact commit must be the code head's unique direct child" >&2
-            exit 1
-          fi
-          python - <<'PY'
-          import subprocess
-
-          expected = {
-              "docs/latest/volume_v2_warrant_lineage_history_audit_latest.md",
-              "output/latest/volume_v2_warrant_lineage_history_audit_latest.md",
-          }
-          observed = set(filter(None, subprocess.check_output(
-              ["git", "--no-replace-objects", "diff-tree", "--no-commit-id", "--name-only", "-r", "HEAD", "--"],
-              text=True,
-          ).splitlines()))
-          if observed != expected:
-              raise SystemExit(
-                  f"Volume V2 committed-path mismatch: observed={sorted(observed)} expected={sorted(expected)}"
-              )
-          PY
-          git --no-replace-objects diff --exit-code HEAD --
-          test -z "$(git --no-replace-objects ls-files --others --exclude-standard)"
-          remote_branch_sha="$(git --no-replace-objects ls-remote origin "refs/heads/$GITHUB_REF_NAME" | awk '{print $1}')"
-          if [ "$remote_branch_sha" != "$EXPECTED_HEAD_SHA" ]; then
-            echo "Remote branch moved before Volume V2 artifact push" >&2
-            exit 1
-          fi
-          git --no-replace-objects push origin "HEAD:refs/heads/$GITHUB_REF_NAME"
-          published_sha="$(git --no-replace-objects ls-remote origin "refs/heads/$GITHUB_REF_NAME" | awk '{print $1}')"
-          if [ "$published_sha" != "$artifact_commit_sha" ]; then
-            echo "Remote branch does not equal the Volume V2 artifact commit" >&2
-            exit 1
-          fi
-          echo "volume_v2_runtime_markdown_artifact_commit_sha=$artifact_commit_sha"
-
   daily-model-maintenance-pr-validation:
     name: daily-model-maintenance-pr-validation
     if: always()
@@ -748,7 +396,6 @@ jobs:
       - volume_v2_research
       - revenue_research
       - financial_statement_research
-      - volume_v2_runtime_markdown_normalization_candidate_commit
     runs-on: ubuntu-latest
 
     steps:
@@ -765,30 +412,11 @@ jobs:
           REVENUE_RESULT: ${{ needs.revenue_research.result }}
           FINANCIAL_SELECTED: ${{ needs.scope.outputs.financial_statement_research }}
           FINANCIAL_RESULT: ${{ needs.financial_statement_research.result }}
-          REPAIR_MODE: ${{ inputs.run_volume_v2_runtime_markdown_normalization_candidate_only }}
-          REPAIR_RESULT: ${{ needs.volume_v2_runtime_markdown_normalization_candidate_commit.result }}
         shell: bash
         run: |
           set -euo pipefail
           if [ "$SCOPE_RESULT" != "success" ]; then
             echo "scope job must succeed; observed=$SCOPE_RESULT" >&2
-            exit 1
-          fi
-          if [ "$REPAIR_MODE" = "true" ]; then
-            if [ "$REPAIR_RESULT" != "success" ] || [ "$VOLUME_RESULT" != "success" ]; then
-              echo "Volume V2 normalization jobs must succeed: volume=$VOLUME_RESULT commit=$REPAIR_RESULT" >&2
-              exit 1
-            fi
-            for result in "$CORE_RESULT" "$SHARED_RESULT" "$REVENUE_RESULT" "$FINANCIAL_RESULT"; do
-              if [ "$result" != "skipped" ]; then
-                echo "non-Volume domains must be skipped during Volume V2 normalization: result=$result" >&2
-                exit 1
-              fi
-            done
-            exit 0
-          fi
-          if [ "$REPAIR_RESULT" != "skipped" ]; then
-            echo "Volume V2 normalization commit job must be skipped outside repair mode: result=$REPAIR_RESULT" >&2
             exit 1
           fi
           require_domain_result() {

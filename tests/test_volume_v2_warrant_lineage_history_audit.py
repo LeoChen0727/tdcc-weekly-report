@@ -2093,19 +2093,34 @@ def test_daily_model_pr_workflow_rebuilds_and_pins_history_audit() -> None:
     assert validate_lines == [
         "python scripts/validate_volume_v2_warrant_lineage_history_audit.py --phase runtime"
     ]
-    assert "run_volume_v2_runtime_markdown_normalization_candidate_only" in workflow
-    assert "Volume V2 normalization changed-path mismatch" in workflow
-    assert "Volume V2 staged-path mismatch" in workflow
+    for retired_token in (
+        "run_volume_v2_runtime_markdown_normalization_candidate_only",
+        "expected_base_sha:",
+        "expected_head_sha:",
+        "normalize_volume_v2_runtime_markdown_candidate",
+        "volume_v2_runtime_markdown_normalization_candidate_commit",
+        "PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY",
+    ):
+        assert retired_token not in workflow
+    exact_diff_gate = (
+        "git --no-replace-objects diff --exit-code -- \\\n"
+        "            docs/latest/volume_v2_warrant_lineage_history_audit_latest.csv \\\n"
+        "            docs/latest/volume_v2_warrant_lineage_history_audit_latest.md \\\n"
+        "            output/latest/volume_v2_warrant_lineage_history_audit_latest.csv \\\n"
+        "            output/latest/volume_v2_warrant_lineage_history_audit_latest.md"
+    )
+    assert workflow.count(exact_diff_gate) == 1
     for governed_path in (
-        "scripts/build_volume_v2_warrant_lineage_history_audit.py",
-        "scripts/validate_volume_v2_warrant_lineage_history_audit.py",
-        "tests/test_volume_v2_warrant_lineage_history_audit.py",
         "docs/latest/volume_v2_warrant_lineage_history_audit_latest.csv",
         "docs/latest/volume_v2_warrant_lineage_history_audit_latest.md",
         "output/latest/volume_v2_warrant_lineage_history_audit_latest.csv",
         "output/latest/volume_v2_warrant_lineage_history_audit_latest.md",
     ):
-        assert governed_path in workflow
+        assert workflow.count(governed_path) == 1
+    build_position = workflow.index(build_lines[0])
+    validate_position = workflow.index(validate_lines[0])
+    diff_position = workflow.index(exact_diff_gate)
+    assert build_position < validate_position < diff_position
 
 
 def test_production_workflows_build_audit_from_their_published_snapshot_state() -> None:

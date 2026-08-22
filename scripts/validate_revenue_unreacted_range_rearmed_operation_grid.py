@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 from io import BytesIO
 from itertools import product
 import hashlib
@@ -128,13 +129,25 @@ def _expected_artifact_version(projection_version: object) -> str:
         ) from exc
 
 
-def _canonical_source_frames() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+def _canonical_source_frames(
+    *, historical_v1_source_audit: bool = False
+) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     current_manifest = load_source_snapshot_projection_manifest(
         SOURCE_PROJECTION_MANIFEST_CSV
     )
     projection_version = str(current_manifest.iloc[0]["projection_version"]).strip()
     _expected_artifact_version(projection_version)
+    if historical_v1_source_audit and projection_version != V1_PROJECTION_VERSION:
+        raise RuntimeError(
+            "--historical-v1-source-audit requires the default ROOT canonical v1 "
+            "projection"
+        )
     if projection_version == V1_PROJECTION_VERSION:
+        if not historical_v1_source_audit:
+            raise RuntimeError(
+                "canonical v1 historical source replay requires explicit "
+                "--historical-v1-source-audit"
+            )
         return _trusted_source_frames()
     source = load_projected_source_detail(SOURCE_DETAIL_CSV)
     validate_projection_binding(current_manifest, source)
@@ -746,7 +759,7 @@ def _validate_timing(
             )
 
 
-def validate() -> list[str]:
+def validate(*, historical_v1_source_audit: bool = False) -> list[str]:
     errors: list[str] = []
     paths = (
         LATEST_CSV,
@@ -791,7 +804,9 @@ def validate() -> list[str]:
         low_memory=False,
     )
     try:
-        source_projection_manifest, source, price_resolutions = _canonical_source_frames()
+        source_projection_manifest, source, price_resolutions = _canonical_source_frames(
+            historical_v1_source_audit=historical_v1_source_audit
+        )
     except (RuntimeError, ValueError, KeyError, UnicodeDecodeError) as exc:
         return [str(exc)]
     try:
@@ -1038,8 +1053,26 @@ def validate() -> list[str]:
     return errors
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Validate the revenue rearmed operation grid."
+    )
+    parser.add_argument(
+        "--historical-v1-source-audit",
+        action="store_true",
+        help=(
+            "Explicitly replay the frozen canonical v1 sources from the trusted Git "
+            "revision. Ordinary canonical v2 validation never reads Git history."
+        ),
+    )
+    return parser.parse_args()
+
+
 def main() -> int:
-    errors = validate()
+    args = parse_args()
+    errors = validate(
+        historical_v1_source_audit=args.historical_v1_source_audit
+    )
     if errors:
         for error in errors:
             print(f"ERROR: {error}")

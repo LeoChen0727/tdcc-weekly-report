@@ -627,9 +627,22 @@ def _read_source_frames(
     source_root: Path,
     *,
     projection_version: str = V1_PROJECTION_VERSION,
+    historical_v1_source_audit: bool = False,
 ) -> tuple[pd.DataFrame, pd.DataFrame, str, str, str, str]:
     _version_contract(projection_version)
-    if source_root.resolve() == ROOT and projection_version == V1_PROJECTION_VERSION:
+    source_root = source_root.resolve()
+    if historical_v1_source_audit:
+        if source_root != ROOT or projection_version != V1_PROJECTION_VERSION:
+            raise RuntimeError(
+                "--historical-v1-source-audit requires the default ROOT canonical v1 "
+                "projection"
+            )
+    elif source_root == ROOT and projection_version == V1_PROJECTION_VERSION:
+        raise RuntimeError(
+            "canonical v1 historical source replay requires explicit "
+            "--historical-v1-source-audit"
+        )
+    if historical_v1_source_audit:
         revision = TRUSTED_SOURCE_REVISION
         _trusted_revision_preflight(revision)
         lag_relative = SOURCE_RELATIVE_PATHS["operation_lag"]
@@ -1854,10 +1867,18 @@ def validate(
     *,
     artifact_root: Path = ROOT,
     source_root: Path = ROOT,
+    historical_v1_source_audit: bool = False,
 ) -> list[str]:
     errors: list[str] = []
     artifact_root = artifact_root.resolve()
     source_root = source_root.resolve()
+    if historical_v1_source_audit and (
+        artifact_root != ROOT or source_root != ROOT
+    ):
+        return [
+            "--historical-v1-source-audit requires the default ROOT artifact and "
+            "source roots"
+        ]
     paths = {
         name: artifact_root / relative
         for name, relative in ARTIFACT_RELATIVE_PATHS.items()
@@ -1894,6 +1915,7 @@ def validate(
         ) = _read_source_frames(
             source_root,
             projection_version=projection_version,
+            historical_v1_source_audit=historical_v1_source_audit,
         )
         source = _prepare_source(
             lag,
@@ -1921,8 +1943,7 @@ def validate(
             source_root,
             trusted_revision=(
                 TRUSTED_SOURCE_REVISION
-                if source_root.resolve() == ROOT
-                and projection_version == V1_PROJECTION_VERSION
+                if historical_v1_source_audit
                 else None
             ),
         )
@@ -1962,6 +1983,14 @@ def parse_args() -> argparse.Namespace:
         default=ROOT,
         help="Repository root containing source baseline and stock price history.",
     )
+    parser.add_argument(
+        "--historical-v1-source-audit",
+        action="store_true",
+        help=(
+            "Explicitly replay the frozen canonical v1 sources from the trusted Git "
+            "revision. Ordinary canonical v2 validation never reads Git history."
+        ),
+    )
     return parser.parse_args()
 
 
@@ -1970,6 +1999,7 @@ def main() -> int:
     errors = validate(
         artifact_root=args.artifact_root,
         source_root=args.source_root,
+        historical_v1_source_audit=args.historical_v1_source_audit,
     )
     if errors:
         for error in errors:

@@ -23,14 +23,6 @@ DEFAULT_DETAIL = ROOT / (
     "output/latest/research_backtest/"
     "revenue_unreacted_range_low_mid_falling_candidate_audit_detail_latest.csv"
 )
-CANONICAL_PROJECTION_MANIFEST = ROOT / (
-    "output/latest/research_backtest/"
-    "revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv"
-)
-V1_PROJECTION_VERSION = "source_snapshot_projection_v1_20260731"
-V2_PROJECTION_VERSION = "source_snapshot_projection_v2_20260822"
-CANONICAL_PROJECTION_MANIFEST_MAX_BYTES = 1_048_576
-CANONICAL_PROJECTION_MANIFEST_FIELD_SIZE_LIMIT = 262_144
 TRUSTED_V1_SOURCE_REVISION = "b7ab7b6122b422e941efa3a3a1a915fbfcb59f4d"
 TRUSTED_V1_SOURCE_ARTIFACTS = {
     DEFAULT_SUMMARY: {
@@ -343,45 +335,6 @@ def _trusted_v1_source_blob(path: Path) -> bytes:
     if hashlib.sha256(blob.stdout).hexdigest() != contract["sha256"]:
         raise RuntimeError(f"trusted v1 promotion source SHA-256 mismatch: {repo_path}")
     return blob.stdout
-
-
-def _canonical_projection_version() -> str:
-    if not CANONICAL_PROJECTION_MANIFEST.is_file():
-        return ""
-    try:
-        payload = CANONICAL_PROJECTION_MANIFEST.read_bytes()
-    except OSError as exc:
-        raise RuntimeError(f"cannot read canonical projection manifest: {exc}") from exc
-    if len(payload) > CANONICAL_PROJECTION_MANIFEST_MAX_BYTES:
-        raise RuntimeError(
-            "canonical projection manifest exceeds the approved byte limit: "
-            f"actual={len(payload)}; "
-            f"limit={CANONICAL_PROJECTION_MANIFEST_MAX_BYTES}"
-        )
-    previous_field_size_limit = csv.field_size_limit()
-    try:
-        csv.field_size_limit(CANONICAL_PROJECTION_MANIFEST_FIELD_SIZE_LIMIT)
-        columns, rows, errors = _read_csv_payload(
-            payload,
-            label=str(CANONICAL_PROJECTION_MANIFEST),
-        )
-    finally:
-        csv.field_size_limit(previous_field_size_limit)
-    if errors:
-        raise RuntimeError(
-            "canonical projection manifest is invalid: " + "; ".join(errors)
-        )
-    if len(rows) != 1 or "projection_version" not in columns:
-        raise RuntimeError(
-            "canonical projection manifest must contain exactly one row and "
-            "the projection_version column"
-        )
-    version = rows[0].get("projection_version", "").strip()
-    if version not in {V1_PROJECTION_VERSION, V2_PROJECTION_VERSION}:
-        raise RuntimeError(
-            f"unsupported canonical projection version: {version!r}"
-        )
-    return version
 
 
 def _is_true(value: str) -> bool:
@@ -809,9 +762,10 @@ def validate(
     *,
     decision_path: Path = DEFAULT_DECISION,
     anomaly_path: Path = DEFAULT_ANOMALIES,
-    summary_path: Path = DEFAULT_SUMMARY,
-    detail_path: Path = DEFAULT_DETAIL,
+    summary_path: Path | None = None,
+    detail_path: Path | None = None,
     require_source_artifacts: bool = False,
+    historical_v1_source_audit: bool = False,
 ) -> list[str]:
     errors: list[str] = []
     _decision, decision_errors = validate_decision(decision_path)
@@ -819,63 +773,65 @@ def validate(
     errors.extend(decision_errors)
     errors.extend(anomaly_errors)
 
+    explicit_summary = Path(summary_path) if summary_path is not None else None
+    explicit_detail = Path(detail_path) if detail_path is not None else None
+    explicit_source_requested = (
+        explicit_summary is not None or explicit_detail is not None
+    )
+    if historical_v1_source_audit and explicit_source_requested:
+        errors.append(
+            "historical v1 source audit cannot be combined with explicit summary/detail paths"
+        )
+        return errors
+
     trusted_summary: bytes | None = None
     trusted_detail: bytes | None = None
-    default_source_pair = (
-        Path(summary_path).resolve() == DEFAULT_SUMMARY.resolve()
-        and Path(detail_path).resolve() == DEFAULT_DETAIL.resolve()
-    )
-    canonical_projection_version = ""
-    if default_source_pair:
-        try:
-            canonical_projection_version = _canonical_projection_version()
-        except RuntimeError as exc:
-            errors.append(str(exc))
-            return errors
-        if not canonical_projection_version and (
-            require_source_artifacts
-            or summary_path.is_file()
-            or detail_path.is_file()
-        ):
-            errors.append(
-                "canonical projection manifest is required before validating "
-                "the default source artifact pair"
-            )
-            return errors
-    use_trusted_v1_sources = (
-        default_source_pair
-        and canonical_projection_version == V2_PROJECTION_VERSION
-    )
-    if use_trusted_v1_sources:
+    if historical_v1_source_audit:
         try:
             trusted_summary = _trusted_v1_source_blob(DEFAULT_SUMMARY)
             trusted_detail = _trusted_v1_source_blob(DEFAULT_DETAIL)
         except RuntimeError as exc:
             errors.append(str(exc))
-    if use_trusted_v1_sources:
-        summary_exists = trusted_summary is not None
-        detail_exists = trusted_detail is not None
-    else:
-        summary_exists = summary_path.is_file()
-        detail_exists = detail_path.is_file()
-    if require_source_artifacts or summary_exists or detail_exists:
+            return errors
+
+    validate_source_artifacts = (
+        historical_v1_source_audit
+        or explicit_source_requested
+        or require_source_artifacts
+    )
+    if validate_source_artifacts:
+        if historical_v1_source_audit:
+            source_summary_path = DEFAULT_SUMMARY
+            source_detail_path = DEFAULT_DETAIL
+            summary_exists = trusted_summary is not None
+            detail_exists = trusted_detail is not None
+            source_label = f"trusted Git {TRUSTED_V1_SOURCE_REVISION}"
+        else:
+            source_summary_path = explicit_summary
+            source_detail_path = explicit_detail
+            summary_exists = (
+                source_summary_path is not None and source_summary_path.is_file()
+            )
+            detail_exists = (
+                source_detail_path is not None and source_detail_path.is_file()
+            )
+            source_label = None
         if not summary_exists or not detail_exists:
             errors.append(
-                "source artifacts must be supplied as a complete summary/detail pair when validation is enabled"
+                "source artifacts must be supplied as a complete summary/detail "
+                "pair using explicit --summary and --detail paths when validation "
+                "is enabled"
             )
         else:
-            source_label = (
-                f"trusted Git {TRUSTED_V1_SOURCE_REVISION}"
-                if use_trusted_v1_sources
-                else None
-            )
+            assert source_summary_path is not None
+            assert source_detail_path is not None
             _summary, summary_errors = validate_summary(
-                summary_path,
+                source_summary_path,
                 payload=trusted_summary,
                 label=(f"{source_label}:{TRUSTED_V1_SOURCE_ARTIFACTS[DEFAULT_SUMMARY]['path']}" if source_label else None),
             )
             _detail, detail_errors = validate_detail(
-                detail_path,
+                source_detail_path,
                 anomaly_rows,
                 payload=trusted_detail,
                 label=(f"{source_label}:{TRUSTED_V1_SOURCE_ARTIFACTS[DEFAULT_DETAIL]['path']}" if source_label else None),
@@ -891,12 +847,20 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--decision", type=Path, default=DEFAULT_DECISION)
     parser.add_argument("--anomaly-registry", type=Path, default=DEFAULT_ANOMALIES)
-    parser.add_argument("--summary", type=Path, default=DEFAULT_SUMMARY)
-    parser.add_argument("--detail", type=Path, default=DEFAULT_DETAIL)
+    parser.add_argument("--summary", type=Path)
+    parser.add_argument("--detail", type=Path)
     parser.add_argument(
         "--require-source-artifacts",
         action="store_true",
-        help="Fail unless both source summary and detail artifacts exist.",
+        help="Require an explicit --summary/--detail source-artifact pair.",
+    )
+    parser.add_argument(
+        "--historical-v1-source-audit",
+        action="store_true",
+        help=(
+            "Explicitly replay the frozen v1 source artifacts from their trusted "
+            "Git revision. Ordinary validation remains registry/anomaly-only."
+        ),
     )
     return parser.parse_args()
 
@@ -909,19 +873,18 @@ def main() -> int:
         summary_path=args.summary,
         detail_path=args.detail,
         require_source_artifacts=args.require_source_artifacts,
+        historical_v1_source_audit=args.historical_v1_source_audit,
     )
     if errors:
         for error in errors:
             print(f"ERROR: {error}")
         return 1
-    if (
-        args.summary.resolve() == DEFAULT_SUMMARY.resolve()
-        and args.detail.resolve() == DEFAULT_DETAIL.resolve()
-        and _canonical_projection_version() == V2_PROJECTION_VERSION
-    ):
+    if args.historical_v1_source_audit:
         source_state = f"historical v1 source artifacts validated from trusted Git {TRUSTED_V1_SOURCE_REVISION}"
+    elif args.summary is not None and args.detail is not None:
+        source_state = "explicit source artifacts validated"
     else:
-        source_state = "source artifacts validated" if args.summary.is_file() else "source artifacts absent; registry-only validation"
+        source_state = "registry/anomaly governance-only validation"
     print(
         "PASS: revenue_unreacted_range promotion preparation independently validated; "
         f"{source_state}; formal flags remain false; anomaly worklist=8"

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 import hashlib
 from io import BytesIO
 import json
@@ -120,13 +121,25 @@ def _expected_versions(projection_version: object) -> tuple[str, str]:
         ) from exc
 
 
-def _canonical_source_frames() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+def _canonical_source_frames(
+    *, historical_v1_source_audit: bool = False
+) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     current_manifest = load_source_snapshot_projection_manifest(
         SOURCE_PROJECTION_MANIFEST_CSV
     )
     projection_version = str(current_manifest.iloc[0]["projection_version"]).strip()
     _expected_versions(projection_version)
+    if historical_v1_source_audit and projection_version != V1_PROJECTION_VERSION:
+        raise RuntimeError(
+            "--historical-v1-source-audit requires the default ROOT canonical v1 "
+            "projection"
+        )
     if projection_version == V1_PROJECTION_VERSION:
+        if not historical_v1_source_audit:
+            raise RuntimeError(
+                "canonical v1 historical source replay requires explicit "
+                "--historical-v1-source-audit"
+            )
         return _trusted_source_frames()
     episodes = load_projected_source_detail(SOURCE_CONDITION_DETAIL_CSV)
     validate_projection_binding_frames(current_manifest, episodes)
@@ -888,7 +901,7 @@ def _validate_summary(summary: pd.DataFrame, detail: pd.DataFrame, errors: list[
                 )
 
 
-def validate() -> list[str]:
+def validate(*, historical_v1_source_audit: bool = False) -> list[str]:
     errors: list[str] = []
     paths = (
         LATEST_CSV,
@@ -917,7 +930,9 @@ def validate() -> list[str]:
         low_memory=False,
     )
     try:
-        projection_manifest, operations, episodes = _canonical_source_frames()
+        projection_manifest, operations, episodes = _canonical_source_frames(
+            historical_v1_source_audit=historical_v1_source_audit
+        )
     except (RuntimeError, ValueError, KeyError, UnicodeDecodeError) as exc:
         return [str(exc)]
     operations = operations.loc[
@@ -994,8 +1009,26 @@ def validate() -> list[str]:
     return errors
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Validate the revenue operation lag bucket audit."
+    )
+    parser.add_argument(
+        "--historical-v1-source-audit",
+        action="store_true",
+        help=(
+            "Explicitly replay the frozen canonical v1 sources from the trusted Git "
+            "revision. Ordinary canonical v2 validation never reads Git history."
+        ),
+    )
+    return parser.parse_args()
+
+
 def main() -> int:
-    errors = validate()
+    args = parse_args()
+    errors = validate(
+        historical_v1_source_audit=args.historical_v1_source_audit
+    )
     if errors:
         for error in errors:
             print(f"ERROR: {error}")

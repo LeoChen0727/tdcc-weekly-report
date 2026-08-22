@@ -33,36 +33,6 @@ SOURCE_SNAPSHOT_PROJECTION_MANIFEST_CSV = (
     / "output/latest/research_backtest/"
     "revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv"
 )
-V1_ARCHIVE_MANIFEST_CSV = ROOT / (
-    "output/history/research/"
-    "revenue_unreacted_range_source_snapshot_projection_manifest_v1_20260731.csv"
-)
-V1_ARCHIVE_DETAIL_CSV = ROOT / (
-    "output/history/research/"
-    "revenue_unreacted_range_source_snapshot_projection_detail_v1_20260731.csv"
-)
-V1_ARCHIVE_EVIDENCE_CSV = ROOT / (
-    "output/history/research/"
-    "revenue_unreacted_range_source_snapshot_projection_archive_evidence_v1_20260731.csv"
-)
-V2_MANIFEST_CSV = ROOT / (
-    "output/history/research/"
-    "revenue_unreacted_range_source_snapshot_projection_manifest_v2_20260822.csv"
-)
-V2_PROJECTED_DETAIL_CSV = ROOT / (
-    "output/history/research/"
-    "revenue_unreacted_range_source_snapshot_projection_detail_v2_20260822.csv"
-)
-V1_V2_DIFF_SUMMARY_CSV = ROOT / (
-    "output/history/research/"
-    "revenue_unreacted_range_source_snapshot_projection_"
-    "v1_20260731_to_v2_20260822_diff_summary.csv"
-)
-V1_V2_DIFF_DETAIL_CSV = ROOT / (
-    "output/history/research/"
-    "revenue_unreacted_range_source_snapshot_projection_"
-    "v1_20260731_to_v2_20260822_diff_detail.csv"
-)
 SOURCE_SNAPSHOT_PROJECTION_ID = (
     "revenue_unreacted_range_source_snapshot_asof_20260713"
 )
@@ -136,41 +106,53 @@ def _is_sha256(value: object) -> bool:
     )
 
 
-def _versioned_source_projection_exact7_paths() -> tuple[Path, ...]:
-    return (
-        V1_ARCHIVE_MANIFEST_CSV,
-        V1_ARCHIVE_DETAIL_CSV,
-        V1_ARCHIVE_EVIDENCE_CSV,
-        V2_MANIFEST_CSV,
-        V2_PROJECTED_DETAIL_CSV,
-        V1_V2_DIFF_SUMMARY_CSV,
-        V1_V2_DIFF_DETAIL_CSV,
-    )
+def _canonical_projection_version() -> tuple[str | None, list[str]]:
+    path = SOURCE_SNAPSHOT_PROJECTION_MANIFEST_CSV
+    if path.is_symlink():
+        return None, [
+            "canonical source projection manifest is unsafe: "
+            f"{path} (symlink_not_allowed)"
+        ]
+    if path.is_dir():
+        return None, [
+            "canonical source projection manifest is unsafe: "
+            f"{path} (directory_not_allowed)"
+        ]
+    if not path.is_file():
+        return None, [f"canonical source projection manifest is missing: {path}"]
+    try:
+        manifest = pd.read_csv(path, keep_default_na=False, low_memory=False)
+    except (OSError, UnicodeError, pd.errors.ParserError) as exc:
+        return None, [
+            "canonical source projection manifest cannot be parsed: "
+            f"{path}: {exc}"
+        ]
+    if "projection_version" not in manifest.columns:
+        return None, [
+            "canonical source projection manifest schema is incomplete: "
+            "missing projection_version"
+        ]
+    if len(manifest) != 1:
+        return None, [
+            "canonical source projection manifest must contain exactly one row"
+        ]
+    projection_version = str(manifest.iloc[0]["projection_version"]).strip()
+    if projection_version not in (
+        SOURCE_SNAPSHOT_V1_VERSION,
+        SOURCE_SNAPSHOT_V2_VERSION,
+    ):
+        return None, [
+            "canonical source projection manifest has unsupported projection_version: "
+            f"{projection_version or '<empty>'}"
+        ]
+    return projection_version, []
 
 
 def _resolve_default_projection_manifest_path() -> tuple[Path | None, list[str]]:
-    exact7 = _versioned_source_projection_exact7_paths()
-    closure_started = any(path.exists() or path.is_symlink() for path in exact7)
-    if not closure_started:
-        return SOURCE_SNAPSHOT_PROJECTION_MANIFEST_CSV, []
-
-    errors: list[str] = []
-    for path in exact7:
-        if path.is_symlink():
-            state = "symlink_not_allowed"
-        elif path.is_dir():
-            state = "directory_not_allowed"
-        elif not path.is_file():
-            state = "missing_or_non_file"
-        else:
-            continue
-        errors.append(
-            "versioned source projection exact7 closure is incomplete or unsafe: "
-            f"{path} ({state})"
-        )
-    if errors:
-        return None, errors
-    return V2_MANIFEST_CSV, []
+    _projection_version, canonical_errors = _canonical_projection_version()
+    if canonical_errors:
+        return None, canonical_errors
+    return SOURCE_SNAPSHOT_PROJECTION_MANIFEST_CSV, []
 
 
 def _pinned_monthly_revenue_lineage(

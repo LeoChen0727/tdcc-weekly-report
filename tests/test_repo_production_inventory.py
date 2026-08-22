@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import csv
-import hashlib
 import io
 from pathlib import Path
 import subprocess
@@ -15,8 +14,12 @@ ROOT = Path(__file__).resolve().parents[1]
 VOLUME_V2_ADVISORY_LINEAGE_REFRESH_WORKFLOW = (
     ".github/workflows/volume_v2_advisory_lineage_refresh.yml"
 )
-VOLUME_V2_RUNTIME_MARKDOWN_WRITER_WORKFLOW = (
-    inventory.VOLUME_V2_RUNTIME_MARKDOWN_WRITER_WORKFLOW
+RESEARCH_BACKTEST_WORKFLOW = ".github/workflows/research_backtest_pipeline.yml"
+MODEL_DATA_AUDIT_STAGE_PATTERNS = (
+    "git add -- output/latest/model_data_independence_audit_latest.csv",
+    "git add -- docs/latest/model_data_independence_audit_latest.csv",
+    "git add -- output/latest/model_data_independence_audit_latest.md",
+    "git add -- docs/latest/model_data_independence_audit_latest.md",
 )
 BASELINE_ARTIFACT_WRITER_COUNT = 14
 
@@ -27,7 +30,7 @@ def assert_transition_safe_artifact_writer_count(
 ) -> None:
     expected_count = BASELINE_ARTIFACT_WRITER_COUNT + int(
         VOLUME_V2_ADVISORY_LINEAGE_REFRESH_WORKFLOW in workflow_paths
-    ) + int(VOLUME_V2_RUNTIME_MARKDOWN_WRITER_WORKFLOW in workflow_paths)
+    )
     assert writer_count == expected_count
 
 
@@ -364,19 +367,31 @@ def test_all_inventory_artifact_writers_use_the_deploy_key() -> None:
     assert errors == []
 
 
+def test_research_writer_inventory_locks_exact_model_data_audit_mirrors() -> None:
+    errors: list[str] = []
+    rows = inventory.load_inventory(errors)
+    workflow_text = (ROOT / RESEARCH_BACKTEST_WORKFLOW).read_text(encoding="utf-8")
+    audit_patterns = tuple(
+        pattern
+        for pattern in rows[RESEARCH_BACKTEST_WORKFLOW].allowed_stage_patterns
+        if "model_data_independence_audit_latest" in pattern
+    )
+
+    assert errors == []
+    assert audit_patterns == MODEL_DATA_AUDIT_STAGE_PATTERNS
+    assert all(workflow_text.count(pattern) == 1 for pattern in audit_patterns)
+
+
 def test_artifact_writer_count_transition_accepts_only_the_target_workflow() -> None:
-    advisory = VOLUME_V2_ADVISORY_LINEAGE_REFRESH_WORKFLOW
-    target = VOLUME_V2_RUNTIME_MARKDOWN_WRITER_WORKFLOW
+    target = VOLUME_V2_ADVISORY_LINEAGE_REFRESH_WORKFLOW
     rogue = ".github/workflows/rogue_artifact_writer.yml"
 
     assert_transition_safe_artifact_writer_count(14, set())
-    assert_transition_safe_artifact_writer_count(15, {advisory})
     assert_transition_safe_artifact_writer_count(15, {target})
-    assert_transition_safe_artifact_writer_count(16, {advisory, target})
     with pytest.raises(AssertionError):
         assert_transition_safe_artifact_writer_count(15, {rogue})
     with pytest.raises(AssertionError):
-        assert_transition_safe_artifact_writer_count(17, {advisory, target, rogue})
+        assert_transition_safe_artifact_writer_count(16, {target, rogue})
 
 
 def test_reusable_writer_may_declare_the_required_deploy_key() -> None:
@@ -603,589 +618,10 @@ def test_writer_job_requires_nonempty_secret_preflight_before_checkout() -> None
 
 
 def test_pull_request_workflows_never_receive_the_write_deploy_key() -> None:
-    rows = inventory.load_inventory([])
     for workflow_path in inventory.tracked_workflow_paths():
         text = (ROOT / workflow_path).read_text(encoding="utf-8")
-        if not inventory.workflow_has_pull_request_trigger(text):
-            continue
-        if workflow_path == VOLUME_V2_RUNTIME_MARKDOWN_WRITER_WORKFLOW:
-            errors: list[str] = []
-            inventory.validate_volume_v2_runtime_markdown_pr_writer_exception(
-                rows[workflow_path],
-                text,
-                inventory.workflow_job_blocks(text),
-                errors,
-            )
-            assert errors == []
-        else:
+        if inventory.workflow_has_pull_request_trigger(text):
             assert inventory.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY not in text
-
-
-def _volume_writer_workflow_text() -> str:
-    return (ROOT / VOLUME_V2_RUNTIME_MARKDOWN_WRITER_WORKFLOW).read_text(
-        encoding="utf-8"
-    )
-
-
-def _validate_volume_writer_text(text: str) -> list[str]:
-    load_errors: list[str] = []
-    row = inventory.load_inventory(load_errors)[
-        VOLUME_V2_RUNTIME_MARKDOWN_WRITER_WORKFLOW
-    ]
-    assert load_errors == []
-    errors: list[str] = []
-    inventory.validate_volume_v2_runtime_markdown_pr_writer_exception(
-        row,
-        text,
-        inventory.workflow_job_blocks(text),
-        errors,
-    )
-    return errors
-
-
-def test_volume_v2_branch_writer_narrow_exception_passes_exact_contract() -> None:
-    text = _volume_writer_workflow_text()
-    block = inventory.workflow_job_blocks(text)[
-        inventory.VOLUME_V2_RUNTIME_MARKDOWN_WRITER_JOB
-    ]
-    rows = inventory.load_inventory([])
-
-    assert _validate_volume_writer_text(text) == []
-    assert (
-        rows[VOLUME_V2_RUNTIME_MARKDOWN_WRITER_WORKFLOW].allowed_stage_patterns
-        == inventory.VOLUME_V2_RUNTIME_MARKDOWN_ALLOWED_STAGE_PATTERNS
-    )
-    assert inventory.is_artifact_push_job(block) is False
-
-
-def test_volume_v2_branch_writer_rejects_comment_and_echo_identity_decoys() -> None:
-    text = _volume_writer_workflow_text()
-    block = inventory.workflow_job_blocks(text)[
-        inventory.VOLUME_V2_RUNTIME_MARKDOWN_WRITER_JOB
-    ]
-    revalidate = inventory.workflow_steps_named(
-        block,
-        "Revalidate exact Volume V2 code commit scope",
-    )[0]
-    active = '          checkout_sha="$(git --no-replace-objects rev-parse HEAD)"'
-    decoy = (
-        '          # checkout_sha="$(git --no-replace-objects rev-parse HEAD)"\n'
-        "          echo 'checkout_sha=\"$(git --no-replace-objects rev-parse HEAD)\"'"
-    )
-    mutated_step = revalidate.replace(active, decoy, 1)
-    mutated = text.replace(revalidate, mutated_step, 1)
-
-    errors = _validate_volume_writer_text(mutated)
-
-    assert any("identity revalidation" in error for error in errors)
-
-
-def test_volume_v2_branch_writer_rejects_preflight_comment_decoy() -> None:
-    text = _volume_writer_workflow_text()
-    block = inventory.workflow_job_blocks(text)[
-        inventory.VOLUME_V2_RUNTIME_MARKDOWN_WRITER_JOB
-    ]
-    mutated_block = block.replace(
-        "          exit 1\n",
-        "          # exit 1\n          echo 'exit 1'\n",
-        1,
-    )
-    mutated = text.replace(block, mutated_block, 1)
-
-    errors = _validate_volume_writer_text(mutated)
-
-    assert any("preflight" in error for error in errors)
-
-
-@pytest.mark.parametrize(
-    "duplicate",
-    ["job", "input", "quoted_job", "quoted_input"],
-)
-def test_volume_v2_branch_writer_rejects_duplicate_job_or_input(
-    duplicate: str,
-) -> None:
-    text = _volume_writer_workflow_text()
-    if duplicate in {"job", "quoted_job"}:
-        block = inventory.workflow_job_blocks(text)[
-            inventory.VOLUME_V2_RUNTIME_MARKDOWN_WRITER_JOB
-        ]
-        duplicate_block = block
-        if duplicate == "quoted_job":
-            duplicate_block = duplicate_block.replace(
-                f"  {inventory.VOLUME_V2_RUNTIME_MARKDOWN_WRITER_JOB}:\n",
-                f"  '{inventory.VOLUME_V2_RUNTIME_MARKDOWN_WRITER_JOB}':\n",
-                1,
-            )
-        mutated = text.replace(block, block + duplicate_block, 1)
-    else:
-        declaration = (
-            "      run_volume_v2_runtime_markdown_normalization_candidate_only:\n"
-        )
-        duplicate_declaration = declaration
-        if duplicate == "quoted_input":
-            duplicate_declaration = (
-                "      'run_volume_v2_runtime_markdown_normalization_candidate_only':\n"
-            )
-        mutated = text.replace(
-            declaration,
-            declaration + duplicate_declaration,
-            1,
-        )
-
-    errors = _validate_volume_writer_text(mutated)
-
-    assert any("exactly once" in error for error in errors)
-
-
-def test_volume_v2_branch_writer_rejects_alternate_deploy_writer_job() -> None:
-    text = _volume_writer_workflow_text()
-    block = inventory.workflow_job_blocks(text)[
-        inventory.VOLUME_V2_RUNTIME_MARKDOWN_WRITER_JOB
-    ]
-    rogue = block.replace(
-        f"  {inventory.VOLUME_V2_RUNTIME_MARKDOWN_WRITER_JOB}:\n",
-        "  rogue_volume_writer:\n",
-        1,
-    )
-    mutated = text.replace(block, block + rogue, 1)
-
-    errors = _validate_volume_writer_text(mutated)
-
-    assert any("exception job IDs must equal only" in error for error in errors)
-
-
-@pytest.mark.parametrize(
-    "replacement",
-    [
-        "inputs.run_volume_v2_runtime_markdown_normalization_candidate_only != false &&",
-        "(inputs.run_volume_v2_runtime_markdown_normalization_candidate_only == true || always()) &&",
-    ],
-)
-def test_volume_v2_branch_writer_rejects_masked_or_relaxed_job_if(
-    replacement: str,
-) -> None:
-    text = _volume_writer_workflow_text()
-    original = (
-        "inputs.run_volume_v2_runtime_markdown_normalization_candidate_only == true &&"
-    )
-
-    errors = _validate_volume_writer_text(text.replace(original, replacement, 1))
-
-    assert any("if must match the exact" in error for error in errors)
-
-
-@pytest.mark.parametrize(
-    "masking_line",
-    [
-        'GITHUB_SHA="$EXPECTED_HEAD_SHA"',
-        "set +e",
-    ],
-)
-def test_volume_v2_branch_writer_rejects_identity_masking_commands(
-    masking_line: str,
-) -> None:
-    text = _volume_writer_workflow_text()
-    block = inventory.workflow_job_blocks(text)[
-        inventory.VOLUME_V2_RUNTIME_MARKDOWN_WRITER_JOB
-    ]
-    revalidate = inventory.workflow_steps_named(
-        block,
-        "Revalidate exact Volume V2 code commit scope",
-    )[0]
-    anchor = "          set -euo pipefail\n"
-    mutated_step = revalidate.replace(
-        anchor,
-        anchor + f"          {masking_line}\n",
-        1,
-    )
-    mutated = text.replace(revalidate, mutated_step, 1)
-
-    errors = _validate_volume_writer_text(mutated)
-
-    assert any("masking command" in error for error in errors)
-
-
-@pytest.mark.parametrize(
-    "step_name",
-    [
-        "Revalidate exact Volume V2 code commit scope",
-        "Commit and push exact Volume V2 Markdown normalization candidate",
-    ],
-)
-def test_volume_v2_branch_writer_requires_fail_closed_shell_mode(
-    step_name: str,
-) -> None:
-    text = _volume_writer_workflow_text()
-    block = inventory.workflow_job_blocks(text)[
-        inventory.VOLUME_V2_RUNTIME_MARKDOWN_WRITER_JOB
-    ]
-    step = inventory.workflow_steps_named(block, step_name)[0]
-    mutated_step = step.replace("          set -euo pipefail\n", "", 1)
-    mutated = text.replace(step, mutated_step, 1)
-
-    errors = _validate_volume_writer_text(mutated)
-
-    assert any("set -euo pipefail" in error for error in errors)
-
-
-@pytest.mark.parametrize(
-    ("step_name", "condition_fragment"),
-    [
-        (
-            "Revalidate exact Volume V2 code commit scope",
-            'if [ "$GITHUB_SHA" != "$EXPECTED_HEAD_SHA" ]',
-        ),
-        (
-            "Commit and push exact Volume V2 Markdown normalization candidate",
-            'if [ "$artifact_parent_sha" != "$EXPECTED_HEAD_SHA" ]',
-        ),
-    ],
-)
-def test_volume_v2_branch_writer_guards_require_active_exit_one(
-    step_name: str,
-    condition_fragment: str,
-) -> None:
-    text = _volume_writer_workflow_text()
-    block = inventory.workflow_job_blocks(text)[
-        inventory.VOLUME_V2_RUNTIME_MARKDOWN_WRITER_JOB
-    ]
-    step = inventory.workflow_steps_named(block, step_name)[0]
-    lines = step.splitlines(keepends=True)
-    guard_index = next(
-        index for index, line in enumerate(lines) if condition_fragment in line
-    )
-    exit_index = next(
-        index
-        for index in range(guard_index + 1, len(lines))
-        if lines[index].strip() == "exit 1"
-    )
-    del lines[exit_index]
-    mutated = text.replace(step, "".join(lines), 1)
-
-    errors = _validate_volume_writer_text(mutated)
-
-    assert any("guard body must equal only" in error for error in errors)
-
-
-@pytest.mark.parametrize(
-    ("step_name", "condition_fragment"),
-    [
-        (
-            "Revalidate exact Volume V2 code commit scope",
-            'if [ "$GITHUB_SHA" != "$EXPECTED_HEAD_SHA" ]',
-        ),
-        (
-            "Commit and push exact Volume V2 Markdown normalization candidate",
-            'if [ "$artifact_parent_sha" != "$EXPECTED_HEAD_SHA" ]',
-        ),
-    ],
-)
-def test_volume_v2_branch_writer_guards_reject_success_masking_command(
-    step_name: str,
-    condition_fragment: str,
-) -> None:
-    text = _volume_writer_workflow_text()
-    block = inventory.workflow_job_blocks(text)[
-        inventory.VOLUME_V2_RUNTIME_MARKDOWN_WRITER_JOB
-    ]
-    step = inventory.workflow_steps_named(block, step_name)[0]
-    lines = step.splitlines(keepends=True)
-    guard_index = next(
-        index for index, line in enumerate(lines) if condition_fragment in line
-    )
-    lines.insert(guard_index + 1, "            exit 0\n")
-    mutated = text.replace(step, "".join(lines), 1)
-
-    errors = _validate_volume_writer_text(mutated)
-
-    assert any("guard body must equal only" in error for error in errors)
-
-
-@pytest.mark.parametrize(
-    "insertion",
-    [
-        "exit 0",
-        "if false; then",
-    ],
-)
-def test_volume_v2_branch_writer_exact_body_rejects_arbitrary_control_insertion(
-    insertion: str,
-) -> None:
-    text = _volume_writer_workflow_text()
-    block = inventory.workflow_job_blocks(text)[
-        inventory.VOLUME_V2_RUNTIME_MARKDOWN_WRITER_JOB
-    ]
-    step_name = "Commit and push exact Volume V2 Markdown normalization candidate"
-    step = inventory.workflow_steps_named(block, step_name)[0]
-    output_add = inventory.VOLUME_V2_RUNTIME_MARKDOWN_ALLOWED_STAGE_PATTERNS[0]
-    mutated_step = step.replace(
-        f"          {output_add}\n",
-        f"          {insertion}\n          {output_add}\n",
-        1,
-    )
-    mutated = text.replace(step, mutated_step, 1)
-
-    errors = _validate_volume_writer_text(mutated)
-
-    assert any("exact canonical SHA-256 contract" in error for error in errors)
-
-
-@pytest.mark.parametrize("mutation", ["alternate", "extra"])
-def test_volume_v2_branch_writer_rejects_alternate_or_extra_git_add(
-    mutation: str,
-) -> None:
-    text = _volume_writer_workflow_text()
-    output_add, docs_add = inventory.VOLUME_V2_RUNTIME_MARKDOWN_ALLOWED_STAGE_PATTERNS
-    if mutation == "alternate":
-        mutated = text.replace(output_add, output_add + ".alternate", 1)
-    else:
-        mutated = text.replace(
-            docs_add,
-            docs_add + "\n          git --no-replace-objects add -- docs/latest/rogue.md",
-            1,
-        )
-
-    errors = _validate_volume_writer_text(mutated)
-
-    assert any("must stage only the exact two" in error for error in errors)
-
-
-def test_volume_v2_branch_writer_rejects_github_token_auth_mutation() -> None:
-    text = _volume_writer_workflow_text()
-    mutated = text.replace(
-        "${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}",
-        "${{ secrets.GITHUB_TOKEN }}",
-        1,
-    )
-
-    errors = _validate_volume_writer_text(mutated)
-
-    assert any("must not use a GITHUB_TOKEN fallback" in error for error in errors)
-
-
-def test_other_pull_request_workflow_cannot_reuse_branch_writer_exception(
-    monkeypatch: pytest.MonkeyPatch,
-) -> None:
-    rogue = ".github/workflows/rogue_pr_writer.yml"
-    text = _volume_writer_workflow_text()
-    row = inventory.InventoryRow(
-        path=rogue,
-        kind="workflow",
-        owner="repo_infrastructure",
-        status="active",
-        purpose="negative test",
-        allowed_workflows=(),
-        allowed_stage_patterns=inventory.VOLUME_V2_RUNTIME_MARKDOWN_ALLOWED_STAGE_PATTERNS,
-    )
-    monkeypatch.setattr(inventory, "read_text", lambda path: text if path == rogue else "")
-    errors: list[str] = []
-
-    inventory.validate_production_artifact_writer_auth({rogue: row}, {rogue}, errors)
-
-    assert any(
-        error
-        == f"{rogue} pull_request workflow must not use "
-        "secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY"
-        for error in errors
-    )
-
-
-def _revenue_supersede_writer_text() -> str:
-    return (
-        ROOT / inventory.REVENUE_PROJECTION_SUPERSEDE_WRITER_WORKFLOW
-    ).read_text(encoding="utf-8")
-
-
-def _validate_revenue_supersede_writer_text(
-    text: str,
-    *,
-    row: inventory.InventoryRow | None = None,
-) -> list[str]:
-    if row is None:
-        row = inventory.load_inventory([])[
-            inventory.REVENUE_PROJECTION_SUPERSEDE_WRITER_WORKFLOW
-        ]
-    errors: list[str] = []
-    inventory.validate_revenue_projection_supersede_writer_exception(
-        row,
-        text,
-        inventory.workflow_job_blocks(text),
-        errors,
-    )
-    return errors
-
-
-def test_revenue_projection_supersede_writer_exception_passes_current_contract() -> None:
-    assert _validate_revenue_supersede_writer_text(_revenue_supersede_writer_text()) == []
-
-
-def test_revenue_projection_supersede_writer_rejects_exact75_path_or_add_drift() -> None:
-    text = _revenue_supersede_writer_text()
-    approved = (
-        "output/latest/research_backtest/"
-        "revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv"
-    )
-    array_entry = f"REVENUE_SUPERSEDE_ALLOWED_PATHS=(\n            {approved}"
-    assert array_entry in text
-    mutated_path = text.replace(array_entry, array_entry + ".rogue", 1)
-    assert any(
-        "exact75 artifact digest" in error
-        for error in _validate_revenue_supersede_writer_text(mutated_path)
-    )
-
-    literal = "git --no-replace-objects add -- \\\n"
-    assert literal in text
-    array_expanded = text.replace(
-        literal,
-        'git --no-replace-objects add -- "${REVENUE_SUPERSEDE_ALLOWED_PATHS[@]}"\n',
-        1,
-    )
-    errors = _validate_revenue_supersede_writer_text(array_expanded)
-    assert any("literal pathspecs" in error for error in errors)
-
-
-@pytest.mark.parametrize("mutation", ("delete", "add", "rename"))
-def test_revenue_projection_supersede_writer_rejects_exact44_code_path_drift(
-    mutation: str,
-) -> None:
-    text = _revenue_supersede_writer_text()
-    exact = "              config/daily_model_data_sharing_registry.csv\n"
-    assert exact in text
-    if mutation == "delete":
-        replacement = ""
-    elif mutation == "add":
-        replacement = exact + "              scripts/unauthorized_writer.py\n"
-    else:
-        replacement = "              config/renamed_data_sharing_registry.csv\n"
-
-    errors = _validate_revenue_supersede_writer_text(
-        text.replace(exact, replacement, 1)
-    )
-
-    assert any("exact44 code-path digest" in error for error in errors)
-
-
-@pytest.mark.parametrize(
-    ("old", "new"),
-    (
-        (
-            "git --no-replace-objects diff --name-only --no-renames",
-            "git --no-replace-objects diff --name-only --find-renames",
-        ),
-        (
-            "git --no-replace-objects diff --name-status --no-renames",
-            "git --no-replace-objects diff --name-status --find-renames",
-        ),
-        (
-            "$'M\\t'\"${REVENUE_SUPERSEDE_CODE_PATHS[$index]}\"",
-            "$'D\\t'\"${REVENUE_SUPERSEDE_CODE_PATHS[$index]}\"",
-        ),
-    ),
-)
-def test_revenue_projection_supersede_writer_requires_modified_only_code_identity(
-    old: str,
-    new: str,
-) -> None:
-    text = _revenue_supersede_writer_text()
-    assert old in text
-
-    errors = _validate_revenue_supersede_writer_text(text.replace(old, new, 1))
-
-    assert any("exact44 code-commit identity guard" in error for error in errors)
-
-
-@pytest.mark.parametrize(
-    ("old", "new"),
-    (
-        (
-            'REVENUE_SUPERSEDE_CODE_ROOT_SHA="2315df2367b6b475ed4f4aa2fe8b260617854991"',
-            'REVENUE_SUPERSEDE_CODE_ROOT_SHA="0000000000000000000000000000000000000000"',
-        ),
-        (
-            'REVENUE_SUPERSEDE_SHALLOW_STATE="$(git --no-replace-objects rev-parse --is-shallow-repository)"',
-            'REVENUE_SUPERSEDE_SHALLOW_STATE="false"',
-        ),
-        (
-            'git --no-replace-objects fetch --no-tags --unshallow origin "$TARGET_BRANCH"',
-            "true",
-        ),
-        (
-            'read -r -a REVENUE_SUPERSEDE_PARENT_FIELDS <<< "$(git --no-replace-objects rev-list --parents -n 1 "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA")"',
-            "true",
-        ),
-        (
-            '"${REVENUE_SUPERSEDE_PARENT_FIELDS[1]}" != "$REVENUE_SUPERSEDE_EXPECTED_BASE_SHA"',
-            '"${REVENUE_SUPERSEDE_PARENT_FIELDS[1]}" != "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA"',
-        ),
-        (
-            'git --no-replace-objects merge-base --is-ancestor "$REVENUE_SUPERSEDE_CODE_ROOT_SHA" "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA"',
-            "true",
-        ),
-        (
-            'git --no-replace-objects diff --name-status --no-renames "$REVENUE_SUPERSEDE_CODE_ROOT_SHA" "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA"',
-            'git --no-replace-objects diff --name-status --no-renames "$REVENUE_SUPERSEDE_EXPECTED_BASE_SHA" "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA"',
-        ),
-    ),
-)
-def test_revenue_projection_supersede_writer_requires_cumulative_code_root_identity(
-    old: str,
-    new: str,
-) -> None:
-    text = _revenue_supersede_writer_text()
-    assert old in text
-
-    errors = _validate_revenue_supersede_writer_text(text.replace(old, new, 1))
-
-    assert any("exact44 code-commit identity guard" in error for error in errors)
-
-
-@pytest.mark.parametrize(
-    ("old", "new", "expected"),
-    (
-        (
-            'if [[ "$REVENUE_SOURCE_PROJECTION_SUPERSEDE_ONLY" == "true" && "$GITHUB_RUN_ATTEMPT" != "1" ]]; then',
-            'if [[ "$REVENUE_SOURCE_PROJECTION_SUPERSEDE_ONLY" == "true" && "$GITHUB_RUN_ATTEMPT" != "2" ]]; then',
-            "missing fail-closed identity guard",
-        ),
-        (
-            "unique direct child of expected_head_sha",
-            "direct child check removed",
-            "missing fail-closed identity guard",
-        ),
-        (
-            inventory.REVENUE_PROJECTION_SUPERSEDE_PUSH,
-            'git push origin "HEAD:$TARGET_BRANCH"',
-            "direct deploy-key side effect",
-        ),
-    ),
-)
-def test_revenue_projection_supersede_writer_rejects_identity_or_push_weakening(
-    old: str,
-    new: str,
-    expected: str,
-) -> None:
-    text = _revenue_supersede_writer_text()
-    assert old in text
-    errors = _validate_revenue_supersede_writer_text(text.replace(old, new, 1))
-    assert any(expected in error for error in errors)
-
-
-def test_revenue_projection_supersede_inventory_marker_is_exact() -> None:
-    text = _revenue_supersede_writer_text()
-    row = inventory.load_inventory([])[
-        inventory.REVENUE_PROJECTION_SUPERSEDE_WRITER_WORKFLOW
-    ]
-    weakened = inventory.InventoryRow(
-        path=row.path,
-        kind=row.kind,
-        owner=row.owner,
-        status=row.status,
-        purpose=row.purpose,
-        allowed_workflows=row.allowed_workflows,
-        allowed_stage_patterns=row.allowed_stage_patterns[:-1],
-    )
-    errors = _validate_revenue_supersede_writer_text(text, row=weakened)
-    assert any("single supersede exact75 literal-add marker" in error for error in errors)
 
 
 def _install_trust_guard_git_stub(

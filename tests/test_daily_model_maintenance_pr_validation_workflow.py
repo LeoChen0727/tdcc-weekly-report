@@ -238,7 +238,6 @@ def aggregate_contract_ok(text: str) -> bool:
         "volume_v2_research",
         "revenue_research",
         "financial_statement_research",
-        "volume_v2_runtime_markdown_normalization_candidate_commit",
     )
     required = (
         'if [ "$SCOPE_RESULT" != "success" ]; then',
@@ -249,15 +248,13 @@ def aggregate_contract_ok(text: str) -> bool:
         'require_domain_result volume-v2-research "$VOLUME_SELECTED" "$VOLUME_RESULT"',
         'require_domain_result revenue-research "$REVENUE_SELECTED" "$REVENUE_RESULT"',
         'require_domain_result financial-statement-research "$FINANCIAL_SELECTED" "$FINANCIAL_RESULT"',
-        'if [ "$REPAIR_RESULT" != "success" ] || [ "$VOLUME_RESULT" != "success" ]; then',
-        'if [ "$REPAIR_RESULT" != "skipped" ]; then',
     )
     return (
         active_field(job, "name", 4) == "daily-model-maintenance-pr-validation"
         and active_field(job, "if", 4) == "always()"
         and active_list(job, "needs") == expected_needs
         and all(literal in executable_lines for literal in required)
-        and block.count('if [ "$result" != "skipped" ]; then') == 2
+        and block.count('if [ "$result" != "skipped" ]; then') == 1
         and active_field(job, "continue-on-error", 4) is None
         and all(
             active_field(step, "continue-on-error") is None for step in steps
@@ -559,7 +556,6 @@ def test_scope_aggregate_and_domain_contracts_are_exact_and_fail_closed() -> Non
     assert tuple(workflow_jobs(text)) == (
         "scope",
         *DOMAIN_CONTRACTS,
-        "volume_v2_runtime_markdown_normalization_candidate_commit",
         "daily-model-maintenance-pr-validation",
     )
     assert "fetch_depth=1" in block
@@ -592,47 +588,70 @@ def test_scope_aggregate_and_domain_contracts_are_exact_and_fail_closed() -> Non
             for step in active_step_blocks(job)
         )
 
-    repair_job = job_block(
-        "volume_v2_runtime_markdown_normalization_candidate_commit", text
-    )
-    assert active_list(repair_job, "needs") == ("scope", "volume_v2_research")
-    assert active_field(repair_job, "continue-on-error", 4) is None
-    assert not any(
-        active_field(step, "continue-on-error")
-        for step in active_step_blocks(repair_job)
-    )
-    repair_steps = active_step_blocks(repair_job)
-    repair_key_precheck = repair_steps[0]
-    repair_checkout = repair_steps[1]
-    assert "Require production artifact write deploy key" in repair_key_precheck
-    assert "PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY" in repair_key_precheck
-    assert 'if [ -z "${PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY}" ]; then' in repair_key_precheck
-    assert "ssh-key: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}" in repair_checkout
-    assert "persist-credentials: true" in repair_checkout
-    assert "contents: write" not in repair_job
-    assert "GITHUB_TOKEN" not in repair_job
-    assert "github.token" not in repair_job
-    assert "token:" not in repair_job
-    artifact_step = next(
-        step
-        for step in repair_steps
-        if "Commit and push exact Volume V2 Markdown normalization candidate" in step
-    )
-    assert "EXPECTED_HEAD_SHA: ${{ inputs.expected_head_sha }}" in artifact_step
-    assert "EXPECTED_BASE_SHA" not in artifact_step
-    assert "Volume V2 committed-path mismatch" in job_run_text(
-        "volume_v2_runtime_markdown_normalization_candidate_commit", text
-    )
-    assert text.count('"$GITHUB_RUN_ATTEMPT" != "1"') == 2
     assert text.count("scripts/build_volume_v2_warrant_lineage_history_audit.py") == 1
     assert text.count("scripts/validate_volume_v2_warrant_lineage_history_audit.py") == 1
-    normalization_jobs = job_block("volume_v2_research", text) + repair_job
-    assert "remote_main_sha" not in normalization_jobs
-    assert "refs/heads/main" not in normalization_jobs
-    assert "latest-main" not in normalization_jobs
+    assert all(
+        token not in text
+        for token in boundaries.VOLUME_V2_RETIRED_NORMALIZATION_TOKENS
+    )
     assert (
         boundaries.validate_daily_model_volume_v2_runtime_markdown_contract(text)
         == []
+    )
+
+
+@pytest.mark.parametrize(
+    "retired_token",
+    boundaries.VOLUME_V2_RETIRED_NORMALIZATION_TOKENS,
+)
+def test_volume_v2_runtime_contract_rejects_retired_normalization_tokens(
+    retired_token: str,
+) -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+
+    errors = boundaries.validate_daily_model_volume_v2_runtime_markdown_contract(
+        f"{text}\n# {retired_token}\n"
+    )
+
+    assert any("retired Volume V2 normalization token/job" in error for error in errors)
+
+
+@pytest.mark.parametrize(
+    ("needle", "replacement"),
+    (
+        (
+            "python scripts/build_volume_v2_warrant_lineage_history_audit.py --phase runtime",
+            "python scripts/build_volume_v2_warrant_lineage_history_audit.py",
+        ),
+        (
+            "python scripts/validate_volume_v2_warrant_lineage_history_audit.py --phase runtime",
+            "python scripts/validate_volume_v2_warrant_lineage_history_audit.py --phase full",
+        ),
+        (
+            "python scripts/build_volume_v2_warrant_lineage_history_audit.py --phase runtime\n"
+            "          python scripts/validate_volume_v2_warrant_lineage_history_audit.py --phase runtime",
+            "python scripts/validate_volume_v2_warrant_lineage_history_audit.py --phase runtime\n"
+            "          python scripts/build_volume_v2_warrant_lineage_history_audit.py --phase runtime",
+        ),
+        (
+            "            docs/latest/volume_v2_warrant_lineage_history_audit_latest.csv \\\n",
+            "",
+        ),
+        (
+            "python scripts/validate_volume_v2_warrant_lineage_history_audit.py --phase runtime",
+            "python scripts/validate_volume_v2_warrant_lineage_history_audit.py --phase runtime || true",
+        ),
+    ),
+)
+def test_volume_v2_runtime_contract_rejects_phase_order_diff_or_masking_mutations(
+    needle: str,
+    replacement: str,
+) -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+    assert needle in text
+
+    assert boundaries.validate_daily_model_volume_v2_runtime_markdown_contract(
+        text.replace(needle, replacement, 1)
     )
 
 
@@ -858,9 +877,8 @@ def test_scope_effective_base_contract_rejects_identity_or_output_mutations(
         ("      - revenue_research\n", ""),
         ("    if: always()\n", "    if: always()\n    \"if\": false\n"),
         (
-            "      - volume_v2_runtime_markdown_normalization_candidate_commit\n    runs-on: ubuntu-latest",
-            "      - volume_v2_runtime_markdown_normalization_candidate_commit\n    needs:\n"
-            "      - scope\n    runs-on: ubuntu-latest",
+            "      - volume_v2_research\n",
+            "",
         ),
         (
             "    steps:\n      - name: Validate selected and skipped domain results",
