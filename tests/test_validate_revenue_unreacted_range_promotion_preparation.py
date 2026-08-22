@@ -25,15 +25,19 @@ DETAIL_REPO_PATH = (
     "output/latest/research_backtest/"
     "revenue_unreacted_range_low_mid_falling_candidate_audit_detail_latest.csv"
 )
+MANIFEST_REPO_PATH = (
+    "output/latest/research_backtest/"
+    "revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv"
+)
 
 
 def _copy_csv(source: Path, target: Path) -> None:
     target.write_bytes(source.read_bytes())
 
 
-def _git_blob(repo_path: str, target: Path) -> None:
+def _git_blob(repo_path: str, target: Path, *, revision: str = "HEAD") -> None:
     result = subprocess.run(
-        ["git", "show", f"HEAD:{repo_path}"],
+        ["git", "--no-replace-objects", "show", f"{revision}:{repo_path}"],
         cwd=ROOT,
         check=True,
         capture_output=True,
@@ -54,6 +58,24 @@ def _write_rows(path: Path, columns: list[str], rows: list[dict[str, str]]) -> N
         writer.writerows(rows)
 
 
+def _write_projection_manifest(
+    path: Path,
+    *,
+    projection_version: str,
+    large_field_size: int,
+) -> None:
+    columns = ["projection_version", "cutoff_price_input_file_semantic_sha256s"]
+    with path.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=columns, lineterminator="\n")
+        writer.writeheader()
+        writer.writerow(
+            {
+                "projection_version": projection_version,
+                "cutoff_price_input_file_semantic_sha256s": "x" * large_field_size,
+            }
+        )
+
+
 def _fixture_paths(tmp_path: Path) -> tuple[Path, Path, Path, Path]:
     decision = tmp_path / "decision.csv"
     anomalies = tmp_path / "anomalies.csv"
@@ -61,8 +83,16 @@ def _fixture_paths(tmp_path: Path) -> tuple[Path, Path, Path, Path]:
     detail = tmp_path / "detail.csv"
     _copy_csv(validator.DEFAULT_DECISION, decision)
     _copy_csv(validator.DEFAULT_ANOMALIES, anomalies)
-    _git_blob(SUMMARY_REPO_PATH, summary)
-    _git_blob(DETAIL_REPO_PATH, detail)
+    _git_blob(
+        SUMMARY_REPO_PATH,
+        summary,
+        revision=validator.TRUSTED_V1_SOURCE_REVISION,
+    )
+    _git_blob(
+        DETAIL_REPO_PATH,
+        detail,
+        revision=validator.TRUSTED_V1_SOURCE_REVISION,
+    )
     return decision, anomalies, summary, detail
 
 
@@ -130,6 +160,169 @@ def test_canonical_v2_keeps_frozen_promotion_decision_bound_to_trusted_v1_git_bl
     )
 
     assert validator.validate(require_source_artifacts=True) == []
+
+
+def test_canonical_v2_large_manifest_field_routes_to_trusted_v1_git_blobs(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    manifest_path = tmp_path / "canonical-projection-manifest.csv"
+    summary_path = tmp_path / "absent-current-summary.csv"
+    detail_path = tmp_path / "absent-current-detail.csv"
+    _write_projection_manifest(
+        manifest_path,
+        projection_version=validator.V2_PROJECTION_VERSION,
+        large_field_size=131_073,
+    )
+    original_summary = validator.DEFAULT_SUMMARY
+    original_detail = validator.DEFAULT_DETAIL
+    monkeypatch.setattr(validator, "CANONICAL_PROJECTION_MANIFEST", manifest_path)
+    monkeypatch.setattr(validator, "DEFAULT_SUMMARY", summary_path)
+    monkeypatch.setattr(validator, "DEFAULT_DETAIL", detail_path)
+    monkeypatch.setattr(
+        validator,
+        "TRUSTED_V1_SOURCE_ARTIFACTS",
+        {
+            summary_path: validator.TRUSTED_V1_SOURCE_ARTIFACTS[original_summary],
+            detail_path: validator.TRUSTED_V1_SOURCE_ARTIFACTS[original_detail],
+        },
+    )
+    trusted_payloads = {
+        summary_path: b"trusted-v1-summary",
+        detail_path: b"trusted-v1-detail",
+    }
+    trusted_calls: list[Path] = []
+
+    def trusted_blob(path: Path) -> bytes:
+        trusted_calls.append(path)
+        return trusted_payloads[path]
+
+    def validate_summary(
+        _path: Path,
+        *,
+        payload: bytes | None = None,
+        label: str | None = None,
+    ) -> tuple[dict[str, str], list[str]]:
+        assert payload == trusted_payloads[summary_path]
+        assert label is not None and label.startswith("trusted Git ")
+        return {}, []
+
+    def validate_detail(
+        _path: Path,
+        _anomaly_rows: list[dict[str, str]],
+        *,
+        payload: bytes | None = None,
+        label: str | None = None,
+    ) -> tuple[list[dict[str, str]], list[str]]:
+        assert payload == trusted_payloads[detail_path]
+        assert label is not None and label.startswith("trusted Git ")
+        return [], []
+
+    monkeypatch.setattr(validator, "_trusted_v1_source_blob", trusted_blob)
+    monkeypatch.setattr(validator, "validate_summary", validate_summary)
+    monkeypatch.setattr(validator, "validate_detail", validate_detail)
+    original_field_size_limit = csv.field_size_limit()
+
+    errors = validator.validate(
+        summary_path=summary_path,
+        detail_path=detail_path,
+        require_source_artifacts=True,
+    )
+
+    assert errors == []
+    assert trusted_calls == [summary_path, detail_path]
+    assert csv.field_size_limit() == original_field_size_limit
+
+
+def test_committed_canonical_v2_manifest_with_large_price_lineage_is_parseable(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    manifest_path = tmp_path / "committed-canonical-projection-manifest.csv"
+    _git_blob(MANIFEST_REPO_PATH, manifest_path)
+    monkeypatch.setattr(validator, "CANONICAL_PROJECTION_MANIFEST", manifest_path)
+
+    assert manifest_path.stat().st_size > 131_072
+    assert validator._canonical_projection_version() == validator.V2_PROJECTION_VERSION
+
+
+def test_canonical_manifest_field_over_approved_limit_fails_without_current_fallback(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    manifest_path = tmp_path / "oversized-canonical-projection-manifest.csv"
+    summary_path = tmp_path / "current-summary.csv"
+    detail_path = tmp_path / "current-detail.csv"
+    _write_projection_manifest(
+        manifest_path,
+        projection_version=validator.V2_PROJECTION_VERSION,
+        large_field_size=validator.CANONICAL_PROJECTION_MANIFEST_FIELD_SIZE_LIMIT + 1,
+    )
+    summary_path.write_text("current fallback must not be read\n", encoding="utf-8")
+    detail_path.write_text("current fallback must not be read\n", encoding="utf-8")
+    monkeypatch.setattr(validator, "CANONICAL_PROJECTION_MANIFEST", manifest_path)
+    monkeypatch.setattr(validator, "DEFAULT_SUMMARY", summary_path)
+    monkeypatch.setattr(validator, "DEFAULT_DETAIL", detail_path)
+    monkeypatch.setattr(
+        validator,
+        "validate_summary",
+        lambda *_args, **_kwargs: pytest.fail("invalid manifest fell back to current summary"),
+    )
+    monkeypatch.setattr(
+        validator,
+        "validate_detail",
+        lambda *_args, **_kwargs: pytest.fail("invalid manifest fell back to current detail"),
+    )
+
+    errors = validator.validate(
+        summary_path=summary_path,
+        detail_path=detail_path,
+        require_source_artifacts=True,
+    )
+
+    assert any(
+        "canonical projection manifest is invalid" in error
+        and "field larger than field limit" in error
+        for error in errors
+    )
+
+
+def test_missing_canonical_manifest_cannot_validate_existing_default_source_pair(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    summary_path = tmp_path / "current-summary.csv"
+    detail_path = tmp_path / "current-detail.csv"
+    summary_path.write_text("current fallback must not be read\n", encoding="utf-8")
+    detail_path.write_text("current fallback must not be read\n", encoding="utf-8")
+    monkeypatch.setattr(
+        validator,
+        "CANONICAL_PROJECTION_MANIFEST",
+        tmp_path / "missing-canonical-projection-manifest.csv",
+    )
+    monkeypatch.setattr(validator, "DEFAULT_SUMMARY", summary_path)
+    monkeypatch.setattr(validator, "DEFAULT_DETAIL", detail_path)
+    monkeypatch.setattr(
+        validator,
+        "validate_summary",
+        lambda *_args, **_kwargs: pytest.fail("missing manifest fell back to current summary"),
+    )
+    monkeypatch.setattr(
+        validator,
+        "validate_detail",
+        lambda *_args, **_kwargs: pytest.fail("missing manifest fell back to current detail"),
+    )
+
+    errors = validator.validate(
+        summary_path=summary_path,
+        detail_path=detail_path,
+        require_source_artifacts=True,
+    )
+
+    assert errors == [
+        "canonical projection manifest is required before validating the default "
+        "source artifact pair"
+    ]
 
 
 def test_canonical_v2_trusted_v1_git_identity_failure_is_fail_closed(

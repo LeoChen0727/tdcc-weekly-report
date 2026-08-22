@@ -27,7 +27,10 @@ CANONICAL_PROJECTION_MANIFEST = ROOT / (
     "output/latest/research_backtest/"
     "revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv"
 )
+V1_PROJECTION_VERSION = "source_snapshot_projection_v1_20260731"
 V2_PROJECTION_VERSION = "source_snapshot_projection_v2_20260822"
+CANONICAL_PROJECTION_MANIFEST_MAX_BYTES = 1_048_576
+CANONICAL_PROJECTION_MANIFEST_FIELD_SIZE_LIMIT = 262_144
 TRUSTED_V1_SOURCE_REVISION = "b7ab7b6122b422e941efa3a3a1a915fbfcb59f4d"
 TRUSTED_V1_SOURCE_ARTIFACTS = {
     DEFAULT_SUMMARY: {
@@ -343,10 +346,42 @@ def _trusted_v1_source_blob(path: Path) -> bytes:
 
 
 def _canonical_projection_version() -> str:
-    columns, rows, errors = _read_csv(CANONICAL_PROJECTION_MANIFEST)
-    if errors or len(rows) != 1 or "projection_version" not in columns:
+    if not CANONICAL_PROJECTION_MANIFEST.is_file():
         return ""
-    return rows[0].get("projection_version", "").strip()
+    try:
+        payload = CANONICAL_PROJECTION_MANIFEST.read_bytes()
+    except OSError as exc:
+        raise RuntimeError(f"cannot read canonical projection manifest: {exc}") from exc
+    if len(payload) > CANONICAL_PROJECTION_MANIFEST_MAX_BYTES:
+        raise RuntimeError(
+            "canonical projection manifest exceeds the approved byte limit: "
+            f"actual={len(payload)}; "
+            f"limit={CANONICAL_PROJECTION_MANIFEST_MAX_BYTES}"
+        )
+    previous_field_size_limit = csv.field_size_limit()
+    try:
+        csv.field_size_limit(CANONICAL_PROJECTION_MANIFEST_FIELD_SIZE_LIMIT)
+        columns, rows, errors = _read_csv_payload(
+            payload,
+            label=str(CANONICAL_PROJECTION_MANIFEST),
+        )
+    finally:
+        csv.field_size_limit(previous_field_size_limit)
+    if errors:
+        raise RuntimeError(
+            "canonical projection manifest is invalid: " + "; ".join(errors)
+        )
+    if len(rows) != 1 or "projection_version" not in columns:
+        raise RuntimeError(
+            "canonical projection manifest must contain exactly one row and "
+            "the projection_version column"
+        )
+    version = rows[0].get("projection_version", "").strip()
+    if version not in {V1_PROJECTION_VERSION, V2_PROJECTION_VERSION}:
+        raise RuntimeError(
+            f"unsupported canonical projection version: {version!r}"
+        )
+    return version
 
 
 def _is_true(value: str) -> bool:
@@ -786,10 +821,30 @@ def validate(
 
     trusted_summary: bytes | None = None
     trusted_detail: bytes | None = None
-    use_trusted_v1_sources = (
+    default_source_pair = (
         Path(summary_path).resolve() == DEFAULT_SUMMARY.resolve()
         and Path(detail_path).resolve() == DEFAULT_DETAIL.resolve()
-        and _canonical_projection_version() == V2_PROJECTION_VERSION
+    )
+    canonical_projection_version = ""
+    if default_source_pair:
+        try:
+            canonical_projection_version = _canonical_projection_version()
+        except RuntimeError as exc:
+            errors.append(str(exc))
+            return errors
+        if not canonical_projection_version and (
+            require_source_artifacts
+            or summary_path.is_file()
+            or detail_path.is_file()
+        ):
+            errors.append(
+                "canonical projection manifest is required before validating "
+                "the default source artifact pair"
+            )
+            return errors
+    use_trusted_v1_sources = (
+        default_source_pair
+        and canonical_projection_version == V2_PROJECTION_VERSION
     )
     if use_trusted_v1_sources:
         try:
