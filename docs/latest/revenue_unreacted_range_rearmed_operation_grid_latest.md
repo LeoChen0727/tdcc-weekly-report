@@ -1,6 +1,6 @@
 # 營收改善尚未反應模型：重新武裝操作矩陣
 
-- generated_at: `2026-08-23 01:27:13 Asia/Taipei`
+- generated_at: `2026-08-23 07:21:17 Asia/Taipei`
 - model_id: `revenue_unreacted_range`
 - artifact_version: `rearmed_operation_grid_v2_20260822`
 - 狀態：`research_only`，不修改 production registry、operation adapter 或 PDF。

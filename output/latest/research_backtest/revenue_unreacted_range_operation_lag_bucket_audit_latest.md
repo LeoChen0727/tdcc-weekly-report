@@ -1,6 +1,6 @@
 # 營收低反應區間模型：營收轉強後發動時間差績效稽核
 
-- generated_at: `2026-08-23 01:30:54 Asia/Taipei`
+- generated_at: `2026-08-23 07:24:29 Asia/Taipei`
 - model_id: `revenue_unreacted_range`
 - artifact_version: `operation_lag_bucket_v2_20260822`
 - 狀態：research-only，不修改 production registry、正式 operation adapter、PDF 或 ranking。
