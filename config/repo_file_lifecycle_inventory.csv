@@ -15,7 +15,7 @@ tests/test_tdcc_dataset_contract.py,test_python,tdcc_weekly,active,,,,,,,TDCC ca
 .github/workflows/current_holdings_pattern.yml,workflow,current_holdings,active,,,,docs/individual_stock_pr_validation.md,,,current holdings workflow boundary,,medium
 .github/workflows/daily_full_pipeline.yml,workflow,daily_production,active,,,,docs/APPS_SCRIPT_WORKFLOW_TRIGGER.md;docs/daily_pdf_contract_consumer_governance.md;docs/individual_stock_pr_validation.md;docs/pdf_production_inventory.md;docs/repo_production_inventory.md;rules/rules_index_latest.md,,,daily production workflow boundary,,high
 .github/workflows/daily_pdf_replay_pr_validation.yml,workflow,daily_production,active,,,,,,,renderer-font-runtime and formal operation-input PR replay plus manual DFKai replay boundary,,high
-.github/workflows/daily_model_maintenance_pr_validation.yml,workflow,daily_production,active,,,,,,,daily model maintenance PR validation workflow boundary,,high
+.github/workflows/daily_model_maintenance_pr_validation.yml,workflow,daily_production,active,,,,,,,daily model maintenance PR validation plus direct-parent-bound non-main exact-two Volume V2 runtime Markdown candidate boundary,,high
 .github/workflows/debug_tpex_fetch.yml,workflow,diagnostics,manual_diagnostic,,,,,,,diagnostics workflow boundary,,low
 .github/workflows/diagnose_stock_selection.yml,workflow,diagnostics,manual_diagnostic,,,,,,,diagnostics workflow boundary,,low
 .github/workflows/event_catalyst_update.yml,workflow,catalyst_event,active,,,,docs/APPS_SCRIPT_WORKFLOW_TRIGGER.md,,,catalyst event workflow boundary,,medium
