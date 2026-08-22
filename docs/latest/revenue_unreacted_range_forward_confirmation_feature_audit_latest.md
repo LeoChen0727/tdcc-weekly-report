@@ -1,8 +1,8 @@
 # 營收改善尚未反應模型：前向確認與特徵稽核
 
-- generated_at: `2026-07-31 19:24:11 Asia/Taipei`
+- generated_at: `2026-08-23 01:31:53 Asia/Taipei`
 - model_id: `revenue_unreacted_range`
-- artifact_version: `forward_confirmation_v2_20260713`
+- artifact_version: `forward_confirmation_v3_20260822`
 - 狀態：`research_only`，不可直接升格或進入 PDF 操作列。
 - 來源母體：固定綁定 `20260713` source snapshot projection 中 `absolute_or_two_month_yoy_ge15` 的同股不重疊 episodes。
 - 截止防線：cutoff 後新增的 current source-first episodes 不得改變本 artifact。
@@ -14,79 +14,79 @@
 - 和局口徑：本次尚未核准和局定義；資料不足者獨立列為 right-censored，不得算失敗。
 - 盤中高低：僅可用於 K 棒與收盤位置等 advisory 特徵，不得單獨支撐 promotion。
 - 高報酬查核：D+20 絕對報酬達 80% 只會觸發 review candidate；primary 保留，未完成底層根因前不得判定為異常。
-- 基準第一個突破嚴格成功率：`5.6369%`。
+- 基準第一個突破嚴格成功率：`5.641%`。
 - 財報範圍：本次只使用月營收；EPS、毛利率、營益率、營業利益、業外與淨利均未納入。
 
 ## 確認規則矩陣
 
 | rule_id | rule_information_cutoff | confirmed_episode_count | confirmation_coverage_pct | strict_success_rate_pct | mature_failure_rate_pct | avg_confirmation_next_open_to_d20_close_return_pct | median_confirmation_next_open_to_d20_close_return_pct | known_4916_selected_date | known_4916_selected_outcome | known_1303_selected_date | known_1303_selected_outcome |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| prev20_next_close_ma60_gt_ma120 | next_trading_day_close | 756 | 48.5237 | 9.4901 | 90.5099 | 5.3604 | 1.1897 | 20251209 | mature_failure |  |  |
-| prev20_ma60_gt_ma120 | trigger_date_close | 993 | 63.7356 | 8.0698 | 91.9302 | 5.7075 | 0.7921 | 20251209 | mature_failure | 20260527 | strict_success |
-| prev20_kdj_bullish_not_extreme | trigger_date_close | 1349 | 86.5854 | 6.7675 | 93.2325 | 3.3676 | -0.9252 | 20251209 | mature_failure |  |  |
-| prev20_next_close_kdj_bullish | next_trading_day_close | 1085 | 69.6406 | 6.7269 | 93.2731 | 2.5148 | -0.9641 | 20251209 | mature_failure |  |  |
-| prev20_next_close_obv_above_ma20 | next_trading_day_close | 1197 | 76.8293 | 6.6368 | 93.3632 | 2.2608 | -0.9592 | 20251209 | mature_failure |  |  |
-| prev20_next_close_continuation | next_trading_day_close | 1249 | 80.1669 | 6.4157 | 93.5843 | 2.1233 | -1.1322 | 20251209 | mature_failure |  |  |
-| prev20_next_close_volume_ge1_5 | next_trading_day_close | 1039 | 66.6881 | 6.3808 | 93.6192 | 2.0344 | -1.293 | 20251209 | mature_failure |  |  |
-| prev20_next_close_market_bull | next_trading_day_close | 1202 | 77.1502 | 6.2555 | 93.7445 | 2.0518 | -1.12 | 20251209 | mature_failure |  |  |
-| prev20_revenue_lag_0_14 | trigger_date_close | 1187 | 76.1874 | 6.1818 | 93.8182 | 3.1593 | -0.779 | 20251223 | mature_failure | 20260527 | strict_success |
-| prev20_solid_red_candle | trigger_date_close | 1359 | 87.2272 | 6.166 | 93.834 | 2.763 | -1.462 | 20251212 | mature_failure | 20260527 | strict_success |
-| prev20_next_close_holds_breakout | next_trading_day_close | 1384 | 88.8318 | 6.091 | 93.909 | 2.4385 | -0.9667 | 20251209 | mature_failure |  |  |
-| source_first_close_above_prev20_reference | trigger_date_close | 1460 | 93.7099 | 5.7622 | 94.2378 | 2.645 | -1.4599 | 20251209 | mature_failure | 20260527 | strict_success |
-| first_close_cross_prev60 | trigger_date_close | 1062 | 68.1643 | 5.6818 | 94.3182 | 2.3065 | -2.0821 | 20260112 | mature_failure | 20260527 | strict_success |
-| prev20_obv_above_ma20 | trigger_date_close | 1425 | 91.4634 | 5.6604 | 94.3396 | 2.6696 | -1.0676 | 20251209 | mature_failure | 20260527 | strict_success |
-| first_close_cross_prev20 | trigger_date_close | 1456 | 93.4531 | 5.6369 | 94.3631 | 2.6068 | -1.4493 | 20251209 | mature_failure | 20260527 | strict_success |
-| prev20_close_above_ma20_ema23 | trigger_date_close | 1453 | 93.2606 | 5.5026 | 94.4974 | 2.6957 | -1.462 | 20251209 | mature_failure | 20260527 | strict_success |
-| prev20_return20_0_25 | trigger_date_close | 1435 | 92.1053 | 5.4978 | 94.5022 | 2.4362 | -1.492 | 20251209 | mature_failure | 20260527 | strict_success |
-| prev20_market_bull | trigger_date_close | 1421 | 91.2067 | 5.3144 | 94.6856 | 2.4151 | -1.4934 | 20251209 | mature_failure | 20260527 | strict_success |
-| prev20_volume_ge1_5 | trigger_date_close | 1327 | 85.1733 | 5.1178 | 94.8822 | 2.1722 | -1.7241 | 20251209 | mature_failure | 20260527 | strict_success |
-| prev20_next_close_tdcc_high | next_trading_day_close | 366 | 23.4917 | 5.0388 | 94.9612 | 1.8844 | -0.7235 | 20260518 | strict_success |  |  |
-| prev20_volume_ge2 | trigger_date_close | 1222 | 78.4339 | 5.0265 | 94.9735 | 1.9882 | -1.7361 | 20251212 | mature_failure |  |  |
-| first_close_cross_prev40 | trigger_date_close | 1244 | 79.846 | 4.8458 | 95.1542 | 1.4481 | -1.6018 | 20251212 | mature_failure | 20260527 | strict_success |
-| prev20_tdcc_high_thresholds_up | trigger_date_close | 571 | 36.6496 | 4.8309 | 95.1691 | 2.2439 | 0.0 | 20260518 | strict_success | 20260527 | strict_success |
-| prev20_tdcc_consecutive_up_ge1 | trigger_date_close | 700 | 44.9294 | 4.6555 | 95.3445 | 2.3883 | 0.0 | 20260518 | strict_success | 20260527 | strict_success |
-| prev20_revenue_lag_61_90 | trigger_date_close | 342 | 21.9512 | 4.5775 | 95.4225 | 0.2181 | -2.367 |  |  |  |  |
-| prev20_revenue_lag_31_60 | trigger_date_close | 601 | 38.5751 | 3.8938 | 96.1062 | 1.8507 | -1.2924 |  |  |  |  |
-| prev20_range23_le15 | trigger_date_close | 1216 | 78.0488 | 3.8394 | 96.1606 | 1.6876 | -1.4745 |  |  |  |  |
-| prev20_revenue_lag_15_30 | trigger_date_close | 806 | 51.733 | 3.6048 | 96.3952 | 1.9099 | -1.3 | 20251209 | mature_failure |  |  |
-| prev20_revenue_lag_91_126 | trigger_date_close | 171 | 10.9756 | 3.1496 | 96.8504 | -0.0659 | -2.2059 |  |  |  |  |
+| prev20_next_close_ma60_gt_ma120 | next_trading_day_close | 771 | 49.5183 | 8.6111 | 91.3889 | 4.9119 | 0.9195 | 20251209 | mature_failure |  |  |
+| prev20_ma60_gt_ma120 | trigger_date_close | 1001 | 64.2903 | 7.2589 | 92.7411 | 5.2088 | 0.0 | 20251209 | mature_failure | 20260527 | strict_success |
+| prev20_next_close_kdj_bullish | next_trading_day_close | 1090 | 70.0064 | 6.9069 | 93.0931 | 2.3095 | -1.2903 | 20251209 | mature_failure |  |  |
+| prev20_kdj_bullish_not_extreme | trigger_date_close | 1349 | 86.641 | 6.5287 | 93.4713 | 3.1392 | -0.9741 | 20251209 | mature_failure |  |  |
+| prev20_next_close_obv_above_ma20 | next_trading_day_close | 1203 | 77.264 | 6.512 | 93.488 | 2.6909 | -1.1295 | 20251209 | mature_failure |  |  |
+| prev20_next_close_volume_ge1_5 | next_trading_day_close | 1047 | 67.2447 | 6.4315 | 93.5685 | 2.4257 | -1.3444 | 20251209 | mature_failure |  |  |
+| prev20_next_close_continuation | next_trading_day_close | 1251 | 80.3468 | 6.4048 | 93.5952 | 2.5375 | -1.2402 | 20251209 | mature_failure |  |  |
+| prev20_next_close_market_bull | next_trading_day_close | 1204 | 77.3282 | 6.2445 | 93.7555 | 2.4247 | -1.2407 | 20251209 | mature_failure |  |  |
+| prev20_revenue_lag_0_14 | trigger_date_close | 1182 | 75.9152 | 6.21 | 93.79 | 3.7069 | -0.7194 | 20251223 | mature_failure | 20260527 | strict_success |
+| prev20_solid_red_candle | trigger_date_close | 1358 | 87.219 | 6.1709 | 93.8291 | 2.6005 | -1.4642 | 20251212 | mature_failure | 20260527 | strict_success |
+| prev20_next_close_holds_breakout | next_trading_day_close | 1383 | 88.8247 | 6.0185 | 93.9815 | 2.7406 | -1.0101 | 20251209 | mature_failure |  |  |
+| source_first_close_above_prev20_reference | trigger_date_close | 1459 | 93.7058 | 5.7664 | 94.2336 | 2.9828 | -1.3342 | 20251209 | mature_failure | 20260527 | strict_success |
+| prev20_obv_above_ma20 | trigger_date_close | 1424 | 91.4579 | 5.6647 | 94.3353 | 2.992 | -1.0257 | 20251209 | mature_failure | 20260527 | strict_success |
+| first_close_cross_prev20 | trigger_date_close | 1455 | 93.4489 | 5.641 | 94.359 | 2.9203 | -1.3225 | 20251209 | mature_failure | 20260527 | strict_success |
+| first_close_cross_prev60 | trigger_date_close | 1071 | 68.7861 | 5.5102 | 94.4898 | 2.1192 | -2.0016 | 20260112 | mature_failure | 20260527 | strict_success |
+| prev20_close_above_ma20_ema23 | trigger_date_close | 1453 | 93.3205 | 5.5026 | 94.4974 | 2.4966 | -1.4035 | 20251209 | mature_failure | 20260527 | strict_success |
+| prev20_return20_0_25 | trigger_date_close | 1434 | 92.1002 | 5.5019 | 94.4981 | 2.7657 | -1.473 | 20251209 | mature_failure | 20260527 | strict_success |
+| prev20_market_bull | trigger_date_close | 1419 | 91.1368 | 5.3223 | 94.6777 | 2.748 | -1.4108 | 20251209 | mature_failure | 20260527 | strict_success |
+| prev20_volume_ge2 | trigger_date_close | 1222 | 78.4843 | 5.1146 | 94.8854 | 2.4279 | -1.6303 | 20251212 | mature_failure |  |  |
+| prev20_volume_ge1_5 | trigger_date_close | 1325 | 85.0996 | 5.0448 | 94.9552 | 2.4468 | -1.6092 | 20251209 | mature_failure | 20260527 | strict_success |
+| prev20_next_close_tdcc_high | next_trading_day_close | 367 | 23.571 | 5.0193 | 94.9807 | 1.8673 | -0.7557 | 20260518 | strict_success |  |  |
+| first_close_cross_prev40 | trigger_date_close | 1247 | 80.0899 | 4.9123 | 95.0877 | 1.6194 | -1.4061 | 20251212 | mature_failure | 20260527 | strict_success |
+| prev20_tdcc_high_thresholds_up | trigger_date_close | 572 | 36.7373 | 4.8193 | 95.1807 | 2.2087 | 0.0 | 20260518 | strict_success | 20260527 | strict_success |
+| prev20_tdcc_consecutive_up_ge1 | trigger_date_close | 701 | 45.0225 | 4.6468 | 95.3532 | 2.361 | -0.0705 | 20260518 | strict_success | 20260527 | strict_success |
+| prev20_revenue_lag_61_90 | trigger_date_close | 347 | 22.2864 | 4.5139 | 95.4861 | 0.1074 | -2.3933 |  |  |  |  |
+| prev20_revenue_lag_15_30 | trigger_date_close | 814 | 52.28 | 3.836 | 96.164 | 1.8912 | -1.2744 | 20251209 | mature_failure |  |  |
+| prev20_range23_le15 | trigger_date_close | 1213 | 77.9062 | 3.762 | 96.238 | 1.591 | -1.473 |  |  |  |  |
+| prev20_revenue_lag_31_60 | trigger_date_close | 597 | 38.343 | 3.7433 | 96.2567 | 1.652 | -1.4628 |  |  |  |  |
+| prev20_revenue_lag_91_126 | trigger_date_close | 175 | 11.2396 | 3.0534 | 96.9466 | 0.7449 | -1.8722 |  |  |  |  |
 
 ## 成功與失敗事件的特徵差異
 
 | feature_id | feature_family | success_observed_count | failure_observed_count | success_hit_rate_pct | failure_hit_rate_pct | success_minus_failure_hit_rate_pct_points | strict_success_share_when_feature_hit_pct |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| breakout_prev60 | breakout | 343 | 1292 | 53.3528 | 16.3313 | 37.0215 | 46.4467 |
-| breakout_prev40 | breakout | 343 | 1292 | 65.8892 | 28.87 | 37.0192 | 37.7295 |
-| ma60_gt_ma120 | technical | 343 | 1292 | 69.3878 | 36.9969 | 32.3909 | 33.2402 |
-| position120_high_gt75 | price_position | 333 | 1108 | 66.3664 | 37.6354 | 28.731 | 34.6395 |
-| next_close_continuation | close_confirmation | 343 | 1292 | 59.7668 | 42.8793 | 16.8875 | 27.0092 |
-| next_close_holds_breakout | close_confirmation | 343 | 1292 | 84.5481 | 73.452 | 11.0961 | 23.406 |
-| rsi14_ge60 | technical | 342 | 1191 | 77.7778 | 67.0865 | 10.6913 | 24.9765 |
-| revenue_cumulative_ge30 | monthly_revenue | 343 | 1292 | 39.3586 | 33.3591 | 5.9995 | 23.8516 |
-| solid_red_candle | candle | 343 | 1292 | 68.5131 | 62.6935 | 5.8196 | 22.488 |
-| obv_above_ma20 | technical | 343 | 1291 | 95.3353 | 89.8528 | 5.4825 | 21.9906 |
-| revenue_latest_ge50 | monthly_revenue | 343 | 1292 | 27.6968 | 23.6068 | 4.09 | 23.75 |
-| revenue_lag_31_60 | revenue_freshness | 343 | 1292 | 13.9942 | 10.5263 | 3.4679 | 26.087 |
-| revenue_lag_61_90 | revenue_freshness | 343 | 1292 | 4.6647 | 1.548 | 3.1167 | 44.4444 |
-| revenue_two_month_yoy_ge15 | monthly_revenue | 343 | 1285 | 49.2711 | 46.3813 | 2.8898 | 22.0915 |
-| market_correction_or_high_risk | market_regime_risk | 343 | 1292 | 9.621 | 6.8885 | 2.7325 | 27.0492 |
-| kdj_bullish_not_extreme | technical | 343 | 1211 | 69.0962 | 66.3914 | 2.7048 | 22.7666 |
-| volume_ge1_5 | volume | 343 | 1292 | 67.3469 | 65.0155 | 2.3314 | 21.5686 |
-| revenue_lag_91_126 | revenue_freshness | 343 | 1292 | 2.0408 | 0.2322 | 1.8086 | 70.0 |
-| revenue_lag_15_30 | revenue_freshness | 343 | 1292 | 20.4082 | 19.4272 | 0.981 | 21.8069 |
-| macd_hist_gt0 | technical | 326 | 979 | 95.092 | 95.097 | -0.005 | 24.9799 |
-| close_above_ma20_ema23 | technical | 343 | 1292 | 99.1254 | 99.226 | -0.1006 | 20.9618 |
-| volume_ge2 | volume | 343 | 1292 | 50.1458 | 51.4706 | -1.3248 | 20.5496 |
-| kdj_j_ge100 | technical_risk | 343 | 1211 | 28.2799 | 30.4707 | -2.1908 | 20.8155 |
-| market_bull | market_regime | 343 | 1292 | 90.379 | 93.1115 | -2.7325 | 20.4891 |
-| revenue_lag_0_14 | revenue_freshness | 343 | 1292 | 58.8921 | 68.2663 | -9.3742 | 18.6347 |
-| rsi14_40_70 | technical | 342 | 1191 | 67.5439 | 79.2611 | -11.7172 | 19.6596 |
-| return20_0_25 | price_momentum | 343 | 1292 | 85.1312 | 97.0588 | -11.9276 | 18.8875 |
-| position120_mid_40_75 | price_position | 333 | 1108 | 24.024 | 36.3718 | -12.3478 | 16.5631 |
+| breakout_prev60 | breakout | 339 | 1291 | 54.2773 | 17.1185 | 37.1588 | 45.4321 |
+| breakout_prev40 | breakout | 339 | 1291 | 66.9617 | 30.2866 | 36.6751 | 36.7314 |
+| ma60_gt_ma120 | technical | 339 | 1291 | 69.0265 | 39.1944 | 29.8321 | 31.6216 |
+| position120_high_gt75 | price_position | 337 | 1168 | 67.9525 | 40.411 | 27.5415 | 32.6676 |
+| next_close_continuation | close_confirmation | 339 | 1291 | 60.177 | 43.7645 | 16.4125 | 26.528 |
+| next_close_holds_breakout | close_confirmation | 339 | 1291 | 84.6608 | 72.9667 | 11.6941 | 23.3523 |
+| rsi14_ge60 | technical | 338 | 1204 | 77.5148 | 68.1894 | 9.3254 | 24.1921 |
+| revenue_cumulative_ge30 | monthly_revenue | 339 | 1291 | 39.823 | 33.3075 | 6.5155 | 23.8938 |
+| solid_red_candle | candle | 339 | 1291 | 69.6165 | 63.5167 | 6.0998 | 22.3485 |
+| revenue_latest_ge50 | monthly_revenue | 339 | 1291 | 28.6136 | 23.8575 | 4.7561 | 23.9506 |
+| obv_above_ma20 | technical | 339 | 1290 | 95.2802 | 91.3953 | 3.8849 | 21.5047 |
+| revenue_lag_31_60 | revenue_freshness | 339 | 1291 | 13.8643 | 10.3796 | 3.4847 | 25.9669 |
+| revenue_two_month_yoy_ge15 | monthly_revenue | 339 | 1284 | 49.8525 | 46.6511 | 3.2014 | 22.0052 |
+| market_correction_or_high_risk | market_regime_risk | 339 | 1291 | 9.7345 | 6.6615 | 3.073 | 27.7311 |
+| revenue_lag_61_90 | revenue_freshness | 339 | 1291 | 4.4248 | 1.6266 | 2.7982 | 41.6667 |
+| volume_ge1_5 | volume | 339 | 1291 | 67.5516 | 65.4531 | 2.0985 | 21.3222 |
+| kdj_bullish_not_extreme | technical | 338 | 1223 | 68.9349 | 67.4571 | 1.4778 | 22.0227 |
+| revenue_lag_91_126 | revenue_freshness | 339 | 1291 | 1.7699 | 0.3098 | 1.4601 | 60.0 |
+| revenue_lag_15_30 | revenue_freshness | 339 | 1291 | 20.944 | 19.907 | 1.037 | 21.6463 |
+| macd_hist_gt0 | technical | 323 | 1030 | 94.4272 | 94.2718 | 0.1554 | 23.9028 |
+| close_above_ma20_ema23 | technical | 339 | 1291 | 99.41 | 99.6127 | -0.2027 | 20.764 |
+| kdj_j_ge100 | technical_risk | 338 | 1223 | 28.6982 | 29.5176 | -0.8194 | 21.179 |
+| volume_ge2 | volume | 339 | 1291 | 50.1475 | 51.433 | -1.2855 | 20.3837 |
+| market_bull | market_regime | 339 | 1291 | 90.2655 | 93.3385 | -3.073 | 20.2515 |
+| revenue_lag_0_14 | revenue_freshness | 339 | 1291 | 58.9971 | 67.7769 | -8.7798 | 18.6047 |
+| return20_0_25 | price_momentum | 339 | 1291 | 84.6608 | 97.0565 | -12.3957 | 18.6364 |
+| position120_mid_40_75 | price_position | 337 | 1168 | 22.2552 | 34.6747 | -12.4195 | 15.625 |
+| rsi14_40_70 | technical | 338 | 1204 | 66.568 | 79.7342 | -13.1662 | 18.9873 |
+| position120_low_le40 | price_position | 337 | 1168 | 9.7923 | 24.9144 | -15.1221 | 10.1852 |
 | tdcc_high_thresholds_up | tdcc | 95 | 193 | 29.4737 | 45.0777 | -15.604 | 24.3478 |
-| position120_low_le40 | price_position | 333 | 1108 | 9.6096 | 25.9928 | -16.3832 | 10.0 |
 | tdcc_consecutive_up_ge1 | tdcc | 95 | 193 | 38.9474 | 55.4404 | -16.493 | 25.6944 |
-| range23_le15 | price_shape | 343 | 1292 | 45.7726 | 75.4644 | -29.6918 | 13.8693 |
+| range23_le15 | price_shape | 339 | 1291 | 45.1327 | 75.0581 | -29.9254 | 13.6364 |
 
 ## 指定案例
 
@@ -100,6 +100,8 @@
 
 | stock_id | stock_name | entry_date | fixed_exit_date | fixed_d20_return_pct | path_trading_row_count | max_abs_raw_close_return_1d_pct | max_abs_analysis_open_gap_pct | price_resolution_ids_in_path | bottom_level_price_path_result | review_disposition |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 8291 | 尚茂 | 20260429 | 20260527 | 503.4913 | 20 | 10.0 | 10.0 |  | no_single_day_scale_break_observed | unresolved_review_candidate_retained_in_primary_not_classified_as_anomaly |
+| 8291 | 尚茂 | 20260428 | 20260526 | 502.7397 | 20 | 10.0 | 10.0 |  | no_single_day_scale_break_observed | unresolved_review_candidate_retained_in_primary_not_classified_as_anomaly |
 | 5386 | 青雲 | 20260202 | 20260311 | 220.603 | 20 | 10.0 | 10.0 |  | no_single_day_scale_break_observed | unresolved_review_candidate_retained_in_primary_not_classified_as_anomaly |
 | 5386 | 青雲 | 20260203 | 20260312 | 167.4419 | 20 | 10.0 | 10.0 |  | no_single_day_scale_break_observed | unresolved_review_candidate_retained_in_primary_not_classified_as_anomaly |
 | 6949 | 沛爾生醫-創 | 20250728 | 20250822 | 134.8348 | 20 | 10.0 | 9.9609 |  | no_single_day_scale_break_observed | unresolved_review_candidate_retained_in_primary_not_classified_as_anomaly |
@@ -125,7 +127,7 @@
 | 1714 | 和桐 | 20260605 | 20260703 | 88.0165 | 20 | 10.0 | 10.0 |  | no_single_day_scale_break_observed | unresolved_review_candidate_retained_in_primary_not_classified_as_anomaly |
 | 4973 | 廣穎電通 | 20260508 | 20260604 | 86.8365 | 20 | 9.9398 | 9.9042 |  | no_single_day_scale_break_observed | unresolved_review_candidate_retained_in_primary_not_classified_as_anomaly |
 | 2337 | 旺宏 | 20251223 | 20260121 | 86.0406 | 20 | 10.0 | 9.9193 |  | no_single_day_scale_break_observed | unresolved_review_candidate_retained_in_primary_not_classified_as_anomaly |
-| 6515 | 穎崴 | 20250828 | 20251001 | 85.3061 | 20 | 10.0 | 4.0 |  | no_single_day_scale_break_observed | unresolved_review_candidate_retained_in_primary_not_classified_as_anomaly |
+| 3339 | 泰谷 | 20260324 | 20260422 | 85.5034 | 20 | 10.0 | 9.882 |  | no_single_day_scale_break_observed | unresolved_review_candidate_retained_in_primary_not_classified_as_anomaly |
 | 3114 | 好德 | 20260525 | 20260622 | 84.5343 | 20 | 9.9754 | 9.9476 |  | no_single_day_scale_break_observed | unresolved_review_candidate_retained_in_primary_not_classified_as_anomaly |
 | 8033 | 雷虎 | 20250725 | 20250821 | 83.5714 | 20 | 9.9281 | 5.9569 |  | no_single_day_scale_break_observed | unresolved_review_candidate_retained_in_primary_not_classified_as_anomaly |
 | 3229 | 晟鈦 | 20260415 | 20260513 | 82.4847 | 20 | 9.9387 | 9.9875 |  | no_single_day_scale_break_observed | unresolved_review_candidate_retained_in_primary_not_classified_as_anomaly |
