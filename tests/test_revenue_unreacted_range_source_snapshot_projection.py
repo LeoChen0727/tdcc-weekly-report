@@ -60,6 +60,39 @@ import build_revenue_unreacted_range_research as orchestrator  # noqa: E402
 import revenue_unreacted_range_source_snapshot_projection as projection  # noqa: E402
 
 
+SOURCE_FIRST_EXACT7_PATH_CONSTANTS = (
+    "V1_ARCHIVE_MANIFEST_CSV",
+    "V1_ARCHIVE_DETAIL_CSV",
+    "V1_ARCHIVE_EVIDENCE_CSV",
+    "V2_MANIFEST_CSV",
+    "V2_PROJECTED_DETAIL_CSV",
+    "V1_V2_DIFF_SUMMARY_CSV",
+    "V1_V2_DIFF_DETAIL_CSV",
+)
+
+
+def _bind_source_first_exact7_paths(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> dict[str, Path]:
+    paths: dict[str, Path] = {}
+    for name in SOURCE_FIRST_EXACT7_PATH_CONSTANTS:
+        path = tmp_path / f"{name}.csv"
+        paths[name] = path
+        monkeypatch.setattr(source_first_validator, name, path)
+    return paths
+
+
+def _bind_source_first_audit_outputs(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    for name in ("LATEST_CSV", "DETAIL_CSV", "LATEST_MD"):
+        path = tmp_path / f"{name}.txt"
+        path.write_text("present\n", encoding="utf-8")
+        monkeypatch.setattr(source_first_validator, name, path)
+
+
 def _business_payload(stock_id: str, revenue_period: str) -> dict[str, object]:
     return {
         "stock_id": stock_id,
@@ -1183,6 +1216,153 @@ def test_v2_manifest_is_predecessor_bound_and_pending_supersede(
     drift.to_csv(manifest_path, index=False)
     with pytest.raises(RuntimeError, match="lineage_change_reason drift"):
         source_first_validator._pinned_monthly_revenue_lineage(manifest_path)
+
+
+def test_source_first_default_manifest_routes_zero_to_canonical_and_full_to_v2(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    exact7 = _bind_source_first_exact7_paths(tmp_path, monkeypatch)
+    canonical_manifest = tmp_path / "canonical_v1_manifest.csv"
+    canonical_manifest.write_text("projection_version\nv1\n", encoding="utf-8")
+    monkeypatch.setattr(
+        source_first_validator,
+        "SOURCE_SNAPSHOT_PROJECTION_MANIFEST_CSV",
+        canonical_manifest,
+    )
+    _bind_source_first_audit_outputs(tmp_path, monkeypatch)
+    routed: list[Path] = []
+
+    def stop_after_binding(path: Path):
+        routed.append(path)
+        raise RuntimeError("routing probe stop")
+
+    monkeypatch.setattr(
+        source_first_validator,
+        "_pinned_monthly_revenue_lineage",
+        stop_after_binding,
+    )
+
+    assert source_first_validator.validate() == [
+        "source-first current monthly revenue lineage cannot be verified: "
+        "routing probe stop"
+    ]
+    assert routed == [canonical_manifest]
+
+    for path in exact7.values():
+        path.write_text("present\n", encoding="utf-8")
+    assert source_first_validator.validate() == [
+        "source-first current monthly revenue lineage cannot be verified: "
+        "routing probe stop"
+    ]
+    assert routed == [canonical_manifest, exact7["V2_MANIFEST_CSV"]]
+
+
+def test_source_first_default_manifest_partial_exact7_fails_without_replay(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    exact7 = _bind_source_first_exact7_paths(tmp_path, monkeypatch)
+    exact7["V1_ARCHIVE_MANIFEST_CSV"].write_text("present\n", encoding="utf-8")
+    monkeypatch.setattr(
+        source_first_validator,
+        "_pinned_monthly_revenue_lineage",
+        lambda *_args, **_kwargs: pytest.fail("partial exact7 replayed canonical v1"),
+    )
+    monkeypatch.setattr(
+        source_first_validator,
+        "_current_monthly_revenue_lineage",
+        lambda *_args, **_kwargs: pytest.fail("partial exact7 replayed current source"),
+    )
+
+    errors = source_first_validator.validate()
+
+    assert len(errors) == 6
+    assert all(
+        "versioned source projection exact7 closure is incomplete or unsafe"
+        in error
+        for error in errors
+    )
+    assert all("missing_or_non_file" in error for error in errors)
+
+
+@pytest.mark.parametrize(
+    ("unsafe_kind", "expected_state"),
+    (
+        ("missing", "missing_or_non_file"),
+        ("directory", "directory_not_allowed"),
+        ("symlink", "symlink_not_allowed"),
+    ),
+)
+def test_source_first_default_manifest_rejects_nonfile_exact7_entries(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    unsafe_kind: str,
+    expected_state: str,
+) -> None:
+    exact7 = _bind_source_first_exact7_paths(tmp_path, monkeypatch)
+    for path in exact7.values():
+        path.write_text("present\n", encoding="utf-8")
+    unsafe_path = exact7["V2_PROJECTED_DETAIL_CSV"]
+    if unsafe_kind == "missing":
+        unsafe_path.unlink()
+    elif unsafe_kind == "directory":
+        unsafe_path.unlink()
+        unsafe_path.mkdir()
+    else:
+        original_is_symlink = Path.is_symlink
+        monkeypatch.setattr(
+            Path,
+            "is_symlink",
+            lambda path: path == unsafe_path or original_is_symlink(path),
+        )
+
+    routed, errors = source_first_validator._resolve_default_projection_manifest_path()
+
+    assert routed is None
+    assert len(errors) == 1
+    assert str(unsafe_path) in errors[0]
+    assert expected_state in errors[0]
+
+
+def test_source_first_projection_manifest_cli_default_and_explicit_bypass(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    explicit_manifest = tmp_path / "explicit_manifest.csv"
+    explicit_manifest.write_text("projection_version\nv1\n", encoding="utf-8")
+    assert source_first_validator.parse_args([]).projection_manifest is None
+    assert source_first_validator.parse_args(
+        ["--projection-manifest", str(explicit_manifest)]
+    ).projection_manifest == explicit_manifest
+
+    exact7 = _bind_source_first_exact7_paths(tmp_path, monkeypatch)
+    exact7["V1_ARCHIVE_MANIFEST_CSV"].write_text("present\n", encoding="utf-8")
+    _bind_source_first_audit_outputs(tmp_path, monkeypatch)
+    routed: list[Path] = []
+    monkeypatch.setattr(
+        source_first_validator,
+        "_resolve_default_projection_manifest_path",
+        lambda: pytest.fail("explicit projection manifest entered default routing"),
+    )
+
+    def stop_after_binding(path: Path):
+        routed.append(path)
+        raise RuntimeError("explicit routing probe stop")
+
+    monkeypatch.setattr(
+        source_first_validator,
+        "_pinned_monthly_revenue_lineage",
+        stop_after_binding,
+    )
+
+    assert source_first_validator.validate(
+        projection_manifest_path=explicit_manifest
+    ) == [
+        "source-first current monthly revenue lineage cannot be verified: "
+        "explicit routing probe stop"
+    ]
+    assert routed == [explicit_manifest]
 
 
 def test_archive_v1_preserves_canonical_raw_bytes(

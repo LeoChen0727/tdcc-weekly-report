@@ -74,6 +74,7 @@ BACKGROUND_REGISTRY_FULL_COMMAND = (
 COMMIT_STEP_MARKER = "- name: Commit research and backtest outputs"
 DEPLOY_KEY_STEP_NAME = "Require production artifact write deploy key"
 CHECKOUT_STEP_NAME = "Checkout repository"
+CHECKOUT_FETCH_DEPTH = "2"
 SETUP_PYTHON_STEP_NAME = "Set up Python"
 SYNC_TARGET_BRANCH_STEP_NAME = "Synchronize target branch before research"
 SYNC_TARGET_BRANCH_COMMAND = 'git pull --ff-only origin "$TARGET_BRANCH"'
@@ -98,12 +99,16 @@ REVENUE_BUILD_STEP_IF = (
     "${{ github.event.inputs.run_revenue_unreacted_range_research == 'true' && "
     "github.event.inputs."
     "run_revenue_unreacted_range_source_snapshot_projection_rebaseline_only "
+    "!= 'true' && github.event.inputs."
+    "run_revenue_unreacted_range_source_snapshot_projection_candidate_repair_only "
     "!= 'true' }}"
 )
 PUBLISH_STEP_NAME = "Commit research and backtest outputs"
 PUBLISH_STEP_IF = (
     "${{ env.ANY_RESEARCH_SELECTED == 'true' && github.event.inputs."
     "run_revenue_unreacted_range_source_snapshot_projection_rebaseline_only "
+    "!= 'true' && github.event.inputs."
+    "run_revenue_unreacted_range_source_snapshot_projection_candidate_repair_only "
     "!= 'true' }}"
 )
 POST_RUN_STEP_NAME = "Validate post-run model research contracts"
@@ -122,15 +127,15 @@ PY_YAML_INSTALL_RUN_SHA256 = (
     "145c750702e5fc9867791c24a695b1e8becf145aa9fd0bf0d23069d07f5a46bf"
 )
 RESEARCH_PREFLIGHT_RUN_SHA256 = (
-    "45ab36b3f17169e99c7716fbc731da1e67fce584e91c2d9d22c8a7bc9e6e4101"
+    "7a5e783c0f87fecd4ada7fe64a48a56aa8900315b77351b72d790d6ddb126e68"
 )
 RESEARCH_PREFLIGHT_STEP_SHA256 = (
-    "e75792c3a7a59ab75539eee1c3e778fcd9265672c4c82fe2e6fa61baaf53410d"
+    "c0550bfdbc776c4377481ef2cbc7061b3d720621ae479cea4e6ccbcbc6e39438"
 )
 FORBIDDEN_SHELL_ENV_KEYS = frozenset({"BASH_ENV", "ENV"})
 FORBIDDEN_CROSS_STEP_STATE_CHANNELS = frozenset({"GITHUB_ENV", "GITHUB_PATH"})
 RESEARCH_JOB_STEP_CONTROL_SHA256 = (
-    "8133410d03e8feace9a754272863df5921fc2f2c8b1c1e788839949ec2cb97a6"
+    "ccca42eec03f04f3dfb9ad608a2a267685815b54543839cf79f541a94d59ed0a"
 )
 BOOTSTRAP_STEP_NAMES = (
     DEPLOY_KEY_STEP_NAME,
@@ -147,7 +152,7 @@ BOOTSTRAP_STEP_MAPPING_SHA256 = {
         "87663af618fc1daf8ab346c87fb92d2b9374fbe8930ba1b53e44f4454aaded58"
     ),
     CHECKOUT_STEP_NAME: (
-        "7d4d5ec7462d8e4df2cd796a58a387f3614b1575840422ee57e14d7d83d862af"
+        "91b50d21141d82e199db7c155f372e5e38f87f47234cd911630cac53e3aabb98"
     ),
     SETUP_PYTHON_STEP_NAME: (
         "7fa739195c725b3acaf8e302eebec0ee273401d322190d801eddd6ae96275a83"
@@ -166,6 +171,9 @@ REVENUE_PROJECTION_CHAIN_STAGE_INPUT = (
 )
 REVENUE_PROJECTION_REBASELINE_STAGE_INPUT = (
     "run_revenue_unreacted_range_source_snapshot_projection_rebaseline_only"
+)
+REVENUE_PROJECTION_CANDIDATE_REPAIR_STAGE_INPUT = (
+    "run_revenue_unreacted_range_source_snapshot_projection_candidate_repair_only"
 )
 REVENUE_FORWARD_HOLDOUT_STAGE_INPUT = (
     "run_revenue_unreacted_range_forward_holdout_only"
@@ -221,6 +229,15 @@ REVENUE_PROJECTION_REBASELINE_AUDIT_COMMANDS = (
     "python scripts/build_model_data_independence_audit.py",
     "python scripts/validate_model_data_independence.py",
 )
+REVENUE_PROJECTION_CANDIDATE_REPAIR_COMMAND = (
+    "python scripts/build_model_data_independence_audit.py "
+    "--normalize-existing-csv-line-endings-only"
+)
+REVENUE_PROJECTION_CANDIDATE_REPAIR_VALIDATOR_COMMANDS = (
+    "python scripts/validate_revenue_unreacted_range_source_first_condition_audit.py",
+    "python scripts/validate_revenue_unreacted_range_source_snapshot_projection.py",
+    "python scripts/validate_model_data_independence.py",
+)
 REVENUE_PROJECTION_REBASELINE_COMMANDS = (
     REVENUE_PROJECTION_REBASELINE_BUILD_COMMAND,
     *REVENUE_PROJECTION_REBASELINE_VALIDATOR_COMMANDS,
@@ -273,6 +290,54 @@ REVENUE_PROJECTION_REBASELINE_COMMIT_STEP_NAME = (
 REVENUE_PROJECTION_REBASELINE_IDENTITY_FILE = (
     "$RUNNER_TEMP/revenue-rebaseline-exact17-validated-identity.tsv"
 )
+REVENUE_PROJECTION_CANDIDATE_REPAIR_STEP_IF = (
+    "${{ github.event.inputs.run_revenue_unreacted_range_research == 'true' && "
+    "github.event.inputs."
+    "run_revenue_unreacted_range_source_snapshot_projection_candidate_repair_only "
+    "== 'true' && github.ref_type == 'branch' && github.ref_name != 'main' }}"
+)
+REVENUE_PROJECTION_CANDIDATE_REPAIR_COMMAND_STEPS = (
+    (
+        "Normalize revenue projection candidate audit CSV line endings",
+        REVENUE_PROJECTION_CANDIDATE_REPAIR_COMMAND,
+    ),
+    (
+        "Validate repaired revenue projection candidate audit CSVs",
+        "\n".join(REVENUE_PROJECTION_CANDIDATE_REPAIR_VALIDATOR_COMMANDS),
+    ),
+)
+REVENUE_PROJECTION_CANDIDATE_REPAIR_CLOSURE_STEP_NAME = (
+    "Validate revenue candidate repair exact2 artifact closure"
+)
+REVENUE_PROJECTION_CANDIDATE_REPAIR_STAGE_STEP_NAME = (
+    "Stage validated revenue candidate repair exact2 artifacts"
+)
+REVENUE_PROJECTION_CANDIDATE_REPAIR_COMMIT_STEP_NAME = (
+    "Commit validated revenue candidate repair exact2 artifacts"
+)
+REVENUE_PROJECTION_CANDIDATE_REPAIR_IDENTITY_FILE = (
+    "$RUNNER_TEMP/revenue-candidate-repair-exact2-validated-identity.tsv"
+)
+REVENUE_PROJECTION_CANDIDATE_REPAIR_BASE_COMMIT = (
+    "4bcaa07123ef4a000c187dc2f19caefbec4cf252"
+)
+REVENUE_PROJECTION_CANDIDATE_REPAIR_RUN_ATTEMPT_GUARD = (
+    'if [[ "$REVENUE_SOURCE_PROJECTION_CANDIDATE_REPAIR_ONLY" == "true" && '
+    '"$GITHUB_RUN_ATTEMPT" != "1" ]]; then'
+)
+REVENUE_PROJECTION_CANDIDATE_REPAIR_DISPATCH_HEAD_GUARD = (
+    'if [[ "$REVENUE_SOURCE_PROJECTION_CANDIDATE_REPAIR_ONLY" == "true" && '
+    '"$(git rev-parse HEAD)" != "$GITHUB_SHA" ]]; then'
+)
+REVENUE_PROJECTION_CANDIDATE_REPAIR_CODE_PARENT_GUARD = (
+    'if [[ "$REVENUE_SOURCE_PROJECTION_CANDIDATE_REPAIR_ONLY" == "true" && '
+    '"$(git rev-parse HEAD^)" != '
+    f'"{REVENUE_PROJECTION_CANDIDATE_REPAIR_BASE_COMMIT}" ]]; then'
+)
+REVENUE_PROJECTION_CANDIDATE_REPAIR_EXPECTED_BYTES = "41824"
+REVENUE_PROJECTION_CANDIDATE_REPAIR_EXPECTED_SHA256 = (
+    "2ff7e9c3140f0540ffb0238ba0937893b03de39bd2bcd5d84559b53a649685be"
+)
 # These digests lock the two non-trivial shell contracts without relying on
 # substring presence. They are recalculated only when the audited shell bodies
 # intentionally change alongside focused mutation coverage.
@@ -283,10 +348,19 @@ REVENUE_PROJECTION_REBASELINE_CLOSURE_RUN_SHA256 = (
     "8e043894954deef5bc7ca49b20d5566ca4f8791562193c9f89b79846635ef7b5"
 )
 REVENUE_PROJECTION_REBASELINE_STAGE_RUN_SHA256 = (
-    "1d6c87508d8ae8e96cb07627bdd2941b07fd605d798b9438de35074228d5a59f"
+    "65481f4d297be68035faf9e59b2b39645b8235a5635d42da09bdfcb9c6055c9b"
 )
 REVENUE_PROJECTION_REBASELINE_COMMIT_RUN_SHA256 = (
     "a0d11a38ce1ff41e9c7a23551f080a4a68000a1d2b47931322c47693746d69f3"
+)
+REVENUE_PROJECTION_CANDIDATE_REPAIR_CLOSURE_RUN_SHA256 = (
+    "2f1dc9b0d65b713f8639dd1dd1f5c46b28eb4ead4f4825456e22cfbeac3e6d5a"
+)
+REVENUE_PROJECTION_CANDIDATE_REPAIR_STAGE_RUN_SHA256 = (
+    "eaf19f5f5a95c7d4488af06950ea39ccb0c7a6e108050eb1e7ce995dcaedc985"
+)
+REVENUE_PROJECTION_CANDIDATE_REPAIR_COMMIT_RUN_SHA256 = (
+    "4cc4bbb5ef0c70529bf41e81c5f17fb40944e26114112ae6e1f40a29192389f4"
 )
 REVENUE_PROJECTION_REBASELINE_V1_CANONICAL_PATHS = (
     "output/latest/research_backtest/"
@@ -350,24 +424,39 @@ REVENUE_PROJECTION_REBASELINE_ALLOWED_PATHS = (
     "docs/latest/model_data_independence_audit_latest.csv",
     "docs/latest/model_data_independence_audit_latest.md",
 )
+REVENUE_PROJECTION_CANDIDATE_REPAIR_PATHS = (
+    "output/latest/model_data_independence_audit_latest.csv",
+    "docs/latest/model_data_independence_audit_latest.csv",
+)
+REVENUE_PROJECTION_CANDIDATE_REPAIR_UNCHANGED_PATHS = tuple(
+    path
+    for path in REVENUE_PROJECTION_REBASELINE_ALLOWED_PATHS
+    if path not in REVENUE_PROJECTION_CANDIDATE_REPAIR_PATHS
+)
+REVENUE_PROJECTION_REBASELINE_LITERAL_GIT_ADD = "git add -- \\\n  " + " \\\n  ".join(
+    REVENUE_PROJECTION_REBASELINE_ALLOWED_PATHS
+)
+REVENUE_PROJECTION_CANDIDATE_REPAIR_LITERAL_GIT_ADD = "git add -- \\\n  " + " \\\n  ".join(
+    REVENUE_PROJECTION_CANDIDATE_REPAIR_PATHS
+)
 REVENUE_PROJECTION_REBASELINE_EXPECTED_PATH_OCCURRENCES = (
-    4,
-    4,
-    3,
+    7,
+    7,
     6,
-    5,
-    4,
-    4,
-    3,
-    3,
-    3,
-    3,
-    3,
-    3,
-    3,
-    3,
-    3,
-    3,
+    9,
+    8,
+    7,
+    7,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    8,
+    6,
+    8,
+    6,
 )
 REVENUE_PROJECTION_REBASELINE_FORBIDDEN_COMPANION_INPUTS = (
     "run_market_timing",
@@ -403,6 +492,9 @@ PUBLISH_PUSH = 'git push origin "HEAD:$TARGET_BRANCH"'
 REVENUE_REBASELINE_COMMIT = (
     'git commit -m "Update revenue projection v2 rebaseline candidate artifacts"'
 )
+REVENUE_CANDIDATE_REPAIR_COMMIT = (
+    'git commit -m "Repair revenue projection v2 candidate audit CSV line endings"'
+)
 PUBLISH_FAIL_CLOSED_SHELL = "set -euo pipefail"
 PUBLISH_NO_CHANGE_GUARD = (
     "if git diff --cached --quiet; then\n"
@@ -411,7 +503,7 @@ PUBLISH_NO_CHANGE_GUARD = (
     "fi"
 )
 FORBIDDEN_PUBLISH_REWRITE = re.compile(
-    r"^git\s+(?:pull|fetch|rebase|merge|reset|checkout|switch)\b"
+    r"^git\s+(?:pull|fetch|rebase|merge|reset|checkout|switch)(?:\s|$)"
 )
 
 
@@ -906,10 +998,37 @@ def validate_unmasked_step_contracts(text: str, blocks: list[str]) -> list[str]:
             )
             for step_name, _command in REVENUE_PROJECTION_REBASELINE_COMMAND_STEPS
         ),
+        *(
+            (
+                step_name,
+                REVENUE_PROJECTION_CANDIDATE_REPAIR_STEP_IF,
+                step_name,
+                {"name", "if", "run"},
+            )
+            for step_name, _command in REVENUE_PROJECTION_CANDIDATE_REPAIR_COMMAND_STEPS
+        ),
         (
             POST_RUN_STEP_NAME,
             POST_RUN_STEP_IF,
             "post-run research validation",
+            {"name", "if", "run"},
+        ),
+        (
+            REVENUE_PROJECTION_CANDIDATE_REPAIR_CLOSURE_STEP_NAME,
+            REVENUE_PROJECTION_CANDIDATE_REPAIR_STEP_IF,
+            "revenue candidate repair exact2 closure",
+            {"name", "if", "run"},
+        ),
+        (
+            REVENUE_PROJECTION_CANDIDATE_REPAIR_STAGE_STEP_NAME,
+            REVENUE_PROJECTION_CANDIDATE_REPAIR_STEP_IF,
+            "revenue candidate repair exact2 staging",
+            {"name", "if", "run"},
+        ),
+        (
+            REVENUE_PROJECTION_CANDIDATE_REPAIR_COMMIT_STEP_NAME,
+            REVENUE_PROJECTION_CANDIDATE_REPAIR_STEP_IF,
+            "revenue candidate repair exact2 commit",
             {"name", "if", "run"},
         ),
         (
@@ -982,6 +1101,16 @@ def validate_unmasked_step_contracts(text: str, blocks: list[str]) -> list[str]:
                 "research rebaseline bootstrap step must retain its exact semantic "
                 f"metadata and body: step={step_name!r}"
             )
+
+    checkout_step = critical_steps_by_name.get(CHECKOUT_STEP_NAME)
+    checkout_with = checkout_step.get("with") if checkout_step is not None else None
+    if not isinstance(checkout_with, dict) or (
+        checkout_with.get("fetch-depth") != CHECKOUT_FETCH_DEPTH
+    ):
+        errors.append(
+            "repository checkout must retain fetch-depth 2 so the authorized repair "
+            "parent and pinned baseline blobs are available"
+        )
 
     observed_bootstrap_names = tuple(
         step.get("name") for step in semantic_steps[: len(BOOTSTRAP_STEP_NAMES)]
@@ -1074,6 +1203,31 @@ def validate_unmasked_step_contracts(text: str, blocks: list[str]) -> list[str]:
                 f"expected={command!r} actual={_semantic_step_run_body(step)!r}"
             )
 
+    repair_command_step_names = [
+        step_name
+        for step_name, _command in REVENUE_PROJECTION_CANDIDATE_REPAIR_COMMAND_STEPS
+    ]
+    repair_command_indices = [
+        next(index for index, candidate in enumerate(semantic_steps) if candidate is step)
+        for step_name in repair_command_step_names
+        if (step := critical_steps_by_name.get(step_name)) is not None
+    ]
+    if len(repair_command_indices) == len(repair_command_step_names):
+        if repair_command_indices != list(
+            range(repair_command_indices[0], repair_command_indices[0] + len(repair_command_indices))
+        ):
+            errors.append(
+                "revenue candidate repair normalize and validator steps must be "
+                "contiguous and retain their exact order"
+            )
+    for step_name, command in REVENUE_PROJECTION_CANDIDATE_REPAIR_COMMAND_STEPS:
+        step = critical_steps_by_name.get(step_name)
+        if step is not None and _semantic_step_run_body(step) != command:
+            errors.append(
+                f"{step_name} must be an unconditional single-command fail-closed step: "
+                f"expected={command!r} actual={_semantic_step_run_body(step)!r}"
+            )
+
     for step_name, expected_digest, label in (
         (
             REVENUE_PROJECTION_REBASELINE_PRECHECK_STEP_NAME,
@@ -1118,8 +1272,35 @@ def validate_unmasked_step_contracts(text: str, blocks: list[str]) -> list[str]:
             "fail-closed contract"
         )
 
+    for step_name, expected_digest, label in (
+        (
+            REVENUE_PROJECTION_CANDIDATE_REPAIR_CLOSURE_STEP_NAME,
+            REVENUE_PROJECTION_CANDIDATE_REPAIR_CLOSURE_RUN_SHA256,
+            "exact2 validated identity closure",
+        ),
+        (
+            REVENUE_PROJECTION_CANDIDATE_REPAIR_STAGE_STEP_NAME,
+            REVENUE_PROJECTION_CANDIDATE_REPAIR_STAGE_RUN_SHA256,
+            "exact2 working and index identity staging",
+        ),
+        (
+            REVENUE_PROJECTION_CANDIDATE_REPAIR_COMMIT_STEP_NAME,
+            REVENUE_PROJECTION_CANDIDATE_REPAIR_COMMIT_RUN_SHA256,
+            "exact2 dedicated commit",
+        ),
+    ):
+        step = critical_steps_by_name.get(step_name)
+        if step is not None and _semantic_step_run_sha256(step) != expected_digest:
+            errors.append(
+                f"revenue candidate repair {label} run body drifted from its exact "
+                "fail-closed contract"
+            )
+
     closure_chain_names = (
         POST_RUN_STEP_NAME,
+        REVENUE_PROJECTION_CANDIDATE_REPAIR_CLOSURE_STEP_NAME,
+        REVENUE_PROJECTION_CANDIDATE_REPAIR_STAGE_STEP_NAME,
+        REVENUE_PROJECTION_CANDIDATE_REPAIR_COMMIT_STEP_NAME,
         REVENUE_PROJECTION_REBASELINE_CLOSURE_STEP_NAME,
         REVENUE_PROJECTION_REBASELINE_STAGE_STEP_NAME,
         REVENUE_PROJECTION_REBASELINE_COMMIT_STEP_NAME,
@@ -1140,8 +1321,9 @@ def validate_unmasked_step_contracts(text: str, blocks: list[str]) -> list[str]:
             )
         ):
             errors.append(
-                "post-run validators, exact17 closure, staging, dedicated commit, and "
-                "rebaseline-skipped generic publish must be consecutive in exact order"
+                "post-run validators, repair exact2 closure chain, rebaseline exact17 "
+                "closure chain, and mode-skipped generic publish must be consecutive "
+                "in exact order"
             )
     return errors
 
@@ -1165,29 +1347,38 @@ def validate_publish_block(text: str, blocks: list[str]) -> list[str]:
         blocks,
         REVENUE_PROJECTION_REBASELINE_COMMIT_STEP_NAME,
     )
-    expected_publish_blocks = [*rebaseline_blocks, *generic_blocks]
+    repair_blocks = _named_step_blocks(
+        blocks,
+        REVENUE_PROJECTION_CANDIDATE_REPAIR_COMMIT_STEP_NAME,
+    )
+    expected_publish_blocks = [*repair_blocks, *rebaseline_blocks, *generic_blocks]
     if (
         len(generic_blocks) != 1
         or len(rebaseline_blocks) != 1
-        or len(observed_publish_blocks) != 2
+        or len(repair_blocks) != 1
+        or len(observed_publish_blocks) != 3
         or {id(block) for block in observed_publish_blocks}
         != {id(block) for block in expected_publish_blocks}
     ):
         errors.append(
-            "research workflow must contain exactly one generic and one dedicated "
-            "rebaseline commit/push block: "
+            "research workflow must contain exactly one generic, one candidate repair, "
+            "and one rebaseline commit/push block: "
             f"observed={len(observed_publish_blocks)}"
         )
 
-    if commit_lines != [REVENUE_REBASELINE_COMMIT, PUBLISH_COMMIT]:
+    if commit_lines != [
+        REVENUE_CANDIDATE_REPAIR_COMMIT,
+        REVENUE_REBASELINE_COMMIT,
+        PUBLISH_COMMIT,
+    ]:
         errors.append(
-            "research workflow commit commands must be exact dedicated rebaseline then "
-            f"generic commits: observed={commit_lines}"
+            "research workflow commit commands must be exact candidate repair, "
+            f"rebaseline, then generic commits: observed={commit_lines}"
         )
 
-    if push_lines != [PUBLISH_PUSH, PUBLISH_PUSH]:
+    if push_lines != [PUBLISH_PUSH, PUBLISH_PUSH, PUBLISH_PUSH]:
         errors.append(
-            "research workflow must contain exactly two direct fail-closed pushes: "
+            "research workflow must contain exactly three direct fail-closed pushes: "
             f"observed={push_lines}"
         )
 
@@ -1241,6 +1432,30 @@ def validate_publish_block(text: str, blocks: list[str]) -> list[str]:
                 errors.append(
                     "revenue rebaseline dedicated commit block must not rewrite or "
                     f"resynchronize the target branch: {line}"
+                )
+
+    if len(repair_blocks) == 1:
+        repair_block = _normalized_shell_block(repair_blocks[0])
+        if PUBLISH_FAIL_CLOSED_SHELL not in repair_block:
+            errors.append(
+                "revenue candidate repair dedicated commit block missing fail-closed shell mode"
+            )
+        if "set +e" in repair_block:
+            errors.append(
+                "revenue candidate repair dedicated commit block must not mask shell failure"
+            )
+        commit_position = repair_block.find(REVENUE_CANDIDATE_REPAIR_COMMIT)
+        push_position = repair_block.find(PUBLISH_PUSH)
+        if not (0 <= commit_position < push_position):
+            errors.append(
+                "revenue candidate repair dedicated publish order must be exact commit "
+                "then direct push"
+            )
+        for line in repair_block.splitlines():
+            if FORBIDDEN_PUBLISH_REWRITE.match(line):
+                errors.append(
+                    "revenue candidate repair dedicated commit block must not rewrite "
+                    f"or resynchronize the target branch: {line}"
                 )
 
     return errors
@@ -1366,6 +1581,7 @@ def validate_workflow_text(
         REVENUE_FORWARD_HOLDOUT_STAGE_INPUT,
         REVENUE_PROJECTION_CHAIN_STAGE_INPUT,
         REVENUE_PROJECTION_REBASELINE_STAGE_INPUT,
+        REVENUE_PROJECTION_CANDIDATE_REPAIR_STAGE_INPUT,
     )
     for stage_input in stage_inputs:
         if defaults.get(stage_input) != "false":
@@ -1387,11 +1603,15 @@ def validate_workflow_text(
                 "revenue stage mode must require the primary revenue workflow input "
                 f"instead of selecting research independently: {stage_input}"
             )
-    if input_types.get(REVENUE_PROJECTION_REBASELINE_STAGE_INPUT) != "boolean":
-        errors.append(
-            "revenue source projection rebaseline stage input must use workflow_dispatch "
-            "type boolean"
-        )
+    for stage_input in (
+        REVENUE_PROJECTION_REBASELINE_STAGE_INPUT,
+        REVENUE_PROJECTION_CANDIDATE_REPAIR_STAGE_INPUT,
+    ):
+        if input_types.get(stage_input) != "boolean":
+            errors.append(
+                "revenue source projection protected stage input must use "
+                f"workflow_dispatch type boolean: {stage_input}"
+            )
 
     holdout_requires_primary = (
         'if [[ "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" && '
@@ -1408,7 +1628,8 @@ def validate_workflow_text(
     rebaseline_exclusive_modes = (
         'if [[ "$REVENUE_SOURCE_PROJECTION_REBASELINE_ONLY" == "true" && '
         '( "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" || '
-        '"$REVENUE_SOURCE_PROJECTION_CHAIN_ONLY" == "true" ) ]]; then'
+        '"$REVENUE_SOURCE_PROJECTION_CHAIN_ONLY" == "true" || '
+        '"$REVENUE_SOURCE_PROJECTION_CANDIDATE_REPAIR_ONLY" == "true" ) ]]; then'
     )
     rebaseline_forbids_other_research = (
         'if [[ "$REVENUE_SOURCE_PROJECTION_REBASELINE_ONLY" == "true" && '
@@ -1416,6 +1637,25 @@ def validate_workflow_text(
     )
     rebaseline_requires_branch = (
         'if [[ "$REVENUE_SOURCE_PROJECTION_REBASELINE_ONLY" == "true" && '
+        '( "$REVENUE_REBASELINE_REF_TYPE" != "branch" || '
+        '"$TARGET_BRANCH" == "main" ) ]]; then'
+    )
+    repair_requires_primary = (
+        'if [[ "$REVENUE_SOURCE_PROJECTION_CANDIDATE_REPAIR_ONLY" == "true" && '
+        '"$REVENUE_RESEARCH_ENABLED" != "true" ]]; then'
+    )
+    repair_exclusive_modes = (
+        'if [[ "$REVENUE_SOURCE_PROJECTION_CANDIDATE_REPAIR_ONLY" == "true" && '
+        '( "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" || '
+        '"$REVENUE_SOURCE_PROJECTION_CHAIN_ONLY" == "true" || '
+        '"$REVENUE_SOURCE_PROJECTION_REBASELINE_ONLY" == "true" ) ]]; then'
+    )
+    repair_forbids_other_research = (
+        'if [[ "$REVENUE_SOURCE_PROJECTION_CANDIDATE_REPAIR_ONLY" == "true" && '
+        '"$REVENUE_REBASELINE_OTHER_RESEARCH_SELECTED" == "true" ]]; then'
+    )
+    repair_requires_branch = (
+        'if [[ "$REVENUE_SOURCE_PROJECTION_CANDIDATE_REPAIR_ONLY" == "true" && '
         '( "$REVENUE_REBASELINE_REF_TYPE" != "branch" || '
         '"$TARGET_BRANCH" == "main" ) ]]; then'
     )
@@ -1448,6 +1688,41 @@ def validate_workflow_text(
         errors.append(
             "revenue source projection rebaseline stage must require a non-main "
             "branch ref"
+        )
+    if repair_requires_primary not in text:
+        errors.append(
+            "revenue source projection candidate repair must fail closed unless the "
+            "primary revenue workflow input is selected"
+        )
+    if repair_exclusive_modes not in text:
+        errors.append(
+            "revenue source projection candidate repair must be mutually exclusive "
+            "with forward holdout, projection chain, and rebaseline modes"
+        )
+    if repair_forbids_other_research not in text:
+        errors.append(
+            "revenue source projection candidate repair must forbid every other "
+            "research input"
+        )
+    if repair_requires_branch not in text:
+        errors.append(
+            "revenue source projection candidate repair must require a non-main "
+            "branch ref"
+        )
+    if REVENUE_PROJECTION_CANDIDATE_REPAIR_RUN_ATTEMPT_GUARD not in text:
+        errors.append(
+            "revenue source projection candidate repair must reject workflow retry "
+            "attempts"
+        )
+    if REVENUE_PROJECTION_CANDIDATE_REPAIR_DISPATCH_HEAD_GUARD not in text:
+        errors.append(
+            "revenue source projection candidate repair must require synchronized "
+            "HEAD to equal the dispatch SHA"
+        )
+    if REVENUE_PROJECTION_CANDIDATE_REPAIR_CODE_PARENT_GUARD not in text:
+        errors.append(
+            "revenue source projection candidate repair must require the single "
+            "authorized code commit above its pinned baseline"
         )
     other_research_line = next(
         (
@@ -1577,6 +1852,18 @@ def validate_workflow_text(
         blocks,
         REVENUE_PROJECTION_REBASELINE_COMMIT_STEP_NAME,
     )
+    repair_closure_blocks = _named_step_blocks(
+        blocks,
+        REVENUE_PROJECTION_CANDIDATE_REPAIR_CLOSURE_STEP_NAME,
+    )
+    repair_stage_blocks = _named_step_blocks(
+        blocks,
+        REVENUE_PROJECTION_CANDIDATE_REPAIR_STAGE_STEP_NAME,
+    )
+    repair_commit_blocks = _named_step_blocks(
+        blocks,
+        REVENUE_PROJECTION_CANDIDATE_REPAIR_COMMIT_STEP_NAME,
+    )
     if len(rebaseline_precheck_blocks) == 1:
         precheck_body = _step_run_body(rebaseline_precheck_blocks[0]) or ""
         for path, expected_bytes, expected_sha256 in (
@@ -1644,7 +1931,7 @@ def validate_workflow_text(
             "Revenue rebaseline artifact drifted after validation",
             "git status --porcelain=v1 --untracked-files=all",
             "Revenue source snapshot projection rebaseline pre-stage worktree-path allowlist mismatch",
-            'git add -- "${REVENUE_REBASELINE_ALLOWED_PATHS[@]}"',
+            REVENUE_PROJECTION_REBASELINE_LITERAL_GIT_ADD,
             "mapfile -t REVENUE_REBASELINE_STAGED_PATHS < <(git diff --cached --name-only)",
             "Revenue source snapshot projection rebaseline staged-path allowlist mismatch",
             'staged_bytes="$(git cat-file -s ":$path")"',
@@ -1659,6 +1946,11 @@ def validate_workflow_text(
                 "revenue source projection rebaseline staging step lacks fail-closed "
                 "working/index identity closure: "
                 f"missing={missing_identity_snippets}"
+            )
+        if 'git add -- "${REVENUE_REBASELINE_ALLOWED_PATHS[@]}"' in stage_body:
+            errors.append(
+                "revenue source projection rebaseline staging must use seventeen "
+                "literal pathspecs, never an array-expanded git add"
             )
         observed_positions = [stage_body.find(snippet) for snippet in identity_snippets]
         if not missing_identity_snippets and observed_positions != sorted(observed_positions):
@@ -1741,6 +2033,179 @@ def validate_workflow_text(
                 "revenue rebaseline dedicated commit must not modify or stage after "
                 "index identity validation"
             )
+
+    if len(repair_closure_blocks) == 1:
+        repair_closure_body = _step_run_body(repair_closure_blocks[0]) or ""
+        repair_paths = _shell_array_values(
+            repair_closure_body,
+            "REVENUE_CANDIDATE_REPAIR_PATHS",
+        )
+        unchanged_paths = _shell_array_values(
+            repair_closure_body,
+            "REVENUE_CANDIDATE_REPAIR_UNCHANGED_PATHS",
+        )
+        if repair_paths != REVENUE_PROJECTION_CANDIDATE_REPAIR_PATHS:
+            errors.append(
+                "revenue candidate repair closure must guard the exact two CSV mirrors: "
+                f"actual={list(repair_paths)}"
+            )
+        if unchanged_paths != REVENUE_PROJECTION_CANDIDATE_REPAIR_UNCHANGED_PATHS:
+            errors.append(
+                "revenue candidate repair closure must preserve the other exact15 "
+                f"rebaseline artifacts: actual={list(unchanged_paths)}"
+            )
+        repair_closure_snippets = (
+            f'test "$(cat "{POST_RUN_SENTINEL}")" = "pass"',
+            f'REVENUE_CANDIDATE_REPAIR_BASE_COMMIT="{REVENUE_PROJECTION_CANDIDATE_REPAIR_BASE_COMMIT}"',
+            'git merge-base --is-ancestor "$REVENUE_CANDIDATE_REPAIR_BASE_COMMIT" HEAD',
+            f'REVENUE_CANDIDATE_REPAIR_EXPECTED_BYTES="{REVENUE_PROJECTION_CANDIDATE_REPAIR_EXPECTED_BYTES}"',
+            f'REVENUE_CANDIDATE_REPAIR_EXPECTED_SHA256="{REVENUE_PROJECTION_CANDIDATE_REPAIR_EXPECTED_SHA256}"',
+            "git status --porcelain=v1 --untracked-files=all",
+            "Revenue candidate repair changed-path exact2 allowlist mismatch",
+            'base_blob="$(git rev-parse "$REVENUE_CANDIDATE_REPAIR_BASE_COMMIT:$path")"',
+            'head_blob="$(git rev-parse "HEAD:$path")"',
+            'index_blob="$(git rev-parse ":$path")"',
+            'working_blob="$(git hash-object "$path")"',
+            "Revenue candidate repair changed a protected exact15 artifact",
+            'cmp -s "${REVENUE_CANDIDATE_REPAIR_PATHS[0]}" "${REVENUE_CANDIDATE_REPAIR_PATHS[1]}"',
+            f'REVENUE_CANDIDATE_REPAIR_IDENTITY_FILE="{REVENUE_PROJECTION_CANDIDATE_REPAIR_IDENTITY_FILE}"',
+            "Revenue candidate repair postimage identity mismatch",
+            '>> "$REVENUE_CANDIDATE_REPAIR_IDENTITY_FILE"',
+        )
+        missing = [
+            snippet
+            for snippet in repair_closure_snippets
+            if snippet not in repair_closure_body
+        ]
+        if missing:
+            errors.append(
+                "revenue candidate repair exact2 closure is incomplete: "
+                f"missing={missing}"
+            )
+
+    if len(repair_stage_blocks) == 1:
+        repair_stage_body = _step_run_body(repair_stage_blocks[0]) or ""
+        repair_stage_paths = _shell_array_values(
+            repair_stage_body,
+            "REVENUE_CANDIDATE_REPAIR_PATHS",
+        )
+        if repair_stage_paths != REVENUE_PROJECTION_CANDIDATE_REPAIR_PATHS:
+            errors.append(
+                "revenue candidate repair staging must contain only its exact two CSV "
+                f"paths: actual={list(repair_stage_paths)}"
+            )
+        repair_stage_snippets = (
+            f'REVENUE_CANDIDATE_REPAIR_EXPECTED_BYTES="{REVENUE_PROJECTION_CANDIDATE_REPAIR_EXPECTED_BYTES}"',
+            f'REVENUE_CANDIDATE_REPAIR_EXPECTED_SHA256="{REVENUE_PROJECTION_CANDIDATE_REPAIR_EXPECTED_SHA256}"',
+            f'REVENUE_CANDIDATE_REPAIR_IDENTITY_FILE="{REVENUE_PROJECTION_CANDIDATE_REPAIR_IDENTITY_FILE}"',
+            "Revenue candidate repair pre-stage changed-path allowlist mismatch",
+            'working_bytes="$(wc -c < "$path"',
+            'working_sha256="$(sha256sum "$path"',
+            REVENUE_PROJECTION_CANDIDATE_REPAIR_LITERAL_GIT_ADD,
+            "mapfile -t REVENUE_CANDIDATE_REPAIR_STAGED_PATHS < <(git diff --cached --name-only)",
+            "Revenue candidate repair staged-path exact2 allowlist mismatch",
+            "if ! git diff --quiet; then",
+            'staged_bytes="$(git cat-file -s ":$path")"',
+            'staged_sha256="$(git show ":$path" | sha256sum',
+            "Revenue candidate repair staged artifact identity mismatch",
+        )
+        missing = [
+            snippet
+            for snippet in repair_stage_snippets
+            if snippet not in repair_stage_body
+        ]
+        if missing:
+            errors.append(
+                "revenue candidate repair staging lacks exact working/index identity "
+                f"closure: missing={missing}"
+            )
+        if 'git add -- "${REVENUE_CANDIDATE_REPAIR_PATHS[@]}"' in repair_stage_body:
+            errors.append(
+                "revenue candidate repair staging must use two literal pathspecs, "
+                "never an array-expanded git add"
+            )
+
+    if len(repair_commit_blocks) == 1:
+        repair_commit_body = _step_run_body(repair_commit_blocks[0]) or ""
+        repair_commit_paths = _shell_array_values(
+            repair_commit_body,
+            "REVENUE_CANDIDATE_REPAIR_PATHS",
+        )
+        repair_commit_unchanged_paths = _shell_array_values(
+            repair_commit_body,
+            "REVENUE_CANDIDATE_REPAIR_UNCHANGED_PATHS",
+        )
+        if repair_commit_paths != REVENUE_PROJECTION_CANDIDATE_REPAIR_PATHS:
+            errors.append(
+                "revenue candidate repair commit must contain only its exact two CSV "
+                f"paths: actual={list(repair_commit_paths)}"
+            )
+        if (
+            repair_commit_unchanged_paths
+            != REVENUE_PROJECTION_CANDIDATE_REPAIR_UNCHANGED_PATHS
+        ):
+            errors.append(
+                "revenue candidate repair commit must preserve the other exact15 "
+                f"rebaseline artifacts: actual={list(repair_commit_unchanged_paths)}"
+            )
+        repair_commit_snippets = (
+            PUBLISH_FAIL_CLOSED_SHELL,
+            f'REVENUE_CANDIDATE_REPAIR_BASE_COMMIT="{REVENUE_PROJECTION_CANDIDATE_REPAIR_BASE_COMMIT}"',
+            f'REVENUE_CANDIDATE_REPAIR_EXPECTED_BYTES="{REVENUE_PROJECTION_CANDIDATE_REPAIR_EXPECTED_BYTES}"',
+            f'REVENUE_CANDIDATE_REPAIR_EXPECTED_SHA256="{REVENUE_PROJECTION_CANDIDATE_REPAIR_EXPECTED_SHA256}"',
+            f'REVENUE_CANDIDATE_REPAIR_IDENTITY_FILE="{REVENUE_PROJECTION_CANDIDATE_REPAIR_IDENTITY_FILE}"',
+            "mapfile -t REVENUE_CANDIDATE_REPAIR_STAGED_PATHS < <(git diff --cached --name-only)",
+            "Revenue candidate repair pre-commit staged-path allowlist mismatch",
+            "if ! git diff --quiet; then",
+            "git ls-files --others --exclude-standard",
+            'REVENUE_CANDIDATE_REPAIR_PRE_COMMIT_HEAD="$(git rev-parse HEAD)"',
+            'staged_bytes="$(git cat-file -s ":$path")"',
+            'staged_sha256="$(git show ":$path" | sha256sum',
+            "Revenue candidate repair pre-commit staged artifact identity mismatch",
+            REVENUE_CANDIDATE_REPAIR_COMMIT,
+            'REVENUE_CANDIDATE_REPAIR_POST_COMMIT_HEAD="$(git rev-parse HEAD)"',
+            'git rev-parse "$REVENUE_CANDIDATE_REPAIR_POST_COMMIT_HEAD^"',
+            "git diff --name-only --no-renames",
+            "Revenue candidate repair committed-path exact2 allowlist mismatch",
+            'committed_bytes="$(git cat-file -s "$REVENUE_CANDIDATE_REPAIR_POST_COMMIT_HEAD:$path")"',
+            'committed_sha256="$(git show "$REVENUE_CANDIDATE_REPAIR_POST_COMMIT_HEAD:$path"',
+            "Revenue candidate repair committed artifact identity mismatch",
+            'committed_blob="$(git rev-parse "$REVENUE_CANDIDATE_REPAIR_POST_COMMIT_HEAD:$path")"',
+            "Revenue candidate repair commit changed a protected exact15 artifact",
+            "git status --porcelain=v1 --untracked-files=all",
+            "Revenue candidate repair worktree or index is not clean after commit",
+            PUBLISH_PUSH,
+        )
+        missing = [
+            snippet
+            for snippet in repair_commit_snippets
+            if snippet not in repair_commit_body
+        ]
+        if missing:
+            errors.append(
+                "revenue candidate repair dedicated commit lacks exact2 staged and "
+                f"post-commit identity closure: missing={missing}"
+            )
+        repair_commit_lines = [
+            line.strip()
+            for line in repair_commit_body.splitlines()
+            if line.strip()
+        ]
+        if f"done\n{REVENUE_CANDIDATE_REPAIR_COMMIT}" not in repair_commit_body:
+            errors.append(
+                "revenue candidate repair commit must be the next side effect after "
+                "its final pre-commit index identity loop"
+            )
+        if not repair_commit_lines or repair_commit_lines[-1] != PUBLISH_PUSH:
+            errors.append(
+                "revenue candidate repair direct push must be the final command"
+            )
+        if any(line.startswith("git add ") for line in repair_commit_lines):
+            errors.append(
+                "revenue candidate repair dedicated commit must not modify or stage "
+                "after index identity validation"
+            )
+
     for path, expected_count in zip(
         REVENUE_PROJECTION_REBASELINE_ALLOWED_PATHS,
         REVENUE_PROJECTION_REBASELINE_EXPECTED_PATH_OCCURRENCES,
@@ -1756,10 +2221,15 @@ def validate_workflow_text(
             "revenue source projection rebaseline identity file must be written once "
             "after validation and read by exact17 staging and dedicated commit"
         )
-    if text.count(POST_RUN_SENTINEL) != 2:
+    if text.count(REVENUE_PROJECTION_CANDIDATE_REPAIR_IDENTITY_FILE) != 3:
         errors.append(
-            "post-run validator sentinel must be written once and consumed once by the "
-            "final exact17 identity closure"
+            "revenue candidate repair identity file must be written once after "
+            "validation and read by exact2 staging and dedicated commit"
+        )
+    if text.count(POST_RUN_SENTINEL) != 3:
+        errors.append(
+            "post-run validator sentinel must be written once and consumed once by each "
+            "protected repair/rebaseline identity closure"
         )
 
     commit_step_name = COMMIT_STEP_MARKER.removeprefix("- name: ")

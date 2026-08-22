@@ -33,6 +33,36 @@ SOURCE_SNAPSHOT_PROJECTION_MANIFEST_CSV = (
     / "output/latest/research_backtest/"
     "revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv"
 )
+V1_ARCHIVE_MANIFEST_CSV = ROOT / (
+    "output/history/research/"
+    "revenue_unreacted_range_source_snapshot_projection_manifest_v1_20260731.csv"
+)
+V1_ARCHIVE_DETAIL_CSV = ROOT / (
+    "output/history/research/"
+    "revenue_unreacted_range_source_snapshot_projection_detail_v1_20260731.csv"
+)
+V1_ARCHIVE_EVIDENCE_CSV = ROOT / (
+    "output/history/research/"
+    "revenue_unreacted_range_source_snapshot_projection_archive_evidence_v1_20260731.csv"
+)
+V2_MANIFEST_CSV = ROOT / (
+    "output/history/research/"
+    "revenue_unreacted_range_source_snapshot_projection_manifest_v2_20260822.csv"
+)
+V2_PROJECTED_DETAIL_CSV = ROOT / (
+    "output/history/research/"
+    "revenue_unreacted_range_source_snapshot_projection_detail_v2_20260822.csv"
+)
+V1_V2_DIFF_SUMMARY_CSV = ROOT / (
+    "output/history/research/"
+    "revenue_unreacted_range_source_snapshot_projection_"
+    "v1_20260731_to_v2_20260822_diff_summary.csv"
+)
+V1_V2_DIFF_DETAIL_CSV = ROOT / (
+    "output/history/research/"
+    "revenue_unreacted_range_source_snapshot_projection_"
+    "v1_20260731_to_v2_20260822_diff_detail.csv"
+)
 SOURCE_SNAPSHOT_PROJECTION_ID = (
     "revenue_unreacted_range_source_snapshot_asof_20260713"
 )
@@ -104,6 +134,43 @@ def _is_sha256(value: object) -> bool:
     return len(text) == 64 and all(
         character in "0123456789abcdef" for character in text
     )
+
+
+def _versioned_source_projection_exact7_paths() -> tuple[Path, ...]:
+    return (
+        V1_ARCHIVE_MANIFEST_CSV,
+        V1_ARCHIVE_DETAIL_CSV,
+        V1_ARCHIVE_EVIDENCE_CSV,
+        V2_MANIFEST_CSV,
+        V2_PROJECTED_DETAIL_CSV,
+        V1_V2_DIFF_SUMMARY_CSV,
+        V1_V2_DIFF_DETAIL_CSV,
+    )
+
+
+def _resolve_default_projection_manifest_path() -> tuple[Path | None, list[str]]:
+    exact7 = _versioned_source_projection_exact7_paths()
+    closure_started = any(path.exists() or path.is_symlink() for path in exact7)
+    if not closure_started:
+        return SOURCE_SNAPSHOT_PROJECTION_MANIFEST_CSV, []
+
+    errors: list[str] = []
+    for path in exact7:
+        if path.is_symlink():
+            state = "symlink_not_allowed"
+        elif path.is_dir():
+            state = "directory_not_allowed"
+        elif not path.is_file():
+            state = "missing_or_non_file"
+        else:
+            continue
+        errors.append(
+            "versioned source projection exact7 closure is incomplete or unsafe: "
+            f"{path} ({state})"
+        )
+    if errors:
+        return None, errors
+    return V2_MANIFEST_CSV, []
 
 
 def _pinned_monthly_revenue_lineage(
@@ -282,8 +349,17 @@ def validate(
     *,
     revenue_path: Path = REVENUE_HISTORY_CSV,
     resolution_path: Path = MONTHLY_REVENUE_CROSS_MARKET_RESOLUTION_CSV,
-    projection_manifest_path: Path = SOURCE_SNAPSHOT_PROJECTION_MANIFEST_CSV,
+    projection_manifest_path: Path | None = None,
 ) -> list[str]:
+    if projection_manifest_path is None:
+        projection_manifest_path, routing_errors = (
+            _resolve_default_projection_manifest_path()
+        )
+        if routing_errors:
+            return routing_errors
+        if projection_manifest_path is None:
+            return ["default source projection manifest routing returned no path"]
+    projection_manifest_path = Path(projection_manifest_path)
     errors: list[str] = []
     for path in (LATEST_CSV, DETAIL_CSV, LATEST_MD):
         if not path.is_file():
@@ -668,14 +744,14 @@ def validate(
     return errors
 
 
-def parse_args() -> argparse.Namespace:
+def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Validate the revenue source-first condition audit."
     )
     parser.add_argument(
         "--projection-manifest",
         type=Path,
-        default=SOURCE_SNAPSHOT_PROJECTION_MANIFEST_CSV,
+        default=None,
     )
     parser.add_argument("--revenue-history", type=Path, default=REVENUE_HISTORY_CSV)
     parser.add_argument(
@@ -683,7 +759,7 @@ def parse_args() -> argparse.Namespace:
         type=Path,
         default=MONTHLY_REVENUE_CROSS_MARKET_RESOLUTION_CSV,
     )
-    return parser.parse_args()
+    return parser.parse_args(argv)
 
 
 def main() -> int:

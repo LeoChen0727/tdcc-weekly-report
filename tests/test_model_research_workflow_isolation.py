@@ -4,6 +4,7 @@ from dataclasses import replace
 
 import pytest
 
+from scripts import validate_apps_script_workflow_triggers as apps_validator
 from scripts import validate_model_research_workflow_isolation as validator
 
 
@@ -60,7 +61,8 @@ def test_research_publish_block_rejects_swallowed_commit_failure() -> None:
     errors = validator.validate_workflow_text(mutated, rows, producers)
 
     assert any(
-        "commit commands must be exact dedicated rebaseline then generic commits" in error
+        "commit commands must be exact candidate repair, rebaseline, then generic commits"
+        in error
         for error in errors
     )
 
@@ -1071,7 +1073,7 @@ def test_research_publish_block_rejects_retrying_rebase_push_helper() -> None:
     errors = validator.validate_workflow_text(mutated, rows, producers)
 
     assert any("must not retry or rebase" in error for error in errors)
-    assert any("exactly two direct fail-closed pushes" in error for error in errors)
+    assert any("exactly three direct fail-closed pushes" in error for error in errors)
 
 
 def test_research_publish_block_rejects_post_validation_branch_rewrite() -> None:
@@ -1119,7 +1121,7 @@ def test_research_publish_block_rejects_muted_direct_push_failure() -> None:
 
     errors = validator.validate_workflow_text(mutated, rows, producers)
 
-    assert any("exactly two direct fail-closed pushes" in error for error in errors)
+    assert any("exactly three direct fail-closed pushes" in error for error in errors)
 
 
 def test_research_workflow_rejects_duplicate_commit_push_block() -> None:
@@ -1133,9 +1135,12 @@ def test_research_workflow_rejects_duplicate_commit_push_block() -> None:
 
     errors = validator.validate_workflow_text(mutated, rows, producers)
 
-    assert any("exactly one generic and one dedicated" in error for error in errors)
+    assert any(
+        "exactly one generic, one candidate repair, and one rebaseline" in error
+        for error in errors
+    )
     assert any("commit commands must be exact" in error for error in errors)
-    assert any("exactly two direct fail-closed pushes" in error for error in errors)
+    assert any("exactly three direct fail-closed pushes" in error for error in errors)
 
 
 def test_revenue_step_rejects_another_model_producer() -> None:
@@ -1198,6 +1203,390 @@ def test_revenue_projection_rebaseline_stage_is_workflow_only_and_false_default(
     assert stage_input not in any_selected_line
     assert stage_input not in model_selected_line
     assert validator.validate_workflow_text(text, rows, producers) == []
+
+
+def test_revenue_projection_candidate_repair_is_workflow_only_and_false_default() -> None:
+    text, rows, producers = _inputs()
+    stage_input = validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_STAGE_INPUT
+
+    assert validator.workflow_input_defaults(text)[stage_input] == "false"
+    assert validator.workflow_input_types(text)[stage_input] == "boolean"
+    assert stage_input not in {row.workflow_input for row in rows}
+    any_selected_line = next(
+        line for line in text.splitlines() if "ANY_RESEARCH_SELECTED:" in line
+    )
+    model_selected_line = next(
+        line for line in text.splitlines() if "MODEL_RESEARCH_SELECTED:" in line
+    )
+    assert stage_input not in any_selected_line
+    assert stage_input not in model_selected_line
+    dispatch_row = apps_validator.load_research_dispatch_registry()[stage_input]
+    assert dispatch_row["activation_mode"] == "workflow_only"
+    assert dispatch_row["producer"] == "scripts/build_model_data_independence_audit.py"
+    assert validator.validate_workflow_text(text, rows, producers) == []
+
+
+def test_revenue_projection_candidate_repair_runs_only_exact_authorized_python() -> None:
+    text, rows, producers = _inputs()
+    mapping, yaml_errors = validator._semantic_workflow_mapping(text)
+    assert yaml_errors == []
+    assert mapping is not None
+    steps = mapping["jobs"][validator.RESEARCH_JOB_NAME]["steps"]
+    repair_steps = [
+        step
+        for step in steps
+        if step.get("if") == validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_STEP_IF
+    ]
+    assert [step["name"] for step in repair_steps] == [
+        *(
+            name
+            for name, _command in validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_COMMAND_STEPS
+        ),
+        validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_CLOSURE_STEP_NAME,
+        validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_STAGE_STEP_NAME,
+        validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_COMMIT_STEP_NAME,
+    ]
+    python_lines = tuple(
+        line.strip()
+        for step in repair_steps
+        for line in step["run"].splitlines()
+        if line.strip().startswith("python ")
+    )
+    assert python_lines == (
+        validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_COMMAND,
+        *validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_VALIDATOR_COMMANDS,
+    )
+    assert validator.validate_workflow_text(text, rows, producers) == []
+
+
+def test_revenue_projection_candidate_repair_skips_normal_build_and_publish() -> None:
+    text, rows, producers = _inputs()
+    candidate_condition = (
+        "github.event.inputs."
+        f"{validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_STAGE_INPUT} != 'true'"
+    )
+    assert candidate_condition in validator.REVENUE_BUILD_STEP_IF
+    assert candidate_condition in validator.PUBLISH_STEP_IF
+
+    for step_name, expected_if in (
+        (validator.REVENUE_BUILD_STEP_NAME, validator.REVENUE_BUILD_STEP_IF),
+        (validator.PUBLISH_STEP_NAME, validator.PUBLISH_STEP_IF),
+    ):
+        block = validator._named_step_blocks(validator.workflow_step_blocks(text), step_name)
+        assert len(block) == 1
+        assert f"        if: {expected_if}" in block[0]
+    assert validator.validate_workflow_text(text, rows, producers) == []
+
+
+@pytest.mark.parametrize(
+    ("step_name", "metadata"),
+    (
+        (
+            "Normalize revenue projection candidate audit CSV line endings",
+            "        continue-on-error: true\n",
+        ),
+        (
+            validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_STAGE_STEP_NAME,
+            "        shell: bash {0}\n",
+        ),
+        (
+            validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_COMMIT_STEP_NAME,
+            "        if: ${{ false }}\n",
+        ),
+    ),
+)
+def test_revenue_projection_candidate_repair_rejects_masking_metadata(
+    step_name: str,
+    metadata: str,
+) -> None:
+    text, rows, producers = _inputs()
+    marker = f"      - name: {step_name}\n"
+    mutated = text.replace(marker, marker + metadata, 1)
+
+    errors = validator.validate_workflow_text(mutated, rows, producers)
+
+    assert errors
+    assert any(
+        "metadata keys drifted" in error
+        or "step control plane drift" in error
+        or "fail-closed if condition" in error
+        or "duplicate semantic key" in error
+        for error in errors
+    )
+
+
+def test_revenue_projection_candidate_repair_guards_and_tail_order_are_exact() -> None:
+    text, rows, producers = _inputs()
+    guards = (
+        (
+            'if [[ "$REVENUE_SOURCE_PROJECTION_CANDIDATE_REPAIR_ONLY" == "true" && '
+            '"$REVENUE_RESEARCH_ENABLED" != "true" ]]; then',
+            "primary revenue workflow input",
+        ),
+        (
+            'if [[ "$REVENUE_SOURCE_PROJECTION_CANDIDATE_REPAIR_ONLY" == "true" && '
+            '( "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" || '
+            '"$REVENUE_SOURCE_PROJECTION_CHAIN_ONLY" == "true" || '
+            '"$REVENUE_SOURCE_PROJECTION_REBASELINE_ONLY" == "true" ) ]]; then',
+            "mutually exclusive",
+        ),
+        (
+            'if [[ "$REVENUE_SOURCE_PROJECTION_CANDIDATE_REPAIR_ONLY" == "true" && '
+            '"$REVENUE_REBASELINE_OTHER_RESEARCH_SELECTED" == "true" ]]; then',
+            "every other research input",
+        ),
+        (
+            'if [[ "$REVENUE_SOURCE_PROJECTION_CANDIDATE_REPAIR_ONLY" == "true" && '
+            '( "$REVENUE_REBASELINE_REF_TYPE" != "branch" || '
+            '"$TARGET_BRANCH" == "main" ) ]]; then',
+            "non-main branch ref",
+        ),
+        (
+            validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_RUN_ATTEMPT_GUARD,
+            "workflow retry attempts",
+        ),
+        (
+            validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_DISPATCH_HEAD_GUARD,
+            "dispatch SHA",
+        ),
+        (
+            validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_CODE_PARENT_GUARD,
+            "single authorized code commit",
+        ),
+    )
+    for guard, expected_error in guards:
+        assert guard in text
+        errors = validator.validate_workflow_text(text.replace(guard, "", 1), rows, producers)
+        assert any(expected_error in error for error in errors)
+
+    mapping, yaml_errors = validator._semantic_workflow_mapping(text)
+    assert yaml_errors == []
+    assert mapping is not None
+    names = [
+        step["name"]
+        for step in mapping["jobs"][validator.RESEARCH_JOB_NAME]["steps"]
+    ]
+    tail = (
+        validator.POST_RUN_STEP_NAME,
+        validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_CLOSURE_STEP_NAME,
+        validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_STAGE_STEP_NAME,
+        validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_COMMIT_STEP_NAME,
+        validator.REVENUE_PROJECTION_REBASELINE_CLOSURE_STEP_NAME,
+        validator.REVENUE_PROJECTION_REBASELINE_STAGE_STEP_NAME,
+        validator.REVENUE_PROJECTION_REBASELINE_COMMIT_STEP_NAME,
+        validator.PUBLISH_STEP_NAME,
+    )
+    start = names.index(tail[0])
+    assert tuple(names[start : start + len(tail)]) == tail
+
+
+def test_revenue_projection_candidate_repair_requires_two_commit_checkout() -> None:
+    text, rows, producers = _inputs()
+    exact = f"          fetch-depth: {validator.CHECKOUT_FETCH_DEPTH}\n"
+    assert exact in text
+
+    for replacement in ("          fetch-depth: 1\n", ""):
+        errors = validator.validate_workflow_text(
+            text.replace(exact, replacement, 1), rows, producers
+        )
+        assert any("checkout must retain fetch-depth 2" in error for error in errors)
+
+
+@pytest.mark.parametrize(
+    ("exact", "replacement", "expected_error"),
+    (
+        (
+            validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_RUN_ATTEMPT_GUARD,
+            validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_RUN_ATTEMPT_GUARD.replace(
+                '"$GITHUB_RUN_ATTEMPT"', '"2"'
+            ),
+            "workflow retry attempts",
+        ),
+        (
+            validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_DISPATCH_HEAD_GUARD,
+            validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_DISPATCH_HEAD_GUARD.replace(
+                '"$GITHUB_SHA"', '"0000000000000000000000000000000000000000"'
+            ),
+            "dispatch SHA",
+        ),
+        (
+            validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_CODE_PARENT_GUARD,
+            validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_CODE_PARENT_GUARD.replace(
+                validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_BASE_COMMIT,
+                "0000000000000000000000000000000000000000",
+            ),
+            "single authorized code commit",
+        ),
+    ),
+)
+def test_revenue_projection_candidate_repair_rejects_retry_or_head_identity_drift(
+    exact: str,
+    replacement: str,
+    expected_error: str,
+) -> None:
+    text, rows, producers = _inputs()
+    mutated = _replace_in_named_step(
+        text,
+        validator.RESEARCH_PREFLIGHT_STEP_NAME,
+        exact,
+        replacement,
+    )
+
+    errors = validator.validate_workflow_text(mutated, rows, producers)
+
+    assert any(expected_error in error for error in errors)
+
+
+def test_revenue_projection_candidate_repair_locks_exact2_and_exact15_identity() -> None:
+    text, rows, producers = _inputs()
+    blocks = validator.workflow_step_blocks(text)
+    closure = validator._step_run_body(
+        validator._named_step_blocks(
+            blocks,
+            validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_CLOSURE_STEP_NAME,
+        )[0]
+    )
+    stage = validator._step_run_body(
+        validator._named_step_blocks(
+            blocks,
+            validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_STAGE_STEP_NAME,
+        )[0]
+    )
+    commit = validator._step_run_body(
+        validator._named_step_blocks(
+            blocks,
+            validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_COMMIT_STEP_NAME,
+        )[0]
+    )
+    assert closure is not None and stage is not None and commit is not None
+    assert validator._shell_array_values(
+        closure, "REVENUE_CANDIDATE_REPAIR_PATHS"
+    ) == validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_PATHS
+    assert validator._shell_array_values(
+        closure, "REVENUE_CANDIDATE_REPAIR_UNCHANGED_PATHS"
+    ) == validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_UNCHANGED_PATHS
+    assert validator._shell_array_values(
+        commit, "REVENUE_CANDIDATE_REPAIR_UNCHANGED_PATHS"
+    ) == validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_UNCHANGED_PATHS
+    for body in (closure, stage, commit):
+        assert validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_EXPECTED_BYTES in body
+        assert validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_EXPECTED_SHA256 in body
+    assert validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_BASE_COMMIT in closure
+    assert 'git merge-base --is-ancestor "$REVENUE_CANDIDATE_REPAIR_BASE_COMMIT" HEAD' in closure
+    assert validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_LITERAL_GIT_ADD in stage
+    assert 'git add -- "${REVENUE_CANDIDATE_REPAIR_PATHS[@]}"' not in stage
+    rebaseline_stage = validator._step_run_body(
+        validator._named_step_blocks(
+            blocks,
+            validator.REVENUE_PROJECTION_REBASELINE_STAGE_STEP_NAME,
+        )[0]
+    )
+    assert rebaseline_stage is not None
+    assert validator.REVENUE_PROJECTION_REBASELINE_LITERAL_GIT_ADD in rebaseline_stage
+    assert 'git add -- "${REVENUE_REBASELINE_ALLOWED_PATHS[@]}"' not in rebaseline_stage
+    assert validator.validate_workflow_text(text, rows, producers) == []
+
+
+@pytest.mark.parametrize(
+    "token",
+    (
+        validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_EXPECTED_BYTES,
+        validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_EXPECTED_SHA256,
+        validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_BASE_COMMIT,
+        validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_UNCHANGED_PATHS[0],
+    ),
+)
+def test_revenue_projection_candidate_repair_rejects_identity_contract_drift(
+    token: str,
+) -> None:
+    text, rows, producers = _inputs()
+    closure_name = validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_CLOSURE_STEP_NAME
+    mutated = _replace_in_named_step(text, closure_name, token, token + ".drift")
+
+    errors = validator.validate_workflow_text(mutated, rows, producers)
+
+    assert any(
+        "candidate repair" in error and (
+            "run body drifted" in error
+            or "closure is incomplete" in error
+            or "preserve the other exact15" in error
+        )
+        for error in errors
+    )
+
+
+@pytest.mark.parametrize(
+    ("step_name", "exact", "replacement"),
+    (
+        (
+            validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_STAGE_STEP_NAME,
+            validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_LITERAL_GIT_ADD,
+            'git add -- "${REVENUE_CANDIDATE_REPAIR_PATHS[@]}"',
+        ),
+        (
+            validator.REVENUE_PROJECTION_REBASELINE_STAGE_STEP_NAME,
+            validator.REVENUE_PROJECTION_REBASELINE_LITERAL_GIT_ADD,
+            'git add -- "${REVENUE_REBASELINE_ALLOWED_PATHS[@]}"',
+        ),
+    ),
+)
+def test_revenue_projection_protected_staging_rejects_variable_pathspec(
+    step_name: str,
+    exact: str,
+    replacement: str,
+) -> None:
+    text, rows, producers = _inputs()
+    raw_exact = "          " + exact.replace("\n", "\n          ")
+    raw_replacement = "          " + replacement.replace("\n", "\n          ")
+    mutated = _replace_in_named_step(
+        text,
+        step_name,
+        raw_exact,
+        raw_replacement,
+    )
+
+    errors = validator.validate_workflow_text(mutated, rows, producers)
+
+    assert any("array-expanded git add" in error for error in errors)
+
+
+@pytest.mark.parametrize(
+    ("step_name", "old_condition", "new_condition"),
+    (
+        (
+            validator.REVENUE_BUILD_STEP_NAME,
+            validator.REVENUE_BUILD_STEP_IF,
+            validator.REVENUE_BUILD_STEP_IF.replace(
+                " && github.event.inputs."
+                "run_revenue_unreacted_range_source_snapshot_projection_candidate_repair_only "
+                "!= 'true'",
+                "",
+            ),
+        ),
+        (
+            validator.PUBLISH_STEP_NAME,
+            validator.PUBLISH_STEP_IF,
+            validator.PUBLISH_STEP_IF.replace(
+                " && github.event.inputs."
+                "run_revenue_unreacted_range_source_snapshot_projection_candidate_repair_only "
+                "!= 'true'",
+                "",
+            ),
+        ),
+    ),
+)
+def test_revenue_projection_candidate_repair_cannot_activate_normal_paths(
+    step_name: str,
+    old_condition: str,
+    new_condition: str,
+) -> None:
+    text, rows, producers = _inputs()
+    assert new_condition != old_condition
+    mutated = _replace_in_named_step(text, step_name, old_condition, new_condition)
+
+    errors = validator.validate_workflow_text(mutated, rows, producers)
+
+    assert any("fail-closed if condition" in error for error in errors)
 
 
 def test_revenue_projection_rebaseline_stage_rejects_wrong_type() -> None:
@@ -1361,7 +1750,8 @@ def test_revenue_projection_rebaseline_stage_requires_all_dispatch_guards() -> N
         "mutually exclusive": (
             '          if [[ "$REVENUE_SOURCE_PROJECTION_REBASELINE_ONLY" == "true" && '
             '( "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" || '
-            '"$REVENUE_SOURCE_PROJECTION_CHAIN_ONLY" == "true" ) ]]; then\n'
+            '"$REVENUE_SOURCE_PROJECTION_CHAIN_ONLY" == "true" || '
+            '"$REVENUE_SOURCE_PROJECTION_CANDIDATE_REPAIR_ONLY" == "true" ) ]]; then\n'
         ),
         "every other research input": (
             '          if [[ "$REVENUE_SOURCE_PROJECTION_REBASELINE_ONLY" == "true" && '
@@ -1422,34 +1812,47 @@ def test_revenue_projection_rebaseline_guards_all_four_independence_audit_mirror
         "docs/latest/model_data_independence_audit_latest.md",
     )
     assert validator.REVENUE_PROJECTION_REBASELINE_ALLOWED_PATHS[-4:] == audit_paths
-    for path in audit_paths:
-        assert text.count(path) == 3
-
     path = audit_paths[0]
-    first_index = text.index(path)
-    build_mutation = text[:first_index] + path + ".unauthorized" + text[
-        first_index + len(path) :
-    ]
+    expected_count = dict(
+        zip(
+            validator.REVENUE_PROJECTION_REBASELINE_ALLOWED_PATHS,
+            validator.REVENUE_PROJECTION_REBASELINE_EXPECTED_PATH_OCCURRENCES,
+            strict=True,
+        )
+    )
+    for audit_path in audit_paths:
+        assert text.count(audit_path) == expected_count[audit_path]
+
+    build_mutation = _replace_in_named_step(
+        text,
+        validator.REVENUE_PROJECTION_REBASELINE_CLOSURE_STEP_NAME,
+        path,
+        path + ".unauthorized",
+    )
     build_errors = validator.validate_workflow_text(build_mutation, rows, producers)
     assert any(
         "exact seventeen changed or untracked artifact paths" in error
         for error in build_errors
     )
 
-    second_index = text.index(path, first_index + 1)
-    stage_mutation = text[:second_index] + path + ".unauthorized" + text[
-        second_index + len(path) :
-    ]
+    stage_mutation = _replace_in_named_step(
+        text,
+        validator.REVENUE_PROJECTION_REBASELINE_STAGE_STEP_NAME,
+        path,
+        path + ".unauthorized",
+    )
     stage_errors = validator.validate_workflow_text(stage_mutation, rows, producers)
     assert any(
         "only its exact seventeen artifact paths" in error
         for error in stage_errors
     )
 
-    third_index = text.index(path, second_index + 1)
-    commit_mutation = text[:third_index] + path + ".unauthorized" + text[
-        third_index + len(path) :
-    ]
+    commit_mutation = _replace_in_named_step(
+        text,
+        validator.REVENUE_PROJECTION_REBASELINE_COMMIT_STEP_NAME,
+        path,
+        path + ".unauthorized",
+    )
     commit_errors = validator.validate_workflow_text(commit_mutation, rows, producers)
     assert any(
         "dedicated commit must contain only its exact seventeen artifact paths" in error
@@ -1506,12 +1909,14 @@ def test_revenue_projection_rebaseline_stage_requires_v1_bytes_and_sha_guard() -
 
 def test_revenue_projection_rebaseline_commit_rejects_wildcard_or_failure_masking() -> None:
     text, rows, producers = _inputs()
-    exact = '          git add -- "${REVENUE_REBASELINE_ALLOWED_PATHS[@]}"\n'
-    assert exact in text
-    mutated = text.replace(
+    exact = "          " + validator.REVENUE_PROJECTION_REBASELINE_LITERAL_GIT_ADD.replace(
+        "\n", "\n          "
+    )
+    mutated = _replace_in_named_step(
+        text,
+        validator.REVENUE_PROJECTION_REBASELINE_STAGE_STEP_NAME,
         exact,
-        "          git add output/history/research/revenue_unreacted_range_* || true\n",
-        1,
+        "          git add output/history/research/revenue_unreacted_range_* || true",
     )
 
     errors = validator.validate_workflow_text(mutated, rows, producers)
@@ -1613,7 +2018,7 @@ def test_revenue_rebaseline_final_chain_rejects_any_interposed_step(
     errors = validator.validate_workflow_text(mutated, rows, producers)
 
     assert any(
-        "post-run validators, exact17 closure, staging, dedicated commit" in error
+        "post-run validators, repair exact2 closure chain, rebaseline exact17" in error
         and "consecutive in exact order" in error
         for error in errors
     )
@@ -1741,7 +2146,7 @@ def test_revenue_rebaseline_dedicated_commit_rejects_dynamic_corrupt_and_stage()
         (
             validator.PUBLISH_PUSH,
             'git push --force origin "HEAD:$TARGET_BRANCH"',
-            "exactly two direct fail-closed pushes",
+            "exactly three direct fail-closed pushes",
         ),
         (
             validator.PUBLISH_PUSH,
@@ -1787,7 +2192,7 @@ def test_revenue_rebaseline_identity_closure_must_follow_validators_contiguously
     errors = validator.validate_workflow_text(mutated, rows, producers)
 
     assert any(
-        "post-run validators, exact17 closure, staging, dedicated commit" in error
+        "post-run validators, repair exact2 closure chain, rebaseline exact17" in error
         and "consecutive in exact order" in error
         for error in errors
     )
@@ -1832,7 +2237,7 @@ def test_revenue_rebaseline_stage_must_immediately_precede_commit() -> None:
     errors = validator.validate_workflow_text(mutated, rows, producers)
 
     assert any(
-        "post-run validators, exact17 closure, staging, dedicated commit" in error
+        "post-run validators, repair exact2 closure chain, rebaseline exact17" in error
         and "consecutive in exact order" in error
         for error in errors
     )
