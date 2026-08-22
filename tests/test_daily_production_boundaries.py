@@ -3472,6 +3472,217 @@ def test_daily_model_scope_contract_requires_all_pr_and_stable_aggregate() -> No
     )
 
 
+@pytest.mark.parametrize(
+    ("needle", "replacement"),
+    (
+        (
+            "effective_base_sha: ${{ steps.scope.outputs.effective_base_sha }}",
+            "effective_base_sha: ${{ github.event.pull_request.base.sha }}",
+        ),
+        ('effective_base_sha="origin/main"', 'effective_base_sha=""'),
+        (
+            'git --no-replace-objects rev-list --parents -n 1 "$MERGE_SHA"',
+            'git --no-replace-objects rev-list -n 1 "$MERGE_SHA"',
+        ),
+        (
+            'read -r observed_merge observed_base observed_head unexpected_parent <<< "$merge_identity"',
+            'read -r observed_merge observed_base observed_head <<< "$merge_identity"',
+        ),
+        (
+            '[ -n "${unexpected_parent:-}" ]',
+            '[ -z "${unexpected_parent:-}" ]',
+        ),
+        (
+            '[ "$observed_merge" != "$MERGE_SHA" ]',
+            '[ "$observed_base" != "$MERGE_SHA" ]',
+        ),
+        (
+            '[ "$observed_head" != "$HEAD_SHA" ]',
+            '[ "$observed_base" != "$HEAD_SHA" ]',
+        ),
+        (
+            'effective_base_sha="$observed_base"',
+            'effective_base_sha="$HEAD_SHA"',
+        ),
+        (
+            '--base-sha "$effective_base_sha"',
+            '--base-sha "${{ github.event.pull_request.base.sha }}"',
+        ),
+        (
+            "BASE_SHA: ${{ needs.scope.outputs.effective_base_sha }}",
+            "BASE_SHA: ${{ github.event.pull_request.base.sha || 'origin/main' }}",
+        ),
+        (
+            "printf 'effective_base_sha=%s\\n' \"$effective_base_sha\" >> \"$GITHUB_OUTPUT\"",
+            "",
+        ),
+        (
+            'git --no-replace-objects rev-list --parents -n 1 "$MERGE_SHA"',
+            'git --no-replace-objects rev-list --parents -n 1 "$MERGE_SHA" || true',
+        ),
+    ),
+)
+def test_daily_model_scope_contract_rejects_effective_base_mutations(
+    needle: str, replacement: str
+) -> None:
+    text = boundaries.DAILY_MODEL_MAINTENANCE_PR_WORKFLOW.read_text(encoding="utf-8")
+    assert needle in text
+
+    errors = boundaries.validate_daily_model_pr_scope_contract(
+        text.replace(needle, replacement, 1)
+    )
+
+    assert errors
+
+
+def test_daily_model_volume_v2_runtime_markdown_contract_is_exact_and_fail_closed() -> None:
+    text = boundaries.DAILY_MODEL_MAINTENANCE_PR_WORKFLOW.read_text(encoding="utf-8")
+
+    assert boundaries.validate_daily_model_volume_v2_runtime_markdown_contract(text) == []
+    assert text.count(boundaries.VOLUME_V2_RUNTIME_BUILD_COMMAND) == 1
+    assert text.count(boundaries.VOLUME_V2_RUNTIME_VALIDATE_COMMAND) == 1
+    assert text.index(boundaries.VOLUME_V2_RUNTIME_BUILD_COMMAND) < text.index(
+        boundaries.VOLUME_V2_RUNTIME_VALIDATE_COMMAND
+    )
+    assert boundaries.VOLUME_V2_RUNTIME_MARKDOWN_CANDIDATE_ALLOWED_GIT_COMMANDS == {
+        "git --no-replace-objects add -- output/latest/volume_v2_warrant_lineage_history_audit_latest.md",
+        "git --no-replace-objects add -- docs/latest/volume_v2_warrant_lineage_history_audit_latest.md",
+        'git --no-replace-objects commit -m "Normalize Volume V2 runtime audit Markdown"',
+        'git --no-replace-objects push origin "HEAD:refs/heads/$GITHUB_REF_NAME"',
+    }
+    assert text.count(
+        "ssh-key: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}"
+    ) == 1
+    assert text.count(
+        'if [ -z "${PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY}" ]; then'
+    ) == 1
+    assert "contents: write" not in text
+    volume_job = boundaries.workflow_job_block(text, "volume_v2_research")
+    commit_job = boundaries.workflow_job_block(
+        text, "volume_v2_runtime_markdown_normalization_candidate_commit"
+    )
+    for forbidden_main_binding in ("remote_main_sha", "refs/heads/main", "latest-main"):
+        assert forbidden_main_binding not in volume_job
+        assert forbidden_main_binding not in commit_job
+
+
+@pytest.mark.parametrize(
+    ("old", "new", "expected"),
+    (
+        (
+            boundaries.VOLUME_V2_RUNTIME_BUILD_COMMAND,
+            "python scripts/build_volume_v2_warrant_lineage_history_audit.py",
+            "default/full",
+        ),
+        (
+            boundaries.VOLUME_V2_RUNTIME_VALIDATE_COMMAND,
+            boundaries.VOLUME_V2_RUNTIME_VALIDATE_COMMAND + " || true",
+            "masked",
+        ),
+        (
+            boundaries.VOLUME_V2_RUNTIME_VALIDATE_COMMAND,
+            boundaries.VOLUME_V2_RUNTIME_VALIDATE_COMMAND
+            + "\n          python scripts/validate_volume_v2_warrant_lineage_history_audit.py --phase full",
+            "script reference must be unique",
+        ),
+        (
+            boundaries.VOLUME_V2_RUNTIME_BUILD_COMMAND,
+            boundaries.VOLUME_V2_RUNTIME_BUILD_COMMAND
+            + "\n          "
+            + boundaries.VOLUME_V2_RUNTIME_BUILD_COMMAND,
+            "exactly once",
+        ),
+        (
+            boundaries.VOLUME_V2_RUNTIME_BUILD_COMMAND
+            + "\n          "
+            + boundaries.VOLUME_V2_RUNTIME_VALIDATE_COMMAND,
+            boundaries.VOLUME_V2_RUNTIME_VALIDATE_COMMAND
+            + "\n          "
+            + boundaries.VOLUME_V2_RUNTIME_BUILD_COMMAND,
+            "must follow",
+        ),
+        (
+            "normalize_volume_v2_runtime_markdown_candidate",
+            "weakened_confirmation",
+            "confirmation literal",
+        ),
+        (
+            "git --no-replace-objects add -- output/latest/volume_v2_warrant_lineage_history_audit_latest.md",
+            "git add -A",
+            "literal Markdown path",
+        ),
+        (
+            "Volume V2 committed-path mismatch",
+            "weakened committed-path check",
+            "committed scope",
+        ),
+        (
+            '["git", "--no-replace-objects", "ls-files", "--others", "--exclude-standard"]',
+            '["git", "--no-replace-objects", "diff", "--name-only"]',
+            "untracked changed paths",
+        ),
+        (
+            "persist-credentials: true",
+            "persist-credentials: false",
+            "push credentials",
+        ),
+        (
+            'if [ -z "${PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY}" ]; then',
+            "if false; then",
+            "deploy key is empty",
+        ),
+        (
+            "ssh-key: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}",
+            "token: ${{ github.token }}",
+            "repository deploy key",
+        ),
+        (
+            "permissions:\n  contents: read",
+            "permissions:\n  contents: write",
+            "GITHUB_TOKEN write permission",
+        ),
+        (
+            'remote_branch_sha="$(git --no-replace-objects ls-remote origin "refs/heads/$GITHUB_REF_NAME" | awk \'{print $1}\')"',
+            'remote_branch_sha="$(git --no-replace-objects ls-remote origin "refs/heads/$GITHUB_REF_NAME" | awk \'{print $1}\')"\n          remote_main_sha="$(git --no-replace-objects ls-remote origin refs/heads/main | awk \'{print $1}\')"',
+            "not remote main",
+        ),
+        (
+            '"$GITHUB_RUN_ATTEMPT" != "1"',
+            '"$GITHUB_RUN_ATTEMPT" = ""',
+            "run_attempt=1",
+        ),
+    ),
+)
+def test_daily_model_volume_v2_runtime_markdown_contract_rejects_mutations(
+    old: str,
+    new: str,
+    expected: str,
+) -> None:
+    text = boundaries.DAILY_MODEL_MAINTENANCE_PR_WORKFLOW.read_text(encoding="utf-8")
+    assert old in text
+
+    errors = boundaries.validate_daily_model_volume_v2_runtime_markdown_contract(
+        text.replace(old, new, 1)
+    )
+
+    assert any(expected in error for error in errors), errors
+
+
+def test_daily_model_volume_v2_artifact_step_rejects_unused_base_env() -> None:
+    text = boundaries.DAILY_MODEL_MAINTENANCE_PR_WORKFLOW.read_text(encoding="utf-8")
+    marker = "      - name: Commit and push exact Volume V2 Markdown normalization candidate\n"
+    assert marker in text
+
+    injected = text.replace(
+        marker,
+        marker + "        env:\n          EXPECTED_BASE_SHA: injected\n",
+        1,
+    )
+    errors = boundaries.validate_daily_model_volume_v2_runtime_markdown_contract(injected)
+
+    assert any("must not receive unused EXPECTED_BASE_SHA" in error for error in errors), errors
+
+
 def test_daily_full_preflight_artifact_is_bound_to_exact_source_sha() -> None:
     text = (ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(encoding="utf-8")
 
