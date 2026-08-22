@@ -2195,12 +2195,14 @@ def _governance_errors(
     frame: pd.DataFrame,
     name: str,
     expected_lineage: dict[str, str] | None = None,
+    *,
+    expected_artifact_version: str = ARTIFACT_VERSION,
 ) -> list[str]:
     errors: list[str] = []
     expected = {
         "model_id": MODEL_ID,
         "artifact_id": ARTIFACT_ID,
-        "artifact_version": ARTIFACT_VERSION,
+        "artifact_version": expected_artifact_version,
         "source_variant_id": SOURCE_VARIANT_ID,
         "financial_statement_scope": FINANCIAL_STATEMENT_SCOPE,
         "promotion_readiness": PROMOTION_READINESS,
@@ -2232,8 +2234,18 @@ def _governance_errors(
     return errors
 
 
-def _compare_detail(actual: pd.DataFrame, expected: pd.DataFrame) -> list[str]:
-    errors = _governance_errors(actual, "detail", _artifact_lineage(expected))
+def _compare_detail(
+    actual: pd.DataFrame,
+    expected: pd.DataFrame,
+    *,
+    expected_artifact_version: str = ARTIFACT_VERSION,
+) -> list[str]:
+    errors = _governance_errors(
+        actual,
+        "detail",
+        _artifact_lineage(expected),
+        expected_artifact_version=expected_artifact_version,
+    )
     required = set(expected.columns)
     missing = sorted(required - set(actual.columns))
     if missing:
@@ -2400,8 +2412,18 @@ def _validate_metrics(
             errors.append(f"{label} metric drift: {column}")
 
 
-def _compare_summary(summary: pd.DataFrame, detail: pd.DataFrame) -> list[str]:
-    errors = _governance_errors(summary, "summary", _artifact_lineage(detail))
+def _compare_summary(
+    summary: pd.DataFrame,
+    detail: pd.DataFrame,
+    *,
+    expected_artifact_version: str = ARTIFACT_VERSION,
+) -> list[str]:
+    errors = _governance_errors(
+        summary,
+        "summary",
+        _artifact_lineage(detail),
+        expected_artifact_version=expected_artifact_version,
+    )
     required_keys = {
         (basis, lifecycle, confirmation, variant_id)
         for basis in ANALYSIS_BASES
@@ -2510,7 +2532,11 @@ def _compare_summary(summary: pd.DataFrame, detail: pd.DataFrame) -> list[str]:
     return errors
 
 
-def _expected_paired(detail: pd.DataFrame) -> pd.DataFrame:
+def _expected_paired(
+    detail: pd.DataFrame,
+    *,
+    expected_artifact_version: str = ARTIFACT_VERSION,
+) -> pd.DataFrame:
     key_columns = ["lifecycle_policy_id", "stock_id", "episode_key", "trigger_date"]
     common_columns = [
         *key_columns,
@@ -2583,7 +2609,7 @@ def _expected_paired(detail: pd.DataFrame) -> pd.DataFrame:
             {
                 "model_id": MODEL_ID,
                 "artifact_id": ARTIFACT_ID,
-                "artifact_version": ARTIFACT_VERSION,
+                "artifact_version": expected_artifact_version,
                 **_artifact_lineage(detail),
                 "source_variant_id": SOURCE_VARIANT_ID,
                 **{column: getattr(pair, column) for column in key_columns},
@@ -2643,8 +2669,18 @@ def _expected_paired(detail: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
-def _compare_paired(paired: pd.DataFrame, expected: pd.DataFrame) -> list[str]:
-    errors = _governance_errors(paired, "paired", _artifact_lineage(expected))
+def _compare_paired(
+    paired: pd.DataFrame,
+    expected: pd.DataFrame,
+    *,
+    expected_artifact_version: str = ARTIFACT_VERSION,
+) -> list[str]:
+    errors = _governance_errors(
+        paired,
+        "paired",
+        _artifact_lineage(expected),
+        expected_artifact_version=expected_artifact_version,
+    )
     required = set(expected.columns)
     missing = sorted(required - set(paired.columns))
     if missing:
@@ -2727,9 +2763,14 @@ def _compare_paired(paired: pd.DataFrame, expected: pd.DataFrame) -> list[str]:
 def _compare_feature_contrast(
     contrast: pd.DataFrame,
     detail: pd.DataFrame,
+    *,
+    expected_artifact_version: str = ARTIFACT_VERSION,
 ) -> list[str]:
     errors = _governance_errors(
-        contrast, "feature_contrast", _artifact_lineage(detail)
+        contrast,
+        "feature_contrast",
+        _artifact_lineage(detail),
+        expected_artifact_version=expected_artifact_version,
     )
     required_columns = {
         "analysis_basis",
@@ -2962,7 +3003,10 @@ def validate(
             expected_detail.loc[:, "position_shape_artifact_version"] = (
                 expected_position_shape_artifact_version
             )
-        expected_paired = _expected_paired(expected_detail)
+        expected_paired = _expected_paired(
+            expected_detail,
+            expected_artifact_version=expected_artifact_version,
+        )
         summary = pd.read_csv(
             paths["summary"], keep_default_na=False, low_memory=False
         )
@@ -2981,10 +3025,34 @@ def validate(
         contrast = pd.read_csv(
             paths["contrast"], keep_default_na=False, low_memory=False
         )
-        errors.extend(_compare_detail(detail, expected_detail))
-        errors.extend(_compare_summary(summary, expected_detail))
-        errors.extend(_compare_paired(paired, expected_paired))
-        errors.extend(_compare_feature_contrast(contrast, expected_detail))
+        errors.extend(
+            _compare_detail(
+                detail,
+                expected_detail,
+                expected_artifact_version=expected_artifact_version,
+            )
+        )
+        errors.extend(
+            _compare_summary(
+                summary,
+                expected_detail,
+                expected_artifact_version=expected_artifact_version,
+            )
+        )
+        errors.extend(
+            _compare_paired(
+                paired,
+                expected_paired,
+                expected_artifact_version=expected_artifact_version,
+            )
+        )
+        errors.extend(
+            _compare_feature_contrast(
+                contrast,
+                expected_detail,
+                expected_artifact_version=expected_artifact_version,
+            )
+        )
     except (
         RuntimeError,
         ValueError,

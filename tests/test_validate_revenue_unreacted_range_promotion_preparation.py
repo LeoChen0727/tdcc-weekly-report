@@ -133,8 +133,25 @@ def test_canonical_v2_keeps_frozen_promotion_decision_bound_to_trusted_v1_git_bl
 
 
 def test_canonical_v2_trusted_v1_git_identity_failure_is_fail_closed(
+    tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
+    original_summary = validator.DEFAULT_SUMMARY
+    original_detail = validator.DEFAULT_DETAIL
+    summary_path = tmp_path / "current-summary.csv"
+    detail_path = tmp_path / "current-detail.csv"
+    summary_path.write_text("current fallback must not be read\n", encoding="utf-8")
+    detail_path.write_text("current fallback must not be read\n", encoding="utf-8")
+    monkeypatch.setattr(validator, "DEFAULT_SUMMARY", summary_path)
+    monkeypatch.setattr(validator, "DEFAULT_DETAIL", detail_path)
+    monkeypatch.setattr(
+        validator,
+        "TRUSTED_V1_SOURCE_ARTIFACTS",
+        {
+            summary_path: validator.TRUSTED_V1_SOURCE_ARTIFACTS[original_summary],
+            detail_path: validator.TRUSTED_V1_SOURCE_ARTIFACTS[original_detail],
+        },
+    )
     monkeypatch.setattr(
         validator,
         "_canonical_projection_version",
@@ -149,8 +166,22 @@ def test_canonical_v2_trusted_v1_git_identity_failure_is_fail_closed(
         return result
 
     monkeypatch.setattr(validator, "_git", fail_commit)
+    monkeypatch.setattr(
+        validator,
+        "validate_summary",
+        lambda *_args, **_kwargs: pytest.fail("trusted failure fell back to current summary"),
+    )
+    monkeypatch.setattr(
+        validator,
+        "validate_detail",
+        lambda *_args, **_kwargs: pytest.fail("trusted failure fell back to current detail"),
+    )
 
-    errors = validator.validate(require_source_artifacts=True)
+    errors = validator.validate(
+        summary_path=summary_path,
+        detail_path=detail_path,
+        require_source_artifacts=True,
+    )
 
     assert "trusted v1 promotion source revision is unavailable" in errors
     assert any("complete summary/detail pair" in error for error in errors)

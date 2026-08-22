@@ -797,8 +797,12 @@ def validate(
             trusted_detail = _trusted_v1_source_blob(DEFAULT_DETAIL)
         except RuntimeError as exc:
             errors.append(str(exc))
-    summary_exists = trusted_summary is not None or summary_path.is_file()
-    detail_exists = trusted_detail is not None or detail_path.is_file()
+    if use_trusted_v1_sources:
+        summary_exists = trusted_summary is not None
+        detail_exists = trusted_detail is not None
+    else:
+        summary_exists = summary_path.is_file()
+        detail_exists = detail_path.is_file()
     if require_source_artifacts or summary_exists or detail_exists:
         if not summary_exists or not detail_exists:
             errors.append(

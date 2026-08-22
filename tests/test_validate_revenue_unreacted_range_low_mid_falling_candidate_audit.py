@@ -44,6 +44,11 @@ def test_low_mid_versions_follow_rearmed_generation() -> None:
     )
     with pytest.raises(RuntimeError, match="unsupported rearmed artifact version"):
         producer.versions_for_rearmed_artifact("unknown")
+    with pytest.raises(
+        RuntimeError,
+        match="unsupported canonical source projection version",
+    ):
+        validator._version_contract("unknown")
 
 
 def _v1_manifest_frame() -> pd.DataFrame:
@@ -197,6 +202,7 @@ def _operation_rows(
     price: pd.DataFrame,
     *,
     source_candidate: bool,
+    artifact_version: str = validator.REARMED_ARTIFACT_VERSION,
 ) -> list[dict[str, object]]:
     rows: list[dict[str, object]] = []
     dates = price["date"].astype(str).tolist()
@@ -213,7 +219,7 @@ def _operation_rows(
                 {
                     "model_id": validator.MODEL_ID,
                     "artifact_id": validator.REARMED_ARTIFACT_ID,
-                    "artifact_version": validator.REARMED_ARTIFACT_VERSION,
+                    "artifact_version": artifact_version,
                     "source_artifact_id": validator.SOURCE_FIRST_ARTIFACT_ID,
                     "source_variant_id": validator.SOURCE_VARIANT_ID,
                     "grid_id": (
@@ -259,7 +265,16 @@ def _operation_rows(
     return rows
 
 
-def _build_fixture(root: Path) -> dict[str, Path]:
+def _build_fixture(
+    root: Path,
+    *,
+    projection_version: str = validator.V1_PROJECTION_VERSION,
+) -> dict[str, Path]:
+    (
+        _expected_artifact_version,
+        rearmed_artifact_version,
+        _expected_position_shape_artifact_version,
+    ) = validator._version_contract(projection_version)
     specs = (
         ("1111", "low-60", 160, "low", 25.0, True, True),
         ("2222", "mid-50", 170, "mid", -10.0, False, False),
@@ -340,6 +355,7 @@ def _build_fixture(root: Path) -> dict[str, Path]:
                 stock_name,
                 price,
                 source_candidate=source_candidate,
+                artifact_version=rearmed_artifact_version,
             )
         )
     source = pd.DataFrame(source_rows)
@@ -366,7 +382,12 @@ def _build_fixture(root: Path) -> dict[str, Path]:
         keep_default_na=False,
         low_memory=False,
     )
-    manifest_row = {column: "" for column in projection.MANIFEST_COLUMNS}
+    manifest_columns = (
+        validator.V2_PROJECTION_MANIFEST_COLUMNS
+        if projection_version == validator.V2_PROJECTION_VERSION
+        else validator.V1_PROJECTION_MANIFEST_COLUMNS
+    )
+    manifest_row = {column: "" for column in manifest_columns}
     source_dates = (
         projected_source["qualifying_source_dates"]
         .astype(str)
@@ -386,10 +407,14 @@ def _build_fixture(root: Path) -> dict[str, Path]:
             "generated_at": GENERATED_AT,
             "model_id": projection.MODEL_ID,
             "artifact_id": projection.ARTIFACT_ID,
-            "artifact_version": projection.ARTIFACT_VERSION,
+            "artifact_version": projection_version,
             "projection_id": projection.PROJECTION_ID,
-            "projection_version": projection.PROJECTION_VERSION,
-            "projection_policy_id": projection.PROJECTION_POLICY_ID,
+            "projection_version": projection_version,
+            "projection_policy_id": (
+                validator.V2_PROJECTION_POLICY_ID
+                if projection_version == validator.V2_PROJECTION_VERSION
+                else validator.V1_PROJECTION_POLICY_ID
+            ),
             "cutoff_date": projection.CUTOFF_DATE,
             "full_source_artifact_id": validator.SOURCE_FIRST_ARTIFACT_ID,
             "full_source_artifact_version": validator.SOURCE_FIRST_ARTIFACT_VERSION,
@@ -430,11 +455,25 @@ def _build_fixture(root: Path) -> dict[str, Path]:
             "pdf_consumption_allowed": False,
         }
     )
+    if projection_version == validator.V2_PROJECTION_VERSION:
+        manifest_row.update(
+            {
+                "predecessor_projection_version": validator.V1_PROJECTION_VERSION,
+                "predecessor_manifest_bytes_sha256": (
+                    validator.V1_PREDECESSOR_MANIFEST_SHA256
+                ),
+                "predecessor_detail_bytes_sha256": (
+                    validator.V1_PREDECESSOR_DETAIL_SHA256
+                ),
+                "lineage_change_reason": validator.V2_LINEAGE_CHANGE_REASON,
+                "candidate_status": validator.V2_CANDIDATE_STATUS,
+            }
+        )
     projection_manifest_path = root / validator.SOURCE_RELATIVE_PATHS[
         "projection_manifest"
     ]
     projection_manifest_path.parent.mkdir(parents=True, exist_ok=True)
-    pd.DataFrame([manifest_row], columns=projection.MANIFEST_COLUMNS).to_csv(
+    pd.DataFrame([manifest_row], columns=manifest_columns).to_csv(
         projection_manifest_path,
         index=False,
     )
@@ -499,6 +538,69 @@ def test_validator_is_independent_and_accepts_synthetic_replay(tmp_path: Path) -
         str(row["asof_latest_qualifying_canonical_source_table_date"])
         == str(row["asof_latest_qualifying_source_date"])
     )
+
+
+def test_validator_accepts_synthetic_v2_governance(tmp_path: Path) -> None:
+    paths = _build_fixture(
+        tmp_path,
+        projection_version=validator.V2_PROJECTION_VERSION,
+    )
+
+    assert validator.validate(artifact_root=tmp_path, source_root=tmp_path) == []
+    for path_key in (
+        "summary_latest",
+        "detail_latest",
+        "paired_latest",
+        "contrast_latest",
+    ):
+        frame = pd.read_csv(paths[path_key], keep_default_na=False)
+        assert set(frame["artifact_version"].astype(str)) == {
+            validator.V2_ARTIFACT_VERSION
+        }
+
+
+@pytest.mark.parametrize(
+    ("family", "label"),
+    (
+        ("summary", "summary"),
+        ("detail", "detail"),
+        ("paired", "paired"),
+        ("contrast", "feature_contrast"),
+    ),
+)
+def test_validator_rejects_v2_artifact_version_drift(
+    tmp_path: Path,
+    family: str,
+    label: str,
+) -> None:
+    paths = _build_fixture(
+        tmp_path,
+        projection_version=validator.V2_PROJECTION_VERSION,
+    )
+    frame = pd.read_csv(paths[f"{family}_latest"], keep_default_na=False)
+    frame.loc[:, "artifact_version"] = validator.ARTIFACT_VERSION
+    _rewrite_family(paths, family, frame)
+
+    errors = validator.validate(artifact_root=tmp_path, source_root=tmp_path)
+
+    assert f"{label} governance drift: artifact_version" in errors
+
+
+def test_validator_rejects_v2_projection_with_v1_rearmed_input(
+    tmp_path: Path,
+) -> None:
+    _build_fixture(
+        tmp_path,
+        projection_version=validator.V2_PROJECTION_VERSION,
+    )
+    rearmed_path = tmp_path / validator.SOURCE_RELATIVE_PATHS["rearmed"]
+    rearmed = pd.read_csv(rearmed_path, keep_default_na=False)
+    rearmed.loc[:, "artifact_version"] = validator.REARMED_ARTIFACT_VERSION
+    rearmed.to_csv(rearmed_path, index=False, encoding="utf-8-sig")
+
+    errors = validator.validate(artifact_root=tmp_path, source_root=tmp_path)
+
+    assert "rearmed governance or price-basis drift: artifact_version" in errors
 
 
 def test_validator_rejects_latest_known_source_and_watch_horizon_drift(
