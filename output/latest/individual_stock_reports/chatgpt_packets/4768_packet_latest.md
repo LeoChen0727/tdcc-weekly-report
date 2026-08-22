@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4768 晶呈科技
 
 ## Metadata
-- generated_at: 2026-08-21 22:27:38 Asia/Taipei
+- generated_at: 2026-08-22 16:00:30 Asia/Taipei
 - stock_id: 4768
 - stock_name: 晶呈科技
 - packet_status: standard_180d_window_packet
@@ -11,10 +11,10 @@
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
-- official_tdcc_signal_date: 20260814
-- latest_tdcc_date: 20260814
-- tdcc_rows: 16
+- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
+- official_tdcc_signal_date: 20260821
+- latest_tdcc_date: 20260821
+- tdcc_rows: 17
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -170,15 +170,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260814
-- over_400_ratio: 34.39
-- over_600_ratio: 27.28
+- as_of_date: 20260821
+- over_400_ratio: 34.34
+- over_600_ratio: 26.01
 - over_800_ratio: 21.28
 - over_1000_ratio: 19.49
-- over_400_change_1w: -0.55
+- over_400_change_1w: -0.05
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 3
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260529,38.76,0.79,23.16,-0.14,19.5,-0.02,1,False,False
 20260605,35.62,-3.14,22.98,-0.18,19.49,-0.01,0,False,False
 20260612,34.98,-0.64,23.01,0.03,19.49,0,1,False,True
 20260618,34.52,-0.46,21.26,-1.75,19.49,0,0,False,False
@@ -198,6 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260731,34.01,-0.27,21.28,0.01,19.49,0,1,False,True
 20260807,34.94,0.93,21.28,0,19.49,0,2,False,False
 20260814,34.39,-0.55,21.28,0,19.49,0,3,False,False
+20260821,34.34,-0.05,21.28,0,19.49,0,0,False,False
 ```
 
 ## Candidate Context

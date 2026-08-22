@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2462 良得電
 
 ## Metadata
-- generated_at: 2026-08-21 22:27:01 Asia/Taipei
+- generated_at: 2026-08-22 15:59:49 Asia/Taipei
 - stock_id: 2462
 - stock_name: 良得電
 - packet_status: standard_180d_window_packet
@@ -11,10 +11,10 @@
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
-- official_tdcc_signal_date: 20260814
-- latest_tdcc_date: 20260814
-- tdcc_rows: 16
+- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
+- official_tdcc_signal_date: 20260821
+- latest_tdcc_date: 20260821
+- tdcc_rows: 17
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -171,23 +171,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260814
-- over_400_ratio: 55.79
+- as_of_date: 20260821
+- over_400_ratio: 55.46
 - over_600_ratio: 52.33
 - over_800_ratio: 51.5
 - over_1000_ratio: 50.29
-- over_400_change_1w: 0.05
+- over_400_change_1w: -0.33
 - over_800_change_1w: 0
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 1
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260529,56.1,0.09,51.36,0.1,50.12,0,2,False,True
 20260605,56.24,0.14,51.38,0.02,50.79,0.67,3,True,True
 20260612,56.55,0.31,51.54,0.16,50.31,-0.48,4,False,True
 20260618,56.67,0.12,51.56,0.02,50.31,0,5,False,True
@@ -199,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260731,55.87,-0.16,51.51,-0.01,50.3,0,0,False,False
 20260807,55.74,-0.13,51.5,-0.01,50.28,-0.02,0,False,False
 20260814,55.79,0.05,51.5,0,50.29,0.01,1,False,True
+20260821,55.46,-0.33,51.5,0,50.29,0,0,False,False
 ```
 
 ## Candidate Context

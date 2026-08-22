@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2836 高雄銀
 
 ## Metadata
-- generated_at: 2026-08-21 22:27:08 Asia/Taipei
+- generated_at: 2026-08-22 15:59:57 Asia/Taipei
 - stock_id: 2836
 - stock_name: 高雄銀
 - packet_status: standard_180d_window_packet
@@ -11,10 +11,10 @@
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
-- official_tdcc_signal_date: 20260814
-- latest_tdcc_date: 20260814
-- tdcc_rows: 16
+- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
+- official_tdcc_signal_date: 20260821
+- latest_tdcc_date: 20260821
+- tdcc_rows: 17
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -171,23 +171,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260814
-- over_400_ratio: 85.36
-- over_600_ratio: 83.82
-- over_800_ratio: 83.09
-- over_1000_ratio: 82.52
-- over_400_change_1w: -0.04
-- over_800_change_1w: -0.04
-- over_1000_change_1w: -0.03
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260821
+- over_400_ratio: 85.48
+- over_600_ratio: 83.96
+- over_800_ratio: 83.11
+- over_1000_ratio: 82.53
+- over_400_change_1w: 0.12
+- over_800_change_1w: 0.02
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260529,84.8,0.01,82.11,-0.17,81.67,0.01,4,False,True
 20260605,85.01,0.21,82.36,0.25,81.87,0.2,5,True,True
 20260612,85.23,0.22,82.65,0.29,82.06,0.19,6,True,True
 20260618,85.2,-0.03,82.65,0,82.11,0.05,7,False,True
@@ -199,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260731,85.72,-0.01,83.27,0.02,82.79,-0.07,13,False,True
 20260807,85.4,-0.32,83.13,-0.14,82.55,-0.24,0,False,False
 20260814,85.36,-0.04,83.09,-0.04,82.52,-0.03,0,False,False
+20260821,85.48,0.12,83.11,0.02,82.53,0.01,1,True,True
 ```
 
 ## Candidate Context

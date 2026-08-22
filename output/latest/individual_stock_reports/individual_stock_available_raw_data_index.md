@@ -1,6 +1,6 @@
 # Individual Stock Available Raw Data Index
 
-- generated_at: 2026-08-21 22:29:46 Asia/Taipei
+- generated_at: 2026-08-22 16:03:01 Asia/Taipei
 - total_stocks: 2413
 - standard_rawdata_report: 2126
 - partial_rawdata_report: 262
@@ -204,20 +204,20 @@
 | 009829 | 大華韓國KOSPI50 | 1 | 0 | 20260821 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
 | 0099 |  | 0 | 0 |  |  | False | False | insufficient_data | price_history_missing; tdcc_history_missing |
 | 0200 | 兆豐半導體氣候N | 1 | 0 | 20250407 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 1101 | 台泥 | 337 | 16 | 20260821 | 20260814 | False | False | standard_rawdata_report |  |
-| 1102 | 亞泥 | 338 | 16 | 20260821 | 20260814 | False | False | standard_rawdata_report |  |
-| 1103 | 嘉泥 | 338 | 16 | 20260821 | 20260814 | False | False | standard_rawdata_report |  |
-| 1104 | 環泥 | 338 | 16 | 20260821 | 20260814 | False | False | standard_rawdata_report |  |
-| 1108 | 幸福 | 338 | 16 | 20260821 | 20260814 | False | False | standard_rawdata_report |  |
-| 1109 | 信大 | 338 | 16 | 20260821 | 20260814 | False | False | standard_rawdata_report |  |
-| 1110 | 東泥 | 338 | 16 | 20260821 | 20260814 | False | False | standard_rawdata_report |  |
-| 1201 | 味全 | 338 | 16 | 20260821 | 20260814 | False | False | standard_rawdata_report |  |
-| 1203 | 味王 | 337 | 16 | 20260821 | 20260814 | False | False | standard_rawdata_report |  |
-| 1210 | 大成 | 338 | 16 | 20260821 | 20260814 | False | False | standard_rawdata_report |  |
-| 1213 | 大飲 | 314 | 16 | 20260820 | 20260814 | False | False | standard_rawdata_report |  |
-| 1215 | 卜蜂 | 338 | 16 | 20260821 | 20260814 | False | False | standard_rawdata_report |  |
-| 1216 | 統一 | 338 | 16 | 20260821 | 20260814 | False | False | standard_rawdata_report |  |
-| 1217 | 愛之味 | 338 | 38 | 20260821 | 20260814 | False | False | standard_rawdata_report |  |
-| 1218 | 泰山 | 337 | 16 | 20260821 | 20260814 | False | False | standard_rawdata_report |  |
+| 1101 | 台泥 | 337 | 17 | 20260821 | 20260821 | False | False | standard_rawdata_report |  |
+| 1102 | 亞泥 | 338 | 17 | 20260821 | 20260821 | False | False | standard_rawdata_report |  |
+| 1103 | 嘉泥 | 338 | 17 | 20260821 | 20260821 | False | False | standard_rawdata_report |  |
+| 1104 | 環泥 | 338 | 17 | 20260821 | 20260821 | False | False | standard_rawdata_report |  |
+| 1108 | 幸福 | 338 | 17 | 20260821 | 20260821 | False | False | standard_rawdata_report |  |
+| 1109 | 信大 | 338 | 17 | 20260821 | 20260821 | False | False | standard_rawdata_report |  |
+| 1110 | 東泥 | 338 | 17 | 20260821 | 20260821 | False | False | standard_rawdata_report |  |
+| 1201 | 味全 | 338 | 17 | 20260821 | 20260821 | False | False | standard_rawdata_report |  |
+| 1203 | 味王 | 337 | 17 | 20260821 | 20260821 | False | False | standard_rawdata_report |  |
+| 1210 | 大成 | 338 | 17 | 20260821 | 20260821 | False | False | standard_rawdata_report |  |
+| 1213 | 大飲 | 314 | 17 | 20260820 | 20260821 | False | False | standard_rawdata_report |  |
+| 1215 | 卜蜂 | 338 | 17 | 20260821 | 20260821 | False | False | standard_rawdata_report |  |
+| 1216 | 統一 | 338 | 17 | 20260821 | 20260821 | False | False | standard_rawdata_report |  |
+| 1217 | 愛之味 | 338 | 39 | 20260821 | 20260821 | False | False | standard_rawdata_report |  |
+| 1218 | 泰山 | 337 | 17 | 20260821 | 20260821 | False | False | standard_rawdata_report |  |
 
 _Only first 200 rows shown. Use the CSV for the full index._

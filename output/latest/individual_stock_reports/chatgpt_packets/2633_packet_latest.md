@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2633 台灣高鐵
 
 ## Metadata
-- generated_at: 2026-08-21 22:27:05 Asia/Taipei
+- generated_at: 2026-08-22 15:59:54 Asia/Taipei
 - stock_id: 2633
 - stock_name: 台灣高鐵
 - packet_status: standard_180d_window_packet
@@ -11,10 +11,10 @@
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
-- official_tdcc_signal_date: 20260814
-- latest_tdcc_date: 20260814
-- tdcc_rows: 16
+- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
+- official_tdcc_signal_date: 20260821
+- latest_tdcc_date: 20260821
+- tdcc_rows: 17
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -171,23 +171,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260814
-- over_400_ratio: 86.74
-- over_600_ratio: 85.98
-- over_800_ratio: 85.46
-- over_1000_ratio: 84.98
-- over_400_change_1w: 0.03
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 7
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260821
+- over_400_ratio: 86.79
+- over_600_ratio: 86.06
+- over_800_ratio: 85.55
+- over_1000_ratio: 85.05
+- over_400_change_1w: 0.05
+- over_800_change_1w: 0.09
+- over_1000_change_1w: 0.07
+- tdcc_consecutive_up_weeks: 8
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260529,86.33,-0.48,84.81,-0.54,84.28,-0.46,0,False,False
 20260605,86.19,-0.14,84.8,-0.01,84.27,-0.01,0,False,False
 20260612,86.19,0,84.79,-0.01,84.28,0.01,1,False,True
 20260618,86.31,0.12,84.92,0.13,84.39,0.11,2,True,True
@@ -199,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260731,86.71,0.21,85.43,0.26,84.93,0.26,5,True,True
 20260807,86.71,0,85.46,0.03,84.98,0.05,6,False,True
 20260814,86.74,0.03,85.46,0,84.98,0,7,False,False
+20260821,86.79,0.05,85.55,0.09,85.05,0.07,8,True,True
 ```
 
 ## Candidate Context

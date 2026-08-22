@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4707 磐亞
 
 ## Metadata
-- generated_at: 2026-08-21 22:27:36 Asia/Taipei
+- generated_at: 2026-08-22 16:00:28 Asia/Taipei
 - stock_id: 4707
 - stock_name: 磐亞
 - packet_status: standard_180d_window_packet
@@ -11,10 +11,10 @@
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
-- official_tdcc_signal_date: 20260814
-- latest_tdcc_date: 20260814
-- tdcc_rows: 16
+- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
+- official_tdcc_signal_date: 20260821
+- latest_tdcc_date: 20260821
+- tdcc_rows: 17
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -171,15 +171,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260814
-- over_400_ratio: 71.88
-- over_600_ratio: 70.23
-- over_800_ratio: 68.53
-- over_1000_ratio: 67.45
-- over_400_change_1w: 0.36
-- over_800_change_1w: 0.24
-- over_1000_change_1w: 0.48
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260821
+- over_400_ratio: 71.99
+- over_600_ratio: 70.43
+- over_800_ratio: 68.73
+- over_1000_ratio: 67.65
+- over_400_change_1w: 0.11
+- over_800_change_1w: 0.2
+- over_1000_change_1w: 0.2
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260529,68.96,0.08,65.14,0.12,63.36,0.1,4,True,True
 20260605,70.4,1.44,66.13,0.99,63.91,0.55,5,True,True
 20260612,70.6,0.2,66.41,0.28,63.92,0.01,6,True,True
 20260618,71.12,0.52,66.73,0.32,64.96,1.04,7,True,True
@@ -199,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260731,71.19,-0.29,67.81,-0.39,66.24,0.27,1,False,True
 20260807,71.52,0.33,68.29,0.48,66.97,0.73,2,True,True
 20260814,71.88,0.36,68.53,0.24,67.45,0.48,3,True,True
+20260821,71.99,0.11,68.73,0.2,67.65,0.2,4,True,True
 ```
 
 ## Candidate Context

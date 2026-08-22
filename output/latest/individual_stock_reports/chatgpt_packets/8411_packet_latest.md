@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8411 福貞-KY
 
 ## Metadata
-- generated_at: 2026-08-21 22:28:26 Asia/Taipei
+- generated_at: 2026-08-22 16:01:24 Asia/Taipei
 - stock_id: 8411
 - stock_name: 福貞-KY
 - packet_status: standard_180d_window_packet
@@ -11,10 +11,10 @@
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
-- official_tdcc_signal_date: 20260814
-- latest_tdcc_date: 20260814
-- tdcc_rows: 16
+- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
+- official_tdcc_signal_date: 20260821
+- latest_tdcc_date: 20260821
+- tdcc_rows: 17
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -171,23 +171,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260814
-- over_400_ratio: 81.75
-- over_600_ratio: 81.03
-- over_800_ratio: 80.38
-- over_1000_ratio: 79.16
-- over_400_change_1w: -0.07
-- over_800_change_1w: -0.07
-- over_1000_change_1w: -0.07
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260821
+- over_400_ratio: 81.78
+- over_600_ratio: 81.06
+- over_800_ratio: 80.41
+- over_1000_ratio: 79.19
+- over_400_change_1w: 0.03
+- over_800_change_1w: 0.03
+- over_1000_change_1w: 0.03
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260529,81.62,0.07,79.88,-0.01,78.66,-0.01,4,False,False
 20260605,81.63,0.01,80.24,0.36,79.02,0.36,5,True,True
 20260612,81.6,-0.03,80.21,-0.03,78.99,-0.03,0,False,False
 20260618,81.35,-0.25,80.15,-0.06,78.93,-0.06,0,False,False
@@ -199,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260731,81.83,0.06,80.46,0.07,79.24,0.07,2,True,True
 20260807,81.82,-0.01,80.45,-0.01,79.23,-0.01,0,False,False
 20260814,81.75,-0.07,80.38,-0.07,79.16,-0.07,0,False,False
+20260821,81.78,0.03,80.41,0.03,79.19,0.03,1,True,True
 ```
 
 ## Candidate Context
