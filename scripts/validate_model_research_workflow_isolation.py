@@ -101,6 +101,8 @@ REVENUE_BUILD_STEP_IF = (
     "run_revenue_unreacted_range_source_snapshot_projection_rebaseline_only "
     "!= 'true' && github.event.inputs."
     "run_revenue_unreacted_range_source_snapshot_projection_candidate_repair_only "
+    "!= 'true' && github.event.inputs."
+    "run_revenue_unreacted_range_source_snapshot_projection_supersede_only "
     "!= 'true' }}"
 )
 PUBLISH_STEP_NAME = "Commit research and backtest outputs"
@@ -109,6 +111,8 @@ PUBLISH_STEP_IF = (
     "run_revenue_unreacted_range_source_snapshot_projection_rebaseline_only "
     "!= 'true' && github.event.inputs."
     "run_revenue_unreacted_range_source_snapshot_projection_candidate_repair_only "
+    "!= 'true' && github.event.inputs."
+    "run_revenue_unreacted_range_source_snapshot_projection_supersede_only "
     "!= 'true' }}"
 )
 POST_RUN_STEP_NAME = "Validate post-run model research contracts"
@@ -127,15 +131,15 @@ PY_YAML_INSTALL_RUN_SHA256 = (
     "145c750702e5fc9867791c24a695b1e8becf145aa9fd0bf0d23069d07f5a46bf"
 )
 RESEARCH_PREFLIGHT_RUN_SHA256 = (
-    "7a5e783c0f87fecd4ada7fe64a48a56aa8900315b77351b72d790d6ddb126e68"
+    "6af26221b5a9fcbffb2086e3e9bde757190f5d523649988e280c67d71fd13e39"
 )
 RESEARCH_PREFLIGHT_STEP_SHA256 = (
-    "c0550bfdbc776c4377481ef2cbc7061b3d720621ae479cea4e6ccbcbc6e39438"
+    "8a010796f6864b12e5d9e50a54a05bb0ef4e561f6b541d3b645cea33e67591da"
 )
 FORBIDDEN_SHELL_ENV_KEYS = frozenset({"BASH_ENV", "ENV"})
 FORBIDDEN_CROSS_STEP_STATE_CHANNELS = frozenset({"GITHUB_ENV", "GITHUB_PATH"})
 RESEARCH_JOB_STEP_CONTROL_SHA256 = (
-    "ccca42eec03f04f3dfb9ad608a2a267685815b54543839cf79f541a94d59ed0a"
+    "43f8f0f808f62fcb4996db0de35ef3e700c1c80ca3566792a01ac125bfc4d167"
 )
 BOOTSTRAP_STEP_NAMES = (
     DEPLOY_KEY_STEP_NAME,
@@ -174,6 +178,14 @@ REVENUE_PROJECTION_REBASELINE_STAGE_INPUT = (
 )
 REVENUE_PROJECTION_CANDIDATE_REPAIR_STAGE_INPUT = (
     "run_revenue_unreacted_range_source_snapshot_projection_candidate_repair_only"
+)
+REVENUE_PROJECTION_SUPERSEDE_STAGE_INPUT = (
+    "run_revenue_unreacted_range_source_snapshot_projection_supersede_only"
+)
+REVENUE_PROJECTION_SUPERSEDE_IDENTITY_INPUTS = (
+    "expected_base_sha",
+    "expected_head_sha",
+    "confirmation",
 )
 REVENUE_FORWARD_HOLDOUT_STAGE_INPUT = (
     "run_revenue_unreacted_range_forward_holdout_only"
@@ -237,6 +249,56 @@ REVENUE_PROJECTION_CANDIDATE_REPAIR_VALIDATOR_COMMANDS = (
     "python scripts/validate_revenue_unreacted_range_source_first_condition_audit.py",
     "python scripts/validate_revenue_unreacted_range_source_snapshot_projection.py",
     "python scripts/validate_model_data_independence.py",
+)
+REVENUE_PROJECTION_SUPERSEDE_BUILD_COMMAND = (
+    f"{REVENUE_FULL_BUILD_COMMAND} --stage "
+    "source_snapshot_projection_supersede_and_chain"
+)
+REVENUE_PROJECTION_SUPERSEDE_STEP_NAME = (
+    "Supersede revenue source projection v2 and rebuild downstream research chain"
+)
+REVENUE_PROJECTION_SUPERSEDE_STEP_IF = (
+    "${{ github.event.inputs.run_revenue_unreacted_range_research == 'true' && "
+    "github.event.inputs."
+    "run_revenue_unreacted_range_source_snapshot_projection_supersede_only "
+    "== 'true' && github.ref_type == 'branch' && github.ref_name != 'main' }}"
+)
+REVENUE_PROJECTION_SUPERSEDE_CLOSURE_STEP_NAME = (
+    "Validate revenue projection supersede exact75 artifact closure"
+)
+REVENUE_PROJECTION_SUPERSEDE_STAGE_STEP_NAME = (
+    "Stage validated revenue projection supersede exact75 artifacts"
+)
+REVENUE_PROJECTION_SUPERSEDE_COMMIT_STEP_NAME = (
+    "Commit validated revenue projection supersede exact75 artifacts"
+)
+REVENUE_PROJECTION_SUPERSEDE_IDENTITY_FILE = (
+    "$RUNNER_TEMP/revenue-projection-supersede-exact75-validated-identity.tsv"
+)
+REVENUE_PROJECTION_SUPERSEDE_TRUSTED_CANDIDATE_COMMIT = (
+    "4bcaa07123ef4a000c187dc2f19caefbec4cf252"
+)
+REVENUE_PROJECTION_SUPERSEDE_CONFIRMATION = (
+    "supersede_revenue_source_snapshot_projection_v2"
+)
+REVENUE_PROJECTION_SUPERSEDE_RUN_BODY = "\n".join(
+    (
+        "set -euo pipefail",
+        REVENUE_PROJECTION_SUPERSEDE_BUILD_COMMAND,
+        "python scripts/validate_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py",
+        "python scripts/validate_revenue_unreacted_range_source_first_condition_audit.py",
+        "python scripts/validate_revenue_unreacted_range_source_snapshot_projection.py",
+        REVENUE_PROJECTION_REBASELINE_VALIDATOR_COMMANDS[2],
+        "python scripts/validate_revenue_unreacted_range_lag_strength_matrix.py",
+        "python scripts/validate_revenue_unreacted_range_launch_timing_feature_audit.py",
+        "python scripts/validate_revenue_unreacted_range_forward_confirmation_feature_audit.py",
+        "python scripts/validate_revenue_unreacted_range_rearmed_operation_grid.py",
+        "python scripts/validate_revenue_unreacted_range_operation_lag_bucket_audit.py",
+        "python scripts/validate_revenue_unreacted_range_position_shape_transition_matrix.py",
+        "python scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
+        "python scripts/build_model_data_independence_audit.py",
+        "python scripts/validate_model_data_independence.py",
+    )
 )
 REVENUE_PROJECTION_REBASELINE_COMMANDS = (
     REVENUE_PROJECTION_REBASELINE_BUILD_COMMAND,
@@ -428,6 +490,142 @@ REVENUE_PROJECTION_CANDIDATE_REPAIR_PATHS = (
     "output/latest/model_data_independence_audit_latest.csv",
     "docs/latest/model_data_independence_audit_latest.csv",
 )
+REVENUE_PROJECTION_SUPERSEDE_CODE_PATHS = (
+    ".github/workflows/research_backtest_pipeline.yml",
+    "config/apps_script_research_dispatch_inputs.csv",
+    "config/daily_model_background_data_registry.csv",
+    "config/daily_model_data_sharing_migrations.csv",
+    "config/daily_model_data_sharing_registry.csv",
+    "config/repo_file_lifecycle_inventory.csv",
+    "config/repo_production_inventory.csv",
+    "config/report_artifact_lineage.csv",
+    "scripts/build_revenue_unreacted_range_research.py",
+    "scripts/revenue_unreacted_range_forward_confirmation_feature_audit.py",
+    "scripts/revenue_unreacted_range_lag_strength_matrix.py",
+    "scripts/revenue_unreacted_range_launch_timing_feature_audit.py",
+    "scripts/revenue_unreacted_range_low_mid_falling_candidate_audit.py",
+    "scripts/revenue_unreacted_range_operation_lag_bucket_audit.py",
+    "scripts/revenue_unreacted_range_position_shape_transition_matrix.py",
+    "scripts/revenue_unreacted_range_rearmed_operation_grid.py",
+    "scripts/revenue_unreacted_range_source_snapshot_projection.py",
+    "scripts/validate_apps_script_workflow_triggers.py",
+    "scripts/validate_model_research_workflow_isolation.py",
+    "scripts/validate_repo_file_lifecycle_inventory.py",
+    "scripts/validate_repo_production_inventory.py",
+    "scripts/validate_revenue_unreacted_range_forward_confirmation_feature_audit.py",
+    "scripts/validate_revenue_unreacted_range_lag_strength_matrix.py",
+    "scripts/validate_revenue_unreacted_range_launch_timing_feature_audit.py",
+    "scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
+    "scripts/validate_revenue_unreacted_range_operation_lag_bucket_audit.py",
+    "scripts/validate_revenue_unreacted_range_position_shape_transition_matrix.py",
+    "scripts/validate_revenue_unreacted_range_promotion_preparation.py",
+    "scripts/validate_revenue_unreacted_range_rearmed_operation_grid.py",
+    "scripts/validate_revenue_unreacted_range_source_snapshot_projection.py",
+    "tests/test_daily_production_boundaries.py",
+    "tests/test_model_data_independence.py",
+    "tests/test_model_research_workflow_isolation.py",
+    "tests/test_repo_file_lifecycle_inventory.py",
+    "tests/test_repo_production_inventory.py",
+    "tests/test_revenue_unreacted_range_forward_confirmation_feature_audit.py",
+    "tests/test_revenue_unreacted_range_lag_strength_matrix.py",
+    "tests/test_revenue_unreacted_range_launch_timing_feature_audit.py",
+    "tests/test_revenue_unreacted_range_operation_lag_bucket_audit.py",
+    "tests/test_revenue_unreacted_range_position_shape_transition_matrix.py",
+    "tests/test_revenue_unreacted_range_rearmed_operation_grid.py",
+    "tests/test_revenue_unreacted_range_source_snapshot_projection.py",
+    "tests/test_validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
+    "tests/test_validate_revenue_unreacted_range_promotion_preparation.py",
+)
+REVENUE_PROJECTION_SUPERSEDE_ALLOWED_PATHS = (
+    "output/latest/research_backtest/revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv",
+    "output/latest/research_backtest/revenue_unreacted_range_source_snapshot_projection_detail_latest.csv",
+    "output/history/research/revenue_unreacted_range_source_snapshot_projection_manifest.csv",
+    "docs/latest/revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv",
+    "output/history/research/revenue_unreacted_range_source_snapshot_projection_supersede_evidence_v2_20260822.csv",
+    "docs/latest/revenue_unreacted_range_forward_confirmation_feature_audit_feature_contrast_latest.csv",
+    "docs/latest/revenue_unreacted_range_forward_confirmation_feature_audit_latest.csv",
+    "docs/latest/revenue_unreacted_range_forward_confirmation_feature_audit_latest.md",
+    "docs/latest/revenue_unreacted_range_forward_confirmation_feature_audit_operation_return_review_latest.csv",
+    "docs/latest/revenue_unreacted_range_lag_strength_matrix_latest.csv",
+    "docs/latest/revenue_unreacted_range_lag_strength_matrix_latest.md",
+    "docs/latest/revenue_unreacted_range_launch_timing_feature_audit_feature_contrast_latest.csv",
+    "docs/latest/revenue_unreacted_range_launch_timing_feature_audit_latest.csv",
+    "docs/latest/revenue_unreacted_range_launch_timing_feature_audit_latest.md",
+    "docs/latest/revenue_unreacted_range_low_mid_falling_candidate_audit_detail_latest.csv",
+    "docs/latest/revenue_unreacted_range_low_mid_falling_candidate_audit_feature_contrast_latest.csv",
+    "docs/latest/revenue_unreacted_range_low_mid_falling_candidate_audit_latest.csv",
+    "docs/latest/revenue_unreacted_range_low_mid_falling_candidate_audit_latest.md",
+    "docs/latest/revenue_unreacted_range_low_mid_falling_candidate_audit_paired_confirmation_latest.csv",
+    "docs/latest/revenue_unreacted_range_operation_lag_bucket_audit_latest.csv",
+    "docs/latest/revenue_unreacted_range_operation_lag_bucket_audit_latest.md",
+    "docs/latest/revenue_unreacted_range_position_shape_transition_matrix_latest.csv",
+    "docs/latest/revenue_unreacted_range_position_shape_transition_matrix_latest.md",
+    "docs/latest/revenue_unreacted_range_position_shape_transition_matrix_transition_latest.csv",
+    "docs/latest/revenue_unreacted_range_rearmed_operation_grid_latest.csv",
+    "docs/latest/revenue_unreacted_range_rearmed_operation_grid_latest.md",
+    "docs/latest/revenue_unreacted_range_rearmed_operation_grid_operation_return_review_latest.csv",
+    "output/history/research/revenue_unreacted_range_forward_confirmation_feature_audit.csv",
+    "output/history/research/revenue_unreacted_range_forward_confirmation_feature_audit_feature_contrast.csv",
+    "output/history/research/revenue_unreacted_range_forward_confirmation_feature_audit_operation_return_review.csv",
+    "output/history/research/revenue_unreacted_range_lag_strength_matrix.csv",
+    "output/history/research/revenue_unreacted_range_launch_timing_feature_audit.csv",
+    "output/history/research/revenue_unreacted_range_launch_timing_feature_audit_feature_contrast.csv",
+    "output/history/research/revenue_unreacted_range_low_mid_falling_candidate_audit.csv",
+    "output/history/research/revenue_unreacted_range_low_mid_falling_candidate_audit_detail.csv",
+    "output/history/research/revenue_unreacted_range_low_mid_falling_candidate_audit_feature_contrast.csv",
+    "output/history/research/revenue_unreacted_range_low_mid_falling_candidate_audit_paired_confirmation.csv",
+    "output/history/research/revenue_unreacted_range_operation_lag_bucket_audit.csv",
+    "output/history/research/revenue_unreacted_range_position_shape_transition_matrix.csv",
+    "output/history/research/revenue_unreacted_range_position_shape_transition_matrix_transition.csv",
+    "output/history/research/revenue_unreacted_range_rearmed_operation_grid.csv",
+    "output/history/research/revenue_unreacted_range_rearmed_operation_grid_operation_return_review.csv",
+    "output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_detail_latest.csv",
+    "output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_event_detail_latest.csv",
+    "output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_feature_contrast_latest.csv",
+    "output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_latest.csv",
+    "output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_latest.md",
+    "output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_operation_return_review_latest.csv",
+    "output/latest/research_backtest/revenue_unreacted_range_lag_strength_matrix_detail_latest.csv",
+    "output/latest/research_backtest/revenue_unreacted_range_lag_strength_matrix_latest.csv",
+    "output/latest/research_backtest/revenue_unreacted_range_lag_strength_matrix_latest.md",
+    "output/latest/research_backtest/revenue_unreacted_range_launch_timing_feature_audit_detail_latest.csv",
+    "output/latest/research_backtest/revenue_unreacted_range_launch_timing_feature_audit_feature_contrast_latest.csv",
+    "output/latest/research_backtest/revenue_unreacted_range_launch_timing_feature_audit_latest.csv",
+    "output/latest/research_backtest/revenue_unreacted_range_launch_timing_feature_audit_latest.md",
+    "output/latest/research_backtest/revenue_unreacted_range_low_mid_falling_candidate_audit_detail_latest.csv",
+    "output/latest/research_backtest/revenue_unreacted_range_low_mid_falling_candidate_audit_feature_contrast_latest.csv",
+    "output/latest/research_backtest/revenue_unreacted_range_low_mid_falling_candidate_audit_latest.csv",
+    "output/latest/research_backtest/revenue_unreacted_range_low_mid_falling_candidate_audit_latest.md",
+    "output/latest/research_backtest/revenue_unreacted_range_low_mid_falling_candidate_audit_paired_confirmation_latest.csv",
+    "output/latest/research_backtest/revenue_unreacted_range_operation_lag_bucket_audit_detail_latest.csv",
+    "output/latest/research_backtest/revenue_unreacted_range_operation_lag_bucket_audit_latest.csv",
+    "output/latest/research_backtest/revenue_unreacted_range_operation_lag_bucket_audit_latest.md",
+    "output/latest/research_backtest/revenue_unreacted_range_position_shape_transition_matrix_detail_latest.csv",
+    "output/latest/research_backtest/revenue_unreacted_range_position_shape_transition_matrix_latest.csv",
+    "output/latest/research_backtest/revenue_unreacted_range_position_shape_transition_matrix_latest.md",
+    "output/latest/research_backtest/revenue_unreacted_range_position_shape_transition_matrix_transition_latest.csv",
+    "output/latest/research_backtest/revenue_unreacted_range_rearmed_operation_grid_detail_latest.csv",
+    "output/latest/research_backtest/revenue_unreacted_range_rearmed_operation_grid_latest.csv",
+    "output/latest/research_backtest/revenue_unreacted_range_rearmed_operation_grid_latest.md",
+    "output/latest/research_backtest/revenue_unreacted_range_rearmed_operation_grid_operation_return_review_latest.csv",
+    "output/latest/model_data_independence_audit_latest.csv",
+    "output/latest/model_data_independence_audit_latest.md",
+    "docs/latest/model_data_independence_audit_latest.csv",
+    "docs/latest/model_data_independence_audit_latest.md",
+)
+REVENUE_PROJECTION_SUPERSEDE_IMMUTABLE_PATHS = (
+    "output/history/research/revenue_unreacted_range_source_snapshot_projection_manifest_v1_20260731.csv",
+    "output/history/research/revenue_unreacted_range_source_snapshot_projection_detail_v1_20260731.csv",
+    "output/history/research/revenue_unreacted_range_source_snapshot_projection_archive_evidence_v1_20260731.csv",
+    "output/history/research/revenue_unreacted_range_source_snapshot_projection_manifest_v2_20260822.csv",
+    "output/history/research/revenue_unreacted_range_source_snapshot_projection_detail_v2_20260822.csv",
+    "output/history/research/revenue_unreacted_range_source_snapshot_projection_v1_20260731_to_v2_20260822_diff_summary.csv",
+    "output/history/research/revenue_unreacted_range_source_snapshot_projection_v1_20260731_to_v2_20260822_diff_detail.csv",
+)
+REVENUE_PROJECTION_SUPERSEDE_LITERAL_GIT_ADD = (
+    "git --no-replace-objects add -- \\\n  "
+    + " \\\n  ".join(REVENUE_PROJECTION_SUPERSEDE_ALLOWED_PATHS)
+)
 REVENUE_PROJECTION_CANDIDATE_REPAIR_UNCHANGED_PATHS = tuple(
     path
     for path in REVENUE_PROJECTION_REBASELINE_ALLOWED_PATHS
@@ -440,23 +638,23 @@ REVENUE_PROJECTION_CANDIDATE_REPAIR_LITERAL_GIT_ADD = "git add -- \\\n  " + " \\
     REVENUE_PROJECTION_CANDIDATE_REPAIR_PATHS
 )
 REVENUE_PROJECTION_REBASELINE_EXPECTED_PATH_OCCURRENCES = (
-    7,
-    7,
-    6,
-    9,
+    10,
+    10,
     8,
-    7,
-    7,
+    14,
+    12,
+    10,
+    10,
     6,
     6,
     6,
     6,
     6,
     6,
-    8,
-    6,
-    8,
-    6,
+    12,
+    10,
+    12,
+    10,
 )
 REVENUE_PROJECTION_REBASELINE_FORBIDDEN_COMPANION_INPUTS = (
     "run_market_timing",
@@ -494,6 +692,13 @@ REVENUE_REBASELINE_COMMIT = (
 )
 REVENUE_CANDIDATE_REPAIR_COMMIT = (
     'git commit -m "Repair revenue projection v2 candidate audit CSV line endings"'
+)
+REVENUE_SUPERSEDE_COMMIT = (
+    'git --no-replace-objects commit -m '
+    '"Supersede revenue source projection v2 research canonical artifacts"'
+)
+REVENUE_SUPERSEDE_PUSH = (
+    'git --no-replace-objects push origin "HEAD:$TARGET_BRANCH"'
 )
 PUBLISH_FAIL_CLOSED_SHELL = "set -euo pipefail"
 PUBLISH_NO_CHANGE_GUARD = (
@@ -654,14 +859,25 @@ def workflow_input_defaults(text: str) -> dict[str, str]:
         return {}
     body = match.group("body")
     rows: dict[str, str] = {}
-    for input_match in re.finditer(
-        r'(?ms)^      (?P<name>[A-Za-z0-9_]+):\s*\n.*?^        default: '
-        r'(?:(?:"(?P<quoted>true|false)")|(?P<plain>true|false))\s*$',
-        body,
-    ):
-        rows[input_match.group("name")] = (
-            input_match.group("quoted") or input_match.group("plain")
+    input_matches = list(
+        re.finditer(r"(?m)^      (?P<name>[A-Za-z0-9_]+):\s*$", body)
+    )
+    for index, input_match in enumerate(input_matches):
+        block_end = (
+            input_matches[index + 1].start()
+            if index + 1 < len(input_matches)
+            else len(body)
         )
+        input_body = body[input_match.end() : block_end]
+        default_match = re.search(
+            r'(?m)^        default:\s*(?:(?:"(?P<quoted>true|false)")|'
+            r"(?P<plain>true|false))\s*$",
+            input_body,
+        )
+        if default_match:
+            rows[input_match.group("name")] = (
+                default_match.group("quoted") or default_match.group("plain")
+            )
     return rows
 
 
@@ -1008,10 +1224,34 @@ def validate_unmasked_step_contracts(text: str, blocks: list[str]) -> list[str]:
             for step_name, _command in REVENUE_PROJECTION_CANDIDATE_REPAIR_COMMAND_STEPS
         ),
         (
+            REVENUE_PROJECTION_SUPERSEDE_STEP_NAME,
+            REVENUE_PROJECTION_SUPERSEDE_STEP_IF,
+            "revenue projection supersede producer and validator chain",
+            {"name", "if", "run"},
+        ),
+        (
             POST_RUN_STEP_NAME,
             POST_RUN_STEP_IF,
             "post-run research validation",
             {"name", "if", "run"},
+        ),
+        (
+            REVENUE_PROJECTION_SUPERSEDE_CLOSURE_STEP_NAME,
+            REVENUE_PROJECTION_SUPERSEDE_STEP_IF,
+            "revenue projection supersede exact75 closure",
+            {"name", "if", "env", "run"},
+        ),
+        (
+            REVENUE_PROJECTION_SUPERSEDE_STAGE_STEP_NAME,
+            REVENUE_PROJECTION_SUPERSEDE_STEP_IF,
+            "revenue projection supersede exact75 staging",
+            {"name", "if", "run"},
+        ),
+        (
+            REVENUE_PROJECTION_SUPERSEDE_COMMIT_STEP_NAME,
+            REVENUE_PROJECTION_SUPERSEDE_STEP_IF,
+            "revenue projection supersede exact75 commit",
+            {"name", "if", "env", "run"},
         ),
         (
             REVENUE_PROJECTION_CANDIDATE_REPAIR_CLOSURE_STEP_NAME,
@@ -1153,6 +1393,42 @@ def validate_unmasked_step_contracts(text: str, blocks: list[str]) -> list[str]:
         errors.append(
             "research preflight step must retain its exact env and run contract"
         )
+    if preflight_step is not None:
+        preflight_body = _semantic_step_run_body(preflight_step) or ""
+        supersede_code_paths = _shell_array_values(
+            preflight_body,
+            "REVENUE_SUPERSEDE_CODE_PATHS",
+        )
+        if supersede_code_paths != REVENUE_PROJECTION_SUPERSEDE_CODE_PATHS:
+            errors.append(
+                "revenue projection supersede preflight must bind the exact44 literal "
+                f"code paths: actual={list(supersede_code_paths)}"
+            )
+        required_code_identity_snippets = (
+            "git --no-replace-objects diff --name-only --no-renames "
+            '"$REVENUE_SUPERSEDE_EXPECTED_BASE_SHA" '
+            '"$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA"',
+            "Revenue source snapshot projection supersede code commit changed-path "
+            "exact44 allowlist mismatch.",
+            "git --no-replace-objects diff --name-status --no-renames "
+            '"$REVENUE_SUPERSEDE_EXPECTED_BASE_SHA" '
+            '"$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA"',
+            "Revenue source snapshot projection supersede code commit status count "
+            "mismatch.",
+            "$'M\\t'\"${REVENUE_SUPERSEDE_CODE_PATHS[$index]}\"",
+            "Revenue source snapshot projection supersede code commit requires exact "
+            "modified-only status",
+        )
+        missing_code_identity = [
+            snippet
+            for snippet in required_code_identity_snippets
+            if snippet not in preflight_body
+        ]
+        if missing_code_identity:
+            errors.append(
+                "revenue projection supersede preflight code-commit identity closure "
+                f"is incomplete: missing={missing_code_identity}"
+            )
     sync_install_preflight_steps = (sync_step, install_step, preflight_step)
     if all(step is not None for step in sync_install_preflight_steps):
         sync_install_preflight_indices = [
@@ -1228,6 +1504,16 @@ def validate_unmasked_step_contracts(text: str, blocks: list[str]) -> list[str]:
                 f"expected={command!r} actual={_semantic_step_run_body(step)!r}"
             )
 
+    supersede_step = critical_steps_by_name.get(REVENUE_PROJECTION_SUPERSEDE_STEP_NAME)
+    if supersede_step is not None and (
+        _semantic_step_run_body(supersede_step)
+        != REVENUE_PROJECTION_SUPERSEDE_RUN_BODY
+    ):
+        errors.append(
+            "revenue projection supersede producer and validator chain must retain its "
+            "exact fail-closed order without forward holdout or promotion preparation"
+        )
+
     for step_name, expected_digest, label in (
         (
             REVENUE_PROJECTION_REBASELINE_PRECHECK_STEP_NAME,
@@ -1298,6 +1584,9 @@ def validate_unmasked_step_contracts(text: str, blocks: list[str]) -> list[str]:
 
     closure_chain_names = (
         POST_RUN_STEP_NAME,
+        REVENUE_PROJECTION_SUPERSEDE_CLOSURE_STEP_NAME,
+        REVENUE_PROJECTION_SUPERSEDE_STAGE_STEP_NAME,
+        REVENUE_PROJECTION_SUPERSEDE_COMMIT_STEP_NAME,
         REVENUE_PROJECTION_CANDIDATE_REPAIR_CLOSURE_STEP_NAME,
         REVENUE_PROJECTION_CANDIDATE_REPAIR_STAGE_STEP_NAME,
         REVENUE_PROJECTION_CANDIDATE_REPAIR_COMMIT_STEP_NAME,
@@ -1321,9 +1610,9 @@ def validate_unmasked_step_contracts(text: str, blocks: list[str]) -> list[str]:
             )
         ):
             errors.append(
-                "post-run validators, repair exact2 closure chain, rebaseline exact17 "
-                "closure chain, and mode-skipped generic publish must be consecutive "
-                "in exact order"
+                "post-run validators, supersede exact75 closure chain, repair exact2 "
+                "closure chain, rebaseline exact17 closure chain, and mode-skipped "
+                "generic publish must be consecutive in exact order"
             )
     return errors
 
@@ -1331,13 +1620,28 @@ def validate_unmasked_step_contracts(text: str, blocks: list[str]) -> list[str]:
 def validate_publish_block(text: str, blocks: list[str]) -> list[str]:
     errors: list[str] = []
     shell_lines = [line.strip() for line in text.splitlines()]
-    commit_lines = [line for line in shell_lines if line.startswith("git commit ")]
-    push_lines = [line for line in shell_lines if line.startswith("git push ")]
+    commit_lines = [
+        line
+        for line in shell_lines
+        if line.startswith(("git commit ", "git --no-replace-objects commit "))
+    ]
+    push_lines = [
+        line
+        for line in shell_lines
+        if line.startswith(("git push ", "git --no-replace-objects push "))
+    ]
     observed_publish_blocks = [
         block
         for block in blocks
         if any(
-            line.strip().startswith(("git commit ", "git push "))
+            line.strip().startswith(
+                (
+                    "git commit ",
+                    "git push ",
+                    "git --no-replace-objects commit ",
+                    "git --no-replace-objects push ",
+                )
+            )
             or "ci_push_with_retry.sh" in line
             for line in block.splitlines()
         )
@@ -1351,34 +1655,50 @@ def validate_publish_block(text: str, blocks: list[str]) -> list[str]:
         blocks,
         REVENUE_PROJECTION_CANDIDATE_REPAIR_COMMIT_STEP_NAME,
     )
-    expected_publish_blocks = [*repair_blocks, *rebaseline_blocks, *generic_blocks]
+    supersede_blocks = _named_step_blocks(
+        blocks,
+        REVENUE_PROJECTION_SUPERSEDE_COMMIT_STEP_NAME,
+    )
+    expected_publish_blocks = [
+        *supersede_blocks,
+        *repair_blocks,
+        *rebaseline_blocks,
+        *generic_blocks,
+    ]
     if (
         len(generic_blocks) != 1
         or len(rebaseline_blocks) != 1
         or len(repair_blocks) != 1
-        or len(observed_publish_blocks) != 3
+        or len(supersede_blocks) != 1
+        or len(observed_publish_blocks) != 4
         or {id(block) for block in observed_publish_blocks}
         != {id(block) for block in expected_publish_blocks}
     ):
         errors.append(
-            "research workflow must contain exactly one generic, one candidate repair, "
-            "and one rebaseline commit/push block: "
+            "research workflow must contain exactly one generic, one supersede, one "
+            "candidate repair, and one rebaseline commit/push block: "
             f"observed={len(observed_publish_blocks)}"
         )
 
     if commit_lines != [
+        REVENUE_SUPERSEDE_COMMIT,
         REVENUE_CANDIDATE_REPAIR_COMMIT,
         REVENUE_REBASELINE_COMMIT,
         PUBLISH_COMMIT,
     ]:
         errors.append(
-            "research workflow commit commands must be exact candidate repair, "
-            f"rebaseline, then generic commits: observed={commit_lines}"
+            "research workflow commit commands must be exact supersede, candidate "
+            f"repair, rebaseline, then generic commits: observed={commit_lines}"
         )
 
-    if push_lines != [PUBLISH_PUSH, PUBLISH_PUSH, PUBLISH_PUSH]:
+    if push_lines != [
+        REVENUE_SUPERSEDE_PUSH,
+        PUBLISH_PUSH,
+        PUBLISH_PUSH,
+        PUBLISH_PUSH,
+    ]:
         errors.append(
-            "research workflow must contain exactly three direct fail-closed pushes: "
+            "research workflow must contain exactly four direct fail-closed pushes: "
             f"observed={push_lines}"
         )
 
@@ -1457,6 +1777,24 @@ def validate_publish_block(text: str, blocks: list[str]) -> list[str]:
                     "revenue candidate repair dedicated commit block must not rewrite "
                     f"or resynchronize the target branch: {line}"
                 )
+
+    if len(supersede_blocks) == 1:
+        supersede_block = _normalized_shell_block(supersede_blocks[0])
+        if PUBLISH_FAIL_CLOSED_SHELL not in supersede_block:
+            errors.append(
+                "revenue projection supersede dedicated commit block missing fail-closed shell mode"
+            )
+        if "set +e" in supersede_block:
+            errors.append(
+                "revenue projection supersede dedicated commit block must not mask shell failure"
+            )
+        commit_position = supersede_block.find(REVENUE_SUPERSEDE_COMMIT)
+        push_position = supersede_block.find(REVENUE_SUPERSEDE_PUSH)
+        if not (0 <= commit_position < push_position):
+            errors.append(
+                "revenue projection supersede dedicated publish order must be exact "
+                "commit then direct deploy-key push"
+            )
 
     return errors
 
@@ -1582,6 +1920,7 @@ def validate_workflow_text(
         REVENUE_PROJECTION_CHAIN_STAGE_INPUT,
         REVENUE_PROJECTION_REBASELINE_STAGE_INPUT,
         REVENUE_PROJECTION_CANDIDATE_REPAIR_STAGE_INPUT,
+        REVENUE_PROJECTION_SUPERSEDE_STAGE_INPUT,
     )
     for stage_input in stage_inputs:
         if defaults.get(stage_input) != "false":
@@ -1606,6 +1945,7 @@ def validate_workflow_text(
     for stage_input in (
         REVENUE_PROJECTION_REBASELINE_STAGE_INPUT,
         REVENUE_PROJECTION_CANDIDATE_REPAIR_STAGE_INPUT,
+        REVENUE_PROJECTION_SUPERSEDE_STAGE_INPUT,
     ):
         if input_types.get(stage_input) != "boolean":
             errors.append(
@@ -1629,7 +1969,8 @@ def validate_workflow_text(
         'if [[ "$REVENUE_SOURCE_PROJECTION_REBASELINE_ONLY" == "true" && '
         '( "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" || '
         '"$REVENUE_SOURCE_PROJECTION_CHAIN_ONLY" == "true" || '
-        '"$REVENUE_SOURCE_PROJECTION_CANDIDATE_REPAIR_ONLY" == "true" ) ]]; then'
+        '"$REVENUE_SOURCE_PROJECTION_CANDIDATE_REPAIR_ONLY" == "true" || '
+        '"$REVENUE_SOURCE_PROJECTION_SUPERSEDE_ONLY" == "true" ) ]]; then'
     )
     rebaseline_forbids_other_research = (
         'if [[ "$REVENUE_SOURCE_PROJECTION_REBASELINE_ONLY" == "true" && '
@@ -1648,7 +1989,8 @@ def validate_workflow_text(
         'if [[ "$REVENUE_SOURCE_PROJECTION_CANDIDATE_REPAIR_ONLY" == "true" && '
         '( "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" || '
         '"$REVENUE_SOURCE_PROJECTION_CHAIN_ONLY" == "true" || '
-        '"$REVENUE_SOURCE_PROJECTION_REBASELINE_ONLY" == "true" ) ]]; then'
+        '"$REVENUE_SOURCE_PROJECTION_REBASELINE_ONLY" == "true" || '
+        '"$REVENUE_SOURCE_PROJECTION_SUPERSEDE_ONLY" == "true" ) ]]; then'
     )
     repair_forbids_other_research = (
         'if [[ "$REVENUE_SOURCE_PROJECTION_CANDIDATE_REPAIR_ONLY" == "true" && '
@@ -1657,6 +1999,27 @@ def validate_workflow_text(
     repair_requires_branch = (
         'if [[ "$REVENUE_SOURCE_PROJECTION_CANDIDATE_REPAIR_ONLY" == "true" && '
         '( "$REVENUE_REBASELINE_REF_TYPE" != "branch" || '
+        '"$TARGET_BRANCH" == "main" ) ]]; then'
+    )
+    supersede_requires_primary = (
+        'if [[ "$REVENUE_SOURCE_PROJECTION_SUPERSEDE_ONLY" == "true" && '
+        '"$REVENUE_RESEARCH_ENABLED" != "true" ]]; then'
+    )
+    supersede_exclusive_modes = (
+        'if [[ "$REVENUE_SOURCE_PROJECTION_SUPERSEDE_ONLY" == "true" && '
+        '( "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" || '
+        '"$REVENUE_SOURCE_PROJECTION_CHAIN_ONLY" == "true" || '
+        '"$REVENUE_SOURCE_PROJECTION_REBASELINE_ONLY" == "true" || '
+        '"$REVENUE_SOURCE_PROJECTION_CANDIDATE_REPAIR_ONLY" == "true" ) ]]; then'
+    )
+    supersede_forbids_other_research = (
+        'if [[ "$REVENUE_SOURCE_PROJECTION_SUPERSEDE_ONLY" == "true" && '
+        '"$REVENUE_REBASELINE_OTHER_RESEARCH_SELECTED" == "true" ]]; then'
+    )
+    supersede_requires_dispatch_branch = (
+        'if [[ "$REVENUE_SOURCE_PROJECTION_SUPERSEDE_ONLY" == "true" && '
+        '( "$GITHUB_EVENT_NAME" != "workflow_dispatch" || '
+        '"$REVENUE_REBASELINE_REF_TYPE" != "branch" || '
         '"$TARGET_BRANCH" == "main" ) ]]; then'
     )
     if holdout_requires_primary not in text:
@@ -1709,6 +2072,40 @@ def validate_workflow_text(
             "revenue source projection candidate repair must require a non-main "
             "branch ref"
         )
+    for snippet, message in (
+        (
+            supersede_requires_primary,
+            "revenue projection supersede must require the primary revenue input",
+        ),
+        (
+            supersede_exclusive_modes,
+            "revenue projection supersede must be mutually exclusive with every other revenue stage mode",
+        ),
+        (
+            supersede_forbids_other_research,
+            "revenue projection supersede must forbid every other research input",
+        ),
+        (
+            supersede_requires_dispatch_branch,
+            "revenue projection supersede must require workflow_dispatch on a non-main branch",
+        ),
+        (
+            'if [[ "$REVENUE_SOURCE_PROJECTION_SUPERSEDE_ONLY" == "true" && "$GITHUB_RUN_ATTEMPT" != "1" ]]; then',
+            "revenue projection supersede must reject workflow retry attempts",
+        ),
+        (
+            f'if [[ "$REVENUE_SOURCE_PROJECTION_SUPERSEDE_ONLY" == "true" && "$REVENUE_SUPERSEDE_CONFIRMATION" != "{REVENUE_PROJECTION_SUPERSEDE_CONFIRMATION}" ]]; then',
+            "revenue projection supersede must require its exact confirmation token",
+        ),
+    ):
+        if snippet not in text:
+            errors.append(message)
+    for identity_input in REVENUE_PROJECTION_SUPERSEDE_IDENTITY_INPUTS:
+        if input_types.get(identity_input) != "string":
+            errors.append(
+                "revenue projection supersede identity input must use workflow_dispatch "
+                f"type string: {identity_input}"
+            )
     if REVENUE_PROJECTION_CANDIDATE_REPAIR_RUN_ATTEMPT_GUARD not in text:
         errors.append(
             "revenue source projection candidate repair must reject workflow retry "
@@ -1863,6 +2260,18 @@ def validate_workflow_text(
     repair_commit_blocks = _named_step_blocks(
         blocks,
         REVENUE_PROJECTION_CANDIDATE_REPAIR_COMMIT_STEP_NAME,
+    )
+    supersede_closure_blocks = _named_step_blocks(
+        blocks,
+        REVENUE_PROJECTION_SUPERSEDE_CLOSURE_STEP_NAME,
+    )
+    supersede_stage_blocks = _named_step_blocks(
+        blocks,
+        REVENUE_PROJECTION_SUPERSEDE_STAGE_STEP_NAME,
+    )
+    supersede_commit_blocks = _named_step_blocks(
+        blocks,
+        REVENUE_PROJECTION_SUPERSEDE_COMMIT_STEP_NAME,
     )
     if len(rebaseline_precheck_blocks) == 1:
         precheck_body = _step_run_body(rebaseline_precheck_blocks[0]) or ""
@@ -2206,6 +2615,162 @@ def validate_workflow_text(
                 "after index identity validation"
             )
 
+    supersede_bodies: dict[str, str] = {}
+    for label, step_blocks in (
+        ("closure", supersede_closure_blocks),
+        ("stage", supersede_stage_blocks),
+        ("commit", supersede_commit_blocks),
+    ):
+        if len(step_blocks) == 1:
+            supersede_bodies[label] = _step_run_body(step_blocks[0]) or ""
+
+    for label, body in supersede_bodies.items():
+        allowed_paths = _shell_array_values(body, "REVENUE_SUPERSEDE_ALLOWED_PATHS")
+        if allowed_paths != REVENUE_PROJECTION_SUPERSEDE_ALLOWED_PATHS:
+            errors.append(
+                "revenue projection supersede "
+                f"{label} must bind the exact75 literal artifact paths: "
+                f"actual_count={len(allowed_paths)}"
+            )
+        if re.search(r"\bgit (?!--no-replace-objects\b|ls-remote\b)", body):
+            errors.append(
+                "revenue projection supersede identity and side-effect Git commands "
+                f"must use --no-replace-objects: step={label}"
+            )
+        if "GITHUB_TOKEN" in body or "ci_push_with_retry.sh" in body:
+            errors.append(
+                "revenue projection supersede must use only the deploy-key checkout and "
+                f"direct push without token fallback or retry: step={label}"
+            )
+
+    supersede_closure_body = supersede_bodies.get("closure", "")
+    if supersede_closure_body:
+        immutable_paths = _shell_array_values(
+            supersede_closure_body,
+            "REVENUE_SUPERSEDE_IMMUTABLE_PATHS",
+        )
+        if immutable_paths != REVENUE_PROJECTION_SUPERSEDE_IMMUTABLE_PATHS:
+            errors.append(
+                "revenue projection supersede closure must preserve immutable exact7 "
+                f"candidate artifacts: actual={list(immutable_paths)}"
+            )
+        required_closure_snippets = (
+            f'test "$(cat "{POST_RUN_SENTINEL}")" = "pass"',
+            f'REVENUE_SUPERSEDE_TRUSTED_CANDIDATE_COMMIT="{REVENUE_PROJECTION_SUPERSEDE_TRUSTED_CANDIDATE_COMMIT}"',
+            'if [[ "$(git --no-replace-objects rev-parse --is-shallow-repository)" == "true" ]]; then',
+            'git --no-replace-objects fetch --no-tags --unshallow origin "$TARGET_BRANCH"',
+            "git --no-replace-objects merge-base --is-ancestor",
+            "Revenue projection supersede mutated an immutable v1/v2/diff artifact",
+            "latest manifest is not byte-identical to immutable v2",
+            "docs manifest is not byte-identical to immutable v2",
+            "latest detail is not byte-identical to immutable v2",
+            "Revenue projection supersede changed-path exact75 allowlist mismatch",
+            f'REVENUE_SUPERSEDE_IDENTITY_FILE="{REVENUE_PROJECTION_SUPERSEDE_IDENTITY_FILE}"',
+            'test "$(wc -l < "$REVENUE_SUPERSEDE_IDENTITY_FILE"',
+            '= "75"',
+        )
+        missing = [
+            snippet
+            for snippet in required_closure_snippets
+            if snippet not in supersede_closure_body
+        ]
+        if missing:
+            errors.append(
+                "revenue projection supersede exact75 closure is incomplete: "
+                f"missing={missing}"
+            )
+
+    supersede_stage_body = supersede_bodies.get("stage", "")
+    if supersede_stage_body:
+        required_stage_snippets = (
+            f'REVENUE_SUPERSEDE_IDENTITY_FILE="{REVENUE_PROJECTION_SUPERSEDE_IDENTITY_FILE}"',
+            "Revenue projection supersede pre-stage changed-path exact75 allowlist mismatch",
+            "Revenue projection supersede artifact drifted after validation",
+            REVENUE_PROJECTION_SUPERSEDE_LITERAL_GIT_ADD,
+            "git --no-replace-objects diff --cached --name-only",
+            "Revenue projection supersede staged-path exact75 allowlist mismatch",
+            "git --no-replace-objects cat-file -s",
+            "git --no-replace-objects show",
+            "Revenue projection supersede staged artifact identity mismatch",
+        )
+        missing = [
+            snippet
+            for snippet in required_stage_snippets
+            if snippet not in supersede_stage_body
+        ]
+        if missing:
+            errors.append(
+                "revenue projection supersede exact75 literal staging is incomplete: "
+                f"missing={missing}"
+            )
+        if 'git --no-replace-objects add -- "${REVENUE_SUPERSEDE_ALLOWED_PATHS[@]}"' in supersede_stage_body:
+            errors.append(
+                "revenue projection supersede staging must use exact75 literal pathspecs, "
+                "never an array-expanded git add"
+            )
+
+    supersede_commit_body = supersede_bodies.get("commit", "")
+    if supersede_commit_body:
+        immutable_paths = _shell_array_values(
+            supersede_commit_body,
+            "REVENUE_SUPERSEDE_IMMUTABLE_PATHS",
+        )
+        if immutable_paths != REVENUE_PROJECTION_SUPERSEDE_IMMUTABLE_PATHS:
+            errors.append(
+                "revenue projection supersede commit must preserve immutable exact7 "
+                f"candidate artifacts: actual={list(immutable_paths)}"
+            )
+        required_commit_snippets = (
+            f'REVENUE_SUPERSEDE_IDENTITY_FILE="{REVENUE_PROJECTION_SUPERSEDE_IDENTITY_FILE}"',
+            "Revenue projection supersede pre-commit HEAD moved from expected_head_sha",
+            "Revenue projection supersede pre-commit staged-path exact75 allowlist mismatch",
+            "Revenue projection supersede pre-commit staged artifact identity mismatch",
+            "git ls-remote --exit-code origin",
+            "Revenue projection supersede remote branch moved before artifact commit",
+            REVENUE_SUPERSEDE_COMMIT,
+            "git --no-replace-objects rev-list --parents -n 1",
+            "git --no-replace-objects rev-list --count",
+            "unique direct child of expected_head_sha",
+            "Revenue projection supersede committed-path exact75 allowlist mismatch",
+            "Revenue projection supersede committed artifact identity mismatch",
+            "artifact commit changed an immutable v1/v2/diff artifact",
+            "Revenue projection supersede remote branch moved before the direct push",
+            REVENUE_SUPERSEDE_PUSH,
+        )
+        missing = [
+            snippet
+            for snippet in required_commit_snippets
+            if snippet not in supersede_commit_body
+        ]
+        if missing:
+            errors.append(
+                "revenue projection supersede exact75 dedicated commit is incomplete: "
+                f"missing={missing}"
+            )
+        supersede_commit_lines = [
+            line.strip()
+            for line in supersede_commit_body.splitlines()
+            if line.strip()
+        ]
+        if not supersede_commit_lines or supersede_commit_lines[-1] != REVENUE_SUPERSEDE_PUSH:
+            errors.append(
+                "revenue projection supersede direct deploy-key push must be the final command"
+            )
+        if any(
+            line.startswith(("git add ", "git --no-replace-objects add "))
+            for line in supersede_commit_lines
+        ):
+            errors.append(
+                "revenue projection supersede dedicated commit must not stage after "
+                "exact75 index validation"
+            )
+
+    if text.count(REVENUE_PROJECTION_SUPERSEDE_IDENTITY_FILE) != 3:
+        errors.append(
+            "revenue projection supersede identity file must be written once after "
+            "validation and read by exact75 staging and dedicated commit"
+        )
+
     for path, expected_count in zip(
         REVENUE_PROJECTION_REBASELINE_ALLOWED_PATHS,
         REVENUE_PROJECTION_REBASELINE_EXPECTED_PATH_OCCURRENCES,
@@ -2226,10 +2791,10 @@ def validate_workflow_text(
             "revenue candidate repair identity file must be written once after "
             "validation and read by exact2 staging and dedicated commit"
         )
-    if text.count(POST_RUN_SENTINEL) != 3:
+    if text.count(POST_RUN_SENTINEL) != 4:
         errors.append(
             "post-run validator sentinel must be written once and consumed once by each "
-            "protected repair/rebaseline identity closure"
+            "protected supersede/repair/rebaseline identity closure"
         )
 
     commit_step_name = COMMIT_STEP_MARKER.removeprefix("- name: ")
@@ -2328,7 +2893,7 @@ def validate_workflow_text(
 
         command = f"python {row.producer}"
         producer_blocks = [block for block in blocks if command in block]
-        expected_producer_block_count = 2 if row.producer == REVENUE_PRODUCER else 1
+        expected_producer_block_count = 3 if row.producer == REVENUE_PRODUCER else 1
         if len(producer_blocks) != expected_producer_block_count:
             errors.append(
                 "model-owned producer must appear in its exact workflow step count: "

@@ -10,6 +10,14 @@ import subprocess
 
 import pandas as pd
 
+from revenue_unreacted_range_source_snapshot_projection import (
+    LATEST_DETAIL_CSV as SOURCE_CONDITION_DETAIL_CSV,
+    LATEST_MANIFEST_CSV as SOURCE_PROJECTION_MANIFEST_CSV,
+    V1_PROJECTION_VERSION,
+    V2_PROJECTION_VERSION,
+    load_projected_source_detail,
+    load_source_snapshot_projection_manifest,
+)
 from validate_revenue_unreacted_range_source_snapshot_projection import (
     validate_projection_binding_frames,
 )
@@ -19,8 +27,10 @@ ROOT = Path(__file__).resolve().parents[1]
 MODEL_ID = "revenue_unreacted_range"
 ARTIFACT_ID = "revenue_unreacted_range_operation_lag_bucket_audit"
 ARTIFACT_VERSION = "operation_lag_bucket_v1_20260714"
+V2_ARTIFACT_VERSION = "operation_lag_bucket_v2_20260822"
 SOURCE_OPERATION_ARTIFACT_ID = "revenue_unreacted_range_rearmed_operation_grid"
 SOURCE_OPERATION_ARTIFACT_VERSION = "rearmed_operation_grid_v1_20260713"
+V2_SOURCE_OPERATION_ARTIFACT_VERSION = "rearmed_operation_grid_v2_20260822"
 SOURCE_CONDITION_ARTIFACT_ID = "revenue_unreacted_range_source_first_condition_audit"
 SOURCE_CONDITION_ARTIFACT_VERSION = "source_first_condition_v3_20260720"
 SOURCE_VARIANT_ID = "absolute_or_two_month_yoy_ge15"
@@ -41,6 +51,13 @@ LATEST_MD = ROOT / f"output/latest/research_backtest/{ARTIFACT_ID}_latest.md"
 HISTORY_CSV = ROOT / f"output/history/research/{ARTIFACT_ID}.csv"
 DOCS_CSV = ROOT / f"docs/latest/{ARTIFACT_ID}_latest.csv"
 DOCS_MD = ROOT / f"docs/latest/{ARTIFACT_ID}_latest.md"
+SOURCE_OPERATION_DETAIL_CSV = (
+    ROOT
+    / "output/latest/research_backtest/"
+    "revenue_unreacted_range_rearmed_operation_grid_detail_latest.csv"
+)
+PRICE_HISTORY_DIR = ROOT / "data/stock_price_history"
+
 TRUSTED_SOURCE_REVISION = "b7ab7b6122b422e941efa3a3a1a915fbfcb59f4d"
 SOURCE_OPERATION_DETAIL_RELATIVE_PATH = (
     "output/latest/research_backtest/"
@@ -78,6 +95,110 @@ EXPECTED_V1_MANIFEST_DESCRIPTOR = {
 
 _TRUSTED_TREE_CACHE: dict[str, dict[str, tuple[str, str, str]]] = {}
 _TRUSTED_BLOB_CACHE: dict[tuple[str, str], bytes] = {}
+
+
+ARTIFACT_VERSION_BY_PROJECTION = {
+    V1_PROJECTION_VERSION: ARTIFACT_VERSION,
+    V2_PROJECTION_VERSION: V2_ARTIFACT_VERSION,
+}
+SOURCE_OPERATION_VERSION_BY_PROJECTION = {
+    V1_PROJECTION_VERSION: SOURCE_OPERATION_ARTIFACT_VERSION,
+    V2_PROJECTION_VERSION: V2_SOURCE_OPERATION_ARTIFACT_VERSION,
+}
+
+
+def _expected_versions(projection_version: object) -> tuple[str, str]:
+    version = str(projection_version).strip()
+    try:
+        return (
+            ARTIFACT_VERSION_BY_PROJECTION[version],
+            SOURCE_OPERATION_VERSION_BY_PROJECTION[version],
+        )
+    except KeyError as exc:
+        raise RuntimeError(
+            f"unsupported canonical source projection version: {version or '<empty>'}"
+        ) from exc
+
+
+def _canonical_source_frames() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    current_manifest = load_source_snapshot_projection_manifest(
+        SOURCE_PROJECTION_MANIFEST_CSV
+    )
+    projection_version = str(current_manifest.iloc[0]["projection_version"]).strip()
+    _expected_versions(projection_version)
+    if projection_version == V1_PROJECTION_VERSION:
+        return _trusted_source_frames()
+    episodes = load_projected_source_detail(SOURCE_CONDITION_DETAIL_CSV)
+    validate_projection_binding_frames(current_manifest, episodes)
+    if SOURCE_OPERATION_DETAIL_CSV.is_symlink() or not SOURCE_OPERATION_DETAIL_CSV.is_file():
+        raise RuntimeError(
+            f"canonical rearmed operation detail is missing or unsafe: {SOURCE_OPERATION_DETAIL_CSV}"
+        )
+    operations = pd.read_csv(
+        SOURCE_OPERATION_DETAIL_CSV,
+        dtype={"stock_id": str, "trigger_date": str, "entry_date": str},
+        keep_default_na=False,
+        low_memory=False,
+    )
+    return current_manifest, operations, episodes
+
+def _current_price_frames(
+    stock_ids: set[str], manifest: pd.DataFrame
+) -> dict[str, pd.DataFrame]:
+    projection_version = str(manifest.iloc[0]["projection_version"]).strip()
+    _expected_versions(projection_version)
+    if projection_version == V1_PROJECTION_VERSION:
+        return _trusted_price_frames(stock_ids, manifest)
+    descriptors = _price_descriptors(manifest) if projection_version == V2_PROJECTION_VERSION else {}
+    if projection_version == V2_PROJECTION_VERSION:
+        omitted = sorted(stock_ids - set(descriptors))
+        if omitted:
+            raise RuntimeError(f"canonical v2 price descriptors omit stocks: {omitted[:5]}")
+    frames: dict[str, pd.DataFrame] = {}
+    for stock_id in sorted(stock_ids):
+        normalized = str(stock_id).strip()
+        if re.fullmatch(r"\d{4,6}", normalized) is None:
+            raise RuntimeError(f"canonical source has unsafe stock id: {stock_id!r}")
+        path = PRICE_HISTORY_DIR / f"{normalized}.csv"
+        if path.is_symlink() or not path.is_file():
+            raise RuntimeError(f"canonical price history is missing or unsafe: {path}")
+        raw = pd.read_csv(path, dtype=str, keep_default_na=False, low_memory=False)
+        missing = sorted(set(PRICE_INPUT_COLUMNS) - set(raw.columns))
+        if missing:
+            raise RuntimeError(f"canonical price CSV is missing columns: {normalized}: {missing}")
+        frame = raw.loc[:, list(PRICE_INPUT_COLUMNS)].copy()
+        dates = frame["date"].astype(str).str.strip()
+        dates = dates.where(
+            dates.str.fullmatch(r"\d{8}"),
+            dates.str.extract(r"^(\d{8})\.0+$", expand=False),
+        )
+        if dates.isna().any():
+            raise RuntimeError(f"canonical price CSV has invalid dates: {normalized}")
+        frame["date"] = dates
+        frame = frame.loc[frame["date"].le(PRICE_HISTORY_CUTOFF_DATE)].copy()
+        if frame.empty or frame["date"].duplicated().any():
+            raise RuntimeError(
+                f"canonical price CSV has empty or duplicate cutoff dates: {normalized}"
+            )
+        frame = frame.sort_values("date", kind="mergesort").reset_index(drop=True)
+        if projection_version == V2_PROJECTION_VERSION:
+            rows = [
+                [_payload_value(value) for value in values]
+                for values in frame.loc[:, list(PRICE_INPUT_COLUMNS)].itertuples(
+                    index=False, name=None
+                )
+            ]
+            rows.sort()
+            payload = json.dumps(
+                [CANONICAL_JSON_VERSION, list(PRICE_INPUT_COLUMNS), rows],
+                ensure_ascii=False,
+                separators=(",", ":"),
+            ).encode("utf-8")
+            expected_rows, expected_sha = descriptors[normalized]
+            if len(frame) != expected_rows or hashlib.sha256(payload).hexdigest() != expected_sha:
+                raise RuntimeError(f"canonical v2 price CSV descriptor drift: {normalized}")
+        frames[normalized] = frame
+    return frames
 
 
 def _git(*args: str, input_bytes: bytes | None = None) -> subprocess.CompletedProcess[bytes]:
@@ -470,13 +591,20 @@ def _overlap_pair_count(detail: pd.DataFrame) -> int:
     return overlaps
 
 
-def _governance(frame: pd.DataFrame, name: str, errors: list[str]) -> None:
+def _governance(
+    frame: pd.DataFrame,
+    name: str,
+    errors: list[str],
+    *,
+    expected_artifact_version: str = ARTIFACT_VERSION,
+    expected_source_operation_version: str = SOURCE_OPERATION_ARTIFACT_VERSION,
+) -> None:
     expected = {
         "model_id": MODEL_ID,
         "artifact_id": ARTIFACT_ID,
-        "artifact_version": ARTIFACT_VERSION,
+        "artifact_version": expected_artifact_version,
         "source_operation_artifact_id": SOURCE_OPERATION_ARTIFACT_ID,
-        "source_operation_artifact_version": SOURCE_OPERATION_ARTIFACT_VERSION,
+        "source_operation_artifact_version": expected_source_operation_version,
         "source_condition_artifact_id": SOURCE_CONDITION_ARTIFACT_ID,
         "source_condition_artifact_version": SOURCE_CONDITION_ARTIFACT_VERSION,
         "source_variant_id": SOURCE_VARIANT_ID,
@@ -498,7 +626,7 @@ def _validate_detail_lineage(
     projection_manifest: pd.DataFrame,
     errors: list[str],
 ) -> None:
-    trusted_frames = _trusted_price_frames(
+    trusted_frames = _current_price_frames(
         set(detail["stock_id"].astype(str)), projection_manifest
     )
     operation_keys = set(
@@ -789,7 +917,7 @@ def validate() -> list[str]:
         low_memory=False,
     )
     try:
-        projection_manifest, operations, episodes = _trusted_source_frames()
+        projection_manifest, operations, episodes = _canonical_source_frames()
     except (RuntimeError, ValueError, KeyError, UnicodeDecodeError) as exc:
         return [str(exc)]
     operations = operations.loc[
@@ -798,11 +926,33 @@ def validate() -> list[str]:
     errors.extend(validate_projection_binding_frames(projection_manifest, episodes))
     if errors:
         return errors
+    try:
+        expected_artifact_version, expected_source_operation_version = (
+            _expected_versions(projection_manifest.iloc[0]["projection_version"])
+        )
+    except (IndexError, KeyError, RuntimeError) as exc:
+        return [str(exc)]
+    if set(operations["artifact_version"].astype(str)) != {
+        expected_source_operation_version
+    }:
+        errors.append("operation lag bucket canonical source operation version drift")
     episodes = episodes.loc[
         episodes["condition_variant_id"].astype(str).eq(SOURCE_VARIANT_ID)
     ].copy()
-    _governance(summary, "summary", errors)
-    _governance(detail, "detail", errors)
+    _governance(
+        summary,
+        "summary",
+        errors,
+        expected_artifact_version=expected_artifact_version,
+        expected_source_operation_version=expected_source_operation_version,
+    )
+    _governance(
+        detail,
+        "detail",
+        errors,
+        expected_artifact_version=expected_artifact_version,
+        expected_source_operation_version=expected_source_operation_version,
+    )
     if detail.duplicated(["episode_key", "stock_id", "trigger_date", "entry_date"]).any():
         errors.append("operation lag bucket detail contains duplicate operations")
     if not _boolish(detail["same_stock_non_overlap_applied"]).all():

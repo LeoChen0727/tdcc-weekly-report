@@ -26,13 +26,30 @@ from revenue_unreacted_range_source_snapshot_projection import (
     load_projected_source_detail,
     load_source_snapshot_projection_manifest,
     validate_projection_binding,
+    V1_PROJECTION_VERSION,
+    V2_PROJECTION_VERSION,
 )
 
 
 ROOT = Path(__file__).resolve().parents[1]
 MODEL_ID = "revenue_unreacted_range"
 ARTIFACT_ID = "revenue_unreacted_range_forward_confirmation_feature_audit"
-ARTIFACT_VERSION = "forward_confirmation_v2_20260713"
+V1_ARTIFACT_VERSION = "forward_confirmation_v2_20260713"
+V2_ARTIFACT_VERSION = "forward_confirmation_v3_20260822"
+ARTIFACT_VERSION = V1_ARTIFACT_VERSION
+
+
+def artifact_version_for_projection(projection_version: object) -> str:
+    version = str(projection_version).strip()
+    mapping = {
+        V1_PROJECTION_VERSION: V1_ARTIFACT_VERSION,
+        V2_PROJECTION_VERSION: V2_ARTIFACT_VERSION,
+    }
+    if version not in mapping:
+        raise RuntimeError(
+            f"unsupported canonical source projection version: {version or '<empty>'}"
+        )
+    return mapping[version]
 EXPECTED_SOURCE_ARTIFACT_ID = "revenue_unreacted_range_source_first_condition_audit"
 EXPECTED_SOURCE_ARTIFACT_VERSION = "source_first_condition_v3_20260720"
 
@@ -1478,6 +1495,11 @@ def build_forward_confirmation_feature_audit(
     )
     feature = build_feature_contrast(events)
     return_review = build_operation_return_review(detail, daily_by_stock)
+    selected_version = artifact_version_for_projection(
+        source_projection_manifest.iloc[0]["projection_version"]
+    )
+    for frame in (summary, detail, events, feature, return_review):
+        frame.loc[:, "artifact_version"] = selected_version
     return summary, detail, events, feature, return_review
 
 
@@ -1514,7 +1536,7 @@ def _markdown(
         "",
         f"- generated_at: `{_now_text()}`",
         f"- model_id: `{MODEL_ID}`",
-        f"- artifact_version: `{ARTIFACT_VERSION}`",
+        f"- artifact_version: `{summary['artifact_version'].iloc[0]}`",
         "- 狀態：`research_only`，不可直接升格或進入 PDF 操作列。",
         "- 來源母體：固定綁定 `20260713` source snapshot projection 中 `absolute_or_two_month_yoy_ge15` 的同股不重疊 episodes。",
         "- 截止防線：cutoff 後新增的 current source-first episodes 不得改變本 artifact。",

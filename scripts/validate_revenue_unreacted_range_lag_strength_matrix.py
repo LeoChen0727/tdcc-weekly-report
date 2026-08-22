@@ -7,6 +7,7 @@ import pandas as pd
 from revenue_unreacted_range_lag_strength_matrix import (
     ALL_LINEAGE_COLUMNS,
     ARTIFACT_VERSION,
+    V2_ARTIFACT_VERSION,
     DETAIL_COLUMNS,
     DETAIL_CSV,
     LATEST_CSV,
@@ -18,6 +19,10 @@ from revenue_unreacted_range_lag_strength_matrix import (
     _monthly_revenue_runtime_context,
     _source_episodes,
     build_lag_strength_matrix,
+)
+from revenue_unreacted_range_source_snapshot_projection import (
+    V1_PROJECTION_VERSION,
+    V2_PROJECTION_VERSION,
 )
 
 DETAIL_DTYPES = {
@@ -36,6 +41,21 @@ SUMMARY_DTYPES = {"condition_test_id": str}
 EXPECTED_AVAILABILITY_SEMANTICS = (
     "conservative_next_month_17th_or_first_official_snapshot_not_exact_company_release_timestamp"
 )
+V1_ARTIFACT_VERSION = "trading_day_lag_strength_root_cause_pending_v5_20260802"
+ARTIFACT_VERSION_BY_PROJECTION = {
+    V1_PROJECTION_VERSION: V1_ARTIFACT_VERSION,
+    V2_PROJECTION_VERSION: V2_ARTIFACT_VERSION,
+}
+
+
+def _expected_artifact_version(projection_version: object) -> str:
+    version = str(projection_version).strip()
+    try:
+        return ARTIFACT_VERSION_BY_PROJECTION[version]
+    except KeyError as exc:
+        raise RuntimeError(
+            f"unsupported canonical source projection version: {version or '<empty>'}"
+        ) from exc
 
 
 def _read(path, *, detail: bool = False) -> pd.DataFrame:
@@ -102,9 +122,15 @@ def validate() -> list[str]:
         expected_runtime_lineage.update(_fixed_source_lineage(source_episodes))
     except (RuntimeError, ValueError, KeyError, pd.errors.ParserError) as exc:
         return [f"lag strength cutoff lineage cannot be verified: {exc}"]
-    if set(summary["artifact_version"].astype(str)) != {ARTIFACT_VERSION}:
+    try:
+        expected_artifact_version = _expected_artifact_version(
+            expected_runtime_lineage["source_projection_version"]
+        )
+    except RuntimeError as exc:
+        return [f"lag strength cutoff lineage cannot be verified: {exc}"]
+    if set(summary["artifact_version"].astype(str)) != {expected_artifact_version}:
         errors.append("lag strength matrix summary version drift")
-    if set(detail["artifact_version"].astype(str)) != {ARTIFACT_VERSION}:
+    if set(detail["artifact_version"].astype(str)) != {expected_artifact_version}:
         errors.append("lag strength matrix detail version drift")
     errors.extend(
         _runtime_lineage_errors(
@@ -186,6 +212,8 @@ def validate() -> list[str]:
                 f"lag strength row with unresolved candidates is not blocked: {row.condition_test_id}"
             )
     rebuilt_summary, rebuilt_detail = build_lag_strength_matrix(source)
+    rebuilt_summary.loc[:, "artifact_version"] = expected_artifact_version
+    rebuilt_detail.loc[:, "artifact_version"] = expected_artifact_version
     rebuilt_summary = _serialized(rebuilt_summary)
     rebuilt_detail = _serialized(rebuilt_detail, detail=True)
     current_summary = summary.drop(columns=["generated_at"]).reset_index(drop=True)

@@ -19,12 +19,19 @@ from revenue_unreacted_range_source_first_condition_audit import (
     ARTIFACT_VERSION as EXPECTED_SOURCE_ARTIFACT_VERSION,
 )
 from revenue_unreacted_range_source_snapshot_projection import (
+    LATEST_DETAIL_CSV as SOURCE_DETAIL_CSV,
+    LATEST_MANIFEST_CSV as SOURCE_PROJECTION_MANIFEST_CSV,
+    V1_PROJECTION_VERSION,
+    V2_PROJECTION_VERSION,
+    load_projected_source_detail,
+    load_source_snapshot_projection_manifest,
     validate_projection_binding,
 )
 from revenue_unreacted_range_rearmed_operation_grid import (
     ANALYSIS_BASES,
     ARTIFACT_ID,
     ARTIFACT_VERSION,
+    V2_ARTIFACT_VERSION,
     BASE_CONFIRMATION_RULE_ID,
     BASE_ENTRY_RULE_ID,
     BONUS_CONFIRMATION_RULE_ID,
@@ -61,6 +68,10 @@ from revenue_unreacted_range_rearmed_operation_grid import (
 
 
 ROOT = Path(__file__).resolve().parents[1]
+PRICE_RESOLUTION_CSV = (
+    ROOT / "config/revenue_unreacted_range_price_comparability_resolution.csv"
+)
+PRICE_HISTORY_DIR = ROOT / "data/stock_price_history"
 TRUSTED_SOURCE_REVISION = "b7ab7b6122b422e941efa3a3a1a915fbfcb59f4d"
 SOURCE_DETAIL_RELATIVE_PATH = (
     "output/latest/research_backtest/"
@@ -76,6 +87,7 @@ PRICE_RESOLUTION_RELATIVE_PATH = (
 PRICE_HISTORY_RELATIVE_DIR = "data/stock_price_history"
 PRICE_INPUT_COLUMNS = ("date", "open", "high", "low", "close", "volume", "volume_ratio")
 CANONICAL_JSON_VERSION = "revenue_source_snapshot_projection_canonical_json_v1"
+
 EXPECTED_V1_MANIFEST_DESCRIPTOR = {
     "model_id": "revenue_unreacted_range",
     "artifact_id": "revenue_unreacted_range_source_snapshot_projection",
@@ -99,6 +111,106 @@ EXPECTED_V1_MANIFEST_DESCRIPTOR = {
 
 _TRUSTED_TREE_CACHE: dict[str, dict[str, tuple[str, str, str]]] = {}
 _TRUSTED_BLOB_CACHE: dict[tuple[str, str], bytes] = {}
+
+ARTIFACT_VERSION_BY_PROJECTION = {
+    V1_PROJECTION_VERSION: ARTIFACT_VERSION,
+    V2_PROJECTION_VERSION: V2_ARTIFACT_VERSION,
+}
+
+
+def _expected_artifact_version(projection_version: object) -> str:
+    version = str(projection_version).strip()
+    try:
+        return ARTIFACT_VERSION_BY_PROJECTION[version]
+    except KeyError as exc:
+        raise RuntimeError(
+            f"unsupported canonical source projection version: {version or '<empty>'}"
+        ) from exc
+
+
+def _canonical_source_frames() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    current_manifest = load_source_snapshot_projection_manifest(
+        SOURCE_PROJECTION_MANIFEST_CSV
+    )
+    projection_version = str(current_manifest.iloc[0]["projection_version"]).strip()
+    _expected_artifact_version(projection_version)
+    if projection_version == V1_PROJECTION_VERSION:
+        return _trusted_source_frames()
+    source = load_projected_source_detail(SOURCE_DETAIL_CSV)
+    validate_projection_binding(current_manifest, source)
+    if not PRICE_RESOLUTION_CSV.is_file():
+        raise RuntimeError(
+            f"canonical price comparability resolution is missing: {PRICE_RESOLUTION_CSV}"
+        )
+    resolutions = pd.read_csv(
+        PRICE_RESOLUTION_CSV,
+        dtype={"stock_id": str},
+        keep_default_na=False,
+        low_memory=False,
+    )
+    return current_manifest, source, resolutions
+
+def _current_price_frames(
+    stock_ids: set[str], manifest: pd.DataFrame
+) -> dict[str, pd.DataFrame]:
+    projection_version = str(manifest.iloc[0]["projection_version"]).strip()
+    _expected_artifact_version(projection_version)
+    if projection_version == V1_PROJECTION_VERSION:
+        return _trusted_price_frames(stock_ids, manifest)
+    descriptors = _price_descriptors(manifest) if projection_version == V2_PROJECTION_VERSION else {}
+    if projection_version == V2_PROJECTION_VERSION:
+        missing_descriptors = sorted(stock_ids - set(descriptors))
+        if missing_descriptors:
+            raise RuntimeError(
+                f"canonical v2 price descriptors omit stocks: {missing_descriptors[:5]}"
+            )
+    frames: dict[str, pd.DataFrame] = {}
+    for stock_id in sorted(stock_ids):
+        normalized = str(stock_id).strip()
+        if re.fullmatch(r"\d{4,6}", normalized) is None:
+            raise RuntimeError(f"canonical source has unsafe stock id: {stock_id!r}")
+        path = PRICE_HISTORY_DIR / f"{normalized}.csv"
+        if path.is_symlink() or not path.is_file():
+            raise RuntimeError(f"canonical price history is missing or unsafe: {path}")
+        raw = pd.read_csv(path, dtype=str, keep_default_na=False, low_memory=False)
+        missing = sorted(set(PRICE_INPUT_COLUMNS) - set(raw.columns))
+        if missing:
+            raise RuntimeError(
+                f"canonical price CSV is missing columns: {stock_id}: {missing}"
+            )
+        frame = raw.loc[:, list(PRICE_INPUT_COLUMNS)].copy()
+        dates = frame["date"].astype(str).str.strip()
+        numeric_export = dates.str.extract(r"^(\d{8})\.0+$", expand=False)
+        dates = dates.where(dates.str.fullmatch(r"\d{8}"), numeric_export)
+        if dates.isna().any():
+            raise RuntimeError(f"canonical price CSV has invalid dates: {stock_id}")
+        frame["date"] = dates
+        frame = frame.loc[frame["date"].le(PRICE_HISTORY_CUTOFF_DATE)].copy()
+        if frame.empty or frame["date"].duplicated().any():
+            raise RuntimeError(
+                f"canonical price CSV has empty or duplicate cutoff dates: {stock_id}"
+            )
+        frame = frame.sort_values("date", kind="mergesort").reset_index(drop=True)
+        if projection_version == V2_PROJECTION_VERSION:
+            rows = [
+                [_payload_value(value) for value in values]
+                for values in frame.loc[:, list(PRICE_INPUT_COLUMNS)].itertuples(
+                    index=False, name=None
+                )
+            ]
+            rows.sort()
+            encoded = json.dumps(
+                [CANONICAL_JSON_VERSION, list(PRICE_INPUT_COLUMNS), rows],
+                ensure_ascii=False,
+                separators=(",", ":"),
+            ).encode("utf-8")
+            expected_rows, expected_sha = descriptors[normalized]
+            if len(frame) != expected_rows or hashlib.sha256(encoded).hexdigest() != expected_sha:
+                raise RuntimeError(
+                    f"canonical v2 price CSV descriptor drift: {normalized}"
+                )
+        frames[normalized] = frame
+    return frames
 
 
 def _git(*args: str, input_bytes: bytes | None = None) -> subprocess.CompletedProcess[bytes]:
@@ -395,7 +507,6 @@ def _trusted_source_frames() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     _validate_v1_manifest_descriptor(manifest)
     return manifest, source, resolutions
 
-
 def _source_lineage_errors(source: pd.DataFrame) -> list[str]:
     missing = sorted({"artifact_id", "artifact_version"} - set(source.columns))
     if missing:
@@ -525,14 +636,20 @@ def _same_number(observed: object, expected: float | None, tolerance: float = 0.
     return value is not None and math.isclose(value, expected, abs_tol=tolerance)
 
 
-def _governance(name: str, frame: pd.DataFrame, errors: list[str]) -> None:
+def _governance(
+    name: str,
+    frame: pd.DataFrame,
+    errors: list[str],
+    *,
+    expected_artifact_version: str = ARTIFACT_VERSION,
+) -> None:
     if frame.empty:
         return
     if set(frame["model_id"].astype(str)) != {MODEL_ID}:
         errors.append(f"rearmed operation grid {name} model_id drift")
     if set(frame["artifact_id"].astype(str)) != {ARTIFACT_ID}:
         errors.append(f"rearmed operation grid {name} artifact_id drift")
-    if set(frame["artifact_version"].astype(str)) != {ARTIFACT_VERSION}:
+    if set(frame["artifact_version"].astype(str)) != {expected_artifact_version}:
         errors.append(f"rearmed operation grid {name} artifact_version drift")
     if _boolish(frame["approved_for_daily"]).any():
         errors.append(f"rearmed operation grid {name} must remain research-only")
@@ -549,7 +666,7 @@ def _date_indices(
     manifest: pd.DataFrame,
 ) -> dict[str, DateIndex]:
     output: dict[str, DateIndex] = {}
-    trusted_frames = _trusted_price_frames(stock_ids, manifest)
+    trusted_frames = _current_price_frames(stock_ids, manifest)
     for stock_id in sorted(stock_ids):
         dates = trusted_frames[stock_id]["date"]
         ordered_dates = tuple(dates.tolist())
@@ -631,8 +748,6 @@ def _validate_timing(
 
 def validate() -> list[str]:
     errors: list[str] = []
-    if not ARTIFACT_VERSION.endswith(PRICE_HISTORY_CUTOFF_DATE):
-        errors.append("rearmed operation grid artifact version does not encode its price cutoff")
     paths = (
         LATEST_CSV,
         DETAIL_CSV,
@@ -676,7 +791,7 @@ def validate() -> list[str]:
         low_memory=False,
     )
     try:
-        source_projection_manifest, source, price_resolutions = _trusted_source_frames()
+        source_projection_manifest, source, price_resolutions = _canonical_source_frames()
     except (RuntimeError, ValueError, KeyError, UnicodeDecodeError) as exc:
         return [str(exc)]
     try:
@@ -684,6 +799,13 @@ def validate() -> list[str]:
     except RuntimeError as exc:
         errors.append(str(exc))
     errors.extend(_source_lineage_errors(source))
+    try:
+        expected_artifact_version = _expected_artifact_version(
+            source_projection_manifest.iloc[0]["projection_version"]
+        )
+    except (IndexError, KeyError, RuntimeError) as exc:
+        errors.append(str(exc))
+        return errors
     source = source.loc[source["condition_variant_id"].eq(SOURCE_VARIANT_ID)].copy()
     avision = price_resolutions.loc[
         price_resolutions["resolution_id"].eq(
@@ -713,9 +835,18 @@ def validate() -> list[str]:
     if errors:
         return errors
 
-    _governance("summary", summary, errors)
-    _governance("detail", detail, errors)
-    _governance("operation return review", review, errors)
+    _governance(
+        "summary", summary, errors,
+        expected_artifact_version=expected_artifact_version,
+    )
+    _governance(
+        "detail", detail, errors,
+        expected_artifact_version=expected_artifact_version,
+    )
+    _governance(
+        "operation return review", review, errors,
+        expected_artifact_version=expected_artifact_version,
+    )
     expected_grid_ids = {
         _grid_id(lifecycle, confirmation, hold_days, stop_policy)
         for lifecycle, confirmation, hold_days, stop_policy in product(

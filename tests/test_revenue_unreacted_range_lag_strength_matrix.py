@@ -27,8 +27,13 @@ from revenue_unreacted_range_monthly_revenue_cross_market_resolution import (  #
     monthly_revenue_history_blob_sha256,
 )
 from validate_revenue_unreacted_range_lag_strength_matrix import (  # noqa: E402
+    _expected_artifact_version,
     _runtime_lineage_errors,
     validate,
+)
+from revenue_unreacted_range_source_snapshot_projection import (  # noqa: E402
+    V1_PROJECTION_VERSION,
+    V2_PROJECTION_VERSION,
 )
 
 
@@ -60,6 +65,23 @@ def _source_episode_row() -> dict[str, object]:
 
 def test_revenue_lag_strength_matrix_passes() -> None:
     assert validate() == []
+
+
+def test_lag_artifact_version_is_projection_bound_and_unknown_fails_closed() -> None:
+    assert lag_strength.artifact_version_for_projection(V1_PROJECTION_VERSION) == (
+        lag_strength.V1_ARTIFACT_VERSION
+    )
+    assert lag_strength.artifact_version_for_projection(V2_PROJECTION_VERSION) == (
+        lag_strength.V2_ARTIFACT_VERSION
+    )
+    assert _expected_artifact_version(V1_PROJECTION_VERSION) == (
+        lag_strength.V1_ARTIFACT_VERSION
+    )
+    assert _expected_artifact_version(V2_PROJECTION_VERSION) == (
+        lag_strength.V2_ARTIFACT_VERSION
+    )
+    with pytest.raises(RuntimeError, match="unsupported canonical source projection"):
+        lag_strength.artifact_version_for_projection("source_snapshot_projection_v3")
 
 
 def test_lag_runtime_lineage_validator_rejects_each_mutated_field() -> None:
@@ -183,6 +205,7 @@ def test_complete_post_cutoff_source_episode_is_ignored_without_output_drift(
         for index, column in enumerate(ALL_LINEAGE_COLUMNS)
         if column not in lag_strength.FIXED_SOURCE_LINEAGE_COLUMNS
     }
+    runtime_lineage["source_projection_version"] = V1_PROJECTION_VERSION
     monkeypatch.setattr(
         lag_strength,
         "_monthly_revenue_runtime_context",

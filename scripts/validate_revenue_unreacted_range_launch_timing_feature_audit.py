@@ -6,6 +6,7 @@ from revenue_unreacted_range_launch_timing_feature_audit import (
     ALL_LINEAGE_COLUMNS,
     ANALYSIS_BASES,
     ARTIFACT_VERSION,
+    V2_ARTIFACT_VERSION,
     DETAIL_COLUMNS,
     DETAIL_CSV,
     FEATURE_COLUMNS,
@@ -31,6 +32,10 @@ from revenue_unreacted_range_launch_timing_feature_audit import (
     _assert_source_detail_lineage,
     _source_cohort,
 )
+from revenue_unreacted_range_source_snapshot_projection import (
+    V1_PROJECTION_VERSION,
+    V2_PROJECTION_VERSION,
+)
 
 
 DETAIL_DTYPES = {
@@ -43,6 +48,31 @@ DETAIL_DTYPES = {
     "first_trigger_date": str,
     "launch_date": str,
 }
+V1_ARTIFACT_VERSION = "launch_timing_breakout_feature_v4_20260802"
+V1_SOURCE_ARTIFACT_VERSION = (
+    "trading_day_lag_strength_root_cause_pending_v5_20260802"
+)
+ARTIFACT_VERSION_BY_PROJECTION = {
+    V1_PROJECTION_VERSION: V1_ARTIFACT_VERSION,
+    V2_PROJECTION_VERSION: V2_ARTIFACT_VERSION,
+}
+SOURCE_ARTIFACT_VERSION_BY_PROJECTION = {
+    V1_PROJECTION_VERSION: V1_SOURCE_ARTIFACT_VERSION,
+    V2_PROJECTION_VERSION: "trading_day_lag_strength_root_cause_pending_v6_20260822",
+}
+
+
+def _expected_versions(projection_version: object) -> tuple[str, str]:
+    version = str(projection_version).strip()
+    try:
+        return (
+            ARTIFACT_VERSION_BY_PROJECTION[version],
+            SOURCE_ARTIFACT_VERSION_BY_PROJECTION[version],
+        )
+    except KeyError as exc:
+        raise RuntimeError(
+            f"unsupported canonical source projection version: {version or '<empty>'}"
+        ) from exc
 
 def _read(path, *, detail: bool = False) -> pd.DataFrame:
     return pd.read_csv(
@@ -61,6 +91,7 @@ def _source_lineage_errors(
     source: pd.DataFrame,
     *,
     expected_runtime_lineage: dict[str, object] | None = None,
+    expected_source_artifact_version: str = EXPECTED_SOURCE_ARTIFACT_VERSION,
 ) -> list[str]:
     required = {
         "artifact_id",
@@ -74,7 +105,7 @@ def _source_lineage_errors(
     if set(source["artifact_id"].astype(str)) != {EXPECTED_SOURCE_ARTIFACT_ID}:
         errors.append("launch timing source artifact id drift")
     if set(source["artifact_version"].astype(str)) != {
-        EXPECTED_SOURCE_ARTIFACT_VERSION
+        expected_source_artifact_version
     }:
         errors.append("launch timing source artifact version drift")
     for column in ALL_LINEAGE_COLUMNS[:-2]:
@@ -124,6 +155,9 @@ def validate() -> list[str]:
     )
     try:
         expected_runtime_lineage = _assert_source_detail_lineage(source)
+        expected_artifact_version, expected_source_artifact_version = (
+            _expected_versions(expected_runtime_lineage["source_projection_version"])
+        )
     except (RuntimeError, ValueError, KeyError, pd.errors.ParserError) as exc:
         return [f"launch timing cutoff source lineage cannot be verified: {exc}"]
 
@@ -255,7 +289,7 @@ def validate() -> list[str]:
             errors.append(f"launch timing markdown omits required interpretation: {token}")
 
     for name, frame in (("summary", summary), ("detail", detail), ("feature", feature)):
-        if set(frame["artifact_version"].astype(str)) != {ARTIFACT_VERSION}:
+        if set(frame["artifact_version"].astype(str)) != {expected_artifact_version}:
             errors.append(f"launch timing {name} version drift")
         if _boolish(frame["approved_for_daily"]).any():
             errors.append(f"launch timing {name} must remain research-only")
@@ -288,6 +322,7 @@ def validate() -> list[str]:
         _source_lineage_errors(
             source,
             expected_runtime_lineage=expected_runtime_lineage,
+            expected_source_artifact_version=expected_source_artifact_version,
         )
     )
     expected_source_counts = {

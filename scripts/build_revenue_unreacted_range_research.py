@@ -98,13 +98,18 @@ from revenue_unreacted_range_source_snapshot_projection import (
     V1_PROJECTION_VERSION,
     V2_CANDIDATE_DETAIL_CSV,
     V2_CANDIDATE_MANIFEST_CSV,
+    V2_PROJECTION_VERSION,
     archive_immutable_v1_projection,
     build_source_snapshot_projection_v2_manifest,
     load_projected_source_detail,
     load_source_snapshot_projection_manifest,
+    supersede_source_snapshot_projection_v2_candidate,
     validate_projection_binding,
     write_source_snapshot_projection,
     write_source_snapshot_projection_v2_candidate,
+)
+from scripts.validate_revenue_unreacted_range_source_snapshot_projection import (
+    validate as validate_source_snapshot_projection,
 )
 from revenue_unreacted_range_research_frame import (
     build_revenue_unreacted_range_research_frame,
@@ -211,10 +216,18 @@ def load_immutable_source_snapshot_projection() -> tuple[pd.DataFrame, pd.DataFr
         if len(manifest) == 1
         else ""
     )
-    if projection_version != V1_PROJECTION_VERSION:
+    if projection_version == V2_PROJECTION_VERSION:
+        supersede_errors = validate_source_snapshot_projection()
+        if supersede_errors:
+            raise RuntimeError(
+                "canonical v2 source snapshot projection supersede closure failed: "
+                + "; ".join(supersede_errors)
+            )
+    elif projection_version != V1_PROJECTION_VERSION:
         raise RuntimeError(
-            "canonical source snapshot projection loader accepts only "
-            f"{V1_PROJECTION_VERSION}; received {projection_version or '<invalid>'}"
+            "canonical source snapshot projection loader accepts only immutable v1 "
+            "or evidence-bound canonical v2; received "
+            f"{projection_version or '<invalid>'}"
         )
     projected_detail = load_projected_source_detail()
     validate_projection_binding(
@@ -517,6 +530,13 @@ def build_and_write_source_snapshot_projection_chain() -> None:
     )
 
 
+def build_and_write_source_snapshot_projection_supersede_and_chain() -> None:
+    """Select canonical v2, then refresh its research-only consumer chain."""
+
+    supersede_source_snapshot_projection_v2_candidate()
+    build_and_write_source_snapshot_projection_chain()
+
+
 def build_and_write_forward_confirmation_feature_audit() -> None:
     projected_source_detail = load_projected_source_detail()
     source_projection_manifest = load_source_snapshot_projection_manifest()
@@ -653,6 +673,7 @@ def parse_args() -> argparse.Namespace:
             "source_snapshot_projection",
             "source_snapshot_projection_rebaseline",
             "source_snapshot_projection_chain",
+            "source_snapshot_projection_supersede_and_chain",
             "forward_confirmation_feature_audit",
             "rearmed_operation_grid",
             "operation_lag_bucket_audit",
@@ -680,6 +701,8 @@ def main() -> int:
                 build_and_write_source_snapshot_projection_rebaseline()
         elif args.stage == "source_snapshot_projection_chain":
             build_and_write_source_snapshot_projection_chain()
+        elif args.stage == "source_snapshot_projection_supersede_and_chain":
+            build_and_write_source_snapshot_projection_supersede_and_chain()
         elif args.stage == "forward_confirmation_feature_audit":
             build_and_write_forward_confirmation_feature_audit()
         elif args.stage == "rearmed_operation_grid":

@@ -1389,6 +1389,71 @@ def test_apps_script_research_dispatch_workflow_only_contract_is_fail_closed() -
     assert any("unknown activation modes" in error for error in unknown_mode_errors)
 
 
+def test_apps_script_research_supersede_identity_inputs_are_exact_string_only() -> None:
+    validator = validate_apps_script_workflow_triggers
+    identity_inputs = set(validator.RESEARCH_WORKFLOW_ONLY_IDENTITY_INPUTS)
+    registry = {
+        name: {"activation_mode": "workflow_only_identity"}
+        for name in identity_inputs
+    }
+    valid_kwargs = {
+        "workflow_input_names": identity_inputs,
+        "workflow_input_defaults": {name: "" for name in identity_inputs},
+        "workflow_input_types": {name: "string" for name in identity_inputs},
+        "apps_inputs": set(),
+        "guarded_inputs": set(),
+        "registry": registry,
+    }
+
+    errors: list[str] = []
+    validator.validate_research_dispatch_contract(errors, **valid_kwargs)
+    assert errors == []
+
+    for key, mutation, expected in (
+        (
+            "workflow_input_defaults",
+            {name: "false" for name in identity_inputs},
+            "must default to an empty string",
+        ),
+        (
+            "workflow_input_types",
+            {name: "boolean" for name in identity_inputs},
+            "must use type string",
+        ),
+        ("apps_inputs", identity_inputs, "must not appear in Apps Script"),
+        ("guarded_inputs", identity_inputs, "must not be guarded by Apps Script"),
+    ):
+        mutated_errors: list[str] = []
+        validator.validate_research_dispatch_contract(
+            mutated_errors,
+            **{**valid_kwargs, key: mutation},
+        )
+        assert any(expected in error for error in mutated_errors)
+
+    widened_registry = {
+        **registry,
+        "unexpected_identity": {"activation_mode": "workflow_only_identity"},
+    }
+    widened_errors: list[str] = []
+    validator.validate_research_dispatch_contract(
+        widened_errors,
+        **{
+            **valid_kwargs,
+            "workflow_input_names": {*identity_inputs, "unexpected_identity"},
+            "workflow_input_defaults": {
+                **valid_kwargs["workflow_input_defaults"],
+                "unexpected_identity": "",
+            },
+            "workflow_input_types": {
+                **valid_kwargs["workflow_input_types"],
+                "unexpected_identity": "string",
+            },
+            "registry": widened_registry,
+        },
+    )
+    assert any("must equal the exact revenue supersede identity inputs" in error for error in widened_errors)
+
+
 def test_apps_script_daily_trigger_skips_weekends_and_disables_raw_health_check() -> None:
     body = validate_apps_script_workflow_triggers.apps_script_function_body(
         "triggerDailyStockMonitor"

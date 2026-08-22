@@ -15,6 +15,9 @@ if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
 
 from revenue_unreacted_range_rearmed_operation_grid import (  # noqa: E402
+    V1_ARTIFACT_VERSION,
+    V2_ARTIFACT_VERSION,
+    artifact_version_for_projection,
     NO_STOP_POLICY_ID,
     PRICE_HISTORY_CUTOFF_DATE,
     PRIMARY_ANALYSIS_BASIS,
@@ -30,6 +33,10 @@ from revenue_unreacted_range_rearmed_operation_grid import (  # noqa: E402
     build_operation_return_review,
     build_operation_summary,
 )
+from revenue_unreacted_range_source_snapshot_projection import (  # noqa: E402
+    V1_PROJECTION_VERSION,
+    V2_PROJECTION_VERSION,
+)
 from revenue_unreacted_range_source_first_condition_audit import (  # noqa: E402
     PRICE_HISTORY_DIR,
     _load_price_resolutions,
@@ -39,6 +46,19 @@ from validate_revenue_unreacted_range_rearmed_operation_grid import (  # noqa: E
     validate,
 )
 import validate_revenue_unreacted_range_rearmed_operation_grid as grid_validator  # noqa: E402
+
+
+def test_rearmed_artifact_version_is_projection_bound() -> None:
+    assert artifact_version_for_projection(V1_PROJECTION_VERSION) == V1_ARTIFACT_VERSION
+    assert artifact_version_for_projection(V2_PROJECTION_VERSION) == V2_ARTIFACT_VERSION
+    assert grid_validator._expected_artifact_version(V1_PROJECTION_VERSION) == (
+        V1_ARTIFACT_VERSION
+    )
+    assert grid_validator._expected_artifact_version(V2_PROJECTION_VERSION) == (
+        V2_ARTIFACT_VERSION
+    )
+    with pytest.raises(RuntimeError, match="unsupported canonical source projection"):
+        grid_validator._expected_artifact_version("unknown")
 
 
 def _stock_frame(

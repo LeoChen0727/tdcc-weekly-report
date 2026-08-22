@@ -6,6 +6,7 @@ import subprocess
 from pathlib import Path
 
 from scripts import validate_repo_file_lifecycle_inventory as validator
+from scripts import validate_model_research_workflow_isolation as workflow_validator
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -39,6 +40,29 @@ def test_lifecycle_inventory_covers_existing_production_inventory() -> None:
     assert set(production) <= set(lifecycle)
     assert lifecycle["scripts/validate_repo_file_lifecycle_inventory.py"]["status"] == "active"
     assert "scripts/build_chip_flow_positive_streak.py" not in lifecycle
+
+
+def test_revenue_projection_supersede_lifecycle_writes_are_exact75() -> None:
+    lifecycle_path = ROOT / "config" / "repo_file_lifecycle_inventory.csv"
+    with lifecycle_path.open("r", encoding="utf-8-sig", newline="") as fh:
+        lifecycle = {row["path"]: row for row in csv.DictReader(fh)}
+
+    expected = workflow_validator.REVENUE_PROJECTION_SUPERSEDE_ALLOWED_PATHS
+    workflow_writes = tuple(
+        lifecycle[".github/workflows/research_backtest_pipeline.yml"][
+            "writes_artifact"
+        ].split(";")
+    )
+    assert len(expected) == 75
+    assert workflow_writes == expected
+    assert (
+        "output/history/research/"
+        "revenue_unreacted_range_source_snapshot_projection_"
+        "supersede_evidence_v2_20260822.csv"
+        in lifecycle["scripts/build_revenue_unreacted_range_research.py"][
+            "writes_artifact"
+        ].split(";")
+    )
 
 
 def test_lifecycle_inventory_has_no_pending_delete_or_deprecated_rows() -> None:

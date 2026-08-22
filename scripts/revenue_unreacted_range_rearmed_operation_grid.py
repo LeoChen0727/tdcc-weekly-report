@@ -19,12 +19,29 @@ from revenue_unreacted_range_source_snapshot_projection import (
     load_projected_source_detail,
     load_source_snapshot_projection_manifest,
     validate_projection_binding,
+    V1_PROJECTION_VERSION,
+    V2_PROJECTION_VERSION,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
 MODEL_ID = "revenue_unreacted_range"
 ARTIFACT_ID = "revenue_unreacted_range_rearmed_operation_grid"
-ARTIFACT_VERSION = "rearmed_operation_grid_v1_20260713"
+V1_ARTIFACT_VERSION = "rearmed_operation_grid_v1_20260713"
+V2_ARTIFACT_VERSION = "rearmed_operation_grid_v2_20260822"
+ARTIFACT_VERSION = V1_ARTIFACT_VERSION
+
+
+def artifact_version_for_projection(projection_version: object) -> str:
+    version = str(projection_version).strip()
+    mapping = {
+        V1_PROJECTION_VERSION: V1_ARTIFACT_VERSION,
+        V2_PROJECTION_VERSION: V2_ARTIFACT_VERSION,
+    }
+    if version not in mapping:
+        raise RuntimeError(
+            f"unsupported canonical source projection version: {version or '<empty>'}"
+        )
+    return mapping[version]
 PRICE_HISTORY_CUTOFF_DATE = "20260713"
 EXPECTED_SOURCE_ARTIFACT_ID = "revenue_unreacted_range_source_first_condition_audit"
 EXPECTED_SOURCE_ARTIFACT_VERSION = "source_first_condition_v3_20260720"
@@ -912,6 +929,11 @@ def build_rearmed_operation_grid(
     detail = build_operation_detail(source, daily_by_stock, generated_at)
     review = build_operation_return_review(detail, daily_by_stock)
     summary = build_operation_summary(detail, source)
+    selected_version = artifact_version_for_projection(
+        projection_manifest.iloc[0]["projection_version"]
+    )
+    for frame in (summary, detail, review):
+        frame.loc[:, "artifact_version"] = selected_version
     return summary, detail, review
 
 
@@ -945,7 +967,7 @@ def _markdown(summary: pd.DataFrame, detail: pd.DataFrame, review: pd.DataFrame)
         "",
         f"- generated_at: `{summary['generated_at'].iloc[0]}`",
         f"- model_id: `{MODEL_ID}`",
-        f"- artifact_version: `{ARTIFACT_VERSION}`",
+        f"- artifact_version: `{summary['artifact_version'].iloc[0]}`",
         "- 狀態：`research_only`，不修改 production registry、operation adapter 或 PDF。",
         "- 基礎確認：訊號日收盤首次突破前 20 日最高收盤，且 MA60 > MA120；下一交易日開盤進場。",
         "- 隔日續攻加分：只能在 D+1 收盤確認，若用於買進決策必須改為 D+2 開盤進場，不能回填成 D+1 開盤資訊。",

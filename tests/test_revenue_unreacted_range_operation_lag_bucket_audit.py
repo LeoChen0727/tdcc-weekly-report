@@ -14,6 +14,10 @@ if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
 
 from revenue_unreacted_range_operation_lag_bucket_audit import (  # noqa: E402
+    V1_ARTIFACT_VERSION,
+    V2_ARTIFACT_VERSION,
+    artifact_version_for_projection,
+    source_operation_version_for_projection,
     ADOPTED_GRID_ID,
     DETAIL_CSV,
     LATEST_CSV,
@@ -21,10 +25,31 @@ from revenue_unreacted_range_operation_lag_bucket_audit import (  # noqa: E402
     SENSITIVITY_ANALYSIS_BASIS,
     SOURCE_OPERATION_DETAIL_CSV,
 )
+from revenue_unreacted_range_source_snapshot_projection import (  # noqa: E402
+    V1_PROJECTION_VERSION,
+    V2_PROJECTION_VERSION,
+)
 from validate_revenue_unreacted_range_operation_lag_bucket_audit import (  # noqa: E402
     validate,
 )
 import validate_revenue_unreacted_range_operation_lag_bucket_audit as validator  # noqa: E402
+
+
+def test_operation_lag_versions_are_projection_bound() -> None:
+    assert artifact_version_for_projection(V1_PROJECTION_VERSION) == V1_ARTIFACT_VERSION
+    assert artifact_version_for_projection(V2_PROJECTION_VERSION) == V2_ARTIFACT_VERSION
+    assert source_operation_version_for_projection(V1_PROJECTION_VERSION) == (
+        validator.SOURCE_OPERATION_ARTIFACT_VERSION
+    )
+    assert source_operation_version_for_projection(V2_PROJECTION_VERSION) == (
+        validator.V2_SOURCE_OPERATION_ARTIFACT_VERSION
+    )
+    assert validator._expected_versions(V2_PROJECTION_VERSION) == (
+        V2_ARTIFACT_VERSION,
+        validator.V2_SOURCE_OPERATION_ARTIFACT_VERSION,
+    )
+    with pytest.raises(RuntimeError, match="unsupported canonical source projection"):
+        validator._expected_versions("unknown")
 
 
 def test_operation_lag_bucket_audit_passes() -> None:

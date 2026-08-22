@@ -139,6 +139,48 @@ VOLUME_V2_RUNTIME_MARKDOWN_REVALIDATE_ACTIVE_SHA256 = (
 VOLUME_V2_RUNTIME_MARKDOWN_COMMIT_ACTIVE_SHA256 = (
     "d133f9da15847362b3a2e8d6d0b451913724def3374424b4fd764ec7081cd774"
 )
+REVENUE_PROJECTION_SUPERSEDE_WRITER_WORKFLOW = (
+    ".github/workflows/research_backtest_pipeline.yml"
+)
+REVENUE_PROJECTION_SUPERSEDE_WRITER_JOB = "research-backtest-pipeline"
+REVENUE_PROJECTION_SUPERSEDE_WRITER_INPUT = (
+    "run_revenue_unreacted_range_source_snapshot_projection_supersede_only"
+)
+REVENUE_PROJECTION_SUPERSEDE_ALLOWED_STAGE_PATTERNS = (
+    "git add output/latest/research_backtest/price_pullback_23ema_*",
+    "git add output/latest/research_backtest/revenue_unreacted_range_*",
+    "git add output/latest/research_backtest/volume_range_breakout_v2_*",
+    "git --no-replace-objects add --",
+)
+REVENUE_PROJECTION_SUPERSEDE_ALLOWED_PATH_COUNT = 75
+REVENUE_PROJECTION_SUPERSEDE_ALLOWED_PATHS_SHA256 = (
+    "05d2bc70b5360fb807b98e20a1479fb0b596fe92ca56c60e039d6666eb36e965"
+)
+REVENUE_PROJECTION_SUPERSEDE_PREFLIGHT_STEP_NAME = (
+    "Validate Apps Script workflow triggers"
+)
+REVENUE_PROJECTION_SUPERSEDE_CODE_PATH_COUNT = 44
+REVENUE_PROJECTION_SUPERSEDE_CODE_PATHS_SHA256 = (
+    "0a054110b900d72418950a6d4724243087e8d63e64a25f153b0928b8b2b5580f"
+)
+REVENUE_PROJECTION_SUPERSEDE_STEP_IF = (
+    "${{ github.event.inputs.run_revenue_unreacted_range_research == 'true' && "
+    "github.event.inputs."
+    "run_revenue_unreacted_range_source_snapshot_projection_supersede_only "
+    "== 'true' && github.ref_type == 'branch' && github.ref_name != 'main' }}"
+)
+REVENUE_PROJECTION_SUPERSEDE_STEP_NAMES = (
+    "Validate revenue projection supersede exact75 artifact closure",
+    "Stage validated revenue projection supersede exact75 artifacts",
+    "Commit validated revenue projection supersede exact75 artifacts",
+)
+REVENUE_PROJECTION_SUPERSEDE_COMMIT = (
+    'git --no-replace-objects commit -m '
+    '"Supersede revenue source projection v2 research canonical artifacts"'
+)
+REVENUE_PROJECTION_SUPERSEDE_PUSH = (
+    'git --no-replace-objects push origin "HEAD:$TARGET_BRANCH"'
+)
 ARTIFACT_PUSH_JOB_MARKERS = (
     "git commit",
     "git push",
@@ -1430,6 +1472,38 @@ def workflow_step_active_run_sha256(active_lines: tuple[str, ...]) -> str:
     return hashlib.sha256("\n".join(active_lines).encode("utf-8")).hexdigest()
 
 
+def workflow_step_shell_array(step_block: str, variable: str) -> tuple[str, ...]:
+    normalized = step_block.replace("\r\n", "\n").replace("\r", "\n")
+    match = re.search(
+        rf"(?ms)^\s*{re.escape(variable)}=\(\s*\n(?P<body>.*?)^\s*\)\s*$",
+        normalized,
+    )
+    if not match:
+        return ()
+    return tuple(
+        line.strip()
+        for line in match.group("body").splitlines()
+        if line.strip()
+    )
+
+
+def workflow_step_literal_git_add_paths(step_block: str) -> tuple[str, ...]:
+    normalized = step_block.replace("\r\n", "\n").replace("\r", "\n")
+    match = re.search(
+        r"(?ms)^\s*git --no-replace-objects add -- \\\n"
+        r"(?P<body>.*?)"
+        r"^\s*mapfile -t REVENUE_SUPERSEDE_STAGED_PATHS\b",
+        normalized,
+    )
+    if not match:
+        return ()
+    return tuple(
+        line.strip().removesuffix(" \\").strip()
+        for line in match.group("body").splitlines()
+        if line.strip()
+    )
+
+
 def _require_active_lines(
     workflow_path: str,
     job_name: str,
@@ -1828,6 +1902,164 @@ def validate_volume_v2_runtime_markdown_pr_writer_exception(
     )
 
 
+def validate_revenue_projection_supersede_writer_exception(
+    row: InventoryRow | None,
+    text: str,
+    job_blocks: dict[str, str],
+    errors: list[str],
+) -> None:
+    workflow_path = REVENUE_PROJECTION_SUPERSEDE_WRITER_WORKFLOW
+    if (
+        row is None
+        or row.allowed_stage_patterns
+        != REVENUE_PROJECTION_SUPERSEDE_ALLOWED_STAGE_PATTERNS
+    ):
+        errors.append(
+            f"{workflow_path} inventory allowed_stage_patterns must retain the three "
+            "existing model globs plus the single supersede exact75 literal-add marker"
+        )
+
+    job = job_blocks.get(REVENUE_PROJECTION_SUPERSEDE_WRITER_JOB)
+    if job is None or len(job_blocks) != 1:
+        errors.append(
+            f"{workflow_path} supersede writer must remain inside the single protected "
+            f"job {REVENUE_PROJECTION_SUPERSEDE_WRITER_JOB}"
+        )
+        return
+
+    preflight_blocks = workflow_steps_named(
+        job,
+        REVENUE_PROJECTION_SUPERSEDE_PREFLIGHT_STEP_NAME,
+    )
+    if len(preflight_blocks) != 1:
+        errors.append(
+            f"{workflow_path} supersede preflight must appear exactly once"
+        )
+    else:
+        preflight = preflight_blocks[0]
+        code_paths = workflow_step_shell_array(
+            preflight,
+            "REVENUE_SUPERSEDE_CODE_PATHS",
+        )
+        code_digest = hashlib.sha256("\n".join(code_paths).encode("utf-8")).hexdigest()
+        if (
+            len(code_paths) != REVENUE_PROJECTION_SUPERSEDE_CODE_PATH_COUNT
+            or code_digest != REVENUE_PROJECTION_SUPERSEDE_CODE_PATHS_SHA256
+        ):
+            errors.append(
+                f"{workflow_path} supersede preflight must bind the independent "
+                f"exact44 code-path digest: count={len(code_paths)} "
+                f"sha256={code_digest}"
+            )
+        for snippet in (
+            "git --no-replace-objects diff --name-only --no-renames "
+            '"$REVENUE_SUPERSEDE_EXPECTED_BASE_SHA" '
+            '"$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA"',
+            "code commit changed-path exact44 allowlist mismatch",
+            "git --no-replace-objects diff --name-status --no-renames "
+            '"$REVENUE_SUPERSEDE_EXPECTED_BASE_SHA" '
+            '"$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA"',
+            "$'M\\t'\"${REVENUE_SUPERSEDE_CODE_PATHS[$index]}\"",
+            "code commit requires exact modified-only status",
+        ):
+            if snippet not in preflight:
+                errors.append(
+                    f"{workflow_path} supersede preflight missing exact44 code-commit "
+                    f"identity guard: {snippet}"
+                )
+
+    blocks_by_name = {
+        name: workflow_steps_named(job, name)
+        for name in REVENUE_PROJECTION_SUPERSEDE_STEP_NAMES
+    }
+    for name, blocks in blocks_by_name.items():
+        if len(blocks) != 1:
+            errors.append(
+                f"{workflow_path} supersede writer step must appear exactly once: {name}"
+            )
+            continue
+        condition = workflow_step_condition(blocks[0])
+        if condition != REVENUE_PROJECTION_SUPERSEDE_STEP_IF:
+            errors.append(
+                f"{workflow_path} supersede writer step has a widened condition: "
+                f"step={name} actual={condition!r}"
+            )
+
+    observed_arrays: dict[str, tuple[str, ...]] = {}
+    for name, blocks in blocks_by_name.items():
+        if len(blocks) != 1:
+            continue
+        paths = workflow_step_shell_array(
+            blocks[0],
+            "REVENUE_SUPERSEDE_ALLOWED_PATHS",
+        )
+        observed_arrays[name] = paths
+        digest = hashlib.sha256("\n".join(paths).encode("utf-8")).hexdigest()
+        if (
+            len(paths) != REVENUE_PROJECTION_SUPERSEDE_ALLOWED_PATH_COUNT
+            or digest != REVENUE_PROJECTION_SUPERSEDE_ALLOWED_PATHS_SHA256
+        ):
+            errors.append(
+                f"{workflow_path} supersede writer {name} must bind the independent "
+                f"exact75 artifact digest: count={len(paths)} sha256={digest}"
+            )
+    if len(set(observed_arrays.values())) > 1:
+        errors.append(
+            f"{workflow_path} supersede closure, staging, and commit exact75 arrays differ"
+        )
+
+    stage_blocks = blocks_by_name[REVENUE_PROJECTION_SUPERSEDE_STEP_NAMES[1]]
+    if len(stage_blocks) == 1:
+        literal_paths = workflow_step_literal_git_add_paths(stage_blocks[0])
+        stage_paths = observed_arrays.get(
+            REVENUE_PROJECTION_SUPERSEDE_STEP_NAMES[1],
+            (),
+        )
+        if literal_paths != stage_paths:
+            errors.append(
+                f"{workflow_path} supersede staging must use the exact75 literal pathspecs "
+                "in the same order as its validated allowlist"
+            )
+        if 'git --no-replace-objects add -- "${REVENUE_SUPERSEDE_ALLOWED_PATHS[@]}"' in stage_blocks[0]:
+            errors.append(
+                f"{workflow_path} supersede staging must not use an array-expanded pathspec"
+            )
+
+    commit_blocks = blocks_by_name[REVENUE_PROJECTION_SUPERSEDE_STEP_NAMES[2]]
+    if len(commit_blocks) == 1:
+        active = workflow_step_active_run_lines(commit_blocks[0])
+        for command in (
+            REVENUE_PROJECTION_SUPERSEDE_COMMIT,
+            REVENUE_PROJECTION_SUPERSEDE_PUSH,
+        ):
+            if active.count(command) != 1:
+                errors.append(
+                    f"{workflow_path} supersede writer must contain exactly one direct "
+                    f"deploy-key side effect: {command}"
+                )
+        if not active or active[-1] != REVENUE_PROJECTION_SUPERSEDE_PUSH:
+            errors.append(
+                f"{workflow_path} supersede deploy-key push must be the final active command"
+            )
+        if "GITHUB_TOKEN" in commit_blocks[0] or "ci_push_with_retry.sh" in commit_blocks[0]:
+            errors.append(
+                f"{workflow_path} supersede writer forbids GITHUB_TOKEN fallback and retry"
+            )
+
+    for snippet in (
+        'if [[ "$REVENUE_SOURCE_PROJECTION_SUPERSEDE_ONLY" == "true" && "$GITHUB_RUN_ATTEMPT" != "1" ]]; then',
+        'if [[ "$REVENUE_SOURCE_PROJECTION_SUPERSEDE_ONLY" == "true" && ( "$GITHUB_EVENT_NAME" != "workflow_dispatch"',
+        '"$TARGET_BRANCH" == "main"',
+        'git ls-remote --exit-code origin "refs/heads/$TARGET_BRANCH"',
+        "git --no-replace-objects rev-list --parents -n 1",
+        "unique direct child of expected_head_sha",
+    ):
+        if snippet not in text:
+            errors.append(
+                f"{workflow_path} supersede writer missing fail-closed identity guard: {snippet}"
+            )
+
+
 def validate_artifact_push_job(
     workflow_path: str,
     job_name: str,
@@ -1911,6 +2143,13 @@ def validate_production_artifact_writer_auth(
                 exception_writer_jobs[VOLUME_V2_RUNTIME_MARKDOWN_WRITER_JOB] = (
                     exception_block
                 )
+        if workflow_path == REVENUE_PROJECTION_SUPERSEDE_WRITER_WORKFLOW:
+            validate_revenue_projection_supersede_writer_exception(
+                row,
+                text,
+                job_blocks,
+                errors,
+            )
         writer_jobs = (
             {**artifact_push_jobs, **exception_writer_jobs}
             if is_registered_writer

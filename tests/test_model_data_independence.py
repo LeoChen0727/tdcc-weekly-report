@@ -1100,9 +1100,9 @@ def test_volume_v2_watch_committed_lineage_audit_is_exactly_registered() -> None
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
-    assert len(rows) == 28
+    assert len(rows) == 29
     assert rows[-1]["migration_id"] == (
-        "revenue_source_snapshot_projection_v2_bootstrap_20260822"
+        "revenue_source_snapshot_projection_v2_supersede_and_chain_20260822"
     )
     baseline = rows[0]
     assert tuple(baseline) == DATA_SHARING_MIGRATION_COLUMNS
@@ -1747,8 +1747,8 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     projection = sharing_by_family[
         "revenue_unreacted_range_source_snapshot_projection"
     ]
-    assert projection["data_contract_sha256"] == (
-        "d941b53613e393cc016e4f7b777787b0e9118e6e9d30aa4e00e5a04f959daa79"
+    assert projection["data_contract_sha256"] == data_contract_sha256(
+        background_by_family["revenue_unreacted_range_source_snapshot_projection"]
     )
     assert projection["ownership_mode"] == "model_owned_not_shared"
     projection_background = background_by_family[
@@ -1823,11 +1823,54 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
         ]
         assert sharing["ownership_mode"] == "model_owned_not_shared"
         assert sharing["approved_consumer_models"] == "revenue_unreacted_range"
+    supersede_migration = next(
+        row
+        for row in rows
+        if row["migration_id"]
+        == "revenue_source_snapshot_projection_v2_supersede_and_chain_20260822"
+    )
+    supersede_families = [
+        "revenue_unreacted_range_source_snapshot_projection",
+        "revenue_unreacted_range_source_snapshot_projection_v2_supersede_evidence",
+    ]
+    assert supersede_migration["changed_data_families"].split(";") == (
+        supersede_families
+    )
+    assert supersede_migration["previous_contract_sha256s"].split(";") == [
+        "d941b53613e393cc016e4f7b777787b0e9118e6e9d30aa4e00e5a04f959daa79",
+        "NEW",
+    ]
+    assert supersede_migration["new_contract_sha256s"].split(";") == [
+        data_contract_sha256(background_by_family[family])
+        for family in supersede_families
+    ]
+    assert supersede_migration["user_approval_reference"] == (
+        "user_authorized_revenue_source_snapshot_projection_v2_"
+        "supersede_and_chain_20260822"
+    )
+    supersede_commands = supersede_migration["validation_commands"].split(";")
+    assert supersede_commands[0] == (
+        "python scripts/build_revenue_unreacted_range_research.py "
+        "--stage source_snapshot_projection_supersede_and_chain"
+    )
+    assert all("forward_holdout" not in command for command in supersede_commands)
+    assert "promotion_preparation" not in supersede_migration["notes"]
+    for family in supersede_families:
+        sharing = sharing_by_family[family]
+        assert sharing["data_contract_sha256"] == data_contract_sha256(
+            background_by_family[family]
+        )
+        assert sharing["last_migration_id"] == supersede_migration["migration_id"]
+        assert sharing["sharing_decision_reference"] == supersede_migration[
+            "user_approval_reference"
+        ]
+        assert sharing["ownership_mode"] == "model_owned_not_shared"
+        assert sharing["approved_consumer_models"] == "revenue_unreacted_range"
     assert projection["data_contract_sha256"] == (
-        "d941b53613e393cc016e4f7b777787b0e9118e6e9d30aa4e00e5a04f959daa79"
+        "bb4e654263668b750b73e2009a1fcdee5a334e9493603c849fd393b25a418bfe"
     )
     assert projection["last_migration_id"] == (
-        "revenue_source_snapshot_projection_20260731"
+        "revenue_source_snapshot_projection_v2_supersede_and_chain_20260822"
     )
 
     forward_migration = next(
@@ -2095,6 +2138,7 @@ def test_revenue_cross_market_research_artifact_lineage_is_complete() -> None:
             "output/latest/research_backtest/revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv",
             "output/latest/research_backtest/revenue_unreacted_range_source_snapshot_projection_detail_latest.csv",
             "output/history/research/revenue_unreacted_range_source_snapshot_projection_manifest.csv",
+            "output/history/research/revenue_unreacted_range_source_snapshot_projection_supersede_evidence_v2_20260822.csv",
             "docs/latest/revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv",
         },
         "revenue_unreacted_range_forward_confirmation_feature_audit": {

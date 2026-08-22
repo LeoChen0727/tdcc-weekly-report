@@ -24,6 +24,28 @@ GENERATED_AT = "2026-07-20 12:00:00 Asia/Taipei"
 TRIGGER_INDEX = 220
 
 
+def test_low_mid_versions_follow_rearmed_generation() -> None:
+    assert producer.versions_for_rearmed_artifact(producer.REARMED_ARTIFACT_VERSION) == (
+        producer.V1_ARTIFACT_VERSION,
+        producer.POSITION_SHAPE_ARTIFACT_VERSION,
+        producer.SOURCE_PROJECTION_ARTIFACT_VERSION,
+    )
+    assert producer.versions_for_rearmed_artifact(
+        producer.V2_REARMED_ARTIFACT_VERSION
+    ) == (
+        producer.V2_ARTIFACT_VERSION,
+        producer.V2_POSITION_SHAPE_ARTIFACT_VERSION,
+        producer.V2_SOURCE_PROJECTION_ARTIFACT_VERSION,
+    )
+    assert validator._version_contract(projection.V2_PROJECTION_VERSION) == (
+        validator.V2_ARTIFACT_VERSION,
+        validator.V2_REARMED_ARTIFACT_VERSION,
+        validator.V2_POSITION_SHAPE_ARTIFACT_VERSION,
+    )
+    with pytest.raises(RuntimeError, match="unsupported rearmed artifact version"):
+        producer.versions_for_rearmed_artifact("unknown")
+
+
 def _v1_manifest_frame() -> pd.DataFrame:
     return pd.DataFrame([validator.EXPECTED_V1_MANIFEST_DESCRIPTOR])
 
@@ -454,6 +476,12 @@ def test_validator_is_independent_and_accepts_synthetic_replay(tmp_path: Path) -
     assert (
         "revenue_unreacted_range_low_mid_falling_candidate_audit"
         not in imported_modules
+    )
+    assert imported_modules.isdisjoint(
+        {
+            "revenue_unreacted_range_source_snapshot_projection",
+            "validate_revenue_unreacted_range_source_snapshot_projection",
+        }
     )
     assert validator.validate(artifact_root=tmp_path, source_root=tmp_path) == []
     detail = pd.read_csv(

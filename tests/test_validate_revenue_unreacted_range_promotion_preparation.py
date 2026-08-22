@@ -120,6 +120,61 @@ def test_registry_only_validation_passes_when_sparse_source_artifacts_are_absent
     ) == []
 
 
+def test_canonical_v2_keeps_frozen_promotion_decision_bound_to_trusted_v1_git_blobs(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(
+        validator,
+        "_canonical_projection_version",
+        lambda: validator.V2_PROJECTION_VERSION,
+    )
+
+    assert validator.validate(require_source_artifacts=True) == []
+
+
+def test_canonical_v2_trusted_v1_git_identity_failure_is_fail_closed(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(
+        validator,
+        "_canonical_projection_version",
+        lambda: validator.V2_PROJECTION_VERSION,
+    )
+    real_git = validator._git
+
+    def fail_commit(*args: str):
+        result = real_git(*args)
+        if args[:2] == ("rev-parse", "--verify"):
+            return type(result)(result.args, 1, b"", b"missing")
+        return result
+
+    monkeypatch.setattr(validator, "_git", fail_commit)
+
+    errors = validator.validate(require_source_artifacts=True)
+
+    assert "trusted v1 promotion source revision is unavailable" in errors
+    assert any("complete summary/detail pair" in error for error in errors)
+
+
+def test_explicit_source_pair_does_not_route_through_trusted_v1_git(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    paths = _fixture_paths(tmp_path)
+    monkeypatch.setattr(
+        validator,
+        "_canonical_projection_version",
+        lambda: validator.V2_PROJECTION_VERSION,
+    )
+    monkeypatch.setattr(
+        validator,
+        "_trusted_v1_source_blob",
+        lambda _path: pytest.fail("explicit source pair reached trusted v1 routing"),
+    )
+
+    assert _validate(paths) == []
+
+
 def test_exact_source_summary_detail_and_anomaly_set_pass(tmp_path: Path) -> None:
     assert _validate(_fixture_paths(tmp_path)) == []
 

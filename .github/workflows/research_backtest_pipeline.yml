@@ -73,6 +73,26 @@ on:
         required: false
         default: false
         type: boolean
+      run_revenue_unreacted_range_source_snapshot_projection_supersede_only:
+        description: "Supersede the research canonical source projection with approved v2 and rebuild only its downstream research chain"
+        required: false
+        default: false
+        type: boolean
+      expected_base_sha:
+        description: "Exact direct parent of the authorized revenue projection supersede code commit"
+        required: false
+        default: ""
+        type: string
+      expected_head_sha:
+        description: "Exact authorized revenue projection supersede code commit at the dispatched branch head"
+        required: false
+        default: ""
+        type: string
+      confirmation:
+        description: "Exact confirmation for the one-time revenue projection v2 research canonical supersede"
+        required: false
+        default: ""
+        type: string
       run_volume_range_breakout_v2_research:
         description: "Run model-owned volume breakout v2 research only"
         required: false
@@ -139,9 +159,14 @@ jobs:
           REVENUE_SOURCE_PROJECTION_CHAIN_ONLY: ${{ github.event.inputs.run_revenue_unreacted_range_source_snapshot_projection_chain_only }}
           REVENUE_SOURCE_PROJECTION_REBASELINE_ONLY: ${{ github.event.inputs.run_revenue_unreacted_range_source_snapshot_projection_rebaseline_only }}
           REVENUE_SOURCE_PROJECTION_CANDIDATE_REPAIR_ONLY: ${{ github.event.inputs.run_revenue_unreacted_range_source_snapshot_projection_candidate_repair_only }}
+          REVENUE_SOURCE_PROJECTION_SUPERSEDE_ONLY: ${{ github.event.inputs.run_revenue_unreacted_range_source_snapshot_projection_supersede_only }}
+          REVENUE_SUPERSEDE_EXPECTED_BASE_SHA: ${{ github.event.inputs.expected_base_sha }}
+          REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA: ${{ github.event.inputs.expected_head_sha }}
+          REVENUE_SUPERSEDE_CONFIRMATION: ${{ github.event.inputs.confirmation }}
           REVENUE_REBASELINE_REF_TYPE: ${{ github.ref_type }}
           REVENUE_REBASELINE_OTHER_RESEARCH_SELECTED: ${{ github.event.inputs.run_market_timing == 'true' || github.event.inputs.run_weekly_surge == 'true' || github.event.inputs.run_explosive_volume == 'true' || github.event.inputs.run_surge_model == 'true' || github.event.inputs.run_signal_performance == 'true' || github.event.inputs.run_volume_breakout == 'true' || github.event.inputs.run_catalyst_performance == 'true' || github.event.inputs.run_msci_rebalance == 'true' || github.event.inputs.run_tdcc_signal_performance == 'true' || github.event.inputs.run_tdcc_short_term_edge == 'true' || github.event.inputs.run_short_term_specialty_packet == 'true' || github.event.inputs.run_shared_model_research_data_refresh == 'true' || github.event.inputs.run_price_pullback_23ema_research == 'true' || github.event.inputs.run_volume_range_breakout_v2_research == 'true' }}
         run: |
+          set -euo pipefail
           if [[ "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" && "$REVENUE_RESEARCH_ENABLED" != "true" ]]; then
             echo "::error::Revenue forward holdout mode requires run_revenue_unreacted_range_research=true."
             exit 1
@@ -154,8 +179,8 @@ jobs:
             echo "::error::Revenue source snapshot projection rebaseline mode requires run_revenue_unreacted_range_research=true."
             exit 1
           fi
-          if [[ "$REVENUE_SOURCE_PROJECTION_REBASELINE_ONLY" == "true" && ( "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" || "$REVENUE_SOURCE_PROJECTION_CHAIN_ONLY" == "true" || "$REVENUE_SOURCE_PROJECTION_CANDIDATE_REPAIR_ONLY" == "true" ) ]]; then
-            echo "::error::Revenue source snapshot projection rebaseline mode is mutually exclusive with forward holdout, projection chain, and candidate repair modes."
+          if [[ "$REVENUE_SOURCE_PROJECTION_REBASELINE_ONLY" == "true" && ( "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" || "$REVENUE_SOURCE_PROJECTION_CHAIN_ONLY" == "true" || "$REVENUE_SOURCE_PROJECTION_CANDIDATE_REPAIR_ONLY" == "true" || "$REVENUE_SOURCE_PROJECTION_SUPERSEDE_ONLY" == "true" ) ]]; then
+            echo "::error::Revenue source snapshot projection rebaseline mode is mutually exclusive with forward holdout, projection chain, candidate repair, and supersede modes."
             exit 1
           fi
           if [[ "$REVENUE_SOURCE_PROJECTION_REBASELINE_ONLY" == "true" && "$REVENUE_REBASELINE_OTHER_RESEARCH_SELECTED" == "true" ]]; then
@@ -170,8 +195,8 @@ jobs:
             echo "::error::Revenue source snapshot projection candidate repair mode requires run_revenue_unreacted_range_research=true."
             exit 1
           fi
-          if [[ "$REVENUE_SOURCE_PROJECTION_CANDIDATE_REPAIR_ONLY" == "true" && ( "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" || "$REVENUE_SOURCE_PROJECTION_CHAIN_ONLY" == "true" || "$REVENUE_SOURCE_PROJECTION_REBASELINE_ONLY" == "true" ) ]]; then
-            echo "::error::Revenue source snapshot projection candidate repair mode is mutually exclusive with forward holdout, projection chain, and rebaseline modes."
+          if [[ "$REVENUE_SOURCE_PROJECTION_CANDIDATE_REPAIR_ONLY" == "true" && ( "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" || "$REVENUE_SOURCE_PROJECTION_CHAIN_ONLY" == "true" || "$REVENUE_SOURCE_PROJECTION_REBASELINE_ONLY" == "true" || "$REVENUE_SOURCE_PROJECTION_SUPERSEDE_ONLY" == "true" ) ]]; then
+            echo "::error::Revenue source snapshot projection candidate repair mode is mutually exclusive with forward holdout, projection chain, rebaseline, and supersede modes."
             exit 1
           fi
           if [[ "$REVENUE_SOURCE_PROJECTION_CANDIDATE_REPAIR_ONLY" == "true" && "$REVENUE_REBASELINE_OTHER_RESEARCH_SELECTED" == "true" ]]; then
@@ -193,6 +218,128 @@ jobs:
           if [[ "$REVENUE_SOURCE_PROJECTION_CANDIDATE_REPAIR_ONLY" == "true" && "$(git rev-parse HEAD^)" != "4bcaa07123ef4a000c187dc2f19caefbec4cf252" ]]; then
             echo "::error::Revenue source snapshot projection candidate repair must run from the single authorized code commit."
             exit 1
+          fi
+          if [[ "$REVENUE_SOURCE_PROJECTION_SUPERSEDE_ONLY" != "true" && ( -n "$REVENUE_SUPERSEDE_EXPECTED_BASE_SHA" || -n "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA" || -n "$REVENUE_SUPERSEDE_CONFIRMATION" ) ]]; then
+            echo "::error::Revenue projection supersede identity inputs are forbidden unless supersede-only mode is selected."
+            exit 1
+          fi
+          if [[ "$REVENUE_SOURCE_PROJECTION_SUPERSEDE_ONLY" == "true" && "$REVENUE_RESEARCH_ENABLED" != "true" ]]; then
+            echo "::error::Revenue source snapshot projection supersede mode requires run_revenue_unreacted_range_research=true."
+            exit 1
+          fi
+          if [[ "$REVENUE_SOURCE_PROJECTION_SUPERSEDE_ONLY" == "true" && ( "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" || "$REVENUE_SOURCE_PROJECTION_CHAIN_ONLY" == "true" || "$REVENUE_SOURCE_PROJECTION_REBASELINE_ONLY" == "true" || "$REVENUE_SOURCE_PROJECTION_CANDIDATE_REPAIR_ONLY" == "true" ) ]]; then
+            echo "::error::Revenue source snapshot projection supersede mode is mutually exclusive with forward holdout, projection chain, rebaseline, and candidate repair modes."
+            exit 1
+          fi
+          if [[ "$REVENUE_SOURCE_PROJECTION_SUPERSEDE_ONLY" == "true" && "$REVENUE_REBASELINE_OTHER_RESEARCH_SELECTED" == "true" ]]; then
+            echo "::error::Revenue source snapshot projection supersede mode forbids every other research input."
+            exit 1
+          fi
+          if [[ "$REVENUE_SOURCE_PROJECTION_SUPERSEDE_ONLY" == "true" && ( "$GITHUB_EVENT_NAME" != "workflow_dispatch" || "$REVENUE_REBASELINE_REF_TYPE" != "branch" || "$TARGET_BRANCH" == "main" ) ]]; then
+            echo "::error::Revenue source snapshot projection supersede mode requires workflow_dispatch on a non-main branch ref."
+            exit 1
+          fi
+          if [[ "$REVENUE_SOURCE_PROJECTION_SUPERSEDE_ONLY" == "true" && "$GITHUB_RUN_ATTEMPT" != "1" ]]; then
+            echo "::error::Revenue source snapshot projection supersede mode forbids workflow retry attempts."
+            exit 1
+          fi
+          if [[ "$REVENUE_SOURCE_PROJECTION_SUPERSEDE_ONLY" == "true" && "$REVENUE_SUPERSEDE_CONFIRMATION" != "supersede_revenue_source_snapshot_projection_v2" ]]; then
+            echo "::error::Revenue source snapshot projection supersede mode requires the exact confirmation token."
+            exit 1
+          fi
+          if [[ "$REVENUE_SOURCE_PROJECTION_SUPERSEDE_ONLY" == "true" && ( ! "$REVENUE_SUPERSEDE_EXPECTED_BASE_SHA" =~ ^[0-9a-f]{40}$ || ! "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA" =~ ^[0-9a-f]{40}$ ) ]]; then
+            echo "::error::Revenue source snapshot projection supersede expected_base_sha and expected_head_sha must be exact lowercase commit SHAs."
+            exit 1
+          fi
+          if [[ "$REVENUE_SOURCE_PROJECTION_SUPERSEDE_ONLY" == "true" ]]; then
+            if [[ "$(git --no-replace-objects rev-parse "$REVENUE_SUPERSEDE_EXPECTED_BASE_SHA^{commit}")" != "$REVENUE_SUPERSEDE_EXPECTED_BASE_SHA" ]]; then
+              echo "::error::Revenue source snapshot projection supersede expected_base_sha is not a readable commit."
+              exit 1
+            fi
+            if [[ "$(git --no-replace-objects rev-parse "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA^{commit}")" != "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA" ]]; then
+              echo "::error::Revenue source snapshot projection supersede expected_head_sha is not a readable commit."
+              exit 1
+            fi
+            if [[ "$GITHUB_SHA" != "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA" || "$(git --no-replace-objects rev-parse HEAD)" != "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA" ]]; then
+              echo "::error::Revenue source snapshot projection supersede dispatch and checked-out HEAD must equal expected_head_sha."
+              exit 1
+            fi
+            mapfile -t REVENUE_SUPERSEDE_REMOTE_HEADS < <(git ls-remote --exit-code origin "refs/heads/$TARGET_BRANCH" | awk '{print $1}')
+            if [[ "${#REVENUE_SUPERSEDE_REMOTE_HEADS[@]}" -ne 1 || "${REVENUE_SUPERSEDE_REMOTE_HEADS[0]}" != "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA" ]]; then
+              echo "::error::Revenue source snapshot projection supersede remote branch must equal expected_head_sha."
+              exit 1
+            fi
+            read -r -a REVENUE_SUPERSEDE_PARENT_FIELDS <<< "$(git --no-replace-objects rev-list --parents -n 1 "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA")"
+            if [[ "${#REVENUE_SUPERSEDE_PARENT_FIELDS[@]}" -ne 2 || "${REVENUE_SUPERSEDE_PARENT_FIELDS[0]}" != "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA" || "${REVENUE_SUPERSEDE_PARENT_FIELDS[1]}" != "$REVENUE_SUPERSEDE_EXPECTED_BASE_SHA" ]]; then
+              echo "::error::Revenue source snapshot projection supersede code head must have expected_base_sha as its exact sole direct parent."
+              exit 1
+            fi
+            REVENUE_SUPERSEDE_CODE_PATHS=(
+              .github/workflows/research_backtest_pipeline.yml
+              config/apps_script_research_dispatch_inputs.csv
+              config/daily_model_background_data_registry.csv
+              config/daily_model_data_sharing_migrations.csv
+              config/daily_model_data_sharing_registry.csv
+              config/repo_file_lifecycle_inventory.csv
+              config/repo_production_inventory.csv
+              config/report_artifact_lineage.csv
+              scripts/build_revenue_unreacted_range_research.py
+              scripts/revenue_unreacted_range_forward_confirmation_feature_audit.py
+              scripts/revenue_unreacted_range_lag_strength_matrix.py
+              scripts/revenue_unreacted_range_launch_timing_feature_audit.py
+              scripts/revenue_unreacted_range_low_mid_falling_candidate_audit.py
+              scripts/revenue_unreacted_range_operation_lag_bucket_audit.py
+              scripts/revenue_unreacted_range_position_shape_transition_matrix.py
+              scripts/revenue_unreacted_range_rearmed_operation_grid.py
+              scripts/revenue_unreacted_range_source_snapshot_projection.py
+              scripts/validate_apps_script_workflow_triggers.py
+              scripts/validate_model_research_workflow_isolation.py
+              scripts/validate_repo_file_lifecycle_inventory.py
+              scripts/validate_repo_production_inventory.py
+              scripts/validate_revenue_unreacted_range_forward_confirmation_feature_audit.py
+              scripts/validate_revenue_unreacted_range_lag_strength_matrix.py
+              scripts/validate_revenue_unreacted_range_launch_timing_feature_audit.py
+              scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py
+              scripts/validate_revenue_unreacted_range_operation_lag_bucket_audit.py
+              scripts/validate_revenue_unreacted_range_position_shape_transition_matrix.py
+              scripts/validate_revenue_unreacted_range_promotion_preparation.py
+              scripts/validate_revenue_unreacted_range_rearmed_operation_grid.py
+              scripts/validate_revenue_unreacted_range_source_snapshot_projection.py
+              tests/test_daily_production_boundaries.py
+              tests/test_model_data_independence.py
+              tests/test_model_research_workflow_isolation.py
+              tests/test_repo_file_lifecycle_inventory.py
+              tests/test_repo_production_inventory.py
+              tests/test_revenue_unreacted_range_forward_confirmation_feature_audit.py
+              tests/test_revenue_unreacted_range_lag_strength_matrix.py
+              tests/test_revenue_unreacted_range_launch_timing_feature_audit.py
+              tests/test_revenue_unreacted_range_operation_lag_bucket_audit.py
+              tests/test_revenue_unreacted_range_position_shape_transition_matrix.py
+              tests/test_revenue_unreacted_range_rearmed_operation_grid.py
+              tests/test_revenue_unreacted_range_source_snapshot_projection.py
+              tests/test_validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py
+              tests/test_validate_revenue_unreacted_range_promotion_preparation.py
+            )
+            mapfile -t REVENUE_SUPERSEDE_ACTUAL_CODE_PATHS < <(git --no-replace-objects diff --name-only --no-renames "$REVENUE_SUPERSEDE_EXPECTED_BASE_SHA" "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA")
+            if [[ "$(printf '%s\n' "${REVENUE_SUPERSEDE_ACTUAL_CODE_PATHS[@]}")" != "$(printf '%s\n' "${REVENUE_SUPERSEDE_CODE_PATHS[@]}")" ]]; then
+              echo "::error::Revenue source snapshot projection supersede code commit changed-path exact44 allowlist mismatch."
+              exit 1
+            fi
+            mapfile -t REVENUE_SUPERSEDE_ACTUAL_CODE_STATUSES < <(git --no-replace-objects diff --name-status --no-renames "$REVENUE_SUPERSEDE_EXPECTED_BASE_SHA" "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA")
+            if [[ "${#REVENUE_SUPERSEDE_ACTUAL_CODE_STATUSES[@]}" -ne "${#REVENUE_SUPERSEDE_CODE_PATHS[@]}" ]]; then
+              echo "::error::Revenue source snapshot projection supersede code commit status count mismatch."
+              exit 1
+            fi
+            for index in "${!REVENUE_SUPERSEDE_CODE_PATHS[@]}"; do
+              if [[ "${REVENUE_SUPERSEDE_ACTUAL_CODE_STATUSES[$index]}" != $'M\t'"${REVENUE_SUPERSEDE_CODE_PATHS[$index]}" ]]; then
+                echo "::error::Revenue source snapshot projection supersede code commit requires exact modified-only status: ${REVENUE_SUPERSEDE_CODE_PATHS[$index]}."
+                exit 1
+              fi
+            done
+            if [[ -n "$(git --no-replace-objects status --porcelain=v1 --untracked-files=all)" ]]; then
+              echo "::error::Revenue source snapshot projection supersede must start from a clean code head."
+              exit 1
+            fi
           fi
           python scripts/validate_apps_script_workflow_triggers.py
           python scripts/validate_repo_production_inventory.py
@@ -293,7 +440,7 @@ jobs:
           python scripts/validate_price_pullback_daily_row_parity.py
 
       - name: Build model-owned revenue lag and strength research
-        if: ${{ github.event.inputs.run_revenue_unreacted_range_research == 'true' && github.event.inputs.run_revenue_unreacted_range_source_snapshot_projection_rebaseline_only != 'true' && github.event.inputs.run_revenue_unreacted_range_source_snapshot_projection_candidate_repair_only != 'true' }}
+        if: ${{ github.event.inputs.run_revenue_unreacted_range_research == 'true' && github.event.inputs.run_revenue_unreacted_range_source_snapshot_projection_rebaseline_only != 'true' && github.event.inputs.run_revenue_unreacted_range_source_snapshot_projection_candidate_repair_only != 'true' && github.event.inputs.run_revenue_unreacted_range_source_snapshot_projection_supersede_only != 'true' }}
         run: |
           python scripts/validate_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py
           if [[ "${{ github.event.inputs.run_revenue_unreacted_range_forward_holdout_only }}" == "true" ]]; then
@@ -375,6 +522,25 @@ jobs:
         run: |
           python scripts/validate_model_data_independence.py
 
+      - name: Supersede revenue source projection v2 and rebuild downstream research chain
+        if: ${{ github.event.inputs.run_revenue_unreacted_range_research == 'true' && github.event.inputs.run_revenue_unreacted_range_source_snapshot_projection_supersede_only == 'true' && github.ref_type == 'branch' && github.ref_name != 'main' }}
+        run: |
+          set -euo pipefail
+          python scripts/build_revenue_unreacted_range_research.py --stage source_snapshot_projection_supersede_and_chain
+          python scripts/validate_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py
+          python scripts/validate_revenue_unreacted_range_source_first_condition_audit.py
+          python scripts/validate_revenue_unreacted_range_source_snapshot_projection.py
+          python scripts/validate_revenue_unreacted_range_source_snapshot_projection_v1_v2_diff.py --v1-manifest output/history/research/revenue_unreacted_range_source_snapshot_projection_manifest_v1_20260731.csv --v1-detail output/history/research/revenue_unreacted_range_source_snapshot_projection_detail_v1_20260731.csv --v2-manifest output/history/research/revenue_unreacted_range_source_snapshot_projection_manifest_v2_20260822.csv --v2-detail output/history/research/revenue_unreacted_range_source_snapshot_projection_detail_v2_20260822.csv --diff-summary output/history/research/revenue_unreacted_range_source_snapshot_projection_v1_20260731_to_v2_20260822_diff_summary.csv --diff-detail output/history/research/revenue_unreacted_range_source_snapshot_projection_v1_20260731_to_v2_20260822_diff_detail.csv
+          python scripts/validate_revenue_unreacted_range_lag_strength_matrix.py
+          python scripts/validate_revenue_unreacted_range_launch_timing_feature_audit.py
+          python scripts/validate_revenue_unreacted_range_forward_confirmation_feature_audit.py
+          python scripts/validate_revenue_unreacted_range_rearmed_operation_grid.py
+          python scripts/validate_revenue_unreacted_range_operation_lag_bucket_audit.py
+          python scripts/validate_revenue_unreacted_range_position_shape_transition_matrix.py
+          python scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py
+          python scripts/build_model_data_independence_audit.py
+          python scripts/validate_model_data_independence.py
+
       - name: Build volume breakout watch backtest
         if: ${{ github.event.inputs.run_volume_breakout == 'true' }}
         run: |
@@ -445,6 +611,563 @@ jobs:
           python scripts/validate_formal_model_evidence_pins.py
           python scripts/validate_daily_model_research_parity.py
           printf 'pass\n' > "$RUNNER_TEMP/model-research-post-run-validation.pass"
+
+      - name: Validate revenue projection supersede exact75 artifact closure
+        if: ${{ github.event.inputs.run_revenue_unreacted_range_research == 'true' && github.event.inputs.run_revenue_unreacted_range_source_snapshot_projection_supersede_only == 'true' && github.ref_type == 'branch' && github.ref_name != 'main' }}
+        env:
+          REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA: ${{ github.event.inputs.expected_head_sha }}
+        run: |
+          set -euo pipefail
+          test "$(cat "$RUNNER_TEMP/model-research-post-run-validation.pass")" = "pass"
+          if [[ "$(git --no-replace-objects rev-parse HEAD)" != "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA" || "$GITHUB_SHA" != "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA" ]]; then
+            echo "::error::Revenue projection supersede identity closure is not running at expected_head_sha."
+            exit 1
+          fi
+          REVENUE_SUPERSEDE_TRUSTED_CANDIDATE_COMMIT="4bcaa07123ef4a000c187dc2f19caefbec4cf252"
+          if [[ "$(git --no-replace-objects rev-parse --is-shallow-repository)" == "true" ]]; then
+            git --no-replace-objects fetch --no-tags --unshallow origin "$TARGET_BRANCH"
+          fi
+          REVENUE_SUPERSEDE_ALLOWED_PATHS=(
+            output/latest/research_backtest/revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_source_snapshot_projection_detail_latest.csv
+            output/history/research/revenue_unreacted_range_source_snapshot_projection_manifest.csv
+            docs/latest/revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv
+            output/history/research/revenue_unreacted_range_source_snapshot_projection_supersede_evidence_v2_20260822.csv
+            docs/latest/revenue_unreacted_range_forward_confirmation_feature_audit_feature_contrast_latest.csv
+            docs/latest/revenue_unreacted_range_forward_confirmation_feature_audit_latest.csv
+            docs/latest/revenue_unreacted_range_forward_confirmation_feature_audit_latest.md
+            docs/latest/revenue_unreacted_range_forward_confirmation_feature_audit_operation_return_review_latest.csv
+            docs/latest/revenue_unreacted_range_lag_strength_matrix_latest.csv
+            docs/latest/revenue_unreacted_range_lag_strength_matrix_latest.md
+            docs/latest/revenue_unreacted_range_launch_timing_feature_audit_feature_contrast_latest.csv
+            docs/latest/revenue_unreacted_range_launch_timing_feature_audit_latest.csv
+            docs/latest/revenue_unreacted_range_launch_timing_feature_audit_latest.md
+            docs/latest/revenue_unreacted_range_low_mid_falling_candidate_audit_detail_latest.csv
+            docs/latest/revenue_unreacted_range_low_mid_falling_candidate_audit_feature_contrast_latest.csv
+            docs/latest/revenue_unreacted_range_low_mid_falling_candidate_audit_latest.csv
+            docs/latest/revenue_unreacted_range_low_mid_falling_candidate_audit_latest.md
+            docs/latest/revenue_unreacted_range_low_mid_falling_candidate_audit_paired_confirmation_latest.csv
+            docs/latest/revenue_unreacted_range_operation_lag_bucket_audit_latest.csv
+            docs/latest/revenue_unreacted_range_operation_lag_bucket_audit_latest.md
+            docs/latest/revenue_unreacted_range_position_shape_transition_matrix_latest.csv
+            docs/latest/revenue_unreacted_range_position_shape_transition_matrix_latest.md
+            docs/latest/revenue_unreacted_range_position_shape_transition_matrix_transition_latest.csv
+            docs/latest/revenue_unreacted_range_rearmed_operation_grid_latest.csv
+            docs/latest/revenue_unreacted_range_rearmed_operation_grid_latest.md
+            docs/latest/revenue_unreacted_range_rearmed_operation_grid_operation_return_review_latest.csv
+            output/history/research/revenue_unreacted_range_forward_confirmation_feature_audit.csv
+            output/history/research/revenue_unreacted_range_forward_confirmation_feature_audit_feature_contrast.csv
+            output/history/research/revenue_unreacted_range_forward_confirmation_feature_audit_operation_return_review.csv
+            output/history/research/revenue_unreacted_range_lag_strength_matrix.csv
+            output/history/research/revenue_unreacted_range_launch_timing_feature_audit.csv
+            output/history/research/revenue_unreacted_range_launch_timing_feature_audit_feature_contrast.csv
+            output/history/research/revenue_unreacted_range_low_mid_falling_candidate_audit.csv
+            output/history/research/revenue_unreacted_range_low_mid_falling_candidate_audit_detail.csv
+            output/history/research/revenue_unreacted_range_low_mid_falling_candidate_audit_feature_contrast.csv
+            output/history/research/revenue_unreacted_range_low_mid_falling_candidate_audit_paired_confirmation.csv
+            output/history/research/revenue_unreacted_range_operation_lag_bucket_audit.csv
+            output/history/research/revenue_unreacted_range_position_shape_transition_matrix.csv
+            output/history/research/revenue_unreacted_range_position_shape_transition_matrix_transition.csv
+            output/history/research/revenue_unreacted_range_rearmed_operation_grid.csv
+            output/history/research/revenue_unreacted_range_rearmed_operation_grid_operation_return_review.csv
+            output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_detail_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_event_detail_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_feature_contrast_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_latest.md
+            output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_operation_return_review_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_lag_strength_matrix_detail_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_lag_strength_matrix_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_lag_strength_matrix_latest.md
+            output/latest/research_backtest/revenue_unreacted_range_launch_timing_feature_audit_detail_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_launch_timing_feature_audit_feature_contrast_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_launch_timing_feature_audit_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_launch_timing_feature_audit_latest.md
+            output/latest/research_backtest/revenue_unreacted_range_low_mid_falling_candidate_audit_detail_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_low_mid_falling_candidate_audit_feature_contrast_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_low_mid_falling_candidate_audit_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_low_mid_falling_candidate_audit_latest.md
+            output/latest/research_backtest/revenue_unreacted_range_low_mid_falling_candidate_audit_paired_confirmation_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_operation_lag_bucket_audit_detail_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_operation_lag_bucket_audit_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_operation_lag_bucket_audit_latest.md
+            output/latest/research_backtest/revenue_unreacted_range_position_shape_transition_matrix_detail_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_position_shape_transition_matrix_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_position_shape_transition_matrix_latest.md
+            output/latest/research_backtest/revenue_unreacted_range_position_shape_transition_matrix_transition_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_rearmed_operation_grid_detail_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_rearmed_operation_grid_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_rearmed_operation_grid_latest.md
+            output/latest/research_backtest/revenue_unreacted_range_rearmed_operation_grid_operation_return_review_latest.csv
+            output/latest/model_data_independence_audit_latest.csv
+            output/latest/model_data_independence_audit_latest.md
+            docs/latest/model_data_independence_audit_latest.csv
+            docs/latest/model_data_independence_audit_latest.md
+          )
+          REVENUE_SUPERSEDE_IMMUTABLE_PATHS=(
+            output/history/research/revenue_unreacted_range_source_snapshot_projection_manifest_v1_20260731.csv
+            output/history/research/revenue_unreacted_range_source_snapshot_projection_detail_v1_20260731.csv
+            output/history/research/revenue_unreacted_range_source_snapshot_projection_archive_evidence_v1_20260731.csv
+            output/history/research/revenue_unreacted_range_source_snapshot_projection_manifest_v2_20260822.csv
+            output/history/research/revenue_unreacted_range_source_snapshot_projection_detail_v2_20260822.csv
+            output/history/research/revenue_unreacted_range_source_snapshot_projection_v1_20260731_to_v2_20260822_diff_summary.csv
+            output/history/research/revenue_unreacted_range_source_snapshot_projection_v1_20260731_to_v2_20260822_diff_detail.csv
+          )
+          if [[ "$(git --no-replace-objects rev-parse "$REVENUE_SUPERSEDE_TRUSTED_CANDIDATE_COMMIT^{commit}")" != "$REVENUE_SUPERSEDE_TRUSTED_CANDIDATE_COMMIT" ]]; then
+            echo "::error::Revenue projection supersede trusted candidate commit is unavailable."
+            exit 1
+          fi
+          git --no-replace-objects merge-base --is-ancestor "$REVENUE_SUPERSEDE_TRUSTED_CANDIDATE_COMMIT" HEAD
+          if ! git --no-replace-objects diff --cached --quiet; then
+            echo "::error::Revenue projection supersede index must be empty before exact75 closure."
+            exit 1
+          fi
+          for path in "${REVENUE_SUPERSEDE_IMMUTABLE_PATHS[@]}"; do
+            trusted_blob="$(git --no-replace-objects rev-parse "$REVENUE_SUPERSEDE_TRUSTED_CANDIDATE_COMMIT:$path")"
+            head_blob="$(git --no-replace-objects rev-parse "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA:$path")"
+            index_blob="$(git --no-replace-objects rev-parse ":$path")"
+            working_blob="$(git --no-replace-objects hash-object "$path")"
+            if [[ "$head_blob" != "$trusted_blob" || "$index_blob" != "$trusted_blob" || "$working_blob" != "$trusted_blob" ]]; then
+              echo "::error::Revenue projection supersede mutated an immutable v1/v2/diff artifact: $path"
+              exit 1
+            fi
+          done
+          if ! cmp -s output/latest/research_backtest/revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv output/history/research/revenue_unreacted_range_source_snapshot_projection_manifest_v2_20260822.csv; then
+            echo "::error::Revenue projection supersede latest manifest is not byte-identical to immutable v2."
+            exit 1
+          fi
+          if ! cmp -s docs/latest/revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv output/history/research/revenue_unreacted_range_source_snapshot_projection_manifest_v2_20260822.csv; then
+            echo "::error::Revenue projection supersede docs manifest is not byte-identical to immutable v2."
+            exit 1
+          fi
+          if ! cmp -s output/latest/research_backtest/revenue_unreacted_range_source_snapshot_projection_detail_latest.csv output/history/research/revenue_unreacted_range_source_snapshot_projection_detail_v2_20260822.csv; then
+            echo "::error::Revenue projection supersede latest detail is not byte-identical to immutable v2."
+            exit 1
+          fi
+          mapfile -t REVENUE_SUPERSEDE_CHANGED_PATHS < <(
+            git --no-replace-objects status --porcelain=v1 --untracked-files=all |
+              sed -E 's/^.. //' |
+              sort
+          )
+          if [[ "${#REVENUE_SUPERSEDE_CHANGED_PATHS[@]}" -ne "${#REVENUE_SUPERSEDE_ALLOWED_PATHS[@]}" ]] || ! diff -u \
+            <(printf '%s\n' "${REVENUE_SUPERSEDE_ALLOWED_PATHS[@]}" | sort) \
+            <(printf '%s\n' "${REVENUE_SUPERSEDE_CHANGED_PATHS[@]}" | sort); then
+            echo "::error::Revenue projection supersede changed-path exact75 allowlist mismatch."
+            printf 'allowed=%s\n' "${REVENUE_SUPERSEDE_ALLOWED_PATHS[*]}"
+            printf 'changed=%s\n' "${REVENUE_SUPERSEDE_CHANGED_PATHS[*]}"
+            exit 1
+          fi
+          REVENUE_SUPERSEDE_IDENTITY_FILE="$RUNNER_TEMP/revenue-projection-supersede-exact75-validated-identity.tsv"
+          : > "$REVENUE_SUPERSEDE_IDENTITY_FILE"
+          for path in "${REVENUE_SUPERSEDE_ALLOWED_PATHS[@]}"; do
+            if [[ ! -f "$path" ]]; then
+              echo "::error::Missing validated revenue projection supersede artifact: $path"
+              exit 1
+            fi
+            validated_bytes="$(wc -c < "$path" | tr -d ' ')"
+            validated_sha256="$(sha256sum "$path" | cut -d ' ' -f1)"
+            printf '%s\t%s\t%s\n' "$path" "$validated_bytes" "$validated_sha256" >> "$REVENUE_SUPERSEDE_IDENTITY_FILE"
+          done
+          test "$(wc -l < "$REVENUE_SUPERSEDE_IDENTITY_FILE" | tr -d ' ')" = "75"
+
+      - name: Stage validated revenue projection supersede exact75 artifacts
+        if: ${{ github.event.inputs.run_revenue_unreacted_range_research == 'true' && github.event.inputs.run_revenue_unreacted_range_source_snapshot_projection_supersede_only == 'true' && github.ref_type == 'branch' && github.ref_name != 'main' }}
+        run: |
+          set -euo pipefail
+          REVENUE_SUPERSEDE_ALLOWED_PATHS=(
+            output/latest/research_backtest/revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_source_snapshot_projection_detail_latest.csv
+            output/history/research/revenue_unreacted_range_source_snapshot_projection_manifest.csv
+            docs/latest/revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv
+            output/history/research/revenue_unreacted_range_source_snapshot_projection_supersede_evidence_v2_20260822.csv
+            docs/latest/revenue_unreacted_range_forward_confirmation_feature_audit_feature_contrast_latest.csv
+            docs/latest/revenue_unreacted_range_forward_confirmation_feature_audit_latest.csv
+            docs/latest/revenue_unreacted_range_forward_confirmation_feature_audit_latest.md
+            docs/latest/revenue_unreacted_range_forward_confirmation_feature_audit_operation_return_review_latest.csv
+            docs/latest/revenue_unreacted_range_lag_strength_matrix_latest.csv
+            docs/latest/revenue_unreacted_range_lag_strength_matrix_latest.md
+            docs/latest/revenue_unreacted_range_launch_timing_feature_audit_feature_contrast_latest.csv
+            docs/latest/revenue_unreacted_range_launch_timing_feature_audit_latest.csv
+            docs/latest/revenue_unreacted_range_launch_timing_feature_audit_latest.md
+            docs/latest/revenue_unreacted_range_low_mid_falling_candidate_audit_detail_latest.csv
+            docs/latest/revenue_unreacted_range_low_mid_falling_candidate_audit_feature_contrast_latest.csv
+            docs/latest/revenue_unreacted_range_low_mid_falling_candidate_audit_latest.csv
+            docs/latest/revenue_unreacted_range_low_mid_falling_candidate_audit_latest.md
+            docs/latest/revenue_unreacted_range_low_mid_falling_candidate_audit_paired_confirmation_latest.csv
+            docs/latest/revenue_unreacted_range_operation_lag_bucket_audit_latest.csv
+            docs/latest/revenue_unreacted_range_operation_lag_bucket_audit_latest.md
+            docs/latest/revenue_unreacted_range_position_shape_transition_matrix_latest.csv
+            docs/latest/revenue_unreacted_range_position_shape_transition_matrix_latest.md
+            docs/latest/revenue_unreacted_range_position_shape_transition_matrix_transition_latest.csv
+            docs/latest/revenue_unreacted_range_rearmed_operation_grid_latest.csv
+            docs/latest/revenue_unreacted_range_rearmed_operation_grid_latest.md
+            docs/latest/revenue_unreacted_range_rearmed_operation_grid_operation_return_review_latest.csv
+            output/history/research/revenue_unreacted_range_forward_confirmation_feature_audit.csv
+            output/history/research/revenue_unreacted_range_forward_confirmation_feature_audit_feature_contrast.csv
+            output/history/research/revenue_unreacted_range_forward_confirmation_feature_audit_operation_return_review.csv
+            output/history/research/revenue_unreacted_range_lag_strength_matrix.csv
+            output/history/research/revenue_unreacted_range_launch_timing_feature_audit.csv
+            output/history/research/revenue_unreacted_range_launch_timing_feature_audit_feature_contrast.csv
+            output/history/research/revenue_unreacted_range_low_mid_falling_candidate_audit.csv
+            output/history/research/revenue_unreacted_range_low_mid_falling_candidate_audit_detail.csv
+            output/history/research/revenue_unreacted_range_low_mid_falling_candidate_audit_feature_contrast.csv
+            output/history/research/revenue_unreacted_range_low_mid_falling_candidate_audit_paired_confirmation.csv
+            output/history/research/revenue_unreacted_range_operation_lag_bucket_audit.csv
+            output/history/research/revenue_unreacted_range_position_shape_transition_matrix.csv
+            output/history/research/revenue_unreacted_range_position_shape_transition_matrix_transition.csv
+            output/history/research/revenue_unreacted_range_rearmed_operation_grid.csv
+            output/history/research/revenue_unreacted_range_rearmed_operation_grid_operation_return_review.csv
+            output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_detail_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_event_detail_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_feature_contrast_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_latest.md
+            output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_operation_return_review_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_lag_strength_matrix_detail_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_lag_strength_matrix_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_lag_strength_matrix_latest.md
+            output/latest/research_backtest/revenue_unreacted_range_launch_timing_feature_audit_detail_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_launch_timing_feature_audit_feature_contrast_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_launch_timing_feature_audit_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_launch_timing_feature_audit_latest.md
+            output/latest/research_backtest/revenue_unreacted_range_low_mid_falling_candidate_audit_detail_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_low_mid_falling_candidate_audit_feature_contrast_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_low_mid_falling_candidate_audit_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_low_mid_falling_candidate_audit_latest.md
+            output/latest/research_backtest/revenue_unreacted_range_low_mid_falling_candidate_audit_paired_confirmation_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_operation_lag_bucket_audit_detail_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_operation_lag_bucket_audit_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_operation_lag_bucket_audit_latest.md
+            output/latest/research_backtest/revenue_unreacted_range_position_shape_transition_matrix_detail_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_position_shape_transition_matrix_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_position_shape_transition_matrix_latest.md
+            output/latest/research_backtest/revenue_unreacted_range_position_shape_transition_matrix_transition_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_rearmed_operation_grid_detail_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_rearmed_operation_grid_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_rearmed_operation_grid_latest.md
+            output/latest/research_backtest/revenue_unreacted_range_rearmed_operation_grid_operation_return_review_latest.csv
+            output/latest/model_data_independence_audit_latest.csv
+            output/latest/model_data_independence_audit_latest.md
+            docs/latest/model_data_independence_audit_latest.csv
+            docs/latest/model_data_independence_audit_latest.md
+          )
+          REVENUE_SUPERSEDE_IDENTITY_FILE="$RUNNER_TEMP/revenue-projection-supersede-exact75-validated-identity.tsv"
+          if [[ ! -f "$REVENUE_SUPERSEDE_IDENTITY_FILE" ]]; then
+            echo "::error::Missing validated revenue projection supersede identity file."
+            exit 1
+          fi
+          mapfile -t REVENUE_SUPERSEDE_VALIDATED_IDENTITIES < "$REVENUE_SUPERSEDE_IDENTITY_FILE"
+          if [[ "${#REVENUE_SUPERSEDE_VALIDATED_IDENTITIES[@]}" -ne "${#REVENUE_SUPERSEDE_ALLOWED_PATHS[@]}" ]]; then
+            echo "::error::Revenue projection supersede validated identity row count mismatch."
+            exit 1
+          fi
+          mapfile -t REVENUE_SUPERSEDE_CHANGED_PATHS < <(
+            git --no-replace-objects status --porcelain=v1 --untracked-files=all |
+              sed -E 's/^.. //' |
+              sort
+          )
+          if [[ "${#REVENUE_SUPERSEDE_CHANGED_PATHS[@]}" -ne "${#REVENUE_SUPERSEDE_ALLOWED_PATHS[@]}" ]] || ! diff -u \
+            <(printf '%s\n' "${REVENUE_SUPERSEDE_ALLOWED_PATHS[@]}" | sort) \
+            <(printf '%s\n' "${REVENUE_SUPERSEDE_CHANGED_PATHS[@]}" | sort); then
+            echo "::error::Revenue projection supersede pre-stage changed-path exact75 allowlist mismatch."
+            exit 1
+          fi
+          for index in "${!REVENUE_SUPERSEDE_ALLOWED_PATHS[@]}"; do
+            path="${REVENUE_SUPERSEDE_ALLOWED_PATHS[$index]}"
+            IFS=$'\t' read -r validated_path validated_bytes validated_sha256 <<< "${REVENUE_SUPERSEDE_VALIDATED_IDENTITIES[$index]}"
+            working_bytes="$(wc -c < "$path" | tr -d ' ')"
+            working_sha256="$(sha256sum "$path" | cut -d ' ' -f1)"
+            if [[ "$validated_path" != "$path" || "$working_bytes" != "$validated_bytes" || "$working_sha256" != "$validated_sha256" ]]; then
+              echo "::error::Revenue projection supersede artifact drifted after validation: $path"
+              exit 1
+            fi
+          done
+          git --no-replace-objects add -- \
+            output/latest/research_backtest/revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv \
+            output/latest/research_backtest/revenue_unreacted_range_source_snapshot_projection_detail_latest.csv \
+            output/history/research/revenue_unreacted_range_source_snapshot_projection_manifest.csv \
+            docs/latest/revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv \
+            output/history/research/revenue_unreacted_range_source_snapshot_projection_supersede_evidence_v2_20260822.csv \
+            docs/latest/revenue_unreacted_range_forward_confirmation_feature_audit_feature_contrast_latest.csv \
+            docs/latest/revenue_unreacted_range_forward_confirmation_feature_audit_latest.csv \
+            docs/latest/revenue_unreacted_range_forward_confirmation_feature_audit_latest.md \
+            docs/latest/revenue_unreacted_range_forward_confirmation_feature_audit_operation_return_review_latest.csv \
+            docs/latest/revenue_unreacted_range_lag_strength_matrix_latest.csv \
+            docs/latest/revenue_unreacted_range_lag_strength_matrix_latest.md \
+            docs/latest/revenue_unreacted_range_launch_timing_feature_audit_feature_contrast_latest.csv \
+            docs/latest/revenue_unreacted_range_launch_timing_feature_audit_latest.csv \
+            docs/latest/revenue_unreacted_range_launch_timing_feature_audit_latest.md \
+            docs/latest/revenue_unreacted_range_low_mid_falling_candidate_audit_detail_latest.csv \
+            docs/latest/revenue_unreacted_range_low_mid_falling_candidate_audit_feature_contrast_latest.csv \
+            docs/latest/revenue_unreacted_range_low_mid_falling_candidate_audit_latest.csv \
+            docs/latest/revenue_unreacted_range_low_mid_falling_candidate_audit_latest.md \
+            docs/latest/revenue_unreacted_range_low_mid_falling_candidate_audit_paired_confirmation_latest.csv \
+            docs/latest/revenue_unreacted_range_operation_lag_bucket_audit_latest.csv \
+            docs/latest/revenue_unreacted_range_operation_lag_bucket_audit_latest.md \
+            docs/latest/revenue_unreacted_range_position_shape_transition_matrix_latest.csv \
+            docs/latest/revenue_unreacted_range_position_shape_transition_matrix_latest.md \
+            docs/latest/revenue_unreacted_range_position_shape_transition_matrix_transition_latest.csv \
+            docs/latest/revenue_unreacted_range_rearmed_operation_grid_latest.csv \
+            docs/latest/revenue_unreacted_range_rearmed_operation_grid_latest.md \
+            docs/latest/revenue_unreacted_range_rearmed_operation_grid_operation_return_review_latest.csv \
+            output/history/research/revenue_unreacted_range_forward_confirmation_feature_audit.csv \
+            output/history/research/revenue_unreacted_range_forward_confirmation_feature_audit_feature_contrast.csv \
+            output/history/research/revenue_unreacted_range_forward_confirmation_feature_audit_operation_return_review.csv \
+            output/history/research/revenue_unreacted_range_lag_strength_matrix.csv \
+            output/history/research/revenue_unreacted_range_launch_timing_feature_audit.csv \
+            output/history/research/revenue_unreacted_range_launch_timing_feature_audit_feature_contrast.csv \
+            output/history/research/revenue_unreacted_range_low_mid_falling_candidate_audit.csv \
+            output/history/research/revenue_unreacted_range_low_mid_falling_candidate_audit_detail.csv \
+            output/history/research/revenue_unreacted_range_low_mid_falling_candidate_audit_feature_contrast.csv \
+            output/history/research/revenue_unreacted_range_low_mid_falling_candidate_audit_paired_confirmation.csv \
+            output/history/research/revenue_unreacted_range_operation_lag_bucket_audit.csv \
+            output/history/research/revenue_unreacted_range_position_shape_transition_matrix.csv \
+            output/history/research/revenue_unreacted_range_position_shape_transition_matrix_transition.csv \
+            output/history/research/revenue_unreacted_range_rearmed_operation_grid.csv \
+            output/history/research/revenue_unreacted_range_rearmed_operation_grid_operation_return_review.csv \
+            output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_detail_latest.csv \
+            output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_event_detail_latest.csv \
+            output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_feature_contrast_latest.csv \
+            output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_latest.csv \
+            output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_latest.md \
+            output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_operation_return_review_latest.csv \
+            output/latest/research_backtest/revenue_unreacted_range_lag_strength_matrix_detail_latest.csv \
+            output/latest/research_backtest/revenue_unreacted_range_lag_strength_matrix_latest.csv \
+            output/latest/research_backtest/revenue_unreacted_range_lag_strength_matrix_latest.md \
+            output/latest/research_backtest/revenue_unreacted_range_launch_timing_feature_audit_detail_latest.csv \
+            output/latest/research_backtest/revenue_unreacted_range_launch_timing_feature_audit_feature_contrast_latest.csv \
+            output/latest/research_backtest/revenue_unreacted_range_launch_timing_feature_audit_latest.csv \
+            output/latest/research_backtest/revenue_unreacted_range_launch_timing_feature_audit_latest.md \
+            output/latest/research_backtest/revenue_unreacted_range_low_mid_falling_candidate_audit_detail_latest.csv \
+            output/latest/research_backtest/revenue_unreacted_range_low_mid_falling_candidate_audit_feature_contrast_latest.csv \
+            output/latest/research_backtest/revenue_unreacted_range_low_mid_falling_candidate_audit_latest.csv \
+            output/latest/research_backtest/revenue_unreacted_range_low_mid_falling_candidate_audit_latest.md \
+            output/latest/research_backtest/revenue_unreacted_range_low_mid_falling_candidate_audit_paired_confirmation_latest.csv \
+            output/latest/research_backtest/revenue_unreacted_range_operation_lag_bucket_audit_detail_latest.csv \
+            output/latest/research_backtest/revenue_unreacted_range_operation_lag_bucket_audit_latest.csv \
+            output/latest/research_backtest/revenue_unreacted_range_operation_lag_bucket_audit_latest.md \
+            output/latest/research_backtest/revenue_unreacted_range_position_shape_transition_matrix_detail_latest.csv \
+            output/latest/research_backtest/revenue_unreacted_range_position_shape_transition_matrix_latest.csv \
+            output/latest/research_backtest/revenue_unreacted_range_position_shape_transition_matrix_latest.md \
+            output/latest/research_backtest/revenue_unreacted_range_position_shape_transition_matrix_transition_latest.csv \
+            output/latest/research_backtest/revenue_unreacted_range_rearmed_operation_grid_detail_latest.csv \
+            output/latest/research_backtest/revenue_unreacted_range_rearmed_operation_grid_latest.csv \
+            output/latest/research_backtest/revenue_unreacted_range_rearmed_operation_grid_latest.md \
+            output/latest/research_backtest/revenue_unreacted_range_rearmed_operation_grid_operation_return_review_latest.csv \
+            output/latest/model_data_independence_audit_latest.csv \
+            output/latest/model_data_independence_audit_latest.md \
+            docs/latest/model_data_independence_audit_latest.csv \
+            docs/latest/model_data_independence_audit_latest.md
+          mapfile -t REVENUE_SUPERSEDE_STAGED_PATHS < <(git --no-replace-objects diff --cached --name-only)
+          if [[ "${#REVENUE_SUPERSEDE_STAGED_PATHS[@]}" -ne "${#REVENUE_SUPERSEDE_ALLOWED_PATHS[@]}" ]] || ! diff -u \
+            <(printf '%s\n' "${REVENUE_SUPERSEDE_ALLOWED_PATHS[@]}" | sort) \
+            <(printf '%s\n' "${REVENUE_SUPERSEDE_STAGED_PATHS[@]}" | sort); then
+            echo "::error::Revenue projection supersede staged-path exact75 allowlist mismatch."
+            exit 1
+          fi
+          if ! git --no-replace-objects diff --quiet; then
+            echo "::error::Revenue projection supersede worktree differs from the staged index."
+            exit 1
+          fi
+          mapfile -t REVENUE_SUPERSEDE_UNTRACKED_PATHS < <(git --no-replace-objects ls-files --others --exclude-standard)
+          if [[ "${#REVENUE_SUPERSEDE_UNTRACKED_PATHS[@]}" -ne 0 ]]; then
+            echo "::error::Revenue projection supersede has untracked paths after staging."
+            exit 1
+          fi
+          for index in "${!REVENUE_SUPERSEDE_ALLOWED_PATHS[@]}"; do
+            path="${REVENUE_SUPERSEDE_ALLOWED_PATHS[$index]}"
+            IFS=$'\t' read -r validated_path validated_bytes validated_sha256 <<< "${REVENUE_SUPERSEDE_VALIDATED_IDENTITIES[$index]}"
+            staged_bytes="$(git --no-replace-objects cat-file -s ":$path")"
+            staged_sha256="$(git --no-replace-objects show ":$path" | sha256sum | cut -d ' ' -f1)"
+            if [[ "$validated_path" != "$path" || "$staged_bytes" != "$validated_bytes" || "$staged_sha256" != "$validated_sha256" ]]; then
+              echo "::error::Revenue projection supersede staged artifact identity mismatch: $path"
+              exit 1
+            fi
+          done
+
+      - name: Commit validated revenue projection supersede exact75 artifacts
+        if: ${{ github.event.inputs.run_revenue_unreacted_range_research == 'true' && github.event.inputs.run_revenue_unreacted_range_source_snapshot_projection_supersede_only == 'true' && github.ref_type == 'branch' && github.ref_name != 'main' }}
+        env:
+          REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA: ${{ github.event.inputs.expected_head_sha }}
+        run: |
+          set -euo pipefail
+          git --no-replace-objects config user.name "github-actions"
+          git --no-replace-objects config user.email "github-actions@github.com"
+          REVENUE_SUPERSEDE_ALLOWED_PATHS=(
+            output/latest/research_backtest/revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_source_snapshot_projection_detail_latest.csv
+            output/history/research/revenue_unreacted_range_source_snapshot_projection_manifest.csv
+            docs/latest/revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv
+            output/history/research/revenue_unreacted_range_source_snapshot_projection_supersede_evidence_v2_20260822.csv
+            docs/latest/revenue_unreacted_range_forward_confirmation_feature_audit_feature_contrast_latest.csv
+            docs/latest/revenue_unreacted_range_forward_confirmation_feature_audit_latest.csv
+            docs/latest/revenue_unreacted_range_forward_confirmation_feature_audit_latest.md
+            docs/latest/revenue_unreacted_range_forward_confirmation_feature_audit_operation_return_review_latest.csv
+            docs/latest/revenue_unreacted_range_lag_strength_matrix_latest.csv
+            docs/latest/revenue_unreacted_range_lag_strength_matrix_latest.md
+            docs/latest/revenue_unreacted_range_launch_timing_feature_audit_feature_contrast_latest.csv
+            docs/latest/revenue_unreacted_range_launch_timing_feature_audit_latest.csv
+            docs/latest/revenue_unreacted_range_launch_timing_feature_audit_latest.md
+            docs/latest/revenue_unreacted_range_low_mid_falling_candidate_audit_detail_latest.csv
+            docs/latest/revenue_unreacted_range_low_mid_falling_candidate_audit_feature_contrast_latest.csv
+            docs/latest/revenue_unreacted_range_low_mid_falling_candidate_audit_latest.csv
+            docs/latest/revenue_unreacted_range_low_mid_falling_candidate_audit_latest.md
+            docs/latest/revenue_unreacted_range_low_mid_falling_candidate_audit_paired_confirmation_latest.csv
+            docs/latest/revenue_unreacted_range_operation_lag_bucket_audit_latest.csv
+            docs/latest/revenue_unreacted_range_operation_lag_bucket_audit_latest.md
+            docs/latest/revenue_unreacted_range_position_shape_transition_matrix_latest.csv
+            docs/latest/revenue_unreacted_range_position_shape_transition_matrix_latest.md
+            docs/latest/revenue_unreacted_range_position_shape_transition_matrix_transition_latest.csv
+            docs/latest/revenue_unreacted_range_rearmed_operation_grid_latest.csv
+            docs/latest/revenue_unreacted_range_rearmed_operation_grid_latest.md
+            docs/latest/revenue_unreacted_range_rearmed_operation_grid_operation_return_review_latest.csv
+            output/history/research/revenue_unreacted_range_forward_confirmation_feature_audit.csv
+            output/history/research/revenue_unreacted_range_forward_confirmation_feature_audit_feature_contrast.csv
+            output/history/research/revenue_unreacted_range_forward_confirmation_feature_audit_operation_return_review.csv
+            output/history/research/revenue_unreacted_range_lag_strength_matrix.csv
+            output/history/research/revenue_unreacted_range_launch_timing_feature_audit.csv
+            output/history/research/revenue_unreacted_range_launch_timing_feature_audit_feature_contrast.csv
+            output/history/research/revenue_unreacted_range_low_mid_falling_candidate_audit.csv
+            output/history/research/revenue_unreacted_range_low_mid_falling_candidate_audit_detail.csv
+            output/history/research/revenue_unreacted_range_low_mid_falling_candidate_audit_feature_contrast.csv
+            output/history/research/revenue_unreacted_range_low_mid_falling_candidate_audit_paired_confirmation.csv
+            output/history/research/revenue_unreacted_range_operation_lag_bucket_audit.csv
+            output/history/research/revenue_unreacted_range_position_shape_transition_matrix.csv
+            output/history/research/revenue_unreacted_range_position_shape_transition_matrix_transition.csv
+            output/history/research/revenue_unreacted_range_rearmed_operation_grid.csv
+            output/history/research/revenue_unreacted_range_rearmed_operation_grid_operation_return_review.csv
+            output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_detail_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_event_detail_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_feature_contrast_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_latest.md
+            output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_operation_return_review_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_lag_strength_matrix_detail_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_lag_strength_matrix_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_lag_strength_matrix_latest.md
+            output/latest/research_backtest/revenue_unreacted_range_launch_timing_feature_audit_detail_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_launch_timing_feature_audit_feature_contrast_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_launch_timing_feature_audit_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_launch_timing_feature_audit_latest.md
+            output/latest/research_backtest/revenue_unreacted_range_low_mid_falling_candidate_audit_detail_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_low_mid_falling_candidate_audit_feature_contrast_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_low_mid_falling_candidate_audit_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_low_mid_falling_candidate_audit_latest.md
+            output/latest/research_backtest/revenue_unreacted_range_low_mid_falling_candidate_audit_paired_confirmation_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_operation_lag_bucket_audit_detail_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_operation_lag_bucket_audit_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_operation_lag_bucket_audit_latest.md
+            output/latest/research_backtest/revenue_unreacted_range_position_shape_transition_matrix_detail_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_position_shape_transition_matrix_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_position_shape_transition_matrix_latest.md
+            output/latest/research_backtest/revenue_unreacted_range_position_shape_transition_matrix_transition_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_rearmed_operation_grid_detail_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_rearmed_operation_grid_latest.csv
+            output/latest/research_backtest/revenue_unreacted_range_rearmed_operation_grid_latest.md
+            output/latest/research_backtest/revenue_unreacted_range_rearmed_operation_grid_operation_return_review_latest.csv
+            output/latest/model_data_independence_audit_latest.csv
+            output/latest/model_data_independence_audit_latest.md
+            docs/latest/model_data_independence_audit_latest.csv
+            docs/latest/model_data_independence_audit_latest.md
+          )
+          REVENUE_SUPERSEDE_IMMUTABLE_PATHS=(
+            output/history/research/revenue_unreacted_range_source_snapshot_projection_manifest_v1_20260731.csv
+            output/history/research/revenue_unreacted_range_source_snapshot_projection_detail_v1_20260731.csv
+            output/history/research/revenue_unreacted_range_source_snapshot_projection_archive_evidence_v1_20260731.csv
+            output/history/research/revenue_unreacted_range_source_snapshot_projection_manifest_v2_20260822.csv
+            output/history/research/revenue_unreacted_range_source_snapshot_projection_detail_v2_20260822.csv
+            output/history/research/revenue_unreacted_range_source_snapshot_projection_v1_20260731_to_v2_20260822_diff_summary.csv
+            output/history/research/revenue_unreacted_range_source_snapshot_projection_v1_20260731_to_v2_20260822_diff_detail.csv
+          )
+          REVENUE_SUPERSEDE_IDENTITY_FILE="$RUNNER_TEMP/revenue-projection-supersede-exact75-validated-identity.tsv"
+          if [[ ! -f "$REVENUE_SUPERSEDE_IDENTITY_FILE" ]]; then
+            echo "::error::Missing validated revenue projection supersede identity file before commit."
+            exit 1
+          fi
+          mapfile -t REVENUE_SUPERSEDE_VALIDATED_IDENTITIES < "$REVENUE_SUPERSEDE_IDENTITY_FILE"
+          if [[ "${#REVENUE_SUPERSEDE_VALIDATED_IDENTITIES[@]}" -ne "${#REVENUE_SUPERSEDE_ALLOWED_PATHS[@]}" ]]; then
+            echo "::error::Revenue projection supersede commit identity row count mismatch."
+            exit 1
+          fi
+          if [[ "$(git --no-replace-objects rev-parse HEAD)" != "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA" || "$GITHUB_SHA" != "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA" ]]; then
+            echo "::error::Revenue projection supersede pre-commit HEAD moved from expected_head_sha."
+            exit 1
+          fi
+          mapfile -t REVENUE_SUPERSEDE_STAGED_PATHS < <(git --no-replace-objects diff --cached --name-only)
+          if [[ "${#REVENUE_SUPERSEDE_STAGED_PATHS[@]}" -ne "${#REVENUE_SUPERSEDE_ALLOWED_PATHS[@]}" ]] || ! diff -u \
+            <(printf '%s\n' "${REVENUE_SUPERSEDE_ALLOWED_PATHS[@]}" | sort) \
+            <(printf '%s\n' "${REVENUE_SUPERSEDE_STAGED_PATHS[@]}" | sort); then
+            echo "::error::Revenue projection supersede pre-commit staged-path exact75 allowlist mismatch."
+            exit 1
+          fi
+          if ! git --no-replace-objects diff --quiet; then
+            echo "::error::Revenue projection supersede worktree differs from the validated index before commit."
+            exit 1
+          fi
+          mapfile -t REVENUE_SUPERSEDE_UNTRACKED_PATHS < <(git --no-replace-objects ls-files --others --exclude-standard)
+          if [[ "${#REVENUE_SUPERSEDE_UNTRACKED_PATHS[@]}" -ne 0 ]]; then
+            echo "::error::Revenue projection supersede has untracked paths before commit."
+            exit 1
+          fi
+          for index in "${!REVENUE_SUPERSEDE_ALLOWED_PATHS[@]}"; do
+            path="${REVENUE_SUPERSEDE_ALLOWED_PATHS[$index]}"
+            IFS=$'\t' read -r validated_path validated_bytes validated_sha256 <<< "${REVENUE_SUPERSEDE_VALIDATED_IDENTITIES[$index]}"
+            staged_bytes="$(git --no-replace-objects cat-file -s ":$path")"
+            staged_sha256="$(git --no-replace-objects show ":$path" | sha256sum | cut -d ' ' -f1)"
+            if [[ "$validated_path" != "$path" || "$staged_bytes" != "$validated_bytes" || "$staged_sha256" != "$validated_sha256" ]]; then
+              echo "::error::Revenue projection supersede pre-commit staged artifact identity mismatch: $path"
+              exit 1
+            fi
+          done
+          mapfile -t REVENUE_SUPERSEDE_REMOTE_HEADS < <(git ls-remote --exit-code origin "refs/heads/$TARGET_BRANCH" | awk '{print $1}')
+          if [[ "${#REVENUE_SUPERSEDE_REMOTE_HEADS[@]}" -ne 1 || "${REVENUE_SUPERSEDE_REMOTE_HEADS[0]}" != "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA" ]]; then
+            echo "::error::Revenue projection supersede remote branch moved before artifact commit."
+            exit 1
+          fi
+          git --no-replace-objects commit -m "Supersede revenue source projection v2 research canonical artifacts"
+          REVENUE_SUPERSEDE_ARTIFACT_COMMIT="$(git --no-replace-objects rev-parse HEAD)"
+          read -r -a REVENUE_SUPERSEDE_ARTIFACT_PARENT_FIELDS <<< "$(git --no-replace-objects rev-list --parents -n 1 "$REVENUE_SUPERSEDE_ARTIFACT_COMMIT")"
+          if [[ "${#REVENUE_SUPERSEDE_ARTIFACT_PARENT_FIELDS[@]}" -ne 2 || "${REVENUE_SUPERSEDE_ARTIFACT_PARENT_FIELDS[1]}" != "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA" || "$(git --no-replace-objects rev-list --count "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA..$REVENUE_SUPERSEDE_ARTIFACT_COMMIT")" != "1" ]]; then
+            echo "::error::Revenue projection supersede artifact commit must be the unique direct child of expected_head_sha."
+            exit 1
+          fi
+          mapfile -t REVENUE_SUPERSEDE_COMMITTED_PATHS < <(
+            git --no-replace-objects diff --name-only --no-renames "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA" "$REVENUE_SUPERSEDE_ARTIFACT_COMMIT"
+          )
+          if [[ "${#REVENUE_SUPERSEDE_COMMITTED_PATHS[@]}" -ne "${#REVENUE_SUPERSEDE_ALLOWED_PATHS[@]}" ]] || ! diff -u \
+            <(printf '%s\n' "${REVENUE_SUPERSEDE_ALLOWED_PATHS[@]}" | sort) \
+            <(printf '%s\n' "${REVENUE_SUPERSEDE_COMMITTED_PATHS[@]}" | sort); then
+            echo "::error::Revenue projection supersede committed-path exact75 allowlist mismatch."
+            exit 1
+          fi
+          for index in "${!REVENUE_SUPERSEDE_ALLOWED_PATHS[@]}"; do
+            path="${REVENUE_SUPERSEDE_ALLOWED_PATHS[$index]}"
+            IFS=$'\t' read -r validated_path validated_bytes validated_sha256 <<< "${REVENUE_SUPERSEDE_VALIDATED_IDENTITIES[$index]}"
+            committed_bytes="$(git --no-replace-objects cat-file -s "$REVENUE_SUPERSEDE_ARTIFACT_COMMIT:$path")"
+            committed_sha256="$(git --no-replace-objects show "$REVENUE_SUPERSEDE_ARTIFACT_COMMIT:$path" | sha256sum | cut -d ' ' -f1)"
+            if [[ "$validated_path" != "$path" || "$committed_bytes" != "$validated_bytes" || "$committed_sha256" != "$validated_sha256" ]]; then
+              echo "::error::Revenue projection supersede committed artifact identity mismatch: $path"
+              exit 1
+            fi
+          done
+          for path in "${REVENUE_SUPERSEDE_IMMUTABLE_PATHS[@]}"; do
+            code_blob="$(git --no-replace-objects rev-parse "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA:$path")"
+            committed_blob="$(git --no-replace-objects rev-parse "$REVENUE_SUPERSEDE_ARTIFACT_COMMIT:$path")"
+            if [[ "$committed_blob" != "$code_blob" ]]; then
+              echo "::error::Revenue projection supersede artifact commit changed an immutable v1/v2/diff artifact: $path"
+              exit 1
+            fi
+          done
+          if [[ -n "$(git --no-replace-objects status --porcelain=v1 --untracked-files=all)" ]]; then
+            echo "::error::Revenue projection supersede worktree or index is not clean after commit."
+            exit 1
+          fi
+          mapfile -t REVENUE_SUPERSEDE_REMOTE_HEADS < <(git ls-remote --exit-code origin "refs/heads/$TARGET_BRANCH" | awk '{print $1}')
+          if [[ "${#REVENUE_SUPERSEDE_REMOTE_HEADS[@]}" -ne 1 || "${REVENUE_SUPERSEDE_REMOTE_HEADS[0]}" != "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA" ]]; then
+            echo "::error::Revenue projection supersede remote branch moved before the direct push."
+            exit 1
+          fi
+          git --no-replace-objects push origin "HEAD:$TARGET_BRANCH"
 
       - name: Validate revenue candidate repair exact2 artifact closure
         if: ${{ github.event.inputs.run_revenue_unreacted_range_research == 'true' && github.event.inputs.run_revenue_unreacted_range_source_snapshot_projection_candidate_repair_only == 'true' && github.ref_type == 'branch' && github.ref_name != 'main' }}
@@ -954,7 +1677,7 @@ jobs:
           git push origin "HEAD:$TARGET_BRANCH"
 
       - name: Commit research and backtest outputs
-        if: ${{ env.ANY_RESEARCH_SELECTED == 'true' && github.event.inputs.run_revenue_unreacted_range_source_snapshot_projection_rebaseline_only != 'true' && github.event.inputs.run_revenue_unreacted_range_source_snapshot_projection_candidate_repair_only != 'true' }}
+        if: ${{ env.ANY_RESEARCH_SELECTED == 'true' && github.event.inputs.run_revenue_unreacted_range_source_snapshot_projection_rebaseline_only != 'true' && github.event.inputs.run_revenue_unreacted_range_source_snapshot_projection_candidate_repair_only != 'true' && github.event.inputs.run_revenue_unreacted_range_source_snapshot_projection_supersede_only != 'true' }}
         env:
           REVENUE_FORWARD_HOLDOUT_ONLY: ${{ github.event.inputs.run_revenue_unreacted_range_forward_holdout_only }}
           REVENUE_SOURCE_PROJECTION_REBASELINE_ONLY: ${{ github.event.inputs.run_revenue_unreacted_range_source_snapshot_projection_rebaseline_only }}

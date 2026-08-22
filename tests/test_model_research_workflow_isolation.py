@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import subprocess
 from dataclasses import replace
 
 import pytest
@@ -61,7 +62,7 @@ def test_research_publish_block_rejects_swallowed_commit_failure() -> None:
     errors = validator.validate_workflow_text(mutated, rows, producers)
 
     assert any(
-        "commit commands must be exact candidate repair, rebaseline, then generic commits"
+        "commit commands must be exact supersede, candidate repair, rebaseline, then generic commits"
         in error
         for error in errors
     )
@@ -1073,7 +1074,7 @@ def test_research_publish_block_rejects_retrying_rebase_push_helper() -> None:
     errors = validator.validate_workflow_text(mutated, rows, producers)
 
     assert any("must not retry or rebase" in error for error in errors)
-    assert any("exactly three direct fail-closed pushes" in error for error in errors)
+    assert any("exactly four direct fail-closed pushes" in error for error in errors)
 
 
 def test_research_publish_block_rejects_post_validation_branch_rewrite() -> None:
@@ -1121,7 +1122,7 @@ def test_research_publish_block_rejects_muted_direct_push_failure() -> None:
 
     errors = validator.validate_workflow_text(mutated, rows, producers)
 
-    assert any("exactly three direct fail-closed pushes" in error for error in errors)
+    assert any("exactly four direct fail-closed pushes" in error for error in errors)
 
 
 def test_research_workflow_rejects_duplicate_commit_push_block() -> None:
@@ -1136,11 +1137,12 @@ def test_research_workflow_rejects_duplicate_commit_push_block() -> None:
     errors = validator.validate_workflow_text(mutated, rows, producers)
 
     assert any(
-        "exactly one generic, one candidate repair, and one rebaseline" in error
+        "exactly one generic, one supersede, one candidate repair, and one rebaseline"
+        in error
         for error in errors
     )
     assert any("commit commands must be exact" in error for error in errors)
-    assert any("exactly three direct fail-closed pushes" in error for error in errors)
+    assert any("exactly four direct fail-closed pushes" in error for error in errors)
 
 
 def test_revenue_step_rejects_another_model_producer() -> None:
@@ -1327,7 +1329,8 @@ def test_revenue_projection_candidate_repair_guards_and_tail_order_are_exact() -
             'if [[ "$REVENUE_SOURCE_PROJECTION_CANDIDATE_REPAIR_ONLY" == "true" && '
             '( "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" || '
             '"$REVENUE_SOURCE_PROJECTION_CHAIN_ONLY" == "true" || '
-            '"$REVENUE_SOURCE_PROJECTION_REBASELINE_ONLY" == "true" ) ]]; then',
+            '"$REVENUE_SOURCE_PROJECTION_REBASELINE_ONLY" == "true" || '
+            '"$REVENUE_SOURCE_PROJECTION_SUPERSEDE_ONLY" == "true" ) ]]; then',
             "mutually exclusive",
         ),
         (
@@ -1368,6 +1371,9 @@ def test_revenue_projection_candidate_repair_guards_and_tail_order_are_exact() -
     ]
     tail = (
         validator.POST_RUN_STEP_NAME,
+        validator.REVENUE_PROJECTION_SUPERSEDE_CLOSURE_STEP_NAME,
+        validator.REVENUE_PROJECTION_SUPERSEDE_STAGE_STEP_NAME,
+        validator.REVENUE_PROJECTION_SUPERSEDE_COMMIT_STEP_NAME,
         validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_CLOSURE_STEP_NAME,
         validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_STAGE_STEP_NAME,
         validator.REVENUE_PROJECTION_CANDIDATE_REPAIR_COMMIT_STEP_NAME,
@@ -1390,6 +1396,183 @@ def test_revenue_projection_candidate_repair_requires_two_commit_checkout() -> N
             text.replace(exact, replacement, 1), rows, producers
         )
         assert any("checkout must retain fetch-depth 2" in error for error in errors)
+
+
+@pytest.mark.parametrize(
+    ("exact", "replacement"),
+    (
+        (
+            "              config/daily_model_data_sharing_registry.csv\n",
+            "",
+        ),
+        (
+            "              config/daily_model_data_sharing_registry.csv\n",
+            "              config/daily_model_data_sharing_registry.csv\n"
+            "              scripts/unauthorized_supersede_writer.py\n",
+        ),
+        (
+            "              config/daily_model_data_sharing_registry.csv\n",
+            "              config/renamed_data_sharing_registry.csv\n",
+        ),
+    ),
+)
+def test_revenue_projection_supersede_code_path_exact44_rejects_path_drift(
+    exact: str,
+    replacement: str,
+) -> None:
+    text, rows, producers = _inputs()
+    mutated = _replace_in_named_step(
+        text,
+        validator.RESEARCH_PREFLIGHT_STEP_NAME,
+        exact,
+        replacement,
+    )
+
+    errors = validator.validate_workflow_text(mutated, rows, producers)
+
+    assert any("exact44 literal code paths" in error for error in errors)
+
+
+@pytest.mark.parametrize(
+    "exact",
+    (
+        "git --no-replace-objects diff --name-only --no-renames",
+        "git --no-replace-objects diff --name-status --no-renames",
+        "$'M\\t'\"${REVENUE_SUPERSEDE_CODE_PATHS[$index]}\"",
+    ),
+)
+def test_revenue_projection_supersede_code_commit_identity_guards_are_required(
+    exact: str,
+) -> None:
+    text, rows, producers = _inputs()
+    mutated = _replace_in_named_step(
+        text,
+        validator.RESEARCH_PREFLIGHT_STEP_NAME,
+        exact,
+        exact.replace("--no-renames", "--find-renames").replace("$'M\\t'", "$'D\\t'"),
+    )
+
+    errors = validator.validate_workflow_text(mutated, rows, producers)
+
+    assert any("code-commit identity closure is incomplete" in error for error in errors)
+
+
+def test_revenue_projection_supersede_unshallows_trusted_candidate_ancestry() -> None:
+    text, rows, producers = _inputs()
+    exact = (
+        'git --no-replace-objects fetch --no-tags --unshallow origin '
+        '"$TARGET_BRANCH"'
+    )
+    mutated = _replace_in_named_step(
+        text,
+        validator.REVENUE_PROJECTION_SUPERSEDE_CLOSURE_STEP_NAME,
+        exact,
+        "true",
+    )
+
+    errors = validator.validate_workflow_text(mutated, rows, producers)
+
+    assert any("exact75 closure is incomplete" in error for error in errors)
+
+
+def test_revenue_projection_supersede_unshallow_restores_trusted_ancestry(
+    tmp_path,
+) -> None:
+    source = tmp_path / "source"
+    clone = tmp_path / "shallow"
+    subprocess.run(
+        ["git", "init", "-b", "main", str(source)],
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    subprocess.run(
+        ["git", "-C", str(source), "config", "user.name", "test"],
+        check=True,
+    )
+    subprocess.run(
+        ["git", "-C", str(source), "config", "user.email", "test@example.invalid"],
+        check=True,
+    )
+    marker = source / "marker.txt"
+    trusted = ""
+    for index in range(5):
+        marker.write_text(f"{index}\n", encoding="utf-8")
+        subprocess.run(["git", "-C", str(source), "add", "--", "marker.txt"], check=True)
+        subprocess.run(
+            ["git", "-C", str(source), "commit", "-m", f"commit {index}"],
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+        if index == 0:
+            trusted = subprocess.check_output(
+                ["git", "-C", str(source), "rev-parse", "HEAD"],
+                text=True,
+            ).strip()
+
+    subprocess.run(
+        [
+            "git",
+            "clone",
+            "--depth=2",
+            "--branch",
+            "main",
+            source.as_uri(),
+            str(clone),
+        ],
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    assert subprocess.check_output(
+        ["git", "-C", str(clone), "rev-parse", "--is-shallow-repository"],
+        text=True,
+    ).strip() == "true"
+    assert subprocess.run(
+        ["git", "-C", str(clone), "cat-file", "-e", f"{trusted}^{{commit}}"],
+        capture_output=True,
+        text=True,
+    ).returncode != 0
+
+    subprocess.run(
+        [
+            "git",
+            "--no-replace-objects",
+            "-C",
+            str(clone),
+            "fetch",
+            "--no-tags",
+            "--unshallow",
+            "origin",
+            "main",
+        ],
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+    assert subprocess.check_output(
+        ["git", "-C", str(clone), "rev-parse", "--is-shallow-repository"],
+        text=True,
+    ).strip() == "false"
+    assert subprocess.check_output(
+        ["git", "-C", str(clone), "rev-parse", f"{trusted}^{{commit}}"],
+        text=True,
+    ).strip() == trusted
+    assert subprocess.run(
+        [
+            "git",
+            "--no-replace-objects",
+            "-C",
+            str(clone),
+            "merge-base",
+            "--is-ancestor",
+            trusted,
+            "HEAD",
+        ],
+        check=False,
+    ).returncode == 0
 
 
 @pytest.mark.parametrize(
@@ -1751,7 +1934,8 @@ def test_revenue_projection_rebaseline_stage_requires_all_dispatch_guards() -> N
             '          if [[ "$REVENUE_SOURCE_PROJECTION_REBASELINE_ONLY" == "true" && '
             '( "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" || '
             '"$REVENUE_SOURCE_PROJECTION_CHAIN_ONLY" == "true" || '
-            '"$REVENUE_SOURCE_PROJECTION_CANDIDATE_REPAIR_ONLY" == "true" ) ]]; then\n'
+            '"$REVENUE_SOURCE_PROJECTION_CANDIDATE_REPAIR_ONLY" == "true" || '
+            '"$REVENUE_SOURCE_PROJECTION_SUPERSEDE_ONLY" == "true" ) ]]; then\n'
         ),
         "every other research input": (
             '          if [[ "$REVENUE_SOURCE_PROJECTION_REBASELINE_ONLY" == "true" && '
@@ -2018,7 +2202,8 @@ def test_revenue_rebaseline_final_chain_rejects_any_interposed_step(
     errors = validator.validate_workflow_text(mutated, rows, producers)
 
     assert any(
-        "post-run validators, repair exact2 closure chain, rebaseline exact17" in error
+        "post-run validators, supersede exact75 closure chain, repair exact2 closure chain, rebaseline exact17"
+        in error
         and "consecutive in exact order" in error
         for error in errors
     )
@@ -2146,7 +2331,7 @@ def test_revenue_rebaseline_dedicated_commit_rejects_dynamic_corrupt_and_stage()
         (
             validator.PUBLISH_PUSH,
             'git push --force origin "HEAD:$TARGET_BRANCH"',
-            "exactly three direct fail-closed pushes",
+            "exactly four direct fail-closed pushes",
         ),
         (
             validator.PUBLISH_PUSH,
@@ -2192,7 +2377,8 @@ def test_revenue_rebaseline_identity_closure_must_follow_validators_contiguously
     errors = validator.validate_workflow_text(mutated, rows, producers)
 
     assert any(
-        "post-run validators, repair exact2 closure chain, rebaseline exact17" in error
+        "post-run validators, supersede exact75 closure chain, repair exact2 closure chain, rebaseline exact17"
+        in error
         and "consecutive in exact order" in error
         for error in errors
     )
@@ -2212,7 +2398,12 @@ def test_revenue_rebaseline_stage_requires_working_and_index_identity(
     text, rows, producers = _inputs()
     exact = identity_line
     assert exact in text
-    mutated = text.replace(exact, "", 1)
+    mutated = _replace_in_named_step(
+        text,
+        validator.REVENUE_PROJECTION_REBASELINE_STAGE_STEP_NAME,
+        exact,
+        "",
+    )
 
     errors = validator.validate_workflow_text(mutated, rows, producers)
 
@@ -2237,7 +2428,8 @@ def test_revenue_rebaseline_stage_must_immediately_precede_commit() -> None:
     errors = validator.validate_workflow_text(mutated, rows, producers)
 
     assert any(
-        "post-run validators, repair exact2 closure chain, rebaseline exact17" in error
+        "post-run validators, supersede exact75 closure chain, repair exact2 closure chain, rebaseline exact17"
+        in error
         and "consecutive in exact order" in error
         for error in errors
     )

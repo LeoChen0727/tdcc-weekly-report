@@ -21,6 +21,11 @@ RESEARCH_REGISTRY_COLUMNS = {
     "producer",
     "notes",
 }
+RESEARCH_WORKFLOW_ONLY_IDENTITY_INPUTS = {
+    "expected_base_sha",
+    "expected_head_sha",
+    "confirmation",
+}
 MIN_TRIGGER_SPACING_MINUTES = 60
 TDCC_CHAIN_POLL_MINUTES = 5
 TDCC_WORKFLOW = "tdcc_weekly.yml"
@@ -118,14 +123,27 @@ def load_research_dispatch_registry(
             raise ValueError(
                 f"Apps Script research dispatch input has wrong workflow: {input_name}"
             )
-        if normalized["dispatch_value"] != "true":
+        activation_mode = normalized["activation_mode"]
+        if activation_mode == "workflow_only_identity":
+            if input_name not in RESEARCH_WORKFLOW_ONLY_IDENTITY_INPUTS:
+                raise ValueError(
+                    "Apps Script research registry workflow-only identity input is not "
+                    f"an exact approved supersede identity: {input_name}"
+                )
+            if normalized["dispatch_value"]:
+                raise ValueError(
+                    "Apps Script research workflow-only identity input must have an "
+                    f"empty dispatch value: {input_name}"
+                )
+        elif normalized["dispatch_value"] != "true":
             raise ValueError(
                 f"Apps Script scheduled research input must dispatch true: {input_name}"
             )
-        if normalized["activation_mode"] not in {
+        if activation_mode not in {
             "required",
             "when_declared",
             "workflow_only",
+            "workflow_only_identity",
         }:
             raise ValueError(
                 f"Apps Script research input has invalid activation_mode: {input_name}"
@@ -176,7 +194,12 @@ def validate_research_dispatch_contract(
     registry: dict[str, dict[str, str]],
 ) -> None:
     registered_inputs = set(registry)
-    allowed_modes = {"required", "when_declared", "workflow_only"}
+    allowed_modes = {
+        "required",
+        "when_declared",
+        "workflow_only",
+        "workflow_only_identity",
+    }
     unknown_modes = {
         name
         for name, row in registry.items()
@@ -200,6 +223,17 @@ def validate_research_dispatch_contract(
         for name, row in registry.items()
         if row.get("activation_mode") == "workflow_only"
     }
+    workflow_only_identity_inputs = {
+        name
+        for name, row in registry.items()
+        if row.get("activation_mode") == "workflow_only_identity"
+    }
+    if workflow_only_identity_inputs != RESEARCH_WORKFLOW_ONLY_IDENTITY_INPUTS:
+        errors.append(
+            "Apps Script research registry workflow-only identity rows must equal the "
+            "exact revenue supersede identity inputs: "
+            f"observed={sorted(workflow_only_identity_inputs)}"
+        )
     apps_script_registered_inputs = required_inputs | staged_inputs
     if apps_inputs != apps_script_registered_inputs:
         errors.append(
@@ -231,6 +265,14 @@ def validate_research_dispatch_contract(
             "Research workflow is missing workflow-only inputs: "
             f"{sorted(missing_workflow_only_inputs)}"
         )
+    missing_workflow_only_identity_inputs = (
+        workflow_only_identity_inputs - workflow_input_names
+    )
+    if missing_workflow_only_identity_inputs:
+        errors.append(
+            "Research workflow is missing workflow-only identity inputs: "
+            f"{sorted(missing_workflow_only_identity_inputs)}"
+        )
     wrong_workflow_only_defaults = {
         name
         for name in workflow_only_inputs & workflow_input_names
@@ -251,13 +293,34 @@ def validate_research_dispatch_contract(
             "Research workflow-only inputs must use type boolean: "
             f"{sorted(wrong_workflow_only_types)}"
         )
-    unexpected_workflow_only_apps_inputs = workflow_only_inputs & apps_inputs
+    wrong_identity_defaults = {
+        name
+        for name in workflow_only_identity_inputs & workflow_input_names
+        if workflow_input_defaults.get(name) != ""
+    }
+    if wrong_identity_defaults:
+        errors.append(
+            "Research workflow-only identity inputs must default to an empty string: "
+            f"{sorted(wrong_identity_defaults)}"
+        )
+    wrong_identity_types = {
+        name
+        for name in workflow_only_identity_inputs & workflow_input_names
+        if workflow_input_types.get(name) != "string"
+    }
+    if wrong_identity_types:
+        errors.append(
+            "Research workflow-only identity inputs must use type string: "
+            f"{sorted(wrong_identity_types)}"
+        )
+    all_workflow_only_inputs = workflow_only_inputs | workflow_only_identity_inputs
+    unexpected_workflow_only_apps_inputs = all_workflow_only_inputs & apps_inputs
     if unexpected_workflow_only_apps_inputs:
         errors.append(
             "Research workflow-only inputs must not appear in Apps Script: "
             f"{sorted(unexpected_workflow_only_apps_inputs)}"
         )
-    unexpected_workflow_only_guarded_inputs = workflow_only_inputs & guarded_inputs
+    unexpected_workflow_only_guarded_inputs = all_workflow_only_inputs & guarded_inputs
     if unexpected_workflow_only_guarded_inputs:
         errors.append(
             "Research workflow-only inputs must not be guarded by Apps Script: "
@@ -776,8 +839,17 @@ def main() -> int:
         registry=research_registry,
     )
     for input_name in sorted(research_inputs):
-        if workflow_dispatch_input_property(research_workflow, input_name, "default") != "false":
-            errors.append(f"Research workflow input must default false: {input_name}")
+        expected_default = (
+            "" if input_name in RESEARCH_WORKFLOW_ONLY_IDENTITY_INPUTS else "false"
+        )
+        if (
+            workflow_dispatch_input_property(research_workflow, input_name, "default")
+            != expected_default
+        ):
+            errors.append(
+                "Research workflow input has the wrong fail-closed default: "
+                f"{input_name} expected={expected_default!r}"
+            )
     try:
         research_helper_body = apps_script_function_body("researchBacktestInputs_")
         research_trigger_body = apps_script_function_body("triggerResearchBacktestPipeline")

@@ -10,17 +10,46 @@ from zoneinfo import ZoneInfo
 import numpy as np
 import pandas as pd
 
+from revenue_unreacted_range_operation_lag_bucket_audit import (
+    ARTIFACT_VERSION as SOURCE_OPERATION_LAG_ARTIFACT_VERSION,
+)
+from revenue_unreacted_range_rearmed_operation_grid import (
+    ARTIFACT_VERSION as SOURCE_REARMED_ARTIFACT_VERSION,
+)
 from revenue_unreacted_range_source_first_condition_audit import load_stock_price
 
 
 ROOT = Path(__file__).resolve().parents[1]
 MODEL_ID = "revenue_unreacted_range"
 ARTIFACT_ID = "revenue_unreacted_range_position_shape_transition_matrix"
-ARTIFACT_VERSION = "position_shape_transition_matrix_v1_20260717"
+V1_ARTIFACT_VERSION = "position_shape_transition_matrix_v1_20260717"
+V2_ARTIFACT_VERSION = "position_shape_transition_matrix_v2_20260822"
+ARTIFACT_VERSION = V1_ARTIFACT_VERSION
 SOURCE_OPERATION_LAG_ARTIFACT_ID = "revenue_unreacted_range_operation_lag_bucket_audit"
-SOURCE_OPERATION_LAG_ARTIFACT_VERSION = "operation_lag_bucket_v1_20260714"
 SOURCE_REARMED_ARTIFACT_ID = "revenue_unreacted_range_rearmed_operation_grid"
-SOURCE_REARMED_ARTIFACT_VERSION = "rearmed_operation_grid_v1_20260713"
+V2_SOURCE_OPERATION_LAG_ARTIFACT_VERSION = "operation_lag_bucket_v2_20260822"
+V2_SOURCE_REARMED_ARTIFACT_VERSION = "rearmed_operation_grid_v2_20260822"
+
+
+def versions_for_operation_lag_artifact(
+    source_artifact_version: object,
+) -> tuple[str, str]:
+    version = str(source_artifact_version).strip()
+    mapping = {
+        SOURCE_OPERATION_LAG_ARTIFACT_VERSION: (
+            V1_ARTIFACT_VERSION,
+            SOURCE_REARMED_ARTIFACT_VERSION,
+        ),
+        V2_SOURCE_OPERATION_LAG_ARTIFACT_VERSION: (
+            V2_ARTIFACT_VERSION,
+            V2_SOURCE_REARMED_ARTIFACT_VERSION,
+        ),
+    }
+    if version not in mapping:
+        raise RuntimeError(
+            f"unsupported operation-lag artifact version: {version or '<empty>'}"
+        )
+    return mapping[version]
 SOURCE_VARIANT_ID = "absolute_or_two_month_yoy_ge15"
 ADOPTED_GRID_ID = (
     "rearm_after_realized_exit_next_trade_day|"
@@ -379,6 +408,7 @@ def _prepare_operation_lag_detail(
     frame: pd.DataFrame,
     *,
     enforce_pinned_baseline: bool,
+    expected_artifact_version: str = SOURCE_OPERATION_LAG_ARTIFACT_VERSION,
 ) -> pd.DataFrame:
     required = {
         "model_id",
@@ -428,9 +458,7 @@ def _prepare_operation_lag_detail(
         raise RuntimeError("position/shape source model drift")
     if set(source["artifact_id"].astype(str)) != {SOURCE_OPERATION_LAG_ARTIFACT_ID}:
         raise RuntimeError("position/shape source artifact drift")
-    if set(source["artifact_version"].astype(str)) != {
-        SOURCE_OPERATION_LAG_ARTIFACT_VERSION
-    }:
+    if set(source["artifact_version"].astype(str)) != {expected_artifact_version}:
         raise RuntimeError("position/shape source artifact version drift")
     if set(source["source_variant_id"].astype(str)) != {SOURCE_VARIANT_ID}:
         raise RuntimeError("position/shape source variant drift")
@@ -570,7 +598,12 @@ def _load_rearmed_detail(path: Path) -> pd.DataFrame:
     )
 
 
-def _validate_rearmed_lineage(source: pd.DataFrame, rearmed: pd.DataFrame) -> pd.DataFrame:
+def _validate_rearmed_lineage(
+    source: pd.DataFrame,
+    rearmed: pd.DataFrame,
+    *,
+    expected_artifact_version: str = SOURCE_REARMED_ARTIFACT_VERSION,
+) -> pd.DataFrame:
     required = {
         "artifact_id",
         "artifact_version",
@@ -591,7 +624,7 @@ def _validate_rearmed_lineage(source: pd.DataFrame, rearmed: pd.DataFrame) -> pd
     ].copy()
     if set(lineage["artifact_id"].astype(str)) != {SOURCE_REARMED_ARTIFACT_ID}:
         raise RuntimeError("position/shape rearmed artifact drift")
-    if set(lineage["artifact_version"].astype(str)) != {SOURCE_REARMED_ARTIFACT_VERSION}:
+    if set(lineage["artifact_version"].astype(str)) != {expected_artifact_version}:
         raise RuntimeError("position/shape rearmed artifact version drift")
     lineage["stock_id"] = lineage["stock_id"].map(_stock_id)
     for column in ("trigger_date", "confirmation_date", "entry_date", "exit_date"):
@@ -1423,9 +1456,22 @@ def build_position_shape_transition_matrix(
     if operation_lag_detail is None:
         operation_lag_detail = _load_operation_lag_detail(source_path)
         source_sha = _sha256(source_path)
+    source_versions = set(
+        operation_lag_detail["artifact_version"].astype(str).str.strip()
+    )
+    if len(source_versions) != 1:
+        raise RuntimeError("position/shape operation-lag version is not constant")
+    source_operation_lag_version = next(iter(source_versions))
+    selected_artifact_version, expected_rearmed_artifact_version = (
+        versions_for_operation_lag_artifact(source_operation_lag_version)
+    )
+    v1_baseline = (
+        enforce_pinned_baseline
+        and source_operation_lag_version == SOURCE_OPERATION_LAG_ARTIFACT_VERSION
+    )
     source_semantic_sha = canonical_operation_lag_semantic_sha256(operation_lag_detail)
     if (
-        enforce_pinned_baseline
+        v1_baseline
         and source_semantic_sha != PINNED_OPERATION_LAG_SEMANTIC_SHA256
     ):
         raise RuntimeError(
@@ -1433,7 +1479,9 @@ def build_position_shape_transition_matrix(
             f"{PINNED_OPERATION_LAG_SEMANTIC_SHA256}"
         )
     source = _prepare_operation_lag_detail(
-        operation_lag_detail, enforce_pinned_baseline=enforce_pinned_baseline
+        operation_lag_detail,
+        enforce_pinned_baseline=v1_baseline,
+        expected_artifact_version=source_operation_lag_version,
     )
 
     if rearmed_detail is not None and rearmed_detail_path is not None:
@@ -1444,13 +1492,17 @@ def build_position_shape_transition_matrix(
         rearmed_detail = _load_rearmed_detail(lineage_path)
         rearmed_sha = _sha256(lineage_path)
     rearmed_semantic_sha = canonical_rearmed_semantic_sha256(rearmed_detail)
-    if enforce_pinned_baseline and rearmed_semantic_sha != PINNED_REARMED_SEMANTIC_SHA256:
+    if v1_baseline and rearmed_semantic_sha != PINNED_REARMED_SEMANTIC_SHA256:
         raise RuntimeError(
             f"position/shape rearmed semantic SHA drift: {rearmed_semantic_sha}/"
             f"{PINNED_REARMED_SEMANTIC_SHA256}"
         )
-    source = _validate_rearmed_lineage(source, rearmed_detail)
-    if enforce_pinned_baseline:
+    source = _validate_rearmed_lineage(
+        source,
+        rearmed_detail,
+        expected_artifact_version=expected_rearmed_artifact_version,
+    )
+    if v1_baseline:
         _validate_pinned_baseline(source)
 
     if daily_by_stock is None:
@@ -1469,7 +1521,7 @@ def build_position_shape_transition_matrix(
         source_rearmed_detail_sha256=rearmed_sha,
         source_rearmed_semantic_sha256=rearmed_semantic_sha,
     )
-    if enforce_pinned_baseline:
+    if v1_baseline:
         expected_coverage = {
             "revenue_available": 462,
             "pre_breakout_week_close": 513,
@@ -1487,6 +1539,14 @@ def build_position_shape_transition_matrix(
             )
     summary = _build_cell_summary(detail)
     transition = _build_transition_summary(detail)
+    for frame in (summary, detail, transition):
+        frame.loc[:, "artifact_version"] = selected_artifact_version
+        frame.loc[:, "source_operation_lag_artifact_version"] = (
+            source_operation_lag_version
+        )
+    detail.loc[:, "source_rearmed_artifact_version"] = (
+        expected_rearmed_artifact_version
+    )
     return summary, detail, transition
 
 
@@ -1533,7 +1593,7 @@ def _markdown(summary: pd.DataFrame, transition: pd.DataFrame) -> str:
         "",
         f"- generated_at: `{summary['generated_at'].iloc[0]}`",
         f"- model_id: `{MODEL_ID}`",
-        f"- artifact_version: `{ARTIFACT_VERSION}`",
+        f"- artifact_version: `{summary['artifact_version'].iloc[0]}`",
         f"- adopted_grid: `{ADOPTED_GRID_ID}`",
         "- 狀態：`research_only`；分類不是正式模型 gate、ranking、PDF 或 promotion evidence。",
         "- 位階：anchor 前 120 個交易日，不含 anchor；低位 <=40%、中位 >40%~75%、高位 >75%。",

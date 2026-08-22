@@ -26,6 +26,11 @@ from revenue_unreacted_range_position_shape_transition_matrix import (  # noqa: 
     SOURCE_OPERATION_LAG_ARTIFACT_VERSION,
     SOURCE_REARMED_ARTIFACT_ID,
     SOURCE_REARMED_ARTIFACT_VERSION,
+    V1_ARTIFACT_VERSION,
+    V2_ARTIFACT_VERSION,
+    V2_SOURCE_OPERATION_LAG_ARTIFACT_VERSION,
+    V2_SOURCE_REARMED_ARTIFACT_VERSION,
+    versions_for_operation_lag_artifact,
     SOURCE_VARIANT_ID,
     _sha256 as producer_source_file_sha256,
     build_position_shape_transition_matrix,
@@ -33,6 +38,18 @@ from revenue_unreacted_range_position_shape_transition_matrix import (  # noqa: 
     canonical_rearmed_semantic_sha256,
     write_position_shape_transition_matrix,
 )
+
+
+def test_position_shape_versions_follow_operation_lag_generation() -> None:
+    assert versions_for_operation_lag_artifact(SOURCE_OPERATION_LAG_ARTIFACT_VERSION) == (
+        V1_ARTIFACT_VERSION,
+        SOURCE_REARMED_ARTIFACT_VERSION,
+    )
+    assert versions_for_operation_lag_artifact(
+        V2_SOURCE_OPERATION_LAG_ARTIFACT_VERSION
+    ) == (V2_ARTIFACT_VERSION, V2_SOURCE_REARMED_ARTIFACT_VERSION)
+    with pytest.raises(RuntimeError, match="unsupported operation-lag artifact version"):
+        versions_for_operation_lag_artifact("unknown")
 import validate_revenue_unreacted_range_position_shape_transition_matrix as validator  # noqa: E402
 from validate_revenue_unreacted_range_position_shape_transition_matrix import (  # noqa: E402
     _governance_errors,
@@ -150,6 +167,29 @@ def _build() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
         enforce_pinned_baseline=False,
     )
     return summary, detail, transition, price
+
+
+def test_v2_source_generation_emits_v2_position_and_upstream_lineage() -> None:
+    price = _price_frame()
+    source = _operation_source(price)
+    source.loc[:, "artifact_version"] = V2_SOURCE_OPERATION_LAG_ARTIFACT_VERSION
+    rearmed = _rearmed_lineage(source)
+    rearmed.loc[:, "artifact_version"] = V2_SOURCE_REARMED_ARTIFACT_VERSION
+    summary, detail, transition = build_position_shape_transition_matrix(
+        source,
+        rearmed_detail=rearmed,
+        daily_by_stock={"1111": price, "2222": price},
+        generated_at="2026-08-22 12:00:00 Asia/Taipei",
+        enforce_pinned_baseline=True,
+    )
+    for frame in (summary, detail, transition):
+        assert set(frame["artifact_version"].astype(str)) == {V2_ARTIFACT_VERSION}
+        assert set(frame["source_operation_lag_artifact_version"].astype(str)) == {
+            V2_SOURCE_OPERATION_LAG_ARTIFACT_VERSION
+        }
+    assert set(detail["source_rearmed_artifact_version"].astype(str)) == {
+        V2_SOURCE_REARMED_ARTIFACT_VERSION
+    }
 
 
 def test_three_anchor_detail_uses_adjusted_prices_and_exact_anchor_offsets() -> None:

@@ -6,16 +6,24 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import subprocess
+import sys
 
 import numpy as np
 import pandas as pd
 
-from validate_revenue_unreacted_range_source_snapshot_projection_v1_v2_diff import (
-    validate as validate_projection_v1_v2_diff,
-)
-
 
 ROOT = Path(__file__).resolve().parents[1]
+V1_V2_DIFF_VALIDATOR = (
+    ROOT
+    / "scripts/validate_revenue_unreacted_range_source_snapshot_projection_v1_v2_diff.py"
+)
+V1_V2_DIFF_VALIDATOR_SUCCESS = (
+    "revenue source snapshot projection v1/v2 diff validation passed: "
+    "candidate_status=generated_pending_supersede_approval; "
+    "unclassified_semantic_drift_count=0; formal_model_use_allowed=false"
+)
+V1_V2_DIFF_VALIDATOR_TIMEOUT_SECONDS = 300
 MODEL_ID = "revenue_unreacted_range"
 ARTIFACT_ID = "revenue_unreacted_range_source_snapshot_projection"
 V1_ARTIFACT_VERSION = "source_snapshot_projection_v1_20260731"
@@ -54,6 +62,16 @@ PROJECTED_DETAIL_CSV = (
     / "output/latest/research_backtest/"
     "revenue_unreacted_range_source_snapshot_projection_detail_latest.csv"
 )
+HISTORY_MANIFEST_CSV = (
+    ROOT
+    / "output/history/research/"
+    "revenue_unreacted_range_source_snapshot_projection_manifest.csv"
+)
+DOCS_MANIFEST_CSV = (
+    ROOT
+    / "docs/latest/"
+    "revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv"
+)
 V2_MANIFEST_CSV = (
     ROOT
     / "output/history/research/"
@@ -89,6 +107,18 @@ V1_V2_DIFF_DETAIL_CSV = (
     / "output/history/research/"
     "revenue_unreacted_range_source_snapshot_projection_v1_20260731_to_v2_20260822_diff_detail.csv"
 )
+V2_SUPERSEDE_EVIDENCE_CSV = (
+    ROOT
+    / "output/history/research/"
+    "revenue_unreacted_range_source_snapshot_projection_supersede_evidence_v2_20260822.csv"
+)
+V2_SUPERSEDE_EVIDENCE_ARTIFACT_ID = (
+    "revenue_unreacted_range_source_snapshot_projection_supersede_evidence"
+)
+V2_SUPERSEDE_EVIDENCE_ARTIFACT_VERSION = (
+    "source_snapshot_projection_supersede_evidence_v1_20260822"
+)
+V2_SUPERSEDE_SELECTION_STATUS = "canonical_research_source_projection_current"
 V1_EXPECTED_MANIFEST_BYTES = 148157
 V1_EXPECTED_MANIFEST_BYTES_SHA256 = (
     "d2dde5a1f05bc2f15baf4d77f326a7ea90b481492178fa6d2fd6262bf316c79e"
@@ -131,6 +161,55 @@ V1_ARCHIVE_EVIDENCE_COLUMNS = (
     "promotion_evidence_allowed",
     "ranking_consumption_allowed",
     "pdf_consumption_allowed",
+)
+V2_SUPERSEDE_EVIDENCE_COLUMNS = (
+    "superseded_at",
+    "model_id",
+    "artifact_id",
+    "artifact_version",
+    "projection_id",
+    "selected_projection_version",
+    "selection_status",
+    "candidate_status",
+    "candidate_manifest_path",
+    "candidate_manifest_bytes",
+    "candidate_manifest_sha256",
+    "candidate_detail_path",
+    "candidate_detail_bytes",
+    "candidate_detail_sha256",
+    "v1_archive_manifest_path",
+    "v1_archive_manifest_sha256",
+    "v1_archive_detail_path",
+    "v1_archive_detail_sha256",
+    "v1_v2_diff_summary_path",
+    "v1_v2_diff_summary_sha256",
+    "v1_v2_diff_detail_path",
+    "v1_v2_diff_detail_sha256",
+    "canonical_latest_manifest_path",
+    "canonical_latest_detail_path",
+    "canonical_history_manifest_path",
+    "canonical_docs_manifest_path",
+    "canonical_exact3_manifest_sha256",
+    "canonical_exact3_detail_sha256",
+    "canonical_exact3_verified",
+    "canonical_history_preimage_bytes",
+    "canonical_history_preimage_sha256",
+    "canonical_history_preimage_row_count",
+    "canonical_history_preimage_semantic_sha256",
+    "canonical_history_postimage_bytes",
+    "canonical_history_postimage_sha256",
+    "canonical_history_postimage_row_count",
+    "canonical_history_postimage_v1_row_count",
+    "canonical_history_postimage_v2_row_count",
+    "canonical_history_append_only_verified",
+    "research_only",
+    "formal_model_use_allowed",
+    "approved_for_daily",
+    "production_change",
+    "promotion_evidence_allowed",
+    "ranking_consumption_allowed",
+    "pdf_consumption_allowed",
+    "forward_holdout_refreshed",
 )
 REVENUE_HISTORY_CSV = ROOT / "data/monthly_revenue_history/monthly_revenue_history.csv"
 PRICE_HISTORY_DIR = ROOT / "data/stock_price_history"
@@ -2032,6 +2111,87 @@ def _validate_v1_archive_evidence(
     return errors
 
 
+def _validate_projection_v1_v2_diff_subprocess(
+    *,
+    v1_manifest_path: Path,
+    v1_detail_path: Path,
+    v2_manifest_path: Path,
+    v2_detail_path: Path,
+    diff_summary_path: Path,
+    diff_detail_path: Path,
+) -> list[str]:
+    """Run the separately independent diff validator without importing its code."""
+
+    validator_path = Path(V1_V2_DIFF_VALIDATOR)
+    required_path = (
+        ROOT
+        / "scripts/validate_revenue_unreacted_range_source_snapshot_projection_v1_v2_diff.py"
+    )
+    if validator_path.resolve(strict=False) != required_path.resolve(strict=False):
+        return [
+            "v1/v2 diff independent validator path drift: "
+            f"{validator_path}/{required_path}"
+        ]
+    if validator_path.is_symlink() or not validator_path.is_file():
+        return [f"missing or unsafe v1/v2 diff independent validator: {validator_path}"]
+    argv = [
+        sys.executable,
+        "-I",
+        str(validator_path),
+        "--v1-manifest",
+        str(Path(v1_manifest_path)),
+        "--v1-detail",
+        str(Path(v1_detail_path)),
+        "--v2-manifest",
+        str(Path(v2_manifest_path)),
+        "--v2-detail",
+        str(Path(v2_detail_path)),
+        "--diff-summary",
+        str(Path(diff_summary_path)),
+        "--diff-detail",
+        str(Path(diff_detail_path)),
+    ]
+    try:
+        result = subprocess.run(
+            argv,
+            cwd=ROOT,
+            stdin=subprocess.DEVNULL,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+            check=False,
+            shell=False,
+            timeout=V1_V2_DIFF_VALIDATOR_TIMEOUT_SECONDS,
+        )
+    except subprocess.TimeoutExpired:
+        return [
+            "v1/v2 diff independent validator timed out after "
+            f"{V1_V2_DIFF_VALIDATOR_TIMEOUT_SECONDS}s"
+        ]
+    except OSError as exc:
+        return [f"v1/v2 diff independent validator could not execute: {exc}"]
+
+    stdout = result.stdout.strip()
+    stderr = result.stderr.strip()
+    if (
+        result.returncode == 0
+        and stdout == V1_V2_DIFF_VALIDATOR_SUCCESS
+        and not stderr
+    ):
+        return []
+    details = " | ".join(
+        part
+        for part in (
+            f"exit={result.returncode}",
+            f"stdout={stdout}" if stdout else "stdout=<empty>",
+            f"stderr={stderr}" if stderr else "stderr=<empty>",
+        )
+    )
+    return [f"v1/v2 diff independent validator failed: {details}"]
+
+
 def _validate_versioned_v2_closure(
     *,
     revenue_path: Path,
@@ -2107,15 +2267,196 @@ def _validate_versioned_v2_closure(
         except (OSError, pd.errors.ParserError) as exc:
             errors.append(f"v2 source projection candidate cannot be parsed: {exc}")
     errors.extend(
-        validate_projection_v1_v2_diff(
+        _validate_projection_v1_v2_diff_subprocess(
             v1_manifest_path=Path(v1_manifest_path),
             v1_detail_path=Path(v1_detail_path),
             v2_manifest_path=Path(v2_manifest_path),
             v2_detail_path=Path(v2_detail_path),
-            summary_path=Path(diff_summary_path),
-            detail_path=Path(diff_detail_path),
+            diff_summary_path=Path(diff_summary_path),
+            diff_detail_path=Path(diff_detail_path),
         )
     )
+    return errors
+
+
+def _repo_path(path: Path) -> str:
+    try:
+        return Path(path).resolve().relative_to(ROOT.resolve()).as_posix()
+    except ValueError:
+        return Path(path).resolve().as_posix()
+
+
+def _validate_canonical_v2_supersede(
+    *,
+    canonical_manifest_path: Path,
+    canonical_detail_path: Path,
+    history_manifest_path: Path = HISTORY_MANIFEST_CSV,
+    docs_manifest_path: Path = DOCS_MANIFEST_CSV,
+    evidence_path: Path = V2_SUPERSEDE_EVIDENCE_CSV,
+    v1_manifest_path: Path = V1_ARCHIVE_MANIFEST_CSV,
+    v1_detail_path: Path = V1_ARCHIVE_DETAIL_CSV,
+    v2_manifest_path: Path = V2_MANIFEST_CSV,
+    v2_detail_path: Path = V2_PROJECTED_DETAIL_CSV,
+    diff_summary_path: Path = V1_V2_DIFF_SUMMARY_CSV,
+    diff_detail_path: Path = V1_V2_DIFF_DETAIL_CSV,
+) -> list[str]:
+    """Independently bind canonical v2 to immutable closure and append-only history."""
+
+    errors: list[str] = []
+    required_paths = {
+        "canonical latest manifest": Path(canonical_manifest_path),
+        "canonical latest detail": Path(canonical_detail_path),
+        "canonical history manifest": Path(history_manifest_path),
+        "canonical docs manifest": Path(docs_manifest_path),
+        "v2 supersede evidence": Path(evidence_path),
+        "immutable v1 manifest": Path(v1_manifest_path),
+        "immutable v1 detail": Path(v1_detail_path),
+        "immutable v2 manifest": Path(v2_manifest_path),
+        "immutable v2 detail": Path(v2_detail_path),
+        "v1/v2 diff summary": Path(diff_summary_path),
+        "v1/v2 diff detail": Path(diff_detail_path),
+    }
+    for label, path in required_paths.items():
+        if path.is_symlink() or not path.is_file():
+            errors.append(f"missing or unsafe {label}: {path}")
+    if errors:
+        return errors
+
+    try:
+        evidence = pd.read_csv(evidence_path, dtype=str, keep_default_na=False)
+        history = pd.read_csv(history_manifest_path, dtype=str, keep_default_na=False)
+        candidate_manifest = pd.read_csv(
+            v2_manifest_path,
+            dtype=str,
+            keep_default_na=False,
+        )
+    except (OSError, pd.errors.ParserError) as exc:
+        return [f"canonical v2 supersede artifact cannot be parsed: {exc}"]
+    if list(evidence.columns) != list(V2_SUPERSEDE_EVIDENCE_COLUMNS):
+        return ["v2 supersede evidence schema mismatch"]
+    if len(evidence) != 1:
+        return ["v2 supersede evidence must contain exactly one row"]
+    row = evidence.iloc[0]
+    if re.fullmatch(
+        r"\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2} Asia/Taipei",
+        _payload_value(row["superseded_at"]),
+    ) is None:
+        errors.append("v2 supersede evidence superseded_at is invalid")
+
+    source_payloads = {
+        "v1 manifest": Path(v1_manifest_path).read_bytes(),
+        "v1 detail": Path(v1_detail_path).read_bytes(),
+        "v2 manifest": Path(v2_manifest_path).read_bytes(),
+        "v2 detail": Path(v2_detail_path).read_bytes(),
+        "diff summary": Path(diff_summary_path).read_bytes(),
+        "diff detail": Path(diff_detail_path).read_bytes(),
+    }
+    source_shas = {
+        label: hashlib.sha256(payload).hexdigest()
+        for label, payload in source_payloads.items()
+    }
+    expected_values = {
+        "model_id": MODEL_ID,
+        "artifact_id": V2_SUPERSEDE_EVIDENCE_ARTIFACT_ID,
+        "artifact_version": V2_SUPERSEDE_EVIDENCE_ARTIFACT_VERSION,
+        "projection_id": PROJECTION_ID,
+        "selected_projection_version": V2_ARTIFACT_VERSION,
+        "selection_status": V2_SUPERSEDE_SELECTION_STATUS,
+        "candidate_status": V2_CANDIDATE_STATUS,
+        "candidate_manifest_path": _repo_path(v2_manifest_path),
+        "candidate_manifest_bytes": len(source_payloads["v2 manifest"]),
+        "candidate_manifest_sha256": source_shas["v2 manifest"],
+        "candidate_detail_path": _repo_path(v2_detail_path),
+        "candidate_detail_bytes": len(source_payloads["v2 detail"]),
+        "candidate_detail_sha256": source_shas["v2 detail"],
+        "v1_archive_manifest_path": _repo_path(v1_manifest_path),
+        "v1_archive_manifest_sha256": source_shas["v1 manifest"],
+        "v1_archive_detail_path": _repo_path(v1_detail_path),
+        "v1_archive_detail_sha256": source_shas["v1 detail"],
+        "v1_v2_diff_summary_path": _repo_path(diff_summary_path),
+        "v1_v2_diff_summary_sha256": source_shas["diff summary"],
+        "v1_v2_diff_detail_path": _repo_path(diff_detail_path),
+        "v1_v2_diff_detail_sha256": source_shas["diff detail"],
+        "canonical_latest_manifest_path": _repo_path(canonical_manifest_path),
+        "canonical_latest_detail_path": _repo_path(canonical_detail_path),
+        "canonical_history_manifest_path": _repo_path(history_manifest_path),
+        "canonical_docs_manifest_path": _repo_path(docs_manifest_path),
+        "canonical_exact3_manifest_sha256": source_shas["v2 manifest"],
+        "canonical_exact3_detail_sha256": source_shas["v2 detail"],
+        "canonical_exact3_verified": "true",
+        "research_only": "true",
+        "formal_model_use_allowed": "false",
+        "approved_for_daily": "false",
+        "production_change": "false",
+        "promotion_evidence_allowed": "false",
+        "ranking_consumption_allowed": "false",
+        "pdf_consumption_allowed": "false",
+        "forward_holdout_refreshed": "false",
+    }
+    for column, expected in expected_values.items():
+        if _payload_value(row[column]) != _payload_value(expected):
+            errors.append(f"v2 supersede evidence {column} mismatch")
+
+    candidate_manifest_payload = source_payloads["v2 manifest"]
+    candidate_detail_payload = source_payloads["v2 detail"]
+    exact3 = (
+        (Path(canonical_manifest_path), candidate_manifest_payload, "canonical latest manifest"),
+        (Path(canonical_detail_path), candidate_detail_payload, "canonical latest detail"),
+        (Path(docs_manifest_path), candidate_manifest_payload, "canonical docs manifest"),
+    )
+    for path, expected_payload, label in exact3:
+        if path.read_bytes() != expected_payload:
+            errors.append(f"{label} differs from immutable v2 candidate bytes")
+
+    history_payload = Path(history_manifest_path).read_bytes()
+    if list(history.columns) != list(V2_MANIFEST_COLUMNS):
+        return errors + ["canonical history manifest postimage schema mismatch"]
+    if history.empty:
+        return errors + ["canonical history manifest postimage is empty"]
+    versions = history["projection_version"]
+    v1_history = history.loc[versions.eq(V1_ARTIFACT_VERSION)].copy()
+    v2_history = history.loc[versions.eq(V2_ARTIFACT_VERSION)].copy()
+    if len(v1_history) + len(v2_history) != len(history):
+        errors.append("canonical history manifest contains an unexpected projection version")
+    if len(v1_history) < 1 or len(v2_history) != 1:
+        errors.append("canonical history manifest must retain v1 rows and append one v2 row")
+    if not versions.iloc[:-1].eq(V1_ARTIFACT_VERSION).all() or (
+        versions.iloc[-1] != V2_ARTIFACT_VERSION
+    ):
+        errors.append("canonical history manifest is not append-only v1 then v2")
+    extension_columns = V2_MANIFEST_COLUMNS[len(V1_MANIFEST_COLUMNS) :]
+    for column in extension_columns:
+        if not v1_history[column].eq("").all():
+            errors.append(f"canonical history v1 row changed extension column: {column}")
+    if not v2_history.reset_index(drop=True).equals(
+        candidate_manifest.reset_index(drop=True)
+    ):
+        errors.append("canonical history v2 row differs from immutable v2 candidate")
+
+    reconstructed_preimage = v1_history.loc[:, V1_MANIFEST_COLUMNS].to_csv(
+        index=False,
+        lineterminator="\n",
+    ).encode("utf-8")
+    history_values = {
+        "canonical_history_preimage_bytes": len(reconstructed_preimage),
+        "canonical_history_preimage_sha256": hashlib.sha256(
+            reconstructed_preimage
+        ).hexdigest(),
+        "canonical_history_preimage_row_count": len(v1_history),
+        "canonical_history_preimage_semantic_sha256": _canonical_frame_sha256(
+            v1_history,
+            columns=V1_MANIFEST_COLUMNS,
+        ),
+        "canonical_history_postimage_bytes": len(history_payload),
+        "canonical_history_postimage_sha256": hashlib.sha256(history_payload).hexdigest(),
+        "canonical_history_postimage_row_count": len(history),
+        "canonical_history_postimage_v1_row_count": len(v1_history),
+        "canonical_history_postimage_v2_row_count": len(v2_history),
+        "canonical_history_append_only_verified": "true",
+    }
+    for column, expected in history_values.items():
+        if _payload_value(row[column]) != _payload_value(expected):
+            errors.append(f"v2 supersede evidence {column} mismatch")
     return errors
 
 
@@ -2148,10 +2489,26 @@ def validate(
         else ""
     )
     if canonical_paths and canonical_projection_version == V2_ARTIFACT_VERSION:
-        return [
-            "canonical source snapshot projection latest must remain "
-            f"{V1_ARTIFACT_VERSION}; found {V2_ARTIFACT_VERSION}"
-        ]
+        errors = _validate_versioned_v2_closure(
+            revenue_path=Path(revenue_path),
+            price_dir=Path(price_dir),
+            monthly_resolution_path=Path(monthly_resolution_path),
+            price_resolution_path=Path(price_resolution_path),
+            v1_manifest_path=V1_ARCHIVE_MANIFEST_CSV,
+            v1_detail_path=V1_ARCHIVE_DETAIL_CSV,
+            v1_evidence_path=V1_ARCHIVE_EVIDENCE_CSV,
+            v2_manifest_path=V2_MANIFEST_CSV,
+            v2_detail_path=V2_PROJECTED_DETAIL_CSV,
+            diff_summary_path=V1_V2_DIFF_SUMMARY_CSV,
+            diff_detail_path=V1_V2_DIFF_DETAIL_CSV,
+        )
+        errors.extend(
+            _validate_canonical_v2_supersede(
+                canonical_manifest_path=Path(manifest_path),
+                canonical_detail_path=Path(projected_detail_path),
+            )
+        )
+        return errors
     versioned_closure_started = any(
         path.exists() or path.is_symlink()
         for path in (
@@ -2191,6 +2548,10 @@ def validate(
                 diff_detail_path=V1_V2_DIFF_DETAIL_CSV,
             )
         )
+        if V2_SUPERSEDE_EVIDENCE_CSV.exists() or V2_SUPERSEDE_EVIDENCE_CSV.is_symlink():
+            errors.append(
+                "v2 supersede evidence exists while canonical latest remains v1"
+            )
         return errors
     replay_paths = (revenue_path, monthly_resolution_path, price_resolution_path)
     missing = [str(path) for path in replay_paths if not Path(path).is_file()]

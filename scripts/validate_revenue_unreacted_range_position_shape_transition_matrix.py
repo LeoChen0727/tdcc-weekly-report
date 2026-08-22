@@ -11,17 +11,28 @@ import subprocess
 import numpy as np
 import pandas as pd
 
+from revenue_unreacted_range_source_snapshot_projection import (
+    V1_PROJECTION_VERSION,
+    V2_PROJECTION_VERSION,
+    load_projected_source_detail,
+    load_source_snapshot_projection_manifest,
+    validate_projection_binding,
+)
+
 
 ROOT = Path(__file__).resolve().parents[1]
 MODEL_ID = "revenue_unreacted_range"
 ARTIFACT_ID = "revenue_unreacted_range_position_shape_transition_matrix"
 ARTIFACT_VERSION = "position_shape_transition_matrix_v1_20260717"
+V2_ARTIFACT_VERSION = "position_shape_transition_matrix_v2_20260822"
 SOURCE_OPERATION_LAG_ARTIFACT_ID = (
     "revenue_unreacted_range_operation_lag_bucket_audit"
 )
 SOURCE_OPERATION_LAG_ARTIFACT_VERSION = "operation_lag_bucket_v1_20260714"
+V2_SOURCE_OPERATION_LAG_ARTIFACT_VERSION = "operation_lag_bucket_v2_20260822"
 SOURCE_REARMED_ARTIFACT_ID = "revenue_unreacted_range_rearmed_operation_grid"
 SOURCE_REARMED_ARTIFACT_VERSION = "rearmed_operation_grid_v1_20260713"
+V2_SOURCE_REARMED_ARTIFACT_VERSION = "rearmed_operation_grid_v2_20260822"
 SOURCE_VARIANT_ID = "absolute_or_two_month_yoy_ge15"
 ADOPTED_GRID_ID = (
     "rearm_after_realized_exit_next_trade_day|"
@@ -33,6 +44,7 @@ SOURCE_PROJECTION_MANIFEST_RELATIVE_PATH = (
     "output/latest/research_backtest/"
     "revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv"
 )
+
 EXPECTED_V1_MANIFEST_DESCRIPTOR = {
     "model_id": MODEL_ID,
     "artifact_id": "revenue_unreacted_range_source_snapshot_projection",
@@ -56,6 +68,29 @@ EXPECTED_V1_MANIFEST_DESCRIPTOR = {
 
 _TRUSTED_TREE_CACHE: dict[str, dict[str, tuple[str, str, str]]] = {}
 _TRUSTED_BLOB_CACHE: dict[tuple[str, str], bytes] = {}
+
+VERSION_CONTRACT_BY_PROJECTION = {
+    V1_PROJECTION_VERSION: (
+        ARTIFACT_VERSION,
+        SOURCE_OPERATION_LAG_ARTIFACT_VERSION,
+        SOURCE_REARMED_ARTIFACT_VERSION,
+    ),
+    V2_PROJECTION_VERSION: (
+        V2_ARTIFACT_VERSION,
+        V2_SOURCE_OPERATION_LAG_ARTIFACT_VERSION,
+        V2_SOURCE_REARMED_ARTIFACT_VERSION,
+    ),
+}
+
+
+def _version_contract(projection_version: object) -> tuple[str, str, str]:
+    version = str(projection_version).strip()
+    try:
+        return VERSION_CONTRACT_BY_PROJECTION[version]
+    except KeyError as exc:
+        raise RuntimeError(
+            f"unsupported canonical source projection version: {version or '<empty>'}"
+        ) from exc
 
 # These hashes bind the business rows after deterministic normalization and exclude
 # mutable generated_at timestamps. They are intentionally duplicated here so this
@@ -590,8 +625,11 @@ def _overlap_pair_count(frame: pd.DataFrame) -> int:
 
 def _read_source_frames(
     source_root: Path,
+    *,
+    projection_version: str = V1_PROJECTION_VERSION,
 ) -> tuple[pd.DataFrame, pd.DataFrame, str, str, str, str]:
-    if source_root.resolve() == ROOT:
+    _version_contract(projection_version)
+    if source_root.resolve() == ROOT and projection_version == V1_PROJECTION_VERSION:
         revision = TRUSTED_SOURCE_REVISION
         _trusted_revision_preflight(revision)
         lag_relative = SOURCE_RELATIVE_PATHS["operation_lag"]
@@ -701,8 +739,13 @@ def _read_source_frames(
         rearmed_semantic_sha,
     )
 
-
-def _prepare_source(lag: pd.DataFrame, rearmed: pd.DataFrame) -> pd.DataFrame:
+def _prepare_source(
+    lag: pd.DataFrame,
+    rearmed: pd.DataFrame,
+    *,
+    expected_operation_lag_version: str = SOURCE_OPERATION_LAG_ARTIFACT_VERSION,
+    expected_rearmed_version: str = SOURCE_REARMED_ARTIFACT_VERSION,
+) -> pd.DataFrame:
     required_lag = {
         "model_id",
         "artifact_id",
@@ -740,7 +783,7 @@ def _prepare_source(lag: pd.DataFrame, rearmed: pd.DataFrame) -> pd.DataFrame:
     governance = {
         "model_id": MODEL_ID,
         "artifact_id": SOURCE_OPERATION_LAG_ARTIFACT_ID,
-        "artifact_version": SOURCE_OPERATION_LAG_ARTIFACT_VERSION,
+        "artifact_version": expected_operation_lag_version,
         "source_variant_id": SOURCE_VARIANT_ID,
         "grid_id": ADOPTED_GRID_ID,
     }
@@ -804,7 +847,7 @@ def _prepare_source(lag: pd.DataFrame, rearmed: pd.DataFrame) -> pd.DataFrame:
     if set(lineage["artifact_id"].astype(str)) != {SOURCE_REARMED_ARTIFACT_ID}:
         raise RuntimeError("rearmed artifact id drift")
     if set(lineage["artifact_version"].astype(str)) != {
-        SOURCE_REARMED_ARTIFACT_VERSION
+        expected_rearmed_version
     }:
         raise RuntimeError("rearmed artifact version drift")
     lineage["stock_id"] = lineage["stock_id"].map(_stock_id)
@@ -982,7 +1025,6 @@ def _load_resolutions(
         raise RuntimeError("price resolution exchange ratio is invalid")
     return frame
 
-
 def _load_adjusted_price(
     stock_id: str,
     price_dir: Path,
@@ -1038,7 +1080,6 @@ def _load_adjusted_price(
     if frame.empty or frame["date"].duplicated().any():
         raise RuntimeError(f"adjusted price history is empty or duplicated: {stock_id}")
     return frame
-
 
 def _position_bucket(value: float) -> str:
     if value <= 40:
@@ -1285,7 +1326,6 @@ def _expected_detail(
         ["stock_id", "entry_date", "anchor_order"], kind="mergesort"
     ).reset_index(drop=True)
 
-
 def _governance_errors(
     frame: pd.DataFrame,
     name: str,
@@ -1337,9 +1377,9 @@ def _compare_detail(
     if missing:
         errors.append(f"detail is missing independently recomputed columns: {missing}")
         return errors
-    if len(actual) != PINNED_OPERATION_COUNT * len(ANCHORS):
+    if len(actual) != len(expected):
         errors.append(
-            f"detail row count drift: {len(actual)}/{PINNED_OPERATION_COUNT * len(ANCHORS)}"
+            f"detail row count drift: {len(actual)}/{len(expected)}"
         )
     if actual.duplicated(["operation_key", "anchor_id"]).any():
         errors.append("detail contains duplicate operation anchors")
@@ -1419,9 +1459,15 @@ def _compare_detail(
         .nunique()
         .to_dict()
     )
-    if observed_coverage != PINNED_ANCHOR_COVERAGE:
+    expected_coverage = (
+        expected.loc[_boolish(expected["classification_observed"])]
+        .groupby("anchor_id")["operation_key"]
+        .nunique()
+        .to_dict()
+    )
+    if observed_coverage != expected_coverage:
         errors.append(
-            f"detail anchor coverage drift: {observed_coverage}/{PINNED_ANCHOR_COVERAGE}"
+            f"detail anchor coverage drift: {observed_coverage}/{expected_coverage}"
         )
     chronological = left["source_before_or_on_preweek_flag"].map(_bool_value)
     expected_semantics = np.where(
@@ -1820,6 +1866,24 @@ def validate(
     if errors:
         return errors
     try:
+        projection_manifest = load_source_snapshot_projection_manifest(
+            source_root / SOURCE_PROJECTION_MANIFEST_RELATIVE_PATH
+        )
+        projection_version = str(
+            projection_manifest.iloc[0]["projection_version"]
+        ).strip()
+        (
+            expected_artifact_version,
+            expected_operation_lag_version,
+            expected_rearmed_version,
+        ) = _version_contract(projection_version)
+        if projection_version == V2_PROJECTION_VERSION:
+            projected_source = load_projected_source_detail(
+                source_root
+                / "output/latest/research_backtest/"
+                "revenue_unreacted_range_source_snapshot_projection_detail_latest.csv"
+            )
+            validate_projection_binding(projection_manifest, projected_source)
         (
             lag,
             rearmed,
@@ -1827,14 +1891,25 @@ def validate(
             rearmed_file_sha,
             lag_semantic_sha,
             rearmed_semantic_sha,
-        ) = _read_source_frames(source_root)
-        source = _prepare_source(lag, rearmed)
+        ) = _read_source_frames(
+            source_root,
+            projection_version=projection_version,
+        )
+        source = _prepare_source(
+            lag,
+            rearmed,
+            expected_operation_lag_version=expected_operation_lag_version,
+            expected_rearmed_version=expected_rearmed_version,
+        )
     except (RuntimeError, ValueError, KeyError, pd.errors.ParserError) as exc:
         return [str(exc)]
-    _validate_pinned_source(source, lag_semantic_sha, rearmed_semantic_sha, errors)
+    if str(projection_manifest.iloc[0]["projection_version"]) == V1_PROJECTION_VERSION:
+        _validate_pinned_source(source, lag_semantic_sha, rearmed_semantic_sha, errors)
     if errors:
         return errors
     lineage = {
+        "artifact_version": expected_artifact_version,
+        "source_operation_lag_artifact_version": expected_operation_lag_version,
         "source_operation_lag_detail_sha256": lag_file_sha,
         "source_operation_lag_semantic_sha256": lag_semantic_sha,
         "source_rearmed_detail_sha256": rearmed_file_sha,
@@ -1845,7 +1920,10 @@ def validate(
             source,
             source_root,
             trusted_revision=(
-                TRUSTED_SOURCE_REVISION if source_root == ROOT else None
+                TRUSTED_SOURCE_REVISION
+                if source_root.resolve() == ROOT
+                and projection_version == V1_PROJECTION_VERSION
+                else None
             ),
         )
         summary = pd.read_csv(paths["summary"], keep_default_na=False, low_memory=False)

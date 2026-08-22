@@ -989,6 +989,160 @@ def test_other_pull_request_workflow_cannot_reuse_branch_writer_exception(
         for error in errors
     )
 
+
+def _revenue_supersede_writer_text() -> str:
+    return (
+        ROOT / inventory.REVENUE_PROJECTION_SUPERSEDE_WRITER_WORKFLOW
+    ).read_text(encoding="utf-8")
+
+
+def _validate_revenue_supersede_writer_text(
+    text: str,
+    *,
+    row: inventory.InventoryRow | None = None,
+) -> list[str]:
+    if row is None:
+        row = inventory.load_inventory([])[
+            inventory.REVENUE_PROJECTION_SUPERSEDE_WRITER_WORKFLOW
+        ]
+    errors: list[str] = []
+    inventory.validate_revenue_projection_supersede_writer_exception(
+        row,
+        text,
+        inventory.workflow_job_blocks(text),
+        errors,
+    )
+    return errors
+
+
+def test_revenue_projection_supersede_writer_exception_passes_current_contract() -> None:
+    assert _validate_revenue_supersede_writer_text(_revenue_supersede_writer_text()) == []
+
+
+def test_revenue_projection_supersede_writer_rejects_exact75_path_or_add_drift() -> None:
+    text = _revenue_supersede_writer_text()
+    approved = (
+        "output/latest/research_backtest/"
+        "revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv"
+    )
+    array_entry = f"REVENUE_SUPERSEDE_ALLOWED_PATHS=(\n            {approved}"
+    assert array_entry in text
+    mutated_path = text.replace(array_entry, array_entry + ".rogue", 1)
+    assert any(
+        "exact75 artifact digest" in error
+        for error in _validate_revenue_supersede_writer_text(mutated_path)
+    )
+
+    literal = "git --no-replace-objects add -- \\\n"
+    assert literal in text
+    array_expanded = text.replace(
+        literal,
+        'git --no-replace-objects add -- "${REVENUE_SUPERSEDE_ALLOWED_PATHS[@]}"\n',
+        1,
+    )
+    errors = _validate_revenue_supersede_writer_text(array_expanded)
+    assert any("literal pathspecs" in error for error in errors)
+
+
+@pytest.mark.parametrize("mutation", ("delete", "add", "rename"))
+def test_revenue_projection_supersede_writer_rejects_exact44_code_path_drift(
+    mutation: str,
+) -> None:
+    text = _revenue_supersede_writer_text()
+    exact = "              config/daily_model_data_sharing_registry.csv\n"
+    assert exact in text
+    if mutation == "delete":
+        replacement = ""
+    elif mutation == "add":
+        replacement = exact + "              scripts/unauthorized_writer.py\n"
+    else:
+        replacement = "              config/renamed_data_sharing_registry.csv\n"
+
+    errors = _validate_revenue_supersede_writer_text(
+        text.replace(exact, replacement, 1)
+    )
+
+    assert any("exact44 code-path digest" in error for error in errors)
+
+
+@pytest.mark.parametrize(
+    ("old", "new"),
+    (
+        (
+            "git --no-replace-objects diff --name-only --no-renames",
+            "git --no-replace-objects diff --name-only --find-renames",
+        ),
+        (
+            "git --no-replace-objects diff --name-status --no-renames",
+            "git --no-replace-objects diff --name-status --find-renames",
+        ),
+        (
+            "$'M\\t'\"${REVENUE_SUPERSEDE_CODE_PATHS[$index]}\"",
+            "$'D\\t'\"${REVENUE_SUPERSEDE_CODE_PATHS[$index]}\"",
+        ),
+    ),
+)
+def test_revenue_projection_supersede_writer_requires_modified_only_code_identity(
+    old: str,
+    new: str,
+) -> None:
+    text = _revenue_supersede_writer_text()
+    assert old in text
+
+    errors = _validate_revenue_supersede_writer_text(text.replace(old, new, 1))
+
+    assert any("exact44 code-commit identity guard" in error for error in errors)
+
+
+@pytest.mark.parametrize(
+    ("old", "new", "expected"),
+    (
+        (
+            'if [[ "$REVENUE_SOURCE_PROJECTION_SUPERSEDE_ONLY" == "true" && "$GITHUB_RUN_ATTEMPT" != "1" ]]; then',
+            'if [[ "$REVENUE_SOURCE_PROJECTION_SUPERSEDE_ONLY" == "true" && "$GITHUB_RUN_ATTEMPT" != "2" ]]; then',
+            "missing fail-closed identity guard",
+        ),
+        (
+            "unique direct child of expected_head_sha",
+            "direct child check removed",
+            "missing fail-closed identity guard",
+        ),
+        (
+            inventory.REVENUE_PROJECTION_SUPERSEDE_PUSH,
+            'git push origin "HEAD:$TARGET_BRANCH"',
+            "direct deploy-key side effect",
+        ),
+    ),
+)
+def test_revenue_projection_supersede_writer_rejects_identity_or_push_weakening(
+    old: str,
+    new: str,
+    expected: str,
+) -> None:
+    text = _revenue_supersede_writer_text()
+    assert old in text
+    errors = _validate_revenue_supersede_writer_text(text.replace(old, new, 1))
+    assert any(expected in error for error in errors)
+
+
+def test_revenue_projection_supersede_inventory_marker_is_exact() -> None:
+    text = _revenue_supersede_writer_text()
+    row = inventory.load_inventory([])[
+        inventory.REVENUE_PROJECTION_SUPERSEDE_WRITER_WORKFLOW
+    ]
+    weakened = inventory.InventoryRow(
+        path=row.path,
+        kind=row.kind,
+        owner=row.owner,
+        status=row.status,
+        purpose=row.purpose,
+        allowed_workflows=row.allowed_workflows,
+        allowed_stage_patterns=row.allowed_stage_patterns[:-1],
+    )
+    errors = _validate_revenue_supersede_writer_text(text, row=weakened)
+    assert any("single supersede exact75 literal-add marker" in error for error in errors)
+
+
 def _install_trust_guard_git_stub(
     monkeypatch: pytest.MonkeyPatch,
     *,

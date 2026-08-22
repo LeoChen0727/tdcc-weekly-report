@@ -6,6 +6,7 @@ import json
 import os
 from pathlib import Path
 import re
+import tempfile
 from zoneinfo import ZoneInfo
 
 import pandas as pd
@@ -105,6 +106,30 @@ V2_CANDIDATE_DETAIL_CSV = (
     / "output/history/research/"
     "revenue_unreacted_range_source_snapshot_projection_detail_v2_20260822.csv"
 )
+V1_V2_DIFF_SUMMARY_CSV = (
+    ROOT
+    / "output/history/research/"
+    "revenue_unreacted_range_source_snapshot_projection_v1_20260731_to_v2_20260822_diff_summary.csv"
+)
+V1_V2_DIFF_DETAIL_CSV = (
+    ROOT
+    / "output/history/research/"
+    "revenue_unreacted_range_source_snapshot_projection_v1_20260731_to_v2_20260822_diff_detail.csv"
+)
+V2_SUPERSEDE_EVIDENCE_CSV = (
+    ROOT
+    / "output/history/research/"
+    "revenue_unreacted_range_source_snapshot_projection_supersede_evidence_v2_20260822.csv"
+)
+
+V2_SUPERSEDE_EVIDENCE_ARTIFACT_ID = (
+    "revenue_unreacted_range_source_snapshot_projection_supersede_evidence"
+)
+V2_SUPERSEDE_EVIDENCE_ARTIFACT_VERSION = (
+    "source_snapshot_projection_supersede_evidence_v1_20260822"
+)
+V2_SUPERSEDE_SELECTION_STATUS = "canonical_research_source_projection_current"
+V2_DIFF_CLASSIFIED_STATUS = "classified_corrected_official_cutoff_price_lineage"
 
 V1_EXPECTED_MANIFEST_BYTES = 148157
 V1_EXPECTED_MANIFEST_BYTES_SHA256 = (
@@ -220,6 +245,55 @@ ARCHIVE_EVIDENCE_COLUMNS = (
     "promotion_evidence_allowed",
     "ranking_consumption_allowed",
     "pdf_consumption_allowed",
+)
+V2_SUPERSEDE_EVIDENCE_COLUMNS = (
+    "superseded_at",
+    "model_id",
+    "artifact_id",
+    "artifact_version",
+    "projection_id",
+    "selected_projection_version",
+    "selection_status",
+    "candidate_status",
+    "candidate_manifest_path",
+    "candidate_manifest_bytes",
+    "candidate_manifest_sha256",
+    "candidate_detail_path",
+    "candidate_detail_bytes",
+    "candidate_detail_sha256",
+    "v1_archive_manifest_path",
+    "v1_archive_manifest_sha256",
+    "v1_archive_detail_path",
+    "v1_archive_detail_sha256",
+    "v1_v2_diff_summary_path",
+    "v1_v2_diff_summary_sha256",
+    "v1_v2_diff_detail_path",
+    "v1_v2_diff_detail_sha256",
+    "canonical_latest_manifest_path",
+    "canonical_latest_detail_path",
+    "canonical_history_manifest_path",
+    "canonical_docs_manifest_path",
+    "canonical_exact3_manifest_sha256",
+    "canonical_exact3_detail_sha256",
+    "canonical_exact3_verified",
+    "canonical_history_preimage_bytes",
+    "canonical_history_preimage_sha256",
+    "canonical_history_preimage_row_count",
+    "canonical_history_preimage_semantic_sha256",
+    "canonical_history_postimage_bytes",
+    "canonical_history_postimage_sha256",
+    "canonical_history_postimage_row_count",
+    "canonical_history_postimage_v1_row_count",
+    "canonical_history_postimage_v2_row_count",
+    "canonical_history_append_only_verified",
+    "research_only",
+    "formal_model_use_allowed",
+    "approved_for_daily",
+    "production_change",
+    "promotion_evidence_allowed",
+    "ranking_consumption_allowed",
+    "pdf_consumption_allowed",
+    "forward_holdout_refreshed",
 )
 SHA256_PATTERN = re.compile(r"^[0-9a-f]{64}$")
 NO_RESOLUTION_ID = "none"
@@ -1246,6 +1320,617 @@ def write_source_snapshot_projection_v2_candidate(
         detail_bytes,
         label="v2 candidate detail",
     )
+
+
+def _require_regular_file(path: Path, *, label: str) -> None:
+    target = Path(path)
+    if target.is_symlink() or not target.is_file():
+        raise RuntimeError(f"missing or unsafe {label}: {target}")
+
+
+def _single_row_csv(path: Path, *, label: str) -> pd.DataFrame:
+    _require_regular_file(path, label=label)
+    try:
+        frame = pd.read_csv(path, dtype=str, keep_default_na=False, low_memory=False)
+    except (OSError, pd.errors.ParserError) as exc:
+        raise RuntimeError(f"{label} is unreadable: {path}: {exc}") from exc
+    if len(frame) != 1:
+        raise RuntimeError(f"{label} must contain exactly one row: {len(frame)}")
+    return frame
+
+
+def _supersede_source_identities(
+    *,
+    v1_manifest_path: Path,
+    v1_detail_path: Path,
+    candidate_manifest_path: Path,
+    candidate_detail_path: Path,
+    diff_summary_path: Path,
+    diff_detail_path: Path,
+) -> dict[str, object]:
+    paths = {
+        "immutable v1 manifest": Path(v1_manifest_path),
+        "immutable v1 detail": Path(v1_detail_path),
+        "v2 candidate manifest": Path(candidate_manifest_path),
+        "v2 candidate detail": Path(candidate_detail_path),
+        "v1/v2 diff summary": Path(diff_summary_path),
+        "v1/v2 diff detail": Path(diff_detail_path),
+    }
+    for label, path in paths.items():
+        _require_regular_file(path, label=label)
+
+    payloads = {label: path.read_bytes() for label, path in paths.items()}
+    shas = {
+        label: hashlib.sha256(payload).hexdigest()
+        for label, payload in payloads.items()
+    }
+    if len(payloads["immutable v1 manifest"]) != V1_EXPECTED_MANIFEST_BYTES:
+        raise RuntimeError("immutable v1 manifest bytes changed before supersede")
+    if shas["immutable v1 manifest"] != V1_EXPECTED_MANIFEST_BYTES_SHA256:
+        raise RuntimeError("immutable v1 manifest SHA-256 changed before supersede")
+    if len(payloads["immutable v1 detail"]) != V1_EXPECTED_DETAIL_BYTES:
+        raise RuntimeError("immutable v1 detail bytes changed before supersede")
+    if shas["immutable v1 detail"] != V1_EXPECTED_DETAIL_BYTES_SHA256:
+        raise RuntimeError("immutable v1 detail SHA-256 changed before supersede")
+
+    candidate_manifest = _single_row_csv(
+        Path(candidate_manifest_path),
+        label="v2 candidate manifest",
+    )
+    candidate_detail = pd.read_csv(
+        candidate_detail_path,
+        dtype={"stock_id": str},
+        keep_default_na=False,
+        low_memory=False,
+    )
+    validate_projection_binding(candidate_manifest, candidate_detail)
+    candidate_row = candidate_manifest.iloc[0]
+    expected_candidate = {
+        "artifact_version": V2_PROJECTION_VERSION,
+        "projection_version": V2_PROJECTION_VERSION,
+        "projection_policy_id": V2_PROJECTION_POLICY_ID,
+        "predecessor_projection_version": V1_PROJECTION_VERSION,
+        "predecessor_manifest_bytes_sha256": V1_EXPECTED_MANIFEST_BYTES_SHA256,
+        "predecessor_detail_bytes_sha256": V1_EXPECTED_DETAIL_BYTES_SHA256,
+        "lineage_change_reason": V2_LINEAGE_CHANGE_REASON,
+        "candidate_status": V2_CANDIDATE_STATUS,
+    }
+    for column, expected in expected_candidate.items():
+        if _payload_value(candidate_row.get(column, "")) != expected:
+            raise RuntimeError(
+                f"v2 candidate {column} is not supersede eligible: "
+                f"{_payload_value(candidate_row.get(column, ''))}/{expected}"
+            )
+    if _payload_value(candidate_row.get("research_only", "")).lower() != "true":
+        raise RuntimeError("v2 candidate research_only must remain true")
+    for column in (
+        "formal_model_use_allowed",
+        "approved_for_daily",
+        "production_change",
+        "promotion_evidence_allowed",
+        "ranking_consumption_allowed",
+        "pdf_consumption_allowed",
+    ):
+        if _payload_value(candidate_row.get(column, "")).lower() != "false":
+            raise RuntimeError(f"v2 candidate {column} must remain false")
+
+    diff_summary = _single_row_csv(
+        Path(diff_summary_path),
+        label="v1/v2 diff summary",
+    )
+    diff_row = diff_summary.iloc[0]
+    expected_diff = {
+        "v1_projection_version": V1_PROJECTION_VERSION,
+        "v2_projection_version": V2_PROJECTION_VERSION,
+        "v1_manifest_sha256": V1_EXPECTED_MANIFEST_BYTES_SHA256,
+        "v1_detail_sha256": V1_EXPECTED_DETAIL_BYTES_SHA256,
+        "v2_manifest_sha256": shas["v2 candidate manifest"],
+        "v2_detail_sha256": shas["v2 candidate detail"],
+        "unclassified_semantic_drift_count": "0",
+        "semantic_drift_status": V2_DIFF_CLASSIFIED_STATUS,
+    }
+    for column, expected in expected_diff.items():
+        if _payload_value(diff_row.get(column, "")) != expected:
+            raise RuntimeError(
+                f"v1/v2 diff {column} is not supersede eligible: "
+                f"{_payload_value(diff_row.get(column, ''))}/{expected}"
+            )
+    if _payload_value(diff_row.get("research_only", "")).lower() != "true":
+        raise RuntimeError("v1/v2 diff research_only must remain true")
+    for column in (
+        "formal_model_use_allowed",
+        "approved_for_daily",
+        "production_change",
+        "promotion_evidence_allowed",
+        "ranking_consumption_allowed",
+        "pdf_consumption_allowed",
+    ):
+        if _payload_value(diff_row.get(column, "")).lower() != "false":
+            raise RuntimeError(f"v1/v2 diff {column} must remain false")
+
+    return {
+        "payloads": payloads,
+        "shas": shas,
+        "candidate_manifest": candidate_manifest,
+        "candidate_detail": candidate_detail,
+    }
+
+
+def _build_append_only_superseded_history(
+    *,
+    history_manifest_path: Path,
+    candidate_manifest: pd.DataFrame,
+) -> dict[str, object]:
+    """Evolve the v1 history schema and append v2 without dropping a v1 row."""
+
+    path = Path(history_manifest_path)
+    _require_regular_file(path, label="canonical history manifest preimage")
+    preimage_payload = path.read_bytes()
+    try:
+        preimage = pd.read_csv(path, dtype=str, keep_default_na=False)
+    except (OSError, pd.errors.ParserError) as exc:
+        raise RuntimeError(f"canonical history manifest is unreadable: {path}: {exc}") from exc
+    if list(preimage.columns) != list(V1_MANIFEST_COLUMNS):
+        raise RuntimeError(
+            "canonical history manifest preimage must use the immutable v1 schema"
+        )
+    if preimage.empty:
+        raise RuntimeError("canonical history manifest preimage has no v1 capture")
+    if not preimage["projection_version"].eq(V1_PROJECTION_VERSION).all():
+        raise RuntimeError(
+            "canonical history manifest preimage contains a non-v1 projection"
+        )
+    reconstructed_preimage = preimage.to_csv(
+        index=False,
+        lineterminator="\n",
+    ).encode("utf-8")
+    if reconstructed_preimage != preimage_payload:
+        raise RuntimeError(
+            "canonical history manifest preimage is not canonical UTF-8/LF CSV"
+        )
+    if list(candidate_manifest.columns) != list(V2_MANIFEST_COLUMNS):
+        raise RuntimeError("v2 candidate manifest schema cannot extend canonical history")
+    if len(candidate_manifest) != 1:
+        raise RuntimeError("v2 candidate manifest must contain exactly one history row")
+
+    migrated_v1 = preimage.reindex(columns=V2_MANIFEST_COLUMNS, fill_value="")
+    postimage = pd.concat([migrated_v1, candidate_manifest], ignore_index=True)
+    postimage_payload = postimage.to_csv(
+        index=False,
+        lineterminator="\n",
+    ).encode("utf-8")
+    return {
+        "preimage": preimage,
+        "preimage_payload": preimage_payload,
+        "preimage_sha256": hashlib.sha256(preimage_payload).hexdigest(),
+        "preimage_semantic_sha256": _canonical_frame_sha256(
+            preimage,
+            columns=V1_MANIFEST_COLUMNS,
+        ),
+        "postimage": postimage,
+        "postimage_payload": postimage_payload,
+        "postimage_sha256": hashlib.sha256(postimage_payload).hexdigest(),
+    }
+
+
+def build_source_snapshot_projection_v2_supersede_evidence(
+    *,
+    superseded_at: str | None = None,
+    v1_manifest_path: Path = V1_ARCHIVE_MANIFEST_CSV,
+    v1_detail_path: Path = V1_ARCHIVE_DETAIL_CSV,
+    candidate_manifest_path: Path = V2_CANDIDATE_MANIFEST_CSV,
+    candidate_detail_path: Path = V2_CANDIDATE_DETAIL_CSV,
+    diff_summary_path: Path = V1_V2_DIFF_SUMMARY_CSV,
+    diff_detail_path: Path = V1_V2_DIFF_DETAIL_CSV,
+    canonical_manifest_path: Path = LATEST_MANIFEST_CSV,
+    canonical_detail_path: Path = LATEST_DETAIL_CSV,
+    history_manifest_path: Path = HISTORY_MANIFEST_CSV,
+    docs_manifest_path: Path = DOCS_MANIFEST_CSV,
+) -> pd.DataFrame:
+    identities = _supersede_source_identities(
+        v1_manifest_path=Path(v1_manifest_path),
+        v1_detail_path=Path(v1_detail_path),
+        candidate_manifest_path=Path(candidate_manifest_path),
+        candidate_detail_path=Path(candidate_detail_path),
+        diff_summary_path=Path(diff_summary_path),
+        diff_detail_path=Path(diff_detail_path),
+    )
+    payloads = identities["payloads"]
+    shas = identities["shas"]
+    candidate_row = identities["candidate_manifest"].iloc[0]
+    canonical_v1_preimages = (
+        (
+            Path(canonical_manifest_path),
+            payloads["immutable v1 manifest"],
+            "canonical latest v1 manifest preimage",
+        ),
+        (
+            Path(canonical_detail_path),
+            payloads["immutable v1 detail"],
+            "canonical latest v1 detail preimage",
+        ),
+        (
+            Path(docs_manifest_path),
+            payloads["immutable v1 manifest"],
+            "canonical docs v1 manifest preimage",
+        ),
+    )
+    for path, expected_payload, label in canonical_v1_preimages:
+        _require_regular_file(path, label=label)
+        if path.read_bytes() != expected_payload:
+            raise RuntimeError(f"{label} differs from immutable v1 archive bytes")
+    history = _build_append_only_superseded_history(
+        history_manifest_path=Path(history_manifest_path),
+        candidate_manifest=identities["candidate_manifest"],
+    )
+    preimage = history["preimage"]
+    postimage = history["postimage"]
+    row = {
+        "superseded_at": superseded_at or _now_text(),
+        "model_id": MODEL_ID,
+        "artifact_id": V2_SUPERSEDE_EVIDENCE_ARTIFACT_ID,
+        "artifact_version": V2_SUPERSEDE_EVIDENCE_ARTIFACT_VERSION,
+        "projection_id": PROJECTION_ID,
+        "selected_projection_version": V2_PROJECTION_VERSION,
+        "selection_status": V2_SUPERSEDE_SELECTION_STATUS,
+        "candidate_status": V2_CANDIDATE_STATUS,
+        "candidate_manifest_path": _artifact_path_text(candidate_manifest_path),
+        "candidate_manifest_bytes": len(payloads["v2 candidate manifest"]),
+        "candidate_manifest_sha256": shas["v2 candidate manifest"],
+        "candidate_detail_path": _artifact_path_text(candidate_detail_path),
+        "candidate_detail_bytes": len(payloads["v2 candidate detail"]),
+        "candidate_detail_sha256": shas["v2 candidate detail"],
+        "v1_archive_manifest_path": _artifact_path_text(v1_manifest_path),
+        "v1_archive_manifest_sha256": shas["immutable v1 manifest"],
+        "v1_archive_detail_path": _artifact_path_text(v1_detail_path),
+        "v1_archive_detail_sha256": shas["immutable v1 detail"],
+        "v1_v2_diff_summary_path": _artifact_path_text(diff_summary_path),
+        "v1_v2_diff_summary_sha256": shas["v1/v2 diff summary"],
+        "v1_v2_diff_detail_path": _artifact_path_text(diff_detail_path),
+        "v1_v2_diff_detail_sha256": shas["v1/v2 diff detail"],
+        "canonical_latest_manifest_path": _artifact_path_text(canonical_manifest_path),
+        "canonical_latest_detail_path": _artifact_path_text(canonical_detail_path),
+        "canonical_history_manifest_path": _artifact_path_text(history_manifest_path),
+        "canonical_docs_manifest_path": _artifact_path_text(docs_manifest_path),
+        "canonical_exact3_manifest_sha256": shas["v2 candidate manifest"],
+        "canonical_exact3_detail_sha256": shas["v2 candidate detail"],
+        "canonical_exact3_verified": True,
+        "canonical_history_preimage_bytes": len(history["preimage_payload"]),
+        "canonical_history_preimage_sha256": history["preimage_sha256"],
+        "canonical_history_preimage_row_count": len(preimage),
+        "canonical_history_preimage_semantic_sha256": history[
+            "preimage_semantic_sha256"
+        ],
+        "canonical_history_postimage_bytes": len(history["postimage_payload"]),
+        "canonical_history_postimage_sha256": history["postimage_sha256"],
+        "canonical_history_postimage_row_count": len(postimage),
+        "canonical_history_postimage_v1_row_count": len(preimage),
+        "canonical_history_postimage_v2_row_count": 1,
+        "canonical_history_append_only_verified": True,
+        "research_only": _payload_value(candidate_row["research_only"]),
+        "formal_model_use_allowed": False,
+        "approved_for_daily": False,
+        "production_change": False,
+        "promotion_evidence_allowed": False,
+        "ranking_consumption_allowed": False,
+        "pdf_consumption_allowed": False,
+        "forward_holdout_refreshed": False,
+    }
+    return pd.DataFrame([row], columns=list(V2_SUPERSEDE_EVIDENCE_COLUMNS))
+
+
+def source_snapshot_projection_v2_supersede_errors(
+    *,
+    evidence_path: Path = V2_SUPERSEDE_EVIDENCE_CSV,
+    v1_manifest_path: Path = V1_ARCHIVE_MANIFEST_CSV,
+    v1_detail_path: Path = V1_ARCHIVE_DETAIL_CSV,
+    candidate_manifest_path: Path = V2_CANDIDATE_MANIFEST_CSV,
+    candidate_detail_path: Path = V2_CANDIDATE_DETAIL_CSV,
+    diff_summary_path: Path = V1_V2_DIFF_SUMMARY_CSV,
+    diff_detail_path: Path = V1_V2_DIFF_DETAIL_CSV,
+    canonical_manifest_path: Path = LATEST_MANIFEST_CSV,
+    canonical_detail_path: Path = LATEST_DETAIL_CSV,
+    history_manifest_path: Path = HISTORY_MANIFEST_CSV,
+    docs_manifest_path: Path = DOCS_MANIFEST_CSV,
+) -> list[str]:
+    try:
+        identities = _supersede_source_identities(
+            v1_manifest_path=Path(v1_manifest_path),
+            v1_detail_path=Path(v1_detail_path),
+            candidate_manifest_path=Path(candidate_manifest_path),
+            candidate_detail_path=Path(candidate_detail_path),
+            diff_summary_path=Path(diff_summary_path),
+            diff_detail_path=Path(diff_detail_path),
+        )
+        evidence = _single_row_csv(Path(evidence_path), label="v2 supersede evidence")
+    except (RuntimeError, OSError, ValueError, KeyError, pd.errors.ParserError) as exc:
+        return [str(exc)]
+
+    errors: list[str] = []
+    if list(evidence.columns) != list(V2_SUPERSEDE_EVIDENCE_COLUMNS):
+        errors.append("v2 supersede evidence schema mismatch")
+        return errors
+    actual_row = evidence.iloc[0]
+    superseded_at = _payload_value(actual_row.get("superseded_at", ""))
+    if re.fullmatch(r"\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2} Asia/Taipei", superseded_at) is None:
+        errors.append("v2 supersede evidence superseded_at is invalid")
+    payloads = identities["payloads"]
+    shas = identities["shas"]
+    expected_values = {
+        "model_id": MODEL_ID,
+        "artifact_id": V2_SUPERSEDE_EVIDENCE_ARTIFACT_ID,
+        "artifact_version": V2_SUPERSEDE_EVIDENCE_ARTIFACT_VERSION,
+        "projection_id": PROJECTION_ID,
+        "selected_projection_version": V2_PROJECTION_VERSION,
+        "selection_status": V2_SUPERSEDE_SELECTION_STATUS,
+        "candidate_status": V2_CANDIDATE_STATUS,
+        "candidate_manifest_path": _artifact_path_text(candidate_manifest_path),
+        "candidate_manifest_bytes": len(payloads["v2 candidate manifest"]),
+        "candidate_manifest_sha256": shas["v2 candidate manifest"],
+        "candidate_detail_path": _artifact_path_text(candidate_detail_path),
+        "candidate_detail_bytes": len(payloads["v2 candidate detail"]),
+        "candidate_detail_sha256": shas["v2 candidate detail"],
+        "v1_archive_manifest_path": _artifact_path_text(v1_manifest_path),
+        "v1_archive_manifest_sha256": shas["immutable v1 manifest"],
+        "v1_archive_detail_path": _artifact_path_text(v1_detail_path),
+        "v1_archive_detail_sha256": shas["immutable v1 detail"],
+        "v1_v2_diff_summary_path": _artifact_path_text(diff_summary_path),
+        "v1_v2_diff_summary_sha256": shas["v1/v2 diff summary"],
+        "v1_v2_diff_detail_path": _artifact_path_text(diff_detail_path),
+        "v1_v2_diff_detail_sha256": shas["v1/v2 diff detail"],
+        "canonical_latest_manifest_path": _artifact_path_text(canonical_manifest_path),
+        "canonical_latest_detail_path": _artifact_path_text(canonical_detail_path),
+        "canonical_history_manifest_path": _artifact_path_text(history_manifest_path),
+        "canonical_docs_manifest_path": _artifact_path_text(docs_manifest_path),
+        "canonical_exact3_manifest_sha256": shas["v2 candidate manifest"],
+        "canonical_exact3_detail_sha256": shas["v2 candidate detail"],
+        "canonical_exact3_verified": True,
+        "research_only": True,
+        "formal_model_use_allowed": False,
+        "approved_for_daily": False,
+        "production_change": False,
+        "promotion_evidence_allowed": False,
+        "ranking_consumption_allowed": False,
+        "pdf_consumption_allowed": False,
+        "forward_holdout_refreshed": False,
+    }
+    for column, expected_value in expected_values.items():
+        if _payload_value(actual_row.get(column, "")) != _payload_value(expected_value):
+            errors.append(f"v2 supersede evidence {column} mismatch")
+
+    candidate_manifest_bytes = Path(candidate_manifest_path).read_bytes()
+    candidate_detail_bytes = Path(candidate_detail_path).read_bytes()
+    exact3 = (
+        (Path(canonical_manifest_path), candidate_manifest_bytes, "canonical latest manifest"),
+        (Path(canonical_detail_path), candidate_detail_bytes, "canonical latest detail"),
+        (Path(docs_manifest_path), candidate_manifest_bytes, "canonical docs manifest"),
+    )
+    for path, expected_bytes, label in exact3:
+        if path.is_symlink() or not path.is_file():
+            errors.append(f"missing or unsafe {label}: {path}")
+        elif path.read_bytes() != expected_bytes:
+            errors.append(f"{label} differs from immutable v2 candidate bytes")
+
+    history_path = Path(history_manifest_path)
+    if history_path.is_symlink() or not history_path.is_file():
+        errors.append(f"missing or unsafe canonical history manifest: {history_path}")
+        return errors
+    try:
+        history_payload = history_path.read_bytes()
+        history = pd.read_csv(history_path, dtype=str, keep_default_na=False)
+    except (OSError, pd.errors.ParserError) as exc:
+        errors.append(f"canonical history manifest is unreadable: {exc}")
+        return errors
+    if list(history.columns) != list(V2_MANIFEST_COLUMNS):
+        errors.append("canonical history manifest postimage schema mismatch")
+        return errors
+    versions = history["projection_version"]
+    v1_history = history.loc[versions.eq(V1_PROJECTION_VERSION)].copy()
+    v2_history = history.loc[versions.eq(V2_PROJECTION_VERSION)].copy()
+    if len(v1_history) + len(v2_history) != len(history):
+        errors.append("canonical history manifest contains an unexpected projection version")
+    if len(v1_history) < 1 or len(v2_history) != 1:
+        errors.append("canonical history manifest must retain v1 rows and append one v2 row")
+    if not versions.iloc[:-1].eq(V1_PROJECTION_VERSION).all() or (
+        versions.iloc[-1] != V2_PROJECTION_VERSION
+    ):
+        errors.append("canonical history manifest is not append-only v1 then v2")
+    for column in V2_MANIFEST_EXTENSION_COLUMNS:
+        if not v1_history[column].eq("").all():
+            errors.append(f"canonical history v1 row changed extension column: {column}")
+    candidate_manifest = identities["candidate_manifest"].reset_index(drop=True)
+    if not v2_history.reset_index(drop=True).equals(candidate_manifest):
+        errors.append("canonical history v2 row differs from immutable v2 candidate")
+
+    reconstructed_preimage = v1_history.loc[:, V1_MANIFEST_COLUMNS].to_csv(
+        index=False,
+        lineterminator="\n",
+    ).encode("utf-8")
+    history_values = {
+        "canonical_history_preimage_bytes": len(reconstructed_preimage),
+        "canonical_history_preimage_sha256": hashlib.sha256(
+            reconstructed_preimage
+        ).hexdigest(),
+        "canonical_history_preimage_row_count": len(v1_history),
+        "canonical_history_preimage_semantic_sha256": _canonical_frame_sha256(
+            v1_history,
+            columns=V1_MANIFEST_COLUMNS,
+        ),
+        "canonical_history_postimage_bytes": len(history_payload),
+        "canonical_history_postimage_sha256": hashlib.sha256(history_payload).hexdigest(),
+        "canonical_history_postimage_row_count": len(history),
+        "canonical_history_postimage_v1_row_count": len(v1_history),
+        "canonical_history_postimage_v2_row_count": len(v2_history),
+        "canonical_history_append_only_verified": True,
+    }
+    for column, expected_value in history_values.items():
+        if _payload_value(actual_row.get(column, "")) != _payload_value(expected_value):
+            errors.append(f"v2 supersede evidence {column} mismatch")
+    return errors
+
+
+def validate_source_snapshot_projection_v2_supersede(
+    **kwargs: object,
+) -> None:
+    errors = source_snapshot_projection_v2_supersede_errors(**kwargs)
+    if errors:
+        raise RuntimeError("source snapshot projection v2 supersede binding failed: " + "; ".join(errors))
+
+
+def _write_temp_payload(path: Path, payload: bytes) -> Path:
+    target = Path(path)
+    target.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.NamedTemporaryFile(
+        mode="wb",
+        delete=False,
+        dir=target.parent,
+        prefix=f".{target.name}.",
+        suffix=".tmp",
+    ) as handle:
+        handle.write(payload)
+        handle.flush()
+        os.fsync(handle.fileno())
+        return Path(handle.name)
+
+
+def _replace_payloads_with_rollback(payloads: tuple[tuple[Path, bytes], ...]) -> None:
+    previous: dict[Path, bytes | None] = {}
+    staged: dict[Path, Path] = {}
+    replaced: list[Path] = []
+    try:
+        for path, payload in payloads:
+            target = Path(path)
+            if target.is_symlink() or target.is_dir():
+                raise RuntimeError(f"supersede destination is unsafe: {target}")
+            previous[target] = target.read_bytes() if target.is_file() else None
+            staged[target] = _write_temp_payload(target, payload)
+        for path, _payload in payloads:
+            target = Path(path)
+            os.replace(staged[target], target)
+            replaced.append(target)
+    except Exception:
+        for target in reversed(replaced):
+            prior = previous[target]
+            if prior is None:
+                target.unlink(missing_ok=True)
+            else:
+                restore = _write_temp_payload(target, prior)
+                os.replace(restore, target)
+        raise
+    finally:
+        for temporary in staged.values():
+            temporary.unlink(missing_ok=True)
+
+
+def supersede_source_snapshot_projection_v2_candidate(
+    *,
+    superseded_at: str | None = None,
+    evidence_path: Path = V2_SUPERSEDE_EVIDENCE_CSV,
+    v1_manifest_path: Path = V1_ARCHIVE_MANIFEST_CSV,
+    v1_detail_path: Path = V1_ARCHIVE_DETAIL_CSV,
+    candidate_manifest_path: Path = V2_CANDIDATE_MANIFEST_CSV,
+    candidate_detail_path: Path = V2_CANDIDATE_DETAIL_CSV,
+    diff_summary_path: Path = V1_V2_DIFF_SUMMARY_CSV,
+    diff_detail_path: Path = V1_V2_DIFF_DETAIL_CSV,
+    canonical_manifest_path: Path = LATEST_MANIFEST_CSV,
+    canonical_detail_path: Path = LATEST_DETAIL_CSV,
+    history_manifest_path: Path = HISTORY_MANIFEST_CSV,
+    docs_manifest_path: Path = DOCS_MANIFEST_CSV,
+) -> pd.DataFrame:
+    """Select immutable v2 as research canonical without changing formal-use flags."""
+
+    repository_root = Path(ROOT).resolve(strict=False)
+    repository_contract = {
+        "evidence_path": (Path(evidence_path), V2_SUPERSEDE_EVIDENCE_CSV),
+        "v1_manifest_path": (Path(v1_manifest_path), V1_ARCHIVE_MANIFEST_CSV),
+        "v1_detail_path": (Path(v1_detail_path), V1_ARCHIVE_DETAIL_CSV),
+        "candidate_manifest_path": (
+            Path(candidate_manifest_path),
+            V2_CANDIDATE_MANIFEST_CSV,
+        ),
+        "candidate_detail_path": (Path(candidate_detail_path), V2_CANDIDATE_DETAIL_CSV),
+        "diff_summary_path": (Path(diff_summary_path), V1_V2_DIFF_SUMMARY_CSV),
+        "diff_detail_path": (Path(diff_detail_path), V1_V2_DIFF_DETAIL_CSV),
+        "canonical_manifest_path": (Path(canonical_manifest_path), LATEST_MANIFEST_CSV),
+        "canonical_detail_path": (Path(canonical_detail_path), LATEST_DETAIL_CSV),
+        "history_manifest_path": (Path(history_manifest_path), HISTORY_MANIFEST_CSV),
+        "docs_manifest_path": (Path(docs_manifest_path), DOCS_MANIFEST_CSV),
+    }
+    for label, (actual, required) in repository_contract.items():
+        resolved = actual.resolve(strict=False)
+        try:
+            resolved.relative_to(repository_root)
+        except ValueError:
+            continue
+        if resolved != Path(required).resolve(strict=False):
+            raise RuntimeError(
+                "source snapshot projection v2 supersede repository path is not "
+                f"authorized: {label}: {actual}"
+            )
+
+    common = {
+        "evidence_path": Path(evidence_path),
+        "v1_manifest_path": Path(v1_manifest_path),
+        "v1_detail_path": Path(v1_detail_path),
+        "candidate_manifest_path": Path(candidate_manifest_path),
+        "candidate_detail_path": Path(candidate_detail_path),
+        "diff_summary_path": Path(diff_summary_path),
+        "diff_detail_path": Path(diff_detail_path),
+        "canonical_manifest_path": Path(canonical_manifest_path),
+        "canonical_detail_path": Path(canonical_detail_path),
+        "history_manifest_path": Path(history_manifest_path),
+        "docs_manifest_path": Path(docs_manifest_path),
+    }
+    if Path(evidence_path).exists() or Path(evidence_path).is_symlink():
+        validate_source_snapshot_projection_v2_supersede(**common)
+        return pd.read_csv(evidence_path, dtype=str, keep_default_na=False)
+
+    evidence = build_source_snapshot_projection_v2_supersede_evidence(
+        superseded_at=superseded_at,
+        **{key: value for key, value in common.items() if key != "evidence_path"},
+    )
+    evidence_bytes = evidence.to_csv(index=False, lineterminator="\n").encode("utf-8")
+    candidate_manifest_bytes = Path(candidate_manifest_path).read_bytes()
+    candidate_detail_bytes = Path(candidate_detail_path).read_bytes()
+    candidate_manifest = _single_row_csv(
+        Path(candidate_manifest_path),
+        label="v2 candidate manifest",
+    )
+    history = _build_append_only_superseded_history(
+        history_manifest_path=Path(history_manifest_path),
+        candidate_manifest=candidate_manifest,
+    )
+    writes = (
+        (Path(canonical_manifest_path), candidate_manifest_bytes),
+        (Path(canonical_detail_path), candidate_detail_bytes),
+        (Path(history_manifest_path), history["postimage_payload"]),
+        (Path(docs_manifest_path), candidate_manifest_bytes),
+        (Path(evidence_path), evidence_bytes),
+    )
+    originals = {
+        path: path.read_bytes() if path.is_file() and not path.is_symlink() else None
+        for path, _payload in writes
+    }
+    _replace_payloads_with_rollback(writes)
+    try:
+        validate_source_snapshot_projection_v2_supersede(**common)
+        if Path(candidate_manifest_path).read_bytes() != candidate_manifest_bytes:
+            raise RuntimeError("immutable v2 candidate manifest changed during supersede")
+        if Path(candidate_detail_path).read_bytes() != candidate_detail_bytes:
+            raise RuntimeError("immutable v2 candidate detail changed during supersede")
+    except Exception:
+        rollback = tuple(
+            (path, payload)
+            for path, payload in originals.items()
+            if payload is not None
+        )
+        for path, payload in originals.items():
+            if payload is None:
+                path.unlink(missing_ok=True)
+        if rollback:
+            _replace_payloads_with_rollback(rollback)
+        raise
+    return evidence
 
 
 def load_source_snapshot_projection_manifest(

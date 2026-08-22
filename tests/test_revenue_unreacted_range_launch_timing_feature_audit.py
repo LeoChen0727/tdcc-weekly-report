@@ -36,6 +36,10 @@ from revenue_unreacted_range_launch_timing_feature_audit import (  # noqa: E402
 from validate_revenue_unreacted_range_launch_timing_feature_audit import validate  # noqa: E402
 import validate_revenue_unreacted_range_launch_timing_feature_audit as launch_validator  # noqa: E402
 import revenue_unreacted_range_launch_timing_feature_audit as launch_audit  # noqa: E402
+from revenue_unreacted_range_source_snapshot_projection import (  # noqa: E402
+    V1_PROJECTION_VERSION,
+    V2_PROJECTION_VERSION,
+)
 
 
 VALID_SOURCE_LINEAGE = {
@@ -50,6 +54,25 @@ VALID_SOURCE_LINEAGE = {
     )
     for index, column in enumerate(LAG_INHERITED_LINEAGE_COLUMNS)
 }
+VALID_SOURCE_LINEAGE["source_projection_version"] = V1_PROJECTION_VERSION
+
+
+def test_launch_artifact_and_source_versions_are_projection_bound() -> None:
+    assert launch_audit.artifact_version_for_projection(V1_PROJECTION_VERSION) == (
+        launch_audit.V1_ARTIFACT_VERSION
+    )
+    assert launch_audit.artifact_version_for_projection(V2_PROJECTION_VERSION) == (
+        launch_audit.V2_ARTIFACT_VERSION
+    )
+    source = _source_lineage_frame()
+    source.loc[:, "source_projection_version"] = V2_PROJECTION_VERSION
+    source.loc[:, "artifact_version"] = (
+        launch_audit.SOURCE_ARTIFACT_VERSION_BY_PROJECTION[V2_PROJECTION_VERSION]
+    )
+    lineage = _assert_source_detail_lineage(source)
+    assert lineage["source_projection_version"] == V2_PROJECTION_VERSION
+    with pytest.raises(RuntimeError, match="unsupported canonical source projection"):
+        launch_audit.artifact_version_for_projection("unknown")
 
 
 def _synthetic_prepared() -> pd.DataFrame:
