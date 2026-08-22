@@ -1,6 +1,6 @@
 # 營收低反應模型：固定確認口徑勝敗特徵比較
 
-- generated_at: `2026-07-14 18:35:51 Asia/Taipei`
+- generated_at: `2026-08-23 07:14:39 Asia/Taipei`
 - status: `blocked_pending_root_cause_anomaly_candidate_review`
 - 固定候選：強月營收且股價仍在近期 23 日區間、攻擊尚未開始。
 - 固定確認：候選後最多三個交易日，收盤突破候選日前 23 日最高收盤價。
@@ -19,73 +19,75 @@
 
 | anomaly_exclusion_basis | accepted_trade_count | same_stock_overlap_pair_count | same_stock_revenue_period_repeat_count | price_path_anomaly_candidate_count | return_abs_ge80_anomaly_candidate_count | source_revenue_or_price_anomaly_candidate_count | signal_feature_context_revenue_anomaly_candidate_count | confirmation_feature_context_revenue_anomaly_candidate_count | feature_context_candidate_values_retained_in_feature_evidence | max_realized_return_pct | max_return_stock_id | max_return_signal_date | min_realized_return_pct | min_return_stock_id | min_return_signal_date | top1_abs_return_share_pct | top5_abs_return_share_pct | avg_realized_return_pct | median_realized_return_pct | trimmed_1pct_avg_return_pct | interpretation_status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| excluding_abs_ge80_anomaly_candidates_sensitivity_only | 1696 | 0 | 0 | 1 | 0 | 178 | 105 | 104 | True | 79.0657 | 3624 | 20260504 | -40.676 | 2540 | 20250902 | 0.3876 | 1.8352 | 3.3145 | -0.7526 | 2.9691 | candidate_threshold_sensitivity_only_not_anomaly_disposition |
-| excluding_unresolved_anomaly_candidates_sensitivity_only | 1533 | 0 | 0 | 0 | 14 | 0 | 0 | 6 | True | 115.6923 | 2327 | 20260424 | -40.676 | 2540 | 20250902 | 0.5872 | 2.6274 | 4.4858 | -0.1761 | 3.8999 | candidate_threshold_sensitivity_only_not_anomaly_disposition |
-| including_unresolved_anomaly_candidates_primary | 1710 | 0 | 0 | 1 | 14 | 178 | 105 | 104 | True | 117.3077 | 6949 | 20250710 | -40.676 | 2540 | 20250902 | 0.5394 | 2.4613 | 4.0763 | -0.651 | 3.4908 | blocked_pending_root_cause_anomaly_candidate_review |
+| excluding_abs_ge80_anomaly_candidates_sensitivity_only | 2006 | 0 | 0 | 1 | 0 | 222 | 131 | 130 | True | 79.0657 | 3624 | 20260504 | -54.3003 | 8042 | 20260626 | 0.3329 | 1.5963 | 2.0702 | -1.4867 | 1.7524 | candidate_threshold_sensitivity_only_not_anomaly_disposition |
+| excluding_unresolved_anomaly_candidates_sensitivity_only | 1802 | 0 | 0 | 0 | 15 | 0 | 0 | 6 | True | 220.603 | 5386 | 20260127 | -54.3003 | 8042 | 20260626 | 0.9638 | 2.822 | 3.2334 | -1.1487 | 2.6198 | candidate_threshold_sensitivity_only_not_anomaly_disposition |
+| including_unresolved_anomaly_candidates_primary | 2021 | 0 | 0 | 1 | 15 | 222 | 131 | 130 | True | 220.603 | 5386 | 20260127 | -54.3003 | 8042 | 20260626 | 0.8715 | 2.5516 | 2.8271 | -1.4205 | 2.2376 | blocked_pending_root_cause_anomaly_candidate_review |
 
 ## 固定基準
 
 | feature_time_basis_zh | accepted_trade_count | win_rate_pct | neutral_rate_pct | failure_rate_pct | avg_realized_return_pct | median_realized_return_pct | high_return_8_rate_pct | loss_5_rate_pct | timing_accepted_trade_count_parity_status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 確認日收盤已知 | 1710.0 | 34.5029 | 13.8596 | 51.6374 | 4.0763 | -0.651 | 28.1871 | 33.1579 | pass |
-| 候選訊號日收盤已知 | 1710.0 | 34.5029 | 13.8596 | 51.6374 | 4.0763 | -0.651 | 28.1871 | 33.1579 | pass |
+| 確認日收盤已知 | 2021.0 | 32.2118 | 13.7556 | 54.0327 | 2.8271 | -1.4205 | 26.1257 | 35.329 | pass |
+| 候選訊號日收盤已知 | 2021.0 | 32.2118 | 13.7556 | 54.0327 | 2.8271 | -1.4205 | 26.1257 | 35.329 | pass |
 
 ## 成功共同特徵候選
 
 | feature_time_basis_zh | feature_id | feature_family | feature_observed_count | feature_hit_count | high_return_feature_hit_rate_within_observed_pct | failure_feature_hit_rate_within_observed_pct | high_return_minus_failure_hit_rate_within_observed_pct | win_rate_pct | neutral_rate_pct | failure_rate_pct | avg_realized_return_pct | median_realized_return_pct | loss_5_rate_pct | candidate_threshold_sensitivity_direction_status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 確認日收盤已知 | position120_high_gt75 | price_position | 1710 | 1021 | 67.4274 | 57.5311 | 9.8963 | 38.0999 | 12.145 | 49.7551 | 5.2449 | 0.0 | 33.8883 | stable_positive |
-| 確認日收盤已知 | technical_ma20_above_ma60 | technical | 1319 | 750 | 62.2396 | 54.9849 | 7.2547 | 38.1333 | 13.3333 | 48.5333 | 5.5085 | 0.376 | 32.6667 | stable_positive |
-| 確認日收盤已知 | revenue_latest30_and_cumulative20 | monthly_revenue | 1708 | 823 | 53.3195 | 46.765 | 6.5545 | 38.1531 | 11.7861 | 50.0608 | 4.5196 | -0.1927 | 32.6853 | stable_positive |
-| 確認日收盤已知 | revenue_latest50_and_cumulative30 | monthly_revenue | 1708 | 451 | 29.8755 | 26.1067 | 3.7688 | 37.694 | 11.3082 | 50.9978 | 4.4616 | -0.5256 | 34.1463 | stable_positive |
-| 確認日收盤已知 | technical_rsi14_40_70 | technical | 1710 | 1194 | 71.5768 | 68.4032 | 3.1736 | 35.0921 | 14.3216 | 50.5863 | 4.3477 | -0.3268 | 32.1608 | stable_positive |
-| 確認日收盤已知 | technical_bb_width_not_extreme | technical | 1710 | 874 | 51.8672 | 49.4904 | 2.3768 | 35.2403 | 14.7597 | 50.0 | 4.0871 | -0.0552 | 32.0366 | stable_positive |
-| 確認日收盤已知 | volume_ratio_le2 | volume | 1710 | 892 | 52.6971 | 50.3964 | 2.3007 | 35.2018 | 14.9103 | 49.8879 | 4.736 | 0.0 | 29.5964 | stable_positive |
-| 確認日收盤已知 | market_correction_or_high_risk | market_regime_risk | 1710 | 124 | 7.8838 | 6.9083 | 0.9755 | 36.2903 | 14.5161 | 49.1935 | 7.0118 | 0.1525 | 33.871 | stable_positive |
-| 確認日收盤已知 | technical_ema23_slope_positive | technical | 1587 | 1471 | 93.6543 | 92.8218 | 0.8325 | 35.69 | 13.3243 | 50.9857 | 4.5093 | -0.4367 | 32.6988 | stable_positive |
-| 確認日收盤已知 | market_mild_bull | market_regime | 1710 | 377 | 22.1992 | 21.7441 | 0.4551 | 33.9523 | 15.1194 | 50.9284 | 4.415 | -0.4367 | 31.0345 | stable_positive |
-| 候選訊號日收盤已知 | position120_high_gt75 | price_position | 1710 | 556 | 39.6266 | 29.7848 | 9.8418 | 41.5468 | 11.1511 | 47.3022 | 6.2388 | 0.9294 | 31.1151 | stable_positive |
-| 候選訊號日收盤已知 | technical_ma20_above_ma60 | technical | 1308 | 710 | 59.3176 | 52.439 | 6.8786 | 38.169 | 13.3803 | 48.4507 | 5.5427 | 0.376 | 32.2535 | stable_positive |
-| 候選訊號日收盤已知 | revenue_latest30_and_cumulative20 | monthly_revenue | 1708 | 832 | 53.112 | 47.2191 | 5.8929 | 37.8606 | 12.1394 | 50.0 | 4.4482 | -0.0964 | 32.5721 | stable_positive |
-| 候選訊號日收盤已知 | revenue_latest50_and_cumulative30 | monthly_revenue | 1708 | 445 | 29.668 | 25.4257 | 4.2423 | 37.7528 | 11.9101 | 50.3371 | 4.636 | -0.2829 | 33.4831 | stable_positive |
-| 候選訊號日收盤已知 | technical_rsi14_40_70 | technical | 1710 | 1355 | 82.1577 | 78.4824 | 3.6753 | 35.572 | 13.2841 | 51.1439 | 4.5113 | -0.443 | 32.3985 | stable_positive |
-| 候選訊號日收盤已知 | momentum_return20_0_25 | price_momentum | 1710 | 1263 | 75.5187 | 72.7067 | 2.812 | 35.3127 | 13.8559 | 50.8314 | 4.4614 | -0.4127 | 32.2249 | stable_positive |
-| 候選訊號日收盤已知 | technical_ema23_slope_positive | technical | 1567 | 1125 | 74.5614 | 71.8239 | 2.7375 | 36.8889 | 12.3556 | 50.7556 | 4.9976 | -0.4049 | 32.7111 | stable_positive |
-| 候選訊號日收盤已知 | technical_rsi14_ge60 | technical | 1710 | 683 | 41.4938 | 39.1846 | 2.3092 | 36.896 | 12.4451 | 50.6589 | 4.5201 | -0.4902 | 31.918 | stable_positive |
-| 候選訊號日收盤已知 | market_correction_or_high_risk | market_regime_risk | 1710 | 217 | 13.9004 | 11.8913 | 2.0091 | 39.1705 | 12.4424 | 48.3871 | 6.0333 | 0.4464 | 29.4931 | stable_positive |
-| 候選訊號日收盤已知 | technical_close_above_ma20_ema23 | technical | 1630 | 1238 | 77.0563 | 75.9569 | 1.0994 | 35.7835 | 12.9241 | 51.2924 | 4.5957 | -0.5049 | 32.8756 | stable_positive |
+| 確認日收盤已知 | position120_high_gt75 | price_position | 2021 | 1176 | 66.8561 | 54.9451 | 11.911 | 36.2245 | 12.7551 | 51.0204 | 4.1202 | -0.5437 | 35.2041 | stable_positive |
+| 確認日收盤已知 | market_strong_bull | market_regime | 2021 | 1315 | 66.6667 | 63.4615 | 3.2052 | 33.308 | 13.9924 | 52.6996 | 3.4059 | -1.1494 | 34.7529 | stable_positive |
+| 確認日收盤已知 | technical_rsi14_40_70 | technical | 2021 | 1412 | 71.9697 | 69.0476 | 2.9221 | 32.6487 | 13.9518 | 53.3994 | 2.999 | -1.157 | 34.6317 | stable_positive |
+| 確認日收盤已知 | candle_bullish_attack | candle | 2021 | 1781 | 89.9621 | 87.9121 | 2.05 | 32.7344 | 13.3633 | 53.9023 | 2.9189 | -1.4368 | 35.598 | stable_positive |
+| 候選訊號日收盤已知 | position120_high_gt75 | price_position | 2021 | 660 | 38.6364 | 30.2198 | 8.4166 | 37.8788 | 12.1212 | 50.0 | 4.3816 | -0.0821 | 32.7273 | stable_positive |
+| 候選訊號日收盤已知 | technical_ma20_above_ma60 | technical | 1600 | 875 | 58.6957 | 53.7757 | 4.92 | 33.7143 | 12.5714 | 53.7143 | 3.0675 | -1.2397 | 35.6571 | stable_positive |
+| 候選訊號日收盤已知 | position120_mid_40_75 | price_position | 2021 | 759 | 40.9091 | 36.4469 | 4.4622 | 33.5968 | 13.9657 | 52.4374 | 3.9987 | -0.9836 | 34.7826 | stable_positive |
+| 候選訊號日收盤已知 | technical_close_above_ma20_ema23 | technical | 1927 | 1443 | 76.9685 | 73.5067 | 3.4618 | 33.264 | 13.86 | 52.876 | 3.4188 | -1.0309 | 34.0956 | stable_positive |
+| 候選訊號日收盤已知 | technical_rsi14_40_70 | technical | 2021 | 1603 | 82.0076 | 78.663 | 3.3446 | 33.0006 | 13.4124 | 53.587 | 3.1488 | -1.3672 | 34.9345 | stable_positive |
+| 候選訊號日收盤已知 | technical_ema23_slope_positive | technical | 1873 | 1341 | 73.8866 | 70.6575 | 3.2291 | 33.4825 | 12.8262 | 53.6913 | 3.4057 | -1.2956 | 34.9739 | stable_positive |
+| 候選訊號日收盤已知 | momentum_return20_0_25 | price_momentum | 2021 | 1491 | 75.1894 | 72.8022 | 2.3872 | 32.8638 | 13.8162 | 53.3199 | 3.3894 | -1.1966 | 34.6076 | stable_positive |
+| 候選訊號日收盤已知 | technical_obv_above_ma20 | technical | 2021 | 1453 | 72.1591 | 70.6044 | 1.5547 | 33.0351 | 13.9023 | 53.0626 | 2.9298 | -1.1429 | 34.8933 | stable_positive |
+| 候選訊號日收盤已知 | market_strong_bull | market_regime | 2021 | 1208 | 60.4167 | 58.9744 | 1.4423 | 32.7815 | 13.9073 | 53.3113 | 3.1209 | -1.3808 | 35.4305 | stable_positive |
+| 候選訊號日收盤已知 | technical_rsi14_ge60 | technical | 2021 | 797 | 40.1515 | 38.7363 | 1.4152 | 33.5006 | 13.4253 | 53.074 | 3.3339 | -1.2397 | 33.6261 | stable_positive |
 
 ## 失敗共同特徵候選
 
 | feature_time_basis_zh | feature_id | feature_family | feature_observed_count | feature_hit_count | high_return_feature_hit_rate_within_observed_pct | failure_feature_hit_rate_within_observed_pct | high_return_minus_failure_hit_rate_within_observed_pct | win_rate_pct | failure_rate_pct | avg_realized_return_pct | median_realized_return_pct | loss_5_rate_pct | candidate_threshold_sensitivity_direction_status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 確認日收盤已知 | revenue_latest_yoy_ge100 | monthly_revenue | 1708 | 264 | 15.3527 | 17.2531 | -1.9004 | 32.5758 | 57.5758 | 1.9658 | -1.9167 | 34.8485 | stable_risk |
-| 確認日收盤已知 | revenue_latest_yoy_improving_2m | monthly_revenue | 1701 | 412 | 22.4532 | 25.8286 | -3.3754 | 32.0388 | 54.8544 | 2.8698 | -1.4462 | 35.1942 | stable_risk |
-| 確認日收盤已知 | revenue_cumulative_yoy_improving_2m | monthly_revenue | 1705 | 614 | 34.3035 | 38.1115 | -3.808 | 32.0847 | 54.5603 | 3.0329 | -1.3917 | 34.5277 | stable_risk |
-| 確認日收盤已知 | revenue_latest_yoy_delta_ge20 | monthly_revenue | 1705 | 672 | 35.0622 | 43.2802 | -8.218 | 30.2083 | 56.5476 | 2.6507 | -1.7927 | 36.6071 | stable_risk |
-| 確認日收盤已知 | technical_obv_above_ma20 | technical | 1710 | 1629 | 93.9834 | 96.0362 | -2.0528 | 34.07 | 52.0565 | 3.9503 | -0.7376 | 33.4561 | stable_risk |
-| 確認日收盤已知 | shape_range23_width_le10 | price_shape | 1710 | 417 | 12.6556 | 27.0668 | -14.4112 | 22.0624 | 57.3141 | 0.5585 | -1.454 | 28.0576 | stable_risk |
-| 確認日收盤已知 | shape_range23_width_le15 | price_shape | 1710 | 848 | 33.8174 | 53.5674 | -19.75 | 26.2972 | 55.7783 | 1.2185 | -1.2873 | 30.4245 | stable_risk |
-| 確認日收盤已知 | shape_range23_width_le20 | price_shape | 1710 | 1132 | 53.7344 | 70.4417 | -16.7073 | 29.5053 | 54.947 | 2.0547 | -1.3314 | 32.3322 | stable_risk |
-| 確認日收盤已知 | position120_low_le40 | price_position | 1710 | 232 | 8.0913 | 15.0623 | -6.971 | 22.4138 | 57.3276 | 0.2648 | -1.9057 | 31.8966 | stable_risk |
-| 確認日收盤已知 | position120_mid_40_75 | price_position | 1710 | 457 | 24.4813 | 27.4066 | -2.9253 | 32.6039 | 52.954 | 3.4003 | -0.7331 | 32.1663 | stable_risk |
-| 確認日收盤已知 | momentum_return20_0_25 | price_momentum | 1710 | 1605 | 91.0788 | 94.7905 | -3.7117 | 33.6449 | 52.1495 | 3.6464 | -0.7617 | 33.2087 | stable_risk |
-| 確認日收盤已知 | market_strong_bull | market_regime | 1710 | 1209 | 69.917 | 71.3477 | -1.4307 | 34.4913 | 52.1092 | 3.6695 | -0.7712 | 33.7469 | stable_risk |
-| 確認日收盤已知 | market_bull | market_regime | 1710 | 1586 | 92.1162 | 93.0917 | -0.9755 | 34.3632 | 51.8285 | 3.8468 | -0.7353 | 33.1021 | stable_risk |
-| 候選訊號日收盤已知 | revenue_latest_yoy_ge100 | monthly_revenue | 1708 | 262 | 15.1452 | 17.0261 | -1.8809 | 32.8244 | 57.2519 | 1.984 | -1.9167 | 34.7328 | stable_risk |
-| 候選訊號日收盤已知 | revenue_latest_yoy_improving_2m | monthly_revenue | 1701 | 434 | 22.4532 | 27.7714 | -5.3182 | 30.6452 | 55.9908 | 2.3775 | -1.7758 | 36.4055 | stable_risk |
-| 候選訊號日收盤已知 | revenue_cumulative_yoy_improving_2m | monthly_revenue | 1705 | 632 | 34.5114 | 39.2491 | -4.7377 | 31.962 | 54.5886 | 2.9531 | -1.3143 | 34.4937 | stable_risk |
-| 候選訊號日收盤已知 | revenue_latest_yoy_delta_ge20 | monthly_revenue | 1705 | 685 | 34.4398 | 44.3052 | -9.8654 | 29.3431 | 56.7883 | 2.3982 | -1.8315 | 36.7883 | stable_risk |
-| 候選訊號日收盤已知 | tdcc_consecutive_up_ge2 | tdcc | 308 | 95 | 25.3012 | 33.557 | -8.2558 | 30.5263 | 52.6316 | 1.0441 | -0.722 | 31.5789 | stable_risk |
-| 候選訊號日收盤已知 | technical_kd_bullish_not_overheated | technical | 1710 | 995 | 54.1494 | 61.0419 | -6.8925 | 32.4623 | 54.1709 | 3.1092 | -1.2956 | 34.4724 | stable_risk |
-| 候選訊號日收盤已知 | technical_kdj_bullish_not_extreme | technical | 1710 | 986 | 55.3942 | 60.2492 | -4.855 | 32.9615 | 53.9554 | 3.3058 | -1.4047 | 35.0913 | stable_risk |
-| 候選訊號日收盤已知 | shape_range23_width_le10 | price_shape | 1710 | 416 | 11.2033 | 27.5198 | -16.3165 | 19.9519 | 58.4135 | 0.0037 | -1.5124 | 28.8462 | stable_risk |
-| 候選訊號日收盤已知 | shape_range23_width_le15 | price_shape | 1710 | 824 | 32.1577 | 51.9819 | -19.8242 | 25.8495 | 55.7039 | 1.3396 | -1.2481 | 30.4612 | stable_risk |
-| 候選訊號日收盤已知 | shape_range23_width_le20 | price_shape | 1710 | 1111 | 52.0747 | 69.3092 | -17.2345 | 29.3429 | 55.0855 | 2.0461 | -1.2956 | 32.3132 | stable_risk |
-| 候選訊號日收盤已知 | shape_near_range23_high | price_shape | 1710 | 943 | 45.4357 | 57.9841 | -12.5484 | 30.6469 | 54.2948 | 2.6025 | -1.1329 | 32.0255 | stable_risk |
-| 候選訊號日收盤已知 | position120_low_le40 | price_position | 1710 | 505 | 22.1992 | 32.1631 | -9.9639 | 27.1287 | 56.2376 | 1.1981 | -1.7483 | 35.4455 | stable_risk |
-| 候選訊號日收盤已知 | market_mild_bull | market_regime | 1710 | 415 | 22.6141 | 25.8211 | -3.207 | 30.8434 | 54.9398 | 3.6661 | -1.4103 | 34.6988 | stable_risk |
-| 候選訊號日收盤已知 | market_bull | market_regime | 1710 | 1493 | 86.0996 | 88.1087 | -2.0091 | 33.8245 | 52.1098 | 3.7918 | -0.7874 | 33.6906 | stable_risk |
+| 確認日收盤已知 | revenue_latest_yoy_ge100 | monthly_revenue | 2019 | 321 | 15.1515 | 17.9817 | -2.8302 | 28.6604 | 61.0592 | 0.5736 | -2.682 | 38.9408 | stable_risk |
+| 確認日收盤已知 | revenue_latest_yoy_improving_2m | monthly_revenue | 2012 | 512 | 24.8577 | 27.0295 | -2.1718 | 29.8828 | 57.2266 | 1.342 | -2.1465 | 38.6719 | stable_risk |
+| 確認日收盤已知 | revenue_cumulative_yoy_improving_2m | monthly_revenue | 2016 | 761 | 35.4839 | 39.3382 | -3.8543 | 29.9606 | 56.2418 | 1.9315 | -2.0513 | 37.3193 | stable_risk |
+| 確認日收盤已知 | revenue_latest_yoy_delta_ge20 | monthly_revenue | 2016 | 789 | 35.4167 | 43.2383 | -7.8216 | 28.3904 | 59.5691 | 1.3582 | -2.6891 | 39.6705 | stable_risk |
+| 確認日收盤已知 | tdcc_high_thresholds_up | tdcc | 570 | 257 | 39.8438 | 45.045 | -5.2012 | 27.2374 | 58.3658 | -2.2633 | -2.75 | 40.0778 | stable_risk |
+| 確認日收盤已知 | tdcc_consecutive_up_ge1 | tdcc | 570 | 341 | 51.5625 | 61.2613 | -9.6988 | 26.0997 | 59.824 | -2.3694 | -3.2258 | 41.349 | stable_risk |
+| 確認日收盤已知 | tdcc_consecutive_up_ge2 | tdcc | 570 | 227 | 33.5938 | 41.7417 | -8.1479 | 24.6696 | 61.2335 | -2.7162 | -3.4146 | 42.2907 | stable_risk |
+| 確認日收盤已知 | technical_macd_hist_gt0 | technical | 1846 | 1679 | 88.7064 | 91.7413 | -3.0349 | 31.5664 | 54.9136 | 2.5749 | -1.5748 | 35.9738 | stable_risk |
+| 確認日收盤已知 | technical_kd_bullish_not_overheated | technical | 2021 | 1562 | 77.8409 | 78.9377 | -1.0968 | 31.4341 | 55.1857 | 2.8126 | -1.6591 | 36.5557 | stable_risk |
+| 確認日收盤已知 | technical_bb_width_not_extreme | technical | 2021 | 1097 | 53.5985 | 54.4872 | -0.8887 | 31.9052 | 54.2388 | 2.2192 | -1.3774 | 35.278 | stable_risk |
+| 確認日收盤已知 | technical_obv_above_ma20 | technical | 2021 | 1928 | 94.5076 | 95.696 | -1.1884 | 32.0021 | 54.2012 | 2.7248 | -1.4293 | 35.5809 | stable_risk |
+| 確認日收盤已知 | shape_range23_width_le10 | price_shape | 2021 | 465 | 12.6894 | 24.5421 | -11.8527 | 22.5806 | 57.6344 | 0.2579 | -1.4205 | 27.5269 | stable_risk |
+| 確認日收盤已知 | shape_range23_width_le15 | price_shape | 2021 | 968 | 34.0909 | 50.1832 | -16.0923 | 25.5165 | 56.6116 | 0.8817 | -1.5029 | 30.6818 | stable_risk |
+| 確認日收盤已知 | shape_range23_width_le20 | price_shape | 2021 | 1309 | 54.1667 | 66.6667 | -12.5 | 28.6478 | 55.615 | 1.651 | -1.505 | 32.4675 | stable_risk |
+| 確認日收盤已知 | position120_low_le40 | price_position | 2021 | 298 | 8.9015 | 16.6667 | -7.7652 | 20.8054 | 61.0738 | -0.6442 | -2.5571 | 34.2282 | stable_risk |
+| 確認日收盤已知 | position120_mid_40_75 | price_position | 2021 | 547 | 24.2424 | 28.3883 | -4.1459 | 29.7989 | 56.6728 | 1.9382 | -1.7327 | 36.1974 | stable_risk |
+| 確認日收盤已知 | momentum_return20_0_25 | price_momentum | 2021 | 1884 | 90.7197 | 93.956 | -3.2363 | 31.4756 | 54.4586 | 2.4625 | -1.4728 | 35.2442 | stable_risk |
+| 確認日收盤已知 | market_mild_bull | market_regime | 2021 | 480 | 21.5909 | 24.9084 | -3.3175 | 29.5833 | 56.6667 | 1.2814 | -1.9838 | 35.8333 | stable_risk |
+| 候選訊號日收盤已知 | revenue_latest_yoy_ge100 | monthly_revenue | 2019 | 323 | 15.1515 | 17.9817 | -2.8302 | 28.7926 | 60.6811 | 0.6698 | -2.6362 | 38.6997 | stable_risk |
+| 候選訊號日收盤已知 | revenue_latest_yoy_improving_2m | monthly_revenue | 2012 | 534 | 25.0474 | 28.4133 | -3.3659 | 29.0262 | 57.6779 | 1.085 | -2.202 | 38.764 | stable_risk |
+| 候選訊號日收盤已知 | revenue_cumulative_yoy_improving_2m | monthly_revenue | 2016 | 777 | 35.8634 | 40.2574 | -4.394 | 29.9871 | 56.3707 | 1.9057 | -2.0537 | 37.1943 | stable_risk |
+| 候選訊號日收盤已知 | revenue_latest_yoy_delta_ge20 | monthly_revenue | 2016 | 803 | 34.4697 | 44.3422 | -9.8725 | 27.3973 | 60.0249 | 1.1477 | -2.6549 | 39.477 | stable_risk |
+| 候選訊號日收盤已知 | tdcc_high_thresholds_up | tdcc | 547 | 230 | 38.7931 | 41.2844 | -2.4913 | 26.9565 | 58.6957 | -2.6082 | -3.1585 | 41.3043 | stable_risk |
+| 候選訊號日收盤已知 | tdcc_consecutive_up_ge1 | tdcc | 547 | 315 | 54.3103 | 58.4098 | -4.0995 | 26.6667 | 60.6349 | -2.5337 | -3.2803 | 41.9048 | stable_risk |
+| 候選訊號日收盤已知 | tdcc_consecutive_up_ge2 | tdcc | 547 | 216 | 33.6207 | 41.896 | -8.2753 | 23.6111 | 63.4259 | -2.8504 | -3.4701 | 43.0556 | stable_risk |
+| 候選訊號日收盤已知 | technical_macd_hist_gt0 | technical | 1817 | 1206 | 61.3169 | 67.0061 | -5.6892 | 31.1774 | 54.5605 | 2.4061 | -1.4122 | 34.2454 | stable_risk |
+| 候選訊號日收盤已知 | technical_kd_bullish_not_overheated | technical | 2021 | 1157 | 54.3561 | 58.1502 | -3.7941 | 30.5964 | 54.8833 | 2.1591 | -1.5009 | 35.4365 | stable_risk |
+| 候選訊號日收盤已知 | technical_kdj_bullish_not_extreme | technical | 2021 | 1160 | 55.6818 | 58.1502 | -2.4684 | 31.3793 | 54.7414 | 2.2909 | -1.5354 | 35.2586 | stable_risk |
+| 候選訊號日收盤已知 | technical_bb_width_not_extreme | technical | 2021 | 1191 | 58.3333 | 59.9817 | -1.6484 | 31.822 | 54.9958 | 2.0297 | -1.5 | 36.6079 | stable_risk |
+| 候選訊號日收盤已知 | shape_range23_width_le10 | price_shape | 2021 | 464 | 11.553 | 24.8168 | -13.2638 | 21.3362 | 58.4052 | -0.0921 | -1.5563 | 28.6638 | stable_risk |
+| 候選訊號日收盤已知 | shape_range23_width_le15 | price_shape | 2021 | 933 | 32.0076 | 48.3516 | -16.344 | 25.1876 | 56.5916 | 0.9839 | -1.4726 | 30.4394 | stable_risk |
+| 候選訊號日收盤已知 | shape_range23_width_le20 | price_shape | 2021 | 1273 | 52.0833 | 65.1099 | -13.0266 | 28.5939 | 55.8523 | 1.6308 | -1.505 | 32.5216 | stable_risk |
+| 候選訊號日收盤已知 | shape_near_range23_high | price_shape | 2021 | 1082 | 44.1288 | 54.9451 | -10.8163 | 28.9279 | 55.4529 | 1.9396 | -1.4173 | 32.2551 | stable_risk |
+| 候選訊號日收盤已知 | position120_low_le40 | price_position | 2021 | 602 | 20.4545 | 33.3333 | -12.8788 | 24.2525 | 60.4651 | -0.3542 | -2.7465 | 38.8704 | stable_risk |
+| 候選訊號日收盤已知 | market_mild_bull | market_regime | 2021 | 443 | 19.697 | 22.8022 | -3.1052 | 29.5711 | 56.2077 | 2.4181 | -1.676 | 35.2144 | stable_risk |
 
 ## Large Detail Policy
 

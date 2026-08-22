@@ -52,6 +52,94 @@ def test_operation_lag_versions_are_projection_bound() -> None:
         validator._expected_versions("unknown")
 
 
+def test_operation_lag_trusted_v1_replay_requires_explicit_opt_in(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    manifest = pd.DataFrame({"projection_version": [V1_PROJECTION_VERSION]})
+    replay = (
+        manifest,
+        pd.DataFrame({"stock_id": ["1111"]}),
+        pd.DataFrame({"stock_id": ["1111"]}),
+    )
+    trusted_calls = 0
+
+    def trusted_source_frames():
+        nonlocal trusted_calls
+        trusted_calls += 1
+        return replay
+
+    monkeypatch.setattr(
+        validator,
+        "load_source_snapshot_projection_manifest",
+        lambda _path: manifest,
+    )
+    monkeypatch.setattr(validator, "_trusted_source_frames", trusted_source_frames)
+
+    with pytest.raises(RuntimeError, match="requires explicit --historical-v1-source-audit"):
+        validator._canonical_source_frames()
+    assert trusted_calls == 0
+    assert validator._canonical_source_frames(
+        historical_v1_source_audit=True
+    ) is replay
+    assert trusted_calls == 1
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        ["validator", "--historical-v1-source-audit"],
+    )
+    assert validator.parse_args().historical_v1_source_audit is True
+
+
+def test_operation_lag_canonical_v2_uses_current_sources_without_trusted_replay(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    manifest = pd.DataFrame(
+        {
+            "projection_version": [V2_PROJECTION_VERSION],
+            "cutoff_price_input_stock_count": [1],
+            "cutoff_price_input_row_count": [0],
+            "cutoff_price_input_file_semantic_sha256s": [f"1111:0:{'a' * 64}"],
+        }
+    )
+    episodes = pd.DataFrame({"stock_id": ["1111"]})
+    operation_path = tmp_path / "operation_detail.csv"
+    pd.DataFrame({"stock_id": ["1111"]}).to_csv(operation_path, index=False)
+
+    monkeypatch.setattr(
+        validator,
+        "load_source_snapshot_projection_manifest",
+        lambda _path: manifest,
+    )
+    monkeypatch.setattr(
+        validator, "load_projected_source_detail", lambda _path: episodes
+    )
+    monkeypatch.setattr(
+        validator, "validate_projection_binding_frames", lambda *_args: []
+    )
+    monkeypatch.setattr(validator, "SOURCE_OPERATION_DETAIL_CSV", operation_path)
+    monkeypatch.setattr(
+        validator,
+        "_trusted_source_frames",
+        lambda: pytest.fail("canonical v2 must not replay trusted v1 sources"),
+    )
+    monkeypatch.setattr(
+        validator,
+        "_trusted_price_frames",
+        lambda *_args: pytest.fail("canonical v2 must not replay trusted v1 prices"),
+    )
+
+    observed_manifest, operations, observed_episodes = (
+        validator._canonical_source_frames()
+    )
+    assert observed_manifest is manifest
+    assert operations["stock_id"].tolist() == ["1111"]
+    assert observed_episodes is episodes
+    assert validator._current_price_frames(set(), manifest) == {}
+    with pytest.raises(RuntimeError, match="requires the default ROOT canonical v1"):
+        validator._canonical_source_frames(historical_v1_source_audit=True)
+
+
 def test_operation_lag_bucket_audit_passes() -> None:
     assert validate() == []
 

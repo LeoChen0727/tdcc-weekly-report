@@ -18,24 +18,31 @@ HISTORICAL_SOURCE_REPLAY_WORKFLOW = (
     ROOT / ".github" / "workflows" / "historical_structured_source_replay.yml"
 )
 DAILY_MODEL_MAINTENANCE_PR_WORKFLOW = ROOT / ".github" / "workflows" / "daily_model_maintenance_pr_validation.yml"
-VOLUME_V2_RUNTIME_MARKDOWN_REPAIR_INPUT = (
-    "run_volume_v2_runtime_markdown_normalization_candidate_only"
-)
 VOLUME_V2_RUNTIME_BUILD_COMMAND = (
     "python scripts/build_volume_v2_warrant_lineage_history_audit.py --phase runtime"
 )
 VOLUME_V2_RUNTIME_VALIDATE_COMMAND = (
     "python scripts/validate_volume_v2_warrant_lineage_history_audit.py --phase runtime"
 )
-VOLUME_V2_RUNTIME_MARKDOWN_PATHS = (
-    "output/latest/volume_v2_warrant_lineage_history_audit_latest.md",
+VOLUME_V2_RUNTIME_ARTIFACT_PATHS = (
+    "docs/latest/volume_v2_warrant_lineage_history_audit_latest.csv",
     "docs/latest/volume_v2_warrant_lineage_history_audit_latest.md",
+    "output/latest/volume_v2_warrant_lineage_history_audit_latest.csv",
+    "output/latest/volume_v2_warrant_lineage_history_audit_latest.md",
 )
-VOLUME_V2_RUNTIME_MARKDOWN_CANDIDATE_ALLOWED_GIT_COMMANDS = {
-    *(f"git --no-replace-objects add -- {path}" for path in VOLUME_V2_RUNTIME_MARKDOWN_PATHS),
-    'git --no-replace-objects commit -m "Normalize Volume V2 runtime audit Markdown"',
-    'git --no-replace-objects push origin "HEAD:refs/heads/$GITHUB_REF_NAME"',
-}
+VOLUME_V2_RETIRED_NORMALIZATION_TOKENS = (
+    "run_volume_v2_runtime_markdown_normalization_candidate_only",
+    "expected_base_sha:",
+    "expected_head_sha:",
+    "confirmation:",
+    "normalize_volume_v2_runtime_markdown_candidate",
+    "volume_v2_runtime_markdown_normalization_candidate_commit",
+    "volume-v2-runtime-markdown-normalization-candidate",
+    "REPAIR_MODE",
+    "REPAIR_RESULT",
+    "Volume V2 normalization",
+    "PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY",
+)
 DAILY_PDF_REPLAY_PR_WORKFLOW = ROOT / ".github" / "workflows" / "daily_pdf_replay_pr_validation.yml"
 DAILY_PDF_REPLAY_AUTOMATIC_PATHS = {
     "config/daily_pdf_rendered_model_regression_contract.csv",
@@ -616,9 +623,16 @@ def validate_daily_model_pr_scope_contract(text: str) -> list[str]:
 def validate_daily_model_volume_v2_runtime_markdown_contract(text: str) -> list[str]:
     errors: list[str] = []
     volume_job = workflow_job_block(text, "volume_v2_research")
-    commit_job = workflow_job_block(
-        text, "volume_v2_runtime_markdown_normalization_candidate_commit"
-    )
+    if not volume_job:
+        errors.append("daily model PR workflow missing Volume V2 runtime job")
+
+    for retired_token in VOLUME_V2_RETIRED_NORMALIZATION_TOKENS:
+        if retired_token in text:
+            errors.append(
+                "daily model PR workflow contains retired Volume V2 normalization "
+                f"token/job: {retired_token!r}"
+            )
+
     exact_lines = {
         VOLUME_V2_RUNTIME_BUILD_COMMAND: text.count(
             f"          {VOLUME_V2_RUNTIME_BUILD_COMMAND}\n"
@@ -650,9 +664,31 @@ def validate_daily_model_volume_v2_runtime_markdown_contract(text: str) -> list[
         > volume_job.index(VOLUME_V2_RUNTIME_VALIDATE_COMMAND)
     ):
         errors.append("daily model PR Volume V2 runtime validator must follow its builder")
+    required_prefix_commands = (
+        "python scripts/validate_volume_breakout_watch.py --latest-only",
+        "python scripts/validate_volume_attack_theme_layer.py",
+        'python scripts/validate_daily_canonical_field_lineage.py --base-ref "$BASE_SHA" $LINEAGE_HISTORY_MODE',
+    )
+    for command in required_prefix_commands:
+        if volume_job.count(command) != 1:
+            errors.append(
+                "daily model PR Volume V2 prerequisite command must appear exactly once "
+                f"in its job: command={command!r} count={volume_job.count(command)}"
+            )
+        elif (
+            VOLUME_V2_RUNTIME_BUILD_COMMAND in volume_job
+            and volume_job.index(command) > volume_job.index(VOLUME_V2_RUNTIME_BUILD_COMMAND)
+        ):
+            errors.append(
+                "daily model PR Volume V2 prerequisite must precede runtime build: "
+                f"command={command!r}"
+            )
+
     for forbidden in (
         "          python scripts/build_volume_v2_warrant_lineage_history_audit.py\n",
         "          python scripts/validate_volume_v2_warrant_lineage_history_audit.py\n",
+        "--phase default",
+        "--phase full",
         f"{VOLUME_V2_RUNTIME_BUILD_COMMAND} ||",
         f"{VOLUME_V2_RUNTIME_VALIDATE_COMMAND} ||",
         f"{VOLUME_V2_RUNTIME_BUILD_COMMAND}; true",
@@ -664,171 +700,32 @@ def validate_daily_model_volume_v2_runtime_markdown_contract(text: str) -> list[
                 f"found={forbidden!r}"
             )
 
-    required_literals = {
-        f"{VOLUME_V2_RUNTIME_MARKDOWN_REPAIR_INPUT}:": (
-            "daily model PR workflow must declare the Volume V2 normalization boolean"
-        ),
-        "type: boolean": "Volume V2 normalization mode must be a boolean",
-        "expected_base_sha:": "Volume V2 normalization must bind its code-commit parent",
-        "expected_head_sha:": "Volume V2 normalization must bind its code head",
-        "confirmation:": "Volume V2 normalization must require an exact confirmation",
-        "normalize_volume_v2_runtime_markdown_candidate": (
-            "Volume V2 normalization confirmation literal is missing"
-        ),
-        '"$GITHUB_EVENT_NAME" != "workflow_dispatch"': (
-            "Volume V2 normalization must be workflow-dispatch only"
-        ),
-        '"$GITHUB_RUN_ATTEMPT" != "1"': (
-            "Volume V2 normalization must reject rerun attempts"
-        ),
-        'GITHUB_REF_NAME" = "main"': "Volume V2 normalization must reject main",
-        'remote_branch_sha" != "$EXPECTED_HEAD_SHA': (
-            "Volume V2 normalization must reject branch movement"
-        ),
-        "Volume V2 code changed-path mismatch": (
-            "Volume V2 normalization must enforce exact9 code scope"
-        ),
-        "Volume V2 normalization changed-path mismatch": (
-            "Volume V2 normalization must enforce exact2 generated scope"
-        ),
-        "Volume V2 staged-path mismatch": (
-            "Volume V2 normalization must enforce exact2 staged scope"
-        ),
-        "Volume V2 committed-path mismatch": (
-            "Volume V2 normalization must enforce exact2 committed scope"
-        ),
-        '["git", "--no-replace-objects", "ls-files", "--others", "--exclude-standard"]': (
-            "Volume V2 normalization must include untracked files in exact2 changed scope"
-        ),
-        'test -z "$(git --no-replace-objects ls-files --others --exclude-standard)"': (
-            "Volume V2 normalization must leave no untracked files after its commit"
-        ),
-        "Volume V2 artifact commit must be the code head's unique direct child": (
-            "Volume V2 normalization must enforce direct-child artifact identity"
-        ),
-        "PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}": (
-            "Volume V2 normalization must bind the repository deploy key"
-        ),
-        'if [ -z "${PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY}" ]; then': (
-            "Volume V2 normalization must fail closed when the deploy key is empty"
-        ),
-        "ssh-key: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}": (
-            "Volume V2 normalization checkout must use the repository deploy key"
-        ),
-    }
-    for literal, message in required_literals.items():
-        if literal not in text:
-            errors.append(f"{message}: missing {literal!r}")
-    confirmation_literal = "normalize_volume_v2_runtime_markdown_candidate"
-    if text.count(confirmation_literal) != 2:
+    diff_gate_lines = ["git --no-replace-objects diff --exit-code -- \\"]
+    for index, path in enumerate(VOLUME_V2_RUNTIME_ARTIFACT_PATHS):
+        suffix = " \\" if index < len(VOLUME_V2_RUNTIME_ARTIFACT_PATHS) - 1 else ""
+        diff_gate_lines.append(f"  {path}{suffix}")
+    diff_gate = "\n".join(diff_gate_lines)
+    normalized_volume_job = "\n".join(
+        line[10:] if line.startswith("          ") else line
+        for line in volume_job.splitlines()
+    )
+    if normalized_volume_job.count(diff_gate) != 1:
         errors.append(
-            "Volume V2 normalization confirmation literal must be checked exactly twice: "
-            f"count={text.count(confirmation_literal)}"
+            "daily model PR Volume V2 runtime job must keep one exact4 artifact "
+            f"diff gate: count={normalized_volume_job.count(diff_gate)}"
         )
-    run_attempt_literal = '"$GITHUB_RUN_ATTEMPT" != "1"'
-    if text.count(run_attempt_literal) != 2:
-        errors.append(
-            "Volume V2 normalization must enforce run_attempt=1 before generation and commit: "
-            f"count={text.count(run_attempt_literal)}"
-        )
-    if not commit_job:
-        errors.append("daily model PR workflow missing Volume V2 normalization commit job")
-    else:
-        artifact_step_marker = (
-            "      - name: Commit and push exact Volume V2 Markdown normalization candidate"
-        )
-        artifact_step = (
-            commit_job.split(artifact_step_marker, 1)[1]
-            if artifact_step_marker in commit_job
-            else ""
-        )
-        if not artifact_step:
-            errors.append("daily model PR workflow missing Volume V2 artifact commit step")
-        elif "EXPECTED_BASE_SHA" in artifact_step:
+    elif (
+        VOLUME_V2_RUNTIME_VALIDATE_COMMAND in normalized_volume_job
+        and normalized_volume_job.index(diff_gate)
+        < normalized_volume_job.index(VOLUME_V2_RUNTIME_VALIDATE_COMMAND)
+    ):
+        errors.append("daily model PR Volume V2 exact4 diff gate must follow runtime validation")
+    for path in VOLUME_V2_RUNTIME_ARTIFACT_PATHS:
+        if volume_job.count(path) != 1:
             errors.append(
-                "Volume V2 artifact commit step must not receive unused EXPECTED_BASE_SHA"
+                "daily model PR Volume V2 exact4 diff path must appear exactly once "
+                f"in its job: path={path!r} count={volume_job.count(path)}"
             )
-        deploy_key_env = (
-            "PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY: "
-            "${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}"
-        )
-        deploy_key_checkout = (
-            "ssh-key: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}"
-        )
-        deploy_key_precheck = (
-            'if [ -z "${PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY}" ]; then'
-        )
-        if commit_job.count(deploy_key_env) != 1:
-            errors.append(
-                "Volume V2 normalization must bind the deploy key once for its non-empty precheck: "
-                f"count={commit_job.count(deploy_key_env)}"
-            )
-        if commit_job.count(deploy_key_checkout) != 1:
-            errors.append(
-                "Volume V2 normalization checkout must use the deploy key exactly once: "
-                f"count={commit_job.count(deploy_key_checkout)}"
-            )
-        if commit_job.count(deploy_key_precheck) != 1:
-            errors.append(
-                "Volume V2 normalization must perform exactly one deploy-key non-empty precheck: "
-                f"count={commit_job.count(deploy_key_precheck)}"
-            )
-        if (
-            deploy_key_precheck in commit_job
-            and "Checkout exact authorized Volume V2 code head" in commit_job
-            and commit_job.index(deploy_key_precheck)
-            > commit_job.index("Checkout exact authorized Volume V2 code head")
-        ):
-            errors.append("Volume V2 normalization deploy-key precheck must precede checkout")
-        if "persist-credentials: true" not in commit_job:
-            errors.append("Volume V2 normalization commit checkout must enable branch push credentials")
-        for forbidden_token in (
-            "permissions:\n      contents: write",
-            "GITHUB_TOKEN",
-            "github.token",
-            "token:",
-            "http.extraheader",
-            "x-access-token",
-        ):
-            if forbidden_token in commit_job:
-                errors.append(
-                    "Volume V2 normalization must not use a GitHub token fallback: "
-                    f"found={forbidden_token!r}"
-                )
-        for forbidden_main_binding in (
-            "remote_main_sha",
-            "refs/heads/main",
-            "latest-main",
-        ):
-            if forbidden_main_binding in volume_job or forbidden_main_binding in commit_job:
-                errors.append(
-                    "Volume V2 normalization must bind the code commit's direct parent, not remote main: "
-                    f"found={forbidden_main_binding!r}"
-                )
-        untracked_changed_literal = (
-            '["git", "--no-replace-objects", "ls-files", "--others", '
-            '"--exclude-standard"]'
-        )
-        if text.count(untracked_changed_literal) != 2:
-            errors.append(
-                "Volume V2 normalization must check untracked changed paths before upload and commit: "
-                f"count={text.count(untracked_changed_literal)}"
-            )
-        for path in VOLUME_V2_RUNTIME_MARKDOWN_PATHS:
-            exact_add = f"git --no-replace-objects add -- {path}"
-            if commit_job.count(exact_add) != 1:
-                errors.append(
-                    "Volume V2 normalization must stage each literal Markdown path exactly once: "
-                    f"path={path} count={commit_job.count(exact_add)}"
-                )
-        for forbidden in ("git add -A", "git add --all", "git add -u", "git push --force"):
-            if forbidden in commit_job:
-                errors.append(
-                    "Volume V2 normalization commit job contains a broad/force Git command: "
-                    f"{forbidden!r}"
-                )
-    if "contents: write" in text:
-        errors.append("daily model PR Volume V2 branch publishing must not rely on GITHUB_TOKEN write permission")
     return errors
 
 
@@ -1504,12 +1401,6 @@ def validate_authority_workflow_publishers() -> list[str]:
             if (
                 path == HISTORICAL_SOURCE_REPLAY_WORKFLOW
                 and command == HISTORICAL_REPLAY_FRESHNESS_STAGE_COMMAND
-            ):
-                continue
-            if (
-                path == DAILY_MODEL_MAINTENANCE_PR_WORKFLOW
-                and command
-                in VOLUME_V2_RUNTIME_MARKDOWN_CANDIDATE_ALLOWED_GIT_COMMANDS
             ):
                 continue
             if git_add_command_covers_authority(command):

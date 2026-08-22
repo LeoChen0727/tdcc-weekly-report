@@ -1317,26 +1317,15 @@ def test_apps_script_research_dispatch_registry_is_forward_compatible() -> None:
 def test_apps_script_research_dispatch_workflow_only_contract_is_fail_closed() -> None:
     validator = validate_apps_script_workflow_triggers
     workflow_only_input = "run_revenue_unreacted_range_forward_holdout_only"
-    identity_inputs = set(validator.RESEARCH_WORKFLOW_ONLY_IDENTITY_INPUTS)
     registry = {
         workflow_only_input: {
             "activation_mode": "workflow_only",
         },
-        **{
-            name: {"activation_mode": "workflow_only_identity"}
-            for name in identity_inputs
-        },
     }
     valid_kwargs = {
-        "workflow_input_names": {workflow_only_input, *identity_inputs},
-        "workflow_input_defaults": {
-            workflow_only_input: "false",
-            **dict.fromkeys(identity_inputs, ""),
-        },
-        "workflow_input_types": {
-            workflow_only_input: "boolean",
-            **dict.fromkeys(identity_inputs, "string"),
-        },
+        "workflow_input_names": {workflow_only_input},
+        "workflow_input_defaults": {workflow_only_input: "false"},
+        "workflow_input_types": {workflow_only_input: "boolean"},
         "apps_inputs": set(),
         "guarded_inputs": set(),
         "registry": registry,
@@ -1400,79 +1389,10 @@ def test_apps_script_research_dispatch_workflow_only_contract_is_fail_closed() -
                 workflow_only_input: {
                     "activation_mode": "unknown",
                 },
-                **{
-                    name: {"activation_mode": "workflow_only_identity"}
-                    for name in identity_inputs
-                },
             },
         },
     )
     assert any("unknown activation modes" in error for error in unknown_mode_errors)
-
-
-def test_apps_script_research_supersede_identity_inputs_are_exact_string_only() -> None:
-    validator = validate_apps_script_workflow_triggers
-    identity_inputs = set(validator.RESEARCH_WORKFLOW_ONLY_IDENTITY_INPUTS)
-    registry = {
-        name: {"activation_mode": "workflow_only_identity"}
-        for name in identity_inputs
-    }
-    valid_kwargs = {
-        "workflow_input_names": identity_inputs,
-        "workflow_input_defaults": {name: "" for name in identity_inputs},
-        "workflow_input_types": {name: "string" for name in identity_inputs},
-        "apps_inputs": set(),
-        "guarded_inputs": set(),
-        "registry": registry,
-    }
-
-    errors: list[str] = []
-    validator.validate_research_dispatch_contract(errors, **valid_kwargs)
-    assert errors == []
-
-    for key, mutation, expected in (
-        (
-            "workflow_input_defaults",
-            {name: "false" for name in identity_inputs},
-            "must default to an empty string",
-        ),
-        (
-            "workflow_input_types",
-            {name: "boolean" for name in identity_inputs},
-            "must use type string",
-        ),
-        ("apps_inputs", identity_inputs, "must not appear in Apps Script"),
-        ("guarded_inputs", identity_inputs, "must not be guarded by Apps Script"),
-    ):
-        mutated_errors: list[str] = []
-        validator.validate_research_dispatch_contract(
-            mutated_errors,
-            **{**valid_kwargs, key: mutation},
-        )
-        assert any(expected in error for error in mutated_errors)
-
-    widened_registry = {
-        **registry,
-        "unexpected_identity": {"activation_mode": "workflow_only_identity"},
-    }
-    widened_errors: list[str] = []
-    validator.validate_research_dispatch_contract(
-        widened_errors,
-        **{
-            **valid_kwargs,
-            "workflow_input_names": {*identity_inputs, "unexpected_identity"},
-            "workflow_input_defaults": {
-                **valid_kwargs["workflow_input_defaults"],
-                "unexpected_identity": "",
-            },
-            "workflow_input_types": {
-                **valid_kwargs["workflow_input_types"],
-                "unexpected_identity": "string",
-            },
-            "registry": widened_registry,
-        },
-    )
-    assert any("must equal the exact revenue supersede identity inputs" in error for error in widened_errors)
 
 
 def test_apps_script_daily_trigger_skips_weekends_and_disables_raw_health_check() -> None:
@@ -3630,26 +3550,31 @@ def test_daily_model_volume_v2_runtime_markdown_contract_is_exact_and_fail_close
     assert text.index(boundaries.VOLUME_V2_RUNTIME_BUILD_COMMAND) < text.index(
         boundaries.VOLUME_V2_RUNTIME_VALIDATE_COMMAND
     )
-    assert boundaries.VOLUME_V2_RUNTIME_MARKDOWN_CANDIDATE_ALLOWED_GIT_COMMANDS == {
-        "git --no-replace-objects add -- output/latest/volume_v2_warrant_lineage_history_audit_latest.md",
-        "git --no-replace-objects add -- docs/latest/volume_v2_warrant_lineage_history_audit_latest.md",
-        'git --no-replace-objects commit -m "Normalize Volume V2 runtime audit Markdown"',
-        'git --no-replace-objects push origin "HEAD:refs/heads/$GITHUB_REF_NAME"',
-    }
-    assert text.count(
-        "ssh-key: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}"
-    ) == 1
-    assert text.count(
-        'if [ -z "${PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY}" ]; then'
-    ) == 1
-    assert "contents: write" not in text
     volume_job = boundaries.workflow_job_block(text, "volume_v2_research")
-    commit_job = boundaries.workflow_job_block(
-        text, "volume_v2_runtime_markdown_normalization_candidate_commit"
+    assert all(
+        volume_job.count(path) == 1
+        for path in boundaries.VOLUME_V2_RUNTIME_ARTIFACT_PATHS
     )
-    for forbidden_main_binding in ("remote_main_sha", "refs/heads/main", "latest-main"):
-        assert forbidden_main_binding not in volume_job
-        assert forbidden_main_binding not in commit_job
+    assert all(
+        token not in text
+        for token in boundaries.VOLUME_V2_RETIRED_NORMALIZATION_TOKENS
+    )
+
+
+@pytest.mark.parametrize(
+    "retired_token",
+    boundaries.VOLUME_V2_RETIRED_NORMALIZATION_TOKENS,
+)
+def test_daily_model_volume_v2_runtime_contract_rejects_retired_normalization_tokens(
+    retired_token: str,
+) -> None:
+    text = boundaries.DAILY_MODEL_MAINTENANCE_PR_WORKFLOW.read_text(encoding="utf-8")
+
+    errors = boundaries.validate_daily_model_volume_v2_runtime_markdown_contract(
+        f"{text}\n# {retired_token}\n"
+    )
+
+    assert any("retired Volume V2 normalization token/job" in error for error in errors)
 
 
 @pytest.mark.parametrize(
@@ -3688,54 +3613,9 @@ def test_daily_model_volume_v2_runtime_markdown_contract_is_exact_and_fail_close
             "must follow",
         ),
         (
-            "normalize_volume_v2_runtime_markdown_candidate",
-            "weakened_confirmation",
-            "confirmation literal",
-        ),
-        (
-            "git --no-replace-objects add -- output/latest/volume_v2_warrant_lineage_history_audit_latest.md",
-            "git add -A",
-            "literal Markdown path",
-        ),
-        (
-            "Volume V2 committed-path mismatch",
-            "weakened committed-path check",
-            "committed scope",
-        ),
-        (
-            '["git", "--no-replace-objects", "ls-files", "--others", "--exclude-standard"]',
-            '["git", "--no-replace-objects", "diff", "--name-only"]',
-            "untracked changed paths",
-        ),
-        (
-            "persist-credentials: true",
-            "persist-credentials: false",
-            "push credentials",
-        ),
-        (
-            'if [ -z "${PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY}" ]; then',
-            "if false; then",
-            "deploy key is empty",
-        ),
-        (
-            "ssh-key: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}",
-            "token: ${{ github.token }}",
-            "repository deploy key",
-        ),
-        (
-            "permissions:\n  contents: read",
-            "permissions:\n  contents: write",
-            "GITHUB_TOKEN write permission",
-        ),
-        (
-            'remote_branch_sha="$(git --no-replace-objects ls-remote origin "refs/heads/$GITHUB_REF_NAME" | awk \'{print $1}\')"',
-            'remote_branch_sha="$(git --no-replace-objects ls-remote origin "refs/heads/$GITHUB_REF_NAME" | awk \'{print $1}\')"\n          remote_main_sha="$(git --no-replace-objects ls-remote origin refs/heads/main | awk \'{print $1}\')"',
-            "not remote main",
-        ),
-        (
-            '"$GITHUB_RUN_ATTEMPT" != "1"',
-            '"$GITHUB_RUN_ATTEMPT" = ""',
-            "run_attempt=1",
+            "            docs/latest/volume_v2_warrant_lineage_history_audit_latest.csv \\\n",
+            "",
+            "exact4 artifact diff gate",
         ),
     ),
 )
@@ -3752,21 +3632,6 @@ def test_daily_model_volume_v2_runtime_markdown_contract_rejects_mutations(
     )
 
     assert any(expected in error for error in errors), errors
-
-
-def test_daily_model_volume_v2_artifact_step_rejects_unused_base_env() -> None:
-    text = boundaries.DAILY_MODEL_MAINTENANCE_PR_WORKFLOW.read_text(encoding="utf-8")
-    marker = "      - name: Commit and push exact Volume V2 Markdown normalization candidate\n"
-    assert marker in text
-
-    injected = text.replace(
-        marker,
-        marker + "        env:\n          EXPECTED_BASE_SHA: injected\n",
-        1,
-    )
-    errors = boundaries.validate_daily_model_volume_v2_runtime_markdown_contract(injected)
-
-    assert any("must not receive unused EXPECTED_BASE_SHA" in error for error in errors), errors
 
 
 def test_daily_full_preflight_artifact_is_bound_to_exact_source_sha() -> None:

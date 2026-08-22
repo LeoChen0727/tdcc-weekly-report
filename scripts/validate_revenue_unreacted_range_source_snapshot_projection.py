@@ -2467,6 +2467,8 @@ def validate(
     price_dir: Path = PRICE_HISTORY_DIR,
     monthly_resolution_path: Path = MONTHLY_RESOLUTION_CSV,
     price_resolution_path: Path = PRICE_RESOLUTION_CSV,
+    *,
+    migration_closure: bool = False,
 ) -> list[str]:
     projection_paths = (manifest_path, projected_detail_path)
     missing = [str(path) for path in projection_paths if not Path(path).is_file()]
@@ -2488,7 +2490,11 @@ def validate(
         if len(manifest) == 1
         else ""
     )
-    if canonical_paths and canonical_projection_version == V2_ARTIFACT_VERSION:
+    if (
+        migration_closure
+        and canonical_paths
+        and canonical_projection_version == V2_ARTIFACT_VERSION
+    ):
         errors = _validate_versioned_v2_closure(
             revenue_path=Path(revenue_path),
             price_dir=Path(price_dir),
@@ -2509,7 +2515,7 @@ def validate(
             )
         )
         return errors
-    versioned_closure_started = any(
+    versioned_closure_started = migration_closure and any(
         path.exists() or path.is_symlink()
         for path in (
             V1_ARCHIVE_MANIFEST_CSV,
@@ -2580,7 +2586,17 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--candidate-v2",
         action="store_true",
-        help="Validate the exact versioned v2 candidate instead of canonical v1.",
+        help="Validate the exact versioned v2 candidate instead of canonical latest.",
+    )
+    parser.add_argument(
+        "--migration-closure",
+        action="store_true",
+        help=(
+            "Additionally validate the historical immutable-v1, versioned-v2, "
+            "v1-to-v2 diff, supersede evidence, and append-only history closure. "
+            "Ordinary canonical validation intentionally does not require this "
+            "one-time migration evidence."
+        ),
     )
     return parser.parse_args()
 
@@ -2600,6 +2616,7 @@ def main() -> int:
         price_dir=args.price_dir,
         monthly_resolution_path=args.monthly_resolution,
         price_resolution_path=args.price_resolution,
+        migration_closure=args.migration_closure,
     )
     if errors:
         for error in errors:

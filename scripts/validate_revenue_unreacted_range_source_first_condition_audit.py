@@ -7,6 +7,9 @@ import pandas as pd
 
 from revenue_unreacted_range_monthly_revenue_cross_market_resolution import (
     canonical_monthly_revenue_history_table_sha256,
+    cross_market_resolution_registry_canonical_sha256,
+    load_cross_market_resolutions,
+    monthly_revenue_history_blob_sha256,
     resolve_monthly_revenue_cross_market_mirrors,
 )
 
@@ -32,36 +35,6 @@ SOURCE_SNAPSHOT_PROJECTION_MANIFEST_CSV = (
     ROOT
     / "output/latest/research_backtest/"
     "revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv"
-)
-V1_ARCHIVE_MANIFEST_CSV = ROOT / (
-    "output/history/research/"
-    "revenue_unreacted_range_source_snapshot_projection_manifest_v1_20260731.csv"
-)
-V1_ARCHIVE_DETAIL_CSV = ROOT / (
-    "output/history/research/"
-    "revenue_unreacted_range_source_snapshot_projection_detail_v1_20260731.csv"
-)
-V1_ARCHIVE_EVIDENCE_CSV = ROOT / (
-    "output/history/research/"
-    "revenue_unreacted_range_source_snapshot_projection_archive_evidence_v1_20260731.csv"
-)
-V2_MANIFEST_CSV = ROOT / (
-    "output/history/research/"
-    "revenue_unreacted_range_source_snapshot_projection_manifest_v2_20260822.csv"
-)
-V2_PROJECTED_DETAIL_CSV = ROOT / (
-    "output/history/research/"
-    "revenue_unreacted_range_source_snapshot_projection_detail_v2_20260822.csv"
-)
-V1_V2_DIFF_SUMMARY_CSV = ROOT / (
-    "output/history/research/"
-    "revenue_unreacted_range_source_snapshot_projection_"
-    "v1_20260731_to_v2_20260822_diff_summary.csv"
-)
-V1_V2_DIFF_DETAIL_CSV = ROOT / (
-    "output/history/research/"
-    "revenue_unreacted_range_source_snapshot_projection_"
-    "v1_20260731_to_v2_20260822_diff_detail.csv"
 )
 SOURCE_SNAPSHOT_PROJECTION_ID = (
     "revenue_unreacted_range_source_snapshot_asof_20260713"
@@ -136,41 +109,53 @@ def _is_sha256(value: object) -> bool:
     )
 
 
-def _versioned_source_projection_exact7_paths() -> tuple[Path, ...]:
-    return (
-        V1_ARCHIVE_MANIFEST_CSV,
-        V1_ARCHIVE_DETAIL_CSV,
-        V1_ARCHIVE_EVIDENCE_CSV,
-        V2_MANIFEST_CSV,
-        V2_PROJECTED_DETAIL_CSV,
-        V1_V2_DIFF_SUMMARY_CSV,
-        V1_V2_DIFF_DETAIL_CSV,
-    )
+def _canonical_projection_version() -> tuple[str | None, list[str]]:
+    path = SOURCE_SNAPSHOT_PROJECTION_MANIFEST_CSV
+    if path.is_symlink():
+        return None, [
+            "canonical source projection manifest is unsafe: "
+            f"{path} (symlink_not_allowed)"
+        ]
+    if path.is_dir():
+        return None, [
+            "canonical source projection manifest is unsafe: "
+            f"{path} (directory_not_allowed)"
+        ]
+    if not path.is_file():
+        return None, [f"canonical source projection manifest is missing: {path}"]
+    try:
+        manifest = pd.read_csv(path, keep_default_na=False, low_memory=False)
+    except (OSError, UnicodeError, pd.errors.ParserError) as exc:
+        return None, [
+            "canonical source projection manifest cannot be parsed: "
+            f"{path}: {exc}"
+        ]
+    if "projection_version" not in manifest.columns:
+        return None, [
+            "canonical source projection manifest schema is incomplete: "
+            "missing projection_version"
+        ]
+    if len(manifest) != 1:
+        return None, [
+            "canonical source projection manifest must contain exactly one row"
+        ]
+    projection_version = str(manifest.iloc[0]["projection_version"]).strip()
+    if projection_version not in (
+        SOURCE_SNAPSHOT_V1_VERSION,
+        SOURCE_SNAPSHOT_V2_VERSION,
+    ):
+        return None, [
+            "canonical source projection manifest has unsupported projection_version: "
+            f"{projection_version or '<empty>'}"
+        ]
+    return projection_version, []
 
 
 def _resolve_default_projection_manifest_path() -> tuple[Path | None, list[str]]:
-    exact7 = _versioned_source_projection_exact7_paths()
-    closure_started = any(path.exists() or path.is_symlink() for path in exact7)
-    if not closure_started:
-        return SOURCE_SNAPSHOT_PROJECTION_MANIFEST_CSV, []
-
-    errors: list[str] = []
-    for path in exact7:
-        if path.is_symlink():
-            state = "symlink_not_allowed"
-        elif path.is_dir():
-            state = "directory_not_allowed"
-        elif not path.is_file():
-            state = "missing_or_non_file"
-        else:
-            continue
-        errors.append(
-            "versioned source projection exact7 closure is incomplete or unsafe: "
-            f"{path} ({state})"
-        )
-    if errors:
-        return None, errors
-    return V2_MANIFEST_CSV, []
+    _projection_version, canonical_errors = _canonical_projection_version()
+    if canonical_errors:
+        return None, canonical_errors
+    return SOURCE_SNAPSHOT_PROJECTION_MANIFEST_CSV, []
 
 
 def _pinned_monthly_revenue_lineage(
@@ -300,7 +285,12 @@ def _pinned_monthly_revenue_lineage(
 def _current_monthly_revenue_lineage(
     revenue_path: Path,
     resolution_path: Path,
-) -> tuple[int, str, dict[tuple[str, str], dict[str, str]]]:
+) -> tuple[
+    int,
+    str,
+    dict[tuple[str, str], dict[str, str]],
+    dict[str, str],
+]:
     if not revenue_path.is_file():
         raise RuntimeError(f"missing monthly revenue history: {revenue_path}")
     raw = pd.read_csv(
@@ -338,10 +328,24 @@ def _current_monthly_revenue_lineage(
                 row.canonical_source_table_date, 8
             ),
         }
+    current_full_lineage = {
+        "monthly_revenue_history_blob_sha256": monthly_revenue_history_blob_sha256(
+            revenue_path
+        ),
+        "monthly_revenue_canonical_table_sha256": (
+            canonical_monthly_revenue_history_table_sha256(canonical)
+        ),
+        "cross_market_resolution_registry_canonical_sha256": (
+            cross_market_resolution_registry_canonical_sha256(
+                load_cross_market_resolutions(resolution_path)
+            )
+        ),
+    }
     return (
         len(cutoff_canonical),
         canonical_monthly_revenue_history_table_sha256(cutoff_canonical),
         by_key,
+        current_full_lineage,
     )
 
 
@@ -374,7 +378,7 @@ def validate(
 
     try:
         (
-            expected_run_lineage,
+            _manifest_capture_lineage,
             expected_cutoff_row_count,
             expected_cutoff_semantic_sha,
         ) = _pinned_monthly_revenue_lineage(projection_manifest_path)
@@ -382,6 +386,7 @@ def validate(
             current_cutoff_row_count,
             current_cutoff_semantic_sha,
             current_source_lineage,
+            current_full_lineage,
         ) = _current_monthly_revenue_lineage(
             revenue_path,
             resolution_path,
@@ -433,10 +438,10 @@ def validate(
             errors.append(f"source-first revenue condition {name} must not change production")
         if set(frame["financial_statement_scope"].astype(str)) != {FINANCIAL_STATEMENT_SCOPE}:
             errors.append(f"source-first revenue condition {name} financial scope drift")
-        for column, expected in expected_run_lineage.items():
+        for column, expected in current_full_lineage.items():
             if set(frame[column].astype(str).str.strip().str.lower()) != {expected}:
                 errors.append(
-                    f"source-first revenue condition {name} immutable capture lineage drift: {column}"
+                    f"source-first revenue condition {name} current full monthly revenue lineage drift: {column}"
                 )
 
     detail_variants = set(detail["condition_variant_id"].astype(str))

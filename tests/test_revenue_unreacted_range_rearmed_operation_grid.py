@@ -61,6 +61,90 @@ def test_rearmed_artifact_version_is_projection_bound() -> None:
         grid_validator._expected_artifact_version("unknown")
 
 
+def test_rearmed_trusted_v1_replay_requires_explicit_opt_in(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    manifest = pd.DataFrame({"projection_version": [V1_PROJECTION_VERSION]})
+    replay = (manifest, pd.DataFrame({"stock_id": ["1111"]}), pd.DataFrame())
+    trusted_calls = 0
+
+    def trusted_source_frames():
+        nonlocal trusted_calls
+        trusted_calls += 1
+        return replay
+
+    monkeypatch.setattr(
+        grid_validator,
+        "load_source_snapshot_projection_manifest",
+        lambda _path: manifest,
+    )
+    monkeypatch.setattr(grid_validator, "_trusted_source_frames", trusted_source_frames)
+
+    with pytest.raises(RuntimeError, match="requires explicit --historical-v1-source-audit"):
+        grid_validator._canonical_source_frames()
+    assert trusted_calls == 0
+    assert grid_validator._canonical_source_frames(
+        historical_v1_source_audit=True
+    ) is replay
+    assert trusted_calls == 1
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        ["validator", "--historical-v1-source-audit"],
+    )
+    assert grid_validator.parse_args().historical_v1_source_audit is True
+
+
+def test_rearmed_canonical_v2_uses_current_sources_without_trusted_replay(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    manifest = pd.DataFrame(
+        {
+            "projection_version": [V2_PROJECTION_VERSION],
+            "cutoff_price_input_stock_count": [1],
+            "cutoff_price_input_row_count": [0],
+            "cutoff_price_input_file_semantic_sha256s": [f"1111:0:{'a' * 64}"],
+        }
+    )
+    source = pd.DataFrame({"stock_id": ["1111"]})
+    resolution_path = tmp_path / "price_resolution.csv"
+    pd.DataFrame({"stock_id": ["1111"]}).to_csv(resolution_path, index=False)
+
+    monkeypatch.setattr(
+        grid_validator,
+        "load_source_snapshot_projection_manifest",
+        lambda _path: manifest,
+    )
+    monkeypatch.setattr(
+        grid_validator, "load_projected_source_detail", lambda _path: source
+    )
+    monkeypatch.setattr(
+        grid_validator, "validate_projection_binding", lambda *_args: None
+    )
+    monkeypatch.setattr(grid_validator, "PRICE_RESOLUTION_CSV", resolution_path)
+    monkeypatch.setattr(
+        grid_validator,
+        "_trusted_source_frames",
+        lambda: pytest.fail("canonical v2 must not replay trusted v1 sources"),
+    )
+    monkeypatch.setattr(
+        grid_validator,
+        "_trusted_price_frames",
+        lambda *_args: pytest.fail("canonical v2 must not replay trusted v1 prices"),
+    )
+
+    observed_manifest, observed_source, resolutions = (
+        grid_validator._canonical_source_frames()
+    )
+    assert observed_manifest is manifest
+    assert observed_source is source
+    assert resolutions["stock_id"].tolist() == ["1111"]
+    assert grid_validator._current_price_frames(set(), manifest) == {}
+    with pytest.raises(RuntimeError, match="requires the default ROOT canonical v1"):
+        grid_validator._canonical_source_frames(historical_v1_source_audit=True)
+
+
 def _stock_frame(
     stock_id: str,
     *,

@@ -867,7 +867,7 @@ def test_trusted_pipe_dates_reject_empty_token() -> None:
         )
 
 
-def test_default_source_replay_uses_only_trusted_raw_blobs(
+def test_historical_v1_source_replay_uses_only_trusted_raw_blobs(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     source = pd.DataFrame(
@@ -926,11 +926,88 @@ def test_default_source_replay_uses_only_trusted_raw_blobs(
     )
 
     _manifest, observed_source, observed_rearmed = validator._read_sources(
-        validator.ROOT
+        validator.ROOT,
+        historical_v1_source_audit=True,
     )
 
     assert observed_source["stock_id"].tolist() == ["1111"]
     assert observed_rearmed["stock_id"].tolist() == ["1111", "2222"]
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        ["validator", "--historical-v1-source-audit"],
+    )
+    assert validator.parse_args().historical_v1_source_audit is True
+
+
+def test_default_v1_source_replay_fails_before_any_trusted_git_call(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    def fail(*_args: object, **_kwargs: object) -> None:
+        raise AssertionError("ordinary canonical v1 validation must not read Git history")
+
+    monkeypatch.setattr(validator, "_trusted_revision_preflight", fail)
+    monkeypatch.setattr(validator, "_trusted_blobs", fail)
+
+    with pytest.raises(
+        RuntimeError,
+        match="requires explicit --historical-v1-source-audit",
+    ):
+        validator._read_sources(
+            validator.ROOT,
+            projection_version=validator.V1_PROJECTION_VERSION,
+        )
+
+
+def test_default_v2_source_replay_never_calls_trusted_git_helpers(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    for name in ("projection_manifest", "source_first", "rearmed"):
+        path = tmp_path / validator.SOURCE_RELATIVE_PATHS[name]
+        path.parent.mkdir(parents=True, exist_ok=True)
+        pd.DataFrame({"stock_id": ["1111"]}).to_csv(path, index=False)
+        monkeypatch.setitem(validator.SOURCE_RELATIVE_PATHS, name, str(path))
+
+    def fail(*_args: object, **_kwargs: object) -> None:
+        raise AssertionError("ordinary canonical v2 validation must not read Git history")
+
+    monkeypatch.setattr(validator, "_trusted_revision_preflight", fail)
+    monkeypatch.setattr(validator, "_trusted_blobs", fail)
+
+    _manifest, observed_source, observed_rearmed = validator._read_sources(
+        validator.ROOT,
+        projection_version=validator.V2_PROJECTION_VERSION,
+    )
+
+    assert observed_source["stock_id"].tolist() == ["1111"]
+    assert observed_rearmed["stock_id"].tolist() == ["1111"]
+
+
+def test_historical_v1_source_audit_rejects_nondefault_or_v2_sources(
+    tmp_path: Path,
+) -> None:
+    with pytest.raises(RuntimeError, match="default ROOT canonical v1"):
+        validator._read_sources(
+            tmp_path,
+            projection_version=validator.V1_PROJECTION_VERSION,
+            historical_v1_source_audit=True,
+        )
+    with pytest.raises(RuntimeError, match="default ROOT canonical v1"):
+        validator._read_sources(
+            validator.ROOT,
+            projection_version=validator.V2_PROJECTION_VERSION,
+            historical_v1_source_audit=True,
+        )
+
+    assert validator.validate(
+        artifact_root=tmp_path,
+        source_root=tmp_path,
+        historical_v1_source_audit=True,
+    ) == [
+        "--historical-v1-source-audit requires the default ROOT artifact and "
+        "source roots"
+    ]
 
 
 def test_trusted_price_replay_ignores_current_calendar_drift(

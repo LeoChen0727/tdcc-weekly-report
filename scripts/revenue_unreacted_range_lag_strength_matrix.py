@@ -331,14 +331,119 @@ def _source_episodes(source: pd.DataFrame) -> pd.DataFrame:
     return episodes.sort_values(["stock_id", "signal_date"], kind="mergesort").reset_index(drop=True)
 
 
+_FIXED_SOURCE_SEMANTIC_STRING_COLUMNS = (
+    "research_artifact_id",
+    "artifact_version",
+    "episode_key",
+    "stock_id",
+    "stock_name",
+    "source_monthly_revenue_period",
+    "source_monthly_revenue_source_table_date",
+    "signal_date",
+    "confirmation_date",
+    "entry_date",
+    "exit_date",
+    "feature_time_basis",
+)
+_FIXED_SOURCE_FILTER_BOOLEAN_COLUMNS = (
+    "decision_basis",
+    "sensitivity_basis",
+)
+_FIXED_SOURCE_SEMANTIC_NUMERIC_COLUMNS = (
+    "full_monthly_revenue_latest_yoy_pct",
+    "full_monthly_revenue_cumulative_yoy_pct",
+    "full_monthly_revenue_prev1_latest_yoy_pct",
+    "full_monthly_revenue_prev2_latest_yoy_pct",
+    "full_monthly_revenue_prev3_latest_yoy_pct",
+    "full_monthly_revenue_latest_yoy_delta_1m_pct_points",
+)
+
+
+def _fixed_source_semantic_text(value: object) -> str:
+    return "" if pd.isna(value) else str(value).replace("\ufeff", "").strip()
+
+
+def _fixed_source_semantic_number(value: object) -> str:
+    number = _stable_float(value)
+    return "" if pd.isna(number) else format(number, ".15g")
+
+
+def _fixed_source_realized_semantics(value: object) -> tuple[str, str, str]:
+    realized = float(pd.to_numeric(value, errors="coerce"))
+    rounded = "" if pd.isna(realized) else format(round(realized, 4), ".15g")
+    outcome = (
+        "win"
+        if realized >= WIN_RETURN_PCT
+        else "neutral"
+        if realized >= 0
+        else "failure"
+    )
+    anomaly = (
+        "true"
+        if abs(realized) >= ANOMALY_CANDIDATE_ABS_RETURN_PCT
+        else "false"
+    )
+    return rounded, outcome, anomaly
+
+
 def canonical_fixed_source_slice_sha256(source: pd.DataFrame) -> str:
-    columns = sorted(column for column in source.columns if column != "generated_at")
-    rows = [
-        ["" if pd.isna(value) else str(value) for value in row]
-        for row in source.loc[:, columns].itertuples(index=False, name=None)
-    ]
+    required = {
+        *_FIXED_SOURCE_SEMANTIC_STRING_COLUMNS,
+        *_FIXED_SOURCE_FILTER_BOOLEAN_COLUMNS,
+        *_FIXED_SOURCE_SEMANTIC_NUMERIC_COLUMNS,
+        "realized_return_pct",
+        "source_revenue_or_price_anomaly_candidate_flag",
+    } - {"stock_name"}
+    missing = sorted(required - set(source.columns))
+    if missing:
+        raise RuntimeError(
+            f"lag strength semantic source is missing consumed columns: {missing}"
+        )
+    string_columns = tuple(
+        column
+        for column in _FIXED_SOURCE_SEMANTIC_STRING_COLUMNS
+        if column in source.columns
+    )
+    columns = (
+        *string_columns,
+        *_FIXED_SOURCE_FILTER_BOOLEAN_COLUMNS,
+        "source_revenue_or_price_anomaly_candidate_flag",
+        *_FIXED_SOURCE_SEMANTIC_NUMERIC_COLUMNS,
+        "realized_return_pct_rounded4",
+        "realized_outcome_label",
+        "realized_abs_ge80_anomaly_candidate_flag",
+    )
+    canonical = source.loc[:, list(string_columns)].copy()
+    for column in string_columns:
+        canonical[column] = canonical[column].map(_fixed_source_semantic_text)
+    for column in _FIXED_SOURCE_FILTER_BOOLEAN_COLUMNS:
+        canonical[column] = _boolish(source[column]).map(
+            lambda value: "true" if value else "false"
+        )
+    canonical["source_revenue_or_price_anomaly_candidate_flag"] = source[
+        "source_revenue_or_price_anomaly_candidate_flag"
+    ].map(lambda value: "true" if str(value).lower() == "true" else "false")
+    for column in _FIXED_SOURCE_SEMANTIC_NUMERIC_COLUMNS:
+        canonical[column] = source[column].map(_fixed_source_semantic_number)
+    realized_semantics = source["realized_return_pct"].map(
+        _fixed_source_realized_semantics
+    )
+    canonical["realized_return_pct_rounded4"] = realized_semantics.map(
+        lambda values: values[0]
+    )
+    canonical["realized_outcome_label"] = realized_semantics.map(
+        lambda values: values[1]
+    )
+    canonical["realized_abs_ge80_anomaly_candidate_flag"] = realized_semantics.map(
+        lambda values: values[2]
+    )
+    canonical = canonical.loc[:, list(columns)]
     payload = json.dumps(
-        ["revenue_lag_fixed_source_cutoff_slice_v1", columns, rows],
+        [
+            "revenue_lag_fixed_source_consumed_slice_v2",
+            list(columns),
+            canonical.values.tolist(),
+        ],
         ensure_ascii=False,
         separators=(",", ":"),
     ).encode("utf-8")

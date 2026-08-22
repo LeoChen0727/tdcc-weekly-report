@@ -1,6 +1,6 @@
 # 營收改善尚未反應模型：前向確認與特徵稽核
 
-- generated_at: `2026-08-23 01:31:53 Asia/Taipei`
+- generated_at: `2026-08-23 07:25:19 Asia/Taipei`
 - model_id: `revenue_unreacted_range`
 - artifact_version: `forward_confirmation_v3_20260822`
 - 狀態：`research_only`，不可直接升格或進入 PDF 操作列。

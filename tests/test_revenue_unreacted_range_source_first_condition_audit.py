@@ -23,16 +23,61 @@ from validate_revenue_unreacted_range_source_first_condition_audit import valida
 import validate_revenue_unreacted_range_source_first_condition_audit as validator  # noqa: E402
 
 
-@pytest.fixture(scope="module")
-def current_monthly_revenue_lineage() -> tuple[
+MonthlyRevenueLineage = tuple[
     int,
     str,
     dict[tuple[str, str], dict[str, str]],
-]:
+    dict[str, str],
+]
+
+
+@pytest.fixture(scope="module")
+def current_monthly_revenue_lineage() -> MonthlyRevenueLineage:
     return validator._current_monthly_revenue_lineage(
         validator.REVENUE_HISTORY_CSV,
         validator.MONTHLY_REVENUE_CROSS_MARKET_RESOLUTION_CSV,
     )
+
+
+def _bind_outputs_to_current_full_lineage(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    lineage: dict[str, str],
+) -> tuple[pd.DataFrame, pd.DataFrame]:
+    summary_path = tmp_path / "summary.csv"
+    detail_path = tmp_path / "detail.csv"
+    markdown_path = tmp_path / "summary.md"
+    summary = pd.read_csv(LATEST_CSV, keep_default_na=False, low_memory=False)
+    detail = pd.read_csv(
+        DETAIL_CSV,
+        dtype={"stock_id": str},
+        keep_default_na=False,
+        low_memory=False,
+    )
+    for column, value in lineage.items():
+        summary.loc[:, column] = value
+        detail.loc[:, column] = value
+    summary.to_csv(summary_path, index=False)
+    detail.to_csv(detail_path, index=False)
+    markdown_path.write_bytes(validator.LATEST_MD.read_bytes())
+    monkeypatch.setattr(validator, "LATEST_CSV", summary_path)
+    monkeypatch.setattr(validator, "DETAIL_CSV", detail_path)
+    monkeypatch.setattr(validator, "LATEST_MD", markdown_path)
+    return summary, detail
+
+
+def _lineage_distinct_from(captured: dict[str, str]) -> dict[str, str]:
+    current = {
+        column: character * 64
+        for column, character in zip(
+            validator.RUN_LINEAGE_COLUMNS,
+            ("a", "b", "c"),
+        )
+    }
+    for column in validator.RUN_LINEAGE_COLUMNS:
+        if current[column] == captured[column]:
+            current[column] = "d" * 64
+    return current
 
 
 def test_source_first_condition_audit_passes() -> None:
@@ -141,21 +186,22 @@ def test_source_first_condition_preserves_aligned_qualifying_revenue_lineage() -
         assert trade_dates[-1] == str(row.latest_qualifying_trade_date)
 
 
-def test_source_first_condition_emits_current_run_level_monthly_revenue_hashes() -> None:
+def test_source_first_condition_emits_current_run_level_monthly_revenue_hashes(
+    current_monthly_revenue_lineage: MonthlyRevenueLineage,
+) -> None:
     summary = pd.read_csv(LATEST_CSV, keep_default_na=False, low_memory=False)
     detail = pd.read_csv(DETAIL_CSV, keep_default_na=False, low_memory=False)
+    current_full_lineage = current_monthly_revenue_lineage[3]
     for frame in (summary, detail):
-        for column in (
-            "monthly_revenue_history_blob_sha256",
-            "monthly_revenue_canonical_table_sha256",
-            "cross_market_resolution_registry_canonical_sha256",
-        ):
+        for column, expected in current_full_lineage.items():
             assert frame[column].astype(str).str.fullmatch(r"[0-9a-f]{64}").all()
-            assert frame[column].nunique() == 1
+            assert set(frame[column].astype(str)) == {expected}
 
 
 def test_source_first_validator_allows_current_blob_rewrite_when_canonical_rows_unchanged(
     tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    current_monthly_revenue_lineage: MonthlyRevenueLineage,
 ) -> None:
     revenue_path = tmp_path / "monthly_revenue_history.csv"
     original = validator.REVENUE_HISTORY_CSV.read_bytes()
@@ -166,11 +212,25 @@ def test_source_first_validator_allows_current_blob_rewrite_when_canonical_rows_
     revenue_path.write_bytes(rewritten)
 
     assert revenue_path.read_bytes() != original
+    current = validator._current_monthly_revenue_lineage(
+        revenue_path,
+        validator.MONTHLY_REVENUE_CROSS_MARKET_RESOLUTION_CSV,
+    )
+    assert current[:2] == current_monthly_revenue_lineage[:2]
+    assert current[3]["monthly_revenue_history_blob_sha256"] != (
+        current_monthly_revenue_lineage[3]["monthly_revenue_history_blob_sha256"]
+    )
+    assert current[3]["monthly_revenue_canonical_table_sha256"] == (
+        current_monthly_revenue_lineage[3]["monthly_revenue_canonical_table_sha256"]
+    )
+    _bind_outputs_to_current_full_lineage(tmp_path, monkeypatch, current[3])
     assert validator.validate(revenue_path=revenue_path) == []
 
 
 def test_source_first_validator_allows_post_cutoff_revenue_append(
     tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    current_monthly_revenue_lineage: MonthlyRevenueLineage,
 ) -> None:
     revenue_path = tmp_path / "monthly_revenue_history.csv"
     revenue_path.write_bytes(validator.REVENUE_HISTORY_CSV.read_bytes())
@@ -185,35 +245,106 @@ def test_source_first_validator_allows_post_cutoff_revenue_append(
     future.loc[0, "source_table_date"] = "20260714"
     future.to_csv(revenue_path, mode="a", header=False, index=False)
 
+    current = validator._current_monthly_revenue_lineage(
+        revenue_path,
+        validator.MONTHLY_REVENUE_CROSS_MARKET_RESOLUTION_CSV,
+    )
+    assert current[:2] == current_monthly_revenue_lineage[:2]
+    assert current[3]["monthly_revenue_history_blob_sha256"] != (
+        current_monthly_revenue_lineage[3]["monthly_revenue_history_blob_sha256"]
+    )
+    assert current[3]["monthly_revenue_canonical_table_sha256"] != (
+        current_monthly_revenue_lineage[3]["monthly_revenue_canonical_table_sha256"]
+    )
+    summary, detail = _bind_outputs_to_current_full_lineage(
+        tmp_path,
+        monkeypatch,
+        current[3],
+    )
     assert validator.validate(revenue_path=revenue_path) == []
+    for frame in (summary, detail):
+        for column, expected in current[3].items():
+            assert set(frame[column].astype(str)) == {expected}
 
 
-def test_source_first_validator_rejects_projection_capture_lineage_mismatch(
+def test_source_first_validator_does_not_bind_current_outputs_to_manifest_full_lineage(
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
-    current_monthly_revenue_lineage: tuple[
-        int,
-        str,
-        dict[tuple[str, str], dict[str, str]],
-    ],
+    current_monthly_revenue_lineage: MonthlyRevenueLineage,
 ) -> None:
     manifest_path = tmp_path / "projection_manifest.csv"
     manifest = pd.read_csv(
         validator.SOURCE_SNAPSHOT_PROJECTION_MANIFEST_CSV,
+        dtype=str,
         keep_default_na=False,
         low_memory=False,
     )
-    manifest.loc[0, "monthly_revenue_history_blob_sha256"] = "f" * 64
     manifest.to_csv(manifest_path, index=False)
+    manifest_lineage = {
+        column: str(manifest.iloc[0][column]).strip().lower()
+        for column in validator.RUN_LINEAGE_COLUMNS
+    }
+    current_full_lineage = _lineage_distinct_from(manifest_lineage)
+    _bind_outputs_to_current_full_lineage(
+        tmp_path,
+        monkeypatch,
+        current_full_lineage,
+    )
     monkeypatch.setattr(
         validator,
         "_current_monthly_revenue_lineage",
-        lambda *_args: current_monthly_revenue_lineage,
+        lambda *_args: (
+            current_monthly_revenue_lineage[0],
+            current_monthly_revenue_lineage[1],
+            current_monthly_revenue_lineage[2],
+            current_full_lineage,
+        ),
     )
 
     errors = validator.validate(projection_manifest_path=manifest_path)
 
-    assert any("immutable capture lineage drift" in error for error in errors)
+    assert errors == []
+
+
+def test_source_first_validator_rejects_manifest_full_lineage_in_current_outputs(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    current_monthly_revenue_lineage: MonthlyRevenueLineage,
+) -> None:
+    manifest = pd.read_csv(
+        validator.SOURCE_SNAPSHOT_PROJECTION_MANIFEST_CSV,
+        dtype=str,
+        keep_default_na=False,
+        low_memory=False,
+    )
+    manifest_lineage = {
+        column: str(manifest.iloc[0][column]).strip().lower()
+        for column in validator.RUN_LINEAGE_COLUMNS
+    }
+    current_full_lineage = _lineage_distinct_from(manifest_lineage)
+    _bind_outputs_to_current_full_lineage(
+        tmp_path,
+        monkeypatch,
+        manifest_lineage,
+    )
+    monkeypatch.setattr(
+        validator,
+        "_current_monthly_revenue_lineage",
+        lambda *_args: (
+            current_monthly_revenue_lineage[0],
+            current_monthly_revenue_lineage[1],
+            current_monthly_revenue_lineage[2],
+            current_full_lineage,
+        ),
+    )
+
+    errors = validator.validate()
+
+    for column in validator.RUN_LINEAGE_COLUMNS:
+        assert any(
+            f"current full monthly revenue lineage drift: {column}" in error
+            for error in errors
+        )
 
 
 @pytest.mark.parametrize(
@@ -251,11 +382,7 @@ def test_source_first_validator_rejects_projection_capture_lineage_mismatch(
 def test_source_first_validator_rejects_projection_contract_drift(
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
-    current_monthly_revenue_lineage: tuple[
-        int,
-        str,
-        dict[tuple[str, str], dict[str, str]],
-    ],
+    current_monthly_revenue_lineage: MonthlyRevenueLineage,
     column: str,
     value: str,
     expected_error: str,
@@ -356,11 +483,7 @@ def test_price_projection_excludes_future_rows_and_future_resolution(
 def test_source_first_validator_rejects_monthly_revenue_lineage_mutation(
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
-    current_monthly_revenue_lineage: tuple[
-        int,
-        str,
-        dict[tuple[str, str], dict[str, str]],
-    ],
+    current_monthly_revenue_lineage: MonthlyRevenueLineage,
     mutation: str,
 ) -> None:
     summary_path = tmp_path / "summary.csv"

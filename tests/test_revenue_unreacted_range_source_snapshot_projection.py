@@ -65,29 +65,6 @@ import build_revenue_unreacted_range_research as orchestrator  # noqa: E402
 import revenue_unreacted_range_source_snapshot_projection as projection  # noqa: E402
 
 
-SOURCE_FIRST_EXACT7_PATH_CONSTANTS = (
-    "V1_ARCHIVE_MANIFEST_CSV",
-    "V1_ARCHIVE_DETAIL_CSV",
-    "V1_ARCHIVE_EVIDENCE_CSV",
-    "V2_MANIFEST_CSV",
-    "V2_PROJECTED_DETAIL_CSV",
-    "V1_V2_DIFF_SUMMARY_CSV",
-    "V1_V2_DIFF_DETAIL_CSV",
-)
-
-
-def _bind_source_first_exact7_paths(
-    tmp_path: Path,
-    monkeypatch: pytest.MonkeyPatch,
-) -> dict[str, Path]:
-    paths: dict[str, Path] = {}
-    for name in SOURCE_FIRST_EXACT7_PATH_CONSTANTS:
-        path = tmp_path / f"{name}.csv"
-        paths[name] = path
-        monkeypatch.setattr(source_first_validator, name, path)
-    return paths
-
-
 def _bind_source_first_audit_outputs(
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
@@ -1332,13 +1309,23 @@ def test_v2_manifest_is_predecessor_bound_and_pending_supersede(
         source_first_validator._pinned_monthly_revenue_lineage(manifest_path)
 
 
-def test_source_first_default_manifest_routes_zero_to_canonical_and_full_to_v2(
+@pytest.mark.parametrize(
+    "projection_version",
+    (
+        source_first_validator.SOURCE_SNAPSHOT_V1_VERSION,
+        source_first_validator.SOURCE_SNAPSHOT_V2_VERSION,
+    ),
+)
+def test_source_first_default_manifest_routes_v1_and_v2_to_canonical_latest(
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
+    projection_version: str,
 ) -> None:
-    exact7 = _bind_source_first_exact7_paths(tmp_path, monkeypatch)
-    canonical_manifest = tmp_path / "canonical_v1_manifest.csv"
-    canonical_manifest.write_text("projection_version\nv1\n", encoding="utf-8")
+    canonical_manifest = tmp_path / "canonical_manifest.csv"
+    canonical_manifest.write_text(
+        f"projection_version\n{projection_version}\n",
+        encoding="utf-8",
+    )
     monkeypatch.setattr(
         source_first_validator,
         "SOURCE_SNAPSHOT_PROJECTION_MANIFEST_CSV",
@@ -1363,80 +1350,101 @@ def test_source_first_default_manifest_routes_zero_to_canonical_and_full_to_v2(
     ]
     assert routed == [canonical_manifest]
 
-    for path in exact7.values():
-        path.write_text("present\n", encoding="utf-8")
-    assert source_first_validator.validate() == [
-        "source-first current monthly revenue lineage cannot be verified: "
-        "routing probe stop"
-    ]
-    assert routed == [canonical_manifest, exact7["V2_MANIFEST_CSV"]]
-
-
-def test_source_first_default_manifest_partial_exact7_fails_without_replay(
-    tmp_path: Path,
-    monkeypatch: pytest.MonkeyPatch,
-) -> None:
-    exact7 = _bind_source_first_exact7_paths(tmp_path, monkeypatch)
-    exact7["V1_ARCHIVE_MANIFEST_CSV"].write_text("present\n", encoding="utf-8")
-    monkeypatch.setattr(
-        source_first_validator,
-        "_pinned_monthly_revenue_lineage",
-        lambda *_args, **_kwargs: pytest.fail("partial exact7 replayed canonical v1"),
-    )
-    monkeypatch.setattr(
-        source_first_validator,
-        "_current_monthly_revenue_lineage",
-        lambda *_args, **_kwargs: pytest.fail("partial exact7 replayed current source"),
-    )
-
-    errors = source_first_validator.validate()
-
-    assert len(errors) == 6
-    assert all(
-        "versioned source projection exact7 closure is incomplete or unsafe"
-        in error
-        for error in errors
-    )
-    assert all("missing_or_non_file" in error for error in errors)
-
 
 @pytest.mark.parametrize(
     ("unsafe_kind", "expected_state"),
     (
-        ("missing", "missing_or_non_file"),
+        ("missing", "missing"),
         ("directory", "directory_not_allowed"),
         ("symlink", "symlink_not_allowed"),
     ),
 )
-def test_source_first_default_manifest_rejects_nonfile_exact7_entries(
+def test_source_first_default_manifest_rejects_unsafe_canonical_latest(
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
     unsafe_kind: str,
     expected_state: str,
 ) -> None:
-    exact7 = _bind_source_first_exact7_paths(tmp_path, monkeypatch)
-    for path in exact7.values():
-        path.write_text("present\n", encoding="utf-8")
-    unsafe_path = exact7["V2_PROJECTED_DETAIL_CSV"]
+    canonical_manifest = tmp_path / "canonical_manifest.csv"
+    canonical_manifest.write_text(
+        f"projection_version\n{source_first_validator.SOURCE_SNAPSHOT_V2_VERSION}\n",
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(
+        source_first_validator,
+        "SOURCE_SNAPSHOT_PROJECTION_MANIFEST_CSV",
+        canonical_manifest,
+    )
     if unsafe_kind == "missing":
-        unsafe_path.unlink()
+        canonical_manifest.unlink()
     elif unsafe_kind == "directory":
-        unsafe_path.unlink()
-        unsafe_path.mkdir()
+        canonical_manifest.unlink()
+        canonical_manifest.mkdir()
     else:
         original_is_symlink = Path.is_symlink
         monkeypatch.setattr(
             Path,
             "is_symlink",
-            lambda path: path == unsafe_path or original_is_symlink(path),
+            lambda path: path == canonical_manifest or original_is_symlink(path),
         )
 
     routed, errors = source_first_validator._resolve_default_projection_manifest_path()
 
     assert routed is None
     assert len(errors) == 1
-    assert str(unsafe_path) in errors[0]
+    assert str(canonical_manifest) in errors[0]
     assert expected_state in errors[0]
+
+
+def test_source_first_default_manifest_v2_ignores_missing_or_partial_historical_closure(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    canonical_manifest = tmp_path / "canonical_v2_manifest.csv"
+    canonical_manifest.write_text(
+        f"projection_version\n{source_first_validator.SOURCE_SNAPSHOT_V2_VERSION}\n",
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(
+        source_first_validator,
+        "SOURCE_SNAPSHOT_PROJECTION_MANIFEST_CSV",
+        canonical_manifest,
+    )
+    (tmp_path / "partial_historical_v1_archive.csv").write_text(
+        "historical-only\n",
+        encoding="utf-8",
+    )
+
+    routed, errors = source_first_validator._resolve_default_projection_manifest_path()
+
+    assert errors == []
+    assert routed == canonical_manifest
+    assert not hasattr(source_first_validator, "_versioned_source_projection_exact7_paths")
+    assert not hasattr(source_first_validator, "V2_MANIFEST_CSV")
+
+
+@pytest.mark.parametrize("projection_version", ("", "v3", "projection_version"))
+def test_source_first_default_manifest_rejects_unsupported_canonical_version(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    projection_version: str,
+) -> None:
+    canonical_manifest = tmp_path / "canonical_manifest.csv"
+    canonical_manifest.write_text(
+        f"projection_version\n{projection_version}\n",
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(
+        source_first_validator,
+        "SOURCE_SNAPSHOT_PROJECTION_MANIFEST_CSV",
+        canonical_manifest,
+    )
+
+    routed, errors = source_first_validator._resolve_default_projection_manifest_path()
+
+    assert routed is None
+    assert len(errors) == 1
+    assert "canonical source projection manifest" in errors[0]
 
 
 def test_source_first_projection_manifest_cli_default_and_explicit_bypass(
@@ -1450,8 +1458,6 @@ def test_source_first_projection_manifest_cli_default_and_explicit_bypass(
         ["--projection-manifest", str(explicit_manifest)]
     ).projection_manifest == explicit_manifest
 
-    exact7 = _bind_source_first_exact7_paths(tmp_path, monkeypatch)
-    exact7["V1_ARCHIVE_MANIFEST_CSV"].write_text("present\n", encoding="utf-8")
     _bind_source_first_audit_outputs(tmp_path, monkeypatch)
     routed: list[Path] = []
     monkeypatch.setattr(
@@ -1875,9 +1881,10 @@ def test_legacy_canonical_writer_rejects_v2_before_changing_any_bytes(
     } == original_bytes
 
 
-def test_canonical_projection_loader_rejects_v2_without_supersede_closure(
+def test_canonical_projection_loader_rejects_v2_runtime_binding_drift(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
+    detail = pd.DataFrame([{"stock_id": "1111"}])
     monkeypatch.setattr(
         orchestrator,
         "load_source_snapshot_projection_manifest",
@@ -1888,22 +1895,17 @@ def test_canonical_projection_loader_rejects_v2_without_supersede_closure(
     monkeypatch.setattr(
         orchestrator,
         "load_projected_source_detail",
-        lambda: pytest.fail("canonical v2 detail reached a downstream consumer"),
-    )
-    monkeypatch.setattr(
-        orchestrator,
-        "validate_source_snapshot_projection",
-        lambda: ["missing supersede evidence"],
+        lambda: detail,
     )
     monkeypatch.setattr(
         orchestrator,
         "validate_projection_binding",
-        lambda *_args, **_kwargs: pytest.fail(
-            "canonical v2 reached downstream binding validation"
+        lambda *_args, **_kwargs: (_ for _ in ()).throw(
+            RuntimeError("canonical v2 runtime binding drift")
         ),
     )
 
-    with pytest.raises(RuntimeError, match="supersede closure failed.*missing supersede evidence"):
+    with pytest.raises(RuntimeError, match="canonical v2 runtime binding drift"):
         orchestrator.load_immutable_source_snapshot_projection()
 
 
@@ -1917,11 +1919,6 @@ def test_canonical_projection_loader_accepts_only_validated_v2(
         orchestrator,
         "load_source_snapshot_projection_manifest",
         lambda: manifest,
-    )
-    monkeypatch.setattr(
-        orchestrator,
-        "validate_source_snapshot_projection",
-        lambda: calls.append("independent_supersede_closure") or [],
     )
     monkeypatch.setattr(
         orchestrator,
@@ -1939,153 +1936,34 @@ def test_canonical_projection_loader_accepts_only_validated_v2(
 
     assert orchestrator.load_immutable_source_snapshot_projection() == (manifest, detail)
     assert calls == [
-        "independent_supersede_closure",
         "load_detail",
         "bind_detail",
     ]
 
 
-def test_supersede_and_chain_stage_orders_selection_before_consumers(
+@pytest.mark.parametrize(
+    ("stage", "retired_function"),
+    (
+        (
+            "source_snapshot_projection_rebaseline",
+            "build_and_write_source_snapshot_projection_rebaseline",
+        ),
+        (
+            "source_snapshot_projection_supersede_and_chain",
+            "build_and_write_source_snapshot_projection_supersede_and_chain",
+        ),
+    ),
+)
+def test_retired_projection_migration_stages_are_not_public_runtime_commands(
     monkeypatch: pytest.MonkeyPatch,
+    stage: str,
+    retired_function: str,
 ) -> None:
-    calls: list[str] = []
-    monkeypatch.setattr(
-        orchestrator,
-        "supersede_source_snapshot_projection_v2_candidate",
-        lambda: calls.append("supersede"),
-    )
-    monkeypatch.setattr(
-        orchestrator,
-        "build_and_write_source_snapshot_projection_chain",
-        lambda: calls.append("chain"),
-    )
+    monkeypatch.setattr(sys, "argv", ["builder", "--stage", stage])
 
-    orchestrator.build_and_write_source_snapshot_projection_supersede_and_chain()
-
-    assert calls == ["supersede", "chain"]
-
-
-def test_rebaseline_stage_builds_only_candidate_archive_source_first_and_diff(
-    tmp_path: Path,
-    monkeypatch: pytest.MonkeyPatch,
-) -> None:
-    import revenue_unreacted_range_source_snapshot_projection_v1_v2_diff as diff
-
-    canonical_manifest = tmp_path / "canonical_manifest.csv"
-    canonical_detail = tmp_path / "canonical_detail.csv"
-    canonical_manifest.write_bytes(b"canonical manifest")
-    canonical_detail.write_bytes(b"canonical detail")
-    monkeypatch.setattr(
-        orchestrator,
-        "SOURCE_SNAPSHOT_V1_CANONICAL_MANIFEST_CSV",
-        canonical_manifest,
-    )
-    monkeypatch.setattr(
-        orchestrator,
-        "SOURCE_SNAPSHOT_V1_CANONICAL_DETAIL_CSV",
-        canonical_detail,
-    )
-    calls: list[str] = []
-    evidence = pd.DataFrame(
-        [
-            {
-                "canonical_manifest_sha256": V1_EXPECTED_MANIFEST_BYTES_SHA256,
-                "canonical_detail_sha256": V1_EXPECTED_DETAIL_BYTES_SHA256,
-            }
-        ]
-    )
-    monkeypatch.setattr(
-        orchestrator,
-        "archive_immutable_v1_projection",
-        lambda: calls.append("archive") or evidence,
-    )
-    full_summary = pd.DataFrame([{"view": "full_summary"}])
-    full_detail = pd.DataFrame([{"view": "full_detail"}])
-    projected_detail = pd.DataFrame([{"view": "projected_detail"}])
-
-    def fake_source_first(*_args, observation_cutoff_date=None, **_kwargs):
-        if observation_cutoff_date is None:
-            calls.append("source_first_full")
-            return full_summary, full_detail
-        assert observation_cutoff_date == CUTOFF_DATE
-        calls.append("source_first_cutoff")
-        return pd.DataFrame([{"view": "projected_summary"}]), projected_detail
-
-    monkeypatch.setattr(
-        orchestrator,
-        "build_source_first_condition_audit",
-        fake_source_first,
-    )
-    candidate_manifest = pd.DataFrame([{"view": "candidate"}])
-
-    def fake_manifest(full, projected, **kwargs):
-        assert full is full_detail
-        assert projected is projected_detail
-        assert (
-            kwargs["predecessor_manifest_bytes_sha256"]
-            == V1_EXPECTED_MANIFEST_BYTES_SHA256
-        )
-        assert (
-            kwargs["predecessor_detail_bytes_sha256"]
-            == V1_EXPECTED_DETAIL_BYTES_SHA256
-        )
-        calls.append("candidate_manifest")
-        return candidate_manifest
-
-    monkeypatch.setattr(
-        orchestrator,
-        "build_source_snapshot_projection_v2_manifest",
-        fake_manifest,
-    )
-    monkeypatch.setattr(
-        orchestrator,
-        "write_source_first_condition_audit",
-        lambda summary, detail: (
-            calls.append("write_source_first")
-            if summary is full_summary and detail is full_detail
-            else pytest.fail("rebaseline wrote the cutoff source-first frame")
-        ),
-    )
-    monkeypatch.setattr(
-        orchestrator,
-        "write_source_snapshot_projection_v2_candidate",
-        lambda manifest, detail: (
-            calls.append("write_candidate")
-            if manifest is candidate_manifest and detail is projected_detail
-            else pytest.fail("rebaseline wrote the wrong candidate")
-        ),
-    )
-    diff_summary = pd.DataFrame([{"view": "diff_summary"}])
-    diff_detail = pd.DataFrame([{"view": "diff_detail"}])
-    monkeypatch.setattr(
-        diff,
-        "build_diff_from_paths",
-        lambda: calls.append("build_diff") or (diff_summary, diff_detail),
-    )
-    monkeypatch.setattr(
-        diff,
-        "write_diff_artifacts",
-        lambda summary, detail: (
-            calls.append("write_diff")
-            if summary is diff_summary and detail is diff_detail
-            else pytest.fail("rebaseline wrote the wrong diff")
-        ),
-    )
-
-    orchestrator.build_and_write_source_snapshot_projection_rebaseline()
-
-    assert calls == [
-        "archive",
-        "source_first_full",
-        "source_first_cutoff",
-        "candidate_manifest",
-        "write_source_first",
-        "write_candidate",
-        "build_diff",
-        "write_diff",
-    ]
-    assert canonical_manifest.read_bytes() == b"canonical manifest"
-    assert canonical_detail.read_bytes() == b"canonical detail"
+    with pytest.raises(SystemExit):
+        orchestrator.parse_args()
+    assert not hasattr(orchestrator, retired_function)
 
 
 def test_default_validator_versioned_closure_is_optional_then_fail_closed(
@@ -2387,13 +2265,13 @@ def test_source_projection_validator_does_not_import_diff_validator_python_code(
     assert forbidden not in imported_modules
 
 
-def test_default_canonical_validator_routes_complete_exact7_to_closure(
+def test_default_canonical_v2_ignores_historical_migration_closure(
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    manifest_path = tmp_path / "canonical_v1_manifest.csv"
-    detail_path = tmp_path / "canonical_v1_detail.csv"
-    pd.DataFrame([{"projection_version": V1_PROJECTION_VERSION}]).to_csv(
+    manifest_path = tmp_path / "canonical_v2_manifest.csv"
+    detail_path = tmp_path / "canonical_v2_detail.csv"
+    pd.DataFrame([{"projection_version": V2_PROJECTION_VERSION}]).to_csv(
         manifest_path,
         index=False,
     )
@@ -2405,7 +2283,7 @@ def test_default_canonical_validator_routes_complete_exact7_to_closure(
         "V2_SUPERSEDE_EVIDENCE_CSV",
         tmp_path / "absent_v2_supersede_evidence.csv",
     )
-    exact7_names = (
+    for name in (
         "V1_ARCHIVE_MANIFEST_CSV",
         "V1_ARCHIVE_DETAIL_CSV",
         "V1_ARCHIVE_EVIDENCE_CSV",
@@ -2413,105 +2291,49 @@ def test_default_canonical_validator_routes_complete_exact7_to_closure(
         "V2_PROJECTED_DETAIL_CSV",
         "V1_V2_DIFF_SUMMARY_CSV",
         "V1_V2_DIFF_DETAIL_CSV",
-    )
-    exact7_paths: dict[str, Path] = {}
-    for name in exact7_names:
-        path = tmp_path / f"{name}.csv"
-        path.write_text("value\npresent\n", encoding="utf-8")
-        exact7_paths[name] = path
+    ):
+        path = tmp_path / f"missing_{name}.csv"
         monkeypatch.setattr(validator, name, path)
+    validator.V1_ARCHIVE_MANIFEST_CSV.write_text(
+        "partial historical closure only\n",
+        encoding="utf-8",
+    )
+    replay_paths = [
+        tmp_path / name for name in ("revenue.csv", "monthly.csv", "price.csv")
+    ]
+    for path in replay_paths:
+        path.write_text("value\npresent\n", encoding="utf-8")
+    price_dir = tmp_path / "prices"
     calls: list[str] = []
     monkeypatch.setattr(
         validator,
-        "_validate_immutable_v1_files",
-        lambda *_args, **_kwargs: calls.append("immutable_v1") or [],
+        "_validate_versioned_v2_closure",
+        lambda **_kwargs: pytest.fail(
+            "ordinary canonical validation entered historical migration closure"
+        ),
     )
-
-    def fake_closure(**kwargs):
-        assert kwargs["v1_manifest_path"] == exact7_paths["V1_ARCHIVE_MANIFEST_CSV"]
-        assert kwargs["v1_detail_path"] == exact7_paths["V1_ARCHIVE_DETAIL_CSV"]
-        assert kwargs["v1_evidence_path"] == exact7_paths["V1_ARCHIVE_EVIDENCE_CSV"]
-        assert kwargs["v2_manifest_path"] == exact7_paths["V2_MANIFEST_CSV"]
-        assert kwargs["v2_detail_path"] == exact7_paths["V2_PROJECTED_DETAIL_CSV"]
-        assert kwargs["diff_summary_path"] == exact7_paths["V1_V2_DIFF_SUMMARY_CSV"]
-        assert kwargs["diff_detail_path"] == exact7_paths["V1_V2_DIFF_DETAIL_CSV"]
-        calls.append("v1_v2_closure")
-        return ["closure evidence"]
-
-    monkeypatch.setattr(validator, "_validate_versioned_v2_closure", fake_closure)
+    monkeypatch.setattr(
+        validator,
+        "_validate_canonical_v2_supersede",
+        lambda **_kwargs: pytest.fail(
+            "ordinary canonical validation required one-time supersede evidence"
+        ),
+    )
     monkeypatch.setattr(
         validator,
         "validate_frames",
-        lambda *_args, **_kwargs: pytest.fail(
-            "complete exact7 fell through to current-source replay"
-        ),
+        lambda *_args, **_kwargs: calls.append("validate_frames") or [],
     )
 
     assert validator.validate(
         manifest_path=manifest_path,
         projected_detail_path=detail_path,
-        revenue_path=tmp_path / "revenue.csv",
-        price_dir=tmp_path / "prices",
-        monthly_resolution_path=tmp_path / "monthly.csv",
-        price_resolution_path=tmp_path / "price.csv",
-    ) == ["closure evidence"]
-    assert calls == ["immutable_v1", "v1_v2_closure"]
-
-
-def test_default_canonical_validator_treats_nonfile_exact7_as_started(
-    tmp_path: Path,
-    monkeypatch: pytest.MonkeyPatch,
-) -> None:
-    manifest_path = tmp_path / "canonical_v1_manifest.csv"
-    detail_path = tmp_path / "canonical_v1_detail.csv"
-    pd.DataFrame([{"projection_version": V1_PROJECTION_VERSION}]).to_csv(
-        manifest_path,
-        index=False,
-    )
-    pd.DataFrame([{"stock_id": "1111"}]).to_csv(detail_path, index=False)
-    monkeypatch.setattr(validator, "MANIFEST_CSV", manifest_path)
-    monkeypatch.setattr(validator, "PROJECTED_DETAIL_CSV", detail_path)
-    monkeypatch.setattr(
-        validator,
-        "V2_SUPERSEDE_EVIDENCE_CSV",
-        tmp_path / "absent_v2_supersede_evidence.csv",
-    )
-    exact7_names = (
-        "V1_ARCHIVE_MANIFEST_CSV",
-        "V1_ARCHIVE_DETAIL_CSV",
-        "V1_ARCHIVE_EVIDENCE_CSV",
-        "V2_MANIFEST_CSV",
-        "V2_PROJECTED_DETAIL_CSV",
-        "V1_V2_DIFF_SUMMARY_CSV",
-        "V1_V2_DIFF_DETAIL_CSV",
-    )
-    for name in exact7_names:
-        monkeypatch.setattr(validator, name, tmp_path / f"{name}.csv")
-    validator.V2_MANIFEST_CSV.mkdir()
-    monkeypatch.setattr(
-        validator,
-        "_validate_immutable_v1_files",
-        lambda *_args, **_kwargs: [],
-    )
-    monkeypatch.setattr(
-        validator,
-        "validate_frames",
-        lambda *_args, **_kwargs: pytest.fail(
-            "non-file exact7 entry fell through to current-source replay"
-        ),
-    )
-
-    errors = validator.validate(
-        manifest_path=manifest_path,
-        projected_detail_path=detail_path,
-        revenue_path=tmp_path / "revenue.csv",
-        price_dir=tmp_path / "prices",
-        monthly_resolution_path=tmp_path / "monthly.csv",
-        price_resolution_path=tmp_path / "price.csv",
-    )
-
-    assert len(errors) == 7
-    assert all("missing versioned source projection closure artifact" in error for error in errors)
+        revenue_path=replay_paths[0],
+        price_dir=price_dir,
+        monthly_resolution_path=replay_paths[1],
+        price_resolution_path=replay_paths[2],
+    ) == []
+    assert calls == ["validate_frames"]
 
 
 def test_explicit_v2_validation_does_not_reenter_default_closure(
@@ -2547,7 +2369,7 @@ def test_explicit_v2_validation_does_not_reenter_default_closure(
     ) == []
 
 
-def test_default_canonical_validator_requires_v2_closure_and_supersede_evidence(
+def test_migration_closure_requires_v2_history_and_supersede_evidence(
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
@@ -2588,6 +2410,7 @@ def test_default_canonical_validator_requires_v2_closure_and_supersede_evidence(
         price_dir=tmp_path / "missing_prices",
         monthly_resolution_path=tmp_path / "missing_monthly.csv",
         price_resolution_path=tmp_path / "missing_price_resolution.csv",
+        migration_closure=True,
     )
 
     assert errors == ["closure evidence", "selection evidence"]
@@ -2595,3 +2418,13 @@ def test_default_canonical_validator_requires_v2_closure_and_supersede_evidence(
         "immutable_v1_v2_diff_closure",
         "canonical_supersede_evidence",
     ]
+
+
+def test_projection_validator_cli_migration_closure_is_explicit_only(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(sys, "argv", ["validator"])
+    assert validator.parse_args().migration_closure is False
+
+    monkeypatch.setattr(sys, "argv", ["validator", "--migration-closure"])
+    assert validator.parse_args().migration_closure is True
