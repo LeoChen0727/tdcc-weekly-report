@@ -3,6 +3,7 @@ from __future__ import annotations
 import ast
 import sys
 from pathlib import Path
+import subprocess
 
 import numpy as np
 import pandas as pd
@@ -21,6 +22,46 @@ import validate_revenue_unreacted_range_low_mid_falling_candidate_audit as valid
 
 GENERATED_AT = "2026-07-20 12:00:00 Asia/Taipei"
 TRIGGER_INDEX = 220
+
+
+def test_low_mid_versions_follow_rearmed_generation() -> None:
+    assert producer.versions_for_rearmed_artifact(producer.REARMED_ARTIFACT_VERSION) == (
+        producer.V1_ARTIFACT_VERSION,
+        producer.POSITION_SHAPE_ARTIFACT_VERSION,
+        producer.SOURCE_PROJECTION_ARTIFACT_VERSION,
+    )
+    assert producer.versions_for_rearmed_artifact(
+        producer.V2_REARMED_ARTIFACT_VERSION
+    ) == (
+        producer.V2_ARTIFACT_VERSION,
+        producer.V2_POSITION_SHAPE_ARTIFACT_VERSION,
+        producer.V2_SOURCE_PROJECTION_ARTIFACT_VERSION,
+    )
+    assert validator._version_contract(projection.V2_PROJECTION_VERSION) == (
+        validator.V2_ARTIFACT_VERSION,
+        validator.V2_REARMED_ARTIFACT_VERSION,
+        validator.V2_POSITION_SHAPE_ARTIFACT_VERSION,
+    )
+    with pytest.raises(RuntimeError, match="unsupported rearmed artifact version"):
+        producer.versions_for_rearmed_artifact("unknown")
+    with pytest.raises(
+        RuntimeError,
+        match="unsupported canonical source projection version",
+    ):
+        validator._version_contract("unknown")
+
+
+def _v1_manifest_frame() -> pd.DataFrame:
+    return pd.DataFrame([validator.EXPECTED_V1_MANIFEST_DESCRIPTOR])
+
+
+def _completed(
+    returncode: int = 0,
+    *,
+    stdout: bytes = b"",
+    stderr: bytes = b"",
+) -> subprocess.CompletedProcess[bytes]:
+    return subprocess.CompletedProcess([], returncode, stdout=stdout, stderr=stderr)
 
 
 def test_strict_integral_accepts_csv_integer_float_text_only() -> None:
@@ -161,6 +202,7 @@ def _operation_rows(
     price: pd.DataFrame,
     *,
     source_candidate: bool,
+    artifact_version: str = validator.REARMED_ARTIFACT_VERSION,
 ) -> list[dict[str, object]]:
     rows: list[dict[str, object]] = []
     dates = price["date"].astype(str).tolist()
@@ -177,7 +219,7 @@ def _operation_rows(
                 {
                     "model_id": validator.MODEL_ID,
                     "artifact_id": validator.REARMED_ARTIFACT_ID,
-                    "artifact_version": validator.REARMED_ARTIFACT_VERSION,
+                    "artifact_version": artifact_version,
                     "source_artifact_id": validator.SOURCE_FIRST_ARTIFACT_ID,
                     "source_variant_id": validator.SOURCE_VARIANT_ID,
                     "grid_id": (
@@ -223,7 +265,16 @@ def _operation_rows(
     return rows
 
 
-def _build_fixture(root: Path) -> dict[str, Path]:
+def _build_fixture(
+    root: Path,
+    *,
+    projection_version: str = validator.V1_PROJECTION_VERSION,
+) -> dict[str, Path]:
+    (
+        _expected_artifact_version,
+        rearmed_artifact_version,
+        _expected_position_shape_artifact_version,
+    ) = validator._version_contract(projection_version)
     specs = (
         ("1111", "low-60", 160, "low", 25.0, True, True),
         ("2222", "mid-50", 170, "mid", -10.0, False, False),
@@ -304,6 +355,7 @@ def _build_fixture(root: Path) -> dict[str, Path]:
                 stock_name,
                 price,
                 source_candidate=source_candidate,
+                artifact_version=rearmed_artifact_version,
             )
         )
     source = pd.DataFrame(source_rows)
@@ -330,7 +382,12 @@ def _build_fixture(root: Path) -> dict[str, Path]:
         keep_default_na=False,
         low_memory=False,
     )
-    manifest_row = {column: "" for column in projection.MANIFEST_COLUMNS}
+    manifest_columns = (
+        validator.V2_PROJECTION_MANIFEST_COLUMNS
+        if projection_version == validator.V2_PROJECTION_VERSION
+        else validator.V1_PROJECTION_MANIFEST_COLUMNS
+    )
+    manifest_row = {column: "" for column in manifest_columns}
     source_dates = (
         projected_source["qualifying_source_dates"]
         .astype(str)
@@ -350,10 +407,14 @@ def _build_fixture(root: Path) -> dict[str, Path]:
             "generated_at": GENERATED_AT,
             "model_id": projection.MODEL_ID,
             "artifact_id": projection.ARTIFACT_ID,
-            "artifact_version": projection.ARTIFACT_VERSION,
+            "artifact_version": projection_version,
             "projection_id": projection.PROJECTION_ID,
-            "projection_version": projection.PROJECTION_VERSION,
-            "projection_policy_id": projection.PROJECTION_POLICY_ID,
+            "projection_version": projection_version,
+            "projection_policy_id": (
+                validator.V2_PROJECTION_POLICY_ID
+                if projection_version == validator.V2_PROJECTION_VERSION
+                else validator.V1_PROJECTION_POLICY_ID
+            ),
             "cutoff_date": projection.CUTOFF_DATE,
             "full_source_artifact_id": validator.SOURCE_FIRST_ARTIFACT_ID,
             "full_source_artifact_version": validator.SOURCE_FIRST_ARTIFACT_VERSION,
@@ -394,11 +455,25 @@ def _build_fixture(root: Path) -> dict[str, Path]:
             "pdf_consumption_allowed": False,
         }
     )
+    if projection_version == validator.V2_PROJECTION_VERSION:
+        manifest_row.update(
+            {
+                "predecessor_projection_version": validator.V1_PROJECTION_VERSION,
+                "predecessor_manifest_bytes_sha256": (
+                    validator.V1_PREDECESSOR_MANIFEST_SHA256
+                ),
+                "predecessor_detail_bytes_sha256": (
+                    validator.V1_PREDECESSOR_DETAIL_SHA256
+                ),
+                "lineage_change_reason": validator.V2_LINEAGE_CHANGE_REASON,
+                "candidate_status": validator.V2_CANDIDATE_STATUS,
+            }
+        )
     projection_manifest_path = root / validator.SOURCE_RELATIVE_PATHS[
         "projection_manifest"
     ]
     projection_manifest_path.parent.mkdir(parents=True, exist_ok=True)
-    pd.DataFrame([manifest_row], columns=projection.MANIFEST_COLUMNS).to_csv(
+    pd.DataFrame([manifest_row], columns=manifest_columns).to_csv(
         projection_manifest_path,
         index=False,
     )
@@ -441,6 +516,12 @@ def test_validator_is_independent_and_accepts_synthetic_replay(tmp_path: Path) -
         "revenue_unreacted_range_low_mid_falling_candidate_audit"
         not in imported_modules
     )
+    assert imported_modules.isdisjoint(
+        {
+            "revenue_unreacted_range_source_snapshot_projection",
+            "validate_revenue_unreacted_range_source_snapshot_projection",
+        }
+    )
     assert validator.validate(artifact_root=tmp_path, source_root=tmp_path) == []
     detail = pd.read_csv(
         paths["detail_latest"],
@@ -457,6 +538,69 @@ def test_validator_is_independent_and_accepts_synthetic_replay(tmp_path: Path) -
         str(row["asof_latest_qualifying_canonical_source_table_date"])
         == str(row["asof_latest_qualifying_source_date"])
     )
+
+
+def test_validator_accepts_synthetic_v2_governance(tmp_path: Path) -> None:
+    paths = _build_fixture(
+        tmp_path,
+        projection_version=validator.V2_PROJECTION_VERSION,
+    )
+
+    assert validator.validate(artifact_root=tmp_path, source_root=tmp_path) == []
+    for path_key in (
+        "summary_latest",
+        "detail_latest",
+        "paired_latest",
+        "contrast_latest",
+    ):
+        frame = pd.read_csv(paths[path_key], keep_default_na=False)
+        assert set(frame["artifact_version"].astype(str)) == {
+            validator.V2_ARTIFACT_VERSION
+        }
+
+
+@pytest.mark.parametrize(
+    ("family", "label"),
+    (
+        ("summary", "summary"),
+        ("detail", "detail"),
+        ("paired", "paired"),
+        ("contrast", "feature_contrast"),
+    ),
+)
+def test_validator_rejects_v2_artifact_version_drift(
+    tmp_path: Path,
+    family: str,
+    label: str,
+) -> None:
+    paths = _build_fixture(
+        tmp_path,
+        projection_version=validator.V2_PROJECTION_VERSION,
+    )
+    frame = pd.read_csv(paths[f"{family}_latest"], keep_default_na=False)
+    frame.loc[:, "artifact_version"] = validator.ARTIFACT_VERSION
+    _rewrite_family(paths, family, frame)
+
+    errors = validator.validate(artifact_root=tmp_path, source_root=tmp_path)
+
+    assert f"{label} governance drift: artifact_version" in errors
+
+
+def test_validator_rejects_v2_projection_with_v1_rearmed_input(
+    tmp_path: Path,
+) -> None:
+    _build_fixture(
+        tmp_path,
+        projection_version=validator.V2_PROJECTION_VERSION,
+    )
+    rearmed_path = tmp_path / validator.SOURCE_RELATIVE_PATHS["rearmed"]
+    rearmed = pd.read_csv(rearmed_path, keep_default_na=False)
+    rearmed.loc[:, "artifact_version"] = validator.REARMED_ARTIFACT_VERSION
+    rearmed.to_csv(rearmed_path, index=False, encoding="utf-8-sig")
+
+    errors = validator.validate(artifact_root=tmp_path, source_root=tmp_path)
+
+    assert "rearmed governance or price-basis drift: artifact_version" in errors
 
 
 def test_validator_rejects_latest_known_source_and_watch_horizon_drift(
@@ -630,3 +774,197 @@ def test_validator_rejects_source_first_run_lineage_mutation(tmp_path: Path) -> 
         or "monthly_revenue_history_blob_sha256" in error
         for error in errors
     )
+
+
+def test_trusted_git_commands_disable_replace_objects(monkeypatch: pytest.MonkeyPatch) -> None:
+    calls: list[list[str]] = []
+
+    def fake_run(args: list[str], **_kwargs: object) -> subprocess.CompletedProcess[bytes]:
+        calls.append(args)
+        return _completed()
+
+    monkeypatch.setattr(validator.subprocess, "run", fake_run)
+    validator._git("cat-file", "-t", "a" * 40)
+
+    assert calls == [
+        [
+            "git",
+            "--no-replace-objects",
+            "-C",
+            str(validator.ROOT),
+            "cat-file",
+            "-t",
+            "a" * 40,
+        ]
+    ]
+
+
+def test_trusted_revision_rejects_wrong_sha_and_nonancestor(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    with pytest.raises(RuntimeError, match="lowercase 40-character SHA"):
+        validator._trusted_revision_preflight("A" * 40)
+
+    revision = "a" * 40
+
+    def fake_git(*args: str, **_kwargs: object) -> subprocess.CompletedProcess[bytes]:
+        if args[0] == "rev-parse":
+            return _completed(stdout=f"{revision}\n".encode("ascii"))
+        if args[:2] == ("cat-file", "-t"):
+            return _completed(stdout=b"commit\n")
+        if args[0] == "merge-base":
+            return _completed(1, stderr=b"not ancestor")
+        raise AssertionError(args)
+
+    monkeypatch.setattr(validator, "_git", fake_git)
+    with pytest.raises(RuntimeError, match="not an ancestor"):
+        validator._trusted_revision_preflight(revision)
+
+
+def test_trusted_path_blob_and_revision_keyed_cache_fail_closed(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    with pytest.raises(RuntimeError, match="unsafe Git path"):
+        validator._safe_repo_path("../data/stock_price_history/1111.csv")
+    with pytest.raises(RuntimeError, match="unsafe stock id"):
+        validator._trusted_stock_path("1111/../2222")
+
+    revision = "b" * 40
+    validator._TRUSTED_TREE_CACHE.clear()
+    validator._TRUSTED_BLOB_CACHE.clear()
+    monkeypatch.setattr(validator, "_trusted_tree", lambda _revision: {})
+    with pytest.raises(RuntimeError, match="Git blob is missing"):
+        validator._trusted_blobs({"safe.csv"}, revision=revision)
+
+    path = "safe.csv"
+    other_revision = "c" * 40
+    validator._TRUSTED_BLOB_CACHE[(revision, path)] = b"first"
+    validator._TRUSTED_BLOB_CACHE[(other_revision, path)] = b"second"
+    assert validator._trusted_blobs({path}, revision=revision)[path] == b"first"
+    assert (
+        validator._trusted_blobs({path}, revision=other_revision)[path]
+        == b"second"
+    )
+    validator._TRUSTED_BLOB_CACHE.clear()
+
+
+def test_trusted_v1_manifest_descriptor_rejects_drift() -> None:
+    manifest = _v1_manifest_frame()
+    validator._validate_v1_manifest_descriptor(manifest)
+    manifest.loc[0, "projection_policy_id"] = "v2_policy"
+    with pytest.raises(RuntimeError, match="descriptor drift"):
+        validator._validate_v1_manifest_descriptor(manifest)
+
+
+def test_trusted_pipe_dates_reject_empty_token() -> None:
+    frame = pd.DataFrame({"qualifying_source_dates": ["20260601||20260603"]})
+    with pytest.raises(RuntimeError, match="invalid date"):
+        validator._validate_trusted_date_values(
+            frame,
+            ("qualifying_source_dates",),
+            label="source-first detail",
+            pipe_delimited=True,
+        )
+
+
+def test_default_source_replay_uses_only_trusted_raw_blobs(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    source = pd.DataFrame(
+        {
+            "stock_id": ["1111"],
+            "episode_start_source_date": ["20260601"],
+            "episode_start_canonical_source_table_date": ["20260601"],
+            "episode_start_trade_date": ["20260602"],
+            "latest_qualifying_source_date": ["20260603"],
+            "latest_qualifying_canonical_source_table_date": ["20260603"],
+            "latest_qualifying_trade_date": ["20260604"],
+            "episode_end_date": ["20260713"],
+            "qualifying_source_dates": ["20260601|20260603"],
+            "qualifying_canonical_source_table_dates": ["20260601|20260603"],
+            "qualifying_trade_dates": ["20260602|20260604"],
+        }
+    )
+    rearmed = pd.DataFrame(
+        {
+            "stock_id": ["1111", "2222"],
+            "lifecycle_policy_id": [validator.LIFECYCLE_POLICY_IDS[0], "other"],
+            "confirmation_variant_id": [
+                validator.CONFIRMATION_VARIANT_IDS[0],
+                "other",
+            ],
+            "holding_days": [validator.HOLDING_DAYS, 10],
+            "stop_policy_id": [validator.NO_STOP_POLICY_ID, "other"],
+            "return_valid": [True, False],
+            "trigger_date": ["20260701", "20260701"],
+            "confirmation_date": ["20260702", "20260702"],
+            "entry_date": ["20260703", ""],
+            "planned_exit_date": ["20260713", ""],
+            "exit_date": ["20260713", ""],
+        }
+    )
+    relative_paths = {
+        name: validator.SOURCE_RELATIVE_PATHS[name]
+        for name in ("projection_manifest", "source_first", "rearmed")
+    }
+    payloads = {
+        relative_paths["source_first"]: source.to_csv(
+            index=False, lineterminator="\n"
+        ).encode("utf-8"),
+        relative_paths["rearmed"]: rearmed.to_csv(
+            index=False, lineterminator="\n"
+        ).encode("utf-8"),
+        relative_paths["projection_manifest"]: _v1_manifest_frame()
+        .to_csv(index=False, lineterminator="\n")
+        .encode("utf-8"),
+    }
+    monkeypatch.setattr(validator, "_trusted_revision_preflight", lambda _revision: None)
+    monkeypatch.setattr(
+        validator,
+        "_trusted_blobs",
+        lambda paths, revision: {path: payloads[path] for path in paths},
+    )
+
+    _manifest, observed_source, observed_rearmed = validator._read_sources(
+        validator.ROOT
+    )
+
+    assert observed_source["stock_id"].tolist() == ["1111"]
+    assert observed_rearmed["stock_id"].tolist() == ["1111", "2222"]
+
+
+def test_trusted_price_replay_ignores_current_calendar_drift(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    current_dir = tmp_path / "data" / "stock_price_history"
+    current_dir.mkdir(parents=True)
+    (current_dir / "1111.csv").write_text("date,close\n20990101,999\n", encoding="utf-8")
+    trusted = pd.DataFrame(
+        {
+            "date": ["20260710", "20260713", "20260714"],
+            "open": [10.0, 11.0, 999.0],
+            "high": [10.5, 11.5, 999.0],
+            "low": [9.5, 10.5, 999.0],
+            "close": [10.0, 11.0, 999.0],
+        }
+    ).to_csv(index=False, lineterminator="\n").encode("utf-8")
+    relative = validator._trusted_stock_path("1111")
+    monkeypatch.setattr(
+        validator,
+        "_trusted_blobs",
+        lambda paths, revision: {path: trusted for path in paths},
+    )
+
+    replay = validator._load_adjusted_price(
+        "1111",
+        current_dir,
+        pd.DataFrame(
+            columns=["stock_id", "resume_date", "exchange_ratio", "resolution_id"]
+        ),
+        trusted_revision="e" * 40,
+    )
+
+    assert relative == "data/stock_price_history/1111.csv"
+    assert replay["date"].tolist() == ["20260710", "20260713"]
+    assert replay["analysis_close"].tolist() == [10.0, 11.0]

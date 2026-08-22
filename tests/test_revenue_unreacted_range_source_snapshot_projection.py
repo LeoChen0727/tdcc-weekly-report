@@ -1,6 +1,9 @@
 from __future__ import annotations
 
+import ast
+import hashlib
 from pathlib import Path
+import subprocess
 import sys
 
 import pandas as pd
@@ -20,6 +23,7 @@ from revenue_unreacted_range_monthly_revenue_cross_market_resolution import (  #
     monthly_revenue_history_blob_sha256,
 )
 from revenue_unreacted_range_source_snapshot_projection import (  # noqa: E402
+    ARCHIVE_EVIDENCE_COLUMNS,
     ARTIFACT_ID,
     ARTIFACT_VERSION,
     CUTOFF_DATE,
@@ -29,21 +33,178 @@ from revenue_unreacted_range_source_snapshot_projection import (  # noqa: E402
     MONTHLY_RESOLUTION_COLUMNS,
     PROJECTION_POLICY_ID,
     SOURCE_FIRST_ARTIFACT_ID,
+    V1_EXPECTED_DETAIL_BYTES_SHA256,
+    V1_EXPECTED_MANIFEST_BYTES_SHA256,
+    V1_PROJECTION_VERSION,
+    V2_CANDIDATE_STATUS,
+    V2_LINEAGE_CHANGE_REASON,
+    V2_MANIFEST_COLUMNS,
+    V2_PROJECTION_POLICY_ID,
+    V2_PROJECTION_VERSION,
+    V2_SUPERSEDE_EVIDENCE_COLUMNS,
+    archive_immutable_v1_projection,
     build_source_snapshot_projection_manifest,
+    build_source_snapshot_projection_v2_manifest,
     canonical_projected_source_detail_semantic_sha256,
     cutoff_price_input_lineage,
     cutoff_price_input_stock_ids,
     load_cutoff_monthly_revenue_subset,
     load_projected_source_detail,
     load_source_snapshot_projection_manifest,
+    supersede_source_snapshot_projection_v2_candidate,
     validate_projection_binding,
     write_source_snapshot_projection,
+    write_source_snapshot_projection_v2_candidate,
 )
 from revenue_unreacted_range_source_first_condition_audit import (  # noqa: E402
     build_source_first_condition_audit,
 )
 import validate_revenue_unreacted_range_source_snapshot_projection as validator  # noqa: E402
+import validate_revenue_unreacted_range_source_first_condition_audit as source_first_validator  # noqa: E402
 import build_revenue_unreacted_range_research as orchestrator  # noqa: E402
+import revenue_unreacted_range_source_snapshot_projection as projection  # noqa: E402
+
+
+SOURCE_FIRST_EXACT7_PATH_CONSTANTS = (
+    "V1_ARCHIVE_MANIFEST_CSV",
+    "V1_ARCHIVE_DETAIL_CSV",
+    "V1_ARCHIVE_EVIDENCE_CSV",
+    "V2_MANIFEST_CSV",
+    "V2_PROJECTED_DETAIL_CSV",
+    "V1_V2_DIFF_SUMMARY_CSV",
+    "V1_V2_DIFF_DETAIL_CSV",
+)
+
+
+def _bind_source_first_exact7_paths(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> dict[str, Path]:
+    paths: dict[str, Path] = {}
+    for name in SOURCE_FIRST_EXACT7_PATH_CONSTANTS:
+        path = tmp_path / f"{name}.csv"
+        paths[name] = path
+        monkeypatch.setattr(source_first_validator, name, path)
+    return paths
+
+
+def _bind_source_first_audit_outputs(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    for name in ("LATEST_CSV", "DETAIL_CSV", "LATEST_MD"):
+        path = tmp_path / f"{name}.txt"
+        path.write_text("present\n", encoding="utf-8")
+        monkeypatch.setattr(source_first_validator, name, path)
+
+
+def _prepare_v2_supersede_fixture(
+    *,
+    source_inputs: dict[str, object],
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> tuple[dict[str, Path], dict[str, bytes]]:
+    v1_manifest = _build(source_inputs)
+    v1_detail = source_inputs["projected_detail"]
+    v1_manifest_payload = v1_manifest.to_csv(
+        index=False,
+        lineterminator="\n",
+    ).encode("utf-8")
+    v1_detail_payload = v1_detail.to_csv(
+        index=False,
+        lineterminator="\n",
+    ).encode("utf-8")
+    v1_manifest_sha = hashlib.sha256(v1_manifest_payload).hexdigest()
+    v1_detail_sha = hashlib.sha256(v1_detail_payload).hexdigest()
+    monkeypatch.setattr(
+        projection,
+        "V1_EXPECTED_MANIFEST_BYTES",
+        len(v1_manifest_payload),
+    )
+    monkeypatch.setattr(
+        projection,
+        "V1_EXPECTED_MANIFEST_BYTES_SHA256",
+        v1_manifest_sha,
+    )
+    monkeypatch.setattr(
+        projection,
+        "V1_EXPECTED_DETAIL_BYTES",
+        len(v1_detail_payload),
+    )
+    monkeypatch.setattr(
+        projection,
+        "V1_EXPECTED_DETAIL_BYTES_SHA256",
+        v1_detail_sha,
+    )
+
+    v2_manifest = build_source_snapshot_projection_v2_manifest(
+        source_inputs["full_detail"],
+        source_inputs["projected_detail"],
+        predecessor_manifest_bytes_sha256=v1_manifest_sha,
+        predecessor_detail_bytes_sha256=v1_detail_sha,
+        revenue_path=source_inputs["revenue_path"],
+        price_dir=source_inputs["price_dir"],
+        monthly_resolution_path=source_inputs["monthly_registry_path"],
+        price_resolution_path=source_inputs["price_registry_path"],
+        generated_at="2026-08-22 00:00:00 Asia/Taipei",
+    )
+    v2_manifest_payload = v2_manifest.to_csv(
+        index=False,
+        lineterminator="\n",
+    ).encode("utf-8")
+    v2_detail_payload = v1_detail_payload
+    paths = {
+        name: tmp_path / f"{name}.csv"
+        for name in (
+            "evidence_path",
+            "v1_manifest_path",
+            "v1_detail_path",
+            "candidate_manifest_path",
+            "candidate_detail_path",
+            "diff_summary_path",
+            "diff_detail_path",
+            "canonical_manifest_path",
+            "canonical_detail_path",
+            "history_manifest_path",
+            "docs_manifest_path",
+        )
+    }
+    for name in ("v1_manifest_path", "canonical_manifest_path", "history_manifest_path", "docs_manifest_path"):
+        paths[name].write_bytes(v1_manifest_payload)
+    for name in ("v1_detail_path", "canonical_detail_path"):
+        paths[name].write_bytes(v1_detail_payload)
+    paths["candidate_manifest_path"].write_bytes(v2_manifest_payload)
+    paths["candidate_detail_path"].write_bytes(v2_detail_payload)
+    diff_summary = pd.DataFrame(
+        [
+            {
+                "v1_projection_version": V1_PROJECTION_VERSION,
+                "v2_projection_version": V2_PROJECTION_VERSION,
+                "v1_manifest_sha256": v1_manifest_sha,
+                "v1_detail_sha256": v1_detail_sha,
+                "v2_manifest_sha256": hashlib.sha256(v2_manifest_payload).hexdigest(),
+                "v2_detail_sha256": hashlib.sha256(v2_detail_payload).hexdigest(),
+                "unclassified_semantic_drift_count": "0",
+                "semantic_drift_status": projection.V2_DIFF_CLASSIFIED_STATUS,
+                "research_only": "true",
+                "formal_model_use_allowed": "false",
+                "approved_for_daily": "false",
+                "production_change": "false",
+                "promotion_evidence_allowed": "false",
+                "ranking_consumption_allowed": "false",
+                "pdf_consumption_allowed": "false",
+            }
+        ]
+    )
+    diff_summary.to_csv(paths["diff_summary_path"], index=False, lineterminator="\n")
+    paths["diff_detail_path"].write_bytes(b"classified semantic drift\n")
+    immutable = {
+        "v1_manifest": v1_manifest_payload,
+        "v1_detail": v1_detail_payload,
+        "v2_manifest": v2_manifest_payload,
+        "v2_detail": v2_detail_payload,
+    }
+    return paths, immutable
 
 
 def _business_payload(stock_id: str, revenue_period: str) -> dict[str, object]:
@@ -1113,4 +1274,1324 @@ def test_projection_chain_stage_rebuilds_cutoff_consumers_in_dependency_order(
         "lag",
         "position_shape",
         "low_mid",
+    ]
+
+
+def test_v2_manifest_is_predecessor_bound_and_pending_supersede(
+    source_inputs: dict[str, object],
+    tmp_path: Path,
+) -> None:
+    manifest = build_source_snapshot_projection_v2_manifest(
+        source_inputs["full_detail"],
+        source_inputs["projected_detail"],
+        predecessor_manifest_bytes_sha256=V1_EXPECTED_MANIFEST_BYTES_SHA256,
+        predecessor_detail_bytes_sha256=V1_EXPECTED_DETAIL_BYTES_SHA256,
+        revenue_path=source_inputs["revenue_path"],
+        price_dir=source_inputs["price_dir"],
+        monthly_resolution_path=source_inputs["monthly_registry_path"],
+        price_resolution_path=source_inputs["price_registry_path"],
+        generated_at="2026-08-22 00:00:00 Asia/Taipei",
+    )
+
+    row = manifest.iloc[0]
+    assert list(manifest.columns) == list(V2_MANIFEST_COLUMNS)
+    assert row["artifact_version"] == V2_PROJECTION_VERSION
+    assert row["projection_version"] == V2_PROJECTION_VERSION
+    assert row["projection_policy_id"] == V2_PROJECTION_POLICY_ID
+    assert row["predecessor_projection_version"] == V1_PROJECTION_VERSION
+    assert (
+        row["predecessor_manifest_bytes_sha256"]
+        == V1_EXPECTED_MANIFEST_BYTES_SHA256
+    )
+    assert row["predecessor_detail_bytes_sha256"] == V1_EXPECTED_DETAIL_BYTES_SHA256
+    assert row["lineage_change_reason"] == V2_LINEAGE_CHANGE_REASON
+    assert row["candidate_status"] == V2_CANDIDATE_STATUS
+    assert validator.validate_frames(
+        manifest,
+        source_inputs["projected_detail"],
+        revenue_path=source_inputs["revenue_path"],
+        price_dir=source_inputs["price_dir"],
+        monthly_resolution_path=source_inputs["monthly_registry_path"],
+        price_resolution_path=source_inputs["price_registry_path"],
+    ) == []
+    manifest_path = tmp_path / "v2_manifest.csv"
+    manifest.to_csv(manifest_path, index=False)
+    lineage, row_count, semantic_sha = (
+        source_first_validator._pinned_monthly_revenue_lineage(manifest_path)
+    )
+    assert lineage["monthly_revenue_history_blob_sha256"] == str(
+        row["monthly_revenue_history_blob_sha256"]
+    )
+    assert row_count == int(row["cutoff_revenue_subset_row_count"])
+    assert semantic_sha == row["cutoff_revenue_subset_semantic_sha256"]
+
+    drift = manifest.copy()
+    drift.loc[0, "lineage_change_reason"] = "partial_date_list"
+    drift.to_csv(manifest_path, index=False)
+    with pytest.raises(RuntimeError, match="lineage_change_reason drift"):
+        source_first_validator._pinned_monthly_revenue_lineage(manifest_path)
+
+
+def test_source_first_default_manifest_routes_zero_to_canonical_and_full_to_v2(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    exact7 = _bind_source_first_exact7_paths(tmp_path, monkeypatch)
+    canonical_manifest = tmp_path / "canonical_v1_manifest.csv"
+    canonical_manifest.write_text("projection_version\nv1\n", encoding="utf-8")
+    monkeypatch.setattr(
+        source_first_validator,
+        "SOURCE_SNAPSHOT_PROJECTION_MANIFEST_CSV",
+        canonical_manifest,
+    )
+    _bind_source_first_audit_outputs(tmp_path, monkeypatch)
+    routed: list[Path] = []
+
+    def stop_after_binding(path: Path):
+        routed.append(path)
+        raise RuntimeError("routing probe stop")
+
+    monkeypatch.setattr(
+        source_first_validator,
+        "_pinned_monthly_revenue_lineage",
+        stop_after_binding,
+    )
+
+    assert source_first_validator.validate() == [
+        "source-first current monthly revenue lineage cannot be verified: "
+        "routing probe stop"
+    ]
+    assert routed == [canonical_manifest]
+
+    for path in exact7.values():
+        path.write_text("present\n", encoding="utf-8")
+    assert source_first_validator.validate() == [
+        "source-first current monthly revenue lineage cannot be verified: "
+        "routing probe stop"
+    ]
+    assert routed == [canonical_manifest, exact7["V2_MANIFEST_CSV"]]
+
+
+def test_source_first_default_manifest_partial_exact7_fails_without_replay(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    exact7 = _bind_source_first_exact7_paths(tmp_path, monkeypatch)
+    exact7["V1_ARCHIVE_MANIFEST_CSV"].write_text("present\n", encoding="utf-8")
+    monkeypatch.setattr(
+        source_first_validator,
+        "_pinned_monthly_revenue_lineage",
+        lambda *_args, **_kwargs: pytest.fail("partial exact7 replayed canonical v1"),
+    )
+    monkeypatch.setattr(
+        source_first_validator,
+        "_current_monthly_revenue_lineage",
+        lambda *_args, **_kwargs: pytest.fail("partial exact7 replayed current source"),
+    )
+
+    errors = source_first_validator.validate()
+
+    assert len(errors) == 6
+    assert all(
+        "versioned source projection exact7 closure is incomplete or unsafe"
+        in error
+        for error in errors
+    )
+    assert all("missing_or_non_file" in error for error in errors)
+
+
+@pytest.mark.parametrize(
+    ("unsafe_kind", "expected_state"),
+    (
+        ("missing", "missing_or_non_file"),
+        ("directory", "directory_not_allowed"),
+        ("symlink", "symlink_not_allowed"),
+    ),
+)
+def test_source_first_default_manifest_rejects_nonfile_exact7_entries(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    unsafe_kind: str,
+    expected_state: str,
+) -> None:
+    exact7 = _bind_source_first_exact7_paths(tmp_path, monkeypatch)
+    for path in exact7.values():
+        path.write_text("present\n", encoding="utf-8")
+    unsafe_path = exact7["V2_PROJECTED_DETAIL_CSV"]
+    if unsafe_kind == "missing":
+        unsafe_path.unlink()
+    elif unsafe_kind == "directory":
+        unsafe_path.unlink()
+        unsafe_path.mkdir()
+    else:
+        original_is_symlink = Path.is_symlink
+        monkeypatch.setattr(
+            Path,
+            "is_symlink",
+            lambda path: path == unsafe_path or original_is_symlink(path),
+        )
+
+    routed, errors = source_first_validator._resolve_default_projection_manifest_path()
+
+    assert routed is None
+    assert len(errors) == 1
+    assert str(unsafe_path) in errors[0]
+    assert expected_state in errors[0]
+
+
+def test_source_first_projection_manifest_cli_default_and_explicit_bypass(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    explicit_manifest = tmp_path / "explicit_manifest.csv"
+    explicit_manifest.write_text("projection_version\nv1\n", encoding="utf-8")
+    assert source_first_validator.parse_args([]).projection_manifest is None
+    assert source_first_validator.parse_args(
+        ["--projection-manifest", str(explicit_manifest)]
+    ).projection_manifest == explicit_manifest
+
+    exact7 = _bind_source_first_exact7_paths(tmp_path, monkeypatch)
+    exact7["V1_ARCHIVE_MANIFEST_CSV"].write_text("present\n", encoding="utf-8")
+    _bind_source_first_audit_outputs(tmp_path, monkeypatch)
+    routed: list[Path] = []
+    monkeypatch.setattr(
+        source_first_validator,
+        "_resolve_default_projection_manifest_path",
+        lambda: pytest.fail("explicit projection manifest entered default routing"),
+    )
+
+    def stop_after_binding(path: Path):
+        routed.append(path)
+        raise RuntimeError("explicit routing probe stop")
+
+    monkeypatch.setattr(
+        source_first_validator,
+        "_pinned_monthly_revenue_lineage",
+        stop_after_binding,
+    )
+
+    assert source_first_validator.validate(
+        projection_manifest_path=explicit_manifest
+    ) == [
+        "source-first current monthly revenue lineage cannot be verified: "
+        "explicit routing probe stop"
+    ]
+    assert routed == [explicit_manifest]
+
+
+def test_archive_v1_preserves_canonical_raw_bytes(
+    source_inputs: dict[str, object],
+    tmp_path: Path,
+) -> None:
+    manifest = _build(source_inputs)
+    detail = source_inputs["projected_detail"]
+    canonical_manifest = tmp_path / "canonical_manifest.csv"
+    canonical_detail = tmp_path / "canonical_detail.csv"
+    archive_manifest = tmp_path / "archive_manifest.csv"
+    archive_detail = tmp_path / "archive_detail.csv"
+    evidence_path = tmp_path / "archive_evidence.csv"
+    manifest.to_csv(canonical_manifest, index=False)
+    detail.to_csv(canonical_detail, index=False)
+    manifest_bytes = canonical_manifest.read_bytes()
+    detail_bytes = canonical_detail.read_bytes()
+    manifest_sha = projection._file_sha256(canonical_manifest)
+    detail_sha = projection._file_sha256(canonical_detail)
+    detail_semantic_sha = canonical_projected_source_detail_semantic_sha256(detail)
+
+    evidence = archive_immutable_v1_projection(
+        canonical_manifest_path=canonical_manifest,
+        canonical_detail_path=canonical_detail,
+        archive_manifest_path=archive_manifest,
+        archive_detail_path=archive_detail,
+        evidence_path=evidence_path,
+        expected_manifest_bytes=len(manifest_bytes),
+        expected_manifest_bytes_sha256=manifest_sha,
+        expected_detail_bytes=len(detail_bytes),
+        expected_detail_bytes_sha256=detail_sha,
+        expected_detail_row_count=len(detail),
+        expected_detail_semantic_sha256=detail_semantic_sha,
+    )
+
+    assert list(evidence.columns) == list(ARCHIVE_EVIDENCE_COLUMNS)
+    assert archive_manifest.read_bytes() == manifest_bytes
+    assert archive_detail.read_bytes() == detail_bytes
+    assert canonical_manifest.read_bytes() == manifest_bytes
+    assert canonical_detail.read_bytes() == detail_bytes
+    assert str(evidence.iloc[0]["immutable_copy_verified"]).lower() == "true"
+
+    archive_manifest.write_bytes(b"different")
+    with pytest.raises(RuntimeError, match="different bytes"):
+        archive_immutable_v1_projection(
+            canonical_manifest_path=canonical_manifest,
+            canonical_detail_path=canonical_detail,
+            archive_manifest_path=archive_manifest,
+            archive_detail_path=archive_detail,
+            evidence_path=evidence_path,
+            expected_manifest_bytes=len(manifest_bytes),
+            expected_manifest_bytes_sha256=manifest_sha,
+            expected_detail_bytes=len(detail_bytes),
+            expected_detail_bytes_sha256=detail_sha,
+            expected_detail_row_count=len(detail),
+            expected_detail_semantic_sha256=detail_semantic_sha,
+        )
+
+
+def test_v2_candidate_writer_never_touches_canonical_latest(
+    source_inputs: dict[str, object],
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    manifest = build_source_snapshot_projection_v2_manifest(
+        source_inputs["full_detail"],
+        source_inputs["projected_detail"],
+        predecessor_manifest_bytes_sha256=V1_EXPECTED_MANIFEST_BYTES_SHA256,
+        predecessor_detail_bytes_sha256=V1_EXPECTED_DETAIL_BYTES_SHA256,
+        revenue_path=source_inputs["revenue_path"],
+        price_dir=source_inputs["price_dir"],
+        monthly_resolution_path=source_inputs["monthly_registry_path"],
+        price_resolution_path=source_inputs["price_registry_path"],
+        generated_at="2026-08-22 00:00:00 Asia/Taipei",
+    )
+    canonical_manifest = tmp_path / "canonical_latest_manifest.csv"
+    canonical_detail = tmp_path / "canonical_latest_detail.csv"
+    canonical_manifest.write_bytes(b"immutable canonical manifest")
+    canonical_detail.write_bytes(b"immutable canonical detail")
+    predecessor_manifest = tmp_path / "v1_manifest.csv"
+    predecessor_detail = tmp_path / "v1_detail.csv"
+    predecessor_manifest.write_bytes(b"archive manifest")
+    predecessor_detail.write_bytes(b"archive detail")
+
+    def fake_file_sha(path: Path) -> str:
+        if Path(path) == predecessor_manifest:
+            return V1_EXPECTED_MANIFEST_BYTES_SHA256
+        if Path(path) == predecessor_detail:
+            return V1_EXPECTED_DETAIL_BYTES_SHA256
+        return pytest.fail(f"unexpected SHA path: {path}")
+
+    monkeypatch.setattr(projection, "_file_sha256", fake_file_sha)
+    candidate_manifest = tmp_path / "candidate_manifest.csv"
+    candidate_detail = tmp_path / "candidate_detail.csv"
+    write_source_snapshot_projection_v2_candidate(
+        manifest,
+        source_inputs["projected_detail"],
+        manifest_path=candidate_manifest,
+        detail_path=candidate_detail,
+        predecessor_manifest_path=predecessor_manifest,
+        predecessor_detail_path=predecessor_detail,
+    )
+
+    assert candidate_manifest.is_file()
+    assert candidate_detail.is_file()
+    assert canonical_manifest.read_bytes() == b"immutable canonical manifest"
+    assert canonical_detail.read_bytes() == b"immutable canonical detail"
+
+
+def test_v2_candidate_writer_enforces_exact_repository_destinations(
+    source_inputs: dict[str, object],
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    manifest = build_source_snapshot_projection_v2_manifest(
+        source_inputs["full_detail"],
+        source_inputs["projected_detail"],
+        predecessor_manifest_bytes_sha256=V1_EXPECTED_MANIFEST_BYTES_SHA256,
+        predecessor_detail_bytes_sha256=V1_EXPECTED_DETAIL_BYTES_SHA256,
+        revenue_path=source_inputs["revenue_path"],
+        price_dir=source_inputs["price_dir"],
+        monthly_resolution_path=source_inputs["monthly_registry_path"],
+        price_resolution_path=source_inputs["price_registry_path"],
+        generated_at="2026-08-22 00:00:00 Asia/Taipei",
+    )
+    repository_root = tmp_path / "repository"
+    allowed_manifest = repository_root / "history" / "candidate_v2_manifest.csv"
+    allowed_detail = repository_root / "history" / "candidate_v2_detail.csv"
+    monkeypatch.setattr(projection, "ROOT", repository_root)
+    monkeypatch.setattr(projection, "V2_CANDIDATE_MANIFEST_CSV", allowed_manifest)
+    monkeypatch.setattr(projection, "V2_CANDIDATE_DETAIL_CSV", allowed_detail)
+    forbidden = (
+        repository_root / "output/latest/canonical_manifest.csv",
+        repository_root / "output/latest/canonical_detail.csv",
+        repository_root / "output/history/canonical_manifest.csv",
+        repository_root / "docs/latest/canonical_manifest.csv",
+        repository_root / "output/latest/alias/../canonical_manifest.csv",
+    )
+
+    outside_manifest = tmp_path / "outside_repository_manifest.csv"
+    outside_detail = tmp_path / "outside_repository_detail.csv"
+    for destination in forbidden:
+        for destination_role in ("manifest", "detail"):
+            with pytest.raises(
+                RuntimeError,
+                match="refuses a non-versioned repository destination",
+            ):
+                write_source_snapshot_projection_v2_candidate(
+                    manifest,
+                    source_inputs["projected_detail"],
+                    manifest_path=(
+                        destination
+                        if destination_role == "manifest"
+                        else outside_manifest
+                    ),
+                    detail_path=(
+                        destination
+                        if destination_role == "detail"
+                        else outside_detail
+                    ),
+                    predecessor_manifest_path=tmp_path / "missing_v1_manifest.csv",
+                    predecessor_detail_path=tmp_path / "missing_v1_detail.csv",
+                )
+
+    assert not repository_root.exists()
+    assert not outside_manifest.exists()
+    assert not outside_detail.exists()
+
+    predecessor_manifest = tmp_path / "v1_manifest.csv"
+    predecessor_detail = tmp_path / "v1_detail.csv"
+    predecessor_manifest.write_bytes(b"immutable v1 manifest")
+    predecessor_detail.write_bytes(b"immutable v1 detail")
+
+    def fake_file_sha(path: Path) -> str:
+        if Path(path) == predecessor_manifest:
+            return V1_EXPECTED_MANIFEST_BYTES_SHA256
+        if Path(path) == predecessor_detail:
+            return V1_EXPECTED_DETAIL_BYTES_SHA256
+        return pytest.fail(f"unexpected SHA path: {path}")
+
+    monkeypatch.setattr(projection, "_file_sha256", fake_file_sha)
+    write_source_snapshot_projection_v2_candidate(
+        manifest,
+        source_inputs["projected_detail"],
+        manifest_path=allowed_manifest,
+        detail_path=allowed_detail,
+        predecessor_manifest_path=predecessor_manifest,
+        predecessor_detail_path=predecessor_detail,
+    )
+
+    assert allowed_manifest.read_bytes() == manifest.to_csv(
+        index=False,
+        lineterminator="\n",
+    ).encode("utf-8")
+    assert allowed_detail.read_bytes() == source_inputs["projected_detail"].to_csv(
+        index=False,
+        lineterminator="\n",
+    ).encode("utf-8")
+
+
+def test_v2_supersede_copies_exact3_and_appends_history_without_losing_v1(
+    source_inputs: dict[str, object],
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    paths, immutable = _prepare_v2_supersede_fixture(
+        source_inputs=source_inputs,
+        tmp_path=tmp_path,
+        monkeypatch=monkeypatch,
+    )
+    candidate_manifest_before = paths["candidate_manifest_path"].read_bytes()
+    candidate_detail_before = paths["candidate_detail_path"].read_bytes()
+    v1_manifest_before = paths["v1_manifest_path"].read_bytes()
+    v1_detail_before = paths["v1_detail_path"].read_bytes()
+
+    evidence = supersede_source_snapshot_projection_v2_candidate(
+        superseded_at="2026-08-22 12:34:56 Asia/Taipei",
+        **paths,
+    )
+
+    assert list(evidence.columns) == list(V2_SUPERSEDE_EVIDENCE_COLUMNS)
+    assert paths["canonical_manifest_path"].read_bytes() == immutable["v2_manifest"]
+    assert paths["canonical_detail_path"].read_bytes() == immutable["v2_detail"]
+    assert paths["docs_manifest_path"].read_bytes() == immutable["v2_manifest"]
+    history = pd.read_csv(
+        paths["history_manifest_path"],
+        dtype=str,
+        keep_default_na=False,
+    )
+    assert list(history.columns) == list(V2_MANIFEST_COLUMNS)
+    assert history["projection_version"].tolist() == [
+        V1_PROJECTION_VERSION,
+        V2_PROJECTION_VERSION,
+    ]
+    assert history.iloc[0][list(projection.V2_MANIFEST_EXTENSION_COLUMNS)].eq("").all()
+    assert history.iloc[[1]].reset_index(drop=True).equals(
+        pd.read_csv(
+            paths["candidate_manifest_path"],
+            dtype=str,
+            keep_default_na=False,
+        )
+    )
+    evidence_row = pd.read_csv(
+        paths["evidence_path"],
+        dtype=str,
+        keep_default_na=False,
+    ).iloc[0]
+    assert evidence_row["canonical_history_preimage_row_count"] == "1"
+    assert evidence_row["canonical_history_postimage_row_count"] == "2"
+    assert evidence_row["canonical_history_postimage_v1_row_count"] == "1"
+    assert evidence_row["canonical_history_postimage_v2_row_count"] == "1"
+    assert evidence_row["canonical_history_append_only_verified"].lower() == "true"
+    assert evidence_row["forward_holdout_refreshed"].lower() == "false"
+    for column in (
+        "formal_model_use_allowed",
+        "approved_for_daily",
+        "production_change",
+        "promotion_evidence_allowed",
+        "ranking_consumption_allowed",
+        "pdf_consumption_allowed",
+    ):
+        assert evidence_row[column].lower() == "false"
+    assert paths["candidate_manifest_path"].read_bytes() == candidate_manifest_before
+    assert paths["candidate_detail_path"].read_bytes() == candidate_detail_before
+    assert paths["v1_manifest_path"].read_bytes() == v1_manifest_before
+    assert paths["v1_detail_path"].read_bytes() == v1_detail_before
+    assert validator._validate_canonical_v2_supersede(
+        canonical_manifest_path=paths["canonical_manifest_path"],
+        canonical_detail_path=paths["canonical_detail_path"],
+        history_manifest_path=paths["history_manifest_path"],
+        docs_manifest_path=paths["docs_manifest_path"],
+        evidence_path=paths["evidence_path"],
+        v1_manifest_path=paths["v1_manifest_path"],
+        v1_detail_path=paths["v1_detail_path"],
+        v2_manifest_path=paths["candidate_manifest_path"],
+        v2_detail_path=paths["candidate_detail_path"],
+        diff_summary_path=paths["diff_summary_path"],
+        diff_detail_path=paths["diff_detail_path"],
+    ) == []
+
+    postimage = {path: path.read_bytes() for path in paths.values()}
+    supersede_source_snapshot_projection_v2_candidate(**paths)
+    assert {path: path.read_bytes() for path in paths.values()} == postimage
+
+
+def test_v2_supersede_fails_closed_before_writes_on_unclassified_drift(
+    source_inputs: dict[str, object],
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    paths, _immutable = _prepare_v2_supersede_fixture(
+        source_inputs=source_inputs,
+        tmp_path=tmp_path,
+        monkeypatch=monkeypatch,
+    )
+    diff_summary = pd.read_csv(
+        paths["diff_summary_path"],
+        dtype=str,
+        keep_default_na=False,
+    )
+    diff_summary.loc[0, "unclassified_semantic_drift_count"] = "1"
+    diff_summary.to_csv(paths["diff_summary_path"], index=False, lineterminator="\n")
+    preimage = {
+        name: path.read_bytes()
+        for name, path in paths.items()
+        if name != "evidence_path"
+    }
+
+    with pytest.raises(RuntimeError, match="unclassified_semantic_drift_count"):
+        supersede_source_snapshot_projection_v2_candidate(
+            superseded_at="2026-08-22 12:34:56 Asia/Taipei",
+            **paths,
+        )
+
+    assert not paths["evidence_path"].exists()
+    assert {
+        name: path.read_bytes()
+        for name, path in paths.items()
+        if name != "evidence_path"
+    } == preimage
+
+
+def test_v2_supersede_rolls_back_exact_outputs_on_postimage_validation_failure(
+    source_inputs: dict[str, object],
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    paths, _immutable = _prepare_v2_supersede_fixture(
+        source_inputs=source_inputs,
+        tmp_path=tmp_path,
+        monkeypatch=monkeypatch,
+    )
+    preimage = {
+        name: path.read_bytes()
+        for name, path in paths.items()
+        if name != "evidence_path"
+    }
+    monkeypatch.setattr(
+        projection,
+        "validate_source_snapshot_projection_v2_supersede",
+        lambda **_kwargs: (_ for _ in ()).throw(
+            RuntimeError("forced postimage validation failure")
+        ),
+    )
+
+    with pytest.raises(RuntimeError, match="forced postimage validation failure"):
+        supersede_source_snapshot_projection_v2_candidate(
+            superseded_at="2026-08-22 12:34:56 Asia/Taipei",
+            **paths,
+        )
+
+    assert not paths["evidence_path"].exists()
+    assert {
+        name: path.read_bytes()
+        for name, path in paths.items()
+        if name != "evidence_path"
+    } == preimage
+
+
+def test_legacy_canonical_writer_rejects_v2_before_changing_any_bytes(
+    source_inputs: dict[str, object],
+    tmp_path: Path,
+) -> None:
+    manifest = build_source_snapshot_projection_v2_manifest(
+        source_inputs["full_detail"],
+        source_inputs["projected_detail"],
+        predecessor_manifest_bytes_sha256=V1_EXPECTED_MANIFEST_BYTES_SHA256,
+        predecessor_detail_bytes_sha256=V1_EXPECTED_DETAIL_BYTES_SHA256,
+        revenue_path=source_inputs["revenue_path"],
+        price_dir=source_inputs["price_dir"],
+        monthly_resolution_path=source_inputs["monthly_registry_path"],
+        price_resolution_path=source_inputs["price_registry_path"],
+        generated_at="2026-08-22 00:00:00 Asia/Taipei",
+    )
+    canonical_paths = {
+        "latest_manifest_path": tmp_path / "canonical_manifest.csv",
+        "latest_detail_path": tmp_path / "canonical_detail.csv",
+        "history_manifest_path": tmp_path / "canonical_history.csv",
+        "docs_manifest_path": tmp_path / "canonical_docs.csv",
+    }
+    original_bytes: dict[Path, bytes] = {}
+    for index, path in enumerate(canonical_paths.values(), start=1):
+        payload = f"immutable canonical payload {index}".encode()
+        path.write_bytes(payload)
+        original_bytes[path] = payload
+
+    with pytest.raises(RuntimeError, match="legacy canonical.*accepts only"):
+        write_source_snapshot_projection(
+            manifest,
+            source_inputs["projected_detail"],
+            **canonical_paths,
+        )
+
+    assert {
+        path: path.read_bytes() for path in canonical_paths.values()
+    } == original_bytes
+
+
+def test_canonical_projection_loader_rejects_v2_without_supersede_closure(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(
+        orchestrator,
+        "load_source_snapshot_projection_manifest",
+        lambda: pd.DataFrame(
+            [{"projection_version": V2_PROJECTION_VERSION}]
+        ),
+    )
+    monkeypatch.setattr(
+        orchestrator,
+        "load_projected_source_detail",
+        lambda: pytest.fail("canonical v2 detail reached a downstream consumer"),
+    )
+    monkeypatch.setattr(
+        orchestrator,
+        "validate_source_snapshot_projection",
+        lambda: ["missing supersede evidence"],
+    )
+    monkeypatch.setattr(
+        orchestrator,
+        "validate_projection_binding",
+        lambda *_args, **_kwargs: pytest.fail(
+            "canonical v2 reached downstream binding validation"
+        ),
+    )
+
+    with pytest.raises(RuntimeError, match="supersede closure failed.*missing supersede evidence"):
+        orchestrator.load_immutable_source_snapshot_projection()
+
+
+def test_canonical_projection_loader_accepts_only_validated_v2(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    manifest = pd.DataFrame([{"projection_version": V2_PROJECTION_VERSION}])
+    detail = pd.DataFrame([{"stock_id": "1111"}])
+    calls: list[str] = []
+    monkeypatch.setattr(
+        orchestrator,
+        "load_source_snapshot_projection_manifest",
+        lambda: manifest,
+    )
+    monkeypatch.setattr(
+        orchestrator,
+        "validate_source_snapshot_projection",
+        lambda: calls.append("independent_supersede_closure") or [],
+    )
+    monkeypatch.setattr(
+        orchestrator,
+        "load_projected_source_detail",
+        lambda: calls.append("load_detail") or detail,
+    )
+
+    def fake_binding(actual_manifest, actual_detail, **kwargs):
+        assert actual_manifest is manifest
+        assert actual_detail is detail
+        assert kwargs["expected_cutoff_date"] == orchestrator.PRICE_HISTORY_CUTOFF_DATE
+        calls.append("bind_detail")
+
+    monkeypatch.setattr(orchestrator, "validate_projection_binding", fake_binding)
+
+    assert orchestrator.load_immutable_source_snapshot_projection() == (manifest, detail)
+    assert calls == [
+        "independent_supersede_closure",
+        "load_detail",
+        "bind_detail",
+    ]
+
+
+def test_supersede_and_chain_stage_orders_selection_before_consumers(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    calls: list[str] = []
+    monkeypatch.setattr(
+        orchestrator,
+        "supersede_source_snapshot_projection_v2_candidate",
+        lambda: calls.append("supersede"),
+    )
+    monkeypatch.setattr(
+        orchestrator,
+        "build_and_write_source_snapshot_projection_chain",
+        lambda: calls.append("chain"),
+    )
+
+    orchestrator.build_and_write_source_snapshot_projection_supersede_and_chain()
+
+    assert calls == ["supersede", "chain"]
+
+
+def test_rebaseline_stage_builds_only_candidate_archive_source_first_and_diff(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    import revenue_unreacted_range_source_snapshot_projection_v1_v2_diff as diff
+
+    canonical_manifest = tmp_path / "canonical_manifest.csv"
+    canonical_detail = tmp_path / "canonical_detail.csv"
+    canonical_manifest.write_bytes(b"canonical manifest")
+    canonical_detail.write_bytes(b"canonical detail")
+    monkeypatch.setattr(
+        orchestrator,
+        "SOURCE_SNAPSHOT_V1_CANONICAL_MANIFEST_CSV",
+        canonical_manifest,
+    )
+    monkeypatch.setattr(
+        orchestrator,
+        "SOURCE_SNAPSHOT_V1_CANONICAL_DETAIL_CSV",
+        canonical_detail,
+    )
+    calls: list[str] = []
+    evidence = pd.DataFrame(
+        [
+            {
+                "canonical_manifest_sha256": V1_EXPECTED_MANIFEST_BYTES_SHA256,
+                "canonical_detail_sha256": V1_EXPECTED_DETAIL_BYTES_SHA256,
+            }
+        ]
+    )
+    monkeypatch.setattr(
+        orchestrator,
+        "archive_immutable_v1_projection",
+        lambda: calls.append("archive") or evidence,
+    )
+    full_summary = pd.DataFrame([{"view": "full_summary"}])
+    full_detail = pd.DataFrame([{"view": "full_detail"}])
+    projected_detail = pd.DataFrame([{"view": "projected_detail"}])
+
+    def fake_source_first(*_args, observation_cutoff_date=None, **_kwargs):
+        if observation_cutoff_date is None:
+            calls.append("source_first_full")
+            return full_summary, full_detail
+        assert observation_cutoff_date == CUTOFF_DATE
+        calls.append("source_first_cutoff")
+        return pd.DataFrame([{"view": "projected_summary"}]), projected_detail
+
+    monkeypatch.setattr(
+        orchestrator,
+        "build_source_first_condition_audit",
+        fake_source_first,
+    )
+    candidate_manifest = pd.DataFrame([{"view": "candidate"}])
+
+    def fake_manifest(full, projected, **kwargs):
+        assert full is full_detail
+        assert projected is projected_detail
+        assert (
+            kwargs["predecessor_manifest_bytes_sha256"]
+            == V1_EXPECTED_MANIFEST_BYTES_SHA256
+        )
+        assert (
+            kwargs["predecessor_detail_bytes_sha256"]
+            == V1_EXPECTED_DETAIL_BYTES_SHA256
+        )
+        calls.append("candidate_manifest")
+        return candidate_manifest
+
+    monkeypatch.setattr(
+        orchestrator,
+        "build_source_snapshot_projection_v2_manifest",
+        fake_manifest,
+    )
+    monkeypatch.setattr(
+        orchestrator,
+        "write_source_first_condition_audit",
+        lambda summary, detail: (
+            calls.append("write_source_first")
+            if summary is full_summary and detail is full_detail
+            else pytest.fail("rebaseline wrote the cutoff source-first frame")
+        ),
+    )
+    monkeypatch.setattr(
+        orchestrator,
+        "write_source_snapshot_projection_v2_candidate",
+        lambda manifest, detail: (
+            calls.append("write_candidate")
+            if manifest is candidate_manifest and detail is projected_detail
+            else pytest.fail("rebaseline wrote the wrong candidate")
+        ),
+    )
+    diff_summary = pd.DataFrame([{"view": "diff_summary"}])
+    diff_detail = pd.DataFrame([{"view": "diff_detail"}])
+    monkeypatch.setattr(
+        diff,
+        "build_diff_from_paths",
+        lambda: calls.append("build_diff") or (diff_summary, diff_detail),
+    )
+    monkeypatch.setattr(
+        diff,
+        "write_diff_artifacts",
+        lambda summary, detail: (
+            calls.append("write_diff")
+            if summary is diff_summary and detail is diff_detail
+            else pytest.fail("rebaseline wrote the wrong diff")
+        ),
+    )
+
+    orchestrator.build_and_write_source_snapshot_projection_rebaseline()
+
+    assert calls == [
+        "archive",
+        "source_first_full",
+        "source_first_cutoff",
+        "candidate_manifest",
+        "write_source_first",
+        "write_candidate",
+        "build_diff",
+        "write_diff",
+    ]
+    assert canonical_manifest.read_bytes() == b"canonical manifest"
+    assert canonical_detail.read_bytes() == b"canonical detail"
+
+
+def test_default_validator_versioned_closure_is_optional_then_fail_closed(
+    tmp_path: Path,
+) -> None:
+    paths = {
+        "v1_manifest_path": tmp_path / "v1_manifest.csv",
+        "v1_detail_path": tmp_path / "v1_detail.csv",
+        "v1_evidence_path": tmp_path / "v1_evidence.csv",
+        "v2_manifest_path": tmp_path / "v2_manifest.csv",
+        "v2_detail_path": tmp_path / "v2_detail.csv",
+        "diff_summary_path": tmp_path / "diff_summary.csv",
+        "diff_detail_path": tmp_path / "diff_detail.csv",
+    }
+    replay = {
+        "revenue_path": tmp_path / "revenue.csv",
+        "price_dir": tmp_path / "prices",
+        "monthly_resolution_path": tmp_path / "monthly_resolution.csv",
+        "price_resolution_path": tmp_path / "price_resolution.csv",
+    }
+    assert validator._validate_versioned_v2_closure(**replay, **paths) == []
+
+    paths["v2_manifest_path"].mkdir()
+    errors = validator._validate_versioned_v2_closure(**replay, **paths)
+    assert len(errors) == 7
+    assert all("missing versioned source projection closure artifact" in error for error in errors)
+    paths["v2_manifest_path"].rmdir()
+
+    paths["v2_manifest_path"].write_text("projection_version\nvalue\n", encoding="utf-8")
+    errors = validator._validate_versioned_v2_closure(**replay, **paths)
+    assert len(errors) == 6
+    assert all("missing versioned source projection closure artifact" in error for error in errors)
+
+
+def test_code_only_default_validation_preserves_existing_current_source_replay(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    manifest_path = tmp_path / "canonical_v1_manifest.csv"
+    detail_path = tmp_path / "canonical_v1_detail.csv"
+    pd.DataFrame([{"projection_version": V1_PROJECTION_VERSION}]).to_csv(
+        manifest_path,
+        index=False,
+    )
+    pd.DataFrame([{"stock_id": "1111"}]).to_csv(detail_path, index=False)
+    replay_paths = [tmp_path / name for name in ("revenue.csv", "monthly.csv", "price.csv")]
+    for path in replay_paths:
+        path.write_text("value\npresent\n", encoding="utf-8")
+    price_dir = tmp_path / "prices"
+    price_dir.mkdir()
+    monkeypatch.setattr(validator, "MANIFEST_CSV", manifest_path)
+    monkeypatch.setattr(validator, "PROJECTED_DETAIL_CSV", detail_path)
+    for name in (
+        "V1_ARCHIVE_MANIFEST_CSV",
+        "V1_ARCHIVE_DETAIL_CSV",
+        "V1_ARCHIVE_EVIDENCE_CSV",
+        "V2_MANIFEST_CSV",
+        "V2_PROJECTED_DETAIL_CSV",
+        "V1_V2_DIFF_SUMMARY_CSV",
+        "V1_V2_DIFF_DETAIL_CSV",
+    ):
+        monkeypatch.setattr(validator, name, tmp_path / f"missing_{name}.csv")
+    calls: list[str] = []
+    monkeypatch.setattr(
+        validator,
+        "_validate_immutable_v1_files",
+        lambda *_args, **_kwargs: pytest.fail("code-only PR reinterpreted immutable v1"),
+    )
+    monkeypatch.setattr(
+        validator,
+        "validate_frames",
+        lambda *_args, **_kwargs: calls.append("current_source_replay") or ["drift"],
+    )
+
+    assert validator.validate(
+        manifest_path=manifest_path,
+        projected_detail_path=detail_path,
+        revenue_path=replay_paths[0],
+        price_dir=price_dir,
+        monthly_resolution_path=replay_paths[1],
+        price_resolution_path=replay_paths[2],
+    ) == ["drift"]
+    assert calls == ["current_source_replay"]
+
+
+def test_default_validator_versioned_closure_calls_v2_and_diff_validators(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    paths = {
+        "v1_manifest_path": tmp_path / "v1_manifest.csv",
+        "v1_detail_path": tmp_path / "v1_detail.csv",
+        "v1_evidence_path": tmp_path / "v1_evidence.csv",
+        "v2_manifest_path": tmp_path / "v2_manifest.csv",
+        "v2_detail_path": tmp_path / "v2_detail.csv",
+        "diff_summary_path": tmp_path / "diff_summary.csv",
+        "diff_detail_path": tmp_path / "diff_detail.csv",
+    }
+    for path in paths.values():
+        pd.DataFrame([{"value": "present"}]).to_csv(path, index=False)
+    replay = {
+        "revenue_path": tmp_path / "revenue.csv",
+        "price_dir": tmp_path / "prices",
+        "monthly_resolution_path": tmp_path / "monthly_resolution.csv",
+        "price_resolution_path": tmp_path / "price_resolution.csv",
+    }
+    for key in (
+        "revenue_path",
+        "monthly_resolution_path",
+        "price_resolution_path",
+    ):
+        replay[key].write_text("value\npresent\n", encoding="utf-8")
+    replay["price_dir"].mkdir()
+    calls: list[str] = []
+    monkeypatch.setattr(
+        validator,
+        "_validate_v1_archive_evidence",
+        lambda **_kwargs: calls.append("archive") or [],
+    )
+    monkeypatch.setattr(
+        validator,
+        "validate_frames",
+        lambda *_args, **_kwargs: calls.append("v2") or [],
+    )
+
+    def fake_diff(**kwargs):
+        assert kwargs["v1_manifest_path"] == paths["v1_manifest_path"]
+        assert kwargs["v2_manifest_path"] == paths["v2_manifest_path"]
+        assert kwargs["diff_summary_path"] == paths["diff_summary_path"]
+        assert kwargs["diff_detail_path"] == paths["diff_detail_path"]
+        calls.append("diff")
+        return []
+
+    monkeypatch.setattr(
+        validator,
+        "_validate_projection_v1_v2_diff_subprocess",
+        fake_diff,
+    )
+    assert validator._validate_versioned_v2_closure(**replay, **paths) == []
+    assert calls == ["archive", "v2", "diff"]
+
+
+def test_source_projection_validator_runs_diff_validator_as_exact_isolated_cli(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    paths = {
+        name: tmp_path / f"{name}.csv"
+        for name in (
+            "v1_manifest_path",
+            "v1_detail_path",
+            "v2_manifest_path",
+            "v2_detail_path",
+            "diff_summary_path",
+            "diff_detail_path",
+        )
+    }
+    observed: dict[str, object] = {}
+
+    def fake_run(argv, **kwargs):
+        observed["argv"] = list(argv)
+        observed["kwargs"] = dict(kwargs)
+        return subprocess.CompletedProcess(
+            argv,
+            0,
+            stdout=validator.V1_V2_DIFF_VALIDATOR_SUCCESS + "\n",
+            stderr="",
+        )
+
+    monkeypatch.setattr(validator.subprocess, "run", fake_run)
+
+    assert validator._validate_projection_v1_v2_diff_subprocess(**paths) == []
+    assert observed["argv"] == [
+        sys.executable,
+        "-I",
+        str(validator.V1_V2_DIFF_VALIDATOR),
+        "--v1-manifest",
+        str(paths["v1_manifest_path"]),
+        "--v1-detail",
+        str(paths["v1_detail_path"]),
+        "--v2-manifest",
+        str(paths["v2_manifest_path"]),
+        "--v2-detail",
+        str(paths["v2_detail_path"]),
+        "--diff-summary",
+        str(paths["diff_summary_path"]),
+        "--diff-detail",
+        str(paths["diff_detail_path"]),
+    ]
+    kwargs = observed["kwargs"]
+    assert kwargs["cwd"] == validator.ROOT
+    assert kwargs["stdin"] == subprocess.DEVNULL
+    assert kwargs["stdout"] == subprocess.PIPE
+    assert kwargs["stderr"] == subprocess.PIPE
+    assert kwargs["check"] is False
+    assert kwargs["shell"] is False
+    assert kwargs["timeout"] == validator.V1_V2_DIFF_VALIDATOR_TIMEOUT_SECONDS
+
+
+@pytest.mark.parametrize(
+    ("returncode", "stdout", "stderr"),
+    (
+        (1, "ERROR: unclassified semantic drift\n", ""),
+        (0, "unexpected success text\n", ""),
+        (0, validator.V1_V2_DIFF_VALIDATOR_SUCCESS + "\n", "warning"),
+    ),
+)
+def test_source_projection_diff_cli_rejects_failure_or_nonexact_success(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    returncode: int,
+    stdout: str,
+    stderr: str,
+) -> None:
+    paths = {
+        name: tmp_path / f"{name}.csv"
+        for name in (
+            "v1_manifest_path",
+            "v1_detail_path",
+            "v2_manifest_path",
+            "v2_detail_path",
+            "diff_summary_path",
+            "diff_detail_path",
+        )
+    }
+    monkeypatch.setattr(
+        validator.subprocess,
+        "run",
+        lambda argv, **_kwargs: subprocess.CompletedProcess(
+            argv,
+            returncode,
+            stdout=stdout,
+            stderr=stderr,
+        ),
+    )
+
+    errors = validator._validate_projection_v1_v2_diff_subprocess(**paths)
+
+    assert len(errors) == 1
+    assert "v1/v2 diff independent validator failed" in errors[0]
+
+
+@pytest.mark.parametrize(
+    ("failure", "expected"),
+    (
+        (
+            subprocess.TimeoutExpired(["python", "validator.py"], 300),
+            "timed out",
+        ),
+        (OSError("cannot execute"), "could not execute"),
+    ),
+)
+def test_source_projection_diff_cli_fails_closed_on_execution_boundary(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    failure: BaseException,
+    expected: str,
+) -> None:
+    paths = {
+        name: tmp_path / f"{name}.csv"
+        for name in (
+            "v1_manifest_path",
+            "v1_detail_path",
+            "v2_manifest_path",
+            "v2_detail_path",
+            "diff_summary_path",
+            "diff_detail_path",
+        )
+    }
+
+    def fail_run(*_args, **_kwargs):
+        raise failure
+
+    monkeypatch.setattr(validator.subprocess, "run", fail_run)
+
+    errors = validator._validate_projection_v1_v2_diff_subprocess(**paths)
+
+    assert len(errors) == 1
+    assert expected in errors[0]
+
+
+def test_source_projection_validator_does_not_import_diff_validator_python_code() -> None:
+    tree = ast.parse(Path(validator.__file__).read_text(encoding="utf-8"))
+    forbidden = (
+        "validate_revenue_unreacted_range_source_snapshot_projection_v1_v2_diff"
+    )
+    imported_modules = {
+        node.module
+        for node in ast.walk(tree)
+        if isinstance(node, ast.ImportFrom) and node.module
+    }
+    imported_modules.update(
+        alias.name
+        for node in ast.walk(tree)
+        if isinstance(node, ast.Import)
+        for alias in node.names
+    )
+
+    assert forbidden not in imported_modules
+
+
+def test_default_canonical_validator_routes_complete_exact7_to_closure(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    manifest_path = tmp_path / "canonical_v1_manifest.csv"
+    detail_path = tmp_path / "canonical_v1_detail.csv"
+    pd.DataFrame([{"projection_version": V1_PROJECTION_VERSION}]).to_csv(
+        manifest_path,
+        index=False,
+    )
+    pd.DataFrame([{"stock_id": "1111"}]).to_csv(detail_path, index=False)
+    monkeypatch.setattr(validator, "MANIFEST_CSV", manifest_path)
+    monkeypatch.setattr(validator, "PROJECTED_DETAIL_CSV", detail_path)
+    monkeypatch.setattr(
+        validator,
+        "V2_SUPERSEDE_EVIDENCE_CSV",
+        tmp_path / "absent_v2_supersede_evidence.csv",
+    )
+    exact7_names = (
+        "V1_ARCHIVE_MANIFEST_CSV",
+        "V1_ARCHIVE_DETAIL_CSV",
+        "V1_ARCHIVE_EVIDENCE_CSV",
+        "V2_MANIFEST_CSV",
+        "V2_PROJECTED_DETAIL_CSV",
+        "V1_V2_DIFF_SUMMARY_CSV",
+        "V1_V2_DIFF_DETAIL_CSV",
+    )
+    exact7_paths: dict[str, Path] = {}
+    for name in exact7_names:
+        path = tmp_path / f"{name}.csv"
+        path.write_text("value\npresent\n", encoding="utf-8")
+        exact7_paths[name] = path
+        monkeypatch.setattr(validator, name, path)
+    calls: list[str] = []
+    monkeypatch.setattr(
+        validator,
+        "_validate_immutable_v1_files",
+        lambda *_args, **_kwargs: calls.append("immutable_v1") or [],
+    )
+
+    def fake_closure(**kwargs):
+        assert kwargs["v1_manifest_path"] == exact7_paths["V1_ARCHIVE_MANIFEST_CSV"]
+        assert kwargs["v1_detail_path"] == exact7_paths["V1_ARCHIVE_DETAIL_CSV"]
+        assert kwargs["v1_evidence_path"] == exact7_paths["V1_ARCHIVE_EVIDENCE_CSV"]
+        assert kwargs["v2_manifest_path"] == exact7_paths["V2_MANIFEST_CSV"]
+        assert kwargs["v2_detail_path"] == exact7_paths["V2_PROJECTED_DETAIL_CSV"]
+        assert kwargs["diff_summary_path"] == exact7_paths["V1_V2_DIFF_SUMMARY_CSV"]
+        assert kwargs["diff_detail_path"] == exact7_paths["V1_V2_DIFF_DETAIL_CSV"]
+        calls.append("v1_v2_closure")
+        return ["closure evidence"]
+
+    monkeypatch.setattr(validator, "_validate_versioned_v2_closure", fake_closure)
+    monkeypatch.setattr(
+        validator,
+        "validate_frames",
+        lambda *_args, **_kwargs: pytest.fail(
+            "complete exact7 fell through to current-source replay"
+        ),
+    )
+
+    assert validator.validate(
+        manifest_path=manifest_path,
+        projected_detail_path=detail_path,
+        revenue_path=tmp_path / "revenue.csv",
+        price_dir=tmp_path / "prices",
+        monthly_resolution_path=tmp_path / "monthly.csv",
+        price_resolution_path=tmp_path / "price.csv",
+    ) == ["closure evidence"]
+    assert calls == ["immutable_v1", "v1_v2_closure"]
+
+
+def test_default_canonical_validator_treats_nonfile_exact7_as_started(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    manifest_path = tmp_path / "canonical_v1_manifest.csv"
+    detail_path = tmp_path / "canonical_v1_detail.csv"
+    pd.DataFrame([{"projection_version": V1_PROJECTION_VERSION}]).to_csv(
+        manifest_path,
+        index=False,
+    )
+    pd.DataFrame([{"stock_id": "1111"}]).to_csv(detail_path, index=False)
+    monkeypatch.setattr(validator, "MANIFEST_CSV", manifest_path)
+    monkeypatch.setattr(validator, "PROJECTED_DETAIL_CSV", detail_path)
+    monkeypatch.setattr(
+        validator,
+        "V2_SUPERSEDE_EVIDENCE_CSV",
+        tmp_path / "absent_v2_supersede_evidence.csv",
+    )
+    exact7_names = (
+        "V1_ARCHIVE_MANIFEST_CSV",
+        "V1_ARCHIVE_DETAIL_CSV",
+        "V1_ARCHIVE_EVIDENCE_CSV",
+        "V2_MANIFEST_CSV",
+        "V2_PROJECTED_DETAIL_CSV",
+        "V1_V2_DIFF_SUMMARY_CSV",
+        "V1_V2_DIFF_DETAIL_CSV",
+    )
+    for name in exact7_names:
+        monkeypatch.setattr(validator, name, tmp_path / f"{name}.csv")
+    validator.V2_MANIFEST_CSV.mkdir()
+    monkeypatch.setattr(
+        validator,
+        "_validate_immutable_v1_files",
+        lambda *_args, **_kwargs: [],
+    )
+    monkeypatch.setattr(
+        validator,
+        "validate_frames",
+        lambda *_args, **_kwargs: pytest.fail(
+            "non-file exact7 entry fell through to current-source replay"
+        ),
+    )
+
+    errors = validator.validate(
+        manifest_path=manifest_path,
+        projected_detail_path=detail_path,
+        revenue_path=tmp_path / "revenue.csv",
+        price_dir=tmp_path / "prices",
+        monthly_resolution_path=tmp_path / "monthly.csv",
+        price_resolution_path=tmp_path / "price.csv",
+    )
+
+    assert len(errors) == 7
+    assert all("missing versioned source projection closure artifact" in error for error in errors)
+
+
+def test_explicit_v2_validation_does_not_reenter_default_closure(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    manifest_path = tmp_path / "v2_manifest.csv"
+    detail_path = tmp_path / "v2_detail.csv"
+    pd.DataFrame([{"projection_version": V2_PROJECTION_VERSION}]).to_csv(
+        manifest_path,
+        index=False,
+    )
+    pd.DataFrame([{"stock_id": "1111"}]).to_csv(detail_path, index=False)
+    replay_paths = [tmp_path / name for name in ("revenue.csv", "monthly.csv", "price.csv")]
+    for path in replay_paths:
+        path.write_text("value\npresent\n", encoding="utf-8")
+    price_dir = tmp_path / "prices"
+    price_dir.mkdir()
+    monkeypatch.setattr(
+        validator,
+        "_validate_versioned_v2_closure",
+        lambda **_kwargs: pytest.fail("explicit v2 validation re-entered default closure"),
+    )
+    monkeypatch.setattr(validator, "validate_frames", lambda *_args, **_kwargs: [])
+
+    assert validator.validate(
+        manifest_path=manifest_path,
+        projected_detail_path=detail_path,
+        revenue_path=replay_paths[0],
+        price_dir=price_dir,
+        monthly_resolution_path=replay_paths[1],
+        price_resolution_path=replay_paths[2],
+    ) == []
+
+
+def test_default_canonical_validator_requires_v2_closure_and_supersede_evidence(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    manifest_path = tmp_path / "canonical_manifest_latest.csv"
+    detail_path = tmp_path / "canonical_detail_latest.csv"
+    pd.DataFrame([{"projection_version": V2_PROJECTION_VERSION}]).to_csv(
+        manifest_path,
+        index=False,
+    )
+    pd.DataFrame([{"stock_id": "1111"}]).to_csv(detail_path, index=False)
+    monkeypatch.setattr(validator, "MANIFEST_CSV", manifest_path)
+    monkeypatch.setattr(validator, "PROJECTED_DETAIL_CSV", detail_path)
+    monkeypatch.setattr(
+        validator,
+        "validate_frames",
+        lambda *_args, **_kwargs: pytest.fail(
+            "canonical v2 fell through to ordinary frame validation"
+        ),
+    )
+    calls: list[str] = []
+    monkeypatch.setattr(
+        validator,
+        "_validate_versioned_v2_closure",
+        lambda **_kwargs: calls.append("immutable_v1_v2_diff_closure")
+        or ["closure evidence"],
+    )
+    monkeypatch.setattr(
+        validator,
+        "_validate_canonical_v2_supersede",
+        lambda **_kwargs: calls.append("canonical_supersede_evidence")
+        or ["selection evidence"],
+    )
+
+    errors = validator.validate(
+        manifest_path=manifest_path,
+        projected_detail_path=detail_path,
+        revenue_path=tmp_path / "missing_revenue.csv",
+        price_dir=tmp_path / "missing_prices",
+        monthly_resolution_path=tmp_path / "missing_monthly.csv",
+        price_resolution_path=tmp_path / "missing_price_resolution.csv",
+    )
+
+    assert errors == ["closure evidence", "selection evidence"]
+    assert calls == [
+        "immutable_v1_v2_diff_closure",
+        "canonical_supersede_evidence",
     ]

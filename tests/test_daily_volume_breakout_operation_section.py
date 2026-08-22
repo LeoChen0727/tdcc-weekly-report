@@ -3473,12 +3473,10 @@ def test_volume_v2_pdf_validation_has_one_canonical_contract_path() -> None:
     ]:
         assert stale_name not in path.read_text(encoding="utf-8-sig")
 
-    workflow_text = "\n".join(
-        path.read_text(encoding="utf-8")
-        for path in [
-            ROOT / ".github" / "workflows" / "daily_full_pipeline.yml",
-            ROOT / ".github" / "workflows" / "daily_model_maintenance_pr_validation.yml",
-        ]
+    workflow_text = (
+        ROOT / ".github" / "workflows" / "daily_pdf_replay_pr_validation.yml"
+    ).read_text(
+        encoding="utf-8"
     )
     assert "validate_chatgpt_daily_report_new_conversation_replay.py" in workflow_text
     assert "validate_daily_pdf_completion_hard_gate.py" in workflow_text

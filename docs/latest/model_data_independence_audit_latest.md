@@ -1,7 +1,7 @@
 # 每日股票模型與資料獨立性稽核
 
-- 產生時間：`2026-08-15 18:08:24 Asia/Taipei`
-- 結果：`CONTAINED=28, DISCLOSED_NOT_INDEPENDENT=4, PASS=59`
+- 產生時間：`2026-08-23 01:40:33 Asia/Taipei`
+- 結果：`CONTAINED=28, DISCLOSED_NOT_INDEPENDENT=4, PASS=64`
 - 原則：新模型與新資料 family 預設獨立；跨模型共用商業語意必須先有使用者核准與 migration evidence。
 - `CONTAINED` 代表既有共用已被凍結與精確盤點，不代表已物理拆分。
 - `DISCLOSED_NOT_INDEPENDENT` 代表該 validator 只能做 implementation consistency，不得當成獨立模型正確性證據。
@@ -23,6 +23,9 @@
 | shared_production_semantics | contained_model_family_semantic | CONTAINED | contained_model_family_semantic | legacy sharing is contained but not physically separated |
 | shared_production_semantics | registered_cross_model_runtime_semantic | CONTAINED | registered_cross_model_runtime_semantic | legacy sharing is contained but not physically separated |
 | shared_production_semantics | shared_technical | PASS | shared_technical | none |
+| data_family_ownership | revenue_unreacted_range_source_snapshot_projection_v1_archive | PASS | model_owned_not_shared | none |
+| data_family_ownership | revenue_unreacted_range_source_snapshot_projection_v2_candidate | PASS | model_owned_not_shared | none |
+| data_family_ownership | revenue_unreacted_range_source_snapshot_projection_v1_v2_diff | PASS | model_owned_not_shared | none |
 | data_family_ownership | stock_price_history | PASS | approved_shared_objective | none |
 | data_family_ownership | tdcc_stock_history | PASS | approved_shared_objective | none |
 | data_family_ownership | market_index_history | PASS | approved_shared_objective | none |
@@ -54,6 +57,7 @@
 | data_family_ownership | revenue_unreacted_range_launch_timing_feature_audit | PASS | model_owned_not_shared | none |
 | data_family_ownership | revenue_unreacted_range_source_first_condition_audit | PASS | model_owned_not_shared | none |
 | data_family_ownership | revenue_unreacted_range_source_snapshot_projection | PASS | model_owned_not_shared | none |
+| data_family_ownership | revenue_unreacted_range_source_snapshot_projection_v2_supersede_evidence | PASS | model_owned_not_shared | none |
 | data_family_ownership | revenue_unreacted_range_forward_confirmation_feature_audit | PASS | model_owned_not_shared | none |
 | data_family_ownership | revenue_unreacted_range_rearmed_operation_grid | PASS | model_owned_not_shared | none |
 | data_family_ownership | revenue_unreacted_range_operation_lag_bucket_audit | PASS | model_owned_not_shared | none |
@@ -98,4 +102,5 @@
 | validator_independence | scripts/validate_revenue_unreacted_range_promotion_preparation.py | PASS | independent_contract_artifact_binding_validator | none |
 | validator_independence | scripts/validate_research_against_stock_model_contract.py | DISCLOSED_NOT_INDEPENDENT | production_research_contract_consistency | may verify implementation consistency only; cannot prove model correctness independently |
 | validator_independence | scripts/validate_revenue_unreacted_range_source_snapshot_projection.py | PASS | independent_source_lineage_validator | none |
+| validator_independence | scripts/validate_revenue_unreacted_range_source_snapshot_projection_v1_v2_diff.py | PASS | independent_contract_artifact_binding_validator | none |
 | validator_independence | scripts/validate_revenue_unreacted_range_forward_holdout.py | PASS | input_bound_in_process_independent_validator | none |

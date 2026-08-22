@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 from pathlib import Path
 
 import pandas as pd
@@ -32,10 +33,58 @@ SOURCE_SNAPSHOT_PROJECTION_MANIFEST_CSV = (
     / "output/latest/research_backtest/"
     "revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv"
 )
+V1_ARCHIVE_MANIFEST_CSV = ROOT / (
+    "output/history/research/"
+    "revenue_unreacted_range_source_snapshot_projection_manifest_v1_20260731.csv"
+)
+V1_ARCHIVE_DETAIL_CSV = ROOT / (
+    "output/history/research/"
+    "revenue_unreacted_range_source_snapshot_projection_detail_v1_20260731.csv"
+)
+V1_ARCHIVE_EVIDENCE_CSV = ROOT / (
+    "output/history/research/"
+    "revenue_unreacted_range_source_snapshot_projection_archive_evidence_v1_20260731.csv"
+)
+V2_MANIFEST_CSV = ROOT / (
+    "output/history/research/"
+    "revenue_unreacted_range_source_snapshot_projection_manifest_v2_20260822.csv"
+)
+V2_PROJECTED_DETAIL_CSV = ROOT / (
+    "output/history/research/"
+    "revenue_unreacted_range_source_snapshot_projection_detail_v2_20260822.csv"
+)
+V1_V2_DIFF_SUMMARY_CSV = ROOT / (
+    "output/history/research/"
+    "revenue_unreacted_range_source_snapshot_projection_"
+    "v1_20260731_to_v2_20260822_diff_summary.csv"
+)
+V1_V2_DIFF_DETAIL_CSV = ROOT / (
+    "output/history/research/"
+    "revenue_unreacted_range_source_snapshot_projection_"
+    "v1_20260731_to_v2_20260822_diff_detail.csv"
+)
 SOURCE_SNAPSHOT_PROJECTION_ID = (
     "revenue_unreacted_range_source_snapshot_asof_20260713"
 )
 SOURCE_SNAPSHOT_CUTOFF_DATE = "20260713"
+SOURCE_SNAPSHOT_V1_VERSION = "source_snapshot_projection_v1_20260731"
+SOURCE_SNAPSHOT_V2_VERSION = "source_snapshot_projection_v2_20260822"
+SOURCE_SNAPSHOT_V1_POLICY = (
+    "raw_source_and_price_truncated_before_source_first_episode_assembly_v1"
+)
+SOURCE_SNAPSHOT_V2_POLICY = (
+    "raw_source_and_corrected_official_price_truncated_before_source_first_episode_assembly_v2"
+)
+SOURCE_SNAPSHOT_V2_LINEAGE_CHANGE_REASON = (
+    "corrected_official_pre_cutoff_price_history_lineage_rebaseline_20260822"
+)
+SOURCE_SNAPSHOT_V2_CANDIDATE_STATUS = "generated_pending_supersede_approval"
+SOURCE_SNAPSHOT_V1_MANIFEST_SHA256 = (
+    "d2dde5a1f05bc2f15baf4d77f326a7ea90b481492178fa6d2fd6262bf316c79e"
+)
+SOURCE_SNAPSHOT_V1_DETAIL_SHA256 = (
+    "b9784e4df2d2eba2c511b1c87f4255a6485a1fe1d7ac67490802e396614ee49a"
+)
 RUN_LINEAGE_COLUMNS = (
     "monthly_revenue_history_blob_sha256",
     "monthly_revenue_canonical_table_sha256",
@@ -87,6 +136,43 @@ def _is_sha256(value: object) -> bool:
     )
 
 
+def _versioned_source_projection_exact7_paths() -> tuple[Path, ...]:
+    return (
+        V1_ARCHIVE_MANIFEST_CSV,
+        V1_ARCHIVE_DETAIL_CSV,
+        V1_ARCHIVE_EVIDENCE_CSV,
+        V2_MANIFEST_CSV,
+        V2_PROJECTED_DETAIL_CSV,
+        V1_V2_DIFF_SUMMARY_CSV,
+        V1_V2_DIFF_DETAIL_CSV,
+    )
+
+
+def _resolve_default_projection_manifest_path() -> tuple[Path | None, list[str]]:
+    exact7 = _versioned_source_projection_exact7_paths()
+    closure_started = any(path.exists() or path.is_symlink() for path in exact7)
+    if not closure_started:
+        return SOURCE_SNAPSHOT_PROJECTION_MANIFEST_CSV, []
+
+    errors: list[str] = []
+    for path in exact7:
+        if path.is_symlink():
+            state = "symlink_not_allowed"
+        elif path.is_dir():
+            state = "directory_not_allowed"
+        elif not path.is_file():
+            state = "missing_or_non_file"
+        else:
+            continue
+        errors.append(
+            "versioned source projection exact7 closure is incomplete or unsafe: "
+            f"{path} ({state})"
+        )
+    if errors:
+        return None, errors
+    return V2_MANIFEST_CSV, []
+
+
 def _pinned_monthly_revenue_lineage(
     manifest_path: Path,
 ) -> tuple[dict[str, str], int, str]:
@@ -96,7 +182,10 @@ def _pinned_monthly_revenue_lineage(
         low_memory=False,
     )
     required = {
+        "artifact_version",
         "projection_id",
+        "projection_version",
+        "projection_policy_id",
         "cutoff_date",
         "full_source_artifact_id",
         "full_source_artifact_version",
@@ -117,6 +206,44 @@ def _pinned_monthly_revenue_lineage(
             "immutable source projection manifest must contain exactly one row"
         )
     row = manifest.iloc[0]
+    projection_version = str(row["projection_version"]).strip()
+    projection_policy = str(row["projection_policy_id"]).strip()
+    if str(row["artifact_version"]).strip() != projection_version:
+        raise RuntimeError("immutable source projection artifact/version binding drift")
+    if projection_version == SOURCE_SNAPSHOT_V1_VERSION:
+        if projection_policy != SOURCE_SNAPSHOT_V1_POLICY:
+            raise RuntimeError("immutable source projection v1 policy drift")
+    elif projection_version == SOURCE_SNAPSHOT_V2_VERSION:
+        candidate_required = {
+            "predecessor_projection_version",
+            "predecessor_manifest_bytes_sha256",
+            "predecessor_detail_bytes_sha256",
+            "lineage_change_reason",
+            "candidate_status",
+        }
+        candidate_missing = sorted(candidate_required - set(manifest.columns))
+        if candidate_missing:
+            raise RuntimeError(
+                "source projection v2 candidate schema is incomplete: "
+                f"{candidate_missing}"
+            )
+        expected_candidate = {
+            "projection_policy_id": SOURCE_SNAPSHOT_V2_POLICY,
+            "predecessor_projection_version": SOURCE_SNAPSHOT_V1_VERSION,
+            "predecessor_manifest_bytes_sha256": SOURCE_SNAPSHOT_V1_MANIFEST_SHA256,
+            "predecessor_detail_bytes_sha256": SOURCE_SNAPSHOT_V1_DETAIL_SHA256,
+            "lineage_change_reason": SOURCE_SNAPSHOT_V2_LINEAGE_CHANGE_REASON,
+            "candidate_status": SOURCE_SNAPSHOT_V2_CANDIDATE_STATUS,
+        }
+        for column, expected in expected_candidate.items():
+            if str(row[column]).strip() != expected:
+                raise RuntimeError(
+                    f"source projection v2 candidate {column} drift"
+                )
+    else:
+        raise RuntimeError(
+            f"unsupported immutable source projection version: {projection_version}"
+        )
     if str(row["projection_id"]).strip() != SOURCE_SNAPSHOT_PROJECTION_ID:
         raise RuntimeError("immutable source projection id drift")
     if str(row["cutoff_date"]).strip() != SOURCE_SNAPSHOT_CUTOFF_DATE:
@@ -222,8 +349,17 @@ def validate(
     *,
     revenue_path: Path = REVENUE_HISTORY_CSV,
     resolution_path: Path = MONTHLY_REVENUE_CROSS_MARKET_RESOLUTION_CSV,
-    projection_manifest_path: Path = SOURCE_SNAPSHOT_PROJECTION_MANIFEST_CSV,
+    projection_manifest_path: Path | None = None,
 ) -> list[str]:
+    if projection_manifest_path is None:
+        projection_manifest_path, routing_errors = (
+            _resolve_default_projection_manifest_path()
+        )
+        if routing_errors:
+            return routing_errors
+        if projection_manifest_path is None:
+            return ["default source projection manifest routing returned no path"]
+    projection_manifest_path = Path(projection_manifest_path)
     errors: list[str] = []
     for path in (LATEST_CSV, DETAIL_CSV, LATEST_MD):
         if not path.is_file():
@@ -608,8 +744,31 @@ def validate(
     return errors
 
 
+def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Validate the revenue source-first condition audit."
+    )
+    parser.add_argument(
+        "--projection-manifest",
+        type=Path,
+        default=None,
+    )
+    parser.add_argument("--revenue-history", type=Path, default=REVENUE_HISTORY_CSV)
+    parser.add_argument(
+        "--monthly-resolution",
+        type=Path,
+        default=MONTHLY_REVENUE_CROSS_MARKET_RESOLUTION_CSV,
+    )
+    return parser.parse_args(argv)
+
+
 def main() -> int:
-    errors = validate()
+    args = parse_args()
+    errors = validate(
+        revenue_path=args.revenue_history,
+        resolution_path=args.monthly_resolution,
+        projection_manifest_path=args.projection_manifest,
+    )
     if errors:
         for error in errors:
             print(f"ERROR: {error}")

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import subprocess
 import sys
 from pathlib import Path
 
@@ -14,6 +15,9 @@ if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
 
 from revenue_unreacted_range_rearmed_operation_grid import (  # noqa: E402
+    V1_ARTIFACT_VERSION,
+    V2_ARTIFACT_VERSION,
+    artifact_version_for_projection,
     NO_STOP_POLICY_ID,
     PRICE_HISTORY_CUTOFF_DATE,
     PRIMARY_ANALYSIS_BASIS,
@@ -29,6 +33,10 @@ from revenue_unreacted_range_rearmed_operation_grid import (  # noqa: E402
     build_operation_return_review,
     build_operation_summary,
 )
+from revenue_unreacted_range_source_snapshot_projection import (  # noqa: E402
+    V1_PROJECTION_VERSION,
+    V2_PROJECTION_VERSION,
+)
 from revenue_unreacted_range_source_first_condition_audit import (  # noqa: E402
     PRICE_HISTORY_DIR,
     _load_price_resolutions,
@@ -38,6 +46,19 @@ from validate_revenue_unreacted_range_rearmed_operation_grid import (  # noqa: E
     validate,
 )
 import validate_revenue_unreacted_range_rearmed_operation_grid as grid_validator  # noqa: E402
+
+
+def test_rearmed_artifact_version_is_projection_bound() -> None:
+    assert artifact_version_for_projection(V1_PROJECTION_VERSION) == V1_ARTIFACT_VERSION
+    assert artifact_version_for_projection(V2_PROJECTION_VERSION) == V2_ARTIFACT_VERSION
+    assert grid_validator._expected_artifact_version(V1_PROJECTION_VERSION) == (
+        V1_ARTIFACT_VERSION
+    )
+    assert grid_validator._expected_artifact_version(V2_PROJECTION_VERSION) == (
+        V2_ARTIFACT_VERSION
+    )
+    with pytest.raises(RuntimeError, match="unsupported canonical source projection"):
+        grid_validator._expected_artifact_version("unknown")
 
 
 def _stock_frame(
@@ -300,21 +321,137 @@ def test_producer_rejects_source_dates_after_artifact_cutoff() -> None:
         _assert_source_within_price_history_cutoff(source)
 
 
-def test_validator_ignores_price_dates_after_artifact_cutoff(
+def test_validator_replays_trusted_v1_price_blob_not_current_repair() -> None:
+    manifest, _, _ = grid_validator._trusted_source_frames()
+    indices = grid_validator._date_indices({"2380"}, manifest=manifest)
+    relative_path = grid_validator._trusted_stock_path("2380")
+    trusted = grid_validator._trusted_blobs({relative_path})[relative_path]
+    current = grid_validator._git("show", f"HEAD:{relative_path}")
+
+    assert current.returncode == 0
+    assert current.stdout != trusted
+    assert max(indices["2380"][1]) == PRICE_HISTORY_CUTOFF_DATE
+
+
+def test_trusted_v1_git_commands_disable_replace_objects(monkeypatch) -> None:
+    real_run = subprocess.run
+    calls: list[list[str]] = []
+
+    def recording_run(args, *positional, **kwargs):
+        calls.append(list(args))
+        return real_run(args, *positional, **kwargs)
+
+    monkeypatch.setattr(grid_validator.subprocess, "run", recording_run)
+    grid_validator._trusted_revision_preflight()
+
+    assert calls
+    assert all(call[1] == "--no-replace-objects" for call in calls)
+
+
+@pytest.mark.parametrize("revision", ("HEAD", "F" * 40, "f" * 40))
+def test_trusted_v1_revision_rejects_symbolic_malformed_or_missing_sha(
+    monkeypatch,
+    revision: str,
+) -> None:
+    monkeypatch.setattr(grid_validator, "TRUSTED_SOURCE_REVISION", revision)
+    with pytest.raises(RuntimeError, match="trusted v1 revision|trusted v1 commit"):
+        grid_validator._trusted_revision_preflight()
+
+
+def test_trusted_v1_revision_rejects_nonancestor_commit(
     monkeypatch,
     tmp_path: Path,
 ) -> None:
-    pd.DataFrame({"date": [PRICE_HISTORY_CUTOFF_DATE, "20260714"]}).to_csv(
-        tmp_path / "3694.csv",
-        index=False,
+    def git(*args: str) -> str:
+        completed = subprocess.run(
+            ["git", "-C", str(tmp_path), *args],
+            check=True,
+            stdout=subprocess.PIPE,
+            text=True,
+        )
+        return completed.stdout.strip()
+
+    git("init", "-q")
+    git("config", "user.email", "test@example.invalid")
+    git("config", "user.name", "test")
+    (tmp_path / "evidence.txt").write_text("base\n", encoding="utf-8")
+    git("add", "evidence.txt")
+    git("commit", "-q", "-m", "base")
+    base = git("rev-parse", "HEAD")
+    git("checkout", "-q", "-b", "side")
+    (tmp_path / "evidence.txt").write_text("side\n", encoding="utf-8")
+    git("commit", "-q", "-am", "side")
+    side = git("rev-parse", "HEAD")
+    git("checkout", "-q", "-b", "mainline", base)
+    (tmp_path / "mainline.txt").write_text("main\n", encoding="utf-8")
+    git("add", "mainline.txt")
+    git("commit", "-q", "-m", "main")
+    monkeypatch.setattr(grid_validator, "ROOT", tmp_path)
+    monkeypatch.setattr(grid_validator, "TRUSTED_SOURCE_REVISION", side)
+
+    with pytest.raises(RuntimeError, match="not an ancestor"):
+        grid_validator._trusted_revision_preflight()
+
+
+def test_trusted_v1_blob_cache_is_revision_bound(
+    monkeypatch,
+    tmp_path: Path,
+) -> None:
+    def git(*args: str) -> str:
+        completed = subprocess.run(
+            ["git", "-C", str(tmp_path), *args],
+            check=True,
+            stdout=subprocess.PIPE,
+            text=True,
+        )
+        return completed.stdout.strip()
+
+    git("init", "-q")
+    git("config", "user.email", "test@example.invalid")
+    git("config", "user.name", "test")
+    (tmp_path / "evidence.txt").write_text("one\n", encoding="utf-8")
+    git("add", "evidence.txt")
+    git("commit", "-q", "-m", "one")
+    first = git("rev-parse", "HEAD")
+    (tmp_path / "evidence.txt").write_text("two\n", encoding="utf-8")
+    git("commit", "-q", "-am", "two")
+    second = git("rev-parse", "HEAD")
+    monkeypatch.setattr(grid_validator, "ROOT", tmp_path)
+    monkeypatch.setattr(grid_validator, "_TRUSTED_TREE_CACHE", {})
+    monkeypatch.setattr(grid_validator, "_TRUSTED_BLOB_CACHE", {})
+    monkeypatch.setattr(grid_validator, "TRUSTED_SOURCE_REVISION", first)
+    first_payload = grid_validator._trusted_blobs({"evidence.txt"})["evidence.txt"]
+    monkeypatch.setattr(grid_validator, "TRUSTED_SOURCE_REVISION", second)
+    second_payload = grid_validator._trusted_blobs({"evidence.txt"})["evidence.txt"]
+
+    assert first_payload == b"one\n"
+    assert second_payload == b"two\n"
+
+
+def test_trusted_v1_blob_path_batch_and_descriptor_fail_closed(monkeypatch) -> None:
+    with pytest.raises(RuntimeError, match="unsafe stock id"):
+        grid_validator._trusted_stock_path("../../2380")
+    manifest, _, _ = grid_validator._trusted_source_frames()
+    mutated = manifest.copy()
+    mutated.loc[0, "projection_version"] = "source_snapshot_projection_v2_20260822"
+    with pytest.raises(RuntimeError, match="descriptor drift"):
+        grid_validator._validate_v1_manifest_descriptor(mutated)
+
+    revision = grid_validator.TRUSTED_SOURCE_REVISION
+    path = "evidence.csv"
+    monkeypatch.setattr(
+        grid_validator,
+        "_TRUSTED_TREE_CACHE",
+        {revision: {path: ("100644", "blob", "a" * 40)}},
     )
-    monkeypatch.setattr(grid_validator, "PRICE_HISTORY_DIR", tmp_path)
-    errors: list[str] = []
+    monkeypatch.setattr(grid_validator, "_TRUSTED_BLOB_CACHE", {})
 
-    indices = grid_validator._date_indices({"3694"}, errors)
+    def malformed_git(*_args, **_kwargs):
+        return subprocess.CompletedProcess([], 0, stdout=b"malformed\n", stderr=b"")
 
-    assert errors == []
-    assert grid_validator._offset_date(indices["3694"], PRICE_HISTORY_CUTOFF_DATE, 1) == ""
+    monkeypatch.setattr(grid_validator, "_git", malformed_git)
+    with pytest.raises(RuntimeError, match="blob header drift"):
+        grid_validator._trusted_blobs({path})
 
 
 def test_2380_capital_reduction_is_replayed_on_a_comparable_price_scale() -> None:

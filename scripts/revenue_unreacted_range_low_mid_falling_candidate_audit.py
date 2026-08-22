@@ -27,11 +27,14 @@ from revenue_unreacted_range_position_shape_transition_matrix import (
 ROOT = Path(__file__).resolve().parents[1]
 MODEL_ID = "revenue_unreacted_range"
 ARTIFACT_ID = "revenue_unreacted_range_low_mid_falling_candidate_audit"
-ARTIFACT_VERSION = "low_mid_falling_candidate_v1_20260720"
+V1_ARTIFACT_VERSION = "low_mid_falling_candidate_v1_20260720"
+V2_ARTIFACT_VERSION = "low_mid_falling_candidate_v2_20260822"
+ARTIFACT_VERSION = V1_ARTIFACT_VERSION
 SOURCE_FIRST_ARTIFACT_ID = "revenue_unreacted_range_source_first_condition_audit"
 SOURCE_FIRST_ARTIFACT_VERSION = "source_first_condition_v3_20260720"
 REARMED_ARTIFACT_ID = "revenue_unreacted_range_rearmed_operation_grid"
-REARMED_ARTIFACT_VERSION = "rearmed_operation_grid_v1_20260713"
+REARMED_ARTIFACT_VERSION = rearmed_producer.ARTIFACT_VERSION
+V2_REARMED_ARTIFACT_VERSION = rearmed_producer.V2_ARTIFACT_VERSION
 REARMED_SOURCE_ARTIFACT_ID = "revenue_unreacted_range_source_first_condition_audit"
 REARMED_SOURCE_VARIANT_ID = "absolute_or_two_month_yoy_ge15"
 SOURCE_VARIANT_ID = "absolute_or_two_month_yoy_ge15"
@@ -39,11 +42,36 @@ NO_STOP_POLICY_ID = "none_no_stop_reference"
 POSITION_SHAPE_ARTIFACT_ID = (
     "revenue_unreacted_range_position_shape_transition_matrix"
 )
-POSITION_SHAPE_ARTIFACT_VERSION = "position_shape_transition_matrix_v1_20260717"
+POSITION_SHAPE_ARTIFACT_VERSION = position_shape_producer.ARTIFACT_VERSION
+V2_POSITION_SHAPE_ARTIFACT_VERSION = position_shape_producer.V2_ARTIFACT_VERSION
 PRICE_HISTORY_CUTOFF_DATE = "20260713"
 SOURCE_PROJECTION_ARTIFACT_ID = "revenue_unreacted_range_source_snapshot_projection"
-SOURCE_PROJECTION_ARTIFACT_VERSION = "source_snapshot_projection_v1_20260731"
+SOURCE_PROJECTION_ARTIFACT_VERSION = source_projection.V1_PROJECTION_VERSION
+V2_SOURCE_PROJECTION_ARTIFACT_VERSION = source_projection.V2_PROJECTION_VERSION
 SOURCE_PROJECTION_CUTOFF_DATE = "20260713"
+
+
+def versions_for_rearmed_artifact(
+    source_artifact_version: object,
+) -> tuple[str, str, str]:
+    version = str(source_artifact_version).strip()
+    mapping = {
+        REARMED_ARTIFACT_VERSION: (
+            V1_ARTIFACT_VERSION,
+            POSITION_SHAPE_ARTIFACT_VERSION,
+            SOURCE_PROJECTION_ARTIFACT_VERSION,
+        ),
+        V2_REARMED_ARTIFACT_VERSION: (
+            V2_ARTIFACT_VERSION,
+            V2_POSITION_SHAPE_ARTIFACT_VERSION,
+            V2_SOURCE_PROJECTION_ARTIFACT_VERSION,
+        ),
+    }
+    if version not in mapping:
+        raise RuntimeError(
+            f"unsupported rearmed artifact version: {version or '<empty>'}"
+        )
+    return mapping[version]
 POSITION_POLICY = (
     "anchor adjusted close positioned within the adjusted analysis-high/analysis-low range "
     "of exactly 120 prior trading sessions, excluding the anchor"
@@ -383,11 +411,6 @@ def _assert_literal_upstream_contracts() -> None:
             SOURCE_PROJECTION_ARTIFACT_ID,
         ),
         (
-            "source projection artifact version",
-            source_projection.ARTIFACT_VERSION,
-            SOURCE_PROJECTION_ARTIFACT_VERSION,
-        ),
-        (
             "source projection cutoff date",
             source_projection.CUTOFF_DATE,
             SOURCE_PROJECTION_CUTOFF_DATE,
@@ -576,7 +599,11 @@ def _normalize_source(source_first_detail: pd.DataFrame) -> pd.DataFrame:
     return source.set_index("episode_key", drop=False)
 
 
-def _normalize_operations(rearmed_detail: pd.DataFrame) -> pd.DataFrame:
+def _normalize_operations(
+    rearmed_detail: pd.DataFrame,
+    *,
+    expected_artifact_version: str = REARMED_ARTIFACT_VERSION,
+) -> pd.DataFrame:
     required = {
         "model_id",
         "artifact_id",
@@ -626,7 +653,7 @@ def _normalize_operations(rearmed_detail: pd.DataFrame) -> pd.DataFrame:
     _require_constant(
         rearmed_detail,
         "artifact_version",
-        REARMED_ARTIFACT_VERSION,
+        expected_artifact_version,
         label="rearmed artifact version",
     )
     _require_constant(
@@ -1792,8 +1819,23 @@ def build_low_mid_falling_candidate_audit(
         _normalized_file_sha256(position_shape_producer.__file__),
         label="position-shape producer semantic SHA-256",
     )
+    rearmed_versions = set(rearmed_detail["artifact_version"].astype(str).str.strip())
+    if len(rearmed_versions) != 1:
+        raise RuntimeError(
+            "rearmed artifact version drift: "
+            "low/mid falling rearmed artifact version is not constant"
+        )
+    rearmed_artifact_version = next(iter(rearmed_versions))
+    (
+        selected_artifact_version,
+        expected_position_shape_artifact_version,
+        expected_source_projection_artifact_version,
+    ) = versions_for_rearmed_artifact(rearmed_artifact_version)
     source = _normalize_source(source_first_detail)
-    operations = _normalize_operations(rearmed_detail)
+    operations = _normalize_operations(
+        rearmed_detail,
+        expected_artifact_version=rearmed_artifact_version,
+    )
     detail = _build_detail(
         source,
         operations,
@@ -1808,6 +1850,18 @@ def build_low_mid_falling_candidate_audit(
     summary = _build_summary(detail)
     paired = _build_paired_confirmation(detail)
     contrast = _build_feature_contrast(detail)
+    for frame in (summary, detail, paired, contrast):
+        frame.loc[:, "artifact_version"] = selected_artifact_version
+        if "rearmed_artifact_version" in frame.columns:
+            frame.loc[:, "rearmed_artifact_version"] = rearmed_artifact_version
+        if "position_shape_artifact_version" in frame.columns:
+            frame.loc[:, "position_shape_artifact_version"] = (
+                expected_position_shape_artifact_version
+            )
+        if "source_projection_artifact_version" in frame.columns:
+            frame.loc[:, "source_projection_artifact_version"] = (
+                expected_source_projection_artifact_version
+            )
     return summary, detail, paired, contrast
 
 
@@ -1849,7 +1903,7 @@ def _markdown(summary: pd.DataFrame, paired: pd.DataFrame) -> str:
             "# 營收改善但股價尚未反應：低／中位下降型態候選稽核",
             "",
             f"- generated_at: `{summary['generated_at'].iloc[0]}`",
-            f"- artifact_version: `{ARTIFACT_VERSION}`",
+            f"- artifact_version: `{summary['artifact_version'].iloc[0]}`",
             "- 狀態：`research_only`；不是正式 gate、ranking、operation adapter、PDF 或 promotion evidence。",
             "- 月營收與季／年財報分離；EPS、毛利率、營益率、營業利益、業外與淨利全部排除。",
             "- 來源錨點使用 trigger 當下最後一筆已知 qualifying revenue，觀察期限固定 0～60 交易日。",

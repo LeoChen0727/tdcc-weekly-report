@@ -319,7 +319,7 @@ print(json.dumps(stock_layer.columns.tolist()))
             {tuple(expected_columns)},
         )
 
-    def test_theme_builder_replays_committed_thirteen_row_business_values(
+    def test_theme_builder_replays_committed_business_values(
         self,
     ) -> None:
         def read_blob(relative_path: str) -> tuple[pd.DataFrame, bytes]:
@@ -378,7 +378,8 @@ print(json.dumps(stock_layer.columns.tolist()))
         theme_layer = build_theme_layer(stocks)
         replayed = apply_theme_status_to_stocks(stocks, theme_layer)
 
-        self.assertEqual(len(replayed), 13)
+        self.assertGreater(len(expected), 0)
+        self.assertEqual(len(replayed), len(expected))
         pd.testing.assert_frame_equal(
             replayed.reset_index(drop=True),
             expected.reset_index(drop=True),

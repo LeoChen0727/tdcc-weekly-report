@@ -16,6 +16,10 @@ from revenue_unreacted_range_lag_strength_matrix import (
     ARTIFACT_VERSION as EXPECTED_SOURCE_ARTIFACT_VERSION,
 )
 from revenue_unreacted_range_source_snapshot_projection import (
+    V1_PROJECTION_VERSION,
+    V2_PROJECTION_VERSION,
+)
+from revenue_unreacted_range_source_snapshot_projection import (
     CUTOFF_DATE as SOURCE_SNAPSHOT_CUTOFF_DATE,
 )
 
@@ -23,7 +27,26 @@ from revenue_unreacted_range_source_snapshot_projection import (
 ROOT = Path(__file__).resolve().parents[1]
 MODEL_ID = "revenue_unreacted_range"
 ARTIFACT_ID = "revenue_unreacted_range_launch_timing_feature_audit"
-ARTIFACT_VERSION = "launch_timing_breakout_feature_v4_20260802"
+V1_ARTIFACT_VERSION = "launch_timing_breakout_feature_v4_20260802"
+V2_ARTIFACT_VERSION = "launch_timing_breakout_feature_v5_20260822"
+ARTIFACT_VERSION = V1_ARTIFACT_VERSION
+SOURCE_ARTIFACT_VERSION_BY_PROJECTION = {
+    V1_PROJECTION_VERSION: EXPECTED_SOURCE_ARTIFACT_VERSION,
+    V2_PROJECTION_VERSION: "trading_day_lag_strength_root_cause_pending_v6_20260822",
+}
+
+
+def artifact_version_for_projection(projection_version: object) -> str:
+    version = str(projection_version).strip()
+    mapping = {
+        V1_PROJECTION_VERSION: V1_ARTIFACT_VERSION,
+        V2_PROJECTION_VERSION: V2_ARTIFACT_VERSION,
+    }
+    if version not in mapping:
+        raise RuntimeError(
+            f"unsupported canonical source projection version: {version or '<empty>'}"
+        )
+    return mapping[version]
 EXPECTED_SOURCE_ARTIFACT_ID = "revenue_unreacted_range_lag_strength_matrix"
 SOURCE_LAG_DETAIL_LINEAGE_COLUMNS = (
     "source_lag_detail_row_count",
@@ -111,12 +134,21 @@ def _assert_source_detail_lineage(source: pd.DataFrame) -> dict[str, object]:
             "launch timing source artifact id drift: "
             f"expected={EXPECTED_SOURCE_ARTIFACT_ID}"
         )
-    if set(source["artifact_version"].astype(str)) != {
-        EXPECTED_SOURCE_ARTIFACT_VERSION
-    }:
+    projection_versions = set(
+        source["source_projection_version"].astype(str).str.strip()
+    )
+    if len(projection_versions) != 1:
+        raise RuntimeError("launch timing source projection version is not constant")
+    projection_version = next(iter(projection_versions))
+    if projection_version not in SOURCE_ARTIFACT_VERSION_BY_PROJECTION:
+        raise RuntimeError(
+            f"unsupported canonical source projection version: {projection_version}"
+        )
+    expected_source_version = SOURCE_ARTIFACT_VERSION_BY_PROJECTION[projection_version]
+    if set(source["artifact_version"].astype(str)) != {expected_source_version}:
         raise RuntimeError(
             "launch timing source artifact version drift: "
-            f"expected={EXPECTED_SOURCE_ARTIFACT_VERSION}"
+            f"expected={expected_source_version}"
         )
     if set(source["source_projection_cutoff_date"].astype(str)) != {
         SOURCE_SNAPSHOT_CUTOFF_DATE
@@ -1484,6 +1516,12 @@ def build_launch_timing_feature_audit(
         detail,
         daily_by_stock=daily_by_stock,
     )
+    lineage = _assert_source_detail_lineage(lag_detail)
+    selected_version = artifact_version_for_projection(
+        lineage["source_projection_version"]
+    )
+    for frame in (summary, detail, feature):
+        frame.loc[:, "artifact_version"] = selected_version
     return summary, detail, feature
 
 
@@ -1544,7 +1582,7 @@ def _markdown(summary: pd.DataFrame, feature: pd.DataFrame) -> str:
     lines = [
         "# 營收低反應模型：發動時間與突破特徵研究",
         "",
-        f"- artifact_version: `{ARTIFACT_VERSION}`",
+        f"- artifact_version: `{summary['artifact_version'].iloc[0]}`",
         "- 母體：營收強勢連續至少 3 個月，且營收可得日至既有訊號日相隔 8～14 個交易日。",
         "- primary 會保留所有未完成根因查核的候選；舊 109 筆只能作 candidate-exclusion sensitivity。",
         "- 3593 力銘原始價格跳升已查明為彌補虧損減資；本 artifact 依 TWSE 0.6 換股率將減資前價格除以 0.6 後重算，不把 8.10 到 12.30 誤認為經濟報酬。",

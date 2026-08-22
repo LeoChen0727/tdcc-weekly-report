@@ -3,9 +3,11 @@ from __future__ import annotations
 import argparse
 import csv
 import hashlib
+import io
 import math
 import re
 import statistics
+import subprocess
 from collections import defaultdict
 from pathlib import Path, PurePosixPath, PureWindowsPath
 
@@ -21,6 +23,31 @@ DEFAULT_DETAIL = ROOT / (
     "output/latest/research_backtest/"
     "revenue_unreacted_range_low_mid_falling_candidate_audit_detail_latest.csv"
 )
+CANONICAL_PROJECTION_MANIFEST = ROOT / (
+    "output/latest/research_backtest/"
+    "revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv"
+)
+V1_PROJECTION_VERSION = "source_snapshot_projection_v1_20260731"
+V2_PROJECTION_VERSION = "source_snapshot_projection_v2_20260822"
+CANONICAL_PROJECTION_MANIFEST_MAX_BYTES = 1_048_576
+CANONICAL_PROJECTION_MANIFEST_FIELD_SIZE_LIMIT = 262_144
+TRUSTED_V1_SOURCE_REVISION = "b7ab7b6122b422e941efa3a3a1a915fbfcb59f4d"
+TRUSTED_V1_SOURCE_ARTIFACTS = {
+    DEFAULT_SUMMARY: {
+        "path": "output/latest/research_backtest/"
+        "revenue_unreacted_range_low_mid_falling_candidate_audit_latest.csv",
+        "blob": "39acbd8261038ce76a71a51e13864046d5334f00",
+        "bytes": 54481,
+        "sha256": "f4cc336bb3aaf5997913544472c9bbac9e591af72a4957f63ba884e26f384ad8",
+    },
+    DEFAULT_DETAIL: {
+        "path": "output/latest/research_backtest/"
+        "revenue_unreacted_range_low_mid_falling_candidate_audit_detail_latest.csv",
+        "blob": "b7f5f313fb98d5b34ff2714c2f5ccb99e97326c7",
+        "bytes": 1005708,
+        "sha256": "dee8e7e43d13786657ac0b8997fde606df36cf591463e325de36dada5373757c",
+    },
+}
 
 ROOT_CHECK_COLUMNS = (
     "identity_non_overlap_status",
@@ -241,20 +268,120 @@ SUMMARY_EXPECTED = {
 }
 
 
-def _read_csv(path: Path) -> tuple[list[str], list[dict[str, str]], list[str]]:
+def _read_csv_payload(
+    payload: bytes,
+    *,
+    label: str,
+) -> tuple[list[str], list[dict[str, str]], list[str]]:
     errors: list[str] = []
-    if not path.is_file():
-        return [], [], [f"missing CSV: {path}"]
     try:
-        with path.open("r", encoding="utf-8-sig", newline="") as handle:
+        with io.StringIO(payload.decode("utf-8-sig"), newline="") as handle:
             reader = csv.DictReader(handle)
             rows = list(reader)
             columns = list(reader.fieldnames or [])
-    except (OSError, UnicodeError, csv.Error) as exc:
-        return [], [], [f"cannot read CSV {path}: {exc}"]
+    except (UnicodeError, csv.Error) as exc:
+        return [], [], [f"cannot read CSV {label}: {exc}"]
     if not rows:
-        errors.append(f"CSV is empty: {path}")
+        errors.append(f"CSV is empty: {label}")
     return columns, rows, errors
+
+
+def _read_csv(
+    path: Path,
+    *,
+    payload: bytes | None = None,
+    label: str | None = None,
+) -> tuple[list[str], list[dict[str, str]], list[str]]:
+    if payload is None:
+        if not path.is_file():
+            return [], [], [f"missing CSV: {path}"]
+        try:
+            payload = path.read_bytes()
+        except OSError as exc:
+            return [], [], [f"cannot read CSV {path}: {exc}"]
+    return _read_csv_payload(payload, label=label or str(path))
+
+
+def _git(*args: str) -> subprocess.CompletedProcess[bytes]:
+    return subprocess.run(
+        ["git", "--no-replace-objects", *args],
+        cwd=ROOT,
+        check=False,
+        capture_output=True,
+    )
+
+
+def _trusted_v1_source_blob(path: Path) -> bytes:
+    contract = TRUSTED_V1_SOURCE_ARTIFACTS.get(Path(path))
+    if contract is None:
+        raise RuntimeError(f"unapproved trusted v1 promotion source path: {path}")
+    if not re.fullmatch(r"[0-9a-f]{40}", TRUSTED_V1_SOURCE_REVISION):
+        raise RuntimeError("trusted v1 promotion source revision is not a full SHA")
+    commit = _git("rev-parse", "--verify", f"{TRUSTED_V1_SOURCE_REVISION}^{{commit}}")
+    if commit.returncode != 0 or commit.stdout.decode("ascii", errors="replace").strip() != TRUSTED_V1_SOURCE_REVISION:
+        raise RuntimeError("trusted v1 promotion source revision is unavailable")
+    ancestor = _git("merge-base", "--is-ancestor", TRUSTED_V1_SOURCE_REVISION, "HEAD")
+    if ancestor.returncode != 0:
+        raise RuntimeError("trusted v1 promotion source revision is not an ancestor of HEAD")
+    repo_path = str(contract["path"])
+    tree = _git("ls-tree", TRUSTED_V1_SOURCE_REVISION, "--", repo_path)
+    fields = tree.stdout.decode("utf-8", errors="replace").strip().split(None, 3)
+    if (
+        tree.returncode != 0
+        or len(fields) != 4
+        or fields[0] != "100644"
+        or fields[1] != "blob"
+        or fields[2] != contract["blob"]
+        or fields[3] != repo_path
+    ):
+        raise RuntimeError(f"trusted v1 promotion source tree identity mismatch: {repo_path}")
+    blob = _git("cat-file", "blob", str(contract["blob"]))
+    if blob.returncode != 0:
+        raise RuntimeError(f"trusted v1 promotion source blob is unreadable: {repo_path}")
+    if len(blob.stdout) != contract["bytes"]:
+        raise RuntimeError(f"trusted v1 promotion source byte count mismatch: {repo_path}")
+    if hashlib.sha256(blob.stdout).hexdigest() != contract["sha256"]:
+        raise RuntimeError(f"trusted v1 promotion source SHA-256 mismatch: {repo_path}")
+    return blob.stdout
+
+
+def _canonical_projection_version() -> str:
+    if not CANONICAL_PROJECTION_MANIFEST.is_file():
+        return ""
+    try:
+        payload = CANONICAL_PROJECTION_MANIFEST.read_bytes()
+    except OSError as exc:
+        raise RuntimeError(f"cannot read canonical projection manifest: {exc}") from exc
+    if len(payload) > CANONICAL_PROJECTION_MANIFEST_MAX_BYTES:
+        raise RuntimeError(
+            "canonical projection manifest exceeds the approved byte limit: "
+            f"actual={len(payload)}; "
+            f"limit={CANONICAL_PROJECTION_MANIFEST_MAX_BYTES}"
+        )
+    previous_field_size_limit = csv.field_size_limit()
+    try:
+        csv.field_size_limit(CANONICAL_PROJECTION_MANIFEST_FIELD_SIZE_LIMIT)
+        columns, rows, errors = _read_csv_payload(
+            payload,
+            label=str(CANONICAL_PROJECTION_MANIFEST),
+        )
+    finally:
+        csv.field_size_limit(previous_field_size_limit)
+    if errors:
+        raise RuntimeError(
+            "canonical projection manifest is invalid: " + "; ".join(errors)
+        )
+    if len(rows) != 1 or "projection_version" not in columns:
+        raise RuntimeError(
+            "canonical projection manifest must contain exactly one row and "
+            "the projection_version column"
+        )
+    version = rows[0].get("projection_version", "").strip()
+    if version not in {V1_PROJECTION_VERSION, V2_PROJECTION_VERSION}:
+        raise RuntimeError(
+            f"unsupported canonical projection version: {version!r}"
+        )
+    return version
 
 
 def _is_true(value: str) -> bool:
@@ -475,8 +602,13 @@ def _summary_matches(row: dict[str, str]) -> bool:
     return all(row.get(key, "") == value for key, value in selection.items())
 
 
-def validate_summary(path: Path) -> tuple[dict[str, str] | None, list[str]]:
-    _columns, rows, errors = _read_csv(path)
+def validate_summary(
+    path: Path,
+    *,
+    payload: bytes | None = None,
+    label: str | None = None,
+) -> tuple[dict[str, str] | None, list[str]]:
+    _columns, rows, errors = _read_csv(path, payload=payload, label=label)
     selected = [row for row in rows if _summary_matches(row)]
     if len(selected) != 1:
         errors.append(f"source summary must contain exactly one frozen selected slice; actual={len(selected)}")
@@ -505,8 +637,11 @@ def _detail_matches(row: dict[str, str]) -> bool:
 def validate_detail(
     path: Path,
     anomaly_rows: dict[str, dict[str, str]],
+    *,
+    payload: bytes | None = None,
+    label: str | None = None,
 ) -> tuple[list[dict[str, str]], list[str]]:
-    _columns, rows, errors = _read_csv(path)
+    _columns, rows, errors = _read_csv(path, payload=payload, label=label)
     selected = [row for row in rows if _detail_matches(row)]
     if len(selected) != 52:
         errors.append(f"source detail frozen selected slice must contain 52 rows; actual={len(selected)}")
@@ -684,16 +819,67 @@ def validate(
     errors.extend(decision_errors)
     errors.extend(anomaly_errors)
 
-    summary_exists = summary_path.is_file()
-    detail_exists = detail_path.is_file()
+    trusted_summary: bytes | None = None
+    trusted_detail: bytes | None = None
+    default_source_pair = (
+        Path(summary_path).resolve() == DEFAULT_SUMMARY.resolve()
+        and Path(detail_path).resolve() == DEFAULT_DETAIL.resolve()
+    )
+    canonical_projection_version = ""
+    if default_source_pair:
+        try:
+            canonical_projection_version = _canonical_projection_version()
+        except RuntimeError as exc:
+            errors.append(str(exc))
+            return errors
+        if not canonical_projection_version and (
+            require_source_artifacts
+            or summary_path.is_file()
+            or detail_path.is_file()
+        ):
+            errors.append(
+                "canonical projection manifest is required before validating "
+                "the default source artifact pair"
+            )
+            return errors
+    use_trusted_v1_sources = (
+        default_source_pair
+        and canonical_projection_version == V2_PROJECTION_VERSION
+    )
+    if use_trusted_v1_sources:
+        try:
+            trusted_summary = _trusted_v1_source_blob(DEFAULT_SUMMARY)
+            trusted_detail = _trusted_v1_source_blob(DEFAULT_DETAIL)
+        except RuntimeError as exc:
+            errors.append(str(exc))
+    if use_trusted_v1_sources:
+        summary_exists = trusted_summary is not None
+        detail_exists = trusted_detail is not None
+    else:
+        summary_exists = summary_path.is_file()
+        detail_exists = detail_path.is_file()
     if require_source_artifacts or summary_exists or detail_exists:
         if not summary_exists or not detail_exists:
             errors.append(
                 "source artifacts must be supplied as a complete summary/detail pair when validation is enabled"
             )
         else:
-            _summary, summary_errors = validate_summary(summary_path)
-            _detail, detail_errors = validate_detail(detail_path, anomaly_rows)
+            source_label = (
+                f"trusted Git {TRUSTED_V1_SOURCE_REVISION}"
+                if use_trusted_v1_sources
+                else None
+            )
+            _summary, summary_errors = validate_summary(
+                summary_path,
+                payload=trusted_summary,
+                label=(f"{source_label}:{TRUSTED_V1_SOURCE_ARTIFACTS[DEFAULT_SUMMARY]['path']}" if source_label else None),
+            )
+            _detail, detail_errors = validate_detail(
+                detail_path,
+                anomaly_rows,
+                payload=trusted_detail,
+                label=(f"{source_label}:{TRUSTED_V1_SOURCE_ARTIFACTS[DEFAULT_DETAIL]['path']}" if source_label else None),
+            )
             errors.extend(summary_errors)
             errors.extend(detail_errors)
     return errors
@@ -728,7 +914,14 @@ def main() -> int:
         for error in errors:
             print(f"ERROR: {error}")
         return 1
-    source_state = "source artifacts validated" if args.summary.is_file() else "source artifacts absent; registry-only validation"
+    if (
+        args.summary.resolve() == DEFAULT_SUMMARY.resolve()
+        and args.detail.resolve() == DEFAULT_DETAIL.resolve()
+        and _canonical_projection_version() == V2_PROJECTION_VERSION
+    ):
+        source_state = f"historical v1 source artifacts validated from trusted Git {TRUSTED_V1_SOURCE_REVISION}"
+    else:
+        source_state = "source artifacts validated" if args.summary.is_file() else "source artifacts absent; registry-only validation"
     print(
         "PASS: revenue_unreacted_range promotion preparation independently validated; "
         f"{source_state}; formal flags remain false; anomaly worklist=8"

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import sys
 from pathlib import Path
+import subprocess
 
 import numpy as np
 import pandas as pd
@@ -25,6 +26,11 @@ from revenue_unreacted_range_position_shape_transition_matrix import (  # noqa: 
     SOURCE_OPERATION_LAG_ARTIFACT_VERSION,
     SOURCE_REARMED_ARTIFACT_ID,
     SOURCE_REARMED_ARTIFACT_VERSION,
+    V1_ARTIFACT_VERSION,
+    V2_ARTIFACT_VERSION,
+    V2_SOURCE_OPERATION_LAG_ARTIFACT_VERSION,
+    V2_SOURCE_REARMED_ARTIFACT_VERSION,
+    versions_for_operation_lag_artifact,
     SOURCE_VARIANT_ID,
     _sha256 as producer_source_file_sha256,
     build_position_shape_transition_matrix,
@@ -32,10 +38,36 @@ from revenue_unreacted_range_position_shape_transition_matrix import (  # noqa: 
     canonical_rearmed_semantic_sha256,
     write_position_shape_transition_matrix,
 )
+
+
+def test_position_shape_versions_follow_operation_lag_generation() -> None:
+    assert versions_for_operation_lag_artifact(SOURCE_OPERATION_LAG_ARTIFACT_VERSION) == (
+        V1_ARTIFACT_VERSION,
+        SOURCE_REARMED_ARTIFACT_VERSION,
+    )
+    assert versions_for_operation_lag_artifact(
+        V2_SOURCE_OPERATION_LAG_ARTIFACT_VERSION
+    ) == (V2_ARTIFACT_VERSION, V2_SOURCE_REARMED_ARTIFACT_VERSION)
+    with pytest.raises(RuntimeError, match="unsupported operation-lag artifact version"):
+        versions_for_operation_lag_artifact("unknown")
+import validate_revenue_unreacted_range_position_shape_transition_matrix as validator  # noqa: E402
 from validate_revenue_unreacted_range_position_shape_transition_matrix import (  # noqa: E402
     _governance_errors,
     _sha256 as validator_source_file_sha256,
 )
+
+
+def _v1_manifest_frame() -> pd.DataFrame:
+    return pd.DataFrame([validator.EXPECTED_V1_MANIFEST_DESCRIPTOR])
+
+
+def _completed(
+    returncode: int = 0,
+    *,
+    stdout: bytes = b"",
+    stderr: bytes = b"",
+) -> subprocess.CompletedProcess[bytes]:
+    return subprocess.CompletedProcess([], returncode, stdout=stdout, stderr=stderr)
 
 
 def _price_frame() -> pd.DataFrame:
@@ -135,6 +167,29 @@ def _build() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
         enforce_pinned_baseline=False,
     )
     return summary, detail, transition, price
+
+
+def test_v2_source_generation_emits_v2_position_and_upstream_lineage() -> None:
+    price = _price_frame()
+    source = _operation_source(price)
+    source.loc[:, "artifact_version"] = V2_SOURCE_OPERATION_LAG_ARTIFACT_VERSION
+    rearmed = _rearmed_lineage(source)
+    rearmed.loc[:, "artifact_version"] = V2_SOURCE_REARMED_ARTIFACT_VERSION
+    summary, detail, transition = build_position_shape_transition_matrix(
+        source,
+        rearmed_detail=rearmed,
+        daily_by_stock={"1111": price, "2222": price},
+        generated_at="2026-08-22 12:00:00 Asia/Taipei",
+        enforce_pinned_baseline=True,
+    )
+    for frame in (summary, detail, transition):
+        assert set(frame["artifact_version"].astype(str)) == {V2_ARTIFACT_VERSION}
+        assert set(frame["source_operation_lag_artifact_version"].astype(str)) == {
+            V2_SOURCE_OPERATION_LAG_ARTIFACT_VERSION
+        }
+    assert set(detail["source_rearmed_artifact_version"].astype(str)) == {
+        V2_SOURCE_REARMED_ARTIFACT_VERSION
+    }
 
 
 def test_three_anchor_detail_uses_adjusted_prices_and_exact_anchor_offsets() -> None:
@@ -389,3 +444,169 @@ def test_model_owned_builder_and_workflows_route_the_new_stage_and_validator() -
         ROOT / ".github" / "workflows" / "daily_model_maintenance_pr_validation.yml",
     ):
         assert validator_command in workflow_path.read_text(encoding="utf-8")
+
+
+def test_trusted_git_commands_disable_replace_objects(monkeypatch: pytest.MonkeyPatch) -> None:
+    calls: list[list[str]] = []
+
+    def fake_run(args: list[str], **_kwargs: object) -> subprocess.CompletedProcess[bytes]:
+        calls.append(args)
+        return _completed()
+
+    monkeypatch.setattr(validator.subprocess, "run", fake_run)
+    validator._git("cat-file", "-t", "a" * 40)
+
+    assert calls == [
+        [
+            "git",
+            "--no-replace-objects",
+            "-C",
+            str(validator.ROOT),
+            "cat-file",
+            "-t",
+            "a" * 40,
+        ]
+    ]
+
+
+def test_trusted_revision_rejects_wrong_sha_and_nonancestor(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    with pytest.raises(RuntimeError, match="lowercase 40-character SHA"):
+        validator._trusted_revision_preflight("A" * 40)
+
+    revision = "a" * 40
+
+    def fake_git(*args: str, **_kwargs: object) -> subprocess.CompletedProcess[bytes]:
+        if args[0] == "rev-parse":
+            return _completed(stdout=f"{revision}\n".encode("ascii"))
+        if args[:2] == ("cat-file", "-t"):
+            return _completed(stdout=b"commit\n")
+        if args[0] == "merge-base":
+            return _completed(1, stderr=b"not ancestor")
+        raise AssertionError(args)
+
+    monkeypatch.setattr(validator, "_git", fake_git)
+    with pytest.raises(RuntimeError, match="not an ancestor"):
+        validator._trusted_revision_preflight(revision)
+
+
+def test_trusted_path_blob_and_revision_keyed_cache_fail_closed(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    with pytest.raises(RuntimeError, match="unsafe Git path"):
+        validator._safe_repo_path("../data/stock_price_history/1111.csv")
+    with pytest.raises(RuntimeError, match="unsafe stock id"):
+        validator._trusted_stock_path("1111/../2222")
+
+    revision = "b" * 40
+    validator._TRUSTED_TREE_CACHE.clear()
+    validator._TRUSTED_BLOB_CACHE.clear()
+    monkeypatch.setattr(validator, "_trusted_tree", lambda _revision: {})
+    with pytest.raises(RuntimeError, match="Git blob is missing"):
+        validator._trusted_blobs({"safe.csv"}, revision=revision)
+
+    path = "safe.csv"
+    other_revision = "c" * 40
+    validator._TRUSTED_BLOB_CACHE[(revision, path)] = b"first"
+    validator._TRUSTED_BLOB_CACHE[(other_revision, path)] = b"second"
+    assert validator._trusted_blobs({path}, revision=revision)[path] == b"first"
+    assert (
+        validator._trusted_blobs({path}, revision=other_revision)[path]
+        == b"second"
+    )
+    validator._TRUSTED_BLOB_CACHE.clear()
+
+
+def test_trusted_v1_manifest_descriptor_rejects_drift() -> None:
+    manifest = _v1_manifest_frame()
+    validator._validate_v1_manifest_descriptor(manifest)
+    manifest.loc[0, "artifact_version"] = "source_snapshot_projection_v2"
+    with pytest.raises(RuntimeError, match="descriptor drift"):
+        validator._validate_v1_manifest_descriptor(manifest)
+
+
+def test_default_source_replay_uses_only_trusted_raw_blobs(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    lag_dates = {
+        column: ["20260701"] for column in validator.CANONICAL_DATE_COLUMNS
+    }
+    lag = pd.DataFrame({"stock_id": ["1111"], **lag_dates})
+    rearmed = pd.DataFrame(
+        {
+            "stock_id": ["1111", "2222"],
+            "grid_id": [validator.ADOPTED_GRID_ID, "other-grid"],
+            "return_valid": [True, False],
+            "trigger_date": ["20260701", "20260701"],
+            "confirmation_date": ["20260702", "20260702"],
+            "entry_date": ["20260703", ""],
+            "exit_date": ["20260713", ""],
+        }
+    )
+    payloads = {
+        validator.SOURCE_RELATIVE_PATHS["operation_lag"]: lag.to_csv(
+            index=False, lineterminator="\n"
+        ).encode("utf-8"),
+        validator.SOURCE_RELATIVE_PATHS["rearmed"]: rearmed.to_csv(
+            index=False, lineterminator="\n"
+        ).encode("utf-8"),
+        validator.SOURCE_PROJECTION_MANIFEST_RELATIVE_PATH: _v1_manifest_frame()
+        .to_csv(index=False, lineterminator="\n")
+        .encode("utf-8"),
+    }
+    monkeypatch.setattr(validator, "_trusted_revision_preflight", lambda _revision: None)
+    monkeypatch.setattr(
+        validator,
+        "_trusted_blobs",
+        lambda paths, revision: {path: payloads[path] for path in paths},
+    )
+    monkeypatch.setattr(
+        validator,
+        "_canonical_semantic_sha256",
+        lambda *_args, **_kwargs: "d" * 64,
+    )
+
+    observed_lag, observed_rearmed, *_hashes = validator._read_source_frames(
+        validator.ROOT
+    )
+
+    assert observed_lag["stock_id"].tolist() == ["1111"]
+    assert observed_rearmed["stock_id"].tolist() == ["1111", "2222"]
+
+
+def test_trusted_price_replay_ignores_current_calendar_drift(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    current_dir = tmp_path / "data" / "stock_price_history"
+    current_dir.mkdir(parents=True)
+    (current_dir / "1111.csv").write_text("date,close\n20990101,999\n", encoding="utf-8")
+    trusted = pd.DataFrame(
+        {
+            "date": ["20260710", "20260713", "20260714"],
+            "open": [10.0, 11.0, 999.0],
+            "high": [10.5, 11.5, 999.0],
+            "low": [9.5, 10.5, 999.0],
+            "close": [10.0, 11.0, 999.0],
+        }
+    ).to_csv(index=False, lineterminator="\n").encode("utf-8")
+    relative = validator._trusted_stock_path("1111")
+    monkeypatch.setattr(
+        validator,
+        "_trusted_blobs",
+        lambda paths, revision: {path: trusted for path in paths},
+    )
+
+    replay = validator._load_adjusted_price(
+        "1111",
+        current_dir,
+        pd.DataFrame(
+            columns=["stock_id", "resume_date", "exchange_ratio", "resolution_id"]
+        ),
+        trusted_revision="e" * 40,
+    )
+
+    assert relative == "data/stock_price_history/1111.csv"
+    assert replay["date"].tolist() == ["20260710", "20260713"]
+    assert replay["analysis_close"].tolist() == [10.0, 11.0]

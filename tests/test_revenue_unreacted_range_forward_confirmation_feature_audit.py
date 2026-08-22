@@ -14,6 +14,9 @@ if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
 
 from revenue_unreacted_range_forward_confirmation_feature_audit import (  # noqa: E402
+    V1_ARTIFACT_VERSION,
+    V2_ARTIFACT_VERSION,
+    artifact_version_for_projection,
     PRIMARY_ANALYSIS_BASIS,
     EXPECTED_SOURCE_ARTIFACT_ID,
     EXPECTED_SOURCE_ARTIFACT_VERSION,
@@ -32,6 +35,8 @@ from revenue_unreacted_range_source_snapshot_projection import (  # noqa: E402
     PROJECTION_POLICY_ID as SOURCE_PROJECTION_POLICY_ID,
     PROJECTION_VERSION as SOURCE_PROJECTION_VERSION,
     canonical_projected_source_detail_semantic_sha256,
+    V1_PROJECTION_VERSION,
+    V2_PROJECTION_VERSION,
 )
 from validate_revenue_unreacted_range_forward_confirmation_feature_audit import (  # noqa: E402
     validate,
@@ -42,6 +47,13 @@ import validate_revenue_unreacted_range_forward_confirmation_feature_audit as fo
 MONTHLY_REVENUE_BLOB_SHA = "a" * 64
 MONTHLY_REVENUE_TABLE_SHA = "b" * 64
 CROSS_MARKET_REGISTRY_SHA = "c" * 64
+
+
+def test_forward_artifact_version_is_projection_bound() -> None:
+    assert artifact_version_for_projection(V1_PROJECTION_VERSION) == V1_ARTIFACT_VERSION
+    assert artifact_version_for_projection(V2_PROJECTION_VERSION) == V2_ARTIFACT_VERSION
+    with pytest.raises(RuntimeError, match="unsupported canonical source projection"):
+        artifact_version_for_projection("unknown")
 
 
 def _stock_frame(stock_id: str, *, false_index: int | None, launch_index: int) -> pd.DataFrame:

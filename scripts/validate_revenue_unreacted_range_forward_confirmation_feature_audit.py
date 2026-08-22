@@ -8,6 +8,7 @@ from revenue_unreacted_range_forward_confirmation_feature_audit import (
     ANALYSIS_BASES,
     ARTIFACT_ID,
     ARTIFACT_VERSION,
+    V2_ARTIFACT_VERSION,
     DETAIL_CSV,
     DOCS_CSV,
     DOCS_FEATURE_CSV,
@@ -39,6 +40,8 @@ from revenue_unreacted_range_source_first_condition_audit import (
     PRIMARY_VARIANT_ID,
 )
 from revenue_unreacted_range_source_snapshot_projection import (
+    V1_PROJECTION_VERSION,
+    V2_PROJECTION_VERSION,
     projection_binding_errors,
 )
 
@@ -46,6 +49,21 @@ from revenue_unreacted_range_source_snapshot_projection import (
 DETAIL_MAX_BYTES = 50_000_000
 EXPECTED_SOURCE_ARTIFACT_ID = "revenue_unreacted_range_source_first_condition_audit"
 EXPECTED_SOURCE_ARTIFACT_VERSION = "source_first_condition_v3_20260720"
+V1_ARTIFACT_VERSION = "forward_confirmation_v2_20260713"
+ARTIFACT_VERSION_BY_PROJECTION = {
+    V1_PROJECTION_VERSION: V1_ARTIFACT_VERSION,
+    V2_PROJECTION_VERSION: V2_ARTIFACT_VERSION,
+}
+
+
+def _expected_artifact_version(projection_version: object) -> str:
+    version = str(projection_version).strip()
+    try:
+        return ARTIFACT_VERSION_BY_PROJECTION[version]
+    except KeyError as exc:
+        raise RuntimeError(
+            f"unsupported canonical source projection version: {version or '<empty>'}"
+        ) from exc
 
 
 def _source_lineage_errors(source: pd.DataFrame) -> list[str]:
@@ -178,12 +196,18 @@ def _number(value: object) -> float | None:
     return None if pd.isna(number) else float(number)
 
 
-def _check_governance(name: str, frame: pd.DataFrame, errors: list[str]) -> None:
+def _check_governance(
+    name: str,
+    frame: pd.DataFrame,
+    errors: list[str],
+    *,
+    expected_artifact_version: str = ARTIFACT_VERSION,
+) -> None:
     if set(frame["model_id"].astype(str)) != {MODEL_ID}:
         errors.append(f"forward confirmation {name} model_id drift")
     if set(frame["artifact_id"].astype(str)) != {ARTIFACT_ID}:
         errors.append(f"forward confirmation {name} artifact_id drift")
-    if set(frame["artifact_version"].astype(str)) != {ARTIFACT_VERSION}:
+    if set(frame["artifact_version"].astype(str)) != {expected_artifact_version}:
         errors.append(f"forward confirmation {name} artifact_version drift")
     if _boolish(frame["approved_for_daily"]).any():
         errors.append(f"forward confirmation {name} must remain research-only")
@@ -393,6 +417,13 @@ def validate() -> list[str]:
             expected_cutoff_date=SOURCE_PROJECTION_CUTOFF_DATE,
         )
     )
+    try:
+        expected_artifact_version = _expected_artifact_version(
+            source_projection_manifest.iloc[0]["projection_version"]
+        )
+    except (IndexError, KeyError, RuntimeError) as exc:
+        errors.append(f"forward confirmation source projection version is invalid: {exc}")
+        return errors
     source = projected_source.loc[
         projected_source["condition_variant_id"].eq(PRIMARY_VARIANT_ID)
     ].copy()
@@ -430,7 +461,12 @@ def validate() -> list[str]:
         ("feature contrast", feature),
         ("operation return review", return_review),
     ):
-        _check_governance(name, frame, errors)
+        _check_governance(
+            name,
+            frame,
+            errors,
+            expected_artifact_version=expected_artifact_version,
+        )
 
     if "volume_ratio_prev20" in detail.columns or "k_value" in detail.columns:
         errors.append("forward confirmation detail repeats normalized event features across rules")

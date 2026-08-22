@@ -22,13 +22,30 @@ from revenue_unreacted_range_source_snapshot_projection import (
     load_projected_source_detail,
     load_source_snapshot_projection_manifest,
     validate_projection_binding,
+    V1_PROJECTION_VERSION,
+    V2_PROJECTION_VERSION,
 )
 
 
 ROOT = Path(__file__).resolve().parents[1]
 MODEL_ID = "revenue_unreacted_range"
 ARTIFACT_ID = "revenue_unreacted_range_lag_strength_matrix"
-ARTIFACT_VERSION = "trading_day_lag_strength_root_cause_pending_v5_20260802"
+V1_ARTIFACT_VERSION = "trading_day_lag_strength_root_cause_pending_v5_20260802"
+V2_ARTIFACT_VERSION = "trading_day_lag_strength_root_cause_pending_v6_20260822"
+ARTIFACT_VERSION = V1_ARTIFACT_VERSION
+
+
+def artifact_version_for_projection(projection_version: object) -> str:
+    version = str(projection_version).strip()
+    mapping = {
+        V1_PROJECTION_VERSION: V1_ARTIFACT_VERSION,
+        V2_PROJECTION_VERSION: V2_ARTIFACT_VERSION,
+    }
+    if version not in mapping:
+        raise RuntimeError(
+            f"unsupported canonical source projection version: {version or '<empty>'}"
+        )
+    return mapping[version]
 SOURCE_DETAIL = ROOT / "output/latest/research_backtest/revenue_unreacted_range_fixed_confirmation_feature_contrast_audit_detail_latest.csv"
 PRICE_HISTORY_DIR = ROOT / "data/stock_price_history"
 LATEST_CSV = ROOT / f"output/latest/research_backtest/{ARTIFACT_ID}_latest.csv"
@@ -843,6 +860,12 @@ def build_lag_strength_matrix(
         projected_source_detail=projected_source_detail,
     )
     summary = build_lag_strength_summary(detail)
+    versions = set(detail["source_projection_version"].astype(str).str.strip())
+    if len(versions) != 1:
+        raise RuntimeError("lag strength source projection version is not constant")
+    selected_version = artifact_version_for_projection(next(iter(versions)))
+    summary.loc[:, "artifact_version"] = selected_version
+    detail.loc[:, "artifact_version"] = selected_version
     return summary, detail
 
 
@@ -873,7 +896,7 @@ def _markdown(summary: pd.DataFrame) -> str:
     lines = [
         "# 營收低反應模型：反應時間差與營收強度矩陣",
         "",
-        f"- artifact_version: `{ARTIFACT_VERSION}`",
+        f"- artifact_version: `{summary['artifact_version'].iloc[0]}`",
         "- source sample: 固定 3 個交易日收盤確認、確認後下一交易日開盤進場、確認日 D+20 收盤出場。",
         "- outcome: 勝為報酬至少 +5%；和為 0% 至未滿 +5%；敗為負報酬。",
         "- dedup: 同股持有區間不得重疊；同股同一營收月份只接受一筆。",

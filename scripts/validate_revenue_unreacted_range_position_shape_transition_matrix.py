@@ -2,29 +2,95 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+from io import BytesIO
 import math
-from pathlib import Path
+from pathlib import Path, PurePosixPath
+import re
+import subprocess
 
 import numpy as np
 import pandas as pd
+
+from revenue_unreacted_range_source_snapshot_projection import (
+    V1_PROJECTION_VERSION,
+    V2_PROJECTION_VERSION,
+    load_projected_source_detail,
+    load_source_snapshot_projection_manifest,
+    validate_projection_binding,
+)
 
 
 ROOT = Path(__file__).resolve().parents[1]
 MODEL_ID = "revenue_unreacted_range"
 ARTIFACT_ID = "revenue_unreacted_range_position_shape_transition_matrix"
 ARTIFACT_VERSION = "position_shape_transition_matrix_v1_20260717"
+V2_ARTIFACT_VERSION = "position_shape_transition_matrix_v2_20260822"
 SOURCE_OPERATION_LAG_ARTIFACT_ID = (
     "revenue_unreacted_range_operation_lag_bucket_audit"
 )
 SOURCE_OPERATION_LAG_ARTIFACT_VERSION = "operation_lag_bucket_v1_20260714"
+V2_SOURCE_OPERATION_LAG_ARTIFACT_VERSION = "operation_lag_bucket_v2_20260822"
 SOURCE_REARMED_ARTIFACT_ID = "revenue_unreacted_range_rearmed_operation_grid"
 SOURCE_REARMED_ARTIFACT_VERSION = "rearmed_operation_grid_v1_20260713"
+V2_SOURCE_REARMED_ARTIFACT_VERSION = "rearmed_operation_grid_v2_20260822"
 SOURCE_VARIANT_ID = "absolute_or_two_month_yoy_ge15"
 ADOPTED_GRID_ID = (
     "rearm_after_realized_exit_next_trade_day|"
     "delayed_next_close_continuation_bonus|d30|none_no_stop_reference"
 )
 PRICE_HISTORY_CUTOFF_DATE = "20260713"
+TRUSTED_SOURCE_REVISION = "b7ab7b6122b422e941efa3a3a1a915fbfcb59f4d"
+SOURCE_PROJECTION_MANIFEST_RELATIVE_PATH = (
+    "output/latest/research_backtest/"
+    "revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv"
+)
+
+EXPECTED_V1_MANIFEST_DESCRIPTOR = {
+    "model_id": MODEL_ID,
+    "artifact_id": "revenue_unreacted_range_source_snapshot_projection",
+    "artifact_version": "source_snapshot_projection_v1_20260731",
+    "projection_id": "revenue_unreacted_range_source_snapshot_asof_20260713",
+    "projection_version": "source_snapshot_projection_v1_20260731",
+    "projection_policy_id": (
+        "raw_source_and_price_truncated_before_source_first_episode_assembly_v1"
+    ),
+    "cutoff_date": PRICE_HISTORY_CUTOFF_DATE,
+    "full_source_artifact_id": "revenue_unreacted_range_source_first_condition_audit",
+    "full_source_artifact_version": "source_first_condition_v3_20260720",
+    "projected_max_source_date": "20260617",
+    "projected_max_trade_date": "20260629",
+    "projected_max_episode_end_date": PRICE_HISTORY_CUTOFF_DATE,
+    "research_only": "True",
+    "formal_model_use_allowed": "False",
+    "approved_for_daily": "False",
+    "production_change": "False",
+}
+
+_TRUSTED_TREE_CACHE: dict[str, dict[str, tuple[str, str, str]]] = {}
+_TRUSTED_BLOB_CACHE: dict[tuple[str, str], bytes] = {}
+
+VERSION_CONTRACT_BY_PROJECTION = {
+    V1_PROJECTION_VERSION: (
+        ARTIFACT_VERSION,
+        SOURCE_OPERATION_LAG_ARTIFACT_VERSION,
+        SOURCE_REARMED_ARTIFACT_VERSION,
+    ),
+    V2_PROJECTION_VERSION: (
+        V2_ARTIFACT_VERSION,
+        V2_SOURCE_OPERATION_LAG_ARTIFACT_VERSION,
+        V2_SOURCE_REARMED_ARTIFACT_VERSION,
+    ),
+}
+
+
+def _version_contract(projection_version: object) -> tuple[str, str, str]:
+    version = str(projection_version).strip()
+    try:
+        return VERSION_CONTRACT_BY_PROJECTION[version]
+    except KeyError as exc:
+        raise RuntimeError(
+            f"unsupported canonical source projection version: {version or '<empty>'}"
+        ) from exc
 
 # These hashes bind the business rows after deterministic normalization and exclude
 # mutable generated_at timestamps. They are intentionally duplicated here so this
@@ -213,6 +279,205 @@ ARTIFACT_RELATIVE_PATHS = {
 }
 
 
+def _git(
+    *args: str,
+    input_bytes: bytes | None = None,
+) -> subprocess.CompletedProcess[bytes]:
+    return subprocess.run(
+        ["git", "--no-replace-objects", "-C", str(ROOT), *args],
+        input=input_bytes,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        check=False,
+    )
+
+
+def _safe_repo_path(relative_path: str) -> str:
+    if not relative_path or "\\" in relative_path or "\0" in relative_path:
+        raise RuntimeError(f"trusted v1 unsafe Git path: {relative_path!r}")
+    path = PurePosixPath(relative_path)
+    if path.is_absolute() or any(part in {"", ".", ".."} for part in path.parts):
+        raise RuntimeError(f"trusted v1 unsafe Git path: {relative_path!r}")
+    normalized = path.as_posix()
+    if normalized != relative_path:
+        raise RuntimeError(f"trusted v1 unsafe Git path: {relative_path!r}")
+    return normalized
+
+
+def _trusted_stock_path(stock_id: object) -> str:
+    normalized = str(stock_id).strip()
+    if re.fullmatch(r"\d{4,6}", normalized) is None:
+        raise RuntimeError(f"trusted v1 unsafe stock id: {stock_id!r}")
+    return f"{SOURCE_RELATIVE_PATHS['price_dir']}/{normalized}.csv"
+
+
+def _trusted_revision_preflight(
+    revision: str = TRUSTED_SOURCE_REVISION,
+) -> None:
+    if re.fullmatch(r"[0-9a-f]{40}", revision) is None:
+        raise RuntimeError(
+            "trusted v1 revision is not a lowercase 40-character SHA: "
+            f"{revision}"
+        )
+    resolved = _git("rev-parse", "--verify", f"{revision}^{{commit}}")
+    if resolved.returncode != 0:
+        detail = resolved.stderr.decode("utf-8", errors="replace").strip()
+        raise RuntimeError(f"trusted v1 commit is unavailable: {revision}: {detail}")
+    try:
+        observed = resolved.stdout.decode("ascii", errors="strict").strip()
+    except UnicodeDecodeError as exc:
+        raise RuntimeError("trusted v1 commit identity is not ASCII") from exc
+    if observed != revision:
+        raise RuntimeError(
+            "trusted v1 revision does not resolve to its exact SHA: "
+            f"{observed} != {revision}"
+        )
+    object_type = _git("cat-file", "-t", revision)
+    if object_type.returncode != 0 or object_type.stdout.strip() != b"commit":
+        raise RuntimeError(f"trusted v1 revision is not a readable commit: {revision}")
+    ancestor = _git("merge-base", "--is-ancestor", revision, "HEAD")
+    if ancestor.returncode != 0:
+        detail = ancestor.stderr.decode("utf-8", errors="replace").strip()
+        raise RuntimeError(
+            f"trusted v1 revision is not an ancestor of HEAD: {revision}: {detail}"
+        )
+
+
+def _trusted_tree(revision: str = TRUSTED_SOURCE_REVISION) -> dict[str, tuple[str, str, str]]:
+    cached = _TRUSTED_TREE_CACHE.get(revision)
+    if cached is not None:
+        return cached
+    result = _git("ls-tree", "-r", "-z", revision)
+    if result.returncode != 0:
+        detail = result.stderr.decode("utf-8", errors="replace").strip()
+        raise RuntimeError(f"trusted v1 Git tree is unreadable: {revision}: {detail}")
+    entries: dict[str, tuple[str, str, str]] = {}
+    for raw_entry in result.stdout.split(b"\0"):
+        if not raw_entry:
+            continue
+        try:
+            metadata, raw_path = raw_entry.split(b"\t", 1)
+            mode, object_type, oid = metadata.decode("ascii", errors="strict").split(" ")
+            repo_path = raw_path.decode("utf-8", errors="strict")
+        except (ValueError, UnicodeDecodeError) as exc:
+            raise RuntimeError("trusted v1 Git tree contains malformed metadata") from exc
+        entries[repo_path] = (mode, object_type, oid)
+    _TRUSTED_TREE_CACHE[revision] = entries
+    return entries
+
+
+def _trusted_blobs(
+    relative_paths: set[str],
+    *,
+    revision: str = TRUSTED_SOURCE_REVISION,
+) -> dict[str, bytes]:
+    normalized_paths = {_safe_repo_path(path) for path in relative_paths}
+    missing_paths = sorted(
+        path for path in normalized_paths if (revision, path) not in _TRUSTED_BLOB_CACHE
+    )
+    if missing_paths:
+        tree = _trusted_tree(revision)
+        oids: list[str] = []
+        for path in missing_paths:
+            entry = tree.get(path)
+            if entry is None:
+                raise RuntimeError(f"trusted v1 Git blob is missing: {revision}:{path}")
+            mode, object_type, oid = entry
+            if (
+                mode != "100644"
+                or object_type != "blob"
+                or re.fullmatch(r"[0-9a-f]{40}", oid) is None
+            ):
+                raise RuntimeError(
+                    f"trusted v1 Git path is not a regular readable blob: {path}"
+                )
+            oids.append(oid)
+        result = _git(
+            "cat-file",
+            "--batch",
+            input_bytes=("\n".join(oids) + "\n").encode("ascii"),
+        )
+        if result.returncode != 0:
+            detail = result.stderr.decode("utf-8", errors="replace").strip()
+            raise RuntimeError(f"trusted v1 Git blobs are unreadable: {detail}")
+        cursor = 0
+        for path, expected_oid in zip(missing_paths, oids):
+            newline = result.stdout.find(b"\n", cursor)
+            if newline < 0:
+                raise RuntimeError(f"trusted v1 Git blob header is missing: {path}")
+            try:
+                header = result.stdout[cursor:newline].decode("ascii", errors="strict").split(" ")
+            except UnicodeDecodeError as exc:
+                raise RuntimeError(f"trusted v1 Git blob header is invalid: {path}") from exc
+            if len(header) != 3 or header[0] != expected_oid or header[1] != "blob":
+                raise RuntimeError(f"trusted v1 Git blob header drift: {path}")
+            try:
+                size = int(header[2])
+            except ValueError as exc:
+                raise RuntimeError(f"trusted v1 Git blob size is invalid: {path}") from exc
+            start = newline + 1
+            end = start + size
+            if end >= len(result.stdout) or result.stdout[end : end + 1] != b"\n":
+                raise RuntimeError(f"trusted v1 Git blob payload is truncated: {path}")
+            _TRUSTED_BLOB_CACHE[(revision, path)] = result.stdout[start:end]
+            cursor = end + 1
+        if cursor != len(result.stdout):
+            raise RuntimeError("trusted v1 Git blob batch contains trailing bytes")
+    return {
+        path: _TRUSTED_BLOB_CACHE[(revision, path)] for path in normalized_paths
+    }
+
+
+def _read_csv_payload(payload: bytes, *, label: str, **kwargs: object) -> pd.DataFrame:
+    try:
+        return pd.read_csv(BytesIO(payload), **kwargs)
+    except (UnicodeDecodeError, pd.errors.EmptyDataError, pd.errors.ParserError, ValueError) as exc:
+        raise RuntimeError(f"trusted v1 CSV is unreadable: {label}: {exc}") from exc
+
+
+def _validate_v1_manifest_descriptor(manifest: pd.DataFrame) -> None:
+    if len(manifest) != 1:
+        raise RuntimeError("trusted v1 projection manifest must contain exactly one row")
+    missing = sorted(set(EXPECTED_V1_MANIFEST_DESCRIPTOR) - set(manifest.columns))
+    if missing:
+        raise RuntimeError(f"trusted v1 projection manifest is missing columns: {missing}")
+    row = manifest.iloc[0]
+    drift = {
+        column: (str(row[column]), expected)
+        for column, expected in EXPECTED_V1_MANIFEST_DESCRIPTOR.items()
+        if str(row[column]) != expected
+    }
+    if drift:
+        raise RuntimeError(f"trusted v1 projection manifest descriptor drift: {drift}")
+    for column in (
+        "cutoff_date",
+        "projected_max_source_date",
+        "projected_max_trade_date",
+        "projected_max_episode_end_date",
+    ):
+        value = str(row[column])
+        if re.fullmatch(r"\d{8}", value) is None or value > PRICE_HISTORY_CUTOFF_DATE:
+            raise RuntimeError(
+                f"trusted v1 projection manifest date/cutoff drift: {column}={value}"
+            )
+
+
+def _validate_trusted_dates(
+    frame: pd.DataFrame,
+    columns: tuple[str, ...],
+    *,
+    label: str,
+) -> None:
+    for column in columns:
+        if column not in frame.columns:
+            raise RuntimeError(f"trusted v1 {label} is missing date column: {column}")
+        values = frame[column].astype(str).str.strip()
+        if values.empty or not values.str.fullmatch(r"\d{8}").all():
+            raise RuntimeError(f"trusted v1 {label} has invalid date: {column}")
+        if values.gt(PRICE_HISTORY_CUTOFF_DATE).any():
+            raise RuntimeError(f"trusted v1 {label} exceeds cutoff: {column}")
+
+
 def _stock_id(value: object) -> str:
     text = str(value or "").strip()
     return text[:-2] if text.endswith(".0") and text[:-2].isdigit() else text
@@ -360,7 +625,85 @@ def _overlap_pair_count(frame: pd.DataFrame) -> int:
 
 def _read_source_frames(
     source_root: Path,
+    *,
+    projection_version: str = V1_PROJECTION_VERSION,
 ) -> tuple[pd.DataFrame, pd.DataFrame, str, str, str, str]:
+    _version_contract(projection_version)
+    if source_root.resolve() == ROOT and projection_version == V1_PROJECTION_VERSION:
+        revision = TRUSTED_SOURCE_REVISION
+        _trusted_revision_preflight(revision)
+        lag_relative = SOURCE_RELATIVE_PATHS["operation_lag"]
+        rearmed_relative = SOURCE_RELATIVE_PATHS["rearmed"]
+        payloads = _trusted_blobs(
+            {
+                lag_relative,
+                rearmed_relative,
+                SOURCE_PROJECTION_MANIFEST_RELATIVE_PATH,
+            },
+            revision=revision,
+        )
+        lag = _read_csv_payload(
+            payloads[lag_relative],
+            label=lag_relative,
+            dtype={"stock_id": str},
+            keep_default_na=False,
+            low_memory=False,
+        )
+        rearmed = _read_csv_payload(
+            payloads[rearmed_relative],
+            label=rearmed_relative,
+            dtype={"stock_id": str},
+            keep_default_na=False,
+            low_memory=False,
+        )
+        manifest = _read_csv_payload(
+            payloads[SOURCE_PROJECTION_MANIFEST_RELATIVE_PATH],
+            label=SOURCE_PROJECTION_MANIFEST_RELATIVE_PATH,
+            dtype=str,
+            keep_default_na=False,
+        )
+        _validate_v1_manifest_descriptor(manifest)
+        _validate_trusted_dates(
+            lag,
+            tuple(CANONICAL_DATE_COLUMNS),
+            label="operation-lag source",
+        )
+        required_rearmed_slice = {"grid_id", "return_valid"}
+        if not required_rearmed_slice.issubset(rearmed.columns):
+            raise RuntimeError(
+                "trusted v1 rearmed source is missing adopted-slice columns"
+            )
+        rearmed_dates = rearmed.loc[
+            rearmed["grid_id"].astype(str).eq(ADOPTED_GRID_ID)
+            & _boolish(rearmed["return_valid"])
+        ]
+        if rearmed_dates.empty:
+            raise RuntimeError("trusted v1 rearmed adopted valid slice is empty")
+        _validate_trusted_dates(
+            rearmed_dates,
+            ("trigger_date", "confirmation_date", "entry_date", "exit_date"),
+            label="rearmed adopted valid source",
+        )
+        lag_file_sha = hashlib.sha256(
+            payloads[lag_relative].replace(b"\r\n", b"\n")
+        ).hexdigest()
+        rearmed_file_sha = hashlib.sha256(
+            payloads[rearmed_relative].replace(b"\r\n", b"\n")
+        ).hexdigest()
+        lag_semantic_sha = _canonical_semantic_sha256(
+            lag, OPERATION_LAG_CANONICAL_COLUMNS, filter_rearmed_grid=False
+        )
+        rearmed_semantic_sha = _canonical_semantic_sha256(
+            rearmed, REARMED_CANONICAL_COLUMNS, filter_rearmed_grid=True
+        )
+        return (
+            lag,
+            rearmed,
+            lag_file_sha,
+            rearmed_file_sha,
+            lag_semantic_sha,
+            rearmed_semantic_sha,
+        )
     lag_path = source_root / SOURCE_RELATIVE_PATHS["operation_lag"]
     rearmed_path = source_root / SOURCE_RELATIVE_PATHS["rearmed"]
     if not lag_path.is_file():
@@ -396,8 +739,13 @@ def _read_source_frames(
         rearmed_semantic_sha,
     )
 
-
-def _prepare_source(lag: pd.DataFrame, rearmed: pd.DataFrame) -> pd.DataFrame:
+def _prepare_source(
+    lag: pd.DataFrame,
+    rearmed: pd.DataFrame,
+    *,
+    expected_operation_lag_version: str = SOURCE_OPERATION_LAG_ARTIFACT_VERSION,
+    expected_rearmed_version: str = SOURCE_REARMED_ARTIFACT_VERSION,
+) -> pd.DataFrame:
     required_lag = {
         "model_id",
         "artifact_id",
@@ -435,7 +783,7 @@ def _prepare_source(lag: pd.DataFrame, rearmed: pd.DataFrame) -> pd.DataFrame:
     governance = {
         "model_id": MODEL_ID,
         "artifact_id": SOURCE_OPERATION_LAG_ARTIFACT_ID,
-        "artifact_version": SOURCE_OPERATION_LAG_ARTIFACT_VERSION,
+        "artifact_version": expected_operation_lag_version,
         "source_variant_id": SOURCE_VARIANT_ID,
         "grid_id": ADOPTED_GRID_ID,
     }
@@ -499,7 +847,7 @@ def _prepare_source(lag: pd.DataFrame, rearmed: pd.DataFrame) -> pd.DataFrame:
     if set(lineage["artifact_id"].astype(str)) != {SOURCE_REARMED_ARTIFACT_ID}:
         raise RuntimeError("rearmed artifact id drift")
     if set(lineage["artifact_version"].astype(str)) != {
-        SOURCE_REARMED_ARTIFACT_VERSION
+        expected_rearmed_version
     }:
         raise RuntimeError("rearmed artifact version drift")
     lineage["stock_id"] = lineage["stock_id"].map(_stock_id)
@@ -624,12 +972,26 @@ def _validate_pinned_source(
             errors.append(f"pinned source {label} drift: {actual}/{expected}")
 
 
-def _load_resolutions(path: Path) -> pd.DataFrame:
-    if not path.is_file():
-        return pd.DataFrame(
-            columns=["stock_id", "resume_date", "exchange_ratio", "resolution_id"]
+def _load_resolutions(
+    path: Path,
+    *,
+    trusted_revision: str | None = None,
+) -> pd.DataFrame:
+    if trusted_revision is not None:
+        relative = SOURCE_RELATIVE_PATHS["resolution"]
+        payload = _trusted_blobs({relative}, revision=trusted_revision)[relative]
+        frame = _read_csv_payload(
+            payload,
+            label=relative,
+            dtype={"stock_id": str},
+            keep_default_na=False,
         )
-    frame = pd.read_csv(path, dtype={"stock_id": str}, keep_default_na=False)
+    else:
+        if not path.is_file():
+            return pd.DataFrame(
+                columns=["stock_id", "resume_date", "exchange_ratio", "resolution_id"]
+            )
+        frame = pd.read_csv(path, dtype={"stock_id": str}, keep_default_na=False)
     required = {
         "stock_id",
         "resume_date",
@@ -646,7 +1008,16 @@ def _load_resolutions(path: Path) -> pd.DataFrame:
         )
     ].copy()
     frame["stock_id"] = frame["stock_id"].map(_stock_id)
-    frame["resume_date"] = frame["resume_date"].map(_date_text)
+    if trusted_revision is not None:
+        raw_dates = frame["resume_date"].astype(str).str.strip()
+        if (
+            not raw_dates.str.fullmatch(r"\d{8}").all()
+            or raw_dates.gt(PRICE_HISTORY_CUTOFF_DATE).any()
+        ):
+            raise RuntimeError("trusted v1 price resolution date/cutoff drift")
+        frame["resume_date"] = raw_dates
+    else:
+        frame["resume_date"] = frame["resume_date"].map(_date_text)
     frame["exchange_ratio"] = pd.to_numeric(
         frame["exchange_ratio"], errors="coerce"
     )
@@ -654,25 +1025,39 @@ def _load_resolutions(path: Path) -> pd.DataFrame:
         raise RuntimeError("price resolution exchange ratio is invalid")
     return frame
 
-
 def _load_adjusted_price(
     stock_id: str,
     price_dir: Path,
     resolutions: pd.DataFrame,
+    *,
+    trusted_revision: str | None = None,
 ) -> pd.DataFrame:
-    path = price_dir / f"{stock_id}.csv"
-    if not path.is_file():
-        raise RuntimeError(f"price history is missing: {path}")
-    frame = pd.read_csv(path, low_memory=False)
+    if trusted_revision is not None:
+        relative = _trusted_stock_path(stock_id)
+        payload = _trusted_blobs({relative}, revision=trusted_revision)[relative]
+        frame = _read_csv_payload(payload, label=relative, low_memory=False)
+    else:
+        path = price_dir / f"{stock_id}.csv"
+        if not path.is_file():
+            raise RuntimeError(f"price history is missing: {path}")
+        frame = pd.read_csv(path, low_memory=False)
     required = {"date", "open", "high", "low", "close"}
     missing = sorted(required - set(frame.columns))
     if missing:
         raise RuntimeError(f"price history {stock_id} is missing columns: {missing}")
-    frame["date"] = frame["date"].map(_date_text)
+    if trusted_revision is not None:
+        raw_dates = frame["date"].astype(str).str.strip()
+        if raw_dates.empty or not raw_dates.str.fullmatch(r"\d{8}").all():
+            raise RuntimeError(f"trusted v1 price history has invalid dates: {stock_id}")
+        frame["date"] = raw_dates
+    else:
+        frame["date"] = frame["date"].map(_date_text)
     frame = frame.loc[
         frame["date"].str.fullmatch(r"\d{8}")
         & frame["date"].le(PRICE_HISTORY_CUTOFF_DATE)
     ].copy()
+    if trusted_revision is not None and frame["date"].duplicated().any():
+        raise RuntimeError(f"trusted v1 price history has duplicate dates: {stock_id}")
     frame = frame.sort_values("date", kind="mergesort").drop_duplicates(
         "date", keep="last"
     )
@@ -695,7 +1080,6 @@ def _load_adjusted_price(
     if frame.empty or frame["date"].duplicated().any():
         raise RuntimeError(f"adjusted price history is empty or duplicated: {stock_id}")
     return frame
-
 
 def _position_bucket(value: float) -> str:
     if value <= 40:
@@ -794,20 +1178,36 @@ def _anchor_features(price: pd.DataFrame, index: int) -> dict[str, object]:
 def _expected_detail(
     source: pd.DataFrame,
     source_root: Path,
+    *,
+    trusted_revision: str | None = None,
 ) -> pd.DataFrame:
     price_dir = source_root / SOURCE_RELATIVE_PATHS["price_dir"]
-    resolutions = _load_resolutions(source_root / SOURCE_RELATIVE_PATHS["resolution"])
+    resolutions = _load_resolutions(
+        source_root / SOURCE_RELATIVE_PATHS["resolution"],
+        trusted_revision=trusted_revision,
+    )
     anchor_meta = {
         anchor_id: (order, date_rule, definition)
         for order, anchor_id, date_rule, definition in ANCHORS
     }
     rows: list[dict[str, object]] = []
     price_cache: dict[str, pd.DataFrame] = {}
+    if trusted_revision is not None:
+        _trusted_blobs(
+            {
+                _trusted_stock_path(stock_id)
+                for stock_id in source["stock_id"].astype(str)
+            },
+            revision=trusted_revision,
+        )
     for operation in source.itertuples(index=False):
         stock_id = str(operation.stock_id)
         if stock_id not in price_cache:
             price_cache[stock_id] = _load_adjusted_price(
-                stock_id, price_dir, resolutions
+                stock_id,
+                price_dir,
+                resolutions,
+                trusted_revision=trusted_revision,
             )
         price = price_cache[stock_id]
         date_index = {
@@ -926,7 +1326,6 @@ def _expected_detail(
         ["stock_id", "entry_date", "anchor_order"], kind="mergesort"
     ).reset_index(drop=True)
 
-
 def _governance_errors(
     frame: pd.DataFrame,
     name: str,
@@ -978,9 +1377,9 @@ def _compare_detail(
     if missing:
         errors.append(f"detail is missing independently recomputed columns: {missing}")
         return errors
-    if len(actual) != PINNED_OPERATION_COUNT * len(ANCHORS):
+    if len(actual) != len(expected):
         errors.append(
-            f"detail row count drift: {len(actual)}/{PINNED_OPERATION_COUNT * len(ANCHORS)}"
+            f"detail row count drift: {len(actual)}/{len(expected)}"
         )
     if actual.duplicated(["operation_key", "anchor_id"]).any():
         errors.append("detail contains duplicate operation anchors")
@@ -1060,9 +1459,15 @@ def _compare_detail(
         .nunique()
         .to_dict()
     )
-    if observed_coverage != PINNED_ANCHOR_COVERAGE:
+    expected_coverage = (
+        expected.loc[_boolish(expected["classification_observed"])]
+        .groupby("anchor_id")["operation_key"]
+        .nunique()
+        .to_dict()
+    )
+    if observed_coverage != expected_coverage:
         errors.append(
-            f"detail anchor coverage drift: {observed_coverage}/{PINNED_ANCHOR_COVERAGE}"
+            f"detail anchor coverage drift: {observed_coverage}/{expected_coverage}"
         )
     chronological = left["source_before_or_on_preweek_flag"].map(_bool_value)
     expected_semantics = np.where(
@@ -1461,6 +1866,24 @@ def validate(
     if errors:
         return errors
     try:
+        projection_manifest = load_source_snapshot_projection_manifest(
+            source_root / SOURCE_PROJECTION_MANIFEST_RELATIVE_PATH
+        )
+        projection_version = str(
+            projection_manifest.iloc[0]["projection_version"]
+        ).strip()
+        (
+            expected_artifact_version,
+            expected_operation_lag_version,
+            expected_rearmed_version,
+        ) = _version_contract(projection_version)
+        if projection_version == V2_PROJECTION_VERSION:
+            projected_source = load_projected_source_detail(
+                source_root
+                / "output/latest/research_backtest/"
+                "revenue_unreacted_range_source_snapshot_projection_detail_latest.csv"
+            )
+            validate_projection_binding(projection_manifest, projected_source)
         (
             lag,
             rearmed,
@@ -1468,21 +1891,41 @@ def validate(
             rearmed_file_sha,
             lag_semantic_sha,
             rearmed_semantic_sha,
-        ) = _read_source_frames(source_root)
-        source = _prepare_source(lag, rearmed)
+        ) = _read_source_frames(
+            source_root,
+            projection_version=projection_version,
+        )
+        source = _prepare_source(
+            lag,
+            rearmed,
+            expected_operation_lag_version=expected_operation_lag_version,
+            expected_rearmed_version=expected_rearmed_version,
+        )
     except (RuntimeError, ValueError, KeyError, pd.errors.ParserError) as exc:
         return [str(exc)]
-    _validate_pinned_source(source, lag_semantic_sha, rearmed_semantic_sha, errors)
+    if str(projection_manifest.iloc[0]["projection_version"]) == V1_PROJECTION_VERSION:
+        _validate_pinned_source(source, lag_semantic_sha, rearmed_semantic_sha, errors)
     if errors:
         return errors
     lineage = {
+        "artifact_version": expected_artifact_version,
+        "source_operation_lag_artifact_version": expected_operation_lag_version,
         "source_operation_lag_detail_sha256": lag_file_sha,
         "source_operation_lag_semantic_sha256": lag_semantic_sha,
         "source_rearmed_detail_sha256": rearmed_file_sha,
         "source_rearmed_semantic_sha256": rearmed_semantic_sha,
     }
     try:
-        expected_detail = _expected_detail(source, source_root)
+        expected_detail = _expected_detail(
+            source,
+            source_root,
+            trusted_revision=(
+                TRUSTED_SOURCE_REVISION
+                if source_root.resolve() == ROOT
+                and projection_version == V1_PROJECTION_VERSION
+                else None
+            ),
+        )
         summary = pd.read_csv(paths["summary"], keep_default_na=False, low_memory=False)
         detail = pd.read_csv(
             paths["detail"],

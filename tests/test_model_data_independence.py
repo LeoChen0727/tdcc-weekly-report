@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 import ast
+from collections.abc import Callable
 import csv
+import hashlib
 import subprocess
 import sys
 from pathlib import Path
@@ -49,6 +51,7 @@ from validate_model_data_independence import (  # noqa: E402
     validate_audit_artifact,
     validate_data_sharing_migration_append_only,
 )
+import build_model_data_independence_audit as audit_builder  # noqa: E402
 
 
 ACTIVE_MODELS = {
@@ -121,6 +124,280 @@ def test_model_data_independence_validator_passes() -> None:
 
 def test_model_data_independence_audit_is_current_and_mirrored() -> None:
     assert validate_audit_artifact() == []
+
+
+def _synthetic_normalization_preimage() -> bytes:
+    return audit_builder.UTF8_BOM + b"header\r\n" * 95 + b"last\r\n"
+
+
+def _pin_synthetic_normalization_contract(
+    monkeypatch: pytest.MonkeyPatch,
+    raw: bytes,
+) -> bytes:
+    normalized = raw.replace(b"\r\n", b"\n")
+    monkeypatch.setattr(audit_builder, "NORMALIZE_PREIMAGE_BYTES", len(raw))
+    monkeypatch.setattr(
+        audit_builder,
+        "NORMALIZE_PREIMAGE_SHA256",
+        hashlib.sha256(raw).hexdigest(),
+    )
+    monkeypatch.setattr(
+        audit_builder,
+        "NORMALIZE_PREIMAGE_GIT_BLOB_SHA1",
+        audit_builder._git_blob_sha1(raw),
+    )
+    monkeypatch.setattr(
+        audit_builder,
+        "NORMALIZE_PREIMAGE_CRLF_COUNT",
+        96,
+    )
+    monkeypatch.setattr(audit_builder, "NORMALIZE_POSTIMAGE_BYTES", len(normalized))
+    monkeypatch.setattr(
+        audit_builder,
+        "NORMALIZE_POSTIMAGE_SHA256",
+        hashlib.sha256(normalized).hexdigest(),
+    )
+    monkeypatch.setattr(
+        audit_builder,
+        "NORMALIZE_POSTIMAGE_LF_COUNT",
+        96,
+    )
+    return normalized
+
+
+def _pin_normalization_paths(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> tuple[Path, Path, Path, Path]:
+    output_csv = tmp_path / "output" / "latest" / "model_data_independence_audit_latest.csv"
+    docs_csv = tmp_path / "docs" / "latest" / "model_data_independence_audit_latest.csv"
+    output_md = output_csv.with_suffix(".md")
+    docs_md = docs_csv.with_suffix(".md")
+    output_csv.parent.mkdir(parents=True)
+    docs_csv.parent.mkdir(parents=True)
+    monkeypatch.setattr(audit_builder, "ROOT", tmp_path)
+    monkeypatch.setattr(audit_builder, "OUTPUT_CSV", output_csv)
+    monkeypatch.setattr(audit_builder, "DOCS_CSV", docs_csv)
+    monkeypatch.setattr(audit_builder, "OUTPUT_MD", output_md)
+    monkeypatch.setattr(audit_builder, "DOCS_MD", docs_md)
+    return output_csv, docs_csv, output_md, docs_md
+
+
+def test_model_data_independence_csv_writer_uses_lf_only(tmp_path: Path) -> None:
+    path = tmp_path / "audit.csv"
+    row = {column: column for column in audit_builder.OUTPUT_COLUMNS}
+
+    audit_builder._write_csv(path, [row])
+
+    raw = path.read_bytes()
+    assert raw.startswith(audit_builder.UTF8_BOM)
+    assert raw.count(b"\n") == 2
+    assert b"\r" not in raw
+
+
+def test_normalization_contract_pins_approved_artifact_identities() -> None:
+    assert audit_builder.NORMALIZE_PREIMAGE_BYTES == 41_920
+    assert audit_builder.NORMALIZE_PREIMAGE_SHA256 == (
+        "ffa88dfff82d1c20dc6fc8c51a5c330054957d8f8c4a40368b928dbf367c383a"
+    )
+    assert audit_builder.NORMALIZE_PREIMAGE_GIT_BLOB_SHA1 == (
+        "434870523b8d093d4fde319f9f040f867c5d78c6"
+    )
+    assert audit_builder.NORMALIZE_PREIMAGE_CRLF_COUNT == 96
+    assert audit_builder.NORMALIZE_POSTIMAGE_BYTES == 41_824
+    assert audit_builder.NORMALIZE_POSTIMAGE_SHA256 == (
+        "2ff7e9c3140f0540ffb0238ba0937893b03de39bd2bcd5d84559b53a649685be"
+    )
+    assert audit_builder.NORMALIZE_POSTIMAGE_LF_COUNT == 96
+
+
+def test_normalize_only_writes_exact_postimage_without_rebuilding(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    raw = _synthetic_normalization_preimage()
+    normalized = _pin_synthetic_normalization_contract(monkeypatch, raw)
+    output_csv, docs_csv, output_md, docs_md = _pin_normalization_paths(
+        monkeypatch, tmp_path
+    )
+    for path in (output_csv, docs_csv):
+        path.write_bytes(raw)
+    output_md.write_bytes(b"output markdown sentinel\n")
+    docs_md.write_bytes(b"docs markdown sentinel\n")
+    monkeypatch.setattr(
+        audit_builder,
+        "build_rows",
+        lambda _generated_at: pytest.fail("normalize-only must not call build_rows"),
+    )
+    monkeypatch.setattr(
+        audit_builder,
+        "_write_md",
+        lambda *_args, **_kwargs: pytest.fail("normalize-only must not write Markdown"),
+    )
+
+    assert audit_builder.main(["--normalize-existing-csv-line-endings-only"]) == 0
+
+    assert output_csv.read_bytes() == normalized
+    assert docs_csv.read_bytes() == normalized
+    assert output_md.read_bytes() == b"output markdown sentinel\n"
+    assert docs_md.read_bytes() == b"docs markdown sentinel\n"
+    assert normalized.startswith(audit_builder.UTF8_BOM)
+    assert normalized.count(b"\n") == 96
+    assert b"\r" not in normalized
+    assert capsys.readouterr().out.splitlines() == [
+        "model_data_independence_audit_csv_line_endings_normalized=true",
+        f"model_data_independence_audit_csv_bytes={len(normalized)}",
+        f"model_data_independence_audit_csv_sha256={hashlib.sha256(normalized).hexdigest()}",
+    ]
+
+
+def test_normalize_only_mirror_mismatch_is_zero_write(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    raw = _synthetic_normalization_preimage()
+    _pin_synthetic_normalization_contract(monkeypatch, raw)
+    output_csv, docs_csv, _, _ = _pin_normalization_paths(monkeypatch, tmp_path)
+    output_csv.write_bytes(raw)
+    docs_csv.write_bytes(raw + b"different")
+    before = {path: path.read_bytes() for path in (output_csv, docs_csv)}
+    monkeypatch.setattr(
+        audit_builder,
+        "_prepare_atomic_replacement",
+        lambda *_args, **_kwargs: pytest.fail(
+            "mirror mismatch must fail before preparing a write"
+        ),
+    )
+
+    assert audit_builder.main(["--normalize-existing-csv-line-endings-only"]) == 1
+
+    assert {path: path.read_bytes() for path in before} == before
+
+
+def test_normalize_only_rolls_back_if_second_atomic_install_fails(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    raw = _synthetic_normalization_preimage()
+    _pin_synthetic_normalization_contract(monkeypatch, raw)
+    output_csv, docs_csv, _, _ = _pin_normalization_paths(monkeypatch, tmp_path)
+    output_csv.write_bytes(raw)
+    docs_csv.write_bytes(raw)
+    original_replace = audit_builder.os.replace
+    failed_once = False
+
+    def fail_docs_install_once(source: Path, destination: Path) -> None:
+        nonlocal failed_once
+        if Path(destination) == docs_csv and not failed_once:
+            failed_once = True
+            raise OSError("synthetic second-install failure")
+        original_replace(source, destination)
+
+    monkeypatch.setattr(audit_builder.os, "replace", fail_docs_install_once)
+
+    assert audit_builder.main(["--normalize-existing-csv-line-endings-only"]) == 1
+
+    assert failed_once
+    assert output_csv.read_bytes() == raw
+    assert docs_csv.read_bytes() == raw
+
+
+@pytest.mark.parametrize(
+    ("case", "mutate_raw", "repin_identity", "mutate_contract"),
+    [
+        ("bytes", lambda raw: raw + b"x", False, lambda monkeypatch: None),
+        (
+            "sha256",
+            lambda raw: raw,
+            False,
+            lambda monkeypatch: monkeypatch.setattr(
+                audit_builder, "NORMALIZE_PREIMAGE_SHA256", "0" * 64
+            ),
+        ),
+        (
+            "git_blob",
+            lambda raw: raw,
+            False,
+            lambda monkeypatch: monkeypatch.setattr(
+                audit_builder, "NORMALIZE_PREIMAGE_GIT_BLOB_SHA1", "0" * 40
+            ),
+        ),
+        (
+            "bom",
+            lambda raw: raw.removeprefix(audit_builder.UTF8_BOM),
+            True,
+            lambda monkeypatch: None,
+        ),
+        (
+            "crlf_count",
+            lambda raw: raw.replace(b"\r\n", b"\n", 1),
+            True,
+            lambda monkeypatch: None,
+        ),
+        ("bare_lf", lambda raw: raw + b"\n", True, lambda monkeypatch: None),
+        ("other_cr", lambda raw: raw + b"\r", True, lambda monkeypatch: None),
+    ],
+    ids=lambda value: value if isinstance(value, str) else None,
+)
+def test_normalize_only_precheck_failures_are_zero_write(
+    case: str,
+    mutate_raw: Callable[[bytes], bytes],
+    repin_identity: bool,
+    mutate_contract: Callable[[pytest.MonkeyPatch], None],
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    del case
+    approved_raw = _synthetic_normalization_preimage()
+    _pin_synthetic_normalization_contract(monkeypatch, approved_raw)
+    candidate_raw = mutate_raw(approved_raw)
+    if repin_identity:
+        monkeypatch.setattr(audit_builder, "NORMALIZE_PREIMAGE_BYTES", len(candidate_raw))
+        monkeypatch.setattr(
+            audit_builder,
+            "NORMALIZE_PREIMAGE_SHA256",
+            hashlib.sha256(candidate_raw).hexdigest(),
+        )
+        monkeypatch.setattr(
+            audit_builder,
+            "NORMALIZE_PREIMAGE_GIT_BLOB_SHA1",
+            audit_builder._git_blob_sha1(candidate_raw),
+        )
+    mutate_contract(monkeypatch)
+    output_csv, docs_csv, _, _ = _pin_normalization_paths(monkeypatch, tmp_path)
+    output_csv.write_bytes(candidate_raw)
+    docs_csv.write_bytes(candidate_raw)
+    before = {path: path.read_bytes() for path in (output_csv, docs_csv)}
+    monkeypatch.setattr(
+        audit_builder,
+        "_prepare_atomic_replacement",
+        lambda *_args, **_kwargs: pytest.fail(
+            "precheck failure must fail before preparing a write"
+        ),
+    )
+
+    assert audit_builder.main(["--normalize-existing-csv-line-endings-only"]) == 1
+
+    assert {path: path.read_bytes() for path in before} == before
+
+
+def test_normalize_only_cli_rejects_arbitrary_paths(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(
+        audit_builder,
+        "build_rows",
+        lambda _generated_at: pytest.fail("unknown arguments must not rebuild the audit"),
+    )
+    with pytest.raises(SystemExit):
+        audit_builder.main(
+            [
+                "--normalize-existing-csv-line-endings-only",
+                "--path",
+                "unapproved.csv",
+            ]
+        )
 
 
 def test_data_sharing_migration_base_rows_allow_only_exact_prefix_append(
@@ -823,7 +1100,10 @@ def test_volume_v2_watch_committed_lineage_audit_is_exactly_registered() -> None
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
-    assert len(rows) == 27
+    assert len(rows) == 29
+    assert rows[-1]["migration_id"] == (
+        "revenue_source_snapshot_projection_v2_supersede_and_chain_20260822"
+    )
     baseline = rows[0]
     assert tuple(baseline) == DATA_SHARING_MIGRATION_COLUMNS
     assert data_migration_row_sha256(baseline) == BASELINE_DATA_MIGRATION_ROW_SHA256
@@ -1467,8 +1747,8 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     projection = sharing_by_family[
         "revenue_unreacted_range_source_snapshot_projection"
     ]
-    assert projection["data_contract_sha256"] == (
-        "d941b53613e393cc016e4f7b777787b0e9118e6e9d30aa4e00e5a04f959daa79"
+    assert projection["data_contract_sha256"] == data_contract_sha256(
+        background_by_family["revenue_unreacted_range_source_snapshot_projection"]
     )
     assert projection["ownership_mode"] == "model_owned_not_shared"
     projection_background = background_by_family[
@@ -1478,6 +1758,120 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
         "scripts/validate_revenue_unreacted_range_source_snapshot_projection.py"
     )
     assert "20260713" in projection_background["point_in_time_status"]
+
+    v2_bootstrap_migration = next(
+        row
+        for row in rows
+        if row["migration_id"]
+        == "revenue_source_snapshot_projection_v2_bootstrap_20260822"
+    )
+    v2_bootstrap_families = [
+        "revenue_unreacted_range_source_snapshot_projection_v1_archive",
+        "revenue_unreacted_range_source_snapshot_projection_v2_candidate",
+        "revenue_unreacted_range_source_snapshot_projection_v1_v2_diff",
+    ]
+    assert v2_bootstrap_migration["changed_data_families"].split(";") == (
+        v2_bootstrap_families
+    )
+    assert v2_bootstrap_migration["previous_contract_sha256s"].split(";") == [
+        "NEW",
+        "NEW",
+        "NEW",
+    ]
+    assert v2_bootstrap_migration["new_contract_sha256s"].split(";") == [
+        data_contract_sha256(background_by_family[family])
+        for family in v2_bootstrap_families
+    ]
+    assert v2_bootstrap_migration["user_approval_reference"] == (
+        "user_authorized_revenue_source_snapshot_projection_v2_bootstrap_20260822"
+    )
+    assert v2_bootstrap_migration["migration_status"] == (
+        "validated_user_approved_migration"
+    )
+    validation_commands = v2_bootstrap_migration["validation_commands"].split(";")
+    diff_validator_index = validation_commands.index(
+        "python scripts/"
+        "validate_revenue_unreacted_range_source_snapshot_projection_v1_v2_diff.py "
+        "--v1-manifest output/history/research/"
+        "revenue_unreacted_range_source_snapshot_projection_manifest_v1_20260731.csv "
+        "--v1-detail output/history/research/"
+        "revenue_unreacted_range_source_snapshot_projection_detail_v1_20260731.csv "
+        "--v2-manifest output/history/research/"
+        "revenue_unreacted_range_source_snapshot_projection_manifest_v2_20260822.csv "
+        "--v2-detail output/history/research/"
+        "revenue_unreacted_range_source_snapshot_projection_detail_v2_20260822.csv "
+        "--diff-summary output/history/research/"
+        "revenue_unreacted_range_source_snapshot_projection_v1_20260731_to_v2_20260822_"
+        "diff_summary.csv --diff-detail output/history/research/"
+        "revenue_unreacted_range_source_snapshot_projection_v1_20260731_to_v2_20260822_"
+        "diff_detail.csv"
+    )
+    assert validation_commands[diff_validator_index + 1 : diff_validator_index + 3] == [
+        "python scripts/build_model_data_independence_audit.py",
+        "python scripts/validate_model_data_independence.py",
+    ]
+    for family in v2_bootstrap_families:
+        sharing = sharing_by_family[family]
+        assert sharing["data_contract_sha256"] == data_contract_sha256(
+            background_by_family[family]
+        )
+        assert sharing["last_migration_id"] == v2_bootstrap_migration[
+            "migration_id"
+        ]
+        assert sharing["sharing_decision_reference"] == v2_bootstrap_migration[
+            "user_approval_reference"
+        ]
+        assert sharing["ownership_mode"] == "model_owned_not_shared"
+        assert sharing["approved_consumer_models"] == "revenue_unreacted_range"
+    supersede_migration = next(
+        row
+        for row in rows
+        if row["migration_id"]
+        == "revenue_source_snapshot_projection_v2_supersede_and_chain_20260822"
+    )
+    supersede_families = [
+        "revenue_unreacted_range_source_snapshot_projection",
+        "revenue_unreacted_range_source_snapshot_projection_v2_supersede_evidence",
+    ]
+    assert supersede_migration["changed_data_families"].split(";") == (
+        supersede_families
+    )
+    assert supersede_migration["previous_contract_sha256s"].split(";") == [
+        "d941b53613e393cc016e4f7b777787b0e9118e6e9d30aa4e00e5a04f959daa79",
+        "NEW",
+    ]
+    assert supersede_migration["new_contract_sha256s"].split(";") == [
+        data_contract_sha256(background_by_family[family])
+        for family in supersede_families
+    ]
+    assert supersede_migration["user_approval_reference"] == (
+        "user_authorized_revenue_source_snapshot_projection_v2_"
+        "supersede_and_chain_20260822"
+    )
+    supersede_commands = supersede_migration["validation_commands"].split(";")
+    assert supersede_commands[0] == (
+        "python scripts/build_revenue_unreacted_range_research.py "
+        "--stage source_snapshot_projection_supersede_and_chain"
+    )
+    assert all("forward_holdout" not in command for command in supersede_commands)
+    assert "promotion_preparation" not in supersede_migration["notes"]
+    for family in supersede_families:
+        sharing = sharing_by_family[family]
+        assert sharing["data_contract_sha256"] == data_contract_sha256(
+            background_by_family[family]
+        )
+        assert sharing["last_migration_id"] == supersede_migration["migration_id"]
+        assert sharing["sharing_decision_reference"] == supersede_migration[
+            "user_approval_reference"
+        ]
+        assert sharing["ownership_mode"] == "model_owned_not_shared"
+        assert sharing["approved_consumer_models"] == "revenue_unreacted_range"
+    assert projection["data_contract_sha256"] == (
+        "bb4e654263668b750b73e2009a1fcdee5a334e9493603c849fd393b25a418bfe"
+    )
+    assert projection["last_migration_id"] == (
+        "revenue_source_snapshot_projection_v2_supersede_and_chain_20260822"
+    )
 
     forward_migration = next(
         row
@@ -1744,6 +2138,7 @@ def test_revenue_cross_market_research_artifact_lineage_is_complete() -> None:
             "output/latest/research_backtest/revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv",
             "output/latest/research_backtest/revenue_unreacted_range_source_snapshot_projection_detail_latest.csv",
             "output/history/research/revenue_unreacted_range_source_snapshot_projection_manifest.csv",
+            "output/history/research/revenue_unreacted_range_source_snapshot_projection_supersede_evidence_v2_20260822.csv",
             "docs/latest/revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv",
         },
         "revenue_unreacted_range_forward_confirmation_feature_audit": {
@@ -1981,6 +2376,37 @@ def test_input_bound_independent_validator_role_is_closed_set_and_registered() -
     assert forward["allowed_evidence_use"] == (
         "independent_input_bound_research_validation_only_not_promotion_proof"
     )
+
+
+def test_revenue_projection_v1_v2_diff_validator_is_independent_and_research_only() -> None:
+    rows = {
+        row["validator_path"]: row
+        for row in read_csv("config/daily_model_validator_independence.csv")
+    }
+    path = (
+        "scripts/"
+        "validate_revenue_unreacted_range_source_snapshot_projection_v1_v2_diff.py"
+    )
+    source = (
+        "scripts/revenue_unreacted_range_source_snapshot_projection_v1_v2_diff.py"
+    )
+    row = rows[path]
+    assert row["validator_role"] == (
+        "independent_contract_artifact_binding_validator"
+    )
+    assert row["production_source_file"] == source
+    assert row["imported_production_symbols"] == ""
+    assert row["independence_claim"] == "True"
+    assert row["allowed_evidence_use"] == (
+        "independent_research_projection_version_diff_evidence_only_"
+        "not_promotion_proof"
+    )
+    sources, symbols = _production_imports(
+        ROOT / path,
+        {Path(source).stem: source},
+    )
+    assert sources == ()
+    assert symbols == ()
 
 
 def test_future_model_owned_module_import_is_detected(tmp_path: Path) -> None:

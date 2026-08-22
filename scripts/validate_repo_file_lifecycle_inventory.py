@@ -7,11 +7,23 @@ import subprocess
 from dataclasses import dataclass
 from pathlib import Path
 
+try:
+    from scripts.validate_model_research_workflow_isolation import (
+        REVENUE_PROJECTION_SUPERSEDE_ALLOWED_PATHS,
+    )
+except ModuleNotFoundError:  # Direct execution from the scripts directory.
+    from validate_model_research_workflow_isolation import (
+        REVENUE_PROJECTION_SUPERSEDE_ALLOWED_PATHS,
+    )
+
 
 ROOT = Path(__file__).resolve().parents[1]
 LIFECYCLE_INVENTORY = ROOT / "config" / "repo_file_lifecycle_inventory.csv"
 PRODUCTION_INVENTORY = ROOT / "config" / "repo_production_inventory.csv"
 LINEAGE_CSV = ROOT / "config" / "report_artifact_lineage.csv"
+REVENUE_PROJECTION_SUPERSEDE_WORKFLOW = (
+    ".github/workflows/research_backtest_pipeline.yml"
+)
 
 
 REQUIRED_COLUMNS = {
@@ -593,6 +605,8 @@ def validate_reference_columns(lifecycle: dict[str, LifecycleRow]) -> list[str]:
         expected_docs = sorted(doc_refs.get(path, set()))
         expected_tests = sorted(test_refs.get(path, set()))
         expected_writes = sorted(writes.get(path, set()))
+        if path == REVENUE_PROJECTION_SUPERSEDE_WORKFLOW:
+            expected_writes = sorted(REVENUE_PROJECTION_SUPERSEDE_ALLOWED_PATHS)
         expected_reads = sorted(reads.get(path, set()))
         comparisons = [
             ("called_by_workflow", expected_workflows, list(row.called_by_workflow)),

@@ -26,13 +26,44 @@ from revenue_unreacted_range_source_snapshot_projection import (
     load_projected_source_detail,
     load_source_snapshot_projection_manifest,
     validate_projection_binding,
+    V1_PROJECTION_VERSION,
+    V2_PROJECTION_VERSION,
 )
 
 
 ROOT = Path(__file__).resolve().parents[1]
 MODEL_ID = "revenue_unreacted_range"
 ARTIFACT_ID = "revenue_unreacted_range_operation_lag_bucket_audit"
-ARTIFACT_VERSION = "operation_lag_bucket_v1_20260714"
+V1_ARTIFACT_VERSION = "operation_lag_bucket_v1_20260714"
+V2_ARTIFACT_VERSION = "operation_lag_bucket_v2_20260822"
+ARTIFACT_VERSION = V1_ARTIFACT_VERSION
+V2_SOURCE_OPERATION_ARTIFACT_VERSION = "rearmed_operation_grid_v2_20260822"
+
+
+def artifact_version_for_projection(projection_version: object) -> str:
+    version = str(projection_version).strip()
+    mapping = {
+        V1_PROJECTION_VERSION: V1_ARTIFACT_VERSION,
+        V2_PROJECTION_VERSION: V2_ARTIFACT_VERSION,
+    }
+    if version not in mapping:
+        raise RuntimeError(
+            f"unsupported canonical source projection version: {version or '<empty>'}"
+        )
+    return mapping[version]
+
+
+def source_operation_version_for_projection(projection_version: object) -> str:
+    version = str(projection_version).strip()
+    mapping = {
+        V1_PROJECTION_VERSION: SOURCE_OPERATION_ARTIFACT_VERSION,
+        V2_PROJECTION_VERSION: V2_SOURCE_OPERATION_ARTIFACT_VERSION,
+    }
+    if version not in mapping:
+        raise RuntimeError(
+            f"unsupported canonical source projection version: {version or '<empty>'}"
+        )
+    return mapping[version]
 
 PRICE_HISTORY_DIR = ROOT / "data/stock_price_history"
 LATEST_CSV = ROOT / f"output/latest/research_backtest/{ARTIFACT_ID}_latest.csv"
@@ -260,7 +291,11 @@ def _price_date_indices(stock_id: str, cache: dict[str, dict[str, int]]) -> dict
     return cache[stock_id]
 
 
-def _selected_operations(operation_detail: pd.DataFrame) -> pd.DataFrame:
+def _selected_operations(
+    operation_detail: pd.DataFrame,
+    *,
+    expected_artifact_version: str = SOURCE_OPERATION_ARTIFACT_VERSION,
+) -> pd.DataFrame:
     required = {
         "artifact_version",
         "grid_id",
@@ -291,7 +326,7 @@ def _selected_operations(operation_detail: pd.DataFrame) -> pd.DataFrame:
         raise RuntimeError("operation lag bucket source grid has no mature operations")
     if set(selected["source_variant_id"].astype(str)) != {SOURCE_VARIANT_ID}:
         raise RuntimeError("operation lag bucket source variant drift")
-    if set(selected["artifact_version"].astype(str)) != {SOURCE_OPERATION_ARTIFACT_VERSION}:
+    if set(selected["artifact_version"].astype(str)) != {expected_artifact_version}:
         raise RuntimeError("operation lag bucket source operation version drift")
     if selected.duplicated(["grid_id", "stock_id", "episode_key", "trigger_date", "entry_date"]).any():
         raise RuntimeError("operation lag bucket source contains duplicate operations")
@@ -332,9 +367,13 @@ def build_operation_lag_detail(
     operation_detail: pd.DataFrame,
     source_detail: pd.DataFrame,
     generated_at: str | None = None,
+    expected_source_operation_artifact_version: str = SOURCE_OPERATION_ARTIFACT_VERSION,
 ) -> pd.DataFrame:
     generated_at = generated_at or _now_text()
-    operations = _selected_operations(operation_detail)
+    operations = _selected_operations(
+        operation_detail,
+        expected_artifact_version=expected_source_operation_artifact_version,
+    )
     episodes = _source_episodes(source_detail)
     date_cache: dict[str, dict[str, int]] = {}
     rows: list[dict[str, object]] = []
@@ -684,9 +723,29 @@ def build_operation_lag_bucket_audit(
         projection_manifest,
         source_detail,
     )
+    projection_version = projection_manifest.iloc[0]["projection_version"]
+    expected_source_operation_artifact_version = (
+        source_operation_version_for_projection(projection_version)
+    )
     generated_at = _now_text()
-    detail = build_operation_lag_detail(operation_detail, source_detail, generated_at)
+    detail = build_operation_lag_detail(
+        operation_detail,
+        source_detail,
+        generated_at,
+        expected_source_operation_artifact_version=(
+            expected_source_operation_artifact_version
+        ),
+    )
     summary = build_operation_lag_summary(detail, generated_at)
+    selected_version = artifact_version_for_projection(projection_version)
+    summary.loc[:, "artifact_version"] = selected_version
+    detail.loc[:, "artifact_version"] = selected_version
+    summary.loc[:, "source_operation_artifact_version"] = (
+        expected_source_operation_artifact_version
+    )
+    detail.loc[:, "source_operation_artifact_version"] = (
+        expected_source_operation_artifact_version
+    )
     return summary, detail
 
 
@@ -731,7 +790,7 @@ def _markdown(summary: pd.DataFrame, detail: pd.DataFrame) -> str:
         "",
         f"- generated_at: `{summary['generated_at'].iloc[0]}`",
         f"- model_id: `{MODEL_ID}`",
-        f"- artifact_version: `{ARTIFACT_VERSION}`",
+        f"- artifact_version: `{summary['artifact_version'].iloc[0]}`",
         "- 狀態：research-only，不修改 production registry、正式 operation adapter、PDF 或 ranking。",
         f"- 固定操作口徑：`{ADOPTED_GRID_ID}`。",
         f"- Primary 共 `{primary_count}` 筆；待查資料排除敏感度共 `{sensitivity_count}` 筆。",

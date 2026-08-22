@@ -1,9 +1,11 @@
 from __future__ import annotations
 
+import subprocess
 import sys
 from pathlib import Path
 
 import pandas as pd
+import pytest
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -12,6 +14,10 @@ if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
 
 from revenue_unreacted_range_operation_lag_bucket_audit import (  # noqa: E402
+    V1_ARTIFACT_VERSION,
+    V2_ARTIFACT_VERSION,
+    artifact_version_for_projection,
+    source_operation_version_for_projection,
     ADOPTED_GRID_ID,
     DETAIL_CSV,
     LATEST_CSV,
@@ -19,13 +25,77 @@ from revenue_unreacted_range_operation_lag_bucket_audit import (  # noqa: E402
     SENSITIVITY_ANALYSIS_BASIS,
     SOURCE_OPERATION_DETAIL_CSV,
 )
+from revenue_unreacted_range_source_snapshot_projection import (  # noqa: E402
+    V1_PROJECTION_VERSION,
+    V2_PROJECTION_VERSION,
+)
 from validate_revenue_unreacted_range_operation_lag_bucket_audit import (  # noqa: E402
     validate,
 )
+import validate_revenue_unreacted_range_operation_lag_bucket_audit as validator  # noqa: E402
+
+
+def test_operation_lag_versions_are_projection_bound() -> None:
+    assert artifact_version_for_projection(V1_PROJECTION_VERSION) == V1_ARTIFACT_VERSION
+    assert artifact_version_for_projection(V2_PROJECTION_VERSION) == V2_ARTIFACT_VERSION
+    assert source_operation_version_for_projection(V1_PROJECTION_VERSION) == (
+        validator.SOURCE_OPERATION_ARTIFACT_VERSION
+    )
+    assert source_operation_version_for_projection(V2_PROJECTION_VERSION) == (
+        validator.V2_SOURCE_OPERATION_ARTIFACT_VERSION
+    )
+    assert validator._expected_versions(V2_PROJECTION_VERSION) == (
+        V2_ARTIFACT_VERSION,
+        validator.V2_SOURCE_OPERATION_ARTIFACT_VERSION,
+    )
+    with pytest.raises(RuntimeError, match="unsupported canonical source projection"):
+        validator._expected_versions("unknown")
 
 
 def test_operation_lag_bucket_audit_passes() -> None:
     assert validate() == []
+
+
+def test_operation_lag_trusted_v1_source_and_price_descriptor_probe() -> None:
+    manifest, operations, episodes = validator._trusted_source_frames()
+    prices = validator._trusted_price_frames({"2380"}, manifest)
+
+    assert len(manifest) == 1
+    assert not operations.empty
+    assert not episodes.empty
+    assert prices["2380"]["date"].max() == validator.PRICE_HISTORY_CUTOFF_DATE
+
+
+def test_operation_lag_trusted_v1_contract_fails_closed(monkeypatch) -> None:
+    with pytest.raises(RuntimeError, match="unsafe Git path"):
+        validator._safe_repo_path("../data/stock_price_history/2380.csv")
+    with pytest.raises(RuntimeError, match="unsafe stock id"):
+        validator._trusted_stock_path("2380/evil")
+
+    manifest, _, _ = validator._trusted_source_frames()
+    mutated = manifest.copy()
+    mutated.loc[0, "cutoff_date"] = "20260714"
+    with pytest.raises(RuntimeError, match="descriptor drift"):
+        validator._validate_v1_manifest_descriptor(mutated)
+
+    monkeypatch.setattr(validator, "TRUSTED_SOURCE_REVISION", "f" * 40)
+    with pytest.raises(RuntimeError, match="commit is unavailable"):
+        validator._trusted_revision_preflight()
+
+
+def test_operation_lag_git_calls_disable_replace_objects(monkeypatch) -> None:
+    real_run = subprocess.run
+    calls: list[list[str]] = []
+
+    def recording_run(args, *positional, **kwargs):
+        calls.append(list(args))
+        return real_run(args, *positional, **kwargs)
+
+    monkeypatch.setattr(validator.subprocess, "run", recording_run)
+    validator._trusted_revision_preflight()
+
+    assert calls
+    assert all(call[1] == "--no-replace-objects" for call in calls)
 
 
 def test_operation_lag_bucket_uses_asof_latest_revenue_without_future_backfill() -> None:
