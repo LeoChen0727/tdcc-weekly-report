@@ -208,6 +208,33 @@ PRICE_DERIVED_DETAIL_FIELDS = {
     "retrospective_label_status",
 }
 
+CAUSAL_EPISODE_MEMBERSHIP_CLASSIFICATION = (
+    "corrected_official_cutoff_price_gated_episode_membership"
+)
+CAUSAL_EPISODE_MEMBERSHIP_FIELDS = {
+    "qualifying_canonical_source_table_dates",
+    "qualifying_revenue_periods",
+    "qualifying_source_dates",
+    "qualifying_source_row_canonical_sha256s",
+    "qualifying_cross_market_resolution_ids",
+    "qualifying_update_count",
+    "latest_qualifying_canonical_source_table_date",
+    "latest_qualifying_revenue_period",
+    "latest_qualifying_source_date",
+    "latest_qualifying_source_row_canonical_sha256",
+    "qualifying_source_revenue_anomaly_candidate_flag",
+}
+CUTOFF_REVENUE_CAUSAL_INVARIANT_FIELDS = (
+    "cutoff_revenue_subset_row_count",
+    "cutoff_revenue_subset_semantic_sha256",
+)
+MONTHLY_RESOLUTION_CAUSAL_INVARIANT_FIELDS = (
+    "cross_market_resolution_registry_canonical_sha256",
+    "applied_monthly_resolution_count",
+    "applied_monthly_resolution_ids",
+    "applied_monthly_resolution_semantic_sha256",
+)
+
 
 def _now_text() -> str:
     return datetime.now(ZoneInfo("Asia/Taipei")).strftime(
@@ -327,6 +354,86 @@ def _episode_price_classification(
     evidence = f"stock_id={stock_id}; cutoff_price_lineage:{left}->{right}"
     if stock_id and left != right:
         return "corrected_official_cutoff_price_lineage", evidence
+    return "unclassified_semantic_drift", evidence
+
+
+def _manifest_invariant_match_evidence(
+    *,
+    v1_manifest_row: pd.Series,
+    v2_manifest_row: pd.Series,
+    fields: tuple[str, ...],
+) -> tuple[bool, str]:
+    left_payload: list[str] = []
+    right_payload: list[str] = []
+    complete = True
+    equal = True
+    for column in fields:
+        left_exists = column in v1_manifest_row.index
+        right_exists = column in v2_manifest_row.index
+        left = _value(v1_manifest_row.get(column, "")) if left_exists else "<missing>"
+        right = _value(v2_manifest_row.get(column, "")) if right_exists else "<missing>"
+        if not left_exists or not right_exists or not left or not right:
+            complete = False
+        if left != right:
+            equal = False
+        left_payload.append(f"{column}={left or '<empty>'}")
+        right_payload.append(f"{column}={right or '<empty>'}")
+    left_sha = _sha256("\n".join(left_payload).encode("utf-8"))
+    right_sha = _sha256("\n".join(right_payload).encode("utf-8"))
+    return complete and equal, left_sha if left_sha == right_sha else f"{left_sha}->{right_sha}"
+
+
+def _episode_membership_classification(
+    *,
+    drift_scope: str,
+    column: str,
+    change_type: str,
+    stock_id: str,
+    v1_price: dict[str, tuple[int, str]],
+    v2_price: dict[str, tuple[int, str]],
+    v1_manifest_row: pd.Series,
+    v2_manifest_row: pd.Series,
+) -> tuple[str, str]:
+    left = v1_price.get(stock_id)
+    right = v2_price.get(stock_id)
+    cutoff_revenue_equal, cutoff_revenue_sha = _manifest_invariant_match_evidence(
+        v1_manifest_row=v1_manifest_row,
+        v2_manifest_row=v2_manifest_row,
+        fields=CUTOFF_REVENUE_CAUSAL_INVARIANT_FIELDS,
+    )
+    monthly_resolution_equal, monthly_resolution_sha = (
+        _manifest_invariant_match_evidence(
+            v1_manifest_row=v1_manifest_row,
+            v2_manifest_row=v2_manifest_row,
+            fields=MONTHLY_RESOLUTION_CAUSAL_INVARIANT_FIELDS,
+        )
+    )
+    allowed_field = column in CAUSAL_EPISODE_MEMBERSHIP_FIELDS
+    descriptor_changed = (
+        bool(stock_id) and left is not None and right is not None and left != right
+    )
+    evidence = (
+        f"drift_scope={drift_scope}; stock_id={stock_id}; "
+        f"cutoff_price_lineage:{left}->{right}; "
+        "cutoff_price_descriptor_changed="
+        f"{str(descriptor_changed).lower()}; "
+        f"allowed_membership_field={str(allowed_field).lower()}; "
+        f"change_type={change_type}; "
+        f"cutoff_revenue_invariants_equal={str(cutoff_revenue_equal).lower()}; "
+        f"cutoff_revenue_invariants_sha256={cutoff_revenue_sha}; "
+        "monthly_resolution_invariants_equal="
+        f"{str(monthly_resolution_equal).lower()}; "
+        f"monthly_resolution_invariants_sha256={monthly_resolution_sha}"
+    )
+    if (
+        drift_scope == "episode"
+        and allowed_field
+        and change_type == "changed"
+        and descriptor_changed
+        and cutoff_revenue_equal
+        and monthly_resolution_equal
+    ):
+        return CAUSAL_EPISODE_MEMBERSHIP_CLASSIFICATION, evidence
     return "unclassified_semantic_drift", evidence
 
 
@@ -459,9 +566,10 @@ def build_diff_frames(
 
     changed_episode_keys: set[str] = set()
     for key in sorted(v1_keys & v2_keys):
-        stock_id = _value(v2_by_key.at[key, "stock_id"])
+        v1_stock_id = _value(v1_by_key.at[key, "stock_id"])
+        v2_stock_id = _value(v2_by_key.at[key, "stock_id"])
         price_classification, price_evidence = _episode_price_classification(
-            stock_id=stock_id,
+            stock_id=v2_stock_id,
             v1_price=v1_price,
             v2_price=v2_price,
         )
@@ -476,6 +584,17 @@ def build_diff_frames(
             if column in PRICE_DERIVED_DETAIL_FIELDS:
                 classification = price_classification
                 evidence = price_evidence
+            elif column in CAUSAL_EPISODE_MEMBERSHIP_FIELDS:
+                classification, evidence = _episode_membership_classification(
+                    drift_scope="episode",
+                    column=column,
+                    change_type="changed",
+                    stock_id=(v2_stock_id if v1_stock_id == v2_stock_id else ""),
+                    v1_price=v1_price,
+                    v2_price=v2_price,
+                    v1_manifest_row=v1_row,
+                    v2_manifest_row=v2_row,
+                )
             else:
                 classification = "unclassified_semantic_drift"
                 evidence = "non-price episode field changed"

@@ -19,7 +19,36 @@ from revenue_unreacted_range_source_snapshot_projection_v1_v2_diff import (  # n
     build_diff_from_paths,
     write_diff_artifacts,
 )
+import revenue_unreacted_range_source_snapshot_projection_v1_v2_diff as producer  # noqa: E402
 import validate_revenue_unreacted_range_source_snapshot_projection_v1_v2_diff as validator  # noqa: E402
+
+
+EXPECTED_CAUSAL_EPISODE_MEMBERSHIP_CLASSIFICATION = (
+    "corrected_official_cutoff_price_gated_episode_membership"
+)
+EXPECTED_CAUSAL_EPISODE_MEMBERSHIP_FIELDS = {
+    "qualifying_canonical_source_table_dates",
+    "qualifying_revenue_periods",
+    "qualifying_source_dates",
+    "qualifying_source_row_canonical_sha256s",
+    "qualifying_cross_market_resolution_ids",
+    "qualifying_update_count",
+    "latest_qualifying_canonical_source_table_date",
+    "latest_qualifying_revenue_period",
+    "latest_qualifying_source_date",
+    "latest_qualifying_source_row_canonical_sha256",
+    "qualifying_source_revenue_anomaly_candidate_flag",
+}
+EXPECTED_CUTOFF_REVENUE_CAUSAL_INVARIANT_FIELDS = {
+    "cutoff_revenue_subset_row_count",
+    "cutoff_revenue_subset_semantic_sha256",
+}
+EXPECTED_MONTHLY_RESOLUTION_CAUSAL_INVARIANT_FIELDS = {
+    "cross_market_resolution_registry_canonical_sha256",
+    "applied_monthly_resolution_count",
+    "applied_monthly_resolution_ids",
+    "applied_monthly_resolution_semantic_sha256",
+}
 
 
 def _sha(payload: bytes) -> str:
@@ -198,6 +227,37 @@ def _validate(paths: dict[str, Path]) -> list[str]:
             pd.read_csv(paths["v1_detail"], dtype=str, keep_default_na=False)
         ),
     )
+
+
+def _write_price_gated_membership_pair(tmp_path: Path) -> dict[str, Path]:
+    paths = _write_projection_pair(tmp_path)
+    v1_detail = pd.read_csv(paths["v1_detail"], dtype=str, keep_default_na=False)
+    v2_detail = pd.read_csv(paths["v2_detail"], dtype=str, keep_default_na=False)
+    v2_detail.loc[v2_detail["episode_key"].eq("e1"), "source_close"] = "10"
+    for index, column in enumerate(
+        sorted(EXPECTED_CAUSAL_EPISODE_MEMBERSHIP_FIELDS),
+        start=1,
+    ):
+        v1_detail[column] = "unchanged_removed_episode"
+        v2_detail[column] = "unchanged_added_episode"
+        if column == "qualifying_update_count":
+            old_value, new_value = "1", "2"
+        elif column == "qualifying_source_revenue_anomaly_candidate_flag":
+            old_value, new_value = "false", "true"
+        else:
+            old_value, new_value = f"old_membership_{index}", f"new_membership_{index}"
+        v1_detail.loc[v1_detail["episode_key"].eq("e1"), column] = old_value
+        v2_detail.loc[v2_detail["episode_key"].eq("e1"), column] = new_value
+    v1_detail.to_csv(paths["v1_detail"], index=False)
+    v2_detail.to_csv(paths["v2_detail"], index=False)
+    v2_manifest = pd.read_csv(
+        paths["v2_manifest"], dtype=str, keep_default_na=False
+    )
+    v2_manifest.loc[0, "predecessor_detail_bytes_sha256"] = _sha(
+        paths["v1_detail"].read_bytes()
+    )
+    v2_manifest.to_csv(paths["v2_manifest"], index=False)
+    return paths
 
 
 def _unclassified_diagnostic_frames() -> tuple[pd.DataFrame, pd.DataFrame]:
@@ -387,6 +447,243 @@ def test_price_derived_episode_change_requires_that_stock_lineage_to_change(
     assert summary.iloc[0]["unclassified_semantic_drift_count"] == 1
     with pytest.raises(RuntimeError, match="unclassified semantic drift"):
         write_diff_artifacts(summary, detail)
+
+
+def test_price_gated_membership_allowlist_and_invariants_are_exact_and_independent() -> None:
+    assert producer.CAUSAL_EPISODE_MEMBERSHIP_CLASSIFICATION == (
+        EXPECTED_CAUSAL_EPISODE_MEMBERSHIP_CLASSIFICATION
+    )
+    assert validator.CAUSAL_EPISODE_MEMBERSHIP_CLASSIFICATION == (
+        EXPECTED_CAUSAL_EPISODE_MEMBERSHIP_CLASSIFICATION
+    )
+    assert producer.CAUSAL_EPISODE_MEMBERSHIP_FIELDS == (
+        EXPECTED_CAUSAL_EPISODE_MEMBERSHIP_FIELDS
+    )
+    assert validator.CAUSAL_EPISODE_MEMBERSHIP_FIELDS == (
+        EXPECTED_CAUSAL_EPISODE_MEMBERSHIP_FIELDS
+    )
+    assert set(producer.CUTOFF_REVENUE_CAUSAL_INVARIANT_FIELDS) == (
+        EXPECTED_CUTOFF_REVENUE_CAUSAL_INVARIANT_FIELDS
+    )
+    assert set(validator.CUTOFF_REVENUE_CAUSAL_INVARIANT_FIELDS) == (
+        EXPECTED_CUTOFF_REVENUE_CAUSAL_INVARIANT_FIELDS
+    )
+    assert set(producer.MONTHLY_RESOLUTION_CAUSAL_INVARIANT_FIELDS) == (
+        EXPECTED_MONTHLY_RESOLUTION_CAUSAL_INVARIANT_FIELDS
+    )
+    assert set(validator.MONTHLY_RESOLUTION_CAUSAL_INVARIANT_FIELDS) == (
+        EXPECTED_MONTHLY_RESOLUTION_CAUSAL_INVARIANT_FIELDS
+    )
+
+
+@pytest.mark.parametrize(
+    "mutation",
+    (
+        "manifest_scope",
+        "other_column",
+        "added_change_type",
+        "missing_v1_descriptor",
+        "missing_v2_descriptor",
+        "missing_cutoff_invariant",
+        "empty_cutoff_invariant",
+        "missing_monthly_invariant",
+        "empty_monthly_invariant",
+    ),
+)
+def test_price_gated_membership_predicate_rejects_every_incomplete_condition(
+    mutation: str,
+) -> None:
+    manifest_values = {
+        "cutoff_revenue_subset_row_count": "2",
+        "cutoff_revenue_subset_semantic_sha256": "8" * 64,
+        "cross_market_resolution_registry_canonical_sha256": "7" * 64,
+        "applied_monthly_resolution_count": "0",
+        "applied_monthly_resolution_ids": "none",
+        "applied_monthly_resolution_semantic_sha256": "e" * 64,
+    }
+    v1_manifest = pd.Series(manifest_values)
+    v2_manifest = pd.Series(manifest_values)
+    v1_price = {"1111": (2, "a" * 64)}
+    v2_price = {"1111": (3, "b" * 64)}
+    column = "qualifying_source_dates"
+    change_type = "changed"
+    drift_scope = "episode"
+    if mutation == "manifest_scope":
+        drift_scope = "manifest"
+    elif mutation == "other_column":
+        column = "stock_name"
+    elif mutation == "added_change_type":
+        change_type = "added"
+    elif mutation == "missing_v1_descriptor":
+        v1_price = {}
+    elif mutation == "missing_v2_descriptor":
+        v2_price = {}
+    elif mutation == "missing_cutoff_invariant":
+        v2_manifest = v2_manifest.drop("cutoff_revenue_subset_row_count")
+    elif mutation == "empty_cutoff_invariant":
+        v2_manifest.loc["cutoff_revenue_subset_row_count"] = ""
+    elif mutation == "missing_monthly_invariant":
+        v2_manifest = v2_manifest.drop(
+            "applied_monthly_resolution_semantic_sha256"
+        )
+    else:
+        v2_manifest.loc["applied_monthly_resolution_semantic_sha256"] = ""
+
+    for module in (producer, validator):
+        classification, _evidence = module._episode_membership_classification(
+            drift_scope=drift_scope,
+            column=column,
+            change_type=change_type,
+            stock_id="1111",
+            v1_price=v1_price,
+            v2_price=v2_price,
+            v1_manifest_row=v1_manifest,
+            v2_manifest_row=v2_manifest,
+        )
+        assert classification == "unclassified_semantic_drift"
+    assert producer._manifest_classification(column, False)[0] == (
+        "unclassified_semantic_drift"
+    )
+    assert validator._classification(column)[0] == "unclassified_semantic_drift"
+
+
+def test_price_gated_membership_exact11_is_causally_classified_and_validated(
+    tmp_path: Path,
+) -> None:
+    paths = _write_price_gated_membership_pair(tmp_path)
+    summary, detail = _build_and_write(paths)
+    membership = detail.loc[
+        detail["identity_key"].eq("e1")
+        & detail["column_name"].isin(EXPECTED_CAUSAL_EPISODE_MEMBERSHIP_FIELDS)
+    ].copy()
+
+    assert set(membership["column_name"]) == EXPECTED_CAUSAL_EPISODE_MEMBERSHIP_FIELDS
+    assert len(membership) == 11
+    assert set(membership["drift_scope"]) == {"episode"}
+    assert set(membership["change_type"]) == {"changed"}
+    assert set(membership["classification"]) == {
+        EXPECTED_CAUSAL_EPISODE_MEMBERSHIP_CLASSIFICATION
+    }
+    assert membership["source_evidence"].str.contains(
+        "drift_scope=episode", regex=False
+    ).all()
+    assert membership["source_evidence"].str.contains(
+        "cutoff_price_descriptor_changed=true", regex=False
+    ).all()
+    assert membership["source_evidence"].str.contains(
+        "cutoff_revenue_invariants_equal=true", regex=False
+    ).all()
+    assert membership["source_evidence"].str.contains(
+        "monthly_resolution_invariants_equal=true", regex=False
+    ).all()
+    assert summary.iloc[0]["unclassified_semantic_drift_count"] == 0
+    assert _validate(paths) == []
+
+    tampered = pd.read_csv(paths["detail"], dtype=str, keep_default_na=False)
+    target = tampered["classification"].eq(
+        EXPECTED_CAUSAL_EPISODE_MEMBERSHIP_CLASSIFICATION
+    )
+    tampered.loc[target, "classification"] = "corrected_official_cutoff_price_lineage"
+    tampered.to_csv(paths["detail"], index=False)
+    assert any("independent reconstruction" in error for error in _validate(paths))
+
+
+@pytest.mark.parametrize(
+    ("mutation", "evidence_token"),
+    (
+        ("unchanged_descriptor", "cutoff_price_lineage:"),
+        ("cutoff_revenue_drift", "cutoff_revenue_invariants_equal=false"),
+        ("monthly_resolution_drift", "monthly_resolution_invariants_equal=false"),
+    ),
+)
+def test_price_gated_membership_fails_closed_without_complete_causal_evidence(
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
+    mutation: str,
+    evidence_token: str,
+) -> None:
+    paths = _write_price_gated_membership_pair(tmp_path / mutation)
+    v1_manifest = pd.read_csv(paths["v1_manifest"], dtype=str, keep_default_na=False)
+    v2_manifest = pd.read_csv(paths["v2_manifest"], dtype=str, keep_default_na=False)
+    if mutation == "unchanged_descriptor":
+        v1_token = str(
+            v1_manifest.loc[0, "cutoff_price_input_file_semantic_sha256s"]
+        ).split("|")[0]
+        v2_tokens = str(
+            v2_manifest.loc[0, "cutoff_price_input_file_semantic_sha256s"]
+        ).split("|")
+        v2_tokens[0] = v1_token
+        v2_manifest.loc[0, "cutoff_price_input_file_semantic_sha256s"] = "|".join(
+            v2_tokens
+        )
+    elif mutation == "cutoff_revenue_drift":
+        v2_manifest.loc[0, "cutoff_revenue_subset_semantic_sha256"] = "9" * 64
+    else:
+        v2_manifest.loc[0, "applied_monthly_resolution_semantic_sha256"] = "9" * 64
+    v2_manifest.to_csv(paths["v2_manifest"], index=False)
+
+    summary, detail = build_diff_from_paths(
+        v1_manifest_path=paths["v1_manifest"],
+        v1_detail_path=paths["v1_detail"],
+        v2_manifest_path=paths["v2_manifest"],
+        v2_detail_path=paths["v2_detail"],
+    )
+    membership = detail.loc[
+        detail["identity_key"].eq("e1")
+        & detail["column_name"].isin(EXPECTED_CAUSAL_EPISODE_MEMBERSHIP_FIELDS)
+    ]
+    assert len(membership) == 11
+    assert set(membership["classification"]) == {"unclassified_semantic_drift"}
+    assert membership["source_evidence"].str.contains(
+        evidence_token, regex=False
+    ).all()
+    assert int(summary.iloc[0]["unclassified_semantic_drift_count"]) >= 11
+
+    blocked_summary = tmp_path / mutation / "blocked" / "summary.csv"
+    blocked_detail = tmp_path / mutation / "blocked" / "detail.csv"
+    with pytest.raises(RuntimeError, match="unclassified semantic drift"):
+        write_diff_artifacts(
+            summary,
+            detail,
+            summary_path=blocked_summary,
+            detail_path=blocked_detail,
+        )
+    assert "v1_v2_diff_unclassified_semantic_drift_count=" in capsys.readouterr().err
+    assert not blocked_summary.parent.exists()
+    assert not blocked_summary.exists()
+    assert not blocked_detail.exists()
+
+
+def test_nonallowlisted_nonprice_field_stays_unclassified_with_price_change(
+    tmp_path: Path,
+) -> None:
+    paths = _write_price_gated_membership_pair(tmp_path)
+    v1_detail = pd.read_csv(paths["v1_detail"], dtype=str, keep_default_na=False)
+    v2_detail = pd.read_csv(paths["v2_detail"], dtype=str, keep_default_na=False)
+    v1_detail["stock_name"] = "unchanged"
+    v2_detail["stock_name"] = "unchanged"
+    v1_detail.loc[v1_detail["episode_key"].eq("e1"), "stock_name"] = "old name"
+    v2_detail.loc[v2_detail["episode_key"].eq("e1"), "stock_name"] = "new name"
+    v1_detail.to_csv(paths["v1_detail"], index=False)
+    v2_detail.to_csv(paths["v2_detail"], index=False)
+    v2_manifest = pd.read_csv(paths["v2_manifest"], dtype=str, keep_default_na=False)
+    v2_manifest.loc[0, "predecessor_detail_bytes_sha256"] = _sha(
+        paths["v1_detail"].read_bytes()
+    )
+    v2_manifest.to_csv(paths["v2_manifest"], index=False)
+
+    summary, detail = build_diff_from_paths(
+        v1_manifest_path=paths["v1_manifest"],
+        v1_detail_path=paths["v1_detail"],
+        v2_manifest_path=paths["v2_manifest"],
+        v2_detail_path=paths["v2_detail"],
+    )
+    row = detail.loc[
+        detail["identity_key"].eq("e1") & detail["column_name"].eq("stock_name")
+    ].iloc[0]
+    assert row["classification"] == "unclassified_semantic_drift"
+    assert row["source_evidence"] == "non-price episode field changed"
+    assert int(summary.iloc[0]["unclassified_semantic_drift_count"]) == 1
 
 def test_independent_validator_rejects_tampered_diff_and_predecessor(
     tmp_path: Path,
