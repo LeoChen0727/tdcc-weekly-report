@@ -1095,6 +1095,51 @@ def test_revenue_projection_supersede_writer_requires_modified_only_code_identit
 
 
 @pytest.mark.parametrize(
+    ("old", "new"),
+    (
+        (
+            'REVENUE_SUPERSEDE_CODE_ROOT_SHA="2315df2367b6b475ed4f4aa2fe8b260617854991"',
+            'REVENUE_SUPERSEDE_CODE_ROOT_SHA="0000000000000000000000000000000000000000"',
+        ),
+        (
+            'REVENUE_SUPERSEDE_SHALLOW_STATE="$(git --no-replace-objects rev-parse --is-shallow-repository)"',
+            'REVENUE_SUPERSEDE_SHALLOW_STATE="false"',
+        ),
+        (
+            'git --no-replace-objects fetch --no-tags --unshallow origin "$TARGET_BRANCH"',
+            "true",
+        ),
+        (
+            'read -r -a REVENUE_SUPERSEDE_PARENT_FIELDS <<< "$(git --no-replace-objects rev-list --parents -n 1 "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA")"',
+            "true",
+        ),
+        (
+            '"${REVENUE_SUPERSEDE_PARENT_FIELDS[1]}" != "$REVENUE_SUPERSEDE_EXPECTED_BASE_SHA"',
+            '"${REVENUE_SUPERSEDE_PARENT_FIELDS[1]}" != "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA"',
+        ),
+        (
+            'git --no-replace-objects merge-base --is-ancestor "$REVENUE_SUPERSEDE_CODE_ROOT_SHA" "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA"',
+            "true",
+        ),
+        (
+            'git --no-replace-objects diff --name-status --no-renames "$REVENUE_SUPERSEDE_CODE_ROOT_SHA" "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA"',
+            'git --no-replace-objects diff --name-status --no-renames "$REVENUE_SUPERSEDE_EXPECTED_BASE_SHA" "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA"',
+        ),
+    ),
+)
+def test_revenue_projection_supersede_writer_requires_cumulative_code_root_identity(
+    old: str,
+    new: str,
+) -> None:
+    text = _revenue_supersede_writer_text()
+    assert old in text
+
+    errors = _validate_revenue_supersede_writer_text(text.replace(old, new, 1))
+
+    assert any("exact44 code-commit identity guard" in error for error in errors)
+
+
+@pytest.mark.parametrize(
     ("old", "new", "expected"),
     (
         (

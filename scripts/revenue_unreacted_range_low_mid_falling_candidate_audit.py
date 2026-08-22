@@ -1821,7 +1821,10 @@ def build_low_mid_falling_candidate_audit(
     )
     rearmed_versions = set(rearmed_detail["artifact_version"].astype(str).str.strip())
     if len(rearmed_versions) != 1:
-        raise RuntimeError("low/mid falling rearmed artifact version is not constant")
+        raise RuntimeError(
+            "rearmed artifact version drift: "
+            "low/mid falling rearmed artifact version is not constant"
+        )
     rearmed_artifact_version = next(iter(rearmed_versions))
     (
         selected_artifact_version,

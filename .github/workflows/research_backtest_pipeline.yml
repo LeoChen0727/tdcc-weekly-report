@@ -252,6 +252,14 @@ jobs:
             exit 1
           fi
           if [[ "$REVENUE_SOURCE_PROJECTION_SUPERSEDE_ONLY" == "true" ]]; then
+            REVENUE_SUPERSEDE_CODE_ROOT_SHA="2315df2367b6b475ed4f4aa2fe8b260617854991"
+            REVENUE_SUPERSEDE_SHALLOW_STATE="$(git --no-replace-objects rev-parse --is-shallow-repository)"
+            if [[ "$REVENUE_SUPERSEDE_SHALLOW_STATE" == "true" ]]; then
+              git --no-replace-objects fetch --no-tags --unshallow origin "$TARGET_BRANCH"
+            elif [[ "$REVENUE_SUPERSEDE_SHALLOW_STATE" != "false" ]]; then
+              echo "::error::Revenue source snapshot projection supersede could not establish repository shallow state."
+              exit 1
+            fi
             if [[ "$(git --no-replace-objects rev-parse "$REVENUE_SUPERSEDE_EXPECTED_BASE_SHA^{commit}")" != "$REVENUE_SUPERSEDE_EXPECTED_BASE_SHA" ]]; then
               echo "::error::Revenue source snapshot projection supersede expected_base_sha is not a readable commit."
               exit 1
@@ -272,6 +280,14 @@ jobs:
             read -r -a REVENUE_SUPERSEDE_PARENT_FIELDS <<< "$(git --no-replace-objects rev-list --parents -n 1 "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA")"
             if [[ "${#REVENUE_SUPERSEDE_PARENT_FIELDS[@]}" -ne 2 || "${REVENUE_SUPERSEDE_PARENT_FIELDS[0]}" != "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA" || "${REVENUE_SUPERSEDE_PARENT_FIELDS[1]}" != "$REVENUE_SUPERSEDE_EXPECTED_BASE_SHA" ]]; then
               echo "::error::Revenue source snapshot projection supersede code head must have expected_base_sha as its exact sole direct parent."
+              exit 1
+            fi
+            if [[ "$(git --no-replace-objects rev-parse "$REVENUE_SUPERSEDE_CODE_ROOT_SHA^{commit}")" != "$REVENUE_SUPERSEDE_CODE_ROOT_SHA" ]]; then
+              echo "::error::Revenue source snapshot projection supersede code root is not a readable commit."
+              exit 1
+            fi
+            if ! git --no-replace-objects merge-base --is-ancestor "$REVENUE_SUPERSEDE_CODE_ROOT_SHA" "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA"; then
+              echo "::error::Revenue source snapshot projection supersede code root must be an ancestor of expected_head_sha."
               exit 1
             fi
             REVENUE_SUPERSEDE_CODE_PATHS=(
@@ -320,12 +336,12 @@ jobs:
               tests/test_validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py
               tests/test_validate_revenue_unreacted_range_promotion_preparation.py
             )
-            mapfile -t REVENUE_SUPERSEDE_ACTUAL_CODE_PATHS < <(git --no-replace-objects diff --name-only --no-renames "$REVENUE_SUPERSEDE_EXPECTED_BASE_SHA" "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA")
+            mapfile -t REVENUE_SUPERSEDE_ACTUAL_CODE_PATHS < <(git --no-replace-objects diff --name-only --no-renames "$REVENUE_SUPERSEDE_CODE_ROOT_SHA" "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA")
             if [[ "$(printf '%s\n' "${REVENUE_SUPERSEDE_ACTUAL_CODE_PATHS[@]}")" != "$(printf '%s\n' "${REVENUE_SUPERSEDE_CODE_PATHS[@]}")" ]]; then
-              echo "::error::Revenue source snapshot projection supersede code commit changed-path exact44 allowlist mismatch."
+              echo "::error::Revenue source snapshot projection supersede cumulative code changed-path exact44 allowlist mismatch."
               exit 1
             fi
-            mapfile -t REVENUE_SUPERSEDE_ACTUAL_CODE_STATUSES < <(git --no-replace-objects diff --name-status --no-renames "$REVENUE_SUPERSEDE_EXPECTED_BASE_SHA" "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA")
+            mapfile -t REVENUE_SUPERSEDE_ACTUAL_CODE_STATUSES < <(git --no-replace-objects diff --name-status --no-renames "$REVENUE_SUPERSEDE_CODE_ROOT_SHA" "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA")
             if [[ "${#REVENUE_SUPERSEDE_ACTUAL_CODE_STATUSES[@]}" -ne "${#REVENUE_SUPERSEDE_CODE_PATHS[@]}" ]]; then
               echo "::error::Revenue source snapshot projection supersede code commit status count mismatch."
               exit 1

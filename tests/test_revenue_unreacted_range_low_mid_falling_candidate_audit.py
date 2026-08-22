@@ -756,11 +756,7 @@ def test_source_variant_and_sequence_index_mutations_fail_closed() -> None:
     ("column", "mutated", "message"),
     (
         ("artifact_id", "wrong-rearmed", "rearmed artifact id drift"),
-        (
-            "artifact_version",
-            "wrong-version",
-            "low/mid falling rearmed artifact version is not constant",
-        ),
+        ("artifact_version", "wrong-version", "rearmed artifact version drift"),
         ("source_artifact_id", "wrong-source", "rearmed source artifact id drift"),
         ("source_variant_id", "wrong-variant", "rearmed source variant drift"),
         ("lifecycle_policy_id", "wrong-lifecycle", "rearmed lifecycle drift"),

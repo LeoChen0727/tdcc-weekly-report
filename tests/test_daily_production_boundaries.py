@@ -1317,15 +1317,26 @@ def test_apps_script_research_dispatch_registry_is_forward_compatible() -> None:
 def test_apps_script_research_dispatch_workflow_only_contract_is_fail_closed() -> None:
     validator = validate_apps_script_workflow_triggers
     workflow_only_input = "run_revenue_unreacted_range_forward_holdout_only"
+    identity_inputs = set(validator.RESEARCH_WORKFLOW_ONLY_IDENTITY_INPUTS)
     registry = {
         workflow_only_input: {
             "activation_mode": "workflow_only",
-        }
+        },
+        **{
+            name: {"activation_mode": "workflow_only_identity"}
+            for name in identity_inputs
+        },
     }
     valid_kwargs = {
-        "workflow_input_names": {workflow_only_input},
-        "workflow_input_defaults": {workflow_only_input: "false"},
-        "workflow_input_types": {workflow_only_input: "boolean"},
+        "workflow_input_names": {workflow_only_input, *identity_inputs},
+        "workflow_input_defaults": {
+            workflow_only_input: "false",
+            **dict.fromkeys(identity_inputs, ""),
+        },
+        "workflow_input_types": {
+            workflow_only_input: "boolean",
+            **dict.fromkeys(identity_inputs, "string"),
+        },
         "apps_inputs": set(),
         "guarded_inputs": set(),
         "registry": registry,
@@ -1347,7 +1358,10 @@ def test_apps_script_research_dispatch_workflow_only_contract_is_fail_closed() -
         default_errors,
         **{
             **valid_kwargs,
-            "workflow_input_defaults": {workflow_only_input: "true"},
+            "workflow_input_defaults": {
+                **valid_kwargs["workflow_input_defaults"],
+                workflow_only_input: "true",
+            },
         },
     )
     assert any("must default false" in error for error in default_errors)
@@ -1357,7 +1371,10 @@ def test_apps_script_research_dispatch_workflow_only_contract_is_fail_closed() -
         type_errors,
         **{
             **valid_kwargs,
-            "workflow_input_types": {workflow_only_input: "string"},
+            "workflow_input_types": {
+                **valid_kwargs["workflow_input_types"],
+                workflow_only_input: "string",
+            },
         },
     )
     assert any("must use type boolean" in error for error in type_errors)
@@ -1382,7 +1399,11 @@ def test_apps_script_research_dispatch_workflow_only_contract_is_fail_closed() -
             "registry": {
                 workflow_only_input: {
                     "activation_mode": "unknown",
-                }
+                },
+                **{
+                    name: {"activation_mode": "workflow_only_identity"}
+                    for name in identity_inputs
+                },
             },
         },
     )

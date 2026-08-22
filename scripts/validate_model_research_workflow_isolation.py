@@ -131,10 +131,10 @@ PY_YAML_INSTALL_RUN_SHA256 = (
     "145c750702e5fc9867791c24a695b1e8becf145aa9fd0bf0d23069d07f5a46bf"
 )
 RESEARCH_PREFLIGHT_RUN_SHA256 = (
-    "6af26221b5a9fcbffb2086e3e9bde757190f5d523649988e280c67d71fd13e39"
+    "547fdcbcc8a02a23a3d40d9c3ce6bbb33c332189af6a8fef1c427064b0d6e6cc"
 )
 RESEARCH_PREFLIGHT_STEP_SHA256 = (
-    "8a010796f6864b12e5d9e50a54a05bb0ef4e561f6b541d3b645cea33e67591da"
+    "81692b57897d5d582dee95598e018d36ba9561d14dc04567ade28d898aeceeb8"
 )
 FORBIDDEN_SHELL_ENV_KEYS = frozenset({"BASH_ENV", "ENV"})
 FORBIDDEN_CROSS_STEP_STATE_CHANNELS = frozenset({"GITHUB_ENV", "GITHUB_PATH"})
@@ -277,6 +277,9 @@ REVENUE_PROJECTION_SUPERSEDE_IDENTITY_FILE = (
 )
 REVENUE_PROJECTION_SUPERSEDE_TRUSTED_CANDIDATE_COMMIT = (
     "4bcaa07123ef4a000c187dc2f19caefbec4cf252"
+)
+REVENUE_PROJECTION_SUPERSEDE_CODE_ROOT_SHA = (
+    "2315df2367b6b475ed4f4aa2fe8b260617854991"
 )
 REVENUE_PROJECTION_SUPERSEDE_CONFIRMATION = (
     "supersede_revenue_source_snapshot_projection_v2"
@@ -1405,13 +1408,21 @@ def validate_unmasked_step_contracts(text: str, blocks: list[str]) -> list[str]:
                 f"code paths: actual={list(supersede_code_paths)}"
             )
         required_code_identity_snippets = (
+            f'REVENUE_SUPERSEDE_CODE_ROOT_SHA="{REVENUE_PROJECTION_SUPERSEDE_CODE_ROOT_SHA}"',
+            'REVENUE_SUPERSEDE_SHALLOW_STATE="$(git --no-replace-objects rev-parse --is-shallow-repository)"',
+            'git --no-replace-objects fetch --no-tags --unshallow origin "$TARGET_BRANCH"',
+            'read -r -a REVENUE_SUPERSEDE_PARENT_FIELDS <<< "$(git --no-replace-objects rev-list --parents -n 1 "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA")"',
+            '"${REVENUE_SUPERSEDE_PARENT_FIELDS[1]}" != "$REVENUE_SUPERSEDE_EXPECTED_BASE_SHA"',
+            "code head must have expected_base_sha as its exact sole direct parent.",
+            'git --no-replace-objects rev-parse "$REVENUE_SUPERSEDE_CODE_ROOT_SHA^{commit}"',
+            'git --no-replace-objects merge-base --is-ancestor "$REVENUE_SUPERSEDE_CODE_ROOT_SHA" "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA"',
             "git --no-replace-objects diff --name-only --no-renames "
-            '"$REVENUE_SUPERSEDE_EXPECTED_BASE_SHA" '
+            '"$REVENUE_SUPERSEDE_CODE_ROOT_SHA" '
             '"$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA"',
-            "Revenue source snapshot projection supersede code commit changed-path "
+            "Revenue source snapshot projection supersede cumulative code changed-path "
             "exact44 allowlist mismatch.",
             "git --no-replace-objects diff --name-status --no-renames "
-            '"$REVENUE_SUPERSEDE_EXPECTED_BASE_SHA" '
+            '"$REVENUE_SUPERSEDE_CODE_ROOT_SHA" '
             '"$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA"',
             "Revenue source snapshot projection supersede code commit status count "
             "mismatch.",

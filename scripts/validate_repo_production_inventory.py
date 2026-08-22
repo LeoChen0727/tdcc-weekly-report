@@ -163,6 +163,9 @@ REVENUE_PROJECTION_SUPERSEDE_CODE_PATH_COUNT = 44
 REVENUE_PROJECTION_SUPERSEDE_CODE_PATHS_SHA256 = (
     "0a054110b900d72418950a6d4724243087e8d63e64a25f153b0928b8b2b5580f"
 )
+REVENUE_PROJECTION_SUPERSEDE_CODE_ROOT_SHA = (
+    "2315df2367b6b475ed4f4aa2fe8b260617854991"
+)
 REVENUE_PROJECTION_SUPERSEDE_STEP_IF = (
     "${{ github.event.inputs.run_revenue_unreacted_range_research == 'true' && "
     "github.event.inputs."
@@ -1952,12 +1955,20 @@ def validate_revenue_projection_supersede_writer_exception(
                 f"sha256={code_digest}"
             )
         for snippet in (
+            f'REVENUE_SUPERSEDE_CODE_ROOT_SHA="{REVENUE_PROJECTION_SUPERSEDE_CODE_ROOT_SHA}"',
+            'REVENUE_SUPERSEDE_SHALLOW_STATE="$(git --no-replace-objects rev-parse --is-shallow-repository)"',
+            'git --no-replace-objects fetch --no-tags --unshallow origin "$TARGET_BRANCH"',
+            'read -r -a REVENUE_SUPERSEDE_PARENT_FIELDS <<< "$(git --no-replace-objects rev-list --parents -n 1 "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA")"',
+            '"${REVENUE_SUPERSEDE_PARENT_FIELDS[1]}" != "$REVENUE_SUPERSEDE_EXPECTED_BASE_SHA"',
+            "code head must have expected_base_sha as its exact sole direct parent.",
+            'git --no-replace-objects rev-parse "$REVENUE_SUPERSEDE_CODE_ROOT_SHA^{commit}"',
+            'git --no-replace-objects merge-base --is-ancestor "$REVENUE_SUPERSEDE_CODE_ROOT_SHA" "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA"',
             "git --no-replace-objects diff --name-only --no-renames "
-            '"$REVENUE_SUPERSEDE_EXPECTED_BASE_SHA" '
+            '"$REVENUE_SUPERSEDE_CODE_ROOT_SHA" '
             '"$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA"',
-            "code commit changed-path exact44 allowlist mismatch",
+            "cumulative code changed-path exact44 allowlist mismatch",
             "git --no-replace-objects diff --name-status --no-renames "
-            '"$REVENUE_SUPERSEDE_EXPECTED_BASE_SHA" '
+            '"$REVENUE_SUPERSEDE_CODE_ROOT_SHA" '
             '"$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA"',
             "$'M\\t'\"${REVENUE_SUPERSEDE_CODE_PATHS[$index]}\"",
             "code commit requires exact modified-only status",

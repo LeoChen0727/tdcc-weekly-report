@@ -1457,6 +1457,56 @@ def test_revenue_projection_supersede_code_commit_identity_guards_are_required(
     assert any("code-commit identity closure is incomplete" in error for error in errors)
 
 
+@pytest.mark.parametrize(
+    ("exact", "replacement"),
+    (
+        (
+            'REVENUE_SUPERSEDE_CODE_ROOT_SHA="2315df2367b6b475ed4f4aa2fe8b260617854991"',
+            'REVENUE_SUPERSEDE_CODE_ROOT_SHA="0000000000000000000000000000000000000000"',
+        ),
+        (
+            'REVENUE_SUPERSEDE_SHALLOW_STATE="$(git --no-replace-objects rev-parse --is-shallow-repository)"',
+            'REVENUE_SUPERSEDE_SHALLOW_STATE="false"',
+        ),
+        (
+            'git --no-replace-objects fetch --no-tags --unshallow origin "$TARGET_BRANCH"',
+            "true",
+        ),
+        (
+            'read -r -a REVENUE_SUPERSEDE_PARENT_FIELDS <<< "$(git --no-replace-objects rev-list --parents -n 1 "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA")"',
+            "true",
+        ),
+        (
+            '"${REVENUE_SUPERSEDE_PARENT_FIELDS[1]}" != "$REVENUE_SUPERSEDE_EXPECTED_BASE_SHA"',
+            '"${REVENUE_SUPERSEDE_PARENT_FIELDS[1]}" != "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA"',
+        ),
+        (
+            'git --no-replace-objects merge-base --is-ancestor "$REVENUE_SUPERSEDE_CODE_ROOT_SHA" "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA"',
+            "true",
+        ),
+        (
+            'git --no-replace-objects diff --name-only --no-renames "$REVENUE_SUPERSEDE_CODE_ROOT_SHA" "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA"',
+            'git --no-replace-objects diff --name-only --no-renames "$REVENUE_SUPERSEDE_EXPECTED_BASE_SHA" "$REVENUE_SUPERSEDE_EXPECTED_HEAD_SHA"',
+        ),
+    ),
+)
+def test_revenue_projection_supersede_cumulative_code_root_guards_are_required(
+    exact: str,
+    replacement: str,
+) -> None:
+    text, rows, producers = _inputs()
+    mutated = _replace_in_named_step(
+        text,
+        validator.RESEARCH_PREFLIGHT_STEP_NAME,
+        exact,
+        replacement,
+    )
+
+    errors = validator.validate_workflow_text(mutated, rows, producers)
+
+    assert any("code-commit identity closure is incomplete" in error for error in errors)
+
+
 def test_revenue_projection_supersede_unshallows_trusted_candidate_ancestry() -> None:
     text, rows, producers = _inputs()
     exact = (
