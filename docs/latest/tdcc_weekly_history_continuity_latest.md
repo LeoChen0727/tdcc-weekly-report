@@ -1,10 +1,10 @@
 # TDCC Weekly History Continuity
 
 - status: `pass`
-- generated_at: `2026-08-15 15:40:11 Asia/Taipei`
-- signal_date: `20260814`
-- required_dates: `20260430, 20260508, 20260515, 20260522, 20260529, 20260605, 20260612, 20260618, 20260626, 20260703, 20260709, 20260717, 20260724, 20260731, 20260807, 20260814`
-- current_stock_count: 1971
+- generated_at: `2026-08-22 15:40:08 Asia/Taipei`
+- signal_date: `20260821`
+- required_dates: `20260430, 20260508, 20260515, 20260522, 20260529, 20260605, 20260612, 20260618, 20260626, 20260703, 20260709, 20260717, 20260724, 20260731, 20260807, 20260814, 20260821`
+- current_stock_count: 1969
 - missing_rows_before: 4
 - repaired_count: 0
 - accepted_exception_count: 4
