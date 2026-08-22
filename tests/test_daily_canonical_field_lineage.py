@@ -2994,6 +2994,11 @@ def test_pr_safe_base_history_rejects_mode_drift_on_safe_path(tmp_path: Path) ->
     safe_path.write_text("control test\n", encoding="utf-8")
     base_sha = initialize_git_fixture(tmp_path)
     subprocess.run(
+        ["git", "config", "core.filemode", "false"],
+        cwd=tmp_path,
+        check=True,
+    )
+    subprocess.run(
         ["git", "update-index", "--chmod=+x", "tests/test_repo_production_inventory.py"],
         cwd=tmp_path,
         check=True,
