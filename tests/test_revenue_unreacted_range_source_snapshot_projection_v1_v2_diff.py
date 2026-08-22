@@ -200,11 +200,51 @@ def _validate(paths: dict[str, Path]) -> list[str]:
     )
 
 
+def _unclassified_diagnostic_frames() -> tuple[pd.DataFrame, pd.DataFrame]:
+    summary_row = {column: "" for column in SUMMARY_COLUMNS}
+    summary_row["unclassified_semantic_drift_count"] = 2
+    summary = pd.DataFrame([summary_row], columns=list(SUMMARY_COLUMNS))
+    detail = pd.DataFrame(
+        [
+            {
+                "drift_id": "d2",
+                "drift_scope": "manifest",
+                "identity_key": "projection",
+                "column_name": "cutoff_revenue_subset_semantic_sha256",
+                "v1_value": "a",
+                "v2_value": "b",
+                "change_type": "changed",
+                "classification": "unclassified_semantic_drift",
+                "source_evidence": (
+                    "immutable cutoff/revenue/resolution/formal-use contract changed"
+                ),
+            },
+            {
+                "drift_id": "d1",
+                "drift_scope": "episode",
+                "identity_key": 'e1"\nforged=1',
+                "column_name": "stock_id",
+                "v1_value": "1111",
+                "v2_value": "9999",
+                "change_type": "changed",
+                "classification": "unclassified_semantic_drift",
+                "source_evidence": "non-price episode field changed",
+            },
+        ],
+        columns=list(DETAIL_COLUMNS),
+    )
+    return summary, detail
+
+
 def test_v1_v2_diff_is_deterministic_classified_and_independently_validated(
     tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
 ) -> None:
     paths = _write_projection_pair(tmp_path)
     summary, detail = _build_and_write(paths)
+    captured = capsys.readouterr()
+    assert captured.out == ""
+    assert captured.err == ""
     row = summary.iloc[0]
     assert list(summary.columns) == list(SUMMARY_COLUMNS)
     assert list(detail.columns) == list(DETAIL_COLUMNS)
@@ -230,6 +270,62 @@ def test_v1_v2_diff_is_deterministic_classified_and_independently_validated(
     )
     pd.testing.assert_frame_equal(repeated_summary, summary)
     pd.testing.assert_frame_equal(repeated_detail, detail)
+
+
+def test_unclassified_drift_reports_every_row_before_zero_write_side_effects(
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    summary, detail = _unclassified_diagnostic_frames()
+    summary_path = tmp_path / "missing-summary-parent" / "diff_summary.csv"
+    detail_path = tmp_path / "missing-detail-parent" / "diff_detail.csv"
+    mkdir_calls: list[Path] = []
+    to_csv_calls: list[object] = []
+
+    def record_mkdir(path: Path, *args: object, **kwargs: object) -> None:
+        mkdir_calls.append(path)
+
+    def record_to_csv(
+        frame: pd.DataFrame,
+        *args: object,
+        **kwargs: object,
+    ) -> None:
+        to_csv_calls.append(frame)
+
+    monkeypatch.setattr(Path, "mkdir", record_mkdir)
+    monkeypatch.setattr(pd.DataFrame, "to_csv", record_to_csv)
+
+    with pytest.raises(RuntimeError, match="unclassified semantic drift"):
+        write_diff_artifacts(
+            summary,
+            detail,
+            summary_path=summary_path,
+            detail_path=detail_path,
+        )
+
+    captured = capsys.readouterr()
+    assert captured.out == ""
+    assert captured.err == (
+        "v1_v2_diff_unclassified_semantic_drift_count=2\n"
+        "v1_v2_diff_unclassified_semantic_drift_row="
+        '{"change_type":"changed","classification":"unclassified_semantic_drift",'
+        '"column_name":"stock_id","drift_scope":"episode",'
+        '"identity_key":"e1\\\"\\nforged=1",'
+        '"source_evidence":"non-price episode field changed"}\n'
+        "v1_v2_diff_unclassified_semantic_drift_row="
+        '{"change_type":"changed","classification":"unclassified_semantic_drift",'
+        '"column_name":"cutoff_revenue_subset_semantic_sha256",'
+        '"drift_scope":"manifest","identity_key":"projection",'
+        '"source_evidence":"immutable cutoff/revenue/resolution/formal-use contract changed"}\n'
+    )
+    assert len(captured.err.splitlines()) == 3
+    assert mkdir_calls == []
+    assert to_csv_calls == []
+    assert not summary_path.parent.exists()
+    assert not detail_path.parent.exists()
+    assert not summary_path.exists()
+    assert not detail_path.exists()
 
 
 def test_diff_writer_rejects_unclassified_episode_or_manifest_drift(

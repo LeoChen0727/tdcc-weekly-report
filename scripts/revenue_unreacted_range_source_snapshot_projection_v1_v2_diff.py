@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import hashlib
+import json
+import sys
 from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -98,6 +100,15 @@ DETAIL_COLUMNS = (
     "column_name",
     "v1_value",
     "v2_value",
+    "change_type",
+    "classification",
+    "source_evidence",
+)
+
+UNCLASSIFIED_DIAGNOSTIC_FIELDS = (
+    "drift_scope",
+    "identity_key",
+    "column_name",
     "change_type",
     "classification",
     "source_evidence",
@@ -585,6 +596,41 @@ def build_diff_from_paths(
     )
 
 
+def _emit_unclassified_drift_diagnostics(
+    detail: pd.DataFrame,
+    *,
+    unclassified_count: int,
+) -> None:
+    print(
+        "v1_v2_diff_unclassified_semantic_drift_count="
+        f"{unclassified_count}",
+        file=sys.stderr,
+        flush=True,
+    )
+    unclassified_rows = detail.loc[
+        detail["classification"].eq("unclassified_semantic_drift")
+    ].sort_values(
+        ["drift_scope", "identity_key", "column_name", "drift_id"],
+        kind="stable",
+    )
+    for _, row in unclassified_rows.iterrows():
+        payload = {
+            field: _value(row[field])
+            for field in UNCLASSIFIED_DIAGNOSTIC_FIELDS
+        }
+        print(
+            "v1_v2_diff_unclassified_semantic_drift_row="
+            + json.dumps(
+                payload,
+                ensure_ascii=True,
+                sort_keys=True,
+                separators=(",", ":"),
+            ),
+            file=sys.stderr,
+            flush=True,
+        )
+
+
 def write_diff_artifacts(
     summary: pd.DataFrame,
     detail: pd.DataFrame,
@@ -596,7 +642,14 @@ def write_diff_artifacts(
         raise RuntimeError("v1/v2 diff summary schema or row count mismatch")
     if list(detail.columns) != list(DETAIL_COLUMNS):
         raise RuntimeError("v1/v2 diff detail schema mismatch")
-    if int(summary.iloc[0]["unclassified_semantic_drift_count"]) != 0:
+    unclassified_count = int(
+        summary.iloc[0]["unclassified_semantic_drift_count"]
+    )
+    if unclassified_count != 0:
+        _emit_unclassified_drift_diagnostics(
+            detail,
+            unclassified_count=unclassified_count,
+        )
         raise RuntimeError("v1/v2 diff contains unclassified semantic drift")
     for path in (Path(summary_path), Path(detail_path)):
         path.parent.mkdir(parents=True, exist_ok=True)
