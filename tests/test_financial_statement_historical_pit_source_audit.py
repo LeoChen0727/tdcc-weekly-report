@@ -7,6 +7,8 @@ import sys
 import zipfile
 from pathlib import Path
 
+import yaml
+
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
@@ -563,8 +565,20 @@ def test_pr_workflow_builds_and_validates_source_audit() -> None:
     text = (ROOT / ".github/workflows/daily_model_maintenance_pr_validation.yml").read_text(
         encoding="utf-8"
     )
-    assert "docs/latest/financial_statement_historical_pit_source_audit_latest.*" in text
-    assert "python scripts/build_financial_statement_historical_pit_source_audit.py" in text
-    assert "python scripts/validate_financial_statement_historical_pit_source_audit.py" in text
-    assert "git diff --exit-code --" in text
+    workflow = yaml.safe_load(text)
+    validation_steps = [
+        step
+        for step in workflow["jobs"]["financial_statement_research"]["steps"]
+        if step.get("name") == "Validate financial-statement research contracts"
+    ]
+    assert len(validation_steps) == 1
+    assert validation_steps[0]["run"].splitlines()[1:] == [
+        "python scripts/build_financial_statement_historical_pit_source_audit.py",
+        "python scripts/validate_financial_statement_historical_pit_source_audit.py",
+        "git --no-replace-objects diff --exit-code -- \\",
+        "  docs/latest/financial_statement_historical_pit_source_audit_latest.csv \\",
+        "  docs/latest/financial_statement_historical_pit_source_audit_latest.md \\",
+        "  output/latest/research_backtest/financial_statement_historical_pit_source_audit_latest.csv \\",
+        "  output/latest/research_backtest/financial_statement_historical_pit_source_audit_latest.md",
+    ]
     assert "tests/test_financial_statement_historical_pit_source_audit.py" in text
