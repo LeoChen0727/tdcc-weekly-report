@@ -2400,6 +2400,11 @@ def test_default_canonical_validator_routes_complete_exact7_to_closure(
     pd.DataFrame([{"stock_id": "1111"}]).to_csv(detail_path, index=False)
     monkeypatch.setattr(validator, "MANIFEST_CSV", manifest_path)
     monkeypatch.setattr(validator, "PROJECTED_DETAIL_CSV", detail_path)
+    monkeypatch.setattr(
+        validator,
+        "V2_SUPERSEDE_EVIDENCE_CSV",
+        tmp_path / "absent_v2_supersede_evidence.csv",
+    )
     exact7_names = (
         "V1_ARCHIVE_MANIFEST_CSV",
         "V1_ARCHIVE_DETAIL_CSV",
@@ -2466,6 +2471,11 @@ def test_default_canonical_validator_treats_nonfile_exact7_as_started(
     pd.DataFrame([{"stock_id": "1111"}]).to_csv(detail_path, index=False)
     monkeypatch.setattr(validator, "MANIFEST_CSV", manifest_path)
     monkeypatch.setattr(validator, "PROJECTED_DETAIL_CSV", detail_path)
+    monkeypatch.setattr(
+        validator,
+        "V2_SUPERSEDE_EVIDENCE_CSV",
+        tmp_path / "absent_v2_supersede_evidence.csv",
+    )
     exact7_names = (
         "V1_ARCHIVE_MANIFEST_CSV",
         "V1_ARCHIVE_DETAIL_CSV",
