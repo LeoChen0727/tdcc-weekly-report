@@ -260,6 +260,157 @@ def test_fixed_source_semantic_hash_changes_on_source_mutation() -> None:
     ] != baseline_lineage["source_fixed_confirmation_cutoff_semantic_sha256"]
 
 
+def test_fixed_source_semantic_hash_is_typed_csv_round_trip_stable(
+    tmp_path: Path,
+) -> None:
+    first = {
+        **_source_episode_row(),
+        "stock_id": "0012",
+        "stock_name": "保留名稱",
+        "signal_date": "20260620",
+        # pandas' default parser reads the adjacent IEEE-754 value after the
+        # fixed-detail writer round trip.
+        "full_monthly_revenue_latest_yoy_pct": 1716049.9279155433,
+        "source_revenue_or_price_anomaly_candidate_flag": True,
+        "unconsumed_metadata": "ignored by lag semantics",
+        "unconsumed_source_sha256": "a" * 64,
+    }
+    second = {
+        **_source_episode_row(),
+        "episode_key": "0013:202606:20260621",
+        "stock_id": "0013",
+        "stock_name": "另一名稱",
+        "source_monthly_revenue_period": "202606",
+        "signal_date": "20260621",
+        "full_monthly_revenue_prev3_latest_yoy_pct": pd.NA,
+        "source_revenue_or_price_anomaly_candidate_flag": pd.NA,
+        "unconsumed_metadata": "also ignored",
+        "unconsumed_source_sha256": "b" * 64,
+    }
+    source = pd.DataFrame([first, second])
+    path = tmp_path / "fixed_confirmation_detail.csv"
+    source.to_csv(path, index=False, encoding="utf-8", lineterminator="\n")
+    reloaded = pd.read_csv(
+        path,
+        dtype={"stock_id": str, "signal_date": str},
+        keep_default_na=False,
+        low_memory=False,
+    )
+
+    assert float(reloaded.loc[0, "full_monthly_revenue_latest_yoy_pct"]) != source.loc[
+        0, "full_monthly_revenue_latest_yoy_pct"
+    ]
+    memory_episodes = _source_episodes(source)
+    reloaded_episodes = _source_episodes(reloaded)
+    expected = canonical_fixed_source_slice_sha256(memory_episodes)
+    assert canonical_fixed_source_slice_sha256(reloaded_episodes) == expected
+    assert canonical_fixed_source_slice_sha256(
+        memory_episodes[memory_episodes.columns[::-1]]
+    ) == expected
+
+    mutations = {
+        "float": ("full_monthly_revenue_latest_yoy_pct", 1716049.9279255433),
+        "bool": ("decision_basis", False),
+        "source anomaly exact bool": (
+            "source_revenue_or_price_anomaly_candidate_flag",
+            "yes",
+        ),
+        "date": ("signal_date", "20260622"),
+        "leading-zero string": ("stock_id", "12"),
+        "period": ("source_monthly_revenue_period", "202604"),
+        "artifact id": ("research_artifact_id", "mutated-artifact"),
+        "nullable numeric": ("full_monthly_revenue_prev3_latest_yoy_pct", 9.0),
+    }
+    for column, value in mutations.values():
+        mutated = memory_episodes.copy()
+        mutated.loc[0, column] = value
+        assert canonical_fixed_source_slice_sha256(mutated) != expected
+    unconsumed = memory_episodes.copy()
+    unconsumed.loc[0, "unconsumed_metadata"] = "changed but not consumed"
+    unconsumed.loc[0, "unconsumed_source_sha256"] = "f" * 64
+    assert canonical_fixed_source_slice_sha256(unconsumed) == expected
+
+    below_win = memory_episodes.copy()
+    above_win = memory_episodes.copy()
+    below_win.loc[0, "realized_return_pct"] = 4.999999999
+    above_win.loc[0, "realized_return_pct"] = 5.000000001
+    assert canonical_fixed_source_slice_sha256(below_win) != (
+        canonical_fixed_source_slice_sha256(above_win)
+    )
+
+
+def test_lag_builder_source_lineage_survives_actual_source_writer_round_trip(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    source = pd.DataFrame(
+        [
+            {
+                **_source_episode_row(),
+                "full_monthly_revenue_latest_yoy_pct": 1716049.9279155433,
+                "full_monthly_revenue_prev3_latest_yoy_pct": pd.NA,
+            }
+        ]
+    )
+    source_path = tmp_path / "fixed_confirmation_detail.csv"
+    source.to_csv(
+        source_path,
+        index=False,
+        encoding="utf-8",
+        lineterminator="\n",
+    )
+    reloaded = pd.read_csv(
+        source_path,
+        dtype={
+            "stock_id": str,
+            **{column: str for column in SOURCE_DATE_COLUMNS},
+        },
+        keep_default_na=False,
+        low_memory=False,
+    )
+    monthly_history = pd.DataFrame(
+        [
+            {
+                "stock_id": "9999",
+                "revenue_period": "202605",
+                "source_table_date": "20260617",
+                "latest_revenue_yoy_pct": "35.0",
+                "cumulative_revenue_yoy_pct": "25.0",
+            }
+        ]
+    )
+    runtime_lineage = {
+        column: f"synthetic-{index}"
+        for index, column in enumerate(ALL_LINEAGE_COLUMNS)
+        if column not in lag_strength.FIXED_SOURCE_LINEAGE_COLUMNS
+    }
+    runtime_lineage["source_projection_version"] = V1_PROJECTION_VERSION
+    monkeypatch.setattr(
+        lag_strength,
+        "_monthly_revenue_runtime_context",
+        lambda *_args, **_kwargs: (monthly_history, runtime_lineage),
+    )
+    monkeypatch.setattr(
+        lag_strength,
+        "_trading_day_lag",
+        lambda _stock_id, _start_date, _end_date, _cache: 1,
+    )
+    monkeypatch.setattr(
+        lag_strength,
+        "_now_text",
+        lambda: "2026-08-02 12:00:00 Asia/Taipei",
+    )
+
+    memory_summary, memory_detail = lag_strength.build_lag_strength_matrix(source)
+    disk_summary, disk_detail = lag_strength.build_lag_strength_matrix(reloaded)
+
+    pd.testing.assert_frame_equal(memory_summary, disk_summary, check_dtype=False)
+    pd.testing.assert_frame_equal(memory_detail, disk_detail, check_dtype=False)
+    assert set(memory_detail["source_fixed_confirmation_cutoff_semantic_sha256"]) == {
+        canonical_fixed_source_slice_sha256(_source_episodes(source))
+    }
+
+
 def test_revenue_lag_matrix_has_no_omission_overlap_or_hidden_small_sample_gate() -> None:
     detail = pd.read_csv(DETAIL_CSV, dtype={"stock_id": str}, keep_default_na=False, low_memory=False)
     summary = pd.read_csv(LATEST_CSV, keep_default_na=False, low_memory=False)

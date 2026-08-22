@@ -7,6 +7,9 @@ import pandas as pd
 
 from revenue_unreacted_range_monthly_revenue_cross_market_resolution import (
     canonical_monthly_revenue_history_table_sha256,
+    cross_market_resolution_registry_canonical_sha256,
+    load_cross_market_resolutions,
+    monthly_revenue_history_blob_sha256,
     resolve_monthly_revenue_cross_market_mirrors,
 )
 
@@ -282,7 +285,12 @@ def _pinned_monthly_revenue_lineage(
 def _current_monthly_revenue_lineage(
     revenue_path: Path,
     resolution_path: Path,
-) -> tuple[int, str, dict[tuple[str, str], dict[str, str]]]:
+) -> tuple[
+    int,
+    str,
+    dict[tuple[str, str], dict[str, str]],
+    dict[str, str],
+]:
     if not revenue_path.is_file():
         raise RuntimeError(f"missing monthly revenue history: {revenue_path}")
     raw = pd.read_csv(
@@ -320,10 +328,24 @@ def _current_monthly_revenue_lineage(
                 row.canonical_source_table_date, 8
             ),
         }
+    current_full_lineage = {
+        "monthly_revenue_history_blob_sha256": monthly_revenue_history_blob_sha256(
+            revenue_path
+        ),
+        "monthly_revenue_canonical_table_sha256": (
+            canonical_monthly_revenue_history_table_sha256(canonical)
+        ),
+        "cross_market_resolution_registry_canonical_sha256": (
+            cross_market_resolution_registry_canonical_sha256(
+                load_cross_market_resolutions(resolution_path)
+            )
+        ),
+    }
     return (
         len(cutoff_canonical),
         canonical_monthly_revenue_history_table_sha256(cutoff_canonical),
         by_key,
+        current_full_lineage,
     )
 
 
@@ -356,7 +378,7 @@ def validate(
 
     try:
         (
-            expected_run_lineage,
+            _manifest_capture_lineage,
             expected_cutoff_row_count,
             expected_cutoff_semantic_sha,
         ) = _pinned_monthly_revenue_lineage(projection_manifest_path)
@@ -364,6 +386,7 @@ def validate(
             current_cutoff_row_count,
             current_cutoff_semantic_sha,
             current_source_lineage,
+            current_full_lineage,
         ) = _current_monthly_revenue_lineage(
             revenue_path,
             resolution_path,
@@ -415,10 +438,10 @@ def validate(
             errors.append(f"source-first revenue condition {name} must not change production")
         if set(frame["financial_statement_scope"].astype(str)) != {FINANCIAL_STATEMENT_SCOPE}:
             errors.append(f"source-first revenue condition {name} financial scope drift")
-        for column, expected in expected_run_lineage.items():
+        for column, expected in current_full_lineage.items():
             if set(frame[column].astype(str).str.strip().str.lower()) != {expected}:
                 errors.append(
-                    f"source-first revenue condition {name} immutable capture lineage drift: {column}"
+                    f"source-first revenue condition {name} current full monthly revenue lineage drift: {column}"
                 )
 
     detail_variants = set(detail["condition_variant_id"].astype(str))
