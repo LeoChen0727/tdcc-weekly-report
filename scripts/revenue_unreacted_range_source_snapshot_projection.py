@@ -3,6 +3,7 @@ from __future__ import annotations
 from datetime import datetime
 import hashlib
 import json
+import os
 from pathlib import Path
 import re
 from zoneinfo import ZoneInfo
@@ -25,12 +26,24 @@ from revenue_unreacted_range_monthly_revenue_cross_market_resolution import (
 ROOT = Path(__file__).resolve().parents[1]
 MODEL_ID = "revenue_unreacted_range"
 ARTIFACT_ID = "revenue_unreacted_range_source_snapshot_projection"
-ARTIFACT_VERSION = "source_snapshot_projection_v1_20260731"
+V1_ARTIFACT_VERSION = "source_snapshot_projection_v1_20260731"
+V2_ARTIFACT_VERSION = "source_snapshot_projection_v2_20260822"
+ARTIFACT_VERSION = V1_ARTIFACT_VERSION
 PROJECTION_ID = "revenue_unreacted_range_source_snapshot_asof_20260713"
-PROJECTION_VERSION = ARTIFACT_VERSION
-PROJECTION_POLICY_ID = (
+V1_PROJECTION_VERSION = V1_ARTIFACT_VERSION
+V2_PROJECTION_VERSION = V2_ARTIFACT_VERSION
+PROJECTION_VERSION = V1_PROJECTION_VERSION
+V1_PROJECTION_POLICY_ID = (
     "raw_source_and_price_truncated_before_source_first_episode_assembly_v1"
 )
+V2_PROJECTION_POLICY_ID = (
+    "raw_source_and_corrected_official_price_truncated_before_source_first_episode_assembly_v2"
+)
+PROJECTION_POLICY_ID = V1_PROJECTION_POLICY_ID
+V2_LINEAGE_CHANGE_REASON = (
+    "corrected_official_pre_cutoff_price_history_lineage_rebaseline_20260822"
+)
+V2_CANDIDATE_STATUS = "generated_pending_supersede_approval"
 CUTOFF_DATE = "20260713"
 SOURCE_FIRST_ARTIFACT_ID = "revenue_unreacted_range_source_first_condition_audit"
 
@@ -67,6 +80,44 @@ DOCS_MANIFEST_CSV = (
     / "docs/latest/"
     "revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv"
 )
+V1_ARCHIVE_MANIFEST_CSV = (
+    ROOT
+    / "output/history/research/"
+    "revenue_unreacted_range_source_snapshot_projection_manifest_v1_20260731.csv"
+)
+V1_ARCHIVE_DETAIL_CSV = (
+    ROOT
+    / "output/history/research/"
+    "revenue_unreacted_range_source_snapshot_projection_detail_v1_20260731.csv"
+)
+V1_ARCHIVE_EVIDENCE_CSV = (
+    ROOT
+    / "output/history/research/"
+    "revenue_unreacted_range_source_snapshot_projection_archive_evidence_v1_20260731.csv"
+)
+V2_CANDIDATE_MANIFEST_CSV = (
+    ROOT
+    / "output/history/research/"
+    "revenue_unreacted_range_source_snapshot_projection_manifest_v2_20260822.csv"
+)
+V2_CANDIDATE_DETAIL_CSV = (
+    ROOT
+    / "output/history/research/"
+    "revenue_unreacted_range_source_snapshot_projection_detail_v2_20260822.csv"
+)
+
+V1_EXPECTED_MANIFEST_BYTES = 148157
+V1_EXPECTED_MANIFEST_BYTES_SHA256 = (
+    "d2dde5a1f05bc2f15baf4d77f326a7ea90b481492178fa6d2fd6262bf316c79e"
+)
+V1_EXPECTED_DETAIL_BYTES = 26633382
+V1_EXPECTED_DETAIL_BYTES_SHA256 = (
+    "b9784e4df2d2eba2c511b1c87f4255a6485a1fe1d7ac67490802e396614ee49a"
+)
+V1_EXPECTED_DETAIL_ROW_COUNT = 19569
+V1_EXPECTED_DETAIL_SEMANTIC_SHA256 = (
+    "92c68810ac2b5718d714d450fe83bf23f2f3469fec5db0ae2753330950ab2cf5"
+)
 
 CANONICAL_JSON_VERSION = "revenue_source_snapshot_projection_canonical_json_v1"
 PRICE_INPUT_COLUMNS = (
@@ -94,7 +145,7 @@ PRICE_RESOLUTION_REQUIRED_COLUMNS = (
     "exchange_ratio",
     "root_cause_status",
 )
-MANIFEST_COLUMNS = (
+V1_MANIFEST_COLUMNS = (
     "generated_at",
     "model_id",
     "artifact_id",
@@ -127,6 +178,41 @@ MANIFEST_COLUMNS = (
     "projected_max_source_date",
     "projected_max_trade_date",
     "projected_max_episode_end_date",
+    "research_only",
+    "formal_model_use_allowed",
+    "approved_for_daily",
+    "production_change",
+    "promotion_evidence_allowed",
+    "ranking_consumption_allowed",
+    "pdf_consumption_allowed",
+)
+V2_MANIFEST_EXTENSION_COLUMNS = (
+    "predecessor_projection_version",
+    "predecessor_manifest_bytes_sha256",
+    "predecessor_detail_bytes_sha256",
+    "lineage_change_reason",
+    "candidate_status",
+)
+V2_MANIFEST_COLUMNS = V1_MANIFEST_COLUMNS + V2_MANIFEST_EXTENSION_COLUMNS
+MANIFEST_COLUMNS = V1_MANIFEST_COLUMNS
+ARCHIVE_EVIDENCE_COLUMNS = (
+    "generated_at",
+    "model_id",
+    "artifact_id",
+    "projection_id",
+    "projection_version",
+    "cutoff_date",
+    "canonical_manifest_path",
+    "archive_manifest_path",
+    "canonical_manifest_bytes",
+    "canonical_manifest_sha256",
+    "canonical_detail_path",
+    "archive_detail_path",
+    "canonical_detail_bytes",
+    "canonical_detail_sha256",
+    "projected_episode_row_count",
+    "projected_episode_semantic_sha256",
+    "immutable_copy_verified",
     "research_only",
     "formal_model_use_allowed",
     "approved_for_daily",
@@ -506,6 +592,10 @@ def build_source_snapshot_projection_manifest(
     price_resolution_path: Path = PRICE_RESOLUTION_CSV,
     cutoff_date: str = CUTOFF_DATE,
     generated_at: str | None = None,
+    projection_version: str = V1_PROJECTION_VERSION,
+    projection_policy_id: str = V1_PROJECTION_POLICY_ID,
+    predecessor_manifest_bytes_sha256: str = "",
+    predecessor_detail_bytes_sha256: str = "",
 ) -> pd.DataFrame:
     cutoff = _digits(cutoff_date, 8, label="projection cutoff_date")
     if cutoff != CUTOFF_DATE:
@@ -591,14 +681,34 @@ def build_source_snapshot_projection_manifest(
         != cutoff_monthly_table_sha
     ):
         raise RuntimeError("projected source detail cutoff monthly lineage mismatch")
+    if projection_version == V1_PROJECTION_VERSION:
+        if projection_policy_id != V1_PROJECTION_POLICY_ID:
+            raise RuntimeError("v1 projection policy drift")
+        manifest_columns = V1_MANIFEST_COLUMNS
+    elif projection_version == V2_PROJECTION_VERSION:
+        if projection_policy_id != V2_PROJECTION_POLICY_ID:
+            raise RuntimeError("v2 projection policy drift")
+        for label, value in (
+            ("predecessor manifest", predecessor_manifest_bytes_sha256),
+            ("predecessor detail", predecessor_detail_bytes_sha256),
+        ):
+            if not SHA256_PATTERN.fullmatch(value):
+                raise RuntimeError(f"{label} bytes SHA-256 is invalid")
+        if predecessor_manifest_bytes_sha256 != V1_EXPECTED_MANIFEST_BYTES_SHA256:
+            raise RuntimeError("v2 predecessor manifest is not the canonical v1 bytes")
+        if predecessor_detail_bytes_sha256 != V1_EXPECTED_DETAIL_BYTES_SHA256:
+            raise RuntimeError("v2 predecessor detail is not the canonical v1 bytes")
+        manifest_columns = V2_MANIFEST_COLUMNS
+    else:
+        raise RuntimeError(f"unsupported projection version: {projection_version}")
     row = {
         "generated_at": generated_at or _now_text(),
         "model_id": MODEL_ID,
         "artifact_id": ARTIFACT_ID,
-        "artifact_version": ARTIFACT_VERSION,
+        "artifact_version": projection_version,
         "projection_id": PROJECTION_ID,
-        "projection_version": PROJECTION_VERSION,
-        "projection_policy_id": PROJECTION_POLICY_ID,
+        "projection_version": projection_version,
+        "projection_policy_id": projection_policy_id,
         "cutoff_date": cutoff,
         "full_source_artifact_id": source_artifact_id,
         "full_source_artifact_version": source_artifact_version,
@@ -638,9 +748,49 @@ def build_source_snapshot_projection_manifest(
         "ranking_consumption_allowed": False,
         "pdf_consumption_allowed": False,
     }
-    manifest = pd.DataFrame([row], columns=list(MANIFEST_COLUMNS))
+    if projection_version == V2_PROJECTION_VERSION:
+        row.update(
+            {
+                "predecessor_projection_version": V1_PROJECTION_VERSION,
+                "predecessor_manifest_bytes_sha256": predecessor_manifest_bytes_sha256,
+                "predecessor_detail_bytes_sha256": predecessor_detail_bytes_sha256,
+                "lineage_change_reason": V2_LINEAGE_CHANGE_REASON,
+                "candidate_status": V2_CANDIDATE_STATUS,
+            }
+        )
+    manifest = pd.DataFrame([row], columns=list(manifest_columns))
     validate_projection_binding(manifest, projected_detail)
     return manifest
+
+
+def build_source_snapshot_projection_v2_manifest(
+    full_source_detail: pd.DataFrame,
+    projected_detail: pd.DataFrame,
+    *,
+    predecessor_manifest_bytes_sha256: str,
+    predecessor_detail_bytes_sha256: str,
+    revenue_path: Path = REVENUE_HISTORY_CSV,
+    price_dir: Path = PRICE_HISTORY_DIR,
+    monthly_resolution_path: Path = MONTHLY_RESOLUTION_CSV,
+    price_resolution_path: Path = PRICE_RESOLUTION_CSV,
+    generated_at: str | None = None,
+) -> pd.DataFrame:
+    """Build the non-canonical v2 candidate bound to immutable v1 bytes."""
+
+    return build_source_snapshot_projection_manifest(
+        full_source_detail,
+        projected_detail,
+        revenue_path=revenue_path,
+        price_dir=price_dir,
+        monthly_resolution_path=monthly_resolution_path,
+        price_resolution_path=price_resolution_path,
+        cutoff_date=CUTOFF_DATE,
+        generated_at=generated_at,
+        projection_version=V2_PROJECTION_VERSION,
+        projection_policy_id=V2_PROJECTION_POLICY_ID,
+        predecessor_manifest_bytes_sha256=predecessor_manifest_bytes_sha256,
+        predecessor_detail_bytes_sha256=predecessor_detail_bytes_sha256,
+    )
 
 
 def projection_binding_errors(
@@ -650,23 +800,69 @@ def projection_binding_errors(
     expected_cutoff_date: str = CUTOFF_DATE,
 ) -> list[str]:
     errors: list[str] = []
-    if list(manifest.columns) != list(MANIFEST_COLUMNS):
+    actual_columns = list(manifest.columns)
+    if actual_columns not in (
+        list(V1_MANIFEST_COLUMNS),
+        list(V2_MANIFEST_COLUMNS),
+    ):
         errors.append(
             "projection manifest schema mismatch: "
-            f"expected={list(MANIFEST_COLUMNS)}; actual={list(manifest.columns)}"
+            f"expected_v1={list(V1_MANIFEST_COLUMNS)}; "
+            f"expected_v2={list(V2_MANIFEST_COLUMNS)}; actual={actual_columns}"
         )
         return errors
     if len(manifest) != 1:
         errors.append(f"projection manifest must have exactly one row: {len(manifest)}")
         return errors
     row = manifest.iloc[0]
+    version = _payload_value(row["projection_version"])
+    if version == V1_PROJECTION_VERSION:
+        expected_version = V1_PROJECTION_VERSION
+        expected_policy = V1_PROJECTION_POLICY_ID
+        if actual_columns != list(V1_MANIFEST_COLUMNS):
+            errors.append("v1 projection manifest must use the immutable v1 schema")
+    elif version == V2_PROJECTION_VERSION:
+        expected_version = V2_PROJECTION_VERSION
+        expected_policy = V2_PROJECTION_POLICY_ID
+        if actual_columns != list(V2_MANIFEST_COLUMNS):
+            errors.append("v2 projection manifest must use the v2 candidate schema")
+        for column, expected in {
+            "predecessor_projection_version": V1_PROJECTION_VERSION,
+            "lineage_change_reason": V2_LINEAGE_CHANGE_REASON,
+            "candidate_status": V2_CANDIDATE_STATUS,
+        }.items():
+            if _payload_value(row[column]) != expected:
+                errors.append(
+                    f"projection manifest {column} mismatch: "
+                    f"{_payload_value(row[column])}/{expected}"
+                )
+        for column in (
+            "predecessor_manifest_bytes_sha256",
+            "predecessor_detail_bytes_sha256",
+        ):
+            if not SHA256_PATTERN.fullmatch(_payload_value(row[column])):
+                errors.append(f"projection manifest {column} is not a SHA-256")
+        if (
+            _payload_value(row["predecessor_manifest_bytes_sha256"])
+            != V1_EXPECTED_MANIFEST_BYTES_SHA256
+        ):
+            errors.append("projection manifest predecessor manifest is not canonical v1")
+        if (
+            _payload_value(row["predecessor_detail_bytes_sha256"])
+            != V1_EXPECTED_DETAIL_BYTES_SHA256
+        ):
+            errors.append("projection manifest predecessor detail is not canonical v1")
+    else:
+        expected_version = version
+        expected_policy = ""
+        errors.append(f"unsupported projection version: {version}")
     expected_constants = {
         "model_id": MODEL_ID,
         "artifact_id": ARTIFACT_ID,
-        "artifact_version": ARTIFACT_VERSION,
+        "artifact_version": expected_version,
         "projection_id": PROJECTION_ID,
-        "projection_version": PROJECTION_VERSION,
-        "projection_policy_id": PROJECTION_POLICY_ID,
+        "projection_version": expected_version,
+        "projection_policy_id": expected_policy,
         "cutoff_date": expected_cutoff_date,
         "full_source_artifact_id": SOURCE_FIRST_ARTIFACT_ID,
     }
@@ -777,6 +973,12 @@ def write_source_snapshot_projection(
     docs_manifest_path: Path = DOCS_MANIFEST_CSV,
 ) -> None:
     validate_projection_binding(manifest, projected_detail)
+    projection_version = _payload_value(manifest.iloc[0]["projection_version"])
+    if projection_version != V1_PROJECTION_VERSION:
+        raise RuntimeError(
+            "legacy canonical source snapshot projection writer accepts only "
+            f"{V1_PROJECTION_VERSION}; received {projection_version}"
+        )
     for path in (
         latest_manifest_path,
         latest_detail_path,
@@ -844,6 +1046,206 @@ def write_source_snapshot_projection(
     projected_detail.to_csv(latest_detail_path, index=False)
     manifest.to_csv(docs_manifest_path, index=False)
     history.to_csv(history_manifest_path, index=False)
+
+
+def _artifact_path_text(path: Path) -> str:
+    resolved = Path(path).resolve()
+    try:
+        return resolved.relative_to(ROOT.resolve()).as_posix()
+    except ValueError:
+        return resolved.as_posix()
+
+
+def _write_immutable_bytes(path: Path, payload: bytes, *, label: str) -> None:
+    target = Path(path)
+    if target.is_file():
+        if target.read_bytes() != payload:
+            raise RuntimeError(f"{label} immutable target already exists with different bytes: {target}")
+        return
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_bytes(payload)
+
+
+def archive_immutable_v1_projection(
+    *,
+    canonical_manifest_path: Path = LATEST_MANIFEST_CSV,
+    canonical_detail_path: Path = LATEST_DETAIL_CSV,
+    archive_manifest_path: Path = V1_ARCHIVE_MANIFEST_CSV,
+    archive_detail_path: Path = V1_ARCHIVE_DETAIL_CSV,
+    evidence_path: Path = V1_ARCHIVE_EVIDENCE_CSV,
+    expected_manifest_bytes: int = V1_EXPECTED_MANIFEST_BYTES,
+    expected_manifest_bytes_sha256: str = V1_EXPECTED_MANIFEST_BYTES_SHA256,
+    expected_detail_bytes: int = V1_EXPECTED_DETAIL_BYTES,
+    expected_detail_bytes_sha256: str = V1_EXPECTED_DETAIL_BYTES_SHA256,
+    expected_detail_row_count: int = V1_EXPECTED_DETAIL_ROW_COUNT,
+    expected_detail_semantic_sha256: str = V1_EXPECTED_DETAIL_SEMANTIC_SHA256,
+) -> pd.DataFrame:
+    """Archive canonical v1 as raw bytes and emit immutable copy evidence."""
+
+    for path, label in (
+        (canonical_manifest_path, "canonical v1 manifest"),
+        (canonical_detail_path, "canonical v1 detail"),
+    ):
+        if not Path(path).is_file():
+            raise RuntimeError(f"missing {label}: {path}")
+    manifest_bytes = Path(canonical_manifest_path).read_bytes()
+    detail_bytes = Path(canonical_detail_path).read_bytes()
+    manifest_sha = hashlib.sha256(manifest_bytes).hexdigest()
+    detail_sha = hashlib.sha256(detail_bytes).hexdigest()
+    for label, actual, expected in (
+        ("canonical v1 manifest bytes", len(manifest_bytes), expected_manifest_bytes),
+        ("canonical v1 manifest SHA-256", manifest_sha, expected_manifest_bytes_sha256),
+        ("canonical v1 detail bytes", len(detail_bytes), expected_detail_bytes),
+        ("canonical v1 detail SHA-256", detail_sha, expected_detail_bytes_sha256),
+    ):
+        if actual != expected:
+            raise RuntimeError(f"{label} mismatch: {actual}/{expected}")
+    manifest = pd.read_csv(
+        canonical_manifest_path,
+        dtype=str,
+        keep_default_na=False,
+    )
+    detail = pd.read_csv(
+        canonical_detail_path,
+        dtype={"stock_id": str},
+        keep_default_na=False,
+        low_memory=False,
+    )
+    validate_projection_binding(manifest, detail)
+    row = manifest.iloc[0]
+    detail_semantic_sha = canonical_projected_source_detail_semantic_sha256(detail)
+    for label, actual, expected in (
+        ("canonical v1 projection version", _payload_value(row["projection_version"]), V1_PROJECTION_VERSION),
+        ("canonical v1 policy", _payload_value(row["projection_policy_id"]), V1_PROJECTION_POLICY_ID),
+        ("canonical v1 cutoff", _payload_value(row["cutoff_date"]), CUTOFF_DATE),
+        ("canonical v1 detail row count", len(detail), expected_detail_row_count),
+        (
+            "canonical v1 detail semantic SHA-256",
+            detail_semantic_sha,
+            expected_detail_semantic_sha256,
+        ),
+    ):
+        if actual != expected:
+            raise RuntimeError(f"{label} mismatch: {actual}/{expected}")
+    evidence = pd.DataFrame(
+        [
+            {
+                "generated_at": _payload_value(row["generated_at"]),
+                "model_id": MODEL_ID,
+                "artifact_id": ARTIFACT_ID,
+                "projection_id": PROJECTION_ID,
+                "projection_version": V1_PROJECTION_VERSION,
+                "cutoff_date": CUTOFF_DATE,
+                "canonical_manifest_path": _artifact_path_text(canonical_manifest_path),
+                "archive_manifest_path": _artifact_path_text(archive_manifest_path),
+                "canonical_manifest_bytes": len(manifest_bytes),
+                "canonical_manifest_sha256": manifest_sha,
+                "canonical_detail_path": _artifact_path_text(canonical_detail_path),
+                "archive_detail_path": _artifact_path_text(archive_detail_path),
+                "canonical_detail_bytes": len(detail_bytes),
+                "canonical_detail_sha256": detail_sha,
+                "projected_episode_row_count": len(detail),
+                "projected_episode_semantic_sha256": detail_semantic_sha,
+                "immutable_copy_verified": True,
+                "research_only": True,
+                "formal_model_use_allowed": False,
+                "approved_for_daily": False,
+                "production_change": False,
+                "promotion_evidence_allowed": False,
+                "ranking_consumption_allowed": False,
+                "pdf_consumption_allowed": False,
+            }
+        ],
+        columns=list(ARCHIVE_EVIDENCE_COLUMNS),
+    )
+    evidence_bytes = evidence.to_csv(index=False, lineterminator="\n").encode("utf-8")
+    _write_immutable_bytes(
+        Path(archive_manifest_path),
+        manifest_bytes,
+        label="v1 manifest archive",
+    )
+    _write_immutable_bytes(
+        Path(archive_detail_path),
+        detail_bytes,
+        label="v1 detail archive",
+    )
+    _write_immutable_bytes(
+        Path(evidence_path),
+        evidence_bytes,
+        label="v1 archive evidence",
+    )
+    if Path(canonical_manifest_path).read_bytes() != manifest_bytes:
+        raise RuntimeError("canonical v1 manifest changed during archive")
+    if Path(canonical_detail_path).read_bytes() != detail_bytes:
+        raise RuntimeError("canonical v1 detail changed during archive")
+    return evidence
+
+
+def write_source_snapshot_projection_v2_candidate(
+    manifest: pd.DataFrame,
+    projected_detail: pd.DataFrame,
+    *,
+    manifest_path: Path = V2_CANDIDATE_MANIFEST_CSV,
+    detail_path: Path = V2_CANDIDATE_DETAIL_CSV,
+    predecessor_manifest_path: Path = V1_ARCHIVE_MANIFEST_CSV,
+    predecessor_detail_path: Path = V1_ARCHIVE_DETAIL_CSV,
+) -> None:
+    """Write v2 only to versioned candidate paths; canonical latest is untouched."""
+
+    repository_root = Path(ROOT).resolve(strict=False)
+    allowed_repository_destinations = {
+        "manifest": Path(V2_CANDIDATE_MANIFEST_CSV).resolve(strict=False),
+        "detail": Path(V2_CANDIDATE_DETAIL_CSV).resolve(strict=False),
+    }
+    for label, destination in (
+        ("manifest", Path(manifest_path)),
+        ("detail", Path(detail_path)),
+    ):
+        resolved = destination.resolve(strict=False)
+        try:
+            resolved.relative_to(repository_root)
+        except ValueError:
+            continue
+        if os.path.normcase(str(resolved)) != os.path.normcase(
+            str(allowed_repository_destinations[label])
+        ):
+            raise RuntimeError(
+                "v2 candidate writer refuses a non-versioned repository "
+                f"destination: {destination}"
+            )
+
+    validate_projection_binding(manifest, projected_detail)
+    row = manifest.iloc[0]
+    if _payload_value(row["projection_version"]) != V2_PROJECTION_VERSION:
+        raise RuntimeError("v2 candidate writer received a non-v2 manifest")
+    for path, column, label in (
+        (
+            predecessor_manifest_path,
+            "predecessor_manifest_bytes_sha256",
+            "v1 predecessor manifest",
+        ),
+        (
+            predecessor_detail_path,
+            "predecessor_detail_bytes_sha256",
+            "v1 predecessor detail",
+        ),
+    ):
+        if not Path(path).is_file():
+            raise RuntimeError(f"missing {label}: {path}")
+        if _file_sha256(Path(path)) != _payload_value(row[column]):
+            raise RuntimeError(f"{label} SHA-256 does not match v2 manifest")
+    manifest_bytes = manifest.to_csv(index=False, lineterminator="\n").encode("utf-8")
+    detail_bytes = projected_detail.to_csv(index=False, lineterminator="\n").encode("utf-8")
+    _write_immutable_bytes(
+        Path(manifest_path),
+        manifest_bytes,
+        label="v2 candidate manifest",
+    )
+    _write_immutable_bytes(
+        Path(detail_path),
+        detail_bytes,
+        label="v2 candidate detail",
+    )
 
 
 def load_source_snapshot_projection_manifest(

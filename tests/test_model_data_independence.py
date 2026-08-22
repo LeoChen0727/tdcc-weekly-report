@@ -823,7 +823,10 @@ def test_volume_v2_watch_committed_lineage_audit_is_exactly_registered() -> None
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
-    assert len(rows) == 27
+    assert len(rows) == 28
+    assert rows[-1]["migration_id"] == (
+        "revenue_source_snapshot_projection_v2_bootstrap_20260822"
+    )
     baseline = rows[0]
     assert tuple(baseline) == DATA_SHARING_MIGRATION_COLUMNS
     assert data_migration_row_sha256(baseline) == BASELINE_DATA_MIGRATION_ROW_SHA256
@@ -1479,6 +1482,77 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     )
     assert "20260713" in projection_background["point_in_time_status"]
 
+    v2_bootstrap_migration = next(
+        row
+        for row in rows
+        if row["migration_id"]
+        == "revenue_source_snapshot_projection_v2_bootstrap_20260822"
+    )
+    v2_bootstrap_families = [
+        "revenue_unreacted_range_source_snapshot_projection_v1_archive",
+        "revenue_unreacted_range_source_snapshot_projection_v2_candidate",
+        "revenue_unreacted_range_source_snapshot_projection_v1_v2_diff",
+    ]
+    assert v2_bootstrap_migration["changed_data_families"].split(";") == (
+        v2_bootstrap_families
+    )
+    assert v2_bootstrap_migration["previous_contract_sha256s"].split(";") == [
+        "NEW",
+        "NEW",
+        "NEW",
+    ]
+    assert v2_bootstrap_migration["new_contract_sha256s"].split(";") == [
+        data_contract_sha256(background_by_family[family])
+        for family in v2_bootstrap_families
+    ]
+    assert v2_bootstrap_migration["user_approval_reference"] == (
+        "user_authorized_revenue_source_snapshot_projection_v2_bootstrap_20260822"
+    )
+    assert v2_bootstrap_migration["migration_status"] == (
+        "validated_user_approved_migration"
+    )
+    validation_commands = v2_bootstrap_migration["validation_commands"].split(";")
+    diff_validator_index = validation_commands.index(
+        "python scripts/"
+        "validate_revenue_unreacted_range_source_snapshot_projection_v1_v2_diff.py "
+        "--v1-manifest output/history/research/"
+        "revenue_unreacted_range_source_snapshot_projection_manifest_v1_20260731.csv "
+        "--v1-detail output/history/research/"
+        "revenue_unreacted_range_source_snapshot_projection_detail_v1_20260731.csv "
+        "--v2-manifest output/history/research/"
+        "revenue_unreacted_range_source_snapshot_projection_manifest_v2_20260822.csv "
+        "--v2-detail output/history/research/"
+        "revenue_unreacted_range_source_snapshot_projection_detail_v2_20260822.csv "
+        "--diff-summary output/history/research/"
+        "revenue_unreacted_range_source_snapshot_projection_v1_20260731_to_v2_20260822_"
+        "diff_summary.csv --diff-detail output/history/research/"
+        "revenue_unreacted_range_source_snapshot_projection_v1_20260731_to_v2_20260822_"
+        "diff_detail.csv"
+    )
+    assert validation_commands[diff_validator_index + 1 : diff_validator_index + 3] == [
+        "python scripts/build_model_data_independence_audit.py",
+        "python scripts/validate_model_data_independence.py",
+    ]
+    for family in v2_bootstrap_families:
+        sharing = sharing_by_family[family]
+        assert sharing["data_contract_sha256"] == data_contract_sha256(
+            background_by_family[family]
+        )
+        assert sharing["last_migration_id"] == v2_bootstrap_migration[
+            "migration_id"
+        ]
+        assert sharing["sharing_decision_reference"] == v2_bootstrap_migration[
+            "user_approval_reference"
+        ]
+        assert sharing["ownership_mode"] == "model_owned_not_shared"
+        assert sharing["approved_consumer_models"] == "revenue_unreacted_range"
+    assert projection["data_contract_sha256"] == (
+        "d941b53613e393cc016e4f7b777787b0e9118e6e9d30aa4e00e5a04f959daa79"
+    )
+    assert projection["last_migration_id"] == (
+        "revenue_source_snapshot_projection_20260731"
+    )
+
     forward_migration = next(
         row
         for row in rows
@@ -1981,6 +2055,37 @@ def test_input_bound_independent_validator_role_is_closed_set_and_registered() -
     assert forward["allowed_evidence_use"] == (
         "independent_input_bound_research_validation_only_not_promotion_proof"
     )
+
+
+def test_revenue_projection_v1_v2_diff_validator_is_independent_and_research_only() -> None:
+    rows = {
+        row["validator_path"]: row
+        for row in read_csv("config/daily_model_validator_independence.csv")
+    }
+    path = (
+        "scripts/"
+        "validate_revenue_unreacted_range_source_snapshot_projection_v1_v2_diff.py"
+    )
+    source = (
+        "scripts/revenue_unreacted_range_source_snapshot_projection_v1_v2_diff.py"
+    )
+    row = rows[path]
+    assert row["validator_role"] == (
+        "independent_contract_artifact_binding_validator"
+    )
+    assert row["production_source_file"] == source
+    assert row["imported_production_symbols"] == ""
+    assert row["independence_claim"] == "True"
+    assert row["allowed_evidence_use"] == (
+        "independent_research_projection_version_diff_evidence_only_"
+        "not_promotion_proof"
+    )
+    sources, symbols = _production_imports(
+        ROOT / path,
+        {Path(source).stem: source},
+    )
+    assert sources == ()
+    assert symbols == ()
 
 
 def test_future_model_owned_module_import_is_detected(tmp_path: Path) -> None:

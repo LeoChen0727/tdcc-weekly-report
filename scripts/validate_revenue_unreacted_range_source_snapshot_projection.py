@@ -10,16 +10,30 @@ import re
 import numpy as np
 import pandas as pd
 
+from validate_revenue_unreacted_range_source_snapshot_projection_v1_v2_diff import (
+    validate as validate_projection_v1_v2_diff,
+)
+
 
 ROOT = Path(__file__).resolve().parents[1]
 MODEL_ID = "revenue_unreacted_range"
 ARTIFACT_ID = "revenue_unreacted_range_source_snapshot_projection"
-ARTIFACT_VERSION = "source_snapshot_projection_v1_20260731"
+V1_ARTIFACT_VERSION = "source_snapshot_projection_v1_20260731"
+V2_ARTIFACT_VERSION = "source_snapshot_projection_v2_20260822"
+ARTIFACT_VERSION = V1_ARTIFACT_VERSION
 PROJECTION_ID = "revenue_unreacted_range_source_snapshot_asof_20260713"
-PROJECTION_VERSION = ARTIFACT_VERSION
-PROJECTION_POLICY_ID = (
+PROJECTION_VERSION = V1_ARTIFACT_VERSION
+V1_PROJECTION_POLICY_ID = (
     "raw_source_and_price_truncated_before_source_first_episode_assembly_v1"
 )
+V2_PROJECTION_POLICY_ID = (
+    "raw_source_and_corrected_official_price_truncated_before_source_first_episode_assembly_v2"
+)
+PROJECTION_POLICY_ID = V1_PROJECTION_POLICY_ID
+V2_LINEAGE_CHANGE_REASON = (
+    "corrected_official_pre_cutoff_price_history_lineage_rebaseline_20260822"
+)
+V2_CANDIDATE_STATUS = "generated_pending_supersede_approval"
 CUTOFF_DATE = "20260713"
 SOURCE_FIRST_ARTIFACT_ID = "revenue_unreacted_range_source_first_condition_audit"
 CANONICAL_JSON_VERSION = "revenue_source_snapshot_projection_canonical_json_v1"
@@ -39,6 +53,84 @@ PROJECTED_DETAIL_CSV = (
     ROOT
     / "output/latest/research_backtest/"
     "revenue_unreacted_range_source_snapshot_projection_detail_latest.csv"
+)
+V2_MANIFEST_CSV = (
+    ROOT
+    / "output/history/research/"
+    "revenue_unreacted_range_source_snapshot_projection_manifest_v2_20260822.csv"
+)
+V2_PROJECTED_DETAIL_CSV = (
+    ROOT
+    / "output/history/research/"
+    "revenue_unreacted_range_source_snapshot_projection_detail_v2_20260822.csv"
+)
+V1_ARCHIVE_MANIFEST_CSV = (
+    ROOT
+    / "output/history/research/"
+    "revenue_unreacted_range_source_snapshot_projection_manifest_v1_20260731.csv"
+)
+V1_ARCHIVE_DETAIL_CSV = (
+    ROOT
+    / "output/history/research/"
+    "revenue_unreacted_range_source_snapshot_projection_detail_v1_20260731.csv"
+)
+V1_ARCHIVE_EVIDENCE_CSV = (
+    ROOT
+    / "output/history/research/"
+    "revenue_unreacted_range_source_snapshot_projection_archive_evidence_v1_20260731.csv"
+)
+V1_V2_DIFF_SUMMARY_CSV = (
+    ROOT
+    / "output/history/research/"
+    "revenue_unreacted_range_source_snapshot_projection_v1_20260731_to_v2_20260822_diff_summary.csv"
+)
+V1_V2_DIFF_DETAIL_CSV = (
+    ROOT
+    / "output/history/research/"
+    "revenue_unreacted_range_source_snapshot_projection_v1_20260731_to_v2_20260822_diff_detail.csv"
+)
+V1_EXPECTED_MANIFEST_BYTES = 148157
+V1_EXPECTED_MANIFEST_BYTES_SHA256 = (
+    "d2dde5a1f05bc2f15baf4d77f326a7ea90b481492178fa6d2fd6262bf316c79e"
+)
+V1_EXPECTED_DETAIL_BYTES = 26633382
+V1_EXPECTED_DETAIL_BYTES_SHA256 = (
+    "b9784e4df2d2eba2c511b1c87f4255a6485a1fe1d7ac67490802e396614ee49a"
+)
+V1_EXPECTED_DETAIL_ROW_COUNT = 19569
+V1_EXPECTED_DETAIL_SEMANTIC_SHA256 = (
+    "92c68810ac2b5718d714d450fe83bf23f2f3469fec5db0ae2753330950ab2cf5"
+)
+V1_EXPECTED_CUTOFF_PRICE_INPUT_SEMANTIC_SHA256 = (
+    "b6eec3d62cca5b32efbe9b81acc1dcc6709f37c77f7af59eb860c23603422787"
+)
+V1_EXPECTED_PREDECESSOR_MANIFEST_SHA256 = V1_EXPECTED_MANIFEST_BYTES_SHA256
+V1_EXPECTED_PREDECESSOR_DETAIL_SHA256 = V1_EXPECTED_DETAIL_BYTES_SHA256
+V1_ARCHIVE_EVIDENCE_COLUMNS = (
+    "generated_at",
+    "model_id",
+    "artifact_id",
+    "projection_id",
+    "projection_version",
+    "cutoff_date",
+    "canonical_manifest_path",
+    "archive_manifest_path",
+    "canonical_manifest_bytes",
+    "canonical_manifest_sha256",
+    "canonical_detail_path",
+    "archive_detail_path",
+    "canonical_detail_bytes",
+    "canonical_detail_sha256",
+    "projected_episode_row_count",
+    "projected_episode_semantic_sha256",
+    "immutable_copy_verified",
+    "research_only",
+    "formal_model_use_allowed",
+    "approved_for_daily",
+    "production_change",
+    "promotion_evidence_allowed",
+    "ranking_consumption_allowed",
+    "pdf_consumption_allowed",
 )
 REVENUE_HISTORY_CSV = ROOT / "data/monthly_revenue_history/monthly_revenue_history.csv"
 PRICE_HISTORY_DIR = ROOT / "data/stock_price_history"
@@ -256,7 +348,7 @@ SOURCE_DETAIL_COLUMNS = (
     "approved_for_daily",
     "production_change",
 )
-MANIFEST_COLUMNS = (
+V1_MANIFEST_COLUMNS = (
     "generated_at",
     "model_id",
     "artifact_id",
@@ -297,6 +389,14 @@ MANIFEST_COLUMNS = (
     "ranking_consumption_allowed",
     "pdf_consumption_allowed",
 )
+V2_MANIFEST_COLUMNS = V1_MANIFEST_COLUMNS + (
+    "predecessor_projection_version",
+    "predecessor_manifest_bytes_sha256",
+    "predecessor_detail_bytes_sha256",
+    "lineage_change_reason",
+    "candidate_status",
+)
+MANIFEST_COLUMNS = V1_MANIFEST_COLUMNS
 SHA256_PATTERN = re.compile(r"^[0-9a-f]{64}$")
 
 
@@ -1561,18 +1661,43 @@ def _constant(frame: pd.DataFrame, column: str, *, label: str) -> str:
 
 def _binding_errors(manifest: pd.DataFrame, detail: pd.DataFrame) -> list[str]:
     errors: list[str] = []
-    if list(manifest.columns) != list(MANIFEST_COLUMNS):
+    actual_columns = list(manifest.columns)
+    if actual_columns not in (
+        list(V1_MANIFEST_COLUMNS),
+        list(V2_MANIFEST_COLUMNS),
+    ):
         return ["projection manifest schema mismatch"]
     if len(manifest) != 1:
         return [f"projection manifest must have exactly one row: {len(manifest)}"]
     row = manifest.iloc[0]
+    version = _payload_value(row["projection_version"])
+    if version == V1_ARTIFACT_VERSION:
+        expected_policy = V1_PROJECTION_POLICY_ID
+        if actual_columns != list(V1_MANIFEST_COLUMNS):
+            errors.append("v1 projection manifest schema mismatch")
+    elif version == V2_ARTIFACT_VERSION:
+        expected_policy = V2_PROJECTION_POLICY_ID
+        if actual_columns != list(V2_MANIFEST_COLUMNS):
+            errors.append("v2 projection manifest schema mismatch")
+        for column, expected in {
+            "predecessor_projection_version": V1_ARTIFACT_VERSION,
+            "predecessor_manifest_bytes_sha256": V1_EXPECTED_PREDECESSOR_MANIFEST_SHA256,
+            "predecessor_detail_bytes_sha256": V1_EXPECTED_PREDECESSOR_DETAIL_SHA256,
+            "lineage_change_reason": V2_LINEAGE_CHANGE_REASON,
+            "candidate_status": V2_CANDIDATE_STATUS,
+        }.items():
+            if _payload_value(row[column]) != expected:
+                errors.append(f"projection manifest {column} mismatch")
+    else:
+        expected_policy = ""
+        errors.append(f"unsupported projection version: {version}")
     for column, expected in {
         "model_id": MODEL_ID,
         "artifact_id": ARTIFACT_ID,
-        "artifact_version": ARTIFACT_VERSION,
+        "artifact_version": version,
         "projection_id": PROJECTION_ID,
-        "projection_version": PROJECTION_VERSION,
-        "projection_policy_id": PROJECTION_POLICY_ID,
+        "projection_version": version,
+        "projection_policy_id": expected_policy,
         "cutoff_date": CUTOFF_DATE,
         "full_source_artifact_id": SOURCE_FIRST_ARTIFACT_ID,
     }.items():
@@ -1762,6 +1887,238 @@ def validate_frames(
     return errors
 
 
+def _validate_immutable_v1_files(
+    manifest: pd.DataFrame,
+    projected_detail: pd.DataFrame,
+    *,
+    manifest_path: Path,
+    projected_detail_path: Path,
+) -> list[str]:
+    errors = _binding_errors(manifest, projected_detail)
+    if errors:
+        return errors
+    row = manifest.iloc[0]
+    expected = (
+        (
+            "canonical v1 manifest bytes",
+            Path(manifest_path).stat().st_size,
+            V1_EXPECTED_MANIFEST_BYTES,
+        ),
+        (
+            "canonical v1 manifest bytes SHA-256",
+            _file_sha256(Path(manifest_path)),
+            V1_EXPECTED_MANIFEST_BYTES_SHA256,
+        ),
+        (
+            "canonical v1 detail bytes",
+            Path(projected_detail_path).stat().st_size,
+            V1_EXPECTED_DETAIL_BYTES,
+        ),
+        (
+            "canonical v1 detail bytes SHA-256",
+            _file_sha256(Path(projected_detail_path)),
+            V1_EXPECTED_DETAIL_BYTES_SHA256,
+        ),
+        (
+            "canonical v1 detail row count",
+            len(projected_detail),
+            V1_EXPECTED_DETAIL_ROW_COUNT,
+        ),
+        (
+            "canonical v1 detail semantic SHA-256",
+            _projected_source_detail_sha256(projected_detail),
+            V1_EXPECTED_DETAIL_SEMANTIC_SHA256,
+        ),
+        (
+            "canonical v1 manifest detail semantic SHA-256",
+            _payload_value(row["projected_episode_semantic_sha256"]),
+            V1_EXPECTED_DETAIL_SEMANTIC_SHA256,
+        ),
+        (
+            "canonical v1 cutoff price input semantic SHA-256",
+            _payload_value(row["cutoff_price_input_semantic_sha256"]),
+            V1_EXPECTED_CUTOFF_PRICE_INPUT_SEMANTIC_SHA256,
+        ),
+    )
+    for label, actual, required in expected:
+        if actual != required:
+            errors.append(f"{label} mismatch: {actual}/{required}")
+    return errors
+
+
+def _validate_v1_archive_evidence(
+    *,
+    v1_manifest_path: Path,
+    v1_detail_path: Path,
+    evidence_path: Path,
+) -> list[str]:
+    errors: list[str] = []
+    expected_files = (
+        (
+            "v1 archive manifest bytes",
+            Path(v1_manifest_path).stat().st_size,
+            V1_EXPECTED_MANIFEST_BYTES,
+        ),
+        (
+            "v1 archive manifest SHA-256",
+            _file_sha256(Path(v1_manifest_path)),
+            V1_EXPECTED_MANIFEST_BYTES_SHA256,
+        ),
+        (
+            "v1 archive detail bytes",
+            Path(v1_detail_path).stat().st_size,
+            V1_EXPECTED_DETAIL_BYTES,
+        ),
+        (
+            "v1 archive detail SHA-256",
+            _file_sha256(Path(v1_detail_path)),
+            V1_EXPECTED_DETAIL_BYTES_SHA256,
+        ),
+    )
+    for label, actual, expected in expected_files:
+        if actual != expected:
+            errors.append(f"{label} mismatch: {actual}/{expected}")
+    try:
+        evidence = pd.read_csv(evidence_path, dtype=str, keep_default_na=False)
+    except (OSError, pd.errors.ParserError) as exc:
+        return errors + [f"v1 archive evidence cannot be parsed: {exc}"]
+    if list(evidence.columns) != list(V1_ARCHIVE_EVIDENCE_COLUMNS):
+        return errors + ["v1 archive evidence schema mismatch"]
+    if len(evidence) != 1:
+        return errors + ["v1 archive evidence must contain exactly one row"]
+    row = evidence.iloc[0]
+    expected_values = {
+        "model_id": MODEL_ID,
+        "artifact_id": ARTIFACT_ID,
+        "projection_id": PROJECTION_ID,
+        "projection_version": V1_ARTIFACT_VERSION,
+        "cutoff_date": CUTOFF_DATE,
+        "canonical_manifest_path": (
+            "output/latest/research_backtest/"
+            "revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv"
+        ),
+        "archive_manifest_path": (
+            "output/history/research/"
+            "revenue_unreacted_range_source_snapshot_projection_manifest_v1_20260731.csv"
+        ),
+        "canonical_manifest_bytes": str(V1_EXPECTED_MANIFEST_BYTES),
+        "canonical_manifest_sha256": V1_EXPECTED_MANIFEST_BYTES_SHA256,
+        "canonical_detail_path": (
+            "output/latest/research_backtest/"
+            "revenue_unreacted_range_source_snapshot_projection_detail_latest.csv"
+        ),
+        "archive_detail_path": (
+            "output/history/research/"
+            "revenue_unreacted_range_source_snapshot_projection_detail_v1_20260731.csv"
+        ),
+        "canonical_detail_bytes": str(V1_EXPECTED_DETAIL_BYTES),
+        "canonical_detail_sha256": V1_EXPECTED_DETAIL_BYTES_SHA256,
+        "projected_episode_row_count": str(V1_EXPECTED_DETAIL_ROW_COUNT),
+        "projected_episode_semantic_sha256": V1_EXPECTED_DETAIL_SEMANTIC_SHA256,
+        "immutable_copy_verified": "true",
+        "research_only": "true",
+        "formal_model_use_allowed": "false",
+        "approved_for_daily": "false",
+        "production_change": "false",
+        "promotion_evidence_allowed": "false",
+        "ranking_consumption_allowed": "false",
+        "pdf_consumption_allowed": "false",
+    }
+    for column, expected in expected_values.items():
+        if _payload_value(row[column]) != expected:
+            errors.append(f"v1 archive evidence {column} mismatch")
+    if not _payload_value(row["generated_at"]):
+        errors.append("v1 archive evidence generated_at is empty")
+    return errors
+
+
+def _validate_versioned_v2_closure(
+    *,
+    revenue_path: Path,
+    price_dir: Path,
+    monthly_resolution_path: Path,
+    price_resolution_path: Path,
+    v1_manifest_path: Path = V1_ARCHIVE_MANIFEST_CSV,
+    v1_detail_path: Path = V1_ARCHIVE_DETAIL_CSV,
+    v1_evidence_path: Path = V1_ARCHIVE_EVIDENCE_CSV,
+    v2_manifest_path: Path = V2_MANIFEST_CSV,
+    v2_detail_path: Path = V2_PROJECTED_DETAIL_CSV,
+    diff_summary_path: Path = V1_V2_DIFF_SUMMARY_CSV,
+    diff_detail_path: Path = V1_V2_DIFF_DETAIL_CSV,
+) -> list[str]:
+    artifact_paths = {
+        "v1 archive manifest": Path(v1_manifest_path),
+        "v1 archive detail": Path(v1_detail_path),
+        "v1 archive evidence": Path(v1_evidence_path),
+        "v2 candidate manifest": Path(v2_manifest_path),
+        "v2 candidate detail": Path(v2_detail_path),
+        "v1/v2 diff summary": Path(diff_summary_path),
+        "v1/v2 diff detail": Path(diff_detail_path),
+    }
+    started = {
+        label: path.exists() or path.is_symlink()
+        for label, path in artifact_paths.items()
+    }
+    if not any(started.values()):
+        return []
+    present = {label: path.is_file() for label, path in artifact_paths.items()}
+    missing = [
+        f"missing versioned source projection closure artifact: {label}: {artifact_paths[label]}"
+        for label, exists in present.items()
+        if not exists
+    ]
+    if missing:
+        return missing
+    errors = _validate_v1_archive_evidence(
+        v1_manifest_path=Path(v1_manifest_path),
+        v1_detail_path=Path(v1_detail_path),
+        evidence_path=Path(v1_evidence_path),
+    )
+    replay_paths = (revenue_path, monthly_resolution_path, price_resolution_path)
+    replay_missing = [str(path) for path in replay_paths if not Path(path).is_file()]
+    if replay_missing:
+        errors.extend(
+            f"missing v2 source projection replay input: {path}"
+            for path in replay_missing
+        )
+    else:
+        try:
+            v2_manifest = pd.read_csv(
+                v2_manifest_path,
+                dtype=str,
+                keep_default_na=False,
+            )
+            v2_detail = pd.read_csv(
+                v2_detail_path,
+                dtype={"stock_id": str},
+                keep_default_na=False,
+                low_memory=False,
+            )
+            errors.extend(
+                validate_frames(
+                    v2_manifest,
+                    v2_detail,
+                    revenue_path=Path(revenue_path),
+                    price_dir=Path(price_dir),
+                    monthly_resolution_path=Path(monthly_resolution_path),
+                    price_resolution_path=Path(price_resolution_path),
+                )
+            )
+        except (OSError, pd.errors.ParserError) as exc:
+            errors.append(f"v2 source projection candidate cannot be parsed: {exc}")
+    errors.extend(
+        validate_projection_v1_v2_diff(
+            v1_manifest_path=Path(v1_manifest_path),
+            v1_detail_path=Path(v1_detail_path),
+            v2_manifest_path=Path(v2_manifest_path),
+            v2_detail_path=Path(v2_detail_path),
+            summary_path=Path(diff_summary_path),
+            detail_path=Path(diff_detail_path),
+        )
+    )
+    return errors
+
+
 def validate(
     manifest_path: Path = MANIFEST_CSV,
     projected_detail_path: Path = PROJECTED_DETAIL_CSV,
@@ -1770,14 +2127,8 @@ def validate(
     monthly_resolution_path: Path = MONTHLY_RESOLUTION_CSV,
     price_resolution_path: Path = PRICE_RESOLUTION_CSV,
 ) -> list[str]:
-    required_paths = (
-        manifest_path,
-        projected_detail_path,
-        revenue_path,
-        monthly_resolution_path,
-        price_resolution_path,
-    )
-    missing = [str(path) for path in required_paths if not Path(path).is_file()]
+    projection_paths = (manifest_path, projected_detail_path)
+    missing = [str(path) for path in projection_paths if not Path(path).is_file()]
     if missing:
         return [f"missing source snapshot projection input: {path}" for path in missing]
     manifest = pd.read_csv(manifest_path, dtype=str, keep_default_na=False)
@@ -1787,6 +2138,64 @@ def validate(
         keep_default_na=False,
         low_memory=False,
     )
+    canonical_paths = (
+        Path(manifest_path).resolve() == MANIFEST_CSV.resolve()
+        and Path(projected_detail_path).resolve() == PROJECTED_DETAIL_CSV.resolve()
+    )
+    canonical_projection_version = (
+        _payload_value(manifest.iloc[0].get("projection_version", ""))
+        if len(manifest) == 1
+        else ""
+    )
+    if canonical_paths and canonical_projection_version == V2_ARTIFACT_VERSION:
+        return [
+            "canonical source snapshot projection latest must remain "
+            f"{V1_ARTIFACT_VERSION}; found {V2_ARTIFACT_VERSION}"
+        ]
+    versioned_closure_started = any(
+        path.exists() or path.is_symlink()
+        for path in (
+            V1_ARCHIVE_MANIFEST_CSV,
+            V1_ARCHIVE_DETAIL_CSV,
+            V1_ARCHIVE_EVIDENCE_CSV,
+            V2_MANIFEST_CSV,
+            V2_PROJECTED_DETAIL_CSV,
+            V1_V2_DIFF_SUMMARY_CSV,
+            V1_V2_DIFF_DETAIL_CSV,
+        )
+    )
+    if (
+        canonical_paths
+        and versioned_closure_started
+        and len(manifest) == 1
+        and canonical_projection_version == V1_ARTIFACT_VERSION
+    ):
+        errors = _validate_immutable_v1_files(
+            manifest,
+            projected_detail,
+            manifest_path=Path(manifest_path),
+            projected_detail_path=Path(projected_detail_path),
+        )
+        errors.extend(
+            _validate_versioned_v2_closure(
+                revenue_path=Path(revenue_path),
+                price_dir=Path(price_dir),
+                monthly_resolution_path=Path(monthly_resolution_path),
+                price_resolution_path=Path(price_resolution_path),
+                v1_manifest_path=V1_ARCHIVE_MANIFEST_CSV,
+                v1_detail_path=V1_ARCHIVE_DETAIL_CSV,
+                v1_evidence_path=V1_ARCHIVE_EVIDENCE_CSV,
+                v2_manifest_path=V2_MANIFEST_CSV,
+                v2_detail_path=V2_PROJECTED_DETAIL_CSV,
+                diff_summary_path=V1_V2_DIFF_SUMMARY_CSV,
+                diff_detail_path=V1_V2_DIFF_DETAIL_CSV,
+            )
+        )
+        return errors
+    replay_paths = (revenue_path, monthly_resolution_path, price_resolution_path)
+    missing = [str(path) for path in replay_paths if not Path(path).is_file()]
+    if missing:
+        return [f"missing source snapshot projection input: {path}" for path in missing]
     return validate_frames(
         manifest,
         projected_detail,
@@ -1807,14 +2216,25 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--price-dir", type=Path, default=PRICE_HISTORY_DIR)
     parser.add_argument("--monthly-resolution", type=Path, default=MONTHLY_RESOLUTION_CSV)
     parser.add_argument("--price-resolution", type=Path, default=PRICE_RESOLUTION_CSV)
+    parser.add_argument(
+        "--candidate-v2",
+        action="store_true",
+        help="Validate the exact versioned v2 candidate instead of canonical v1.",
+    )
     return parser.parse_args()
 
 
 def main() -> int:
     args = parse_args()
+    manifest_path = V2_MANIFEST_CSV if args.candidate_v2 else args.manifest
+    projected_detail_path = (
+        V2_PROJECTED_DETAIL_CSV
+        if args.candidate_v2
+        else args.projected_detail
+    )
     errors = validate(
-        manifest_path=args.manifest,
-        projected_detail_path=args.projected_detail,
+        manifest_path=manifest_path,
+        projected_detail_path=projected_detail_path,
         revenue_path=args.revenue_history,
         price_dir=args.price_dir,
         monthly_resolution_path=args.monthly_resolution,
@@ -1824,7 +2244,11 @@ def main() -> int:
         for error in errors:
             print(f"ERROR: {error}")
         return 1
-    manifest = pd.read_csv(args.manifest, dtype=str, keep_default_na=False).iloc[0]
+    manifest = pd.read_csv(
+        manifest_path,
+        dtype=str,
+        keep_default_na=False,
+    ).iloc[0]
     print(
         "revenue source snapshot projection validation passed: "
         f"cutoff={manifest['cutoff_date']}; "

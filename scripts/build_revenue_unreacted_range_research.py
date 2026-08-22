@@ -79,14 +79,32 @@ from revenue_unreacted_range_position_shape_transition_matrix import (
     write_position_shape_transition_matrix,
 )
 from revenue_unreacted_range_source_first_condition_audit import (
+    DETAIL_CSV as SOURCE_FIRST_DETAIL_CSV,
+    DOCS_CSV as SOURCE_FIRST_DOCS_CSV,
+    DOCS_MD as SOURCE_FIRST_DOCS_MD,
+    HISTORY_CSV as SOURCE_FIRST_HISTORY_CSV,
+    LATEST_CSV as SOURCE_FIRST_LATEST_CSV,
+    LATEST_MD as SOURCE_FIRST_LATEST_MD,
     build_source_first_condition_audit,
     write_source_first_condition_audit,
 )
 from revenue_unreacted_range_source_snapshot_projection import (
+    CUTOFF_DATE as SOURCE_SNAPSHOT_CUTOFF_DATE,
+    LATEST_DETAIL_CSV as SOURCE_SNAPSHOT_V1_CANONICAL_DETAIL_CSV,
+    LATEST_MANIFEST_CSV as SOURCE_SNAPSHOT_V1_CANONICAL_MANIFEST_CSV,
+    V1_ARCHIVE_DETAIL_CSV,
+    V1_ARCHIVE_EVIDENCE_CSV,
+    V1_ARCHIVE_MANIFEST_CSV,
+    V1_PROJECTION_VERSION,
+    V2_CANDIDATE_DETAIL_CSV,
+    V2_CANDIDATE_MANIFEST_CSV,
+    archive_immutable_v1_projection,
+    build_source_snapshot_projection_v2_manifest,
     load_projected_source_detail,
     load_source_snapshot_projection_manifest,
     validate_projection_binding,
     write_source_snapshot_projection,
+    write_source_snapshot_projection_v2_candidate,
 )
 from revenue_unreacted_range_research_frame import (
     build_revenue_unreacted_range_research_frame,
@@ -95,6 +113,36 @@ from revenue_unreacted_range_research_frame import (
 
 MODEL_ID = "revenue_unreacted_range"
 PRODUCER = "scripts/build_revenue_unreacted_range_research.py"
+SOURCE_SNAPSHOT_V1_V2_DIFF_SUMMARY_CSV = (
+    ROOT
+    / "output/history/research/"
+    "revenue_unreacted_range_source_snapshot_projection_v1_20260731_to_v2_20260822_diff_summary.csv"
+)
+SOURCE_SNAPSHOT_V1_V2_DIFF_DETAIL_CSV = (
+    ROOT
+    / "output/history/research/"
+    "revenue_unreacted_range_source_snapshot_projection_v1_20260731_to_v2_20260822_diff_detail.csv"
+)
+SOURCE_SNAPSHOT_PROJECTION_REBASELINE_ALLOWED_ARTIFACT_PATHS = tuple(
+    path.relative_to(ROOT).as_posix()
+    for path in (
+        SOURCE_FIRST_LATEST_CSV,
+        SOURCE_FIRST_DETAIL_CSV,
+        SOURCE_FIRST_LATEST_MD,
+        SOURCE_FIRST_HISTORY_CSV,
+        SOURCE_FIRST_DOCS_CSV,
+        SOURCE_FIRST_DOCS_MD,
+        V1_ARCHIVE_MANIFEST_CSV,
+        V1_ARCHIVE_DETAIL_CSV,
+        V1_ARCHIVE_EVIDENCE_CSV,
+        V2_CANDIDATE_MANIFEST_CSV,
+        V2_CANDIDATE_DETAIL_CSV,
+        SOURCE_SNAPSHOT_V1_V2_DIFF_SUMMARY_CSV,
+        SOURCE_SNAPSHOT_V1_V2_DIFF_DETAIL_CSV,
+    )
+)
+
+
 def validate_forward_holdout_stage_changed_paths(
     changed_paths: list[str],
 ) -> list[str]:
@@ -126,8 +174,48 @@ def forward_holdout_stage_artifact_guard(
             )
 
 
+def validate_source_snapshot_projection_rebaseline_changed_paths(
+    changed_paths: list[str],
+) -> list[str]:
+    allowed = set(SOURCE_SNAPSHOT_PROJECTION_REBASELINE_ALLOWED_ARTIFACT_PATHS)
+    return [
+        f"source snapshot projection rebaseline artifact allowlist violation: {path}"
+        for path in sorted(set(changed_paths) - allowed)
+    ]
+
+
+@contextmanager
+def source_snapshot_projection_rebaseline_artifact_guard(
+    *,
+    root: Path = ROOT,
+) -> Iterator[None]:
+    before = _dirty_snapshot(root)
+    try:
+        yield
+    finally:
+        errors = validate_source_snapshot_projection_rebaseline_changed_paths(
+            changed_during_run(root, before)
+        )
+        if errors:
+            details = "\n".join(f"- {error}" for error in errors)
+            raise RuntimeError(
+                "source snapshot projection rebaseline artifact guard failed:\n"
+                + details
+            )
+
+
 def load_immutable_source_snapshot_projection() -> tuple[pd.DataFrame, pd.DataFrame]:
     manifest = load_source_snapshot_projection_manifest()
+    projection_version = (
+        str(manifest.iloc[0].get("projection_version", "")).strip()
+        if len(manifest) == 1
+        else ""
+    )
+    if projection_version != V1_PROJECTION_VERSION:
+        raise RuntimeError(
+            "canonical source snapshot projection loader accepts only "
+            f"{V1_PROJECTION_VERSION}; received {projection_version or '<invalid>'}"
+        )
     projected_detail = load_projected_source_detail()
     validate_projection_binding(
         manifest,
@@ -274,6 +362,48 @@ def build_and_write_source_first_condition_audit() -> None:
 def build_and_write_source_snapshot_projection() -> None:
     manifest, projected_detail = load_immutable_source_snapshot_projection()
     write_source_snapshot_projection(manifest, projected_detail)
+
+
+def build_and_write_source_snapshot_projection_rebaseline() -> None:
+    """Create the v2 candidate without promoting or refreshing downstream consumers."""
+
+    canonical_manifest_bytes = SOURCE_SNAPSHOT_V1_CANONICAL_MANIFEST_CSV.read_bytes()
+    canonical_detail_bytes = SOURCE_SNAPSHOT_V1_CANONICAL_DETAIL_CSV.read_bytes()
+    archive_evidence = archive_immutable_v1_projection()
+    evidence_row = archive_evidence.iloc[0]
+
+    source_first_summary, full_source_detail = build_source_first_condition_audit()
+    _projected_summary, projected_detail = build_source_first_condition_audit(
+        observation_cutoff_date=SOURCE_SNAPSHOT_CUTOFF_DATE,
+    )
+    candidate_manifest = build_source_snapshot_projection_v2_manifest(
+        full_source_detail,
+        projected_detail,
+        predecessor_manifest_bytes_sha256=str(
+            evidence_row["canonical_manifest_sha256"]
+        ),
+        predecessor_detail_bytes_sha256=str(
+            evidence_row["canonical_detail_sha256"]
+        ),
+    )
+    write_source_first_condition_audit(source_first_summary, full_source_detail)
+    write_source_snapshot_projection_v2_candidate(
+        candidate_manifest,
+        projected_detail,
+    )
+
+    from revenue_unreacted_range_source_snapshot_projection_v1_v2_diff import (
+        build_diff_from_paths,
+        write_diff_artifacts,
+    )
+
+    diff_summary, diff_detail = build_diff_from_paths()
+    write_diff_artifacts(diff_summary, diff_detail)
+
+    if SOURCE_SNAPSHOT_V1_CANONICAL_MANIFEST_CSV.read_bytes() != canonical_manifest_bytes:
+        raise RuntimeError("canonical v1 manifest changed during v2 rebaseline")
+    if SOURCE_SNAPSHOT_V1_CANONICAL_DETAIL_CSV.read_bytes() != canonical_detail_bytes:
+        raise RuntimeError("canonical v1 detail changed during v2 rebaseline")
 
 
 def build_and_write_source_snapshot_projection_chain() -> None:
@@ -521,6 +651,7 @@ def parse_args() -> argparse.Namespace:
             "launch_timing_feature_audit",
             "source_first_condition_audit",
             "source_snapshot_projection",
+            "source_snapshot_projection_rebaseline",
             "source_snapshot_projection_chain",
             "forward_confirmation_feature_audit",
             "rearmed_operation_grid",
@@ -544,6 +675,9 @@ def main() -> int:
             build_and_write_source_first_condition_audit()
         elif args.stage == "source_snapshot_projection":
             build_and_write_source_snapshot_projection()
+        elif args.stage == "source_snapshot_projection_rebaseline":
+            with source_snapshot_projection_rebaseline_artifact_guard():
+                build_and_write_source_snapshot_projection_rebaseline()
         elif args.stage == "source_snapshot_projection_chain":
             build_and_write_source_snapshot_projection_chain()
         elif args.stage == "forward_confirmation_feature_audit":
