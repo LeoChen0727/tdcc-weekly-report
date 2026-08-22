@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6624 萬年清
 
 ## Metadata
-- generated_at: 2026-08-21 22:28:04 Asia/Taipei
+- generated_at: 2026-08-22 22:28:41 Asia/Taipei
 - stock_id: 6624
 - stock_name: 萬年清
 - packet_status: standard_180d_window_packet
@@ -11,10 +11,10 @@
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
-- official_tdcc_signal_date: 20260814
-- latest_tdcc_date: 20260814
-- tdcc_rows: 16
+- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
+- official_tdcc_signal_date: 20260821
+- latest_tdcc_date: 20260821
+- tdcc_rows: 17
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -171,12 +171,12 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260814
+- as_of_date: 20260821
 - over_400_ratio: 74.12
 - over_600_ratio: 69.86
 - over_800_ratio: 67.18
 - over_1000_ratio: 59.54
-- over_400_change_1w: -0.97
+- over_400_change_1w: 0
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260529,76.46,2.37,70.65,0,59.54,0,4,False,False
 20260605,76.75,0.29,70.65,0,59.54,0,5,False,False
 20260612,76.75,0,70.65,0,59.54,0,0,False,False
 20260618,76.75,0,70.65,0,59.54,0,0,False,False
@@ -199,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260731,76.5,0,70.65,0,59.54,0,0,False,False
 20260807,75.09,-1.41,67.18,-3.47,59.54,0,0,False,False
 20260814,74.12,-0.97,67.18,0,59.54,0,0,False,False
+20260821,74.12,0,67.18,0,59.54,0,0,False,False
 ```
 
 ## Candidate Context

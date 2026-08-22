@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8277 商丞
 
 ## Metadata
-- generated_at: 2026-08-21 22:28:25 Asia/Taipei
+- generated_at: 2026-08-22 22:29:14 Asia/Taipei
 - stock_id: 8277
 - stock_name: 商丞
 - packet_status: standard_180d_window_packet
@@ -11,10 +11,10 @@
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
-- official_tdcc_signal_date: 20260814
-- latest_tdcc_date: 20260814
-- tdcc_rows: 16
+- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
+- official_tdcc_signal_date: 20260821
+- latest_tdcc_date: 20260821
+- tdcc_rows: 17
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -171,15 +171,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260814
-- over_400_ratio: 20.33
-- over_600_ratio: 17.17
-- over_800_ratio: 14.89
-- over_1000_ratio: 14.89
-- over_400_change_1w: 0.11
-- over_800_change_1w: 0.08
-- over_1000_change_1w: 0.08
-- tdcc_consecutive_up_weeks: 8
+- as_of_date: 20260821
+- over_400_ratio: 20.36
+- over_600_ratio: 17.2
+- over_800_ratio: 14.91
+- over_1000_ratio: 14.91
+- over_400_change_1w: 0.03
+- over_800_change_1w: 0.02
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 9
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260529,19.79,0.29,13.48,0,13.48,0,4,False,False
 20260605,19.12,-0.67,13.48,0,13.48,0,0,False,False
 20260612,19.12,0,13.48,0,13.48,0,0,False,False
 20260618,19.12,0,13.48,0,13.48,0,0,False,False
@@ -199,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260731,20.19,0.21,14.78,0.21,14.78,1.3,6,True,True
 20260807,20.22,0.03,14.81,0.03,14.81,0.03,7,True,True
 20260814,20.33,0.11,14.89,0.08,14.89,0.08,8,True,True
+20260821,20.36,0.03,14.91,0.02,14.91,0.02,9,True,True
 ```
 
 ## Candidate Context

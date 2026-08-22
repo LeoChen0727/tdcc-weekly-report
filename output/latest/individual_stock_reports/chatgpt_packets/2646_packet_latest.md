@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2646 星宇航空
 
 ## Metadata
-- generated_at: 2026-08-21 22:27:06 Asia/Taipei
+- generated_at: 2026-08-22 22:27:07 Asia/Taipei
 - stock_id: 2646
 - stock_name: 星宇航空
 - packet_status: standard_180d_window_packet
@@ -11,10 +11,10 @@
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
-- official_tdcc_signal_date: 20260814
-- latest_tdcc_date: 20260814
-- tdcc_rows: 16
+- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
+- official_tdcc_signal_date: 20260821
+- latest_tdcc_date: 20260821
+- tdcc_rows: 17
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -171,23 +171,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260814
-- over_400_ratio: 65.4
-- over_600_ratio: 64.48
-- over_800_ratio: 64.22
-- over_1000_ratio: 63.66
-- over_400_change_1w: -0.31
-- over_800_change_1w: -0.38
-- over_1000_change_1w: -0.35
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260821
+- over_400_ratio: 65.56
+- over_600_ratio: 64.68
+- over_800_ratio: 64.39
+- over_1000_ratio: 63.8
+- over_400_change_1w: 0.16
+- over_800_change_1w: 0.17
+- over_1000_change_1w: 0.14
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260529,64.85,0.08,63.78,0.19,63.13,0.1,4,True,True
 20260605,64.95,0.1,63.82,0.04,63.23,0.1,5,True,True
 20260612,64.86,-0.09,63.66,-0.16,63.13,-0.1,0,False,False
 20260618,64.93,0.07,63.82,0.16,63.26,0.13,1,True,True
@@ -199,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260731,65.64,0.31,64.57,0.32,63.98,0.35,4,True,True
 20260807,65.71,0.07,64.6,0.03,64.01,0.03,5,True,True
 20260814,65.4,-0.31,64.22,-0.38,63.66,-0.35,0,False,False
+20260821,65.56,0.16,64.39,0.17,63.8,0.14,1,True,True
 ```
 
 ## Candidate Context

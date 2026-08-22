@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0098 主動統一台股增長
 
 ## Metadata
-- generated_at: 2026-08-21 22:26:35 Asia/Taipei
+- generated_at: 2026-08-22 22:26:18 Asia/Taipei
 - stock_id: 0098
 - stock_name: 主動統一台股增長
 - packet_status: insufficient_price_data
@@ -11,8 +11,8 @@
 - current_main_price_universe_status: historical_only_noncurrent
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
-- official_tdcc_signal_date: 20260814
+- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
+- official_tdcc_signal_date: 20260821
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing

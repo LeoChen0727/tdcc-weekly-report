@@ -1,6 +1,6 @@
 # Individual Stock Raw Data Index Slim
 
-- generated_at: 2026-08-21 22:29:47 Asia/Taipei
+- generated_at: 2026-08-22 22:31:15 Asia/Taipei
 - total_stocks: 2413
 - standard_rawdata_report: 2126
 - partial_rawdata_report: 262
@@ -204,40 +204,40 @@
 | 009829 | 大華韓國KOSPI50 | 1 | 20260821 | 0 |  | tdcc_history_missing | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
 | 0099 |  | 0 |  | 0 |  | tdcc_history_missing | False | insufficient_data | price_history_missing; tdcc_history_missing |
 | 0200 | 兆豐半導體氣候N | 1 | 20250407 | 0 |  | tdcc_history_missing | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 1101 | 台泥 | 337 | 20260821 | 16 | 20260814 | ok | False | standard_rawdata_report |  |
-| 1102 | 亞泥 | 338 | 20260821 | 16 | 20260814 | ok | False | standard_rawdata_report |  |
-| 1103 | 嘉泥 | 338 | 20260821 | 16 | 20260814 | ok | False | standard_rawdata_report |  |
-| 1104 | 環泥 | 338 | 20260821 | 16 | 20260814 | ok | False | standard_rawdata_report |  |
-| 1108 | 幸福 | 338 | 20260821 | 16 | 20260814 | ok | False | standard_rawdata_report |  |
-| 1109 | 信大 | 338 | 20260821 | 16 | 20260814 | ok | False | standard_rawdata_report |  |
-| 1110 | 東泥 | 338 | 20260821 | 16 | 20260814 | ok | False | standard_rawdata_report |  |
-| 1201 | 味全 | 338 | 20260821 | 16 | 20260814 | ok | False | standard_rawdata_report |  |
-| 1203 | 味王 | 337 | 20260821 | 16 | 20260814 | ok | False | standard_rawdata_report |  |
-| 1210 | 大成 | 338 | 20260821 | 16 | 20260814 | ok | False | standard_rawdata_report |  |
-| 1213 | 大飲 | 314 | 20260820 | 16 | 20260814 | ok | False | standard_rawdata_report |  |
-| 1215 | 卜蜂 | 338 | 20260821 | 16 | 20260814 | ok | False | standard_rawdata_report |  |
-| 1216 | 統一 | 338 | 20260821 | 16 | 20260814 | ok | False | standard_rawdata_report |  |
-| 1217 | 愛之味 | 338 | 20260821 | 38 | 20260814 | ok | False | standard_rawdata_report |  |
-| 1218 | 泰山 | 337 | 20260821 | 16 | 20260814 | ok | False | standard_rawdata_report |  |
-| 1219 | 福壽 | 338 | 20260821 | 16 | 20260814 | ok | False | standard_rawdata_report |  |
-| 1220 | 台榮 | 338 | 20260821 | 16 | 20260814 | ok | False | standard_rawdata_report |  |
-| 1225 | 福懋油 | 285 | 20260821 | 16 | 20260814 | ok | False | standard_rawdata_report |  |
-| 1227 | 佳格 | 338 | 20260821 | 16 | 20260814 | ok | False | standard_rawdata_report |  |
-| 1229 | 聯華 | 338 | 20260821 | 16 | 20260814 | ok | False | standard_rawdata_report |  |
-| 1231 | 聯華食 | 338 | 20260821 | 16 | 20260814 | ok | False | standard_rawdata_report |  |
-| 1232 | 大統益 | 338 | 20260821 | 16 | 20260814 | ok | False | standard_rawdata_report |  |
-| 1233 | 天仁 | 338 | 20260821 | 38 | 20260814 | ok | False | standard_rawdata_report |  |
-| 1234 | 黑松 | 338 | 20260821 | 16 | 20260814 | ok | False | standard_rawdata_report |  |
-| 1235 | 興泰 | 333 | 20260821 | 16 | 20260814 | ok | False | standard_rawdata_report |  |
-| 1236 | 宏亞 | 335 | 20260821 | 16 | 20260814 | ok | False | standard_rawdata_report |  |
-| 1240 | 茂生農經 | 203 | 20260821 | 16 | 20260814 | ok | False | standard_rawdata_report |  |
-| 1256 | 鮮活果汁-KY | 338 | 20260821 | 16 | 20260814 | ok | False | standard_rawdata_report |  |
-| 1259 | 安心 | 170 | 20260821 | 16 | 20260814 | ok | False | standard_rawdata_report |  |
-| 1264 | 德麥 | 202 | 20260821 | 16 | 20260814 | ok | False | standard_rawdata_report |  |
-| 1268 | 漢來美食 | 203 | 20260821 | 16 | 20260814 | ok | False | standard_rawdata_report |  |
-| 1294 | 漢田生技 | 202 | 20260821 | 16 | 20260814 | ok | False | standard_rawdata_report |  |
-| 1295 | 生合 | 201 | 20260821 | 16 | 20260814 | ok | False | standard_rawdata_report |  |
-| 1301 | 台塑 | 338 | 20260821 | 16 | 20260814 | ok | False | standard_rawdata_report |  |
-| 1303 | 南亞 | 338 | 20260821 | 16 | 20260814 | ok | False | standard_rawdata_report |  |
+| 1101 | 台泥 | 337 | 20260821 | 17 | 20260821 | ok | False | standard_rawdata_report |  |
+| 1102 | 亞泥 | 338 | 20260821 | 17 | 20260821 | ok | False | standard_rawdata_report |  |
+| 1103 | 嘉泥 | 338 | 20260821 | 17 | 20260821 | ok | False | standard_rawdata_report |  |
+| 1104 | 環泥 | 338 | 20260821 | 17 | 20260821 | ok | False | standard_rawdata_report |  |
+| 1108 | 幸福 | 338 | 20260821 | 17 | 20260821 | ok | False | standard_rawdata_report |  |
+| 1109 | 信大 | 338 | 20260821 | 17 | 20260821 | ok | False | standard_rawdata_report |  |
+| 1110 | 東泥 | 338 | 20260821 | 17 | 20260821 | ok | False | standard_rawdata_report |  |
+| 1201 | 味全 | 338 | 20260821 | 17 | 20260821 | ok | False | standard_rawdata_report |  |
+| 1203 | 味王 | 337 | 20260821 | 17 | 20260821 | ok | False | standard_rawdata_report |  |
+| 1210 | 大成 | 338 | 20260821 | 17 | 20260821 | ok | False | standard_rawdata_report |  |
+| 1213 | 大飲 | 314 | 20260820 | 17 | 20260821 | ok | False | standard_rawdata_report |  |
+| 1215 | 卜蜂 | 338 | 20260821 | 17 | 20260821 | ok | False | standard_rawdata_report |  |
+| 1216 | 統一 | 338 | 20260821 | 17 | 20260821 | ok | False | standard_rawdata_report |  |
+| 1217 | 愛之味 | 338 | 20260821 | 39 | 20260821 | ok | False | standard_rawdata_report |  |
+| 1218 | 泰山 | 337 | 20260821 | 17 | 20260821 | ok | False | standard_rawdata_report |  |
+| 1219 | 福壽 | 338 | 20260821 | 17 | 20260821 | ok | False | standard_rawdata_report |  |
+| 1220 | 台榮 | 338 | 20260821 | 17 | 20260821 | ok | False | standard_rawdata_report |  |
+| 1225 | 福懋油 | 285 | 20260821 | 17 | 20260821 | ok | False | standard_rawdata_report |  |
+| 1227 | 佳格 | 338 | 20260821 | 17 | 20260821 | ok | False | standard_rawdata_report |  |
+| 1229 | 聯華 | 338 | 20260821 | 17 | 20260821 | ok | False | standard_rawdata_report |  |
+| 1231 | 聯華食 | 338 | 20260821 | 17 | 20260821 | ok | False | standard_rawdata_report |  |
+| 1232 | 大統益 | 338 | 20260821 | 17 | 20260821 | ok | False | standard_rawdata_report |  |
+| 1233 | 天仁 | 338 | 20260821 | 39 | 20260821 | ok | False | standard_rawdata_report |  |
+| 1234 | 黑松 | 338 | 20260821 | 17 | 20260821 | ok | False | standard_rawdata_report |  |
+| 1235 | 興泰 | 333 | 20260821 | 17 | 20260821 | ok | False | standard_rawdata_report |  |
+| 1236 | 宏亞 | 335 | 20260821 | 17 | 20260821 | ok | False | standard_rawdata_report |  |
+| 1240 | 茂生農經 | 203 | 20260821 | 17 | 20260821 | ok | False | standard_rawdata_report |  |
+| 1256 | 鮮活果汁-KY | 338 | 20260821 | 17 | 20260821 | ok | False | standard_rawdata_report |  |
+| 1259 | 安心 | 170 | 20260821 | 17 | 20260821 | ok | False | standard_rawdata_report |  |
+| 1264 | 德麥 | 202 | 20260821 | 17 | 20260821 | ok | False | standard_rawdata_report |  |
+| 1268 | 漢來美食 | 203 | 20260821 | 17 | 20260821 | ok | False | standard_rawdata_report |  |
+| 1294 | 漢田生技 | 202 | 20260821 | 17 | 20260821 | ok | False | standard_rawdata_report |  |
+| 1295 | 生合 | 201 | 20260821 | 17 | 20260821 | ok | False | standard_rawdata_report |  |
+| 1301 | 台塑 | 338 | 20260821 | 17 | 20260821 | ok | False | standard_rawdata_report |  |
+| 1303 | 南亞 | 338 | 20260821 | 17 | 20260821 | ok | False | standard_rawdata_report |  |
 
 _Only first 220 rows shown. Use the CSV for the full index._

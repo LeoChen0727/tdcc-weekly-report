@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2478 大毅
 
 ## Metadata
-- generated_at: 2026-08-21 22:27:01 Asia/Taipei
+- generated_at: 2026-08-22 22:27:00 Asia/Taipei
 - stock_id: 2478
 - stock_name: 大毅
 - packet_status: standard_180d_window_packet
@@ -11,10 +11,10 @@
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260814-4a7d44bd65038f59
-- official_tdcc_signal_date: 20260814
-- latest_tdcc_date: 20260814
-- tdcc_rows: 16
+- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
+- official_tdcc_signal_date: 20260821
+- latest_tdcc_date: 20260821
+- tdcc_rows: 17
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -171,23 +171,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260814
-- over_400_ratio: 56.9
-- over_600_ratio: 49.68
-- over_800_ratio: 45.86
-- over_1000_ratio: 44
-- over_400_change_1w: -5.19
-- over_800_change_1w: -9.75
-- over_1000_change_1w: -9.73
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260821
+- over_400_ratio: 57.53
+- over_600_ratio: 51.57
+- over_800_ratio: 49.17
+- over_1000_ratio: 46.67
+- over_400_change_1w: 0.63
+- over_800_change_1w: 3.31
+- over_1000_change_1w: 2.67
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260529,62.1,-2.76,52.43,-1.89,50.55,1.33,4,False,True
 20260605,64.04,1.94,54.41,1.98,52.57,2.02,5,True,True
 20260612,65.5,1.46,56.99,2.58,55.14,2.57,6,True,True
 20260618,69.68,4.18,61.78,4.79,59.36,4.22,7,True,True
@@ -199,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260731,62.8,0.5,55.09,-1.11,54.52,-1.11,2,False,False
 20260807,62.09,-0.71,55.61,0.52,53.73,-0.79,3,False,True
 20260814,56.9,-5.19,45.86,-9.75,44,-9.73,0,False,False
+20260821,57.53,0.63,49.17,3.31,46.67,2.67,1,True,True
 ```
 
 ## Candidate Context
