@@ -33,6 +33,20 @@ def replace_workflow_step_literal(
     return text.replace(block, mutated_block, 1)
 
 
+def replace_apps_script_function_literal(
+    text: str,
+    function_name: str,
+    old: str,
+    new: str,
+) -> str:
+    body = validate_apps_script_workflow_triggers.extract_gas_function_body(
+        text, function_name
+    )
+    assert old in body
+    mutated_body = body.replace(old, new, 1)
+    return text.replace(body, mutated_body, 1)
+
+
 def run_fixture_git(repo: Path, *args: str) -> subprocess.CompletedProcess[bytes]:
     return subprocess.run(
         ["git", "-c", "core.autocrlf=false", *args],
@@ -1442,6 +1456,115 @@ def test_apps_script_evening_data_only_trigger_is_weekday_deterministic() -> Non
     assert "new Date().getDay()" not in body
 
 
+@pytest.mark.parametrize(
+    ("function_name", "old", "new", "expected_error"),
+    [
+        (
+            "installAllWorkflowTriggers",
+            "installEveningDataOnlyRepairTrigger_();",
+            "",
+            "exactly once",
+        ),
+        (
+            "installAllWorkflowTriggers",
+            'removeTriggersForFunction_("triggerDailyPriceGapRepair");',
+            "",
+            "remove the retired 10:30 daily price-gap trigger exactly once",
+        ),
+        (
+            "installAllWorkflowTriggers",
+            'removeTriggersForFunction_("triggerDailyPriceGapRepair");',
+            "installDailyPriceGapRepairTrigger_();",
+            "must not reinstall the retired 10:30 daily price-gap trigger",
+        ),
+        (
+            "installAllWorkflowTriggers",
+            "installEveningDataOnlyRepairTrigger_();",
+            "installEveningDataOnlyRepairTrigger_();\n  installEveningDataOnlyRepairTrigger_();",
+            "exactly once",
+        ),
+        (
+            "installEveningDataOnlyRepairTrigger_",
+            'removeTriggersForFunction_("triggerEveningDataOnlyRepair");',
+            "",
+            "remove exactly the triggerEveningDataOnlyRepair handler",
+        ),
+        (
+            "installEveningDataOnlyRepairTrigger_",
+            'removeTriggersForFunction_("triggerEveningDataOnlyRepair");',
+            'removeTriggersForFunction_("triggerDailyPriceGapRepair");',
+            "remove exactly the triggerEveningDataOnlyRepair handler",
+        ),
+        (
+            "installEveningDataOnlyRepairTrigger_",
+            'ScriptApp.newTrigger("triggerEveningDataOnlyRepair")',
+            'ScriptApp.newTrigger("triggerDailyPriceGapRepair")',
+            "create exactly one triggerEveningDataOnlyRepair handler",
+        ),
+        (
+            "installEveningDataOnlyRepairTrigger_",
+            '.inTimezone("Asia/Taipei")',
+            '.inTimezone("UTC")',
+            'inTimezone("Asia/Taipei")',
+        ),
+        (
+            "installEveningDataOnlyRepairTrigger_",
+            ".atHour(20)",
+            ".atHour(21)",
+            "atHour(20)",
+        ),
+        (
+            "installEveningDataOnlyRepairTrigger_",
+            ".nearMinute(30)",
+            ".nearMinute(31)",
+            "nearMinute(30)",
+        ),
+        (
+            "installEveningDataOnlyRepairTrigger_",
+            ".everyDays(1)\n    .atHour(20)",
+            ".atHour(20)\n    .everyDays(1)",
+            "exact ordered daily 20:30 Asia/Taipei trigger builder chain",
+        ),
+    ],
+    ids=[
+        "missing-install-all-call",
+        "duplicate-install-all-call",
+        "missing-retired-morning-cleanup",
+        "reinstall-retired-morning-trigger",
+        "missing-cleanup",
+        "wrong-cleanup-handler",
+        "wrong-handler",
+        "wrong-timezone",
+        "wrong-hour",
+        "wrong-minute",
+        "wrong-builder-order",
+    ],
+)
+def test_apps_script_evening_installer_contract_rejects_mutations(
+    function_name: str,
+    old: str,
+    new: str,
+    expected_error: str,
+) -> None:
+    source = (ROOT / "docs" / "apps_script_workflow_trigger.gs").read_text(
+        encoding="utf-8"
+    )
+    mutated = replace_apps_script_function_literal(
+        source,
+        function_name,
+        old,
+        new,
+    )
+    errors: list[str] = []
+
+    validate_apps_script_workflow_triggers.validate_evening_data_only_trigger_installation(
+        errors,
+        apps_script_text=mutated,
+    )
+
+    assert any(expected_error in error for error in errors), errors
+
+
 def test_apps_script_evening_data_only_repair_retry_and_reconciliation_behavior(
     tmp_path: Path,
 ) -> None:
@@ -2613,7 +2736,7 @@ process.stdout.write("behavior-pass");
     assert result.stdout == "behavior-pass"
 
 
-def test_apps_script_tdcc_reconciliation_trigger_lifecycle_behavior(
+def test_apps_script_recurring_and_tdcc_trigger_lifecycle_behavior(
     tmp_path: Path,
 ) -> None:
     node = resolve_test_node()
@@ -2749,6 +2872,43 @@ writeTdccChainState_(state);
 orchestrateTdccIndividualRefresh();
 requireBehavior(triggers.length === 0, "completed state must remove all temporary triggers");
 
+triggerBuilder("triggerEveningDataOnlyRepair")
+  .timeBased()
+  .everyDays(1)
+  .atHour(1)
+  .nearMinute(5)
+  .inTimezone("UTC")
+  .create();
+triggerBuilder("triggerEveningDataOnlyRepair")
+  .timeBased()
+  .everyDays(1)
+  .atHour(2)
+  .nearMinute(10)
+  .inTimezone("UTC")
+  .create();
+requireBehavior(
+  triggersFor("triggerEveningDataOnlyRepair").length === 2,
+  "lifecycle fixture must start with two stale evening repair triggers"
+);
+triggerBuilder("triggerDailyPriceGapRepair")
+  .timeBased()
+  .everyDays(1)
+  .atHour(10)
+  .nearMinute(30)
+  .inTimezone("Asia/Taipei")
+  .create();
+triggerBuilder("triggerDailyPriceGapRepair")
+  .timeBased()
+  .everyDays(1)
+  .atHour(10)
+  .nearMinute(30)
+  .inTimezone("Asia/Taipei")
+  .create();
+requireBehavior(
+  triggersFor("triggerDailyPriceGapRepair").length === 2,
+  "lifecycle fixture must start with two stale retired morning repair triggers"
+);
+
 installAllWorkflowTriggers();
 requireBehavior(
   triggersFor("orchestrateTdccIndividualRefresh").length === 0 &&
@@ -2759,6 +2919,33 @@ const safety = triggersFor("triggerIndividualStockDataRefresh");
 requireBehavior(
   safety.length === 1 && safety[0].atHour === 22 && safety[0].nearMinute === 20,
   "daily 22:20 individual refresh safety trigger must remain installed"
+);
+const eveningRepair = triggersFor("triggerEveningDataOnlyRepair");
+requireBehavior(
+  triggersFor("triggerDailyPriceGapRepair").length === 0,
+  "standard rebuild must remove every retired 10:30 daily price-gap trigger"
+);
+requireBehavior(
+  eveningRepair.length === 1 &&
+    eveningRepair[0].everyDays === 1 &&
+    eveningRepair[0].atHour === 20 &&
+    eveningRepair[0].nearMinute === 30 &&
+    eveningRepair[0].timezone === "Asia/Taipei",
+  "standard rebuild must replace stale copies with one daily 20:30 Asia/Taipei evening repair trigger"
+);
+installAllWorkflowTriggers();
+const eveningRepairAfterSecondInstall = triggersFor("triggerEveningDataOnlyRepair");
+requireBehavior(
+  triggersFor("triggerDailyPriceGapRepair").length === 0,
+  "repeated standard rebuild must not recreate the retired morning repair trigger"
+);
+requireBehavior(
+  eveningRepairAfterSecondInstall.length === 1 &&
+    eveningRepairAfterSecondInstall[0].everyDays === 1 &&
+    eveningRepairAfterSecondInstall[0].atHour === 20 &&
+    eveningRepairAfterSecondInstall[0].nearMinute === 30 &&
+    eveningRepairAfterSecondInstall[0].timezone === "Asia/Taipei",
+  "repeated standard rebuild must remain idempotent with exactly one evening repair trigger"
 );
 process.stdout.write("trigger-lifecycle-pass");
 '''

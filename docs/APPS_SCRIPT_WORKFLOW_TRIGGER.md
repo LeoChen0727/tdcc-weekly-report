@@ -50,10 +50,13 @@ diagnoseDailyPriceGapRepairTrigger
 diagnoseTdccHistoryGapRepairTrigger
 installDailyStockMonitorTrigger
 installDailyPriceGapRepairTrigger
+installEveningDataOnlyRepairTrigger
+removeEveningDataOnlyRepairTrigger
 installTdccHistoryGapRepairTrigger
 triggerDailyStockMonitor
 triggerDailyFullPipeline
 triggerDailyPriceGapRepair
+triggerEveningDataOnlyRepair
 triggerTdccWeeklyReport
 orchestrateTdccIndividualRefresh
 diagnoseTdccIndividualRefreshOrchestration
@@ -92,11 +95,16 @@ PR 的 `pull_request` workflow 只代表 `branch_action_passed`，合併後仍�
 - `main_price_date`、`market_session_date` 與 `expected_main_price_date` 任一不一致，
   都不得回報正式產出成功。
 
-`triggerDailyPriceGapRepair` dispatches
-`.github/workflows/repair_recent_daily_price_gaps.yml` with a 7 calendar-day
-lookback and a maximum of 5 automatic repair dates. The workflow excludes the
-current Asia/Taipei date and uses the repository non-trading-day calendar before
-attempting repairs.
+`triggerDailyPriceGapRepair` remains a manual compatibility entrypoint for
+`.github/workflows/repair_recent_daily_price_gaps.yml`. Because that workflow
+includes the current Asia/Taipei date when it is a trading day, do not schedule
+this handler during market hours. The standard installer removes stale 10:30
+copies and uses the post-market handler below for automation.
+
+`triggerEveningDataOnlyRepair` dispatches the same bounded data-only repair
+workflow at the later post-market recovery window. It preserves the weekday,
+closed-market, lock, dispatch-correlation, duplicate/in-flight, and bounded-retry
+state machine; it does not bypass those gates or dispatch Daily Full directly.
 
 `triggerTdccWeeklyReport` dispatches the TDCC weekly report workflow and records
 the pre-dispatch run id, dispatch timestamp, and main SHA in Script Properties.
@@ -268,14 +276,21 @@ To recreate all scheduled workflow triggers, run:
 installAllWorkflowTriggers
 ```
 
+The standard rebuild includes `installEveningDataOnlyRepairTrigger_()` exactly
+once. That installer removes every existing `triggerEveningDataOnlyRepair`
+trigger before creating one daily 20:30 Asia/Taipei replacement, so a normal
+rebuild recovers a missing trigger and collapses stale duplicates. It also
+removes every legacy `triggerDailyPriceGapRepair` 10:30 trigger instead of
+reinstalling an automation that requests an incomplete current trading day.
+
 The canonical Apps Script source currently installs the recurring schedule
 below. Temporary TDCC reconciliation triggers are created only by an active
 Saturday chain:
 
 | handler | cadence | workflow |
 |---|---|---|
-| `triggerDailyPriceGapRepair` | daily 10:30 Asia/Taipei, skips Saturday/Sunday in handler | `repair_recent_daily_price_gaps.yml` |
 | `triggerDailyStockMonitor` | daily 19:30 Asia/Taipei, skips Saturday/Sunday in handler | `daily_full_pipeline.yml` |
+| `triggerEveningDataOnlyRepair` | daily 20:30 Asia/Taipei, skips Saturday/Sunday and closed markets in handler | `repair_recent_daily_price_gaps.yml` |
 | `triggerIndividualStockDataRefresh` | daily 22:20 Asia/Taipei | `individual_stock_data_refresh.yml` |
 | `triggerEventCatalystUpdate` | daily 08:10 and 18:10 Asia/Taipei | `event_catalyst_update.yml` |
 | `triggerTdccHistoryGapRepair` | Tuesday 09:30 Asia/Taipei | `repair_tdcc_monthly_history_gaps.yml` |
@@ -308,4 +323,7 @@ internal date gate.
 This repository stores the canonical Apps Script source, but it does not include
 a `.clasp.json` deployment binding. If the Apps Script editor still has an older
 copy, paste the current contents of `docs/apps_script_workflow_trigger.gs` into
-the Apps Script project before running the recovery flow.
+the Apps Script project before running the recovery flow. Then run
+`installAllWorkflowTriggers` and inspect `listAllTriggers`; the deployed project
+must contain exactly one `triggerEveningDataOnlyRepair` trigger at daily 20:30
+Asia/Taipei.

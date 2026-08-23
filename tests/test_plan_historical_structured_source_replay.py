@@ -9,6 +9,7 @@ from scripts import plan_historical_structured_source_replay as planner
 
 
 TAIFEX_SOURCES = tuple(planner.replay.TAIFEX_HISTORY_SPECS)
+TAIFEX_DATED_SOURCES = tuple(planner.replay.TAIFEX_DATED_RAW_SOURCE_IDS)
 
 
 def tail_matrix(*, high_water: str = "20260729", base: str = "20260724") -> dict:
@@ -27,17 +28,42 @@ def tail_matrix(*, high_water: str = "20260729", base: str = "20260724") -> dict
     }
 
 
+def operational_tail_matrix(
+    *,
+    high_water: str = "20260729",
+    taifex_dated_tail: str = "20260728",
+) -> dict:
+    matrix = tail_matrix(high_water=high_water, base=high_water)
+    for source_id in TAIFEX_DATED_SOURCES:
+        matrix["taifex"][source_id] = taifex_dated_tail
+    return matrix
+
+
+def cross_day_operational_tail_matrix(
+    *,
+    high_water: str = "20260729",
+    operational_date: str = "20260724",
+    taifex_dated_tail: str = "20260723",
+) -> dict:
+    matrix = tail_matrix(high_water=high_water, base=operational_date)
+    for source_id in TAIFEX_DATED_SOURCES:
+        matrix["taifex"][source_id] = taifex_dated_tail
+    return matrix
+
+
 def test_plan_returns_exact_bounded_replay_window() -> None:
     result = planner.plan_from_tail_matrix(tail_matrix(), max_replay_dates=3)
 
     assert result == {
         "should_replay": True,
         "start_date": "20260727",
-        "end_date": "20260729",
+        "end_date": "20260728",
         "price_history_high_water_date": "20260729",
         "required_base_date": "20260724",
-        "trading_dates": ["20260727", "20260728", "20260729"],
-        "reason": "structured_sources_behind_price_history_high_water",
+        "taifex_dated_tail_date": "20260724",
+        "repair_taifex_base_date": "",
+        "trading_dates": ["20260727", "20260728"],
+        "reason": "structured_sources_require_pre_resume_catch_up",
     }
 
 
@@ -53,54 +79,147 @@ def test_plan_returns_no_replay_when_structured_tails_match_high_water() -> None
         "end_date": "",
         "price_history_high_water_date": "20260729",
         "required_base_date": "20260729",
+        "taifex_dated_tail_date": "20260729",
+        "repair_taifex_base_date": "",
         "trading_dates": [],
         "reason": "structured_sources_already_at_price_history_high_water",
     }
 
 
+def test_plan_accepts_source_specific_operational_tails_without_replay() -> None:
+    result = planner.plan_from_tail_matrix(
+        operational_tail_matrix(),
+        max_replay_dates=3,
+    )
+
+    assert result == {
+        "should_replay": False,
+        "start_date": "",
+        "end_date": "",
+        "price_history_high_water_date": "20260729",
+        "required_base_date": "20260729",
+        "taifex_dated_tail_date": "20260728",
+        "repair_taifex_base_date": "",
+        "trading_dates": [],
+        "reason": "structured_sources_satisfy_source_specific_operational_tails",
+    }
+
+
+def test_plan_leaves_single_operational_advance_to_daily_full() -> None:
+    result = planner.plan_from_tail_matrix(
+        cross_day_operational_tail_matrix(high_water="20260727"),
+        max_replay_dates=1,
+    )
+
+    assert result == {
+        "should_replay": False,
+        "start_date": "",
+        "end_date": "",
+        "price_history_high_water_date": "20260727",
+        "required_base_date": "20260724",
+        "taifex_dated_tail_date": "20260723",
+        "repair_taifex_base_date": "",
+        "trading_dates": [],
+        "reason": "structured_sources_ready_for_single_daily_full_advance",
+    }
+
+
+def test_plan_leaves_single_aligned_advance_to_daily_full() -> None:
+    result = planner.plan_from_tail_matrix(
+        tail_matrix(high_water="20260727", base="20260724"),
+        max_replay_dates=1,
+    )
+
+    assert result["should_replay"] is False
+    assert result["required_base_date"] == "20260724"
+    assert result["taifex_dated_tail_date"] == "20260724"
+    assert result["repair_taifex_base_date"] == ""
+    assert result["reason"] == "structured_sources_ready_for_single_daily_full_advance"
+
+
+def test_plan_repairs_taifex_base_then_replays_only_pre_resume_dates() -> None:
+    result = planner.plan_from_tail_matrix(
+        cross_day_operational_tail_matrix(),
+        max_replay_dates=3,
+    )
+
+    assert result == {
+        "should_replay": True,
+        "start_date": "20260727",
+        "end_date": "20260728",
+        "price_history_high_water_date": "20260729",
+        "required_base_date": "20260724",
+        "taifex_dated_tail_date": "20260723",
+        "repair_taifex_base_date": "20260724",
+        "trading_dates": ["20260727", "20260728"],
+        "reason": "structured_sources_require_pre_resume_catch_up",
+    }
+
+
+def test_plan_counts_taifex_base_repair_against_replay_limit() -> None:
+    with pytest.raises(
+        RuntimeError,
+        match="taifex_base_repair_count=1 max_replay_dates=2",
+    ):
+        planner.plan_from_tail_matrix(
+            cross_day_operational_tail_matrix(),
+            max_replay_dates=2,
+        )
+
+
 def test_plan_reads_source_tail_matrix_once(monkeypatch) -> None:
     calls = 0
-    validated: list[tuple[dict, str, str]] = []
-    coverage: list[tuple[str, int]] = []
+    price_validated: list[str] = []
+    stock_validated: list[tuple[str, str]] = []
+    coverage: list[tuple[str, str, int]] = []
 
     def source_tail_matrix() -> dict:
         nonlocal calls
         calls += 1
-        return tail_matrix(high_water="20260729", base="20260729")
+        return operational_tail_matrix()
 
     monkeypatch.setattr(planner.replay, "source_tail_matrix", source_tail_matrix)
     monkeypatch.setattr(
         planner.replay,
         "validate_exact_baseline",
-        lambda matrix, required_base, high_water: validated.append(
-            (matrix, required_base, high_water)
+        lambda *args, **kwargs: pytest.fail(
+            "operational no-replay must not use the aligned replay baseline"
+        ),
+    )
+    monkeypatch.setattr(
+        planner.replay,
+        "validate_daily_price_canonical_legacy_pair",
+        lambda end_date: price_validated.append(end_date),
+    )
+    monkeypatch.setattr(
+        planner.replay,
+        "validate_stock_history_date_coverage",
+        lambda end_date, manifest_end_date: stock_validated.append(
+            (end_date, manifest_end_date)
         ),
     )
     monkeypatch.setattr(
         planner,
-        "validate_recent_structured_source_coverage",
-        lambda end_date, count: coverage.append((end_date, count)),
+        "validate_operational_structured_source_coverage",
+        lambda high_water, taifex_dated_tail_date, count: coverage.append(
+            (high_water, taifex_dated_tail_date, count)
+        ),
     )
 
     result = planner.build_plan(max_replay_dates=1)
 
     assert result["should_replay"] is False
     assert calls == 1
-    assert validated == [
-        (
-            tail_matrix(high_water="20260729", base="20260729"),
-            "20260729",
-            "20260729",
-        )
-    ]
-    assert coverage == [("20260729", 1)]
+    assert price_validated == ["20260729"]
+    assert stock_validated == [("20260729", "20260729")]
+    assert coverage == [("20260729", "20260728", 1)]
 
 
 def test_build_plan_fails_when_exact_baseline_validation_fails(monkeypatch) -> None:
     monkeypatch.setattr(
         planner.replay,
         "source_tail_matrix",
-        lambda: tail_matrix(high_water="20260729", base="20260729"),
+        lambda: tail_matrix(high_water="20260728", base="20260724"),
     )
 
     def fail_exact_baseline(*args, **kwargs) -> None:
@@ -110,6 +229,42 @@ def test_build_plan_fails_when_exact_baseline_validation_fails(monkeypatch) -> N
 
     with pytest.raises(RuntimeError, match="canonical legacy parity failed"):
         planner.build_plan(max_replay_dates=1)
+
+
+def test_build_plan_routes_mixed_replay_baseline_and_coverage(monkeypatch) -> None:
+    matrix = cross_day_operational_tail_matrix()
+    baseline_calls: list[tuple[dict, str, str, str]] = []
+    coverage_calls: list[tuple[str, str, int]] = []
+    monkeypatch.setattr(planner.replay, "source_tail_matrix", lambda: matrix)
+    monkeypatch.setattr(
+        planner.replay,
+        "validate_exact_baseline",
+        lambda observed, required_base, high_water, repair_taifex_base_date: (
+            baseline_calls.append(
+                (observed, required_base, high_water, repair_taifex_base_date)
+            )
+        ),
+    )
+    monkeypatch.setattr(
+        planner,
+        "validate_operational_structured_source_coverage",
+        lambda high_water, taifex_dated_tail_date, count: coverage_calls.append(
+            (high_water, taifex_dated_tail_date, count)
+        ),
+    )
+    monkeypatch.setattr(
+        planner,
+        "validate_recent_structured_source_coverage",
+        lambda *args, **kwargs: pytest.fail(
+            "mixed replay baseline must use source-specific coverage"
+        ),
+    )
+
+    result = planner.build_plan(max_replay_dates=3)
+
+    assert result["repair_taifex_base_date"] == "20260724"
+    assert baseline_calls == [(matrix, "20260724", "20260729", "20260724")]
+    assert coverage_calls == [("20260724", "20260723", 3)]
 
 
 def test_recent_structured_coverage_checks_each_family_for_each_date(monkeypatch) -> None:
@@ -146,6 +301,49 @@ def test_recent_structured_coverage_propagates_internal_gap(monkeypatch) -> None
 
     with pytest.raises(RuntimeError, match="missing structured row"):
         planner.validate_recent_structured_source_coverage("20260729", count=1)
+
+
+def test_operational_coverage_uses_distinct_d0_and_taifex_d1_windows(
+    monkeypatch,
+) -> None:
+    evidence_calls: list[tuple[str, str]] = []
+    vix_calls: list[tuple[Path, str, tuple[str, ...]]] = []
+    monkeypatch.setattr(
+        planner,
+        "recent_trading_dates_ending_at",
+        lambda end_date, count: [end_date],
+    )
+    monkeypatch.setattr(
+        planner.replay,
+        "build_source_output_evidence",
+        lambda source_id, target_date: evidence_calls.append((source_id, target_date)),
+    )
+    monkeypatch.setattr(
+        planner.replay,
+        "canonical_target_slice",
+        lambda path, target_date, pk_columns: vix_calls.append(
+            (path, target_date, tuple(pk_columns))
+        ),
+    )
+
+    planner.validate_operational_structured_source_coverage(
+        "20260729",
+        taifex_dated_tail_date="20260728",
+        count=3,
+    )
+
+    assert evidence_calls == [
+        ("market_index", "20260729"),
+        ("official_warrant_daily", "20260729"),
+        ("taifex_futures_options_vix", "20260728"),
+    ]
+    assert vix_calls == [
+        (
+            planner.replay.TAIFEX_HISTORY_SPECS["taiwan_vix"][0],
+            "20260729",
+            tuple(planner.replay.TAIFEX_HISTORY_SPECS["taiwan_vix"][1]),
+        )
+    ]
 
 
 def test_plan_rejects_price_and_history_tail_mismatch() -> None:
@@ -191,7 +389,37 @@ def test_plan_rejects_misaligned_structured_tail(family: str, key: str) -> None:
     matrix = tail_matrix()
     matrix[family][key] = "20260723"
 
-    with pytest.raises(RuntimeError, match="structured tails are not aligned"):
+    with pytest.raises(RuntimeError, match="source-specific operational tail mismatch"):
+        planner.plan_from_tail_matrix(matrix, max_replay_dates=3)
+
+
+def test_plan_rejects_taifex_dated_tail_older_than_d1() -> None:
+    matrix = operational_tail_matrix(taifex_dated_tail="20260727")
+
+    with pytest.raises(RuntimeError, match="must be one common D0 or D-1"):
+        planner.plan_from_tail_matrix(matrix, max_replay_dates=3)
+
+
+def test_plan_rejects_mixed_taifex_dated_release_dates() -> None:
+    matrix = operational_tail_matrix()
+    matrix["taifex"][TAIFEX_DATED_SOURCES[0]] = "20260729"
+
+    with pytest.raises(RuntimeError, match="must be one common D0 or D-1"):
+        planner.plan_from_tail_matrix(matrix, max_replay_dates=3)
+
+
+def test_plan_rejects_lagged_vix_when_other_d0_sources_are_current() -> None:
+    matrix = operational_tail_matrix()
+    matrix["taifex"]["taiwan_vix"] = "20260728"
+
+    with pytest.raises(RuntimeError, match="D0 structured source tails must share one date"):
+        planner.plan_from_tail_matrix(matrix, max_replay_dates=3)
+
+
+def test_plan_rejects_future_taifex_dated_tail() -> None:
+    matrix = operational_tail_matrix(taifex_dated_tail="20260730")
+
+    with pytest.raises(RuntimeError, match="must be one common D0 or D-1"):
         planner.plan_from_tail_matrix(matrix, max_replay_dates=3)
 
 
@@ -213,7 +441,7 @@ def test_plan_rejects_structured_base_later_than_high_water() -> None:
 
 def test_plan_rejects_window_over_max_replay_dates() -> None:
     with pytest.raises(RuntimeError, match="exceeds --max-replay-dates"):
-        planner.plan_from_tail_matrix(tail_matrix(), max_replay_dates=2)
+        planner.plan_from_tail_matrix(tail_matrix(), max_replay_dates=1)
 
 
 def test_plan_rejects_nonpositive_max_replay_dates() -> None:

@@ -1945,7 +1945,8 @@ function installBiweeklyResearchBacktestTrigger() {
 }
 
 function installAllWorkflowTriggers() {
-  installDailyPriceGapRepairTrigger_();
+  removeTriggersForFunction_("triggerDailyPriceGapRepair");
+  installEveningDataOnlyRepairTrigger_();
   installDailyStockMonitorTrigger_();
   installIndividualStockDataRefreshTrigger_();
   installTdccHistoryGapRepairTrigger_();

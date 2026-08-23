@@ -50,7 +50,6 @@ ALL_DAYS = {SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY}
 SCHEDULED_WORKFLOW_DISPATCHES = [
     ("triggerEventCatalystUpdate morning", ALL_DAYS, 8 * 60 + 10),
     ("triggerTdccHistoryGapRepair", {TUESDAY}, 9 * 60 + 30),
-    ("triggerDailyPriceGapRepair", WEEKDAYS, 10 * 60 + 30),
     ("triggerTdccWeeklyReport", {SATURDAY}, 15 * 60 + 30),
     ("triggerEventCatalystUpdate evening", ALL_DAYS, 18 * 60 + 10),
     ("triggerDailyStockMonitor", WEEKDAYS, 19 * 60 + 30),
@@ -462,6 +461,119 @@ def require_text(body: str, expected: str, errors: list[str], message: str) -> N
 def require_regex(body: str, pattern: str, errors: list[str], message: str) -> None:
     if not re.search(pattern, body, re.S):
         errors.append(message)
+
+
+def validate_evening_data_only_trigger_installation(
+    errors: list[str],
+    *,
+    apps_script_text: str | None = None,
+) -> None:
+    text = read_text(APPS_SCRIPT) if apps_script_text is None else apps_script_text
+    try:
+        install_all_body = extract_gas_function_body(text, "installAllWorkflowTriggers")
+        installer_body = extract_gas_function_body(
+            text, "installEveningDataOnlyRepairTrigger_"
+        )
+    except ValueError as exc:
+        errors.append(str(exc))
+        return
+
+    install_all_calls = re.findall(
+        r"\binstallEveningDataOnlyRepairTrigger_\s*\(\s*\)\s*;",
+        install_all_body,
+    )
+    if len(install_all_calls) != 1:
+        errors.append(
+            "installAllWorkflowTriggers must install the evening data-only repair trigger exactly once"
+        )
+
+    retired_morning_cleanup_calls = re.findall(
+        r'removeTriggersForFunction_\(\s*"triggerDailyPriceGapRepair"\s*\)\s*;',
+        install_all_body,
+    )
+    if len(retired_morning_cleanup_calls) != 1:
+        errors.append(
+            "installAllWorkflowTriggers must remove the retired 10:30 daily price-gap trigger exactly once"
+        )
+    if re.search(
+        r"\binstallDailyPriceGapRepairTrigger_\s*\(\s*\)\s*;",
+        install_all_body,
+    ):
+        errors.append(
+            "installAllWorkflowTriggers must not reinstall the retired 10:30 daily price-gap trigger"
+        )
+
+    removed_handlers = re.findall(
+        r'removeTriggersForFunction_\(\s*"([^"]+)"\s*\)\s*;',
+        installer_body,
+    )
+    if removed_handlers != ["triggerEveningDataOnlyRepair"]:
+        errors.append(
+            "Evening data-only repair installer must remove exactly the triggerEveningDataOnlyRepair handler before rebuilding"
+        )
+
+    created_handlers = re.findall(
+        r'ScriptApp\.newTrigger\(\s*"([^"]+)"\s*\)',
+        installer_body,
+    )
+    if created_handlers != ["triggerEveningDataOnlyRepair"]:
+        errors.append(
+            "Evening data-only repair installer must create exactly one triggerEveningDataOnlyRepair handler"
+        )
+
+    exact_method_values = {
+        "everyDays": "1",
+        "atHour": "20",
+        "nearMinute": "30",
+        "inTimezone": '"Asia/Taipei"',
+    }
+    for method_name, expected_value in exact_method_values.items():
+        actual_values = [
+            value.strip()
+            for value in re.findall(
+                rf"\.{method_name}\(\s*([^)]*?)\s*\)",
+                installer_body,
+            )
+        ]
+        if actual_values != [expected_value]:
+            errors.append(
+                "Evening data-only repair installer must use exactly "
+                f"{method_name}({expected_value})"
+            )
+
+    if len(re.findall(r"\.timeBased\(\s*\)", installer_body)) != 1:
+        errors.append(
+            "Evening data-only repair installer must use exactly one timeBased trigger builder"
+        )
+    if len(re.findall(r"\.create\(\s*\)\s*;", installer_body)) != 1:
+        errors.append(
+            "Evening data-only repair installer must create exactly one scheduled trigger"
+        )
+
+    ordered_builder_pattern = (
+        r'ScriptApp\.newTrigger\(\s*"triggerEveningDataOnlyRepair"\s*\)\s*'
+        r"\.timeBased\(\s*\)\s*"
+        r"\.everyDays\(\s*1\s*\)\s*"
+        r"\.atHour\(\s*20\s*\)\s*"
+        r"\.nearMinute\(\s*30\s*\)\s*"
+        r'\.inTimezone\(\s*"Asia/Taipei"\s*\)\s*'
+        r"\.create\(\s*\)\s*;"
+    )
+    if len(re.findall(ordered_builder_pattern, installer_body)) != 1:
+        errors.append(
+            "Evening data-only repair installer must use the exact ordered daily 20:30 Asia/Taipei trigger builder chain"
+        )
+
+    remove_position = installer_body.find(
+        'removeTriggersForFunction_("triggerEveningDataOnlyRepair")'
+    )
+    create_position = installer_body.find(
+        'ScriptApp.newTrigger("triggerEveningDataOnlyRepair")'
+    )
+    if remove_position < 0 or create_position < 0 or remove_position >= create_position:
+        errors.append(
+            "Evening data-only repair installer must remove stale handlers before creating the replacement"
+        )
 
 
 def validate_trigger_spacing(errors: list[str]) -> None:
@@ -1078,10 +1190,6 @@ def main() -> int:
             [".everyDays(1)", ".atHour(10)", ".nearMinute(30)"],
             "Apps Script daily price gap repair trigger must run daily at 10:30 Asia/Taipei",
         ),
-        "installEveningDataOnlyRepairTrigger_": (
-            [".everyDays(1)", ".atHour(20)", ".nearMinute(30)"],
-            "Apps Script evening data-only repair trigger must run daily at 20:30 Asia/Taipei",
-        ),
         "installIndividualStockDataRefreshTrigger_": (
             [".everyDays(1)", ".atHour(22)", ".nearMinute(20)"],
             "Apps Script individual stock data refresh trigger must run daily at 22:20 Asia/Taipei",
@@ -1120,13 +1228,7 @@ def main() -> int:
             "Apps Script event catalyst update triggers must run daily at 08:10 and 18:10 Asia/Taipei",
         )
 
-    try:
-        install_all_body = apps_script_function_body("installAllWorkflowTriggers")
-    except ValueError as exc:
-        errors.append(str(exc))
-    else:
-        if "installEveningDataOnlyRepairTrigger_()" in install_all_body:
-            errors.append("installAllWorkflowTriggers must not auto-install evening data-only repair trigger")
+    validate_evening_data_only_trigger_installation(errors)
 
     validate_trigger_spacing(errors)
     validate_tdcc_individual_refresh_orchestration(errors)

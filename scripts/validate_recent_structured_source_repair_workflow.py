@@ -256,6 +256,9 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         "price_history_high_water_date:": (
             "reusable replay must preserve the raw price/history high-water"
         ),
+        "repair_taifex_base_date:": (
+            "reusable replay must expose an explicit optional TAIFEX base repair"
+        ),
         "expected_main_sha:": "reusable replay must bind to an immutable main SHA",
         "domain_output_commit_sha:\n        value: ${{ jobs.replay-historical-structured-sources.outputs.domain_output_commit_sha }}": (
             "workflow_call must expose the replay domain commit through the replay job output"
@@ -415,6 +418,15 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         "repair_market_index_base_date: \"\"": (
             "automatic catch-up must not invent a base repair"
         ),
+        "repair_taifex_base_date: ${{ needs.plan-structured-objective-source-catch-up.outputs.repair_taifex_base_date }}": (
+            "automatic catch-up must route only the planner-authorized TAIFEX base repair"
+        ),
+        "repair_taifex_base_date: ${{ steps.structured_replay_plan.outputs.repair_taifex_base_date }}": (
+            "planner job must expose the exact TAIFEX base repair decision"
+        ),
+        "f\"{payload.get('repair_taifex_base_date', '')}\"": (
+            "planner output bridge must preserve the TAIFEX base repair date"
+        ),
         "Build immutable current-day source recovery bundle": (
             "recent repair must build a durable date-scoped source bundle before commit"
         ),
@@ -572,6 +584,12 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         "id: publish_replay": (
             "replay outputs must originate from the exact publish step"
         ),
+        "TAIFEX_BASE_REPAIR_DATE: ${{ inputs.repair_taifex_base_date }}": (
+            "reusable replay runtime must bind the explicit TAIFEX base repair input"
+        ),
+        '--repair-taifex-base-date "$TAIFEX_BASE_REPAIR_DATE"': (
+            "replay and both validators must consume the explicit TAIFEX base repair date"
+        ),
     }
     for literal, purpose in replay_runtime_required.items():
         if literal not in replay_text:
@@ -580,6 +598,75 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
     for literal, purpose in recent_required.items():
         if literal not in recent_text:
             errors.append(f"{purpose}: missing {literal!r}")
+    for literal in (
+        "repair_taifex_base_date: ${{ steps.structured_replay_plan.outputs.repair_taifex_base_date }}",
+        "f\"{payload.get('repair_taifex_base_date', '')}\"",
+        "repair_taifex_base_date: ${{ needs.plan-structured-objective-source-catch-up.outputs.repair_taifex_base_date }}",
+    ):
+        if recent_text.count(literal) != 1:
+            errors.append(
+                "recent repair must route each TAIFEX base repair planner identity "
+                f"exactly once: {literal!r}"
+            )
+
+    live_repair_step = _step_block(
+        _job_block(recent_text, "repair-recent-daily-price-gaps"),
+        "Repair recent daily price gaps",
+    )
+    normalized_live_repair = " ".join(live_repair_step.split())
+    exact_live_window = (
+        'if [ -n "$AS_OF_DATE" ]; then '
+        'args+=(--as-of-date "$AS_OF_DATE") else '
+        'taipei_hour="$(TZ=Asia/Taipei date +%H)" '
+        'if [[ ! "$taipei_hour" =~ ^([01][0-9]|2[0-3])$ ]]; then '
+        'echo "::error::Unable to resolve a valid Asia/Taipei hour for the live repair window." '
+        'exit 1 fi '
+        'if [ "$((10#$taipei_hour))" -lt 18 ]; then '
+        'args+=(--exclude-as-of-date) fi fi'
+    )
+    if exact_live_window not in normalized_live_repair:
+        errors.append(
+            "live recent repair must preserve explicit as_of_date inputs and exclude the "
+            "implicit Asia/Taipei as-of date before 18:00"
+        )
+    if recent_text.count("args+=(--exclude-as-of-date)") != 1:
+        errors.append(
+            "live recent repair must contain exactly one pre-18:00 as-of-date exclusion"
+        )
+
+    taifex_repair_arg = '--repair-taifex-base-date "$TAIFEX_BASE_REPAIR_DATE"'
+    if replay_text.count(taifex_repair_arg) != 3:
+        errors.append(
+            "historical replay must route the TAIFEX base repair exactly once to replay "
+            "and both artifact validations"
+        )
+    if workflow_call_block.count("repair_taifex_base_date:") != 1:
+        errors.append(
+            "workflow_call must declare exactly one TAIFEX base repair input"
+        )
+    workflow_dispatch_block = (
+        replay_text.split(workflow_dispatch_marker, 1)[1]
+        if workflow_dispatch_marker in replay_text
+        else ""
+    )
+    for entrypoint, block in (
+        ("workflow_call", workflow_call_block),
+        ("workflow_dispatch", workflow_dispatch_block),
+    ):
+        if "repair_taifex_base_date:" not in block:
+            errors.append(f"{entrypoint} must declare the TAIFEX base repair input")
+            continue
+        input_block = block.split("repair_taifex_base_date:", 1)[1].split(
+            "expected_main_sha:", 1
+        )[0]
+        if (
+            input_block.count("required: false") != 1
+            or input_block.count('default: ""') != 1
+            or "required: true" in input_block
+        ):
+            errors.append(
+                f"{entrypoint} TAIFEX base repair input must remain optional and empty by default"
+            )
 
     if recent_text.count(
         "uses: ./.github/workflows/historical_structured_source_replay.yml"
@@ -763,6 +850,29 @@ def validate(recent_text: str, replay_text: str, daily_full_text: str) -> list[s
         errors.append(
             "recent repair reusable replay job must pass exactly the named production "
             "writer secret and must not inherit or add secrets"
+        )
+    expected_replay_with = {
+        "start_date": (
+            "${{ needs.plan-structured-objective-source-catch-up.outputs.start_date }}"
+        ),
+        "end_date": (
+            "${{ needs.plan-structured-objective-source-catch-up.outputs.end_date }}"
+        ),
+        "price_history_high_water_date": (
+            "${{ needs.plan-structured-objective-source-catch-up.outputs.price_history_high_water_date }}"
+        ),
+        "repair_market_index_base_date": "",
+        "repair_taifex_base_date": (
+            "${{ needs.plan-structured-objective-source-catch-up.outputs.repair_taifex_base_date }}"
+        ),
+        "expected_main_sha": (
+            "${{ needs.plan-structured-objective-source-catch-up.outputs.expected_main_sha }}"
+        ),
+    }
+    if _job_mapping(reusable_job, "with") != expected_replay_with:
+        errors.append(
+            "recent repair reusable replay inputs must exactly route the bounded planner "
+            "window, high-water, and TAIFEX base repair decision"
         )
 
     forbidden = {

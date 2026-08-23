@@ -415,6 +415,60 @@ def test_reusable_workflow_definition_and_post_plan_drift_gates_are_required() -
     assert any("revalidate pinned ancestry" in error for error in errors)
 
 
+def test_taifex_base_repair_is_optional_and_exactly_planner_routed() -> None:
+    recent_text, replay_text, daily_full_text = _texts()
+
+    mutated_recent = recent_text.replace(
+        "repair_taifex_base_date: ${{ needs.plan-structured-objective-source-catch-up.outputs.repair_taifex_base_date }}",
+        'repair_taifex_base_date: "20260724"',
+        1,
+    )
+    errors = validator.validate(mutated_recent, replay_text, daily_full_text)
+    assert any("TAIFEX base repair" in error for error in errors)
+
+    mutated_replay = replay_text.replace(
+        '--repair-taifex-base-date "$TAIFEX_BASE_REPAIR_DATE"',
+        '--repair-taifex-base-date ""',
+        1,
+    )
+    errors = validator.validate(recent_text, mutated_replay, daily_full_text)
+    assert any("both artifact validations" in error for error in errors)
+
+    required_replay = replay_text.replace(
+        "repair_taifex_base_date:\n"
+        '        description: "Optional TAIFEX-only base alignment date for a source-contract D-1 baseline"\n'
+        "        required: false",
+        "repair_taifex_base_date:\n"
+        '        description: "Optional TAIFEX-only base alignment date for a source-contract D-1 baseline"\n'
+        "        required: true",
+        1,
+    )
+    errors = validator.validate(recent_text, required_replay, daily_full_text)
+    assert any("optional and empty by default" in error for error in errors)
+
+
+def test_live_repair_excludes_implicit_as_of_date_only_before_taipei_18() -> None:
+    recent_text, replay_text, daily_full_text = _texts()
+    mutations = (
+        recent_text.replace("TZ=Asia/Taipei date +%H", "TZ=UTC date +%H", 1),
+        recent_text.replace('"$((10#$taipei_hour))" -lt 18', '"$((10#$taipei_hour))" -lt 12', 1),
+        recent_text.replace(
+            'if [ -n "$AS_OF_DATE" ]; then',
+            'if [ -z "$AS_OF_DATE" ]; then',
+            1,
+        ),
+        recent_text.replace("args+=(--exclude-as-of-date)", "echo include-current-date", 1),
+    )
+
+    for mutated_recent in mutations:
+        errors = validator.validate(mutated_recent, replay_text, daily_full_text)
+        assert any(
+            "implicit Asia/Taipei as-of date before 18:00" in error
+            or "pre-18:00 as-of-date exclusion" in error
+            for error in errors
+        )
+
+
 def test_runtime_static_blocks_and_unbounded_or_nonordinary_publish_are_rejected() -> None:
     recent_text, replay_text, daily_full_text = _texts()
     recent_text = recent_text.replace(

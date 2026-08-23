@@ -660,12 +660,37 @@ def baseline_matrix_errors(
     required_base_date: str,
     price_history_high_water_date: str = "",
     base_repair_date: str = "",
+    repair_taifex_base_date: str = "",
 ) -> list[str]:
     expected_price_history_tail = price_history_high_water_date or required_base_date
     errors: list[str] = []
+    if base_repair_date and repair_taifex_base_date:
+        errors.append(
+            "market-index and TAIFEX base repairs are mutually exclusive: "
+            f"market={base_repair_date} taifex={repair_taifex_base_date}"
+        )
     if base_repair_date and base_repair_date != required_base_date:
         errors.append(
             f"base_repair_date={base_repair_date} expected={required_base_date}"
+        )
+    if repair_taifex_base_date and repair_taifex_base_date != required_base_date:
+        errors.append(
+            "repair_taifex_base_date="
+            f"{repair_taifex_base_date} expected={required_base_date}"
+        )
+    if repair_taifex_base_date and not price_history_high_water_date:
+        errors.append(
+            "repair_taifex_base_date requires price_history_high_water_date"
+        )
+    if (
+        repair_taifex_base_date
+        and price_history_high_water_date
+        and price_history_high_water_date <= required_base_date
+    ):
+        errors.append(
+            "repair_taifex_base_date requires price_history_high_water_date later "
+            f"than required_base_date: high_water={price_history_high_water_date} "
+            f"base={required_base_date}"
         )
     if matrix.get("daily_price") != expected_price_history_tail:
         errors.append(
@@ -688,10 +713,30 @@ def baseline_matrix_errors(
     for family in ("market_index", "market_index_ohlc"):
         if matrix.get(family) != expected_market:
             errors.append(f"{family}={matrix.get(family)} expected={expected_market}")
-    if set(matrix.get("taifex", {}).values()) != {required_base_date}:
+    taifex = matrix.get("taifex", {})
+    expected_taifex_keys = set(TAIFEX_HISTORY_SPECS)
+    if not isinstance(taifex, dict) or set(taifex) != expected_taifex_keys:
+        observed_keys = sorted(taifex) if isinstance(taifex, dict) else []
         errors.append(
-            f"taifex={matrix.get('taifex')} expected all {required_base_date}"
+            "taifex source set mismatch: "
+            f"observed={observed_keys} expected={sorted(expected_taifex_keys)}"
         )
+    elif repair_taifex_base_date:
+        previous_base_date = previous_trading_date(required_base_date)
+        expected_taifex = {
+            source_id: (
+                previous_base_date
+                if source_id in TAIFEX_DATED_RAW_SOURCE_IDS
+                else required_base_date
+            )
+            for source_id in TAIFEX_HISTORY_SPECS
+        }
+        if taifex != expected_taifex:
+            errors.append(
+                f"taifex={taifex} expected source-specific base {expected_taifex}"
+            )
+    elif set(taifex.values()) != {required_base_date}:
+        errors.append(f"taifex={taifex} expected all {required_base_date}")
     for family in ("warrant_daily", "warrant_flow"):
         if matrix.get(family) != required_base_date:
             errors.append(
@@ -705,12 +750,14 @@ def validate_exact_baseline(
     required_base_date: str,
     price_history_high_water_date: str = "",
     base_repair_date: str = "",
+    repair_taifex_base_date: str = "",
 ) -> None:
     errors = baseline_matrix_errors(
         matrix,
         required_base_date,
         price_history_high_water_date,
         base_repair_date,
+        repair_taifex_base_date,
     )
     if errors:
         raise RuntimeError("historical source replay baseline mismatch: " + "; ".join(errors))
@@ -730,6 +777,33 @@ def validate_price_history_high_water_date(
     if price_history_high_water_date and price_history_high_water_date < end_date:
         raise RuntimeError(
             "--price-history-high-water-date must be the same as or later than --end-date"
+        )
+
+
+def validate_taifex_base_repair_window(
+    end_date: str,
+    price_history_high_water_date: str,
+    required_base_date: str,
+    repair_taifex_base_date: str,
+) -> None:
+    if not repair_taifex_base_date:
+        return
+    if repair_taifex_base_date != required_base_date:
+        raise RuntimeError(
+            "--repair-taifex-base-date must equal the replay required base: "
+            f"repair={repair_taifex_base_date} base={required_base_date}"
+        )
+    if not price_history_high_water_date:
+        raise RuntimeError(
+            "--repair-taifex-base-date requires --price-history-high-water-date"
+        )
+    expected_end_date = previous_trading_date(price_history_high_water_date)
+    if end_date != expected_end_date:
+        raise RuntimeError(
+            "TAIFEX base repair automatic replay must end at the trading date before "
+            "the price/history high-water: "
+            f"end={end_date} expected={expected_end_date} "
+            f"high_water={price_history_high_water_date}"
         )
 
 
@@ -1261,6 +1335,103 @@ def manifest_source_row(
     }
 
 
+def taifex_base_preserved_tail_matrix(matrix: dict[str, Any]) -> dict[str, Any]:
+    return {
+        family: matrix.get(family)
+        for family in (
+            "daily_price",
+            "stock_price_history",
+            "market_index",
+            "market_index_ohlc",
+            "warrant_daily",
+            "warrant_flow",
+        )
+    }
+
+
+def build_taifex_base_repair_evidence(
+    replay_id: str,
+    target_date: str,
+    before: dict[str, Any],
+    after: dict[str, Any],
+    status: dict[str, Any],
+    *,
+    price_history_high_water_date: str,
+    vix_base_slice_sha256_before: str,
+    vix_base_slice_sha256_after: str,
+    protected_price_history_fingerprints_before: dict[str, dict[str, Any]],
+    protected_price_history_fingerprints_after: dict[str, dict[str, Any]],
+) -> dict[str, Any]:
+    if taifex_base_preserved_tail_matrix(before) != taifex_base_preserved_tail_matrix(
+        after
+    ):
+        raise RuntimeError("TAIFEX base repair changed a non-TAIFEX source tail")
+    if (
+        not vix_base_slice_sha256_before
+        or vix_base_slice_sha256_before != vix_base_slice_sha256_after
+    ):
+        raise RuntimeError("TAIFEX base repair changed the existing VIX base-date slice")
+    if (
+        protected_price_history_fingerprints_before
+        != protected_price_history_fingerprints_after
+    ):
+        raise RuntimeError("TAIFEX base repair changed protected price/history artifacts")
+    validate_replay_day_tail_matrix(
+        after,
+        target_date,
+        price_history_high_water_date,
+    )
+    row = manifest_source_row(
+        "taifex_futures_options_vix",
+        target_date,
+        status,
+        before.get("taifex"),
+        after.get("taifex"),
+        observed_dates=sorted(
+            {
+                date
+                for info in status.get("sources", {}).values()
+                for date in info.get("observed_dates", [])
+            }
+        ),
+    )
+    if row["requested_dates"] != [target_date] or row["observed_dates"] != [
+        target_date
+    ]:
+        raise RuntimeError("TAIFEX base repair requested/observed date mismatch")
+    if (
+        row["pk_unique"] is not True
+        or row["fallback_used"] is not False
+        or row["future_rows_used"] is not False
+    ):
+        raise RuntimeError("TAIFEX base repair PK/fallback/future-row evidence failed")
+    if not row["raw_sha256"] or not row["normalized_sha256"] or not row[
+        "output_sha256"
+    ]:
+        raise RuntimeError("TAIFEX base repair lacks provenance hashes")
+    return {
+        "schema_version": "historical_structured_source_taifex_base_repair_v1",
+        "replay_id": replay_id,
+        "report_date": target_date,
+        "publication_status": "reconstructed_not_as_published",
+        "as_published": False,
+        "pipeline_commit_sha": git_output("rev-parse", "HEAD"),
+        "price_history_high_water_date": price_history_high_water_date,
+        "before_tail_matrix": before,
+        "after_tail_matrix": after,
+        "preserved_non_taifex_tail_matrix": taifex_base_preserved_tail_matrix(before),
+        "vix_base_slice_sha256_before": vix_base_slice_sha256_before,
+        "vix_base_slice_sha256_after": vix_base_slice_sha256_after,
+        "protected_price_history_fingerprints_before": (
+            protected_price_history_fingerprints_before
+        ),
+        "protected_price_history_fingerprints_after": (
+            protected_price_history_fingerprints_after
+        ),
+        "sources": [row],
+    }
+
+
 def write_day_manifest(
     replay_id: str,
     target_date: str,
@@ -1272,6 +1443,7 @@ def write_day_manifest(
     warrant_status: dict[str, Any],
     price_history_high_water_date: str = "",
     protected_price_history_fingerprints: dict[str, dict[str, Any]] | None = None,
+    taifex_base_repair_evidence: dict[str, Any] | None = None,
 ) -> Path:
     sources = [
         manifest_source_row(
@@ -1359,6 +1531,8 @@ def write_day_manifest(
             "pdf_as_published",
         ],
     }
+    if taifex_base_repair_evidence:
+        payload["taifex_base_repair_evidence"] = taifex_base_repair_evidence
     path = REPLAY_HISTORY / replay_id / target_date / "structured_source_manifest.json"
     write_json_immutable(path, payload)
     return path
@@ -1448,6 +1622,8 @@ def write_latest_summary(
     price_history_high_water_date: str = "",
     protected_price_history_fingerprints_before: dict[str, dict[str, Any]] | None = None,
     protected_price_history_fingerprints_after: dict[str, dict[str, Any]] | None = None,
+    repair_taifex_base_date: str = "",
+    taifex_base_repair_evidence: dict[str, Any] | None = None,
 ) -> None:
     payload = {
         "schema_version": "historical_structured_source_replay_v1",
@@ -1475,26 +1651,36 @@ def write_latest_summary(
         "single_commit_required": True,
         "forbidden_artifact_families": ["candidate", "model", "event", "catalyst", "pdf"],
     }
+    if repair_taifex_base_date:
+        payload["repair_taifex_base_date"] = repair_taifex_base_date
+        payload["taifex_base_repair_evidence"] = taifex_base_repair_evidence or {}
     LATEST_JSON.parent.mkdir(parents=True, exist_ok=True)
     LATEST_JSON.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    summary_lines = [
+        "# Historical Structured Source Replay",
+        "",
+        "- status: `pass`",
+        f"- trading_dates: `{', '.join(trading_dates)}`",
+        f"- required_base_date: `{required_base_date}`",
+        f"- base_repair_date: `{base_repair_date}`",
+    ]
+    if repair_taifex_base_date:
+        summary_lines.append(
+            f"- repair_taifex_base_date: `{repair_taifex_base_date}`"
+        )
+    summary_lines.extend(
+        [
+            f"- price_history_high_water_date: `{price_history_high_water_date}`",
+            "- publication_status: `reconstructed_not_as_published`",
+            "- as_published: `False`",
+            f"- main_price_date: `{freshness.get('main_price_date', '')}`",
+            f"- report_ready: `{freshness.get('report_ready', '')}`",
+            "- candidate/model/event/catalyst/PDF historical publication artifacts: `not reconstructed`",
+            "",
+        ]
+    )
     LATEST_MD.write_text(
-        "\n".join(
-            [
-                "# Historical Structured Source Replay",
-                "",
-                "- status: `pass`",
-                f"- trading_dates: `{', '.join(trading_dates)}`",
-                f"- required_base_date: `{required_base_date}`",
-                f"- base_repair_date: `{base_repair_date}`",
-                f"- price_history_high_water_date: `{price_history_high_water_date}`",
-                "- publication_status: `reconstructed_not_as_published`",
-                "- as_published: `False`",
-                f"- main_price_date: `{freshness.get('main_price_date', '')}`",
-                f"- report_ready: `{freshness.get('report_ready', '')}`",
-                "- candidate/model/event/catalyst/PDF historical publication artifacts: `not reconstructed`",
-                "",
-            ]
-        ),
+        "\n".join(summary_lines),
         encoding="utf-8",
     )
 
@@ -1505,6 +1691,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--end-date", required=True)
     parser.add_argument("--price-history-high-water-date", default="")
     parser.add_argument("--repair-market-index-base-date", default="")
+    parser.add_argument("--repair-taifex-base-date", default="")
     parser.add_argument(
         "--replay-id",
         default=os.environ.get("HISTORICAL_SOURCE_REPLAY_ID", ""),
@@ -1526,9 +1713,19 @@ def main() -> int:
         args.repair_market_index_base_date,
         "--repair-market-index-base-date",
     )
+    repair_taifex_base_date = parse_optional_date(
+        args.repair_taifex_base_date,
+        "--repair-taifex-base-date",
+    )
     replay_id = parse_replay_id(args.replay_id)
     trading_dates = expected_trading_dates(start_date, end_date)
     required_base_date = previous_trading_date(start_date)
+    validate_taifex_base_repair_window(
+        end_date,
+        price_history_high_water_date,
+        required_base_date,
+        repair_taifex_base_date,
+    )
     if git_output("rev-parse", "--abbrev-ref", "HEAD") != "main":
         raise RuntimeError("historical structured-source replay is main-only")
     if git_output("status", "--porcelain"):
@@ -1540,11 +1737,52 @@ def main() -> int:
         required_base_date,
         price_history_high_water_date,
         base_repair_date,
+        repair_taifex_base_date,
     )
     protected_fingerprints_before = (
         protected_price_history_fingerprints() if price_history_high_water_date else {}
     )
     manifests: list[Path] = []
+    taifex_base_repair_evidence: dict[str, Any] = {}
+    if repair_taifex_base_date:
+        before_taifex_base = source_tail_matrix()
+        vix_path, vix_pk_columns = TAIFEX_HISTORY_SPECS["taiwan_vix"]
+        vix_base_slice_sha256_before = canonical_target_slice(
+            vix_path,
+            repair_taifex_base_date,
+            pk_columns=vix_pk_columns,
+        )["slice_sha256"]
+        taifex_base_status = run_taifex_date(repair_taifex_base_date)
+        after_taifex_base = source_tail_matrix()
+        vix_base_slice_sha256_after = canonical_target_slice(
+            vix_path,
+            repair_taifex_base_date,
+            pk_columns=vix_pk_columns,
+        )["slice_sha256"]
+        protected_fingerprints_after_taifex_base = (
+            protected_price_history_fingerprints()
+            if price_history_high_water_date
+            else {}
+        )
+        if price_history_high_water_date:
+            require_protected_price_history_fingerprints_unchanged(
+                protected_fingerprints_before,
+                protected_fingerprints_after_taifex_base,
+            )
+        taifex_base_repair_evidence = build_taifex_base_repair_evidence(
+            replay_id,
+            repair_taifex_base_date,
+            before_taifex_base,
+            after_taifex_base,
+            taifex_base_status,
+            price_history_high_water_date=price_history_high_water_date,
+            vix_base_slice_sha256_before=vix_base_slice_sha256_before,
+            vix_base_slice_sha256_after=vix_base_slice_sha256_after,
+            protected_price_history_fingerprints_before=protected_fingerprints_before,
+            protected_price_history_fingerprints_after=(
+                protected_fingerprints_after_taifex_base
+            ),
+        )
     if base_repair_date:
         before_base = source_tail_matrix()
         twse_before = {
@@ -1622,6 +1860,11 @@ def main() -> int:
                 warrant_status,
                 price_history_high_water_date,
                 current_protected_fingerprints,
+                (
+                    taifex_base_repair_evidence
+                    if repair_taifex_base_date and target_date == trading_dates[0]
+                    else None
+                ),
             )
         )
         previous_date = target_date
@@ -1661,6 +1904,8 @@ def main() -> int:
         price_history_high_water_date,
         protected_fingerprints_before,
         protected_fingerprints_after,
+        repair_taifex_base_date,
+        taifex_base_repair_evidence,
     )
     print(
         "historical structured-source replay passed: "

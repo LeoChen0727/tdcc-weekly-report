@@ -139,6 +139,15 @@ jobs:
           )
           if [ -n "$AS_OF_DATE" ]; then
             args+=(--as-of-date "$AS_OF_DATE")
+          else
+            taipei_hour="$(TZ=Asia/Taipei date +%H)"
+            if [[ ! "$taipei_hour" =~ ^([01][0-9]|2[0-3])$ ]]; then
+              echo "::error::Unable to resolve a valid Asia/Taipei hour for the live repair window."
+              exit 1
+            fi
+            if [ "$((10#$taipei_hour))" -lt 18 ]; then
+              args+=(--exclude-as-of-date)
+            fi
           fi
           if [ -n "$CHECK_CODE" ]; then
             args+=(--check-code "$CHECK_CODE")
@@ -372,6 +381,7 @@ jobs:
       start_date: ${{ steps.structured_replay_plan.outputs.start_date }}
       end_date: ${{ steps.structured_replay_plan.outputs.end_date }}
       price_history_high_water_date: ${{ steps.structured_replay_plan.outputs.price_history_high_water_date }}
+      repair_taifex_base_date: ${{ steps.structured_replay_plan.outputs.repair_taifex_base_date }}
       expected_main_sha: ${{ steps.structured_replay_plan.outputs.expected_main_sha }}
 
     steps:
@@ -444,6 +454,10 @@ jobs:
               "price_history_high_water_date="
               f"{payload.get('price_history_high_water_date', '')}"
           )
+          print(
+              "repair_taifex_base_date="
+              f"{payload.get('repair_taifex_base_date', '')}"
+          )
           print(f"expected_main_sha={sys.argv[2]}")
           PY
 
@@ -466,6 +480,7 @@ jobs:
       end_date: ${{ needs.plan-structured-objective-source-catch-up.outputs.end_date }}
       price_history_high_water_date: ${{ needs.plan-structured-objective-source-catch-up.outputs.price_history_high_water_date }}
       repair_market_index_base_date: ""
+      repair_taifex_base_date: ${{ needs.plan-structured-objective-source-catch-up.outputs.repair_taifex_base_date }}
       expected_main_sha: ${{ needs.plan-structured-objective-source-catch-up.outputs.expected_main_sha }}
     secrets:
       PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}
