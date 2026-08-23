@@ -66,6 +66,8 @@ def validate_manifest(
     expected_pipeline_sha: str,
     price_history_high_water_date: str = "",
     expected_protected_fingerprints: dict[str, dict[str, Any]] | None = None,
+    repair_taifex_base_date: str = "",
+    expected_taifex_base_repair_evidence: dict[str, Any] | None = None,
 ) -> list[str]:
     errors: list[str] = []
     payload = load_json(path)
@@ -94,6 +96,28 @@ def validate_manifest(
             errors.append(f"{path}: protected price/history fingerprint mismatch")
     elif protected_fingerprints:
         errors.append(f"{path}: legacy replay must not claim protected price/history fingerprints")
+    embedded_taifex_base = payload.get("taifex_base_repair_evidence") or {}
+    if repair_taifex_base_date:
+        if not embedded_taifex_base:
+            errors.append(f"{path}: TAIFEX base repair evidence missing")
+        else:
+            if embedded_taifex_base != (
+                expected_taifex_base_repair_evidence or {}
+            ):
+                errors.append(f"{path}: TAIFEX base repair evidence/latest mismatch")
+            errors.extend(
+                f"{path}: {error}"
+                for error in validate_taifex_base_repair_evidence(
+                    embedded_taifex_base,
+                    repair_taifex_base_date,
+                    replay_id,
+                    expected_pipeline_sha,
+                    price_history_high_water_date,
+                    expected_protected_fingerprints or {},
+                )
+            )
+    elif embedded_taifex_base:
+        errors.append(f"{path}: unexpected TAIFEX base repair evidence")
     try:
         replay.validate_replay_day_tail_matrix(
             payload.get("after_tail_matrix") or {},
@@ -295,6 +319,7 @@ def validate_recorded_baseline(
     required_base_date: str,
     price_history_high_water_date: str = "",
     base_repair_date: str = "",
+    repair_taifex_base_date: str = "",
 ) -> list[str]:
     return [
         "historical replay before-tail baseline mismatch: " + error
@@ -303,6 +328,7 @@ def validate_recorded_baseline(
             required_base_date,
             price_history_high_water_date,
             base_repair_date,
+            repair_taifex_base_date,
         )
     ]
 
@@ -412,6 +438,150 @@ def validate_base_twse_sha_payload(base: dict[str, Any]) -> list[str]:
     return []
 
 
+def validate_taifex_base_repair_evidence(
+    evidence: dict[str, Any],
+    repair_taifex_base_date: str,
+    replay_id: str,
+    expected_pipeline_sha: str,
+    price_history_high_water_date: str,
+    expected_protected_fingerprints: dict[str, dict[str, Any]],
+) -> list[str]:
+    errors: list[str] = []
+    label = "TAIFEX base repair evidence"
+    if evidence.get("schema_version") != (
+        "historical_structured_source_taifex_base_repair_v1"
+    ):
+        errors.append(f"{label} schema_version mismatch")
+    if evidence.get("replay_id") != replay_id:
+        errors.append(f"{label} replay_id mismatch")
+    if evidence.get("report_date") != repair_taifex_base_date:
+        errors.append(f"{label} report_date mismatch")
+    if evidence.get("publication_status") != "reconstructed_not_as_published":
+        errors.append(f"{label} publication_status mismatch")
+    if evidence.get("as_published") is not False:
+        errors.append(f"{label} as_published must be false")
+    if (
+        evidence.get("price_history_high_water_date", "")
+        != price_history_high_water_date
+    ):
+        errors.append(f"{label} price_history_high_water_date mismatch")
+    errors.extend(
+        validate_pipeline_commit_sha(
+            evidence,
+            label,
+            expected_pipeline_sha,
+        )
+    )
+
+    before = evidence.get("before_tail_matrix") or {}
+    after = evidence.get("after_tail_matrix") or {}
+    errors.extend(
+        f"{label} before-tail mismatch: {error}"
+        for error in replay.baseline_matrix_errors(
+            before,
+            repair_taifex_base_date,
+            price_history_high_water_date,
+            "",
+            repair_taifex_base_date,
+        )
+    )
+    try:
+        replay.validate_replay_day_tail_matrix(
+            after,
+            repair_taifex_base_date,
+            price_history_high_water_date,
+        )
+    except Exception as exc:
+        errors.append(f"{label} after-tail contract failed: {exc}")
+
+    expected_preserved = replay.taifex_base_preserved_tail_matrix(before)
+    if evidence.get("preserved_non_taifex_tail_matrix") != expected_preserved:
+        errors.append(f"{label} preserved non-TAIFEX tail payload mismatch")
+    if replay.taifex_base_preserved_tail_matrix(after) != expected_preserved:
+        errors.append(f"{label} changed a non-TAIFEX source tail")
+
+    vix_before = str(evidence.get("vix_base_slice_sha256_before", ""))
+    vix_after = str(evidence.get("vix_base_slice_sha256_after", ""))
+    if not re.fullmatch(r"[0-9a-f]{64}", vix_before) or vix_before != vix_after:
+        errors.append(f"{label} VIX base-date slice preservation mismatch")
+    else:
+        try:
+            vix_path, vix_pk_columns = replay.TAIFEX_HISTORY_SPECS["taiwan_vix"]
+            current_vix_sha = replay.canonical_target_slice(
+                vix_path,
+                repair_taifex_base_date,
+                pk_columns=vix_pk_columns,
+            )["slice_sha256"]
+        except Exception as exc:
+            errors.append(f"{label} current VIX base-date parity failed: {exc}")
+        else:
+            if current_vix_sha != vix_after:
+                errors.append(f"{label} current VIX base-date SHA mismatch")
+
+    if (
+        evidence.get("protected_price_history_fingerprints_before")
+        != expected_protected_fingerprints
+    ):
+        errors.append(f"{label} protected before fingerprint mismatch")
+    if (
+        evidence.get("protected_price_history_fingerprints_after")
+        != expected_protected_fingerprints
+    ):
+        errors.append(f"{label} protected after fingerprint mismatch")
+
+    sources = evidence.get("sources") or []
+    if len(sources) != 1 or sources[0].get("source_id") != (
+        "taifex_futures_options_vix"
+    ):
+        errors.append(f"{label} source evidence mismatch")
+        return errors
+    row = sources[0]
+    if row.get("requested_dates") != [repair_taifex_base_date]:
+        errors.append(f"{label} requested_dates mismatch")
+    if row.get("observed_dates") != [repair_taifex_base_date]:
+        errors.append(f"{label} observed_dates mismatch")
+    if row.get("before_tail") != before.get("taifex"):
+        errors.append(f"{label} source before_tail mismatch")
+    if row.get("after_tail") != after.get("taifex"):
+        errors.append(f"{label} source after_tail mismatch")
+    if row.get("pk_unique") is not True:
+        errors.append(f"{label} pk_unique must be true")
+    if row.get("fallback_used") is not False:
+        errors.append(f"{label} fallback_used must be false")
+    if row.get("future_rows_used") is not False:
+        errors.append(f"{label} future_rows_used must be false")
+    if row.get("validation_status") != "pass":
+        errors.append(f"{label} validation_status must be pass")
+    if row.get("publication_status") != "reconstructed_not_as_published":
+        errors.append(f"{label} source publication_status mismatch")
+    if row.get("as_published") is not False:
+        errors.append(f"{label} source as_published must be false")
+    for field in ("raw_sha256", "normalized_sha256", "output_sha256"):
+        if not re.fullmatch(r"[0-9a-f]{64}", str(row.get(field, ""))):
+            errors.append(f"{label} invalid {field}")
+    accepted = row.get("accepted_source_responses") or []
+    if not isinstance(accepted, list) or not accepted:
+        errors.append(f"{label} accepted source response evidence missing")
+    try:
+        expected_output = replay.build_source_output_evidence(
+            "taifex_futures_options_vix",
+            repair_taifex_base_date,
+        )
+    except Exception as exc:
+        errors.append(f"{label} output parity recompute failed: {exc}")
+    else:
+        if row.get("output_sha256") != expected_output.get("output_sha256"):
+            errors.append(f"{label} target-slice output SHA mismatch")
+        if int(row.get("row_count", -1)) != int(expected_output.get("row_count", -2)):
+            errors.append(f"{label} target-slice row_count mismatch")
+        stored_output = row.get("output_evidence") or {}
+        if stored_output.get("taifex_raw_history_parity") != expected_output.get(
+            "taifex_raw_history_parity"
+        ):
+            errors.append(f"{label} dated raw/history parity mismatch")
+    return errors
+
+
 def validate(
     start_date: str,
     end_date: str,
@@ -419,10 +589,20 @@ def validate(
     replay_id: str,
     expected_pipeline_sha: str,
     price_history_high_water_date: str = "",
+    repair_taifex_base_date: str = "",
 ) -> list[str]:
     errors: list[str] = []
     trading_dates = replay.expected_trading_dates(start_date, end_date)
     required_base_date = replay.previous_trading_date(start_date)
+    try:
+        replay.validate_taifex_base_repair_window(
+            end_date,
+            price_history_high_water_date,
+            required_base_date,
+            repair_taifex_base_date,
+        )
+    except Exception as exc:
+        errors.append(f"TAIFEX base repair replay window mismatch: {exc}")
     protected_fingerprints = (
         replay.protected_price_history_fingerprints()
         if price_history_high_water_date
@@ -439,6 +619,16 @@ def validate(
         errors.append("historical replay latest as_published must be false")
     if latest.get("base_repair_date", "") != base_repair_date:
         errors.append("historical replay latest base_repair_date mismatch")
+    if (
+        latest.get("repair_taifex_base_date", "")
+        != repair_taifex_base_date
+    ):
+        errors.append("historical replay latest repair_taifex_base_date mismatch")
+    latest_taifex_base_evidence = latest.get("taifex_base_repair_evidence") or {}
+    if repair_taifex_base_date and not latest_taifex_base_evidence:
+        errors.append("historical replay latest TAIFEX base repair evidence missing")
+    if not repair_taifex_base_date and latest_taifex_base_evidence:
+        errors.append("historical replay latest has unexpected TAIFEX base repair evidence")
     if latest.get("required_base_date", "") != required_base_date:
         errors.append("historical replay latest required_base_date mismatch")
     if latest.get("replay_id") != replay_id:
@@ -478,10 +668,11 @@ def validate(
             required_base_date,
             price_history_high_water_date,
             base_repair_date,
+            repair_taifex_base_date,
         )
     )
 
-    for target_date in trading_dates:
+    for index, target_date in enumerate(trading_dates):
         manifest = replay.REPLAY_HISTORY / replay_id / target_date / "structured_source_manifest.json"
         errors.extend(
             validate_manifest(
@@ -491,6 +682,8 @@ def validate(
                 expected_pipeline_sha,
                 price_history_high_water_date,
                 protected_fingerprints,
+                repair_taifex_base_date if index == 0 else "",
+                latest_taifex_base_evidence if index == 0 else {},
             )
         )
         errors.extend(
@@ -693,6 +886,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--end-date", required=True)
     parser.add_argument("--price-history-high-water-date", default="")
     parser.add_argument("--repair-market-index-base-date", default="")
+    parser.add_argument("--repair-taifex-base-date", default="")
     parser.add_argument(
         "--replay-id",
         default=os.environ.get("HISTORICAL_SOURCE_REPLAY_ID", ""),
@@ -717,6 +911,10 @@ def main() -> int:
         args.repair_market_index_base_date,
         "--repair-market-index-base-date",
     )
+    repair_taifex_base_date = replay.parse_optional_date(
+        args.repair_taifex_base_date,
+        "--repair-taifex-base-date",
+    )
     replay_id = replay.parse_replay_id(args.replay_id)
     expected_pipeline_sha = str(args.expected_pipeline_sha).strip().lower()
     if not re.fullmatch(r"[0-9a-f]{40}", expected_pipeline_sha):
@@ -728,6 +926,7 @@ def main() -> int:
         replay_id,
         expected_pipeline_sha,
         price_history_high_water_date,
+        repair_taifex_base_date,
     )
     if errors:
         for error in errors:
@@ -736,6 +935,7 @@ def main() -> int:
     print(
         "historical structured-source replay validated: "
         f"start={start_date} end={end_date} base_repair={base or 'none'} "
+        f"taifex_base_repair={repair_taifex_base_date or 'none'} "
         f"price_history_high_water={price_history_high_water_date or 'legacy'}"
     )
     return 0

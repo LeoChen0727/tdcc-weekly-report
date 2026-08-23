@@ -20,6 +20,11 @@ on:
         required: false
         default: ""
         type: string
+      repair_taifex_base_date:
+        description: "Optional TAIFEX-only base alignment date for a source-contract D-1 baseline"
+        required: false
+        default: ""
+        type: string
       expected_main_sha:
         description: "Exact 40-character main SHA authorized for this replay"
         required: true
@@ -54,6 +59,11 @@ on:
         required: false
         default: ""
         type: string
+      repair_taifex_base_date:
+        description: "Optional TAIFEX-only base alignment date in YYYYMMDD; leave empty for a contiguous replay"
+        required: false
+        default: ""
+        type: string
       expected_main_sha:
         description: "Exact 40-character merged main SHA authorized for this replay"
         required: true
@@ -78,6 +88,7 @@ jobs:
       END_DATE: ${{ inputs.end_date }}
       PRICE_HISTORY_HIGH_WATER_DATE: ${{ inputs.price_history_high_water_date }}
       BASE_REPAIR_DATE: ${{ inputs.repair_market_index_base_date }}
+      TAIFEX_BASE_REPAIR_DATE: ${{ inputs.repair_taifex_base_date }}
       EXPECTED_MAIN_SHA: ${{ inputs.expected_main_sha }}
       HISTORICAL_SOURCE_REPLAY_ID: github-run-${{ github.run_id }}-${{ github.run_attempt }}
 
@@ -142,6 +153,7 @@ jobs:
             --end-date "$END_DATE" \
             --price-history-high-water-date "$PRICE_HISTORY_HIGH_WATER_DATE" \
             --repair-market-index-base-date "$BASE_REPAIR_DATE" \
+            --repair-taifex-base-date "$TAIFEX_BASE_REPAIR_DATE" \
             --replay-id "$HISTORICAL_SOURCE_REPLAY_ID"
 
       - name: Validate final replay artifacts and target-slice parity
@@ -152,6 +164,7 @@ jobs:
             --end-date "$END_DATE" \
             --price-history-high-water-date "$PRICE_HISTORY_HIGH_WATER_DATE" \
             --repair-market-index-base-date "$BASE_REPAIR_DATE" \
+            --repair-taifex-base-date "$TAIFEX_BASE_REPAIR_DATE" \
             --replay-id "$HISTORICAL_SOURCE_REPLAY_ID" \
             --expected-pipeline-sha "$REPLAY_BASE_SHA"
 
@@ -380,6 +393,7 @@ jobs:
             --end-date "$END_DATE" \
             --price-history-high-water-date "$PRICE_HISTORY_HIGH_WATER_DATE" \
             --repair-market-index-base-date "$BASE_REPAIR_DATE" \
+            --repair-taifex-base-date "$TAIFEX_BASE_REPAIR_DATE" \
             --replay-id "$HISTORICAL_SOURCE_REPLAY_ID" \
             --expected-pipeline-sha "$REPLAY_BASE_SHA"
 

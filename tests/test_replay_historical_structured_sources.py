@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 import pandas as pd
@@ -417,6 +418,17 @@ def _baseline_matrix(
     }
 
 
+def _operational_taifex_base_matrix(
+    structured_date: str,
+    previous_structured_date: str,
+    price_history_high_water_date: str,
+) -> dict:
+    matrix = _baseline_matrix(structured_date, price_history_high_water_date)
+    for source_id in replay.TAIFEX_DATED_RAW_SOURCE_IDS:
+        matrix["taifex"][source_id] = previous_structured_date
+    return matrix
+
+
 def test_contiguous_replay_baseline_accepts_aligned_structured_tail(
     monkeypatch,
 ) -> None:
@@ -436,6 +448,103 @@ def test_contiguous_replay_baseline_accepts_aligned_structured_tail(
         "20260724",
         "20260729",
     )
+
+
+def test_taifex_base_repair_accepts_only_explicit_operational_baseline(
+    monkeypatch,
+) -> None:
+    monkeypatch.setattr(
+        replay,
+        "validate_daily_price_canonical_legacy_pair",
+        lambda *_: None,
+    )
+    monkeypatch.setattr(
+        replay,
+        "validate_stock_history_date_coverage",
+        lambda *_, **__: {},
+    )
+    matrix = _operational_taifex_base_matrix(
+        "20260728",
+        "20260727",
+        "20260730",
+    )
+
+    replay.validate_exact_baseline(
+        matrix,
+        "20260728",
+        "20260730",
+        repair_taifex_base_date="20260728",
+    )
+
+    with pytest.raises(RuntimeError, match="expected all 20260728"):
+        replay.validate_exact_baseline(
+            matrix,
+            "20260728",
+            "20260730",
+        )
+
+
+@pytest.mark.parametrize(
+    ("mutation", "expected"),
+    [
+        ("dated_d2", "expected source-specific base"),
+        ("dated_mixed", "expected source-specific base"),
+        ("vix_d1", "expected source-specific base"),
+        ("missing_source", "source set mismatch"),
+    ],
+)
+def test_taifex_base_repair_baseline_mutations_fail_closed(
+    mutation: str,
+    expected: str,
+) -> None:
+    matrix = _operational_taifex_base_matrix(
+        "20260728",
+        "20260727",
+        "20260730",
+    )
+    if mutation == "dated_d2":
+        for source_id in replay.TAIFEX_DATED_RAW_SOURCE_IDS:
+            matrix["taifex"][source_id] = "20260724"
+    elif mutation == "dated_mixed":
+        matrix["taifex"][replay.TAIFEX_DATED_RAW_SOURCE_IDS[0]] = "20260728"
+    elif mutation == "vix_d1":
+        matrix["taifex"]["taiwan_vix"] = "20260727"
+    else:
+        del matrix["taifex"]["taiwan_vix"]
+
+    errors = replay.baseline_matrix_errors(
+        matrix,
+        "20260728",
+        "20260730",
+        repair_taifex_base_date="20260728",
+    )
+
+    assert any(expected in error for error in errors)
+
+
+def test_taifex_base_repair_rejects_missing_high_water_and_conflicting_repairs() -> None:
+    matrix = _operational_taifex_base_matrix(
+        "20260728",
+        "20260727",
+        "20260728",
+    )
+
+    missing_high_water = replay.baseline_matrix_errors(
+        matrix,
+        "20260728",
+        repair_taifex_base_date="20260728",
+    )
+    conflicting = replay.baseline_matrix_errors(
+        matrix,
+        "20260728",
+        "20260728",
+        "20260728",
+        "20260728",
+    )
+
+    assert any("requires price_history_high_water_date" in error for error in missing_high_water)
+    assert any("mutually exclusive" in error for error in conflicting)
+    assert any("later than required_base_date" in error for error in conflicting)
 
 
 def test_contiguous_replay_baseline_rejects_structured_tail_drift(monkeypatch) -> None:
@@ -508,6 +617,30 @@ def test_price_history_high_water_allows_end_date_equality() -> None:
         replay.validate_price_history_high_water_date("20260729", "20260728")
 
 
+def test_taifex_base_repair_window_requires_prev_high_water_end() -> None:
+    replay.validate_taifex_base_repair_window(
+        "20260729",
+        "20260730",
+        "20260728",
+        "20260728",
+    )
+
+    with pytest.raises(RuntimeError, match="must end at the trading date before"):
+        replay.validate_taifex_base_repair_window(
+            "20260730",
+            "20260730",
+            "20260728",
+            "20260728",
+        )
+    with pytest.raises(RuntimeError, match="must equal the replay required base"):
+        replay.validate_taifex_base_repair_window(
+            "20260729",
+            "20260730",
+            "20260727",
+            "20260728",
+        )
+
+
 def test_recorded_baseline_validation_does_not_read_live_post_replay_history(
     monkeypatch,
 ) -> None:
@@ -539,6 +672,135 @@ def test_mixed_tail_contract_keeps_price_history_high_water_and_other_sources_at
     matrix["warrant_flow"] = "20260723"
     with pytest.raises(RuntimeError, match="day tail mismatch"):
         replay.validate_replay_day_tail_matrix(matrix, "20260724", "20260728")
+
+
+def _valid_manifest_source_row(source_id: str, target_date: str) -> dict:
+    return {
+        "source_id": source_id,
+        "requested_dates": [target_date],
+        "observed_dates": [target_date],
+        "pk_unique": True,
+        "fallback_used": False,
+        "future_rows_used": False,
+        "raw_sha256": "a" * 64,
+        "normalized_sha256": "b" * 64,
+        "output_sha256": "c" * 64,
+    }
+
+
+def test_taifex_base_repair_evidence_binds_preserved_tails_and_vix_slice(
+    monkeypatch,
+) -> None:
+    before = _operational_taifex_base_matrix(
+        "20260728",
+        "20260727",
+        "20260730",
+    )
+    after = _baseline_matrix("20260728", "20260730")
+    protected = {"daily_price": {"aggregate_sha256": "d" * 64}}
+    monkeypatch.setattr(
+        replay,
+        "manifest_source_row",
+        lambda source_id, target_date, *args, **kwargs: _valid_manifest_source_row(
+            source_id,
+            target_date,
+        ),
+    )
+    monkeypatch.setattr(replay, "git_output", lambda *args: "e" * 40)
+
+    evidence = replay.build_taifex_base_repair_evidence(
+        "github-run-123-1",
+        "20260728",
+        before,
+        after,
+        {"sources": {}},
+        price_history_high_water_date="20260730",
+        vix_base_slice_sha256_before="f" * 64,
+        vix_base_slice_sha256_after="f" * 64,
+        protected_price_history_fingerprints_before=protected,
+        protected_price_history_fingerprints_after=protected,
+    )
+
+    assert evidence["report_date"] == "20260728"
+    assert evidence["before_tail_matrix"] == before
+    assert evidence["after_tail_matrix"] == after
+    assert evidence["sources"] == [
+        _valid_manifest_source_row("taifex_futures_options_vix", "20260728")
+    ]
+
+
+def test_taifex_base_repair_evidence_rejects_non_taifex_or_vix_drift() -> None:
+    before = _operational_taifex_base_matrix(
+        "20260728",
+        "20260727",
+        "20260730",
+    )
+    after = _baseline_matrix("20260728", "20260730")
+    after["warrant_flow"] = "20260729"
+
+    with pytest.raises(RuntimeError, match="non-TAIFEX source tail"):
+        replay.build_taifex_base_repair_evidence(
+            "github-run-123-1",
+            "20260728",
+            before,
+            after,
+            {"sources": {}},
+            price_history_high_water_date="20260730",
+            vix_base_slice_sha256_before="f" * 64,
+            vix_base_slice_sha256_after="f" * 64,
+            protected_price_history_fingerprints_before={},
+            protected_price_history_fingerprints_after={},
+        )
+
+    after["warrant_flow"] = "20260728"
+    with pytest.raises(RuntimeError, match="VIX base-date slice"):
+        replay.build_taifex_base_repair_evidence(
+            "github-run-123-1",
+            "20260728",
+            before,
+            after,
+            {"sources": {}},
+            price_history_high_water_date="20260730",
+            vix_base_slice_sha256_before="f" * 64,
+            vix_base_slice_sha256_after="0" * 64,
+            protected_price_history_fingerprints_before={},
+            protected_price_history_fingerprints_after={},
+        )
+
+
+def test_day_manifest_embeds_taifex_base_repair_evidence(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    monkeypatch.setattr(replay, "REPLAY_HISTORY", tmp_path)
+    monkeypatch.setattr(replay, "git_output", lambda *args: "e" * 40)
+    monkeypatch.setattr(
+        replay,
+        "manifest_source_row",
+        lambda source_id, target_date, *args, **kwargs: _valid_manifest_source_row(
+            source_id,
+            target_date,
+        ),
+    )
+    embedded = {"schema_version": "historical_structured_source_taifex_base_repair_v1"}
+
+    path = replay.write_day_manifest(
+        "github-run-123-1",
+        "20260729",
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        "20260730",
+        {},
+        embedded,
+    )
+
+    assert json.loads(path.read_text(encoding="utf-8"))[
+        "taifex_base_repair_evidence"
+    ] == embedded
 
 
 def test_protected_price_history_fingerprint_drift_fails_closed() -> None:

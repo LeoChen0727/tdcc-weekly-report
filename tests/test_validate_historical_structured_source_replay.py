@@ -196,16 +196,227 @@ def test_recorded_baseline_rejects_wrong_required_tail_without_live_reads(
     assert any("warrant_flow=20260723" in error for error in errors)
 
 
+def _taifex_base_repair_evidence(
+    expected_sha: str,
+    fingerprints: dict,
+) -> dict:
+    base_date = "20260728"
+    previous_date = "20260727"
+    high_water = "20260730"
+    before_taifex = {
+        source_id: (
+            previous_date
+            if source_id in replay.TAIFEX_DATED_RAW_SOURCE_IDS
+            else base_date
+        )
+        for source_id in replay.TAIFEX_HISTORY_SPECS
+    }
+    after_taifex = {
+        source_id: base_date for source_id in replay.TAIFEX_HISTORY_SPECS
+    }
+    preserved = {
+        "daily_price": high_water,
+        "stock_price_history": {"max_date": high_water},
+        "market_index": {"TWSE": base_date, "TPEX": base_date},
+        "market_index_ohlc": {"TWSE": base_date, "TPEX": base_date},
+        "warrant_daily": base_date,
+        "warrant_flow": base_date,
+    }
+    before = {**preserved, "taifex": before_taifex}
+    after = {**preserved, "taifex": after_taifex}
+    output_evidence = {
+        "output_sha256": "c" * 64,
+        "row_count": 5,
+        "taifex_raw_history_parity": {"institutional_fo": {"row_count": 1}},
+    }
+    return {
+        "schema_version": "historical_structured_source_taifex_base_repair_v1",
+        "replay_id": "github-run-123-1",
+        "report_date": base_date,
+        "publication_status": "reconstructed_not_as_published",
+        "as_published": False,
+        "pipeline_commit_sha": expected_sha,
+        "price_history_high_water_date": high_water,
+        "before_tail_matrix": before,
+        "after_tail_matrix": after,
+        "preserved_non_taifex_tail_matrix": preserved,
+        "vix_base_slice_sha256_before": "d" * 64,
+        "vix_base_slice_sha256_after": "d" * 64,
+        "protected_price_history_fingerprints_before": fingerprints,
+        "protected_price_history_fingerprints_after": fingerprints,
+        "sources": [
+            {
+                "source_id": "taifex_futures_options_vix",
+                "requested_dates": [base_date],
+                "observed_dates": [base_date],
+                "before_tail": before_taifex,
+                "after_tail": after_taifex,
+                "pk_unique": True,
+                "fallback_used": False,
+                "future_rows_used": False,
+                "validation_status": "pass",
+                "publication_status": "reconstructed_not_as_published",
+                "as_published": False,
+                "raw_sha256": "a" * 64,
+                "normalized_sha256": "b" * 64,
+                "output_sha256": "c" * 64,
+                "row_count": 5,
+                "accepted_source_responses": [{"source": "institutional_fo"}],
+                "output_evidence": output_evidence,
+            }
+        ],
+    }
+
+
+def _patch_taifex_base_repair_recomputes(monkeypatch) -> None:
+    monkeypatch.setattr(
+        replay,
+        "canonical_target_slice",
+        lambda *args, **kwargs: {"slice_sha256": "d" * 64},
+    )
+    monkeypatch.setattr(
+        replay,
+        "build_source_output_evidence",
+        lambda *args, **kwargs: {
+            "output_sha256": "c" * 64,
+            "row_count": 5,
+            "taifex_raw_history_parity": {
+                "institutional_fo": {"row_count": 1}
+            },
+        },
+    )
+
+
+def test_recorded_baseline_accepts_explicit_taifex_base_repair_contract() -> None:
+    expected_sha = "1" * 40
+    evidence = _taifex_base_repair_evidence(expected_sha, {})
+
+    assert validator.validate_recorded_baseline(
+        {"before_tail_matrix": evidence["before_tail_matrix"]},
+        "20260728",
+        "20260730",
+        repair_taifex_base_date="20260728",
+    ) == []
+
+    errors = validator.validate_recorded_baseline(
+        {"before_tail_matrix": evidence["before_tail_matrix"]},
+        "20260728",
+        "20260730",
+    )
+    assert any("expected all 20260728" in error for error in errors)
+
+
+def test_taifex_base_repair_evidence_validates_exact_recorded_contract(
+    monkeypatch,
+) -> None:
+    expected_sha = "1" * 40
+    fingerprints = {"daily_price": {"aggregate_sha256": "2" * 64}}
+    evidence = _taifex_base_repair_evidence(expected_sha, fingerprints)
+    _patch_taifex_base_repair_recomputes(monkeypatch)
+
+    assert validator.validate_taifex_base_repair_evidence(
+        evidence,
+        "20260728",
+        "github-run-123-1",
+        expected_sha,
+        "20260730",
+        fingerprints,
+    ) == []
+
+
+@pytest.mark.parametrize(
+    ("mutation", "expected"),
+    [
+        ("dated_d2", "before-tail mismatch"),
+        ("non_taifex_drift", "changed a non-TAIFEX source tail"),
+        ("vix_sha_drift", "VIX base-date slice preservation mismatch"),
+        ("observed_date", "observed_dates mismatch"),
+        ("output_sha", "target-slice output SHA mismatch"),
+    ],
+)
+def test_taifex_base_repair_evidence_mutations_fail_closed(
+    mutation: str,
+    expected: str,
+    monkeypatch,
+) -> None:
+    expected_sha = "1" * 40
+    evidence = _taifex_base_repair_evidence(expected_sha, {})
+    if mutation == "dated_d2":
+        evidence["before_tail_matrix"]["taifex"][
+            replay.TAIFEX_DATED_RAW_SOURCE_IDS[0]
+        ] = "20260724"
+    elif mutation == "non_taifex_drift":
+        evidence["after_tail_matrix"]["warrant_flow"] = "20260729"
+    elif mutation == "vix_sha_drift":
+        evidence["vix_base_slice_sha256_after"] = "e" * 64
+    elif mutation == "observed_date":
+        evidence["sources"][0]["observed_dates"] = ["20260729"]
+    else:
+        evidence["sources"][0]["output_sha256"] = "f" * 64
+    _patch_taifex_base_repair_recomputes(monkeypatch)
+
+    errors = validator.validate_taifex_base_repair_evidence(
+        evidence,
+        "20260728",
+        "github-run-123-1",
+        expected_sha,
+        "20260730",
+        {},
+    )
+
+    assert any(expected in error for error in errors)
+
+
+def test_first_manifest_requires_exact_embedded_taifex_base_evidence(
+    tmp_path,
+) -> None:
+    path = tmp_path / "structured_source_manifest.json"
+    path.write_text(
+        json.dumps(
+            {
+                "schema_version": "historical_structured_source_replay_v1",
+                "replay_id": "github-run-123-1",
+                "report_date": "20260729",
+                "publication_status": "reconstructed_not_as_published",
+                "as_published": False,
+                "pipeline_commit_sha": "1" * 40,
+                "sources": [],
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    errors = validator.validate_manifest(
+        path,
+        "20260729",
+        "github-run-123-1",
+        "1" * 40,
+        "20260730",
+        {},
+        "20260728",
+        {},
+    )
+
+    assert any("TAIFEX base repair evidence missing" in error for error in errors)
+
+
 def test_workflow_keeps_base_repair_optional_and_routes_it_exactly() -> None:
     text = WORKFLOW.read_text(encoding="utf-8")
     block = text.split("repair_market_index_base_date:", 1)[1].split(
-        "expected_main_sha:", 1
+        "repair_taifex_base_date:", 1
     )[0]
 
     assert block.count("required: false") == 1
     assert "required: true" not in block
     assert block.count('default: ""') == 1
     assert text.count('--repair-market-index-base-date "$BASE_REPAIR_DATE"') == 3
+    taifex_block = text.split("repair_taifex_base_date:", 1)[1].split(
+        "expected_main_sha:", 1
+    )[0]
+    assert taifex_block.count("required: false") == 1
+    assert "required: true" not in taifex_block
+    assert taifex_block.count('default: ""') == 1
+    assert text.count('--repair-taifex-base-date "$TAIFEX_BASE_REPAIR_DATE"') == 3
 
 
 def _preserve_manifest_payload(expected_sha: str, fingerprints: dict) -> dict:
