@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8024 佑華
 
 ## Metadata
-- generated_at: 2026-08-22 22:29:07 Asia/Taipei
+- generated_at: 2026-08-23 22:29:29 Asia/Taipei
 - stock_id: 8024
 - stock_name: 佑華
 - packet_status: standard_180d_window_packet

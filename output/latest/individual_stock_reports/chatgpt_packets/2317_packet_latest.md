@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2317 鴻海
 
 ## Metadata
-- generated_at: 2026-08-22 22:26:49 Asia/Taipei
+- generated_at: 2026-08-23 22:27:03 Asia/Taipei
 - stock_id: 2317
 - stock_name: 鴻海
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00965 元大航太防衛科技
 
 ## Metadata
-- generated_at: 2026-08-22 22:26:18 Asia/Taipei
+- generated_at: 2026-08-23 22:26:30 Asia/Taipei
 - stock_id: 00965
 - stock_name: 元大航太防衛科技
 - packet_status: standard_rawdata_packet

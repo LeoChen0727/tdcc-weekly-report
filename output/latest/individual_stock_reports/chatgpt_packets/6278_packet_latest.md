@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6278 台表科
 
 ## Metadata
-- generated_at: 2026-08-22 22:28:30 Asia/Taipei
+- generated_at: 2026-08-23 22:28:49 Asia/Taipei
 - stock_id: 6278
 - stock_name: 台表科
 - packet_status: standard_180d_window_packet

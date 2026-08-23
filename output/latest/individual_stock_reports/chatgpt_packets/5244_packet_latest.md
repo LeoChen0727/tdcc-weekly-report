@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5244 弘凱
 
 ## Metadata
-- generated_at: 2026-08-22 22:28:05 Asia/Taipei
+- generated_at: 2026-08-23 22:28:23 Asia/Taipei
 - stock_id: 5244
 - stock_name: 弘凱
 - packet_status: standard_180d_window_packet

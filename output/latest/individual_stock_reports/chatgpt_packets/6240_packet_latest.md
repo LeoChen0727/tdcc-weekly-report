@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6240 松崗
 
 ## Metadata
-- generated_at: 2026-08-22 22:28:28 Asia/Taipei
+- generated_at: 2026-08-23 22:28:47 Asia/Taipei
 - stock_id: 6240
 - stock_name: 松崗
 - packet_status: standard_180d_window_packet

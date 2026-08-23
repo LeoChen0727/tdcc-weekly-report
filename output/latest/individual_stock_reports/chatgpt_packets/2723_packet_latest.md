@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2723 美食-KY
 
 ## Metadata
-- generated_at: 2026-08-22 22:27:08 Asia/Taipei
+- generated_at: 2026-08-23 22:27:23 Asia/Taipei
 - stock_id: 2723
 - stock_name: 美食-KY
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8028 昇陽半導體
 
 ## Metadata
-- generated_at: 2026-08-22 22:29:07 Asia/Taipei
+- generated_at: 2026-08-23 22:29:30 Asia/Taipei
 - stock_id: 8028
 - stock_name: 昇陽半導體
 - packet_status: standard_180d_window_packet

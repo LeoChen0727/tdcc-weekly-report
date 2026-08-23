@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8109 博大
 
 ## Metadata
-- generated_at: 2026-08-22 22:29:12 Asia/Taipei
+- generated_at: 2026-08-23 22:29:34 Asia/Taipei
 - stock_id: 8109
 - stock_name: 博大
 - packet_status: standard_180d_window_packet

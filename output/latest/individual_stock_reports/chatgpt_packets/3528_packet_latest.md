@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3528 安馳
 
 ## Metadata
-- generated_at: 2026-08-22 22:27:35 Asia/Taipei
+- generated_at: 2026-08-23 22:27:51 Asia/Taipei
 - stock_id: 3528
 - stock_name: 安馳
 - packet_status: standard_180d_window_packet

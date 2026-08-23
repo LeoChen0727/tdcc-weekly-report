@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2449 京元電子
 
 ## Metadata
-- generated_at: 2026-08-22 22:26:58 Asia/Taipei
+- generated_at: 2026-08-23 22:27:12 Asia/Taipei
 - stock_id: 2449
 - stock_name: 京元電子
 - packet_status: standard_180d_window_packet

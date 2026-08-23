@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9914 美利達
 
 ## Metadata
-- generated_at: 2026-08-22 22:29:23 Asia/Taipei
+- generated_at: 2026-08-23 22:29:47 Asia/Taipei
 - stock_id: 9914
 - stock_name: 美利達
 - packet_status: standard_180d_window_packet

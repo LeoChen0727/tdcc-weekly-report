@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3481 群創
 
 ## Metadata
-- generated_at: 2026-08-22 22:27:32 Asia/Taipei
+- generated_at: 2026-08-23 22:27:49 Asia/Taipei
 - stock_id: 3481
 - stock_name: 群創
 - packet_status: standard_180d_window_packet

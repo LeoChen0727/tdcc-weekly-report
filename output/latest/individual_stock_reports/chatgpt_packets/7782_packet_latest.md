@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7782 光速火箭
 
 ## Metadata
-- generated_at: 2026-08-22 22:29:05 Asia/Taipei
+- generated_at: 2026-08-23 22:29:27 Asia/Taipei
 - stock_id: 7782
 - stock_name: 光速火箭
 - packet_status: standard_180d_window_packet

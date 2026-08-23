@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3323 加百裕
 
 ## Metadata
-- generated_at: 2026-08-22 22:27:29 Asia/Taipei
+- generated_at: 2026-08-23 22:27:45 Asia/Taipei
 - stock_id: 3323
 - stock_name: 加百裕
 - packet_status: standard_180d_window_packet

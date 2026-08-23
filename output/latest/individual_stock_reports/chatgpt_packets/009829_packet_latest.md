@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009829 大華韓國KOSPI50
 
 ## Metadata
-- generated_at: 2026-08-22 22:26:19 Asia/Taipei
+- generated_at: 2026-08-23 22:26:31 Asia/Taipei
 - stock_id: 009829
 - stock_name: 大華韓國KOSPI50
 - packet_status: partial_rawdata_packet

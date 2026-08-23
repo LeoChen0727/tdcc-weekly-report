@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2809 京城銀
 
 ## Metadata
-- generated_at: 2026-08-22 22:27:10 Asia/Taipei
+- generated_at: 2026-08-23 22:27:25 Asia/Taipei
 - stock_id: 2809
 - stock_name: 京城銀
 - packet_status: standard_rawdata_packet

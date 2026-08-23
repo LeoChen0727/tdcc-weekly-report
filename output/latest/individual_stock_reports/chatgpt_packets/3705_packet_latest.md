@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3705 永信
 
 ## Metadata
-- generated_at: 2026-08-22 22:27:42 Asia/Taipei
+- generated_at: 2026-08-23 22:27:59 Asia/Taipei
 - stock_id: 3705
 - stock_name: 永信
 - packet_status: standard_180d_window_packet

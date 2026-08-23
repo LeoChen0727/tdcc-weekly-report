@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009818 華南永昌NASDAQxT
 
 ## Metadata
-- generated_at: 2026-08-22 22:26:19 Asia/Taipei
+- generated_at: 2026-08-23 22:26:31 Asia/Taipei
 - stock_id: 009818
 - stock_name: 華南永昌NASDAQxT
 - packet_status: standard_rawdata_packet

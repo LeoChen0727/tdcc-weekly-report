@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3704 合勤控
 
 ## Metadata
-- generated_at: 2026-08-22 22:27:42 Asia/Taipei
+- generated_at: 2026-08-23 22:27:59 Asia/Taipei
 - stock_id: 3704
 - stock_name: 合勤控
 - packet_status: standard_180d_window_packet

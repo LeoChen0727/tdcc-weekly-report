@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1218 泰山
 
 ## Metadata
-- generated_at: 2026-08-22 22:26:21 Asia/Taipei
+- generated_at: 2026-08-23 22:26:33 Asia/Taipei
 - stock_id: 1218
 - stock_name: 泰山
 - packet_status: standard_180d_window_packet

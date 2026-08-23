@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6894 衛司特
 
 ## Metadata
-- generated_at: 2026-08-22 22:28:52 Asia/Taipei
+- generated_at: 2026-08-23 22:29:13 Asia/Taipei
 - stock_id: 6894
 - stock_name: 衛司特
 - packet_status: standard_180d_window_packet

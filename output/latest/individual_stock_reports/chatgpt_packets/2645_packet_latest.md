@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2645 長榮航太
 
 ## Metadata
-- generated_at: 2026-08-22 22:27:07 Asia/Taipei
+- generated_at: 2026-08-23 22:27:22 Asia/Taipei
 - stock_id: 2645
 - stock_name: 長榮航太
 - packet_status: standard_180d_window_packet

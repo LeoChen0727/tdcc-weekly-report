@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7794 宏碁智新
 
 ## Metadata
-- generated_at: 2026-08-22 22:29:05 Asia/Taipei
+- generated_at: 2026-08-23 22:29:28 Asia/Taipei
 - stock_id: 7794
 - stock_name: 宏碁智新
 - packet_status: standard_rawdata_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8032 光菱
 
 ## Metadata
-- generated_at: 2026-08-22 22:29:07 Asia/Taipei
+- generated_at: 2026-08-23 22:29:30 Asia/Taipei
 - stock_id: 8032
 - stock_name: 光菱
 - packet_status: standard_180d_window_packet

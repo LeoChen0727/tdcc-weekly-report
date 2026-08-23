@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6743 安普新
 
 ## Metadata
-- generated_at: 2026-08-22 22:28:46 Asia/Taipei
+- generated_at: 2026-08-23 22:29:06 Asia/Taipei
 - stock_id: 6743
 - stock_name: 安普新
 - packet_status: standard_180d_window_packet

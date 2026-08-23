@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6133 金橋
 
 ## Metadata
-- generated_at: 2026-08-22 22:28:19 Asia/Taipei
+- generated_at: 2026-08-23 22:28:38 Asia/Taipei
 - stock_id: 6133
 - stock_name: 金橋
 - packet_status: standard_180d_window_packet

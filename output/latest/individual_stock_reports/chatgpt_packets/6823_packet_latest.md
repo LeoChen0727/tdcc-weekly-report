@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6823 濾能
 
 ## Metadata
-- generated_at: 2026-08-22 22:28:49 Asia/Taipei
+- generated_at: 2026-08-23 22:29:10 Asia/Taipei
 - stock_id: 6823
 - stock_name: 濾能
 - packet_status: standard_180d_window_packet

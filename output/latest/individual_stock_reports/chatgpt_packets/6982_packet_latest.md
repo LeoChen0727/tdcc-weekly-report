@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6982 大井泵浦
 
 ## Metadata
-- generated_at: 2026-08-22 22:28:56 Asia/Taipei
+- generated_at: 2026-08-23 22:29:17 Asia/Taipei
 - stock_id: 6982
 - stock_name: 大井泵浦
 - packet_status: standard_180d_window_packet

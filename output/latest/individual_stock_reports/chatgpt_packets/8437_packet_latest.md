@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8437 大地-KY
 
 ## Metadata
-- generated_at: 2026-08-22 22:29:17 Asia/Taipei
+- generated_at: 2026-08-23 22:29:40 Asia/Taipei
 - stock_id: 8437
 - stock_name: 大地-KY
 - packet_status: standard_180d_window_packet

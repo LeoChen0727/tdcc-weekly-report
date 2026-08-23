@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6741 91APP*-KY
 
 ## Metadata
-- generated_at: 2026-08-22 22:28:46 Asia/Taipei
+- generated_at: 2026-08-23 22:29:06 Asia/Taipei
 - stock_id: 6741
 - stock_name: 91APP*-KY
 - packet_status: standard_180d_window_packet

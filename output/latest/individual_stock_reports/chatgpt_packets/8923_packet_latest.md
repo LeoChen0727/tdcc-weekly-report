@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8923 時報
 
 ## Metadata
-- generated_at: 2026-08-22 22:29:20 Asia/Taipei
+- generated_at: 2026-08-23 22:29:43 Asia/Taipei
 - stock_id: 8923
 - stock_name: 時報
 - packet_status: standard_rawdata_packet

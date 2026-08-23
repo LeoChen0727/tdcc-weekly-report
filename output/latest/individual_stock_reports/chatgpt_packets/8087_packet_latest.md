@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8087 麗升能源
 
 ## Metadata
-- generated_at: 2026-08-22 22:29:10 Asia/Taipei
+- generated_at: 2026-08-23 22:29:33 Asia/Taipei
 - stock_id: 8087
 - stock_name: 麗升能源
 - packet_status: standard_180d_window_packet

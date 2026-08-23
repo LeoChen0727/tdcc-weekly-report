@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4916 事欣科
 
 ## Metadata
-- generated_at: 2026-08-22 22:27:59 Asia/Taipei
+- generated_at: 2026-08-23 22:28:17 Asia/Taipei
 - stock_id: 4916
 - stock_name: 事欣科
 - packet_status: standard_180d_window_packet

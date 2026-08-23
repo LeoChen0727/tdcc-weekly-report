@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6846 綠茵
 
 ## Metadata
-- generated_at: 2026-08-22 22:28:50 Asia/Taipei
+- generated_at: 2026-08-23 22:29:11 Asia/Taipei
 - stock_id: 6846
 - stock_name: 綠茵
 - packet_status: standard_180d_window_packet

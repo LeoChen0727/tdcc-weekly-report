@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00926 凱基全球菁英55
 
 ## Metadata
-- generated_at: 2026-08-22 22:26:17 Asia/Taipei
+- generated_at: 2026-08-23 22:26:29 Asia/Taipei
 - stock_id: 00926
 - stock_name: 凱基全球菁英55
 - packet_status: standard_rawdata_packet

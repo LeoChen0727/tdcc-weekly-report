@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00892 富邦台灣半導體
 
 ## Metadata
-- generated_at: 2026-08-22 22:26:16 Asia/Taipei
+- generated_at: 2026-08-23 22:26:27 Asia/Taipei
 - stock_id: 00892
 - stock_name: 富邦台灣半導體
 - packet_status: standard_rawdata_packet

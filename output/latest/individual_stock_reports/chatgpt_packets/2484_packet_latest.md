@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2484 希華
 
 ## Metadata
-- generated_at: 2026-08-22 22:27:00 Asia/Taipei
+- generated_at: 2026-08-23 22:27:15 Asia/Taipei
 - stock_id: 2484
 - stock_name: 希華
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4109 加捷生醫
 
 ## Metadata
-- generated_at: 2026-08-22 22:27:44 Asia/Taipei
+- generated_at: 2026-08-23 22:28:01 Asia/Taipei
 - stock_id: 4109
 - stock_name: 加捷生醫
 - packet_status: standard_180d_window_packet

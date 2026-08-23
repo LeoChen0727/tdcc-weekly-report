@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1474 弘裕
 
 ## Metadata
-- generated_at: 2026-08-22 22:26:29 Asia/Taipei
+- generated_at: 2026-08-23 22:26:42 Asia/Taipei
 - stock_id: 1474
 - stock_name: 弘裕
 - packet_status: standard_180d_window_packet

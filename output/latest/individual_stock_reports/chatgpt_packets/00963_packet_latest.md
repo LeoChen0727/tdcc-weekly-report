@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00963 中信全球高股息
 
 ## Metadata
-- generated_at: 2026-08-22 22:26:18 Asia/Taipei
+- generated_at: 2026-08-23 22:26:30 Asia/Taipei
 - stock_id: 00963
 - stock_name: 中信全球高股息
 - packet_status: standard_rawdata_packet

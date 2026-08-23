@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00919 群益台灣精選高息
 
 ## Metadata
-- generated_at: 2026-08-22 22:26:17 Asia/Taipei
+- generated_at: 2026-08-23 22:26:28 Asia/Taipei
 - stock_id: 00919
 - stock_name: 群益台灣精選高息
 - packet_status: standard_rawdata_packet

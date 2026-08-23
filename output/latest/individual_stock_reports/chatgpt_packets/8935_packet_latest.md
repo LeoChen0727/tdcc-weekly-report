@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8935 邦泰
 
 ## Metadata
-- generated_at: 2026-08-22 22:29:21 Asia/Taipei
+- generated_at: 2026-08-23 22:29:44 Asia/Taipei
 - stock_id: 8935
 - stock_name: 邦泰
 - packet_status: standard_180d_window_packet

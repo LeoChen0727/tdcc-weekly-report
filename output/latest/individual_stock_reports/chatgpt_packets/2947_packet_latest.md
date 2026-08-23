@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2947 振宇五金
 
 ## Metadata
-- generated_at: 2026-08-22 22:27:14 Asia/Taipei
+- generated_at: 2026-08-23 22:27:30 Asia/Taipei
 - stock_id: 2947
 - stock_name: 振宇五金
 - packet_status: standard_180d_window_packet

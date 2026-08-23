@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00908 富邦入息REITs+
 
 ## Metadata
-- generated_at: 2026-08-22 22:26:16 Asia/Taipei
+- generated_at: 2026-08-23 22:26:28 Asia/Taipei
 - stock_id: 00908
 - stock_name: 富邦入息REITs+
 - packet_status: standard_rawdata_packet

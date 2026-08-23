@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6928 攸泰科技
 
 ## Metadata
-- generated_at: 2026-08-22 22:28:54 Asia/Taipei
+- generated_at: 2026-08-23 22:29:15 Asia/Taipei
 - stock_id: 6928
 - stock_name: 攸泰科技
 - packet_status: standard_180d_window_packet

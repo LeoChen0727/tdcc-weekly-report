@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6753 龍德造船
 
 ## Metadata
-- generated_at: 2026-08-22 22:28:46 Asia/Taipei
+- generated_at: 2026-08-23 22:29:07 Asia/Taipei
 - stock_id: 6753
 - stock_name: 龍德造船
 - packet_status: standard_180d_window_packet

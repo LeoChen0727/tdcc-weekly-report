@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4533 協易機
 
 ## Metadata
-- generated_at: 2026-08-22 22:27:51 Asia/Taipei
+- generated_at: 2026-08-23 22:28:08 Asia/Taipei
 - stock_id: 4533
 - stock_name: 協易機
 - packet_status: standard_180d_window_packet

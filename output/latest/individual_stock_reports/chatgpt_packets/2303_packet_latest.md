@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2303 聯電
 
 ## Metadata
-- generated_at: 2026-08-22 22:26:48 Asia/Taipei
+- generated_at: 2026-08-23 22:27:02 Asia/Taipei
 - stock_id: 2303
 - stock_name: 聯電
 - packet_status: standard_180d_window_packet

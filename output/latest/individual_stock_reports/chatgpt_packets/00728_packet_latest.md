@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00728 第一金工業30
 
 ## Metadata
-- generated_at: 2026-08-22 22:26:15 Asia/Taipei
+- generated_at: 2026-08-23 22:26:26 Asia/Taipei
 - stock_id: 00728
 - stock_name: 第一金工業30
 - packet_status: standard_rawdata_packet

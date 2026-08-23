@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1326 台化
 
 ## Metadata
-- generated_at: 2026-08-22 22:26:24 Asia/Taipei
+- generated_at: 2026-08-23 22:26:36 Asia/Taipei
 - stock_id: 1326
 - stock_name: 台化
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6869 雲豹能源
 
 ## Metadata
-- generated_at: 2026-08-22 22:28:51 Asia/Taipei
+- generated_at: 2026-08-23 22:29:11 Asia/Taipei
 - stock_id: 6869
 - stock_name: 雲豹能源
 - packet_status: standard_180d_window_packet

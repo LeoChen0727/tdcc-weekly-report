@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6641 基士德-KY
 
 ## Metadata
-- generated_at: 2026-08-22 22:28:41 Asia/Taipei
+- generated_at: 2026-08-23 22:29:01 Asia/Taipei
 - stock_id: 6641
 - stock_name: 基士德-KY
 - packet_status: standard_180d_window_packet
