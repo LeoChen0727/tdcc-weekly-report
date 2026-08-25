@@ -1,7 +1,7 @@
 # 每日報告 Manifest
 
-- 產生時間：`2026-08-21 20:04:39 Asia/Taipei`
-- 主資料日期：`20260821`
+- 產生時間：`2026-08-25 19:57:00 Asia/Taipei`
+- 主資料日期：`20260825`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：core daily data dates match main_price_date
 
@@ -38,13 +38,13 @@
 
 ## Canonical history raw URLs
 
-- history summary md: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260821_daily_market_summary.md
-- history full md: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260821_daily_market_full.md
-- history summary pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260821_daily_market_summary.pdf
-- history full pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260821_daily_market_full.pdf
+- history summary md: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260825_daily_market_summary.md
+- history full md: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260825_daily_market_full.md
+- history summary pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260825_daily_market_summary.pdf
+- history full pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260825_daily_market_full.pdf
 
 ## Published human delivery PDFs
 
-- published summary pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/published_reports/daily_market/每日全市場候選股監測報告_精華版_20260821.pdf
-- published full pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/published_reports/daily_market/完整候選股清單_完整版_20260821.pdf
+- published summary pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/published_reports/daily_market/每日全市場候選股監測報告_精華版_20260825.pdf
+- published full pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/published_reports/daily_market/完整候選股清單_完整版_20260825.pdf
 

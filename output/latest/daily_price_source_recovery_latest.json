@@ -1,15 +1,13 @@
 {
   "status": "pass",
-  "required_end_date": "20260821",
+  "required_end_date": "20260825",
   "date_candidates": {
-    "main_price_date": "20260820",
-    "official_fetch_saved_price_date": "20260821",
-    "latest_daily_price_file_date": "20260821"
+    "main_price_date": "20260821",
+    "official_fetch_saved_price_date": "20260825",
+    "latest_daily_price_file_date": "20260825"
   },
   "lookback_days": 20,
   "expected_trading_dates": [
-    "20260803",
-    "20260804",
     "20260805",
     "20260806",
     "20260807",
@@ -22,7 +20,9 @@
     "20260818",
     "20260819",
     "20260820",
-    "20260821"
+    "20260821",
+    "20260824",
+    "20260825"
   ],
   "legacy_only_before": [],
   "missing_before": [],

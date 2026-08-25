@@ -1,9 +1,9 @@
 # Candidate Repeat Appearance Validation
 
-- generated_at: `2026-08-21 19:56:56 Asia/Taipei`
+- generated_at: `2026-08-25 19:51:34 Asia/Taipei`
 - status: `pass`
-- main_price_date: `20260821`
-- history_available_days: `39`
+- main_price_date: `20260825`
+- history_available_days: `40`
 
 ## Files
 - signal_log: `output/history/daily_signals/daily_candidate_signal_log.csv`
@@ -13,10 +13,10 @@
 - all_candidates: `output/latest/all_candidates_latest.csv`
 
 ## Row Counts
-- signal_log: `22020`
-- signal_log_alias: `22020`
-- repeat_csv: `368`
-- all_candidates: `512`
+- signal_log: `22492`
+- signal_log_alias: `22492`
+- repeat_csv: `333`
+- all_candidates: `472`
 
 ## Checks
 - signal_log_exists: `True`

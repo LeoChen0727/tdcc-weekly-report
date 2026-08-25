@@ -446,7 +446,7 @@
 2207,和泰車,汽車工業,汽車工業,非主流,,,,,,provisional_industry_mapping
 2208,台船,航運業,航運業,非主流,,,,,,provisional_industry_mapping
 2211,長榮鋼,鋼鐵工業,鋼鐵工業,非主流,,,,,,provisional_industry_mapping
-2221,大甲,其他業,其他業,非主流,,,,,,
+2221,大甲,其他,其他,非主流,,,,,,
 2227,裕日車,汽車工業,汽車工業,非主流,,,,,,provisional_industry_mapping
 2228,劍麟,汽車工業,汽車工業,非主流,,,,,,provisional_industry_mapping
 2230,泰茂,居家生活,居家生活,非主流,,,,,,
@@ -639,7 +639,7 @@
 2611,志信,航運業,航運業,非主流,,,,,,provisional_industry_mapping
 2612,中航,航運業,航運業,非主流,,,,,,provisional_industry_mapping
 2613,中櫃,航運業,航運業,非主流,,,,,,provisional_industry_mapping
-2614,東森,其他,其他,非主流,,,,,,
+2614,東森,其他業,其他業,非主流,,,,,,
 2615,萬海,航運業,航運業,非主流,,,,,,provisional_industry_mapping
 2616,山隆,油電燃氣業,油電燃氣業,非主流,,,,,,provisional_industry_mapping
 2617,台航,航運業,航運業,非主流,,,,,,provisional_industry_mapping
@@ -1298,7 +1298,7 @@
 5276,達輝-KY,其他業,其他業,非主流,,,,,,
 5278,尚凡*,數位雲端,數位雲端,主流,,,,,,provisional_industry_mapping
 5283,禾聯碩,電器電纜,電器電纜,主流,,,,,,provisional_industry_mapping
-5284,jpp-KY,其他,其他,非主流,,,,,,
+5284,jpp-KY,其他業,其他業,非主流,,,,,,
 5285,界霖,半導體業,半導體業,主流,,,,,,provisional_industry_mapping
 5287,數字,數位雲端,數位雲端,主流,,,,,,provisional_industry_mapping
 5288,豐祥-KY,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
@@ -2168,7 +2168,7 @@
 8027,鈦昇,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
 8028,昇陽半導體,半導體業,半導體業,主流,半導體設備_CoWoS,晶圓再生,,,,user_authorized_seed_20260530
 8032,光菱,電子通路業,電子通路業,主流,,,,,,provisional_industry_mapping
-8033,雷虎,其他業,其他業,都有,軍工無人機,,,,,user_authorized_seed_20260530;dual_industry_theme_identity
+8033,雷虎,其他,其他,都有,軍工無人機,,,,,user_authorized_seed_20260530;dual_industry_theme_identity
 8034,榮群,通信網路業,通信網路業,主流,,,,,,provisional_industry_mapping
 8038,長園科,電子零組件業,電子零組件業,主流,,,,,,provisional_industry_mapping
 8039,台虹,電子零組件業,電子零組件業,主流,PCB_CCL_ABF材料,,,,,user_authorized_seed_20260530
@@ -2367,7 +2367,7 @@
 9935,慶豐富,居家生活,居家生活,非主流,,,,,,
 9937,全國,油電燃氣業,油電燃氣業,非主流,,,,,,provisional_industry_mapping
 9938,百和,其他業,其他業,非主流,,,,,,
-9939,宏全,其他,其他,非主流,,,,,,
+9939,宏全,其他業,其他業,非主流,,,,,,
 9940,信義,其他業,其他業,非主流,,,,,,
 9941,裕融,汽車金融 / 分期租賃,汽車金融 / 分期租賃,非主流,,,,,,
 9942,茂順,其他業,其他業,非主流,,,,,,

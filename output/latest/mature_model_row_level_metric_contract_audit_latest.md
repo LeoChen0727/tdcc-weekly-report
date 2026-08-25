@@ -2,7 +2,7 @@
 
 - audit_id: `mature_model_row_level_metric_contract_audit_20260711`
 - audit_version: `v2`
-- generated_at: `2026-08-21 20:01:23 Asia/Taipei`
+- generated_at: `2026-08-25 19:53:55 Asia/Taipei`
 
 ## Contract
 
@@ -15,9 +15,9 @@
 
 ## Findings
 
-- Mature operation stock rows audited: `310`.
-- Unique stock lifecycle rows after removing highlight/full view duplication: `155`.
-- Ready row-level metrics: `184`; explicit unavailable rows: `126`.
+- Mature operation stock rows audited: `362`.
+- Unique stock lifecycle rows after removing highlight/full view duplication: `181`.
+- Ready row-level metrics: `200`; explicit unavailable rows: `162`.
 - Invalid row metrics: `0`; baseline misuse rows: `0`; duplicate adapter keys: `0`.
 - W-bottom, W-bottom neckline, low-position volume attack, and mid-position momentum score components remain ranking-only until same-basis performance packages are promoted.
 - PDF layout integration remains pending; this artifact validates the model-owned adapter contract and does not claim final PDF rendering completion.
@@ -29,6 +29,6 @@
 | mature_model | `volume_range_breakout_v2_low_position_volume_attack` | 4 | 2 | 0 | 4 | no_current_formal_row_metric | pass_explicit_unavailable_no_baseline_substitution | not_available_unvalidated_ranking_score_components / not_applicable_no_approved_combo_metric | adapter_contract_ready_pdf_packet_consumers_integrated | none |
 | mature_model | `volume_range_breakout_v2_mid_position_momentum_attack` | 2 | 1 | 0 | 2 | no_current_formal_row_metric | pass_explicit_unavailable_no_baseline_substitution | not_available_unvalidated_ranking_score_components / not_applicable_no_approved_combo_metric | adapter_contract_ready_pdf_packet_consumers_integrated | none |
 | mature_model | `volume_range_breakout_v2_high_position_volume_attack` | 0 | 0 | 0 | 0 | no_current_formal_row_metric | pass_explicit_unavailable_no_baseline_substitution | pass_exact_recomputed_combo_metrics_match_research_source / pass_exact_combo_or_best_single_fallback_policy | adapter_contract_ready_pdf_packet_consumers_integrated | none |
-| mature_model | `w_bottom_right_side` | 24 | 12 | 0 | 24 | no_current_formal_row_metric | pass_explicit_unavailable_no_baseline_substitution | not_available_unvalidated_ranking_score_components / not_applicable_no_approved_combo_metric | adapter_contract_ready_pdf_packet_consumers_integrated | none |
+| mature_model | `w_bottom_right_side` | 20 | 10 | 0 | 20 | no_current_formal_row_metric | pass_explicit_unavailable_no_baseline_substitution | not_available_unvalidated_ranking_score_components / not_applicable_no_approved_combo_metric | adapter_contract_ready_pdf_packet_consumers_integrated | none |
 | mature_model | `neckline_volume_breakout_confirmation` | 0 | 0 | 0 | 0 | no_current_formal_row_metric | pass_explicit_unavailable_no_baseline_substitution | not_available_unvalidated_ranking_score_components / not_applicable_no_approved_combo_metric | adapter_contract_ready_pdf_packet_consumers_integrated | none |
-| mature_model | `price_pullback_23ema` | 280 | 140 | 184 | 96 | exact_combo | pass_ready_rows_use_formal_row_metric | pass_exact_package_metric_required_for_multi_feature_technical_strength / pass_improves_win_and_avg_vs_baseline | adapter_contract_ready_pdf_packet_consumers_integrated | none |
+| mature_model | `price_pullback_23ema` | 336 | 168 | 200 | 136 | exact_combo | pass_ready_rows_use_formal_row_metric | pass_exact_package_metric_required_for_multi_feature_technical_strength / pass_improves_win_and_avg_vs_baseline | adapter_contract_ready_pdf_packet_consumers_integrated | none |

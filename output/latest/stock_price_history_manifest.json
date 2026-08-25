@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-24 20:38:09 Asia/Taipei",
-  "status": "generated",
+  "generated_at": "2026-08-25 19:46:41 Asia/Taipei",
+  "status": "incremental_latest",
   "stock_count": 2388,
-  "daily_price_file_count": 419,
+  "daily_price_file_count": 421,
   "manifest_csv": "output/latest/stock_price_history_manifest.csv",
   "manifest_raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/stock_price_history_manifest.csv",
   "manifest_pages_url": "https://LeoChen0727.github.io/tdcc-weekly-report/latest/stock_price_history_manifest.csv",
