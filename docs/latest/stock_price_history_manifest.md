@@ -1,6 +1,6 @@
 # Stock Price History Manifest
 
-- generated_at: `2026-08-25 19:46:41 Asia/Taipei`
+- generated_at: `2026-08-26 20:35:42 Asia/Taipei`
 - stock_count: `2388`
 - history_dir: `data/stock_price_history/`
 - manifest_csv: `output/latest/stock_price_history_manifest.csv`
@@ -17,33 +17,33 @@
 
 | stock_id | stock_name | rows | start_date | end_date | file_path |
 |---|---|---:|---|---|---|
-| 6288 | 聯嘉 | 84 | 20250407 | 20250804 | `data/stock_price_history/6288.csv` |
-| 2888 | 新光金 | 68 | 20250407 | 20250711 | `data/stock_price_history/2888.csv` |
-| 00886 | 永豐美國科技 | 65 | 20250411 | 20260824 | `data/stock_price_history/00886.csv` |
-| 6236 | 中湛 | 44 | 20250908 | 20260821 | `data/stock_price_history/6236.csv` |
-| 2867 | 三商壽 | 335 | 20250407 | 20260819 | `data/stock_price_history/2867.csv` |
-| 8105 | 凌巨 | 335 | 20250407 | 20260818 | `data/stock_price_history/8105.csv` |
-| 1213 | 大飲 | 315 | 20250407 | 20260824 | `data/stock_price_history/1213.csv` |
-| 9110 | 越南控-DR | 304 | 20250407 | 20260824 | `data/stock_price_history/9110.csv` |
-| 6806 | 森崴能源 | 292 | 20250407 | 20260622 | `data/stock_price_history/6806.csv` |
-| 1538 | 正峰 | 274 | 20250407 | 20260824 | `data/stock_price_history/1538.csv` |
-| 2321 | 東訊 | 271 | 20250407 | 20260824 | `data/stock_price_history/2321.csv` |
-| 1589 | 永冠-KY | 242 | 20250407 | 20260402 | `data/stock_price_history/1589.csv` |
-| 6747 | 亨泰光 | 24 | 20250411 | 20251126 | `data/stock_price_history/6747.csv` |
-| 3454 | 晶睿 | 231 | 20250407 | 20260318 | `data/stock_price_history/3454.csv` |
-| 6124 | 業強 | 204 | 20250407 | 20260824 | `data/stock_price_history/6124.csv` |
-| 1788 | 杏昌 | 203 | 20250407 | 20260824 | `data/stock_price_history/1788.csv` |
-| 2751 | 王座 | 203 | 20250407 | 20260824 | `data/stock_price_history/2751.csv` |
-| 5371 | 中光電 | 203 | 20250407 | 20260821 | `data/stock_price_history/5371.csv` |
-| 00925 | 新光標普電動車 | 2 | 20250411 | 20250521 | `data/stock_price_history/00925.csv` |
-| 4945 | 陞達科技 | 2 | 20250411 | 20250521 | `data/stock_price_history/4945.csv` |
-| 6287 | 元隆 | 2 | 20250411 | 20250521 | `data/stock_price_history/6287.csv` |
-| 4747 | 強生製藥 | 199 | 20250407 | 20260819 | `data/stock_price_history/4747.csv` |
-| 6843 | 進典 | 197 | 20250407 | 20260824 | `data/stock_price_history/6843.csv` |
-| 8424 | 惠普 | 197 | 20250407 | 20260824 | `data/stock_price_history/8424.csv` |
-| 9960 | 邁達康 | 194 | 20250407 | 20260821 | `data/stock_price_history/9960.csv` |
-| 6662 | 樂斯科 | 193 | 20250407 | 20260820 | `data/stock_price_history/6662.csv` |
-| 6661 | 威健生技 | 192 | 20250407 | 20260824 | `data/stock_price_history/6661.csv` |
-| 6721 | 信實 | 189 | 20250407 | 20260824 | `data/stock_price_history/6721.csv` |
-| 7782 | 光速火箭 | 187 | 20250407 | 20260821 | `data/stock_price_history/7782.csv` |
-| 6512 | 啟發電 | 184 | 20250407 | 20260824 | `data/stock_price_history/6512.csv` |
+| 1102 | 亞泥 | 341 | 20250407 | 20260826 | `data/stock_price_history/1102.csv` |
+| 1103 | 嘉泥 | 341 | 20250407 | 20260826 | `data/stock_price_history/1103.csv` |
+| 1104 | 環泥 | 341 | 20250407 | 20260826 | `data/stock_price_history/1104.csv` |
+| 1108 | 幸福 | 341 | 20250407 | 20260826 | `data/stock_price_history/1108.csv` |
+| 1109 | 信大 | 341 | 20250407 | 20260826 | `data/stock_price_history/1109.csv` |
+| 1110 | 東泥 | 341 | 20250407 | 20260826 | `data/stock_price_history/1110.csv` |
+| 1201 | 味全 | 341 | 20250407 | 20260826 | `data/stock_price_history/1201.csv` |
+| 1210 | 大成 | 341 | 20250407 | 20260826 | `data/stock_price_history/1210.csv` |
+| 1215 | 卜蜂 | 341 | 20250407 | 20260826 | `data/stock_price_history/1215.csv` |
+| 1216 | 統一 | 341 | 20250407 | 20260826 | `data/stock_price_history/1216.csv` |
+| 1217 | 愛之味 | 341 | 20250407 | 20260826 | `data/stock_price_history/1217.csv` |
+| 1219 | 福壽 | 341 | 20250407 | 20260826 | `data/stock_price_history/1219.csv` |
+| 1220 | 台榮 | 341 | 20250407 | 20260826 | `data/stock_price_history/1220.csv` |
+| 1227 | 佳格 | 341 | 20250407 | 20260826 | `data/stock_price_history/1227.csv` |
+| 1229 | 聯華 | 341 | 20250407 | 20260826 | `data/stock_price_history/1229.csv` |
+| 1231 | 聯華食 | 341 | 20250407 | 20260826 | `data/stock_price_history/1231.csv` |
+| 1232 | 大統益 | 341 | 20250407 | 20260826 | `data/stock_price_history/1232.csv` |
+| 1233 | 天仁 | 341 | 20250407 | 20260826 | `data/stock_price_history/1233.csv` |
+| 1234 | 黑松 | 341 | 20250407 | 20260826 | `data/stock_price_history/1234.csv` |
+| 1256 | 鮮活果汁-KY | 341 | 20250407 | 20260826 | `data/stock_price_history/1256.csv` |
+| 1301 | 台塑 | 341 | 20250407 | 20260826 | `data/stock_price_history/1301.csv` |
+| 1303 | 南亞 | 341 | 20250407 | 20260826 | `data/stock_price_history/1303.csv` |
+| 1304 | 台聚 | 341 | 20250407 | 20260826 | `data/stock_price_history/1304.csv` |
+| 1305 | 華夏 | 341 | 20250407 | 20260826 | `data/stock_price_history/1305.csv` |
+| 1307 | 三芳 | 341 | 20250407 | 20260826 | `data/stock_price_history/1307.csv` |
+| 1308 | 亞聚 | 341 | 20250407 | 20260826 | `data/stock_price_history/1308.csv` |
+| 1309 | 台達化 | 341 | 20250407 | 20260826 | `data/stock_price_history/1309.csv` |
+| 1310 | 台苯 | 341 | 20250407 | 20260826 | `data/stock_price_history/1310.csv` |
+| 1312 | 國喬 | 341 | 20250407 | 20260826 | `data/stock_price_history/1312.csv` |
+| 1313 | 聯成 | 341 | 20250407 | 20260826 | `data/stock_price_history/1313.csv` |
