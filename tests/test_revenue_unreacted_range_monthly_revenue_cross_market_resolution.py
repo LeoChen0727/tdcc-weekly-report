@@ -521,6 +521,28 @@ def test_monthly_revenue_blob_hash_rejects_symbolic_link(tmp_path: Path) -> None
         monthly_revenue_history_blob_sha256(linked)
 
 
+def test_monthly_revenue_blob_hash_rejects_parent_directory_link(
+    tmp_path: Path,
+) -> None:
+    repo = tmp_path / "repo"
+    _initialize_test_git_repo(repo)
+    outside = tmp_path / "outside"
+    outside.mkdir()
+    (outside / "monthly_revenue_history.csv").write_bytes(
+        b"stock_id,revenue\n1101,1\n"
+    )
+    linked_parent = repo / "data"
+    try:
+        linked_parent.symlink_to(outside, target_is_directory=True)
+    except OSError as exc:
+        pytest.skip(f"directory symbolic links unavailable: {exc}")
+
+    with pytest.raises(RuntimeError, match="symbolic link or reparse point"):
+        monthly_revenue_history_blob_sha256(
+            linked_parent / "monthly_revenue_history.csv"
+        )
+
+
 def test_monthly_revenue_blob_hash_ignores_git_replace_for_head_identity(
     tmp_path: Path,
 ) -> None:
