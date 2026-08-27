@@ -243,15 +243,139 @@ def recent_trading_dates_ending_at(end_date: str, *, count: int) -> list[str]:
     return list(reversed(dates))
 
 
+def require_pk_unique(
+    evidence: dict[str, Any],
+    *,
+    source_id: str,
+    target_date: str,
+) -> dict[str, Any]:
+    if evidence.get("pk_unique") is not True or any(
+        component.get("pk_unique") is not True
+        for component in evidence.get("components", [])
+    ):
+        raise RuntimeError(
+            "historical structured-source PK conflict: "
+            f"source={source_id} target_date={target_date} reason=duplicate_pk"
+        )
+    return evidence
+
+
 def validate_recent_structured_source_coverage(
     end_date: str,
     *,
     count: int,
+    allow_historical_structured_absence: bool = False,
 ) -> None:
+    target_dates = recent_trading_dates_ending_at(end_date, count=count)
+    for target_date in target_dates:
+        require_pk_unique(
+            replay.build_source_output_evidence("market_index", target_date),
+            source_id="market_index",
+            target_date=target_date,
+        )
+    validate_warrant_structured_source_coverage(
+        end_date,
+        count=count,
+        allow_historical_absence=allow_historical_structured_absence,
+    )
+    validate_taifex_structured_source_coverage(
+        end_date,
+        count=count,
+        allow_historical_absence=allow_historical_structured_absence,
+    )
+
+
+def validate_warrant_structured_source_coverage(
+    end_date: str,
+    *,
+    count: int,
+    allow_historical_absence: bool = False,
+) -> dict[str, dict[str, Any]]:
+    evidence: dict[str, dict[str, Any]] = {}
     for target_date in recent_trading_dates_ending_at(end_date, count=count):
-        replay.build_source_output_evidence("market_index", target_date)
-        replay.build_source_output_evidence("taifex_futures_options_vix", target_date)
-        replay.build_source_output_evidence("official_warrant_daily", target_date)
+        daily_path = Path(
+            f"output/history/warrant_daily/warrant_daily_{target_date}.csv"
+        )
+        flow_path = Path(
+            f"output/history/warrant_flow/warrant_flow_{target_date}.csv"
+        )
+        daily_exists = daily_path.exists()
+        flow_exists = flow_path.exists()
+        if target_date == end_date or not allow_historical_absence:
+            output_evidence = require_pk_unique(
+                replay.build_source_output_evidence(
+                    "official_warrant_daily",
+                    target_date,
+                ),
+                source_id="official_warrant_daily",
+                target_date=target_date,
+            )
+            evidence[target_date] = {
+                "historical_absence_status": "not_applicable",
+                "output_evidence": output_evidence,
+            }
+            continue
+        if daily_exists != flow_exists:
+            raise RuntimeError(
+                "historical warrant paired artifact mismatch: "
+                f"target_date={target_date} reason=warrant_pair_lineage_mismatch "
+                f"warrant_daily_exists={daily_exists} warrant_flow_exists={flow_exists}"
+            )
+        if not daily_exists:
+            evidence[target_date] = {
+                "historical_absence_status": "paired_artifacts_absent_non_blocking",
+                "warrant_daily_path": daily_path.as_posix(),
+                "warrant_daily_exists": False,
+                "warrant_flow_path": flow_path.as_posix(),
+                "warrant_flow_exists": False,
+            }
+            continue
+        output_evidence = require_pk_unique(
+            replay.build_source_output_evidence(
+                "official_warrant_daily",
+                target_date,
+            ),
+            source_id="official_warrant_daily",
+            target_date=target_date,
+        )
+        evidence[target_date] = {
+            "historical_absence_status": "not_applicable",
+            "output_evidence": output_evidence,
+        }
+    return evidence
+
+
+def validate_taifex_structured_source_coverage(
+    end_date: str,
+    *,
+    count: int,
+    allow_historical_absence: bool = False,
+) -> None:
+    vix_path, vix_pk_columns = replay.TAIFEX_HISTORY_SPECS[TAIFEX_VIX_SOURCE_ID]
+    for target_date in recent_trading_dates_ending_at(end_date, count=count):
+        if target_date == end_date or not allow_historical_absence:
+            require_pk_unique(
+                replay.build_source_output_evidence(
+                    "taifex_futures_options_vix",
+                    target_date,
+                ),
+                source_id="taifex_futures_options_vix",
+                target_date=target_date,
+            )
+            continue
+        require_pk_unique(
+            replay.canonical_target_slice(
+                vix_path,
+                target_date,
+                pk_columns=vix_pk_columns,
+            ),
+            source_id=TAIFEX_VIX_SOURCE_ID,
+            target_date=target_date,
+        )
+        replay.validate_taifex_raw_history_parity(
+            target_date,
+            allow_historical_unilateral_gaps=True,
+        )
 
 
 def validate_operational_structured_source_coverage(
@@ -259,21 +383,34 @@ def validate_operational_structured_source_coverage(
     *,
     taifex_dated_tail_date: str,
     count: int,
+    allow_historical_structured_absence: bool = False,
 ) -> None:
     vix_path, vix_pk_columns = replay.TAIFEX_HISTORY_SPECS[TAIFEX_VIX_SOURCE_ID]
     for target_date in recent_trading_dates_ending_at(high_water, count=count):
-        replay.build_source_output_evidence("market_index", target_date)
-        replay.build_source_output_evidence("official_warrant_daily", target_date)
-        replay.canonical_target_slice(
-            vix_path,
-            target_date,
-            pk_columns=vix_pk_columns,
+        require_pk_unique(
+            replay.build_source_output_evidence("market_index", target_date),
+            source_id="market_index",
+            target_date=target_date,
         )
-    for target_date in recent_trading_dates_ending_at(
+        require_pk_unique(
+            replay.canonical_target_slice(
+                vix_path,
+                target_date,
+                pk_columns=vix_pk_columns,
+            ),
+            source_id=TAIFEX_VIX_SOURCE_ID,
+            target_date=target_date,
+        )
+    validate_warrant_structured_source_coverage(
+        high_water,
+        count=count,
+        allow_historical_absence=allow_historical_structured_absence,
+    )
+    validate_taifex_structured_source_coverage(
         taifex_dated_tail_date,
         count=count,
-    ):
-        replay.build_source_output_evidence("taifex_futures_options_vix", target_date)
+        allow_historical_absence=allow_historical_structured_absence,
+    )
 
 
 def build_plan(*, max_replay_dates: int) -> dict[str, Any]:
@@ -309,12 +446,14 @@ def build_plan(*, max_replay_dates: int) -> dict[str, Any]:
             validate_recent_structured_source_coverage(
                 required_base,
                 count=max_replay_dates,
+                allow_historical_structured_absence=True,
             )
         else:
             validate_operational_structured_source_coverage(
                 required_base,
                 taifex_dated_tail_date=plan["taifex_dated_tail_date"],
                 count=max_replay_dates,
+                allow_historical_structured_absence=True,
             )
     return plan
 

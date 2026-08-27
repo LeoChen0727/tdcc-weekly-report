@@ -888,8 +888,35 @@ def test_taifex_dated_raw_must_match_committed_history_target_slice(
     )
 
     parity = replay.validate_taifex_raw_history_parity("20260724")
-    assert parity["institutional_fo"]["raw_path"] == raw_path.as_posix()
-    assert parity["institutional_fo"]["row_count"] == 1
+    strict_evidence = parity["institutional_fo"]
+    raw_slice = replay.canonical_target_slice(
+        raw_path,
+        "20260724",
+        pk_columns=["date", "kind"],
+    )
+    history_slice = replay.canonical_target_slice(
+        history_path,
+        "20260724",
+        pk_columns=["date", "kind"],
+    )
+    assert strict_evidence == {
+        "raw_path": raw_path.as_posix(),
+        "history_path": history_path.as_posix(),
+        "row_count": 1,
+        "slice_sha256": raw_slice["slice_sha256"],
+        "raw_row_count": 1,
+        "raw_slice_sha256": raw_slice["slice_sha256"],
+        "history_row_count": 1,
+        "history_slice_sha256": history_slice["slice_sha256"],
+        "shared_row_count": 1,
+        "shared_slice_sha256": raw_slice["slice_sha256"],
+        "history_only_row_count": 0,
+        "history_only_pk_sha256": replay.canonical_frame_sha256(
+            frame.iloc[0:0][["date", "kind"]],
+            pk_columns=["date", "kind"],
+        ),
+        "parity_contract": "raw_subset_of_history_with_equal_shared_values",
+    }
 
     changed = frame.copy()
     changed.loc[0, "value"] = "11"
@@ -1010,4 +1037,237 @@ def test_taifex_dated_raw_rejects_shared_key_value_conflict_in_history_superset(
     monkeypatch.setattr(replay, "TAIFEX_DATED_RAW_SOURCE_IDS", ("futures_contracts",))
 
     with pytest.raises(RuntimeError, match="reason=shared_value_conflict"):
+        replay.validate_taifex_raw_history_parity(target_date)
+
+
+def test_taifex_historical_20260821_allows_unilateral_history_slice_gap(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    monkeypatch.chdir(tmp_path)
+    target_date = "20260821"
+    history_path = Path("data/futures_options/taifex_institutional_fo_history.csv")
+    raw_path = Path(f"data/futures_options/raw/institutional_fo_{target_date}.csv")
+    history_path.parent.mkdir(parents=True)
+    pd.DataFrame(
+        [{"date": "20260824", "kind": "dealer", "value": "11"}]
+    ).to_csv(history_path, index=False)
+    monkeypatch.setattr(
+        replay,
+        "TAIFEX_HISTORY_SPECS",
+        {"institutional_fo": (history_path, ["date", "kind"])},
+    )
+    monkeypatch.setattr(replay, "TAIFEX_DATED_RAW_SOURCE_IDS", ("institutional_fo",))
+
+    evidence = replay.validate_taifex_raw_history_parity(
+        target_date,
+        allow_historical_unilateral_gaps=True,
+    )["institutional_fo"]
+
+    assert evidence["raw_path"] == raw_path.as_posix()
+    assert evidence["raw_path_exists"] is False
+    assert evidence["raw_slice_status"] == "path_missing"
+    assert evidence["raw_row_count"] == 0
+    assert evidence["history_row_count"] == 0
+    assert evidence["shared_row_count"] == 0
+    assert evidence["raw_only_row_count"] == 0
+    assert evidence["history_only_row_count"] == 0
+    assert evidence["historical_absence_status"] == (
+        "both_slices_absent_non_blocking"
+    )
+    assert evidence["parity_contract"] == (
+        "historical_unilateral_gaps_non_blocking_with_equal_shared_values"
+    )
+
+
+def test_taifex_historical_20260821_allows_missing_raw_with_history_only_row(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    monkeypatch.chdir(tmp_path)
+    target_date = "20260821"
+    history_path = Path("data/futures_options/put_call_ratio_history.csv")
+    raw_path = Path(f"data/futures_options/raw/put_call_ratio_{target_date}.csv")
+    history_path.parent.mkdir(parents=True)
+    pd.DataFrame(
+        [{"date": target_date, "put_call_ratio": "93.12"}]
+    ).to_csv(history_path, index=False)
+    monkeypatch.setattr(
+        replay,
+        "TAIFEX_HISTORY_SPECS",
+        {"put_call_ratio": (history_path, ["date"])},
+    )
+    monkeypatch.setattr(replay, "TAIFEX_DATED_RAW_SOURCE_IDS", ("put_call_ratio",))
+
+    evidence = replay.validate_taifex_raw_history_parity(
+        target_date,
+        allow_historical_unilateral_gaps=True,
+    )["put_call_ratio"]
+
+    assert evidence["raw_path"] == raw_path.as_posix()
+    assert evidence["raw_path_exists"] is False
+    assert evidence["raw_row_count"] == 0
+    assert evidence["history_row_count"] == 1
+    assert evidence["shared_row_count"] == 0
+    assert evidence["history_only_row_count"] == 1
+    assert evidence["historical_absence_status"] == (
+        "raw_absent_history_only_non_blocking"
+    )
+
+
+def test_taifex_historical_existing_raw_with_wrong_date_fails_closed(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    monkeypatch.chdir(tmp_path)
+    target_date = "20260821"
+    history_path = Path("data/futures_options/taifex_institutional_fo_history.csv")
+    raw_path = Path(f"data/futures_options/raw/institutional_fo_{target_date}.csv")
+    history_path.parent.mkdir(parents=True)
+    raw_path.parent.mkdir(parents=True)
+    pd.DataFrame(
+        [{"date": target_date, "kind": "dealer", "value": "10"}]
+    ).to_csv(history_path, index=False)
+    pd.DataFrame(
+        [{"date": "20260820", "kind": "dealer", "value": "10"}]
+    ).to_csv(raw_path, index=False)
+    monkeypatch.setattr(
+        replay,
+        "TAIFEX_HISTORY_SPECS",
+        {"institutional_fo": (history_path, ["date", "kind"])},
+    )
+    monkeypatch.setattr(replay, "TAIFEX_DATED_RAW_SOURCE_IDS", ("institutional_fo",))
+
+    with pytest.raises(RuntimeError, match="replay output slice is empty"):
+        replay.validate_taifex_raw_history_parity(
+            target_date,
+            allow_historical_unilateral_gaps=True,
+        )
+
+
+def test_taifex_older_historical_unilateral_gap_still_rejects_shared_conflict(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    monkeypatch.chdir(tmp_path)
+    target_date = "20260821"
+    history_path = Path("data/futures_options/taifex_institutional_fo_history.csv")
+    raw_path = Path(f"data/futures_options/raw/institutional_fo_{target_date}.csv")
+    history_path.parent.mkdir(parents=True)
+    raw_path.parent.mkdir(parents=True)
+    pd.DataFrame(
+        [
+            {"date": target_date, "kind": "dealer", "value": "10"},
+            {"date": target_date, "kind": "trust", "value": "20"},
+        ]
+    ).to_csv(raw_path, index=False)
+    pd.DataFrame(
+        [{"date": target_date, "kind": "dealer", "value": "999"}]
+    ).to_csv(history_path, index=False)
+    monkeypatch.setattr(
+        replay,
+        "TAIFEX_HISTORY_SPECS",
+        {"institutional_fo": (history_path, ["date", "kind"])},
+    )
+    monkeypatch.setattr(replay, "TAIFEX_DATED_RAW_SOURCE_IDS", ("institutional_fo",))
+
+    with pytest.raises(RuntimeError, match="reason=shared_value_conflict"):
+        replay.validate_taifex_raw_history_parity(
+            target_date,
+            allow_historical_unilateral_gaps=True,
+        )
+
+
+@pytest.mark.parametrize(
+    ("mutation", "error_reason"),
+    [
+        ("schema", "reason=schema_mismatch"),
+        ("raw_duplicate", "reason=duplicate_pk"),
+        ("history_duplicate", "reason=duplicate_pk"),
+    ],
+)
+def test_taifex_historical_mode_keeps_schema_and_duplicate_fail_closed(
+    tmp_path: Path,
+    monkeypatch,
+    mutation: str,
+    error_reason: str,
+) -> None:
+    monkeypatch.chdir(tmp_path)
+    target_date = "20260821"
+    history_path = Path("data/futures_options/taifex_institutional_fo_history.csv")
+    raw_path = Path(f"data/futures_options/raw/institutional_fo_{target_date}.csv")
+    history_path.parent.mkdir(parents=True)
+    raw_path.parent.mkdir(parents=True)
+    raw = pd.DataFrame(
+        [{"date": target_date, "kind": "dealer", "value": "10"}]
+    )
+    history = raw.copy()
+    if mutation == "schema":
+        raw["unexpected_column"] = "drift"
+    elif mutation == "raw_duplicate":
+        raw = pd.concat([raw, raw], ignore_index=True)
+    else:
+        history = pd.concat([history, history], ignore_index=True)
+    raw.to_csv(raw_path, index=False)
+    history.to_csv(history_path, index=False)
+    monkeypatch.setattr(
+        replay,
+        "TAIFEX_HISTORY_SPECS",
+        {"institutional_fo": (history_path, ["date", "kind"])},
+    )
+    monkeypatch.setattr(replay, "TAIFEX_DATED_RAW_SOURCE_IDS", ("institutional_fo",))
+
+    with pytest.raises(RuntimeError, match=error_reason):
+        replay.validate_taifex_raw_history_parity(
+            target_date,
+            allow_historical_unilateral_gaps=True,
+        )
+
+
+def test_taifex_current_date_keeps_raw_subset_of_history_strict(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    monkeypatch.chdir(tmp_path)
+    target_date = "20260824"
+    history_path = Path("data/futures_options/taifex_institutional_fo_history.csv")
+    raw_path = Path(f"data/futures_options/raw/institutional_fo_{target_date}.csv")
+    history_path.parent.mkdir(parents=True)
+    raw_path.parent.mkdir(parents=True)
+    pd.DataFrame(
+        [{"date": target_date, "kind": "dealer", "value": "10"}]
+    ).to_csv(raw_path, index=False)
+    pd.DataFrame(
+        [{"date": target_date, "kind": "trust", "value": "20"}]
+    ).to_csv(history_path, index=False)
+    monkeypatch.setattr(
+        replay,
+        "TAIFEX_HISTORY_SPECS",
+        {"institutional_fo": (history_path, ["date", "kind"])},
+    )
+    monkeypatch.setattr(replay, "TAIFEX_DATED_RAW_SOURCE_IDS", ("institutional_fo",))
+
+    with pytest.raises(RuntimeError, match="reason=raw_rows_missing_from_history"):
+        replay.validate_taifex_raw_history_parity(target_date)
+
+
+def test_taifex_current_date_rejects_missing_dated_raw_path(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    monkeypatch.chdir(tmp_path)
+    target_date = "20260825"
+    history_path = Path("data/futures_options/taifex_institutional_fo_history.csv")
+    history_path.parent.mkdir(parents=True)
+    pd.DataFrame(
+        [{"date": target_date, "kind": "dealer", "value": "10"}]
+    ).to_csv(history_path, index=False)
+    monkeypatch.setattr(
+        replay,
+        "TAIFEX_HISTORY_SPECS",
+        {"institutional_fo": (history_path, ["date", "kind"])},
+    )
+    monkeypatch.setattr(replay, "TAIFEX_DATED_RAW_SOURCE_IDS", ("institutional_fo",))
+
+    with pytest.raises(RuntimeError, match="replay output slice path missing"):
         replay.validate_taifex_raw_history_parity(target_date)
