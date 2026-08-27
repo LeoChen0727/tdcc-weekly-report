@@ -382,11 +382,32 @@ def test_monthly_revenue_blob_hash_uses_clean_git_index_identity_across_eol(
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
     )
+    subprocess.run(
+        ["git", "config", "user.name", "test"],
+        cwd=repo,
+        check=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    subprocess.run(
+        ["git", "config", "user.email", "test@example.com"],
+        cwd=repo,
+        check=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
     history = repo / "monthly_revenue_history.csv"
     canonical_bytes = b"stock_id,revenue\n1101,1\n"
     history.write_bytes(canonical_bytes)
     subprocess.run(
         ["git", "add", "--", history.name],
+        cwd=repo,
+        check=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    subprocess.run(
+        ["git", "commit", "--quiet", "-m", "seed"],
         cwd=repo,
         check=True,
         stdout=subprocess.PIPE,
@@ -400,6 +421,16 @@ def test_monthly_revenue_blob_hash_uses_clean_git_index_identity_across_eol(
 
     history.write_bytes(b"stock_id,revenue\r\n1101,2\r\n")
     with pytest.raises(RuntimeError, match="working tree differs from Git index"):
+        monthly_revenue_history_blob_sha256(history)
+
+    subprocess.run(
+        ["git", "add", "--", history.name],
+        cwd=repo,
+        check=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    with pytest.raises(RuntimeError, match="Git index differs from HEAD"):
         monthly_revenue_history_blob_sha256(history)
 
 

@@ -331,40 +331,88 @@ def _clean_tracked_git_blob_sha256(path: Path) -> str | None:
             "-C",
             str(repo_root),
             "ls-files",
+            "--stage",
             "--error-unmatch",
             "--",
             repo_relative,
         ],
         check=False,
-        stdout=subprocess.DEVNULL,
+        stdout=subprocess.PIPE,
         stderr=subprocess.DEVNULL,
+        text=True,
+        encoding="utf-8",
     )
     if tracked_result.returncode != 0:
         return None
-    dirty_result = subprocess.run(
+    index_rows = [line for line in tracked_result.stdout.splitlines() if line.strip()]
+    if len(index_rows) != 1:
+        raise RuntimeError(
+            "monthly revenue history Git index must contain exactly one stage-0 entry: "
+            f"{repo_relative}"
+        )
+    index_metadata = index_rows[0].split("\t", 1)[0].split()
+    if (
+        len(index_metadata) != 3
+        or index_metadata[2] != "0"
+        or not re.fullmatch(r"[0-9a-f]{40,64}", index_metadata[1])
+        or set(index_metadata[1]) == {"0"}
+    ):
+        raise RuntimeError(
+            "monthly revenue history Git index entry is unresolved or intent-to-add: "
+            f"{repo_relative}"
+        )
+    index_oid = index_metadata[1]
+    head_result = subprocess.run(
         [
             "git",
             "-C",
             str(repo_root),
-            "diff",
-            "--quiet",
-            "--no-ext-diff",
-            "--",
-            repo_relative,
+            "rev-parse",
+            "--verify",
+            f"HEAD:{repo_relative}",
         ],
         check=False,
-        stdout=subprocess.DEVNULL,
+        stdout=subprocess.PIPE,
         stderr=subprocess.DEVNULL,
+        text=True,
+        encoding="utf-8",
     )
-    if dirty_result.returncode == 1:
+    if head_result.returncode != 0:
+        raise RuntimeError(
+            "monthly revenue history HEAD blob cannot be resolved: "
+            f"{repo_relative}; exit_code={head_result.returncode}"
+        )
+    head_oid = head_result.stdout.strip().lower()
+    if head_oid != index_oid:
+        raise RuntimeError(
+            "monthly revenue history Git index differs from HEAD: "
+            f"{repo_relative}"
+        )
+    working_result = subprocess.run(
+        [
+            "git",
+            "-C",
+            str(repo_root),
+            "hash-object",
+            f"--path={repo_relative}",
+            str(resolved),
+        ],
+        check=False,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.DEVNULL,
+        text=True,
+        encoding="utf-8",
+    )
+    if working_result.returncode != 0:
+        raise RuntimeError(
+            "monthly revenue history working-tree blob cannot be resolved: "
+            f"{repo_relative}; exit_code={working_result.returncode}"
+        )
+    working_oid = working_result.stdout.strip().lower()
+    if working_oid != index_oid:
         raise RuntimeError(
             "monthly revenue history working tree differs from Git index: "
             f"{repo_relative}"
-        )
-    if dirty_result.returncode != 0:
-        raise RuntimeError(
-            "monthly revenue history Git dirty-state check failed: "
-            f"{repo_relative}; exit_code={dirty_result.returncode}"
         )
     try:
         process = subprocess.Popen(
@@ -372,9 +420,10 @@ def _clean_tracked_git_blob_sha256(path: Path) -> str | None:
                 "git",
                 "-C",
                 str(repo_root),
+                "--no-replace-objects",
                 "cat-file",
                 "blob",
-                f":{repo_relative}",
+                index_oid,
             ],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
