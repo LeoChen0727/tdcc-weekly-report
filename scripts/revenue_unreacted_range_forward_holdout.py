@@ -255,6 +255,11 @@ def _canonical_json_sha256(payload: object) -> str:
 RULE_CANONICAL_SHA256 = _canonical_json_sha256(RULE_CONTRACT)
 DATA_CONTRACT_SHA256 = _canonical_json_sha256(DATA_CONTRACT)
 
+# A later, separately registered holdout family may take an evidence capture
+# before its first eligible trading date.  The original v1 family keeps the
+# historical fail-closed behavior because this default remains false.
+ALLOW_PRE_START_EMPTY_CAPTURE = False
+
 FINANCIAL_STATEMENT_SCOPE = str(RULE_CONTRACT["financial_statement_scope"])
 ANOMALY_POLICY = str(RULE_CONTRACT["anomaly_policy"])
 NON_OVERLAP_POLICY = str(RULE_CONTRACT["same_stock_non_overlap"])
@@ -1400,6 +1405,7 @@ def _summary_frames(
     generated_at: str,
     capture_id: str,
     bridge_excluded_count: int,
+    holdout_status: str = "holdout_accumulating",
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     summary_rows: list[dict[str, object]] = []
     comparison_rows: list[dict[str, object]] = []
@@ -1422,7 +1428,7 @@ def _summary_frames(
     for variant_order, variant_id in enumerate(ALL_VARIANT_IDS, start=1):
         part = detail.loc[_membership(detail, variant_id)].copy()
         metrics = _metric_row(part)
-        status = "holdout_accumulating"
+        status = holdout_status
         summary_row = {
             **base,
             "artifact_row_key": variant_id,
@@ -1447,7 +1453,7 @@ def _summary_frames(
                 "variant_role": summary_row["variant_role"],
                 "holdout_status": status,
                 **metrics,
-                "comparison_conclusion": "no_promotion_conclusion_holdout_accumulating",
+                "comparison_conclusion": f"no_promotion_conclusion_{status}",
             }
         )
         for basis_order, (basis, basis_part) in enumerate(
@@ -1502,7 +1508,8 @@ def build_forward_holdout(
     observed_through_date = max(
         str(frame["date"].iloc[-1]) for frame in prices.values() if not frame.empty
     )
-    if observed_through_date < HOLDOUT_START_DATE:
+    pre_start_capture = observed_through_date < HOLDOUT_START_DATE
+    if pre_start_capture and not ALLOW_PRE_START_EMPTY_CAPTURE:
         raise RuntimeError(
             f"forward holdout price observation ends before holdout: {observed_through_date}"
         )
@@ -1565,14 +1572,18 @@ def build_forward_holdout(
         capture_id=capture_id,
         lineage=lineage,
     ) if observed_through_date >= BRIDGE_START_DATE else []
-    event_rows = _event_rows_for_window(
-        source,
-        prices,
-        window_start=HOLDOUT_START_DATE,
-        window_end=observed_through_date,
-        generated_at=generated,
-        capture_id=capture_id,
-        lineage=lineage,
+    event_rows = (
+        []
+        if pre_start_capture
+        else _event_rows_for_window(
+            source,
+            prices,
+            window_start=HOLDOUT_START_DATE,
+            window_end=observed_through_date,
+            generated_at=generated,
+            capture_id=capture_id,
+            lineage=lineage,
+        )
     )
     detail = pd.DataFrame(event_rows, columns=DETAIL_COLUMNS)
     if detail.empty:
@@ -1592,6 +1603,11 @@ def build_forward_holdout(
         generated_at=generated,
         capture_id=capture_id,
         bridge_excluded_count=len(bridge_rows),
+        holdout_status=(
+            "preregistered_waiting_for_start"
+            if pre_start_capture
+            else "holdout_accumulating"
+        ),
     )
     primary_summary = summary.loc[summary["variant_id"].eq(PRIMARY_VARIANT_ID)].iloc[0]
     manifest_row = {
@@ -1630,7 +1646,11 @@ def build_forward_holdout(
         ),
         "primary_mature_count": int(primary_summary["mature_count"]),
         "primary_right_censored_count": int(primary_summary["right_censored_count"]),
-        "holdout_status": "holdout_accumulating",
+        "holdout_status": (
+            "preregistered_waiting_for_start"
+            if pre_start_capture
+            else "holdout_accumulating"
+        ),
         "append_only_history": True,
         "research_only": True,
         "formal_model_use_allowed": False,

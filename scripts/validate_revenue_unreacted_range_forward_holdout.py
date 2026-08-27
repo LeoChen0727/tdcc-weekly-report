@@ -182,6 +182,10 @@ DATA_CONTRACT = {
     "production_change": False,
 }
 
+# The original v1 validator remains fail closed before 20260804.  A separately
+# registered v2 wrapper enables this only for its one pre-start empty capture.
+ALLOW_PRE_START_EMPTY_CAPTURE = False
+
 MONTHLY_LINEAGE_COLUMNS = (
     "monthly_revenue_history_blob_sha256",
     "monthly_revenue_canonical_table_sha256",
@@ -1475,6 +1479,14 @@ def validate_frames(
         errors.append("manifest must contain exactly one row")
         return errors
     manifest_row = manifest.iloc[0]
+    observed_manifest_date = str(manifest_row.get("observed_through_date", "")).strip()
+    expected_holdout_status = (
+        "preregistered_waiting_for_start"
+        if ALLOW_PRE_START_EMPTY_CAPTURE
+        and observed_manifest_date
+        and observed_manifest_date < HOLDOUT_START_DATE
+        else "holdout_accumulating"
+    )
     for column, expected in (
         ("preregistration_pr_number", PREREGISTRATION_PR_NUMBER),
         ("preregistration_merge_commit", PREREGISTRATION_MERGE_COMMIT),
@@ -1487,7 +1499,7 @@ def validate_frames(
         ("rule_canonical_sha256", RULE_CANONICAL_SHA256),
         ("data_contract_version", DATA_CONTRACT_VERSION),
         ("data_contract_sha256", DATA_CONTRACT_SHA256),
-        ("holdout_status", "holdout_accumulating"),
+        ("holdout_status", expected_holdout_status),
         ("financial_statement_scope", FINANCIAL_STATEMENT_SCOPE),
     ):
         if column not in manifest.columns or str(manifest_row[column]).strip() != expected:
@@ -1527,7 +1539,8 @@ def validate_frames(
         _validate_source_integer_contract(source)
         prices = _normalize_prices(daily_by_stock)
         observed = max(str(frame["date"].iloc[-1]) for frame in prices.values())
-        if observed < HOLDOUT_START_DATE:
+        pre_start_capture = observed < HOLDOUT_START_DATE
+        if pre_start_capture and not ALLOW_PRE_START_EMPTY_CAPTURE:
             raise RuntimeError(
                 f"price observation ends before holdout start: {observed}"
             )
@@ -1564,8 +1577,12 @@ def validate_frames(
                 raise RuntimeError(
                     f"source lineage exceeds observation cutoff: {column}"
                 )
-        expected = _expected_window(
-            source, prices, start_date=HOLDOUT_START_DATE, end_date=observed
+        expected = (
+            []
+            if pre_start_capture
+            else _expected_window(
+                source, prices, start_date=HOLDOUT_START_DATE, end_date=observed
+            )
         )
         bridge = _expected_window(
             source,
@@ -1853,7 +1870,7 @@ def validate_frames(
                 label=f"{surface_label}/{variant_id}",
                 errors=errors,
             )
-            if str(row.get("holdout_status", "")) != "holdout_accumulating":
+            if str(row.get("holdout_status", "")) != expected_holdout_status:
                 errors.append(f"{surface_label} holdout status drift: {variant_id}")
             if surface_label == "summary":
                 if not _equal_exact_integer(
@@ -1874,7 +1891,7 @@ def validate_frames(
                         f"summary financial statement isolation drift: {variant_id}"
                     )
             elif str(row.get("comparison_conclusion", "")) != (
-                "no_promotion_conclusion_holdout_accumulating"
+                f"no_promotion_conclusion_{expected_holdout_status}"
             ):
                 errors.append(f"comparison conclusion drift: {variant_id}")
 

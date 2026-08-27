@@ -841,9 +841,9 @@ def test_volume_v2_watch_committed_lineage_audit_is_exactly_registered() -> None
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
-    assert len(rows) == 29
+    assert len(rows) == 30
     assert rows[-1]["migration_id"] == (
-        "revenue_source_snapshot_projection_v2_supersede_and_chain_20260822"
+        "revenue_forward_holdout_v2_migration_20260828"
     )
     baseline = rows[0]
     assert tuple(baseline) == DATA_SHARING_MIGRATION_COLUMNS

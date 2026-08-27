@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import sys
 from pathlib import Path
 
@@ -205,10 +206,16 @@ def test_source_first_validator_allows_current_blob_rewrite_when_canonical_rows_
 ) -> None:
     revenue_path = tmp_path / "monthly_revenue_history.csv"
     original = validator.REVENUE_HISTORY_CSV.read_bytes()
-    if b"\r\n" in original:
-        rewritten = original.replace(b"\r\n", b"\n")
-    else:
-        rewritten = original.replace(b"\n", b"\r\n")
+    canonical_lf = original.replace(b"\r\n", b"\n").rstrip(b"\n") + b"\n"
+    expected_blob_sha = current_monthly_revenue_lineage[3][
+        "monthly_revenue_history_blob_sha256"
+    ]
+    rewritten = next(
+        candidate
+        for extra_blank_lines in range(1, 4)
+        if (candidate := canonical_lf + (b"\n" * extra_blank_lines)) != original
+        and hashlib.sha256(candidate).hexdigest() != expected_blob_sha
+    )
     revenue_path.write_bytes(rewritten)
 
     assert revenue_path.read_bytes() != original

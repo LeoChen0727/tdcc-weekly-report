@@ -2,9 +2,12 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
 import re
+import stat
+import subprocess
 
 import pandas as pd
 
@@ -304,7 +307,212 @@ def cross_market_resolution_registry_canonical_sha256(
     )
 
 
+def _lexical_git_worktree_root(path: Path) -> Path | None:
+    lexical = Path(os.path.abspath(path))
+    for candidate in (lexical.parent, *lexical.parent.parents):
+        if os.path.lexists(candidate / ".git"):
+            return candidate
+    return None
+
+
+def _path_has_reparse_identity(path: Path) -> bool:
+    metadata = os.lstat(path)
+    if stat.S_ISLNK(metadata.st_mode):
+        return True
+    reparse_flag = getattr(stat, "FILE_ATTRIBUTE_REPARSE_POINT", 0)
+    return bool(getattr(metadata, "st_file_attributes", 0) & reparse_flag)
+
+
+def _clean_tracked_git_blob_sha256(path: Path) -> str | None:
+    lexical_source = Path(os.path.abspath(path))
+    lexical_repo_root = _lexical_git_worktree_root(lexical_source)
+    if lexical_repo_root is None:
+        return None
+    try:
+        relative_path = lexical_source.relative_to(lexical_repo_root)
+    except ValueError as exc:
+        raise RuntimeError(
+            "monthly revenue history lexical path is outside its Git worktree: "
+            f"{lexical_source}"
+        ) from exc
+    cursor = lexical_repo_root
+    for component in relative_path.parts:
+        cursor = cursor / component
+        try:
+            has_reparse_identity = _path_has_reparse_identity(cursor)
+        except OSError as exc:
+            raise RuntimeError(
+                "monthly revenue history lexical path cannot be inspected: "
+                f"{cursor}"
+            ) from exc
+        if has_reparse_identity:
+            raise RuntimeError(
+                "monthly revenue history path must not traverse a symbolic link or "
+                f"reparse point: {cursor}"
+            )
+    resolved = lexical_source.resolve(strict=True)
+    resolved_repo_root = lexical_repo_root.resolve(strict=True)
+    try:
+        resolved.relative_to(resolved_repo_root)
+    except ValueError as exc:
+        raise RuntimeError(
+            "monthly revenue history resolved path escapes its Git worktree: "
+            f"{lexical_source}"
+        ) from exc
+    try:
+        repo_result = subprocess.run(
+            ["git", "-C", str(lexical_repo_root), "rev-parse", "--show-toplevel"],
+            check=False,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.DEVNULL,
+            text=True,
+            encoding="utf-8",
+        )
+    except FileNotFoundError:
+        raise RuntimeError("Git is unavailable for tracked monthly revenue history")
+    if repo_result.returncode != 0:
+        raise RuntimeError(
+            "monthly revenue history Git worktree cannot be resolved: "
+            f"{lexical_repo_root}; exit_code={repo_result.returncode}"
+        )
+    repo_root = Path(repo_result.stdout.strip()).resolve(strict=True)
+    if not os.path.samefile(repo_root, resolved_repo_root):
+        raise RuntimeError(
+            "monthly revenue history lexical and Git worktree roots differ: "
+            f"lexical={lexical_repo_root}; git={repo_root}"
+        )
+    repo_relative = relative_path.as_posix()
+    tracked_result = subprocess.run(
+        [
+            "git",
+            "-C",
+            str(repo_root),
+            "ls-files",
+            "--stage",
+            "--error-unmatch",
+            "--",
+            repo_relative,
+        ],
+        check=False,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.DEVNULL,
+        text=True,
+        encoding="utf-8",
+    )
+    if tracked_result.returncode != 0:
+        raise RuntimeError(
+            "monthly revenue history path is untracked in Git repository: "
+            f"{repo_relative}"
+        )
+    index_rows = [line for line in tracked_result.stdout.splitlines() if line.strip()]
+    if len(index_rows) != 1:
+        raise RuntimeError(
+            "monthly revenue history Git index must contain exactly one stage-0 entry: "
+            f"{repo_relative}"
+        )
+    index_metadata = index_rows[0].split("\t", 1)[0].split()
+    if (
+        len(index_metadata) != 3
+        or index_metadata[0] != "100644"
+        or index_metadata[2] != "0"
+        or not re.fullmatch(r"[0-9a-f]{40,64}", index_metadata[1])
+        or set(index_metadata[1]) == {"0"}
+    ):
+        raise RuntimeError(
+            "monthly revenue history Git index entry must be a resolved stage-0 "
+            "100644 file: "
+            f"{repo_relative}"
+        )
+    index_oid = index_metadata[1]
+    head_result = subprocess.run(
+        [
+            "git",
+            "-C",
+            str(repo_root),
+            "--no-replace-objects",
+            "rev-parse",
+            "--verify",
+            f"HEAD:{repo_relative}",
+        ],
+        check=False,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.DEVNULL,
+        text=True,
+        encoding="utf-8",
+    )
+    if head_result.returncode != 0:
+        raise RuntimeError(
+            "monthly revenue history HEAD blob cannot be resolved: "
+            f"{repo_relative}; exit_code={head_result.returncode}"
+        )
+    head_oid = head_result.stdout.strip().lower()
+    if head_oid != index_oid:
+        raise RuntimeError(
+            "monthly revenue history Git index differs from HEAD: "
+            f"{repo_relative}"
+        )
+    working_result = subprocess.run(
+        [
+            "git",
+            "-C",
+            str(repo_root),
+            "hash-object",
+            f"--path={repo_relative}",
+            str(resolved),
+        ],
+        check=False,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.DEVNULL,
+        text=True,
+        encoding="utf-8",
+    )
+    if working_result.returncode != 0:
+        raise RuntimeError(
+            "monthly revenue history working-tree blob cannot be resolved: "
+            f"{repo_relative}; exit_code={working_result.returncode}"
+        )
+    working_oid = working_result.stdout.strip().lower()
+    if working_oid != index_oid:
+        raise RuntimeError(
+            "monthly revenue history working tree differs from Git index: "
+            f"{repo_relative}"
+        )
+    try:
+        process = subprocess.Popen(
+            [
+                "git",
+                "-C",
+                str(repo_root),
+                "--no-replace-objects",
+                "cat-file",
+                "blob",
+                index_oid,
+            ],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+        )
+    except FileNotFoundError as exc:
+        raise RuntimeError("Git became unavailable while reading monthly revenue blob") from exc
+    digest = hashlib.sha256()
+    if process.stdout is None or process.stderr is None:
+        process.kill()
+        raise RuntimeError("monthly revenue history Git blob pipes are unavailable")
+    for chunk in iter(lambda: process.stdout.read(1024 * 1024), b""):
+        digest.update(chunk)
+    error_text = process.stderr.read().decode("utf-8", errors="replace").strip()
+    returncode = process.wait()
+    if returncode != 0:
+        raise RuntimeError(
+            "monthly revenue history Git blob cannot be read: "
+            f"{repo_relative}; exit_code={returncode}; stderr={error_text}"
+        )
+    return digest.hexdigest()
+
+
 def monthly_revenue_history_blob_sha256(path: Path) -> str:
+    tracked_git_sha = _clean_tracked_git_blob_sha256(path)
+    if tracked_git_sha is not None:
+        return tracked_git_sha
     digest = hashlib.sha256()
     with Path(path).open("rb") as handle:
         for chunk in iter(lambda: handle.read(1024 * 1024), b""):

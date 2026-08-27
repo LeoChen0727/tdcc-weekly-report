@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import hashlib
+import subprocess
 import sys
 from pathlib import Path
 
@@ -98,6 +100,24 @@ def _registered_pair() -> pd.DataFrame:
             _row(market="listed", source_market_name="TWSE", source_table_date="20260717"),
         ]
     )
+
+
+def _initialize_test_git_repo(repo: Path) -> None:
+    repo.mkdir()
+    commands = (
+        ("init", "--quiet"),
+        ("config", "core.autocrlf", "true"),
+        ("config", "user.name", "test"),
+        ("config", "user.email", "test@example.com"),
+    )
+    for command in commands:
+        subprocess.run(
+            ["git", *command],
+            cwd=repo,
+            check=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+        )
 
 
 def _registry() -> pd.DataFrame:
@@ -359,6 +379,293 @@ def test_non_mirror_rows_receive_self_lineage_and_run_hashes_are_stable(
     first_blob_sha = monthly_revenue_history_blob_sha256(blob)
     blob.write_bytes(blob.read_bytes() + b"\n")
     assert monthly_revenue_history_blob_sha256(blob) != first_blob_sha
+
+
+def test_monthly_revenue_blob_hash_uses_clean_git_index_identity_across_eol(
+    tmp_path: Path,
+) -> None:
+    repo = tmp_path / "repo"
+    _initialize_test_git_repo(repo)
+    history = repo / "monthly_revenue_history.csv"
+    canonical_bytes = b"stock_id,revenue\n1101,1\n"
+    history.write_bytes(canonical_bytes)
+    subprocess.run(
+        ["git", "add", "--", history.name],
+        cwd=repo,
+        check=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    subprocess.run(
+        ["git", "commit", "--quiet", "-m", "seed"],
+        cwd=repo,
+        check=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    expected = hashlib.sha256(canonical_bytes).hexdigest()
+    assert monthly_revenue_history_blob_sha256(history) == expected
+
+    history.write_bytes(canonical_bytes.replace(b"\n", b"\r\n"))
+    assert monthly_revenue_history_blob_sha256(history) == expected
+
+    history.write_bytes(b"stock_id,revenue\r\n1101,2\r\n")
+    with pytest.raises(RuntimeError, match="working tree differs from Git index"):
+        monthly_revenue_history_blob_sha256(history)
+
+    subprocess.run(
+        ["git", "add", "--", history.name],
+        cwd=repo,
+        check=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    with pytest.raises(RuntimeError, match="Git index differs from HEAD"):
+        monthly_revenue_history_blob_sha256(history)
+
+    intent = repo / "intent.csv"
+    intent.write_bytes(b"intent\n")
+    subprocess.run(
+        ["git", "add", "--intent-to-add", "--", intent.name],
+        cwd=repo,
+        check=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    with pytest.raises(RuntimeError, match="HEAD blob cannot be resolved"):
+        monthly_revenue_history_blob_sha256(intent)
+
+    conflict = repo / "conflict.csv"
+    conflict.write_bytes(b"conflict\n")
+    blob_result = subprocess.run(
+        ["git", "hash-object", "-w", "--stdin"],
+        cwd=repo,
+        check=True,
+        input=b"conflict\n",
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    blob_oid = blob_result.stdout.decode("ascii").strip()
+    index_info = "".join(
+        f"100644 {blob_oid} {stage}\t{conflict.name}\n" for stage in (1, 2, 3)
+    ).encode("ascii")
+    subprocess.run(
+        ["git", "update-index", "--index-info"],
+        cwd=repo,
+        check=True,
+        input=index_info,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    with pytest.raises(RuntimeError, match="Git index"):
+        monthly_revenue_history_blob_sha256(conflict)
+
+
+def test_monthly_revenue_blob_hash_rejects_staged_mode_and_untracked_repo_file(
+    tmp_path: Path,
+) -> None:
+    repo = tmp_path / "repo"
+    _initialize_test_git_repo(repo)
+    history = repo / "monthly_revenue_history.csv"
+    history.write_bytes(b"stock_id,revenue\n1101,1\n")
+    subprocess.run(
+        ["git", "add", "--", history.name],
+        cwd=repo,
+        check=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    subprocess.run(
+        ["git", "commit", "--quiet", "-m", "seed"],
+        cwd=repo,
+        check=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+
+    subprocess.run(
+        ["git", "update-index", "--chmod=+x", "--", history.name],
+        cwd=repo,
+        check=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    with pytest.raises(RuntimeError, match="resolved stage-0 100644 file"):
+        monthly_revenue_history_blob_sha256(history)
+
+    subprocess.run(
+        ["git", "reset", "--quiet", "HEAD", "--", history.name],
+        cwd=repo,
+        check=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    untracked = repo / "untracked.csv"
+    untracked.write_bytes(b"stock_id,revenue\n1101,1\n")
+    with pytest.raises(RuntimeError, match="untracked in Git repository"):
+        monthly_revenue_history_blob_sha256(untracked)
+
+
+def test_monthly_revenue_blob_hash_rejects_symbolic_link(tmp_path: Path) -> None:
+    repo = tmp_path / "repo"
+    _initialize_test_git_repo(repo)
+    outside = tmp_path / "outside.csv"
+    outside.write_bytes(b"stock_id,revenue\n1101,1\n")
+    linked = repo / "monthly_revenue_history.csv"
+    try:
+        linked.symlink_to(outside)
+    except OSError as exc:
+        pytest.skip(f"symbolic links unavailable: {exc}")
+
+    with pytest.raises(RuntimeError, match="symbolic link or reparse point"):
+        monthly_revenue_history_blob_sha256(linked)
+
+
+def test_monthly_revenue_blob_hash_rejects_parent_directory_link(
+    tmp_path: Path,
+) -> None:
+    repo = tmp_path / "repo"
+    _initialize_test_git_repo(repo)
+    outside = tmp_path / "outside"
+    outside.mkdir()
+    (outside / "monthly_revenue_history.csv").write_bytes(
+        b"stock_id,revenue\n1101,1\n"
+    )
+    linked_parent = repo / "data"
+    try:
+        linked_parent.symlink_to(outside, target_is_directory=True)
+    except OSError as exc:
+        pytest.skip(f"directory symbolic links unavailable: {exc}")
+
+    with pytest.raises(RuntimeError, match="symbolic link or reparse point"):
+        monthly_revenue_history_blob_sha256(
+            linked_parent / "monthly_revenue_history.csv"
+        )
+
+
+def test_monthly_revenue_blob_hash_ignores_git_replace_for_head_identity(
+    tmp_path: Path,
+) -> None:
+    repo = tmp_path / "repo"
+    _initialize_test_git_repo(repo)
+    history = repo / "monthly_revenue_history.csv"
+    history.write_bytes(b"stock_id,revenue\n1101,1\n")
+    subprocess.run(
+        ["git", "add", "--", history.name],
+        cwd=repo,
+        check=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    subprocess.run(
+        ["git", "commit", "--quiet", "-m", "seed"],
+        cwd=repo,
+        check=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    real_head = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=repo,
+        check=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True,
+    ).stdout.strip()
+
+    history.write_bytes(b"stock_id,revenue\n1101,2\n")
+    subprocess.run(
+        ["git", "add", "--", history.name],
+        cwd=repo,
+        check=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    staged_tree = subprocess.run(
+        ["git", "write-tree"],
+        cwd=repo,
+        check=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True,
+    ).stdout.strip()
+    replacement_commit = subprocess.run(
+        ["git", "commit-tree", staged_tree, "-p", real_head],
+        cwd=repo,
+        check=True,
+        input="replacement\n",
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True,
+    ).stdout.strip()
+    subprocess.run(
+        ["git", "replace", real_head, replacement_commit],
+        cwd=repo,
+        check=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+
+    with pytest.raises(RuntimeError, match="Git index differs from HEAD"):
+        monthly_revenue_history_blob_sha256(history)
+
+
+def test_committed_metadata_change_updates_blob_but_not_canonical_table(
+    tmp_path: Path,
+) -> None:
+    repo = tmp_path / "repo"
+    _initialize_test_git_repo(repo)
+    history = repo / "monthly_revenue_history.csv"
+    first = _registered_pair()
+    first["generated_at"] = "2026-08-22 00:00:00 Asia/Taipei"
+    first["fetch_date"] = "20260822"
+    first["fetch_timestamp"] = "2026-08-22T00:00:00+08:00"
+    first.to_csv(history, index=False, lineterminator="\n")
+    subprocess.run(
+        ["git", "add", "--", history.name],
+        cwd=repo,
+        check=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    subprocess.run(
+        ["git", "commit", "--quiet", "-m", "first"],
+        cwd=repo,
+        check=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    first_blob = monthly_revenue_history_blob_sha256(history)
+    first_canonical = canonical_monthly_revenue_history_table_sha256(
+        resolve_monthly_revenue_cross_market_mirrors(first)
+    )
+
+    second = first.copy()
+    second["generated_at"] = "2026-08-28 00:00:00 Asia/Taipei"
+    second["fetch_date"] = "20260828"
+    second["fetch_timestamp"] = "2026-08-28T00:00:00+08:00"
+    second.to_csv(history, index=False, lineterminator="\n")
+    subprocess.run(
+        ["git", "add", "--", history.name],
+        cwd=repo,
+        check=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    subprocess.run(
+        ["git", "commit", "--quiet", "-m", "second"],
+        cwd=repo,
+        check=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    second_blob = monthly_revenue_history_blob_sha256(history)
+    second_canonical = canonical_monthly_revenue_history_table_sha256(
+        resolve_monthly_revenue_cross_market_mirrors(second)
+    )
+
+    assert second_blob != first_blob
+    assert second_canonical == first_canonical
 
 
 def test_unregistered_cross_market_duplicate_fails_closed() -> None:
