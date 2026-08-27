@@ -369,6 +369,39 @@ def taifex_dated_raw_path(source_id: str, target_date: str) -> Path:
     return Path("data/futures_options/raw") / f"{source_id}_{target_date}.csv"
 
 
+def _canonical_taifex_target_frame(
+    path: Path,
+    target_date: str,
+    *,
+    pk_columns: list[str],
+) -> pd.DataFrame:
+    if not path.exists():
+        raise RuntimeError(f"replay output slice path missing: {path}")
+    frame = pd.read_csv(path, dtype=str, keep_default_na=False).fillna("")
+    date_col = detect_date_column(frame, path)
+    normalized_dates = (
+        frame[date_col].astype(str).str.replace(r"[^0-9]", "", regex=True).str[:8]
+    )
+    exact = frame[normalized_dates.eq(target_date)].copy()
+    if exact.empty:
+        raise RuntimeError(f"replay output slice is empty for {target_date}: {path}")
+    missing_pk = [column for column in pk_columns if column not in exact.columns]
+    if missing_pk:
+        raise RuntimeError(f"replay output slice missing PK columns {missing_pk}: {path}")
+    for column in exact.columns:
+        exact[column] = exact[column].astype(str)
+    if exact.duplicated(pk_columns).any():
+        raise RuntimeError(
+            "TAIFEX dated raw/history target-slice mismatch: "
+            f"target_date={target_date} path={path.as_posix()} reason=duplicate_pk"
+        )
+    ordered_columns = sorted(str(column) for column in exact.columns)
+    sort_columns = list(dict.fromkeys([*pk_columns, *ordered_columns]))
+    return exact[ordered_columns].sort_values(sort_columns, kind="stable").reset_index(
+        drop=True
+    )
+
+
 def validate_taifex_raw_history_parity(target_date: str) -> dict[str, dict[str, Any]]:
     parity: dict[str, dict[str, Any]] = {}
     for source_id in TAIFEX_DATED_RAW_SOURCE_IDS:
@@ -384,16 +417,66 @@ def validate_taifex_raw_history_parity(target_date: str) -> dict[str, dict[str, 
             target_date,
             pk_columns=pk_columns,
         )
-        if raw_slice["slice_sha256"] != history_slice["slice_sha256"]:
+        raw_frame = _canonical_taifex_target_frame(
+            raw_path,
+            target_date,
+            pk_columns=pk_columns,
+        )
+        history_frame = _canonical_taifex_target_frame(
+            history_path,
+            target_date,
+            pk_columns=pk_columns,
+        )
+        raw_columns = set(raw_frame.columns)
+        history_columns = set(history_frame.columns)
+        if raw_columns != history_columns:
             raise RuntimeError(
                 "TAIFEX dated raw/history target-slice mismatch: "
-                f"source={source_id} target_date={target_date}"
+                f"source={source_id} target_date={target_date} reason=schema_mismatch "
+                f"raw_only_columns={sorted(raw_columns - history_columns)} "
+                f"history_only_columns={sorted(history_columns - raw_columns)}"
             )
+
+        raw_indexed = raw_frame.set_index(pk_columns, drop=False).sort_index()
+        history_indexed = history_frame.set_index(pk_columns, drop=False).sort_index()
+        raw_only_index = raw_indexed.index.difference(history_indexed.index)
+        if len(raw_only_index):
+            raise RuntimeError(
+                "TAIFEX dated raw/history target-slice mismatch: "
+                f"source={source_id} target_date={target_date} "
+                f"reason=raw_rows_missing_from_history raw_only_row_count={len(raw_only_index)}"
+            )
+
+        shared_history = history_indexed.reindex(raw_indexed.index)
+        if not raw_indexed.equals(shared_history):
+            shared_conflict_count = int(raw_indexed.ne(shared_history).any(axis=1).sum())
+            raise RuntimeError(
+                "TAIFEX dated raw/history target-slice mismatch: "
+                f"source={source_id} target_date={target_date} "
+                f"reason=shared_value_conflict shared_conflict_count={shared_conflict_count}"
+            )
+
+        history_only_index = history_indexed.index.difference(raw_indexed.index)
+        history_only_keys = history_frame[
+            history_frame.set_index(pk_columns).index.isin(history_only_index)
+        ][pk_columns]
         parity[source_id] = {
             "raw_path": raw_path.as_posix(),
             "history_path": history_path.as_posix(),
             "row_count": raw_slice["row_count"],
             "slice_sha256": raw_slice["slice_sha256"],
+            "raw_row_count": raw_slice["row_count"],
+            "raw_slice_sha256": raw_slice["slice_sha256"],
+            "history_row_count": history_slice["row_count"],
+            "history_slice_sha256": history_slice["slice_sha256"],
+            "shared_row_count": raw_slice["row_count"],
+            "shared_slice_sha256": raw_slice["slice_sha256"],
+            "history_only_row_count": len(history_only_index),
+            "history_only_pk_sha256": canonical_frame_sha256(
+                history_only_keys,
+                pk_columns=pk_columns,
+            ),
+            "parity_contract": "raw_subset_of_history_with_equal_shared_values",
         }
     return parity
 

@@ -558,37 +558,54 @@ def price_pullback_source_status(row: pd.Series | None, adapter_rows: pd.DataFra
         "technical_package_avg_return_zh": "price_pullback_technical_package_avg_return_pct",
     }
     issues: list[str] = []
-    first = adapter_rows.iloc[0] if not adapter_rows.empty else None
-    for adapter_col, approved_col in mapping.items():
-        if approved_col not in row.index:
-            issues.append(f"missing_approved:{approved_col}")
-            continue
-        if first is None or adapter_col not in first.index:
-            issues.append(f"missing_adapter:{adapter_col}")
-            continue
-        approved_value = pct_number(row.get(approved_col))
-        adapter_value = pct_number(first.get(adapter_col))
-        if approved_value is None or adapter_value is None:
-            issues.append(f"non_numeric:{adapter_col}")
-            continue
-        if abs(approved_value - adapter_value) > 0.01:
-            issues.append(f"mismatch:{adapter_col}!={approved_col}")
+    adapter_candidates: list[pd.Series | None] = (
+        [adapter_row for _, adapter_row in adapter_rows.iterrows()]
+        if not adapter_rows.empty
+        else [None]
+    )
+    for adapter_row in adapter_candidates:
+        for adapter_col, approved_col in mapping.items():
+            issue = ""
+            if approved_col not in row.index:
+                issue = f"missing_approved:{approved_col}"
+            elif adapter_row is None or adapter_col not in adapter_row.index:
+                issue = f"missing_adapter:{adapter_col}"
+            else:
+                approved_value = pct_number(row.get(approved_col))
+                adapter_value = pct_number(adapter_row.get(adapter_col))
+                if approved_value is None or adapter_value is None:
+                    issue = f"non_numeric:{adapter_col}"
+                elif abs(approved_value - adapter_value) > 0.01:
+                    issue = f"mismatch:{adapter_col}!={approved_col}"
+            if issue and issue not in issues:
+                issues.append(issue)
     return "pass_matches_approved_operation_patterns" if not issues else "fail_" + ";".join(issues)
 
 
 def technical_package_worse_status(rows: pd.DataFrame) -> str:
     if rows.empty or not TECHNICAL_PACKAGE_COLUMNS <= set(rows.columns):
         return "not_applicable"
-    first = rows.iloc[0]
-    base_win = pct_number(first.get("win_rate_zh"))
-    base_avg = pct_number(first.get("avg_return_zh"))
-    tech_win = pct_number(first.get("technical_package_win_rate_zh"))
-    tech_avg = pct_number(first.get("technical_package_avg_return_zh"))
-    if None in {base_win, base_avg, tech_win, tech_avg}:
-        return "fail_non_numeric_technical_or_base_metric"
-    if tech_win < base_win and tech_avg < base_avg:
-        return "fail_technical_package_worse_than_baseline"
-    if tech_win >= base_win and tech_avg >= base_avg:
+    comparisons: list[tuple[bool, bool]] = []
+    numeric_columns = sorted(
+        TECHNICAL_PACKAGE_COLUMNS | {"win_rate_zh", "avg_return_zh"}
+    )
+    for _, row in rows.iterrows():
+        parsed = {column: pct_number(row.get(column)) for column in numeric_columns}
+        if any(value is None for value in parsed.values()):
+            return "fail_non_numeric_technical_or_base_metric"
+        base_win = parsed["win_rate_zh"]
+        base_avg = parsed["avg_return_zh"]
+        tech_win = parsed["technical_package_win_rate_zh"]
+        tech_avg = parsed["technical_package_avg_return_zh"]
+        comparisons.append(
+            (
+                tech_win < base_win and tech_avg < base_avg,
+                tech_win >= base_win and tech_avg >= base_avg,
+            )
+        )
+    if any(worse for worse, _improves_both in comparisons):
+        return "advisory_technical_package_worse_than_baseline"
+    if all(improves_both for _worse, improves_both in comparisons):
         return "pass_improves_win_and_avg_vs_baseline"
     return "pass_improves_one_primary_metric_vs_baseline"
 
@@ -627,9 +644,28 @@ def generic_combo_policy_status(rows: pd.DataFrame, groups: list[str]) -> tuple[
             issues.append(f"{prefix}:blank_metric_columns={';'.join(blank_cols)}")
             recompute_statuses.append(f"{prefix}:fail_blank_metric_columns")
             continue
-        recompute_statuses.append(f"{prefix}:pass_exact_row_level_metric_fields_present")
 
+        group_has_unparseable_values = False
         for _, row in metric_rows.iterrows():
+            metric_id = clean_text(row.get(id_col))
+            numeric_columns = list(metric_cols)
+            if median_col in row.index and clean_text(row.get(median_col)):
+                numeric_columns.append(median_col)
+            for base_column in ["win_rate_zh", "avg_return_zh", "median_return_zh"]:
+                if base_column in row.index and clean_text(row.get(base_column)):
+                    numeric_columns.append(base_column)
+            unparseable = sorted(
+                column
+                for column in numeric_columns
+                if pct_number(row.get(column)) is None
+            )
+            if unparseable:
+                group_has_unparseable_values = True
+                issues.append(
+                    f"{prefix}:{metric_id}:unparseable_metric_columns={';'.join(unparseable)}"
+                )
+                continue
+
             base_win = pct_number(row.get("win_rate_zh"))
             base_avg = pct_number(row.get("avg_return_zh"))
             combo_win = pct_number(row.get(win_col))
@@ -644,10 +680,16 @@ def generic_combo_policy_status(rows: pd.DataFrame, groups: list[str]) -> tuple[
             if base_median is not None and combo_median is not None and combo_median < base_median:
                 worsened.append("median_return")
             if worsened:
-                issues.append(f"{prefix}:{row.get(id_col)}:combo_worse_than_baseline")
-                worse_statuses.append(f"{prefix}:fail_combo_worse_than_baseline={';'.join(worsened)}")
+                worse_statuses.append(
+                    f"{prefix}:advisory_combo_worse_than_baseline={';'.join(worsened)}"
+                )
             else:
                 worse_statuses.append(f"{prefix}:pass_combo_not_worse_than_baseline")
+        recompute_statuses.append(
+            f"{prefix}:fail_unparseable_metric_values"
+            if group_has_unparseable_values
+            else f"{prefix}:pass_exact_row_level_metric_fields_present"
+        )
     return "|".join(recompute_statuses), "|".join(worse_statuses), issues
 
 
@@ -992,6 +1034,7 @@ def write_md(rows: list[dict[str, object]]) -> None:
         "- Single add-score item may use the approved single-item metric.",
         "- Multi-item add-score combinations must use the exact recomputed combination metric.",
         "- A promoted exact combination may be used only when it is not worse than the best matching single item on win rate, average return, and median return; otherwise use that best single item.",
+        "- Daily row-level comparisons against the whole-model baseline remain fully reported as advisory evidence and must not block production publication; malformed metrics, schema/source/lineage conflicts, and baseline substitution still fail closed.",
         "- Whole-model baseline performance is header-only and must never substitute for a stock-row add-score metric.",
         "- PDF and packet operation rows must consume only adapter `row_metric_*` fields.",
         "- Research-only combo rows must remain unavailable to PDF operation rows until a model-specific promotion PR wires an approved adapter metric.",

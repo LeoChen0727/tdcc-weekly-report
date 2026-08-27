@@ -90,6 +90,12 @@ PDF_SECTIONS = {
     "pending_confirmation",
     "active_operation",
 }
+PDF_SECTION_EMPTY_DISPLAY_TEXT = {
+    "confirmed_operation": "本日無股票推薦",
+    "confirmed_unranked_operation": "本日無已確認但未列買入股票",
+    "pending_confirmation": "目前無待確認追蹤列",
+    "active_operation": "目前無操作中追蹤列",
+}
 EXPECTED_OPERATION_STATUS = {
     "confirmed_operation": "confirmed_operation",
     "confirmed_unranked_operation": "confirmed_unranked_operation",
@@ -1303,10 +1309,22 @@ def validate_display_text(section: pd.DataFrame) -> None:
             fail(f"forbidden raw display token leaked: {token}")
     if "median" in display_text.lower():
         fail("display text must use Chinese wording for median return, not raw 'median'")
-    if section["row_type"].astype(str).eq("empty_state").any():
-        for expected_empty_text in ["本日無股票推薦", "目前無操作中追蹤列"]:
-            if expected_empty_text not in display_text:
-                fail("empty-state display text must be present for PDF empty tables")
+    empty_rows = section[section["row_type"].astype(str).eq("empty_state")]
+    for _, row in empty_rows.iterrows():
+        section_id = str(row.get("pdf_section", "")).strip()
+        expected_empty_text = PDF_SECTION_EMPTY_DISPLAY_TEXT.get(section_id)
+        if expected_empty_text is None:
+            fail(f"empty-state row has invalid pdf_section: {section_id}")
+        row_display_text = "\n".join(
+            str(row.get(col, "")) for col in DISPLAY_COLUMNS if col in section.columns
+        )
+        if expected_empty_text not in row_display_text:
+            model_id = str(row.get("model_id", "")).strip()
+            pdf_view = str(row.get("pdf_view", "")).strip()
+            fail(
+                f"{model_id}/{pdf_view}/{section_id} empty-state display text "
+                f"must include: {expected_empty_text}"
+            )
 
 
 def validate_pdf_generator_boundary() -> None:

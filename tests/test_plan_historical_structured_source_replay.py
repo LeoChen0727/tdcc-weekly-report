@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+import pandas as pd
 import pytest
 
 from scripts import plan_historical_structured_source_replay as planner
@@ -103,6 +104,115 @@ def test_plan_accepts_source_specific_operational_tails_without_replay() -> None
         "trading_dates": [],
         "reason": "structured_sources_satisfy_source_specific_operational_tails",
     }
+
+
+def test_no_replay_current_plan_accepts_taifex_history_superset(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    monkeypatch.chdir(tmp_path)
+    target_date = "20260819"
+    history_path = Path("data/futures_options/taifex_futures_contracts_history.csv")
+    raw_path = Path(f"data/futures_options/raw/futures_contracts_{target_date}.csv")
+    vix_path = Path("data/futures_options/taiwan_vix_history.csv")
+    history_path.parent.mkdir(parents=True)
+    raw_path.parent.mkdir(parents=True)
+    shared = pd.DataFrame(
+        [
+            {
+                "日期": target_date,
+                "商品名稱": f"臺股期貨{i:02d}",
+                "身份別": "自營商",
+                "未平倉餘額_多方_口數": str(1000 + i),
+            }
+            for i in range(66)
+        ]
+    )
+    history_only = pd.DataFrame(
+        [
+            {
+                "日期": target_date,
+                "商品名稱": "臺灣中型100期貨",
+                "身份別": identity,
+                "未平倉餘額_多方_口數": str(2000 + i),
+            }
+            for i, identity in enumerate(("自營商", "投信", "外資"))
+        ]
+    )
+    shared.to_csv(raw_path, index=False)
+    pd.concat([shared, history_only], ignore_index=True).to_csv(history_path, index=False)
+    pd.DataFrame([{"date": target_date, "value": "18.5"}]).to_csv(
+        vix_path,
+        index=False,
+    )
+
+    history_specs = {
+        "futures_contracts": (
+            history_path,
+            ["日期", "商品名稱", "身份別"],
+        ),
+        "taiwan_vix": (vix_path, ["date"]),
+    }
+    matrix = {
+        "daily_price": target_date,
+        "stock_price_history": {
+            "max_date": target_date,
+            "files": 100,
+            "files_at_max": 100,
+        },
+        "market_index": {"TWSE": target_date, "TPEX": target_date},
+        "market_index_ohlc": {"TWSE": target_date, "TPEX": target_date},
+        "taifex": {source_id: target_date for source_id in history_specs},
+        "warrant_daily": target_date,
+        "warrant_flow": target_date,
+    }
+    monkeypatch.setattr(planner.replay, "TAIFEX_HISTORY_SPECS", history_specs)
+    monkeypatch.setattr(
+        planner.replay,
+        "TAIFEX_DATED_RAW_SOURCE_IDS",
+        ("futures_contracts",),
+    )
+    monkeypatch.setattr(planner, "TAIFEX_DATED_SOURCE_IDS", ("futures_contracts",))
+    monkeypatch.setattr(planner.replay, "source_tail_matrix", lambda: matrix)
+    monkeypatch.setattr(
+        planner.replay,
+        "expected_trading_dates",
+        lambda start_date, end_date: [target_date],
+    )
+    monkeypatch.setattr(
+        planner.replay,
+        "validate_daily_price_canonical_legacy_pair",
+        lambda date: {},
+    )
+    monkeypatch.setattr(
+        planner.replay,
+        "validate_stock_history_date_coverage",
+        lambda date, manifest_end_date: {},
+    )
+    build_evidence = planner.replay.build_source_output_evidence
+    observed_taifex_evidence: list[dict] = []
+
+    def capture_evidence(source_id: str, date: str) -> dict:
+        if source_id != "taifex_futures_options_vix":
+            return {}
+        evidence = build_evidence(source_id, date)
+        observed_taifex_evidence.append(evidence)
+        return evidence
+
+    monkeypatch.setattr(
+        planner.replay,
+        "build_source_output_evidence",
+        capture_evidence,
+    )
+
+    result = planner.build_plan(max_replay_dates=1)
+
+    assert result["should_replay"] is False
+    assert result["reason"] == "structured_sources_already_at_price_history_high_water"
+    parity = observed_taifex_evidence[0]["taifex_raw_history_parity"]
+    assert parity["futures_contracts"]["raw_row_count"] == 66
+    assert parity["futures_contracts"]["history_row_count"] == 69
+    assert parity["futures_contracts"]["history_only_row_count"] == 3
 
 
 def test_plan_leaves_single_operational_advance_to_daily_full() -> None:

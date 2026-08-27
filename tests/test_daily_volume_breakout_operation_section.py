@@ -645,6 +645,73 @@ def output_row(**updates: str) -> dict[str, str]:
     return row
 
 
+@pytest.mark.parametrize(
+    ("pdf_section", "expected_text"),
+    [
+        ("confirmed_operation", "本日無股票推薦"),
+        ("confirmed_unranked_operation", "本日無已確認但未列買入股票"),
+        ("pending_confirmation", "目前無待確認追蹤列"),
+        ("active_operation", "目前無操作中追蹤列"),
+    ],
+)
+def test_display_text_requires_each_empty_section_contract_text(
+    pdf_section: str,
+    expected_text: str,
+) -> None:
+    section = pd.DataFrame(
+        [
+            output_row(
+                pdf_section=pdf_section,
+                operation_status=pdf_section,
+                stock_display=expected_text,
+            )
+        ]
+    )
+
+    section_validator.validate_display_text(section)
+
+
+def test_display_text_does_not_require_empty_text_for_nonempty_sibling_section() -> None:
+    section = pd.DataFrame(
+        [
+            output_row(
+                pdf_section="confirmed_operation",
+                stock_display="本日無股票推薦",
+            ),
+            output_row(
+                pdf_section="active_operation",
+                operation_status="active_operation",
+                row_type="data",
+                stock_id="2330",
+                stock_display="2330 台積電",
+                row_action_status="active_operation",
+            ),
+        ]
+    )
+
+    section_validator.validate_display_text(section)
+
+
+def test_display_text_fails_when_empty_section_uses_another_sections_text(capsys) -> None:
+    section = pd.DataFrame(
+        [
+            output_row(
+                pdf_section="active_operation",
+                operation_status="active_operation",
+                stock_display="本日無股票推薦",
+            )
+        ]
+    )
+
+    with pytest.raises(SystemExit):
+        section_validator.validate_display_text(section)
+
+    assert (
+        "active_operation empty-state display text must include: 目前無操作中追蹤列"
+        in capsys.readouterr().out
+    )
+
+
 def audit_row(**updates: str) -> dict[str, str]:
     row = {col: "" for col in builder.EVIDENCE_AUDIT_COLUMNS}
     row.update(

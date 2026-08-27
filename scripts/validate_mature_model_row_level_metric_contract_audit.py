@@ -207,26 +207,27 @@ def validate_adapter_model(model_id: str, approved: pd.DataFrame) -> None:
         worse_status = technical_package_worse_status(technical)
         if worse_status.startswith("fail"):
             fail(f"{model_id}: {worse_status}")
-        first = technical.iloc[0]
-        rate_sum = sum(
-            pct_number(first.get(column)) or 0.0
-            for column in [
-                "technical_package_win_rate_zh",
-                "technical_package_neutral_rate_zh",
-                "technical_package_failure_rate_zh",
-            ]
-        )
-        if abs(rate_sum - 100.0) > 0.05:
-            fail(f"{model_id}: technical package win/neutral/failure rates must sum to 100, got {rate_sum}")
+        for _, technical_row in technical.iterrows():
+            rate_sum = sum(
+                pct_number(technical_row.get(column)) or 0.0
+                for column in [
+                    "technical_package_win_rate_zh",
+                    "technical_package_neutral_rate_zh",
+                    "technical_package_failure_rate_zh",
+                ]
+            )
+            if abs(rate_sum - 100.0) > 0.05:
+                fail(
+                    f"{model_id}: technical package win/neutral/failure rates "
+                    f"must sum to 100, got {rate_sum}"
+                )
 
     groups = combo_groups(list(rows.columns))
-    recompute_status, worse_status, issues = generic_combo_policy_status(rows, groups)
+    recompute_status, _worse_status, issues = generic_combo_policy_status(rows, groups)
     if issues:
         fail(f"{model_id}: generic combo metric errors: {issues}")
     if any(part.endswith("fail_missing_metric_id") for part in recompute_status.split("|")):
         fail(f"{model_id}: generic combo metric group missing id column")
-    if any("fail_combo_worse_than_baseline" in part for part in worse_status.split("|")):
-        fail(f"{model_id}: generic combo metric group is worse than baseline")
 
 
 def validate_promoted_high_position(audit: pd.DataFrame) -> None:
@@ -284,6 +285,7 @@ def validate_markdown(audit: pd.DataFrame) -> None:
         "Whole-model baseline performance is header-only",
         "consume only adapter `row_metric_*` fields",
         "Research-only combo rows must remain unavailable to PDF operation rows",
+        "advisory evidence and must not block production publication",
     ]
     for token in required:
         if token not in text:

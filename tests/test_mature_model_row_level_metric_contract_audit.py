@@ -16,6 +16,42 @@ import build_mature_model_row_level_metric_contract_audit as builder  # noqa: E4
 import validate_mature_model_row_level_metric_contract_audit as validator  # noqa: E402
 
 
+def generic_combo_adapter_row() -> dict[str, str]:
+    return {
+        "model_id": "synthetic_combo_model",
+        "row_type": "data",
+        "pdf_view": "highlight",
+        "pdf_section": "confirmed_operation",
+        "report_line": "mainstream",
+        "operation_asof_date": "20260824",
+        "stock_id": "9999",
+        "stock_name": "合成測試",
+        "signal_date": "20260823",
+        "operation_quality": "base",
+        "win_rate_zh": "70.00%",
+        "avg_return_zh": "+5.00%",
+        "median_return_zh": "+3.00%",
+        "pdf_bonus_combo_id": "pdf_combo__bad",
+        "pdf_bonus_combo_sample_size": "10",
+        "pdf_bonus_combo_win_rate_zh": "60.00%",
+        "pdf_bonus_combo_avg_return_zh": "+1.00%",
+        "pdf_bonus_combo_median_return_zh": "+0.50%",
+        "row_metric_status": "ready",
+        "row_metric_scope": "exact_combo",
+        "row_metric_id": "pdf_combo__bad",
+        "row_metric_label_zh": "合成組合指標",
+        "row_metric_matched_add_score_ids": "synthetic_a|synthetic_b",
+        "row_metric_sample_size": "10",
+        "row_metric_win_rate_zh": "60.00%",
+        "row_metric_neutral_rate_zh": "10.00%",
+        "row_metric_failure_rate_zh": "30.00%",
+        "row_metric_avg_return_zh": "+1.00%",
+        "row_metric_median_return_zh": "+0.50%",
+        "row_metric_source": "synthetic_contract_fixture",
+        "row_metric_selection_status": "synthetic_exact_combo",
+    }
+
+
 def test_builder_covers_all_current_mature_operation_models() -> None:
     rows = builder.build_rows()
     mature = {row["model_id"]: row for row in rows if row["audit_scope"] == "mature_model"}
@@ -136,7 +172,7 @@ def test_high_position_promoted_metrics_match_non_overlapping_research_source() 
     assert detail_issues == []
 
 
-def test_generic_combo_policy_rejects_worse_promoted_combo() -> None:
+def test_generic_combo_policy_reports_worse_daily_comparison_as_advisory() -> None:
     rows = pd.DataFrame(
         [
             {
@@ -155,8 +191,137 @@ def test_generic_combo_policy_rejects_worse_promoted_combo() -> None:
     recompute_status, worse_status, issues = builder.generic_combo_policy_status(rows, ["pdf_bonus_combo"])
 
     assert recompute_status == "pdf_bonus_combo:pass_exact_row_level_metric_fields_present"
-    assert worse_status == "pdf_bonus_combo:fail_combo_worse_than_baseline=win_rate;avg_return;median_return"
-    assert issues == ["pdf_bonus_combo:pdf_combo__bad:combo_worse_than_baseline"]
+    assert worse_status == (
+        "pdf_bonus_combo:advisory_combo_worse_than_baseline="
+        "win_rate;avg_return;median_return"
+    )
+    assert issues == []
+
+
+def test_generic_combo_policy_keeps_unparseable_metrics_fail_closed() -> None:
+    rows = pd.DataFrame(
+        [
+            {
+                "win_rate_zh": "70.00%",
+                "avg_return_zh": "+5.00%",
+                "median_return_zh": "+3.00%",
+                "pdf_bonus_combo_id": "pdf_combo__malformed",
+                "pdf_bonus_combo_sample_size": "ten",
+                "pdf_bonus_combo_win_rate_zh": "invalid",
+                "pdf_bonus_combo_avg_return_zh": "+1.00%",
+                "pdf_bonus_combo_median_return_zh": "+0.50%",
+            }
+        ]
+    )
+
+    recompute_status, worse_status, issues = builder.generic_combo_policy_status(rows, ["pdf_bonus_combo"])
+
+    assert recompute_status == "pdf_bonus_combo:fail_unparseable_metric_values"
+    assert worse_status == ""
+    assert issues == [
+        "pdf_bonus_combo:pdf_combo__malformed:unparseable_metric_columns="
+        "pdf_bonus_combo_sample_size;pdf_bonus_combo_win_rate_zh"
+    ]
+
+
+def test_technical_package_daily_comparison_is_advisory_but_malformed_is_blocking() -> None:
+    worse = pd.DataFrame(
+        [
+            {
+                "win_rate_zh": "70.00%",
+                "avg_return_zh": "+5.00%",
+                "technical_package_sample_size": "10",
+                "technical_package_win_rate_zh": "60.00%",
+                "technical_package_neutral_rate_zh": "10.00%",
+                "technical_package_failure_rate_zh": "30.00%",
+                "technical_package_avg_return_zh": "+1.00%",
+            }
+        ]
+    )
+    malformed = worse.copy()
+    malformed.loc[0, "technical_package_win_rate_zh"] = "invalid"
+    later_row_malformed = pd.concat(
+        [
+            worse,
+            worse.assign(technical_package_neutral_rate_zh="not-a-number"),
+        ],
+        ignore_index=True,
+    )
+
+    assert builder.technical_package_worse_status(worse) == (
+        "advisory_technical_package_worse_than_baseline"
+    )
+    assert builder.technical_package_worse_status(malformed) == (
+        "fail_non_numeric_technical_or_base_metric"
+    )
+    assert builder.technical_package_worse_status(later_row_malformed) == (
+        "fail_non_numeric_technical_or_base_metric"
+    )
+
+
+def test_price_pullback_source_status_checks_every_technical_package_row() -> None:
+    approved = pd.Series(
+        {
+            "price_pullback_mature_sample_size": "10",
+            "price_pullback_win_rate_pct": "70.00%",
+            "price_pullback_neutral_rate_pct": "10.00%",
+            "price_pullback_failure_rate_pct": "20.00%",
+            "price_pullback_avg_return_pct": "+5.00%",
+            "price_pullback_technical_package_sample_size": "10",
+            "price_pullback_technical_package_win_rate_pct": "60.00%",
+            "price_pullback_technical_package_neutral_rate_pct": "10.00%",
+            "price_pullback_technical_package_failure_rate_pct": "30.00%",
+            "price_pullback_technical_package_avg_return_pct": "+1.00%",
+        }
+    )
+    valid = pd.DataFrame(
+        [
+            {
+                "sample_size": "10",
+                "win_rate_zh": "70.00%",
+                "neutral_rate_zh": "10.00%",
+                "failure_rate_zh": "20.00%",
+                "avg_return_zh": "+5.00%",
+                "technical_package_sample_size": "10",
+                "technical_package_win_rate_zh": "60.00%",
+                "technical_package_neutral_rate_zh": "10.00%",
+                "technical_package_failure_rate_zh": "30.00%",
+                "technical_package_avg_return_zh": "+1.00%",
+            }
+        ]
+    )
+    later_row_conflict = pd.concat(
+        [
+            valid,
+            valid.assign(technical_package_avg_return_zh="+2.00%"),
+        ],
+        ignore_index=True,
+    )
+
+    assert builder.price_pullback_source_status(approved, valid) == (
+        "pass_matches_approved_operation_patterns"
+    )
+    assert "mismatch:technical_package_avg_return_zh" in (
+        builder.price_pullback_source_status(approved, later_row_conflict)
+    )
+
+
+def test_validator_does_not_block_advisory_combo_comparison_but_blocks_schema_error(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    adapter_path = tmp_path / "synthetic_combo_adapter.csv"
+    row = generic_combo_adapter_row()
+    pd.DataFrame([row]).to_csv(adapter_path, index=False, encoding="utf-8-sig")
+    monkeypatch.setitem(validator.ADAPTER_BY_MODEL, row["model_id"], adapter_path)
+
+    validator.validate_adapter_model(row["model_id"], pd.DataFrame())
+
+    malformed = dict(row)
+    del malformed["pdf_bonus_combo_avg_return_zh"]
+    pd.DataFrame([malformed]).to_csv(adapter_path, index=False, encoding="utf-8-sig")
+    with pytest.raises(SystemExit):
+        validator.validate_adapter_model(row["model_id"], pd.DataFrame())
 
 
 def test_workflows_run_mature_model_metric_contract_audit() -> None:
