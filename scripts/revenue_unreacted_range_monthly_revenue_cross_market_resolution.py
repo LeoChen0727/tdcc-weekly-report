@@ -306,7 +306,13 @@ def cross_market_resolution_registry_canonical_sha256(
 
 
 def _clean_tracked_git_blob_sha256(path: Path) -> str | None:
-    resolved = Path(path).resolve()
+    source_path = Path(path)
+    if source_path.is_symlink():
+        raise RuntimeError(
+            "monthly revenue history path must not be a symbolic link: "
+            f"{source_path}"
+        )
+    resolved = source_path.resolve()
     try:
         repo_result = subprocess.run(
             ["git", "-C", str(resolved.parent), "rev-parse", "--show-toplevel"],
@@ -343,7 +349,10 @@ def _clean_tracked_git_blob_sha256(path: Path) -> str | None:
         encoding="utf-8",
     )
     if tracked_result.returncode != 0:
-        return None
+        raise RuntimeError(
+            "monthly revenue history path is untracked in Git repository: "
+            f"{repo_relative}"
+        )
     index_rows = [line for line in tracked_result.stdout.splitlines() if line.strip()]
     if len(index_rows) != 1:
         raise RuntimeError(
@@ -353,12 +362,14 @@ def _clean_tracked_git_blob_sha256(path: Path) -> str | None:
     index_metadata = index_rows[0].split("\t", 1)[0].split()
     if (
         len(index_metadata) != 3
+        or index_metadata[0] != "100644"
         or index_metadata[2] != "0"
         or not re.fullmatch(r"[0-9a-f]{40,64}", index_metadata[1])
         or set(index_metadata[1]) == {"0"}
     ):
         raise RuntimeError(
-            "monthly revenue history Git index entry is unresolved or intent-to-add: "
+            "monthly revenue history Git index entry must be a resolved stage-0 "
+            "100644 file: "
             f"{repo_relative}"
         )
     index_oid = index_metadata[1]
