@@ -1,0 +1,10 @@
+{
+  "phase": "bundle_ready",
+  "release_id": "daily-source-20260827-33072187540-1",
+  "schema_version": "daily_source_recovery_state_v1",
+  "source_base_sha": "2e127b403288cbc41d886c79b10c273ec34e74b8",
+  "source_bundle_sha": "0a0ef9bc22049e278c489cae406ecb8769266f8640bcfcccff3180be0ab00089",
+  "source_workflow_run_attempt": 1,
+  "source_workflow_run_id": "33072187540",
+  "trading_date": "20260827"
+}

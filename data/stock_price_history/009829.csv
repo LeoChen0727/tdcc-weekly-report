@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20260824,009829,大華韓國KOSPI50,TWSE,10.59,10.59,10.25,10.34,69509781.0,724129154.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260824.csv,,,,,,-3.7244,,,,,,,,,,,,,,,,,,,,,
 20260825,009829,大華韓國KOSPI50,TWSE,10.02,10.33,9.94,10.33,58260791.0,586567378.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260825.csv,,,,,,-0.0967,,,,,,,,,,,,,,,,,,,,,
 20260826,009829,大華韓國KOSPI50,TWSE,10.34,10.54,10.29,10.42,31284664.0,326185913.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260826.csv,,,,,,0.8712,,,,,,,,,,,,,,,,,,,,,
+20260827,009829,大華韓國KOSPI50,TWSE,10.54,10.68,10.5,10.54,35711510.0,378172102.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260827.csv,10.474,10.474,10.474,10.474,10.6445,1.1516,,,,,66629758.6,0.536,10.77,10.77,10.77,9.94,9.94,9.94,0.6301,0.6301,0.6301,-0.9818,-2.1356,-2.1356,-2.1356,6.0362,6.0362
