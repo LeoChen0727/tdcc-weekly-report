@@ -5,6 +5,7 @@ import json
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
 import re
+import subprocess
 
 import pandas as pd
 
@@ -304,7 +305,102 @@ def cross_market_resolution_registry_canonical_sha256(
     )
 
 
+def _clean_tracked_git_blob_sha256(path: Path) -> str | None:
+    resolved = Path(path).resolve()
+    try:
+        repo_result = subprocess.run(
+            ["git", "-C", str(resolved.parent), "rev-parse", "--show-toplevel"],
+            check=False,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.DEVNULL,
+            text=True,
+            encoding="utf-8",
+        )
+    except FileNotFoundError:
+        return None
+    if repo_result.returncode != 0:
+        return None
+    repo_root = Path(repo_result.stdout.strip()).resolve()
+    try:
+        repo_relative = resolved.relative_to(repo_root).as_posix()
+    except ValueError:
+        return None
+    tracked_result = subprocess.run(
+        [
+            "git",
+            "-C",
+            str(repo_root),
+            "ls-files",
+            "--error-unmatch",
+            "--",
+            repo_relative,
+        ],
+        check=False,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+    )
+    if tracked_result.returncode != 0:
+        return None
+    dirty_result = subprocess.run(
+        [
+            "git",
+            "-C",
+            str(repo_root),
+            "diff",
+            "--quiet",
+            "--no-ext-diff",
+            "--",
+            repo_relative,
+        ],
+        check=False,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+    )
+    if dirty_result.returncode == 1:
+        raise RuntimeError(
+            "monthly revenue history working tree differs from Git index: "
+            f"{repo_relative}"
+        )
+    if dirty_result.returncode != 0:
+        raise RuntimeError(
+            "monthly revenue history Git dirty-state check failed: "
+            f"{repo_relative}; exit_code={dirty_result.returncode}"
+        )
+    try:
+        process = subprocess.Popen(
+            [
+                "git",
+                "-C",
+                str(repo_root),
+                "cat-file",
+                "blob",
+                f":{repo_relative}",
+            ],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+        )
+    except FileNotFoundError as exc:
+        raise RuntimeError("Git became unavailable while reading monthly revenue blob") from exc
+    digest = hashlib.sha256()
+    if process.stdout is None or process.stderr is None:
+        process.kill()
+        raise RuntimeError("monthly revenue history Git blob pipes are unavailable")
+    for chunk in iter(lambda: process.stdout.read(1024 * 1024), b""):
+        digest.update(chunk)
+    error_text = process.stderr.read().decode("utf-8", errors="replace").strip()
+    returncode = process.wait()
+    if returncode != 0:
+        raise RuntimeError(
+            "monthly revenue history Git blob cannot be read: "
+            f"{repo_relative}; exit_code={returncode}; stderr={error_text}"
+        )
+    return digest.hexdigest()
+
+
 def monthly_revenue_history_blob_sha256(path: Path) -> str:
+    tracked_git_sha = _clean_tracked_git_blob_sha256(path)
+    if tracked_git_sha is not None:
+        return tracked_git_sha
     digest = hashlib.sha256()
     with Path(path).open("rb") as handle:
         for chunk in iter(lambda: handle.read(1024 * 1024), b""):

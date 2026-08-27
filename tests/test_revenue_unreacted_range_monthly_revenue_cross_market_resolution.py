@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import hashlib
+import subprocess
 import sys
 from pathlib import Path
 
@@ -359,6 +361,46 @@ def test_non_mirror_rows_receive_self_lineage_and_run_hashes_are_stable(
     first_blob_sha = monthly_revenue_history_blob_sha256(blob)
     blob.write_bytes(blob.read_bytes() + b"\n")
     assert monthly_revenue_history_blob_sha256(blob) != first_blob_sha
+
+
+def test_monthly_revenue_blob_hash_uses_clean_git_index_identity_across_eol(
+    tmp_path: Path,
+) -> None:
+    repo = tmp_path / "repo"
+    repo.mkdir()
+    subprocess.run(
+        ["git", "init", "--quiet"],
+        cwd=repo,
+        check=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    subprocess.run(
+        ["git", "config", "core.autocrlf", "true"],
+        cwd=repo,
+        check=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    history = repo / "monthly_revenue_history.csv"
+    canonical_bytes = b"stock_id,revenue\n1101,1\n"
+    history.write_bytes(canonical_bytes)
+    subprocess.run(
+        ["git", "add", "--", history.name],
+        cwd=repo,
+        check=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    expected = hashlib.sha256(canonical_bytes).hexdigest()
+    assert monthly_revenue_history_blob_sha256(history) == expected
+
+    history.write_bytes(canonical_bytes.replace(b"\n", b"\r\n"))
+    assert monthly_revenue_history_blob_sha256(history) == expected
+
+    history.write_bytes(b"stock_id,revenue\r\n1101,2\r\n")
+    with pytest.raises(RuntimeError, match="working tree differs from Git index"):
+        monthly_revenue_history_blob_sha256(history)
 
 
 def test_unregistered_cross_market_duplicate_fails_closed() -> None:
