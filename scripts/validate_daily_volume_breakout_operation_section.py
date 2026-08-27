@@ -952,6 +952,16 @@ def validate_active_confirmation_snapshot_gate(active_data: pd.DataFrame) -> Non
         )
 
 
+def validate_active_operation_status_explanation(active_data: pd.DataFrame) -> None:
+    if active_data.empty:
+        return
+    visible_status = active_data[
+        ["operation_status_zh", "quality_status_zh", "entry_price_status_zh"]
+    ].fillna("").astype(str).agg(" ".join, axis=1)
+    if not visible_status.str.contains("操作中|D0-D10|追蹤", regex=True).all():
+        fail("active_operation data rows must explain operation-in-progress status")
+
+
 def validate_file_presence(*, include_docs_mirrors: bool = True) -> None:
     required_paths = [
         SECTION_CSV,
@@ -1289,11 +1299,10 @@ def validate_shape(section: pd.DataFrame, formal_summary: pd.DataFrame, audit: p
         ]
         if not missing_active_entry.empty:
             fail("active_operation data rows must carry structured entry_date and entry_price")
+        validate_active_operation_status_explanation(active_data)
     active_empty = active[active["row_type"].astype(str).eq("empty_state")]
     if not active_empty.empty and active_empty["row_action_status"].astype(str).ne("empty_state").any():
         fail("active_operation empty rows must carry row_action_status=empty_state")
-    if not active["adapter_note_zh"].astype(str).str.contains("操作中|D0-D10|追蹤", regex=True).any():
-        fail("active_operation rows must explain operation-in-progress status")
 
 
     validate_high_position_bonus_metrics(section)
