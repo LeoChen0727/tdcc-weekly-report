@@ -517,8 +517,75 @@ def test_monthly_revenue_blob_hash_rejects_symbolic_link(tmp_path: Path) -> None
     except OSError as exc:
         pytest.skip(f"symbolic links unavailable: {exc}")
 
-    with pytest.raises(RuntimeError, match="must not be a symbolic link"):
+    with pytest.raises(RuntimeError, match="symbolic link or reparse point"):
         monthly_revenue_history_blob_sha256(linked)
+
+
+def test_monthly_revenue_blob_hash_ignores_git_replace_for_head_identity(
+    tmp_path: Path,
+) -> None:
+    repo = tmp_path / "repo"
+    _initialize_test_git_repo(repo)
+    history = repo / "monthly_revenue_history.csv"
+    history.write_bytes(b"stock_id,revenue\n1101,1\n")
+    subprocess.run(
+        ["git", "add", "--", history.name],
+        cwd=repo,
+        check=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    subprocess.run(
+        ["git", "commit", "--quiet", "-m", "seed"],
+        cwd=repo,
+        check=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    real_head = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=repo,
+        check=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True,
+    ).stdout.strip()
+
+    history.write_bytes(b"stock_id,revenue\n1101,2\n")
+    subprocess.run(
+        ["git", "add", "--", history.name],
+        cwd=repo,
+        check=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    staged_tree = subprocess.run(
+        ["git", "write-tree"],
+        cwd=repo,
+        check=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True,
+    ).stdout.strip()
+    replacement_commit = subprocess.run(
+        ["git", "commit-tree", staged_tree, "-p", real_head],
+        cwd=repo,
+        check=True,
+        input="replacement\n",
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True,
+    ).stdout.strip()
+    subprocess.run(
+        ["git", "replace", real_head, replacement_commit],
+        cwd=repo,
+        check=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+
+    with pytest.raises(RuntimeError, match="Git index differs from HEAD"):
+        monthly_revenue_history_blob_sha256(history)
 
 
 def test_committed_metadata_change_updates_blob_but_not_canonical_table(

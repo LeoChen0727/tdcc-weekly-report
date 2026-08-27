@@ -2,9 +2,11 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
 import re
+import stat
 import subprocess
 
 import pandas as pd
@@ -305,17 +307,61 @@ def cross_market_resolution_registry_canonical_sha256(
     )
 
 
+def _lexical_git_worktree_root(path: Path) -> Path | None:
+    lexical = Path(os.path.abspath(path))
+    for candidate in (lexical.parent, *lexical.parent.parents):
+        if os.path.lexists(candidate / ".git"):
+            return candidate
+    return None
+
+
+def _path_has_reparse_identity(path: Path) -> bool:
+    metadata = os.lstat(path)
+    if stat.S_ISLNK(metadata.st_mode):
+        return True
+    reparse_flag = getattr(stat, "FILE_ATTRIBUTE_REPARSE_POINT", 0)
+    return bool(getattr(metadata, "st_file_attributes", 0) & reparse_flag)
+
+
 def _clean_tracked_git_blob_sha256(path: Path) -> str | None:
-    source_path = Path(path)
-    if source_path.is_symlink():
+    lexical_source = Path(os.path.abspath(path))
+    lexical_repo_root = _lexical_git_worktree_root(lexical_source)
+    if lexical_repo_root is None:
+        return None
+    try:
+        relative_path = lexical_source.relative_to(lexical_repo_root)
+    except ValueError as exc:
         raise RuntimeError(
-            "monthly revenue history path must not be a symbolic link: "
-            f"{source_path}"
-        )
-    resolved = source_path.resolve()
+            "monthly revenue history lexical path is outside its Git worktree: "
+            f"{lexical_source}"
+        ) from exc
+    cursor = lexical_repo_root
+    for component in relative_path.parts:
+        cursor = cursor / component
+        try:
+            has_reparse_identity = _path_has_reparse_identity(cursor)
+        except OSError as exc:
+            raise RuntimeError(
+                "monthly revenue history lexical path cannot be inspected: "
+                f"{cursor}"
+            ) from exc
+        if has_reparse_identity:
+            raise RuntimeError(
+                "monthly revenue history path must not traverse a symbolic link or "
+                f"reparse point: {cursor}"
+            )
+    resolved = lexical_source.resolve(strict=True)
+    resolved_repo_root = lexical_repo_root.resolve(strict=True)
+    try:
+        resolved.relative_to(resolved_repo_root)
+    except ValueError as exc:
+        raise RuntimeError(
+            "monthly revenue history resolved path escapes its Git worktree: "
+            f"{lexical_source}"
+        ) from exc
     try:
         repo_result = subprocess.run(
-            ["git", "-C", str(resolved.parent), "rev-parse", "--show-toplevel"],
+            ["git", "-C", str(lexical_repo_root), "rev-parse", "--show-toplevel"],
             check=False,
             stdout=subprocess.PIPE,
             stderr=subprocess.DEVNULL,
@@ -323,14 +369,19 @@ def _clean_tracked_git_blob_sha256(path: Path) -> str | None:
             encoding="utf-8",
         )
     except FileNotFoundError:
-        return None
+        raise RuntimeError("Git is unavailable for tracked monthly revenue history")
     if repo_result.returncode != 0:
-        return None
-    repo_root = Path(repo_result.stdout.strip()).resolve()
-    try:
-        repo_relative = resolved.relative_to(repo_root).as_posix()
-    except ValueError:
-        return None
+        raise RuntimeError(
+            "monthly revenue history Git worktree cannot be resolved: "
+            f"{lexical_repo_root}; exit_code={repo_result.returncode}"
+        )
+    repo_root = Path(repo_result.stdout.strip()).resolve(strict=True)
+    if not os.path.samefile(repo_root, resolved_repo_root):
+        raise RuntimeError(
+            "monthly revenue history lexical and Git worktree roots differ: "
+            f"lexical={lexical_repo_root}; git={repo_root}"
+        )
+    repo_relative = relative_path.as_posix()
     tracked_result = subprocess.run(
         [
             "git",
@@ -378,6 +429,7 @@ def _clean_tracked_git_blob_sha256(path: Path) -> str | None:
             "git",
             "-C",
             str(repo_root),
+            "--no-replace-objects",
             "rev-parse",
             "--verify",
             f"HEAD:{repo_relative}",
