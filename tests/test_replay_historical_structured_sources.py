@@ -896,3 +896,118 @@ def test_taifex_dated_raw_must_match_committed_history_target_slice(
     changed.to_csv(raw_path, index=False)
     with pytest.raises(RuntimeError, match="dated raw/history target-slice mismatch"):
         replay.validate_taifex_raw_history_parity("20260724")
+
+
+def test_taifex_dated_raw_accepts_history_superset_with_equal_shared_rows(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    monkeypatch.chdir(tmp_path)
+    target_date = "20260819"
+    history_path = Path("data/futures_options/taifex_futures_contracts_history.csv")
+    raw_path = Path(f"data/futures_options/raw/futures_contracts_{target_date}.csv")
+    history_path.parent.mkdir(parents=True)
+    raw_path.parent.mkdir(parents=True)
+    shared = pd.DataFrame(
+        [
+            {
+                "日期": target_date,
+                "商品名稱": f"臺股期貨{i:02d}",
+                "身份別": "自營商",
+                "未平倉餘額_多方_口數": str(1000 + i),
+            }
+            for i in range(66)
+        ]
+    )
+    history_only = pd.DataFrame(
+        [
+            {
+                "日期": target_date,
+                "商品名稱": "臺灣中型100期貨",
+                "身份別": identity,
+                "未平倉餘額_多方_口數": str(2000 + i),
+            }
+            for i, identity in enumerate(("自營商", "投信", "外資"))
+        ]
+    )
+    shared.to_csv(raw_path, index=False)
+    pd.concat([shared, history_only], ignore_index=True).to_csv(history_path, index=False)
+    monkeypatch.setattr(
+        replay,
+        "TAIFEX_HISTORY_SPECS",
+        {
+            "futures_contracts": (
+                history_path,
+                ["日期", "商品名稱", "身份別"],
+            )
+        },
+    )
+    monkeypatch.setattr(replay, "TAIFEX_DATED_RAW_SOURCE_IDS", ("futures_contracts",))
+
+    parity = replay.validate_taifex_raw_history_parity(target_date)
+
+    evidence = parity["futures_contracts"]
+    assert evidence["raw_row_count"] == 66
+    assert evidence["history_row_count"] == 69
+    assert evidence["shared_row_count"] == 66
+    assert evidence["shared_slice_sha256"] == evidence["raw_slice_sha256"]
+    assert evidence["history_slice_sha256"] != evidence["raw_slice_sha256"]
+    assert evidence["history_only_row_count"] == 3
+    assert evidence["history_only_pk_sha256"]
+    assert evidence["parity_contract"] == (
+        "raw_subset_of_history_with_equal_shared_values"
+    )
+
+
+def test_taifex_dated_raw_rejects_shared_key_value_conflict_in_history_superset(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    monkeypatch.chdir(tmp_path)
+    target_date = "20260819"
+    history_path = Path("data/futures_options/taifex_futures_contracts_history.csv")
+    raw_path = Path(f"data/futures_options/raw/futures_contracts_{target_date}.csv")
+    history_path.parent.mkdir(parents=True)
+    raw_path.parent.mkdir(parents=True)
+    raw = pd.DataFrame(
+        [
+            {
+                "日期": target_date,
+                "商品名稱": "臺股期貨",
+                "身份別": "自營商",
+                "未平倉餘額_多方_口數": "1000",
+            }
+        ]
+    )
+    history = pd.concat(
+        [
+            raw.assign(未平倉餘額_多方_口數="1001"),
+            pd.DataFrame(
+                [
+                    {
+                        "日期": target_date,
+                        "商品名稱": "臺灣中型100期貨",
+                        "身份別": "投信",
+                        "未平倉餘額_多方_口數": "2000",
+                    }
+                ]
+            ),
+        ],
+        ignore_index=True,
+    )
+    raw.to_csv(raw_path, index=False)
+    history.to_csv(history_path, index=False)
+    monkeypatch.setattr(
+        replay,
+        "TAIFEX_HISTORY_SPECS",
+        {
+            "futures_contracts": (
+                history_path,
+                ["日期", "商品名稱", "身份別"],
+            )
+        },
+    )
+    monkeypatch.setattr(replay, "TAIFEX_DATED_RAW_SOURCE_IDS", ("futures_contracts",))
+
+    with pytest.raises(RuntimeError, match="reason=shared_value_conflict"):
+        replay.validate_taifex_raw_history_parity(target_date)
