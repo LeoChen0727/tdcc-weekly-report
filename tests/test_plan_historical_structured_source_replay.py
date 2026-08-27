@@ -33,10 +33,14 @@ def operational_tail_matrix(
     *,
     high_water: str = "20260729",
     taifex_dated_tail: str = "20260728",
+    warrant_tail: str | None = None,
 ) -> dict:
     matrix = tail_matrix(high_water=high_water, base=high_water)
     for source_id in TAIFEX_DATED_SOURCES:
         matrix["taifex"][source_id] = taifex_dated_tail
+    if warrant_tail is not None:
+        matrix["warrant_daily"] = warrant_tail
+        matrix["warrant_flow"] = warrant_tail
     return matrix
 
 
@@ -100,6 +104,42 @@ def test_plan_accepts_source_specific_operational_tails_without_replay() -> None
         "price_history_high_water_date": "20260729",
         "required_base_date": "20260729",
         "taifex_dated_tail_date": "20260728",
+        "repair_taifex_base_date": "",
+        "trading_dates": [],
+        "reason": "structured_sources_satisfy_source_specific_operational_tails",
+    }
+
+
+def test_plan_accepts_natural_current_recovery_with_d1_warrant_and_taifex(
+    monkeypatch,
+) -> None:
+    monkeypatch.setattr(
+        planner.replay,
+        "expected_trading_dates",
+        lambda start_date, end_date: ["20260827"],
+    )
+    monkeypatch.setattr(
+        planner.replay,
+        "previous_trading_date",
+        lambda date: {"20260827": "20260826"}[date],
+    )
+
+    result = planner.plan_from_tail_matrix(
+        operational_tail_matrix(
+            high_water="20260827",
+            taifex_dated_tail="20260826",
+            warrant_tail="20260826",
+        ),
+        max_replay_dates=10,
+    )
+
+    assert result == {
+        "should_replay": False,
+        "start_date": "",
+        "end_date": "",
+        "price_history_high_water_date": "20260827",
+        "required_base_date": "20260827",
+        "taifex_dated_tail_date": "20260826",
         "repair_taifex_base_date": "",
         "trading_dates": [],
         "reason": "structured_sources_satisfy_source_specific_operational_tails",
@@ -286,7 +326,7 @@ def test_plan_reads_source_tail_matrix_once(monkeypatch) -> None:
     def source_tail_matrix() -> dict:
         nonlocal calls
         calls += 1
-        return operational_tail_matrix()
+        return operational_tail_matrix(warrant_tail="20260728")
 
     monkeypatch.setattr(planner.replay, "source_tail_matrix", source_tail_matrix)
     monkeypatch.setattr(
@@ -311,11 +351,12 @@ def test_plan_reads_source_tail_matrix_once(monkeypatch) -> None:
     monkeypatch.setattr(
         planner,
         "validate_operational_structured_source_coverage",
-        lambda high_water, taifex_dated_tail_date, count,
+        lambda high_water, taifex_dated_tail_date, warrant_tail_date, count,
         allow_historical_structured_absence: coverage.append(
             (
                 high_water,
                 taifex_dated_tail_date,
+                warrant_tail_date,
                 count,
                 allow_historical_structured_absence,
             )
@@ -328,7 +369,7 @@ def test_plan_reads_source_tail_matrix_once(monkeypatch) -> None:
     assert calls == 1
     assert price_validated == ["20260729"]
     assert stock_validated == [("20260729", "20260729")]
-    assert coverage == [("20260729", "20260728", 1, True)]
+    assert coverage == [("20260729", "20260728", "20260728", 1, True)]
 
 
 def test_build_plan_fails_when_exact_baseline_validation_fails(monkeypatch) -> None:
@@ -350,7 +391,7 @@ def test_build_plan_fails_when_exact_baseline_validation_fails(monkeypatch) -> N
 def test_build_plan_routes_mixed_replay_baseline_and_coverage(monkeypatch) -> None:
     matrix = cross_day_operational_tail_matrix()
     baseline_calls: list[tuple[dict, str, str, str]] = []
-    coverage_calls: list[tuple[str, str, int]] = []
+    coverage_calls: list[tuple[str, str, str, int]] = []
     monkeypatch.setattr(planner.replay, "source_tail_matrix", lambda: matrix)
     monkeypatch.setattr(
         planner.replay,
@@ -364,8 +405,9 @@ def test_build_plan_routes_mixed_replay_baseline_and_coverage(monkeypatch) -> No
     monkeypatch.setattr(
         planner,
         "validate_operational_structured_source_coverage",
-        lambda high_water, taifex_dated_tail_date, count: coverage_calls.append(
-            (high_water, taifex_dated_tail_date, count)
+        lambda high_water, taifex_dated_tail_date, warrant_tail_date,
+        count: coverage_calls.append(
+            (high_water, taifex_dated_tail_date, warrant_tail_date, count)
         ),
     )
     monkeypatch.setattr(
@@ -380,7 +422,7 @@ def test_build_plan_routes_mixed_replay_baseline_and_coverage(monkeypatch) -> No
 
     assert result["repair_taifex_base_date"] == "20260724"
     assert baseline_calls == [(matrix, "20260724", "20260729", "20260724")]
-    assert coverage_calls == [("20260724", "20260723", 3)]
+    assert coverage_calls == [("20260724", "20260723", "20260724", 3)]
 
 
 def test_no_replay_recent_coverage_relaxes_only_older_taifex_dates(monkeypatch) -> None:
@@ -811,12 +853,13 @@ def test_operational_coverage_uses_distinct_d0_and_taifex_d1_windows(
     planner.validate_operational_structured_source_coverage(
         "20260729",
         taifex_dated_tail_date="20260728",
+        warrant_tail_date="20260728",
         count=3,
     )
 
     assert evidence_calls == [
         ("market_index", "20260729"),
-        ("official_warrant_daily", "20260729"),
+        ("official_warrant_daily", "20260728"),
         ("taifex_futures_options_vix", "20260728"),
     ]
     assert vix_calls == [
@@ -895,6 +938,30 @@ def test_plan_rejects_lagged_vix_when_other_d0_sources_are_current() -> None:
     matrix["taifex"]["taiwan_vix"] = "20260728"
 
     with pytest.raises(RuntimeError, match="D0 structured source tails must share one date"):
+        planner.plan_from_tail_matrix(matrix, max_replay_dates=3)
+
+
+def test_plan_rejects_mixed_warrant_release_dates() -> None:
+    matrix = operational_tail_matrix()
+    matrix["warrant_flow"] = "20260728"
+
+    with pytest.raises(RuntimeError, match="warrant source tails must be one common"):
+        planner.plan_from_tail_matrix(matrix, max_replay_dates=3)
+
+
+def test_plan_rejects_warrant_pair_older_than_d1() -> None:
+    matrix = operational_tail_matrix(warrant_tail="20260727")
+
+    with pytest.raises(RuntimeError, match="warrant source tails must be one common"):
+        planner.plan_from_tail_matrix(matrix, max_replay_dates=3)
+
+
+def test_plan_rejects_lagged_warrant_pair_for_replay_base() -> None:
+    matrix = tail_matrix()
+    matrix["warrant_daily"] = "20260723"
+    matrix["warrant_flow"] = "20260723"
+
+    with pytest.raises(RuntimeError, match="warrant source tails must be one common"):
         planner.plan_from_tail_matrix(matrix, max_replay_dates=3)
 
 
