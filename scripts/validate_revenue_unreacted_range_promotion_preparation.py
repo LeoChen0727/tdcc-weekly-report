@@ -15,6 +15,12 @@ from pathlib import Path, PurePosixPath, PureWindowsPath
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DECISION = ROOT / "config/revenue_unreacted_range_promotion_preparation_registry.csv"
 DEFAULT_ANOMALIES = ROOT / "config/revenue_unreacted_range_anomaly_disposition_registry.csv"
+DEFAULT_ANOMALIES_V2 = ROOT / (
+    "config/revenue_unreacted_range_anomaly_disposition_registry_v2_20260828.csv"
+)
+DEFAULT_MIGRATIONS = ROOT / (
+    "config/revenue_unreacted_range_promotion_preparation_migrations.csv"
+)
 DEFAULT_SUMMARY = ROOT / (
     "output/latest/research_backtest/"
     "revenue_unreacted_range_low_mid_falling_candidate_audit_latest.csv"
@@ -38,6 +44,23 @@ TRUSTED_V1_SOURCE_ARTIFACTS = {
         "blob": "b7f5f313fb98d5b34ff2714c2f5ccb99e97326c7",
         "bytes": 1005708,
         "sha256": "dee8e7e43d13786657ac0b8997fde606df36cf591463e325de36dada5373757c",
+    },
+}
+TRUSTED_V2_SOURCE_REVISION = "8b72df7090536a49258b7d27192585c3f4b4f75d"
+TRUSTED_V2_SOURCE_ARTIFACTS = {
+    DEFAULT_SUMMARY: {
+        "path": "output/latest/research_backtest/"
+        "revenue_unreacted_range_low_mid_falling_candidate_audit_latest.csv",
+        "blob": "a3343c5fcf163eda469ee2423d32e6372da14b91",
+        "bytes": 54494,
+        "sha256": "1268f4bfe825a30ea876cc9eac20800d21802d1fbd212b91ab4829f70752e281",
+    },
+    DEFAULT_DETAIL: {
+        "path": "output/latest/research_backtest/"
+        "revenue_unreacted_range_low_mid_falling_candidate_audit_detail_latest.csv",
+        "blob": "656ad7ac399bb93090bb478733c9c0baa1ed6f64",
+        "bytes": 1012187,
+        "sha256": "0d272c9263b60816cace92f8ed790a1b376cad7952c7ad13a689961cd45920ad",
     },
 }
 
@@ -129,6 +152,54 @@ EXPECTED_DECISION = {
     "formal_model_use_allowed": "False", "production_change": "False",
     "promotion_scope": "promotion_preparation_only_no_production_pdf_or_apps_script",
 }
+EXPECTED_DECISION_V1 = EXPECTED_DECISION
+EXPECTED_DECISION_V2 = {
+    **EXPECTED_DECISION_V1,
+    "decision_id": "revenue_unreacted_range_source_mid_falling_promotion_preparation_v2_20260828",
+    "decision_date": "2026-08-28",
+    "source_artifact_version": "low_mid_falling_candidate_v2_20260822",
+    "contract_version": "revenue_unreacted_range_promotion_preparation_contract_v3_20260828",
+    "producer_semantic_sha256": "98c661dbb761aad0f36feb88c3da395abe2908f922b95536a546d336c877f7e1",
+    "rearmed_producer_semantic_sha256": "d13176cc5309875db771d8840aeedc0c2e7b8f69ef6ebf53772b87ed7931e70b",
+    "position_shape_producer_semantic_sha256": "0cfea3d0f02371e727b2903a1cb5dccb19750d0073daaaea72e4f0a4f7635952",
+    "monthly_revenue_history_blob_sha256": "f5b94f1aba6554746bb8065d3c9e571df6934aabc80ecfff4ec7193bcb7ec36a",
+    "source_first_selected_slice_canonical_sha256": "b590a10b791e7f239b189beba7b8c61f7294b3ce0ba9bd404d49b45844d760f3",
+    "rearmed_d30_no_stop_slice_canonical_sha256": "490b8567e54de61e66c92eafb1df8dbc6865de51785cbb6335b94239f1c473a5",
+    "price_history_manifest_canonical_sha256": "3ca2bc672afd57171db031505ad088f4813f92eb76c94bb62cee515f41d70463",
+    "detail_artifact_canonical_sha256": "5e446585d3f409c7e1a80df6162663c132a081f5d0bb9e923cee5dd4413327ab",
+    "source_first_canonical_row_set_sha256": "6ab55882856b3d835e14892bb02b2b32ba30e9027ec2337482cdb6a24ac9b9c3",
+    "rearmed_operation_canonical_row_set_sha256": "27e82f73b0536f1314265d8f74fb78266d86775e5d4584d76ddaa5d4a0190fcc",
+    "price_history_canonical_set_sha256": "68b63607532f97ba52c6480e63ff5941082372ce367720bcdf785d862a8b0717",
+    "candidate_detail_row_set_sha256": "d597ced885cd997c1a6942336150013aaa01ae918dcddf3b968c0ec2b9c12fcb",
+    "operation_count": "53",
+    "unique_stock_count": "48",
+    "unique_episode_count": "48",
+    "win_count": "41",
+    "neutral_count": "0",
+    "failure_count": "12",
+    "win_rate_pct": "77.3585",
+    "neutral_rate_pct": "0.0",
+    "failure_rate_pct": "22.6415",
+    "avg_return_pct": "14.895",
+    "median_return_pct": "9.4077",
+    "p10_return_pct": "-11.04",
+    "p90_return_pct": "42.2669",
+    "min_return_pct": "-19.6694",
+    "max_return_pct": "82.5095",
+    "return_ge20_count": "19",
+    "return_ge20_rate_pct": "35.8491",
+    "return_le_minus20_count": "0",
+    "return_le_minus20_rate_pct": "0.0",
+    "source_anomaly_candidate_count": "8",
+    "unresolved_price_path_candidate_count": "0",
+    "operation_return_review_candidate_count": "1",
+    "combined_exclusion_candidate_count": "9",
+    "user_decision_reference": "user_authorized_2A_20260828",
+    "decision_status": "selected_pending_anomaly_resolution_forward_holdout_v2_maturity_and_formal_adapter",
+    "anomaly_disposition_gate": "blocked_pending_9_root_cause_dispositions_and_1_trigger_asof_attribution_reconciliation",
+    "promotion_scope": "promotion_preparation_v2_migration_only_no_production_pdf_or_apps_script",
+}
+EXPECTED_DECISIONS = (EXPECTED_DECISION_V1, EXPECTED_DECISION_V2)
 DECISION_COLUMNS = tuple(EXPECTED_DECISION)
 
 ANOMALY_COLUMNS = (
@@ -166,6 +237,18 @@ EXPECTED_ANOMALIES = {
     "rearm_after_realized_exit_next_trade_day|delayed_next_close_continuation_bonus|3535|absolute_or_two_month_yoy_ge15|3535|20251017|1|20260119|20260121": ("0d422492d733ad369e247e222299e39c6e34b068ee3cc80ef29559c2d8188d1b", "source_anomaly_candidate", "exact_anomaly_causing_qualifying_source_events", "202509|202510", "20251017|20251117", "6d3a88558f79830a784f840551769cc8933e119ab8f3cbc8bf845fda0732d203|cbbc556f48ffed56bf54c0868d64eef15c9669a287670f9f782b2ca2bfffbc40", "6bb7ac7c837884520e1aae63cd2d12ba2f2da7a88117d9308e39fab94842426e|8f8dc5a3c5ec13150f027cb47b6c80f5661e649f16d0632aeedfdd588f8cb817", "two exact anomalous qualifying events known by trigger in the shared episode", "3535", "20260119", "20260120", "20260121", "20260313", "11.5044"),
     "rearm_after_realized_exit_next_trade_day|delayed_next_close_continuation_bonus|4142|absolute_or_two_month_yoy_ge15|4142|20250617|1|20260109|20260113": ("9636feedf298a97e39226731f29160d9d5db9f2fc3dab9d3e01839482d4125c1", "source_anomaly_candidate", "exact_anomaly_causing_qualifying_source_events", "202511", "20251217", "6200122b66aa1cfc523f215276d07af291f0aac27cab819e3964d3038473f45a", "d5470ceb0bc50ca464c5bc06d03bd5e0bdc02d4112bb3cc813f9e9517e466925", "exact anomalous qualifying monthly-revenue event known by trigger", "4142", "20260109", "20260112", "20260113", "20260305", "-12.9584"),
     "rearm_after_realized_exit_next_trade_day|delayed_next_close_continuation_bonus|5484|absolute_or_two_month_yoy_ge15|5484|20251017|1|20260515|20260519": ("1bfa169064788747a18ac6a8a0297cbc46b43dac9fa33a6fc0774760f4cf1bd6", "source_anomaly_candidate", "exact_anomaly_causing_qualifying_source_events", "202512", "20260117", "e91f324a5d4c664bf1ca2e329f094212294de006eec1b3395cec5b7b4ff8324c", "d30e0dab4891bc9fc8d8416b911a0b04d2e9d167a8411dc0794de6f6a414eabc", "exact anomalous qualifying event not the latest 202603 source available by trigger", "5484", "20260515", "20260518", "20260519", "20260630", "13.3995"),
+}
+EXPECTED_ANOMALIES_V1 = EXPECTED_ANOMALIES
+EXPECTED_ANOMALIES_V2 = {
+    "rearm_after_realized_exit_next_trade_day|delayed_next_close_continuation_bonus|2408|absolute_or_two_month_yoy_ge15|2408|20260417|2|20260427|20260429": ("8642cd7286a0eee22ba76d69e6ab826c9ec22c3e83a3ed63fef27753e81f0168", "source_anomaly_candidate", "exact_anomaly_causing_qualifying_source_events", "202603", "20260417", "aeec5b0f201473cc8c1760527f46596a0af3c756a2d3396679eb7f72246ee356", "bd571ae41f02b7214bdf33f0ec0046dbd882cf04637d20c623cbed5fb8986be4", "exact anomalous qualifying monthly-revenue event known by trigger", "2408", "20260427", "20260428", "20260429", "20260610", "41.1017"),
+    "rearm_after_realized_exit_next_trade_day|delayed_next_close_continuation_bonus|2451|absolute_or_two_month_yoy_ge15|2451|20250517|1|20260313|20260317": ("e5eed6f2f6d39d9da369041116395383580ef98274e7490bcaadc6a23a22d20e", "source_anomaly_candidate", "exact_anomaly_causing_qualifying_source_events", "202601", "20260217", "535dfa06caf2e73a1afba4cbaae0e731bdecf5a1377de6d0f619535ccd533fc1", "7b31102b97d450fa4de777477198f8655447cf3037993e8fc50f6fc40de30a50", "exact anomalous qualifying monthly-revenue event known by trigger", "2451", "20260313", "20260316", "20260317", "20260429", "1.5152"),
+    "rearm_after_realized_exit_next_trade_day|delayed_next_close_continuation_bonus|2478|absolute_or_two_month_yoy_ge15|2478|20260217|2|20260416|20260420": ("facf4234439f7b5627a00b3bfa82c2976559357c218b0a341ca0a5a0e2d53a9b", "operation_return_review_candidate", "operation_return_review_not_source_attributed", "not_applicable", "not_applicable", "not_applicable", "not_applicable", "operation-return magnitude review is not a monthly-revenue source anomaly attribution", "2478", "20260416", "20260417", "20260420", "20260601", "82.5095"),
+    "rearm_after_realized_exit_next_trade_day|delayed_next_close_continuation_bonus|2527|absolute_or_two_month_yoy_ge15|2527|20260517|1|20260526|20260528": ("34d2b8aa9258ae1a686feaa937ada66e56c238c7dd5994299b4a3c74ee5d8c6a", "source_anomaly_candidate", "exact_anomaly_causing_qualifying_source_events", "202604", "20260517", "047b94ab8b2e136f27ad1ac45f8259b25f852cfbc64b2f6f80eb02eae2926abc", "07c771646a550e5831176efac2067f2ea9436c8cb1700dbe5900b8d86e7d0769", "exact anomalous qualifying monthly-revenue event known by trigger", "2527", "20260526", "20260527", "20260528", "20260709", "17.3554"),
+    "rearm_after_realized_exit_next_trade_day|delayed_next_close_continuation_bonus|3535|absolute_or_two_month_yoy_ge15|3535|20251017|1|20251128|20251202": ("f7ed7ce96221e2754d299f73ee1025763d7d8b858b19232c18a4e3b21032c5c2", "source_anomaly_candidate", "exact_anomaly_causing_qualifying_source_events", "202509|202510", "20251017|20251117", "6d3a88558f79830a784f840551769cc8933e119ab8f3cbc8bf845fda0732d203|cbbc556f48ffed56bf54c0868d64eef15c9669a287670f9f782b2ca2bfffbc40", "6bb7ac7c837884520e1aae63cd2d12ba2f2da7a88117d9308e39fab94842426e|8f8dc5a3c5ec13150f027cb47b6c80f5661e649f16d0632aeedfdd588f8cb817", "two exact anomalous qualifying events known by trigger in the shared episode", "3535", "20251128", "20251201", "20251202", "20260114", "-2.6287"),
+    "rearm_after_realized_exit_next_trade_day|delayed_next_close_continuation_bonus|3535|absolute_or_two_month_yoy_ge15|3535|20251017|1|20260119|20260121": ("e4b00d986b4af400e6cc05ce38687964f7de9944914d77eb31fc0a9755a64596", "source_anomaly_candidate", "exact_anomaly_causing_qualifying_source_events", "202509|202510", "20251017|20251117", "6d3a88558f79830a784f840551769cc8933e119ab8f3cbc8bf845fda0732d203|cbbc556f48ffed56bf54c0868d64eef15c9669a287670f9f782b2ca2bfffbc40", "6bb7ac7c837884520e1aae63cd2d12ba2f2da7a88117d9308e39fab94842426e|8f8dc5a3c5ec13150f027cb47b6c80f5661e649f16d0632aeedfdd588f8cb817", "two exact anomalous qualifying events known by trigger in the shared episode", "3535", "20260119", "20260120", "20260121", "20260313", "11.5044"),
+    "rearm_after_realized_exit_next_trade_day|delayed_next_close_continuation_bonus|4142|absolute_or_two_month_yoy_ge15|4142|20250617|1|20260109|20260113": ("2f36fb8d8e6bd05b879a164e5748d318088ebc6936d1d97dc9a9cd728c0bc35b", "source_anomaly_candidate", "exact_anomaly_causing_qualifying_source_events", "202511", "20251217", "6200122b66aa1cfc523f215276d07af291f0aac27cab819e3964d3038473f45a", "d5470ceb0bc50ca464c5bc06d03bd5e0bdc02d4112bb3cc813f9e9517e466925", "exact anomalous qualifying monthly-revenue event known by trigger", "4142", "20260109", "20260112", "20260113", "20260305", "-12.9584"),
+    "rearm_after_realized_exit_next_trade_day|delayed_next_close_continuation_bonus|5484|absolute_or_two_month_yoy_ge15|5484|20251017|1|20260515|20260519": ("5f3ca72b872eeb3f02e078e9544b456751e6dc2c4fc7942a7a023c961a6ce514", "source_anomaly_candidate", "exact_anomaly_causing_qualifying_source_events", "202512", "20260117", "e91f324a5d4c664bf1ca2e329f094212294de006eec1b3395cec5b7b4ff8324c", "d30e0dab4891bc9fc8d8416b911a0b04d2e9d167a8411dc0794de6f6a414eabc", "exact anomalous qualifying event not the latest 202603 source available by trigger", "5484", "20260515", "20260518", "20260519", "20260630", "13.3995"),
+    "rearm_after_realized_exit_next_trade_day|delayed_next_close_continuation_bonus|6177|absolute_or_two_month_yoy_ge15|6177|20250517|1|20251204|20251208": ("e3ff0aa0f2af328e8e959321235acc79af9efdf0a7df508db4d55bac57b88e23", "source_anomaly_candidate", "published_episode_level_source_flag_no_trigger_asof_event_requires_reconciliation", "not_applicable_pending_trigger_asof_reconciliation", "not_applicable_pending_trigger_asof_reconciliation", "not_applicable_pending_trigger_asof_reconciliation", "not_applicable_pending_trigger_asof_reconciliation", "published episode-level flag is future-contaminated: no anomalous qualifying source event was known by trigger; first such event period 202512 available 20260117 canonical d26bc6a94cf5869836e96f77b7af128b007b3159ae7680eb4e14030c7d19aae1 is post-trigger and not attribution evidence", "6177", "20251204", "20251205", "20251208", "20260120", "5.274"),
 }
 
 DISPOSITION_POLICIES = {
@@ -258,6 +341,109 @@ SUMMARY_EXPECTED = {
     "formal_model_use_allowed": "False",
     "production_change": "False",
 }
+SUMMARY_EXPECTED_V1 = SUMMARY_EXPECTED
+SUMMARY_EXPECTED_V2 = {
+    **SUMMARY_EXPECTED_V1,
+    "artifact_version": "low_mid_falling_candidate_v2_20260822",
+    **{
+        column: EXPECTED_DECISION_V2[column]
+        for column in (
+            "data_contract_sha256",
+            "producer_semantic_sha256",
+            "source_first_producer_semantic_sha256",
+            "rearmed_producer_semantic_sha256",
+            "position_shape_producer_semantic_sha256",
+            "monthly_revenue_history_blob_sha256",
+            "monthly_revenue_canonical_table_sha256",
+            "cross_market_resolution_registry_canonical_sha256",
+            "source_first_selected_slice_canonical_sha256",
+            "rearmed_d30_no_stop_slice_canonical_sha256",
+            "price_history_manifest_canonical_sha256",
+            "detail_artifact_canonical_sha256",
+            "source_first_canonical_row_set_sha256",
+            "rearmed_operation_canonical_row_set_sha256",
+            "price_history_canonical_set_sha256",
+            "candidate_detail_row_set_sha256",
+            "operation_count",
+            "unique_stock_count",
+            "unique_episode_count",
+            "win_count",
+            "neutral_count",
+            "failure_count",
+            "win_rate_pct",
+            "neutral_rate_pct",
+            "failure_rate_pct",
+            "avg_return_pct",
+            "median_return_pct",
+            "p10_return_pct",
+            "p90_return_pct",
+            "min_return_pct",
+            "max_return_pct",
+            "return_ge20_count",
+            "return_ge20_rate_pct",
+            "return_le_minus20_count",
+            "return_le_minus20_rate_pct",
+            "source_anomaly_candidate_count",
+            "unresolved_price_path_candidate_count",
+            "operation_return_review_candidate_count",
+            "combined_exclusion_candidate_count",
+        )
+    },
+}
+
+EXPECTED_MIGRATION = {
+    "migration_id": "revenue_unreacted_range_promotion_preparation_v1_to_v2_20260828",
+    "migration_date": "2026-08-28",
+    "model_id": "revenue_unreacted_range",
+    "from_decision_id": EXPECTED_DECISION_V1["decision_id"],
+    "to_decision_id": EXPECTED_DECISION_V2["decision_id"],
+    "from_source_artifact_version": EXPECTED_DECISION_V1["source_artifact_version"],
+    "to_source_artifact_version": EXPECTED_DECISION_V2["source_artifact_version"],
+    "from_source_revision": TRUSTED_V1_SOURCE_REVISION,
+    "to_source_revision": TRUSTED_V2_SOURCE_REVISION,
+    "from_summary_blob_sha1": "39acbd8261038ce76a71a51e13864046d5334f00",
+    "from_summary_bytes": "54481",
+    "from_summary_sha256": "f4cc336bb3aaf5997913544472c9bbac9e591af72a4957f63ba884e26f384ad8",
+    "from_detail_blob_sha1": "b7f5f313fb98d5b34ff2714c2f5ccb99e97326c7",
+    "from_detail_bytes": "1005708",
+    "from_detail_sha256": "dee8e7e43d13786657ac0b8997fde606df36cf591463e325de36dada5373757c",
+    "to_summary_blob_sha1": "a3343c5fcf163eda469ee2423d32e6372da14b91",
+    "to_summary_bytes": "54494",
+    "to_summary_sha256": "1268f4bfe825a30ea876cc9eac20800d21802d1fbd212b91ab4829f70752e281",
+    "to_detail_blob_sha1": "656ad7ac399bb93090bb478733c9c0baa1ed6f64",
+    "to_detail_bytes": "1012187",
+    "to_detail_sha256": "0d272c9263b60816cace92f8ed790a1b376cad7952c7ad13a689961cd45920ad",
+    "source_projection_diff_summary_path": "output/history/research/revenue_unreacted_range_source_snapshot_projection_v1_20260731_to_v2_20260822_diff_summary.csv",
+    "source_projection_diff_summary_sha256": "e2124dc58b95ff1e11a7add5bf671ca142b5cc1cc6b538ce57090735d56beeed",
+    "source_projection_diff_detail_path": "output/history/research/revenue_unreacted_range_source_snapshot_projection_v1_20260731_to_v2_20260822_diff_detail.csv",
+    "source_projection_diff_detail_sha256": "68c9cfb143a663bd86f62a356d5dd09cd38edd7e16f2cb726d1a3f4aa62ef4d6",
+    "source_projection_supersede_evidence_path": "output/history/research/revenue_unreacted_range_source_snapshot_projection_supersede_evidence_v2_20260822.csv",
+    "source_projection_supersede_evidence_sha256": "33a7ac67a98c0e6fd3836e8bedd250940ccadd567e71c50bb94e9cbda70ef79b",
+    "v1_operation_count": "52",
+    "v2_operation_count": "53",
+    "exact_common_operation_key_count": "46",
+    "raw_added_operation_key_count": "7",
+    "raw_removed_operation_key_count": "6",
+    "episode_identity_rekey_count": "2",
+    "semantic_persistent_trajectory_count": "48",
+    "true_added_operation_count": "5",
+    "true_removed_operation_count": "4",
+    "common_business_field_change_count": "0",
+    "v1_anomaly_registry_path": "config/revenue_unreacted_range_anomaly_disposition_registry.csv",
+    "v1_anomaly_registry_sha256": "8d13efcce3feecf23231b53ec3e880cf82f72bfd4efcb9aaccc99eab18905ecc",
+    "v1_anomaly_count": "8",
+    "v2_anomaly_registry_path": "config/revenue_unreacted_range_anomaly_disposition_registry_v2_20260828.csv",
+    "v2_anomaly_registry_sha256": "172687dc6cd63ef1c65c4b4a15229e30c411647a8d81b0c483d96684d1348491",
+    "v2_anomaly_count": "9",
+    "authorization_reference": "user_authorized_2A_20260828",
+    "migration_scope": "promotion_preparation_and_research_only_forward_holdout_v2_migration_no_production_daily_full_pdf_or_apps_script",
+    "research_only": "True",
+    "formal_model_use_allowed": "False",
+    "approved_for_daily": "False",
+    "presentation_allowed": "False",
+    "production_change": "False",
+}
+MIGRATION_COLUMNS = tuple(EXPECTED_MIGRATION)
 
 
 def _read_csv_payload(
@@ -303,20 +489,28 @@ def _git(*args: str) -> subprocess.CompletedProcess[bytes]:
     )
 
 
-def _trusted_v1_source_blob(path: Path) -> bytes:
-    contract = TRUSTED_V1_SOURCE_ARTIFACTS.get(Path(path))
+def _trusted_source_blob(version: str, path: Path) -> bytes:
+    if version == "v1":
+        revision = TRUSTED_V1_SOURCE_REVISION
+        contracts = TRUSTED_V1_SOURCE_ARTIFACTS
+    elif version == "v2":
+        revision = TRUSTED_V2_SOURCE_REVISION
+        contracts = TRUSTED_V2_SOURCE_ARTIFACTS
+    else:
+        raise RuntimeError(f"unapproved trusted promotion source version: {version}")
+    contract = contracts.get(Path(path))
     if contract is None:
-        raise RuntimeError(f"unapproved trusted v1 promotion source path: {path}")
-    if not re.fullmatch(r"[0-9a-f]{40}", TRUSTED_V1_SOURCE_REVISION):
-        raise RuntimeError("trusted v1 promotion source revision is not a full SHA")
-    commit = _git("rev-parse", "--verify", f"{TRUSTED_V1_SOURCE_REVISION}^{{commit}}")
-    if commit.returncode != 0 or commit.stdout.decode("ascii", errors="replace").strip() != TRUSTED_V1_SOURCE_REVISION:
-        raise RuntimeError("trusted v1 promotion source revision is unavailable")
-    ancestor = _git("merge-base", "--is-ancestor", TRUSTED_V1_SOURCE_REVISION, "HEAD")
+        raise RuntimeError(f"unapproved trusted {version} promotion source path: {path}")
+    if not re.fullmatch(r"[0-9a-f]{40}", revision):
+        raise RuntimeError(f"trusted {version} promotion source revision is not a full SHA")
+    commit = _git("rev-parse", "--verify", f"{revision}^{{commit}}")
+    if commit.returncode != 0 or commit.stdout.decode("ascii", errors="replace").strip() != revision:
+        raise RuntimeError(f"trusted {version} promotion source revision is unavailable")
+    ancestor = _git("merge-base", "--is-ancestor", revision, "HEAD")
     if ancestor.returncode != 0:
-        raise RuntimeError("trusted v1 promotion source revision is not an ancestor of HEAD")
+        raise RuntimeError(f"trusted {version} promotion source revision is not an ancestor of HEAD")
     repo_path = str(contract["path"])
-    tree = _git("ls-tree", TRUSTED_V1_SOURCE_REVISION, "--", repo_path)
+    tree = _git("ls-tree", revision, "--", repo_path)
     fields = tree.stdout.decode("utf-8", errors="replace").strip().split(None, 3)
     if (
         tree.returncode != 0
@@ -326,15 +520,23 @@ def _trusted_v1_source_blob(path: Path) -> bytes:
         or fields[2] != contract["blob"]
         or fields[3] != repo_path
     ):
-        raise RuntimeError(f"trusted v1 promotion source tree identity mismatch: {repo_path}")
+        raise RuntimeError(f"trusted {version} promotion source tree identity mismatch: {repo_path}")
     blob = _git("cat-file", "blob", str(contract["blob"]))
     if blob.returncode != 0:
-        raise RuntimeError(f"trusted v1 promotion source blob is unreadable: {repo_path}")
+        raise RuntimeError(f"trusted {version} promotion source blob is unreadable: {repo_path}")
     if len(blob.stdout) != contract["bytes"]:
-        raise RuntimeError(f"trusted v1 promotion source byte count mismatch: {repo_path}")
+        raise RuntimeError(f"trusted {version} promotion source byte count mismatch: {repo_path}")
     if hashlib.sha256(blob.stdout).hexdigest() != contract["sha256"]:
-        raise RuntimeError(f"trusted v1 promotion source SHA-256 mismatch: {repo_path}")
+        raise RuntimeError(f"trusted {version} promotion source SHA-256 mismatch: {repo_path}")
     return blob.stdout
+
+
+def _trusted_v1_source_blob(path: Path) -> bytes:
+    return _trusted_source_blob("v1", path)
+
+
+def _trusted_v2_source_blob(path: Path) -> bytes:
+    return _trusted_source_blob("v2", path)
 
 
 def _is_true(value: str) -> bool:
@@ -429,26 +631,38 @@ def validate_decision(path: Path) -> tuple[dict[str, str] | None, list[str]]:
     columns, rows, errors = _read_csv(path)
     if columns and tuple(columns) != DECISION_COLUMNS:
         errors.append("promotion preparation registry columns must match the exact contract")
-    if len(rows) != 1:
-        errors.append(f"promotion preparation registry must contain exactly one row; actual={len(rows)}")
-        return None, errors
-    row = rows[0]
-    for column, expected in EXPECTED_DECISION.items():
-        if row.get(column, "") != expected:
-            errors.append(
-                f"promotion preparation {column} mismatch: expected={expected!r}; actual={row.get(column, '')!r}"
-            )
-    formula_sha256 = hashlib.sha256(
-        row.get("rule_formula_canonical", "").encode("utf-8")
-    ).hexdigest()
-    if formula_sha256 != row.get("rule_formula_sha256", ""):
+    if len(rows) != len(EXPECTED_DECISIONS):
         errors.append(
-            "promotion preparation rule_formula_sha256 does not bind the canonical formula"
+            "promotion preparation registry must preserve the exact v1 prefix and append "
+            f"exactly one v2 row; actual={len(rows)}"
         )
-    return row, errors
+        return None, errors
+    for version, (row, expected_row) in enumerate(
+        zip(rows, EXPECTED_DECISIONS, strict=True), start=1
+    ):
+        for column, expected in expected_row.items():
+            if row.get(column, "") != expected:
+                errors.append(
+                    f"promotion preparation {column} mismatch in v{version}: "
+                    f"expected={expected!r}; actual={row.get(column, '')!r}"
+                )
+        formula_sha256 = hashlib.sha256(
+            row.get("rule_formula_canonical", "").encode("utf-8")
+        ).hexdigest()
+        if formula_sha256 != row.get("rule_formula_sha256", ""):
+            errors.append(
+                "promotion preparation rule_formula_sha256 does not bind the canonical formula "
+                f"in v{version}"
+            )
+    return rows[-1], errors
 
 
-def validate_anomalies(path: Path) -> tuple[dict[str, dict[str, str]], list[str]]:
+def validate_anomalies(
+    path: Path,
+    *,
+    expected_anomalies: dict[str, tuple[str, ...]] = EXPECTED_ANOMALIES_V1,
+    version_label: str = "v1",
+) -> tuple[dict[str, dict[str, str]], list[str]]:
     columns, rows, errors = _read_csv(path)
     if columns and tuple(columns) != ANOMALY_COLUMNS:
         errors.append("anomaly disposition registry columns must match the exact contract")
@@ -456,11 +670,12 @@ def validate_anomalies(path: Path) -> tuple[dict[str, dict[str, str]], list[str]
     if len(keys) != len(set(keys)):
         errors.append("anomaly disposition registry has duplicate operation_key rows")
     actual = {row.get("operation_key", ""): row for row in rows}
-    if set(actual) != set(EXPECTED_ANOMALIES):
+    if set(actual) != set(expected_anomalies):
         errors.append(
-            "anomaly disposition registry must contain the exact frozen 8 operation keys; "
-            f"missing={sorted(set(EXPECTED_ANOMALIES) - set(actual))}; "
-            f"extra={sorted(set(actual) - set(EXPECTED_ANOMALIES))}"
+            f"anomaly disposition registry {version_label} must contain the exact frozen "
+            f"{len(expected_anomalies)} operation keys; "
+            f"missing={sorted(set(expected_anomalies) - set(actual))}; "
+            f"extra={sorted(set(actual) - set(expected_anomalies))}"
         )
     identity_columns = (
         "candidate_detail_row_sha256",
@@ -478,7 +693,7 @@ def validate_anomalies(path: Path) -> tuple[dict[str, dict[str, str]], list[str]
         "exit_date",
         "realized_return_pct",
     )
-    for key, expected_values in EXPECTED_ANOMALIES.items():
+    for key, expected_values in expected_anomalies.items():
         row = actual.get(key)
         if row is None:
             continue
@@ -534,14 +749,166 @@ def validate_anomalies(path: Path) -> tuple[dict[str, dict[str, str]], list[str]
                 errors.append(
                     f"{key}: approved_reason_reference is allowed only for verified_non_comparable"
                 )
-    if len(rows) != 8:
-        errors.append(f"anomaly disposition registry must contain exactly 8 rows; actual={len(rows)}")
+        attribution_mode = row.get("anomaly_attribution_mode", "")
+        if attribution_mode == "exact_anomaly_causing_qualifying_source_events":
+            for available_date in row.get("anomaly_source_available_dates", "").split("|"):
+                if available_date and available_date > row.get("trigger_date", ""):
+                    errors.append(
+                        f"{key}: anomaly source available date is after trigger and cannot be attributed"
+                    )
+        if row.get("stock_id") == "6177" and version_label == "v2":
+            placeholder = "not_applicable_pending_trigger_asof_reconciliation"
+            for column in (
+                "anomaly_source_event_periods",
+                "anomaly_source_available_dates",
+                "anomaly_source_canonical_row_sha256s",
+                "anomaly_source_raw_file_sha256s",
+            ):
+                if row.get(column) != placeholder:
+                    errors.append(
+                        f"{key}: 6177 future-contaminated attribution must remain fail-closed in {column}"
+                    )
+            if row.get("pit_calendar_continuity_status") != "fail":
+                errors.append(f"{key}: 6177 pit_calendar_continuity_status must remain fail")
+            if row.get("raw_source_lineage_status") != "fail":
+                errors.append(f"{key}: 6177 raw_source_lineage_status must remain fail")
+    if len(rows) != len(expected_anomalies):
+        errors.append(
+            f"anomaly disposition registry {version_label} must contain exactly "
+            f"{len(expected_anomalies)} rows; actual={len(rows)}"
+        )
     return actual, errors
 
 
-def _summary_matches(row: dict[str, str]) -> bool:
+def validate_migration(path: Path) -> tuple[dict[str, str] | None, list[str]]:
+    columns, rows, errors = _read_csv(path)
+    if columns and tuple(columns) != MIGRATION_COLUMNS:
+        errors.append("promotion preparation migration ledger columns must match the exact contract")
+    if len(rows) != 1:
+        errors.append(
+            "promotion preparation migration ledger must contain exactly one append-only row; "
+            f"actual={len(rows)}"
+        )
+        return None, errors
+    row = rows[0]
+    for column, expected in EXPECTED_MIGRATION.items():
+        if row.get(column, "") != expected:
+            errors.append(
+                f"promotion preparation migration {column} mismatch: "
+                f"expected={expected!r}; actual={row.get(column, '')!r}"
+            )
+    return row, errors
+
+
+def _migration_git_blob(treeish: str, repo_path: str) -> tuple[bytes | None, str | None]:
+    posix_path = PurePosixPath(repo_path)
+    windows_path = PureWindowsPath(repo_path)
+    if (
+        not repo_path
+        or posix_path.is_absolute()
+        or windows_path.is_absolute()
+        or "\\" in repo_path
+        or any(part in {"", ".", ".."} for part in posix_path.parts)
+    ):
+        return None, f"migration artifact path is not a safe repo-relative path: {repo_path!r}"
+    spec = f":{repo_path}" if treeish == ":" else f"{treeish}:{repo_path}"
+    result = _git("show", spec)
+    if result.returncode != 0:
+        detail = result.stderr.decode("utf-8", errors="replace").strip()
+        return None, (
+            f"migration artifact Git blob is unavailable: {spec}"
+            + (f"; {detail}" if detail else "")
+        )
+    return result.stdout, None
+
+
+def validate_migration_artifact_bindings(row: dict[str, str]) -> list[str]:
+    """Verify every ledger hash against the referenced Git blob identity.
+
+    This is intentionally part of the explicit trusted ``--source-audit all``
+    path.  Governance-only validation remains cheap and does not reach into Git,
+    while formal reconciliation proves that the ledger is more than a duplicate
+    set of hard-coded strings.
+    """
+
+    errors: list[str] = []
+    for version, prefix, revision, contracts in (
+        ("v1", "from", TRUSTED_V1_SOURCE_REVISION, TRUSTED_V1_SOURCE_ARTIFACTS),
+        ("v2", "to", TRUSTED_V2_SOURCE_REVISION, TRUSTED_V2_SOURCE_ARTIFACTS),
+    ):
+        for artifact_name, artifact_path in (
+            ("summary", DEFAULT_SUMMARY),
+            ("detail", DEFAULT_DETAIL),
+        ):
+            contract = contracts[artifact_path]
+            repo_path = str(contract["path"])
+            payload, error = _migration_git_blob(revision, repo_path)
+            if error is not None:
+                errors.append(error)
+                continue
+            assert payload is not None
+            observed = {
+                "blob_sha1": hashlib.sha1(
+                    f"blob {len(payload)}\0".encode("ascii") + payload
+                ).hexdigest(),
+                "bytes": str(len(payload)),
+                "sha256": hashlib.sha256(payload).hexdigest(),
+            }
+            for suffix, actual in observed.items():
+                column = f"{prefix}_{artifact_name}_{suffix}"
+                if row.get(column, "") != actual:
+                    errors.append(
+                        f"migration {version} {artifact_name} {suffix} is not bound "
+                        f"to {revision}:{repo_path}; expected={actual}; "
+                        f"actual={row.get(column, '')}"
+                    )
+
+    for path_column, sha_column in (
+        ("source_projection_diff_summary_path", "source_projection_diff_summary_sha256"),
+        ("source_projection_diff_detail_path", "source_projection_diff_detail_sha256"),
+        (
+            "source_projection_supersede_evidence_path",
+            "source_projection_supersede_evidence_sha256",
+        ),
+    ):
+        repo_path = row.get(path_column, "")
+        revision = row.get("to_source_revision", "")
+        payload, error = _migration_git_blob(revision, repo_path)
+        if error is not None:
+            errors.append(error)
+            continue
+        assert payload is not None
+        actual = hashlib.sha256(payload).hexdigest()
+        if row.get(sha_column, "") != actual:
+            errors.append(
+                f"migration {sha_column} is not bound to {revision}:{repo_path}; "
+                f"expected={actual}; actual={row.get(sha_column, '')}"
+            )
+
+    for version in ("v1", "v2"):
+        path_column = f"{version}_anomaly_registry_path"
+        sha_column = f"{version}_anomaly_registry_sha256"
+        repo_path = row.get(path_column, "")
+        payload, error = _migration_git_blob(":", repo_path)
+        if error is not None:
+            errors.append(error)
+            continue
+        assert payload is not None
+        actual = hashlib.sha256(payload).hexdigest()
+        if row.get(sha_column, "") != actual:
+            errors.append(
+                f"migration {sha_column} is not bound to current index:{repo_path}; "
+                f"expected={actual}; actual={row.get(sha_column, '')}"
+            )
+    return errors
+
+
+def _summary_matches(
+    row: dict[str, str],
+    expected_summary: dict[str, str] = SUMMARY_EXPECTED_V1,
+) -> bool:
     selection = {
-        key: SUMMARY_EXPECTED[key]
+        key: expected_summary[key]
         for key in (
             "source_variant_id",
             "analysis_basis",
@@ -560,14 +927,15 @@ def validate_summary(
     *,
     payload: bytes | None = None,
     label: str | None = None,
+    expected_summary: dict[str, str] = SUMMARY_EXPECTED_V1,
 ) -> tuple[dict[str, str] | None, list[str]]:
     _columns, rows, errors = _read_csv(path, payload=payload, label=label)
-    selected = [row for row in rows if _summary_matches(row)]
+    selected = [row for row in rows if _summary_matches(row, expected_summary)]
     if len(selected) != 1:
         errors.append(f"source summary must contain exactly one frozen selected slice; actual={len(selected)}")
         return None, errors
     row = selected[0]
-    for column, expected in SUMMARY_EXPECTED.items():
+    for column, expected in expected_summary.items():
         if row.get(column, "") != expected:
             errors.append(
                 f"source summary {column} mismatch: expected={expected!r}; actual={row.get(column, '')!r}"
@@ -575,13 +943,16 @@ def validate_summary(
     return row, errors
 
 
-def _detail_matches(row: dict[str, str]) -> bool:
+def _detail_matches(
+    row: dict[str, str],
+    expected_decision: dict[str, str] = EXPECTED_DECISION_V1,
+) -> bool:
     return (
-        row.get("source_variant_id") == EXPECTED_DECISION["source_variant_id"]
-        and row.get("lifecycle_policy_id") == EXPECTED_DECISION["lifecycle_policy_id"]
-        and row.get("confirmation_variant_id") == EXPECTED_DECISION["confirmation_variant_id"]
+        row.get("source_variant_id") == expected_decision["source_variant_id"]
+        and row.get("lifecycle_policy_id") == expected_decision["lifecycle_policy_id"]
+        and row.get("confirmation_variant_id") == expected_decision["confirmation_variant_id"]
         and row.get("holding_days") == "30"
-        and row.get("stop_policy_id") == EXPECTED_DECISION["stop_policy_id"]
+        and row.get("stop_policy_id") == expected_decision["stop_policy_id"]
         and _is_true(row.get("mid_falling_member", ""))
         and _is_true(row.get("primary_included", ""))
     )
@@ -593,18 +964,24 @@ def validate_detail(
     *,
     payload: bytes | None = None,
     label: str | None = None,
+    expected_decision: dict[str, str] = EXPECTED_DECISION_V1,
+    expected_summary: dict[str, str] = SUMMARY_EXPECTED_V1,
 ) -> tuple[list[dict[str, str]], list[str]]:
     _columns, rows, errors = _read_csv(path, payload=payload, label=label)
-    selected = [row for row in rows if _detail_matches(row)]
-    if len(selected) != 52:
-        errors.append(f"source detail frozen selected slice must contain 52 rows; actual={len(selected)}")
+    selected = [row for row in rows if _detail_matches(row, expected_decision)]
+    expected_count = int(expected_decision["operation_count"])
+    if len(selected) != expected_count:
+        errors.append(
+            "source detail frozen selected slice must contain "
+            f"{expected_count} rows; actual={len(selected)}"
+        )
         return selected, errors
 
     expected_constants = {
         "model_id": "revenue_unreacted_range",
         "artifact_id": "revenue_unreacted_range_low_mid_falling_candidate_audit",
-        "artifact_version": "low_mid_falling_candidate_v1_20260720",
-        "candidate_detail_row_set_sha256": EXPECTED_DECISION["candidate_detail_row_set_sha256"],
+        "artifact_version": expected_summary["artifact_version"],
+        "candidate_detail_row_set_sha256": expected_decision["candidate_detail_row_set_sha256"],
         "holding_session_index_offset": "29",
         "holding_session_contract": "inclusive_entry_session_count_30_exit_offset_29",
         "entry_price_basis": "analysis_open",
@@ -718,7 +1095,7 @@ def validate_detail(
         ),
     }
     for column, actual in computed.items():
-        expected_text = EXPECTED_DECISION[column]
+        expected_text = expected_decision[column]
         if isinstance(actual, float):
             if not math.isclose(actual, float(expected_text), rel_tol=0.0, abs_tol=0.00005):
                 errors.append(
@@ -758,83 +1135,231 @@ def validate_detail(
     return selected, errors
 
 
+TRAJECTORY_FIELDS = (
+    "stock_id",
+    "trigger_date",
+    "confirmation_date",
+    "entry_date",
+    "exit_date",
+    "realized_return_pct",
+    "return_outcome",
+)
+COMMON_BUSINESS_FIELDS = (
+    *TRAJECTORY_FIELDS,
+    "entry_price",
+    "exit_price",
+    "entry_price_basis",
+    "exit_price_basis",
+)
+
+
+def _trajectory_key(row: dict[str, str]) -> tuple[str, ...]:
+    return tuple(row.get(column, "") for column in TRAJECTORY_FIELDS)
+
+
+def validate_v1_v2_reconciliation(
+    v1_rows: list[dict[str, str]],
+    v2_rows: list[dict[str, str]],
+    migration_row: dict[str, str],
+) -> list[str]:
+    errors: list[str] = []
+    v1_by_key = {row.get("operation_key", ""): row for row in v1_rows}
+    v2_by_key = {row.get("operation_key", ""): row for row in v2_rows}
+    common_keys = set(v1_by_key) & set(v2_by_key)
+    raw_added = set(v2_by_key) - set(v1_by_key)
+    raw_removed = set(v1_by_key) - set(v2_by_key)
+    common_business_changes = sum(
+        any(v1_by_key[key].get(field, "") != v2_by_key[key].get(field, "") for field in COMMON_BUSINESS_FIELDS)
+        for key in common_keys
+    )
+
+    v1_by_trajectory = {_trajectory_key(row): row for row in v1_rows}
+    v2_by_trajectory = {_trajectory_key(row): row for row in v2_rows}
+    common_trajectories = set(v1_by_trajectory) & set(v2_by_trajectory)
+    rekeyed_trajectories = {
+        trajectory
+        for trajectory in common_trajectories
+        if v1_by_trajectory[trajectory].get("operation_key")
+        != v2_by_trajectory[trajectory].get("operation_key")
+    }
+    rekeyed_stocks = {trajectory[0] for trajectory in rekeyed_trajectories}
+    computed = {
+        "v1_operation_count": len(v1_rows),
+        "v2_operation_count": len(v2_rows),
+        "exact_common_operation_key_count": len(common_keys),
+        "raw_added_operation_key_count": len(raw_added),
+        "raw_removed_operation_key_count": len(raw_removed),
+        "episode_identity_rekey_count": len(rekeyed_trajectories),
+        "semantic_persistent_trajectory_count": len(common_trajectories),
+        "true_added_operation_count": len(set(v2_by_trajectory) - set(v1_by_trajectory)),
+        "true_removed_operation_count": len(set(v1_by_trajectory) - set(v2_by_trajectory)),
+        "common_business_field_change_count": common_business_changes,
+    }
+    for column, actual in computed.items():
+        expected = int(migration_row.get(column, "-1"))
+        if actual != expected:
+            errors.append(
+                f"v1 to v2 selected-operation reconciliation {column} mismatch: "
+                f"expected={expected}; actual={actual}"
+            )
+    if rekeyed_stocks != {"2451", "3665"}:
+        errors.append(
+            "v1 to v2 episode identity rekeys must be exactly stocks 2451 and 3665; "
+            f"actual={sorted(rekeyed_stocks)}"
+        )
+    return errors
+
+
 def validate(
     *,
     decision_path: Path = DEFAULT_DECISION,
     anomaly_path: Path = DEFAULT_ANOMALIES,
+    anomaly_v2_path: Path = DEFAULT_ANOMALIES_V2,
+    migration_path: Path = DEFAULT_MIGRATIONS,
     summary_path: Path | None = None,
     detail_path: Path | None = None,
     require_source_artifacts: bool = False,
+    source_audit: str | None = None,
     historical_v1_source_audit: bool = False,
+    historical_v2_source_audit: bool = False,
 ) -> list[str]:
     errors: list[str] = []
     _decision, decision_errors = validate_decision(decision_path)
-    anomaly_rows, anomaly_errors = validate_anomalies(anomaly_path)
+    anomaly_rows, anomaly_errors = validate_anomalies(
+        anomaly_path,
+        expected_anomalies=EXPECTED_ANOMALIES_V1,
+        version_label="v1",
+    )
+    anomaly_v2_rows, anomaly_v2_errors = validate_anomalies(
+        anomaly_v2_path,
+        expected_anomalies=EXPECTED_ANOMALIES_V2,
+        version_label="v2",
+    )
+    migration_row, migration_errors = validate_migration(migration_path)
     errors.extend(decision_errors)
     errors.extend(anomaly_errors)
+    errors.extend(anomaly_v2_errors)
+    errors.extend(migration_errors)
 
     explicit_summary = Path(summary_path) if summary_path is not None else None
     explicit_detail = Path(detail_path) if detail_path is not None else None
     explicit_source_requested = (
         explicit_summary is not None or explicit_detail is not None
     )
+    requested_audits = [
+        value
+        for value in (
+            source_audit,
+            "v1" if historical_v1_source_audit else None,
+            "v2" if historical_v2_source_audit else None,
+        )
+        if value is not None
+    ]
+    if len(requested_audits) > 1:
+        errors.append("source audit selectors are mutually exclusive")
+        return errors
+    normalized_audit = requested_audits[0] if requested_audits else None
+    if normalized_audit not in {None, "v1", "v2", "all"}:
+        errors.append(f"unsupported source audit version: {normalized_audit}")
+        return errors
+    if normalized_audit and explicit_source_requested:
+        if normalized_audit == "v1" and historical_v1_source_audit:
+            errors.append(
+                "historical v1 source audit cannot be combined with explicit summary/detail paths"
+            )
+        else:
+            errors.append("trusted source audit cannot be combined with explicit summary/detail paths")
+        return errors
     if historical_v1_source_audit and explicit_source_requested:
         errors.append(
             "historical v1 source audit cannot be combined with explicit summary/detail paths"
         )
         return errors
 
-    trusted_summary: bytes | None = None
-    trusted_detail: bytes | None = None
-    if historical_v1_source_audit:
-        try:
-            trusted_summary = _trusted_v1_source_blob(DEFAULT_SUMMARY)
-            trusted_detail = _trusted_v1_source_blob(DEFAULT_DETAIL)
-        except RuntimeError as exc:
-            errors.append(str(exc))
-            return errors
-
-    validate_source_artifacts = (
-        historical_v1_source_audit
-        or explicit_source_requested
-        or require_source_artifacts
-    )
-    if validate_source_artifacts:
-        if historical_v1_source_audit:
-            source_summary_path = DEFAULT_SUMMARY
-            source_detail_path = DEFAULT_DETAIL
-            summary_exists = trusted_summary is not None
-            detail_exists = trusted_detail is not None
-            source_label = f"trusted Git {TRUSTED_V1_SOURCE_REVISION}"
-        else:
-            source_summary_path = explicit_summary
-            source_detail_path = explicit_detail
-            summary_exists = (
-                source_summary_path is not None and source_summary_path.is_file()
+    if normalized_audit:
+        versions = ("v1", "v2") if normalized_audit == "all" else (normalized_audit,)
+        if normalized_audit == "all" and migration_row is not None:
+            errors.extend(validate_migration_artifact_bindings(migration_row))
+        selected_by_version: dict[str, list[dict[str, str]]] = {}
+        for version in versions:
+            revision = (
+                TRUSTED_V1_SOURCE_REVISION if version == "v1" else TRUSTED_V2_SOURCE_REVISION
             )
-            detail_exists = (
-                source_detail_path is not None and source_detail_path.is_file()
+            contracts = (
+                TRUSTED_V1_SOURCE_ARTIFACTS
+                if version == "v1"
+                else TRUSTED_V2_SOURCE_ARTIFACTS
             )
-            source_label = None
-        if not summary_exists or not detail_exists:
+            try:
+                if version == "v1":
+                    trusted_summary = _trusted_v1_source_blob(DEFAULT_SUMMARY)
+                    trusted_detail = _trusted_v1_source_blob(DEFAULT_DETAIL)
+                else:
+                    trusted_summary = _trusted_v2_source_blob(DEFAULT_SUMMARY)
+                    trusted_detail = _trusted_v2_source_blob(DEFAULT_DETAIL)
+            except RuntimeError as exc:
+                errors.append(str(exc))
+                return errors
+            source_label = f"trusted Git {revision}"
+            if version == "v1":
+                _summary, summary_errors = validate_summary(
+                    DEFAULT_SUMMARY,
+                    payload=trusted_summary,
+                    label=f"{source_label}:{contracts[DEFAULT_SUMMARY]['path']}",
+                )
+                selected, detail_errors = validate_detail(
+                    DEFAULT_DETAIL,
+                    anomaly_rows,
+                    payload=trusted_detail,
+                    label=f"{source_label}:{contracts[DEFAULT_DETAIL]['path']}",
+                )
+            else:
+                _summary, summary_errors = validate_summary(
+                    DEFAULT_SUMMARY,
+                    payload=trusted_summary,
+                    label=f"{source_label}:{contracts[DEFAULT_SUMMARY]['path']}",
+                    expected_summary=SUMMARY_EXPECTED_V2,
+                )
+                selected, detail_errors = validate_detail(
+                    DEFAULT_DETAIL,
+                    anomaly_v2_rows,
+                    payload=trusted_detail,
+                    label=f"{source_label}:{contracts[DEFAULT_DETAIL]['path']}",
+                    expected_decision=EXPECTED_DECISION_V2,
+                    expected_summary=SUMMARY_EXPECTED_V2,
+                )
+            errors.extend(summary_errors)
+            errors.extend(detail_errors)
+            selected_by_version[version] = selected
+        if normalized_audit == "all" and migration_row is not None:
+            errors.extend(
+                validate_v1_v2_reconciliation(
+                    selected_by_version["v1"],
+                    selected_by_version["v2"],
+                    migration_row,
+                )
+            )
+    elif explicit_source_requested or require_source_artifacts:
+        source_summary_path = explicit_summary
+        source_detail_path = explicit_detail
+        if (
+            source_summary_path is None
+            or source_detail_path is None
+            or not source_summary_path.is_file()
+            or not source_detail_path.is_file()
+        ):
             errors.append(
                 "source artifacts must be supplied as a complete summary/detail "
                 "pair using explicit --summary and --detail paths when validation "
                 "is enabled"
             )
         else:
-            assert source_summary_path is not None
-            assert source_detail_path is not None
             _summary, summary_errors = validate_summary(
                 source_summary_path,
-                payload=trusted_summary,
-                label=(f"{source_label}:{TRUSTED_V1_SOURCE_ARTIFACTS[DEFAULT_SUMMARY]['path']}" if source_label else None),
             )
             _detail, detail_errors = validate_detail(
                 source_detail_path,
                 anomaly_rows,
-                payload=trusted_detail,
-                label=(f"{source_label}:{TRUSTED_V1_SOURCE_ARTIFACTS[DEFAULT_DETAIL]['path']}" if source_label else None),
             )
             errors.extend(summary_errors)
             errors.extend(detail_errors)
@@ -847,6 +1372,8 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--decision", type=Path, default=DEFAULT_DECISION)
     parser.add_argument("--anomaly-registry", type=Path, default=DEFAULT_ANOMALIES)
+    parser.add_argument("--anomaly-registry-v2", type=Path, default=DEFAULT_ANOMALIES_V2)
+    parser.add_argument("--migration-ledger", type=Path, default=DEFAULT_MIGRATIONS)
     parser.add_argument("--summary", type=Path)
     parser.add_argument("--detail", type=Path)
     parser.add_argument(
@@ -862,6 +1389,16 @@ def parse_args() -> argparse.Namespace:
             "Git revision. Ordinary validation remains registry/anomaly-only."
         ),
     )
+    parser.add_argument(
+        "--historical-v2-source-audit",
+        action="store_true",
+        help="Explicitly replay the frozen v2 source artifacts from trusted Git.",
+    )
+    parser.add_argument(
+        "--source-audit",
+        choices=("v1", "v2", "all"),
+        help="Replay one or both immutable source versions; all also validates v1-to-v2 reconciliation.",
+    )
     return parser.parse_args()
 
 
@@ -870,24 +1407,32 @@ def main() -> int:
     errors = validate(
         decision_path=args.decision,
         anomaly_path=args.anomaly_registry,
+        anomaly_v2_path=args.anomaly_registry_v2,
+        migration_path=args.migration_ledger,
         summary_path=args.summary,
         detail_path=args.detail,
         require_source_artifacts=args.require_source_artifacts,
+        source_audit=args.source_audit,
         historical_v1_source_audit=args.historical_v1_source_audit,
+        historical_v2_source_audit=args.historical_v2_source_audit,
     )
     if errors:
         for error in errors:
             print(f"ERROR: {error}")
         return 1
-    if args.historical_v1_source_audit:
+    if args.source_audit:
+        source_state = f"trusted source audit={args.source_audit}"
+    elif args.historical_v1_source_audit:
         source_state = f"historical v1 source artifacts validated from trusted Git {TRUSTED_V1_SOURCE_REVISION}"
+    elif args.historical_v2_source_audit:
+        source_state = f"historical v2 source artifacts validated from trusted Git {TRUSTED_V2_SOURCE_REVISION}"
     elif args.summary is not None and args.detail is not None:
         source_state = "explicit source artifacts validated"
     else:
         source_state = "registry/anomaly governance-only validation"
     print(
         "PASS: revenue_unreacted_range promotion preparation independently validated; "
-        f"{source_state}; formal flags remain false; anomaly worklist=8"
+        f"{source_state}; formal flags remain false; anomaly worklists=v1:8,v2:9"
     )
     return 0
 

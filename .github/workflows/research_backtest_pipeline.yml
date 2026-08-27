@@ -72,6 +72,11 @@ on:
         required: false
         default: false
         type: boolean
+      run_revenue_unreacted_range_forward_holdout_v2_only:
+        description: "Run only the independently accumulated revenue forward holdout v2 family"
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: write
@@ -121,6 +126,7 @@ jobs:
       - name: Validate Apps Script workflow triggers
         env:
           REVENUE_FORWARD_HOLDOUT_ONLY: ${{ github.event.inputs.run_revenue_unreacted_range_forward_holdout_only }}
+          REVENUE_FORWARD_HOLDOUT_V2_ONLY: ${{ github.event.inputs.run_revenue_unreacted_range_forward_holdout_v2_only }}
           REVENUE_RESEARCH_ENABLED: ${{ github.event.inputs.run_revenue_unreacted_range_research }}
           REVENUE_SOURCE_PROJECTION_CHAIN_ONLY: ${{ github.event.inputs.run_revenue_unreacted_range_source_snapshot_projection_chain_only }}
         run: |
@@ -129,8 +135,20 @@ jobs:
             echo "::error::Revenue forward holdout mode requires run_revenue_unreacted_range_research=true."
             exit 1
           fi
+          if [[ "$REVENUE_FORWARD_HOLDOUT_V2_ONLY" == "true" && "$REVENUE_RESEARCH_ENABLED" != "true" ]]; then
+            echo "::error::Revenue forward holdout v2 mode requires run_revenue_unreacted_range_research=true."
+            exit 1
+          fi
+          if [[ "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" && "$REVENUE_FORWARD_HOLDOUT_V2_ONLY" == "true" ]]; then
+            echo "::error::Revenue forward holdout v1 and v2 modes are mutually exclusive."
+            exit 1
+          fi
           if [[ "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" && "$REVENUE_SOURCE_PROJECTION_CHAIN_ONLY" == "true" ]]; then
             echo "::error::Revenue forward holdout mode and source snapshot projection chain mode are mutually exclusive."
+            exit 1
+          fi
+          if [[ "$REVENUE_FORWARD_HOLDOUT_V2_ONLY" == "true" && "$REVENUE_SOURCE_PROJECTION_CHAIN_ONLY" == "true" ]]; then
+            echo "::error::Revenue forward holdout v2 mode and source snapshot projection chain mode are mutually exclusive."
             exit 1
           fi
           python scripts/validate_apps_script_workflow_triggers.py
@@ -235,6 +253,10 @@ jobs:
         if: ${{ github.event.inputs.run_revenue_unreacted_range_research == 'true' }}
         run: |
           python scripts/validate_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py
+          if [[ "${{ github.event.inputs.run_revenue_unreacted_range_forward_holdout_v2_only }}" == "true" ]]; then
+            python scripts/build_revenue_unreacted_range_research.py --stage forward_holdout_v2
+            exit 0
+          fi
           if [[ "${{ github.event.inputs.run_revenue_unreacted_range_forward_holdout_only }}" == "true" ]]; then
             python scripts/build_revenue_unreacted_range_research.py --stage forward_holdout
             exit 0
@@ -333,6 +355,7 @@ jobs:
         if: ${{ env.ANY_RESEARCH_SELECTED == 'true' }}
         env:
           REVENUE_FORWARD_HOLDOUT_ONLY: ${{ github.event.inputs.run_revenue_unreacted_range_forward_holdout_only }}
+          REVENUE_FORWARD_HOLDOUT_V2_ONLY: ${{ github.event.inputs.run_revenue_unreacted_range_forward_holdout_v2_only }}
         run: |
           set -euo pipefail
           git config user.name "github-actions"
@@ -362,10 +385,28 @@ jobs:
           fi
 
           if [[ "${{ github.event.inputs.run_revenue_unreacted_range_research }}" == "true" ]]; then
-            if [[ "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" ]]; then
-              git add output/latest/research_backtest/revenue_unreacted_range_forward_holdout_* || true
-              git add output/history/research/revenue_unreacted_range_forward_holdout_* || true
-              git add docs/latest/revenue_unreacted_range_forward_holdout_* || true
+            if [[ "$REVENUE_FORWARD_HOLDOUT_V2_ONLY" == "true" ]]; then
+              git add output/latest/research_backtest/revenue_unreacted_range_forward_holdout_v2_* || true
+              git add output/history/research/revenue_unreacted_range_forward_holdout_v2_* || true
+              git add docs/latest/revenue_unreacted_range_forward_holdout_v2_* || true
+            elif [[ "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" ]]; then
+              git add -- output/latest/research_backtest/revenue_unreacted_range_forward_holdout_manifest_latest.csv
+              git add -- output/latest/research_backtest/revenue_unreacted_range_forward_holdout_event_detail_latest.csv
+              git add -- output/latest/research_backtest/revenue_unreacted_range_forward_holdout_maturity_status_latest.csv
+              git add -- output/latest/research_backtest/revenue_unreacted_range_forward_holdout_comparison_latest.csv
+              git add -- output/latest/research_backtest/revenue_unreacted_range_forward_holdout_anomaly_sensitivity_latest.csv
+              git add -- output/latest/research_backtest/revenue_unreacted_range_forward_holdout_replay_source_detail_latest.csv
+              git add -- output/history/research/revenue_unreacted_range_forward_holdout_manifest.csv
+              git add -- output/history/research/revenue_unreacted_range_forward_holdout_event_detail.csv
+              git add -- output/history/research/revenue_unreacted_range_forward_holdout_maturity_status.csv
+              git add -- output/history/research/revenue_unreacted_range_forward_holdout_comparison.csv
+              git add -- output/history/research/revenue_unreacted_range_forward_holdout_anomaly_sensitivity.csv
+              git add -- docs/latest/revenue_unreacted_range_forward_holdout_manifest_latest.csv
+              git add -- docs/latest/revenue_unreacted_range_forward_holdout_event_detail_latest.csv
+              git add -- docs/latest/revenue_unreacted_range_forward_holdout_maturity_status_latest.csv
+              git add -- docs/latest/revenue_unreacted_range_forward_holdout_comparison_latest.csv
+              git add -- docs/latest/revenue_unreacted_range_forward_holdout_anomaly_sensitivity_latest.csv
+              git add -- docs/latest/revenue_unreacted_range_forward_holdout_replay_source_detail_latest.csv
             else
               git add output/latest/research_backtest/revenue_unreacted_range_* || true
               git add output/history/research/revenue_unreacted_range_* || true

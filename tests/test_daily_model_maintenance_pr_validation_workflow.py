@@ -283,7 +283,7 @@ REVENUE_VALIDATOR_COMMANDS = (
     "python scripts/validate_revenue_unreacted_range_operation_lag_bucket_audit.py",
     "python scripts/validate_revenue_unreacted_range_position_shape_transition_matrix.py",
     "python scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
-    "python scripts/validate_revenue_unreacted_range_promotion_preparation.py",
+    "python scripts/validate_revenue_unreacted_range_promotion_preparation.py --source-audit all",
     "python scripts/validate_revenue_unreacted_range_financial_statement_fail_closed.py",
 )
 
@@ -1286,6 +1286,7 @@ def test_daily_model_maintenance_pr_workflow_runs_focused_pdf_operation_tests() 
         "tests/test_validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
         "tests/test_validate_revenue_unreacted_range_promotion_preparation.py",
         "tests/test_revenue_unreacted_range_forward_holdout.py",
+        "tests/test_revenue_unreacted_range_forward_holdout_v2.py",
         "tests/test_validate_revenue_unreacted_range_forward_holdout.py",
         "tests/test_repo_hidden_coupling_audit.py",
         "tests/test_stock_model_contract_registry.py",

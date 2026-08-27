@@ -1,7 +1,7 @@
 # 每日股票模型與資料獨立性稽核
 
-- 產生時間：`2026-08-23 07:31:33 Asia/Taipei`
-- 結果：`CONTAINED=28, DISCLOSED_NOT_INDEPENDENT=4, PASS=64`
+- 產生時間：`2026-08-28 00:46:56 Asia/Taipei`
+- 結果：`CONTAINED=28, DISCLOSED_NOT_INDEPENDENT=4, PASS=66`
 - 原則：新模型與新資料 family 預設獨立；跨模型共用商業語意必須先有使用者核准與 migration evidence。
 - `CONTAINED` 代表既有共用已被凍結與精確盤點，不代表已物理拆分。
 - `DISCLOSED_NOT_INDEPENDENT` 代表該 validator 只能做 implementation consistency，不得當成獨立模型正確性證據。
@@ -69,6 +69,7 @@
 | data_family_ownership | financial_statement_historical_pit_source_audit | PASS | approved_shared_objective | none |
 | data_family_ownership | official_warrant_flow_current_snapshot | CONTAINED | latest_context_not_historical | legacy/latest/audit data is barred from formal model evidence |
 | data_family_ownership | revenue_unreacted_range_forward_holdout | PASS | model_owned_not_shared | none |
+| data_family_ownership | revenue_unreacted_range_forward_holdout_v2 | PASS | model_owned_not_shared | none |
 | data_family_ownership | volume_v2_watch_committed_lineage_audit | PASS | model_family_owned_not_shared | none |
 | numerical_anomaly_governance | repo_wide_root_cause_disposition_contract | PASS | repo_wide_governance_contract | none |
 | numerical_anomaly_governance | monthly_revenue_history_legacy_threshold_flag | CONTAINED | legacy_threshold_flag_candidate_only | source schema still uses a legacy anomaly field name and must be treated as candidate-only |
@@ -104,3 +105,4 @@
 | validator_independence | scripts/validate_revenue_unreacted_range_source_snapshot_projection.py | PASS | independent_source_lineage_validator | none |
 | validator_independence | scripts/validate_revenue_unreacted_range_source_snapshot_projection_v1_v2_diff.py | PASS | independent_contract_artifact_binding_validator | none |
 | validator_independence | scripts/validate_revenue_unreacted_range_forward_holdout.py | PASS | input_bound_in_process_independent_validator | none |
+| validator_independence | scripts/validate_revenue_unreacted_range_forward_holdout_v2.py | PASS | input_bound_in_process_independent_validator | none |

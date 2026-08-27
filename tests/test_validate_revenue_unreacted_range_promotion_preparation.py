@@ -117,6 +117,42 @@ def _set_verified_row(
     row["reviewed_at"] = "2026-08-12T12:00:00+08:00"
 
 
+def test_migration_artifact_bindings_match_referenced_git_blobs() -> None:
+    assert validator.validate_migration_artifact_bindings(
+        dict(validator.EXPECTED_MIGRATION)
+    ) == []
+
+
+def test_migration_artifact_binding_detects_tampered_referenced_blob(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    original_git = validator._git
+    target_spec = (
+        f"{validator.TRUSTED_V2_SOURCE_REVISION}:"
+        f"{validator.EXPECTED_MIGRATION['source_projection_diff_summary_path']}"
+    )
+
+    def tampered_git(*args: str) -> subprocess.CompletedProcess[bytes]:
+        result = original_git(*args)
+        if args == ("show", target_spec) and result.returncode == 0:
+            return subprocess.CompletedProcess(
+                result.args,
+                result.returncode,
+                stdout=result.stdout + b"tampered",
+                stderr=result.stderr,
+            )
+        return result
+
+    monkeypatch.setattr(validator, "_git", tampered_git)
+    errors = validator.validate_migration_artifact_bindings(
+        dict(validator.EXPECTED_MIGRATION)
+    )
+    assert any(
+        "source_projection_diff_summary_sha256 is not bound" in error
+        for error in errors
+    )
+
+
 def test_default_validation_does_not_touch_trusted_git_or_source_artifacts(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
@@ -559,3 +595,194 @@ def test_cli_requires_complete_source_pair(tmp_path: Path) -> None:
     )
 
     assert any("complete summary/detail pair" in error for error in errors)
+
+
+@pytest.mark.parametrize("mutation", ["delete_v1", "reorder", "mutate_v1"])
+def test_v1_registry_prefix_is_exact_and_v2_is_append_only(
+    tmp_path: Path,
+    mutation: str,
+) -> None:
+    path = tmp_path / "decisions.csv"
+    columns, rows = _read_rows(validator.DEFAULT_DECISION)
+    if mutation == "delete_v1":
+        rows = rows[1:]
+    elif mutation == "reorder":
+        rows = list(reversed(rows))
+    else:
+        rows[0]["operation_count"] = "53"
+    _write_rows(path, columns, rows)
+
+    _row, errors = validator.validate_decision(path)
+
+    assert errors
+    assert any(
+        "exact v1 prefix" in error
+        or "mismatch in v1" in error
+        or "mismatch in v2" in error
+        for error in errors
+    )
+
+
+def test_v2_trusted_git_audit_recomputes_exact_53_metrics() -> None:
+    anomaly_rows, anomaly_errors = validator.validate_anomalies(
+        validator.DEFAULT_ANOMALIES_V2,
+        expected_anomalies=validator.EXPECTED_ANOMALIES_V2,
+        version_label="v2",
+    )
+    assert anomaly_errors == []
+    summary_payload = validator._trusted_v2_source_blob(validator.DEFAULT_SUMMARY)
+    detail_payload = validator._trusted_v2_source_blob(validator.DEFAULT_DETAIL)
+
+    selected_summary, summary_errors = validator.validate_summary(
+        validator.DEFAULT_SUMMARY,
+        payload=summary_payload,
+        expected_summary=validator.SUMMARY_EXPECTED_V2,
+    )
+    selected_detail, detail_errors = validator.validate_detail(
+        validator.DEFAULT_DETAIL,
+        anomaly_rows,
+        payload=detail_payload,
+        expected_decision=validator.EXPECTED_DECISION_V2,
+        expected_summary=validator.SUMMARY_EXPECTED_V2,
+    )
+
+    assert summary_errors == []
+    assert detail_errors == []
+    assert selected_summary is not None
+    assert selected_summary["operation_count"] == "53"
+    assert len(selected_detail) == 53
+
+
+def test_v2_trusted_git_identity_mismatch_fails_closed(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setitem(
+        validator.TRUSTED_V2_SOURCE_ARTIFACTS[validator.DEFAULT_SUMMARY],
+        "blob",
+        "0" * 40,
+    )
+
+    errors = validator.validate(source_audit="v2")
+
+    assert errors == [
+        "trusted v2 promotion source tree identity mismatch: " + SUMMARY_REPO_PATH
+    ]
+
+
+def test_v2_anomaly_registry_has_exact_9_and_6177_is_fail_closed() -> None:
+    rows, errors = validator.validate_anomalies(
+        validator.DEFAULT_ANOMALIES_V2,
+        expected_anomalies=validator.EXPECTED_ANOMALIES_V2,
+        version_label="v2",
+    )
+
+    assert errors == []
+    assert len(rows) == 9
+    row = next(item for item in rows.values() if item["stock_id"] == "6177")
+    assert row["anomaly_attribution_mode"] == (
+        "published_episode_level_source_flag_no_trigger_asof_event_requires_reconciliation"
+    )
+    assert row["anomaly_source_available_dates"] == (
+        "not_applicable_pending_trigger_asof_reconciliation"
+    )
+    assert row["pit_calendar_continuity_status"] == "fail"
+    assert row["raw_source_lineage_status"] == "fail"
+
+
+def test_6177_future_event_cannot_be_backfilled_as_trigger_asof_attribution(
+    tmp_path: Path,
+) -> None:
+    path = tmp_path / "anomalies-v2.csv"
+    columns, rows = _read_rows(validator.DEFAULT_ANOMALIES_V2)
+    row = next(item for item in rows if item["stock_id"] == "6177")
+    row["anomaly_attribution_mode"] = "exact_anomaly_causing_qualifying_source_events"
+    row["anomaly_source_event_periods"] = "202512"
+    row["anomaly_source_available_dates"] = "20260117"
+    row["anomaly_source_canonical_row_sha256s"] = (
+        "d26bc6a94cf5869836e96f77b7af128b007b3159ae7680eb4e14030c7d19aae1"
+    )
+    row["anomaly_source_raw_file_sha256s"] = "0" * 64
+    _write_rows(path, columns, rows)
+
+    _rows, errors = validator.validate_anomalies(
+        path,
+        expected_anomalies=validator.EXPECTED_ANOMALIES_V2,
+        version_label="v2",
+    )
+
+    assert any("available date is after trigger" in error for error in errors)
+    assert any("6177 future-contaminated attribution must remain fail-closed" in error for error in errors)
+
+
+def test_v1_v2_selected_operation_reconciliation_is_exact_46_7_6_and_2_rekeys() -> None:
+    v1_anomalies, assert_v1 = validator.validate_anomalies(
+        validator.DEFAULT_ANOMALIES,
+        expected_anomalies=validator.EXPECTED_ANOMALIES_V1,
+        version_label="v1",
+    )
+    v2_anomalies, assert_v2 = validator.validate_anomalies(
+        validator.DEFAULT_ANOMALIES_V2,
+        expected_anomalies=validator.EXPECTED_ANOMALIES_V2,
+        version_label="v2",
+    )
+    migration, migration_errors = validator.validate_migration(validator.DEFAULT_MIGRATIONS)
+    assert assert_v1 == []
+    assert assert_v2 == []
+    assert migration_errors == []
+    assert migration is not None
+
+    v1_rows, v1_errors = validator.validate_detail(
+        validator.DEFAULT_DETAIL,
+        v1_anomalies,
+        payload=validator._trusted_v1_source_blob(validator.DEFAULT_DETAIL),
+    )
+    v2_rows, v2_errors = validator.validate_detail(
+        validator.DEFAULT_DETAIL,
+        v2_anomalies,
+        payload=validator._trusted_v2_source_blob(validator.DEFAULT_DETAIL),
+        expected_decision=validator.EXPECTED_DECISION_V2,
+        expected_summary=validator.SUMMARY_EXPECTED_V2,
+    )
+    assert v1_errors == []
+    assert v2_errors == []
+    assert validator.validate_v1_v2_reconciliation(v1_rows, v2_rows, migration) == []
+    assert migration["exact_common_operation_key_count"] == "46"
+    assert migration["raw_added_operation_key_count"] == "7"
+    assert migration["raw_removed_operation_key_count"] == "6"
+    assert migration["episode_identity_rekey_count"] == "2"
+
+
+def test_v1_v2_reconciliation_detects_extra_identity_rekey() -> None:
+    v1_anomalies, _ = validator.validate_anomalies(validator.DEFAULT_ANOMALIES)
+    v2_anomalies, _ = validator.validate_anomalies(
+        validator.DEFAULT_ANOMALIES_V2,
+        expected_anomalies=validator.EXPECTED_ANOMALIES_V2,
+        version_label="v2",
+    )
+    migration, _ = validator.validate_migration(validator.DEFAULT_MIGRATIONS)
+    assert migration is not None
+    v1_rows, _ = validator.validate_detail(
+        validator.DEFAULT_DETAIL,
+        v1_anomalies,
+        payload=validator._trusted_v1_source_blob(validator.DEFAULT_DETAIL),
+    )
+    v2_rows, _ = validator.validate_detail(
+        validator.DEFAULT_DETAIL,
+        v2_anomalies,
+        payload=validator._trusted_v2_source_blob(validator.DEFAULT_DETAIL),
+        expected_decision=validator.EXPECTED_DECISION_V2,
+        expected_summary=validator.SUMMARY_EXPECTED_V2,
+    )
+    common_key = next(
+        row["operation_key"]
+        for row in v2_rows
+        if row["operation_key"] in {item["operation_key"] for item in v1_rows}
+    )
+    next(row for row in v2_rows if row["operation_key"] == common_key)[
+        "operation_key"
+    ] = common_key + "|mutated"
+
+    errors = validator.validate_v1_v2_reconciliation(v1_rows, v2_rows, migration)
+
+    assert any("exact_common_operation_key_count mismatch" in error for error in errors)
+    assert any("episode_identity_rekey_count mismatch" in error for error in errors)

@@ -435,8 +435,8 @@ def test_revenue_forward_holdout_stage_rejects_unregistered_command() -> None:
 def test_revenue_forward_holdout_commit_stage_rejects_broad_revenue_glob() -> None:
     text, rows, producers = _inputs()
     exact_command = (
-        "              git add output/latest/research_backtest/"
-        "revenue_unreacted_range_forward_holdout_* || true\n"
+        "              git add -- output/latest/research_backtest/"
+        "revenue_unreacted_range_forward_holdout_manifest_latest.csv\n"
     )
     broad_command = (
         "              git add output/latest/research_backtest/"

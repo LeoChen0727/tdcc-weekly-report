@@ -94,6 +94,9 @@ REVENUE_PROJECTION_CHAIN_STAGE_INPUT = (
 REVENUE_FORWARD_HOLDOUT_STAGE_INPUT = (
     "run_revenue_unreacted_range_forward_holdout_only"
 )
+REVENUE_FORWARD_HOLDOUT_V2_STAGE_INPUT = (
+    "run_revenue_unreacted_range_forward_holdout_v2_only"
+)
 RETIRED_REVENUE_WORKFLOW_INPUTS = (
     "run_revenue_unreacted_range_source_snapshot_projection_rebaseline_only",
     "run_revenue_unreacted_range_source_snapshot_projection_candidate_repair_only",
@@ -113,12 +116,34 @@ FORBIDDEN_REVENUE_PROMOTION_PREPARATION_COMMAND = (
 REVENUE_FORWARD_HOLDOUT_BUILD_COMMAND = (
     f"{REVENUE_FULL_BUILD_COMMAND} --stage forward_holdout"
 )
+REVENUE_FORWARD_HOLDOUT_V2_BUILD_COMMAND = (
+    f"{REVENUE_FULL_BUILD_COMMAND} --stage forward_holdout_v2"
+)
 REVENUE_FORWARD_HOLDOUT_STAGE_COMMANDS = {
+    "git add -- output/latest/research_backtest/revenue_unreacted_range_forward_holdout_manifest_latest.csv",
+    "git add -- output/latest/research_backtest/revenue_unreacted_range_forward_holdout_event_detail_latest.csv",
+    "git add -- output/latest/research_backtest/revenue_unreacted_range_forward_holdout_maturity_status_latest.csv",
+    "git add -- output/latest/research_backtest/revenue_unreacted_range_forward_holdout_comparison_latest.csv",
+    "git add -- output/latest/research_backtest/revenue_unreacted_range_forward_holdout_anomaly_sensitivity_latest.csv",
+    "git add -- output/latest/research_backtest/revenue_unreacted_range_forward_holdout_replay_source_detail_latest.csv",
+    "git add -- output/history/research/revenue_unreacted_range_forward_holdout_manifest.csv",
+    "git add -- output/history/research/revenue_unreacted_range_forward_holdout_event_detail.csv",
+    "git add -- output/history/research/revenue_unreacted_range_forward_holdout_maturity_status.csv",
+    "git add -- output/history/research/revenue_unreacted_range_forward_holdout_comparison.csv",
+    "git add -- output/history/research/revenue_unreacted_range_forward_holdout_anomaly_sensitivity.csv",
+    "git add -- docs/latest/revenue_unreacted_range_forward_holdout_manifest_latest.csv",
+    "git add -- docs/latest/revenue_unreacted_range_forward_holdout_event_detail_latest.csv",
+    "git add -- docs/latest/revenue_unreacted_range_forward_holdout_maturity_status_latest.csv",
+    "git add -- docs/latest/revenue_unreacted_range_forward_holdout_comparison_latest.csv",
+    "git add -- docs/latest/revenue_unreacted_range_forward_holdout_anomaly_sensitivity_latest.csv",
+    "git add -- docs/latest/revenue_unreacted_range_forward_holdout_replay_source_detail_latest.csv",
+}
+REVENUE_FORWARD_HOLDOUT_V2_STAGE_COMMANDS = {
     "git add output/latest/research_backtest/"
-    "revenue_unreacted_range_forward_holdout_* || true",
+    "revenue_unreacted_range_forward_holdout_v2_* || true",
     "git add output/history/research/"
-    "revenue_unreacted_range_forward_holdout_* || true",
-    "git add docs/latest/revenue_unreacted_range_forward_holdout_* || true",
+    "revenue_unreacted_range_forward_holdout_v2_* || true",
+    "git add docs/latest/revenue_unreacted_range_forward_holdout_v2_* || true",
 }
 REVENUE_FULL_STAGE_COMMANDS = {
     "git add output/latest/research_backtest/revenue_unreacted_range_* || true",
@@ -489,6 +514,7 @@ def validate_workflow_text(
 
     stage_inputs = (
         REVENUE_FORWARD_HOLDOUT_STAGE_INPUT,
+        REVENUE_FORWARD_HOLDOUT_V2_STAGE_INPUT,
         REVENUE_PROJECTION_CHAIN_STAGE_INPUT,
     )
     for stage_input in stage_inputs:
@@ -520,6 +546,18 @@ def validate_workflow_text(
         'if [[ "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" && '
         '"$REVENUE_SOURCE_PROJECTION_CHAIN_ONLY" == "true" ]]; then'
     )
+    holdout_v2_requires_primary = (
+        'if [[ "$REVENUE_FORWARD_HOLDOUT_V2_ONLY" == "true" && '
+        '"$REVENUE_RESEARCH_ENABLED" != "true" ]]; then'
+    )
+    holdout_versions_mutually_exclusive = (
+        'if [[ "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" && '
+        '"$REVENUE_FORWARD_HOLDOUT_V2_ONLY" == "true" ]]; then'
+    )
+    holdout_v2_projection_mutually_exclusive = (
+        'if [[ "$REVENUE_FORWARD_HOLDOUT_V2_ONLY" == "true" && '
+        '"$REVENUE_SOURCE_PROJECTION_CHAIN_ONLY" == "true" ]]; then'
+    )
     if holdout_requires_primary not in text:
         errors.append(
             "revenue forward holdout stage must fail closed unless the primary revenue "
@@ -530,12 +568,25 @@ def validate_workflow_text(
             "revenue forward holdout and source projection chain stage modes must be "
             "mutually exclusive"
         )
+    if holdout_v2_requires_primary not in text:
+        errors.append(
+            "revenue forward holdout v2 stage must fail closed unless the primary "
+            "revenue workflow input is selected"
+        )
+    if holdout_versions_mutually_exclusive not in text:
+        errors.append("revenue forward holdout v1 and v2 stage modes must be mutually exclusive")
+    if holdout_v2_projection_mutually_exclusive not in text:
+        errors.append(
+            "revenue forward holdout v2 and source projection chain stage modes must "
+            "be mutually exclusive"
+        )
 
     revenue_blocks = [
         block
         for block in blocks
         if REVENUE_PROJECTION_CHAIN_BUILD_COMMAND in block
         or REVENUE_FORWARD_HOLDOUT_BUILD_COMMAND in block
+        or REVENUE_FORWARD_HOLDOUT_V2_BUILD_COMMAND in block
     ]
     if len(revenue_blocks) != 1:
         errors.append(
@@ -550,13 +601,20 @@ def validate_workflow_text(
             f'{REVENUE_FORWARD_HOLDOUT_STAGE_INPUT}'
             ' }}" == "true" ]]; then'
         )
+        holdout_v2_if = (
+            'if [[ "${{ github.event.inputs.'
+            f'{REVENUE_FORWARD_HOLDOUT_V2_STAGE_INPUT}'
+            ' }}" == "true" ]]; then'
+        )
         projection_if = (
             'if [[ "${{ github.event.inputs.'
             f'{REVENUE_PROJECTION_CHAIN_STAGE_INPUT}'
             ' }}" == "true" ]]; then'
         )
         try:
-            holdout_index = revenue_lines.index(holdout_if)
+            holdout_v2_index = revenue_lines.index(holdout_v2_if)
+            holdout_v2_fi_index = revenue_lines.index("fi", holdout_v2_index + 1)
+            holdout_index = revenue_lines.index(holdout_if, holdout_v2_fi_index + 1)
             holdout_fi_index = revenue_lines.index("fi", holdout_index + 1)
             projection_index = revenue_lines.index(
                 projection_if, holdout_fi_index + 1
@@ -569,6 +627,11 @@ def validate_workflow_text(
                 "guarded stage/full branches"
             )
         else:
+            holdout_v2_python = {
+                line
+                for line in revenue_lines[holdout_v2_index + 1 : holdout_v2_fi_index]
+                if line.startswith("python ")
+            }
             holdout_python = {
                 line for line in revenue_lines[holdout_index + 1 : holdout_fi_index]
                 if line.startswith("python ")
@@ -584,6 +647,15 @@ def validate_workflow_text(
             expected_holdout_python = {
                 REVENUE_FORWARD_HOLDOUT_BUILD_COMMAND,
             }
+            expected_holdout_v2_python = {
+                REVENUE_FORWARD_HOLDOUT_V2_BUILD_COMMAND,
+            }
+            if holdout_v2_python != expected_holdout_v2_python:
+                errors.append(
+                    "revenue forward holdout v2 stage mode must contain only its "
+                    "independent model-owned producer stage: "
+                    f"actual={sorted(holdout_v2_python)}"
+                )
             if holdout_python != expected_holdout_python:
                 errors.append(
                     "revenue forward holdout stage mode must contain only its model-owned "
@@ -613,6 +685,11 @@ def validate_workflow_text(
                 errors.append(
                     "revenue full research branch must not replace the full producer with "
                     "the forward holdout stage"
+                )
+            if REVENUE_FORWARD_HOLDOUT_V2_BUILD_COMMAND in full_python:
+                errors.append(
+                    "revenue full research branch must not replace the full producer with "
+                    "the forward holdout v2 stage"
                 )
         revenue_condition = f"github.event.inputs.{REVENUE_WORKFLOW_INPUT} == 'true'"
         if revenue_condition not in revenue_block:
@@ -654,13 +731,19 @@ def validate_workflow_text(
             f'{REVENUE_WORKFLOW_INPUT}'
             ' }}" == "true" ]]; then'
         )
-        holdout_stage_if = (
-            'if [[ "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" ]]; then'
+        holdout_v2_stage_if = (
+            'if [[ "$REVENUE_FORWARD_HOLDOUT_V2_ONLY" == "true" ]]; then'
+        )
+        holdout_stage_elif = (
+            'elif [[ "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" ]]; then'
         )
         try:
             revenue_stage_index = commit_lines.index(revenue_stage_if)
+            holdout_v2_stage_index = commit_lines.index(
+                holdout_v2_stage_if, revenue_stage_index + 1
+            )
             holdout_stage_index = commit_lines.index(
-                holdout_stage_if, revenue_stage_index + 1
+                holdout_stage_elif, holdout_v2_stage_index + 1
             )
             stage_else_index = commit_lines.index("else", holdout_stage_index + 1)
             stage_fi_index = commit_lines.index("fi", stage_else_index + 1)
@@ -670,6 +753,13 @@ def validate_workflow_text(
                 "primary revenue artifact stage"
             )
         else:
+            holdout_v2_stage_commands = {
+                line
+                for line in commit_lines[
+                    holdout_v2_stage_index + 1 : holdout_stage_index
+                ]
+                if line.startswith("git add ")
+            }
             holdout_stage_commands = {
                 line
                 for line in commit_lines[holdout_stage_index + 1 : stage_else_index]
@@ -685,6 +775,12 @@ def validate_workflow_text(
                     "revenue forward holdout commit stage must contain only its exact "
                     "latest/history/docs artifact prefixes: "
                     f"actual={sorted(holdout_stage_commands)}"
+                )
+            if holdout_v2_stage_commands != REVENUE_FORWARD_HOLDOUT_V2_STAGE_COMMANDS:
+                errors.append(
+                    "revenue forward holdout v2 commit stage must contain only its "
+                    "independent exact latest/history/docs prefixes: "
+                    f"actual={sorted(holdout_v2_stage_commands)}"
                 )
             if full_stage_commands != REVENUE_FULL_STAGE_COMMANDS:
                 errors.append(

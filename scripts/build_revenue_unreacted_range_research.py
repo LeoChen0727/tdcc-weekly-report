@@ -46,7 +46,17 @@ from revenue_unreacted_range_forward_holdout import (
     FORWARD_HOLDOUT_ALLOWED_ARTIFACT_PATHS,
     build_and_write_current_forward_holdout,
 )
-from scripts.validate_revenue_unreacted_range_forward_holdout import validate_frames
+from revenue_unreacted_range_forward_holdout_v2 import (
+    FORWARD_HOLDOUT_V2_ALLOWED_ARTIFACT_PATHS,
+    build_and_write_current_forward_holdout as build_and_write_current_forward_holdout_v2,
+    validate_v1_exact17_freeze,
+)
+from scripts.validate_revenue_unreacted_range_forward_holdout import (
+    validate_frames as validate_forward_holdout_frames,
+)
+from scripts.validate_revenue_unreacted_range_forward_holdout_v2 import (
+    validate_frames as validate_forward_holdout_v2_frames,
+)
 from revenue_unreacted_range_rearmed_operation_grid import (
     PRICE_HISTORY_CUTOFF_DATE,
     build_rearmed_operation_grid,
@@ -111,6 +121,18 @@ def validate_forward_holdout_stage_changed_paths(
     ]
 
 
+def validate_forward_holdout_v2_stage_changed_paths(
+    changed_paths: list[str],
+) -> list[str]:
+    """Restrict the v2 forward-only stage to its independent exact17 family."""
+
+    allowed = set(FORWARD_HOLDOUT_V2_ALLOWED_ARTIFACT_PATHS)
+    return [
+        f"forward holdout v2 stage artifact allowlist violation: {path}"
+        for path in sorted(set(changed_paths) - allowed)
+    ]
+
+
 @contextmanager
 def forward_holdout_stage_artifact_guard(
     *,
@@ -127,6 +149,27 @@ def forward_holdout_stage_artifact_guard(
             details = "\n".join(f"- {error}" for error in errors)
             raise RuntimeError(
                 "forward holdout stage artifact guard failed:\n" + details
+            )
+
+
+@contextmanager
+def forward_holdout_v2_stage_artifact_guard(
+    *,
+    root: Path = ROOT,
+) -> Iterator[None]:
+    validate_v1_exact17_freeze(root=root)
+    before = _dirty_snapshot(root)
+    try:
+        yield
+    finally:
+        errors = validate_forward_holdout_v2_stage_changed_paths(
+            changed_during_run(root, before)
+        )
+        validate_v1_exact17_freeze(root=root)
+        if errors:
+            details = "\n".join(f"- {error}" for error in errors)
+            raise RuntimeError(
+                "forward holdout v2 stage artifact guard failed:\n" + details
             )
 
 
@@ -502,7 +545,7 @@ def validate_forward_holdout_persisted_frames(
     history_frames: Mapping[str, pd.DataFrame],
     immutable_history_base_frames: Mapping[str, pd.DataFrame] | None,
 ) -> None:
-    errors = validate_frames(
+    errors = validate_forward_holdout_frames(
         manifest_readback,
         detail_readback,
         summary_readback,
@@ -527,6 +570,44 @@ def build_and_write_forward_holdout() -> None:
     )
 
 
+def validate_forward_holdout_v2_persisted_frames(
+    manifest_readback: pd.DataFrame,
+    detail_readback: pd.DataFrame,
+    summary_readback: pd.DataFrame,
+    comparison_readback: pd.DataFrame,
+    anomaly_readback: pd.DataFrame,
+    *,
+    source_detail: pd.DataFrame,
+    price_inputs: Mapping[str, pd.DataFrame],
+    source_manifest: pd.DataFrame,
+    history_frames: Mapping[str, pd.DataFrame],
+    immutable_history_base_frames: Mapping[str, pd.DataFrame] | None,
+) -> None:
+    errors = validate_forward_holdout_v2_frames(
+        manifest_readback,
+        detail_readback,
+        summary_readback,
+        comparison_readback,
+        anomaly_readback,
+        source_detail=source_detail,
+        daily_by_stock=price_inputs,
+        source_manifest=source_manifest,
+        history_frames=history_frames,
+        immutable_history_base_frames=immutable_history_base_frames,
+    )
+    if errors:
+        raise RuntimeError(
+            "forward holdout v2 model-owned persisted replay failed: "
+            + "; ".join(errors)
+        )
+
+
+def build_and_write_forward_holdout_v2() -> None:
+    build_and_write_current_forward_holdout_v2(
+        final_validation=validate_forward_holdout_v2_persisted_frames
+    )
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Build model-owned revenue_unreacted_range research artifacts.")
     parser.add_argument(
@@ -543,6 +624,7 @@ def parse_args() -> argparse.Namespace:
             "position_shape_transition_matrix",
             "low_mid_falling_candidate_audit",
             "forward_holdout",
+            "forward_holdout_v2",
         ),
         default="all",
         help="Run the full producer or one model-owned audit stage.",
@@ -574,6 +656,9 @@ def main() -> int:
         elif args.stage == "forward_holdout":
             with forward_holdout_stage_artifact_guard():
                 build_and_write_forward_holdout()
+        elif args.stage == "forward_holdout_v2":
+            with forward_holdout_v2_stage_artifact_guard():
+                build_and_write_forward_holdout_v2()
         else:
             build_and_write()
     return 0

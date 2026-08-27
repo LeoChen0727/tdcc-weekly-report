@@ -168,6 +168,7 @@ REVENUE_CROSS_MARKET_CONSUMER_FAMILIES = (
     "revenue_unreacted_range_position_shape_transition_matrix",
     "revenue_unreacted_range_low_mid_falling_candidate_audit",
     "revenue_unreacted_range_forward_holdout",
+    "revenue_unreacted_range_forward_holdout_v2",
 )
 REVENUE_CROSS_MARKET_RESOLUTION_SHA_TOKEN = (
     "resolution_registry_canonical_sha256="
@@ -1973,8 +1974,10 @@ def _validate_independent_governed_imports(
     technical_symbols_by_source: dict[str, set[str]],
     errors: list[str],
     *,
+    independent_validator_sources: set[str] | None = None,
     repo_root: Path = ROOT,
 ) -> None:
+    delegated_validator_sources = independent_validator_sources or set()
     pending: list[tuple[str, Path]] = [(validator_path, validator_file)]
     visited: set[str] = set()
     while pending:
@@ -1994,6 +1997,21 @@ def _validate_independent_governed_imports(
             )
         for source, symbols in sorted(imports.items()):
             if source in technical_utility_sources:
+                continue
+            # An independent validator may delegate generic replay plumbing to
+            # another independently registered validator.  Continue walking
+            # that validator's imports instead of treating the validator itself
+            # as producer business logic.  Any transitive producer import still
+            # fails below.
+            if source in delegated_validator_sources and source != validator_path:
+                source_file = repo_root / source
+                if not source_file.is_file():
+                    errors.append(
+                        f"{validator_path}: delegated independent validator is missing: "
+                        f"{source}"
+                    )
+                    continue
+                pending.append((source, source_file))
                 continue
             if source in governed_sources:
                 unapproved_symbols = set(symbols) - technical_symbols_by_source.get(
@@ -2111,6 +2129,7 @@ def validate_validator_independence() -> tuple[list[str], list[dict[str, str]]]:
             technical_utility_sources,
             technical_symbols_by_source,
             errors,
+            independent_validator_sources=independent_paths,
         )
         if "independent" not in row["allowed_evidence_use"].lower():
             errors.append(f"{path}: independent validator evidence policy must remain explicit")
