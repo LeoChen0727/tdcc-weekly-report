@@ -1,0 +1,10 @@
+{
+  "collection_mode": "historical_unavailable",
+  "fetch_date": "20260827",
+  "fetched_at": "2026-08-27 17:06:29 Asia/Taipei",
+  "reason": "exact_target_raw_bundle_unavailable",
+  "schema_version": "market_abnormal_status_raw_bundle/v1",
+  "source_count": 0,
+  "sources": {},
+  "target_date": "20260826"
+}
