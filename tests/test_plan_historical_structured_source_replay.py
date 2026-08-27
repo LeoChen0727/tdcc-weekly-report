@@ -146,6 +146,24 @@ def test_plan_accepts_natural_current_recovery_with_d1_warrant_and_taifex(
     }
 
 
+def test_plan_reports_source_specific_reason_when_only_warrant_is_d1() -> None:
+    result = planner.plan_from_tail_matrix(
+        operational_tail_matrix(
+            taifex_dated_tail="20260729",
+            warrant_tail="20260728",
+        ),
+        max_replay_dates=3,
+    )
+
+    assert result["should_replay"] is False
+    assert result["required_base_date"] == "20260729"
+    assert result["taifex_dated_tail_date"] == "20260729"
+    assert (
+        result["reason"]
+        == "structured_sources_satisfy_source_specific_operational_tails"
+    )
+
+
 def test_no_replay_current_plan_accepts_taifex_history_superset(
     tmp_path: Path,
     monkeypatch,

@@ -168,6 +168,7 @@ def plan_from_tail_matrix(
         tail_dates,
         high_water=high_water,
     )
+    warrant_tail_date = tail_dates["warrant_daily"]
     if required_base > high_water:
         raise RuntimeError(
             "historical replay planner structured base is later than price/history high-water: "
@@ -178,7 +179,10 @@ def plan_from_tail_matrix(
     if required_base == high_water:
         reason = (
             "structured_sources_already_at_price_history_high_water"
-            if taifex_dated_tail_date == high_water
+            if (
+                taifex_dated_tail_date == high_water
+                and warrant_tail_date == high_water
+            )
             else "structured_sources_satisfy_source_specific_operational_tails"
         )
         return {
