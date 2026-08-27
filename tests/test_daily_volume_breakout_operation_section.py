@@ -2048,6 +2048,53 @@ def test_each_v2_model_covers_pending_confirmed_active_lifecycle(monkeypatch, tm
     assert active["stock_id"].tolist() == ["1234", "1234"]
     assert set(active["entry_date"]) == {"20260618"}
     assert set(active["entry_price"]) == {"11.7"}
+    assert set(active["adapter_note_zh"]) == {
+        "由 v2 正式模型條件與 close-only 確認產生；不使用舊 v1 hidden evidence gate。"
+    }
+
+
+def test_active_operation_explanation_uses_canonical_visible_status_fields(
+    capsys,
+) -> None:
+    active = pd.DataFrame(
+        [
+            {
+                "model_id": model_id,
+                "pdf_view": pdf_view,
+                "operation_status_zh": "操作中",
+                "quality_status_zh": "已進場追蹤",
+                "entry_price_status_zh": "已進場追蹤；進場日 06/18 開盤價 11.7",
+                "adapter_note_zh": (
+                    "由 v2 正式模型條件與 close-only 確認產生；"
+                    "不使用舊 v1 hidden evidence gate。"
+                ),
+            }
+            for model_id in (
+                LOW_VOLUME_MODEL_ID,
+                MID_VOLUME_MODEL_ID,
+                HIGH_VOLUME_MODEL_ID,
+            )
+            for pdf_view in ("highlight", "full")
+        ]
+    )
+
+    section_validator.validate_active_operation_status_explanation(active)
+
+    assert set(active["adapter_note_zh"]) == {
+        "由 v2 正式模型條件與 close-only 確認產生；不使用舊 v1 hidden evidence gate。"
+    }
+    invalid = active.copy()
+    invalid.loc[0, [
+        "operation_status_zh",
+        "quality_status_zh",
+        "entry_price_status_zh",
+    ]] = ""
+    with pytest.raises(SystemExit):
+        section_validator.validate_active_operation_status_explanation(invalid)
+    assert (
+        "active_operation data rows must explain operation-in-progress status"
+        in capsys.readouterr().out
+    )
 
 
 @pytest.mark.parametrize(
