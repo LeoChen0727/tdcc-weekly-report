@@ -1397,7 +1397,7 @@
 5703,亞都麗緻,觀光餐旅,觀光餐旅,非主流,,,,,,provisional_industry_mapping
 5704,老爺知,觀光餐旅,觀光餐旅,非主流,,,,,,provisional_industry_mapping
 5706,鳳凰,觀光餐旅,觀光餐旅,非主流,,,,,,provisional_industry_mapping
-5864,致和證,金融業,金融業,非主流,,,,,,provisional_industry_mapping
+5864,致和證,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
 5871,中租-KY,租賃金融 / 企業融資,租賃金融 / 企業融資,非主流,,,,,,
 5876,上海商銀,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
 5878,台名,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
@@ -1409,7 +1409,7 @@
 5906,台南-KY,貿易百貨,貿易百貨,非主流,,,,,,provisional_industry_mapping
 5907,大洋-KY,貿易百貨,貿易百貨,非主流,,,,,,provisional_industry_mapping
 6005,群益證,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
-6015,宏遠證,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
+6015,宏遠證,金融業,金融業,非主流,,,,,,provisional_industry_mapping
 6016,康和證,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
 6020,大展證,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
 6021,美好證,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
@@ -1496,7 +1496,7 @@
 6196,帆宣,其他電子業,其他電子業,主流,半導體設備_CoWoS,,,,,user_authorized_seed_20260530
 6197,佳必琪,電子零組件業,電子零組件業,主流,,,,,,provisional_industry_mapping
 6198,瑞築,建材營造,建材營造,非主流,,,,,,provisional_industry_mapping
-6199,天品,其他,其他,非主流,,,,,,
+6199,天品,其他業,其他業,非主流,,,,,,
 6201,亞弘電,其他電子業,其他電子業,主流,,,,,,provisional_industry_mapping
 6202,盛群,半導體業,半導體業,主流,,,,,,provisional_industry_mapping
 6203,海韻電,電子零組件業,電子零組件業,主流,,,,,,provisional_industry_mapping
@@ -2323,7 +2323,7 @@
 8933,愛地雅,運動休閒,運動休閒,非主流,,,,,,
 8935,邦泰,其他業,其他業,非主流,,,,,,
 8936,國統,其他業,其他業,非主流,,,,,,
-8937,合騏*,其他業,其他業,非主流,,,,,,
+8937,合騏*,其他,其他,非主流,,,,,,
 8938,明安,運動休閒,運動休閒,非主流,,,,,,
 8940,新天地,觀光餐旅,觀光餐旅,非主流,,,,,,provisional_industry_mapping
 8941,關中,居家生活,居家生活,非主流,,,,,,

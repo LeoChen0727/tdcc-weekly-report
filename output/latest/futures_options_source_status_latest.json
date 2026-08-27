@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-27 17:16:36 Asia/Taipei",
+  "generated_at": "2026-08-27 22:37:33 Asia/Taipei",
   "mode": "open_data_latest",
   "requested_window": {
     "start_date": "",
@@ -9,7 +9,7 @@
     "institutional_fo": {
       "status": "ok",
       "rows": 3,
-      "latest_date": "20260826",
+      "latest_date": "20260827",
       "message": "",
       "requested_dates": [],
       "observed_dates": [],
@@ -18,7 +18,7 @@
         "params": {
           "data_name": "MarketDataOfMajorInstitutionalTradersDividedByFuturesAndOptionsBytheDate"
         },
-        "fetched_at": "2026-08-27 17:16:36 Asia/Taipei",
+        "fetched_at": "2026-08-27 22:37:33 Asia/Taipei",
         "encoding": "utf-8",
         "raw_sha256": "",
         "normalized_sha256": "",
@@ -33,7 +33,7 @@
     "futures_contracts": {
       "status": "ok",
       "rows": 66,
-      "latest_date": "20260826",
+      "latest_date": "20260827",
       "message": "",
       "requested_dates": [],
       "observed_dates": [],
@@ -42,7 +42,7 @@
         "params": {
           "data_name": "MarketDataOfMajorInstitutionalTradersDetailsOfFuturesContractsBytheDate"
         },
-        "fetched_at": "2026-08-27 17:16:37 Asia/Taipei",
+        "fetched_at": "2026-08-27 22:37:34 Asia/Taipei",
         "encoding": "utf-8",
         "raw_sha256": "",
         "normalized_sha256": "",
@@ -57,7 +57,7 @@
     "options_call_put": {
       "status": "ok",
       "rows": 30,
-      "latest_date": "20260826",
+      "latest_date": "20260827",
       "message": "",
       "requested_dates": [],
       "observed_dates": [],
@@ -66,7 +66,7 @@
         "params": {
           "data_name": "MarketDataOfMajorInstitutionalTradersDetailsOfCallsAndPutsBytheDate"
         },
-        "fetched_at": "2026-08-27 17:16:39 Asia/Taipei",
+        "fetched_at": "2026-08-27 22:37:35 Asia/Taipei",
         "encoding": "utf-8",
         "raw_sha256": "",
         "normalized_sha256": "",
@@ -81,7 +81,7 @@
     "put_call_ratio": {
       "status": "ok",
       "rows": 23,
-      "latest_date": "20260826",
+      "latest_date": "20260827",
       "message": "",
       "requested_dates": [],
       "observed_dates": [],
@@ -90,7 +90,7 @@
         "params": {
           "data_name": "PutCallRatio"
         },
-        "fetched_at": "2026-08-27 17:16:39 Asia/Taipei",
+        "fetched_at": "2026-08-27 22:37:35 Asia/Taipei",
         "encoding": "utf-8",
         "raw_sha256": "",
         "normalized_sha256": "",
