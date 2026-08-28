@@ -353,6 +353,24 @@ PRODUCTION_PDF_REGISTRY_RELATION_FIELDS = frozenset(
     }
 )
 
+# These fields encode control/dependency edges rather than passive data reads.
+# Starting from an explicit production/PDF owner or control path, the closure
+# captures wrappers, callers, producers, validators, and publishers registered
+# on either side of the pull-request range.
+PRODUCTION_PDF_INVENTORY_EDGE_FIELDS = frozenset(
+    {
+        "allowed_workflows",
+        "called_by_workflow",
+        "imported_by",
+        "producer",
+        "validator",
+        "publisher",
+    }
+)
+PRODUCTION_PDF_NON_CONSUMER_CONTROL_PATHS = frozenset(
+    {".github/workflows/daily_model_maintenance_pr_validation.yml"}
+)
+
 SHARED_MARKERS = (
     "formal_model_evidence",
     "model_research",
@@ -534,6 +552,14 @@ def is_production_pdf_registry_row(row: Mapping[str, str]) -> bool:
         if field in PRODUCTION_PDF_REGISTRY_RELATION_FIELDS
         for value in value.split(";")
         if value.strip()
+    )
+
+
+def is_production_pdf_inventory_consumer_path(value: str) -> bool:
+    path = normalize_path(value)
+    return (
+        is_production_pdf_path(path)
+        and path not in PRODUCTION_PDF_NON_CONSUMER_CONTROL_PATHS
     )
 
 
@@ -726,6 +752,77 @@ def registry_change_affects(
     )
 
 
+def production_pdf_inventory_paths(revision: str) -> frozenset[str]:
+    registered_rows: list[tuple[str, str, dict[str, str]]] = []
+    production_paths: set[str] = set()
+    for registry_path, key_field in SHARED_REGISTRY_KEY_FIELDS.items():
+        _, rows = _parse_registry(
+            _read_git_text(revision, registry_path),
+            path=registry_path,
+            key_field=key_field,
+            revision=revision,
+        )
+        for key, row in rows.items():
+            node = normalize_path(key)
+            registered_rows.append((registry_path, node, row))
+            if is_production_pdf_path(node) or (
+                registry_path == "config/report_artifact_lineage.csv"
+                and row.get("owner", "").strip().lower()
+                in PRODUCTION_PDF_REGISTRY_OWNERS
+            ):
+                production_paths.add(node)
+            production_paths.update(
+                normalize_path(raw_target)
+                for field in PRODUCTION_PDF_INVENTORY_EDGE_FIELDS
+                for raw_target in row.get(field, "").split(";")
+                if is_production_pdf_path(raw_target)
+            )
+
+    changed = True
+    while changed:
+        changed = False
+        for registry_path, node, row in registered_rows:
+            called_consumers = {
+                normalize_path(raw_target)
+                for field in ("allowed_workflows", "called_by_workflow")
+                for raw_target in row.get(field, "").split(";")
+                if normalize_path(raw_target)
+            }
+            additions: set[str] = set()
+            if any(
+                is_production_pdf_inventory_consumer_path(path)
+                for path in called_consumers
+            ):
+                additions.add(node)
+            if node in production_paths:
+                additions.update(
+                    normalize_path(raw_target)
+                    for raw_target in row.get("imported_by", "").split(";")
+                    if normalize_path(raw_target)
+                )
+                if registry_path == "config/report_artifact_lineage.csv":
+                    additions.update(
+                        normalize_path(raw_target)
+                        for field in ("producer", "validator", "publisher")
+                        for raw_target in row.get(field, "").split(";")
+                        if normalize_path(raw_target)
+                    )
+            new_paths = additions - production_paths
+            if new_paths:
+                production_paths.update(new_paths)
+                changed = True
+    return frozenset(production_paths)
+
+
+def production_pdf_inventory_paths_for_range(
+    base_revision: str,
+    head_revision: str,
+) -> frozenset[str]:
+    return production_pdf_inventory_paths(base_revision) | production_pdf_inventory_paths(
+        head_revision
+    )
+
+
 def _strip_revenue_owned_scope_blocks(
     source: str,
     *,
@@ -821,6 +918,7 @@ def domains_for_changed_path(
     *,
     base_sha: str,
     merge_sha: str,
+    inventory_production_paths: frozenset[str] | None = None,
 ) -> frozenset[str]:
     normalized = normalize_path(path)
     if normalized in SHARED_REGISTRY_KEY_FIELDS:
@@ -846,7 +944,13 @@ def domains_for_changed_path(
         merge_sha=merge_sha,
     ):
         return frozenset({RESEARCH_SAFETY_LITE, REVENUE_RESEARCH})
-    return domains_for_path(path)
+    selected = set(domains_for_path(path))
+    production_paths = inventory_production_paths
+    if production_paths is None:
+        production_paths = production_pdf_inventory_paths_for_range(base_sha, merge_sha)
+    if normalized in production_paths:
+        selected.update({REPO_CURRENT_CONTRACTS, PRODUCTION_PDF_CONTRACTS})
+    return frozenset(selected)
 
 
 def _run_git(args: Sequence[str]) -> subprocess.CompletedProcess[bytes]:
@@ -987,6 +1091,10 @@ def detect_scope(
     changed = changed_paths_from_git(base_sha, head_sha, merge_sha)
     if not changed:
         raise ScopeDetectionError("pull_request effective tree diff is empty")
+    inventory_production_paths = production_pdf_inventory_paths_for_range(
+        base_sha,
+        merge_sha,
+    )
     watched_paths: list[str] = []
     selected: set[str] = set()
     for path in changed:
@@ -994,6 +1102,7 @@ def detect_scope(
             path,
             base_sha=base_sha,
             merge_sha=merge_sha,
+            inventory_production_paths=inventory_production_paths,
         )
         if domains:
             watched_paths.append(path)

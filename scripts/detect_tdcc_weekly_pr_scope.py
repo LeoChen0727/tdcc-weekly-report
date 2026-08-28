@@ -249,25 +249,90 @@ def matched_tdcc_affected_paths(
     )
 
 
+def _run_git(args: list[str]) -> subprocess.CompletedProcess[bytes]:
+    return subprocess.run(
+        ["git", "--no-replace-objects", *args],
+        cwd=ROOT,
+        check=False,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+
+
+def _resolve_commit_object(value: str, label: str) -> str:
+    object_type = _run_git(["cat-file", "-t", value])
+    if object_type.returncode != 0 or object_type.stdout.strip() != b"commit":
+        stderr = object_type.stderr.decode("utf-8", errors="replace").strip()
+        raise RegistryScopeError(
+            f"{label} must identify a commit object: {value!r}: {stderr}"
+        )
+    resolved = _run_git(["rev-parse", "--verify", f"{value}^{{commit}}"])
+    if resolved.returncode != 0:
+        stderr = resolved.stderr.decode("utf-8", errors="replace").strip()
+        raise RegistryScopeError(f"cannot resolve {label}: {value!r}: {stderr}")
+    return resolved.stdout.decode("ascii", errors="strict").strip()
+
+
+def validate_commit_range(base_sha: str, head_sha: str) -> tuple[str, str]:
+    resolved_base = _resolve_commit_object(base_sha, "base SHA")
+    resolved_head = _resolve_commit_object(head_sha, "head SHA")
+    merge_base = _run_git(["merge-base", resolved_base, resolved_head])
+    if merge_base.returncode != 0:
+        stderr = merge_base.stderr.decode("utf-8", errors="replace").strip()
+        raise RegistryScopeError(f"cannot compute base/head merge-base: {stderr}")
+    actual_merge_base = merge_base.stdout.decode("ascii", errors="strict").strip()
+    if actual_merge_base != resolved_base:
+        raise RegistryScopeError(
+            "base SHA must be an ancestor of head SHA: "
+            f"base={resolved_base!r}, merge_base={actual_merge_base!r}"
+        )
+    return resolved_base, resolved_head
+
+
+def parse_name_status_z(payload: bytes) -> list[str]:
+    if payload and not payload.endswith(b"\0"):
+        raise RegistryScopeError("malformed NUL-delimited git name-status output")
+    fields = payload.split(b"\0")
+    if fields and fields[-1] == b"":
+        fields.pop()
+    if len(fields) % 2:
+        raise RegistryScopeError("malformed NUL-delimited git name-status output")
+
+    paths: list[str] = []
+    for index in range(0, len(fields), 2):
+        status = fields[index].decode("ascii", errors="strict")
+        if status not in {"A", "B", "D", "M", "T", "U", "X"}:
+            raise RegistryScopeError(
+                f"unexpected git status with rename detection disabled: {status!r}"
+            )
+        path = fields[index + 1].decode("utf-8", errors="surrogateescape")
+        if not path:
+            raise RegistryScopeError("git diff returned an empty changed path")
+        paths.append(normalize_path(path))
+    return sorted(set(paths))
+
+
 def changed_paths_from_git(base_sha: str, head_sha: str) -> list[str]:
     result = subprocess.run(
         [
             "git",
             "--no-replace-objects",
             "diff",
-            "--name-only",
-            "--diff-filter=ACMRD",
+            "--no-renames",
+            "--name-status",
+            "-z",
             f"{base_sha}...{head_sha}",
             "--",
         ],
         cwd=ROOT,
-        check=True,
-        text=True,
-        encoding="utf-8",
-        errors="replace",
+        check=False,
         stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
     )
-    return [normalize_path(line) for line in result.stdout.splitlines() if line.strip()]
+    if result.returncode != 0:
+        stderr = result.stderr.decode("utf-8", errors="replace").strip()
+        raise RegistryScopeError(f"git diff failed: {stderr}")
+    return parse_name_status_z(result.stdout)
 
 
 def write_github_output(path: Path, matched: list[str]) -> None:
@@ -288,11 +353,12 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> int:
     args = parse_args()
-    changed = changed_paths_from_git(args.base_sha, args.head_sha)
+    base_sha, head_sha = validate_commit_range(args.base_sha, args.head_sha)
+    changed = changed_paths_from_git(base_sha, head_sha)
     matched = matched_tdcc_affected_paths(
         changed,
-        base_sha=args.base_sha,
-        head_sha=args.head_sha,
+        base_sha=base_sha,
+        head_sha=head_sha,
     )
     payload = {
         "affected": bool(matched),

@@ -53,6 +53,21 @@ def run_git(repo: Path, *args: str) -> str:
     return result.stdout.strip()
 
 
+def write_minimal_scope_inventories(repo: Path) -> None:
+    config = repo / "config"
+    config.mkdir(parents=True, exist_ok=True)
+    inventory_sources = {
+        "repo_file_lifecycle_inventory.csv": "path,owner,called_by_workflow\n",
+        "repo_production_inventory.csv": "path,owner,allowed_workflows\n",
+        "report_artifact_lineage.csv": (
+            "artifact_path,owner,producer,validator,publisher\n"
+        ),
+        "runtime_file_lineage_contract.csv": "script_path,owner\n",
+    }
+    for name, source in inventory_sources.items():
+        (config / name).write_text(source, encoding="utf-8")
+
+
 def init_repo(
     tmp_path: Path,
     changed_rel: str = ".github/workflows/daily_full_pipeline.yml",
@@ -62,9 +77,10 @@ def init_repo(
     run_git(repo, "init", "--initial-branch=main")
     run_git(repo, "config", "user.email", "scope-test@example.invalid")
     run_git(repo, "config", "user.name", "Scope Test")
+    write_minimal_scope_inventories(repo)
     marker = repo / "README.md"
     marker.write_text("base\n", encoding="utf-8")
-    run_git(repo, "add", "README.md")
+    run_git(repo, "add", "--all")
     run_git(repo, "commit", "-m", "base")
     base_sha = run_git(repo, "rev-parse", "HEAD")
     run_git(repo, "switch", "-c", "feature")
@@ -314,6 +330,7 @@ def test_unmarked_shared_readiness_semantic_change_keeps_broad_scope(
         path,
         base_sha="base",
         merge_sha="merge",
+        inventory_production_paths=frozenset(),
     ) == scope.domains_for_path(path)
 
 
@@ -344,6 +361,7 @@ def test_revenue_scope_marker_cannot_swallow_existing_shared_code(
         path,
         base_sha="base",
         merge_sha="merge",
+        inventory_production_paths=frozenset(),
     ) == scope.domains_for_path(path)
 
 
@@ -373,6 +391,7 @@ def test_revenue_scope_marker_must_be_balanced(
         path,
         base_sha="base",
         merge_sha="merge",
+        inventory_production_paths=frozenset(),
     ) == scope.domains_for_path(path)
 
 
@@ -399,6 +418,7 @@ def test_revenue_scope_marker_inside_string_is_not_treated_as_ownership(
         path,
         base_sha="base",
         merge_sha="merge",
+        inventory_production_paths=frozenset(),
     ) == scope.domains_for_path(path)
 
 
@@ -416,6 +436,7 @@ def test_revenue_content_scope_missing_blob_falls_back_to_broad_scope(
         path,
         base_sha="base",
         merge_sha="merge",
+        inventory_production_paths=frozenset(),
     ) == scope.domains_for_path(path)
 
 
@@ -441,6 +462,7 @@ def test_revenue_content_scope_crlf_rewrite_outside_markers_falls_back_broad(
         path,
         base_sha="base",
         merge_sha="merge",
+        inventory_production_paths=frozenset(),
     ) == scope.domains_for_path(path)
 
 
@@ -480,6 +502,11 @@ def test_pull_request_marked_readiness_changes_select_revenue_without_core_or_sh
         "def existing(value):\n    return value\n"
     )
     monkeypatch.setattr(scope, "changed_paths_from_git", lambda *_args: paths)
+    monkeypatch.setattr(
+        scope,
+        "production_pdf_inventory_paths_for_range",
+        lambda *_args: frozenset(),
+    )
     monkeypatch.setattr(
         scope,
         "_read_git_text",
@@ -602,6 +629,85 @@ def test_shared_registry_crlf_only_rewrite_keeps_core_without_semantic_domains(
     ) == frozenset({scope.REPO_CURRENT_CONTRACTS})
 
 
+@pytest.mark.parametrize(
+    "path",
+    (
+        "ensure_daily_report_readme.py",
+        "build_chatgpt_daily_report_rules.py",
+        "publish_chatgpt_report_readme_and_check.py",
+        "scripts/validate_daily_report_source_preflight.py",
+    ),
+)
+def test_current_inventory_relationships_select_production_pdf_without_handwritten_taxonomy(
+    path: str,
+) -> None:
+    revision = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=ROOT,
+        check=True,
+        text=True,
+        encoding="utf-8",
+        stdout=subprocess.PIPE,
+    ).stdout.strip()
+
+    assert not scope.is_production_pdf_path(path)
+    assert scope.domains_for_changed_path(
+        path,
+        base_sha=revision,
+        merge_sha=revision,
+    ) == frozenset(
+        {scope.REPO_CURRENT_CONTRACTS, scope.PRODUCTION_PDF_CONTRACTS}
+    )
+
+
+@pytest.mark.parametrize(
+    "path",
+    (
+        "scripts/validate_revenue_unreacted_range_promotion_preparation.py",
+        "tests/test_revenue_unreacted_range_source_first_condition_audit.py",
+        "scripts/build_financial_statement_pit.py",
+    ),
+)
+def test_inventory_relationships_do_not_spread_production_pdf_across_siblings(
+    path: str,
+) -> None:
+    revision = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=ROOT,
+        check=True,
+        text=True,
+        encoding="utf-8",
+        stdout=subprocess.PIPE,
+    ).stdout.strip()
+
+    assert path not in scope.production_pdf_inventory_paths_for_range(
+        revision,
+        revision,
+    )
+
+
+@pytest.mark.parametrize("relationship_revision", ("base", "head"))
+def test_inventory_production_pdf_coverage_reads_both_sides_of_range(
+    relationship_revision: str,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    target = "scripts/formal_report_control.py"
+
+    def fake_read(revision: str, path: str) -> str:
+        key_field = scope.SHARED_REGISTRY_KEY_FIELDS[path]
+        header = f"{key_field},owner,called_by_workflow\n"
+        if revision == relationship_revision:
+            return (
+                header
+                + f"{target},repo_infrastructure,.github/workflows/daily_full_pipeline.yml\n"
+            )
+        return header
+
+    monkeypatch.setattr(scope, "_read_git_text", fake_read)
+
+    assert target in scope.production_pdf_inventory_paths_for_range("base", "head")
+
+
 def test_unrelated_path_is_ignored() -> None:
     assert scope.domains_for_path("docs/unrelated_release_note.md") == frozenset()
 
@@ -685,6 +791,11 @@ def test_unrelated_nonempty_diff_fast_passes_with_no_domains(
     monkeypatch.setattr(
         scope, "changed_paths_from_git", lambda *_args: ["README.md"]
     )
+    monkeypatch.setattr(
+        scope,
+        "production_pdf_inventory_paths_for_range",
+        lambda *_args: frozenset(),
+    )
 
     result = scope.detect_scope(
         event_name="pull_request",
@@ -710,6 +821,29 @@ def test_empty_effective_diff_fails_closed(monkeypatch: pytest.MonkeyPatch) -> N
         )
 
 
+def test_pull_request_fails_closed_when_production_inventory_is_unreadable(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(
+        scope, "changed_paths_from_git", lambda *_args: ["README.md"]
+    )
+    monkeypatch.setattr(
+        scope,
+        "_read_git_text",
+        lambda *_args: (_ for _ in ()).throw(
+            scope.ScopeDetectionError("missing production inventory")
+        ),
+    )
+
+    with pytest.raises(scope.ScopeDetectionError, match="missing production inventory"):
+        scope.detect_scope(
+            event_name="pull_request",
+            base_sha="base",
+            head_sha="head",
+            merge_sha="merge",
+        )
+
+
 def test_pull_request_combines_relevant_domains_only(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
@@ -721,6 +855,11 @@ def test_pull_request_combines_relevant_domains_only(
             ".github/workflows/daily_full_pipeline.yml",
             "scripts/validate_revenue_unreacted_range_source_snapshot_projection.py",
         ],
+    )
+    monkeypatch.setattr(
+        scope,
+        "production_pdf_inventory_paths_for_range",
+        lambda *_args: frozenset(),
     )
 
     result = scope.detect_scope(
@@ -976,10 +1115,11 @@ def test_real_git_rename_selects_both_old_and_new_path_domains(
     run_git(repo, "init", "--initial-branch=main")
     run_git(repo, "config", "user.email", "scope-test@example.invalid")
     run_git(repo, "config", "user.name", "Scope Test")
+    write_minimal_scope_inventories(repo)
     old_path = repo / "scripts" / "build_volume_v2_warrant_lineage_history_audit.py"
     old_path.parent.mkdir(parents=True)
     old_path.write_text("old\n", encoding="utf-8")
-    run_git(repo, "add", old_path.relative_to(repo).as_posix())
+    run_git(repo, "add", "--all")
     run_git(repo, "commit", "-m", "base")
     base_sha = run_git(repo, "rev-parse", "HEAD")
     run_git(repo, "switch", "-c", "feature")
@@ -1018,11 +1158,12 @@ def test_real_git_deletion_keeps_the_deleted_paths_domains(
     run_git(repo, "init", "--initial-branch=main")
     run_git(repo, "config", "user.email", "scope-test@example.invalid")
     run_git(repo, "config", "user.name", "Scope Test")
+    write_minimal_scope_inventories(repo)
     deleted_rel = "scripts/build_financial_statement_historical_pit_source_audit.py"
     deleted = repo / deleted_rel
     deleted.parent.mkdir(parents=True)
     deleted.write_text("delete me\n", encoding="utf-8")
-    run_git(repo, "add", deleted_rel)
+    run_git(repo, "add", "--all")
     run_git(repo, "commit", "-m", "base")
     base_sha = run_git(repo, "rev-parse", "HEAD")
     run_git(repo, "switch", "-c", "feature")
@@ -1057,9 +1198,10 @@ def test_base_to_synthetic_merge_diff_excludes_base_only_advances(
     run_git(repo, "init", "--initial-branch=main")
     run_git(repo, "config", "user.email", "scope-test@example.invalid")
     run_git(repo, "config", "user.name", "Scope Test")
+    write_minimal_scope_inventories(repo)
     marker = repo / "README.md"
     marker.write_text("common\n", encoding="utf-8")
-    run_git(repo, "add", "README.md")
+    run_git(repo, "add", "--all")
     run_git(repo, "commit", "-m", "common")
     run_git(repo, "switch", "-c", "feature")
     feature_path = repo / ".github" / "workflows" / "daily_full_pipeline.yml"

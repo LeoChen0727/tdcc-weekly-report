@@ -1,10 +1,35 @@
 from __future__ import annotations
 
+import subprocess
 from pathlib import Path
 
 import pytest
 
 from scripts import detect_tdcc_weekly_pr_scope as scope
+
+
+def git(repo: Path, *args: str) -> str:
+    result = subprocess.run(
+        ["git", *args],
+        cwd=repo,
+        check=True,
+        text=True,
+        encoding="utf-8",
+        stdout=subprocess.PIPE,
+    )
+    return result.stdout.strip()
+
+
+def commit_all(repo: Path, message: str) -> str:
+    git(repo, "add", "--all")
+    git(repo, "commit", "-m", message)
+    return git(repo, "rev-parse", "HEAD")
+
+
+def initialize_git_repo(repo: Path) -> None:
+    git(repo, "init", "--quiet")
+    git(repo, "config", "user.name", "Scope Test")
+    git(repo, "config", "user.email", "scope-test@example.invalid")
 
 
 @pytest.mark.parametrize(
@@ -32,6 +57,61 @@ def test_direct_tdcc_path_is_affected(path: str) -> None:
 )
 def test_direct_revenue_path_is_not_affected(path: str) -> None:
     assert not scope.is_tdcc_affected_path(path)
+
+
+def test_real_rename_is_reported_as_deleted_and_added_paths(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    initialize_git_repo(tmp_path)
+    old_path = tmp_path / "scripts" / "build_tdcc_dataset_manifest.py"
+    old_path.parent.mkdir(parents=True)
+    old_path.write_text("old\n", encoding="utf-8")
+    base_sha = commit_all(tmp_path, "base")
+    new_path = tmp_path / "docs" / "renamed_manifest.py"
+    new_path.parent.mkdir(parents=True)
+    git(
+        tmp_path,
+        "mv",
+        "scripts/build_tdcc_dataset_manifest.py",
+        "docs/renamed_manifest.py",
+    )
+    head_sha = commit_all(tmp_path, "rename")
+    monkeypatch.setattr(scope, "ROOT", tmp_path)
+
+    assert scope.validate_commit_range(base_sha, head_sha) == (base_sha, head_sha)
+    changed = scope.changed_paths_from_git(base_sha, head_sha)
+    assert changed == [
+        "docs/renamed_manifest.py",
+        "scripts/build_tdcc_dataset_manifest.py",
+    ]
+    assert scope.matched_tdcc_affected_paths(
+        changed,
+        base_sha=base_sha,
+        head_sha=head_sha,
+    ) == ["scripts/build_tdcc_dataset_manifest.py"]
+
+
+def test_commit_range_rejects_non_commit_and_non_ancestor_base(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    initialize_git_repo(tmp_path)
+    tracked = tmp_path / "tracked.txt"
+    tracked.write_text("base\n", encoding="utf-8")
+    root_sha = commit_all(tmp_path, "root")
+    tracked.write_text("head\n", encoding="utf-8")
+    head_sha = commit_all(tmp_path, "head")
+    git(tmp_path, "checkout", "--quiet", root_sha)
+    tracked.write_text("side\n", encoding="utf-8")
+    side_sha = commit_all(tmp_path, "side")
+    tree_sha = git(tmp_path, "rev-parse", f"{head_sha}^{{tree}}")
+    monkeypatch.setattr(scope, "ROOT", tmp_path)
+
+    with pytest.raises(scope.RegistryScopeError, match="commit object"):
+        scope.validate_commit_range(tree_sha, head_sha)
+    with pytest.raises(scope.RegistryScopeError, match="must be an ancestor"):
+        scope.validate_commit_range(side_sha, head_sha)
 
 
 @pytest.mark.parametrize("path", sorted(scope.SHARED_REGISTRY_KEY_FIELDS))
