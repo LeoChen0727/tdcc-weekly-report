@@ -8,6 +8,7 @@ from pathlib import Path
 import re
 import subprocess
 import sys
+import warnings
 
 import numpy as np
 import pandas as pd
@@ -1797,8 +1798,22 @@ def _binding_errors(manifest: pd.DataFrame, detail: pd.DataFrame) -> list[str]:
             row["projected_episode_semantic_sha256"]
         ):
             errors.append("projected detail semantic SHA-256 binding mismatch")
+        detail_raw_blob_sha = _constant(
+            detail,
+            "monthly_revenue_history_blob_sha256",
+            label="projected detail",
+        )
+        manifest_raw_blob_sha = _payload_value(
+            row["monthly_revenue_history_blob_sha256"]
+        )
+        if detail_raw_blob_sha != manifest_raw_blob_sha:
+            warnings.warn(
+                "projected detail monthly_revenue_history_blob_sha256 differs from the "
+                "manifest provenance; raw byte identity is diagnostic-only",
+                RuntimeWarning,
+                stacklevel=2,
+            )
         for column, manifest_column in (
-            ("monthly_revenue_history_blob_sha256", "monthly_revenue_history_blob_sha256"),
             (
                 "monthly_revenue_canonical_table_sha256",
                 "cutoff_revenue_subset_semantic_sha256",
@@ -1909,6 +1924,18 @@ def validate_frames(
             CUTOFF_DATE,
         )
         cutoff_monthly_sha = _canonical_monthly_table_sha256(cutoff_monthly)
+        current_raw_blob_sha = hashlib.sha256(Path(revenue_path).read_bytes()).hexdigest()
+        captured_raw_blob_sha = _payload_value(
+            row["monthly_revenue_history_blob_sha256"]
+        )
+        if current_raw_blob_sha != captured_raw_blob_sha:
+            warnings.warn(
+                "projection manifest monthly_revenue_history_blob_sha256 differs from "
+                "the current mutable file; raw byte identity is provenance-only and "
+                "cutoff canonical rows remain blocking",
+                RuntimeWarning,
+                stacklevel=2,
+            )
         rebuilt_detail = _rebuild_cutoff_source_detail(
             cutoff_monthly,
             price_dir=price_dir,

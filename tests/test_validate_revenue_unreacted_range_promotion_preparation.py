@@ -193,6 +193,7 @@ def test_explicit_historical_v1_source_audit_routes_to_trusted_git(
         *,
         payload: bytes | None = None,
         label: str | None = None,
+        diagnostics: list[str] | None = None,
     ) -> tuple[dict[str, str], list[str]]:
         assert path == validator.DEFAULT_SUMMARY
         assert payload == trusted_payloads[path]
@@ -598,7 +599,7 @@ def test_cli_requires_complete_source_pair(tmp_path: Path) -> None:
 
 
 @pytest.mark.parametrize("mutation", ["delete_v1", "reorder", "mutate_v1"])
-def test_v1_registry_prefix_is_exact_and_v2_is_append_only(
+def test_v1_v2_registry_prefix_is_exact_and_v3_is_append_only(
     tmp_path: Path,
     mutation: str,
 ) -> None:
@@ -617,6 +618,7 @@ def test_v1_registry_prefix_is_exact_and_v2_is_append_only(
     assert errors
     assert any(
         "exact v1 prefix" in error
+        or "exact v1/v2 prefix" in error
         or "mismatch in v1" in error
         or "mismatch in v2" in error
         for error in errors
@@ -786,3 +788,472 @@ def test_v1_v2_reconciliation_detects_extra_identity_rekey() -> None:
 
     assert any("exact_common_operation_key_count mismatch" in error for error in errors)
     assert any("episode_identity_rekey_count mismatch" in error for error in errors)
+def _write_mature_forward_holdout_manifest(
+    path: Path,
+    *,
+    mature: int = 20,
+    right_censored: int = 0,
+    total_mature: int | None = None,
+    total_right_censored: int | None = None,
+) -> None:
+    if total_mature is None:
+        total_mature = mature
+    if total_right_censored is None:
+        total_right_censored = right_censored
+    row = {
+        "model_id": "revenue_unreacted_range",
+        "artifact_id": "revenue_unreacted_range_forward_holdout_v2",
+        "artifact_version": "forward_holdout_v2_20260828",
+        "artifact_row_key": "manifest",
+        "holdout_start_date": "20260831",
+        "append_only_history": "True",
+        "research_only": "True",
+        "formal_model_use_allowed": "False",
+        "approved_for_daily": "False",
+        "presentation_allowed": "False",
+        "production_change": "False",
+        "primary_mature_count": str(mature),
+        "primary_right_censored_count": str(right_censored),
+        "holdout_event_count": str(total_mature + total_right_censored),
+        "mature_event_count": str(total_mature),
+        "bridge_excluded_signal_count": "3",
+    }
+    _write_rows(path, list(row), [row])
+
+
+def _forward_holdout_evidence_fixture(
+    tmp_path: Path,
+    manifest_path: Path,
+) -> tuple[dict[str, Path], Path, str]:
+    paths: dict[str, Path] = {"manifest": manifest_path}
+    for name in validator.DEFAULT_FORWARD_HOLDOUT_V2_EVIDENCE_PATHS:
+        if name == "manifest":
+            continue
+        path = tmp_path / f"{name}.csv"
+        path.write_text("placeholder\n", encoding="utf-8")
+        paths[name] = path
+    price_dir = tmp_path / "price-inputs"
+    price_dir.mkdir()
+    (price_dir / "2330.csv").write_text("date,open,close\n", encoding="utf-8")
+    return paths, price_dir, "a" * 40
+
+
+def _resolved_anomalies() -> dict[str, dict[str, str]]:
+    return {
+        f"case-{index}": {
+            "final_disposition": "verified_real_extreme",
+            "promotion_gate_status": "eligible_only_after_all_other_model_gates",
+        }
+        for index in range(9)
+    }
+
+
+def test_v3_contract_and_contract_only_migration_are_append_only() -> None:
+    decision, decision_errors = validator.validate_decision(validator.DEFAULT_DECISION)
+    migration, migration_errors = validator.validate_migration(
+        validator.DEFAULT_MIGRATIONS
+    )
+
+    assert decision_errors == []
+    assert migration_errors == []
+    assert decision == validator.EXPECTED_DECISION_V3
+    assert migration == validator.EXPECTED_MIGRATION_V1_TO_V2
+    _columns, rows = _read_rows(validator.DEFAULT_MIGRATIONS)
+    assert rows[-1] == validator.EXPECTED_MIGRATION_V2_TO_V3
+    assert rows[-1]["from_source_revision"] == rows[-1]["to_source_revision"]
+    assert rows[-1]["common_business_field_change_count"] == "0"
+    assert rows[-1]["source_projection_diff_summary_path"] == ""
+
+
+def test_library_governance_validation_without_a_phase_remains_available() -> None:
+    assert validator.validate() == []
+
+
+def test_research_only_phase_requires_trusted_v2_source_contract() -> None:
+    errors = validator.validate(phase="research-only")
+
+    assert any("requires the trusted v2 PIT/lineage source contract" in error for error in errors)
+
+
+def test_research_only_phase_accepts_trusted_v2_source_audit() -> None:
+    assert validator.validate(phase="research-only", source_audit="v2") == []
+
+
+def test_promotion_candidate_phase_requires_dispositions_and_mature_holdout(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    holdout = tmp_path / "holdout.csv"
+    _write_mature_forward_holdout_manifest(holdout, mature=19)
+    evidence_paths, price_dir, history_base_ref = _forward_holdout_evidence_fixture(
+        tmp_path,
+        holdout,
+    )
+    monkeypatch.setattr(
+        validator,
+        "_run_canonical_validator",
+        lambda _label, _command: [],
+    )
+    unresolved = {
+        f"case-{index}": {
+            "final_disposition": "unresolved_anomaly_candidate",
+            "promotion_gate_status": "blocked_pending_root_cause",
+        }
+        for index in range(9)
+    }
+
+    errors = validator.validate_phase_gates(
+        "promotion-candidate",
+        dict(validator.EXPECTED_DECISION_V3),
+        unresolved,
+        source_contract_verified=True,
+        forward_holdout_manifest_path=holdout,
+        forward_holdout_evidence_paths=evidence_paths,
+        forward_holdout_price_input_directory=price_dir,
+        forward_holdout_history_base_ref=history_base_ref,
+    )
+
+    assert any("unresolved=9" in error for error in errors)
+    assert any("primary_mature_count=19; required=20" in error for error in errors)
+
+
+def test_promotion_candidate_uses_primary_maturity_without_equating_challenger_totals(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    holdout = tmp_path / "holdout.csv"
+    _write_mature_forward_holdout_manifest(
+        holdout,
+        mature=20,
+        right_censored=2,
+        total_mature=31,
+        total_right_censored=7,
+    )
+    evidence_paths, price_dir, history_base_ref = _forward_holdout_evidence_fixture(
+        tmp_path,
+        holdout,
+    )
+    commands: list[list[str]] = []
+
+    def pass_canonical_validator(_label: str, command: list[str]) -> list[str]:
+        commands.append(command)
+        return []
+
+    monkeypatch.setattr(validator, "_run_canonical_validator", pass_canonical_validator)
+
+    assert validator.validate_phase_gates(
+        "promotion-candidate",
+        dict(validator.EXPECTED_DECISION_V3),
+        _resolved_anomalies(),
+        source_contract_verified=True,
+        forward_holdout_manifest_path=holdout,
+        forward_holdout_evidence_paths=evidence_paths,
+        forward_holdout_price_input_directory=price_dir,
+        forward_holdout_history_base_ref=history_base_ref,
+    ) == []
+    assert len(commands) == 1
+    assert str(validator.FORWARD_HOLDOUT_V2_VALIDATOR) in commands[0]
+    assert "--source-detail" in commands[0]
+    assert "--history-base-ref" in commands[0]
+
+
+def test_minimal_forward_holdout_manifest_cannot_satisfy_promotion_gate(
+    tmp_path: Path,
+) -> None:
+    holdout = tmp_path / "holdout.csv"
+    _write_mature_forward_holdout_manifest(holdout)
+    missing_evidence_paths = {
+        name: tmp_path / f"missing-{name}.csv"
+        for name in validator.DEFAULT_FORWARD_HOLDOUT_V2_EVIDENCE_PATHS
+        if name != "manifest"
+    }
+
+    errors = validator.validate_phase_gates(
+        "promotion-candidate",
+        dict(validator.EXPECTED_DECISION_V3),
+        _resolved_anomalies(),
+        source_contract_verified=True,
+        forward_holdout_manifest_path=holdout,
+        forward_holdout_evidence_paths=missing_evidence_paths,
+    )
+
+    assert any("evidence is missing" in error for error in errors)
+    assert any("explicit price_input_directory" in error for error in errors)
+    assert any("immutable 40-character Git commit" in error for error in errors)
+
+
+def test_production_pdf_phase_remains_blocked_by_disabled_adapter_contract(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    holdout = tmp_path / "holdout.csv"
+    readiness = tmp_path / "readiness.csv"
+    _write_mature_forward_holdout_manifest(holdout)
+    evidence_paths, price_dir, history_base_ref = _forward_holdout_evidence_fixture(
+        tmp_path,
+        holdout,
+    )
+    monkeypatch.setattr(
+        validator,
+        "_run_canonical_validator",
+        lambda _label, _command: [],
+    )
+    _write_rows(
+        readiness,
+        [
+            "model_id",
+            "approved_for_daily",
+            "presentation_allowed",
+            "daily_adapter_status",
+            "pdf_integration_status",
+        ],
+        [
+            {
+                "model_id": "revenue_unreacted_range",
+                "approved_for_daily": "True",
+                "presentation_allowed": "True",
+                "daily_adapter_status": "ready_approved_operation_guidance",
+                "pdf_integration_status": "pdf_integrated_daily_adapter",
+            }
+        ],
+    )
+    resolved = {
+        f"case-{index}": {
+            "final_disposition": "verified_real_extreme",
+            "promotion_gate_status": "eligible_only_after_all_other_model_gates",
+        }
+        for index in range(9)
+    }
+
+    errors = validator.validate_phase_gates(
+        "production-pdf",
+        dict(validator.EXPECTED_DECISION_V3),
+        resolved,
+        source_contract_verified=True,
+        forward_holdout_manifest_path=holdout,
+        forward_holdout_evidence_paths=evidence_paths,
+        forward_holdout_price_input_directory=price_dir,
+        forward_holdout_history_base_ref=history_base_ref,
+        operation_readiness_path=readiness,
+    )
+
+    assert any("formal_model_use_allowed=True" in error for error in errors)
+    assert any("disabled adapter preparation" in error for error in errors)
+
+
+def _approved_production_decision() -> dict[str, str]:
+    decision = dict(validator.EXPECTED_DECISION_V3)
+    for column in (
+        "formal_model_use_allowed",
+        "approved_for_daily",
+        "presentation_allowed",
+        "production_change",
+    ):
+        decision[column] = "True"
+    decision["formal_adapter_gate"] = "formal_adapter_approved_production_hard_gate"
+    return decision
+
+
+def test_production_pdf_rejects_legacy_readiness_without_production_allowed(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    holdout = tmp_path / "holdout.csv"
+    readiness = tmp_path / "model_operation_readiness_latest.csv"
+    _write_mature_forward_holdout_manifest(holdout)
+    evidence_paths, price_dir, history_base_ref = _forward_holdout_evidence_fixture(
+        tmp_path,
+        holdout,
+    )
+    _write_rows(
+        readiness,
+        [
+            "model_id",
+            "approved_for_daily",
+            "presentation_allowed",
+            "daily_adapter_status",
+            "pdf_integration_status",
+        ],
+        [
+            {
+                "model_id": "revenue_unreacted_range",
+                "approved_for_daily": "True",
+                "presentation_allowed": "True",
+                "daily_adapter_status": "ready_approved_operation_guidance",
+                "pdf_integration_status": "pdf_integrated_daily_adapter",
+            }
+        ],
+    )
+    monkeypatch.setattr(validator, "DEFAULT_OPERATION_READINESS", readiness)
+    monkeypatch.setattr(
+        validator,
+        "_run_canonical_validator",
+        lambda _label, _command: [],
+    )
+
+    errors = validator.validate_phase_gates(
+        "production-pdf",
+        _approved_production_decision(),
+        _resolved_anomalies(),
+        source_contract_verified=True,
+        forward_holdout_manifest_path=holdout,
+        forward_holdout_evidence_paths=evidence_paths,
+        forward_holdout_price_input_directory=price_dir,
+        forward_holdout_history_base_ref=history_base_ref,
+        operation_readiness_path=readiness,
+        formal_adapter_history_base_ref="b" * 40,
+    )
+
+    assert any("readiness schema is incomplete" in error for error in errors)
+    assert any("production_allowed" in error for error in errors)
+
+
+def test_production_pdf_delegates_to_model_adapter_readiness_and_pdf_validators(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    repo_root = tmp_path / "repo"
+    scripts = repo_root / "scripts"
+    latest = repo_root / "output/latest"
+    history = repo_root / "output/history/daily_model_snapshots"
+    scripts.mkdir(parents=True)
+    latest.mkdir(parents=True)
+    history.mkdir(parents=True)
+    holdout = tmp_path / "holdout.csv"
+    _write_mature_forward_holdout_manifest(holdout)
+    evidence_paths, price_dir, history_base_ref = _forward_holdout_evidence_fixture(
+        tmp_path,
+        holdout,
+    )
+    forward_validator = scripts / "validate_revenue_unreacted_range_forward_holdout_v2.py"
+    module = scripts / "revenue_unreacted_range_operation_adapter.py"
+    adapter_validator = scripts / "validate_revenue_unreacted_range_operation_adapter.py"
+    readiness_validator = scripts / "validate_model_operation_readiness.py"
+    revenue_pdf_validator = (
+        scripts / "validate_revenue_unreacted_range_pdf_consumer_contract.py"
+    )
+    pdf_validator = scripts / "validate_daily_pdf_contract_consumers.py"
+    artifact = latest / "daily_revenue_unreacted_range_operation_section_latest.csv"
+    readiness = latest / "model_operation_readiness_latest.csv"
+    for path in (
+        forward_validator,
+        module,
+        adapter_validator,
+        readiness_validator,
+        revenue_pdf_validator,
+        pdf_validator,
+        artifact,
+    ):
+        path.write_text("placeholder\n", encoding="utf-8")
+    monkeypatch.setattr(validator, "ROOT", repo_root)
+    monkeypatch.setattr(validator, "FORWARD_HOLDOUT_V2_VALIDATOR", forward_validator)
+    monkeypatch.setattr(validator, "DEFAULT_OPERATION_READINESS", readiness)
+    monkeypatch.setattr(validator, "FORMAL_ADAPTER_MODULE", module)
+    monkeypatch.setattr(validator, "FORMAL_ADAPTER_VALIDATOR", adapter_validator)
+    monkeypatch.setattr(validator, "FORMAL_ADAPTER_ARTIFACT", artifact)
+    monkeypatch.setattr(validator, "FORMAL_ADAPTER_HISTORY_DIRECTORY", history)
+    monkeypatch.setattr(validator, "MODEL_OPERATION_READINESS_VALIDATOR", readiness_validator)
+    monkeypatch.setattr(
+        validator,
+        "FORMAL_ADAPTER_PDF_CONSUMER_VALIDATOR",
+        revenue_pdf_validator,
+    )
+    monkeypatch.setattr(validator, "DAILY_PDF_CONSUMER_VALIDATOR", pdf_validator)
+    row = {
+        "model_id": "revenue_unreacted_range",
+        "formal_model_use_allowed": "True",
+        "approved_for_daily": "True",
+        "presentation_allowed": "True",
+        "production_allowed": "True",
+        "approval_status": "approved_for_daily_v1",
+        "approval_version": "revenue_unreacted_range_formal_operation_20260828",
+        "operation_module_status": "approved_operation_v1",
+        "operation_module_id": validator.FORMAL_ADAPTER_MODULE_ID,
+        "operation_module_path": "scripts/revenue_unreacted_range_operation_adapter.py",
+        "operation_module_canonical_sha256": "1" * 64,
+        "daily_adapter_status": "ready_empty_no_operation_rows",
+        "adapter_artifact_id": validator.FORMAL_ADAPTER_ARTIFACT_ID,
+        "adapter_artifact_version": "revenue_unreacted_range_formal_adapter_v1",
+        "adapter_artifact_path": (
+            "output/latest/daily_revenue_unreacted_range_operation_section_latest.csv"
+        ),
+        "adapter_artifact_canonical_sha256": "2" * 64,
+        "adapter_schema_version": validator.FORMAL_ADAPTER_SCHEMA_VERSION,
+        "lifecycle_contract_version": validator.FORMAL_ADAPTER_LIFECYCLE_VERSION,
+        "daily_adapter_sections": ",".join(
+            sorted(validator.FORMAL_ADAPTER_REQUIRED_SECTIONS)
+        ),
+        "operation_directive_level": "approved_daily_operation_guidance",
+        "pdf_integration_status": "pdf_integrated_daily_adapter",
+    }
+    _write_rows(readiness, sorted(row), [row])
+    calls: list[tuple[str, list[str]]] = []
+
+    def pass_canonical_validator(label: str, command: list[str]) -> list[str]:
+        calls.append((label, command))
+        return []
+
+    monkeypatch.setattr(validator, "_run_canonical_validator", pass_canonical_validator)
+
+    errors = validator.validate_phase_gates(
+        "production-pdf",
+        _approved_production_decision(),
+        _resolved_anomalies(),
+        source_contract_verified=True,
+        forward_holdout_manifest_path=holdout,
+        forward_holdout_evidence_paths=evidence_paths,
+        forward_holdout_price_input_directory=price_dir,
+        forward_holdout_history_base_ref=history_base_ref,
+        operation_readiness_path=readiness,
+        formal_adapter_history_base_ref="b" * 40,
+    )
+
+    assert errors == []
+    assert len(calls) == 5
+    labels = [label for label, _command in calls]
+    assert any("forward holdout v2" in label for label in labels)
+    assert any("formal adapter" in label for label in labels)
+    assert any("model operation readiness" in label for label in labels)
+    assert any("model-owned revenue PDF consumer" in label for label in labels)
+    assert any("PDF consumer" in label for label in labels)
+    adapter_command = next(command for label, command in calls if "formal adapter" in label)
+    assert "--phase" in adapter_command
+    assert "production-approval" in adapter_command
+    assert "--expected-artifact-canonical-sha256" in adapter_command
+
+
+def test_raw_monthly_blob_drift_is_diagnostic_but_canonical_drift_blocks(
+    tmp_path: Path,
+) -> None:
+    summary = tmp_path / "summary.csv"
+    _git_blob(
+        SUMMARY_REPO_PATH,
+        summary,
+        revision=validator.TRUSTED_V2_SOURCE_REVISION,
+    )
+    columns, rows = _read_rows(summary)
+    selected = next(
+        row
+        for row in rows
+        if validator._summary_matches(row, validator.SUMMARY_EXPECTED_V2)
+    )
+    selected["monthly_revenue_history_blob_sha256"] = "0" * 64
+    _write_rows(summary, columns, rows)
+    diagnostics: list[str] = []
+
+    _row, errors = validator.validate_summary(
+        summary,
+        expected_summary=validator.SUMMARY_EXPECTED_V2,
+        diagnostics=diagnostics,
+    )
+
+    assert errors == []
+    assert any("provenance value" in diagnostic for diagnostic in diagnostics)
+
+    selected["monthly_revenue_canonical_table_sha256"] = "0" * 64
+    _write_rows(summary, columns, rows)
+    _row, errors = validator.validate_summary(
+        summary,
+        expected_summary=validator.SUMMARY_EXPECTED_V2,
+    )
+    assert any("monthly_revenue_canonical_table_sha256 mismatch" in error for error in errors)

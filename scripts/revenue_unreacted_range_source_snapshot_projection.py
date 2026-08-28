@@ -7,6 +7,7 @@ import os
 from pathlib import Path
 import re
 import tempfile
+import warnings
 from zoneinfo import ZoneInfo
 
 import pandas as pd
@@ -731,12 +732,31 @@ def build_source_snapshot_projection_manifest(
         (full_source_detail, "full source detail"),
         (projected_detail, "projected source detail"),
     ):
-        for column, expected in (
-            ("monthly_revenue_history_blob_sha256", monthly_blob_sha),
-            ("cross_market_resolution_registry_canonical_sha256", monthly_registry_sha),
+        captured_raw_blob_sha = _constant(
+            frame,
+            "monthly_revenue_history_blob_sha256",
+            label=label,
+        )
+        if captured_raw_blob_sha != monthly_blob_sha:
+            warnings.warn(
+                f"{label} monthly_revenue_history_blob_sha256 differs from the current "
+                "mutable blob; raw byte identity is provenance-only and canonical "
+                "semantic lineage remains blocking",
+                RuntimeWarning,
+                stacklevel=2,
+            )
+        if (
+            _constant(
+                frame,
+                "cross_market_resolution_registry_canonical_sha256",
+                label=label,
+            )
+            != monthly_registry_sha
         ):
-            if _constant(frame, column, label=label) != expected:
-                raise RuntimeError(f"{label} {column} does not match current raw lineage")
+            raise RuntimeError(
+                f"{label} cross_market_resolution_registry_canonical_sha256 "
+                "does not match current canonical lineage"
+            )
     if (
         _constant(
             full_source_detail,
@@ -965,8 +985,22 @@ def projection_binding_errors(
             errors.append("projected detail semantic SHA-256 is not bound to manifest")
         if len(projected_detail) != int(row["projected_episode_row_count"]):
             errors.append("projected detail row count is not bound to manifest")
+        detail_raw_blob_sha = _constant(
+            projected_detail,
+            "monthly_revenue_history_blob_sha256",
+            label="projected source detail",
+        )
+        manifest_raw_blob_sha = _payload_value(
+            row["monthly_revenue_history_blob_sha256"]
+        )
+        if detail_raw_blob_sha != manifest_raw_blob_sha:
+            warnings.warn(
+                "projected detail monthly_revenue_history_blob_sha256 differs from the "
+                "manifest provenance; raw byte identity is diagnostic-only",
+                RuntimeWarning,
+                stacklevel=2,
+            )
         for column, manifest_column in (
-            ("monthly_revenue_history_blob_sha256", "monthly_revenue_history_blob_sha256"),
             (
                 "monthly_revenue_canonical_table_sha256",
                 "cutoff_revenue_subset_semantic_sha256",

@@ -838,14 +838,16 @@ def test_post_cutoff_raw_changes_do_not_change_cutoff_input_hashes(
         source_inputs["price_registry_path"],
     )
     assert not current_full_detail.equals(source_inputs["full_detail"])
-    assert validator.validate_frames(
-        manifest,
-        source_inputs["projected_detail"],
-        revenue_path=source_inputs["revenue_path"],
-        price_dir=source_inputs["price_dir"],
-        monthly_resolution_path=source_inputs["monthly_registry_path"],
-        price_resolution_path=source_inputs["price_registry_path"],
-    ) == []
+    with pytest.warns(RuntimeWarning, match="raw byte identity is provenance-only"):
+        errors = validator.validate_frames(
+            manifest,
+            source_inputs["projected_detail"],
+            revenue_path=source_inputs["revenue_path"],
+            price_dir=source_inputs["price_dir"],
+            monthly_resolution_path=source_inputs["monthly_registry_path"],
+            price_resolution_path=source_inputs["price_registry_path"],
+        )
+    assert errors == []
 
 
 def test_independent_validator_rejects_pre_cutoff_revenue_mutation(
@@ -862,14 +864,15 @@ def test_independent_validator_rejects_pre_cutoff_revenue_mutation(
     raw.loc[target, "monthly_revenue"] = "1001"
     raw.to_csv(source_inputs["revenue_path"], index=False)
 
-    errors = validator.validate_frames(
-        manifest,
-        source_inputs["projected_detail"],
-        revenue_path=source_inputs["revenue_path"],
-        price_dir=source_inputs["price_dir"],
-        monthly_resolution_path=source_inputs["monthly_registry_path"],
-        price_resolution_path=source_inputs["price_registry_path"],
-    )
+    with pytest.warns(RuntimeWarning, match="raw byte identity is provenance-only"):
+        errors = validator.validate_frames(
+            manifest,
+            source_inputs["projected_detail"],
+            revenue_path=source_inputs["revenue_path"],
+            price_dir=source_inputs["price_dir"],
+            monthly_resolution_path=source_inputs["monthly_registry_path"],
+            price_resolution_path=source_inputs["price_registry_path"],
+        )
 
     assert any(
         "cutoff_revenue_subset_semantic_sha256 source recomputation mismatch" in error
