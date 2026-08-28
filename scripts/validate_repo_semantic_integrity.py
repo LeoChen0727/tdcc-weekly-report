@@ -36,6 +36,19 @@ DATA_SOURCE_OWNERS = PRODUCTION_OWNERS | {"repo_infrastructure"}
 ALLOWED_CROSS_OWNER_IMPORTS = {
     # Low-level utilities.
     ("*", "repo_infrastructure", "*"),
+    # Formal revenue readiness consumes the two canonical same-model research
+    # evidence gates.  Keep these paths exact: this is not permission for a
+    # model-governance module to import arbitrary research semantics.
+    (
+        "scripts/build_model_operation_readiness.py",
+        "research_backtest",
+        "scripts/validate_revenue_unreacted_range_forward_holdout_v2.py",
+    ),
+    (
+        "scripts/build_model_operation_readiness.py",
+        "research_backtest",
+        "scripts/validate_revenue_unreacted_range_promotion_preparation.py",
+    ),
     # Research may compare against the production daily model layer, but must not
     # mutate production parameters.
     (
