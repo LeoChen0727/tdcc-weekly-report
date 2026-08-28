@@ -223,6 +223,7 @@ jobs:
       - name: Validate research safety contracts
         run: |
           python scripts/validate_model_data_independence.py --base-ref "$BASE_SHA"
+          python scripts/validate_model_research_artifact_ownership.py --base-ref "$BASE_SHA"
           python scripts/validate_model_research_workflow_isolation.py
           python scripts/validate_research_production_boundaries.py
 

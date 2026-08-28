@@ -292,6 +292,7 @@ REVENUE_VALIDATOR_COMMANDS = (
 
 RESEARCH_SAFETY_VALIDATION_COMMANDS = (
     'python scripts/validate_model_data_independence.py --base-ref "$BASE_SHA"',
+    'python scripts/validate_model_research_artifact_ownership.py --base-ref "$BASE_SHA"',
     "python scripts/validate_model_research_workflow_isolation.py",
     "python scripts/validate_research_production_boundaries.py",
 )
@@ -1194,6 +1195,11 @@ def test_daily_model_maintenance_pr_workflow_pins_append_only_validation_base() 
     assert "git --no-replace-objects" in text
     assert (
         'python scripts/validate_model_data_independence.py --base-ref "$BASE_SHA"'
+        in text
+    )
+    assert (
+        'python scripts/validate_model_research_artifact_ownership.py '
+        '--base-ref "$BASE_SHA"'
         in text
     )
     assert (
