@@ -349,11 +349,47 @@ def _current_monthly_revenue_lineage(
     )
 
 
+def _full_lineage_capture_errors(
+    frame: pd.DataFrame,
+    *,
+    name: str,
+    current_full_lineage: dict[str, str],
+    diagnostics: list[str] | None = None,
+) -> list[str]:
+    errors: list[str] = []
+    raw_values = set(
+        frame["monthly_revenue_history_blob_sha256"]
+        .astype(str)
+        .str.strip()
+        .str.lower()
+    )
+    current_raw_blob = current_full_lineage[
+        "monthly_revenue_history_blob_sha256"
+    ]
+    if raw_values != {current_raw_blob} and diagnostics is not None:
+        diagnostics.append(
+            "source-first revenue condition "
+            f"{name} monthly_revenue_history_blob_sha256 differs from the current "
+            "mutable blob; raw byte identity is provenance-only and canonical table, "
+            "cutoff, and row hashes remain blocking"
+        )
+    for column, expected in current_full_lineage.items():
+        if column == "monthly_revenue_history_blob_sha256":
+            continue
+        if set(frame[column].astype(str).str.strip().str.lower()) != {expected}:
+            errors.append(
+                f"source-first revenue condition {name} current full monthly "
+                f"revenue lineage drift: {column}"
+            )
+    return errors
+
+
 def validate(
     *,
     revenue_path: Path = REVENUE_HISTORY_CSV,
     resolution_path: Path = MONTHLY_REVENUE_CROSS_MARKET_RESOLUTION_CSV,
     projection_manifest_path: Path | None = None,
+    diagnostics: list[str] | None = None,
 ) -> list[str]:
     if projection_manifest_path is None:
         projection_manifest_path, routing_errors = (
@@ -438,11 +474,14 @@ def validate(
             errors.append(f"source-first revenue condition {name} must not change production")
         if set(frame["financial_statement_scope"].astype(str)) != {FINANCIAL_STATEMENT_SCOPE}:
             errors.append(f"source-first revenue condition {name} financial scope drift")
-        for column, expected in current_full_lineage.items():
-            if set(frame[column].astype(str).str.strip().str.lower()) != {expected}:
-                errors.append(
-                    f"source-first revenue condition {name} current full monthly revenue lineage drift: {column}"
-                )
+        errors.extend(
+            _full_lineage_capture_errors(
+                frame,
+                name=name,
+                current_full_lineage=current_full_lineage,
+                diagnostics=diagnostics,
+            )
+        )
 
     detail_variants = set(detail["condition_variant_id"].astype(str))
     if not detail_variants <= expected_variants:
@@ -769,11 +808,15 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 
 def main() -> int:
     args = parse_args()
+    diagnostics: list[str] = []
     errors = validate(
         revenue_path=args.revenue_history,
         resolution_path=args.monthly_resolution,
         projection_manifest_path=args.projection_manifest,
+        diagnostics=diagnostics,
     )
+    for diagnostic in diagnostics:
+        print(f"DIAGNOSTIC: {diagnostic}")
     if errors:
         for error in errors:
             print(f"ERROR: {error}")

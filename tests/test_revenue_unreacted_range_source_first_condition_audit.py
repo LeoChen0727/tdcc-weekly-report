@@ -230,8 +230,17 @@ def test_source_first_validator_allows_current_blob_rewrite_when_canonical_rows_
     assert current[3]["monthly_revenue_canonical_table_sha256"] == (
         current_monthly_revenue_lineage[3]["monthly_revenue_canonical_table_sha256"]
     )
-    _bind_outputs_to_current_full_lineage(tmp_path, monkeypatch, current[3])
-    assert validator.validate(revenue_path=revenue_path) == []
+    _bind_outputs_to_current_full_lineage(
+        tmp_path,
+        monkeypatch,
+        current_monthly_revenue_lineage[3],
+    )
+    diagnostics: list[str] = []
+    assert validator.validate(
+        revenue_path=revenue_path,
+        diagnostics=diagnostics,
+    ) == []
+    assert any("provenance-only" in diagnostic for diagnostic in diagnostics)
 
 
 def test_source_first_validator_allows_post_cutoff_revenue_append(
@@ -345,13 +354,27 @@ def test_source_first_validator_rejects_manifest_full_lineage_in_current_outputs
         ),
     )
 
-    errors = validator.validate()
+    diagnostics: list[str] = []
+    errors = validator.validate(diagnostics=diagnostics)
 
-    for column in validator.RUN_LINEAGE_COLUMNS:
+    for column in (
+        "monthly_revenue_canonical_table_sha256",
+        "cross_market_resolution_registry_canonical_sha256",
+    ):
         assert any(
             f"current full monthly revenue lineage drift: {column}" in error
             for error in errors
         )
+    assert not any(
+        "current full monthly revenue lineage drift: "
+        "monthly_revenue_history_blob_sha256" in error
+        for error in errors
+    )
+    assert any(
+        "monthly_revenue_history_blob_sha256 differs from the current mutable blob"
+        in diagnostic
+        for diagnostic in diagnostics
+    )
 
 
 @pytest.mark.parametrize(
@@ -536,5 +559,42 @@ def test_source_first_validator_rejects_monthly_revenue_lineage_mutation(
         "_current_monthly_revenue_lineage",
         lambda *_args: current_monthly_revenue_lineage,
     )
-    errors = validator.validate()
-    assert any("lineage drift" in error for error in errors)
+    diagnostics: list[str] = []
+    errors = validator.validate(diagnostics=diagnostics)
+    if mutation == "run_sha":
+        assert errors == []
+        assert any("provenance-only" in diagnostic for diagnostic in diagnostics)
+    else:
+        assert any("lineage drift" in error for error in errors)
+def test_full_lineage_raw_blob_is_diagnostic_and_canonical_hashes_are_hard() -> None:
+    current = {
+        "monthly_revenue_history_blob_sha256": "a" * 64,
+        "monthly_revenue_canonical_table_sha256": "b" * 64,
+        "cross_market_resolution_registry_canonical_sha256": "c" * 64,
+    }
+    frame = pd.DataFrame(
+        [
+            {
+                "monthly_revenue_history_blob_sha256": "d" * 64,
+                "monthly_revenue_canonical_table_sha256": "b" * 64,
+                "cross_market_resolution_registry_canonical_sha256": "c" * 64,
+            }
+        ]
+    )
+    diagnostics: list[str] = []
+
+    assert validator._full_lineage_capture_errors(
+        frame,
+        name="summary",
+        current_full_lineage=current,
+        diagnostics=diagnostics,
+    ) == []
+    assert any("provenance-only" in diagnostic for diagnostic in diagnostics)
+
+    frame.loc[0, "monthly_revenue_canonical_table_sha256"] = "e" * 64
+    errors = validator._full_lineage_capture_errors(
+        frame,
+        name="summary",
+        current_full_lineage=current,
+    )
+    assert any("monthly_revenue_canonical_table_sha256" in error for error in errors)

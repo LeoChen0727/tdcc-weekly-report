@@ -8,8 +8,10 @@ import math
 import re
 import statistics
 import subprocess
+import sys
 from collections import defaultdict
 from pathlib import Path, PurePosixPath, PureWindowsPath
+from typing import Mapping, Sequence
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -21,6 +23,94 @@ DEFAULT_ANOMALIES_V2 = ROOT / (
 DEFAULT_MIGRATIONS = ROOT / (
     "config/revenue_unreacted_range_promotion_preparation_migrations.csv"
 )
+DEFAULT_FORWARD_HOLDOUT_V2_MANIFEST = ROOT / (
+    "output/latest/research_backtest/"
+    "revenue_unreacted_range_forward_holdout_v2_manifest_latest.csv"
+)
+DEFAULT_FORWARD_HOLDOUT_V2_EVIDENCE_PATHS = {
+    "manifest": DEFAULT_FORWARD_HOLDOUT_V2_MANIFEST,
+    "detail": ROOT
+    / "output/latest/research_backtest/"
+    "revenue_unreacted_range_forward_holdout_v2_event_detail_latest.csv",
+    "summary": ROOT
+    / "output/latest/research_backtest/"
+    "revenue_unreacted_range_forward_holdout_v2_maturity_status_latest.csv",
+    "comparison": ROOT
+    / "output/latest/research_backtest/"
+    "revenue_unreacted_range_forward_holdout_v2_comparison_latest.csv",
+    "anomaly": ROOT
+    / "output/latest/research_backtest/"
+    "revenue_unreacted_range_forward_holdout_v2_anomaly_sensitivity_latest.csv",
+    "manifest_history": ROOT
+    / "output/history/research/revenue_unreacted_range_forward_holdout_v2_manifest.csv",
+    "detail_history": ROOT
+    / "output/history/research/revenue_unreacted_range_forward_holdout_v2_event_detail.csv",
+    "summary_history": ROOT
+    / "output/history/research/"
+    "revenue_unreacted_range_forward_holdout_v2_maturity_status.csv",
+    "comparison_history": ROOT
+    / "output/history/research/revenue_unreacted_range_forward_holdout_v2_comparison.csv",
+    "anomaly_history": ROOT
+    / "output/history/research/"
+    "revenue_unreacted_range_forward_holdout_v2_anomaly_sensitivity.csv",
+    "source_manifest": ROOT
+    / "output/latest/research_backtest/"
+    "revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv",
+    "source_detail": ROOT
+    / "output/latest/research_backtest/"
+    "revenue_unreacted_range_forward_holdout_v2_replay_source_detail_latest.csv",
+}
+FORWARD_HOLDOUT_V2_VALIDATOR = (
+    ROOT / "scripts/validate_revenue_unreacted_range_forward_holdout_v2.py"
+)
+DEFAULT_OPERATION_READINESS = ROOT / "output/latest/model_operation_readiness_latest.csv"
+MODEL_OPERATION_READINESS_VALIDATOR = ROOT / "scripts/validate_model_operation_readiness.py"
+DAILY_PDF_CONSUMER_VALIDATOR = ROOT / "scripts/validate_daily_pdf_contract_consumers.py"
+FORMAL_ADAPTER_PDF_CONSUMER_VALIDATOR = (
+    ROOT / "scripts/validate_revenue_unreacted_range_pdf_consumer_contract.py"
+)
+FORMAL_ADAPTER_MODULE = ROOT / "scripts/revenue_unreacted_range_operation_adapter.py"
+FORMAL_ADAPTER_VALIDATOR = (
+    ROOT / "scripts/validate_revenue_unreacted_range_operation_adapter.py"
+)
+FORMAL_ADAPTER_ARTIFACT = (
+    ROOT / "output/latest/daily_revenue_unreacted_range_operation_section_latest.csv"
+)
+FORMAL_ADAPTER_HISTORY_DIRECTORY = ROOT / "output/history/daily_model_snapshots"
+FORMAL_ADAPTER_MODULE_ID = "revenue_unreacted_range_source_mid_falling_v2_operation_v1"
+FORMAL_ADAPTER_ARTIFACT_ID = "daily_revenue_unreacted_range_operation_section"
+FORMAL_ADAPTER_SCHEMA_VERSION = "revenue_unreacted_range_operation_section_schema_v1"
+FORMAL_ADAPTER_LIFECYCLE_VERSION = "revenue_unreacted_range_lifecycle_v1"
+FORMAL_ADAPTER_REQUIRED_SECTIONS = {
+    "active_operation",
+    "confirmed_operation",
+    "confirmed_unranked_operation",
+    "pending_confirmation",
+}
+FORMAL_ADAPTER_READINESS_COLUMNS = {
+    "model_id",
+    "formal_model_use_allowed",
+    "approved_for_daily",
+    "presentation_allowed",
+    "production_allowed",
+    "approval_status",
+    "approval_version",
+    "operation_module_status",
+    "operation_module_id",
+    "operation_module_path",
+    "operation_module_canonical_sha256",
+    "daily_adapter_status",
+    "adapter_artifact_id",
+    "adapter_artifact_version",
+    "adapter_artifact_path",
+    "adapter_artifact_canonical_sha256",
+    "adapter_schema_version",
+    "lifecycle_contract_version",
+    "daily_adapter_sections",
+    "operation_directive_level",
+    "pdf_integration_status",
+}
+VALIDATION_PHASES = ("research-only", "promotion-candidate", "production-pdf")
 DEFAULT_SUMMARY = ROOT / (
     "output/latest/research_backtest/"
     "revenue_unreacted_range_low_mid_falling_candidate_audit_latest.csv"
@@ -199,7 +289,22 @@ EXPECTED_DECISION_V2 = {
     "anomaly_disposition_gate": "blocked_pending_9_root_cause_dispositions_and_1_trigger_asof_attribution_reconciliation",
     "promotion_scope": "promotion_preparation_v2_migration_only_no_production_pdf_or_apps_script",
 }
-EXPECTED_DECISIONS = (EXPECTED_DECISION_V1, EXPECTED_DECISION_V2)
+EXPECTED_DECISION_V3 = {
+    **EXPECTED_DECISION_V2,
+    "decision_id": "revenue_unreacted_range_source_mid_falling_promotion_preparation_v3_20260828",
+    "contract_version": "revenue_unreacted_range_promotion_preparation_contract_v4_20260828",
+    "forward_holdout_gate_policy": "research_and_disabled_adapter_preparation_non_hard_promotion_candidate_and_production_approval_hard_gate",
+    "user_decision_reference": "user_authorized_3A_3C_20260828",
+    "decision_status": "research_complete_promotion_blocked_waiting_anomaly_forward_holdout_and_formal_adapter",
+    "anomaly_disposition_gate": "research_non_hard_promotion_candidate_hard_pending_9_root_cause_dispositions",
+    "formal_adapter_gate": "disabled_adapter_preparation_non_hard_production_approval_hard_gate",
+    "promotion_scope": "staged_contract_research_only_and_disabled_adapter_preparation_no_production_daily_full_pdf_or_apps_script",
+}
+EXPECTED_DECISIONS = (
+    EXPECTED_DECISION_V1,
+    EXPECTED_DECISION_V2,
+    EXPECTED_DECISION_V3,
+)
 DECISION_COLUMNS = tuple(EXPECTED_DECISION)
 
 ANOMALY_COLUMNS = (
@@ -274,6 +379,7 @@ IMMUTABLE_EVIDENCE_RE = re.compile(
     r"path=(?P<path>[^;\r\n]+);"
     r"sha256=(?P<sha256>[0-9a-f]{64})$"
 )
+SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
 ALLOWED_IMMUTABLE_EVIDENCE_ROOTS = (
     PurePosixPath("docs/evidence/revenue_unreacted_range"),
     PurePosixPath("data/revenue_unreacted_range/evidence"),
@@ -291,7 +397,6 @@ SUMMARY_EXPECTED = {
             "source_first_producer_semantic_sha256",
             "rearmed_producer_semantic_sha256",
             "position_shape_producer_semantic_sha256",
-            "monthly_revenue_history_blob_sha256",
             "monthly_revenue_canonical_table_sha256",
             "cross_market_resolution_registry_canonical_sha256",
             "source_first_selected_slice_canonical_sha256",
@@ -353,7 +458,6 @@ SUMMARY_EXPECTED_V2 = {
             "source_first_producer_semantic_sha256",
             "rearmed_producer_semantic_sha256",
             "position_shape_producer_semantic_sha256",
-            "monthly_revenue_history_blob_sha256",
             "monthly_revenue_canonical_table_sha256",
             "cross_market_resolution_registry_canonical_sha256",
             "source_first_selected_slice_canonical_sha256",
@@ -389,6 +493,14 @@ SUMMARY_EXPECTED_V2 = {
             "combined_exclusion_candidate_count",
         )
     },
+}
+EXPECTED_MONTHLY_REVENUE_BLOB_PROVENANCE = {
+    SUMMARY_EXPECTED_V1["artifact_version"]: EXPECTED_DECISION_V1[
+        "monthly_revenue_history_blob_sha256"
+    ],
+    SUMMARY_EXPECTED_V2["artifact_version"]: EXPECTED_DECISION_V2[
+        "monthly_revenue_history_blob_sha256"
+    ],
 }
 
 EXPECTED_MIGRATION = {
@@ -443,6 +555,51 @@ EXPECTED_MIGRATION = {
     "presentation_allowed": "False",
     "production_change": "False",
 }
+EXPECTED_MIGRATION_V1_TO_V2 = EXPECTED_MIGRATION
+EXPECTED_MIGRATION_V2_TO_V3 = {
+    **EXPECTED_MIGRATION_V1_TO_V2,
+    "migration_id": "revenue_unreacted_range_promotion_preparation_v2_to_v3_contract_stage_gate_20260828",
+    "from_decision_id": EXPECTED_DECISION_V2["decision_id"],
+    "to_decision_id": EXPECTED_DECISION_V3["decision_id"],
+    "from_source_artifact_version": EXPECTED_DECISION_V2["source_artifact_version"],
+    "to_source_artifact_version": EXPECTED_DECISION_V3["source_artifact_version"],
+    "from_source_revision": TRUSTED_V2_SOURCE_REVISION,
+    "to_source_revision": TRUSTED_V2_SOURCE_REVISION,
+    "from_summary_blob_sha1": "a3343c5fcf163eda469ee2423d32e6372da14b91",
+    "from_summary_bytes": "54494",
+    "from_summary_sha256": "1268f4bfe825a30ea876cc9eac20800d21802d1fbd212b91ab4829f70752e281",
+    "from_detail_blob_sha1": "656ad7ac399bb93090bb478733c9c0baa1ed6f64",
+    "from_detail_bytes": "1012187",
+    "from_detail_sha256": "0d272c9263b60816cace92f8ed790a1b376cad7952c7ad13a689961cd45920ad",
+    "source_projection_diff_summary_path": "",
+    "source_projection_diff_summary_sha256": "",
+    "source_projection_diff_detail_path": "",
+    "source_projection_diff_detail_sha256": "",
+    "source_projection_supersede_evidence_path": "",
+    "source_projection_supersede_evidence_sha256": "",
+    "v1_operation_count": "53",
+    "v2_operation_count": "53",
+    "exact_common_operation_key_count": "53",
+    "raw_added_operation_key_count": "0",
+    "raw_removed_operation_key_count": "0",
+    "episode_identity_rekey_count": "0",
+    "semantic_persistent_trajectory_count": "53",
+    "true_added_operation_count": "0",
+    "true_removed_operation_count": "0",
+    "common_business_field_change_count": "0",
+    "v1_anomaly_registry_path": "config/revenue_unreacted_range_anomaly_disposition_registry_v2_20260828.csv",
+    "v1_anomaly_registry_sha256": "172687dc6cd63ef1c65c4b4a15229e30c411647a8d81b0c483d96684d1348491",
+    "v1_anomaly_count": "9",
+    "v2_anomaly_registry_path": "config/revenue_unreacted_range_anomaly_disposition_registry_v2_20260828.csv",
+    "v2_anomaly_registry_sha256": "172687dc6cd63ef1c65c4b4a15229e30c411647a8d81b0c483d96684d1348491",
+    "v2_anomaly_count": "9",
+    "authorization_reference": "user_authorized_3A_3C_20260828",
+    "migration_scope": "contract_stage_gate_only_no_source_or_business_semantic_change_no_production_daily_full_pdf_or_apps_script",
+}
+EXPECTED_MIGRATIONS = (
+    EXPECTED_MIGRATION_V1_TO_V2,
+    EXPECTED_MIGRATION_V2_TO_V3,
+)
 MIGRATION_COLUMNS = tuple(EXPECTED_MIGRATION)
 
 
@@ -633,8 +790,8 @@ def validate_decision(path: Path) -> tuple[dict[str, str] | None, list[str]]:
         errors.append("promotion preparation registry columns must match the exact contract")
     if len(rows) != len(EXPECTED_DECISIONS):
         errors.append(
-            "promotion preparation registry must preserve the exact v1 prefix and append "
-            f"exactly one v2 row; actual={len(rows)}"
+            "promotion preparation registry must preserve the exact v1/v2 prefix and append "
+            f"exactly one v3 staged-contract row; actual={len(rows)}"
         )
         return None, errors
     for version, (row, expected_row) in enumerate(
@@ -784,20 +941,23 @@ def validate_migration(path: Path) -> tuple[dict[str, str] | None, list[str]]:
     columns, rows, errors = _read_csv(path)
     if columns and tuple(columns) != MIGRATION_COLUMNS:
         errors.append("promotion preparation migration ledger columns must match the exact contract")
-    if len(rows) != 1:
+    if len(rows) != len(EXPECTED_MIGRATIONS):
         errors.append(
-            "promotion preparation migration ledger must contain exactly one append-only row; "
+            "promotion preparation migration ledger must preserve the exact v1-to-v2 prefix "
+            "and append exactly one v2-to-v3 contract-stage row; "
             f"actual={len(rows)}"
         )
         return None, errors
-    row = rows[0]
-    for column, expected in EXPECTED_MIGRATION.items():
-        if row.get(column, "") != expected:
-            errors.append(
-                f"promotion preparation migration {column} mismatch: "
-                f"expected={expected!r}; actual={row.get(column, '')!r}"
-            )
-    return row, errors
+    for version, (row, expected_row) in enumerate(
+        zip(rows, EXPECTED_MIGRATIONS, strict=True), start=1
+    ):
+        for column, expected in expected_row.items():
+            if row.get(column, "") != expected:
+                errors.append(
+                    f"promotion preparation migration {column} mismatch in row {version}: "
+                    f"expected={expected!r}; actual={row.get(column, '')!r}"
+                )
+    return rows[0], errors
 
 
 def _migration_git_blob(treeish: str, repo_path: str) -> tuple[bytes | None, str | None]:
@@ -928,6 +1088,7 @@ def validate_summary(
     payload: bytes | None = None,
     label: str | None = None,
     expected_summary: dict[str, str] = SUMMARY_EXPECTED_V1,
+    diagnostics: list[str] | None = None,
 ) -> tuple[dict[str, str] | None, list[str]]:
     _columns, rows, errors = _read_csv(path, payload=payload, label=label)
     selected = [row for row in rows if _summary_matches(row, expected_summary)]
@@ -940,6 +1101,22 @@ def validate_summary(
             errors.append(
                 f"source summary {column} mismatch: expected={expected!r}; actual={row.get(column, '')!r}"
             )
+    raw_blob_sha = row.get("monthly_revenue_history_blob_sha256", "").strip().lower()
+    expected_raw_blob_sha = EXPECTED_MONTHLY_REVENUE_BLOB_PROVENANCE.get(
+        expected_summary["artifact_version"], ""
+    )
+    if not SHA256_RE.fullmatch(raw_blob_sha):
+        if diagnostics is not None:
+            diagnostics.append(
+                "source summary monthly_revenue_history_blob_sha256 is missing or invalid; "
+                "raw mutable blob identity is provenance-only"
+            )
+    elif raw_blob_sha != expected_raw_blob_sha and diagnostics is not None:
+        diagnostics.append(
+            "source summary monthly_revenue_history_blob_sha256 differs from the captured "
+            "provenance value; canonical semantic hashes and row identities remain the "
+            "promotion-blocking lineage"
+        )
     return row, errors
 
 
@@ -1210,6 +1387,485 @@ def validate_v1_v2_reconciliation(
     return errors
 
 
+def _nonnegative_int(
+    row: dict[str, str],
+    column: str,
+    *,
+    label: str,
+    errors: list[str],
+) -> int | None:
+    try:
+        value = int(row.get(column, ""))
+    except (TypeError, ValueError):
+        errors.append(f"{label} {column} must be an integer")
+        return None
+    if value < 0:
+        errors.append(f"{label} {column} must be non-negative")
+        return None
+    return value
+
+
+def _run_canonical_validator(
+    label: str,
+    command: Sequence[str],
+) -> list[str]:
+    """Run one repository-owned validator without a shell or fallback path."""
+
+    try:
+        result = subprocess.run(
+            list(command),
+            cwd=ROOT,
+            check=False,
+            capture_output=True,
+            text=True,
+        )
+    except OSError as exc:
+        return [f"{label} could not start: {exc}"]
+    if result.returncode == 0:
+        return []
+    output = "\n".join(
+        part.strip() for part in (result.stdout, result.stderr) if part.strip()
+    )
+    if len(output) > 4000:
+        output = output[-4000:]
+    return [
+        f"{label} failed with exit code {result.returncode}"
+        + (f": {output}" if output else "")
+    ]
+
+
+def _validate_forward_holdout_v2_evidence(
+    *,
+    evidence_paths: Mapping[str, Path] | None,
+    price_input_directory: Path | None,
+    history_base_ref: str | None,
+) -> list[str]:
+    """Delegate the promotion evidence decision to the independent v2 replay validator."""
+
+    paths = dict(DEFAULT_FORWARD_HOLDOUT_V2_EVIDENCE_PATHS)
+    if evidence_paths is not None:
+        unknown = sorted(set(evidence_paths) - set(paths))
+        if unknown:
+            return [f"forward holdout v2 evidence contains unsupported paths: {unknown}"]
+        paths.update({name: Path(path) for name, path in evidence_paths.items()})
+    errors: list[str] = []
+    if not FORWARD_HOLDOUT_V2_VALIDATOR.is_file():
+        errors.append(
+            "promotion-candidate canonical forward holdout v2 validator is missing: "
+            f"{FORWARD_HOLDOUT_V2_VALIDATOR}"
+        )
+    for name, path in paths.items():
+        if not path.is_file():
+            errors.append(
+                "promotion-candidate forward holdout v2 evidence is missing: "
+                f"{name}={path}"
+            )
+    if price_input_directory is None:
+        errors.append(
+            "promotion-candidate forward holdout v2 requires an explicit "
+            "price_input_directory for independent replay"
+        )
+    elif not Path(price_input_directory).is_dir():
+        errors.append(
+            "promotion-candidate forward holdout v2 price_input_directory is missing: "
+            f"{price_input_directory}"
+        )
+    normalized_base_ref = (history_base_ref or "").strip().lower()
+    if not re.fullmatch(r"[0-9a-f]{40}", normalized_base_ref):
+        errors.append(
+            "promotion-candidate forward holdout v2 history_base_ref must be an "
+            "immutable 40-character Git commit"
+        )
+    if errors:
+        return errors
+
+    command = [
+        sys.executable,
+        str(FORWARD_HOLDOUT_V2_VALIDATOR),
+        "--manifest",
+        str(paths["manifest"]),
+        "--detail",
+        str(paths["detail"]),
+        "--summary",
+        str(paths["summary"]),
+        "--comparison",
+        str(paths["comparison"]),
+        "--anomaly",
+        str(paths["anomaly"]),
+        "--manifest-history",
+        str(paths["manifest_history"]),
+        "--detail-history",
+        str(paths["detail_history"]),
+        "--summary-history",
+        str(paths["summary_history"]),
+        "--comparison-history",
+        str(paths["comparison_history"]),
+        "--anomaly-history",
+        str(paths["anomaly_history"]),
+        "--source-manifest",
+        str(paths["source_manifest"]),
+        "--source-detail",
+        str(paths["source_detail"]),
+        "--price-input-directory",
+        str(price_input_directory),
+        "--history-base-ref",
+        normalized_base_ref,
+    ]
+    return _run_canonical_validator(
+        "promotion-candidate canonical forward holdout v2 validation",
+        command,
+    )
+
+
+def _validate_formal_readiness_row(
+    operation_readiness_path: Path,
+) -> tuple[dict[str, str] | None, list[str]]:
+    errors: list[str] = []
+    if Path(operation_readiness_path).resolve() != DEFAULT_OPERATION_READINESS.resolve():
+        errors.append(
+            "production-pdf readiness must use the canonical model_operation_readiness_latest.csv"
+        )
+        return None, errors
+    columns, readiness_rows, read_errors = _read_csv(Path(operation_readiness_path))
+    errors.extend(
+        f"production-pdf formal readiness hard gate: {error}" for error in read_errors
+    )
+    missing_columns = sorted(FORMAL_ADAPTER_READINESS_COLUMNS - set(columns))
+    if columns and missing_columns:
+        errors.append(
+            "production-pdf readiness schema is incomplete; missing="
+            f"{missing_columns}"
+        )
+    matching = [
+        row for row in readiness_rows if row.get("model_id") == "revenue_unreacted_range"
+    ]
+    if len(matching) != 1:
+        if readiness_rows or not read_errors:
+            errors.append(
+                "production-pdf formal readiness hard gate requires exactly one "
+                f"revenue_unreacted_range row; actual={len(matching)}"
+            )
+        return None, errors
+    readiness = matching[0]
+    for column in (
+        "formal_model_use_allowed",
+        "approved_for_daily",
+        "presentation_allowed",
+        "production_allowed",
+    ):
+        if not _is_true(readiness.get(column, "")):
+            errors.append(f"production-pdf readiness requires {column}=True")
+    exact_values = {
+        "operation_module_id": FORMAL_ADAPTER_MODULE_ID,
+        "operation_module_path": FORMAL_ADAPTER_MODULE.relative_to(ROOT).as_posix(),
+        "adapter_artifact_id": FORMAL_ADAPTER_ARTIFACT_ID,
+        "adapter_artifact_path": FORMAL_ADAPTER_ARTIFACT.relative_to(ROOT).as_posix(),
+        "adapter_schema_version": FORMAL_ADAPTER_SCHEMA_VERSION,
+        "lifecycle_contract_version": FORMAL_ADAPTER_LIFECYCLE_VERSION,
+        "operation_directive_level": "approved_daily_operation_guidance",
+        "pdf_integration_status": "pdf_integrated_daily_adapter",
+    }
+    for column, expected in exact_values.items():
+        if readiness.get(column, "") != expected:
+            errors.append(
+                f"production-pdf readiness {column} mismatch: "
+                f"expected={expected!r}; actual={readiness.get(column, '')!r}"
+            )
+    for column, prefix in (
+        ("approval_status", "approved_for_daily_"),
+        ("operation_module_status", "approved_operation_"),
+    ):
+        if not readiness.get(column, "").startswith(prefix):
+            errors.append(
+                f"production-pdf readiness {column} must start with {prefix!r}"
+            )
+    if readiness.get("daily_adapter_status", "") not in {
+        "ready_approved_operation_guidance",
+        "ready_empty_no_operation_rows",
+    }:
+        errors.append(
+            "production-pdf readiness daily_adapter_status must be an exact ready state"
+        )
+    for column in ("approval_version", "adapter_artifact_version"):
+        value = readiness.get(column, "").strip()
+        if not value or any(
+            token in value.lower()
+            for token in ("disabled", "pending", "research", "preparation")
+        ):
+            errors.append(
+                f"production-pdf readiness {column} must identify a formal approved version"
+            )
+    for column in (
+        "operation_module_canonical_sha256",
+        "adapter_artifact_canonical_sha256",
+    ):
+        if not SHA256_RE.fullmatch(readiness.get(column, "").strip().lower()):
+            errors.append(f"production-pdf readiness {column} must be canonical SHA-256")
+    section_tokens = [
+        token.strip()
+        for token in readiness.get("daily_adapter_sections", "").split(",")
+        if token.strip()
+    ]
+    if len(section_tokens) != len(set(section_tokens)) or set(section_tokens) != (
+        FORMAL_ADAPTER_REQUIRED_SECTIONS
+    ):
+        errors.append(
+            "production-pdf readiness daily_adapter_sections must contain exactly "
+            f"{sorted(FORMAL_ADAPTER_REQUIRED_SECTIONS)}"
+        )
+    return readiness, errors
+
+
+def _validate_formal_adapter_and_consumers(
+    readiness: Mapping[str, str],
+    *,
+    history_base_ref: str | None,
+) -> list[str]:
+    errors: list[str] = []
+    normalized_base_ref = (history_base_ref or "").strip().lower()
+    if not re.fullmatch(r"[0-9a-f]{40}", normalized_base_ref):
+        errors.append(
+            "production-pdf formal adapter history_base_ref must be an immutable "
+            "40-character Git commit"
+        )
+    for label, path, kind in (
+        ("formal operation module", FORMAL_ADAPTER_MODULE, "file"),
+        ("formal adapter validator", FORMAL_ADAPTER_VALIDATOR, "file"),
+        ("formal adapter artifact", FORMAL_ADAPTER_ARTIFACT, "file"),
+        ("formal adapter history", FORMAL_ADAPTER_HISTORY_DIRECTORY, "directory"),
+        ("model readiness validator", MODEL_OPERATION_READINESS_VALIDATOR, "file"),
+        (
+            "revenue PDF consumer validator",
+            FORMAL_ADAPTER_PDF_CONSUMER_VALIDATOR,
+            "file",
+        ),
+        ("PDF consumer validator", DAILY_PDF_CONSUMER_VALIDATOR, "file"),
+    ):
+        exists = path.is_dir() if kind == "directory" else path.is_file()
+        if not exists:
+            errors.append(f"production-pdf canonical {label} is missing: {path}")
+    if errors:
+        return errors
+    commands = (
+        (
+            "production-pdf canonical revenue formal adapter validation",
+            [
+                sys.executable,
+                str(FORMAL_ADAPTER_VALIDATOR),
+                "--phase",
+                "production-approval",
+                "--module",
+                str(FORMAL_ADAPTER_MODULE),
+                "--artifact",
+                str(FORMAL_ADAPTER_ARTIFACT),
+                "--history-directory",
+                str(FORMAL_ADAPTER_HISTORY_DIRECTORY),
+                "--history-base-ref",
+                normalized_base_ref,
+                "--expected-artifact-version",
+                readiness.get("adapter_artifact_version", ""),
+                "--expected-artifact-canonical-sha256",
+                readiness.get("adapter_artifact_canonical_sha256", ""),
+                "--expected-module-canonical-sha256",
+                readiness.get("operation_module_canonical_sha256", ""),
+            ],
+        ),
+        (
+            "production-pdf canonical model operation readiness validation",
+            [sys.executable, str(MODEL_OPERATION_READINESS_VALIDATOR)],
+        ),
+        (
+            "production-pdf model-owned revenue PDF consumer contract validation",
+            [
+                sys.executable,
+                str(FORMAL_ADAPTER_PDF_CONSUMER_VALIDATOR),
+                "--phase",
+                "production-approval",
+                "--adapter-artifact",
+                str(FORMAL_ADAPTER_ARTIFACT),
+                "--operation-readiness",
+                str(DEFAULT_OPERATION_READINESS),
+            ],
+        ),
+        (
+            "production-pdf canonical PDF consumer contract validation",
+            [sys.executable, str(DAILY_PDF_CONSUMER_VALIDATOR), "--phase", "full"],
+        ),
+    )
+    for label, command in commands:
+        errors.extend(_run_canonical_validator(label, command))
+    return errors
+
+
+def validate_phase_gates(
+    phase: str,
+    decision_row: dict[str, str] | None,
+    anomaly_rows: dict[str, dict[str, str]],
+    *,
+    source_contract_verified: bool = False,
+    forward_holdout_manifest_path: Path = DEFAULT_FORWARD_HOLDOUT_V2_MANIFEST,
+    forward_holdout_evidence_paths: Mapping[str, Path] | None = None,
+    forward_holdout_price_input_directory: Path | None = None,
+    forward_holdout_history_base_ref: str | None = None,
+    operation_readiness_path: Path = DEFAULT_OPERATION_READINESS,
+    formal_adapter_history_base_ref: str | None = None,
+) -> list[str]:
+    """Apply only the gates belonging to the requested promotion phase.
+
+    This validator is read-only.  Selecting ``production-pdf`` verifies static
+    approval/readiness contracts; it does not run production, Daily Full, a PDF
+    renderer, or Apps Script.
+    """
+
+    if phase not in VALIDATION_PHASES:
+        return [f"unsupported promotion validation phase: {phase}"]
+    if decision_row is None:
+        return [f"{phase} phase cannot run without a valid latest decision row"]
+    errors: list[str] = []
+    if not source_contract_verified:
+        errors.append(
+            f"{phase} phase requires the trusted v2 PIT/lineage source contract; "
+            "run with --source-audit v2 or --source-audit all"
+        )
+        return errors
+    if phase == "research-only":
+        return errors
+
+    unresolved = sorted(
+        key
+        for key, row in anomaly_rows.items()
+        if row.get("final_disposition") == "unresolved_anomaly_candidate"
+    )
+    if unresolved:
+        errors.append(
+            "promotion-candidate anomaly disposition hard gate is not mature: "
+            f"unresolved={len(unresolved)}; operation_keys={unresolved}"
+        )
+    disposition_blockers = sorted(
+        key
+        for key, row in anomaly_rows.items()
+        if row.get("promotion_gate_status")
+        != "eligible_only_after_all_other_model_gates"
+    )
+    if disposition_blockers:
+        errors.append(
+            "promotion-candidate anomaly disposition policies remain blocking: "
+            f"operation_keys={disposition_blockers}"
+        )
+
+    effective_evidence_paths = dict(forward_holdout_evidence_paths or {})
+    effective_evidence_paths["manifest"] = Path(forward_holdout_manifest_path)
+    errors.extend(
+        _validate_forward_holdout_v2_evidence(
+            evidence_paths=effective_evidence_paths,
+            price_input_directory=forward_holdout_price_input_directory,
+            history_base_ref=forward_holdout_history_base_ref,
+        )
+    )
+    _columns, holdout_rows, holdout_errors = _read_csv(
+        Path(forward_holdout_manifest_path)
+    )
+    errors.extend(
+        f"promotion-candidate forward holdout hard gate: {error}"
+        for error in holdout_errors
+    )
+    if len(holdout_rows) != 1:
+        if not holdout_errors:
+            errors.append(
+                "promotion-candidate forward holdout hard gate requires exactly one "
+                f"manifest row; actual={len(holdout_rows)}"
+            )
+    else:
+        row = holdout_rows[0]
+        expected = {
+            "model_id": "revenue_unreacted_range",
+            "artifact_id": "revenue_unreacted_range_forward_holdout_v2",
+            "artifact_version": "forward_holdout_v2_20260828",
+            "artifact_row_key": "manifest",
+            "holdout_start_date": "20260831",
+            "append_only_history": "True",
+            "research_only": "True",
+            "formal_model_use_allowed": "False",
+            "approved_for_daily": "False",
+            "presentation_allowed": "False",
+            "production_change": "False",
+        }
+        for column, expected_value in expected.items():
+            if row.get(column, "") != expected_value:
+                errors.append(
+                    "promotion-candidate forward holdout hard gate contract drift: "
+                    f"{column}; expected={expected_value!r}; actual={row.get(column, '')!r}"
+                )
+        mature = _nonnegative_int(
+            row,
+            "primary_mature_count",
+            label="forward holdout manifest",
+            errors=errors,
+        )
+        _nonnegative_int(
+            row,
+            "primary_right_censored_count",
+            label="forward holdout manifest",
+            errors=errors,
+        )
+        _nonnegative_int(
+            row,
+            "holdout_event_count",
+            label="forward holdout manifest",
+            errors=errors,
+        )
+        _nonnegative_int(
+            row,
+            "mature_event_count",
+            label="forward holdout manifest",
+            errors=errors,
+        )
+        _nonnegative_int(
+            row,
+            "bridge_excluded_signal_count",
+            label="forward holdout manifest",
+            errors=errors,
+        )
+        minimum = int(decision_row["forward_holdout_first_interpretation_min_mature"])
+        if mature is not None and mature < minimum:
+            errors.append(
+                "promotion-candidate forward holdout maturity hard gate is not met: "
+                f"primary_mature_count={mature}; required={minimum}"
+            )
+
+    if phase == "production-pdf":
+        for column in (
+            "formal_model_use_allowed",
+            "approved_for_daily",
+            "presentation_allowed",
+            "production_change",
+        ):
+            if not _is_true(decision_row.get(column, "")):
+                errors.append(
+                    f"production-pdf phase requires latest decision {column}=True"
+                )
+        if "disabled_adapter_preparation" in decision_row.get("formal_adapter_gate", ""):
+            errors.append(
+                "production-pdf phase requires a later append-only formal adapter approval; "
+                "disabled adapter preparation is non-hard only before production approval"
+            )
+        if errors:
+            return errors
+        readiness, readiness_errors = _validate_formal_readiness_row(
+            Path(operation_readiness_path)
+        )
+        errors.extend(readiness_errors)
+        if readiness is None or errors:
+            return errors
+        errors.extend(
+            _validate_formal_adapter_and_consumers(
+                readiness,
+                history_base_ref=formal_adapter_history_base_ref,
+            )
+        )
+    return errors
+
+
 def validate(
     *,
     decision_path: Path = DEFAULT_DECISION,
@@ -1222,9 +1878,17 @@ def validate(
     source_audit: str | None = None,
     historical_v1_source_audit: bool = False,
     historical_v2_source_audit: bool = False,
+    phase: str | None = None,
+    forward_holdout_manifest_path: Path = DEFAULT_FORWARD_HOLDOUT_V2_MANIFEST,
+    forward_holdout_evidence_paths: Mapping[str, Path] | None = None,
+    forward_holdout_price_input_directory: Path | None = None,
+    forward_holdout_history_base_ref: str | None = None,
+    operation_readiness_path: Path = DEFAULT_OPERATION_READINESS,
+    formal_adapter_history_base_ref: str | None = None,
+    diagnostics: list[str] | None = None,
 ) -> list[str]:
     errors: list[str] = []
-    _decision, decision_errors = validate_decision(decision_path)
+    decision_row, decision_errors = validate_decision(decision_path)
     anomaly_rows, anomaly_errors = validate_anomalies(
         anomaly_path,
         expected_anomalies=EXPECTED_ANOMALIES_V1,
@@ -1240,7 +1904,6 @@ def validate(
     errors.extend(anomaly_errors)
     errors.extend(anomaly_v2_errors)
     errors.extend(migration_errors)
-
     explicit_summary = Path(summary_path) if summary_path is not None else None
     explicit_detail = Path(detail_path) if detail_path is not None else None
     explicit_source_requested = (
@@ -1306,6 +1969,7 @@ def validate(
                     DEFAULT_SUMMARY,
                     payload=trusted_summary,
                     label=f"{source_label}:{contracts[DEFAULT_SUMMARY]['path']}",
+                    diagnostics=diagnostics,
                 )
                 selected, detail_errors = validate_detail(
                     DEFAULT_DETAIL,
@@ -1319,6 +1983,7 @@ def validate(
                     payload=trusted_summary,
                     label=f"{source_label}:{contracts[DEFAULT_SUMMARY]['path']}",
                     expected_summary=SUMMARY_EXPECTED_V2,
+                    diagnostics=diagnostics,
                 )
                 selected, detail_errors = validate_detail(
                     DEFAULT_DETAIL,
@@ -1356,6 +2021,7 @@ def validate(
         else:
             _summary, summary_errors = validate_summary(
                 source_summary_path,
+                diagnostics=diagnostics,
             )
             _detail, detail_errors = validate_detail(
                 source_detail_path,
@@ -1363,6 +2029,23 @@ def validate(
             )
             errors.extend(summary_errors)
             errors.extend(detail_errors)
+    if phase is not None:
+        errors.extend(
+            validate_phase_gates(
+                phase,
+                decision_row,
+                anomaly_v2_rows,
+                source_contract_verified=normalized_audit in {"v2", "all"},
+                forward_holdout_manifest_path=forward_holdout_manifest_path,
+                forward_holdout_evidence_paths=forward_holdout_evidence_paths,
+                forward_holdout_price_input_directory=(
+                    forward_holdout_price_input_directory
+                ),
+                forward_holdout_history_base_ref=forward_holdout_history_base_ref,
+                operation_readiness_path=operation_readiness_path,
+                formal_adapter_history_base_ref=formal_adapter_history_base_ref,
+            )
+        )
     return errors
 
 
@@ -1374,6 +2057,47 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--anomaly-registry", type=Path, default=DEFAULT_ANOMALIES)
     parser.add_argument("--anomaly-registry-v2", type=Path, default=DEFAULT_ANOMALIES_V2)
     parser.add_argument("--migration-ledger", type=Path, default=DEFAULT_MIGRATIONS)
+    parser.add_argument(
+        "--phase",
+        choices=VALIDATION_PHASES,
+        default="research-only",
+        help=(
+            "Validate only the requested staged gate. production-pdf is static/read-only "
+            "and never invokes production, Daily Full, PDF rendering, or Apps Script."
+        ),
+    )
+    parser.add_argument(
+        "--forward-holdout-manifest",
+        type=Path,
+        default=DEFAULT_FORWARD_HOLDOUT_V2_MANIFEST,
+    )
+    for evidence_name, default_path in DEFAULT_FORWARD_HOLDOUT_V2_EVIDENCE_PATHS.items():
+        if evidence_name == "manifest":
+            continue
+        parser.add_argument(
+            f"--forward-holdout-{evidence_name.replace('_', '-')}",
+            dest=f"forward_holdout_{evidence_name}",
+            type=Path,
+            default=default_path,
+        )
+    parser.add_argument(
+        "--forward-holdout-price-input-directory",
+        type=Path,
+        help="Explicit normalized price bundle used by the independent v2 replay validator.",
+    )
+    parser.add_argument(
+        "--forward-holdout-history-base-ref",
+        help="Immutable 40-character Git commit for append-only forward-holdout history.",
+    )
+    parser.add_argument(
+        "--operation-readiness",
+        type=Path,
+        default=DEFAULT_OPERATION_READINESS,
+    )
+    parser.add_argument(
+        "--formal-adapter-history-base-ref",
+        help="Immutable 40-character Git commit for formal adapter lifecycle history.",
+    )
     parser.add_argument("--summary", type=Path)
     parser.add_argument("--detail", type=Path)
     parser.add_argument(
@@ -1386,7 +2110,7 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help=(
             "Explicitly replay the frozen v1 source artifacts from their trusted "
-            "Git revision. Ordinary validation remains registry/anomaly-only."
+            "Git revision. A staged research/promotion gate still requires v2 or all."
         ),
     )
     parser.add_argument(
@@ -1404,6 +2128,12 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> int:
     args = parse_args()
+    diagnostics: list[str] = []
+    forward_holdout_evidence_paths = {
+        evidence_name: getattr(args, f"forward_holdout_{evidence_name}")
+        for evidence_name in DEFAULT_FORWARD_HOLDOUT_V2_EVIDENCE_PATHS
+        if evidence_name != "manifest"
+    }
     errors = validate(
         decision_path=args.decision,
         anomaly_path=args.anomaly_registry,
@@ -1415,7 +2145,19 @@ def main() -> int:
         source_audit=args.source_audit,
         historical_v1_source_audit=args.historical_v1_source_audit,
         historical_v2_source_audit=args.historical_v2_source_audit,
+        phase=args.phase,
+        forward_holdout_manifest_path=args.forward_holdout_manifest,
+        forward_holdout_evidence_paths=forward_holdout_evidence_paths,
+        forward_holdout_price_input_directory=(
+            args.forward_holdout_price_input_directory
+        ),
+        forward_holdout_history_base_ref=args.forward_holdout_history_base_ref,
+        operation_readiness_path=args.operation_readiness,
+        formal_adapter_history_base_ref=args.formal_adapter_history_base_ref,
+        diagnostics=diagnostics,
     )
+    for diagnostic in diagnostics:
+        print(f"DIAGNOSTIC: {diagnostic}")
     if errors:
         for error in errors:
             print(f"ERROR: {error}")
@@ -1432,7 +2174,8 @@ def main() -> int:
         source_state = "registry/anomaly governance-only validation"
     print(
         "PASS: revenue_unreacted_range promotion preparation independently validated; "
-        f"{source_state}; formal flags remain false; anomaly worklists=v1:8,v2:9"
+        f"phase={args.phase}; {source_state}; staged formal-state contract matched; "
+        "anomaly worklists=v1:8,v2:9"
     )
     return 0
 
