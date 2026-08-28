@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-08-27 22:31:35 Asia/Taipei",
+  "generated_at": "2026-08-28 20:55:58 Asia/Taipei",
   "files": {
     "company_event_calendar": {
       "path": "data/company_calendar/company_event_calendar.csv",
-      "rows": 4750
+      "rows": 4772
     },
     "macro_event_calendar": {
       "path": "data/macro_events/macro_event_calendar.csv",
@@ -11,7 +11,7 @@
     },
     "upcoming_catalyst_calendar": {
       "path": "output/latest/upcoming_catalyst_calendar_latest.csv",
-      "rows": 838
+      "rows": 847
     },
     "upcoming_macro_event_calendar": {
       "path": "output/latest/upcoming_macro_event_calendar_latest.csv",
@@ -22,10 +22,10 @@
     "twse_ex_right_ex_dividend": {
       "url": "https://www.twse.com.tw/rwd/zh/exRight/TWT48U?response=json",
       "status": "ok",
-      "rows": 107,
+      "rows": 99,
       "error": "",
       "http_status": 200,
-      "live_rows": 107,
+      "live_rows": 99,
       "consecutive_live_failures": 0,
       "calendar_effect_allowed": true
     },
@@ -40,7 +40,7 @@
     "monthly_revenue_expected_window": {
       "url": "https://mops.twse.com.tw/mops/web/t05st10_ifrs",
       "status": "rule_based_expected_window",
-      "rows": 420,
+      "rows": 396,
       "note": "Expected monthly revenue publication window generated for tracked stocks; not a confirmed company catalyst."
     },
     "federal_reserve_fomc": {
@@ -67,11 +67,11 @@
     },
     "bls_employment_release_schedule": {
       "url": "https://www.bls.gov/schedule/news_release/empsit.htm",
-      "status": "ok",
-      "rows": 4,
+      "status": "reachable_not_parsed",
+      "rows": 0,
       "error": "",
       "http_status": 200,
-      "note": "Parsed 4 release rows from the official BLS schedule table."
+      "note": "Employment Situation release schedule was reachable, but no stable release-date rows were parsed."
     },
     "mops_shareholder_meeting_calendar": {
       "url": "https://mops.twse.com.tw/mops/web/t108sb31new",
