@@ -39,6 +39,9 @@ FORBIDDEN_RESEARCH_RUN_PATTERNS = {
     "formal W-bottom operation adapter": r"python\s+scripts/build_daily_w_bottom_operation_sections\.py",
     "formal 23EMA operation adapter": r"python\s+scripts/build_daily_price_pullback_23ema_operation_section\.py",
     "formal model readiness producer": r"python\s+scripts/build_model_operation_readiness\.py",
+    "model-owned formal revenue readiness producer": (
+        r"python\s+scripts/sync_revenue_unreacted_range_operation_readiness\.py"
+    ),
     "formal daily snapshot publisher": r"python\s+scripts/update_daily_published_model_snapshots\.py",
 }
 

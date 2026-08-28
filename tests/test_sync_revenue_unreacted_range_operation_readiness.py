@@ -11,7 +11,6 @@ import pytest
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
-import build_model_operation_readiness as readiness_builder  # noqa: E402
 import sync_revenue_unreacted_range_operation_readiness as syncer  # noqa: E402
 
 
@@ -308,10 +307,30 @@ def test_current_canonical_sources_build_exact_disabled_revenue_row() -> None:
         ROOT / syncer.FORWARD_HOLDOUT_V2_MANIFEST_REL,
         dtype=str,
     ).fillna("")
-    summary = readiness_builder.summarize_revenue_promotion_readiness(
+    detail = pd.read_csv(
+        ROOT / syncer.FORWARD_HOLDOUT_V2_DETAIL_REL,
+        dtype=str,
+    ).fillna("")
+    holdout_summary = pd.read_csv(
+        ROOT / syncer.FORWARD_HOLDOUT_V2_SUMMARY_REL,
+        dtype=str,
+    ).fillna("")
+    replay_source = pd.read_csv(
+        ROOT / syncer.FORWARD_HOLDOUT_V2_REPLAY_SOURCE_REL,
+        dtype=str,
+    ).fillna("")
+    source_projection_manifest = pd.read_csv(
+        ROOT / syncer.SOURCE_PROJECTION_MANIFEST_REL,
+        dtype=str,
+    ).fillna("")
+    summary = syncer.summarize_revenue_promotion_readiness(
         promotion,
         anomalies,
         holdout,
+        holdout_detail=detail,
+        holdout_summary=holdout_summary,
+        replay_source=replay_source,
+        source_projection_manifest=source_projection_manifest,
     )
 
     readiness = syncer.build_revenue_only_readiness(
@@ -329,3 +348,73 @@ def test_current_canonical_sources_build_exact_disabled_revenue_row() -> None:
     assert revenue["approved_for_daily"] == "False"
     assert revenue["presentation_allowed"] == "False"
     assert revenue["production_allowed"] == "False"
+
+
+def test_import_does_not_load_legacy_cross_model_builder() -> None:
+    result = subprocess.run(
+        [
+            sys.executable,
+            "-B",
+            "-c",
+            (
+                "import sys; sys.path.insert(0, 'scripts'); "
+                "import sync_revenue_unreacted_range_operation_readiness; "
+                "assert 'build_model_operation_readiness' not in sys.modules"
+            ),
+        ],
+        cwd=ROOT,
+        check=False,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    assert result.returncode == 0, result.stderr
+
+
+def test_full_v2_gate_rejects_bad_rule_canonical_sha() -> None:
+    promotion = pd.read_csv(ROOT / syncer.PROMOTION_REGISTRY_REL, dtype=str).fillna("")
+    anomalies = pd.read_csv(ROOT / syncer.ANOMALY_REGISTRY_REL, dtype=str).fillna("")
+    holdout = pd.read_csv(
+        ROOT / syncer.FORWARD_HOLDOUT_V2_MANIFEST_REL, dtype=str
+    ).fillna("")
+    holdout.loc[0, "rule_canonical_sha256"] = "0" * 64
+    with pytest.raises(RuntimeError, match="rule_canonical_sha256 drift"):
+        syncer.summarize_revenue_promotion_readiness(
+            promotion,
+            anomalies,
+            holdout,
+            holdout_detail=pd.read_csv(
+                ROOT / syncer.FORWARD_HOLDOUT_V2_DETAIL_REL, dtype=str
+            ).fillna(""),
+            holdout_summary=pd.read_csv(
+                ROOT / syncer.FORWARD_HOLDOUT_V2_SUMMARY_REL, dtype=str
+            ).fillna(""),
+            replay_source=pd.read_csv(
+                ROOT / syncer.FORWARD_HOLDOUT_V2_REPLAY_SOURCE_REL, dtype=str
+            ).fillna(""),
+            source_projection_manifest=pd.read_csv(
+                ROOT / syncer.SOURCE_PROJECTION_MANIFEST_REL, dtype=str
+            ).fillna(""),
+        )
+
+
+def test_markdown_status_table_must_match_canonical_csv_non_revenue_cells() -> None:
+    readiness = syncer.build_revenue_only_readiness(
+        legacy_readiness(),
+        revenue_summary(),
+        generated_at="new-time",
+    )
+    markdown = syncer.render_markdown(readiness, generated_at="new-time")
+    syncer.validate_markdown_status_table_matches_csv(
+        markdown,
+        readiness,
+        source_name="memory.md",
+    )
+    drifted = readiness.copy()
+    drifted.loc[drifted["model_id"].eq("other_model"), "blocker"] = "drifted"
+    with pytest.raises(RuntimeError, match="disagrees with canonical CSV"):
+        syncer.validate_markdown_status_table_matches_csv(
+            markdown,
+            drifted,
+            source_name="memory.md",
+        )

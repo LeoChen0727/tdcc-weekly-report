@@ -137,33 +137,10 @@ def revenue_anomaly_registry_frame() -> pd.DataFrame:
 
 
 def revenue_forward_holdout_v2_manifest_frame() -> pd.DataFrame:
-    return pd.DataFrame(
-        [
-            {
-                "model_id": REVENUE_MODEL_ID,
-                "artifact_id": "revenue_unreacted_range_forward_holdout_v2",
-                "artifact_version": "forward_holdout_v2_20260828",
-                "artifact_row_key": "manifest",
-                "holdout_start_date": "20260831",
-                "observed_through_date": "20260827",
-                "primary_mature_count": "0",
-                "holdout_status": "preregistered_waiting_for_start",
-                "append_only_history": "True",
-                "research_only": "True",
-                "formal_model_use_allowed": "False",
-                "approved_for_daily": "False",
-                "presentation_allowed": "False",
-                "promotion_evidence_allowed": "False",
-                "ranking_consumption_allowed": "False",
-                "pdf_consumption_allowed": "False",
-                "production_change": "False",
-                "financial_statement_scope": (
-                    "monthly_revenue_only;EPS_gross_margin_operating_margin_operating_income_"
-                    "non_operating_income_net_income_excluded"
-                ),
-            }
-        ]
-    )
+    return pd.read_csv(
+        ROOT / readiness_builder.REVENUE_FORWARD_HOLDOUT_V2_MANIFEST_CSV,
+        dtype=str,
+    ).fillna("")
 # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 
 

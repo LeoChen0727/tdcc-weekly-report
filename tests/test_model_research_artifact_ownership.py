@@ -66,7 +66,8 @@ def test_readiness_owner_closure_and_exact_migration_are_canonical() -> None:
         (rule.artifact_glob, rule.artifact_class)
         for rule in rules
         if rule.owner_model_id == "model_governance"
-        and rule.producer == "scripts/build_model_operation_readiness.py"
+        and rule.producer
+        == "scripts/sync_revenue_unreacted_range_operation_readiness.py"
         and rule.change_policy == "formal_sync_only"
         and rule.formal_evidence_status == "formal_evidence_pinned"
     }
