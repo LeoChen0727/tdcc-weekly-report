@@ -261,6 +261,238 @@ def test_paths_select_only_their_declared_domains(
     assert set(scope.domains_for_path(path)) == expected
 
 
+@pytest.mark.parametrize("path", sorted(scope.REVENUE_CONTENT_SCOPED_PATHS))
+def test_marked_revenue_only_change_in_shared_readiness_file_selects_revenue_only(
+    path: str,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    base = "def build(value):\n    return value\n"
+    merge = (
+        "def build(value):\n"
+        f"    {scope.MODEL_OWNED_SCOPE_BEGIN}\n"
+        "    revenue_unreacted_range_value = value\n"
+        f"    {scope.MODEL_OWNED_SCOPE_END}\n"
+        "    return value\n"
+    )
+    monkeypatch.setattr(
+        scope,
+        "_read_git_text",
+        lambda revision, _path: base if revision == "base" else merge,
+    )
+
+    assert scope.domains_for_changed_path(
+        path,
+        base_sha="base",
+        merge_sha="merge",
+    ) == frozenset({scope.RESEARCH_SAFETY_LITE, scope.REVENUE_RESEARCH})
+
+
+def test_unmarked_shared_readiness_semantic_change_keeps_broad_scope(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    path = "scripts/build_model_operation_readiness.py"
+    base = "def build(value):\n    return value\n"
+    merge = "def build(value):\n    return value + 1\n"
+    monkeypatch.setattr(
+        scope,
+        "_read_git_text",
+        lambda revision, _path: base if revision == "base" else merge,
+    )
+
+    assert not scope.is_revenue_owned_content_change(
+        path,
+        base_sha="base",
+        merge_sha="merge",
+    )
+    assert scope.domains_for_changed_path(
+        path,
+        base_sha="base",
+        merge_sha="merge",
+    ) == scope.domains_for_path(path)
+
+
+def test_revenue_scope_marker_cannot_swallow_existing_shared_code(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    path = "scripts/validate_model_operation_readiness.py"
+    base = "shared_contract = 1\ndef validate(value):\n    return value\n"
+    merge = (
+        f"{scope.MODEL_OWNED_SCOPE_BEGIN}\n"
+        "shared_contract = 1\n"
+        "revenue_unreacted_range_contract = 2\n"
+        f"{scope.MODEL_OWNED_SCOPE_END}\n"
+        "def validate(value):\n    return value\n"
+    )
+    monkeypatch.setattr(
+        scope,
+        "_read_git_text",
+        lambda revision, _path: base if revision == "base" else merge,
+    )
+
+    assert not scope.is_revenue_owned_content_change(
+        path,
+        base_sha="base",
+        merge_sha="merge",
+    )
+    assert scope.domains_for_changed_path(
+        path,
+        base_sha="base",
+        merge_sha="merge",
+    ) == scope.domains_for_path(path)
+
+
+def test_revenue_scope_marker_must_be_balanced(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    path = "tests/test_model_operation_readiness.py"
+    base = "def test_existing():\n    assert True\n"
+    merge = (
+        "def test_existing():\n"
+        "    assert True\n"
+        f"{scope.MODEL_OWNED_SCOPE_BEGIN}\n"
+        "def test_revenue_unreacted_range():\n    assert True\n"
+    )
+    monkeypatch.setattr(
+        scope,
+        "_read_git_text",
+        lambda revision, _path: base if revision == "base" else merge,
+    )
+
+    assert not scope.is_revenue_owned_content_change(
+        path,
+        base_sha="base",
+        merge_sha="merge",
+    )
+    assert scope.domains_for_changed_path(
+        path,
+        base_sha="base",
+        merge_sha="merge",
+    ) == scope.domains_for_path(path)
+
+
+def test_revenue_scope_marker_inside_string_is_not_treated_as_ownership(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    path = "scripts/build_model_operation_readiness.py"
+    base = "def build(value):\n    return value\n"
+    merge = (
+        "ownership_text = '''\n"
+        f"{scope.MODEL_OWNED_SCOPE_BEGIN}\n"
+        "revenue_unreacted_range_contract = 2\n"
+        f"{scope.MODEL_OWNED_SCOPE_END}\n"
+        "'''\n"
+        "def build(value):\n    return value\n"
+    )
+    monkeypatch.setattr(
+        scope,
+        "_read_git_text",
+        lambda revision, _path: base if revision == "base" else merge,
+    )
+
+    assert scope.domains_for_changed_path(
+        path,
+        base_sha="base",
+        merge_sha="merge",
+    ) == scope.domains_for_path(path)
+
+
+def test_revenue_content_scope_missing_blob_falls_back_to_broad_scope(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    path = "scripts/build_model_operation_readiness.py"
+
+    def fail_read(_revision: str, _path: str) -> str:
+        raise scope.ScopeDetectionError("missing blob")
+
+    monkeypatch.setattr(scope, "_read_git_text", fail_read)
+
+    assert scope.domains_for_changed_path(
+        path,
+        base_sha="base",
+        merge_sha="merge",
+    ) == scope.domains_for_path(path)
+
+
+def test_revenue_content_scope_crlf_rewrite_outside_markers_falls_back_broad(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    path = "scripts/validate_model_operation_readiness.py"
+    base = "shared_contract = 1\ndef validate(value):\n    return value\n"
+    merge = (
+        f"{scope.MODEL_OWNED_SCOPE_BEGIN}\r\n"
+        "revenue_unreacted_range_contract = 2\r\n"
+        f"{scope.MODEL_OWNED_SCOPE_END}\r\n"
+        "shared_contract = 1\r\n"
+        "def validate(value):\r\n    return value\r\n"
+    )
+    monkeypatch.setattr(
+        scope,
+        "_read_git_text",
+        lambda revision, _path: base if revision == "base" else merge,
+    )
+
+    assert scope.domains_for_changed_path(
+        path,
+        base_sha="base",
+        merge_sha="merge",
+    ) == scope.domains_for_path(path)
+
+
+def test_existing_revenue_owned_block_can_evolve_without_broad_scope(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    path = "tests/test_model_operation_readiness.py"
+    base = (
+        f"{scope.MODEL_OWNED_SCOPE_BEGIN}\n"
+        "revenue_unreacted_range_contract = 1\n"
+        f"{scope.MODEL_OWNED_SCOPE_END}\n"
+        "def test_shared():\n    assert True\n"
+    )
+    merge = base.replace("contract = 1", "contract = 2")
+    monkeypatch.setattr(
+        scope,
+        "_read_git_text",
+        lambda revision, _path: base if revision == "base" else merge,
+    )
+
+    assert scope.domains_for_changed_path(
+        path,
+        base_sha="base",
+        merge_sha="merge",
+    ) == frozenset({scope.RESEARCH_SAFETY_LITE, scope.REVENUE_RESEARCH})
+
+
+def test_pull_request_marked_readiness_changes_select_revenue_without_core_or_shared(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    paths = sorted(scope.REVENUE_CONTENT_SCOPED_PATHS)
+    base = "def existing(value):\n    return value\n"
+    merge = (
+        f"{scope.MODEL_OWNED_SCOPE_BEGIN}\n"
+        "def revenue_unreacted_range_owned(value):\n    return value\n"
+        f"{scope.MODEL_OWNED_SCOPE_END}\n"
+        "def existing(value):\n    return value\n"
+    )
+    monkeypatch.setattr(scope, "changed_paths_from_git", lambda *_args: paths)
+    monkeypatch.setattr(
+        scope,
+        "_read_git_text",
+        lambda revision, _path: base if revision == "base" else merge,
+    )
+
+    result = scope.detect_scope(
+        event_name="pull_request",
+        base_sha="base",
+        head_sha="head",
+        merge_sha="merge",
+    )
+
+    assert result.selected_domains == (
+        scope.RESEARCH_SAFETY_LITE,
+        scope.REVENUE_RESEARCH,
+    )
+
+
 def test_all_tracked_legacy_validator_inputs_route_repo_current() -> None:
     unclassified = [
         path

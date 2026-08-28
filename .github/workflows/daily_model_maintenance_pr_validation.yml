@@ -371,6 +371,10 @@ jobs:
           python scripts/validate_revenue_unreacted_range_promotion_preparation.py --source-audit all
           python scripts/validate_revenue_unreacted_range_financial_statement_fail_closed.py
 
+      - name: Run revenue operation readiness regression tests
+        run: |
+          python -m pytest tests/test_model_operation_readiness.py -k revenue_readiness
+
       - name: Run revenue research regression tests
         run: |
           python -m pytest \
