@@ -1,0 +1,14 @@
+{
+  "reservation_base_sha": "93efa5ced334b5edf71fb1ea2301290b8c68c2ba",
+  "resume_baseline_run_id": 33167036793,
+  "resume_dispatch_started_at": "2026-08-28T12:44:44Z",
+  "resume_expected_display_title": "Daily Full Pipeline | recovery=daily-source-20260828",
+  "resume_workflow_path": ".github/workflows/daily_full_pipeline.yml",
+  "schema_version": "daily_source_recovery_dispatch_reservation_v1",
+  "source_bundle_commit_sha": "93efa5ced334b5edf71fb1ea2301290b8c68c2ba",
+  "source_bundle_manifest_path": "output/history/daily_source_bundles/20260828/daily-source-20260828-33171350388-1/manifest.json",
+  "source_bundle_manifest_sha256": "6ffcec49f88b98978832738099339dcbb1acc05a8a749a9861263fe60c43d64a",
+  "source_bundle_release_id": "daily-source-20260828-33171350388-1",
+  "source_bundle_sha": "54a51c35f35831d1b27de3cd1ce92fd235e7bf6d167907bd5141db6d8088d788",
+  "trading_date": "20260828"
+}
