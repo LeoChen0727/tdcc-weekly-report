@@ -38,11 +38,13 @@ def _validate_no_runtime_writer(module_path: Path) -> list[str]:
         "_date",
         "_fixed_metadata",
         "_require_exact_columns",
+        "_stock_id",
         "_text",
         "any",
         "build_disabled_empty_rows",
         "enumerate",
         "frozenset",
+        "isinstance",
         "len",
         "set",
         "sorted",
@@ -74,6 +76,7 @@ def _validate_no_runtime_writer(module_path: Path) -> list[str]:
         "_date",
         "_fixed_metadata",
         "_require_exact_columns",
+        "_stock_id",
         "_text",
         "build_disabled_empty_rows",
         "validate_disabled_adapter_rows",
@@ -94,6 +97,11 @@ def _validate_no_runtime_writer(module_path: Path) -> list[str]:
         "open",
         "setattr",
         "vars",
+    }
+    forbidden_attribute_access = {
+        "__builtins__",
+        "__dict__",
+        "__globals__",
     }
     definitions: dict[str, int] = {}
     for node in ast.walk(tree):
@@ -156,6 +164,12 @@ def _validate_no_runtime_writer(module_path: Path) -> list[str]:
                     "disabled adapter loads a forbidden side-effect capability: "
                     f"{node.id}"
                 )
+        elif isinstance(node, ast.Attribute):
+            if node.attr in forbidden_attribute_access:
+                errors.append(
+                    "disabled adapter accesses a forbidden introspection attribute: "
+                    f"{node.attr}"
+                )
         elif isinstance(node, (ast.Global, ast.Nonlocal)):
             rebound = sorted(set(node.names) & protected_bindings)
             if rebound:
@@ -204,6 +218,124 @@ def _validate_no_runtime_writer(module_path: Path) -> list[str]:
     return sorted(set(errors))
 
 
+def _lifecycle_event(
+    module: object,
+    operation_key: str,
+    state: str,
+    event_date: str,
+    *,
+    stock_id: object = "2408",
+    prior_confirmed_operation_key: str = "",
+    entry_date: str = "",
+    exit_date: str = "",
+) -> dict[str, object]:
+    return {
+        "model_id": module.MODEL_ID,
+        "model_variant_id": module.MODEL_VARIANT_ID,
+        "operation_key": operation_key,
+        "report_line": "mainstream",
+        "stock_id": stock_id,
+        "event_date": event_date,
+        "lifecycle_state": state,
+        "prior_confirmed_operation_key": prior_confirmed_operation_key,
+        "entry_date": entry_date,
+        "exit_date": exit_date,
+    }
+
+
+def _validate_lifecycle_rejection_fixtures(module: object) -> list[str]:
+    errors: list[str] = []
+    valid = [
+        _lifecycle_event(module, "op-1", "pending_confirmation", "20260803"),
+        _lifecycle_event(module, "op-1", "confirmed_operation", "20260804"),
+        _lifecycle_event(
+            module,
+            "op-1",
+            "active_operation",
+            "20260805",
+            prior_confirmed_operation_key="op-1",
+            entry_date="20260805",
+        ),
+        _lifecycle_event(
+            module,
+            "op-1",
+            "exited_operation",
+            "20260915",
+            exit_date="20260915",
+        ),
+    ]
+    try:
+        module.validate_lifecycle_events(valid)
+    except Exception as exc:
+        errors.append(f"disabled adapter rejects the canonical lifecycle fixture: {exc}")
+
+    invalid_fixtures = {
+        "active_without_selected_confirmation": [valid[2]],
+        "unranked_confirmation_became_active": [
+            _lifecycle_event(module, "op-2", "pending_confirmation", "20260803"),
+            _lifecycle_event(
+                module, "op-2", "confirmed_unranked_operation", "20260804"
+            ),
+            _lifecycle_event(
+                module,
+                "op-2",
+                "active_operation",
+                "20260805",
+                prior_confirmed_operation_key="op-2",
+                entry_date="20260805",
+            ),
+        ],
+        "same_stock_overlap": valid[:-1]
+        + [
+            _lifecycle_event(module, "op-2", "pending_confirmation", "20260806"),
+            _lifecycle_event(module, "op-2", "confirmed_operation", "20260807"),
+        ],
+        "revival_after_exit": valid
+        + [
+            _lifecycle_event(
+                module,
+                "op-1",
+                "active_operation",
+                "20260916",
+                prior_confirmed_operation_key="op-1",
+                entry_date="20260916",
+            )
+        ],
+        "numeric_stock_id_alias": valid[:-1]
+        + [
+            _lifecycle_event(
+                module,
+                "op-2",
+                "pending_confirmation",
+                "20260806",
+                stock_id=2408.0,
+            ),
+            _lifecycle_event(
+                module,
+                "op-2",
+                "confirmed_operation",
+                "20260807",
+                stock_id=2408.0,
+            ),
+        ],
+    }
+    for fixture_name, events in invalid_fixtures.items():
+        try:
+            module.validate_lifecycle_events(events)
+        except module.AdapterContractError:
+            continue
+        except Exception as exc:
+            errors.append(
+                f"disabled adapter lifecycle fixture {fixture_name} raised an "
+                f"unexpected error: {exc}"
+            )
+        else:
+            errors.append(
+                f"disabled adapter accepted invalid lifecycle fixture: {fixture_name}"
+            )
+    return errors
+
+
 def validate_disabled_preparation(module_path: Path) -> list[str]:
     errors: list[str] = []
     if not module_path.is_file():
@@ -217,6 +349,7 @@ def validate_disabled_preparation(module_path: Path) -> list[str]:
     except Exception as exc:  # fail closed at the validator boundary
         errors.append(f"disabled adapter in-memory contract failed: {exc}")
         return errors
+    errors.extend(_validate_lifecycle_rejection_fixtures(module))
 
     expected = {
         "MODEL_ID": "revenue_unreacted_range",

@@ -158,6 +158,19 @@ def _text(value: Any) -> str:
     return "" if value is None else str(value).strip()
 
 
+def _stock_id(value: Any, label: str) -> str:
+    if not isinstance(value, str):
+        raise AdapterContractError(
+            f"{label} must be a canonical four-digit string"
+        )
+    normalized = value.strip()
+    if normalized != value or len(normalized) != 4 or not normalized.isdigit():
+        raise AdapterContractError(
+            f"{label} must be a canonical four-digit string"
+        )
+    return normalized
+
+
 def _date(value: Any, label: str) -> str:
     text = _text(value)
     if len(text) != 8 or not text.isdigit():
@@ -335,7 +348,7 @@ def validate_lifecycle_events(events: Sequence[Mapping[str, Any]]) -> None:
         if _text(raw.get("model_variant_id")) != MODEL_VARIANT_ID:
             raise AdapterContractError(f"{label} model_variant_id scope drift")
         operation_key = _text(raw.get("operation_key"))
-        stock_id = _text(raw.get("stock_id"))
+        stock_id = _stock_id(raw.get("stock_id"), f"{label}.stock_id")
         report_line = _text(raw.get("report_line"))
         state = _text(raw.get("lifecycle_state"))
         if not operation_key or not stock_id:

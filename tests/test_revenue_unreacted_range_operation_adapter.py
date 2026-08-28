@@ -245,6 +245,19 @@ def test_lifecycle_rejects_same_stock_overlap() -> None:
         adapter.validate_lifecycle_events(events)
 
 
+@pytest.mark.parametrize("stock_id", [2408.0, "2408.0", " 2408 "])
+def test_lifecycle_rejects_noncanonical_stock_id_alias(stock_id: object) -> None:
+    events = _valid_completed_events("op-1")[:-1]
+    events.extend(
+        [
+            _event("op-2", "pending_confirmation", "20260806", stock_id=stock_id),
+            _event("op-2", "confirmed_operation", "20260807", stock_id=stock_id),
+        ]
+    )
+    with pytest.raises(adapter.AdapterContractError, match="canonical four-digit string"):
+        adapter.validate_lifecycle_events(events)
+
+
 def test_lifecycle_rejects_second_selected_confirmation_before_first_exit() -> None:
     events = [
         _event("op-1", "pending_confirmation", "20260803"),
@@ -390,6 +403,14 @@ def test_lifecycle_requires_strictly_increasing_transition_dates(
             "def _side_effect():\n"
             "    return None"
         ),
+        (
+            "_text.__globals__['validate_lifecycle_events'] = "
+            "lambda events: None"
+        ),
+        (
+            "_text.__globals__['__builtins__']['any'] = "
+            "lambda values: False"
+        ),
     ],
 )
 def test_validator_accepts_disabled_preparation_and_rejects_side_effect_calls(
@@ -415,9 +436,20 @@ def test_validator_accepts_disabled_preparation_and_rejects_side_effect_calls(
             "fail-closed allowlist",
             "forbidden side-effect capability",
             "rebind or delete a protected symbol",
+            "forbidden introspection attribute",
         )
     )
     assert not side_effect.exists()
+
+
+def test_external_validator_runs_independent_lifecycle_negative_fixtures(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(adapter, "validate_lifecycle_events", lambda events: None)
+
+    errors = validator._validate_lifecycle_rejection_fixtures(adapter)
+
+    assert any("accepted invalid lifecycle fixture" in error for error in errors)
 
 
 @pytest.mark.parametrize(
