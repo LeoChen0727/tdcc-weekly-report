@@ -25,11 +25,21 @@ from build_model_operation_readiness import (  # noqa: E402
     PRICE_PULLBACK_MODEL_ID,
     PRICE_PULLBACK_OPERATION_MODULE_ID,
     PRICE_PULLBACK_SPEC_SOURCE,
+    # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
+    REVENUE_ANOMALY_REGISTRY_CSV,
+    REVENUE_FORWARD_HOLDOUT_V2_MANIFEST_CSV,
+    REVENUE_MODEL_ID,
+    REVENUE_PROMOTION_REGISTRY_CSV,
+    # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
     V2_HIGH_MODEL_ID,
     V2_LOW_MODEL_ID,
     V2_MID_MODEL_ID,
     V2_VOLUME_MODEL_IDS,
     W_BOTTOM_MODEL_ID,
+    # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
+    summarize_revenue_promotion_readiness,
+    validate_revenue_readiness_source_files,
+    # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 )
 from tracking_utils import read_csv  # noqa: E402
 
@@ -61,10 +71,69 @@ APPROVED_MODEL_IDS = {
 }
 LEGACY_VOLUME_MODEL_ID = "volume_range_breakout"
 PENDING_CANDIDATE_MODEL_IDS: set[str] = set()
+# BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
+PENDING_CANDIDATE_MODEL_IDS.add(REVENUE_MODEL_ID)
+# END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 
 
 def as_bool_text(series: pd.Series) -> pd.Series:
     return series.astype(str).str.strip().str.lower()
+# BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
+
+
+def validate_revenue_readiness_row(
+    readiness: pd.DataFrame,
+    promotion_registry: pd.DataFrame,
+    anomaly_registry: pd.DataFrame,
+    forward_holdout_v2_manifest: pd.DataFrame,
+) -> list[str]:
+    errors: list[str] = []
+    rows = readiness[readiness["model_id"].astype(str).eq(REVENUE_MODEL_ID)]
+    if len(rows) != 1:
+        return [f"readiness must contain exactly one {REVENUE_MODEL_ID} row"]
+    try:
+        expected = summarize_revenue_promotion_readiness(
+            promotion_registry,
+            anomaly_registry,
+            forward_holdout_v2_manifest,
+        )
+    except RuntimeError as exc:
+        return [f"{REVENUE_MODEL_ID} readiness source contract invalid: {exc}"]
+
+    row = rows.iloc[0]
+    compared_fields = {
+        "parity_status",
+        "blocker",
+        "operation_module_status",
+        "daily_adapter_status",
+        "approved_for_daily",
+        "approval_status",
+        "operation_module_id",
+        "approval_version",
+        "presentation_allowed",
+        "operation_directive_level",
+        "pdf_integration_status",
+        "packet_integration_status",
+        "registry_pattern_count",
+        "registry_current_model_pattern_count",
+        "registry_best_pattern_id",
+        "registry_best_sample_size",
+        "registry_best_win_rate",
+        "registry_best_median_return",
+        "daily_adapter_row_count",
+        "daily_adapter_data_row_count",
+        "daily_adapter_sections",
+        "status_note_zh",
+    }
+    for field_name in sorted(compared_fields):
+        actual = str(row.get(field_name, ""))
+        wanted = str(expected[field_name])
+        if actual != wanted:
+            errors.append(
+                f"{REVENUE_MODEL_ID} readiness {field_name} must be {wanted!r}, got {actual!r}"
+            )
+    return errors
+# END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 
 
 def validate_files() -> list[str]:
@@ -77,6 +146,17 @@ def validate_files() -> list[str]:
             errors.append(f"missing approved daily operation adapter artifact: {path}")
     if not PRICE_PULLBACK_DAILY_ROW_PARITY_CSV.exists():
         errors.append(f"missing price pullback daily row parity audit: {PRICE_PULLBACK_DAILY_ROW_PARITY_CSV}")
+    # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
+    for path in [
+        REVENUE_PROMOTION_REGISTRY_CSV,
+        REVENUE_ANOMALY_REGISTRY_CSV,
+        REVENUE_FORWARD_HOLDOUT_V2_MANIFEST_CSV,
+    ]:
+        if not path.exists():
+            errors.append(f"missing revenue model readiness source: {path}")
+    if REVENUE_PROMOTION_REGISTRY_CSV.exists() and REVENUE_ANOMALY_REGISTRY_CSV.exists():
+        errors.extend(validate_revenue_readiness_source_files())
+    # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
     if OUT_CSV.exists() and DOCS_CSV.exists():
         if OUT_CSV.read_text(encoding="utf-8") != DOCS_CSV.read_text(encoding="utf-8"):
             errors.append("docs/latest CSV copy does not match output/latest readiness CSV")
@@ -263,6 +343,17 @@ def validate_readiness_csv() -> list[str]:
             errors.append("price pullback approved sample size is weaker than the v1 gate")
         if float(row.get("registry_best_win_rate", 0) or 0) < 60.0:
             errors.append("price pullback approved win rate is weaker than the v1 gate")
+    # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
+
+    errors.extend(
+        validate_revenue_readiness_row(
+            df,
+            read_csv(REVENUE_PROMOTION_REGISTRY_CSV, dtype=str).fillna(""),
+            read_csv(REVENUE_ANOMALY_REGISTRY_CSV, dtype=str).fillna(""),
+            read_csv(REVENUE_FORWARD_HOLDOUT_V2_MANIFEST_CSV, dtype=str).fillna(""),
+        )
+    )
+    # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 
     others = df[~df["model_id"].astype(str).isin(APPROVED_MODEL_IDS | PENDING_CANDIDATE_MODEL_IDS)]
     if not others.empty:
