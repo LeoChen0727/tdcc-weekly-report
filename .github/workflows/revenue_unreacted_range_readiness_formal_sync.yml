@@ -24,6 +24,7 @@ concurrency:
 env:
   READINESS_SYNC_CONTRACT_VERSION: revenue_readiness_sync_3a_v1_20260828
   READINESS_SYNC_TARGET_BRANCH: codex/revenue-unreacted-range-readiness-formal-sync-3a-v1-20260828
+  READINESS_SYNC_SPEC_PATH: docs/specs/revenue_unreacted_range_readiness_formal_sync_v1.md
 
 jobs:
   prepare-bundle:
@@ -46,6 +47,7 @@ jobs:
         run: |
           set -euo pipefail
           [ "$GITHUB_REF" = refs/heads/main ]
+          [ -f "$READINESS_SYNC_SPEC_PATH" ]
           [[ "$EXPECTED_MAIN_SHA" =~ ^[0-9a-f]{40}$ ]]
           [ "$TARGET_BRANCH" = "$READINESS_SYNC_TARGET_BRANCH" ]
           [ "$CONFIRMATION" = sync_revenue_unreacted_range_readiness_v1_20260828 ]
@@ -71,6 +73,7 @@ jobs:
         run: |
           set -euo pipefail
           bundle="$RUNNER_TEMP/readiness-bundle"
+          [ -f "$READINESS_SYNC_SPEC_PATH" ]
           mkdir -p "$bundle/output/latest" "$bundle/docs/latest"
           for path in \
             output/latest/model_operation_readiness_latest.csv \
