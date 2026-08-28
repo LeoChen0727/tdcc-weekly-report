@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from contextlib import contextmanager
+import csv
 import sys
 from pathlib import Path
 from types import SimpleNamespace
@@ -21,8 +22,15 @@ from model_research_artifact_guard import (  # noqa: E402
     protected_sentinel_aggregate_sha256,
     validate_changed_paths,
 )
-from validate_model_research_artifact_ownership import validate  # noqa: E402
+from validate_model_research_artifact_ownership import (  # noqa: E402
+    EXPECTED_READINESS_MIGRATION,
+    EXPECTED_READINESS_RULES,
+    MIGRATION_COLUMNS,
+    validate,
+    validate_ownership_migrations,
+)
 import model_research_artifact_guard as guard_module  # noqa: E402
+import validate_model_research_artifact_ownership as ownership_validator  # noqa: E402
 
 
 REVENUE_PRODUCER = "scripts/build_revenue_unreacted_" + "range_research.py"
@@ -38,6 +46,84 @@ FORBIDDEN_VOLUME_V2_BUILDERS = (
 
 def test_model_research_artifact_ownership_registry_passes() -> None:
     assert validate() == []
+
+
+def _write_ownership_migrations(path: Path, rows: list[dict[str, str]]) -> None:
+    with path.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(
+            handle,
+            fieldnames=MIGRATION_COLUMNS,
+            lineterminator="\n",
+        )
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+def test_readiness_owner_closure_and_exact_migration_are_canonical() -> None:
+    rules = load_ownership_rules()
+    readiness_rules = {
+        (rule.artifact_glob, rule.artifact_class)
+        for rule in rules
+        if rule.owner_model_id == "model_governance"
+        and rule.producer == "scripts/build_model_operation_readiness.py"
+        and rule.change_policy == "formal_sync_only"
+        and rule.formal_evidence_status == "formal_evidence_pinned"
+    }
+    assert readiness_rules == EXPECTED_READINESS_RULES
+    assert validate_ownership_migrations() == []
+
+
+@pytest.mark.parametrize(
+    ("mutation", "message"),
+    (
+        ("blank", "blank fields"),
+        ("duplicate", "duplicate model research ownership migration_id"),
+        ("invalid_date", "invalid effective_date"),
+        ("wrong_approval", "exact user-approved readiness owner closure"),
+    ),
+)
+def test_ownership_migration_rejects_blank_duplicate_date_and_approval_mutations(
+    tmp_path: Path,
+    monkeypatch,
+    mutation: str,
+    message: str,
+) -> None:
+    rows = [dict(EXPECTED_READINESS_MIGRATION)]
+    if mutation == "blank":
+        rows[0]["approval_reference"] = ""
+    elif mutation == "duplicate":
+        rows.append(dict(rows[0]))
+    elif mutation == "invalid_date":
+        rows[0]["effective_date"] = "2026-99-99"
+    elif mutation == "wrong_approval":
+        rows[0]["approval_reference"] = "self_authorized"
+    path = tmp_path / "migrations.csv"
+    _write_ownership_migrations(path, rows)
+    monkeypatch.setattr(ownership_validator, "MIGRATION_REGISTRY", path)
+    assert any(message in error for error in validate_ownership_migrations())
+
+
+def test_ownership_migration_append_only_base_rejects_rewrite(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    current = dict(EXPECTED_READINESS_MIGRATION)
+    path = tmp_path / "migrations.csv"
+    _write_ownership_migrations(path, [current])
+    base = dict(current)
+    base["notes"] = "immutable prior value"
+    base_path = tmp_path / "base.csv"
+    _write_ownership_migrations(base_path, [base])
+    monkeypatch.setattr(ownership_validator, "MIGRATION_REGISTRY", path)
+    monkeypatch.setattr(
+        ownership_validator,
+        "_base_migration_bytes",
+        lambda _base_ref: base_path.read_bytes(),
+    )
+    assert any(
+        "append-only" in error
+        for error in validate_ownership_migrations("base-ref")
+    )
 
 
 def test_revenue_producer_accepts_only_revenue_artifacts() -> None:

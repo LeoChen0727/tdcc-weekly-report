@@ -1,5 +1,10 @@
 from __future__ import annotations
 
+import argparse
+import csv
+import io
+import subprocess
+from datetime import date
 from pathlib import Path
 
 from model_research_artifact_guard import (
@@ -24,9 +29,132 @@ REQUIRED_PROTECTED_CLASSES = {
     "formal_approval",
     "cross_model_aggregate",
 }
+MIGRATION_REGISTRY = ROOT / "config/model_research_artifact_ownership_migrations.csv"
+MIGRATION_COLUMNS = (
+    "migration_id",
+    "effective_date",
+    "artifact_glob",
+    "previous_owner",
+    "new_owner",
+    "change_policy",
+    "approval_reference",
+    "status",
+    "notes",
+)
+EXPECTED_READINESS_MIGRATION = {
+    "migration_id": "revenue_readiness_formal_sync_owner_closure_v1",
+    "effective_date": "2026-08-28",
+    "artifact_glob": (
+        "output/latest/model_operation_readiness_latest.*;"
+        "docs/latest/model_operation_readiness_latest.*"
+    ),
+    "previous_owner": "research_backtest;unregistered_docs_mirror",
+    "new_owner": "model_governance",
+    "change_policy": "formal_sync_only",
+    "approval_reference": "user_authorized_3A_3C_20260828",
+    "status": "validated_user_approved_migration",
+    "notes": (
+        "Research workflows remain forbidden; only trusted-main content-addressed "
+        "formal sync may prepare and publish these four mirrors."
+    ),
+}
+EXPECTED_READINESS_RULES = {
+    (
+        "output/latest/model_operation_readiness_latest.*",
+        "formal_readiness",
+    ),
+    (
+        "docs/latest/model_operation_readiness_latest.*",
+        "formal_readiness_mirror",
+    ),
+}
 
 
-def validate() -> list[str]:
+def _migration_rows(data: bytes) -> tuple[list[dict[str, str]], list[str]]:
+    errors: list[str] = []
+    try:
+        reader = csv.DictReader(io.StringIO(data.decode("utf-8-sig")))
+        if tuple(reader.fieldnames or ()) != MIGRATION_COLUMNS:
+            return [], [
+                "model research ownership migration schema must be exact: "
+                f"expected={list(MIGRATION_COLUMNS)!r}; actual={reader.fieldnames!r}"
+            ]
+        rows = list(reader)
+    except (UnicodeDecodeError, csv.Error) as exc:
+        return [], [f"invalid model research ownership migration CSV: {exc}"]
+    for row_number, row in enumerate(rows, start=2):
+        blank_fields = [field for field in MIGRATION_COLUMNS if not row.get(field, "").strip()]
+        if blank_fields:
+            errors.append(
+                f"model research ownership migration row {row_number} has blank fields: "
+                f"{blank_fields}"
+            )
+        try:
+            date.fromisoformat(row.get("effective_date", ""))
+        except ValueError:
+            errors.append(
+                f"model research ownership migration row {row_number} has invalid effective_date"
+            )
+    ids = [row.get("migration_id", "").strip() for row in rows]
+    duplicates = sorted({migration_id for migration_id in ids if ids.count(migration_id) > 1})
+    if duplicates:
+        errors.append(f"duplicate model research ownership migration_id values: {duplicates}")
+    return rows, errors
+
+
+def _base_migration_bytes(base_ref: str) -> bytes | None:
+    result = subprocess.run(
+        [
+            "git",
+            "--no-replace-objects",
+            "show",
+            f"{base_ref}:config/model_research_artifact_ownership_migrations.csv",
+        ],
+        cwd=ROOT,
+        check=False,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    if result.returncode == 0:
+        return result.stdout
+    error = result.stderr.decode("utf-8", errors="replace")
+    if "exists on disk, but not in" in error or "does not exist in" in error:
+        return None
+    raise RuntimeError(error.strip())
+
+
+def validate_ownership_migrations(base_ref: str | None = None) -> list[str]:
+    try:
+        current_bytes = MIGRATION_REGISTRY.read_bytes()
+    except OSError as exc:
+        return [f"missing model research ownership migration registry: {exc}"]
+    current_rows, errors = _migration_rows(current_bytes)
+    expected_rows = [
+        row for row in current_rows
+        if row.get("migration_id") == EXPECTED_READINESS_MIGRATION["migration_id"]
+    ]
+    if expected_rows != [EXPECTED_READINESS_MIGRATION]:
+        errors.append(
+            "model research ownership migration registry must contain the exact "
+            "user-approved readiness owner closure"
+        )
+    if base_ref:
+        try:
+            base_bytes = _base_migration_bytes(base_ref)
+            if base_bytes is not None:
+                base_rows, base_errors = _migration_rows(base_bytes)
+                errors.extend(f"base {error}" for error in base_errors)
+                if current_rows[: len(base_rows)] != base_rows:
+                    errors.append(
+                        "model research ownership migrations must be append-only relative "
+                        f"to {base_ref}"
+                    )
+        except RuntimeError as exc:
+            errors.append(f"cannot validate ownership migration append-only base: {exc}")
+    return errors
+
+
+def validate(base_ref: str | None = None) -> list[str]:
     errors: list[str] = []
     try:
         rules = load_ownership_rules(DEFAULT_REGISTRY)
@@ -71,6 +199,21 @@ def validate() -> list[str]:
     if missing_protected:
         errors.append(f"missing protected artifact classes: {missing_protected}")
 
+    readiness_rules = {
+        (rule.artifact_glob, rule.artifact_class)
+        for rule in rules
+        if rule.owner_model_id == "model_governance"
+        and rule.producer == "scripts/build_model_operation_readiness.py"
+        and rule.change_policy == "formal_sync_only"
+        and rule.formal_evidence_status == "formal_evidence_pinned"
+    }
+    if readiness_rules != EXPECTED_READINESS_RULES:
+        errors.append(
+            "model operation readiness ownership must close exactly over output/latest "
+            "and docs/latest formal-sync mirrors"
+        )
+    errors.extend(validate_ownership_migrations(base_ref))
+
     legacy_rows = [rule for rule in rules if rule.producer == "scripts/build_daily_model_parameter_research.py"]
     if not legacy_rows or {row.change_policy for row in legacy_rows} != {"cross_model_migration_only"}:
         errors.append("legacy cross-model parameter research outputs must be cross_model_migration_only")
@@ -98,7 +241,10 @@ def validate() -> list[str]:
 
 
 def main() -> int:
-    errors = validate()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--base-ref")
+    args = parser.parse_args()
+    errors = validate(args.base_ref)
     if errors:
         for error in errors:
             print(f"ERROR: {error}")

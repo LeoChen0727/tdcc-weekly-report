@@ -1,0 +1,2 @@
+migration_id,effective_date,artifact_glob,previous_owner,new_owner,change_policy,approval_reference,status,notes
+revenue_readiness_formal_sync_owner_closure_v1,2026-08-28,output/latest/model_operation_readiness_latest.*;docs/latest/model_operation_readiness_latest.*,research_backtest;unregistered_docs_mirror,model_governance,formal_sync_only,user_authorized_3A_3C_20260828,validated_user_approved_migration,Research workflows remain forbidden; only trusted-main content-addressed formal sync may prepare and publish these four mirrors.
