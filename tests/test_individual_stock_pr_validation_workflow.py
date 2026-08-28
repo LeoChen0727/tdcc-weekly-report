@@ -84,6 +84,8 @@ def test_scope_covers_gate_inventories_and_probe_contract_docs() -> None:
         ".github/workflows/individual_stock_pr_validation.yml",
         "config/repo_file_lifecycle_inventory.csv",
         "config/repo_production_inventory.csv",
+        "config/report_artifact_lineage.csv",
+        "config/runtime_file_lineage_contract.csv",
         "docs/individual_stock_lifecycle_probe.md",
         "output/history/individual_stock_reports/2330/report.pdf",
         "scripts/detect_individual_stock_pr_scope.py",
@@ -103,6 +105,87 @@ def test_scope_covers_gate_inventories_and_probe_contract_docs() -> None:
 
     assert all(scope.is_affected_path(path) for path in affected)
     assert not any(scope.is_affected_path(path) for path in unrelated)
+
+
+@pytest.mark.parametrize("path", sorted(scope.SHARED_REGISTRY_KEY_FIELDS))
+def test_shared_registry_revenue_only_row_change_is_not_individual_affected(
+    path: str,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    key_field = scope.SHARED_REGISTRY_KEY_FIELDS[path]
+    base = f"{key_field},owner,purpose\nscripts/revenue.py,research_backtest,old\n"
+    head = f"{key_field},owner,purpose\nscripts/revenue.py,research_backtest,new\n"
+    monkeypatch.setattr(
+        scope,
+        "_read_git_text",
+        lambda revision, _path: base if revision == "base" else head,
+    )
+
+    assert not scope.is_affected_changed_path(
+        path,
+        base_sha="base",
+        head_sha="head",
+    )
+
+
+@pytest.mark.parametrize("path", sorted(scope.SHARED_REGISTRY_KEY_FIELDS))
+def test_shared_registry_individual_row_change_is_affected(
+    path: str,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    key_field = scope.SHARED_REGISTRY_KEY_FIELDS[path]
+    base = f"{key_field},owner,purpose\nscripts/revenue.py,research_backtest,same\n"
+    head = (
+        base
+        + "scripts/build_individual_stock_packet.py,individual_stock,packet\n"
+    )
+    monkeypatch.setattr(
+        scope,
+        "_read_git_text",
+        lambda revision, _path: base if revision == "base" else head,
+    )
+
+    assert scope.is_affected_changed_path(
+        path,
+        base_sha="base",
+        head_sha="head",
+    )
+
+
+def test_shared_registry_unreadable_state_fails_closed(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(
+        scope,
+        "_read_git_text",
+        lambda *_args: (_ for _ in ()).throw(
+            scope.RegistryScopeError("missing blob")
+        ),
+    )
+
+    assert scope.is_affected_changed_path(
+        "config/repo_production_inventory.csv",
+        base_sha="base",
+        head_sha="head",
+    )
+
+
+def test_shared_registry_duplicate_key_fails_closed(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    base = "path,owner,purpose\nscripts/revenue.py,research_backtest,revenue\n"
+    head = base + "scripts/revenue.py,research_backtest,duplicate\n"
+    monkeypatch.setattr(
+        scope,
+        "_read_git_text",
+        lambda revision, _path: base if revision == "base" else head,
+    )
+
+    assert scope.is_affected_changed_path(
+        "config/repo_production_inventory.csv",
+        base_sha="base",
+        head_sha="head",
+    )
 
 
 def test_scope_covers_every_registered_production_artifact_writer() -> None:

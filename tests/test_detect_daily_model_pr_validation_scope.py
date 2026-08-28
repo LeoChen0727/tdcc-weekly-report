@@ -14,17 +14,17 @@ ROOT = Path(__file__).resolve().parents[1]
 WORKFLOW = ROOT / ".github" / "workflows" / "daily_model_maintenance_pr_validation.yml"
 
 LEGACY_GUARD_SCOPE_CASES = (
-    ("output/latest/daily_report_model_registry_latest.csv", {scope.REPO_CURRENT_CONTRACTS}),
+    ("output/latest/daily_report_model_registry_latest.csv", {scope.REPO_CURRENT_CONTRACTS, scope.PRODUCTION_PDF_CONTRACTS}),
     ("output/latest/model_operation_readiness_latest.csv", {scope.REPO_CURRENT_CONTRACTS}),
-    ("output/latest/daily_candidate_model_signals_for_report_latest.csv", {scope.REPO_CURRENT_CONTRACTS}),
-    ("output/latest/daily_candidate_model_signals_latest.csv", {scope.REPO_CURRENT_CONTRACTS}),
-    ("output/latest/approved_operation_patterns_latest.csv", {scope.REPO_CURRENT_CONTRACTS}),
-    ("output/latest/model_contract_parity_latest.csv", {scope.REPO_CURRENT_CONTRACTS}),
-    ("output/latest/daily_w_bottom_right_side_operation_section_latest.csv", {scope.REPO_CURRENT_CONTRACTS}),
-    ("output/latest/daily_price_pullback_23ema_operation_section_latest.csv", {scope.REPO_CURRENT_CONTRACTS}),
-    ("output/latest/chatgpt_daily_report_packet_latest.txt", {scope.REPO_CURRENT_CONTRACTS}),
-    ("output/latest/CHATGPT_DAILY_REPORT_PACKET.txt", {scope.REPO_CURRENT_CONTRACTS}),
-    ("docs/latest/chatgpt_daily_report_packet_latest.txt", {scope.REPO_CURRENT_CONTRACTS}),
+    ("output/latest/daily_candidate_model_signals_for_report_latest.csv", {scope.REPO_CURRENT_CONTRACTS, scope.PRODUCTION_PDF_CONTRACTS}),
+    ("output/latest/daily_candidate_model_signals_latest.csv", {scope.REPO_CURRENT_CONTRACTS, scope.PRODUCTION_PDF_CONTRACTS}),
+    ("output/latest/approved_operation_patterns_latest.csv", {scope.REPO_CURRENT_CONTRACTS, scope.PRODUCTION_PDF_CONTRACTS}),
+    ("output/latest/model_contract_parity_latest.csv", {scope.REPO_CURRENT_CONTRACTS, scope.PRODUCTION_PDF_CONTRACTS}),
+    ("output/latest/daily_w_bottom_right_side_operation_section_latest.csv", {scope.REPO_CURRENT_CONTRACTS, scope.PRODUCTION_PDF_CONTRACTS}),
+    ("output/latest/daily_price_pullback_23ema_operation_section_latest.csv", {scope.REPO_CURRENT_CONTRACTS, scope.PRODUCTION_PDF_CONTRACTS}),
+    ("output/latest/chatgpt_daily_report_packet_latest.txt", {scope.REPO_CURRENT_CONTRACTS, scope.PRODUCTION_PDF_CONTRACTS}),
+    ("output/latest/CHATGPT_DAILY_REPORT_PACKET.txt", {scope.REPO_CURRENT_CONTRACTS, scope.PRODUCTION_PDF_CONTRACTS}),
+    ("docs/latest/chatgpt_daily_report_packet_latest.txt", {scope.REPO_CURRENT_CONTRACTS, scope.PRODUCTION_PDF_CONTRACTS}),
     ("scripts/build_approved_operation_patterns.py", {scope.REPO_CURRENT_CONTRACTS, scope.RESEARCH_SAFETY_LITE, scope.SHARED_MODEL_RESEARCH}),
     ("scripts/audit_daily_candidate_model_selection_correctness.py", {scope.REPO_CURRENT_CONTRACTS, scope.RESEARCH_SAFETY_LITE, scope.SHARED_MODEL_RESEARCH}),
     ("build_chatgpt_daily_report_packet.py", {scope.REPO_CURRENT_CONTRACTS}),
@@ -127,16 +127,17 @@ def test_every_current_tracked_owned_path_has_a_declared_domain() -> None:
     (
         (
             ".github/workflows/daily_full_pipeline.yml",
-            {scope.REPO_CURRENT_CONTRACTS},
+            {scope.REPO_CURRENT_CONTRACTS, scope.PRODUCTION_PDF_CONTRACTS},
         ),
         (
             ".github/workflows/daily_pdf_replay_pr_validation.yml",
-            {scope.REPO_CURRENT_CONTRACTS},
+            {scope.REPO_CURRENT_CONTRACTS, scope.PRODUCTION_PDF_CONTRACTS},
         ),
         (
             "scripts/build_approved_operation_patterns.py",
             {
                 scope.REPO_CURRENT_CONTRACTS,
+                scope.PRODUCTION_PDF_CONTRACTS,
                 scope.RESEARCH_SAFETY_LITE,
                 scope.SHARED_MODEL_RESEARCH,
             },
@@ -145,13 +146,14 @@ def test_every_current_tracked_owned_path_has_a_declared_domain() -> None:
             "scripts/audit_daily_candidate_model_selection_correctness.py",
             {
                 scope.REPO_CURRENT_CONTRACTS,
+                scope.PRODUCTION_PDF_CONTRACTS,
                 scope.RESEARCH_SAFETY_LITE,
                 scope.SHARED_MODEL_RESEARCH,
             },
         ),
         (
             "build_chatgpt_daily_report_packet.py",
-            {scope.REPO_CURRENT_CONTRACTS},
+            {scope.REPO_CURRENT_CONTRACTS, scope.PRODUCTION_PDF_CONTRACTS},
         ),
         *LEGACY_GUARD_SCOPE_CASES[:11],
         (
@@ -206,6 +208,7 @@ def test_every_current_tracked_owned_path_has_a_declared_domain() -> None:
             "scripts/build_daily_candidate_model_layer.py",
             {
                 scope.REPO_CURRENT_CONTRACTS,
+                scope.PRODUCTION_PDF_CONTRACTS,
                 scope.RESEARCH_SAFETY_LITE,
                 scope.SHARED_MODEL_RESEARCH,
                 scope.VOLUME_V2_RESEARCH,
@@ -216,6 +219,7 @@ def test_every_current_tracked_owned_path_has_a_declared_domain() -> None:
             "config/stock_model_contract_registry.csv",
             {
                 scope.REPO_CURRENT_CONTRACTS,
+                scope.PRODUCTION_PDF_CONTRACTS,
                 scope.RESEARCH_SAFETY_LITE,
                 scope.SHARED_MODEL_RESEARCH,
                 scope.VOLUME_V2_RESEARCH,
@@ -226,6 +230,7 @@ def test_every_current_tracked_owned_path_has_a_declared_domain() -> None:
             "config/formal_model_evidence_pins.csv",
             {
                 scope.REPO_CURRENT_CONTRACTS,
+                scope.PRODUCTION_PDF_CONTRACTS,
                 scope.RESEARCH_SAFETY_LITE,
                 scope.SHARED_MODEL_RESEARCH,
                 scope.VOLUME_V2_RESEARCH,
@@ -248,6 +253,7 @@ def test_every_current_tracked_owned_path_has_a_declared_domain() -> None:
             "output/history/daily_model_snapshots/scope_probe.csv",
             {
                 scope.REPO_CURRENT_CONTRACTS,
+                scope.PRODUCTION_PDF_CONTRACTS,
                 scope.RESEARCH_SAFETY_LITE,
                 scope.SHARED_MODEL_RESEARCH,
                 scope.VOLUME_V2_RESEARCH,
@@ -502,6 +508,100 @@ def test_all_tracked_legacy_validator_inputs_route_repo_current() -> None:
     assert unclassified == []
 
 
+@pytest.mark.parametrize("path", sorted(scope.SHARED_REGISTRY_KEY_FIELDS))
+def test_shared_registry_revenue_only_change_keeps_core_and_revenue_without_production_pdf(
+    path: str,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    key_field = scope.SHARED_REGISTRY_KEY_FIELDS[path]
+    base = f"{key_field},owner,purpose\nscripts/revenue.py,research_backtest,old\n"
+    merge = f"{key_field},owner,purpose\nscripts/revenue.py,research_backtest,revenue_unreacted_range new\n"
+    monkeypatch.setattr(
+        scope,
+        "_read_git_text",
+        lambda revision, _path: base if revision == "base" else merge,
+    )
+
+    assert scope.domains_for_changed_path(
+        path,
+        base_sha="base",
+        merge_sha="merge",
+    ) == frozenset(
+        {
+            scope.REPO_CURRENT_CONTRACTS,
+            scope.RESEARCH_SAFETY_LITE,
+            scope.REVENUE_RESEARCH,
+        }
+    )
+
+
+@pytest.mark.parametrize("path", sorted(scope.SHARED_REGISTRY_KEY_FIELDS))
+def test_shared_registry_daily_production_row_change_selects_production_pdf(
+    path: str,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    key_field = scope.SHARED_REGISTRY_KEY_FIELDS[path]
+    base = f"{key_field},owner,purpose\nscripts/daily.py,daily_production,old\n"
+    merge = f"{key_field},owner,purpose\nscripts/daily.py,daily_production,new\n"
+    monkeypatch.setattr(
+        scope,
+        "_read_git_text",
+        lambda revision, _path: base if revision == "base" else merge,
+    )
+
+    assert scope.domains_for_changed_path(
+        path,
+        base_sha="base",
+        merge_sha="merge",
+    ) == frozenset(
+        {scope.REPO_CURRENT_CONTRACTS, scope.PRODUCTION_PDF_CONTRACTS}
+    )
+
+
+def test_shared_registry_unreadable_state_fails_closed_to_core_production_and_revenue(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(
+        scope,
+        "_read_git_text",
+        lambda *_args: (_ for _ in ()).throw(
+            scope.ScopeDetectionError("missing blob")
+        ),
+    )
+
+    assert scope.domains_for_changed_path(
+        "config/repo_production_inventory.csv",
+        base_sha="base",
+        merge_sha="merge",
+    ) == frozenset(
+        {
+            scope.REPO_CURRENT_CONTRACTS,
+            scope.PRODUCTION_PDF_CONTRACTS,
+            scope.RESEARCH_SAFETY_LITE,
+            scope.REVENUE_RESEARCH,
+        }
+    )
+
+
+def test_shared_registry_crlf_only_rewrite_keeps_core_without_semantic_domains(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    path = "config/repo_production_inventory.csv"
+    base = "path,owner,purpose\nscripts/revenue.py,research_backtest,revenue_unreacted_range\n"
+    merge = base.replace("\n", "\r\n")
+    monkeypatch.setattr(
+        scope,
+        "_read_git_text",
+        lambda revision, _path: base if revision == "base" else merge,
+    )
+
+    assert scope.domains_for_changed_path(
+        path,
+        base_sha="base",
+        merge_sha="merge",
+    ) == frozenset({scope.REPO_CURRENT_CONTRACTS})
+
+
 def test_unrelated_path_is_ignored() -> None:
     assert scope.domains_for_path("docs/unrelated_release_note.md") == frozenset()
 
@@ -636,6 +736,7 @@ def test_pull_request_combines_relevant_domains_only(
     )
     assert result.selected_domains == (
         scope.REPO_CURRENT_CONTRACTS,
+        scope.PRODUCTION_PDF_CONTRACTS,
         scope.RESEARCH_SAFETY_LITE,
         scope.REVENUE_RESEARCH,
     )
@@ -798,7 +899,7 @@ def test_explicit_merge_identity_does_not_require_head(
     ]
 
 
-def test_real_git_diff_detects_the_routine_workflow_as_core_only(
+def test_real_git_diff_detects_the_routine_workflow_as_core_and_production_pdf(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     repo, base_sha, head_sha, merge_sha = init_repo(tmp_path)
@@ -814,7 +915,10 @@ def test_real_git_diff_detects_the_routine_workflow_as_core_only(
     assert result.watched_paths == (
         ".github/workflows/daily_full_pipeline.yml",
     )
-    assert result.selected_domains == (scope.REPO_CURRENT_CONTRACTS,)
+    assert result.selected_domains == (
+        scope.REPO_CURRENT_CONTRACTS,
+        scope.PRODUCTION_PDF_CONTRACTS,
+    )
 
 
 @pytest.mark.parametrize(
@@ -836,6 +940,7 @@ def test_real_git_diff_detects_the_routine_workflow_as_core_only(
             "output/history/daily_model_snapshots/scope_probe.csv",
             {
                 scope.REPO_CURRENT_CONTRACTS,
+                scope.PRODUCTION_PDF_CONTRACTS,
                 scope.RESEARCH_SAFETY_LITE,
                 scope.SHARED_MODEL_RESEARCH,
                 scope.VOLUME_V2_RESEARCH,
@@ -986,7 +1091,10 @@ def test_base_to_synthetic_merge_diff_excludes_base_only_advances(
         ".github/workflows/daily_full_pipeline.yml",
     )
     assert base_only_rel not in result.changed_paths
-    assert result.selected_domains == (scope.REPO_CURRENT_CONTRACTS,)
+    assert result.selected_domains == (
+        scope.REPO_CURRENT_CONTRACTS,
+        scope.PRODUCTION_PDF_CONTRACTS,
+    )
 
 
 def test_github_output_records_each_domain_and_counts(tmp_path: Path) -> None:
@@ -1005,6 +1113,7 @@ def test_github_output_records_each_domain_and_counts(tmp_path: Path) -> None:
 
     assert output.read_text(encoding="utf-8").splitlines() == [
         "repo_current_contracts=true",
+        "production_pdf_contracts=false",
         "research_safety_lite=true",
         "shared_model_research=true",
         "volume_v2_research=false",
