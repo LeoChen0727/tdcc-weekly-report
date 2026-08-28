@@ -411,6 +411,8 @@ def test_lifecycle_requires_strictly_increasing_transition_dates(
             "_text.__globals__['__builtins__']['any'] = "
             "lambda values: False"
         ),
+        "_date.__code__ = (lambda value, label: str(value)).__code__",
+        "SECTION_EMPTY_TEXT_ZH['confirmed_operation'] = '買進'",
     ],
 )
 def test_validator_accepts_disabled_preparation_and_rejects_side_effect_calls(
@@ -437,6 +439,7 @@ def test_validator_accepts_disabled_preparation_and_rejects_side_effect_calls(
             "forbidden side-effect capability",
             "rebind or delete a protected symbol",
             "forbidden introspection attribute",
+            "protected module mapping",
         )
     )
     assert not side_effect.exists()
@@ -450,6 +453,17 @@ def test_external_validator_runs_independent_lifecycle_negative_fixtures(
     errors = validator._validate_lifecycle_rejection_fixtures(adapter)
 
     assert any("accepted invalid lifecycle fixture" in error for error in errors)
+
+
+def test_external_validator_pins_schema_and_empty_state_text(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setitem(adapter.SECTION_EMPTY_TEXT_ZH, "confirmed_operation", "買進")
+    monkeypatch.setattr(validator, "_load_module", lambda module_path: adapter)
+
+    errors = validator.validate_disabled_preparation(validator.DEFAULT_MODULE)
+
+    assert any("SECTION_EMPTY_TEXT_ZH" in error for error in errors)
 
 
 @pytest.mark.parametrize(

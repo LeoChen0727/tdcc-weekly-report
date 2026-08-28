@@ -98,10 +98,9 @@ def _validate_no_runtime_writer(module_path: Path) -> list[str]:
         "setattr",
         "vars",
     }
-    forbidden_attribute_access = {
-        "__builtins__",
-        "__dict__",
-        "__globals__",
+    protected_module_mappings = {
+        "SECTION_EMPTY_TEXT_ZH",
+        "_STATE_RANK",
     }
     definitions: dict[str, int] = {}
     for node in ast.walk(tree):
@@ -165,11 +164,21 @@ def _validate_no_runtime_writer(module_path: Path) -> list[str]:
                     f"{node.id}"
                 )
         elif isinstance(node, ast.Attribute):
-            if node.attr in forbidden_attribute_access:
+            if node.attr.startswith("__") and node.attr.endswith("__"):
                 errors.append(
                     "disabled adapter accesses a forbidden introspection attribute: "
                     f"{node.attr}"
                 )
+        elif isinstance(node, ast.Subscript):
+            if isinstance(node.ctx, (ast.Store, ast.Del)):
+                root = node.value
+                while isinstance(root, ast.Subscript):
+                    root = root.value
+                if isinstance(root, ast.Name) and root.id in protected_module_mappings:
+                    errors.append(
+                        "disabled adapter must not mutate a protected module mapping: "
+                        f"{root.id}"
+                    )
         elif isinstance(node, (ast.Global, ast.Nonlocal)):
             rebound = sorted(set(node.names) & protected_bindings)
             if rebound:
@@ -270,6 +279,11 @@ def _validate_lifecycle_rejection_fixtures(module: object) -> list[str]:
         errors.append(f"disabled adapter rejects the canonical lifecycle fixture: {exc}")
 
     invalid_fixtures = {
+        "invalid_calendar_date": [
+            _lifecycle_event(
+                module, "bad-date", "pending_confirmation", "20261399"
+            )
+        ],
         "active_without_selected_confirmation": [valid[2]],
         "unranked_confirmation_became_active": [
             _lifecycle_event(module, "op-2", "pending_confirmation", "20260803"),
@@ -380,6 +394,107 @@ def validate_disabled_preparation(module_path: Path) -> list[str]:
         "ENTRY_PRICE_BASIS": "analysis_open",
         "EXIT_PRICE_BASIS": "fixed_future_close",
         "PRICE_CONFIRMATION_BASIS": "close_only",
+        "REPORT_LINES": ("mainstream", "non_mainstream"),
+        "ADAPTER_SECTIONS": (
+            "pending_confirmation",
+            "confirmed_operation",
+            "confirmed_unranked_operation",
+            "active_operation",
+        ),
+        "SECTION_EMPTY_TEXT_ZH": {
+            "pending_confirmation": "目前無待確認列",
+            "confirmed_operation": "本日無股票推薦",
+            "confirmed_unranked_operation": "目前無已確認但未列入買進排序列",
+            "active_operation": "目前無操作中追蹤列",
+        },
+        "PERMISSION_FIELDS": (
+            "formal_model_use_allowed",
+            "approved_for_daily",
+            "presentation_allowed",
+            "production_allowed",
+        ),
+        "FORBIDDEN_FINANCIAL_STATEMENT_FIELDS": frozenset(
+            {
+                "eps",
+                "earnings_per_share",
+                "gross_margin",
+                "operating_margin",
+                "operating_income",
+                "non_operating_income",
+                "net_income",
+                "quarterly_financial_statement",
+                "annual_financial_statement",
+            }
+        ),
+        "ADAPTER_ROW_COLUMNS": (
+            "model_id",
+            "model_variant_id",
+            "model_variant_version",
+            "operation_module_id",
+            "adapter_schema_version",
+            "lifecycle_contract_version",
+            "adapter_mode",
+            "rule_spec_id",
+            "rule_canonical_sha256",
+            "selection_policy",
+            "holdout_use_policy",
+            "report_line",
+            "adapter_section",
+            "row_type",
+            "empty_text_zh",
+            "operation_date",
+            "operation_key",
+            "stock_id",
+            "signal_date",
+            "confirmation_date",
+            "entry_date",
+            "exit_date",
+            "lifecycle_state",
+            "prior_confirmed_operation_key",
+            "buy_rank_eligible",
+            "operation_directive_level",
+            "formal_model_use_allowed",
+            "approved_for_daily",
+            "presentation_allowed",
+            "production_allowed",
+            "confirmation_rule_id",
+            "entry_rule_id",
+            "exit_rule_id",
+            "stop_policy_id",
+            "confirmation_offset_trading_days",
+            "entry_offset_trading_days",
+            "holding_days",
+            "holding_session_index_offset",
+            "entry_price_basis",
+            "exit_price_basis",
+            "price_confirmation_basis",
+        ),
+        "LIFECYCLE_EVENT_COLUMNS": (
+            "model_id",
+            "model_variant_id",
+            "operation_key",
+            "report_line",
+            "stock_id",
+            "event_date",
+            "lifecycle_state",
+            "prior_confirmed_operation_key",
+            "entry_date",
+            "exit_date",
+        ),
+        "LIFECYCLE_STATES": (
+            "pending_confirmation",
+            "confirmed_operation",
+            "confirmed_unranked_operation",
+            "active_operation",
+            "exited_operation",
+        ),
+        "_STATE_RANK": {
+            "pending_confirmation": 0,
+            "confirmed_operation": 1,
+            "confirmed_unranked_operation": 1,
+            "active_operation": 2,
+            "exited_operation": 3,
+        },
     }
     for name, value in expected.items():
         if getattr(module, name, None) != value:
