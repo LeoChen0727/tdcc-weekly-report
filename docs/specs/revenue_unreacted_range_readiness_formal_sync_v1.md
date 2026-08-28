@@ -31,11 +31,35 @@ The generated row remains bound to
 
 `anomaly_disposition_blockers=9; unresolved_anomalies=9; forward_holdout_v2_mature=0/20; formal_adapter=not_started`
 
-The canonical evidence must still prove all four disabled meanings:
+Both committed CSV mirrors and the committed Markdown status table must persist
+all four disabled fields on the revenue row:
 `formal_model_use_allowed=False`, `approved_for_daily=False`,
-`presentation_allowed=False`, and `production_allowed=False`. The last meaning
-is derived fail-closed from canonical `production_change=False` together with
-`operation_directive_level=no_operation_directive` and no adapter.
+`presentation_allowed=False`, and `production_allowed=False`. A missing field is
+a hard failure; an uncommitted bundle sidecar or derived-only inference is not
+canonical readiness evidence. For existing non-revenue rows, both new fields
+must remain empty legacy-neutral values. An empty value is neither `False` nor
+`True` and must not be interpreted as a permission decision. In particular,
+`formal_model_use_allowed` must not be derived from `approved_for_daily`, and
+`production_allowed` must not be derived from `presentation_allowed`.
+
+During the one-time bootstrap, the general readiness validator may accept the
+four legacy mirrors only when their filtered Git blob identities and canonical
+CSV-row/Markdown hashes exactly match the pinned
+`7b05900722aa57df2271d8025da07aa0f81b74e0` baseline. Raw CRLF bytes are not a
+gate. Any semantic or filtered-blob drift fails closed. The dedicated formal
+sync validator never accepts the legacy schema: working-tree, staged, and
+committed phases all require the new columns, explicit revenue `False` values,
+and neutral non-revenue cells. After the artifact commit is merged, a follow-up
+hardening PR must remove this exact legacy bootstrap allowance.
+
+Ownership history is recorded as four separate registry-surface migrations:
+the previously absent docs ownership rule, the two output-latest inventory
+records, the builder/validator lifecycle records, and the builder/validator
+production-inventory records. The pre-existing
+`output/latest/model_operation_readiness_latest.*` ownership rule was already
+`model_governance` and is not an ownership migration. The canonical ownership
+validator must reconcile each appended migration against both the named base
+registry fact and the current registry fact.
 
 ## Atomic commit and push boundary
 

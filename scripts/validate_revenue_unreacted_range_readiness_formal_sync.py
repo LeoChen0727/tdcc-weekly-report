@@ -28,7 +28,16 @@ CSV_PATH = "output/latest/model_operation_readiness_latest.csv"
 DOCS_CSV_PATH = "docs/latest/model_operation_readiness_latest.csv"
 MD_PATH = "output/latest/model_operation_readiness_latest.md"
 DOCS_MD_PATH = "docs/latest/model_operation_readiness_latest.md"
-READINESS_FALSE_FIELDS = {"approved_for_daily", "presentation_allowed"}
+READINESS_FALSE_FIELDS = {
+    "formal_model_use_allowed",
+    "approved_for_daily",
+    "presentation_allowed",
+    "production_allowed",
+}
+READINESS_SCHEMA_EXTENSION_FIELDS = {
+    "formal_model_use_allowed",
+    "production_allowed",
+}
 CANONICAL_FALSE_FIELDS = {
     "formal_model_use_allowed",
     "approved_for_daily",
@@ -88,7 +97,12 @@ def _rows(data: bytes) -> list[dict[str, str]]:
     return rows
 
 
-def _normalized_non_revenue(rows: list[dict[str, str]]) -> dict[str, dict[str, str]]:
+def _normalized_non_revenue(
+    rows: list[dict[str, str]],
+    *,
+    ignored_fields: set[str] | None = None,
+) -> dict[str, dict[str, str]]:
+    ignored = ignored_fields or set()
     normalized: dict[str, dict[str, str]] = {}
     for row in rows:
         model_id = row.get("model_id", "").strip()
@@ -101,6 +115,7 @@ def _normalized_non_revenue(rows: list[dict[str, str]]) -> dict[str, dict[str, s
         normalized[model_id] = {
             key: ("" if key == "generated_at" else value)
             for key, value in row.items()
+            if key not in ignored
         }
     return normalized
 
@@ -144,7 +159,26 @@ def validate_semantics(base_csv: bytes, current_csv: bytes) -> list[str]:
     try:
         base_rows = _rows(base_csv)
         current_rows = _rows(current_csv)
-        if _normalized_non_revenue(base_rows) != _normalized_non_revenue(current_rows):
+        base_fields = set(base_rows[0]) if base_rows else set()
+        current_fields = set(current_rows[0]) if current_rows else set()
+        missing_flags = sorted(READINESS_FALSE_FIELDS - current_fields)
+        if missing_flags:
+            errors.append(
+                f"current readiness is missing required permission columns: {missing_flags}"
+            )
+        new_fields = current_fields - base_fields
+        unexpected_new_fields = sorted(
+            new_fields - READINESS_SCHEMA_EXTENSION_FIELDS
+        )
+        if unexpected_new_fields:
+            errors.append(
+                "readiness schema changed outside the two persisted permission fields: "
+                f"{unexpected_new_fields}"
+            )
+        if _normalized_non_revenue(base_rows) != _normalized_non_revenue(
+            current_rows,
+            ignored_fields=new_fields,
+        ):
             errors.append("non-revenue readiness rows drifted beyond generated_at")
     except (UnicodeDecodeError, csv.Error, ValueError) as exc:
         return [f"malformed readiness CSV: {exc}"]
@@ -156,6 +190,16 @@ def validate_semantics(base_csv: bytes, current_csv: bytes) -> list[str]:
     for field in sorted(READINESS_FALSE_FIELDS):
         if row.get(field) != "False":
             errors.append(f"{MODEL_ID} {field} must remain False")
+    for current_row in current_rows:
+        model_id = current_row.get("model_id", "").strip()
+        if model_id == MODEL_ID:
+            continue
+        for persisted_field in sorted(READINESS_SCHEMA_EXTENSION_FIELDS):
+            if current_row.get(persisted_field, "") != "":
+                errors.append(
+                    f"{model_id or '<blank>'} {persisted_field} is revenue-only; "
+                    "non-revenue legacy rows must remain neutral blank"
+                )
     for field, expected in EXPECTED_FIELDS.items():
         if row.get(field, "") != expected:
             errors.append(f"{MODEL_ID} {field} must be {expected!r}")
@@ -163,13 +207,65 @@ def validate_semantics(base_csv: bytes, current_csv: bytes) -> list[str]:
         errors.append(
             f"{MODEL_ID} blocker must equal the exact {CONTRACT_VERSION} blocker"
         )
-    for optional_false_field in (
-        "formal_model_use_allowed",
-        "production_allowed",
-        "production_change",
-    ):
-        if optional_false_field in row and row.get(optional_false_field) != "False":
-            errors.append(f"{MODEL_ID} {optional_false_field} must remain False")
+    return errors
+
+
+def validate_markdown_semantics(markdown: bytes) -> list[str]:
+    try:
+        lines = markdown.decode("utf-8-sig").splitlines()
+    except UnicodeDecodeError as exc:
+        return [f"malformed readiness Markdown: {exc}"]
+    status_heading = next(
+        (index for index, line in enumerate(lines) if line.strip() == "## Status Table"),
+        None,
+    )
+    if status_heading is None:
+        return ["readiness Markdown is missing the Status Table"]
+    table_lines = [
+        line
+        for line in lines[status_heading + 1 :]
+        if line.strip().startswith("|")
+    ]
+    if len(table_lines) < 3:
+        return ["readiness Markdown Status Table is missing header or data rows"]
+
+    def cells(line: str) -> list[str]:
+        return [cell.strip() for cell in line.strip().strip("|").split("|")]
+
+    header = cells(table_lines[0])
+    missing_flags = sorted(READINESS_FALSE_FIELDS - set(header))
+    if missing_flags:
+        return [
+            f"readiness Markdown is missing required permission columns: {missing_flags}"
+        ]
+    revenue_values: dict[str, str] | None = None
+    parsed_rows: list[dict[str, str]] = []
+    for line in table_lines[2:]:
+        values = cells(line)
+        if len(values) != len(header):
+            continue
+        row = dict(zip(header, values))
+        parsed_rows.append(row)
+        if row.get("model_id") == MODEL_ID:
+            if revenue_values is not None:
+                return [f"readiness Markdown contains duplicate {MODEL_ID} rows"]
+            revenue_values = row
+    if revenue_values is None:
+        return [f"readiness Markdown contains no {MODEL_ID} row"]
+    errors: list[str] = []
+    for field in sorted(READINESS_FALSE_FIELDS):
+        if revenue_values.get(field) != "False":
+            errors.append(f"readiness Markdown {MODEL_ID} {field} must remain False")
+    for row in parsed_rows:
+        model_id = row.get("model_id", "")
+        if model_id == MODEL_ID:
+            continue
+        for field in sorted(READINESS_SCHEMA_EXTENSION_FIELDS):
+            if row.get(field, "") != "":
+                errors.append(
+                    f"readiness Markdown {model_id or '<blank>'} {field} is "
+                    "revenue-only; non-revenue legacy rows must remain neutral blank"
+                )
     return errors
 
 
@@ -363,6 +459,7 @@ def validate(repo: Path, base_sha: str, phase: str) -> list[str]:
             errors.append("output/docs readiness CSV copies differ")
         if (repo / MD_PATH).read_bytes() != (repo / DOCS_MD_PATH).read_bytes():
             errors.append("output/docs readiness Markdown copies differ")
+        errors.extend(validate_markdown_semantics((repo / MD_PATH).read_bytes()))
         base_csv = _git(repo, "show", f"{base_sha}:{CSV_PATH}")
         errors.extend(validate_semantics(base_csv, current_csv))
         errors.extend(validate_canonical_disabled_sources(repo))

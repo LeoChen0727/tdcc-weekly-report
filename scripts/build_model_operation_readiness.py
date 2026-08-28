@@ -402,11 +402,13 @@ def summarize_revenue_promotion_readiness(
         "blocker": blocker,
         "operation_module_status": REVENUE_OPERATION_MODULE_STATUS,
         "daily_adapter_status": formal_adapter_status,
+        "formal_model_use_allowed": "False",
         "approved_for_daily": "False",
         "approval_status": "not_started",
         "operation_module_id": "",
         "approval_version": "",
         "presentation_allowed": "False",
+        "production_allowed": "False",
         "operation_directive_level": "no_operation_directive",
         "pdf_integration_status": "not_started",
         "packet_integration_status": "not_started",
@@ -1108,6 +1110,53 @@ def build_model_operation_readiness(
         PRICE_PULLBACK_MODEL_ID: 6,
     }
     out = pd.DataFrame(rows)
+    for source_field in ("approved_for_daily", "presentation_allowed"):
+        source_values = out[source_field].astype(str).str.strip()
+        invalid_source_values = sorted(set(source_values) - {"True", "False"})
+        if invalid_source_values:
+            raise RuntimeError(
+                f"readiness {source_field} contains non-canonical booleans: "
+                f"{invalid_source_values}"
+            )
+
+    revenue_mask = out["model_id"].astype(str).eq(REVENUE_MODEL_ID)
+    if revenue_mask.sum() > 1:
+        raise RuntimeError(
+            f"readiness must contain at most one {REVENUE_MODEL_ID} row before "
+            "persisting revenue-only permission fields"
+        )
+    for persisted_field in (
+        "formal_model_use_allowed",
+        "production_allowed",
+    ):
+        if persisted_field not in out.columns:
+            out[persisted_field] = ""
+        values = out[persisted_field].fillna("").astype(str).str.strip()
+        if revenue_mask.any() and not values[revenue_mask].eq("False").all():
+            raise RuntimeError(
+                f"{REVENUE_MODEL_ID} readiness {persisted_field} must be explicit False"
+            )
+        non_revenue_values = values[~revenue_mask]
+        if not non_revenue_values.eq("").all():
+            conflicting_ids = sorted(
+                out.loc[~revenue_mask & values.ne(""), "model_id"]
+                .astype(str)
+                .tolist()
+            )
+            raise RuntimeError(
+                f"readiness {persisted_field} is revenue-only; legacy model rows must "
+                f"remain neutral blank: {conflicting_ids}"
+            )
+        out[persisted_field] = values
+
+    ordered_columns = list(out.columns)
+    for field_name in ("formal_model_use_allowed", "production_allowed"):
+        ordered_columns.remove(field_name)
+    approved_index = ordered_columns.index("approved_for_daily")
+    ordered_columns.insert(approved_index, "formal_model_use_allowed")
+    presentation_index = ordered_columns.index("presentation_allowed")
+    ordered_columns.insert(presentation_index + 1, "production_allowed")
+    out = out[ordered_columns]
     out["_order"] = out["model_id"].map(order).fillna(99)
     return out.sort_values(["_order", "model_id"]).drop(columns=["_order"]).reset_index(drop=True)
 
@@ -1127,7 +1176,14 @@ def write_markdown(df: pd.DataFrame) -> None:
     if df.empty:
         lines.extend(["sample_status: data_missing", ""])
     else:
-        summary_cols = ["operation_module_status", "daily_adapter_status", "approved_for_daily", "presentation_allowed"]
+        summary_cols = [
+            "operation_module_status",
+            "daily_adapter_status",
+            "formal_model_use_allowed",
+            "approved_for_daily",
+            "presentation_allowed",
+            "production_allowed",
+        ]
         for col in summary_cols:
             counts = df[col].value_counts().reset_index()
             counts.columns = [col, "count"]
@@ -1138,11 +1194,13 @@ def write_markdown(df: pd.DataFrame) -> None:
             "parity_status",
             "operation_module_status",
             "daily_adapter_status",
+            "formal_model_use_allowed",
             "approved_for_daily",
             "approval_status",
             "operation_module_id",
             "approval_version",
             "presentation_allowed",
+            "production_allowed",
             "operation_directive_level",
             "pdf_integration_status",
             "packet_integration_status",

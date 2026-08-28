@@ -19,6 +19,7 @@ from validate_revenue_unreacted_range_readiness_formal_sync import (  # noqa: E4
     EXPECTED_PROMOTION_DECISION_ID,
     _validate_phase,
     validate_canonical_disabled_sources,
+    validate_markdown_semantics,
     validate_semantics,
 )
 
@@ -30,22 +31,30 @@ FIELDS = [
     "blocker",
     "operation_module_status",
     "daily_adapter_status",
+    "formal_model_use_allowed",
     "approved_for_daily",
     "approval_status",
     "operation_module_id",
     "approval_version",
     "presentation_allowed",
+    "production_allowed",
     "operation_directive_level",
     "pdf_integration_status",
     "packet_integration_status",
 ]
 
 
-def encoded(rows: list[dict[str, str]]) -> bytes:
+def encoded(
+    rows: list[dict[str, str]],
+    fields: list[str] | None = None,
+) -> bytes:
+    selected_fields = fields or FIELDS
     stream = io.StringIO()
-    writer = csv.DictWriter(stream, fieldnames=FIELDS, lineterminator="\n")
+    writer = csv.DictWriter(stream, fieldnames=selected_fields, lineterminator="\n")
     writer.writeheader()
-    writer.writerows(rows)
+    writer.writerows(
+        [{field: row.get(field, "") for field in selected_fields} for row in rows]
+    )
     return stream.getvalue().encode()
 
 
@@ -55,6 +64,7 @@ def other(timestamp: str = "old") -> dict[str, str]:
         "generated_at": timestamp,
         "model_id": "other",
         "approved_for_daily": "True",
+        "presentation_allowed": "True",
     }
 
 
@@ -69,9 +79,11 @@ def revenue() -> dict[str, str]:
             "research_matrix_complete_formal_adapter_not_started"
         ),
         "daily_adapter_status": "not_started",
+        "formal_model_use_allowed": "False",
         "approved_for_daily": "False",
         "approval_status": "not_started",
         "presentation_allowed": "False",
+        "production_allowed": "False",
         "operation_directive_level": "no_operation_directive",
         "pdf_integration_status": "not_started",
         "packet_integration_status": "not_started",
@@ -182,6 +194,18 @@ def test_accepts_only_timestamp_drift_for_non_revenue_and_disabled_revenue() -> 
     ) == []
 
 
+def test_accepts_only_canonical_permission_schema_extension_for_non_revenue() -> None:
+    legacy_fields = [
+        field
+        for field in FIELDS
+        if field not in {"formal_model_use_allowed", "production_allowed"}
+    ]
+    assert validate_semantics(
+        encoded([other()], legacy_fields),
+        encoded([other("new"), revenue()]),
+    ) == []
+
+
 def test_rejects_non_revenue_business_drift() -> None:
     changed = other("new")
     changed["approved_for_daily"] = "False"
@@ -201,6 +225,103 @@ def test_rejects_revenue_permission_or_exact_builder_blocker_drift() -> None:
     errors = validate_semantics(encoded([other()]), encoded([other("new"), row]))
     assert any("presentation_allowed must remain False" in error for error in errors)
     assert any("exact revenue_readiness_sync_3a_v1_20260828 blocker" in error for error in errors)
+
+
+@pytest.mark.parametrize(
+    "field_name",
+    (
+        "formal_model_use_allowed",
+        "approved_for_daily",
+        "presentation_allowed",
+        "production_allowed",
+    ),
+)
+def test_rejects_missing_or_true_committed_revenue_permission_fields(
+    field_name: str,
+) -> None:
+    missing_fields = [field for field in FIELDS if field != field_name]
+    missing_errors = validate_semantics(
+        encoded([other()]),
+        encoded([other("new"), revenue()], missing_fields),
+    )
+    assert any("missing required permission columns" in error for error in missing_errors)
+
+    unsafe = revenue()
+    unsafe[field_name] = "True"
+    true_errors = validate_semantics(
+        encoded([other()]),
+        encoded([other("new"), unsafe]),
+    )
+    assert any(f"{field_name} must remain False" in error for error in true_errors)
+
+
+@pytest.mark.parametrize("alias_value", ("True", "False"))
+def test_rejects_non_revenue_permission_alias_drift(alias_value: str) -> None:
+    changed = other("new")
+    changed["production_allowed"] = alias_value
+    errors = validate_semantics(
+        encoded([other()]),
+        encoded([changed, revenue()]),
+    )
+    assert any(
+        "production_allowed is revenue-only" in error
+        for error in errors
+    )
+
+
+def markdown_status(
+    revenue_row: dict[str, str],
+    fields: list[str] | None = None,
+    *,
+    other_rows: list[dict[str, str]] | None = None,
+) -> bytes:
+    selected_fields = fields or FIELDS
+    rows = [*(other_rows or []), revenue_row]
+    row_lines = "".join(
+        f"| {' | '.join(row.get(field, '') for field in selected_fields)} |\n"
+        for row in rows
+    )
+    return (
+        "# Model Operation Readiness\n\n"
+        "## Status Table\n\n"
+        f"| {' | '.join(selected_fields)} |\n"
+        f"| {' | '.join('---' for _ in selected_fields)} |\n"
+        f"{row_lines}"
+    ).encode()
+
+
+def test_markdown_requires_all_four_false_permission_fields() -> None:
+    assert validate_markdown_semantics(
+        markdown_status(revenue(), other_rows=[other()])
+    ) == []
+    missing_fields = [
+        field for field in FIELDS if field != "production_allowed"
+    ]
+    assert any(
+        "missing required permission columns" in error
+        for error in validate_markdown_semantics(
+            markdown_status(revenue(), missing_fields)
+        )
+    )
+    unsafe = revenue()
+    unsafe["formal_model_use_allowed"] = "True"
+    assert any(
+        "formal_model_use_allowed must remain False" in error
+        for error in validate_markdown_semantics(markdown_status(unsafe))
+    )
+
+
+@pytest.mark.parametrize("alias_value", ("True", "False"))
+def test_markdown_rejects_non_revenue_permission_alias(alias_value: str) -> None:
+    aliased = other()
+    aliased["formal_model_use_allowed"] = alias_value
+
+    assert any(
+        "formal_model_use_allowed is revenue-only" in error
+        for error in validate_markdown_semantics(
+            markdown_status(revenue(), other_rows=[aliased])
+        )
+    )
 
 
 def test_rejects_missing_duplicate_or_blank_model_id() -> None:
