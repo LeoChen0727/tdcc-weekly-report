@@ -12,6 +12,8 @@
 
 This is an exact one-shot exception to the normal PR-safe workflow boundary. It
 does not authorize any other workflow to commit, push, deploy, or publish.
+The only implementation covered by this contract is
+`.github/workflows/revenue_unreacted_range_readiness_formal_sync.yml`.
 
 ## Trusted input and immutable output scope
 
