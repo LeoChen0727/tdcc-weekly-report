@@ -1494,6 +1494,13 @@ def test_revenue_job_runs_explicit_cheap_readiness_and_independent_v2_cases() ->
         f"{sync_prefix}test_current_canonical_sources_build_exact_disabled_revenue_row"
         not in job
     )
+    retired_legacy_nodes = (
+        "test_revenue_readiness_legacy_bootstrap_accepts_exact_pinned_baseline_and_crlf",
+        "test_revenue_readiness_legacy_bootstrap_rejects_any_semantic_or_filtered_blob_drift",
+        "test_revenue_readiness_legacy_bootstrap_rejects_bare_cr_markdown_drift",
+    )
+    for node in retired_legacy_nodes:
+        assert f"tests/test_model_operation_readiness.py::{node}" not in job
     assert "-k revenue_readiness" not in job
     assert job.count("tests/test_revenue_unreacted_range_forward_holdout_v2.py") == 1
     assert job.count(

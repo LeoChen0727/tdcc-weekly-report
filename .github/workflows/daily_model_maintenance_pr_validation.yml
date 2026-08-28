@@ -421,9 +421,6 @@ jobs:
             tests/test_model_operation_readiness.py::test_revenue_readiness_persisted_permission_columns_reject_noncanonical_source_boolean \
             tests/test_model_operation_readiness.py::test_revenue_readiness_persisted_permission_columns_reject_missing_or_true_flag \
             tests/test_model_operation_readiness.py::test_revenue_readiness_persisted_permission_columns_reject_non_revenue_boolean_alias \
-            tests/test_model_operation_readiness.py::test_revenue_readiness_legacy_bootstrap_accepts_exact_pinned_baseline_and_crlf \
-            tests/test_model_operation_readiness.py::test_revenue_readiness_legacy_bootstrap_rejects_any_semantic_or_filtered_blob_drift \
-            tests/test_model_operation_readiness.py::test_revenue_readiness_legacy_bootstrap_rejects_bare_cr_markdown_drift \
             tests/test_model_operation_readiness.py::test_revenue_readiness_markdown_persists_four_false_permissions
           python -m pytest \
             tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_build_replaces_only_revenue_and_keeps_non_revenue_fields_exact \
