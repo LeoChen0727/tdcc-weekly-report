@@ -370,11 +370,54 @@ jobs:
           python scripts/validate_revenue_unreacted_range_position_shape_transition_matrix.py
           python scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py
           python scripts/validate_revenue_unreacted_range_promotion_preparation.py --source-audit all
+          python scripts/validate_revenue_unreacted_range_forward_holdout_v2.py
           python scripts/validate_revenue_unreacted_range_financial_statement_fail_closed.py
 
       - name: Run revenue operation readiness regression tests
         run: |
-          python -m pytest tests/test_model_operation_readiness.py -k revenue_readiness
+          python -m pytest \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_legacy_shim_delegates_sync_failure_without_writes \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_legacy_shim_uses_explicit_repo_root_outside_repo \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_uses_latest_v3_decision_v4_contract_and_model_owned_evidence \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_fails_closed_until_v3_decision_v4_contract_is_latest \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_missing_model_owned_source_fails_closed \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_rejects_malformed_or_production_enabled_contracts \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_requires_all_four_formal_promotion_flags_false \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_rejects_unsafe_latest_promotion_decision_status \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_rejects_holdout_version_or_maturity_status_drift \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_rejects_unrepaired_verified_data_error_policy \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_validator_rejects_stale_or_permission_enabled_row \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_validator_rejects_missing_or_true_persisted_permission_field \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_csv_schema_rejects_missing_existing_permission_column \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_csv_rejects_partial_permission_schema \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_persisted_permission_columns_accept_explicit_false_and_neutral_legacy \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_persisted_permission_columns_reject_noncanonical_source_boolean \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_persisted_permission_columns_reject_missing_or_true_flag \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_persisted_permission_columns_reject_non_revenue_boolean_alias \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_legacy_bootstrap_accepts_exact_pinned_baseline_and_crlf \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_legacy_bootstrap_rejects_any_semantic_or_filtered_blob_drift \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_legacy_bootstrap_rejects_bare_cr_markdown_drift \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_markdown_persists_four_false_permissions
+          python -m pytest \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_build_replaces_only_revenue_and_keeps_non_revenue_fields_exact \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_build_accepts_only_canonical_extended_disabled_source \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_build_fails_closed_on_identity_or_schema_drift \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_committed_source_treats_crlf_as_diagnostic_and_semantic_drift_as_error \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_bulk_registered_price_read_is_single_call_crlf_safe_and_semantic_strict \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_write_scope_is_exact_four_byte_paired_mirrors \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_import_does_not_load_legacy_cross_model_builder \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_full_v2_gate_rejects_bad_rule_canonical_sha \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_full_v2_gate_rejects_placeholder_per_stock_price_digest \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_full_v2_gate_rejects_self_consistent_forged_mature_row_before_d30 \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_registered_price_gate_recomputes_mature_exit_and_realized_return \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_mid_event_membership_counts_in_primary_and_union_summaries \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_exact_replay_attestation_rejects_event_set_mutations \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_cheap_replay_source_rejects_self_resealed_pit_or_row_lineage \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_replay_source_trade_date_must_be_first_registered_session_on_or_after_source \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_detail_source_asof_is_bound_to_replay_lineage \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_summary_and_source_validator_do_not_run_exact_replay \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_revenue_readiness_sync_writer_runs_exact_gate_before_any_mirror_write \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_markdown_status_table_must_match_canonical_csv_non_revenue_cells
           python -m pytest tests/test_revenue_unreacted_range_readiness_formal_sync.py
 
       - name: Run revenue research regression tests

@@ -15,10 +15,17 @@ does not authorize any other workflow to commit, push, deploy, or publish.
 The only implementation covered by this contract is
 `.github/workflows/revenue_unreacted_range_readiness_formal_sync.yml`.
 
+The exact sole readiness producer is
+`scripts/sync_revenue_unreacted_range_operation_readiness.py`. The bundle
+contract and the apply job must both bind the exact token
+`producer=scripts/sync_revenue_unreacted_range_operation_readiness.py`.
+The legacy broad builder `scripts/build_model_operation_readiness.py` is
+forbidden in this workflow because it may recompute unrelated model rows.
+
 ## Trusted input and immutable output scope
 
 The manual workflow must start from an exact current remote `main` SHA. The
-literal target branch must already exist at that same SHA. The builder may
+literal target branch must already exist at that same SHA. The sole producer may
 change exactly these four byte-paired readiness mirrors:
 
 1. `output/latest/model_operation_readiness_latest.csv`
@@ -146,12 +153,31 @@ research truth; the single pre-write exact-replay gate is the canonical gate
 for that truth. Failure of that gate must occur before the first of the four
 mirror writes.
 
+## Companion PR validation boundary
+
+The Daily Model PR CI revenue job must directly run
+`python scripts/validate_revenue_unreacted_range_forward_holdout_v2.py` and the
+related independent cases in
+`tests/test_revenue_unreacted_range_forward_holdout_v2.py`. This research-owner
+gate is the PR-time canonical raw-truth boundary; a general readiness validator
+must not replace it.
+
+The same job must invoke the selected cheap cases from
+`tests/test_sync_revenue_unreacted_range_operation_readiness.py` by explicit
+pytest node ID. A fuzzy `-k` expression is forbidden. The unique full exact
+replay case
+`test_current_canonical_sources_build_exact_disabled_revenue_row` is excluded
+from PR CI because it is the long-running writer-equivalence integration; the
+formal writer still runs the canonical exact replay once before any mirror
+write.
+
 ## Atomic commit and push boundary
 
-The apply job must independently verify the content hashes and exact contract,
-stage exactly the four mirrors, validate the staged phase, and create exactly
-one direct-child commit. It must then run both readiness validators again in the
-committed phase and require a clean index, worktree, and untracked-file set.
+The apply job must independently verify the content hashes, exact producer token,
+and exact contract, stage exactly the four mirrors, validate the staged phase,
+and create exactly one direct-child commit. It must then run both readiness
+validators again in the committed phase and require a clean index, worktree,
+and untracked-file set.
 
 The privileged step is the final workflow step. It must revalidate committed
 semantics, re-read both remote identities, perform exactly one non-force push,

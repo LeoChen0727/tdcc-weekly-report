@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from contextlib import contextmanager
 import csv
+from dataclasses import replace
 import io
 import sys
 from pathlib import Path
@@ -26,9 +27,12 @@ from model_research_artifact_guard import (  # noqa: E402
 from validate_model_research_artifact_ownership import (  # noqa: E402
     EXPECTED_READINESS_MIGRATIONS,
     EXPECTED_READINESS_RULES,
+    LEGACY_BROAD_READINESS_PRODUCER,
     MIGRATION_COLUMNS,
+    READINESS_FORMAL_SYNC_PRODUCER,
     validate,
     validate_ownership_migrations,
+    validate_readiness_output_inventory_producer,
 )
 import model_research_artifact_guard as guard_module  # noqa: E402
 import validate_model_research_artifact_ownership as ownership_validator  # noqa: E402
@@ -66,12 +70,17 @@ def test_readiness_owner_closure_and_exact_migration_are_canonical() -> None:
         (rule.artifact_glob, rule.artifact_class)
         for rule in rules
         if rule.owner_model_id == "model_governance"
-        and rule.producer
-        == "scripts/sync_revenue_unreacted_range_operation_readiness.py"
+        and rule.producer == READINESS_FORMAL_SYNC_PRODUCER
         and rule.change_policy == "formal_sync_only"
         and rule.formal_evidence_status == "formal_evidence_pinned"
     }
     assert readiness_rules == EXPECTED_READINESS_RULES
+    assert not any(
+        rule.producer == LEGACY_BROAD_READINESS_PRODUCER
+        and rule.artifact_class in {"formal_readiness", "formal_readiness_mirror"}
+        for rule in rules
+    )
+    assert validate_readiness_output_inventory_producer() == []
     assert validate_ownership_migrations() == []
 
 
@@ -159,6 +168,62 @@ def test_readiness_exact_child_dependencies_and_writer_lineage_are_registered() 
         "four readiness mirrors",
     ):
         assert token in spec
+
+
+def test_readiness_owner_closure_rejects_legacy_broad_builder(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    rules = load_ownership_rules()
+    mutated = [
+        replace(rule, producer=LEGACY_BROAD_READINESS_PRODUCER)
+        if rule.producer == READINESS_FORMAL_SYNC_PRODUCER
+        else rule
+        for rule in rules
+    ]
+    monkeypatch.setattr(
+        ownership_validator,
+        "load_ownership_rules",
+        lambda _path: mutated,
+    )
+
+    errors = validate()
+
+    assert any("legacy broad readiness builder" in error for error in errors)
+
+
+def test_output_readiness_inventory_rejects_legacy_broad_builder(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    inventory_path = tmp_path / "output_latest_artifact_inventory.csv"
+    with inventory_path.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(
+            handle,
+            fieldnames=("path", "owner_lane", "producer"),
+            lineterminator="\n",
+        )
+        writer.writeheader()
+        for suffix in ("csv", "md"):
+            writer.writerow(
+                {
+                    "path": (
+                        "output/latest/model_operation_readiness_latest."
+                        f"{suffix}"
+                    ),
+                    "owner_lane": "model_governance",
+                    "producer": LEGACY_BROAD_READINESS_PRODUCER,
+                }
+            )
+    monkeypatch.setattr(
+        ownership_validator,
+        "OUTPUT_LATEST_ARTIFACT_INVENTORY",
+        inventory_path,
+    )
+
+    errors = validate_readiness_output_inventory_producer()
+
+    assert any("readiness output producer must be" in error for error in errors)
+    assert any("legacy broad readiness builder" in error for error in errors)
 
 
 @pytest.mark.parametrize(

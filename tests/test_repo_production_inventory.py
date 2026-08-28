@@ -61,6 +61,25 @@ def test_revenue_readiness_formal_sync_is_exactly_registered_and_guarded() -> No
         "docs/latest/model_operation_readiness_latest.csv",
         "docs/latest/model_operation_readiness_latest.md",
     )
+    producer_row = rows[inventory.REVENUE_READINESS_FORMAL_SYNC_PRODUCER]
+    legacy_row = rows[inventory.REVENUE_READINESS_LEGACY_BUILDER]
+    assert producer_row.allowed_workflows == (
+        REVENUE_READINESS_FORMAL_SYNC_WORKFLOW,
+    )
+    assert producer_row.status == "active"
+    assert legacy_row.allowed_workflows == ()
+    assert legacy_row.status == "legacy_deprecated"
+    assert (
+        workflow_text.count(
+            f"python -B {inventory.REVENUE_READINESS_FORMAL_SYNC_PRODUCER}"
+        )
+        == 1
+    )
+    assert inventory.REVENUE_READINESS_LEGACY_BUILDER not in workflow_text
+    assert (
+        workflow_text.count(inventory.REVENUE_READINESS_FORMAL_SYNC_PRODUCER_TOKEN)
+        == 2
+    )
 
 
 def test_revenue_readiness_inventory_guard_rejects_extra_push_and_post_push_step() -> None:

@@ -5,6 +5,9 @@ from pathlib import Path
 import pytest
 
 from scripts.validate_repo_production_inventory import (
+    REVENUE_READINESS_FORMAL_SYNC_PRODUCER,
+    REVENUE_READINESS_FORMAL_SYNC_PRODUCER_TOKEN,
+    REVENUE_READINESS_LEGACY_BUILDER,
     REVENUE_READINESS_FORMAL_SYNC_PUSH,
     validate_revenue_readiness_formal_sync_workflow_text,
 )
@@ -34,8 +37,22 @@ def test_target_branch_is_never_checked_out_or_executed() -> None:
     ) in TEXT
 
 
-def test_exact_builder_blocker_four_disabled_meanings_and_versioned_counts() -> None:
-    assert TEXT.count("scripts/build_model_operation_readiness.py") == 1
+def test_exact_producer_blocker_four_disabled_meanings_and_versioned_counts() -> None:
+    assert (
+        TEXT.count(f"python -B {REVENUE_READINESS_FORMAL_SYNC_PRODUCER}")
+        == 1
+    )
+    assert REVENUE_READINESS_LEGACY_BUILDER not in TEXT
+    assert TEXT.count(REVENUE_READINESS_FORMAL_SYNC_PRODUCER_TOKEN) == 2
+    assert REVENUE_READINESS_FORMAL_SYNC_PRODUCER_TOKEN in SPEC_TEXT
+    for token in (
+        "python scripts/validate_revenue_unreacted_range_forward_holdout_v2.py",
+        "tests/test_revenue_unreacted_range_forward_holdout_v2.py",
+        "tests/test_sync_revenue_unreacted_range_operation_readiness.py",
+        "A fuzzy `-k` expression is forbidden",
+        "test_current_canonical_sources_build_exact_disabled_revenue_row",
+    ):
+        assert token in SPEC_TEXT
     assert (
         "anomaly_disposition_blockers=9; unresolved_anomalies=9; "
         "forward_holdout_v2_mature=0/20; formal_adapter=not_started"
@@ -133,6 +150,21 @@ def test_exact_four_bundle_and_clean_state_are_revalidated() -> None:
         (
             lambda text: text.replace("sha256sum --check SHA256SUMS", "true"),
             "independently verify bundle hashes",
+        ),
+        (
+            lambda text: text.replace(
+                f"python -B {REVENUE_READINESS_FORMAL_SYNC_PRODUCER}",
+                f"python -B {REVENUE_READINESS_LEGACY_BUILDER}",
+            ),
+            "legacy broad readiness builder",
+        ),
+        (
+            lambda text: text.replace(
+                REVENUE_READINESS_FORMAL_SYNC_PRODUCER_TOKEN,
+                "producer=mutated.py",
+                1,
+            ),
+            "exact producer token",
         ),
         (
             lambda text: text.replace("trap 'rm -f \"$key\"' EXIT", "true"),

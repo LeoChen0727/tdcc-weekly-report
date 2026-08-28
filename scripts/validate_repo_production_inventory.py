@@ -130,6 +130,13 @@ REVENUE_READINESS_FORMAL_SYNC_CONTRACT_VERSION = (
 REVENUE_READINESS_FORMAL_SYNC_EXCEPTION_ID = (
     "revenue_unreacted_range_readiness_formal_sync_3a_v1_20260828"
 )
+REVENUE_READINESS_FORMAL_SYNC_PRODUCER = (
+    "scripts/sync_revenue_unreacted_range_operation_readiness.py"
+)
+REVENUE_READINESS_FORMAL_SYNC_PRODUCER_TOKEN = (
+    f"producer={REVENUE_READINESS_FORMAL_SYNC_PRODUCER}"
+)
+REVENUE_READINESS_LEGACY_BUILDER = "scripts/build_model_operation_readiness.py"
 REVENUE_READINESS_FORMAL_SYNC_PUSH = (
     'git push "git@github.com:${GITHUB_REPOSITORY}.git" '
     '"HEAD:refs/heads/$TARGET_BRANCH"'
@@ -1371,8 +1378,35 @@ def validate_revenue_readiness_formal_sync_workflow_text(text: str) -> list[str]
         )
     if "sha256sum --check SHA256SUMS" not in text or "needs: prepare-bundle" not in text:
         errors.append("revenue readiness formal sync must independently verify bundle hashes")
-    if text.count("scripts/build_model_operation_readiness.py") != 1:
-        errors.append("revenue readiness formal sync must invoke exactly one readiness builder")
+    producer_command = f"python -B {REVENUE_READINESS_FORMAL_SYNC_PRODUCER}"
+    if text.count(producer_command) != 1:
+        errors.append(
+            "revenue readiness formal sync must invoke the exact revenue-only "
+            "readiness producer once"
+        )
+    if REVENUE_READINESS_LEGACY_BUILDER in text:
+        errors.append(
+            "revenue readiness formal sync must not invoke the legacy broad "
+            "readiness builder"
+        )
+    exact_producer_env = (
+        "READINESS_SYNC_PRODUCER: "
+        f"{REVENUE_READINESS_FORMAL_SYNC_PRODUCER}"
+    )
+    exact_producer_guard = (
+        '[ "$READINESS_SYNC_PRODUCER" = '
+        f"{REVENUE_READINESS_FORMAL_SYNC_PRODUCER} ]"
+    )
+    if text.count(exact_producer_env) != 1 or text.count(exact_producer_guard) != 2:
+        errors.append(
+            "revenue readiness formal sync producer identity is not exact in "
+            "prepare and apply"
+        )
+    if text.count(REVENUE_READINESS_FORMAL_SYNC_PRODUCER_TOKEN) != 2:
+        errors.append(
+            "revenue readiness formal sync bundle and apply contract must bind "
+            "the exact producer token"
+        )
     if (
         "anomaly_disposition_blockers=9; unresolved_anomalies=9; "
         "forward_holdout_v2_mature=0/20; formal_adapter=not_started"
@@ -1387,6 +1421,7 @@ def validate_revenue_readiness_formal_sync_workflow_text(text: str) -> list[str]
         f"exception_id={REVENUE_READINESS_FORMAL_SYNC_EXCEPTION_ID}",
         "authorization_reference=user_authorized_3A_3C_20260828",
         f"target_branch={REVENUE_READINESS_FORMAL_SYNC_TARGET}",
+        REVENUE_READINESS_FORMAL_SYNC_PRODUCER_TOKEN,
         "formal_model_use_allowed=False",
         "approved_for_daily=False",
         "presentation_allowed=False",

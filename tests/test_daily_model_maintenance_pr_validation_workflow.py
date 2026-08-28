@@ -287,6 +287,7 @@ REVENUE_VALIDATOR_COMMANDS = (
     "python scripts/validate_revenue_unreacted_range_position_shape_transition_matrix.py",
     "python scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
     "python scripts/validate_revenue_unreacted_range_promotion_preparation.py --source-audit all",
+    "python scripts/validate_revenue_unreacted_range_forward_holdout_v2.py",
     "python scripts/validate_revenue_unreacted_range_financial_statement_fail_closed.py",
 )
 
@@ -1273,6 +1274,7 @@ def test_daily_model_maintenance_pr_workflow_runs_contract_validators() -> None:
         "python scripts/validate_revenue_unreacted_range_operation_lag_bucket_audit.py",
         "python scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
         "python scripts/validate_revenue_unreacted_range_promotion_preparation.py",
+        "python scripts/validate_revenue_unreacted_range_forward_holdout_v2.py",
         "python scripts/build_mature_model_row_level_metric_contract_audit.py",
         "python scripts/validate_mature_model_row_level_metric_contract_audit.py",
         "python scripts/validate_research_against_stock_model_contract.py",
@@ -1351,15 +1353,43 @@ def test_daily_model_maintenance_pr_workflow_runs_focused_pdf_operation_tests() 
         assert path in text
 
 
-def test_revenue_job_runs_only_revenue_readiness_cases_from_shared_test_file() -> None:
+def test_revenue_job_runs_explicit_cheap_readiness_and_independent_v2_cases() -> None:
     text = WORKFLOW.read_text(encoding="utf-8")
     job = job_block("revenue_research", text)
 
-    command = (
-        "python -m pytest tests/test_model_operation_readiness.py "
-        "-k revenue_readiness"
+    expected_sync_nodes = (
+        "test_build_replaces_only_revenue_and_keeps_non_revenue_fields_exact",
+        "test_build_accepts_only_canonical_extended_disabled_source",
+        "test_build_fails_closed_on_identity_or_schema_drift",
+        "test_committed_source_treats_crlf_as_diagnostic_and_semantic_drift_as_error",
+        "test_bulk_registered_price_read_is_single_call_crlf_safe_and_semantic_strict",
+        "test_write_scope_is_exact_four_byte_paired_mirrors",
+        "test_import_does_not_load_legacy_cross_model_builder",
+        "test_full_v2_gate_rejects_bad_rule_canonical_sha",
+        "test_full_v2_gate_rejects_placeholder_per_stock_price_digest",
+        "test_full_v2_gate_rejects_self_consistent_forged_mature_row_before_d30",
+        "test_registered_price_gate_recomputes_mature_exit_and_realized_return",
+        "test_mid_event_membership_counts_in_primary_and_union_summaries",
+        "test_exact_replay_attestation_rejects_event_set_mutations",
+        "test_cheap_replay_source_rejects_self_resealed_pit_or_row_lineage",
+        "test_replay_source_trade_date_must_be_first_registered_session_on_or_after_source",
+        "test_detail_source_asof_is_bound_to_replay_lineage",
+        "test_summary_and_source_validator_do_not_run_exact_replay",
+        "test_revenue_readiness_sync_writer_runs_exact_gate_before_any_mirror_write",
+        "test_markdown_status_table_must_match_canonical_csv_non_revenue_cells",
     )
-    assert job.count(command) == 1
+    sync_prefix = "tests/test_sync_revenue_unreacted_range_operation_readiness.py::"
+    for node in expected_sync_nodes:
+        assert job.count(f"{sync_prefix}{node}") == 1
+    assert (
+        f"{sync_prefix}test_current_canonical_sources_build_exact_disabled_revenue_row"
+        not in job
+    )
+    assert "-k revenue_readiness" not in job
+    assert job.count(
+        "python scripts/validate_revenue_unreacted_range_forward_holdout_v2.py"
+    ) == 1
+    assert job.count("tests/test_revenue_unreacted_range_forward_holdout_v2.py") == 1
     assert job.count(
         "python -m pytest "
         "tests/test_revenue_unreacted_range_readiness_formal_sync.py"
