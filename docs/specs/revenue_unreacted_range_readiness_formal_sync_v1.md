@@ -131,12 +131,13 @@ consistency checks. Its PIT checks cover replay list/scalar alignment, date
 ordering, non-placeholder SHA-256 format, detail linkage, and observed-through
 boundaries, but deliberately do not import research-owner code or independently
 recompute raw monthly-revenue table and row truth. That independent truth remains
-owned by the research-owner validator implementation and its independent test
-suite, plus the writer's single pre-write exact child. Before this contract is
-formally applied, its workflow companion PR must invoke the registered monthly
-and source validators and the related research-owner tests explicitly. It must
-not invoke the standalone v2 validator CLI without its separately materialized
-normalized price bundle. Raw monthly
+owned by the research-owner validator implementation
+`scripts/validate_revenue_unreacted_range_forward_holdout_v2.py` and its
+independent test suite, plus the writer's single pre-write exact child. Before
+this contract is formally applied, its workflow companion PR must invoke the
+registered monthly and source validators and the related research-owner tests
+explicitly. It must not invoke that standalone v2 validator CLI without its
+separately materialized normalized price bundle. Raw monthly
 blob lineage remains provenance diagnostic material in the cheap path.
 Replay availability must also equal the source date itself when it is a
 normalized registered trading session, or otherwise the first normalized
