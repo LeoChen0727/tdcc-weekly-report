@@ -398,6 +398,244 @@ def test_full_v2_gate_rejects_bad_rule_canonical_sha() -> None:
         )
 
 
+def test_full_v2_gate_rejects_self_consistent_forged_mature_row_before_d30(
+    tmp_path: Path,
+) -> None:
+    repo = tmp_path / "repo"
+    price_path = repo / syncer.PRICE_HISTORY_DIR_REL / "2330.csv"
+    price_path.parent.mkdir(parents=True)
+    price_path.write_text(
+        "date,open,close\n"
+        "20260831,100,100\n"
+        "20260901,110,110\n",
+        encoding="utf-8",
+        newline="\n",
+    )
+    resolution_path = repo / syncer.PRICE_RESOLUTION_REL
+    resolution_path.parent.mkdir(parents=True, exist_ok=True)
+    resolution_path.write_bytes((ROOT / syncer.PRICE_RESOLUTION_REL).read_bytes())
+    git(repo, "init")
+    git(repo, "config", "user.name", "test")
+    git(repo, "config", "user.email", "test@example.com")
+    git(repo, "add", ".")
+    git(repo, "commit", "-m", "registered price evidence")
+
+    promotion = pd.read_csv(ROOT / syncer.PROMOTION_REGISTRY_REL, dtype=str).fillna("")
+    anomalies = pd.read_csv(ROOT / syncer.ANOMALY_REGISTRY_REL, dtype=str).fillna("")
+    manifest = pd.read_csv(
+        ROOT / syncer.FORWARD_HOLDOUT_V2_MANIFEST_REL, dtype=str
+    ).fillna("")
+    summary = pd.read_csv(
+        ROOT / syncer.FORWARD_HOLDOUT_V2_SUMMARY_REL, dtype=str
+    ).fillna("")
+    replay_source = pd.read_csv(
+        ROOT / syncer.FORWARD_HOLDOUT_V2_REPLAY_SOURCE_REL, dtype=str
+    ).fillna("")
+    source_projection_manifest = pd.read_csv(
+        ROOT / syncer.SOURCE_PROJECTION_MANIFEST_REL, dtype=str
+    ).fillna("")
+
+    manifest.loc[0, "observed_through_date"] = "20260901"
+    manifest.loc[0, "holdout_status"] = "holdout_accumulating"
+    manifest.loc[0, "holdout_event_count"] = "1"
+    manifest.loc[0, "mature_event_count"] = "1"
+    manifest.loc[0, "right_censored_event_count"] = "0"
+    manifest.loc[0, "primary_mature_count"] = "1"
+    manifest.loc[0, "primary_right_censored_count"] = "0"
+    manifest_row = manifest.iloc[0]
+    capture_envelope = {
+        "artifact_version": syncer.REVENUE_FORWARD_HOLDOUT_V2_ARTIFACT_VERSION,
+        "rule_canonical_sha256": syncer.RULE_CANONICAL_SHA256,
+        "data_contract_sha256": syncer.DATA_CONTRACT_SHA256,
+        "preregistration_merge_commit": syncer.PREREGISTRATION_MERGE_COMMIT,
+        "observed_through_date": "20260901",
+        "source_detail_canonical_sha256": manifest_row[
+            "source_detail_canonical_sha256"
+        ],
+        "price_input_canonical_sha256": manifest_row[
+            "price_input_canonical_sha256"
+        ],
+        **{
+            field_name: manifest_row[field_name]
+            for field_name in syncer.MONTHLY_LINEAGE_COLUMNS
+        },
+        "training_source_projection_semantic_sha256": (
+            syncer.PROJECTED_EPISODE_SEMANTIC_SHA256
+        ),
+        "training_source_projected_episode_row_count": (
+            syncer.PROJECTED_EPISODE_ROW_COUNT
+        ),
+        "training_source_manifest_canonical_sha256": (
+            syncer.SELECTED_V2_MANIFEST_CANONICAL_SHA256
+        ),
+    }
+    capture_id = syncer._canonical_json_sha256(capture_envelope)
+    manifest.loc[0, "capture_id"] = capture_id
+
+    detail_columns = pd.read_csv(
+        ROOT / syncer.FORWARD_HOLDOUT_V2_DETAIL_REL, nrows=0
+    ).columns
+    event = {column: "" for column in detail_columns}
+    for column in detail_columns:
+        if column in manifest.columns:
+            event[column] = str(manifest.loc[0, column])
+    event.update(
+        {
+            "capture_id": capture_id,
+            "artifact_row_key": "forged|2330|20260831",
+            "event_key": "forged|2330|20260831",
+            "variant_id": syncer.PRIMARY_VARIANT_ID,
+            "candidate_variant_id": syncer.PRIMARY_VARIANT_ID,
+            "primary_variant_member": "True",
+            "low_falling_member": "False",
+            "low_or_mid_falling_union_member": "True",
+            "lifecycle_policy_id": "rearm_after_realized_exit_next_trade_day",
+            "confirmation_variant_id": "delayed_next_close_continuation_bonus",
+            "holding_days": "30",
+            "holding_session_index_offset": "29",
+            "stop_policy_id": "none_no_stop_reference",
+            "stock_id": "2330",
+            "stock_name": "台積電",
+            "episode_key": "forged-episode",
+            "source_asof_date": "20260828",
+            "source_asof_trade_date": "20260828",
+            "source_asof_canonical_source_table_date": "20260828",
+            "trigger_index": "0",
+            "trigger_date": "20260831",
+            "trigger_close": "100",
+            "confirmation_index": "1",
+            "confirmation_date": "20260901",
+            "confirmation_close": "110",
+            "entry_index": "2",
+            "entry_price_basis": "analysis_open",
+            "entry_date": "20260902",
+            "entry_price": "110",
+            "planned_exit_index": "31",
+            "planned_exit_date": "20261013",
+            "exit_index": "31",
+            "exit_date": "20261013",
+            "exit_price": "121",
+            "exit_price_basis": "analysis_close",
+            "exit_reason": "fixed_d30_close",
+            "return_valid": "True",
+            "right_censored": "False",
+            "realized_return_pct": "10",
+            "return_outcome": "win",
+            "realized_return_ge20": "False",
+            "operation_return_review_candidate_flag": "False",
+            "operation_status": "mature_operation",
+            "anomaly_candidate_flag": "False",
+            "source_anomaly_candidate_flag": "False",
+            "unresolved_price_path_candidate_flag": "False",
+            "primary_metric_included": "True",
+            "sensitivity_metric_included": "True",
+            "same_stock_non_overlap_applied": "True",
+            "financial_statement_scope": (
+                syncer.REVENUE_HOLDOUT_FINANCIAL_STATEMENT_SCOPE
+            ),
+            "research_only": "True",
+            "formal_model_use_allowed": "False",
+            "approved_for_daily": "False",
+            "presentation_allowed": "False",
+            "promotion_evidence_allowed": "False",
+            "production_change": "False",
+        }
+    )
+    event["event_row_canonical_sha256"] = syncer._canonical_mapping_sha256(
+        {
+            key: value
+            for key, value in event.items()
+            if key != "event_row_canonical_sha256"
+        }
+    )
+    detail = pd.DataFrame([event], columns=detail_columns)
+    assert detail.loc[0, "event_row_canonical_sha256"] == (
+        syncer._canonical_mapping_sha256(
+            detail.drop(columns=["event_row_canonical_sha256"]).iloc[0].to_dict()
+        )
+    )
+
+    summary["holdout_status"] = "holdout_accumulating"
+    for column in ("event_count", "mature_count", "right_censored_count"):
+        summary[column] = "0"
+    primary = summary["variant_id"].eq(syncer.PRIMARY_VARIANT_ID)
+    summary.loc[primary, "event_count"] = "1"
+    summary.loc[primary, "mature_count"] = "1"
+
+    with pytest.raises(
+        RuntimeError,
+        match=r"independently replayed D\+2 entry and D\+30",
+    ):
+        syncer.summarize_revenue_promotion_readiness(
+            promotion,
+            anomalies,
+            manifest,
+            holdout_detail=detail,
+            holdout_summary=summary,
+            replay_source=replay_source,
+            source_projection_manifest=source_projection_manifest,
+            repo_root=repo,
+        )
+
+
+def test_registered_price_gate_recomputes_mature_exit_and_realized_return() -> None:
+    dates = pd.bdate_range("2026-08-31", periods=32).strftime("%Y%m%d").tolist()
+    price = pd.DataFrame(
+        {
+            "date": dates,
+            "analysis_open": [100.0] * 32,
+            "analysis_close": [100.0, 101.0, *([100.0] * 28), 110.0, 120.0],
+        }
+    )
+    event = {
+        "price_input_canonical_sha256": "a" * 64,
+        "holding_days": "30",
+        "holding_session_index_offset": "29",
+        "stock_id": "2330",
+        "trigger_index": "0",
+        "trigger_date": dates[0],
+        "trigger_close": "100",
+        "confirmation_index": "1",
+        "confirmation_date": dates[1],
+        "confirmation_close": "101",
+        "entry_index": "2",
+        "entry_price_basis": "analysis_open",
+        "entry_date": dates[2],
+        "entry_price": "100",
+        "planned_exit_index": "31",
+        "planned_exit_date": dates[31],
+        "exit_index": "31",
+        "exit_date": dates[31],
+        "exit_price": "120",
+        "exit_price_basis": "analysis_close",
+        "exit_reason": "fixed_d30_close",
+        "return_valid": "True",
+        "right_censored": "False",
+        "realized_return_pct": "20",
+        "return_outcome": "win",
+        "realized_return_ge20": "False",
+        "operation_return_review_candidate_flag": "False",
+        "operation_status": "mature_operation",
+    }
+    detail = pd.DataFrame([event])
+    syncer._validate_detail_maturity_against_registered_prices(
+        detail,
+        observed_through=dates[-1],
+        registered_prices={"2330": price},
+        manifest_price_sha="a" * 64,
+    )
+
+    forged_return = detail.copy()
+    forged_return.loc[0, "realized_return_pct"] = "19"
+    with pytest.raises(RuntimeError, match=r"realized_return_pct.*disagrees"):
+        syncer._validate_detail_maturity_against_registered_prices(
+            forged_return,
+            observed_through=dates[-1],
+            registered_prices={"2330": price},
+            manifest_price_sha="a" * 64,
+        )
+
+
 def test_markdown_status_table_must_match_canonical_csv_non_revenue_cells() -> None:
     readiness = syncer.build_revenue_only_readiness(
         legacy_readiness(),
