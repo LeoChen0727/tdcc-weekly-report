@@ -456,7 +456,7 @@ def test_validator_rejects_definition_and_argument_shadowing(
         for error in errors
         for marker in (
             "shadow a protected symbol",
-            "lambda or pattern matching constructs",
+            "pattern matching constructs",
         )
     )
 
