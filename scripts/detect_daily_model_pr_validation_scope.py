@@ -12,6 +12,7 @@ from typing import Iterable, Sequence
 ROOT = Path(__file__).resolve().parents[1]
 
 REPO_CURRENT_CONTRACTS = "repo-current-contracts"
+RESEARCH_SAFETY_LITE = "research-safety-lite"
 SHARED_MODEL_RESEARCH = "shared-model-research"
 VOLUME_V2_RESEARCH = "volume-v2-research"
 REVENUE_RESEARCH = "revenue-research"
@@ -19,6 +20,7 @@ FINANCIAL_STATEMENT_RESEARCH = "financial-statement-research"
 
 DOMAINS = (
     REPO_CURRENT_CONTRACTS,
+    RESEARCH_SAFETY_LITE,
     SHARED_MODEL_RESEARCH,
     VOLUME_V2_RESEARCH,
     REVENUE_RESEARCH,
@@ -27,6 +29,7 @@ DOMAINS = (
 
 DOMAIN_OUTPUTS = {
     REPO_CURRENT_CONTRACTS: "repo_current_contracts",
+    RESEARCH_SAFETY_LITE: "research_safety_lite",
     SHARED_MODEL_RESEARCH: "shared_model_research",
     VOLUME_V2_RESEARCH: "volume_v2_research",
     REVENUE_RESEARCH: "revenue_research",
@@ -131,6 +134,7 @@ WATCHED_PATH_PATTERNS = (
     "scripts/validate_daily_*.py",
     "scripts/validate_model_operation_readiness.py",
     "scripts/validate_model_data_independence.py",
+    "scripts/validate_research_production_boundaries.py",
     "scripts/validate_financial_statement_pit.py",
     "scripts/validate_financial_statement_historical_pit_source_audit.py",
     "scripts/validate_volume_breakout_watch.py",
@@ -320,6 +324,50 @@ CENTRAL_SHARED_VOLUME_REVENUE_EXACT_PATHS = frozenset(
     }
 )
 
+RESEARCH_SAFETY_EXACT_PATHS = frozenset(
+    {
+        ".github/workflows/research_backtest_pipeline.yml",
+        "scripts/validate_model_data_independence.py",
+        "scripts/validate_model_research_artifact_ownership.py",
+        "scripts/validate_model_research_workflow_isolation.py",
+        "scripts/validate_research_production_boundaries.py",
+        "tests/test_model_data_independence.py",
+        "tests/test_model_research_artifact_ownership.py",
+        "tests/test_model_research_workflow_isolation.py",
+    }
+)
+
+MODEL_OWNED_VOLUME_RESEARCH_EXACT_PATHS = frozenset(
+    {
+        "scripts/build_volume_range_breakout_v2_research.py",
+        "tests/test_volume_range_breakout_v2_scope_probe.py",
+    }
+)
+
+RESEARCH_DOMAINS = frozenset(
+    {
+        SHARED_MODEL_RESEARCH,
+        VOLUME_V2_RESEARCH,
+        REVENUE_RESEARCH,
+        FINANCIAL_STATEMENT_RESEARCH,
+    }
+)
+
+LEGACY_REPO_CURRENT_EXACT_PATHS = frozenset(
+    {
+        "config/daily_model_background_data_registry.csv",
+        "config/daily_model_condition_spec.csv",
+        "output/latest/daily_neckline_volume_breakout_confirmation_operation_section_latest.csv",
+        "output/latest/daily_volume_breakout_operation_section_latest.csv",
+        "output/latest/research_backtest/daily_model_research_parity_latest.csv",
+        "scripts/build_daily_price_pullback_23ema_operation_section.py",
+        "scripts/build_daily_w_bottom_operation_sections.py",
+        "scripts/build_model_operation_readiness.py",
+        "scripts/validate_stock_model_contract_registry.py",
+        "tests/test_stock_model_contract_registry.py",
+    }
+)
+
 REPO_CURRENT_AND_SHARED_EXACT_PATHS = frozenset(
     {
         "scripts/build_approved_operation_patterns.py",
@@ -372,14 +420,23 @@ def domains_for_path(value: str) -> frozenset[str]:
     if not watched and not model_like:
         return frozenset()
 
-    if path == ".github/workflows/research_backtest_pipeline.yml":
-        return frozenset(DOMAINS)
+    if path in RESEARCH_SAFETY_EXACT_PATHS:
+        return frozenset({RESEARCH_SAFETY_LITE})
+    if path in MODEL_OWNED_VOLUME_RESEARCH_EXACT_PATHS:
+        return frozenset({RESEARCH_SAFETY_LITE, VOLUME_V2_RESEARCH})
     if path in REPO_CURRENT_AND_SHARED_EXACT_PATHS:
-        return frozenset({REPO_CURRENT_CONTRACTS, SHARED_MODEL_RESEARCH})
+        return frozenset(
+            {
+                REPO_CURRENT_CONTRACTS,
+                RESEARCH_SAFETY_LITE,
+                SHARED_MODEL_RESEARCH,
+            }
+        )
     if path in CENTRAL_SHARED_VOLUME_REVENUE_EXACT_PATHS:
         return frozenset(
             {
                 REPO_CURRENT_CONTRACTS,
+                RESEARCH_SAFETY_LITE,
                 SHARED_MODEL_RESEARCH,
                 VOLUME_V2_RESEARCH,
                 REVENUE_RESEARCH,
@@ -389,15 +446,26 @@ def domains_for_path(value: str) -> frozenset[str]:
         return frozenset(
             {
                 REPO_CURRENT_CONTRACTS,
+                RESEARCH_SAFETY_LITE,
                 SHARED_MODEL_RESEARCH,
                 VOLUME_V2_RESEARCH,
             }
         )
 
+    # Revenue-owned modules, tests, artifacts, and specs remain one independent
+    # model surface even when their names contain generic words such as
+    # "operation" or "financial_statement". The revenue job owns its explicit
+    # exclusion-boundary validator; only actual shared financial-statement
+    # sources route to the financial-statement domain below.
+    if any(marker in lowered for marker in REVENUE_MARKERS):
+        return frozenset({RESEARCH_SAFETY_LITE, REVENUE_RESEARCH})
+
     if path in CORE_EXACT_PATHS:
         return frozenset({REPO_CURRENT_CONTRACTS})
 
     selected: set[str] = set()
+    if path in LEGACY_REPO_CURRENT_EXACT_PATHS:
+        selected.add(REPO_CURRENT_CONTRACTS)
     if path.startswith(CORE_PREFIXES):
         selected.add(REPO_CURRENT_CONTRACTS)
 
@@ -425,8 +493,10 @@ def domains_for_path(value: str) -> frozenset[str]:
             f"domain: {path!r}"
         )
 
-    # Every selected research domain is gated by the common current-contract job.
-    selected.add(REPO_CURRENT_CONTRACTS)
+    # Research changes run one common, research-only safety gate. Production/PDF
+    # contracts remain independently path-scoped through repo-current-contracts.
+    if selected.intersection(RESEARCH_DOMAINS):
+        selected.add(RESEARCH_SAFETY_LITE)
     return frozenset(selected)
 
 
@@ -532,18 +602,34 @@ def changed_paths_from_git(base_sha: str, head_sha: str, merge_sha: str) -> list
 def detect_scope(
     *,
     event_name: str,
+    validation_profile: str = "all",
     base_sha: str | None = None,
     head_sha: str | None = None,
     merge_sha: str | None = None,
 ) -> ScopeResult:
     if event_name == "workflow_dispatch":
+        profiles = {
+            "all": DOMAINS,
+            "revenue-research": (
+                RESEARCH_SAFETY_LITE,
+                REVENUE_RESEARCH,
+            ),
+        }
+        if validation_profile not in profiles:
+            raise ScopeDetectionError(
+                f"unsupported workflow_dispatch validation profile: {validation_profile!r}"
+            )
         return ScopeResult(
             changed_paths=(),
             watched_paths=(),
-            selected_domains=DOMAINS,
+            selected_domains=profiles[validation_profile],
         )
     if event_name != "pull_request":
         raise ScopeDetectionError(f"unsupported event name: {event_name!r}")
+    if validation_profile != "all":
+        raise ScopeDetectionError(
+            "pull_request validation profile must be 'all'; changed paths select the domains"
+        )
     if not base_sha or not head_sha or not merge_sha:
         raise ScopeDetectionError(
             "pull_request scope requires base, head, and synthetic merge SHAs"
@@ -560,8 +646,8 @@ def detect_scope(
             watched_paths.append(path)
             selected.update(domains)
 
-    if selected and REPO_CURRENT_CONTRACTS not in selected:
-        raise ScopeDetectionError("selected scope is missing repo-current-contracts")
+    if selected.intersection(RESEARCH_DOMAINS) and RESEARCH_SAFETY_LITE not in selected:
+        raise ScopeDetectionError("selected research scope is missing research-safety-lite")
 
     return ScopeResult(
         changed_paths=tuple(changed),
@@ -598,6 +684,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--event-name", choices=("pull_request", "workflow_dispatch"), required=True
     )
+    parser.add_argument(
+        "--validation-profile",
+        choices=("all", "revenue-research"),
+        default="all",
+    )
     parser.add_argument("--base-sha")
     parser.add_argument("--head-sha")
     parser.add_argument("--merge-sha")
@@ -610,6 +701,7 @@ def main() -> int:
     try:
         result = detect_scope(
             event_name=args.event_name,
+            validation_profile=args.validation_profile,
             base_sha=args.base_sha,
             head_sha=args.head_sha,
             merge_sha=args.merge_sha,

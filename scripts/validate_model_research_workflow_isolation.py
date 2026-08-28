@@ -50,6 +50,11 @@ FORBIDDEN_STAGE_SNIPPETS = {
 }
 
 SHARED_DATA_INPUT = "run_shared_model_research_data_refresh"
+MODEL_PR_VALIDATION_DOMAINS = {
+    "price_pullback_23ema": pr_scope.SHARED_MODEL_RESEARCH,
+    "revenue_unreacted_range": pr_scope.REVENUE_RESEARCH,
+    "volume_range_breakout_v2": pr_scope.VOLUME_V2_RESEARCH,
+}
 SHARED_DATA_COMMANDS = {
     "python scripts/build_monthly_revenue_point_in_time_panel.py",
     "python scripts/build_daily_model_signal_background_features.py",
@@ -370,6 +375,17 @@ def validate_pr_workflow_text(text: str, rows: list[WorkflowEntrypoint]) -> list
         if literal not in text:
             errors.append(f"daily model PR validation missing scope contract: {literal}")
     for row in rows:
+        model_domain = MODEL_PR_VALIDATION_DOMAINS.get(row.model_id)
+        if model_domain is None:
+            errors.append(
+                "registered model namespace has no PR validation domain: "
+                f"{row.model_id}: {row.producer}"
+            )
+            continue
+        expected_domains = {
+            pr_scope.RESEARCH_SAFETY_LITE,
+            model_domain,
+        }
         for path in (
             row.producer,
             f"tests/test_{row.model_id}_scope_probe.py",
@@ -381,13 +397,11 @@ def validate_pr_workflow_text(text: str, rows: list[WorkflowEntrypoint]) -> list
                     f"registered model namespace is not routed by PR scope: {path}: {exc}"
                 )
                 continue
-            research_domains = set(domains) - {pr_scope.REPO_CURRENT_CONTRACTS}
-            if (
-                pr_scope.REPO_CURRENT_CONTRACTS not in domains
-                or not research_domains
-            ):
+            if set(domains) != expected_domains:
                 errors.append(
-                    f"registered model namespace is not routed to core and research: {path}"
+                    "registered model namespace must route to exactly research safety "
+                    f"and its model domain: {path}: expected={sorted(expected_domains)} "
+                    f"observed={sorted(domains)}"
                 )
     return errors
 

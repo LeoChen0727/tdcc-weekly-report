@@ -596,9 +596,9 @@ def validate_daily_model_pr_scope_contract(text: str) -> list[str]:
             errors.append(
                 "daily model maintenance PR scope effective base validation must not be masked"
             )
-        if text.count(effective_base_consumption) != 3:
+        if text.count(effective_base_consumption) != 4:
             errors.append(
-                "daily model maintenance PR repo/shared/volume jobs must consume exactly three "
+                "daily model maintenance PR repo/safety/shared/volume jobs must consume exactly four "
                 "verified effective base bindings"
             )
         if "github.event.pull_request.base.sha" in text:

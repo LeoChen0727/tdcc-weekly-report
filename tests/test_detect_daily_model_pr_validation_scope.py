@@ -25,8 +25,8 @@ LEGACY_GUARD_SCOPE_CASES = (
     ("output/latest/chatgpt_daily_report_packet_latest.txt", {scope.REPO_CURRENT_CONTRACTS}),
     ("output/latest/CHATGPT_DAILY_REPORT_PACKET.txt", {scope.REPO_CURRENT_CONTRACTS}),
     ("docs/latest/chatgpt_daily_report_packet_latest.txt", {scope.REPO_CURRENT_CONTRACTS}),
-    ("scripts/build_approved_operation_patterns.py", {scope.REPO_CURRENT_CONTRACTS, scope.SHARED_MODEL_RESEARCH}),
-    ("scripts/audit_daily_candidate_model_selection_correctness.py", {scope.REPO_CURRENT_CONTRACTS, scope.SHARED_MODEL_RESEARCH}),
+    ("scripts/build_approved_operation_patterns.py", {scope.REPO_CURRENT_CONTRACTS, scope.RESEARCH_SAFETY_LITE, scope.SHARED_MODEL_RESEARCH}),
+    ("scripts/audit_daily_candidate_model_selection_correctness.py", {scope.REPO_CURRENT_CONTRACTS, scope.RESEARCH_SAFETY_LITE, scope.SHARED_MODEL_RESEARCH}),
     ("build_chatgpt_daily_report_packet.py", {scope.REPO_CURRENT_CONTRACTS}),
 )
 
@@ -114,7 +114,10 @@ def test_every_current_tracked_owned_path_has_a_declared_domain() -> None:
     unclassified = [
         path
         for path in sorted(set(watched) | explicit_owned)
-        if scope.REPO_CURRENT_CONTRACTS not in scope.domains_for_path(path)
+        if not {
+            scope.REPO_CURRENT_CONTRACTS,
+            scope.RESEARCH_SAFETY_LITE,
+        }.intersection(scope.domains_for_path(path))
     ]
     assert unclassified == []
 
@@ -132,11 +135,19 @@ def test_every_current_tracked_owned_path_has_a_declared_domain() -> None:
         ),
         (
             "scripts/build_approved_operation_patterns.py",
-            {scope.REPO_CURRENT_CONTRACTS, scope.SHARED_MODEL_RESEARCH},
+            {
+                scope.REPO_CURRENT_CONTRACTS,
+                scope.RESEARCH_SAFETY_LITE,
+                scope.SHARED_MODEL_RESEARCH,
+            },
         ),
         (
             "scripts/audit_daily_candidate_model_selection_correctness.py",
-            {scope.REPO_CURRENT_CONTRACTS, scope.SHARED_MODEL_RESEARCH},
+            {
+                scope.REPO_CURRENT_CONTRACTS,
+                scope.RESEARCH_SAFETY_LITE,
+                scope.SHARED_MODEL_RESEARCH,
+            },
         ),
         (
             "build_chatgpt_daily_report_packet.py",
@@ -145,32 +156,57 @@ def test_every_current_tracked_owned_path_has_a_declared_domain() -> None:
         *LEGACY_GUARD_SCOPE_CASES[:11],
         (
             "scripts/model_data_independence.py",
-            {scope.REPO_CURRENT_CONTRACTS, scope.SHARED_MODEL_RESEARCH},
+            {scope.RESEARCH_SAFETY_LITE, scope.SHARED_MODEL_RESEARCH},
         ),
         (
             "scripts/build_volume_v2_warrant_lineage_history_audit.py",
-            {scope.REPO_CURRENT_CONTRACTS, scope.VOLUME_V2_RESEARCH},
+            {scope.RESEARCH_SAFETY_LITE, scope.VOLUME_V2_RESEARCH},
+        ),
+        (
+            "scripts/build_volume_range_breakout_v2_research.py",
+            {scope.RESEARCH_SAFETY_LITE, scope.VOLUME_V2_RESEARCH},
+        ),
+        (
+            "tests/test_volume_range_breakout_v2_scope_probe.py",
+            {scope.RESEARCH_SAFETY_LITE, scope.VOLUME_V2_RESEARCH},
         ),
         (
             "scripts/validate_revenue_unreacted_range_source_snapshot_projection.py",
-            {scope.REPO_CURRENT_CONTRACTS, scope.REVENUE_RESEARCH},
+            {scope.RESEARCH_SAFETY_LITE, scope.REVENUE_RESEARCH},
+        ),
+        (
+            "scripts/revenue_unreacted_range_operation_adapter.py",
+            {scope.RESEARCH_SAFETY_LITE, scope.REVENUE_RESEARCH},
+        ),
+        (
+            "tests/test_revenue_unreacted_range_operation_adapter.py",
+            {scope.RESEARCH_SAFETY_LITE, scope.REVENUE_RESEARCH},
+        ),
+        (
+            "docs/specs/revenue_unreacted_range_operation_adapter.md",
+            {scope.RESEARCH_SAFETY_LITE, scope.REVENUE_RESEARCH},
+        ),
+        (
+            "scripts/validate_revenue_unreacted_range_financial_statement_fail_closed.py",
+            {scope.RESEARCH_SAFETY_LITE, scope.REVENUE_RESEARCH},
         ),
         (
             "scripts/build_financial_statement_historical_pit_source_audit.py",
             {
-                scope.REPO_CURRENT_CONTRACTS,
+                scope.RESEARCH_SAFETY_LITE,
                 scope.REVENUE_RESEARCH,
                 scope.FINANCIAL_STATEMENT_RESEARCH,
             },
         ),
         (
             ".github/workflows/research_backtest_pipeline.yml",
-            set(scope.DOMAINS),
+            {scope.RESEARCH_SAFETY_LITE},
         ),
         (
             "scripts/build_daily_candidate_model_layer.py",
             {
                 scope.REPO_CURRENT_CONTRACTS,
+                scope.RESEARCH_SAFETY_LITE,
                 scope.SHARED_MODEL_RESEARCH,
                 scope.VOLUME_V2_RESEARCH,
                 scope.REVENUE_RESEARCH,
@@ -180,6 +216,7 @@ def test_every_current_tracked_owned_path_has_a_declared_domain() -> None:
             "config/stock_model_contract_registry.csv",
             {
                 scope.REPO_CURRENT_CONTRACTS,
+                scope.RESEARCH_SAFETY_LITE,
                 scope.SHARED_MODEL_RESEARCH,
                 scope.VOLUME_V2_RESEARCH,
                 scope.REVENUE_RESEARCH,
@@ -189,6 +226,7 @@ def test_every_current_tracked_owned_path_has_a_declared_domain() -> None:
             "config/formal_model_evidence_pins.csv",
             {
                 scope.REPO_CURRENT_CONTRACTS,
+                scope.RESEARCH_SAFETY_LITE,
                 scope.SHARED_MODEL_RESEARCH,
                 scope.VOLUME_V2_RESEARCH,
                 scope.REVENUE_RESEARCH,
@@ -196,20 +234,21 @@ def test_every_current_tracked_owned_path_has_a_declared_domain() -> None:
         ),
         (
             "data/monthly_revenue_history/monthly_revenue_history.csv",
-            {scope.REPO_CURRENT_CONTRACTS, scope.REVENUE_RESEARCH},
+            {scope.RESEARCH_SAFETY_LITE, scope.REVENUE_RESEARCH},
         ),
         (
             "docs/latest/revenue_unreacted_range_scope_probe.csv",
-            {scope.REPO_CURRENT_CONTRACTS, scope.REVENUE_RESEARCH},
+            {scope.RESEARCH_SAFETY_LITE, scope.REVENUE_RESEARCH},
         ),
         (
             "docs/latest/volume_v2_scope_probe.csv",
-            {scope.REPO_CURRENT_CONTRACTS, scope.VOLUME_V2_RESEARCH},
+            {scope.RESEARCH_SAFETY_LITE, scope.VOLUME_V2_RESEARCH},
         ),
         (
             "output/history/daily_model_snapshots/scope_probe.csv",
             {
                 scope.REPO_CURRENT_CONTRACTS,
+                scope.RESEARCH_SAFETY_LITE,
                 scope.SHARED_MODEL_RESEARCH,
                 scope.VOLUME_V2_RESEARCH,
             },
@@ -276,6 +315,26 @@ def test_workflow_dispatch_selects_all_domains_without_reading_git(
     assert result.changed_paths == ()
     assert result.watched_paths == ()
     assert result.selected_domains == scope.DOMAINS
+
+
+def test_workflow_dispatch_revenue_profile_selects_safety_and_revenue_only() -> None:
+    result = scope.detect_scope(
+        event_name="workflow_dispatch",
+        validation_profile="revenue-research",
+    )
+
+    assert result.selected_domains == (
+        scope.RESEARCH_SAFETY_LITE,
+        scope.REVENUE_RESEARCH,
+    )
+
+
+def test_workflow_dispatch_rejects_unknown_profile() -> None:
+    with pytest.raises(scope.ScopeDetectionError, match="unsupported.*validation profile"):
+        scope.detect_scope(
+            event_name="workflow_dispatch",
+            validation_profile="revenue-without-safety",
+        )
 
 
 def test_pull_request_requires_all_three_commit_objects() -> None:
@@ -345,6 +404,7 @@ def test_pull_request_combines_relevant_domains_only(
     )
     assert result.selected_domains == (
         scope.REPO_CURRENT_CONTRACTS,
+        scope.RESEARCH_SAFETY_LITE,
         scope.REVENUE_RESEARCH,
     )
 
@@ -530,20 +590,21 @@ def test_real_git_diff_detects_the_routine_workflow_as_core_only(
     (
         (
             "data/monthly_revenue_history/monthly_revenue_history.csv",
-            {scope.REPO_CURRENT_CONTRACTS, scope.REVENUE_RESEARCH},
+            {scope.RESEARCH_SAFETY_LITE, scope.REVENUE_RESEARCH},
         ),
         (
             "docs/latest/revenue_unreacted_range_scope_probe.csv",
-            {scope.REPO_CURRENT_CONTRACTS, scope.REVENUE_RESEARCH},
+            {scope.RESEARCH_SAFETY_LITE, scope.REVENUE_RESEARCH},
         ),
         (
             "docs/latest/volume_v2_scope_probe.csv",
-            {scope.REPO_CURRENT_CONTRACTS, scope.VOLUME_V2_RESEARCH},
+            {scope.RESEARCH_SAFETY_LITE, scope.VOLUME_V2_RESEARCH},
         ),
         (
             "output/history/daily_model_snapshots/scope_probe.csv",
             {
                 scope.REPO_CURRENT_CONTRACTS,
+                scope.RESEARCH_SAFETY_LITE,
                 scope.SHARED_MODEL_RESEARCH,
                 scope.VOLUME_V2_RESEARCH,
             },
@@ -606,7 +667,7 @@ def test_real_git_rename_selects_both_old_and_new_path_domains(
         new_rel,
     )
     assert result.selected_domains == (
-        scope.REPO_CURRENT_CONTRACTS,
+        scope.RESEARCH_SAFETY_LITE,
         scope.VOLUME_V2_RESEARCH,
         scope.REVENUE_RESEARCH,
     )
@@ -645,7 +706,7 @@ def test_real_git_deletion_keeps_the_deleted_paths_domains(
 
     assert result.watched_paths == (deleted_rel,)
     assert result.selected_domains == (
-        scope.REPO_CURRENT_CONTRACTS,
+        scope.RESEARCH_SAFETY_LITE,
         scope.REVENUE_RESEARCH,
         scope.FINANCIAL_STATEMENT_RESEARCH,
     )
@@ -703,6 +764,7 @@ def test_github_output_records_each_domain_and_counts(tmp_path: Path) -> None:
         watched_paths=("scripts/model_data_independence.py",),
         selected_domains=(
             scope.REPO_CURRENT_CONTRACTS,
+            scope.RESEARCH_SAFETY_LITE,
             scope.SHARED_MODEL_RESEARCH,
         ),
     )
@@ -711,6 +773,7 @@ def test_github_output_records_each_domain_and_counts(tmp_path: Path) -> None:
 
     assert output.read_text(encoding="utf-8").splitlines() == [
         "repo_current_contracts=true",
+        "research_safety_lite=true",
         "shared_model_research=true",
         "volume_v2_research=false",
         "revenue_research=false",
