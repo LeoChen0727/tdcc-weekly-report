@@ -2,41 +2,6 @@ name: TDCC Weekly PR Validation
 
 on:
   pull_request:
-    paths:
-      - ".github/workflows/tdcc_weekly.yml"
-      - ".github/workflows/tdcc_weekly_pr_validation.yml"
-      - ".github/workflows/repair_tdcc_monthly_history_gaps.yml"
-      - "config/repo_file_lifecycle_inventory.csv"
-      - "config/repo_production_inventory.csv"
-      - "config/report_artifact_lineage.csv"
-      - "config/runtime_file_lineage_contract.csv"
-      - "docs/APPS_SCRIPT_WORKFLOW_TRIGGER.md"
-      - "docs/apps_script_workflow_trigger.gs"
-      - "docs/tdcc_weekly_data_continuity.md"
-      - "docs/tdcc_analytics_store.md"
-      - "scripts/backfill_tdcc_history.py"
-      - "scripts/build_tdcc_dataset_manifest.py"
-      - "scripts/build_tdcc_analytics_store.py"
-      - "scripts/build_tdcc_stock_history.py"
-      - "scripts/detect_tdcc_weekly_pr_scope.py"
-      - "scripts/repair_tdcc_monthly_history_gaps.py"
-      - "scripts/repair_tdcc_weekly_history_continuity.py"
-      - "scripts/tdcc_stock_history_utils.py"
-      - "scripts/tdcc_dataset_contract.py"
-      - "scripts/tdcc_analytics_store.py"
-      - "scripts/tdcc_weekly_data_readiness.py"
-      - "scripts/validate_apps_script_workflow_triggers.py"
-      - "scripts/validate_tdcc_weekly_history_continuity.py"
-      - "scripts/validate_tdcc_dataset_manifest.py"
-      - "scripts/validate_tdcc_analytics_store.py"
-      - "scripts/validate_repo_production_inventory.py"
-      - "tdcc_holder_ratio_top10.py"
-      - "tests/test_tdcc_monthly_history_gap_repair.py"
-      - "tests/test_tdcc_weekly_data_readiness.py"
-      - "tests/test_tdcc_weekly_history_continuity.py"
-      - "tests/test_tdcc_dataset_contract.py"
-      - "tests/test_tdcc_analytics_store.py"
-      - "tests/test_tdcc_weekly_pr_validation_workflow.py"
   workflow_dispatch:
 
 permissions:

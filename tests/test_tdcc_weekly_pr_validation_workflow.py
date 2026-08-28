@@ -68,23 +68,10 @@ def test_tdcc_business_suite_is_affected_only_and_dispatch_remains_full() -> Non
     assert "      - name: Record TDCC weekly scope result" in text
 
 
-def test_tdcc_pr_validation_watches_runtime_files() -> None:
+def test_tdcc_pr_validation_has_no_trigger_path_prefilter() -> None:
     text = workflow_text()
-    required_paths = (
-        '".github/workflows/tdcc_weekly.yml"',
-        '"docs/apps_script_workflow_trigger.gs"',
-        '"scripts/build_tdcc_stock_history.py"',
-        '"scripts/detect_tdcc_weekly_pr_scope.py"',
-        '"scripts/build_tdcc_dataset_manifest.py"',
-        '"scripts/build_tdcc_analytics_store.py"',
-        '"scripts/repair_tdcc_weekly_history_continuity.py"',
-        '"scripts/tdcc_weekly_data_readiness.py"',
-        '"scripts/tdcc_stock_history_utils.py"',
-        '"scripts/tdcc_dataset_contract.py"',
-        '"scripts/tdcc_analytics_store.py"',
-        '"scripts/validate_tdcc_dataset_manifest.py"',
-        '"scripts/validate_tdcc_analytics_store.py"',
-        '"tdcc_holder_ratio_top10.py"',
-    )
-    for path in required_paths:
-        assert path in text
+    event_block = text.split("on:\n", 1)[1].split("\npermissions:\n", 1)[0]
+
+    assert "  pull_request:\n" in event_block
+    assert "paths:" not in event_block
+    assert "paths-ignore:" not in event_block
