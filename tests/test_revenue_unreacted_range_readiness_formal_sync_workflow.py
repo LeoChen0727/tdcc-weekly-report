@@ -53,6 +53,13 @@ def test_exact_builder_blocker_four_disabled_meanings_and_versioned_counts() -> 
         assert token in SPEC_TEXT
 
 
+def test_builder_runtime_dependencies_are_explicit() -> None:
+    assert (
+        "python -m pip install --disable-pip-version-check pandas requests tabulate"
+        in TEXT
+    )
+
+
 def test_committed_phase_remote_identity_and_key_cleanup_are_final() -> None:
     marker = "- name: Push only validated commit to inert codex target"
     before, final = TEXT.split(marker, 1)
