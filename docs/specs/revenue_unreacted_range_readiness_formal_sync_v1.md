@@ -124,7 +124,8 @@ consistency checks. Its PIT checks cover replay list/scalar alignment, date
 ordering, non-placeholder SHA-256 format, detail linkage, and observed-through
 boundaries, but deliberately do not import research-owner code or independently
 recompute raw monthly-revenue table and row truth. That independent truth remains
-owned by the research-owner validator module, its independent
+owned by the research-owner validator module
+`scripts/validate_revenue_unreacted_range_forward_holdout_v2.py`, its independent
 `tests/test_revenue_unreacted_range_forward_holdout_v2.py` coverage, and the
 writer's single pre-write exact child. The standalone validator CLI requires the
 producer's explicit normalized price bundle, so a cheap PR job must not pass raw
