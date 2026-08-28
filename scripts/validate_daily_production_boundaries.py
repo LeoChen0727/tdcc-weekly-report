@@ -91,7 +91,10 @@ LEGACY_REMOVAL_GUARD_COMMANDS = (
     "python scripts/validate_daily_legacy_volume_range_breakout_removed.py",
     "python scripts/validate_daily_legacy_mature_model_paths_removed.py",
 )
-DAILY_MODEL_LEGACY_REMOVAL_GUARD_STEP = "Validate current repository and PDF contracts"
+DAILY_MODEL_LEGACY_REMOVAL_GUARD_STEP = "Validate selected production and PDF contracts"
+DAILY_MODEL_PRODUCTION_PDF_SCOPE_CONDITION = (
+    "needs.scope.outputs.production_pdf_contracts == 'true'"
+)
 
 PACKET_ROW_METRIC_REQUIRED_LITERALS = {
     'operation-row performance must consume row_metric_* only',
@@ -456,8 +459,19 @@ def validate_daily_model_legacy_removal_guard(pr_workflow_text: str) -> list[str
                 "Daily Model repo_current_contracts must run exactly one standalone "
                 f"legacy-removal guard: {command}"
             )
-    if re.search(r'(?m)^ {8}(?:if|["\']if["\'])\s*:', step):
-        errors.append("Daily Model legacy-removal guard step must be unconditional")
+    condition_match = re.search(
+        r'(?m)^ {8}(?:if|["\']if["\'])\s*:\s*(?P<value>.+?)\s*$',
+        step,
+    )
+    if (
+        condition_match is None
+        or condition_match.group("value")
+        != DAILY_MODEL_PRODUCTION_PDF_SCOPE_CONDITION
+    ):
+        errors.append(
+            "Daily Model legacy-removal guard step must use the exact "
+            "production/PDF scope condition"
+        )
     if re.search(
         r'(?m)^ {8}(?:continue-on-error|["\']continue-on-error["\'])\s*:',
         step,

@@ -688,8 +688,6 @@ def test_revenue_only_scope_skips_production_pdf_steps_and_related_scope_runs_th
         "python scripts/validate_repo_file_lifecycle_inventory.py",
         "python scripts/validate_repo_production_inventory.py",
         "python scripts/validate_stock_model_contract_registry.py",
-        "python scripts/validate_daily_legacy_volume_range_breakout_removed.py",
-        "python scripts/validate_daily_legacy_mature_model_paths_removed.py",
         'python scripts/validate_repo_advanced_integrity_pr_safe.py --base-ref "$BASE_SHA"',
         "python scripts/validate_repo_hidden_coupling_audit.py",
         "python scripts/validate_git_worktree_safety.py",
@@ -719,6 +717,8 @@ def test_revenue_only_scope_skips_production_pdf_steps_and_related_scope_runs_th
 
     production_validation_run = active_field(production_validation, "run") or ""
     production_commands = (
+        "python scripts/validate_daily_legacy_volume_range_breakout_removed.py",
+        "python scripts/validate_daily_legacy_mature_model_paths_removed.py",
         "python scripts/validate_daily_pdf_contract_consumers.py",
         "python scripts/validate_daily_pdf_role_manifest_contract.py",
         "python scripts/validate_daily_pdf_shared_path_isolation.py",
@@ -831,6 +831,8 @@ def test_repo_current_runs_legacy_removal_guards_exactly_once_and_fail_closed() 
         "anonymous",
         "step_shell",
         "job_default_shell",
+        "missing_scope_condition",
+        "wrong_scope_condition",
     ),
 )
 def test_repo_current_legacy_removal_guards_reject_contract_mutations(
@@ -883,6 +885,30 @@ def test_repo_current_legacy_removal_guards_reject_contract_mutations(
         mutated = text.replace(
             step_marker,
             step_marker + "        shell: bash\n",
+            1,
+        )
+    elif mutation == "missing_scope_condition":
+        guarded_header = (
+            f"      - name: {boundaries.DAILY_MODEL_LEGACY_REMOVAL_GUARD_STEP}\n"
+            "        if: "
+            f"{boundaries.DAILY_MODEL_PRODUCTION_PDF_SCOPE_CONDITION}\n"
+        )
+        unguarded_header = (
+            f"      - name: {boundaries.DAILY_MODEL_LEGACY_REMOVAL_GUARD_STEP}\n"
+        )
+        assert guarded_header in text
+        mutated = text.replace(guarded_header, unguarded_header, 1)
+    elif mutation == "wrong_scope_condition":
+        guarded_header = (
+            f"      - name: {boundaries.DAILY_MODEL_LEGACY_REMOVAL_GUARD_STEP}\n"
+            "        if: "
+            f"{boundaries.DAILY_MODEL_PRODUCTION_PDF_SCOPE_CONDITION}\n"
+        )
+        assert guarded_header in text
+        mutated = text.replace(
+            guarded_header,
+            f"      - name: {boundaries.DAILY_MODEL_LEGACY_REMOVAL_GUARD_STEP}\n"
+            "        if: always()\n",
             1,
         )
     else:

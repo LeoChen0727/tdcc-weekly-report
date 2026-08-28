@@ -170,8 +170,6 @@ jobs:
           python scripts/validate_repo_file_lifecycle_inventory.py
           python scripts/validate_repo_production_inventory.py
           python scripts/validate_stock_model_contract_registry.py
-          python scripts/validate_daily_legacy_volume_range_breakout_removed.py
-          python scripts/validate_daily_legacy_mature_model_paths_removed.py
           python scripts/validate_repo_advanced_integrity_pr_safe.py --base-ref "$BASE_SHA"
           python scripts/validate_repo_hidden_coupling_audit.py
           python scripts/validate_git_worktree_safety.py
@@ -193,6 +191,8 @@ jobs:
       - name: Validate selected production and PDF contracts
         if: needs.scope.outputs.production_pdf_contracts == 'true'
         run: |
+          python scripts/validate_daily_legacy_volume_range_breakout_removed.py
+          python scripts/validate_daily_legacy_mature_model_paths_removed.py
           python scripts/validate_daily_pdf_contract_consumers.py
           python scripts/validate_daily_pdf_role_manifest_contract.py
           python scripts/validate_daily_pdf_shared_path_isolation.py

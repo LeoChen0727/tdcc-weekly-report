@@ -70,10 +70,26 @@ def test_exact_producer_blocker_four_disabled_meanings_and_versioned_counts() ->
         assert token in SPEC_TEXT
 
 
-def test_builder_runtime_dependencies_are_explicit() -> None:
-    assert (
+def test_each_job_has_pinned_python_and_runtime_dependencies_before_validation() -> None:
+    prepare_job, apply_job = TEXT.split("  apply-bundle:\n", 1)
+    dependency_command = (
         "python -m pip install --disable-pip-version-check pandas requests tabulate"
-        in TEXT
+    )
+    setup_action = "actions/setup-python@v6.2.0"
+
+    for job in (prepare_job, apply_job):
+        assert job.count(setup_action) == 1
+        assert job.count('python-version: "3.11"') == 1
+        assert job.count(dependency_command) == 1
+
+    assert apply_job.index(setup_action) < apply_job.index(
+        "- name: Revalidate and commit content-addressed bundle"
+    )
+    assert apply_job.index(dependency_command) < apply_job.index(
+        "- name: Revalidate and commit content-addressed bundle"
+    )
+    assert apply_job.index(dependency_command) < apply_job.index(
+        "- name: Push only validated commit to inert codex target"
     )
 
 
