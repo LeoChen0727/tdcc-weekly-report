@@ -52,6 +52,30 @@ def pull_request_nested_lines(text: str) -> list[str]:
     return nested
 
 
+def git(repo: Path, *args: str) -> str:
+    result = subprocess.run(
+        ["git", *args],
+        cwd=repo,
+        check=True,
+        text=True,
+        encoding="utf-8",
+        stdout=subprocess.PIPE,
+    )
+    return result.stdout.strip()
+
+
+def commit_all(repo: Path, message: str) -> str:
+    git(repo, "add", "--all")
+    git(repo, "commit", "-m", message)
+    return git(repo, "rev-parse", "HEAD")
+
+
+def initialize_git_repo(repo: Path) -> None:
+    git(repo, "init", "--quiet")
+    git(repo, "config", "user.name", "Scope Test")
+    git(repo, "config", "user.email", "scope-test@example.invalid")
+
+
 def test_workflow_creates_the_same_check_for_every_pull_request() -> None:
     text = workflow_text()
 
@@ -78,12 +102,69 @@ def test_normalize_path_preserves_dot_github_exact_match() -> None:
     assert scope.is_affected_path(workflow_path)
 
 
+def test_real_rename_is_reported_as_deleted_and_added_paths(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    initialize_git_repo(tmp_path)
+    old_path = tmp_path / "scripts" / "individual_tdcc_dataset_consumer.py"
+    old_path.parent.mkdir(parents=True)
+    old_path.write_text("old\n", encoding="utf-8")
+    base_sha = commit_all(tmp_path, "base")
+    new_path = tmp_path / "docs" / "renamed_consumer.py"
+    new_path.parent.mkdir(parents=True)
+    git(
+        tmp_path,
+        "mv",
+        "scripts/individual_tdcc_dataset_consumer.py",
+        "docs/renamed_consumer.py",
+    )
+    head_sha = commit_all(tmp_path, "rename")
+    monkeypatch.setattr(scope, "ROOT", tmp_path)
+
+    assert scope.validate_commit_range(base_sha, head_sha) == (base_sha, head_sha)
+    changed = scope.changed_paths_from_git(base_sha, head_sha)
+    assert changed == [
+        "docs/renamed_consumer.py",
+        "scripts/individual_tdcc_dataset_consumer.py",
+    ]
+    assert scope.matched_affected_paths(
+        changed,
+        base_sha=base_sha,
+        head_sha=head_sha,
+    ) == ["scripts/individual_tdcc_dataset_consumer.py"]
+
+
+def test_commit_range_rejects_non_commit_and_non_ancestor_base(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    initialize_git_repo(tmp_path)
+    tracked = tmp_path / "tracked.txt"
+    tracked.write_text("base\n", encoding="utf-8")
+    root_sha = commit_all(tmp_path, "root")
+    tracked.write_text("head\n", encoding="utf-8")
+    head_sha = commit_all(tmp_path, "head")
+    git(tmp_path, "checkout", "--quiet", root_sha)
+    tracked.write_text("side\n", encoding="utf-8")
+    side_sha = commit_all(tmp_path, "side")
+    tree_sha = git(tmp_path, "rev-parse", f"{head_sha}^{{tree}}")
+    monkeypatch.setattr(scope, "ROOT", tmp_path)
+
+    with pytest.raises(scope.RegistryScopeError, match="commit object"):
+        scope.validate_commit_range(tree_sha, head_sha)
+    with pytest.raises(scope.RegistryScopeError, match="must be an ancestor"):
+        scope.validate_commit_range(side_sha, head_sha)
+
+
 def test_scope_covers_gate_inventories_and_probe_contract_docs() -> None:
     affected = (
         ".github/workflows/individual_stock_data_refresh.yml",
         ".github/workflows/individual_stock_pr_validation.yml",
         "config/repo_file_lifecycle_inventory.csv",
         "config/repo_production_inventory.csv",
+        "config/report_artifact_lineage.csv",
+        "config/runtime_file_lineage_contract.csv",
         "docs/individual_stock_lifecycle_probe.md",
         "output/history/individual_stock_reports/2330/report.pdf",
         "scripts/detect_individual_stock_pr_scope.py",
@@ -103,6 +184,87 @@ def test_scope_covers_gate_inventories_and_probe_contract_docs() -> None:
 
     assert all(scope.is_affected_path(path) for path in affected)
     assert not any(scope.is_affected_path(path) for path in unrelated)
+
+
+@pytest.mark.parametrize("path", sorted(scope.SHARED_REGISTRY_KEY_FIELDS))
+def test_shared_registry_revenue_only_row_change_is_not_individual_affected(
+    path: str,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    key_field = scope.SHARED_REGISTRY_KEY_FIELDS[path]
+    base = f"{key_field},owner,purpose\nscripts/revenue.py,research_backtest,old\n"
+    head = f"{key_field},owner,purpose\nscripts/revenue.py,research_backtest,new\n"
+    monkeypatch.setattr(
+        scope,
+        "_read_git_text",
+        lambda revision, _path: base if revision == "base" else head,
+    )
+
+    assert not scope.is_affected_changed_path(
+        path,
+        base_sha="base",
+        head_sha="head",
+    )
+
+
+@pytest.mark.parametrize("path", sorted(scope.SHARED_REGISTRY_KEY_FIELDS))
+def test_shared_registry_individual_row_change_is_affected(
+    path: str,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    key_field = scope.SHARED_REGISTRY_KEY_FIELDS[path]
+    base = f"{key_field},owner,purpose\nscripts/revenue.py,research_backtest,same\n"
+    head = (
+        base
+        + "scripts/build_individual_stock_packet.py,individual_stock,packet\n"
+    )
+    monkeypatch.setattr(
+        scope,
+        "_read_git_text",
+        lambda revision, _path: base if revision == "base" else head,
+    )
+
+    assert scope.is_affected_changed_path(
+        path,
+        base_sha="base",
+        head_sha="head",
+    )
+
+
+def test_shared_registry_unreadable_state_fails_closed(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(
+        scope,
+        "_read_git_text",
+        lambda *_args: (_ for _ in ()).throw(
+            scope.RegistryScopeError("missing blob")
+        ),
+    )
+
+    assert scope.is_affected_changed_path(
+        "config/repo_production_inventory.csv",
+        base_sha="base",
+        head_sha="head",
+    )
+
+
+def test_shared_registry_duplicate_key_fails_closed(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    base = "path,owner,purpose\nscripts/revenue.py,research_backtest,revenue\n"
+    head = base + "scripts/revenue.py,research_backtest,duplicate\n"
+    monkeypatch.setattr(
+        scope,
+        "_read_git_text",
+        lambda revision, _path: base if revision == "base" else head,
+    )
+
+    assert scope.is_affected_changed_path(
+        "config/repo_production_inventory.csv",
+        base_sha="base",
+        head_sha="head",
+    )
 
 
 def test_scope_covers_every_registered_production_artifact_writer() -> None:
