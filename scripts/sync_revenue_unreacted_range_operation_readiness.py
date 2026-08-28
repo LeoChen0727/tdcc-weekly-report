@@ -108,6 +108,9 @@ TRAINING_CUTOFF_DATE = "20260713"
 BRIDGE_START_DATE = "20260714"
 BRIDGE_END_DATE = "20260830"
 HOLDOUT_START_DATE = REVENUE_FORWARD_HOLDOUT_V2_START_DATE
+HOLDING_DAYS = 30
+HOLDING_SESSION_INDEX_OFFSET = HOLDING_DAYS - 1
+OPERATION_RETURN_REVIEW_THRESHOLD_PCT = 80.0
 SOURCE_ARTIFACT_ID = "revenue_unreacted_range_source_first_condition_audit"
 SOURCE_ARTIFACT_VERSION = "source_first_condition_v3_20260720"
 SOURCE_PROJECTION_ARTIFACT_ID = "revenue_unreacted_range_source_snapshot_projection"
@@ -176,6 +179,10 @@ SOURCE_PROJECTION_MANIFEST_REL = (
     "output/latest/research_backtest/"
     "revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv"
 )
+PRICE_HISTORY_DIR_REL = "data/stock_price_history"
+PRICE_RESOLUTION_REL = (
+    "config/revenue_unreacted_range_price_comparability_resolution.csv"
+)
 CANONICAL_SOURCE_RELS = (
     PROMOTION_REGISTRY_REL,
     ANOMALY_REGISTRY_REL,
@@ -184,6 +191,7 @@ CANONICAL_SOURCE_RELS = (
     FORWARD_HOLDOUT_V2_SUMMARY_REL,
     FORWARD_HOLDOUT_V2_REPLAY_SOURCE_REL,
     SOURCE_PROJECTION_MANIFEST_REL,
+    PRICE_RESOLUTION_REL,
 )
 
 REVENUE_PROMOTION_REGISTRY_CSV = Path(PROMOTION_REGISTRY_REL)
@@ -570,12 +578,485 @@ def _validate_disabled_frame(
             )
 
 
+def _strict_finite_number(value: Any, field_name: str) -> float:
+    text = safe_str(value)
+    try:
+        number = float(text)
+    except (TypeError, ValueError) as exc:
+        raise RuntimeError(
+            f"revenue readiness {field_name} must be a finite number"
+        ) from exc
+    if not math.isfinite(number):
+        raise RuntimeError(
+            f"revenue readiness {field_name} must be a finite number"
+        )
+    return number
+
+
+def _require_number_close(
+    value: Any,
+    expected: float,
+    field_name: str,
+    *,
+    tolerance: float,
+) -> None:
+    observed = _strict_finite_number(value, field_name)
+    if not math.isclose(observed, expected, rel_tol=0.0, abs_tol=tolerance):
+        raise RuntimeError(
+            f"revenue readiness {field_name} disagrees with registered price input: "
+            f"expected={expected} observed={observed}"
+        )
+
+
+def _parse_price_stock_sha_set(manifest_row: pd.Series) -> dict[str, str]:
+    text = safe_str(manifest_row.get("price_input_stock_canonical_sha256s"))
+    if not text:
+        raise RuntimeError(
+            "revenue readiness holdout price_input_stock_canonical_sha256s is empty"
+        )
+    result: dict[str, str] = {}
+    ordered_ids: list[str] = []
+    for token in text.split("|"):
+        stock_id, separator, digest = token.partition(":")
+        stock_id = _stock_id(stock_id)
+        if not separator or not re.fullmatch(r"[0-9A-Za-z]{1,12}", stock_id):
+            raise RuntimeError(
+                "revenue readiness holdout malformed per-stock price lineage token"
+            )
+        _require_sha(digest, f"holdout.price_input_stock_sha/{stock_id}")
+        if stock_id in result:
+            raise RuntimeError(
+                f"revenue readiness holdout duplicate per-stock price lineage: {stock_id}"
+            )
+        result[stock_id] = digest
+        ordered_ids.append(stock_id)
+    if ordered_ids != sorted(ordered_ids):
+        raise RuntimeError(
+            "revenue readiness holdout per-stock price lineage is not canonical sorted"
+        )
+    expected_stock_count = _strict_nonnegative_int(
+        manifest_row.get("price_input_stock_count"),
+        "holdout.price_input_stock_count",
+    )
+    if expected_stock_count != len(result):
+        raise RuntimeError(
+            "revenue readiness holdout per-stock price lineage count drift: "
+            f"manifest={expected_stock_count} parsed={len(result)}"
+        )
+    if _strict_nonnegative_int(
+        manifest_row.get("price_input_row_count"),
+        "holdout.price_input_row_count",
+    ) <= 0:
+        raise RuntimeError("revenue readiness holdout price input row count must be positive")
+    return result
+
+
+def _normalized_registered_price_frame(
+    raw: pd.DataFrame,
+    resolutions: pd.DataFrame,
+    *,
+    stock_id: str,
+    observed_through: str,
+) -> pd.DataFrame:
+    required = {"date", "open", "close"}
+    missing = sorted(required - set(raw.columns))
+    if missing:
+        raise RuntimeError(
+            f"registered price input missing columns for {stock_id}: {missing}"
+        )
+    frame = raw.copy()
+    if "stock_id" in frame.columns:
+        observed_stock_ids = {
+            _stock_id(value) for value in frame["stock_id"] if safe_str(value)
+        }
+        if observed_stock_ids != {stock_id}:
+            raise RuntimeError(
+                "registered price input stock identity drift: "
+                f"path={stock_id} rows={sorted(observed_stock_ids)}"
+            )
+
+    def normalized_date(value: Any) -> str:
+        text = "".join(character for character in str(value) if character.isdigit())
+        return text[:8] if len(text) >= 8 else ""
+
+    frame["date"] = frame["date"].map(normalized_date)
+    if frame["date"].eq("").any():
+        raise RuntimeError(
+            f"registered price input has invalid trading date for {stock_id}"
+        )
+    frame = (
+        frame.sort_values("date", kind="mergesort")
+        .drop_duplicates("date", keep="last")
+        .copy()
+    )
+    frame["open"] = pd.to_numeric(frame["open"], errors="coerce")
+    frame["close"] = pd.to_numeric(frame["close"], errors="coerce")
+    frame = frame.dropna(subset=["close"])
+    frame = frame.loc[frame["date"].le(observed_through)].reset_index(drop=True)
+    if frame.empty:
+        raise RuntimeError(
+            f"registered price input has no rows through {observed_through}: {stock_id}"
+        )
+    frame["analysis_price_adjustment_factor"] = 1.0
+    if not resolutions.empty:
+        required_resolution = {
+            "stock_id",
+            "resume_date",
+            "exchange_ratio",
+            "root_cause_status",
+        }
+        missing_resolution = sorted(required_resolution - set(resolutions.columns))
+        if missing_resolution:
+            raise RuntimeError(
+                "registered price resolution input missing columns: "
+                f"{missing_resolution}"
+            )
+        applicable = resolutions.loc[
+            resolutions["root_cause_status"]
+            .astype(str)
+            .eq("verified_non_comparable_raw_price_scale")
+        ].copy()
+        applicable["stock_id"] = applicable["stock_id"].map(_stock_id)
+        applicable = applicable.loc[applicable["stock_id"].eq(stock_id)]
+        for resolution_index, resolution in applicable.iterrows():
+            resume_date = _strict_date(
+                resolution.get("resume_date"),
+                f"price resolution resume_date row={resolution_index}",
+            )
+            ratio = _strict_finite_number(
+                resolution.get("exchange_ratio"),
+                f"price resolution exchange_ratio row={resolution_index}",
+            )
+            if ratio <= 0:
+                raise RuntimeError(
+                    "registered price resolution exchange ratio must be positive"
+                )
+            frame.loc[
+                frame["date"].lt(resume_date),
+                "analysis_price_adjustment_factor",
+            ] *= 1.0 / ratio
+    frame["analysis_open"] = (
+        frame["open"] * frame["analysis_price_adjustment_factor"]
+    )
+    frame["analysis_close"] = (
+        frame["close"] * frame["analysis_price_adjustment_factor"]
+    )
+    if frame["date"].duplicated().any() or not frame["date"].is_monotonic_increasing:
+        raise RuntimeError(
+            f"registered price input trading dates are not unique and sorted: {stock_id}"
+        )
+    return frame
+
+
+def _load_registered_price_frames(
+    repo_root: Path | str,
+    detail: pd.DataFrame,
+    *,
+    observed_through: str,
+    per_stock_manifest_sha: dict[str, str],
+) -> dict[str, pd.DataFrame]:
+    stock_ids = sorted({_stock_id(value) for value in detail.get("stock_id", [])})
+    if any(not re.fullmatch(r"[0-9A-Za-z]{1,12}", stock_id) for stock_id in stock_ids):
+        raise RuntimeError("revenue readiness holdout detail contains unsafe stock_id")
+    missing_lineage = sorted(set(stock_ids) - set(per_stock_manifest_sha))
+    if missing_lineage:
+        raise RuntimeError(
+            "revenue readiness holdout detail stock missing from normalized price "
+            f"lineage: {missing_lineage}"
+        )
+    if not stock_ids:
+        return {}
+    repo = Path(repo_root).resolve()
+    resolution_bytes, _diagnostic = _committed_semantic_source(
+        repo,
+        PRICE_RESOLUTION_REL,
+        csv_source=True,
+    )
+    resolutions = _frame_from_csv_bytes(resolution_bytes, PRICE_RESOLUTION_REL)
+    result: dict[str, pd.DataFrame] = {}
+    for stock_id in stock_ids:
+        logical_path = f"{PRICE_HISTORY_DIR_REL}/{stock_id}.csv"
+        price_bytes, _diagnostic = _committed_semantic_source(
+            repo,
+            logical_path,
+            csv_source=True,
+        )
+        raw = _frame_from_csv_bytes(price_bytes, logical_path)
+        result[stock_id] = _normalized_registered_price_frame(
+            raw,
+            resolutions,
+            stock_id=stock_id,
+            observed_through=observed_through,
+        )
+    return result
+
+
+def _validate_detail_maturity_against_registered_prices(
+    detail: pd.DataFrame,
+    *,
+    observed_through: str,
+    registered_prices: dict[str, pd.DataFrame],
+    manifest_price_sha: str,
+) -> None:
+    required = {
+        "price_input_canonical_sha256",
+        "holding_days",
+        "holding_session_index_offset",
+        "stock_id",
+        "trigger_index",
+        "trigger_date",
+        "trigger_close",
+        "confirmation_index",
+        "confirmation_date",
+        "confirmation_close",
+        "entry_index",
+        "entry_price_basis",
+        "entry_date",
+        "entry_price",
+        "planned_exit_index",
+        "planned_exit_date",
+        "exit_index",
+        "exit_date",
+        "exit_price",
+        "exit_price_basis",
+        "exit_reason",
+        "return_valid",
+        "right_censored",
+        "realized_return_pct",
+        "return_outcome",
+        "realized_return_ge20",
+        "operation_return_review_candidate_flag",
+        "operation_status",
+    }
+    _required_columns(detail, required, FORWARD_HOLDOUT_V2_DETAIL_REL)
+    for row_index, event in detail.iterrows():
+        stock_id = _stock_id(event.get("stock_id"))
+        frame = registered_prices.get(stock_id)
+        if frame is None:
+            raise RuntimeError(
+                f"revenue readiness missing registered price evidence for {stock_id}"
+            )
+        if safe_str(event.get("price_input_canonical_sha256")) != manifest_price_sha:
+            raise RuntimeError(
+                "revenue readiness holdout detail is not bound to the manifest price "
+                f"input canonical SHA: row={row_index}"
+            )
+        if _strict_nonnegative_int(
+            event.get("holding_days"), f"holdout detail holding_days row={row_index}"
+        ) != HOLDING_DAYS:
+            raise RuntimeError("revenue readiness holdout holding_days drift")
+        if _strict_nonnegative_int(
+            event.get("holding_session_index_offset"),
+            f"holdout detail holding_session_index_offset row={row_index}",
+        ) != HOLDING_SESSION_INDEX_OFFSET:
+            raise RuntimeError(
+                "revenue readiness holdout holding-session offset drift"
+            )
+        trigger_date = _strict_date(
+            event.get("trigger_date"),
+            f"holdout detail trigger_date row={row_index}",
+        )
+        trigger_matches = frame.index[frame["date"].eq(trigger_date)].tolist()
+        if len(trigger_matches) != 1:
+            raise RuntimeError(
+                "revenue readiness holdout trigger is absent from registered trading-"
+                f"date evidence: {stock_id}/{trigger_date}"
+            )
+        trigger_index = int(trigger_matches[0])
+        confirmation_index = trigger_index + 1
+        entry_index = trigger_index + 2
+        planned_exit_index = entry_index + HOLDING_SESSION_INDEX_OFFSET
+        expected_indices = {
+            "trigger_index": trigger_index,
+            "confirmation_index": confirmation_index,
+            "entry_index": entry_index,
+            "planned_exit_index": planned_exit_index,
+        }
+        for field_name, expected in expected_indices.items():
+            observed = _strict_nonnegative_int(
+                event.get(field_name),
+                f"holdout detail {field_name} row={row_index}",
+            )
+            if observed != expected:
+                raise RuntimeError(
+                    "revenue readiness holdout trading-session index drift: "
+                    f"{stock_id}/{field_name}/expected={expected}/observed={observed}"
+                )
+        if confirmation_index >= len(frame):
+            raise RuntimeError(
+                "revenue readiness holdout event lacks independently observed D+1 "
+                f"confirmation: {stock_id}/{trigger_date}"
+            )
+        confirmation_date = str(frame.at[confirmation_index, "date"])
+        if safe_str(event.get("confirmation_date")) != confirmation_date:
+            raise RuntimeError(
+                "revenue readiness holdout D+1 confirmation date drift: "
+                f"{stock_id}/{trigger_date}"
+            )
+        _require_number_close(
+            event.get("trigger_close"),
+            round(float(frame.at[trigger_index, "analysis_close"]), 8),
+            f"holdout detail trigger_close row={row_index}",
+            tolerance=5e-8,
+        )
+        _require_number_close(
+            event.get("confirmation_close"),
+            round(float(frame.at[confirmation_index, "analysis_close"]), 8),
+            f"holdout detail confirmation_close row={row_index}",
+            tolerance=5e-8,
+        )
+        if safe_str(event.get("entry_price_basis")) != "analysis_open":
+            raise RuntimeError("revenue readiness holdout entry price basis drift")
+        if safe_str(event.get("exit_price_basis")) != "analysis_close":
+            raise RuntimeError("revenue readiness holdout exit price basis drift")
+        if safe_str(event.get("exit_reason")) != "fixed_d30_close":
+            raise RuntimeError("revenue readiness holdout exit reason drift")
+
+        independently_mature = planned_exit_index < len(frame)
+        return_valid = _bool_series(detail.loc[[row_index]], "return_valid").iloc[0]
+        right_censored = _bool_series(
+            detail.loc[[row_index]], "right_censored"
+        ).iloc[0]
+        if independently_mature != return_valid or right_censored == return_valid:
+            raise RuntimeError(
+                "revenue readiness holdout maturity disagrees with independently "
+                "replayed D+2 entry and D+30 exit trading sessions: "
+                f"{stock_id}/{trigger_date}/observed_through={observed_through}"
+            )
+
+        entry_observed = entry_index < len(frame)
+        if entry_observed:
+            expected_entry_date = str(frame.at[entry_index, "date"])
+            if safe_str(event.get("entry_date")) != expected_entry_date:
+                raise RuntimeError(
+                    "revenue readiness holdout D+2 entry date drift: "
+                    f"{stock_id}/{trigger_date}"
+                )
+            entry_price = float(frame.at[entry_index, "analysis_open"])
+            if not math.isfinite(entry_price) or entry_price <= 0:
+                raise RuntimeError(
+                    f"registered D+2 entry open is invalid: {stock_id}/{trigger_date}"
+                )
+            _require_number_close(
+                event.get("entry_price"),
+                round(entry_price, 8),
+                f"holdout detail entry_price row={row_index}",
+                tolerance=5e-8,
+            )
+        else:
+            if safe_str(event.get("entry_date")) or safe_str(event.get("entry_price")):
+                raise RuntimeError(
+                    "revenue readiness right-censored-before-entry event contains D+2 "
+                    "entry data"
+                )
+
+        if not independently_mature:
+            non_mature_fields = (
+                "planned_exit_date",
+                "exit_index",
+                "exit_date",
+                "exit_price",
+                "realized_return_pct",
+                "return_outcome",
+            )
+            if any(safe_str(event.get(field_name)) for field_name in non_mature_fields):
+                raise RuntimeError(
+                    "revenue readiness right-censored event contains unobserved realized "
+                    f"outcome fields: {stock_id}/{trigger_date}"
+                )
+            expected_status = (
+                "right_censored_before_d30"
+                if entry_observed
+                else "right_censored_before_entry"
+            )
+            if safe_str(event.get("operation_status")) != expected_status:
+                raise RuntimeError(
+                    "revenue readiness right-censored operation status drift: "
+                    f"{stock_id}/{trigger_date}"
+                )
+            _strict_bool(
+                event.get("realized_return_ge20"),
+                False,
+                f"holdout detail realized_return_ge20 row={row_index}",
+            )
+            _strict_bool(
+                event.get("operation_return_review_candidate_flag"),
+                False,
+                f"holdout detail operation_return_review_candidate_flag row={row_index}",
+            )
+            continue
+
+        exit_date = str(frame.at[planned_exit_index, "date"])
+        if exit_date > observed_through:
+            raise RuntimeError(
+                "revenue readiness holdout independently replayed exit exceeds "
+                f"observed_through: {stock_id}/{exit_date}/{observed_through}"
+            )
+        if safe_str(event.get("planned_exit_date")) != exit_date:
+            raise RuntimeError(
+                f"revenue readiness holdout planned D+30 exit date drift: {stock_id}"
+            )
+        if _strict_nonnegative_int(
+            event.get("exit_index"), f"holdout detail exit_index row={row_index}"
+        ) != planned_exit_index:
+            raise RuntimeError(f"revenue readiness holdout D+30 exit index drift: {stock_id}")
+        if safe_str(event.get("exit_date")) != exit_date:
+            raise RuntimeError(f"revenue readiness holdout D+30 exit date drift: {stock_id}")
+        exit_price = float(frame.at[planned_exit_index, "analysis_close"])
+        if not math.isfinite(exit_price) or exit_price <= 0:
+            raise RuntimeError(
+                f"registered D+30 exit close is invalid: {stock_id}/{trigger_date}"
+            )
+        _require_number_close(
+            event.get("exit_price"),
+            round(exit_price, 8),
+            f"holdout detail exit_price row={row_index}",
+            tolerance=5e-8,
+        )
+        entry_price = float(frame.at[entry_index, "analysis_open"])
+        realized_return = (exit_price / entry_price - 1.0) * 100.0
+        rounded_return = round(realized_return, 4)
+        _require_number_close(
+            event.get("realized_return_pct"),
+            rounded_return,
+            f"holdout detail realized_return_pct row={row_index}",
+            tolerance=5e-5,
+        )
+        expected_outcome = (
+            "win"
+            if realized_return > 1e-9
+            else "failure"
+            if realized_return < -1e-9
+            else "neutral"
+        )
+        if safe_str(event.get("return_outcome")) != expected_outcome:
+            raise RuntimeError(
+                f"revenue readiness holdout return outcome drift: {stock_id}/{trigger_date}"
+            )
+        if safe_str(event.get("operation_status")) != "mature_operation":
+            raise RuntimeError(
+                f"revenue readiness mature operation status drift: {stock_id}/{trigger_date}"
+            )
+        _strict_bool(
+            event.get("realized_return_ge20"),
+            realized_return >= 20.0,
+            f"holdout detail realized_return_ge20 row={row_index}",
+        )
+        _strict_bool(
+            event.get("operation_return_review_candidate_flag"),
+            abs(realized_return) >= OPERATION_RETURN_REVIEW_THRESHOLD_PCT,
+            f"holdout detail operation_return_review_candidate_flag row={row_index}",
+        )
+
+
 def _validate_holdout_manifest_lineage(
     manifest: pd.DataFrame,
     detail: pd.DataFrame,
     summary: pd.DataFrame,
     replay_source: pd.DataFrame,
     source_projection_manifest: pd.DataFrame,
+    *,
+    repo_root: Path | str,
 ) -> pd.Series:
     manifest_required = {
         "model_id",
@@ -604,6 +1085,9 @@ def _validate_holdout_manifest_lineage(
         "training_source_projection_semantic_sha256",
         "training_source_projected_episode_row_count",
         "training_source_manifest_canonical_sha256",
+        "price_input_stock_count",
+        "price_input_row_count",
+        "price_input_stock_canonical_sha256s",
         "price_input_canonical_sha256",
         "bridge_excluded_signal_count",
         "holdout_event_count",
@@ -688,6 +1172,7 @@ def _validate_holdout_manifest_lineage(
         "capture_id",
     ):
         _require_sha(row.get(field_name), f"holdout.{field_name}")
+    per_stock_price_sha = _parse_price_stock_sha_set(row)
     projected_count = _strict_nonnegative_int(
         row.get("training_source_projected_episode_row_count"),
         "holdout.training_source_projected_episode_row_count",
@@ -814,6 +1299,18 @@ def _validate_holdout_manifest_lineage(
         set(ALL_VARIANT_IDS)
     ):
         raise RuntimeError("revenue readiness holdout detail variant set drift")
+    registered_prices = _load_registered_price_frames(
+        repo_root,
+        detail,
+        observed_through=observed_through,
+        per_stock_manifest_sha=per_stock_price_sha,
+    )
+    _validate_detail_maturity_against_registered_prices(
+        detail,
+        observed_through=observed_through,
+        registered_prices=registered_prices,
+        manifest_price_sha=safe_str(row.get("price_input_canonical_sha256")),
+    )
     mature_mask = _bool_series(detail, "return_valid")
     censored_mask = _bool_series(detail, "right_censored")
     if (mature_mask & censored_mask).any():
@@ -1000,6 +1497,7 @@ def validate_revenue_readiness_source_files(
             source_projection_manifest=pd.read_csv(
                 root / REVENUE_SOURCE_PROJECTION_MANIFEST_CSV, dtype=str
             ).fillna(""),
+            repo_root=root,
         )
     except (OSError, pd.errors.ParserError, RuntimeError) as exc:
         errors.append(f"revenue readiness holdout source: {exc}")
@@ -1015,6 +1513,7 @@ def summarize_revenue_promotion_readiness(
     holdout_summary: pd.DataFrame,
     replay_source: pd.DataFrame,
     source_projection_manifest: pd.DataFrame,
+    repo_root: Path | str = Path("."),
 ) -> dict[str, Any]:
     promotion_required = {
         "decision_id",
@@ -1163,6 +1662,7 @@ def summarize_revenue_promotion_readiness(
         holdout_summary,
         replay_source,
         source_projection_manifest,
+        repo_root=repo_root,
     )
     mature_count = _strict_nonnegative_int(
         holdout.get("primary_mature_count"), "holdout.primary_mature_count"
@@ -1758,6 +2258,7 @@ def sync(repo: Path, *, generated_at: str | None = None) -> tuple[pd.DataFrame, 
         holdout_summary=holdout_summary,
         replay_source=replay_source,
         source_projection_manifest=source_projection_manifest,
+        repo_root=repo,
     )
     generated = generated_at or now_text()
     readiness = build_revenue_only_readiness(
