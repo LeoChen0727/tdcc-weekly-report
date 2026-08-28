@@ -69,6 +69,18 @@ def _validate_no_runtime_writer(module_path: Path) -> list[str]:
     protected_bindings = allowed_name_calls | {
         "datetime",
     }
+    expected_module_definitions = {
+        "AdapterContractError",
+        "_date",
+        "_fixed_metadata",
+        "_require_exact_columns",
+        "_text",
+        "build_disabled_empty_rows",
+        "validate_disabled_adapter_rows",
+        "validate_disabled_preparation",
+        "validate_financial_statement_boundary",
+        "validate_lifecycle_events",
+    }
     dangerous_name_loads = {
         "__builtins__",
         "__import__",
@@ -105,10 +117,29 @@ def _validate_no_runtime_writer(module_path: Path) -> list[str]:
                 )
         elif isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)):
             definitions[node.name] = definitions.get(node.name, 0) + 1
+            if node.name not in expected_module_definitions:
+                errors.append(
+                    "disabled adapter contains an unexpected function or class "
+                    f"definition: {node.name}"
+                )
+            if (
+                node.name in protected_bindings
+                and node.name not in expected_module_definitions
+            ):
+                errors.append(
+                    "disabled adapter must not define or shadow a protected symbol: "
+                    f"{node.name}"
+                )
             if definitions[node.name] > 1:
                 errors.append(
                     "disabled adapter must not redefine a symbol: "
                     f"{node.name}"
+                )
+        elif isinstance(node, ast.arg):
+            if node.arg in protected_bindings:
+                errors.append(
+                    "disabled adapter function arguments must not shadow a protected "
+                    f"symbol: {node.arg}"
                 )
         elif isinstance(node, ast.Name):
             if isinstance(node.ctx, (ast.Store, ast.Del)) and node.id in protected_bindings:
@@ -160,6 +191,12 @@ def _validate_no_runtime_writer(module_path: Path) -> list[str]:
                 and test.left.id == "__name__"
             ):
                 errors.append("disabled adapter must not expose a command-line entrypoint")
+    for definition in sorted(expected_module_definitions):
+        if definitions.get(definition) != 1:
+            errors.append(
+                "disabled adapter must define each expected module symbol exactly once: "
+                f"{definition}"
+            )
     return sorted(set(errors))
 
 

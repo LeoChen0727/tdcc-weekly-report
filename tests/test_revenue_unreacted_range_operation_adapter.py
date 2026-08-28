@@ -420,6 +420,34 @@ def test_validator_accepts_disabled_preparation_and_rejects_side_effect_calls(
     assert not side_effect.exists()
 
 
+@pytest.mark.parametrize(
+    "payload",
+    [
+        (
+            "def sorted(value, *args, **kwargs):\n"
+            "    if 'key' in kwargs:\n"
+            "        return value[:2]\n"
+            "    return []"
+        ),
+        "class len:\n    pass",
+        "def _unexpected_helper(sorted):\n    return sorted",
+    ],
+)
+def test_validator_rejects_definition_and_argument_shadowing(
+    tmp_path: Path,
+    payload: str,
+) -> None:
+    unsafe = tmp_path / "shadowed_adapter.py"
+    unsafe.write_text(
+        validator.DEFAULT_MODULE.read_text(encoding="utf-8") + f"\n{payload}\n",
+        encoding="utf-8",
+    )
+
+    errors = validator.validate_disabled_preparation(unsafe)
+    assert errors
+    assert any("shadow a protected symbol" in error for error in errors)
+
+
 def test_validator_cli_passes_disabled_and_fails_production_approval() -> None:
     script = ROOT / "scripts/validate_revenue_unreacted_range_operation_adapter.py"
     disabled = subprocess.run(
