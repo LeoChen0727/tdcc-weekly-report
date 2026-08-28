@@ -105,6 +105,9 @@ def test_disabled_adapter_permissions_are_all_false_and_no_data_rows() -> None:
     assert {row["row_type"] for row in rows} == {"empty_state"}
     for field_name in adapter.PERMISSION_FIELDS:
         assert {row[field_name] for row in rows} == {False}
+    assert {row["operation_directive_level"] for row in rows} == {
+        "no_operation_directive"
+    }
     assert all(not row["stock_id"] for row in rows)
     assert all(not row["operation_key"] for row in rows)
 
@@ -132,6 +135,11 @@ def test_disabled_adapter_rejects_schema_and_permission_drift() -> None:
     with pytest.raises(adapter.AdapterContractError, match="production_allowed"):
         adapter.validate_disabled_adapter_rows(rows)
 
+    rows = [dict(row) for row in adapter.build_disabled_empty_rows()]
+    rows[0]["operation_directive_level"] = "approved_daily_operation_guidance"
+    with pytest.raises(adapter.AdapterContractError, match="operation_directive_level"):
+        adapter.validate_disabled_adapter_rows(rows)
+
 
 @pytest.mark.parametrize(
     "field_name",
@@ -155,6 +163,12 @@ def test_monthly_revenue_boundary_rejects_financial_statement_fields(
 
 def test_lifecycle_accepts_selected_confirmed_active_exit_chain() -> None:
     adapter.validate_lifecycle_events(_valid_completed_events())
+
+
+def test_lifecycle_rejects_invalid_calendar_date() -> None:
+    events = [_event("op-1", "pending_confirmation", "20261399")]
+    with pytest.raises(adapter.AdapterContractError, match="valid calendar date"):
+        adapter.validate_lifecycle_events(events)
 
 
 def test_lifecycle_rejects_active_without_selected_confirmation() -> None:
@@ -196,6 +210,24 @@ def test_lifecycle_rejects_same_stock_overlap() -> None:
         ]
     )
     with pytest.raises(adapter.AdapterContractError, match="while operation op-1 is active"):
+        adapter.validate_lifecycle_events(events)
+
+
+def test_lifecycle_rejects_second_selected_confirmation_before_first_exit() -> None:
+    events = [
+        _event("op-1", "pending_confirmation", "20260803"),
+        _event("op-1", "confirmed_operation", "20260804"),
+        _event("op-2", "pending_confirmation", "20260804"),
+        _event("op-2", "confirmed_operation", "20260805"),
+        _event(
+            "op-1",
+            "active_operation",
+            "20260806",
+            prior_confirmed_operation_key="op-1",
+            entry_date="20260806",
+        ),
+    ]
+    with pytest.raises(adapter.AdapterContractError, match="overlapping selected"):
         adapter.validate_lifecycle_events(events)
 
 

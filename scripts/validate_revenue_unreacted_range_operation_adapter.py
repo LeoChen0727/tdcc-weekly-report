@@ -121,6 +121,13 @@ def validate_disabled_preparation(module_path: Path) -> list[str]:
     for field_name in module.PERMISSION_FIELDS:
         if any(row.get(field_name) is not False for row in rows):
             errors.append(f"disabled adapter permission must remain false: {field_name}")
+    if any(
+        row.get("operation_directive_level") != "no_operation_directive"
+        for row in rows
+    ):
+        errors.append(
+            "disabled adapter operation_directive_level must remain no_operation_directive"
+        )
     if any(row.get("row_type") != "empty_state" for row in rows):
         errors.append("disabled adapter must not expose operation data rows")
     return errors

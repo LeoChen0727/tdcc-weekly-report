@@ -9,6 +9,7 @@ can currently build are disabled empty-state rows.
 """
 
 from collections.abc import Iterable, Mapping, Sequence
+from datetime import datetime
 from typing import Any
 
 
@@ -102,6 +103,7 @@ ADAPTER_ROW_COLUMNS = (
     "lifecycle_state",
     "prior_confirmed_operation_key",
     "buy_rank_eligible",
+    "operation_directive_level",
     "formal_model_use_allowed",
     "approved_for_daily",
     "presentation_allowed",
@@ -160,6 +162,12 @@ def _date(value: Any, label: str) -> str:
     text = _text(value).replace("-", "").replace("/", "")
     if len(text) != 8 or not text.isdigit():
         raise AdapterContractError(f"{label} must be YYYYMMDD, got {value!r}")
+    try:
+        datetime.strptime(text, "%Y%m%d")
+    except ValueError as exc:
+        raise AdapterContractError(
+            f"{label} must be a valid calendar date, got {value!r}"
+        ) from exc
     return text
 
 
@@ -188,6 +196,7 @@ def _fixed_metadata() -> dict[str, Any]:
         "selection_policy": SELECTION_POLICY,
         "holdout_use_policy": HOLDOUT_USE_POLICY,
         "buy_rank_eligible": False,
+        "operation_directive_level": "no_operation_directive",
         "formal_model_use_allowed": False,
         "approved_for_daily": False,
         "presentation_allowed": False,
@@ -427,6 +436,7 @@ def validate_lifecycle_events(events: Sequence[Mapping[str, Any]]) -> None:
         for row in ordered
         if row["lifecycle_state"] == "exited_operation"
     }
+    selected_by_stock: dict[tuple[str, str], str] = {}
     active_by_stock: dict[tuple[str, str], str] = {}
     last_exit_by_stock: dict[tuple[str, str], str] = {}
     for row in ordered:
@@ -454,12 +464,24 @@ def validate_lifecycle_events(events: Sequence[Mapping[str, Any]]) -> None:
                 raise AdapterContractError(
                     f"same stock cannot be confirmed while operation {existing} is active: {stock_key}"
                 )
+            selected = selected_by_stock.get(stock_key)
+            if state == "confirmed_operation" and selected and selected != operation_key:
+                raise AdapterContractError(
+                    f"same stock has overlapping selected confirmations: {stock_key}"
+                )
             previous_exit = last_exit_by_stock.get(stock_key)
             if previous_exit and row["event_date"] <= previous_exit:
                 raise AdapterContractError(
                     f"same-stock re-entry confirmation must be after prior exit: {stock_key}"
                 )
+            if state == "confirmed_operation":
+                selected_by_stock[stock_key] = operation_key
         elif state == "active_operation":
+            selected = selected_by_stock.get(stock_key)
+            if selected != operation_key:
+                raise AdapterContractError(
+                    f"active operation has no matching open selected confirmation: {stock_key}/{operation_key}"
+                )
             existing = active_by_stock.get(stock_key)
             if existing and existing != operation_key:
                 raise AdapterContractError(
@@ -472,6 +494,11 @@ def validate_lifecycle_events(events: Sequence[Mapping[str, Any]]) -> None:
                     f"exit has no matching active operation: {stock_key}/{operation_key}"
                 )
             del active_by_stock[stock_key]
+            if selected_by_stock.get(stock_key) != operation_key:
+                raise AdapterContractError(
+                    f"exit has no matching selected confirmation: {stock_key}/{operation_key}"
+                )
+            del selected_by_stock[stock_key]
             last_exit_by_stock[stock_key] = row["event_date"]
 
 
