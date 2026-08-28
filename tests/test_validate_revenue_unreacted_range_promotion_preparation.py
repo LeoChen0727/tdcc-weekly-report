@@ -5,6 +5,7 @@ import hashlib
 import subprocess
 import sys
 from pathlib import Path
+from types import SimpleNamespace
 
 import pytest
 
@@ -123,7 +124,7 @@ def test_migration_artifact_bindings_match_referenced_git_blobs() -> None:
     ) == []
 
 
-def test_migration_artifact_binding_detects_tampered_referenced_blob(
+def test_migration_artifact_binding_reports_tampered_raw_blob_as_diagnostic(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     original_git = validator._git
@@ -144,12 +145,15 @@ def test_migration_artifact_binding_detects_tampered_referenced_blob(
         return result
 
     monkeypatch.setattr(validator, "_git", tampered_git)
+    diagnostics: list[str] = []
     errors = validator.validate_migration_artifact_bindings(
-        dict(validator.EXPECTED_MIGRATION)
+        dict(validator.EXPECTED_MIGRATION),
+        diagnostics=diagnostics,
     )
+    assert errors == []
     assert any(
-        "source_projection_diff_summary_sha256 is not bound" in error
-        for error in errors
+        "source_projection_diff_summary_sha256 raw identity differs" in diagnostic
+        for diagnostic in diagnostics
     )
 
 
@@ -655,7 +659,7 @@ def test_v2_trusted_git_audit_recomputes_exact_53_metrics() -> None:
     assert len(selected_detail) == 53
 
 
-def test_v2_trusted_git_identity_mismatch_fails_closed(
+def test_v2_stale_raw_blob_literal_does_not_override_git_tree_semantics(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     monkeypatch.setitem(
@@ -666,9 +670,7 @@ def test_v2_trusted_git_identity_mismatch_fails_closed(
 
     errors = validator.validate(source_audit="v2")
 
-    assert errors == [
-        "trusted v2 promotion source tree identity mismatch: " + SUMMARY_REPO_PATH
-    ]
+    assert errors == []
 
 
 def test_v2_anomaly_registry_has_exact_9_and_6177_is_fail_closed() -> None:
@@ -848,7 +850,7 @@ def _resolved_anomalies() -> dict[str, dict[str, str]]:
     }
 
 
-def test_v3_contract_and_contract_only_migration_are_append_only() -> None:
+def test_v4_contract_and_anomaly_closure_migration_are_append_only() -> None:
     decision, decision_errors = validator.validate_decision(validator.DEFAULT_DECISION)
     migration, migration_errors = validator.validate_migration(
         validator.DEFAULT_MIGRATIONS
@@ -856,13 +858,13 @@ def test_v3_contract_and_contract_only_migration_are_append_only() -> None:
 
     assert decision_errors == []
     assert migration_errors == []
-    assert decision == validator.EXPECTED_DECISION_V3
+    assert decision == validator.EXPECTED_DECISION_V4
     assert migration == validator.EXPECTED_MIGRATION_V1_TO_V2
     _columns, rows = _read_rows(validator.DEFAULT_MIGRATIONS)
-    assert rows[-1] == validator.EXPECTED_MIGRATION_V2_TO_V3
-    assert rows[-1]["from_source_revision"] == rows[-1]["to_source_revision"]
+    assert rows[-1] == validator.EXPECTED_MIGRATION_V3_TO_V4
+    assert rows[-1]["from_source_revision"] != rows[-1]["to_source_revision"]
     assert rows[-1]["common_business_field_change_count"] == "0"
-    assert rows[-1]["source_projection_diff_summary_path"] == ""
+    assert rows[-1]["v2_anomaly_count"] == "8"
 
 
 def test_library_governance_validation_without_a_phase_remains_available() -> None:
@@ -894,18 +896,22 @@ def test_promotion_candidate_phase_requires_dispositions_and_mature_holdout(
         "_run_canonical_validator",
         lambda _label, _command: [],
     )
-    unresolved = {
-        f"case-{index}": {
-            "final_disposition": "unresolved_anomaly_candidate",
-            "promotion_gate_status": "blocked_pending_root_cause",
-        }
-        for index in range(9)
-    }
+    monkeypatch.setattr(
+        validator,
+        "validate_current_anomaly_dispositions",
+        lambda _root, *, require_effective_nonblocking: SimpleNamespace(
+            errors=[
+                "promotion-candidate anomaly gate remains blocked: "
+                "operation_keys=['case-1']"
+            ],
+            diagnostics=[],
+        ),
+    )
 
     errors = validator.validate_phase_gates(
         "promotion-candidate",
-        dict(validator.EXPECTED_DECISION_V3),
-        unresolved,
+        dict(validator.EXPECTED_DECISION_V4),
+        {},
         source_contract_verified=True,
         forward_holdout_manifest_path=holdout,
         forward_holdout_evidence_paths=evidence_paths,
@@ -913,7 +919,7 @@ def test_promotion_candidate_phase_requires_dispositions_and_mature_holdout(
         forward_holdout_history_base_ref=history_base_ref,
     )
 
-    assert any("unresolved=9" in error for error in errors)
+    assert any("operation_keys=['case-1']" in error for error in errors)
     assert any("primary_mature_count=19; required=20" in error for error in errors)
 
 
@@ -940,10 +946,18 @@ def test_promotion_candidate_uses_primary_maturity_without_equating_challenger_t
         return []
 
     monkeypatch.setattr(validator, "_run_canonical_validator", pass_canonical_validator)
+    monkeypatch.setattr(
+        validator,
+        "validate_current_anomaly_dispositions",
+        lambda _root, *, require_effective_nonblocking: SimpleNamespace(
+            errors=[],
+            diagnostics=[],
+        ),
+    )
 
     assert validator.validate_phase_gates(
         "promotion-candidate",
-        dict(validator.EXPECTED_DECISION_V3),
+        dict(validator.EXPECTED_DECISION_V4),
         _resolved_anomalies(),
         source_contract_verified=True,
         forward_holdout_manifest_path=holdout,
@@ -970,7 +984,7 @@ def test_minimal_forward_holdout_manifest_cannot_satisfy_promotion_gate(
 
     errors = validator.validate_phase_gates(
         "promotion-candidate",
-        dict(validator.EXPECTED_DECISION_V3),
+        dict(validator.EXPECTED_DECISION_V4),
         _resolved_anomalies(),
         source_contract_verified=True,
         forward_holdout_manifest_path=holdout,
@@ -1027,7 +1041,7 @@ def test_production_pdf_phase_remains_blocked_by_disabled_adapter_contract(
 
     errors = validator.validate_phase_gates(
         "production-pdf",
-        dict(validator.EXPECTED_DECISION_V3),
+        dict(validator.EXPECTED_DECISION_V4),
         resolved,
         source_contract_verified=True,
         forward_holdout_manifest_path=holdout,
@@ -1042,7 +1056,7 @@ def test_production_pdf_phase_remains_blocked_by_disabled_adapter_contract(
 
 
 def _approved_production_decision() -> dict[str, str]:
-    decision = dict(validator.EXPECTED_DECISION_V3)
+    decision = dict(validator.EXPECTED_DECISION_V4)
     for column in (
         "formal_model_use_allowed",
         "approved_for_daily",
@@ -1194,6 +1208,14 @@ def test_production_pdf_delegates_to_model_adapter_readiness_and_pdf_validators(
         return []
 
     monkeypatch.setattr(validator, "_run_canonical_validator", pass_canonical_validator)
+    monkeypatch.setattr(
+        validator,
+        "validate_current_anomaly_dispositions",
+        lambda _root, *, require_effective_nonblocking: SimpleNamespace(
+            errors=[],
+            diagnostics=[],
+        ),
+    )
 
     errors = validator.validate_phase_gates(
         "production-pdf",

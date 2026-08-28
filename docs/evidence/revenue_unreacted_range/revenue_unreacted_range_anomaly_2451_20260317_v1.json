@@ -1,0 +1,134 @@
+{
+  "schema_version": "revenue_unreacted_range_anomaly_evidence_v1",
+  "evidence_id": "revenue_unreacted_range_anomaly_2451_20260317_v1",
+  "semantic_payload": {
+    "model_id": "revenue_unreacted_range",
+    "operation_key": "rearm_after_realized_exit_next_trade_day|delayed_next_close_continuation_bonus|2451|absolute_or_two_month_yoy_ge15|2451|20250517|1|20260313|20260317",
+    "identity": {
+      "stock_id": "2451",
+      "stock_name": "創見",
+      "trigger_date": "20260313",
+      "confirmation_date": "20260316",
+      "entry_date": "20260317",
+      "exit_date": "20260429",
+      "candidate_v2_row_sha256": "e5eed6f2f6d39d9da369041116395383580ef98274e7490bcaadc6a23a22d20e",
+      "candidate_v3_row_sha256": "f291c44cc871a882bcdc8218ec5a4bddee9a3e0f7638373b7f322baa9da5fe63"
+    },
+    "attribution": {
+      "candidate_kind": "source_anomaly_candidate",
+      "anomaly_attribution_mode": "exact_anomaly_causing_qualifying_source_events",
+      "source_event_periods": ["202601"],
+      "source_table_dates": ["20260217"],
+      "source_available_dates": ["20260223"],
+      "source_canonical_row_sha256s": ["535dfa06caf2e73a1afba4cbaae0e731bdecf5a1377de6d0f619535ccd533fc1"],
+      "anomaly_attribution_note": "exact anomalous qualifying monthly-revenue event known by trigger"
+    },
+    "root_checks": {
+      "identity_non_overlap": {
+        "status": "pass",
+        "finding": "one exact operation identity; same-stock non-overlap replay passed"
+      },
+      "formal_operation_replay": {
+        "status": "pass",
+        "trigger_close": "236.0",
+        "confirmation_close": "259.5",
+        "entry_open": "264.0",
+        "exit_close": "268.0",
+        "price_row_canonical_sha256s": {
+          "trigger_close": "6dfd7352fdf544805d70e851fa61c0052716383c9cf0eedcebc305e264aa2472",
+          "confirmation_close": "2961cdbd0bb977ad841c7faa34a0445fe319d603c11ffa03a3d2bd8087710c4e",
+          "entry_open": "d8c4f7b9e75e3cbb73bc537c7b273bb150394c9ca08660a453ba07e7951c6fe9",
+          "exit_close": "abd18b8acbfbd6334cde3a9d781815e62461f42273aa676d86dabe663d85e9d0"
+        },
+        "formula": "(exit_close-entry_open)/entry_open*100",
+        "realized_return_pct": "1.5152",
+        "official_price_queries": [
+          "https://www.twse.com.tw/exchangeReport/STOCK_DAY?response=json&date=20260301&stockNo=2451",
+          "https://www.twse.com.tw/exchangeReport/STOCK_DAY?response=json&date=20260401&stockNo=2451"
+        ]
+      },
+      "pit_calendar_continuity": {
+        "status": "pass",
+        "finding": "all source, trigger, confirmation, entry, and exit dates replay on their point-in-time availability and registered trading sessions"
+      },
+      "raw_source_lineage": {
+        "status": "pass",
+        "monthly_revenue_events": [
+          {
+            "period": "202601",
+            "source_table_date": "20260217",
+            "available_date": "20260223",
+            "canonical_row_sha256": "535dfa06caf2e73a1afba4cbaae0e731bdecf5a1377de6d0f619535ccd533fc1",
+            "source_anomaly_candidate": true,
+            "raw_file_sha256_diagnostic": "7b31102b97d450fa4de777477198f8655447cf3037993e8fc50f6fc40de30a50",
+            "source_url": "https://mopsov.twse.com.tw/nas/t21/sii/t21sc03_115_1_0.html"
+          }
+        ],
+        "price_history_path": "data/stock_price_history/2451.csv"
+      },
+      "units_formula_adjustment": {
+        "status": "pass",
+        "price_unit": "TWD_per_share",
+        "revenue_unit": "thousand_TWD",
+        "operation_basis": "official daily close-confirmed unadjusted OHLC; return formula independently replayed",
+        "entry_price_basis": "next_trading_day_open_after_close_confirmation",
+        "exit_price_basis": "fixed_d30_close_offset29",
+        "intraday_operation_basis_used": false
+      },
+      "authoritative_event_history": {
+        "status": "pass",
+        "finding": "no price-reset corporate action; TWSE disposition from 20260323 through 20260407 is context only and does not alter entry or exit prices; restricted-stock cancellation was immaterial and not a price reset",
+        "official_sources": [
+          "https://www.twse.com.tw/rwd/zh/exRight/TWT49U",
+          "https://www.twse.com.tw/rwd/zh/reducation/TWTAUU",
+          "https://www.twse.com.tw/rwd/zh/change/TWTB8U",
+          "https://www.twse.com.tw/rwd/zh/afterTrading/TWTAWU",
+          "https://www.twse.com.tw/announcement/punish?response=json&startDate=20260301&endDate=20260630&stockNo=2451",
+          "https://sa.transcend-info.com/about/month_sales"
+        ],
+        "request_params": {"stockNo": "2451", "startDate": "20260313", "endDate": "20260429"},
+        "query_window": "20260313..20260429"
+      },
+      "independent_source_corroboration": {
+        "status": "pass",
+        "independent_underlying_measurement": false,
+        "classification": "independent_public_provider_corroboration",
+        "finding": "MoneyDJ identifies 創見(2451) and reports 115/01 monthly revenue 4,760,314 thousand TWD; its displayed YoY 440.61% differs from the canonical 440.6% only by provider rounding.",
+        "sources": [
+          "https://5850web.moneydj.com/z/zc/zch/zch_2451.djhtm"
+        ],
+        "observed_facts": [
+          {
+            "fact_kind": "public_provider_monthly_revenue_report",
+            "stock_id": "2451",
+            "revenue_period": "202601",
+            "provider_reported_monthly_revenue_thousand_twd": "4760314",
+            "canonical_monthly_revenue_thousand_twd": "4760314",
+            "provider_reported_yoy_pct": "440.61",
+            "canonical_yoy_pct": "440.6",
+            "comparison_result": "monthly_revenue_exact_yoy_display_rounding_only",
+            "source_url": "https://5850web.moneydj.com/z/zc/zch/zch_2451.djhtm"
+          }
+        ]
+      },
+      "reproducible_evidence_reference": {
+        "status": "pass",
+        "replay_basis": "canonical monthly-revenue row, registered price rows, TWSE daily prices, and dated disposition record"
+      }
+    },
+    "disposition": {
+      "final_disposition": "verified_real_extreme",
+      "primary_handling": "retain_in_primary_metrics",
+      "promotion_gate_status": "eligible_only_after_all_other_model_gates",
+      "repair_satisfaction_status": "not_applicable_no_repair",
+      "effective_anomaly_gate_status": "satisfied",
+      "approved_reason_reference": ""
+    },
+    "scope": "monthly_revenue_only; EPS, gross margin, operating margin, operating income, non-operating income, net income, quarterly and annual financial statements excluded"
+  },
+  "provenance": {
+    "retrieved_at": "2026-08-29T05:20:00+08:00",
+    "raw_byte_identity_policy": "diagnostic_only_not_promotion_gate",
+    "line_ending_identity_policy": "diagnostic_only_not_promotion_gate"
+  }
+}

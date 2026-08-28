@@ -1,0 +1,134 @@
+{
+  "schema_version": "revenue_unreacted_range_anomaly_evidence_v1",
+  "evidence_id": "revenue_unreacted_range_anomaly_2408_20260429_v1",
+  "semantic_payload": {
+    "model_id": "revenue_unreacted_range",
+    "operation_key": "rearm_after_realized_exit_next_trade_day|delayed_next_close_continuation_bonus|2408|absolute_or_two_month_yoy_ge15|2408|20260417|2|20260427|20260429",
+    "identity": {
+      "stock_id": "2408",
+      "stock_name": "南亞科",
+      "trigger_date": "20260427",
+      "confirmation_date": "20260428",
+      "entry_date": "20260429",
+      "exit_date": "20260610",
+      "candidate_v2_row_sha256": "8642cd7286a0eee22ba76d69e6ab826c9ec22c3e83a3ed63fef27753e81f0168",
+      "candidate_v3_row_sha256": "21301aeb57c77c93c156d2a1bdeafa7c150a8969e518f43a392703adc4f6d67d"
+    },
+    "attribution": {
+      "candidate_kind": "source_anomaly_candidate",
+      "anomaly_attribution_mode": "exact_anomaly_causing_qualifying_source_events",
+      "source_event_periods": ["202603"],
+      "source_table_dates": ["20260417"],
+      "source_available_dates": ["20260417"],
+      "source_canonical_row_sha256s": ["aeec5b0f201473cc8c1760527f46596a0af3c756a2d3396679eb7f72246ee356"],
+      "anomaly_attribution_note": "exact anomalous qualifying monthly-revenue event known by trigger"
+    },
+    "root_checks": {
+      "identity_non_overlap": {
+        "status": "pass",
+        "finding": "one exact operation identity; same-stock entry occurs after any prior realized exit"
+      },
+      "formal_operation_replay": {
+        "status": "pass",
+        "trigger_close": "226.5",
+        "confirmation_close": "237.5",
+        "entry_open": "236.0",
+        "exit_close": "333.0",
+        "price_row_canonical_sha256s": {
+          "trigger_close": "f68b872357362415c09a5676ba25579fb8d65c212e53113eb448fd9d75bf78bb",
+          "confirmation_close": "8ba6e22a90d800836034fe4b6f73927640b4eae583cd9850f424e936dd374c4b",
+          "entry_open": "9a98854d88204722899051a6ebe6275e8973142875d7821dbaedce76e9ee7dc2",
+          "exit_close": "e5a10b0e12134ca30a82a882817859a674ebcc866846a7da4b8d9241249ade63"
+        },
+        "formula": "(exit_close-entry_open)/entry_open*100",
+        "realized_return_pct": "41.1017",
+        "official_price_queries": [
+          "https://www.twse.com.tw/exchangeReport/STOCK_DAY?response=json&date=20260401&stockNo=2408",
+          "https://www.twse.com.tw/exchangeReport/STOCK_DAY?response=json&date=20260601&stockNo=2408"
+        ]
+      },
+      "pit_calendar_continuity": {
+        "status": "pass",
+        "finding": "D+1 close confirmation, D+2 next-session open entry, and D+30 close offset 29 replay on registered trading sessions"
+      },
+      "raw_source_lineage": {
+        "status": "pass",
+        "monthly_revenue_events": [
+          {
+            "period": "202603",
+            "source_table_date": "20260417",
+            "available_date": "20260417",
+            "canonical_row_sha256": "aeec5b0f201473cc8c1760527f46596a0af3c756a2d3396679eb7f72246ee356",
+            "source_anomaly_candidate": true,
+            "raw_file_sha256_diagnostic": "bd571ae41f02b7214bdf33f0ec0046dbd882cf04637d20c623cbed5fb8986be4",
+            "source_url": "https://mopsov.twse.com.tw/nas/t21/sii/t21sc03_115_3_0.html"
+          }
+        ],
+        "price_history_path": "data/stock_price_history/2408.csv"
+      },
+      "units_formula_adjustment": {
+        "status": "pass",
+        "price_unit": "TWD_per_share",
+        "revenue_unit": "thousand_TWD",
+        "operation_basis": "official daily close-confirmed unadjusted OHLC; no intraday trigger price used as realized price",
+        "entry_price_basis": "next_trading_day_open_after_close_confirmation",
+        "exit_price_basis": "fixed_d30_close_offset29",
+        "intraday_operation_basis_used": false
+      },
+      "authoritative_event_history": {
+        "status": "pass",
+        "finding": "no split, capital reduction, par-value reset, relisting, or suspension price reset in the operation window; revenue context was demand recovery",
+        "official_sources": [
+          "https://www.twse.com.tw/rwd/zh/exRight/TWT49U",
+          "https://www.twse.com.tw/rwd/zh/reducation/TWTAUU",
+          "https://www.twse.com.tw/rwd/zh/change/TWTB8U",
+          "https://www.twse.com.tw/rwd/zh/afterTrading/TWTAWU",
+          "https://www.nanya.com/en/IR/36/Monthly%20Revenue",
+          "https://www.nanya.com/en/IR/16?IRId=12113"
+        ],
+        "request_params": {"stockNo": "2408", "startDate": "20260427", "endDate": "20260610"},
+        "query_window": "20260427..20260610"
+      },
+      "independent_source_corroboration": {
+        "status": "pass",
+        "independent_underlying_measurement": false,
+        "classification": "independent_public_provider_corroboration",
+        "finding": "MoneyDJ identifies 南亞科(2408) and reports 115/03 monthly revenue 18,169,760 thousand TWD; its displayed YoY 560.04% differs from the canonical 560.03% only by provider rounding.",
+        "sources": [
+          "https://5850web.moneydj.com/z/zc/zch/zch_2408.djhtm"
+        ],
+        "observed_facts": [
+          {
+            "fact_kind": "public_provider_monthly_revenue_report",
+            "stock_id": "2408",
+            "revenue_period": "202603",
+            "provider_reported_monthly_revenue_thousand_twd": "18169760",
+            "canonical_monthly_revenue_thousand_twd": "18169760",
+            "provider_reported_yoy_pct": "560.04",
+            "canonical_yoy_pct": "560.03",
+            "comparison_result": "monthly_revenue_exact_yoy_display_rounding_only",
+            "source_url": "https://5850web.moneydj.com/z/zc/zch/zch_2408.djhtm"
+          }
+        ]
+      },
+      "reproducible_evidence_reference": {
+        "status": "pass",
+        "replay_basis": "registered candidate row, canonical monthly-revenue row hash, registered trading calendar, and official TWSE daily-price queries"
+      }
+    },
+    "disposition": {
+      "final_disposition": "verified_real_extreme",
+      "primary_handling": "retain_in_primary_metrics",
+      "promotion_gate_status": "eligible_only_after_all_other_model_gates",
+      "repair_satisfaction_status": "not_applicable_no_repair",
+      "effective_anomaly_gate_status": "satisfied",
+      "approved_reason_reference": ""
+    },
+    "scope": "monthly_revenue_only; EPS, gross margin, operating margin, operating income, non-operating income, net income, quarterly and annual financial statements excluded"
+  },
+  "provenance": {
+    "retrieved_at": "2026-08-29T05:15:00+08:00",
+    "raw_byte_identity_policy": "diagnostic_only_not_promotion_gate",
+    "line_ending_identity_policy": "diagnostic_only_not_promotion_gate"
+  }
+}

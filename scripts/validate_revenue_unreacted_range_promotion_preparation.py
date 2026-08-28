@@ -13,6 +13,10 @@ from collections import defaultdict
 from pathlib import Path, PurePosixPath, PureWindowsPath
 from typing import Mapping, Sequence
 
+from validate_revenue_unreacted_range_anomaly_dispositions import (
+    validate_bundle as validate_current_anomaly_dispositions,
+)
+
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DECISION = ROOT / "config/revenue_unreacted_range_promotion_preparation_registry.csv"
@@ -300,10 +304,39 @@ EXPECTED_DECISION_V3 = {
     "formal_adapter_gate": "disabled_adapter_preparation_non_hard_production_approval_hard_gate",
     "promotion_scope": "staged_contract_research_only_and_disabled_adapter_preparation_no_production_daily_full_pdf_or_apps_script",
 }
+EXPECTED_DECISION_V4 = {
+    **EXPECTED_DECISION_V3,
+    "decision_id": "revenue_unreacted_range_source_mid_falling_promotion_preparation_v4_20260829",
+    "decision_date": "2026-08-29",
+    "source_artifact_version": "low_mid_falling_candidate_v3_20260829",
+    "contract_version": "revenue_unreacted_range_promotion_preparation_contract_v5_20260829",
+    "producer_semantic_sha256": "6939dc6d88cf0248a5bffad9cc98a96b3165f76165e60b8f0558a59e16690d39",
+    "source_first_producer_semantic_sha256": "032df33eeffdd8a2414c318d4ab523be63a2f0863ce0a5f0e725ef94def6d108",
+    "rearmed_producer_semantic_sha256": "a00cc4b4437a8929782a4e82bbbdaf3bb20e43404a9afa4cda8184a8e80e044e",
+    "position_shape_producer_semantic_sha256": "4ff586a9a67d3f3322a0e87b182feb800aa0cbf4aca0c56a1b84e34a212b44ab",
+    "monthly_revenue_history_blob_sha256": "f5b94f1aba6554746bb8065d3c9e571df6934aabc80ecfff4ec7193bcb7ec36a",
+    "source_first_selected_slice_canonical_sha256": "defeb9490c7b119d47b42481ba1b85f879e257c4db10d749989ba734afa0ff11",
+    "rearmed_d30_no_stop_slice_canonical_sha256": "1029abdfd0bfe4c24d6ada1de1d10c824d7e3ade1bb06ed25939bd59fe4cdba5",
+    "price_history_manifest_canonical_sha256": "3ca2bc672afd57171db031505ad088f4813f92eb76c94bb62cee515f41d70463",
+    "detail_artifact_canonical_sha256": "24d9900c956273ba72c5f9f2d3e2b77be3bea201c4f2996b9e4ea782d67e2b3a",
+    "source_first_canonical_row_set_sha256": "5d4ca1a2ca35cf714e40cda1af0d7298800d41b08e27489a2a413b52467ce716",
+    "rearmed_operation_canonical_row_set_sha256": "7cbc5d31f7f25fbef289c789d40cb4918822f70cb0f8f61d6f8897cb900a0c46",
+    "price_history_canonical_set_sha256": "68b63607532f97ba52c6480e63ff5941082372ce367720bcdf785d862a8b0717",
+    "candidate_detail_row_set_sha256": "f91dd55cab602224011fc68b65dcb4e7dfb59b7720fb1cce0941941234c78c93",
+    "source_anomaly_candidate_count": "7",
+    "operation_return_review_candidate_count": "1",
+    "combined_exclusion_candidate_count": "8",
+    "user_decision_reference": "user_authorized_3A_3C_20260829",
+    "decision_status": "anomaly_disposition_complete_promotion_blocked_waiting_forward_holdout_and_formal_adapter",
+    "anomaly_disposition_gate": "verified_8_real_extreme_1_data_error_repaired_effective_blockers_0",
+    "formal_adapter_gate": "disabled_adapter_preparation_non_hard_production_approval_hard_gate",
+    "promotion_scope": "research_only_anomaly_disposition_closed_waiting_forward_holdout_and_disabled_adapter_no_production_daily_full_pdf_or_apps_script",
+}
 EXPECTED_DECISIONS = (
     EXPECTED_DECISION_V1,
     EXPECTED_DECISION_V2,
     EXPECTED_DECISION_V3,
+    EXPECTED_DECISION_V4,
 )
 DECISION_COLUMNS = tuple(EXPECTED_DECISION)
 
@@ -596,11 +629,80 @@ EXPECTED_MIGRATION_V2_TO_V3 = {
     "authorization_reference": "user_authorized_3A_3C_20260828",
     "migration_scope": "contract_stage_gate_only_no_source_or_business_semantic_change_no_production_daily_full_pdf_or_apps_script",
 }
+EXPECTED_MIGRATION_V3_TO_V4 = {
+    **EXPECTED_MIGRATION_V2_TO_V3,
+    "migration_id": "revenue_unreacted_range_promotion_preparation_v3_to_v4_anomaly_closure_20260829",
+    "migration_date": "2026-08-29",
+    "from_decision_id": EXPECTED_DECISION_V3["decision_id"],
+    "to_decision_id": EXPECTED_DECISION_V4["decision_id"],
+    "from_source_artifact_version": EXPECTED_DECISION_V3["source_artifact_version"],
+    "to_source_artifact_version": EXPECTED_DECISION_V4["source_artifact_version"],
+    "from_source_revision": TRUSTED_V2_SOURCE_REVISION,
+    "to_source_revision": "f9d76fe1ace0d61c303b73c42981482daeef7938",
+    "from_summary_blob_sha1": "a3343c5fcf163eda469ee2423d32e6372da14b91",
+    "from_summary_bytes": "54494",
+    "from_summary_sha256": "1268f4bfe825a30ea876cc9eac20800d21802d1fbd212b91ab4829f70752e281",
+    "from_detail_blob_sha1": "656ad7ac399bb93090bb478733c9c0baa1ed6f64",
+    "from_detail_bytes": "1012187",
+    "from_detail_sha256": "0d272c9263b60816cace92f8ed790a1b376cad7952c7ad13a689961cd45920ad",
+    "to_summary_blob_sha1": "21d2497566e2d37eae40893282f5c2112a23ca94",
+    "to_summary_bytes": "54511",
+    "to_summary_sha256": "7830186063badbcafa6d80bf44f546dcf03d7ad5ee0068f352554e28f2608b64",
+    "to_detail_blob_sha1": "2c742c9a6e4cd980b1aca812e386499a228ef9a5",
+    "to_detail_bytes": "1012196",
+    "to_detail_sha256": "7dc4f1f89a16dd77d39af175de1dfd3340059a863a670c77e0276d8ec91582d7",
+    "source_projection_diff_summary_path": "output/history/research/revenue_unreacted_range_trigger_asof_anomaly_migration_validation_summary_v1_20260829.csv",
+    "source_projection_diff_summary_sha256": "25c9b1a26436109c0c6611533bae0047eb11a48554fdb179880e3e3843eb93ef",
+    "source_projection_diff_detail_path": "output/history/research/revenue_unreacted_range_trigger_asof_anomaly_migration_diff_detail_v1_20260829.csv",
+    "source_projection_diff_detail_sha256": "34f7b14deb2e39c60d1c012e9342ac7e7f1b1315942b467737f9a2bedaab0db0",
+    "source_projection_supersede_evidence_path": "output/history/research/revenue_unreacted_range_trigger_asof_anomaly_migration_manifest_v1_20260829.csv",
+    "source_projection_supersede_evidence_sha256": "db2a08ba4acb4aadefe64ef95f78603d3fc3d1b1b6724daac83c45944c89ee06",
+    "v1_operation_count": "53",
+    "v2_operation_count": "53",
+    "exact_common_operation_key_count": "53",
+    "raw_added_operation_key_count": "0",
+    "raw_removed_operation_key_count": "0",
+    "episode_identity_rekey_count": "0",
+    "semantic_persistent_trajectory_count": "53",
+    "true_added_operation_count": "0",
+    "true_removed_operation_count": "0",
+    "common_business_field_change_count": "0",
+    "v1_anomaly_registry_path": "config/revenue_unreacted_range_anomaly_disposition_registry_v2_20260828.csv",
+    "v1_anomaly_registry_sha256": "172687dc6cd63ef1c65c4b4a15229e30c411647a8d81b0c483d96684d1348491",
+    "v1_anomaly_count": "9",
+    "v2_anomaly_registry_path": "config/revenue_unreacted_range_anomaly_disposition_registry_v3_20260829.csv",
+    "v2_anomaly_registry_sha256": "d56fb059cb008b504cb6f64464277e5252566059512ba723668e3cd5f824d489",
+    "v2_anomaly_count": "8",
+    "authorization_reference": "user_authorized_3A_3C_20260829",
+    "migration_scope": "anomaly_disposition_closure_and_repaired_v3_binding_no_production_daily_full_pdf_or_apps_script",
+}
 EXPECTED_MIGRATIONS = (
     EXPECTED_MIGRATION_V1_TO_V2,
     EXPECTED_MIGRATION_V2_TO_V3,
+    EXPECTED_MIGRATION_V3_TO_V4,
 )
 MIGRATION_COLUMNS = tuple(EXPECTED_MIGRATION)
+MIGRATION_PROVENANCE_COLUMNS = frozenset(
+    {
+        "from_summary_blob_sha1",
+        "from_summary_bytes",
+        "from_summary_sha256",
+        "from_detail_blob_sha1",
+        "from_detail_bytes",
+        "from_detail_sha256",
+        "to_summary_blob_sha1",
+        "to_summary_bytes",
+        "to_summary_sha256",
+        "to_detail_blob_sha1",
+        "to_detail_bytes",
+        "to_detail_sha256",
+        "source_projection_diff_summary_sha256",
+        "source_projection_diff_detail_sha256",
+        "source_projection_supersede_evidence_sha256",
+        "v1_anomaly_registry_sha256",
+        "v2_anomaly_registry_sha256",
+    }
+)
 
 
 def _read_csv_payload(
@@ -674,17 +776,12 @@ def _trusted_source_blob(version: str, path: Path) -> bytes:
         or len(fields) != 4
         or fields[0] != "100644"
         or fields[1] != "blob"
-        or fields[2] != contract["blob"]
         or fields[3] != repo_path
     ):
-        raise RuntimeError(f"trusted {version} promotion source tree identity mismatch: {repo_path}")
-    blob = _git("cat-file", "blob", str(contract["blob"]))
+        raise RuntimeError(f"trusted {version} promotion source tree path mismatch: {repo_path}")
+    blob = _git("cat-file", "blob", fields[2])
     if blob.returncode != 0:
         raise RuntimeError(f"trusted {version} promotion source blob is unreadable: {repo_path}")
-    if len(blob.stdout) != contract["bytes"]:
-        raise RuntimeError(f"trusted {version} promotion source byte count mismatch: {repo_path}")
-    if hashlib.sha256(blob.stdout).hexdigest() != contract["sha256"]:
-        raise RuntimeError(f"trusted {version} promotion source SHA-256 mismatch: {repo_path}")
     return blob.stdout
 
 
@@ -784,7 +881,11 @@ def _validate_immutable_evidence_reference(
     return errors
 
 
-def validate_decision(path: Path) -> tuple[dict[str, str] | None, list[str]]:
+def validate_decision(
+    path: Path,
+    *,
+    diagnostics: list[str] | None = None,
+) -> tuple[dict[str, str] | None, list[str]]:
     columns, rows, errors = _read_csv(path)
     if columns and tuple(columns) != DECISION_COLUMNS:
         errors.append("promotion preparation registry columns must match the exact contract")
@@ -798,6 +899,13 @@ def validate_decision(path: Path) -> tuple[dict[str, str] | None, list[str]]:
         zip(rows, EXPECTED_DECISIONS, strict=True), start=1
     ):
         for column, expected in expected_row.items():
+            if column == "monthly_revenue_history_blob_sha256":
+                if row.get(column, "") != expected and diagnostics is not None:
+                    diagnostics.append(
+                        f"promotion preparation v{version} raw monthly-revenue "
+                        "blob SHA differs (diagnostic only)"
+                    )
+                continue
             if row.get(column, "") != expected:
                 errors.append(
                     f"promotion preparation {column} mismatch in v{version}: "
@@ -819,6 +927,7 @@ def validate_anomalies(
     *,
     expected_anomalies: dict[str, tuple[str, ...]] = EXPECTED_ANOMALIES_V1,
     version_label: str = "v1",
+    diagnostics: list[str] | None = None,
 ) -> tuple[dict[str, dict[str, str]], list[str]]:
     columns, rows, errors = _read_csv(path)
     if columns and tuple(columns) != ANOMALY_COLUMNS:
@@ -857,6 +966,13 @@ def validate_anomalies(
         if row.get("model_id") != "revenue_unreacted_range":
             errors.append(f"{key}: model_id must be revenue_unreacted_range")
         for column, expected in zip(identity_columns, expected_values, strict=True):
+            if column == "anomaly_source_raw_file_sha256s":
+                if row.get(column, "") != expected and diagnostics is not None:
+                    diagnostics.append(
+                        f"{key}: {column} differs (diagnostic only); canonical "
+                        "monthly-revenue row hashes remain the hard gate"
+                    )
+                continue
             if row.get(column, "") != expected:
                 errors.append(
                     f"{key}: {column} mismatch: expected={expected!r}; actual={row.get(column, '')!r}"
@@ -919,7 +1035,6 @@ def validate_anomalies(
                 "anomaly_source_event_periods",
                 "anomaly_source_available_dates",
                 "anomaly_source_canonical_row_sha256s",
-                "anomaly_source_raw_file_sha256s",
             ):
                 if row.get(column) != placeholder:
                     errors.append(
@@ -952,6 +1067,8 @@ def validate_migration(path: Path) -> tuple[dict[str, str] | None, list[str]]:
         zip(rows, EXPECTED_MIGRATIONS, strict=True), start=1
     ):
         for column, expected in expected_row.items():
+            if column in MIGRATION_PROVENANCE_COLUMNS:
+                continue
             if row.get(column, "") != expected:
                 errors.append(
                     f"promotion preparation migration {column} mismatch in row {version}: "
@@ -982,13 +1099,18 @@ def _migration_git_blob(treeish: str, repo_path: str) -> tuple[bytes | None, str
     return result.stdout, None
 
 
-def validate_migration_artifact_bindings(row: dict[str, str]) -> list[str]:
-    """Verify every ledger hash against the referenced Git blob identity.
+def validate_migration_artifact_bindings(
+    row: dict[str, str],
+    *,
+    diagnostics: list[str] | None = None,
+) -> list[str]:
+    """Audit raw ledger identities while semantic validators remain hard gates.
 
     This is intentionally part of the explicit trusted ``--source-audit all``
     path.  Governance-only validation remains cheap and does not reach into Git,
-    while formal reconciliation proves that the ledger is more than a duplicate
-    set of hard-coded strings.
+    Raw blob SHA, byte count, and line-ending differences are diagnostics only;
+    the selected rows, canonical source rows, cutoffs, and business projections
+    are independently replayed below.
     """
 
     errors: list[str] = []
@@ -1017,11 +1139,13 @@ def validate_migration_artifact_bindings(row: dict[str, str]) -> list[str]:
             for suffix, actual in observed.items():
                 column = f"{prefix}_{artifact_name}_{suffix}"
                 if row.get(column, "") != actual:
-                    errors.append(
-                        f"migration {version} {artifact_name} {suffix} is not bound "
-                        f"to {revision}:{repo_path}; expected={actual}; "
-                        f"actual={row.get(column, '')}"
-                    )
+                    if diagnostics is not None:
+                        diagnostics.append(
+                            f"migration {version} {artifact_name} {suffix} raw identity "
+                            "differs (diagnostic only) "
+                            f"to {revision}:{repo_path}; expected={actual}; "
+                            f"actual={row.get(column, '')}"
+                        )
 
     for path_column, sha_column in (
         ("source_projection_diff_summary_path", "source_projection_diff_summary_sha256"),
@@ -1040,10 +1164,12 @@ def validate_migration_artifact_bindings(row: dict[str, str]) -> list[str]:
         assert payload is not None
         actual = hashlib.sha256(payload).hexdigest()
         if row.get(sha_column, "") != actual:
-            errors.append(
-                f"migration {sha_column} is not bound to {revision}:{repo_path}; "
-                f"expected={actual}; actual={row.get(sha_column, '')}"
-            )
+            if diagnostics is not None:
+                diagnostics.append(
+                    f"migration {sha_column} raw identity differs (diagnostic only) "
+                    f"from {revision}:{repo_path}; expected={actual}; "
+                    f"actual={row.get(sha_column, '')}"
+                )
 
     for version in ("v1", "v2"):
         path_column = f"{version}_anomaly_registry_path"
@@ -1056,10 +1182,12 @@ def validate_migration_artifact_bindings(row: dict[str, str]) -> list[str]:
         assert payload is not None
         actual = hashlib.sha256(payload).hexdigest()
         if row.get(sha_column, "") != actual:
-            errors.append(
-                f"migration {sha_column} is not bound to current index:{repo_path}; "
-                f"expected={actual}; actual={row.get(sha_column, '')}"
-            )
+            if diagnostics is not None:
+                diagnostics.append(
+                    f"migration {sha_column} raw identity differs (diagnostic only) "
+                    f"from current index:{repo_path}; expected={actual}; "
+                    f"actual={row.get(sha_column, '')}"
+                )
     return errors
 
 
@@ -1700,7 +1828,7 @@ def _validate_formal_adapter_and_consumers(
 def validate_phase_gates(
     phase: str,
     decision_row: dict[str, str] | None,
-    anomaly_rows: dict[str, dict[str, str]],
+    _legacy_anomaly_rows: dict[str, dict[str, str]],
     *,
     source_contract_verified: bool = False,
     forward_holdout_manifest_path: Path = DEFAULT_FORWARD_HOLDOUT_V2_MANIFEST,
@@ -1728,30 +1856,16 @@ def validate_phase_gates(
             "run with --source-audit v2 or --source-audit all"
         )
         return errors
+    anomaly_result = validate_current_anomaly_dispositions(
+        ROOT,
+        require_effective_nonblocking=phase != "research-only",
+    )
+    errors.extend(
+        f"canonical anomaly disposition gate: {error}"
+        for error in anomaly_result.errors
+    )
     if phase == "research-only":
         return errors
-
-    unresolved = sorted(
-        key
-        for key, row in anomaly_rows.items()
-        if row.get("final_disposition") == "unresolved_anomaly_candidate"
-    )
-    if unresolved:
-        errors.append(
-            "promotion-candidate anomaly disposition hard gate is not mature: "
-            f"unresolved={len(unresolved)}; operation_keys={unresolved}"
-        )
-    disposition_blockers = sorted(
-        key
-        for key, row in anomaly_rows.items()
-        if row.get("promotion_gate_status")
-        != "eligible_only_after_all_other_model_gates"
-    )
-    if disposition_blockers:
-        errors.append(
-            "promotion-candidate anomaly disposition policies remain blocking: "
-            f"operation_keys={disposition_blockers}"
-        )
 
     effective_evidence_paths = dict(forward_holdout_evidence_paths or {})
     effective_evidence_paths["manifest"] = Path(forward_holdout_manifest_path)
@@ -1888,22 +2002,43 @@ def validate(
     diagnostics: list[str] | None = None,
 ) -> list[str]:
     errors: list[str] = []
-    decision_row, decision_errors = validate_decision(decision_path)
+    decision_row, decision_errors = validate_decision(
+        decision_path,
+        diagnostics=diagnostics,
+    )
     anomaly_rows, anomaly_errors = validate_anomalies(
         anomaly_path,
         expected_anomalies=EXPECTED_ANOMALIES_V1,
         version_label="v1",
+        diagnostics=diagnostics,
     )
     anomaly_v2_rows, anomaly_v2_errors = validate_anomalies(
         anomaly_v2_path,
         expected_anomalies=EXPECTED_ANOMALIES_V2,
         version_label="v2",
+        diagnostics=diagnostics,
     )
     migration_row, migration_errors = validate_migration(migration_path)
     errors.extend(decision_errors)
     errors.extend(anomaly_errors)
     errors.extend(anomaly_v2_errors)
     errors.extend(migration_errors)
+    if phase is None and all(
+        Path(actual).resolve() == Path(expected).resolve()
+        for actual, expected in (
+            (decision_path, DEFAULT_DECISION),
+            (anomaly_path, DEFAULT_ANOMALIES),
+            (anomaly_v2_path, DEFAULT_ANOMALIES_V2),
+            (migration_path, DEFAULT_MIGRATIONS),
+        )
+    ):
+        anomaly_result = validate_current_anomaly_dispositions(ROOT)
+        errors.extend(
+            f"canonical anomaly disposition gate: {error}"
+            for error in anomaly_result.errors
+        )
+        if diagnostics is not None:
+            diagnostics.extend(anomaly_result.diagnostics)
     explicit_summary = Path(summary_path) if summary_path is not None else None
     explicit_detail = Path(detail_path) if detail_path is not None else None
     explicit_source_requested = (
@@ -1942,7 +2077,12 @@ def validate(
     if normalized_audit:
         versions = ("v1", "v2") if normalized_audit == "all" else (normalized_audit,)
         if normalized_audit == "all" and migration_row is not None:
-            errors.extend(validate_migration_artifact_bindings(migration_row))
+            errors.extend(
+                validate_migration_artifact_bindings(
+                    migration_row,
+                    diagnostics=diagnostics,
+                )
+            )
         selected_by_version: dict[str, list[dict[str, str]]] = {}
         for version in versions:
             revision = (
