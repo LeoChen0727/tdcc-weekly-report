@@ -218,7 +218,7 @@ jobs:
           python-version: "3.11"
 
       - name: Install research safety dependencies
-        run: python -m pip install --disable-pip-version-check pytest pandas
+        run: python -m pip install --disable-pip-version-check pytest pandas requests
 
       - name: Validate research safety contracts
         run: |

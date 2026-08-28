@@ -576,6 +576,16 @@ def test_workflow_dispatch_profiles_are_closed_and_revenue_keeps_safety() -> Non
     assert '--validation-profile "$VALIDATION_PROFILE"' in scope_job
 
 
+def test_research_safety_job_installs_its_import_closure_dependencies() -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+    job = job_block("research_safety_lite", text)
+
+    assert (
+        "python -m pip install --disable-pip-version-check pytest pandas requests"
+        in job
+    )
+
+
 def test_scope_aggregate_and_domain_contracts_are_exact_and_fail_closed() -> None:
     text = WORKFLOW.read_text(encoding="utf-8")
     block = job_run_text("scope", text)
