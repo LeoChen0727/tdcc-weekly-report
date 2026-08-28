@@ -368,8 +368,6 @@ jobs:
       needs.scope.result == 'success' &&
       needs.scope.outputs.revenue_research == 'true'
     runs-on: ubuntu-latest
-    env:
-      BASE_SHA: ${{ needs.scope.outputs.effective_base_sha }}
 
     steps:
       - name: Checkout repository

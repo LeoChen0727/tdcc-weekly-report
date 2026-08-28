@@ -219,7 +219,7 @@ def scope_job_contract_ok(text: str) -> bool:
         and text.count(
             "      BASE_SHA: ${{ needs.scope.outputs.effective_base_sha }}"
         )
-        == 5
+        == 4
         and "github.event.pull_request.base.sha" not in text
         and all(active_field(step, "uses") is None for step in steps)
     )
@@ -616,7 +616,7 @@ def test_scope_aggregate_and_domain_contracts_are_exact_and_fail_closed() -> Non
     assert 'effective_base_sha="origin/main"' in block
     assert text.count(
         "      BASE_SHA: ${{ needs.scope.outputs.effective_base_sha }}"
-    ) == 5
+    ) == 4
     assert "github.event.pull_request.base.sha" not in text
     scope_first_step = active_step_blocks(job_block("scope", text))[0]
     assert "public merge ref" in (active_field(scope_first_step, "name") or "")
@@ -1290,7 +1290,7 @@ def test_daily_model_maintenance_pr_workflow_pins_append_only_validation_base() 
     assert "fetch-depth: 0" in text
     assert text.count(
         "BASE_SHA: ${{ needs.scope.outputs.effective_base_sha }}"
-    ) == 5
+    ) == 4
     assert (
         "effective_base_sha: ${{ steps.scope.outputs.effective_base_sha }}" in text
     )
@@ -1464,6 +1464,8 @@ def test_daily_model_maintenance_pr_workflow_runs_focused_pdf_operation_tests() 
 def test_revenue_job_runs_explicit_cheap_readiness_and_independent_v2_cases() -> None:
     text = WORKFLOW.read_text(encoding="utf-8")
     job = job_block("revenue_research", text)
+
+    assert "BASE_SHA: ${{ needs.scope.outputs.effective_base_sha }}" not in job
 
     expected_sync_nodes = (
         "test_build_replaces_only_revenue_and_keeps_non_revenue_fields_exact",
