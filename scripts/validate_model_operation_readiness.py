@@ -1,20 +1,10 @@
 from __future__ import annotations
 
-# BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
-import csv
-import hashlib
-import io
-import json
-import subprocess
-# END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 import sys
 from pathlib import Path
 
 import pandas as pd
 
-# BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
-ROOT = Path(__file__).resolve().parents[1]
-# END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from build_model_operation_readiness import (  # noqa: E402
@@ -79,35 +69,7 @@ REVENUE_PERMISSION_COLUMNS = {
     "formal_model_use_allowed",
     "production_allowed",
 }
-LEGACY_BOOTSTRAP_BASE_SHA = "7b05900722aa57df2271d8025da07aa0f81b74e0"
-LEGACY_BOOTSTRAP_BLOB_IDS = {
-    "output/latest/model_operation_readiness_latest.csv": (
-        "eb60dc3f9852be994874e830d4c0e79cc3736ec5"
-    ),
-    "output/latest/model_operation_readiness_latest.md": (
-        "108b744f3b4371ee7fa19edbe872a6d563af2a5b"
-    ),
-    "docs/latest/model_operation_readiness_latest.csv": (
-        "eb60dc3f9852be994874e830d4c0e79cc3736ec5"
-    ),
-    "docs/latest/model_operation_readiness_latest.md": (
-        "108b744f3b4371ee7fa19edbe872a6d563af2a5b"
-    ),
-}
-LEGACY_BOOTSTRAP_CANONICAL_SHA256 = {
-    "output/latest/model_operation_readiness_latest.csv": (
-        "c84488e3878427fdf747b32de6aa0461039c15561980a0f82468aa4a384e972b"
-    ),
-    "output/latest/model_operation_readiness_latest.md": (
-        "569851bc29f270c4115d7176cec97dedf679109877855d22815063c136e725a1"
-    ),
-    "docs/latest/model_operation_readiness_latest.csv": (
-        "c84488e3878427fdf747b32de6aa0461039c15561980a0f82468aa4a384e972b"
-    ),
-    "docs/latest/model_operation_readiness_latest.md": (
-        "569851bc29f270c4115d7176cec97dedf679109877855d22815063c136e725a1"
-    ),
-}
+REQUIRED_COLUMNS |= REVENUE_PERMISSION_COLUMNS
 # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 
 APPROVED_MODEL_IDS = {
@@ -130,96 +92,6 @@ def as_bool_text(series: pd.Series) -> pd.Series:
 
 
 # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
-def _canonical_readiness_artifact_sha256(
-    logical_path: str,
-    data: bytes,
-) -> str:
-    if logical_path.endswith(".csv"):
-        reader = csv.DictReader(io.StringIO(data.decode("utf-8-sig")))
-        if not reader.fieldnames:
-            raise ValueError("missing CSV header")
-        rows = list(reader)
-        if any(None in row for row in rows):
-            raise ValueError("CSV row has more values than the header")
-        canonical = json.dumps(
-            {"fieldnames": reader.fieldnames, "rows": rows},
-            ensure_ascii=False,
-            separators=(",", ":"),
-        ).encode("utf-8")
-    else:
-        canonical = (
-            data.decode("utf-8-sig")
-            .replace("\r\n", "\n")
-            .encode("utf-8")
-        )
-    return hashlib.sha256(canonical).hexdigest()
-
-
-def _filtered_git_blob_id(logical_path: str, data: bytes) -> str:
-    normalized_data = data.replace(b"\r\n", b"\n")
-    result = subprocess.run(
-        [
-            "git",
-            "-c",
-            "core.autocrlf=false",
-            "hash-object",
-            f"--path={logical_path}",
-            "--stdin",
-        ],
-        cwd=ROOT,
-        input=normalized_data,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-        check=False,
-    )
-    if result.returncode:
-        raise RuntimeError(
-            result.stderr.decode("utf-8", errors="replace").strip()
-        )
-    return result.stdout.decode("ascii", errors="strict").strip()
-
-
-def _legacy_readiness_paths() -> dict[str, Path]:
-    return {
-        "output/latest/model_operation_readiness_latest.csv": OUT_CSV,
-        "output/latest/model_operation_readiness_latest.md": OUT_MD,
-        "docs/latest/model_operation_readiness_latest.csv": DOCS_CSV,
-        "docs/latest/model_operation_readiness_latest.md": DOCS_MD,
-    }
-
-
-def validate_legacy_readiness_bootstrap_artifacts() -> list[str]:
-    errors: list[str] = []
-    for logical_path, path in _legacy_readiness_paths().items():
-        try:
-            data = path.read_bytes()
-            filtered_blob_id = _filtered_git_blob_id(logical_path, data)
-            canonical_sha256 = _canonical_readiness_artifact_sha256(
-                logical_path,
-                data,
-            )
-        except (OSError, RuntimeError, UnicodeDecodeError, ValueError) as exc:
-            errors.append(
-                f"legacy readiness bootstrap cannot inspect {logical_path}: {exc}"
-            )
-            continue
-        expected_blob_id = LEGACY_BOOTSTRAP_BLOB_IDS[logical_path]
-        if filtered_blob_id != expected_blob_id:
-            errors.append(
-                "legacy readiness bootstrap filtered Git blob drift: "
-                f"{logical_path}; expected={expected_blob_id}; "
-                f"actual={filtered_blob_id}"
-            )
-        expected_canonical = LEGACY_BOOTSTRAP_CANONICAL_SHA256[logical_path]
-        if canonical_sha256 != expected_canonical:
-            errors.append(
-                "legacy readiness bootstrap canonical semantic drift: "
-                f"{logical_path}; expected={expected_canonical}; "
-                f"actual={canonical_sha256}"
-            )
-    return errors
-
-
 def validate_persisted_revenue_permission_columns(
     readiness: pd.DataFrame,
 ) -> list[str]:
@@ -395,18 +267,6 @@ def validate_readiness_csv() -> list[str]:
         return [f"model operation readiness missing columns: {missing_cols}"]
 
     # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
-    present_permission_columns = REVENUE_PERMISSION_COLUMNS.intersection(df.columns)
-    if present_permission_columns != REVENUE_PERMISSION_COLUMNS:
-        if present_permission_columns:
-            missing_permissions = sorted(
-                REVENUE_PERMISSION_COLUMNS - present_permission_columns
-            )
-            return [
-                "model operation readiness has a partial revenue permission schema: "
-                f"missing={missing_permissions}"
-            ]
-        return validate_legacy_readiness_bootstrap_artifacts()
-
     permission_errors = validate_persisted_revenue_permission_columns(df)
     if permission_errors:
         return permission_errors

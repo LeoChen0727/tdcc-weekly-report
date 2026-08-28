@@ -1,8 +1,5 @@
 from __future__ import annotations
 
-# BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
-import subprocess
-# END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 import sys
 from pathlib import Path
 
@@ -997,21 +994,28 @@ def test_revenue_readiness_csv_schema_rejects_missing_existing_permission_column
 
 
 @pytest.mark.parametrize(
-    "field_name",
+    "missing_fields",
     (
-        "formal_model_use_allowed",
-        "production_allowed",
+        pytest.param(
+            {"formal_model_use_allowed"},
+            id="missing-formal-model-use-allowed",
+        ),
+        pytest.param(
+            {"production_allowed"},
+            id="missing-production-allowed",
+        ),
+        pytest.param(
+            {"formal_model_use_allowed", "production_allowed"},
+            id="missing-both-revenue-permissions",
+        ),
     ),
 )
 def test_revenue_readiness_csv_rejects_partial_permission_schema(
     tmp_path: Path,
     monkeypatch,
-    field_name: str,
+    missing_fields: set[str],
 ) -> None:
-    columns = sorted(
-        readiness_validator.REQUIRED_COLUMNS
-        | (readiness_validator.REVENUE_PERMISSION_COLUMNS - {field_name})
-    )
+    columns = sorted(readiness_validator.REQUIRED_COLUMNS - missing_fields)
     artifact = tmp_path / "model_operation_readiness_latest.csv"
     pd.DataFrame([{column: "False" for column in columns}]).to_csv(
         artifact,
@@ -1020,8 +1024,8 @@ def test_revenue_readiness_csv_rejects_partial_permission_schema(
     monkeypatch.setattr(readiness_validator, "OUT_CSV", artifact)
 
     assert readiness_validator.validate_readiness_csv() == [
-        "model operation readiness has a partial revenue permission schema: "
-        f"missing=['{field_name}']"
+        "model operation readiness missing columns: "
+        f"{sorted(missing_fields)}"
     ]
 
 
@@ -1174,107 +1178,6 @@ def test_revenue_readiness_persisted_permission_columns_reject_non_revenue_boole
             readiness
         )
     )
-
-
-def _legacy_bootstrap_bytes(logical_path: str) -> bytes:
-    return subprocess.run(
-        [
-            "git",
-            "show",
-            f"{readiness_validator.LEGACY_BOOTSTRAP_BASE_SHA}:{logical_path}",
-        ],
-        cwd=ROOT,
-        check=True,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-    ).stdout
-
-
-def _write_legacy_bootstrap_mirrors(
-    tmp_path: Path,
-    monkeypatch,
-    *,
-    crlf: bool = False,
-) -> dict[str, Path]:
-    attribute_names = {
-        "output/latest/model_operation_readiness_latest.csv": "OUT_CSV",
-        "output/latest/model_operation_readiness_latest.md": "OUT_MD",
-        "docs/latest/model_operation_readiness_latest.csv": "DOCS_CSV",
-        "docs/latest/model_operation_readiness_latest.md": "DOCS_MD",
-    }
-    written: dict[str, Path] = {}
-    for logical_path, attribute_name in attribute_names.items():
-        data = _legacy_bootstrap_bytes(logical_path)
-        if crlf:
-            data = data.replace(b"\n", b"\r\n")
-        path = tmp_path / logical_path
-        path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_bytes(data)
-        monkeypatch.setattr(readiness_validator, attribute_name, path)
-        written[logical_path] = path
-    return written
-
-
-def test_revenue_readiness_legacy_bootstrap_accepts_exact_pinned_baseline_and_crlf(
-    tmp_path: Path,
-    monkeypatch,
-) -> None:
-    for logical_path, expected_blob_id in (
-        readiness_validator.LEGACY_BOOTSTRAP_BLOB_IDS.items()
-    ):
-        actual_blob_id = subprocess.run(
-            [
-                "git",
-                "rev-parse",
-                f"{readiness_validator.LEGACY_BOOTSTRAP_BASE_SHA}:{logical_path}",
-            ],
-            cwd=ROOT,
-            check=True,
-            text=True,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-        ).stdout.strip()
-        assert actual_blob_id == expected_blob_id
-        assert (
-            readiness_validator._canonical_readiness_artifact_sha256(
-                logical_path,
-                _legacy_bootstrap_bytes(logical_path),
-            )
-            == readiness_validator.LEGACY_BOOTSTRAP_CANONICAL_SHA256[logical_path]
-        )
-
-    _write_legacy_bootstrap_mirrors(tmp_path, monkeypatch, crlf=True)
-    assert readiness_validator.validate_legacy_readiness_bootstrap_artifacts() == []
-    assert readiness_validator.validate_readiness_csv() == []
-
-
-def test_revenue_readiness_legacy_bootstrap_rejects_any_semantic_or_filtered_blob_drift(
-    tmp_path: Path,
-    monkeypatch,
-) -> None:
-    mirrors = _write_legacy_bootstrap_mirrors(tmp_path, monkeypatch)
-    csv_path = mirrors["output/latest/model_operation_readiness_latest.csv"]
-    data = csv_path.read_bytes()
-    assert b"proxy_only" in data
-    csv_path.write_bytes(data.replace(b"proxy_only", b"proxy_only_drift", 1))
-
-    errors = readiness_validator.validate_legacy_readiness_bootstrap_artifacts()
-    assert any("filtered Git blob drift" in error for error in errors)
-    assert any("canonical semantic drift" in error for error in errors)
-    assert readiness_validator.validate_readiness_csv() == errors
-
-
-def test_revenue_readiness_legacy_bootstrap_rejects_bare_cr_markdown_drift(
-    tmp_path: Path,
-    monkeypatch,
-) -> None:
-    mirrors = _write_legacy_bootstrap_mirrors(tmp_path, monkeypatch)
-    markdown_path = mirrors["output/latest/model_operation_readiness_latest.md"]
-    markdown_path.write_bytes(markdown_path.read_bytes().replace(b"\n", b"\r"))
-
-    errors = readiness_validator.validate_legacy_readiness_bootstrap_artifacts()
-    assert any("filtered Git blob drift" in error for error in errors)
-    assert any("canonical semantic drift" in error for error in errors)
 
 
 def test_revenue_legacy_builder_has_no_direct_mirror_writer() -> None:
