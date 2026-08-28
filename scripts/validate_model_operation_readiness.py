@@ -35,22 +35,26 @@ from build_model_operation_readiness import (  # noqa: E402
     PRICE_PULLBACK_MODEL_ID,
     PRICE_PULLBACK_OPERATION_MODULE_ID,
     PRICE_PULLBACK_SPEC_SOURCE,
-    # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
-    REVENUE_ANOMALY_REGISTRY_CSV,
-    REVENUE_FORWARD_HOLDOUT_V2_MANIFEST_CSV,
-    REVENUE_MODEL_ID,
-    REVENUE_PROMOTION_REGISTRY_CSV,
-    # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
     V2_HIGH_MODEL_ID,
     V2_LOW_MODEL_ID,
     V2_MID_MODEL_ID,
     V2_VOLUME_MODEL_IDS,
     W_BOTTOM_MODEL_ID,
-    # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
+)
+# BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
+from sync_revenue_unreacted_range_operation_readiness import (  # noqa: E402
+    REVENUE_ANOMALY_REGISTRY_CSV,
+    REVENUE_FORWARD_HOLDOUT_V2_DETAIL_CSV,
+    REVENUE_FORWARD_HOLDOUT_V2_MANIFEST_CSV,
+    REVENUE_FORWARD_HOLDOUT_V2_REPLAY_SOURCE_CSV,
+    REVENUE_FORWARD_HOLDOUT_V2_SUMMARY_CSV,
+    REVENUE_MODEL_ID,
+    REVENUE_PROMOTION_REGISTRY_CSV,
+    REVENUE_SOURCE_PROJECTION_MANIFEST_CSV,
     summarize_revenue_promotion_readiness,
     validate_revenue_readiness_source_files,
-    # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 )
+# END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 from tracking_utils import read_csv  # noqa: E402
 
 
@@ -266,6 +270,10 @@ def validate_revenue_readiness_row(
     promotion_registry: pd.DataFrame,
     anomaly_registry: pd.DataFrame,
     forward_holdout_v2_manifest: pd.DataFrame,
+    forward_holdout_v2_detail: pd.DataFrame | None = None,
+    forward_holdout_v2_summary: pd.DataFrame | None = None,
+    forward_holdout_v2_replay_source: pd.DataFrame | None = None,
+    source_projection_manifest: pd.DataFrame | None = None,
 ) -> list[str]:
     errors: list[str] = []
     rows = readiness[readiness["model_id"].astype(str).eq(REVENUE_MODEL_ID)]
@@ -276,6 +284,30 @@ def validate_revenue_readiness_row(
             promotion_registry,
             anomaly_registry,
             forward_holdout_v2_manifest,
+            holdout_detail=(
+                forward_holdout_v2_detail
+                if forward_holdout_v2_detail is not None
+                else read_csv(REVENUE_FORWARD_HOLDOUT_V2_DETAIL_CSV, dtype=str).fillna("")
+            ),
+            holdout_summary=(
+                forward_holdout_v2_summary
+                if forward_holdout_v2_summary is not None
+                else read_csv(REVENUE_FORWARD_HOLDOUT_V2_SUMMARY_CSV, dtype=str).fillna("")
+            ),
+            replay_source=(
+                forward_holdout_v2_replay_source
+                if forward_holdout_v2_replay_source is not None
+                else read_csv(
+                    REVENUE_FORWARD_HOLDOUT_V2_REPLAY_SOURCE_CSV, dtype=str
+                ).fillna("")
+            ),
+            source_projection_manifest=(
+                source_projection_manifest
+                if source_projection_manifest is not None
+                else read_csv(
+                    REVENUE_SOURCE_PROJECTION_MANIFEST_CSV, dtype=str
+                ).fillna("")
+            ),
         )
     except RuntimeError as exc:
         return [f"{REVENUE_MODEL_ID} readiness source contract invalid: {exc}"]
@@ -333,6 +365,10 @@ def validate_files() -> list[str]:
         REVENUE_PROMOTION_REGISTRY_CSV,
         REVENUE_ANOMALY_REGISTRY_CSV,
         REVENUE_FORWARD_HOLDOUT_V2_MANIFEST_CSV,
+        REVENUE_FORWARD_HOLDOUT_V2_DETAIL_CSV,
+        REVENUE_FORWARD_HOLDOUT_V2_SUMMARY_CSV,
+        REVENUE_FORWARD_HOLDOUT_V2_REPLAY_SOURCE_CSV,
+        REVENUE_SOURCE_PROJECTION_MANIFEST_CSV,
     ]:
         if not path.exists():
             errors.append(f"missing revenue model readiness source: {path}")
@@ -551,6 +587,12 @@ def validate_readiness_csv() -> list[str]:
             read_csv(REVENUE_PROMOTION_REGISTRY_CSV, dtype=str).fillna(""),
             read_csv(REVENUE_ANOMALY_REGISTRY_CSV, dtype=str).fillna(""),
             read_csv(REVENUE_FORWARD_HOLDOUT_V2_MANIFEST_CSV, dtype=str).fillna(""),
+            read_csv(REVENUE_FORWARD_HOLDOUT_V2_DETAIL_CSV, dtype=str).fillna(""),
+            read_csv(REVENUE_FORWARD_HOLDOUT_V2_SUMMARY_CSV, dtype=str).fillna(""),
+            read_csv(
+                REVENUE_FORWARD_HOLDOUT_V2_REPLAY_SOURCE_CSV, dtype=str
+            ).fillna(""),
+            read_csv(REVENUE_SOURCE_PROJECTION_MANIFEST_CSV, dtype=str).fillna(""),
         )
     )
     # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
