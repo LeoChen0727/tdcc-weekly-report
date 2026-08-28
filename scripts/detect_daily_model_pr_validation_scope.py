@@ -752,6 +752,81 @@ def registry_change_affects(
     )
 
 
+def production_pdf_registry_change_affects(
+    path: str,
+    *,
+    base_revision: str,
+    head_revision: str,
+) -> bool:
+    """Return whether the changed registry semantics touch production/PDF.
+
+    Existing inventory rows often retain production relationships while a PR
+    changes only unrelated metadata.  Re-scanning the complete before/after
+    rows would therefore turn a passive, unchanged relationship into a false
+    production/PDF trigger.  Added/deleted rows still use their complete
+    semantics.  Stable rows use only changed relation tokens, except that an
+    explicit production owner or production/PDF primary path remains a hard
+    gate for every row change.
+    """
+
+    key_field = SHARED_REGISTRY_KEY_FIELDS[path]
+    try:
+        base_fields, base_rows = _parse_registry(
+            _read_git_text(base_revision, path),
+            path=path,
+            key_field=key_field,
+            revision=base_revision,
+        )
+        head_fields, head_rows = _parse_registry(
+            _read_git_text(head_revision, path),
+            path=path,
+            key_field=key_field,
+            revision=head_revision,
+        )
+        if base_fields != head_fields:
+            raise ScopeDetectionError(f"shared registry schema changed: {path!r}")
+    except ScopeDetectionError:
+        return True
+
+    for key in set(base_rows) | set(head_rows):
+        base_row = base_rows.get(key)
+        head_row = head_rows.get(key)
+        if base_row == head_row:
+            continue
+        if base_row is None or head_row is None:
+            row = head_row if head_row is not None else base_row
+            if row is not None and is_production_pdf_registry_row(row):
+                return True
+            continue
+
+        owners = {
+            base_row.get("owner", "").strip().lower(),
+            head_row.get("owner", "").strip().lower(),
+        }
+        if owners.intersection(PRODUCTION_PDF_REGISTRY_OWNERS):
+            return True
+        if is_production_pdf_path(key):
+            return True
+
+        for field in PRODUCTION_PDF_REGISTRY_RELATION_FIELDS:
+            base_tokens = {
+                normalize_path(token.strip())
+                for token in base_row.get(field, "").split(";")
+                if token.strip()
+            }
+            head_tokens = {
+                normalize_path(token.strip())
+                for token in head_row.get(field, "").split(";")
+                if token.strip()
+            }
+            if any(
+                is_production_pdf_path(token)
+                for token in base_tokens.symmetric_difference(head_tokens)
+            ):
+                return True
+    return False
+
+
 def production_pdf_inventory_paths(revision: str) -> frozenset[str]:
     registered_rows: list[tuple[str, str, dict[str, str]]] = []
     production_paths: set[str] = set()
@@ -923,11 +998,10 @@ def domains_for_changed_path(
     normalized = normalize_path(path)
     if normalized in SHARED_REGISTRY_KEY_FIELDS:
         selected = {REPO_CURRENT_CONTRACTS}
-        if registry_change_affects(
+        if production_pdf_registry_change_affects(
             normalized,
             base_revision=base_sha,
             head_revision=merge_sha,
-            row_is_relevant=is_production_pdf_registry_row,
         ):
             selected.add(PRODUCTION_PDF_CONTRACTS)
         if registry_change_affects(
