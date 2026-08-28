@@ -675,6 +675,32 @@ def test_pr_trust_root_guard_fast_passes_routine_diff(
     assert inventory.validate_pr_trust_root_change(base_sha, head_sha) == []
 
 
+def test_individual_scope_detector_is_a_label_guarded_trust_root(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    target_path = "scripts/detect_individual_stock_pr_scope.py"
+    assert target_path in inventory.PR_SAFE_TRUST_ROOT_PATHS
+    base_sha, head_sha = _install_trust_guard_git_stub(
+        monkeypatch,
+        diff_payload=b"M\0" + target_path.encode("utf-8") + b"\0",
+    )
+
+    missing_approval = inventory.validate_pr_trust_root_change(
+        base_sha,
+        head_sha,
+        base_repository=inventory.PR_SAFE_REPOSITORY,
+        head_repository=inventory.PR_SAFE_REPOSITORY,
+        maintainer_approved="false",
+    )
+    assert any("requires the explicit" in error for error in missing_approval)
+
+    assert inventory.validate_pr_trust_root_change(
+        base_sha,
+        head_sha,
+        base_repository=inventory.PR_SAFE_REPOSITORY,
+        head_repository=inventory.PR_SAFE_REPOSITORY,
+        maintainer_approved="true",
+    ) == []
 
 
 @pytest.mark.parametrize(
@@ -776,6 +802,7 @@ def test_pr_safe_trust_root_paths_are_exact_after_ledger_retirement() -> None:
     assert inventory.PR_SAFE_TRUST_ROOT_PATHS == frozenset(
         {
             ".github/workflows/individual_stock_pr_validation.yml",
+            "scripts/detect_individual_stock_pr_scope.py",
             "scripts/validate_repo_production_inventory.py",
             *helper_paths,
             "config/repo_file_lifecycle_semantic_migrations.csv",
