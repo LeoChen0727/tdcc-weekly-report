@@ -182,9 +182,13 @@ def exact_attestation(
     manifest: pd.DataFrame,
     detail: pd.DataFrame,
     summary: pd.DataFrame,
+    replay_source: pd.DataFrame,
 ) -> dict[str, object]:
     row = manifest.iloc[0]
     return {
+        "source_detail_promotion_semantic_sha256": (
+            syncer._promotion_semantic_source_sha256(replay_source)
+        ),
         "price_input_canonical_sha256": row[
             "price_input_canonical_sha256"
         ],
@@ -195,13 +199,22 @@ def exact_attestation(
         "price_input_row_count": row["price_input_row_count"],
         "observed_through_date": row["observed_through_date"],
         "expected_manifest_canonical_sha256": (
-            syncer._canonical_frame_sha256(manifest)
+            syncer._promotion_semantic_frame_sha256(
+                manifest,
+                frame_name="manifest",
+            )
         ),
         "expected_detail_canonical_sha256": (
-            syncer._canonical_frame_sha256(detail)
+            syncer._promotion_semantic_frame_sha256(
+                detail,
+                frame_name="detail",
+            )
         ),
         "expected_summary_canonical_sha256": (
-            syncer._canonical_frame_sha256(summary)
+            syncer._promotion_semantic_frame_sha256(
+                summary,
+                frame_name="summary",
+            )
         ),
         "replay_child_mode": syncer.EXACT_REPLAY_CHILD_MODE,
         "replay_child_modules": list(syncer.EXACT_REPLAY_CHILD_MODULES),
@@ -230,6 +243,7 @@ def exact_replay_protocol_payload(
         "tree_sha": tree_sha,
         "runtime_fingerprint": runtime_fingerprint,
         "capture_id": "f" * 64,
+        "source_detail_promotion_semantic_sha256": "6" * 64,
         "price_input_canonical_sha256": "9" * 64,
         "price_input_stock_canonical_sha256s": {"2330": "8" * 64},
         "price_input_stock_count": 1,
@@ -596,6 +610,7 @@ def test_current_canonical_sources_build_exact_disabled_revenue_row() -> None:
         holdout,
         holdout_detail=detail,
         holdout_summary=holdout_summary,
+        replay_source=replay_source,
         repo_root=ROOT,
     )
     summary = syncer.summarize_revenue_promotion_readiness(
@@ -665,7 +680,11 @@ def test_exact_replay_child_dependencies_and_execution_boundary_are_explicit() -
     assert child_env["NoDefaultCurrentDirectoryInExePath"] == "1"
     assert "validate_v1_exact17_freeze" in source
     assert "producer_v2.engine.build_forward_holdout" in source
-    assert "persisted v2 forward-holdout frame drift from exact build" in source
+    assert "promotion semantic frame drift" in source
+    assert '"from exact build: " + name' in source
+    assert "promotion_semantic_source_sha256" in source
+    assert "source_detail_promotion_semantic_sha256" in source
+    assert syncer.EXACT_REPLAY_PROTOCOL_VERSION.endswith("v2_20260829")
     assert source.count("validate_v1_exact17_freeze") >= 2
     assert "build_model_operation_readiness" not in source
     assert set(syncer.READINESS_MIRROR_RELS) == {
@@ -674,6 +693,63 @@ def test_exact_replay_child_dependencies_and_execution_boundary_are_explicit() -
         "docs/latest/model_operation_readiness_latest.csv",
         "docs/latest/model_operation_readiness_latest.md",
     }
+
+
+def test_exact_replay_child_promotion_projection_matches_parent() -> None:
+    source = Path(syncer.__file__).read_text(encoding="utf-8")
+    child_start = source.index(
+        "child_source = _exact_replay_child_bootstrap_source"
+    )
+    helper_start = source.index('RAW_MONTHLY_REVENUE_PROVENANCE_COLUMN = "', child_start)
+    helper_end = source.index("\n\ncommit_sha = EXPECTED_COMMIT_SHA", helper_start)
+    child_namespace: dict[str, object] = {
+        "validator_v2": importlib.import_module(
+            "validate_revenue_unreacted_range_forward_holdout_v2"
+        ),
+    }
+    # Execute only the bounded repository-owned helper embedded in the child.
+    exec(source[helper_start:helper_end], child_namespace)
+    child_hash = child_namespace["promotion_semantic_frame_sha256"]
+    assert callable(child_hash)
+
+    base = pd.DataFrame(
+        [
+            {
+                syncer.RAW_MONTHLY_REVENUE_PROVENANCE_COLUMN: "1" * 64,
+                syncer.SOURCE_DETAIL_LEGACY_ENVELOPE_COLUMN: "2" * 64,
+                syncer.CAPTURE_LEGACY_ENVELOPE_COLUMN: "3" * 64,
+                syncer.EVENT_LEGACY_ENVELOPE_COLUMN: "4" * 64,
+                "monthly_revenue_canonical_table_sha256": "5" * 64,
+                "source_asof_row_canonical_sha256": "6" * 64,
+            }
+        ]
+    )
+    parent_base = syncer._promotion_semantic_frame_sha256(
+        base,
+        frame_name="detail",
+    )
+    assert child_hash(base, "detail") == parent_base
+    cases = (
+        (
+            {
+                syncer.RAW_MONTHLY_REVENUE_PROVENANCE_COLUMN: "a" * 64,
+                syncer.SOURCE_DETAIL_LEGACY_ENVELOPE_COLUMN: "b" * 64,
+                syncer.CAPTURE_LEGACY_ENVELOPE_COLUMN: "c" * 64,
+                syncer.EVENT_LEGACY_ENVELOPE_COLUMN: "d" * 64,
+            },
+            False,
+        ),
+        ({"monthly_revenue_canonical_table_sha256": "e" * 64}, True),
+        ({"unregistered_semantic_column": "unexpected"}, True),
+    )
+    for mutation, must_reject in cases:
+        candidate = base.assign(**mutation)
+        parent_hash = syncer._promotion_semantic_frame_sha256(
+            candidate,
+            frame_name="detail",
+        )
+        assert child_hash(candidate, "detail") == parent_hash
+        assert (parent_hash != parent_base) is must_reject
 
 
 def test_exact_replay_launcher_ignores_pythonpath_sitecustomize(
@@ -1280,7 +1356,7 @@ def test_full_v2_gate_rejects_self_consistent_forged_mature_row_before_d30(
     summary.loc[union, "event_count"] = "1"
     summary.loc[union, "mature_count"] = "1"
 
-    attestation = exact_attestation(manifest, detail, summary)
+    attestation = exact_attestation(manifest, detail, summary, replay_source)
     monkeypatch.setattr(
         syncer,
         "_recompute_exact_registered_price_lineage",
@@ -1430,14 +1506,90 @@ def test_exact_replay_attestation_rejects_event_set_mutations(
         ROOT / syncer.FORWARD_HOLDOUT_V2_SUMMARY_REL, dtype=str
     ).fillna("")
     expected_detail = pd.DataFrame(
-        [{"event_key": "expected-event", "episode_key": "expected-episode"}]
+        [
+            {
+                "event_key": "expected-event",
+                "episode_key": "expected-episode",
+                "monthly_revenue_history_blob_sha256": manifest.loc[
+                    0, "monthly_revenue_history_blob_sha256"
+                ],
+                "source_detail_canonical_sha256": manifest.loc[
+                    0, "source_detail_canonical_sha256"
+                ],
+                "capture_id": manifest.loc[0, "capture_id"],
+                "source_asof_row_canonical_sha256": "2" * 64,
+                "event_row_canonical_sha256": "3" * 64,
+            }
+        ]
     )
-    attestation = exact_attestation(manifest, expected_detail, summary)
+    replay_source = pd.DataFrame(
+        [
+            {
+                "monthly_revenue_history_blob_sha256": manifest.loc[
+                    0, "monthly_revenue_history_blob_sha256"
+                ],
+                "source_row_canonical_sha256": "1" * 64,
+            }
+        ]
+    )
+    attestation = exact_attestation(
+        manifest,
+        expected_detail,
+        summary,
+        replay_source,
+    )
     monkeypatch.setattr(
         syncer,
         "_recompute_exact_registered_price_lineage",
         lambda _repo_root: attestation,
     )
+
+    provenance_manifest = manifest.copy()
+    provenance_detail = expected_detail.copy()
+    provenance_summary = summary.copy()
+    provenance_replay_source = replay_source.copy()
+    provenance_manifest.loc[0, "monthly_revenue_history_blob_sha256"] = "4" * 64
+    provenance_manifest.loc[0, "source_detail_canonical_sha256"] = "5" * 64
+    provenance_manifest.loc[0, "capture_id"] = "6" * 64
+    provenance_detail.loc[0, "monthly_revenue_history_blob_sha256"] = "4" * 64
+    provenance_detail.loc[0, "source_detail_canonical_sha256"] = "5" * 64
+    provenance_detail.loc[0, "capture_id"] = "6" * 64
+    provenance_detail.loc[0, "event_row_canonical_sha256"] = "7" * 64
+    if "capture_id" in provenance_summary.columns:
+        provenance_summary["capture_id"] = "6" * 64
+    provenance_replay_source["monthly_revenue_history_blob_sha256"] = "4" * 64
+    syncer._validate_exact_registered_price_lineage(
+        ROOT,
+        provenance_manifest.iloc[0],
+        manifest=provenance_manifest,
+        detail=provenance_detail,
+        summary=provenance_summary,
+        replay_source=provenance_replay_source,
+        observed_through=provenance_manifest.loc[0, "observed_through_date"],
+        per_stock_manifest_sha=syncer._parse_price_stock_sha_set(
+            provenance_manifest.iloc[0]
+        ),
+    )
+
+    hard_semantic_manifest = manifest.copy()
+    hard_semantic_manifest.loc[0, "monthly_revenue_canonical_table_sha256"] = (
+        "8" * 64
+    )
+    with pytest.raises(RuntimeError, match="manifest promotion semantic drift"):
+        syncer._validate_exact_registered_price_lineage(
+            ROOT,
+            hard_semantic_manifest.iloc[0],
+            manifest=hard_semantic_manifest,
+            detail=expected_detail,
+            summary=summary,
+            replay_source=replay_source,
+            observed_through=hard_semantic_manifest.loc[
+                0, "observed_through_date"
+            ],
+            per_stock_manifest_sha=syncer._parse_price_stock_sha_set(
+                hard_semantic_manifest.iloc[0]
+            ),
+        )
     if mutation == "duplicate":
         candidate_detail = pd.concat(
             [expected_detail, expected_detail], ignore_index=True
@@ -1448,13 +1600,17 @@ def test_exact_replay_attestation_rejects_event_set_mutations(
     else:
         candidate_detail = expected_detail.iloc[0:0].copy()
 
-    with pytest.raises(RuntimeError, match="candidate detail drift"):
+    with pytest.raises(
+        RuntimeError,
+        match="candidate detail promotion semantic drift",
+    ):
         syncer._validate_exact_registered_price_lineage(
             ROOT,
             manifest.iloc[0],
             manifest=manifest,
             detail=candidate_detail,
             summary=summary,
+            replay_source=replay_source,
             observed_through=manifest.loc[0, "observed_through_date"],
             per_stock_manifest_sha=syncer._parse_price_stock_sha_set(
                 manifest.iloc[0]

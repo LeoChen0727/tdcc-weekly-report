@@ -93,15 +93,25 @@ a different clean tree while preserving the requested commit name. The
 temporary checkout must also use `core.autocrlf=false` so registered Git blob
 evidence is materialized byte-for-byte instead of acquiring an operating-system
 line-ending transformation. This does not change repository configuration or
-turn raw-blob formatting into promotion evidence. The child
+turn raw-blob formatting into promotion evidence. The persisted
+`monthly_revenue_history_blob_sha256` and the legacy
+`source_detail_canonical_sha256`, `capture_id`, and
+`event_row_canonical_sha256` values that transitively include it are
+diagnostic-only when persisted and exact bundles are compared. Each bundle must
+still pass its own internal legacy-envelope validation. Cross-bundle promotion
+equivalence excludes only those fields and hashes the complete replay source
+with only the raw blob token removed. The child
 must run `validate_v1_exact17_freeze` before and after replay,
 materialize the producer's current inputs without changing its observation
 cutoff semantics, build all five v2 frames (`manifest`, `detail`, `summary`,
 `comparison`, `anomaly`), and require the independent validator to pass. It
 must also require every committed persisted frame to have the same canonical
-semantic SHA as the independently validated exact build. This closes event-set,
-PIT/source linkage, frozen membership, D+1 confirmation, D+2/D+30 maturity,
-per-stock price lineage, union-summary, and extra-column drift.
+promotion-semantic SHA as the independently validated exact build. The hard
+projection retains monthly canonical-table/resolution SHA values, source-row
+canonical hashes, cutoff/calendar dates and rows, rule/data-contract SHA,
+per-stock and aggregate price SHA/counts, every event/business field, schema,
+and extra columns. This closes event-set, PIT/source linkage, frozen membership,
+D+1 confirmation, D+2/D+30 maturity, price lineage, and union-summary drift.
 
 The child executes only the reviewed same-model in-memory producer and
 independent-validator APIs. The parent launches it with `-I -B`, removes
@@ -117,8 +127,11 @@ The called APIs must not mutate research artifacts, other-model artifacts,
 production outputs, Daily Full outputs, PDF/packet files, or Apps Script
 surfaces in the detached worktree. The child's result is a single versioned
 JSON attestation containing exact
-commit/tree/runtime identity, five-frame canonical hashes/counts, capture
-identity, and complete per-stock/aggregate price lineage. Cache identity is
+commit/tree/runtime identity, five-frame canonical promotion-semantic
+hashes/counts, capture identity, full replay-source promotion-semantic SHA, and
+complete per-stock/aggregate price lineage. Protocol v2 defines its canonical
+frame hashes as this promotion projection rather than raw envelope identity.
+Cache identity is
 limited to the exact protocol, commit, tree, and runtime within one process.
 Regardless of replay reads, the workflow output allowlist remains exactly the
 four readiness mirrors above.
@@ -145,7 +158,9 @@ independent v2 suite while excluding exactly these three Git-freeze replay nodes
 existing direct monthly/source validators and explicit cheap syncer nodes remain
 required. No additional v2 test may be deselected. The writer remains the only
 persisted-truth exact gate. Raw monthly
-blob lineage remains provenance diagnostic material in the cheap path.
+blob lineage and its legacy source/capture/event envelope remain provenance
+diagnostic material in both the cheap and exact paths; each bundle still
+requires well-formed, internally consistent legacy values.
 Replay availability must also equal the source date itself when it is a
 normalized registered trading session, or otherwise the first normalized
 registered session after that date. The cheap session gate

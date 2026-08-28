@@ -310,9 +310,29 @@ EXACT_REPLAY_CHILD_MODULES = (
     "validate_revenue_unreacted_range_forward_holdout_v2",
 )
 EXACT_REPLAY_CHILD_MODE = "trusted_same_model_in_memory_canonical_replay"
-EXACT_REPLAY_PROTOCOL_VERSION = "revenue_readiness_exact_replay_v1_20260828"
+EXACT_REPLAY_PROTOCOL_VERSION = "revenue_readiness_exact_replay_v2_20260829"
 EXACT_REPLAY_SENTINEL = "REVENUE_EXACT_PRICE_LINEAGE_JSON="
 EXACT_REPLAY_TIMEOUT_SECONDS = 1200
+RAW_MONTHLY_REVENUE_PROVENANCE_COLUMN = "monthly_revenue_history_blob_sha256"
+SOURCE_DETAIL_LEGACY_ENVELOPE_COLUMN = "source_detail_canonical_sha256"
+CAPTURE_LEGACY_ENVELOPE_COLUMN = "capture_id"
+EVENT_LEGACY_ENVELOPE_COLUMN = "event_row_canonical_sha256"
+LEGACY_ENVELOPE_COLUMNS = (
+    SOURCE_DETAIL_LEGACY_ENVELOPE_COLUMN,
+    CAPTURE_LEGACY_ENVELOPE_COLUMN,
+)
+PROMOTION_SEMANTIC_FRAME_EXCLUSIONS = {
+    "manifest": ("generated_at", RAW_MONTHLY_REVENUE_PROVENANCE_COLUMN, *LEGACY_ENVELOPE_COLUMNS),
+    "detail": (
+        "generated_at",
+        RAW_MONTHLY_REVENUE_PROVENANCE_COLUMN,
+        *LEGACY_ENVELOPE_COLUMNS,
+        EVENT_LEGACY_ENVELOPE_COLUMN,
+    ),
+    "summary": ("generated_at", CAPTURE_LEGACY_ENVELOPE_COLUMN),
+    "comparison": ("generated_at", CAPTURE_LEGACY_ENVELOPE_COLUMN),
+    "anomaly": ("generated_at", CAPTURE_LEGACY_ENVELOPE_COLUMN),
+}
 
 _EXACT_REPLAY_CHILD_BOOTSTRAP_TEMPLATE = r'''
 import sys
@@ -401,14 +421,45 @@ def _canonical_mapping_sha256(mapping: dict[str, object]) -> str:
     return _canonical_json_sha256([CANONICAL_LINEAGE_VERSION, payload])
 
 
-def _canonical_frame_sha256(frame: pd.DataFrame) -> str:
-    columns = sorted(column for column in frame.columns if column != "generated_at")
+def _canonical_frame_sha256(
+    frame: pd.DataFrame,
+    *,
+    excluded_columns: tuple[str, ...] = ("generated_at",),
+) -> str:
+    excluded = set(excluded_columns)
+    columns = sorted(column for column in frame.columns if column not in excluded)
     rows = [
         [_canonical_value(value) for value in row]
         for row in frame.loc[:, columns].itertuples(index=False, name=None)
     ]
     rows.sort()
     return _canonical_json_sha256([CANONICAL_LINEAGE_VERSION, columns, rows])
+
+
+def _promotion_semantic_source_sha256(frame: pd.DataFrame) -> str:
+    """Bind every source cell except the mutable raw-blob provenance token."""
+
+    return _canonical_frame_sha256(
+        frame,
+        excluded_columns=("generated_at", RAW_MONTHLY_REVENUE_PROVENANCE_COLUMN),
+    )
+
+
+def _promotion_semantic_frame_sha256(
+    frame: pd.DataFrame,
+    *,
+    frame_name: str,
+) -> str:
+    """Hash every non-envelope field; legacy hashes stay internally validated."""
+
+    if frame_name not in PROMOTION_SEMANTIC_FRAME_EXCLUSIONS:
+        raise RuntimeError(
+            f"unsupported revenue promotion semantic frame: {frame_name}"
+        )
+    return _canonical_frame_sha256(
+        frame,
+        excluded_columns=PROMOTION_SEMANTIC_FRAME_EXCLUSIONS[frame_name],
+    )
 
 
 def _canonical_table_sha256(frame: pd.DataFrame) -> str:
@@ -1292,6 +1343,7 @@ def _parse_exact_replay_payload(
         "tree_sha",
         "runtime_fingerprint",
         "capture_id",
+        "source_detail_promotion_semantic_sha256",
         "price_input_canonical_sha256",
         "price_input_stock_canonical_sha256s",
         "price_input_stock_count",
@@ -1313,6 +1365,10 @@ def _parse_exact_replay_payload(
     if payload.get("runtime_fingerprint") != runtime_fingerprint:
         raise RuntimeError("exact revenue replay runtime fingerprint drift")
     _require_sha(payload.get("capture_id"), "exact_holdout.capture_id")
+    _require_sha(
+        payload.get("source_detail_promotion_semantic_sha256"),
+        "exact_holdout.source_detail_promotion_semantic_sha256",
+    )
     _require_sha(
         payload.get("price_input_canonical_sha256"),
         "exact_holdout.price_input_canonical_sha256",
@@ -1433,6 +1489,48 @@ sys.path.insert(0, str(Path.cwd() / "scripts"))
 import revenue_unreacted_range_forward_holdout_v2 as producer_v2
 import validate_revenue_unreacted_range_forward_holdout_v2 as validator_v2
 
+RAW_MONTHLY_REVENUE_PROVENANCE_COLUMN = "monthly_revenue_history_blob_sha256"
+SOURCE_DETAIL_LEGACY_ENVELOPE_COLUMN = "source_detail_canonical_sha256"
+CAPTURE_LEGACY_ENVELOPE_COLUMN = "capture_id"
+EVENT_LEGACY_ENVELOPE_COLUMN = "event_row_canonical_sha256"
+LEGACY_ENVELOPE_COLUMNS = (
+    SOURCE_DETAIL_LEGACY_ENVELOPE_COLUMN,
+    CAPTURE_LEGACY_ENVELOPE_COLUMN,
+)
+PROMOTION_SEMANTIC_FRAME_EXCLUSIONS = {
+    "manifest": ("generated_at", RAW_MONTHLY_REVENUE_PROVENANCE_COLUMN, *LEGACY_ENVELOPE_COLUMNS),
+    "detail": (
+        "generated_at",
+        RAW_MONTHLY_REVENUE_PROVENANCE_COLUMN,
+        *LEGACY_ENVELOPE_COLUMNS,
+        EVENT_LEGACY_ENVELOPE_COLUMN,
+    ),
+    "summary": ("generated_at", CAPTURE_LEGACY_ENVELOPE_COLUMN),
+    "comparison": ("generated_at", CAPTURE_LEGACY_ENVELOPE_COLUMN),
+    "anomaly": ("generated_at", CAPTURE_LEGACY_ENVELOPE_COLUMN),
+}
+
+
+def promotion_semantic_source_sha256(frame):
+    semantic = frame.drop(
+        columns=[RAW_MONTHLY_REVENUE_PROVENANCE_COLUMN],
+        errors="ignore",
+    )
+    return validator_v2.validator._frame_sha(semantic)
+
+
+def promotion_semantic_frame_sha256(frame, frame_name):
+    if frame_name not in PROMOTION_SEMANTIC_FRAME_EXCLUSIONS:
+        raise RuntimeError(
+            "unsupported revenue promotion semantic frame: " + frame_name
+        )
+    semantic = frame.drop(
+        columns=list(PROMOTION_SEMANTIC_FRAME_EXCLUSIONS[frame_name]),
+        errors="ignore",
+    )
+    return validator_v2.validator._frame_sha(semantic)
+
+
 commit_sha = EXPECTED_COMMIT_SHA
 tree_sha = EXPECTED_TREE_SHA
 observed_commit_sha = subprocess.run(
@@ -1487,14 +1585,26 @@ try:
         )
         for name in frame_names
     ]
+    persisted_source_detail = pd.read_csv(
+        producer_v2.REPLAY_SOURCE_OUTPUT_RELATIVE_PATHS["replay_source_latest"],
+        dtype=str,
+        keep_default_na=False,
+    )
+    if promotion_semantic_source_sha256(
+        persisted_source_detail
+    ) != promotion_semantic_source_sha256(source_detail):
+        raise RuntimeError(
+            "persisted v2 forward-holdout source semantic drift from exact build"
+        )
     for name, exact_frame, persisted_frame in zip(
         frame_names, frames, persisted_frames
     ):
-        if validator_v2.validator._frame_sha(
-            persisted_frame
-        ) != validator_v2.validator._frame_sha(exact_frame):
+        if promotion_semantic_frame_sha256(
+            persisted_frame, name
+        ) != promotion_semantic_frame_sha256(exact_frame, name):
             raise RuntimeError(
-                "persisted v2 forward-holdout frame drift from exact build: " + name
+                "persisted v2 forward-holdout promotion semantic frame drift "
+                "from exact build: " + name
             )
 finally:
     producer_v2.validate_v1_exact17_freeze(
@@ -1516,7 +1626,9 @@ for token in sha_set_text.split("|"):
 observed_through_date = str(manifest_row["observed_through_date"])
 frame_attestations = {
     name: {
-        "canonical_sha256": validator_v2.validator._frame_sha(frame),
+        "canonical_sha256": promotion_semantic_frame_sha256(
+            frame, name
+        ),
         "row_count": len(frame),
         "column_count": len(frame.columns),
     }
@@ -1526,7 +1638,7 @@ print(
     "REVENUE_EXACT_PRICE_LINEAGE_JSON="
     + json.dumps(
         {
-            "protocol_version": "revenue_readiness_exact_replay_v1_20260828",
+            "protocol_version": "revenue_readiness_exact_replay_v2_20260829",
             "commit_sha": commit_sha,
             "tree_sha": tree_sha,
             "runtime_fingerprint": {
@@ -1535,19 +1647,22 @@ print(
                 "numpy": __import__("numpy").__version__,
             },
             "capture_id": str(manifest_row["capture_id"]),
+            "source_detail_promotion_semantic_sha256": (
+                promotion_semantic_source_sha256(source_detail)
+            ),
             "price_input_canonical_sha256": aggregate_sha,
             "price_input_stock_canonical_sha256s": per_stock_sha,
             "price_input_stock_count": stock_count,
             "price_input_row_count": row_count,
             "observed_through_date": observed_through_date,
             "expected_manifest_canonical_sha256": (
-                validator_v2.validator._frame_sha(frames[0])
+                promotion_semantic_frame_sha256(frames[0], "manifest")
             ),
             "expected_detail_canonical_sha256": (
-                validator_v2.validator._frame_sha(frames[1])
+                promotion_semantic_frame_sha256(frames[1], "detail")
             ),
             "expected_summary_canonical_sha256": (
-                validator_v2.validator._frame_sha(frames[2])
+                promotion_semantic_frame_sha256(frames[2], "summary")
             ),
             "frame_attestations": frame_attestations,
             "replay_child_mode": "trusted_same_model_in_memory_canonical_replay",
@@ -1579,10 +1694,21 @@ def _validate_exact_registered_price_lineage(
     manifest: pd.DataFrame,
     detail: pd.DataFrame,
     summary: pd.DataFrame,
+    replay_source: pd.DataFrame,
     observed_through: str,
     per_stock_manifest_sha: dict[str, str],
 ) -> None:
     exact = _recompute_exact_registered_price_lineage(repo_root)
+    expected_source_semantic_sha = _require_sha(
+        exact.get("source_detail_promotion_semantic_sha256"),
+        "exact_holdout.source_detail_promotion_semantic_sha256",
+    )
+    observed_source_semantic_sha = _promotion_semantic_source_sha256(replay_source)
+    if observed_source_semantic_sha != expected_source_semantic_sha:
+        raise RuntimeError(
+            "revenue readiness holdout replay source promotion semantic drift "
+            "from independent exact replay"
+        )
     for label, frame in (
         ("manifest", manifest),
         ("detail", detail),
@@ -1592,11 +1718,14 @@ def _validate_exact_registered_price_lineage(
             exact.get(f"expected_{label}_canonical_sha256"),
             f"exact_holdout.expected_{label}_canonical_sha256",
         )
-        observed_frame_sha = _canonical_frame_sha256(frame)
+        observed_frame_sha = _promotion_semantic_frame_sha256(
+            frame,
+            frame_name=label,
+        )
         if observed_frame_sha != expected_frame_sha:
             raise RuntimeError(
                 "revenue readiness holdout candidate "
-                f"{label} drift from independent exact replay"
+                f"{label} promotion semantic drift from independent exact replay"
             )
     exact_mapping = exact.get("price_input_stock_canonical_sha256s")
     if not isinstance(exact_mapping, dict) or not exact_mapping:
@@ -2621,6 +2750,7 @@ def validate_revenue_readiness_exact_replay(
     *,
     holdout_detail: pd.DataFrame,
     holdout_summary: pd.DataFrame,
+    replay_source: pd.DataFrame,
     repo_root: Path | str = Path("."),
 ) -> None:
     """Run the one canonical exact replay gate immediately before a writer."""
@@ -2644,6 +2774,7 @@ def validate_revenue_readiness_exact_replay(
         manifest=forward_holdout_v2_manifest,
         detail=holdout_detail,
         summary=holdout_summary,
+        replay_source=replay_source,
         observed_through=_strict_date(
             row.get("observed_through_date"),
             "holdout.observed_through_date",
@@ -3582,6 +3713,7 @@ def sync(repo: Path, *, generated_at: str | None = None) -> tuple[pd.DataFrame, 
         forward_holdout_v2_manifest,
         holdout_detail=holdout_detail,
         holdout_summary=holdout_summary,
+        replay_source=replay_source,
         repo_root=repo,
     )
     write_readiness_mirrors(repo, readiness, generated_at=generated)
