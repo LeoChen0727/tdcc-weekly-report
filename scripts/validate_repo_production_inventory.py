@@ -867,37 +867,50 @@ def validate_regular_pr_static_validation_step(text: str) -> list[str]:
             "PR static validation dependencies, workflow test, and validators must remain ordered"
         )
 
-    expected_dependency = canonical_workflow_step_text(
+    expected_dependency_unconditional = canonical_workflow_step_text(
+        "      - name: "
+        f"{PR_STATIC_DEPENDENCY_STEP_NAME}\n"
+        f"        run: {PR_STATIC_DEPENDENCY_COMMAND}\n"
+    )
+    expected_dependency_affected = canonical_workflow_step_text(
         "      - name: "
         f"{PR_STATIC_DEPENDENCY_STEP_NAME}\n"
         f"        if: {PR_STATIC_AFFECTED_CONDITION}\n"
         f"        run: {PR_STATIC_DEPENDENCY_COMMAND}\n"
     )
-    if canonical_workflow_step_text(dependency_step) != expected_dependency:
-        errors.append("PR static dependency step must match the exact affected-only contract")
+    dependency_text = canonical_workflow_step_text(dependency_step)
+    if dependency_text not in {
+        expected_dependency_unconditional,
+        expected_dependency_affected,
+    }:
+        errors.append(
+            "PR static dependency step must match an exact migration-supported contract"
+        )
+    affected_only = dependency_text == expected_dependency_affected
 
     expected_workflow_contract = canonical_workflow_step_text(
         "      - name: "
-        f"{PR_STATIC_WORKFLOW_CONTRACT_STEP_NAME}\n"
-        f"        if: {PR_STATIC_AFFECTED_CONDITION}\n"
-        f"        run: {PR_STATIC_WORKFLOW_CONTRACT_COMMAND}\n"
+        + f"{PR_STATIC_WORKFLOW_CONTRACT_STEP_NAME}\n"
+        + (f"        if: {PR_STATIC_AFFECTED_CONDITION}\n" if affected_only else "")
+        + f"        run: {PR_STATIC_WORKFLOW_CONTRACT_COMMAND}\n"
     )
     if canonical_workflow_step_text(workflow_contract_step) != expected_workflow_contract:
-        errors.append("workflow contract test step must match the exact affected-only contract")
+        errors.append("workflow contract test step must match the dependency-step migration mode")
 
     expected_static = canonical_workflow_step_text(
         "      - name: "
-        f"{PR_STATIC_VALIDATION_STEP_NAME}\n"
-        f"        if: {PR_STATIC_AFFECTED_CONDITION}\n"
-        "        run: |\n"
+        + f"{PR_STATIC_VALIDATION_STEP_NAME}\n"
+        + (f"        if: {PR_STATIC_AFFECTED_CONDITION}\n" if affected_only else "")
+        + "        run: |\n"
         + "".join(f"          {command}\n" for command in PR_STATIC_VALIDATION_COMMANDS)
     )
     if canonical_workflow_step_text(static_step) != expected_static:
         errors.append(
-            "repository static validation step must match the exact affected-only command contract"
+            "repository static validation step must match the dependency-step migration mode"
         )
-    if workflow_step_condition(static_step) != PR_STATIC_AFFECTED_CONDITION:
-        errors.append("repository static validation step must use the affected-only condition")
+    expected_condition = PR_STATIC_AFFECTED_CONDITION if affected_only else ""
+    if workflow_step_condition(static_step) != expected_condition:
+        errors.append("repository static validation step condition must match migration mode")
     if re.search(r"^        continue-on-error\s*:", static_step, flags=re.MULTILINE):
         errors.append("repository static validation step must fail closed")
 
