@@ -14,6 +14,9 @@ ROOT = Path(__file__).resolve().parents[1]
 VOLUME_V2_ADVISORY_LINEAGE_REFRESH_WORKFLOW = (
     ".github/workflows/volume_v2_advisory_lineage_refresh.yml"
 )
+REVENUE_READINESS_FORMAL_SYNC_WORKFLOW = (
+    ".github/workflows/revenue_unreacted_range_readiness_formal_sync.yml"
+)
 RESEARCH_BACKTEST_WORKFLOW = ".github/workflows/research_backtest_pipeline.yml"
 MODEL_DATA_AUDIT_STAGE_PATTERNS = (
     "git add -- output/latest/model_data_independence_audit_latest.csv",
@@ -30,7 +33,7 @@ def assert_transition_safe_artifact_writer_count(
 ) -> None:
     expected_count = BASELINE_ARTIFACT_WRITER_COUNT + int(
         VOLUME_V2_ADVISORY_LINEAGE_REFRESH_WORKFLOW in workflow_paths
-    )
+    ) + int(REVENUE_READINESS_FORMAL_SYNC_WORKFLOW in workflow_paths)
     assert writer_count == expected_count
 
 
@@ -38,6 +41,52 @@ def assert_transition_safe_artifact_writer_count(
 
 def test_repo_production_inventory_validator_passes() -> None:
     assert inventory.main() == 0
+
+
+def test_revenue_readiness_formal_sync_is_exactly_registered_and_guarded() -> None:
+    workflow_text = (ROOT / REVENUE_READINESS_FORMAL_SYNC_WORKFLOW).read_text(
+        encoding="utf-8"
+    )
+    assert inventory.validate_revenue_readiness_formal_sync_workflow_text(
+        workflow_text
+    ) == []
+    errors: list[str] = []
+    rows = inventory.load_inventory(errors)
+    assert errors == []
+    row = rows[REVENUE_READINESS_FORMAL_SYNC_WORKFLOW]
+    assert row.owner == "model_governance"
+    assert tuple(row.allowed_stage_patterns) == (
+        "output/latest/model_operation_readiness_latest.csv",
+        "output/latest/model_operation_readiness_latest.md",
+        "docs/latest/model_operation_readiness_latest.csv",
+        "docs/latest/model_operation_readiness_latest.md",
+    )
+
+
+def test_revenue_readiness_inventory_guard_rejects_extra_push_and_post_push_step() -> None:
+    workflow_text = (ROOT / REVENUE_READINESS_FORMAL_SYNC_WORKFLOW).read_text(
+        encoding="utf-8"
+    )
+    extra_push = workflow_text.replace(
+        inventory.REVENUE_READINESS_FORMAL_SYNC_PUSH,
+        inventory.REVENUE_READINESS_FORMAL_SYNC_PUSH
+        + "\n          git push origin HEAD:unexpected",
+    )
+    assert any(
+        "exactly one git push" in error
+        for error in inventory.validate_revenue_readiness_formal_sync_workflow_text(
+            extra_push
+        )
+    )
+    post_push = workflow_text + (
+        "\n      - name: Unexpected post-push step\n        run: true\n"
+    )
+    assert any(
+        "final workflow step" in error
+        for error in inventory.validate_revenue_readiness_formal_sync_workflow_text(
+            post_push
+        )
+    )
 
 
 
