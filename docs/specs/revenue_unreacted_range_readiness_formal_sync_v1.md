@@ -157,9 +157,9 @@ independent v2 suite while excluding exactly these three Git-freeze replay nodes
 `test_v1_exact17_freeze_uses_git_blob_identity_for_clean_crlf_checkout`. The
 existing direct monthly/source validators and explicit cheap syncer nodes remain
 required. No additional v2 test may be deselected. The writer remains the only
-persisted-truth exact gate. Raw monthly
-blob lineage and its legacy source/capture/event envelope remain provenance
-diagnostic material in both the cheap and exact paths; each bundle still
+persisted-truth exact gate. Raw monthly blob lineage and its legacy
+source/capture/event envelope remain provenance diagnostic material in both the
+cheap and exact paths; each bundle still
 requires well-formed, internally consistent legacy values.
 Replay availability must also equal the source date itself when it is a
 normalized registered trading session, or otherwise the first normalized
