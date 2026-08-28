@@ -375,6 +375,7 @@ jobs:
       - name: Run revenue operation readiness regression tests
         run: |
           python -m pytest tests/test_model_operation_readiness.py -k revenue_readiness
+          python -m pytest tests/test_revenue_unreacted_range_readiness_formal_sync.py
 
       - name: Run revenue research regression tests
         run: |

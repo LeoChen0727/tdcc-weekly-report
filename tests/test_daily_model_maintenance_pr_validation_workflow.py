@@ -1360,6 +1360,10 @@ def test_revenue_job_runs_only_revenue_readiness_cases_from_shared_test_file() -
         "-k revenue_readiness"
     )
     assert job.count(command) == 1
+    assert job.count(
+        "python -m pytest "
+        "tests/test_revenue_unreacted_range_readiness_formal_sync.py"
+    ) == 1
     assert "- name: Run revenue operation readiness regression tests" in job
 
 
