@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+# BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
+import subprocess
+# END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 import sys
 from pathlib import Path
 
@@ -16,6 +19,11 @@ from build_model_operation_readiness import build_model_operation_readiness  # n
 # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 from build_model_operation_readiness import REVENUE_MODEL_ID  # noqa: E402
 from validate_model_operation_readiness import validate_revenue_readiness_row  # noqa: E402
+import build_model_operation_readiness as readiness_builder  # noqa: E402
+import validate_model_operation_readiness as readiness_validator  # noqa: E402
+from validate_revenue_unreacted_range_readiness_formal_sync import (  # noqa: E402
+    validate_markdown_semantics,
+)
 # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 
 LOW_VOLUME_MODEL_ID = "volume_range_breakout_v2_low_position_volume_attack"
@@ -621,9 +629,11 @@ def test_revenue_readiness_uses_latest_v3_decision_v4_contract_and_model_owned_e
         "research_matrix_complete_formal_adapter_not_started"
     )
     assert row["daily_adapter_status"] == "not_started"
+    assert row["formal_model_use_allowed"] == "False"
     assert row["approved_for_daily"] == "False"
     assert row["approval_status"] == "not_started"
     assert row["presentation_allowed"] == "False"
+    assert row["production_allowed"] == "False"
     assert row["operation_directive_level"] == "no_operation_directive"
     assert row["pdf_integration_status"] == "not_started"
     assert row["packet_integration_status"] == "not_started"
@@ -633,6 +643,11 @@ def test_revenue_readiness_uses_latest_v3_decision_v4_contract_and_model_owned_e
     assert row["registry_best_median_return"] == "9.4077"
     assert "模型專屬研究矩陣已完成" in row["status_note_zh"]
     assert "strong_revenue gate requires" not in row["blocker"]
+    non_revenue = readiness[~readiness["model_id"].eq(REVENUE_MODEL_ID)]
+    assert non_revenue["approved_for_daily"].eq("True").any()
+    assert non_revenue["presentation_allowed"].eq("True").any()
+    assert non_revenue["formal_model_use_allowed"].eq("").all()
+    assert non_revenue["production_allowed"].eq("").all()
 
 
 def test_revenue_readiness_fails_closed_until_v3_decision_v4_contract_is_latest() -> None:
@@ -804,7 +819,7 @@ def test_revenue_readiness_rejects_unrepaired_verified_data_error_policy() -> No
         )
 
 
-def test_revenue_validator_rejects_stale_or_permission_enabled_readiness_row() -> None:
+def test_revenue_readiness_validator_rejects_stale_or_permission_enabled_row() -> None:
     readiness = build_model_operation_readiness(
         revenue_parity_frame(),
         registry_frame(),
@@ -826,4 +841,381 @@ def test_revenue_validator_rejects_stale_or_permission_enabled_readiness_row() -
 
     assert any("blocker must be" in error for error in errors)
     assert any("presentation_allowed must be 'False'" in error for error in errors)
+
+
+@pytest.mark.parametrize(
+    "field_name",
+    (
+        "formal_model_use_allowed",
+        "approved_for_daily",
+        "presentation_allowed",
+        "production_allowed",
+    ),
+)
+def test_revenue_readiness_validator_rejects_missing_or_true_persisted_permission_field(
+    field_name: str,
+) -> None:
+    readiness = build_model_operation_readiness(
+        revenue_parity_frame(),
+        registry_frame(),
+        adapter_frame(),
+        revenue_promotion_registry=revenue_promotion_registry_frame(),
+        revenue_anomaly_registry=revenue_anomaly_registry_frame(),
+        revenue_forward_holdout_v2_manifest=revenue_forward_holdout_v2_manifest_frame(),
+    )
+    missing = readiness.drop(columns=[field_name])
+    missing_errors = validate_revenue_readiness_row(
+        missing,
+        revenue_promotion_registry_frame(),
+        revenue_anomaly_registry_frame(),
+        revenue_forward_holdout_v2_manifest_frame(),
+    )
+    assert any(f"{field_name} must be 'False'" in error for error in missing_errors)
+
+    revenue_index = readiness.index[readiness["model_id"].eq(REVENUE_MODEL_ID)][0]
+    readiness.loc[revenue_index, field_name] = "True"
+    errors = validate_revenue_readiness_row(
+        readiness,
+        revenue_promotion_registry_frame(),
+        revenue_anomaly_registry_frame(),
+        revenue_forward_holdout_v2_manifest_frame(),
+    )
+    assert any(f"{field_name} must be 'False'" in error for error in errors)
+
+
+@pytest.mark.parametrize(
+    "field_name",
+    (
+        "approved_for_daily",
+        "presentation_allowed",
+    ),
+)
+def test_revenue_readiness_csv_schema_rejects_missing_existing_permission_column(
+    tmp_path: Path,
+    monkeypatch,
+    field_name: str,
+) -> None:
+    columns = sorted(
+        (
+            readiness_validator.REQUIRED_COLUMNS
+            | readiness_validator.REVENUE_PERMISSION_COLUMNS
+        )
+        - {field_name}
+    )
+    artifact = tmp_path / "model_operation_readiness_latest.csv"
+    pd.DataFrame([{column: "False" for column in columns}]).to_csv(
+        artifact,
+        index=False,
+    )
+    monkeypatch.setattr(readiness_validator, "OUT_CSV", artifact)
+
+    assert readiness_validator.validate_readiness_csv() == [
+        f"model operation readiness missing columns: ['{field_name}']"
+    ]
+
+
+@pytest.mark.parametrize(
+    "field_name",
+    (
+        "formal_model_use_allowed",
+        "production_allowed",
+    ),
+)
+def test_revenue_readiness_csv_rejects_partial_permission_schema(
+    tmp_path: Path,
+    monkeypatch,
+    field_name: str,
+) -> None:
+    columns = sorted(
+        readiness_validator.REQUIRED_COLUMNS
+        | (readiness_validator.REVENUE_PERMISSION_COLUMNS - {field_name})
+    )
+    artifact = tmp_path / "model_operation_readiness_latest.csv"
+    pd.DataFrame([{column: "False" for column in columns}]).to_csv(
+        artifact,
+        index=False,
+    )
+    monkeypatch.setattr(readiness_validator, "OUT_CSV", artifact)
+
+    assert readiness_validator.validate_readiness_csv() == [
+        "model operation readiness has a partial revenue permission schema: "
+        f"missing=['{field_name}']"
+    ]
+
+
+def test_revenue_readiness_persisted_permission_columns_accept_explicit_false_and_neutral_legacy() -> None:
+    readiness = pd.DataFrame(
+        [
+            {
+                "model_id": REVENUE_MODEL_ID,
+                "formal_model_use_allowed": "False",
+                "approved_for_daily": "False",
+                "presentation_allowed": "False",
+                "production_allowed": "False",
+            },
+            {
+                "model_id": LOW_VOLUME_MODEL_ID,
+                "formal_model_use_allowed": "",
+                "approved_for_daily": "True",
+                "presentation_allowed": "True",
+                "production_allowed": "",
+            },
+        ]
+    )
+
+    assert readiness_validator.validate_persisted_revenue_permission_columns(
+        readiness
+    ) == []
+
+
+@pytest.mark.parametrize(
+    "field_name",
+    (
+        "approved_for_daily",
+        "presentation_allowed",
+    ),
+)
+def test_revenue_readiness_persisted_permission_columns_reject_noncanonical_source_boolean(
+    field_name: str,
+) -> None:
+    readiness = pd.DataFrame(
+        [
+            {
+                "model_id": REVENUE_MODEL_ID,
+                "formal_model_use_allowed": "False",
+                "approved_for_daily": "False",
+                "presentation_allowed": "False",
+                "production_allowed": "False",
+            },
+            {
+                "model_id": LOW_VOLUME_MODEL_ID,
+                "formal_model_use_allowed": "",
+                "approved_for_daily": "True",
+                "presentation_allowed": "True",
+                "production_allowed": "",
+            },
+        ]
+    )
+    readiness.loc[readiness["model_id"].eq(LOW_VOLUME_MODEL_ID), field_name] = "true"
+
+    assert any(
+        f"{field_name} must use exact canonical True/False values" in error
+        for error in readiness_validator.validate_persisted_revenue_permission_columns(
+            readiness
+        )
+    )
+
+
+@pytest.mark.parametrize(
+    "field_name",
+    (
+        "formal_model_use_allowed",
+        "production_allowed",
+    ),
+)
+def test_revenue_readiness_persisted_permission_columns_reject_missing_or_true_flag(
+    field_name: str,
+) -> None:
+    readiness = pd.DataFrame(
+        [
+            {
+                "model_id": REVENUE_MODEL_ID,
+                "formal_model_use_allowed": "False",
+                "approved_for_daily": "False",
+                "presentation_allowed": "False",
+                "production_allowed": "False",
+            },
+            {
+                "model_id": LOW_VOLUME_MODEL_ID,
+                "formal_model_use_allowed": "",
+                "approved_for_daily": "True",
+                "presentation_allowed": "True",
+                "production_allowed": "",
+            },
+        ]
+    )
+    missing = readiness.drop(columns=[field_name])
+    assert any(
+        field_name in error
+        for error in readiness_validator.validate_persisted_revenue_permission_columns(
+            missing
+        )
+    )
+
+    readiness.loc[readiness["model_id"].eq(REVENUE_MODEL_ID), field_name] = "True"
+    assert any(
+        f"{field_name} must be explicit False" in error
+        for error in readiness_validator.validate_persisted_revenue_permission_columns(
+            readiness
+        )
+    )
+
+
+@pytest.mark.parametrize(
+    ("field_name", "alias_value"),
+    (
+        ("formal_model_use_allowed", "True"),
+        ("formal_model_use_allowed", "False"),
+        ("production_allowed", "True"),
+        ("production_allowed", "False"),
+    ),
+)
+def test_revenue_readiness_persisted_permission_columns_reject_non_revenue_boolean_alias(
+    field_name: str,
+    alias_value: str,
+) -> None:
+    readiness = pd.DataFrame(
+        [
+            {
+                "model_id": REVENUE_MODEL_ID,
+                "formal_model_use_allowed": "False",
+                "approved_for_daily": "False",
+                "presentation_allowed": "False",
+                "production_allowed": "False",
+            },
+            {
+                "model_id": LOW_VOLUME_MODEL_ID,
+                "formal_model_use_allowed": "",
+                "approved_for_daily": "True",
+                "presentation_allowed": "True",
+                "production_allowed": "",
+            },
+        ]
+    )
+    readiness.loc[
+        readiness["model_id"].eq(LOW_VOLUME_MODEL_ID), field_name
+    ] = alias_value
+
+    assert any(
+        f"{field_name} is revenue-only" in error
+        for error in readiness_validator.validate_persisted_revenue_permission_columns(
+            readiness
+        )
+    )
+
+
+def _legacy_bootstrap_bytes(logical_path: str) -> bytes:
+    return subprocess.run(
+        [
+            "git",
+            "show",
+            f"{readiness_validator.LEGACY_BOOTSTRAP_BASE_SHA}:{logical_path}",
+        ],
+        cwd=ROOT,
+        check=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    ).stdout
+
+
+def _write_legacy_bootstrap_mirrors(
+    tmp_path: Path,
+    monkeypatch,
+    *,
+    crlf: bool = False,
+) -> dict[str, Path]:
+    attribute_names = {
+        "output/latest/model_operation_readiness_latest.csv": "OUT_CSV",
+        "output/latest/model_operation_readiness_latest.md": "OUT_MD",
+        "docs/latest/model_operation_readiness_latest.csv": "DOCS_CSV",
+        "docs/latest/model_operation_readiness_latest.md": "DOCS_MD",
+    }
+    written: dict[str, Path] = {}
+    for logical_path, attribute_name in attribute_names.items():
+        data = _legacy_bootstrap_bytes(logical_path)
+        if crlf:
+            data = data.replace(b"\n", b"\r\n")
+        path = tmp_path / logical_path
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(data)
+        monkeypatch.setattr(readiness_validator, attribute_name, path)
+        written[logical_path] = path
+    return written
+
+
+def test_revenue_readiness_legacy_bootstrap_accepts_exact_pinned_baseline_and_crlf(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    for logical_path, expected_blob_id in (
+        readiness_validator.LEGACY_BOOTSTRAP_BLOB_IDS.items()
+    ):
+        actual_blob_id = subprocess.run(
+            [
+                "git",
+                "rev-parse",
+                f"{readiness_validator.LEGACY_BOOTSTRAP_BASE_SHA}:{logical_path}",
+            ],
+            cwd=ROOT,
+            check=True,
+            text=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+        ).stdout.strip()
+        assert actual_blob_id == expected_blob_id
+        assert (
+            readiness_validator._canonical_readiness_artifact_sha256(
+                logical_path,
+                _legacy_bootstrap_bytes(logical_path),
+            )
+            == readiness_validator.LEGACY_BOOTSTRAP_CANONICAL_SHA256[logical_path]
+        )
+
+    _write_legacy_bootstrap_mirrors(tmp_path, monkeypatch, crlf=True)
+    assert readiness_validator.validate_legacy_readiness_bootstrap_artifacts() == []
+    assert readiness_validator.validate_readiness_csv() == []
+
+
+def test_revenue_readiness_legacy_bootstrap_rejects_any_semantic_or_filtered_blob_drift(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    mirrors = _write_legacy_bootstrap_mirrors(tmp_path, monkeypatch)
+    csv_path = mirrors["output/latest/model_operation_readiness_latest.csv"]
+    data = csv_path.read_bytes()
+    assert b"proxy_only" in data
+    csv_path.write_bytes(data.replace(b"proxy_only", b"proxy_only_drift", 1))
+
+    errors = readiness_validator.validate_legacy_readiness_bootstrap_artifacts()
+    assert any("filtered Git blob drift" in error for error in errors)
+    assert any("canonical semantic drift" in error for error in errors)
+    assert readiness_validator.validate_readiness_csv() == errors
+
+
+def test_revenue_readiness_legacy_bootstrap_rejects_bare_cr_markdown_drift(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    mirrors = _write_legacy_bootstrap_mirrors(tmp_path, monkeypatch)
+    markdown_path = mirrors["output/latest/model_operation_readiness_latest.md"]
+    markdown_path.write_bytes(markdown_path.read_bytes().replace(b"\n", b"\r"))
+
+    errors = readiness_validator.validate_legacy_readiness_bootstrap_artifacts()
+    assert any("filtered Git blob drift" in error for error in errors)
+    assert any("canonical semantic drift" in error for error in errors)
+
+
+def test_revenue_readiness_markdown_persists_four_false_permissions(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    readiness = build_model_operation_readiness(
+        revenue_parity_frame(),
+        registry_frame(),
+        adapter_frame(),
+        revenue_promotion_registry=revenue_promotion_registry_frame(),
+        revenue_anomaly_registry=revenue_anomaly_registry_frame(),
+        revenue_forward_holdout_v2_manifest=revenue_forward_holdout_v2_manifest_frame(),
+    )
+    output_md = tmp_path / "output/latest/model_operation_readiness_latest.md"
+    docs_dir = tmp_path / "docs/latest"
+    docs_md = docs_dir / "model_operation_readiness_latest.md"
+    monkeypatch.setattr(readiness_builder, "OUT_MD", output_md)
+    monkeypatch.setattr(readiness_builder, "DOCS_LATEST_DIR", docs_dir)
+    monkeypatch.setattr(readiness_builder, "DOCS_MD", docs_md)
+
+    readiness_builder.write_markdown(readiness)
+
+    assert output_md.read_bytes() == docs_md.read_bytes()
+    assert validate_markdown_semantics(output_md.read_bytes()) == []
 # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range

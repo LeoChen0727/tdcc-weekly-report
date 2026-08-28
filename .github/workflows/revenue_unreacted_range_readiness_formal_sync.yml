@@ -1,0 +1,209 @@
+name: Revenue Unreacted Range Readiness Formal Sync
+# Contract: docs/specs/revenue_unreacted_range_readiness_formal_sync_v1.md
+on:
+  workflow_dispatch:
+    inputs:
+      expected_main_sha:
+        description: "Exact current main SHA"
+        required: true
+        type: string
+      target_branch:
+        description: "Exact inert one-shot readiness sync branch"
+        required: true
+        type: string
+      confirmation:
+        description: "Type sync_revenue_unreacted_range_readiness_v1_20260828"
+        required: true
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: revenue-readiness-formal-sync-v1-20260828
+  cancel-in-progress: false
+
+env:
+  READINESS_SYNC_CONTRACT_VERSION: revenue_readiness_sync_3a_v1_20260828
+  READINESS_SYNC_TARGET_BRANCH: codex/revenue-unreacted-range-readiness-formal-sync-3a-v1-20260828
+  READINESS_SYNC_SPEC_PATH: docs/specs/revenue_unreacted_range_readiness_formal_sync_v1.md
+
+jobs:
+  prepare-bundle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout trusted main without credentials
+        uses: actions/checkout@v6.0.3
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Bind trusted main and inert target
+        shell: bash
+        env:
+          EXPECTED_MAIN_SHA: ${{ inputs.expected_main_sha }}
+          TARGET_BRANCH: ${{ inputs.target_branch }}
+          CONFIRMATION: ${{ inputs.confirmation }}
+        run: |
+          set -euo pipefail
+          [ "$GITHUB_REF" = refs/heads/main ]
+          [ -f "$READINESS_SYNC_SPEC_PATH" ]
+          [[ "$EXPECTED_MAIN_SHA" =~ ^[0-9a-f]{40}$ ]]
+          [ "$TARGET_BRANCH" = "$READINESS_SYNC_TARGET_BRANCH" ]
+          [ "$CONFIRMATION" = sync_revenue_unreacted_range_readiness_v1_20260828 ]
+          [ "$(git rev-parse HEAD)" = "$EXPECTED_MAIN_SHA" ]
+          [ "$(git ls-remote origin refs/heads/main | awk '{print $1}')" = "$EXPECTED_MAIN_SHA" ]
+          [ "$(git ls-remote origin "refs/heads/$TARGET_BRANCH" | awk '{print $1}')" = "$EXPECTED_MAIN_SHA" ]
+          echo "SYNC_MAIN_SHA=$EXPECTED_MAIN_SHA" >> "$GITHUB_ENV"
+
+      - uses: actions/setup-python@v6.2.0
+        with:
+          python-version: "3.11"
+
+      - run: python -m pip install --disable-pip-version-check pandas tabulate
+
+      - name: Build and validate model-owned readiness only
+        run: |
+          python -B scripts/build_model_operation_readiness.py
+          python -B scripts/validate_model_operation_readiness.py
+          python -B scripts/validate_revenue_unreacted_range_readiness_formal_sync.py --repo-root . --base-sha "$SYNC_MAIN_SHA" --phase working-tree
+
+      - name: Create content-addressed one-shot bundle
+        shell: bash
+        run: |
+          set -euo pipefail
+          bundle="$RUNNER_TEMP/readiness-bundle"
+          [ -f "$READINESS_SYNC_SPEC_PATH" ]
+          mkdir -p "$bundle/output/latest" "$bundle/docs/latest"
+          for path in \
+            output/latest/model_operation_readiness_latest.csv \
+            output/latest/model_operation_readiness_latest.md \
+            docs/latest/model_operation_readiness_latest.csv \
+            docs/latest/model_operation_readiness_latest.md
+          do
+            cp --parents "$path" "$bundle"
+          done
+          (
+            cd "$bundle"
+            sha256sum \
+              output/latest/model_operation_readiness_latest.csv \
+              output/latest/model_operation_readiness_latest.md \
+              docs/latest/model_operation_readiness_latest.csv \
+              docs/latest/model_operation_readiness_latest.md > SHA256SUMS
+          )
+          printf '%s\n' \
+            "contract_version=revenue_readiness_sync_3a_v1_20260828" \
+            "exception_id=revenue_unreacted_range_readiness_formal_sync_3a_v1_20260828" \
+            "authorization_reference=user_authorized_3A_3C_20260828" \
+            "target_branch=codex/revenue-unreacted-range-readiness-formal-sync-3a-v1-20260828" \
+            "model_id=revenue_unreacted_range" \
+            "formal_model_use_allowed=False" \
+            "approved_for_daily=False" \
+            "presentation_allowed=False" \
+            "production_allowed=False" \
+            "blocker=anomaly_disposition_blockers=9; unresolved_anomalies=9; forward_holdout_v2_mature=0/20; formal_adapter=not_started" \
+            > "$bundle/CONTRACT"
+
+      - uses: actions/upload-artifact@v4.6.2
+        with:
+          name: "revenue-readiness-v1-20260828-${{ inputs.expected_main_sha }}"
+          path: "${{ runner.temp }}/readiness-bundle"
+          if-no-files-found: error
+          retention-days: 1
+
+  apply-bundle:
+    needs: prepare-bundle
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout exact trusted main without credentials
+        uses: actions/checkout@v6.0.3
+        with:
+          ref: "${{ inputs.expected_main_sha }}"
+          fetch-depth: 0
+          persist-credentials: false
+
+      - uses: actions/download-artifact@v4.3.0
+        with:
+          name: "revenue-readiness-v1-20260828-${{ inputs.expected_main_sha }}"
+          path: "${{ runner.temp }}/readiness-bundle"
+
+      - name: Revalidate and commit content-addressed bundle
+        shell: bash
+        env:
+          EXPECTED_MAIN_SHA: ${{ inputs.expected_main_sha }}
+          TARGET_BRANCH: ${{ inputs.target_branch }}
+        run: |
+          set -euo pipefail
+          bundle="$RUNNER_TEMP/readiness-bundle"
+          [ "$TARGET_BRANCH" = "$READINESS_SYNC_TARGET_BRANCH" ]
+          [ "$(git rev-parse HEAD)" = "$EXPECTED_MAIN_SHA" ]
+          [ "$(git ls-remote origin refs/heads/main | awk '{print $1}')" = "$EXPECTED_MAIN_SHA" ]
+          [ "$(git ls-remote origin "refs/heads/$TARGET_BRANCH" | awk '{print $1}')" = "$EXPECTED_MAIN_SHA" ]
+          (
+            cd "$bundle"
+            sha256sum --check SHA256SUMS
+          )
+          expected_contract="$(printf '%s\n' \
+            "contract_version=revenue_readiness_sync_3a_v1_20260828" \
+            "exception_id=revenue_unreacted_range_readiness_formal_sync_3a_v1_20260828" \
+            "authorization_reference=user_authorized_3A_3C_20260828" \
+            "target_branch=codex/revenue-unreacted-range-readiness-formal-sync-3a-v1-20260828" \
+            "model_id=revenue_unreacted_range" \
+            "formal_model_use_allowed=False" \
+            "approved_for_daily=False" \
+            "presentation_allowed=False" \
+            "production_allowed=False" \
+            "blocker=anomaly_disposition_blockers=9; unresolved_anomalies=9; forward_holdout_v2_mature=0/20; formal_adapter=not_started")"
+          [ "$(cat "$bundle/CONTRACT")" = "$expected_contract" ]
+          [ "$(find "$bundle" -type f -printf '%P\n' | sort | wc -l)" = 6 ]
+          [ "$(find "$bundle" -type f -printf '%P\n' | sort | tr '\n' '|')" = "CONTRACT|SHA256SUMS|docs/latest/model_operation_readiness_latest.csv|docs/latest/model_operation_readiness_latest.md|output/latest/model_operation_readiness_latest.csv|output/latest/model_operation_readiness_latest.md|" ]
+          cp "$bundle/output/latest/"model_operation_readiness_latest.* output/latest/
+          cp "$bundle/docs/latest/"model_operation_readiness_latest.* docs/latest/
+          git add -- \
+            output/latest/model_operation_readiness_latest.csv \
+            output/latest/model_operation_readiness_latest.md \
+            docs/latest/model_operation_readiness_latest.csv \
+            docs/latest/model_operation_readiness_latest.md
+          python -B scripts/validate_model_operation_readiness.py
+          python -B scripts/validate_revenue_unreacted_range_readiness_formal_sync.py --repo-root . --base-sha "$EXPECTED_MAIN_SHA" --phase staged
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git commit -m "Sync revenue unreacted range readiness v1"
+          [ "$(git rev-parse HEAD^)" = "$EXPECTED_MAIN_SHA" ]
+          SYNC_COMMIT_SHA="$(git rev-parse HEAD)"
+          python -B scripts/validate_model_operation_readiness.py
+          python -B scripts/validate_revenue_unreacted_range_readiness_formal_sync.py --repo-root . --base-sha "$EXPECTED_MAIN_SHA" --phase committed
+          [ -z "$(git status --porcelain=v1 -z --untracked-files=all)" ]
+          echo "SYNC_COMMIT_SHA=$SYNC_COMMIT_SHA" >> "$GITHUB_ENV"
+
+      - name: Push only validated commit to inert codex target
+        shell: bash
+        env:
+          TARGET_BRANCH: ${{ inputs.target_branch }}
+          EXPECTED_MAIN_SHA: ${{ inputs.expected_main_sha }}
+          PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}
+        run: |
+          set -euo pipefail
+          [ "$TARGET_BRANCH" = "$READINESS_SYNC_TARGET_BRANCH" ]
+          [ -n "$PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY" ]
+          [ "$(git rev-parse HEAD)" = "$SYNC_COMMIT_SHA" ]
+          [ "$(git rev-parse HEAD^)" = "$EXPECTED_MAIN_SHA" ]
+          python -B scripts/validate_model_operation_readiness.py
+          python -B scripts/validate_revenue_unreacted_range_readiness_formal_sync.py --repo-root . --base-sha "$EXPECTED_MAIN_SHA" --phase committed
+          [ -z "$(git status --porcelain=v1 -z --untracked-files=all)" ]
+          remote_main_before="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+          remote_target_before="$(git ls-remote origin "refs/heads/$TARGET_BRANCH" | awk '{print $1}')"
+          [ "$remote_main_before" = "$EXPECTED_MAIN_SHA" ]
+          [ "$remote_target_before" = "$EXPECTED_MAIN_SHA" ]
+          key="$RUNNER_TEMP/readiness-sync-key"
+          trap 'rm -f "$key"' EXIT
+          printf '%s\n' "$PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY" > "$key"
+          chmod 600 "$key"
+          GIT_SSH_COMMAND="ssh -i $key -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new" git push "git@github.com:${GITHUB_REPOSITORY}.git" "HEAD:refs/heads/$TARGET_BRANCH"
+          remote_main_after="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+          remote_target_after="$(git ls-remote origin "refs/heads/$TARGET_BRANCH" | awk '{print $1}')"
+          [ "$remote_main_after" = "$EXPECTED_MAIN_SHA" ]
+          [ "$remote_target_after" = "$SYNC_COMMIT_SHA" ]
+          rm -f "$key"
+          trap - EXIT

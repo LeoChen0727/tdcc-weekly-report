@@ -118,6 +118,28 @@ ARTIFACT_PUSH_JOB_MARKERS = (
     "git push",
     "ci_push_with_retry.sh",
 )
+REVENUE_READINESS_FORMAL_SYNC_WORKFLOW = (
+    ".github/workflows/revenue_unreacted_range_readiness_formal_sync.yml"
+)
+REVENUE_READINESS_FORMAL_SYNC_TARGET = (
+    "codex/revenue-unreacted-range-readiness-formal-sync-3a-v1-20260828"
+)
+REVENUE_READINESS_FORMAL_SYNC_CONTRACT_VERSION = (
+    "revenue_readiness_sync_3a_v1_20260828"
+)
+REVENUE_READINESS_FORMAL_SYNC_EXCEPTION_ID = (
+    "revenue_unreacted_range_readiness_formal_sync_3a_v1_20260828"
+)
+REVENUE_READINESS_FORMAL_SYNC_PUSH = (
+    'git push "git@github.com:${GITHUB_REPOSITORY}.git" '
+    '"HEAD:refs/heads/$TARGET_BRANCH"'
+)
+REVENUE_READINESS_FORMAL_SYNC_FOUR_PATHS = (
+    "output/latest/model_operation_readiness_latest.csv",
+    "output/latest/model_operation_readiness_latest.md",
+    "docs/latest/model_operation_readiness_latest.csv",
+    "docs/latest/model_operation_readiness_latest.md",
+)
 
 REQUIRED_COLUMNS = {
     "path",
@@ -144,9 +166,14 @@ VALID_OWNERS = {
     "current_holdings",
     "diagnostics",
     "repo_infrastructure",
+    "model_governance",
 }
 
 WORKFLOW_ALLOWED_OWNERS = {
+    REVENUE_READINESS_FORMAL_SYNC_WORKFLOW: {
+        "model_governance",
+        "repo_infrastructure",
+    },
     ".github/workflows/current_holdings_pattern.yml": {"current_holdings", "repo_infrastructure"},
     ".github/workflows/daily_full_pipeline.yml": {
         "daily_production",
@@ -1308,12 +1335,108 @@ def is_artifact_push_job(block: str) -> bool:
     return any(marker in block for marker in ARTIFACT_PUSH_JOB_MARKERS)
 
 
+def validate_revenue_readiness_formal_sync_workflow_text(text: str) -> list[str]:
+    errors: list[str] = []
+    marker = "- name: Push only validated commit to inert codex target"
+    if marker not in text:
+        return ["revenue readiness formal sync missing isolated final push step"]
+    before, privileged = text.split(marker, 1)
+    if PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY in before:
+        errors.append("revenue readiness formal sync exposes deploy key before final push step")
+    if text.count("git push ") != 1:
+        errors.append("revenue readiness formal sync must contain exactly one git push")
+    if REVENUE_READINESS_FORMAL_SYNC_PUSH not in privileged:
+        errors.append("revenue readiness formal sync push destination is not hard bounded")
+    if re.search(r"(?m)^      - (?:name:|uses:)", privileged):
+        errors.append("revenue readiness formal sync privileged push must be the final workflow step")
+    if "--force" in privileged or "--force-with-lease" in privileged or '"+HEAD:' in privileged:
+        errors.append("revenue readiness formal sync must use one non-force push")
+
+    exact_target_env = (
+        "READINESS_SYNC_TARGET_BRANCH: "
+        f"{REVENUE_READINESS_FORMAL_SYNC_TARGET}"
+    )
+    if exact_target_env not in text or text.count(
+        '[ "$TARGET_BRANCH" = "$READINESS_SYNC_TARGET_BRANCH" ]'
+    ) != 3:
+        errors.append("revenue readiness formal sync target is not exact and immutable")
+    if (
+        'ref: "${{ inputs.target_branch }}"' in text
+        or "ref: ${{ inputs.target_branch }}" in text
+        or text.count("persist-credentials: false") != 2
+    ):
+        errors.append(
+            "revenue readiness formal sync must never checkout target code and must use "
+            "credential-free trusted checkouts"
+        )
+    if "sha256sum --check SHA256SUMS" not in text or "needs: prepare-bundle" not in text:
+        errors.append("revenue readiness formal sync must independently verify bundle hashes")
+    if text.count("scripts/build_model_operation_readiness.py") != 1:
+        errors.append("revenue readiness formal sync must invoke exactly one readiness builder")
+    if (
+        "anomaly_disposition_blockers=9; unresolved_anomalies=9; "
+        "forward_holdout_v2_mature=0/20; formal_adapter=not_started"
+        not in text
+    ):
+        errors.append("revenue readiness formal sync omits the exact builder blocker")
+    for path in REVENUE_READINESS_FORMAL_SYNC_FOUR_PATHS:
+        if text.count(path) < 4:
+            errors.append(f"revenue readiness formal sync does not bind exact mirror path: {path}")
+    for token in (
+        f"contract_version={REVENUE_READINESS_FORMAL_SYNC_CONTRACT_VERSION}",
+        f"exception_id={REVENUE_READINESS_FORMAL_SYNC_EXCEPTION_ID}",
+        "authorization_reference=user_authorized_3A_3C_20260828",
+        f"target_branch={REVENUE_READINESS_FORMAL_SYNC_TARGET}",
+        "formal_model_use_allowed=False",
+        "approved_for_daily=False",
+        "presentation_allowed=False",
+        "production_allowed=False",
+    ):
+        if token not in text:
+            errors.append(f"revenue readiness formal sync missing exact contract token: {token}")
+    if text.count("--phase committed") != 2:
+        errors.append("revenue readiness formal sync must validate committed phase twice")
+    for token in (
+        'remote_main_before="$(git ls-remote origin refs/heads/main',
+        'remote_target_before="$(git ls-remote origin "refs/heads/$TARGET_BRANCH"',
+        'remote_main_after="$(git ls-remote origin refs/heads/main',
+        'remote_target_after="$(git ls-remote origin "refs/heads/$TARGET_BRANCH"',
+        '[ "$remote_main_after" = "$EXPECTED_MAIN_SHA" ]',
+        '[ "$remote_target_after" = "$SYNC_COMMIT_SHA" ]',
+    ):
+        if token not in privileged:
+            errors.append(f"revenue readiness formal sync missing remote identity check: {token}")
+    if "trap 'rm -f \"$key\"' EXIT" not in privileged:
+        errors.append("revenue readiness formal sync must install fail-closed key cleanup")
+    if "rm -f \"$key\"" not in privileged or "trap - EXIT" not in privileged:
+        errors.append("revenue readiness formal sync must explicitly remove the deploy key")
+    if re.search(r"(?m)^  (?:schedule|push):", text):
+        errors.append("revenue readiness formal sync must remain workflow_dispatch-only")
+    for forbidden in (
+        "run_chatgpt_daily_report_entrypoint",
+        "daily_full_pipeline",
+        "gh workflow run",
+        "workflow_dispatch.yml",
+        "clasp ",
+    ):
+        if forbidden in text.lower():
+            errors.append(f"revenue readiness formal sync invokes forbidden surface: {forbidden}")
+    return errors
+
+
 def validate_artifact_push_job(
     workflow_path: str,
     job_name: str,
     block: str,
     errors: list[str],
 ) -> None:
+    if workflow_path == REVENUE_READINESS_FORMAL_SYNC_WORKFLOW:
+        errors.extend(
+            validate_revenue_readiness_formal_sync_workflow_text(
+                (ROOT / workflow_path).read_text(encoding="utf-8")
+            )
+        )
+        return
     steps = workflow_step_blocks(block)
     checkout_steps = [
         (index, step)

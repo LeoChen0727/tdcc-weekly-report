@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 from contextlib import contextmanager
+import csv
+import io
 import sys
 from pathlib import Path
 from types import SimpleNamespace
@@ -21,8 +23,15 @@ from model_research_artifact_guard import (  # noqa: E402
     protected_sentinel_aggregate_sha256,
     validate_changed_paths,
 )
-from validate_model_research_artifact_ownership import validate  # noqa: E402
+from validate_model_research_artifact_ownership import (  # noqa: E402
+    EXPECTED_READINESS_MIGRATIONS,
+    EXPECTED_READINESS_RULES,
+    MIGRATION_COLUMNS,
+    validate,
+    validate_ownership_migrations,
+)
 import model_research_artifact_guard as guard_module  # noqa: E402
+import validate_model_research_artifact_ownership as ownership_validator  # noqa: E402
 
 
 REVENUE_PRODUCER = "scripts/build_revenue_unreacted_" + "range_research.py"
@@ -38,6 +47,255 @@ FORBIDDEN_VOLUME_V2_BUILDERS = (
 
 def test_model_research_artifact_ownership_registry_passes() -> None:
     assert validate() == []
+
+
+def _write_ownership_migrations(path: Path, rows: list[dict[str, str]]) -> None:
+    with path.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(
+            handle,
+            fieldnames=MIGRATION_COLUMNS,
+            lineterminator="\n",
+        )
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+def test_readiness_owner_closure_and_exact_migration_are_canonical() -> None:
+    rules = load_ownership_rules()
+    readiness_rules = {
+        (rule.artifact_glob, rule.artifact_class)
+        for rule in rules
+        if rule.owner_model_id == "model_governance"
+        and rule.producer == "scripts/build_model_operation_readiness.py"
+        and rule.change_policy == "formal_sync_only"
+        and rule.formal_evidence_status == "formal_evidence_pinned"
+    }
+    assert readiness_rules == EXPECTED_READINESS_RULES
+    assert validate_ownership_migrations() == []
+
+
+@pytest.mark.parametrize(
+    ("mutation", "message"),
+    (
+        ("blank", "blank fields"),
+        ("duplicate", "duplicate model research ownership migration_id"),
+        ("invalid_date", "invalid effective_date"),
+        ("wrong_approval", "exact user-approved migration"),
+    ),
+)
+def test_ownership_migration_rejects_blank_duplicate_date_and_approval_mutations(
+    tmp_path: Path,
+    monkeypatch,
+    mutation: str,
+    message: str,
+) -> None:
+    rows = [dict(row) for row in EXPECTED_READINESS_MIGRATIONS]
+    if mutation == "blank":
+        rows[0]["approval_reference"] = ""
+    elif mutation == "duplicate":
+        rows.append(dict(rows[0]))
+    elif mutation == "invalid_date":
+        rows[0]["effective_date"] = "2026-99-99"
+    elif mutation == "wrong_approval":
+        rows[0]["approval_reference"] = "self_authorized"
+    path = tmp_path / "migrations.csv"
+    _write_ownership_migrations(path, rows)
+    monkeypatch.setattr(ownership_validator, "MIGRATION_REGISTRY", path)
+    assert any(message in error for error in validate_ownership_migrations())
+
+
+def test_ownership_migration_append_only_base_rejects_rewrite(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    current = dict(EXPECTED_READINESS_MIGRATIONS[0])
+    path = tmp_path / "migrations.csv"
+    _write_ownership_migrations(path, [current])
+    base = dict(current)
+    base["notes"] = "immutable prior value"
+    base_path = tmp_path / "base.csv"
+    _write_ownership_migrations(base_path, [base])
+    monkeypatch.setattr(ownership_validator, "MIGRATION_REGISTRY", path)
+    monkeypatch.setattr(
+        ownership_validator,
+        "_base_migration_bytes",
+        lambda _base_ref: base_path.read_bytes(),
+    )
+    assert any(
+        "append-only" in error
+        for error in validate_ownership_migrations("base-ref")
+    )
+
+
+def _fact_registry_bytes(
+    registry_path: str,
+    owners: dict[str, str],
+) -> bytes:
+    key_column, owner_column = ownership_validator.REGISTRY_FACT_SPECS[registry_path]
+    stream = io.StringIO()
+    writer = csv.DictWriter(
+        stream,
+        fieldnames=[key_column, owner_column],
+        lineterminator="\n",
+    )
+    writer.writeheader()
+    for key, owner in owners.items():
+        writer.writerow({key_column: key, owner_column: owner})
+    return stream.getvalue().encode()
+
+
+def _canonical_migration_fact_maps() -> tuple[
+    dict[str, bytes],
+    dict[str, bytes],
+]:
+    model_registry = "config/model_research_artifact_ownership.csv"
+    output_inventory = "config/output_latest_artifact_inventory.csv"
+    lifecycle_inventory = "config/repo_file_lifecycle_inventory.csv"
+    production_inventory = "config/repo_production_inventory.csv"
+    output_glob = "output/latest/model_operation_readiness_latest.*"
+    docs_glob = "docs/latest/model_operation_readiness_latest.*"
+    readiness_paths = {
+        "output/latest/model_operation_readiness_latest.csv",
+        "output/latest/model_operation_readiness_latest.md",
+    }
+    scripts = {
+        "scripts/build_model_operation_readiness.py",
+        "scripts/validate_model_operation_readiness.py",
+    }
+    base = {
+        model_registry: _fact_registry_bytes(
+            model_registry,
+            {output_glob: "model_governance"},
+        ),
+        output_inventory: _fact_registry_bytes(
+            output_inventory,
+            {path: "research_backtest" for path in sorted(readiness_paths)},
+        ),
+        lifecycle_inventory: _fact_registry_bytes(
+            lifecycle_inventory,
+            {path: "research_backtest" for path in sorted(scripts)},
+        ),
+        production_inventory: _fact_registry_bytes(
+            production_inventory,
+            {path: "research_backtest" for path in sorted(scripts)},
+        ),
+    }
+    current = {
+        model_registry: _fact_registry_bytes(
+            model_registry,
+            {
+                output_glob: "model_governance",
+                docs_glob: "model_governance",
+            },
+        ),
+        output_inventory: _fact_registry_bytes(
+            output_inventory,
+            {path: "model_governance" for path in sorted(readiness_paths)},
+        ),
+        lifecycle_inventory: _fact_registry_bytes(
+            lifecycle_inventory,
+            {path: "model_governance" for path in sorted(scripts)},
+        ),
+        production_inventory: _fact_registry_bytes(
+            production_inventory,
+            {path: "model_governance" for path in sorted(scripts)},
+        ),
+    }
+    return base, current
+
+
+def _patch_migration_facts(
+    monkeypatch,
+    base: dict[str, bytes],
+    current: dict[str, bytes],
+) -> None:
+    monkeypatch.setattr(
+        ownership_validator,
+        "_base_migration_bytes",
+        lambda _base_ref: None,
+    )
+    monkeypatch.setattr(
+        ownership_validator,
+        "_base_registry_bytes",
+        lambda _base_ref, registry_path: base[registry_path],
+    )
+    monkeypatch.setattr(
+        ownership_validator,
+        "_current_registry_bytes",
+        lambda registry_path: current[registry_path],
+    )
+
+
+def test_ownership_migrations_reconcile_each_registry_with_base_facts(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    path = tmp_path / "migrations.csv"
+    _write_ownership_migrations(
+        path,
+        [dict(row) for row in EXPECTED_READINESS_MIGRATIONS],
+    )
+    base, current = _canonical_migration_fact_maps()
+    monkeypatch.setattr(ownership_validator, "MIGRATION_REGISTRY", path)
+    _patch_migration_facts(monkeypatch, base, current)
+
+    assert validate_ownership_migrations("base-ref") == []
+
+
+def test_ownership_migrations_reject_false_previous_or_current_owner_facts(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    path = tmp_path / "migrations.csv"
+    _write_ownership_migrations(
+        path,
+        [dict(row) for row in EXPECTED_READINESS_MIGRATIONS],
+    )
+    base, current = _canonical_migration_fact_maps()
+    output_inventory = "config/output_latest_artifact_inventory.csv"
+    base[output_inventory] = _fact_registry_bytes(
+        output_inventory,
+        {
+            "output/latest/model_operation_readiness_latest.csv": "model_governance",
+            "output/latest/model_operation_readiness_latest.md": "research_backtest",
+        },
+    )
+    lifecycle_inventory = "config/repo_file_lifecycle_inventory.csv"
+    current[lifecycle_inventory] = _fact_registry_bytes(
+        lifecycle_inventory,
+        {
+            "scripts/build_model_operation_readiness.py": "research_backtest",
+            "scripts/validate_model_operation_readiness.py": "model_governance",
+        },
+    )
+    monkeypatch.setattr(ownership_validator, "MIGRATION_REGISTRY", path)
+    _patch_migration_facts(monkeypatch, base, current)
+
+    errors = validate_ownership_migrations("base-ref")
+    assert any("base fact mismatch" in error for error in errors)
+    assert any("current fact mismatch" in error for error in errors)
+
+
+def test_ownership_migrations_preserve_preexisting_output_readiness_owner(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    rows = [dict(row) for row in EXPECTED_READINESS_MIGRATIONS]
+    rows[0]["record_keys"] = "output/latest/model_operation_readiness_latest.*"
+    rows[0]["previous_owner"] = "research_backtest"
+    path = tmp_path / "migrations.csv"
+    _write_ownership_migrations(path, rows)
+    base, current = _canonical_migration_fact_maps()
+    monkeypatch.setattr(ownership_validator, "MIGRATION_REGISTRY", path)
+    _patch_migration_facts(monkeypatch, base, current)
+
+    errors = validate_ownership_migrations("base-ref")
+    assert any(
+        "pre-existing output/latest readiness ownership must not be represented"
+        in error
+        for error in errors
+    )
+    assert any("base fact mismatch" in error for error in errors)
 
 
 def test_revenue_producer_accepts_only_revenue_artifacts() -> None:
