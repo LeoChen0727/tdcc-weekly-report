@@ -2,8 +2,10 @@ from __future__ import annotations
 
 import argparse
 import fnmatch
+import io
 import json
 import subprocess
+import tokenize
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable, Sequence
@@ -368,6 +370,18 @@ LEGACY_REPO_CURRENT_EXACT_PATHS = frozenset(
     }
 )
 
+MODEL_OWNED_SCOPE_BEGIN = (
+    "# BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range"
+)
+MODEL_OWNED_SCOPE_END = "# END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range"
+REVENUE_CONTENT_SCOPED_PATHS = frozenset(
+    {
+        "scripts/build_model_operation_readiness.py",
+        "scripts/validate_model_operation_readiness.py",
+        "tests/test_model_operation_readiness.py",
+    }
+)
+
 REPO_CURRENT_AND_SHARED_EXACT_PATHS = frozenset(
     {
         "scripts/build_approved_operation_patterns.py",
@@ -498,6 +512,126 @@ def domains_for_path(value: str) -> frozenset[str]:
     if selected.intersection(RESEARCH_DOMAINS):
         selected.add(RESEARCH_SAFETY_LITE)
     return frozenset(selected)
+
+
+def _read_git_text(commit: str, path: str) -> str:
+    result = _run_git(["show", f"{commit}:{path}"])
+    if result.returncode != 0:
+        stderr = result.stderr.decode("utf-8", errors="replace").strip()
+        raise ScopeDetectionError(
+            f"cannot read content-scoped path {path!r} at {commit!r}: {stderr}"
+        )
+    try:
+        return result.stdout.decode("utf-8", errors="strict")
+    except UnicodeDecodeError as exc:
+        raise ScopeDetectionError(
+            f"content-scoped path must be valid UTF-8: {path!r}: {exc}"
+        ) from exc
+
+
+def _strip_revenue_owned_scope_blocks(
+    source: str,
+    *,
+    path: str,
+    revision_label: str,
+) -> tuple[str, tuple[str, ...]]:
+    try:
+        marker_comment_lines = {
+            token.start[0]
+            for token in tokenize.generate_tokens(io.StringIO(source).readline)
+            if token.type == tokenize.COMMENT
+            and token.string.strip() in {MODEL_OWNED_SCOPE_BEGIN, MODEL_OWNED_SCOPE_END}
+        }
+    except (IndentationError, SyntaxError, tokenize.TokenError) as exc:
+        raise ScopeDetectionError(
+            f"cannot tokenize content-scoped path: {path} ({revision_label}): {exc}"
+        ) from exc
+    outside: list[str] = []
+    blocks: list[str] = []
+    current: list[str] | None = None
+    for line_number, line in enumerate(source.splitlines(keepends=True), start=1):
+        marker = line.strip()
+        if marker == MODEL_OWNED_SCOPE_BEGIN:
+            if line_number not in marker_comment_lines:
+                raise ScopeDetectionError(
+                    "revenue model-owned validation scope marker is not a Python comment: "
+                    f"{path}:{line_number} ({revision_label})"
+                )
+            if current is not None:
+                raise ScopeDetectionError(
+                    "nested revenue model-owned validation scope marker: "
+                    f"{path}:{line_number} ({revision_label})"
+                )
+            current = []
+            continue
+        if marker == MODEL_OWNED_SCOPE_END:
+            if line_number not in marker_comment_lines:
+                raise ScopeDetectionError(
+                    "revenue model-owned validation scope marker is not a Python comment: "
+                    f"{path}:{line_number} ({revision_label})"
+                )
+            if current is None:
+                raise ScopeDetectionError(
+                    "unmatched revenue model-owned validation scope end marker: "
+                    f"{path}:{line_number} ({revision_label})"
+                )
+            blocks.append("".join(current))
+            current = None
+            continue
+        if current is None:
+            outside.append(line)
+        else:
+            current.append(line)
+    if current is not None:
+        raise ScopeDetectionError(
+            "unterminated revenue model-owned validation scope marker: "
+            f"{path} ({revision_label})"
+        )
+    return "".join(outside), tuple(blocks)
+
+
+def is_revenue_owned_content_change(
+    path: str,
+    *,
+    base_sha: str,
+    merge_sha: str,
+) -> bool:
+    normalized = normalize_path(path)
+    if normalized not in REVENUE_CONTENT_SCOPED_PATHS:
+        return False
+    try:
+        base_source = _read_git_text(base_sha, normalized)
+        merge_source = _read_git_text(merge_sha, normalized)
+        base_outside, base_blocks = _strip_revenue_owned_scope_blocks(
+            base_source,
+            path=normalized,
+            revision_label="base",
+        )
+        merge_outside, merge_blocks = _strip_revenue_owned_scope_blocks(
+            merge_source,
+            path=normalized,
+            revision_label="merge",
+        )
+    except ScopeDetectionError:
+        return False
+    if base_source == merge_source or not merge_blocks or base_blocks == merge_blocks:
+        return False
+    return base_outside == merge_outside
+
+
+def domains_for_changed_path(
+    path: str,
+    *,
+    base_sha: str,
+    merge_sha: str,
+) -> frozenset[str]:
+    if is_revenue_owned_content_change(
+        path,
+        base_sha=base_sha,
+        merge_sha=merge_sha,
+    ):
+        return frozenset({RESEARCH_SAFETY_LITE, REVENUE_RESEARCH})
+    return domains_for_path(path)
 
 
 def _run_git(args: Sequence[str]) -> subprocess.CompletedProcess[bytes]:
@@ -641,7 +775,11 @@ def detect_scope(
     watched_paths: list[str] = []
     selected: set[str] = set()
     for path in changed:
-        domains = domains_for_path(path)
+        domains = domains_for_changed_path(
+            path,
+            base_sha=base_sha,
+            merge_sha=merge_sha,
+        )
         if domains:
             watched_paths.append(path)
             selected.update(domains)

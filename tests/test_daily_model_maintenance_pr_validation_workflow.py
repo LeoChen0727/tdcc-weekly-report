@@ -431,7 +431,11 @@ def direct_dependency_closure_ok(text: str) -> bool:
             except model_scope.ScopeDetectionError:
                 return False
             if expected_domain not in domains:
-                return False
+                if not (
+                    expected_domain == model_scope.REVENUE_RESEARCH
+                    and path in model_scope.REVENUE_CONTENT_SCOPED_PATHS
+                ):
+                    return False
     return True
 
 
@@ -1339,6 +1343,18 @@ def test_daily_model_maintenance_pr_workflow_runs_focused_pdf_operation_tests() 
     )
     for path in required_tests:
         assert path in text
+
+
+def test_revenue_job_runs_only_revenue_readiness_cases_from_shared_test_file() -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+    job = job_block("revenue_research", text)
+
+    command = (
+        "python -m pytest tests/test_model_operation_readiness.py "
+        "-k revenue_readiness"
+    )
+    assert job.count(command) == 1
+    assert "- name: Run revenue operation readiness regression tests" in job
 
 
 def test_daily_model_pr_focused_suite_replaces_only_strict_runtime_integrity_test() -> None:
