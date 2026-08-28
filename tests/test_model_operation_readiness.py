@@ -1180,17 +1180,29 @@ def test_revenue_readiness_persisted_permission_columns_reject_non_revenue_boole
     )
 
 
-def test_revenue_legacy_builder_has_no_direct_mirror_writer() -> None:
-    source = (ROOT / "scripts/build_model_operation_readiness.py").read_text(
-        encoding="utf-8"
-    )
+def test_revenue_legacy_builder_has_no_direct_mirror_writer(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    calls: list[Path] = []
 
-    assert not hasattr(readiness_builder, "write_markdown")
-    for forbidden in (
-        ".write_text(",
-        ".write_bytes(",
-        ".to_csv(",
-        "write_csv(",
+    def record_sync(repo_root: Path) -> tuple[pd.DataFrame, list[str]]:
+        calls.append(repo_root)
+        return pd.DataFrame(), []
+
+    monkeypatch.setattr(readiness_builder, "ROOT", tmp_path)
+    monkeypatch.setattr(readiness_builder, "LATEST_DIR", tmp_path / "output/latest")
+    monkeypatch.setattr(readiness_builder, "DOCS_LATEST_DIR", tmp_path / "docs/latest")
+    for name, relative in (
+        ("OUT_CSV", "output/latest/model_operation_readiness_latest.csv"),
+        ("OUT_MD", "output/latest/model_operation_readiness_latest.md"),
+        ("DOCS_CSV", "docs/latest/model_operation_readiness_latest.csv"),
+        ("DOCS_MD", "docs/latest/model_operation_readiness_latest.md"),
     ):
-        assert forbidden not in source
+        monkeypatch.setattr(readiness_builder, name, tmp_path / relative)
+    monkeypatch.setattr(readiness_builder, "sync", record_sync)
+
+    assert readiness_builder.main() == 0
+    assert calls == [tmp_path]
+    assert list(tmp_path.rglob("*")) == []
 # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
