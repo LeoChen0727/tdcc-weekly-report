@@ -31,13 +31,14 @@ mechanism lineage is:
 - Revenue ownership marker-boundary PR: `#610`
 - Revenue ownership marker-boundary merge commit:
   `67453a4a6e3662429e65654529f39e7e7f1404d8`
-- Required artifact-only PR: `pending_formal_sync_artifact_pr`
-- Required artifact-only merge commit: `pending_formal_sync_artifact_merge_commit`
+- Formal-sync workflow run: `33208090763` (`success`)
+- Required artifact-only PR: `#611`
+- Required artifact-only merge commit:
+  `40648e7edc032a30d802cd2ee7a333b99a032ad2`
 
-The two pending lineage values are fail-closed placeholders. They must be
-replaced by the exact merged artifact PR and `main` merge commit before this
-hardening PR is eligible to merge. Reusing a mechanism PR or mechanism merge
-commit as artifact evidence is forbidden.
+The artifact lineage above is the exact merged artifact PR and `main` merge
+commit. Reusing a mechanism PR or mechanism merge commit as artifact evidence
+is forbidden.
 
 ## Canonical readiness gate after hardening
 
