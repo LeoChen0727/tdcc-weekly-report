@@ -454,12 +454,30 @@ def validate_readiness_output_inventory_producer() -> list[str]:
                 "output latest artifact inventory schema is incomplete for readiness "
                 "producer closure"
             ]
-        rows = [
+        all_rows = [
             {key: (value or "").strip() for key, value in row.items()}
             for row in reader
             if (row.get("path") or "").strip()
-            in EXPECTED_READINESS_OUTPUT_INVENTORY_PATHS
         ]
+
+    rows = [
+        row
+        for row in all_rows
+        if row["path"] in EXPECTED_READINESS_OUTPUT_INVENTORY_PATHS
+    ]
+    formal_sync_paths = [
+        row["path"]
+        for row in all_rows
+        if row["producer"] == READINESS_FORMAL_SYNC_PRODUCER
+    ]
+    if set(formal_sync_paths) != EXPECTED_READINESS_OUTPUT_INVENTORY_PATHS or (
+        len(formal_sync_paths) != len(EXPECTED_READINESS_OUTPUT_INVENTORY_PATHS)
+    ):
+        errors.append(
+            "formal readiness producer output inventory must close exactly over "
+            "the two registered output/latest mirrors: "
+            f"actual={sorted(formal_sync_paths)}"
+        )
 
     paths = [row["path"] for row in rows]
     duplicate_paths = sorted({path for path in paths if paths.count(path) > 1})
@@ -536,18 +554,31 @@ def validate(base_ref: str | None = None) -> list[str]:
     if missing_protected:
         errors.append(f"missing protected artifact classes: {missing_protected}")
 
-    readiness_rules = {
-        (rule.artifact_glob, rule.artifact_class)
+    readiness_producer_rules = {
+        (
+            rule.owner_model_id,
+            rule.artifact_glob,
+            rule.artifact_class,
+            rule.change_policy,
+            rule.formal_evidence_status,
+        )
         for rule in rules
-        if rule.owner_model_id == "model_governance"
-        and rule.producer == READINESS_FORMAL_SYNC_PRODUCER
-        and rule.change_policy == "formal_sync_only"
-        and rule.formal_evidence_status == "formal_evidence_pinned"
+        if rule.producer == READINESS_FORMAL_SYNC_PRODUCER
     }
-    if readiness_rules != EXPECTED_READINESS_RULES:
+    expected_readiness_producer_rules = {
+        (
+            "model_governance",
+            artifact_glob,
+            artifact_class,
+            "formal_sync_only",
+            "formal_evidence_pinned",
+        )
+        for artifact_glob, artifact_class in EXPECTED_READINESS_RULES
+    }
+    if readiness_producer_rules != expected_readiness_producer_rules:
         errors.append(
-            "model operation readiness ownership must close exactly over output/latest "
-            "and docs/latest formal-sync mirrors"
+            "formal readiness producer ownership must close exactly over the two "
+            "registered output/latest and docs/latest formal-sync mirrors"
         )
     legacy_readiness_rules = [
         rule.artifact_glob

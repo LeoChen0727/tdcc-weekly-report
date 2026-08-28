@@ -1454,6 +1454,7 @@ def test_daily_model_maintenance_pr_workflow_runs_focused_pdf_operation_tests() 
         "tests/test_revenue_unreacted_range_forward_holdout.py",
         "tests/test_revenue_unreacted_range_forward_holdout_v2.py",
         "tests/test_validate_revenue_unreacted_range_forward_holdout.py",
+        "tests/test_revenue_unreacted_range_readiness_formal_sync_workflow.py",
         "tests/test_repo_hidden_coupling_audit.py",
         "tests/test_stock_model_contract_registry.py",
     )
@@ -1503,6 +1504,11 @@ def test_revenue_job_runs_explicit_cheap_readiness_and_independent_v2_cases() ->
     )
     for node in retired_legacy_nodes:
         assert f"tests/test_model_operation_readiness.py::{node}" not in job
+    assert job.count(
+        "tests/test_model_operation_readiness.py::"
+        "test_revenue_legacy_builder_has_no_direct_mirror_writer"
+    ) == 1
+    assert "test_revenue_readiness_markdown_persists_four_false_permissions" not in job
     assert "-k revenue_readiness" not in job
     assert (
         "            tests/test_revenue_unreacted_range_forward_holdout_v2.py \\\n"
@@ -1533,6 +1539,10 @@ def test_revenue_job_runs_explicit_cheap_readiness_and_independent_v2_cases() ->
     assert job.count(
         "python -m pytest "
         "tests/test_revenue_unreacted_range_readiness_formal_sync.py"
+    ) == 1
+    assert job.count(
+        "python -m pytest "
+        "tests/test_revenue_unreacted_range_readiness_formal_sync_workflow.py"
     ) == 1
     assert "- name: Run revenue operation readiness regression tests" in job
 

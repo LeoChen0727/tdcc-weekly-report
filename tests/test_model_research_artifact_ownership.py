@@ -191,6 +191,36 @@ def test_readiness_owner_closure_rejects_legacy_broad_builder(
     assert any("legacy broad readiness builder" in error for error in errors)
 
 
+def test_readiness_owner_closure_rejects_additional_formal_sync_rule(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    rules = load_ownership_rules()
+    template = next(
+        rule for rule in rules if rule.producer == READINESS_FORMAL_SYNC_PRODUCER
+    )
+    mutated = [
+        *rules,
+        replace(
+            template,
+            owner_model_id="shadow_owner",
+            artifact_glob="output/latest/model_operation_readiness_shadow_latest.*",
+            artifact_class="shadow_readiness",
+        ),
+    ]
+    monkeypatch.setattr(
+        ownership_validator,
+        "load_ownership_rules",
+        lambda _path: mutated,
+    )
+
+    errors = validate()
+
+    assert any(
+        "formal readiness producer ownership must close exactly" in error
+        for error in errors
+    )
+
+
 def test_output_readiness_inventory_rejects_legacy_broad_builder(
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
@@ -224,6 +254,50 @@ def test_output_readiness_inventory_rejects_legacy_broad_builder(
 
     assert any("readiness output producer must be" in error for error in errors)
     assert any("legacy broad readiness builder" in error for error in errors)
+
+
+def test_output_readiness_inventory_rejects_additional_formal_sync_path(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    inventory_path = tmp_path / "output_latest_artifact_inventory.csv"
+    with inventory_path.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(
+            handle,
+            fieldnames=("path", "owner_lane", "producer"),
+            lineterminator="\n",
+        )
+        writer.writeheader()
+        for suffix in ("csv", "md"):
+            writer.writerow(
+                {
+                    "path": (
+                        "output/latest/model_operation_readiness_latest."
+                        f"{suffix}"
+                    ),
+                    "owner_lane": "model_governance",
+                    "producer": READINESS_FORMAL_SYNC_PRODUCER,
+                }
+            )
+        writer.writerow(
+            {
+                "path": "output/latest/model_operation_readiness_shadow_latest.csv",
+                "owner_lane": "shadow_owner",
+                "producer": READINESS_FORMAL_SYNC_PRODUCER,
+            }
+        )
+    monkeypatch.setattr(
+        ownership_validator,
+        "OUTPUT_LATEST_ARTIFACT_INVENTORY",
+        inventory_path,
+    )
+
+    errors = validate_readiness_output_inventory_producer()
+
+    assert any(
+        "formal readiness producer output inventory must close exactly" in error
+        for error in errors
+    )
 
 
 @pytest.mark.parametrize(

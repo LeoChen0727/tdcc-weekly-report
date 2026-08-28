@@ -419,7 +419,7 @@ jobs:
             tests/test_model_operation_readiness.py::test_revenue_readiness_persisted_permission_columns_reject_noncanonical_source_boolean \
             tests/test_model_operation_readiness.py::test_revenue_readiness_persisted_permission_columns_reject_missing_or_true_flag \
             tests/test_model_operation_readiness.py::test_revenue_readiness_persisted_permission_columns_reject_non_revenue_boolean_alias \
-            tests/test_model_operation_readiness.py::test_revenue_readiness_markdown_persists_four_false_permissions
+            tests/test_model_operation_readiness.py::test_revenue_legacy_builder_has_no_direct_mirror_writer
           python -m pytest \
             tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_build_replaces_only_revenue_and_keeps_non_revenue_fields_exact \
             tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_build_accepts_only_canonical_extended_disabled_source \
@@ -442,6 +442,7 @@ jobs:
             tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_revenue_readiness_sync_writer_runs_exact_gate_before_any_mirror_write \
             tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_markdown_status_table_must_match_canonical_csv_non_revenue_cells
           python -m pytest tests/test_revenue_unreacted_range_readiness_formal_sync.py
+          python -m pytest tests/test_revenue_unreacted_range_readiness_formal_sync_workflow.py
 
       - name: Run revenue research regression tests
         run: |
