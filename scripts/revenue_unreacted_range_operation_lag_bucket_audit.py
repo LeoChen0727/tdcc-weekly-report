@@ -15,6 +15,7 @@ from revenue_unreacted_range_rearmed_operation_grid import (
     FINANCIAL_STATEMENT_SCOPE,
     NO_STOP_POLICY_ID,
     SOURCE_VARIANT_ID,
+    V3_ARTIFACT_VERSION as V3_SOURCE_OPERATION_ARTIFACT_VERSION,
 )
 from revenue_unreacted_range_source_first_condition_audit import (
     ARTIFACT_ID as SOURCE_CONDITION_ARTIFACT_ID,
@@ -36,6 +37,7 @@ MODEL_ID = "revenue_unreacted_range"
 ARTIFACT_ID = "revenue_unreacted_range_operation_lag_bucket_audit"
 V1_ARTIFACT_VERSION = "operation_lag_bucket_v1_20260714"
 V2_ARTIFACT_VERSION = "operation_lag_bucket_v2_20260822"
+V3_ARTIFACT_VERSION = "operation_lag_bucket_v3_20260829"
 ARTIFACT_VERSION = V1_ARTIFACT_VERSION
 V2_SOURCE_OPERATION_ARTIFACT_VERSION = "rearmed_operation_grid_v2_20260822"
 
@@ -62,6 +64,21 @@ def source_operation_version_for_projection(projection_version: object) -> str:
     if version not in mapping:
         raise RuntimeError(
             f"unsupported canonical source projection version: {version or '<empty>'}"
+        )
+    return mapping[version]
+
+
+def artifact_version_for_source_operation(source_artifact_version: object) -> str:
+    version = str(source_artifact_version).strip()
+    mapping = {
+        SOURCE_OPERATION_ARTIFACT_VERSION: V1_ARTIFACT_VERSION,
+        V2_SOURCE_OPERATION_ARTIFACT_VERSION: V2_ARTIFACT_VERSION,
+        V3_SOURCE_OPERATION_ARTIFACT_VERSION: V3_ARTIFACT_VERSION,
+    }
+    if version not in mapping:
+        raise RuntimeError(
+            "unsupported rearmed operation artifact version: "
+            f"{version or '<empty>'}"
         )
     return mapping[version]
 
@@ -704,6 +721,8 @@ def build_operation_lag_bucket_audit(
     operation_detail: pd.DataFrame | None = None,
     source_detail: pd.DataFrame | None = None,
     source_projection_manifest: pd.DataFrame | None = None,
+    *,
+    generated_at: str | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
     if operation_detail is None:
         operation_detail = pd.read_csv(
@@ -724,20 +743,37 @@ def build_operation_lag_bucket_audit(
         source_detail,
     )
     projection_version = projection_manifest.iloc[0]["projection_version"]
-    expected_source_operation_artifact_version = (
-        source_operation_version_for_projection(projection_version)
+    operation_versions = set(
+        operation_detail["artifact_version"].astype(str).str.strip()
     )
-    generated_at = _now_text()
+    if len(operation_versions) != 1:
+        raise RuntimeError("operation lag bucket source operation version is not constant")
+    operation_version = next(iter(operation_versions))
+    if operation_version == V3_SOURCE_OPERATION_ARTIFACT_VERSION:
+        if str(projection_version).strip() != V2_PROJECTION_VERSION:
+            raise RuntimeError(
+                "v3 operation lag migration requires the immutable v2 source projection"
+            )
+        expected_source_operation_artifact_version = operation_version
+    else:
+        expected_source_operation_artifact_version = (
+            source_operation_version_for_projection(projection_version)
+        )
+        if operation_version != expected_source_operation_artifact_version:
+            raise RuntimeError(
+                "operation lag bucket source operation version/projection mismatch"
+            )
+    generated_at_value = generated_at or _now_text()
     detail = build_operation_lag_detail(
         operation_detail,
         source_detail,
-        generated_at,
+        generated_at_value,
         expected_source_operation_artifact_version=(
             expected_source_operation_artifact_version
         ),
     )
-    summary = build_operation_lag_summary(detail, generated_at)
-    selected_version = artifact_version_for_projection(projection_version)
+    summary = build_operation_lag_summary(detail, generated_at_value)
+    selected_version = artifact_version_for_source_operation(operation_version)
     summary.loc[:, "artifact_version"] = selected_version
     detail.loc[:, "artifact_version"] = selected_version
     summary.loc[:, "source_operation_artifact_version"] = (

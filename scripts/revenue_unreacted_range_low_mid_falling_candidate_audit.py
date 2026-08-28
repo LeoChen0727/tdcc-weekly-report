@@ -29,12 +29,14 @@ MODEL_ID = "revenue_unreacted_range"
 ARTIFACT_ID = "revenue_unreacted_range_low_mid_falling_candidate_audit"
 V1_ARTIFACT_VERSION = "low_mid_falling_candidate_v1_20260720"
 V2_ARTIFACT_VERSION = "low_mid_falling_candidate_v2_20260822"
+V3_ARTIFACT_VERSION = "low_mid_falling_candidate_v3_20260829"
 ARTIFACT_VERSION = V1_ARTIFACT_VERSION
 SOURCE_FIRST_ARTIFACT_ID = "revenue_unreacted_range_source_first_condition_audit"
 SOURCE_FIRST_ARTIFACT_VERSION = "source_first_condition_v3_20260720"
 REARMED_ARTIFACT_ID = "revenue_unreacted_range_rearmed_operation_grid"
 REARMED_ARTIFACT_VERSION = rearmed_producer.ARTIFACT_VERSION
 V2_REARMED_ARTIFACT_VERSION = rearmed_producer.V2_ARTIFACT_VERSION
+V3_REARMED_ARTIFACT_VERSION = rearmed_producer.V3_ARTIFACT_VERSION
 REARMED_SOURCE_ARTIFACT_ID = "revenue_unreacted_range_source_first_condition_audit"
 REARMED_SOURCE_VARIANT_ID = "absolute_or_two_month_yoy_ge15"
 SOURCE_VARIANT_ID = "absolute_or_two_month_yoy_ge15"
@@ -44,6 +46,7 @@ POSITION_SHAPE_ARTIFACT_ID = (
 )
 POSITION_SHAPE_ARTIFACT_VERSION = position_shape_producer.ARTIFACT_VERSION
 V2_POSITION_SHAPE_ARTIFACT_VERSION = position_shape_producer.V2_ARTIFACT_VERSION
+V3_POSITION_SHAPE_ARTIFACT_VERSION = position_shape_producer.V3_ARTIFACT_VERSION
 PRICE_HISTORY_CUTOFF_DATE = "20260713"
 SOURCE_PROJECTION_ARTIFACT_ID = "revenue_unreacted_range_source_snapshot_projection"
 SOURCE_PROJECTION_ARTIFACT_VERSION = source_projection.V1_PROJECTION_VERSION
@@ -64,6 +67,11 @@ def versions_for_rearmed_artifact(
         V2_REARMED_ARTIFACT_VERSION: (
             V2_ARTIFACT_VERSION,
             V2_POSITION_SHAPE_ARTIFACT_VERSION,
+            V2_SOURCE_PROJECTION_ARTIFACT_VERSION,
+        ),
+        V3_REARMED_ARTIFACT_VERSION: (
+            V3_ARTIFACT_VERSION,
+            V3_POSITION_SHAPE_ARTIFACT_VERSION,
             V2_SOURCE_PROJECTION_ARTIFACT_VERSION,
         ),
     }
@@ -349,6 +357,55 @@ def _canonical_table_sha256(
     return hashlib.sha256(encoded).hexdigest()
 
 
+def _v3_diagnostic_provenance_columns(columns: object) -> frozenset[str]:
+    excluded = {"generated_at"}
+    for column in columns:
+        name = str(column).strip().lower()
+        if name.startswith("raw_") or "blob_sha256" in name or "crlf" in name:
+            excluded.add(str(column))
+    return frozenset(excluded)
+
+
+def _v3_provenance_excluded_mapping_sha256(
+    values: Mapping[str, object],
+) -> str:
+    return _canonical_mapping_sha256(
+        values,
+        excluded_columns=_v3_diagnostic_provenance_columns(values),
+    )
+
+
+def _v3_provenance_excluded_table_sha256(frame: pd.DataFrame) -> str:
+    return _canonical_table_sha256(
+        frame,
+        excluded_columns=_v3_diagnostic_provenance_columns(frame.columns),
+    )
+
+
+def _candidate_detail_row_sha256(
+    values: Mapping[str, object],
+    *,
+    artifact_version: str,
+) -> str:
+    return (
+        _v3_provenance_excluded_mapping_sha256(values)
+        if artifact_version == V3_ARTIFACT_VERSION
+        else _canonical_mapping_sha256(values)
+    )
+
+
+def _candidate_detail_artifact_sha256(
+    detail: pd.DataFrame,
+    *,
+    artifact_version: str,
+) -> str:
+    return (
+        _v3_provenance_excluded_table_sha256(detail)
+        if artifact_version == V3_ARTIFACT_VERSION
+        else _canonical_table_sha256(detail)
+    )
+
+
 def _canonical_frame_sha256(frame: pd.DataFrame) -> str:
     missing = sorted(set(PRICE_HISTORY_CANONICAL_COLUMNS) - set(frame.columns))
     if missing:
@@ -516,7 +573,11 @@ def _lineage_set_sha256(frame: pd.DataFrame, column: str) -> str:
     return hashlib.sha256(payload).hexdigest()
 
 
-def _normalize_source(source_first_detail: pd.DataFrame) -> pd.DataFrame:
+def _normalize_source(
+    source_first_detail: pd.DataFrame,
+    *,
+    provenance_excluded_hashes: bool = False,
+) -> pd.DataFrame:
     required = {
         "model_id",
         "artifact_id",
@@ -591,9 +652,18 @@ def _normalize_source(source_first_detail: pd.DataFrame) -> pd.DataFrame:
     source["stock_id"] = source["stock_id"].map(_stock_id)
     if source["episode_key"].astype(str).duplicated().any():
         raise RuntimeError("low/mid falling source has duplicate episode keys")
-    selected_slice_sha256 = _canonical_table_sha256(source)
+    selected_slice_sha256 = (
+        _v3_provenance_excluded_table_sha256(source)
+        if provenance_excluded_hashes
+        else _canonical_table_sha256(source)
+    )
     source["source_first_canonical_row_sha256"] = source.apply(
-        lambda row: _canonical_mapping_sha256(row.to_dict()), axis=1
+        lambda row: (
+            _v3_provenance_excluded_mapping_sha256(row.to_dict())
+            if provenance_excluded_hashes
+            else _canonical_mapping_sha256(row.to_dict())
+        ),
+        axis=1,
     )
     source["source_first_selected_slice_canonical_sha256"] = selected_slice_sha256
     return source.set_index("episode_key", drop=False)
@@ -603,6 +673,7 @@ def _normalize_operations(
     rearmed_detail: pd.DataFrame,
     *,
     expected_artifact_version: str = REARMED_ARTIFACT_VERSION,
+    provenance_excluded_hashes: bool = False,
 ) -> pd.DataFrame:
     required = {
         "model_id",
@@ -806,9 +877,18 @@ def _normalize_operations(
         if present_drop_columns
         else operations.copy()
     )
-    selected_slice_sha256 = _canonical_table_sha256(persisted_hash_view)
+    selected_slice_sha256 = (
+        _v3_provenance_excluded_table_sha256(persisted_hash_view)
+        if provenance_excluded_hashes
+        else _canonical_table_sha256(persisted_hash_view)
+    )
     operations["rearmed_operation_canonical_row_sha256"] = persisted_hash_view.apply(
-        lambda row: _canonical_mapping_sha256(row.to_dict()), axis=1
+        lambda row: (
+            _v3_provenance_excluded_mapping_sha256(row.to_dict())
+            if provenance_excluded_hashes
+            else _canonical_mapping_sha256(row.to_dict())
+        ),
+        axis=1,
     )
     operations["rearmed_d30_no_stop_slice_canonical_sha256"] = (
         selected_slice_sha256
@@ -1139,6 +1219,8 @@ def _build_detail(
     rearmed_producer_semantic_sha256: str,
     position_shape_producer_semantic_sha256: str,
     data_contract_sha256: str,
+    artifact_version: str = ARTIFACT_VERSION,
+    rearmed_artifact_version: str = REARMED_ARTIFACT_VERSION,
 ) -> pd.DataFrame:
     daily = {
         _stock_id(stock_id): _normalize_price_frame(frame, _stock_id(stock_id))
@@ -1218,7 +1300,7 @@ def _build_detail(
                 "generated_at": generated_at,
                 "model_id": MODEL_ID,
                 "artifact_id": ARTIFACT_ID,
-                "artifact_version": ARTIFACT_VERSION,
+                "artifact_version": artifact_version,
                 "canonical_lineage_version": CANONICAL_LINEAGE_VERSION,
                 "data_contract_sha256": data_contract_sha256,
                 "producer_semantic_sha256": producer_semantic_sha256,
@@ -1245,7 +1327,7 @@ def _build_detail(
                     episode["source_first_selected_slice_canonical_sha256"]
                 ),
                 "rearmed_artifact_id": REARMED_ARTIFACT_ID,
-                "rearmed_artifact_version": REARMED_ARTIFACT_VERSION,
+                "rearmed_artifact_version": rearmed_artifact_version,
                 "rearmed_grid_id": str(operation["grid_id"]),
                 "rearmed_operation_canonical_row_sha256": str(
                     operation["rearmed_operation_canonical_row_sha256"]
@@ -1361,9 +1443,15 @@ def _build_detail(
             f"low/mid falling detail contains same-stock overlap: {overlap_count}"
         )
     detail["candidate_detail_row_sha256"] = detail.apply(
-        lambda row: _canonical_mapping_sha256(row.to_dict()), axis=1
+        lambda row: _candidate_detail_row_sha256(
+            row.to_dict(), artifact_version=artifact_version
+        ),
+        axis=1,
     )
-    detail_artifact_sha256 = _canonical_table_sha256(detail)
+    detail_artifact_sha256 = _candidate_detail_artifact_sha256(
+        detail,
+        artifact_version=artifact_version,
+    )
     detail["detail_artifact_canonical_sha256"] = detail_artifact_sha256
     for source_column, set_column in (
         (
@@ -1831,10 +1919,25 @@ def build_low_mid_falling_candidate_audit(
         expected_position_shape_artifact_version,
         expected_source_projection_artifact_version,
     ) = versions_for_rearmed_artifact(rearmed_artifact_version)
-    source = _normalize_source(source_first_detail)
+    v3_provenance_excluded_hashes = (
+        selected_artifact_version == V3_ARTIFACT_VERSION
+    )
+    source = _normalize_source(
+        source_first_detail,
+        provenance_excluded_hashes=v3_provenance_excluded_hashes,
+    )
     operations = _normalize_operations(
         rearmed_detail,
         expected_artifact_version=rearmed_artifact_version,
+        provenance_excluded_hashes=v3_provenance_excluded_hashes,
+    )
+    v3_detail_versions = (
+        {
+            "artifact_version": selected_artifact_version,
+            "rearmed_artifact_version": rearmed_artifact_version,
+        }
+        if selected_artifact_version == V3_ARTIFACT_VERSION
+        else {}
     )
     detail = _build_detail(
         source,
@@ -1846,6 +1949,7 @@ def build_low_mid_falling_candidate_audit(
         rearmed_producer_semantic_sha256=rearmed_producer_sha,
         position_shape_producer_semantic_sha256=position_shape_producer_sha,
         data_contract_sha256=contract_sha,
+        **v3_detail_versions,
     )
     summary = _build_summary(detail)
     paired = _build_paired_confirmation(detail)

@@ -24,11 +24,14 @@ MODEL_ID = "revenue_unreacted_range"
 ARTIFACT_ID = "revenue_unreacted_range_position_shape_transition_matrix"
 V1_ARTIFACT_VERSION = "position_shape_transition_matrix_v1_20260717"
 V2_ARTIFACT_VERSION = "position_shape_transition_matrix_v2_20260822"
+V3_ARTIFACT_VERSION = "position_shape_transition_matrix_v3_20260829"
 ARTIFACT_VERSION = V1_ARTIFACT_VERSION
 SOURCE_OPERATION_LAG_ARTIFACT_ID = "revenue_unreacted_range_operation_lag_bucket_audit"
 SOURCE_REARMED_ARTIFACT_ID = "revenue_unreacted_range_rearmed_operation_grid"
 V2_SOURCE_OPERATION_LAG_ARTIFACT_VERSION = "operation_lag_bucket_v2_20260822"
 V2_SOURCE_REARMED_ARTIFACT_VERSION = "rearmed_operation_grid_v2_20260822"
+V3_SOURCE_OPERATION_LAG_ARTIFACT_VERSION = "operation_lag_bucket_v3_20260829"
+V3_SOURCE_REARMED_ARTIFACT_VERSION = "rearmed_operation_grid_v3_20260829"
 
 
 def versions_for_operation_lag_artifact(
@@ -43,6 +46,10 @@ def versions_for_operation_lag_artifact(
         V2_SOURCE_OPERATION_LAG_ARTIFACT_VERSION: (
             V2_ARTIFACT_VERSION,
             V2_SOURCE_REARMED_ARTIFACT_VERSION,
+        ),
+        V3_SOURCE_OPERATION_LAG_ARTIFACT_VERSION: (
+            V3_ARTIFACT_VERSION,
+            V3_SOURCE_REARMED_ARTIFACT_VERSION,
         ),
     }
     if version not in mapping:
