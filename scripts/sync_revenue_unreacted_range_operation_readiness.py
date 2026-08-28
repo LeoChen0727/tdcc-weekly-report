@@ -1,18 +1,22 @@
 from __future__ import annotations
 
 import argparse
+from bisect import bisect_left
 import csv
 from decimal import Decimal, InvalidOperation
 import hashlib
+import importlib.metadata
 import io
 import json
 import math
 import numbers
+import os
 import re
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
-from typing import Any
+from typing import Any, Callable
 
 import pandas as pd
 
@@ -128,6 +132,14 @@ ALL_VARIANT_IDS = (
     "source_low_falling",
     "source_low_or_mid_falling_union",
 )
+VARIANT_MEMBERSHIP_COLUMNS = {
+    PRIMARY_VARIANT_ID: "primary_variant_member",
+    "source_low_falling": "low_falling_member",
+    "source_low_or_mid_falling_union": "low_or_mid_falling_union_member",
+}
+CONFIRMATION_VARIANT_ID = "delayed_next_close_continuation_bonus"
+LIFECYCLE_POLICY_ID = "rearm_after_realized_exit_next_trade_day"
+STOP_POLICY_ID = "none_no_stop_reference"
 SOURCE_VARIANT_ID = "absolute_or_two_month_yoy_ge15"
 MONTHLY_LINEAGE_COLUMNS = (
     "monthly_revenue_history_blob_sha256",
@@ -171,6 +183,14 @@ FORWARD_HOLDOUT_V2_SUMMARY_REL = (
     "output/latest/research_backtest/"
     "revenue_unreacted_range_forward_holdout_v2_maturity_status_latest.csv"
 )
+FORWARD_HOLDOUT_V2_COMPARISON_REL = (
+    "output/latest/research_backtest/"
+    "revenue_unreacted_range_forward_holdout_v2_comparison_latest.csv"
+)
+FORWARD_HOLDOUT_V2_ANOMALY_SENSITIVITY_REL = (
+    "output/latest/research_backtest/"
+    "revenue_unreacted_range_forward_holdout_v2_anomaly_sensitivity_latest.csv"
+)
 FORWARD_HOLDOUT_V2_REPLAY_SOURCE_REL = (
     "output/latest/research_backtest/"
     "revenue_unreacted_range_forward_holdout_v2_replay_source_detail_latest.csv"
@@ -180,6 +200,12 @@ SOURCE_PROJECTION_MANIFEST_REL = (
     "revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv"
 )
 PRICE_HISTORY_DIR_REL = "data/stock_price_history"
+MONTHLY_REVENUE_HISTORY_REL = (
+    "data/monthly_revenue_history/monthly_revenue_history.csv"
+)
+MONTHLY_REVENUE_CROSS_MARKET_RESOLUTION_REL = (
+    "config/revenue_unreacted_range_monthly_revenue_cross_market_resolution.csv"
+)
 PRICE_RESOLUTION_REL = (
     "config/revenue_unreacted_range_price_comparability_resolution.csv"
 )
@@ -189,6 +215,8 @@ CANONICAL_SOURCE_RELS = (
     FORWARD_HOLDOUT_V2_MANIFEST_REL,
     FORWARD_HOLDOUT_V2_DETAIL_REL,
     FORWARD_HOLDOUT_V2_SUMMARY_REL,
+    FORWARD_HOLDOUT_V2_COMPARISON_REL,
+    FORWARD_HOLDOUT_V2_ANOMALY_SENSITIVITY_REL,
     FORWARD_HOLDOUT_V2_REPLAY_SOURCE_REL,
     SOURCE_PROJECTION_MANIFEST_REL,
     PRICE_RESOLUTION_REL,
@@ -276,6 +304,22 @@ MANIFEST_EXTRA_FALSE_FIELDS = (
     "ranking_consumption_allowed",
     "pdf_consumption_allowed",
 )
+_EXACT_PRICE_LINEAGE_CACHE: dict[tuple[str, ...], dict[str, Any]] = {}
+EXACT_REPLAY_CHILD_MODULES = (
+    "revenue_unreacted_range_forward_holdout_v2",
+    "validate_revenue_unreacted_range_forward_holdout_v2",
+)
+EXACT_REPLAY_CHILD_MODE = "trusted_same_model_in_memory_canonical_replay"
+EXACT_REPLAY_PROTOCOL_VERSION = "revenue_readiness_exact_replay_v1_20260828"
+EXACT_REPLAY_SENTINEL = "REVENUE_EXACT_PRICE_LINEAGE_JSON="
+EXACT_REPLAY_TIMEOUT_SECONDS = 1200
+
+_EXACT_REPLAY_CHILD_BOOTSTRAP_TEMPLATE = r'''
+import sys
+
+EXPECTED_COMMIT_SHA = __EXPECTED_COMMIT_SHA__
+EXPECTED_TREE_SHA = __EXPECTED_TREE_SHA__
+'''
 
 
 def _canonical_numeric_text(text: str) -> str | None:
@@ -462,6 +506,316 @@ def _normalize_replay_source(source_first_detail: pd.DataFrame) -> pd.DataFrame:
     return source.set_index("episode_key", drop=False)
 
 
+def _replay_lineage_values(
+    episode: pd.Series,
+) -> dict[str, list[str] | list[int]]:
+    episode_key = safe_str(episode.get("episode_key"))
+
+    def split(field_name: str) -> list[str]:
+        values = [part.strip() for part in str(episode.get(field_name, "")).split("|")]
+        if not values or any(not value for value in values):
+            raise RuntimeError(
+                "revenue readiness replay source qualifying lineage contains a blank "
+                f"value: {episode_key}/{field_name}"
+            )
+        return values
+
+    periods = split("qualifying_revenue_periods")
+    source_dates = [
+        _strict_date(value, f"replay source qualifying_source_dates {episode_key}")
+        for value in split("qualifying_source_dates")
+    ]
+    resolution_ids = split("qualifying_cross_market_resolution_ids")
+    source_hashes = [
+        _require_sha(
+            value,
+            f"replay source qualifying_source_row_canonical_sha256s {episode_key}",
+        )
+        for value in split("qualifying_source_row_canonical_sha256s")
+    ]
+    if any(value == "0" * 64 for value in source_hashes):
+        raise RuntimeError(
+            "revenue readiness replay source qualifying row lineage contains a "
+            f"placeholder SHA-256: {episode_key}"
+        )
+    canonical_dates = [
+        _strict_date(
+            value,
+            f"replay source qualifying_canonical_source_table_dates {episode_key}",
+        )
+        for value in split("qualifying_canonical_source_table_dates")
+    ]
+    trade_dates = [
+        _strict_date(value, f"replay source qualifying_trade_dates {episode_key}")
+        for value in split("qualifying_trade_dates")
+    ]
+    sequence_indices = [
+        _strict_nonnegative_int(
+            value,
+            f"replay source qualifying_sequence_indices {episode_key}",
+        )
+        for value in split("qualifying_sequence_indices")
+    ]
+    expected_count = _strict_nonnegative_int(
+        episode.get("qualifying_update_count"),
+        f"replay source qualifying_update_count {episode_key}",
+    )
+    aligned_lengths = {
+        len(periods),
+        len(source_dates),
+        len(resolution_ids),
+        len(source_hashes),
+        len(canonical_dates),
+        len(trade_dates),
+        len(sequence_indices),
+        expected_count,
+    }
+    if len(aligned_lengths) != 1 or expected_count == 0:
+        raise RuntimeError(
+            "revenue readiness replay source qualifying lineage is not aligned: "
+            f"{episode_key}"
+        )
+    if any(re.fullmatch(r"\d{6}", value) is None for value in periods):
+        raise RuntimeError(
+            f"revenue readiness replay source revenue period is invalid: {episode_key}"
+        )
+    scalar_expectations: dict[str, str | int] = {
+        "episode_start_revenue_period": periods[0],
+        "episode_start_source_date": source_dates[0],
+        "episode_start_cross_market_resolution_id": resolution_ids[0],
+        "episode_start_source_row_canonical_sha256": source_hashes[0],
+        "episode_start_canonical_source_table_date": canonical_dates[0],
+        "episode_start_trade_date": trade_dates[0],
+        "episode_start_sequence_index": sequence_indices[0],
+        "latest_qualifying_revenue_period": periods[-1],
+        "latest_qualifying_source_date": source_dates[-1],
+        "latest_qualifying_cross_market_resolution_id": resolution_ids[-1],
+        "latest_qualifying_source_row_canonical_sha256": source_hashes[-1],
+        "latest_qualifying_canonical_source_table_date": canonical_dates[-1],
+        "latest_qualifying_trade_date": trade_dates[-1],
+        "latest_qualifying_sequence_index": sequence_indices[-1],
+    }
+    integer_fields = {
+        "episode_start_sequence_index",
+        "latest_qualifying_sequence_index",
+    }
+    mismatches: list[str] = []
+    for field_name, expected in scalar_expectations.items():
+        if field_name in integer_fields:
+            observed: str | int = _strict_nonnegative_int(
+                episode.get(field_name), f"replay source {field_name} {episode_key}"
+            )
+        elif "date" in field_name:
+            observed = _strict_date(
+                episode.get(field_name), f"replay source {field_name} {episode_key}"
+            )
+        else:
+            observed = _canonical_value(episode.get(field_name))
+        if observed != expected:
+            mismatches.append(field_name)
+    if mismatches:
+        raise RuntimeError(
+            "revenue readiness replay source scalar/list lineage drift: "
+            f"{episode_key}/{mismatches}"
+        )
+    return {
+        "periods": periods,
+        "source_dates": source_dates,
+        "resolution_ids": resolution_ids,
+        "source_hashes": source_hashes,
+        "canonical_dates": canonical_dates,
+        "trade_dates": trade_dates,
+        "sequence_indices": sequence_indices,
+    }
+
+
+def _validate_replay_source_pit_lineage(
+    normalized_source: pd.DataFrame,
+    *,
+    observed_through: str,
+    registered_prices: dict[str, pd.DataFrame],
+) -> None:
+    price_dates = {
+        stock_id: frame["date"].astype(str).tolist()
+        for stock_id, frame in registered_prices.items()
+    }
+    price_date_indices = {
+        stock_id: {date: index for index, date in enumerate(dates)}
+        for stock_id, dates in price_dates.items()
+    }
+    for episode_key, episode in normalized_source.iterrows():
+        lineage = _replay_lineage_values(episode)
+        periods = lineage["periods"]
+        source_dates = lineage["source_dates"]
+        canonical_dates = lineage["canonical_dates"]
+        trade_dates = lineage["trade_dates"]
+        sequence_indices = lineage["sequence_indices"]
+        if periods != sorted(set(periods)):
+            raise RuntimeError(
+                f"revenue readiness replay source periods are not strictly increasing: {episode_key}"
+            )
+        if source_dates != sorted(set(source_dates)):
+            raise RuntimeError(
+                f"revenue readiness replay source dates are not strictly increasing: {episode_key}"
+            )
+        if trade_dates != sorted(set(trade_dates)):
+            raise RuntimeError(
+                f"revenue readiness replay source trade dates are not strictly increasing: {episode_key}"
+            )
+        if sequence_indices != sorted(set(sequence_indices)):
+            raise RuntimeError(
+                "revenue readiness replay source sequence indices are not strictly "
+                f"increasing: {episode_key}"
+            )
+        if canonical_dates != source_dates:
+            raise RuntimeError(
+                "revenue readiness replay source canonical/source date lineage drift: "
+                f"{episode_key}"
+            )
+        if any(
+            source_date > trade_date
+            for source_date, trade_date in zip(source_dates, trade_dates)
+        ):
+            raise RuntimeError(
+                f"revenue readiness replay source date exceeds trade date: {episode_key}"
+            )
+        if any(
+            date > observed_through
+            for date in [*source_dates, *canonical_dates, *trade_dates]
+        ):
+            raise RuntimeError(
+                "revenue readiness replay source contains future PIT lineage beyond "
+                f"observed_through_date: {episode_key}"
+            )
+        stock_id = _stock_id(episode.get("stock_id"))
+        lineage_rows = list(
+            zip(
+                source_dates,
+                trade_dates,
+                sequence_indices,
+            )
+        )
+        ordered_dates = price_dates.get(stock_id)
+        if ordered_dates is None:
+            raise RuntimeError(
+                f"revenue readiness replay source lacks registered prices: {stock_id}"
+            )
+        date_index = price_date_indices[stock_id]
+        for (
+            source_date,
+            trade_date,
+            sequence_index,
+        ) in lineage_rows:
+            first_position = bisect_left(ordered_dates, source_date)
+            first_available = (
+                ordered_dates[first_position]
+                if first_position < len(ordered_dates)
+                else ""
+            )
+            if (
+                first_available != trade_date
+                or date_index.get(trade_date) != sequence_index
+            ):
+                raise RuntimeError(
+                    "revenue readiness replay source trade date is not the first "
+                    "normalized registered session on or after source availability: "
+                    f"{episode_key}/{source_date}/{trade_date}"
+                )
+
+
+def _validate_detail_source_asof_against_replay(
+    detail: pd.DataFrame,
+    *,
+    normalized_source: pd.DataFrame,
+    registered_prices: dict[str, pd.DataFrame],
+) -> None:
+    for row_index, event in detail.iterrows():
+        episode_key = safe_str(event.get("episode_key"))
+        if episode_key not in normalized_source.index:
+            raise RuntimeError(
+                "revenue readiness holdout detail episode is absent from committed "
+                f"replay source: {episode_key}"
+            )
+        episode = normalized_source.loc[episode_key]
+        if isinstance(episode, pd.DataFrame):
+            raise RuntimeError(
+                f"revenue readiness replay source duplicate episode_key: {episode_key}"
+            )
+        stock_id = _stock_id(event.get("stock_id"))
+        if _stock_id(episode.get("stock_id")) != stock_id:
+            raise RuntimeError(
+                f"revenue readiness detail/replay source stock identity drift: {episode_key}"
+            )
+        prices = registered_prices.get(stock_id)
+        if prices is None:
+            raise RuntimeError(
+                f"revenue readiness detail source-asof lacks registered prices: {stock_id}"
+            )
+        lineage = _replay_lineage_values(episode)
+        date_index = {
+            safe_str(date): int(index) for index, date in prices["date"].items()
+        }
+        trigger_index = _strict_nonnegative_int(
+            event.get("trigger_index"),
+            f"holdout detail trigger_index row={row_index}",
+        )
+        positions: list[int] = []
+        for position, (source_date, trade_date, sequence_index) in enumerate(
+            zip(
+                lineage["source_dates"],
+                lineage["trade_dates"],
+                lineage["sequence_indices"],
+            )
+        ):
+            if (
+                date_index.get(trade_date) == sequence_index
+                and source_date <= trade_date
+                and sequence_index <= trigger_index
+            ):
+                positions.append(position)
+        if not positions:
+            raise RuntimeError(
+                f"revenue readiness detail has no PIT source known by trigger: {episode_key}"
+            )
+        position = positions[-1]
+        expected = {
+            "source_asof_date": lineage["source_dates"][position],
+            "source_asof_trade_date": lineage["trade_dates"][position],
+            "source_asof_revenue_period": lineage["periods"][position],
+            "source_asof_row_canonical_sha256": lineage["source_hashes"][position],
+            "source_asof_canonical_source_table_date": lineage["canonical_dates"][position],
+            "source_asof_sequence_index": lineage["sequence_indices"][position],
+            "source_to_trigger_trading_days": (
+                trigger_index - lineage["sequence_indices"][position]
+            ),
+            "future_qualifying_update_ignored_count": (
+                len(lineage["periods"]) - position - 1
+            ),
+        }
+        integer_fields = {
+            "source_asof_sequence_index",
+            "source_to_trigger_trading_days",
+            "future_qualifying_update_ignored_count",
+        }
+        mismatches: list[str] = []
+        for field_name, expected_value in expected.items():
+            observed_value: str | int
+            if field_name in integer_fields:
+                observed_value = _strict_nonnegative_int(
+                    event.get(field_name),
+                    f"holdout detail {field_name} row={row_index}",
+                )
+            else:
+                observed_value = safe_str(event.get(field_name))
+            if observed_value != expected_value:
+                mismatches.append(field_name)
+        if mismatches:
+            raise RuntimeError(
+                "revenue readiness detail source-asof drift from committed replay "
+                f"source: {episode_key}/{mismatches}"
+            )
+
+
 def _validate_selected_v2_manifest(source_manifest: pd.DataFrame) -> None:
     if len(source_manifest) != 1:
         raise RuntimeError("forward holdout v2 selected manifest must have one row")
@@ -557,6 +911,19 @@ def _bool_series(frame: pd.DataFrame, column: str) -> pd.Series:
     return pd.Series(values, index=frame.index, dtype=bool)
 
 
+def _variant_membership(detail: pd.DataFrame, variant_id: str) -> pd.Series:
+    column = VARIANT_MEMBERSHIP_COLUMNS.get(variant_id)
+    if column is None:
+        raise RuntimeError(
+            f"revenue readiness unknown holdout variant membership: {variant_id}"
+        )
+    if column not in detail.columns:
+        raise RuntimeError(
+            f"revenue readiness holdout detail missing membership column: {column}"
+        )
+    return _bool_series(detail, column)
+
+
 def _validate_disabled_frame(
     frame: pd.DataFrame,
     *,
@@ -624,6 +991,11 @@ def _parse_price_stock_sha_set(manifest_row: pd.Series) -> dict[str, str]:
                 "revenue readiness holdout malformed per-stock price lineage token"
             )
         _require_sha(digest, f"holdout.price_input_stock_sha/{stock_id}")
+        if digest == "0" * 64:
+            raise RuntimeError(
+                "revenue readiness holdout per-stock price lineage contains a "
+                f"placeholder SHA-256: {stock_id}"
+            )
         if stock_id in result:
             raise RuntimeError(
                 f"revenue readiness holdout duplicate per-stock price lineage: {stock_id}"
@@ -649,6 +1021,680 @@ def _parse_price_stock_sha_set(manifest_row: pd.Series) -> dict[str, str]:
     ) <= 0:
         raise RuntimeError("revenue readiness holdout price input row count must be positive")
     return result
+
+
+def _exact_replay_child_bootstrap_source(head_sha: str, tree_sha: str) -> str:
+    for field_name, object_id in (
+        ("head_sha", head_sha),
+        ("tree_sha", tree_sha),
+    ):
+        if not re.fullmatch(r"(?:[0-9a-f]{40}|[0-9a-f]{64})", object_id):
+            raise RuntimeError(
+                "revenue readiness exact_replay."
+                f"{field_name} must be a canonical Git object id"
+            )
+    return (
+        _EXACT_REPLAY_CHILD_BOOTSTRAP_TEMPLATE.replace(
+            "__EXPECTED_COMMIT_SHA__", json.dumps(head_sha)
+        ).replace("__EXPECTED_TREE_SHA__", json.dumps(tree_sha))
+    )
+
+
+def _exact_replay_child_env() -> dict[str, str]:
+    child_env = dict(os.environ)
+    forbidden_python_names = {
+        "PYTHONHOME",
+        "PYTHONINSPECT",
+        "PYTHONPATH",
+        "PYTHONSTARTUP",
+        "PYTHONUSERBASE",
+    }
+    for name in tuple(child_env):
+        upper_name = name.upper()
+        if upper_name in forbidden_python_names or upper_name.startswith("GIT_"):
+            child_env.pop(name, None)
+    child_env.update(
+        {
+            "PYTHONDONTWRITEBYTECODE": "1",
+            "PYTHONNOUSERSITE": "1",
+            "PYTHONWARNINGS": "ignore",
+            "GIT_OPTIONAL_LOCKS": "0",
+            "GIT_NO_REPLACE_OBJECTS": "1",
+            "GIT_CONFIG_NOSYSTEM": "1",
+            "GIT_CONFIG_GLOBAL": os.devnull,
+            "GIT_CONFIG_COUNT": "1",
+            "GIT_CONFIG_KEY_0": "core.fsmonitor",
+            "GIT_CONFIG_VALUE_0": "false",
+            "NoDefaultCurrentDirectoryInExePath": "1",
+        }
+    )
+    return child_env
+
+
+def _combined_exact_replay_error(
+    primary_error: str | None,
+    cleanup_errors: list[str],
+) -> RuntimeError | None:
+    if primary_error is None and not cleanup_errors:
+        return None
+    if primary_error is None:
+        return RuntimeError(
+            "exact revenue replay cleanup failed: " + " | ".join(cleanup_errors)
+        )
+    if cleanup_errors:
+        primary_error += "; cleanup failures: " + " | ".join(cleanup_errors)
+    return RuntimeError(primary_error)
+
+
+def _run_exact_replay_child(
+    repo: Path,
+    head_sha: str,
+    child_source: str,
+    *,
+    timeout_seconds: int = EXACT_REPLAY_TIMEOUT_SECONDS,
+    run_command: Callable[..., subprocess.CompletedProcess[str]] | None = None,
+    make_temp_dir: Callable[..., str] | None = None,
+) -> subprocess.CompletedProcess[str]:
+    """Run one isolated child and preserve primary failures through cleanup."""
+
+    runner = subprocess.run if run_command is None else run_command
+    temp_maker = tempfile.mkdtemp if make_temp_dir is None else make_temp_dir
+    temp_parent = Path(
+        temp_maker(prefix="revenue-readiness-exact-replay-")
+    ).resolve()
+    clean_repo = temp_parent / "repo"
+    primary_error: str | None = None
+    cleanup_errors: list[str] = []
+    child_result: subprocess.CompletedProcess[str] | None = None
+    worktree_added = False
+
+    try:
+        add_result = runner(
+            [
+                "git",
+                "-c",
+                "core.autocrlf=false",
+                "--no-replace-objects",
+                "worktree",
+                "add",
+                "--detach",
+                str(clean_repo),
+                head_sha,
+            ],
+            cwd=repo,
+            check=False,
+            text=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+        )
+        if add_result.returncode:
+            detail = add_result.stderr.strip() or add_result.stdout.strip()
+            primary_error = (
+                "cannot create exact committed replay worktree: "
+                + (detail or "git worktree add failed")
+            )
+        else:
+            worktree_added = True
+            try:
+                child_result = runner(
+                    [sys.executable, "-I", "-B", "-c", child_source],
+                    cwd=clean_repo,
+                    check=False,
+                    text=True,
+                    env=_exact_replay_child_env(),
+                    stdout=subprocess.PIPE,
+                    stderr=subprocess.PIPE,
+                    timeout=timeout_seconds,
+                )
+            except subprocess.TimeoutExpired:
+                primary_error = (
+                    "exact revenue price-lineage replay timed out after "
+                    f"{timeout_seconds} seconds"
+                )
+            except OSError as exc:
+                primary_error = (
+                    "cannot launch exact revenue price-lineage replay child: "
+                    f"{exc}"
+                )
+            else:
+                if child_result.returncode:
+                    detail = child_result.stderr.strip() or child_result.stdout.strip()
+                    primary_error = (
+                        "exact revenue price-lineage replay failed: " + detail[-4000:]
+                    )
+
+            status_result = runner(
+                [
+                    "git",
+                    "--no-replace-objects",
+                    "status",
+                    "--porcelain=v1",
+                    "--untracked-files=all",
+                ],
+                cwd=clean_repo,
+                check=False,
+                text=True,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+            )
+            if status_result.returncode:
+                detail = status_result.stderr.strip() or status_result.stdout.strip()
+                security_error = (
+                    "post-child exact replay worktree clean check failed: "
+                    + (detail or "git status failed")
+                )
+                primary_error = (
+                    security_error
+                    if primary_error is None
+                    else primary_error + "; " + security_error
+                )
+            elif status_result.stdout.strip():
+                security_error = (
+                    "exact revenue replay child mutated its clean worktree: "
+                    + status_result.stdout.strip().replace("\n", "; ")
+                )
+                primary_error = (
+                    security_error
+                    if primary_error is None
+                    else primary_error + "; " + security_error
+                )
+    except OSError as exc:
+        if primary_error is None:
+            primary_error = f"exact revenue replay worktree transaction failed: {exc}"
+        else:
+            primary_error += f"; worktree transaction failed: {exc}"
+    finally:
+        if worktree_added or clean_repo.exists():
+            try:
+                remove_result = runner(
+                    [
+                        "git",
+                        "--no-replace-objects",
+                        "worktree",
+                        "remove",
+                        "--force",
+                        str(clean_repo),
+                    ],
+                    cwd=repo,
+                    check=False,
+                    text=True,
+                    stdout=subprocess.PIPE,
+                    stderr=subprocess.PIPE,
+                )
+            except OSError as exc:
+                cleanup_errors.append(
+                    f"cannot remove exact committed replay worktree: {exc}"
+                )
+            else:
+                if remove_result.returncode:
+                    detail = remove_result.stderr.strip() or remove_result.stdout.strip()
+                    cleanup_errors.append(
+                        "cannot remove exact committed replay worktree: "
+                        + (detail or "git worktree remove failed")
+                    )
+        if clean_repo.exists():
+            try:
+                clean_repo.rmdir()
+            except OSError as exc:
+                cleanup_errors.append(
+                    f"exact replay worktree path remains after cleanup: {exc}"
+                )
+        try:
+            temp_parent.rmdir()
+        except OSError as exc:
+            cleanup_errors.append(
+                f"cannot remove exact replay temporary directory: {exc}"
+            )
+
+    combined_error = _combined_exact_replay_error(primary_error, cleanup_errors)
+    if combined_error is not None:
+        raise combined_error
+    if child_result is None:
+        raise RuntimeError("exact revenue replay child returned no process result")
+    return child_result
+
+
+def _parse_exact_replay_payload(
+    result: subprocess.CompletedProcess[str],
+    *,
+    head_sha: str,
+    tree_sha: str,
+    runtime_fingerprint: dict[str, str],
+) -> dict[str, Any]:
+    stdout_lines = [line for line in result.stdout.splitlines() if line.strip()]
+    if len(stdout_lines) != 1 or not stdout_lines[0].startswith(
+        EXACT_REPLAY_SENTINEL
+    ):
+        raise RuntimeError("exact revenue price-lineage replay stdout protocol drift")
+
+    def unique_json_object(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
+        parsed: dict[str, Any] = {}
+        for key, value in pairs:
+            if key in parsed:
+                raise ValueError(f"duplicate JSON key: {key}")
+            parsed[key] = value
+        return parsed
+
+    try:
+        payload = json.loads(
+            stdout_lines[0][len(EXACT_REPLAY_SENTINEL) :],
+            object_pairs_hook=unique_json_object,
+        )
+    except (json.JSONDecodeError, ValueError) as exc:
+        raise RuntimeError(
+            "exact revenue price-lineage replay returned malformed JSON"
+        ) from exc
+    if not isinstance(payload, dict):
+        raise RuntimeError("exact revenue price-lineage replay payload must be an object")
+    expected_payload_keys = {
+        "protocol_version",
+        "commit_sha",
+        "tree_sha",
+        "runtime_fingerprint",
+        "capture_id",
+        "price_input_canonical_sha256",
+        "price_input_stock_canonical_sha256s",
+        "price_input_stock_count",
+        "price_input_row_count",
+        "observed_through_date",
+        "expected_manifest_canonical_sha256",
+        "expected_detail_canonical_sha256",
+        "expected_summary_canonical_sha256",
+        "frame_attestations",
+        "replay_child_mode",
+        "replay_child_modules",
+    }
+    if set(payload) != expected_payload_keys:
+        raise RuntimeError("exact revenue replay top-level payload schema drift")
+    if payload.get("protocol_version") != EXACT_REPLAY_PROTOCOL_VERSION:
+        raise RuntimeError("exact revenue replay protocol version drift")
+    if payload.get("commit_sha") != head_sha or payload.get("tree_sha") != tree_sha:
+        raise RuntimeError("exact revenue replay committed identity drift")
+    if payload.get("runtime_fingerprint") != runtime_fingerprint:
+        raise RuntimeError("exact revenue replay runtime fingerprint drift")
+    _require_sha(payload.get("capture_id"), "exact_holdout.capture_id")
+    _require_sha(
+        payload.get("price_input_canonical_sha256"),
+        "exact_holdout.price_input_canonical_sha256",
+    )
+    frame_attestations = payload.get("frame_attestations")
+    if not isinstance(frame_attestations, dict) or set(frame_attestations) != {
+        "manifest",
+        "detail",
+        "summary",
+        "comparison",
+        "anomaly",
+    }:
+        raise RuntimeError("exact revenue replay five-frame attestation drift")
+    for frame_name, frame_attestation in frame_attestations.items():
+        if not isinstance(frame_attestation, dict) or set(frame_attestation) != {
+            "canonical_sha256",
+            "row_count",
+            "column_count",
+        }:
+            raise RuntimeError(
+                f"exact revenue replay frame attestation schema drift: {frame_name}"
+            )
+        _require_sha(
+            frame_attestation.get("canonical_sha256"),
+            f"exact_holdout.frame_attestation/{frame_name}",
+        )
+        if _strict_nonnegative_int(
+            frame_attestation.get("column_count"),
+            f"exact_holdout.frame_column_count/{frame_name}",
+        ) <= 0:
+            raise RuntimeError(f"exact revenue replay frame has no columns: {frame_name}")
+        _strict_nonnegative_int(
+            frame_attestation.get("row_count"),
+            f"exact_holdout.frame_row_count/{frame_name}",
+        )
+    for frame_name in ("manifest", "detail", "summary"):
+        if payload.get(
+            f"expected_{frame_name}_canonical_sha256"
+        ) != frame_attestations[frame_name]["canonical_sha256"]:
+            raise RuntimeError(
+                "exact revenue replay top-level/frame attestation drift: "
+                f"{frame_name}"
+            )
+    if payload.get("replay_child_mode") != EXACT_REPLAY_CHILD_MODE or tuple(
+        payload.get("replay_child_modules", [])
+    ) != EXACT_REPLAY_CHILD_MODULES:
+        raise RuntimeError("exact revenue replay child dependency identity drift")
+    return payload
+
+
+def _recompute_exact_registered_price_lineage(
+    repo_root: Path | str,
+) -> dict[str, Any]:
+    """Replay the exact producer/independent-validator price canonicalization.
+
+    The parent writer keeps the same-model research modules outside its module
+    graph.  A trusted same-model child process materializes the registered v2
+    bundle, requires producer/independent-validator full-frame parity, and runs
+    the official persisted-frame replay gate without writing any artifact.
+    """
+
+    repo = Path(repo_root).resolve()
+    head_result = subprocess.run(
+        ["git", "--no-replace-objects", "rev-parse", "HEAD"],
+        cwd=repo,
+        check=False,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    if head_result.returncode:
+        raise RuntimeError(
+            "cannot resolve HEAD for exact revenue price-lineage replay: "
+            + head_result.stderr.strip()
+        )
+    head_sha = head_result.stdout.strip()
+    tree_result = subprocess.run(
+        ["git", "--no-replace-objects", "rev-parse", "HEAD^{tree}"],
+        cwd=repo,
+        check=False,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    if tree_result.returncode:
+        raise RuntimeError(
+            "cannot resolve HEAD tree for exact revenue replay: "
+            + tree_result.stderr.strip()
+        )
+    tree_sha = tree_result.stdout.strip()
+    runtime_fingerprint = {
+        "python": sys.version.split()[0],
+        "pandas": pd.__version__,
+        "numpy": importlib.metadata.version("numpy"),
+    }
+    cache_key = (
+        str(repo),
+        EXACT_REPLAY_PROTOCOL_VERSION,
+        head_sha,
+        tree_sha,
+        runtime_fingerprint["python"],
+        runtime_fingerprint["pandas"],
+        runtime_fingerprint["numpy"],
+    )
+    cached = _EXACT_PRICE_LINEAGE_CACHE.get(cache_key)
+    if cached is not None:
+        return cached
+
+    child_source = _exact_replay_child_bootstrap_source(head_sha, tree_sha) + r'''
+import json
+import subprocess
+from pathlib import Path
+
+import pandas as pd
+
+sys.path.insert(0, str(Path.cwd() / "scripts"))
+
+import revenue_unreacted_range_forward_holdout_v2 as producer_v2
+import validate_revenue_unreacted_range_forward_holdout_v2 as validator_v2
+
+commit_sha = EXPECTED_COMMIT_SHA
+tree_sha = EXPECTED_TREE_SHA
+observed_commit_sha = subprocess.run(
+    ["git", "--no-replace-objects", "rev-parse", "HEAD^{commit}"],
+    check=True,
+    text=True,
+    stdout=subprocess.PIPE,
+).stdout.strip()
+observed_tree_sha = subprocess.run(
+    ["git", "--no-replace-objects", "rev-parse", "HEAD^{tree}"],
+    check=True,
+    text=True,
+    stdout=subprocess.PIPE,
+).stdout.strip()
+if observed_commit_sha != commit_sha or observed_tree_sha != tree_sha:
+    raise RuntimeError("exact revenue replay child no-replace identity drift")
+producer_v2.validate_v1_exact17_freeze(
+    root=Path.cwd(),
+    git_ref=commit_sha,
+)
+
+try:
+    with producer_v2.engine_v2_context():
+        source_detail, daily_by_stock, source_manifest = (
+            producer_v2.engine._materialize_current_forward_holdout_inputs()
+        )
+        producer_v2.validate_selected_v2_manifest(source_manifest)
+        frames = producer_v2.engine.build_forward_holdout(
+            source_detail,
+            daily_by_stock,
+            source_manifest=source_manifest,
+            generated_at="exact-readiness-replay",
+        )
+
+    errors = validator_v2.validate_frames(
+        *frames,
+        source_detail=source_detail,
+        daily_by_stock=daily_by_stock,
+        source_manifest=source_manifest,
+    )
+    if errors:
+        raise RuntimeError(
+            "official v2 forward-holdout replay failed: " + " | ".join(errors[:20])
+        )
+
+    frame_names = ("manifest", "detail", "summary", "comparison", "anomaly")
+    persisted_frames = [
+        pd.read_csv(
+            validator_v2.DEFAULT_PATHS[name],
+            dtype=str,
+            keep_default_na=False,
+        )
+        for name in frame_names
+    ]
+    for name, exact_frame, persisted_frame in zip(
+        frame_names, frames, persisted_frames
+    ):
+        if validator_v2.validator._frame_sha(
+            persisted_frame
+        ) != validator_v2.validator._frame_sha(exact_frame):
+            raise RuntimeError(
+                "persisted v2 forward-holdout frame drift from exact build: " + name
+            )
+finally:
+    producer_v2.validate_v1_exact17_freeze(
+        root=Path.cwd(),
+        git_ref=commit_sha,
+    )
+
+manifest_row = frames[0].iloc[0]
+aggregate_sha = str(manifest_row["price_input_canonical_sha256"])
+sha_set_text = str(manifest_row["price_input_stock_canonical_sha256s"])
+stock_count = int(manifest_row["price_input_stock_count"])
+row_count = int(manifest_row["price_input_row_count"])
+per_stock_sha = {}
+for token in sha_set_text.split("|"):
+    stock_id, separator, digest = token.partition(":")
+    if not separator or stock_id in per_stock_sha:
+        raise RuntimeError("independent validator returned malformed price lineage")
+    per_stock_sha[stock_id] = digest
+observed_through_date = str(manifest_row["observed_through_date"])
+frame_attestations = {
+    name: {
+        "canonical_sha256": validator_v2.validator._frame_sha(frame),
+        "row_count": len(frame),
+        "column_count": len(frame.columns),
+    }
+    for name, frame in zip(frame_names, frames)
+}
+print(
+    "REVENUE_EXACT_PRICE_LINEAGE_JSON="
+    + json.dumps(
+        {
+            "protocol_version": "revenue_readiness_exact_replay_v1_20260828",
+            "commit_sha": commit_sha,
+            "tree_sha": tree_sha,
+            "runtime_fingerprint": {
+                "python": sys.version.split()[0],
+                "pandas": pd.__version__,
+                "numpy": __import__("numpy").__version__,
+            },
+            "capture_id": str(manifest_row["capture_id"]),
+            "price_input_canonical_sha256": aggregate_sha,
+            "price_input_stock_canonical_sha256s": per_stock_sha,
+            "price_input_stock_count": stock_count,
+            "price_input_row_count": row_count,
+            "observed_through_date": observed_through_date,
+            "expected_manifest_canonical_sha256": (
+                validator_v2.validator._frame_sha(frames[0])
+            ),
+            "expected_detail_canonical_sha256": (
+                validator_v2.validator._frame_sha(frames[1])
+            ),
+            "expected_summary_canonical_sha256": (
+                validator_v2.validator._frame_sha(frames[2])
+            ),
+            "frame_attestations": frame_attestations,
+            "replay_child_mode": "trusted_same_model_in_memory_canonical_replay",
+            "replay_child_modules": [
+                "revenue_unreacted_range_forward_holdout_v2",
+                "validate_revenue_unreacted_range_forward_holdout_v2",
+            ],
+        },
+        separators=(",", ":"),
+        sort_keys=True,
+    )
+)
+'''
+    result = _run_exact_replay_child(repo, head_sha, child_source)
+    payload = _parse_exact_replay_payload(
+        result,
+        head_sha=head_sha,
+        tree_sha=tree_sha,
+        runtime_fingerprint=runtime_fingerprint,
+    )
+    _EXACT_PRICE_LINEAGE_CACHE[cache_key] = payload
+    return payload
+
+
+def _validate_exact_registered_price_lineage(
+    repo_root: Path | str,
+    manifest_row: pd.Series,
+    *,
+    manifest: pd.DataFrame,
+    detail: pd.DataFrame,
+    summary: pd.DataFrame,
+    observed_through: str,
+    per_stock_manifest_sha: dict[str, str],
+) -> None:
+    exact = _recompute_exact_registered_price_lineage(repo_root)
+    for label, frame in (
+        ("manifest", manifest),
+        ("detail", detail),
+        ("summary", summary),
+    ):
+        expected_frame_sha = _require_sha(
+            exact.get(f"expected_{label}_canonical_sha256"),
+            f"exact_holdout.expected_{label}_canonical_sha256",
+        )
+        observed_frame_sha = _canonical_frame_sha256(frame)
+        if observed_frame_sha != expected_frame_sha:
+            raise RuntimeError(
+                "revenue readiness holdout candidate "
+                f"{label} drift from independent exact replay"
+            )
+    exact_mapping = exact.get("price_input_stock_canonical_sha256s")
+    if not isinstance(exact_mapping, dict) or not exact_mapping:
+        raise RuntimeError(
+            "exact revenue price-lineage replay returned no per-stock digests"
+        )
+    normalized_exact_mapping: dict[str, str] = {}
+    for raw_stock_id, raw_digest in exact_mapping.items():
+        stock_id = _stock_id(raw_stock_id)
+        if not re.fullmatch(r"[0-9A-Za-z]{1,12}", stock_id):
+            raise RuntimeError(
+                "exact revenue price-lineage replay returned unsafe stock identity"
+            )
+        digest = _require_sha(
+            raw_digest,
+            f"exact_holdout.price_input_stock_sha/{stock_id}",
+        )
+        if digest == "0" * 64 or stock_id in normalized_exact_mapping:
+            raise RuntimeError(
+                "exact revenue price-lineage replay returned invalid per-stock lineage"
+            )
+        normalized_exact_mapping[stock_id] = digest
+    if normalized_exact_mapping != per_stock_manifest_sha:
+        mismatched = sorted(
+            stock_id
+            for stock_id in set(normalized_exact_mapping) | set(per_stock_manifest_sha)
+            if normalized_exact_mapping.get(stock_id)
+            != per_stock_manifest_sha.get(stock_id)
+        )
+        raise RuntimeError(
+            "revenue readiness holdout per-stock price canonical SHA drift from "
+            f"exact producer replay: {mismatched[:10]}"
+        )
+
+    lineage_rows = pd.DataFrame(
+        [
+            {
+                "stock_id": stock_id,
+                "price_canonical_sha256": digest,
+            }
+            for stock_id, digest in sorted(normalized_exact_mapping.items())
+        ]
+    )
+    recomputed_aggregate_sha = _canonical_frame_sha256(lineage_rows)
+    exact_aggregate_sha = _require_sha(
+        exact.get("price_input_canonical_sha256"),
+        "exact_holdout.price_input_canonical_sha256",
+    )
+    manifest_aggregate_sha = safe_str(
+        manifest_row.get("price_input_canonical_sha256")
+    )
+    if recomputed_aggregate_sha != exact_aggregate_sha:
+        raise RuntimeError(
+            "exact revenue price-lineage aggregate disagrees with its per-stock set"
+        )
+    if recomputed_aggregate_sha != manifest_aggregate_sha:
+        raise RuntimeError(
+            "revenue readiness holdout price_input_canonical_sha256 drift from "
+            "exact producer replay"
+        )
+
+    exact_stock_count = _strict_nonnegative_int(
+        exact.get("price_input_stock_count"),
+        "exact_holdout.price_input_stock_count",
+    )
+    manifest_stock_count = _strict_nonnegative_int(
+        manifest_row.get("price_input_stock_count"),
+        "holdout.price_input_stock_count",
+    )
+    if exact_stock_count != len(normalized_exact_mapping):
+        raise RuntimeError(
+            "exact revenue price-lineage stock count disagrees with per-stock set"
+        )
+    if exact_stock_count != manifest_stock_count:
+        raise RuntimeError(
+            "revenue readiness holdout price input stock count drift from exact replay"
+        )
+    exact_row_count = _strict_nonnegative_int(
+        exact.get("price_input_row_count"),
+        "exact_holdout.price_input_row_count",
+    )
+    manifest_row_count = _strict_nonnegative_int(
+        manifest_row.get("price_input_row_count"),
+        "holdout.price_input_row_count",
+    )
+    if exact_row_count <= 0 or exact_row_count != manifest_row_count:
+        raise RuntimeError(
+            "revenue readiness holdout price input row count drift from exact replay"
+        )
+    exact_observed_through = _strict_date(
+        exact.get("observed_through_date"),
+        "exact_holdout.observed_through_date",
+    )
+    if exact_observed_through != observed_through:
+        raise RuntimeError(
+            "revenue readiness holdout observed_through_date drift from exact "
+            "registered price replay"
+        )
 
 
 def _normalized_registered_price_frame(
@@ -754,8 +1800,12 @@ def _load_registered_price_frames(
     *,
     observed_through: str,
     per_stock_manifest_sha: dict[str, str],
+    required_stock_ids: set[str] | None = None,
 ) -> dict[str, pd.DataFrame]:
-    stock_ids = sorted({_stock_id(value) for value in detail.get("stock_id", [])})
+    stock_ids = sorted(
+        {_stock_id(value) for value in detail.get("stock_id", [])}
+        | {_stock_id(value) for value in (required_stock_ids or set())}
+    )
     if any(not re.fullmatch(r"[0-9A-Za-z]{1,12}", stock_id) for stock_id in stock_ids):
         raise RuntimeError("revenue readiness holdout detail contains unsafe stock_id")
     missing_lineage = sorted(set(stock_ids) - set(per_stock_manifest_sha))
@@ -767,20 +1817,20 @@ def _load_registered_price_frames(
     if not stock_ids:
         return {}
     repo = Path(repo_root).resolve()
-    resolution_bytes, _diagnostic = _committed_semantic_source(
-        repo,
+    logical_paths = [
         PRICE_RESOLUTION_REL,
-        csv_source=True,
+        *(f"{PRICE_HISTORY_DIR_REL}/{stock_id}.csv" for stock_id in stock_ids),
+    ]
+    committed_sources = _bulk_committed_registered_price_sources(
+        repo,
+        logical_paths,
     )
+    resolution_bytes = committed_sources[PRICE_RESOLUTION_REL]
     resolutions = _frame_from_csv_bytes(resolution_bytes, PRICE_RESOLUTION_REL)
     result: dict[str, pd.DataFrame] = {}
     for stock_id in stock_ids:
         logical_path = f"{PRICE_HISTORY_DIR_REL}/{stock_id}.csv"
-        price_bytes, _diagnostic = _committed_semantic_source(
-            repo,
-            logical_path,
-            csv_source=True,
-        )
+        price_bytes = committed_sources[logical_path]
         raw = _frame_from_csv_bytes(price_bytes, logical_path)
         result[stock_id] = _normalized_registered_price_frame(
             raw,
@@ -893,18 +1943,30 @@ def _validate_detail_maturity_against_registered_prices(
                 "revenue readiness holdout D+1 confirmation date drift: "
                 f"{stock_id}/{trigger_date}"
             )
+        registered_trigger_close = round(
+            float(frame.at[trigger_index, "analysis_close"]), 8
+        )
+        registered_confirmation_close = round(
+            float(frame.at[confirmation_index, "analysis_close"]), 8
+        )
         _require_number_close(
             event.get("trigger_close"),
-            round(float(frame.at[trigger_index, "analysis_close"]), 8),
+            registered_trigger_close,
             f"holdout detail trigger_close row={row_index}",
             tolerance=5e-8,
         )
         _require_number_close(
             event.get("confirmation_close"),
-            round(float(frame.at[confirmation_index, "analysis_close"]), 8),
+            registered_confirmation_close,
             f"holdout detail confirmation_close row={row_index}",
             tolerance=5e-8,
         )
+        if not registered_confirmation_close > registered_trigger_close:
+            raise RuntimeError(
+                "revenue readiness holdout frozen D+1 confirmation rule failed: "
+                "confirmation_close must be greater than trigger_close; "
+                f"{stock_id}/{trigger_date}"
+            )
         if safe_str(event.get("entry_price_basis")) != "analysis_open":
             raise RuntimeError("revenue readiness holdout entry price basis drift")
         if safe_str(event.get("exit_price_basis")) != "analysis_close":
@@ -1057,6 +2119,7 @@ def _validate_holdout_manifest_lineage(
     source_projection_manifest: pd.DataFrame,
     *,
     repo_root: Path | str,
+    diagnostics: list[str] | None = None,
 ) -> pd.Series:
     manifest_required = {
         "model_id",
@@ -1188,9 +2251,10 @@ def _validate_holdout_manifest_lineage(
     except RuntimeError as exc:
         raise RuntimeError(f"revenue readiness selected v2 source manifest invalid: {exc}") from exc
 
-    normalized_source = _normalize_replay_source(replay_source).reset_index(
-        drop=True
+    observed_through = _strict_date(
+        row.get("observed_through_date"), "holdout.observed_through_date"
     )
+    normalized_source = _normalize_replay_source(replay_source)
     expected_source_rows = _strict_nonnegative_int(
         row.get("source_detail_row_count"), "holdout.source_detail_row_count"
     )
@@ -1209,14 +2273,18 @@ def _validate_holdout_manifest_lineage(
     for field_name in MONTHLY_LINEAGE_COLUMNS:
         values = set(normalized_source[field_name].astype(str))
         expected = safe_str(row.get(field_name))
+        if field_name == "monthly_revenue_history_blob_sha256":
+            if values != {expected} and diagnostics is not None:
+                diagnostics.append(
+                    "raw monthly-revenue blob lineage differs between replay and "
+                    "manifest; diagnostic only"
+                )
+            continue
         if values != {expected}:
             raise RuntimeError(
                 f"revenue readiness holdout {field_name} disagrees with replay source"
             )
 
-    observed_through = _strict_date(
-        row.get("observed_through_date"), "holdout.observed_through_date"
-    )
     expected_status = (
         "preregistered_waiting_for_start"
         if observed_through < HOLDOUT_START_DATE
@@ -1267,11 +2335,25 @@ def _validate_holdout_manifest_lineage(
         "artifact_id",
         "artifact_version",
         "capture_id",
+        "artifact_row_key",
+        "event_key",
+        "episode_key",
         "variant_id",
+        "candidate_variant_id",
+        *VARIANT_MEMBERSHIP_COLUMNS.values(),
+        "lifecycle_policy_id",
+        "confirmation_variant_id",
+        "stop_policy_id",
+        "same_stock_non_overlap_applied",
         "trigger_date",
         "source_asof_date",
         "source_asof_trade_date",
+        "source_asof_revenue_period",
+        "source_asof_row_canonical_sha256",
         "source_asof_canonical_source_table_date",
+        "source_asof_sequence_index",
+        "source_to_trigger_trading_days",
+        "future_qualifying_update_ignored_count",
         "return_valid",
         "right_censored",
         "realized_return_pct",
@@ -1299,17 +2381,46 @@ def _validate_holdout_manifest_lineage(
         set(ALL_VARIANT_IDS)
     ):
         raise RuntimeError("revenue readiness holdout detail variant set drift")
+    if detail["event_key"].astype(str).eq("").any() or detail[
+        "event_key"
+    ].astype(str).duplicated().any():
+        raise RuntimeError("revenue readiness holdout detail event_key is blank or duplicate")
+    if detail["artifact_row_key"].astype(str).eq("").any() or detail[
+        "artifact_row_key"
+    ].astype(str).duplicated().any():
+        raise RuntimeError(
+            "revenue readiness holdout detail artifact_row_key is blank or duplicate"
+        )
+    if not detail["artifact_row_key"].astype(str).eq(
+        detail["event_key"].astype(str)
+    ).all():
+        raise RuntimeError(
+            "revenue readiness holdout detail artifact/event key identity drift"
+        )
     registered_prices = _load_registered_price_frames(
         repo_root,
         detail,
         observed_through=observed_through,
         per_stock_manifest_sha=per_stock_price_sha,
+        required_stock_ids={
+            _stock_id(value) for value in normalized_source["stock_id"]
+        },
+    )
+    _validate_replay_source_pit_lineage(
+        normalized_source,
+        observed_through=observed_through,
+        registered_prices=registered_prices,
     )
     _validate_detail_maturity_against_registered_prices(
         detail,
         observed_through=observed_through,
         registered_prices=registered_prices,
         manifest_price_sha=safe_str(row.get("price_input_canonical_sha256")),
+    )
+    _validate_detail_source_asof_against_replay(
+        detail,
+        normalized_source=normalized_source,
+        registered_prices=registered_prices,
     )
     mature_mask = _bool_series(detail, "return_valid")
     censored_mask = _bool_series(detail, "right_censored")
@@ -1319,6 +2430,53 @@ def _validate_holdout_manifest_lineage(
         if (~_bool_series(detail, "primary_metric_included")).any():
             raise RuntimeError("revenue readiness holdout detail left primary metrics")
         for row_index, event in detail.iterrows():
+            episode_key = safe_str(event.get("episode_key"))
+            if episode_key not in normalized_source.index:
+                raise RuntimeError(
+                    "revenue readiness holdout detail episode is absent from committed "
+                    f"replay source: {episode_key}"
+                )
+            for field_name, expected in {
+                "lifecycle_policy_id": LIFECYCLE_POLICY_ID,
+                "confirmation_variant_id": CONFIRMATION_VARIANT_ID,
+                "stop_policy_id": STOP_POLICY_ID,
+            }.items():
+                if safe_str(event.get(field_name)) != expected:
+                    raise RuntimeError(
+                        "revenue readiness holdout frozen event contract drift: "
+                        f"{field_name}/row={row_index}"
+                    )
+            primary_member = _bool_series(
+                detail.loc[[row_index]], "primary_variant_member"
+            ).iloc[0]
+            low_member = _bool_series(
+                detail.loc[[row_index]], "low_falling_member"
+            ).iloc[0]
+            union_member = _bool_series(
+                detail.loc[[row_index]], "low_or_mid_falling_union_member"
+            ).iloc[0]
+            if primary_member == low_member or not union_member:
+                raise RuntimeError(
+                    "revenue readiness holdout frozen variant membership drift: "
+                    f"row={row_index}"
+                )
+            expected_candidate_variant = (
+                PRIMARY_VARIANT_ID
+                if primary_member
+                else "source_low_falling"
+            )
+            if safe_str(event.get("variant_id")) != expected_candidate_variant or safe_str(
+                event.get("candidate_variant_id")
+            ) != expected_candidate_variant:
+                raise RuntimeError(
+                    "revenue readiness holdout candidate variant/member drift: "
+                    f"row={row_index}"
+                )
+            _strict_bool(
+                event.get("same_stock_non_overlap_applied"),
+                True,
+                f"holdout detail same_stock_non_overlap_applied row={row_index}",
+            )
             trigger_date = _strict_date(
                 event.get("trigger_date"), f"holdout detail trigger_date row={row_index}"
             )
@@ -1396,7 +2554,7 @@ def _validate_holdout_manifest_lineage(
             raise RuntimeError(
                 f"revenue readiness holdout summary role drift for {variant_id}"
             )
-        variant_detail = detail[detail["variant_id"].astype(str).eq(variant_id)]
+        variant_detail = detail.loc[_variant_membership(detail, variant_id)]
         expected_event_count = len(variant_detail)
         expected_mature = int(
             _bool_series(variant_detail, "return_valid").sum()
@@ -1431,9 +2589,7 @@ def _validate_holdout_manifest_lineage(
         "mature_event_count": int(mature_mask.sum()),
         "right_censored_event_count": int(censored_mask.sum()),
     }
-    primary_detail = detail[
-        detail["variant_id"].astype(str).eq(PRIMARY_VARIANT_ID)
-    ]
+    primary_detail = detail.loc[_variant_membership(detail, PRIMARY_VARIANT_ID)]
     manifest_counts.update(
         {
             "primary_mature_count": int(
@@ -1458,6 +2614,42 @@ def _validate_holdout_manifest_lineage(
     ] != manifest_counts["holdout_event_count"]:
         raise RuntimeError("revenue readiness holdout total maturity partition drift")
     return row
+
+
+def validate_revenue_readiness_exact_replay(
+    forward_holdout_v2_manifest: pd.DataFrame,
+    *,
+    holdout_detail: pd.DataFrame,
+    holdout_summary: pd.DataFrame,
+    repo_root: Path | str = Path("."),
+) -> None:
+    """Run the one canonical exact replay gate immediately before a writer."""
+
+    _required_columns(
+        forward_holdout_v2_manifest,
+        {
+            "observed_through_date",
+            "price_input_stock_canonical_sha256s",
+        },
+        FORWARD_HOLDOUT_V2_MANIFEST_REL,
+    )
+    if len(forward_holdout_v2_manifest) != 1:
+        raise RuntimeError(
+            "revenue forward holdout v2 latest manifest must contain exactly one row"
+        )
+    row = forward_holdout_v2_manifest.iloc[0]
+    _validate_exact_registered_price_lineage(
+        repo_root,
+        row,
+        manifest=forward_holdout_v2_manifest,
+        detail=holdout_detail,
+        summary=holdout_summary,
+        observed_through=_strict_date(
+            row.get("observed_through_date"),
+            "holdout.observed_through_date",
+        ),
+        per_stock_manifest_sha=_parse_price_stock_sha_set(row),
+    )
 
 
 def validate_revenue_readiness_source_files(
@@ -1514,6 +2706,7 @@ def summarize_revenue_promotion_readiness(
     replay_source: pd.DataFrame,
     source_projection_manifest: pd.DataFrame,
     repo_root: Path | str = Path("."),
+    diagnostics: list[str] | None = None,
 ) -> dict[str, Any]:
     promotion_required = {
         "decision_id",
@@ -1663,6 +2856,7 @@ def summarize_revenue_promotion_readiness(
         replay_source,
         source_projection_manifest,
         repo_root=repo_root,
+        diagnostics=diagnostics,
     )
     mature_count = _strict_nonnegative_int(
         holdout.get("primary_mature_count"), "holdout.primary_mature_count"
@@ -1889,6 +3083,123 @@ def _committed_semantic_source(
             f"raw-byte diagnostic only (canonical semantics match HEAD): {logical_path}"
         )
     return committed_data, diagnostic
+
+
+def _bulk_committed_registered_price_sources(
+    repo: Path,
+    logical_paths: list[str],
+    *,
+    popen_factory: Callable[..., subprocess.Popen[bytes]] | None = None,
+) -> dict[str, bytes]:
+    """Read registered price inputs from HEAD with one cross-platform Git call."""
+
+    expected_paths = set(logical_paths)
+    if len(expected_paths) != len(logical_paths):
+        raise RuntimeError("registered price bulk read contains duplicate logical paths")
+    allowed_prefix = f"{PRICE_HISTORY_DIR_REL}/"
+    for logical_path in expected_paths:
+        if logical_path != PRICE_RESOLUTION_REL and not (
+            logical_path.startswith(allowed_prefix)
+            and logical_path.endswith(".csv")
+        ):
+            raise RuntimeError(
+                f"unsafe registered price bulk-read path: {logical_path}"
+            )
+        if (
+            "\\" in logical_path
+            or ".." in Path(logical_path).parts
+            or any(character in logical_path for character in ("\n", "\r", "\0", ":"))
+        ):
+            raise RuntimeError(
+                f"unsafe registered price bulk-read path: {logical_path}"
+            )
+
+    process_factory = subprocess.Popen if popen_factory is None else popen_factory
+    child_env = dict(os.environ)
+    child_env["GIT_NO_REPLACE_OBJECTS"] = "1"
+    process = process_factory(
+        [
+            "git",
+            "--no-replace-objects",
+            "cat-file",
+            "--batch",
+        ],
+        cwd=repo,
+        env=child_env,
+        stdin=subprocess.PIPE,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    ordered_paths = sorted(expected_paths)
+    query = b"".join(
+        f"HEAD:{logical_path}\n".encode("utf-8")
+        for logical_path in ordered_paths
+    )
+    stdout, stderr_bytes = process.communicate(input=query)
+    if process.returncode:
+        stderr = stderr_bytes.decode("utf-8", errors="replace").strip()
+        raise RuntimeError(
+            "cannot bulk-read committed registered price inputs: "
+            + (stderr or "git cat-file --batch failed")
+        )
+
+    committed: dict[str, bytes] = {}
+    stream = io.BytesIO(stdout)
+    for logical_path in ordered_paths:
+        header = stream.readline()
+        if not header.endswith(b"\n"):
+            raise RuntimeError(
+                "malformed committed registered price batch header: "
+                f"{logical_path}"
+            )
+        parts = header[:-1].split(b" ")
+        if len(parts) == 2 and parts[1] == b"missing":
+            raise RuntimeError(
+                f"committed registered price source is missing: {logical_path}"
+            )
+        if len(parts) != 3:
+            raise RuntimeError(
+                "malformed committed registered price batch header: "
+                f"{logical_path}/{header!r}"
+            )
+        object_id, object_type, raw_size = parts
+        if (
+            re.fullmatch(rb"[0-9a-f]{40}(?:[0-9a-f]{24})?", object_id) is None
+            or object_type != b"blob"
+            or not raw_size.isdigit()
+        ):
+            raise RuntimeError(
+                "committed registered price batch entry is not an exact blob: "
+                f"{logical_path}/{header!r}"
+            )
+        size = int(raw_size)
+        data = stream.read(size)
+        if len(data) != size or stream.read(1) != b"\n":
+            raise RuntimeError(
+                "malformed committed registered price batch payload: "
+                f"{logical_path}"
+            )
+        committed[logical_path] = data
+    if stream.read(1) != b"":
+        raise RuntimeError(
+            "committed registered price batch returned unexpected extra output"
+        )
+    for logical_path, committed_data in committed.items():
+        try:
+            worktree_data = (repo / logical_path).read_bytes()
+        except OSError as exc:
+            raise RuntimeError(
+                f"missing readiness sync source {logical_path}: {exc}"
+            ) from exc
+        if _canonical_csv(worktree_data, logical_path) != _canonical_csv(
+            committed_data,
+            f"HEAD:{logical_path}",
+        ):
+            raise RuntimeError(
+                "readiness sync source has semantic drift from HEAD: "
+                f"{logical_path}"
+            )
+    return committed
 
 
 def _frame_from_csv_bytes(data: bytes, source_name: str) -> pd.DataFrame:
@@ -2259,12 +3570,19 @@ def sync(repo: Path, *, generated_at: str | None = None) -> tuple[pd.DataFrame, 
         replay_source=replay_source,
         source_projection_manifest=source_projection_manifest,
         repo_root=repo,
+        diagnostics=diagnostics,
     )
     generated = generated_at or now_text()
     readiness = build_revenue_only_readiness(
         base,
         revenue_summary,
         generated_at=generated,
+    )
+    validate_revenue_readiness_exact_replay(
+        forward_holdout_v2_manifest,
+        holdout_detail=holdout_detail,
+        holdout_summary=holdout_summary,
+        repo_root=repo,
     )
     write_readiness_mirrors(repo, readiness, generated_at=generated)
     return readiness, diagnostics

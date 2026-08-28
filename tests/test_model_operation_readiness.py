@@ -31,6 +31,114 @@ MID_VOLUME_MODEL_ID = "volume_range_breakout_v2_mid_position_momentum_attack"
 HIGH_VOLUME_MODEL_ID = "volume_range_breakout_v2_high_position_volume_attack"
 # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 
+_SYNC_MODULE = sys.modules[
+    readiness_builder.summarize_revenue_promotion_readiness.__module__
+]
+_MODEL_PRICE_DATE_FRAMES: dict[str, pd.DataFrame] = {}
+
+
+def _model_verified_price_date_frames(
+    repo_root: Path | str,
+    detail: pd.DataFrame,
+    *,
+    observed_through: str,
+    per_stock_manifest_sha: dict[str, str],
+    required_stock_ids: set[str] | None = None,
+) -> dict[str, pd.DataFrame]:
+    repo = Path(repo_root).resolve()
+    requested = {
+        _SYNC_MODULE._stock_id(value) for value in detail.get("stock_id", [])
+    } | {
+        _SYNC_MODULE._stock_id(value) for value in (required_stock_ids or set())
+    }
+    missing = sorted(requested - set(per_stock_manifest_sha))
+    if missing:
+        raise RuntimeError(f"registered fixture stock missing lineage: {missing}")
+    for stock_id in requested:
+        if stock_id not in _MODEL_PRICE_DATE_FRAMES:
+            path = repo / _SYNC_MODULE.PRICE_HISTORY_DIR_REL / f"{stock_id}.csv"
+            dates = pd.read_csv(path, usecols=["date"], dtype=str).fillna("")
+            dates["date"] = dates["date"].map(
+                lambda value: _SYNC_MODULE._strict_date(
+                    value, f"verified test price date {stock_id}"
+                )
+            )
+            dates = dates.loc[
+                dates["date"].le(observed_through), ["date"]
+            ].reset_index(drop=True)
+            assert not dates["date"].duplicated().any()
+            assert dates["date"].is_monotonic_increasing
+            _MODEL_PRICE_DATE_FRAMES[stock_id] = dates
+    return {stock_id: _MODEL_PRICE_DATE_FRAMES[stock_id] for stock_id in requested}
+
+
+@pytest.fixture(autouse=True)
+def stub_expensive_exact_revenue_replay(monkeypatch: pytest.MonkeyPatch) -> None:
+    """General readiness builders and validators must never launch exact replay."""
+
+    def fail_exact(_repo_root: Path) -> dict[str, object]:
+        raise AssertionError("general readiness path invoked exact replay")
+
+    monkeypatch.setattr(
+        _SYNC_MODULE,
+        "_recompute_exact_registered_price_lineage",
+        fail_exact,
+    )
+    monkeypatch.setattr(
+        _SYNC_MODULE,
+        "_load_registered_price_frames",
+        _model_verified_price_date_frames,
+    )
+
+
+def test_revenue_readiness_legacy_shim_delegates_sync_failure_without_writes(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    calls: list[str] = []
+
+    def fail_sync(repo_root: Path) -> tuple[pd.DataFrame, list[str]]:
+        assert repo_root == readiness_builder.ROOT
+        calls.append("sync")
+        raise RuntimeError("model-owned sync rejected legacy shim")
+
+    monkeypatch.setattr(readiness_builder, "sync", fail_sync)
+    monkeypatch.setattr(
+        readiness_builder,
+        "build_model_operation_readiness",
+        lambda *_args, **_kwargs: (_ for _ in ()).throw(
+            AssertionError("legacy cross-model builder ran from compatibility shim")
+        ),
+    )
+
+    with pytest.raises(RuntimeError, match="model-owned sync rejected legacy shim"):
+        readiness_builder.main()
+
+    assert calls == ["sync"]
+
+
+def test_revenue_readiness_legacy_shim_uses_explicit_repo_root_outside_repo(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.chdir(tmp_path)
+    calls: list[Path] = []
+
+    def record_sync(repo_root: Path) -> tuple[pd.DataFrame, list[str]]:
+        calls.append(Path(repo_root))
+        return pd.DataFrame(), []
+
+    monkeypatch.setattr(readiness_builder, "sync", record_sync)
+    monkeypatch.setattr(
+        readiness_builder,
+        "build_model_operation_readiness",
+        lambda *_args, **_kwargs: (_ for _ in ()).throw(
+            AssertionError("legacy cross-model builder ran from compatibility shim")
+        ),
+    )
+
+    assert readiness_builder.main() == 0
+    assert calls == [readiness_builder.ROOT]
+
 
 def revenue_parity_frame() -> pd.DataFrame:
     return pd.concat(
