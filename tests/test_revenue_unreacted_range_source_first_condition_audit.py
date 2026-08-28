@@ -187,15 +187,20 @@ def test_source_first_condition_preserves_aligned_qualifying_revenue_lineage() -
         assert trade_dates[-1] == str(row.latest_qualifying_trade_date)
 
 
-def test_source_first_condition_emits_current_run_level_monthly_revenue_hashes(
+def test_source_first_condition_emits_valid_lineage_and_current_canonical_hashes(
     current_monthly_revenue_lineage: MonthlyRevenueLineage,
 ) -> None:
     summary = pd.read_csv(LATEST_CSV, keep_default_na=False, low_memory=False)
     detail = pd.read_csv(DETAIL_CSV, keep_default_na=False, low_memory=False)
     current_full_lineage = current_monthly_revenue_lineage[3]
     for frame in (summary, detail):
-        for column, expected in current_full_lineage.items():
+        for column in validator.RUN_LINEAGE_COLUMNS:
             assert frame[column].astype(str).str.fullmatch(r"[0-9a-f]{64}").all()
+        for column in (
+            "monthly_revenue_canonical_table_sha256",
+            "cross_market_resolution_registry_canonical_sha256",
+        ):
+            expected = current_full_lineage[column]
             assert set(frame[column].astype(str)) == {expected}
 
 
