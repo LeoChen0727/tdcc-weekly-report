@@ -9,7 +9,7 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
-from tracking_utils import DOCS_LATEST_DIR, LATEST_DIR, RESEARCH_LATEST_DIR, markdown_table, now_text, read_csv, safe_str  # noqa: E402
+from tracking_utils import DOCS_LATEST_DIR, LATEST_DIR, RESEARCH_LATEST_DIR, now_text, read_csv, safe_str  # noqa: E402
 # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 from sync_revenue_unreacted_range_operation_readiness import (  # noqa: E402
     REVENUE_ANOMALY_DISPOSITION_POLICIES,
@@ -827,60 +827,6 @@ def build_model_operation_readiness(
     out = out[ordered_columns]
     out["_order"] = out["model_id"].map(order).fillna(99)
     return out.sort_values(["_order", "model_id"]).drop(columns=["_order"]).reset_index(drop=True)
-
-
-def write_markdown(df: pd.DataFrame) -> None:
-    lines: list[str] = [
-        "# Model Operation Readiness",
-        "",
-        f"- generated_at: `{now_text()}`",
-        "- purpose: track model parity, operation-module readiness, daily adapter status, and promotion boundaries",
-        "- rule: `approved_for_daily=True` requires an explicit approved operation artifact",
-        "- rule: raw research evidence rows can remain research-only even after an operation module is approved",
-        "- rule: PDF/packet integration 必須 render adapter artifact，不得重新計算操作規則",
-        "",
-    ]
-
-    if df.empty:
-        lines.extend(["sample_status: data_missing", ""])
-    else:
-        summary_cols = [
-            "operation_module_status",
-            "daily_adapter_status",
-            "formal_model_use_allowed",
-            "approved_for_daily",
-            "presentation_allowed",
-            "production_allowed",
-        ]
-        for col in summary_cols:
-            counts = df[col].value_counts().reset_index()
-            counts.columns = [col, "count"]
-            lines.extend([f"## {col}", "", markdown_table(counts, [col, "count"]), ""])
-
-        show_cols = [
-            "model_id",
-            "parity_status",
-            "operation_module_status",
-            "daily_adapter_status",
-            "formal_model_use_allowed",
-            "approved_for_daily",
-            "approval_status",
-            "operation_module_id",
-            "approval_version",
-            "presentation_allowed",
-            "production_allowed",
-            "operation_directive_level",
-            "pdf_integration_status",
-            "packet_integration_status",
-            "blocker",
-            "status_note_zh",
-        ]
-        lines.extend(["## Status Table", "", markdown_table(df, show_cols, limit=200), ""])
-
-    OUT_MD.parent.mkdir(parents=True, exist_ok=True)
-    OUT_MD.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8", newline="\n")
-    DOCS_LATEST_DIR.mkdir(parents=True, exist_ok=True)
-    DOCS_MD.write_text(OUT_MD.read_text(encoding="utf-8"), encoding="utf-8", newline="\n")
 
 
 def main() -> int:

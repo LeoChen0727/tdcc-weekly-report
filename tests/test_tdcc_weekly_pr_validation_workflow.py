@@ -27,6 +27,7 @@ def test_tdcc_pr_validation_covers_continuity_contracts() -> None:
         "python scripts/validate_repo_production_inventory.py",
         "python scripts/validate_repo_semantic_integrity.py",
         "python scripts/validate_daily_production_boundaries.py",
+        "python scripts/detect_tdcc_weekly_pr_scope.py",
         "tests/test_tdcc_monthly_history_gap_repair.py",
         "tests/test_tdcc_dataset_contract.py",
         "tests/test_tdcc_analytics_store.py",
@@ -40,22 +41,37 @@ def test_tdcc_pr_validation_covers_continuity_contracts() -> None:
         assert command in text
 
 
-def test_tdcc_pr_validation_watches_runtime_files() -> None:
+def test_tdcc_business_suite_is_affected_only_and_dispatch_remains_full() -> None:
     text = workflow_text()
-    required_paths = (
-        '".github/workflows/tdcc_weekly.yml"',
-        '"docs/apps_script_workflow_trigger.gs"',
-        '"scripts/build_tdcc_stock_history.py"',
-        '"scripts/build_tdcc_dataset_manifest.py"',
-        '"scripts/build_tdcc_analytics_store.py"',
-        '"scripts/repair_tdcc_weekly_history_continuity.py"',
-        '"scripts/tdcc_weekly_data_readiness.py"',
-        '"scripts/tdcc_stock_history_utils.py"',
-        '"scripts/tdcc_dataset_contract.py"',
-        '"scripts/tdcc_analytics_store.py"',
-        '"scripts/validate_tdcc_dataset_manifest.py"',
-        '"scripts/validate_tdcc_analytics_store.py"',
-        '"tdcc_holder_ratio_top10.py"',
+    affected_condition = (
+        "if: github.event_name == 'workflow_dispatch' || "
+        "steps.scope.outputs.affected == 'true'"
     )
-    for path in required_paths:
-        assert path in text
+
+    assert text.count("      - name: Detect TDCC weekly validation scope") == 1
+    assert text.count("        id: scope") == 1
+    assert (
+        "      - name: Detect TDCC weekly validation scope\n"
+        "        id: scope\n"
+        "        if: github.event_name == 'pull_request'"
+        in text
+    )
+    assert "--base-sha \"$BASE_SHA\"" in text
+    assert "--head-sha \"$HEAD_SHA\"" in text
+    assert '--github-output "$GITHUB_OUTPUT"' in text
+    assert text.count(affected_condition) == 4
+    assert "      - name: Validate TDCC weekly scope output" in text
+    assert 'case "$AFFECTED" in' in text
+    assert "true|false" in text
+    assert "exit 1" in text
+    assert 'if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then' in text
+    assert "      - name: Record TDCC weekly scope result" in text
+
+
+def test_tdcc_pr_validation_has_no_trigger_path_prefilter() -> None:
+    text = workflow_text()
+    event_block = text.split("on:\n", 1)[1].split("\npermissions:\n", 1)[0]
+
+    assert "  pull_request:\n" in event_block
+    assert "paths:" not in event_block
+    assert "paths-ignore:" not in event_block

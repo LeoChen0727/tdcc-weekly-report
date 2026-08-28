@@ -311,6 +311,17 @@ def test_workflow_contains_required_affected_validation_commands() -> None:
     assert text.count("if: steps.scope.outputs.affected == 'true'") == 5
 
 
+def test_workflow_fails_closed_on_missing_or_invalid_scope_output() -> None:
+    text = workflow_text()
+
+    assert "      - name: Validate individual-stock scope output" in text
+    assert "          AFFECTED: ${{ steps.scope.outputs.affected }}" in text
+    assert 'case "$AFFECTED" in' in text
+    assert "true|false" in text
+    assert "exit 1" in text
+    assert text.count("if: steps.scope.outputs.affected == 'true'") == 5
+
+
 def test_pull_request_static_validation_step_is_exact_and_affected_only() -> None:
     text = workflow_text()
 

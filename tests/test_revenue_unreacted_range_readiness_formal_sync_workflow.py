@@ -5,6 +5,9 @@ from pathlib import Path
 import pytest
 
 from scripts.validate_repo_production_inventory import (
+    REVENUE_READINESS_FORMAL_SYNC_PRODUCER,
+    REVENUE_READINESS_FORMAL_SYNC_PRODUCER_TOKEN,
+    REVENUE_READINESS_LEGACY_BUILDER,
     REVENUE_READINESS_FORMAL_SYNC_PUSH,
     validate_revenue_readiness_formal_sync_workflow_text,
 )
@@ -34,8 +37,22 @@ def test_target_branch_is_never_checked_out_or_executed() -> None:
     ) in TEXT
 
 
-def test_exact_builder_blocker_four_disabled_meanings_and_versioned_counts() -> None:
-    assert TEXT.count("scripts/build_model_operation_readiness.py") == 1
+def test_exact_producer_blocker_four_disabled_meanings_and_versioned_counts() -> None:
+    assert (
+        TEXT.count(f"python -B {REVENUE_READINESS_FORMAL_SYNC_PRODUCER}")
+        == 1
+    )
+    assert REVENUE_READINESS_LEGACY_BUILDER not in TEXT
+    assert TEXT.count(REVENUE_READINESS_FORMAL_SYNC_PRODUCER_TOKEN) == 2
+    assert REVENUE_READINESS_FORMAL_SYNC_PRODUCER_TOKEN in SPEC_TEXT
+    for token in (
+        "registered monthly and\nsource validators",
+        "tests/test_revenue_unreacted_range_forward_holdout_v2.py",
+        "tests/test_sync_revenue_unreacted_range_operation_readiness.py",
+        "A fuzzy `-k` expression is forbidden",
+        "test_current_canonical_sources_build_exact_disabled_revenue_row",
+    ):
+        assert token in SPEC_TEXT
     assert (
         "anomaly_disposition_blockers=9; unresolved_anomalies=9; "
         "forward_holdout_v2_mature=0/20; formal_adapter=not_started"
@@ -53,10 +70,26 @@ def test_exact_builder_blocker_four_disabled_meanings_and_versioned_counts() -> 
         assert token in SPEC_TEXT
 
 
-def test_builder_runtime_dependencies_are_explicit() -> None:
-    assert (
+def test_each_job_has_pinned_python_and_runtime_dependencies_before_validation() -> None:
+    prepare_job, apply_job = TEXT.split("  apply-bundle:\n", 1)
+    dependency_command = (
         "python -m pip install --disable-pip-version-check pandas requests tabulate"
-        in TEXT
+    )
+    setup_action = "actions/setup-python@v6.2.0"
+
+    for job in (prepare_job, apply_job):
+        assert job.count(setup_action) == 1
+        assert job.count('python-version: "3.11"') == 1
+        assert job.count(dependency_command) == 1
+
+    assert apply_job.index(setup_action) < apply_job.index(
+        "- name: Revalidate and commit content-addressed bundle"
+    )
+    assert apply_job.index(dependency_command) < apply_job.index(
+        "- name: Revalidate and commit content-addressed bundle"
+    )
+    assert apply_job.index(dependency_command) < apply_job.index(
+        "- name: Push only validated commit to inert codex target"
     )
 
 
@@ -133,6 +166,21 @@ def test_exact_four_bundle_and_clean_state_are_revalidated() -> None:
         (
             lambda text: text.replace("sha256sum --check SHA256SUMS", "true"),
             "independently verify bundle hashes",
+        ),
+        (
+            lambda text: text.replace(
+                f"python -B {REVENUE_READINESS_FORMAL_SYNC_PRODUCER}",
+                f"python -B {REVENUE_READINESS_LEGACY_BUILDER}",
+            ),
+            "legacy broad readiness builder",
+        ),
+        (
+            lambda text: text.replace(
+                REVENUE_READINESS_FORMAL_SYNC_PRODUCER_TOKEN,
+                "producer=mutated.py",
+                1,
+            ),
+            "exact producer token",
         ),
         (
             lambda text: text.replace("trap 'rm -f \"$key\"' EXIT", "true"),

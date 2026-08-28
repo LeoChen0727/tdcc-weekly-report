@@ -15,10 +15,17 @@ does not authorize any other workflow to commit, push, deploy, or publish.
 The only implementation covered by this contract is
 `.github/workflows/revenue_unreacted_range_readiness_formal_sync.yml`.
 
+The exact sole readiness producer is
+`scripts/sync_revenue_unreacted_range_operation_readiness.py`. The bundle
+contract and the apply job must both bind the exact token
+`producer=scripts/sync_revenue_unreacted_range_operation_readiness.py`.
+The legacy broad builder `scripts/build_model_operation_readiness.py` is
+forbidden in this workflow because it may recompute unrelated model rows.
+
 ## Trusted input and immutable output scope
 
 The manual workflow must start from an exact current remote `main` SHA. The
-literal target branch must already exist at that same SHA. The builder may
+literal target branch must already exist at that same SHA. The sole producer may
 change exactly these four byte-paired readiness mirrors:
 
 1. `output/latest/model_operation_readiness_latest.csv`
@@ -131,9 +138,13 @@ writer's single pre-write exact child. The standalone validator CLI requires the
 producer's explicit normalized price bundle, so a cheap PR job must not pass raw
 price CSVs as a substitute or rematerialize the same 10--18 minute exact replay.
 Before this contract is formally applied, its workflow companion PR must run the
-independent v2 suite with the designated exact-materialization case excluded,
-the existing direct monthly/source validators, and explicit cheap syncer nodes.
-The writer remains the only persisted-truth exact gate. Raw monthly
+independent v2 suite while excluding exactly these three Git-freeze replay nodes:
+`test_v1_exact17_metadata_reproduces_authorized_bundle_digest`,
+`test_v1_exact17_freeze_reports_the_drifting_path`, and
+`test_v1_exact17_freeze_uses_git_blob_identity_for_clean_crlf_checkout`. The
+existing direct monthly/source validators and explicit cheap syncer nodes remain
+required. No additional v2 test may be deselected. The writer remains the only
+persisted-truth exact gate. Raw monthly
 blob lineage remains provenance diagnostic material in the cheap path.
 Replay availability must also equal the source date itself when it is a
 normalized registered trading session, or otherwise the first normalized
@@ -151,12 +162,48 @@ research truth; the single pre-write exact-replay gate is the canonical gate
 for that truth. Failure of that gate must occur before the first of the four
 mirror writes.
 
+## Companion PR validation boundary
+
+The Daily Model PR CI revenue job must directly run the registered monthly and
+source validators plus the related independent cases in
+`tests/test_revenue_unreacted_range_forward_holdout_v2.py`. Those
+research-owner gates are the PR-time canonical raw-truth boundary; a general
+readiness validator must not replace them. The standalone v2 validator CLI
+requires a separate explicit normalized price bundle that is not a committed
+repository input, so PR CI must not fabricate that bundle or repeat the
+long-running exact materialization solely to invoke the CLI.
+
+The same job must invoke the selected cheap cases from
+`tests/test_sync_revenue_unreacted_range_operation_readiness.py` by explicit
+pytest node ID. A fuzzy `-k` expression is forbidden. The unique full exact
+replay case
+`test_current_canonical_sources_build_exact_disabled_revenue_row` is excluded
+from PR CI because it is the long-running writer-equivalence integration; the
+formal writer still runs the canonical exact replay once before any mirror
+write.
+
+Revenue-only changes must leave the Daily Model PR CI
+`production_pdf_contracts` scope false. Repository lifecycle, semantic,
+worktree-safety, hidden-coupling, and code-isolation gates remain mandatory,
+but Daily production, PDF, packet, renderer, published-snapshot, and their
+regression suites run only when the dedicated production/PDF scope is true.
+The scope output is fail-closed and a relevant production or PDF path must
+still select the full hard gate.
+
+The TDCC Weekly and Individual Stock PR workflows use their own affected-path
+detectors. An unrelated revenue-only change may run only their lightweight
+checkout, scope-output, whitespace, or trust-root guards; it must not run TDCC
+continuity/build/tests or the affected Individual Stock contract suite. A
+TDCC- or Individual Stock-owned path or owned row in a shared registry must
+still select that workflow's complete business validation suite.
+
 ## Atomic commit and push boundary
 
-The apply job must independently verify the content hashes and exact contract,
-stage exactly the four mirrors, validate the staged phase, and create exactly
-one direct-child commit. It must then run both readiness validators again in the
-committed phase and require a clean index, worktree, and untracked-file set.
+The apply job must independently verify the content hashes, exact producer token,
+and exact contract, stage exactly the four mirrors, validate the staged phase,
+and create exactly one direct-child commit. It must then run both readiness
+validators again in the committed phase and require a clean index, worktree,
+and untracked-file set.
 
 The privileged step is the final workflow step. It must revalidate committed
 semantics, re-read both remote identities, perform exactly one non-force push,

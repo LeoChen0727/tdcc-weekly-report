@@ -193,6 +193,10 @@ def test_every_current_tracked_owned_path_has_a_declared_domain() -> None:
             {scope.RESEARCH_SAFETY_LITE, scope.REVENUE_RESEARCH},
         ),
         (
+            ".github/workflows/revenue_unreacted_range_readiness_formal_sync.yml",
+            {scope.RESEARCH_SAFETY_LITE, scope.REVENUE_RESEARCH},
+        ),
+        (
             "scripts/revenue_unreacted_range_operation_adapter.py",
             {scope.RESEARCH_SAFETY_LITE, scope.REVENUE_RESEARCH},
         ),

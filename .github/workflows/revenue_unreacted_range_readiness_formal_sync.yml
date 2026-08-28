@@ -25,6 +25,7 @@ env:
   READINESS_SYNC_CONTRACT_VERSION: revenue_readiness_sync_3a_v1_20260828
   READINESS_SYNC_TARGET_BRANCH: codex/revenue-unreacted-range-readiness-formal-sync-3a-v1-20260828
   READINESS_SYNC_SPEC_PATH: docs/specs/revenue_unreacted_range_readiness_formal_sync_v1.md
+  READINESS_SYNC_PRODUCER: scripts/sync_revenue_unreacted_range_operation_readiness.py
 
 jobs:
   prepare-bundle:
@@ -48,6 +49,8 @@ jobs:
           set -euo pipefail
           [ "$GITHUB_REF" = refs/heads/main ]
           [ -f "$READINESS_SYNC_SPEC_PATH" ]
+          [ "$READINESS_SYNC_PRODUCER" = scripts/sync_revenue_unreacted_range_operation_readiness.py ]
+          [ -f "$READINESS_SYNC_PRODUCER" ]
           [[ "$EXPECTED_MAIN_SHA" =~ ^[0-9a-f]{40}$ ]]
           [ "$TARGET_BRANCH" = "$READINESS_SYNC_TARGET_BRANCH" ]
           [ "$CONFIRMATION" = sync_revenue_unreacted_range_readiness_v1_20260828 ]
@@ -62,9 +65,9 @@ jobs:
 
       - run: python -m pip install --disable-pip-version-check pandas requests tabulate
 
-      - name: Build and validate model-owned readiness only
+      - name: Sync and validate revenue-owned readiness row only
         run: |
-          python -B scripts/build_model_operation_readiness.py
+          python -B scripts/sync_revenue_unreacted_range_operation_readiness.py
           python -B scripts/validate_model_operation_readiness.py
           python -B scripts/validate_revenue_unreacted_range_readiness_formal_sync.py --repo-root . --base-sha "$SYNC_MAIN_SHA" --phase working-tree
 
@@ -97,6 +100,7 @@ jobs:
             "authorization_reference=user_authorized_3A_3C_20260828" \
             "target_branch=codex/revenue-unreacted-range-readiness-formal-sync-3a-v1-20260828" \
             "model_id=revenue_unreacted_range" \
+            "producer=scripts/sync_revenue_unreacted_range_operation_readiness.py" \
             "formal_model_use_allowed=False" \
             "approved_for_daily=False" \
             "presentation_allowed=False" \
@@ -123,6 +127,12 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
+      - uses: actions/setup-python@v6.2.0
+        with:
+          python-version: "3.11"
+
+      - run: python -m pip install --disable-pip-version-check pandas requests tabulate
+
       - uses: actions/download-artifact@v4.3.0
         with:
           name: "revenue-readiness-v1-20260828-${{ inputs.expected_main_sha }}"
@@ -137,6 +147,8 @@ jobs:
           set -euo pipefail
           bundle="$RUNNER_TEMP/readiness-bundle"
           [ "$TARGET_BRANCH" = "$READINESS_SYNC_TARGET_BRANCH" ]
+          [ "$READINESS_SYNC_PRODUCER" = scripts/sync_revenue_unreacted_range_operation_readiness.py ]
+          [ -f "$READINESS_SYNC_PRODUCER" ]
           [ "$(git rev-parse HEAD)" = "$EXPECTED_MAIN_SHA" ]
           [ "$(git ls-remote origin refs/heads/main | awk '{print $1}')" = "$EXPECTED_MAIN_SHA" ]
           [ "$(git ls-remote origin "refs/heads/$TARGET_BRANCH" | awk '{print $1}')" = "$EXPECTED_MAIN_SHA" ]
@@ -150,6 +162,7 @@ jobs:
             "authorization_reference=user_authorized_3A_3C_20260828" \
             "target_branch=codex/revenue-unreacted-range-readiness-formal-sync-3a-v1-20260828" \
             "model_id=revenue_unreacted_range" \
+            "producer=scripts/sync_revenue_unreacted_range_operation_readiness.py" \
             "formal_model_use_allowed=False" \
             "approved_for_daily=False" \
             "presentation_allowed=False" \

@@ -29,6 +29,17 @@ REQUIRED_PROTECTED_CLASSES = {
     "formal_approval",
     "cross_model_aggregate",
 }
+READINESS_FORMAL_SYNC_PRODUCER = (
+    "scripts/sync_revenue_unreacted_range_operation_readiness.py"
+)
+LEGACY_BROAD_READINESS_PRODUCER = "scripts/build_model_operation_readiness.py"
+OUTPUT_LATEST_ARTIFACT_INVENTORY = (
+    ROOT / "config/output_latest_artifact_inventory.csv"
+)
+EXPECTED_READINESS_OUTPUT_INVENTORY_PATHS = {
+    "output/latest/model_operation_readiness_latest.csv",
+    "output/latest/model_operation_readiness_latest.md",
+}
 MIGRATION_REGISTRY = ROOT / "config/model_research_artifact_ownership_migrations.csv"
 MIGRATION_COLUMNS = (
     "migration_id",
@@ -424,6 +435,80 @@ def validate_ownership_migrations(base_ref: str | None = None) -> list[str]:
     return errors
 
 
+def validate_readiness_output_inventory_producer() -> list[str]:
+    errors: list[str] = []
+    if not OUTPUT_LATEST_ARTIFACT_INVENTORY.exists():
+        return [
+            "missing output latest artifact inventory for readiness producer closure: "
+            f"{OUTPUT_LATEST_ARTIFACT_INVENTORY.relative_to(ROOT).as_posix()}"
+        ]
+    with OUTPUT_LATEST_ARTIFACT_INVENTORY.open(
+        "r",
+        encoding="utf-8-sig",
+        newline="",
+    ) as handle:
+        reader = csv.DictReader(handle)
+        required = {"path", "owner_lane", "producer"}
+        if reader.fieldnames is None or not required.issubset(reader.fieldnames):
+            return [
+                "output latest artifact inventory schema is incomplete for readiness "
+                "producer closure"
+            ]
+        all_rows = [
+            {key: (value or "").strip() for key, value in row.items()}
+            for row in reader
+            if (row.get("path") or "").strip()
+        ]
+
+    rows = [
+        row
+        for row in all_rows
+        if row["path"] in EXPECTED_READINESS_OUTPUT_INVENTORY_PATHS
+    ]
+    formal_sync_paths = [
+        row["path"]
+        for row in all_rows
+        if row["producer"] == READINESS_FORMAL_SYNC_PRODUCER
+    ]
+    if set(formal_sync_paths) != EXPECTED_READINESS_OUTPUT_INVENTORY_PATHS or (
+        len(formal_sync_paths) != len(EXPECTED_READINESS_OUTPUT_INVENTORY_PATHS)
+    ):
+        errors.append(
+            "formal readiness producer output inventory must close exactly over "
+            "the two registered output/latest mirrors: "
+            f"actual={sorted(formal_sync_paths)}"
+        )
+
+    paths = [row["path"] for row in rows]
+    duplicate_paths = sorted({path for path in paths if paths.count(path) > 1})
+    if duplicate_paths:
+        errors.append(
+            "duplicate readiness output inventory paths: "
+            f"{duplicate_paths}"
+        )
+    missing_paths = sorted(EXPECTED_READINESS_OUTPUT_INVENTORY_PATHS - set(paths))
+    if missing_paths:
+        errors.append(
+            "missing readiness output inventory paths: "
+            f"{missing_paths}"
+        )
+    for row in rows:
+        if row["owner_lane"] != "model_governance":
+            errors.append(
+                f"{row['path']} readiness output owner must be model_governance"
+            )
+        if row["producer"] != READINESS_FORMAL_SYNC_PRODUCER:
+            errors.append(
+                f"{row['path']} readiness output producer must be "
+                f"{READINESS_FORMAL_SYNC_PRODUCER}"
+            )
+    if any(row["producer"] == LEGACY_BROAD_READINESS_PRODUCER for row in rows):
+        errors.append(
+            "legacy broad readiness builder must not own output latest readiness mirrors"
+        )
+    return errors
+
+
 def validate(base_ref: str | None = None) -> list[str]:
     errors: list[str] = []
     try:
@@ -469,20 +554,51 @@ def validate(base_ref: str | None = None) -> list[str]:
     if missing_protected:
         errors.append(f"missing protected artifact classes: {missing_protected}")
 
-    readiness_rules = {
-        (rule.artifact_glob, rule.artifact_class)
-        for rule in rules
-        if rule.owner_model_id == "model_governance"
-        and rule.producer
-        == "scripts/sync_revenue_unreacted_range_operation_readiness.py"
-        and rule.change_policy == "formal_sync_only"
-        and rule.formal_evidence_status == "formal_evidence_pinned"
-    }
-    if readiness_rules != EXPECTED_READINESS_RULES:
-        errors.append(
-            "model operation readiness ownership must close exactly over output/latest "
-            "and docs/latest formal-sync mirrors"
+    readiness_producer_rules = {
+        (
+            rule.owner_model_id,
+            rule.artifact_glob,
+            rule.artifact_class,
+            rule.change_policy,
+            rule.formal_evidence_status,
         )
+        for rule in rules
+        if rule.producer == READINESS_FORMAL_SYNC_PRODUCER
+    }
+    expected_readiness_producer_rules = {
+        (
+            "model_governance",
+            artifact_glob,
+            artifact_class,
+            "formal_sync_only",
+            "formal_evidence_pinned",
+        )
+        for artifact_glob, artifact_class in EXPECTED_READINESS_RULES
+    }
+    if readiness_producer_rules != expected_readiness_producer_rules:
+        errors.append(
+            "formal readiness producer ownership must close exactly over the two "
+            "registered output/latest and docs/latest formal-sync mirrors"
+        )
+    legacy_readiness_rules = [
+        rule.artifact_glob
+        for rule in rules
+        if rule.producer == LEGACY_BROAD_READINESS_PRODUCER
+        and (
+            rule.artifact_glob
+            in {
+                artifact_glob
+                for artifact_glob, _artifact_class in EXPECTED_READINESS_RULES
+            }
+            or rule.artifact_class in {"formal_readiness", "formal_readiness_mirror"}
+        )
+    ]
+    if legacy_readiness_rules:
+        errors.append(
+            "legacy broad readiness builder must not own formal readiness mirrors: "
+            f"{sorted(legacy_readiness_rules)}"
+        )
+    errors.extend(validate_readiness_output_inventory_producer())
     errors.extend(validate_ownership_migrations(base_ref))
 
     legacy_rows = [rule for rule in rules if rule.producer == "scripts/build_daily_model_parameter_research.py"]

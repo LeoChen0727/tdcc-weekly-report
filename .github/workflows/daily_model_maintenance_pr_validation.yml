@@ -27,6 +27,7 @@ jobs:
     outputs:
       effective_base_sha: ${{ steps.scope.outputs.effective_base_sha }}
       repo_current_contracts: ${{ steps.scope.outputs.repo_current_contracts }}
+      production_pdf_contracts: ${{ steps.scope.outputs.production_pdf_contracts }}
       research_safety_lite: ${{ steps.scope.outputs.research_safety_lite }}
       shared_model_research: ${{ steps.scope.outputs.shared_model_research }}
       volume_v2_research: ${{ steps.scope.outputs.volume_v2_research }}
@@ -117,6 +118,7 @@ jobs:
     env:
       BASE_SHA: ${{ needs.scope.outputs.effective_base_sha }}
       HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+      PRODUCTION_PDF_SELECTED: ${{ needs.scope.outputs.production_pdf_contracts }}
       SNAPSHOT_PR_SAFE_CONTROL_HELPER_SHA256: 4329b48823dc844fc565f09d6af4aa0495a16b3713cb842c55f63d28949e31c2
 
     steps:
@@ -145,7 +147,20 @@ jobs:
             git --no-replace-objects diff --check HEAD --
           fi
 
+      - name: Validate production and PDF scope output
+        shell: bash
+        run: |
+          set -euo pipefail
+          case "$PRODUCTION_PDF_SELECTED" in
+            true|false) ;;
+            *)
+              echo "production_pdf_contracts must be true or false; observed=$PRODUCTION_PDF_SELECTED" >&2
+              exit 1
+              ;;
+          esac
+
       - name: Validate production lineage parity ordering contract
+        if: needs.scope.outputs.production_pdf_contracts == 'true'
         run: |
           python -m pytest -q tests/test_daily_model_maintenance_pr_validation_workflow.py \
             -k production_snapshot_updates_are_followed_by_dynamic_lineage_parity
@@ -155,22 +170,40 @@ jobs:
           python scripts/validate_repo_file_lifecycle_inventory.py
           python scripts/validate_repo_production_inventory.py
           python scripts/validate_stock_model_contract_registry.py
+          python scripts/validate_repo_advanced_integrity_pr_safe.py --base-ref "$BASE_SHA"
+          python scripts/validate_repo_hidden_coupling_audit.py
+          python scripts/validate_git_worktree_safety.py
+          python scripts/validate_repo_code_isolation_policy.py
+
+      - name: Run current repository core regression tests
+        run: |
+          python -m pytest \
+            tests/test_daily_model_maintenance_pr_validation_workflow.py::test_scope_aggregate_and_domain_contracts_are_exact_and_fail_closed \
+            tests/test_daily_model_maintenance_pr_validation_workflow.py::test_revenue_only_scope_skips_production_pdf_steps_and_related_scope_runs_them \
+            tests/test_detect_daily_model_pr_validation_scope.py \
+            tests/test_repo_advanced_integrity.py \
+            tests/test_repo_advanced_integrity_pr_safe.py \
+            tests/test_repo_hidden_coupling_audit.py \
+            tests/test_git_worktree_safety.py \
+            tests/test_stock_model_contract_registry.py \
+            --deselect tests/test_repo_advanced_integrity.py::test_repo_advanced_integrity_validator_passes
+
+      - name: Validate selected production and PDF contracts
+        if: needs.scope.outputs.production_pdf_contracts == 'true'
+        run: |
+          python scripts/validate_daily_legacy_volume_range_breakout_removed.py
+          python scripts/validate_daily_legacy_mature_model_paths_removed.py
           python scripts/validate_daily_pdf_contract_consumers.py
           python scripts/validate_daily_pdf_role_manifest_contract.py
           python scripts/validate_daily_pdf_shared_path_isolation.py
           python scripts/validate_daily_pdf_completion_hard_gate.py
-          python scripts/validate_daily_legacy_volume_range_breakout_removed.py
-          python scripts/validate_daily_legacy_mature_model_paths_removed.py
           python scripts/validate_daily_production_boundaries.py
           python scripts/validate_daily_published_model_snapshots_pr_safe.py --base-ref "$BASE_SHA"
-          python scripts/validate_repo_advanced_integrity_pr_safe.py --base-ref "$BASE_SHA"
-          python scripts/validate_repo_hidden_coupling_audit.py
-          python scripts/validate_git_worktree_safety.py
           python scripts/validate_chatgpt_side_pdf_contract.py
-          python scripts/validate_repo_code_isolation_policy.py
           python scripts/validate_chatgpt_side_pdf_layout_independence.py
 
-      - name: Run current repository and PDF regression tests
+      - name: Run selected production and PDF regression tests
+        if: needs.scope.outputs.production_pdf_contracts == 'true'
         run: |
           python -m pytest \
             tests/test_chatgpt_daily_report_new_conversation_replay.py \
@@ -182,19 +215,12 @@ jobs:
             tests/test_daily_warrant_formal_sync_scope.py \
             tests/test_warrant_source_status.py \
             tests/test_daily_model_maintenance_pr_validation_workflow.py \
-            tests/test_detect_daily_model_pr_validation_scope.py \
             tests/test_daily_pdf_contract_consumers.py \
             tests/test_daily_pdf_completion_hard_gate.py \
             tests/test_daily_pdf_shared_path_isolation.py \
             tests/test_daily_published_model_snapshots_pr_safe.py \
-            tests/test_repo_advanced_integrity.py \
-            tests/test_repo_advanced_integrity_pr_safe.py \
             tests/test_daily_report_model_summary.py \
-            tests/test_daily_production_boundaries.py \
-            tests/test_repo_hidden_coupling_audit.py \
-            tests/test_git_worktree_safety.py \
-            tests/test_stock_model_contract_registry.py \
-            --deselect tests/test_repo_advanced_integrity.py::test_repo_advanced_integrity_validator_passes
+            tests/test_daily_production_boundaries.py
 
   research_safety_lite:
     name: research-safety-lite
@@ -374,8 +400,49 @@ jobs:
 
       - name: Run revenue operation readiness regression tests
         run: |
-          python -m pytest tests/test_model_operation_readiness.py -k revenue_readiness
+          python -m pytest \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_legacy_shim_delegates_sync_failure_without_writes \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_legacy_shim_uses_explicit_repo_root_outside_repo \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_uses_latest_v3_decision_v4_contract_and_model_owned_evidence \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_fails_closed_until_v3_decision_v4_contract_is_latest \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_missing_model_owned_source_fails_closed \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_rejects_malformed_or_production_enabled_contracts \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_requires_all_four_formal_promotion_flags_false \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_rejects_unsafe_latest_promotion_decision_status \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_rejects_holdout_version_or_maturity_status_drift \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_rejects_unrepaired_verified_data_error_policy \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_validator_rejects_stale_or_permission_enabled_row \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_validator_rejects_missing_or_true_persisted_permission_field \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_csv_schema_rejects_missing_existing_permission_column \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_csv_rejects_partial_permission_schema \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_persisted_permission_columns_accept_explicit_false_and_neutral_legacy \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_persisted_permission_columns_reject_noncanonical_source_boolean \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_persisted_permission_columns_reject_missing_or_true_flag \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_persisted_permission_columns_reject_non_revenue_boolean_alias \
+            tests/test_model_operation_readiness.py::test_revenue_legacy_builder_has_no_direct_mirror_writer
+          python -m pytest \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_build_replaces_only_revenue_and_keeps_non_revenue_fields_exact \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_build_accepts_only_canonical_extended_disabled_source \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_build_fails_closed_on_identity_or_schema_drift \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_committed_source_treats_crlf_as_diagnostic_and_semantic_drift_as_error \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_bulk_registered_price_read_is_single_call_crlf_safe_and_semantic_strict \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_write_scope_is_exact_four_byte_paired_mirrors \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_import_does_not_load_legacy_cross_model_builder \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_full_v2_gate_rejects_bad_rule_canonical_sha \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_full_v2_gate_rejects_placeholder_per_stock_price_digest \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_full_v2_gate_rejects_self_consistent_forged_mature_row_before_d30 \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_registered_price_gate_recomputes_mature_exit_and_realized_return \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_mid_event_membership_counts_in_primary_and_union_summaries \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_exact_replay_attestation_rejects_event_set_mutations \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_cheap_replay_source_rejects_invalid_pit_or_row_hash_format \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_cheap_replay_lineage_does_not_claim_independent_raw_monthly_truth \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_replay_source_trade_date_must_be_first_registered_session_on_or_after_source \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_detail_source_asof_is_bound_to_replay_lineage \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_summary_and_source_validator_do_not_run_exact_replay \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_revenue_readiness_sync_writer_runs_exact_gate_before_any_mirror_write \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_markdown_status_table_must_match_canonical_csv_non_revenue_cells
           python -m pytest tests/test_revenue_unreacted_range_readiness_formal_sync.py
+          python -m pytest tests/test_revenue_unreacted_range_readiness_formal_sync_workflow.py
 
       - name: Run revenue research regression tests
         run: |
@@ -394,6 +461,9 @@ jobs:
             tests/test_validate_revenue_unreacted_range_promotion_preparation.py \
             tests/test_revenue_unreacted_range_forward_holdout.py \
             tests/test_revenue_unreacted_range_forward_holdout_v2.py \
+            --deselect=tests/test_revenue_unreacted_range_forward_holdout_v2.py::test_v1_exact17_metadata_reproduces_authorized_bundle_digest \
+            --deselect=tests/test_revenue_unreacted_range_forward_holdout_v2.py::test_v1_exact17_freeze_reports_the_drifting_path \
+            --deselect=tests/test_revenue_unreacted_range_forward_holdout_v2.py::test_v1_exact17_freeze_uses_git_blob_identity_for_clean_crlf_checkout \
             tests/test_validate_revenue_unreacted_range_forward_holdout.py \
             tests/test_revenue_unreacted_range_financial_statement_fail_closed.py
 

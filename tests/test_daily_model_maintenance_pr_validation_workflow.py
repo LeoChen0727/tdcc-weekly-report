@@ -209,6 +209,7 @@ def scope_job_contract_ok(text: str) -> bool:
         all(literal in block for literal in required)
         and not any(literal in block for literal in forbidden)
         and "effective_base_sha: ${{ steps.scope.outputs.effective_base_sha }}" in job
+        and "production_pdf_contracts: ${{ steps.scope.outputs.production_pdf_contracts }}" in job
         and "${{ github.event.pull_request.base.sha }}" not in job
         and block.count("printf 'effective_base_sha=%s\\n'") == 1
         and block.index(
@@ -647,6 +648,115 @@ def test_scope_aggregate_and_domain_contracts_are_exact_and_fail_closed() -> Non
     )
 
 
+def test_revenue_only_scope_skips_production_pdf_steps_and_related_scope_runs_them() -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+    scope = job_block("scope", text)
+    core = job_block("repo_current_contracts", text)
+    production_condition = "needs.scope.outputs.production_pdf_contracts == 'true"
+
+    assert (
+        "production_pdf_contracts: "
+        "${{ steps.scope.outputs.production_pdf_contracts }}"
+        in scope
+    )
+    assert (
+        "PRODUCTION_PDF_SELECTED: "
+        "${{ needs.scope.outputs.production_pdf_contracts }}"
+        in core
+    )
+    output_guard = job_step(
+        "repo_current_contracts",
+        "Validate production and PDF scope output",
+        text,
+    )
+    assert output_guard
+    assert active_field(output_guard, "if") is None
+    output_guard_run = active_field(output_guard, "run") or ""
+    assert 'case "$PRODUCTION_PDF_SELECTED" in' in output_guard_run
+    assert "true|false" in output_guard_run
+    assert "exit 1" in output_guard_run
+
+    core_validation = job_step(
+        "repo_current_contracts",
+        "Validate current repository and PDF contracts",
+        text,
+    )
+    assert core_validation
+    assert active_field(core_validation, "if") is None
+    core_run = active_field(core_validation, "run") or ""
+    for command in (
+        "python scripts/validate_repo_file_lifecycle_inventory.py",
+        "python scripts/validate_repo_production_inventory.py",
+        "python scripts/validate_stock_model_contract_registry.py",
+        'python scripts/validate_repo_advanced_integrity_pr_safe.py --base-ref "$BASE_SHA"',
+        "python scripts/validate_repo_hidden_coupling_audit.py",
+        "python scripts/validate_git_worktree_safety.py",
+        "python scripts/validate_repo_code_isolation_policy.py",
+    ):
+        assert run_commands(core_run).count(command) == 1
+
+    production_validation = job_step(
+        "repo_current_contracts",
+        "Validate selected production and PDF contracts",
+        text,
+    )
+    production_tests = job_step(
+        "repo_current_contracts",
+        "Run selected production and PDF regression tests",
+        text,
+    )
+    lineage_step = job_step(
+        "repo_current_contracts",
+        "Validate production lineage parity ordering contract",
+        text,
+    )
+    for step in (production_validation, production_tests, lineage_step):
+        assert step
+        assert active_field(step, "if") == production_condition
+        assert active_field(step, "continue-on-error") is None
+
+    production_validation_run = active_field(production_validation, "run") or ""
+    production_commands = (
+        "python scripts/validate_daily_legacy_volume_range_breakout_removed.py",
+        "python scripts/validate_daily_legacy_mature_model_paths_removed.py",
+        "python scripts/validate_daily_pdf_contract_consumers.py",
+        "python scripts/validate_daily_pdf_role_manifest_contract.py",
+        "python scripts/validate_daily_pdf_shared_path_isolation.py",
+        "python scripts/validate_daily_pdf_completion_hard_gate.py",
+        "python scripts/validate_daily_production_boundaries.py",
+        'python scripts/validate_daily_published_model_snapshots_pr_safe.py --base-ref "$BASE_SHA"',
+        "python scripts/validate_chatgpt_side_pdf_contract.py",
+        "python scripts/validate_chatgpt_side_pdf_layout_independence.py",
+    )
+    for command in production_commands:
+        assert run_commands(production_validation_run).count(command) == 1
+        assert command not in core_run
+
+    core_tests = job_step(
+        "repo_current_contracts",
+        "Run current repository core regression tests",
+        text,
+    )
+    assert core_tests
+    assert active_field(core_tests, "if") is None
+    core_tests_run = active_field(core_tests, "run") or ""
+    assert (
+        "tests/test_daily_model_maintenance_pr_validation_workflow.py::"
+        "test_revenue_only_scope_skips_production_pdf_steps_and_related_scope_runs_them"
+        in core_tests_run
+    )
+    for path in (
+        "tests/test_chatgpt_side_pdf_contract.py",
+        "tests/test_daily_pdf_contract_consumers.py",
+        "tests/test_daily_pdf_completion_hard_gate.py",
+        "tests/test_daily_pdf_shared_path_isolation.py",
+        "tests/test_daily_production_boundaries.py",
+        "tests/test_daily_published_model_snapshots_pr_safe.py",
+    ):
+        assert path not in core_tests_run
+        assert path in (active_field(production_tests, "run") or "")
+
+
 @pytest.mark.parametrize(
     "retired_token",
     boundaries.VOLUME_V2_RETIRED_NORMALIZATION_TOKENS,
@@ -721,6 +831,8 @@ def test_repo_current_runs_legacy_removal_guards_exactly_once_and_fail_closed() 
         "anonymous",
         "step_shell",
         "job_default_shell",
+        "missing_scope_condition",
+        "wrong_scope_condition",
     ),
 )
 def test_repo_current_legacy_removal_guards_reject_contract_mutations(
@@ -773,6 +885,30 @@ def test_repo_current_legacy_removal_guards_reject_contract_mutations(
         mutated = text.replace(
             step_marker,
             step_marker + "        shell: bash\n",
+            1,
+        )
+    elif mutation == "missing_scope_condition":
+        guarded_header = (
+            f"      - name: {boundaries.DAILY_MODEL_LEGACY_REMOVAL_GUARD_STEP}\n"
+            "        if: "
+            f"{boundaries.DAILY_MODEL_PRODUCTION_PDF_SCOPE_CONDITION}\n"
+        )
+        unguarded_header = (
+            f"      - name: {boundaries.DAILY_MODEL_LEGACY_REMOVAL_GUARD_STEP}\n"
+        )
+        assert guarded_header in text
+        mutated = text.replace(guarded_header, unguarded_header, 1)
+    elif mutation == "wrong_scope_condition":
+        guarded_header = (
+            f"      - name: {boundaries.DAILY_MODEL_LEGACY_REMOVAL_GUARD_STEP}\n"
+            "        if: "
+            f"{boundaries.DAILY_MODEL_PRODUCTION_PDF_SCOPE_CONDITION}\n"
+        )
+        assert guarded_header in text
+        mutated = text.replace(
+            guarded_header,
+            f"      - name: {boundaries.DAILY_MODEL_LEGACY_REMOVAL_GUARD_STEP}\n"
+            "        if: always()\n",
             1,
         )
     else:
@@ -1344,6 +1480,7 @@ def test_daily_model_maintenance_pr_workflow_runs_focused_pdf_operation_tests() 
         "tests/test_revenue_unreacted_range_forward_holdout.py",
         "tests/test_revenue_unreacted_range_forward_holdout_v2.py",
         "tests/test_validate_revenue_unreacted_range_forward_holdout.py",
+        "tests/test_revenue_unreacted_range_readiness_formal_sync_workflow.py",
         "tests/test_repo_hidden_coupling_audit.py",
         "tests/test_stock_model_contract_registry.py",
     )
@@ -1351,18 +1488,87 @@ def test_daily_model_maintenance_pr_workflow_runs_focused_pdf_operation_tests() 
         assert path in text
 
 
-def test_revenue_job_runs_only_revenue_readiness_cases_from_shared_test_file() -> None:
+def test_revenue_job_runs_explicit_cheap_readiness_and_independent_v2_cases() -> None:
     text = WORKFLOW.read_text(encoding="utf-8")
     job = job_block("revenue_research", text)
 
-    command = (
-        "python -m pytest tests/test_model_operation_readiness.py "
-        "-k revenue_readiness"
+    assert "BASE_SHA: ${{ needs.scope.outputs.effective_base_sha }}" not in job
+
+    expected_sync_nodes = (
+        "test_build_replaces_only_revenue_and_keeps_non_revenue_fields_exact",
+        "test_build_accepts_only_canonical_extended_disabled_source",
+        "test_build_fails_closed_on_identity_or_schema_drift",
+        "test_committed_source_treats_crlf_as_diagnostic_and_semantic_drift_as_error",
+        "test_bulk_registered_price_read_is_single_call_crlf_safe_and_semantic_strict",
+        "test_write_scope_is_exact_four_byte_paired_mirrors",
+        "test_import_does_not_load_legacy_cross_model_builder",
+        "test_full_v2_gate_rejects_bad_rule_canonical_sha",
+        "test_full_v2_gate_rejects_placeholder_per_stock_price_digest",
+        "test_full_v2_gate_rejects_self_consistent_forged_mature_row_before_d30",
+        "test_registered_price_gate_recomputes_mature_exit_and_realized_return",
+        "test_mid_event_membership_counts_in_primary_and_union_summaries",
+        "test_exact_replay_attestation_rejects_event_set_mutations",
+        "test_cheap_replay_source_rejects_invalid_pit_or_row_hash_format",
+        "test_cheap_replay_lineage_does_not_claim_independent_raw_monthly_truth",
+        "test_replay_source_trade_date_must_be_first_registered_session_on_or_after_source",
+        "test_detail_source_asof_is_bound_to_replay_lineage",
+        "test_summary_and_source_validator_do_not_run_exact_replay",
+        "test_revenue_readiness_sync_writer_runs_exact_gate_before_any_mirror_write",
+        "test_markdown_status_table_must_match_canonical_csv_non_revenue_cells",
     )
-    assert job.count(command) == 1
+    sync_prefix = "tests/test_sync_revenue_unreacted_range_operation_readiness.py::"
+    for node in expected_sync_nodes:
+        assert job.count(f"{sync_prefix}{node}") == 1
+    assert (
+        f"{sync_prefix}test_current_canonical_sources_build_exact_disabled_revenue_row"
+        not in job
+    )
+    retired_legacy_nodes = (
+        "test_revenue_readiness_legacy_bootstrap_accepts_exact_pinned_baseline_and_crlf",
+        "test_revenue_readiness_legacy_bootstrap_rejects_any_semantic_or_filtered_blob_drift",
+        "test_revenue_readiness_legacy_bootstrap_rejects_bare_cr_markdown_drift",
+    )
+    for node in retired_legacy_nodes:
+        assert f"tests/test_model_operation_readiness.py::{node}" not in job
+    assert job.count(
+        "tests/test_model_operation_readiness.py::"
+        "test_revenue_legacy_builder_has_no_direct_mirror_writer"
+    ) == 1
+    assert "test_revenue_readiness_markdown_persists_four_false_permissions" not in job
+    assert "-k revenue_readiness" not in job
+    assert (
+        "            tests/test_revenue_unreacted_range_forward_holdout_v2.py \\\n"
+        in job
+    )
+    exact_v2_nodes = (
+        "test_v1_exact17_metadata_reproduces_authorized_bundle_digest",
+        "test_v1_exact17_freeze_reports_the_drifting_path",
+        "test_v1_exact17_freeze_uses_git_blob_identity_for_clean_crlf_checkout",
+    )
+    observed_deselects = tuple(
+        line.strip().removesuffix(" \\")
+        for line in job.splitlines()
+        if line.strip().startswith("--deselect=")
+    )
+    v2_deselect_prefix = (
+        "--deselect="
+        "tests/test_revenue_unreacted_range_forward_holdout_v2.py::"
+    )
+    observed_exact_v2_nodes = tuple(
+        deselect.removeprefix(v2_deselect_prefix)
+        for deselect in observed_deselects
+        if deselect.startswith(v2_deselect_prefix)
+    )
+    assert len(observed_deselects) == 3
+    assert len(observed_exact_v2_nodes) == 3
+    assert set(observed_exact_v2_nodes) == set(exact_v2_nodes)
     assert job.count(
         "python -m pytest "
         "tests/test_revenue_unreacted_range_readiness_formal_sync.py"
+    ) == 1
+    assert job.count(
+        "python -m pytest "
+        "tests/test_revenue_unreacted_range_readiness_formal_sync_workflow.py"
     ) == 1
     assert "- name: Run revenue operation readiness regression tests" in job
 
@@ -1376,7 +1582,7 @@ def test_daily_model_pr_focused_suite_replaces_only_strict_runtime_integrity_tes
 
     assert "tests/test_repo_advanced_integrity.py" in text
     assert f"--deselect {strict_node}" in text
-    assert text.count("--deselect") == 1
+    assert text.count("--deselect ") == 1
     assert "--ignore=tests/test_repo_advanced_integrity.py" not in text
 
 

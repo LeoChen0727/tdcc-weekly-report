@@ -21,9 +21,6 @@ from build_model_operation_readiness import REVENUE_MODEL_ID  # noqa: E402
 from validate_model_operation_readiness import validate_revenue_readiness_row  # noqa: E402
 import build_model_operation_readiness as readiness_builder  # noqa: E402
 import validate_model_operation_readiness as readiness_validator  # noqa: E402
-from validate_revenue_unreacted_range_readiness_formal_sync import (  # noqa: E402
-    validate_markdown_semantics,
-)
 # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 
 LOW_VOLUME_MODEL_ID = "volume_range_breakout_v2_low_position_volume_attack"
@@ -1280,27 +1277,17 @@ def test_revenue_readiness_legacy_bootstrap_rejects_bare_cr_markdown_drift(
     assert any("canonical semantic drift" in error for error in errors)
 
 
-def test_revenue_readiness_markdown_persists_four_false_permissions(
-    tmp_path: Path,
-    monkeypatch,
-) -> None:
-    readiness = build_model_operation_readiness(
-        revenue_parity_frame(),
-        registry_frame(),
-        adapter_frame(),
-        revenue_promotion_registry=revenue_promotion_registry_frame(),
-        revenue_anomaly_registry=revenue_anomaly_registry_frame(),
-        revenue_forward_holdout_v2_manifest=revenue_forward_holdout_v2_manifest_frame(),
+def test_revenue_legacy_builder_has_no_direct_mirror_writer() -> None:
+    source = (ROOT / "scripts/build_model_operation_readiness.py").read_text(
+        encoding="utf-8"
     )
-    output_md = tmp_path / "output/latest/model_operation_readiness_latest.md"
-    docs_dir = tmp_path / "docs/latest"
-    docs_md = docs_dir / "model_operation_readiness_latest.md"
-    monkeypatch.setattr(readiness_builder, "OUT_MD", output_md)
-    monkeypatch.setattr(readiness_builder, "DOCS_LATEST_DIR", docs_dir)
-    monkeypatch.setattr(readiness_builder, "DOCS_MD", docs_md)
 
-    readiness_builder.write_markdown(readiness)
-
-    assert output_md.read_bytes() == docs_md.read_bytes()
-    assert validate_markdown_semantics(output_md.read_bytes()) == []
+    assert not hasattr(readiness_builder, "write_markdown")
+    for forbidden in (
+        ".write_text(",
+        ".write_bytes(",
+        ".to_csv(",
+        "write_csv(",
+    ):
+        assert forbidden not in source
 # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
