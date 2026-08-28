@@ -6,9 +6,10 @@ from typing import Any
 
 import pandas as pd
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
 
-from tracking_utils import DOCS_LATEST_DIR, LATEST_DIR, RESEARCH_LATEST_DIR, markdown_table, now_text, read_csv, safe_str, write_csv  # noqa: E402
+from tracking_utils import DOCS_LATEST_DIR, LATEST_DIR, RESEARCH_LATEST_DIR, markdown_table, now_text, read_csv, safe_str  # noqa: E402
 # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 from sync_revenue_unreacted_range_operation_readiness import (  # noqa: E402
     REVENUE_ANOMALY_DISPOSITION_POLICIES,
@@ -32,9 +33,7 @@ from sync_revenue_unreacted_range_operation_readiness import (  # noqa: E402
     REVENUE_SOURCE_PROJECTION_MANIFEST_CSV,
     REVENUE_SOURCE_VARIANT_ID,
     summarize_revenue_promotion_readiness,
-    validate_revenue_anomaly_registry,
-    validate_revenue_promotion_registry,
-    validate_revenue_readiness_source_files,
+    sync,
 )
 # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 
@@ -885,67 +884,15 @@ def write_markdown(df: pd.DataFrame) -> None:
 
 
 def main() -> int:
-    # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
-    revenue_source_errors = validate_revenue_readiness_source_files()
-    if revenue_source_errors:
-        raise RuntimeError("; ".join(revenue_source_errors))
-    # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
-    parity = read_csv(PARITY_CSV, dtype=str).fillna("")
-    registry = read_csv(REGISTRY_CSV, dtype=str).fillna("")
-    adapter = read_csv(DAILY_VOLUME_ADAPTER_CSV, dtype=str).fillna("")
-    w_bottom_adapter = read_csv(DAILY_W_BOTTOM_ADAPTER_CSV, dtype=str).fillna("")
-    neckline_adapter = read_csv(DAILY_NECKLINE_ADAPTER_CSV, dtype=str).fillna("")
-    price_pullback_adapter = read_csv(DAILY_PRICE_PULLBACK_ADAPTER_CSV, dtype=str).fillna("")
-    approval = read_csv(APPROVAL_CSV, dtype=str).fillna("")
-    price_pullback_feature_confirmation = read_csv(PRICE_PULLBACK_FEATURE_CONFIRMATION_CSV, dtype=str).fillna("")
-    price_pullback_daily_row_parity = read_csv(PRICE_PULLBACK_DAILY_ROW_PARITY_CSV, dtype=str).fillna("")
-    # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
-    revenue_promotion_registry = read_csv(REVENUE_PROMOTION_REGISTRY_CSV, dtype=str).fillna("")
-    revenue_anomaly_registry = read_csv(REVENUE_ANOMALY_REGISTRY_CSV, dtype=str).fillna("")
-    revenue_forward_holdout_v2_manifest = read_csv(
-        REVENUE_FORWARD_HOLDOUT_V2_MANIFEST_CSV, dtype=str
-    ).fillna("")
-    revenue_forward_holdout_v2_detail = read_csv(
-        REVENUE_FORWARD_HOLDOUT_V2_DETAIL_CSV, dtype=str
-    ).fillna("")
-    revenue_forward_holdout_v2_summary = read_csv(
-        REVENUE_FORWARD_HOLDOUT_V2_SUMMARY_CSV, dtype=str
-    ).fillna("")
-    revenue_forward_holdout_v2_replay_source = read_csv(
-        REVENUE_FORWARD_HOLDOUT_V2_REPLAY_SOURCE_CSV, dtype=str
-    ).fillna("")
-    revenue_source_projection_manifest = read_csv(
-        REVENUE_SOURCE_PROJECTION_MANIFEST_CSV, dtype=str
-    ).fillna("")
-    # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
-    readiness = build_model_operation_readiness(
-        parity,
-        registry,
-        adapter,
-        approval,
-        w_bottom_adapter=w_bottom_adapter,
-        neckline_adapter=neckline_adapter,
-        price_pullback_adapter=price_pullback_adapter,
-        price_pullback_feature_confirmation=price_pullback_feature_confirmation,
-        price_pullback_daily_row_parity=price_pullback_daily_row_parity,
-        # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
-        revenue_promotion_registry=revenue_promotion_registry,
-        revenue_anomaly_registry=revenue_anomaly_registry,
-        revenue_forward_holdout_v2_manifest=revenue_forward_holdout_v2_manifest,
-        revenue_forward_holdout_v2_detail=revenue_forward_holdout_v2_detail,
-        revenue_forward_holdout_v2_summary=revenue_forward_holdout_v2_summary,
-        revenue_forward_holdout_v2_replay_source=(
-            revenue_forward_holdout_v2_replay_source
-        ),
-        revenue_source_projection_manifest=revenue_source_projection_manifest,
-        # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
+    # Compatibility entrypoint only. The model-owned sync performs the single
+    # canonical exact gate immediately before its exact four-mirror write.
+    readiness, diagnostics = sync(ROOT)
+    for diagnostic in diagnostics:
+        print(f"DIAGNOSTIC: {diagnostic}")
+    print(
+        "Saved exact four revenue-only readiness mirrors through the model-owned "
+        f"sync; rows={len(readiness)}; model_id={REVENUE_MODEL_ID}."
     )
-    write_csv(readiness, OUT_CSV)
-    DOCS_LATEST_DIR.mkdir(parents=True, exist_ok=True)
-    write_csv(readiness, DOCS_CSV)
-    write_markdown(readiness)
-    print(f"Saved {OUT_CSV} rows={len(readiness)}")
-    print(f"Saved {OUT_MD}")
     return 0
 
 

@@ -75,6 +75,92 @@ def test_readiness_owner_closure_and_exact_migration_are_canonical() -> None:
     assert validate_ownership_migrations() == []
 
 
+def test_readiness_exact_child_dependencies_and_writer_lineage_are_registered() -> None:
+    producer = "scripts/sync_revenue_unreacted_range_operation_readiness.py"
+    with (ROOT / "config/repo_file_lifecycle_inventory.csv").open(
+        encoding="utf-8", newline=""
+    ) as handle:
+        lifecycle_rows = list(csv.DictReader(handle))
+    lifecycle = next(row for row in lifecycle_rows if row["path"] == producer)
+    for token in (
+        "revenue_unreacted_range_forward_holdout_v2",
+        "validate_revenue_unreacted_range_forward_holdout_v2",
+        "without importing research-owner raw-truth code",
+        "independent raw monthly truth remains with research-owner CI",
+        "trusted same-model in-memory child",
+        "post-child repository cleanliness",
+    ):
+        assert token in lifecycle["keep_reason"]
+    expected_outputs = {
+        "output/latest/model_operation_readiness_latest.csv",
+        "output/latest/model_operation_readiness_latest.md",
+        "docs/latest/model_operation_readiness_latest.csv",
+        "docs/latest/model_operation_readiness_latest.md",
+    }
+    assert set(lifecycle["writes_artifact"].split(";")) == expected_outputs
+    assert "config/revenue_unreacted_range_promotion_preparation_registry.csv" in set(
+        lifecycle["reads_artifact"].split(";")
+    )
+    with (ROOT / "config/report_artifact_lineage.csv").open(
+        encoding="utf-8", newline=""
+    ) as handle:
+        lineage_rows = [
+            row
+            for row in csv.DictReader(handle)
+            if row["producer"] == producer
+        ]
+    assert {row["artifact_path"] for row in lineage_rows} == expected_outputs
+    assert all(
+        row["validator"]
+        == (
+            "scripts/validate_model_operation_readiness.py;"
+            "scripts/validate_revenue_unreacted_range_readiness_formal_sync.py"
+        )
+        for row in lineage_rows
+    )
+
+    with (ROOT / "config/repo_production_inventory.csv").open(
+        encoding="utf-8", newline=""
+    ) as handle:
+        production_rows = list(csv.DictReader(handle))
+    production = next(row for row in production_rows if row["path"] == producer)
+    assert "trusted same-model in-memory replay" in production["purpose"]
+    assert "post-child repository-cleanliness hard gate" in production["purpose"]
+    assert production["allowed_stage_patterns"] == ""
+
+    with (ROOT / "config/model_research_artifact_ownership.csv").open(
+        encoding="utf-8", newline=""
+    ) as handle:
+        ownership_rows = [
+            row
+            for row in csv.DictReader(handle)
+            if row["producer"] == producer
+        ]
+    assert len(ownership_rows) == 2
+    ownership_notes = " ".join(row["notes"] for row in ownership_rows)
+    assert "trusted same-model in-memory producer" in ownership_notes
+    assert "replay-child called APIs do not include artifact writers" in ownership_notes
+    assert "writes only the exact four readiness mirrors" in ownership_notes
+
+    spec = (
+        ROOT / "docs/specs/revenue_unreacted_range_readiness_formal_sync_v1.md"
+    ).read_text(encoding="utf-8")
+    for token in (
+        "temporary clean detached worktree",
+        "validate_v1_exact17_freeze",
+        "build all five v2 frames",
+        "reviewed same-model in-memory producer",
+        "`-I -B`",
+        "post-child clean Git status",
+        "do not import research-owner code",
+        "validate_revenue_unreacted_range_forward_holdout_v2.py",
+        "Raw monthly",
+        "provenance diagnostic",
+        "four readiness mirrors",
+    ):
+        assert token in spec
+
+
 @pytest.mark.parametrize(
     ("mutation", "message"),
     (
