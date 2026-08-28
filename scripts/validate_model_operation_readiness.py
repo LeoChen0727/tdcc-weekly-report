@@ -94,7 +94,6 @@ LEGACY_BOOTSTRAP_BLOB_IDS = {
         "108b744f3b4371ee7fa19edbe872a6d563af2a5b"
     ),
 }
-# END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 LEGACY_BOOTSTRAP_CANONICAL_SHA256 = {
     "output/latest/model_operation_readiness_latest.csv": (
         "c84488e3878427fdf747b32de6aa0461039c15561980a0f82468aa4a384e972b"
@@ -109,6 +108,7 @@ LEGACY_BOOTSTRAP_CANONICAL_SHA256 = {
         "569851bc29f270c4115d7176cec97dedf679109877855d22815063c136e725a1"
     ),
 }
+# END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 
 APPROVED_MODEL_IDS = {
     V2_LOW_MODEL_ID,
