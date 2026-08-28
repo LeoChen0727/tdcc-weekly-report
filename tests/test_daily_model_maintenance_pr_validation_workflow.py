@@ -180,6 +180,7 @@ def scope_job_contract_ok(text: str) -> bool:
         '[ "$observed_merge" != "$MERGE_SHA" ]',
         '[ "$observed_head" != "$HEAD_SHA" ]',
         'effective_base_sha="$observed_base"',
+        '--validation-profile "$VALIDATION_PROFILE"',
         '--base-sha "$effective_base_sha"',
         '--head-sha "$HEAD_SHA"',
         '--merge-sha "$MERGE_SHA"',
@@ -217,7 +218,7 @@ def scope_job_contract_ok(text: str) -> bool:
         and text.count(
             "      BASE_SHA: ${{ needs.scope.outputs.effective_base_sha }}"
         )
-        == 3
+        == 4
         and "github.event.pull_request.base.sha" not in text
         and all(active_field(step, "uses") is None for step in steps)
     )
@@ -234,6 +235,7 @@ def aggregate_contract_ok(text: str) -> bool:
     expected_needs = (
         "scope",
         "repo_current_contracts",
+        "research_safety_lite",
         "shared_model_research",
         "volume_v2_research",
         "revenue_research",
@@ -244,6 +246,7 @@ def aggregate_contract_ok(text: str) -> bool:
         'if [ "$result" != "success" ]; then',
         'if [ "$result" != "skipped" ]; then',
         'require_domain_result repo-current-contracts "$CORE_SELECTED" "$CORE_RESULT"',
+        'require_domain_result research-safety-lite "$SAFETY_SELECTED" "$SAFETY_RESULT"',
         'require_domain_result shared-model-research "$SHARED_SELECTED" "$SHARED_RESULT"',
         'require_domain_result volume-v2-research "$VOLUME_SELECTED" "$VOLUME_RESULT"',
         'require_domain_result revenue-research "$REVENUE_SELECTED" "$REVENUE_RESULT"',
@@ -287,9 +290,14 @@ REVENUE_VALIDATOR_COMMANDS = (
     "python scripts/validate_revenue_unreacted_range_financial_statement_fail_closed.py",
 )
 
+RESEARCH_SAFETY_VALIDATION_COMMANDS = (
+    'python scripts/validate_model_data_independence.py --base-ref "$BASE_SHA"',
+    "python scripts/validate_model_research_workflow_isolation.py",
+    "python scripts/validate_research_production_boundaries.py",
+)
+
 SHARED_VALIDATION_COMMANDS = (
     "python scripts/validate_daily_model_background_data_registry.py",
-    'python scripts/validate_model_data_independence.py --base-ref "$BASE_SHA"',
     'python scripts/validate_model_research_shared_utilities.py --base-ref "$BASE_SHA"',
     "python scripts/build_mature_model_row_level_metric_contract_audit.py",
     "python scripts/validate_mature_model_row_level_metric_contract_audit.py",
@@ -317,6 +325,11 @@ FINANCIAL_VALIDATION_COMMANDS = (
 
 DOMAIN_CONTRACTS = {
     "repo_current_contracts": (model_scope.REPO_CURRENT_CONTRACTS, "", ()),
+    "research_safety_lite": (
+        model_scope.RESEARCH_SAFETY_LITE,
+        "Validate research safety contracts",
+        RESEARCH_SAFETY_VALIDATION_COMMANDS,
+    ),
     "shared_model_research": (
         model_scope.SHARED_MODEL_RESEARCH,
         "Validate shared model research contracts",
@@ -390,6 +403,10 @@ def domain_workload_contract_ok(text: str) -> bool:
         not re.search(r"(?m)^\s*python scripts/build_", core)
         and "diff --exit-code" not in core
         and all(all_runs.count(command) == 1 for command in REVENUE_VALIDATOR_COMMANDS)
+        and all(
+            all_runs.count(command) == 1
+            for command in RESEARCH_SAFETY_VALIDATION_COMMANDS
+        )
     )
 
 
@@ -544,6 +561,21 @@ def test_daily_model_maintenance_pr_workflow_exists_for_model_pdf_paths() -> Non
     assert "tests/test_mature_model_row_level_metric_contract_audit.py" in text
 
 
+def test_workflow_dispatch_profiles_are_closed_and_revenue_keeps_safety() -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+    event_block = text[text.index("on:") : text.index("permissions:")]
+    scope_job = job_block("scope", text)
+
+    assert "      validation_profile:" in event_block
+    assert "        required: true" in event_block
+    assert "        default: all" in event_block
+    assert "        type: choice" in event_block
+    assert event_block.count("          - all") == 1
+    assert event_block.count("          - revenue-research") == 1
+    assert "VALIDATION_PROFILE: ${{ inputs.validation_profile || 'all' }}" in scope_job
+    assert '--validation-profile "$VALIDATION_PROFILE"' in scope_job
+
+
 def test_scope_aggregate_and_domain_contracts_are_exact_and_fail_closed() -> None:
     text = WORKFLOW.read_text(encoding="utf-8")
     block = job_run_text("scope", text)
@@ -568,7 +600,7 @@ def test_scope_aggregate_and_domain_contracts_are_exact_and_fail_closed() -> Non
     assert 'effective_base_sha="origin/main"' in block
     assert text.count(
         "      BASE_SHA: ${{ needs.scope.outputs.effective_base_sha }}"
-    ) == 3
+    ) == 4
     assert "github.event.pull_request.base.sha" not in text
     scope_first_step = active_step_blocks(job_block("scope", text))[0]
     assert "public merge ref" in (active_field(scope_first_step, "name") or "")
@@ -1133,7 +1165,7 @@ def test_daily_model_maintenance_pr_workflow_pins_append_only_validation_base() 
     assert "fetch-depth: 0" in text
     assert text.count(
         "BASE_SHA: ${{ needs.scope.outputs.effective_base_sha }}"
-    ) == 3
+    ) == 4
     assert (
         "effective_base_sha: ${{ steps.scope.outputs.effective_base_sha }}" in text
     )
@@ -1227,6 +1259,8 @@ def test_daily_model_maintenance_pr_workflow_runs_contract_validators() -> None:
         "python scripts/validate_daily_model_research_parity.py",
         "python scripts/validate_repo_hidden_coupling_audit.py",
         "python scripts/validate_repo_code_isolation_policy.py",
+        "python scripts/validate_model_research_workflow_isolation.py",
+        "python scripts/validate_research_production_boundaries.py",
         "python scripts/validate_chatgpt_side_pdf_layout_independence.py",
     )
     for command in required_commands:
@@ -1270,6 +1304,8 @@ def test_daily_model_maintenance_pr_workflow_runs_focused_pdf_operation_tests() 
         "tests/test_daily_report_model_summary.py",
         "tests/test_daily_production_boundaries.py",
         "tests/test_model_data_independence.py",
+        "tests/test_model_research_artifact_ownership.py",
+        "tests/test_model_research_workflow_isolation.py",
         "tests/test_volume_breakout_watch.py",
         "tests/test_daily_canonical_field_lineage.py",
         "tests/test_daily_model_maintenance_pr_validation_workflow.py",

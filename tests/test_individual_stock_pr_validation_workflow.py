@@ -144,10 +144,10 @@ def test_workflow_contains_required_affected_validation_commands() -> None:
 
     for command in commands:
         assert command in text
-    assert text.count("if: steps.scope.outputs.affected == 'true'") >= 2
+    assert text.count("if: steps.scope.outputs.affected == 'true'") == 5
 
 
-def test_pull_request_static_validation_step_is_exact_and_unconditional() -> None:
+def test_pull_request_static_validation_step_is_exact_and_affected_only() -> None:
     text = workflow_text()
 
     assert inventory.validate_regular_pr_static_validation_step(text) == []
@@ -159,6 +159,19 @@ def test_pull_request_static_validation_step_is_exact_and_unconditional() -> Non
     assert names.index(inventory.PR_STATIC_DEPENDENCY_STEP_NAME) < names.index(
         inventory.PR_STATIC_VALIDATION_STEP_NAME
     )
+    for step_name in (
+        inventory.PR_STATIC_DEPENDENCY_STEP_NAME,
+        "Validate workflow and scope contract",
+        inventory.PR_STATIC_VALIDATION_STEP_NAME,
+    ):
+        step = next(
+            step
+            for step in steps
+            if inventory.workflow_step_name(step) == step_name
+        )
+        assert inventory.workflow_step_condition(step) == (
+            inventory.PR_STATIC_AFFECTED_CONDITION
+        )
 
 
 @pytest.mark.parametrize("command", inventory.PR_STATIC_VALIDATION_COMMANDS)
@@ -183,7 +196,11 @@ def test_pull_request_static_validation_rejects_inert_or_non_failing_carriers(
     name_line = f"      - name: {inventory.PR_STATIC_VALIDATION_STEP_NAME}\n"
     assert text.count(name_line) == 1
     if mutation == "condition":
-        mutated = text.replace(name_line, name_line + "        if: false\n", 1)
+        mutated = text.replace(
+            f"        if: {inventory.PR_STATIC_AFFECTED_CONDITION}\n",
+            "        if: false\n",
+            1,
+        )
     elif mutation == "continue_on_error":
         mutated = text.replace(
             name_line,
@@ -280,7 +297,7 @@ def test_trust_root_guard_structure_rejects_security_drift() -> None:
         assert inventory.validate_pr_safe_base_guard_workflow_text(mutated)
 
 
-def test_regular_pull_request_static_validation_remains_unconditional() -> None:
+def test_regular_pull_request_static_validation_is_affected_only() -> None:
     text = WORKFLOW.read_text(encoding="utf-8")
     jobs = inventory.workflow_job_blocks(text)
     regular = jobs["individual-stock-pr-validation"]
@@ -288,5 +305,8 @@ def test_regular_pull_request_static_validation_remains_unconditional() -> None:
     assert inventory.validate_regular_pr_static_validation_step(text) == []
     assert "if: github.event_name == 'pull_request'" in regular
     assert inventory.PR_STATIC_VALIDATION_STEP_NAME in regular
+    assert regular.count(
+        f"if: {inventory.PR_STATIC_AFFECTED_CONDITION}"
+    ) == 5
     for command in inventory.PR_STATIC_VALIDATION_COMMANDS:
         assert command in regular

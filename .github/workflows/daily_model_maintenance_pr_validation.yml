@@ -3,6 +3,15 @@ name: Daily Model Maintenance PR Validation
 on:
   pull_request:
   workflow_dispatch:
+    inputs:
+      validation_profile:
+        description: Validation profile to run
+        required: true
+        default: all
+        type: choice
+        options:
+          - all
+          - revenue-research
 
 permissions:
   contents: read
@@ -18,6 +27,7 @@ jobs:
     outputs:
       effective_base_sha: ${{ steps.scope.outputs.effective_base_sha }}
       repo_current_contracts: ${{ steps.scope.outputs.repo_current_contracts }}
+      research_safety_lite: ${{ steps.scope.outputs.research_safety_lite }}
       shared_model_research: ${{ steps.scope.outputs.shared_model_research }}
       volume_v2_research: ${{ steps.scope.outputs.volume_v2_research }}
       revenue_research: ${{ steps.scope.outputs.revenue_research }}
@@ -62,12 +72,14 @@ jobs:
           EVENT_NAME: ${{ github.event_name }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
           MERGE_SHA: ${{ github.sha }}
+          VALIDATION_PROFILE: ${{ inputs.validation_profile || 'all' }}
         shell: bash
         run: |
           set -euo pipefail
           effective_base_sha="origin/main"
           scope_args=(
             --event-name "$EVENT_NAME"
+            --validation-profile "$VALIDATION_PROFILE"
             --github-output "$GITHUB_OUTPUT"
           )
           if [ "$EVENT_NAME" = "pull_request" ]; then
@@ -156,7 +168,6 @@ jobs:
           python scripts/validate_git_worktree_safety.py
           python scripts/validate_chatgpt_side_pdf_contract.py
           python scripts/validate_repo_code_isolation_policy.py
-          python scripts/validate_model_research_workflow_isolation.py
           python scripts/validate_chatgpt_side_pdf_layout_independence.py
 
       - name: Run current repository and PDF regression tests
@@ -182,9 +193,45 @@ jobs:
             tests/test_daily_production_boundaries.py \
             tests/test_repo_hidden_coupling_audit.py \
             tests/test_git_worktree_safety.py \
-            tests/test_model_research_workflow_isolation.py \
             tests/test_stock_model_contract_registry.py \
             --deselect tests/test_repo_advanced_integrity.py::test_repo_advanced_integrity_validator_passes
+
+  research_safety_lite:
+    name: research-safety-lite
+    needs: scope
+    if: >-
+      needs.scope.result == 'success' &&
+      needs.scope.outputs.research_safety_lite == 'true'
+    runs-on: ubuntu-latest
+    env:
+      BASE_SHA: ${{ needs.scope.outputs.effective_base_sha }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install research safety dependencies
+        run: python -m pip install --disable-pip-version-check pytest
+
+      - name: Validate research safety contracts
+        run: |
+          python scripts/validate_model_data_independence.py --base-ref "$BASE_SHA"
+          python scripts/validate_model_research_workflow_isolation.py
+          python scripts/validate_research_production_boundaries.py
+
+      - name: Run research safety regression tests
+        run: |
+          python -m pytest \
+            tests/test_model_data_independence.py \
+            tests/test_model_research_artifact_ownership.py \
+            tests/test_model_research_workflow_isolation.py
 
   shared_model_research:
     name: shared-model-research
@@ -215,7 +262,6 @@ jobs:
       - name: Validate shared model research contracts
         run: |
           python scripts/validate_daily_model_background_data_registry.py
-          python scripts/validate_model_data_independence.py --base-ref "$BASE_SHA"
           python scripts/validate_model_research_shared_utilities.py --base-ref "$BASE_SHA"
           python scripts/build_mature_model_row_level_metric_contract_audit.py
           python scripts/validate_mature_model_row_level_metric_contract_audit.py
@@ -236,8 +282,7 @@ jobs:
             tests/test_daily_w_bottom_operation_sections.py \
             tests/test_daily_price_pullback_23ema_operation_section.py \
             tests/test_price_pullback_daily_row_parity.py \
-            tests/test_mature_model_row_level_metric_contract_audit.py \
-            tests/test_model_data_independence.py
+            tests/test_mature_model_row_level_metric_contract_audit.py
 
   volume_v2_research:
     name: volume-v2-research
@@ -393,6 +438,7 @@ jobs:
     needs:
       - scope
       - repo_current_contracts
+      - research_safety_lite
       - shared_model_research
       - volume_v2_research
       - revenue_research
@@ -405,6 +451,8 @@ jobs:
           SCOPE_RESULT: ${{ needs.scope.result }}
           CORE_SELECTED: ${{ needs.scope.outputs.repo_current_contracts }}
           CORE_RESULT: ${{ needs.repo_current_contracts.result }}
+          SAFETY_SELECTED: ${{ needs.scope.outputs.research_safety_lite }}
+          SAFETY_RESULT: ${{ needs.research_safety_lite.result }}
           SHARED_SELECTED: ${{ needs.scope.outputs.shared_model_research }}
           SHARED_RESULT: ${{ needs.shared_model_research.result }}
           VOLUME_SELECTED: ${{ needs.scope.outputs.volume_v2_research }}
@@ -445,6 +493,7 @@ jobs:
           }
 
           require_domain_result repo-current-contracts "$CORE_SELECTED" "$CORE_RESULT"
+          require_domain_result research-safety-lite "$SAFETY_SELECTED" "$SAFETY_RESULT"
           require_domain_result shared-model-research "$SHARED_SELECTED" "$SHARED_RESULT"
           require_domain_result volume-v2-research "$VOLUME_SELECTED" "$VOLUME_RESULT"
           require_domain_result revenue-research "$REVENUE_SELECTED" "$REVENUE_RESULT"

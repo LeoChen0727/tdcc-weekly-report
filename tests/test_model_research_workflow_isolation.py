@@ -649,3 +649,47 @@ def test_pr_validation_rejects_unrouted_registered_model_namespace() -> None:
     errors = validator.validate_pr_workflow_text(text, rows)
 
     assert any("scripts/foo_bar_research.py" in error for error in errors)
+
+
+@pytest.mark.parametrize(
+    "bad_domains",
+    (
+        frozenset({validator.pr_scope.REVENUE_RESEARCH}),
+        frozenset(
+            {
+                validator.pr_scope.RESEARCH_SAFETY_LITE,
+                validator.pr_scope.REVENUE_RESEARCH,
+                validator.pr_scope.REPO_CURRENT_CONTRACTS,
+            }
+        ),
+        frozenset(
+            {
+                validator.pr_scope.RESEARCH_SAFETY_LITE,
+                validator.pr_scope.REVENUE_RESEARCH,
+                validator.pr_scope.SHARED_MODEL_RESEARCH,
+            }
+        ),
+    ),
+)
+def test_pr_validation_requires_exact_revenue_safety_and_model_domain(
+    bad_domains: frozenset[str],
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    rows = validator.load_registry()
+    text = validator.PR_VALIDATION_WORKFLOW.read_text(encoding="utf-8")
+    original = validator.pr_scope.domains_for_path
+
+    def domains_for_path(path: str) -> frozenset[str]:
+        if "revenue_unreacted_range" in path:
+            return bad_domains
+        return original(path)
+
+    monkeypatch.setattr(validator.pr_scope, "domains_for_path", domains_for_path)
+
+    errors = validator.validate_pr_workflow_text(text, rows)
+
+    assert any(
+        "must route to exactly research safety and its model domain" in error
+        and "revenue_unreacted_range" in error
+        for error in errors
+    )

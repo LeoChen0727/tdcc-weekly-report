@@ -57,6 +57,11 @@ PR_STATIC_DEPENDENCY_COMMAND = (
     "python -m pip install --disable-pip-version-check pytest pandas requests "
     "PyYAML==6.0.2 pypdf"
 )
+PR_STATIC_AFFECTED_CONDITION = "steps.scope.outputs.affected == 'true'"
+PR_STATIC_WORKFLOW_CONTRACT_STEP_NAME = "Validate workflow and scope contract"
+PR_STATIC_WORKFLOW_CONTRACT_COMMAND = (
+    "python -m pytest tests/test_individual_stock_pr_validation_workflow.py -q"
+)
 PR_STATIC_VALIDATION_STEP_NAME = "Validate repository static contracts"
 PR_STATIC_VALIDATION_COMMANDS = (
     "python scripts/validate_apps_script_workflow_triggers.py",
@@ -383,7 +388,9 @@ REQUIRED_WORKFLOW_COMMANDS = {
         "python scripts/validate_daily_pdf_shared_path_isolation.py",
         "python scripts/validate_daily_pdf_completion_hard_gate.py",
         "python scripts/validate_daily_production_boundaries.py",
+        "python scripts/validate_model_data_independence.py",
         "python scripts/validate_model_research_workflow_isolation.py",
+        "python scripts/validate_research_production_boundaries.py",
     ),
     ".github/workflows/daily_pdf_replay_pr_validation.yml": (
         "python scripts/validate_repo_production_inventory.py",
@@ -834,38 +841,63 @@ def validate_regular_pr_static_validation_step(text: str) -> list[str]:
         for index, step in enumerate(steps)
         if workflow_step_name(step) == PR_STATIC_VALIDATION_STEP_NAME
     ]
+    workflow_contract_steps = [
+        (index, step)
+        for index, step in enumerate(steps)
+        if workflow_step_name(step) == PR_STATIC_WORKFLOW_CONTRACT_STEP_NAME
+    ]
     if len(dependency_steps) != 1:
         errors.append("pull_request job must contain exactly one PR static dependency step")
     if len(static_steps) != 1:
         errors.append("pull_request job must contain exactly one repository static validation step")
-    if len(dependency_steps) != 1 or len(static_steps) != 1:
+    if len(workflow_contract_steps) != 1:
+        errors.append("pull_request job must contain exactly one workflow contract test step")
+    if (
+        len(dependency_steps) != 1
+        or len(workflow_contract_steps) != 1
+        or len(static_steps) != 1
+    ):
         return errors
 
     dependency_index, dependency_step = dependency_steps[0]
+    workflow_contract_index, workflow_contract_step = workflow_contract_steps[0]
     static_index, static_step = static_steps[0]
-    if dependency_index >= static_index:
-        errors.append("PR static validation dependencies must be installed before validation")
+    if not dependency_index < workflow_contract_index < static_index:
+        errors.append(
+            "PR static validation dependencies, workflow test, and validators must remain ordered"
+        )
 
     expected_dependency = canonical_workflow_step_text(
         "      - name: "
         f"{PR_STATIC_DEPENDENCY_STEP_NAME}\n"
+        f"        if: {PR_STATIC_AFFECTED_CONDITION}\n"
         f"        run: {PR_STATIC_DEPENDENCY_COMMAND}\n"
     )
     if canonical_workflow_step_text(dependency_step) != expected_dependency:
-        errors.append("PR static dependency step must match the exact unconditional contract")
+        errors.append("PR static dependency step must match the exact affected-only contract")
+
+    expected_workflow_contract = canonical_workflow_step_text(
+        "      - name: "
+        f"{PR_STATIC_WORKFLOW_CONTRACT_STEP_NAME}\n"
+        f"        if: {PR_STATIC_AFFECTED_CONDITION}\n"
+        f"        run: {PR_STATIC_WORKFLOW_CONTRACT_COMMAND}\n"
+    )
+    if canonical_workflow_step_text(workflow_contract_step) != expected_workflow_contract:
+        errors.append("workflow contract test step must match the exact affected-only contract")
 
     expected_static = canonical_workflow_step_text(
         "      - name: "
         f"{PR_STATIC_VALIDATION_STEP_NAME}\n"
+        f"        if: {PR_STATIC_AFFECTED_CONDITION}\n"
         "        run: |\n"
         + "".join(f"          {command}\n" for command in PR_STATIC_VALIDATION_COMMANDS)
     )
     if canonical_workflow_step_text(static_step) != expected_static:
         errors.append(
-            "repository static validation step must match the exact unconditional command contract"
+            "repository static validation step must match the exact affected-only command contract"
         )
-    if workflow_step_condition(static_step):
-        errors.append("repository static validation step must not have an if condition")
+    if workflow_step_condition(static_step) != PR_STATIC_AFFECTED_CONDITION:
+        errors.append("repository static validation step must use the affected-only condition")
     if re.search(r"^        continue-on-error\s*:", static_step, flags=re.MULTILINE):
         errors.append("repository static validation step must fail closed")
 
