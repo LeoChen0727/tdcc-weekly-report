@@ -1513,12 +1513,23 @@ def test_revenue_job_runs_explicit_cheap_readiness_and_independent_v2_cases() ->
         "test_v1_exact17_freeze_reports_the_drifting_path",
         "test_v1_exact17_freeze_uses_git_blob_identity_for_clean_crlf_checkout",
     )
-    for node in exact_v2_nodes:
-        assert job.count(
-            "--deselect="
-            "tests/test_revenue_unreacted_range_forward_holdout_v2.py::"
-            f"{node}"
-        ) == 1
+    observed_deselects = tuple(
+        line.strip().removesuffix(" \\")
+        for line in job.splitlines()
+        if line.strip().startswith("--deselect=")
+    )
+    v2_deselect_prefix = (
+        "--deselect="
+        "tests/test_revenue_unreacted_range_forward_holdout_v2.py::"
+    )
+    observed_exact_v2_nodes = tuple(
+        deselect.removeprefix(v2_deselect_prefix)
+        for deselect in observed_deselects
+        if deselect.startswith(v2_deselect_prefix)
+    )
+    assert len(observed_deselects) == 3
+    assert len(observed_exact_v2_nodes) == 3
+    assert set(observed_exact_v2_nodes) == set(exact_v2_nodes)
     assert job.count(
         "python -m pytest "
         "tests/test_revenue_unreacted_range_readiness_formal_sync.py"
