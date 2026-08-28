@@ -34,6 +34,7 @@ FORBIDDEN_WORKFLOW_SCRIPTS = {
     "scripts/build_daily_w_bottom_operation_sections.py",
     "scripts/build_daily_price_pullback_23ema_operation_section.py",
     "scripts/build_model_operation_readiness.py",
+    "scripts/sync_revenue_unreacted_range_operation_readiness.py",
     "scripts/build_approved_operation_patterns.py",
     "scripts/update_daily_published_model_snapshots.py",
 }
