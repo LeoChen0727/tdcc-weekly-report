@@ -1,16 +1,20 @@
 from __future__ import annotations
 
+# BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 import csv
 import hashlib
 import io
 import json
 import subprocess
+# END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 import sys
 from pathlib import Path
 
 import pandas as pd
 
+# BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 ROOT = Path(__file__).resolve().parents[1]
+# END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from build_model_operation_readiness import (  # noqa: E402
@@ -66,6 +70,7 @@ REQUIRED_COLUMNS = {
     "packet_integration_status",
     "status_note_zh",
 }
+# BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 REVENUE_PERMISSION_COLUMNS = {
     "formal_model_use_allowed",
     "production_allowed",
@@ -85,6 +90,7 @@ LEGACY_BOOTSTRAP_BLOB_IDS = {
         "108b744f3b4371ee7fa19edbe872a6d563af2a5b"
     ),
 }
+# END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 LEGACY_BOOTSTRAP_CANONICAL_SHA256 = {
     "output/latest/model_operation_readiness_latest.csv": (
         "c84488e3878427fdf747b32de6aa0461039c15561980a0f82468aa4a384e972b"
@@ -119,6 +125,7 @@ def as_bool_text(series: pd.Series) -> pd.Series:
     return series.astype(str).str.strip().str.lower()
 
 
+# BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 def _canonical_readiness_artifact_sha256(
     logical_path: str,
     data: bytes,
@@ -250,6 +257,7 @@ def validate_persisted_revenue_permission_columns(
                 + ", ".join(bad_legacy["model_id"].astype(str).tolist())
             )
     return errors
+# END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 
 
@@ -350,6 +358,7 @@ def validate_readiness_csv() -> list[str]:
     if missing_cols:
         return [f"model operation readiness missing columns: {missing_cols}"]
 
+    # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
     present_permission_columns = REVENUE_PERMISSION_COLUMNS.intersection(df.columns)
     if present_permission_columns != REVENUE_PERMISSION_COLUMNS:
         if present_permission_columns:
@@ -365,6 +374,7 @@ def validate_readiness_csv() -> list[str]:
     permission_errors = validate_persisted_revenue_permission_columns(df)
     if permission_errors:
         return permission_errors
+    # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 
     parity = read_csv(PARITY_CSV, dtype=str).fillna("")
     if parity.empty or "model_id" not in parity.columns:

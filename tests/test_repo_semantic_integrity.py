@@ -84,7 +84,7 @@ def test_revenue_readiness_cross_owner_imports_are_exactly_bounded() -> None:
         assert validator.allowed_import(source, target)
 
     unrelated_target = validator.InventoryRow(
-        path="scripts/validate_volume_range_breakout_v2_research_contract.py",
+        path="scripts/unrelated_research_validator.py",
         kind="python",
         owner="research_backtest",
         status="active",
@@ -93,7 +93,7 @@ def test_revenue_readiness_cross_owner_imports_are_exactly_bounded() -> None:
     assert not validator.allowed_import(source, unrelated_target)
 
     unrelated_source = validator.InventoryRow(
-        path="scripts/build_approved_operation_patterns.py",
+        path="scripts/unrelated_model_governance_builder.py",
         kind="python",
         owner="model_governance",
         status="active",
