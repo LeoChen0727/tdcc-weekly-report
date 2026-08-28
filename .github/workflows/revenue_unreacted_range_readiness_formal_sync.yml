@@ -60,7 +60,7 @@ jobs:
         with:
           python-version: "3.11"
 
-      - run: python -m pip install --disable-pip-version-check pandas tabulate
+      - run: python -m pip install --disable-pip-version-check pandas requests tabulate
 
       - name: Build and validate model-owned readiness only
         run: |
