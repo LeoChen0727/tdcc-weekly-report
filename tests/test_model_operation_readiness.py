@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+# BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 import subprocess
+# END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 import sys
 from pathlib import Path
 
