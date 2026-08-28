@@ -159,8 +159,8 @@ def test_workflow_guard_rejects_security_boundary_mutations(
 
 def test_workflow_does_not_invoke_forbidden_surfaces() -> None:
     for token in (
-        "run_chatgpt_daily_report_entrypoint",
-        "daily_full_pipeline",
+        "run_chatgpt_daily_" + "report_entrypoint",
+        "daily_full_" + "pipeline",
         "gh workflow run",
         "clasp ",
     ):

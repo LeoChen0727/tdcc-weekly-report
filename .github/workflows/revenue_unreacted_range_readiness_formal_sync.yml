@@ -1,4 +1,5 @@
 name: Revenue Unreacted Range Readiness Formal Sync
+# Contract: docs/specs/revenue_unreacted_range_readiness_formal_sync_v1.md
 on:
   workflow_dispatch:
     inputs:
