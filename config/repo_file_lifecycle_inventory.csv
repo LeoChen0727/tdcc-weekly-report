@@ -20,13 +20,13 @@ tests/test_tdcc_dataset_contract.py,test_python,tdcc_weekly,active,,,,,,,TDCC ca
 .github/workflows/current_holdings_pattern.yml,workflow,current_holdings,active,,,,docs/individual_stock_pr_validation.md,,,current holdings workflow boundary,,medium
 .github/workflows/daily_full_pipeline.yml,workflow,daily_production,active,,,,docs/APPS_SCRIPT_WORKFLOW_TRIGGER.md;docs/daily_pdf_contract_consumer_governance.md;docs/individual_stock_pr_validation.md;docs/pdf_production_inventory.md;docs/repo_production_inventory.md;rules/rules_index_latest.md,,,daily production workflow boundary,,high
 .github/workflows/daily_pdf_replay_pr_validation.yml,workflow,daily_production,active,,,,,,,renderer-font-runtime and formal operation-input PR replay plus manual DFKai replay boundary,,high
-.github/workflows/daily_model_maintenance_pr_validation.yml,workflow,daily_production,active,,,,,,,daily model maintenance PR validation workflow boundary,,high
+.github/workflows/daily_model_maintenance_pr_validation.yml,workflow,daily_production,active,,,,,,,path-scoped daily model PR validation boundary separating repository core and research jobs from production/PDF-only gates,,high
 .github/workflows/debug_tpex_fetch.yml,workflow,diagnostics,manual_diagnostic,,,,,,,diagnostics workflow boundary,,low
 .github/workflows/diagnose_stock_selection.yml,workflow,diagnostics,manual_diagnostic,,,,,,,diagnostics workflow boundary,,low
 .github/workflows/event_catalyst_update.yml,workflow,catalyst_event,active,,,,docs/APPS_SCRIPT_WORKFLOW_TRIGGER.md,,,catalyst event workflow boundary,,medium
 .github/workflows/historical_structured_source_replay.yml,workflow,official_price_data,active,,,,,,,main-only reusable fail-closed historical structured source replay workflow,,high
 .github/workflows/individual_stock_data_refresh.yml,workflow,individual_stock,active,,,,docs/APPS_SCRIPT_WORKFLOW_TRIGGER.md;docs/individual_stock_pr_validation.md;docs/pdf_production_inventory.md;docs/repo_production_inventory.md,,,individual stock workflow boundary,,medium
-.github/workflows/individual_stock_pr_validation.yml,workflow,individual_stock,active,,,,docs/individual_stock_pr_validation.md,,,PR-safe pull_request repo-static and affected individual-stock validation workflow,,high
+.github/workflows/individual_stock_pr_validation.yml,workflow,individual_stock,active,,,,docs/individual_stock_pr_validation.md,,,PR-safe pull_request affected-only individual-stock validation workflow with fail-closed scope output,,high
 .github/workflows/individual_stock_report.yml,workflow,individual_stock,active,,,,docs/individual_stock_pr_validation.md;docs/pdf_production_inventory.md;docs/repo_production_inventory.md,,,individual stock workflow boundary,,medium
 .github/workflows/official_price_backfill.yml,workflow,official_price_data,active,,,,,,,official price data workflow boundary,,high
 .github/workflows/official_price_fetch.yml,workflow,official_price_data,active,,,,,,,official price data workflow boundary,,high
@@ -38,7 +38,7 @@ tests/test_tdcc_dataset_contract.py,test_python,tdcc_weekly,active,,,,,,,TDCC ca
 .github/workflows/research_backtest_pipeline.yml,workflow,research_backtest,active,,,,docs/APPS_SCRIPT_WORKFLOW_TRIGGER.md;docs/individual_stock_pr_validation.md;docs/pdf_production_inventory.md;docs/repo_production_inventory.md;docs/thread_templates/research_backtest.md;rules/rules_index_latest.md,,,research backtest workflow boundary,,medium
 .github/workflows/signal_performance_tracker.yml,workflow,research_backtest,active,,,,,,,research backtest workflow boundary,,medium
 .github/workflows/tdcc_history_backfill.yml,workflow,tdcc_weekly,active,,,,docs/individual_stock_pr_validation.md;docs/repo_production_inventory.md;rules/rules_index_latest.md,,,tdcc weekly workflow boundary,,medium
-.github/workflows/tdcc_weekly_pr_validation.yml,workflow,tdcc_weekly,active,,,,docs/tdcc_weekly_data_continuity.md,,,read-only TDCC weekly continuity pull request validation boundary,,high
+.github/workflows/tdcc_weekly_pr_validation.yml,workflow,tdcc_weekly,active,,,,docs/tdcc_weekly_data_continuity.md,,,read-only affected-only TDCC weekly continuity pull request validation boundary with full workflow-dispatch coverage,,high
 .github/workflows/tdcc_weekly.yml,workflow,tdcc_weekly,active,,,,docs/individual_stock_pr_validation.md;docs/pdf_production_inventory.md;docs/repo_production_inventory.md;docs/tdcc_report_contract_consumer_governance.md;docs/tdcc_weekly_artifact_relocation_plan_20260621.md;docs/tdcc_weekly_data_continuity.md,,,tdcc weekly workflow boundary,,medium
 .github/workflows/test_tdcc_trend.yml,workflow,diagnostics,manual_diagnostic,,,,,,,diagnostics workflow boundary,,low
 .github/workflows/volume_v2_advisory_lineage_refresh.yml,workflow,daily_production,active,,,,docs/specs/volume_v2_advisory_lineage_refresh_v1.md,,,main-only bounded Volume V2 advisory lineage artifact refresh boundary,,high

@@ -18,6 +18,7 @@ on:
       - "scripts/build_tdcc_dataset_manifest.py"
       - "scripts/build_tdcc_analytics_store.py"
       - "scripts/build_tdcc_stock_history.py"
+      - "scripts/detect_tdcc_weekly_pr_scope.py"
       - "scripts/repair_tdcc_monthly_history_gaps.py"
       - "scripts/repair_tdcc_weekly_history_continuity.py"
       - "scripts/tdcc_stock_history_utils.py"
@@ -61,6 +62,35 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Detect TDCC weekly validation scope
+        id: scope
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          python scripts/detect_tdcc_weekly_pr_scope.py \
+            --base-sha "$BASE_SHA" \
+            --head-sha "$HEAD_SHA" \
+            --github-output "$GITHUB_OUTPUT"
+
+      - name: Validate TDCC weekly scope output
+        shell: bash
+        env:
+          AFFECTED: ${{ steps.scope.outputs.affected }}
+        run: |
+          set -euo pipefail
+          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
+            exit 0
+          fi
+          case "$AFFECTED" in
+            true|false) ;;
+            *)
+              echo "TDCC affected scope must be true or false; observed=$AFFECTED" >&2
+              exit 1
+              ;;
+          esac
+
       - name: Check patch whitespace
         if: github.event_name == 'pull_request'
         env:
@@ -69,11 +99,13 @@ jobs:
         run: git diff --check "$BASE_SHA...$HEAD_SHA" --
 
       - name: Install dependencies
+        if: github.event_name == 'workflow_dispatch' || steps.scope.outputs.affected == 'true'
         run: |
           python -m pip install --disable-pip-version-check \
             pandas requests lxml html5lib beautifulsoup4 matplotlib pytest pyyaml duckdb==1.5.4
 
       - name: Validate TDCC continuity contracts
+        if: github.event_name == 'workflow_dispatch' || steps.scope.outputs.affected == 'true'
         run: |
           python scripts/validate_apps_script_workflow_triggers.py
           python scripts/validate_repo_file_lifecycle_inventory.py
@@ -82,11 +114,13 @@ jobs:
           python scripts/validate_daily_production_boundaries.py
 
       - name: Build and validate TDCC analytics store
+        if: github.event_name == 'workflow_dispatch' || steps.scope.outputs.affected == 'true'
         run: |
           python scripts/build_tdcc_analytics_store.py --output-dir "$RUNNER_TEMP/tdcc_analytics"
           python scripts/validate_tdcc_analytics_store.py --output-dir "$RUNNER_TEMP/tdcc_analytics"
 
       - name: Run TDCC continuity regression tests
+        if: github.event_name == 'workflow_dispatch' || steps.scope.outputs.affected == 'true'
         run: |
           python -m pytest \
             tests/test_tdcc_dataset_contract.py \
@@ -96,3 +130,9 @@ jobs:
             tests/test_tdcc_weekly_history_continuity.py \
             tests/test_tdcc_weekly_pr_validation_workflow.py \
             -q
+
+      - name: Record TDCC weekly scope result
+        run: |
+          echo "event_name=$GITHUB_EVENT_NAME"
+          echo "affected=${{ steps.scope.outputs.affected }}"
+          echo "matched_count=${{ steps.scope.outputs.matched_count }}"

@@ -41,6 +41,20 @@ jobs:
             --head-sha "$HEAD_SHA" \
             --github-output "$GITHUB_OUTPUT"
 
+      - name: Validate individual-stock scope output
+        shell: bash
+        env:
+          AFFECTED: ${{ steps.scope.outputs.affected }}
+        run: |
+          set -euo pipefail
+          case "$AFFECTED" in
+            true|false) ;;
+            *)
+              echo "individual-stock affected scope must be true or false; observed=$AFFECTED" >&2
+              exit 1
+              ;;
+          esac
+
       - name: Check patch whitespace
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}

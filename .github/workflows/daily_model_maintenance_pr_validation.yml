@@ -27,6 +27,7 @@ jobs:
     outputs:
       effective_base_sha: ${{ steps.scope.outputs.effective_base_sha }}
       repo_current_contracts: ${{ steps.scope.outputs.repo_current_contracts }}
+      production_pdf_contracts: ${{ steps.scope.outputs.production_pdf_contracts }}
       research_safety_lite: ${{ steps.scope.outputs.research_safety_lite }}
       shared_model_research: ${{ steps.scope.outputs.shared_model_research }}
       volume_v2_research: ${{ steps.scope.outputs.volume_v2_research }}
@@ -117,6 +118,7 @@ jobs:
     env:
       BASE_SHA: ${{ needs.scope.outputs.effective_base_sha }}
       HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+      PRODUCTION_PDF_SELECTED: ${{ needs.scope.outputs.production_pdf_contracts }}
       SNAPSHOT_PR_SAFE_CONTROL_HELPER_SHA256: 4329b48823dc844fc565f09d6af4aa0495a16b3713cb842c55f63d28949e31c2
 
     steps:
@@ -145,7 +147,20 @@ jobs:
             git --no-replace-objects diff --check HEAD --
           fi
 
+      - name: Validate production and PDF scope output
+        shell: bash
+        run: |
+          set -euo pipefail
+          case "$PRODUCTION_PDF_SELECTED" in
+            true|false) ;;
+            *)
+              echo "production_pdf_contracts must be true or false; observed=$PRODUCTION_PDF_SELECTED" >&2
+              exit 1
+              ;;
+          esac
+
       - name: Validate production lineage parity ordering contract
+        if: needs.scope.outputs.production_pdf_contracts == 'true'
         run: |
           python -m pytest -q tests/test_daily_model_maintenance_pr_validation_workflow.py \
             -k production_snapshot_updates_are_followed_by_dynamic_lineage_parity
@@ -155,22 +170,40 @@ jobs:
           python scripts/validate_repo_file_lifecycle_inventory.py
           python scripts/validate_repo_production_inventory.py
           python scripts/validate_stock_model_contract_registry.py
+          python scripts/validate_daily_legacy_volume_range_breakout_removed.py
+          python scripts/validate_daily_legacy_mature_model_paths_removed.py
+          python scripts/validate_repo_advanced_integrity_pr_safe.py --base-ref "$BASE_SHA"
+          python scripts/validate_repo_hidden_coupling_audit.py
+          python scripts/validate_git_worktree_safety.py
+          python scripts/validate_repo_code_isolation_policy.py
+
+      - name: Run current repository core regression tests
+        run: |
+          python -m pytest \
+            tests/test_daily_model_maintenance_pr_validation_workflow.py::test_scope_aggregate_and_domain_contracts_are_exact_and_fail_closed \
+            tests/test_daily_model_maintenance_pr_validation_workflow.py::test_revenue_only_scope_skips_production_pdf_steps_and_related_scope_runs_them \
+            tests/test_detect_daily_model_pr_validation_scope.py \
+            tests/test_repo_advanced_integrity.py \
+            tests/test_repo_advanced_integrity_pr_safe.py \
+            tests/test_repo_hidden_coupling_audit.py \
+            tests/test_git_worktree_safety.py \
+            tests/test_stock_model_contract_registry.py \
+            --deselect tests/test_repo_advanced_integrity.py::test_repo_advanced_integrity_validator_passes
+
+      - name: Validate selected production and PDF contracts
+        if: needs.scope.outputs.production_pdf_contracts == 'true'
+        run: |
           python scripts/validate_daily_pdf_contract_consumers.py
           python scripts/validate_daily_pdf_role_manifest_contract.py
           python scripts/validate_daily_pdf_shared_path_isolation.py
           python scripts/validate_daily_pdf_completion_hard_gate.py
-          python scripts/validate_daily_legacy_volume_range_breakout_removed.py
-          python scripts/validate_daily_legacy_mature_model_paths_removed.py
           python scripts/validate_daily_production_boundaries.py
           python scripts/validate_daily_published_model_snapshots_pr_safe.py --base-ref "$BASE_SHA"
-          python scripts/validate_repo_advanced_integrity_pr_safe.py --base-ref "$BASE_SHA"
-          python scripts/validate_repo_hidden_coupling_audit.py
-          python scripts/validate_git_worktree_safety.py
           python scripts/validate_chatgpt_side_pdf_contract.py
-          python scripts/validate_repo_code_isolation_policy.py
           python scripts/validate_chatgpt_side_pdf_layout_independence.py
 
-      - name: Run current repository and PDF regression tests
+      - name: Run selected production and PDF regression tests
+        if: needs.scope.outputs.production_pdf_contracts == 'true'
         run: |
           python -m pytest \
             tests/test_chatgpt_daily_report_new_conversation_replay.py \
@@ -182,19 +215,12 @@ jobs:
             tests/test_daily_warrant_formal_sync_scope.py \
             tests/test_warrant_source_status.py \
             tests/test_daily_model_maintenance_pr_validation_workflow.py \
-            tests/test_detect_daily_model_pr_validation_scope.py \
             tests/test_daily_pdf_contract_consumers.py \
             tests/test_daily_pdf_completion_hard_gate.py \
             tests/test_daily_pdf_shared_path_isolation.py \
             tests/test_daily_published_model_snapshots_pr_safe.py \
-            tests/test_repo_advanced_integrity.py \
-            tests/test_repo_advanced_integrity_pr_safe.py \
             tests/test_daily_report_model_summary.py \
-            tests/test_daily_production_boundaries.py \
-            tests/test_repo_hidden_coupling_audit.py \
-            tests/test_git_worktree_safety.py \
-            tests/test_stock_model_contract_registry.py \
-            --deselect tests/test_repo_advanced_integrity.py::test_repo_advanced_integrity_validator_passes
+            tests/test_daily_production_boundaries.py
 
   research_safety_lite:
     name: research-safety-lite
@@ -342,6 +368,8 @@ jobs:
       needs.scope.result == 'success' &&
       needs.scope.outputs.revenue_research == 'true'
     runs-on: ubuntu-latest
+    env:
+      BASE_SHA: ${{ needs.scope.outputs.effective_base_sha }}
 
     steps:
       - name: Checkout repository
@@ -370,7 +398,6 @@ jobs:
           python scripts/validate_revenue_unreacted_range_position_shape_transition_matrix.py
           python scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py
           python scripts/validate_revenue_unreacted_range_promotion_preparation.py --source-audit all
-          python scripts/validate_revenue_unreacted_range_forward_holdout_v2.py
           python scripts/validate_revenue_unreacted_range_financial_statement_fail_closed.py
 
       - name: Run revenue operation readiness regression tests
@@ -412,7 +439,8 @@ jobs:
             tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_registered_price_gate_recomputes_mature_exit_and_realized_return \
             tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_mid_event_membership_counts_in_primary_and_union_summaries \
             tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_exact_replay_attestation_rejects_event_set_mutations \
-            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_cheap_replay_source_rejects_self_resealed_pit_or_row_lineage \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_cheap_replay_source_rejects_invalid_pit_or_row_hash_format \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_cheap_replay_lineage_does_not_claim_independent_raw_monthly_truth \
             tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_replay_source_trade_date_must_be_first_registered_session_on_or_after_source \
             tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_detail_source_asof_is_bound_to_replay_lineage \
             tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_summary_and_source_validator_do_not_run_exact_replay \

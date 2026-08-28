@@ -209,6 +209,7 @@ def scope_job_contract_ok(text: str) -> bool:
         all(literal in block for literal in required)
         and not any(literal in block for literal in forbidden)
         and "effective_base_sha: ${{ steps.scope.outputs.effective_base_sha }}" in job
+        and "production_pdf_contracts: ${{ steps.scope.outputs.production_pdf_contracts }}" in job
         and "${{ github.event.pull_request.base.sha }}" not in job
         and block.count("printf 'effective_base_sha=%s\\n'") == 1
         and block.index(
@@ -218,7 +219,7 @@ def scope_job_contract_ok(text: str) -> bool:
         and text.count(
             "      BASE_SHA: ${{ needs.scope.outputs.effective_base_sha }}"
         )
-        == 4
+        == 5
         and "github.event.pull_request.base.sha" not in text
         and all(active_field(step, "uses") is None for step in steps)
     )
@@ -287,7 +288,6 @@ REVENUE_VALIDATOR_COMMANDS = (
     "python scripts/validate_revenue_unreacted_range_position_shape_transition_matrix.py",
     "python scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
     "python scripts/validate_revenue_unreacted_range_promotion_preparation.py --source-audit all",
-    "python scripts/validate_revenue_unreacted_range_forward_holdout_v2.py",
     "python scripts/validate_revenue_unreacted_range_financial_statement_fail_closed.py",
 )
 
@@ -616,7 +616,7 @@ def test_scope_aggregate_and_domain_contracts_are_exact_and_fail_closed() -> Non
     assert 'effective_base_sha="origin/main"' in block
     assert text.count(
         "      BASE_SHA: ${{ needs.scope.outputs.effective_base_sha }}"
-    ) == 4
+    ) == 5
     assert "github.event.pull_request.base.sha" not in text
     scope_first_step = active_step_blocks(job_block("scope", text))[0]
     assert "public merge ref" in (active_field(scope_first_step, "name") or "")
@@ -646,6 +646,115 @@ def test_scope_aggregate_and_domain_contracts_are_exact_and_fail_closed() -> Non
         boundaries.validate_daily_model_volume_v2_runtime_markdown_contract(text)
         == []
     )
+
+
+def test_revenue_only_scope_skips_production_pdf_steps_and_related_scope_runs_them() -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+    scope = job_block("scope", text)
+    core = job_block("repo_current_contracts", text)
+    production_condition = "needs.scope.outputs.production_pdf_contracts == 'true"
+
+    assert (
+        "production_pdf_contracts: "
+        "${{ steps.scope.outputs.production_pdf_contracts }}"
+        in scope
+    )
+    assert (
+        "PRODUCTION_PDF_SELECTED: "
+        "${{ needs.scope.outputs.production_pdf_contracts }}"
+        in core
+    )
+    output_guard = job_step(
+        "repo_current_contracts",
+        "Validate production and PDF scope output",
+        text,
+    )
+    assert output_guard
+    assert active_field(output_guard, "if") is None
+    output_guard_run = active_field(output_guard, "run") or ""
+    assert 'case "$PRODUCTION_PDF_SELECTED" in' in output_guard_run
+    assert "true|false" in output_guard_run
+    assert "exit 1" in output_guard_run
+
+    core_validation = job_step(
+        "repo_current_contracts",
+        "Validate current repository and PDF contracts",
+        text,
+    )
+    assert core_validation
+    assert active_field(core_validation, "if") is None
+    core_run = active_field(core_validation, "run") or ""
+    for command in (
+        "python scripts/validate_repo_file_lifecycle_inventory.py",
+        "python scripts/validate_repo_production_inventory.py",
+        "python scripts/validate_stock_model_contract_registry.py",
+        "python scripts/validate_daily_legacy_volume_range_breakout_removed.py",
+        "python scripts/validate_daily_legacy_mature_model_paths_removed.py",
+        'python scripts/validate_repo_advanced_integrity_pr_safe.py --base-ref "$BASE_SHA"',
+        "python scripts/validate_repo_hidden_coupling_audit.py",
+        "python scripts/validate_git_worktree_safety.py",
+        "python scripts/validate_repo_code_isolation_policy.py",
+    ):
+        assert run_commands(core_run).count(command) == 1
+
+    production_validation = job_step(
+        "repo_current_contracts",
+        "Validate selected production and PDF contracts",
+        text,
+    )
+    production_tests = job_step(
+        "repo_current_contracts",
+        "Run selected production and PDF regression tests",
+        text,
+    )
+    lineage_step = job_step(
+        "repo_current_contracts",
+        "Validate production lineage parity ordering contract",
+        text,
+    )
+    for step in (production_validation, production_tests, lineage_step):
+        assert step
+        assert active_field(step, "if") == production_condition
+        assert active_field(step, "continue-on-error") is None
+
+    production_validation_run = active_field(production_validation, "run") or ""
+    production_commands = (
+        "python scripts/validate_daily_pdf_contract_consumers.py",
+        "python scripts/validate_daily_pdf_role_manifest_contract.py",
+        "python scripts/validate_daily_pdf_shared_path_isolation.py",
+        "python scripts/validate_daily_pdf_completion_hard_gate.py",
+        "python scripts/validate_daily_production_boundaries.py",
+        'python scripts/validate_daily_published_model_snapshots_pr_safe.py --base-ref "$BASE_SHA"',
+        "python scripts/validate_chatgpt_side_pdf_contract.py",
+        "python scripts/validate_chatgpt_side_pdf_layout_independence.py",
+    )
+    for command in production_commands:
+        assert run_commands(production_validation_run).count(command) == 1
+        assert command not in core_run
+
+    core_tests = job_step(
+        "repo_current_contracts",
+        "Run current repository core regression tests",
+        text,
+    )
+    assert core_tests
+    assert active_field(core_tests, "if") is None
+    core_tests_run = active_field(core_tests, "run") or ""
+    assert (
+        "tests/test_daily_model_maintenance_pr_validation_workflow.py::"
+        "test_revenue_only_scope_skips_production_pdf_steps_and_related_scope_runs_them"
+        in core_tests_run
+    )
+    for path in (
+        "tests/test_chatgpt_side_pdf_contract.py",
+        "tests/test_daily_pdf_contract_consumers.py",
+        "tests/test_daily_pdf_completion_hard_gate.py",
+        "tests/test_daily_pdf_shared_path_isolation.py",
+        "tests/test_daily_production_boundaries.py",
+        "tests/test_daily_published_model_snapshots_pr_safe.py",
+    ):
+        assert path not in core_tests_run
+        assert path in (active_field(production_tests, "run") or "")
 
 
 @pytest.mark.parametrize(
@@ -1181,7 +1290,7 @@ def test_daily_model_maintenance_pr_workflow_pins_append_only_validation_base() 
     assert "fetch-depth: 0" in text
     assert text.count(
         "BASE_SHA: ${{ needs.scope.outputs.effective_base_sha }}"
-    ) == 4
+    ) == 5
     assert (
         "effective_base_sha: ${{ steps.scope.outputs.effective_base_sha }}" in text
     )
@@ -1274,7 +1383,6 @@ def test_daily_model_maintenance_pr_workflow_runs_contract_validators() -> None:
         "python scripts/validate_revenue_unreacted_range_operation_lag_bucket_audit.py",
         "python scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
         "python scripts/validate_revenue_unreacted_range_promotion_preparation.py",
-        "python scripts/validate_revenue_unreacted_range_forward_holdout_v2.py",
         "python scripts/build_mature_model_row_level_metric_contract_audit.py",
         "python scripts/validate_mature_model_row_level_metric_contract_audit.py",
         "python scripts/validate_research_against_stock_model_contract.py",
@@ -1371,7 +1479,8 @@ def test_revenue_job_runs_explicit_cheap_readiness_and_independent_v2_cases() ->
         "test_registered_price_gate_recomputes_mature_exit_and_realized_return",
         "test_mid_event_membership_counts_in_primary_and_union_summaries",
         "test_exact_replay_attestation_rejects_event_set_mutations",
-        "test_cheap_replay_source_rejects_self_resealed_pit_or_row_lineage",
+        "test_cheap_replay_source_rejects_invalid_pit_or_row_hash_format",
+        "test_cheap_replay_lineage_does_not_claim_independent_raw_monthly_truth",
         "test_replay_source_trade_date_must_be_first_registered_session_on_or_after_source",
         "test_detail_source_asof_is_bound_to_replay_lineage",
         "test_summary_and_source_validator_do_not_run_exact_replay",
@@ -1386,9 +1495,6 @@ def test_revenue_job_runs_explicit_cheap_readiness_and_independent_v2_cases() ->
         not in job
     )
     assert "-k revenue_readiness" not in job
-    assert job.count(
-        "python scripts/validate_revenue_unreacted_range_forward_holdout_v2.py"
-    ) == 1
     assert job.count("tests/test_revenue_unreacted_range_forward_holdout_v2.py") == 1
     assert job.count(
         "python -m pytest "

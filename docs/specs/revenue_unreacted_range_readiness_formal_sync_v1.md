@@ -131,11 +131,12 @@ consistency checks. Its PIT checks cover replay list/scalar alignment, date
 ordering, non-placeholder SHA-256 format, detail linkage, and observed-through
 boundaries, but deliberately do not import research-owner code or independently
 recompute raw monthly-revenue table and row truth. That independent truth remains
-owned by the research-owner validator
-`validate_revenue_unreacted_range_forward_holdout_v2.py`, its related tests, and
-the writer's single pre-write exact child. Before this contract is formally
-applied, its workflow companion PR must invoke that validator and the related
-research-owner tests explicitly. Raw monthly
+owned by the research-owner validator implementation and its independent test
+suite, plus the writer's single pre-write exact child. Before this contract is
+formally applied, its workflow companion PR must invoke the registered monthly
+and source validators and the related research-owner tests explicitly. It must
+not invoke the standalone v2 validator CLI without its separately materialized
+normalized price bundle. Raw monthly
 blob lineage remains provenance diagnostic material in the cheap path.
 Replay availability must also equal the source date itself when it is a
 normalized registered trading session, or otherwise the first normalized
@@ -155,12 +156,14 @@ mirror writes.
 
 ## Companion PR validation boundary
 
-The Daily Model PR CI revenue job must directly run
-`python scripts/validate_revenue_unreacted_range_forward_holdout_v2.py` and the
-related independent cases in
-`tests/test_revenue_unreacted_range_forward_holdout_v2.py`. This research-owner
-gate is the PR-time canonical raw-truth boundary; a general readiness validator
-must not replace it.
+The Daily Model PR CI revenue job must directly run the registered monthly and
+source validators plus the related independent cases in
+`tests/test_revenue_unreacted_range_forward_holdout_v2.py`. Those
+research-owner gates are the PR-time canonical raw-truth boundary; a general
+readiness validator must not replace them. The standalone v2 validator CLI
+requires a separate explicit normalized price bundle that is not a committed
+repository input, so PR CI must not fabricate that bundle or repeat the
+long-running exact materialization solely to invoke the CLI.
 
 The same job must invoke the selected cheap cases from
 `tests/test_sync_revenue_unreacted_range_operation_readiness.py` by explicit
@@ -170,6 +173,21 @@ replay case
 from PR CI because it is the long-running writer-equivalence integration; the
 formal writer still runs the canonical exact replay once before any mirror
 write.
+
+Revenue-only changes must leave the Daily Model PR CI
+`production_pdf_contracts` scope false. Repository lifecycle, semantic,
+worktree-safety, hidden-coupling, and code-isolation gates remain mandatory,
+but Daily production, PDF, packet, renderer, published-snapshot, and their
+regression suites run only when the dedicated production/PDF scope is true.
+The scope output is fail-closed and a relevant production or PDF path must
+still select the full hard gate.
+
+The TDCC Weekly and Individual Stock PR workflows use their own affected-path
+detectors. An unrelated revenue-only change may run only their lightweight
+checkout, scope-output, whitespace, or trust-root guards; it must not run TDCC
+continuity/build/tests or the affected Individual Stock contract suite. A
+TDCC- or Individual Stock-owned path or owned row in a shared registry must
+still select that workflow's complete business validation suite.
 
 ## Atomic commit and push boundary
 

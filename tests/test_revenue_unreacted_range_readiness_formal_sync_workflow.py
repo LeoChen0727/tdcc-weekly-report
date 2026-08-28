@@ -46,7 +46,7 @@ def test_exact_producer_blocker_four_disabled_meanings_and_versioned_counts() ->
     assert TEXT.count(REVENUE_READINESS_FORMAL_SYNC_PRODUCER_TOKEN) == 2
     assert REVENUE_READINESS_FORMAL_SYNC_PRODUCER_TOKEN in SPEC_TEXT
     for token in (
-        "python scripts/validate_revenue_unreacted_range_forward_holdout_v2.py",
+        "registered monthly and\nsource validators",
         "tests/test_revenue_unreacted_range_forward_holdout_v2.py",
         "tests/test_sync_revenue_unreacted_range_operation_readiness.py",
         "A fuzzy `-k` expression is forbidden",
