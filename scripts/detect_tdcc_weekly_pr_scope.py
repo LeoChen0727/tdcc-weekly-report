@@ -18,58 +18,74 @@ SHARED_REGISTRY_KEY_FIELDS = {
     "config/runtime_file_lineage_contract.csv": "script_path",
 }
 
-AFFECTED_EXACT_PATHS = frozenset(
+TDCC_AFFECTED_EXACT_PATHS = frozenset(
     {
-        ".github/workflows/current_holdings_pattern.yml",
-        ".github/workflows/daily_full_pipeline.yml",
-        ".github/workflows/individual_stock_data_refresh.yml",
-        ".github/workflows/individual_stock_pr_validation.yml",
-        ".github/workflows/individual_stock_report.yml",
-        ".github/workflows/repair_daily_price_range.yml",
-        ".github/workflows/repair_one_daily_price.yml",
-        ".github/workflows/repair_recent_daily_price_gaps.yml",
-        ".github/workflows/repair_tdcc_monthly_history_gaps.yml",
-        ".github/workflows/research_backtest_pipeline.yml",
-        ".github/workflows/tdcc_history_backfill.yml",
         ".github/workflows/tdcc_weekly.yml",
-        ".github/workflows/volume_v2_advisory_lineage_refresh.yml",
-        ".github/workflows/warrant_flow.yml",
+        ".github/workflows/tdcc_weekly_pr_validation.yml",
+        ".github/workflows/tdcc_history_backfill.yml",
+        ".github/workflows/test_tdcc_trend.yml",
+        ".github/workflows/repair_tdcc_monthly_history_gaps.yml",
         "config/repo_file_lifecycle_inventory.csv",
         "config/repo_production_inventory.csv",
         "config/report_artifact_lineage.csv",
         "config/runtime_file_lineage_contract.csv",
         "docs/APPS_SCRIPT_WORKFLOW_TRIGGER.md",
-        "scripts/detect_individual_stock_pr_scope.py",
-        "scripts/individual_tdcc_dataset_consumer.py",
-        "scripts/validate_individual_pdf_contract_consumers.py",
+        "docs/apps_script_workflow_trigger.gs",
+        "scripts/detect_tdcc_weekly_pr_scope.py",
+        "scripts/validate_apps_script_workflow_triggers.py",
+        "scripts/validate_daily_production_boundaries.py",
         "scripts/validate_repo_file_lifecycle_inventory.py",
         "scripts/validate_repo_production_inventory.py",
-        "tests/test_individual_pdf_contract_consumers.py",
-        "tests/test_individual_tdcc_dataset_consumer.py",
-        "tests/test_individual_stock_pr_validation_workflow.py",
-        "tests/test_repo_file_lifecycle_inventory.py",
-        "tests/test_repo_production_inventory.py",
+        "scripts/validate_repo_semantic_integrity.py",
+        "tdcc_holder_ratio_top10.py",
+        "tests/test_detect_tdcc_weekly_pr_scope.py",
+        "tests/test_tdcc_weekly_pr_validation_workflow.py",
     }
 )
 
-INDIVIDUAL_REGISTRY_OWNERS = frozenset({"individual_stock"})
-INDIVIDUAL_REGISTRY_MARKERS = (
-    "individual_stock",
-    "individual-stock",
-    "individual_tdcc",
-    "individual_stock_reports",
+TDCC_AFFECTED_PATH_PREFIXES = (
+    ".github/workflows/repair_tdcc_",
+    ".github/workflows/tdcc_",
+    "data/tdcc_stock_history",
+    "docs/tdcc_",
+    "docs/latest/tdcc_",
+    "output/history/tdcc/",
+    "output/latest/tdcc_",
+    "scripts/backfill_tdcc_",
+    "scripts/build_tdcc_",
+    "scripts/repair_tdcc_",
+    "scripts/tdcc_",
+    "scripts/validate_tdcc_",
+    "tests/test_tdcc_",
+    "tdcc_",
 )
 
-AFFECTED_PATH_PREFIXES = (
-    "config/individual_stock_",
-    "docs/individual_stock_",
-    "docs/latest/individual_stock_reports/",
-    "output/history/individual_stock_reports/",
-    "output/latest/individual_stock_reports/",
-    "scripts/build_individual_stock_",
-    "scripts/generate_individual_stock_",
-    "scripts/validate_individual_stock_",
-    "tests/test_individual_stock_",
+TDCC_REGISTRY_OWNERS = frozenset({"tdcc_weekly"})
+TDCC_REGISTRY_RELATION_FIELDS = frozenset(
+    {
+        "path",
+        "artifact_path",
+        "script_path",
+        "owner",
+        "producer",
+        "validator",
+        "publisher",
+        "allowed_workflows",
+        "called_by_workflow",
+        "imported_by",
+        "tested_by",
+        "documented_by",
+        "writes_artifact",
+        "purpose",
+        "keep_reason",
+    }
+)
+TDCC_REGISTRY_MARKERS = (
+    "tdcc_weekly",
+    "tdcc-weekly",
+    "/tdcc_",
+    "tdcc_",
+    "tdcc/",
 )
 
 
@@ -80,18 +96,21 @@ def normalize_path(value: str) -> str:
     return path
 
 
-def is_affected_path(value: str) -> bool:
+def is_tdcc_affected_path(value: str) -> bool:
     path = normalize_path(value)
-    return path in AFFECTED_EXACT_PATHS or path.startswith(AFFECTED_PATH_PREFIXES)
+    return path in TDCC_AFFECTED_EXACT_PATHS or path.startswith(
+        TDCC_AFFECTED_PATH_PREFIXES
+    )
 
 
-def is_individual_registry_row(row: Mapping[str, str]) -> bool:
-    if row.get("owner", "").strip().lower() in INDIVIDUAL_REGISTRY_OWNERS:
+def is_tdcc_registry_row(row: Mapping[str, str]) -> bool:
+    if row.get("owner", "").strip().lower() in TDCC_REGISTRY_OWNERS:
         return True
     return any(
         marker in value.lower()
-        for value in row.values()
-        for marker in INDIVIDUAL_REGISTRY_MARKERS
+        for field, value in row.items()
+        if field in TDCC_REGISTRY_RELATION_FIELDS
+        for marker in TDCC_REGISTRY_MARKERS
     )
 
 
@@ -190,29 +209,28 @@ def registry_change_affects(
     )
 
 
-def is_affected_changed_path(
+def is_tdcc_affected_changed_path(
     value: str,
     *,
     base_sha: str | None = None,
     head_sha: str | None = None,
 ) -> bool:
     path = normalize_path(value)
-    if not is_affected_path(path):
+    if not is_tdcc_affected_path(path):
         return False
     if path not in SHARED_REGISTRY_KEY_FIELDS:
         return True
     if not base_sha or not head_sha:
-        # Path-only callers cannot prove that a shared registry edit is unrelated.
         return True
     return registry_change_affects(
         path,
         base_revision=base_sha,
         head_revision=head_sha,
-        row_is_relevant=is_individual_registry_row,
+        row_is_relevant=is_tdcc_registry_row,
     )
 
 
-def matched_affected_paths(
+def matched_tdcc_affected_paths(
     paths: Iterable[str],
     *,
     base_sha: str | None = None,
@@ -222,7 +240,7 @@ def matched_affected_paths(
         {
             normalize_path(path)
             for path in paths
-            if is_affected_changed_path(
+            if is_tdcc_affected_changed_path(
                 path,
                 base_sha=base_sha,
                 head_sha=head_sha,
@@ -325,10 +343,7 @@ def write_github_output(path: Path, matched: list[str]) -> None:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description=(
-            "Detect whether a pull request affects individual-stock contracts or "
-            "production artifact-writer authentication."
-        )
+        description="Detect whether a pull request affects TDCC weekly contracts."
     )
     parser.add_argument("--base-sha", required=True)
     parser.add_argument("--head-sha", required=True)
@@ -340,7 +355,7 @@ def main() -> int:
     args = parse_args()
     base_sha, head_sha = validate_commit_range(args.base_sha, args.head_sha)
     changed = changed_paths_from_git(base_sha, head_sha)
-    matched = matched_affected_paths(
+    matched = matched_tdcc_affected_paths(
         changed,
         base_sha=base_sha,
         head_sha=head_sha,
