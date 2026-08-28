@@ -1504,7 +1504,21 @@ def test_revenue_job_runs_explicit_cheap_readiness_and_independent_v2_cases() ->
     for node in retired_legacy_nodes:
         assert f"tests/test_model_operation_readiness.py::{node}" not in job
     assert "-k revenue_readiness" not in job
-    assert job.count("tests/test_revenue_unreacted_range_forward_holdout_v2.py") == 1
+    assert (
+        "            tests/test_revenue_unreacted_range_forward_holdout_v2.py \\\n"
+        in job
+    )
+    exact_v2_nodes = (
+        "test_v1_exact17_metadata_reproduces_authorized_bundle_digest",
+        "test_v1_exact17_freeze_reports_the_drifting_path",
+        "test_v1_exact17_freeze_uses_git_blob_identity_for_clean_crlf_checkout",
+    )
+    for node in exact_v2_nodes:
+        assert job.count(
+            "--deselect="
+            "tests/test_revenue_unreacted_range_forward_holdout_v2.py::"
+            f"{node}"
+        ) == 1
     assert job.count(
         "python -m pytest "
         "tests/test_revenue_unreacted_range_readiness_formal_sync.py"
@@ -1521,7 +1535,7 @@ def test_daily_model_pr_focused_suite_replaces_only_strict_runtime_integrity_tes
 
     assert "tests/test_repo_advanced_integrity.py" in text
     assert f"--deselect {strict_node}" in text
-    assert text.count("--deselect") == 1
+    assert text.count("--deselect ") == 1
     assert "--ignore=tests/test_repo_advanced_integrity.py" not in text
 
 

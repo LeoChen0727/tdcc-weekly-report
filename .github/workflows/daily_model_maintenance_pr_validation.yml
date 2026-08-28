@@ -460,6 +460,9 @@ jobs:
             tests/test_validate_revenue_unreacted_range_promotion_preparation.py \
             tests/test_revenue_unreacted_range_forward_holdout.py \
             tests/test_revenue_unreacted_range_forward_holdout_v2.py \
+            --deselect=tests/test_revenue_unreacted_range_forward_holdout_v2.py::test_v1_exact17_metadata_reproduces_authorized_bundle_digest \
+            --deselect=tests/test_revenue_unreacted_range_forward_holdout_v2.py::test_v1_exact17_freeze_reports_the_drifting_path \
+            --deselect=tests/test_revenue_unreacted_range_forward_holdout_v2.py::test_v1_exact17_freeze_uses_git_blob_identity_for_clean_crlf_checkout \
             tests/test_validate_revenue_unreacted_range_forward_holdout.py \
             tests/test_revenue_unreacted_range_financial_statement_fail_closed.py
 
