@@ -10,8 +10,9 @@ unrelated pull requests too.
 The PR-safe workflow is
 `.github/workflows/individual_stock_pr_validation.yml`. It uses
 `scripts/detect_individual_stock_pr_scope.py` to classify changed paths inside
-the job. Unrelated changes run the lightweight workflow contract test and
-succeed without running the individual-stock data tests.
+the job. Unrelated changes run scope detection, the patch-whitespace check, and
+scope-result recording, then succeed without installing the static-validation
+dependencies or running repository and individual-stock contract suites.
 
 ## Affected changes
 
@@ -51,9 +52,10 @@ python -m pytest tests/test_repo_production_inventory.py -q
 python -m pytest tests/test_individual_stock_outputs.py -q
 ```
 
-The workflow also runs `git diff --check` and the scoping regression test. Its
-permissions are read-only. It must not commit, push, deploy Pages, or dispatch
-another repository workflow.
+The workflow runs `git diff --check` for every pull request. Affected pull
+requests also run the workflow/scoping regression test. Its permissions are
+read-only. It must not commit, push, deploy Pages, or dispatch another
+repository workflow.
 
 ## Main branch enforcement
 

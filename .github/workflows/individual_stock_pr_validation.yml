@@ -48,12 +48,15 @@ jobs:
         run: git diff --check "$BASE_SHA...$HEAD_SHA" --
 
       - name: Install PR static validation dependencies
+        if: steps.scope.outputs.affected == 'true'
         run: python -m pip install --disable-pip-version-check pytest pandas requests PyYAML==6.0.2 pypdf
 
       - name: Validate workflow and scope contract
+        if: steps.scope.outputs.affected == 'true'
         run: python -m pytest tests/test_individual_stock_pr_validation_workflow.py -q
 
       - name: Validate repository static contracts
+        if: steps.scope.outputs.affected == 'true'
         run: |
           python scripts/validate_apps_script_workflow_triggers.py
           python scripts/validate_repo_production_inventory.py
