@@ -171,6 +171,38 @@ def test_lifecycle_rejects_invalid_calendar_date() -> None:
         adapter.validate_lifecycle_events(events)
 
 
+@pytest.mark.parametrize(
+    ("state", "field_name", "field_value"),
+    [
+        ("pending_confirmation", "entry_date", "20260803"),
+        ("pending_confirmation", "exit_date", "20260803"),
+        ("pending_confirmation", "prior_confirmed_operation_key", "op-1"),
+        ("confirmed_operation", "entry_date", "20260804"),
+        ("confirmed_unranked_operation", "exit_date", "20260804"),
+        ("active_operation", "exit_date", "20260805"),
+        ("exited_operation", "entry_date", "20260805"),
+        ("exited_operation", "prior_confirmed_operation_key", "op-1"),
+    ],
+)
+def test_lifecycle_rejects_state_unrelated_fields(
+    state: str,
+    field_name: str,
+    field_value: str,
+) -> None:
+    events = (
+        [
+            _event("op-1", "pending_confirmation", "20260803"),
+            _event("op-1", "confirmed_unranked_operation", "20260804"),
+        ]
+        if state == "confirmed_unranked_operation"
+        else _valid_completed_events()
+    )
+    row = next(event for event in events if event["lifecycle_state"] == state)
+    row[field_name] = field_value
+    with pytest.raises(adapter.AdapterContractError, match="unrelated|must not populate"):
+        adapter.validate_lifecycle_events(events)
+
+
 def test_lifecycle_rejects_active_without_selected_confirmation() -> None:
     events = [
         _event(
@@ -197,7 +229,7 @@ def test_lifecycle_rejects_unranked_confirmation_becoming_active() -> None:
             entry_date="20260805",
         ),
     ]
-    with pytest.raises(adapter.AdapterContractError, match="lacks prior selected confirmation"):
+    with pytest.raises(adapter.AdapterContractError, match="must never become active"):
         adapter.validate_lifecycle_events(events)
 
 
@@ -243,7 +275,7 @@ def test_lifecycle_rejects_confirmed_and_active_on_same_date() -> None:
             entry_date="20260804",
         ),
     ]
-    with pytest.raises(adapter.AdapterContractError, match="same date"):
+    with pytest.raises(adapter.AdapterContractError, match="strictly increasing|same date"):
         adapter.validate_lifecycle_events(events)
 
 
@@ -288,23 +320,75 @@ def test_lifecycle_rejects_non_monotonic_revival() -> None:
             entry_date="20260805",
         )
     )
-    with pytest.raises(adapter.AdapterContractError, match="not monotonic"):
+    with pytest.raises(adapter.AdapterContractError, match="repeats lifecycle states"):
         adapter.validate_lifecycle_events(events)
 
 
-def test_validator_accepts_disabled_preparation_and_detects_runtime_writer(
+@pytest.mark.parametrize("state", ["confirmed_operation", "active_operation"])
+def test_lifecycle_rejects_repeated_transition_on_different_date(state: str) -> None:
+    events = _valid_completed_events()
+    repeated = copy.deepcopy(next(event for event in events if event["lifecycle_state"] == state))
+    repeated["event_date"] = "20260810"
+    if state == "active_operation":
+        repeated["entry_date"] = "20260810"
+    events.insert(-1, repeated)
+    with pytest.raises(adapter.AdapterContractError, match="repeats lifecycle states"):
+        adapter.validate_lifecycle_events(events)
+
+
+@pytest.mark.parametrize(
+    ("earlier_state", "later_state", "same_date"),
+    [
+        ("pending_confirmation", "confirmed_operation", "20260803"),
+        ("active_operation", "exited_operation", "20260805"),
+    ],
+)
+def test_lifecycle_requires_strictly_increasing_transition_dates(
+    earlier_state: str,
+    later_state: str,
+    same_date: str,
+) -> None:
+    events = _valid_completed_events()
+    earlier = next(event for event in events if event["lifecycle_state"] == earlier_state)
+    later = next(event for event in events if event["lifecycle_state"] == later_state)
+    earlier["event_date"] = same_date
+    later["event_date"] = same_date
+    if later_state == "exited_operation":
+        later["exit_date"] = same_date
+    with pytest.raises(adapter.AdapterContractError, match="strictly increasing"):
+        adapter.validate_lifecycle_events(events)
+
+
+@pytest.mark.parametrize(
+    "payload",
+    [
+        "from pathlib import Path\nPath(__TARGET__).touch()",
+        "from pathlib import Path\nPath(__TARGET__).mkdir()",
+        "from pathlib import Path\nPath('a').rename(__TARGET__)",
+        "from pathlib import Path\nPath('a').replace(__TARGET__)",
+        "from pathlib import Path\nPath(__TARGET__).unlink()",
+        "import os\nos.remove(__TARGET__)",
+        "import csv\ncsv.writer([])",
+        "open(__TARGET__, 'w')",
+    ],
+)
+def test_validator_accepts_disabled_preparation_and_rejects_side_effect_calls(
     tmp_path: Path,
+    payload: str,
 ) -> None:
     assert validator.validate_disabled_preparation(validator.DEFAULT_MODULE) == []
 
     unsafe = tmp_path / "unsafe_adapter.py"
+    side_effect = tmp_path / "side-effect"
+    rendered_payload = payload.replace("__TARGET__", repr(str(side_effect)))
     unsafe.write_text(
         validator.DEFAULT_MODULE.read_text(encoding="utf-8")
-        + "\nopen('artifact.csv', 'w')\n",
+        + f"\n{rendered_payload}\n",
         encoding="utf-8",
     )
     errors = validator.validate_disabled_preparation(unsafe)
-    assert any("forbidden writer call open" in error for error in errors)
+    assert any("fail-closed allowlist" in error for error in errors)
+    assert not side_effect.exists()
 
 
 def test_validator_cli_passes_disabled_and_fails_production_approval() -> None:

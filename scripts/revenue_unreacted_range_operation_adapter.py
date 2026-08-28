@@ -159,7 +159,7 @@ def _text(value: Any) -> str:
 
 
 def _date(value: Any, label: str) -> str:
-    text = _text(value).replace("-", "").replace("/", "")
+    text = _text(value)
     if len(text) != 8 or not text.isdigit():
         raise AdapterContractError(f"{label} must be YYYYMMDD, got {value!r}")
     try:
@@ -368,13 +368,99 @@ def validate_lifecycle_events(events: Sequence[Mapping[str, Any]]) -> None:
                 f"operation {operation_key} cannot change report line or stock: {sorted(stock_keys)}"
             )
         states = [row["lifecycle_state"] for row in operation_rows]
-        ranks = [_STATE_RANK[state] for state in states]
-        if ranks != sorted(ranks):
-            raise AdapterContractError(f"operation {operation_key} lifecycle is not monotonic: {states}")
+        duplicate_states = sorted(
+            state for state in set(states) if states.count(state) > 1
+        )
+        if duplicate_states:
+            raise AdapterContractError(
+                f"operation {operation_key} repeats lifecycle states: {duplicate_states}"
+            )
         if "confirmed_operation" in states and "confirmed_unranked_operation" in states:
             raise AdapterContractError(
                 f"operation {operation_key} cannot be both selected and unranked"
             )
+        if "active_operation" in states and "confirmed_unranked_operation" in states:
+            raise AdapterContractError(
+                f"unranked confirmation {operation_key} must never become active"
+            )
+        if states[0] != "pending_confirmation":
+            if "active_operation" in states and "confirmed_operation" not in states:
+                raise AdapterContractError(
+                    f"active operation {operation_key} lacks prior selected confirmation"
+                )
+            raise AdapterContractError(
+                f"operation {operation_key} lifecycle must start with pending_confirmation"
+            )
+        allowed_sequences = {
+            ("pending_confirmation",),
+            ("pending_confirmation", "confirmed_operation"),
+            (
+                "pending_confirmation",
+                "confirmed_operation",
+                "active_operation",
+            ),
+            (
+                "pending_confirmation",
+                "confirmed_operation",
+                "active_operation",
+                "exited_operation",
+            ),
+            ("pending_confirmation", "confirmed_unranked_operation"),
+        }
+        ordered_by_state = sorted(
+            operation_rows,
+            key=lambda row: _STATE_RANK[row["lifecycle_state"]],
+        )
+        ordered_states = tuple(row["lifecycle_state"] for row in ordered_by_state)
+        if ordered_states not in allowed_sequences:
+            raise AdapterContractError(
+                f"operation {operation_key} has invalid lifecycle sequence: {ordered_states}"
+            )
+        ordered_dates = [row["event_date"] for row in ordered_by_state]
+        if any(
+            later <= earlier
+            for earlier, later in zip(ordered_dates, ordered_dates[1:])
+        ):
+            raise AdapterContractError(
+                f"operation {operation_key} lifecycle dates must be strictly increasing"
+            )
+        for row in operation_rows:
+            state = row["lifecycle_state"]
+            prior_key = row["prior_confirmed_operation_key"]
+            entry_date = row["entry_date"]
+            exit_date = row["exit_date"]
+            if state == "active_operation":
+                if prior_key != operation_key:
+                    raise AdapterContractError(
+                        f"active operation {operation_key} must reference its selected confirmation"
+                    )
+                normalized_entry = _date(
+                    entry_date, f"operation {operation_key}.entry_date"
+                )
+                if normalized_entry != row["event_date"]:
+                    raise AdapterContractError(
+                        f"operation {operation_key} active event_date must equal entry_date"
+                    )
+                if exit_date:
+                    raise AdapterContractError(
+                        f"operation {operation_key} active state must not populate exit_date"
+                    )
+            elif state == "exited_operation":
+                if prior_key or entry_date:
+                    raise AdapterContractError(
+                        f"operation {operation_key} exited state has non-empty unrelated fields"
+                    )
+                normalized_exit = _date(
+                    exit_date, f"operation {operation_key}.exit_date"
+                )
+                if normalized_exit != row["event_date"]:
+                    raise AdapterContractError(
+                        f"operation {operation_key} exit_date must equal exited event_date"
+                    )
+            elif prior_key or entry_date or exit_date:
+                raise AdapterContractError(
+                    f"operation {operation_key} {state} has non-empty unrelated fields"
+                )
         if "active_operation" in states:
             if "confirmed_operation" not in states:
                 raise AdapterContractError(
@@ -396,17 +482,6 @@ def validate_lifecycle_events(events: Sequence[Mapping[str, Any]]) -> None:
                 raise AdapterContractError(
                     f"operation {operation_key} cannot be confirmed and active on the same date"
                 )
-            for row in operation_rows[first_active:]:
-                if row["lifecycle_state"] == "active_operation":
-                    if row["prior_confirmed_operation_key"] != operation_key:
-                        raise AdapterContractError(
-                            f"active operation {operation_key} must reference its selected confirmation"
-                        )
-                    _date(row["entry_date"], f"operation {operation_key}.entry_date")
-                    if row["entry_date"] != row["event_date"]:
-                        raise AdapterContractError(
-                            f"operation {operation_key} active event_date must equal entry_date"
-                        )
         if "exited_operation" in states:
             exit_index = states.index("exited_operation")
             if exit_index != len(states) - 1:
@@ -414,12 +489,6 @@ def validate_lifecycle_events(events: Sequence[Mapping[str, Any]]) -> None:
             if "active_operation" not in states:
                 raise AdapterContractError(
                     f"exited operation {operation_key} lacks prior active operation"
-                )
-            exit_row = operation_rows[exit_index]
-            exit_date = _date(exit_row["exit_date"], f"operation {operation_key}.exit_date")
-            if exit_date != exit_row["event_date"]:
-                raise AdapterContractError(
-                    f"operation {operation_key} exit_date must equal exited event_date"
                 )
 
     state_priority = {state: index for index, state in enumerate(LIFECYCLE_STATES)}

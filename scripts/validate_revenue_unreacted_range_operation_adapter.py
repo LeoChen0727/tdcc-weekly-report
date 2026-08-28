@@ -27,32 +27,75 @@ def _load_module(module_path: Path):
 def _validate_no_runtime_writer(module_path: Path) -> list[str]:
     errors: list[str] = []
     tree = ast.parse(module_path.read_text(encoding="utf-8"), filename=str(module_path))
-    forbidden_imports = {"pandas", "reportlab", "pypdf"}
-    forbidden_calls = {
-        "open",
-        "write_csv",
-        "write_text",
-        "write_bytes",
-        "to_csv",
-        "to_json",
+    allowed_from_imports = {
+        "__future__": {"annotations"},
+        "collections.abc": {"Iterable", "Mapping", "Sequence"},
+        "datetime": {"datetime"},
+        "typing": {"Any"},
+    }
+    allowed_name_calls = {
+        "AdapterContractError",
+        "_date",
+        "_fixed_metadata",
+        "_require_exact_columns",
+        "_text",
+        "any",
+        "build_disabled_empty_rows",
+        "enumerate",
+        "frozenset",
+        "len",
+        "set",
+        "sorted",
+        "str",
+        "tuple",
+        "validate_disabled_adapter_rows",
+        "validate_lifecycle_events",
+        "zip",
+    }
+    allowed_attribute_calls = {
+        "add",
+        "append",
+        "count",
+        "get",
+        "index",
+        "isdigit",
+        "items",
+        "lower",
+        "setdefault",
+        "sort",
+        "strip",
+        "strptime",
     }
     for node in ast.walk(tree):
         if isinstance(node, ast.Import):
-            for alias in node.names:
-                if alias.name.split(".", 1)[0] in forbidden_imports:
-                    errors.append(f"disabled adapter imports runtime dependency {alias.name}")
+            errors.append("disabled adapter must not use direct imports")
         elif isinstance(node, ast.ImportFrom):
-            if (node.module or "").split(".", 1)[0] in forbidden_imports:
-                errors.append(f"disabled adapter imports runtime dependency {node.module}")
+            module = node.module or ""
+            names = {alias.name for alias in node.names}
+            allowed_names = allowed_from_imports.get(module)
+            if allowed_names is None or not names <= allowed_names:
+                errors.append(
+                    "disabled adapter import is outside the fail-closed allowlist: "
+                    f"from {module} import {sorted(names)}"
+                )
         elif isinstance(node, ast.Call):
             func = node.func
-            name = ""
             if isinstance(func, ast.Name):
-                name = func.id
+                if func.id not in allowed_name_calls:
+                    errors.append(
+                        "disabled adapter call is outside the fail-closed allowlist: "
+                        f"{func.id}"
+                    )
             elif isinstance(func, ast.Attribute):
-                name = func.attr
-            if name in forbidden_calls:
-                errors.append(f"disabled adapter contains forbidden writer call {name}")
+                if func.attr not in allowed_attribute_calls:
+                    errors.append(
+                        "disabled adapter method call is outside the fail-closed allowlist: "
+                        f"{func.attr}"
+                    )
+            else:
+                errors.append(
+                    "disabled adapter contains an unsupported dynamic call target"
+                )
         elif isinstance(node, ast.If):
             test = node.test
             if (
