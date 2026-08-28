@@ -589,6 +589,119 @@ def test_shared_registry_daily_production_row_change_selects_production_pdf(
     )
 
 
+def test_shared_registry_unchanged_pdf_edge_does_not_promote_revenue_metadata_change(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    path = "config/repo_file_lifecycle_inventory.csv"
+    header = "path,owner,called_by_workflow,documented_by\n"
+    base = (
+        header
+        + "scripts/validate_repo_production_inventory.py,repo_infrastructure,"
+        ".github/workflows/daily_pdf_replay_pr_validation.yml,docs/old.md\n"
+    )
+    merge = (
+        header
+        + "scripts/validate_repo_production_inventory.py,repo_infrastructure,"
+        ".github/workflows/daily_pdf_replay_pr_validation.yml,"
+        "docs/old.md;docs/specs/revenue_unreacted_range_readiness_bootstrap_hardening_v1.md\n"
+    )
+    monkeypatch.setattr(
+        scope,
+        "_read_git_text",
+        lambda revision, _path: base if revision == "base" else merge,
+    )
+
+    assert scope.domains_for_changed_path(
+        path,
+        base_sha="base",
+        merge_sha="merge",
+    ) == frozenset(
+        {
+            scope.REPO_CURRENT_CONTRACTS,
+            scope.RESEARCH_SAFETY_LITE,
+            scope.REVENUE_RESEARCH,
+        }
+    )
+
+
+@pytest.mark.parametrize("edge_revision", ("base", "merge"))
+def test_shared_registry_pdf_edge_delta_selects_production_pdf(
+    edge_revision: str,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    path = "config/repo_production_inventory.csv"
+    header = "path,owner,allowed_workflows,purpose\n"
+    plain = header + "scripts/helper.py,repo_infrastructure,,metadata\n"
+    with_edge = (
+        header
+        + "scripts/helper.py,repo_infrastructure,"
+        ".github/workflows/daily_full_pipeline.yml,metadata\n"
+    )
+    monkeypatch.setattr(
+        scope,
+        "_read_git_text",
+        lambda revision, _path: with_edge if revision == edge_revision else plain,
+    )
+
+    assert scope.domains_for_changed_path(
+        path,
+        base_sha="base",
+        merge_sha="merge",
+    ) == frozenset(
+        {scope.REPO_CURRENT_CONTRACTS, scope.PRODUCTION_PDF_CONTRACTS}
+    )
+
+
+def test_shared_registry_explicit_pdf_primary_path_change_selects_production_pdf(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    path = "config/repo_file_lifecycle_inventory.csv"
+    header = "path,owner,purpose\n"
+    base = header + "scripts/generate_chatgpt_side_daily_reports.py,repo_infrastructure,old\n"
+    merge = header + "scripts/generate_chatgpt_side_daily_reports.py,repo_infrastructure,new\n"
+    monkeypatch.setattr(
+        scope,
+        "_read_git_text",
+        lambda revision, _path: base if revision == "base" else merge,
+    )
+
+    assert scope.domains_for_changed_path(
+        path,
+        base_sha="base",
+        merge_sha="merge",
+    ) == frozenset(
+        {scope.REPO_CURRENT_CONTRACTS, scope.PRODUCTION_PDF_CONTRACTS}
+    )
+
+
+@pytest.mark.parametrize("row_revision", ("base", "merge"))
+def test_shared_registry_added_or_deleted_pdf_row_uses_complete_row_semantics(
+    row_revision: str,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    path = "config/repo_file_lifecycle_inventory.csv"
+    header = "path,owner,called_by_workflow\n"
+    empty = header
+    with_row = (
+        header
+        + "scripts/helper.py,repo_infrastructure,"
+        ".github/workflows/daily_full_pipeline.yml\n"
+    )
+    monkeypatch.setattr(
+        scope,
+        "_read_git_text",
+        lambda revision, _path: with_row if revision == row_revision else empty,
+    )
+
+    assert scope.domains_for_changed_path(
+        path,
+        base_sha="base",
+        merge_sha="merge",
+    ) == frozenset(
+        {scope.REPO_CURRENT_CONTRACTS, scope.PRODUCTION_PDF_CONTRACTS}
+    )
+
+
 def test_shared_registry_unreadable_state_fails_closed_to_core_production_and_revenue(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
