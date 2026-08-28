@@ -141,6 +141,10 @@ def _validate_no_runtime_writer(module_path: Path) -> list[str]:
                     "disabled adapter function arguments must not shadow a protected "
                     f"symbol: {node.arg}"
                 )
+        elif isinstance(node, (ast.Lambda, ast.Match)):
+            errors.append(
+                "disabled adapter must not use lambda or pattern matching constructs"
+            )
         elif isinstance(node, ast.Name):
             if isinstance(node.ctx, (ast.Store, ast.Del)) and node.id in protected_bindings:
                 errors.append(

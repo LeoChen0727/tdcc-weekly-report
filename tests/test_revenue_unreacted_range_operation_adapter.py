@@ -431,6 +431,12 @@ def test_validator_accepts_disabled_preparation_and_rejects_side_effect_calls(
         ),
         "class len:\n    pass",
         "def _unexpected_helper(sorted):\n    return sorted",
+        (
+            "match (lambda value, *args, **kwargs: "
+            "value[:2] if 'key' in kwargs else []):\n"
+            "    case sorted:\n"
+            "        pass"
+        ),
     ],
 )
 def test_validator_rejects_definition_and_argument_shadowing(
@@ -445,7 +451,14 @@ def test_validator_rejects_definition_and_argument_shadowing(
 
     errors = validator.validate_disabled_preparation(unsafe)
     assert errors
-    assert any("shadow a protected symbol" in error for error in errors)
+    assert any(
+        marker in error
+        for error in errors
+        for marker in (
+            "shadow a protected symbol",
+            "lambda or pattern matching constructs",
+        )
+    )
 
 
 def test_validator_cli_passes_disabled_and_fails_production_approval() -> None:
