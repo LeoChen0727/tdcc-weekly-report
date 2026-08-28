@@ -66,6 +66,24 @@ def _validate_no_runtime_writer(module_path: Path) -> list[str]:
         "strip",
         "strptime",
     }
+    protected_bindings = allowed_name_calls | {
+        "datetime",
+    }
+    dangerous_name_loads = {
+        "__builtins__",
+        "__import__",
+        "breakpoint",
+        "compile",
+        "eval",
+        "exec",
+        "globals",
+        "input",
+        "locals",
+        "open",
+        "setattr",
+        "vars",
+    }
+    definitions: dict[str, int] = {}
     for node in ast.walk(tree):
         if isinstance(node, ast.Import):
             errors.append("disabled adapter must not use direct imports")
@@ -73,10 +91,48 @@ def _validate_no_runtime_writer(module_path: Path) -> list[str]:
             module = node.module or ""
             names = {alias.name for alias in node.names}
             allowed_names = allowed_from_imports.get(module)
-            if allowed_names is None or not names <= allowed_names:
+            aliases_are_exact = all(
+                alias.asname in {None, alias.name} for alias in node.names
+            )
+            if (
+                allowed_names is None
+                or not names <= allowed_names
+                or not aliases_are_exact
+            ):
                 errors.append(
                     "disabled adapter import is outside the fail-closed allowlist: "
                     f"from {module} import {sorted(names)}"
+                )
+        elif isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)):
+            definitions[node.name] = definitions.get(node.name, 0) + 1
+            if definitions[node.name] > 1:
+                errors.append(
+                    "disabled adapter must not redefine a symbol: "
+                    f"{node.name}"
+                )
+        elif isinstance(node, ast.Name):
+            if isinstance(node.ctx, (ast.Store, ast.Del)) and node.id in protected_bindings:
+                errors.append(
+                    "disabled adapter must not rebind or delete a protected symbol: "
+                    f"{node.id}"
+                )
+            if isinstance(node.ctx, ast.Load) and node.id in dangerous_name_loads:
+                errors.append(
+                    "disabled adapter loads a forbidden side-effect capability: "
+                    f"{node.id}"
+                )
+        elif isinstance(node, (ast.Global, ast.Nonlocal)):
+            rebound = sorted(set(node.names) & protected_bindings)
+            if rebound:
+                errors.append(
+                    "disabled adapter must not declare protected bindings global/nonlocal: "
+                    f"{rebound}"
+                )
+        elif isinstance(node, ast.ExceptHandler):
+            if node.name and node.name in protected_bindings:
+                errors.append(
+                    "disabled adapter must not bind an exception to a protected symbol: "
+                    f"{node.name}"
                 )
         elif isinstance(node, ast.Call):
             func = node.func

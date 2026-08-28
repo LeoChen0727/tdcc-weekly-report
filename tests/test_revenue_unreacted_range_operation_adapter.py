@@ -370,6 +370,26 @@ def test_lifecycle_requires_strictly_increasing_transition_dates(
         "import os\nos.remove(__TARGET__)",
         "import csv\ncsv.writer([])",
         "open(__TARGET__, 'w')",
+        "_text = open\n_handle = _text(__TARGET__, 'w')",
+        (
+            "AdapterContractError = open\n"
+            "_handle = AdapterContractError(__TARGET__, 'w')"
+        ),
+        (
+            "_writer = getattr(__builtins__, 'open')\n"
+            "_handle = _writer(__TARGET__, 'w')"
+        ),
+        (
+            "_writer = (lambda fn=open: fn)()\n"
+            "_handle = _writer(__TARGET__, 'w')"
+        ),
+        (
+            "def _decorate(value):\n"
+            "    return value\n"
+            "@_decorate(open(__TARGET__, 'w'))\n"
+            "def _side_effect():\n"
+            "    return None"
+        ),
     ],
 )
 def test_validator_accepts_disabled_preparation_and_rejects_side_effect_calls(
@@ -387,7 +407,16 @@ def test_validator_accepts_disabled_preparation_and_rejects_side_effect_calls(
         encoding="utf-8",
     )
     errors = validator.validate_disabled_preparation(unsafe)
-    assert any("fail-closed allowlist" in error for error in errors)
+    assert errors
+    assert any(
+        marker in error
+        for error in errors
+        for marker in (
+            "fail-closed allowlist",
+            "forbidden side-effect capability",
+            "rebind or delete a protected symbol",
+        )
+    )
     assert not side_effect.exists()
 
 
