@@ -1,7 +1,7 @@
 {
   "status": "pass",
-  "generated_at": "2026-08-22 15:40:08 Asia/Taipei",
-  "signal_date": "20260821",
+  "generated_at": "2026-08-29 15:28:55 Asia/Taipei",
+  "signal_date": "20260828",
   "readiness_path": "output/latest/tdcc_weekly_data_readiness_latest.json",
   "required_periods": 0,
   "required_dates": [
@@ -21,10 +21,11 @@
     "20260731",
     "20260807",
     "20260814",
-    "20260821"
+    "20260821",
+    "20260828"
   ],
-  "current_stock_count": 1969,
-  "missing_rows_before": 4,
+  "current_stock_count": 1968,
+  "missing_rows_before": 6,
   "missing_before": [
     {
       "date": "20260626",
@@ -49,6 +50,15 @@
       "existing_rows": 1970,
       "missing_stock_ids": [
         "5904"
+      ]
+    },
+    {
+      "date": "20260821",
+      "missing_stock_count": 2,
+      "existing_rows": 1969,
+      "missing_stock_ids": [
+        "6176",
+        "6241"
       ]
     }
   ],
@@ -84,13 +94,29 @@
       "status": "invalid_holder_distribution",
       "attempts": 1,
       "message": "single-holder or placeholder distribution"
+    },
+    {
+      "date": "20260821",
+      "stock_id": "6176",
+      "stock_name": "瑞儀",
+      "status": "invalid_holder_distribution",
+      "attempts": 1,
+      "message": "single-holder or placeholder distribution"
+    },
+    {
+      "date": "20260821",
+      "stock_id": "6241",
+      "stock_name": "鑫永洋",
+      "status": "official_no_data",
+      "attempts": 3,
+      "message": "official query returned no distribution row"
     }
   ],
   "repaired_count": 0,
   "failed_count": 0,
-  "accepted_exception_count": 4,
-  "official_no_data_count": 1,
-  "invalid_holder_distribution_count": 3,
+  "accepted_exception_count": 6,
+  "official_no_data_count": 2,
+  "invalid_holder_distribution_count": 4,
   "confirmed_history_exceptions": [
     {
       "date": "20260626",
@@ -107,11 +133,19 @@
     {
       "date": "20260807",
       "stock_id": "5904"
+    },
+    {
+      "date": "20260821",
+      "stock_id": "6176"
+    },
+    {
+      "date": "20260821",
+      "stock_id": "6241"
     }
   ],
   "history_exception_limit": 20,
   "systemic_history_exception": false,
-  "missing_rows_after": 4,
+  "missing_rows_after": 6,
   "unresolved_missing_rows": 0,
   "unresolved": []
 }

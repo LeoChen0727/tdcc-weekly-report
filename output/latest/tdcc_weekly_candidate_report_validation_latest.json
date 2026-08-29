@@ -1,47 +1,47 @@
 {
   "status": "pass",
-  "signal_date": "20260821",
+  "signal_date": "20260828",
   "tdcc_dataset_contract": {
-    "dataset_id": "tdcc-20260821-d1df4c843f691346",
-    "signal_date": "20260821",
+    "dataset_id": "tdcc-20260828-9c8a9567ad6e0120",
+    "signal_date": "20260828",
     "manifest_path": "output/latest/tdcc_dataset_manifest_latest.json"
   },
   "date_contract": {
     "date_source": "report_ready_csv_signal_date",
-    "report_date": "20260821",
+    "report_date": "20260828",
     "highlight_report_ready_signal_dates": [
-      "20260821"
+      "20260828"
     ],
     "full_report_ready_signal_dates": [
-      "20260821"
+      "20260828"
     ],
     "weekly_source_signal_dates": [
-      "20260821"
+      "20260828"
     ],
     "consecutive_source_signal_dates": [
-      "20260821"
+      "20260828"
     ]
   },
   "row_counts": {
-    "weekly_increase": 372,
-    "consecutive_accumulation": 19,
-    "model_cross": 16,
-    "highlight_report": 34,
-    "full_report": 85,
+    "weekly_increase": 362,
+    "consecutive_accumulation": 15,
+    "model_cross": 15,
+    "highlight_report": 35,
+    "full_report": 80,
     "manifest_sections": 4
   },
   "section_counts": {
     "highlight": {
       "weekly_increase": 10,
       "consecutive_accumulation": 10,
-      "model_cross_weekly_increase_tdcc_short_term_continuation_d5_d10": 10,
-      "model_cross_consecutive_accumulation_tdcc_short_term_continuation_d5_d10": 4
+      "model_cross_weekly_increase_tdcc_short_term_continuation_d5_d10": 9,
+      "model_cross_consecutive_accumulation_tdcc_short_term_continuation_d5_d10": 6
     },
     "full": {
       "weekly_increase": 50,
-      "consecutive_accumulation": 19,
-      "model_cross_weekly_increase_tdcc_short_term_continuation_d5_d10": 12,
-      "model_cross_consecutive_accumulation_tdcc_short_term_continuation_d5_d10": 4
+      "consecutive_accumulation": 15,
+      "model_cross_weekly_increase_tdcc_short_term_continuation_d5_d10": 9,
+      "model_cross_consecutive_accumulation_tdcc_short_term_continuation_d5_d10": 6
     }
   },
   "manifest_sections": [
@@ -97,12 +97,12 @@
       "/AAAAAB+TW-Kai-98_1",
       "/Helvetica"
     ],
-    "output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_精華版_20260821.pdf": [
+    "output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_精華版_20260828.pdf": [
       "/AAAAAA+TW-Kai-98_1",
       "/AAAAAB+TW-Kai-98_1",
       "/Helvetica"
     ],
-    "output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_完整版_20260821.pdf": [
+    "output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_完整版_20260828.pdf": [
       "/AAAAAA+TW-Kai-98_1",
       "/AAAAAB+TW-Kai-98_1",
       "/Helvetica"
