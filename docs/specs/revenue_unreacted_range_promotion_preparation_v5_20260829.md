@@ -1,6 +1,6 @@
 # revenue_unreacted_range promotion preparation v5
 
-日期：2026-08-29  
+日期：2026-08-29
 授權：`user_authorized_3A_3C_20260829`
 
 ## 結論
