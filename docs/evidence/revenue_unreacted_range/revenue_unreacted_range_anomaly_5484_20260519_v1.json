@@ -1,0 +1,134 @@
+{
+  "schema_version": "revenue_unreacted_range_anomaly_evidence_v1",
+  "evidence_id": "revenue_unreacted_range_anomaly_5484_20260519_v1",
+  "semantic_payload": {
+    "model_id": "revenue_unreacted_range",
+    "operation_key": "rearm_after_realized_exit_next_trade_day|delayed_next_close_continuation_bonus|5484|absolute_or_two_month_yoy_ge15|5484|20251017|1|20260515|20260519",
+    "identity": {
+      "stock_id": "5484",
+      "stock_name": "慧友",
+      "trigger_date": "20260515",
+      "confirmation_date": "20260518",
+      "entry_date": "20260519",
+      "exit_date": "20260630",
+      "candidate_v2_row_sha256": "5f3ca72b872eeb3f02e078e9544b456751e6dc2c4fc7942a7a023c961a6ce514",
+      "candidate_v3_row_sha256": "654a0d4af4a87a6d170c1f49effd2a76ac81889847158dab2240c5a90b88e3f4"
+    },
+    "attribution": {
+      "candidate_kind": "source_anomaly_candidate",
+      "anomaly_attribution_mode": "exact_anomaly_causing_qualifying_source_events",
+      "source_event_periods": ["202512"],
+      "source_table_dates": ["20260117"],
+      "source_available_dates": ["20260119"],
+      "source_canonical_row_sha256s": ["e91f324a5d4c664bf1ca2e329f094212294de006eec1b3395cec5b7b4ff8324c"],
+      "anomaly_attribution_note": "exact anomalous qualifying event not the latest 202603 source available by trigger"
+    },
+    "root_checks": {
+      "identity_non_overlap": {
+        "status": "pass",
+        "finding": "one exact operation identity; same-stock non-overlap replay passed"
+      },
+      "formal_operation_replay": {
+        "status": "pass",
+        "trigger_close": "40.6",
+        "confirmation_close": "41.4",
+        "entry_open": "40.3",
+        "exit_close": "45.7",
+        "price_row_canonical_sha256s": {
+          "trigger_close": "441124be65513973759bd41e55ba84dc6a8c27b4fdeb22c462f0e5b43bc32a6d",
+          "confirmation_close": "a266df32948387a93bff527f769b42c1dc6ba18fd63a234add370d92b08fbced",
+          "entry_open": "65405120994780c58b639721b58ed00e013502115f29c2b398ab5c55c84124a4",
+          "exit_close": "e0afc3dedd49a4617562e9ebc0dd7ebae11b18bb1847179eee4dafeeafe9cbae"
+        },
+        "formula": "(exit_close-entry_open)/entry_open*100",
+        "realized_return_pct": "13.3995",
+        "official_price_queries": [
+          "https://www.twse.com.tw/exchangeReport/STOCK_DAY?response=json&date=20260501&stockNo=5484",
+          "https://www.twse.com.tw/exchangeReport/STOCK_DAY?response=json&date=20260601&stockNo=5484"
+        ]
+      },
+      "pit_calendar_continuity": {
+        "status": "pass",
+        "finding": "the 202512 qualifying revenue row was published on 20260117 and became trade-available on 20260119, before the 202605 trigger; all operation dates follow registered sessions"
+      },
+      "raw_source_lineage": {
+        "status": "pass",
+        "monthly_revenue_events": [
+          {
+            "period": "202512",
+            "source_table_date": "20260117",
+            "available_date": "20260119",
+            "canonical_row_sha256": "e91f324a5d4c664bf1ca2e329f094212294de006eec1b3395cec5b7b4ff8324c",
+            "source_anomaly_candidate": true,
+            "raw_file_sha256_diagnostic": "d30e0dab4891bc9fc8d8416b911a0b04d2e9d167a8411dc0794de6f6a414eabc",
+            "source_url": "https://mopsov.twse.com.tw/nas/t21/sii/t21sc03_114_12_0.html"
+          }
+        ],
+        "price_history_path": "data/stock_price_history/5484.csv"
+      },
+      "units_formula_adjustment": {
+        "status": "pass",
+        "price_unit": "TWD_per_share",
+        "revenue_unit": "thousand_TWD",
+        "operation_basis": "official daily close-confirmed unadjusted OHLC; no price-adjustment discontinuity found",
+        "entry_price_basis": "next_trading_day_open_after_close_confirmation",
+        "exit_price_basis": "fixed_d30_close_offset29",
+        "intraday_operation_basis_used": false
+      },
+      "authoritative_event_history": {
+        "status": "pass",
+        "finding": "no split, reduction, par-value reset, relisting, or suspension price reset; MOPS context is consistent with ordinary OEM recognition",
+        "official_sources": [
+          "https://www.twse.com.tw/rwd/zh/exRight/TWT49U",
+          "https://www.twse.com.tw/rwd/zh/reducation/TWTAUU",
+          "https://www.twse.com.tw/rwd/zh/change/TWTB8U",
+          "https://www.twse.com.tw/rwd/zh/afterTrading/TWTAWU",
+          "https://mopsov.twse.com.tw/nas/t21/sii/t21sc03_114_12_0.html"
+        ],
+        "request_params": {"stockNo": "5484", "startDate": "20260515", "endDate": "20260630"},
+        "query_window": "20260515..20260630"
+      },
+      "independent_source_corroboration": {
+        "status": "pass",
+        "independent_underlying_measurement": false,
+        "classification": "independent_public_provider_corroboration",
+        "finding": "MoneyDJ reports 慧友(5484) 114/12 monthly revenue 60,427 thousand TWD; its displayed YoY 471.58% differs from the canonical 471.57% only by provider rounding.",
+        "sources": [
+          "https://tw.stock.yahoo.com/quote/5484.TW/revenue",
+          "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=f933550f-fbc3-4e49-94f0-39ba924dbd1b"
+        ],
+        "observed_facts": [
+          {
+            "fact_kind": "public_provider_monthly_revenue_report",
+            "stock_id": "5484",
+            "revenue_period": "202512",
+            "provider_reported_monthly_revenue_thousand_twd": "60427",
+            "canonical_monthly_revenue_thousand_twd": "60427",
+            "provider_reported_yoy_pct": "471.58",
+            "canonical_yoy_pct": "471.57",
+            "comparison_result": "monthly_revenue_exact_yoy_display_rounding_only",
+            "source_url": "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=f933550f-fbc3-4e49-94f0-39ba924dbd1b"
+          }
+        ]
+      },
+      "reproducible_evidence_reference": {
+        "status": "pass",
+        "replay_basis": "canonical MOPS revenue row, registered daily prices, corporate-action checks, and explicit operation formula"
+      }
+    },
+    "disposition": {
+      "final_disposition": "verified_real_extreme",
+      "primary_handling": "retain_in_primary_metrics",
+      "promotion_gate_status": "eligible_only_after_all_other_model_gates",
+      "repair_satisfaction_status": "not_applicable_no_repair",
+      "effective_anomaly_gate_status": "satisfied",
+      "approved_reason_reference": ""
+    },
+    "scope": "monthly_revenue_only; EPS, gross margin, operating margin, operating income, non-operating income, net income, quarterly and annual financial statements excluded"
+  },
+  "provenance": {
+    "retrieved_at": "2026-08-29T05:31:00+08:00",
+    "raw_byte_identity_policy": "diagnostic_only_not_promotion_gate",
+    "line_ending_identity_policy": "diagnostic_only_not_promotion_gate"
+  }
+}

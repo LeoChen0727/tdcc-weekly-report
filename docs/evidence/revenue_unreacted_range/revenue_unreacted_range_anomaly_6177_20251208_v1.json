@@ -1,0 +1,160 @@
+{
+  "schema_version": "revenue_unreacted_range_anomaly_evidence_v1",
+  "evidence_id": "revenue_unreacted_range_anomaly_6177_20251208_v1",
+  "semantic_payload": {
+    "model_id": "revenue_unreacted_range",
+    "operation_key": "rearm_after_realized_exit_next_trade_day|delayed_next_close_continuation_bonus|6177|absolute_or_two_month_yoy_ge15|6177|20250517|1|20251204|20251208",
+    "identity": {
+      "stock_id": "6177",
+      "stock_name": "達麗",
+      "trigger_date": "20251204",
+      "confirmation_date": "20251205",
+      "entry_date": "20251208",
+      "exit_date": "20260120",
+      "candidate_v2_row_sha256": "e3ff0aa0f2af328e8e959321235acc79af9efdf0a7df508db4d55bac57b88e23",
+      "candidate_v3_row_sha256": "2af20806fe14f601812f6183fda2421deff0e5c649ab1e76c719430d40825ea4"
+    },
+    "attribution": {
+      "candidate_kind": "source_anomaly_candidate",
+      "anomaly_attribution_mode": "trigger_asof_repaired_no_anomalous_qualifying_source_event",
+      "source_event_periods": ["202504", "202509"],
+      "source_table_dates": ["20250517", "20251017"],
+      "source_available_dates": ["20250519", "20251017"],
+      "source_canonical_row_sha256s": ["1cb88da0fb389f1e4775c6ae2c05d1c4813d7c584e9e2fc0ba7183d4bf7e1e71", "d8d8792b836c414d9356e174e055619cc9eedf4627a8f52235bb4994cf2f495b"],
+      "anomaly_attribution_note": "trigger-as-of qualifying events 202504 and 202509 were non-anomalous; post-trigger 202512 event available 20260119 is excluded from attribution"
+    },
+    "root_checks": {
+      "identity_non_overlap": {
+        "status": "pass",
+        "finding": "one exact operation identity; operation key, dates, prices, and same-stock non-overlap remain unchanged by the attribution repair"
+      },
+      "formal_operation_replay": {
+        "status": "pass",
+        "trigger_close": "48.25",
+        "confirmation_close": "48.30",
+        "entry_open": "48.35",
+        "exit_close": "50.90",
+        "price_row_canonical_sha256s": {
+          "trigger_close": "d9a22ea99f9e5e3edc54210cd8b0338563026c3f16658b8a169f76c2dc3b63d5",
+          "confirmation_close": "f36a538f449303116355382876274bec4e1c70d36a9337c26ffc4cbce27121b5",
+          "entry_open": "52d289695cd7b70ff1d4f8439fbfc8ca3777695265fbb8dc5c432622ecb055d3",
+          "exit_close": "66288994e95b0630aab302f9fd0d89a4f179e4a85d6a31a87c56115c089bdada"
+        },
+        "formula": "(exit_close-entry_open)/entry_open*100",
+        "realized_return_pct": "5.274",
+        "official_price_queries": [
+          "https://www.twse.com.tw/exchangeReport/STOCK_DAY?response=json&date=20251201&stockNo=6177",
+          "https://www.twse.com.tw/exchangeReport/STOCK_DAY?response=json&date=20260101&stockNo=6177"
+        ]
+      },
+      "pit_calendar_continuity": {
+        "status": "pass",
+        "finding": "202504 and 202509 revenue rows were available on their first registered trading sessions before trigger; the anomalous 202512 row became trade-available only on 20260119 and cannot be attributed to the 20251204 trigger"
+      },
+      "raw_source_lineage": {
+        "status": "pass",
+        "monthly_revenue_events": [
+          {
+            "period": "202504",
+            "source_table_date": "20250517",
+            "available_date": "20250519",
+            "canonical_row_sha256": "1cb88da0fb389f1e4775c6ae2c05d1c4813d7c584e9e2fc0ba7183d4bf7e1e71",
+            "source_anomaly_candidate": false,
+            "raw_file_sha256_diagnostic": "4eba010d3afeb2b50f3b6e88a60fb699bfad9d34b1e991c0cc8b898775b1231f",
+            "source_url": "https://mopsov.twse.com.tw/nas/t21/sii/t21sc03_114_4_0.html"
+          },
+          {
+            "period": "202509",
+            "source_table_date": "20251017",
+            "available_date": "20251017",
+            "canonical_row_sha256": "d8d8792b836c414d9356e174e055619cc9eedf4627a8f52235bb4994cf2f495b",
+            "source_anomaly_candidate": false,
+            "raw_file_sha256_diagnostic": "6bb7ac7c837884520e1aae63cd2d12ba2f2da7a88117d9308e39fab94842426e",
+            "source_url": "https://mopsov.twse.com.tw/nas/t21/sii/t21sc03_114_9_0.html"
+          },
+          {
+            "period": "202512",
+            "source_table_date": "20260117",
+            "available_date": "20260119",
+            "canonical_row_sha256": "d26bc6a94cf5869836e96f77b7af128b007b3159ae7680eb4e14030c7d19aae1",
+            "source_anomaly_candidate": true,
+            "raw_file_sha256_diagnostic": "d30e0dab4891bc9fc8d8416b911a0b04d2e9d167a8411dc0794de6f6a414eabc",
+            "source_url": "https://mopsov.twse.com.tw/nas/t21/sii/t21sc03_114_12_0.html"
+          }
+        ],
+        "price_history_path": "data/stock_price_history/6177.csv"
+      },
+      "units_formula_adjustment": {
+        "status": "pass",
+        "price_unit": "TWD_per_share",
+        "revenue_unit": "thousand_TWD",
+        "operation_basis": "official daily close-confirmed unadjusted OHLC; the price and return are valid and are not repaired",
+        "entry_price_basis": "next_trading_day_open_after_close_confirmation",
+        "exit_price_basis": "fixed_d30_close_offset29",
+        "intraday_operation_basis_used": false
+      },
+      "authoritative_event_history": {
+        "status": "pass",
+        "finding": "no price-reset corporate action; the 202512 MOPS/issuer explanation attributes the later revenue extreme to project completions, confirming a real later event but not trigger-as-of evidence",
+        "official_sources": [
+          "https://www.twse.com.tw/rwd/zh/exRight/TWT49U",
+          "https://www.twse.com.tw/rwd/zh/reducation/TWTAUU",
+          "https://www.twse.com.tw/rwd/zh/change/TWTB8U",
+          "https://www.twse.com.tw/rwd/zh/afterTrading/TWTAWU",
+          "https://www.da-li.com.tw/page/finance/"
+        ],
+        "request_params": {"stockNo": "6177", "startDate": "20251204", "endDate": "20260120"},
+        "query_window": "20251204..20260120"
+      },
+      "independent_source_corroboration": {
+        "status": "pass",
+        "independent_underlying_measurement": false,
+        "classification": "independent_public_provider_corroboration",
+        "finding": "MoneyDJ identifies 達麗(6177) and reports 114/04 monthly revenue 145,132 thousand TWD; its displayed YoY 16.92% differs from the canonical 16.91% only by provider rounding.",
+        "sources": [
+          "https://tw.stock.yahoo.com/quote/6177.TW/revenue",
+          "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=03d3c295-823c-4a9b-a405-e0813c68501b"
+        ],
+        "observed_facts": [
+          {
+            "fact_kind": "public_provider_monthly_revenue_report",
+            "stock_id": "6177",
+            "revenue_period": "202504",
+            "provider_reported_monthly_revenue_thousand_twd": "145132",
+            "canonical_monthly_revenue_thousand_twd": "145132",
+            "provider_reported_yoy_pct": "16.92",
+            "canonical_yoy_pct": "16.91",
+            "comparison_result": "monthly_revenue_exact_yoy_display_rounding_only",
+            "source_url": "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=03d3c295-823c-4a9b-a405-e0813c68501b"
+          }
+        ]
+      },
+      "reproducible_evidence_reference": {
+        "status": "pass",
+        "replay_basis": "trigger-as-of canonical revenue rows, post-trigger 202512 row separation, exact v3 research rerun, and unchanged operation replay"
+      }
+    },
+    "root_cause": {
+      "classification": "derived_attribution_future_leakage",
+      "finding": "v2 propagated an episode-level any-anomaly flag to every trigger; the 20260117 source event was incorrectly attributed to the 20251204 trigger",
+      "repair_id": "revenue_unreacted_range_6177_trigger_asof_anomaly_attribution_repair_v1_20260829",
+      "repair_scope": "derived anomaly attribution only; raw monthly revenue, registered daily prices, operation identity, prices, realized return, model rule, thresholds, and primary metrics remain unchanged",
+      "repaired_artifact_version": "low_mid_falling_candidate_v3_20260829"
+    },
+    "disposition": {
+      "final_disposition": "verified_data_error",
+      "primary_handling": "repair_completed_primary_metrics_preserved",
+      "promotion_gate_status": "eligible_only_after_all_other_model_gates",
+      "repair_satisfaction_status": "verified_repaired_rerun",
+      "effective_anomaly_gate_status": "satisfied",
+      "historical_pre_repair_gate_status": "blocked_until_repaired_rerun",
+      "approved_reason_reference": ""
+    },
+    "scope": "monthly_revenue_only; EPS, gross margin, operating margin, operating income, non-operating income, net income, quarterly and annual financial statements excluded"
+  },
+  "provenance": {
+    "retrieved_at": "2026-08-29T05:32:00+08:00",
+    "raw_byte_identity_policy": "diagnostic_only_not_promotion_gate",
+    "line_ending_identity_policy": "diagnostic_only_not_promotion_gate"
+  }
+}

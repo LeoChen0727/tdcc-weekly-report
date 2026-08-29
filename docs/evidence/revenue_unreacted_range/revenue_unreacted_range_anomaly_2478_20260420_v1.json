@@ -1,0 +1,136 @@
+{
+  "schema_version": "revenue_unreacted_range_anomaly_evidence_v1",
+  "evidence_id": "revenue_unreacted_range_anomaly_2478_20260420_v1",
+  "semantic_payload": {
+    "model_id": "revenue_unreacted_range",
+    "operation_key": "rearm_after_realized_exit_next_trade_day|delayed_next_close_continuation_bonus|2478|absolute_or_two_month_yoy_ge15|2478|20260217|2|20260416|20260420",
+    "identity": {
+      "stock_id": "2478",
+      "stock_name": "大毅",
+      "trigger_date": "20260416",
+      "confirmation_date": "20260417",
+      "entry_date": "20260420",
+      "exit_date": "20260601",
+      "candidate_v2_row_sha256": "facf4234439f7b5627a00b3bfa82c2976559357c218b0a341ca0a5a0e2d53a9b",
+      "candidate_v3_row_sha256": "a912c8f349268cf956c476d232f5fb5d8dc160a4747b2c3450989651cf6726e2"
+    },
+    "attribution": {
+      "candidate_kind": "operation_return_review_candidate",
+      "anomaly_attribution_mode": "operation_return_review_not_source_attributed",
+      "source_event_periods": [],
+      "source_table_dates": [],
+      "source_available_dates": [],
+      "source_canonical_row_sha256s": [],
+      "anomaly_attribution_note": "operation-return magnitude review is not a monthly-revenue source anomaly attribution"
+    },
+    "root_checks": {
+      "identity_non_overlap": {
+        "status": "pass",
+        "finding": "one exact operation identity; same-stock non-overlap replay passed"
+      },
+      "formal_operation_replay": {
+        "status": "pass",
+        "trigger_close": "74.2",
+        "confirmation_close": "77.2",
+        "entry_open": "78.9",
+        "exit_close": "144.0",
+        "price_row_canonical_sha256s": {
+          "trigger_close": "0fb834f0dc8a55d220bed25305bc299b01ac707c3b6ace6c9884e683371db3a3",
+          "confirmation_close": "2e67fe2d4858ba284ca88d5fb3b4997ccd0cc06aeb98d79b5f81e14a269355d4",
+          "entry_open": "c66825d2e6ab7bad7612460f69dd8f4e11b9a347fb2b553d75d386a0fda04076",
+          "exit_close": "dfd3e84994dcdabd77189801878f3320f03e821fcd5e13115baf55559ec19c2d"
+        },
+        "formula": "(exit_close-entry_open)/entry_open*100",
+        "realized_return_pct": "82.5095",
+        "official_price_queries": [
+          "https://www.twse.com.tw/exchangeReport/STOCK_DAY?response=json&date=20260401&stockNo=2478",
+          "https://www.twse.com.tw/exchangeReport/STOCK_DAY?response=json&date=20260601&stockNo=2478"
+        ]
+      },
+      "pit_calendar_continuity": {
+        "status": "pass",
+        "finding": "D+1 close confirmation, D+2 open entry, and D+30 close exit are present in sequence with no calendar substitution"
+      },
+      "raw_source_lineage": {
+        "status": "pass",
+        "attribution": "operation_return_review_not_source_attributed",
+        "monthly_revenue_events": [],
+        "price_history_path": "data/stock_price_history/2478.csv"
+      },
+      "units_formula_adjustment": {
+        "status": "pass",
+        "price_unit": "TWD_per_share",
+        "revenue_unit": "thousand_TWD",
+        "operation_basis": "official unadjusted daily OHLC; magnitude is an investigation trigger only",
+        "formula_check": "(144.0-78.9)/78.9*100=82.5095",
+        "entry_price_basis": "next_trading_day_open_after_close_confirmation",
+        "exit_price_basis": "fixed_d30_close_offset29",
+        "intraday_operation_basis_used": false
+      },
+      "authoritative_event_history": {
+        "status": "pass",
+        "finding": "no price-reset corporate action; TWSE dispositions 20260526..20260608 and 20260622..20260703 are context only and do not justify exclusion",
+        "official_sources": [
+          "https://www.twse.com.tw/rwd/zh/exRight/TWT49U",
+          "https://www.twse.com.tw/rwd/zh/reducation/TWTAUU",
+          "https://www.twse.com.tw/rwd/zh/change/TWTB8U",
+          "https://www.twse.com.tw/rwd/zh/afterTrading/TWTAWU",
+          "https://www.twse.com.tw/announcement/punish?response=json&startDate=20260401&endDate=20260630&stockNo=2478"
+        ],
+        "request_params": {"stockNo": "2478", "startDate": "20260416", "endDate": "20260601"},
+        "query_window": "20260416..20260601"
+      },
+      "independent_source_corroboration": {
+        "status": "pass",
+        "independent_underlying_measurement": false,
+        "classification": "independent_public_provider_corroboration",
+        "finding": "Goodinfo daily-price history independently reports the registered 20260420 and 20260601 OHLC rows; this is public-provider corroboration, not an independent underlying measurement.",
+        "sources": [
+          "https://goodinfo.tw/tw/ShowK_Chart.asp?CHT_CAT=DATE&STOCK_ID=2478"
+        ],
+        "observed_facts": [
+          {
+            "fact_kind": "public_provider_daily_price_report",
+            "stock_id": "2478",
+            "date": "20260420",
+            "provider_reported_open": "78.9",
+            "provider_reported_high": "78.9",
+            "provider_reported_low": "73.2",
+            "provider_reported_close": "75.4",
+            "comparison_result": "exact_match_registered_price_row",
+            "source_url": "https://goodinfo.tw/tw/ShowK_Chart.asp?CHT_CAT=DATE&STOCK_ID=2478"
+          },
+          {
+            "fact_kind": "public_provider_daily_price_report",
+            "stock_id": "2478",
+            "date": "20260601",
+            "provider_reported_open": "140.5",
+            "provider_reported_high": "152.5",
+            "provider_reported_low": "140.5",
+            "provider_reported_close": "144.0",
+            "comparison_result": "exact_match_registered_price_row",
+            "source_url": "https://goodinfo.tw/tw/ShowK_Chart.asp?CHT_CAT=DATE&STOCK_ID=2478"
+          }
+        ]
+      },
+      "reproducible_evidence_reference": {
+        "status": "pass",
+        "replay_basis": "registered operation row, official TWSE monthly daily-price responses, and independently replayed return formula"
+      }
+    },
+    "disposition": {
+      "final_disposition": "verified_real_extreme",
+      "primary_handling": "retain_in_primary_metrics",
+      "promotion_gate_status": "eligible_only_after_all_other_model_gates",
+      "repair_satisfaction_status": "not_applicable_no_repair",
+      "effective_anomaly_gate_status": "satisfied",
+      "approved_reason_reference": ""
+    },
+    "scope": "monthly_revenue_only; the operation-return candidate does not add any financial-statement field"
+  },
+  "provenance": {
+    "retrieved_at": "2026-08-29T05:22:00+08:00",
+    "raw_byte_identity_policy": "diagnostic_only_not_promotion_gate",
+    "line_ending_identity_policy": "diagnostic_only_not_promotion_gate"
+  }
+}

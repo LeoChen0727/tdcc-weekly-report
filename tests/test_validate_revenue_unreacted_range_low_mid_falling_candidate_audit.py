@@ -631,40 +631,56 @@ def test_validator_rejects_d30_price_replay_and_timing_drift(tmp_path: Path) -> 
 def test_validator_rejects_union_summary_paired_and_contrast_drift(
     tmp_path: Path,
 ) -> None:
-    paths = _build_fixture(tmp_path)
+    detail_root = tmp_path / "detail"
+    paths = _build_fixture(detail_root)
     detail = pd.read_csv(paths["detail_latest"], dtype={"stock_id": str})
     detail.loc[0, "low_or_mid_falling_union_member"] = False
     _rewrite_family(paths, "detail", detail)
     assert any(
         "low_or_mid_falling_union_member drift" in error
-        for error in validator.validate(artifact_root=tmp_path, source_root=tmp_path)
+        for error in validator.validate(
+            artifact_root=detail_root,
+            source_root=detail_root,
+        )
     )
 
-    paths = _build_fixture(tmp_path)
+    summary_root = tmp_path / "summary"
+    paths = _build_fixture(summary_root)
     summary = pd.read_csv(paths["summary_latest"])
     summary.loc[0, "operation_count"] = 999
     _rewrite_family(paths, "summary", summary)
     assert any(
         "metric drift: operation_count" in error
-        for error in validator.validate(artifact_root=tmp_path, source_root=tmp_path)
+        for error in validator.validate(
+            artifact_root=summary_root,
+            source_root=summary_root,
+        )
     )
 
-    paths = _build_fixture(tmp_path)
+    paired_root = tmp_path / "paired"
+    paths = _build_fixture(paired_root)
     paired = pd.read_csv(paths["paired_latest"], dtype={"stock_id": str})
     paired.loc[0, "delayed_minus_base_return_pct_points"] = 999.0
     _rewrite_family(paths, "paired", paired)
     assert any(
         "delayed_minus_base_return_pct_points drift" in error
-        for error in validator.validate(artifact_root=tmp_path, source_root=tmp_path)
+        for error in validator.validate(
+            artifact_root=paired_root,
+            source_root=paired_root,
+        )
     )
 
-    paths = _build_fixture(tmp_path)
+    contrast_root = tmp_path / "contrast"
+    paths = _build_fixture(contrast_root)
     contrast = pd.read_csv(paths["contrast_latest"])
     contrast.loc[0, "high_mean"] = 999.0
     _rewrite_family(paths, "contrast", contrast)
     assert any(
         "metric drift: high_mean" in error
-        for error in validator.validate(artifact_root=tmp_path, source_root=tmp_path)
+        for error in validator.validate(
+            artifact_root=contrast_root,
+            source_root=contrast_root,
+        )
     )
 
 
