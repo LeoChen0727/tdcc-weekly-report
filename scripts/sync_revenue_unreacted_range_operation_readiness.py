@@ -416,7 +416,6 @@ def _is_transport_provenance_column(column: object) -> bool:
     normalized = str(column).strip().lower()
     return (
         normalized == "generated_at"
-        or normalized.startswith("raw_")
         or "raw_file_sha" in normalized
         or "blob_sha256" in normalized
         or "byte_sha256" in normalized
@@ -1542,7 +1541,7 @@ def is_transport_provenance_column(column):
     normalized = str(column).strip().lower()
     return (
         normalized == "generated_at"
-        or normalized.startswith("raw_")
+        or "raw_file_sha" in normalized
         or "blob_sha256" in normalized
         or "byte_sha256" in normalized
         or "bytes_sha256" in normalized

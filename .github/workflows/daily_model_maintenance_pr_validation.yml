@@ -426,6 +426,7 @@ jobs:
             tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_canonical_anomaly_gate_requires_isolated_exact_pass_protocol \
             tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_canonical_anomaly_gate_rejects_nonprotocol_success \
             tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_committed_anomaly_source_treats_raw_file_sha_as_diagnostic_only \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_committed_anomaly_source_keeps_raw_source_lineage_as_semantic_gate \
             tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_build_replaces_only_revenue_and_keeps_non_revenue_fields_exact \
             tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_build_accepts_only_canonical_extended_disabled_source \
             tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_build_fails_closed_on_identity_or_schema_drift \
