@@ -34,27 +34,116 @@ REVENUE_ANOMALY_VALIDATOR_REL = (
 REVENUE_ANOMALY_REGISTRY_PATH = Path(
     "config/revenue_unreacted_range_anomaly_disposition_registry_v3_20260829.csv"
 )
-REVENUE_EXPECTED_PROMOTION_DECISION = {
-    "contract_version": (
-        "revenue_unreacted_range_promotion_preparation_contract_v5_20260829"
+
+
+@dataclass(frozen=True)
+class RevenuePromotionReadinessProfile:
+    decision_id: str
+    contract_version: str
+    decision_status: str
+    anomaly_disposition_gate: str
+    formal_adapter_gate: str
+    promotion_scope: str
+    registry_canonical_sha256: str
+    adapter_validation_required: bool
+    operation_module_status: str
+    daily_adapter_status: str
+    operation_module_id: str
+
+
+REVENUE_PROMOTION_DECISION_V4 = (
+    "revenue_unreacted_range_source_mid_falling_promotion_preparation_v4_20260829"
+)
+REVENUE_PROMOTION_DECISION_V5 = (
+    "revenue_unreacted_range_source_mid_falling_promotion_preparation_v5_20260829"
+)
+REVENUE_ANOMALY_DISPOSITION_GATE = (
+    "verified_8_real_extreme_1_data_error_repaired_effective_blockers_0"
+)
+REVENUE_DISABLED_OPERATION_MODULE_ID = (
+    "revenue_unreacted_range_source_mid_falling_v2_operation_v1"
+)
+REVENUE_PROMOTION_PROFILES = {
+    REVENUE_PROMOTION_DECISION_V4: RevenuePromotionReadinessProfile(
+        decision_id=REVENUE_PROMOTION_DECISION_V4,
+        contract_version=(
+            "revenue_unreacted_range_promotion_preparation_contract_v5_20260829"
+        ),
+        decision_status=(
+            "anomaly_disposition_complete_promotion_blocked_waiting_forward_holdout_"
+            "and_formal_adapter"
+        ),
+        anomaly_disposition_gate=REVENUE_ANOMALY_DISPOSITION_GATE,
+        formal_adapter_gate=(
+            "disabled_adapter_preparation_non_hard_production_approval_hard_gate"
+        ),
+        promotion_scope=(
+            "research_only_anomaly_disposition_closed_waiting_forward_holdout_and_"
+            "disabled_adapter_no_production_daily_full_pdf_or_apps_script"
+        ),
+        registry_canonical_sha256=(
+            "520b453f22f1b943d6c6241094e5b4df9729810c980e680e9f2027698d9bf5db"
+        ),
+        adapter_validation_required=False,
+        operation_module_status=(
+            "research_matrix_complete_formal_adapter_not_started"
+        ),
+        daily_adapter_status="not_started",
+        operation_module_id="",
     ),
-    "decision_status": (
-        "anomaly_disposition_complete_promotion_blocked_waiting_forward_holdout_"
-        "and_formal_adapter"
-    ),
-    "anomaly_disposition_gate": (
-        "verified_8_real_extreme_1_data_error_repaired_effective_blockers_0"
-    ),
-    "formal_adapter_gate": (
-        "disabled_adapter_preparation_non_hard_production_approval_hard_gate"
-    ),
-    "promotion_scope": (
-        "research_only_anomaly_disposition_closed_waiting_forward_holdout_and_"
-        "disabled_adapter_no_production_daily_full_pdf_or_apps_script"
+    REVENUE_PROMOTION_DECISION_V5: RevenuePromotionReadinessProfile(
+        decision_id=REVENUE_PROMOTION_DECISION_V5,
+        contract_version=(
+            "revenue_unreacted_range_promotion_preparation_contract_v6_20260829"
+        ),
+        decision_status="promotion_blocked_waiting_forward_holdout_v2_maturity",
+        anomaly_disposition_gate=REVENUE_ANOMALY_DISPOSITION_GATE,
+        formal_adapter_gate=(
+            "disabled_adapter_preparation_validated_non_hard_production_approval_"
+            "hard_gate"
+        ),
+        promotion_scope=(
+            "research_only_anomaly_closed_disabled_adapter_preparation_validated_"
+            "waiting_forward_holdout_v2_maturity_no_production_daily_full_pdf_"
+            "packet_runtime_artifact_or_apps_script"
+        ),
+        registry_canonical_sha256=(
+            "da74a4a96d5db27e5ec8209c7d2b57c6dfe19f79761f844ef160ce86bba34869"
+        ),
+        adapter_validation_required=True,
+        operation_module_status="disabled_adapter_preparation_validated",
+        daily_adapter_status="disabled_no_runtime_artifact",
+        operation_module_id=REVENUE_DISABLED_OPERATION_MODULE_ID,
     ),
 }
+REVENUE_CURRENT_PROMOTION_PROFILE = REVENUE_PROMOTION_PROFILES[
+    REVENUE_PROMOTION_DECISION_V5
+]
+# Current-profile aliases remain available to older model-owned callers.  Row
+# validation itself is decision-id keyed so an append-only v4 source still
+# validates against the exact v4 contract instead of being silently reinterpreted.
+REVENUE_EXPECTED_PROMOTION_DECISION = {
+    "contract_version": REVENUE_CURRENT_PROMOTION_PROFILE.contract_version,
+    "decision_status": REVENUE_CURRENT_PROMOTION_PROFILE.decision_status,
+    "anomaly_disposition_gate": (
+        REVENUE_CURRENT_PROMOTION_PROFILE.anomaly_disposition_gate
+    ),
+    "formal_adapter_gate": REVENUE_CURRENT_PROMOTION_PROFILE.formal_adapter_gate,
+    "promotion_scope": REVENUE_CURRENT_PROMOTION_PROFILE.promotion_scope,
+}
 REVENUE_PROMOTION_CONTRACT_VERSION = (
-    REVENUE_EXPECTED_PROMOTION_DECISION["contract_version"]
+    REVENUE_CURRENT_PROMOTION_PROFILE.contract_version
+)
+REVENUE_ADAPTER_VALIDATOR_REL = (
+    "scripts/validate_revenue_unreacted_range_operation_adapter.py"
+)
+REVENUE_ADAPTER_MODULE_REL = (
+    "scripts/revenue_unreacted_range_operation_adapter.py"
+)
+REVENUE_ADAPTER_VALIDATION_TIMEOUT_SECONDS = 300
+REVENUE_ADAPTER_VALIDATION_PASS = (
+    "revenue_unreacted_range disabled adapter preparation validation passed: "
+    "8 in-memory empty rows; no runtime artifact; all permissions false"
 )
 REVENUE_FORWARD_HOLDOUT_V2_ARTIFACT_ID = (
     "revenue_unreacted_range_forward_holdout_v2"
@@ -72,7 +161,7 @@ REVENUE_HOLDOUT_FINANCIAL_STATEMENT_SCOPE = (
 )
 REVENUE_RESEARCH_MATRIX_STATUS = "research_matrix_complete"
 REVENUE_OPERATION_MODULE_STATUS = (
-    "research_matrix_complete_formal_adapter_not_started"
+    REVENUE_CURRENT_PROMOTION_PROFILE.operation_module_status
 )
 
 PREREGISTRATION_PR_NUMBER = "462"
@@ -155,7 +244,7 @@ MONTHLY_LINEAGE_COLUMNS = (
 )
 CANONICAL_LINEAGE_VERSION = "canonical_json_numeric_text_v1"
 PROMOTION_REGISTRY_CANONICAL_SHA256 = (
-    "520b453f22f1b943d6c6241094e5b4df9729810c980e680e9f2027698d9bf5db"
+    REVENUE_CURRENT_PROMOTION_PROFILE.registry_canonical_sha256
 )
 OUT_CSV_REL = "output/latest/model_operation_readiness_latest.csv"
 OUT_MD_REL = "output/latest/model_operation_readiness_latest.md"
@@ -167,6 +256,20 @@ READINESS_MIRROR_RELS = (
     DOCS_CSV_REL,
     DOCS_MD_REL,
 )
+EXACT_PREDECESSOR_READINESS_CANONICAL_SHA256 = {
+    OUT_CSV_REL: "0ef5c470d7dd87e191e5efefe00f6f65af87b1d7af1b6d9ec6b4e45f5bb754d8",
+    OUT_MD_REL: "28b8c0b276d18e4ed59d04373a59b886806d464c54a79f28486cdccd49494526",
+    DOCS_CSV_REL: "0ef5c470d7dd87e191e5efefe00f6f65af87b1d7af1b6d9ec6b4e45f5bb754d8",
+    DOCS_MD_REL: "28b8c0b276d18e4ed59d04373a59b886806d464c54a79f28486cdccd49494526",
+}
+# Raw Git blob ids are recorded only for transition diagnostics.  They are not
+# gates because checkout line endings may differ while canonical semantics do not.
+EXACT_PREDECESSOR_READINESS_RAW_BLOB_OID_DIAGNOSTIC = {
+    OUT_CSV_REL: "a4f7d644266bac5c531a83ac3f8cb90dc63f7f47",
+    OUT_MD_REL: "3f227660876bb16792d34d918d2314809d129bac",
+    DOCS_CSV_REL: "a4f7d644266bac5c531a83ac3f8cb90dc63f7f47",
+    DOCS_MD_REL: "3f227660876bb16792d34d918d2314809d129bac",
+}
 
 PROMOTION_REGISTRY_REL = (
     "config/revenue_unreacted_range_promotion_preparation_registry.csv"
@@ -3176,6 +3279,19 @@ def validate_revenue_readiness_source_files(
     return errors
 
 
+def _promotion_profile_for_row(
+    promotion: pd.Series | dict[str, Any],
+) -> RevenuePromotionReadinessProfile:
+    decision_id = safe_str(promotion.get("decision_id"))
+    profile = REVENUE_PROMOTION_PROFILES.get(decision_id)
+    if profile is None:
+        raise RuntimeError(
+            "revenue readiness latest decision_id is not an exact supported v4/v5 "
+            f"profile: {decision_id!r}"
+        )
+    return profile
+
+
 def _validated_revenue_promotion_row(
     promotion_registry: pd.DataFrame,
 ) -> tuple[pd.Series, int, int]:
@@ -3216,26 +3332,24 @@ def _validated_revenue_promotion_row(
     if decision_dates.isna().any() or not decision_dates.is_monotonic_increasing:
         raise RuntimeError("revenue promotion decision_date must be append-only")
     promotion = promotion_rows.iloc[-1]
+    profile = _promotion_profile_for_row(promotion)
     expected_promotion = {
-        "contract_version": REVENUE_PROMOTION_CONTRACT_VERSION,
+        "decision_id": profile.decision_id,
+        "contract_version": profile.contract_version,
         "candidate_variant_id": REVENUE_SOURCE_VARIANT_ID,
         "financial_statement_scope": REVENUE_PROMOTION_FINANCIAL_STATEMENT_SCOPE,
-        **{
-            field_name: REVENUE_EXPECTED_PROMOTION_DECISION[field_name]
-            for field_name in (
-                "decision_status",
-                "anomaly_disposition_gate",
-                "promotion_scope",
-            )
-        },
+        "decision_status": profile.decision_status,
+        "anomaly_disposition_gate": profile.anomaly_disposition_gate,
+        "formal_adapter_gate": profile.formal_adapter_gate,
+        "promotion_scope": profile.promotion_scope,
     }
     for field_name, expected in expected_promotion.items():
         observed = safe_str(promotion.get(field_name))
         if observed != expected:
             if field_name == "contract_version":
                 raise RuntimeError(
-                    "revenue readiness requires latest decision v4 / promotion contract "
-                    f"v5; got {observed!r}"
+                    "revenue readiness promotion contract is mixed with decision profile "
+                    f"{profile.decision_id!r}: expected={expected!r}; got={observed!r}"
                 )
             raise RuntimeError(
                 f"revenue readiness promotion.{field_name} must be "
@@ -3270,6 +3384,206 @@ class CanonicalAnomalyValidationResult:
     verified_data_error_repaired_count: int
     errors: tuple[str, ...]
     diagnostics: tuple[str, ...]
+
+
+@dataclass(frozen=True)
+class DisabledAdapterPreparationValidationResult:
+    validator_rel: str
+    module_rel: str
+    protocol_line: str
+
+
+@dataclass(frozen=True)
+class AttestedAdapterSource:
+    logical_path: str
+    committed_object_id: str
+    blob: bytes
+
+
+def _committed_adapter_source(repo: Path, logical_path: str) -> AttestedAdapterSource:
+    """Bind validation to the exact tracked HEAD blob after Git clean filters."""
+
+    candidate = repo / logical_path
+    resolved = candidate.resolve()
+    try:
+        resolved.relative_to(repo)
+    except ValueError as exc:
+        raise RuntimeError(
+            f"disabled adapter validation path escapes repository root: {logical_path}"
+        ) from exc
+    if candidate.is_symlink():
+        raise RuntimeError(
+            f"disabled adapter validation path must not be a symlink: {logical_path}"
+        )
+    if not resolved.is_file():
+        raise RuntimeError(
+            f"disabled adapter validation source is missing: {logical_path}"
+        )
+    commands = {
+        "committed": [
+            "git",
+            "--no-replace-objects",
+            "rev-parse",
+            "--verify",
+            f"HEAD:{logical_path}",
+        ],
+        "worktree": [
+            "git",
+            "--no-replace-objects",
+            "hash-object",
+            f"--path={logical_path}",
+            "--",
+            logical_path,
+        ],
+    }
+    object_ids: dict[str, str] = {}
+    for source_name, command in commands.items():
+        try:
+            completed = subprocess.run(
+                command,
+                cwd=repo,
+                check=False,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                text=True,
+                encoding="utf-8",
+                errors="replace",
+                timeout=30,
+            )
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise RuntimeError(
+                f"cannot attest disabled adapter {source_name} identity: {logical_path}"
+            ) from exc
+        object_id = completed.stdout.strip()
+        if (
+            completed.returncode != 0
+            or completed.stderr != ""
+            or re.fullmatch(r"[0-9a-f]{40}(?:[0-9a-f]{24})?", object_id) is None
+        ):
+            raise RuntimeError(
+                f"cannot attest disabled adapter {source_name} identity: {logical_path}"
+            )
+        object_ids[source_name] = object_id
+    if object_ids["worktree"] != object_ids["committed"]:
+        raise RuntimeError(
+            "disabled adapter validation source differs from committed HEAD blob: "
+            f"{logical_path}"
+        )
+    try:
+        blob_result = subprocess.run(
+            [
+                "git",
+                "--no-replace-objects",
+                "cat-file",
+                "blob",
+                object_ids["committed"],
+            ],
+            cwd=repo,
+            check=False,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            timeout=30,
+        )
+    except (OSError, subprocess.TimeoutExpired) as exc:
+        raise RuntimeError(
+            f"cannot materialize committed disabled adapter blob: {logical_path}"
+        ) from exc
+    if blob_result.returncode != 0 or blob_result.stderr != b"":
+        raise RuntimeError(
+            f"cannot materialize committed disabled adapter blob: {logical_path}"
+        )
+    return AttestedAdapterSource(
+        logical_path=logical_path,
+        committed_object_id=object_ids["committed"],
+        blob=blob_result.stdout,
+    )
+
+
+def validate_disabled_adapter_preparation(
+    repo_root: Path | str,
+) -> DisabledAdapterPreparationValidationResult:
+    """Run the model-owned validator in an isolated child without importing it."""
+
+    repo = Path(repo_root).resolve()
+    validator = _committed_adapter_source(repo, REVENUE_ADAPTER_VALIDATOR_REL)
+    module = _committed_adapter_source(repo, REVENUE_ADAPTER_MODULE_REL)
+    child_env = dict(os.environ)
+    child_env.update(
+        {
+            "PYTHONDONTWRITEBYTECODE": "1",
+            "PYTHONNOUSERSITE": "1",
+            "NoDefaultCurrentDirectoryInExePath": "1",
+        }
+    )
+    try:
+        with tempfile.TemporaryDirectory(
+            prefix="revenue-disabled-adapter-validation-"
+        ) as temp_name:
+            isolated_root = Path(temp_name).resolve()
+            isolated_scripts = isolated_root / "scripts"
+            isolated_scripts.mkdir()
+            validator_path = isolated_scripts / Path(validator.logical_path).name
+            module_path = isolated_scripts / Path(module.logical_path).name
+            validator_path.write_bytes(validator.blob)
+            module_path.write_bytes(module.blob)
+            command = [
+                sys.executable,
+                "-I",
+                "-B",
+                str(validator_path),
+                "--phase",
+                "disabled-preparation",
+                "--module",
+                str(module_path),
+            ]
+            completed = subprocess.run(
+                command,
+                cwd=isolated_root,
+                env=child_env,
+                check=False,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                text=True,
+                encoding="utf-8",
+                errors="replace",
+                timeout=REVENUE_ADAPTER_VALIDATION_TIMEOUT_SECONDS,
+            )
+    except subprocess.TimeoutExpired as exc:
+        raise RuntimeError("disabled adapter preparation validator timed out") from exc
+    except OSError as exc:
+        raise RuntimeError(
+            "disabled adapter preparation validator could not start"
+        ) from exc
+    stdout = completed.stdout
+    stderr = completed.stderr
+    if not isinstance(stdout, str) or not isinstance(stderr, str):
+        raise RuntimeError(
+            "disabled adapter preparation validator returned a non-text protocol"
+        )
+    if stderr != "":
+        raise RuntimeError(
+            "disabled adapter preparation validator emitted stderr: " + stderr
+        )
+    if completed.returncode != 0:
+        raise RuntimeError(
+            "disabled adapter preparation validator failed with exit "
+            f"{completed.returncode}" + (f": {stdout}" if stdout else "")
+        )
+    accepted_stdout = {
+        REVENUE_ADAPTER_VALIDATION_PASS,
+        REVENUE_ADAPTER_VALIDATION_PASS + "\n",
+        REVENUE_ADAPTER_VALIDATION_PASS + "\r\n",
+    }
+    if stdout not in accepted_stdout:
+        raise RuntimeError(
+            "disabled adapter preparation validator PASS protocol missing, duplicated, "
+            f"or unknown: {stdout!r}"
+        )
+    return DisabledAdapterPreparationValidationResult(
+        validator_rel=REVENUE_ADAPTER_VALIDATOR_REL,
+        module_rel=REVENUE_ADAPTER_MODULE_REL,
+        protocol_line=REVENUE_ADAPTER_VALIDATION_PASS,
+    )
 
 
 def validate_current_anomaly_dispositions(
@@ -3419,6 +3733,9 @@ def summarize_revenue_promotion_readiness(
     promotion, minimum_mature, candidate_count = (
         _validated_revenue_promotion_row(promotion_registry)
     )
+    profile = _promotion_profile_for_row(promotion)
+    if profile.adapter_validation_required:
+        validate_disabled_adapter_preparation(repo_root)
 
     holdout = _validate_holdout_manifest_lineage(
         forward_holdout_v2_manifest,
@@ -3457,26 +3774,46 @@ def summarize_revenue_promotion_readiness(
         for row in anomaly_result.rows.values()
     )
     blocking_anomaly_count = anomaly_result.effective_blocker_count
-    expected_adapter_gate = REVENUE_EXPECTED_PROMOTION_DECISION[
-        "formal_adapter_gate"
-    ]
-    if safe_str(promotion.get("formal_adapter_gate")) != expected_adapter_gate:
-        raise RuntimeError("revenue readiness formal adapter gate drift")
-    blocker = (
-        f"anomaly_disposition_blockers={blocking_anomaly_count}; "
-        f"unresolved_anomalies={unresolved_count}; "
-        f"forward_holdout_v2_mature={mature_count}/{minimum_mature}; "
-        "formal_adapter=not_started"
-    )
+    if profile.adapter_validation_required:
+        blocker = f"forward_holdout_v2_mature={mature_count}/{minimum_mature}"
+        status_note = (
+            "revenue_unreacted_range／source_mid_falling v2 的模型專屬研究矩陣、"
+            "九筆 anomaly disposition 與 disabled formal adapter preparation 均已完成；"
+            "八筆 verified_real_extreme 保留於 Primary，6177 的衍生 attribution data "
+            "error 已完成固定規則修復重跑。adapter 僅為 model-owned in-memory disabled "
+            "preparation，沒有 writer、runtime artifact、PDF／packet consumer 或操作指令；"
+            f"目前 promotion blocker 僅為 forward holdout v2 成熟度 "
+            f"{mature_count}/{minimum_mature}。月營收以外的 EPS、毛利率、營益率、"
+            "營業利益、業外損益、淨利及季度／年度財報欄位均不在模型範圍；"
+            "formal_model_use_allowed、approved_for_daily、presentation_allowed 與 "
+            "production_allowed 均維持 False。"
+        )
+    else:
+        blocker = (
+            f"anomaly_disposition_blockers={blocking_anomaly_count}; "
+            f"unresolved_anomalies={unresolved_count}; "
+            f"forward_holdout_v2_mature={mature_count}/{minimum_mature}; "
+            "formal_adapter=not_started"
+        )
+        status_note = (
+            "revenue_unreacted_range／source_mid_falling v2 的模型專屬研究矩陣已完成；"
+            "九筆 anomaly 已完成逐筆 disposition，八筆 verified_real_extreme 保留於 "
+            "Primary，6177 的衍生 attribution data error 已完成固定規則修復重跑；"
+            f"目前 anomaly effective blocker={blocking_anomaly_count}、未定案={unresolved_count}，"
+            "仍待 forward holdout v2 "
+            f"成熟度 {mature_count}/{minimum_mature} 與 disabled formal adapter preparation 尚未完成。"
+            "月營收以外的 EPS、毛利率、營益率、營業利益、業外損益、淨利及季度／年度財報欄位均不在模型範圍；"
+            "不得產生 production、PDF、packet 或操作指令。"
+        )
     return {
         "parity_status": REVENUE_RESEARCH_MATRIX_STATUS,
         "blocker": blocker,
-        "operation_module_status": REVENUE_OPERATION_MODULE_STATUS,
-        "daily_adapter_status": "not_started",
+        "operation_module_status": profile.operation_module_status,
+        "daily_adapter_status": profile.daily_adapter_status,
         "formal_model_use_allowed": "False",
         "approved_for_daily": "False",
         "approval_status": "not_started",
-        "operation_module_id": "",
+        "operation_module_id": profile.operation_module_id,
         "approval_version": "",
         "presentation_allowed": "False",
         "production_allowed": "False",
@@ -3498,16 +3835,7 @@ def summarize_revenue_promotion_readiness(
         "daily_adapter_row_count": 0,
         "daily_adapter_data_row_count": 0,
         "daily_adapter_sections": "",
-        "status_note_zh": (
-            "revenue_unreacted_range／source_mid_falling v2 的模型專屬研究矩陣已完成；"
-            "九筆 anomaly 已完成逐筆 disposition，八筆 verified_real_extreme 保留於 "
-            "Primary，6177 的衍生 attribution data error 已完成固定規則修復重跑；"
-            f"目前 anomaly effective blocker={blocking_anomaly_count}、未定案={unresolved_count}，"
-            "仍待 forward holdout v2 "
-            f"成熟度 {mature_count}/{minimum_mature} 與 disabled formal adapter preparation 尚未完成。"
-            "月營收以外的 EPS、毛利率、營益率、營業利益、業外損益、淨利及季度／年度財報欄位均不在模型範圍；"
-            "不得產生 production、PDF、packet 或操作指令。"
-        ),
+        "status_note_zh": status_note,
     }
 
 
@@ -3607,20 +3935,22 @@ def validate_revenue_promotion_registry(
         observed_sha = _registry_semantic_sha256(path)
     except (OSError, RuntimeError) as exc:
         return None, [str(exc)]
-    if observed_sha != PROMOTION_REGISTRY_CANONICAL_SHA256:
-        errors.append(
-            "promotion preparation registry canonical semantic SHA-256 drift: "
-            f"expected={PROMOTION_REGISTRY_CANONICAL_SHA256}; actual={observed_sha}"
-        )
     if not rows:
         return None, [*errors, "promotion preparation registry is empty"]
     try:
         latest, _minimum_mature, _candidate_count = (
             _validated_revenue_promotion_row(pd.DataFrame(rows, dtype=str).fillna(""))
         )
+        profile = _promotion_profile_for_row(latest)
     except RuntimeError as exc:
         errors.append(str(exc))
         return None, errors
+    if observed_sha != profile.registry_canonical_sha256:
+        errors.append(
+            "promotion preparation registry canonical semantic SHA-256 drift for "
+            f"{profile.decision_id}: expected={profile.registry_canonical_sha256}; "
+            f"actual={observed_sha}"
+        )
     return {str(key): safe_str(value) for key, value in latest.items()}, errors
 
 
@@ -3655,6 +3985,74 @@ def _canonical_markdown(data: bytes, source_name: str) -> bytes:
             f"malformed committed Markdown source {source_name}: bare carriage return"
         )
     return normalized.encode("utf-8")
+
+
+def validate_exact_predecessor_readiness_mirrors(
+    repo_root: Path | str,
+) -> tuple[pd.DataFrame, list[str]]:
+    """Validate the one-shot pre-v5 mirror set by canonical semantics only."""
+
+    repo = Path(repo_root).resolve()
+    canonical_data: dict[str, bytes] = {}
+    worktree_data: dict[str, bytes] = {}
+    diagnostics: list[str] = []
+    for logical_path in READINESS_MIRROR_RELS:
+        path = repo / logical_path
+        try:
+            observed = path.read_bytes()
+            committed = _git_blob(repo, logical_path)
+        except OSError as exc:
+            raise RuntimeError(
+                f"exact predecessor readiness mirror is missing: {logical_path}"
+            ) from exc
+        canonicalizer = (
+            _canonical_csv if logical_path.endswith(".csv") else _canonical_markdown
+        )
+        committed_canonical = canonicalizer(
+            committed,
+            f"HEAD:{logical_path}",
+        )
+        observed_canonical = canonicalizer(observed, logical_path)
+        expected_sha = EXACT_PREDECESSOR_READINESS_CANONICAL_SHA256[logical_path]
+        committed_sha = hashlib.sha256(committed_canonical).hexdigest()
+        observed_sha = hashlib.sha256(observed_canonical).hexdigest()
+        if committed_sha != expected_sha:
+            raise RuntimeError(
+                "exact predecessor committed readiness semantic drift: "
+                f"{logical_path}; expected={expected_sha}; actual={committed_sha}"
+            )
+        if observed_sha != committed_sha:
+            raise RuntimeError(
+                "exact predecessor readiness worktree semantic drift from HEAD: "
+                f"{logical_path}; committed={committed_sha}; actual={observed_sha}"
+            )
+        if observed != committed:
+            diagnostics.append(
+                "raw-byte/line-ending diagnostic only; canonical predecessor semantics "
+                f"match HEAD: {logical_path}"
+            )
+        canonical_data[logical_path] = observed_canonical
+        worktree_data[logical_path] = observed
+
+    if canonical_data[OUT_CSV_REL] != canonical_data[DOCS_CSV_REL]:
+        raise RuntimeError("exact predecessor output/docs readiness CSV mirrors differ")
+    if canonical_data[OUT_MD_REL] != canonical_data[DOCS_MD_REL]:
+        raise RuntimeError(
+            "exact predecessor output/docs readiness Markdown mirrors differ"
+        )
+    fieldnames, rows = _parse_csv_bytes(worktree_data[OUT_CSV_REL], OUT_CSV_REL)
+    predecessor = pd.DataFrame(rows, columns=fieldnames).fillna("")
+    validate_markdown_status_table_matches_csv(
+        worktree_data[OUT_MD_REL],
+        predecessor,
+        source_name=OUT_MD_REL,
+    )
+    validate_markdown_status_table_matches_csv(
+        worktree_data[DOCS_MD_REL],
+        predecessor,
+        source_name=DOCS_MD_REL,
+    )
+    return predecessor, diagnostics
 
 
 def _committed_semantic_source(
@@ -4212,7 +4610,7 @@ def sync(repo: Path, *, generated_at: str | None = None) -> tuple[pd.DataFrame, 
         diagnostics,
     ) = load_committed_inputs(repo)
 
-    _, promotion_errors = validate_revenue_promotion_registry(
+    promotion_source, promotion_errors = validate_revenue_promotion_registry(
         repo / PROMOTION_REGISTRY_REL
     )
     anomaly_result = validate_current_anomaly_dispositions(
@@ -4226,6 +4624,9 @@ def sync(repo: Path, *, generated_at: str | None = None) -> tuple[pd.DataFrame, 
     ]
     if source_errors:
         raise RuntimeError("; ".join(source_errors))
+    if promotion_source is None:
+        raise RuntimeError("promotion source validation returned no current decision")
+    _promotion_profile_for_row(promotion_source)
 
     revenue_summary = summarize_revenue_promotion_readiness(
         promotion_registry,
