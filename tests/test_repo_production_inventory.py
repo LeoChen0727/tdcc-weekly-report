@@ -62,11 +62,21 @@ def test_revenue_readiness_formal_sync_is_exactly_registered_and_guarded() -> No
         "docs/latest/model_operation_readiness_latest.md",
     )
     producer_row = rows[inventory.REVENUE_READINESS_FORMAL_SYNC_PRODUCER]
+    v2_validator_row = rows[inventory.REVENUE_READINESS_FORMAL_SYNC_VALIDATOR]
+    v1_validator_row = rows[
+        "scripts/validate_revenue_unreacted_range_readiness_formal_sync.py"
+    ]
     legacy_row = rows[inventory.REVENUE_READINESS_LEGACY_BUILDER]
     assert producer_row.allowed_workflows == (
         REVENUE_READINESS_FORMAL_SYNC_WORKFLOW,
     )
     assert producer_row.status == "active"
+    assert v2_validator_row.allowed_workflows == (
+        REVENUE_READINESS_FORMAL_SYNC_WORKFLOW,
+    )
+    assert v2_validator_row.status == "active"
+    assert v1_validator_row.allowed_workflows == ()
+    assert v1_validator_row.status == "active"
     assert legacy_row.allowed_workflows == ()
     assert legacy_row.status == "legacy_deprecated"
     assert (
@@ -78,6 +88,16 @@ def test_revenue_readiness_formal_sync_is_exactly_registered_and_guarded() -> No
     assert inventory.REVENUE_READINESS_LEGACY_BUILDER not in workflow_text
     assert (
         workflow_text.count(inventory.REVENUE_READINESS_FORMAL_SYNC_PRODUCER_TOKEN)
+        == 2
+    )
+    assert (
+        workflow_text.count(
+            f"python -B {inventory.REVENUE_READINESS_FORMAL_SYNC_VALIDATOR}"
+        )
+        == 3
+    )
+    assert (
+        workflow_text.count(inventory.REVENUE_READINESS_FORMAL_SYNC_VALIDATOR_TOKEN)
         == 2
     )
 
@@ -104,6 +124,46 @@ def test_revenue_readiness_inventory_guard_rejects_extra_push_and_post_push_step
         "final workflow step" in error
         for error in inventory.validate_revenue_readiness_formal_sync_workflow_text(
             post_push
+        )
+    )
+
+    privileged_python = workflow_text.replace(
+        '[ -n "$PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY" ]',
+        '[ -n "$PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY" ]\n'
+        "          python -B scripts/validate_model_operation_readiness.py",
+        1,
+    )
+    assert any(
+        "must not execute Python" in error
+        for error in inventory.validate_revenue_readiness_formal_sync_workflow_text(
+            privileged_python
+        )
+    )
+
+
+def test_revenue_readiness_inventory_guard_rejects_stale_v1_contract() -> None:
+    workflow_text = (ROOT / REVENUE_READINESS_FORMAL_SYNC_WORKFLOW).read_text(
+        encoding="utf-8"
+    )
+    stale_validator = workflow_text.replace(
+        inventory.REVENUE_READINESS_FORMAL_SYNC_VALIDATOR,
+        "scripts/validate_revenue_unreacted_range_readiness_formal_sync.py",
+    )
+    assert any(
+        "v2 phase validator" in error or "v2 validator identity" in error
+        for error in inventory.validate_revenue_readiness_formal_sync_workflow_text(
+            stale_validator
+        )
+    )
+
+    stale_blocker = workflow_text.replace(
+        "blocker=forward_holdout_v2_mature=0/20",
+        "blocker=anomaly_disposition_blockers=9",
+    )
+    assert any(
+        "forward holdout blocker" in error
+        for error in inventory.validate_revenue_readiness_formal_sync_workflow_text(
+            stale_blocker
         )
     )
 
