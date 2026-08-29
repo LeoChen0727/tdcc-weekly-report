@@ -1,5 +1,5 @@
 name: Revenue Unreacted Range Readiness Formal Sync
-# Contract: docs/specs/revenue_unreacted_range_readiness_formal_sync_v1.md
+# Contract: docs/specs/revenue_unreacted_range_readiness_formal_sync_v2.md
 on:
   workflow_dispatch:
     inputs:
@@ -12,20 +12,23 @@ on:
         required: true
         type: string
       confirmation:
-        description: "Type sync_revenue_unreacted_range_readiness_v1_20260828"
+        description: "Type sync_revenue_unreacted_range_readiness_v2_20260829"
         required: true
         type: string
 permissions:
   contents: read
 concurrency:
-  group: revenue-readiness-formal-sync-v1-20260828
+  group: revenue-readiness-formal-sync-v2-20260829
   cancel-in-progress: false
 
 env:
-  READINESS_SYNC_CONTRACT_VERSION: revenue_readiness_sync_3a_v1_20260828
-  READINESS_SYNC_TARGET_BRANCH: codex/revenue-unreacted-range-readiness-formal-sync-3a-v1-20260828
-  READINESS_SYNC_SPEC_PATH: docs/specs/revenue_unreacted_range_readiness_formal_sync_v1.md
+  READINESS_SYNC_CONTRACT_VERSION: revenue_readiness_sync_3c_v2_20260829
+  READINESS_SYNC_EXCEPTION_ID: revenue_unreacted_range_readiness_formal_sync_3c_v2_20260829
+  READINESS_SYNC_AUTHORIZATION: user_authorized_3A_3C_20260829
+  READINESS_SYNC_TARGET_BRANCH: codex/revenue-unreacted-range-readiness-formal-sync-3c-v2-20260829
+  READINESS_SYNC_SPEC_PATH: docs/specs/revenue_unreacted_range_readiness_formal_sync_v2.md
   READINESS_SYNC_PRODUCER: scripts/sync_revenue_unreacted_range_operation_readiness.py
+  READINESS_SYNC_VALIDATOR: scripts/validate_revenue_unreacted_range_readiness_formal_sync_v2.py
 
 jobs:
   prepare-bundle:
@@ -51,9 +54,11 @@ jobs:
           [ -f "$READINESS_SYNC_SPEC_PATH" ]
           [ "$READINESS_SYNC_PRODUCER" = scripts/sync_revenue_unreacted_range_operation_readiness.py ]
           [ -f "$READINESS_SYNC_PRODUCER" ]
+          [ "$READINESS_SYNC_VALIDATOR" = scripts/validate_revenue_unreacted_range_readiness_formal_sync_v2.py ]
+          [ -f "$READINESS_SYNC_VALIDATOR" ]
           [[ "$EXPECTED_MAIN_SHA" =~ ^[0-9a-f]{40}$ ]]
           [ "$TARGET_BRANCH" = "$READINESS_SYNC_TARGET_BRANCH" ]
-          [ "$CONFIRMATION" = sync_revenue_unreacted_range_readiness_v1_20260828 ]
+          [ "$CONFIRMATION" = sync_revenue_unreacted_range_readiness_v2_20260829 ]
           [ "$(git rev-parse HEAD)" = "$EXPECTED_MAIN_SHA" ]
           [ "$(git ls-remote origin refs/heads/main | awk '{print $1}')" = "$EXPECTED_MAIN_SHA" ]
           [ "$(git ls-remote origin "refs/heads/$TARGET_BRANCH" | awk '{print $1}')" = "$EXPECTED_MAIN_SHA" ]
@@ -69,7 +74,7 @@ jobs:
         run: |
           python -B scripts/sync_revenue_unreacted_range_operation_readiness.py
           python -B scripts/validate_model_operation_readiness.py
-          python -B scripts/validate_revenue_unreacted_range_readiness_formal_sync.py --repo-root . --base-sha "$SYNC_MAIN_SHA" --phase working-tree
+          python -B scripts/validate_revenue_unreacted_range_readiness_formal_sync_v2.py --repo-root . --base-sha "$SYNC_MAIN_SHA" --phase working-tree
 
       - name: Create content-addressed one-shot bundle
         shell: bash
@@ -95,22 +100,32 @@ jobs:
               docs/latest/model_operation_readiness_latest.md > SHA256SUMS
           )
           printf '%s\n' \
-            "contract_version=revenue_readiness_sync_3a_v1_20260828" \
-            "exception_id=revenue_unreacted_range_readiness_formal_sync_3a_v1_20260828" \
-            "authorization_reference=user_authorized_3A_3C_20260828" \
-            "target_branch=codex/revenue-unreacted-range-readiness-formal-sync-3a-v1-20260828" \
+            "contract_version=revenue_readiness_sync_3c_v2_20260829" \
+            "exception_id=revenue_unreacted_range_readiness_formal_sync_3c_v2_20260829" \
+            "authorization_reference=user_authorized_3A_3C_20260829" \
+            "target_branch=codex/revenue-unreacted-range-readiness-formal-sync-3c-v2-20260829" \
             "model_id=revenue_unreacted_range" \
             "producer=scripts/sync_revenue_unreacted_range_operation_readiness.py" \
+            "validator=scripts/validate_revenue_unreacted_range_readiness_formal_sync_v2.py" \
+            "verified_real_extreme=8" \
+            "verified_data_error_repaired=1" \
+            "unresolved_anomalies=0" \
+            "effective_anomaly_blockers=0" \
+            "operation_module_status=disabled_adapter_preparation_validated" \
+            "daily_adapter_status=disabled_no_runtime_artifact" \
+            "operation_module_id=revenue_unreacted_range_source_mid_falling_v2_operation_v1" \
+            "daily_adapter_row_count=0" \
+            "daily_adapter_data_row_count=0" \
             "formal_model_use_allowed=False" \
             "approved_for_daily=False" \
             "presentation_allowed=False" \
             "production_allowed=False" \
-            "blocker=anomaly_disposition_blockers=9; unresolved_anomalies=9; forward_holdout_v2_mature=0/20; formal_adapter=not_started" \
+            "blocker=forward_holdout_v2_mature=0/20" \
             > "$bundle/CONTRACT"
 
       - uses: actions/upload-artifact@v4.6.2
         with:
-          name: "revenue-readiness-v1-20260828-${{ inputs.expected_main_sha }}"
+          name: "revenue-readiness-v2-20260829-${{ inputs.expected_main_sha }}"
           path: "${{ runner.temp }}/readiness-bundle"
           if-no-files-found: error
           retention-days: 1
@@ -135,7 +150,7 @@ jobs:
 
       - uses: actions/download-artifact@v4.3.0
         with:
-          name: "revenue-readiness-v1-20260828-${{ inputs.expected_main_sha }}"
+          name: "revenue-readiness-v2-20260829-${{ inputs.expected_main_sha }}"
           path: "${{ runner.temp }}/readiness-bundle"
 
       - name: Revalidate and commit content-addressed bundle
@@ -149,6 +164,8 @@ jobs:
           [ "$TARGET_BRANCH" = "$READINESS_SYNC_TARGET_BRANCH" ]
           [ "$READINESS_SYNC_PRODUCER" = scripts/sync_revenue_unreacted_range_operation_readiness.py ]
           [ -f "$READINESS_SYNC_PRODUCER" ]
+          [ "$READINESS_SYNC_VALIDATOR" = scripts/validate_revenue_unreacted_range_readiness_formal_sync_v2.py ]
+          [ -f "$READINESS_SYNC_VALIDATOR" ]
           [ "$(git rev-parse HEAD)" = "$EXPECTED_MAIN_SHA" ]
           [ "$(git ls-remote origin refs/heads/main | awk '{print $1}')" = "$EXPECTED_MAIN_SHA" ]
           [ "$(git ls-remote origin "refs/heads/$TARGET_BRANCH" | awk '{print $1}')" = "$EXPECTED_MAIN_SHA" ]
@@ -157,17 +174,27 @@ jobs:
             sha256sum --check SHA256SUMS
           )
           expected_contract="$(printf '%s\n' \
-            "contract_version=revenue_readiness_sync_3a_v1_20260828" \
-            "exception_id=revenue_unreacted_range_readiness_formal_sync_3a_v1_20260828" \
-            "authorization_reference=user_authorized_3A_3C_20260828" \
-            "target_branch=codex/revenue-unreacted-range-readiness-formal-sync-3a-v1-20260828" \
+            "contract_version=revenue_readiness_sync_3c_v2_20260829" \
+            "exception_id=revenue_unreacted_range_readiness_formal_sync_3c_v2_20260829" \
+            "authorization_reference=user_authorized_3A_3C_20260829" \
+            "target_branch=codex/revenue-unreacted-range-readiness-formal-sync-3c-v2-20260829" \
             "model_id=revenue_unreacted_range" \
             "producer=scripts/sync_revenue_unreacted_range_operation_readiness.py" \
+            "validator=scripts/validate_revenue_unreacted_range_readiness_formal_sync_v2.py" \
+            "verified_real_extreme=8" \
+            "verified_data_error_repaired=1" \
+            "unresolved_anomalies=0" \
+            "effective_anomaly_blockers=0" \
+            "operation_module_status=disabled_adapter_preparation_validated" \
+            "daily_adapter_status=disabled_no_runtime_artifact" \
+            "operation_module_id=revenue_unreacted_range_source_mid_falling_v2_operation_v1" \
+            "daily_adapter_row_count=0" \
+            "daily_adapter_data_row_count=0" \
             "formal_model_use_allowed=False" \
             "approved_for_daily=False" \
             "presentation_allowed=False" \
             "production_allowed=False" \
-            "blocker=anomaly_disposition_blockers=9; unresolved_anomalies=9; forward_holdout_v2_mature=0/20; formal_adapter=not_started")"
+            "blocker=forward_holdout_v2_mature=0/20")"
           [ "$(cat "$bundle/CONTRACT")" = "$expected_contract" ]
           [ "$(find "$bundle" -type f -printf '%P\n' | sort | wc -l)" = 6 ]
           [ "$(find "$bundle" -type f -printf '%P\n' | sort | tr '\n' '|')" = "CONTRACT|SHA256SUMS|docs/latest/model_operation_readiness_latest.csv|docs/latest/model_operation_readiness_latest.md|output/latest/model_operation_readiness_latest.csv|output/latest/model_operation_readiness_latest.md|" ]
@@ -179,14 +206,14 @@ jobs:
             docs/latest/model_operation_readiness_latest.csv \
             docs/latest/model_operation_readiness_latest.md
           python -B scripts/validate_model_operation_readiness.py
-          python -B scripts/validate_revenue_unreacted_range_readiness_formal_sync.py --repo-root . --base-sha "$EXPECTED_MAIN_SHA" --phase staged
+          python -B scripts/validate_revenue_unreacted_range_readiness_formal_sync_v2.py --repo-root . --base-sha "$EXPECTED_MAIN_SHA" --phase staged
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git commit -m "Sync revenue unreacted range readiness v1"
+          git commit -m "Sync revenue unreacted range readiness v2"
           [ "$(git rev-parse HEAD^)" = "$EXPECTED_MAIN_SHA" ]
           SYNC_COMMIT_SHA="$(git rev-parse HEAD)"
           python -B scripts/validate_model_operation_readiness.py
-          python -B scripts/validate_revenue_unreacted_range_readiness_formal_sync.py --repo-root . --base-sha "$EXPECTED_MAIN_SHA" --phase committed
+          python -B scripts/validate_revenue_unreacted_range_readiness_formal_sync_v2.py --repo-root . --base-sha "$EXPECTED_MAIN_SHA" --phase committed
           [ -z "$(git status --porcelain=v1 -z --untracked-files=all)" ]
           echo "SYNC_COMMIT_SHA=$SYNC_COMMIT_SHA" >> "$GITHUB_ENV"
 
@@ -203,7 +230,7 @@ jobs:
           [ "$(git rev-parse HEAD)" = "$SYNC_COMMIT_SHA" ]
           [ "$(git rev-parse HEAD^)" = "$EXPECTED_MAIN_SHA" ]
           python -B scripts/validate_model_operation_readiness.py
-          python -B scripts/validate_revenue_unreacted_range_readiness_formal_sync.py --repo-root . --base-sha "$EXPECTED_MAIN_SHA" --phase committed
+          python -B scripts/validate_revenue_unreacted_range_readiness_formal_sync_v2.py --repo-root . --base-sha "$EXPECTED_MAIN_SHA" --phase committed
           [ -z "$(git status --porcelain=v1 -z --untracked-files=all)" ]
           remote_main_before="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
           remote_target_before="$(git ls-remote origin "refs/heads/$TARGET_BRANCH" | awk '{print $1}')"
