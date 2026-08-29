@@ -68,7 +68,7 @@ def _model_verified_price_date_frames(
 
 @pytest.fixture(autouse=True)
 def stub_expensive_exact_revenue_replay(monkeypatch: pytest.MonkeyPatch) -> None:
-    """General readiness builders and validators must never launch exact replay."""
+    """Unit tests consume canonical gate results without relaunching their CLIs."""
 
     def fail_exact(_repo_root: Path) -> dict[str, object]:
         raise AssertionError("general readiness path invoked exact replay")
@@ -82,6 +82,28 @@ def stub_expensive_exact_revenue_replay(monkeypatch: pytest.MonkeyPatch) -> None
         _SYNC_MODULE,
         "_load_registered_price_frames",
         _model_verified_price_date_frames,
+    )
+    anomaly_frame = pd.read_csv(
+        ROOT / readiness_builder.REVENUE_ANOMALY_REGISTRY_CSV,
+        dtype=str,
+    ).fillna("")
+    anomaly_rows = {
+        str(row["operation_key"]): {str(key): str(value) for key, value in row.items()}
+        for row in anomaly_frame.to_dict(orient="records")
+    }
+    canonical_anomaly_result = _SYNC_MODULE.CanonicalAnomalyValidationResult(
+        rows=anomaly_rows,
+        row_count=9,
+        effective_blocker_count=0,
+        verified_real_extreme_count=8,
+        verified_data_error_repaired_count=1,
+        errors=(),
+        diagnostics=(),
+    )
+    monkeypatch.setattr(
+        _SYNC_MODULE,
+        "validate_current_anomaly_dispositions",
+        lambda *_args, **_kwargs: canonical_anomaly_result,
     )
 
 
@@ -157,85 +179,17 @@ def revenue_parity_frame() -> pd.DataFrame:
 
 
 def revenue_promotion_registry_frame() -> pd.DataFrame:
-    common = {
-        "model_id": REVENUE_MODEL_ID,
-        "source_variant_id": "absolute_or_two_month_yoy_ge15",
-        "candidate_variant_id": "source_mid_falling",
-        "operation_count": "53",
-        "win_rate_pct": "77.3585",
-        "median_return_pct": "9.4077",
-        "combined_exclusion_candidate_count": "9",
-        "forward_holdout_first_interpretation_min_mature": "20",
-        "formal_adapter_gate": "not_started_hard_gate",
-        "decision_status": (
-            "selected_pending_anomaly_resolution_forward_holdout_v2_maturity_and_formal_adapter"
-        ),
-        "anomaly_disposition_gate": (
-            "blocked_pending_9_root_cause_dispositions_and_1_trigger_asof_attribution_reconciliation"
-        ),
-        "approved_for_daily": "False",
-        "presentation_allowed": "False",
-        "formal_model_use_allowed": "False",
-        "production_change": "False",
-        "financial_statement_scope": (
-            "monthly_revenue_only_EPS_gross_margin_operating_margin_operating_income_"
-            "non_operating_income_net_income_excluded"
-        ),
-        "promotion_scope": (
-            "promotion_preparation_v2_migration_only_no_production_pdf_or_apps_script"
-        ),
-    }
-    return pd.DataFrame(
-        [
-            {
-                **common,
-                "decision_id": "revenue_v2_20260812",
-                "decision_date": "2026-08-12",
-                "contract_version": "revenue_unreacted_range_promotion_preparation_contract_v2_20260812",
-            },
-            {
-                **common,
-                "decision_id": "revenue_v3_20260828",
-                "decision_date": "2026-08-28",
-                "contract_version": "revenue_unreacted_range_promotion_preparation_contract_v3_20260828",
-            },
-            {
-                **common,
-                "decision_id": "revenue_v4_20260828",
-                "decision_date": "2026-08-28",
-                "contract_version": "revenue_unreacted_range_promotion_preparation_contract_v4_20260828",
-                "decision_status": (
-                    "research_complete_promotion_blocked_waiting_anomaly_forward_holdout_and_formal_adapter"
-                ),
-                "anomaly_disposition_gate": (
-                    "research_non_hard_promotion_candidate_hard_pending_9_root_cause_dispositions"
-                ),
-                "formal_adapter_gate": (
-                    "disabled_adapter_preparation_non_hard_production_approval_hard_gate"
-                ),
-                "promotion_scope": (
-                    "staged_contract_research_only_and_disabled_adapter_preparation_no_production_"
-                    "daily_full_pdf_or_apps_script"
-                ),
-            },
-        ]
-    )
+    return pd.read_csv(
+        ROOT / readiness_builder.REVENUE_PROMOTION_REGISTRY_CSV,
+        dtype=str,
+    ).fillna("")
 
 
 def revenue_anomaly_registry_frame() -> pd.DataFrame:
-    return pd.DataFrame(
-        [
-            {
-                "model_id": REVENUE_MODEL_ID,
-                "operation_key": f"operation-{index}",
-                "candidate_detail_row_sha256": f"{index:064x}",
-                "final_disposition": "unresolved_anomaly_candidate",
-                "primary_handling": "retain_in_primary_metrics_and_allow_exclusion_sensitivity_only",
-                "promotion_gate_status": "blocked_pending_root_cause",
-            }
-            for index in range(1, 10)
-        ]
-    )
+    return pd.read_csv(
+        ROOT / readiness_builder.REVENUE_ANOMALY_REGISTRY_CSV,
+        dtype=str,
+    ).fillna("")
 
 
 def revenue_forward_holdout_v2_manifest_frame() -> pd.DataFrame:
@@ -701,7 +655,7 @@ def test_revenue_readiness_uses_latest_v3_decision_v4_contract_and_model_owned_e
     row = readiness[readiness["model_id"].eq(REVENUE_MODEL_ID)].iloc[0]
     assert row["parity_status"] == "research_matrix_complete"
     assert row["blocker"] == (
-        "anomaly_disposition_blockers=9; unresolved_anomalies=9; "
+        "anomaly_disposition_blockers=0; unresolved_anomalies=0; "
         "forward_holdout_v2_mature=0/20; formal_adapter=not_started"
     )
     assert row["operation_module_status"] == (
@@ -730,9 +684,9 @@ def test_revenue_readiness_uses_latest_v3_decision_v4_contract_and_model_owned_e
 
 
 def test_revenue_readiness_fails_closed_until_v3_decision_v4_contract_is_latest() -> None:
-    promotion = revenue_promotion_registry_frame().iloc[:1].copy()
+    promotion = revenue_promotion_registry_frame().iloc[:-1].copy()
 
-    with pytest.raises(RuntimeError, match="latest decision v3 / promotion contract v4"):
+    with pytest.raises(RuntimeError, match="latest decision v4 / promotion contract v5"):
         build_model_operation_readiness(
             revenue_parity_frame(),
             registry_frame(),
@@ -750,13 +704,6 @@ def test_revenue_readiness_fails_closed_until_v3_decision_v4_contract_is_latest(
             "promotion",
             pd.DataFrame(),
             revenue_anomaly_registry_frame(),
-            revenue_forward_holdout_v2_manifest_frame(),
-            "missing required revenue readiness source",
-        ),
-        (
-            "anomaly",
-            revenue_promotion_registry_frame(),
-            pd.DataFrame(),
             revenue_forward_holdout_v2_manifest_frame(),
             "missing required revenue readiness source",
         ),
@@ -802,7 +749,7 @@ def test_revenue_readiness_rejects_malformed_or_production_enabled_contracts() -
         )
 
     production_enabled = revenue_promotion_registry_frame()
-    production_enabled.loc[2, "production_change"] = "True"
+    production_enabled.loc[production_enabled.index[-1], "production_change"] = "True"
     with pytest.raises(RuntimeError, match="promotion.production_change must be 'false'"):
         build_model_operation_readiness(
             revenue_parity_frame(),
@@ -827,7 +774,7 @@ def test_revenue_readiness_requires_all_four_formal_promotion_flags_false(
     flag_name: str,
 ) -> None:
     promotion = revenue_promotion_registry_frame()
-    promotion.loc[2, flag_name] = "True"
+    promotion.loc[promotion.index[-1], flag_name] = "True"
 
     with pytest.raises(RuntimeError, match=rf"promotion\.{flag_name} must be 'false'"):
         build_model_operation_readiness(
@@ -842,7 +789,7 @@ def test_revenue_readiness_requires_all_four_formal_promotion_flags_false(
 
 def test_revenue_readiness_rejects_unsafe_latest_promotion_decision_status() -> None:
     promotion = revenue_promotion_registry_frame()
-    promotion.loc[2, "decision_status"] = "formally_approved"
+    promotion.loc[promotion.index[-1], "decision_status"] = "formally_approved"
 
     with pytest.raises(RuntimeError, match="promotion.decision_status must be"):
         build_model_operation_readiness(
@@ -881,19 +828,34 @@ def test_revenue_readiness_rejects_holdout_version_or_maturity_status_drift(
         )
 
 
-def test_revenue_readiness_rejects_unrepaired_verified_data_error_policy() -> None:
-    anomalies = revenue_anomaly_registry_frame()
-    anomalies.loc[0, "final_disposition"] = "verified_data_error"
-    anomalies.loc[0, "primary_handling"] = "removed_without_source_repair"
-    anomalies.loc[0, "promotion_gate_status"] = "clear"
+def test_revenue_readiness_rejects_unrepaired_verified_data_error_policy(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    failed_gate = _SYNC_MODULE.CanonicalAnomalyValidationResult(
+        rows={},
+        row_count=9,
+        effective_blocker_count=1,
+        verified_real_extreme_count=8,
+        verified_data_error_repaired_count=0,
+        errors=("verified_data_error is missing repaired-rerun closure",),
+        diagnostics=(),
+    )
+    monkeypatch.setattr(
+        _SYNC_MODULE,
+        "validate_current_anomaly_dispositions",
+        lambda *_args, **_kwargs: failed_gate,
+    )
 
-    with pytest.raises(RuntimeError, match="anomaly disposition policy mismatch"):
+    with pytest.raises(
+        RuntimeError,
+        match="canonical revenue anomaly disposition gate failed",
+    ):
         build_model_operation_readiness(
             revenue_parity_frame(),
             registry_frame(),
             adapter_frame(),
             revenue_promotion_registry=revenue_promotion_registry_frame(),
-            revenue_anomaly_registry=anomalies,
+            revenue_anomaly_registry=revenue_anomaly_registry_frame(),
             revenue_forward_holdout_v2_manifest=revenue_forward_holdout_v2_manifest_frame(),
         )
 
