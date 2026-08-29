@@ -332,13 +332,41 @@ EXPECTED_DECISION_V4 = {
     "formal_adapter_gate": "disabled_adapter_preparation_non_hard_production_approval_hard_gate",
     "promotion_scope": "research_only_anomaly_disposition_closed_waiting_forward_holdout_and_disabled_adapter_no_production_daily_full_pdf_or_apps_script",
 }
+EXPECTED_DECISION_V5 = {
+    **EXPECTED_DECISION_V4,
+    "decision_id": "revenue_unreacted_range_source_mid_falling_promotion_preparation_v5_20260829",
+    "contract_version": "revenue_unreacted_range_promotion_preparation_contract_v6_20260829",
+    "decision_status": "promotion_blocked_waiting_forward_holdout_v2_maturity",
+    "anomaly_disposition_gate": "verified_8_real_extreme_1_data_error_repaired_effective_blockers_0",
+    "formal_adapter_gate": "disabled_adapter_preparation_validated_non_hard_production_approval_hard_gate",
+    "approved_for_daily": "False",
+    "presentation_allowed": "False",
+    "formal_model_use_allowed": "False",
+    "production_change": "False",
+    "promotion_scope": "research_only_anomaly_closed_disabled_adapter_preparation_validated_waiting_forward_holdout_v2_maturity_no_production_daily_full_pdf_packet_runtime_artifact_or_apps_script",
+}
 EXPECTED_DECISIONS = (
     EXPECTED_DECISION_V1,
     EXPECTED_DECISION_V2,
     EXPECTED_DECISION_V3,
     EXPECTED_DECISION_V4,
+    EXPECTED_DECISION_V5,
 )
 DECISION_COLUMNS = tuple(EXPECTED_DECISION)
+V4_TO_V5_ALLOWED_CHANGED_DECISION_FIELDS = frozenset(
+    {
+        "decision_id",
+        "contract_version",
+        "decision_status",
+        "formal_adapter_gate",
+        "promotion_scope",
+    }
+)
+V4_TO_V5_COMMON_DECISION_FIELDS = tuple(
+    column
+    for column in DECISION_COLUMNS
+    if column not in V4_TO_V5_ALLOWED_CHANGED_DECISION_FIELDS
+)
 
 ANOMALY_COLUMNS = (
     "model_id",
@@ -676,10 +704,53 @@ EXPECTED_MIGRATION_V3_TO_V4 = {
     "authorization_reference": "user_authorized_3A_3C_20260829",
     "migration_scope": "anomaly_disposition_closure_and_repaired_v3_binding_no_production_daily_full_pdf_or_apps_script",
 }
+EXPECTED_MIGRATION_V4_TO_V5 = {
+    **EXPECTED_MIGRATION_V3_TO_V4,
+    "migration_id": "revenue_unreacted_range_promotion_preparation_v4_to_v5_disabled_adapter_preparation_20260829",
+    "from_decision_id": EXPECTED_DECISION_V4["decision_id"],
+    "to_decision_id": EXPECTED_DECISION_V5["decision_id"],
+    "from_source_artifact_version": EXPECTED_DECISION_V4["source_artifact_version"],
+    "to_source_artifact_version": EXPECTED_DECISION_V5["source_artifact_version"],
+    "from_source_revision": "f9d76fe1ace0d61c303b73c42981482daeef7938",
+    "to_source_revision": "f9d76fe1ace0d61c303b73c42981482daeef7938",
+    "from_summary_blob_sha1": "21d2497566e2d37eae40893282f5c2112a23ca94",
+    "from_summary_bytes": "54511",
+    "from_summary_sha256": "7830186063badbcafa6d80bf44f546dcf03d7ad5ee0068f352554e28f2608b64",
+    "from_detail_blob_sha1": "2c742c9a6e4cd980b1aca812e386499a228ef9a5",
+    "from_detail_bytes": "1012196",
+    "from_detail_sha256": "7dc4f1f89a16dd77d39af175de1dfd3340059a863a670c77e0276d8ec91582d7",
+    "to_summary_blob_sha1": "21d2497566e2d37eae40893282f5c2112a23ca94",
+    "to_summary_bytes": "54511",
+    "to_summary_sha256": "7830186063badbcafa6d80bf44f546dcf03d7ad5ee0068f352554e28f2608b64",
+    "to_detail_blob_sha1": "2c742c9a6e4cd980b1aca812e386499a228ef9a5",
+    "to_detail_bytes": "1012196",
+    "to_detail_sha256": "7dc4f1f89a16dd77d39af175de1dfd3340059a863a670c77e0276d8ec91582d7",
+    "source_projection_diff_summary_path": "",
+    "source_projection_diff_summary_sha256": "",
+    "source_projection_diff_detail_path": "",
+    "source_projection_diff_detail_sha256": "",
+    "source_projection_supersede_evidence_path": "",
+    "source_projection_supersede_evidence_sha256": "",
+    "common_business_field_change_count": "0",
+    "v1_anomaly_registry_path": "config/revenue_unreacted_range_anomaly_disposition_registry_v3_20260829.csv",
+    "v1_anomaly_registry_sha256": "d56fb059cb008b504cb6f64464277e5252566059512ba723668e3cd5f824d489",
+    "v1_anomaly_count": "8",
+    "v2_anomaly_registry_path": "config/revenue_unreacted_range_anomaly_disposition_registry_v3_20260829.csv",
+    "v2_anomaly_registry_sha256": "d56fb059cb008b504cb6f64464277e5252566059512ba723668e3cd5f824d489",
+    "v2_anomaly_count": "8",
+    "authorization_reference": "user_authorized_3A_3C_20260829",
+    "migration_scope": "disabled_adapter_preparation_validation_only_no_source_or_business_semantic_change_no_production_daily_full_pdf_packet_runtime_artifact_or_apps_script",
+    "research_only": "True",
+    "formal_model_use_allowed": "False",
+    "approved_for_daily": "False",
+    "presentation_allowed": "False",
+    "production_change": "False",
+}
 EXPECTED_MIGRATIONS = (
     EXPECTED_MIGRATION_V1_TO_V2,
     EXPECTED_MIGRATION_V2_TO_V3,
     EXPECTED_MIGRATION_V3_TO_V4,
+    EXPECTED_MIGRATION_V4_TO_V5,
 )
 MIGRATION_COLUMNS = tuple(EXPECTED_MIGRATION)
 MIGRATION_PROVENANCE_COLUMNS = frozenset(
@@ -891,8 +962,8 @@ def validate_decision(
         errors.append("promotion preparation registry columns must match the exact contract")
     if len(rows) != len(EXPECTED_DECISIONS):
         errors.append(
-            "promotion preparation registry must preserve the exact v1/v2 prefix and append "
-            f"exactly one v3 staged-contract row; actual={len(rows)}"
+            "promotion preparation registry must preserve the exact v1/v2 prefix and the "
+            f"append-only v3 through v5 decision chain; actual={len(rows)}"
         )
         return None, errors
     for version, (row, expected_row) in enumerate(
@@ -918,6 +989,17 @@ def validate_decision(
             errors.append(
                 "promotion preparation rule_formula_sha256 does not bind the canonical formula "
                 f"in v{version}"
+            )
+    if len(rows) == len(EXPECTED_DECISIONS):
+        changed_common_fields = [
+            column
+            for column in V4_TO_V5_COMMON_DECISION_FIELDS
+            if rows[-2].get(column, "") != rows[-1].get(column, "")
+        ]
+        if changed_common_fields:
+            errors.append(
+                "promotion preparation v4-to-v5 changed frozen common decision fields: "
+                f"{changed_common_fields}"
             )
     return rows[-1], errors
 
@@ -1058,8 +1140,8 @@ def validate_migration(path: Path) -> tuple[dict[str, str] | None, list[str]]:
         errors.append("promotion preparation migration ledger columns must match the exact contract")
     if len(rows) != len(EXPECTED_MIGRATIONS):
         errors.append(
-            "promotion preparation migration ledger must preserve the exact v1-to-v2 prefix "
-            "and append exactly one v2-to-v3 contract-stage row; "
+            "promotion preparation migration ledger must preserve the exact append-only "
+            "v1-to-v2 through v4-to-v5 chain; "
             f"actual={len(rows)}"
         )
         return None, errors
