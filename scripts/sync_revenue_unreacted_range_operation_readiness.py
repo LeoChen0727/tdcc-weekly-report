@@ -81,9 +81,36 @@ RULE_CONTRACT_VERSION = "revenue_low_mid_falling_forward_holdout_rule_v2"
 RULE_CANONICAL_SHA256 = (
     "3918b336ff995b9a8f1425cd48cc51a84c8c015a58e81668f357ca048145f9e3"
 )
-DATA_CONTRACT_VERSION = "revenue_low_mid_falling_forward_holdout_data_v2_20260828"
+DATA_CONTRACT_VERSION = "revenue_low_mid_falling_forward_holdout_data_v3_20260829"
 DATA_CONTRACT_SHA256 = (
-    "c2d70f73c6b9b5f097529852c7e35e58224c5dab2ee84762d13e9fe74ad7316b"
+    "1fe90402b55f57cb3f7070d5b2c7ea8d8560fe4d284450efc0616e147ce51532"
+)
+PRICE_SEMANTIC_PROJECTION_VERSION = (
+    "revenue_forward_holdout_raw_price_source_projection_v1_20260829"
+)
+PRICE_SEMANTIC_PROJECTION_SCHEMA_SHA256 = (
+    "7ef675db9ab08c7fc88dc0382571f0a16ad346a646fe3ccdf0ccfe18bb5106a9"
+)
+PRICE_SEMANTIC_PROJECTION_COLUMNS = (
+    "session_sequence_index",
+    "date",
+    "open",
+    "high",
+    "low",
+    "close",
+    "analysis_price_adjustment_factor",
+    "price_resolution_ids_on_date",
+)
+PRICE_SEMANTIC_PROJECTION_DECIMAL_SCALE = 8
+PRICE_SEMANTIC_PROJECTION_ROLE = "composite_promotion_input_lineage_component"
+PRICE_SEMANTIC_PROJECTION_MIGRATION_ID = (
+    "revenue_forward_holdout_v2_price_semantic_projection_v1_20260829"
+)
+PRICE_SEMANTIC_PROJECTION_AUTHORIZATION_REFERENCE = (
+    "user_authorized_3A_3C_20260829"
+)
+PRICE_INPUT_LEGACY_LINEAGE_ROLE = (
+    "provenance_diagnostic_only_not_promotion_gate"
 )
 TRAINING_CUTOFF_DATE = "20260713"
 BRIDGE_START_DATE = "20260714"
@@ -286,9 +313,9 @@ EXACT_REPLAY_CHILD_MODULES = (
     "validate_revenue_unreacted_range_forward_holdout_v2",
 )
 EXACT_REPLAY_CHILD_MODE = "trusted_same_model_in_memory_canonical_replay"
-EXACT_REPLAY_PROTOCOL_VERSION = "revenue_readiness_exact_replay_v2_20260829"
+EXACT_REPLAY_PROTOCOL_VERSION = "revenue_readiness_exact_replay_v3_20260829"
 EXACT_REPLAY_SENTINEL = "REVENUE_EXACT_PRICE_LINEAGE_JSON="
-EXACT_REPLAY_TIMEOUT_SECONDS = 1200
+EXACT_REPLAY_TIMEOUT_SECONDS = 1800
 RAW_MONTHLY_REVENUE_PROVENANCE_COLUMN = "monthly_revenue_history_blob_sha256"
 SOURCE_DETAIL_LEGACY_ENVELOPE_COLUMN = "source_detail_canonical_sha256"
 CAPTURE_LEGACY_ENVELOPE_COLUMN = "capture_id"
@@ -297,13 +324,25 @@ LEGACY_ENVELOPE_COLUMNS = (
     SOURCE_DETAIL_LEGACY_ENVELOPE_COLUMN,
     CAPTURE_LEGACY_ENVELOPE_COLUMN,
 )
+LEGACY_PRICE_PROVENANCE_COLUMNS = (
+    "price_input_stock_count",
+    "price_input_row_count",
+    "price_input_stock_canonical_sha256s",
+    "price_input_canonical_sha256",
+)
 PROMOTION_SEMANTIC_FRAME_EXCLUSIONS = {
-    "manifest": ("generated_at", RAW_MONTHLY_REVENUE_PROVENANCE_COLUMN, *LEGACY_ENVELOPE_COLUMNS),
+    "manifest": (
+        "generated_at",
+        RAW_MONTHLY_REVENUE_PROVENANCE_COLUMN,
+        *LEGACY_ENVELOPE_COLUMNS,
+        *LEGACY_PRICE_PROVENANCE_COLUMNS,
+    ),
     "detail": (
         "generated_at",
         RAW_MONTHLY_REVENUE_PROVENANCE_COLUMN,
         *LEGACY_ENVELOPE_COLUMNS,
         EVENT_LEGACY_ENVELOPE_COLUMN,
+        *LEGACY_PRICE_PROVENANCE_COLUMNS,
     ),
     "summary": ("generated_at", CAPTURE_LEGACY_ENVELOPE_COLUMN),
     "comparison": ("generated_at", CAPTURE_LEGACY_ENVELOPE_COLUMN),
@@ -1052,11 +1091,18 @@ def _require_number_close(
         )
 
 
-def _parse_price_stock_sha_set(manifest_row: pd.Series) -> dict[str, str]:
-    text = safe_str(manifest_row.get("price_input_stock_canonical_sha256s"))
+def _parse_stock_sha_set(
+    manifest_row: pd.Series,
+    *,
+    sha_set_field: str,
+    stock_count_field: str,
+    row_count_field: str,
+    label: str,
+) -> dict[str, str]:
+    text = safe_str(manifest_row.get(sha_set_field))
     if not text:
         raise RuntimeError(
-            "revenue readiness holdout price_input_stock_canonical_sha256s is empty"
+            f"revenue readiness holdout {sha_set_field} is empty"
         )
     result: dict[str, str] = {}
     ordered_ids: list[str] = []
@@ -1065,39 +1111,65 @@ def _parse_price_stock_sha_set(manifest_row: pd.Series) -> dict[str, str]:
         stock_id = _stock_id(stock_id)
         if not separator or not re.fullmatch(r"[0-9A-Za-z]{1,12}", stock_id):
             raise RuntimeError(
-                "revenue readiness holdout malformed per-stock price lineage token"
+                f"revenue readiness holdout malformed {label} token"
             )
-        _require_sha(digest, f"holdout.price_input_stock_sha/{stock_id}")
+        _require_sha(digest, f"holdout.{label}/{stock_id}")
         if digest == "0" * 64:
             raise RuntimeError(
-                "revenue readiness holdout per-stock price lineage contains a "
+                f"revenue readiness holdout {label} contains a "
                 f"placeholder SHA-256: {stock_id}"
             )
         if stock_id in result:
             raise RuntimeError(
-                f"revenue readiness holdout duplicate per-stock price lineage: {stock_id}"
+                f"revenue readiness holdout duplicate {label}: {stock_id}"
             )
         result[stock_id] = digest
         ordered_ids.append(stock_id)
     if ordered_ids != sorted(ordered_ids):
         raise RuntimeError(
-            "revenue readiness holdout per-stock price lineage is not canonical sorted"
+            f"revenue readiness holdout {label} is not canonical sorted"
         )
     expected_stock_count = _strict_nonnegative_int(
-        manifest_row.get("price_input_stock_count"),
-        "holdout.price_input_stock_count",
+        manifest_row.get(stock_count_field),
+        f"holdout.{stock_count_field}",
     )
     if expected_stock_count != len(result):
         raise RuntimeError(
-            "revenue readiness holdout per-stock price lineage count drift: "
+            f"revenue readiness holdout {label} count drift: "
             f"manifest={expected_stock_count} parsed={len(result)}"
         )
     if _strict_nonnegative_int(
-        manifest_row.get("price_input_row_count"),
-        "holdout.price_input_row_count",
+        manifest_row.get(row_count_field),
+        f"holdout.{row_count_field}",
     ) <= 0:
-        raise RuntimeError("revenue readiness holdout price input row count must be positive")
+        raise RuntimeError(
+            f"revenue readiness holdout {row_count_field} must be positive"
+        )
     return result
+
+
+def _parse_price_stock_sha_set(manifest_row: pd.Series) -> dict[str, str]:
+    """Parse the legacy prepared-frame lineage for diagnostics and old fixtures."""
+
+    return _parse_stock_sha_set(
+        manifest_row,
+        sha_set_field="price_input_stock_canonical_sha256s",
+        stock_count_field="price_input_stock_count",
+        row_count_field="price_input_row_count",
+        label="legacy per-stock prepared-price lineage",
+    )
+
+
+def _parse_price_semantic_projection_stock_sha_set(
+    manifest_row: pd.Series,
+) -> dict[str, str]:
+    return _parse_stock_sha_set(
+        manifest_row,
+        sha_set_field="price_semantic_projection_stock_canonical_sha256s",
+        stock_count_field="price_semantic_projection_stock_count",
+        row_count_field="price_semantic_projection_row_count",
+        label="per-stock canonical raw-price projection lineage",
+    )
 
 
 def _exact_replay_child_bootstrap_source(head_sha: str, tree_sha: str) -> str:
@@ -1369,11 +1441,20 @@ def _parse_exact_replay_payload(
         "tree_sha",
         "runtime_fingerprint",
         "capture_id",
+        "data_contract_version",
+        "data_contract_sha256",
         "source_detail_promotion_semantic_sha256",
-        "price_input_canonical_sha256",
-        "price_input_stock_canonical_sha256s",
-        "price_input_stock_count",
-        "price_input_row_count",
+        "price_semantic_projection_version",
+        "price_semantic_projection_schema_sha256",
+        "price_semantic_projection_columns",
+        "price_semantic_projection_decimal_scale",
+        "price_semantic_projection_stock_canonical_sha256s",
+        "price_semantic_projection_canonical_sha256",
+        "price_semantic_projection_stock_count",
+        "price_semantic_projection_row_count",
+        "price_semantic_projection_role",
+        "price_semantic_projection_migration_id",
+        "price_semantic_projection_authorization_reference",
         "observed_through_date",
         "expected_manifest_canonical_sha256",
         "expected_detail_canonical_sha256",
@@ -1391,14 +1472,51 @@ def _parse_exact_replay_payload(
     if payload.get("runtime_fingerprint") != runtime_fingerprint:
         raise RuntimeError("exact revenue replay runtime fingerprint drift")
     _require_sha(payload.get("capture_id"), "exact_holdout.capture_id")
+    if payload.get("data_contract_version") != DATA_CONTRACT_VERSION:
+        raise RuntimeError("exact revenue replay data contract version drift")
+    _require_sha(
+        payload.get("data_contract_sha256"),
+        "exact_holdout.data_contract_sha256",
+        expected=DATA_CONTRACT_SHA256,
+    )
     _require_sha(
         payload.get("source_detail_promotion_semantic_sha256"),
         "exact_holdout.source_detail_promotion_semantic_sha256",
     )
     _require_sha(
-        payload.get("price_input_canonical_sha256"),
-        "exact_holdout.price_input_canonical_sha256",
+        payload.get("price_semantic_projection_schema_sha256"),
+        "exact_holdout.price_semantic_projection_schema_sha256",
+        expected=PRICE_SEMANTIC_PROJECTION_SCHEMA_SHA256,
     )
+    exact_projection_sha = _require_sha(
+        payload.get("price_semantic_projection_canonical_sha256"),
+        "exact_holdout.price_semantic_projection_canonical_sha256",
+    )
+    if exact_projection_sha == "0" * 64:
+        raise RuntimeError(
+            "exact revenue replay canonical price-projection SHA is a placeholder"
+        )
+    exact_projection_fields = {
+        "price_semantic_projection_version": PRICE_SEMANTIC_PROJECTION_VERSION,
+        "price_semantic_projection_columns": "|".join(
+            PRICE_SEMANTIC_PROJECTION_COLUMNS
+        ),
+        "price_semantic_projection_decimal_scale": (
+            PRICE_SEMANTIC_PROJECTION_DECIMAL_SCALE
+        ),
+        "price_semantic_projection_role": PRICE_SEMANTIC_PROJECTION_ROLE,
+        "price_semantic_projection_migration_id": (
+            PRICE_SEMANTIC_PROJECTION_MIGRATION_ID
+        ),
+        "price_semantic_projection_authorization_reference": (
+            PRICE_SEMANTIC_PROJECTION_AUTHORIZATION_REFERENCE
+        ),
+    }
+    for field_name, expected in exact_projection_fields.items():
+        if payload.get(field_name) != expected:
+            raise RuntimeError(
+                f"exact revenue replay {field_name} drift"
+            )
     frame_attestations = payload.get("frame_attestations")
     if not isinstance(frame_attestations, dict) or set(frame_attestations) != {
         "manifest",
@@ -1523,13 +1641,25 @@ LEGACY_ENVELOPE_COLUMNS = (
     SOURCE_DETAIL_LEGACY_ENVELOPE_COLUMN,
     CAPTURE_LEGACY_ENVELOPE_COLUMN,
 )
+LEGACY_PRICE_PROVENANCE_COLUMNS = (
+    "price_input_stock_count",
+    "price_input_row_count",
+    "price_input_stock_canonical_sha256s",
+    "price_input_canonical_sha256",
+)
 PROMOTION_SEMANTIC_FRAME_EXCLUSIONS = {
-    "manifest": ("generated_at", RAW_MONTHLY_REVENUE_PROVENANCE_COLUMN, *LEGACY_ENVELOPE_COLUMNS),
+    "manifest": (
+        "generated_at",
+        RAW_MONTHLY_REVENUE_PROVENANCE_COLUMN,
+        *LEGACY_ENVELOPE_COLUMNS,
+        *LEGACY_PRICE_PROVENANCE_COLUMNS,
+    ),
     "detail": (
         "generated_at",
         RAW_MONTHLY_REVENUE_PROVENANCE_COLUMN,
         *LEGACY_ENVELOPE_COLUMNS,
         EVENT_LEGACY_ENVELOPE_COLUMN,
+        *LEGACY_PRICE_PROVENANCE_COLUMNS,
     ),
     "summary": ("generated_at", CAPTURE_LEGACY_ENVELOPE_COLUMN),
     "comparison": ("generated_at", CAPTURE_LEGACY_ENVELOPE_COLUMN),
@@ -1662,10 +1792,12 @@ finally:
     )
 
 manifest_row = frames[0].iloc[0]
-aggregate_sha = str(manifest_row["price_input_canonical_sha256"])
-sha_set_text = str(manifest_row["price_input_stock_canonical_sha256s"])
-stock_count = int(manifest_row["price_input_stock_count"])
-row_count = int(manifest_row["price_input_row_count"])
+aggregate_sha = str(manifest_row["price_semantic_projection_canonical_sha256"])
+sha_set_text = str(
+    manifest_row["price_semantic_projection_stock_canonical_sha256s"]
+)
+stock_count = int(manifest_row["price_semantic_projection_stock_count"])
+row_count = int(manifest_row["price_semantic_projection_row_count"])
 per_stock_sha = {}
 for token in sha_set_text.split("|"):
     stock_id, separator, digest = token.partition(":")
@@ -1687,7 +1819,7 @@ print(
     "REVENUE_EXACT_PRICE_LINEAGE_JSON="
     + json.dumps(
         {
-            "protocol_version": "revenue_readiness_exact_replay_v2_20260829",
+            "protocol_version": "revenue_readiness_exact_replay_v3_20260829",
             "commit_sha": commit_sha,
             "tree_sha": tree_sha,
             "runtime_fingerprint": {
@@ -1696,13 +1828,36 @@ print(
                 "numpy": __import__("numpy").__version__,
             },
             "capture_id": str(manifest_row["capture_id"]),
+            "data_contract_version": str(manifest_row["data_contract_version"]),
+            "data_contract_sha256": str(manifest_row["data_contract_sha256"]),
             "source_detail_promotion_semantic_sha256": (
                 promotion_semantic_source_sha256(source_detail)
             ),
-            "price_input_canonical_sha256": aggregate_sha,
-            "price_input_stock_canonical_sha256s": per_stock_sha,
-            "price_input_stock_count": stock_count,
-            "price_input_row_count": row_count,
+            "price_semantic_projection_version": str(
+                manifest_row["price_semantic_projection_version"]
+            ),
+            "price_semantic_projection_schema_sha256": str(
+                manifest_row["price_semantic_projection_schema_sha256"]
+            ),
+            "price_semantic_projection_columns": str(
+                manifest_row["price_semantic_projection_columns"]
+            ),
+            "price_semantic_projection_decimal_scale": int(
+                manifest_row["price_semantic_projection_decimal_scale"]
+            ),
+            "price_semantic_projection_stock_canonical_sha256s": per_stock_sha,
+            "price_semantic_projection_canonical_sha256": aggregate_sha,
+            "price_semantic_projection_stock_count": stock_count,
+            "price_semantic_projection_row_count": row_count,
+            "price_semantic_projection_role": str(
+                manifest_row["price_semantic_projection_role"]
+            ),
+            "price_semantic_projection_migration_id": str(
+                manifest_row["price_semantic_projection_migration_id"]
+            ),
+            "price_semantic_projection_authorization_reference": str(
+                manifest_row["price_semantic_projection_authorization_reference"]
+            ),
             "observed_through_date": observed_through_date,
             "expected_manifest_canonical_sha256": (
                 promotion_semantic_frame_sha256(frames[0], "manifest")
@@ -1776,7 +1931,34 @@ def _validate_exact_registered_price_lineage(
                 "revenue readiness holdout candidate "
                 f"{label} promotion semantic drift from independent exact replay"
             )
-    exact_mapping = exact.get("price_input_stock_canonical_sha256s")
+    for field_name, expected in {
+        "data_contract_version": DATA_CONTRACT_VERSION,
+        "data_contract_sha256": DATA_CONTRACT_SHA256,
+        "price_semantic_projection_version": PRICE_SEMANTIC_PROJECTION_VERSION,
+        "price_semantic_projection_schema_sha256": (
+            PRICE_SEMANTIC_PROJECTION_SCHEMA_SHA256
+        ),
+        "price_semantic_projection_columns": "|".join(
+            PRICE_SEMANTIC_PROJECTION_COLUMNS
+        ),
+        "price_semantic_projection_decimal_scale": str(
+            PRICE_SEMANTIC_PROJECTION_DECIMAL_SCALE
+        ),
+        "price_semantic_projection_role": PRICE_SEMANTIC_PROJECTION_ROLE,
+        "price_semantic_projection_migration_id": (
+            PRICE_SEMANTIC_PROJECTION_MIGRATION_ID
+        ),
+        "price_semantic_projection_authorization_reference": (
+            PRICE_SEMANTIC_PROJECTION_AUTHORIZATION_REFERENCE
+        ),
+    }.items():
+        if safe_str(manifest_row.get(field_name)) != expected:
+            raise RuntimeError(
+                f"revenue readiness holdout {field_name} drift from canonical contract"
+            )
+    exact_mapping = exact.get(
+        "price_semantic_projection_stock_canonical_sha256s"
+    )
     if not isinstance(exact_mapping, dict) or not exact_mapping:
         raise RuntimeError(
             "exact revenue price-lineage replay returned no per-stock digests"
@@ -1786,15 +1968,15 @@ def _validate_exact_registered_price_lineage(
         stock_id = _stock_id(raw_stock_id)
         if not re.fullmatch(r"[0-9A-Za-z]{1,12}", stock_id):
             raise RuntimeError(
-                "exact revenue price-lineage replay returned unsafe stock identity"
+                "exact revenue canonical price-projection replay returned unsafe stock identity"
             )
         digest = _require_sha(
             raw_digest,
-            f"exact_holdout.price_input_stock_sha/{stock_id}",
+            f"exact_holdout.price_semantic_projection_stock_sha/{stock_id}",
         )
         if digest == "0" * 64 or stock_id in normalized_exact_mapping:
             raise RuntimeError(
-                "exact revenue price-lineage replay returned invalid per-stock lineage"
+                "exact revenue canonical price-projection replay returned invalid per-stock lineage"
             )
         normalized_exact_mapping[stock_id] = digest
     if normalized_exact_mapping != per_stock_manifest_sha:
@@ -1805,64 +1987,54 @@ def _validate_exact_registered_price_lineage(
             != per_stock_manifest_sha.get(stock_id)
         )
         raise RuntimeError(
-            "revenue readiness holdout per-stock price canonical SHA drift from "
+            "revenue readiness holdout per-stock canonical raw-price projection "
+            "SHA drift from "
             f"exact producer replay: {mismatched[:10]}"
         )
-
-    lineage_rows = pd.DataFrame(
-        [
-            {
-                "stock_id": stock_id,
-                "price_canonical_sha256": digest,
-            }
-            for stock_id, digest in sorted(normalized_exact_mapping.items())
-        ]
-    )
-    recomputed_aggregate_sha = _canonical_frame_sha256(lineage_rows)
     exact_aggregate_sha = _require_sha(
-        exact.get("price_input_canonical_sha256"),
-        "exact_holdout.price_input_canonical_sha256",
+        exact.get("price_semantic_projection_canonical_sha256"),
+        "exact_holdout.price_semantic_projection_canonical_sha256",
     )
-    manifest_aggregate_sha = safe_str(
-        manifest_row.get("price_input_canonical_sha256")
+    manifest_aggregate_sha = _require_sha(
+        manifest_row.get("price_semantic_projection_canonical_sha256"),
+        "holdout.price_semantic_projection_canonical_sha256",
     )
-    if recomputed_aggregate_sha != exact_aggregate_sha:
+    if exact_aggregate_sha != manifest_aggregate_sha:
         raise RuntimeError(
-            "exact revenue price-lineage aggregate disagrees with its per-stock set"
-        )
-    if recomputed_aggregate_sha != manifest_aggregate_sha:
-        raise RuntimeError(
-            "revenue readiness holdout price_input_canonical_sha256 drift from "
+            "revenue readiness holdout canonical raw-price projection SHA drift from "
             "exact producer replay"
         )
 
     exact_stock_count = _strict_nonnegative_int(
-        exact.get("price_input_stock_count"),
-        "exact_holdout.price_input_stock_count",
+        exact.get("price_semantic_projection_stock_count"),
+        "exact_holdout.price_semantic_projection_stock_count",
     )
     manifest_stock_count = _strict_nonnegative_int(
-        manifest_row.get("price_input_stock_count"),
-        "holdout.price_input_stock_count",
+        manifest_row.get("price_semantic_projection_stock_count"),
+        "holdout.price_semantic_projection_stock_count",
     )
     if exact_stock_count != len(normalized_exact_mapping):
         raise RuntimeError(
-            "exact revenue price-lineage stock count disagrees with per-stock set"
+            "exact revenue canonical price-projection stock count disagrees with "
+            "per-stock set"
         )
     if exact_stock_count != manifest_stock_count:
         raise RuntimeError(
-            "revenue readiness holdout price input stock count drift from exact replay"
+            "revenue readiness holdout canonical price-projection stock count drift "
+            "from exact replay"
         )
     exact_row_count = _strict_nonnegative_int(
-        exact.get("price_input_row_count"),
-        "exact_holdout.price_input_row_count",
+        exact.get("price_semantic_projection_row_count"),
+        "exact_holdout.price_semantic_projection_row_count",
     )
     manifest_row_count = _strict_nonnegative_int(
-        manifest_row.get("price_input_row_count"),
-        "holdout.price_input_row_count",
+        manifest_row.get("price_semantic_projection_row_count"),
+        "holdout.price_semantic_projection_row_count",
     )
     if exact_row_count <= 0 or exact_row_count != manifest_row_count:
         raise RuntimeError(
-            "revenue readiness holdout price input row count drift from exact replay"
+            "revenue readiness holdout canonical price-projection row count drift "
+            "from exact replay"
         )
     exact_observed_through = _strict_date(
         exact.get("observed_through_date"),
@@ -2024,10 +2196,13 @@ def _validate_detail_maturity_against_registered_prices(
     *,
     observed_through: str,
     registered_prices: dict[str, pd.DataFrame],
-    manifest_price_sha: str,
+    manifest_price_projection_sha: str,
 ) -> None:
     required = {
         "price_input_canonical_sha256",
+        "price_semantic_projection_version",
+        "price_semantic_projection_schema_sha256",
+        "price_semantic_projection_canonical_sha256",
         "holding_days",
         "holding_session_index_offset",
         "stock_id",
@@ -2064,10 +2239,24 @@ def _validate_detail_maturity_against_registered_prices(
             raise RuntimeError(
                 f"revenue readiness missing registered price evidence for {stock_id}"
             )
-        if safe_str(event.get("price_input_canonical_sha256")) != manifest_price_sha:
+        if safe_str(event.get("price_semantic_projection_version")) != (
+            PRICE_SEMANTIC_PROJECTION_VERSION
+        ):
             raise RuntimeError(
-                "revenue readiness holdout detail is not bound to the manifest price "
-                f"input canonical SHA: row={row_index}"
+                "revenue readiness holdout detail canonical price-projection version "
+                f"drift: row={row_index}"
+            )
+        _require_sha(
+            event.get("price_semantic_projection_schema_sha256"),
+            f"holdout detail price_semantic_projection_schema_sha256 row={row_index}",
+            expected=PRICE_SEMANTIC_PROJECTION_SCHEMA_SHA256,
+        )
+        if safe_str(event.get("price_semantic_projection_canonical_sha256")) != (
+            manifest_price_projection_sha
+        ):
+            raise RuntimeError(
+                "revenue readiness holdout detail is not bound to the manifest "
+                f"canonical raw-price projection SHA: row={row_index}"
             )
         if _strict_nonnegative_int(
             event.get("holding_days"), f"holdout detail holding_days row={row_index}"
@@ -2330,6 +2519,18 @@ def _validate_holdout_manifest_lineage(
         "price_input_row_count",
         "price_input_stock_canonical_sha256s",
         "price_input_canonical_sha256",
+        "price_input_legacy_lineage_role",
+        "price_semantic_projection_version",
+        "price_semantic_projection_schema_sha256",
+        "price_semantic_projection_columns",
+        "price_semantic_projection_decimal_scale",
+        "price_semantic_projection_stock_count",
+        "price_semantic_projection_row_count",
+        "price_semantic_projection_stock_canonical_sha256s",
+        "price_semantic_projection_canonical_sha256",
+        "price_semantic_projection_role",
+        "price_semantic_projection_migration_id",
+        "price_semantic_projection_authorization_reference",
         "bridge_excluded_signal_count",
         "holdout_event_count",
         "mature_event_count",
@@ -2358,6 +2559,21 @@ def _validate_holdout_manifest_lineage(
         "preregistration_merge_commit": PREREGISTRATION_MERGE_COMMIT,
         "rule_contract_version": RULE_CONTRACT_VERSION,
         "data_contract_version": DATA_CONTRACT_VERSION,
+        "price_input_legacy_lineage_role": PRICE_INPUT_LEGACY_LINEAGE_ROLE,
+        "price_semantic_projection_version": PRICE_SEMANTIC_PROJECTION_VERSION,
+        "price_semantic_projection_columns": "|".join(
+            PRICE_SEMANTIC_PROJECTION_COLUMNS
+        ),
+        "price_semantic_projection_decimal_scale": str(
+            PRICE_SEMANTIC_PROJECTION_DECIMAL_SCALE
+        ),
+        "price_semantic_projection_role": PRICE_SEMANTIC_PROJECTION_ROLE,
+        "price_semantic_projection_migration_id": (
+            PRICE_SEMANTIC_PROJECTION_MIGRATION_ID
+        ),
+        "price_semantic_projection_authorization_reference": (
+            PRICE_SEMANTIC_PROJECTION_AUTHORIZATION_REFERENCE
+        ),
         "training_cutoff_date": TRAINING_CUTOFF_DATE,
         "bridge_start_date": BRIDGE_START_DATE,
         "bridge_end_date": BRIDGE_END_DATE,
@@ -2395,6 +2611,20 @@ def _validate_holdout_manifest_lineage(
         expected=DATA_CONTRACT_SHA256,
     )
     _require_sha(
+        row.get("price_semantic_projection_schema_sha256"),
+        "holdout.price_semantic_projection_schema_sha256",
+        expected=PRICE_SEMANTIC_PROJECTION_SCHEMA_SHA256,
+    )
+    projection_sha = _require_sha(
+        row.get("price_semantic_projection_canonical_sha256"),
+        "holdout.price_semantic_projection_canonical_sha256",
+    )
+    if projection_sha == "0" * 64:
+        raise RuntimeError(
+            "revenue readiness holdout canonical price-projection SHA is a "
+            "placeholder SHA-256"
+        )
+    _require_sha(
         row.get("training_source_projection_semantic_sha256"),
         "holdout.training_source_projection_semantic_sha256",
         expected=PROJECTED_EPISODE_SEMANTIC_SHA256,
@@ -2417,11 +2647,18 @@ def _validate_holdout_manifest_lineage(
         "monthly_revenue_history_blob_sha256",
         "monthly_revenue_canonical_table_sha256",
         "cross_market_resolution_registry_canonical_sha256",
-        "price_input_canonical_sha256",
         "capture_id",
     ):
         _require_sha(row.get(field_name), f"holdout.{field_name}")
-    per_stock_price_sha = _parse_price_stock_sha_set(row)
+    try:
+        _parse_price_stock_sha_set(row)
+    except RuntimeError as exc:
+        if diagnostics is not None:
+            diagnostics.append(
+                "legacy prepared-frame price lineage is malformed; diagnostic "
+                f"only: {exc}"
+            )
+    per_stock_price_sha = _parse_price_semantic_projection_stock_sha_set(row)
     projected_count = _strict_nonnegative_int(
         row.get("training_source_projected_episode_row_count"),
         "holdout.training_source_projected_episode_row_count",
@@ -2498,8 +2735,12 @@ def _validate_holdout_manifest_lineage(
         "preregistration_merge_commit": PREREGISTRATION_MERGE_COMMIT,
         "observed_through_date": observed_through,
         "source_detail_canonical_sha256": expected_source_legacy_sha,
-        "price_input_canonical_sha256": safe_str(
-            row.get("price_input_canonical_sha256")
+        "price_semantic_projection_version": PRICE_SEMANTIC_PROJECTION_VERSION,
+        "price_semantic_projection_schema_sha256": (
+            PRICE_SEMANTIC_PROJECTION_SCHEMA_SHA256
+        ),
+        "price_semantic_projection_canonical_sha256": safe_str(
+            row.get("price_semantic_projection_canonical_sha256")
         ),
         **{
             field_name: safe_str(row.get(field_name))
@@ -2552,6 +2793,12 @@ def _validate_holdout_manifest_lineage(
         "return_outcome",
         "primary_metric_included",
         "event_row_canonical_sha256",
+        "price_input_canonical_sha256",
+        "price_semantic_projection_version",
+        "price_semantic_projection_schema_sha256",
+        "price_semantic_projection_canonical_sha256",
+        "data_contract_version",
+        "data_contract_sha256",
         "financial_statement_scope",
         "research_only",
         *HOLDOUT_FALSE_FIELDS,
@@ -2562,6 +2809,15 @@ def _validate_holdout_manifest_lineage(
         "model_id": MODEL_ID,
         "artifact_id": REVENUE_FORWARD_HOLDOUT_V2_ARTIFACT_ID,
         "artifact_version": REVENUE_FORWARD_HOLDOUT_V2_ARTIFACT_VERSION,
+        "price_semantic_projection_version": PRICE_SEMANTIC_PROJECTION_VERSION,
+        "price_semantic_projection_schema_sha256": (
+            PRICE_SEMANTIC_PROJECTION_SCHEMA_SHA256
+        ),
+        "price_semantic_projection_canonical_sha256": safe_str(
+            row.get("price_semantic_projection_canonical_sha256")
+        ),
+        "data_contract_version": DATA_CONTRACT_VERSION,
+        "data_contract_sha256": DATA_CONTRACT_SHA256,
         "financial_statement_scope": REVENUE_HOLDOUT_FINANCIAL_STATEMENT_SCOPE,
     }.items():
         if not detail[field_name].astype(str).eq(expected).all():
@@ -2622,7 +2878,9 @@ def _validate_holdout_manifest_lineage(
         detail,
         observed_through=observed_through,
         registered_prices=registered_prices,
-        manifest_price_sha=safe_str(row.get("price_input_canonical_sha256")),
+        manifest_price_projection_sha=safe_str(
+            row.get("price_semantic_projection_canonical_sha256")
+        ),
     )
     _validate_detail_source_asof_against_replay(
         detail,
@@ -2842,7 +3100,12 @@ def validate_revenue_readiness_exact_replay(
         forward_holdout_v2_manifest,
         {
             "observed_through_date",
-            "price_input_stock_canonical_sha256s",
+            "data_contract_version",
+            "data_contract_sha256",
+            "price_semantic_projection_version",
+            "price_semantic_projection_schema_sha256",
+            "price_semantic_projection_stock_canonical_sha256s",
+            "price_semantic_projection_canonical_sha256",
         },
         FORWARD_HOLDOUT_V2_MANIFEST_REL,
     )
@@ -2862,7 +3125,9 @@ def validate_revenue_readiness_exact_replay(
             row.get("observed_through_date"),
             "holdout.observed_through_date",
         ),
-        per_stock_manifest_sha=_parse_price_stock_sha_set(row),
+        per_stock_manifest_sha=(
+            _parse_price_semantic_projection_stock_sha_set(row)
+        ),
     )
 
 
