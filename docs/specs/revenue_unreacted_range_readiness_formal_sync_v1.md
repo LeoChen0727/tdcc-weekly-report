@@ -129,8 +129,14 @@ surfaces in the detached worktree. The child's result is a single versioned
 JSON attestation containing exact
 commit/tree/runtime identity, five-frame canonical promotion-semantic
 hashes/counts, capture identity, full replay-source promotion-semantic SHA, and
-complete per-stock/aggregate price lineage. Protocol v2 defines its canonical
-frame hashes as this promotion projection rather than raw envelope identity.
+the complete per-stock/aggregate canonical raw-price projection lineage.
+Protocol v3 binds the readiness consumer to
+`revenue_low_mid_falling_forward_holdout_data_v3_20260829`, its canonical data
+contract SHA, the registered projection version/schema/column order/decimal
+scale, and the projection aggregate/per-stock hashes and counts. The five frame
+hashes exclude only registered transport provenance, legacy envelopes, and the
+legacy whole prepared-frame digests; every canonical business/output field,
+including the raw-price projection fields, remains a hard exact-replay gate.
 Cache identity is
 limited to the exact protocol, commit, tree, and runtime within one process.
 Regardless of replay reads, the workflow output allowlist remains exactly the
@@ -168,8 +174,11 @@ uses one no-replacement `git cat-file --batch` process, requires an exact blob
 response for every safe registered path, and requires every worktree price CSV
 to have the same canonical CSV semantics as its committed blob; CRLF-only byte drift is
 diagnostic-neutral while any date or cell change fails. It does not claim to
-rebuild or re-hash the producer's 108-column prepared per-stock frame. That
-manifest full-frame SHA contract remains a hard check in the single writer
+rebuild or re-hash the producer's legacy whole prepared per-stock frame. The
+legacy prepared-frame aggregate/per-stock digests, raw blob identity, and
+line-ending identity remain provenance diagnostics and cannot block promotion.
+The versioned fixed-scale canonical raw-price projection and all five exact
+output-frame promotion-semantic hashes remain hard checks in the single writer
 pre-write exact replay. These cheap checks must not launch the exact replay
 child. The readiness
 validator is not independent promotion evidence and does not re-prove canonical

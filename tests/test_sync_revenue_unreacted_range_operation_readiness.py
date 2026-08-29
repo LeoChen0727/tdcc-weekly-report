@@ -32,7 +32,9 @@ _BASELINE_SOURCE = syncer._normalize_replay_source(_BASELINE_REPLAY)
 _BASELINE_STOCK_IDS = {
     syncer._stock_id(value) for value in _BASELINE_SOURCE["stock_id"]
 }
-_BASELINE_PRICE_SHA = syncer._parse_price_stock_sha_set(_BASELINE_MANIFEST_ROW)
+_BASELINE_PRICE_SHA = syncer._parse_price_semantic_projection_stock_sha_set(
+    _BASELINE_MANIFEST_ROW
+)
 
 
 def test_canonical_anomaly_gate_requires_isolated_exact_pass_protocol(
@@ -451,17 +453,44 @@ def exact_attestation(
 ) -> dict[str, object]:
     row = manifest.iloc[0]
     return {
+        "data_contract_version": row["data_contract_version"],
+        "data_contract_sha256": row["data_contract_sha256"],
         "source_detail_promotion_semantic_sha256": (
             syncer._promotion_semantic_source_sha256(replay_source)
         ),
-        "price_input_canonical_sha256": row[
-            "price_input_canonical_sha256"
+        "price_semantic_projection_version": row[
+            "price_semantic_projection_version"
         ],
-        "price_input_stock_canonical_sha256s": (
-            syncer._parse_price_stock_sha_set(row)
+        "price_semantic_projection_schema_sha256": row[
+            "price_semantic_projection_schema_sha256"
+        ],
+        "price_semantic_projection_columns": row[
+            "price_semantic_projection_columns"
+        ],
+        "price_semantic_projection_decimal_scale": int(
+            row["price_semantic_projection_decimal_scale"]
         ),
-        "price_input_stock_count": row["price_input_stock_count"],
-        "price_input_row_count": row["price_input_row_count"],
+        "price_semantic_projection_canonical_sha256": row[
+            "price_semantic_projection_canonical_sha256"
+        ],
+        "price_semantic_projection_stock_canonical_sha256s": (
+            syncer._parse_price_semantic_projection_stock_sha_set(row)
+        ),
+        "price_semantic_projection_stock_count": row[
+            "price_semantic_projection_stock_count"
+        ],
+        "price_semantic_projection_row_count": row[
+            "price_semantic_projection_row_count"
+        ],
+        "price_semantic_projection_role": row[
+            "price_semantic_projection_role"
+        ],
+        "price_semantic_projection_migration_id": row[
+            "price_semantic_projection_migration_id"
+        ],
+        "price_semantic_projection_authorization_reference": row[
+            "price_semantic_projection_authorization_reference"
+        ],
         "observed_through_date": row["observed_through_date"],
         "expected_manifest_canonical_sha256": (
             syncer._promotion_semantic_frame_sha256(
@@ -508,11 +537,34 @@ def exact_replay_protocol_payload(
         "tree_sha": tree_sha,
         "runtime_fingerprint": runtime_fingerprint,
         "capture_id": "f" * 64,
+        "data_contract_version": syncer.DATA_CONTRACT_VERSION,
+        "data_contract_sha256": syncer.DATA_CONTRACT_SHA256,
         "source_detail_promotion_semantic_sha256": "6" * 64,
-        "price_input_canonical_sha256": "9" * 64,
-        "price_input_stock_canonical_sha256s": {"2330": "8" * 64},
-        "price_input_stock_count": 1,
-        "price_input_row_count": 10,
+        "price_semantic_projection_version": (
+            syncer.PRICE_SEMANTIC_PROJECTION_VERSION
+        ),
+        "price_semantic_projection_schema_sha256": (
+            syncer.PRICE_SEMANTIC_PROJECTION_SCHEMA_SHA256
+        ),
+        "price_semantic_projection_columns": "|".join(
+            syncer.PRICE_SEMANTIC_PROJECTION_COLUMNS
+        ),
+        "price_semantic_projection_decimal_scale": (
+            syncer.PRICE_SEMANTIC_PROJECTION_DECIMAL_SCALE
+        ),
+        "price_semantic_projection_stock_canonical_sha256s": {
+            "2330": "8" * 64
+        },
+        "price_semantic_projection_canonical_sha256": "9" * 64,
+        "price_semantic_projection_stock_count": 1,
+        "price_semantic_projection_row_count": 10,
+        "price_semantic_projection_role": syncer.PRICE_SEMANTIC_PROJECTION_ROLE,
+        "price_semantic_projection_migration_id": (
+            syncer.PRICE_SEMANTIC_PROJECTION_MIGRATION_ID
+        ),
+        "price_semantic_projection_authorization_reference": (
+            syncer.PRICE_SEMANTIC_PROJECTION_AUTHORIZATION_REFERENCE
+        ),
         "observed_through_date": "20260828",
         "expected_manifest_canonical_sha256": "a" * 64,
         "expected_detail_canonical_sha256": "b" * 64,
@@ -1235,7 +1287,7 @@ def test_exact_replay_child_dependencies_and_execution_boundary_are_explicit() -
     assert '"from exact build: " + name' in source
     assert "promotion_semantic_source_sha256" in source
     assert "source_detail_promotion_semantic_sha256" in source
-    assert syncer.EXACT_REPLAY_PROTOCOL_VERSION.endswith("v2_20260829")
+    assert syncer.EXACT_REPLAY_PROTOCOL_VERSION.endswith("v3_20260829")
     assert source.count("validate_v1_exact17_freeze") >= 2
     assert "build_model_operation_readiness" not in source
     assert set(syncer.READINESS_MIRROR_RELS) == {
@@ -1290,6 +1342,14 @@ def test_exact_replay_child_promotion_projection_matches_parent() -> None:
             },
             False,
         ),
+        (
+            {
+                "price_input_canonical_sha256": "a" * 64,
+                "price_input_stock_canonical_sha256s": "2330:" + "b" * 64,
+            },
+            False,
+        ),
+        ({"price_semantic_projection_canonical_sha256": "e" * 64}, True),
         ({"monthly_revenue_canonical_table_sha256": "e" * 64}, True),
         ({"unregistered_semantic_column": "unexpected"}, True),
     )
@@ -1682,14 +1742,66 @@ def test_exact_replay_cache_binds_commit_tree_runtime_and_runs_child_once(
     assert child_calls == [head_sha]
 
 
-def test_full_v2_gate_rejects_bad_rule_canonical_sha() -> None:
+@pytest.mark.parametrize(
+    ("field_name", "forged_value", "expected_error"),
+    (
+        ("rule_canonical_sha256", "0" * 64, "rule_canonical_sha256 drift"),
+        ("data_contract_version", "legacy-v2", "data_contract_version drift"),
+        ("data_contract_sha256", "0" * 64, "data_contract_sha256 drift"),
+        (
+            "price_semantic_projection_version",
+            "legacy-prepared-frame",
+            "price_semantic_projection_version drift",
+        ),
+        (
+            "price_semantic_projection_schema_sha256",
+            "0" * 64,
+            "price_semantic_projection_schema_sha256 drift",
+        ),
+        (
+            "price_semantic_projection_canonical_sha256",
+            "0" * 64,
+            "placeholder SHA-256",
+        ),
+        (
+            "price_semantic_projection_columns",
+            "date|close",
+            "price_semantic_projection_columns drift",
+        ),
+        (
+            "price_semantic_projection_decimal_scale",
+            "7",
+            "price_semantic_projection_decimal_scale drift",
+        ),
+        (
+            "price_semantic_projection_role",
+            "diagnostic_only",
+            "price_semantic_projection_role drift",
+        ),
+        (
+            "price_semantic_projection_migration_id",
+            "unregistered",
+            "price_semantic_projection_migration_id drift",
+        ),
+        (
+            "price_semantic_projection_authorization_reference",
+            "missing",
+            "price_semantic_projection_authorization_reference drift",
+        ),
+    ),
+)
+def test_full_v2_gate_rejects_bad_rule_canonical_sha(
+    field_name: str,
+    forged_value: str,
+    expected_error: str,
+) -> None:
     promotion = pd.read_csv(ROOT / syncer.PROMOTION_REGISTRY_REL, dtype=str).fillna("")
     anomalies = pd.read_csv(ROOT / syncer.ANOMALY_REGISTRY_REL, dtype=str).fillna("")
     holdout = pd.read_csv(
         ROOT / syncer.FORWARD_HOLDOUT_V2_MANIFEST_REL, dtype=str
     ).fillna("")
-    holdout.loc[0, "rule_canonical_sha256"] = "0" * 64
-    with pytest.raises(RuntimeError, match="rule_canonical_sha256 drift"):
+    holdout.loc[0, field_name] = forged_value
+    with pytest.raises(RuntimeError, match=expected_error):
         syncer.summarize_revenue_promotion_readiness(
             promotion,
             anomalies,
@@ -1715,10 +1827,14 @@ def test_full_v2_gate_rejects_placeholder_per_stock_price_digest() -> None:
     holdout = pd.read_csv(
         ROOT / syncer.FORWARD_HOLDOUT_V2_MANIFEST_REL, dtype=str
     ).fillna("")
-    tokens = holdout.loc[0, "price_input_stock_canonical_sha256s"].split("|")
+    tokens = holdout.loc[
+        0, "price_semantic_projection_stock_canonical_sha256s"
+    ].split("|")
     first_stock = tokens[0].split(":", 1)[0]
     tokens[0] = f"{first_stock}:{'0' * 64}"
-    holdout.loc[0, "price_input_stock_canonical_sha256s"] = "|".join(tokens)
+    holdout.loc[
+        0, "price_semantic_projection_stock_canonical_sha256s"
+    ] = "|".join(tokens)
     with pytest.raises(RuntimeError, match="placeholder SHA-256"):
         syncer.summarize_revenue_promotion_readiness(
             promotion,
@@ -1737,6 +1853,35 @@ def test_full_v2_gate_rejects_placeholder_per_stock_price_digest() -> None:
                 ROOT / syncer.SOURCE_PROJECTION_MANIFEST_REL, dtype=str
             ).fillna(""),
         )
+
+    legacy_diagnostic_only = pd.read_csv(
+        ROOT / syncer.FORWARD_HOLDOUT_V2_MANIFEST_REL, dtype=str
+    ).fillna("")
+    legacy_diagnostic_only.loc[0, "price_input_canonical_sha256"] = "malformed"
+    legacy_diagnostic_only.loc[
+        0, "price_input_stock_canonical_sha256s"
+    ] = "malformed"
+    legacy_diagnostic_only.loc[0, "price_input_stock_count"] = "malformed"
+    legacy_diagnostic_only.loc[0, "price_input_row_count"] = "malformed"
+    summary = syncer.summarize_revenue_promotion_readiness(
+        promotion,
+        anomalies,
+        legacy_diagnostic_only,
+        holdout_detail=pd.read_csv(
+            ROOT / syncer.FORWARD_HOLDOUT_V2_DETAIL_REL, dtype=str
+        ).fillna(""),
+        holdout_summary=pd.read_csv(
+            ROOT / syncer.FORWARD_HOLDOUT_V2_SUMMARY_REL, dtype=str
+        ).fillna(""),
+        replay_source=pd.read_csv(
+            ROOT / syncer.FORWARD_HOLDOUT_V2_REPLAY_SOURCE_REL, dtype=str
+        ).fillna(""),
+        source_projection_manifest=pd.read_csv(
+            ROOT / syncer.SOURCE_PROJECTION_MANIFEST_REL, dtype=str
+        ).fillna(""),
+    )
+    assert summary["formal_model_use_allowed"] == "False"
+    assert summary["production_allowed"] == "False"
 
 
 def test_full_v2_gate_rejects_self_consistent_forged_mature_row_before_d30(
@@ -1794,8 +1939,14 @@ def test_full_v2_gate_rejects_self_consistent_forged_mature_row_before_d30(
         "source_detail_canonical_sha256": manifest_row[
             "source_detail_canonical_sha256"
         ],
-        "price_input_canonical_sha256": manifest_row[
-            "price_input_canonical_sha256"
+        "price_semantic_projection_version": (
+            syncer.PRICE_SEMANTIC_PROJECTION_VERSION
+        ),
+        "price_semantic_projection_schema_sha256": (
+            syncer.PRICE_SEMANTIC_PROJECTION_SCHEMA_SHA256
+        ),
+        "price_semantic_projection_canonical_sha256": manifest_row[
+            "price_semantic_projection_canonical_sha256"
         ],
         **{
             field_name: manifest_row[field_name]
@@ -1972,6 +2123,13 @@ def test_registered_price_gate_recomputes_mature_exit_and_realized_return() -> N
     )
     event = {
         "price_input_canonical_sha256": "a" * 64,
+        "price_semantic_projection_version": (
+            syncer.PRICE_SEMANTIC_PROJECTION_VERSION
+        ),
+        "price_semantic_projection_schema_sha256": (
+            syncer.PRICE_SEMANTIC_PROJECTION_SCHEMA_SHA256
+        ),
+        "price_semantic_projection_canonical_sha256": "b" * 64,
         "holding_days": "30",
         "holding_session_index_offset": "29",
         "stock_id": "2330",
@@ -2005,7 +2163,7 @@ def test_registered_price_gate_recomputes_mature_exit_and_realized_return() -> N
         detail,
         observed_through=dates[-1],
         registered_prices={"2330": price},
-        manifest_price_sha="a" * 64,
+        manifest_price_projection_sha="b" * 64,
     )
 
     forged_return = detail.copy()
@@ -2015,7 +2173,7 @@ def test_registered_price_gate_recomputes_mature_exit_and_realized_return() -> N
             forged_return,
             observed_through=dates[-1],
             registered_prices={"2330": price},
-            manifest_price_sha="a" * 64,
+            manifest_price_projection_sha="b" * 64,
         )
 
     invalid_confirmation_price = price.copy()
@@ -2027,7 +2185,7 @@ def test_registered_price_gate_recomputes_mature_exit_and_realized_return() -> N
             invalid_confirmation_detail,
             observed_through=dates[-1],
             registered_prices={"2330": invalid_confirmation_price},
-            manifest_price_sha="a" * 64,
+            manifest_price_projection_sha="b" * 64,
         )
 
 
@@ -2111,6 +2269,12 @@ def test_exact_replay_attestation_rejects_event_set_mutations(
     provenance_manifest.loc[0, "monthly_revenue_history_blob_sha256"] = "4" * 64
     provenance_manifest.loc[0, "source_detail_canonical_sha256"] = "5" * 64
     provenance_manifest.loc[0, "capture_id"] = "6" * 64
+    provenance_manifest.loc[0, "price_input_canonical_sha256"] = "diagnostic-only"
+    provenance_manifest.loc[0, "price_input_stock_canonical_sha256s"] = (
+        "malformed-diagnostic-only"
+    )
+    provenance_manifest.loc[0, "price_input_stock_count"] = "diagnostic-only"
+    provenance_manifest.loc[0, "price_input_row_count"] = "diagnostic-only"
     provenance_detail.loc[0, "monthly_revenue_history_blob_sha256"] = "4" * 64
     provenance_detail.loc[0, "source_detail_canonical_sha256"] = "5" * 64
     provenance_detail.loc[0, "capture_id"] = "6" * 64
@@ -2126,7 +2290,7 @@ def test_exact_replay_attestation_rejects_event_set_mutations(
         summary=provenance_summary,
         replay_source=provenance_replay_source,
         observed_through=provenance_manifest.loc[0, "observed_through_date"],
-        per_stock_manifest_sha=syncer._parse_price_stock_sha_set(
+        per_stock_manifest_sha=syncer._parse_price_semantic_projection_stock_sha_set(
             provenance_manifest.iloc[0]
         ),
     )
@@ -2146,7 +2310,7 @@ def test_exact_replay_attestation_rejects_event_set_mutations(
             observed_through=hard_semantic_manifest.loc[
                 0, "observed_through_date"
             ],
-            per_stock_manifest_sha=syncer._parse_price_stock_sha_set(
+            per_stock_manifest_sha=syncer._parse_price_semantic_projection_stock_sha_set(
                 hard_semantic_manifest.iloc[0]
             ),
         )
@@ -2172,7 +2336,7 @@ def test_exact_replay_attestation_rejects_event_set_mutations(
             summary=summary,
             replay_source=replay_source,
             observed_through=manifest.loc[0, "observed_through_date"],
-            per_stock_manifest_sha=syncer._parse_price_stock_sha_set(
+            per_stock_manifest_sha=syncer._parse_price_semantic_projection_stock_sha_set(
                 manifest.iloc[0]
             ),
         )
@@ -2271,7 +2435,15 @@ def test_cheap_replay_source_rejects_invalid_pit_or_row_hash_format(
         "preregistration_merge_commit": syncer.PREREGISTRATION_MERGE_COMMIT,
         "observed_through_date": row["observed_through_date"],
         "source_detail_canonical_sha256": row["source_detail_canonical_sha256"],
-        "price_input_canonical_sha256": row["price_input_canonical_sha256"],
+        "price_semantic_projection_version": (
+            syncer.PRICE_SEMANTIC_PROJECTION_VERSION
+        ),
+        "price_semantic_projection_schema_sha256": (
+            syncer.PRICE_SEMANTIC_PROJECTION_SCHEMA_SHA256
+        ),
+        "price_semantic_projection_canonical_sha256": row[
+            "price_semantic_projection_canonical_sha256"
+        ],
         **{field_name: row[field_name] for field_name in syncer.MONTHLY_LINEAGE_COLUMNS},
         "training_source_projection_semantic_sha256": (
             syncer.PROJECTED_EPISODE_SEMANTIC_SHA256
