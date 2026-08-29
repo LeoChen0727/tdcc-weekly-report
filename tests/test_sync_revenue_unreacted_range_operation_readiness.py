@@ -34,44 +34,65 @@ _BASELINE_STOCK_IDS = {
 _BASELINE_PRICE_SHA = syncer._parse_price_stock_sha_set(_BASELINE_MANIFEST_ROW)
 
 
-def test_committed_anomaly_closure_raw_diagnostics_are_nonblocking(
+def test_canonical_anomaly_gate_requires_isolated_exact_pass_protocol(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    logical_path = syncer.REVENUE_ANOMALY_REPAIR_CLOSURE_PATH.as_posix()
-    original = (ROOT / logical_path).read_bytes()
-    committed_raw_only_mutation = original.replace(
-        b"4eba010d3afeb2b50f3b6e88a60fb699bfad9d34b1e991c0cc8b898775b1231f",
-        b"0" * 64,
+    observed: dict[str, object] = {}
+
+    def completed(command: list[str], **kwargs: object) -> SimpleNamespace:
+        observed["command"] = command
+        observed["kwargs"] = kwargs
+        return SimpleNamespace(
+            returncode=0,
+            stdout=(
+                "PASS: revenue_unreacted_range anomaly dispositions validated; "
+                "rows=9; effective_blockers=0; verified_real_extreme=8; "
+                "verified_data_error_repaired=1; "
+                "raw-byte and line-ending identities=diagnostic-only\n"
+            ),
+            stderr="",
+        )
+
+    monkeypatch.setattr(syncer.subprocess, "run", completed)
+    result = syncer.validate_current_anomaly_dispositions(
+        ROOT,
+        require_effective_nonblocking=True,
     )
-    monkeypatch.setattr(
-        syncer,
-        "_git_blob",
-        lambda _repo, _logical_path: committed_raw_only_mutation,
-    )
 
-    diagnostic = syncer._committed_anomaly_dependency(ROOT, logical_path)
-
-    assert diagnostic is not None
-    assert "diagnostic only" in diagnostic
+    assert result.errors == ()
+    assert observed["command"][:3] == [sys.executable, "-I", "-B"]
+    assert observed["command"][-1] == "--require-effective-nonblocking"
+    assert observed["kwargs"]["timeout"] == 300
 
 
-def test_committed_anomaly_closure_canonical_row_tamper_fails(
+@pytest.mark.parametrize(
+    ("stdout", "stderr", "expected"),
+    [
+        ("unexpected success\n", "", "unknown output"),
+        ("", "unexpected stderr", "emitted stderr"),
+    ],
+)
+def test_canonical_anomaly_gate_rejects_nonprotocol_success(
     monkeypatch: pytest.MonkeyPatch,
+    stdout: str,
+    stderr: str,
+    expected: str,
 ) -> None:
-    logical_path = syncer.REVENUE_ANOMALY_REPAIR_CLOSURE_PATH.as_posix()
-    original = (ROOT / logical_path).read_bytes()
-    committed_semantic_mutation = original.replace(
-        b"1cb88da0fb389f1e4775c6ae2c05d1c4813d7c584e9e2fc0ba7183d4bf7e1e71",
-        b"0" * 64,
-    )
     monkeypatch.setattr(
-        syncer,
-        "_git_blob",
-        lambda _repo, _logical_path: committed_semantic_mutation,
+        syncer.subprocess,
+        "run",
+        lambda *_args, **_kwargs: SimpleNamespace(
+            returncode=0,
+            stdout=stdout,
+            stderr=stderr,
+        ),
+    )
+    result = syncer.validate_current_anomaly_dispositions(
+        ROOT,
+        require_effective_nonblocking=True,
     )
 
-    with pytest.raises(RuntimeError, match="semantic drift from HEAD"):
-        syncer._committed_anomaly_dependency(ROOT, logical_path)
+    assert any(expected in error for error in result.errors)
 
 
 @pytest.fixture(autouse=True)

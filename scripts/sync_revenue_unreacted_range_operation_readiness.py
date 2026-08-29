@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 from bisect import bisect_left
 import csv
+from dataclasses import dataclass
 from decimal import Decimal, InvalidOperation
 import hashlib
 import importlib.metadata
@@ -23,26 +24,16 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from tracking_utils import markdown_table, now_text, safe_str  # noqa: E402
-from validate_revenue_unreacted_range_anomaly_dispositions import (  # noqa: E402
-    EXPECTED_CASES as REVENUE_ANOMALY_EXPECTED_CASES,
-    LEGACY_V2_REGISTRY_PATH as REVENUE_ANOMALY_LEGACY_V2_REGISTRY_PATH,
-    MIGRATION_PATH as REVENUE_ANOMALY_MIGRATION_PATH,
-    REPAIR_CLOSURE_PATH as REVENUE_ANOMALY_REPAIR_CLOSURE_PATH,
-    REGISTRY_PATH as REVENUE_ANOMALY_REGISTRY_PATH,
-    REGISTRY_PROVENANCE_COLUMNS as REVENUE_ANOMALY_PROVENANCE_COLUMNS,
-    REPAIR_CLOSURE_PROVENANCE_COLUMNS as REVENUE_ANOMALY_REPAIR_PROVENANCE_COLUMNS,
-    V3_CANDIDATE_DETAIL_PATH as REVENUE_ANOMALY_V3_CANDIDATE_DETAIL_PATH,
-    V3_CANDIDATE_SUMMARY_PATH as REVENUE_ANOMALY_V3_CANDIDATE_SUMMARY_PATH,
-    _is_transport_provenance_name as revenue_anomaly_is_transport_provenance_name,
-    artifact_bytes_semantic_sha256 as revenue_anomaly_artifact_bytes_semantic_sha256,
-    csv_bytes_semantic_sha256 as revenue_anomaly_csv_semantic_sha256,
-    evidence_canonical_sha256 as revenue_anomaly_evidence_canonical_sha256,
-    validate_bundle as validate_current_anomaly_dispositions,
-)
 
 
 MODEL_ID = "revenue_unreacted_range"
 REVENUE_MODEL_ID = MODEL_ID
+REVENUE_ANOMALY_VALIDATOR_REL = (
+    "scripts/validate_revenue_unreacted_range_anomaly_dispositions.py"
+)
+REVENUE_ANOMALY_REGISTRY_PATH = Path(
+    "config/revenue_unreacted_range_anomaly_disposition_registry_v3_20260829.csv"
+)
 REVENUE_EXPECTED_PROMOTION_DECISION = {
     "contract_version": (
         "revenue_unreacted_range_promotion_preparation_contract_v5_20260829"
@@ -193,27 +184,6 @@ MONTHLY_REVENUE_CROSS_MARKET_RESOLUTION_REL = (
 )
 PRICE_RESOLUTION_REL = (
     "config/revenue_unreacted_range_price_comparability_resolution.csv"
-)
-ANOMALY_EVIDENCE_RELS = tuple(
-    sorted(case.evidence_path for case in REVENUE_ANOMALY_EXPECTED_CASES.values())
-)
-ANOMALY_PRICE_EVIDENCE_RELS = tuple(
-    sorted(
-        f"{PRICE_HISTORY_DIR_REL}/{stock_id}.csv"
-        for stock_id in {
-            case.stock_id for case in REVENUE_ANOMALY_EXPECTED_CASES.values()
-        }
-    )
-)
-ANOMALY_BUNDLE_DEPENDENCY_RELS = (
-    REVENUE_ANOMALY_LEGACY_V2_REGISTRY_PATH.as_posix(),
-    REVENUE_ANOMALY_MIGRATION_PATH.as_posix(),
-    REVENUE_ANOMALY_REPAIR_CLOSURE_PATH.as_posix(),
-    REVENUE_ANOMALY_V3_CANDIDATE_SUMMARY_PATH.as_posix(),
-    REVENUE_ANOMALY_V3_CANDIDATE_DETAIL_PATH.as_posix(),
-    MONTHLY_REVENUE_HISTORY_REL,
-    *ANOMALY_EVIDENCE_RELS,
-    *ANOMALY_PRICE_EVIDENCE_RELS,
 )
 CANONICAL_SOURCE_RELS = (
     PROMOTION_REGISTRY_REL,
@@ -447,6 +417,7 @@ def _is_transport_provenance_column(column: object) -> bool:
     return (
         normalized == "generated_at"
         or normalized.startswith("raw_")
+        or "raw_file_sha" in normalized
         or "blob_sha256" in normalized
         or "byte_sha256" in normalized
         or "bytes_sha256" in normalized
@@ -3026,6 +2997,148 @@ def _validated_revenue_promotion_row(
     return promotion, minimum_mature, candidate_count
 
 
+@dataclass(frozen=True)
+class CanonicalAnomalyValidationResult:
+    rows: dict[str, dict[str, str]]
+    row_count: int
+    effective_blocker_count: int
+    verified_real_extreme_count: int
+    verified_data_error_repaired_count: int
+    errors: tuple[str, ...]
+    diagnostics: tuple[str, ...]
+
+
+def validate_current_anomaly_dispositions(
+    repo_root: Path | str,
+    *,
+    require_effective_nonblocking: bool,
+) -> CanonicalAnomalyValidationResult:
+    """Run the research-owner canonical gate without importing its semantics."""
+
+    if not require_effective_nonblocking:
+        raise RuntimeError(
+            "readiness must invoke the canonical anomaly gate in effective-nonblocking mode"
+        )
+    repo = Path(repo_root).resolve()
+    validator = (repo / REVENUE_ANOMALY_VALIDATOR_REL).resolve()
+    try:
+        validator.relative_to(repo)
+    except ValueError as exc:
+        raise RuntimeError("canonical anomaly validator escapes repository root") from exc
+    if not validator.is_file():
+        raise RuntimeError(
+            f"missing canonical anomaly validator: {REVENUE_ANOMALY_VALIDATOR_REL}"
+        )
+    command = [
+        sys.executable,
+        "-I",
+        "-B",
+        str(validator),
+        "--repo-root",
+        str(repo),
+        "--require-effective-nonblocking",
+    ]
+    try:
+        completed = subprocess.run(
+            command,
+            cwd=repo,
+            check=False,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+            timeout=300,
+        )
+    except subprocess.TimeoutExpired as exc:
+        raise RuntimeError("canonical anomaly validator timed out") from exc
+    except OSError as exc:
+        raise RuntimeError("canonical anomaly validator could not start") from exc
+    stdout_lines = [line.strip() for line in completed.stdout.splitlines() if line.strip()]
+    diagnostics = tuple(
+        line.removeprefix("DIAGNOSTIC:").strip()
+        for line in stdout_lines
+        if line.startswith("DIAGNOSTIC:")
+    )
+    errors: list[str] = [
+        line.removeprefix("ERROR:").strip()
+        for line in stdout_lines
+        if line.startswith("ERROR:")
+    ]
+    pass_pattern = re.compile(
+        r"^PASS: revenue_unreacted_range anomaly dispositions validated; "
+        r"rows=(?P<rows>\d+); effective_blockers=(?P<blockers>\d+); "
+        r"verified_real_extreme=(?P<real>\d+); "
+        r"verified_data_error_repaired=(?P<repaired>\d+); "
+        r"raw-byte and line-ending identities=diagnostic-only$"
+    )
+    pass_matches = [
+        match for line in stdout_lines if (match := pass_pattern.fullmatch(line))
+    ]
+    unknown_lines = [
+        line
+        for line in stdout_lines
+        if not line.startswith("DIAGNOSTIC:")
+        and not line.startswith("ERROR:")
+        and pass_pattern.fullmatch(line) is None
+    ]
+    if unknown_lines:
+        errors.append(
+            "canonical anomaly validator emitted unknown output: "
+            + " | ".join(unknown_lines)
+        )
+    if completed.stderr.strip():
+        errors.append(
+            "canonical anomaly validator emitted stderr: " + completed.stderr.strip()
+        )
+    if completed.returncode:
+        detail = completed.stdout.strip()
+        errors.append(
+            f"canonical revenue anomaly disposition gate failed with exit "
+            f"{completed.returncode}" + (f": {detail}" if detail else "")
+        )
+    if completed.returncode == 0 and len(pass_matches) != 1:
+        errors.append("canonical anomaly validator PASS protocol missing or duplicated")
+
+    row_count = blocker_count = real_count = repaired_count = 0
+    if len(pass_matches) == 1:
+        match = pass_matches[0]
+        row_count = int(match.group("rows"))
+        blocker_count = int(match.group("blockers"))
+        real_count = int(match.group("real"))
+        repaired_count = int(match.group("repaired"))
+
+    rows: dict[str, dict[str, str]] = {}
+    registry = repo / REVENUE_ANOMALY_REGISTRY_PATH
+    try:
+        frame = pd.read_csv(registry, dtype=str).fillna("")
+        if "operation_key" not in frame.columns:
+            raise RuntimeError("canonical anomaly registry missing operation_key")
+        if frame["operation_key"].astype(str).duplicated().any():
+            raise RuntimeError("canonical anomaly registry contains duplicate operation_key")
+        rows = {
+            safe_str(row["operation_key"]): {
+                str(key): safe_str(value) for key, value in row.items()
+            }
+            for row in frame.to_dict(orient="records")
+        }
+    except (OSError, ValueError, RuntimeError) as exc:
+        errors.append(str(exc))
+    if len(rows) != row_count:
+        errors.append(
+            "canonical anomaly validator protocol row count disagrees with registry"
+        )
+    return CanonicalAnomalyValidationResult(
+        rows=rows,
+        row_count=row_count,
+        effective_blocker_count=blocker_count,
+        verified_real_extreme_count=real_count,
+        verified_data_error_repaired_count=repaired_count,
+        errors=tuple(errors),
+        diagnostics=diagnostics,
+    )
+
+
 def summarize_revenue_promotion_readiness(
     promotion_registry: pd.DataFrame,
     anomaly_registry: pd.DataFrame,
@@ -3071,7 +3184,7 @@ def summarize_revenue_promotion_readiness(
         )
     if diagnostics is not None:
         diagnostics.extend(anomaly_result.diagnostics)
-    if candidate_count != len(anomaly_result.current_anomaly_keys):
+    if candidate_count != anomaly_result.verified_real_extreme_count:
         raise RuntimeError(
             "revenue promotion current anomaly count disagrees with canonical gate"
         )
@@ -3079,7 +3192,7 @@ def summarize_revenue_promotion_readiness(
         row.get("final_disposition") == "unresolved_anomaly_candidate"
         for row in anomaly_result.rows.values()
     )
-    blocking_anomaly_count = len(anomaly_result.effective_blockers)
+    blocking_anomaly_count = anomaly_result.effective_blocker_count
     expected_adapter_gate = REVENUE_EXPECTED_PROMOTION_DECISION[
         "formal_adapter_gate"
     ]
@@ -3293,19 +3406,18 @@ def _committed_semantic_source(
         raise RuntimeError(f"missing readiness sync source {logical_path}: {exc}") from exc
     committed_data = _git_blob(repo, logical_path)
     if logical_path == ANOMALY_REGISTRY_REL:
-        try:
-            worktree_semantic = revenue_anomaly_csv_semantic_sha256(
+        worktree_semantic = hashlib.sha256(
+            _canonical_csv_excluding_transport_provenance(
                 worktree_data,
-                excluded_columns=REVENUE_ANOMALY_PROVENANCE_COLUMNS,
-                source_name=logical_path,
+                logical_path,
             )
-            committed_semantic = revenue_anomaly_csv_semantic_sha256(
+        ).hexdigest()
+        committed_semantic = hashlib.sha256(
+            _canonical_csv_excluding_transport_provenance(
                 committed_data,
-                excluded_columns=REVENUE_ANOMALY_PROVENANCE_COLUMNS,
-                source_name=f"HEAD:{logical_path}",
+                f"HEAD:{logical_path}",
             )
-        except ValueError as exc:
-            raise RuntimeError(str(exc)) from exc
+        ).hexdigest()
         if worktree_semantic != committed_semantic:
             raise RuntimeError(
                 f"readiness sync source has semantic drift from HEAD: {logical_path}"
@@ -3374,85 +3486,6 @@ def _committed_semantic_source(
             f"raw-byte diagnostic only (canonical semantics match HEAD): {logical_path}"
         )
     return committed_data, diagnostic
-
-
-def _committed_anomaly_dependency(
-    repo: Path,
-    logical_path: str,
-) -> str | None:
-    path = repo / logical_path
-    try:
-        worktree_data = path.read_bytes()
-    except OSError as exc:
-        raise RuntimeError(
-            f"missing canonical anomaly dependency {logical_path}: {exc}"
-        ) from exc
-    committed_data = _git_blob(repo, logical_path)
-
-    try:
-        if logical_path in ANOMALY_EVIDENCE_RELS:
-            worktree_document = json.loads(worktree_data.decode("utf-8-sig"))
-            committed_document = json.loads(committed_data.decode("utf-8-sig"))
-            worktree_semantic = revenue_anomaly_evidence_canonical_sha256(
-                worktree_document
-            )
-            committed_semantic = revenue_anomaly_evidence_canonical_sha256(
-                committed_document
-            )
-        elif logical_path in {
-            REVENUE_ANOMALY_V3_CANDIDATE_SUMMARY_PATH.as_posix(),
-            REVENUE_ANOMALY_V3_CANDIDATE_DETAIL_PATH.as_posix(),
-        }:
-            worktree_semantic = revenue_anomaly_artifact_bytes_semantic_sha256(
-                worktree_data,
-                source_name=logical_path,
-            )
-            committed_semantic = revenue_anomaly_artifact_bytes_semantic_sha256(
-                committed_data,
-                source_name=f"HEAD:{logical_path}",
-            )
-        else:
-            fieldnames, _rows = _parse_csv_bytes(worktree_data, logical_path)
-            excluded = frozenset(
-                field_name
-                for field_name in fieldnames
-                if revenue_anomaly_is_transport_provenance_name(field_name)
-            )
-            if logical_path in {
-                REVENUE_ANOMALY_LEGACY_V2_REGISTRY_PATH.as_posix(),
-                REVENUE_ANOMALY_REGISTRY_PATH.as_posix(),
-            }:
-                excluded = frozenset(
-                    {*excluded, *REVENUE_ANOMALY_PROVENANCE_COLUMNS}
-                )
-            if logical_path == REVENUE_ANOMALY_REPAIR_CLOSURE_PATH.as_posix():
-                excluded = frozenset(
-                    {*excluded, *REVENUE_ANOMALY_REPAIR_PROVENANCE_COLUMNS}
-                )
-            worktree_semantic = revenue_anomaly_csv_semantic_sha256(
-                worktree_data,
-                excluded_columns=excluded,
-                source_name=logical_path,
-            )
-            committed_semantic = revenue_anomaly_csv_semantic_sha256(
-                committed_data,
-                excluded_columns=excluded,
-                source_name=f"HEAD:{logical_path}",
-            )
-    except (UnicodeDecodeError, json.JSONDecodeError, RuntimeError, ValueError) as exc:
-        raise RuntimeError(
-            f"malformed canonical anomaly dependency {logical_path}: {exc}"
-        ) from exc
-    if worktree_semantic != committed_semantic:
-        raise RuntimeError(
-            f"readiness anomaly dependency has semantic drift from HEAD: {logical_path}"
-        )
-    if worktree_data != committed_data:
-        return (
-            "raw-byte, CRLF, or transport-provenance diagnostic only "
-            f"(canonical semantics match HEAD): {logical_path}"
-        )
-    return None
 
 
 def _bulk_committed_registered_price_sources(
@@ -3694,11 +3727,6 @@ def load_committed_inputs(
         committed[OUT_MD_REL], OUT_MD_REL
     ) != _canonical_markdown(committed[DOCS_MD_REL], DOCS_MD_REL):
         raise RuntimeError("committed output/docs readiness Markdown mirrors differ")
-
-    for logical_path in ANOMALY_BUNDLE_DEPENDENCY_RELS:
-        diagnostic = _committed_anomaly_dependency(repo, logical_path)
-        if diagnostic:
-            diagnostics.append(diagnostic)
 
     base = _frame_from_csv_bytes(committed[OUT_CSV_REL], OUT_CSV_REL)
     validate_markdown_status_table_matches_csv(
