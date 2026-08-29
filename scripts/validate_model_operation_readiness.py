@@ -40,11 +40,9 @@ from sync_revenue_unreacted_range_operation_readiness import (  # noqa: E402
     REVENUE_FORWARD_HOLDOUT_V2_REPLAY_SOURCE_CSV,
     REVENUE_FORWARD_HOLDOUT_V2_SUMMARY_CSV,
     REVENUE_MODEL_ID,
-    REVENUE_PROMOTION_DECISION_V5,
     REVENUE_PROMOTION_REGISTRY_CSV,
     REVENUE_SOURCE_PROJECTION_MANIFEST_CSV,
     summarize_revenue_promotion_readiness,
-    validate_exact_predecessor_readiness_mirrors,
     validate_revenue_readiness_source_files,
 )
 # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
@@ -222,43 +220,7 @@ def validate_revenue_readiness_row(
             errors.append(
                 f"{REVENUE_MODEL_ID} readiness {field_name} must be {wanted!r}, got {actual!r}"
             )
-    if not errors:
-        return []
-
-    promotion_rows = promotion_registry[
-        promotion_registry.get("model_id", pd.Series(dtype=str))
-        .astype(str)
-        .eq(REVENUE_MODEL_ID)
-    ]
-    latest_decision_id = (
-        str(promotion_rows.iloc[-1].get("decision_id", ""))
-        if not promotion_rows.empty
-        else ""
-    )
-    if latest_decision_id != REVENUE_PROMOTION_DECISION_V5:
-        return errors
-    try:
-        predecessor, _diagnostics = validate_exact_predecessor_readiness_mirrors(
-            REPO_ROOT
-        )
-    except RuntimeError as exc:
-        return [
-            *errors,
-            f"{REVENUE_MODEL_ID} exact predecessor bootstrap rejected: {exc}",
-        ]
-    actual_frame = readiness.fillna("").astype(str).reset_index(drop=True)
-    predecessor_frame = predecessor.fillna("").astype(str).reset_index(drop=True)
-    if list(actual_frame.columns) != list(predecessor_frame.columns) or not actual_frame.equals(
-        predecessor_frame
-    ):
-        return [
-            *errors,
-            f"{REVENUE_MODEL_ID} readiness differs from the exact pinned predecessor frame",
-        ]
-    # One-shot transition only: latest sources are exact v5, while the four
-    # committed mirrors are the exact pinned predecessor.  The artifact sync PR
-    # replaces these mirrors; a hardening PR then removes this bootstrap.
-    return []
+    return errors
 # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 
 

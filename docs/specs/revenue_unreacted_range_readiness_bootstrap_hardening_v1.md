@@ -97,3 +97,20 @@ blocked because the four mirrors still use the predecessor schema.
 The four readiness mirror files are immutable in this hardening PR. No
 production, Daily Full, PDF, packet, Apps Script, workflow dispatch, or formal
 operation directive is authorized by this contract.
+
+## V5 bootstrap retirement completion evidence
+
+The v2 formal-sync mechanism merged through PR `#631` at
+`6c6dc7b9f352415f7c13e0dd332abc5282227222`; post-merge revenue-only run
+`33261085880` succeeded. One-shot formal-sync run `33262394430` emitted direct
+child `209916db5c62bf9ec4e6c76de71442b42a9255ef`, changing exactly the four
+readiness mirrors. Artifact-only PR `#632` merged that child to `main` at
+`c37c805d1f7af3188096cfb25d5d3a0fe5836378`.
+
+The merged readiness row is the v5 disabled-adapter state with
+`forward_holdout_v2_mature=0/20` and all four formal permissions set to
+`False`. The transitional exact-predecessor constants, mirror validator,
+fallback acceptance path, and predecessor-only tests are therefore retired.
+Current readiness remains fail-closed through direct comparison with the
+model-owned promotion, anomaly, PIT/lineage, canonical-price, future-only
+holdout, and adapter sources.

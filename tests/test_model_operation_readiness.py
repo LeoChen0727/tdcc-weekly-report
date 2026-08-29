@@ -727,7 +727,7 @@ def test_revenue_readiness_fails_closed_until_v3_decision_v4_contract_is_latest(
         )
 
 
-def test_revenue_v5_validation_accepts_only_exact_pinned_predecessor_mirrors() -> None:
+def test_revenue_v5_validation_accepts_current_committed_readiness() -> None:
     readiness = pd.read_csv(
         ROOT / "output/latest/model_operation_readiness_latest.csv",
         dtype=str,
@@ -741,7 +741,7 @@ def test_revenue_v5_validation_accepts_only_exact_pinned_predecessor_mirrors() -
     ) == []
 
 
-def test_revenue_v5_predecessor_bootstrap_rejects_permission_drift() -> None:
+def test_revenue_v5_readiness_rejects_permission_drift() -> None:
     readiness = pd.read_csv(
         ROOT / "output/latest/model_operation_readiness_latest.csv",
         dtype=str,
@@ -756,23 +756,10 @@ def test_revenue_v5_predecessor_bootstrap_rejects_permission_drift() -> None:
         revenue_forward_holdout_v2_manifest_frame(),
     )
 
-    assert any("differs from the exact pinned predecessor frame" in error for error in errors)
-
-
-def test_revenue_predecessor_bootstrap_does_not_apply_when_latest_is_v4() -> None:
-    readiness = pd.read_csv(
-        ROOT / "output/latest/model_operation_readiness_latest.csv",
-        dtype=str,
-    ).fillna("")
-
-    errors = validate_revenue_readiness_row(
-        readiness,
-        revenue_promotion_registry_frame().iloc[:-1].copy(),
-        revenue_anomaly_registry_frame(),
-        revenue_forward_holdout_v2_manifest_frame(),
+    assert any(
+        "readiness production_allowed must be 'False', got 'True'" in error
+        for error in errors
     )
-
-    assert errors
 
 
 @pytest.mark.parametrize(
