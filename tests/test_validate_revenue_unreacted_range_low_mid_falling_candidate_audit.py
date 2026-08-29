@@ -22,6 +22,9 @@ import validate_revenue_unreacted_range_low_mid_falling_candidate_audit as valid
 
 GENERATED_AT = "2026-07-20 12:00:00 Asia/Taipei"
 TRIGGER_INDEX = 220
+V4_PROMOTION_DECISION_ID = (
+    "revenue_unreacted_range_source_mid_falling_promotion_preparation_v4_20260829"
+)
 
 
 def test_low_mid_versions_follow_rearmed_generation() -> None:
@@ -49,6 +52,79 @@ def test_low_mid_versions_follow_rearmed_generation() -> None:
         match="unsupported canonical source projection version",
     ):
         validator._version_contract("unknown")
+
+
+def test_exact_v4_promotion_decision_resolves_append_only_v3_contract() -> None:
+    decision, contract = validator._resolve_promotion_artifact_contract(
+        ROOT,
+        V4_PROMOTION_DECISION_ID,
+    )
+
+    assert decision["decision_id"] == V4_PROMOTION_DECISION_ID
+    assert contract["artifact_version"] == validator.V3_ARTIFACT_VERSION
+    assert (
+        contract["rearmed_artifact_version"]
+        == validator.V3_REARMED_ARTIFACT_VERSION
+    )
+    assert contract["artifact_relative_paths"] == (
+        validator.V3_ARTIFACT_RELATIVE_PATHS
+    )
+
+
+def test_promotion_decision_selector_fails_closed_on_wrong_or_unsupported(
+    tmp_path: Path,
+) -> None:
+    with pytest.raises(RuntimeError, match="must resolve exactly once"):
+        validator._resolve_promotion_artifact_contract(
+            ROOT,
+            "revenue_unreacted_range_nonexistent_decision",
+        )
+
+    registry_path = tmp_path / validator.PROMOTION_REGISTRY_RELATIVE_PATH
+    registry_path.parent.mkdir(parents=True, exist_ok=True)
+    pd.DataFrame(
+        [
+            {
+                "decision_id": "unsupported-v4",
+                "model_id": validator.MODEL_ID,
+                "source_artifact_id": validator.ARTIFACT_ID,
+                "source_artifact_version": "low_mid_falling_candidate_v4_unknown",
+                "approved_for_daily": False,
+                "presentation_allowed": False,
+                "formal_model_use_allowed": False,
+                "production_change": False,
+            }
+        ]
+    ).to_csv(registry_path, index=False)
+
+    with pytest.raises(RuntimeError, match="unsupported append-only"):
+        validator._resolve_promotion_artifact_contract(
+            tmp_path,
+            "unsupported-v4",
+        )
+
+
+def test_v3_promotion_hash_excludes_only_diagnostic_provenance() -> None:
+    base = {
+        "operation_key": "stable-business-key",
+        "raw_file_sha256": "1" * 64,
+        "monthly_revenue_history_blob_sha256": "2" * 64,
+        "source_crlf_mode": "crlf",
+    }
+    diagnostics_changed = {
+        **base,
+        "raw_file_sha256": "3" * 64,
+        "monthly_revenue_history_blob_sha256": "4" * 64,
+        "source_crlf_mode": "lf",
+    }
+    business_changed = {**base, "operation_key": "changed-business-key"}
+
+    assert validator._promotion_mapping_sha256(base) == (
+        validator._promotion_mapping_sha256(diagnostics_changed)
+    )
+    assert validator._promotion_mapping_sha256(base) != (
+        validator._promotion_mapping_sha256(business_changed)
+    )
 
 
 def _v1_manifest_frame() -> pd.DataFrame:
@@ -954,6 +1030,21 @@ def test_historical_v1_source_replay_uses_only_trusted_raw_blobs(
         ["validator", "--historical-v1-source-audit"],
     )
     assert validator.parse_args().historical_v1_source_audit is True
+
+
+def test_parse_args_accepts_exact_promotion_decision(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        ["validator", "--promotion-decision", V4_PROMOTION_DECISION_ID],
+    )
+
+    args = validator.parse_args()
+
+    assert args.promotion_decision == V4_PROMOTION_DECISION_ID
+    assert args.historical_v1_source_audit is False
 
 
 def test_default_v1_source_replay_fails_before_any_trusted_git_call(
