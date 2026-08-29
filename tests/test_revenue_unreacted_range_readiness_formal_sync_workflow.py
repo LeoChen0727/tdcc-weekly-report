@@ -52,7 +52,7 @@ def test_target_branch_is_never_checked_out_or_executed() -> None:
     assert "ref: ${{ inputs.target_branch }}" not in TEXT
     assert "ref: main" in TEXT
     assert 'ref: "${{ inputs.expected_main_sha }}"' in TEXT
-    assert TEXT.count("persist-credentials: false") == 2
+    assert TEXT.count("persist-credentials: false") == 3
     assert "git merge-base" not in TEXT
 
 
@@ -71,10 +71,10 @@ def test_workflow_calls_only_the_model_owned_producer_for_business_gates() -> No
 
 def test_dedicated_validator_covers_every_phase() -> None:
     command = f"python -B {VALIDATOR}"
-    assert TEXT.count(command) == 4
+    assert TEXT.count(command) == 3
     assert TEXT.count("--phase working-tree") == 1
     assert TEXT.count("--phase staged") == 1
-    assert TEXT.count("--phase committed") == 2
+    assert TEXT.count("--phase committed") == 1
     assert (
         "validator 只驗 exact-four artifact/phase semantics"
         not in TEXT
@@ -107,8 +107,9 @@ def test_contract_records_closed_anomalies_disabled_adapter_and_only_blocker() -
     assert "formal_adapter=not_started" not in TEXT
 
 
-def test_each_job_has_pinned_python_and_runtime_dependencies() -> None:
-    prepare_job, apply_job = TEXT.split("  apply-bundle:\n", 1)
+def test_validation_jobs_have_python_and_push_job_has_no_python_runtime() -> None:
+    prepare_job, remainder = TEXT.split("  apply-bundle:\n", 1)
+    apply_job, push_job = remainder.split("  push-bundle:\n", 1)
     setup_action = "actions/setup-python@v6.2.0"
     dependencies = (
         "python -m pip install --disable-pip-version-check pandas requests tabulate"
@@ -117,6 +118,11 @@ def test_each_job_has_pinned_python_and_runtime_dependencies() -> None:
         assert job.count(setup_action) == 1
         assert job.count('python-version: "3.11"') == 1
         assert job.count(dependencies) == 1
+    assert setup_action not in push_job
+    assert 'python-version: "3.11"' not in push_job
+    assert dependencies not in push_job
+    assert "python " not in push_job
+    assert "python -B" not in push_job
 
 
 def test_exact_four_bundle_hashes_and_clean_state_are_revalidated() -> None:
@@ -129,13 +135,15 @@ def test_exact_four_bundle_hashes_and_clean_state_are_revalidated() -> None:
         '[ "$(find "$bundle" -type f -printf \'%P\\n\' | sort | wc -l)" = 6 ]'
     )
     assert exact_file_count in TEXT
-    assert TEXT.count("git status --porcelain=v1 -z --untracked-files=all") == 2
+    assert TEXT.count("git status --porcelain=v1 -z --untracked-files=all") == 3
 
 
 def test_final_step_contains_the_only_non_force_push_and_key_cleanup() -> None:
     marker = "- name: Push only validated commit to inert codex target"
     before, final = TEXT.split(marker, 1)
     assert "PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY" not in before
+    assert "python " not in final
+    assert "python -B" not in final
     assert TEXT.count("git push ") == 1
     assert PUSH in final
     assert "git push --force" not in TEXT

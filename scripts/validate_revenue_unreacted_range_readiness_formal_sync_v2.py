@@ -57,6 +57,24 @@ EXPECTED_STATUS_NOTE_TOKENS = (
     "data error 已完成固定規則修復重跑",
     "目前 promotion blocker 僅為 forward holdout v2 成熟度 0/20",
 )
+
+
+def _base_authorization_already_consumed(row: dict[str, str]) -> bool:
+    return (
+        all(
+            row.get(field, "") == expected
+            for field, expected in EXPECTED_FIELDS.items()
+        )
+        and all(
+            row.get(field, "") == "False" for field in PERMISSION_FALSE_FIELDS
+        )
+        and all(
+            token in row.get("status_note_zh", "")
+            for token in EXPECTED_STATUS_NOTE_TOKENS
+        )
+    )
+
+
 MARKDOWN_COMPARE_FIELDS = (
     "model_id",
     "parity_status",
@@ -171,8 +189,14 @@ def _validate_csv_semantics(base_csv: bytes, current_csv: bytes) -> list[str]:
         return errors + [f"readiness must contain exactly one {MODEL_ID} row"]
     if base_revenue is None:
         errors.append(f"base_sha readiness has no {MODEL_ID} row")
-    elif revenue.get("model_name_zh", "") != base_revenue.get("model_name_zh", ""):
-        errors.append(f"{MODEL_ID} model_name_zh changed from base_sha")
+    else:
+        if _base_authorization_already_consumed(base_revenue):
+            errors.append(
+                f"{CONTRACT_VERSION} authorization is already consumed by "
+                "the base_sha readiness mirrors"
+            )
+        if revenue.get("model_name_zh", "") != base_revenue.get("model_name_zh", ""):
+            errors.append(f"{MODEL_ID} model_name_zh changed from base_sha")
 
     for field, expected in EXPECTED_FIELDS.items():
         if revenue.get(field, "") != expected:

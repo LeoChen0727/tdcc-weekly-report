@@ -1357,6 +1357,10 @@ def validate_revenue_readiness_formal_sync_workflow_text(text: str) -> list[str]
     before, privileged = text.split(marker, 1)
     if PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY in before:
         errors.append("revenue readiness formal sync exposes deploy key before final push step")
+    if re.search(r"(?m)^\s*python(?:\s|\s+-B\s)", privileged):
+        errors.append(
+            "revenue readiness formal sync must not execute Python while the deploy key is available"
+        )
     if text.count("git push ") != 1:
         errors.append("revenue readiness formal sync must contain exactly one git push")
     if REVENUE_READINESS_FORMAL_SYNC_PUSH not in privileged:
@@ -1377,7 +1381,7 @@ def validate_revenue_readiness_formal_sync_workflow_text(text: str) -> list[str]
     if (
         'ref: "${{ inputs.target_branch }}"' in text
         or "ref: ${{ inputs.target_branch }}" in text
-        or text.count("persist-credentials: false") != 2
+        or text.count("persist-credentials: false") != 3
     ):
         errors.append(
             "revenue readiness formal sync must never checkout target code and must use "
@@ -1415,10 +1419,10 @@ def validate_revenue_readiness_formal_sync_workflow_text(text: str) -> list[str]
             "the exact producer token"
         )
     validator_command = f"python -B {REVENUE_READINESS_FORMAL_SYNC_VALIDATOR}"
-    if text.count(validator_command) != 4:
+    if text.count(validator_command) != 3:
         errors.append(
             "revenue readiness formal sync must invoke the exact v2 phase "
-            "validator four times"
+            "validator three times before the privileged push step"
         )
     exact_validator_env = (
         "READINESS_SYNC_VALIDATOR: "
@@ -1462,8 +1466,11 @@ def validate_revenue_readiness_formal_sync_workflow_text(text: str) -> list[str]
     ):
         if token not in text:
             errors.append(f"revenue readiness formal sync missing exact contract token: {token}")
-    if text.count("--phase committed") != 2:
-        errors.append("revenue readiness formal sync must validate committed phase twice")
+    if text.count("--phase committed") != 1:
+        errors.append(
+            "revenue readiness formal sync must validate committed phase once "
+            "before the privileged push step"
+        )
     for token in (
         'remote_main_before="$(git ls-remote origin refs/heads/main',
         'remote_target_before="$(git ls-remote origin "refs/heads/$TARGET_BRANCH"',

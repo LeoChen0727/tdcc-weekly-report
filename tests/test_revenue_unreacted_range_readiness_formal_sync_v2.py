@@ -195,6 +195,12 @@ def test_exact_v2_row_and_markdown_pass() -> None:
     assert _validate_markdown_semantics(markdown_bytes(current_rows), current) == []
 
 
+def test_rejects_reuse_after_v2_authorization_is_consumed() -> None:
+    consumed = csv_bytes([other_row(), revenue_row(current=True)])
+    errors = _validate_csv_semantics(consumed, consumed)
+    assert any("authorization is already consumed" in error for error in errors)
+
+
 @pytest.mark.parametrize(
     ("field", "value"),
     (

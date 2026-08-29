@@ -108,11 +108,15 @@ same four paths. Rename, copy, deletion, symlink, submodule, extra path, and
 replacement-object substitution fail closed.
 
 The bundle contains only the four mirrors plus `SHA256SUMS` and `CONTRACT`.
-Both jobs independently bind remote `main`, the inert target, the exact base
-SHA, the exact producer, and the dedicated validator. The apply job verifies
-the bundle hashes and exact contract before staging. The final step revalidates
-the committed phase and performs the workflow's only non-force push. The
-deploy key is available only in that final step and is removed on exit.
+The prepare and apply jobs independently bind remote `main`, the inert target,
+the exact base SHA, the exact producer, and the dedicated validator. The apply
+job verifies the bundle hashes and exact contract, then validates both staged
+and committed phases without any write credential. A fresh third job that has
+never run `setup-python`, `pip`, repository Python, or installed package code
+downloads the same immutable artifact, verifies its hashes and exact file set,
+recreates the exact-four direct-child commit, and performs the single non-force
+push. The deploy key is available only in that fresh job's final shell/Git step
+and is removed on exit.
 
 ## Explicitly forbidden effects
 
@@ -126,6 +130,9 @@ This synchronization must not:
 - invoke production, Daily Full, PDF, packet, Apps Script, or deployment;
 - push to `main`, force-push, or push to an arbitrary branch.
 
-After the one-shot artifact PR is merged, the inert target no longer equals
-current `main`, so the unchanged workflow cannot be reused without a new,
-explicitly reviewed contract.
+The dedicated validator treats a base readiness row that already matches the
+exact v5 disabled-adapter state, all four false permissions, and the registered
+status note as a consumed authorization. After the one-shot artifact PR is
+merged, resetting the inert target to a later `main` cannot make this workflow
+reusable: validation fails closed on that persisted exact-four readiness
+marker. Reauthorization requires a separately reviewed contract change.
