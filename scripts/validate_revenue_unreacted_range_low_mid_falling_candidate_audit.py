@@ -95,6 +95,7 @@ MODEL_ID = "revenue_unreacted_range"
 ARTIFACT_ID = "revenue_unreacted_range_low_mid_falling_candidate_audit"
 ARTIFACT_VERSION = "low_mid_falling_candidate_v1_20260720"
 V2_ARTIFACT_VERSION = "low_mid_falling_candidate_v2_20260822"
+V3_ARTIFACT_VERSION = "low_mid_falling_candidate_v3_20260829"
 EXPECTED_DATA_CONTRACT_SHA256 = (
     "4aff77863a07ba5fe7c574731ea84ac778b85daffbbfe7123d38cccd4cc61432"
 )
@@ -103,11 +104,13 @@ SOURCE_FIRST_ARTIFACT_VERSION = "source_first_condition_v3_20260720"
 REARMED_ARTIFACT_ID = "revenue_unreacted_range_rearmed_operation_grid"
 REARMED_ARTIFACT_VERSION = "rearmed_operation_grid_v1_20260713"
 V2_REARMED_ARTIFACT_VERSION = "rearmed_operation_grid_v2_20260822"
+V3_REARMED_ARTIFACT_VERSION = "rearmed_operation_grid_v3_20260829"
 POSITION_SHAPE_ARTIFACT_ID = (
     "revenue_unreacted_range_position_shape_transition_matrix"
 )
 POSITION_SHAPE_ARTIFACT_VERSION = "position_shape_transition_matrix_v1_20260717"
 V2_POSITION_SHAPE_ARTIFACT_VERSION = "position_shape_transition_matrix_v2_20260822"
+V3_POSITION_SHAPE_ARTIFACT_VERSION = "position_shape_transition_matrix_v3_20260829"
 SOURCE_VARIANT_ID = "absolute_or_two_month_yoy_ge15"
 PRICE_HISTORY_CUTOFF_DATE = "20260713"
 TRUSTED_SOURCE_REVISION = "b7ab7b6122b422e941efa3a3a1a915fbfcb59f4d"
@@ -295,6 +298,148 @@ ARTIFACT_RELATIVE_PATHS = {
     "contrast_docs": f"docs/latest/{ARTIFACT_ID}_feature_contrast_latest.csv",
     "markdown_docs": f"docs/latest/{ARTIFACT_ID}_latest.md",
 }
+PROMOTION_REGISTRY_RELATIVE_PATH = (
+    "config/revenue_unreacted_range_promotion_preparation_registry.csv"
+)
+V3_REARMED_RELATIVE_PATH = (
+    "output/history/research/"
+    "revenue_unreacted_range_rearmed_operation_grid_detail_v3_20260829.csv"
+)
+V3_ARTIFACT_RELATIVE_PATHS = {
+    "summary": (
+        "output/history/research/"
+        "revenue_unreacted_range_low_mid_falling_candidate_audit_v3_20260829.csv"
+    ),
+    "detail": (
+        "output/history/research/"
+        "revenue_unreacted_range_low_mid_falling_candidate_audit_detail_"
+        "v3_20260829.csv"
+    ),
+    "paired": (
+        "output/history/research/"
+        "revenue_unreacted_range_low_mid_falling_candidate_audit_paired_"
+        "confirmation_v3_20260829.csv"
+    ),
+    "contrast": (
+        "output/history/research/"
+        "revenue_unreacted_range_low_mid_falling_candidate_audit_feature_"
+        "contrast_v3_20260829.csv"
+    ),
+}
+PROMOTION_ARTIFACT_CONTRACTS = {
+    V3_ARTIFACT_VERSION: {
+        "artifact_version": V3_ARTIFACT_VERSION,
+        "rearmed_artifact_version": V3_REARMED_ARTIFACT_VERSION,
+        "position_shape_artifact_version": V3_POSITION_SHAPE_ARTIFACT_VERSION,
+        "rearmed_relative_path": V3_REARMED_RELATIVE_PATH,
+        "artifact_relative_paths": V3_ARTIFACT_RELATIVE_PATHS,
+    }
+}
+
+
+def _resolve_promotion_artifact_contract(
+    artifact_root: Path,
+    decision_id: str,
+) -> tuple[pd.Series, dict[str, object]]:
+    registry_path = artifact_root / PROMOTION_REGISTRY_RELATIVE_PATH
+    if registry_path.is_symlink() or not registry_path.is_file():
+        raise RuntimeError(
+            f"promotion preparation registry is missing or unsafe: {registry_path}"
+        )
+    registry = pd.read_csv(
+        registry_path,
+        dtype=str,
+        keep_default_na=False,
+        low_memory=False,
+    )
+    required = {
+        "decision_id",
+        "model_id",
+        "source_artifact_id",
+        "source_artifact_version",
+        "approved_for_daily",
+        "presentation_allowed",
+        "formal_model_use_allowed",
+        "production_change",
+    }
+    missing = sorted(required - set(registry.columns))
+    if missing:
+        raise RuntimeError(
+            f"promotion preparation registry is missing columns: {missing}"
+        )
+    candidates = registry.loc[
+        registry["model_id"].astype(str).eq(MODEL_ID)
+        & registry["source_artifact_id"].astype(str).eq(ARTIFACT_ID)
+    ]
+    if candidates.empty:
+        raise RuntimeError(
+            "promotion preparation registry has no low/mid falling candidate decision"
+        )
+    normalized_decision_id = str(decision_id).strip()
+    selected = candidates.loc[
+        candidates["decision_id"].astype(str).eq(normalized_decision_id)
+    ]
+    if len(selected) != 1:
+        raise RuntimeError(
+            "promotion preparation decision must resolve exactly once: "
+            f"{normalized_decision_id or '<empty>'}"
+        )
+    row = selected.iloc[0]
+    artifact_version = str(row["source_artifact_version"]).strip()
+    contract = PROMOTION_ARTIFACT_CONTRACTS.get(artifact_version)
+    if contract is None:
+        raise RuntimeError(
+            "promotion preparation decision references an unsupported append-only "
+            f"candidate artifact version: {artifact_version or '<empty>'}"
+        )
+    return row, contract
+
+
+def _promotion_decision_binding_errors(
+    decision: pd.Series,
+    detail: pd.DataFrame,
+) -> list[str]:
+    errors: list[str] = []
+    exact = {
+        "model_id": MODEL_ID,
+        "source_artifact_id": ARTIFACT_ID,
+        "source_artifact_version": V3_ARTIFACT_VERSION,
+    }
+    for column, expected in exact.items():
+        if column not in decision.index or str(decision[column]).strip() != expected:
+            errors.append(f"promotion decision binding drift: {column}")
+    for column in (
+        "approved_for_daily",
+        "presentation_allowed",
+        "formal_model_use_allowed",
+        "production_change",
+    ):
+        if column not in decision.index or _bool_value(decision[column]):
+            errors.append(f"promotion decision must keep {column}=False")
+    lineage = _artifact_lineage(detail)
+    canonical_columns = (
+        "data_contract_sha256",
+        "producer_semantic_sha256",
+        "source_first_producer_semantic_sha256",
+        "rearmed_producer_semantic_sha256",
+        "position_shape_producer_semantic_sha256",
+        "monthly_revenue_canonical_table_sha256",
+        "cross_market_resolution_registry_canonical_sha256",
+        "source_first_selected_slice_canonical_sha256",
+        "rearmed_d30_no_stop_slice_canonical_sha256",
+        "price_history_manifest_canonical_sha256",
+        "detail_artifact_canonical_sha256",
+        "source_first_canonical_row_set_sha256",
+        "rearmed_operation_canonical_row_set_sha256",
+        "price_history_canonical_set_sha256",
+        "candidate_detail_row_set_sha256",
+    )
+    for column in canonical_columns:
+        if column not in decision.index:
+            errors.append(f"promotion decision is missing canonical binding: {column}")
+        elif str(decision[column]).strip() != lineage[column]:
+            errors.append(f"promotion decision canonical binding drift: {column}")
+    return errors
 
 
 def _git(
@@ -650,6 +795,29 @@ def _canonical_table_sha256(
         separators=(",", ":"),
     ).encode("utf-8")
     return hashlib.sha256(encoded).hexdigest()
+
+
+def _diagnostic_provenance_columns(columns: object) -> frozenset[str]:
+    excluded = {"generated_at"}
+    for column in columns:
+        name = str(column).strip().lower()
+        if name.startswith("raw_") or "blob_sha256" in name or "crlf" in name:
+            excluded.add(str(column))
+    return frozenset(excluded)
+
+
+def _promotion_mapping_sha256(values: dict[str, object]) -> str:
+    return _canonical_mapping_sha256(
+        values,
+        excluded_columns=_diagnostic_provenance_columns(values),
+    )
+
+
+def _promotion_table_sha256(frame: pd.DataFrame) -> str:
+    return _canonical_table_sha256(
+        frame,
+        excluded_columns=_diagnostic_provenance_columns(frame.columns),
+    )
 
 
 def _projection_payload_value(value: object) -> str:
@@ -1260,6 +1428,7 @@ def _read_sources(
     *,
     projection_version: str = V1_PROJECTION_VERSION,
     historical_v1_source_audit: bool = False,
+    rearmed_relative_path: str | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     _version_contract(projection_version)
     source_root = source_root.resolve()
@@ -1363,8 +1532,11 @@ def _read_sources(
         )
         return projection_manifest, source, rearmed
     paths = {
-        name: source_root / SOURCE_RELATIVE_PATHS[name]
-        for name in ("projection_manifest", "source_first", "rearmed")
+        "projection_manifest": source_root
+        / SOURCE_RELATIVE_PATHS["projection_manifest"],
+        "source_first": source_root / SOURCE_RELATIVE_PATHS["source_first"],
+        "rearmed": source_root
+        / (rearmed_relative_path or SOURCE_RELATIVE_PATHS["rearmed"]),
     }
     missing_paths = [str(path) for path in paths.values() if not path.is_file()]
     if missing_paths:
@@ -1388,7 +1560,11 @@ def _read_sources(
     )
     return projection_manifest, source, rearmed
 
-def _prepare_source(source: pd.DataFrame) -> pd.DataFrame:
+def _prepare_source(
+    source: pd.DataFrame,
+    *,
+    exclude_diagnostic_provenance: bool = False,
+) -> pd.DataFrame:
     required = {
         "model_id",
         "artifact_id",
@@ -1451,9 +1627,18 @@ def _prepare_source(source: pd.DataFrame) -> pd.DataFrame:
     source["stock_id"] = source["stock_id"].map(_stock_id)
     if source["episode_key"].astype(str).duplicated().any():
         raise RuntimeError("source-first detail has duplicate episode keys")
-    selected_slice_sha = _canonical_table_sha256(source)
+    selected_slice_sha = (
+        _promotion_table_sha256(source)
+        if exclude_diagnostic_provenance
+        else _canonical_table_sha256(source)
+    )
     source["source_first_canonical_row_sha256"] = source.apply(
-        lambda row: _canonical_mapping_sha256(row.to_dict()), axis=1
+        lambda row: (
+            _promotion_mapping_sha256(row.to_dict())
+            if exclude_diagnostic_provenance
+            else _canonical_mapping_sha256(row.to_dict())
+        ),
+        axis=1,
     )
     source["source_first_selected_slice_canonical_sha256"] = selected_slice_sha
     return source.set_index("episode_key", drop=False)
@@ -1463,6 +1648,7 @@ def _prepare_operations(
     rearmed: pd.DataFrame,
     *,
     expected_artifact_version: str = REARMED_ARTIFACT_VERSION,
+    exclude_diagnostic_provenance: bool = False,
 ) -> pd.DataFrame:
     required = {
         "model_id",
@@ -1584,9 +1770,18 @@ def _prepare_operations(
         )
     if _overlap_pair_count(selected):
         raise RuntimeError("rearmed selected slice contains same-stock overlap")
-    selected_slice_sha = _canonical_table_sha256(selected)
+    selected_slice_sha = (
+        _promotion_table_sha256(selected)
+        if exclude_diagnostic_provenance
+        else _canonical_table_sha256(selected)
+    )
     selected["rearmed_operation_canonical_row_sha256"] = selected.apply(
-        lambda row: _canonical_mapping_sha256(row.to_dict()), axis=1
+        lambda row: (
+            _promotion_mapping_sha256(row.to_dict())
+            if exclude_diagnostic_provenance
+            else _canonical_mapping_sha256(row.to_dict())
+        ),
+        axis=1,
     )
     selected["rearmed_d30_no_stop_slice_canonical_sha256"] = selected_slice_sha
     return selected.sort_values(
@@ -1796,8 +1991,20 @@ def _expected_detail(
     source_root: Path,
     price_stock_ids: set[str],
     *,
+    expected_artifact_version: str = ARTIFACT_VERSION,
+    expected_rearmed_artifact_version: str = REARMED_ARTIFACT_VERSION,
     trusted_revision: str | None = None,
 ) -> pd.DataFrame:
+    pre_hash_artifact_version = (
+        expected_artifact_version
+        if expected_artifact_version == V3_ARTIFACT_VERSION
+        else ARTIFACT_VERSION
+    )
+    pre_hash_rearmed_artifact_version = (
+        expected_rearmed_artifact_version
+        if expected_artifact_version == V3_ARTIFACT_VERSION
+        else REARMED_ARTIFACT_VERSION
+    )
     price_dir = source_root / SOURCE_RELATIVE_PATHS["price_dir"]
     resolutions = _load_resolutions(
         source_root / SOURCE_RELATIVE_PATHS["resolution"],
@@ -2008,7 +2215,7 @@ def _expected_detail(
             {
                 "model_id": MODEL_ID,
                 "artifact_id": ARTIFACT_ID,
-                "artifact_version": ARTIFACT_VERSION,
+                "artifact_version": pre_hash_artifact_version,
                 "canonical_lineage_version": CANONICAL_LINEAGE_VERSION,
                 "data_contract_sha256": data_contract_sha,
                 "producer_semantic_sha256": producer_sha,
@@ -2031,7 +2238,7 @@ def _expected_detail(
                     episode["source_first_selected_slice_canonical_sha256"]
                 ),
                 "rearmed_artifact_id": REARMED_ARTIFACT_ID,
-                "rearmed_artifact_version": REARMED_ARTIFACT_VERSION,
+                "rearmed_artifact_version": pre_hash_rearmed_artifact_version,
                 "rearmed_grid_id": str(operation.grid_id),
                 "rearmed_operation_canonical_row_sha256": str(
                     operation.rearmed_operation_canonical_row_sha256
@@ -2130,9 +2337,18 @@ def _expected_detail(
     if overlaps:
         raise RuntimeError(f"independent replay contains same-stock overlap: {overlaps}")
     detail["candidate_detail_row_sha256"] = detail.apply(
-        lambda row: _canonical_mapping_sha256(row.to_dict()), axis=1
+        lambda row: (
+            _promotion_mapping_sha256(row.to_dict())
+            if expected_artifact_version == V3_ARTIFACT_VERSION
+            else _canonical_mapping_sha256(row.to_dict())
+        ),
+        axis=1,
     )
-    detail["detail_artifact_canonical_sha256"] = _canonical_table_sha256(detail)
+    detail["detail_artifact_canonical_sha256"] = (
+        _promotion_table_sha256(detail)
+        if expected_artifact_version == V3_ARTIFACT_VERSION
+        else _canonical_table_sha256(detail)
+    )
     for source_column, set_column in (
         (
             "source_first_canonical_row_sha256",
@@ -2944,14 +3160,31 @@ def _validate_mirrors_and_markdown(paths: dict[str, Path]) -> list[str]:
     return errors
 
 
+def _validate_append_only_artifacts(paths: dict[str, Path]) -> list[str]:
+    expected_families = {"summary", "detail", "paired", "contrast"}
+    if set(paths) != expected_families:
+        return [
+            "append-only candidate artifact path contract drift: "
+            f"{sorted(paths)}/{sorted(expected_families)}"
+        ]
+    return [
+        f"append-only candidate artifact is missing: {name}={path}"
+        for name, path in paths.items()
+        if path.is_symlink() or not path.is_file()
+    ]
+
+
 def validate(
     *,
     artifact_root: Path = ROOT,
     source_root: Path = ROOT,
     historical_v1_source_audit: bool = False,
+    promotion_decision: str | None = None,
 ) -> list[str]:
     artifact_root = artifact_root.resolve()
     source_root = source_root.resolve()
+    decision: pd.Series | None = None
+    promotion_contract: dict[str, object] | None = None
     if historical_v1_source_audit and (
         artifact_root != ROOT or source_root != ROOT
     ):
@@ -2959,11 +3192,35 @@ def validate(
             "--historical-v1-source-audit requires the default ROOT artifact and "
             "source roots"
         ]
+    if historical_v1_source_audit and promotion_decision is not None:
+        return [
+            "--historical-v1-source-audit cannot be combined with "
+            "--promotion-decision"
+        ]
+    try:
+        if promotion_decision is not None:
+            decision, promotion_contract = _resolve_promotion_artifact_contract(
+                artifact_root,
+                promotion_decision,
+            )
+    except (RuntimeError, pd.errors.ParserError) as exc:
+        return [str(exc)]
+    artifact_relative_paths = (
+        promotion_contract["artifact_relative_paths"]
+        if promotion_contract is not None
+        else ARTIFACT_RELATIVE_PATHS
+    )
+    if not isinstance(artifact_relative_paths, dict):
+        return ["promotion artifact path contract is malformed"]
     paths = {
-        name: artifact_root / relative
-        for name, relative in ARTIFACT_RELATIVE_PATHS.items()
+        str(name): artifact_root / str(relative)
+        for name, relative in artifact_relative_paths.items()
     }
-    errors = _validate_mirrors_and_markdown(paths)
+    errors = (
+        _validate_append_only_artifacts(paths)
+        if promotion_contract is not None
+        else _validate_mirrors_and_markdown(paths)
+    )
     if errors:
         return errors
     try:
@@ -2984,23 +3241,47 @@ def validate(
         projection_version = str(
             current_manifest.iloc[0]["projection_version"]
         ).strip()
-        (
-            expected_artifact_version,
-            expected_rearmed_artifact_version,
-            expected_position_shape_artifact_version,
-        ) = _version_contract(projection_version)
+        if promotion_contract is None:
+            (
+                expected_artifact_version,
+                expected_rearmed_artifact_version,
+                expected_position_shape_artifact_version,
+            ) = _version_contract(projection_version)
+            rearmed_relative_path = None
+        else:
+            _version_contract(projection_version)
+            expected_artifact_version = str(
+                promotion_contract["artifact_version"]
+            )
+            expected_rearmed_artifact_version = str(
+                promotion_contract["rearmed_artifact_version"]
+            )
+            expected_position_shape_artifact_version = str(
+                promotion_contract["position_shape_artifact_version"]
+            )
+            rearmed_relative_path = str(
+                promotion_contract["rearmed_relative_path"]
+            )
         projection_manifest, source_raw, rearmed_raw = _read_sources(
             source_root,
             projection_version=projection_version,
             historical_v1_source_audit=historical_v1_source_audit,
+            rearmed_relative_path=rearmed_relative_path,
         )
         errors.extend(_projection_binding_errors(projection_manifest, source_raw))
         if errors:
             return errors
-        source = _prepare_source(source_raw)
+        exclude_diagnostic_provenance = (
+            expected_artifact_version == V3_ARTIFACT_VERSION
+        )
+        source = _prepare_source(
+            source_raw,
+            exclude_diagnostic_provenance=exclude_diagnostic_provenance,
+        )
         operations = _prepare_operations(
             rearmed_raw,
             expected_artifact_version=expected_rearmed_artifact_version,
+            exclude_diagnostic_provenance=exclude_diagnostic_provenance,
         )
         if "stock_id" not in source_raw.columns:
             raise RuntimeError("source-first detail is missing stock_id for price manifest")
@@ -3009,6 +3290,8 @@ def validate(
             operations,
             source_root,
             {_stock_id(value) for value in source_raw["stock_id"]},
+            expected_artifact_version=expected_artifact_version,
+            expected_rearmed_artifact_version=expected_rearmed_artifact_version,
             trusted_revision=(
                 TRUSTED_SOURCE_REVISION
                 if historical_v1_source_audit
@@ -3046,6 +3329,8 @@ def validate(
         contrast = pd.read_csv(
             paths["contrast"], keep_default_na=False, low_memory=False
         )
+        if decision is not None:
+            errors.extend(_promotion_decision_binding_errors(decision, detail))
         errors.extend(
             _compare_detail(
                 detail,
@@ -3111,6 +3396,13 @@ def parse_args() -> argparse.Namespace:
             "revision. Ordinary canonical v2 validation never reads Git history."
         ),
     )
+    parser.add_argument(
+        "--promotion-decision",
+        help=(
+            "Exact append-only promotion preparation decision_id to validate. "
+            "Omission preserves canonical latest/history/docs mirror validation."
+        ),
+    )
     return parser.parse_args()
 
 
@@ -3120,6 +3412,7 @@ def main() -> int:
         artifact_root=args.artifact_root,
         source_root=args.source_root,
         historical_v1_source_audit=args.historical_v1_source_audit,
+        promotion_decision=args.promotion_decision,
     )
     if errors:
         for error in errors:
