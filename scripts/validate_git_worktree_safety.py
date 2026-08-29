@@ -124,9 +124,9 @@ def validate() -> list[str]:
         elif consumer_id in EXPECTED_SPARSE_CONSUMER:
             if row.get("materialization_mode", "").strip() != "sparse_task_only":
                 errors.append(f"{consumer_id}: sparse task consumer must use sparse_task_only")
-            if row.get("temp_root_policy", "").strip() != "system_temp_or_approved_root":
+            if row.get("temp_root_policy", "").strip() != "approved_root_only":
                 errors.append(
-                    f"{consumer_id}: sparse task consumer must use system_temp_or_approved_root"
+                    f"{consumer_id}: sparse task consumer must use approved_root_only"
                 )
             if row.get("approved_destination_root", "").strip().lower().rstrip("\\/") != (
                 APPROVED_SPARSE_ROOT.lower()
@@ -164,6 +164,7 @@ def validate() -> list[str]:
         "default_approved_root",
         "--task-name",
         "insufficient free space",
+        "explicit system Temp destinations are forbidden",
     ):
         if token not in safety_text:
             errors.append(f"git worktree safety module missing required token: {token}")

@@ -71,15 +71,15 @@ materialize a protected subtree. Use the narrowest required subtree, such as
 `docs/rules`; do not include `docs`, the repository root, or another broad
 ancestor of protected history, data, or output paths.
 
-Sparse task destinations may stay below the system Temp root. On Windows, the
-only additional approved root is registered in
+Ordinary sparse task destinations must stay below the single approved root
+registered in
 `config/git_worktree_materialization_contract.csv`:
 
 ```text
 F:\CodexStorage\task-worktrees\taiwan-stock-recommendation
 ```
 
-The additional root is fail-closed. The helper requires the volume to be NTFS,
+The approved root is fail-closed. The helper requires the volume to be NTFS,
 rejects a drive root or the approved root itself, rejects existing destinations
 and reparse points anywhere in the path, and refuses repository roots, Git
 common roots, registered worktree roots, and protected `data` / `docs` /
@@ -90,10 +90,12 @@ destination must be a new child below it.
 This approved F root is the default for ordinary sparse tasks. Before creating
 the child, the helper requires at least 10 GiB available. If the root is
 unavailable, non-NTFS, below the space threshold, invalid, or unsafe, creation
-stops; it never falls back to system Temp. Callers may still pass an explicit
-compliant `--destination` under system Temp or the approved F root. Explicit
-destinations remain subject to the same root, existence, reparse, repository,
-Git-common, registered-worktree, and protected-path guards.
+stops; it never falls back to system Temp or another C-drive location. An
+explicit `--destination` for an ordinary sparse task is accepted only when it
+is a new child below the same approved F root. Explicit system Temp destinations
+are rejected. Explicit approved-root destinations remain subject to the same
+NTFS, free-space, root, existence, reparse, repository, Git-common,
+registered-worktree, and protected-path guards.
 
 The helper registers the worktree with `--no-checkout`, configures sparse paths
 before materialization, uses one checkout worker, serializes materialization per
@@ -109,6 +111,10 @@ worktree. Full materialization must remain under the system Temp root,
 serialized to one process per repository, and executed with one checkout
 worker. Current approved consumers are the official daily six-PDF entrypoint,
 the official TDCC weekly entrypoint, and the daily PDF replay validator.
+
+This `system_temp_only` exception is exclusive to those registered full-tree
+consumers. The ordinary sparse F-only rule does not change their destination
+contract.
 
 The approved full-checkout exception does not permit an in-place ref transition
 inside a registered fixed worktree.
