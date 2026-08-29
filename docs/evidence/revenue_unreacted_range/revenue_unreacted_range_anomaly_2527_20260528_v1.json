@@ -1,0 +1,134 @@
+{
+  "schema_version": "revenue_unreacted_range_anomaly_evidence_v1",
+  "evidence_id": "revenue_unreacted_range_anomaly_2527_20260528_v1",
+  "semantic_payload": {
+    "model_id": "revenue_unreacted_range",
+    "operation_key": "rearm_after_realized_exit_next_trade_day|delayed_next_close_continuation_bonus|2527|absolute_or_two_month_yoy_ge15|2527|20260517|1|20260526|20260528",
+    "identity": {
+      "stock_id": "2527",
+      "stock_name": "宏璟",
+      "trigger_date": "20260526",
+      "confirmation_date": "20260527",
+      "entry_date": "20260528",
+      "exit_date": "20260709",
+      "candidate_v2_row_sha256": "34d2b8aa9258ae1a686feaa937ada66e56c238c7dd5994299b4a3c74ee5d8c6a",
+      "candidate_v3_row_sha256": "37a9860d661afe44b5c3e096d01ed6983a5c7370f823b7f10d2361718e8eb924"
+    },
+    "attribution": {
+      "candidate_kind": "source_anomaly_candidate",
+      "anomaly_attribution_mode": "exact_anomaly_causing_qualifying_source_events",
+      "source_event_periods": ["202604"],
+      "source_table_dates": ["20260517"],
+      "source_available_dates": ["20260518"],
+      "source_canonical_row_sha256s": ["047b94ab8b2e136f27ad1ac45f8259b25f852cfbc64b2f6f80eb02eae2926abc"],
+      "anomaly_attribution_note": "exact anomalous qualifying monthly-revenue event known by trigger"
+    },
+    "root_checks": {
+      "identity_non_overlap": {
+        "status": "pass",
+        "finding": "one exact operation identity; same-stock non-overlap replay passed"
+      },
+      "formal_operation_replay": {
+        "status": "pass",
+        "trigger_close": "35.15",
+        "confirmation_close": "36.25",
+        "entry_open": "36.3",
+        "exit_close": "42.6",
+        "price_row_canonical_sha256s": {
+          "trigger_close": "3ed388bccfa285cbe855e2fc5d14e511221dc9d334989f89340d5cc26b25bd10",
+          "confirmation_close": "1b072f4453ff351eea3c210f8905f4d2cbec97e4c939ffa71a355b75f2245e8f",
+          "entry_open": "3b2697f6428753ab1d86f84c46fd42949b7925cba9291a956dd3a5fb8fa6f809",
+          "exit_close": "e02101d990a6d5cd51ffa2eb4d363192c6cec118dc430558c90af230add54138"
+        },
+        "formula": "(exit_close-entry_open)/entry_open*100",
+        "realized_return_pct": "17.3554",
+        "official_price_queries": [
+          "https://www.twse.com.tw/exchangeReport/STOCK_DAY?response=json&date=20260501&stockNo=2527",
+          "https://www.twse.com.tw/exchangeReport/STOCK_DAY?response=json&date=20260701&stockNo=2527"
+        ]
+      },
+      "pit_calendar_continuity": {
+        "status": "pass",
+        "finding": "monthly revenue was available before trigger; operation dates follow registered trading sessions through fixed D+30 exit"
+      },
+      "raw_source_lineage": {
+        "status": "pass",
+        "monthly_revenue_events": [
+          {
+            "period": "202604",
+            "source_table_date": "20260517",
+            "available_date": "20260518",
+            "canonical_row_sha256": "047b94ab8b2e136f27ad1ac45f8259b25f852cfbc64b2f6f80eb02eae2926abc",
+            "source_anomaly_candidate": true,
+            "raw_file_sha256_diagnostic": "07c771646a550e5831176efac2067f2ea9436c8cb1700dbe5900b8d86e7d0769",
+            "source_url": "https://mopsov.twse.com.tw/nas/t21/sii/t21sc03_115_4_0.html"
+          }
+        ],
+        "price_history_path": "data/stock_price_history/2527.csv"
+      },
+      "units_formula_adjustment": {
+        "status": "pass",
+        "price_unit": "TWD_per_share",
+        "revenue_unit": "thousand_TWD",
+        "operation_basis": "official daily close-confirmed unadjusted OHLC; formula and units independently replayed",
+        "entry_price_basis": "next_trading_day_open_after_close_confirmation",
+        "exit_price_basis": "fixed_d30_close_offset29",
+        "intraday_operation_basis_used": false
+      },
+      "authoritative_event_history": {
+        "status": "pass",
+        "finding": "no split, reduction, par-value reset, relisting, or suspension price reset; MOPS explanation is consistent with project-recognition timing",
+        "official_sources": [
+          "https://www.twse.com.tw/rwd/zh/exRight/TWT49U",
+          "https://www.twse.com.tw/rwd/zh/reducation/TWTAUU",
+          "https://www.twse.com.tw/rwd/zh/change/TWTB8U",
+          "https://www.twse.com.tw/rwd/zh/afterTrading/TWTAWU",
+          "https://mopsov.twse.com.tw/nas/t21/sii/t21sc03_115_4_0.html"
+        ],
+        "request_params": {"stockNo": "2527", "startDate": "20260526", "endDate": "20260709"},
+        "query_window": "20260526..20260709"
+      },
+      "independent_source_corroboration": {
+        "status": "pass",
+        "independent_underlying_measurement": false,
+        "classification": "independent_public_provider_corroboration",
+        "finding": "MoneyDJ reports 宏璟(2527) 115/03 and 115/04 monthly revenue; the 115/04 report matches the canonical 28,945 thousand TWD and 3.72% YoY exactly.",
+        "sources": [
+          "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=c25ca221-4703-4dc0-a1e4-80b6d277b9c6",
+          "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=1b69bb8c-f463-4eba-bfbd-39dd905ed036"
+        ],
+        "observed_facts": [
+          {
+            "fact_kind": "public_provider_monthly_revenue_report",
+            "stock_id": "2527",
+            "revenue_period": "202604",
+            "provider_reported_monthly_revenue_thousand_twd": "28945",
+            "canonical_monthly_revenue_thousand_twd": "28945",
+            "provider_reported_yoy_pct": "3.72",
+            "canonical_yoy_pct": "3.72",
+            "comparison_result": "monthly_revenue_and_yoy_exact",
+            "source_url": "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=1b69bb8c-f463-4eba-bfbd-39dd905ed036"
+          }
+        ]
+      },
+      "reproducible_evidence_reference": {
+        "status": "pass",
+        "replay_basis": "canonical monthly-revenue row, registered price history, and official monthly daily-price responses"
+      }
+    },
+    "disposition": {
+      "final_disposition": "verified_real_extreme",
+      "primary_handling": "retain_in_primary_metrics",
+      "promotion_gate_status": "eligible_only_after_all_other_model_gates",
+      "repair_satisfaction_status": "not_applicable_no_repair",
+      "effective_anomaly_gate_status": "satisfied",
+      "approved_reason_reference": ""
+    },
+    "scope": "monthly_revenue_only; EPS, gross margin, operating margin, operating income, non-operating income, net income, quarterly and annual financial statements excluded"
+  },
+  "provenance": {
+    "retrieved_at": "2026-08-29T05:24:00+08:00",
+    "raw_byte_identity_policy": "diagnostic_only_not_promotion_gate",
+    "line_ending_identity_policy": "diagnostic_only_not_promotion_gate"
+  }
+}

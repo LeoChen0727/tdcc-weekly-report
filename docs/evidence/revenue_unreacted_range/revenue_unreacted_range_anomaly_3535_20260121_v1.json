@@ -1,0 +1,143 @@
+{
+  "schema_version": "revenue_unreacted_range_anomaly_evidence_v1",
+  "evidence_id": "revenue_unreacted_range_anomaly_3535_20260121_v1",
+  "semantic_payload": {
+    "model_id": "revenue_unreacted_range",
+    "operation_key": "rearm_after_realized_exit_next_trade_day|delayed_next_close_continuation_bonus|3535|absolute_or_two_month_yoy_ge15|3535|20251017|1|20260119|20260121",
+    "identity": {
+      "stock_id": "3535",
+      "stock_name": "晶彩科",
+      "trigger_date": "20260119",
+      "confirmation_date": "20260120",
+      "entry_date": "20260121",
+      "exit_date": "20260313",
+      "candidate_v2_row_sha256": "e4b00d986b4af400e6cc05ce38687964f7de9944914d77eb31fc0a9755a64596",
+      "candidate_v3_row_sha256": "b2333cd6eaefc2c3ad015592c92dd6967acdfc321ecbf0c1698c9393d63ebec7"
+    },
+    "attribution": {
+      "candidate_kind": "source_anomaly_candidate",
+      "anomaly_attribution_mode": "exact_anomaly_causing_qualifying_source_events",
+      "source_event_periods": ["202509", "202510"],
+      "source_table_dates": ["20251017", "20251117"],
+      "source_available_dates": ["20251017", "20251117"],
+      "source_canonical_row_sha256s": ["6d3a88558f79830a784f840551769cc8933e119ab8f3cbc8bf845fda0732d203", "cbbc556f48ffed56bf54c0868d64eef15c9669a287670f9f782b2ca2bfffbc40"],
+      "anomaly_attribution_note": "two exact anomalous qualifying events known by trigger in the shared episode"
+    },
+    "root_checks": {
+      "identity_non_overlap": {
+        "status": "pass",
+        "finding": "second distinct 3535 operation begins after the prior operation exited on 20260114"
+      },
+      "formal_operation_replay": {
+        "status": "pass",
+        "trigger_close": "106.5",
+        "confirmation_close": "115.5",
+        "entry_open": "113.0",
+        "exit_close": "126.0",
+        "price_row_canonical_sha256s": {
+          "trigger_close": "37af55bf013bf300811c9f3d4ab286302de5e6f003aca860e8857ea6d798ad89",
+          "confirmation_close": "ff48fe8473ad4b2713204ef79343f2dfc6453df2b5cc1670e36992f929073c60",
+          "entry_open": "9d027759972e4b1330ba1adde51743c0dccf8ef3b1877182ad3a77e150c86b12",
+          "exit_close": "4f52dc70bf558dda79a7c675a2c7db1ac6f20c8b0ee276bcccacdb8c170238fc"
+        },
+        "formula": "(exit_close-entry_open)/entry_open*100",
+        "realized_return_pct": "11.5044",
+        "official_price_queries": [
+          "https://www.twse.com.tw/exchangeReport/STOCK_DAY?response=json&date=20260101&stockNo=3535",
+          "https://www.twse.com.tw/exchangeReport/STOCK_DAY?response=json&date=20260301&stockNo=3535"
+        ]
+      },
+      "pit_calendar_continuity": {
+        "status": "pass",
+        "finding": "all dates are registered sessions and the same-stock rearm starts only after the earlier realized exit"
+      },
+      "raw_source_lineage": {
+        "status": "pass",
+        "monthly_revenue_events": [
+          {
+            "period": "202509",
+            "source_table_date": "20251017",
+            "available_date": "20251017",
+            "canonical_row_sha256": "6d3a88558f79830a784f840551769cc8933e119ab8f3cbc8bf845fda0732d203",
+            "source_anomaly_candidate": true,
+            "raw_file_sha256_diagnostic": "6bb7ac7c837884520e1aae63cd2d12ba2f2da7a88117d9308e39fab94842426e",
+            "source_url": "https://mopsov.twse.com.tw/nas/t21/sii/t21sc03_114_9_0.html"
+          },
+          {
+            "period": "202510",
+            "source_table_date": "20251117",
+            "available_date": "20251117",
+            "canonical_row_sha256": "cbbc556f48ffed56bf54c0868d64eef15c9669a287670f9f782b2ca2bfffbc40",
+            "source_anomaly_candidate": true,
+            "raw_file_sha256_diagnostic": "8f8dc5a3c5ec13150f027cb47b6c80f5661e649f16d0632aeedfdd588f8cb817",
+            "source_url": "https://mopsov.twse.com.tw/nas/t21/sii/t21sc03_114_10_0.html"
+          }
+        ],
+        "price_history_path": "data/stock_price_history/3535.csv"
+      },
+      "units_formula_adjustment": {
+        "status": "pass",
+        "price_unit": "TWD_per_share",
+        "revenue_unit": "thousand_TWD",
+        "operation_basis": "official daily close-confirmed unadjusted OHLC; no intraday high or low used as realized price",
+        "entry_price_basis": "next_trading_day_open_after_close_confirmation",
+        "exit_price_basis": "fixed_d30_close_offset29",
+        "intraday_operation_basis_used": false
+      },
+      "authoritative_event_history": {
+        "status": "pass",
+        "finding": "no price-reset corporate action; ordinary machine-sales recognition remains consistent across the episode",
+        "official_sources": [
+          "https://www.twse.com.tw/rwd/zh/exRight/TWT49U",
+          "https://www.twse.com.tw/rwd/zh/reducation/TWTAUU",
+          "https://www.twse.com.tw/rwd/zh/change/TWTB8U",
+          "https://www.twse.com.tw/rwd/zh/afterTrading/TWTAWU",
+          "https://www.favite.com/zh-hans/invester/financial-report/"
+        ],
+        "request_params": {"stockNo": "3535", "startDate": "20260119", "endDate": "20260313"},
+        "query_window": "20260119..20260313"
+      },
+      "independent_source_corroboration": {
+        "status": "pass",
+        "independent_underlying_measurement": false,
+        "classification": "independent_public_provider_corroboration",
+        "finding": "MoneyDJ identifies 晶彩科(3535) and reports 114/09 monthly revenue 85,783 thousand TWD and 4,028.15% YoY, corroborating the shared episode source event exactly.",
+        "sources": [
+          "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=1e5cd9d8-1ab7-47db-a41b-42865d60cbc9",
+          "https://tw.stock.yahoo.com/quote/3535.TW/revenue"
+        ],
+        "observed_facts": [
+          {
+            "fact_kind": "public_provider_monthly_revenue_report",
+            "stock_id": "3535",
+            "revenue_period": "202509",
+            "provider_reported_monthly_revenue_thousand_twd": "85783",
+            "canonical_monthly_revenue_thousand_twd": "85783",
+            "provider_reported_yoy_pct": "4028.15",
+            "canonical_yoy_pct": "4028.15",
+            "comparison_result": "monthly_revenue_and_yoy_exact",
+            "source_url": "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=1e5cd9d8-1ab7-47db-a41b-42865d60cbc9"
+          }
+        ]
+      },
+      "reproducible_evidence_reference": {
+        "status": "pass",
+        "replay_basis": "canonical source rows, explicit prior-exit ordering, and official daily price series"
+      }
+    },
+    "disposition": {
+      "final_disposition": "verified_real_extreme",
+      "primary_handling": "retain_in_primary_metrics",
+      "promotion_gate_status": "eligible_only_after_all_other_model_gates",
+      "repair_satisfaction_status": "not_applicable_no_repair",
+      "effective_anomaly_gate_status": "satisfied",
+      "approved_reason_reference": ""
+    },
+    "scope": "monthly_revenue_only; EPS, gross margin, operating margin, operating income, non-operating income, net income, quarterly and annual financial statements excluded"
+  },
+  "provenance": {
+    "retrieved_at": "2026-08-29T05:27:00+08:00",
+    "raw_byte_identity_policy": "diagnostic_only_not_promotion_gate",
+    "line_ending_identity_policy": "diagnostic_only_not_promotion_gate"
+  }
+}

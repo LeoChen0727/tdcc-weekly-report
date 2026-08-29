@@ -394,7 +394,9 @@ jobs:
           python scripts/validate_revenue_unreacted_range_rearmed_operation_grid.py
           python scripts/validate_revenue_unreacted_range_operation_lag_bucket_audit.py
           python scripts/validate_revenue_unreacted_range_position_shape_transition_matrix.py
-          python scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py
+          python scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py --promotion-decision revenue_unreacted_range_source_mid_falling_promotion_preparation_v4_20260829
+          python scripts/revenue_unreacted_range_trigger_asof_anomaly_migration.py --validate-only
+          python scripts/validate_revenue_unreacted_range_anomaly_dispositions.py
           python scripts/validate_revenue_unreacted_range_promotion_preparation.py --source-audit all
           python scripts/validate_revenue_unreacted_range_financial_statement_fail_closed.py
 
@@ -421,6 +423,10 @@ jobs:
             tests/test_model_operation_readiness.py::test_revenue_readiness_persisted_permission_columns_reject_non_revenue_boolean_alias \
             tests/test_model_operation_readiness.py::test_revenue_legacy_builder_has_no_direct_mirror_writer
           python -m pytest \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_canonical_anomaly_gate_requires_isolated_exact_pass_protocol \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_canonical_anomaly_gate_rejects_nonprotocol_success \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_committed_anomaly_source_treats_raw_file_sha_as_diagnostic_only \
+            tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_committed_anomaly_source_keeps_raw_source_lineage_as_semantic_gate \
             tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_build_replaces_only_revenue_and_keeps_non_revenue_fields_exact \
             tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_build_accepts_only_canonical_extended_disabled_source \
             tests/test_sync_revenue_unreacted_range_operation_readiness.py::test_build_fails_closed_on_identity_or_schema_drift \
@@ -458,6 +464,8 @@ jobs:
             tests/test_revenue_unreacted_range_position_shape_transition_matrix.py \
             tests/test_revenue_unreacted_range_low_mid_falling_candidate_audit.py \
             tests/test_validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py \
+            tests/test_revenue_unreacted_range_trigger_asof_anomaly_migration.py \
+            tests/test_validate_revenue_unreacted_range_anomaly_dispositions.py \
             tests/test_validate_revenue_unreacted_range_promotion_preparation.py \
             tests/test_revenue_unreacted_range_forward_holdout.py \
             tests/test_revenue_unreacted_range_forward_holdout_v2.py \

@@ -22,17 +22,39 @@ from revenue_unreacted_range_source_snapshot_projection import (
     V1_PROJECTION_VERSION,
     V2_PROJECTION_VERSION,
 )
+from revenue_unreacted_range_source_first_condition_audit import (
+    attach_qualifying_event_anomaly_flags,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 MODEL_ID = "revenue_unreacted_range"
 ARTIFACT_ID = "revenue_unreacted_range_rearmed_operation_grid"
 V1_ARTIFACT_VERSION = "rearmed_operation_grid_v1_20260713"
 V2_ARTIFACT_VERSION = "rearmed_operation_grid_v2_20260822"
+V3_ARTIFACT_VERSION = "rearmed_operation_grid_v3_20260829"
 ARTIFACT_VERSION = V1_ARTIFACT_VERSION
+EPISODE_AGGREGATE_ANOMALY_POLICY_ID = "episode_aggregate_v1"
+TRIGGER_ASOF_ANOMALY_POLICY_ID = "trigger_asof_qualifying_event_v1_20260829"
 
 
-def artifact_version_for_projection(projection_version: object) -> str:
+def artifact_version_for_projection(
+    projection_version: object,
+    *,
+    anomaly_attribution_policy_id: str = EPISODE_AGGREGATE_ANOMALY_POLICY_ID,
+) -> str:
     version = str(projection_version).strip()
+    if anomaly_attribution_policy_id == TRIGGER_ASOF_ANOMALY_POLICY_ID:
+        if version != V2_PROJECTION_VERSION:
+            raise RuntimeError(
+                "trigger-as-of anomaly attribution requires the immutable v2 source "
+                f"projection; received {version or '<empty>'}"
+            )
+        return V3_ARTIFACT_VERSION
+    if anomaly_attribution_policy_id != EPISODE_AGGREGATE_ANOMALY_POLICY_ID:
+        raise RuntimeError(
+            "unsupported source anomaly attribution policy: "
+            f"{anomaly_attribution_policy_id or '<empty>'}"
+        )
     mapping = {
         V1_PROJECTION_VERSION: V1_ARTIFACT_VERSION,
         V2_PROJECTION_VERSION: V2_ARTIFACT_VERSION,
@@ -420,6 +442,46 @@ def _source_anomaly(episode: pd.Series) -> bool:
     )
 
 
+def _source_anomaly_as_of_trigger(episode: pd.Series, trigger_date: object) -> bool:
+    required = (
+        "qualifying_trade_dates",
+        "qualifying_source_revenue_anomaly_candidate_flags",
+    )
+    missing = [column for column in required if column not in episode.index]
+    if missing:
+        raise RuntimeError(
+            "trigger-as-of source anomaly attribution is missing columns: "
+            f"{missing}"
+        )
+    trade_dates = [
+        token.strip()
+        for token in str(episode["qualifying_trade_dates"]).split("|")
+        if token.strip()
+    ]
+    flags = [
+        _bool_value(token)
+        for token in str(
+            episode["qualifying_source_revenue_anomaly_candidate_flags"]
+        ).split("|")
+        if token.strip()
+    ]
+    if len(trade_dates) != len(flags) or not trade_dates:
+        raise RuntimeError(
+            "trigger-as-of source anomaly event lineage is not parallel and non-empty: "
+            f"{episode.get('episode_key', '<unknown>')}"
+        )
+    cutoff = str(trigger_date).strip()
+    if len(cutoff) != 8 or not cutoff.isdigit():
+        raise RuntimeError(f"trigger-as-of anomaly cutoff is not YYYYMMDD: {cutoff}")
+    revenue_candidate = any(
+        flag and trade_date <= cutoff
+        for trade_date, flag in zip(trade_dates, flags)
+    )
+    return revenue_candidate or _bool_value(
+        episode["unresolved_price_path_candidate_flag"]
+    )
+
+
 def _grid_id(
     lifecycle: LifecycleSpec,
     confirmation: ConfirmationSpec,
@@ -440,6 +502,8 @@ def build_operation_detail(
     source_detail: pd.DataFrame,
     daily_by_stock: dict[str, pd.DataFrame],
     generated_at: str,
+    *,
+    anomaly_attribution_policy_id: str = EPISODE_AGGREGATE_ANOMALY_POLICY_ID,
 ) -> pd.DataFrame:
     source = _normalize_source_detail(source_detail)
     daily = {stock_id: _normalize_stock_frame(frame) for stock_id, frame in daily_by_stock.items()}
@@ -556,7 +620,15 @@ def build_operation_detail(
                                     ),
                                     "next_day_continuation_observed": trigger_index + 1 < len(stock),
                                     "next_day_continuation_hit": continuation,
-                                    "source_anomaly_candidate_flag": _source_anomaly(episode),
+                                    "source_anomaly_candidate_flag": (
+                                        _source_anomaly_as_of_trigger(
+                                            episode,
+                                            stock.at[trigger_index, "date"],
+                                        )
+                                        if anomaly_attribution_policy_id
+                                        == TRIGGER_ASOF_ANOMALY_POLICY_ID
+                                        else _source_anomaly(episode)
+                                    ),
                                     "unresolved_price_path_candidate_flag": _bool_value(
                                         episode["unresolved_price_path_candidate_flag"]
                                     ),
@@ -568,6 +640,16 @@ def build_operation_detail(
                                     "production_change": False,
                                     "promotion_readiness": "research_only_pending_operation_rule_selection",
                                 }
+                                if (
+                                    anomaly_attribution_policy_id
+                                    == TRIGGER_ASOF_ANOMALY_POLICY_ID
+                                ):
+                                    row["episode_source_anomaly_candidate_flag"] = (
+                                        _source_anomaly(episode)
+                                    )
+                                    row["source_anomaly_attribution_policy_id"] = (
+                                        anomaly_attribution_policy_id
+                                    )
                                 row.update(simulated)
                                 rows.append(row)
                                 blocked_through_index = max(blocked_through_index, exit_index)
@@ -906,6 +988,9 @@ def build_rearmed_operation_grid(
     source_detail: pd.DataFrame | None = None,
     daily_by_stock: dict[str, pd.DataFrame] | None = None,
     source_projection_manifest: pd.DataFrame | None = None,
+    *,
+    anomaly_attribution_policy_id: str = EPISODE_AGGREGATE_ANOMALY_POLICY_ID,
+    generated_at: str | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     raw_source = load_projected_source_detail() if source_detail is None else source_detail
     projection_manifest = (
@@ -914,6 +999,11 @@ def build_rearmed_operation_grid(
         else source_projection_manifest
     )
     validate_projection_binding(projection_manifest, raw_source)
+    if anomaly_attribution_policy_id == TRIGGER_ASOF_ANOMALY_POLICY_ID:
+        raw_source = attach_qualifying_event_anomaly_flags(
+            raw_source,
+            observation_cutoff_date=PRICE_HISTORY_CUTOFF_DATE,
+        )
     source = _normalize_source_detail(raw_source)
     _assert_source_within_price_history_cutoff(source)
     if daily_by_stock is None:
@@ -925,15 +1015,25 @@ def build_rearmed_operation_grid(
             observation_cutoff_date=PRICE_HISTORY_CUTOFF_DATE,
         )
     daily_by_stock = _apply_price_history_cutoff(daily_by_stock)
-    generated_at = _now_text()
-    detail = build_operation_detail(source, daily_by_stock, generated_at)
+    generated_at_value = generated_at or _now_text()
+    detail = build_operation_detail(
+        source,
+        daily_by_stock,
+        generated_at_value,
+        anomaly_attribution_policy_id=anomaly_attribution_policy_id,
+    )
     review = build_operation_return_review(detail, daily_by_stock)
     summary = build_operation_summary(detail, source)
     selected_version = artifact_version_for_projection(
-        projection_manifest.iloc[0]["projection_version"]
+        projection_manifest.iloc[0]["projection_version"],
+        anomaly_attribution_policy_id=anomaly_attribution_policy_id,
     )
     for frame in (summary, detail, review):
         frame.loc[:, "artifact_version"] = selected_version
+        if anomaly_attribution_policy_id == TRIGGER_ASOF_ANOMALY_POLICY_ID:
+            frame.loc[:, "source_anomaly_attribution_policy_id"] = (
+                anomaly_attribution_policy_id
+            )
     return summary, detail, review
 
 

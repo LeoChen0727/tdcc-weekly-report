@@ -307,6 +307,10 @@ def _boolish(series: pd.Series) -> pd.Series:
     return series.astype(str).str.strip().str.lower().isin({"true", "1", "yes"})
 
 
+def _bool_value(value: object) -> bool:
+    return str(value).strip().lower() in {"true", "1", "yes"}
+
+
 def _number(value: object) -> float | None:
     number = pd.to_numeric(value, errors="coerce")
     return None if pd.isna(number) else float(number)
@@ -435,6 +439,101 @@ def load_revenue_history(
         frame["revenue_numerical_anomaly_flag"]
     )
     return frame.reset_index(drop=True)
+
+
+def attach_qualifying_event_anomaly_flags(
+    source_detail: pd.DataFrame,
+    *,
+    revenue_path: Path = REVENUE_HISTORY_CSV,
+    resolution_path: Path = MONTHLY_REVENUE_CROSS_MARKET_RESOLUTION_CSV,
+    observation_cutoff_date: str | None = None,
+) -> pd.DataFrame:
+    """Attach one source-anomaly flag to every qualifying revenue event.
+
+    The episode-wide anomaly flag remains an explicit retrospective diagnostic.
+    Downstream operation attribution must use this parallel per-event sequence and
+    apply the operation trigger's information cutoff.
+    """
+
+    required = {
+        "qualifying_source_row_canonical_sha256s",
+        "qualifying_source_dates",
+        "qualifying_trade_dates",
+        "qualifying_sequence_indices",
+        "qualifying_source_revenue_anomaly_candidate_flag",
+    }
+    missing = sorted(required - set(source_detail.columns))
+    if missing:
+        raise RuntimeError(
+            "source-first per-event anomaly attribution is missing columns: "
+            f"{missing}"
+        )
+    revenue = load_revenue_history(
+        revenue_path,
+        resolution_path,
+        observation_cutoff_date=observation_cutoff_date,
+    )
+    flag_by_row_sha = {
+        str(row.source_row_canonical_sha256).strip().lower(): bool(
+            row.source_revenue_anomaly_candidate_flag
+        )
+        for row in revenue.itertuples(index=False)
+    }
+    enriched = source_detail.copy()
+    encoded_flags: list[str] = []
+    for row in enriched.itertuples(index=False):
+        parallel = {
+            "row_sha": [
+                token.strip().lower()
+                for token in str(
+                    getattr(row, "qualifying_source_row_canonical_sha256s")
+                ).split("|")
+                if token.strip()
+            ],
+            "source_date": [
+                token.strip()
+                for token in str(getattr(row, "qualifying_source_dates")).split("|")
+                if token.strip()
+            ],
+            "trade_date": [
+                token.strip()
+                for token in str(getattr(row, "qualifying_trade_dates")).split("|")
+                if token.strip()
+            ],
+            "sequence_index": [
+                token.strip()
+                for token in str(getattr(row, "qualifying_sequence_indices")).split("|")
+                if token.strip()
+            ],
+        }
+        lengths = {len(values) for values in parallel.values()}
+        if lengths != {len(parallel["row_sha"])} or not parallel["row_sha"]:
+            raise RuntimeError(
+                "source-first qualifying event lineage is not parallel and non-empty: "
+                f"{getattr(row, 'episode_key', '<unknown>')}"
+            )
+        missing_hashes = sorted(
+            row_sha
+            for row_sha in parallel["row_sha"]
+            if row_sha not in flag_by_row_sha
+        )
+        if missing_hashes:
+            raise RuntimeError(
+                "source-first qualifying event canonical row is absent from the "
+                f"cutoff revenue history: {missing_hashes[0]}"
+            )
+        flags = [flag_by_row_sha[row_sha] for row_sha in parallel["row_sha"]]
+        episode_diagnostic = _bool_value(
+            getattr(row, "qualifying_source_revenue_anomaly_candidate_flag")
+        )
+        if any(flags) != episode_diagnostic:
+            raise RuntimeError(
+                "source-first per-event anomaly flags do not reproduce the retained "
+                f"episode diagnostic: {getattr(row, 'episode_key', '<unknown>')}"
+            )
+        encoded_flags.append("|".join("True" if flag else "False" for flag in flags))
+    enriched["qualifying_source_revenue_anomaly_candidate_flags"] = encoded_flags
+    return enriched
 
 
 def _monthly_revenue_run_lineage(

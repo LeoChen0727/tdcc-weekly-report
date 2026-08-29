@@ -22,6 +22,9 @@ import validate_revenue_unreacted_range_low_mid_falling_candidate_audit as valid
 
 GENERATED_AT = "2026-07-20 12:00:00 Asia/Taipei"
 TRIGGER_INDEX = 220
+V4_PROMOTION_DECISION_ID = (
+    "revenue_unreacted_range_source_mid_falling_promotion_preparation_v4_20260829"
+)
 
 
 def test_low_mid_versions_follow_rearmed_generation() -> None:
@@ -49,6 +52,324 @@ def test_low_mid_versions_follow_rearmed_generation() -> None:
         match="unsupported canonical source projection version",
     ):
         validator._version_contract("unknown")
+
+
+def test_exact_v4_promotion_decision_resolves_append_only_v3_contract() -> None:
+    decision, contract = validator._resolve_promotion_artifact_contract(
+        ROOT,
+        V4_PROMOTION_DECISION_ID,
+    )
+
+    assert decision["decision_id"] == V4_PROMOTION_DECISION_ID
+    assert contract["artifact_version"] == validator.V3_ARTIFACT_VERSION
+    assert (
+        contract["rearmed_artifact_version"]
+        == validator.V3_REARMED_ARTIFACT_VERSION
+    )
+    assert contract["artifact_relative_paths"] == (
+        validator.V3_ARTIFACT_RELATIVE_PATHS
+    )
+    assert contract["projection_manifest_relative_path"] == (
+        validator.V2_PROJECTION_MANIFEST_RELATIVE_PATH
+    )
+    assert contract["source_first_relative_path"] == (
+        validator.V2_PROJECTION_DETAIL_RELATIVE_PATH
+    )
+    assert "output/latest" not in str(contract)
+
+
+def test_promotion_decision_selector_fails_closed_on_wrong_or_unsupported(
+    tmp_path: Path,
+) -> None:
+    with pytest.raises(RuntimeError, match="must resolve exactly once"):
+        validator._resolve_promotion_artifact_contract(
+            ROOT,
+            "revenue_unreacted_range_nonexistent_decision",
+        )
+
+    registry_path = tmp_path / validator.PROMOTION_REGISTRY_RELATIVE_PATH
+    registry_path.parent.mkdir(parents=True, exist_ok=True)
+    pd.DataFrame(
+        [
+            {
+                "decision_id": "unsupported-v4",
+                "model_id": validator.MODEL_ID,
+                "source_artifact_id": validator.ARTIFACT_ID,
+                "source_artifact_version": "low_mid_falling_candidate_v4_unknown",
+                "approved_for_daily": False,
+                "presentation_allowed": False,
+                "formal_model_use_allowed": False,
+                "production_change": False,
+            }
+        ]
+    ).to_csv(registry_path, index=False)
+
+    with pytest.raises(RuntimeError, match="unsupported append-only"):
+        validator._resolve_promotion_artifact_contract(
+            tmp_path,
+            "unsupported-v4",
+        )
+
+
+def test_v3_promotion_hash_excludes_only_diagnostic_provenance() -> None:
+    base = {
+        "operation_key": "stable-business-key",
+        "raw_file_sha256": "1" * 64,
+        "monthly_revenue_history_blob_sha256": "2" * 64,
+        "source_crlf_mode": "crlf",
+    }
+    diagnostics_changed = {
+        **base,
+        "raw_file_sha256": "3" * 64,
+        "monthly_revenue_history_blob_sha256": "4" * 64,
+        "source_crlf_mode": "lf",
+    }
+    business_changed = {**base, "operation_key": "changed-business-key"}
+
+    assert validator._promotion_mapping_sha256(base) == (
+        validator._promotion_mapping_sha256(diagnostics_changed)
+    )
+    assert validator._promotion_mapping_sha256(base) != (
+        validator._promotion_mapping_sha256(business_changed)
+    )
+
+
+def test_v3_detail_comparison_ignores_only_diagnostic_provenance() -> None:
+    detail_path = ROOT / validator.V3_ARTIFACT_RELATIVE_PATHS["detail"]
+    expected = pd.read_csv(
+        detail_path,
+        dtype={"stock_id": str},
+        keep_default_na=False,
+        low_memory=False,
+    )
+    diagnostic_mutation = expected.copy()
+    diagnostic_mutation.loc[:, "monthly_revenue_history_blob_sha256"] = "f" * 64
+
+    lineage_without_raw = validator._artifact_lineage(
+        expected.drop(columns=["monthly_revenue_history_blob_sha256"]),
+        exclude_diagnostic_provenance=True,
+    )
+    assert "monthly_revenue_history_blob_sha256" not in lineage_without_raw
+
+    assert validator._compare_detail(
+        diagnostic_mutation,
+        expected,
+        expected_artifact_version=validator.V3_ARTIFACT_VERSION,
+        exclude_diagnostic_provenance=True,
+    ) == []
+
+    canonical_mutation = expected.copy()
+    canonical_mutation.loc[:, "monthly_revenue_canonical_table_sha256"] = "f" * 64
+    assert any(
+        "monthly_revenue_canonical_table_sha256" in error
+        for error in validator._compare_detail(
+            canonical_mutation,
+            expected,
+            expected_artifact_version=validator.V3_ARTIFACT_VERSION,
+            exclude_diagnostic_provenance=True,
+        )
+    )
+
+    business_mutation = expected.copy()
+    business_mutation.loc[0, "realized_return_pct"] = 999.0
+    assert any(
+        "realized_return_pct drift" in error
+        for error in validator._compare_detail(
+            business_mutation,
+            expected,
+            expected_artifact_version=validator.V3_ARTIFACT_VERSION,
+            exclude_diagnostic_provenance=True,
+        )
+    )
+
+
+def test_header_only_detail_fails_closed_with_validation_error() -> None:
+    detail = pd.read_csv(
+        ROOT / validator.V3_ARTIFACT_RELATIVE_PATHS["detail"],
+        nrows=0,
+        keep_default_na=False,
+    )
+
+    with pytest.raises(RuntimeError, match="candidate detail artifact is empty"):
+        validator._artifact_lineage(
+            detail,
+            exclude_diagnostic_provenance=True,
+        )
+
+
+def test_rooted_regular_file_rejects_traversal_and_symlink(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    safe = tmp_path / "safe.csv"
+    safe.write_text("value\n1\n", encoding="utf-8")
+    with pytest.raises(RuntimeError, match="safe repository-relative"):
+        validator._rooted_regular_file(
+            tmp_path,
+            "../outside.csv",
+            label="test artifact",
+        )
+
+    original_is_symlink = Path.is_symlink
+    monkeypatch.setattr(
+        Path,
+        "is_symlink",
+        lambda self: (
+            str(self).lower() == str(safe).lower()
+            or original_is_symlink(self)
+        ),
+    )
+    with pytest.raises(RuntimeError, match="must not traverse a symlink"):
+        validator._rooted_regular_file(
+            tmp_path,
+            "safe.csv",
+            label="test artifact",
+        )
+
+
+@pytest.mark.parametrize(
+    ("loader", "blocked_parent"),
+    [("price", "data"), ("resolution", "config")],
+)
+def test_promotion_price_inputs_keep_repository_root_containment(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    loader: str,
+    blocked_parent: str,
+) -> None:
+    blocked_path = tmp_path / blocked_parent
+    original_is_symlink = Path.is_symlink
+    monkeypatch.setattr(
+        Path,
+        "is_symlink",
+        lambda self: (
+            str(self).lower() == str(blocked_path).lower()
+            or original_is_symlink(self)
+        ),
+    )
+
+    with pytest.raises(RuntimeError, match="must not traverse a symlink"):
+        if loader == "price":
+            validator._load_adjusted_price(
+                "1111",
+                tmp_path / validator.SOURCE_RELATIVE_PATHS["price_dir"],
+                pd.DataFrame(),
+                strict_rooted_path=True,
+                strict_source_root=tmp_path,
+            )
+        else:
+            validator._load_resolutions(
+                tmp_path / validator.SOURCE_RELATIVE_PATHS["resolution"],
+                strict_rooted_path=True,
+                strict_source_root=tmp_path,
+            )
+
+
+def test_rooted_regular_file_rejects_junction_style_resolve_escape(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    relative = "data/stock_price_history/1111.csv"
+    candidate = tmp_path / relative
+    candidate.parent.mkdir(parents=True, exist_ok=True)
+    candidate.write_text("date,close\n20260101,1\n", encoding="utf-8")
+    outside = tmp_path.parent / "junction-outside" / "1111.csv"
+    original_resolve = Path.resolve
+    monkeypatch.setattr(
+        Path,
+        "resolve",
+        lambda self, strict=False: (
+            outside
+            if str(self).lower() == str(candidate).lower()
+            else original_resolve(self, strict=strict)
+        ),
+    )
+
+    with pytest.raises(RuntimeError, match="outside its root"):
+        validator._rooted_regular_file(
+            tmp_path,
+            relative,
+            label="promotion price history 1111",
+        )
+
+
+@pytest.mark.parametrize(
+    "blocked_key",
+    ["source_first", "rearmed"],
+)
+def test_promotion_source_paths_reject_symlink(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    blocked_key: str,
+) -> None:
+    relative_paths = {
+        "projection_manifest": validator.V2_PROJECTION_MANIFEST_RELATIVE_PATH,
+        "source_first": validator.V2_PROJECTION_DETAIL_RELATIVE_PATH,
+        "rearmed": validator.V3_REARMED_RELATIVE_PATH,
+    }
+    for key, relative in relative_paths.items():
+        path = tmp_path / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        pd.DataFrame(
+            {"projection_version": [validator.V2_PROJECTION_VERSION]}
+            if key == "projection_manifest"
+            else {"stock_id": ["1111"]}
+        ).to_csv(path, index=False)
+
+    blocked_path = tmp_path / relative_paths[blocked_key]
+    original_is_symlink = Path.is_symlink
+    monkeypatch.setattr(
+        Path,
+        "is_symlink",
+        lambda self: (
+            str(self).lower() == str(blocked_path).lower()
+            or original_is_symlink(self)
+        ),
+    )
+    with pytest.raises(RuntimeError, match=f"promotion {blocked_key} path"):
+        validator._read_sources(
+            tmp_path,
+            projection_version=validator.V2_PROJECTION_VERSION,
+            projection_manifest_relative_path=relative_paths["projection_manifest"],
+            source_first_relative_path=relative_paths["source_first"],
+            rearmed_relative_path=relative_paths["rearmed"],
+            strict_rooted_paths=True,
+        )
+
+
+def test_promotion_source_paths_read_dated_history_not_latest(tmp_path: Path) -> None:
+    exact_paths = {
+        "projection_manifest": validator.V2_PROJECTION_MANIFEST_RELATIVE_PATH,
+        "source_first": validator.V2_PROJECTION_DETAIL_RELATIVE_PATH,
+        "rearmed": validator.V3_REARMED_RELATIVE_PATH,
+    }
+    for key, relative in exact_paths.items():
+        path = tmp_path / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        pd.DataFrame(
+            {"projection_version": [validator.V2_PROJECTION_VERSION]}
+            if key == "projection_manifest"
+            else {"stock_id": ["1111"]}
+        ).to_csv(path, index=False)
+    for key in ("projection_manifest", "source_first", "rearmed"):
+        latest = tmp_path / validator.SOURCE_RELATIVE_PATHS[key]
+        latest.parent.mkdir(parents=True, exist_ok=True)
+        pd.DataFrame({"stock_id": ["9999"]}).to_csv(latest, index=False)
+
+    manifest, source, rearmed = validator._read_sources(
+        tmp_path,
+        projection_version=validator.V2_PROJECTION_VERSION,
+        projection_manifest_relative_path=exact_paths["projection_manifest"],
+        source_first_relative_path=exact_paths["source_first"],
+        rearmed_relative_path=exact_paths["rearmed"],
+        strict_rooted_paths=True,
+    )
+
+    assert manifest["projection_version"].tolist() == [
+        validator.V2_PROJECTION_VERSION
+    ]
+    assert source["stock_id"].tolist() == ["1111"]
+    assert rearmed["stock_id"].tolist() == ["1111"]
 
 
 def _v1_manifest_frame() -> pd.DataFrame:
@@ -631,40 +952,56 @@ def test_validator_rejects_d30_price_replay_and_timing_drift(tmp_path: Path) -> 
 def test_validator_rejects_union_summary_paired_and_contrast_drift(
     tmp_path: Path,
 ) -> None:
-    paths = _build_fixture(tmp_path)
+    detail_root = tmp_path / "detail"
+    paths = _build_fixture(detail_root)
     detail = pd.read_csv(paths["detail_latest"], dtype={"stock_id": str})
     detail.loc[0, "low_or_mid_falling_union_member"] = False
     _rewrite_family(paths, "detail", detail)
     assert any(
         "low_or_mid_falling_union_member drift" in error
-        for error in validator.validate(artifact_root=tmp_path, source_root=tmp_path)
+        for error in validator.validate(
+            artifact_root=detail_root,
+            source_root=detail_root,
+        )
     )
 
-    paths = _build_fixture(tmp_path)
+    summary_root = tmp_path / "summary"
+    paths = _build_fixture(summary_root)
     summary = pd.read_csv(paths["summary_latest"])
     summary.loc[0, "operation_count"] = 999
     _rewrite_family(paths, "summary", summary)
     assert any(
         "metric drift: operation_count" in error
-        for error in validator.validate(artifact_root=tmp_path, source_root=tmp_path)
+        for error in validator.validate(
+            artifact_root=summary_root,
+            source_root=summary_root,
+        )
     )
 
-    paths = _build_fixture(tmp_path)
+    paired_root = tmp_path / "paired"
+    paths = _build_fixture(paired_root)
     paired = pd.read_csv(paths["paired_latest"], dtype={"stock_id": str})
     paired.loc[0, "delayed_minus_base_return_pct_points"] = 999.0
     _rewrite_family(paths, "paired", paired)
     assert any(
         "delayed_minus_base_return_pct_points drift" in error
-        for error in validator.validate(artifact_root=tmp_path, source_root=tmp_path)
+        for error in validator.validate(
+            artifact_root=paired_root,
+            source_root=paired_root,
+        )
     )
 
-    paths = _build_fixture(tmp_path)
+    contrast_root = tmp_path / "contrast"
+    paths = _build_fixture(contrast_root)
     contrast = pd.read_csv(paths["contrast_latest"])
     contrast.loc[0, "high_mean"] = 999.0
     _rewrite_family(paths, "contrast", contrast)
     assert any(
         "metric drift: high_mean" in error
-        for error in validator.validate(artifact_root=tmp_path, source_root=tmp_path)
+        for error in validator.validate(
+            artifact_root=contrast_root,
+            source_root=contrast_root,
+        )
     )
 
 
@@ -938,6 +1275,21 @@ def test_historical_v1_source_replay_uses_only_trusted_raw_blobs(
         ["validator", "--historical-v1-source-audit"],
     )
     assert validator.parse_args().historical_v1_source_audit is True
+
+
+def test_parse_args_accepts_exact_promotion_decision(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        ["validator", "--promotion-decision", V4_PROMOTION_DECISION_ID],
+    )
+
+    args = validator.parse_args()
+
+    assert args.promotion_decision == V4_PROMOTION_DECISION_ID
+    assert args.historical_v1_source_audit is False
 
 
 def test_default_v1_source_replay_fails_before_any_trusted_git_call(
