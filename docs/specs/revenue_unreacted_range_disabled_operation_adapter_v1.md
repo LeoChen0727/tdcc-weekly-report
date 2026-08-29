@@ -95,7 +95,12 @@ In-memory lifecycle validation enforces:
 6. lifecycle dates and states are monotonic, and an exited operation cannot be
    revived;
 7. a same-stock re-entry confirmation must occur after, not on, the prior exit
-   date.
+   date;
+8. every non-empty lifecycle validation must receive an explicit point-in-time
+   trading-calendar sequence, and confirmation, entry, and fixed exit must be
+   exactly D+1, D+2, and the 30th holding session (entry index +29);
+9. the same stock, report line, and date cannot appear in both selected and
+   unranked confirmation sections, even when operation keys differ.
 
 These checks prepare the formal boundary without claiming that a daily adapter
 or operation artifact exists.

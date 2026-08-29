@@ -172,8 +172,12 @@ def _stock_id(value: Any, label: str) -> str:
 
 
 def _date(value: Any, label: str) -> str:
-    text = _text(value)
-    if len(text) != 8 or not text.isdigit():
+    if not isinstance(value, str):
+        raise AdapterContractError(
+            f"{label} must be a canonical YYYYMMDD string, got {value!r}"
+        )
+    text = value.strip()
+    if text != value or len(text) != 8 or not text.isdigit():
         raise AdapterContractError(f"{label} must be YYYYMMDD, got {value!r}")
     try:
         datetime.strptime(text, "%Y%m%d")
@@ -182,6 +186,25 @@ def _date(value: Any, label: str) -> str:
             f"{label} must be a valid calendar date, got {value!r}"
         ) from exc
     return text
+
+
+def _normalize_trading_calendar(
+    trading_calendar: Sequence[str],
+) -> tuple[str, ...]:
+    normalized = tuple(
+        _date(value, f"pit_trading_calendar[{index}]")
+        for index, value in enumerate(trading_calendar)
+    )
+    if len(normalized) != len(set(normalized)):
+        raise AdapterContractError("pit_trading_calendar must not contain duplicates")
+    if any(
+        later <= earlier
+        for earlier, later in zip(normalized, normalized[1:])
+    ):
+        raise AdapterContractError(
+            "pit_trading_calendar must be strictly increasing"
+        )
+    return normalized
 
 
 def _require_exact_columns(row: Mapping[str, Any], columns: Sequence[str], label: str) -> None:
@@ -311,9 +334,11 @@ def validate_disabled_adapter_rows(rows: Sequence[Mapping[str, Any]]) -> None:
                     f"{label} disabled empty row must not populate {field_name}"
                 )
         for field_name, expected in expected_fixed.items():
-            if row.get(field_name) != expected:
+            observed = row.get(field_name)
+            if type(observed) is not type(expected) or observed != expected:
                 raise AdapterContractError(
-                    f"{label} {field_name} must be {expected!r}, got {row.get(field_name)!r}"
+                    f"{label} {field_name} must be exact {type(expected)!r} "
+                    f"{expected!r}, got {type(observed)!r} {observed!r}"
                 )
 
     expected_identities = {
@@ -327,7 +352,10 @@ def validate_disabled_adapter_rows(rows: Sequence[Mapping[str, Any]]) -> None:
         )
 
 
-def validate_lifecycle_events(events: Sequence[Mapping[str, Any]]) -> None:
+def validate_lifecycle_events(
+    events: Sequence[Mapping[str, Any]],
+    pit_trading_calendar: Sequence[str] = (),
+) -> None:
     """Validate future lifecycle rows without producing any operation output.
 
     The checks keep the selected v2 semantics fixed: an active operation must
@@ -338,8 +366,18 @@ def validate_lifecycle_events(events: Sequence[Mapping[str, Any]]) -> None:
 
     if not events:
         return
+    calendar = _normalize_trading_calendar(pit_trading_calendar)
+    if not calendar:
+        raise AdapterContractError(
+            "non-empty lifecycle validation requires a PIT trading calendar"
+        )
+    calendar_index = {
+        trading_date: index for index, trading_date in enumerate(calendar)
+    }
     normalized: list[dict[str, str]] = []
     unique_events: set[tuple[str, str, str]] = set()
+    unique_stock_state_dates: set[tuple[str, str, str, str]] = set()
+    unique_stock_confirmation_dates: set[tuple[str, str, str]] = set()
     for index, raw in enumerate(events):
         label = f"lifecycle event {index}"
         _require_exact_columns(raw, LIFECYCLE_EVENT_COLUMNS, label)
@@ -358,10 +396,30 @@ def validate_lifecycle_events(events: Sequence[Mapping[str, Any]]) -> None:
         if state not in LIFECYCLE_STATES:
             raise AdapterContractError(f"{label} has unsupported lifecycle_state={state!r}")
         event_date = _date(raw.get("event_date"), f"{label}.event_date")
+        if event_date not in calendar_index:
+            raise AdapterContractError(
+                f"{label}.event_date is absent from the PIT trading calendar: "
+                f"{event_date}"
+            )
         identity = (operation_key, event_date, state)
         if identity in unique_events:
             raise AdapterContractError(f"duplicate lifecycle event: {identity}")
         unique_events.add(identity)
+        stock_state_identity = (report_line, stock_id, event_date, state)
+        if stock_state_identity in unique_stock_state_dates:
+            raise AdapterContractError(
+                "same stock/report line/date cannot repeat a lifecycle state: "
+                f"{stock_state_identity}"
+            )
+        unique_stock_state_dates.add(stock_state_identity)
+        if state in {"confirmed_operation", "confirmed_unranked_operation"}:
+            confirmation_identity = (report_line, stock_id, event_date)
+            if confirmation_identity in unique_stock_confirmation_dates:
+                raise AdapterContractError(
+                    "same stock/report line/date cannot have multiple confirmation "
+                    f"sections: {confirmation_identity}"
+                )
+            unique_stock_confirmation_dates.add(confirmation_identity)
         normalized.append(
             {
                 key: _text(raw.get(key))
@@ -437,6 +495,47 @@ def validate_lifecycle_events(events: Sequence[Mapping[str, Any]]) -> None:
             raise AdapterContractError(
                 f"operation {operation_key} lifecycle dates must be strictly increasing"
             )
+        rows_by_state = {
+            row["lifecycle_state"]: row for row in ordered_by_state
+        }
+        pending_index = calendar_index[rows_by_state["pending_confirmation"]["event_date"]]
+        confirmation_state = (
+            "confirmed_operation"
+            if "confirmed_operation" in rows_by_state
+            else "confirmed_unranked_operation"
+            if "confirmed_unranked_operation" in rows_by_state
+            else ""
+        )
+        if confirmation_state:
+            confirmation_index = calendar_index[
+                rows_by_state[confirmation_state]["event_date"]
+            ]
+            if confirmation_index != pending_index + CONFIRMATION_OFFSET_TRADING_DAYS:
+                raise AdapterContractError(
+                    f"operation {operation_key} confirmation must be exact D+1 "
+                    "on the PIT trading calendar"
+                )
+        if "active_operation" in rows_by_state:
+            active_index = calendar_index[
+                rows_by_state["active_operation"]["event_date"]
+            ]
+            if active_index != pending_index + ENTRY_OFFSET_TRADING_DAYS:
+                raise AdapterContractError(
+                    f"operation {operation_key} entry must be exact D+2 "
+                    "on the PIT trading calendar"
+                )
+        if "exited_operation" in rows_by_state:
+            active_index = calendar_index[
+                rows_by_state["active_operation"]["event_date"]
+            ]
+            exit_index = calendar_index[
+                rows_by_state["exited_operation"]["event_date"]
+            ]
+            if exit_index != active_index + HOLDING_SESSION_INDEX_OFFSET:
+                raise AdapterContractError(
+                    f"operation {operation_key} exit must be the 30th holding "
+                    "session (entry index +29) on the PIT trading calendar"
+                )
         for row in operation_rows:
             state = row["lifecycle_state"]
             prior_key = row["prior_confirmed_operation_key"]

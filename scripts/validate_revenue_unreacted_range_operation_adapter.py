@@ -8,6 +8,33 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_MODULE = ROOT / "scripts/revenue_unreacted_range_operation_adapter.py"
+PIT_TRADING_CALENDAR_FIXTURE = (
+    "20260803", "20260804", "20260805", "20260806", "20260807",
+    "20260810", "20260811", "20260812", "20260813", "20260814",
+    "20260817", "20260818", "20260819", "20260820", "20260821",
+    "20260824", "20260825", "20260826", "20260827", "20260828",
+    "20260831", "20260901", "20260902", "20260903", "20260904",
+    "20260907", "20260908", "20260909", "20260910", "20260911",
+    "20260914", "20260915", "20260916", "20260917", "20260918",
+)
+
+
+def _exact_type_and_value(observed: object, expected: object) -> bool:
+    if type(observed) is not type(expected):
+        return False
+    if isinstance(expected, dict):
+        if observed.keys() != expected.keys():
+            return False
+        return all(
+            _exact_type_and_value(observed[key], expected[key])
+            for key in expected
+        )
+    if isinstance(expected, tuple):
+        return len(observed) == len(expected) and all(
+            _exact_type_and_value(observed_item, expected_item)
+            for observed_item, expected_item in zip(observed, expected)
+        )
+    return observed == expected
 
 
 def _load_module(module_path: Path):
@@ -37,6 +64,7 @@ def _validate_no_runtime_writer(module_path: Path) -> list[str]:
         "AdapterContractError",
         "_date",
         "_fixed_metadata",
+        "_normalize_trading_calendar",
         "_require_exact_columns",
         "_stock_id",
         "_text",
@@ -50,6 +78,7 @@ def _validate_no_runtime_writer(module_path: Path) -> list[str]:
         "sorted",
         "str",
         "tuple",
+        "type",
         "validate_disabled_adapter_rows",
         "validate_lifecycle_events",
         "zip",
@@ -75,6 +104,7 @@ def _validate_no_runtime_writer(module_path: Path) -> list[str]:
         "AdapterContractError",
         "_date",
         "_fixed_metadata",
+        "_normalize_trading_calendar",
         "_require_exact_columns",
         "_stock_id",
         "_text",
@@ -152,6 +182,16 @@ def _validate_no_runtime_writer(module_path: Path) -> list[str]:
             errors.append(
                 "disabled adapter must not use pattern matching constructs"
             )
+        elif isinstance(node, ast.Raise):
+            is_contract_raise = (
+                isinstance(node.exc, ast.Call)
+                and isinstance(node.exc.func, ast.Name)
+                and node.exc.func.id == "AdapterContractError"
+            )
+            if not is_contract_raise:
+                errors.append(
+                    "disabled adapter may only raise AdapterContractError explicitly"
+                )
         elif isinstance(node, ast.Name):
             if isinstance(node.ctx, (ast.Store, ast.Del)) and node.id in protected_bindings:
                 errors.append(
@@ -274,7 +314,7 @@ def _validate_lifecycle_rejection_fixtures(module: object) -> list[str]:
         ),
     ]
     try:
-        module.validate_lifecycle_events(valid)
+        module.validate_lifecycle_events(valid, PIT_TRADING_CALENDAR_FIXTURE)
     except Exception as exc:
         errors.append(f"disabled adapter rejects the canonical lifecycle fixture: {exc}")
 
@@ -303,6 +343,43 @@ def _validate_lifecycle_rejection_fixtures(module: object) -> list[str]:
         + [
             _lifecycle_event(module, "op-2", "pending_confirmation", "20260806"),
             _lifecycle_event(module, "op-2", "confirmed_operation", "20260807"),
+        ],
+        "same_day_ranked_and_unranked_confirmation": [
+            _lifecycle_event(module, "op-ranked", "pending_confirmation", "20260804"),
+            _lifecycle_event(module, "op-ranked", "confirmed_operation", "20260805"),
+            _lifecycle_event(module, "op-unranked", "pending_confirmation", "20260803"),
+            _lifecycle_event(
+                module,
+                "op-unranked",
+                "confirmed_unranked_operation",
+                "20260805",
+            ),
+        ],
+        "confirmation_not_exact_d1": [
+            _lifecycle_event(module, "late-confirm", "pending_confirmation", "20260803"),
+            _lifecycle_event(module, "late-confirm", "confirmed_operation", "20260831"),
+        ],
+        "entry_not_exact_d2": [
+            _lifecycle_event(module, "late-entry", "pending_confirmation", "20260803"),
+            _lifecycle_event(module, "late-entry", "confirmed_operation", "20260804"),
+            _lifecycle_event(
+                module,
+                "late-entry",
+                "active_operation",
+                "20260806",
+                prior_confirmed_operation_key="late-entry",
+                entry_date="20260806",
+            ),
+        ],
+        "exit_not_entry_plus_29": valid[:-1]
+        + [
+            _lifecycle_event(
+                module,
+                "op-1",
+                "exited_operation",
+                "20260806",
+                exit_date="20260806",
+            )
         ],
         "revival_after_exit": valid
         + [
@@ -335,7 +412,7 @@ def _validate_lifecycle_rejection_fixtures(module: object) -> list[str]:
     }
     for fixture_name, events in invalid_fixtures.items():
         try:
-            module.validate_lifecycle_events(events)
+            module.validate_lifecycle_events(events, PIT_TRADING_CALENDAR_FIXTURE)
         except module.AdapterContractError:
             continue
         except Exception as exc:
@@ -497,10 +574,11 @@ def validate_disabled_preparation(module_path: Path) -> list[str]:
         },
     }
     for name, value in expected.items():
-        if getattr(module, name, None) != value:
+        observed = getattr(module, name, None)
+        if not _exact_type_and_value(observed, value):
             errors.append(
                 f"disabled adapter fixed contract drift: {name}="
-                f"{getattr(module, name, None)!r}; expected={value!r}"
+                f"{observed!r}; expected exact {type(value)!r} {value!r}"
             )
 
     rows = module.build_disabled_empty_rows()

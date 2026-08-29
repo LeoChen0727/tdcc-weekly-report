@@ -16,6 +16,13 @@ import revenue_unreacted_range_operation_adapter as adapter  # noqa: E402
 import validate_revenue_unreacted_range_operation_adapter as validator  # noqa: E402
 
 
+PIT_TRADING_CALENDAR = validator.PIT_TRADING_CALENDAR_FIXTURE
+
+
+def _validate_lifecycle(events: list[dict[str, object]]) -> None:
+    adapter.validate_lifecycle_events(events, PIT_TRADING_CALENDAR)
+
+
 def _event(
     operation_key: str,
     state: str,
@@ -140,6 +147,11 @@ def test_disabled_adapter_rejects_schema_and_permission_drift() -> None:
     with pytest.raises(adapter.AdapterContractError, match="operation_directive_level"):
         adapter.validate_disabled_adapter_rows(rows)
 
+    rows = [dict(row) for row in adapter.build_disabled_empty_rows()]
+    rows[0]["holding_days"] = 30.0
+    with pytest.raises(adapter.AdapterContractError, match="holding_days"):
+        adapter.validate_disabled_adapter_rows(rows)
+
 
 @pytest.mark.parametrize(
     "field_name",
@@ -162,13 +174,78 @@ def test_monthly_revenue_boundary_rejects_financial_statement_fields(
 
 
 def test_lifecycle_accepts_selected_confirmed_active_exit_chain() -> None:
-    adapter.validate_lifecycle_events(_valid_completed_events())
+    _validate_lifecycle(_valid_completed_events())
+
+
+def test_lifecycle_requires_explicit_pit_trading_calendar() -> None:
+    with pytest.raises(adapter.AdapterContractError, match="requires a PIT trading calendar"):
+        adapter.validate_lifecycle_events(_valid_completed_events())
+
+
+@pytest.mark.parametrize(
+    ("events", "message"),
+    [
+        (
+            [
+                _event("late-confirm", "pending_confirmation", "20260803"),
+                _event("late-confirm", "confirmed_operation", "20260831"),
+            ],
+            "confirmation must be exact D\\+1",
+        ),
+        (
+            [
+                _event("late-entry", "pending_confirmation", "20260803"),
+                _event("late-entry", "confirmed_operation", "20260804"),
+                _event(
+                    "late-entry",
+                    "active_operation",
+                    "20260806",
+                    prior_confirmed_operation_key="late-entry",
+                    entry_date="20260806",
+                ),
+            ],
+            "entry must be exact D\\+2",
+        ),
+        (
+            _valid_completed_events()[:-1]
+            + [
+                _event(
+                    "op-1",
+                    "exited_operation",
+                    "20260806",
+                    exit_date="20260806",
+                )
+            ],
+            "30th holding session",
+        ),
+    ],
+)
+def test_lifecycle_rejects_timing_offset_drift(
+    events: list[dict[str, str]], message: str
+) -> None:
+    with pytest.raises(adapter.AdapterContractError, match=message):
+        _validate_lifecycle(events)
+
+
+def test_lifecycle_rejects_same_day_ranked_and_unranked_confirmation() -> None:
+    events = [
+        _event("op-ranked", "pending_confirmation", "20260804"),
+        _event("op-ranked", "confirmed_operation", "20260805"),
+        _event("op-unranked", "pending_confirmation", "20260803"),
+        _event(
+            "op-unranked",
+            "confirmed_unranked_operation",
+            "20260805",
+        ),
+    ]
+    with pytest.raises(adapter.AdapterContractError, match="multiple confirmation sections"):
+        _validate_lifecycle(events)
 
 
 def test_lifecycle_rejects_invalid_calendar_date() -> None:
     events = [_event("op-1", "pending_confirmation", "20261399")]
     with pytest.raises(adapter.AdapterContractError, match="valid calendar date"):
-        adapter.validate_lifecycle_events(events)
+        _validate_lifecycle(events)
 
 
 @pytest.mark.parametrize(
@@ -200,7 +277,7 @@ def test_lifecycle_rejects_state_unrelated_fields(
     row = next(event for event in events if event["lifecycle_state"] == state)
     row[field_name] = field_value
     with pytest.raises(adapter.AdapterContractError, match="unrelated|must not populate"):
-        adapter.validate_lifecycle_events(events)
+        _validate_lifecycle(events)
 
 
 def test_lifecycle_rejects_active_without_selected_confirmation() -> None:
@@ -214,7 +291,7 @@ def test_lifecycle_rejects_active_without_selected_confirmation() -> None:
         )
     ]
     with pytest.raises(adapter.AdapterContractError, match="lacks prior selected confirmation"):
-        adapter.validate_lifecycle_events(events)
+        _validate_lifecycle(events)
 
 
 def test_lifecycle_rejects_unranked_confirmation_becoming_active() -> None:
@@ -230,7 +307,7 @@ def test_lifecycle_rejects_unranked_confirmation_becoming_active() -> None:
         ),
     ]
     with pytest.raises(adapter.AdapterContractError, match="must never become active"):
-        adapter.validate_lifecycle_events(events)
+        _validate_lifecycle(events)
 
 
 def test_lifecycle_rejects_same_stock_overlap() -> None:
@@ -242,7 +319,7 @@ def test_lifecycle_rejects_same_stock_overlap() -> None:
         ]
     )
     with pytest.raises(adapter.AdapterContractError, match="while operation op-1 is active"):
-        adapter.validate_lifecycle_events(events)
+        _validate_lifecycle(events)
 
 
 @pytest.mark.parametrize("stock_id", [2408.0, "2408.0", " 2408 "])
@@ -255,7 +332,7 @@ def test_lifecycle_rejects_noncanonical_stock_id_alias(stock_id: object) -> None
         ]
     )
     with pytest.raises(adapter.AdapterContractError, match="canonical four-digit string"):
-        adapter.validate_lifecycle_events(events)
+        _validate_lifecycle(events)
 
 
 def test_lifecycle_rejects_second_selected_confirmation_before_first_exit() -> None:
@@ -267,13 +344,13 @@ def test_lifecycle_rejects_second_selected_confirmation_before_first_exit() -> N
         _event(
             "op-1",
             "active_operation",
-            "20260806",
+            "20260805",
             prior_confirmed_operation_key="op-1",
-            entry_date="20260806",
+            entry_date="20260805",
         ),
     ]
     with pytest.raises(adapter.AdapterContractError, match="overlapping selected"):
-        adapter.validate_lifecycle_events(events)
+        _validate_lifecycle(events)
 
 
 def test_lifecycle_rejects_confirmed_and_active_on_same_date() -> None:
@@ -289,7 +366,7 @@ def test_lifecycle_rejects_confirmed_and_active_on_same_date() -> None:
         ),
     ]
     with pytest.raises(adapter.AdapterContractError, match="strictly increasing|same date"):
-        adapter.validate_lifecycle_events(events)
+        _validate_lifecycle(events)
 
 
 def test_lifecycle_rejects_same_day_reentry_after_exit() -> None:
@@ -301,7 +378,7 @@ def test_lifecycle_rejects_same_day_reentry_after_exit() -> None:
         ]
     )
     with pytest.raises(adapter.AdapterContractError, match="after prior exit"):
-        adapter.validate_lifecycle_events(events)
+        _validate_lifecycle(events)
 
 
 def test_lifecycle_allows_reentry_only_after_prior_exit() -> None:
@@ -319,7 +396,7 @@ def test_lifecycle_allows_reentry_only_after_prior_exit() -> None:
             ),
         ]
     )
-    adapter.validate_lifecycle_events(events)
+    _validate_lifecycle(events)
 
 
 def test_lifecycle_rejects_non_monotonic_revival() -> None:
@@ -334,7 +411,7 @@ def test_lifecycle_rejects_non_monotonic_revival() -> None:
         )
     )
     with pytest.raises(adapter.AdapterContractError, match="repeats lifecycle states"):
-        adapter.validate_lifecycle_events(events)
+        _validate_lifecycle(events)
 
 
 @pytest.mark.parametrize("state", ["confirmed_operation", "active_operation"])
@@ -346,7 +423,7 @@ def test_lifecycle_rejects_repeated_transition_on_different_date(state: str) -> 
         repeated["entry_date"] = "20260810"
     events.insert(-1, repeated)
     with pytest.raises(adapter.AdapterContractError, match="repeats lifecycle states"):
-        adapter.validate_lifecycle_events(events)
+        _validate_lifecycle(events)
 
 
 @pytest.mark.parametrize(
@@ -369,7 +446,7 @@ def test_lifecycle_requires_strictly_increasing_transition_dates(
     if later_state == "exited_operation":
         later["exit_date"] = same_date
     with pytest.raises(adapter.AdapterContractError, match="strictly increasing"):
-        adapter.validate_lifecycle_events(events)
+        _validate_lifecycle(events)
 
 
 @pytest.mark.parametrize(
@@ -413,6 +490,7 @@ def test_lifecycle_requires_strictly_increasing_transition_dates(
         ),
         "_date.__code__ = (lambda value, label: str(value)).__code__",
         "SECTION_EMPTY_TEXT_ZH['confirmed_operation'] = '買進'",
+        "raise SystemExit",
     ],
 )
 def test_validator_accepts_disabled_preparation_and_rejects_side_effect_calls(
@@ -440,6 +518,7 @@ def test_validator_accepts_disabled_preparation_and_rejects_side_effect_calls(
             "rebind or delete a protected symbol",
             "forbidden introspection attribute",
             "protected module mapping",
+            "only raise AdapterContractError",
         )
     )
     assert not side_effect.exists()
@@ -448,7 +527,11 @@ def test_validator_accepts_disabled_preparation_and_rejects_side_effect_calls(
 def test_external_validator_runs_independent_lifecycle_negative_fixtures(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    monkeypatch.setattr(adapter, "validate_lifecycle_events", lambda events: None)
+    monkeypatch.setattr(
+        adapter,
+        "validate_lifecycle_events",
+        lambda events, pit_trading_calendar: None,
+    )
 
     errors = validator._validate_lifecycle_rejection_fixtures(adapter)
 
@@ -464,6 +547,37 @@ def test_external_validator_pins_schema_and_empty_state_text(
     errors = validator.validate_disabled_preparation(validator.DEFAULT_MODULE)
 
     assert any("SECTION_EMPTY_TEXT_ZH" in error for error in errors)
+
+
+@pytest.mark.parametrize(
+    ("name", "drifted_value"),
+    [
+        ("HOLDING_DAYS", 30.0),
+        ("CONFIRMATION_OFFSET_TRADING_DAYS", True),
+        (
+            "FORBIDDEN_FINANCIAL_STATEMENT_FIELDS",
+            set(adapter.FORBIDDEN_FINANCIAL_STATEMENT_FIELDS),
+        ),
+        (
+            "_STATE_RANK",
+            {
+                **adapter._STATE_RANK,
+                "confirmed_operation": True,
+            },
+        ),
+    ],
+)
+def test_external_validator_rejects_fixed_contract_type_drift(
+    monkeypatch: pytest.MonkeyPatch,
+    name: str,
+    drifted_value: object,
+) -> None:
+    monkeypatch.setattr(adapter, name, drifted_value)
+    monkeypatch.setattr(validator, "_load_module", lambda module_path: adapter)
+
+    errors = validator.validate_disabled_preparation(validator.DEFAULT_MODULE)
+
+    assert any(name in error for error in errors)
 
 
 @pytest.mark.parametrize(
