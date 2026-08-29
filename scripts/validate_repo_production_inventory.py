@@ -122,19 +122,26 @@ REVENUE_READINESS_FORMAL_SYNC_WORKFLOW = (
     ".github/workflows/revenue_unreacted_range_readiness_formal_sync.yml"
 )
 REVENUE_READINESS_FORMAL_SYNC_TARGET = (
-    "codex/revenue-unreacted-range-readiness-formal-sync-3a-v1-20260828"
+    "codex/revenue-unreacted-range-readiness-formal-sync-3c-v2-20260829"
 )
 REVENUE_READINESS_FORMAL_SYNC_CONTRACT_VERSION = (
-    "revenue_readiness_sync_3a_v1_20260828"
+    "revenue_readiness_sync_3c_v2_20260829"
 )
 REVENUE_READINESS_FORMAL_SYNC_EXCEPTION_ID = (
-    "revenue_unreacted_range_readiness_formal_sync_3a_v1_20260828"
+    "revenue_unreacted_range_readiness_formal_sync_3c_v2_20260829"
 )
+REVENUE_READINESS_FORMAL_SYNC_AUTHORIZATION = "user_authorized_3A_3C_20260829"
 REVENUE_READINESS_FORMAL_SYNC_PRODUCER = (
     "scripts/sync_revenue_unreacted_range_operation_readiness.py"
 )
 REVENUE_READINESS_FORMAL_SYNC_PRODUCER_TOKEN = (
     f"producer={REVENUE_READINESS_FORMAL_SYNC_PRODUCER}"
+)
+REVENUE_READINESS_FORMAL_SYNC_VALIDATOR = (
+    "scripts/validate_revenue_unreacted_range_readiness_formal_sync_v2.py"
+)
+REVENUE_READINESS_FORMAL_SYNC_VALIDATOR_TOKEN = (
+    f"validator={REVENUE_READINESS_FORMAL_SYNC_VALIDATOR}"
 )
 REVENUE_READINESS_LEGACY_BUILDER = "scripts/build_model_operation_readiness.py"
 REVENUE_READINESS_FORMAL_SYNC_PUSH = (
@@ -1407,21 +1414,47 @@ def validate_revenue_readiness_formal_sync_workflow_text(text: str) -> list[str]
             "revenue readiness formal sync bundle and apply contract must bind "
             "the exact producer token"
         )
+    validator_command = f"python -B {REVENUE_READINESS_FORMAL_SYNC_VALIDATOR}"
+    if text.count(validator_command) != 4:
+        errors.append(
+            "revenue readiness formal sync must invoke the exact v2 phase "
+            "validator four times"
+        )
+    exact_validator_env = (
+        "READINESS_SYNC_VALIDATOR: "
+        f"{REVENUE_READINESS_FORMAL_SYNC_VALIDATOR}"
+    )
+    exact_validator_guard = (
+        '[ "$READINESS_SYNC_VALIDATOR" = '
+        f"{REVENUE_READINESS_FORMAL_SYNC_VALIDATOR} ]"
+    )
     if (
-        "anomaly_disposition_blockers=9; unresolved_anomalies=9; "
-        "forward_holdout_v2_mature=0/20; formal_adapter=not_started"
-        not in text
+        text.count(exact_validator_env) != 1
+        or text.count(exact_validator_guard) != 2
     ):
-        errors.append("revenue readiness formal sync omits the exact builder blocker")
+        errors.append(
+            "revenue readiness formal sync v2 validator identity is not exact in "
+            "prepare and apply"
+        )
+    if text.count(REVENUE_READINESS_FORMAL_SYNC_VALIDATOR_TOKEN) != 2:
+        errors.append(
+            "revenue readiness formal sync bundle and apply contract must bind "
+            "the exact v2 validator token"
+        )
+    if "blocker=forward_holdout_v2_mature=0/20" not in text:
+        errors.append(
+            "revenue readiness formal sync omits the exact forward holdout blocker"
+        )
     for path in REVENUE_READINESS_FORMAL_SYNC_FOUR_PATHS:
         if text.count(path) < 4:
             errors.append(f"revenue readiness formal sync does not bind exact mirror path: {path}")
     for token in (
         f"contract_version={REVENUE_READINESS_FORMAL_SYNC_CONTRACT_VERSION}",
         f"exception_id={REVENUE_READINESS_FORMAL_SYNC_EXCEPTION_ID}",
-        "authorization_reference=user_authorized_3A_3C_20260828",
+        f"authorization_reference={REVENUE_READINESS_FORMAL_SYNC_AUTHORIZATION}",
         f"target_branch={REVENUE_READINESS_FORMAL_SYNC_TARGET}",
         REVENUE_READINESS_FORMAL_SYNC_PRODUCER_TOKEN,
+        REVENUE_READINESS_FORMAL_SYNC_VALIDATOR_TOKEN,
         "formal_model_use_allowed=False",
         "approved_for_daily=False",
         "presentation_allowed=False",
