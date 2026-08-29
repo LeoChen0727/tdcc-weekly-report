@@ -228,6 +228,72 @@ def test_rooted_regular_file_rejects_traversal_and_symlink(
 
 
 @pytest.mark.parametrize(
+    ("loader", "blocked_parent"),
+    [("price", "data"), ("resolution", "config")],
+)
+def test_promotion_price_inputs_keep_repository_root_containment(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    loader: str,
+    blocked_parent: str,
+) -> None:
+    blocked_path = tmp_path / blocked_parent
+    original_is_symlink = Path.is_symlink
+    monkeypatch.setattr(
+        Path,
+        "is_symlink",
+        lambda self: (
+            str(self).lower() == str(blocked_path).lower()
+            or original_is_symlink(self)
+        ),
+    )
+
+    with pytest.raises(RuntimeError, match="must not traverse a symlink"):
+        if loader == "price":
+            validator._load_adjusted_price(
+                "1111",
+                tmp_path / validator.SOURCE_RELATIVE_PATHS["price_dir"],
+                pd.DataFrame(),
+                strict_rooted_path=True,
+                strict_source_root=tmp_path,
+            )
+        else:
+            validator._load_resolutions(
+                tmp_path / validator.SOURCE_RELATIVE_PATHS["resolution"],
+                strict_rooted_path=True,
+                strict_source_root=tmp_path,
+            )
+
+
+def test_rooted_regular_file_rejects_junction_style_resolve_escape(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    relative = "data/stock_price_history/1111.csv"
+    candidate = tmp_path / relative
+    candidate.parent.mkdir(parents=True, exist_ok=True)
+    candidate.write_text("date,close\n20260101,1\n", encoding="utf-8")
+    outside = tmp_path.parent / "junction-outside" / "1111.csv"
+    original_resolve = Path.resolve
+    monkeypatch.setattr(
+        Path,
+        "resolve",
+        lambda self, strict=False: (
+            outside
+            if str(self).lower() == str(candidate).lower()
+            else original_resolve(self, strict=strict)
+        ),
+    )
+
+    with pytest.raises(RuntimeError, match="outside its root"):
+        validator._rooted_regular_file(
+            tmp_path,
+            relative,
+            label="promotion price history 1111",
+        )
+
+
+@pytest.mark.parametrize(
     "blocked_key",
     ["source_first", "rearmed"],
 )

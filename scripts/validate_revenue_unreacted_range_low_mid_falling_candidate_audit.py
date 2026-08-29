@@ -1288,6 +1288,7 @@ def _load_resolutions(
     *,
     trusted_revision: str | None = None,
     strict_rooted_path: bool = False,
+    strict_source_root: Path | None = None,
 ) -> pd.DataFrame:
     columns = ["stock_id", "resume_date", "exchange_ratio", "resolution_id"]
     if trusted_revision is not None:
@@ -1301,9 +1302,13 @@ def _load_resolutions(
         )
     else:
         if strict_rooted_path:
+            if strict_source_root is None:
+                raise RuntimeError(
+                    "promotion price resolution requires an explicit source root"
+                )
             path = _rooted_regular_file(
-                path.parent,
-                path.name,
+                strict_source_root,
+                SOURCE_RELATIVE_PATHS["resolution"],
                 label="promotion price resolution",
             )
         elif not path.is_file():
@@ -1344,6 +1349,7 @@ def _load_adjusted_price(
     *,
     trusted_revision: str | None = None,
     strict_rooted_path: bool = False,
+    strict_source_root: Path | None = None,
 ) -> pd.DataFrame:
     if trusted_revision is not None:
         relative = _trusted_stock_path(stock_id)
@@ -1351,9 +1357,13 @@ def _load_adjusted_price(
         frame = _read_csv_payload(payload, label=relative, low_memory=False)
     else:
         if strict_rooted_path:
+            if strict_source_root is None:
+                raise RuntimeError(
+                    "promotion price history requires an explicit source root"
+                )
             path = _rooted_regular_file(
-                price_dir,
-                f"{stock_id}.csv",
+                strict_source_root,
+                f"{SOURCE_RELATIVE_PATHS['price_dir']}/{stock_id}.csv",
                 label=f"promotion price history {stock_id}",
             )
         else:
@@ -2099,6 +2109,7 @@ def _expected_detail(
         source_root / SOURCE_RELATIVE_PATHS["resolution"],
         trusted_revision=trusted_revision,
         strict_rooted_path=strict_rooted_paths,
+        strict_source_root=source_root if strict_rooted_paths else None,
     )
     producer_sha = _normalized_file_sha256(
         source_root,
@@ -2141,6 +2152,7 @@ def _expected_detail(
             resolutions,
             trusted_revision=trusted_revision,
             strict_rooted_path=strict_rooted_paths,
+            strict_source_root=source_root if strict_rooted_paths else None,
         )
         price_hash_cache[stock_id] = _canonical_frame_sha256(price_cache[stock_id])
     price_manifest_sha = _canonical_table_sha256(
