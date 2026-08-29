@@ -343,9 +343,9 @@ def _approved_sparse_destination_roots() -> tuple[Path, ...]:
     row = _load_materialization_contract(SPARSE_TASK_CONSUMER_ID)
     if row.get("materialization_mode", "").strip() != "sparse_task_only":
         raise GitWorktreeSafetyError("sparse task contract must use materialization_mode=sparse_task_only")
-    if row.get("temp_root_policy", "").strip() != "system_temp_or_approved_root":
+    if row.get("temp_root_policy", "").strip() != "approved_root_only":
         raise GitWorktreeSafetyError(
-            "sparse task contract must use temp_root_policy=system_temp_or_approved_root"
+            "sparse task contract must use temp_root_policy=approved_root_only"
         )
     approved_root = row.get("approved_destination_root", "").strip()
     if approved_root.lower().rstrip("\\/") != APPROVED_SPARSE_DESTINATION_ROOT_WINDOWS.lower():
@@ -505,6 +505,7 @@ def _resolve_sparse_destination(
                 repo_root,
                 destination,
                 approved_sparse_roots=approved_sparse_roots,
+                allow_system_temp=False,
             ),
             "",
             "explicit",
@@ -520,6 +521,7 @@ def _resolve_sparse_destination(
             repo_root,
             default_destination,
             approved_sparse_roots=approved_sparse_roots,
+            allow_system_temp=False,
         ),
         sanitized_task_name,
         "default_approved_root",
@@ -531,6 +533,7 @@ def _require_new_worktree_destination(
     destination: Path,
     *,
     approved_sparse_roots: Sequence[Path] = (),
+    allow_system_temp: bool = True,
 ) -> Path:
     if _is_drive_root(destination):
         raise GitWorktreeSafetyError(
@@ -540,37 +543,46 @@ def _require_new_worktree_destination(
     _require_no_reparse_points(destination)
     temp_root = _system_temp_root()
 
-    if destination == temp_root:
-        raise GitWorktreeSafetyError("worktree destination must not be the system temp root itself")
-    if _path_is_within(destination, temp_root):
-        _require_destination_outside_repository_roots(repo_root, destination)
-    else:
-        matched_root: Path | None = None
-        for configured_root in approved_sparse_roots:
-            if _is_drive_root(configured_root):
-                raise GitWorktreeSafetyError(
-                    f"approved worktree root must not be a drive root: {configured_root}"
-                )
-            configured_root = _absolute_without_resolving(configured_root)
-            if destination == configured_root:
-                raise GitWorktreeSafetyError(
-                    f"worktree destination must be a child of the approved root, not the root itself: "
-                    f"{configured_root}"
-                )
-            if not _path_is_within(destination, configured_root):
-                continue
-            approved_root = _prepare_approved_sparse_root(repo_root, configured_root)
-            if _path_is_within(destination, approved_root):
-                matched_root = approved_root
-                break
-        if matched_root is None:
-            allowed = ", ".join(str(root) for root in approved_sparse_roots) or "none"
+    matched_root: Path | None = None
+    for configured_root in approved_sparse_roots:
+        if _is_drive_root(configured_root):
             raise GitWorktreeSafetyError(
-                f"worktree destination must stay under the system temp root {temp_root} or an approved sparse "
-                f"root ({allowed}): {destination}"
+                f"approved worktree root must not be a drive root: {configured_root}"
             )
+        configured_root = _absolute_without_resolving(configured_root)
+        if destination == configured_root:
+            raise GitWorktreeSafetyError(
+                f"worktree destination must be a child of the approved root, not the root itself: "
+                f"{configured_root}"
+            )
+        if not _path_is_within(destination, configured_root):
+            continue
+        approved_root = _prepare_approved_sparse_root(repo_root, configured_root)
+        if _path_is_within(destination, approved_root):
+            matched_root = approved_root
+            break
+
+    if matched_root is not None:
         _require_no_reparse_points(destination)
         _require_destination_outside_repository_roots(repo_root, destination)
+    elif _path_is_within(destination, temp_root):
+        if not allow_system_temp:
+            raise GitWorktreeSafetyError(
+                "ordinary sparse worktree destination must stay under the approved sparse root; "
+                f"explicit system Temp destinations are forbidden: {destination}"
+            )
+        if destination == temp_root:
+            raise GitWorktreeSafetyError("worktree destination must not be the system temp root itself")
+        _require_destination_outside_repository_roots(repo_root, destination)
+    else:
+        if approved_sparse_roots:
+            allowed = ", ".join(str(root) for root in approved_sparse_roots)
+            raise GitWorktreeSafetyError(
+                f"worktree destination must stay under an approved sparse root ({allowed}): {destination}"
+            )
+        raise GitWorktreeSafetyError(
+            f"worktree destination must stay under the system temp root {temp_root}: {destination}"
+        )
 
     if destination.exists():
         raise GitWorktreeSafetyError(f"worktree destination already exists: {destination}")

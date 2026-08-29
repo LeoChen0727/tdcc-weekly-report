@@ -19,11 +19,20 @@ from scripts.validate_git_worktree_safety import validate as validate_git_worktr
 
 
 @pytest.fixture(autouse=True)
-def _approved_root_has_test_capacity(monkeypatch: pytest.MonkeyPatch) -> None:
+def _approved_root_has_test_capacity(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
     monkeypatch.setattr(
         worktree_safety,
         "_available_free_bytes",
         lambda _path: worktree_safety.MINIMUM_APPROVED_ROOT_FREE_BYTES,
+    )
+    monkeypatch.setattr(worktree_safety, "_filesystem_type", lambda _path: "NTFS")
+    monkeypatch.setattr(
+        worktree_safety,
+        "_approved_sparse_destination_roots",
+        lambda: (tmp_path,),
     )
 
 
@@ -448,6 +457,37 @@ def test_sparse_worktree_rejects_task_name_with_explicit_destination(
         )
 
 
+def test_sparse_worktree_rejects_explicit_system_temp_destination(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    repo = init_repo(tmp_path)
+    write(repo, "scripts/a.py", "print('a')\n")
+    target = commit_all(repo, "base")
+    system_temp = tmp_path / "isolated-system-temp"
+    system_temp.mkdir()
+    approved_root = tmp_path / "approved-f-root"
+    destination = system_temp / "explicit-sparse"
+    monkeypatch.setattr(worktree_safety, "_system_temp_root", lambda: system_temp)
+    monkeypatch.setattr(
+        worktree_safety,
+        "_approved_sparse_destination_roots",
+        lambda: (approved_root,),
+    )
+
+    with pytest.raises(GitWorktreeSafetyError, match="explicit system Temp destinations are forbidden"):
+        create_sparse_worktree(
+            repo,
+            target,
+            destination,
+            include_paths=("scripts",),
+        )
+
+    assert not destination.exists()
+    registry = run_git(repo, "worktree", "list", "--porcelain").replace("\\", "/").lower()
+    assert str(destination).replace("\\", "/").lower() not in registry
+
+
 def test_sparse_worktree_allows_child_of_approved_ntfs_root(
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
@@ -502,7 +542,7 @@ def test_sparse_worktree_rejects_path_outside_approved_root(
         lambda: (approved_root,),
     )
 
-    with pytest.raises(GitWorktreeSafetyError, match="system temp root.*approved sparse root"):
+    with pytest.raises(GitWorktreeSafetyError, match="must stay under an approved sparse root"):
         create_sparse_worktree(
             repo,
             target,
