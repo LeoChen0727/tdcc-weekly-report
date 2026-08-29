@@ -394,7 +394,7 @@ jobs:
           python scripts/validate_revenue_unreacted_range_rearmed_operation_grid.py
           python scripts/validate_revenue_unreacted_range_operation_lag_bucket_audit.py
           python scripts/validate_revenue_unreacted_range_position_shape_transition_matrix.py
-          python scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py
+          python scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py --promotion-decision revenue_unreacted_range_source_mid_falling_promotion_preparation_v4_20260829
           python scripts/revenue_unreacted_range_trigger_asof_anomaly_migration.py --validate-only
           python scripts/validate_revenue_unreacted_range_anomaly_dispositions.py
           python scripts/validate_revenue_unreacted_range_promotion_preparation.py --source-audit all
