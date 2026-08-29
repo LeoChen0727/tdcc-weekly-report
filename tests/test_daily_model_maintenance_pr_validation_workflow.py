@@ -286,7 +286,9 @@ REVENUE_VALIDATOR_COMMANDS = (
     "python scripts/validate_revenue_unreacted_range_rearmed_operation_grid.py",
     "python scripts/validate_revenue_unreacted_range_operation_lag_bucket_audit.py",
     "python scripts/validate_revenue_unreacted_range_position_shape_transition_matrix.py",
-    "python scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
+    "python scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py --promotion-decision revenue_unreacted_range_source_mid_falling_promotion_preparation_v4_20260829",
+    "python scripts/revenue_unreacted_range_trigger_asof_anomaly_migration.py --validate-only",
+    "python scripts/validate_revenue_unreacted_range_anomaly_dispositions.py",
     "python scripts/validate_revenue_unreacted_range_promotion_preparation.py --source-audit all",
     "python scripts/validate_revenue_unreacted_range_financial_statement_fail_closed.py",
 )
@@ -368,6 +370,7 @@ def domain_workload_contract_ok(text: str) -> bool:
                 (
                     "python scripts/build_",
                     "python scripts/validate_",
+                    "python scripts/revenue_unreacted_range_trigger_asof_anomaly_migration.py",
                     "git --no-replace-objects diff --exit-code",
                 )
             )
@@ -387,6 +390,7 @@ def domain_workload_contract_ok(text: str) -> bool:
                 (
                     "python scripts/build_",
                     "python scripts/validate_",
+                    "python scripts/revenue_unreacted_range_trigger_asof_anomaly_migration.py",
                     "git --no-replace-objects diff --exit-code",
                 )
             )
@@ -1430,7 +1434,9 @@ def test_daily_model_maintenance_pr_workflow_runs_contract_validators() -> None:
         "python scripts/validate_revenue_unreacted_range_rearmed_operation_grid.py",
         "python scripts/validate_revenue_unreacted_range_operation_lag_bucket_audit.py",
         "python scripts/validate_revenue_unreacted_range_position_shape_transition_matrix.py",
-        "python scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
+        "python scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py --promotion-decision revenue_unreacted_range_source_mid_falling_promotion_preparation_v4_20260829",
+        "python scripts/revenue_unreacted_range_trigger_asof_anomaly_migration.py --validate-only",
+        "python scripts/validate_revenue_unreacted_range_anomaly_dispositions.py",
         "python scripts/validate_revenue_unreacted_range_promotion_preparation.py",
     )
     positions = [text.index(command) for command in revenue_validator_order]
@@ -1476,6 +1482,8 @@ def test_daily_model_maintenance_pr_workflow_runs_focused_pdf_operation_tests() 
         "tests/test_revenue_unreacted_range_operation_lag_bucket_audit.py",
         "tests/test_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
         "tests/test_validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
+        "tests/test_revenue_unreacted_range_trigger_asof_anomaly_migration.py",
+        "tests/test_validate_revenue_unreacted_range_anomaly_dispositions.py",
         "tests/test_validate_revenue_unreacted_range_promotion_preparation.py",
         "tests/test_revenue_unreacted_range_forward_holdout.py",
         "tests/test_revenue_unreacted_range_forward_holdout_v2.py",
