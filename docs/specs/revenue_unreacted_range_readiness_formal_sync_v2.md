@@ -11,6 +11,9 @@
 - readiness semantics owner: `daily_model_maintenance/model_governance`
 - inventory owner: `daily_recommendation_maintenance`
 
+The exact workflow surface is
+`.github/workflows/revenue_unreacted_range_readiness_formal_sync.yml`.
+
 This is a one-shot, exact-main readiness-mirror synchronization. It does not
 authorize production, Daily Full, PDF, packet rendering, Apps Script, a formal
 buy/sell directive, or any change to another model. The workflow may push one
