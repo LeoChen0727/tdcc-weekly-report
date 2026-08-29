@@ -1,7 +1,7 @@
 # Catalyst Needs Review
 
-- generated_at: `2026-08-28 20:55:58 Asia/Taipei`
-- rows: `3`
+- generated_at: `2026-08-29 18:12:52 Asia/Taipei`
+- rows: `2`
 - policy: Rows in this table are not confirmed catalyst data.
 - model_effect_allowed: `False` means the item cannot affect score, rank, upgrade, downgrade, or similar_to_shihsinko_flag.
 - pdf_effect_allowed: `False` means the item cannot appear as a formal recommendation reason in the PDF.
@@ -17,5 +17,4 @@
 | item_id | source_area | requested_data | current_status | owner | model_effect_allowed | pdf_effect_allowed | next_action |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | mops_shareholder_meeting_calendar | company_calendar | Stock-level shareholder meeting dates | partial_coverage_twse_only | codex_data_source_work | False | False | Keep TWSE OpenAPI rows; find and test a stable MOPS/TPEX endpoint before claimin... |
-| bls_employment_release_schedule | macro_calendar | BLS employment release schedule | reachable_not_parsed | codex_data_source_work | False | False | Build and validate parser before storing CPI/employment rows. |
 | company_specific_event_sources | event_catalyst | Company-specific technology validation, exhibitions, news, investor conference, ... | partial_official_material_info_rows | program_auto_confirm_after_source_integration | False | False | Broaden beyond official material-information rows to company releases, exhibitio... |

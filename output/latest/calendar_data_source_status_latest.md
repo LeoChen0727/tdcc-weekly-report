@@ -1,6 +1,6 @@
 # Calendar Data Source Status
 
-- generated_at: `2026-08-28 20:55:58 Asia/Taipei`
+- generated_at: `2026-08-29 18:12:52 Asia/Taipei`
 - policy: Official/known-calendar sources are stored. Missing or blocked sources remain pending instead of being fabricated.
 
 | source | status | rows | url | note |
@@ -11,7 +11,7 @@
 | federal_reserve_fomc | ok | 11 | https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm |  |
 | bea_release_schedule | ok | 14 | https://www.bea.gov/news/schedule |  |
 | bls_cpi_release_schedule | ok | 4 | https://www.bls.gov/schedule/news_release/cpi.htm | Parsed 4 release rows from the official BLS schedule table. |
-| bls_employment_release_schedule | reachable_not_parsed | 0 | https://www.bls.gov/schedule/news_release/empsit.htm | Employment Situation release schedule was reachable, but no stable release-date rows were parsed. |
+| bls_employment_release_schedule | ok | 4 | https://www.bls.gov/schedule/news_release/empsit.htm | Parsed 4 release rows from the official BLS schedule table. |
 | mops_shareholder_meeting_calendar | partial_coverage_twse_only | 550 | https://mops.twse.com.tw/mops/web/t108sb31new | TWSE-listed shareholder meeting dates are stored from t187ap45_L. Direct MOPS shareholder pages are blocked or unavailable from this environment, and OTC coverage still needs a stable official endpoint. |
 
 ## What Is Already Stored
