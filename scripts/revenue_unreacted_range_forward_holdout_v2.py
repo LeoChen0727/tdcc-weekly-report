@@ -26,6 +26,84 @@ BRIDGE_START_DATE = "20260714"
 BRIDGE_END_DATE = "20260830"
 HOLDOUT_START_DATE = "20260831"
 MIGRATION_AUTHORIZATION_REFERENCE = "user_authorized_2A_20260828"
+PRICE_SEMANTIC_PROJECTION_MIGRATION_ID = (
+    "revenue_forward_holdout_v2_price_semantic_projection_v1_20260829"
+)
+PRICE_SEMANTIC_PROJECTION_AUTHORIZATION_REFERENCE = (
+    "user_authorized_3A_3C_20260829"
+)
+PRICE_SEMANTIC_PROJECTION_VERSION = (
+    "revenue_forward_holdout_raw_price_source_projection_v1_20260829"
+)
+PRICE_SEMANTIC_PROJECTION_DECIMAL_SCALE = 8
+PRICE_SEMANTIC_PROJECTION_NUMERIC_COLUMNS = (
+    "open",
+    "high",
+    "low",
+    "close",
+    "analysis_price_adjustment_factor",
+)
+PRICE_SEMANTIC_PROJECTION_TEXT_COLUMNS = ("price_resolution_ids_on_date",)
+PRICE_SEMANTIC_PROJECTION_COLUMNS = (
+    "session_sequence_index",
+    "date",
+    *PRICE_SEMANTIC_PROJECTION_NUMERIC_COLUMNS,
+    *PRICE_SEMANTIC_PROJECTION_TEXT_COLUMNS,
+)
+PRICE_SEMANTIC_PROJECTION_SCHEMA = {
+    "projection_version": PRICE_SEMANTIC_PROJECTION_VERSION,
+    "columns": [
+        {"name": "session_sequence_index", "type": "zero_based_exact_integer"},
+        {"name": "date", "type": "date_yyyymmdd"},
+        *[
+            {
+                "name": column,
+                "type": f"decimal_fixed_scale_{PRICE_SEMANTIC_PROJECTION_DECIMAL_SCALE}",
+                "rounding": "ROUND_HALF_EVEN",
+                "missing": "empty_string",
+            }
+            for column in PRICE_SEMANTIC_PROJECTION_NUMERIC_COLUMNS
+        ],
+        {
+            "name": "price_resolution_ids_on_date",
+            "type": "trimmed_exact_string",
+            "missing": "empty_string",
+        },
+    ],
+    "stock_order": "stock_id_ascending",
+    "row_order": "date_ascending_unique",
+    "row_scope": "date_less_than_or_equal_to_observed_through_cutoff",
+    "lineage_bindings": [
+        "stock_id",
+        "cutoff_date",
+        "rule_canonical_sha256",
+        "data_contract_sha256",
+    ],
+    "derived_float_role": "excluded_from_input_identity_exact_output_replay_only",
+    "legacy_whole_prepared_frame_hash_role": "provenance_diagnostic_only",
+}
+PRICE_SEMANTIC_PROJECTION_SCHEMA_SHA256 = engine._canonical_json_sha256(
+    PRICE_SEMANTIC_PROJECTION_SCHEMA
+)
+PRICE_SEMANTIC_DETAIL_COLUMNS = (
+    "price_semantic_projection_version",
+    "price_semantic_projection_schema_sha256",
+    "price_semantic_projection_canonical_sha256",
+)
+PRICE_SEMANTIC_MANIFEST_COLUMNS = (
+    "price_input_legacy_lineage_role",
+    "price_semantic_projection_version",
+    "price_semantic_projection_schema_sha256",
+    "price_semantic_projection_columns",
+    "price_semantic_projection_decimal_scale",
+    "price_semantic_projection_stock_count",
+    "price_semantic_projection_row_count",
+    "price_semantic_projection_stock_canonical_sha256s",
+    "price_semantic_projection_canonical_sha256",
+    "price_semantic_projection_role",
+    "price_semantic_projection_migration_id",
+    "price_semantic_projection_authorization_reference",
+)
 
 SOURCE_PROJECTION_ARTIFACT_ID = engine.SOURCE_PROJECTION_ARTIFACT_ID
 SOURCE_PROJECTION_ARTIFACT_VERSION = "source_snapshot_projection_v2_20260822"
@@ -38,7 +116,7 @@ RULE_CONTRACT_VERSION = engine.RULE_CONTRACT_VERSION
 RULE_CONTRACT = engine.RULE_CONTRACT
 RULE_CANONICAL_SHA256 = engine.RULE_CANONICAL_SHA256
 FINANCIAL_STATEMENT_SCOPE = engine.FINANCIAL_STATEMENT_SCOPE
-DATA_CONTRACT_VERSION = "revenue_low_mid_falling_forward_holdout_data_v2_20260828"
+DATA_CONTRACT_VERSION = "revenue_low_mid_falling_forward_holdout_data_v3_20260829"
 DATA_CONTRACT = {
     "training_cutoff_date": TRAINING_CUTOFF_DATE,
     "bridge_start_date": BRIDGE_START_DATE,
@@ -51,6 +129,24 @@ DATA_CONTRACT = {
     "source_artifact_id": engine.SOURCE_ARTIFACT_ID,
     "source_artifact_version": engine.SOURCE_ARTIFACT_VERSION,
     "migration_authorization_reference": MIGRATION_AUTHORIZATION_REFERENCE,
+    "price_semantic_projection_migration_id": (
+        PRICE_SEMANTIC_PROJECTION_MIGRATION_ID
+    ),
+    "price_semantic_projection_authorization_reference": (
+        PRICE_SEMANTIC_PROJECTION_AUTHORIZATION_REFERENCE
+    ),
+    "price_semantic_projection_version": PRICE_SEMANTIC_PROJECTION_VERSION,
+    "price_semantic_projection_schema_sha256": (
+        PRICE_SEMANTIC_PROJECTION_SCHEMA_SHA256
+    ),
+    "price_semantic_projection_columns": list(PRICE_SEMANTIC_PROJECTION_COLUMNS),
+    "price_semantic_projection_decimal_scale": (
+        PRICE_SEMANTIC_PROJECTION_DECIMAL_SCALE
+    ),
+    "price_semantic_projection_role": (
+        "composite_promotion_input_lineage_component"
+    ),
+    "legacy_whole_prepared_frame_hash_role": "provenance_diagnostic_only",
     "pre_start_empty_capture_allowed": True,
     "append_only_history": True,
     "research_only": True,
@@ -273,6 +369,9 @@ def validate_v1_exact17_freeze(
 
 
 def _engine_overrides() -> dict[str, object]:
+    detail_columns = list(engine.DETAIL_COLUMNS)
+    price_index = detail_columns.index("price_input_canonical_sha256") + 1
+    detail_columns[price_index:price_index] = PRICE_SEMANTIC_DETAIL_COLUMNS
     return {
         "ARTIFACT_ID": ARTIFACT_ID,
         "ARTIFACT_VERSION": ARTIFACT_VERSION,
@@ -289,6 +388,32 @@ def _engine_overrides() -> dict[str, object]:
         "DATA_CONTRACT_VERSION": DATA_CONTRACT_VERSION,
         "DATA_CONTRACT": DATA_CONTRACT,
         "DATA_CONTRACT_SHA256": DATA_CONTRACT_SHA256,
+        "PRICE_SEMANTIC_PROJECTION_ENABLED": True,
+        "PRICE_SEMANTIC_PROJECTION_VERSION": PRICE_SEMANTIC_PROJECTION_VERSION,
+        "PRICE_SEMANTIC_PROJECTION_DECIMAL_SCALE": (
+            PRICE_SEMANTIC_PROJECTION_DECIMAL_SCALE
+        ),
+        "PRICE_SEMANTIC_PROJECTION_NUMERIC_COLUMNS": (
+            PRICE_SEMANTIC_PROJECTION_NUMERIC_COLUMNS
+        ),
+        "PRICE_SEMANTIC_PROJECTION_TEXT_COLUMNS": (
+            PRICE_SEMANTIC_PROJECTION_TEXT_COLUMNS
+        ),
+        "PRICE_SEMANTIC_PROJECTION_SCHEMA_SHA256": (
+            PRICE_SEMANTIC_PROJECTION_SCHEMA_SHA256
+        ),
+        "PRICE_SEMANTIC_PROJECTION_MIGRATION_ID": (
+            PRICE_SEMANTIC_PROJECTION_MIGRATION_ID
+        ),
+        "PRICE_SEMANTIC_PROJECTION_AUTHORIZATION_REFERENCE": (
+            PRICE_SEMANTIC_PROJECTION_AUTHORIZATION_REFERENCE
+        ),
+        "PRICE_SEMANTIC_PROJECTION_COLUMNS": PRICE_SEMANTIC_PROJECTION_COLUMNS,
+        "DETAIL_COLUMNS": tuple(detail_columns),
+        "APPEND_ONLY_SCHEMA_EXTENSION_COLUMNS_BY_ARTIFACT": {
+            "manifest": PRICE_SEMANTIC_MANIFEST_COLUMNS,
+            "detail": PRICE_SEMANTIC_DETAIL_COLUMNS,
+        },
         "ALLOW_PRE_START_EMPTY_CAPTURE": True,
         "DEFAULT_OUTPUT_RELATIVE_PATHS": DEFAULT_OUTPUT_RELATIVE_PATHS,
         "REPLAY_SOURCE_OUTPUT_RELATIVE_PATHS": (

@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import argparse
-from decimal import Decimal, InvalidOperation
+from decimal import Decimal, InvalidOperation, ROUND_HALF_EVEN
 import hashlib
 import io
 import json
@@ -21,6 +21,36 @@ MODEL_ID = "revenue_unreacted_range"
 ARTIFACT_ID = "revenue_unreacted_range_forward_holdout"
 ARTIFACT_VERSION = "forward_holdout_v1_20260811"
 CANONICAL_LINEAGE_VERSION = "canonical_json_numeric_text_v1"
+
+# Disabled for the frozen v1 family.  The independently owned v2 validator
+# supplies the exact migration constants through its isolated context.
+PRICE_SEMANTIC_PROJECTION_ENABLED = False
+PRICE_SEMANTIC_PROJECTION_VERSION = ""
+PRICE_SEMANTIC_PROJECTION_DECIMAL_SCALE = 8
+PRICE_SEMANTIC_PROJECTION_SCHEMA_SHA256 = ""
+PRICE_SEMANTIC_PROJECTION_MIGRATION_ID = ""
+PRICE_SEMANTIC_PROJECTION_AUTHORIZATION_REFERENCE = ""
+PRICE_SEMANTIC_PROJECTION_NUMERIC_COLUMNS = (
+    "open",
+    "high",
+    "low",
+    "close",
+    "analysis_price_adjustment_factor",
+)
+PRICE_SEMANTIC_PROJECTION_TEXT_COLUMNS = ("price_resolution_ids_on_date",)
+PRICE_SEMANTIC_PROJECTION_COLUMNS = (
+    "session_sequence_index",
+    "date",
+    *PRICE_SEMANTIC_PROJECTION_NUMERIC_COLUMNS,
+    *PRICE_SEMANTIC_PROJECTION_TEXT_COLUMNS,
+)
+PRICE_INPUT_PROVENANCE_DIAGNOSTIC_COLUMNS = (
+    "price_input_stock_canonical_sha256s",
+    "price_input_canonical_sha256",
+)
+APPEND_ONLY_SCHEMA_EXTENSION_COLUMNS_BY_ARTIFACT: Mapping[
+    str, tuple[str, ...]
+] = {}
 
 PREREGISTRATION_MERGE_COMMIT = "436c25cd0d037c3425ab2ac4fa76cb464cf96de4"
 PREREGISTRATION_PR_NUMBER = "462"
@@ -719,6 +749,124 @@ def _price_lineage(
     )
 
 
+def _price_semantic_decimal_text(value: object, *, column: str) -> str:
+    if value is None or pd.isna(value):
+        return ""
+    try:
+        number = Decimal(str(value).strip())
+        quantum = Decimal(1).scaleb(-PRICE_SEMANTIC_PROJECTION_DECIMAL_SCALE)
+        quantized = number.quantize(quantum, rounding=ROUND_HALF_EVEN)
+    except (InvalidOperation, ValueError) as exc:
+        raise RuntimeError(
+            f"price semantic projection has invalid {column}"
+        ) from exc
+    if not quantized.is_finite():
+        raise RuntimeError(f"price semantic projection has non-finite {column}")
+    if quantized == 0:
+        quantized = abs(quantized)
+    return f"{quantized:.{PRICE_SEMANTIC_PROJECTION_DECIMAL_SCALE}f}"
+
+
+def _price_semantic_lineage(
+    prices: Mapping[str, pd.DataFrame],
+    *,
+    cutoff_date: str,
+) -> tuple[str, str, int, int]:
+    """Independently hash canonical raw price rows, not derived floats."""
+
+    if not PRICE_SEMANTIC_PROJECTION_VERSION:
+        raise RuntimeError("price semantic projection version is blank")
+    if not SHA256_PATTERN.fullmatch(PRICE_SEMANTIC_PROJECTION_SCHEMA_SHA256):
+        raise RuntimeError("price semantic projection schema SHA-256 is invalid")
+    cutoff = _date(cutoff_date)
+    if not cutoff:
+        raise RuntimeError("price semantic projection cutoff is invalid")
+    canonical_inputs: dict[str, pd.DataFrame] = {}
+    for raw_stock_id, frame in prices.items():
+        stock_id = _stock_id(raw_stock_id)
+        if stock_id in canonical_inputs:
+            raise RuntimeError(
+                f"price semantic projection duplicate stock: {stock_id}"
+            )
+        canonical_inputs[stock_id] = frame
+    stock_rows: list[list[object]] = []
+    stock_tokens: list[str] = []
+    row_count = 0
+    required_columns = {
+        "date",
+        *PRICE_SEMANTIC_PROJECTION_NUMERIC_COLUMNS,
+        *PRICE_SEMANTIC_PROJECTION_TEXT_COLUMNS,
+    }
+    for stock_id, raw in sorted(canonical_inputs.items()):
+        missing = sorted(required_columns - set(raw.columns))
+        if missing:
+            raise RuntimeError(
+                f"price semantic projection missing columns: {stock_id}/{missing}"
+            )
+        frame = raw.loc[
+            :,
+            [
+                "date",
+                *PRICE_SEMANTIC_PROJECTION_NUMERIC_COLUMNS,
+                *PRICE_SEMANTIC_PROJECTION_TEXT_COLUMNS,
+            ],
+        ].copy()
+        frame["date"] = frame["date"].map(_date)
+        if frame["date"].eq("").any() or frame["date"].duplicated().any():
+            raise RuntimeError(f"price semantic projection date/order drift: {stock_id}")
+        frame = frame.loc[frame["date"].le(cutoff)].sort_values(
+            "date", kind="mergesort"
+        ).reset_index(drop=True)
+        rows: list[list[str]] = []
+        for sequence_index, (_, row) in enumerate(frame.iterrows()):
+            rows.append(
+                [
+                    str(sequence_index),
+                    str(row["date"]).strip(),
+                    *[
+                        _price_semantic_decimal_text(row[column], column=column)
+                        for column in PRICE_SEMANTIC_PROJECTION_NUMERIC_COLUMNS
+                    ],
+                    *[
+                        ""
+                        if row[column] is None or pd.isna(row[column])
+                        else str(row[column]).strip()
+                        for column in PRICE_SEMANTIC_PROJECTION_TEXT_COLUMNS
+                    ],
+                ]
+            )
+        digest = _json_sha(
+            [
+                PRICE_SEMANTIC_PROJECTION_VERSION,
+                PRICE_SEMANTIC_PROJECTION_SCHEMA_SHA256,
+                RULE_CANONICAL_SHA256,
+                DATA_CONTRACT_SHA256,
+                stock_id,
+                cutoff,
+                list(PRICE_SEMANTIC_PROJECTION_COLUMNS),
+                rows,
+            ]
+        )
+        stock_rows.append([stock_id, len(rows), digest])
+        stock_tokens.append(f"{stock_id}:{digest}")
+        row_count += len(rows)
+    return (
+        _json_sha(
+            [
+                PRICE_SEMANTIC_PROJECTION_VERSION,
+                PRICE_SEMANTIC_PROJECTION_SCHEMA_SHA256,
+                RULE_CANONICAL_SHA256,
+                DATA_CONTRACT_SHA256,
+                cutoff,
+                stock_rows,
+            ]
+        ),
+        "|".join(stock_tokens),
+        len(stock_rows),
+        row_count,
+    )
+
+
 def _training_lineage(source_manifest: pd.DataFrame) -> dict[str, object]:
     if len(source_manifest) != 1:
         raise RuntimeError("training source manifest must contain exactly one row")
@@ -1245,6 +1393,28 @@ def _validate_capture_surfaces(
                 errors.append(f"{label} capture-envelope parity drift: {column}")
 
 
+def _align_exact_history_schema_extension(
+    predecessor: pd.DataFrame,
+    current_columns: list[str],
+    *,
+    allowed_extension_columns: tuple[str, ...],
+) -> pd.DataFrame | None:
+    if list(predecessor.columns) == current_columns:
+        return predecessor.copy()
+    missing = [column for column in current_columns if column not in predecessor.columns]
+    retained = [column for column in current_columns if column in predecessor.columns]
+    if (
+        tuple(missing) != allowed_extension_columns
+        or retained != list(predecessor.columns)
+        or any(column not in current_columns for column in predecessor.columns)
+    ):
+        return None
+    aligned = predecessor.copy()
+    for column in allowed_extension_columns:
+        aligned[column] = ""
+    return aligned.loc[:, current_columns]
+
+
 def validate_history_surfaces(
     current_frames: Mapping[str, pd.DataFrame],
     history_frames: Mapping[str, pd.DataFrame],
@@ -1282,7 +1452,15 @@ def validate_history_surfaces(
     for label in sorted(expected_names):
         current = current_frames[label]
         history = history_frames[label]
-        if list(history.columns) != list(current.columns):
+        extension_columns = APPEND_ONLY_SCHEMA_EXTENSION_COLUMNS_BY_ARTIFACT.get(
+            label, ()
+        )
+        history = _align_exact_history_schema_extension(
+            history,
+            list(current.columns),
+            allowed_extension_columns=extension_columns,
+        )
+        if history is None:
             errors.append(f"{label} history schema drift")
             continue
         required = {"capture_id", "artifact_row_key"}
@@ -1315,7 +1493,12 @@ def validate_history_surfaces(
             else None
         )
         if base is not None:
-            if list(base.columns) != list(history.columns):
+            base = _align_exact_history_schema_extension(
+                base,
+                list(history.columns),
+                allowed_extension_columns=extension_columns,
+            )
+            if base is None:
                 errors.append(f"{label} history immutable base schema drift")
                 continue
             if len(history) < len(base):
@@ -1328,9 +1511,11 @@ def validate_history_surfaces(
                 continue
             for offset in range(len(base)):
                 if _mapping_sha(
-                    base.iloc[offset].to_dict(), excluded_columns=()
+                    base.iloc[offset].to_dict(),
+                    excluded_columns=(),
                 ) != _mapping_sha(
-                    history.iloc[offset].to_dict(), excluded_columns=()
+                    history.iloc[offset].to_dict(),
+                    excluded_columns=(),
                 ):
                     errors.append(
                         f"{label} history immutable base prefix drift at row {offset + 2}"
@@ -1399,8 +1584,20 @@ def validate_history_surfaces(
             tail_index = uncommitted_tail.set_index("artifact_row_key", drop=False)
             tail_mismatch = False
             for key in sorted(current_keys):
-                if _mapping_sha(tail_index.loc[key].to_dict()) != _mapping_sha(
-                    current_index.loc[key].to_dict()
+                semantic_exclusions = (
+                    "generated_at",
+                    *(
+                        PRICE_INPUT_PROVENANCE_DIAGNOSTIC_COLUMNS
+                        if PRICE_SEMANTIC_PROJECTION_ENABLED
+                        else ()
+                    ),
+                )
+                if _mapping_sha(
+                    tail_index.loc[key].to_dict(),
+                    excluded_columns=semantic_exclusions,
+                ) != _mapping_sha(
+                    current_index.loc[key].to_dict(),
+                    excluded_columns=semantic_exclusions,
                 ):
                     errors.append(
                         f"{label} history current-capture semantic parity drift "
@@ -1411,8 +1608,20 @@ def validate_history_surfaces(
             if tail_mismatch:
                 continue
         for key in sorted(current_keys):
-            if _mapping_sha(current_index.loc[key].to_dict()) != _mapping_sha(
-                persisted_index.loc[key].to_dict()
+            semantic_exclusions = (
+                "generated_at",
+                *(
+                    PRICE_INPUT_PROVENANCE_DIAGNOSTIC_COLUMNS
+                    if PRICE_SEMANTIC_PROJECTION_ENABLED
+                    else ()
+                ),
+            )
+            if _mapping_sha(
+                current_index.loc[key].to_dict(),
+                excluded_columns=semantic_exclusions,
+            ) != _mapping_sha(
+                persisted_index.loc[key].to_dict(),
+                excluded_columns=semantic_exclusions,
             ):
                 errors.append(
                     f"{label} history current-capture semantic parity drift: {key}"
@@ -1596,6 +1805,33 @@ def validate_frames(
 
     source_sha = _frame_sha(source)
     price_sha, price_sha_set, price_stock_count, price_row_count = _price_lineage(prices)
+    price_semantic_lineage: dict[str, object] = {}
+    if PRICE_SEMANTIC_PROJECTION_ENABLED:
+        (
+            semantic_price_sha,
+            semantic_price_sha_set,
+            semantic_price_stock_count,
+            semantic_price_row_count,
+        ) = _price_semantic_lineage(
+            daily_by_stock,
+            cutoff_date=observed,
+        )
+        price_semantic_lineage = {
+            "price_semantic_projection_version": (
+                PRICE_SEMANTIC_PROJECTION_VERSION
+            ),
+            "price_semantic_projection_schema_sha256": (
+                PRICE_SEMANTIC_PROJECTION_SCHEMA_SHA256
+            ),
+            "price_semantic_projection_canonical_sha256": semantic_price_sha,
+        }
+        capture_price_lineage = dict(price_semantic_lineage)
+    else:
+        semantic_price_sha = ""
+        semantic_price_sha_set = ""
+        semantic_price_stock_count = 0
+        semantic_price_row_count = 0
+        capture_price_lineage = {"price_input_canonical_sha256": price_sha}
     capture_envelope = {
         "artifact_version": ARTIFACT_VERSION,
         "rule_canonical_sha256": RULE_CANONICAL_SHA256,
@@ -1603,7 +1839,7 @@ def validate_frames(
         "preregistration_merge_commit": PREREGISTRATION_MERGE_COMMIT,
         "observed_through_date": observed,
         "source_detail_canonical_sha256": source_sha,
-        "price_input_canonical_sha256": price_sha,
+        **capture_price_lineage,
         **current_monthly_lineage,
         **training_lineage,
     }
@@ -1617,11 +1853,78 @@ def validate_frames(
         "source_detail_canonical_sha256": source_sha,
         "price_input_stock_count": price_stock_count,
         "price_input_row_count": price_row_count,
-        "price_input_stock_canonical_sha256s": price_sha_set,
-        "price_input_canonical_sha256": price_sha,
         **current_monthly_lineage,
         **training_lineage,
     }
+    if PRICE_SEMANTIC_PROJECTION_ENABLED:
+        manifest_lineage.update(
+            {
+                "price_input_legacy_lineage_role": (
+                    "provenance_diagnostic_only_not_promotion_gate"
+                ),
+                "price_semantic_projection_version": (
+                    PRICE_SEMANTIC_PROJECTION_VERSION
+                ),
+                "price_semantic_projection_schema_sha256": (
+                    PRICE_SEMANTIC_PROJECTION_SCHEMA_SHA256
+                ),
+                "price_semantic_projection_columns": "|".join(
+                    PRICE_SEMANTIC_PROJECTION_COLUMNS
+                ),
+                "price_semantic_projection_decimal_scale": (
+                    PRICE_SEMANTIC_PROJECTION_DECIMAL_SCALE
+                ),
+                "price_semantic_projection_stock_count": (
+                    semantic_price_stock_count
+                ),
+                "price_semantic_projection_row_count": semantic_price_row_count,
+                "price_semantic_projection_stock_canonical_sha256s": (
+                    semantic_price_sha_set
+                ),
+                "price_semantic_projection_canonical_sha256": semantic_price_sha,
+                "price_semantic_projection_role": (
+                    "composite_promotion_input_lineage_component"
+                ),
+                "price_semantic_projection_migration_id": (
+                    PRICE_SEMANTIC_PROJECTION_MIGRATION_ID
+                ),
+                "price_semantic_projection_authorization_reference": (
+                    PRICE_SEMANTIC_PROJECTION_AUTHORIZATION_REFERENCE
+                ),
+            }
+        )
+        legacy_global = str(
+            manifest_row.get("price_input_canonical_sha256", "")
+        ).strip().lower()
+        if not SHA256_PATTERN.fullmatch(legacy_global):
+            errors.append("manifest legacy price global diagnostic SHA-256 is invalid")
+        legacy_tokens = str(
+            manifest_row.get("price_input_stock_canonical_sha256s", "")
+        ).split("|")
+        legacy_ids: list[str] = []
+        for token in legacy_tokens:
+            stock_id, separator, digest = token.partition(":")
+            if (
+                not separator
+                or not stock_id.strip()
+                or not SHA256_PATTERN.fullmatch(digest.strip().lower())
+            ):
+                errors.append("manifest legacy price per-stock diagnostics are invalid")
+                break
+            legacy_ids.append(stock_id.strip())
+        if (
+            legacy_ids != sorted(prices)
+            or len(legacy_ids) != price_stock_count
+            or len(set(legacy_ids)) != len(legacy_ids)
+        ):
+            errors.append("manifest legacy price per-stock diagnostic identity drift")
+    else:
+        manifest_lineage.update(
+            {
+                "price_input_stock_canonical_sha256s": price_sha_set,
+                "price_input_canonical_sha256": price_sha,
+            }
+        )
     for column, expected_value in manifest_lineage.items():
         if _canonical_value(manifest_row.get(column, "")) != _canonical_value(
             expected_value
@@ -1645,10 +1948,21 @@ def validate_frames(
         "source_artifact_id": SOURCE_ARTIFACT_ID,
         "source_artifact_version": SOURCE_ARTIFACT_VERSION,
         "source_detail_canonical_sha256": source_sha,
-        "price_input_canonical_sha256": price_sha,
         **current_monthly_lineage,
         **training_lineage,
     }
+    if PRICE_SEMANTIC_PROJECTION_ENABLED:
+        detail_lineage.update(price_semantic_lineage)
+        if "price_input_canonical_sha256" not in detail.columns:
+            errors.append("detail legacy price diagnostic column is missing")
+        elif not detail.empty and not detail[
+            "price_input_canonical_sha256"
+        ].astype(str).str.strip().str.lower().map(
+            lambda value: bool(SHA256_PATTERN.fullmatch(value))
+        ).all():
+            errors.append("detail legacy price diagnostic SHA-256 is invalid")
+    else:
+        detail_lineage["price_input_canonical_sha256"] = price_sha
     for column, expected_value in detail_lineage.items():
         if column not in detail.columns:
             errors.append(f"detail capture-envelope lineage missing: {column}")
@@ -1797,7 +2111,16 @@ def validate_frames(
             errors.append(f"right-censored row entered mature metrics: {key}")
         if "event_row_canonical_sha256" in row.index:
             mapping = row.drop(labels=["event_row_canonical_sha256"]).to_dict()
-            if str(row["event_row_canonical_sha256"]).strip() != _mapping_sha(mapping):
+            event_hash_exclusions = ("generated_at",)
+            if PRICE_SEMANTIC_PROJECTION_ENABLED:
+                event_hash_exclusions = (
+                    *event_hash_exclusions,
+                    *PRICE_INPUT_PROVENANCE_DIAGNOSTIC_COLUMNS,
+                )
+            if str(row["event_row_canonical_sha256"]).strip() != _mapping_sha(
+                mapping,
+                excluded_columns=event_hash_exclusions,
+            ):
                 errors.append(f"detail event row canonical SHA drift: {key}")
 
     overlap = _overlap_count(detail)

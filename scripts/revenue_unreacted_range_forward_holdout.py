@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from decimal import Decimal, InvalidOperation
+from decimal import Decimal, InvalidOperation, ROUND_HALF_EVEN
 from datetime import datetime
 import hashlib
 import io
@@ -42,6 +42,37 @@ MODEL_ID = "revenue_unreacted_range"
 ARTIFACT_ID = "revenue_unreacted_range_forward_holdout"
 ARTIFACT_VERSION = "forward_holdout_v1_20260811"
 CANONICAL_LINEAGE_VERSION = "canonical_json_numeric_text_v1"
+
+# v1 keeps its historical whole-prepared-frame lineage unchanged.  The v2
+# wrapper enables the bounded semantic projection below through its isolated
+# context so the frozen v1 artifact family and exact17 evidence do not move.
+PRICE_SEMANTIC_PROJECTION_ENABLED = False
+PRICE_SEMANTIC_PROJECTION_VERSION = ""
+PRICE_SEMANTIC_PROJECTION_DECIMAL_SCALE = 8
+PRICE_SEMANTIC_PROJECTION_SCHEMA_SHA256 = ""
+PRICE_SEMANTIC_PROJECTION_MIGRATION_ID = ""
+PRICE_SEMANTIC_PROJECTION_AUTHORIZATION_REFERENCE = ""
+PRICE_SEMANTIC_PROJECTION_NUMERIC_COLUMNS = (
+    "open",
+    "high",
+    "low",
+    "close",
+    "analysis_price_adjustment_factor",
+)
+PRICE_SEMANTIC_PROJECTION_TEXT_COLUMNS = ("price_resolution_ids_on_date",)
+PRICE_SEMANTIC_PROJECTION_COLUMNS = (
+    "session_sequence_index",
+    "date",
+    *PRICE_SEMANTIC_PROJECTION_NUMERIC_COLUMNS,
+    *PRICE_SEMANTIC_PROJECTION_TEXT_COLUMNS,
+)
+PRICE_INPUT_PROVENANCE_DIAGNOSTIC_COLUMNS = (
+    "price_input_stock_canonical_sha256s",
+    "price_input_canonical_sha256",
+)
+APPEND_ONLY_SCHEMA_EXTENSION_COLUMNS_BY_ARTIFACT: Mapping[
+    str, tuple[str, ...]
+] = {}
 
 PREREGISTRATION_PR_NUMBER = "462"
 PREREGISTRATION_MERGE_COMMIT = "436c25cd0d037c3425ab2ac4fa76cb464cf96de4"
@@ -474,6 +505,134 @@ def _canonical_frame_sha256(
     ]
     rows.sort()
     return _canonical_json_sha256([CANONICAL_LINEAGE_VERSION, columns, rows])
+
+
+def _price_semantic_decimal_text(value: object, *, column: str) -> str:
+    """Return one fixed-scale decimal token without changing business inputs."""
+
+    if value is None or pd.isna(value):
+        return ""
+    try:
+        number = Decimal(str(value).strip())
+        quantum = Decimal(1).scaleb(-PRICE_SEMANTIC_PROJECTION_DECIMAL_SCALE)
+        quantized = number.quantize(quantum, rounding=ROUND_HALF_EVEN)
+    except (InvalidOperation, ValueError) as exc:
+        raise RuntimeError(
+            f"forward holdout price semantic projection has invalid {column}"
+        ) from exc
+    if not quantized.is_finite():
+        raise RuntimeError(
+            f"forward holdout price semantic projection has non-finite {column}"
+        )
+    if quantized == 0:
+        quantized = abs(quantized)
+    return f"{quantized:.{PRICE_SEMANTIC_PROJECTION_DECIMAL_SCALE}f}"
+
+
+def _price_semantic_lineage(
+    prices: Mapping[str, pd.DataFrame],
+    *,
+    cutoff_date: str,
+) -> tuple[str, str, int, int]:
+    """Hash canonical raw price rows, not runtime-derived float features."""
+
+    if not PRICE_SEMANTIC_PROJECTION_VERSION:
+        raise RuntimeError("forward holdout price semantic projection version is blank")
+    if not SHA256_PATTERN.fullmatch(PRICE_SEMANTIC_PROJECTION_SCHEMA_SHA256):
+        raise RuntimeError(
+            "forward holdout price semantic projection schema SHA-256 is invalid"
+        )
+    cutoff = _date_text(cutoff_date)
+    if not cutoff:
+        raise RuntimeError("forward holdout price semantic projection cutoff is invalid")
+    canonical_inputs: dict[str, pd.DataFrame] = {}
+    for raw_stock_id, frame in prices.items():
+        stock_id = _stock_id(raw_stock_id)
+        if stock_id in canonical_inputs:
+            raise RuntimeError(
+                f"forward holdout price semantic projection duplicate stock: {stock_id}"
+            )
+        canonical_inputs[stock_id] = frame
+    stock_rows: list[list[object]] = []
+    stock_tokens: list[str] = []
+    row_count = 0
+    required_columns = {
+        "date",
+        *PRICE_SEMANTIC_PROJECTION_NUMERIC_COLUMNS,
+        *PRICE_SEMANTIC_PROJECTION_TEXT_COLUMNS,
+    }
+    for stock_id, raw in sorted(canonical_inputs.items()):
+        missing = sorted(required_columns - set(raw.columns))
+        if missing:
+            raise RuntimeError(
+                "forward holdout price semantic projection missing columns: "
+                f"{stock_id}/{missing}"
+            )
+        frame = raw.loc[
+            :,
+            [
+                "date",
+                *PRICE_SEMANTIC_PROJECTION_NUMERIC_COLUMNS,
+                *PRICE_SEMANTIC_PROJECTION_TEXT_COLUMNS,
+            ],
+        ].copy()
+        frame["date"] = frame["date"].map(_date_text)
+        if frame["date"].eq("").any() or frame["date"].duplicated().any():
+            raise RuntimeError(
+                "forward holdout price semantic projection date/order drift: "
+                f"{stock_id}"
+            )
+        frame = frame.loc[frame["date"].le(cutoff)].sort_values(
+            "date", kind="mergesort"
+        ).reset_index(drop=True)
+        rows: list[list[str]] = []
+        for sequence_index, (_, row) in enumerate(frame.iterrows()):
+            rows.append(
+                [
+                    str(sequence_index),
+                    str(row["date"]).strip(),
+                    *[
+                        _price_semantic_decimal_text(row[column], column=column)
+                        for column in PRICE_SEMANTIC_PROJECTION_NUMERIC_COLUMNS
+                    ],
+                    *[
+                        ""
+                        if row[column] is None or pd.isna(row[column])
+                        else str(row[column]).strip()
+                        for column in PRICE_SEMANTIC_PROJECTION_TEXT_COLUMNS
+                    ],
+                ]
+            )
+        digest = _canonical_json_sha256(
+            [
+                PRICE_SEMANTIC_PROJECTION_VERSION,
+                PRICE_SEMANTIC_PROJECTION_SCHEMA_SHA256,
+                RULE_CANONICAL_SHA256,
+                DATA_CONTRACT_SHA256,
+                stock_id,
+                cutoff,
+                list(PRICE_SEMANTIC_PROJECTION_COLUMNS),
+                rows,
+            ]
+        )
+        stock_rows.append([stock_id, len(rows), digest])
+        stock_tokens.append(f"{stock_id}:{digest}")
+        row_count += len(rows)
+    return (
+        _canonical_json_sha256(
+            [
+                PRICE_SEMANTIC_PROJECTION_VERSION,
+                PRICE_SEMANTIC_PROJECTION_SCHEMA_SHA256,
+                RULE_CANONICAL_SHA256,
+                DATA_CONTRACT_SHA256,
+                cutoff,
+                stock_rows,
+            ]
+        ),
+        "|".join(stock_tokens),
+        len(stock_rows),
+        row_count,
+    )
 
 
 def _constant(frame: pd.DataFrame, column: str, *, label: str) -> str:
@@ -1342,7 +1501,16 @@ def _event_rows_for_window(
                             "promotion_evidence_allowed": False,
                             "production_change": False,
                         }
-                    row["event_row_canonical_sha256"] = _canonical_mapping_sha256(row)
+                    event_hash_exclusions = ("generated_at",)
+                    if PRICE_SEMANTIC_PROJECTION_ENABLED:
+                        event_hash_exclusions = (
+                            *event_hash_exclusions,
+                            *PRICE_INPUT_PROVENANCE_DIAGNOSTIC_COLUMNS,
+                        )
+                    row["event_row_canonical_sha256"] = _canonical_mapping_sha256(
+                        row,
+                        excluded_columns=event_hash_exclusions,
+                    )
                     rows.append(row)
                 if _bool_value(result["right_censored"]):
                     break
@@ -1543,6 +1711,33 @@ def build_forward_holdout(
             )
     source_sha = _canonical_frame_sha256(source.reset_index(drop=True))
     price_sha, price_sha_set, price_stock_count, price_row_count = _price_lineage(prices)
+    price_semantic_lineage: dict[str, object] = {}
+    if PRICE_SEMANTIC_PROJECTION_ENABLED:
+        (
+            semantic_price_sha,
+            semantic_price_sha_set,
+            semantic_price_stock_count,
+            semantic_price_row_count,
+        ) = _price_semantic_lineage(
+            daily_by_stock,
+            cutoff_date=observed_through_date,
+        )
+        price_semantic_lineage = {
+            "price_semantic_projection_version": (
+                PRICE_SEMANTIC_PROJECTION_VERSION
+            ),
+            "price_semantic_projection_schema_sha256": (
+                PRICE_SEMANTIC_PROJECTION_SCHEMA_SHA256
+            ),
+            "price_semantic_projection_canonical_sha256": semantic_price_sha,
+        }
+        capture_price_lineage = dict(price_semantic_lineage)
+    else:
+        semantic_price_sha = ""
+        semantic_price_sha_set = ""
+        semantic_price_stock_count = 0
+        semantic_price_row_count = 0
+        capture_price_lineage = {"price_input_canonical_sha256": price_sha}
     capture_envelope = {
         "artifact_version": ARTIFACT_VERSION,
         "rule_canonical_sha256": RULE_CANONICAL_SHA256,
@@ -1550,7 +1745,7 @@ def build_forward_holdout(
         "preregistration_merge_commit": PREREGISTRATION_MERGE_COMMIT,
         "observed_through_date": observed_through_date,
         "source_detail_canonical_sha256": source_sha,
-        "price_input_canonical_sha256": price_sha,
+        **capture_price_lineage,
         **current_monthly_lineage,
         **training_lineage,
     }
@@ -1560,6 +1755,7 @@ def build_forward_holdout(
         "source_artifact_version": SOURCE_ARTIFACT_VERSION,
         "source_detail_canonical_sha256": source_sha,
         "price_input_canonical_sha256": price_sha,
+        **price_semantic_lineage,
         **current_monthly_lineage,
         **training_lineage,
     }
@@ -1638,6 +1834,44 @@ def build_forward_holdout(
         "price_input_row_count": price_row_count,
         "price_input_stock_canonical_sha256s": price_sha_set,
         "price_input_canonical_sha256": price_sha,
+        **(
+            {
+                "price_input_legacy_lineage_role": (
+                    "provenance_diagnostic_only_not_promotion_gate"
+                ),
+                "price_semantic_projection_version": (
+                    PRICE_SEMANTIC_PROJECTION_VERSION
+                ),
+                "price_semantic_projection_schema_sha256": (
+                    PRICE_SEMANTIC_PROJECTION_SCHEMA_SHA256
+                ),
+                "price_semantic_projection_columns": "|".join(
+                    PRICE_SEMANTIC_PROJECTION_COLUMNS
+                ),
+                "price_semantic_projection_decimal_scale": (
+                    PRICE_SEMANTIC_PROJECTION_DECIMAL_SCALE
+                ),
+                "price_semantic_projection_stock_count": (
+                    semantic_price_stock_count
+                ),
+                "price_semantic_projection_row_count": semantic_price_row_count,
+                "price_semantic_projection_stock_canonical_sha256s": (
+                    semantic_price_sha_set
+                ),
+                "price_semantic_projection_canonical_sha256": semantic_price_sha,
+                "price_semantic_projection_role": (
+                    "composite_promotion_input_lineage_component"
+                ),
+                "price_semantic_projection_migration_id": (
+                    PRICE_SEMANTIC_PROJECTION_MIGRATION_ID
+                ),
+                "price_semantic_projection_authorization_reference": (
+                    PRICE_SEMANTIC_PROJECTION_AUTHORIZATION_REFERENCE
+                ),
+            }
+            if PRICE_SEMANTIC_PROJECTION_ENABLED
+            else {}
+        ),
         "bridge_excluded_signal_count": len(bridge_rows),
         "holdout_event_count": len(detail),
         "mature_event_count": int(detail["return_valid"].map(_bool_value).sum()),
@@ -1698,11 +1932,37 @@ def _capture_blocks_are_contiguous(frame: pd.DataFrame) -> bool:
     return True
 
 
+def _align_exact_append_only_schema_extension(
+    predecessor: pd.DataFrame,
+    current_columns: list[str],
+    *,
+    allowed_extension_columns: tuple[str, ...],
+    label: str,
+) -> pd.DataFrame:
+    """Apply one exact additive schema migration without changing prior values."""
+
+    if list(predecessor.columns) == current_columns:
+        return predecessor.copy()
+    missing = [column for column in current_columns if column not in predecessor.columns]
+    retained = [column for column in current_columns if column in predecessor.columns]
+    if (
+        tuple(missing) != allowed_extension_columns
+        or retained != list(predecessor.columns)
+        or any(column not in current_columns for column in predecessor.columns)
+    ):
+        raise RuntimeError(f"forward holdout {label} append-only history schema drift")
+    aligned = predecessor.copy()
+    for column in allowed_extension_columns:
+        aligned[column] = ""
+    return aligned.loc[:, current_columns]
+
+
 def validate_append_only_history(
     existing: pd.DataFrame,
     new: pd.DataFrame,
     *,
     immutable_base: pd.DataFrame | None = None,
+    allowed_schema_extension_columns: tuple[str, ...] = (),
 ) -> None:
     """Reject history rewrites; exact duplicate capture rows are idempotent.
 
@@ -1711,6 +1971,29 @@ def validate_append_only_history(
     non-current capture was not rewritten.
     """
 
+    registered_extensions = set(
+        APPEND_ONLY_SCHEMA_EXTENSION_COLUMNS_BY_ARTIFACT.values()
+    )
+    if allowed_schema_extension_columns and (
+        not PRICE_SEMANTIC_PROJECTION_ENABLED
+        or allowed_schema_extension_columns not in registered_extensions
+    ):
+        raise RuntimeError(
+            "forward holdout append-only schema extension is not registered"
+        )
+    existing = _align_exact_append_only_schema_extension(
+        existing,
+        list(new.columns),
+        allowed_extension_columns=allowed_schema_extension_columns,
+        label="existing",
+    )
+    if immutable_base is not None:
+        immutable_base = _align_exact_append_only_schema_extension(
+            immutable_base,
+            list(new.columns),
+            allowed_extension_columns=allowed_schema_extension_columns,
+            label="immutable base",
+        )
     required = {"capture_id", "artifact_row_key"}
     frames_to_check = [(existing, "existing"), (new, "new")]
     if immutable_base is not None:
@@ -1730,8 +2013,6 @@ def validate_append_only_history(
             raise RuntimeError(
                 f"forward holdout {label} history has non-contiguous capture blocks"
             )
-    if list(existing.columns) != list(new.columns):
-        raise RuntimeError("forward holdout append-only history schema drift")
     if immutable_base is not None:
         if not _history_prefix_matches(immutable_base, existing):
             raise RuntimeError(
@@ -1769,15 +2050,23 @@ def validate_append_only_history(
         for key in tail_index.index:
             left = tail_index.loc[key]
             right = new_index.loc[key]
+            semantic_exclusions = {
+                "generated_at",
+                *(
+                    PRICE_INPUT_PROVENANCE_DIAGNOSTIC_COLUMNS
+                    if PRICE_SEMANTIC_PROJECTION_ENABLED
+                    else ()
+                ),
+            }
             left_mapping = {
                 column: left[column]
                 for column in uncommitted_tail.columns
-                if column != "generated_at"
+                if column not in semantic_exclusions
             }
             right_mapping = {
                 column: right[column]
                 for column in new.columns
-                if column != "generated_at"
+                if column not in semantic_exclusions
             }
             if _canonical_mapping_sha256(
                 left_mapping
@@ -1818,15 +2107,23 @@ def validate_append_only_history(
     for key in existing_index.index.intersection(new_index.index):
         left = existing_index.loc[key]
         right = new_index.loc[key]
+        semantic_exclusions = {
+            "generated_at",
+            *(
+                PRICE_INPUT_PROVENANCE_DIAGNOSTIC_COLUMNS
+                if PRICE_SEMANTIC_PROJECTION_ENABLED
+                else ()
+            ),
+        }
         left_mapping = {
             column: left[column]
             for column in existing.columns
-            if column != "generated_at"
+            if column not in semantic_exclusions
         }
         right_mapping = {
             column: right[column]
             for column in new.columns
-            if column != "generated_at"
+            if column not in semantic_exclusions
         }
         if _canonical_mapping_sha256(left_mapping) != _canonical_mapping_sha256(
             right_mapping
@@ -2011,7 +2308,14 @@ def _idempotent_mirror_payload(
     if not _ordered_frame_matches(
         persisted_capture,
         observed,
-        excluded_columns=("generated_at",),
+        excluded_columns=(
+            "generated_at",
+            *(
+                PRICE_INPUT_PROVENANCE_DIAGNOSTIC_COLUMNS
+                if PRICE_SEMANTIC_PROJECTION_ENABLED
+                else ()
+            ),
+        ),
     ):
         raise RuntimeError(
             "forward holdout idempotent mirror semantic drift detected: "
@@ -2067,8 +2371,12 @@ def _combined_append_only_history(
     path: Path,
     frame: pd.DataFrame,
     *,
+    artifact: str,
     immutable_base: pd.DataFrame | None = None,
 ) -> pd.DataFrame:
+    extension_columns = APPEND_ONLY_SCHEMA_EXTENSION_COLUMNS_BY_ARTIFACT.get(
+        artifact, ()
+    )
     if path.is_file():
         existing = pd.read_csv(
             path,
@@ -2076,7 +2384,24 @@ def _combined_append_only_history(
             keep_default_na=False,
             low_memory=False,
         )
-        validate_append_only_history(existing, frame, immutable_base=immutable_base)
+        existing = _align_exact_append_only_schema_extension(
+            existing,
+            list(frame.columns),
+            allowed_extension_columns=extension_columns,
+            label=f"{artifact} existing",
+        )
+        if immutable_base is not None:
+            immutable_base = _align_exact_append_only_schema_extension(
+                immutable_base,
+                list(frame.columns),
+                allowed_extension_columns=extension_columns,
+                label=f"{artifact} immutable base",
+            )
+        validate_append_only_history(
+            existing,
+            frame,
+            immutable_base=immutable_base,
+        )
         existing_keys = set(
             zip(existing["capture_id"].astype(str), existing["artifact_row_key"].astype(str))
         )
@@ -2221,6 +2546,7 @@ def write_forward_holdout(
             histories[artifact] = _combined_append_only_history(
                 paths[f"{artifact}_history"],
                 frame,
+                artifact=artifact,
                 immutable_base=immutable_base,
             )
         current_capture_ids = set(manifest["capture_id"].astype(str))
@@ -2281,7 +2607,14 @@ def write_forward_holdout(
                 if not _ordered_frame_matches(
                     persisted_capture,
                     frame,
-                    excluded_columns=("generated_at",),
+                    excluded_columns=(
+                        "generated_at",
+                        *(
+                            PRICE_INPUT_PROVENANCE_DIAGNOSTIC_COLUMNS
+                            if PRICE_SEMANTIC_PROJECTION_ENABLED
+                            else ()
+                        ),
+                    ),
                 ):
                     raise RuntimeError(
                         "forward holdout idempotent capture semantic drift detected in "
