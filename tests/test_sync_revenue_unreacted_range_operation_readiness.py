@@ -5,6 +5,7 @@ import json
 import subprocess
 import sys
 from pathlib import Path
+from types import SimpleNamespace
 
 import pandas as pd
 import pytest
@@ -31,6 +32,46 @@ _BASELINE_STOCK_IDS = {
     syncer._stock_id(value) for value in _BASELINE_SOURCE["stock_id"]
 }
 _BASELINE_PRICE_SHA = syncer._parse_price_stock_sha_set(_BASELINE_MANIFEST_ROW)
+
+
+def test_committed_anomaly_closure_raw_diagnostics_are_nonblocking(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    logical_path = syncer.REVENUE_ANOMALY_REPAIR_CLOSURE_PATH.as_posix()
+    original = (ROOT / logical_path).read_bytes()
+    committed_raw_only_mutation = original.replace(
+        b"4eba010d3afeb2b50f3b6e88a60fb699bfad9d34b1e991c0cc8b898775b1231f",
+        b"0" * 64,
+    )
+    monkeypatch.setattr(
+        syncer,
+        "_git_blob",
+        lambda _repo, _logical_path: committed_raw_only_mutation,
+    )
+
+    diagnostic = syncer._committed_anomaly_dependency(ROOT, logical_path)
+
+    assert diagnostic is not None
+    assert "diagnostic only" in diagnostic
+
+
+def test_committed_anomaly_closure_canonical_row_tamper_fails(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    logical_path = syncer.REVENUE_ANOMALY_REPAIR_CLOSURE_PATH.as_posix()
+    original = (ROOT / logical_path).read_bytes()
+    committed_semantic_mutation = original.replace(
+        b"1cb88da0fb389f1e4775c6ae2c05d1c4813d7c584e9e2fc0ba7183d4bf7e1e71",
+        b"0" * 64,
+    )
+    monkeypatch.setattr(
+        syncer,
+        "_git_blob",
+        lambda _repo, _logical_path: committed_semantic_mutation,
+    )
+
+    with pytest.raises(RuntimeError, match="semantic drift from HEAD"):
+        syncer._committed_anomaly_dependency(ROOT, logical_path)
 
 
 @pytest.fixture(autouse=True)
@@ -126,7 +167,7 @@ def revenue_summary() -> dict[str, str | int]:
     return {
         "parity_status": "research_matrix_complete",
         "blocker": (
-            "anomaly_disposition_blockers=9; unresolved_anomalies=9; "
+            "anomaly_disposition_blockers=0; unresolved_anomalies=0; "
             "forward_holdout_v2_mature=0/20; formal_adapter=not_started"
         ),
         "operation_module_status": (
@@ -405,6 +446,52 @@ def test_committed_source_treats_crlf_as_diagnostic_and_semantic_drift_as_error(
         )
 
 
+def test_committed_anomaly_source_treats_raw_file_sha_as_diagnostic_only(
+    tmp_path: Path,
+) -> None:
+    repo = tmp_path / "repo"
+    source = repo / syncer.ANOMALY_REGISTRY_REL
+    source.parent.mkdir(parents=True)
+    source.write_text(
+        "operation_key,final_disposition,anomaly_source_raw_file_sha256s\n"
+        "key-1,verified_real_extreme,raw-a\n",
+        encoding="utf-8",
+        newline="\n",
+    )
+    git(repo, "init")
+    git(repo, "config", "user.name", "test")
+    git(repo, "config", "user.email", "test@example.com")
+    git(repo, "add", ".")
+    git(repo, "commit", "-m", "canonical anomaly source")
+
+    source.write_text(
+        "operation_key,final_disposition,anomaly_source_raw_file_sha256s\r\n"
+        "key-1,verified_real_extreme,raw-b\r\n",
+        encoding="utf-8",
+        newline="",
+    )
+    _committed, diagnostic = syncer._committed_semantic_source(
+        repo,
+        syncer.ANOMALY_REGISTRY_REL,
+        csv_source=True,
+    )
+    assert diagnostic is not None
+    assert "raw-file-SHA diagnostic only" in diagnostic
+
+    source.write_text(
+        "operation_key,final_disposition,anomaly_source_raw_file_sha256s\n"
+        "key-1,verified_data_error,raw-b\n",
+        encoding="utf-8",
+        newline="\n",
+    )
+    with pytest.raises(RuntimeError, match="semantic drift from HEAD"):
+        syncer._committed_semantic_source(
+            repo,
+            syncer.ANOMALY_REGISTRY_REL,
+            csv_source=True,
+        )
+
+
 def test_bulk_registered_price_read_is_single_call_crlf_safe_and_semantic_strict(
     tmp_path: Path,
 ) -> None:
@@ -630,7 +717,7 @@ def test_current_canonical_sources_build_exact_disabled_revenue_row() -> None:
     )
     revenue = readiness[readiness["model_id"].eq(syncer.MODEL_ID)].iloc[0]
     assert revenue["blocker"] == (
-        "anomaly_disposition_blockers=9; unresolved_anomalies=9; "
+        "anomaly_disposition_blockers=0; unresolved_anomalies=0; "
         "forward_holdout_v2_mature=0/20; formal_adapter=not_started"
     )
     assert revenue["parity_status"] == "research_matrix_complete"
@@ -1964,8 +2051,8 @@ def test_revenue_readiness_sync_writer_runs_exact_gate_before_any_mirror_write(
     )
     monkeypatch.setattr(
         syncer,
-        "validate_revenue_anomaly_registry",
-        lambda _path, **_kwargs: ({}, []),
+        "validate_current_anomaly_dispositions",
+        lambda _repo, **_kwargs: SimpleNamespace(errors=[]),
     )
     monkeypatch.setattr(
         syncer,

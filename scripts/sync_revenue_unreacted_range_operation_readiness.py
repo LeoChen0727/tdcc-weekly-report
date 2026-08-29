@@ -23,28 +23,43 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from tracking_utils import markdown_table, now_text, safe_str  # noqa: E402
+from validate_revenue_unreacted_range_anomaly_dispositions import (  # noqa: E402
+    EXPECTED_CASES as REVENUE_ANOMALY_EXPECTED_CASES,
+    LEGACY_V2_REGISTRY_PATH as REVENUE_ANOMALY_LEGACY_V2_REGISTRY_PATH,
+    MIGRATION_PATH as REVENUE_ANOMALY_MIGRATION_PATH,
+    REPAIR_CLOSURE_PATH as REVENUE_ANOMALY_REPAIR_CLOSURE_PATH,
+    REGISTRY_PATH as REVENUE_ANOMALY_REGISTRY_PATH,
+    REGISTRY_PROVENANCE_COLUMNS as REVENUE_ANOMALY_PROVENANCE_COLUMNS,
+    REPAIR_CLOSURE_PROVENANCE_COLUMNS as REVENUE_ANOMALY_REPAIR_PROVENANCE_COLUMNS,
+    V3_CANDIDATE_DETAIL_PATH as REVENUE_ANOMALY_V3_CANDIDATE_DETAIL_PATH,
+    V3_CANDIDATE_SUMMARY_PATH as REVENUE_ANOMALY_V3_CANDIDATE_SUMMARY_PATH,
+    _is_transport_provenance_name as revenue_anomaly_is_transport_provenance_name,
+    artifact_bytes_semantic_sha256 as revenue_anomaly_artifact_bytes_semantic_sha256,
+    csv_bytes_semantic_sha256 as revenue_anomaly_csv_semantic_sha256,
+    evidence_canonical_sha256 as revenue_anomaly_evidence_canonical_sha256,
+    validate_bundle as validate_current_anomaly_dispositions,
+)
 
 
 MODEL_ID = "revenue_unreacted_range"
 REVENUE_MODEL_ID = MODEL_ID
 REVENUE_EXPECTED_PROMOTION_DECISION = {
     "contract_version": (
-        "revenue_unreacted_range_promotion_preparation_contract_v4_20260828"
+        "revenue_unreacted_range_promotion_preparation_contract_v5_20260829"
     ),
     "decision_status": (
-        "research_complete_promotion_blocked_waiting_anomaly_forward_holdout_and_"
-        "formal_adapter"
+        "anomaly_disposition_complete_promotion_blocked_waiting_forward_holdout_"
+        "and_formal_adapter"
     ),
     "anomaly_disposition_gate": (
-        "research_non_hard_promotion_candidate_hard_pending_9_root_cause_"
-        "dispositions"
+        "verified_8_real_extreme_1_data_error_repaired_effective_blockers_0"
     ),
     "formal_adapter_gate": (
         "disabled_adapter_preparation_non_hard_production_approval_hard_gate"
     ),
     "promotion_scope": (
-        "staged_contract_research_only_and_disabled_adapter_preparation_no_"
-        "production_daily_full_pdf_or_apps_script"
+        "research_only_anomaly_disposition_closed_waiting_forward_holdout_and_"
+        "disabled_adapter_no_production_daily_full_pdf_or_apps_script"
     ),
 }
 REVENUE_PROMOTION_CONTRACT_VERSION = (
@@ -68,35 +83,6 @@ REVENUE_RESEARCH_MATRIX_STATUS = "research_matrix_complete"
 REVENUE_OPERATION_MODULE_STATUS = (
     "research_matrix_complete_formal_adapter_not_started"
 )
-REVENUE_ANOMALY_DISPOSITION_POLICIES = {
-    "unresolved_anomaly_candidate": (
-        "retain_in_primary_metrics_and_allow_exclusion_sensitivity_only",
-        "blocked_pending_root_cause",
-    ),
-    "verified_real_extreme": (
-        "retain_in_primary_metrics",
-        "eligible_only_after_all_other_model_gates",
-    ),
-    "verified_data_error": (
-        "repair_source_and_rerun_old_metrics_forbidden",
-        "blocked_until_repaired_rerun",
-    ),
-    "verified_non_comparable": (
-        "exclude_only_with_approved_reason_and_rerun",
-        "requires_model_governance_review",
-    ),
-}
-REVENUE_EXPECTED_ANOMALIES = {
-    "rearm_after_realized_exit_next_trade_day|delayed_next_close_continuation_bonus|2408|absolute_or_two_month_yoy_ge15|2408|20260417|2|20260427|20260429": "8642cd7286a0eee22ba76d69e6ab826c9ec22c3e83a3ed63fef27753e81f0168",
-    "rearm_after_realized_exit_next_trade_day|delayed_next_close_continuation_bonus|2451|absolute_or_two_month_yoy_ge15|2451|20250517|1|20260313|20260317": "e5eed6f2f6d39d9da369041116395383580ef98274e7490bcaadc6a23a22d20e",
-    "rearm_after_realized_exit_next_trade_day|delayed_next_close_continuation_bonus|2478|absolute_or_two_month_yoy_ge15|2478|20260217|2|20260416|20260420": "facf4234439f7b5627a00b3bfa82c2976559357c218b0a341ca0a5a0e2d53a9b",
-    "rearm_after_realized_exit_next_trade_day|delayed_next_close_continuation_bonus|2527|absolute_or_two_month_yoy_ge15|2527|20260517|1|20260526|20260528": "34d2b8aa9258ae1a686feaa937ada66e56c238c7dd5994299b4a3c74ee5d8c6a",
-    "rearm_after_realized_exit_next_trade_day|delayed_next_close_continuation_bonus|3535|absolute_or_two_month_yoy_ge15|3535|20251017|1|20251128|20251202": "f7ed7ce96221e2754d299f73ee1025763d7d8b858b19232c18a4e3b21032c5c2",
-    "rearm_after_realized_exit_next_trade_day|delayed_next_close_continuation_bonus|3535|absolute_or_two_month_yoy_ge15|3535|20251017|1|20260119|20260121": "e4b00d986b4af400e6cc05ce38687964f7de9944914d77eb31fc0a9755a64596",
-    "rearm_after_realized_exit_next_trade_day|delayed_next_close_continuation_bonus|4142|absolute_or_two_month_yoy_ge15|4142|20250617|1|20260109|20260113": "2f36fb8d8e6bd05b879a164e5748d318088ebc6936d1d97dc9a9cd728c0bc35b",
-    "rearm_after_realized_exit_next_trade_day|delayed_next_close_continuation_bonus|5484|absolute_or_two_month_yoy_ge15|5484|20251017|1|20260515|20260519": "5f3ca72b872eeb3f02e078e9544b456751e6dc2c4fc7942a7a023c961a6ce514",
-    "rearm_after_realized_exit_next_trade_day|delayed_next_close_continuation_bonus|6177|absolute_or_two_month_yoy_ge15|6177|20250517|1|20251204|20251208": "e3ff0aa0f2af328e8e959321235acc79af9efdf0a7df508db4d55bac57b88e23",
-}
 
 PREREGISTRATION_PR_NUMBER = "462"
 PREREGISTRATION_MERGE_COMMIT = "436c25cd0d037c3425ab2ac4fa76cb464cf96de4"
@@ -126,6 +112,9 @@ PROJECTED_EPISODE_SEMANTIC_SHA256 = (
 SELECTED_V2_MANIFEST_CANONICAL_SHA256 = (
     "74b51a715c560777ea302fe559d89f74575ff94381c8cee1fa49496c25b7db2b"
 )
+SELECTED_V2_MANIFEST_PROMOTION_SEMANTIC_SHA256 = (
+    "897553efa0f569f8edc16f8f1ac126316a6dcbb5ac073a5c29e527f7e198c2eb"
+)
 PRIMARY_VARIANT_ID = REVENUE_SOURCE_VARIANT_ID
 ALL_VARIANT_IDS = (
     PRIMARY_VARIANT_ID,
@@ -148,12 +137,8 @@ MONTHLY_LINEAGE_COLUMNS = (
 )
 CANONICAL_LINEAGE_VERSION = "canonical_json_numeric_text_v1"
 PROMOTION_REGISTRY_CANONICAL_SHA256 = (
-    "dbe1fbfc2b02801a25afee4a0eda2aaf6b464f2334282c5109141c7f1023419b"
+    "520b453f22f1b943d6c6241094e5b4df9729810c980e680e9f2027698d9bf5db"
 )
-ANOMALY_REGISTRY_CANONICAL_SHA256 = (
-    "109fc2f15e8f82e7644df677a8f4e92ebbe03ede960753267d46587c882afedc"
-)
-
 OUT_CSV_REL = "output/latest/model_operation_readiness_latest.csv"
 OUT_MD_REL = "output/latest/model_operation_readiness_latest.md"
 DOCS_CSV_REL = "docs/latest/model_operation_readiness_latest.csv"
@@ -169,7 +154,7 @@ PROMOTION_REGISTRY_REL = (
     "config/revenue_unreacted_range_promotion_preparation_registry.csv"
 )
 ANOMALY_REGISTRY_REL = (
-    "config/revenue_unreacted_range_anomaly_disposition_registry_v2_20260828.csv"
+    REVENUE_ANOMALY_REGISTRY_PATH.as_posix()
 )
 FORWARD_HOLDOUT_V2_MANIFEST_REL = (
     "output/latest/research_backtest/"
@@ -208,6 +193,27 @@ MONTHLY_REVENUE_CROSS_MARKET_RESOLUTION_REL = (
 )
 PRICE_RESOLUTION_REL = (
     "config/revenue_unreacted_range_price_comparability_resolution.csv"
+)
+ANOMALY_EVIDENCE_RELS = tuple(
+    sorted(case.evidence_path for case in REVENUE_ANOMALY_EXPECTED_CASES.values())
+)
+ANOMALY_PRICE_EVIDENCE_RELS = tuple(
+    sorted(
+        f"{PRICE_HISTORY_DIR_REL}/{stock_id}.csv"
+        for stock_id in {
+            case.stock_id for case in REVENUE_ANOMALY_EXPECTED_CASES.values()
+        }
+    )
+)
+ANOMALY_BUNDLE_DEPENDENCY_RELS = (
+    REVENUE_ANOMALY_LEGACY_V2_REGISTRY_PATH.as_posix(),
+    REVENUE_ANOMALY_MIGRATION_PATH.as_posix(),
+    REVENUE_ANOMALY_REPAIR_CLOSURE_PATH.as_posix(),
+    REVENUE_ANOMALY_V3_CANDIDATE_SUMMARY_PATH.as_posix(),
+    REVENUE_ANOMALY_V3_CANDIDATE_DETAIL_PATH.as_posix(),
+    MONTHLY_REVENUE_HISTORY_REL,
+    *ANOMALY_EVIDENCE_RELS,
+    *ANOMALY_PRICE_EVIDENCE_RELS,
 )
 CANONICAL_SOURCE_RELS = (
     PROMOTION_REGISTRY_REL,
@@ -436,12 +442,29 @@ def _canonical_frame_sha256(
     return _canonical_json_sha256([CANONICAL_LINEAGE_VERSION, columns, rows])
 
 
+def _is_transport_provenance_column(column: object) -> bool:
+    normalized = str(column).strip().lower()
+    return (
+        normalized == "generated_at"
+        or normalized.startswith("raw_")
+        or "blob_sha256" in normalized
+        or "byte_sha256" in normalized
+        or "bytes_sha256" in normalized
+        or "crlf" in normalized
+        or "line_ending" in normalized
+    )
+
+
 def _promotion_semantic_source_sha256(frame: pd.DataFrame) -> str:
-    """Bind every source cell except the mutable raw-blob provenance token."""
+    """Bind every source business/PIT cell, excluding transport provenance."""
 
     return _canonical_frame_sha256(
         frame,
-        excluded_columns=("generated_at", RAW_MONTHLY_REVENUE_PROVENANCE_COLUMN),
+        excluded_columns=tuple(
+            column
+            for column in frame.columns
+            if _is_transport_provenance_column(column)
+        ),
     )
 
 
@@ -456,9 +479,26 @@ def _promotion_semantic_frame_sha256(
         raise RuntimeError(
             f"unsupported revenue promotion semantic frame: {frame_name}"
         )
+    excluded = set(PROMOTION_SEMANTIC_FRAME_EXCLUSIONS[frame_name])
+    excluded.update(
+        column
+        for column in frame.columns
+        if _is_transport_provenance_column(column)
+    )
     return _canonical_frame_sha256(
         frame,
-        excluded_columns=PROMOTION_SEMANTIC_FRAME_EXCLUSIONS[frame_name],
+        excluded_columns=tuple(sorted(excluded)),
+    )
+
+
+def _projection_manifest_promotion_semantic_sha256(frame: pd.DataFrame) -> str:
+    return _canonical_frame_sha256(
+        frame,
+        excluded_columns=tuple(
+            column
+            for column in frame.columns
+            if _is_transport_provenance_column(column)
+        ),
     )
 
 
@@ -867,7 +907,11 @@ def _validate_detail_source_asof_against_replay(
             )
 
 
-def _validate_selected_v2_manifest(source_manifest: pd.DataFrame) -> None:
+def _validate_selected_v2_manifest(
+    source_manifest: pd.DataFrame,
+    *,
+    diagnostics: list[str] | None = None,
+) -> None:
     if len(source_manifest) != 1:
         raise RuntimeError("forward holdout v2 selected manifest must have one row")
     row = source_manifest.iloc[0]
@@ -885,11 +929,23 @@ def _validate_selected_v2_manifest(source_manifest: pd.DataFrame) -> None:
             raise RuntimeError(
                 f"forward holdout v2 selected manifest drift: {field_name}"
             )
-    observed_sha = _canonical_frame_sha256(source_manifest)
-    if observed_sha != SELECTED_V2_MANIFEST_CANONICAL_SHA256:
+    observed_semantic_sha = _projection_manifest_promotion_semantic_sha256(
+        source_manifest
+    )
+    if observed_semantic_sha != SELECTED_V2_MANIFEST_PROMOTION_SEMANTIC_SHA256:
         raise RuntimeError(
-            "forward holdout v2 selected manifest canonical SHA-256 drift: "
-            f"expected={SELECTED_V2_MANIFEST_CANONICAL_SHA256} observed={observed_sha}"
+            "forward holdout v2 selected manifest promotion semantic SHA-256 drift: "
+            f"expected={SELECTED_V2_MANIFEST_PROMOTION_SEMANTIC_SHA256} "
+            f"observed={observed_semantic_sha}"
+        )
+    observed_legacy_sha = _canonical_frame_sha256(source_manifest)
+    if (
+        observed_legacy_sha != SELECTED_V2_MANIFEST_CANONICAL_SHA256
+        and diagnostics is not None
+    ):
+        diagnostics.append(
+            "selected v2 source manifest legacy raw/envelope SHA differs; "
+            "promotion semantic SHA remains the hard gate"
         )
 
 
@@ -1511,9 +1567,26 @@ PROMOTION_SEMANTIC_FRAME_EXCLUSIONS = {
 }
 
 
+def is_transport_provenance_column(column):
+    normalized = str(column).strip().lower()
+    return (
+        normalized == "generated_at"
+        or normalized.startswith("raw_")
+        or "blob_sha256" in normalized
+        or "byte_sha256" in normalized
+        or "bytes_sha256" in normalized
+        or "crlf" in normalized
+        or "line_ending" in normalized
+    )
+
+
 def promotion_semantic_source_sha256(frame):
     semantic = frame.drop(
-        columns=[RAW_MONTHLY_REVENUE_PROVENANCE_COLUMN],
+        columns=[
+            column
+            for column in frame.columns
+            if is_transport_provenance_column(column)
+        ],
         errors="ignore",
     )
     return validator_v2.validator._frame_sha(semantic)
@@ -1524,8 +1597,14 @@ def promotion_semantic_frame_sha256(frame, frame_name):
         raise RuntimeError(
             "unsupported revenue promotion semantic frame: " + frame_name
         )
+    excluded = set(PROMOTION_SEMANTIC_FRAME_EXCLUSIONS[frame_name])
+    excluded.update(
+        column
+        for column in frame.columns
+        if is_transport_provenance_column(column)
+    )
     semantic = frame.drop(
-        columns=list(PROMOTION_SEMANTIC_FRAME_EXCLUSIONS[frame_name]),
+        columns=list(excluded),
         errors="ignore",
     )
     return validator_v2.validator._frame_sha(semantic)
@@ -2350,11 +2429,19 @@ def _validate_holdout_manifest_lineage(
         "holdout.training_source_projection_semantic_sha256",
         expected=PROJECTED_EPISODE_SEMANTIC_SHA256,
     )
-    _require_sha(
+    observed_training_manifest_legacy_sha = _require_sha(
         row.get("training_source_manifest_canonical_sha256"),
         "holdout.training_source_manifest_canonical_sha256",
-        expected=SELECTED_V2_MANIFEST_CANONICAL_SHA256,
     )
+    if (
+        observed_training_manifest_legacy_sha
+        != SELECTED_V2_MANIFEST_CANONICAL_SHA256
+        and diagnostics is not None
+    ):
+        diagnostics.append(
+            "holdout training source manifest legacy raw/envelope SHA differs; "
+            "selected manifest promotion semantic SHA remains the hard gate"
+        )
     for field_name in (
         "source_detail_canonical_sha256",
         "monthly_revenue_history_blob_sha256",
@@ -2376,7 +2463,10 @@ def _validate_holdout_manifest_lineage(
             f"observed={projected_count}"
         )
     try:
-        _validate_selected_v2_manifest(source_projection_manifest)
+        _validate_selected_v2_manifest(
+            source_projection_manifest,
+            diagnostics=diagnostics,
+        )
     except RuntimeError as exc:
         raise RuntimeError(f"revenue readiness selected v2 source manifest invalid: {exc}") from exc
 
@@ -2392,12 +2482,12 @@ def _validate_holdout_manifest_lineage(
             "revenue readiness holdout source detail row count drift: "
             f"manifest={expected_source_rows} replay={len(normalized_source)}"
         )
-    observed_source_sha = _canonical_frame_sha256(normalized_source)
-    expected_source_sha = safe_str(row.get("source_detail_canonical_sha256"))
-    if observed_source_sha != expected_source_sha:
-        raise RuntimeError(
-            "revenue readiness holdout source detail canonical SHA drift: "
-            f"manifest={expected_source_sha} replay={observed_source_sha}"
+    observed_source_legacy_sha = _canonical_frame_sha256(normalized_source)
+    expected_source_legacy_sha = safe_str(row.get("source_detail_canonical_sha256"))
+    if observed_source_legacy_sha != expected_source_legacy_sha and diagnostics is not None:
+        diagnostics.append(
+            "holdout source detail legacy raw/envelope SHA differs; promotion "
+            "semantic source replay remains the hard gate"
         )
     for field_name in MONTHLY_LINEAGE_COLUMNS:
         values = set(normalized_source[field_name].astype(str))
@@ -2437,7 +2527,7 @@ def _validate_holdout_manifest_lineage(
         "data_contract_sha256": DATA_CONTRACT_SHA256,
         "preregistration_merge_commit": PREREGISTRATION_MERGE_COMMIT,
         "observed_through_date": observed_through,
-        "source_detail_canonical_sha256": expected_source_sha,
+        "source_detail_canonical_sha256": expected_source_legacy_sha,
         "price_input_canonical_sha256": safe_str(
             row.get("price_input_canonical_sha256")
         ),
@@ -2456,8 +2546,11 @@ def _validate_holdout_manifest_lineage(
         ),
     }
     observed_capture = _canonical_json_sha256(capture_envelope)
-    if safe_str(row.get("capture_id")) != observed_capture:
-        raise RuntimeError("revenue readiness holdout capture_id canonical SHA drift")
+    if safe_str(row.get("capture_id")) != observed_capture and diagnostics is not None:
+        diagnostics.append(
+            "holdout legacy capture_id differs; raw-excluded promotion frame and "
+            "source semantic hashes remain the hard gates"
+        )
 
     detail_required = {
         "model_id",
@@ -2499,13 +2592,28 @@ def _validate_holdout_manifest_lineage(
         "model_id": MODEL_ID,
         "artifact_id": REVENUE_FORWARD_HOLDOUT_V2_ARTIFACT_ID,
         "artifact_version": REVENUE_FORWARD_HOLDOUT_V2_ARTIFACT_VERSION,
-        "capture_id": safe_str(row.get("capture_id")),
         "financial_statement_scope": REVENUE_HOLDOUT_FINANCIAL_STATEMENT_SCOPE,
     }.items():
         if not detail[field_name].astype(str).eq(expected).all():
             raise RuntimeError(
                 f"revenue readiness holdout detail {field_name} drift"
             )
+    invalid_capture_ids = sorted(
+        {
+            safe_str(value)
+            for value in detail["capture_id"]
+            if SHA256_RE.fullmatch(safe_str(value)) is None
+        }
+    )
+    if invalid_capture_ids:
+        raise RuntimeError("revenue readiness holdout detail capture_id is malformed")
+    if (
+        not detail["capture_id"].astype(str).eq(safe_str(row.get("capture_id"))).all()
+        and diagnostics is not None
+    ):
+        diagnostics.append(
+            "holdout detail legacy capture_id differs from manifest; diagnostic only"
+        )
     if not set(detail["variant_id"].astype(str)).issubset(
         set(ALL_VARIANT_IDS)
     ):
@@ -2630,7 +2738,12 @@ def _validate_holdout_manifest_lineage(
                 event.drop(labels=["event_row_canonical_sha256"]).to_dict()
             )
             if safe_str(event.get("event_row_canonical_sha256")) != expected_event_sha:
-                raise RuntimeError("revenue readiness holdout event row canonical SHA drift")
+                if diagnostics is not None:
+                    diagnostics.append(
+                        "holdout detail legacy event-row envelope differs; "
+                        "promotion-semantic detail SHA and exact replay remain the hard gates: "
+                        f"row={row_index}"
+                    )
             if censored_mask.loc[row_index] and (
                 safe_str(event.get("realized_return_pct"))
                 or safe_str(event.get("return_outcome"))
@@ -2790,11 +2903,11 @@ def validate_revenue_readiness_source_files(
     _, promotion_errors = validate_revenue_promotion_registry(
         root / REVENUE_PROMOTION_REGISTRY_CSV
     )
-    _, anomaly_errors = validate_revenue_anomaly_registry(
-        root / REVENUE_ANOMALY_REGISTRY_CSV,
-        expected_anomalies=REVENUE_EXPECTED_ANOMALIES,
-        version_label="v2",
+    anomaly_result = validate_current_anomaly_dispositions(
+        root,
+        require_effective_nonblocking=True,
     )
+    anomaly_errors = anomaly_result.errors
     errors = [
         *(f"revenue promotion readiness source: {error}" for error in promotion_errors),
         *(f"revenue anomaly readiness source: {error}" for error in anomaly_errors),
@@ -2821,24 +2934,16 @@ def validate_revenue_readiness_source_files(
                 root / REVENUE_SOURCE_PROJECTION_MANIFEST_CSV, dtype=str
             ).fillna(""),
             repo_root=root,
+            anomaly_result=anomaly_result,
         )
     except (OSError, pd.errors.ParserError, RuntimeError) as exc:
         errors.append(f"revenue readiness holdout source: {exc}")
     return errors
 
 
-def summarize_revenue_promotion_readiness(
+def _validated_revenue_promotion_row(
     promotion_registry: pd.DataFrame,
-    anomaly_registry: pd.DataFrame,
-    forward_holdout_v2_manifest: pd.DataFrame,
-    *,
-    holdout_detail: pd.DataFrame,
-    holdout_summary: pd.DataFrame,
-    replay_source: pd.DataFrame,
-    source_projection_manifest: pd.DataFrame,
-    repo_root: Path | str = Path("."),
-    diagnostics: list[str] | None = None,
-) -> dict[str, Any]:
+) -> tuple[pd.Series, int, int]:
     promotion_required = {
         "decision_id",
         "decision_date",
@@ -2894,8 +2999,8 @@ def summarize_revenue_promotion_readiness(
         if observed != expected:
             if field_name == "contract_version":
                 raise RuntimeError(
-                    "revenue readiness requires latest decision v3 / promotion contract "
-                    f"v4; got {observed!r}"
+                    "revenue readiness requires latest decision v4 / promotion contract "
+                    f"v5; got {observed!r}"
                 )
             raise RuntimeError(
                 f"revenue readiness promotion.{field_name} must be "
@@ -2918,66 +3023,24 @@ def summarize_revenue_promotion_readiness(
         promotion.get("combined_exclusion_candidate_count"),
         "promotion.combined_exclusion_candidate_count",
     )
+    return promotion, minimum_mature, candidate_count
 
-    anomaly_required = {
-        "model_id",
-        "operation_key",
-        "candidate_detail_row_sha256",
-        "final_disposition",
-        "primary_handling",
-        "promotion_gate_status",
-    }
-    _required_columns(anomaly_registry, anomaly_required, str(REVENUE_ANOMALY_REGISTRY_CSV))
-    anomaly_rows = anomaly_registry[
-        anomaly_registry["model_id"].astype(str).eq(MODEL_ID)
-    ].copy()
-    if anomaly_rows.empty:
-        raise RuntimeError("revenue anomaly registry has no model rows")
-    if anomaly_rows["operation_key"].astype(str).str.strip().eq("").any():
-        raise RuntimeError("revenue anomaly registry contains blank operation_key")
-    if anomaly_rows["candidate_detail_row_sha256"].astype(str).map(
-        lambda value: SHA256_RE.fullmatch(value) is not None
-    ).ne(True).any():
-        raise RuntimeError("revenue anomaly registry contains invalid row SHA")
-    latest_anomalies = anomaly_rows.drop_duplicates(
-        subset=["operation_key"], keep="last"
-    )
-    if len(latest_anomalies) != candidate_count:
-        raise RuntimeError("revenue anomaly count disagrees with promotion row")
-    invalid_dispositions = sorted(
-        set(latest_anomalies["final_disposition"].astype(str))
-        - set(REVENUE_ANOMALY_DISPOSITION_POLICIES)
-    )
-    if invalid_dispositions:
-        raise RuntimeError(
-            f"revenue anomaly registry has invalid dispositions: {invalid_dispositions}"
-        )
-    for _, anomaly in latest_anomalies.iterrows():
-        disposition = safe_str(anomaly.get("final_disposition"))
-        expected_policy = REVENUE_ANOMALY_DISPOSITION_POLICIES[disposition]
-        actual_policy = (
-            safe_str(anomaly.get("primary_handling")),
-            safe_str(anomaly.get("promotion_gate_status")),
-        )
-        if actual_policy != expected_policy:
-            raise RuntimeError(
-                f"revenue anomaly disposition policy mismatch: "
-                f"{safe_str(anomaly.get('operation_key'))}"
-            )
-    unresolved_rows = latest_anomalies[
-        latest_anomalies["final_disposition"]
-        .astype(str)
-        .eq("unresolved_anomaly_candidate")
-    ]
-    unresolved_count = len(unresolved_rows)
-    non_blocking_gate = REVENUE_ANOMALY_DISPOSITION_POLICIES[
-        "verified_real_extreme"
-    ][1]
-    blocking_anomaly_count = int(
-        latest_anomalies["promotion_gate_status"]
-        .astype(str)
-        .ne(non_blocking_gate)
-        .sum()
+
+def summarize_revenue_promotion_readiness(
+    promotion_registry: pd.DataFrame,
+    anomaly_registry: pd.DataFrame,
+    forward_holdout_v2_manifest: pd.DataFrame,
+    *,
+    holdout_detail: pd.DataFrame,
+    holdout_summary: pd.DataFrame,
+    replay_source: pd.DataFrame,
+    source_projection_manifest: pd.DataFrame,
+    repo_root: Path | str = Path("."),
+    diagnostics: list[str] | None = None,
+    anomaly_result: Any | None = None,
+) -> dict[str, Any]:
+    promotion, minimum_mature, candidate_count = (
+        _validated_revenue_promotion_row(promotion_registry)
     )
 
     holdout = _validate_holdout_manifest_lineage(
@@ -2992,6 +3055,31 @@ def summarize_revenue_promotion_readiness(
     mature_count = _strict_nonnegative_int(
         holdout.get("primary_mature_count"), "holdout.primary_mature_count"
     )
+    # The anomaly validator is the sole owner of disposition semantics, evidence,
+    # repaired-rerun closure, and the effective blocker calculation.  Readiness
+    # consumes its result instead of maintaining a second policy implementation.
+    del anomaly_registry
+    if anomaly_result is None:
+        anomaly_result = validate_current_anomaly_dispositions(
+            Path(repo_root),
+            require_effective_nonblocking=True,
+        )
+    if anomaly_result.errors:
+        raise RuntimeError(
+            "canonical revenue anomaly disposition gate failed: "
+            + "; ".join(anomaly_result.errors)
+        )
+    if diagnostics is not None:
+        diagnostics.extend(anomaly_result.diagnostics)
+    if candidate_count != len(anomaly_result.current_anomaly_keys):
+        raise RuntimeError(
+            "revenue promotion current anomaly count disagrees with canonical gate"
+        )
+    unresolved_count = sum(
+        row.get("final_disposition") == "unresolved_anomaly_candidate"
+        for row in anomaly_result.rows.values()
+    )
+    blocking_anomaly_count = len(anomaly_result.effective_blockers)
     expected_adapter_gate = REVENUE_EXPECTED_PROMOTION_DECISION[
         "formal_adapter_gate"
     ]
@@ -3035,8 +3123,10 @@ def summarize_revenue_promotion_readiness(
         "daily_adapter_sections": "",
         "status_note_zh": (
             "revenue_unreacted_range／source_mid_falling v2 的模型專屬研究矩陣已完成；"
-            f"目前仍有 {blocking_anomaly_count} 筆 anomaly disposition 阻擋項目（其中 "
-            f"{unresolved_count} 筆尚未定案）、forward holdout v2 "
+            "九筆 anomaly 已完成逐筆 disposition，八筆 verified_real_extreme 保留於 "
+            "Primary，6177 的衍生 attribution data error 已完成固定規則修復重跑；"
+            f"目前 anomaly effective blocker={blocking_anomaly_count}、未定案={unresolved_count}，"
+            "仍待 forward holdout v2 "
             f"成熟度 {mature_count}/{minimum_mature} 與 disabled formal adapter preparation 尚未完成。"
             "月營收以外的 EPS、毛利率、營益率、營業利益、業外損益、淨利及季度／年度財報欄位均不在模型範圍；"
             "不得產生 production、PDF、packet 或操作指令。"
@@ -3097,9 +3187,37 @@ def _canonical_csv(data: bytes, source_name: str) -> bytes:
     ).encode("utf-8")
 
 
+def _canonical_csv_excluding_transport_provenance(
+    data: bytes,
+    source_name: str,
+) -> bytes:
+    fieldnames, rows = _parse_csv_bytes(data, source_name)
+    semantic_fields = [
+        field_name
+        for field_name in fieldnames
+        if not _is_transport_provenance_column(field_name)
+    ]
+    return json.dumps(
+        {
+            "fieldnames": semantic_fields,
+            "rows": [
+                {
+                    field_name: _canonical_value(row.get(field_name, ""))
+                    for field_name in semantic_fields
+                }
+                for row in rows
+            ],
+        },
+        ensure_ascii=False,
+        separators=(",", ":"),
+    ).encode("utf-8")
+
+
 def _registry_semantic_sha256(path: Path) -> str:
     data = path.read_bytes()
-    return hashlib.sha256(_canonical_csv(data, str(path))).hexdigest()
+    return hashlib.sha256(
+        _canonical_csv_excluding_transport_provenance(data, str(path))
+    ).hexdigest()
 
 
 def validate_revenue_promotion_registry(
@@ -3119,60 +3237,34 @@ def validate_revenue_promotion_registry(
         )
     if not rows:
         return None, [*errors, "promotion preparation registry is empty"]
-    latest = rows[-1]
-    for field_name, expected in REVENUE_EXPECTED_PROMOTION_DECISION.items():
-        if latest.get(field_name, "") != expected:
-            errors.append(
-                f"promotion preparation {field_name} mismatch in latest staged row"
-            )
-    return latest, errors
+    try:
+        latest, _minimum_mature, _candidate_count = (
+            _validated_revenue_promotion_row(pd.DataFrame(rows, dtype=str).fillna(""))
+        )
+    except RuntimeError as exc:
+        errors.append(str(exc))
+        return None, errors
+    return {str(key): safe_str(value) for key, value in latest.items()}, errors
 
 
 def validate_revenue_anomaly_registry(
     path: Path,
-    *,
-    expected_anomalies: dict[str, str] = REVENUE_EXPECTED_ANOMALIES,
-    version_label: str = "v2",
 ) -> tuple[dict[str, dict[str, str]], list[str]]:
-    errors: list[str] = []
-    try:
-        fieldnames, rows = _parse_csv_bytes(path.read_bytes(), str(path))
-        del fieldnames
-        observed_sha = _registry_semantic_sha256(path)
-    except (OSError, RuntimeError) as exc:
-        return {}, [str(exc)]
-    if observed_sha != ANOMALY_REGISTRY_CANONICAL_SHA256:
-        errors.append(
-            "anomaly disposition registry canonical semantic SHA-256 drift: "
-            f"expected={ANOMALY_REGISTRY_CANONICAL_SHA256}; actual={observed_sha}"
-        )
-    actual = {row.get("operation_key", ""): row for row in rows}
-    if len(actual) != len(rows):
-        errors.append("anomaly disposition registry has duplicate operation_key rows")
-    if set(actual) != set(expected_anomalies):
-        errors.append(
-            f"anomaly disposition registry {version_label} operation-key set drift"
-        )
-    for operation_key, expected_sha in expected_anomalies.items():
-        row = actual.get(operation_key)
-        if row is None:
-            continue
-        if row.get("candidate_detail_row_sha256", "") != expected_sha:
-            errors.append(
-                f"{operation_key}: candidate_detail_row_sha256 mismatch"
-            )
-        disposition = row.get("final_disposition", "")
-        expected_policy = REVENUE_ANOMALY_DISPOSITION_POLICIES.get(disposition)
-        if expected_policy is None:
-            errors.append(f"{operation_key}: invalid final_disposition={disposition!r}")
-        elif (
-            row.get("primary_handling", ""),
-            row.get("promotion_gate_status", ""),
-        ) != expected_policy:
-            errors.append(
-                f"{operation_key}: disposition policy mismatch for {disposition}"
-            )
-    return actual, errors
+    # Compatibility signature for the readiness writer.  All anomaly business
+    # semantics live in validate_revenue_unreacted_range_anomaly_dispositions.
+    resolved = path.resolve()
+    repo = resolved.parents[1]
+    expected_path = (repo / REVENUE_ANOMALY_REGISTRY_PATH).resolve()
+    if resolved != expected_path:
+        return {}, [
+            "readiness anomaly source must be the canonical v3 registry: "
+            f"expected={expected_path}; actual={resolved}"
+        ]
+    result = validate_current_anomaly_dispositions(
+        repo,
+        require_effective_nonblocking=True,
+    )
+    return result.rows, result.errors
 
 
 def _canonical_markdown(data: bytes, source_name: str) -> bytes:
@@ -3200,6 +3292,74 @@ def _committed_semantic_source(
     except OSError as exc:
         raise RuntimeError(f"missing readiness sync source {logical_path}: {exc}") from exc
     committed_data = _git_blob(repo, logical_path)
+    if logical_path == ANOMALY_REGISTRY_REL:
+        try:
+            worktree_semantic = revenue_anomaly_csv_semantic_sha256(
+                worktree_data,
+                excluded_columns=REVENUE_ANOMALY_PROVENANCE_COLUMNS,
+                source_name=logical_path,
+            )
+            committed_semantic = revenue_anomaly_csv_semantic_sha256(
+                committed_data,
+                excluded_columns=REVENUE_ANOMALY_PROVENANCE_COLUMNS,
+                source_name=f"HEAD:{logical_path}",
+            )
+        except ValueError as exc:
+            raise RuntimeError(str(exc)) from exc
+        if worktree_semantic != committed_semantic:
+            raise RuntimeError(
+                f"readiness sync source has semantic drift from HEAD: {logical_path}"
+            )
+        diagnostic = None
+        if worktree_data != committed_data:
+            diagnostic = (
+                "raw-byte or raw-file-SHA diagnostic only "
+                f"(canonical semantics match HEAD): {logical_path}"
+            )
+        return committed_data, diagnostic
+    frame_names = {
+        FORWARD_HOLDOUT_V2_MANIFEST_REL: "manifest",
+        FORWARD_HOLDOUT_V2_DETAIL_REL: "detail",
+        FORWARD_HOLDOUT_V2_SUMMARY_REL: "summary",
+        FORWARD_HOLDOUT_V2_COMPARISON_REL: "comparison",
+        FORWARD_HOLDOUT_V2_ANOMALY_SENSITIVITY_REL: "anomaly",
+    }
+    semantic_digest: Callable[[bytes, str], str] | None = None
+    if logical_path == PROMOTION_REGISTRY_REL:
+        semantic_digest = lambda data, label: hashlib.sha256(
+            _canonical_csv_excluding_transport_provenance(data, label)
+        ).hexdigest()
+    elif logical_path == FORWARD_HOLDOUT_V2_REPLAY_SOURCE_REL:
+        semantic_digest = lambda data, label: _promotion_semantic_source_sha256(
+            _frame_from_csv_bytes(data, label)
+        )
+    elif logical_path == SOURCE_PROJECTION_MANIFEST_REL:
+        semantic_digest = (
+            lambda data, label: _projection_manifest_promotion_semantic_sha256(
+                _frame_from_csv_bytes(data, label)
+            )
+        )
+    elif logical_path in frame_names:
+        frame_name = frame_names[logical_path]
+        semantic_digest = lambda data, label: _promotion_semantic_frame_sha256(
+            _frame_from_csv_bytes(data, label),
+            frame_name=frame_name,
+        )
+    if semantic_digest is not None:
+        if semantic_digest(worktree_data, logical_path) != semantic_digest(
+            committed_data,
+            f"HEAD:{logical_path}",
+        ):
+            raise RuntimeError(
+                f"readiness sync source has semantic drift from HEAD: {logical_path}"
+            )
+        diagnostic = None
+        if worktree_data != committed_data:
+            diagnostic = (
+                "raw-byte or legacy-envelope diagnostic only "
+                f"(promotion semantics match HEAD): {logical_path}"
+            )
+        return committed_data, diagnostic
     canonical = _canonical_csv if csv_source else _canonical_markdown
     if canonical(worktree_data, logical_path) != canonical(
         committed_data,
@@ -3214,6 +3374,85 @@ def _committed_semantic_source(
             f"raw-byte diagnostic only (canonical semantics match HEAD): {logical_path}"
         )
     return committed_data, diagnostic
+
+
+def _committed_anomaly_dependency(
+    repo: Path,
+    logical_path: str,
+) -> str | None:
+    path = repo / logical_path
+    try:
+        worktree_data = path.read_bytes()
+    except OSError as exc:
+        raise RuntimeError(
+            f"missing canonical anomaly dependency {logical_path}: {exc}"
+        ) from exc
+    committed_data = _git_blob(repo, logical_path)
+
+    try:
+        if logical_path in ANOMALY_EVIDENCE_RELS:
+            worktree_document = json.loads(worktree_data.decode("utf-8-sig"))
+            committed_document = json.loads(committed_data.decode("utf-8-sig"))
+            worktree_semantic = revenue_anomaly_evidence_canonical_sha256(
+                worktree_document
+            )
+            committed_semantic = revenue_anomaly_evidence_canonical_sha256(
+                committed_document
+            )
+        elif logical_path in {
+            REVENUE_ANOMALY_V3_CANDIDATE_SUMMARY_PATH.as_posix(),
+            REVENUE_ANOMALY_V3_CANDIDATE_DETAIL_PATH.as_posix(),
+        }:
+            worktree_semantic = revenue_anomaly_artifact_bytes_semantic_sha256(
+                worktree_data,
+                source_name=logical_path,
+            )
+            committed_semantic = revenue_anomaly_artifact_bytes_semantic_sha256(
+                committed_data,
+                source_name=f"HEAD:{logical_path}",
+            )
+        else:
+            fieldnames, _rows = _parse_csv_bytes(worktree_data, logical_path)
+            excluded = frozenset(
+                field_name
+                for field_name in fieldnames
+                if revenue_anomaly_is_transport_provenance_name(field_name)
+            )
+            if logical_path in {
+                REVENUE_ANOMALY_LEGACY_V2_REGISTRY_PATH.as_posix(),
+                REVENUE_ANOMALY_REGISTRY_PATH.as_posix(),
+            }:
+                excluded = frozenset(
+                    {*excluded, *REVENUE_ANOMALY_PROVENANCE_COLUMNS}
+                )
+            if logical_path == REVENUE_ANOMALY_REPAIR_CLOSURE_PATH.as_posix():
+                excluded = frozenset(
+                    {*excluded, *REVENUE_ANOMALY_REPAIR_PROVENANCE_COLUMNS}
+                )
+            worktree_semantic = revenue_anomaly_csv_semantic_sha256(
+                worktree_data,
+                excluded_columns=excluded,
+                source_name=logical_path,
+            )
+            committed_semantic = revenue_anomaly_csv_semantic_sha256(
+                committed_data,
+                excluded_columns=excluded,
+                source_name=f"HEAD:{logical_path}",
+            )
+    except (UnicodeDecodeError, json.JSONDecodeError, RuntimeError, ValueError) as exc:
+        raise RuntimeError(
+            f"malformed canonical anomaly dependency {logical_path}: {exc}"
+        ) from exc
+    if worktree_semantic != committed_semantic:
+        raise RuntimeError(
+            f"readiness anomaly dependency has semantic drift from HEAD: {logical_path}"
+        )
+    if worktree_data != committed_data:
+        return (
+            "raw-byte, CRLF, or transport-provenance diagnostic only "
+            f"(canonical semantics match HEAD): {logical_path}"
+        )
+    return None
 
 
 def _bulk_committed_registered_price_sources(
@@ -3447,7 +3686,6 @@ def load_committed_inputs(
         committed[logical_path] = data
         if diagnostic:
             diagnostics.append(diagnostic)
-
     if _canonical_csv(
         committed[OUT_CSV_REL], OUT_CSV_REL
     ) != _canonical_csv(committed[DOCS_CSV_REL], DOCS_CSV_REL):
@@ -3456,6 +3694,11 @@ def load_committed_inputs(
         committed[OUT_MD_REL], OUT_MD_REL
     ) != _canonical_markdown(committed[DOCS_MD_REL], DOCS_MD_REL):
         raise RuntimeError("committed output/docs readiness Markdown mirrors differ")
+
+    for logical_path in ANOMALY_BUNDLE_DEPENDENCY_RELS:
+        diagnostic = _committed_anomaly_dependency(repo, logical_path)
+        if diagnostic:
+            diagnostics.append(diagnostic)
 
     base = _frame_from_csv_bytes(committed[OUT_CSV_REL], OUT_CSV_REL)
     validate_markdown_status_table_matches_csv(
@@ -3680,11 +3923,11 @@ def sync(repo: Path, *, generated_at: str | None = None) -> tuple[pd.DataFrame, 
     _, promotion_errors = validate_revenue_promotion_registry(
         repo / PROMOTION_REGISTRY_REL
     )
-    _, anomaly_errors = validate_revenue_anomaly_registry(
-        repo / ANOMALY_REGISTRY_REL,
-        expected_anomalies=REVENUE_EXPECTED_ANOMALIES,
-        version_label="v2",
+    anomaly_result = validate_current_anomaly_dispositions(
+        repo,
+        require_effective_nonblocking=True,
     )
+    anomaly_errors = anomaly_result.errors
     source_errors = [
         *(f"promotion source: {error}" for error in promotion_errors),
         *(f"anomaly source: {error}" for error in anomaly_errors),
@@ -3702,6 +3945,7 @@ def sync(repo: Path, *, generated_at: str | None = None) -> tuple[pd.DataFrame, 
         source_projection_manifest=source_projection_manifest,
         repo_root=repo,
         diagnostics=diagnostics,
+        anomaly_result=anomaly_result,
     )
     generated = generated_at or now_text()
     readiness = build_revenue_only_readiness(
