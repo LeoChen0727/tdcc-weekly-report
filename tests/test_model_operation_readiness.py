@@ -654,17 +654,15 @@ def test_revenue_readiness_uses_latest_v3_decision_v4_contract_and_model_owned_e
 
     row = readiness[readiness["model_id"].eq(REVENUE_MODEL_ID)].iloc[0]
     assert row["parity_status"] == "research_matrix_complete"
-    assert row["blocker"] == (
-        "anomaly_disposition_blockers=0; unresolved_anomalies=0; "
-        "forward_holdout_v2_mature=0/20; formal_adapter=not_started"
-    )
-    assert row["operation_module_status"] == (
-        "research_matrix_complete_formal_adapter_not_started"
-    )
-    assert row["daily_adapter_status"] == "not_started"
+    assert row["blocker"] == "forward_holdout_v2_mature=0/20"
+    assert row["operation_module_status"] == "disabled_adapter_preparation_validated"
+    assert row["daily_adapter_status"] == "disabled_no_runtime_artifact"
     assert row["formal_model_use_allowed"] == "False"
     assert row["approved_for_daily"] == "False"
     assert row["approval_status"] == "not_started"
+    assert row["operation_module_id"] == (
+        "revenue_unreacted_range_source_mid_falling_v2_operation_v1"
+    )
     assert row["presentation_allowed"] == "False"
     assert row["production_allowed"] == "False"
     assert row["operation_directive_level"] == "no_operation_directive"
@@ -674,7 +672,10 @@ def test_revenue_readiness_uses_latest_v3_decision_v4_contract_and_model_owned_e
     assert row["registry_best_sample_size"] == 53
     assert row["registry_best_win_rate"] == "77.3585"
     assert row["registry_best_median_return"] == "9.4077"
-    assert "模型專屬研究矩陣已完成" in row["status_note_zh"]
+    assert row["daily_adapter_row_count"] == 0
+    assert row["daily_adapter_data_row_count"] == 0
+    assert row["daily_adapter_sections"] == ""
+    assert "disabled formal adapter preparation 均已完成" in row["status_note_zh"]
     assert "strong_revenue gate requires" not in row["blocker"]
     non_revenue = readiness[~readiness["model_id"].eq(REVENUE_MODEL_ID)]
     assert non_revenue["approved_for_daily"].eq("True").any()
@@ -683,10 +684,39 @@ def test_revenue_readiness_uses_latest_v3_decision_v4_contract_and_model_owned_e
     assert non_revenue["production_allowed"].eq("").all()
 
 
-def test_revenue_readiness_fails_closed_until_v3_decision_v4_contract_is_latest() -> None:
+def test_revenue_readiness_keeps_v4_compatibility_without_adapter_child(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
     promotion = revenue_promotion_registry_frame().iloc[:-1].copy()
+    monkeypatch.setattr(
+        _SYNC_MODULE,
+        "validate_disabled_adapter_preparation",
+        lambda _repo: (_ for _ in ()).throw(
+            AssertionError("v4 readiness invoked adapter child")
+        ),
+    )
 
-    with pytest.raises(RuntimeError, match="latest decision v4 / promotion contract v5"):
+    readiness = build_model_operation_readiness(
+        revenue_parity_frame(),
+        registry_frame(),
+        adapter_frame(),
+        revenue_promotion_registry=promotion,
+        revenue_anomaly_registry=revenue_anomaly_registry_frame(),
+        revenue_forward_holdout_v2_manifest=revenue_forward_holdout_v2_manifest_frame(),
+    )
+
+    row = readiness[readiness["model_id"].eq(REVENUE_MODEL_ID)].iloc[0]
+    assert row["operation_module_status"] == (
+        "research_matrix_complete_formal_adapter_not_started"
+    )
+    assert row["daily_adapter_status"] == "not_started"
+    assert row["operation_module_id"] == ""
+
+
+def test_revenue_readiness_fails_closed_until_v3_decision_v4_contract_is_latest() -> None:
+    promotion = revenue_promotion_registry_frame().iloc[:-2].copy()
+
+    with pytest.raises(RuntimeError, match="not an exact supported v4/v5"):
         build_model_operation_readiness(
             revenue_parity_frame(),
             registry_frame(),
@@ -695,6 +725,54 @@ def test_revenue_readiness_fails_closed_until_v3_decision_v4_contract_is_latest(
             revenue_anomaly_registry=revenue_anomaly_registry_frame(),
             revenue_forward_holdout_v2_manifest=revenue_forward_holdout_v2_manifest_frame(),
         )
+
+
+def test_revenue_v5_validation_accepts_only_exact_pinned_predecessor_mirrors() -> None:
+    readiness = pd.read_csv(
+        ROOT / "output/latest/model_operation_readiness_latest.csv",
+        dtype=str,
+    ).fillna("")
+
+    assert validate_revenue_readiness_row(
+        readiness,
+        revenue_promotion_registry_frame(),
+        revenue_anomaly_registry_frame(),
+        revenue_forward_holdout_v2_manifest_frame(),
+    ) == []
+
+
+def test_revenue_v5_predecessor_bootstrap_rejects_permission_drift() -> None:
+    readiness = pd.read_csv(
+        ROOT / "output/latest/model_operation_readiness_latest.csv",
+        dtype=str,
+    ).fillna("")
+    revenue_index = readiness.index[readiness["model_id"].eq(REVENUE_MODEL_ID)][0]
+    readiness.loc[revenue_index, "production_allowed"] = "True"
+
+    errors = validate_revenue_readiness_row(
+        readiness,
+        revenue_promotion_registry_frame(),
+        revenue_anomaly_registry_frame(),
+        revenue_forward_holdout_v2_manifest_frame(),
+    )
+
+    assert any("differs from the exact pinned predecessor frame" in error for error in errors)
+
+
+def test_revenue_predecessor_bootstrap_does_not_apply_when_latest_is_v4() -> None:
+    readiness = pd.read_csv(
+        ROOT / "output/latest/model_operation_readiness_latest.csv",
+        dtype=str,
+    ).fillna("")
+
+    errors = validate_revenue_readiness_row(
+        readiness,
+        revenue_promotion_registry_frame().iloc[:-1].copy(),
+        revenue_anomaly_registry_frame(),
+        revenue_forward_holdout_v2_manifest_frame(),
+    )
+
+    assert errors
 
 
 @pytest.mark.parametrize(
