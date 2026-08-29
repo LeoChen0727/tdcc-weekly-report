@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import importlib.metadata
+import inspect
 import json
 import subprocess
 import sys
@@ -95,6 +96,211 @@ def test_canonical_anomaly_gate_rejects_nonprotocol_success(
     assert any(expected in error for error in result.errors)
 
 
+def test_disabled_adapter_gate_uses_exact_isolated_command_and_protocol(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    observed: dict[str, object] = {}
+
+    def committed_source(
+        repo: Path,
+        logical_path: str,
+    ) -> syncer.AttestedAdapterSource:
+        assert repo == ROOT
+        return syncer.AttestedAdapterSource(
+            logical_path=logical_path,
+            committed_object_id="a" * 40,
+            blob=(ROOT / logical_path).read_bytes(),
+        )
+
+    def completed(command: list[str], **kwargs: object) -> SimpleNamespace:
+        observed["command"] = command
+        observed["kwargs"] = kwargs
+        return SimpleNamespace(
+            returncode=0,
+            stdout=syncer.REVENUE_ADAPTER_VALIDATION_PASS + "\n",
+            stderr="",
+        )
+
+    monkeypatch.setattr(syncer, "_committed_adapter_source", committed_source)
+    monkeypatch.setattr(syncer.subprocess, "run", completed)
+
+    result = syncer.validate_disabled_adapter_preparation(ROOT)
+
+    assert result == syncer.DisabledAdapterPreparationValidationResult(
+        validator_rel=syncer.REVENUE_ADAPTER_VALIDATOR_REL,
+        module_rel=syncer.REVENUE_ADAPTER_MODULE_REL,
+        protocol_line=syncer.REVENUE_ADAPTER_VALIDATION_PASS,
+    )
+    assert observed["command"] == [
+        sys.executable,
+        "-I",
+        "-B",
+        observed["command"][3],
+        "--phase",
+        "disabled-preparation",
+        "--module",
+        observed["command"][7],
+    ]
+    command = observed["command"]
+    kwargs = observed["kwargs"]
+    isolated_root = Path(kwargs["cwd"])
+    assert isolated_root != ROOT
+    assert Path(command[3]).parent == isolated_root / "scripts"
+    assert Path(command[7]).parent == isolated_root / "scripts"
+    assert Path(command[3]).name == Path(syncer.REVENUE_ADAPTER_VALIDATOR_REL).name
+    assert Path(command[7]).name == Path(syncer.REVENUE_ADAPTER_MODULE_REL).name
+    assert kwargs["timeout"] == 300
+    assert kwargs["check"] is False
+    assert kwargs["env"]["PYTHONNOUSERSITE"] == "1"
+    assert "adapter_result" not in inspect.signature(
+        syncer.summarize_revenue_promotion_readiness
+    ).parameters
+
+
+@pytest.mark.parametrize(
+    ("returncode", "stdout", "stderr", "message"),
+    [
+        (0, "unexpected success\n", "", "protocol missing"),
+        (
+            0,
+            (
+                syncer.REVENUE_ADAPTER_VALIDATION_PASS
+                + "\n"
+                + syncer.REVENUE_ADAPTER_VALIDATION_PASS
+                + "\n"
+            ),
+            "",
+            "protocol missing",
+        ),
+        (0, syncer.REVENUE_ADAPTER_VALIDATION_PASS + "\n", "warning\n", "stderr"),
+        (1, "ERROR: rejected\n", "", "failed with exit 1"),
+    ],
+)
+def test_disabled_adapter_gate_rejects_nonexact_protocol(
+    monkeypatch: pytest.MonkeyPatch,
+    returncode: int,
+    stdout: str,
+    stderr: str,
+    message: str,
+) -> None:
+    monkeypatch.setattr(
+        syncer,
+        "_committed_adapter_source",
+        lambda _repo, logical_path: syncer.AttestedAdapterSource(
+            logical_path=logical_path,
+            committed_object_id="a" * 40,
+            blob=(ROOT / logical_path).read_bytes(),
+        ),
+    )
+    monkeypatch.setattr(
+        syncer.subprocess,
+        "run",
+        lambda *_args, **_kwargs: SimpleNamespace(
+            returncode=returncode,
+            stdout=stdout,
+            stderr=stderr,
+        ),
+    )
+
+    with pytest.raises(RuntimeError, match=message):
+        syncer.validate_disabled_adapter_preparation(ROOT)
+
+
+def test_disabled_adapter_gate_fails_closed_on_timeout(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(
+        syncer,
+        "_committed_adapter_source",
+        lambda _repo, logical_path: syncer.AttestedAdapterSource(
+            logical_path=logical_path,
+            committed_object_id="a" * 40,
+            blob=(ROOT / logical_path).read_bytes(),
+        ),
+    )
+    monkeypatch.setattr(
+        syncer.subprocess,
+        "run",
+        lambda command, **_kwargs: (_ for _ in ()).throw(
+            subprocess.TimeoutExpired(command, timeout=300)
+        ),
+    )
+
+    with pytest.raises(RuntimeError, match="timed out"):
+        syncer.validate_disabled_adapter_preparation(ROOT)
+
+
+def test_disabled_adapter_source_requires_exact_committed_git_blob_identity(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    calls: list[list[str]] = []
+
+    def fake_run(command: list[str], **_kwargs: object) -> SimpleNamespace:
+        calls.append(command)
+        object_id = "a" * 40 if "rev-parse" in command else "b" * 40
+        return SimpleNamespace(returncode=0, stdout=object_id + "\n", stderr="")
+
+    monkeypatch.setattr(syncer.subprocess, "run", fake_run)
+
+    with pytest.raises(RuntimeError, match="differs from committed HEAD blob"):
+        syncer._committed_adapter_source(
+            ROOT,
+            syncer.REVENUE_ADAPTER_VALIDATOR_REL,
+        )
+
+    assert len(calls) == 2
+    assert "rev-parse" in calls[0]
+    assert "hash-object" in calls[1]
+
+
+def test_disabled_adapter_executes_materialized_head_blobs_after_worktree_mutation(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    repo = tmp_path / "repo"
+    scripts = repo / "scripts"
+    scripts.mkdir(parents=True)
+    worktree_validator = scripts / Path(syncer.REVENUE_ADAPTER_VALIDATOR_REL).name
+    worktree_module = scripts / Path(syncer.REVENUE_ADAPTER_MODULE_REL).name
+    worktree_validator.write_bytes(b"mutable validator")
+    worktree_module.write_bytes(b"mutable module")
+    head_blobs = {
+        syncer.REVENUE_ADAPTER_VALIDATOR_REL: b"exact HEAD validator",
+        syncer.REVENUE_ADAPTER_MODULE_REL: b"exact HEAD module",
+    }
+
+    monkeypatch.setattr(
+        syncer,
+        "_committed_adapter_source",
+        lambda _repo, logical_path: syncer.AttestedAdapterSource(
+            logical_path=logical_path,
+            committed_object_id="a" * 40,
+            blob=head_blobs[logical_path],
+        ),
+    )
+
+    def completed(command: list[str], **_kwargs: object) -> SimpleNamespace:
+        worktree_validator.write_bytes(b"mutated after attest")
+        worktree_module.write_bytes(b"mutated after attest")
+        assert Path(command[3]) != worktree_validator
+        assert Path(command[7]) != worktree_module
+        assert Path(command[3]).read_bytes() == head_blobs[
+            syncer.REVENUE_ADAPTER_VALIDATOR_REL
+        ]
+        assert Path(command[7]).read_bytes() == head_blobs[
+            syncer.REVENUE_ADAPTER_MODULE_REL
+        ]
+        return SimpleNamespace(
+            returncode=0,
+            stdout=syncer.REVENUE_ADAPTER_VALIDATION_PASS + "\n",
+            stderr="",
+        )
+
+    monkeypatch.setattr(syncer.subprocess, "run", completed)
+
+    syncer.validate_disabled_adapter_preparation(repo)
+
+
 @pytest.fixture(autouse=True)
 def cache_verified_current_cheap_inputs(monkeypatch: pytest.MonkeyPatch) -> None:
     """Unit cases reuse one verified current cheap input load per pytest process."""
@@ -187,18 +393,15 @@ def readiness_row(model_id: str) -> dict[str, str]:
 def revenue_summary() -> dict[str, str | int]:
     return {
         "parity_status": "research_matrix_complete",
-        "blocker": (
-            "anomaly_disposition_blockers=0; unresolved_anomalies=0; "
-            "forward_holdout_v2_mature=0/20; formal_adapter=not_started"
-        ),
-        "operation_module_status": (
-            "research_matrix_complete_formal_adapter_not_started"
-        ),
-        "daily_adapter_status": "not_started",
+        "blocker": "forward_holdout_v2_mature=0/20",
+        "operation_module_status": "disabled_adapter_preparation_validated",
+        "daily_adapter_status": "disabled_no_runtime_artifact",
         "formal_model_use_allowed": "False",
         "approved_for_daily": "False",
         "approval_status": "not_started",
-        "operation_module_id": "",
+        "operation_module_id": (
+            "revenue_unreacted_range_source_mid_falling_v2_operation_v1"
+        ),
         "approval_version": "",
         "presentation_allowed": "False",
         "production_allowed": "False",
@@ -465,6 +668,100 @@ def test_committed_source_treats_crlf_as_diagnostic_and_semantic_drift_as_error(
             "source.csv",
             csv_source=True,
         )
+
+
+def test_exact_predecessor_readiness_current_four_mirror_baseline_passes() -> None:
+    predecessor, diagnostics = syncer.validate_exact_predecessor_readiness_mirrors(
+        ROOT
+    )
+
+    assert set(syncer.EXACT_PREDECESSOR_READINESS_CANONICAL_SHA256) == set(
+        syncer.READINESS_MIRROR_RELS
+    )
+    assert predecessor["model_id"].astype(str).eq(syncer.MODEL_ID).sum() == 1
+    assert all("diagnostic only" in diagnostic for diagnostic in diagnostics)
+
+
+@pytest.mark.parametrize("logical_path", syncer.READINESS_MIRROR_RELS)
+def test_exact_predecessor_readiness_pins_each_committed_mirror_semantics(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    logical_path: str,
+) -> None:
+    repo = tmp_path / "repo"
+    committed = {
+        path: syncer._git_blob(ROOT, path) for path in syncer.READINESS_MIRROR_RELS
+    }
+    original = committed[logical_path]
+    committed[logical_path] = (
+        original.replace(b"generated_at", b"generated_at_drift", 1)
+        if logical_path.endswith(".csv")
+        else original + b"semantic drift\n"
+    )
+    for path, data in committed.items():
+        destination = repo / path
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.write_bytes(data)
+    monkeypatch.setattr(
+        syncer,
+        "_git_blob",
+        lambda _repo, path: committed[path],
+    )
+
+    with pytest.raises(RuntimeError, match="committed readiness semantic drift"):
+        syncer.validate_exact_predecessor_readiness_mirrors(repo)
+
+
+def test_exact_predecessor_readiness_rejects_worktree_semantic_drift(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    repo = tmp_path / "repo"
+    committed = {
+        path: syncer._git_blob(ROOT, path) for path in syncer.READINESS_MIRROR_RELS
+    }
+    for path, data in committed.items():
+        destination = repo / path
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.write_bytes(data)
+    target = repo / syncer.OUT_CSV_REL
+    target.write_bytes(
+        target.read_bytes().replace(b"generated_at", b"generated_at_drift", 1)
+    )
+    monkeypatch.setattr(
+        syncer,
+        "_git_blob",
+        lambda _repo, path: committed[path],
+    )
+
+    with pytest.raises(RuntimeError, match="worktree semantic drift from HEAD"):
+        syncer.validate_exact_predecessor_readiness_mirrors(repo)
+
+
+def test_exact_predecessor_readiness_treats_crlf_as_diagnostic_only(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    repo = tmp_path / "repo"
+    committed = {
+        path: syncer._git_blob(ROOT, path) for path in syncer.READINESS_MIRROR_RELS
+    }
+    for path, data in committed.items():
+        destination = repo / path
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.write_bytes(data.replace(b"\n", b"\r\n"))
+    monkeypatch.setattr(
+        syncer,
+        "_git_blob",
+        lambda _repo, path: committed[path],
+    )
+
+    _predecessor, diagnostics = (
+        syncer.validate_exact_predecessor_readiness_mirrors(repo)
+    )
+
+    assert len(diagnostics) == 4
+    assert all("raw-byte/line-ending diagnostic only" in item for item in diagnostics)
 
 
 def test_committed_anomaly_source_treats_raw_file_sha_as_diagnostic_only(
@@ -763,6 +1060,7 @@ def test_current_canonical_sources_build_exact_disabled_revenue_row() -> None:
         holdout_summary=holdout_summary,
         replay_source=replay_source,
         source_projection_manifest=source_projection_manifest,
+        repo_root=ROOT,
     )
 
     readiness = syncer.build_revenue_only_readiness(
@@ -771,15 +1069,100 @@ def test_current_canonical_sources_build_exact_disabled_revenue_row() -> None:
         generated_at="deterministic-test-time",
     )
     revenue = readiness[readiness["model_id"].eq(syncer.MODEL_ID)].iloc[0]
-    assert revenue["blocker"] == (
-        "anomaly_disposition_blockers=0; unresolved_anomalies=0; "
-        "forward_holdout_v2_mature=0/20; formal_adapter=not_started"
-    )
+    assert revenue["blocker"] == "forward_holdout_v2_mature=0/20"
     assert revenue["parity_status"] == "research_matrix_complete"
+    assert revenue["operation_module_status"] == (
+        "disabled_adapter_preparation_validated"
+    )
+    assert revenue["daily_adapter_status"] == "disabled_no_runtime_artifact"
+    assert revenue["operation_module_id"] == (
+        "revenue_unreacted_range_source_mid_falling_v2_operation_v1"
+    )
+    assert revenue["daily_adapter_row_count"] == "0"
+    assert revenue["daily_adapter_data_row_count"] == "0"
+    assert revenue["daily_adapter_sections"] == ""
     assert revenue["formal_model_use_allowed"] == "False"
     assert revenue["approved_for_daily"] == "False"
     assert revenue["presentation_allowed"] == "False"
     assert revenue["production_allowed"] == "False"
+
+
+def test_v4_profile_remains_compatible_without_consuming_adapter_gate(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    promotion = pd.read_csv(
+        ROOT / syncer.PROMOTION_REGISTRY_REL,
+        dtype=str,
+    ).fillna("").iloc[:-1]
+    anomalies = pd.read_csv(ROOT / syncer.ANOMALY_REGISTRY_REL, dtype=str).fillna("")
+    holdout = pd.read_csv(
+        ROOT / syncer.FORWARD_HOLDOUT_V2_MANIFEST_REL,
+        dtype=str,
+    ).fillna("")
+    monkeypatch.setattr(
+        syncer,
+        "validate_disabled_adapter_preparation",
+        lambda _repo: (_ for _ in ()).throw(
+            AssertionError("v4 profile invoked the v5 adapter gate")
+        ),
+    )
+
+    summary = syncer.summarize_revenue_promotion_readiness(
+        promotion,
+        anomalies,
+        holdout,
+        holdout_detail=pd.read_csv(
+            ROOT / syncer.FORWARD_HOLDOUT_V2_DETAIL_REL, dtype=str
+        ).fillna(""),
+        holdout_summary=pd.read_csv(
+            ROOT / syncer.FORWARD_HOLDOUT_V2_SUMMARY_REL, dtype=str
+        ).fillna(""),
+        replay_source=pd.read_csv(
+            ROOT / syncer.FORWARD_HOLDOUT_V2_REPLAY_SOURCE_REL, dtype=str
+        ).fillna(""),
+        source_projection_manifest=pd.read_csv(
+            ROOT / syncer.SOURCE_PROJECTION_MANIFEST_REL, dtype=str
+        ).fillna(""),
+        repo_root=ROOT,
+    )
+
+    assert summary["blocker"].endswith("formal_adapter=not_started")
+    assert summary["operation_module_status"] == (
+        "research_matrix_complete_formal_adapter_not_started"
+    )
+    assert summary["daily_adapter_status"] == "not_started"
+    assert summary["operation_module_id"] == ""
+
+
+@pytest.mark.parametrize(
+    ("field_name", "value", "message"),
+    [
+        ("decision_id", "unknown_future_decision", "not an exact supported v4/v5"),
+        (
+            "contract_version",
+            "revenue_unreacted_range_promotion_preparation_contract_v5_20260829",
+            "mixed with decision profile",
+        ),
+        (
+            "formal_adapter_gate",
+            "disabled_adapter_preparation_non_hard_production_approval_hard_gate",
+            "promotion.formal_adapter_gate",
+        ),
+    ],
+)
+def test_latest_promotion_profile_rejects_unknown_or_mixed_version(
+    field_name: str,
+    value: str,
+    message: str,
+) -> None:
+    promotion = pd.read_csv(
+        ROOT / syncer.PROMOTION_REGISTRY_REL,
+        dtype=str,
+    ).fillna("")
+    promotion.loc[promotion.index[-1], field_name] = value
+
+    with pytest.raises(RuntimeError, match=message):
+        syncer._validated_revenue_promotion_row(promotion)
 
 
 def test_import_does_not_load_legacy_cross_model_builder() -> None:
@@ -793,6 +1176,32 @@ def test_import_does_not_load_legacy_cross_model_builder() -> None:
                 "import sync_revenue_unreacted_range_operation_readiness; "
                 "assert 'build_model_operation_readiness' not in sys.modules"
             ),
+        ],
+        cwd=ROOT,
+        check=False,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    assert result.returncode == 0, result.stderr
+
+
+def test_adapter_validation_does_not_import_adapter_or_validator_into_parent() -> None:
+    result = subprocess.run(
+        [
+            sys.executable,
+            "-I",
+            "-B",
+            "-c",
+            (
+                "import pathlib,sys; root=pathlib.Path(sys.argv[1]); "
+                "sys.path.insert(0,str(root/'scripts')); "
+                "import sync_revenue_unreacted_range_operation_readiness as s; "
+                "s.validate_disabled_adapter_preparation(root); "
+                "assert 'revenue_unreacted_range_operation_adapter' not in sys.modules; "
+                "assert 'validate_revenue_unreacted_range_operation_adapter' not in sys.modules"
+            ),
+            str(ROOT),
         ],
         cwd=ROOT,
         check=False,
@@ -1526,6 +1935,15 @@ def test_full_v2_gate_rejects_self_consistent_forged_mature_row_before_d30(
         "_validate_detail_source_asof_against_replay",
         lambda *_args, **_kwargs: None,
     )
+    monkeypatch.setattr(
+        syncer,
+        "validate_disabled_adapter_preparation",
+        lambda _repo: syncer.DisabledAdapterPreparationValidationResult(
+            validator_rel=syncer.REVENUE_ADAPTER_VALIDATOR_REL,
+            module_rel=syncer.REVENUE_ADAPTER_MODULE_REL,
+            protocol_line=syncer.REVENUE_ADAPTER_VALIDATION_PASS,
+        ),
+    )
 
     with pytest.raises(
         RuntimeError,
@@ -2102,7 +2520,13 @@ def test_revenue_readiness_sync_writer_runs_exact_gate_before_any_mirror_write(
     monkeypatch.setattr(
         syncer,
         "validate_revenue_promotion_registry",
-        lambda _path: ({}, []),
+        lambda _path: (
+            pd.read_csv(
+                ROOT / syncer.PROMOTION_REGISTRY_REL,
+                dtype=str,
+            ).fillna("").iloc[-2].to_dict(),
+            [],
+        ),
     )
     monkeypatch.setattr(
         syncer,
@@ -2131,6 +2555,68 @@ def test_revenue_readiness_sync_writer_runs_exact_gate_before_any_mirror_write(
         syncer.sync(tmp_path, generated_at="deterministic-test-time")
 
     assert calls == ["exact"]
+
+
+def test_v5_adapter_gate_fails_before_exact_replay_and_any_mirror_write(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    placeholder = pd.DataFrame()
+    promotion_frame = pd.read_csv(
+        ROOT / syncer.PROMOTION_REGISTRY_REL,
+        dtype=str,
+    ).fillna("")
+    monkeypatch.setattr(
+        syncer,
+        "load_committed_inputs",
+        lambda _repo: (
+            legacy_readiness(),
+            promotion_frame,
+            placeholder,
+            placeholder,
+            placeholder,
+            placeholder,
+            placeholder,
+            placeholder,
+            [],
+        ),
+    )
+    latest = pd.read_csv(
+        ROOT / syncer.PROMOTION_REGISTRY_REL,
+        dtype=str,
+    ).fillna("").iloc[-1].to_dict()
+    monkeypatch.setattr(
+        syncer,
+        "validate_revenue_promotion_registry",
+        lambda _path: (latest, []),
+    )
+    monkeypatch.setattr(
+        syncer,
+        "validate_current_anomaly_dispositions",
+        lambda _repo, **_kwargs: SimpleNamespace(errors=[]),
+    )
+    calls: list[str] = []
+
+    def fail_adapter(_repo: Path) -> None:
+        calls.append("adapter")
+        raise RuntimeError("adapter gate rejected readiness")
+
+    monkeypatch.setattr(syncer, "validate_disabled_adapter_preparation", fail_adapter)
+    monkeypatch.setattr(
+        syncer,
+        "validate_revenue_readiness_exact_replay",
+        lambda *_args, **_kwargs: calls.append("exact"),
+    )
+    monkeypatch.setattr(
+        syncer,
+        "write_readiness_mirrors",
+        lambda *_args, **_kwargs: calls.append("write"),
+    )
+
+    with pytest.raises(RuntimeError, match="adapter gate rejected readiness"):
+        syncer.sync(tmp_path, generated_at="deterministic-test-time")
+
+    assert calls == ["adapter"]
 
 
 def test_markdown_status_table_must_match_canonical_csv_non_revenue_cells() -> None:

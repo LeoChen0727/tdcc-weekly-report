@@ -850,7 +850,7 @@ def _resolved_anomalies() -> dict[str, dict[str, str]]:
     }
 
 
-def test_v4_contract_and_anomaly_closure_migration_are_append_only() -> None:
+def test_v5_disabled_adapter_migration_is_append_only_and_business_immutable() -> None:
     decision, decision_errors = validator.validate_decision(validator.DEFAULT_DECISION)
     migration, migration_errors = validator.validate_migration(
         validator.DEFAULT_MIGRATIONS
@@ -858,13 +858,68 @@ def test_v4_contract_and_anomaly_closure_migration_are_append_only() -> None:
 
     assert decision_errors == []
     assert migration_errors == []
-    assert decision == validator.EXPECTED_DECISION_V4
+    assert decision == validator.EXPECTED_DECISION_V5
     assert migration == validator.EXPECTED_MIGRATION_V1_TO_V2
-    _columns, rows = _read_rows(validator.DEFAULT_MIGRATIONS)
-    assert rows[-1] == validator.EXPECTED_MIGRATION_V3_TO_V4
-    assert rows[-1]["from_source_revision"] != rows[-1]["to_source_revision"]
-    assert rows[-1]["common_business_field_change_count"] == "0"
-    assert rows[-1]["v2_anomaly_count"] == "8"
+    _decision_columns, decision_rows = _read_rows(validator.DEFAULT_DECISION)
+    assert decision_rows[-2] == validator.EXPECTED_DECISION_V4
+    assert decision_rows[-1] == validator.EXPECTED_DECISION_V5
+    assert all(
+        decision_rows[-2][column] == decision_rows[-1][column]
+        for column in validator.V4_TO_V5_COMMON_DECISION_FIELDS
+    )
+    _migration_columns, migration_rows = _read_rows(validator.DEFAULT_MIGRATIONS)
+    assert migration_rows[-2] == validator.EXPECTED_MIGRATION_V3_TO_V4
+    assert migration_rows[-1] == validator.EXPECTED_MIGRATION_V4_TO_V5
+    assert migration_rows[-1]["from_source_revision"] == migration_rows[-1]["to_source_revision"]
+    assert migration_rows[-1]["from_source_artifact_version"] == migration_rows[-1]["to_source_artifact_version"]
+    assert migration_rows[-1]["common_business_field_change_count"] == "0"
+    assert migration_rows[-1]["v1_anomaly_count"] == "8"
+    assert migration_rows[-1]["v2_anomaly_count"] == "8"
+    for column in (
+        "formal_model_use_allowed",
+        "approved_for_daily",
+        "presentation_allowed",
+        "production_change",
+    ):
+        assert decision_rows[-1][column] == "False"
+        assert migration_rows[-1][column] == "False"
+
+
+def test_v5_business_field_drift_fails_closed(tmp_path: Path) -> None:
+    path = tmp_path / "promotion.csv"
+    columns, rows = _read_rows(validator.DEFAULT_DECISION)
+    rows[-1]["position_rule"] = "40<position_120d_pct<=76"
+    _write_rows(path, columns, rows)
+
+    _row, errors = validator.validate_decision(path)
+
+    assert any("position_rule mismatch in v5" in error for error in errors)
+    assert any("changed frozen common decision fields" in error for error in errors)
+
+
+def test_v5_permission_flip_fails_closed(tmp_path: Path) -> None:
+    path = tmp_path / "promotion.csv"
+    columns, rows = _read_rows(validator.DEFAULT_DECISION)
+    rows[-1]["formal_model_use_allowed"] = "True"
+    _write_rows(path, columns, rows)
+
+    _row, errors = validator.validate_decision(path)
+
+    assert any("formal_model_use_allowed mismatch in v5" in error for error in errors)
+
+
+def test_v4_to_v5_common_business_change_count_tamper_fails(tmp_path: Path) -> None:
+    path = tmp_path / "migrations.csv"
+    columns, rows = _read_rows(validator.DEFAULT_MIGRATIONS)
+    rows[-1]["common_business_field_change_count"] = "1"
+    _write_rows(path, columns, rows)
+
+    _row, errors = validator.validate_migration(path)
+
+    assert any(
+        "common_business_field_change_count mismatch in row 4" in error
+        for error in errors
+    )
 
 
 def test_library_governance_validation_without_a_phase_remains_available() -> None:
@@ -910,7 +965,7 @@ def test_promotion_candidate_phase_requires_dispositions_and_mature_holdout(
 
     errors = validator.validate_phase_gates(
         "promotion-candidate",
-        dict(validator.EXPECTED_DECISION_V4),
+        dict(validator.EXPECTED_DECISION_V5),
         {},
         source_contract_verified=True,
         forward_holdout_manifest_path=holdout,
@@ -957,7 +1012,7 @@ def test_promotion_candidate_uses_primary_maturity_without_equating_challenger_t
 
     assert validator.validate_phase_gates(
         "promotion-candidate",
-        dict(validator.EXPECTED_DECISION_V4),
+        dict(validator.EXPECTED_DECISION_V5),
         _resolved_anomalies(),
         source_contract_verified=True,
         forward_holdout_manifest_path=holdout,
@@ -984,7 +1039,7 @@ def test_minimal_forward_holdout_manifest_cannot_satisfy_promotion_gate(
 
     errors = validator.validate_phase_gates(
         "promotion-candidate",
-        dict(validator.EXPECTED_DECISION_V4),
+        dict(validator.EXPECTED_DECISION_V5),
         _resolved_anomalies(),
         source_contract_verified=True,
         forward_holdout_manifest_path=holdout,
@@ -1041,7 +1096,7 @@ def test_production_pdf_phase_remains_blocked_by_disabled_adapter_contract(
 
     errors = validator.validate_phase_gates(
         "production-pdf",
-        dict(validator.EXPECTED_DECISION_V4),
+        dict(validator.EXPECTED_DECISION_V5),
         resolved,
         source_contract_verified=True,
         forward_holdout_manifest_path=holdout,
@@ -1056,7 +1111,7 @@ def test_production_pdf_phase_remains_blocked_by_disabled_adapter_contract(
 
 
 def _approved_production_decision() -> dict[str, str]:
-    decision = dict(validator.EXPECTED_DECISION_V4)
+    decision = dict(validator.EXPECTED_DECISION_V5)
     for column in (
         "formal_model_use_allowed",
         "approved_for_daily",
