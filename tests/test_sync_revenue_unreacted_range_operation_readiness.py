@@ -513,6 +513,40 @@ def test_committed_anomaly_source_treats_raw_file_sha_as_diagnostic_only(
         )
 
 
+def test_committed_anomaly_source_keeps_raw_source_lineage_as_semantic_gate(
+    tmp_path: Path,
+) -> None:
+    assert not syncer._is_transport_provenance_column("raw_source_lineage_status")
+    assert 'startswith("raw_")' not in Path(syncer.__file__).read_text(encoding="utf-8")
+    repo = tmp_path / "repo"
+    source = repo / syncer.ANOMALY_REGISTRY_REL
+    source.parent.mkdir(parents=True)
+    source.write_text(
+        "operation_key,final_disposition,raw_source_lineage_status\n"
+        "key-1,verified_real_extreme,pass\n",
+        encoding="utf-8",
+        newline="\n",
+    )
+    git(repo, "init")
+    git(repo, "config", "user.name", "test")
+    git(repo, "config", "user.email", "test@example.com")
+    git(repo, "add", ".")
+    git(repo, "commit", "-m", "canonical anomaly source")
+
+    source.write_text(
+        "operation_key,final_disposition,raw_source_lineage_status\n"
+        "key-1,verified_real_extreme,missing\n",
+        encoding="utf-8",
+        newline="\n",
+    )
+    with pytest.raises(RuntimeError, match="semantic drift from HEAD"):
+        syncer._committed_semantic_source(
+            repo,
+            syncer.ANOMALY_REGISTRY_REL,
+            csv_source=True,
+        )
+
+
 def test_bulk_registered_price_read_is_single_call_crlf_safe_and_semantic_strict(
     tmp_path: Path,
 ) -> None:

@@ -1503,6 +1503,9 @@ def test_revenue_job_runs_explicit_cheap_readiness_and_independent_v2_cases() ->
     assert "BASE_SHA: ${{ needs.scope.outputs.effective_base_sha }}" not in job
 
     expected_sync_nodes = (
+        "test_canonical_anomaly_gate_requires_isolated_exact_pass_protocol",
+        "test_canonical_anomaly_gate_rejects_nonprotocol_success",
+        "test_committed_anomaly_source_treats_raw_file_sha_as_diagnostic_only",
         "test_build_replaces_only_revenue_and_keeps_non_revenue_fields_exact",
         "test_build_accepts_only_canonical_extended_disabled_source",
         "test_build_fails_closed_on_identity_or_schema_drift",

@@ -12,9 +12,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 from tracking_utils import DOCS_LATEST_DIR, LATEST_DIR, RESEARCH_LATEST_DIR, now_text, read_csv, safe_str  # noqa: E402
 # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 from sync_revenue_unreacted_range_operation_readiness import (  # noqa: E402
-    REVENUE_ANOMALY_DISPOSITION_POLICIES,
     REVENUE_ANOMALY_REGISTRY_CSV,
-    REVENUE_EXPECTED_ANOMALIES,
     REVENUE_EXPECTED_PROMOTION_DECISION,
     REVENUE_FORWARD_HOLDOUT_V2_ARTIFACT_ID,
     REVENUE_FORWARD_HOLDOUT_V2_ARTIFACT_VERSION,
