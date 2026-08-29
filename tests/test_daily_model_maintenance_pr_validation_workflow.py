@@ -290,7 +290,7 @@ REVENUE_VALIDATOR_COMMANDS = (
     "python scripts/revenue_unreacted_range_trigger_asof_anomaly_migration.py --validate-only",
     "python scripts/validate_revenue_unreacted_range_anomaly_dispositions.py",
     "python scripts/validate_revenue_unreacted_range_promotion_preparation.py --source-audit all",
-    "python scripts/validate_revenue_unreacted_range_operation_adapter.py",
+    "python -I -B scripts/validate_revenue_unreacted_range_operation_adapter.py --phase disabled-preparation --module scripts/revenue_unreacted_range_operation_adapter.py",
     "python scripts/validate_revenue_unreacted_range_financial_statement_fail_closed.py",
 )
 
@@ -371,6 +371,7 @@ def domain_workload_contract_ok(text: str) -> bool:
                 (
                     "python scripts/build_",
                     "python scripts/validate_",
+                    "python -I -B scripts/validate_",
                     "python scripts/revenue_unreacted_range_trigger_asof_anomaly_migration.py",
                     "git --no-replace-objects diff --exit-code",
                 )
@@ -391,6 +392,7 @@ def domain_workload_contract_ok(text: str) -> bool:
                 (
                     "python scripts/build_",
                     "python scripts/validate_",
+                    "python -I -B scripts/validate_",
                     "python scripts/revenue_unreacted_range_trigger_asof_anomaly_migration.py",
                     "git --no-replace-objects diff --exit-code",
                 )
@@ -1414,7 +1416,7 @@ def test_daily_model_maintenance_pr_workflow_runs_contract_validators() -> None:
         "python scripts/validate_revenue_unreacted_range_operation_lag_bucket_audit.py",
         "python scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
         "python scripts/validate_revenue_unreacted_range_promotion_preparation.py",
-        "python scripts/validate_revenue_unreacted_range_operation_adapter.py",
+        "python -I -B scripts/validate_revenue_unreacted_range_operation_adapter.py --phase disabled-preparation --module scripts/revenue_unreacted_range_operation_adapter.py",
         "python scripts/build_mature_model_row_level_metric_contract_audit.py",
         "python scripts/validate_mature_model_row_level_metric_contract_audit.py",
         "python scripts/validate_research_against_stock_model_contract.py",

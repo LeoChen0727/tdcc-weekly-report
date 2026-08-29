@@ -398,7 +398,7 @@ jobs:
           python scripts/revenue_unreacted_range_trigger_asof_anomaly_migration.py --validate-only
           python scripts/validate_revenue_unreacted_range_anomaly_dispositions.py
           python scripts/validate_revenue_unreacted_range_promotion_preparation.py --source-audit all
-          python scripts/validate_revenue_unreacted_range_operation_adapter.py
+          python -I -B scripts/validate_revenue_unreacted_range_operation_adapter.py --phase disabled-preparation --module scripts/revenue_unreacted_range_operation_adapter.py
           python scripts/validate_revenue_unreacted_range_financial_statement_fail_closed.py
 
       - name: Run revenue operation readiness regression tests
