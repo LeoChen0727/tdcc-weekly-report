@@ -256,20 +256,6 @@ READINESS_MIRROR_RELS = (
     DOCS_CSV_REL,
     DOCS_MD_REL,
 )
-EXACT_PREDECESSOR_READINESS_CANONICAL_SHA256 = {
-    OUT_CSV_REL: "0ef5c470d7dd87e191e5efefe00f6f65af87b1d7af1b6d9ec6b4e45f5bb754d8",
-    OUT_MD_REL: "28b8c0b276d18e4ed59d04373a59b886806d464c54a79f28486cdccd49494526",
-    DOCS_CSV_REL: "0ef5c470d7dd87e191e5efefe00f6f65af87b1d7af1b6d9ec6b4e45f5bb754d8",
-    DOCS_MD_REL: "28b8c0b276d18e4ed59d04373a59b886806d464c54a79f28486cdccd49494526",
-}
-# Raw Git blob ids are recorded only for transition diagnostics.  They are not
-# gates because checkout line endings may differ while canonical semantics do not.
-EXACT_PREDECESSOR_READINESS_RAW_BLOB_OID_DIAGNOSTIC = {
-    OUT_CSV_REL: "a4f7d644266bac5c531a83ac3f8cb90dc63f7f47",
-    OUT_MD_REL: "3f227660876bb16792d34d918d2314809d129bac",
-    DOCS_CSV_REL: "a4f7d644266bac5c531a83ac3f8cb90dc63f7f47",
-    DOCS_MD_REL: "3f227660876bb16792d34d918d2314809d129bac",
-}
 
 PROMOTION_REGISTRY_REL = (
     "config/revenue_unreacted_range_promotion_preparation_registry.csv"
@@ -3985,74 +3971,6 @@ def _canonical_markdown(data: bytes, source_name: str) -> bytes:
             f"malformed committed Markdown source {source_name}: bare carriage return"
         )
     return normalized.encode("utf-8")
-
-
-def validate_exact_predecessor_readiness_mirrors(
-    repo_root: Path | str,
-) -> tuple[pd.DataFrame, list[str]]:
-    """Validate the one-shot pre-v5 mirror set by canonical semantics only."""
-
-    repo = Path(repo_root).resolve()
-    canonical_data: dict[str, bytes] = {}
-    worktree_data: dict[str, bytes] = {}
-    diagnostics: list[str] = []
-    for logical_path in READINESS_MIRROR_RELS:
-        path = repo / logical_path
-        try:
-            observed = path.read_bytes()
-            committed = _git_blob(repo, logical_path)
-        except OSError as exc:
-            raise RuntimeError(
-                f"exact predecessor readiness mirror is missing: {logical_path}"
-            ) from exc
-        canonicalizer = (
-            _canonical_csv if logical_path.endswith(".csv") else _canonical_markdown
-        )
-        committed_canonical = canonicalizer(
-            committed,
-            f"HEAD:{logical_path}",
-        )
-        observed_canonical = canonicalizer(observed, logical_path)
-        expected_sha = EXACT_PREDECESSOR_READINESS_CANONICAL_SHA256[logical_path]
-        committed_sha = hashlib.sha256(committed_canonical).hexdigest()
-        observed_sha = hashlib.sha256(observed_canonical).hexdigest()
-        if committed_sha != expected_sha:
-            raise RuntimeError(
-                "exact predecessor committed readiness semantic drift: "
-                f"{logical_path}; expected={expected_sha}; actual={committed_sha}"
-            )
-        if observed_sha != committed_sha:
-            raise RuntimeError(
-                "exact predecessor readiness worktree semantic drift from HEAD: "
-                f"{logical_path}; committed={committed_sha}; actual={observed_sha}"
-            )
-        if observed != committed:
-            diagnostics.append(
-                "raw-byte/line-ending diagnostic only; canonical predecessor semantics "
-                f"match HEAD: {logical_path}"
-            )
-        canonical_data[logical_path] = observed_canonical
-        worktree_data[logical_path] = observed
-
-    if canonical_data[OUT_CSV_REL] != canonical_data[DOCS_CSV_REL]:
-        raise RuntimeError("exact predecessor output/docs readiness CSV mirrors differ")
-    if canonical_data[OUT_MD_REL] != canonical_data[DOCS_MD_REL]:
-        raise RuntimeError(
-            "exact predecessor output/docs readiness Markdown mirrors differ"
-        )
-    fieldnames, rows = _parse_csv_bytes(worktree_data[OUT_CSV_REL], OUT_CSV_REL)
-    predecessor = pd.DataFrame(rows, columns=fieldnames).fillna("")
-    validate_markdown_status_table_matches_csv(
-        worktree_data[OUT_MD_REL],
-        predecessor,
-        source_name=OUT_MD_REL,
-    )
-    validate_markdown_status_table_matches_csv(
-        worktree_data[DOCS_MD_REL],
-        predecessor,
-        source_name=DOCS_MD_REL,
-    )
-    return predecessor, diagnostics
 
 
 def _committed_semantic_source(
