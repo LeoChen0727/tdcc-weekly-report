@@ -3571,7 +3571,7 @@ def test_daily_pdf_generator_omits_obsolete_volume_breakout_explanatory_text() -
     ]:
         assert token not in source
     assert 'DAILY_HIGHLIGHT_DESCRIPTION_POLICY = "program_side_non_volume"' in source
-    assert "should_render_highlight_model_description(model_id)" in source
+    assert "should_render_highlight_model_description(inputs, model_id)" in source
 
 
 
