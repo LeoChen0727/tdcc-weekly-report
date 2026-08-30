@@ -35,6 +35,8 @@ jobs:
           import csv
           import os
           from pathlib import Path
+          import subprocess
+          import sys
 
           readiness_path = Path("output/latest/model_operation_readiness_latest.csv")
           required_true = (
@@ -116,12 +118,33 @@ jobs:
                           "revenue_unreacted_range readiness adapter sections mismatch"
                       )
                   enabled = True
+          snapshot_help = subprocess.run(
+              [
+                  sys.executable,
+                  "scripts/update_daily_published_model_snapshots.py",
+                  "--help",
+              ],
+              check=False,
+              capture_output=True,
+              text=True,
+          )
+          snapshot_registered = (
+              snapshot_help.returncode == 0
+              and "revenue_unreacted_range_operation_section"
+              in snapshot_help.stdout
+          )
+          if enabled and not snapshot_registered:
+              raise SystemExit(
+                  "formal revenue v2 readiness is enabled but the immutable "
+                  "published snapshot artifact id is not registered"
+              )
           enabled_text = "true" if enabled else "false"
           with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as handle:
               handle.write(f"enabled={enabled_text}\n")
           print(
               "revenue_unreacted_range post-launch monitoring: "
-              f"enabled={enabled_text} readiness_rows={len(rows)}"
+              f"enabled={enabled_text} readiness_rows={len(rows)} "
+              f"snapshot_registered={snapshot_registered}"
           )
           PY
 

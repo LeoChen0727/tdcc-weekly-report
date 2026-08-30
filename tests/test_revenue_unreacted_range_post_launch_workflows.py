@@ -77,20 +77,26 @@ def _run_resolver(
     workflow: Path,
     start: str,
     end: str,
-    rows: list[dict[str, str]],
+    rows: list[dict[str, str]] | None,
+    *,
+    updater_output: str = "revenue_unreacted_range_operation_section",
+    updater_exit_code: int = 0,
 ) -> subprocess.CompletedProcess[str]:
     readiness_path = root / "output" / "latest" / "model_operation_readiness_latest.csv"
-    readiness_path.parent.mkdir(parents=True, exist_ok=True)
-    fieldnames = sorted({field for row in rows for field in row})
-    with readiness_path.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fieldnames)
-        writer.writeheader()
-        writer.writerows(rows)
+    if rows is not None:
+        readiness_path.parent.mkdir(parents=True, exist_ok=True)
+        fieldnames = sorted({field for row in rows for field in row}) or ["model_id"]
+        with readiness_path.open("w", encoding="utf-8", newline="") as handle:
+            writer = csv.DictWriter(handle, fieldnames=fieldnames)
+            writer.writeheader()
+            writer.writerows(rows)
 
     scripts = root / "scripts"
     scripts.mkdir(parents=True, exist_ok=True)
     (scripts / "update_daily_published_model_snapshots.py").write_text(
-        'print("revenue_unreacted_range_operation_section")\n',
+        "import sys\n"
+        f"print({updater_output!r})\n"
+        f"raise SystemExit({updater_exit_code})\n",
         encoding="utf-8",
     )
     output_path = root / "github-output.txt"
@@ -204,6 +210,77 @@ def test_revenue_readiness_resolvers_execute_exact_enabled_and_disabled_states(
     assert "enabled=false" in (disabled_root / "github-output.txt").read_text(
         encoding="utf-8"
     )
+
+
+@pytest.mark.parametrize(
+    ("workflow", "start", "end"),
+    RESOLVER_CASES,
+    ids=("daily-full", "post-launch-monitoring"),
+)
+@pytest.mark.parametrize(
+    ("rows", "case_id"),
+    (
+        (None, "missing-readiness-file"),
+        ([], "header-only-readiness-file"),
+    ),
+    ids=("missing-readiness-file", "header-only-readiness-file"),
+)
+def test_revenue_readiness_resolvers_safely_disable_on_missing_or_zero_rows(
+    tmp_path: Path,
+    workflow: Path,
+    start: str,
+    end: str,
+    rows: list[dict[str, str]] | None,
+    case_id: str,
+) -> None:
+    root = tmp_path / case_id
+    result = _run_resolver(
+        root,
+        workflow,
+        start,
+        end,
+        rows,
+        updater_output="",
+        updater_exit_code=2,
+    )
+    assert result.returncode == 0, result.stderr
+    assert "enabled=false" in (root / "github-output.txt").read_text(
+        encoding="utf-8"
+    )
+
+
+@pytest.mark.parametrize(
+    ("workflow", "start", "end"),
+    RESOLVER_CASES,
+    ids=("daily-full", "post-launch-monitoring"),
+)
+@pytest.mark.parametrize(
+    ("updater_output", "updater_exit_code"),
+    (
+        ("revenue_unreacted_range_operation_section", 2),
+        ("other_registered_artifact", 0),
+    ),
+    ids=("updater-help-nonzero", "artifact-unregistered"),
+)
+def test_revenue_readiness_resolvers_fail_closed_when_snapshot_registry_unavailable(
+    tmp_path: Path,
+    workflow: Path,
+    start: str,
+    end: str,
+    updater_output: str,
+    updater_exit_code: int,
+) -> None:
+    result = _run_resolver(
+        tmp_path,
+        workflow,
+        start,
+        end,
+        [_ready_row()],
+        updater_output=updater_output,
+        updater_exit_code=updater_exit_code,
+    )
+    assert result.returncode != 0
+    assert "published snapshot artifact id is not registered" in result.stderr
 
 
 @pytest.mark.parametrize(
