@@ -44,6 +44,26 @@ def test_price_pullback_operation_renderer_uses_model_owned_line_filter() -> Non
     assert "volume_operation_" not in selector_body
 
 
+def test_revenue_unreacted_range_operation_renderer_uses_model_owned_selector() -> None:
+    source = (ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py").read_text(
+        encoding="utf-8",
+        errors="replace",
+    )
+    functions = validator.function_nodes(validator.ast.parse(source))
+    renderer_body = validator.function_text(
+        source, functions["render_revenue_unreacted_range_operation_section"]
+    )
+    selector_body = validator.function_text(
+        source, functions["revenue_unreacted_range_operation_all_rows_for_pdf"]
+    )
+
+    assert "selected_revenue_unreacted_range_operation_rows_for_pdf" in renderer_body
+    assert "revenue_unreacted_range_operation_row_matches_line" in selector_body
+    for forbidden in ("volume_operation_", "w_bottom_", "price_pullback_", "model_signal_rows"):
+        assert forbidden not in renderer_body
+        assert forbidden not in selector_body
+
+
 def test_daily_pdf_shared_path_inventory_registers_operation_like_symbols() -> None:
     rows = validator.read_inventory()
     registered = {row["symbol_name"] for row in rows}
@@ -90,6 +110,8 @@ def test_operation_line_matcher_prefers_explicit_report_line_over_memberships() 
     assert renderer.price_pullback_operation_row_matches_line(row, "mainstream") is False
     assert renderer.w_bottom_operation_row_matches_line(row, "non_mainstream") is True
     assert renderer.w_bottom_operation_row_matches_line(row, "mainstream") is False
+    assert renderer.revenue_unreacted_range_operation_row_matches_line(row, "non_mainstream") is True
+    assert renderer.revenue_unreacted_range_operation_row_matches_line(row, "mainstream") is False
 
 
 def test_operation_line_matcher_uses_memberships_only_without_explicit_report_line() -> None:
@@ -104,6 +126,8 @@ def test_operation_line_matcher_uses_memberships_only_without_explicit_report_li
     assert renderer.price_pullback_operation_row_matches_line(row, "non_mainstream") is True
     assert renderer.w_bottom_operation_row_matches_line(row, "mainstream") is True
     assert renderer.w_bottom_operation_row_matches_line(row, "non_mainstream") is True
+    assert renderer.revenue_unreacted_range_operation_row_matches_line(row, "mainstream") is True
+    assert renderer.revenue_unreacted_range_operation_row_matches_line(row, "non_mainstream") is True
 
 
 def test_remote_latest_csv_read_falls_back_to_clean_source_latest_on_http_429(monkeypatch) -> None:

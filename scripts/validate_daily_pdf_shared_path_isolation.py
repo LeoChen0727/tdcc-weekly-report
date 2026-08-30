@@ -46,6 +46,20 @@ STOCK_PDF_BUILDERS = {
 }
 
 MODEL_SPECIFIC_OPERATION_SYMBOLS = {
+    "revenue_unreacted_range_readiness_row",
+    "revenue_unreacted_range_pdf_adapter_enabled",
+    "validate_revenue_unreacted_range_operation_artifact",
+    "revenue_unreacted_range_operation_frame",
+    "revenue_unreacted_range_operation_row_matches_line",
+    "revenue_unreacted_range_operation_all_rows_for_pdf",
+    "limit_revenue_unreacted_range_operation_rows_for_pdf_view",
+    "selected_revenue_unreacted_range_operation_rows_for_pdf",
+    "revenue_unreacted_range_operation_note",
+    "render_revenue_unreacted_range_operation_section",
+    "build_revenue_unreacted_range_confirmed_operation_table",
+    "build_revenue_unreacted_range_unranked_operation_table",
+    "build_revenue_unreacted_range_pending_operation_table",
+    "build_revenue_unreacted_range_active_operation_table",
     "volume_operation_frame",
     "volume_operation_report_lines_for_stock",
     "filter_volume_operation_rows_for_line",
@@ -101,6 +115,7 @@ OPERATION_SHARED_CONTRACT_SYMBOLS = {
     "operation_model_summary_text",
     "operation_model_summary_lines",
     "render_operation_model_summary_if_applicable",
+    "model_uses_operation_pdf_table",
     "operation_table_title_row",
     "operation_table_title",
     "operation_model_display_name",
@@ -120,6 +135,7 @@ OPERATION_SHARED_CONTRACT_SYMBOLS = {
     "semantic_manifest_data_row",
     "semantic_manifest_empty_row",
     "write_pdf_semantic_manifest",
+    "operation_rendered_sections_for_inputs",
 }
 
 REPORT_SPECIFIC_OPERATION_SYMBOLS = {
@@ -324,9 +340,11 @@ def validate_source_boundaries(source: str, functions: dict[str, ast.FunctionDef
     else:
         body = function_text(source, dispatcher)
         required_tokens = [
+            "model_id == REVENUE_UNREACTED_RANGE_MODEL_ID",
             "model_id in VOLUME_BREAKOUT_OPERATION_MODEL_IDS",
             "model_id in W_BOTTOM_OPERATION_TABLE_MODEL_IDS",
             "model_id == PRICE_PULLBACK_MODEL_ID",
+            "render_revenue_unreacted_range_operation_section",
             "render_volume_range_breakout_operation_section",
             "render_w_bottom_operation_section",
             "render_price_pullback_operation_section",
@@ -337,6 +355,7 @@ def validate_source_boundaries(source: str, functions: dict[str, ast.FunctionDef
         forbidden_tokens = [
             "model_signal_rows",
             "candidate_model",
+            "build_revenue_unreacted_range_confirmed_operation_table",
             "build_volume_confirmed_operation_table",
             "build_w_bottom_confirmed_operation_table",
             "build_price_pullback_confirmed_operation_table",
@@ -346,6 +365,20 @@ def validate_source_boundaries(source: str, functions: dict[str, ast.FunctionDef
                 errors.append(f"operation dispatcher must not infer lifecycle or build tables directly: {token}")
 
     renderer_rules = {
+        "render_revenue_unreacted_range_operation_section": {
+            "required_calls": {"selected_revenue_unreacted_range_operation_rows_for_pdf"},
+            "allowed_prefixes": (
+                "revenue_unreacted_range_",
+                "render_",
+                "build_revenue_unreacted_range_",
+            ),
+            "forbidden_tokens": [
+                "volume_operation_",
+                "w_bottom_",
+                "price_pullback_",
+                "model_signal_rows",
+            ],
+        },
         "render_volume_range_breakout_operation_section": {
             "required_calls": {"selected_volume_operation_rows_for_pdf"},
             "allowed_prefixes": ("volume_", "render_", "build_volume_", "filter_volume_", "limit_volume_"),
@@ -381,6 +414,27 @@ def validate_source_boundaries(source: str, functions: dict[str, ast.FunctionDef
                 errors.append(f"{renderer} crosses model operation boundary with forbidden token: {token}")
 
     selector_rules = {
+        "revenue_unreacted_range_operation_all_rows_for_pdf": {
+            "required_calls": {
+                "revenue_unreacted_range_operation_frame",
+                "revenue_unreacted_range_operation_row_matches_line",
+            },
+            "forbidden_tokens": [
+                "volume_operation_",
+                "w_bottom_",
+                "price_pullback_",
+                "model_signal_rows",
+            ],
+        },
+        "selected_revenue_unreacted_range_operation_rows_for_pdf": {
+            "required_calls": {"revenue_unreacted_range_operation_all_rows_for_pdf"},
+            "forbidden_tokens": [
+                "volume_operation_",
+                "w_bottom_",
+                "price_pullback_",
+                "model_signal_rows",
+            ],
+        },
         "volume_operation_all_rows_for_pdf": {
             "required_calls": {"volume_operation_frame", "filter_volume_operation_rows_for_line"},
             "forbidden_tokens": ["w_bottom_", "price_pullback_", "model_signal_rows"],
@@ -428,6 +482,7 @@ def validate_source_boundaries(source: str, functions: dict[str, ast.FunctionDef
         if OPERATION_DISPATCHER not in calls:
             errors.append(f"{builder_name} must call {OPERATION_DISPATCHER}")
         direct_operation_renderers = {
+            "render_revenue_unreacted_range_operation_section",
             "render_volume_range_breakout_operation_section",
             "render_w_bottom_operation_section",
             "render_price_pullback_operation_section",
