@@ -350,7 +350,10 @@ def warrant_signal(value: Any) -> str:
 
 def row_sha256(row: pd.Series | dict[str, Any]) -> str:
     values = row.to_dict() if isinstance(row, pd.Series) else dict(row)
-    normalized = {str(key): text(value) for key, value in values.items()}
+    normalized = {
+        str(key): text(value).replace("\r\n", "\n").replace("\r", "\n")
+        for key, value in values.items()
+    }
     payload = json.dumps(
         normalized,
         ensure_ascii=False,

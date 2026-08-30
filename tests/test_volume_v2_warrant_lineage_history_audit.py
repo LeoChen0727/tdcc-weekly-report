@@ -23,6 +23,8 @@ import validate_volume_v2_warrant_lineage_history_audit as validator  # noqa: E4
 def test_canonical_text_sha_is_bom_and_line_ending_independent() -> None:
     lf = "欄位,值\n股票,2330\n".encode("utf-8")
     crlf_with_bom = b"\xef\xbb\xbf" + lf.replace(b"\n", b"\r\n")
+    lf_row = {"stock_id": "2330", "catalyst_summary": "第一行\n第二行"}
+    crlf_row = {"stock_id": "2330", "catalyst_summary": "第一行\r\n第二行"}
 
     assert builder.sha256_bytes(lf) == builder.sha256_bytes(crlf_with_bom)
     assert validator.sha256_bytes(lf) == validator.sha256_bytes(crlf_with_bom)
@@ -33,6 +35,11 @@ def test_canonical_text_sha_is_bom_and_line_ending_independent() -> None:
     assert not validator.manifest_v1_sha256_candidates(
         lf
     ) & validator.manifest_v1_sha256_candidates(crlf_with_bom)
+    assert builder.canonical_row_sha256(lf_row) == builder.canonical_row_sha256(
+        crlf_row
+    )
+    assert validator.row_sha256(lf_row) == validator.row_sha256(crlf_row)
+    assert builder.canonical_row_sha256(lf_row) == validator.row_sha256(lf_row)
 
 
 @pytest.mark.parametrize(
