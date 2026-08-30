@@ -10,6 +10,7 @@ REQUIRED_MODELS = {
     "w_bottom_right_side",
     "neckline_volume_breakout_confirmation",
     "price_pullback_23ema",
+    "revenue_unreacted_range",
 }
 
 

@@ -17,6 +17,7 @@ EXPECTED_MODEL_IDS = {
     "w_bottom_right_side",
     "neckline_volume_breakout_confirmation",
     "price_pullback_23ema",
+    "revenue_unreacted_range",
 }
 REQUIRED_COLUMNS = {
     "contract_version",

@@ -32,3 +32,22 @@ def test_price_pullback_pin_uses_promoted_spec_not_mutable_latest() -> None:
     pin = evidence_pin_for_model("price_pullback_23ema", "price_pullback_23ema_operation_v1_20260703")
     assert pin.evidence_path == "docs/specs/price_pullback_23ema_operation_candidate_spec.md"
     assert "latest" not in pin.evidence_path
+
+
+def test_revenue_pin_uses_immutable_frozen_rule_launch_manifest() -> None:
+    pin = evidence_pin_for_model(
+        "revenue_unreacted_range",
+        "revenue_unreacted_range_source_mid_falling_formal_operation_v2_20260830",
+    )
+    assert pin.evidence_path == (
+        "config/approved_operation_evidence/"
+        "revenue_unreacted_range_source_mid_falling_"
+        "frozen_rule_launch_evidence_v1_20260830_manifest.csv"
+    )
+    assert pin.evidence_version == (
+        "revenue_unreacted_range_source_mid_falling_"
+        "frozen_rule_launch_evidence_v1_20260830"
+    )
+    assert pin.canonical_sha256 == (
+        "4890147988797f8d0e7a27777d400514b423b679f108565675309ec2e83161fb"
+    )
