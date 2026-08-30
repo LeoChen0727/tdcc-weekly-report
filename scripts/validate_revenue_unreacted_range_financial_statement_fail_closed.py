@@ -43,6 +43,35 @@ LEGACY_ARCHIVE_FORBIDDEN_USES = {
     "formal_adapter",
     "production_reactivation",
 }
+REVENUE_PREPARED_PARITY_FIELDS = {
+    "production_contract_version": "v3",
+    "research_contract_version": (
+        "research:revenue_unreacted_range_source_mid_falling_"
+        "frozen_rule_launch_evidence_v1_20260830"
+    ),
+    "parity_status": "warning_research_variant_only",
+    "fingerprint_match": "True",
+    "research_baseline_exists": "True",
+    "approved_research_variant": "True",
+    "promotion_required": "True",
+    "parity_blocker": (
+        "exact_frozen_evidence_ready_and_v3_dedicated_adapter_prepared_but_"
+        "production_permissions_false"
+    ),
+    "d5_metric_available": "False",
+    "d10_metric_available": "False",
+    "d20_metric_available": "False",
+    "research_evidence_path": (
+        "config/approved_operation_evidence/"
+        "revenue_unreacted_range_source_mid_falling_"
+        "frozen_rule_launch_evidence_v1_20260830_manifest.csv"
+    ),
+    "research_evidence_status": "provisional_backtest_supported_oos_unconfirmed",
+    "research_permission_status": "evidence_only_no_permission_grant",
+    "recommended_action": (
+        "keep_v3_dedicated_adapter_prepared_permissions_false_until_authorized_activation"
+    ),
+}
 APPROVED_NON_FINANCIAL_EVENT_TYPES = {
     "new_order",
     "customer_win",
@@ -527,12 +556,13 @@ def _legacy_history_quarantine_errors(root: Path) -> tuple[list[str], int]:
     parity = _single_row(parity_rows, key="model_id", value=MODEL_ID)
     if parity is None:
         errors.append("model contract parity must contain exactly one revenue row")
-    elif (
-        parity.get("parity_status") != "warning_research_variant_only"
-        or parity.get("promotion_required") != "True"
-        or "do_not_promote" not in parity.get("recommended_action", "")
+    elif any(
+        parity.get(field) != expected
+        for field, expected in REVENUE_PREPARED_PARITY_FIELDS.items()
     ):
-        errors.append("revenue parity must remain research-only and promotion-blocked")
+        errors.append(
+            "revenue parity must match the exact v3 permissions-false prepared state"
+        )
     else:
         controls += 1
 

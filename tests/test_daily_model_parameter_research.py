@@ -88,7 +88,6 @@ from validate_research_against_stock_model_contract import (  # noqa: E402
     REVENUE_PREPARED_PERMISSION_BLOCKER,
     REVENUE_PREPARED_PRODUCTION_FIELDS,
     REVENUE_PREPARED_REGISTRY_FIELDS,
-    REVENUE_PRE_PROMOTION_BLOCKER,
     REVENUE_RULE_CANONICAL_SHA256,
     REVENUE_RULE_SPEC_ID,
     build_parity_rows,
@@ -284,10 +283,8 @@ def test_contract_parity_monitor_uses_revenue_frozen_evidence_not_legacy_proxy()
     assert revenue["parity_status"] == "warning_research_variant_only"
     assert revenue["approved_research_variant"] == "True"
     assert revenue["promotion_required"] == "True"
-    assert revenue["parity_blocker"] == REVENUE_PRE_PROMOTION_BLOCKER
-    assert revenue["recommended_action"] == (
-        "exact_frozen_evidence_ready_do_not_promote_until_model_contract_sync"
-    )
+    assert revenue["parity_blocker"] == REVENUE_PREPARED_PERMISSION_BLOCKER
+    assert revenue["recommended_action"] == REVENUE_PREPARED_PERMISSION_ACTION
     assert revenue["research_evidence_path"] == (
         REVENUE_EVIDENCE_PATH
     )
