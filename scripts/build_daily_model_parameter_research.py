@@ -1,11 +1,8 @@
 ﻿from __future__ import annotations
 
-import hashlib
-import json
 import math
 import sys
 from dataclasses import dataclass
-from functools import lru_cache
 from pathlib import Path
 from typing import Callable
 
@@ -59,6 +56,8 @@ from revenue_unreacted_range_fixed_confirmation_feature_contrast import (  # noq
     build_fixed_confirmation_feature_contrast,
     write_fixed_confirmation_feature_contrast,
 )
+
+
 HISTORY_DIR = Path("output/history/research")
 DAILY_SNAPSHOT_DIR = Path("output/history/daily_model_snapshots")
 OUT_CSV = LATEST_DIR / "daily_model_parameter_research_latest.csv"
@@ -77,208 +76,6 @@ DOCS_DETAIL_CSV = DOCS_LATEST_DIR / OUT_DETAIL_CSV.name
 DOCS_DETAIL_MD = DOCS_LATEST_DIR / OUT_DETAIL_MD.name
 DOCS_PARITY_CSV = DOCS_LATEST_DIR / OUT_PARITY_CSV.name
 DOCS_PARITY_MD = DOCS_LATEST_DIR / OUT_PARITY_MD.name
-
-# BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
-REVENUE_UNREACTED_MODEL_ID = "revenue_unreacted_range"
-REVENUE_UNREACTED_FROZEN_EVIDENCE_VERSION = (
-    "revenue_unreacted_range_source_mid_falling_frozen_rule_launch_evidence_v1_20260830"
-)
-REVENUE_UNREACTED_FROZEN_EVIDENCE_DIRECTORY = Path(
-    "config/approved_operation_evidence"
-)
-REVENUE_UNREACTED_FROZEN_EVIDENCE_PATH = (
-    REVENUE_UNREACTED_FROZEN_EVIDENCE_DIRECTORY
-    / f"{REVENUE_UNREACTED_FROZEN_EVIDENCE_VERSION}_manifest.csv"
-)
-REVENUE_UNREACTED_FROZEN_DETAIL_PATH = (
-    REVENUE_UNREACTED_FROZEN_EVIDENCE_DIRECTORY
-    / f"{REVENUE_UNREACTED_FROZEN_EVIDENCE_VERSION}_detail.csv"
-)
-REVENUE_UNREACTED_FROZEN_MATRIX_PATH = (
-    REVENUE_UNREACTED_FROZEN_EVIDENCE_DIRECTORY
-    / f"{REVENUE_UNREACTED_FROZEN_EVIDENCE_VERSION}_matrix.csv"
-)
-REVENUE_UNREACTED_RULE_SPEC_ID = (
-    "revenue_unreacted_range_source_mid_falling_d30_v1"
-)
-REVENUE_UNREACTED_RULE_CANONICAL_SHA256 = (
-    "1d9fd669251180d2f7edbedb30b121660a218bad232ca49573353000db155633"
-)
-REVENUE_UNREACTED_LAUNCH_EVIDENCE_STATUS = (
-    "provisional_backtest_supported_oos_unconfirmed"
-)
-REVENUE_UNREACTED_PERMISSION_STATUS = "evidence_only_no_permission_grant"
-REVENUE_UNREACTED_OUTCOME_BASIS = (
-    "D2_open_after_close_confirmed_continuation_to_D30_close"
-)
-REVENUE_UNREACTED_EXPECTED_OPERATION_COUNT = 53
-REVENUE_UNREACTED_EXPECTED_UNIQUE_STOCK_COUNT = 48
-REVENUE_UNREACTED_LEGACY_PROXY_ID = "production_current_proxy"
-REVENUE_UNREACTED_PRE_PROMOTION_BLOCKER = (
-    "exact_frozen_evidence_ready_but_daily_model_condition_spec_and_"
-    "production_permissions_not_promoted"
-)
-REVENUE_UNREACTED_PRE_PROMOTION_COMPLETION_RULE = (
-    "exact_frozen_rule_evidence_ready_contract_promotion_pending_no_permission_grant"
-)
-REVENUE_UNREACTED_PARITY_EVIDENCE_FIELDS = (
-    "research_baseline_evidence_path",
-    "research_baseline_evidence_status",
-    "research_baseline_rule_spec_id",
-    "research_baseline_rule_canonical_sha256",
-    "research_baseline_outcome_basis",
-    "research_baseline_permission_status",
-    "research_baseline_forward_holdout_policy",
-    "research_baseline_financial_statement_scope",
-)
-REVENUE_UNREACTED_FROZEN_ARTIFACT_PINS = {
-    REVENUE_UNREACTED_FROZEN_EVIDENCE_PATH: (
-        3956,
-        "f45a865ab5be5cb0023013f475b5da42a81d694bbfa8b256312b45d0f91ad11e",
-    ),
-    REVENUE_UNREACTED_FROZEN_DETAIL_PATH: (
-        66002,
-        "077cbd1da3ed550d4a709d3ba7a2a44acd67b1a2df7ed021b43719fb113a47db",
-    ),
-    REVENUE_UNREACTED_FROZEN_MATRIX_PATH: (
-        11428,
-        "bb4e6520cabccffec4513b2705b0106ec22514ac97cffaceeff9d80824c20cc1",
-    ),
-}
-REVENUE_UNREACTED_FROZEN_DETAIL_SEMANTIC_SHA256 = (
-    "e0ee6f4ecfda69dd2c88a2f3feead4bcfe8cd31650776fc5d6e8e32615be36ef"
-)
-REVENUE_UNREACTED_FROZEN_MATRIX_SEMANTIC_SHA256 = (
-    "b6d6e6857f16adc947e1c5d551c3e9f8eb9684fd9ac8f4bc276d668b5f2576e4"
-)
-
-
-def _revenue_frozen_canonical_lf_bytes(path: Path) -> bytes:
-    payload = path.read_bytes()
-    try:
-        payload.decode("utf-8")
-    except UnicodeDecodeError as exc:
-        raise RuntimeError(f"revenue frozen evidence is not UTF-8: {path}") from exc
-    canonical = payload.replace(b"\r\n", b"\n")
-    if b"\r" in canonical:
-        raise RuntimeError(f"revenue frozen evidence contains lone CR: {path}")
-    return canonical
-
-
-def _revenue_frozen_frame_semantic_sha256(frame: pd.DataFrame) -> str:
-    rows = [
-        ["" if pd.isna(value) else str(value) for value in row]
-        for row in frame.itertuples(index=False, name=None)
-    ]
-    payload = json.dumps(
-        {"columns": list(frame.columns), "rows": rows},
-        ensure_ascii=False,
-        sort_keys=True,
-        separators=(",", ":"),
-    ).encode("utf-8")
-    return hashlib.sha256(payload).hexdigest()
-
-
-@lru_cache(maxsize=4)
-def _load_revenue_unreacted_frozen_launch_evidence(
-    repository_root_text: str,
-) -> tuple[tuple[str, str], ...]:
-    repository_root = Path(repository_root_text)
-    for relative_path, (expected_byte_count, expected_sha256) in (
-        REVENUE_UNREACTED_FROZEN_ARTIFACT_PINS.items()
-    ):
-        path = repository_root / relative_path
-        if not path.is_file() or path.is_symlink():
-            raise RuntimeError(
-                f"revenue frozen evidence artifact missing or unsafe: {relative_path.as_posix()}"
-            )
-        canonical = _revenue_frozen_canonical_lf_bytes(path)
-        observed_sha256 = hashlib.sha256(canonical).hexdigest()
-        if len(canonical) != expected_byte_count or observed_sha256 != expected_sha256:
-            raise RuntimeError(
-                "revenue frozen evidence canonical pin mismatch: "
-                f"{relative_path.as_posix()}"
-            )
-    manifest = pd.read_csv(
-        repository_root / REVENUE_UNREACTED_FROZEN_EVIDENCE_PATH,
-        dtype=str,
-        keep_default_na=False,
-    )
-    detail = pd.read_csv(
-        repository_root / REVENUE_UNREACTED_FROZEN_DETAIL_PATH,
-        dtype=str,
-        keep_default_na=False,
-    )
-    matrix = pd.read_csv(
-        repository_root / REVENUE_UNREACTED_FROZEN_MATRIX_PATH,
-        dtype=str,
-        keep_default_na=False,
-    )
-    if len(manifest) != 1:
-        raise RuntimeError("revenue frozen launch evidence manifest must have one row")
-    if (
-        _revenue_frozen_frame_semantic_sha256(detail)
-        != REVENUE_UNREACTED_FROZEN_DETAIL_SEMANTIC_SHA256
-        or _revenue_frozen_frame_semantic_sha256(matrix)
-        != REVENUE_UNREACTED_FROZEN_MATRIX_SEMANTIC_SHA256
-    ):
-        raise RuntimeError("revenue frozen launch evidence semantic pin mismatch")
-    if len(detail) != REVENUE_UNREACTED_EXPECTED_OPERATION_COUNT:
-        raise RuntimeError(
-            "revenue frozen launch evidence operation count drift: "
-            f"{len(detail)} != {REVENUE_UNREACTED_EXPECTED_OPERATION_COUNT}"
-        )
-    unique_stocks = int(detail["stock_id"].astype(str).nunique())
-    if unique_stocks != REVENUE_UNREACTED_EXPECTED_UNIQUE_STOCK_COUNT:
-        raise RuntimeError(
-            "revenue frozen launch evidence unique stock count drift: "
-            f"{unique_stocks} != {REVENUE_UNREACTED_EXPECTED_UNIQUE_STOCK_COUNT}"
-        )
-    row = {str(key): str(value) for key, value in manifest.iloc[0].items()}
-    expected_manifest_fields = {
-        "evidence_version": REVENUE_UNREACTED_FROZEN_EVIDENCE_VERSION,
-        "model_id": REVENUE_UNREACTED_MODEL_ID,
-        "rule_spec_id": REVENUE_UNREACTED_RULE_SPEC_ID,
-        "rule_canonical_sha256": REVENUE_UNREACTED_RULE_CANONICAL_SHA256,
-        "selected_operation_count": str(REVENUE_UNREACTED_EXPECTED_OPERATION_COUNT),
-        "launch_evidence_status": REVENUE_UNREACTED_LAUNCH_EVIDENCE_STATUS,
-        "sample_selection_policy": "fixed_preselected_no_reselection",
-        "forward_holdout_use_policy": "post_launch_monitoring_non_hard_no_tuning",
-        "financial_statement_scope": (
-            "monthly_revenue_only;EPS_gross_margin_operating_margin_"
-            "operating_income_non_operating_income_net_income_excluded"
-        ),
-        "evidence_permission_status": REVENUE_UNREACTED_PERMISSION_STATUS,
-        "formal_model_use_allowed": "False",
-        "approved_for_daily": "False",
-        "presentation_allowed": "False",
-        "production_allowed": "False",
-    }
-    for field, expected in expected_manifest_fields.items():
-        if row.get(field, "") != expected:
-            raise RuntimeError(
-                "revenue frozen launch evidence manifest binding mismatch: "
-                f"{field}={row.get(field, '')!r} expected={expected!r}"
-            )
-    row["selected_unique_stock_count"] = str(unique_stocks)
-    return tuple(row.items())
-
-
-def load_revenue_unreacted_frozen_launch_evidence(
-    *,
-    root: Path | None = None,
-    source_root: Path | None = None,
-) -> dict[str, str]:
-    repository_root = Path(root or Path(__file__).resolve().parents[1]).resolve()
-    _ = source_root
-    return dict(
-        _load_revenue_unreacted_frozen_launch_evidence(
-            str(repository_root),
-        )
-    )
-# END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
-
-
 PRICE_PULLBACK_OPERATION_CSV = RESEARCH_LATEST_DIR / "price_pullback_23ema_operation_research_latest.csv"
 PRICE_PULLBACK_OPERATION_MD = RESEARCH_LATEST_DIR / "price_pullback_23ema_operation_research_latest.md"
 PRICE_PULLBACK_OPERATION_HISTORY_CSV = HISTORY_DIR / "price_pullback_23ema_operation_research.csv"
@@ -1509,19 +1306,6 @@ def current_revenue_unreacted_baseline_proxy(d: pd.DataFrame) -> pd.Series:
     )
 
 
-# BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
-def frozen_revenue_unreacted_baseline_evidence_only(
-    _: pd.DataFrame,
-) -> pd.Series:
-    """Forbid treating the legacy full-market proxy as the frozen exact rule."""
-
-    raise RuntimeError(
-        "the frozen source_mid_falling v2 baseline must be loaded from its exact "
-        "launch evidence; generic RuleSpec condition replay is forbidden"
-    )
-# END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
-
-
 def current_w_bottom_baseline_proxy(d: pd.DataFrame) -> pd.Series:
     return d["w_bottom_proxy"] & (d["range_breakout_20d_pct"] < 2.0)
 
@@ -2085,117 +1869,12 @@ def rule_specs() -> list[RuleSpec]:
                     spec.variant_of,
                 )
             )
-        # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
-        elif (
-            spec.model_id == REVENUE_UNREACTED_MODEL_ID
-            and spec.parameter_set_id == REVENUE_UNREACTED_LEGACY_PROXY_ID
-            and spec.parameter_role == "production_baseline"
-        ):
-            remapped.append(
-                RuleSpec(
-                    spec.model_id,
-                    spec.model_name_zh,
-                    REVENUE_UNREACTED_FROZEN_EVIDENCE_VERSION,
-                    (
-                        "frozen exact target-rule evidence: source_mid_falling v2; D2 open "
-                        "after close-confirmed continuation to D30 close; current production "
-                        "contract promotion remains pending"
-                    ),
-                    "pdf_core_model",
-                    frozen_revenue_unreacted_baseline_evidence_only,
-                    (
-                        "The immutable frozen-rule launch evidence is exact for the proposed "
-                        "source_mid_falling v2 target rule, while the current production "
-                        "contract remains proxy-only. It does not grant daily, presentation, "
-                        "PDF, or production permission; forward_holdout_v2 remains post-launch "
-                        "monitoring only."
-                    ),
-                    "production_baseline",
-                    "proxy_only",
-                    REVENUE_UNREACTED_PRE_PROMOTION_BLOCKER,
-                    "production_current",
-                )
-            )
-            remapped.append(
-                RuleSpec(
-                    spec.model_id,
-                    spec.model_name_zh,
-                    REVENUE_UNREACTED_LEGACY_PROXY_ID,
-                    (
-                        "legacy advisory proxy: price still in 23d range and attack not "
-                        "started; this row does not replay source_mid_falling v2"
-                    ),
-                    "deprecated_research_only_not_pdf_core",
-                    spec.condition,
-                    (
-                        "Legacy generic price-range proxy metrics are retained as advisory "
-                        "history. They do not represent current exact-production parity and "
-                        "cannot be promoted or used as current production evidence."
-                    ),
-                    "legacy_advisory_proxy",
-                    "legacy_advisory_only",
-                    "",
-                    REVENUE_UNREACTED_FROZEN_EVIDENCE_VERSION,
-                )
-            )
-        # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
         else:
             remapped.append(spec)
     return remapped
 
 
-# BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
-def summarize_revenue_unreacted_frozen_baseline(
-    spec: RuleSpec,
-) -> tuple[dict[str, object], list[dict[str, object]]]:
-    evidence = load_revenue_unreacted_frozen_launch_evidence()
-    summary: dict[str, object] = {
-        "generated_at": now_text(),
-        "model_id": spec.model_id,
-        "model_name_zh": spec.model_name_zh,
-        "parameter_set_id": spec.parameter_set_id,
-        "parameter_summary": spec.parameter_summary,
-        "parameter_role": spec.parameter_role,
-        "production_parity_status": spec.production_parity_status,
-        "parity_blocker": spec.parity_blocker,
-        "variant_of": spec.variant_of,
-        "pdf_visibility": spec.pdf_visibility,
-        "entry_basis": REVENUE_UNREACTED_OUTCOME_BASIS,
-        "selected_stock_days": REVENUE_UNREACTED_EXPECTED_OPERATION_COUNT,
-        "selected_unique_stocks": REVENUE_UNREACTED_EXPECTED_UNIQUE_STOCK_COUNT,
-        "best_close_horizon_d1_d10": "",
-        "best_close_win_rate_pct": "",
-        "best_avg_close_return_pct": "",
-        "sample_status": sample_status(REVENUE_UNREACTED_EXPECTED_OPERATION_COUNT),
-        "apply_status": "exact_frozen_rule_evidence_ready_contract_promotion_pending",
-        "notes": (
-            f"{spec.notes} Evidence path="
-            f"{REVENUE_UNREACTED_FROZEN_EVIDENCE_PATH.as_posix()}; "
-            f"launch_status={evidence['launch_evidence_status']}; "
-            f"gross D30 positive/avg/median="
-            f"{evidence['gross_win_rate_pct']}/{evidence['gross_avg_return_pct']}/"
-            f"{evidence['gross_median_return_pct']}; "
-            f"permission_status={evidence['evidence_permission_status']}."
-        ),
-    }
-    for horizon in [1, 2, 3, 5, 10, 20]:
-        summary[f"d{horizon}_mature_count"] = 0
-        summary[f"d{horizon}_close_win_rate_pct"] = ""
-        summary[f"d{horizon}_avg_close_return_pct"] = ""
-        summary[f"d{horizon}_avg_high_return_pct"] = ""
-    return summary, []
-# END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
-
-
 def summarize_rule(df: pd.DataFrame, spec: RuleSpec) -> tuple[dict[str, object], list[dict[str, object]]]:
-    # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
-    if (
-        spec.model_id == REVENUE_UNREACTED_MODEL_ID
-        and spec.parameter_set_id == REVENUE_UNREACTED_FROZEN_EVIDENCE_VERSION
-        and spec.parameter_role == "production_baseline"
-    ):
-        return summarize_revenue_unreacted_frozen_baseline(spec)
-    # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
     mask = spec.condition(df).fillna(False)
     picked = df[mask].copy()
     n = len(picked)
@@ -2353,60 +2032,9 @@ def build_model_parity(summary: pd.DataFrame) -> pd.DataFrame:
             elif model_id == "neckline_volume_breakout_confirmation" and status == "production_parity":
                 selected_days = int(NECKLINE_APPROVAL_METRICS["tradable_entry_count"])
                 unique_stocks = int(NECKLINE_APPROVAL_METRICS["unique_stock_count"])
-            # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
-            elif (
-                model_id == REVENUE_UNREACTED_MODEL_ID
-                and baseline_ids == REVENUE_UNREACTED_FROZEN_EVIDENCE_VERSION
-            ):
-                evidence = load_revenue_unreacted_frozen_launch_evidence()
-                selected_days = int(evidence["selected_operation_count"])
-                unique_stocks = int(evidence["selected_unique_stock_count"])
-            # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
             else:
                 selected_days = int(pd.to_numeric(base_rows["selected_stock_days"], errors="coerce").fillna(0).sum())
                 unique_stocks = int(pd.to_numeric(base_rows["selected_unique_stocks"], errors="coerce").fillna(0).max())
-        # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
-        parity_evidence = {
-            field: "" for field in REVENUE_UNREACTED_PARITY_EVIDENCE_FIELDS
-        }
-        completion_rule = (
-            "usable_as_exact_baseline"
-            if status == "production_parity"
-            else "usable_for_relative_research_only_until_blocker_resolved"
-        )
-        if (
-            model_id == REVENUE_UNREACTED_MODEL_ID
-            and baseline_ids == REVENUE_UNREACTED_FROZEN_EVIDENCE_VERSION
-        ):
-            evidence = load_revenue_unreacted_frozen_launch_evidence()
-            parity_evidence.update(
-                {
-                    "research_baseline_evidence_path": (
-                        REVENUE_UNREACTED_FROZEN_EVIDENCE_PATH.as_posix()
-                    ),
-                    "research_baseline_evidence_status": evidence[
-                        "launch_evidence_status"
-                    ],
-                    "research_baseline_rule_spec_id": evidence["rule_spec_id"],
-                    "research_baseline_rule_canonical_sha256": evidence[
-                        "rule_canonical_sha256"
-                    ],
-                    "research_baseline_outcome_basis": (
-                        REVENUE_UNREACTED_OUTCOME_BASIS
-                    ),
-                    "research_baseline_permission_status": evidence[
-                        "evidence_permission_status"
-                    ],
-                    "research_baseline_forward_holdout_policy": evidence[
-                        "forward_holdout_use_policy"
-                    ],
-                    "research_baseline_financial_statement_scope": evidence[
-                        "financial_statement_scope"
-                    ],
-                }
-            )
-            completion_rule = REVENUE_UNREACTED_PRE_PROMOTION_COMPLETION_RULE
-        # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
         rows.append(
             {
                 "generated_at": now_text(),
@@ -2421,95 +2049,14 @@ def build_model_parity(summary: pd.DataFrame) -> pd.DataFrame:
                 "baseline_selected_stock_days": selected_days,
                 "baseline_selected_unique_stocks": unique_stocks,
                 "parity_blocker": blockers,
-                "completion_rule": completion_rule,
-                **parity_evidence,
+                "completion_rule": (
+                    "usable_as_exact_baseline"
+                    if status == "production_parity"
+                    else "usable_for_relative_research_only_until_blocker_resolved"
+                ),
             }
         )
     return pd.DataFrame(rows)
-
-
-# BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
-def apply_revenue_unreacted_frozen_parity_to_summary(
-    summary: pd.DataFrame,
-) -> pd.DataFrame:
-    """Replace only the current revenue parity row; retain its old proxy as advisory."""
-
-    required = {
-        "model_id",
-        "parameter_set_id",
-        "parameter_role",
-        "production_parity_status",
-        "parity_blocker",
-        "variant_of",
-        "pdf_visibility",
-        "apply_status",
-        "notes",
-    }
-    missing = sorted(required - set(summary.columns))
-    if missing:
-        raise RuntimeError(
-            f"daily model parameter research summary missing columns: {missing}"
-        )
-    formal_specs = [
-        spec
-        for spec in rule_specs()
-        if spec.model_id == REVENUE_UNREACTED_MODEL_ID
-        and spec.parameter_set_id == REVENUE_UNREACTED_FROZEN_EVIDENCE_VERSION
-        and spec.parameter_role == "production_baseline"
-    ]
-    if len(formal_specs) != 1:
-        raise RuntimeError(
-            "revenue frozen parity must resolve exactly one formal RuleSpec"
-        )
-    formal_row, _ = summarize_revenue_unreacted_frozen_baseline(formal_specs[0])
-    records: list[dict[str, object]] = []
-    legacy_count = 0
-    for source_record in summary.fillna("").to_dict(orient="records"):
-        record = dict(source_record)
-        is_revenue = str(record.get("model_id", "")) == REVENUE_UNREACTED_MODEL_ID
-        parameter_set_id = str(record.get("parameter_set_id", ""))
-        if is_revenue and parameter_set_id == REVENUE_UNREACTED_FROZEN_EVIDENCE_VERSION:
-            continue
-        if is_revenue and parameter_set_id == REVENUE_UNREACTED_LEGACY_PROXY_ID:
-            legacy_count += 1
-            record.update(
-                {
-                    "parameter_summary": (
-                        "legacy advisory proxy: price still in 23d range and attack "
-                        "not started; this row does not replay source_mid_falling v2"
-                    ),
-                    "parameter_role": "legacy_advisory_proxy",
-                    "production_parity_status": "legacy_advisory_only",
-                    "parity_blocker": "",
-                    "variant_of": REVENUE_UNREACTED_FROZEN_EVIDENCE_VERSION,
-                    "pdf_visibility": "deprecated_research_only_not_pdf_core",
-                    "apply_status": (
-                        "legacy_advisory_immutable_not_current_production_parity"
-                    ),
-                    "notes": (
-                        "Legacy generic price-range proxy metrics are retained as "
-                        "advisory history. They do not represent current exact-production "
-                        "parity and cannot be promoted or used as current production evidence."
-                    ),
-                }
-            )
-            records.append(dict(formal_row))
-            records.append(record)
-        else:
-            records.append(record)
-    if legacy_count != 1:
-        raise RuntimeError(
-            "expected exactly one legacy revenue production_current_proxy row; "
-            f"observed {legacy_count}"
-        )
-
-    columns = list(summary.columns)
-    normalized = [
-        {column: record.get(column, "") for column in columns}
-        for record in records
-    ]
-    return pd.DataFrame(normalized, columns=columns)
-# END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 
 
 PRICE_PULLBACK_OPERATION_CANDIDATES = [
@@ -10203,12 +9750,6 @@ def write_model_parity(parity: pd.DataFrame) -> None:
         "- production_parity: historical research fields can replay the production baseline directly",
         "- production_proxy / proxy_only: baseline exists, but one or more production fields are not fully available point-in-time in the research frame",
         "- rule: variants must compare against the production_baseline row of the same model_id; proxy rows cannot be promoted without resolving blockers",
-        (
-            "- revenue exact-evidence preparation: `revenue_unreacted_range` is bound "
-            "to the frozen `source_mid_falling v2` launch evidence while remaining "
-            "`proxy_only`; its legacy generic proxy is advisory-only and the exact "
-            "evidence grants no daily/PDF/production permission."
-        ),
         "",
         "## Status Summary",
         "",
@@ -10227,13 +9768,6 @@ def write_model_parity(parity: pd.DataFrame) -> None:
                 "baseline_selected_unique_stocks",
                 "parity_blocker",
                 "completion_rule",
-                "research_baseline_evidence_path",
-                "research_baseline_evidence_status",
-                "research_baseline_rule_spec_id",
-                "research_baseline_rule_canonical_sha256",
-                "research_baseline_outcome_basis",
-                "research_baseline_permission_status",
-                "research_baseline_forward_holdout_policy",
             ],
             limit=80,
         ),
@@ -10242,31 +9776,13 @@ def write_model_parity(parity: pd.DataFrame) -> None:
     DOCS_PARITY_MD.write_text(OUT_PARITY_MD.read_text(encoding="utf-8"), encoding="utf-8", newline="\n")
 
 
-def write_markdown(
-    summary: pd.DataFrame,
-    detail: pd.DataFrame,
-    coverage: dict[str, object],
-    *,
-    write_detail: bool = True,
-) -> None:
-    summary_sorted = summary.copy()
-    summary_sorted["_sort_best_avg_close_return_pct"] = pd.to_numeric(
-        summary_sorted["best_avg_close_return_pct"], errors="coerce"
-    )
-    summary_sorted["_sort_selected_stock_days"] = pd.to_numeric(
-        summary_sorted["selected_stock_days"], errors="coerce"
-    ).fillna(0)
-    summary_sorted = summary_sorted.sort_values(
-        ["model_id", "sample_status", "_sort_best_avg_close_return_pct"],
+def write_markdown(summary: pd.DataFrame, detail: pd.DataFrame, coverage: dict[str, object]) -> None:
+    summary_sorted = summary.sort_values(
+        ["model_id", "sample_status", "best_avg_close_return_pct"],
         ascending=[True, True, False],
     ).reset_index(drop=True)
-    review = summary_sorted[
-        summary_sorted["_sort_selected_stock_days"] >= MIN_REVIEW_SAMPLE
-    ].copy()
-    top = review.sort_values(
-        ["_sort_best_avg_close_return_pct", "_sort_selected_stock_days"],
-        ascending=[False, False],
-    ).head(30)
+    review = summary_sorted[summary_sorted["selected_stock_days"] >= MIN_REVIEW_SAMPLE].copy()
+    top = review.sort_values(["best_avg_close_return_pct", "selected_stock_days"], ascending=[False, False]).head(30)
     lines = [
         "# Daily Model Parameter Research",
         "",
@@ -10280,14 +9796,9 @@ def write_markdown(
         "",
         "## Data Quality",
         "",
-        "- Generic D+1 through D+20 rows remain first-pass parameter research using the current repo price history.",
+        "- This is first-pass parameter research using the current repo price history.",
         "- If sample_status is `small_sample_review_only` or `insufficient_sample`, do not treat the parameter as a final model weight.",
-        (
-            "- The prepared `revenue_unreacted_range` research baseline is the frozen "
-            "`source_mid_falling v2` D30 launch evidence, not the legacy generic "
-            "price-range proxy. It remains `proxy_only` pending production-contract "
-            "promotion, and the legacy row remains advisory-only."
-        ),
+        "- Revenue historical panel is not complete in price history, so the revenue-unreacted research row only validates the price-range component.",
         "",
         "## Top Parameter Sets By Avg Close Return",
         "",
@@ -10335,8 +9846,6 @@ def write_markdown(
     DOCS_LATEST_DIR.mkdir(parents=True, exist_ok=True)
     DOCS_MD.write_text(OUT_MD.read_text(encoding="utf-8"), encoding="utf-8")
 
-    if not write_detail:
-        return
     focus = detail[detail["horizon"].isin(["D+1", "D+2", "D+3", "D+4", "D+5", "D+6", "D+7", "D+8", "D+9", "D+10"])].copy()
     lines2 = [
         "# Daily Model Parameter Research - Horizon Detail",
@@ -10382,67 +9891,6 @@ def coverage_stats() -> dict[str, object]:
         "date_min": min(r[1] for r in rows),
         "date_max": max(r[2] for r in rows),
     }
-
-
-# BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
-def existing_parameter_research_coverage() -> dict[str, object]:
-    """Reuse published coverage metadata so parity refresh performs no market replay."""
-
-    coverage: dict[str, object] = {
-        "price_history_files": "preserved_from_existing_artifact",
-        "max_price_rows": "preserved_from_existing_artifact",
-        "date_min": "preserved_from_existing_artifact",
-        "date_max": "preserved_from_existing_artifact",
-    }
-    if not OUT_MD.exists():
-        return coverage
-    prefixes = {
-        "- price_history_files: `": "price_history_files",
-        "- max_price_rows: `": "max_price_rows",
-        "- data_range: `": "data_range",
-    }
-    for line in OUT_MD.read_text(encoding="utf-8").splitlines():
-        for prefix, key in prefixes.items():
-            if not line.startswith(prefix) or not line.endswith("`"):
-                continue
-            value = line[len(prefix) : -1]
-            if key == "data_range":
-                parts = value.split(" ~ ", maxsplit=1)
-                if len(parts) == 2:
-                    coverage["date_min"], coverage["date_max"] = parts
-            else:
-                coverage[key] = value
-    return coverage
-
-
-def refresh_revenue_unreacted_research_parity_only() -> int:
-    """Refresh the model-owned parity rows without full-market or history replay."""
-
-    if not OUT_CSV.is_file():
-        raise RuntimeError(
-            "revenue parity-only refresh requires the existing latest summary"
-        )
-    summary = pd.read_csv(OUT_CSV, dtype=str, keep_default_na=False)
-    updated = apply_revenue_unreacted_frozen_parity_to_summary(summary)
-    parity = build_model_parity(updated)
-
-    write_csv(updated, OUT_CSV)
-    write_csv(updated, DOCS_CSV)
-    write_markdown(
-        updated,
-        pd.DataFrame(),
-        existing_parameter_research_coverage(),
-        write_detail=False,
-    )
-    write_model_parity(parity)
-    print("revenue research parity-only refresh passed")
-    print(f"formal_evidence={REVENUE_UNREACTED_FROZEN_EVIDENCE_PATH.as_posix()}")
-    print(f"formal_baseline={REVENUE_UNREACTED_FROZEN_EVIDENCE_VERSION}")
-    print(f"legacy_proxy={REVENUE_UNREACTED_LEGACY_PROXY_ID}:advisory_only")
-    print("full_market_replay=False")
-    print("history_artifacts_modified=False")
-    return 0
-# END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 
 
 def main() -> int:
@@ -10614,12 +10062,5 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    if sys.argv[1:] == ["--refresh-revenue-parity-only"]:
-        raise SystemExit(refresh_revenue_unreacted_research_parity_only())
-    if sys.argv[1:]:
-        raise SystemExit(
-            "unsupported arguments; use no arguments for the full research build or "
-            "--refresh-revenue-parity-only for the bounded model-owned parity refresh"
-        )
     raise SystemExit(main())
 

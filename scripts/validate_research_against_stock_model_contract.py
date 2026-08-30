@@ -1,8 +1,12 @@
 from __future__ import annotations
 
 import csv
+import hashlib
+import io
+import json
 from collections import Counter
 from datetime import datetime
+from functools import lru_cache
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -32,6 +36,14 @@ REVENUE_EVIDENCE_PATH = (
     "config/approved_operation_evidence/"
     f"{REVENUE_EVIDENCE_VERSION}_manifest.csv"
 )
+REVENUE_DETAIL_PATH = (
+    "config/approved_operation_evidence/"
+    f"{REVENUE_EVIDENCE_VERSION}_detail.csv"
+)
+REVENUE_MATRIX_PATH = (
+    "config/approved_operation_evidence/"
+    f"{REVENUE_EVIDENCE_VERSION}_matrix.csv"
+)
 REVENUE_EVIDENCE_STATUS = "provisional_backtest_supported_oos_unconfirmed"
 REVENUE_EVIDENCE_PERMISSION_STATUS = "evidence_only_no_permission_grant"
 REVENUE_RULE_SPEC_ID = "revenue_unreacted_range_source_mid_falling_d30_v1"
@@ -39,16 +51,160 @@ REVENUE_RULE_CANONICAL_SHA256 = (
     "1d9fd669251180d2f7edbedb30b121660a218bad232ca49573353000db155633"
 )
 REVENUE_OUTCOME_BASIS = "D2_open_after_close_confirmed_continuation_to_D30_close"
+REVENUE_EXPECTED_OPERATION_COUNT = 53
+REVENUE_EXPECTED_UNIQUE_STOCK_COUNT = 48
+REVENUE_LEGACY_PROXY_ID = "production_current_proxy"
+REVENUE_LEGACY_PROXY_BLOCKER = (
+    "strong_revenue gate requires model-specific research matrix, contract update, "
+    "exact parity, and promotion PR before formal use"
+)
 REVENUE_PRE_PROMOTION_BLOCKER = (
     "exact_frozen_evidence_ready_but_daily_model_condition_spec_and_"
     "production_permissions_not_promoted"
 )
-REVENUE_PRE_PROMOTION_COMPLETION_RULE = (
-    "exact_frozen_rule_evidence_ready_contract_promotion_pending_no_permission_grant"
-)
 REVENUE_PRE_PROMOTION_ACTION = (
     "exact_frozen_evidence_ready_do_not_promote_until_model_contract_sync"
 )
+REVENUE_ARTIFACT_PINS = {
+    REVENUE_EVIDENCE_PATH: (
+        3956,
+        "f45a865ab5be5cb0023013f475b5da42a81d694bbfa8b256312b45d0f91ad11e",
+    ),
+    REVENUE_DETAIL_PATH: (
+        66002,
+        "077cbd1da3ed550d4a709d3ba7a2a44acd67b1a2df7ed021b43719fb113a47db",
+    ),
+    REVENUE_MATRIX_PATH: (
+        11428,
+        "bb4e6520cabccffec4513b2705b0106ec22514ac97cffaceeff9d80824c20cc1",
+    ),
+}
+REVENUE_DETAIL_SEMANTIC_SHA256 = (
+    "e0ee6f4ecfda69dd2c88a2f3feead4bcfe8cd31650776fc5d6e8e32615be36ef"
+)
+REVENUE_MATRIX_SEMANTIC_SHA256 = (
+    "b6d6e6857f16adc947e1c5d551c3e9f8eb9684fd9ac8f4bc276d668b5f2576e4"
+)
+
+
+def _canonical_lf_bytes(path: Path) -> bytes:
+    payload = path.read_bytes()
+    try:
+        payload.decode("utf-8")
+    except UnicodeDecodeError as exc:
+        raise RuntimeError(f"revenue frozen evidence is not UTF-8: {path}") from exc
+    canonical = payload.replace(b"\r\n", b"\n")
+    if b"\r" in canonical:
+        raise RuntimeError(f"revenue frozen evidence contains lone CR: {path}")
+    return canonical
+
+
+def _exact_csv(canonical: bytes) -> tuple[list[str], list[list[str]]]:
+    reader = csv.reader(io.StringIO(canonical.decode("utf-8-sig"), newline=""))
+    rows = list(reader)
+    if not rows:
+        raise RuntimeError("revenue frozen evidence CSV is empty")
+    return rows[0], rows[1:]
+
+
+def _frame_semantic_sha256(columns: list[str], rows: list[list[str]]) -> str:
+    payload = json.dumps(
+        {"columns": columns, "rows": rows},
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+    ).encode("utf-8")
+    return hashlib.sha256(payload).hexdigest()
+
+
+@lru_cache(maxsize=4)
+def _load_revenue_frozen_evidence(
+    repository_root_text: str,
+) -> tuple[tuple[str, str], ...]:
+    repository_root = Path(repository_root_text)
+    canonical_by_path: dict[str, bytes] = {}
+    for relative_path, (expected_byte_count, expected_sha256) in (
+        REVENUE_ARTIFACT_PINS.items()
+    ):
+        path = repository_root / relative_path
+        if not path.is_file() or path.is_symlink():
+            raise RuntimeError(
+                f"revenue frozen evidence artifact missing or unsafe: {relative_path}"
+            )
+        canonical = _canonical_lf_bytes(path)
+        observed_sha256 = hashlib.sha256(canonical).hexdigest()
+        if len(canonical) != expected_byte_count or observed_sha256 != expected_sha256:
+            raise RuntimeError(
+                f"revenue frozen evidence canonical pin mismatch: {relative_path}"
+            )
+        canonical_by_path[relative_path] = canonical
+
+    manifest_columns, manifest_rows = _exact_csv(
+        canonical_by_path[REVENUE_EVIDENCE_PATH]
+    )
+    detail_columns, detail_rows = _exact_csv(canonical_by_path[REVENUE_DETAIL_PATH])
+    matrix_columns, matrix_rows = _exact_csv(canonical_by_path[REVENUE_MATRIX_PATH])
+    if len(manifest_rows) != 1:
+        raise RuntimeError("revenue frozen launch evidence manifest must have one row")
+    if (
+        _frame_semantic_sha256(detail_columns, detail_rows)
+        != REVENUE_DETAIL_SEMANTIC_SHA256
+        or _frame_semantic_sha256(matrix_columns, matrix_rows)
+        != REVENUE_MATRIX_SEMANTIC_SHA256
+    ):
+        raise RuntimeError("revenue frozen launch evidence semantic pin mismatch")
+    if len(detail_rows) != REVENUE_EXPECTED_OPERATION_COUNT:
+        raise RuntimeError(
+            "revenue frozen launch evidence operation count drift: "
+            f"{len(detail_rows)} != {REVENUE_EXPECTED_OPERATION_COUNT}"
+        )
+    try:
+        stock_id_index = detail_columns.index("stock_id")
+    except ValueError as exc:
+        raise RuntimeError("revenue frozen detail is missing stock_id") from exc
+    unique_stocks = len({row[stock_id_index] for row in detail_rows})
+    if unique_stocks != REVENUE_EXPECTED_UNIQUE_STOCK_COUNT:
+        raise RuntimeError(
+            "revenue frozen launch evidence unique stock count drift: "
+            f"{unique_stocks} != {REVENUE_EXPECTED_UNIQUE_STOCK_COUNT}"
+        )
+
+    row = dict(zip(manifest_columns, manifest_rows[0], strict=True))
+    expected_manifest_fields = {
+        "evidence_version": REVENUE_EVIDENCE_VERSION,
+        "model_id": REVENUE_MODEL_ID,
+        "rule_spec_id": REVENUE_RULE_SPEC_ID,
+        "rule_canonical_sha256": REVENUE_RULE_CANONICAL_SHA256,
+        "selected_operation_count": str(REVENUE_EXPECTED_OPERATION_COUNT),
+        "launch_evidence_status": REVENUE_EVIDENCE_STATUS,
+        "sample_selection_policy": "fixed_preselected_no_reselection",
+        "forward_holdout_use_policy": "post_launch_monitoring_non_hard_no_tuning",
+        "financial_statement_scope": (
+            "monthly_revenue_only;EPS_gross_margin_operating_margin_"
+            "operating_income_non_operating_income_net_income_excluded"
+        ),
+        "evidence_permission_status": REVENUE_EVIDENCE_PERMISSION_STATUS,
+        "formal_model_use_allowed": "False",
+        "approved_for_daily": "False",
+        "presentation_allowed": "False",
+        "production_allowed": "False",
+    }
+    for field, expected in expected_manifest_fields.items():
+        if row.get(field, "") != expected:
+            raise RuntimeError(
+                "revenue frozen launch evidence manifest binding mismatch: "
+                f"{field}={row.get(field, '')!r} expected={expected!r}"
+            )
+    row["selected_unique_stock_count"] = str(unique_stocks)
+    return tuple(row.items())
+
+
+def load_revenue_frozen_evidence(
+    *,
+    root: Path | None = None,
+) -> dict[str, str]:
+    repository_root = Path(root or ROOT).resolve()
+    return dict(_load_revenue_frozen_evidence(str(repository_root)))
 # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 
 ALLOWED_PARITY_STATUSES = {
@@ -318,41 +474,18 @@ def classify_row(
     research_status = (research_row or {}).get("research_baseline_status", "").strip()
     baseline_exists = bool(baseline_ids)
     baseline_blocker = (research_row or {}).get("parity_blocker", "").strip()
-    evidence_path = (research_row or {}).get(
-        "research_baseline_evidence_path", ""
-    ).strip()
-    evidence_status = (research_row or {}).get(
-        "research_baseline_evidence_status", ""
-    ).strip()
-    permission_status = (research_row or {}).get(
-        "research_baseline_permission_status", ""
-    ).strip()
+    evidence_path = ""
+    evidence_status = ""
+    permission_status = ""
 
     # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
     revenue_binding_blockers: list[str] = []
     if model_id == REVENUE_MODEL_ID:
         expected_binding = {
             "research_baseline_status": "proxy_only",
-            "research_baseline_parameter_set_id": REVENUE_EVIDENCE_VERSION,
-            "parity_blocker": REVENUE_PRE_PROMOTION_BLOCKER,
-            "completion_rule": REVENUE_PRE_PROMOTION_COMPLETION_RULE,
-            "research_baseline_evidence_path": REVENUE_EVIDENCE_PATH,
-            "research_baseline_evidence_status": REVENUE_EVIDENCE_STATUS,
-            "research_baseline_rule_spec_id": REVENUE_RULE_SPEC_ID,
-            "research_baseline_rule_canonical_sha256": (
-                REVENUE_RULE_CANONICAL_SHA256
-            ),
-            "research_baseline_outcome_basis": REVENUE_OUTCOME_BASIS,
-            "research_baseline_permission_status": (
-                REVENUE_EVIDENCE_PERMISSION_STATUS
-            ),
-            "research_baseline_forward_holdout_policy": (
-                "post_launch_monitoring_non_hard_no_tuning"
-            ),
-            "research_baseline_financial_statement_scope": (
-                "monthly_revenue_only;EPS_gross_margin_operating_margin_"
-                "operating_income_non_operating_income_net_income_excluded"
-            ),
+            "research_baseline_parameter_set_id": REVENUE_LEGACY_PROXY_ID,
+            "parity_blocker": REVENUE_LEGACY_PROXY_BLOCKER,
+            "completion_rule": "usable_for_relative_research_only_until_blocker_resolved",
         }
         for field, expected in expected_binding.items():
             observed = (research_row or {}).get(field, "").strip()
@@ -360,6 +493,18 @@ def classify_row(
                 revenue_binding_blockers.append(
                     f"{field}={observed!r} expected={expected!r}"
                 )
+        if (condition_row or {}).get("research_baseline_status", "").strip() != "proxy_only":
+            revenue_binding_blockers.append(
+                "daily_model_condition_spec.research_baseline_status must remain proxy_only"
+            )
+        if (condition_row or {}).get("operation_contract", "").strip() != "none":
+            revenue_binding_blockers.append(
+                "daily_model_condition_spec.operation_contract must remain none before promotion"
+            )
+        try:
+            load_revenue_frozen_evidence()
+        except RuntimeError as exc:
+            revenue_binding_blockers.append(str(exc))
     # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 
     if not fingerprint_match:
@@ -390,35 +535,26 @@ def classify_row(
         ]
         research_version = ""
     # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
+    elif model_id == REVENUE_MODEL_ID:
+        parity_status = "warning_research_variant_only"
+        recommended_action = REVENUE_PRE_PROMOTION_ACTION
+        approved_research_variant = True
+        promotion_required = True
+        blockers = [REVENUE_PRE_PROMOTION_BLOCKER]
+        research_version = f"research:{REVENUE_EVIDENCE_VERSION}"
+        evidence_path = REVENUE_EVIDENCE_PATH
+        evidence_status = REVENUE_EVIDENCE_STATUS
+        permission_status = REVENUE_EVIDENCE_PERMISSION_STATUS
     elif research_status == "production_parity":
         parity_status = "ok"
-        # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
-        if model_id == REVENUE_MODEL_ID:
-            recommended_action = (
-                "monitor_frozen_rule_post_launch_without_tuning_or_reselection"
-            )
-        else:
-            recommended_action = "keep_research_advisory_monitoring"
-        # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
+        recommended_action = "keep_research_advisory_monitoring"
         approved_research_variant = False
         promotion_required = False
         blockers = []
-        # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
-        research_version = (
-            REVENUE_EVIDENCE_VERSION
-            if model_id == REVENUE_MODEL_ID
-            else production_version
-        )
-        # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
+        research_version = production_version
     else:
         parity_status = "warning_research_variant_only"
-        # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
-        recommended_action = (
-            REVENUE_PRE_PROMOTION_ACTION
-            if model_id == REVENUE_MODEL_ID
-            else "research_variant_only_do_not_promote_without_explicit_promotion_pr"
-        )
-        # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
+        recommended_action = "research_variant_only_do_not_promote_without_explicit_promotion_pr"
         approved_research_variant = True
         promotion_required = True
         blockers = [baseline_blocker or f"research baseline status is {research_status}, not production_parity"]
@@ -434,9 +570,15 @@ def classify_row(
         "approved_research_variant": bool_text(approved_research_variant),
         "promotion_required": bool_text(promotion_required),
         "parity_blocker": "; ".join(part for part in blockers if part),
-        "d5_metric_available": bool_text(metric_available(metric_rows, 5, baseline_ids)),
-        "d10_metric_available": bool_text(metric_available(metric_rows, 10, baseline_ids)),
-        "d20_metric_available": bool_text(metric_available(metric_rows, 20, baseline_ids)),
+        "d5_metric_available": bool_text(
+            False if model_id == REVENUE_MODEL_ID else metric_available(metric_rows, 5, baseline_ids)
+        ),
+        "d10_metric_available": bool_text(
+            False if model_id == REVENUE_MODEL_ID else metric_available(metric_rows, 10, baseline_ids)
+        ),
+        "d20_metric_available": bool_text(
+            False if model_id == REVENUE_MODEL_ID else metric_available(metric_rows, 20, baseline_ids)
+        ),
         "research_evidence_path": evidence_path,
         "research_evidence_status": evidence_status,
         "research_permission_status": permission_status,
