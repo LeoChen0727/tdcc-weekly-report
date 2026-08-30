@@ -94,12 +94,34 @@ VOLUME_BREAKOUT_OPERATION_MODEL_IDS = {
 W_BOTTOM_RIGHT_SIDE_MODEL_ID = "w_bottom_right_side"
 W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID = "neckline_volume_breakout_confirmation"
 PRICE_PULLBACK_MODEL_ID = "price_pullback_23ema"
+REVENUE_UNREACTED_RANGE_MODEL_ID = "revenue_unreacted_range"
+REVENUE_UNREACTED_RANGE_OPERATION_INPUT_KEY = "revenue_unreacted_range_operation"
+REVENUE_UNREACTED_RANGE_OPERATION_SOURCE_ARTIFACT = (
+    "output/latest/daily_revenue_unreacted_range_operation_section_latest.csv"
+)
+REVENUE_UNREACTED_RANGE_OPERATION_MODULE_ID = (
+    "revenue_unreacted_range_source_mid_falling_v2_operation_v2"
+)
+REVENUE_UNREACTED_RANGE_ADAPTER_SCHEMA_VERSION = (
+    "revenue_unreacted_range_operation_section_schema_v2"
+)
+REVENUE_UNREACTED_RANGE_LIFECYCLE_CONTRACT_VERSION = (
+    "revenue_unreacted_range_lifecycle_v2"
+)
+REVENUE_UNREACTED_RANGE_OPERATION_SECTIONS = (
+    "confirmed_operation",
+    "confirmed_unranked_operation",
+    "pending_confirmation",
+    "active_operation",
+)
+REVENUE_UNREACTED_RANGE_PDF_PRESENTATION_ORDER = 1.25
 OPERATION_MODEL_DISPLAY_NAMES = {
     VOLUME_BREAKOUT_V2_LOW_MODEL_ID: "低位放量攻擊模型",
     VOLUME_BREAKOUT_V2_MID_MODEL_ID: "中位動能放量攻擊模型",
     W_BOTTOM_RIGHT_SIDE_MODEL_ID: "W底右側模型",
     W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID: "W底頸線帶量突破確認模型",
     PRICE_PULLBACK_MODEL_ID: "23EMA回檔模型",
+    REVENUE_UNREACTED_RANGE_MODEL_ID: "營收爆發但股價尚未反應模型",
 }
 PDF_PRESENTATION_MODEL_ORDER_OVERRIDES = {
     VOLUME_BREAKOUT_V2_LOW_MODEL_ID: 1.0,
@@ -163,6 +185,11 @@ OPERATION_MODEL_OUTCOME_DEFINITIONS = {
         "neutral": "和：D+20內沒有賣出或停損，且D+20收盤報酬大於等於0%。",
         "failure": "敗：停損先觸發，或D+20內沒有賣出/停損但D+20收盤報酬小於0%。",
     },
+    REVENUE_UNREACTED_RANGE_MODEL_ID: {
+        "win": "勝：D+2開盤進場後，D+30收盤固定出場報酬大於0。",
+        "neutral": "和：目前凍結基準沒有中性定義；統計中和局為0。",
+        "failure": "敗：D+30收盤固定出場報酬小於等於0；本模型無盤中或收盤停損。",
+    },
 }
 OPERATION_MODEL_OUTCOME_DEFINITIONS[VOLUME_BREAKOUT_V2_HIGH_MODEL_ID] = OPERATION_MODEL_OUTCOME_DEFINITIONS[
     VOLUME_BREAKOUT_V2_LOW_MODEL_ID
@@ -222,6 +249,42 @@ PRICE_PULLBACK_OPERATION_REQUIRED_COLUMNS = W_BOTTOM_OPERATION_REQUIRED_COLUMNS 
     "rank_reason_zh",
     "risk_tags_zh",
 }
+REVENUE_UNREACTED_RANGE_OPERATION_REQUIRED_COLUMNS = {
+    "model_id",
+    "operation_module_id",
+    "adapter_schema_version",
+    "lifecycle_contract_version",
+    "pdf_view",
+    "pdf_section",
+    "row_type",
+    "display_order",
+    "operation_asof_date",
+    "report_line",
+    "report_line_memberships",
+    "operation_status",
+    "operation_status_zh",
+    "row_action_status",
+    "buy_rank_eligible",
+    "formal_model_use_allowed",
+    "approved_for_daily",
+    "presentation_allowed",
+    "production_allowed",
+    "stock_id",
+    "stock_name",
+    "stock_display",
+    "signal_date",
+    "confirmation_date",
+    "entry_date",
+    "exit_date",
+    "entry_basis_zh",
+    "stop_basis_zh",
+    "exit_rule_zh",
+    "planned_holding_days",
+    "operation_age_days",
+    "rank_reason_zh",
+    "risk_tags_zh",
+    "empty_text_zh",
+} | OPERATION_ROW_METRIC_REQUIRED_COLUMNS
 OPERATION_HIGHLIGHT_TABLE_CONTRACT = "confirmed_buy_then_active_only"
 DAILY_HIGHLIGHT_LAYOUT_CONTRACT = "legacy_volume_first"
 DAILY_HIGHLIGHT_MODEL_ORDER_POLICY = "program_side_order"
@@ -305,8 +368,11 @@ def highlight_specs_in_layout_order(specs: list[pd.Series]) -> list[pd.Series]:
     raise ValueError(f"unsupported daily highlight model order policy: {DAILY_HIGHLIGHT_MODEL_ORDER_POLICY}")
 
 
-def should_render_highlight_model_description(model_id: str) -> bool:
-    if model_id in OPERATION_TABLE_MODEL_IDS:
+def should_render_highlight_model_description(
+    inputs: dict[str, pd.DataFrame],
+    model_id: str,
+) -> bool:
+    if model_uses_operation_pdf_table(inputs, model_id):
         return False
     if DAILY_HIGHLIGHT_DESCRIPTION_POLICY == "program_side_non_volume":
         return model_id not in VOLUME_BREAKOUT_OPERATION_MODEL_IDS
@@ -405,6 +471,20 @@ def operation_model_metric_summary(model_id: str, row: pd.Series) -> str:
             f"敗率{fmt_pct(row.get('price_pullback_technical_package_failure_rate_pct'))} / "
             f"平均報酬{fmt_pct(row.get('price_pullback_technical_package_avg_return_pct'), signed=True)}。"
         )
+    if model_id == REVENUE_UNREACTED_RANGE_MODEL_ID:
+        win_rate = fmt_pct(row.get("best_evidence_win_rate"))
+        failure_rate = ""
+        try:
+            failure_rate = fmt_pct(
+                100.0 - float(re.sub(r"[^0-9.\-]", "", clean(row.get("best_evidence_win_rate"))))
+            )
+        except ValueError:
+            failure_rate = ""
+        sample_size = re.sub(r"(?<=\d)\.0+$", "", clean(row.get("best_evidence_sample_size")))
+        return (
+            f"基礎模型績效：樣本數{sample_size} / 勝率{win_rate} / 和局0.00% / "
+            f"敗率{failure_rate} / 中位報酬{fmt_pct(row.get('best_evidence_median_return'), signed=True)}。"
+        )
     raise RuntimeError(f"unsupported PDF operation model summary metrics: {model_id}")
 
 
@@ -490,10 +570,24 @@ def render_operation_model_summary_if_applicable(
     inputs: dict[str, pd.DataFrame],
     model_id: str,
 ) -> bool:
+    if model_id == REVENUE_UNREACTED_RANGE_MODEL_ID:
+        if not revenue_unreacted_range_pdf_adapter_enabled(inputs):
+            return False
+        append_stock_model_summary_lines(story, operation_model_summary_lines(inputs, model_id))
+        return True
     if model_id not in OPERATION_TABLE_MODEL_IDS:
         return False
     append_stock_model_summary_lines(story, operation_model_summary_lines(inputs, model_id))
     return True
+
+
+def model_uses_operation_pdf_table(
+    inputs: dict[str, pd.DataFrame],
+    model_id: str,
+) -> bool:
+    if model_id == REVENUE_UNREACTED_RANGE_MODEL_ID:
+        return revenue_unreacted_range_pdf_adapter_enabled(inputs)
+    return model_id in OPERATION_TABLE_MODEL_IDS
 
 
 def read_readme_value(key: str, default: str = "") -> str:
@@ -786,6 +880,7 @@ OPERATION_SOURCE_ARTIFACTS = {
         "output/latest/daily_neckline_volume_breakout_confirmation_operation_section_latest.csv"
     ),
     PRICE_PULLBACK_MODEL_ID: "output/latest/daily_price_pullback_23ema_operation_section_latest.csv",
+    REVENUE_UNREACTED_RANGE_MODEL_ID: REVENUE_UNREACTED_RANGE_OPERATION_SOURCE_ARTIFACT,
 }
 OPERATION_RENDERED_SECTIONS = {
     VOLUME_BREAKOUT_V2_LOW_MODEL_ID: (
@@ -2165,6 +2260,9 @@ def load_inputs() -> dict[str, pd.DataFrame]:
             "daily_neckline_volume_breakout_confirmation_operation_section_latest.csv"
         ),
         "price_pullback_operation": read_latest_csv("daily_price_pullback_23ema_operation_section_latest.csv"),
+        REVENUE_UNREACTED_RANGE_OPERATION_INPUT_KEY: read_latest_csv(
+            "daily_revenue_unreacted_range_operation_section_latest.csv"
+        ),
         "stock_theme_taxonomy": read_latest_csv("stock_theme_taxonomy_latest.csv"),
         "group_rotation": read_latest_csv("daily_candidate_group_rotation_latest.csv"),
         "themes": read_latest_csv("daily_theme_leadership_latest.csv"),
@@ -2205,6 +2303,19 @@ def model_stage_label(row: pd.Series, extra: pd.Series | None = None) -> str:
     return model
 
 
+def model_pdf_presentation_order(
+    inputs: dict[str, pd.DataFrame],
+    model_id: str,
+    fallback_order: float,
+) -> float:
+    if (
+        model_id == REVENUE_UNREACTED_RANGE_MODEL_ID
+        and revenue_unreacted_range_pdf_adapter_enabled(inputs)
+    ):
+        return REVENUE_UNREACTED_RANGE_PDF_PRESENTATION_ORDER
+    return PDF_PRESENTATION_MODEL_ORDER_OVERRIDES.get(model_id, fallback_order)
+
+
 def core_model_specs(inputs: dict[str, pd.DataFrame], line: str | None = None) -> list[pd.Series]:
     registry = inputs.get("model_registry", pd.DataFrame()).copy()
     params = inputs.get("model_parameters", pd.DataFrame()).copy()
@@ -2242,7 +2353,11 @@ def core_model_specs(inputs: dict[str, pd.DataFrame], line: str | None = None) -
         return []
     registry["_order"] = pd.to_numeric(registry.get("model_registry_order"), errors="coerce").fillna(9999)
     registry["_pdf_order"] = registry.apply(
-        lambda row: PDF_PRESENTATION_MODEL_ORDER_OVERRIDES.get(clean(row.get("model_id")), row["_order"]),
+        lambda row: model_pdf_presentation_order(
+            inputs,
+            clean(row.get("model_id")),
+            row["_order"],
+        ),
         axis=1,
     )
     registry = registry.sort_values(["_pdf_order", "_order", "model_id"])
@@ -2358,6 +2473,330 @@ def non_mainstream_full_model_signal_rows(inputs: dict[str, pd.DataFrame], model
 
 def is_true_text(value) -> bool:
     return clean(value).lower() in {"true", "1", "yes", "y"}
+
+
+def revenue_unreacted_range_readiness_row(
+    inputs: dict[str, pd.DataFrame],
+) -> pd.Series | None:
+    readiness = inputs.get("model_readiness", pd.DataFrame()).copy()
+    if readiness.empty or "model_id" not in readiness.columns:
+        return None
+    rows = readiness[
+        readiness["model_id"].astype(str).eq(REVENUE_UNREACTED_RANGE_MODEL_ID)
+    ].copy()
+    if rows.empty:
+        return None
+    if len(rows) != 1:
+        raise RuntimeError(
+            "revenue_unreacted_range PDF operation readiness must contain exactly one model row"
+        )
+    return rows.iloc[0]
+
+
+def revenue_unreacted_range_pdf_adapter_enabled(
+    inputs: dict[str, pd.DataFrame],
+) -> bool:
+    """Return False only for the complete dormant state; reject partial activation."""
+
+    row = revenue_unreacted_range_readiness_row(inputs)
+    if row is None:
+        return False
+    presentation_allowed = is_true_text(row.get("presentation_allowed"))
+    pdf_integrated = clean(row.get("pdf_integration_status")) == "pdf_integrated_daily_adapter"
+    if not presentation_allowed and not pdf_integrated:
+        return False
+    if presentation_allowed != pdf_integrated:
+        raise RuntimeError(
+            "revenue_unreacted_range PDF readiness is partially activated: "
+            "presentation_allowed=True and pdf_integrated_daily_adapter must become true together"
+        )
+
+    required_permissions = (
+        "formal_model_use_allowed",
+        "approved_for_daily",
+        "presentation_allowed",
+        "production_allowed",
+    )
+    disabled_permissions = [
+        field for field in required_permissions if not is_true_text(row.get(field))
+    ]
+    if disabled_permissions:
+        raise RuntimeError(
+            "revenue_unreacted_range PDF readiness permission mismatch: "
+            + ",".join(disabled_permissions)
+        )
+    if clean(row.get("operation_module_id")) != REVENUE_UNREACTED_RANGE_OPERATION_MODULE_ID:
+        raise RuntimeError(
+            "revenue_unreacted_range PDF readiness operation_module_id mismatch: "
+            f"{clean(row.get('operation_module_id'), 'missing')}"
+        )
+    section_tokens = {
+        token.strip()
+        for token in re.split(
+            r"[|,;]", clean(row.get("daily_adapter_sections"))
+        )
+        if token.strip()
+    }
+    missing_sections = set(REVENUE_UNREACTED_RANGE_OPERATION_SECTIONS) - section_tokens
+    if missing_sections:
+        raise RuntimeError(
+            "revenue_unreacted_range PDF readiness sections missing: "
+            + ",".join(sorted(missing_sections))
+        )
+    return True
+
+
+def validate_revenue_unreacted_range_operation_artifact(
+    frame: pd.DataFrame,
+) -> None:
+    if frame.empty:
+        raise RuntimeError(
+            "revenue_unreacted_range dedicated PDF operation artifact is empty or missing"
+        )
+    missing = sorted(
+        REVENUE_UNREACTED_RANGE_OPERATION_REQUIRED_COLUMNS - set(frame.columns)
+    )
+    if missing:
+        raise RuntimeError(
+            "revenue_unreacted_range dedicated PDF operation artifact missing required columns: "
+            + ",".join(missing)
+        )
+
+    exact_metadata = {
+        "model_id": REVENUE_UNREACTED_RANGE_MODEL_ID,
+        "operation_module_id": REVENUE_UNREACTED_RANGE_OPERATION_MODULE_ID,
+        "adapter_schema_version": REVENUE_UNREACTED_RANGE_ADAPTER_SCHEMA_VERSION,
+        "lifecycle_contract_version": REVENUE_UNREACTED_RANGE_LIFECYCLE_CONTRACT_VERSION,
+    }
+    for column, expected in exact_metadata.items():
+        observed = {clean(value) for value in frame[column].tolist()}
+        if observed != {expected}:
+            raise RuntimeError(
+                "revenue_unreacted_range dedicated PDF operation artifact metadata mismatch: "
+                f"{column}={sorted(observed)}"
+            )
+
+    for permission in (
+        "formal_model_use_allowed",
+        "approved_for_daily",
+        "presentation_allowed",
+        "production_allowed",
+    ):
+        if not frame[permission].map(is_true_text).all():
+            raise RuntimeError(
+                "revenue_unreacted_range dedicated PDF operation artifact permission mismatch: "
+                + permission
+            )
+
+    invalid_views = sorted(set(frame["pdf_view"].map(clean)) - {"highlight", "full"})
+    invalid_sections = sorted(
+        set(frame["pdf_section"].map(clean))
+        - set(REVENUE_UNREACTED_RANGE_OPERATION_SECTIONS)
+    )
+    invalid_row_types = sorted(
+        set(frame["row_type"].map(clean)) - {"data", "empty_state"}
+    )
+    if invalid_views or invalid_sections or invalid_row_types:
+        raise RuntimeError(
+            "revenue_unreacted_range dedicated PDF operation artifact enum mismatch: "
+            f"pdf_view={invalid_views}; pdf_section={invalid_sections}; row_type={invalid_row_types}"
+        )
+
+    highlight_forbidden = frame[
+        frame["pdf_view"].map(clean).eq("highlight")
+        & frame["pdf_section"].map(clean).isin(
+            {"confirmed_unranked_operation", "pending_confirmation"}
+        )
+    ]
+    if not highlight_forbidden.empty:
+        raise RuntimeError(
+            "revenue_unreacted_range highlight artifact must contain confirmed_operation and active_operation only"
+        )
+
+    expected_empty_text = {
+        "confirmed_operation": MODEL_EMPTY_STATE_TEXT,
+        "confirmed_unranked_operation": "目前無已確認但未列入買進排序列",
+        "pending_confirmation": "目前無待確認列",
+        "active_operation": OPERATION_ACTIVE_EMPTY_STATE_TEXT,
+    }
+    empty_rows = frame[frame["row_type"].map(clean).eq("empty_state")]
+    for _, row in empty_rows.iterrows():
+        section = clean(row.get("pdf_section"))
+        if clean(row.get("empty_text_zh")) != expected_empty_text[section]:
+            raise RuntimeError(
+                "revenue_unreacted_range dedicated PDF operation artifact empty-state text mismatch: "
+                + section
+            )
+        if stock_id_text(row.get("stock_id")):
+            raise RuntimeError(
+                "revenue_unreacted_range dedicated PDF operation empty-state row must not contain stock_id"
+            )
+
+    data_rows = frame[frame["row_type"].map(clean).eq("data")]
+    if not data_rows.empty and data_rows["stock_id"].map(stock_id_text).eq("").any():
+        raise RuntimeError(
+            "revenue_unreacted_range dedicated PDF operation data row requires stock_id"
+        )
+    if "source_artifact" in frame.columns:
+        forbidden_source = frame["source_artifact"].map(clean).str.contains(
+            r"research|candidate_model_signals|model_signals", case=False, regex=True
+        )
+        if forbidden_source.any():
+            raise RuntimeError(
+                "revenue_unreacted_range dedicated PDF operation artifact forbids research/model_signals fallback"
+            )
+
+    duplicate_order = frame.duplicated(
+        subset=["pdf_view", "pdf_section", "report_line", "display_order"],
+        keep=False,
+    )
+    if duplicate_order.any():
+        raise RuntimeError(
+            "revenue_unreacted_range dedicated PDF operation artifact has duplicate display_order"
+        )
+
+
+def revenue_unreacted_range_operation_frame(
+    inputs: dict[str, pd.DataFrame],
+    pdf_view: str,
+    pdf_section: str,
+) -> pd.DataFrame:
+    if not revenue_unreacted_range_pdf_adapter_enabled(inputs):
+        raise RuntimeError(
+            "revenue_unreacted_range dedicated PDF operation adapter is dormant"
+        )
+    frame = inputs.get(
+        REVENUE_UNREACTED_RANGE_OPERATION_INPUT_KEY, pd.DataFrame()
+    ).copy()
+    validate_revenue_unreacted_range_operation_artifact(frame)
+    selected = frame[
+        frame["pdf_view"].astype(str).eq(pdf_view)
+        & frame["pdf_section"].astype(str).eq(pdf_section)
+    ].copy()
+    if selected.empty:
+        raise RuntimeError(
+            "revenue_unreacted_range dedicated PDF operation artifact has no "
+            f"{pdf_view}/{pdf_section} rows"
+        )
+    selected["_display_order"] = pd.to_numeric(
+        selected["display_order"], errors="coerce"
+    ).fillna(999999)
+    return selected.sort_values(["_display_order", "stock_id"]).drop(
+        columns=["_display_order"], errors="ignore"
+    )
+
+
+def revenue_unreacted_range_operation_row_matches_line(
+    row: pd.Series,
+    line: str | None,
+) -> bool:
+    if not line:
+        return True
+    report_line = clean(row.get("report_line"))
+    if report_line:
+        return report_line == line or report_line == "both"
+    memberships = {
+        token.strip()
+        for token in re.split(
+            r"[|,;]", clean(row.get("report_line_memberships"))
+        )
+        if token.strip()
+    }
+    return line in memberships or "both" in memberships
+
+
+def revenue_unreacted_range_operation_all_rows_for_pdf(
+    inputs: dict[str, pd.DataFrame],
+    pdf_view: str,
+    line: str | None,
+    pdf_section: str,
+) -> pd.DataFrame:
+    rows = revenue_unreacted_range_operation_frame(inputs, pdf_view, pdf_section)
+    if not line:
+        return rows
+    return rows[
+        rows.apply(
+            lambda row: revenue_unreacted_range_operation_row_matches_line(
+                row, line
+            ),
+            axis=1,
+        )
+    ].copy()
+
+
+def limit_revenue_unreacted_range_operation_rows_for_pdf_view(
+    rows: pd.DataFrame,
+    pdf_view: str,
+    pdf_section: str,
+) -> pd.DataFrame:
+    if rows.empty or pdf_view != "highlight":
+        return rows
+    data_rows = rows[rows["row_type"].map(clean).eq("data")].copy()
+    if pdf_section == "confirmed_operation":
+        return data_rows if not data_rows.empty else rows.copy()
+    if pdf_section == "active_operation":
+        return (
+            data_rows.head(OPERATION_HIGHLIGHT_ACTIVE_MAX_ROWS).copy()
+            if not data_rows.empty
+            else rows.copy()
+        )
+    raise RuntimeError(
+        "revenue_unreacted_range highlight PDF forbids section: " + pdf_section
+    )
+
+
+def selected_revenue_unreacted_range_operation_rows_for_pdf(
+    inputs: dict[str, pd.DataFrame],
+    pdf_view: str,
+    line: str | None,
+    pdf_section: str,
+) -> pd.DataFrame:
+    rows = revenue_unreacted_range_operation_all_rows_for_pdf(
+        inputs, pdf_view, line, pdf_section
+    )
+    if rows.empty:
+        return pd.DataFrame()
+    row_type = rows["row_type"].map(clean)
+    row_action = rows["row_action_status"].map(clean)
+    buy_rank_eligible = rows["buy_rank_eligible"].map(is_true_text)
+    if pdf_section == "confirmed_operation":
+        selected = rows[
+            row_type.eq("data")
+            & row_action.eq("confirmed_buy_candidate")
+            & buy_rank_eligible
+        ].copy()
+        return limit_revenue_unreacted_range_operation_rows_for_pdf_view(
+            selected, pdf_view, pdf_section
+        )
+    if pdf_section == "confirmed_unranked_operation":
+        if pdf_view != "full":
+            return pd.DataFrame()
+        return rows[
+            row_type.eq("data")
+            & row_action.eq("confirmed_not_buy_ranked")
+            & ~buy_rank_eligible
+        ].copy()
+    if pdf_section == "pending_confirmation":
+        if pdf_view != "full":
+            return pd.DataFrame()
+        return rows[
+            row_type.eq("data")
+            & row_action.eq("pending_confirmation")
+            & ~buy_rank_eligible
+        ].copy()
+    if pdf_section == "active_operation":
+        selected = rows[
+            row_type.eq("data")
+            & row_action.eq("active_operation")
+            & ~buy_rank_eligible
+        ].copy()
+        return limit_revenue_unreacted_range_operation_rows_for_pdf_view(
+            selected, pdf_view, pdf_section
+        )
+    raise RuntimeError(
+        "revenue_unreacted_range PDF consumer received unsupported section: "
+        + pdf_section
+    )
 
 
 def volume_operation_frame(
@@ -3121,6 +3560,182 @@ def build_volume_active_operation_table(rows: pd.DataFrame, model_id: str) -> Ta
     )
 
 
+def revenue_unreacted_range_operation_note(row: pd.Series) -> str:
+    reason = clean(row.get("rank_reason_zh"))
+    risk = clean(row.get("risk_tags_zh"))
+    if reason and risk:
+        return f"{reason}；風險：{risk}"
+    if risk:
+        return f"風險：{risk}"
+    return reason or "-"
+
+
+def build_revenue_unreacted_range_confirmed_operation_table(
+    rows: pd.DataFrame,
+) -> Table:
+    columns = [
+        "股票",
+        "訊號 / 確認",
+        "進場",
+        "出場",
+        "停損",
+        "加分勝/和/敗/報酬",
+        "排序理由",
+        "風險",
+    ]
+    data = [
+        operation_table_title_row(
+            operation_table_title(
+                operation_model_display_name(REVENUE_UNREACTED_RANGE_MODEL_ID),
+                OPERATION_CONFIRMED_BUY_TABLE_TITLE,
+            ),
+            len(columns),
+        ),
+        columns,
+    ]
+    if rows.empty:
+        data.append([MODEL_EMPTY_STATE_TEXT, "-", "-", "-", "-", "-", "-", "-"])
+    for _, row in rows.iterrows():
+        data.append(
+            [
+                clean(row.get("stock_display"), stock_label(row)),
+                f"{clean(row.get('signal_date'), '-')} / {clean(row.get('confirmation_date'), '-')}",
+                clean(row.get("entry_basis_zh"), "-"),
+                clean(row.get("exit_rule_zh"), "-"),
+                clean(row.get("stop_basis_zh"), "-"),
+                operation_row_performance_label(row),
+                clean(row.get("rank_reason_zh"), "-"),
+                clean(row.get("risk_tags_zh"), "-"),
+            ]
+        )
+    return build_table(
+        data,
+        [30 * mm, 31 * mm, 40 * mm, 43 * mm, 35 * mm, 43 * mm, 31 * mm, 30 * mm],
+        11.0,
+        header_bg=colors.HexColor("#7f6000"),
+        repeat_rows=2,
+        header_rows=2,
+        span_first_row=True,
+    )
+
+
+def build_revenue_unreacted_range_unranked_operation_table(
+    rows: pd.DataFrame,
+) -> Table:
+    columns = ["股票", "訊號 / 確認", "進場", "出場", "加分勝/和/敗/報酬", "未列入買進排序理由"]
+    data = [
+        operation_table_title_row(
+            operation_table_title(
+                operation_model_display_name(REVENUE_UNREACTED_RANGE_MODEL_ID),
+                "已確認但未列入買進排序",
+            ),
+            len(columns),
+        ),
+        columns,
+    ]
+    if rows.empty:
+        data.append(["目前無已確認但未列入買進排序列", "-", "-", "-", "-", "-"])
+    for _, row in rows.iterrows():
+        data.append(
+            [
+                clean(row.get("stock_display"), stock_label(row)),
+                f"{clean(row.get('signal_date'), '-')} / {clean(row.get('confirmation_date'), '-')}",
+                clean(row.get("entry_basis_zh"), "-"),
+                clean(row.get("exit_rule_zh"), "-"),
+                operation_row_performance_label(row),
+                revenue_unreacted_range_operation_note(row),
+            ]
+        )
+    return build_table(
+        data,
+        [32 * mm, 38 * mm, 48 * mm, 50 * mm, 49 * mm, 66 * mm],
+        11.0,
+        header_bg=colors.HexColor("#7f6000"),
+        repeat_rows=2,
+        header_rows=2,
+        span_first_row=True,
+    )
+
+
+def build_revenue_unreacted_range_pending_operation_table(
+    rows: pd.DataFrame,
+) -> Table:
+    columns = ["股票", "訊號日", "待確認狀態", "預定進場", "預定出場", "理由 / 風險"]
+    data = [
+        operation_table_title_row(
+            operation_table_title(
+                operation_model_display_name(REVENUE_UNREACTED_RANGE_MODEL_ID),
+                "待確認",
+            ),
+            len(columns),
+        ),
+        columns,
+    ]
+    if rows.empty:
+        data.append(["目前無待確認列", "-", "-", "-", "-", "-"])
+    for _, row in rows.iterrows():
+        data.append(
+            [
+                clean(row.get("stock_display"), stock_label(row)),
+                clean(row.get("signal_date"), "-"),
+                clean(row.get("operation_status_zh"), "待確認"),
+                clean(row.get("entry_basis_zh"), "-"),
+                clean(row.get("exit_rule_zh"), "-"),
+                revenue_unreacted_range_operation_note(row),
+            ]
+        )
+    return build_table(
+        data,
+        [32 * mm, 25 * mm, 40 * mm, 53 * mm, 55 * mm, 78 * mm],
+        11.0,
+        header_bg=colors.HexColor("#44546a"),
+        repeat_rows=2,
+        header_rows=2,
+        span_first_row=True,
+    )
+
+
+def build_revenue_unreacted_range_active_operation_table(
+    rows: pd.DataFrame,
+) -> Table:
+    columns = ["股票", "訊號 / 確認", "進場", "持有 / 計畫", "出場", "目前狀態", "理由 / 風險"]
+    data = [
+        operation_table_title_row(
+            operation_table_title(
+                operation_model_display_name(REVENUE_UNREACTED_RANGE_MODEL_ID),
+                OPERATION_ACTIVE_TABLE_TITLE,
+            ),
+            len(columns),
+        ),
+        columns,
+    ]
+    if rows.empty:
+        data.append([OPERATION_ACTIVE_EMPTY_STATE_TEXT, "-", "-", "-", "-", "-", "-"])
+    for _, row in rows.iterrows():
+        age = clean(row.get("operation_age_days"), "-")
+        planned = clean(row.get("planned_holding_days"), "-")
+        data.append(
+            [
+                clean(row.get("stock_display"), stock_label(row)),
+                f"{clean(row.get('signal_date'), '-')} / {clean(row.get('confirmation_date'), '-')}",
+                clean(row.get("entry_basis_zh"), "-"),
+                f"{age} / {planned}",
+                clean(row.get("exit_rule_zh"), "-"),
+                clean(row.get("operation_status_zh"), "-"),
+                revenue_unreacted_range_operation_note(row),
+            ]
+        )
+    return build_table(
+        data,
+        [31 * mm, 38 * mm, 49 * mm, 28 * mm, 53 * mm, 32 * mm, 52 * mm],
+        11.0,
+        header_bg=colors.HexColor("#44546a"),
+        repeat_rows=2,
+        header_rows=2,
+        span_first_row=True,
+    )
+
+
 def build_w_bottom_confirmed_operation_table(rows: pd.DataFrame, model_name: str) -> Table:
     columns = [
         "排名",
@@ -3290,6 +3905,52 @@ def build_price_pullback_active_operation_table(rows: pd.DataFrame) -> Table:
     )
 
 
+def render_revenue_unreacted_range_operation_section(
+    story: list,
+    inputs: dict[str, pd.DataFrame],
+    pdf_view: str,
+    line: str | None = None,
+) -> None:
+    confirmed = selected_revenue_unreacted_range_operation_rows_for_pdf(
+        inputs, pdf_view, line, "confirmed_operation"
+    )
+    active_rows = selected_revenue_unreacted_range_operation_rows_for_pdf(
+        inputs, pdf_view, line, "active_operation"
+    )
+
+    story.append(Spacer(1, 6))
+    append_section_label_with_table(
+        story,
+        OPERATION_CONFIRMED_BUY_TABLE_TITLE,
+        build_revenue_unreacted_range_confirmed_operation_table(confirmed),
+    )
+    story.append(Spacer(1, 5))
+    if pdf_view == "full":
+        unranked = selected_revenue_unreacted_range_operation_rows_for_pdf(
+            inputs, pdf_view, line, "confirmed_unranked_operation"
+        )
+        pending = selected_revenue_unreacted_range_operation_rows_for_pdf(
+            inputs, pdf_view, line, "pending_confirmation"
+        )
+        append_section_label_with_table(
+            story,
+            "已確認但未列入買進排序",
+            build_revenue_unreacted_range_unranked_operation_table(unranked),
+        )
+        story.append(Spacer(1, 5))
+        append_section_label_with_table(
+            story,
+            "待確認",
+            build_revenue_unreacted_range_pending_operation_table(pending),
+        )
+        story.append(Spacer(1, 5))
+    append_section_label_with_table(
+        story,
+        OPERATION_ACTIVE_TABLE_TITLE,
+        build_revenue_unreacted_range_active_operation_table(active_rows),
+    )
+
+
 def render_w_bottom_operation_section(
     story: list,
     inputs: dict[str, pd.DataFrame],
@@ -3408,6 +4069,13 @@ def render_model_operation_section_if_applicable(
     pdf_view: str,
     line: str | None = None,
 ) -> bool:
+    if model_id == REVENUE_UNREACTED_RANGE_MODEL_ID:
+        if not revenue_unreacted_range_pdf_adapter_enabled(inputs):
+            return False
+        render_revenue_unreacted_range_operation_section(
+            story, inputs, pdf_view, line
+        )
+        return True
     if model_id in VOLUME_BREAKOUT_OPERATION_MODEL_IDS:
         render_volume_range_breakout_operation_section(story, inputs, model_id, pdf_view, line)
         return True
@@ -4568,7 +5236,7 @@ def build_mainstream_curated_pdf(
         started_model_sections = True
         desc = clean(spec.get("model_description_zh"))
         render_operation_model_summary_if_applicable(story, inputs, model_id)
-        if desc and should_render_highlight_model_description(model_id):
+        if desc and should_render_highlight_model_description(inputs, model_id):
             append_stock_model_description_lines(story, desc)
         if render_model_operation_section_if_applicable(story, inputs, model_id, "highlight", line):
             continue
@@ -4617,7 +5285,7 @@ def build_non_mainstream_curated_pdf(
         started_model_sections = True
         desc = clean(spec.get("model_description_zh"))
         render_operation_model_summary_if_applicable(story, inputs, model_id)
-        if desc and should_render_highlight_model_description(model_id):
+        if desc and should_render_highlight_model_description(inputs, model_id):
             append_stock_model_description_lines(story, desc)
         if render_model_operation_section_if_applicable(story, inputs, model_id, "highlight", line):
             continue
@@ -5110,6 +5778,17 @@ def source_artifact_info(model_id: str) -> tuple[str, str]:
     return rel_path, normalized_sha256_file(REPO / rel_path)
 
 
+def operation_rendered_sections_for_inputs(
+    inputs: dict[str, pd.DataFrame],
+) -> dict[str, tuple[str, ...]]:
+    sections = dict(OPERATION_RENDERED_SECTIONS)
+    if revenue_unreacted_range_pdf_adapter_enabled(inputs):
+        sections[REVENUE_UNREACTED_RANGE_MODEL_ID] = (
+            REVENUE_UNREACTED_RANGE_OPERATION_SECTIONS
+        )
+    return sections
+
+
 def selected_operation_rows_for_manifest(
     inputs: dict[str, pd.DataFrame],
     model_id: str,
@@ -5117,6 +5796,12 @@ def selected_operation_rows_for_manifest(
     report_line: str,
     pdf_section: str,
 ) -> pd.DataFrame:
+    if model_id == REVENUE_UNREACTED_RANGE_MODEL_ID:
+        if not revenue_unreacted_range_pdf_adapter_enabled(inputs):
+            return pd.DataFrame()
+        return selected_revenue_unreacted_range_operation_rows_for_pdf(
+            inputs, pdf_view, report_line, pdf_section
+        )
     if model_id in VOLUME_BREAKOUT_OPERATION_MODEL_IDS:
         return selected_volume_operation_rows_for_pdf(inputs, model_id, pdf_view, report_line, pdf_section)
     if model_id in W_BOTTOM_OPERATION_TABLE_MODEL_IDS:
@@ -5216,6 +5901,16 @@ def operation_section_empty_text(model_id: str, pdf_section: str) -> str:
         return MODEL_EMPTY_STATE_TEXT
     if pdf_section == "active_operation":
         return OPERATION_ACTIVE_EMPTY_STATE_TEXT
+    if (
+        model_id == REVENUE_UNREACTED_RANGE_MODEL_ID
+        and pdf_section == "confirmed_unranked_operation"
+    ):
+        return "目前無已確認但未列入買進排序列"
+    if (
+        model_id == REVENUE_UNREACTED_RANGE_MODEL_ID
+        and pdf_section == "pending_confirmation"
+    ):
+        return "目前無待確認列"
     if model_id in VOLUME_BREAKOUT_OPERATION_MODEL_IDS and pdf_section == "confirmed_unranked_operation":
         return "no confirmed unranked operation rows"
     if model_id in VOLUME_BREAKOUT_OPERATION_MODEL_IDS and pdf_section == "pending_confirmation":
@@ -5241,7 +5936,7 @@ def write_pdf_semantic_manifest(paths: list[Path], inputs: dict[str, pd.DataFram
     rows: list[dict[str, str]] = []
     generated_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     for pdf_role, pdf_view, report_line in PDF_ROLE_RENDER_SPECS:
-        for model_id, sections in OPERATION_RENDERED_SECTIONS.items():
+        for model_id, sections in operation_rendered_sections_for_inputs(inputs).items():
             source_artifact, source_hash = source_artifact_info(model_id)
             for pdf_section in sections:
                 if pdf_view == "highlight" and pdf_section in {"confirmed_unranked_operation", "pending_confirmation"}:
@@ -5289,7 +5984,7 @@ def required_stock_model_text_missing(inputs: dict[str, pd.DataFrame], line: str
         model_name = clean(spec.get("model_name_zh"), model_id)
         if model_name and model_name not in text:
             missing.append(model_name)
-        if model_id in OPERATION_TABLE_MODEL_IDS:
+        if model_uses_operation_pdf_table(inputs, model_id):
             continue
         if len(model_signal_rows(inputs, model_id, line)) == 0:
             zero_candidate_models += 1

@@ -628,3 +628,5 @@ tests/test_daily_revenue_unreacted_range_operation_section.py,test_python,model_
 scripts/build_revenue_unreacted_range_frozen_rule_launch_evidence.py,python,model_governance,active,evidence-only immutable frozen-rule chronological benchmark regime and transaction-cost launch evidence producer,,
 scripts/validate_revenue_unreacted_range_frozen_rule_launch_evidence.py,python,model_governance,active,independent frozen-rule evidence replay validator with no producer or production business-semantic import,,
 tests/test_revenue_unreacted_range_frozen_rule_launch_evidence.py,test_python,model_governance,active,frozen-rule launch evidence provenance independence chronology comparator cost and mutation regressions,,
+scripts/validate_revenue_unreacted_range_pdf_consumer_contract.py,python,daily_production,active,independent fail-closed source-level contract validator for the dedicated revenue v2 PDF consumer,,
+tests/test_revenue_unreacted_range_pdf_consumer.py,test_python,daily_production,active,dormant activation dedicated-source table limits semantic manifest and mutation regressions for the revenue v2 PDF consumer,,
