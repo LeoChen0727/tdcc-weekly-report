@@ -83,11 +83,19 @@ from validate_research_against_stock_model_contract import (  # noqa: E402
     REVENUE_LEGACY_PROXY_BLOCKER,
     REVENUE_LEGACY_PROXY_ID,
     REVENUE_MATRIX_PATH,
+    REVENUE_PREPARED_CONDITION_FIELDS,
+    REVENUE_PREPARED_PERMISSION_ACTION,
+    REVENUE_PREPARED_PERMISSION_BLOCKER,
+    REVENUE_PREPARED_PRODUCTION_FIELDS,
+    REVENUE_PREPARED_REGISTRY_FIELDS,
     REVENUE_PRE_PROMOTION_BLOCKER,
     REVENUE_RULE_CANONICAL_SHA256,
     REVENUE_RULE_SPEC_ID,
     build_parity_rows,
+    classify_row,
+    contract_drift_blockers,
     load_revenue_frozen_evidence,
+    validate_rows,
 )
 
 
@@ -289,6 +297,78 @@ def test_contract_parity_monitor_uses_revenue_frozen_evidence_not_legacy_proxy()
     assert revenue["research_permission_status"] == (
         REVENUE_EVIDENCE_PERMISSION_STATUS
     )
+
+
+def test_contract_parity_accepts_exact_v3_permissions_false_prepared_state() -> None:
+    research_row = {
+        "research_baseline_status": "proxy_only",
+        "research_baseline_parameter_set_id": REVENUE_LEGACY_PROXY_ID,
+        "parity_blocker": REVENUE_LEGACY_PROXY_BLOCKER,
+        "completion_rule": "usable_for_relative_research_only_until_blocker_resolved",
+    }
+
+    row = classify_row(
+        model_id="revenue_unreacted_range",
+        registry_row=dict(REVENUE_PREPARED_REGISTRY_FIELDS),
+        condition_row=dict(REVENUE_PREPARED_CONDITION_FIELDS),
+        production_row=dict(REVENUE_PREPARED_PRODUCTION_FIELDS),
+        research_row=research_row,
+        metric_rows=[],
+    )
+
+    assert row["production_contract_version"] == "v3"
+    assert row["fingerprint_match"] == "True"
+    assert row["research_baseline_exists"] == "True"
+    assert row["parity_status"] == "warning_research_variant_only"
+    assert row["approved_research_variant"] == "True"
+    assert row["promotion_required"] == "True"
+    assert row["parity_blocker"] == REVENUE_PREPARED_PERMISSION_BLOCKER
+    assert row["recommended_action"] == REVENUE_PREPARED_PERMISSION_ACTION
+    assert row["research_evidence_path"] == REVENUE_EVIDENCE_PATH
+    assert row["research_evidence_status"] == REVENUE_EVIDENCE_STATUS
+    assert row["research_permission_status"] == REVENUE_EVIDENCE_PERMISSION_STATUS
+    assert validate_rows([row], []) == []
+
+
+def test_contract_parity_rejects_near_match_permissions_false_state() -> None:
+    registry_row = dict(REVENUE_PREPARED_REGISTRY_FIELDS)
+    registry_row["score_function"] = "unexpected_score_function"
+
+    row = classify_row(
+        model_id="revenue_unreacted_range",
+        registry_row=registry_row,
+        condition_row=dict(REVENUE_PREPARED_CONDITION_FIELDS),
+        production_row=dict(REVENUE_PREPARED_PRODUCTION_FIELDS),
+        research_row={
+            "research_baseline_status": "proxy_only",
+            "research_baseline_parameter_set_id": REVENUE_LEGACY_PROXY_ID,
+            "parity_blocker": REVENUE_LEGACY_PROXY_BLOCKER,
+            "completion_rule": "usable_for_relative_research_only_until_blocker_resolved",
+        },
+        metric_rows=[],
+    )
+
+    assert row["parity_status"] == "hard_fail_contract_drift"
+    assert row["fingerprint_match"] == "False"
+    assert "must match exact legacy v2 proxy or exact v3" in row["parity_blocker"]
+
+
+def test_permissions_false_exception_does_not_apply_to_other_models() -> None:
+    registry_row = dict(REVENUE_PREPARED_REGISTRY_FIELDS)
+    registry_row["model_id"] = "other_model"
+    condition_row = dict(REVENUE_PREPARED_CONDITION_FIELDS)
+    condition_row["model_id"] = "other_model"
+    production_row = dict(REVENUE_PREPARED_PRODUCTION_FIELDS)
+    production_row["model_id"] = "other_model"
+
+    blockers = contract_drift_blockers(
+        "other_model",
+        registry_row,
+        condition_row,
+        production_row,
+    )
+
+    assert "production core model must keep approved_for_daily_pdf=true" in blockers
 # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 
 
