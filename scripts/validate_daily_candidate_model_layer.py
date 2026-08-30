@@ -17,6 +17,8 @@ SIGNALS_CSV = LATEST_DIR / "daily_candidate_model_signals_latest.csv"
 REPORT_SIGNALS_CSV = LATEST_DIR / "daily_candidate_model_signals_for_report_latest.csv"
 ROTATION_CSV = LATEST_DIR / "daily_candidate_group_rotation_latest.csv"
 REPEAT_CSV = LATEST_DIR / "daily_candidate_same_model_repeat_latest.csv"
+FRONTPAGE_CSV = LATEST_DIR / "daily_candidate_frontpage_unique_latest.csv"
+SUMMARY_CSV = LATEST_DIR / "daily_candidate_model_summary_for_report_latest.csv"
 PACKET_MD = LATEST_DIR / "daily_candidate_model_layer_packet_latest.md"
 VALIDATION_JSON = LATEST_DIR / "daily_candidate_model_layer_validation_latest.json"
 VALIDATION_MD = LATEST_DIR / "daily_candidate_model_layer_validation_latest.md"
@@ -40,6 +42,10 @@ REQUIRED_PARAMETER_MODELS = {
     "five_day_20pct_precursor",
     "disposition_attention_event_tag",
     "msci_event_tag",
+}
+
+DEDICATED_OPERATION_ONLY_MODEL_IDS = {
+    "revenue_unreacted_range",
 }
 
 REPORT_SIGNAL_SNAPSHOT_SCORE_COLUMNS = {
@@ -202,6 +208,95 @@ def missing_required_signal_columns(signals: pd.DataFrame) -> list[str]:
     return sorted(REQUIRED_SIGNAL_COLUMNS - set(signals.columns))
 
 
+def dedicated_operation_only_signal_errors(
+    signals: pd.DataFrame,
+    *,
+    artifact_name: str,
+) -> list[str]:
+    """Reject lifecycle-owned models from legacy generic candidate artifacts."""
+
+    if signals.empty or "model_id" not in signals.columns:
+        return []
+    model_ids = signals["model_id"].astype(str)
+    errors: list[str] = []
+    for model_id in sorted(DEDICATED_OPERATION_ONLY_MODEL_IDS):
+        row_count = int(model_ids.eq(model_id).sum())
+        if row_count:
+            errors.append(
+                "dedicated_operation_model_forbidden_in_generic_signal_artifact: "
+                f"artifact={artifact_name}; model_id={model_id}; rows={row_count}"
+            )
+    return errors
+
+
+def _contains_exact_model_id(value: object, model_id: str) -> bool:
+    return model_id in {
+        token.strip()
+        for token in re.split(r"\s*\|\s*|[;,]", safe_str(value))
+        if token.strip()
+    }
+
+
+def dedicated_operation_only_derived_artifact_errors(
+    frontpage: pd.DataFrame,
+    repeat: pd.DataFrame,
+    summary: pd.DataFrame,
+) -> list[str]:
+    """Reject retired generic rows from derived daily presentation artifacts."""
+
+    errors: list[str] = []
+    for model_id in sorted(DEDICATED_OPERATION_ONLY_MODEL_IDS):
+        if not frontpage.empty:
+            primary = frontpage.get("primary_model_id", pd.Series(dtype=str)).astype(str)
+            hit_ids = frontpage.get("model_hit_ids", pd.Series(dtype=str))
+            primary_count = int(primary.eq(model_id).sum())
+            hit_count = int(hit_ids.map(lambda value: _contains_exact_model_id(value, model_id)).sum())
+            if primary_count or hit_count:
+                errors.append(
+                    "dedicated_operation_model_forbidden_in_frontpage_artifact: "
+                    f"model_id={model_id}; primary_rows={primary_count}; hit_rows={hit_count}"
+                )
+
+        if not repeat.empty:
+            repeat_ids = repeat.get("model_id", pd.Series(dtype=str)).astype(str)
+            repeat_count = int(repeat_ids.eq(model_id).sum())
+            if repeat_count:
+                errors.append(
+                    "dedicated_operation_model_forbidden_in_repeat_artifact: "
+                    f"model_id={model_id}; rows={repeat_count}"
+                )
+
+        if not summary.empty:
+            summary_ids = summary.get("model_id", pd.Series(dtype=str)).astype(str)
+            model_rows = summary[summary_ids.eq(model_id)]
+            for row_index, row in model_rows.iterrows():
+                stock_fields = (
+                    "new_stock_id",
+                    "new_stock_name",
+                    "repeated_stock_id",
+                    "repeated_stock_name",
+                )
+                populated = [field for field in stock_fields if safe_str(row.get(field)).strip()]
+                display_fields = (
+                    "new_signal_stock_display",
+                    "new_stock_display",
+                    "repeated_signal_stock_display",
+                    "repeated_stock_display",
+                )
+                bad_displays = [
+                    field
+                    for field in display_fields
+                    if safe_str(row.get(field)).strip() != "今日無候選"
+                ]
+                if populated or bad_displays:
+                    errors.append(
+                        "dedicated_operation_model_summary_must_be_empty_roster_row: "
+                        f"model_id={model_id}; row={row_index}; "
+                        f"populated_stock_fields={populated}; bad_display_fields={bad_displays}"
+                    )
+    return errors
+
+
 def validate() -> dict[str, object]:
     errors: list[str] = []
     warnings: list[str] = []
@@ -212,6 +307,24 @@ def validate() -> dict[str, object]:
     signals = read_csv(REPORT_SIGNALS_CSV, dtype=str, keep_default_na=False)
     rotation = read_csv(ROTATION_CSV, dtype=str, keep_default_na=False)
     repeat = read_csv(REPEAT_CSV, dtype=str, keep_default_na=False)
+    frontpage = read_csv(FRONTPAGE_CSV, dtype=str, keep_default_na=False)
+    summary = read_csv(SUMMARY_CSV, dtype=str, keep_default_na=False)
+
+    errors.extend(
+        dedicated_operation_only_signal_errors(
+            raw_signals,
+            artifact_name="daily_candidate_model_signals_latest.csv",
+        )
+    )
+    errors.extend(
+        dedicated_operation_only_signal_errors(
+            signals,
+            artifact_name="daily_candidate_model_signals_for_report_latest.csv",
+        )
+    )
+    errors.extend(
+        dedicated_operation_only_derived_artifact_errors(frontpage, repeat, summary)
+    )
 
     if params.empty:
         errors.append(f"missing_or_empty: {PARAMETERS_CSV}")

@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 MODEL_ID = "revenue_unreacted_range"
 EFFECTIVE_FROM = "2026-07-16"
 EFFECTIVE_DATE = "20260716"
+CONTRACT_EFFECTIVE_FROM = "2026-08-31"
 LEGACY_SIGNAL_LOG = (
     "output/history/daily_candidate_models/daily_candidate_model_signal_log.csv"
 )
@@ -487,15 +488,38 @@ def _legacy_history_quarantine_errors(root: Path) -> tuple[list[str], int]:
         errors.append("daily_model_condition_spec must contain exactly one revenue row")
     elif (
         condition.get("research_baseline_status") != "proxy_only"
-        or condition.get("operation_contract") != "none"
+        or condition.get("operation_contract")
+        != "revenue_unreacted_range_source_mid_falling_v2_operation_v2"
     ):
-        errors.append("revenue condition spec must remain proxy_only with no operation contract")
+        errors.append(
+            "revenue condition spec must remain proxy_only while pinning only the frozen v2 "
+            "promotion-candidate operation contract"
+        )
     else:
         controls += 1
 
     evidence_rows = _read_rows(root / "config/formal_model_evidence_pins.csv")
-    if any(row.get("model_id") == MODEL_ID for row in evidence_rows):
-        errors.append("revenue_unreacted_range must not have a formal evidence pin")
+    evidence = _single_row(evidence_rows, key="model_id", value=MODEL_ID)
+    expected_evidence_path = (
+        "config/approved_operation_evidence/"
+        "revenue_unreacted_range_source_mid_falling_frozen_rule_launch_evidence_"
+        "v1_20260830_manifest.csv"
+    )
+    if evidence is None:
+        errors.append("revenue promotion candidate must have exactly one frozen evidence pin")
+    elif (
+        evidence.get("approval_version")
+        != "revenue_unreacted_range_source_mid_falling_formal_operation_v2_20260830"
+        or evidence.get("evidence_path") != expected_evidence_path
+        or evidence.get("evidence_version")
+        != "revenue_unreacted_range_source_mid_falling_frozen_rule_launch_evidence_v1_20260830"
+        or evidence.get("pin_status") != "pinned_formal_evidence"
+        or not re.fullmatch(r"[0-9a-f]{64}", evidence.get("canonical_sha256", ""))
+        or not (root / expected_evidence_path).is_file()
+    ):
+        errors.append(
+            "revenue promotion-candidate evidence pin must resolve to the frozen v2 launch manifest"
+        )
     else:
         controls += 1
 
@@ -514,14 +538,33 @@ def _legacy_history_quarantine_errors(root: Path) -> tuple[list[str], int]:
 
     readiness_rows = _read_rows(root / "output/latest/model_operation_readiness_latest.csv")
     readiness = _single_row(readiness_rows, key="model_id", value=MODEL_ID)
+    surface_rows = _read_rows(root / "config/model_surface_registry.csv")
+    surface = _single_row(surface_rows, key="surface_id", value=MODEL_ID)
     if readiness is None:
         errors.append("model operation readiness must contain exactly one revenue row")
     elif (
-        readiness.get("approved_for_daily") != "False"
+        readiness.get("formal_model_use_allowed") != "False"
+        or readiness.get("approved_for_daily") != "False"
         or readiness.get("presentation_allowed") != "False"
+        or readiness.get("production_allowed") != "False"
         or readiness.get("operation_directive_level") != "no_operation_directive"
     ):
-        errors.append("revenue operation readiness must remain non-formal and non-presentable")
+        errors.append(
+            "revenue promotion candidate must remain non-formal non-production and non-presentable"
+        )
+    elif surface is None:
+        errors.append("model surface registry must contain exactly one revenue row")
+    elif (
+        surface.get("approved_for_daily_pdf") != "false"
+        or surface.get("approved_for_tdcc_weekly_pdf") != "false"
+        or surface.get("approved_for_individual_pdf") != "false"
+        or surface.get("stock_entry_signal") != "true"
+        or surface.get("research_parity_status") != "warning_research_variant_only"
+        or surface.get("promotion_required") != "true"
+    ):
+        errors.append(
+            "revenue surface must expose the stock-model identity while all PDF permissions remain false"
+        )
     else:
         controls += 1
 
@@ -660,37 +703,97 @@ def validate(root: Path = ROOT) -> tuple[list[str], dict[str, int]]:
         errors.append("stock model contract must contain exactly one revenue_unreacted_range row")
     else:
         inputs = {item for item in contract.get("input_columns", "").split(";") if item}
-        if contract.get("contract_version") != "v2":
-            errors.append("revenue_unreacted_range contract_version must be v2")
-        if contract.get("effective_from") != EFFECTIVE_FROM:
-            errors.append(f"revenue_unreacted_range v2 effective_from must be {EFFECTIVE_FROM}")
-        if "fundamental_catalyst_tags" in inputs:
-            errors.append("contract input_columns must exclude fundamental_catalyst_tags")
-        if "event_catalyst_tags" not in inputs:
-            errors.append("contract input_columns must retain event_catalyst_tags for the strict allowlist")
+        if contract.get("contract_version") != "v3":
+            errors.append("revenue_unreacted_range promotion-candidate contract_version must be v3")
+        if contract.get("effective_from") != CONTRACT_EFFECTIVE_FROM:
+            errors.append(
+                "revenue_unreacted_range v3 effective_from must be "
+                f"{CONTRACT_EFFECTIVE_FROM}"
+            )
+        if contract.get("production_source_file") != (
+            "scripts/build_daily_revenue_unreacted_range_operation_section.py"
+        ):
+            errors.append("v3 contract must use the model-owned revenue operation producer")
+        if contract.get("condition_function") != "_selected_source_mid_falling":
+            errors.append("v3 contract must pin the frozen source_mid_falling selector")
+        if contract.get("score_function") != "build_operation_section":
+            errors.append("v3 contract must use the dedicated operation-section entrypoint")
+        if contract.get("score_profile_id") != (
+            "revenue_unreacted_range_source_mid_falling_v2_frozen_no_score"
+        ):
+            errors.append("v3 contract must have no legacy score profile")
+        if not {
+            "latest_revenue_yoy_pct",
+            "cumulative_revenue_yoy_pct",
+            "source_table_date",
+            "point_in_time_status",
+            "date",
+            "open",
+            "high",
+            "low",
+            "close",
+        }.issubset(inputs):
+            errors.append("v3 contract is missing frozen monthly-revenue or OHLC inputs")
+        if "fundamental_catalyst_tags" in inputs or "event_catalyst_tags" in inputs:
+            errors.append("v3 contract inputs must exclude all legacy catalyst-tag scoring")
+        if any(
+            pattern.search(column.lower())
+            for column in inputs
+            for pattern in FINANCIAL_SOURCE_PATTERNS
+        ):
+            errors.append("v3 contract input_columns include financial-statement fields")
+        if any(contract.get(column) != "false" for column in (
+            "approved_for_daily_pdf",
+            "approved_for_tdcc_weekly_pdf",
+            "approved_for_individual_pdf",
+        )):
+            errors.append("promotion-candidate v3 contract must keep every PDF permission false")
         reason = contract.get("change_reason", "")
-        if "financial_statement_features_fail_closed_until_historical_pit" not in reason:
-            errors.append("contract change_reason must pin the financial-statement fail-closed decision")
-        if "pre_v2_history_quarantined" not in reason:
-            errors.append("contract change_reason must quarantine pre-v2 score history from formal evidence")
+        if "source_mid_falling_v2_contract_prepared_permissions_false" not in reason:
+            errors.append("contract change_reason must mark the permissions-false preparation stage")
+        if "legacy_generic_selector_retired" not in reason:
+            errors.append("contract change_reason must retire the legacy generic selector")
 
     parameter_rows = _read_rows(root / "output/latest/daily_candidate_model_parameters_latest.csv")
     parameter = _single_row(parameter_rows, key="model_id", value=MODEL_ID)
     if parameter is None:
         errors.append("daily model parameters must contain exactly one revenue_unreacted_range row")
     else:
+        main_conditions = parameter.get("main_conditions", "")
         add_score = parameter.get("add_score_items", "")
         forbidden = parameter.get("forbidden_veto", "")
         guidance = parameter.get("operation_guidance", "")
-        if "核准的非財務事件類型" not in add_score:
-            errors.append("parameter artifact does not expose the approved non-financial allowlist boundary")
-        if any(field in add_score for field in FINANCIAL_FIELDS):
-            errors.append("parameter artifact still exposes financial-statement add-score semantics")
+        if "source_mid_falling v2" not in main_conditions:
+            errors.append("parameter artifact must expose the frozen v2 selector")
+        if "不設 add-score、deduct-score" not in add_score:
+            errors.append("parameter artifact must forbid legacy scoring and reranking")
         for field in FINANCIAL_FIELDS:
             if field not in forbidden:
                 errors.append(f"parameter artifact fail-closed text omits {field}")
-        if "季／年財報維持獨立" not in guidance:
-            errors.append("parameter artifact does not separate monthly revenue from statements")
+        if parameter.get("score_profile_id") != (
+            "revenue_unreacted_range_source_mid_falling_v2_frozen_no_score"
+        ):
+            errors.append("parameter artifact must expose the frozen no-score profile")
+        if parameter.get("parameter_status") != "contract_prepared_permissions_false":
+            errors.append("parameter artifact must remain in the permissions-false preparation stage")
+        numeric_score_columns = (
+            "base_score",
+            "volume_ratio_bonus_per_1x",
+            "volume_ratio_bonus_cap",
+            "tdcc_positive_bonus",
+            "warrant_bullish_bonus",
+            "strong_revenue_bonus",
+            "lower_position_bonus",
+            "lower_position_max_off_60d_low_pct",
+            "high_return_penalty_threshold_20d",
+            "high_return_penalty",
+            "tdcc_distribution_penalty",
+            "false_breakout_penalty",
+        )
+        if any(parameter.get(column, "") for column in numeric_score_columns):
+            errors.append("parameter artifact must not retain any legacy numeric score value")
+        if "forward_holdout_v2 僅作上線後監測" not in guidance:
+            errors.append("parameter artifact must expose the non-hard forward-holdout boundary")
 
     audit_rows = _read_rows(
         root / "docs/latest/financial_statement_historical_pit_source_audit_latest.csv"
@@ -714,6 +817,10 @@ def validate(root: Path = ROOT) -> tuple[list[str], dict[str, int]]:
     signal_rows = _read_rows(root / "output/latest/daily_candidate_model_signals_latest.csv")
     revenue_signals = [row for row in signal_rows if row.get("model_id") == MODEL_ID]
     metrics["current_revenue_signal_rows"] = len(revenue_signals)
+    if revenue_signals:
+        errors.append(
+            "legacy revenue_unreacted_range must not emit current generic daily signal rows"
+        )
     for row in revenue_signals:
         components = row.get("score_components", "")
         for legacy in LEGACY_SCORE_COMPONENTS:

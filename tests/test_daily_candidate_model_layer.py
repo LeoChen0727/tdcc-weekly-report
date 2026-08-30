@@ -45,6 +45,10 @@ from validate_volume_breakout_watch import (  # noqa: E402
     advisory_source_lineage_errors,
     canonical_csv_slice_sha256 as validator_canonical_csv_slice_sha256,
 )
+from validate_daily_candidate_model_layer import (  # noqa: E402
+    dedicated_operation_only_derived_artifact_errors,
+    dedicated_operation_only_signal_errors,
+)
 
 LOW_VOLUME_MODEL_ID = "volume_range_breakout_v2_low_position_volume_attack"
 MID_VOLUME_MODEL_ID = "volume_range_breakout_v2_mid_position_momentum_attack"
@@ -226,12 +230,12 @@ def warrant_formal_sync_fixture() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFr
             "report_bucket": "mainstream",
             "source_row_index": "candidate:0",
             "stock_id": "2330",
-            "model_id": "revenue_unreacted_range",
+            "model_id": "hot_theme_pullback",
             "base_model_score": "80",
             "final_rank_score": "80",
             "model_score": "80",
             "model_rank": "2",
-            "score_components": "base=50 | revenue strong +30",
+            "score_components": "base=50 | hot theme +30",
             "warrant_flow_signal": "no_signal",
         },
         {
@@ -240,12 +244,12 @@ def warrant_formal_sync_fixture() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFr
             "report_bucket": "mainstream",
             "source_row_index": "candidate:1",
             "stock_id": "2317",
-            "model_id": "revenue_unreacted_range",
+            "model_id": "hot_theme_pullback",
             "base_model_score": "81",
             "final_rank_score": "81",
             "model_score": "81",
             "model_rank": "1",
-            "score_components": "base=50 | revenue strong +28 | warrant bullish +3",
+            "score_components": "base=50 | hot theme +26 | warrant bullish +5",
             "warrant_flow_signal": "call_inflow",
         },
         {
@@ -444,6 +448,28 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             }.issubset(model_ids)
         )
 
+    def test_revenue_v2_metadata_remains_visible_without_legacy_scoring(self) -> None:
+        params = build_parameter_table(build_specs()).set_index("model_id")
+        revenue = params.loc["revenue_unreacted_range"]
+
+        self.assertEqual(revenue["pdf_visibility"], "pdf_core_model")
+        self.assertEqual(revenue["entry_basis"], "confirmation_d2_open")
+        self.assertEqual(
+            revenue["score_profile_id"],
+            "revenue_unreacted_range_source_mid_falling_v2_frozen_no_score",
+        )
+        self.assertEqual(
+            revenue["score_profile_scope"],
+            "not_applicable_dedicated_operation_adapter",
+        )
+        self.assertEqual(
+            revenue["parameter_status"],
+            "contract_prepared_permissions_false",
+        )
+        self.assertEqual(revenue["base_score"], "")
+        self.assertIn("凍結 source_mid_falling v2", revenue["main_conditions"])
+        self.assertIn("D+2 開盤", revenue["operation_guidance"])
+
     def test_parameter_table_keeps_pdf_research_and_event_layers_separate(self) -> None:
         params = build_parameter_table(build_specs()).set_index("model_id")
         self.assertNotIn("volume_range_breakout", params.index)
@@ -607,6 +633,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             LOW_VOLUME_MODEL_ID: "confirmation_next_open",
             MID_VOLUME_MODEL_ID: "confirmation_next_open",
             HIGH_VOLUME_MODEL_ID: "confirmation_next_open",
+            "revenue_unreacted_range": "confirmation_d2_open",
         }
         for _, row in pdf_rows.iterrows():
             self.assertEqual(
@@ -2620,6 +2647,147 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         self.assertFalse(cond_revenue_unreacted(row))
         self.assertFalse(cond_tdcc_stealth(row))
 
+    def test_legacy_revenue_selector_is_immutable_but_unreachable_from_daily_signals(self) -> None:
+        row = make_row(
+            volume_ratio="1.0",
+            volume_breakout_type="",
+            volume_confirmed_breakout="False",
+            latest_revenue_yoy="35",
+            cumulative_yoy_pct="25",
+            return_5d="0",
+            return_20d="0",
+            close="100",
+            high_20="105",
+            low_20="95",
+        )
+        self.assertTrue(cond_revenue_unreacted(row))
+
+        revenue_spec = next(
+            spec
+            for spec in build_specs()
+            if spec.model_id == "revenue_unreacted_range"
+        )
+        self.assertEqual(
+            revenue_spec.condition_func.__name__,
+            "cond_revenue_unreacted",
+        )
+        self.assertTrue(revenue_spec.condition_func(row))
+
+        signals = build_signals(
+            pd.DataFrame([row]),
+            build_specs(),
+            "20260831",
+        )
+        self.assertFalse(
+            signals.get("model_id", pd.Series(dtype=str))
+            .astype(str)
+            .eq("revenue_unreacted_range")
+            .any()
+        )
+
+    def test_generic_signal_validator_rejects_dedicated_revenue_rows(self) -> None:
+        generic = pd.DataFrame(
+            [
+                {"model_id": "revenue_unreacted_range"},
+                {"model_id": "price_pullback_23ema"},
+            ]
+        )
+        errors = dedicated_operation_only_signal_errors(
+            generic,
+            artifact_name="raw.csv",
+        )
+
+        self.assertEqual(len(errors), 1)
+        self.assertIn("artifact=raw.csv", errors[0])
+        self.assertIn("model_id=revenue_unreacted_range", errors[0])
+        self.assertEqual(
+            dedicated_operation_only_signal_errors(
+                generic[
+                    generic["model_id"].ne("revenue_unreacted_range")
+                ],
+                artifact_name="report.csv",
+            ),
+            [],
+        )
+
+    def test_derived_artifact_validator_rejects_legacy_revenue_rosters(self) -> None:
+        frontpage = pd.DataFrame(
+            [
+                {
+                    "primary_model_id": "revenue_unreacted_range",
+                    "model_hit_ids": "price_pullback_23ema|revenue_unreacted_range",
+                }
+            ]
+        )
+        repeat = pd.DataFrame([{"model_id": "revenue_unreacted_range"}])
+        summary = pd.DataFrame(
+            [
+                {
+                    "model_id": "revenue_unreacted_range",
+                    "new_stock_id": "6177",
+                    "new_stock_name": "達麗",
+                    "repeated_stock_id": "",
+                    "repeated_stock_name": "",
+                    "new_signal_stock_display": "6177 達麗",
+                    "new_stock_display": "6177 達麗",
+                    "repeated_signal_stock_display": "今日無候選",
+                    "repeated_stock_display": "今日無候選",
+                }
+            ]
+        )
+
+        errors = dedicated_operation_only_derived_artifact_errors(
+            frontpage,
+            repeat,
+            summary,
+        )
+
+        self.assertEqual(len(errors), 3)
+        self.assertTrue(
+            any("forbidden_in_frontpage_artifact" in error for error in errors)
+        )
+        self.assertTrue(
+            any("forbidden_in_repeat_artifact" in error for error in errors)
+        )
+        self.assertTrue(
+            any("summary_must_be_empty_roster_row" in error for error in errors)
+        )
+
+    def test_derived_artifact_validator_allows_empty_revenue_summary_row(self) -> None:
+        frontpage = pd.DataFrame(
+            [
+                {
+                    "primary_model_id": "price_pullback_23ema",
+                    "model_hit_ids": "price_pullback_23ema",
+                }
+            ]
+        )
+        repeat = pd.DataFrame([{"model_id": "price_pullback_23ema"}])
+        summary = pd.DataFrame(
+            [
+                {
+                    "model_id": "revenue_unreacted_range",
+                    "new_stock_id": "",
+                    "new_stock_name": "",
+                    "repeated_stock_id": "",
+                    "repeated_stock_name": "",
+                    "new_signal_stock_display": "今日無候選",
+                    "new_stock_display": "今日無候選",
+                    "repeated_signal_stock_display": "今日無候選",
+                    "repeated_stock_display": "今日無候選",
+                }
+            ]
+        )
+
+        self.assertEqual(
+            dedicated_operation_only_derived_artifact_errors(
+                frontpage,
+                repeat,
+                summary,
+            ),
+            [],
+        )
+
     def test_model_signal_log_replaces_current_date_snapshot(self) -> None:
         current = pd.DataFrame(
             [
@@ -3154,25 +3322,25 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             protected_after.reset_index(drop=True),
         )
 
-        revenue = synced_raw[
-            synced_raw["model_id"].eq("revenue_unreacted_range")
+        mutable = synced_raw[
+            synced_raw["model_id"].eq("hot_theme_pullback")
         ].set_index("stock_id")
-        self.assertEqual(revenue.loc["2330", "model_score"], "83.0")
-        self.assertEqual(revenue.loc["2330", "model_rank"], "1")
-        self.assertIn("warrant bullish +3", revenue.loc["2330", "score_components"])
-        self.assertEqual(revenue.loc["2317", "model_score"], "78.0")
-        self.assertEqual(revenue.loc["2317", "model_rank"], "2")
-        self.assertNotIn("warrant bullish", revenue.loc["2317", "score_components"])
-        revenue_report = synced_report[
-            synced_report["model_id"].eq("revenue_unreacted_range")
+        self.assertEqual(mutable.loc["2330", "model_score"], "85.0")
+        self.assertEqual(mutable.loc["2330", "model_rank"], "1")
+        self.assertIn("warrant bullish +5", mutable.loc["2330", "score_components"])
+        self.assertEqual(mutable.loc["2317", "model_score"], "76.0")
+        self.assertEqual(mutable.loc["2317", "model_rank"], "2")
+        self.assertNotIn("warrant bullish", mutable.loc["2317", "score_components"])
+        mutable_report = synced_report[
+            synced_report["model_id"].eq("hot_theme_pullback")
         ].set_index("stock_id")
         self.assertEqual(
-            revenue_report.loc["2330", "merged_score_components"],
-            "base=50 / revenue strong +30 / warrant bullish +3",
+            mutable_report.loc["2330", "merged_score_components"],
+            "base=50 / hot theme +30 / warrant bullish +5",
         )
         self.assertEqual(
-            revenue_report.loc["2317", "merged_score_components"],
-            "base=50 / revenue strong +28",
+            mutable_report.loc["2317", "merged_score_components"],
+            "base=50 / hot theme +26",
         )
         protected = synced_raw.set_index("stock_id")
         self.assertEqual(protected.loc["2454", "warrant_flow_signal"], "call_inflow")
@@ -3724,7 +3892,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             )
         )
         synced_report.loc[
-            synced_report["model_id"].eq("revenue_unreacted_range"),
+            synced_report["model_id"].eq("hot_theme_pullback"),
             "score_components_zh",
         ] = "fresh allowed display"
         synced_report.loc[
@@ -3738,22 +3906,22 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             synced_history,
         )
 
-        revenue_raw = final_raw[
-            final_raw["model_id"].eq("revenue_unreacted_range")
+        mutable_raw = final_raw[
+            final_raw["model_id"].eq("hot_theme_pullback")
         ]
-        self.assertEqual(set(revenue_raw["score_components_zh"]), {"fresh allowed display"})
+        self.assertEqual(set(mutable_raw["score_components_zh"]), {"fresh allowed display"})
         protected_raw = final_raw[
             final_raw["model_id"].eq("price_pullback_23ema")
         ].iloc[0]
         self.assertEqual(protected_raw["score_components_zh"], protected_original)
         prior = final_history[final_history["signal_date"].eq("20260715")].iloc[0]
         self.assertEqual(prior["score_components_zh"], "history")
-        current_revenue = final_history[
+        current_mutable = final_history[
             final_history["signal_date"].eq("20260717")
-            & final_history["model_id"].eq("revenue_unreacted_range")
+            & final_history["model_id"].eq("hot_theme_pullback")
         ]
         self.assertEqual(
-            set(current_revenue["score_components_zh"]),
+            set(current_mutable["score_components_zh"]),
             {"fresh allowed display"},
         )
 
