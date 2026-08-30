@@ -65,6 +65,82 @@ REVENUE_PRE_PROMOTION_BLOCKER = (
 REVENUE_PRE_PROMOTION_ACTION = (
     "exact_frozen_evidence_ready_do_not_promote_until_model_contract_sync"
 )
+REVENUE_PREPARED_PERMISSION_BLOCKER = (
+    "exact_frozen_evidence_ready_and_v3_dedicated_adapter_prepared_but_"
+    "production_permissions_false"
+)
+REVENUE_PREPARED_PERMISSION_ACTION = (
+    "keep_v3_dedicated_adapter_prepared_permissions_false_until_authorized_activation"
+)
+REVENUE_LEGACY_CONTRACT_STATE = "legacy_v2_proxy"
+REVENUE_PREPARED_CONTRACT_STATE = "v3_dedicated_adapter_permissions_false"
+REVENUE_UNSUPPORTED_CONTRACT_STATE = "unsupported"
+REVENUE_LEGACY_REGISTRY_FIELDS = {
+    "model_id": REVENUE_MODEL_ID,
+    "contract_version": "v2",
+    "owner_lane": "daily_model_maintenance",
+    "production_source_file": "scripts/build_daily_candidate_model_layer.py",
+    "condition_function": "cond_revenue_unreacted",
+    "score_function": "score_revenue_unreacted",
+    "score_profile_id": "revenue_unreacted_range",
+    "pdf_visibility": "pdf_core_model",
+    "approved_for_daily_pdf": "true",
+    "research_baseline_required": "true",
+}
+REVENUE_LEGACY_CONDITION_FIELDS = {
+    "model_id": REVENUE_MODEL_ID,
+    "production_source": "ModelSpec",
+    "condition_function": "cond_revenue_unreacted",
+    "score_function": "score_revenue_unreacted",
+    "score_profile_id": "revenue_unreacted_range",
+    "research_baseline_status": "proxy_only",
+    "operation_contract": "none",
+}
+REVENUE_LEGACY_PRODUCTION_FIELDS = {
+    "model_id": REVENUE_MODEL_ID,
+    "pdf_visibility": "pdf_core_model",
+    "score_profile_id": "revenue_unreacted_range",
+    "score_profile_scope": "model_specific",
+    "parameter_status": "initial_program_rule_pending_backtest_optimization",
+}
+REVENUE_PREPARED_REGISTRY_FIELDS = {
+    "model_id": REVENUE_MODEL_ID,
+    "contract_version": "v3",
+    "owner_lane": "daily_model_maintenance",
+    "production_source_file": (
+        "scripts/build_daily_revenue_unreacted_range_operation_section.py"
+    ),
+    "condition_function": "_selected_source_mid_falling",
+    "score_function": "build_operation_section",
+    "score_profile_id": (
+        "revenue_unreacted_range_source_mid_falling_v2_frozen_no_score"
+    ),
+    "pdf_visibility": "pdf_core_model",
+    "approved_for_daily_pdf": "false",
+    "research_baseline_required": "true",
+}
+REVENUE_PREPARED_CONDITION_FIELDS = {
+    "model_id": REVENUE_MODEL_ID,
+    "production_source": "dedicated_operation_adapter_v2",
+    "condition_function": "_selected_source_mid_falling",
+    "score_function": "build_operation_section",
+    "score_profile_id": (
+        "revenue_unreacted_range_source_mid_falling_v2_frozen_no_score"
+    ),
+    "research_baseline_status": "proxy_only",
+    "operation_contract": (
+        "revenue_unreacted_range_source_mid_falling_v2_operation_v2"
+    ),
+}
+REVENUE_PREPARED_PRODUCTION_FIELDS = {
+    "model_id": REVENUE_MODEL_ID,
+    "pdf_visibility": "pdf_core_model",
+    "score_profile_id": (
+        "revenue_unreacted_range_source_mid_falling_v2_frozen_no_score"
+    ),
+    "score_profile_scope": "not_applicable_dedicated_operation_adapter",
+    "parameter_status": "contract_prepared_permissions_false",
+}
 REVENUE_ARTIFACT_PINS = {
     REVENUE_EVIDENCE_PATH: (
         3956,
@@ -309,6 +385,35 @@ def split_ids(value: str) -> list[str]:
     return [part.strip() for part in str(value or "").split(",") if part.strip()]
 
 
+def _matches_exact_fields(
+    row: dict[str, str] | None,
+    expected: dict[str, str],
+) -> bool:
+    if row is None:
+        return False
+    return all(row.get(field, "").strip() == value for field, value in expected.items())
+
+
+def revenue_contract_state(
+    registry_row: dict[str, str] | None,
+    condition_row: dict[str, str] | None,
+    production_row: dict[str, str] | None,
+) -> str:
+    if (
+        _matches_exact_fields(registry_row, REVENUE_LEGACY_REGISTRY_FIELDS)
+        and _matches_exact_fields(condition_row, REVENUE_LEGACY_CONDITION_FIELDS)
+        and _matches_exact_fields(production_row, REVENUE_LEGACY_PRODUCTION_FIELDS)
+    ):
+        return REVENUE_LEGACY_CONTRACT_STATE
+    if (
+        _matches_exact_fields(registry_row, REVENUE_PREPARED_REGISTRY_FIELDS)
+        and _matches_exact_fields(condition_row, REVENUE_PREPARED_CONDITION_FIELDS)
+        and _matches_exact_fields(production_row, REVENUE_PREPARED_PRODUCTION_FIELDS)
+    ):
+        return REVENUE_PREPARED_CONTRACT_STATE
+    return REVENUE_UNSUPPORTED_CONTRACT_STATE
+
+
 def production_core_rows() -> tuple[dict[str, dict[str, str]], list[str]]:
     errors: list[str] = []
     try:
@@ -415,6 +520,11 @@ def contract_drift_blockers(
     production_row: dict[str, str] | None,
 ) -> list[str]:
     blockers: list[str] = []
+    revenue_state = (
+        revenue_contract_state(registry_row, condition_row, production_row)
+        if model_id == REVENUE_MODEL_ID
+        else ""
+    )
     if registry_row is None:
         return ["production core model is not present in config/stock_model_contract_registry.csv"]
     if condition_row is None:
@@ -426,7 +536,18 @@ def contract_drift_blockers(
         blockers.append("stock model contract owner_lane must be daily_model_maintenance")
     if registry_row.get("pdf_visibility", "").strip() != "pdf_core_model":
         blockers.append("stock model contract pdf_visibility must remain pdf_core_model for research parity")
-    if registry_row.get("approved_for_daily_pdf", "").strip() != "true":
+    if model_id == REVENUE_MODEL_ID and revenue_state == REVENUE_UNSUPPORTED_CONTRACT_STATE:
+        blockers.append(
+            "revenue contract must match exact legacy v2 proxy or exact v3 "
+            "dedicated-adapter permissions-false prepared state"
+        )
+    if (
+        registry_row.get("approved_for_daily_pdf", "").strip() != "true"
+        and not (
+            model_id == REVENUE_MODEL_ID
+            and revenue_state == REVENUE_PREPARED_CONTRACT_STATE
+        )
+    ):
         blockers.append("production core model must keep approved_for_daily_pdf=true")
     if registry_row.get("research_baseline_required", "").strip() != "true":
         blockers.append("production core model must keep research_baseline_required=true")
@@ -466,6 +587,11 @@ def classify_row(
     research_row: dict[str, str] | None,
     metric_rows: list[dict[str, str]],
 ) -> dict[str, str]:
+    revenue_state = (
+        revenue_contract_state(registry_row, condition_row, production_row)
+        if model_id == REVENUE_MODEL_ID
+        else ""
+    )
     contract_blockers = contract_drift_blockers(model_id, registry_row, condition_row, production_row)
     fingerprint_match = not contract_blockers
     production_version = (registry_row or {}).get("contract_version", "").strip()
@@ -497,9 +623,18 @@ def classify_row(
             revenue_binding_blockers.append(
                 "daily_model_condition_spec.research_baseline_status must remain proxy_only"
             )
-        if (condition_row or {}).get("operation_contract", "").strip() != "none":
+        expected_operation_contract = (
+            REVENUE_PREPARED_CONDITION_FIELDS["operation_contract"]
+            if revenue_state == REVENUE_PREPARED_CONTRACT_STATE
+            else "none"
+        )
+        if (
+            (condition_row or {}).get("operation_contract", "").strip()
+            != expected_operation_contract
+        ):
             revenue_binding_blockers.append(
-                "daily_model_condition_spec.operation_contract must remain none before promotion"
+                "daily_model_condition_spec.operation_contract must match the exact "
+                f"supported revenue state: {expected_operation_contract}"
             )
         try:
             load_revenue_frozen_evidence()
@@ -537,10 +672,21 @@ def classify_row(
     # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
     elif model_id == REVENUE_MODEL_ID:
         parity_status = "warning_research_variant_only"
-        recommended_action = REVENUE_PRE_PROMOTION_ACTION
+        prepared_permissions_false = (
+            revenue_state == REVENUE_PREPARED_CONTRACT_STATE
+        )
+        recommended_action = (
+            REVENUE_PREPARED_PERMISSION_ACTION
+            if prepared_permissions_false
+            else REVENUE_PRE_PROMOTION_ACTION
+        )
         approved_research_variant = True
         promotion_required = True
-        blockers = [REVENUE_PRE_PROMOTION_BLOCKER]
+        blockers = [
+            REVENUE_PREPARED_PERMISSION_BLOCKER
+            if prepared_permissions_false
+            else REVENUE_PRE_PROMOTION_BLOCKER
+        ]
         research_version = f"research:{REVENUE_EVIDENCE_VERSION}"
         evidence_path = REVENUE_EVIDENCE_PATH
         evidence_status = REVENUE_EVIDENCE_STATUS
@@ -746,6 +892,9 @@ def validate_rows(rows: list[dict[str, str]], source_errors: list[str]) -> list[
             errors.append(f"{row['model_id']} exact parity row must not require promotion")
         # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
         if row["model_id"] == REVENUE_MODEL_ID:
+            prepared_permissions_false = (
+                row["production_contract_version"] == "v3"
+            )
             expected = {
                 "parity_status": "warning_research_variant_only",
                 "research_contract_version": f"research:{REVENUE_EVIDENCE_VERSION}",
@@ -754,8 +903,16 @@ def validate_rows(rows: list[dict[str, str]], source_errors: list[str]) -> list[
                 "research_permission_status": REVENUE_EVIDENCE_PERMISSION_STATUS,
                 "approved_research_variant": "True",
                 "promotion_required": "True",
-                "parity_blocker": REVENUE_PRE_PROMOTION_BLOCKER,
-                "recommended_action": REVENUE_PRE_PROMOTION_ACTION,
+                "parity_blocker": (
+                    REVENUE_PREPARED_PERMISSION_BLOCKER
+                    if prepared_permissions_false
+                    else REVENUE_PRE_PROMOTION_BLOCKER
+                ),
+                "recommended_action": (
+                    REVENUE_PREPARED_PERMISSION_ACTION
+                    if prepared_permissions_false
+                    else REVENUE_PRE_PROMOTION_ACTION
+                ),
             }
             for field, expected_value in expected.items():
                 if row[field] != expected_value:
