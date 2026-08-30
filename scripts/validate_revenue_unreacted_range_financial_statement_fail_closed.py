@@ -12,6 +12,9 @@ ROOT = Path(__file__).resolve().parents[1]
 MODEL_ID = "revenue_unreacted_range"
 EFFECTIVE_FROM = "2026-07-16"
 EFFECTIVE_DATE = "20260716"
+VALIDATION_PHASE_FULL = "full"
+VALIDATION_PHASE_RUNTIME = "runtime"
+VALIDATION_PHASES = (VALIDATION_PHASE_FULL, VALIDATION_PHASE_RUNTIME)
 APPROVED_NON_FINANCIAL_EVENT_TYPES = {
     "new_order",
     "customer_win",
@@ -375,27 +378,9 @@ def _classify_history_dates(
     return pre_v2, post_v2, errors
 
 
-def _legacy_history_quarantine_errors(root: Path) -> tuple[list[str], int]:
+def _current_promotion_block_errors(root: Path) -> tuple[list[str], int]:
     errors: list[str] = []
     controls = 0
-
-    condition_rows = _read_rows(root / "config/daily_model_condition_spec.csv")
-    condition = _single_row(condition_rows, key="model_id", value=MODEL_ID)
-    if condition is None:
-        errors.append("daily_model_condition_spec must contain exactly one revenue row")
-    elif (
-        condition.get("research_baseline_status") != "proxy_only"
-        or condition.get("operation_contract") != "none"
-    ):
-        errors.append("revenue condition spec must remain proxy_only with no operation contract")
-    else:
-        controls += 1
-
-    evidence_rows = _read_rows(root / "config/formal_model_evidence_pins.csv")
-    if any(row.get("model_id") == MODEL_ID for row in evidence_rows):
-        errors.append("revenue_unreacted_range must not have a formal evidence pin")
-    else:
-        controls += 1
 
     parity_rows = _read_rows(root / "output/latest/model_contract_parity_latest.csv")
     parity = _single_row(parity_rows, key="model_id", value=MODEL_ID)
@@ -422,6 +407,35 @@ def _legacy_history_quarantine_errors(root: Path) -> tuple[list[str], int]:
         errors.append("revenue operation readiness must remain non-formal and non-presentable")
     else:
         controls += 1
+
+    return errors, controls
+
+
+def _legacy_history_quarantine_errors(root: Path) -> tuple[list[str], int]:
+    errors: list[str] = []
+    controls = 0
+
+    condition_rows = _read_rows(root / "config/daily_model_condition_spec.csv")
+    condition = _single_row(condition_rows, key="model_id", value=MODEL_ID)
+    if condition is None:
+        errors.append("daily_model_condition_spec must contain exactly one revenue row")
+    elif (
+        condition.get("research_baseline_status") != "proxy_only"
+        or condition.get("operation_contract") != "none"
+    ):
+        errors.append("revenue condition spec must remain proxy_only with no operation contract")
+    else:
+        controls += 1
+
+    evidence_rows = _read_rows(root / "config/formal_model_evidence_pins.csv")
+    if any(row.get("model_id") == MODEL_ID for row in evidence_rows):
+        errors.append("revenue_unreacted_range must not have a formal evidence pin")
+    else:
+        controls += 1
+
+    current_errors, current_controls = _current_promotion_block_errors(root)
+    errors.extend(current_errors)
+    controls += current_controls
 
     signal_log = "output/history/daily_candidate_models/daily_candidate_model_signal_log.csv"
     background_rows = _read_rows(root / "config/daily_model_background_data_registry.csv")
@@ -470,16 +484,8 @@ def _legacy_history_quarantine_errors(root: Path) -> tuple[list[str], int]:
     return errors, controls
 
 
-def validate(root: Path = ROOT) -> tuple[list[str], dict[str, int]]:
+def _static_semantic_errors(root: Path) -> list[str]:
     errors: list[str] = []
-    metrics = {
-        "current_revenue_signal_rows": 0,
-        "pre_v2_legacy_history_rows": 0,
-        "post_v2_history_rows": 0,
-        "historical_pit_audit_rows": 0,
-        "quarantine_control_count": 0,
-    }
-
     source_path = root / "scripts/build_daily_candidate_model_layer.py"
     source_text = source_path.read_text(encoding="utf-8")
     tree = ast.parse(source_text, filename=str(source_path))
@@ -573,6 +579,11 @@ def validate(root: Path = ROOT) -> tuple[list[str], dict[str, int]]:
         if "pre_v2_history_quarantined" not in reason:
             errors.append("contract change_reason must quarantine pre-v2 score history from formal evidence")
 
+    return errors
+
+
+def _current_parameter_errors(root: Path) -> list[str]:
+    errors: list[str] = []
     parameter_rows = _read_rows(root / "output/latest/daily_candidate_model_parameters_latest.csv")
     parameter = _single_row(parameter_rows, key="model_id", value=MODEL_ID)
     if parameter is None:
@@ -591,10 +602,14 @@ def validate(root: Path = ROOT) -> tuple[list[str], dict[str, int]]:
         if "季／年財報維持獨立" not in guidance:
             errors.append("parameter artifact does not separate monthly revenue from statements")
 
+    return errors
+
+
+def _historical_pit_errors(root: Path) -> tuple[list[str], int]:
+    errors: list[str] = []
     audit_rows = _read_rows(
         root / "docs/latest/financial_statement_historical_pit_source_audit_latest.csv"
     )
-    metrics["historical_pit_audit_rows"] = len(audit_rows)
     if not audit_rows:
         errors.append("historical financial-statement PIT source audit is empty")
     for index, row in enumerate(audit_rows, start=2):
@@ -605,6 +620,11 @@ def validate(root: Path = ROOT) -> tuple[list[str], dict[str, int]]:
                 f"historical PIT audit row {index} must remain formal_model_use_allowed=False"
             )
 
+    return errors, len(audit_rows)
+
+
+def _current_signal_errors(root: Path) -> tuple[list[str], int]:
+    errors: list[str] = []
     candidate_rows = _read_rows(root / "output/latest/all_candidates_latest.csv")
     candidate_by_source = {
         (_source_index(row.get("source_row_index", "")), row.get("stock_id", "")): row
@@ -612,7 +632,6 @@ def validate(root: Path = ROOT) -> tuple[list[str], dict[str, int]]:
     }
     signal_rows = _read_rows(root / "output/latest/daily_candidate_model_signals_latest.csv")
     revenue_signals = [row for row in signal_rows if row.get("model_id") == MODEL_ID]
-    metrics["current_revenue_signal_rows"] = len(revenue_signals)
     for row in revenue_signals:
         components = row.get("score_components", "")
         for legacy in LEGACY_SCORE_COMPONENTS:
@@ -636,39 +655,100 @@ def validate(root: Path = ROOT) -> tuple[list[str], dict[str, int]]:
                 f"stock_id={source_key[1]} event_type={event_type or 'empty'}"
             )
 
+    return errors, len(revenue_signals)
+
+
+def _history_classification_errors(root: Path) -> tuple[list[str], int, int]:
     history_rows = _read_rows(
         root / "output/history/daily_candidate_models/daily_candidate_model_signal_log.csv"
     )
     revenue_history = [row for row in history_rows if row.get("model_id") == MODEL_ID]
     pre_v2, post_v2, date_errors = _classify_history_dates(revenue_history)
-    metrics["pre_v2_legacy_history_rows"] = pre_v2
-    metrics["post_v2_history_rows"] = post_v2
-    errors.extend(date_errors)
 
-    quarantine_errors, quarantine_controls = _legacy_history_quarantine_errors(root)
+    return date_errors, pre_v2, post_v2
+
+
+def validate(
+    root: Path = ROOT, *, phase: str = VALIDATION_PHASE_FULL
+) -> tuple[list[str], dict[str, int]]:
+    if phase not in VALIDATION_PHASES:
+        raise ValueError(
+            f"unsupported validation phase={phase!r}; expected one of {VALIDATION_PHASES}"
+        )
+
+    errors: list[str] = []
+    metrics = {
+        "current_revenue_signal_rows": 0,
+        "pre_v2_legacy_history_rows": 0,
+        "post_v2_history_rows": 0,
+        "historical_pit_audit_rows": 0,
+        "quarantine_control_count": 0,
+    }
+
+    if phase == VALIDATION_PHASE_FULL:
+        errors.extend(_static_semantic_errors(root))
+
+    errors.extend(_current_parameter_errors(root))
+
+    if phase == VALIDATION_PHASE_FULL:
+        pit_errors, pit_rows = _historical_pit_errors(root)
+        errors.extend(pit_errors)
+        metrics["historical_pit_audit_rows"] = pit_rows
+
+    signal_errors, signal_rows = _current_signal_errors(root)
+    errors.extend(signal_errors)
+    metrics["current_revenue_signal_rows"] = signal_rows
+
+    if phase == VALIDATION_PHASE_FULL:
+        history_errors, pre_v2, post_v2 = _history_classification_errors(root)
+        errors.extend(history_errors)
+        metrics["pre_v2_legacy_history_rows"] = pre_v2
+        metrics["post_v2_history_rows"] = post_v2
+
+        quarantine_errors, quarantine_controls = _legacy_history_quarantine_errors(root)
+    else:
+        quarantine_errors, quarantine_controls = _current_promotion_block_errors(root)
     errors.extend(quarantine_errors)
     metrics["quarantine_control_count"] = quarantine_controls
 
     return errors, metrics
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--repo-root", type=Path, default=ROOT)
-    args = parser.parse_args()
-    errors, metrics = validate(args.repo_root.resolve())
+    parser.add_argument(
+        "--phase",
+        choices=VALIDATION_PHASES,
+        default=VALIDATION_PHASE_FULL,
+        help="full keeps static and historical gates; runtime checks rebuilt current artifacts only",
+    )
+    args = parser.parse_args(argv)
+    errors, metrics = validate(args.repo_root.resolve(), phase=args.phase)
+    print(f"validation_phase={args.phase}")
     if errors:
         for error in errors:
             print(f"ERROR: {error}")
         return 1
-    print(
-        "revenue_unreacted_range financial-statement fail-closed validation passed: "
-        f"current_rows={metrics['current_revenue_signal_rows']} "
-        f"pre_v2_history_quarantined={metrics['pre_v2_legacy_history_rows']} "
-        f"post_v2_history_rows={metrics['post_v2_history_rows']} "
-        f"historical_pit_audit_rows={metrics['historical_pit_audit_rows']} "
-        f"quarantine_controls={metrics['quarantine_control_count']}"
-    )
+    if args.phase == VALIDATION_PHASE_FULL:
+        print(
+            "revenue_unreacted_range financial-statement fail-closed validation passed: "
+            f"current_rows={metrics['current_revenue_signal_rows']} "
+            f"pre_v2_history_quarantined={metrics['pre_v2_legacy_history_rows']} "
+            f"post_v2_history_rows={metrics['post_v2_history_rows']} "
+            f"historical_pit_audit_rows={metrics['historical_pit_audit_rows']} "
+            f"quarantine_controls={metrics['quarantine_control_count']}"
+        )
+    else:
+        print(
+            "revenue_unreacted_range financial-statement fail-closed validation passed: "
+            f"current_rows={metrics['current_revenue_signal_rows']} "
+            f"runtime_promotion_controls={metrics['quarantine_control_count']} "
+            "runtime_scope=current_parameters,current_parity,current_readiness,"
+            "current_signal_trace,current_score_event "
+            "skipped=static_ast,static_config,historical_pit,full_history,"
+            "history_consumer_scan"
+        )
     return 0
 
 

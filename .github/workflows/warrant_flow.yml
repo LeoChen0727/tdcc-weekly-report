@@ -163,6 +163,9 @@ jobs:
           PY
             LC_ALL=C sort -k2,2 -u "$output_file" -o "$output_file"
           }
+          sentinel_helper="$RUNNER_TEMP/warrant-flow-mature-sentinel-helper.sh"
+          declare -p mature_sentinel_patterns > "$sentinel_helper"
+          declare -f capture_mature_sentinels >> "$sentinel_helper"
 
           python scripts/validate_data_freshness_latest.py
           python scripts/validate_daily_published_model_snapshots.py
@@ -200,7 +203,17 @@ jobs:
           python scripts/validate_daily_canonical_field_lineage.py
           python scripts/build_volume_v2_warrant_lineage_history_audit.py
           python scripts/validate_volume_v2_warrant_lineage_history_audit.py
-          python scripts/validate_revenue_unreacted_range_financial_statement_fail_closed.py
+
+      - name: Validate revenue current artifact fail-closed contract
+        run: python scripts/validate_revenue_unreacted_range_financial_statement_fail_closed.py --phase runtime
+
+      - name: Build warrant downstream formal sync artifacts
+        run: |
+          mature_sentinel_before="$RUNNER_TEMP/warrant-flow-mature-model-before.sha256"
+          mature_sentinel_after="$RUNNER_TEMP/warrant-flow-mature-model-after.sha256"
+          warrant_formal_sync_scope_before="$RUNNER_TEMP/warrant-formal-sync-scope-before.json"
+          warrant_formal_sync_scope_after="$RUNNER_TEMP/warrant-formal-sync-scope-after.json"
+          source "$RUNNER_TEMP/warrant-flow-mature-sentinel-helper.sh"
           python scripts/build_daily_report_model_summary.py
           python scripts/build_theme_event_watch.py
           python scripts/update_daily_published_model_snapshots.py \

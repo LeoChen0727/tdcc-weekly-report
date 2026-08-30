@@ -9,6 +9,10 @@ from scripts.sync_catalyst_pages_artifacts import CATALYST_PAGES_ARTIFACTS, sync
 
 
 ROOT = Path(__file__).resolve().parents[1]
+REVENUE_RUNTIME_COMMAND = (
+    "python scripts/validate_revenue_unreacted_range_financial_statement_fail_closed.py "
+    "--phase runtime"
+)
 
 
 def test_sync_catalyst_pages_artifacts_copies_required_files(tmp_path: Path) -> None:
@@ -168,7 +172,7 @@ def test_event_workflow_is_source_only_and_prepares_protected_artifact_pr() -> N
     assert preflight_index < checkout_index < prepare_index < branch_push_index
 
 
-def test_weekly_workflow_publishes_pages_and_uses_full_validation() -> None:
+def test_weekly_workflow_publishes_pages_and_uses_runtime_validation() -> None:
     workflows = {
         ROOT / ".github" / "workflows" / "weekly_theme_review.yml": (
             "weekly_theme_formal_sync"
@@ -192,7 +196,11 @@ def test_weekly_workflow_publishes_pages_and_uses_full_validation() -> None:
         assert "python scripts/sync_catalyst_pages_artifacts.py" in text
         assert "python scripts/build_daily_candidate_model_layer.py" in text
         assert "python scripts/validate_daily_candidate_model_layer.py" in text
-        assert "python scripts/validate_revenue_unreacted_range_financial_statement_fail_closed.py" in text
+        assert text.count(f"        run: {REVENUE_RUNTIME_COMMAND}\n") == 1
+        assert (
+            "          python scripts/validate_revenue_unreacted_range_"
+            "financial_statement_fail_closed.py\n"
+        ) not in text
         assert "python scripts/build_daily_report_model_summary.py" in text
         assert "python scripts/audit_daily_candidate_model_selection_correctness.py" in text
         assert "python scripts/audit_daily_candidate_pipeline_integrity.py" in text
@@ -287,7 +295,7 @@ def test_weekly_workflow_publishes_pages_and_uses_full_validation() -> None:
         model_build_index = text.index("python scripts/build_daily_candidate_model_layer.py")
         model_validate_index = text.index("python scripts/validate_daily_candidate_model_layer.py")
         revenue_fail_closed_index = text.index(
-            "python scripts/validate_revenue_unreacted_range_financial_statement_fail_closed.py"
+            REVENUE_RUNTIME_COMMAND
         )
         model_summary_index = text.index("python scripts/build_daily_report_model_summary.py")
         selection_audit_index = text.index(
