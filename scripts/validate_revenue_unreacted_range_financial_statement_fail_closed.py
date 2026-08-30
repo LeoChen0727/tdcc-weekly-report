@@ -12,6 +12,36 @@ ROOT = Path(__file__).resolve().parents[1]
 MODEL_ID = "revenue_unreacted_range"
 EFFECTIVE_FROM = "2026-07-16"
 EFFECTIVE_DATE = "20260716"
+LEGACY_SIGNAL_LOG = (
+    "output/history/daily_candidate_models/daily_candidate_model_signal_log.csv"
+)
+LEGACY_ARCHIVE_MANIFEST = (
+    "config/revenue_unreacted_range_legacy_runtime_evidence_manifest.csv"
+)
+LEGACY_ARCHIVE_PRODUCER = (
+    "scripts/archive_revenue_unreacted_range_legacy_runtime_evidence.py"
+)
+LEGACY_ARCHIVE_VALIDATOR = (
+    "scripts/validate_revenue_unreacted_range_legacy_runtime_evidence.py"
+)
+LEGACY_ARCHIVE_ID = (
+    "legacy_revenue_unreacted_range_v1_signal_evidence_retirement_20260831"
+)
+LEGACY_ARCHIVE_ARTIFACT = (
+    "output/history/daily_candidate_models/"
+    "legacy_revenue_v1_signals_through_20260828_fad13a30ab334580.csv"
+)
+LEGACY_ARCHIVE_CANONICAL_SHA256 = (
+    "fad13a30ab3345807c0c096c9bf928754b2105301f1c708af105187e0778474d"
+)
+LEGACY_ARCHIVE_FORBIDDEN_USES = {
+    "daily_selection",
+    "pdf",
+    "ranking",
+    "promotion_evidence",
+    "formal_adapter",
+    "production_reactivation",
+}
 APPROVED_NON_FINANCIAL_EVENT_TYPES = {
     "new_order",
     "customer_win",
@@ -375,6 +405,78 @@ def _classify_history_dates(
     return pre_v2, post_v2, errors
 
 
+def _legacy_archive_quarantine_errors(
+    root: Path,
+    revenue_lineage_consumers: list[dict[str, str]],
+    revenue_consumer_scripts: list[Path],
+) -> list[str]:
+    """Allow the old signal log only as one immutable, non-runtime archive."""
+
+    errors: list[str] = []
+    allowed_lineage = [
+        row
+        for row in revenue_lineage_consumers
+        if row.get("artifact_path") == LEGACY_ARCHIVE_MANIFEST
+        and row.get("artifact_kind") == "legacy_runtime_evidence_manifest"
+        and row.get("owner") == "model_governance"
+        and row.get("producer") == LEGACY_ARCHIVE_PRODUCER
+        and row.get("source_artifacts") == LEGACY_SIGNAL_LOG
+        and row.get("validator") == LEGACY_ARCHIVE_VALIDATOR
+        and row.get("public_surface") == "config"
+    ]
+    if len(revenue_lineage_consumers) != 1 or len(allowed_lineage) != 1:
+        errors.append(
+            "revenue signal-log lineage must be limited to the immutable legacy archive"
+        )
+
+    script_names = sorted(path.name for path in revenue_consumer_scripts)
+    allowed_script_name = Path(LEGACY_ARCHIVE_PRODUCER).name
+    if script_names != [allowed_script_name]:
+        errors.append(
+            "only the immutable legacy archive producer may read the old signal log: "
+            + ",".join(script_names)
+        )
+
+    archive_rows = _read_rows(root / LEGACY_ARCHIVE_MANIFEST)
+    archive = _single_row(
+        archive_rows,
+        key="archive_id",
+        value=LEGACY_ARCHIVE_ID,
+    )
+    if archive is None:
+        errors.append("legacy revenue runtime evidence archive manifest is missing")
+        return errors
+
+    archive_path = archive.get("archive_artifact", "")
+    forbidden_uses = set(archive.get("forbidden_use", "").split(";"))
+    if (
+        archive.get("model_id") != MODEL_ID
+        or archive.get("source_artifact") != LEGACY_SIGNAL_LOG
+        or archive.get("source_git_commit")
+        != "21fe1726757a7b60b58eb618d9500fa61c0a4c55"
+        or archive.get("source_total_rows") != "15182"
+        or archive.get("archived_row_count") != "4414"
+        or archive.get("first_signal_date") != "20260529"
+        or archive.get("last_signal_date") != "20260828"
+        or archive_path != LEGACY_ARCHIVE_ARTIFACT
+        or archive.get("archive_artifact_sha256")
+        != LEGACY_ARCHIVE_CANONICAL_SHA256
+        or archive.get("row_encoding")
+        != (
+            "utf-8-sig_rfc4180_canonical_lf_source_column_order_"
+            "raw_newline_diagnostic_only"
+        )
+        or archive.get("owner_lane") != "daily_model_maintenance"
+        or forbidden_uses != LEGACY_ARCHIVE_FORBIDDEN_USES
+        or archive.get("authorization_ref") != "user_authorized_4A_4C_20260830"
+        or not (root / archive_path).is_file()
+    ):
+        errors.append(
+            "legacy revenue archive must stay content-addressed and forbidden from runtime reuse"
+        )
+    return errors
+
+
 def _legacy_history_quarantine_errors(root: Path) -> tuple[list[str], int]:
     errors: list[str] = []
     controls = 0
@@ -423,7 +525,7 @@ def _legacy_history_quarantine_errors(root: Path) -> tuple[list[str], int]:
     else:
         controls += 1
 
-    signal_log = "output/history/daily_candidate_models/daily_candidate_model_signal_log.csv"
+    signal_log = LEGACY_SIGNAL_LOG
     background_rows = _read_rows(root / "config/daily_model_background_data_registry.csv")
     signal_log_background_uses = [
         row for row in background_rows if signal_log in row.get("source_artifacts", "")
@@ -444,19 +546,18 @@ def _legacy_history_quarantine_errors(root: Path) -> tuple[list[str], int]:
         if signal_log in row.get("source_artifacts", "")
         and MODEL_ID in " ".join(row.values())
     ]
-    if revenue_lineage_consumers:
-        errors.append("revenue formal/report lineage must not consume the pre-v2 signal log")
     revenue_consumer_scripts = [
         path
         for path in (root / "scripts").glob("*revenue_unreacted_range*.py")
         if path.name != Path(__file__).name
         and "daily_candidate_model_signal_log.csv" in path.read_text(encoding="utf-8")
     ]
-    if revenue_consumer_scripts:
-        errors.append(
-            "revenue-owned scripts must not consume the pre-v2 signal log: "
-            + ",".join(path.name for path in revenue_consumer_scripts)
-        )
+    archive_errors = _legacy_archive_quarantine_errors(
+        root,
+        revenue_lineage_consumers,
+        revenue_consumer_scripts,
+    )
+    errors.extend(archive_errors)
     if not signal_log_background_uses:
         errors.append("expected coverage-only signal-log lineage is missing")
     if not any(
@@ -464,7 +565,7 @@ def _legacy_history_quarantine_errors(root: Path) -> tuple[list[str], int]:
         for row in signal_log_background_uses
     ):
         errors.append("signal-log use must remain pinned to the monthly revenue coverage audit")
-    if not revenue_lineage_consumers and not revenue_consumer_scripts and not errors:
+    if not archive_errors:
         controls += 1
 
     return errors, controls

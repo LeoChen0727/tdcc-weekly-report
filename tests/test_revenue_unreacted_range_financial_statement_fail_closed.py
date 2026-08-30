@@ -85,6 +85,40 @@ def test_independent_repository_fail_closed_validator_passes() -> None:
     assert metrics["quarantine_control_count"] == 5
 
 
+def test_legacy_signal_log_exception_is_exactly_one_immutable_archive() -> None:
+    lineage_rows = guard._read_rows(ROOT / "config/report_artifact_lineage.csv")
+    revenue_lineage = [
+        row
+        for row in lineage_rows
+        if guard.LEGACY_SIGNAL_LOG in row.get("source_artifacts", "")
+        and guard.MODEL_ID in " ".join(row.values())
+    ]
+    archive_script = ROOT / guard.LEGACY_ARCHIVE_PRODUCER
+    assert guard._legacy_archive_quarantine_errors(
+        ROOT,
+        revenue_lineage,
+        [archive_script],
+    ) == []
+
+    unexpected_lineage = dict(revenue_lineage[0])
+    unexpected_lineage["artifact_path"] = "output/latest/forbidden_runtime_consumer.csv"
+    errors = guard._legacy_archive_quarantine_errors(
+        ROOT,
+        [*revenue_lineage, unexpected_lineage],
+        [archive_script],
+    )
+    assert any("limited to the immutable legacy archive" in error for error in errors)
+
+    errors = guard._legacy_archive_quarantine_errors(
+        ROOT,
+        revenue_lineage,
+        [archive_script, ROOT / "scripts/forbidden_revenue_runtime_consumer.py"],
+    )
+    assert any(
+        "only the immutable legacy archive producer" in error for error in errors
+    )
+
+
 def test_independent_validator_does_not_import_production_business_module() -> None:
     source = (ROOT / "scripts/validate_revenue_unreacted_range_financial_statement_fail_closed.py").read_text(
         encoding="utf-8"
