@@ -10,6 +10,7 @@ from scripts import validate_daily_pdf_contract_consumers as validator
 LOW_VOLUME_MODEL_ID = "volume_range_breakout_v2_low_position_volume_attack"
 MID_VOLUME_MODEL_ID = "volume_range_breakout_v2_mid_position_momentum_attack"
 HIGH_VOLUME_MODEL_ID = "volume_range_breakout_v2_high_position_volume_attack"
+REVENUE_MODEL_ID = "revenue_unreacted_range"
 
 
 def model_row(model_id: str = LOW_VOLUME_MODEL_ID, approved: str = "true") -> dict[str, str]:
@@ -55,6 +56,19 @@ def event_row(
     }
 
 
+def revenue_readiness_row(**overrides: str) -> dict[str, str]:
+    row = {
+        "model_id": REVENUE_MODEL_ID,
+        "formal_model_use_allowed": "false",
+        "approved_for_daily": "false",
+        "presentation_allowed": "false",
+        "production_allowed": "false",
+        "pdf_integration_status": "not_started",
+    }
+    row.update(overrides)
+    return row
+
+
 def test_daily_pdf_contract_consumer_validator_passes() -> None:
     assert validator.main([]) == 0
 
@@ -89,7 +103,11 @@ def test_runtime_phase_runs_current_data_contracts_without_static_scans(
         ],
     }
     monkeypatch.setattr(validator, "load_csv_rows", lambda path: rows.get(path, []))
-    monkeypatch.setattr(validator, "model_ids_from_report_outputs", lambda: {"runtime_model"})
+    monkeypatch.setattr(
+        validator,
+        "model_ids_from_report_outputs",
+        lambda *args: {"runtime_model"},
+    )
 
     def forbidden(*args, **kwargs):
         raise AssertionError("runtime phase invoked a static source/AST/research scan")
@@ -134,7 +152,7 @@ def test_runtime_phase_propagates_model_display_and_adapter_errors(
     stock_contract.write_text("model_id\n", encoding="utf-8")
     monkeypatch.setattr(validator, "STOCK_MODEL_CONTRACT", stock_contract)
     monkeypatch.setattr(validator, "load_csv_rows", lambda path: [])
-    monkeypatch.setattr(validator, "model_ids_from_report_outputs", lambda: set())
+    monkeypatch.setattr(validator, "model_ids_from_report_outputs", lambda *args: set())
     monkeypatch.setattr(validator, "validate_model_ids", lambda *args: ["model approval sentinel"])
     monkeypatch.setattr(
         validator,
@@ -157,6 +175,82 @@ def test_runtime_phase_propagates_model_display_and_adapter_errors(
     ]
 
 
+@pytest.mark.parametrize(
+    "phase",
+    [validator.VALIDATION_PHASE_RUNTIME, validator.VALIDATION_PHASE_FULL],
+)
+def test_dormant_revenue_registry_only_state_passes_without_approval_exception(
+    phase: str,
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    stock_contract = tmp_path / "stock.csv"
+    event_contract = tmp_path / "event.csv"
+    stock_contract.write_text("model_id\n", encoding="utf-8")
+    event_contract.write_text("field_name\n", encoding="utf-8")
+    monkeypatch.setattr(validator, "STOCK_MODEL_CONTRACT", stock_contract)
+    monkeypatch.setattr(validator, "EVENT_CATALYST_CONTRACT", event_contract)
+
+    rows = {
+        stock_contract: [
+            model_row(LOW_VOLUME_MODEL_ID),
+            model_row(REVENUE_MODEL_ID, approved="false"),
+        ],
+        event_contract: [],
+        validator.DAILY_MODEL_REGISTRY: [
+            {
+                "model_id": LOW_VOLUME_MODEL_ID,
+                "model_registry_active": "true",
+                "report_line_applicability": "both",
+            },
+            {
+                "model_id": REVENUE_MODEL_ID,
+                "model_registry_active": "true",
+                "report_line_applicability": "both",
+            }
+        ],
+        validator.DAILY_MODEL_PARAMETERS: [
+            {"model_id": LOW_VOLUME_MODEL_ID, "pdf_visibility": "pdf_core_model"},
+            {"model_id": REVENUE_MODEL_ID, "pdf_visibility": "pdf_core_model"}
+        ],
+        validator.DAILY_MODEL_READINESS: [revenue_readiness_row()],
+    }
+    monkeypatch.setattr(validator, "load_csv_rows", lambda path: rows.get(path, []))
+
+    def reported_model_ids(paths=validator.DAILY_MODEL_OUTPUTS):
+        return (
+            {LOW_VOLUME_MODEL_ID}
+            if tuple(paths) == (validator.DAILY_MODEL_SIGNALS,)
+            else {LOW_VOLUME_MODEL_ID, REVENUE_MODEL_ID}
+        )
+
+    monkeypatch.setattr(
+        validator,
+        "model_ids_from_report_outputs",
+        reported_model_ids,
+    )
+    for name in (
+        "discover_event_field_usages",
+        "validate_event_field_usages",
+        "validate_private_pdf_rules",
+        "validate_renderer_fixed_model_table_contract",
+        "validate_operation_row_metric_renderer_contract",
+        "validate_research_recommendations_not_direct_pdf_inputs",
+    ):
+        monkeypatch.setattr(validator, name, lambda *args, **kwargs: [])
+    monkeypatch.setattr(
+        validator,
+        "validate_pdf_integrated_operation_adapter_contract",
+        lambda *args, **kwargs: [],
+    )
+
+    errors, used, required, *_ = validator.validate(phase)
+
+    assert errors == []
+    assert used == {LOW_VOLUME_MODEL_ID}
+    assert required == {LOW_VOLUME_MODEL_ID}
+
+
 def test_full_phase_keeps_event_renderer_and_research_scans(tmp_path: Path, monkeypatch) -> None:
     stock_contract = tmp_path / "stock.csv"
     event_contract = tmp_path / "event.csv"
@@ -165,7 +259,7 @@ def test_full_phase_keeps_event_renderer_and_research_scans(tmp_path: Path, monk
     monkeypatch.setattr(validator, "STOCK_MODEL_CONTRACT", stock_contract)
     monkeypatch.setattr(validator, "EVENT_CATALYST_CONTRACT", event_contract)
     monkeypatch.setattr(validator, "load_csv_rows", lambda path: [])
-    monkeypatch.setattr(validator, "model_ids_from_report_outputs", lambda: set())
+    monkeypatch.setattr(validator, "model_ids_from_report_outputs", lambda *args: set())
     monkeypatch.setattr(validator, "validate_model_ids", lambda *args: [])
     monkeypatch.setattr(validator, "validate_required_display_model_coverage", lambda *args: [])
 
@@ -235,6 +329,96 @@ def test_daily_pdf_model_ids_must_exist_and_be_approved() -> None:
     errors = validator.validate_model_ids(["known_but_not_daily", "missing_model"], rows)
     assert any("not approved_for_daily_pdf=true" in error for error in errors)
     assert any("not in stock model contract" in error for error in errors)
+
+
+def test_dormant_revenue_registry_metadata_is_not_treated_as_pdf_use() -> None:
+    reported = {LOW_VOLUME_MODEL_ID, REVENUE_MODEL_ID}
+    registry_rows = [
+        {"model_id": LOW_VOLUME_MODEL_ID},
+        {"model_id": REVENUE_MODEL_ID},
+    ]
+    model_rows = [
+        model_row(LOW_VOLUME_MODEL_ID),
+        model_row(REVENUE_MODEL_ID, approved="false"),
+    ]
+
+    dormant = validator.dormant_registry_only_model_ids(
+        reported,
+        {LOW_VOLUME_MODEL_ID},
+        registry_rows,
+        model_rows,
+        [revenue_readiness_row()],
+    )
+
+    assert dormant == {REVENUE_MODEL_ID}
+    assert validator.validate_model_ids(reported - dormant, model_rows) == []
+
+
+def test_dormant_revenue_exception_never_hides_a_signal_row() -> None:
+    model_rows = [model_row(REVENUE_MODEL_ID, approved="false")]
+
+    dormant = validator.dormant_registry_only_model_ids(
+        {REVENUE_MODEL_ID},
+        {REVENUE_MODEL_ID},
+        [{"model_id": REVENUE_MODEL_ID}],
+        model_rows,
+        [revenue_readiness_row()],
+    )
+
+    assert dormant == set()
+    errors = validator.validate_model_ids({REVENUE_MODEL_ID} - dormant, model_rows)
+    assert errors == [
+        "Daily PDF uses model_id not approved_for_daily_pdf=true: "
+        + REVENUE_MODEL_ID
+    ]
+
+
+@pytest.mark.parametrize(
+    "readiness_override",
+    [
+        {"presentation_allowed": "true"},
+        {"production_allowed": "true"},
+        {"pdf_integration_status": "pdf_integrated_daily_adapter"},
+    ],
+)
+def test_partial_revenue_activation_is_not_hidden_as_dormant(
+    readiness_override: dict[str, str],
+) -> None:
+    dormant = validator.dormant_registry_only_model_ids(
+        {REVENUE_MODEL_ID},
+        set(),
+        [{"model_id": REVENUE_MODEL_ID}],
+        [model_row(REVENUE_MODEL_ID, approved="false")],
+        [revenue_readiness_row(**readiness_override)],
+    )
+
+    assert dormant == set()
+
+
+def test_dormant_revenue_exception_does_not_apply_to_other_models() -> None:
+    other_model = "other_permissions_false_model"
+    model_rows = [model_row(other_model, approved="false")]
+
+    dormant = validator.dormant_registry_only_model_ids(
+        {other_model},
+        set(),
+        [{"model_id": other_model}],
+        model_rows,
+        [
+            {
+                "model_id": other_model,
+                "formal_model_use_allowed": "false",
+                "approved_for_daily": "false",
+                "presentation_allowed": "false",
+                "production_allowed": "false",
+                "pdf_integration_status": "not_started",
+            }
+        ],
+    )
+
+    assert dormant == set()
+    errors = validator.validate_model_ids({other_model} - dormant, model_rows)
+    assert any("not approved_for_daily_pdf=true" in error for error in errors)
 
 
 def test_required_display_models_cannot_be_inferred_only_from_signal_rows() -> None:

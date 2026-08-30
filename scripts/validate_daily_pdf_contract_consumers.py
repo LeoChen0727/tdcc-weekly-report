@@ -240,6 +240,13 @@ FORBIDDEN_RESEARCH_RECOMMENDATION_COLUMNS = {
 }
 
 DISPLAY_MODEL_VISIBILITIES = {"pdf_core_model", "pdf_specialty_section"}
+REVENUE_UNREACTED_RANGE_MODEL_ID = "revenue_unreacted_range"
+REVENUE_PRODUCTION_PERMISSION_FIELDS = (
+    "formal_model_use_allowed",
+    "approved_for_daily",
+    "presentation_allowed",
+    "production_allowed",
+)
 VALIDATION_PHASE_FULL = "full"
 VALIDATION_PHASE_RUNTIME = "runtime"
 VALIDATION_PHASES = (VALIDATION_PHASE_FULL, VALIDATION_PHASE_RUNTIME)
@@ -428,6 +435,50 @@ def model_ids_from_report_outputs(paths: Iterable[Path] = DAILY_MODEL_OUTPUTS) -
 
 def rows_by_model_id(rows: Iterable[dict[str, str]]) -> dict[str, dict[str, str]]:
     return {row.get("model_id", ""): row for row in rows if row.get("model_id", "")}
+
+
+def dormant_registry_only_model_ids(
+    reported_model_ids: Iterable[str],
+    signal_model_ids: Iterable[str],
+    registry_rows: Iterable[dict[str, str]],
+    model_rows: Iterable[dict[str, str]],
+    readiness_rows: Iterable[dict[str, str]],
+) -> set[str]:
+    """Return exact renderer-suppressed roster metadata, never signal rows."""
+
+    reported = set(reported_model_ids)
+    signals = set(signal_model_ids)
+    if (
+        REVENUE_UNREACTED_RANGE_MODEL_ID not in reported
+        or REVENUE_UNREACTED_RANGE_MODEL_ID in signals
+        or not any(
+            row.get("model_id", "") == REVENUE_UNREACTED_RANGE_MODEL_ID
+            for row in registry_rows
+        )
+    ):
+        return set()
+
+    contract_rows = [
+        row
+        for row in model_rows
+        if row.get("model_id", "") == REVENUE_UNREACTED_RANGE_MODEL_ID
+    ]
+    readiness_matches = [
+        row
+        for row in readiness_rows
+        if row.get("model_id", "") == REVENUE_UNREACTED_RANGE_MODEL_ID
+    ]
+    if len(contract_rows) != 1 or len(readiness_matches) != 1:
+        return set()
+    if bool_value(contract_rows[0], "approved_for_daily_pdf"):
+        return set()
+
+    readiness = readiness_matches[0]
+    if any(bool_value(readiness, field) for field in REVENUE_PRODUCTION_PERMISSION_FIELDS):
+        return set()
+    if readiness.get("pdf_integration_status", "") == "pdf_integrated_daily_adapter":
+        return set()
+    return {REVENUE_UNREACTED_RANGE_MODEL_ID}
 
 
 def approved_pdf_contract_model_ids(model_rows: Iterable[dict[str, str]]) -> set[str]:
@@ -1066,10 +1117,28 @@ def validate(phase: str = VALIDATION_PHASE_FULL) -> tuple[
     registry_rows = load_csv_rows(DAILY_MODEL_REGISTRY)
     parameter_rows = load_csv_rows(DAILY_MODEL_PARAMETERS)
     readiness_rows = load_csv_rows(DAILY_MODEL_READINESS)
-    used_model_ids = model_ids_from_report_outputs()
+    reported_model_ids = model_ids_from_report_outputs()
+    signal_model_ids = model_ids_from_report_outputs((DAILY_MODEL_SIGNALS,))
+    dormant_registry_ids = dormant_registry_only_model_ids(
+        reported_model_ids,
+        signal_model_ids,
+        registry_rows,
+        model_rows,
+        readiness_rows,
+    )
+    used_model_ids = reported_model_ids - dormant_registry_ids
+    effective_registry_rows = [
+        row
+        for row in registry_rows
+        if row.get("model_id", "") not in dormant_registry_ids
+    ]
     required_display_model_ids = (
         approved_pdf_contract_model_ids(model_rows)
-        | display_roster_model_ids(registry_rows, parameter_rows, readiness_rows)
+        | display_roster_model_ids(
+            effective_registry_rows,
+            parameter_rows,
+            readiness_rows,
+        )
     )
     event_usages = discover_event_field_usages(event_rows) if phase == VALIDATION_PHASE_FULL else []
 
@@ -1078,7 +1147,7 @@ def validate(phase: str = VALIDATION_PHASE_FULL) -> tuple[
         validate_required_display_model_coverage(
             used_model_ids,
             model_rows,
-            registry_rows,
+            effective_registry_rows,
             parameter_rows,
             readiness_rows,
         )
