@@ -151,34 +151,48 @@ def _table_text(table: Table) -> str:
     return " ".join(_cell_text(cell) for row in table._cellvalues for cell in row)
 
 
-def test_dormant_readiness_does_not_require_artifact_or_replace_legacy_rendering() -> None:
-    inputs = {"model_readiness": dormant_readiness()}
-    story: list[object] = []
-
-    assert not renderer.revenue_unreacted_range_pdf_adapter_enabled(inputs)
-    assert not renderer.render_operation_model_summary_if_applicable(
-        story, inputs, renderer.REVENUE_UNREACTED_RANGE_MODEL_ID
-    )
-    assert not renderer.render_model_operation_section_if_applicable(
-        story,
-        inputs,
-        renderer.REVENUE_UNREACTED_RANGE_MODEL_ID,
-        "highlight",
-        "mainstream",
-    )
-    assert story == []
-    assert renderer.model_pdf_presentation_order(
-        inputs, renderer.REVENUE_UNREACTED_RANGE_MODEL_ID, 6.0
-    ) == 6.0
+def test_missing_or_dormant_readiness_fails_closed_without_legacy_rendering() -> None:
+    for inputs in ({}, {"model_readiness": dormant_readiness()}):
+        story: list[object] = []
+        with pytest.raises(RuntimeError, match="legacy generic fallback is forbidden"):
+            renderer.revenue_unreacted_range_pdf_adapter_enabled(inputs)
+        with pytest.raises(RuntimeError, match="legacy generic fallback is forbidden"):
+            renderer.render_operation_model_summary_if_applicable(
+                story, inputs, renderer.REVENUE_UNREACTED_RANGE_MODEL_ID
+            )
+        with pytest.raises(RuntimeError, match="legacy generic fallback is forbidden"):
+            renderer.render_model_operation_section_if_applicable(
+                story,
+                inputs,
+                renderer.REVENUE_UNREACTED_RANGE_MODEL_ID,
+                "highlight",
+                "mainstream",
+            )
+        with pytest.raises(RuntimeError, match="legacy generic fallback is forbidden"):
+            renderer.model_pdf_presentation_order(
+                inputs, renderer.REVENUE_UNREACTED_RANGE_MODEL_ID, 6.0
+            )
+        with pytest.raises(RuntimeError, match="legacy generic fallback is forbidden"):
+            renderer.should_render_highlight_model_description(
+                inputs, renderer.REVENUE_UNREACTED_RANGE_MODEL_ID
+            )
+        assert story == []
     assert renderer.REVENUE_UNREACTED_RANGE_MODEL_ID not in renderer.OPERATION_TABLE_MODEL_IDS
     assert renderer.REVENUE_UNREACTED_RANGE_MODEL_ID not in renderer.OPERATION_RENDERED_SECTIONS
-    assert renderer.should_render_highlight_model_description(
-        inputs, renderer.REVENUE_UNREACTED_RANGE_MODEL_ID
-    )
 
 
 def test_activated_readiness_suppresses_generic_legacy_revenue_description() -> None:
-    inputs = {"model_readiness": readiness_row()}
+    inputs = enabled_inputs(
+        pd.DataFrame(
+            [
+                operation_row(
+                    pdf_view="highlight",
+                    pdf_section="confirmed_operation",
+                    display_order=1,
+                )
+            ]
+        )
+    )
 
     assert not renderer.should_render_highlight_model_description(
         inputs, renderer.REVENUE_UNREACTED_RANGE_MODEL_ID
@@ -202,10 +216,41 @@ def test_partial_readiness_activation_fails_closed(
         renderer.revenue_unreacted_range_pdf_adapter_enabled(inputs)
 
 
+def test_enabled_readiness_requires_exact_v2_sections_and_permissions() -> None:
+    frame = pd.DataFrame(
+        [
+            operation_row(
+                pdf_view="highlight",
+                pdf_section="confirmed_operation",
+                display_order=1,
+            )
+        ]
+    )
+    extra_section = readiness_row()
+    extra_section.loc[:, "daily_adapter_sections"] += "|legacy_generic"
+    with pytest.raises(RuntimeError, match="readiness sections mismatch"):
+        renderer.revenue_unreacted_range_pdf_adapter_enabled(
+            {
+                "model_readiness": extra_section,
+                renderer.REVENUE_UNREACTED_RANGE_OPERATION_INPUT_KEY: frame,
+            }
+        )
+
+    disabled_permission = readiness_row()
+    disabled_permission.loc[:, "approved_for_daily"] = False
+    with pytest.raises(RuntimeError, match="readiness permission mismatch"):
+        renderer.revenue_unreacted_range_pdf_adapter_enabled(
+            {
+                "model_readiness": disabled_permission,
+                renderer.REVENUE_UNREACTED_RANGE_OPERATION_INPUT_KEY: frame,
+            }
+        )
+
+
 def test_enabled_readiness_requires_dedicated_artifact() -> None:
     with pytest.raises(RuntimeError, match="dedicated PDF operation artifact is empty or missing"):
-        renderer.revenue_unreacted_range_operation_frame(
-            {"model_readiness": readiness_row()}, "highlight", "confirmed_operation"
+        renderer.revenue_unreacted_range_pdf_adapter_enabled(
+            {"model_readiness": readiness_row()}
         )
 
 
@@ -399,6 +444,15 @@ def test_activated_summary_uses_frozen_d2_d30_outcomes_and_sort_order() -> None:
     inputs = {
         "model_readiness": readiness_row(),
         "approved_operation_patterns": approval,
+        renderer.REVENUE_UNREACTED_RANGE_OPERATION_INPUT_KEY: pd.DataFrame(
+            [
+                operation_row(
+                    pdf_view="highlight",
+                    pdf_section="confirmed_operation",
+                    display_order=1,
+                )
+            ]
+        ),
     }
     summary = renderer.operation_model_summary_text(
         inputs, renderer.REVENUE_UNREACTED_RANGE_MODEL_ID
@@ -429,6 +483,15 @@ def test_activated_operation_model_with_confirmed_data_is_not_misclassified_as_g
         "model_readiness": readiness_row(),
         "model_registry": registry,
         "model_signals": pd.DataFrame(),
+        renderer.REVENUE_UNREACTED_RANGE_OPERATION_INPUT_KEY: pd.DataFrame(
+            [
+                operation_row(
+                    pdf_view="highlight",
+                    pdf_section="confirmed_operation",
+                    display_order=1,
+                )
+            ]
+        ),
     }
     text = "營收爆發但股價尚未反應模型 2408 已確認買入候選"
     assert renderer.required_stock_model_text_missing(
@@ -448,9 +511,79 @@ def test_activated_operation_model_with_confirmed_data_is_not_misclassified_as_g
         ),
         "model_signals": pd.DataFrame(),
     }
-    assert renderer.MODEL_EMPTY_STATE_TEXT in renderer.required_stock_model_text_missing(
-        dormant, "mainstream", text
-    )[0]
+    with pytest.raises(RuntimeError, match="legacy generic fallback is forbidden"):
+        renderer.required_stock_model_text_missing(dormant, "mainstream", text)
+
+
+def test_legacy_generic_revenue_rows_never_reach_generic_pdf_consumers() -> None:
+    signals = pd.DataFrame(
+        [
+            {
+                "model_id": renderer.REVENUE_UNREACTED_RANGE_MODEL_ID,
+                "model_name_zh": "舊營收 generic 列",
+                "stock_id": "5483",
+                "report_line": "mainstream",
+                "model_rank": "1",
+                "display_rank": "1",
+                "model_score": "99",
+            },
+            {
+                "model_id": "other_model",
+                "model_name_zh": "其他模型",
+                "stock_id": "2408",
+                "report_line": "mainstream",
+                "model_rank": "2",
+                "display_rank": "2",
+                "model_score": "50",
+            },
+        ]
+    )
+    inputs = enabled_inputs(
+        pd.DataFrame(
+            [
+                operation_row(
+                    pdf_view="highlight",
+                    pdf_section="confirmed_operation",
+                    display_order=1,
+                )
+            ]
+        )
+    )
+    inputs["model_signals"] = signals
+
+    filtered = renderer.revenue_unreacted_range_generic_signal_rows_removed(inputs)
+    assert filtered["model_id"].tolist() == ["other_model"]
+    assert renderer.model_signal_rows(
+        inputs, renderer.REVENUE_UNREACTED_RANGE_MODEL_ID
+    ) == []
+    assert renderer.mainstream_curated_model_signal_rows(
+        inputs, renderer.REVENUE_UNREACTED_RANGE_MODEL_ID
+    ) == []
+    assert renderer.mainstream_full_model_signal_rows(
+        inputs, renderer.REVENUE_UNREACTED_RANGE_MODEL_ID
+    ) == []
+    assert renderer.non_mainstream_curated_model_signal_rows(
+        inputs, renderer.REVENUE_UNREACTED_RANGE_MODEL_ID
+    ) == []
+    assert renderer.non_mainstream_full_model_signal_rows(
+        inputs, renderer.REVENUE_UNREACTED_RANGE_MODEL_ID
+    ) == []
+    assert renderer.preferred_model_label_for_stock(
+        inputs, "2408", "mainstream"
+    ) == "其他模型 #2"
+    assert renderer.volume_operation_report_lines_for_stock(inputs, "5483") == set()
+
+
+def test_legacy_generic_revenue_rows_cannot_bypass_missing_or_dormant_readiness() -> None:
+    signals = pd.DataFrame(
+        [{"model_id": renderer.REVENUE_UNREACTED_RANGE_MODEL_ID, "stock_id": "2408"}]
+    )
+    for inputs in (
+        {"model_signals": signals},
+        {"model_signals": signals, "model_readiness": dormant_readiness()},
+    ):
+        with pytest.raises(RuntimeError, match="legacy generic fallback is forbidden"):
+            renderer.revenue_unreacted_range_generic_signal_rows_removed(inputs)
 
 
 def test_semantic_manifest_adds_revenue_only_when_enabled_and_uses_dedicated_hash(
@@ -486,9 +619,10 @@ def test_semantic_manifest_adds_revenue_only_when_enabled_and_uses_dedicated_has
     monkeypatch.setattr(renderer, "REQUEST_DATE", "20260830")
     monkeypatch.setattr(renderer, "OPERATION_RENDERED_SECTIONS", {})
 
-    assert renderer.REVENUE_UNREACTED_RANGE_MODEL_ID not in renderer.operation_rendered_sections_for_inputs(
-        {"model_readiness": dormant_readiness()}
-    )
+    with pytest.raises(RuntimeError, match="legacy generic fallback is forbidden"):
+        renderer.operation_rendered_sections_for_inputs(
+            {"model_readiness": dormant_readiness()}
+        )
     paths = [out / f"report-{index}.pdf" for index in range(6)]
     manifest = renderer.write_pdf_semantic_manifest(paths, inputs)
     result = pd.read_csv(manifest, encoding="utf-8-sig")
@@ -528,3 +662,13 @@ def test_independent_source_validator_passes_and_rejects_fallback_mutation(
 
     errors = validator.validate_renderer(path)
     assert any("forbidden fallback dependency" in error for error in errors)
+
+    summary_mutated = source.replace(
+        marker,
+        marker + '    inputs.get("model_summary", pd.DataFrame())\n',
+        1,
+    )
+    summary_path = tmp_path / "mutated_summary_renderer.py"
+    summary_path.write_text(summary_mutated, encoding="utf-8")
+    summary_errors = validator.validate_renderer(summary_path)
+    assert any("generic model_summary read" in error for error in summary_errors)
