@@ -1,18 +1,18 @@
 # Daily Model Parameter Research
 
-- generated_at: `2026-07-12 03:47:28 Asia/Taipei`
+- generated_at: `2026-08-31 02:08:23 Asia/Taipei`
 - price_history_files: `2376`
 - max_price_rows: `301`
-- data_range: `20250407` ~ `20260709`
+- data_range: `20250407``````` ~ ```````20260709`
 - entry_basis: `signal_date_next_open`
 - close_return_definition: `(D+n close / next trading day open - 1)`
 - high_return_definition: `(max intraday high through D+n / next trading day open - 1)`
 
 ## Data Quality
 
-- This is first-pass parameter research using the current repo price history.
+- Generic D+1 through D+20 rows remain first-pass parameter research using the current repo price history.
 - If sample_status is `small_sample_review_only` or `insufficient_sample`, do not treat the parameter as a final model weight.
-- Revenue historical panel is not complete in price history, so the revenue-unreacted research row only validates the price-range component.
+- The prepared `revenue_unreacted_range` research baseline is the frozen `source_mid_falling v2` D30 launch evidence, not the legacy generic price-range proxy. It remains `proxy_only` pending production-contract promotion, and the legacy row remains advisory-only.
 
 ## Top Parameter Sets By Avg Close Return
 
@@ -93,9 +93,10 @@
 | pullback_short_reclaim | production_current_proxy | production_baseline | production_proxy | 89287 | 38.98 | 43.0 | 44.43 | 45.73 | 0.57 | 1.78 | ok_first_pass | production baseline proxy: 20d return >= 5%, pullback/reclaim proxy, EMA23 up |
 | pullback_short_reclaim | prior20up_reclaim_vol1.5 | parameter_variant | variant_not_baseline | 1364 | 38.71 | 43.45 | 45.22 | 46.35 | 0.96 | 1.76 | ok_first_pass | 前 20 日漲幅 >= 10% + 距 23EMA -1% 至 6% + MACD 柱狀體 > 0 + 量比 >= 1.5 |
 | pullback_short_reclaim | prior20up_reclaim_vol1 | parameter_variant | variant_not_baseline | 3121 | 38.19 | 43.47 | 45.48 | 47.78 | 0.92 | 1.73 | ok_first_pass | 前 20 日漲幅 >= 10% + 距 23EMA -1% 至 6% + MACD 柱狀體 > 0 + 量比 >= 1 |
-| revenue_unreacted_range | production_current_proxy | production_baseline | proxy_only | 312677 | 39.55 | 43.33 | 44.4 | 44.97 | 0.29 | 0.78 | ok_first_pass | production baseline proxy: price still in 23d range and attack not started; revenue gate tested separately |
+| revenue_unreacted_range | production_current_proxy | legacy_advisory_proxy | legacy_advisory_only | 312677 | 39.55 | 43.33 | 44.4 | 44.97 | 0.29 | 0.78 | ok_first_pass | legacy advisory proxy: price still in 23d range and attack not started; this row does not replay source_mid_falling v2 |
 | revenue_unreacted_range | range23_tol5 | parameter_variant | variant_not_baseline | 232788 | 39.16 | 42.8 | 43.56 | 44.12 | 0.12 | 0.4 | ok_first_pass | 股價位於 23 日區間上下 5% 內；營收確認由每日模型層欄位提供 |
 | revenue_unreacted_range | range23_tol10 | parameter_variant | variant_not_baseline | 234287 | 39.14 | 42.75 | 43.52 | 44.08 | 0.12 | 0.4 | ok_first_pass | 股價位於 23 日區間上下 10% 內；營收確認由每日模型層欄位提供 |
+| revenue_unreacted_range | revenue_unreacted_range_source_mid_falling_frozen_rule_launch_evidence_v1_20260830 | production_baseline | proxy_only | 53 |  |  |  |  |  |  | small_sample_review_only | frozen exact target-rule evidence: source_mid_falling v2; D2 open after close-confirmed continuation to D30 close; current production contract promotion remains pending |
 | short_term_surge_d5_d10 | ret5_10_30_vol5_ge1_5_macd | parameter_variant | variant_not_baseline | 12521 | 37.02 | 39.1 | 41.4 | 43.56 | 0.14 | 1.65 | ok_first_pass | 5日漲幅 10% 至 30% + 5日平均量比 >= 1.5 + MACD 柱狀體 > 0 |
 | tdcc_short_term_continuation_d5_d10 | high_thresholds_ret5_10_30_ret10_20_50_kd | parameter_variant | variant_not_baseline | 371 | 37.2 | 40.5 | 41.67 | 47.38 | 0.34 | 2.84 | ok_first_pass | 高級距增加 + 5日漲幅 10% 至 30% + 10日漲幅 20% 至 50% + KD 多方但未過熱 |
 | tdcc_short_term_continuation_d5_d10 | all_thresholds_up_ret5_10_30_macd | parameter_variant | variant_not_baseline | 2163 | 38.28 | 39.04 | 41.68 | 45.02 | 0.31 | 2.36 | ok_first_pass | 四級距同步增加 + 5日漲幅 10% 至 30% + MACD 柱狀體 > 0 |

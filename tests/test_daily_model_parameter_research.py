@@ -4,6 +4,7 @@ import sys
 from pathlib import Path
 
 import pandas as pd
+import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPTS = ROOT / "scripts"
@@ -41,11 +42,25 @@ from build_daily_model_parameter_research import (  # noqa: E402
     build_revenue_unreacted_range_operation_candidate_matrix,
     build_revenue_unreacted_range_revenue_condition_matrix,
     current_price_pullback_baseline_proxy,
+    apply_revenue_unreacted_frozen_parity_to_summary,
+    load_revenue_unreacted_frozen_launch_evidence,
     PRIMARY_ANOMALY_BASIS,
     price_pullback_prior_extension_filter,
     REVENUE_UNREACTED_FEATURE_CONTRAST_BINARY_SPECS,
     REVENUE_UNREACTED_FEATURE_CONTRAST_NUMERIC_SPECS,
     revenue_unreacted_active_attack_proxy,
+    REVENUE_UNREACTED_EXPECTED_OPERATION_COUNT,
+    REVENUE_UNREACTED_EXPECTED_UNIQUE_STOCK_COUNT,
+    REVENUE_UNREACTED_FROZEN_DETAIL_PATH,
+    REVENUE_UNREACTED_FROZEN_EVIDENCE_PATH,
+    REVENUE_UNREACTED_FROZEN_EVIDENCE_VERSION,
+    REVENUE_UNREACTED_FROZEN_MATRIX_PATH,
+    REVENUE_UNREACTED_LAUNCH_EVIDENCE_STATUS,
+    REVENUE_UNREACTED_LEGACY_PROXY_ID,
+    REVENUE_UNREACTED_PERMISSION_STATUS,
+    REVENUE_UNREACTED_PRE_PROMOTION_BLOCKER,
+    REVENUE_UNREACTED_RULE_CANONICAL_SHA256,
+    REVENUE_UNREACTED_RULE_SPEC_ID,
     rule_specs,
     sample_status,
 )
@@ -157,6 +172,123 @@ def test_model_parity_artifact_marks_proxy_blockers() -> None:
     assert not proxy_rows["parity_blocker"].eq("").any()
 
 
+# BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
+def test_revenue_research_baseline_is_exact_frozen_source_mid_falling_evidence() -> None:
+    revenue_specs = [
+        spec for spec in rule_specs() if spec.model_id == "revenue_unreacted_range"
+    ]
+    baselines = [
+        spec for spec in revenue_specs if spec.parameter_role == "production_baseline"
+    ]
+    legacy = [
+        spec
+        for spec in revenue_specs
+        if spec.parameter_set_id == REVENUE_UNREACTED_LEGACY_PROXY_ID
+    ]
+
+    assert len(baselines) == 1
+    assert baselines[0].parameter_set_id == REVENUE_UNREACTED_FROZEN_EVIDENCE_VERSION
+    assert baselines[0].production_parity_status == "proxy_only"
+    assert (
+        baselines[0].parity_blocker
+        == REVENUE_UNREACTED_PRE_PROMOTION_BLOCKER
+    )
+    assert len(legacy) == 1
+    assert legacy[0].parameter_role == "legacy_advisory_proxy"
+    assert legacy[0].production_parity_status == "legacy_advisory_only"
+    assert legacy[0].pdf_visibility == "deprecated_research_only_not_pdf_core"
+
+
+def test_revenue_frozen_evidence_loader_binds_exact_rule_and_permissions() -> None:
+    evidence = load_revenue_unreacted_frozen_launch_evidence()
+
+    assert evidence["evidence_version"] == REVENUE_UNREACTED_FROZEN_EVIDENCE_VERSION
+    assert evidence["rule_spec_id"] == REVENUE_UNREACTED_RULE_SPEC_ID
+    assert evidence["rule_canonical_sha256"] == REVENUE_UNREACTED_RULE_CANONICAL_SHA256
+    assert evidence["launch_evidence_status"] == REVENUE_UNREACTED_LAUNCH_EVIDENCE_STATUS
+    assert evidence["selected_operation_count"] == str(
+        REVENUE_UNREACTED_EXPECTED_OPERATION_COUNT
+    )
+    assert evidence["selected_unique_stock_count"] == str(
+        REVENUE_UNREACTED_EXPECTED_UNIQUE_STOCK_COUNT
+    )
+    assert evidence["evidence_permission_status"] == REVENUE_UNREACTED_PERMISSION_STATUS
+    assert {
+        evidence["formal_model_use_allowed"],
+        evidence["approved_for_daily"],
+        evidence["presentation_allowed"],
+        evidence["production_allowed"],
+    } == {"False"}
+
+
+def test_revenue_frozen_evidence_loader_rejects_permission_drift(
+    tmp_path: Path,
+) -> None:
+    for relative_path in (
+        REVENUE_UNREACTED_FROZEN_EVIDENCE_PATH,
+        REVENUE_UNREACTED_FROZEN_DETAIL_PATH,
+        REVENUE_UNREACTED_FROZEN_MATRIX_PATH,
+    ):
+        target = tmp_path / relative_path
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes((ROOT / relative_path).read_bytes())
+    manifest_path = tmp_path / REVENUE_UNREACTED_FROZEN_EVIDENCE_PATH
+    manifest = pd.read_csv(manifest_path, dtype=str, keep_default_na=False)
+    manifest.loc[0, "production_allowed"] = "True"
+    manifest.to_csv(manifest_path, index=False, lineterminator="\n")
+
+    with pytest.raises(RuntimeError, match="canonical pin mismatch"):
+        load_revenue_unreacted_frozen_launch_evidence(
+            root=tmp_path,
+            source_root=ROOT,
+        )
+
+
+def test_revenue_parity_refresh_preserves_other_models_and_retires_proxy() -> None:
+    source = pd.read_csv(
+        ROOT / "output/latest/daily_model_parameter_research_latest.csv",
+        dtype=str,
+        keep_default_na=False,
+    )
+    original_non_revenue = source[
+        ~source["model_id"].eq("revenue_unreacted_range")
+    ].reset_index(drop=True)
+
+    refreshed = apply_revenue_unreacted_frozen_parity_to_summary(source)
+    refreshed_non_revenue = refreshed[
+        ~refreshed["model_id"].eq("revenue_unreacted_range")
+    ].reset_index(drop=True)
+    pd.testing.assert_frame_equal(
+        refreshed_non_revenue[list(source.columns)],
+        original_non_revenue,
+        check_dtype=False,
+    )
+    revenue = refreshed[refreshed["model_id"].eq("revenue_unreacted_range")]
+    formal = revenue[
+        revenue["parameter_set_id"].eq(
+            REVENUE_UNREACTED_FROZEN_EVIDENCE_VERSION
+        )
+    ]
+    legacy = revenue[
+        revenue["parameter_set_id"].eq(REVENUE_UNREACTED_LEGACY_PROXY_ID)
+    ]
+    assert len(formal) == 1
+    assert formal.iloc[0]["parameter_role"] == "production_baseline"
+    assert formal.iloc[0]["production_parity_status"] == "proxy_only"
+    assert (
+        formal.iloc[0]["parity_blocker"]
+        == REVENUE_UNREACTED_PRE_PROMOTION_BLOCKER
+    )
+    assert REVENUE_UNREACTED_LAUNCH_EVIDENCE_STATUS in formal.iloc[0]["notes"]
+    assert len(legacy) == 1
+    assert legacy.iloc[0]["parameter_role"] == "legacy_advisory_proxy"
+    assert legacy.iloc[0]["production_parity_status"] == "legacy_advisory_only"
+    assert legacy.iloc[0]["pdf_visibility"] == (
+        "deprecated_research_only_not_pdf_core"
+    )
+# END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
+
+
 def test_daily_model_research_parity_validator_rule_specs_pass() -> None:
     assert validate_rule_specs() == []
 
@@ -169,6 +301,34 @@ def test_contract_parity_monitor_excludes_deprecated_registry_only_models() -> N
     assert "neckline_volume_breakout_confirmation" in model_ids
     assert "near_high_neckline_challenge" not in model_ids
     assert "platform_strengthening" not in model_ids
+
+
+# BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
+def test_contract_parity_monitor_uses_revenue_frozen_evidence_not_legacy_proxy() -> None:
+    rows, _, source_errors = build_parity_rows()
+    revenue = next(row for row in rows if row["model_id"] == "revenue_unreacted_range")
+
+    assert source_errors == []
+    assert revenue["research_contract_version"] == (
+        f"research:{REVENUE_UNREACTED_FROZEN_EVIDENCE_VERSION}"
+    )
+    assert revenue["parity_status"] == "warning_research_variant_only"
+    assert revenue["approved_research_variant"] == "True"
+    assert revenue["promotion_required"] == "True"
+    assert revenue["parity_blocker"] == REVENUE_UNREACTED_PRE_PROMOTION_BLOCKER
+    assert revenue["recommended_action"] == (
+        "exact_frozen_evidence_ready_do_not_promote_until_model_contract_sync"
+    )
+    assert revenue["research_evidence_path"] == (
+        REVENUE_UNREACTED_FROZEN_EVIDENCE_PATH.as_posix()
+    )
+    assert revenue["research_evidence_status"] == (
+        REVENUE_UNREACTED_LAUNCH_EVIDENCE_STATUS
+    )
+    assert revenue["research_permission_status"] == (
+        REVENUE_UNREACTED_PERMISSION_STATUS
+    )
+# END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 
 
 def test_research_only_rule_not_pdf_core() -> None:

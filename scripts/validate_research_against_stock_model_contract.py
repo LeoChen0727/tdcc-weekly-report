@@ -23,6 +23,34 @@ RESEARCH_METRICS_CSV = ROOT / "output" / "latest" / "daily_model_parameter_resea
 CONTRACT_REGISTRY_CSV = ROOT / "config" / "stock_model_contract_registry.csv"
 CONDITION_SPEC_CSV = ROOT / "config" / "daily_model_condition_spec.csv"
 
+# BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
+REVENUE_MODEL_ID = "revenue_unreacted_range"
+REVENUE_EVIDENCE_VERSION = (
+    "revenue_unreacted_range_source_mid_falling_frozen_rule_launch_evidence_v1_20260830"
+)
+REVENUE_EVIDENCE_PATH = (
+    "config/approved_operation_evidence/"
+    f"{REVENUE_EVIDENCE_VERSION}_manifest.csv"
+)
+REVENUE_EVIDENCE_STATUS = "provisional_backtest_supported_oos_unconfirmed"
+REVENUE_EVIDENCE_PERMISSION_STATUS = "evidence_only_no_permission_grant"
+REVENUE_RULE_SPEC_ID = "revenue_unreacted_range_source_mid_falling_d30_v1"
+REVENUE_RULE_CANONICAL_SHA256 = (
+    "1d9fd669251180d2f7edbedb30b121660a218bad232ca49573353000db155633"
+)
+REVENUE_OUTCOME_BASIS = "D2_open_after_close_confirmed_continuation_to_D30_close"
+REVENUE_PRE_PROMOTION_BLOCKER = (
+    "exact_frozen_evidence_ready_but_daily_model_condition_spec_and_"
+    "production_permissions_not_promoted"
+)
+REVENUE_PRE_PROMOTION_COMPLETION_RULE = (
+    "exact_frozen_rule_evidence_ready_contract_promotion_pending_no_permission_grant"
+)
+REVENUE_PRE_PROMOTION_ACTION = (
+    "exact_frozen_evidence_ready_do_not_promote_until_model_contract_sync"
+)
+# END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
+
 ALLOWED_PARITY_STATUSES = {
     "ok",
     "warning_research_variant_only",
@@ -68,6 +96,9 @@ OUTPUT_COLUMNS = [
     "d5_metric_available",
     "d10_metric_available",
     "d20_metric_available",
+    "research_evidence_path",
+    "research_evidence_status",
+    "research_permission_status",
     "recommended_action",
 ]
 
@@ -287,6 +318,49 @@ def classify_row(
     research_status = (research_row or {}).get("research_baseline_status", "").strip()
     baseline_exists = bool(baseline_ids)
     baseline_blocker = (research_row or {}).get("parity_blocker", "").strip()
+    evidence_path = (research_row or {}).get(
+        "research_baseline_evidence_path", ""
+    ).strip()
+    evidence_status = (research_row or {}).get(
+        "research_baseline_evidence_status", ""
+    ).strip()
+    permission_status = (research_row or {}).get(
+        "research_baseline_permission_status", ""
+    ).strip()
+
+    # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
+    revenue_binding_blockers: list[str] = []
+    if model_id == REVENUE_MODEL_ID:
+        expected_binding = {
+            "research_baseline_status": "proxy_only",
+            "research_baseline_parameter_set_id": REVENUE_EVIDENCE_VERSION,
+            "parity_blocker": REVENUE_PRE_PROMOTION_BLOCKER,
+            "completion_rule": REVENUE_PRE_PROMOTION_COMPLETION_RULE,
+            "research_baseline_evidence_path": REVENUE_EVIDENCE_PATH,
+            "research_baseline_evidence_status": REVENUE_EVIDENCE_STATUS,
+            "research_baseline_rule_spec_id": REVENUE_RULE_SPEC_ID,
+            "research_baseline_rule_canonical_sha256": (
+                REVENUE_RULE_CANONICAL_SHA256
+            ),
+            "research_baseline_outcome_basis": REVENUE_OUTCOME_BASIS,
+            "research_baseline_permission_status": (
+                REVENUE_EVIDENCE_PERMISSION_STATUS
+            ),
+            "research_baseline_forward_holdout_policy": (
+                "post_launch_monitoring_non_hard_no_tuning"
+            ),
+            "research_baseline_financial_statement_scope": (
+                "monthly_revenue_only;EPS_gross_margin_operating_margin_"
+                "operating_income_non_operating_income_net_income_excluded"
+            ),
+        }
+        for field, expected in expected_binding.items():
+            observed = (research_row or {}).get(field, "").strip()
+            if observed != expected:
+                revenue_binding_blockers.append(
+                    f"{field}={observed!r} expected={expected!r}"
+                )
+    # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 
     if not fingerprint_match:
         parity_status = "hard_fail_contract_drift"
@@ -304,16 +378,47 @@ def classify_row(
         if baseline_blocker:
             blockers.append(baseline_blocker)
         research_version = ""
+    # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
+    elif revenue_binding_blockers:
+        parity_status = "missing_research_baseline"
+        recommended_action = "repair_frozen_revenue_exact_evidence_binding"
+        approved_research_variant = False
+        promotion_required = False
+        blockers = [
+            "revenue frozen exact-evidence binding mismatch: "
+            + "; ".join(revenue_binding_blockers)
+        ]
+        research_version = ""
+    # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
     elif research_status == "production_parity":
         parity_status = "ok"
-        recommended_action = "keep_research_advisory_monitoring"
+        # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
+        if model_id == REVENUE_MODEL_ID:
+            recommended_action = (
+                "monitor_frozen_rule_post_launch_without_tuning_or_reselection"
+            )
+        else:
+            recommended_action = "keep_research_advisory_monitoring"
+        # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
         approved_research_variant = False
         promotion_required = False
         blockers = []
-        research_version = production_version
+        # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
+        research_version = (
+            REVENUE_EVIDENCE_VERSION
+            if model_id == REVENUE_MODEL_ID
+            else production_version
+        )
+        # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
     else:
         parity_status = "warning_research_variant_only"
-        recommended_action = "research_variant_only_do_not_promote_without_explicit_promotion_pr"
+        # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
+        recommended_action = (
+            REVENUE_PRE_PROMOTION_ACTION
+            if model_id == REVENUE_MODEL_ID
+            else "research_variant_only_do_not_promote_without_explicit_promotion_pr"
+        )
+        # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
         approved_research_variant = True
         promotion_required = True
         blockers = [baseline_blocker or f"research baseline status is {research_status}, not production_parity"]
@@ -332,6 +437,9 @@ def classify_row(
         "d5_metric_available": bool_text(metric_available(metric_rows, 5, baseline_ids)),
         "d10_metric_available": bool_text(metric_available(metric_rows, 10, baseline_ids)),
         "d20_metric_available": bool_text(metric_available(metric_rows, 20, baseline_ids)),
+        "research_evidence_path": evidence_path,
+        "research_evidence_status": evidence_status,
+        "research_permission_status": permission_status,
         "recommended_action": recommended_action,
     }
 
@@ -409,6 +517,7 @@ def write_markdown(rows: list[dict[str, str]], metadata: dict[str, str], source_
         "- rule: config/stock_model_contract_registry.csv is the production stock-model source of truth for this validator.",
         "- rule: production contract drift and missing research baselines fail validation.",
         "- rule: research proxy rows are marked as research variants and require explicit promotion PR before daily production use.",
+        "- revenue pre-promotion rule: exact frozen evidence may be bound while parity remains proxy_only/warning and all production permissions remain false.",
         "- rule: this validator does not read or create stock_model_contract_snapshot_latest.json.",
         "",
         "## Status Summary",
@@ -426,6 +535,9 @@ def write_markdown(rows: list[dict[str, str]], metadata: dict[str, str], source_
                 "d5_metric_available",
                 "d10_metric_available",
                 "d20_metric_available",
+                "research_evidence_path",
+                "research_evidence_status",
+                "research_permission_status",
             ],
         ),
         "",
@@ -433,7 +545,16 @@ def write_markdown(rows: list[dict[str, str]], metadata: dict[str, str], source_
         "",
         markdown_table(
             warning_rows,
-            ["model_id", "research_contract_version", "promotion_required", "parity_blocker", "recommended_action"],
+            [
+                "model_id",
+                "research_contract_version",
+                "promotion_required",
+                "parity_blocker",
+                "research_evidence_path",
+                "research_evidence_status",
+                "research_permission_status",
+                "recommended_action",
+            ],
         ),
         "",
         "## Missing Research Baseline",
@@ -481,6 +602,26 @@ def validate_rows(rows: list[dict[str, str]], source_errors: list[str]) -> list[
                 errors.append(f"{row['model_id']} research variant row must state parity_blocker")
         if row["parity_status"] == "ok" and row["promotion_required"] != "False":
             errors.append(f"{row['model_id']} exact parity row must not require promotion")
+        # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
+        if row["model_id"] == REVENUE_MODEL_ID:
+            expected = {
+                "parity_status": "warning_research_variant_only",
+                "research_contract_version": f"research:{REVENUE_EVIDENCE_VERSION}",
+                "research_evidence_path": REVENUE_EVIDENCE_PATH,
+                "research_evidence_status": REVENUE_EVIDENCE_STATUS,
+                "research_permission_status": REVENUE_EVIDENCE_PERMISSION_STATUS,
+                "approved_research_variant": "True",
+                "promotion_required": "True",
+                "parity_blocker": REVENUE_PRE_PROMOTION_BLOCKER,
+                "recommended_action": REVENUE_PRE_PROMOTION_ACTION,
+            }
+            for field, expected_value in expected.items():
+                if row[field] != expected_value:
+                    errors.append(
+                        "revenue contract parity drift: "
+                        f"{field}={row[field]!r} expected={expected_value!r}"
+                    )
+        # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 
     failing_models = [
         row["model_id"]
