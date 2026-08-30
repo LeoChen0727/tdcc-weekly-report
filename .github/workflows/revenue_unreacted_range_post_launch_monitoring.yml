@@ -49,6 +49,14 @@ jobs:
               "confirmed_unranked_operation",
               "pending_confirmation",
           }
+          expected_identity = {
+              "approval_status": "provisional_backtest_supported_oos_unconfirmed",
+              "approval_version": "revenue_unreacted_range_source_mid_falling_formal_operation_v2_20260830",
+              "operation_module_id": "revenue_unreacted_range_source_mid_falling_v2_operation_v2",
+              "adapter_schema_version": "revenue_unreacted_range_operation_section_schema_v2",
+              "lifecycle_contract_version": "revenue_unreacted_range_lifecycle_v2",
+              "pdf_integration_status": "pdf_integrated_daily_adapter",
+          }
           rows = []
           if readiness_path.exists():
               with readiness_path.open(encoding="utf-8-sig", newline="") as handle:
@@ -57,23 +65,57 @@ jobs:
                       for row in csv.DictReader(handle)
                       if row.get("model_id", "").strip() == "revenue_unreacted_range"
                   ]
-          row = rows[0] if len(rows) == 1 else {}
-          observed_section_tokens = [
-              section.strip()
-              for section in row.get("daily_adapter_sections", "").split(",")
-              if section.strip()
-          ]
-          observed_sections = set(observed_section_tokens)
-          enabled = (
-              len(rows) == 1
-              and all(row.get(field, "").strip() == "True" for field in required_true)
-              and row.get("operation_module_id", "").strip()
-              == "revenue_unreacted_range_source_mid_falling_v2_operation_v2"
-              and row.get("pdf_integration_status", "").strip()
-              == "pdf_integrated_daily_adapter"
-              and len(observed_section_tokens) == len(expected_sections)
-              and observed_sections == expected_sections
-          )
+          if len(rows) > 1:
+              raise SystemExit(
+                  "duplicate revenue_unreacted_range readiness rows are forbidden"
+              )
+          row = rows[0] if rows else {}
+          enabled = False
+          if row:
+              permission_values = {
+                  field: row.get(field, "").strip() for field in required_true
+              }
+              invalid_permissions = {
+                  field: value
+                  for field, value in permission_values.items()
+                  if value not in {"True", "False"}
+              }
+              if invalid_permissions:
+                  raise SystemExit(
+                      "invalid revenue_unreacted_range readiness booleans: "
+                      f"{invalid_permissions}"
+                  )
+              all_true = all(value == "True" for value in permission_values.values())
+              all_false = all(value == "False" for value in permission_values.values())
+              if not (all_true or all_false):
+                  raise SystemExit(
+                      "revenue_unreacted_range readiness permissions must be "
+                      "atomically all True or all False"
+                  )
+              if all_true:
+                  identity_mismatches = {
+                      field: row.get(field, "").strip()
+                      for field, expected in expected_identity.items()
+                      if row.get(field, "").strip() != expected
+                  }
+                  observed_section_tokens = [
+                      section.strip()
+                      for section in row.get("daily_adapter_sections", "").split(",")
+                      if section.strip()
+                  ]
+                  if identity_mismatches:
+                      raise SystemExit(
+                          "revenue_unreacted_range readiness identity mismatch: "
+                          f"{identity_mismatches}"
+                      )
+                  if (
+                      len(observed_section_tokens) != len(expected_sections)
+                      or set(observed_section_tokens) != expected_sections
+                  ):
+                      raise SystemExit(
+                          "revenue_unreacted_range readiness adapter sections mismatch"
+                      )
+                  enabled = True
           enabled_text = "true" if enabled else "false"
           with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as handle:
               handle.write(f"enabled={enabled_text}\n")
