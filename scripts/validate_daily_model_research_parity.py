@@ -8,8 +8,18 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from build_daily_candidate_model_layer import build_parameter_table, build_specs  # noqa: E402
-from build_daily_model_parameter_research import OUT_PARITY_CSV, rule_specs  # noqa: E402
+from build_daily_model_parameter_research import (  # noqa: E402
+    OUT_PARITY_CSV,
+    rule_specs,
+)
 
+
+REVENUE_MODEL_ID = "revenue_unreacted_range"
+REVENUE_LEGACY_PROXY_ID = "production_current_proxy"
+REVENUE_LEGACY_PROXY_BLOCKER = (
+    "strong_revenue gate requires model-specific research matrix, contract update, "
+    "exact parity, and promotion PR before formal use"
+)
 
 ALLOWED_BASELINE_STATUSES = {
     "production_parity",
@@ -52,6 +62,32 @@ def validate_rule_specs() -> list[str]:
     for spec in specs:
         if spec.pdf_visibility == "pdf_core_model" and spec.model_id not in production_core:
             errors.append(f"research pdf_core_model is not a production core model: {spec.model_id}")
+
+    # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
+    revenue_baselines = [
+        spec
+        for spec in baseline_specs
+        if spec.model_id == REVENUE_MODEL_ID
+    ]
+    if len(revenue_baselines) != 1:
+        errors.append(
+            "revenue_unreacted_range must have exactly one production_baseline RuleSpec"
+        )
+    else:
+        baseline = revenue_baselines[0]
+        if baseline.parameter_set_id != REVENUE_LEGACY_PROXY_ID:
+            errors.append(
+                "shared revenue research baseline must remain the legacy production_current_proxy"
+            )
+        if baseline.production_parity_status != "proxy_only":
+            errors.append(
+                "shared revenue production_current_proxy must remain proxy_only and advisory"
+            )
+        if baseline.parity_blocker != REVENUE_LEGACY_PROXY_BLOCKER:
+            errors.append(
+                "shared revenue production_current_proxy blocker drifted"
+            )
+    # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 
     return errors
 
@@ -97,6 +133,27 @@ def validate_output_file() -> list[str]:
             "proxy parity rows must state blockers: "
             + ", ".join(unresolved_proxy["model_id"].astype(str).tolist())
         )
+
+    # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
+    revenue = df[df["model_id"].eq(REVENUE_MODEL_ID)]
+    if len(revenue) != 1:
+        errors.append("parity output must contain exactly one revenue_unreacted_range row")
+    else:
+        row = revenue.iloc[0]
+        expected = {
+            "research_baseline_status": "proxy_only",
+            "research_baseline_parameter_set_id": REVENUE_LEGACY_PROXY_ID,
+            "parity_blocker": REVENUE_LEGACY_PROXY_BLOCKER,
+            "completion_rule": "usable_for_relative_research_only_until_blocker_resolved",
+        }
+        for field, expected_value in expected.items():
+            observed = str(row.get(field, ""))
+            if observed != expected_value:
+                errors.append(
+                    "revenue parity output drift: "
+                    f"{field}={observed!r} expected={expected_value!r}"
+                )
+    # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 
     return errors
 
