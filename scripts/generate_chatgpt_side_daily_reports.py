@@ -571,8 +571,10 @@ def render_operation_model_summary_if_applicable(
     model_id: str,
 ) -> bool:
     if model_id == REVENUE_UNREACTED_RANGE_MODEL_ID:
-        revenue_unreacted_range_pdf_adapter_enabled(inputs)
-        append_stock_model_summary_lines(story, operation_model_summary_lines(inputs, model_id))
+        if revenue_unreacted_range_pdf_adapter_enabled(inputs):
+            append_stock_model_summary_lines(
+                story, operation_model_summary_lines(inputs, model_id)
+            )
         return True
     if model_id not in OPERATION_TABLE_MODEL_IDS:
         return False
@@ -2312,8 +2314,9 @@ def model_pdf_presentation_order(
     fallback_order: float,
 ) -> float:
     if model_id == REVENUE_UNREACTED_RANGE_MODEL_ID:
-        revenue_unreacted_range_pdf_adapter_enabled(inputs)
-        return REVENUE_UNREACTED_RANGE_PDF_PRESENTATION_ORDER
+        if revenue_unreacted_range_pdf_adapter_enabled(inputs):
+            return REVENUE_UNREACTED_RANGE_PDF_PRESENTATION_ORDER
+        return fallback_order
     return PDF_PRESENTATION_MODEL_ORDER_OVERRIDES.get(model_id, fallback_order)
 
 
@@ -2350,6 +2353,14 @@ def core_model_specs(inputs: dict[str, pd.DataFrame], line: str | None = None) -
     )
     if "pdf_visibility" in registry.columns or "presentation_allowed" in registry.columns:
         registry = registry[visibility_mask | presentation_mask].copy()
+    if "model_id" in registry.columns:
+        revenue_mask = registry["model_id"].astype(str).eq(
+            REVENUE_UNREACTED_RANGE_MODEL_ID
+        )
+        if revenue_mask.any() and not revenue_unreacted_range_pdf_adapter_enabled(
+            inputs
+        ):
+            registry = registry.loc[~revenue_mask].copy()
     if registry.empty:
         return []
     registry["_order"] = pd.to_numeric(registry.get("model_registry_order"), errors="coerce").fillna(9999)
@@ -2478,21 +2489,15 @@ def is_true_text(value) -> bool:
 
 def revenue_unreacted_range_readiness_row(
     inputs: dict[str, pd.DataFrame],
-) -> pd.Series:
+) -> pd.Series | None:
     readiness = inputs.get("model_readiness", pd.DataFrame()).copy()
     if readiness.empty or "model_id" not in readiness.columns:
-        raise RuntimeError(
-            "revenue_unreacted_range PDF readiness is missing; "
-            "legacy generic fallback is forbidden"
-        )
+        return None
     rows = readiness[
         readiness["model_id"].astype(str).eq(REVENUE_UNREACTED_RANGE_MODEL_ID)
     ].copy()
     if rows.empty:
-        raise RuntimeError(
-            "revenue_unreacted_range PDF readiness row is missing; "
-            "legacy generic fallback is forbidden"
-        )
+        return None
     if len(rows) != 1:
         raise RuntimeError(
             "revenue_unreacted_range PDF operation readiness must contain exactly one model row"
@@ -2503,30 +2508,40 @@ def revenue_unreacted_range_readiness_row(
 def revenue_unreacted_range_pdf_adapter_enabled(
     inputs: dict[str, pd.DataFrame],
 ) -> bool:
-    """Require exact v2 readiness plus the dedicated artifact; never fall back."""
+    """Enable only exact v2; unavailable states suppress revenue with no fallback."""
 
     row = revenue_unreacted_range_readiness_row(inputs)
-    presentation_allowed = is_true_text(row.get("presentation_allowed"))
-    pdf_integrated = clean(row.get("pdf_integration_status")) == "pdf_integrated_daily_adapter"
-    if not presentation_allowed and not pdf_integrated:
-        raise RuntimeError(
-            "revenue_unreacted_range PDF adapter is disabled; "
-            "legacy generic fallback is forbidden"
-        )
-    if presentation_allowed != pdf_integrated:
-        raise RuntimeError(
-            "revenue_unreacted_range PDF readiness is partially activated: "
-            "presentation_allowed=True and pdf_integrated_daily_adapter must become true together"
-        )
-
+    if row is None:
+        return False
     required_permissions = (
         "formal_model_use_allowed",
         "approved_for_daily",
         "presentation_allowed",
         "production_allowed",
     )
+    permission_values = {
+        field: is_true_text(row.get(field)) for field in required_permissions
+    }
+    presentation_allowed = is_true_text(row.get("presentation_allowed"))
+    pdf_integrated = clean(row.get("pdf_integration_status")) == "pdf_integrated_daily_adapter"
+    if not presentation_allowed and not pdf_integrated:
+        enabled_permissions = [
+            field for field, enabled in permission_values.items() if enabled
+        ]
+        if enabled_permissions:
+            raise RuntimeError(
+                "revenue_unreacted_range dormant PDF readiness permission mismatch: "
+                + ",".join(enabled_permissions)
+            )
+        return False
+    if presentation_allowed != pdf_integrated:
+        raise RuntimeError(
+            "revenue_unreacted_range PDF readiness is partially activated: "
+            "presentation_allowed=True and pdf_integrated_daily_adapter must become true together"
+        )
+
     disabled_permissions = [
-        field for field in required_permissions if not is_true_text(row.get(field))
+        field for field, enabled in permission_values.items() if not enabled
     ]
     if disabled_permissions:
         raise RuntimeError(
@@ -2569,8 +2584,6 @@ def revenue_unreacted_range_generic_signal_rows_removed(
     revenue_mask = signals["model_id"].astype(str).eq(
         REVENUE_UNREACTED_RANGE_MODEL_ID
     )
-    if revenue_mask.any():
-        revenue_unreacted_range_pdf_adapter_enabled(inputs)
     return signals.loc[~revenue_mask].copy()
 
 
@@ -2689,7 +2702,11 @@ def revenue_unreacted_range_operation_frame(
     pdf_view: str,
     pdf_section: str,
 ) -> pd.DataFrame:
-    revenue_unreacted_range_pdf_adapter_enabled(inputs)
+    if not revenue_unreacted_range_pdf_adapter_enabled(inputs):
+        raise RuntimeError(
+            "revenue_unreacted_range dedicated PDF operation adapter is disabled; "
+            "legacy generic fallback is forbidden"
+        )
     frame = inputs.get(
         REVENUE_UNREACTED_RANGE_OPERATION_INPUT_KEY, pd.DataFrame()
     ).copy()
@@ -4095,10 +4112,10 @@ def render_model_operation_section_if_applicable(
     line: str | None = None,
 ) -> bool:
     if model_id == REVENUE_UNREACTED_RANGE_MODEL_ID:
-        revenue_unreacted_range_pdf_adapter_enabled(inputs)
-        render_revenue_unreacted_range_operation_section(
-            story, inputs, pdf_view, line
-        )
+        if revenue_unreacted_range_pdf_adapter_enabled(inputs):
+            render_revenue_unreacted_range_operation_section(
+                story, inputs, pdf_view, line
+            )
         return True
     if model_id in VOLUME_BREAKOUT_OPERATION_MODEL_IDS:
         render_volume_range_breakout_operation_section(story, inputs, model_id, pdf_view, line)
@@ -5806,10 +5823,10 @@ def operation_rendered_sections_for_inputs(
     inputs: dict[str, pd.DataFrame],
 ) -> dict[str, tuple[str, ...]]:
     sections = dict(OPERATION_RENDERED_SECTIONS)
-    revenue_unreacted_range_pdf_adapter_enabled(inputs)
-    sections[REVENUE_UNREACTED_RANGE_MODEL_ID] = (
-        REVENUE_UNREACTED_RANGE_OPERATION_SECTIONS
-    )
+    if revenue_unreacted_range_pdf_adapter_enabled(inputs):
+        sections[REVENUE_UNREACTED_RANGE_MODEL_ID] = (
+            REVENUE_UNREACTED_RANGE_OPERATION_SECTIONS
+        )
     return sections
 
 
@@ -5821,7 +5838,8 @@ def selected_operation_rows_for_manifest(
     pdf_section: str,
 ) -> pd.DataFrame:
     if model_id == REVENUE_UNREACTED_RANGE_MODEL_ID:
-        revenue_unreacted_range_pdf_adapter_enabled(inputs)
+        if not revenue_unreacted_range_pdf_adapter_enabled(inputs):
+            return pd.DataFrame()
         return selected_revenue_unreacted_range_operation_rows_for_pdf(
             inputs, pdf_view, report_line, pdf_section
         )
