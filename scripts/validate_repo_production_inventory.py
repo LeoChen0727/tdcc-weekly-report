@@ -188,6 +188,9 @@ WORKFLOW_ALLOWED_OWNERS = {
         "model_governance",
         "repo_infrastructure",
     },
+    ".github/workflows/revenue_unreacted_range_post_launch_monitoring.yml": {
+        "repo_infrastructure",
+    },
     ".github/workflows/current_holdings_pattern.yml": {"current_holdings", "repo_infrastructure"},
     ".github/workflows/daily_full_pipeline.yml": {
         "daily_production",
@@ -273,6 +276,13 @@ WORKFLOW_ALLOWED_OWNERS = {
         "catalyst_event",
         "daily_production",
         "repo_infrastructure",
+    },
+}
+
+WORKFLOW_EXACT_INVOCATION_ALLOWLIST = {
+    DAILY_WORKFLOW: {
+        "scripts/build_daily_revenue_unreacted_range_operation_section.py",
+        "scripts/validate_daily_revenue_unreacted_range_operation_section.py",
     },
 }
 
@@ -1677,6 +1687,9 @@ def validate_workflow_invocations(rows_by_path: dict[str, InventoryRow], workflo
         if workflow_row is None:
             continue
         allowed_owners = WORKFLOW_ALLOWED_OWNERS.get(workflow_path, set())
+        exact_allowed_paths = WORKFLOW_EXACT_INVOCATION_ALLOWLIST.get(
+            workflow_path, set()
+        )
         invoked_paths = workflow_invocations(workflow_path)
 
         for invoked_path in sorted(invoked_paths):
@@ -1693,7 +1706,10 @@ def validate_workflow_invocations(rows_by_path: dict[str, InventoryRow], workflo
                 continue
             if invoked_row.status == "legacy_deprecated":
                 errors.append(f"{workflow_path} invokes deprecated Python path: {invoked_path}")
-            if invoked_row.owner not in allowed_owners:
+            if (
+                invoked_row.owner not in allowed_owners
+                and invoked_path not in exact_allowed_paths
+            ):
                 errors.append(
                     f"{workflow_path} invokes {invoked_path} owned by {invoked_row.owner}; "
                     f"allowed owners are {sorted(allowed_owners)}"

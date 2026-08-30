@@ -115,6 +115,17 @@ FORBIDDEN_ACTIVE_GUIDANCE_PATTERNS = {
 CANONICAL_DAILY_REPORT_ENTRYPOINT = "scripts/run_chatgpt_daily_report_entrypoint.py"
 CANONICAL_CHATGPT_PDF_RENDERER = "scripts/generate_chatgpt_side_daily_reports.py"
 
+EXPLICIT_WORKFLOW_LIFECYCLE_REFERENCES = {
+    ".github/workflows/revenue_unreacted_range_post_launch_monitoring.yml": {
+        "tested_by": {
+            "tests/test_revenue_unreacted_range_post_launch_workflows.py"
+        },
+        "reads_artifact": {
+            "output/latest/model_operation_readiness_latest.csv"
+        },
+    }
+}
+
 
 @dataclass(frozen=True)
 class LifecycleRow:
@@ -590,9 +601,16 @@ def validate_reference_columns(lifecycle: dict[str, LifecycleRow]) -> list[str]:
         expected_workflows = sorted(workflow_refs.get(path, set()))
         expected_imports = sorted(import_refs.get(path, set()))
         expected_docs = sorted(doc_refs.get(path, set()))
-        expected_tests = sorted(test_refs.get(path, set()))
+        explicit_workflow_refs = EXPLICIT_WORKFLOW_LIFECYCLE_REFERENCES.get(path, {})
+        expected_tests = sorted(
+            test_refs.get(path, set())
+            | set(explicit_workflow_refs.get("tested_by", set()))
+        )
         expected_writes = sorted(writes.get(path, set()))
-        expected_reads = sorted(reads.get(path, set()))
+        expected_reads = sorted(
+            reads.get(path, set())
+            | set(explicit_workflow_refs.get("reads_artifact", set()))
+        )
         comparisons = [
             ("called_by_workflow", expected_workflows, list(row.called_by_workflow)),
             ("imported_by", expected_imports, list(row.imported_by)),
