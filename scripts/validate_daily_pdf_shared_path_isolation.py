@@ -48,6 +48,7 @@ STOCK_PDF_BUILDERS = {
 MODEL_SPECIFIC_OPERATION_SYMBOLS = {
     "revenue_unreacted_range_readiness_row",
     "revenue_unreacted_range_pdf_adapter_enabled",
+    "revenue_unreacted_range_generic_signal_rows_removed",
     "validate_revenue_unreacted_range_operation_artifact",
     "revenue_unreacted_range_operation_frame",
     "revenue_unreacted_range_operation_row_matches_line",
