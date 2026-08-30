@@ -30,6 +30,9 @@ ARTIFACT_SNAPSHOT_STEMS = {
     "neckline_volume_breakout_confirmation_operation_section": (
         "daily_neckline_volume_breakout_confirmation_operation_section"
     ),
+    "revenue_unreacted_range_operation_section": (
+        "daily_revenue_unreacted_range_operation_section"
+    ),
 }
 REQUIRED_MANIFEST_COLUMNS = {
     "snapshot_report_date",

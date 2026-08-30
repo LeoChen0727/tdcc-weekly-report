@@ -218,6 +218,30 @@ ARTIFACTS: tuple[SnapshotArtifact, ...] = (
             "planned_holding_days",
         ),
     ),
+    SnapshotArtifact(
+        artifact_id="revenue_unreacted_range_operation_section",
+        source_name="daily_revenue_unreacted_range_operation_section_latest.csv",
+        snapshot_stem="daily_revenue_unreacted_range_operation_section",
+        required_columns=(
+            "model_id",
+            "operation_module_id",
+            "adapter_schema_version",
+            "lifecycle_contract_version",
+            "formal_signal_effective_from",
+            "pdf_view",
+            "pdf_section",
+            "row_type",
+            "buy_rank_eligible",
+            "row_action_status",
+            "operation_asof_date",
+            "entry_rule_id",
+            "stop_loss_rule_id",
+            "stop_loss_price",
+            "exit_rule_id",
+            "planned_holding_days",
+        ),
+        date_columns=("operation_asof_date",),
+    ),
 )
 ARTIFACTS_BY_ID = {artifact.artifact_id: artifact for artifact in ARTIFACTS}
 
