@@ -1,4 +1,7 @@
 path,kind,owner,status,purpose,allowed_workflows,allowed_stage_patterns
+scripts/archive_revenue_unreacted_range_legacy_runtime_evidence.py,python,model_governance,active,one-shot model-owned content-addressed archive of committed legacy daily signal rows before runtime retirement,,
+scripts/validate_revenue_unreacted_range_legacy_runtime_evidence.py,python,model_governance,active,independent committed-source replay and SHA-256 validator for immutable legacy revenue runtime evidence,,
+tests/test_revenue_unreacted_range_legacy_runtime_evidence.py,test_python,model_governance,active,legacy evidence filtering content-addressing append-only idempotency and tamper regression tests,,
 .github/workflows/revenue_unreacted_range_readiness_formal_sync.yml,workflow,model_governance,active,exact one-shot v2 model-governance readiness sync to an inert literal codex branch,,output/latest/model_operation_readiness_latest.csv;output/latest/model_operation_readiness_latest.md;docs/latest/model_operation_readiness_latest.csv;docs/latest/model_operation_readiness_latest.md
 scripts/validate_revenue_unreacted_range_readiness_formal_sync.py,python,repo_infrastructure,active,immutable v1 exact four-path phase identity and one-shot semantic validator,,
 tests/test_revenue_unreacted_range_readiness_formal_sync.py,test_python,repo_infrastructure,active,immutable v1 revenue readiness formal sync semantic phase and mutation regressions,,
