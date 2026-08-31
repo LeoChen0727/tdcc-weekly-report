@@ -60,6 +60,7 @@ OPERATION_MODEL_DISPLAY_NAMES = {
     "w_bottom_right_side": "W底右側模型",
     "neckline_volume_breakout_confirmation": "W底頸線帶量突破確認模型",
     "price_pullback_23ema": "23EMA回檔模型",
+    "revenue_unreacted_range": "營收爆發但股價尚未反應模型",
 }
 OPERATION_SECTION_TITLES = {
     "confirmed_operation": "本日可買 / 已確認買入候選",
