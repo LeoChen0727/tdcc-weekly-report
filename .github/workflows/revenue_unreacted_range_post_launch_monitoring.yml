@@ -27,6 +27,14 @@ jobs:
           ref: main
           fetch-depth: 1
 
+      - name: Set up snapshot probe runtime
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install snapshot probe dependency
+        run: python -m pip install pandas
+
       - name: Resolve formal launch readiness
         id: readiness
         shell: bash
