@@ -255,19 +255,15 @@ def test_revenue_readiness_resolvers_safely_disable_on_missing_or_zero_rows(
     ids=("daily-full", "post-launch-monitoring"),
 )
 @pytest.mark.parametrize(
-    ("updater_output", "updater_exit_code"),
-    (
-        ("revenue_unreacted_range_operation_section", 2),
-        ("other_registered_artifact", 0),
-    ),
-    ids=("updater-help-nonzero", "artifact-unregistered"),
+    "updater_exit_code",
+    (2,),
+    ids=("artifact-unregistered",),
 )
 def test_revenue_readiness_resolvers_fail_closed_when_snapshot_registry_unavailable(
     tmp_path: Path,
     workflow: Path,
     start: str,
     end: str,
-    updater_output: str,
     updater_exit_code: int,
 ) -> None:
     result = _run_resolver(
@@ -276,11 +272,37 @@ def test_revenue_readiness_resolvers_fail_closed_when_snapshot_registry_unavaila
         start,
         end,
         [_ready_row()],
-        updater_output=updater_output,
         updater_exit_code=updater_exit_code,
     )
     assert result.returncode != 0
     assert "published snapshot artifact id is not registered" in result.stderr
+
+
+@pytest.mark.parametrize(
+    ("workflow", "start", "end"),
+    RESOLVER_CASES,
+    ids=("daily-full", "post-launch-monitoring"),
+)
+def test_revenue_readiness_resolvers_do_not_parse_wrapped_help_text(
+    tmp_path: Path,
+    workflow: Path,
+    start: str,
+    end: str,
+) -> None:
+    result = _run_resolver(
+        tmp_path,
+        workflow,
+        start,
+        end,
+        [_ready_row()],
+        updater_output="revenue_unreacted_range_\noperation_section",
+    )
+    assert result.returncode == 0, result.stderr
+    resolver = _resolver_source(workflow, start, end)
+    assert '"--artifact-id"' in resolver
+    assert '"revenue_unreacted_range_operation_section"' in resolver
+    assert "snapshot_help.returncode == 0" in resolver
+    assert "snapshot_help.stdout" not in resolver
 
 
 @pytest.mark.parametrize(
