@@ -12,6 +12,16 @@ from build_daily_model_parameter_research import (  # noqa: E402
     OUT_PARITY_CSV,
     rule_specs,
 )
+from validate_research_against_stock_model_contract import (  # noqa: E402
+    REVENUE_ACTIVATED_CONTRACT_STATE,
+    REVENUE_ACTIVATED_PARITY_COMPLETION_RULE,
+    REVENUE_EVIDENCE_VERSION,
+    REVENUE_EXPECTED_OPERATION_COUNT,
+    REVENUE_EXPECTED_UNIQUE_STOCK_COUNT,
+    load_contract_sources,
+    load_revenue_frozen_evidence,
+    revenue_contract_state,
+)
 
 
 REVENUE_MODEL_ID = "revenue_unreacted_range"
@@ -102,6 +112,8 @@ def validate_output_file() -> list[str]:
         "research_baseline_status",
         "research_baseline_parameter_set_id",
         "research_variant_count",
+        "baseline_selected_stock_days",
+        "baseline_selected_unique_stocks",
         "parity_blocker",
         "completion_rule",
     }
@@ -140,12 +152,39 @@ def validate_output_file() -> list[str]:
         errors.append("parity output must contain exactly one revenue_unreacted_range row")
     else:
         row = revenue.iloc[0]
-        expected = {
-            "research_baseline_status": "proxy_only",
-            "research_baseline_parameter_set_id": REVENUE_LEGACY_PROXY_ID,
-            "parity_blocker": REVENUE_LEGACY_PROXY_BLOCKER,
-            "completion_rule": "usable_for_relative_research_only_until_blocker_resolved",
-        }
+        registry_rows, condition_rows, production_rows, source_errors = (
+            load_contract_sources()
+        )
+        errors.extend(source_errors)
+        revenue_state = revenue_contract_state(
+            registry_rows.get(REVENUE_MODEL_ID),
+            condition_rows.get(REVENUE_MODEL_ID),
+            production_rows.get(REVENUE_MODEL_ID),
+        )
+        if revenue_state == REVENUE_ACTIVATED_CONTRACT_STATE:
+            expected = {
+                "research_baseline_status": "production_parity",
+                "research_baseline_parameter_set_id": REVENUE_EVIDENCE_VERSION,
+                "baseline_selected_stock_days": str(
+                    REVENUE_EXPECTED_OPERATION_COUNT
+                ),
+                "baseline_selected_unique_stocks": str(
+                    REVENUE_EXPECTED_UNIQUE_STOCK_COUNT
+                ),
+                "parity_blocker": "",
+                "completion_rule": REVENUE_ACTIVATED_PARITY_COMPLETION_RULE,
+            }
+            try:
+                load_revenue_frozen_evidence()
+            except RuntimeError as exc:
+                errors.append(str(exc))
+        else:
+            expected = {
+                "research_baseline_status": "proxy_only",
+                "research_baseline_parameter_set_id": REVENUE_LEGACY_PROXY_ID,
+                "parity_blocker": REVENUE_LEGACY_PROXY_BLOCKER,
+                "completion_rule": "usable_for_relative_research_only_until_blocker_resolved",
+            }
         for field, expected_value in expected.items():
             observed = str(row.get(field, ""))
             if observed != expected_value:
