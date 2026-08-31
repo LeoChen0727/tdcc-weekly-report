@@ -167,6 +167,94 @@ def test_pre_effective_weekend_emits_full_model_owned_empty_state(
     )
 
 
+def test_append_only_history_tolerates_bom_and_crlf_transport_drift(
+    tmp_path: Path,
+) -> None:
+    fixture = _objective_fixture(tmp_path / "fixture")
+    destination = tmp_path / "artifacts"
+    section = _build(
+        fixture,
+        report_date="20260828",
+        history_dir=destination / "history",
+    )
+    outputs = _write(section, destination)
+    history_path = Path(outputs["history_csv"])
+    canonical = history_path.read_bytes()
+    transport_variant = b"\xef\xbb\xbf" + canonical.replace(b"\n", b"\r\n")
+    history_path.write_bytes(transport_variant)
+
+    result = validator.validate_artifact(
+        Path(outputs["output_csv"]),
+        source_module=ROOT
+        / "scripts"
+        / "build_daily_revenue_unreacted_range_operation_section.py",
+        history_snapshot=history_path,
+    )
+    repeated = _write(section, destination)
+
+    assert result["row_count"] == 12
+    assert repeated["history_csv"] == str(history_path)
+    assert history_path.read_bytes() == transport_variant
+
+
+def test_append_only_history_rejects_semantic_filename_drift(
+    tmp_path: Path,
+) -> None:
+    fixture = _objective_fixture(tmp_path / "fixture")
+    destination = tmp_path / "artifacts"
+    section = _build(
+        fixture,
+        report_date="20260828",
+        history_dir=destination / "history",
+    )
+    outputs = _write(section, destination)
+    history_path = Path(outputs["history_csv"])
+    drifted = pd.read_csv(history_path, dtype=str, keep_default_na=False)
+    drifted.at[0, "adapter_note_zh"] += "; semantic drift"
+    drifted.at[0, "row_canonical_sha256"] = builder._history_row_hash(
+        drifted.loc[0].to_dict()
+    )
+    drifted.to_csv(history_path, index=False, lineterminator="\n")
+
+    with pytest.raises(
+        validator.ValidationError,
+        match="semantic content hash mismatch",
+    ):
+        validator.validate_artifact(
+            Path(outputs["output_csv"]),
+            source_module=ROOT
+            / "scripts"
+            / "build_daily_revenue_unreacted_range_operation_section.py",
+            history_snapshot=history_path,
+        )
+
+
+def test_append_only_history_rejects_semantic_collision(
+    tmp_path: Path,
+) -> None:
+    fixture = _objective_fixture(tmp_path / "fixture")
+    destination = tmp_path / "artifacts"
+    section = _build(
+        fixture,
+        report_date="20260828",
+        history_dir=destination / "history",
+    )
+    outputs = _write(section, destination)
+    history_path = Path(outputs["history_csv"])
+    drifted = pd.read_csv(history_path, dtype=str, keep_default_na=False)
+    drifted.at[0, "adapter_note_zh"] += "; semantic collision"
+    drifted.at[0, "row_canonical_sha256"] = builder._history_row_hash(
+        drifted.loc[0].to_dict()
+    )
+    drifted.to_csv(history_path, index=False, lineterminator="\n")
+
+    with pytest.raises(
+        builder.RevenueOperationAdapterError,
+        match="append-only history collision",
+    ):
+        _write(section, destination)
+
+
 def test_d0_d1_d2_lifecycle_requires_append_only_confirmed_proof(
     tmp_path: Path,
 ) -> None:

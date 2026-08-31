@@ -3497,7 +3497,7 @@ def build_parameter_table(specs: list[ModelSpec]) -> pd.DataFrame:
                     "tdcc_distribution_penalty": "",
                     "false_breakout_penalty": "",
                     "score_profile_scope": "not_applicable_dedicated_operation_adapter",
-                    "parameter_status": "contract_prepared_permissions_false",
+                    "parameter_status": "provisional_backtest_supported_oos_unconfirmed",
                 }
             )
         rows.append(row)

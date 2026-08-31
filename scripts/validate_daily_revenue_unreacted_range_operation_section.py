@@ -11,6 +11,7 @@ import argparse
 import ast
 import csv
 import hashlib
+import io
 import json
 from pathlib import Path
 import re
@@ -317,6 +318,37 @@ def _read_csv(path: Path) -> tuple[tuple[str, ...], list[dict[str, str]]]:
         ]
 
 
+def _canonical_semantic_csv_bytes(payload: bytes, *, source_name: str) -> bytes:
+    try:
+        text = payload.decode("utf-8-sig")
+    except UnicodeDecodeError as exc:
+        raise ValidationError(
+            f"append-only history is not UTF-8: {source_name}"
+        ) from exc
+    records = list(csv.reader(io.StringIO(text, newline="")))
+    if not records:
+        raise ValidationError(f"append-only history is empty: {source_name}")
+    header = tuple(records[0])
+    if header != EXPECTED_COLUMNS:
+        raise ValidationError(
+            f"append-only history schema drift: {source_name}"
+        )
+    generated_at_index = header.index("generated_at")
+    output = io.StringIO(newline="")
+    writer = csv.writer(output, lineterminator="\n")
+    writer.writerow(header)
+    for row_number, record in enumerate(records[1:], start=2):
+        if len(record) != len(header):
+            raise ValidationError(
+                "append-only history row width drift: "
+                f"{source_name}/row={row_number}"
+            )
+        normalized = list(record)
+        normalized[generated_at_index] = ""
+        writer.writerow(normalized)
+    return output.getvalue().encode("utf-8")
+
+
 def _row_hash(row: Mapping[str, str]) -> str:
     payload = [
         [column, _clean(row.get(column, ""))]
@@ -386,10 +418,14 @@ def _validate_history_snapshot(path: Path) -> None:
     if match is None:
         raise ValidationError(f"invalid append-only history filename: {path}")
     payload = path.read_bytes()
-    actual_sha = hashlib.sha256(payload).hexdigest()
+    semantic_payload = _canonical_semantic_csv_bytes(
+        payload,
+        source_name=str(path),
+    )
+    actual_sha = hashlib.sha256(semantic_payload).hexdigest()
     if actual_sha != match.group("sha"):
         raise ValidationError(
-            f"append-only history content hash mismatch: {path}"
+            f"append-only history semantic content hash mismatch: {path}"
         )
     header, rows = _read_csv(path)
     if header != EXPECTED_COLUMNS:

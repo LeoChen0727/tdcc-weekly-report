@@ -1,6 +1,6 @@
 # Approved Operation Patterns
 
-- generated_at: `2026-07-12 13:53:40 Asia/Taipei`
+- generated_at: `2026-08-31 09:05:30 Asia/Taipei`
 - purpose: explicit promotion gate from research/backtest evidence to daily operation guidance
 - rule: raw research backtest rows can remain research-only; this artifact is the explicit approval layer
 
@@ -12,3 +12,4 @@
 | w_bottom_right_side | w_bottom_early_entry_operation_v2 | w_bottom_early_entry_operation_v2_20260629 | True | approved_daily_operation_guidance | right_low_signal_next_open | w_structure_low_close_stop | d20_gain10_else_d40_close | smooth_core_mainstream_right_rebound_5_20_bull | 1 | 31 | 58.0645 | 6.2374 | w_bottom_early_entry_operation_spec | W底右低點早期進場 v2 已批准為 daily operation guidance；raw research candidate rows 仍維持 research-only，正式 production 使用只能讀 approval artifact。 |
 | neckline_volume_breakout_confirmation | neckline_strict_45_signal_90_score_v1 | neckline_strict_45_signal_90_score_v1_20260629 | True | approved_daily_operation_guidance | close_ge_1pct_within_3_sessions_next_open | no_fixed_stop_loss_20d_operation_rule | tp10_close_win_5pct_pullback_neutral_else_20d_close_loss | broad_45_non_bearish_with_90_warning | 1 | 51 | 63.8889 | 4.4597 | neckline_strict_45_signal_90_score_operation_spec | W底頸線帶量突破 v1 正式批准為 daily operation guidance；45日 context 是入選訊號，90日 context 只作分數與風險調整。其他頸線型態不混入此 v1，原始 research candidate rows 仍維持 research-only。 |
 | price_pullback_23ema | price_pullback_23ema_prev20_breakout_stop_v1 | price_pullback_23ema_operation_v1_20260703 | True | approved_daily_operation_guidance | signal_date_next_open | sustained_close_below_lower_ma20_ema23_4pct_4d | close_prev20_high_break_next_open | v1_gate_return20_tdcc_high_obv | 1 | 1160 | 66.03 |  | price_pullback_23ema_promoted_operation_spec | 23EMA回檔模型 v1 正式批准為 daily operation guidance；營收、熱門族群、權證與高報酬結構分不進v1。 |
+| revenue_unreacted_range | revenue_unreacted_range_source_mid_falling_v2_operation_v2 | revenue_unreacted_range_source_mid_falling_formal_operation_v2_20260830 | True | approved_daily_operation_guidance | d2_analysis_open | none_no_stop_reference | d30_analysis_close_offset29 | revenue_unreacted_range_source_mid_falling_d30_v1 | 41 | 53 | 77.3585 | 9.4077 | frozen_rule_launch_evidence_manifest | 依 user_authorized_4A_4C_20260830 以 provisional_backtest_supported_oos_unconfirmed 正式上線；forward_holdout_v2 僅作上線後監控，不是 hard gate。 |

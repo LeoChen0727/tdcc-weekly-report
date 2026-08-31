@@ -34,12 +34,17 @@ from build_model_operation_readiness import (  # noqa: E402
 )
 # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 from sync_revenue_unreacted_range_operation_readiness import (  # noqa: E402
+    FORMAL_ADAPTER_METADATA_COLUMNS,
     REVENUE_ANOMALY_REGISTRY_CSV,
     REVENUE_FORWARD_HOLDOUT_V2_DETAIL_CSV,
     REVENUE_FORWARD_HOLDOUT_V2_MANIFEST_CSV,
     REVENUE_FORWARD_HOLDOUT_V2_REPLAY_SOURCE_CSV,
     REVENUE_FORWARD_HOLDOUT_V2_SUMMARY_CSV,
     REVENUE_MODEL_ID,
+    REVENUE_FORMAL_ADAPTER_APPROVAL_STATUS,
+    REVENUE_FORMAL_ADAPTER_MODULE_REL,
+    REVENUE_PROMOTION_DECISION_V6,
+    REVENUE_PROMOTION_PROFILES,
     REVENUE_PROMOTION_REGISTRY_CSV,
     REVENUE_SOURCE_PROJECTION_MANIFEST_CSV,
     summarize_revenue_promotion_readiness,
@@ -81,11 +86,11 @@ APPROVED_MODEL_IDS = {
     NECKLINE_MODEL_ID,
     PRICE_PULLBACK_MODEL_ID,
 }
+# BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
+APPROVED_MODEL_IDS.add(REVENUE_MODEL_ID)
+# END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 LEGACY_VOLUME_MODEL_ID = "volume_range_breakout"
 PENDING_CANDIDATE_MODEL_IDS: set[str] = set()
-# BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
-PENDING_CANDIDATE_MODEL_IDS.add(REVENUE_MODEL_ID)
-# END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 
 
 def as_bool_text(series: pd.Series) -> pd.Series:
@@ -121,10 +126,12 @@ def validate_persisted_revenue_permission_columns(
 
     for persisted_field in sorted(REVENUE_PERMISSION_COLUMNS):
         values = readiness[persisted_field].fillna("").astype(str)
-        bad_revenue = readiness[revenue_mask & values.ne("False")]
+        bad_revenue = readiness[
+            revenue_mask & ~values.isin({"True", "False"})
+        ]
         if not bad_revenue.empty:
             errors.append(
-                f"{REVENUE_MODEL_ID} readiness {persisted_field} must be explicit False"
+                f"{REVENUE_MODEL_ID} readiness {persisted_field} must be exact True/False"
             )
         bad_legacy = readiness[~revenue_mask & values.ne("")]
         if not bad_legacy.empty:
@@ -133,6 +140,57 @@ def validate_persisted_revenue_permission_columns(
                 "must remain neutral blank: "
                 + ", ".join(bad_legacy["model_id"].astype(str).tolist())
             )
+    if errors:
+        return errors
+    revenue = readiness[revenue_mask].iloc[0]
+    permission_values = {
+        str(revenue.get(field_name, ""))
+        for field_name in (
+            "formal_model_use_allowed",
+            "approved_for_daily",
+            "presentation_allowed",
+            "production_allowed",
+        )
+    }
+    if len(permission_values) != 1:
+        errors.append(
+            f"{REVENUE_MODEL_ID} readiness permission quartet must be all False or all True"
+        )
+        return errors
+    permission = permission_values.pop()
+    if permission == "True":
+        expected_v6 = {
+            "approval_status": REVENUE_FORMAL_ADAPTER_APPROVAL_STATUS,
+            "operation_module_id": REVENUE_PROMOTION_PROFILES[
+                REVENUE_PROMOTION_DECISION_V6
+            ].operation_module_id,
+            "operation_module_path": REVENUE_FORMAL_ADAPTER_MODULE_REL,
+            "pdf_integration_status": "pdf_integrated_daily_adapter",
+            "packet_integration_status": "pending_packet_consumer",
+        }
+        missing_metadata = sorted(
+            set(FORMAL_ADAPTER_METADATA_COLUMNS) - set(readiness.columns)
+        )
+        if missing_metadata:
+            errors.append(
+                f"enabled {REVENUE_MODEL_ID} readiness missing formal metadata: "
+                f"{missing_metadata}"
+            )
+        else:
+            for field_name in FORMAL_ADAPTER_METADATA_COLUMNS:
+                if not str(revenue.get(field_name, "")):
+                    errors.append(
+                        f"enabled {REVENUE_MODEL_ID} readiness {field_name} is blank"
+                    )
+        for field_name, expected in expected_v6.items():
+            if str(revenue.get(field_name, "")) != expected:
+                errors.append(
+                    f"enabled {REVENUE_MODEL_ID} readiness {field_name} must bind exact v6"
+                )
+    elif permission != "False":
+        errors.append(
+            f"{REVENUE_MODEL_ID} readiness permission must be exact True/False"
+        )
     return errors
 # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range

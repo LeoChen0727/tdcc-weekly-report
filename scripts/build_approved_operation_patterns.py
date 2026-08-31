@@ -131,6 +131,43 @@ PRICE_PULLBACK_SPEC_SOURCE = Path("docs/specs/price_pullback_23ema_operation_can
 PRICE_PULLBACK_MIN_MATURE_SAMPLE_SIZE = 1000
 PRICE_PULLBACK_MIN_WIN_RATE = 60.0
 
+REVENUE_MODEL_ID = "revenue_unreacted_range"
+REVENUE_OPERATION_MODULE_ID = (
+    "revenue_unreacted_range_source_mid_falling_v2_operation_v2"
+)
+REVENUE_APPROVAL_VERSION = (
+    "revenue_unreacted_range_source_mid_falling_formal_operation_v2_20260830"
+)
+REVENUE_APPROVAL_STATUS = "provisional_backtest_supported_oos_unconfirmed"
+REVENUE_SOURCE_RESEARCH_ID = (
+    "revenue_unreacted_range_source_mid_falling_frozen_rule_launch_evidence"
+)
+REVENUE_ENTRY_RULE_ID = "d2_analysis_open"
+REVENUE_STOP_LOSS_RULE_ID = "none_no_stop_reference"
+REVENUE_EXIT_RULE_ID = "d30_analysis_close_offset29"
+REVENUE_BUY_FILTER_ID = "revenue_unreacted_range_source_mid_falling_d30_v1"
+REVENUE_EVIDENCE_SOURCE = (
+    "config/approved_operation_evidence/"
+    "revenue_unreacted_range_source_mid_falling_"
+    "frozen_rule_launch_evidence_v1_20260830_manifest.csv"
+)
+REVENUE_APPROVAL_METRICS = {
+    "sample_size": "53",
+    "win_count": "41",
+    "neutral_count": "0",
+    "failure_count": "12",
+    "win_rate_pct": "77.3585",
+    "neutral_rate_pct": "0.0000",
+    "failure_rate_pct": "22.6415",
+    "avg_return_pct": "14.8950",
+    "median_return_pct": "9.4077",
+    "chronological_status": "positive_all_thirds",
+    "transaction_cost_status": "robust_declared_grid",
+    "relative_edge_status": "weak_and_time_unstable",
+    "regime_coverage_status": "limited_no_range_or_high_risk",
+    "forward_holdout_status": "post_launch_monitoring_non_hard_no_tuning",
+}
+
 PRICE_PULLBACK_APPROVAL_METRICS = {
     "surface_id": "price_pullback_23ema_v1",
     "selected_segment_id": PRICE_PULLBACK_BUY_FILTER_ID,
@@ -520,6 +557,92 @@ def price_pullback_approval_row(generated_at: str) -> dict[str, Any]:
     }
 
 
+def revenue_approval_row(generated_at: str) -> dict[str, Any]:
+    evidence_pin = evidence_pin_for_model(
+        REVENUE_MODEL_ID,
+        REVENUE_APPROVAL_VERSION,
+    )
+    return {
+        "generated_at": generated_at,
+        "model_id": REVENUE_MODEL_ID,
+        "operation_module_id": REVENUE_OPERATION_MODULE_ID,
+        "approval_version": REVENUE_APPROVAL_VERSION,
+        "evidence_artifact_version": evidence_pin.evidence_version,
+        "evidence_canonical_sha256": evidence_pin.canonical_sha256,
+        "evidence_pin_source": evidence_pin.evidence_path,
+        "approved_for_daily": "True",
+        "approval_status": REVENUE_APPROVAL_STATUS,
+        "operation_directive_level": "approved_daily_operation_guidance",
+        "source_research_id": REVENUE_SOURCE_RESEARCH_ID,
+        "entry_rule_id": REVENUE_ENTRY_RULE_ID,
+        "entry_rule_zh": "D+1 收盤確認後，D+2 開盤進場。",
+        "stop_loss_rule_id": REVENUE_STOP_LOSS_RULE_ID,
+        "stop_loss_rule_zh": "不設正式停損；不得使用盤中高低點作正式出場價。",
+        "exit_rule_id": REVENUE_EXIT_RULE_ID,
+        "exit_rule_zh": "進場日為第1日，固定於第30個交易日收盤出場。",
+        "buy_filter_id": REVENUE_BUY_FILTER_ID,
+        "buy_filter_zh": (
+            "凍結 source_mid_falling 規則；只使用月營收與 close-confirmed "
+            "price history，不新增條件、不調整門檻、不重新選樣。"
+        ),
+        "pending_rule_zh": "D0 trigger 後等待 D+1 收盤高於 D0 收盤確認。",
+        "min_sample_size": "0",
+        "min_win_rate": "0.0",
+        "min_median_return": "0.0",
+        "require_out_of_sample_pass": "False",
+        "min_research_score": "0.0",
+        "evidence_summary_source": REVENUE_EVIDENCE_SOURCE,
+        "evidence_rank_source": REVENUE_EVIDENCE_SOURCE,
+        "evidence_source_kind": "frozen_rule_launch_evidence_manifest",
+        "evidence_total_rank_rows": "53",
+        "evidence_positive_rank_rows": "41",
+        "best_evidence_scope": "whole_model_frozen_rule_gross_historical",
+        "best_evidence_id": REVENUE_BUY_FILTER_ID,
+        "best_evidence_sample_size": REVENUE_APPROVAL_METRICS["sample_size"],
+        "best_evidence_win_rate": REVENUE_APPROVAL_METRICS["win_rate_pct"],
+        "best_evidence_median_return": REVENUE_APPROVAL_METRICS["median_return_pct"],
+        "best_evidence_confidence_status": REVENUE_APPROVAL_STATUS,
+        "best_evidence_out_of_sample_pass": "unconfirmed",
+        "data_start_date": "20251028",
+        "data_end_date": "20260526",
+        "out_of_sample_start_date": "",
+        "approval_note_zh": (
+            "依 user_authorized_4A_4C_20260830 以 "
+            "provisional_backtest_supported_oos_unconfirmed 正式上線；"
+            "forward_holdout_v2 僅作上線後監控，不是 hard gate。"
+        ),
+        "risk_notes_zh": (
+            "同期相對優勢弱且跨時段不穩定，樣本未涵蓋 range-bound/high-risk；"
+            "必須持續無調參監控。EPS、毛利率、營益率、營業利益、業外損益、"
+            "淨利及季度/年度財報不得進入條件、分數或 promotion evidence。"
+        ),
+        "revenue_sample_size": REVENUE_APPROVAL_METRICS["sample_size"],
+        "revenue_win_count": REVENUE_APPROVAL_METRICS["win_count"],
+        "revenue_neutral_count": REVENUE_APPROVAL_METRICS["neutral_count"],
+        "revenue_failure_count": REVENUE_APPROVAL_METRICS["failure_count"],
+        "revenue_win_rate_pct": REVENUE_APPROVAL_METRICS["win_rate_pct"],
+        "revenue_neutral_rate_pct": REVENUE_APPROVAL_METRICS["neutral_rate_pct"],
+        "revenue_failure_rate_pct": REVENUE_APPROVAL_METRICS["failure_rate_pct"],
+        "revenue_avg_return_pct": REVENUE_APPROVAL_METRICS["avg_return_pct"],
+        "revenue_median_return_pct": REVENUE_APPROVAL_METRICS["median_return_pct"],
+        "revenue_chronological_status": REVENUE_APPROVAL_METRICS[
+            "chronological_status"
+        ],
+        "revenue_transaction_cost_status": REVENUE_APPROVAL_METRICS[
+            "transaction_cost_status"
+        ],
+        "revenue_relative_edge_status": REVENUE_APPROVAL_METRICS[
+            "relative_edge_status"
+        ],
+        "revenue_regime_coverage_status": REVENUE_APPROVAL_METRICS[
+            "regime_coverage_status"
+        ],
+        "revenue_forward_holdout_status": REVENUE_APPROVAL_METRICS[
+            "forward_holdout_status"
+        ],
+    }
+
+
 def build_approval(generated_at: str | None = None) -> pd.DataFrame:
     generated = generated_at or now_text()
     return pd.DataFrame(
@@ -530,6 +653,7 @@ def build_approval(generated_at: str | None = None) -> pd.DataFrame:
             w_bottom_approval_row(generated),
             neckline_approval_row(generated),
             price_pullback_approval_row(generated),
+            revenue_approval_row(generated),
         ]
     )
 

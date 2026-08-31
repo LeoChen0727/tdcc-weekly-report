@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import importlib.metadata
 import inspect
 import json
@@ -19,6 +20,7 @@ import sync_revenue_unreacted_range_operation_readiness as syncer  # noqa: E402
 
 
 _REAL_LOAD_REGISTERED_PRICE_FRAMES = syncer._load_registered_price_frames
+_REAL_VALIDATE_FORMAL_ADAPTER_RUNTIME = syncer.validate_formal_adapter_runtime
 _CURRENT_REGISTERED_PRICE_FRAMES: dict[str, pd.DataFrame] | None = None
 _BASELINE_MANIFEST = pd.read_csv(
     ROOT / syncer.FORWARD_HOLDOUT_V2_MANIFEST_REL, dtype=str
@@ -362,6 +364,23 @@ def cache_verified_current_cheap_inputs(monkeypatch: pytest.MonkeyPatch) -> None
         "_load_registered_price_frames",
         cached_registered_prices,
     )
+    monkeypatch.setattr(
+        syncer,
+        "validate_formal_adapter_runtime",
+        lambda _repo: syncer.FormalAdapterRuntimeValidationResult(
+            operation_module_path=syncer.REVENUE_FORMAL_ADAPTER_MODULE_REL,
+            operation_module_canonical_sha256="1" * 64,
+            adapter_artifact_id=syncer.REVENUE_FORMAL_ADAPTER_ARTIFACT_ID,
+            adapter_artifact_version=syncer.REVENUE_FORMAL_ADAPTER_APPROVAL_VERSION,
+            adapter_artifact_path=syncer.REVENUE_FORMAL_ADAPTER_ARTIFACT_REL,
+            adapter_artifact_canonical_sha256="2" * 64,
+            adapter_schema_version=syncer.REVENUE_FORMAL_ADAPTER_SCHEMA_VERSION,
+            lifecycle_contract_version=syncer.REVENUE_FORMAL_ADAPTER_LIFECYCLE_VERSION,
+            row_count=12,
+            data_row_count=0,
+            sections=syncer.REVENUE_FORMAL_ADAPTER_SECTIONS,
+        ),
+    )
 
 
 def readiness_row(model_id: str) -> dict[str, str]:
@@ -404,6 +423,14 @@ def revenue_summary() -> dict[str, str | int]:
         "operation_module_id": (
             "revenue_unreacted_range_source_mid_falling_v2_operation_v1"
         ),
+        "operation_module_path": "",
+        "operation_module_canonical_sha256": "",
+        "adapter_artifact_id": "",
+        "adapter_artifact_version": "",
+        "adapter_artifact_path": "",
+        "adapter_artifact_canonical_sha256": "",
+        "adapter_schema_version": "",
+        "lifecycle_contract_version": "",
         "approval_version": "",
         "presentation_allowed": "False",
         "production_allowed": "False",
@@ -421,6 +448,82 @@ def revenue_summary() -> dict[str, str | int]:
         "daily_adapter_sections": "",
         "status_note_zh": "僅月營收；正式權限維持關閉。",
     }
+
+
+def test_v6_summary_enables_formal_adapter_and_keeps_holdout_as_monitoring(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(
+        syncer,
+        "validate_formal_adapter_runtime",
+        lambda _repo: syncer.FormalAdapterRuntimeValidationResult(
+            operation_module_path=syncer.REVENUE_FORMAL_ADAPTER_MODULE_REL,
+            operation_module_canonical_sha256="1" * 64,
+            adapter_artifact_id=syncer.REVENUE_FORMAL_ADAPTER_ARTIFACT_ID,
+            adapter_artifact_version=(
+                "revenue_unreacted_range_source_mid_falling_formal_operation_v2_20260830"
+            ),
+            adapter_artifact_path=syncer.REVENUE_FORMAL_ADAPTER_ARTIFACT_REL,
+            adapter_artifact_canonical_sha256="2" * 64,
+            adapter_schema_version=syncer.REVENUE_FORMAL_ADAPTER_SCHEMA_VERSION,
+            lifecycle_contract_version=(
+                syncer.REVENUE_FORMAL_ADAPTER_LIFECYCLE_VERSION
+            ),
+            row_count=12,
+            data_row_count=0,
+            sections=syncer.REVENUE_FORMAL_ADAPTER_SECTIONS,
+        ),
+    )
+    promotion = pd.read_csv(
+        ROOT / syncer.PROMOTION_REGISTRY_REL,
+        dtype=str,
+    ).fillna("")
+    holdout = pd.read_csv(
+        ROOT / syncer.FORWARD_HOLDOUT_V2_MANIFEST_REL,
+        dtype=str,
+    ).fillna("")
+
+    summary = syncer.summarize_revenue_promotion_readiness(
+        promotion,
+        pd.DataFrame(),
+        holdout,
+        holdout_detail=pd.read_csv(
+            ROOT / syncer.FORWARD_HOLDOUT_V2_DETAIL_REL, dtype=str
+        ).fillna(""),
+        holdout_summary=pd.read_csv(
+            ROOT / syncer.FORWARD_HOLDOUT_V2_SUMMARY_REL, dtype=str
+        ).fillna(""),
+        replay_source=pd.read_csv(
+            ROOT / syncer.FORWARD_HOLDOUT_V2_REPLAY_SOURCE_REL, dtype=str
+        ).fillna(""),
+        source_projection_manifest=pd.read_csv(
+            ROOT / syncer.SOURCE_PROJECTION_MANIFEST_REL, dtype=str
+        ).fillna(""),
+        repo_root=ROOT,
+    )
+
+    assert summary["blocker"] == "none"
+    assert summary["parity_status"] == (
+        "provisional_backtest_supported_oos_unconfirmed"
+    )
+    assert summary["operation_module_status"] == (
+        "approved_operation_v2_provisional_backtest_supported_oos_unconfirmed"
+    )
+    assert summary["daily_adapter_status"] == "ready_empty_no_operation_rows"
+    assert summary["formal_model_use_allowed"] == "True"
+    assert summary["approved_for_daily"] == "True"
+    assert summary["presentation_allowed"] == "True"
+    assert summary["production_allowed"] == "True"
+    assert summary["approval_status"] == (
+        "provisional_backtest_supported_oos_unconfirmed"
+    )
+    assert summary["pdf_integration_status"] == "pdf_integrated_daily_adapter"
+    assert summary["packet_integration_status"] == "pending_packet_consumer"
+    assert summary["daily_adapter_row_count"] == 12
+    assert summary["daily_adapter_data_row_count"] == 0
+    assert summary["daily_adapter_sections"] == ",".join(
+        syncer.REVENUE_FORMAL_ADAPTER_SECTIONS
+    )
 
 
 def legacy_readiness() -> pd.DataFrame:
@@ -443,6 +546,69 @@ def git(repo: Path, *args: str) -> str:
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
     ).stdout.strip()
+
+
+def formal_adapter_runtime_repo(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    *,
+    committed_history_semantic_drift: bool = False,
+) -> tuple[Path, Path, Path, bytes]:
+    repo = tmp_path / "repo"
+    repo.mkdir()
+    git(repo, "init")
+    git(repo, "config", "user.name", "test")
+    git(repo, "config", "user.email", "test@example.com")
+    git(repo, "config", "core.autocrlf", "false")
+
+    monkeypatch.setattr(syncer, "REVENUE_FORMAL_ADAPTER_MODULE_REL", "module.py")
+    monkeypatch.setattr(syncer, "REVENUE_FORMAL_ADAPTER_VALIDATOR_REL", "validator.py")
+    monkeypatch.setattr(syncer, "REVENUE_FORMAL_ADAPTER_ARTIFACT_REL", "runtime.csv")
+    monkeypatch.setattr(syncer, "REVENUE_FORMAL_ADAPTER_HISTORY_DIRECTORY_REL", "history")
+
+    (repo / "module.py").write_text("ADAPTER_VERSION = 'test'\n", encoding="utf-8")
+    (repo / "validator.py").write_text(
+        "import csv\n"
+        "import sys\n"
+        "from pathlib import Path\n"
+        "artifact = Path(sys.argv[sys.argv.index('--artifact') + 1])\n"
+        "with artifact.open(encoding='utf-8-sig', newline='') as handle:\n"
+        "    rows = list(csv.DictReader(handle))\n"
+        "data_rows = sum(row['row_type'] == 'data' for row in rows)\n"
+        "print('PASS: formal revenue operation adapter is independently valid '"
+        "f'asof=20260828 rows={len(rows)} data_rows={data_rows} '"
+        "f'empty_rows={len(rows) - data_rows}')\n",
+        encoding="utf-8",
+    )
+
+    runtime_semantic = syncer._formal_adapter_semantic_payload(
+        (ROOT / "output/latest/daily_revenue_unreacted_range_operation_section_latest.csv").read_bytes(),
+        "runtime fixture",
+    )
+    runtime_path = repo / "runtime.csv"
+    runtime_path.write_bytes(runtime_semantic)
+    runtime_sha = hashlib.sha256(runtime_semantic).hexdigest()
+    history_path = (
+        repo
+        / "history"
+        / (
+            "daily_revenue_unreacted_range_operation_section_"
+            f"{syncer.REVENUE_FORMAL_ADAPTER_REPORT_DATE}_{runtime_sha}.csv"
+        )
+    )
+    history_path.parent.mkdir(parents=True)
+    history_semantic = runtime_semantic
+    if committed_history_semantic_drift:
+        history_semantic = runtime_semantic.replace(
+            b"post_launch_monitoring_non_hard_no_tuning",
+            b"post_launch_monitoring_semantic_drift",
+            1,
+        )
+        assert history_semantic != runtime_semantic
+    history_path.write_bytes(history_semantic)
+    git(repo, "add", ".")
+    git(repo, "commit", "-m", "formal adapter fixture")
+    return repo, runtime_path, history_path, runtime_semantic
 
 
 def exact_attestation(
@@ -640,7 +806,10 @@ def test_build_accepts_only_canonical_extended_disabled_source() -> None:
 
     unsafe = base.copy()
     unsafe.loc[unsafe["model_id"].eq(syncer.MODEL_ID), "production_allowed"] = "True"
-    with pytest.raises(RuntimeError, match="production_allowed must be explicit False"):
+    with pytest.raises(
+        RuntimeError,
+        match="permission quartet disagrees at production_allowed",
+    ):
         syncer.build_revenue_only_readiness(
             unsafe,
             revenue_summary(),
@@ -688,6 +857,51 @@ def test_build_fails_closed_on_same_model_summary_schema_drift() -> None:
             incomplete,
             generated_at="new-time",
         )
+
+
+def test_formal_adapter_runtime_tolerates_bom_and_crlf_transport_drift(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    repo, runtime_path, history_path, runtime_semantic = formal_adapter_runtime_repo(
+        tmp_path,
+        monkeypatch,
+    )
+    transport_variant = b"\xef\xbb\xbf" + runtime_semantic.replace(b"\n", b"\r\n")
+    runtime_path.write_bytes(transport_variant)
+    history_path.write_bytes(transport_variant)
+
+    result = _REAL_VALIDATE_FORMAL_ADAPTER_RUNTIME(repo)
+
+    assert result.adapter_artifact_canonical_sha256 == hashlib.sha256(
+        runtime_semantic
+    ).hexdigest()
+    assert result.row_count > 0
+    assert result.data_row_count == 0
+
+
+@pytest.mark.parametrize("drift_location", ("worktree_history", "committed_history"))
+def test_formal_adapter_runtime_rejects_history_semantic_drift(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    drift_location: str,
+) -> None:
+    repo, _runtime_path, history_path, runtime_semantic = formal_adapter_runtime_repo(
+        tmp_path,
+        monkeypatch,
+        committed_history_semantic_drift=drift_location == "committed_history",
+    )
+    if drift_location == "worktree_history":
+        drifted = runtime_semantic.replace(
+            b"post_launch_monitoring_non_hard_no_tuning",
+            b"post_launch_monitoring_semantic_drift",
+            1,
+        )
+        assert drifted != runtime_semantic
+        history_path.write_bytes(drifted)
+
+    with pytest.raises(RuntimeError, match="does not semantically bind"):
+        _REAL_VALIDATE_FORMAL_ADAPTER_RUNTIME(repo)
 
 
 def test_committed_source_treats_crlf_as_diagnostic_and_semantic_drift_as_error(
@@ -973,7 +1187,7 @@ def test_write_scope_is_exact_four_byte_paired_mirrors(tmp_path: Path) -> None:
     assert status_row.count("False") >= 4
 
 
-def test_current_canonical_sources_build_exact_disabled_revenue_row() -> None:
+def test_current_canonical_sources_build_exact_v6_provisional_revenue_row() -> None:
     base = pd.read_csv(ROOT / syncer.OUT_CSV_REL, dtype=str).fillna("")
     promotion = pd.read_csv(
         ROOT / syncer.PROMOTION_REGISTRY_REL,
@@ -1027,22 +1241,28 @@ def test_current_canonical_sources_build_exact_disabled_revenue_row() -> None:
         generated_at="deterministic-test-time",
     )
     revenue = readiness[readiness["model_id"].eq(syncer.MODEL_ID)].iloc[0]
-    assert revenue["blocker"] == "forward_holdout_v2_mature=0/20"
-    assert revenue["parity_status"] == "research_matrix_complete"
+    assert revenue["blocker"] == "none"
+    assert revenue["parity_status"] == (
+        "provisional_backtest_supported_oos_unconfirmed"
+    )
     assert revenue["operation_module_status"] == (
-        "disabled_adapter_preparation_validated"
+        "approved_operation_v2_provisional_backtest_supported_oos_unconfirmed"
     )
-    assert revenue["daily_adapter_status"] == "disabled_no_runtime_artifact"
+    assert revenue["daily_adapter_status"] == "ready_empty_no_operation_rows"
     assert revenue["operation_module_id"] == (
-        "revenue_unreacted_range_source_mid_falling_v2_operation_v1"
+        "revenue_unreacted_range_source_mid_falling_v2_operation_v2"
     )
-    assert revenue["daily_adapter_row_count"] == "0"
+    assert revenue["daily_adapter_row_count"] == "12"
     assert revenue["daily_adapter_data_row_count"] == "0"
-    assert revenue["daily_adapter_sections"] == ""
-    assert revenue["formal_model_use_allowed"] == "False"
-    assert revenue["approved_for_daily"] == "False"
-    assert revenue["presentation_allowed"] == "False"
-    assert revenue["production_allowed"] == "False"
+    assert revenue["daily_adapter_sections"] == ",".join(
+        syncer.REVENUE_FORMAL_ADAPTER_SECTIONS
+    )
+    assert revenue["formal_model_use_allowed"] == "True"
+    assert revenue["approved_for_daily"] == "True"
+    assert revenue["presentation_allowed"] == "True"
+    assert revenue["production_allowed"] == "True"
+    assert revenue["pdf_integration_status"] == "pdf_integrated_daily_adapter"
+    assert revenue["packet_integration_status"] == "pending_packet_consumer"
 
 
 def test_v4_profile_remains_compatible_without_consuming_adapter_gate(
@@ -1051,7 +1271,7 @@ def test_v4_profile_remains_compatible_without_consuming_adapter_gate(
     promotion = pd.read_csv(
         ROOT / syncer.PROMOTION_REGISTRY_REL,
         dtype=str,
-    ).fillna("").iloc[:-1]
+    ).fillna("").iloc[:-2]
     anomalies = pd.read_csv(ROOT / syncer.ANOMALY_REGISTRY_REL, dtype=str).fillna("")
     holdout = pd.read_csv(
         ROOT / syncer.FORWARD_HOLDOUT_V2_MANIFEST_REL,
@@ -1095,7 +1315,7 @@ def test_v4_profile_remains_compatible_without_consuming_adapter_gate(
 @pytest.mark.parametrize(
     ("field_name", "value", "message"),
     [
-        ("decision_id", "unknown_future_decision", "not an exact supported v4/v5"),
+        ("decision_id", "unknown_future_decision", "not an exact supported v4/v5/v6"),
         (
             "contract_version",
             "revenue_unreacted_range_promotion_preparation_contract_v5_20260829",
@@ -1786,8 +2006,8 @@ def test_full_v2_gate_rejects_placeholder_per_stock_price_digest() -> None:
             ROOT / syncer.SOURCE_PROJECTION_MANIFEST_REL, dtype=str
         ).fillna(""),
     )
-    assert summary["formal_model_use_allowed"] == "False"
-    assert summary["production_allowed"] == "False"
+    assert summary["formal_model_use_allowed"] == "True"
+    assert summary["production_allowed"] == "True"
 
 
 def test_full_v2_gate_rejects_self_consistent_forged_mature_row_before_d30(
@@ -2570,7 +2790,7 @@ def test_summary_and_source_validator_do_not_run_exact_replay(
         repo_root=ROOT,
     )
 
-    assert result["formal_model_use_allowed"] == "False"
+    assert result["formal_model_use_allowed"] == "True"
     assert syncer.validate_revenue_readiness_source_files(ROOT) == []
 
 
@@ -2643,7 +2863,7 @@ def test_v5_adapter_gate_fails_before_exact_replay_and_any_mirror_write(
     promotion_frame = pd.read_csv(
         ROOT / syncer.PROMOTION_REGISTRY_REL,
         dtype=str,
-    ).fillna("")
+    ).fillna("").iloc[:-1]
     monkeypatch.setattr(
         syncer,
         "load_committed_inputs",
@@ -2662,7 +2882,7 @@ def test_v5_adapter_gate_fails_before_exact_replay_and_any_mirror_write(
     latest = pd.read_csv(
         ROOT / syncer.PROMOTION_REGISTRY_REL,
         dtype=str,
-    ).fillna("").iloc[-1].to_dict()
+    ).fillna("").iloc[-2].to_dict()
     monkeypatch.setattr(
         syncer,
         "validate_revenue_promotion_registry",
