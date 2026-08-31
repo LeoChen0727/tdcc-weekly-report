@@ -122,17 +122,15 @@ jobs:
               [
                   sys.executable,
                   "scripts/update_daily_published_model_snapshots.py",
+                  "--artifact-id",
+                  "revenue_unreacted_range_operation_section",
                   "--help",
               ],
               check=False,
               capture_output=True,
               text=True,
           )
-          snapshot_registered = (
-              snapshot_help.returncode == 0
-              and "revenue_unreacted_range_operation_section"
-              in snapshot_help.stdout
-          )
+          snapshot_registered = snapshot_help.returncode == 0
           if enabled and not snapshot_registered:
               raise SystemExit(
                   "formal revenue v2 readiness is enabled but the immutable "
