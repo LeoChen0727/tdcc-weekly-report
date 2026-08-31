@@ -43,6 +43,26 @@ def test_repo_production_inventory_validator_passes() -> None:
     assert inventory.main() == 0
 
 
+def test_daily_full_model_governance_invocation_exception_is_revenue_adapter_only() -> None:
+    assert "model_governance" not in inventory.WORKFLOW_ALLOWED_OWNERS[
+        inventory.DAILY_WORKFLOW
+    ]
+    expected_paths = {
+        "scripts/build_daily_revenue_unreacted_range_operation_section.py",
+        "scripts/validate_daily_revenue_unreacted_range_operation_section.py",
+    }
+    assert inventory.WORKFLOW_EXACT_INVOCATION_ALLOWLIST == {
+        inventory.DAILY_WORKFLOW: expected_paths
+    }
+
+    errors: list[str] = []
+    rows = inventory.load_inventory(errors)
+    assert errors == []
+    for path in expected_paths:
+        assert rows[path].owner == "model_governance"
+        assert rows[path].allowed_workflows == (inventory.DAILY_WORKFLOW,)
+
+
 def test_revenue_readiness_formal_sync_is_exactly_registered_and_guarded() -> None:
     workflow_text = (ROOT / REVENUE_READINESS_FORMAL_SYNC_WORKFLOW).read_text(
         encoding="utf-8"

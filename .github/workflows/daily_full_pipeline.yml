@@ -944,6 +944,156 @@ jobs:
           python scripts/build_daily_candidate_model_layer.py
           python scripts/validate_daily_candidate_model_layer.py
 
+      - name: Resolve revenue v2 formal operation readiness
+        id: revenue-v2-readiness
+        shell: bash
+        run: |
+          python - <<'PY'
+          import csv
+          import os
+          from pathlib import Path
+          import subprocess
+          import sys
+
+          readiness_path = Path("output/latest/model_operation_readiness_latest.csv")
+          required_true = (
+              "formal_model_use_allowed",
+              "approved_for_daily",
+              "presentation_allowed",
+              "production_allowed",
+          )
+          expected_sections = {
+              "active_operation",
+              "confirmed_operation",
+              "confirmed_unranked_operation",
+              "pending_confirmation",
+          }
+          expected_identity = {
+              "approval_status": "provisional_backtest_supported_oos_unconfirmed",
+              "approval_version": "revenue_unreacted_range_source_mid_falling_formal_operation_v2_20260830",
+              "operation_module_id": "revenue_unreacted_range_source_mid_falling_v2_operation_v2",
+              "adapter_schema_version": "revenue_unreacted_range_operation_section_schema_v2",
+              "lifecycle_contract_version": "revenue_unreacted_range_lifecycle_v2",
+              "pdf_integration_status": "pdf_integrated_daily_adapter",
+          }
+          matching_rows = []
+          if readiness_path.exists():
+              with readiness_path.open(encoding="utf-8-sig", newline="") as handle:
+                  matching_rows = [
+                      row
+                      for row in csv.DictReader(handle)
+                      if row.get("model_id", "").strip() == "revenue_unreacted_range"
+                  ]
+          if len(matching_rows) > 1:
+              raise SystemExit(
+                  "duplicate revenue_unreacted_range readiness rows are forbidden"
+              )
+          row = matching_rows[0] if matching_rows else {}
+          enabled = False
+          if row:
+              permission_values = {
+                  field: row.get(field, "").strip() for field in required_true
+              }
+              invalid_permissions = {
+                  field: value
+                  for field, value in permission_values.items()
+                  if value not in {"True", "False"}
+              }
+              if invalid_permissions:
+                  raise SystemExit(
+                      "invalid revenue_unreacted_range readiness booleans: "
+                      f"{invalid_permissions}"
+                  )
+              all_true = all(value == "True" for value in permission_values.values())
+              all_false = all(value == "False" for value in permission_values.values())
+              if not (all_true or all_false):
+                  raise SystemExit(
+                      "revenue_unreacted_range readiness permissions must be "
+                      "atomically all True or all False"
+                  )
+              if all_true:
+                  identity_mismatches = {
+                      field: row.get(field, "").strip()
+                      for field, expected in expected_identity.items()
+                      if row.get(field, "").strip() != expected
+                  }
+                  observed_section_tokens = [
+                      section.strip()
+                      for section in row.get("daily_adapter_sections", "").split(",")
+                      if section.strip()
+                  ]
+                  if identity_mismatches:
+                      raise SystemExit(
+                          "revenue_unreacted_range readiness identity mismatch: "
+                          f"{identity_mismatches}"
+                      )
+                  if (
+                      len(observed_section_tokens) != len(expected_sections)
+                      or set(observed_section_tokens) != expected_sections
+                  ):
+                      raise SystemExit(
+                          "revenue_unreacted_range readiness adapter sections mismatch"
+                      )
+                  enabled = True
+          snapshot_help = subprocess.run(
+              [
+                  sys.executable,
+                  "scripts/update_daily_published_model_snapshots.py",
+                  "--help",
+              ],
+              check=False,
+              capture_output=True,
+              text=True,
+          )
+          snapshot_registered = (
+              snapshot_help.returncode == 0
+              and "revenue_unreacted_range_operation_section"
+              in snapshot_help.stdout
+          )
+          if enabled and not snapshot_registered:
+              raise SystemExit(
+                  "formal revenue v2 readiness is enabled but the immutable "
+                  "published snapshot artifact id is not registered"
+              )
+          enabled_text = "true" if enabled else "false"
+          snapshot_args = (
+              "--artifact-id revenue_unreacted_range_operation_section"
+              if enabled and snapshot_registered
+              else ""
+          )
+          with open(os.environ["GITHUB_ENV"], "a", encoding="utf-8") as handle:
+              handle.write(
+                  f"REVENUE_UNREACTED_RANGE_V2_ENABLED={enabled_text}\n"
+              )
+              handle.write(
+                  "REVENUE_UNREACTED_RANGE_V2_SNAPSHOT_ARGS="
+                  f"{snapshot_args}\n"
+              )
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as handle:
+              handle.write(f"enabled={enabled_text}\n")
+              handle.write(
+                  "snapshot_registered="
+                  f"{'true' if snapshot_registered else 'false'}\n"
+              )
+          print(
+              "revenue_unreacted_range/source_mid_falling v2: "
+              f"enabled={enabled_text} readiness_rows={len(matching_rows)} "
+              f"snapshot_registered={snapshot_registered}"
+          )
+          PY
+
+      - name: Build revenue v2 formal operation adapter
+        if: steps.revenue-v2-readiness.outputs.enabled == 'true'
+        run: |
+          python scripts/build_daily_revenue_unreacted_range_operation_section.py \
+            --report-date "$EXPECTED_MAIN_PRICE_DATE"
+          python scripts/validate_daily_revenue_unreacted_range_operation_section.py
+
+      - name: Record disabled revenue v2 formal operation skip
+        if: steps.revenue-v2-readiness.outputs.enabled != 'true'
+        run: |
+          echo "revenue_unreacted_range/source_mid_falling v2 formal adapter disabled by readiness; no runtime artifact was produced"
+
       - name: Publish and validate volume v2 audit-source snapshots
         run: |
           python scripts/update_daily_published_model_snapshots.py \
@@ -1071,6 +1221,7 @@ jobs:
             --artifact-id volume_breakout_operation_evidence_audit \
             --artifact-id w_bottom_right_side_operation_section \
             --artifact-id neckline_volume_breakout_confirmation_operation_section \
+            $REVENUE_UNREACTED_RANGE_V2_SNAPSHOT_ARGS \
             --revision-reason daily_full_post_audit_artifacts
           python scripts/validate_daily_published_model_snapshots.py --phase runtime
           python scripts/validate_daily_canonical_field_lineage.py --runtime-scope complete-current
@@ -1121,6 +1272,10 @@ jobs:
           cp output/latest/daily_price_pullback_23ema_operation_section_latest.md docs/latest/daily_price_pullback_23ema_operation_section_latest.md || true
           cp output/latest/daily_price_pullback_23ema_operation_evidence_audit_latest.csv docs/latest/daily_price_pullback_23ema_operation_evidence_audit_latest.csv || true
           cp output/latest/daily_price_pullback_23ema_operation_evidence_audit_latest.md docs/latest/daily_price_pullback_23ema_operation_evidence_audit_latest.md || true
+          if [ "$REVENUE_UNREACTED_RANGE_V2_ENABLED" = "true" ]; then
+            cp output/latest/daily_revenue_unreacted_range_operation_section_latest.csv docs/latest/daily_revenue_unreacted_range_operation_section_latest.csv
+            cp output/latest/daily_revenue_unreacted_range_operation_section_latest.md docs/latest/daily_revenue_unreacted_range_operation_section_latest.md
+          fi
           cp output/latest/mature_model_row_level_metric_contract_audit_latest.csv docs/latest/mature_model_row_level_metric_contract_audit_latest.csv || true
           cp output/latest/mature_model_row_level_metric_contract_audit_latest.md docs/latest/mature_model_row_level_metric_contract_audit_latest.md || true
           cp output/latest/mature_model_row_level_metric_row_audit_latest.csv docs/latest/mature_model_row_level_metric_row_audit_latest.csv || true
@@ -1206,6 +1361,7 @@ jobs:
           --artifact-id volume_breakout_operation_evidence_audit
           --artifact-id w_bottom_right_side_operation_section
           --artifact-id neckline_volume_breakout_confirmation_operation_section
+          $REVENUE_UNREACTED_RANGE_V2_SNAPSHOT_ARGS
 
       - name: Validate immutable published snapshot revisions
         shell: /bin/bash --noprofile --norc -e -o pipefail {0}
@@ -1239,6 +1395,12 @@ jobs:
           git add docs/latest/daily_candidate_*.csv docs/latest/daily_candidate_*.md docs/latest/daily_candidate_*.json || true
           git add docs/latest/daily_w_bottom_right_side_operation_*_latest.* || true
           git add docs/latest/daily_neckline_volume_breakout_confirmation_operation_*_latest.* || true
+          if [ "$REVENUE_UNREACTED_RANGE_V2_ENABLED" = "true" ]; then
+            git add -- \
+              docs/latest/daily_revenue_unreacted_range_operation_section_latest.csv \
+              docs/latest/daily_revenue_unreacted_range_operation_section_latest.md
+            git add output/history/daily_model_snapshots/daily_revenue_unreacted_range_operation_section_*.csv
+          fi
           git add -- \
             docs/latest/daily_volume_breakout_operation_section_latest.csv \
             docs/latest/daily_volume_breakout_operation_section_latest.md \

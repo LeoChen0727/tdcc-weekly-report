@@ -1,0 +1,162 @@
+name: Revenue Unreacted Range Post-Launch Monitoring
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 21:30 Asia/Taipei, Monday through Friday (UTC+8, no daylight saving time).
+    - cron: "30 13 * * 1-5"
+
+permissions:
+  contents: read
+  actions: write
+
+concurrency:
+  group: revenue-unreacted-range-post-launch-monitoring
+  cancel-in-progress: false
+
+jobs:
+  dispatch-frozen-forward-monitoring:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+
+    steps:
+      - name: Checkout main readiness state
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - name: Resolve formal launch readiness
+        id: readiness
+        shell: bash
+        run: |
+          python - <<'PY'
+          import csv
+          import os
+          from pathlib import Path
+          import subprocess
+          import sys
+
+          readiness_path = Path("output/latest/model_operation_readiness_latest.csv")
+          required_true = (
+              "formal_model_use_allowed",
+              "approved_for_daily",
+              "presentation_allowed",
+              "production_allowed",
+          )
+          expected_sections = {
+              "active_operation",
+              "confirmed_operation",
+              "confirmed_unranked_operation",
+              "pending_confirmation",
+          }
+          expected_identity = {
+              "approval_status": "provisional_backtest_supported_oos_unconfirmed",
+              "approval_version": "revenue_unreacted_range_source_mid_falling_formal_operation_v2_20260830",
+              "operation_module_id": "revenue_unreacted_range_source_mid_falling_v2_operation_v2",
+              "adapter_schema_version": "revenue_unreacted_range_operation_section_schema_v2",
+              "lifecycle_contract_version": "revenue_unreacted_range_lifecycle_v2",
+              "pdf_integration_status": "pdf_integrated_daily_adapter",
+          }
+          rows = []
+          if readiness_path.exists():
+              with readiness_path.open(encoding="utf-8-sig", newline="") as handle:
+                  rows = [
+                      row
+                      for row in csv.DictReader(handle)
+                      if row.get("model_id", "").strip() == "revenue_unreacted_range"
+                  ]
+          if len(rows) > 1:
+              raise SystemExit(
+                  "duplicate revenue_unreacted_range readiness rows are forbidden"
+              )
+          row = rows[0] if rows else {}
+          enabled = False
+          if row:
+              permission_values = {
+                  field: row.get(field, "").strip() for field in required_true
+              }
+              invalid_permissions = {
+                  field: value
+                  for field, value in permission_values.items()
+                  if value not in {"True", "False"}
+              }
+              if invalid_permissions:
+                  raise SystemExit(
+                      "invalid revenue_unreacted_range readiness booleans: "
+                      f"{invalid_permissions}"
+                  )
+              all_true = all(value == "True" for value in permission_values.values())
+              all_false = all(value == "False" for value in permission_values.values())
+              if not (all_true or all_false):
+                  raise SystemExit(
+                      "revenue_unreacted_range readiness permissions must be "
+                      "atomically all True or all False"
+                  )
+              if all_true:
+                  identity_mismatches = {
+                      field: row.get(field, "").strip()
+                      for field, expected in expected_identity.items()
+                      if row.get(field, "").strip() != expected
+                  }
+                  observed_section_tokens = [
+                      section.strip()
+                      for section in row.get("daily_adapter_sections", "").split(",")
+                      if section.strip()
+                  ]
+                  if identity_mismatches:
+                      raise SystemExit(
+                          "revenue_unreacted_range readiness identity mismatch: "
+                          f"{identity_mismatches}"
+                      )
+                  if (
+                      len(observed_section_tokens) != len(expected_sections)
+                      or set(observed_section_tokens) != expected_sections
+                  ):
+                      raise SystemExit(
+                          "revenue_unreacted_range readiness adapter sections mismatch"
+                      )
+                  enabled = True
+          snapshot_help = subprocess.run(
+              [
+                  sys.executable,
+                  "scripts/update_daily_published_model_snapshots.py",
+                  "--help",
+              ],
+              check=False,
+              capture_output=True,
+              text=True,
+          )
+          snapshot_registered = (
+              snapshot_help.returncode == 0
+              and "revenue_unreacted_range_operation_section"
+              in snapshot_help.stdout
+          )
+          if enabled and not snapshot_registered:
+              raise SystemExit(
+                  "formal revenue v2 readiness is enabled but the immutable "
+                  "published snapshot artifact id is not registered"
+              )
+          enabled_text = "true" if enabled else "false"
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as handle:
+              handle.write(f"enabled={enabled_text}\n")
+          print(
+              "revenue_unreacted_range post-launch monitoring: "
+              f"enabled={enabled_text} readiness_rows={len(rows)} "
+              f"snapshot_registered={snapshot_registered}"
+          )
+          PY
+
+      - name: Skip monitoring before formal launch
+        if: steps.readiness.outputs.enabled != 'true'
+        run: |
+          echo "Formal revenue v2 permissions are not all True; monitoring dispatch skipped successfully."
+
+      - name: Dispatch frozen-rule forward holdout monitoring
+        if: steps.readiness.outputs.enabled == 'true'
+        run: |
+          gh workflow run research_backtest_pipeline.yml \
+            --ref main \
+            -f run_revenue_unreacted_range_research=true \
+            -f run_revenue_unreacted_range_forward_holdout_v2_only=true
