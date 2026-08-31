@@ -46,6 +46,7 @@ class RevenuePromotionReadinessProfile:
     promotion_scope: str
     registry_canonical_sha256: str
     adapter_validation_required: bool
+    formal_adapter_runtime_required: bool
     operation_module_status: str
     daily_adapter_status: str
     operation_module_id: str
@@ -56,6 +57,9 @@ REVENUE_PROMOTION_DECISION_V4 = (
 )
 REVENUE_PROMOTION_DECISION_V5 = (
     "revenue_unreacted_range_source_mid_falling_promotion_preparation_v5_20260829"
+)
+REVENUE_PROMOTION_DECISION_V6 = (
+    "revenue_unreacted_range_source_mid_falling_promotion_preparation_v6_20260830"
 )
 REVENUE_ANOMALY_DISPOSITION_GATE = (
     "verified_8_real_extreme_1_data_error_repaired_effective_blockers_0"
@@ -85,6 +89,7 @@ REVENUE_PROMOTION_PROFILES = {
             "520b453f22f1b943d6c6241094e5b4df9729810c980e680e9f2027698d9bf5db"
         ),
         adapter_validation_required=False,
+        formal_adapter_runtime_required=False,
         operation_module_status=(
             "research_matrix_complete_formal_adapter_not_started"
         ),
@@ -111,13 +116,42 @@ REVENUE_PROMOTION_PROFILES = {
             "da74a4a96d5db27e5ec8209c7d2b57c6dfe19f79761f844ef160ce86bba34869"
         ),
         adapter_validation_required=True,
+        formal_adapter_runtime_required=False,
         operation_module_status="disabled_adapter_preparation_validated",
         daily_adapter_status="disabled_no_runtime_artifact",
         operation_module_id=REVENUE_DISABLED_OPERATION_MODULE_ID,
     ),
+    REVENUE_PROMOTION_DECISION_V6: RevenuePromotionReadinessProfile(
+        decision_id=REVENUE_PROMOTION_DECISION_V6,
+        contract_version=(
+            "revenue_unreacted_range_promotion_preparation_contract_v7_20260830"
+        ),
+        decision_status="provisional_backtest_supported_oos_unconfirmed",
+        anomaly_disposition_gate=REVENUE_ANOMALY_DISPOSITION_GATE,
+        formal_adapter_gate=(
+            "formal_adapter_v2_approved_production_hard_gate_satisfied"
+        ),
+        promotion_scope=(
+            "provisional_production_daily_full_pdf_enabled_forward_holdout_"
+            "post_launch_monitoring_no_tuning_apps_script_forbidden_legacy_"
+            "selector_retired_code_retained_pending_dependency_audit"
+        ),
+        registry_canonical_sha256=(
+            "2e42132905b00647d2f32114c9d16789132584a386fb4e2095fdfd0759b1d112"
+        ),
+        adapter_validation_required=False,
+        formal_adapter_runtime_required=True,
+        operation_module_status=(
+            "approved_operation_v2_provisional_backtest_supported_oos_unconfirmed"
+        ),
+        daily_adapter_status="ready_empty_no_operation_rows",
+        operation_module_id=(
+            "revenue_unreacted_range_source_mid_falling_v2_operation_v2"
+        ),
+    ),
 }
 REVENUE_CURRENT_PROMOTION_PROFILE = REVENUE_PROMOTION_PROFILES[
-    REVENUE_PROMOTION_DECISION_V5
+    REVENUE_PROMOTION_DECISION_V6
 ]
 # Current-profile aliases remain available to older model-owned callers.  Row
 # validation itself is decision-id keyed so an append-only v4 source still
@@ -145,6 +179,40 @@ REVENUE_ADAPTER_VALIDATION_PASS = (
     "revenue_unreacted_range disabled adapter preparation validation passed: "
     "8 in-memory empty rows; no runtime artifact; all permissions false"
 )
+REVENUE_FORMAL_ADAPTER_MODULE_REL = (
+    "scripts/build_daily_revenue_unreacted_range_operation_section.py"
+)
+REVENUE_FORMAL_ADAPTER_VALIDATOR_REL = (
+    "scripts/validate_daily_revenue_unreacted_range_operation_section.py"
+)
+REVENUE_FORMAL_ADAPTER_ARTIFACT_ID = (
+    "daily_revenue_unreacted_range_operation_section"
+)
+REVENUE_FORMAL_ADAPTER_ARTIFACT_REL = (
+    "output/latest/daily_revenue_unreacted_range_operation_section_latest.csv"
+)
+REVENUE_FORMAL_ADAPTER_APPROVAL_VERSION = (
+    "revenue_unreacted_range_source_mid_falling_formal_operation_v2_20260830"
+)
+REVENUE_FORMAL_ADAPTER_APPROVAL_STATUS = (
+    "provisional_backtest_supported_oos_unconfirmed"
+)
+REVENUE_FORMAL_ADAPTER_SCHEMA_VERSION = (
+    "revenue_unreacted_range_operation_section_schema_v2"
+)
+REVENUE_FORMAL_ADAPTER_LIFECYCLE_VERSION = (
+    "revenue_unreacted_range_lifecycle_v2"
+)
+REVENUE_FORMAL_ADAPTER_SECTIONS = (
+    "active_operation",
+    "confirmed_operation",
+    "confirmed_unranked_operation",
+    "pending_confirmation",
+)
+REVENUE_FORMAL_ADAPTER_HISTORY_DIRECTORY_REL = (
+    "output/history/daily_model_snapshots"
+)
+REVENUE_FORMAL_ADAPTER_REPORT_DATE = "20260828"
 REVENUE_FORWARD_HOLDOUT_V2_ARTIFACT_ID = (
     "revenue_unreacted_range_forward_holdout_v2"
 )
@@ -353,17 +421,36 @@ LEGACY_COLUMNS = (
     "daily_adapter_sections",
     "status_note_zh",
 )
-TARGET_COLUMNS = (
+V5_TARGET_COLUMNS = (
     *LEGACY_COLUMNS[:7],
     "formal_model_use_allowed",
     *LEGACY_COLUMNS[7:12],
     "production_allowed",
     *LEGACY_COLUMNS[12:],
 )
+FORMAL_ADAPTER_METADATA_COLUMNS = (
+    "operation_module_path",
+    "operation_module_canonical_sha256",
+    "adapter_artifact_id",
+    "adapter_artifact_version",
+    "adapter_artifact_path",
+    "adapter_artifact_canonical_sha256",
+    "adapter_schema_version",
+    "lifecycle_contract_version",
+)
+_MODULE_METADATA_INSERT_AT = V5_TARGET_COLUMNS.index("operation_module_id") + 1
+TARGET_COLUMNS = (
+    *V5_TARGET_COLUMNS[:_MODULE_METADATA_INSERT_AT],
+    *FORMAL_ADAPTER_METADATA_COLUMNS,
+    *V5_TARGET_COLUMNS[_MODULE_METADATA_INSERT_AT:],
+)
 REVENUE_PERMISSION_COLUMNS = {
     "formal_model_use_allowed",
     "production_allowed",
 }
+REVENUE_MODEL_ONLY_COLUMNS = (
+    REVENUE_PERMISSION_COLUMNS | set(FORMAL_ADAPTER_METADATA_COLUMNS)
+)
 ROW_IDENTITY_COLUMNS = {"generated_at", "model_id", "model_name_zh"}
 SUMMARY_COLUMNS = set(TARGET_COLUMNS) - ROW_IDENTITY_COLUMNS
 STATUS_TABLE_COLUMNS = (
@@ -3272,7 +3359,7 @@ def _promotion_profile_for_row(
     profile = REVENUE_PROMOTION_PROFILES.get(decision_id)
     if profile is None:
         raise RuntimeError(
-            "revenue readiness latest decision_id is not an exact supported v4/v5 "
+            "revenue readiness latest decision_id is not an exact supported v4/v5/v6 "
             f"profile: {decision_id!r}"
         )
     return profile
@@ -3341,13 +3428,18 @@ def _validated_revenue_promotion_row(
                 f"revenue readiness promotion.{field_name} must be "
                 f"{expected!r}, got {observed!r}"
             )
+    expected_permission = profile.formal_adapter_runtime_required
     for field_name in (
         "approved_for_daily",
         "presentation_allowed",
         "formal_model_use_allowed",
         "production_change",
     ):
-        _strict_bool(promotion.get(field_name), False, f"promotion.{field_name}")
+        _strict_bool(
+            promotion.get(field_name),
+            expected_permission,
+            f"promotion.{field_name}",
+        )
     minimum_mature = _strict_nonnegative_int(
         promotion.get("forward_holdout_first_interpretation_min_mature"),
         "promotion.forward_holdout_first_interpretation_min_mature",
@@ -3377,6 +3469,21 @@ class DisabledAdapterPreparationValidationResult:
     validator_rel: str
     module_rel: str
     protocol_line: str
+
+
+@dataclass(frozen=True)
+class FormalAdapterRuntimeValidationResult:
+    operation_module_path: str
+    operation_module_canonical_sha256: str
+    adapter_artifact_id: str
+    adapter_artifact_version: str
+    adapter_artifact_path: str
+    adapter_artifact_canonical_sha256: str
+    adapter_schema_version: str
+    lifecycle_contract_version: str
+    row_count: int
+    data_row_count: int
+    sections: tuple[str, ...]
 
 
 @dataclass(frozen=True)
@@ -3572,6 +3679,204 @@ def validate_disabled_adapter_preparation(
     )
 
 
+def _canonical_text_sha256(data: bytes, source_name: str) -> str:
+    try:
+        text = data.decode("utf-8-sig")
+    except UnicodeDecodeError as exc:
+        raise RuntimeError(f"formal adapter source is not UTF-8: {source_name}") from exc
+    normalized = text.replace("\r\n", "\n").replace("\r", "\n")
+    return hashlib.sha256(normalized.encode("utf-8")).hexdigest()
+
+
+def _formal_adapter_semantic_payload(data: bytes, source_name: str) -> bytes:
+    fieldnames, rows = _parse_csv_bytes(data, source_name)
+    if "generated_at" not in fieldnames:
+        raise RuntimeError("formal adapter artifact is missing generated_at")
+    output = io.StringIO(newline="")
+    writer = csv.DictWriter(
+        output,
+        fieldnames=fieldnames,
+        lineterminator="\n",
+        extrasaction="raise",
+    )
+    writer.writeheader()
+    for row in rows:
+        normalized = dict(row)
+        normalized["generated_at"] = ""
+        writer.writerow(normalized)
+    return output.getvalue().encode("utf-8")
+
+
+def validate_formal_adapter_runtime(
+    repo_root: Path | str,
+) -> FormalAdapterRuntimeValidationResult:
+    """Bind the v2 runtime artifact, history snapshot and validator to HEAD."""
+
+    repo = Path(repo_root).resolve()
+    module = _committed_adapter_source(repo, REVENUE_FORMAL_ADAPTER_MODULE_REL)
+    validator = _committed_adapter_source(repo, REVENUE_FORMAL_ADAPTER_VALIDATOR_REL)
+    artifact_path = (repo / REVENUE_FORMAL_ADAPTER_ARTIFACT_REL).resolve()
+    try:
+        artifact_path.relative_to(repo)
+    except ValueError as exc:
+        raise RuntimeError("formal adapter artifact escapes repository root") from exc
+    if artifact_path.is_symlink() or not artifact_path.is_file():
+        raise RuntimeError(
+            "formal adapter runtime artifact is missing or symlinked: "
+            f"{REVENUE_FORMAL_ADAPTER_ARTIFACT_REL}"
+        )
+    worktree_artifact = artifact_path.read_bytes()
+    committed_artifact = _git_blob(repo, REVENUE_FORMAL_ADAPTER_ARTIFACT_REL)
+    worktree_semantic = _formal_adapter_semantic_payload(
+        worktree_artifact,
+        REVENUE_FORMAL_ADAPTER_ARTIFACT_REL,
+    )
+    committed_semantic = _formal_adapter_semantic_payload(
+        committed_artifact,
+        f"HEAD:{REVENUE_FORMAL_ADAPTER_ARTIFACT_REL}",
+    )
+    if worktree_semantic != committed_semantic:
+        raise RuntimeError("formal adapter runtime artifact has semantic drift from HEAD")
+    artifact_sha = hashlib.sha256(committed_semantic).hexdigest()
+    history_rel = (
+        f"{REVENUE_FORMAL_ADAPTER_HISTORY_DIRECTORY_REL}/"
+        "daily_revenue_unreacted_range_operation_section_"
+        f"{REVENUE_FORMAL_ADAPTER_REPORT_DATE}_{artifact_sha}.csv"
+    )
+    history_path = (repo / history_rel).resolve()
+    history_fs_path = (
+        Path("\\\\?\\" + str(history_path))
+        if os.name == "nt" and not str(history_path).startswith("\\\\?\\")
+        else history_path
+    )
+    if history_fs_path.is_symlink() or not history_fs_path.is_file():
+        raise RuntimeError(
+            f"formal adapter immutable history snapshot is missing: {history_rel}"
+        )
+    history_worktree = history_fs_path.read_bytes()
+    history_committed = _git_blob(repo, history_rel)
+    history_worktree_semantic = _formal_adapter_semantic_payload(
+        history_worktree,
+        history_rel,
+    )
+    history_committed_semantic = _formal_adapter_semantic_payload(
+        history_committed,
+        f"HEAD:{history_rel}",
+    )
+    if not (
+        history_worktree_semantic
+        == history_committed_semantic
+        == committed_semantic
+    ):
+        raise RuntimeError(
+            "formal adapter immutable history snapshot does not semantically bind "
+            "the canonical runtime artifact"
+        )
+
+    frame = _frame_from_csv_bytes(
+        committed_artifact,
+        f"HEAD:{REVENUE_FORMAL_ADAPTER_ARTIFACT_REL}",
+    )
+    if frame.empty:
+        raise RuntimeError("formal adapter runtime artifact is empty")
+    exact_metadata = {
+        "model_id": MODEL_ID,
+        "operation_module_id": REVENUE_PROMOTION_PROFILES[
+            REVENUE_PROMOTION_DECISION_V6
+        ].operation_module_id,
+        "adapter_schema_version": REVENUE_FORMAL_ADAPTER_SCHEMA_VERSION,
+        "lifecycle_contract_version": REVENUE_FORMAL_ADAPTER_LIFECYCLE_VERSION,
+        "approval_version": REVENUE_FORMAL_ADAPTER_APPROVAL_VERSION,
+        "approval_status": REVENUE_FORMAL_ADAPTER_APPROVAL_STATUS,
+        "formal_signal_effective_from": REVENUE_FORWARD_HOLDOUT_V2_START_DATE,
+        "holdout_use_policy": "post_launch_monitoring_non_hard_no_tuning",
+        "operation_directive_level": "approved_daily_operation_guidance",
+        "formal_model_use_allowed": "True",
+        "approved_for_daily": "True",
+        "presentation_allowed": "True",
+        "production_allowed": "True",
+    }
+    _required_columns(
+        frame,
+        set(exact_metadata) | {"pdf_section", "row_type"},
+        REVENUE_FORMAL_ADAPTER_ARTIFACT_REL,
+    )
+    for field_name, expected in exact_metadata.items():
+        observed = set(frame[field_name].astype(str))
+        if observed != {expected}:
+            raise RuntimeError(
+                f"formal adapter runtime {field_name} mismatch: {sorted(observed)}"
+            )
+    sections = tuple(sorted(set(frame["pdf_section"].astype(str))))
+    if sections != REVENUE_FORMAL_ADAPTER_SECTIONS:
+        raise RuntimeError(
+            f"formal adapter runtime section drift: expected={REVENUE_FORMAL_ADAPTER_SECTIONS}; "
+            f"actual={sections}"
+        )
+
+    command = [
+        sys.executable,
+        "-I",
+        "-B",
+        str(repo / REVENUE_FORMAL_ADAPTER_VALIDATOR_REL),
+        "--artifact",
+        str(artifact_path),
+        "--source-module",
+        str(repo / REVENUE_FORMAL_ADAPTER_MODULE_REL),
+        "--history-snapshot",
+        str(history_fs_path),
+    ]
+    try:
+        completed = subprocess.run(
+            command,
+            cwd=repo,
+            check=False,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+            timeout=REVENUE_ADAPTER_VALIDATION_TIMEOUT_SECONDS,
+        )
+    except (OSError, subprocess.TimeoutExpired) as exc:
+        raise RuntimeError("formal adapter runtime validator could not complete") from exc
+    expected_protocol = re.compile(
+        r"^PASS: formal revenue operation adapter is independently valid "
+        r"asof=20260828 rows=(?P<rows>\d+) data_rows=(?P<data>\d+) "
+        r"empty_rows=(?P<empty>\d+)\r?\n?$"
+    )
+    match = expected_protocol.fullmatch(completed.stdout or "")
+    if completed.returncode != 0 or completed.stderr != "" or match is None:
+        raise RuntimeError(
+            "formal adapter runtime validator failed exact protocol: "
+            f"returncode={completed.returncode}; stdout={completed.stdout!r}; "
+            f"stderr={completed.stderr!r}"
+        )
+    row_count = int(match.group("rows"))
+    data_row_count = int(match.group("data"))
+    if row_count != len(frame) or data_row_count != int(
+        frame["row_type"].astype(str).eq("data").sum()
+    ):
+        raise RuntimeError("formal adapter validator counts disagree with artifact")
+
+    return FormalAdapterRuntimeValidationResult(
+        operation_module_path=REVENUE_FORMAL_ADAPTER_MODULE_REL,
+        operation_module_canonical_sha256=_canonical_text_sha256(
+            module.blob,
+            f"HEAD:{REVENUE_FORMAL_ADAPTER_MODULE_REL}",
+        ),
+        adapter_artifact_id=REVENUE_FORMAL_ADAPTER_ARTIFACT_ID,
+        adapter_artifact_version=REVENUE_FORMAL_ADAPTER_APPROVAL_VERSION,
+        adapter_artifact_path=REVENUE_FORMAL_ADAPTER_ARTIFACT_REL,
+        adapter_artifact_canonical_sha256=artifact_sha,
+        adapter_schema_version=REVENUE_FORMAL_ADAPTER_SCHEMA_VERSION,
+        lifecycle_contract_version=REVENUE_FORMAL_ADAPTER_LIFECYCLE_VERSION,
+        row_count=row_count,
+        data_row_count=data_row_count,
+        sections=sections,
+    )
+
+
 def validate_current_anomaly_dispositions(
     repo_root: Path | str,
     *,
@@ -3720,8 +4025,11 @@ def summarize_revenue_promotion_readiness(
         _validated_revenue_promotion_row(promotion_registry)
     )
     profile = _promotion_profile_for_row(promotion)
+    formal_runtime: FormalAdapterRuntimeValidationResult | None = None
     if profile.adapter_validation_required:
         validate_disabled_adapter_preparation(repo_root)
+    if profile.formal_adapter_runtime_required:
+        formal_runtime = validate_formal_adapter_runtime(repo_root)
 
     holdout = _validate_holdout_manifest_lineage(
         forward_holdout_v2_manifest,
@@ -3760,7 +4068,23 @@ def summarize_revenue_promotion_readiness(
         for row in anomaly_result.rows.values()
     )
     blocking_anomaly_count = anomaly_result.effective_blocker_count
-    if profile.adapter_validation_required:
+    if profile.formal_adapter_runtime_required:
+        if formal_runtime is None:
+            raise RuntimeError("formal adapter runtime validation returned no result")
+        blocker = "none"
+        status_note = (
+            "revenue_unreacted_range／source_mid_falling v2 已依凍結規則以 "
+            "provisional_backtest_supported_oos_unconfirmed 上線；53 筆歷史操作、"
+            "時序穩定性、同期對照與交易成本檢查均未用於調參或重選樣。"
+            f"forward_holdout_v2 目前成熟度 {mature_count}/{minimum_mature}，僅作為 "
+            "post-launch monitoring，並持續執行 PIT、canonical hash、append-only "
+            "與 exact replay 完整性檢查，不再阻擋上線。formal adapter v2 與 PDF "
+            "consumer 已啟用；packet 尚未整合，不得宣稱 packet integration。"
+            "舊 legacy selector 已退出 daily selection／PDF，程式碼保留待 dependency "
+            "audit。模型仍僅使用月營收；EPS、毛利率、營益率、營業利益、業外損益、"
+            "淨利及季度／年度財報欄位均不在條件、分數或 promotion evidence 範圍。"
+        )
+    elif profile.adapter_validation_required:
         blocker = f"forward_holdout_v2_mature={mature_count}/{minimum_mature}"
         status_note = (
             "revenue_unreacted_range／source_mid_falling v2 的模型專屬研究矩陣、"
@@ -3791,23 +4115,74 @@ def summarize_revenue_promotion_readiness(
             "月營收以外的 EPS、毛利率、營益率、營業利益、業外損益、淨利及季度／年度財報欄位均不在模型範圍；"
             "不得產生 production、PDF、packet 或操作指令。"
         )
+    permissions_enabled = profile.formal_adapter_runtime_required
+    formal_metadata = {
+        "operation_module_path": "",
+        "operation_module_canonical_sha256": "",
+        "adapter_artifact_id": "",
+        "adapter_artifact_version": "",
+        "adapter_artifact_path": "",
+        "adapter_artifact_canonical_sha256": "",
+        "adapter_schema_version": "",
+        "lifecycle_contract_version": "",
+    }
+    if formal_runtime is not None:
+        formal_metadata = {
+            "operation_module_path": formal_runtime.operation_module_path,
+            "operation_module_canonical_sha256": (
+                formal_runtime.operation_module_canonical_sha256
+            ),
+            "adapter_artifact_id": formal_runtime.adapter_artifact_id,
+            "adapter_artifact_version": formal_runtime.adapter_artifact_version,
+            "adapter_artifact_path": formal_runtime.adapter_artifact_path,
+            "adapter_artifact_canonical_sha256": (
+                formal_runtime.adapter_artifact_canonical_sha256
+            ),
+            "adapter_schema_version": formal_runtime.adapter_schema_version,
+            "lifecycle_contract_version": formal_runtime.lifecycle_contract_version,
+        }
     return {
-        "parity_status": REVENUE_RESEARCH_MATRIX_STATUS,
+        "parity_status": (
+            profile.decision_status
+            if permissions_enabled
+            else REVENUE_RESEARCH_MATRIX_STATUS
+        ),
         "blocker": blocker,
         "operation_module_status": profile.operation_module_status,
-        "daily_adapter_status": profile.daily_adapter_status,
-        "formal_model_use_allowed": "False",
-        "approved_for_daily": "False",
-        "approval_status": "not_started",
+        "daily_adapter_status": (
+            "ready_approved_operation_guidance"
+            if formal_runtime is not None and formal_runtime.data_row_count > 0
+            else profile.daily_adapter_status
+        ),
+        "formal_model_use_allowed": str(permissions_enabled),
+        "approved_for_daily": str(permissions_enabled),
+        "approval_status": (
+            REVENUE_FORMAL_ADAPTER_APPROVAL_STATUS
+            if permissions_enabled
+            else "not_started"
+        ),
         "operation_module_id": profile.operation_module_id,
-        "approval_version": "",
-        "presentation_allowed": "False",
-        "production_allowed": "False",
-        "operation_directive_level": "no_operation_directive",
-        "pdf_integration_status": "not_started",
-        "packet_integration_status": "not_started",
+        **formal_metadata,
+        "approval_version": (
+            REVENUE_FORMAL_ADAPTER_APPROVAL_VERSION
+            if permissions_enabled
+            else ""
+        ),
+        "presentation_allowed": str(permissions_enabled),
+        "production_allowed": str(permissions_enabled),
+        "operation_directive_level": (
+            "approved_daily_operation_guidance"
+            if permissions_enabled
+            else "no_operation_directive"
+        ),
+        "pdf_integration_status": (
+            "pdf_integrated_daily_adapter" if permissions_enabled else "not_started"
+        ),
+        "packet_integration_status": (
+            "pending_packet_consumer" if permissions_enabled else "not_started"
+        ),
         "registry_pattern_count": 1,
-        "registry_current_model_pattern_count": 0,
+        "registry_current_model_pattern_count": 1 if permissions_enabled else 0,
         "registry_best_pattern_id": safe_str(
             promotion.get("candidate_variant_id")
         ),
@@ -3818,9 +4193,13 @@ def summarize_revenue_promotion_readiness(
         "registry_best_median_return": safe_str(
             promotion.get("median_return_pct")
         ),
-        "daily_adapter_row_count": 0,
-        "daily_adapter_data_row_count": 0,
-        "daily_adapter_sections": "",
+        "daily_adapter_row_count": formal_runtime.row_count if formal_runtime else 0,
+        "daily_adapter_data_row_count": (
+            formal_runtime.data_row_count if formal_runtime else 0
+        ),
+        "daily_adapter_sections": (
+            ",".join(formal_runtime.sections) if formal_runtime else ""
+        ),
         "status_note_zh": status_note,
     }
 
@@ -4342,11 +4721,20 @@ def load_committed_inputs(
     )
 
 
-def validate_base_readiness(frame: pd.DataFrame) -> None:
+def validate_base_readiness(
+    frame: pd.DataFrame,
+    *,
+    expected_revenue_permission: str = "False",
+    expected_formal_metadata: dict[str, str] | None = None,
+    allow_legacy_pre_activation: bool = False,
+) -> None:
+    if expected_revenue_permission not in {"False", "True"}:
+        raise RuntimeError("expected revenue readiness permission must be exact True/False")
     columns = tuple(frame.columns)
-    if columns not in {LEGACY_COLUMNS, TARGET_COLUMNS}:
+    if columns not in {LEGACY_COLUMNS, V5_TARGET_COLUMNS, TARGET_COLUMNS}:
         raise RuntimeError(
-            "committed readiness schema drift: expected exact legacy or revenue-extended "
+            "committed readiness schema drift: expected exact legacy, v5, or v6 "
+            "revenue-extended "
             f"schema, got {list(columns)}"
         )
     if frame.empty:
@@ -4368,15 +4756,58 @@ def validate_base_readiness(frame: pd.DataFrame) -> None:
                 f"committed readiness {field_name} has non-canonical values: {invalid}"
             )
 
-    if columns == TARGET_COLUMNS:
-        revenue_mask = model_ids.eq(MODEL_ID)
+    revenue_mask = model_ids.eq(MODEL_ID)
+    observed_source_permissions = {
+        str(frame.loc[revenue_mask, field_name].iloc[0])
+        for field_name in ("approved_for_daily", "presentation_allowed")
+    }
+    if len(observed_source_permissions) != 1:
+        raise RuntimeError(
+            f"committed {MODEL_ID} readiness approved/presentation permissions disagree"
+        )
+    observed_permission = observed_source_permissions.pop()
+    if columns in {V5_TARGET_COLUMNS, TARGET_COLUMNS}:
         for field_name in sorted(REVENUE_PERMISSION_COLUMNS):
             values = frame[field_name].astype(str)
-            if not values[revenue_mask].eq("False").all():
+            if not values[revenue_mask].eq(observed_permission).all():
                 raise RuntimeError(
-                    f"committed {MODEL_ID} readiness {field_name} must be explicit False"
+                    f"committed {MODEL_ID} readiness permission quartet disagrees at "
+                    f"{field_name}"
                 )
             conflicting = frame.loc[~revenue_mask & values.ne(""), "model_id"]
+            if not conflicting.empty:
+                raise RuntimeError(
+                    f"committed readiness {field_name} is revenue-only; non-revenue "
+                    f"rows must remain neutral blank: {sorted(conflicting.tolist())}"
+                )
+    if observed_permission != expected_revenue_permission:
+        if not (
+            allow_legacy_pre_activation
+            and expected_revenue_permission == "True"
+            and observed_permission == "False"
+            and columns in {LEGACY_COLUMNS, V5_TARGET_COLUMNS}
+        ):
+            raise RuntimeError(
+                f"committed {MODEL_ID} readiness permission must be explicit "
+                f"{expected_revenue_permission} for the exact validated profile"
+            )
+    if columns == TARGET_COLUMNS:
+        expected_metadata = expected_formal_metadata or {
+            field_name: "" for field_name in FORMAL_ADAPTER_METADATA_COLUMNS
+        }
+        if set(expected_metadata) != set(FORMAL_ADAPTER_METADATA_COLUMNS):
+            raise RuntimeError("expected revenue formal adapter metadata schema drift")
+        for field_name, expected in expected_metadata.items():
+            actual = str(frame.loc[revenue_mask, field_name].iloc[0])
+            if actual != expected:
+                raise RuntimeError(
+                    f"committed {MODEL_ID} readiness {field_name} must be "
+                    f"{expected!r}, got {actual!r}"
+                )
+            conflicting = frame.loc[
+                ~revenue_mask & frame[field_name].astype(str).ne(""),
+                "model_id",
+            ]
             if not conflicting.empty:
                 raise RuntimeError(
                     f"committed readiness {field_name} is revenue-only; non-revenue "
@@ -4390,13 +4821,55 @@ def build_revenue_only_readiness(
     *,
     generated_at: str,
 ) -> pd.DataFrame:
-    validate_base_readiness(base)
     if set(revenue_summary) != SUMMARY_COLUMNS:
         missing = sorted(SUMMARY_COLUMNS - set(revenue_summary))
         extra = sorted(set(revenue_summary) - SUMMARY_COLUMNS)
         raise RuntimeError(
             f"revenue readiness summary schema drift: missing={missing}; extra={extra}"
         )
+    permission_values = {
+        str(revenue_summary[field_name])
+        for field_name in (
+            "formal_model_use_allowed",
+            "approved_for_daily",
+            "presentation_allowed",
+            "production_allowed",
+        )
+    }
+    if len(permission_values) != 1 or not permission_values <= {"False", "True"}:
+        raise RuntimeError(
+            "revenue readiness summary permission quartet must be exact all False or all True"
+        )
+    expected_permission = permission_values.pop()
+    expected_metadata = {
+        field_name: str(revenue_summary[field_name])
+        for field_name in FORMAL_ADAPTER_METADATA_COLUMNS
+    }
+    if expected_permission == "True":
+        exact_v6_identity = {
+            "approval_status": REVENUE_FORMAL_ADAPTER_APPROVAL_STATUS,
+            "operation_module_id": REVENUE_PROMOTION_PROFILES[
+                REVENUE_PROMOTION_DECISION_V6
+            ].operation_module_id,
+            "adapter_artifact_version": REVENUE_FORMAL_ADAPTER_APPROVAL_VERSION,
+            "adapter_schema_version": REVENUE_FORMAL_ADAPTER_SCHEMA_VERSION,
+            "lifecycle_contract_version": REVENUE_FORMAL_ADAPTER_LIFECYCLE_VERSION,
+        }
+        for field_name, expected in exact_v6_identity.items():
+            if str(revenue_summary[field_name]) != expected:
+                raise RuntimeError(
+                    f"enabled revenue readiness summary {field_name} must bind exact v6"
+                )
+        if any(not value for value in expected_metadata.values()):
+            raise RuntimeError("enabled revenue readiness summary has blank formal metadata")
+    elif any(expected_metadata.values()):
+        raise RuntimeError("disabled revenue readiness summary cannot expose formal metadata")
+    validate_base_readiness(
+        base,
+        expected_revenue_permission=expected_permission,
+        expected_formal_metadata=expected_metadata,
+        allow_legacy_pre_activation=True,
+    )
 
     out = base.copy()
     if tuple(out.columns) == LEGACY_COLUMNS:
@@ -4410,6 +4883,10 @@ def build_revenue_only_readiness(
             "production_allowed",
             "",
         )
+    if tuple(out.columns) == V5_TARGET_COLUMNS:
+        insert_at = out.columns.get_loc("operation_module_id") + 1
+        for offset, field_name in enumerate(FORMAL_ADAPTER_METADATA_COLUMNS):
+            out.insert(insert_at + offset, field_name, "")
     if tuple(out.columns) != TARGET_COLUMNS:
         raise RuntimeError("revenue readiness target column order is not canonical")
 
@@ -4436,12 +4913,16 @@ def build_revenue_only_readiness(
             raise RuntimeError(
                 f"revenue-only readiness sync changed non-revenue field {field_name}"
             )
-    for field_name in sorted(REVENUE_PERMISSION_COLUMNS):
+    for field_name in sorted(REVENUE_MODEL_ONLY_COLUMNS):
         if not out_non_revenue[field_name].astype(str).eq("").all():
             raise RuntimeError(
                 f"revenue-only readiness sync populated non-revenue field {field_name}"
             )
-    validate_base_readiness(out)
+    validate_base_readiness(
+        out,
+        expected_revenue_permission=expected_permission,
+        expected_formal_metadata=expected_metadata,
+    )
     return out
 
 

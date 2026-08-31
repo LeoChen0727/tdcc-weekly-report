@@ -65,6 +65,10 @@ ADAPTER_BY_MODEL = {
     / "latest"
     / "daily_neckline_volume_breakout_confirmation_operation_section_latest.csv",
     "price_pullback_23ema": ROOT / "output" / "latest" / "daily_price_pullback_23ema_operation_section_latest.csv",
+    "revenue_unreacted_range": ROOT
+    / "output"
+    / "latest"
+    / "daily_revenue_unreacted_range_operation_section_latest.csv",
 }
 
 BASE_METRIC_COLUMNS = {
@@ -137,6 +141,11 @@ SCORE_ADD_ITEM_POLICY = {
         "score_add_item_ids": "technical_strength_rsi60_macd_positive",
         "validated_row_metric_add_item_ids": "rsi14_ge60|macd_hist_gt0",
         "policy": "approved_exact_combo_only",
+    },
+    "revenue_unreacted_range": {
+        "score_add_item_ids": "",
+        "validated_row_metric_add_item_ids": "",
+        "policy": "frozen_no_add_score_items",
     },
     "volume_range_breakout_v2_low_position_volume_attack": {
         "score_add_item_ids": "volume_ratio|breakout_magnitude|close_position|red_body|base_width|base_duration",
@@ -845,6 +854,17 @@ def audit_mature_model(row: pd.Series, approved: pd.DataFrame, generated_at: str
             issues.append(score_governance_status)
         single_status = "not_available_unvalidated_ranking_score_components"
         combo_status = "not_available_unvalidated_ranking_score_components"
+        combo_worse = "not_applicable_no_approved_combo_metric"
+    elif policy["policy"] == "frozen_no_add_score_items":
+        score_governance_status = (
+            "pass_frozen_no_add_score_items_and_no_row_metric"
+            if ready_row_count == 0
+            else "fail_frozen_no_add_score_items_populated_row_metric"
+        )
+        if score_governance_status.startswith("fail"):
+            issues.append(score_governance_status)
+        single_status = "not_applicable_frozen_no_add_score_items"
+        combo_status = "not_applicable_frozen_no_add_score_items"
         combo_worse = "not_applicable_no_approved_combo_metric"
     else:
         score_governance_status = "pass_only_approved_performance_add_score_items_may_populate_row_metric"

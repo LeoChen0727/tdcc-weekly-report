@@ -8,8 +8,10 @@ outputs, readiness artifacts, and mutable latest artifacts are never inputs.
 """
 
 import argparse
+import csv
 from datetime import datetime
 import hashlib
+import io
 import json
 import math
 import os
@@ -1733,6 +1735,43 @@ def _csv_bytes(frame: pd.DataFrame) -> bytes:
     ).encode("utf-8")
 
 
+def _canonical_semantic_csv_bytes(
+    payload: bytes,
+    *,
+    source_name: str,
+) -> bytes:
+    try:
+        text = payload.decode("utf-8-sig")
+    except UnicodeDecodeError as exc:
+        raise RevenueOperationAdapterError(
+            f"formal history is not UTF-8: {source_name}"
+        ) from exc
+    records = list(csv.reader(io.StringIO(text, newline="")))
+    if not records:
+        raise RevenueOperationAdapterError(
+            f"formal history is empty: {source_name}"
+        )
+    header = tuple(records[0])
+    if header != OUTPUT_COLUMNS:
+        raise RevenueOperationAdapterError(
+            f"formal history schema drift: {source_name}"
+        )
+    generated_at_index = header.index("generated_at")
+    output = io.StringIO(newline="")
+    writer = csv.writer(output, lineterminator="\n")
+    writer.writerow(header)
+    for row_number, record in enumerate(records[1:], start=2):
+        if len(record) != len(header):
+            raise RevenueOperationAdapterError(
+                "formal history row width drift: "
+                f"{source_name}/row={row_number}"
+            )
+        normalized = list(record)
+        normalized[generated_at_index] = ""
+        writer.writerow(normalized)
+    return output.getvalue().encode("utf-8")
+
+
 def _atomic_write(path: Path, payload: bytes) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_name(
@@ -1816,7 +1855,10 @@ def write_artifacts(
 
     semantic = section.copy()
     semantic["generated_at"] = ""
-    semantic_payload = _csv_bytes(semantic)
+    semantic_payload = _canonical_semantic_csv_bytes(
+        _csv_bytes(semantic),
+        source_name="generated formal operation section",
+    )
     semantic_sha256 = hashlib.sha256(
         semantic_payload
     ).hexdigest()
@@ -1833,7 +1875,11 @@ def write_artifacts(
         f"{report_dates[0]}_{semantic_sha256}.csv"
     )
     if history_path.exists():
-        if history_path.read_bytes() != semantic_payload:
+        existing_semantic_payload = _canonical_semantic_csv_bytes(
+            history_path.read_bytes(),
+            source_name=str(history_path),
+        )
+        if existing_semantic_payload != semantic_payload:
             raise RevenueOperationAdapterError(
                 f"append-only history collision: {history_path}"
             )

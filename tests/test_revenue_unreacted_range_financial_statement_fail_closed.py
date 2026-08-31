@@ -85,6 +85,133 @@ def test_independent_repository_fail_closed_validator_passes() -> None:
     assert metrics["quarantine_control_count"] == 5
 
 
+@pytest.mark.parametrize(
+    ("phase", "contract", "condition", "surface", "parameter"),
+    [
+        (
+            guard.REVENUE_LEGACY_PHASE,
+            guard.REVENUE_LEGACY_CONTRACT_PHASE_FIELDS,
+            guard.REVENUE_LEGACY_CONDITION_PHASE_FIELDS,
+            guard.REVENUE_LEGACY_SURFACE_PHASE_FIELDS,
+            guard.REVENUE_LEGACY_PARAMETER_PHASE_FIELDS,
+        ),
+        (
+            guard.REVENUE_PREPARED_PHASE,
+            guard.REVENUE_PREPARED_CONTRACT_PHASE_FIELDS,
+            guard.REVENUE_PREPARED_CONDITION_PHASE_FIELDS,
+            guard.REVENUE_PREPARED_SURFACE_PHASE_FIELDS,
+            guard.REVENUE_PREPARED_PARAMETER_PHASE_FIELDS,
+        ),
+        (
+            guard.REVENUE_ACTIVATED_PHASE,
+            guard.REVENUE_ACTIVATED_CONTRACT_PHASE_FIELDS,
+            guard.REVENUE_ACTIVATED_CONDITION_PHASE_FIELDS,
+            guard.REVENUE_ACTIVATED_SURFACE_PHASE_FIELDS,
+            guard.REVENUE_ACTIVATED_PARAMETER_PHASE_FIELDS,
+        ),
+    ],
+)
+def test_financial_guard_accepts_only_exact_revenue_formal_phases(
+    phase: str,
+    contract: dict[str, str],
+    condition: dict[str, str],
+    surface: dict[str, str],
+    parameter: dict[str, str],
+) -> None:
+    assert guard._classify_revenue_formal_phase(
+        {"model_id": guard.MODEL_ID, **contract},
+        {"model_id": guard.MODEL_ID, **condition},
+        {"surface_id": guard.MODEL_ID, **surface},
+        {"model_id": guard.MODEL_ID, **parameter},
+    ) == phase
+
+
+@pytest.mark.parametrize("mixed_component", ["contract", "condition", "surface", "parameter"])
+def test_financial_guard_rejects_prepared_activated_mixed_state(
+    mixed_component: str,
+) -> None:
+    values = {
+        "contract": dict(guard.REVENUE_ACTIVATED_CONTRACT_PHASE_FIELDS),
+        "condition": dict(guard.REVENUE_ACTIVATED_CONDITION_PHASE_FIELDS),
+        "surface": dict(guard.REVENUE_ACTIVATED_SURFACE_PHASE_FIELDS),
+        "parameter": dict(guard.REVENUE_ACTIVATED_PARAMETER_PHASE_FIELDS),
+    }
+    prepared = {
+        "contract": guard.REVENUE_PREPARED_CONTRACT_PHASE_FIELDS,
+        "condition": guard.REVENUE_PREPARED_CONDITION_PHASE_FIELDS,
+        "surface": guard.REVENUE_PREPARED_SURFACE_PHASE_FIELDS,
+        "parameter": guard.REVENUE_PREPARED_PARAMETER_PHASE_FIELDS,
+    }
+    values[mixed_component] = dict(prepared[mixed_component])
+    assert guard._classify_revenue_formal_phase(
+        values["contract"],
+        values["condition"],
+        values["surface"],
+        values["parameter"],
+    ) is None
+
+
+def test_activated_phase_keeps_exact_immutable_evidence_and_monthly_only_scope() -> None:
+    assert guard.REVENUE_EXACT_EVIDENCE_PIN["canonical_sha256"] == (
+        "4890147988797f8d0e7a27777d400514b423b679f108565675309ec2e83161fb"
+    )
+    registered = guard._financial_statement_source_fields(ROOT)
+    for field in (
+        "basic_eps",
+        "gross_margin",
+        "operating_margin",
+        "operating_income",
+        "non_operating_income_expense",
+        "net_income",
+    ):
+        assert field in registered
+
+
+def test_activated_readiness_identity_is_exact_and_lifecycle_aware() -> None:
+    readiness = {
+        "operation_module_status": (
+            "approved_operation_v2_provisional_backtest_supported_oos_unconfirmed"
+        ),
+        "daily_adapter_status": "ready_empty_no_operation_rows",
+        "formal_model_use_allowed": "True",
+        "approved_for_daily": "True",
+        "approval_status": "provisional_backtest_supported_oos_unconfirmed",
+        "operation_module_id": (
+            "revenue_unreacted_range_source_mid_falling_v2_operation_v2"
+        ),
+        "approval_version": (
+            "revenue_unreacted_range_source_mid_falling_formal_operation_v2_20260830"
+        ),
+        "presentation_allowed": "True",
+        "production_allowed": "True",
+        "operation_directive_level": "approved_daily_operation_guidance",
+        "pdf_integration_status": "pdf_integrated_daily_adapter",
+        "packet_integration_status": "pending_packet_consumer",
+        "daily_adapter_data_row_count": "0",
+        "daily_adapter_sections": (
+            "active_operation,confirmed_operation,"
+            "confirmed_unranked_operation,pending_confirmation"
+        ),
+    }
+    assert guard._activated_readiness_matches(readiness)
+
+    with_rows = dict(readiness)
+    with_rows["daily_adapter_data_row_count"] = "2"
+    with_rows["daily_adapter_status"] = "ready_approved_operation_guidance"
+    assert guard._activated_readiness_matches(with_rows)
+
+    for field in (
+        "operation_module_status",
+        "approval_status",
+        "approval_version",
+        "operation_directive_level",
+        "daily_adapter_sections",
+    ):
+        drifted = dict(readiness)
+        drifted[field] = "drifted"
+        assert not guard._activated_readiness_matches(drifted)
+
+
 def test_legacy_signal_log_exception_is_exactly_one_immutable_archive() -> None:
     lineage_rows = guard._read_rows(ROOT / "config/report_artifact_lineage.csv")
     revenue_lineage = [

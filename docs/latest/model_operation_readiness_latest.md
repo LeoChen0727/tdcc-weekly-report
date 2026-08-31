@@ -1,6 +1,6 @@
 # Model Operation Readiness
 
-- generated_at: `2026-08-30 00:17:41 Asia/Taipei`
+- generated_at: `2026-08-31 09:33:55 Asia/Taipei`
 - purpose: track model parity, operation-module readiness, daily adapter status, and promotion boundaries
 - rule: `approved_for_daily=True` requires an explicit approved operation artifact
 - rule: raw research evidence rows can remain research-only even after an operation module is approved
@@ -13,7 +13,7 @@
 | approved_operation_v1 | 5 |
 | baseline_only_no_validated_operation_module | 4 |
 | approved_operation_v2 | 1 |
-| disabled_adapter_preparation_validated | 1 |
+| approved_operation_v2_provisional_backtest_supported_oos_unconfirmed | 1 |
 
 ## daily_adapter_status
 
@@ -21,36 +21,35 @@
 | --- | --- |
 | ready_approved_operation_guidance | 4 |
 | not_started | 4 |
-| ready_empty_no_operation_rows | 2 |
-| disabled_no_runtime_artifact | 1 |
+| ready_empty_no_operation_rows | 3 |
 
 ## formal_model_use_allowed
 
 | formal_model_use_allowed | count |
 | --- | --- |
 |  | 10 |
-| False | 1 |
+| True | 1 |
 
 ## approved_for_daily
 
 | approved_for_daily | count |
 | --- | --- |
-| True | 6 |
-| False | 5 |
+| True | 7 |
+| False | 4 |
 
 ## presentation_allowed
 
 | presentation_allowed | count |
 | --- | --- |
-| True | 6 |
-| False | 5 |
+| True | 7 |
+| False | 4 |
 
 ## production_allowed
 
 | production_allowed | count |
 | --- | --- |
 |  | 10 |
-| False | 1 |
+| True | 1 |
 
 ## Status Table
 
@@ -64,6 +63,6 @@
 | price_pullback_23ema | production_parity | approved_operation_v1 | ready_approved_operation_guidance |  | True | approved_for_daily_v1 | price_pullback_23ema_prev20_breakout_stop_v1 | price_pullback_23ema_operation_v1_20260703 | True |  | approved_daily_operation_guidance | pdf_integrated_daily_adapter | packet_integrated_daily_adapter | price_pullback_23ema operation adapter is ready | 23EMA回檔模型已核准為 daily operation guidance，PDF 僅能消費 model-owned operation adapter。 |
 | hot_theme_pullback | production_proxy | baseline_only_no_validated_operation_module | not_started |  | False | not_started |  |  | False |  | no_operation_directive | not_started | not_started | daily hot-theme labels are not fully backfilled as point-in-time model-layer fields | 目前只有 research baseline/parameter 對照，沒有 validated operation module，不得產生買入、出場、停損或排序操作建議。 |
 | pullback_short_reclaim | production_proxy | baseline_only_no_validated_operation_module | not_started |  | False | not_started |  |  | False |  | no_operation_directive | not_started | not_started | pullback_entry_zone/right_side/ma20_reclaim setup flags are not fully backfilled | 目前只有 research baseline/parameter 對照，沒有 validated operation module，不得產生買入、出場、停損或排序操作建議。 |
-| revenue_unreacted_range | research_matrix_complete | disabled_adapter_preparation_validated | disabled_no_runtime_artifact | False | False | not_started | revenue_unreacted_range_source_mid_falling_v2_operation_v1 |  | False | False | no_operation_directive | not_started | not_started | forward_holdout_v2_mature=0/20 | revenue_unreacted_range／source_mid_falling v2 的模型專屬研究矩陣、九筆 anomaly disposition 與 disabled formal adapter preparation 均已完成；八筆 verified_real_extreme 保留於 Primary，6177 的衍生 attribution data error 已完成固定規則修復重跑。adapter 僅為 model-owned in-memory disabled preparation，沒有 writer、runtime artifact、PDF／packet consumer 或操作指令；目前 promotion blocker 僅為 forward holdout v2 成熟度 0/20。月營收以外的 EPS、毛利率、營益率、營業利益、業外損益、淨利及季度／年度財報欄位均不在模型範圍；formal_model_use_allowed、approved_for_daily、presentation_allowed 與 production_allowed 均維持 False。 |
+| revenue_unreacted_range | provisional_backtest_supported_oos_unconfirmed | approved_operation_v2_provisional_backtest_supported_oos_unconfirmed | ready_empty_no_operation_rows | True | True | provisional_backtest_supported_oos_unconfirmed | revenue_unreacted_range_source_mid_falling_v2_operation_v2 | revenue_unreacted_range_source_mid_falling_formal_operation_v2_20260830 | True | True | approved_daily_operation_guidance | pdf_integrated_daily_adapter | pending_packet_consumer |  | revenue_unreacted_range／source_mid_falling v2 已依凍結規則以 provisional_backtest_supported_oos_unconfirmed 上線；53 筆歷史操作、時序穩定性、同期對照與交易成本檢查均未用於調參或重選樣。forward_holdout_v2 目前成熟度 0/20，僅作為 post-launch monitoring，並持續執行 PIT、canonical hash、append-only 與 exact replay 完整性檢查，不再阻擋上線。formal adapter v2 與 PDF consumer 已啟用；packet 尚未整合，不得宣稱 packet integration。舊 legacy selector 已退出 daily selection／PDF，程式碼保留待 dependency audit。模型仍僅使用月營收；EPS、毛利率、營益率、營業利益、業外損益、淨利及季度／年度財報欄位均不在條件、分數或 promotion evidence 範圍。 |
 | tdcc_short_term_continuation_d5_d10 | production_proxy | baseline_only_no_validated_operation_module | not_started |  | False | not_started |  |  | False |  | no_operation_directive | not_started | not_started | daily specialty packet fields are not a single core build_specs condition and must be replayed from historical TDCC/technical proxies | 目前只有 research baseline/parameter 對照，沒有 validated operation module，不得產生買入、出場、停損或排序操作建議。 |
 | tdcc_stealth_accumulation | production_proxy | baseline_only_no_validated_operation_module | not_started |  | False | not_started |  |  | False |  | no_operation_directive | not_started | not_started | tdcc_price_phase is not fully available historically for every signal date | 目前只有 research baseline/parameter 對照，沒有 validated operation module，不得產生買入、出場、停損或排序操作建議。 |

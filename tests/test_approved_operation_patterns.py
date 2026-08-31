@@ -109,3 +109,25 @@ def test_build_approval_creates_versioned_daily_guidance() -> None:
     assert neckline["best_evidence_win_rate"] == "63.8889"
     assert neckline["neckline_neutral_inclusive_success_rate_pct"] == "74.5098"
     assert neckline["neckline_filter90_auto_bearish_confirmed_count"] == "19"
+
+    revenue = approval[approval["model_id"].eq("revenue_unreacted_range")].iloc[0]
+    assert revenue["operation_module_id"] == (
+        "revenue_unreacted_range_source_mid_falling_v2_operation_v2"
+    )
+    assert revenue["approval_status"] == (
+        "provisional_backtest_supported_oos_unconfirmed"
+    )
+    assert revenue["approved_for_daily"] == "True"
+    assert revenue["entry_rule_id"] == "d2_analysis_open"
+    assert revenue["stop_loss_rule_id"] == "none_no_stop_reference"
+    assert revenue["exit_rule_id"] == "d30_analysis_close_offset29"
+    assert revenue["min_sample_size"] == "0"
+    assert revenue["min_win_rate"] == "0.0"
+    assert revenue["require_out_of_sample_pass"] == "False"
+    assert revenue["best_evidence_sample_size"] == "53"
+    assert revenue["best_evidence_win_rate"] == "77.3585"
+    assert revenue["best_evidence_median_return"] == "9.4077"
+    assert revenue["best_evidence_out_of_sample_pass"] == "unconfirmed"
+    assert revenue["revenue_forward_holdout_status"] == (
+        "post_launch_monitoring_non_hard_no_tuning"
+    )

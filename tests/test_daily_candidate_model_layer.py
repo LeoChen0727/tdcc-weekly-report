@@ -464,7 +464,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         )
         self.assertEqual(
             revenue["parameter_status"],
-            "contract_prepared_permissions_false",
+            "provisional_backtest_supported_oos_unconfirmed",
         )
         self.assertEqual(revenue["base_score"], "")
         self.assertIn("凍結 source_mid_falling v2", revenue["main_conditions"])

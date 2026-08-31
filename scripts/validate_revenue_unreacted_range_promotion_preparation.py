@@ -73,18 +73,27 @@ DAILY_PDF_CONSUMER_VALIDATOR = ROOT / "scripts/validate_daily_pdf_contract_consu
 FORMAL_ADAPTER_PDF_CONSUMER_VALIDATOR = (
     ROOT / "scripts/validate_revenue_unreacted_range_pdf_consumer_contract.py"
 )
-FORMAL_ADAPTER_MODULE = ROOT / "scripts/revenue_unreacted_range_operation_adapter.py"
+FORMAL_ADAPTER_MODULE = (
+    ROOT / "scripts/build_daily_revenue_unreacted_range_operation_section.py"
+)
 FORMAL_ADAPTER_VALIDATOR = (
-    ROOT / "scripts/validate_revenue_unreacted_range_operation_adapter.py"
+    ROOT / "scripts/validate_daily_revenue_unreacted_range_operation_section.py"
 )
 FORMAL_ADAPTER_ARTIFACT = (
     ROOT / "output/latest/daily_revenue_unreacted_range_operation_section_latest.csv"
 )
 FORMAL_ADAPTER_HISTORY_DIRECTORY = ROOT / "output/history/daily_model_snapshots"
-FORMAL_ADAPTER_MODULE_ID = "revenue_unreacted_range_source_mid_falling_v2_operation_v1"
+FORMAL_ADAPTER_MODULE_ID = "revenue_unreacted_range_source_mid_falling_v2_operation_v2"
 FORMAL_ADAPTER_ARTIFACT_ID = "daily_revenue_unreacted_range_operation_section"
-FORMAL_ADAPTER_SCHEMA_VERSION = "revenue_unreacted_range_operation_section_schema_v1"
-FORMAL_ADAPTER_LIFECYCLE_VERSION = "revenue_unreacted_range_lifecycle_v1"
+FORMAL_ADAPTER_SCHEMA_VERSION = "revenue_unreacted_range_operation_section_schema_v2"
+FORMAL_ADAPTER_LIFECYCLE_VERSION = "revenue_unreacted_range_lifecycle_v2"
+FORMAL_ADAPTER_APPROVAL_VERSION = (
+    "revenue_unreacted_range_source_mid_falling_formal_operation_v2_20260830"
+)
+FORMAL_ADAPTER_APPROVAL_STATUS = "provisional_backtest_supported_oos_unconfirmed"
+FORMAL_ADAPTER_OPERATION_MODULE_STATUS = (
+    "approved_operation_v2_provisional_backtest_supported_oos_unconfirmed"
+)
 FORMAL_ADAPTER_REQUIRED_SECTIONS = {
     "active_operation",
     "confirmed_operation",
@@ -113,6 +122,7 @@ FORMAL_ADAPTER_READINESS_COLUMNS = {
     "daily_adapter_sections",
     "operation_directive_level",
     "pdf_integration_status",
+    "packet_integration_status",
 }
 VALIDATION_PHASES = ("research-only", "promotion-candidate", "production-pdf")
 DEFAULT_SUMMARY = ROOT / (
@@ -345,12 +355,28 @@ EXPECTED_DECISION_V5 = {
     "production_change": "False",
     "promotion_scope": "research_only_anomaly_closed_disabled_adapter_preparation_validated_waiting_forward_holdout_v2_maturity_no_production_daily_full_pdf_packet_runtime_artifact_or_apps_script",
 }
+EXPECTED_DECISION_V6 = {
+    **EXPECTED_DECISION_V5,
+    "decision_id": "revenue_unreacted_range_source_mid_falling_promotion_preparation_v6_20260830",
+    "decision_date": "2026-08-30",
+    "contract_version": "revenue_unreacted_range_promotion_preparation_contract_v7_20260830",
+    "forward_holdout_gate_policy": "post_launch_monitoring_non_hard_no_tuning",
+    "user_decision_reference": "user_authorized_4A_4C_20260830",
+    "decision_status": "provisional_backtest_supported_oos_unconfirmed",
+    "formal_adapter_gate": "formal_adapter_v2_approved_production_hard_gate_satisfied",
+    "approved_for_daily": "True",
+    "presentation_allowed": "True",
+    "formal_model_use_allowed": "True",
+    "production_change": "True",
+    "promotion_scope": "provisional_production_daily_full_pdf_enabled_forward_holdout_post_launch_monitoring_no_tuning_apps_script_forbidden_legacy_selector_retired_code_retained_pending_dependency_audit",
+}
 EXPECTED_DECISIONS = (
     EXPECTED_DECISION_V1,
     EXPECTED_DECISION_V2,
     EXPECTED_DECISION_V3,
     EXPECTED_DECISION_V4,
     EXPECTED_DECISION_V5,
+    EXPECTED_DECISION_V6,
 )
 DECISION_COLUMNS = tuple(EXPECTED_DECISION)
 V4_TO_V5_ALLOWED_CHANGED_DECISION_FIELDS = frozenset(
@@ -366,6 +392,27 @@ V4_TO_V5_COMMON_DECISION_FIELDS = tuple(
     column
     for column in DECISION_COLUMNS
     if column not in V4_TO_V5_ALLOWED_CHANGED_DECISION_FIELDS
+)
+V5_TO_V6_ALLOWED_CHANGED_DECISION_FIELDS = frozenset(
+    {
+        "decision_id",
+        "decision_date",
+        "contract_version",
+        "forward_holdout_gate_policy",
+        "user_decision_reference",
+        "decision_status",
+        "formal_adapter_gate",
+        "approved_for_daily",
+        "presentation_allowed",
+        "formal_model_use_allowed",
+        "production_change",
+        "promotion_scope",
+    }
+)
+V5_TO_V6_FROZEN_BUSINESS_FIELDS = tuple(
+    column
+    for column in DECISION_COLUMNS
+    if column not in V5_TO_V6_ALLOWED_CHANGED_DECISION_FIELDS
 )
 
 ANOMALY_COLUMNS = (
@@ -746,11 +793,26 @@ EXPECTED_MIGRATION_V4_TO_V5 = {
     "presentation_allowed": "False",
     "production_change": "False",
 }
+EXPECTED_MIGRATION_V5_TO_V6 = {
+    **EXPECTED_MIGRATION_V4_TO_V5,
+    "migration_id": "revenue_unreacted_range_promotion_preparation_v5_to_v6_provisional_activation_20260830",
+    "migration_date": "2026-08-30",
+    "from_decision_id": EXPECTED_DECISION_V5["decision_id"],
+    "to_decision_id": EXPECTED_DECISION_V6["decision_id"],
+    "authorization_reference": "user_authorized_4A_4C_20260830",
+    "migration_scope": "provisional_production_activation_formal_adapter_v2_daily_full_pdf_forward_holdout_post_launch_monitoring_no_tuning_apps_script_forbidden_no_source_or_frozen_business_semantic_change",
+    "research_only": "False",
+    "formal_model_use_allowed": "True",
+    "approved_for_daily": "True",
+    "presentation_allowed": "True",
+    "production_change": "True",
+}
 EXPECTED_MIGRATIONS = (
     EXPECTED_MIGRATION_V1_TO_V2,
     EXPECTED_MIGRATION_V2_TO_V3,
     EXPECTED_MIGRATION_V3_TO_V4,
     EXPECTED_MIGRATION_V4_TO_V5,
+    EXPECTED_MIGRATION_V5_TO_V6,
 )
 MIGRATION_COLUMNS = tuple(EXPECTED_MIGRATION)
 MIGRATION_PROVENANCE_COLUMNS = frozenset(
@@ -963,7 +1025,7 @@ def validate_decision(
     if len(rows) != len(EXPECTED_DECISIONS):
         errors.append(
             "promotion preparation registry must preserve the exact v1/v2 prefix and the "
-            f"append-only v3 through v5 decision chain; actual={len(rows)}"
+            f"append-only v3 through v6 decision chain; actual={len(rows)}"
         )
         return None, errors
     for version, (row, expected_row) in enumerate(
@@ -991,15 +1053,25 @@ def validate_decision(
                 f"in v{version}"
             )
     if len(rows) == len(EXPECTED_DECISIONS):
-        changed_common_fields = [
+        changed_v4_v5_fields = [
             column
             for column in V4_TO_V5_COMMON_DECISION_FIELDS
-            if rows[-2].get(column, "") != rows[-1].get(column, "")
+            if rows[-3].get(column, "") != rows[-2].get(column, "")
         ]
-        if changed_common_fields:
+        if changed_v4_v5_fields:
             errors.append(
                 "promotion preparation v4-to-v5 changed frozen common decision fields: "
-                f"{changed_common_fields}"
+                f"{changed_v4_v5_fields}"
+            )
+        changed_v5_v6_fields = [
+            column
+            for column in V5_TO_V6_FROZEN_BUSINESS_FIELDS
+            if rows[-2].get(column, "") != rows[-1].get(column, "")
+        ]
+        if changed_v5_v6_fields:
+            errors.append(
+                "promotion preparation v5-to-v6 changed frozen business fields: "
+                f"{changed_v5_v6_fields}"
             )
     return rows[-1], errors
 
@@ -1141,7 +1213,7 @@ def validate_migration(path: Path) -> tuple[dict[str, str] | None, list[str]]:
     if len(rows) != len(EXPECTED_MIGRATIONS):
         errors.append(
             "promotion preparation migration ledger must preserve the exact append-only "
-            "v1-to-v2 through v4-to-v5 chain; "
+            "v1-to-v2 through v5-to-v6 chain; "
             f"actual={len(rows)}"
         )
         return None, errors
@@ -1766,28 +1838,25 @@ def _validate_formal_readiness_row(
         if not _is_true(readiness.get(column, "")):
             errors.append(f"production-pdf readiness requires {column}=True")
     exact_values = {
+        "approval_status": FORMAL_ADAPTER_APPROVAL_STATUS,
+        "approval_version": FORMAL_ADAPTER_APPROVAL_VERSION,
+        "operation_module_status": FORMAL_ADAPTER_OPERATION_MODULE_STATUS,
         "operation_module_id": FORMAL_ADAPTER_MODULE_ID,
         "operation_module_path": FORMAL_ADAPTER_MODULE.relative_to(ROOT).as_posix(),
         "adapter_artifact_id": FORMAL_ADAPTER_ARTIFACT_ID,
+        "adapter_artifact_version": FORMAL_ADAPTER_APPROVAL_VERSION,
         "adapter_artifact_path": FORMAL_ADAPTER_ARTIFACT.relative_to(ROOT).as_posix(),
         "adapter_schema_version": FORMAL_ADAPTER_SCHEMA_VERSION,
         "lifecycle_contract_version": FORMAL_ADAPTER_LIFECYCLE_VERSION,
         "operation_directive_level": "approved_daily_operation_guidance",
         "pdf_integration_status": "pdf_integrated_daily_adapter",
+        "packet_integration_status": "pending_packet_consumer",
     }
     for column, expected in exact_values.items():
         if readiness.get(column, "") != expected:
             errors.append(
                 f"production-pdf readiness {column} mismatch: "
                 f"expected={expected!r}; actual={readiness.get(column, '')!r}"
-            )
-    for column, prefix in (
-        ("approval_status", "approved_for_daily_"),
-        ("operation_module_status", "approved_operation_"),
-    ):
-        if not readiness.get(column, "").startswith(prefix):
-            errors.append(
-                f"production-pdf readiness {column} must start with {prefix!r}"
             )
     if readiness.get("daily_adapter_status", "") not in {
         "ready_approved_operation_guidance",
@@ -1796,15 +1865,6 @@ def _validate_formal_readiness_row(
         errors.append(
             "production-pdf readiness daily_adapter_status must be an exact ready state"
         )
-    for column in ("approval_version", "adapter_artifact_version"):
-        value = readiness.get(column, "").strip()
-        if not value or any(
-            token in value.lower()
-            for token in ("disabled", "pending", "research", "preparation")
-        ):
-            errors.append(
-                f"production-pdf readiness {column} must identify a formal approved version"
-            )
     for column in (
         "operation_module_canonical_sha256",
         "adapter_artifact_canonical_sha256",
@@ -1856,28 +1916,128 @@ def _validate_formal_adapter_and_consumers(
             errors.append(f"production-pdf canonical {label} is missing: {path}")
     if errors:
         return errors
+    try:
+        module_text = FORMAL_ADAPTER_MODULE.read_bytes().decode("utf-8-sig")
+        normalized_module = module_text.replace("\r\n", "\n").replace("\r", "\n")
+        module_sha = hashlib.sha256(normalized_module.encode("utf-8")).hexdigest()
+        artifact_columns, artifact_rows, artifact_read_errors = _read_csv(
+            FORMAL_ADAPTER_ARTIFACT
+        )
+        errors.extend(
+            f"production-pdf formal adapter canonical artifact: {error}"
+            for error in artifact_read_errors
+        )
+        if "generated_at" not in artifact_columns:
+            errors.append(
+                "production-pdf formal adapter artifact is missing generated_at"
+            )
+            artifact_semantic = b""
+        else:
+            output = io.StringIO(newline="")
+            writer = csv.DictWriter(
+                output,
+                fieldnames=artifact_columns,
+                lineterminator="\n",
+                extrasaction="raise",
+            )
+            writer.writeheader()
+            for artifact_row in artifact_rows:
+                normalized_row = dict(artifact_row)
+                normalized_row["generated_at"] = ""
+                writer.writerow(normalized_row)
+            artifact_semantic = output.getvalue().encode("utf-8")
+        artifact_sha = hashlib.sha256(artifact_semantic).hexdigest()
+    except (OSError, UnicodeDecodeError, csv.Error, ValueError) as exc:
+        return [f"production-pdf formal adapter canonical binding failed: {exc}"]
+    if module_sha != readiness.get("operation_module_canonical_sha256", ""):
+        errors.append(
+            "production-pdf formal adapter module canonical SHA-256 mismatch"
+        )
+    if artifact_sha != readiness.get("adapter_artifact_canonical_sha256", ""):
+        errors.append(
+            "production-pdf formal adapter artifact canonical SHA-256 mismatch"
+        )
+    history_snapshot = (
+        FORMAL_ADAPTER_HISTORY_DIRECTORY
+        / (
+            "daily_revenue_unreacted_range_operation_section_20260828_"
+            f"{artifact_sha}.csv"
+        )
+    )
+    history_fs_path = (
+        Path("\\\\?\\" + str(history_snapshot.resolve()))
+        if sys.platform == "win32"
+        else history_snapshot
+    )
+    if not history_fs_path.is_file():
+        errors.append(
+            "production-pdf canonical formal adapter history snapshot is missing: "
+            f"{history_snapshot}"
+        )
+    else:
+        try:
+            history_bytes = history_fs_path.read_bytes()
+        except OSError as exc:
+            errors.append(
+                f"production-pdf formal adapter history snapshot is unreadable: {exc}"
+            )
+        else:
+            if history_bytes != artifact_semantic:
+                errors.append(
+                    "production-pdf formal adapter history snapshot does not exactly "
+                    "bind the canonical runtime artifact"
+                )
+    ancestor = subprocess.run(
+        ["git", "merge-base", "--is-ancestor", normalized_base_ref, "HEAD"],
+        cwd=ROOT,
+        check=False,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    if ancestor.returncode != 0:
+        errors.append(
+            "production-pdf formal adapter history_base_ref is not an ancestor of HEAD"
+        )
+    history_diff = subprocess.run(
+        [
+            "git",
+            "diff",
+            "--name-status",
+            f"{normalized_base_ref}..HEAD",
+            "--",
+            FORMAL_ADAPTER_HISTORY_DIRECTORY.relative_to(ROOT).as_posix(),
+        ],
+        cwd=ROOT,
+        check=False,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True,
+    )
+    if history_diff.returncode != 0:
+        errors.append("production-pdf formal adapter history diff could not be verified")
+    else:
+        non_append = [
+            line for line in history_diff.stdout.splitlines() if not line.startswith("A\t")
+        ]
+        if non_append:
+            errors.append(
+                "production-pdf formal adapter history is not append-only: "
+                f"{non_append}"
+            )
+    if errors:
+        return errors
     commands = (
         (
             "production-pdf canonical revenue formal adapter validation",
             [
                 sys.executable,
                 str(FORMAL_ADAPTER_VALIDATOR),
-                "--phase",
-                "production-approval",
-                "--module",
-                str(FORMAL_ADAPTER_MODULE),
                 "--artifact",
                 str(FORMAL_ADAPTER_ARTIFACT),
-                "--history-directory",
-                str(FORMAL_ADAPTER_HISTORY_DIRECTORY),
-                "--history-base-ref",
-                normalized_base_ref,
-                "--expected-artifact-version",
-                readiness.get("adapter_artifact_version", ""),
-                "--expected-artifact-canonical-sha256",
-                readiness.get("adapter_artifact_canonical_sha256", ""),
-                "--expected-module-canonical-sha256",
-                readiness.get("operation_module_canonical_sha256", ""),
+                "--source-module",
+                str(FORMAL_ADAPTER_MODULE),
+                "--history-snapshot",
+                str(history_fs_path),
             ],
         ),
         (
@@ -2023,7 +2183,12 @@ def validate_phase_gates(
             errors=errors,
         )
         minimum = int(decision_row["forward_holdout_first_interpretation_min_mature"])
-        if mature is not None and mature < minimum:
+        maturity_is_hard_gate = not (
+            decision_row.get("decision_id") == EXPECTED_DECISION_V6["decision_id"]
+            and decision_row.get("forward_holdout_gate_policy")
+            == "post_launch_monitoring_non_hard_no_tuning"
+        )
+        if maturity_is_hard_gate and mature is not None and mature < minimum:
             errors.append(
                 "promotion-candidate forward holdout maturity hard gate is not met: "
                 f"primary_mature_count={mature}; required={minimum}"

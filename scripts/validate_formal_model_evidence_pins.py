@@ -13,6 +13,7 @@ SURFACE_REGISTRY = ROOT / "config/model_surface_registry.csv"
 REVENUE_MODEL_ID = "revenue_unreacted_range"
 LEGACY_REVENUE_PHASE = "legacy_v2_no_pin"
 PREPARED_REVENUE_PHASE = "prepared_v3_permissions_false"
+ACTIVATED_REVENUE_PHASE = "activated_v3_provisional_pdf_approved"
 
 ALWAYS_REQUIRED_MODELS = {
     "volume_range_breakout_v2_low_position_volume_attack",
@@ -98,6 +99,16 @@ PREPARED_REVENUE_CONTRACT = {
     ),
 }
 
+ACTIVATED_REVENUE_CONTRACT = {
+    **PREPARED_REVENUE_CONTRACT,
+    "approved_for_daily_pdf": "true",
+    "change_reason": (
+        "source_mid_falling_v2_dedicated_adapter_"
+        "provisional_backtest_supported_oos_unconfirmed_"
+        "legacy_generic_selector_retired_2026-08-30"
+    ),
+}
+
 LEGACY_REVENUE_CONDITION = {
     "production_source": "ModelSpec",
     "condition_function": "cond_revenue_unreacted",
@@ -114,6 +125,11 @@ PREPARED_REVENUE_CONDITION = {
     "score_profile_id": "revenue_unreacted_range_source_mid_falling_v2_frozen_no_score",
     "research_baseline_status": "proxy_only",
     "operation_contract": "revenue_unreacted_range_source_mid_falling_v2_operation_v2",
+}
+
+ACTIVATED_REVENUE_CONDITION = {
+    **PREPARED_REVENUE_CONDITION,
+    "research_baseline_status": "production_parity",
 }
 
 LEGACY_REVENUE_SURFACE = {
@@ -174,6 +190,20 @@ PREPARED_REVENUE_SURFACE = {
         "sync and final activation. Monthly revenue only; EPS gross margin operating margin "
         "operating income non-operating income net income and quarterly or annual statements "
         "are excluded."
+    ),
+}
+
+ACTIVATED_REVENUE_SURFACE = {
+    **PREPARED_REVENUE_SURFACE,
+    "approved_for_daily_pdf": "true",
+    "research_parity_status": "ok",
+    "change_reason": "dedicated_source_mid_falling_v2_formal_adapter_activation_2026-08-30",
+    "notes": (
+        "Provisional backtest supported and OOS unconfirmed; forward holdout is "
+        "post-launch monitoring only. Monthly revenue only; EPS gross margin operating "
+        "margin operating income non-operating income net income and quarterly or annual "
+        "statements are excluded. Legacy monolith code and evidence remain immutable but "
+        "cannot produce generic daily signals."
     ),
 }
 
@@ -261,14 +291,24 @@ def _classify_revenue_evidence_phase(
         and _matches(surface_row, PREPARED_REVENUE_SURFACE, "surface_id")
     ):
         return PREPARED_REVENUE_PHASE
+    if (
+        _matches(contract_row, ACTIVATED_REVENUE_CONTRACT, "model_id")
+        and _matches(condition_row, ACTIVATED_REVENUE_CONDITION, "model_id")
+        and _matches(surface_row, ACTIVATED_REVENUE_SURFACE, "surface_id")
+    ):
+        return ACTIVATED_REVENUE_PHASE
     return None
 
 
-def _validate_prepared_revenue_pin(raw_pin_rows: list[dict[str, str]]) -> list[str]:
+def _validate_revenue_pin(
+    raw_pin_rows: list[dict[str, str]],
+    *,
+    phase: str,
+) -> list[str]:
     revenue_rows = [row for row in raw_pin_rows if row.get("model_id") == REVENUE_MODEL_ID]
     if len(revenue_rows) != 1:
         return [
-            f"{PREPARED_REVENUE_PHASE} requires exactly one {REVENUE_MODEL_ID} evidence pin; "
+            f"{phase} requires exactly one {REVENUE_MODEL_ID} evidence pin; "
             f"actual={len(revenue_rows)}"
         ]
     row = revenue_rows[0]
@@ -281,7 +321,7 @@ def _validate_prepared_revenue_pin(raw_pin_rows: list[dict[str, str]]) -> list[s
         expected = PREPARED_REVENUE_PIN.get(field, "<unexpected>")
         if actual != expected:
             errors.append(
-                f"{REVENUE_MODEL_ID} prepared evidence pin {field} mismatch: "
+                f"{REVENUE_MODEL_ID} {phase} evidence pin {field} mismatch: "
                 f"expected={expected}; actual={actual}"
             )
     return errors
@@ -316,13 +356,14 @@ def validate(
             errors.append(
                 "unsupported or mixed revenue formal evidence phase: revenue contract, "
                 "condition spec, and model surface must exactly match legacy_v2_no_pin "
-                "or prepared_v3_permissions_false"
+                "prepared_v3_permissions_false, or "
+                "activated_v3_provisional_pdf_approved"
             )
 
     expected_models = set(ALWAYS_REQUIRED_MODELS)
-    if phase == PREPARED_REVENUE_PHASE:
+    if phase in {PREPARED_REVENUE_PHASE, ACTIVATED_REVENUE_PHASE}:
         expected_models.add(REVENUE_MODEL_ID)
-        errors.extend(_validate_prepared_revenue_pin(raw_pin_rows))
+        errors.extend(_validate_revenue_pin(raw_pin_rows, phase=phase))
 
     model_ids = [pin.model_id for pin in pins]
     duplicates = sorted({model_id for model_id in model_ids if model_ids.count(model_id) > 1})

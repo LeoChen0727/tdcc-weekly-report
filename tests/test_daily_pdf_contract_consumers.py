@@ -1154,3 +1154,140 @@ def test_price_pullback_operation_adapter_contract_requires_pdf_safe_columns(tmp
     )
 
     assert any("row_metric_status" in error for error in errors)
+
+
+def write_revenue_operation_adapter(path: Path) -> None:
+    columns = sorted(validator.REVENUE_OPERATION_REQUIRED_COLUMNS)
+    rows: list[dict[str, str]] = []
+    view_sections = {
+        "highlight": {"confirmed_operation", "active_operation"},
+        "full": validator.REVENUE_OPERATION_REQUIRED_SECTIONS,
+    }
+    for pdf_view, sections in view_sections.items():
+        for pdf_section in sorted(sections):
+            values = {
+                "model_id": REVENUE_MODEL_ID,
+                "model_name_zh": "營收爆發但股價尚未反應模型",
+                "model_variant_id": "source_mid_falling",
+                "model_variant_version": "v2",
+                "operation_module_id": "revenue_unreacted_range_source_mid_falling_v2_operation_v2",
+                "adapter_schema_version": "revenue_unreacted_range_operation_section_schema_v2",
+                "lifecycle_contract_version": "revenue_unreacted_range_lifecycle_v2",
+                "approval_status": "provisional_backtest_supported_oos_unconfirmed",
+                "pdf_view": pdf_view,
+                "pdf_section": pdf_section,
+                "row_type": "empty_state",
+                "empty_text_zh": (
+                    "目前無操作中追蹤列"
+                    if pdf_section == "active_operation"
+                    else "本日無股票推薦"
+                ),
+                "display_order": "1",
+                "operation_asof_date": "20260828",
+                "report_line": "both",
+                "report_line_memberships": "mainstream|non_mainstream",
+                "operation_status": pdf_section,
+                "operation_status_zh": "empty_state",
+                "operation_quality": "empty_state",
+                "operation_quality_zh": "empty_state",
+                "row_action_status": "empty_state",
+                "buy_rank_eligible": "False",
+                "formal_model_use_allowed": "True",
+                "approved_for_daily": "True",
+                "presentation_allowed": "True",
+                "production_allowed": "True",
+                "financial_statement_scope": "monthly_revenue_only",
+            }
+            rows.append({column: values.get(column, "test") for column in columns})
+    with path.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=columns)
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+def test_revenue_operation_adapter_hard_registration_is_exact(tmp_path: Path) -> None:
+    adapter = tmp_path / "daily_revenue_unreacted_range_operation_section_latest.csv"
+    write_revenue_operation_adapter(adapter)
+    assert validator.PDF_OPERATION_ADAPTER_ARTIFACTS[REVENUE_MODEL_ID].name == adapter.name
+    assert validator.PDF_OPERATION_RENDERER_TOKENS[REVENUE_MODEL_ID] == (
+        "REVENUE_UNREACTED_RANGE_MODEL_ID",
+        adapter.name,
+        "render_revenue_unreacted_range_operation_section",
+    )
+    assert validator.PDF_OPERATION_ALLOWED_SECTIONS_BY_MODEL[REVENUE_MODEL_ID] == {
+        "confirmed_operation",
+        "confirmed_unranked_operation",
+        "pending_confirmation",
+        "active_operation",
+    }
+
+    readiness_rows = [
+        {
+            "model_id": REVENUE_MODEL_ID,
+            "pdf_integration_status": "pdf_integrated_daily_adapter",
+            "daily_adapter_sections": (
+                "confirmed_operation,confirmed_unranked_operation,"
+                "pending_confirmation,active_operation"
+            ),
+        }
+    ]
+    errors = validator.validate_pdf_integrated_operation_adapter_contract(
+        readiness_rows,
+        source_paths=[validator.RENDERER],
+        artifact_paths={REVENUE_MODEL_ID: adapter},
+        renderer_tokens={
+            REVENUE_MODEL_ID: validator.PDF_OPERATION_RENDERER_TOKENS[REVENUE_MODEL_ID]
+        },
+        required_columns_by_model={
+            REVENUE_MODEL_ID: validator.REVENUE_OPERATION_REQUIRED_COLUMNS
+        },
+        allowed_sections_by_model={
+            REVENUE_MODEL_ID: validator.REVENUE_OPERATION_REQUIRED_SECTIONS
+        },
+        required_model_ids={REVENUE_MODEL_ID},
+    )
+
+    assert errors == []
+
+
+@pytest.mark.parametrize(
+    ("readiness_sections", "expected_error"),
+    (
+        (
+            "confirmed_operation,confirmed_unranked_operation,active_operation",
+            "missing required sections",
+        ),
+        (
+            "confirmed_operation,confirmed_unranked_operation,pending_confirmation,"
+            "active_operation,legacy_signal",
+            "exposes unexpected sections",
+        ),
+    ),
+)
+def test_revenue_operation_adapter_requires_exact_four_readiness_sections(
+    tmp_path: Path,
+    readiness_sections: str,
+    expected_error: str,
+) -> None:
+    adapter = tmp_path / "daily_revenue_unreacted_range_operation_section_latest.csv"
+    write_revenue_operation_adapter(adapter)
+    errors = validator.validate_pdf_integrated_operation_adapter_contract(
+        [
+            {
+                "model_id": REVENUE_MODEL_ID,
+                "pdf_integration_status": "pdf_integrated_daily_adapter",
+                "daily_adapter_sections": readiness_sections,
+            }
+        ],
+        artifact_paths={REVENUE_MODEL_ID: adapter},
+        required_columns_by_model={
+            REVENUE_MODEL_ID: validator.REVENUE_OPERATION_REQUIRED_COLUMNS
+        },
+        allowed_sections_by_model={
+            REVENUE_MODEL_ID: validator.REVENUE_OPERATION_REQUIRED_SECTIONS
+        },
+        required_model_ids={REVENUE_MODEL_ID},
+        require_renderer_contract=False,
+    )
+
+    assert any(expected_error in error for error in errors)

@@ -850,7 +850,7 @@ def _resolved_anomalies() -> dict[str, dict[str, str]]:
     }
 
 
-def test_v5_disabled_adapter_migration_is_append_only_and_business_immutable() -> None:
+def test_v5_disabled_adapter_history_remains_append_only_and_business_immutable() -> None:
     decision, decision_errors = validator.validate_decision(validator.DEFAULT_DECISION)
     migration, migration_errors = validator.validate_migration(
         validator.DEFAULT_MIGRATIONS
@@ -858,37 +858,84 @@ def test_v5_disabled_adapter_migration_is_append_only_and_business_immutable() -
 
     assert decision_errors == []
     assert migration_errors == []
-    assert decision == validator.EXPECTED_DECISION_V5
+    assert decision == validator.EXPECTED_DECISION_V6
     assert migration == validator.EXPECTED_MIGRATION_V1_TO_V2
     _decision_columns, decision_rows = _read_rows(validator.DEFAULT_DECISION)
-    assert decision_rows[-2] == validator.EXPECTED_DECISION_V4
-    assert decision_rows[-1] == validator.EXPECTED_DECISION_V5
+    assert decision_rows[-3] == validator.EXPECTED_DECISION_V4
+    assert decision_rows[-2] == validator.EXPECTED_DECISION_V5
     assert all(
-        decision_rows[-2][column] == decision_rows[-1][column]
+        decision_rows[-3][column] == decision_rows[-2][column]
         for column in validator.V4_TO_V5_COMMON_DECISION_FIELDS
     )
     _migration_columns, migration_rows = _read_rows(validator.DEFAULT_MIGRATIONS)
-    assert migration_rows[-2] == validator.EXPECTED_MIGRATION_V3_TO_V4
-    assert migration_rows[-1] == validator.EXPECTED_MIGRATION_V4_TO_V5
-    assert migration_rows[-1]["from_source_revision"] == migration_rows[-1]["to_source_revision"]
-    assert migration_rows[-1]["from_source_artifact_version"] == migration_rows[-1]["to_source_artifact_version"]
-    assert migration_rows[-1]["common_business_field_change_count"] == "0"
-    assert migration_rows[-1]["v1_anomaly_count"] == "8"
-    assert migration_rows[-1]["v2_anomaly_count"] == "8"
+    assert migration_rows[-3] == validator.EXPECTED_MIGRATION_V3_TO_V4
+    assert migration_rows[-2] == validator.EXPECTED_MIGRATION_V4_TO_V5
+    assert migration_rows[-2]["from_source_revision"] == migration_rows[-2]["to_source_revision"]
+    assert migration_rows[-2]["from_source_artifact_version"] == migration_rows[-2]["to_source_artifact_version"]
+    assert migration_rows[-2]["common_business_field_change_count"] == "0"
+    assert migration_rows[-2]["v1_anomaly_count"] == "8"
+    assert migration_rows[-2]["v2_anomaly_count"] == "8"
     for column in (
         "formal_model_use_allowed",
         "approved_for_daily",
         "presentation_allowed",
         "production_change",
     ):
-        assert decision_rows[-1][column] == "False"
-        assert migration_rows[-1][column] == "False"
+        assert decision_rows[-2][column] == "False"
+        assert migration_rows[-2][column] == "False"
+
+
+def test_v6_provisional_activation_is_append_only_and_keeps_frozen_rule() -> None:
+    decision, decision_errors = validator.validate_decision(validator.DEFAULT_DECISION)
+    _migration, migration_errors = validator.validate_migration(
+        validator.DEFAULT_MIGRATIONS
+    )
+
+    assert decision_errors == []
+    assert migration_errors == []
+    assert decision == validator.EXPECTED_DECISION_V6
+    _decision_columns, decision_rows = _read_rows(validator.DEFAULT_DECISION)
+    assert decision_rows[-2] == validator.EXPECTED_DECISION_V5
+    assert decision_rows[-1] == validator.EXPECTED_DECISION_V6
+    assert all(
+        decision_rows[-2][column] == decision_rows[-1][column]
+        for column in validator.V5_TO_V6_FROZEN_BUSINESS_FIELDS
+    )
+    assert decision_rows[-1]["forward_holdout_gate_policy"] == (
+        "post_launch_monitoring_non_hard_no_tuning"
+    )
+    assert decision_rows[-1]["decision_status"] == (
+        "provisional_backtest_supported_oos_unconfirmed"
+    )
+    for column in (
+        "formal_model_use_allowed",
+        "approved_for_daily",
+        "presentation_allowed",
+        "production_change",
+    ):
+        assert decision_rows[-1][column] == "True"
+
+    _migration_columns, migration_rows = _read_rows(validator.DEFAULT_MIGRATIONS)
+    assert migration_rows[-2] == validator.EXPECTED_MIGRATION_V4_TO_V5
+    assert migration_rows[-1] == validator.EXPECTED_MIGRATION_V5_TO_V6
+    assert migration_rows[-1]["from_source_revision"] == (
+        migration_rows[-1]["to_source_revision"]
+    )
+    assert migration_rows[-1]["common_business_field_change_count"] == "0"
+    assert migration_rows[-1]["research_only"] == "False"
+    for column in (
+        "formal_model_use_allowed",
+        "approved_for_daily",
+        "presentation_allowed",
+        "production_change",
+    ):
+        assert migration_rows[-1][column] == "True"
 
 
 def test_v5_business_field_drift_fails_closed(tmp_path: Path) -> None:
     path = tmp_path / "promotion.csv"
     columns, rows = _read_rows(validator.DEFAULT_DECISION)
-    rows[-1]["position_rule"] = "40<position_120d_pct<=76"
+    rows[-2]["position_rule"] = "40<position_120d_pct<=76"
     _write_rows(path, columns, rows)
 
     _row, errors = validator.validate_decision(path)
@@ -900,7 +947,7 @@ def test_v5_business_field_drift_fails_closed(tmp_path: Path) -> None:
 def test_v5_permission_flip_fails_closed(tmp_path: Path) -> None:
     path = tmp_path / "promotion.csv"
     columns, rows = _read_rows(validator.DEFAULT_DECISION)
-    rows[-1]["formal_model_use_allowed"] = "True"
+    rows[-2]["formal_model_use_allowed"] = "True"
     _write_rows(path, columns, rows)
 
     _row, errors = validator.validate_decision(path)
@@ -911,7 +958,7 @@ def test_v5_permission_flip_fails_closed(tmp_path: Path) -> None:
 def test_v4_to_v5_common_business_change_count_tamper_fails(tmp_path: Path) -> None:
     path = tmp_path / "migrations.csv"
     columns, rows = _read_rows(validator.DEFAULT_MIGRATIONS)
-    rows[-1]["common_business_field_change_count"] = "1"
+    rows[-2]["common_business_field_change_count"] = "1"
     _write_rows(path, columns, rows)
 
     _row, errors = validator.validate_migration(path)
@@ -976,6 +1023,46 @@ def test_promotion_candidate_phase_requires_dispositions_and_mature_holdout(
 
     assert any("operation_keys=['case-1']" in error for error in errors)
     assert any("primary_mature_count=19; required=20" in error for error in errors)
+
+
+def test_v6_promotion_candidate_keeps_holdout_integrity_without_maturity_gate(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    holdout = tmp_path / "holdout.csv"
+    _write_mature_forward_holdout_manifest(holdout, mature=0)
+    evidence_paths, price_dir, history_base_ref = _forward_holdout_evidence_fixture(
+        tmp_path,
+        holdout,
+    )
+    commands: list[list[str]] = []
+
+    def pass_canonical_validator(_label: str, command: list[str]) -> list[str]:
+        commands.append(command)
+        return []
+
+    monkeypatch.setattr(validator, "_run_canonical_validator", pass_canonical_validator)
+    monkeypatch.setattr(
+        validator,
+        "validate_current_anomaly_dispositions",
+        lambda _root, *, require_effective_nonblocking: SimpleNamespace(
+            errors=[],
+            diagnostics=[],
+        ),
+    )
+
+    assert validator.validate_phase_gates(
+        "promotion-candidate",
+        dict(validator.EXPECTED_DECISION_V6),
+        _resolved_anomalies(),
+        source_contract_verified=True,
+        forward_holdout_manifest_path=holdout,
+        forward_holdout_evidence_paths=evidence_paths,
+        forward_holdout_price_input_directory=price_dir,
+        forward_holdout_history_base_ref=history_base_ref,
+    ) == []
+    assert len(commands) == 1
+    assert str(validator.FORWARD_HOLDOUT_V2_VALIDATOR) in commands[0]
 
 
 def test_promotion_candidate_uses_primary_maturity_without_equating_challenger_totals(
@@ -1111,16 +1198,7 @@ def test_production_pdf_phase_remains_blocked_by_disabled_adapter_contract(
 
 
 def _approved_production_decision() -> dict[str, str]:
-    decision = dict(validator.EXPECTED_DECISION_V5)
-    for column in (
-        "formal_model_use_allowed",
-        "approved_for_daily",
-        "presentation_allowed",
-        "production_change",
-    ):
-        decision[column] = "True"
-    decision["formal_adapter_gate"] = "formal_adapter_approved_production_hard_gate"
-    return decision
+    return dict(validator.EXPECTED_DECISION_V6)
 
 
 def test_production_pdf_rejects_legacy_readiness_without_production_allowed(
@@ -1195,8 +1273,8 @@ def test_production_pdf_delegates_to_model_adapter_readiness_and_pdf_validators(
         holdout,
     )
     forward_validator = scripts / "validate_revenue_unreacted_range_forward_holdout_v2.py"
-    module = scripts / "revenue_unreacted_range_operation_adapter.py"
-    adapter_validator = scripts / "validate_revenue_unreacted_range_operation_adapter.py"
+    module = scripts / "build_daily_revenue_unreacted_range_operation_section.py"
+    adapter_validator = scripts / "validate_daily_revenue_unreacted_range_operation_section.py"
     readiness_validator = scripts / "validate_model_operation_readiness.py"
     revenue_pdf_validator = (
         scripts / "validate_revenue_unreacted_range_pdf_consumer_contract.py"
@@ -1211,9 +1289,21 @@ def test_production_pdf_delegates_to_model_adapter_readiness_and_pdf_validators(
         readiness_validator,
         revenue_pdf_validator,
         pdf_validator,
-        artifact,
     ):
         path.write_text("placeholder\n", encoding="utf-8")
+    _write_rows(artifact, ["generated_at"], [{"generated_at": "runtime-time"}])
+    artifact_semantic = b'generated_at\n""\n'
+    artifact_sha = hashlib.sha256(artifact_semantic).hexdigest()
+    history_snapshot = history / (
+        "daily_revenue_unreacted_range_operation_section_20260828_"
+        f"{artifact_sha}.csv"
+    )
+    snapshot_path = (
+        Path("\\\\?\\" + str(history_snapshot.resolve()))
+        if sys.platform == "win32"
+        else history_snapshot
+    )
+    snapshot_path.write_bytes(artifact_semantic)
     monkeypatch.setattr(validator, "ROOT", repo_root)
     monkeypatch.setattr(validator, "FORWARD_HOLDOUT_V2_VALIDATOR", forward_validator)
     monkeypatch.setattr(validator, "DEFAULT_OPERATION_READINESS", readiness)
@@ -1234,19 +1324,19 @@ def test_production_pdf_delegates_to_model_adapter_readiness_and_pdf_validators(
         "approved_for_daily": "True",
         "presentation_allowed": "True",
         "production_allowed": "True",
-        "approval_status": "approved_for_daily_v1",
-        "approval_version": "revenue_unreacted_range_formal_operation_20260828",
-        "operation_module_status": "approved_operation_v1",
+        "approval_status": validator.FORMAL_ADAPTER_APPROVAL_STATUS,
+        "approval_version": validator.FORMAL_ADAPTER_APPROVAL_VERSION,
+        "operation_module_status": validator.FORMAL_ADAPTER_OPERATION_MODULE_STATUS,
         "operation_module_id": validator.FORMAL_ADAPTER_MODULE_ID,
-        "operation_module_path": "scripts/revenue_unreacted_range_operation_adapter.py",
-        "operation_module_canonical_sha256": "1" * 64,
+        "operation_module_path": "scripts/build_daily_revenue_unreacted_range_operation_section.py",
+        "operation_module_canonical_sha256": hashlib.sha256(b"placeholder\n").hexdigest(),
         "daily_adapter_status": "ready_empty_no_operation_rows",
         "adapter_artifact_id": validator.FORMAL_ADAPTER_ARTIFACT_ID,
-        "adapter_artifact_version": "revenue_unreacted_range_formal_adapter_v1",
+        "adapter_artifact_version": validator.FORMAL_ADAPTER_APPROVAL_VERSION,
         "adapter_artifact_path": (
             "output/latest/daily_revenue_unreacted_range_operation_section_latest.csv"
         ),
-        "adapter_artifact_canonical_sha256": "2" * 64,
+        "adapter_artifact_canonical_sha256": artifact_sha,
         "adapter_schema_version": validator.FORMAL_ADAPTER_SCHEMA_VERSION,
         "lifecycle_contract_version": validator.FORMAL_ADAPTER_LIFECYCLE_VERSION,
         "daily_adapter_sections": ",".join(
@@ -1254,6 +1344,7 @@ def test_production_pdf_delegates_to_model_adapter_readiness_and_pdf_validators(
         ),
         "operation_directive_level": "approved_daily_operation_guidance",
         "pdf_integration_status": "pdf_integrated_daily_adapter",
+        "packet_integration_status": "pending_packet_consumer",
     }
     _write_rows(readiness, sorted(row), [row])
     calls: list[tuple[str, list[str]]] = []
@@ -1263,6 +1354,15 @@ def test_production_pdf_delegates_to_model_adapter_readiness_and_pdf_validators(
         return []
 
     monkeypatch.setattr(validator, "_run_canonical_validator", pass_canonical_validator)
+    monkeypatch.setattr(
+        validator.subprocess,
+        "run",
+        lambda *_args, **_kwargs: SimpleNamespace(
+            returncode=0,
+            stdout="",
+            stderr="",
+        ),
+    )
     monkeypatch.setattr(
         validator,
         "validate_current_anomaly_dispositions",
@@ -1294,9 +1394,8 @@ def test_production_pdf_delegates_to_model_adapter_readiness_and_pdf_validators(
     assert any("model-owned revenue PDF consumer" in label for label in labels)
     assert any("PDF consumer" in label for label in labels)
     adapter_command = next(command for label, command in calls if "formal adapter" in label)
-    assert "--phase" in adapter_command
-    assert "production-approval" in adapter_command
-    assert "--expected-artifact-canonical-sha256" in adapter_command
+    assert "--source-module" in adapter_command
+    assert "--history-snapshot" in adapter_command
 
 
 def test_raw_monthly_blob_drift_is_diagnostic_but_canonical_drift_blocks(
