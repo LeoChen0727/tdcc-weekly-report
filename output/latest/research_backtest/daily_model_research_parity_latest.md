@@ -1,6 +1,6 @@
 # Daily Model Research Baseline Parity
 
-- generated_at: `2026-07-12 03:47:28 Asia/Taipei`
+- generated_at: `2026-08-31 11:24:21 Asia/Taipei`
 - purpose: verify that every daily production core model has a research production-baseline row before parameter variants are compared
 - production_parity: historical research fields can replay the production baseline directly
 - production_proxy / proxy_only: baseline exists, but one or more production fields are not fully available point-in-time in the research frame
@@ -10,9 +10,8 @@
 
 | research_baseline_status | count |
 | --- | --- |
-| production_parity | 6 |
+| production_parity | 7 |
 | production_proxy | 4 |
-| proxy_only | 1 |
 
 ## Model Parity Detail
 
@@ -23,7 +22,7 @@
 | volume_range_breakout_v2_high_position_volume_attack | production_parity | volume_range_breakout_v2_high_position_operation_v1 | 0 | 231 | 187 |  | usable_as_exact_baseline |
 | price_pullback_23ema | production_parity | price_pullback_23ema_prev20_breakout_stop_v1 | 12 | 9612 | 1186 |  | usable_as_exact_baseline |
 | hot_theme_pullback | production_proxy | production_current_proxy | 6 | 5590 | 906 | daily hot-theme labels are not fully backfilled as point-in-time model-layer fields | usable_for_relative_research_only_until_blocker_resolved |
-| revenue_unreacted_range | proxy_only | production_current_proxy | 2 | 312677 | 1976 | strong_revenue gate requires model-specific research matrix, contract update, exact parity, and promotion PR before formal use | usable_for_relative_research_only_until_blocker_resolved |
+| revenue_unreacted_range | production_parity | revenue_unreacted_range_source_mid_falling_frozen_rule_launch_evidence_v1_20260830 | 2 | 53 | 48 |  | usable_as_exact_production_parity_provisional_backtest_supported_oos_unconfirmed_post_launch_monitoring_non_hard_no_tuning_no_reselection_monthly_revenue_only |
 | w_bottom_right_side | production_parity | w_bottom_early_entry_operation_v2 | 3 | 44 | 44 |  | usable_as_exact_baseline |
 | neckline_volume_breakout_confirmation | production_parity | neckline_strict_45_signal_90_score_v1 | 0 | 51 | 51 |  | usable_as_exact_baseline |
 | pullback_short_reclaim | production_proxy | production_current_proxy | 3 | 89287 | 1863 | pullback_entry_zone/right_side/ma20_reclaim setup flags are not fully backfilled | usable_for_relative_research_only_until_blocker_resolved |

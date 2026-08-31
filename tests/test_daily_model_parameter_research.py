@@ -74,6 +74,7 @@ from validate_revenue_unreacted_range_fixed_confirmation_feature_contrast import
 )
 from validate_research_against_stock_model_contract import (  # noqa: E402
     REVENUE_ACTIVATED_ACTION,
+    REVENUE_ACTIVATED_PARITY_COMPLETION_RULE,
     REVENUE_ACTIVATED_CONDITION_FIELDS,
     REVENUE_ACTIVATED_PRODUCTION_FIELDS,
     REVENUE_ACTIVATED_REGISTRY_FIELDS,
@@ -188,6 +189,15 @@ def test_model_parity_artifact_marks_proxy_blockers() -> None:
     proxy_rows = parity[parity["research_baseline_status"].isin(["production_proxy", "proxy_only"])]
     assert not proxy_rows.empty
     assert not proxy_rows["parity_blocker"].eq("").any()
+    revenue = parity[parity["model_id"].eq("revenue_unreacted_range")].iloc[0]
+    assert revenue["research_baseline_status"] == "production_parity"
+    assert revenue["research_baseline_parameter_set_id"] == REVENUE_EVIDENCE_VERSION
+    assert revenue["baseline_selected_stock_days"] == REVENUE_EXPECTED_OPERATION_COUNT
+    assert revenue["baseline_selected_unique_stocks"] == (
+        REVENUE_EXPECTED_UNIQUE_STOCK_COUNT
+    )
+    assert revenue["parity_blocker"] == ""
+    assert revenue["completion_rule"] == REVENUE_ACTIVATED_PARITY_COMPLETION_RULE
 
 
 # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
@@ -249,7 +259,7 @@ def test_revenue_frozen_evidence_loader_rejects_permission_drift(
         )
 
 
-def test_shared_revenue_parity_artifact_stays_generic_proxy_only() -> None:
+def test_activated_revenue_parity_artifact_uses_frozen_exact_evidence() -> None:
     source = pd.read_csv(
         ROOT / "output/latest/research_backtest/daily_model_research_parity_latest.csv",
         dtype=str,
@@ -258,11 +268,20 @@ def test_shared_revenue_parity_artifact_stays_generic_proxy_only() -> None:
     revenue = source[source["model_id"].eq("revenue_unreacted_range")]
 
     assert len(revenue) == 1
-    assert revenue.iloc[0]["research_baseline_status"] == "proxy_only"
+    assert revenue.iloc[0]["research_baseline_status"] == "production_parity"
     assert revenue.iloc[0]["research_baseline_parameter_set_id"] == (
-        REVENUE_LEGACY_PROXY_ID
+        REVENUE_EVIDENCE_VERSION
     )
-    assert revenue.iloc[0]["parity_blocker"] == REVENUE_LEGACY_PROXY_BLOCKER
+    assert revenue.iloc[0]["baseline_selected_stock_days"] == str(
+        REVENUE_EXPECTED_OPERATION_COUNT
+    )
+    assert revenue.iloc[0]["baseline_selected_unique_stocks"] == str(
+        REVENUE_EXPECTED_UNIQUE_STOCK_COUNT
+    )
+    assert revenue.iloc[0]["parity_blocker"] == ""
+    assert revenue.iloc[0]["completion_rule"] == (
+        REVENUE_ACTIVATED_PARITY_COMPLETION_RULE
+    )
 # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 
 
@@ -372,10 +391,14 @@ def test_contract_parity_accepts_exact_v3_provisional_activated_state() -> None:
         condition_row=dict(REVENUE_ACTIVATED_CONDITION_FIELDS),
         production_row=dict(REVENUE_ACTIVATED_PRODUCTION_FIELDS),
         research_row={
-            "research_baseline_status": "proxy_only",
-            "research_baseline_parameter_set_id": REVENUE_LEGACY_PROXY_ID,
-            "parity_blocker": REVENUE_LEGACY_PROXY_BLOCKER,
-            "completion_rule": "usable_for_relative_research_only_until_blocker_resolved",
+            "research_baseline_status": "production_parity",
+            "research_baseline_parameter_set_id": REVENUE_EVIDENCE_VERSION,
+            "baseline_selected_stock_days": str(REVENUE_EXPECTED_OPERATION_COUNT),
+            "baseline_selected_unique_stocks": str(
+                REVENUE_EXPECTED_UNIQUE_STOCK_COUNT
+            ),
+            "parity_blocker": "",
+            "completion_rule": REVENUE_ACTIVATED_PARITY_COMPLETION_RULE,
         },
         metric_rows=[],
     )
