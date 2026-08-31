@@ -908,7 +908,7 @@ def test_revenue_readiness_rejects_malformed_or_production_enabled_contracts() -
             revenue_forward_holdout_v2_manifest=malformed_holdout,
         )
 
-    production_enabled = revenue_promotion_registry_frame()
+    production_enabled = revenue_promotion_registry_frame().iloc[:-1].copy()
     production_enabled.loc[production_enabled.index[-1], "production_change"] = "True"
     with pytest.raises(RuntimeError, match="promotion.production_change must be 'false'"):
         build_model_operation_readiness(
@@ -930,10 +930,10 @@ def test_revenue_readiness_rejects_malformed_or_production_enabled_contracts() -
         "production_change",
     ),
 )
-def test_revenue_readiness_requires_all_four_formal_promotion_flags_false(
+def test_revenue_readiness_requires_all_four_frozen_v5_formal_promotion_flags_false(
     flag_name: str,
 ) -> None:
-    promotion = revenue_promotion_registry_frame()
+    promotion = revenue_promotion_registry_frame().iloc[:-1].copy()
     promotion.loc[promotion.index[-1], flag_name] = "True"
 
     with pytest.raises(RuntimeError, match=rf"promotion\.{flag_name} must be 'false'"):

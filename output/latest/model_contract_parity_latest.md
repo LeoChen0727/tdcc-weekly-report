@@ -1,6 +1,6 @@
 # Research Against Stock Model Contract Parity
 
-- generated_at: `2026-08-31 09:03:44 Asia/Taipei`
+- generated_at: `2026-08-31 09:58:27 Asia/Taipei`
 - production_contract_source: `config/stock_model_contract_registry.csv`
 - production_condition_spec: `config/daily_model_condition_spec.csv`
 - research_parity: `output/latest/research_backtest/daily_model_research_parity_latest.csv`
@@ -9,7 +9,7 @@
 - rule: config/stock_model_contract_registry.csv is the production stock-model source of truth for this validator.
 - rule: production contract drift and missing research baselines fail validation.
 - rule: research proxy rows are marked as research variants and require explicit promotion PR before daily production use.
-- revenue pre-promotion rule: exact frozen evidence may be bound while parity remains proxy_only/warning and all production permissions remain false.
+- revenue phase rule: legacy and prepared phases remain warning-only; the exact v3 provisional activation is production parity while frozen evidence stays evidence-only and forward holdout remains post-launch monitoring without tuning.
 - rule: this validator does not read or create stock_model_contract_snapshot_latest.json.
 
 ## Status Summary
