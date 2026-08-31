@@ -19,6 +19,7 @@ import sync_revenue_unreacted_range_operation_readiness as syncer  # noqa: E402
 
 
 _REAL_LOAD_REGISTERED_PRICE_FRAMES = syncer._load_registered_price_frames
+_REAL_VALIDATE_FORMAL_ADAPTER_RUNTIME = syncer.validate_formal_adapter_runtime
 _CURRENT_REGISTERED_PRICE_FRAMES: dict[str, pd.DataFrame] | None = None
 _BASELINE_MANIFEST = pd.read_csv(
     ROOT / syncer.FORWARD_HOLDOUT_V2_MANIFEST_REL, dtype=str
@@ -546,6 +547,69 @@ def git(repo: Path, *args: str) -> str:
     ).stdout.strip()
 
 
+def formal_adapter_runtime_repo(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    *,
+    committed_history_semantic_drift: bool = False,
+) -> tuple[Path, Path, Path, bytes]:
+    repo = tmp_path / "repo"
+    repo.mkdir()
+    git(repo, "init")
+    git(repo, "config", "user.name", "test")
+    git(repo, "config", "user.email", "test@example.com")
+    git(repo, "config", "core.autocrlf", "false")
+
+    monkeypatch.setattr(syncer, "REVENUE_FORMAL_ADAPTER_MODULE_REL", "module.py")
+    monkeypatch.setattr(syncer, "REVENUE_FORMAL_ADAPTER_VALIDATOR_REL", "validator.py")
+    monkeypatch.setattr(syncer, "REVENUE_FORMAL_ADAPTER_ARTIFACT_REL", "runtime.csv")
+    monkeypatch.setattr(syncer, "REVENUE_FORMAL_ADAPTER_HISTORY_DIRECTORY_REL", "history")
+
+    (repo / "module.py").write_text("ADAPTER_VERSION = 'test'\n", encoding="utf-8")
+    (repo / "validator.py").write_text(
+        "import csv\n"
+        "import sys\n"
+        "from pathlib import Path\n"
+        "artifact = Path(sys.argv[sys.argv.index('--artifact') + 1])\n"
+        "with artifact.open(encoding='utf-8-sig', newline='') as handle:\n"
+        "    rows = list(csv.DictReader(handle))\n"
+        "data_rows = sum(row['row_type'] == 'data' for row in rows)\n"
+        "print('PASS: formal revenue operation adapter is independently valid '"
+        "f'asof=20260828 rows={len(rows)} data_rows={data_rows} '"
+        "f'empty_rows={len(rows) - data_rows}')\n",
+        encoding="utf-8",
+    )
+
+    runtime_semantic = syncer._formal_adapter_semantic_payload(
+        (ROOT / "output/latest/daily_revenue_unreacted_range_operation_section_latest.csv").read_bytes(),
+        "runtime fixture",
+    )
+    runtime_path = repo / "runtime.csv"
+    runtime_path.write_bytes(runtime_semantic)
+    runtime_sha = syncer.hashlib.sha256(runtime_semantic).hexdigest()
+    history_path = (
+        repo
+        / "history"
+        / (
+            "daily_revenue_unreacted_range_operation_section_"
+            f"{syncer.REVENUE_FORMAL_ADAPTER_REPORT_DATE}_{runtime_sha}.csv"
+        )
+    )
+    history_path.parent.mkdir(parents=True)
+    history_semantic = runtime_semantic
+    if committed_history_semantic_drift:
+        history_semantic = runtime_semantic.replace(
+            b"post_launch_monitoring_non_hard_no_tuning",
+            b"post_launch_monitoring_semantic_drift",
+            1,
+        )
+        assert history_semantic != runtime_semantic
+    history_path.write_bytes(history_semantic)
+    git(repo, "add", ".")
+    git(repo, "commit", "-m", "formal adapter fixture")
+    return repo, runtime_path, history_path, runtime_semantic
+
+
 def exact_attestation(
     manifest: pd.DataFrame,
     detail: pd.DataFrame,
@@ -792,6 +856,51 @@ def test_build_fails_closed_on_same_model_summary_schema_drift() -> None:
             incomplete,
             generated_at="new-time",
         )
+
+
+def test_formal_adapter_runtime_tolerates_bom_and_crlf_transport_drift(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    repo, runtime_path, history_path, runtime_semantic = formal_adapter_runtime_repo(
+        tmp_path,
+        monkeypatch,
+    )
+    transport_variant = b"\xef\xbb\xbf" + runtime_semantic.replace(b"\n", b"\r\n")
+    runtime_path.write_bytes(transport_variant)
+    history_path.write_bytes(transport_variant)
+
+    result = _REAL_VALIDATE_FORMAL_ADAPTER_RUNTIME(repo)
+
+    assert result.adapter_artifact_canonical_sha256 == syncer.hashlib.sha256(
+        runtime_semantic
+    ).hexdigest()
+    assert result.row_count > 0
+    assert result.data_row_count == 0
+
+
+@pytest.mark.parametrize("drift_location", ("worktree_history", "committed_history"))
+def test_formal_adapter_runtime_rejects_history_semantic_drift(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    drift_location: str,
+) -> None:
+    repo, _runtime_path, history_path, runtime_semantic = formal_adapter_runtime_repo(
+        tmp_path,
+        monkeypatch,
+        committed_history_semantic_drift=drift_location == "committed_history",
+    )
+    if drift_location == "worktree_history":
+        drifted = runtime_semantic.replace(
+            b"post_launch_monitoring_non_hard_no_tuning",
+            b"post_launch_monitoring_semantic_drift",
+            1,
+        )
+        assert drifted != runtime_semantic
+        history_path.write_bytes(drifted)
+
+    with pytest.raises(RuntimeError, match="does not semantically bind"):
+        _REAL_VALIDATE_FORMAL_ADAPTER_RUNTIME(repo)
 
 
 def test_committed_source_treats_crlf_as_diagnostic_and_semantic_drift_as_error(

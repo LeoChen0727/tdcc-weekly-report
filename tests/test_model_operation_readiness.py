@@ -105,6 +105,27 @@ def stub_expensive_exact_revenue_replay(monkeypatch: pytest.MonkeyPatch) -> None
         "validate_current_anomaly_dispositions",
         lambda *_args, **_kwargs: canonical_anomaly_result,
     )
+    monkeypatch.setattr(
+        _SYNC_MODULE,
+        "validate_formal_adapter_runtime",
+        lambda _repo: _SYNC_MODULE.FormalAdapterRuntimeValidationResult(
+            operation_module_path=_SYNC_MODULE.REVENUE_FORMAL_ADAPTER_MODULE_REL,
+            operation_module_canonical_sha256="1" * 64,
+            adapter_artifact_id=_SYNC_MODULE.REVENUE_FORMAL_ADAPTER_ARTIFACT_ID,
+            adapter_artifact_version=(
+                _SYNC_MODULE.REVENUE_FORMAL_ADAPTER_APPROVAL_VERSION
+            ),
+            adapter_artifact_path=_SYNC_MODULE.REVENUE_FORMAL_ADAPTER_ARTIFACT_REL,
+            adapter_artifact_canonical_sha256="2" * 64,
+            adapter_schema_version=_SYNC_MODULE.REVENUE_FORMAL_ADAPTER_SCHEMA_VERSION,
+            lifecycle_contract_version=(
+                _SYNC_MODULE.REVENUE_FORMAL_ADAPTER_LIFECYCLE_VERSION
+            ),
+            row_count=12,
+            data_row_count=0,
+            sections=_SYNC_MODULE.REVENUE_FORMAL_ADAPTER_SECTIONS,
+        ),
+    )
 
 
 def test_revenue_readiness_legacy_shim_delegates_sync_failure_without_writes(
@@ -637,7 +658,7 @@ def test_missing_volume_adapter_blocks_presentation_even_when_approved() -> None
 # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 
 
-def test_revenue_readiness_uses_latest_v3_decision_v4_contract_and_model_owned_evidence() -> None:
+def test_revenue_readiness_uses_exact_v6_provisional_activation() -> None:
     readiness = build_model_operation_readiness(
         revenue_parity_frame(),
         registry_frame(),
@@ -653,29 +674,49 @@ def test_revenue_readiness_uses_latest_v3_decision_v4_contract_and_model_owned_e
     )
 
     row = readiness[readiness["model_id"].eq(REVENUE_MODEL_ID)].iloc[0]
-    assert row["parity_status"] == "research_matrix_complete"
-    assert row["blocker"] == "forward_holdout_v2_mature=0/20"
-    assert row["operation_module_status"] == "disabled_adapter_preparation_validated"
-    assert row["daily_adapter_status"] == "disabled_no_runtime_artifact"
-    assert row["formal_model_use_allowed"] == "False"
-    assert row["approved_for_daily"] == "False"
-    assert row["approval_status"] == "not_started"
-    assert row["operation_module_id"] == (
-        "revenue_unreacted_range_source_mid_falling_v2_operation_v1"
+    assert row["parity_status"] == "provisional_backtest_supported_oos_unconfirmed"
+    assert row["blocker"] == "none"
+    assert row["operation_module_status"] == (
+        "approved_operation_v2_provisional_backtest_supported_oos_unconfirmed"
     )
-    assert row["presentation_allowed"] == "False"
-    assert row["production_allowed"] == "False"
-    assert row["operation_directive_level"] == "no_operation_directive"
-    assert row["pdf_integration_status"] == "not_started"
-    assert row["packet_integration_status"] == "not_started"
+    assert row["daily_adapter_status"] == "ready_empty_no_operation_rows"
+    assert row["formal_model_use_allowed"] == "True"
+    assert row["approved_for_daily"] == "True"
+    assert row["approval_status"] == "provisional_backtest_supported_oos_unconfirmed"
+    assert row["operation_module_id"] == (
+        "revenue_unreacted_range_source_mid_falling_v2_operation_v2"
+    )
+    assert row["operation_module_path"] == (
+        "scripts/build_daily_revenue_unreacted_range_operation_section.py"
+    )
+    assert row["adapter_artifact_id"] == (
+        "daily_revenue_unreacted_range_operation_section"
+    )
+    assert row["adapter_artifact_path"] == (
+        "output/latest/daily_revenue_unreacted_range_operation_section_latest.csv"
+    )
+    assert row["adapter_schema_version"] == (
+        "revenue_unreacted_range_operation_section_schema_v2"
+    )
+    assert row["lifecycle_contract_version"] == (
+        "revenue_unreacted_range_lifecycle_v2"
+    )
+    assert row["presentation_allowed"] == "True"
+    assert row["production_allowed"] == "True"
+    assert row["operation_directive_level"] == "approved_daily_operation_guidance"
+    assert row["pdf_integration_status"] == "pdf_integrated_daily_adapter"
+    assert row["packet_integration_status"] == "pending_packet_consumer"
     assert row["registry_best_pattern_id"] == "source_mid_falling"
     assert row["registry_best_sample_size"] == 53
     assert row["registry_best_win_rate"] == "77.3585"
     assert row["registry_best_median_return"] == "9.4077"
-    assert row["daily_adapter_row_count"] == 0
+    assert row["daily_adapter_row_count"] == 12
     assert row["daily_adapter_data_row_count"] == 0
-    assert row["daily_adapter_sections"] == ""
-    assert "disabled formal adapter preparation 均已完成" in row["status_note_zh"]
+    assert row["daily_adapter_sections"] == (
+        "active_operation,confirmed_operation,confirmed_unranked_operation,"
+        "pending_confirmation"
+    )
+    assert "post-launch monitoring" in row["status_note_zh"]
     assert "strong_revenue gate requires" not in row["blocker"]
     non_revenue = readiness[~readiness["model_id"].eq(REVENUE_MODEL_ID)]
     assert non_revenue["approved_for_daily"].eq("True").any()
@@ -727,15 +768,29 @@ def test_revenue_readiness_fails_closed_until_v3_decision_v4_contract_is_latest(
         )
 
 
-def test_revenue_v5_validation_accepts_current_committed_readiness() -> None:
-    readiness = pd.read_csv(
-        ROOT / "output/latest/model_operation_readiness_latest.csv",
-        dtype=str,
-    ).fillna("")
+def test_revenue_v5_validation_accepts_explicit_frozen_v5_fixture() -> None:
+    promotion = revenue_promotion_registry_frame().iloc[:-1].copy()
+    readiness = build_model_operation_readiness(
+        revenue_parity_frame(),
+        registry_frame(),
+        adapter_frame(),
+        revenue_promotion_registry=promotion,
+        revenue_anomaly_registry=revenue_anomaly_registry_frame(),
+        revenue_forward_holdout_v2_manifest=revenue_forward_holdout_v2_manifest_frame(),
+    )
+    revenue = readiness[readiness["model_id"].eq(REVENUE_MODEL_ID)].iloc[0]
+
+    assert revenue["formal_model_use_allowed"] == "False"
+    assert revenue["approved_for_daily"] == "False"
+    assert revenue["presentation_allowed"] == "False"
+    assert revenue["production_allowed"] == "False"
+    assert revenue["operation_module_id"] == (
+        "revenue_unreacted_range_source_mid_falling_v2_operation_v1"
+    )
 
     assert validate_revenue_readiness_row(
         readiness,
-        revenue_promotion_registry_frame().iloc[:-1].copy(),
+        promotion,
         revenue_anomaly_registry_frame(),
         revenue_forward_holdout_v2_manifest_frame(),
     ) == []
@@ -965,7 +1020,7 @@ def test_revenue_readiness_rejects_unrepaired_verified_data_error_policy(
         )
 
 
-def test_revenue_readiness_validator_rejects_stale_or_permission_enabled_row() -> None:
+def test_revenue_readiness_validator_rejects_stale_or_permission_disabled_row() -> None:
     readiness = build_model_operation_readiness(
         revenue_parity_frame(),
         registry_frame(),
@@ -976,7 +1031,7 @@ def test_revenue_readiness_validator_rejects_stale_or_permission_enabled_row() -
     )
     revenue_index = readiness.index[readiness["model_id"].eq(REVENUE_MODEL_ID)][0]
     readiness.loc[revenue_index, "blocker"] = "stale research matrix blocker"
-    readiness.loc[revenue_index, "presentation_allowed"] = "True"
+    readiness.loc[revenue_index, "presentation_allowed"] = "False"
 
     errors = validate_revenue_readiness_row(
         readiness,
@@ -986,7 +1041,7 @@ def test_revenue_readiness_validator_rejects_stale_or_permission_enabled_row() -
     )
 
     assert any("blocker must be" in error for error in errors)
-    assert any("presentation_allowed must be 'False'" in error for error in errors)
+    assert any("presentation_allowed must be 'True'" in error for error in errors)
 
 
 @pytest.mark.parametrize(
@@ -998,7 +1053,7 @@ def test_revenue_readiness_validator_rejects_stale_or_permission_enabled_row() -
         "production_allowed",
     ),
 )
-def test_revenue_readiness_validator_rejects_missing_or_true_persisted_permission_field(
+def test_revenue_readiness_validator_rejects_missing_or_false_persisted_permission_field(
     field_name: str,
 ) -> None:
     readiness = build_model_operation_readiness(
@@ -1016,17 +1071,17 @@ def test_revenue_readiness_validator_rejects_missing_or_true_persisted_permissio
         revenue_anomaly_registry_frame(),
         revenue_forward_holdout_v2_manifest_frame(),
     )
-    assert any(f"{field_name} must be 'False'" in error for error in missing_errors)
+    assert any(f"{field_name} must be 'True'" in error for error in missing_errors)
 
     revenue_index = readiness.index[readiness["model_id"].eq(REVENUE_MODEL_ID)][0]
-    readiness.loc[revenue_index, field_name] = "True"
+    readiness.loc[revenue_index, field_name] = "False"
     errors = validate_revenue_readiness_row(
         readiness,
         revenue_promotion_registry_frame(),
         revenue_anomaly_registry_frame(),
         revenue_forward_holdout_v2_manifest_frame(),
     )
-    assert any(f"{field_name} must be 'False'" in error for error in errors)
+    assert any(f"{field_name} must be 'True'" in error for error in errors)
 
 
 @pytest.mark.parametrize(
@@ -1166,7 +1221,7 @@ def test_revenue_readiness_persisted_permission_columns_reject_noncanonical_sour
         "production_allowed",
     ),
 )
-def test_revenue_readiness_persisted_permission_columns_reject_missing_or_true_flag(
+def test_revenue_readiness_persisted_permission_columns_reject_missing_or_partial_true_flag(
     field_name: str,
 ) -> None:
     readiness = pd.DataFrame(
@@ -1197,7 +1252,7 @@ def test_revenue_readiness_persisted_permission_columns_reject_missing_or_true_f
 
     readiness.loc[readiness["model_id"].eq(REVENUE_MODEL_ID), field_name] = "True"
     assert any(
-        f"{field_name} must be explicit False" in error
+        "permission quartet must be all False or all True" in error
         for error in readiness_validator.validate_persisted_revenue_permission_columns(
             readiness
         )

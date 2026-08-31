@@ -3755,10 +3755,22 @@ def validate_formal_adapter_runtime(
         )
     history_worktree = history_fs_path.read_bytes()
     history_committed = _git_blob(repo, history_rel)
-    if history_worktree != history_committed or history_committed != committed_semantic:
+    history_worktree_semantic = _formal_adapter_semantic_payload(
+        history_worktree,
+        history_rel,
+    )
+    history_committed_semantic = _formal_adapter_semantic_payload(
+        history_committed,
+        f"HEAD:{history_rel}",
+    )
+    if not (
+        history_worktree_semantic
+        == history_committed_semantic
+        == committed_semantic
+    ):
         raise RuntimeError(
-            "formal adapter immutable history snapshot does not exactly bind the "
-            "canonical runtime artifact"
+            "formal adapter immutable history snapshot does not semantically bind "
+            "the canonical runtime artifact"
         )
 
     frame = _frame_from_csv_bytes(
