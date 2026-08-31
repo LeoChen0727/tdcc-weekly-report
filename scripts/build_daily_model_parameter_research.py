@@ -1986,6 +1986,47 @@ def high_position_approval_baseline_counts() -> tuple[int, int]:
     return selected_days, unique_stocks
 
 
+def activated_revenue_frozen_parity_evidence(
+    production_row: pd.Series,
+) -> tuple[dict[str, str], str] | None:
+    from validate_research_against_stock_model_contract import (
+        REVENUE_ACTIVATED_CONTRACT_STATE,
+        REVENUE_ACTIVATED_PARITY_COMPLETION_RULE,
+        REVENUE_ACTIVATED_PRODUCTION_FIELDS,
+        REVENUE_MODEL_ID,
+        load_contract_sources,
+        load_revenue_frozen_evidence,
+        revenue_contract_state,
+    )
+
+    observed_production = {
+        str(key): str(value or "").strip()
+        for key, value in production_row.to_dict().items()
+    }
+    if any(
+        observed_production.get(field, "") != expected
+        for field, expected in REVENUE_ACTIVATED_PRODUCTION_FIELDS.items()
+    ):
+        return None
+
+    registry_rows, condition_rows, production_rows, source_errors = (
+        load_contract_sources()
+    )
+    if source_errors:
+        raise RuntimeError(
+            "cannot resolve exact activated revenue parity sources: "
+            + "; ".join(source_errors)
+        )
+    state = revenue_contract_state(
+        registry_rows.get(REVENUE_MODEL_ID),
+        condition_rows.get(REVENUE_MODEL_ID),
+        production_rows.get(REVENUE_MODEL_ID),
+    )
+    if state != REVENUE_ACTIVATED_CONTRACT_STATE:
+        return None
+    return load_revenue_frozen_evidence(), REVENUE_ACTIVATED_PARITY_COMPLETION_RULE
+
+
 def build_model_parity(summary: pd.DataFrame) -> pd.DataFrame:
     production = current_production_core_models()
     baseline = summary[summary["parameter_role"].eq("production_baseline")].copy()
@@ -1996,18 +2037,32 @@ def build_model_parity(summary: pd.DataFrame) -> pd.DataFrame:
         variant_rows = summary[
             summary["model_id"].eq(model_id) & ~summary["parameter_role"].eq("production_baseline")
         ].copy()
-        if model_id == V2_HIGH_MODEL_ID:
+        activated_revenue = (
+            activated_revenue_frozen_parity_evidence(prod)
+            if model_id == "revenue_unreacted_range"
+            else None
+        )
+        if activated_revenue is not None:
+            evidence, completion_rule = activated_revenue
+            status = "production_parity"
+            baseline_ids = evidence["evidence_version"]
+            blockers = ""
+            selected_days = int(evidence["selected_operation_count"])
+            unique_stocks = int(evidence["selected_unique_stock_count"])
+        elif model_id == V2_HIGH_MODEL_ID:
             metrics = V2_APPROVAL_METRICS[V2_HIGH_MODEL_ID]
             status = "production_parity"
             baseline_ids = metrics["operation_module_id"]
             blockers = ""
             selected_days, unique_stocks = high_position_approval_baseline_counts()
+            completion_rule = "usable_as_exact_baseline"
         elif base_rows.empty:
             status = "missing_production_baseline"
             baseline_ids = ""
             blockers = "research rule_specs() has no production_baseline row for this production core model"
             selected_days = ""
             unique_stocks = ""
+            completion_rule = "usable_for_relative_research_only_until_blocker_resolved"
         else:
             statuses = sorted(set(base_rows["production_parity_status"].astype(str)))
             if statuses == ["production_parity"]:
@@ -2035,6 +2090,11 @@ def build_model_parity(summary: pd.DataFrame) -> pd.DataFrame:
             else:
                 selected_days = int(pd.to_numeric(base_rows["selected_stock_days"], errors="coerce").fillna(0).sum())
                 unique_stocks = int(pd.to_numeric(base_rows["selected_unique_stocks"], errors="coerce").fillna(0).max())
+            completion_rule = (
+                "usable_as_exact_baseline"
+                if status == "production_parity"
+                else "usable_for_relative_research_only_until_blocker_resolved"
+            )
         rows.append(
             {
                 "generated_at": now_text(),
@@ -2049,11 +2109,7 @@ def build_model_parity(summary: pd.DataFrame) -> pd.DataFrame:
                 "baseline_selected_stock_days": selected_days,
                 "baseline_selected_unique_stocks": unique_stocks,
                 "parity_blocker": blockers,
-                "completion_rule": (
-                    "usable_as_exact_baseline"
-                    if status == "production_parity"
-                    else "usable_for_relative_research_only_until_blocker_resolved"
-                ),
+                "completion_rule": completion_rule,
             }
         )
     return pd.DataFrame(rows)

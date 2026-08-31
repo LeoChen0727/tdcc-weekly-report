@@ -63,6 +63,7 @@ def test_builder_covers_all_current_mature_operation_models() -> None:
         "w_bottom_right_side",
         "neckline_volume_breakout_confirmation",
         "price_pullback_23ema",
+        "revenue_unreacted_range",
     }
     assert all(row["issues"] == "" for row in mature.values())
     for row in mature.values():
@@ -73,6 +74,66 @@ def test_builder_covers_all_current_mature_operation_models() -> None:
         # in full-view semantic evidence. Daily market data changes the row
         # count, so the contract test must protect view parity, not a snapshot.
         assert operation_row_count == unique_lifecycle_count * 2
+
+
+def test_revenue_model_uses_model_owned_adapter_and_frozen_no_add_score_policy() -> None:
+    rows = builder.build_rows("test")
+    revenue = next(row for row in rows if row["model_id"] == "revenue_unreacted_range")
+
+    assert builder.ADAPTER_BY_MODEL["revenue_unreacted_range"] == (
+        ROOT / "output" / "latest" / "daily_revenue_unreacted_range_operation_section_latest.csv"
+    )
+    assert builder.SCORE_ADD_ITEM_POLICY["revenue_unreacted_range"] == {
+        "score_add_item_ids": "",
+        "validated_row_metric_add_item_ids": "",
+        "policy": "frozen_no_add_score_items",
+    }
+    assert revenue["adapter_path"] == (
+        "output/latest/daily_revenue_unreacted_range_operation_section_latest.csv"
+    )
+    assert int(revenue["adapter_row_count"]) > 0
+    assert int(revenue["adapter_data_row_count"]) == 0
+    assert int(revenue["mature_operation_data_row_count"]) == 0
+    assert revenue["production_score_add_item_ids"] == ""
+    assert revenue["validated_row_metric_add_item_ids"] == ""
+    assert revenue["score_add_item_governance_status"] == (
+        "pass_frozen_no_add_score_items_and_no_row_metric"
+    )
+    assert revenue["row_metric_contract_columns_status"] == (
+        "pass_adapter_row_metric_contract_columns_present"
+    )
+    assert revenue["issues"] == ""
+
+
+def test_revenue_frozen_no_add_score_policy_rejects_ready_row_metric(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    adapter_path = tmp_path / "revenue_adapter.csv"
+    row = generic_combo_adapter_row()
+    row["model_id"] = "revenue_unreacted_range"
+    pd.DataFrame([row]).to_csv(adapter_path, index=False, encoding="utf-8-sig")
+    monkeypatch.setitem(builder.ADAPTER_BY_MODEL, "revenue_unreacted_range", adapter_path)
+    monkeypatch.setattr(builder, "rel", lambda path: path.name)
+
+    audit = builder.audit_mature_model(
+        pd.Series(
+            {
+                "model_id": "revenue_unreacted_range",
+                "model_name_zh": "營收爆發但股價尚未反應模型",
+                "approved_for_daily": "True",
+                "presentation_allowed": "True",
+                "pdf_integration_status": "pdf_integrated_daily_adapter",
+            }
+        ),
+        pd.DataFrame(),
+        "test",
+    )
+
+    assert audit["score_add_item_governance_status"] == (
+        "fail_frozen_no_add_score_items_populated_row_metric"
+    )
+    assert "fail_frozen_no_add_score_items_populated_row_metric" in audit["issues"]
 
 
 def test_price_pullback_technical_strength_uses_row_level_package_metrics() -> None:
