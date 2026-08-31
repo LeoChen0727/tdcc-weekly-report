@@ -37,6 +37,17 @@ from build_approved_operation_patterns import (  # noqa: E402
     PRICE_PULLBACK_SOURCE_RESEARCH_ID,
     PRICE_PULLBACK_SPEC_SOURCE,
     PRICE_PULLBACK_STOP_LOSS_RULE_ID,
+    REVENUE_APPROVAL_METRICS,
+    REVENUE_APPROVAL_STATUS,
+    REVENUE_APPROVAL_VERSION,
+    REVENUE_BUY_FILTER_ID,
+    REVENUE_ENTRY_RULE_ID,
+    REVENUE_EVIDENCE_SOURCE,
+    REVENUE_EXIT_RULE_ID,
+    REVENUE_MODEL_ID,
+    REVENUE_OPERATION_MODULE_ID,
+    REVENUE_SOURCE_RESEARCH_ID,
+    REVENUE_STOP_LOSS_RULE_ID,
     V2_APPROVAL_METRICS,
     V2_APPROVAL_VERSION,
     V2_ENTRY_RULE_ID,
@@ -98,6 +109,7 @@ EXPECTED_APPROVED_MODELS = {
     W_BOTTOM_MODEL_ID,
     NECKLINE_MODEL_ID,
     PRICE_PULLBACK_MODEL_ID,
+    REVENUE_MODEL_ID,
 }
 LEGACY_MODEL_ID = "volume_range_breakout"
 LEGACY_HIDDEN_EVIDENCE_BUY_FILTER_ID = "positive_evidence_oos_rank_v1"
@@ -192,6 +204,69 @@ def validate_approval() -> list[str]:
             errors.append(f"{model_id} average return must match v2 contract metrics")
         if str(row.get("best_evidence_median_return", "")) != metrics["best_evidence_median_return"]:
             errors.append(f"{model_id} median return must match v2 contract metrics")
+
+    revenue_rows = df[df["model_id"].astype(str).eq(REVENUE_MODEL_ID)]
+    if len(revenue_rows) != 1:
+        errors.append(
+            f"approved operation artifact must contain exactly one {REVENUE_MODEL_ID} row"
+        )
+    else:
+        revenue_row = revenue_rows.iloc[0]
+        expected_revenue = {
+            "model_id": REVENUE_MODEL_ID,
+            "operation_module_id": REVENUE_OPERATION_MODULE_ID,
+            "approval_version": REVENUE_APPROVAL_VERSION,
+            "approved_for_daily": "True",
+            "approval_status": REVENUE_APPROVAL_STATUS,
+            "operation_directive_level": "approved_daily_operation_guidance",
+            "source_research_id": REVENUE_SOURCE_RESEARCH_ID,
+            "entry_rule_id": REVENUE_ENTRY_RULE_ID,
+            "stop_loss_rule_id": REVENUE_STOP_LOSS_RULE_ID,
+            "exit_rule_id": REVENUE_EXIT_RULE_ID,
+            "buy_filter_id": REVENUE_BUY_FILTER_ID,
+            "min_sample_size": "0",
+            "min_win_rate": "0.0",
+            "min_median_return": "0.0",
+            "require_out_of_sample_pass": "False",
+            "evidence_summary_source": REVENUE_EVIDENCE_SOURCE,
+            "evidence_rank_source": REVENUE_EVIDENCE_SOURCE,
+            "evidence_source_kind": "frozen_rule_launch_evidence_manifest",
+            "best_evidence_sample_size": REVENUE_APPROVAL_METRICS["sample_size"],
+            "best_evidence_win_rate": REVENUE_APPROVAL_METRICS["win_rate_pct"],
+            "best_evidence_median_return": REVENUE_APPROVAL_METRICS[
+                "median_return_pct"
+            ],
+            "best_evidence_confidence_status": REVENUE_APPROVAL_STATUS,
+            "best_evidence_out_of_sample_pass": "unconfirmed",
+            "revenue_forward_holdout_status": REVENUE_APPROVAL_METRICS[
+                "forward_holdout_status"
+            ],
+        }
+        for col, value in expected_revenue.items():
+            if str(revenue_row.get(col, "")) != value:
+                errors.append(
+                    f"{REVENUE_MODEL_ID} {col} must be {value!r}, "
+                    f"got {revenue_row.get(col, '')!r}"
+                )
+        for col, key in {
+            "revenue_sample_size": "sample_size",
+            "revenue_win_count": "win_count",
+            "revenue_neutral_count": "neutral_count",
+            "revenue_failure_count": "failure_count",
+            "revenue_win_rate_pct": "win_rate_pct",
+            "revenue_neutral_rate_pct": "neutral_rate_pct",
+            "revenue_failure_rate_pct": "failure_rate_pct",
+            "revenue_avg_return_pct": "avg_return_pct",
+            "revenue_median_return_pct": "median_return_pct",
+            "revenue_chronological_status": "chronological_status",
+            "revenue_transaction_cost_status": "transaction_cost_status",
+            "revenue_relative_edge_status": "relative_edge_status",
+            "revenue_regime_coverage_status": "regime_coverage_status",
+        }.items():
+            if str(revenue_row.get(col, "")) != REVENUE_APPROVAL_METRICS[key]:
+                errors.append(
+                    f"{REVENUE_MODEL_ID} {col} must match frozen launch evidence"
+                )
 
     w_rows = df[df["model_id"].astype(str).eq(W_BOTTOM_MODEL_ID)]
     if len(w_rows) != 1:

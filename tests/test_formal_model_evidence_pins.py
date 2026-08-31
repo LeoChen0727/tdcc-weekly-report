@@ -17,6 +17,9 @@ if str(SCRIPTS) not in sys.path:
 from build_approved_operation_patterns import build_approval  # noqa: E402
 from formal_model_evidence import evidence_pin_for_model  # noqa: E402
 from validate_formal_model_evidence_pins import (  # noqa: E402
+    ACTIVATED_REVENUE_CONDITION,
+    ACTIVATED_REVENUE_CONTRACT,
+    ACTIVATED_REVENUE_SURFACE,
     LEGACY_REVENUE_CONDITION,
     LEGACY_REVENUE_CONTRACT,
     LEGACY_REVENUE_SURFACE,
@@ -43,6 +46,13 @@ LEGACY_BA78_ROW_SHA256 = {
     "contract": "5b5c65891d2e6310893992087d29731767f56ec4ff1cdc5110e4adb29fa0dfdd",
     "condition": "ae1630eb53e15b98a88a05aa551029698720d2bf58e127c598c209a363e5b8ae",
     "surface": "52a67dfc2618be74fe023e3f1e5411189bfdc50268a86c937214f826de727b6b",
+}
+
+ACTIVATED_ROW_SHA256 = {
+    "contract": "51195a5eef9f1d27fc98e6aef51e6b47f873bb4376f2c537c5f038f46b91b327",
+    "condition": "d296a54b3112ec783066ee726808174df0c4f8ff05c6cb8752c68363f5bb17bc",
+    "surface": "39a4b3a089071f534009e3c0453f48c7b03f522791a6312d45c8a7d97e87f296",
+    "pin": "19466dc47a3215f7e2fcd48dd5041598cc00c6c93203e850789dec6bb3b24567",
 }
 
 REGISTRY_SPECS = {
@@ -146,6 +156,12 @@ def _set_prepared_phase(paths: dict[str, Path]) -> None:
     _replace_revenue_row(paths["surface"], "surface_id", PREPARED_REVENUE_SURFACE)
 
 
+def _set_activated_phase(paths: dict[str, Path]) -> None:
+    _replace_revenue_row(paths["contract"], "model_id", ACTIVATED_REVENUE_CONTRACT)
+    _replace_revenue_row(paths["condition"], "model_id", ACTIVATED_REVENUE_CONDITION)
+    _replace_revenue_row(paths["surface"], "surface_id", ACTIVATED_REVENUE_SURFACE)
+
+
 def _add_prepared_pin(paths: dict[str, Path]) -> None:
     _set_pin_phase(paths["pins"], prepared=True)
 
@@ -203,6 +219,19 @@ def test_legacy_fixture_matches_reviewed_ba78_rows() -> None:
     } == LEGACY_BA78_ROW_SHA256
 
 
+def test_activated_fixture_matches_reviewed_atomic_rows() -> None:
+    fixtures = {
+        "contract": ACTIVATED_REVENUE_CONTRACT,
+        "condition": ACTIVATED_REVENUE_CONDITION,
+        "surface": ACTIVATED_REVENUE_SURFACE,
+        "pin": PREPARED_REVENUE_PIN,
+    }
+    assert {
+        name: _canonical_row_sha256(row)
+        for name, row in fixtures.items()
+    } == ACTIVATED_ROW_SHA256
+
+
 def test_legacy_v2_exact_state_requires_no_revenue_pin(tmp_path: Path) -> None:
     paths = _copy_registries(tmp_path)
     assert _validate_paths(paths) == []
@@ -215,6 +244,32 @@ def test_legacy_v2_exact_state_requires_no_revenue_pin(tmp_path: Path) -> None:
 def test_prepared_v3_exact_state_requires_exact_revenue_pin(tmp_path: Path) -> None:
     paths = _copy_registries(tmp_path, prepared=True)
     assert _validate_paths(paths) == []
+
+
+def test_activated_v3_exact_state_requires_same_immutable_revenue_pin(
+    tmp_path: Path,
+) -> None:
+    paths = _copy_registries(tmp_path)
+    _set_activated_phase(paths)
+    _add_prepared_pin(paths)
+    assert _validate_paths(paths) == []
+
+
+@pytest.mark.parametrize("registry_name", ["contract", "condition", "surface"])
+def test_prepared_and_activated_registry_mix_is_rejected(
+    tmp_path: Path,
+    registry_name: str,
+) -> None:
+    paths = _copy_registries(tmp_path, prepared=True)
+    activated = {
+        "contract": ("model_id", ACTIVATED_REVENUE_CONTRACT),
+        "condition": ("model_id", ACTIVATED_REVENUE_CONDITION),
+        "surface": ("surface_id", ACTIVATED_REVENUE_SURFACE),
+    }
+    id_column, expected = activated[registry_name]
+    _replace_revenue_row(paths[registry_name], id_column, expected)
+    errors = _validate_paths(paths)
+    assert any("unsupported or mixed revenue formal evidence phase" in error for error in errors)
 
 
 def test_prepared_v3_without_revenue_pin_fails_closed(tmp_path: Path) -> None:
@@ -367,7 +422,40 @@ def test_prepared_v3_revenue_pin_fields_are_exact(
     _add_prepared_pin(paths)
     _mutate_revenue_row(paths["pins"], "model_id", updates={field: invalid_value})
     errors = _validate_paths(paths)
-    assert any(f"prepared evidence pin {field} mismatch" in error for error in errors)
+    assert any(
+        f"prepared_v3_permissions_false evidence pin {field} mismatch" in error
+        for error in errors
+    )
+
+
+@pytest.mark.parametrize(
+    ("registry_name", "id_column", "field", "invalid_value"),
+    [
+        ("contract", "model_id", "approved_for_daily_pdf", "false"),
+        ("contract", "model_id", "approved_for_tdcc_weekly_pdf", "true"),
+        ("condition", "model_id", "research_baseline_status", "proxy_only"),
+        ("surface", "surface_id", "approved_for_daily_pdf", "false"),
+        ("surface", "surface_id", "approved_for_individual_pdf", "true"),
+        ("surface", "surface_id", "research_parity_status", "warning_research_variant_only"),
+    ],
+)
+def test_activated_v3_rejects_near_match_or_mixed_state(
+    tmp_path: Path,
+    registry_name: str,
+    id_column: str,
+    field: str,
+    invalid_value: str,
+) -> None:
+    paths = _copy_registries(tmp_path)
+    _set_activated_phase(paths)
+    _add_prepared_pin(paths)
+    _mutate_revenue_row(
+        paths[registry_name],
+        id_column,
+        updates={field: invalid_value},
+    )
+    errors = _validate_paths(paths)
+    assert any("unsupported or mixed revenue formal evidence phase" in error for error in errors)
 
 
 @pytest.mark.parametrize(
@@ -396,15 +484,18 @@ def test_revenue_phase_registry_requires_exactly_one_row(
     assert any("must contain exactly one revenue_unreacted_range row" in error for error in errors)
 
 
-def test_existing_required_pin_remains_required_in_legacy_and_prepared_phases(
+def test_existing_required_pin_remains_required_in_all_revenue_phases(
     tmp_path: Path,
 ) -> None:
-    for prepared in (False, True):
-        phase_path = tmp_path / ("prepared" if prepared else "legacy")
+    for phase in ("legacy", "prepared", "activated"):
+        phase_path = tmp_path / phase
         phase_path.mkdir()
         paths = _copy_registries(phase_path)
-        if prepared:
+        if phase == "prepared":
             _set_prepared_phase(paths)
+            _add_prepared_pin(paths)
+        elif phase == "activated":
+            _set_activated_phase(paths)
             _add_prepared_pin(paths)
         fields, rows = _read_csv(paths["pins"])
         removed_model = "price_pullback_23ema"
@@ -433,7 +524,7 @@ def test_unexpected_non_revenue_pin_remains_rejected(tmp_path: Path) -> None:
 
 def test_approved_operation_rows_carry_exact_evidence_pins() -> None:
     approval = build_approval("2026-07-12 00:00:00 Asia/Taipei")
-    assert len(approval) == 6
+    assert len(approval) == 7
     for _, row in approval.iterrows():
         pin = evidence_pin_for_model(str(row["model_id"]), str(row["approval_version"]))
         assert row["evidence_artifact_version"] == pin.evidence_version

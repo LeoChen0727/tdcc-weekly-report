@@ -72,8 +72,10 @@ REVENUE_PREPARED_PERMISSION_BLOCKER = (
 REVENUE_PREPARED_PERMISSION_ACTION = (
     "keep_v3_dedicated_adapter_prepared_permissions_false_until_authorized_activation"
 )
+REVENUE_ACTIVATED_ACTION = "monitor_forward_holdout_post_launch_without_tuning"
 REVENUE_LEGACY_CONTRACT_STATE = "legacy_v2_proxy"
 REVENUE_PREPARED_CONTRACT_STATE = "v3_dedicated_adapter_permissions_false"
+REVENUE_ACTIVATED_CONTRACT_STATE = "v3_dedicated_adapter_provisional_pdf_approved"
 REVENUE_UNSUPPORTED_CONTRACT_STATE = "unsupported"
 REVENUE_LEGACY_REGISTRY_FIELDS = {
     "model_id": REVENUE_MODEL_ID,
@@ -140,6 +142,18 @@ REVENUE_PREPARED_PRODUCTION_FIELDS = {
     ),
     "score_profile_scope": "not_applicable_dedicated_operation_adapter",
     "parameter_status": "contract_prepared_permissions_false",
+}
+REVENUE_ACTIVATED_REGISTRY_FIELDS = {
+    **REVENUE_PREPARED_REGISTRY_FIELDS,
+    "approved_for_daily_pdf": "true",
+}
+REVENUE_ACTIVATED_CONDITION_FIELDS = {
+    **REVENUE_PREPARED_CONDITION_FIELDS,
+    "research_baseline_status": "production_parity",
+}
+REVENUE_ACTIVATED_PRODUCTION_FIELDS = {
+    **REVENUE_PREPARED_PRODUCTION_FIELDS,
+    "parameter_status": REVENUE_EVIDENCE_STATUS,
 }
 REVENUE_ARTIFACT_PINS = {
     REVENUE_EVIDENCE_PATH: (
@@ -411,6 +425,12 @@ def revenue_contract_state(
         and _matches_exact_fields(production_row, REVENUE_PREPARED_PRODUCTION_FIELDS)
     ):
         return REVENUE_PREPARED_CONTRACT_STATE
+    if (
+        _matches_exact_fields(registry_row, REVENUE_ACTIVATED_REGISTRY_FIELDS)
+        and _matches_exact_fields(condition_row, REVENUE_ACTIVATED_CONDITION_FIELDS)
+        and _matches_exact_fields(production_row, REVENUE_ACTIVATED_PRODUCTION_FIELDS)
+    ):
+        return REVENUE_ACTIVATED_CONTRACT_STATE
     return REVENUE_UNSUPPORTED_CONTRACT_STATE
 
 
@@ -538,8 +558,9 @@ def contract_drift_blockers(
         blockers.append("stock model contract pdf_visibility must remain pdf_core_model for research parity")
     if model_id == REVENUE_MODEL_ID and revenue_state == REVENUE_UNSUPPORTED_CONTRACT_STATE:
         blockers.append(
-            "revenue contract must match exact legacy v2 proxy or exact v3 "
-            "dedicated-adapter permissions-false prepared state"
+            "revenue contract must match exact legacy v2 proxy, exact v3 "
+            "dedicated-adapter permissions-false prepared state, or exact v3 "
+            "provisional PDF-approved activated state"
         )
     if (
         registry_row.get("approved_for_daily_pdf", "").strip() != "true"
@@ -619,13 +640,25 @@ def classify_row(
                 revenue_binding_blockers.append(
                     f"{field}={observed!r} expected={expected!r}"
                 )
-        if (condition_row or {}).get("research_baseline_status", "").strip() != "proxy_only":
+        expected_condition_baseline_status = (
+            "production_parity"
+            if revenue_state == REVENUE_ACTIVATED_CONTRACT_STATE
+            else "proxy_only"
+        )
+        if (
+            (condition_row or {}).get("research_baseline_status", "").strip()
+            != expected_condition_baseline_status
+        ):
             revenue_binding_blockers.append(
-                "daily_model_condition_spec.research_baseline_status must remain proxy_only"
+                "daily_model_condition_spec.research_baseline_status must match the exact "
+                f"supported revenue state: {expected_condition_baseline_status}"
             )
         expected_operation_contract = (
             REVENUE_PREPARED_CONDITION_FIELDS["operation_contract"]
-            if revenue_state == REVENUE_PREPARED_CONTRACT_STATE
+            if revenue_state in {
+                REVENUE_PREPARED_CONTRACT_STATE,
+                REVENUE_ACTIVATED_CONTRACT_STATE,
+            }
             else "none"
         )
         if (
@@ -670,6 +703,19 @@ def classify_row(
         ]
         research_version = ""
     # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
+    elif (
+        model_id == REVENUE_MODEL_ID
+        and revenue_state == REVENUE_ACTIVATED_CONTRACT_STATE
+    ):
+        parity_status = "ok"
+        recommended_action = REVENUE_ACTIVATED_ACTION
+        approved_research_variant = False
+        promotion_required = False
+        blockers = []
+        research_version = f"research:{REVENUE_EVIDENCE_VERSION}"
+        evidence_path = REVENUE_EVIDENCE_PATH
+        evidence_status = REVENUE_EVIDENCE_STATUS
+        permission_status = REVENUE_EVIDENCE_PERMISSION_STATUS
     elif model_id == REVENUE_MODEL_ID:
         parity_status = "warning_research_variant_only"
         prepared_permissions_false = (
@@ -805,7 +851,7 @@ def write_markdown(rows: list[dict[str, str]], metadata: dict[str, str], source_
         "- rule: config/stock_model_contract_registry.csv is the production stock-model source of truth for this validator.",
         "- rule: production contract drift and missing research baselines fail validation.",
         "- rule: research proxy rows are marked as research variants and require explicit promotion PR before daily production use.",
-        "- revenue pre-promotion rule: exact frozen evidence may be bound while parity remains proxy_only/warning and all production permissions remain false.",
+        "- revenue phase rule: legacy and prepared phases remain warning-only; the exact v3 provisional activation is production parity while frozen evidence stays evidence-only and forward holdout remains post-launch monitoring without tuning.",
         "- rule: this validator does not read or create stock_model_contract_snapshot_latest.json.",
         "",
         "## Status Summary",
@@ -892,28 +938,46 @@ def validate_rows(rows: list[dict[str, str]], source_errors: list[str]) -> list[
             errors.append(f"{row['model_id']} exact parity row must not require promotion")
         # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
         if row["model_id"] == REVENUE_MODEL_ID:
+            activated = (
+                row["production_contract_version"] == "v3"
+                and row["parity_status"] == "ok"
+            )
             prepared_permissions_false = (
                 row["production_contract_version"] == "v3"
+                and row["parity_status"] == "warning_research_variant_only"
             )
-            expected = {
-                "parity_status": "warning_research_variant_only",
-                "research_contract_version": f"research:{REVENUE_EVIDENCE_VERSION}",
-                "research_evidence_path": REVENUE_EVIDENCE_PATH,
-                "research_evidence_status": REVENUE_EVIDENCE_STATUS,
-                "research_permission_status": REVENUE_EVIDENCE_PERMISSION_STATUS,
-                "approved_research_variant": "True",
-                "promotion_required": "True",
-                "parity_blocker": (
-                    REVENUE_PREPARED_PERMISSION_BLOCKER
-                    if prepared_permissions_false
-                    else REVENUE_PRE_PROMOTION_BLOCKER
-                ),
-                "recommended_action": (
-                    REVENUE_PREPARED_PERMISSION_ACTION
-                    if prepared_permissions_false
-                    else REVENUE_PRE_PROMOTION_ACTION
-                ),
-            }
+            if activated:
+                expected = {
+                    "parity_status": "ok",
+                    "research_contract_version": f"research:{REVENUE_EVIDENCE_VERSION}",
+                    "research_evidence_path": REVENUE_EVIDENCE_PATH,
+                    "research_evidence_status": REVENUE_EVIDENCE_STATUS,
+                    "research_permission_status": REVENUE_EVIDENCE_PERMISSION_STATUS,
+                    "approved_research_variant": "False",
+                    "promotion_required": "False",
+                    "parity_blocker": "",
+                    "recommended_action": REVENUE_ACTIVATED_ACTION,
+                }
+            else:
+                expected = {
+                    "parity_status": "warning_research_variant_only",
+                    "research_contract_version": f"research:{REVENUE_EVIDENCE_VERSION}",
+                    "research_evidence_path": REVENUE_EVIDENCE_PATH,
+                    "research_evidence_status": REVENUE_EVIDENCE_STATUS,
+                    "research_permission_status": REVENUE_EVIDENCE_PERMISSION_STATUS,
+                    "approved_research_variant": "True",
+                    "promotion_required": "True",
+                    "parity_blocker": (
+                        REVENUE_PREPARED_PERMISSION_BLOCKER
+                        if prepared_permissions_false
+                        else REVENUE_PRE_PROMOTION_BLOCKER
+                    ),
+                    "recommended_action": (
+                        REVENUE_PREPARED_PERMISSION_ACTION
+                        if prepared_permissions_false
+                        else REVENUE_PRE_PROMOTION_ACTION
+                    ),
+                }
             for field, expected_value in expected.items():
                 if row[field] != expected_value:
                     errors.append(

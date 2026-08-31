@@ -687,7 +687,7 @@ def test_revenue_readiness_uses_latest_v3_decision_v4_contract_and_model_owned_e
 def test_revenue_readiness_keeps_v4_compatibility_without_adapter_child(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    promotion = revenue_promotion_registry_frame().iloc[:-1].copy()
+    promotion = revenue_promotion_registry_frame().iloc[:-2].copy()
     monkeypatch.setattr(
         _SYNC_MODULE,
         "validate_disabled_adapter_preparation",
@@ -714,9 +714,9 @@ def test_revenue_readiness_keeps_v4_compatibility_without_adapter_child(
 
 
 def test_revenue_readiness_fails_closed_until_v3_decision_v4_contract_is_latest() -> None:
-    promotion = revenue_promotion_registry_frame().iloc[:-2].copy()
+    promotion = revenue_promotion_registry_frame().iloc[:-3].copy()
 
-    with pytest.raises(RuntimeError, match="not an exact supported v4/v5"):
+    with pytest.raises(RuntimeError, match="not an exact supported v4/v5/v6"):
         build_model_operation_readiness(
             revenue_parity_frame(),
             registry_frame(),
@@ -735,9 +735,49 @@ def test_revenue_v5_validation_accepts_current_committed_readiness() -> None:
 
     assert validate_revenue_readiness_row(
         readiness,
-        revenue_promotion_registry_frame(),
+        revenue_promotion_registry_frame().iloc[:-1].copy(),
         revenue_anomaly_registry_frame(),
         revenue_forward_holdout_v2_manifest_frame(),
+    ) == []
+
+
+def test_revenue_v6_persisted_permissions_accept_exact_all_true_profile() -> None:
+    readiness = pd.read_csv(
+        ROOT / "output/latest/model_operation_readiness_latest.csv",
+        dtype=str,
+    ).fillna("")
+    revenue_index = readiness.index[readiness["model_id"].eq(REVENUE_MODEL_ID)][0]
+    for field_name in (
+        "formal_model_use_allowed",
+        "approved_for_daily",
+        "presentation_allowed",
+        "production_allowed",
+    ):
+        readiness.loc[revenue_index, field_name] = "True"
+    readiness.loc[revenue_index, "approval_status"] = (
+        readiness_validator.REVENUE_FORMAL_ADAPTER_APPROVAL_STATUS
+    )
+    readiness.loc[revenue_index, "operation_module_id"] = (
+        readiness_validator.REVENUE_PROMOTION_PROFILES[
+            readiness_validator.REVENUE_PROMOTION_DECISION_V6
+        ].operation_module_id
+    )
+    readiness.loc[revenue_index, "pdf_integration_status"] = (
+        "pdf_integrated_daily_adapter"
+    )
+    readiness.loc[revenue_index, "packet_integration_status"] = (
+        "pending_packet_consumer"
+    )
+    for field_name in readiness_validator.FORMAL_ADAPTER_METADATA_COLUMNS:
+        if field_name not in readiness.columns:
+            readiness[field_name] = ""
+        readiness.loc[revenue_index, field_name] = "bound"
+    readiness.loc[revenue_index, "operation_module_path"] = (
+        readiness_validator.REVENUE_FORMAL_ADAPTER_MODULE_REL
+    )
+
+    assert readiness_validator.validate_persisted_revenue_permission_columns(
+        readiness
     ) == []
 
 
@@ -751,7 +791,7 @@ def test_revenue_v5_readiness_rejects_permission_drift() -> None:
 
     errors = validate_revenue_readiness_row(
         readiness,
-        revenue_promotion_registry_frame(),
+        revenue_promotion_registry_frame().iloc[:-1].copy(),
         revenue_anomaly_registry_frame(),
         revenue_forward_holdout_v2_manifest_frame(),
     )

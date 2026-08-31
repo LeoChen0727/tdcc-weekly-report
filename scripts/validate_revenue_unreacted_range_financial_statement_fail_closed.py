@@ -72,6 +72,164 @@ REVENUE_PREPARED_PARITY_FIELDS = {
         "keep_v3_dedicated_adapter_prepared_permissions_false_until_authorized_activation"
     ),
 }
+REVENUE_LEGACY_PHASE = "legacy_v2_proxy"
+REVENUE_PREPARED_PHASE = "prepared_v3_permissions_false"
+REVENUE_ACTIVATED_PHASE = "activated_v3_provisional_pdf_approved"
+REVENUE_LEGACY_PARITY_FIELDS = {
+    **REVENUE_PREPARED_PARITY_FIELDS,
+    "production_contract_version": "v2",
+    "parity_blocker": (
+        "exact_frozen_evidence_ready_but_daily_model_condition_spec_and_"
+        "production_permissions_not_promoted"
+    ),
+    "recommended_action": (
+        "exact_frozen_evidence_ready_do_not_promote_until_model_contract_sync"
+    ),
+}
+REVENUE_ACTIVATED_PARITY_FIELDS = {
+    **REVENUE_PREPARED_PARITY_FIELDS,
+    "parity_status": "ok",
+    "approved_research_variant": "False",
+    "promotion_required": "False",
+    "parity_blocker": "",
+    "recommended_action": "monitor_forward_holdout_post_launch_without_tuning",
+}
+REVENUE_EXACT_EVIDENCE_PIN = {
+    "approval_version": (
+        "revenue_unreacted_range_source_mid_falling_formal_operation_v2_20260830"
+    ),
+    "evidence_path": (
+        "config/approved_operation_evidence/"
+        "revenue_unreacted_range_source_mid_falling_frozen_rule_launch_evidence_"
+        "v1_20260830_manifest.csv"
+    ),
+    "evidence_format": "csv",
+    "evidence_version": (
+        "revenue_unreacted_range_source_mid_falling_frozen_rule_launch_"
+        "evidence_v1_20260830"
+    ),
+    "evidence_version_column": "evidence_version",
+    "canonical_sha256": (
+        "4890147988797f8d0e7a27777d400514b423b679f108565675309ec2e83161fb"
+    ),
+    "owner_lane": "daily_model_maintenance",
+    "pin_status": "pinned_formal_evidence",
+}
+REVENUE_LEGACY_CONTRACT_PHASE_FIELDS = {
+    "contract_version": "v2",
+    "production_source_file": "scripts/build_daily_candidate_model_layer.py",
+    "condition_function": "cond_revenue_unreacted",
+    "score_function": "score_revenue_unreacted",
+    "score_profile_id": "revenue_unreacted_range",
+    "approved_for_daily_pdf": "true",
+    "approved_for_tdcc_weekly_pdf": "false",
+    "approved_for_individual_pdf": "false",
+    "effective_from": "2026-07-16",
+    "change_reason": (
+        "financial_statement_features_fail_closed_until_historical_pit_and_"
+        "pre_v2_history_quarantined_2026-07-16"
+    ),
+}
+REVENUE_PREPARED_CONTRACT_PHASE_FIELDS = {
+    "contract_version": "v3",
+    "production_source_file": (
+        "scripts/build_daily_revenue_unreacted_range_operation_section.py"
+    ),
+    "condition_function": "_selected_source_mid_falling",
+    "score_function": "build_operation_section",
+    "score_profile_id": (
+        "revenue_unreacted_range_source_mid_falling_v2_frozen_no_score"
+    ),
+    "approved_for_daily_pdf": "false",
+    "approved_for_tdcc_weekly_pdf": "false",
+    "approved_for_individual_pdf": "false",
+    "effective_from": CONTRACT_EFFECTIVE_FROM,
+    "change_reason": (
+        "source_mid_falling_v2_contract_prepared_permissions_false_"
+        "legacy_generic_selector_retired_2026-08-31"
+    ),
+}
+REVENUE_ACTIVATED_CONTRACT_PHASE_FIELDS = {
+    **REVENUE_PREPARED_CONTRACT_PHASE_FIELDS,
+    "approved_for_daily_pdf": "true",
+    "change_reason": (
+        "source_mid_falling_v2_dedicated_adapter_"
+        "provisional_backtest_supported_oos_unconfirmed_"
+        "legacy_generic_selector_retired_2026-08-30"
+    ),
+}
+REVENUE_LEGACY_CONDITION_PHASE_FIELDS = {
+    "production_source": "ModelSpec",
+    "condition_function": "cond_revenue_unreacted",
+    "score_function": "score_revenue_unreacted",
+    "score_profile_id": "revenue_unreacted_range",
+    "research_baseline_status": "proxy_only",
+    "operation_contract": "none",
+}
+REVENUE_PREPARED_CONDITION_PHASE_FIELDS = {
+    "production_source": "dedicated_operation_adapter_v2",
+    "condition_function": "_selected_source_mid_falling",
+    "score_function": "build_operation_section",
+    "score_profile_id": (
+        "revenue_unreacted_range_source_mid_falling_v2_frozen_no_score"
+    ),
+    "research_baseline_status": "proxy_only",
+    "operation_contract": (
+        "revenue_unreacted_range_source_mid_falling_v2_operation_v2"
+    ),
+}
+REVENUE_ACTIVATED_CONDITION_PHASE_FIELDS = {
+    **REVENUE_PREPARED_CONDITION_PHASE_FIELDS,
+    "research_baseline_status": "production_parity",
+}
+REVENUE_LEGACY_SURFACE_PHASE_FIELDS = {
+    "primary_source_file": "scripts/build_daily_candidate_model_layer.py",
+    "implementation_sources": "scripts/build_daily_candidate_model_layer.py",
+    "approved_for_daily_pdf": "true",
+    "approved_for_tdcc_weekly_pdf": "false",
+    "approved_for_individual_pdf": "false",
+    "research_parity_status": "warning_research_variant_only",
+    "change_reason": "initial_model_surface_registry",
+}
+REVENUE_PREPARED_SURFACE_PHASE_FIELDS = {
+    "primary_source_file": (
+        "scripts/build_daily_revenue_unreacted_range_operation_section.py"
+    ),
+    "implementation_sources": (
+        "scripts/build_daily_revenue_unreacted_range_operation_section.py;"
+        "scripts/validate_daily_revenue_unreacted_range_operation_section.py;"
+        "scripts/generate_chatgpt_side_daily_reports.py"
+    ),
+    "approved_for_daily_pdf": "false",
+    "approved_for_tdcc_weekly_pdf": "false",
+    "approved_for_individual_pdf": "false",
+    "research_parity_status": "warning_research_variant_only",
+    "change_reason": (
+        "legacy_generic_runtime_retired_v2_promotion_candidate_preparation_2026-08-31"
+    ),
+}
+REVENUE_ACTIVATED_SURFACE_PHASE_FIELDS = {
+    **REVENUE_PREPARED_SURFACE_PHASE_FIELDS,
+    "approved_for_daily_pdf": "true",
+    "research_parity_status": "ok",
+    "change_reason": "dedicated_source_mid_falling_v2_formal_adapter_activation_2026-08-30",
+}
+REVENUE_LEGACY_PARAMETER_PHASE_FIELDS = {
+    "score_profile_id": "revenue_unreacted_range",
+    "score_profile_scope": "model_specific",
+    "parameter_status": "initial_program_rule_pending_backtest_optimization",
+}
+REVENUE_PREPARED_PARAMETER_PHASE_FIELDS = {
+    "score_profile_id": (
+        "revenue_unreacted_range_source_mid_falling_v2_frozen_no_score"
+    ),
+    "score_profile_scope": "not_applicable_dedicated_operation_adapter",
+    "parameter_status": "contract_prepared_permissions_false",
+}
+REVENUE_ACTIVATED_PARAMETER_PHASE_FIELDS = {
+    **REVENUE_PREPARED_PARAMETER_PHASE_FIELDS,
+    "parameter_status": "provisional_backtest_supported_oos_unconfirmed",
+}
 APPROVED_NON_FINANCIAL_EVENT_TYPES = {
     "new_order",
     "customer_win",
@@ -152,6 +310,88 @@ def _financial_statement_source_fields(root: Path) -> frozenset[str]:
 def _single_row(rows: list[dict[str, str]], *, key: str, value: str) -> dict[str, str] | None:
     matches = [row for row in rows if row.get(key, "") == value]
     return matches[0] if len(matches) == 1 else None
+
+
+def _matches_fields(row: dict[str, str] | None, expected: dict[str, str]) -> bool:
+    return row is not None and all(row.get(field) == value for field, value in expected.items())
+
+
+def _classify_revenue_formal_phase(
+    contract: dict[str, str] | None,
+    condition: dict[str, str] | None,
+    surface: dict[str, str] | None,
+    parameter: dict[str, str] | None,
+) -> str | None:
+    phase_rows = (
+        (
+            REVENUE_LEGACY_PHASE,
+            REVENUE_LEGACY_CONTRACT_PHASE_FIELDS,
+            REVENUE_LEGACY_CONDITION_PHASE_FIELDS,
+            REVENUE_LEGACY_SURFACE_PHASE_FIELDS,
+            REVENUE_LEGACY_PARAMETER_PHASE_FIELDS,
+        ),
+        (
+            REVENUE_PREPARED_PHASE,
+            REVENUE_PREPARED_CONTRACT_PHASE_FIELDS,
+            REVENUE_PREPARED_CONDITION_PHASE_FIELDS,
+            REVENUE_PREPARED_SURFACE_PHASE_FIELDS,
+            REVENUE_PREPARED_PARAMETER_PHASE_FIELDS,
+        ),
+        (
+            REVENUE_ACTIVATED_PHASE,
+            REVENUE_ACTIVATED_CONTRACT_PHASE_FIELDS,
+            REVENUE_ACTIVATED_CONDITION_PHASE_FIELDS,
+            REVENUE_ACTIVATED_SURFACE_PHASE_FIELDS,
+            REVENUE_ACTIVATED_PARAMETER_PHASE_FIELDS,
+        ),
+    )
+    for phase, contract_fields, condition_fields, surface_fields, parameter_fields in phase_rows:
+        if (
+            _matches_fields(contract, contract_fields)
+            and _matches_fields(condition, condition_fields)
+            and _matches_fields(surface, surface_fields)
+            and _matches_fields(parameter, parameter_fields)
+        ):
+            return phase
+    return None
+
+
+def _activated_readiness_matches(readiness: dict[str, str]) -> bool:
+    expected = {
+        "operation_module_status": (
+            "approved_operation_v2_provisional_backtest_supported_oos_unconfirmed"
+        ),
+        "formal_model_use_allowed": "True",
+        "approved_for_daily": "True",
+        "approval_status": "provisional_backtest_supported_oos_unconfirmed",
+        "operation_module_id": (
+            "revenue_unreacted_range_source_mid_falling_v2_operation_v2"
+        ),
+        "approval_version": (
+            "revenue_unreacted_range_source_mid_falling_formal_operation_v2_20260830"
+        ),
+        "presentation_allowed": "True",
+        "production_allowed": "True",
+        "operation_directive_level": "approved_daily_operation_guidance",
+        "pdf_integration_status": "pdf_integrated_daily_adapter",
+        "packet_integration_status": "pending_packet_consumer",
+        "daily_adapter_sections": (
+            "active_operation,confirmed_operation,"
+            "confirmed_unranked_operation,pending_confirmation"
+        ),
+    }
+    if not _matches_fields(readiness, expected):
+        return False
+    try:
+        data_row_count = int(readiness.get("daily_adapter_data_row_count", ""))
+    except ValueError:
+        return False
+    expected_adapter_status = (
+        "ready_empty_no_operation_rows"
+        if data_row_count == 0
+        else "ready_approved_operation_guidance"
+    )
+    return data_row_count >= 0 and readiness.get("daily_adapter_status") == expected_adapter_status
 
 
 def _source_index(value: str) -> str:
@@ -507,48 +747,45 @@ def _legacy_archive_quarantine_errors(
     return errors
 
 
-def _legacy_history_quarantine_errors(root: Path) -> tuple[list[str], int]:
+def _legacy_history_quarantine_errors(
+    root: Path,
+    *,
+    phase: str,
+) -> tuple[list[str], int]:
     errors: list[str] = []
     controls = 0
 
     condition_rows = _read_rows(root / "config/daily_model_condition_spec.csv")
     condition = _single_row(condition_rows, key="model_id", value=MODEL_ID)
+    expected_condition = {
+        REVENUE_LEGACY_PHASE: REVENUE_LEGACY_CONDITION_PHASE_FIELDS,
+        REVENUE_PREPARED_PHASE: REVENUE_PREPARED_CONDITION_PHASE_FIELDS,
+        REVENUE_ACTIVATED_PHASE: REVENUE_ACTIVATED_CONDITION_PHASE_FIELDS,
+    }[phase]
     if condition is None:
         errors.append("daily_model_condition_spec must contain exactly one revenue row")
-    elif (
-        condition.get("research_baseline_status") != "proxy_only"
-        or condition.get("operation_contract")
-        != "revenue_unreacted_range_source_mid_falling_v2_operation_v2"
-    ):
+    elif not _matches_fields(condition, expected_condition):
         errors.append(
-            "revenue condition spec must remain proxy_only while pinning only the frozen v2 "
-            "promotion-candidate operation contract"
+            f"revenue condition spec must match exact formal phase {phase}"
         )
     else:
         controls += 1
 
     evidence_rows = _read_rows(root / "config/formal_model_evidence_pins.csv")
-    evidence = _single_row(evidence_rows, key="model_id", value=MODEL_ID)
-    expected_evidence_path = (
-        "config/approved_operation_evidence/"
-        "revenue_unreacted_range_source_mid_falling_frozen_rule_launch_evidence_"
-        "v1_20260830_manifest.csv"
-    )
-    if evidence is None:
-        errors.append("revenue promotion candidate must have exactly one frozen evidence pin")
-    elif (
-        evidence.get("approval_version")
-        != "revenue_unreacted_range_source_mid_falling_formal_operation_v2_20260830"
-        or evidence.get("evidence_path") != expected_evidence_path
-        or evidence.get("evidence_version")
-        != "revenue_unreacted_range_source_mid_falling_frozen_rule_launch_evidence_v1_20260830"
-        or evidence.get("pin_status") != "pinned_formal_evidence"
-        or not re.fullmatch(r"[0-9a-f]{64}", evidence.get("canonical_sha256", ""))
-        or not (root / expected_evidence_path).is_file()
-    ):
+    revenue_evidence = [row for row in evidence_rows if row.get("model_id") == MODEL_ID]
+    if phase == REVENUE_LEGACY_PHASE:
+        if revenue_evidence:
+            errors.append("legacy revenue phase must not carry a formal evidence pin")
+        else:
+            controls += 1
+    elif len(revenue_evidence) != 1:
+        errors.append(f"{phase} must have exactly one frozen evidence pin")
+    elif not _matches_fields(revenue_evidence[0], REVENUE_EXACT_EVIDENCE_PIN):
         errors.append(
-            "revenue promotion-candidate evidence pin must resolve to the frozen v2 launch manifest"
+            "revenue evidence pin must resolve exactly to the immutable frozen v2 launch manifest"
         )
+    elif not (root / REVENUE_EXACT_EVIDENCE_PIN["evidence_path"]).is_file():
+        errors.append("revenue frozen evidence pin target is missing")
     else:
         controls += 1
 
@@ -556,14 +793,19 @@ def _legacy_history_quarantine_errors(root: Path) -> tuple[list[str], int]:
     parity = _single_row(parity_rows, key="model_id", value=MODEL_ID)
     if parity is None:
         errors.append("model contract parity must contain exactly one revenue row")
-    elif any(
+    expected_parity = {
+        REVENUE_LEGACY_PHASE: REVENUE_LEGACY_PARITY_FIELDS,
+        REVENUE_PREPARED_PHASE: REVENUE_PREPARED_PARITY_FIELDS,
+        REVENUE_ACTIVATED_PHASE: REVENUE_ACTIVATED_PARITY_FIELDS,
+    }[phase]
+    if parity is not None and any(
         parity.get(field) != expected
-        for field, expected in REVENUE_PREPARED_PARITY_FIELDS.items()
+        for field, expected in expected_parity.items()
     ):
         errors.append(
-            "revenue parity must match the exact v3 permissions-false prepared state"
+            f"revenue parity must match exact formal phase {phase}"
         )
-    else:
+    elif parity is not None:
         controls += 1
 
     readiness_rows = _read_rows(root / "output/latest/model_operation_readiness_latest.csv")
@@ -572,28 +814,36 @@ def _legacy_history_quarantine_errors(root: Path) -> tuple[list[str], int]:
     surface = _single_row(surface_rows, key="surface_id", value=MODEL_ID)
     if readiness is None:
         errors.append("model operation readiness must contain exactly one revenue row")
-    elif (
-        readiness.get("formal_model_use_allowed") != "False"
-        or readiness.get("approved_for_daily") != "False"
-        or readiness.get("presentation_allowed") != "False"
-        or readiness.get("production_allowed") != "False"
-        or readiness.get("operation_directive_level") != "no_operation_directive"
+    elif phase != REVENUE_ACTIVATED_PHASE and any(
+        readiness.get(field) != expected
+        for field, expected in {
+            "formal_model_use_allowed": "False",
+            "approved_for_daily": "False",
+            "presentation_allowed": "False",
+            "production_allowed": "False",
+            "operation_directive_level": "no_operation_directive",
+        }.items()
     ):
         errors.append(
             "revenue promotion candidate must remain non-formal non-production and non-presentable"
         )
+    elif (
+        phase == REVENUE_ACTIVATED_PHASE
+        and not _activated_readiness_matches(readiness)
+    ):
+        errors.append("activated revenue readiness identity or permissions drifted")
     elif surface is None:
         errors.append("model surface registry must contain exactly one revenue row")
-    elif (
-        surface.get("approved_for_daily_pdf") != "false"
-        or surface.get("approved_for_tdcc_weekly_pdf") != "false"
-        or surface.get("approved_for_individual_pdf") != "false"
-        or surface.get("stock_entry_signal") != "true"
-        or surface.get("research_parity_status") != "warning_research_variant_only"
-        or surface.get("promotion_required") != "true"
+    elif not _matches_fields(
+        surface,
+        {
+            REVENUE_LEGACY_PHASE: REVENUE_LEGACY_SURFACE_PHASE_FIELDS,
+            REVENUE_PREPARED_PHASE: REVENUE_PREPARED_SURFACE_PHASE_FIELDS,
+            REVENUE_ACTIVATED_PHASE: REVENUE_ACTIVATED_SURFACE_PHASE_FIELDS,
+        }[phase],
     ):
         errors.append(
-            "revenue surface must expose the stock-model identity while all PDF permissions remain false"
+            f"revenue surface must match exact formal phase {phase}"
         )
     else:
         controls += 1
@@ -729,30 +979,49 @@ def validate(root: Path = ROOT) -> tuple[list[str], dict[str, int]]:
 
     contract_rows = _read_rows(root / "config/stock_model_contract_registry.csv")
     contract = _single_row(contract_rows, key="model_id", value=MODEL_ID)
+    condition = _single_row(
+        _read_rows(root / "config/daily_model_condition_spec.csv"),
+        key="model_id",
+        value=MODEL_ID,
+    )
+    surface = _single_row(
+        _read_rows(root / "config/model_surface_registry.csv"),
+        key="surface_id",
+        value=MODEL_ID,
+    )
+    parameter_rows = _read_rows(root / "output/latest/daily_candidate_model_parameters_latest.csv")
+    parameter = _single_row(parameter_rows, key="model_id", value=MODEL_ID)
+    phase = _classify_revenue_formal_phase(contract, condition, surface, parameter)
+    if phase is None:
+        errors.append(
+            "unsupported or mixed revenue formal phase: expected exact legacy, prepared, "
+            "or activated registry and parameter state"
+        )
     if contract is None:
         errors.append("stock model contract must contain exactly one revenue_unreacted_range row")
     else:
         inputs = {item for item in contract.get("input_columns", "").split(";") if item}
-        if contract.get("contract_version") != "v3":
-            errors.append("revenue_unreacted_range promotion-candidate contract_version must be v3")
-        if contract.get("effective_from") != CONTRACT_EFFECTIVE_FROM:
+        is_v3 = contract.get("contract_version") == "v3"
+        if phase != REVENUE_LEGACY_PHASE and not is_v3:
+            errors.append("prepared or activated revenue contract_version must be v3")
+        if is_v3 and contract.get("effective_from") != CONTRACT_EFFECTIVE_FROM:
             errors.append(
                 "revenue_unreacted_range v3 effective_from must be "
                 f"{CONTRACT_EFFECTIVE_FROM}"
             )
-        if contract.get("production_source_file") != (
+        if is_v3 and contract.get("production_source_file") != (
             "scripts/build_daily_revenue_unreacted_range_operation_section.py"
         ):
             errors.append("v3 contract must use the model-owned revenue operation producer")
-        if contract.get("condition_function") != "_selected_source_mid_falling":
+        if is_v3 and contract.get("condition_function") != "_selected_source_mid_falling":
             errors.append("v3 contract must pin the frozen source_mid_falling selector")
-        if contract.get("score_function") != "build_operation_section":
+        if is_v3 and contract.get("score_function") != "build_operation_section":
             errors.append("v3 contract must use the dedicated operation-section entrypoint")
-        if contract.get("score_profile_id") != (
+        if is_v3 and contract.get("score_profile_id") != (
             "revenue_unreacted_range_source_mid_falling_v2_frozen_no_score"
         ):
             errors.append("v3 contract must have no legacy score profile")
-        if not {
+        if is_v3 and not {
             "latest_revenue_yoy_pct",
             "cumulative_revenue_yoy_pct",
             "source_table_date",
@@ -764,7 +1033,9 @@ def validate(root: Path = ROOT) -> tuple[list[str], dict[str, int]]:
             "close",
         }.issubset(inputs):
             errors.append("v3 contract is missing frozen monthly-revenue or OHLC inputs")
-        if "fundamental_catalyst_tags" in inputs or "event_catalyst_tags" in inputs:
+        if is_v3 and (
+            "fundamental_catalyst_tags" in inputs or "event_catalyst_tags" in inputs
+        ):
             errors.append("v3 contract inputs must exclude all legacy catalyst-tag scoring")
         if any(
             pattern.search(column.lower())
@@ -772,20 +1043,7 @@ def validate(root: Path = ROOT) -> tuple[list[str], dict[str, int]]:
             for pattern in FINANCIAL_SOURCE_PATTERNS
         ):
             errors.append("v3 contract input_columns include financial-statement fields")
-        if any(contract.get(column) != "false" for column in (
-            "approved_for_daily_pdf",
-            "approved_for_tdcc_weekly_pdf",
-            "approved_for_individual_pdf",
-        )):
-            errors.append("promotion-candidate v3 contract must keep every PDF permission false")
-        reason = contract.get("change_reason", "")
-        if "source_mid_falling_v2_contract_prepared_permissions_false" not in reason:
-            errors.append("contract change_reason must mark the permissions-false preparation stage")
-        if "legacy_generic_selector_retired" not in reason:
-            errors.append("contract change_reason must retire the legacy generic selector")
 
-    parameter_rows = _read_rows(root / "output/latest/daily_candidate_model_parameters_latest.csv")
-    parameter = _single_row(parameter_rows, key="model_id", value=MODEL_ID)
     if parameter is None:
         errors.append("daily model parameters must contain exactly one revenue_unreacted_range row")
     else:
@@ -793,19 +1051,24 @@ def validate(root: Path = ROOT) -> tuple[list[str], dict[str, int]]:
         add_score = parameter.get("add_score_items", "")
         forbidden = parameter.get("forbidden_veto", "")
         guidance = parameter.get("operation_guidance", "")
-        if "source_mid_falling v2" not in main_conditions:
+        if phase != REVENUE_LEGACY_PHASE and "source_mid_falling v2" not in main_conditions:
             errors.append("parameter artifact must expose the frozen v2 selector")
-        if "不設 add-score、deduct-score" not in add_score:
+        if phase != REVENUE_LEGACY_PHASE and "不設 add-score、deduct-score" not in add_score:
             errors.append("parameter artifact must forbid legacy scoring and reranking")
         for field in FINANCIAL_FIELDS:
             if field not in forbidden:
                 errors.append(f"parameter artifact fail-closed text omits {field}")
-        if parameter.get("score_profile_id") != (
+        if phase != REVENUE_LEGACY_PHASE and parameter.get("score_profile_id") != (
             "revenue_unreacted_range_source_mid_falling_v2_frozen_no_score"
         ):
             errors.append("parameter artifact must expose the frozen no-score profile")
-        if parameter.get("parameter_status") != "contract_prepared_permissions_false":
-            errors.append("parameter artifact must remain in the permissions-false preparation stage")
+        expected_parameter_status = {
+            REVENUE_LEGACY_PHASE: "initial_program_rule_pending_backtest_optimization",
+            REVENUE_PREPARED_PHASE: "contract_prepared_permissions_false",
+            REVENUE_ACTIVATED_PHASE: "provisional_backtest_supported_oos_unconfirmed",
+        }.get(phase)
+        if expected_parameter_status and parameter.get("parameter_status") != expected_parameter_status:
+            errors.append(f"parameter artifact status does not match exact phase {phase}")
         numeric_score_columns = (
             "base_score",
             "volume_ratio_bonus_per_1x",
@@ -820,9 +1083,11 @@ def validate(root: Path = ROOT) -> tuple[list[str], dict[str, int]]:
             "tdcc_distribution_penalty",
             "false_breakout_penalty",
         )
-        if any(parameter.get(column, "") for column in numeric_score_columns):
+        if phase != REVENUE_LEGACY_PHASE and any(
+            parameter.get(column, "") for column in numeric_score_columns
+        ):
             errors.append("parameter artifact must not retain any legacy numeric score value")
-        if "forward_holdout_v2 僅作上線後監測" not in guidance:
+        if phase != REVENUE_LEGACY_PHASE and "forward_holdout_v2 僅作上線後監測" not in guidance:
             errors.append("parameter artifact must expose the non-hard forward-holdout boundary")
 
     audit_rows = _read_rows(
@@ -883,9 +1148,13 @@ def validate(root: Path = ROOT) -> tuple[list[str], dict[str, int]]:
     metrics["post_v2_history_rows"] = post_v2
     errors.extend(date_errors)
 
-    quarantine_errors, quarantine_controls = _legacy_history_quarantine_errors(root)
-    errors.extend(quarantine_errors)
-    metrics["quarantine_control_count"] = quarantine_controls
+    if phase is not None:
+        quarantine_errors, quarantine_controls = _legacy_history_quarantine_errors(
+            root,
+            phase=phase,
+        )
+        errors.extend(quarantine_errors)
+        metrics["quarantine_control_count"] = quarantine_controls
 
     return errors, metrics
 

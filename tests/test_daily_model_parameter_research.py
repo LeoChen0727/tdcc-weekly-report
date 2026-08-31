@@ -73,6 +73,10 @@ from validate_revenue_unreacted_range_fixed_confirmation_feature_contrast import
     validate_frames as validate_revenue_fixed_feature_contrast,
 )
 from validate_research_against_stock_model_contract import (  # noqa: E402
+    REVENUE_ACTIVATED_ACTION,
+    REVENUE_ACTIVATED_CONDITION_FIELDS,
+    REVENUE_ACTIVATED_PRODUCTION_FIELDS,
+    REVENUE_ACTIVATED_REGISTRY_FIELDS,
     REVENUE_DETAIL_PATH,
     REVENUE_EVIDENCE_PATH,
     REVENUE_EVIDENCE_PERMISSION_STATUS,
@@ -80,9 +84,14 @@ from validate_research_against_stock_model_contract import (  # noqa: E402
     REVENUE_EVIDENCE_VERSION,
     REVENUE_EXPECTED_OPERATION_COUNT,
     REVENUE_EXPECTED_UNIQUE_STOCK_COUNT,
+    REVENUE_LEGACY_CONDITION_FIELDS,
+    REVENUE_LEGACY_PRODUCTION_FIELDS,
     REVENUE_LEGACY_PROXY_BLOCKER,
     REVENUE_LEGACY_PROXY_ID,
+    REVENUE_LEGACY_REGISTRY_FIELDS,
     REVENUE_MATRIX_PATH,
+    REVENUE_PRE_PROMOTION_ACTION,
+    REVENUE_PRE_PROMOTION_BLOCKER,
     REVENUE_PREPARED_CONDITION_FIELDS,
     REVENUE_PREPARED_PERMISSION_ACTION,
     REVENUE_PREPARED_PERMISSION_BLOCKER,
@@ -280,11 +289,17 @@ def test_contract_parity_monitor_uses_revenue_frozen_evidence_not_legacy_proxy()
     assert revenue["research_contract_version"] == (
         f"research:{REVENUE_EVIDENCE_VERSION}"
     )
-    assert revenue["parity_status"] == "warning_research_variant_only"
-    assert revenue["approved_research_variant"] == "True"
-    assert revenue["promotion_required"] == "True"
-    assert revenue["parity_blocker"] == REVENUE_PREPARED_PERMISSION_BLOCKER
-    assert revenue["recommended_action"] == REVENUE_PREPARED_PERMISSION_ACTION
+    assert revenue["parity_status"] in {"warning_research_variant_only", "ok"}
+    if revenue["parity_status"] == "ok":
+        assert revenue["approved_research_variant"] == "False"
+        assert revenue["promotion_required"] == "False"
+        assert revenue["parity_blocker"] == ""
+        assert revenue["recommended_action"] == REVENUE_ACTIVATED_ACTION
+    else:
+        assert revenue["approved_research_variant"] == "True"
+        assert revenue["promotion_required"] == "True"
+        assert revenue["parity_blocker"] == REVENUE_PREPARED_PERMISSION_BLOCKER
+        assert revenue["recommended_action"] == REVENUE_PREPARED_PERMISSION_ACTION
     assert revenue["research_evidence_path"] == (
         REVENUE_EVIDENCE_PATH
     )
@@ -327,6 +342,95 @@ def test_contract_parity_accepts_exact_v3_permissions_false_prepared_state() -> 
     assert validate_rows([row], []) == []
 
 
+def test_contract_parity_accepts_exact_legacy_v2_proxy_state() -> None:
+    row = classify_row(
+        model_id="revenue_unreacted_range",
+        registry_row=dict(REVENUE_LEGACY_REGISTRY_FIELDS),
+        condition_row=dict(REVENUE_LEGACY_CONDITION_FIELDS),
+        production_row=dict(REVENUE_LEGACY_PRODUCTION_FIELDS),
+        research_row={
+            "research_baseline_status": "proxy_only",
+            "research_baseline_parameter_set_id": REVENUE_LEGACY_PROXY_ID,
+            "parity_blocker": REVENUE_LEGACY_PROXY_BLOCKER,
+            "completion_rule": "usable_for_relative_research_only_until_blocker_resolved",
+        },
+        metric_rows=[],
+    )
+
+    assert row["production_contract_version"] == "v2"
+    assert row["fingerprint_match"] == "True"
+    assert row["parity_status"] == "warning_research_variant_only"
+    assert row["parity_blocker"] == REVENUE_PRE_PROMOTION_BLOCKER
+    assert row["recommended_action"] == REVENUE_PRE_PROMOTION_ACTION
+    assert validate_rows([row], []) == []
+
+
+def test_contract_parity_accepts_exact_v3_provisional_activated_state() -> None:
+    row = classify_row(
+        model_id="revenue_unreacted_range",
+        registry_row=dict(REVENUE_ACTIVATED_REGISTRY_FIELDS),
+        condition_row=dict(REVENUE_ACTIVATED_CONDITION_FIELDS),
+        production_row=dict(REVENUE_ACTIVATED_PRODUCTION_FIELDS),
+        research_row={
+            "research_baseline_status": "proxy_only",
+            "research_baseline_parameter_set_id": REVENUE_LEGACY_PROXY_ID,
+            "parity_blocker": REVENUE_LEGACY_PROXY_BLOCKER,
+            "completion_rule": "usable_for_relative_research_only_until_blocker_resolved",
+        },
+        metric_rows=[],
+    )
+
+    assert row["production_contract_version"] == "v3"
+    assert row["fingerprint_match"] == "True"
+    assert row["research_baseline_exists"] == "True"
+    assert row["parity_status"] == "ok"
+    assert row["approved_research_variant"] == "False"
+    assert row["promotion_required"] == "False"
+    assert row["parity_blocker"] == ""
+    assert row["recommended_action"] == REVENUE_ACTIVATED_ACTION
+    assert row["research_evidence_path"] == REVENUE_EVIDENCE_PATH
+    assert row["research_evidence_status"] == REVENUE_EVIDENCE_STATUS
+    assert row["research_permission_status"] == REVENUE_EVIDENCE_PERMISSION_STATUS
+    assert validate_rows([row], []) == []
+
+
+@pytest.mark.parametrize(
+    ("component", "field", "invalid_value"),
+    [
+        ("registry", "approved_for_daily_pdf", "false"),
+        ("condition", "research_baseline_status", "proxy_only"),
+        ("production", "parameter_status", "contract_prepared_permissions_false"),
+    ],
+)
+def test_contract_parity_rejects_mixed_activated_state(
+    component: str,
+    field: str,
+    invalid_value: str,
+) -> None:
+    values = {
+        "registry": dict(REVENUE_ACTIVATED_REGISTRY_FIELDS),
+        "condition": dict(REVENUE_ACTIVATED_CONDITION_FIELDS),
+        "production": dict(REVENUE_ACTIVATED_PRODUCTION_FIELDS),
+    }
+    values[component][field] = invalid_value
+    row = classify_row(
+        model_id="revenue_unreacted_range",
+        registry_row=values["registry"],
+        condition_row=values["condition"],
+        production_row=values["production"],
+        research_row={
+            "research_baseline_status": "proxy_only",
+            "research_baseline_parameter_set_id": REVENUE_LEGACY_PROXY_ID,
+            "parity_blocker": REVENUE_LEGACY_PROXY_BLOCKER,
+            "completion_rule": "usable_for_relative_research_only_until_blocker_resolved",
+        },
+        metric_rows=[],
+    )
+
+    assert row["parity_status"] == "hard_fail_contract_drift"
+    assert row["fingerprint_match"] == "False"
+
+
 def test_contract_parity_rejects_near_match_permissions_false_state() -> None:
     registry_row = dict(REVENUE_PREPARED_REGISTRY_FIELDS)
     registry_row["score_function"] = "unexpected_score_function"
@@ -347,7 +451,7 @@ def test_contract_parity_rejects_near_match_permissions_false_state() -> None:
 
     assert row["parity_status"] == "hard_fail_contract_drift"
     assert row["fingerprint_match"] == "False"
-    assert "must match exact legacy v2 proxy or exact v3" in row["parity_blocker"]
+    assert "must match exact legacy v2 proxy, exact v3" in row["parity_blocker"]
 
 
 def test_permissions_false_exception_does_not_apply_to_other_models() -> None:

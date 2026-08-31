@@ -12,12 +12,17 @@ sys.path.insert(0, str(ROOT / "scripts"))
 from tracking_utils import DOCS_LATEST_DIR, LATEST_DIR, RESEARCH_LATEST_DIR, now_text, read_csv, safe_str  # noqa: E402
 # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 from sync_revenue_unreacted_range_operation_readiness import (  # noqa: E402
+    FORMAL_ADAPTER_METADATA_COLUMNS,
     REVENUE_ANOMALY_REGISTRY_CSV,
     REVENUE_FORWARD_HOLDOUT_V2_DETAIL_CSV,
     REVENUE_FORWARD_HOLDOUT_V2_MANIFEST_CSV,
     REVENUE_FORWARD_HOLDOUT_V2_REPLAY_SOURCE_CSV,
     REVENUE_FORWARD_HOLDOUT_V2_SUMMARY_CSV,
     REVENUE_MODEL_ID,
+    REVENUE_FORMAL_ADAPTER_APPROVAL_STATUS,
+    REVENUE_FORMAL_ADAPTER_MODULE_REL,
+    REVENUE_PROMOTION_DECISION_V6,
+    REVENUE_PROMOTION_PROFILES,
     REVENUE_PROMOTION_REGISTRY_CSV,
     REVENUE_SOURCE_PROJECTION_MANIFEST_CSV,
     summarize_revenue_promotion_readiness,
@@ -788,9 +793,9 @@ def build_model_operation_readiness(
         if persisted_field not in out.columns:
             out[persisted_field] = ""
         values = out[persisted_field].fillna("").astype(str).str.strip()
-        if revenue_mask.any() and not values[revenue_mask].eq("False").all():
+        if revenue_mask.any() and not values[revenue_mask].isin({"True", "False"}).all():
             raise RuntimeError(
-                f"{REVENUE_MODEL_ID} readiness {persisted_field} must be explicit False"
+                f"{REVENUE_MODEL_ID} readiness {persisted_field} must be exact True/False"
             )
         non_revenue_values = values[~revenue_mask]
         if not non_revenue_values.eq("").all():
@@ -804,6 +809,65 @@ def build_model_operation_readiness(
                 f"remain neutral blank: {conflicting_ids}"
             )
         out[persisted_field] = values
+
+    if revenue_mask.any():
+        revenue_index = out.index[revenue_mask][0]
+        permission_values = {
+            str(out.at[revenue_index, field_name]).strip()
+            for field_name in (
+                "formal_model_use_allowed",
+                "approved_for_daily",
+                "presentation_allowed",
+                "production_allowed",
+            )
+        }
+        if len(permission_values) != 1:
+            raise RuntimeError(
+                f"{REVENUE_MODEL_ID} readiness permission quartet must agree"
+            )
+        permission = permission_values.pop()
+        for field_name in FORMAL_ADAPTER_METADATA_COLUMNS:
+            if field_name not in out.columns:
+                out[field_name] = ""
+            out[field_name] = out[field_name].fillna("").astype(str)
+            if not out.loc[~revenue_mask, field_name].eq("").all():
+                raise RuntimeError(
+                    f"readiness {field_name} is revenue-only; non-revenue rows must be blank"
+                )
+        if permission == "True":
+            expected_v6 = {
+                "approval_status": REVENUE_FORMAL_ADAPTER_APPROVAL_STATUS,
+                "operation_module_id": REVENUE_PROMOTION_PROFILES[
+                    REVENUE_PROMOTION_DECISION_V6
+                ].operation_module_id,
+                "operation_module_path": REVENUE_FORMAL_ADAPTER_MODULE_REL,
+                "pdf_integration_status": "pdf_integrated_daily_adapter",
+                "packet_integration_status": "pending_packet_consumer",
+            }
+            for field_name, expected in expected_v6.items():
+                if str(out.at[revenue_index, field_name]) != expected:
+                    raise RuntimeError(
+                        f"enabled {REVENUE_MODEL_ID} readiness {field_name} must bind exact v6"
+                    )
+            if any(
+                not str(out.at[revenue_index, field_name])
+                for field_name in FORMAL_ADAPTER_METADATA_COLUMNS
+            ):
+                raise RuntimeError(
+                    f"enabled {REVENUE_MODEL_ID} readiness has blank formal metadata"
+                )
+        elif permission == "False":
+            if any(
+                str(out.at[revenue_index, field_name])
+                for field_name in FORMAL_ADAPTER_METADATA_COLUMNS
+            ):
+                raise RuntimeError(
+                    f"disabled {REVENUE_MODEL_ID} readiness cannot expose formal metadata"
+                )
+        else:
+            raise RuntimeError(
+                f"{REVENUE_MODEL_ID} readiness permission must be exact True/False"
+            )
 
     ordered_columns = list(out.columns)
     for field_name in ("formal_model_use_allowed", "production_allowed"):
