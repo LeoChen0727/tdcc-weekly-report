@@ -1,18 +1,18 @@
 # Market Sentiment Context
 
-- generated_at: `2026-08-28 21:01:14 Asia/Taipei`
-- date: `20260828`
+- generated_at: `2026-08-31 19:48:21 Asia/Taipei`
+- date: `20260831`
 - sample_status: `short_history`
 - data_quality_note: short_history：可提供短樣本分位，但未達 252 日完整歷史。
 
 ## VIX Historical Context
 
-- Taiwan VIX latest: `25`
-- 252D high / low: `44.33` / `25`
-- 252D percentile: `0.73%`
+- Taiwan VIX latest: `24.46`
+- 252D high / low: `44.33` / `24.46`
+- 252D percentile: `0.72%`
 - 504D percentile: `-`
-- z-score 252D: `-2.26`
-- vix_return_5d / 10d / 20d: `-14.47%` / `-17.3%` / `-38.42%`
+- z-score 252D: `-2.33`
+- vix_return_5d / 10d / 20d: `-18.08%` / `-15.89%` / `-38.03%`
 - vix_context_label: `complacency_low_vol`
 - vix_index_interpretation: `vix_context_neutral_observe`
 
@@ -20,12 +20,12 @@ VIX interpretation: VIX must be read with TWSE / TPEx position, market_regime, P
 
 ## Retail MTX Historical Context
 
-- retail_mtx_net_oi_proxy latest: `2,630`
+- retail_mtx_net_oi_proxy latest: `4,988`
 - proxy method: `negative_sum_of_three_institution_mtx_net_oi`
 - 252D high / low: `16,227` / `944`
-- 252D percentile: `6.15%`
+- 252D percentile: `19.7%`
 - 504D percentile: `-`
-- retail_mtx_context_label: `retail_extreme_short`
+- retail_mtx_context_label: `retail_short_elevated`
 - retail_mtx_index_interpretation: `retail_positioning_observe`
 
 Retail MTX interpretation: retail positioning is a contrarian sentiment proxy only. It must be confirmed by index price position and breadth.
@@ -34,16 +34,16 @@ Retail MTX interpretation: retail positioning is a contrarian sentiment proxy on
 
 | index | close | dist 20D high | dist 60D high | dist 252D high | above MA20 | above MA60 |
 | --- | ---: | ---: | ---: | ---: | --- | --- |
-| TWSE | 46,331 | 0% | -2.95% | -2.95% | True | True |
-| TPEx | 402.83 | -0.81% | -11.17% | -11.17% | True | False |
+| TWSE | 46,128 | -0.44% | -3.38% | -3.38% | True | True |
+| TPEx | 401.7 | -1.09% | -11.42% | -11.42% | True | False |
 
 ## Combined Sentiment Interpretation
 
 - combined_sentiment_interpretation: `sentiment_mixed_observe`
 - sentiment_warning_level: `low`
-- foreign_tx_futures_net_oi: `-83,655`
-- foreign_futures_net_oi: `-470,011` (whole futures exposure background only, not TX direction)
-- put_call_oi_ratio_pct: `101.44%`
+- foreign_tx_futures_net_oi: `-82,970`
+- foreign_futures_net_oi: `-487,918` (whole futures exposure background only, not TX direction)
+- put_call_oi_ratio_pct: `96.12%`
 
 ## Usage Boundary
 

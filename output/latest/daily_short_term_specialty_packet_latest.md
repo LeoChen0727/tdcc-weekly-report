@@ -1,8 +1,8 @@
 # DAILY SHORT-TERM SPECIALTY PACKET
 
 ## Metadata
-- generated_at: `2026-08-28 13:01:16 UTC`
-- main_price_date: `20260828`
+- generated_at: `2026-08-31 11:48:23 UTC`
+- main_price_date: `20260831`
 - purpose: Force daily reports to include short-term research-stat support sections without removing active D+5/D+10 core model rows.
 - market_abnormal_status_path: `output/latest/market_abnormal_status_latest.csv`
 
@@ -26,39 +26,40 @@
 ### D+5 Stats
 | rule_name | mature_count | win_rate_close_to_close_pct | avg_relative_return_vs_benchmark_pct | win_rate_next_open_to_close_pct | avg_next_open_relative_return_vs_benchmark_pct | sample_status |
 | --- | --- | --- | --- | --- | --- | --- |
-| all_thresholds_overheated + 1w return 10~30 + MACD hist > 0 | 79 | 55.69620253164557 | 0.793085523509336 | 49.36708860759494 | -0.4317888507168699 | ok_initial_sample |
-| phase_overheated_after_tdcc + KD bullish K<90 + 1w return 10~30 + 2w return 20~50 | 49 | 57.14285714285714 | -0.22212860453353053 | 46.93877551020408 | -1.623274822064552 | ok_initial_sample |
-| phase_overheated_after_tdcc + Bollinger width pct<=80 + 2w return 20~50 + TDCC 1w | 6 | 33.33333333333333 | -1.5289358875025467 | 16.666666666666664 | -5.859195074687908 | insufficient_sample |
+| all_thresholds_overheated + 1w return 10~30 + MACD hist > 0 | 87 | 55.172413793103445 | 0.9269961599817563 | 50.57471264367817 | -0.3401709492626114 | ok_initial_sample |
+| phase_overheated_after_tdcc + KD bullish K<90 + 1w return 10~30 + 2w return 20~50 | 52 | 59.61538461538461 | 0.5594361888953272 | 50.0 | -0.9770252308752887 | ok_initial_sample |
+| phase_overheated_after_tdcc + Bollinger width pct<=80 + 2w return 20~50 + TDCC 1w | 7 | 42.857142857142854 | 1.1862633010502566 | 28.57142857142857 | -3.491412923237192 | insufficient_sample |
 
 ### D+10 Stats
 | rule_name | mature_count | win_rate_close_to_close_pct | avg_relative_return_vs_benchmark_pct | win_rate_next_open_to_close_pct | avg_next_open_relative_return_vs_benchmark_pct | sample_status |
 | --- | --- | --- | --- | --- | --- | --- |
-| all_thresholds_overheated + 1w return 10~30 + MACD hist > 0 | 72 | 51.388888888888886 | -0.2521143171057173 | 54.166666666666664 | 0.5437687934105713 | ok_initial_sample |
-| phase_overheated_after_tdcc + KD bullish K<90 + 1w return 10~30 + 2w return 20~50 | 43 | 48.837209302325576 | -2.8516011187891475 | 48.837209302325576 | -2.0723360385609464 | ok_initial_sample |
-| phase_overheated_after_tdcc + Bollinger width pct<=80 + 2w return 20~50 + TDCC 1w | 5 | 40.0 | -2.2589404765350656 | 40.0 | -7.742438606586417 | insufficient_sample |
+| all_thresholds_overheated + 1w return 10~30 + MACD hist > 0 | 79 | 50.63291139240506 | -0.16103775897145362 | 53.16455696202531 | 0.43704263905619645 | ok_initial_sample |
+| phase_overheated_after_tdcc + KD bullish K<90 + 1w return 10~30 + 2w return 20~50 | 49 | 48.97959183673469 | -2.4710583723750292 | 48.97959183673469 | -2.0120976633318866 | ok_initial_sample |
+| phase_overheated_after_tdcc + Bollinger width pct<=80 + 2w return 20~50 + TDCC 1w | 6 | 33.33333333333333 | -4.500364955206776 | 33.33333333333333 | -8.640089252038505 | insufficient_sample |
 
 ### Current TDCC Edge Candidates
 | stock_id | stock_name | theme | tdcc_price_phase |
 | --- | --- | --- | --- |
-| 3498 | 陽程 | semiconductor equipment/materials | overheated_after_tdcc |
+| 2426 | 鼎元 | other | overheated_after_tdcc |
+| 8103 | 瀚荃 | other | overheated_after_tdcc |
+| 1815 | 富喬 | other | overheated_after_tdcc |
+| 3543 | 州巧 | other | overheated_after_tdcc |
 | 3234 | 光環 | other | overheated_after_tdcc |
-| 6108 | 競國 | other | overheated_after_tdcc |
-| 3508 | 位速 | other | overheated_after_tdcc |
-| 6141 | 柏承 | other | overheated_after_tdcc |
-| 2851 | 中再保 | other | overheated_after_tdcc |
-| 1815 | 富喬 | other | overheated_after_tdcc |
-| 3441 | 聯一光 | other | overheated_after_tdcc |
-| 2609 | 陽明 | other | overheated_after_tdcc |
-| 2611 | 志信 | other | overheated_after_tdcc |
-| 3653 | 健策 | other | overheated_after_tdcc |
-| 2426 | 鼎元 | other | overheated_after_tdcc |
-| 6426 | 統新 | other | overheated_after_tdcc |
-| 6141 | 柏承 | other | overheated_after_tdcc |
-| 1815 | 富喬 | other | overheated_after_tdcc |
-| 3441 | 聯一光 | other | overheated_after_tdcc |
-| 2611 | 志信 | other | overheated_after_tdcc |
-| 2426 | 鼎元 | other | overheated_after_tdcc |
-| 3441 | 聯一光 | other | overheated_after_tdcc |
+| 2489 | 瑞軒 | other | price_leading_tdcc |
+| 8358 | 金居 | other | overheated_after_tdcc |
+| 6547 | 高端疫苗 | other | overheated_after_tdcc |
+| 8039 | 台虹 | other | overheated_after_tdcc |
+| 4956 | 光鋐 | other | price_leading_tdcc |
+| 6213 | 聯茂 | other | overheated_after_tdcc |
+| 3504 | 揚明光 | other | price_leading_tdcc |
+| 3363 | 上詮 | other | price_leading_tdcc |
+| 6782 | 視陽 | other | price_leading_tdcc |
+| 2301 | 光寶科 | other | price_leading_tdcc |
+| 3374 | 精材 | other | overheated_after_tdcc |
+| 6168 | 宏齊 | other | price_leading_tdcc |
+| 3105 | 穩懋 | other | price_leading_tdcc |
+| 6147 | 頎邦 | other | price_leading_tdcc |
+| 6269 | 台郡 | other | price_leading_tdcc |
 
 ## Next-Open +10pct Touch Strict Parameter Research
 
@@ -114,8 +115,8 @@
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | vol5_avg_ge_3 + tdcc_high_up + bb_width_not_extreme + return_10d_20_50 | D+10 | 31 | 65.52 | 7.15 | 3.15 | -10.12 | -18.6 | 67.74 | 15.88 | -8.71 | -25.98 |
 | vol5_avg_ge_3 + market_strong_bull + tdcc_all_up + kd_bullish_not_overheated + return_5d_10_30 | D+10 | 50 | 54.0 | 4.62 | 1.36 | -7.19 | -18.6 | 64.0 | 14.39 | -7.75 | -20.43 |
-| vol5_avg_ge_3 + market_strong_bull + tdcc_high_up + bb_width_not_extreme + return_20d_10_60 | D+10 | 33 | 54.55 | 2.27 | 1.83 | -9.22 | -21.48 | 63.64 | 14.11 | -7.88 | -25.98 |
 | vol5_avg_ge_3 + tdcc_all_up + bb_width_not_extreme + return_20d_10_60 | D+10 | 55 | 51.85 | 3.77 | 1.06 | -10.47 | -21.48 | 63.64 | 14.68 | -8.22 | -25.98 |
+| vol5_avg_ge_3 + market_strong_bull + tdcc_high_up + bb_width_not_extreme + return_20d_10_60 | D+10 | 33 | 54.55 | 2.27 | 1.83 | -9.22 | -21.48 | 63.64 | 14.11 | -7.88 | -25.98 |
 | vol5_avg_ge_3 + tdcc_high_up + bb_width_not_extreme + return_20d_10_60 | D+10 | 70 | 52.24 | 3.77 | 1.8 | -9.31 | -21.48 | 62.86 | 14.39 | -7.9 | -25.98 |
 | vol5_avg_ge_3 + tdcc_all_up + bb_width_not_extreme + return_10d_10_40 | D+10 | 60 | 57.14 | 6.27 | 2.77 | -9.54 | -21.48 | 61.67 | 14.75 | -8.25 | -25.98 |
 | vol5_avg_ge_3 + market_strong_bull + tdcc_high_up + bb_width_not_extreme + return_5d_10_30 | D+10 | 31 | 48.39 | -0.03 | -0.14 | -9.14 | -21.48 | 61.29 | 11.19 | -7.98 | -24.97 |
@@ -221,74 +222,74 @@
 ### D+5 Explosive Volume By Price Position
 | signal_quality_bucket | price_position_bucket | market_theme_group | theme_group_source | theme_structural_status | structural_theme_bucket | theme_mainstream_label | theme_status_group | horizon | volume_ratio_threshold | min_signal_return_pct | mature_count | close_win_rate_pct |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| invalid_intraday_range | bottom_or_low_zone_volume_reversal | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 2 | 7 | 1 | 100.0 |
-| invalid_intraday_range | bottom_or_low_zone_volume_reversal | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 2 | 5 | 1 | 100.0 |
-| invalid_intraday_range | bottom_or_low_zone_volume_reversal | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 2 | 3 | 1 | 100.0 |
-| invalid_intraday_range | bottom_or_low_zone_volume_reversal | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 2 | 0 | 1 | 100.0 |
-| red_candle_but_not_strong_close | near_high_volume_attack | ai_server_theme | structural_theme_bucket | core_mainstream_theme | ai_server_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 8 | 0 | 1 | 100.0 |
-| red_candle_but_not_strong_close | near_high_volume_attack | ai_server_theme | structural_theme_bucket | core_mainstream_theme | ai_server_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 10 | 0 | 1 | 100.0 |
-| red_candle_but_not_strong_close | near_high_volume_attack | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 4 | 5 | 2 | 100.0 |
-| red_candle_but_not_strong_close | near_high_volume_attack | ai_server_theme | structural_theme_bucket | core_mainstream_theme | ai_server_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 5 | 0 | 2 | 100.0 |
-| red_candle_but_not_strong_close | near_high_volume_attack | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 5 | 0 | 4 | 100.0 |
-| red_candle_but_not_strong_close | near_high_volume_attack | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 4 | 0 | 4 | 100.0 |
-| red_candle_but_not_strong_close | near_high_volume_attack | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 8 | 0 | 2 | 100.0 |
-| red_candle_but_not_strong_close | near_high_volume_attack | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 3 | 3 | 3 | 100.0 |
-| red_candle_but_not_strong_close | mid_range_volume_attack | glass_fiber_ccl_theme | structural_theme_bucket | core_mainstream_theme | glass_fiber_ccl_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 2 | 3 | 2 | 100.0 |
-| red_candle_but_not_strong_close | mid_range_volume_attack | semiconductor_equipment_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_equipment_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 3 | 3 | 2 | 100.0 |
-| red_candle_but_not_strong_close | mid_range_volume_attack | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 2 | 0 | 1 | 100.0 |
-| red_candle_but_not_strong_close | low_to_mid_reclaim_volume_attack | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 3 | 3 | 1 | 100.0 |
-| red_candle_but_not_strong_close | mid_range_volume_attack | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 2 | 3 | 1 | 100.0 |
-| red_candle_but_not_strong_close | mid_range_volume_attack | glass_fiber_ccl_theme | structural_theme_bucket | core_mainstream_theme | glass_fiber_ccl_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 2 | 5 | 1 | 100.0 |
-| red_candle_but_not_strong_close | mid_range_volume_attack | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 5 | 3 | 1 | 100.0 |
-| red_candle_but_not_strong_close | mid_range_volume_attack | semiconductor_equipment_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_equipment_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 2 | 3 | 3 | 100.0 |
+| strict_red_close_near_high | near_high_volume_attack | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 8 | 7 | 3 | 100.0 |
+| strict_red_close_near_high | near_high_volume_attack | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 8 | 5 | 3 | 100.0 |
+| strict_red_close_near_high | near_high_volume_attack | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 8 | 3 | 3 | 100.0 |
+| strict_red_close_near_high | near_high_volume_attack | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 8 | 0 | 3 | 100.0 |
+| strict_red_close_near_high | near_high_volume_attack | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 10 | 7 | 2 | 100.0 |
+| strict_red_close_near_high | near_high_volume_attack | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 10 | 5 | 2 | 100.0 |
+| strict_red_close_near_high | near_high_volume_attack | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 10 | 3 | 2 | 100.0 |
+| strict_red_close_near_high | near_high_volume_attack | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 10 | 0 | 2 | 100.0 |
+| strict_red_close_near_high | near_high_volume_attack | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 6 | 7 | 1 | 100.0 |
+| strict_red_close_near_high | near_high_volume_attack | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 6 | 5 | 1 | 100.0 |
+| strict_red_close_near_high | near_high_volume_attack | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 6 | 3 | 1 | 100.0 |
+| strict_red_close_near_high | near_high_volume_attack | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 6 | 0 | 1 | 100.0 |
+| strict_red_close_near_high | near_high_volume_attack | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 8 | 7 | 1 | 100.0 |
+| strict_red_close_near_high | near_high_volume_attack | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 8 | 5 | 1 | 100.0 |
+| strict_red_close_near_high | near_high_volume_attack | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 8 | 3 | 1 | 100.0 |
+| strict_red_close_near_high | near_high_volume_attack | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 8 | 0 | 1 | 100.0 |
+| strict_red_close_near_high | near_high_volume_attack | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 10 | 7 | 1 | 100.0 |
+| invalid_intraday_range | high_zone_extension_or_chase | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 8 | 7 | 1 | 100.0 |
+| invalid_intraday_range | high_zone_extension_or_chase | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 8 | 5 | 1 | 100.0 |
+| invalid_intraday_range | high_zone_extension_or_chase | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 8 | 3 | 1 | 100.0 |
 
 ### D+10 Explosive Volume By Price Position
 | signal_quality_bucket | price_position_bucket | market_theme_group | theme_group_source | theme_structural_status | structural_theme_bucket | theme_mainstream_label | theme_status_group | horizon | volume_ratio_threshold | min_signal_return_pct | mature_count | close_win_rate_pct |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| invalid_intraday_range | bottom_or_low_zone_volume_reversal | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 2 | 7 | 1 | 100.0 |
-| invalid_intraday_range | bottom_or_low_zone_volume_reversal | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 2 | 5 | 1 | 100.0 |
-| invalid_intraday_range | bottom_or_low_zone_volume_reversal | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 2 | 3 | 1 | 100.0 |
-| invalid_intraday_range | bottom_or_low_zone_volume_reversal | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 2 | 0 | 1 | 100.0 |
-| red_candle_but_not_strong_close | near_high_volume_attack | low_earth_orbit_satellite_theme | structural_theme_bucket | core_mainstream_theme | low_earth_orbit_satellite_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 4 | 5 | 1 | 100.0 |
-| red_candle_but_not_strong_close | near_high_volume_attack | low_earth_orbit_satellite_theme | structural_theme_bucket | core_mainstream_theme | low_earth_orbit_satellite_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 3 | 5 | 1 | 100.0 |
-| red_candle_but_not_strong_close | near_high_volume_attack | glass_fiber_ccl_theme | structural_theme_bucket | core_mainstream_theme | glass_fiber_ccl_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 6 | 3 | 1 | 100.0 |
-| red_candle_but_not_strong_close | near_high_volume_attack | glass_fiber_ccl_theme | structural_theme_bucket | core_mainstream_theme | glass_fiber_ccl_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 5 | 3 | 1 | 100.0 |
-| red_candle_but_not_strong_close | near_high_volume_attack | low_earth_orbit_satellite_theme | structural_theme_bucket | core_mainstream_theme | low_earth_orbit_satellite_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 10 | 0 | 1 | 100.0 |
-| red_candle_but_not_strong_close | near_high_volume_attack | low_earth_orbit_satellite_theme | structural_theme_bucket | core_mainstream_theme | low_earth_orbit_satellite_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 10 | 3 | 1 | 100.0 |
-| red_candle_but_not_strong_close | near_high_volume_attack | glass_fiber_ccl_theme | structural_theme_bucket | core_mainstream_theme | glass_fiber_ccl_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 4 | 3 | 2 | 100.0 |
-| relaxed_red_small_upper_shadow | bottom_or_low_zone_volume_reversal | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 2 | 5 | 1 | 100.0 |
-| relaxed_red_small_upper_shadow | bottom_or_low_zone_volume_reversal | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 2 | 0 | 3 | 100.0 |
-| relaxed_red_small_upper_shadow | bottom_or_low_zone_volume_reversal | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 2 | 3 | 3 | 100.0 |
-| relaxed_red_small_upper_shadow | bottom_or_low_zone_volume_reversal | theme_context_unavailable | unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable | D+10 | 10 | 3 | 3 | 100.0 |
-| red_candle_but_not_strong_close | near_high_volume_attack | low_earth_orbit_satellite_theme | structural_theme_bucket | core_mainstream_theme | low_earth_orbit_satellite_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 5 | 5 | 1 | 100.0 |
-| red_candle_but_not_strong_close | near_high_volume_attack | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 5 | 3 | 2 | 100.0 |
-| red_candle_but_not_strong_close | near_high_volume_attack | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 4 | 0 | 2 | 100.0 |
-| red_candle_but_not_strong_close | near_high_volume_attack | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 4 | 3 | 2 | 100.0 |
-| red_candle_but_not_strong_close | near_high_volume_attack | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 3 | 0 | 2 | 100.0 |
+| strict_red_close_near_high | near_high_volume_attack | low_earth_orbit_satellite_theme | structural_theme_bucket | core_mainstream_theme | low_earth_orbit_satellite_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 8 | 7 | 1 | 100.0 |
+| strict_red_close_near_high | near_high_volume_attack | low_earth_orbit_satellite_theme | structural_theme_bucket | core_mainstream_theme | low_earth_orbit_satellite_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 8 | 5 | 1 | 100.0 |
+| strict_red_close_near_high | near_high_volume_attack | low_earth_orbit_satellite_theme | structural_theme_bucket | core_mainstream_theme | low_earth_orbit_satellite_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 8 | 3 | 1 | 100.0 |
+| strict_red_close_near_high | near_high_volume_attack | low_earth_orbit_satellite_theme | structural_theme_bucket | core_mainstream_theme | low_earth_orbit_satellite_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 8 | 0 | 1 | 100.0 |
+| strict_red_close_near_high | near_high_volume_attack | low_earth_orbit_satellite_theme | structural_theme_bucket | core_mainstream_theme | low_earth_orbit_satellite_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 10 | 7 | 1 | 100.0 |
+| strict_red_close_near_high | near_high_volume_attack | low_earth_orbit_satellite_theme | structural_theme_bucket | core_mainstream_theme | low_earth_orbit_satellite_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 10 | 5 | 1 | 100.0 |
+| strict_red_close_near_high | near_high_volume_attack | low_earth_orbit_satellite_theme | structural_theme_bucket | core_mainstream_theme | low_earth_orbit_satellite_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 10 | 3 | 1 | 100.0 |
+| strict_red_close_near_high | near_high_volume_attack | low_earth_orbit_satellite_theme | structural_theme_bucket | core_mainstream_theme | low_earth_orbit_satellite_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 10 | 0 | 1 | 100.0 |
+| strict_red_close_near_high | near_high_volume_attack | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 6 | 7 | 1 | 100.0 |
+| strict_red_close_near_high | near_high_volume_attack | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 6 | 5 | 1 | 100.0 |
+| strict_red_close_near_high | near_high_volume_attack | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 6 | 3 | 1 | 100.0 |
+| strict_red_close_near_high | near_high_volume_attack | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 6 | 0 | 1 | 100.0 |
+| strict_red_close_near_high | near_high_volume_attack | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 8 | 7 | 1 | 100.0 |
+| strict_red_close_near_high | near_high_volume_attack | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 8 | 5 | 1 | 100.0 |
+| strict_red_close_near_high | near_high_volume_attack | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 8 | 3 | 1 | 100.0 |
+| strict_red_close_near_high | near_high_volume_attack | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 8 | 0 | 1 | 100.0 |
+| strict_red_close_near_high | near_high_volume_attack | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 10 | 7 | 1 | 100.0 |
+| strict_red_close_near_high | near_high_volume_attack | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 10 | 5 | 1 | 100.0 |
+| strict_red_close_near_high | near_high_volume_attack | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 10 | 3 | 1 | 100.0 |
+| strict_red_close_near_high | near_high_volume_attack | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 10 | 0 | 1 | 100.0 |
 
 ### D+20 Explosive Volume By Price Position
 | signal_quality_bucket | price_position_bucket | market_theme_group | theme_group_source | theme_structural_status | structural_theme_bucket | theme_mainstream_label | theme_status_group | horizon | volume_ratio_threshold | min_signal_return_pct | mature_count | close_win_rate_pct |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| strict_red_close_near_high | near_high_volume_attack | pcb_ccl_theme | structural_theme_bucket | core_mainstream_theme | pcb_ccl_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 10 | 0 | 1 | 100.0 |
-| strict_red_close_near_high | near_high_volume_attack | pcb_ccl_theme | structural_theme_bucket | core_mainstream_theme | pcb_ccl_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 10 | 7 | 1 | 100.0 |
-| strict_red_close_near_high | near_high_volume_attack | pcb_ccl_theme | structural_theme_bucket | core_mainstream_theme | pcb_ccl_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 10 | 5 | 1 | 100.0 |
-| strict_red_close_near_high | near_high_volume_attack | pcb_ccl_theme | structural_theme_bucket | core_mainstream_theme | pcb_ccl_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 10 | 3 | 1 | 100.0 |
-| relaxed_red_small_upper_shadow | near_high_volume_attack | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 4 | 5 | 2 | 100.0 |
-| strict_red_close_near_high | bottom_or_low_zone_volume_reversal | ai_server_theme | structural_theme_bucket | core_mainstream_theme | ai_server_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 3 | 0 | 1 | 100.0 |
-| relaxed_red_small_upper_shadow | near_high_volume_attack | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 3 | 0 | 1 | 100.0 |
-| relaxed_red_small_upper_shadow | near_high_volume_attack | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 3 | 3 | 1 | 100.0 |
-| relaxed_red_small_upper_shadow | near_high_volume_attack | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 3 | 5 | 1 | 100.0 |
-| relaxed_red_small_upper_shadow | near_high_volume_attack | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 2 | 0 | 1 | 100.0 |
-| relaxed_red_small_upper_shadow | near_high_volume_attack | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 2 | 3 | 1 | 100.0 |
+| red_candle_but_not_strong_close | mid_range_volume_attack | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 5 | 3 | 1 | 100.0 |
+| red_candle_but_not_strong_close | mid_range_volume_attack | semiconductor_equipment_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_equipment_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 4 | 0 | 1 | 100.0 |
 | relaxed_red_small_upper_shadow | near_high_volume_attack | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 2 | 5 | 1 | 100.0 |
-| relaxed_red_small_upper_shadow | near_high_volume_attack | glass_fiber_ccl_theme | structural_theme_bucket | core_mainstream_theme | glass_fiber_ccl_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 4 | 0 | 1 | 100.0 |
-| relaxed_red_small_upper_shadow | near_high_volume_attack | glass_fiber_ccl_theme | structural_theme_bucket | core_mainstream_theme | glass_fiber_ccl_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 4 | 3 | 1 | 100.0 |
-| relaxed_red_small_upper_shadow | mid_range_volume_attack | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 3 | 0 | 3 | 100.0 |
-| relaxed_red_small_upper_shadow | mid_range_volume_attack | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 3 | 5 | 1 | 100.0 |
-| relaxed_red_small_upper_shadow | mid_range_volume_attack | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 3 | 7 | 1 | 100.0 |
-| relaxed_red_small_upper_shadow | mid_range_volume_attack | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 2 | 5 | 1 | 100.0 |
-| relaxed_red_small_upper_shadow | near_high_volume_attack | network_communication_theme | structural_theme_bucket | core_mainstream_theme | network_communication_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 3 | 7 | 1 | 100.0 |
-| relaxed_red_small_upper_shadow | near_high_volume_attack | network_communication_theme | structural_theme_bucket | core_mainstream_theme | network_communication_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 2 | 7 | 1 | 100.0 |
+| relaxed_red_small_upper_shadow | near_high_volume_attack | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 2 | 3 | 1 | 100.0 |
+| relaxed_red_small_upper_shadow | near_high_volume_attack | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 2 | 0 | 1 | 100.0 |
+| relaxed_red_small_upper_shadow | near_high_volume_attack | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 3 | 5 | 1 | 100.0 |
+| relaxed_red_small_upper_shadow | near_high_volume_attack | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 3 | 3 | 1 | 100.0 |
+| relaxed_red_small_upper_shadow | near_high_volume_attack | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 3 | 0 | 1 | 100.0 |
+| red_candle_but_not_strong_close | mid_range_volume_attack | pcb_ccl_theme | structural_theme_bucket | core_mainstream_theme | pcb_ccl_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 2 | 3 | 1 | 100.0 |
+| red_candle_but_not_strong_close | mid_range_volume_attack | pcb_ccl_theme | structural_theme_bucket | core_mainstream_theme | pcb_ccl_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 2 | 0 | 1 | 100.0 |
+| red_candle_but_not_strong_close | mid_range_volume_attack | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 3 | 0 | 1 | 100.0 |
+| red_candle_but_not_strong_close | mid_range_volume_attack | glass_fiber_ccl_theme | structural_theme_bucket | core_mainstream_theme | glass_fiber_ccl_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 2 | 5 | 1 | 100.0 |
+| red_candle_but_not_strong_close | mid_range_volume_attack | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 2 | 3 | 1 | 100.0 |
+| relaxed_red_small_upper_shadow | long_base_low_zone_volume_reversal | pcb_ccl_theme | structural_theme_bucket | core_mainstream_theme | pcb_ccl_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 2 | 0 | 1 | 100.0 |
+| red_candle_but_not_strong_close | mid_range_volume_attack | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 2 | 0 | 1 | 100.0 |
+| red_candle_but_not_strong_close | mid_range_volume_attack | semiconductor_equipment_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_equipment_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 3 | 3 | 2 | 100.0 |
+| red_candle_but_not_strong_close | mid_range_volume_attack | glass_fiber_ccl_theme | structural_theme_bucket | core_mainstream_theme | glass_fiber_ccl_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 2 | 3 | 2 | 100.0 |
+| red_candle_but_not_strong_close | mid_range_volume_attack | semiconductor_equipment_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_equipment_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 3 | 0 | 3 | 100.0 |
+| red_candle_but_not_strong_close | mid_range_volume_attack | glass_fiber_ccl_theme | structural_theme_bucket | core_mainstream_theme | glass_fiber_ccl_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 2 | 0 | 4 | 100.0 |
+| relaxed_red_small_upper_shadow | near_high_volume_attack | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 4 | 5 | 2 | 100.0 |
 
 ### Latest Explosive Volume Events
 | date | stock_id | stock_name | industry | market | close | volume_ratio_vs_prev20 | signal_return_1d_pct | signal_quality_bucket | price_position_bucket | market_theme_group | theme_group_source | theme_structural_status | structural_theme_bucket | theme_mainstream_label | next_open_to_d10_max_high_return_pct | next_open_to_d20_max_high_return_pct |

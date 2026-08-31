@@ -1034,7 +1034,7 @@ stock_id,stock_name,industry,market,industry_source
 4744,皇將,生技醫療業,TPEX,official_tpex
 4745,合富-KY,生技醫療業,TPEX,official_tpex
 4746,台耀,生技醫療業,TWSE,official_twse
-4747,強生製藥,生技醫療業,TPEX,official_tpex
+4747,強生*,生技醫療業,TPEX,official_tpex
 4749,新應材,半導體業,TPEX,official_tpex
 4754,國碳科,化學工業,TPEX,official_tpex
 4755,三福化,化學工業,TWSE,official_twse

@@ -1194,7 +1194,7 @@
 4744,皇將,生技醫療業,生技醫療業,非主流,,,,,,provisional_industry_mapping
 4745,合富-KY,生技醫療業,生技醫療業,非主流,,,,,,provisional_industry_mapping
 4746,台耀,生技醫療業,生技醫療業,非主流,,,,,,provisional_industry_mapping
-4747,強生製藥,生技醫療業,生技醫療業,非主流,,,,,,provisional_industry_mapping
+4747,強生*,生技醫療業,生技醫療業,非主流,,,,,,provisional_industry_mapping
 4749,新應材,半導體業,半導體業,主流,,,,,,provisional_industry_mapping
 4754,國碳科,化學工業,化學工業,非主流,,,,,,provisional_industry_mapping
 4755,三福化,化學工業,化學工業,非主流,,,,,,provisional_industry_mapping
@@ -1413,9 +1413,9 @@
 6016,康和證,金融業,金融業,非主流,,,,,,provisional_industry_mapping
 6020,大展證,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
 6021,美好證,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
-6023,元大期貨,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
+6023,元大期貨,金融業,金融業,非主流,,,,,,provisional_industry_mapping
 6024,群益期,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
-6026,福邦證,金融業,金融業,非主流,,,,,,provisional_industry_mapping
+6026,福邦證,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
 6028,公勝保經,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
 6101,寬魚國際,文化創意業,文化創意業,非主流,,,,,,
 6103,合邦,半導體業,半導體業,主流,,,,,,provisional_industry_mapping
@@ -2331,7 +2331,7 @@
 8996,高力,電機機械,電機機械,主流,散熱液冷,,,,,user_authorized_seed_20260530
 9103,美德醫療-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
 910322,康師傅-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
-9105,泰金寶-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
+9105,泰金寶-DR,存託憑證,存託憑證,非主流,,,,,,
 910861,神州-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
 9110,越南控-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
 911608,明輝-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping

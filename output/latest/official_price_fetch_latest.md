@@ -1,26 +1,44 @@
 # Official Daily Price Fetch Report
 
-- generated_at: `2026-08-28 20:34:51 Asia/Taipei`
-- target_date: `20260828`
-- saved_price_date: `20260828`
+- generated_at: `2026-08-31 19:31:26 Asia/Taipei`
+- target_date: `20260831`
+- saved_price_date: `20260831`
 - is_target_date: `True`
-- result: `success_current_day_repair_full_market`
-- reason: current-day range repair produced date-bound TWSE and TPEx evidence
-- twse_rows: `1242`
-- tpex_rows: `893`
-- total_rows: `2135`
+- result: `success_target_full_market`
+- reason: 成功取得目標日 TWSE + TPEx 官方日線資料。
+- twse_rows: `1240`
+- tpex_rows: `877`
+- total_rows: `2117`
 - full_market_ok: `True`
 
 ## Output Paths
 
-- dated_csv: `data/daily_price/20260828.csv`
-- dated_alt_csv: `data/daily_price/daily_price_20260828.csv`
+- dated_csv: `data/daily_price/20260831.csv`
+- dated_alt_csv: `data/daily_price/daily_price_20260831.csv`
 - latest_csv: `output/latest/official_daily_price_latest.csv`
 
 ## Fetch Attempts
 
-- 20260828: TWSE=1242 / TPEx=893 / Total=2135 / full_market_ok=None
+- 20260831: TWSE=1240 / TPEx=877 / Total=2117 / full_market_ok=True
 
 ## Fetch Logs
 
-- current-day repair evidence date=20260828
+- Start official daily price fetch target_date=20260831 max_seconds=480
+- ===== Fetch price for date 20260831 =====
+- Loaded universe rows=2135
+- Trying TWSE batch source=TWSE_RWD_JSON_MI_INDEX date=20260831
+- GET https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260831&type=ALLBUT0999&response=json -> status=200, chars=232905
+- TWSE_RWD_JSON_MI_INDEX: parsed TWSE rows=1240
+- TWSE batch selected source=TWSE_RWD_JSON_MI_INDEX, rows=1240
+- Trying TPEx batch source=TPEX_NEW_AFTERTRADING_JSON date=20260831
+- GET https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/08/31&type=EW&response=json -> status=200, chars=11245
+- TPEX_NEW_AFTERTRADING_JSON: JSON parse failed
+- Trying TPEx batch source=TPEX_NEW_AFTERTRADING_CSV date=20260831
+- GET https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/08/31&type=EW&response=csv -> status=200, chars=11245
+- TPEX_NEW_AFTERTRADING_CSV: parsed TPEx CSV rows=0
+- Trying TPEx batch source=TPEX_OTC_QUOTES_NO1430_JSON date=20260831
+- GET https://www.tpex.org.tw/web/stock/aftertrading/otc_quotes_no1430/stk_wn1430_result.php?l=zh-tw&o=json&d=115/08/31&se=EW -> status=200, chars=139960
+- TPEX_OTC_QUOTES_NO1430_JSON: parsed TPEx JSON rows=877
+- TPEx batch selected source=TPEX_OTC_QUOTES_NO1430_JSON, rows=877
+- Applied canonical stock names from metadata snapshot changed_rows=15
+- date=20260831 twse_rows=1240 tpex_rows=877 total_rows=2117 full_market_ok=True
