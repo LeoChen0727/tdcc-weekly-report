@@ -4,7 +4,7 @@ volume_range_breakout_v2_mid_position_momentum_attack,中位動能放量攻擊,2
 volume_range_breakout_v2_high_position_volume_attack,高位階放量攻擊,3,True,both,突破,訊號日收盤突破前60日高點，120日位階為高位 high_pos_gt75，型態僅收 non_consolidation 或 wide_range，且訊號日 MA60 > MA120。
 price_pullback_23ema,23EMA回檔模型,4,True,both,回檔,買入：本表股票為23EMA回檔模型通過候選，隔日開盤買入。賣出：收盤突破訊號日前20日高點後，隔日開盤賣出。停損：收盤連續4天低於MA20/EMA23較低者的4%，隔日開盤停損。基礎模型績效：勝率66.03% / 和局5.60% / 敗率28.36% / 平均報酬+2.90%。技術強勢組合績效：勝率75.54% / 和局3.52% / 敗率20.95% / 平均報酬+2.96%。勝：D+20內先觸發收盤突破訊號日前20日高點，且停損未先觸發。和：D+20內沒有賣出或停損，且D+20收盤報酬大於等於0%。敗：停損先觸發，或D+20內沒有賣出/停損但D+20收盤報酬小於0%。
 hot_theme_pullback,熱門族群回檔模型,5,True,both,回檔,必須有熱門族群標籤，且股價回到23EMA或合理支撐區附近；不以營收作為必要條件。
-revenue_unreacted_range,營收爆發但股價尚未反應模型,6,True,both,基本面,營收YoY或累計YoY強，且股價仍位於23日盤整區間內；區間用近期最高/最低價加緩衝判斷。
+revenue_unreacted_range,營收爆發但股價尚未反應模型,6,True,both,基本面,凍結 source_mid_falling v2：月營收來源必須 PIT-ready，且當月年增率>=30%、累計年增率>=20%或連續兩個曆月當月年增率均>=15%；source position 固定為40<position_pct<=75，anchor close 相對20個交易日前 close<-5%，EMA23 五日斜率<0%，並在 anchor 後0至60個交易日由未突破轉為收盤突破前20日最高 close，且 MA60>MA120。
 w_bottom_right_side,W底右側模型,7,True,both,型態,W底右側初步成立，右側低點墊高，兩側低點高度不能差距過大；左低右高且已創高者不應歸入此模型。
 neckline_volume_breakout_confirmation,W底頸線帶量突破確認模型,8,True,both,突破,W底頸線帶量突破確認：股價收盤站上偵測到的W底頸線，並通過量能確認或漲停確認；第二段圓弧均量必須高於第一段基準。
 pullback_short_reclaim,回檔後短線轉強模型,9,True,both,短線,前面有漲勢，回檔未破結構，且重新站回23EMA。

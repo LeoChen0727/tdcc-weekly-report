@@ -26,9 +26,13 @@ SECTIONS = (
 )
 
 REQUIRED_FUNCTIONS = {
+    "load_inputs",
+    "core_model_specs",
     "revenue_unreacted_range_readiness_row",
     "revenue_unreacted_range_pdf_adapter_enabled",
+    "revenue_unreacted_range_generic_signal_rows_removed",
     "model_uses_operation_pdf_table",
+    "render_operation_model_summary_if_applicable",
     "validate_revenue_unreacted_range_operation_artifact",
     "revenue_unreacted_range_operation_frame",
     "revenue_unreacted_range_operation_row_matches_line",
@@ -40,7 +44,23 @@ REQUIRED_FUNCTIONS = {
     "build_revenue_unreacted_range_pending_operation_table",
     "build_revenue_unreacted_range_active_operation_table",
     "render_revenue_unreacted_range_operation_section",
+    "render_model_operation_section_if_applicable",
     "operation_rendered_sections_for_inputs",
+    "selected_operation_rows_for_manifest",
+}
+
+GENERIC_SIGNAL_CONSUMERS = {
+    "core_model_specs",
+    "model_signal_rows",
+    "mainstream_curated_model_signal_rows",
+    "mainstream_full_model_signal_rows",
+    "non_mainstream_curated_model_signal_rows",
+    "non_mainstream_full_model_signal_rows",
+    "volume_operation_report_lines_for_stock",
+    "model_signal_rows_for_stock",
+    "build_mainstream_full_candidate_pdf",
+    "build_non_mainstream_full_candidate_pdf",
+    "build_warrant_market_auxiliary_pdf",
 }
 
 
@@ -70,6 +90,31 @@ def _function_nodes(tree: ast.Module) -> dict[str, ast.FunctionDef]:
 
 def _segment(source: str, node: ast.AST) -> str:
     return ast.get_source_segment(source, node) or ""
+
+
+def _reads_inputs_key(node: ast.AST, key: str) -> bool:
+    for child in ast.walk(node):
+        if (
+            isinstance(child, ast.Call)
+            and isinstance(child.func, ast.Attribute)
+            and child.func.attr == "get"
+            and isinstance(child.func.value, ast.Name)
+            and child.func.value.id == "inputs"
+            and child.args
+            and isinstance(child.args[0], ast.Constant)
+            and child.args[0].value == key
+        ):
+            return True
+        if (
+            isinstance(child, ast.Subscript)
+            and isinstance(child.ctx, ast.Load)
+            and isinstance(child.value, ast.Name)
+            and child.value.id == "inputs"
+            and isinstance(child.slice, ast.Constant)
+            and child.slice.value == key
+        ):
+            return True
+    return False
 
 
 def validate_renderer(path: Path = DEFAULT_RENDERER) -> list[str]:
@@ -111,6 +156,21 @@ def validate_renderer(path: Path = DEFAULT_RENDERER) -> list[str]:
             errors.append("load_inputs does not register the dedicated revenue operation input key")
         if "daily_revenue_unreacted_range_operation_section_latest.csv" not in load_source:
             errors.append("load_inputs does not read the dedicated revenue operation artifact")
+        for token in (
+            "revenue_unreacted_range_pdf_adapter_enabled(inputs)",
+            'inputs["model_signals"] = revenue_unreacted_range_generic_signal_rows_removed(inputs)',
+        ):
+            if token not in load_source:
+                errors.append(
+                    "load_inputs does not fail closed and retire legacy generic revenue rows: "
+                    + token
+                )
+
+    readiness_row = functions.get("revenue_unreacted_range_readiness_row")
+    if readiness_row:
+        readiness_row_source = _segment(source, readiness_row)
+        if "return None" not in readiness_row_source:
+            errors.append("missing revenue readiness is not represented as an unavailable state")
 
     readiness = functions.get("revenue_unreacted_range_pdf_adapter_enabled")
     if readiness:
@@ -126,6 +186,89 @@ def validate_renderer(path: Path = DEFAULT_RENDERER) -> list[str]:
         ):
             if token not in readiness_source:
                 errors.append(f"revenue readiness gate missing token: {token}")
+        for token in (
+            "if row is None:",
+            "return False",
+            "enabled_permissions",
+            "validate_revenue_unreacted_range_operation_artifact",
+            "section_tokens != expected_sections",
+        ):
+            if token not in readiness_source:
+                errors.append(f"revenue exact v2 readiness gate missing token: {token}")
+
+    legacy_filter = functions.get("revenue_unreacted_range_generic_signal_rows_removed")
+    if legacy_filter:
+        filter_source = _segment(source, legacy_filter)
+        for token in (
+            'inputs.get("model_signals"',
+            "REVENUE_UNREACTED_RANGE_MODEL_ID",
+            "signals.loc[~revenue_mask]",
+        ):
+            if token not in filter_source:
+                errors.append(f"legacy generic revenue row filter missing token: {token}")
+
+    for function_name, node in functions.items():
+        if function_name == "revenue_unreacted_range_generic_signal_rows_removed":
+            continue
+        if _reads_inputs_key(node, "model_signals"):
+            errors.append(
+                f"{function_name} contains forbidden fallback dependency: direct generic model_signals read"
+            )
+        if _reads_inputs_key(node, "model_summary"):
+            errors.append(
+                f"{function_name} contains forbidden fallback dependency: generic model_summary read"
+            )
+
+    for function_name in sorted(GENERIC_SIGNAL_CONSUMERS):
+        node = functions.get(function_name)
+        if not node:
+            errors.append(f"missing generic PDF signal consumer: {function_name}")
+            continue
+        if "revenue_unreacted_range_generic_signal_rows_removed(inputs)" not in _segment(
+            source, node
+        ):
+            errors.append(
+                f"{function_name} bypasses permanent legacy revenue generic-row retirement"
+            )
+
+    core_specs = functions.get("core_model_specs")
+    if core_specs:
+        core_source = _segment(source, core_specs)
+        for token in (
+            "REVENUE_UNREACTED_RANGE_MODEL_ID",
+            "revenue_mask.any() and not revenue_unreacted_range_pdf_adapter_enabled",
+            "registry.loc[~revenue_mask]",
+        ):
+            if token not in core_source:
+                errors.append(
+                    f"core_model_specs does not suppress unavailable revenue model specs: {token}"
+                )
+
+    summary_renderer = functions.get("render_operation_model_summary_if_applicable")
+    if summary_renderer:
+        summary_source = _segment(source, summary_renderer)
+        revenue_branch = summary_source.split(
+            "if model_id == REVENUE_UNREACTED_RANGE_MODEL_ID:", 1
+        )[-1].split("if model_id not in OPERATION_TABLE_MODEL_IDS:", 1)[0]
+        if "if revenue_unreacted_range_pdf_adapter_enabled(inputs):" not in revenue_branch:
+            errors.append("revenue summary is not suppressed when the dedicated adapter is unavailable")
+        if "return True" not in revenue_branch:
+            errors.append("unavailable revenue summary can fall through to generic rendering")
+
+    operation_table_gate = functions.get("model_uses_operation_pdf_table")
+    if operation_table_gate:
+        gate_source = _segment(source, operation_table_gate)
+        revenue_branch = gate_source.split(
+            "if model_id == REVENUE_UNREACTED_RANGE_MODEL_ID:", 1
+        )[-1].split("return model_id in OPERATION_TABLE_MODEL_IDS", 1)[0]
+        for token in (
+            "revenue_unreacted_range_pdf_adapter_enabled(inputs)",
+            "return True",
+        ):
+            if token not in revenue_branch:
+                errors.append(
+                    f"revenue operation-table classification permits generic fallback: {token}"
+                )
 
     artifact_validator = functions.get("validate_revenue_unreacted_range_operation_artifact")
     if artifact_validator:
@@ -163,6 +306,18 @@ def validate_renderer(path: Path = DEFAULT_RENDERER) -> list[str]:
             if token in function_source:
                 errors.append(
                     f"{function_name} contains forbidden fallback dependency: {token}"
+                )
+
+    operation_frame = functions.get("revenue_unreacted_range_operation_frame")
+    if operation_frame:
+        operation_frame_source = _segment(source, operation_frame)
+        for token in (
+            "if not revenue_unreacted_range_pdf_adapter_enabled(inputs):",
+            "legacy generic fallback is forbidden",
+        ):
+            if token not in operation_frame_source:
+                errors.append(
+                    f"disabled dedicated revenue operation frame is not rejected: {token}"
                 )
 
     selector = functions.get("selected_revenue_unreacted_range_operation_rows_for_pdf")
@@ -216,6 +371,11 @@ def validate_renderer(path: Path = DEFAULT_RENDERER) -> list[str]:
         ):
             if token not in dispatcher_source:
                 errors.append(f"operation renderer dispatcher missing revenue token: {token}")
+        revenue_branch = dispatcher_source.split(
+            "if model_id == REVENUE_UNREACTED_RANGE_MODEL_ID:", 1
+        )[-1].split("if model_id in VOLUME_BREAKOUT_OPERATION_MODEL_IDS:", 1)[0]
+        if "return False" in revenue_branch:
+            errors.append("operation renderer dispatcher still permits dormant revenue fallback")
 
     manifest_writer = functions.get("write_pdf_semantic_manifest")
     if manifest_writer and "operation_rendered_sections_for_inputs(inputs)" not in _segment(source, manifest_writer):
@@ -225,6 +385,23 @@ def validate_renderer(path: Path = DEFAULT_RENDERER) -> list[str]:
         selector_source = _segment(source, manifest_selector)
         if "selected_revenue_unreacted_range_operation_rows_for_pdf" not in selector_source:
             errors.append("semantic manifest selector does not use the dedicated revenue adapter")
+        revenue_branch = selector_source.split(
+            "if model_id == REVENUE_UNREACTED_RANGE_MODEL_ID:", 1
+        )[-1].split("if model_id in VOLUME_BREAKOUT_OPERATION_MODEL_IDS:", 1)[0]
+        for token in (
+            "if not revenue_unreacted_range_pdf_adapter_enabled(inputs):",
+            "return pd.DataFrame()",
+        ):
+            if token not in revenue_branch:
+                errors.append(
+                    f"semantic manifest selector does not suppress unavailable revenue: {token}"
+                )
+
+    rendered_sections = functions.get("operation_rendered_sections_for_inputs")
+    if rendered_sections:
+        rendered_source = _segment(source, rendered_sections)
+        if "if revenue_unreacted_range_pdf_adapter_enabled(inputs)" not in rendered_source:
+            errors.append("semantic manifest sections include unavailable revenue unconditionally")
 
     required_text_validator = functions.get("required_stock_model_text_missing")
     if required_text_validator and "model_uses_operation_pdf_table(inputs, model_id)" not in _segment(
@@ -238,7 +415,7 @@ def validate_renderer(path: Path = DEFAULT_RENDERER) -> list[str]:
         node = _assigned_node(tree, container_name)
         if node and "REVENUE_UNREACTED_RANGE_MODEL_ID" in _segment(source, node):
             errors.append(
-                f"{container_name} enables revenue unconditionally instead of remaining dormant"
+                f"{container_name} bypasses the exact revenue v2 readiness and artifact gate"
             )
 
     for token, label in (

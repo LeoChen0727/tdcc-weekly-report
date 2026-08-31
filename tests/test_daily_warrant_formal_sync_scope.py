@@ -96,7 +96,7 @@ def _signal_rows() -> list[dict[str, str]]:
             "report_line": "mainstream",
             "source_row_index": "1",
             "stock_id": "2330",
-            "model_id": "revenue_unreacted_range",
+            "model_id": "hot_theme_pullback",
             "model_score": "87",
             "model_rank": "1",
             "warrant_flow_signal": "call_inflow",
@@ -422,7 +422,13 @@ def test_mutable_scope_matches_nonzero_warrant_score_profiles() -> None:
         for model_id, profile in MODEL_SCORE_PROFILES.items()
         if profile.warrant_bullish_bonus != 0
     }
-    assert ALLOWED_MUTABLE_MODEL_IDS == nonzero_profiles
+    # The legacy revenue score profile is immutable evidence only.  Its
+    # historical warrant bonus must not make the retired generic model a
+    # current mutable warrant-sync consumer.
+    legacy_retired_profiles = {"revenue_unreacted_range"}
+    assert MODEL_SCORE_PROFILES["revenue_unreacted_range"].warrant_bullish_bonus == 3
+    assert ALLOWED_MUTABLE_MODEL_IDS == nonzero_profiles - legacy_retired_profiles
+    assert legacy_retired_profiles.isdisjoint(ALLOWED_MUTABLE_MODEL_IDS)
     assert WARRANT_FORMAL_SYNC_ALLOWED_MODEL_IDS == ALLOWED_MUTABLE_MODEL_IDS
     assert WARRANT_FORMAL_SYNC_REGISTERED_MODEL_IDS == (
         WARRANT_FORMAL_SYNC_ALLOWED_MODEL_IDS
@@ -499,7 +505,7 @@ def test_scope_allows_only_warrant_affected_model_changes(tmp_path: Path) -> Non
 
     after_rows = _signal_rows()
     after_rows[0]["warrant_flow_signal"] = "no_signal"
-    after_rows[0]["model_score"] = "84"
+    after_rows[0]["model_score"] = "82"
     _write_artifacts(tmp_path, after_rows)
     after, errors = build_scope_snapshot(tmp_path)
 
@@ -1118,7 +1124,7 @@ def test_projection_rejects_wrong_warrant_bonus_marker(tmp_path: Path) -> None:
         reader = csv.DictReader(handle)
         columns = list(reader.fieldnames or [])
         rows = list(reader)
-    rows[0]["score_components"] = "warrant bullish +5"
+    rows[0]["score_components"] = "warrant bullish +3"
     _write_csv(raw_path, columns, rows)
 
     errors, _ = validate_current_projection(tmp_path)
@@ -1134,8 +1140,8 @@ def test_projection_rejects_warrant_bonus_parameter_drift(tmp_path: Path) -> Non
         columns = list(reader.fieldnames or [])
         rows = list(reader)
     for row in rows:
-        if row["model_id"] == "revenue_unreacted_range":
-            row["warrant_bullish_bonus"] = "4"
+        if row["model_id"] == "hot_theme_pullback":
+            row["warrant_bullish_bonus"] = "6"
     _write_csv(parameter_path, columns, rows)
 
     errors, _ = validate_current_projection(tmp_path)

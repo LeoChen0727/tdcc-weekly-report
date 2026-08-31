@@ -16,6 +16,24 @@ def test_current_repo_protected_field_contract_passes() -> None:
     assert validator.validate() == []
 
 
+def test_revenue_adapter_is_exactly_registered_as_a_mature_protected_model() -> None:
+    _, rows = validator._read_contract()
+    revenue_rows = [
+        row for row in rows if row["model_id"] == "revenue_unreacted_range"
+    ]
+    assert {row["lifecycle_state"] for row in revenue_rows} == {
+        "pending",
+        "confirmed",
+        "active",
+        "empty",
+    }
+    assert {
+        row["artifact_path"] for row in revenue_rows
+    } == {
+        "output/latest/daily_revenue_unreacted_range_operation_section_latest.csv"
+    }
+
+
 def test_ast_guard_rejects_duplicate_protected_global(tmp_path: Path) -> None:
     source = tmp_path / "producer.py"
     source.write_text("SECTION_ZH = {}\nSECTION_ZH = {}\n", encoding="utf-8")

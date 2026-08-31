@@ -134,6 +134,7 @@ CORE_AI_BUCKETS = {
 
 BULLISH_WARRANT = {"call_inflow", "call_strong_inflow", "call_put_bullish"}
 POSITIVE_TDCC = {"strong_accumulation", "mild_accumulation"}
+REVENUE_UNREACTED_RANGE_MODEL_ID = "revenue_unreacted_range"
 LEGACY_VOLUME_RANGE_BREAKOUT_MODEL_ID = "volume_range_breakout"
 VOLUME_BREAKOUT_V2_LOW_MODEL_ID = "volume_range_breakout_v2_low_position_volume_attack"
 VOLUME_BREAKOUT_V2_MID_MODEL_ID = "volume_range_breakout_v2_mid_position_momentum_attack"
@@ -685,7 +686,6 @@ WARRANT_FORMAL_SYNC_ALLOWED_MODEL_IDS = frozenset(
         "hot_theme_pullback",
         "neckline_volume_breakout_confirmation",
         "pullback_short_reclaim",
-        "revenue_unreacted_range",
         "tdcc_stealth_accumulation",
         "volume_range_breakout_v2_low_position_volume_attack",
         "volume_range_breakout_v2_mid_position_momentum_attack",
@@ -715,7 +715,6 @@ CROSS_MODEL_RUNTIME_SUBGRAPH_CONSUMERS = {
         "neckline_volume_breakout_confirmation",
         "price_pullback_23ema",
         "pullback_short_reclaim",
-        "revenue_unreacted_range",
         "tdcc_short_term_continuation_d5_d10",
         "tdcc_stealth_accumulation",
         "volume_range_breakout_v2_high_position_volume_attack",
@@ -728,7 +727,6 @@ CROSS_MODEL_RUNTIME_SUBGRAPH_CONSUMERS = {
         "neckline_volume_breakout_confirmation",
         "price_pullback_23ema",
         "pullback_short_reclaim",
-        "revenue_unreacted_range",
         "tdcc_short_term_continuation_d5_d10",
         "tdcc_stealth_accumulation",
         "volume_range_breakout_v2_high_position_volume_attack",
@@ -741,7 +739,6 @@ CROSS_MODEL_RUNTIME_SUBGRAPH_CONSUMERS = {
         "neckline_volume_breakout_confirmation",
         "price_pullback_23ema",
         "pullback_short_reclaim",
-        "revenue_unreacted_range",
         "tdcc_short_term_continuation_d5_d10",
         "tdcc_stealth_accumulation",
         "volume_range_breakout_v2_high_position_volume_attack",
@@ -754,7 +751,6 @@ CROSS_MODEL_RUNTIME_SUBGRAPH_CONSUMERS = {
         "neckline_volume_breakout_confirmation",
         "price_pullback_23ema",
         "pullback_short_reclaim",
-        "revenue_unreacted_range",
         "tdcc_short_term_continuation_d5_d10",
         "tdcc_stealth_accumulation",
         "volume_range_breakout_v2_high_position_volume_attack",
@@ -3468,6 +3464,42 @@ def build_parameter_table(specs: list[ModelSpec]) -> pd.DataFrame:
                     "score_profile_scope": "not_applicable",
                 }
             )
+        if spec.model_id == REVENUE_UNREACTED_RANGE_MODEL_ID:
+            row.update(
+                {
+                    "entry_basis": "confirmation_d2_open",
+                    "main_conditions": (
+                        "凍結 source_mid_falling v2：月營收來源必須 PIT-ready，且當月年增率>=30%、"
+                        "累計年增率>=20%或連續兩個曆月當月年增率均>=15%；source position 固定為"
+                        "40<position_pct<=75，anchor close 相對20個交易日前 close<-5%，EMA23 五日斜率<0%，"
+                        "並在 anchor 後0至60個交易日由未突破轉為收盤突破前20日最高 close，且 MA60>MA120。"
+                    ),
+                    "add_score_items": "無；固定規則不設 add-score、deduct-score、額外篩選或重新排序。",
+                    "forbidden_veto": (
+                        "EPS、毛利率、營益率、營業利益、業外損益、淨利及季度／年度財報欄位一律不納入；"
+                        "不得使用 legacy generic signal、盤中 high/low 或 forward holdout 結果調參。"
+                    ),
+                    "operation_guidance": (
+                        "D0 收盤觸發、D+1 收盤確認、D+2 開盤進場、D30 收盤出場；不設 stop。"
+                        "forward_holdout_v2 僅作上線後監測，不是上線前 hard gate。"
+                    ),
+                    "score_profile_id": "revenue_unreacted_range_source_mid_falling_v2_frozen_no_score",
+                    "base_score": "",
+                    "volume_ratio_bonus_per_1x": "",
+                    "volume_ratio_bonus_cap": "",
+                    "tdcc_positive_bonus": "",
+                    "warrant_bullish_bonus": "",
+                    "strong_revenue_bonus": "",
+                    "lower_position_bonus": "",
+                    "lower_position_max_off_60d_low_pct": "",
+                    "high_return_penalty_threshold_20d": "",
+                    "high_return_penalty": "",
+                    "tdcc_distribution_penalty": "",
+                    "false_breakout_penalty": "",
+                    "score_profile_scope": "not_applicable_dedicated_operation_adapter",
+                    "parameter_status": "contract_prepared_permissions_false",
+                }
+            )
         rows.append(row)
     rows.extend(
         [
@@ -4013,6 +4045,11 @@ def build_signals(candidates: pd.DataFrame, specs: list[ModelSpec], signal_date:
         if not stock_id:
             continue
         for spec in specs:
+            if spec.model_id == REVENUE_UNREACTED_RANGE_MODEL_ID:
+                # Legacy v1 condition/score remain immutable evidence only.  The
+                # source_mid_falling v2 model is produced exclusively by its
+                # model-owned formal operation adapter.
+                continue
             if not spec.condition_func(row):
                 continue
             raw_score, comps, risks = spec.score_func(row)
@@ -7352,6 +7389,10 @@ def main() -> int:
             if col not in params.columns:
                 params[col] = ""
             params[col] = params[col].fillna("")
+        params.loc[
+            params["model_id"].eq(REVENUE_UNREACTED_RANGE_MODEL_ID),
+            RECOMMENDATION_COLUMNS,
+        ] = ""
     write_csv(params, PARAMETERS_CSV)
     write_md_table(
         PARAMETERS_MD,

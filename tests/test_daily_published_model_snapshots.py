@@ -219,6 +219,33 @@ def write_minimal_latest_artifacts(latest_dir: Path, report_date: str = "2026061
                 }
             ],
         )
+    write_csv(
+        latest_dir / "daily_revenue_unreacted_range_operation_section_latest.csv",
+        [
+            {
+                "model_id": "revenue_unreacted_range",
+                "operation_module_id": (
+                    "revenue_unreacted_range_source_mid_falling_v2_operation_v2"
+                ),
+                "adapter_schema_version": (
+                    "revenue_unreacted_range_operation_section_schema_v2"
+                ),
+                "lifecycle_contract_version": "revenue_unreacted_range_lifecycle_v2",
+                "formal_signal_effective_from": "20260831",
+                "pdf_view": "highlight",
+                "pdf_section": "confirmed_operation",
+                "row_type": "empty_state",
+                "buy_rank_eligible": "False",
+                "row_action_status": "empty_state",
+                "operation_asof_date": report_date,
+                "entry_rule_id": "d2_analysis_open",
+                "stop_loss_rule_id": "none_no_stop_reference",
+                "stop_loss_price": "",
+                "exit_rule_id": "d30_analysis_close_offset29",
+                "planned_holding_days": "30",
+            }
+        ],
+    )
 
 
 def test_daily_published_model_snapshot_builder_and_validator_use_report_date(
@@ -245,6 +272,7 @@ def test_daily_published_model_snapshot_builder_and_validator_use_report_date(
         "model_signals_for_report",
         "model_summary_for_report",
         "neckline_volume_breakout_confirmation_operation_section",
+        "revenue_unreacted_range_operation_section",
         "volume_breakout_operation_evidence_audit",
         "volume_breakout_operation_section",
         "w_bottom_right_side_operation_section",
@@ -307,6 +335,7 @@ def test_warrant_formal_sync_updates_only_selected_snapshot_families(
         "volume_breakout_operation_evidence_audit",
         "w_bottom_right_side_operation_section",
         "neckline_volume_breakout_confirmation_operation_section",
+        "revenue_unreacted_range_operation_section",
     }
     write_minimal_latest_artifacts(latest_dir, report_date=report_date)
     initial_manifest = update_snapshots.build_daily_published_model_snapshots(
@@ -1805,3 +1834,27 @@ def test_model_signal_snapshot_contract_keeps_volume_v2_score_columns_required()
     }
     artifact = update_snapshots.ARTIFACTS_BY_ID["model_signals_for_report"]
     assert expected <= set(artifact.required_columns)
+
+
+def test_revenue_operation_snapshot_contract_is_exactly_registered() -> None:
+    artifact = update_snapshots.ARTIFACTS_BY_ID[
+        "revenue_unreacted_range_operation_section"
+    ]
+    assert artifact.source_name == (
+        "daily_revenue_unreacted_range_operation_section_latest.csv"
+    )
+    assert artifact.snapshot_stem == (
+        "daily_revenue_unreacted_range_operation_section"
+    )
+    assert artifact.date_columns == ("operation_asof_date",)
+    assert {
+        "operation_module_id",
+        "adapter_schema_version",
+        "lifecycle_contract_version",
+        "formal_signal_effective_from",
+        "pdf_view",
+        "pdf_section",
+        "row_type",
+        "buy_rank_eligible",
+        "operation_asof_date",
+    } <= set(artifact.required_columns)

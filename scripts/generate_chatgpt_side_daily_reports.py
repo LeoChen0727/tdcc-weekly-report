@@ -571,9 +571,10 @@ def render_operation_model_summary_if_applicable(
     model_id: str,
 ) -> bool:
     if model_id == REVENUE_UNREACTED_RANGE_MODEL_ID:
-        if not revenue_unreacted_range_pdf_adapter_enabled(inputs):
-            return False
-        append_stock_model_summary_lines(story, operation_model_summary_lines(inputs, model_id))
+        if revenue_unreacted_range_pdf_adapter_enabled(inputs):
+            append_stock_model_summary_lines(
+                story, operation_model_summary_lines(inputs, model_id)
+            )
         return True
     if model_id not in OPERATION_TABLE_MODEL_IDS:
         return False
@@ -586,7 +587,8 @@ def model_uses_operation_pdf_table(
     model_id: str,
 ) -> bool:
     if model_id == REVENUE_UNREACTED_RANGE_MODEL_ID:
-        return revenue_unreacted_range_pdf_adapter_enabled(inputs)
+        revenue_unreacted_range_pdf_adapter_enabled(inputs)
+        return True
     return model_id in OPERATION_TABLE_MODEL_IDS
 
 
@@ -2245,7 +2247,7 @@ def plot_put_call_chart() -> Path | None:
 
 
 def load_inputs() -> dict[str, pd.DataFrame]:
-    return {
+    inputs = {
         "two_line": read_latest_csv("daily_candidate_two_line_view_latest.csv"),
         "all": read_latest_csv("all_candidates_latest.csv"),
         "model_registry": read_latest_csv("daily_report_model_registry_latest.csv"),
@@ -2277,6 +2279,9 @@ def load_inputs() -> dict[str, pd.DataFrame]:
         "tdcc_edge": read_latest_csv("tdcc_overheated_short_term_edge_candidates_latest.csv"),
         "weekly_surge": read_latest_csv("weekly_surge_strict_parameter_candidates_latest.csv"),
     }
+    revenue_unreacted_range_pdf_adapter_enabled(inputs)
+    inputs["model_signals"] = revenue_unreacted_range_generic_signal_rows_removed(inputs)
+    return inputs
 
 
 
@@ -2308,11 +2313,10 @@ def model_pdf_presentation_order(
     model_id: str,
     fallback_order: float,
 ) -> float:
-    if (
-        model_id == REVENUE_UNREACTED_RANGE_MODEL_ID
-        and revenue_unreacted_range_pdf_adapter_enabled(inputs)
-    ):
-        return REVENUE_UNREACTED_RANGE_PDF_PRESENTATION_ORDER
+    if model_id == REVENUE_UNREACTED_RANGE_MODEL_ID:
+        if revenue_unreacted_range_pdf_adapter_enabled(inputs):
+            return REVENUE_UNREACTED_RANGE_PDF_PRESENTATION_ORDER
+        return fallback_order
     return PDF_PRESENTATION_MODEL_ORDER_OVERRIDES.get(model_id, fallback_order)
 
 
@@ -2320,7 +2324,7 @@ def core_model_specs(inputs: dict[str, pd.DataFrame], line: str | None = None) -
     registry = inputs.get("model_registry", pd.DataFrame()).copy()
     params = inputs.get("model_parameters", pd.DataFrame()).copy()
     if registry.empty:
-        signals = inputs.get("model_signals", pd.DataFrame()).copy()
+        signals = revenue_unreacted_range_generic_signal_rows_removed(inputs)
         if signals.empty:
             return []
         cols = ["model_id", "model_name_zh"]
@@ -2349,6 +2353,14 @@ def core_model_specs(inputs: dict[str, pd.DataFrame], line: str | None = None) -
     )
     if "pdf_visibility" in registry.columns or "presentation_allowed" in registry.columns:
         registry = registry[visibility_mask | presentation_mask].copy()
+    if "model_id" in registry.columns:
+        revenue_mask = registry["model_id"].astype(str).eq(
+            REVENUE_UNREACTED_RANGE_MODEL_ID
+        )
+        if revenue_mask.any() and not revenue_unreacted_range_pdf_adapter_enabled(
+            inputs
+        ):
+            registry = registry.loc[~revenue_mask].copy()
     if registry.empty:
         return []
     registry["_order"] = pd.to_numeric(registry.get("model_registry_order"), errors="coerce").fillna(9999)
@@ -2365,7 +2377,7 @@ def core_model_specs(inputs: dict[str, pd.DataFrame], line: str | None = None) -
 
 
 def model_signal_rows(inputs: dict[str, pd.DataFrame], model_id: str, line: str | None = None) -> list[pd.Series]:
-    signals = inputs.get("model_signals", pd.DataFrame()).copy()
+    signals = revenue_unreacted_range_generic_signal_rows_removed(inputs)
     if signals.empty or "model_id" not in signals.columns:
         return []
     sub = signals[signals["model_id"].astype(str).eq(model_id)].copy()
@@ -2400,7 +2412,7 @@ def non_mainstream_full_core_model_specs(inputs: dict[str, pd.DataFrame]) -> lis
 
 
 def mainstream_curated_model_signal_rows(inputs: dict[str, pd.DataFrame], model_id: str) -> list[pd.Series]:
-    signals = inputs.get("model_signals", pd.DataFrame()).copy()
+    signals = revenue_unreacted_range_generic_signal_rows_removed(inputs)
     if signals.empty or "model_id" not in signals.columns:
         return []
     sub = signals[signals["model_id"].astype(str).eq(model_id)].copy()
@@ -2418,7 +2430,7 @@ def mainstream_curated_model_signal_rows(inputs: dict[str, pd.DataFrame], model_
 
 
 def mainstream_full_model_signal_rows(inputs: dict[str, pd.DataFrame], model_id: str) -> list[pd.Series]:
-    signals = inputs.get("model_signals", pd.DataFrame()).copy()
+    signals = revenue_unreacted_range_generic_signal_rows_removed(inputs)
     if signals.empty or "model_id" not in signals.columns:
         return []
     sub = signals[signals["model_id"].astype(str).eq(model_id)].copy()
@@ -2436,7 +2448,7 @@ def mainstream_full_model_signal_rows(inputs: dict[str, pd.DataFrame], model_id:
 
 
 def non_mainstream_curated_model_signal_rows(inputs: dict[str, pd.DataFrame], model_id: str) -> list[pd.Series]:
-    signals = inputs.get("model_signals", pd.DataFrame()).copy()
+    signals = revenue_unreacted_range_generic_signal_rows_removed(inputs)
     if signals.empty or "model_id" not in signals.columns:
         return []
     sub = signals[signals["model_id"].astype(str).eq(model_id)].copy()
@@ -2454,7 +2466,7 @@ def non_mainstream_curated_model_signal_rows(inputs: dict[str, pd.DataFrame], mo
 
 
 def non_mainstream_full_model_signal_rows(inputs: dict[str, pd.DataFrame], model_id: str) -> list[pd.Series]:
-    signals = inputs.get("model_signals", pd.DataFrame()).copy()
+    signals = revenue_unreacted_range_generic_signal_rows_removed(inputs)
     if signals.empty or "model_id" not in signals.columns:
         return []
     sub = signals[signals["model_id"].astype(str).eq(model_id)].copy()
@@ -2496,14 +2508,31 @@ def revenue_unreacted_range_readiness_row(
 def revenue_unreacted_range_pdf_adapter_enabled(
     inputs: dict[str, pd.DataFrame],
 ) -> bool:
-    """Return False only for the complete dormant state; reject partial activation."""
+    """Enable only exact v2; unavailable states suppress revenue with no fallback."""
 
     row = revenue_unreacted_range_readiness_row(inputs)
     if row is None:
         return False
+    required_permissions = (
+        "formal_model_use_allowed",
+        "approved_for_daily",
+        "presentation_allowed",
+        "production_allowed",
+    )
+    permission_values = {
+        field: is_true_text(row.get(field)) for field in required_permissions
+    }
     presentation_allowed = is_true_text(row.get("presentation_allowed"))
     pdf_integrated = clean(row.get("pdf_integration_status")) == "pdf_integrated_daily_adapter"
     if not presentation_allowed and not pdf_integrated:
+        enabled_permissions = [
+            field for field, enabled in permission_values.items() if enabled
+        ]
+        if enabled_permissions:
+            raise RuntimeError(
+                "revenue_unreacted_range dormant PDF readiness permission mismatch: "
+                + ",".join(enabled_permissions)
+            )
         return False
     if presentation_allowed != pdf_integrated:
         raise RuntimeError(
@@ -2511,14 +2540,8 @@ def revenue_unreacted_range_pdf_adapter_enabled(
             "presentation_allowed=True and pdf_integrated_daily_adapter must become true together"
         )
 
-    required_permissions = (
-        "formal_model_use_allowed",
-        "approved_for_daily",
-        "presentation_allowed",
-        "production_allowed",
-    )
     disabled_permissions = [
-        field for field in required_permissions if not is_true_text(row.get(field))
+        field for field, enabled in permission_values.items() if not enabled
     ]
     if disabled_permissions:
         raise RuntimeError(
@@ -2537,13 +2560,31 @@ def revenue_unreacted_range_pdf_adapter_enabled(
         )
         if token.strip()
     }
-    missing_sections = set(REVENUE_UNREACTED_RANGE_OPERATION_SECTIONS) - section_tokens
-    if missing_sections:
+    expected_sections = set(REVENUE_UNREACTED_RANGE_OPERATION_SECTIONS)
+    if section_tokens != expected_sections:
         raise RuntimeError(
-            "revenue_unreacted_range PDF readiness sections missing: "
-            + ",".join(sorted(missing_sections))
+            "revenue_unreacted_range PDF readiness sections mismatch: "
+            f"expected={','.join(sorted(expected_sections))}; "
+            f"observed={','.join(sorted(section_tokens))}"
         )
+    validate_revenue_unreacted_range_operation_artifact(
+        inputs.get(REVENUE_UNREACTED_RANGE_OPERATION_INPUT_KEY, pd.DataFrame()).copy()
+    )
     return True
+
+
+def revenue_unreacted_range_generic_signal_rows_removed(
+    inputs: dict[str, pd.DataFrame],
+) -> pd.DataFrame:
+    """Remove legacy generic revenue rows before any generic PDF consumer sees them."""
+
+    signals = inputs.get("model_signals", pd.DataFrame()).copy()
+    if signals.empty or "model_id" not in signals.columns:
+        return signals
+    revenue_mask = signals["model_id"].astype(str).eq(
+        REVENUE_UNREACTED_RANGE_MODEL_ID
+    )
+    return signals.loc[~revenue_mask].copy()
 
 
 def validate_revenue_unreacted_range_operation_artifact(
@@ -2663,7 +2704,8 @@ def revenue_unreacted_range_operation_frame(
 ) -> pd.DataFrame:
     if not revenue_unreacted_range_pdf_adapter_enabled(inputs):
         raise RuntimeError(
-            "revenue_unreacted_range dedicated PDF operation adapter is dormant"
+            "revenue_unreacted_range dedicated PDF operation adapter is disabled; "
+            "legacy generic fallback is forbidden"
         )
     frame = inputs.get(
         REVENUE_UNREACTED_RANGE_OPERATION_INPUT_KEY, pd.DataFrame()
@@ -2978,7 +3020,7 @@ def report_lines_for_stock_from_frame(frame: pd.DataFrame, stock_id: str) -> set
 def volume_operation_report_lines_for_stock(inputs: dict[str, pd.DataFrame], stock_id: str) -> set[str]:
     lines: set[str] = set()
     sources = [
-        inputs.get("model_signals", pd.DataFrame()),
+        revenue_unreacted_range_generic_signal_rows_removed(inputs),
         inputs.get("two_line", pd.DataFrame()),
         inputs.get("all", pd.DataFrame()),
         inputs.get("stock_theme_taxonomy", pd.DataFrame()),
@@ -4070,11 +4112,10 @@ def render_model_operation_section_if_applicable(
     line: str | None = None,
 ) -> bool:
     if model_id == REVENUE_UNREACTED_RANGE_MODEL_ID:
-        if not revenue_unreacted_range_pdf_adapter_enabled(inputs):
-            return False
-        render_revenue_unreacted_range_operation_section(
-            story, inputs, pdf_view, line
-        )
+        if revenue_unreacted_range_pdf_adapter_enabled(inputs):
+            render_revenue_unreacted_range_operation_section(
+                story, inputs, pdf_view, line
+            )
         return True
     if model_id in VOLUME_BREAKOUT_OPERATION_MODEL_IDS:
         render_volume_range_breakout_operation_section(story, inputs, model_id, pdf_view, line)
@@ -4089,7 +4130,7 @@ def render_model_operation_section_if_applicable(
 
 
 def model_signal_rows_for_stock(inputs: dict[str, pd.DataFrame], stock_id: str, line: str | None = None) -> list[pd.Series]:
-    signals = inputs.get("model_signals", pd.DataFrame()).copy()
+    signals = revenue_unreacted_range_generic_signal_rows_removed(inputs)
     if signals.empty or "stock_id" not in signals.columns:
         return []
     sub = signals[signals["stock_id"].astype(str).str.replace(r"\.0$", "", regex=True).eq(stock_id_text(stock_id))].copy()
@@ -5316,7 +5357,7 @@ def build_mainstream_full_candidate_pdf(
     line = "mainstream"
     title = MAINSTREAM_FULL_TITLE
     line_label = MAINSTREAM_LINE_LABEL
-    model_signals = inputs.get("model_signals", pd.DataFrame()).copy()
+    model_signals = revenue_unreacted_range_generic_signal_rows_removed(inputs)
     story: list = [
         Paragraph(f"{DATA_DATE_SLASH} {title}", TITLE),
         date_note(),
@@ -5436,7 +5477,7 @@ def build_non_mainstream_full_candidate_pdf(
     line = "non_mainstream"
     title = NON_MAINSTREAM_FULL_TITLE
     line_label = NON_MAINSTREAM_LINE_LABEL
-    model_signals = inputs.get("model_signals", pd.DataFrame()).copy()
+    model_signals = revenue_unreacted_range_generic_signal_rows_removed(inputs)
     story: list = [
         Paragraph(f"{DATA_DATE_SLASH} {title}", TITLE),
         date_note(),
@@ -5556,7 +5597,7 @@ def build_warrant_market_auxiliary_pdf(inputs: dict[str, pd.DataFrame]) -> Path:
         warrant = pd.DataFrame()
     elif not warrant.empty and "stock_id" in warrant.columns:
         warrant = warrant[warrant["stock_id"].astype(str).str.strip().str.match(r"^[0-9]{4}$", na=False)].copy()
-    model_signals = inputs.get("model_signals", pd.DataFrame()).copy()
+    model_signals = revenue_unreacted_range_generic_signal_rows_removed(inputs)
     story: list = [
         Paragraph(f"{DATA_DATE_SLASH} 權證市場輔助分析", TITLE),
         date_note(),
