@@ -28,6 +28,12 @@ W_BOTTOM_OPERATION_ARTIFACTS = {
         ROOT / "output/latest/daily_neckline_volume_breakout_confirmation_operation_section_latest.csv"
     ),
 }
+REVENUE_UNREACTED_RANGE_MODEL_ID = "revenue_unreacted_range"
+REVENUE_OPERATION_ARTIFACTS = {
+    REVENUE_UNREACTED_RANGE_MODEL_ID: (
+        ROOT / "output/latest/daily_revenue_unreacted_range_operation_section_latest.csv"
+    ),
+}
 VOLUME_BREAKOUT_V2_MODEL_IDS = (
     "volume_range_breakout_v2_low_position_volume_attack",
     "volume_range_breakout_v2_mid_position_momentum_attack",
@@ -54,6 +60,7 @@ PDF_OPERATION_ADAPTER_ARTIFACTS = {
         for model_id in VOLUME_BREAKOUT_V2_MODEL_IDS
     },
     **W_BOTTOM_OPERATION_ARTIFACTS,
+    **REVENUE_OPERATION_ARTIFACTS,
     "price_pullback_23ema": ROOT / "output/latest/daily_price_pullback_23ema_operation_section_latest.csv",
 }
 PDF_OPERATION_RENDERER_TOKENS = {
@@ -86,6 +93,11 @@ PDF_OPERATION_RENDERER_TOKENS = {
         "PRICE_PULLBACK_MODEL_ID",
         "daily_price_pullback_23ema_operation_section_latest.csv",
         "render_price_pullback_operation_section",
+    ),
+    REVENUE_UNREACTED_RANGE_MODEL_ID: (
+        "REVENUE_UNREACTED_RANGE_MODEL_ID",
+        "daily_revenue_unreacted_range_operation_section_latest.csv",
+        "render_revenue_unreacted_range_operation_section",
     ),
 }
 W_BOTTOM_OPERATION_REQUIRED_COLUMNS = {
@@ -136,6 +148,55 @@ PRICE_PULLBACK_OPERATION_REQUIRED_COLUMNS = {
     "rank_reason_zh",
     "risk_tags_zh",
 } | OPERATION_ROW_METRIC_REQUIRED_COLUMNS
+REVENUE_OPERATION_REQUIRED_COLUMNS = {
+    "model_id",
+    "model_name_zh",
+    "model_variant_id",
+    "model_variant_version",
+    "operation_module_id",
+    "adapter_schema_version",
+    "lifecycle_contract_version",
+    "approval_status",
+    "pdf_view",
+    "pdf_section",
+    "row_type",
+    "empty_text_zh",
+    "display_order",
+    "operation_asof_date",
+    "report_line",
+    "report_line_memberships",
+    "operation_status",
+    "operation_status_zh",
+    "operation_quality",
+    "operation_quality_zh",
+    "row_action_status",
+    "buy_rank_eligible",
+    "stock_id",
+    "stock_display",
+    "rank_reason_zh",
+    "risk_tags_zh",
+    "formal_model_use_allowed",
+    "approved_for_daily",
+    "presentation_allowed",
+    "production_allowed",
+    "signal_date",
+    "confirmation_date",
+    "entry_date",
+    "entry_price",
+    "entry_basis_zh",
+    "stop_loss_rule_id",
+    "stop_loss_label_zh",
+    "stop_basis_zh",
+    "exit_date",
+    "exit_price",
+    "exit_rule_zh",
+    "entry_rule_id",
+    "exit_rule_id",
+    "planned_holding_days",
+    "financial_statement_scope",
+    "source_artifacts",
+    "row_canonical_sha256",
+} | OPERATION_ROW_METRIC_REQUIRED_COLUMNS
 VOLUME_OPERATION_REQUIRED_COLUMNS = {
     "model_id",
     "pdf_view",
@@ -162,6 +223,13 @@ PDF_OPERATION_REQUIRED_COLUMNS_BY_MODEL = {
     "w_bottom_right_side": W_BOTTOM_OPERATION_REQUIRED_COLUMNS,
     "neckline_volume_breakout_confirmation": W_BOTTOM_OPERATION_REQUIRED_COLUMNS,
     "price_pullback_23ema": PRICE_PULLBACK_OPERATION_REQUIRED_COLUMNS,
+    REVENUE_UNREACTED_RANGE_MODEL_ID: REVENUE_OPERATION_REQUIRED_COLUMNS,
+}
+REVENUE_OPERATION_REQUIRED_SECTIONS = {
+    "confirmed_operation",
+    "confirmed_unranked_operation",
+    "pending_confirmation",
+    "active_operation",
 }
 PDF_OPERATION_ALLOWED_SECTIONS_BY_MODEL = {
     **{
@@ -176,6 +244,16 @@ PDF_OPERATION_ALLOWED_SECTIONS_BY_MODEL = {
     "w_bottom_right_side": PDF_OPERATION_REQUIRED_SECTIONS,
     "neckline_volume_breakout_confirmation": PDF_OPERATION_REQUIRED_SECTIONS,
     "price_pullback_23ema": PDF_OPERATION_REQUIRED_SECTIONS,
+    REVENUE_UNREACTED_RANGE_MODEL_ID: REVENUE_OPERATION_REQUIRED_SECTIONS,
+}
+PDF_OPERATION_REQUIRED_SECTIONS_BY_MODEL = {
+    REVENUE_UNREACTED_RANGE_MODEL_ID: REVENUE_OPERATION_REQUIRED_SECTIONS,
+}
+PDF_OPERATION_REQUIRED_VIEW_SECTIONS_BY_MODEL = {
+    REVENUE_UNREACTED_RANGE_MODEL_ID: {
+        "highlight": {"confirmed_operation", "active_operation"},
+        "full": REVENUE_OPERATION_REQUIRED_SECTIONS,
+    },
 }
 
 
@@ -240,7 +318,6 @@ FORBIDDEN_RESEARCH_RECOMMENDATION_COLUMNS = {
 }
 
 DISPLAY_MODEL_VISIBILITIES = {"pdf_core_model", "pdf_specialty_section"}
-REVENUE_UNREACTED_RANGE_MODEL_ID = "revenue_unreacted_range"
 REVENUE_PRODUCTION_PERMISSION_FIELDS = (
     "formal_model_use_allowed",
     "approved_for_daily",
@@ -802,13 +879,25 @@ def validate_pdf_integrated_operation_adapter_contract(
                     "PDF-integrated operation model is not consumed from its dedicated adapter by renderer: "
                     f"{model_id} missing " + ";".join(missing_tokens)
                 )
+        required_model_sections = PDF_OPERATION_REQUIRED_SECTIONS_BY_MODEL.get(
+            model_id, PDF_OPERATION_REQUIRED_SECTIONS
+        )
         readiness_sections = split_tokens(ready.get("daily_adapter_sections", ""))
-        missing_readiness_sections = sorted(PDF_OPERATION_REQUIRED_SECTIONS - readiness_sections)
+        missing_readiness_sections = sorted(required_model_sections - readiness_sections)
         if missing_readiness_sections:
             errors.append(
                 f"PDF operation adapter readiness missing required sections for {model_id}: "
                 + ";".join(missing_readiness_sections)
             )
+        if model_id == REVENUE_UNREACTED_RANGE_MODEL_ID:
+            unexpected_readiness_sections = sorted(
+                readiness_sections - REVENUE_OPERATION_REQUIRED_SECTIONS
+            )
+            if unexpected_readiness_sections:
+                errors.append(
+                    f"PDF operation adapter readiness exposes unexpected sections for {model_id}: "
+                    + ";".join(unexpected_readiness_sections)
+                )
         header = set(csv_header(path))
         if not header:
             errors.append(f"missing PDF operation adapter artifact: {rel(path)}")
@@ -871,7 +960,7 @@ def validate_pdf_integrated_operation_adapter_contract(
                 f"PDF operation adapter exposes PDF-forbidden sections for {model_id}: "
                 + ";".join(extra_sections)
             )
-        missing_sections = sorted(PDF_OPERATION_REQUIRED_SECTIONS - sections)
+        missing_sections = sorted(required_model_sections - sections)
         if missing_sections:
             errors.append(
                 f"PDF operation adapter missing required sections for {model_id}: "
@@ -884,8 +973,15 @@ def validate_pdf_integrated_operation_adapter_contract(
                 f"PDF operation adapter missing required pdf_view rows for {model_id}: "
                 + ";".join(missing_views)
             )
+        required_view_sections = PDF_OPERATION_REQUIRED_VIEW_SECTIONS_BY_MODEL.get(
+            model_id,
+            {
+                view: PDF_OPERATION_REQUIRED_SECTIONS
+                for view in PDF_OPERATION_REQUIRED_VIEWS
+            },
+        )
         for view in sorted(PDF_OPERATION_REQUIRED_VIEWS):
-            for section in sorted(PDF_OPERATION_REQUIRED_SECTIONS):
+            for section in sorted(required_view_sections.get(view, set())):
                 if not any(row.get("pdf_view", "") == view and row.get("pdf_section", "") == section for row in rows):
                     errors.append(
                         f"PDF operation adapter missing {view}/{section} row for {model_id}: {rel(path)}"

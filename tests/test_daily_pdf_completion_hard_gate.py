@@ -240,6 +240,11 @@ def test_completion_gate_accepts_semantic_manifest_dedicated_adapter_sources() -
             "output/latest/daily_w_bottom_right_side_operation_section_latest.csv",
             pdf_section="active_operation",
         ),
+        semantic_source_row(
+            "revenue_unreacted_range",
+            "output/latest/daily_revenue_unreacted_range_operation_section_latest.csv",
+            pdf_section="pending_confirmation",
+        ),
     ]
 
     errors = validator.validate_semantic_manifest_adapter_sources(rows)
@@ -354,6 +359,40 @@ def test_completion_gate_uses_volume_v2_display_name_fallback() -> None:
         )
         == "高位階放量攻擊模型"
     )
+    assert (
+        validator.model_display_name(
+            "revenue_unreacted_range",
+            [{"model_name_zh": ""}],
+        )
+        == "營收爆發但股價尚未反應模型"
+    )
+
+
+def test_revenue_regression_contract_hard_gates_both_digest_empty_states() -> None:
+    rows = validator.replay.read_rendered_model_regression_contract(
+        validator.RENDERED_MODEL_REGRESSION_CONTRACT
+    )
+    revenue_rows = [row for row in rows if row.get("model_id") == "revenue_unreacted_range"]
+    wildcard_roles = {
+        row.get("pdf_role")
+        for row in revenue_rows
+        if row.get("report_date") == "*"
+    }
+    assert wildcard_roles == {"mainstream_highlight", "non_mainstream_highlight"}
+    empty_rows = [row for row in revenue_rows if row.get("report_date") == "20260828"]
+    assert {row.get("pdf_role") for row in empty_rows} == {
+        "mainstream_highlight",
+        "non_mainstream_highlight",
+    }
+    for row in empty_rows:
+        tokens = validator.split_tokens(row.get("required_text_tokens", ""))
+        assert {
+            "營收爆發但股價尚未反應模型",
+            "本日可買 / 已確認買入候選",
+            "本日無股票推薦",
+            "操作中",
+            "目前無操作中追蹤列",
+        }.issubset(tokens)
 
 
 def test_completion_gate_accepts_operation_empty_state_tables() -> None:
