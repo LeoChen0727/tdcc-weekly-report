@@ -421,7 +421,7 @@ def test_post_launch_monitoring_dispatches_only_frozen_revenue_v2_inputs() -> No
     assert "ref: main" in text
     assert "uses: actions/setup-python@v6" in text
     assert 'python-version: "3.11"' in text
-    assert "python -m pip install pandas" in text
+    assert "python -m pip install pandas requests" in text
     assert 'Path("output/latest/model_operation_readiness_latest.csv")' in text
     for field in (
         "formal_model_use_allowed",
