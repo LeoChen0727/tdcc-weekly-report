@@ -73,6 +73,12 @@ REVENUE_PREPARED_PERMISSION_ACTION = (
     "keep_v3_dedicated_adapter_prepared_permissions_false_until_authorized_activation"
 )
 REVENUE_ACTIVATED_ACTION = "monitor_forward_holdout_post_launch_without_tuning"
+REVENUE_ACTIVATED_PARITY_COMPLETION_RULE = (
+    "usable_as_exact_production_parity_"
+    "provisional_backtest_supported_oos_unconfirmed_"
+    "post_launch_monitoring_non_hard_no_tuning_no_reselection_"
+    "monthly_revenue_only"
+)
 REVENUE_LEGACY_CONTRACT_STATE = "legacy_v2_proxy"
 REVENUE_PREPARED_CONTRACT_STATE = "v3_dedicated_adapter_permissions_false"
 REVENUE_ACTIVATED_CONTRACT_STATE = "v3_dedicated_adapter_provisional_pdf_approved"
@@ -628,12 +634,24 @@ def classify_row(
     # BEGIN MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
     revenue_binding_blockers: list[str] = []
     if model_id == REVENUE_MODEL_ID:
-        expected_binding = {
-            "research_baseline_status": "proxy_only",
-            "research_baseline_parameter_set_id": REVENUE_LEGACY_PROXY_ID,
-            "parity_blocker": REVENUE_LEGACY_PROXY_BLOCKER,
-            "completion_rule": "usable_for_relative_research_only_until_blocker_resolved",
-        }
+        if revenue_state == REVENUE_ACTIVATED_CONTRACT_STATE:
+            expected_binding = {
+                "research_baseline_status": "production_parity",
+                "research_baseline_parameter_set_id": REVENUE_EVIDENCE_VERSION,
+                "baseline_selected_stock_days": str(REVENUE_EXPECTED_OPERATION_COUNT),
+                "baseline_selected_unique_stocks": str(
+                    REVENUE_EXPECTED_UNIQUE_STOCK_COUNT
+                ),
+                "parity_blocker": "",
+                "completion_rule": REVENUE_ACTIVATED_PARITY_COMPLETION_RULE,
+            }
+        else:
+            expected_binding = {
+                "research_baseline_status": "proxy_only",
+                "research_baseline_parameter_set_id": REVENUE_LEGACY_PROXY_ID,
+                "parity_blocker": REVENUE_LEGACY_PROXY_BLOCKER,
+                "completion_rule": "usable_for_relative_research_only_until_blocker_resolved",
+            }
         for field, expected in expected_binding.items():
             observed = (research_row or {}).get(field, "").strip()
             if observed != expected:

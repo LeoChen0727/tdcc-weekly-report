@@ -406,21 +406,21 @@ jobs:
           python -m pytest \
             tests/test_model_operation_readiness.py::test_revenue_readiness_legacy_shim_delegates_sync_failure_without_writes \
             tests/test_model_operation_readiness.py::test_revenue_readiness_legacy_shim_uses_explicit_repo_root_outside_repo \
-            tests/test_model_operation_readiness.py::test_revenue_readiness_uses_latest_v3_decision_v4_contract_and_model_owned_evidence \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_uses_exact_v6_provisional_activation \
             tests/test_model_operation_readiness.py::test_revenue_readiness_fails_closed_until_v3_decision_v4_contract_is_latest \
             tests/test_model_operation_readiness.py::test_revenue_readiness_missing_model_owned_source_fails_closed \
             tests/test_model_operation_readiness.py::test_revenue_readiness_rejects_malformed_or_production_enabled_contracts \
-            tests/test_model_operation_readiness.py::test_revenue_readiness_requires_all_four_formal_promotion_flags_false \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_requires_all_four_frozen_v5_formal_promotion_flags_false \
             tests/test_model_operation_readiness.py::test_revenue_readiness_rejects_unsafe_latest_promotion_decision_status \
             tests/test_model_operation_readiness.py::test_revenue_readiness_rejects_holdout_version_or_maturity_status_drift \
             tests/test_model_operation_readiness.py::test_revenue_readiness_rejects_unrepaired_verified_data_error_policy \
-            tests/test_model_operation_readiness.py::test_revenue_readiness_validator_rejects_stale_or_permission_enabled_row \
-            tests/test_model_operation_readiness.py::test_revenue_readiness_validator_rejects_missing_or_true_persisted_permission_field \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_validator_rejects_stale_or_permission_disabled_row \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_validator_rejects_missing_or_false_persisted_permission_field \
             tests/test_model_operation_readiness.py::test_revenue_readiness_csv_schema_rejects_missing_existing_permission_column \
             tests/test_model_operation_readiness.py::test_revenue_readiness_csv_rejects_partial_permission_schema \
             tests/test_model_operation_readiness.py::test_revenue_readiness_persisted_permission_columns_accept_explicit_false_and_neutral_legacy \
             tests/test_model_operation_readiness.py::test_revenue_readiness_persisted_permission_columns_reject_noncanonical_source_boolean \
-            tests/test_model_operation_readiness.py::test_revenue_readiness_persisted_permission_columns_reject_missing_or_true_flag \
+            tests/test_model_operation_readiness.py::test_revenue_readiness_persisted_permission_columns_reject_missing_or_partial_true_flag \
             tests/test_model_operation_readiness.py::test_revenue_readiness_persisted_permission_columns_reject_non_revenue_boolean_alias \
             tests/test_model_operation_readiness.py::test_revenue_legacy_builder_has_no_direct_mirror_writer
           python -m pytest \
