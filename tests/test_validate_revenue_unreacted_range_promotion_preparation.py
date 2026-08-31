@@ -1298,7 +1298,12 @@ def test_production_pdf_delegates_to_model_adapter_readiness_and_pdf_validators(
         "daily_revenue_unreacted_range_operation_section_20260828_"
         f"{artifact_sha}.csv"
     )
-    Path("\\\\?\\" + str(history_snapshot.resolve())).write_bytes(artifact_semantic)
+    snapshot_path = (
+        Path("\\\\?\\" + str(history_snapshot.resolve()))
+        if sys.platform == "win32"
+        else history_snapshot
+    )
+    snapshot_path.write_bytes(artifact_semantic)
     monkeypatch.setattr(validator, "ROOT", repo_root)
     monkeypatch.setattr(validator, "FORWARD_HOLDOUT_V2_VALIDATOR", forward_validator)
     monkeypatch.setattr(validator, "DEFAULT_OPERATION_READINESS", readiness)
