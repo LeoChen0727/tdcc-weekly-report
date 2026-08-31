@@ -1,6 +1,6 @@
 # Research Against Stock Model Contract Parity
 
-- generated_at: `2026-08-31 02:38:49 Asia/Taipei`
+- generated_at: `2026-08-31 06:15:50 Asia/Taipei`
 - production_contract_source: `config/stock_model_contract_registry.csv`
 - production_condition_spec: `config/daily_model_condition_spec.csv`
 - research_parity: `output/latest/research_backtest/daily_model_research_parity_latest.csv`
@@ -38,7 +38,7 @@
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | hot_theme_pullback | research:production_current_proxy | True | daily hot-theme labels are not fully backfilled as point-in-time model-layer fields |  |  |  | research_variant_only_do_not_promote_without_explicit_promotion_pr |
 | pullback_short_reclaim | research:production_current_proxy | True | pullback_entry_zone/right_side/ma20_reclaim setup flags are not fully backfilled |  |  |  | research_variant_only_do_not_promote_without_explicit_promotion_pr |
-| revenue_unreacted_range | research:revenue_unreacted_range_source_mid_falling_frozen_rule_launch_evidence_v1_20260830 | True | exact_frozen_evidence_ready_but_daily_model_condition_spec_and_production_permissions_not_promoted | config/approved_operation_evidence/revenue_unreacted_range_source_mid_falling_frozen_rule_launch_evidence_v1_20260830_manifest.csv | provisional_backtest_supported_oos_unconfirmed | evidence_only_no_permission_grant | exact_frozen_evidence_ready_do_not_promote_until_model_contract_sync |
+| revenue_unreacted_range | research:revenue_unreacted_range_source_mid_falling_frozen_rule_launch_evidence_v1_20260830 | True | exact_frozen_evidence_ready_and_v3_dedicated_adapter_prepared_but_production_permissions_false | config/approved_operation_evidence/revenue_unreacted_range_source_mid_falling_frozen_rule_launch_evidence_v1_20260830_manifest.csv | provisional_backtest_supported_oos_unconfirmed | evidence_only_no_permission_grant | keep_v3_dedicated_adapter_prepared_permissions_false_until_authorized_activation |
 | tdcc_short_term_continuation_d5_d10 | research:production_current_proxy | True | daily specialty packet fields are not a single core build_specs condition and must be replayed from historical TDCC/technical proxies |  |  |  | research_variant_only_do_not_promote_without_explicit_promotion_pr |
 | tdcc_stealth_accumulation | research:production_current_proxy | True | tdcc_price_phase is not fully available historically for every signal date |  |  |  | research_variant_only_do_not_promote_without_explicit_promotion_pr |
 

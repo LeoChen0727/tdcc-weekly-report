@@ -1,7 +1,7 @@
 # 每日股票模型與資料獨立性稽核
 
-- 產生時間：`2026-08-28 03:57:34 Asia/Taipei`
-- 結果：`CONTAINED=28, DISCLOSED_NOT_INDEPENDENT=4, PASS=66`
+- 產生時間：`2026-08-31 02:19:28 Asia/Taipei`
+- 結果：`CONTAINED=27, DISCLOSED_NOT_INDEPENDENT=4, PASS=68`
 - 原則：新模型與新資料 family 預設獨立；跨模型共用商業語意必須先有使用者核准與 migration evidence。
 - `CONTAINED` 代表既有共用已被凍結與精確盤點，不代表已物理拆分。
 - `DISCLOSED_NOT_INDEPENDENT` 代表該 validator 只能做 implementation consistency，不得當成獨立模型正確性證據。
@@ -12,7 +12,7 @@
 | production_model_semantics | neckline_volume_breakout_confirmation | CONTAINED | contained_legacy_monolith | existing shared producer/semantic remains frozen; future model must use a model-owned module |
 | production_model_semantics | price_pullback_23ema | CONTAINED | contained_legacy_monolith | existing shared producer/semantic remains frozen; future model must use a model-owned module |
 | production_model_semantics | pullback_short_reclaim | CONTAINED | contained_legacy_monolith | existing shared producer/semantic remains frozen; future model must use a model-owned module |
-| production_model_semantics | revenue_unreacted_range | CONTAINED | contained_legacy_monolith | existing shared producer/semantic remains frozen; future model must use a model-owned module |
+| production_model_semantics | revenue_unreacted_range | PASS | model_owned_module | none |
 | production_model_semantics | tdcc_short_term_continuation_d5_d10 | CONTAINED | contained_legacy_monolith | existing shared producer/semantic remains frozen; future model must use a model-owned module |
 | production_model_semantics | tdcc_stealth_accumulation | CONTAINED | contained_legacy_monolith | existing shared producer/semantic remains frozen; future model must use a model-owned module |
 | production_model_semantics | volume_range_breakout_v2_high_position_volume_attack | CONTAINED | contained_model_family_dispatcher | existing shared producer/semantic remains frozen; future model must use a model-owned module |
@@ -89,6 +89,7 @@
 | research_producer_ownership | w_bottom_right_side | CONTAINED | no_enabled_model_owned_research_entrypoint | before reopening research this model needs its own producer artifact allowlist and sentinel test |
 | formal_evidence_binding | neckline_volume_breakout_confirmation | PASS | pinned_formal_evidence | none |
 | formal_evidence_binding | price_pullback_23ema | PASS | pinned_formal_evidence | none |
+| formal_evidence_binding | revenue_unreacted_range | PASS | pinned_formal_evidence | none |
 | formal_evidence_binding | volume_range_breakout_v2_high_position_volume_attack | PASS | pinned_formal_evidence | none |
 | formal_evidence_binding | volume_range_breakout_v2_low_position_volume_attack | PASS | pinned_formal_evidence | none |
 | formal_evidence_binding | volume_range_breakout_v2_mid_position_momentum_attack | PASS | pinned_formal_evidence | none |

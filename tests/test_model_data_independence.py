@@ -195,12 +195,33 @@ def test_every_active_model_has_exact_ast_semantic_ownership() -> None:
 def test_shared_business_semantics_are_disclosed_as_contained_not_technical() -> None:
     rows = read_csv("config/daily_model_shared_semantic_registry.csv")
     by_item = {row["semantic_item"]: row for row in rows}
-    assert len(rows) == 91
+    assert len(rows) == 88
     assert by_item["global:MODEL_SCORE_PROFILES"]["semantic_class"] == (
         "contained_legacy_cross_model_semantic"
     )
-    assert by_item["function:bottom_volume_attack_like"]["consumer_models"] == (
-        "revenue_unreacted_range;tdcc_stealth_accumulation"
+    for retired_single_consumer_item in (
+        "function:bottom_volume_attack_like",
+        "function:bottom_volume_attack_normal_volume",
+        "function:in_recent_range",
+    ):
+        assert retired_single_consumer_item not in by_item
+    old_monolith_rows = [
+        row
+        for row in rows
+        if row["source_file"] == "scripts/build_daily_candidate_model_layer.py"
+    ]
+    assert all(
+        "revenue_unreacted_range"
+        not in row["consumer_models"].split(";")
+        for row in old_monolith_rows
+    )
+    assert by_item["function:bottom_volume_attack_breakout_level"][
+        "consumer_models"
+    ] == (
+        "tdcc_stealth_accumulation;"
+        "volume_range_breakout_v2_high_position_volume_attack;"
+        "volume_range_breakout_v2_low_position_volume_attack;"
+        "volume_range_breakout_v2_mid_position_momentum_attack"
     )
     assert by_item["function:text"]["semantic_class"] == "shared_technical"
     assert by_item["function:append_volume_breakout_signals"]["consumer_models"] == (
@@ -270,6 +291,59 @@ def test_shared_business_semantics_are_disclosed_as_contained_not_technical() ->
         assert no_longer_shared_item not in by_item
 
 
+def test_revenue_v2_adapter_migration_pins_exact_consumer_retirement() -> None:
+    ownership = {
+        row["model_id"]: row
+        for row in read_csv("config/daily_model_semantic_ownership.csv")
+    }["revenue_unreacted_range"]
+    migration = next(
+        row
+        for row in read_csv("config/daily_model_semantic_migrations.csv")
+        if row["migration_id"]
+        == "revenue_v2_dedicated_adapter_activation_20260830"
+    )
+
+    assert ownership["production_source_file"] == (
+        "scripts/build_daily_revenue_unreacted_range_operation_section.py"
+    )
+    assert ownership["execution_entry_functions"] == (
+        "_selected_source_mid_falling;build_operation_section"
+    )
+    assert ownership["ownership_status"] == "model_owned_module"
+    assert ownership["last_migration_id"] == migration["migration_id"]
+
+    changed = migration["changed_semantics"].split(";")
+    previous = migration["previous_sha256s"].split(";")
+    current = migration["new_sha256s"].split(";")
+    assert len(changed) == len(previous) == len(current) == 32
+    assert changed[0] == "model:revenue_unreacted_range"
+    old_monolith_items = changed[1:]
+    assert len(old_monolith_items) == 31
+    assert all(
+        item.startswith(
+            "item:scripts/build_daily_candidate_model_layer.py::"
+        )
+        for item in old_monolith_items
+    )
+    assert sum("::runtime_subgraph:" in item for item in old_monolith_items) == 4
+    retired = {
+        key
+        for key, new_hash in zip(changed, current)
+        if new_hash == "RETIRED"
+    }
+    assert retired == {
+        "item:scripts/build_daily_candidate_model_layer.py::"
+        "function:bottom_volume_attack_like",
+        "item:scripts/build_daily_candidate_model_layer.py::"
+        "function:bottom_volume_attack_normal_volume",
+        "item:scripts/build_daily_candidate_model_layer.py::"
+        "function:in_recent_range",
+    }
+    assert set(migration["affected_models"].split(";")) == ACTIVE_MODELS
+    assert "only behavior change" in migration["notes"]
+    assert "Every other model keeps the same AST" in migration["notes"]
+
+
 def test_warrant_runtime_subgraphs_pin_recursive_hashes_consumers_and_migration() -> None:
     registry_rows = read_csv("config/daily_model_shared_semantic_registry.csv")
     runtime_rows = {
@@ -289,21 +363,16 @@ def test_warrant_runtime_subgraphs_pin_recursive_hashes_consumers_and_migration(
         "scripts/build_daily_candidate_model_layer.py",
         source_path.read_text(encoding="utf-8"),
     )
-    expected_consumers = ";".join(sorted(ACTIVE_MODELS))
+    expected_consumers = ";".join(
+        sorted(ACTIVE_MODELS - {"revenue_unreacted_range"})
+    )
     for item, row in runtime_rows.items():
         assert row["semantic_class"] == "registered_cross_model_runtime_semantic"
         assert row["consumer_models"] == expected_consumers
         assert row["canonical_ast_sha256"] == runtime_subgraph_sha256(graph, item)
-        expected_migration = (
-            "volume_v2_formal_outcome_numeric_canonicalization_20260810"
-            if item
-            in {
-                "runtime_subgraph:run_warrant_formal_sync_only",
-                "runtime_subgraph:synchronize_warrant_formal_frames",
-            }
-            else "warrant_fixed_membership_runtime_semantics_20260720"
+        assert row["last_migration_id"] == (
+            "revenue_v2_dedicated_adapter_activation_20260830"
         )
-        assert row["last_migration_id"] == expected_migration
 
     migration = next(
         row
@@ -328,7 +397,7 @@ def test_warrant_runtime_subgraphs_pin_recursive_hashes_consumers_and_migration(
         "a4c28d82a2ecd4634c91b31099584ebb7b353dacb76d471e95f138c837249f04",
         "07751409ace85e0f5d99aea851a9dd1a325daf3ddf6015804b943cac80a7c103",
     ]
-    assert migration["affected_models"] == expected_consumers
+    assert migration["affected_models"] == ";".join(sorted(ACTIVE_MODELS))
 
 
 def test_volume_v2_asof_slice_migration_pins_exact_current_records() -> None:
@@ -515,6 +584,18 @@ def test_volume_v2_global_official_candidate_scope_migration_pins_current_record
             successor["previous_sha256s"].split(";"),
         )
     )
+    revenue_successor = next(
+        row
+        for row in read_csv("config/daily_model_semantic_migrations.csv")
+        if row["migration_id"]
+        == "revenue_v2_dedicated_adapter_activation_20260830"
+    )
+    revenue_successor_previous = dict(
+        zip(
+            revenue_successor["changed_semantics"].split(";"),
+            revenue_successor["previous_sha256s"].split(";"),
+        )
+    )
     for key, new_hash in zip(changed, migration["new_sha256s"].split(";")):
         if key in successor_previous:
             assert new_hash == successor_previous[key]
@@ -525,7 +606,9 @@ def test_volume_v2_global_official_candidate_scope_migration_pins_current_record
     assert migration["migration_status"] == "validated_user_approved_migration"
     for key, row in current_rows.items():
         expected_migration = (
-            "volume_v2_formal_outcome_numeric_canonicalization_20260810"
+            "revenue_v2_dedicated_adapter_activation_20260830"
+            if key in revenue_successor_previous
+            else "volume_v2_formal_outcome_numeric_canonicalization_20260810"
             if key in successor_previous
             else migration_id
         )
@@ -569,15 +652,38 @@ def test_volume_v2_formal_outcome_numeric_migration_pins_current_records() -> No
         shared[key] if key.startswith("item:") else ownership[key.removeprefix("model:")]
         for key in changed
     ]
-    assert migration["new_sha256s"].split(";") == [
-        semantic_record_sha256(key, row)
-        for key, row in zip(changed, current_rows)
-    ]
+    revenue_successor = next(
+        row
+        for row in read_csv("config/daily_model_semantic_migrations.csv")
+        if row["migration_id"]
+        == "revenue_v2_dedicated_adapter_activation_20260830"
+    )
+    revenue_successor_previous = dict(
+        zip(
+            revenue_successor["changed_semantics"].split(";"),
+            revenue_successor["previous_sha256s"].split(";"),
+        )
+    )
+    for key, row, new_hash in zip(
+        changed,
+        current_rows,
+        migration["new_sha256s"].split(";"),
+    ):
+        if key in revenue_successor_previous:
+            assert new_hash == revenue_successor_previous[key]
+        else:
+            assert new_hash == semantic_record_sha256(key, row)
     assert migration["user_approval_reference"] == approval
     assert migration["migration_status"] == "validated_user_approved_migration"
-    for row in current_rows:
-        assert row["last_migration_id"] == migration_id
-        assert row["approval_reference"] == approval
+    for key, row in zip(changed, current_rows):
+        if key in revenue_successor_previous:
+            assert row["last_migration_id"] == revenue_successor["migration_id"]
+            assert row["approval_reference"] == revenue_successor[
+                "user_approval_reference"
+            ]
+        else:
+            assert row["last_migration_id"] == migration_id
+            assert row["approval_reference"] == approval
 
 
 def test_warrant_runtime_entrypoint_pins_lifecycle_sequence() -> None:

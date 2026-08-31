@@ -226,6 +226,27 @@ def function_names(path: Path) -> set[str]:
     return {node.name for node in ast.walk(ast_tree(path)) if isinstance(node, ast.FunctionDef)}
 
 
+def module_declares_model_id(path: Path, model_id: str) -> bool:
+    for node in ast_tree(path).body:
+        value: ast.AST | None = None
+        targets: list[ast.AST] = []
+        if isinstance(node, ast.Assign):
+            value = node.value
+            targets = list(node.targets)
+        elif isinstance(node, ast.AnnAssign):
+            value = node.value
+            targets = [node.target]
+        if not isinstance(value, ast.Constant) or value.value != model_id:
+            continue
+        if any(
+            isinstance(target, ast.Name)
+            and (target.id == "MODEL_ID" or target.id.endswith("_MODEL_ID"))
+            for target in targets
+        ):
+            return True
+    return False
+
+
 def validate_required_configs() -> list[str]:
     return [f"missing advanced integrity config: {rel(path)}" for path in REQUIRED_CONFIGS if not path.exists()]
 
@@ -630,6 +651,11 @@ def validate_model_condition_spec() -> list[str]:
     specs = model_spec_calls()
     functions = function_names(DAILY_MODEL_LAYER)
     profiles = score_profile_ids()
+    contract_by_model = {
+        row.get("model_id", ""): row
+        for row in read_csv_rows(STOCK_MODEL_CONTRACT_REGISTRY)
+        if row.get("model_id", "")
+    }
     parity = {row.get("model_id", ""): row.get("research_baseline_status", "") for row in read_csv_rows(MODEL_PARITY_CSV)}
     registry_models = {
         row.get("model_id", "")
@@ -648,11 +674,37 @@ def validate_model_condition_spec() -> list[str]:
         score = row.get("score_function", "").strip()
         profile = row.get("score_profile_id", "").strip()
         expected_parity = row.get("research_baseline_status", "").strip()
+        contract = contract_by_model.get(model_id)
+        if contract is None:
+            errors.append(f"machine-readable spec model missing stock contract: {model_id}")
+            continue
+        for field, value in (
+            ("condition_function", condition),
+            ("score_function", score),
+            ("score_profile_id", profile),
+        ):
+            if contract.get(field, "") != value:
+                errors.append(
+                    f"machine-readable spec {field} mismatch for {model_id}: "
+                    f"{value} != {contract.get(field, '')}"
+                )
+        source_rel = contract.get("production_source_file", "").strip()
+        source_path = ROOT / source_rel
+        if not source_rel or not source_path.is_file():
+            errors.append(f"production source file missing for {model_id}: {source_rel}")
+            continue
+        source_functions = (
+            functions if source_path == DAILY_MODEL_LAYER else function_names(source_path)
+        )
         if model_id not in parity:
             errors.append(f"machine-readable spec model missing parity output: {model_id}")
         elif parity[model_id] != expected_parity:
             errors.append(f"machine-readable spec parity mismatch for {model_id}: {expected_parity} != {parity[model_id]}")
         if production_source == "ModelSpec":
+            if source_path != DAILY_MODEL_LAYER:
+                errors.append(
+                    f"ModelSpec source must be the daily model layer for {model_id}: {source_rel}"
+                )
             actual = specs.get(model_id)
             if not actual:
                 errors.append(f"ModelSpec missing in AST for model: {model_id}")
@@ -662,15 +714,29 @@ def validate_model_condition_spec() -> list[str]:
             if actual["score_function"] != score:
                 errors.append(f"score function mismatch for {model_id}: {score} != {actual['score_function']}")
         else:
-            if production_source not in functions:
-                errors.append(f"production source function missing for {model_id}: {production_source}")
-            if f'"model_id": "{model_id}"' not in source_text:
-                errors.append(f"production source does not carry model_id literal for {model_id}")
-        if condition not in functions:
+            if source_path == DAILY_MODEL_LAYER:
+                if production_source not in source_functions:
+                    errors.append(
+                        f"production source function missing for {model_id}: {production_source}"
+                    )
+                if f'"model_id": "{model_id}"' not in source_text:
+                    errors.append(
+                        f"production source does not carry model_id literal for {model_id}"
+                    )
+            elif not module_declares_model_id(source_path, model_id):
+                errors.append(
+                    f"model-owned production source does not declare MODEL_ID for {model_id}: "
+                    f"{source_rel}"
+                )
+        if condition not in source_functions:
             errors.append(f"condition function missing for {model_id}: {condition}")
-        if score not in functions:
+        if score not in source_functions:
             errors.append(f"score function missing for {model_id}: {score}")
-        if profile != "not_applicable" and profile not in profiles:
+        if (
+            source_path == DAILY_MODEL_LAYER
+            and profile != "not_applicable"
+            and profile not in profiles
+        ):
             errors.append(f"score profile missing for {model_id}: {profile}")
     return errors
 
