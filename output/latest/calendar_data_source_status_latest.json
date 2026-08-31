@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-08-28 20:55:58 Asia/Taipei",
+  "generated_at": "2026-08-31 18:12:54 Asia/Taipei",
   "files": {
     "company_event_calendar": {
       "path": "data/company_calendar/company_event_calendar.csv",
-      "rows": 4772
+      "rows": 4774
     },
     "macro_event_calendar": {
       "path": "data/macro_events/macro_event_calendar.csv",
@@ -22,10 +22,10 @@
     "twse_ex_right_ex_dividend": {
       "url": "https://www.twse.com.tw/rwd/zh/exRight/TWT48U?response=json",
       "status": "ok",
-      "rows": 99,
+      "rows": 84,
       "error": "",
       "http_status": 200,
-      "live_rows": 99,
+      "live_rows": 84,
       "consecutive_live_failures": 0,
       "calendar_effect_allowed": true
     },
@@ -67,11 +67,11 @@
     },
     "bls_employment_release_schedule": {
       "url": "https://www.bls.gov/schedule/news_release/empsit.htm",
-      "status": "reachable_not_parsed",
-      "rows": 0,
+      "status": "ok",
+      "rows": 4,
       "error": "",
       "http_status": 200,
-      "note": "Employment Situation release schedule was reachable, but no stable release-date rows were parsed."
+      "note": "Parsed 4 release rows from the official BLS schedule table."
     },
     "mops_shareholder_meeting_calendar": {
       "url": "https://mops.twse.com.tw/mops/web/t108sb31new",
