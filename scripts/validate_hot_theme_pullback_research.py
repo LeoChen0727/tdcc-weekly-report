@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import json
 import math
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -47,6 +48,31 @@ SOURCE_MANIFEST_REQUIRED_COLUMNS = {
 }
 REVISION_POLICY = "latest_revision_per_report_date_artifact"
 FULL_REPLAY_BLOCKER = "blocked_missing_point_in_time_hot_theme_labels"
+BOOLEAN_CONTRACT_FIELDS = {
+    "events": (
+        "return_valid",
+        "right_censored",
+        "primary_metric_included",
+        "anomaly_candidate_flag",
+        "formal_use_allowed",
+        "approved_for_daily",
+        "presentation_allowed",
+        "research_only",
+    ),
+    "summary": (
+        "primary_metrics_retain_unresolved_candidates",
+        "sensitivity_is_corrected_primary",
+        "formal_use_allowed",
+    ),
+    "manifest": (
+        "production_condition_recalculated",
+        "formal_use_allowed",
+        "approved_for_daily",
+        "presentation_allowed",
+        "promotion_evidence_allowed",
+        "production_change",
+    ),
+}
 
 
 def _text(value: Any) -> str:
@@ -57,8 +83,14 @@ def _text(value: Any) -> str:
 
 
 def _date(value: Any) -> str:
-    digits = "".join(char for char in _text(value) if char.isdigit())
-    return digits[:8] if len(digits) >= 8 else ""
+    text = "" if value is None else str(value)
+    if len(text) != 8 or not text.isdigit():
+        return ""
+    try:
+        parsed = datetime.strptime(text, "%Y%m%d")
+    except ValueError:
+        return ""
+    return text if parsed.strftime("%Y%m%d") == text else ""
 
 
 def _code(value: Any) -> str:
@@ -431,6 +463,7 @@ def _required_columns() -> dict[str, set[str]]:
             "formal_use_allowed",
             "approved_for_daily",
             "presentation_allowed",
+            "research_only",
             "operation_contract_status",
             "full_historical_condition_replay_status",
             "event_row_canonical_sha256",
@@ -523,6 +556,27 @@ def validate_frames(
         return errors
     if events.empty or summary.empty:
         errors.append("events and summary must be non-empty")
+        return errors
+    frames = {"events": events, "summary": summary, "manifest": manifest}
+    token_errors: list[str] = []
+    for surface, fields in BOOLEAN_CONTRACT_FIELDS.items():
+        frame = frames[surface]
+        for field in fields:
+            invalid = sorted(
+                {
+                    "" if value is None else str(value)
+                    for value in frame[field]
+                    if ("" if value is None else str(value))
+                    not in {"True", "False"}
+                }
+            )
+            if invalid:
+                token_errors.append(
+                    f"{surface} {field} must use exact True/False tokens: "
+                    f"observed={invalid}"
+                )
+    if token_errors:
+        errors.extend(token_errors)
         return errors
     if not events["model_id"].astype(str).eq(MODEL_ID).all():
         errors.append("events contain a different model_id")
@@ -618,6 +672,8 @@ def validate_frames(
             errors.append(f"event {index} improperly allows daily approval")
         if _true(row["presentation_allowed"]):
             errors.append(f"event {index} improperly allows presentation")
+        if not _true(row["research_only"]):
+            errors.append(f"event {index} must remain research only")
         if _text(row["operation_contract_status"]) != "decision_required":
             errors.append(f"event {index} operation contract is not fail closed")
         if _text(row["full_historical_condition_replay_status"]) != FULL_REPLAY_BLOCKER:

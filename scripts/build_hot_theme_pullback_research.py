@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import json
 import math
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -81,8 +82,14 @@ def _text(value: Any) -> str:
 
 
 def _date(value: Any) -> str:
-    digits = "".join(char for char in _text(value) if char.isdigit())
-    return digits[:8] if len(digits) >= 8 else ""
+    text = "" if value is None else str(value)
+    if len(text) != 8 or not text.isdigit():
+        return ""
+    try:
+        parsed = datetime.strptime(text, "%Y%m%d")
+    except ValueError:
+        return ""
+    return text if parsed.strftime("%Y%m%d") == text else ""
 
 
 def _code(value: Any) -> str:

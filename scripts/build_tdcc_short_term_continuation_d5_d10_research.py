@@ -349,8 +349,14 @@ def output_paths(output_dir: Path) -> OutputPaths:
 
 
 def normalize_date(value: Any) -> str:
-    digits = "".join(character for character in str(value or "") if character.isdigit())
-    return digits[:8] if len(digits) >= 8 else ""
+    candidate = raw_text_value(value)
+    if len(candidate) != 8 or not candidate.isdigit():
+        return ""
+    try:
+        parsed = datetime.strptime(candidate, "%Y%m%d")
+    except ValueError:
+        return ""
+    return candidate if parsed.strftime("%Y%m%d") == candidate else ""
 
 
 def normalize_stock_id(value: Any) -> str:
@@ -371,13 +377,27 @@ def text_value(value: Any) -> str:
     return str(value).strip()
 
 
+def raw_text_value(value: Any) -> str:
+    if value is None:
+        return ""
+    try:
+        if pd.isna(value):
+            return ""
+    except (TypeError, ValueError):
+        pass
+    return str(value)
+
+
 def bool_value(value: Any) -> bool:
-    text = text_value(value).lower()
-    if text in {"true", "1", "yes"}:
+    text = raw_text_value(value)
+    if text == "True":
         return True
-    if text in {"false", "0", "no", ""}:
+    if text == "False":
         return False
-    raise RuntimeError(f"invalid boolean value in canonical signal snapshot: {value!r}")
+    raise RuntimeError(
+        "invalid canonical source boolean token; expected exact True or False: "
+        f"{value!r}"
+    )
 
 
 def number(value: Any) -> float:
@@ -682,6 +702,7 @@ def load_signal_snapshot(path: Path, manifest: dict[str, Any]) -> pd.DataFrame:
         raise RuntimeError("canonical TDCC signal snapshot signal_id must be non-empty and unique")
     if frame[["signal_date", "code"]].duplicated().any():
         raise RuntimeError("canonical TDCC signal snapshot must be unique by signal_date + code")
+    frame["is_all_thresholds"].map(bool_value)
     history_dates = set(manifest["history_dates"])
     outside = sorted(set(frame["signal_date"]) - history_dates)
     if outside:

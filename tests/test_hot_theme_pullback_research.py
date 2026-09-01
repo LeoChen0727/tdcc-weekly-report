@@ -662,6 +662,180 @@ def test_independent_validator_rejects_promotion_flag_tamper(tmp_path: Path) -> 
     assert any("manifest operation contract mismatch" in error for error in errors)
 
 
+@pytest.mark.parametrize(
+    "invalid_token",
+    ["false", "0", "unexpected", "", " True ", "\tFalse\n"],
+)
+def test_validator_rejects_unknown_formal_and_promotion_bool_tokens(
+    tmp_path: Path,
+    invalid_token: str,
+) -> None:
+    root, manifest_path, snapshot_root, price_root = _fixture(tmp_path)
+    events, summary, anomalies, manifest = producer.build_research(
+        manifest_path=manifest_path,
+        snapshot_root=snapshot_root,
+        price_root=price_root,
+    )
+    events = events.astype(object)
+    manifest = manifest.astype(object)
+    events.at[events.index[0], "formal_use_allowed"] = invalid_token
+    manifest.at[0, "promotion_evidence_allowed"] = invalid_token
+
+    errors = validator.validate_frames(
+        events,
+        summary,
+        anomalies,
+        manifest,
+        root=root,
+    )
+
+    assert any(
+        "events formal_use_allowed must use exact True/False tokens" in error
+        for error in errors
+    )
+    assert any(
+        "manifest promotion_evidence_allowed must use exact True/False tokens" in error
+        for error in errors
+    )
+
+
+@pytest.mark.parametrize(
+    ("surface", "field", "invalid_token"),
+    [
+        ("events", "approved_for_daily", "unexpected"),
+        ("events", "presentation_allowed", "0"),
+        ("manifest", "production_change", "false"),
+        ("manifest", "production_condition_recalculated", "\tFalse\n"),
+    ],
+)
+def test_reviewer_boolean_mutations_fail_before_semantic_interpretation(
+    tmp_path: Path,
+    surface: str,
+    field: str,
+    invalid_token: str,
+) -> None:
+    root, manifest_path, snapshot_root, price_root = _fixture(tmp_path)
+    events, summary, anomalies, manifest = producer.build_research(
+        manifest_path=manifest_path,
+        snapshot_root=snapshot_root,
+        price_root=price_root,
+    )
+    frames = {
+        "events": events.astype(object),
+        "summary": summary.astype(object),
+        "manifest": manifest.astype(object),
+    }
+    frames[surface].at[frames[surface].index[0], field] = invalid_token
+
+    errors = validator.validate_frames(
+        frames["events"],
+        frames["summary"],
+        anomalies,
+        frames["manifest"],
+        root=root,
+    )
+
+    assert errors == [
+        f"{surface} {field} must use exact True/False tokens: "
+        f"observed={[invalid_token]}"
+    ]
+
+
+BOOLEAN_CONTRACT_CASES = [
+    (surface, field)
+    for surface, fields in validator.BOOLEAN_CONTRACT_FIELDS.items()
+    for field in fields
+]
+
+
+@pytest.mark.parametrize(("surface", "field"), BOOLEAN_CONTRACT_CASES)
+def test_every_boolean_contract_field_rejects_nonexact_tokens(
+    tmp_path: Path,
+    surface: str,
+    field: str,
+) -> None:
+    assert validator.BOOLEAN_CONTRACT_FIELDS == {
+        "events": (
+            "return_valid",
+            "right_censored",
+            "primary_metric_included",
+            "anomaly_candidate_flag",
+            "formal_use_allowed",
+            "approved_for_daily",
+            "presentation_allowed",
+            "research_only",
+        ),
+        "summary": (
+            "primary_metrics_retain_unresolved_candidates",
+            "sensitivity_is_corrected_primary",
+            "formal_use_allowed",
+        ),
+        "manifest": (
+            "production_condition_recalculated",
+            "formal_use_allowed",
+            "approved_for_daily",
+            "presentation_allowed",
+            "promotion_evidence_allowed",
+            "production_change",
+        ),
+    }
+    root, manifest_path, snapshot_root, price_root = _fixture(tmp_path)
+    events, summary, anomalies, manifest = producer.build_research(
+        manifest_path=manifest_path,
+        snapshot_root=snapshot_root,
+        price_root=price_root,
+    )
+    frames = {
+        "events": events.astype(object),
+        "summary": summary.astype(object),
+        "manifest": manifest.astype(object),
+    }
+    frames[surface].at[frames[surface].index[0], field] = " False "
+
+    errors = validator.validate_frames(
+        frames["events"],
+        frames["summary"],
+        anomalies,
+        frames["manifest"],
+        root=root,
+    )
+
+    assert errors == [
+        f"{surface} {field} must use exact True/False tokens: "
+        "observed=[' False ']"
+    ]
+
+
+def test_producer_and_independent_validator_reject_impossible_identity_dates(
+    tmp_path: Path,
+) -> None:
+    root, manifest_path, snapshot_root, price_root = _fixture(tmp_path)
+    source_manifest = pd.read_csv(manifest_path, dtype=str, keep_default_na=False)
+    source_manifest.at[0, "snapshot_report_date"] = "20261340"
+    source_manifest.to_csv(manifest_path, index=False, encoding="utf-8")
+
+    with pytest.raises(RuntimeError, match="invalid report dates"):
+        producer.build_research(
+            manifest_path=manifest_path,
+            snapshot_root=snapshot_root,
+            price_root=price_root,
+        )
+
+    with pytest.raises(RuntimeError, match="invalid report dates"):
+        validator._rebuild_source_bases(manifest_path, root)
+
+
+@pytest.mark.parametrize(
+    "invalid_date",
+    ["20261340", " 20260101 ", "\t20260228\n"],
+)
+def test_producer_and_validator_date_parsers_reject_nonexact_or_impossible_dates(
+    invalid_date: str,
+) -> None:
+    assert producer._date(invalid_date) == ""
+    assert validator._date(invalid_date) == ""
+
+
 def test_validator_imports_only_stdlib_and_pandas() -> None:
     validator_path = (
         Path(__file__).resolve().parents[1]
@@ -678,6 +852,7 @@ def test_validator_imports_only_stdlib_and_pandas() -> None:
     allowed_import_roots = {
         "__future__",
         "hashlib",
+        "datetime",
         "json",
         "math",
         "pathlib",

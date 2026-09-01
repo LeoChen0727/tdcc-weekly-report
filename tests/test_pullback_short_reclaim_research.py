@@ -472,6 +472,58 @@ def test_validator_recomputes_anomaly_trigger_and_rejects_gate_promotion(
     assert any("corrected primary" in error for error in gate_errors)
 
 
+@pytest.mark.parametrize("identity_surface", ["report", "signal", "price"])
+def test_producer_and_independent_validator_reject_impossible_identity_dates(
+    tmp_path: Path,
+    identity_surface: str,
+) -> None:
+    snapshot_dir, manifest_path, price_dir = _fixture(tmp_path, include_r1=False)
+    valid_bundle = _build(snapshot_dir, manifest_path, price_dir)
+    manifest = pd.read_csv(manifest_path, dtype=str, keep_default_na=False)
+    latest = manifest.index[-1]
+    snapshot_path = Path(manifest.at[latest, "snapshot_path"])
+
+    if identity_surface == "report":
+        manifest.at[latest, "snapshot_report_date"] = "20261340"
+    elif identity_surface == "signal":
+        snapshot = pd.read_csv(snapshot_path, dtype=str, keep_default_na=False)
+        target_index = snapshot[snapshot["model_id"].eq(producer.MODEL_ID)].index[0]
+        snapshot.at[target_index, "signal_date"] = "20261340"
+        snapshot.to_csv(snapshot_path, index=False, encoding="utf-8", lineterminator="\n")
+        sha = producer.canonical_file_sha256(snapshot_path)
+        manifest.at[latest, "snapshot_sha256"] = sha
+    else:
+        price_path = price_dir / "1111.csv"
+        price = pd.read_csv(price_path, dtype=str, keep_default_na=False)
+        price.at[0, "date"] = "20261340"
+        price.to_csv(price_path, index=False, encoding="utf-8", lineterminator="\n")
+    manifest.to_csv(manifest_path, index=False, encoding="utf-8", lineterminator="\n")
+
+    with pytest.raises(RuntimeError, match="invalid|date contract|signal_date|identity"):
+        _build(snapshot_dir, manifest_path, price_dir)
+
+    errors = validator.validate_replay_bundle(
+        valid_bundle.events,
+        valid_bundle.summary,
+        valid_bundle.anomalies,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        price_dir=price_dir,
+    )
+    assert any("independent source replay failed" in error for error in errors)
+
+
+@pytest.mark.parametrize(
+    "invalid_date",
+    ["20261340", " 20260101 ", "\t20260228\n"],
+)
+def test_producer_and_validator_date_parsers_reject_nonexact_or_impossible_dates(
+    invalid_date: str,
+) -> None:
+    assert producer._date(invalid_date) == ""
+    assert validator._date(invalid_date) == ""
+
+
 def test_empty_anomaly_artifact_keeps_schema_and_validates_from_files(
     tmp_path: Path,
 ) -> None:

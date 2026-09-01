@@ -29,7 +29,7 @@ from model_research_artifact_guard import (  # noqa: E402
     model_owned_artifact_guard,
     validate_changed_paths,
 )
-from tracking_utils import normalize_code, normalize_date, safe_str, write_csv  # noqa: E402
+from tracking_utils import normalize_code, safe_str, write_csv  # noqa: E402
 
 
 ROOT = SCRIPT_DIR.parent
@@ -149,6 +149,17 @@ def _bool_text(value: bool) -> str:
     return "True" if value else "False"
 
 
+def _date(value: Any) -> str:
+    text = "" if value is None else str(value)
+    if len(text) != 8 or not text.isdigit():
+        return ""
+    try:
+        parsed = datetime.strptime(text, "%Y%m%d")
+    except ValueError:
+        return ""
+    return text if parsed.strftime("%Y%m%d") == text else ""
+
+
 def _outcome(value: float) -> str:
     if value > 0:
         return "win"
@@ -190,11 +201,13 @@ def _manifest_metadata(manifest_path: Path) -> dict[tuple[str, str], dict[str, s
     selected = manifest[manifest["artifact_id"].astype(str).eq(ARTIFACT_ID)].copy()
     metadata: dict[tuple[str, str], dict[str, str]] = {}
     for _, row in selected.iterrows():
-        report_date = normalize_date(row.get("snapshot_report_date", ""))
+        report_date = _date(row.get("snapshot_report_date", ""))
         revision = safe_str(row.get("snapshot_revision", ""))
         key = (report_date, revision)
-        if not report_date or not revision:
-            raise RuntimeError("snapshot manifest contains blank report date or revision")
+        if not report_date:
+            raise RuntimeError("snapshot manifest contains invalid report date")
+        if not revision:
+            raise RuntimeError("snapshot manifest contains blank revision")
         if key in metadata:
             raise RuntimeError(f"duplicate snapshot manifest key: {key}")
         metadata[key] = {str(column): safe_str(row.get(column, "")) for column in row.index}
@@ -258,7 +271,7 @@ def _load_price_history(stock_id: str, price_dir: Path) -> tuple[pd.DataFrame, s
     if missing:
         raise RuntimeError(f"price history missing columns: stock_id={stock_id} {missing}")
     work = raw.copy()
-    work["_date"] = work["date"].map(normalize_date)
+    work["_date"] = work["date"].map(_date)
     if work["_date"].eq("").any():
         raise RuntimeError(f"price history contains invalid date: stock_id={stock_id}")
     if work["_date"].duplicated().any():
@@ -368,7 +381,7 @@ def _forward_replay(price: pd.DataFrame, signal_date: str) -> dict[str, Any]:
 def _semantic_sha(row: pd.Series) -> str:
     payload = {column: safe_str(row.get(column, "")) for column in SIGNAL_SEMANTIC_COLUMNS}
     payload["stock_id"] = normalize_code(payload["stock_id"])
-    payload["signal_date"] = normalize_date(payload["signal_date"])
+    payload["signal_date"] = _date(payload["signal_date"])
     return canonical_row_sha256(payload)
 
 
@@ -560,6 +573,9 @@ def build_replay(
     snapshot_dir = Path(snapshot_dir)
     manifest_path = Path(manifest_path)
     price_dir = Path(price_dir)
+    if through_date and not _date(through_date):
+        raise RuntimeError(f"invalid through_date: {through_date!r}")
+    metadata_index = _manifest_metadata(manifest_path)
     revisions = select_latest_snapshot_revisions(
         snapshot_dir,
         ARTIFACT_ID,
@@ -569,13 +585,16 @@ def build_replay(
     )
     if not revisions:
         raise RuntimeError("manifest contains no model_signals_for_report revisions")
-    metadata_index = _manifest_metadata(manifest_path)
     manifest_sha = canonical_file_sha256(manifest_path)
     producer_sha = raw_file_sha256(Path(__file__))
     price_cache: dict[str, tuple[pd.DataFrame, str, str]] = {}
     rows: list[dict[str, Any]] = []
 
     for revision in revisions:
+        if _date(revision.report_date) != revision.report_date:
+            raise RuntimeError(
+                f"selected snapshot has invalid report date: {revision.report_date!r}"
+            )
         metadata = metadata_index.get((revision.report_date, revision.revision))
         if metadata is None:
             raise RuntimeError(
@@ -604,7 +623,7 @@ def build_replay(
         target = snapshot[snapshot["model_id"].astype(str).eq(MODEL_ID)].copy()
         target_count = len(target)
         for source_position, (frame_index, source_row) in enumerate(target.iterrows(), start=1):
-            signal_date = normalize_date(source_row.get("signal_date", ""))
+            signal_date = _date(source_row.get("signal_date", ""))
             stock_id = normalize_code(source_row.get("stock_id", ""))
             if not signal_date or signal_date != revision.report_date:
                 raise RuntimeError(

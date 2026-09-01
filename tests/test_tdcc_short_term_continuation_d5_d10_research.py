@@ -255,6 +255,54 @@ def assert_manifest_loaders_reject(
 
 
 @pytest.mark.parametrize(
+    "invalid_token",
+    ["yes", "1", "true", "FALSE", "unknown", "", " True ", "\tFalse\n"],
+)
+def test_canonical_source_rule_c_boolean_tokens_fail_closed(
+    tmp_path: Path,
+    invalid_token: str,
+) -> None:
+    paths = write_fixture(tmp_path)
+    snapshot = pd.read_csv(paths["snapshot"], dtype=str, keep_default_na=False)
+    snapshot.loc[0, "is_all_thresholds"] = invalid_token
+    snapshot.to_csv(paths["snapshot"], index=False)
+
+    producer_manifest = producer.load_tdcc_manifest(
+        paths["tdcc_manifest"], repo_root=paths["repo_root"]
+    )
+    with pytest.raises(RuntimeError, match="expected exact True or False"):
+        producer.load_signal_snapshot(paths["snapshot"], producer_manifest)
+
+    validator_manifest = validator.load_source_manifest(
+        paths["tdcc_manifest"], repo_root=paths["repo_root"]
+    )
+    with pytest.raises(RuntimeError, match="expected exact True or False"):
+        validator.load_source_snapshot(paths["snapshot"], validator_manifest)
+
+
+@pytest.mark.parametrize("module", [producer, validator])
+@pytest.mark.parametrize(
+    "invalid_date",
+    [
+        "20261340",
+        "20260230",
+        "20260001",
+        "2026011",
+        "20260101.0",
+        "x20260101",
+        " 20260101 ",
+        "\t20260228\n",
+    ],
+)
+def test_yyyymmdd_identity_requires_real_exact_round_trip(
+    module: object,
+    invalid_date: str,
+) -> None:
+    assert module.normalize_date(invalid_date) == ""
+    assert module.normalize_date("20260228") == "20260228"
+
+
+@pytest.mark.parametrize(
     ("mutation", "expected_error"),
     [
         ("path", "approved root"),
@@ -547,6 +595,7 @@ def test_validator_is_independent_and_cli_is_guarded() -> None:
         "hashlib",
         "json",
         "math",
+        "datetime",
         "pathlib",
         "typing",
         "numpy",

@@ -4,6 +4,7 @@ import argparse
 import hashlib
 import json
 import math
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -237,8 +238,14 @@ FALSE_ONLY_SUMMARY_FIELDS = {
 
 
 def normalize_date(value: Any) -> str:
-    digits = "".join(character for character in str(value or "") if character.isdigit())
-    return digits[:8] if len(digits) >= 8 else ""
+    candidate = raw_text_value(value)
+    if len(candidate) != 8 or not candidate.isdigit():
+        return ""
+    try:
+        parsed = datetime.strptime(candidate, "%Y%m%d")
+    except ValueError:
+        return ""
+    return candidate if parsed.strftime("%Y%m%d") == candidate else ""
 
 
 def normalize_stock_id(value: Any) -> str:
@@ -259,13 +266,27 @@ def text_value(value: Any) -> str:
     return str(value).strip()
 
 
+def raw_text_value(value: Any) -> str:
+    if value is None:
+        return ""
+    try:
+        if pd.isna(value):
+            return ""
+    except (TypeError, ValueError):
+        pass
+    return str(value)
+
+
 def bool_value(value: Any) -> bool:
-    text = text_value(value).lower()
-    if text in {"true", "1", "yes"}:
+    text = raw_text_value(value)
+    if text == "True":
         return True
-    if text in {"false", "0", "no", ""}:
+    if text == "False":
         return False
-    raise RuntimeError(f"invalid boolean value: {value!r}")
+    raise RuntimeError(
+        "invalid canonical source boolean token; expected exact True or False: "
+        f"{value!r}"
+    )
 
 
 def number(value: Any) -> float:
@@ -589,6 +610,7 @@ def load_source_snapshot(path: Path, manifest: dict[str, Any]) -> pd.DataFrame:
         raise RuntimeError("canonical TDCC signal snapshot signal ids are invalid")
     if frame[["signal_date", "code"]].duplicated().any():
         raise RuntimeError("canonical TDCC signal snapshot has duplicate signal_date + code")
+    frame["is_all_thresholds"].map(bool_value)
     if set(frame["source_tdcc_dataset_id"].map(text_value)) != {text_value(manifest["dataset_id"])}:
         raise RuntimeError("signal snapshot dataset id does not match canonical manifest")
     outside = set(frame["signal_date"]) - set(manifest["history_dates"])

@@ -6,6 +6,7 @@ import json
 import math
 import re
 import sys
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -21,7 +22,7 @@ from daily_snapshot_revision_utils import (  # noqa: E402
     select_latest_snapshot_revisions,
     snapshot_file_sha256_candidates,
 )
-from tracking_utils import normalize_code, normalize_date, safe_str  # noqa: E402
+from tracking_utils import normalize_code, safe_str  # noqa: E402
 
 
 ROOT = SCRIPT_DIR.parent
@@ -238,6 +239,17 @@ def _outcome(value: float) -> str:
     return "win" if value > 0 else "failure" if value < 0 else "neutral"
 
 
+def _date(value: Any) -> str:
+    text = "" if value is None else str(value)
+    if len(text) != 8 or not text.isdigit():
+        return ""
+    try:
+        parsed = datetime.strptime(text, "%Y%m%d")
+    except ValueError:
+        return ""
+    return text if parsed.strftime("%Y%m%d") == text else ""
+
+
 def _float(value: Any) -> float | None:
     text = safe_str(value)
     if not text:
@@ -280,7 +292,7 @@ def _load_price(stock_id: str, price_dir: Path) -> tuple[pd.DataFrame, str, str]
     if missing:
         raise RuntimeError(f"price history missing columns: stock_id={stock_id} {missing}")
     frame = raw.copy()
-    frame["_date"] = frame["date"].map(normalize_date)
+    frame["_date"] = frame["date"].map(_date)
     if frame["_date"].eq("").any() or frame["_date"].duplicated().any():
         raise RuntimeError(f"price history date contract failed: stock_id={stock_id}")
     frame["_open"] = pd.to_numeric(frame["open"], errors="coerce")
@@ -382,8 +394,11 @@ def _manifest_index(manifest_path: Path) -> dict[tuple[str, str], dict[str, str]
     work = manifest[manifest["artifact_id"].astype(str).eq(ARTIFACT_ID)].copy()
     result: dict[tuple[str, str], dict[str, str]] = {}
     for _, row in work.iterrows():
+        report_date = _date(row.get("snapshot_report_date", ""))
+        if not report_date:
+            raise RuntimeError("snapshot manifest contains invalid report date")
         key = (
-            normalize_date(row.get("snapshot_report_date", "")),
+            report_date,
             safe_str(row.get("snapshot_revision", "")),
         )
         if key in result:
@@ -395,7 +410,7 @@ def _manifest_index(manifest_path: Path) -> dict[tuple[str, str], dict[str, str]
 def _semantic_sha(row: pd.Series) -> str:
     payload = {column: safe_str(row.get(column, "")) for column in SIGNAL_SEMANTIC_COLUMNS}
     payload["stock_id"] = normalize_code(payload["stock_id"])
-    payload["signal_date"] = normalize_date(payload["signal_date"])
+    payload["signal_date"] = _date(payload["signal_date"])
     return _canonical_row_sha256(payload)
 
 
@@ -406,6 +421,9 @@ def _expected_events(
     price_dir: Path,
     through_date: str,
 ) -> pd.DataFrame:
+    if through_date and not _date(through_date):
+        raise RuntimeError(f"invalid through_date: {through_date!r}")
+    metadata_index = _manifest_index(manifest_path)
     revisions = select_latest_snapshot_revisions(
         snapshot_dir,
         ARTIFACT_ID,
@@ -413,13 +431,16 @@ def _expected_events(
         manifest_path=manifest_path,
         repository_root=snapshot_dir.parents[2] if len(snapshot_dir.parents) >= 3 else snapshot_dir.parent,
     )
-    metadata_index = _manifest_index(manifest_path)
     manifest_sha = _canonical_file_sha256(manifest_path)
     producer_path = SCRIPT_DIR / "build_pullback_short_reclaim_research.py"
     producer_sha = _raw_file_sha256(producer_path)
     price_cache: dict[str, tuple[pd.DataFrame, str, str]] = {}
     rows: list[dict[str, Any]] = []
     for revision in revisions:
+        if _date(revision.report_date) != revision.report_date:
+            raise RuntimeError(
+                f"validator selected snapshot has invalid report date: {revision.report_date!r}"
+            )
         metadata = metadata_index[(revision.report_date, revision.revision)]
         if safe_str(metadata.get("snapshot_path")) != revision.path_text:
             raise RuntimeError("validator selected snapshot path differs from manifest")
@@ -444,7 +465,12 @@ def _expected_events(
             raise RuntimeError("validator snapshot row/column count mismatch")
         target = snapshot[snapshot["model_id"].astype(str).eq(MODEL_ID)].copy()
         for target_ordinal, (frame_index, source) in enumerate(target.iterrows(), start=1):
-            signal_date = normalize_date(source.get("signal_date", ""))
+            signal_date = _date(source.get("signal_date", ""))
+            if not signal_date or signal_date != revision.report_date:
+                raise RuntimeError(
+                    "validator published signal_date must equal snapshot_report_date: "
+                    f"report_date={revision.report_date} row={frame_index + 1}"
+                )
             stock_id = normalize_code(source.get("stock_id", ""))
             if stock_id not in price_cache:
                 price_cache[stock_id] = _load_price(stock_id, price_dir)
