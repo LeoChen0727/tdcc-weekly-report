@@ -37,6 +37,12 @@ REPORT_SIGNAL_SCHEMA_CONSUMER_MIGRATION_ID = (
 RANKING_VALIDATOR_EXCLUSION_MIGRATION_ID = (
     "daily_published_ranking_validator_current_hash_exclusions_20260720"
 )
+PULLBACK_SHORT_RECLAIM_CONSUMER_EXCLUSION_MIGRATION_ID = (
+    "pullback_short_reclaim_model_score_consumer_exclusions_20260901"
+)
+PULLBACK_SHORT_RECLAIM_CONSUMER_EXCLUSION_APPROVAL = (
+    "user_authorized_pullback_short_reclaim_volume_v2_consumer_exclusions_20260901"
+)
 COLLISION_MIGRATION_ID = "volume_v2_dispatcher_collision_registry_20260718"
 APPROVAL = "user_requested_formal_lineage_hardening_20260718"
 MODELS = ";".join(sorted(lineage.VOLUME_V2_MODELS))
@@ -1778,6 +1784,7 @@ def build_valid_repo(root: Path) -> None:
         CONSUMER_EXCLUSION_MIGRATION_ID,
         "canonical_field_consumer_theme_exclusions_20260718",
         RANKING_VALIDATOR_EXCLUSION_MIGRATION_ID,
+        PULLBACK_SHORT_RECLAIM_CONSUMER_EXCLUSION_MIGRATION_ID,
     }
     write_csv(
         root / lineage.CONSUMER_EXCLUSION_MIGRATIONS_PATH,
@@ -2092,6 +2099,204 @@ def set_current_candidate_warrant_projection(
 def test_valid_canonical_field_lineage_contract_passes(tmp_path: Path) -> None:
     build_valid_repo(tmp_path)
     assert lineage.validate(tmp_path) == []
+
+
+def test_pullback_short_reclaim_model_score_exclusions_are_exact_model_scope_mismatches(
+    tmp_path: Path,
+) -> None:
+    build_valid_repo(tmp_path)
+    _, exclusions = lineage._read_artifact(
+        tmp_path / lineage.CONSUMER_EXCLUSIONS_PATH
+    )
+    expected = {
+        "report_model_score_pullback_short_reclaim_research_scope": {
+            "module": "scripts/build_pullback_short_reclaim_research.py",
+            "evidence": "pullback_short_reclaim_model_filter_before_score_read",
+        },
+        "report_model_score_pullback_short_reclaim_validator_scope": {
+            "module": "scripts/validate_pullback_short_reclaim_research.py",
+            "evidence": (
+                "pullback_short_reclaim_model_filter_before_score_validation"
+            ),
+        },
+    }
+    selected = {
+        row["exclusion_id"]: row
+        for row in exclusions
+        if row["exclusion_id"] in expected
+    }
+    assert set(selected) == set(expected)
+    for exclusion_id, exact in expected.items():
+        row = selected[exclusion_id]
+        assert row["lineage_id"] == "model_score__formal_report_current"
+        assert row["field_name"] == "model_score"
+        assert (
+            row["artifact_path"]
+            == "output/latest/daily_candidate_model_signals_for_report_latest.csv"
+        )
+        assert row["module"] == exact["module"]
+        assert row["classification"] == "model_scope_mismatch"
+        assert row["evidence"] == exact["evidence"]
+        assert row["last_migration_id"] == (
+            PULLBACK_SHORT_RECLAIM_CONSUMER_EXCLUSION_MIGRATION_ID
+        )
+        assert row["approval_reference"] == (
+            PULLBACK_SHORT_RECLAIM_CONSUMER_EXCLUSION_APPROVAL
+        )
+        assert row["contract_sha256"] == (
+            lineage.consumer_exclusion_contract_sha256(row)
+        )
+
+    _, migrations = lineage._read_artifact(
+        tmp_path / lineage.CONSUMER_EXCLUSION_MIGRATIONS_PATH
+    )
+    migration = next(
+        row
+        for row in migrations
+        if row["migration_id"]
+        == PULLBACK_SHORT_RECLAIM_CONSUMER_EXCLUSION_MIGRATION_ID
+    )
+    changed = migration["changed_exclusion_ids"].split(";")
+    assert changed == list(expected)
+    assert migration["previous_contract_sha256s"] == "NEW;NEW"
+    assert migration["new_contract_sha256s"].split(";") == [
+        selected[exclusion_id]["contract_sha256"] for exclusion_id in changed
+    ]
+    assert migration["affected_lineage_ids"] == (
+        "model_score__formal_report_current"
+    )
+    assert migration["affected_modules"].split(";") == [
+        exact["module"] for exact in expected.values()
+    ]
+    assert migration["user_approval_reference"] == (
+        PULLBACK_SHORT_RECLAIM_CONSUMER_EXCLUSION_APPROVAL
+    )
+    assert migration["migration_status"] == (
+        lineage.CONSUMER_EXCLUSION_MIGRATION_STATUS
+    )
+
+    _, registry = lineage._read_artifact(tmp_path / lineage.REGISTRY_PATH)
+    model_score_lineage = next(
+        row
+        for row in registry
+        if row["lineage_id"] == "model_score__formal_report_current"
+    )
+    allowed_consumers = set(
+        model_score_lineage["allowed_consumer_modules"].split(";")
+    )
+    assert not allowed_consumers.intersection(
+        exact["module"] for exact in expected.values()
+    )
+    assert lineage.validate(tmp_path) == []
+
+
+def test_pullback_consumer_exclusion_unapproved_reference_fails_closed(
+    tmp_path: Path,
+) -> None:
+    build_valid_repo(tmp_path)
+    unapproved = "unapproved_pullback_short_reclaim_consumer_exclusions"
+    exclusions_path = tmp_path / lineage.CONSUMER_EXCLUSIONS_PATH
+    exclusion_columns, exclusions = lineage._read_artifact(exclusions_path)
+    exclusion_id = "report_model_score_pullback_short_reclaim_research_scope"
+    exclusion = next(
+        row for row in exclusions if row["exclusion_id"] == exclusion_id
+    )
+    exclusion["approval_reference"] = unapproved
+    exclusion["contract_sha256"] = (
+        lineage.consumer_exclusion_contract_sha256(exclusion)
+    )
+    write_csv(exclusions_path, exclusion_columns, exclusions)
+
+    migrations_path = tmp_path / lineage.CONSUMER_EXCLUSION_MIGRATIONS_PATH
+    migration_columns, migrations = lineage._read_artifact(migrations_path)
+    migration = next(
+        row
+        for row in migrations
+        if row["migration_id"]
+        == PULLBACK_SHORT_RECLAIM_CONSUMER_EXCLUSION_MIGRATION_ID
+    )
+    changed = migration["changed_exclusion_ids"].split(";")
+    hashes = migration["new_contract_sha256s"].split(";")
+    hashes[changed.index(exclusion_id)] = exclusion["contract_sha256"]
+    migration["new_contract_sha256s"] = ";".join(hashes)
+    migration["user_approval_reference"] = unapproved
+    write_csv(migrations_path, migration_columns, migrations)
+
+    errors = lineage.validate(tmp_path)
+
+    assert (
+        f"canonical consumer exclusion approval mismatch: {exclusion_id}"
+        in errors
+    )
+    assert (
+        "canonical consumer exclusion migration approval mismatch: "
+        f"{PULLBACK_SHORT_RECLAIM_CONSUMER_EXCLUSION_MIGRATION_ID}"
+        in errors
+    )
+
+
+def test_pullback_consumer_exclusion_approved_reference_wrong_scope_fails_closed(
+    tmp_path: Path,
+) -> None:
+    build_valid_repo(tmp_path)
+    exclusions_path = tmp_path / lineage.CONSUMER_EXCLUSIONS_PATH
+    exclusion_columns, exclusions = lineage._read_artifact(exclusions_path)
+    exclusion_id = "candidate_score_chart_local_field"
+    exclusion = next(
+        row for row in exclusions if row["exclusion_id"] == exclusion_id
+    )
+    exclusion["approval_reference"] = (
+        PULLBACK_SHORT_RECLAIM_CONSUMER_EXCLUSION_APPROVAL
+    )
+    exclusion["contract_sha256"] = (
+        lineage.consumer_exclusion_contract_sha256(exclusion)
+    )
+    write_csv(exclusions_path, exclusion_columns, exclusions)
+
+    migrations_path = tmp_path / lineage.CONSUMER_EXCLUSION_MIGRATIONS_PATH
+    migration_columns, migrations = lineage._read_artifact(migrations_path)
+    migration = next(
+        row
+        for row in migrations
+        if exclusion_id in row["changed_exclusion_ids"].split(";")
+    )
+    changed = migration["changed_exclusion_ids"].split(";")
+    hashes = migration["new_contract_sha256s"].split(";")
+    hashes[changed.index(exclusion_id)] = exclusion["contract_sha256"]
+    migration["new_contract_sha256s"] = ";".join(hashes)
+    write_csv(migrations_path, migration_columns, migrations)
+
+    errors = lineage.validate(tmp_path)
+
+    assert (
+        "canonical consumer exclusion approval scope mismatch: "
+        f"{exclusion_id}"
+        in errors
+    )
+
+
+def test_pullback_consumer_exclusion_approved_reference_wrong_migration_fails_closed(
+    tmp_path: Path,
+) -> None:
+    build_valid_repo(tmp_path)
+    migrations_path = tmp_path / lineage.CONSUMER_EXCLUSION_MIGRATIONS_PATH
+    migration_columns, migrations = lineage._read_artifact(migrations_path)
+    migration_id = "canonical_field_consumer_theme_exclusions_20260718"
+    migration = next(
+        row for row in migrations if row["migration_id"] == migration_id
+    )
+    migration["user_approval_reference"] = (
+        PULLBACK_SHORT_RECLAIM_CONSUMER_EXCLUSION_APPROVAL
+    )
+    write_csv(migrations_path, migration_columns, migrations)
+
+    errors = lineage.validate(tmp_path)
+
+    assert (
+        "canonical consumer exclusion migration approval scope mismatch: "
+        f"{migration_id}"
+        in errors
+    )
 
 
 def test_source_identity_registry_requires_every_in_place_writer_mirror(
