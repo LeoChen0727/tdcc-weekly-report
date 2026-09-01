@@ -1,22 +1,22 @@
 # Volume v2 warrant lineage history audit
 
 - Audit version: `volume_v2_warrant_lineage_history_audit_v5`
-- Audited trading dates: `20260615, 20260616, 20260617, 20260618, 20260622, 20260623, 20260624, 20260626, 20260629, 20260630, 20260701, 20260702, 20260703, 20260706, 20260707, 20260708, 20260709, 20260713, 20260714, 20260715, 20260716, 20260717, 20260810, 20260811, 20260820, 20260821, 20260825, 20260826, 20260827, 20260828, 20260831`
-- Runtime combined coverage: `119` revisions; current replay plus trusted HEAD baseline
-- Formal volume v2 rows: `202`
-- Formal verified clean: `176`
+- Audited trading dates: `20260615, 20260616, 20260617, 20260618, 20260622, 20260623, 20260624, 20260626, 20260629, 20260630, 20260701, 20260702, 20260703, 20260706, 20260707, 20260708, 20260709, 20260713, 20260714, 20260715, 20260716, 20260717, 20260810, 20260811, 20260820, 20260821, 20260825, 20260826, 20260827, 20260828, 20260831, 20260901`
+- Runtime combined coverage: `120` revisions; current replay plus trusted HEAD baseline
+- Formal volume v2 rows: `211`
+- Formal verified clean: `185`
 - Formal superseded: `4`
 - Formal quarantined: `22`
 - Formal unreplayable: `0`
 - Legacy precontract history incomplete dates: `16`
-- Historical promotion evidence eligible rows: `31/202`
-- Superseded advisory watch rows: `79`
-- Independent component replay resolved: `202/202`
-- Candidate-absent canonical score contexts: `77` stored as `{}`
-- Warrant collision rows: `38`
+- Historical promotion evidence eligible rows: `31/211`
+- Superseded advisory watch rows: `84`
+- Independent component replay resolved: `211/211`
+- Candidate-absent canonical score contexts: `81` stored as `{}`
+- Warrant collision rows: `40`
 - TDCC-status collision rows: `0`
 - False-breakout collision rows: `0`
-- Watch/candidate source score collisions: `75`
+- Watch/candidate source score collisions: `80`
 - Watch/candidate source rank collisions: `0`
 - Non-current rows were preserved from trusted HEAD and were not revalidated or replayed.
 
@@ -143,6 +143,7 @@
 | 20260828 | r1 | 17 | versioned_revision_exact | complete | 0 | canonical_candidate_explicit_allowlist |
 | 20260828 | r2 | 17 | versioned_revision_exact | complete | 0 | canonical_candidate_explicit_allowlist |
 | 20260831 | r1 | 6 | versioned_revision_exact | complete | 0 | canonical_candidate_explicit_allowlist |
+| 20260901 | r1 | 9 | versioned_revision_exact | complete | 0 | canonical_candidate_explicit_allowlist |
 
 ## Watch collision disposition
 
@@ -227,6 +228,11 @@
 | 20260831 | 2455 | volume_range_breakout_v2_high_position_volume_attack | warrant_flow_signal | warrant=/call_strong_inflow→call_strong_inflow; tdcc=/→; false_breakout=False/False→False | 64.0→64.0 | 0.0→0.0 | 0.0→0.0 | 71.2→71.2 | 3→3 | verified_clean |
 | 20260831 | 2402 | volume_range_breakout_v2_low_position_volume_attack | warrant_flow_signal | warrant=/call_put_bullish→call_put_bullish; tdcc=/→; false_breakout=False/False→False | 91.7→91.7 | 0.0→0.0 | 0.0→0.0 | 92.7→92.7 | 1→1 | verified_clean |
 | 20260831 | 4908 | volume_range_breakout_v2_mid_position_momentum_attack |  | warrant=/→; tdcc=/→; false_breakout=False/False→False | 87.6→87.6 | 0.0→0.0 | 0.0→0.0 | 94.0→94.0 | 2→2 | verified_clean |
+| 20260901 | 2455 | volume_range_breakout_v2_high_position_volume_attack | warrant_flow_signal | warrant=/call_strong_inflow→call_strong_inflow; tdcc=/→; false_breakout=False/False→False | 64.0→64.0 | 0.0→0.0 | 0.0→0.0 | 73.0→73.0 | 1→1 | verified_clean |
+| 20260901 | 6217 | volume_range_breakout_v2_low_position_volume_attack |  | warrant=/→; tdcc=/→; false_breakout=False/False→False | 84.5→84.5 | 0.0→0.0 | 0.0→0.0 | 89.1→89.1 | 2→2 | verified_clean |
+| 20260901 | 4971 | volume_range_breakout_v2_mid_position_momentum_attack |  | warrant=/→; tdcc=/→; false_breakout=False/False→False | 92.7→92.7 | 0.0→0.0 | 0.0→0.0 | 100.0→100.0 | 1→1 | verified_clean |
+| 20260901 | 3105 | volume_range_breakout_v2_mid_position_momentum_attack |  | warrant=/→; tdcc=/→; false_breakout=False/False→False | 84.9→84.9 | 0.0→0.0 | 0.0→0.0 | 90.9→90.9 | 3→3 | verified_clean |
+| 20260901 | 2449 | volume_range_breakout_v2_mid_position_momentum_attack | warrant_flow_signal | warrant=/call_strong_inflow→call_strong_inflow; tdcc=/→; false_breakout=False/False→False | 83.5→83.5 | 0.0→0.0 | 0.0→0.0 | 83.9→83.9 | 4→4 | verified_clean |
 
 ## Conclusion
 

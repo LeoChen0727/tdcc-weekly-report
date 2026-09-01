@@ -16,6 +16,21 @@ import build_mature_model_row_level_metric_contract_audit as builder  # noqa: E4
 import validate_mature_model_row_level_metric_contract_audit as validator  # noqa: E402
 
 
+REVENUE_ROW_METRIC_PAYLOAD_COLUMNS = (
+    "row_metric_scope",
+    "row_metric_id",
+    "row_metric_label_zh",
+    "row_metric_matched_add_score_ids",
+    "row_metric_sample_size",
+    "row_metric_win_rate_zh",
+    "row_metric_neutral_rate_zh",
+    "row_metric_failure_rate_zh",
+    "row_metric_avg_return_zh",
+    "row_metric_median_return_zh",
+    "row_metric_source",
+)
+
+
 def generic_combo_adapter_row() -> dict[str, str]:
     return {
         "model_id": "synthetic_combo_model",
@@ -79,6 +94,14 @@ def test_builder_covers_all_current_mature_operation_models() -> None:
 def test_revenue_model_uses_model_owned_adapter_and_frozen_no_add_score_policy() -> None:
     rows = builder.build_rows("test")
     revenue = next(row for row in rows if row["model_id"] == "revenue_unreacted_range")
+    adapter = pd.read_csv(
+        builder.ADAPTER_BY_MODEL["revenue_unreacted_range"],
+        dtype=str,
+        keep_default_na=False,
+    )
+    data_rows = adapter[
+        adapter["model_id"].eq("revenue_unreacted_range") & adapter["row_type"].eq("data")
+    ]
 
     assert builder.ADAPTER_BY_MODEL["revenue_unreacted_range"] == (
         ROOT / "output" / "latest" / "daily_revenue_unreacted_range_operation_section_latest.csv"
@@ -92,8 +115,27 @@ def test_revenue_model_uses_model_owned_adapter_and_frozen_no_add_score_policy()
         "output/latest/daily_revenue_unreacted_range_operation_section_latest.csv"
     )
     assert int(revenue["adapter_row_count"]) > 0
-    assert int(revenue["adapter_data_row_count"]) == 0
-    assert int(revenue["mature_operation_data_row_count"]) == 0
+    adapter_data_row_count = int(revenue["adapter_data_row_count"])
+    mature_operation_data_row_count = int(revenue["mature_operation_data_row_count"])
+    unique_stock_lifecycle_count = int(revenue["unique_stock_lifecycle_count"])
+    assert adapter_data_row_count == len(data_rows)
+    assert adapter_data_row_count >= mature_operation_data_row_count
+    assert mature_operation_data_row_count == unique_stock_lifecycle_count * 2
+    assert data_rows["row_metric_status"].eq(
+        "unavailable_no_approved_add_score_metric"
+    ).all()
+    assert data_rows["row_metric_selection_status"].eq(
+        "baseline_not_permitted_in_operation_row"
+    ).all()
+    assert (
+        data_rows[list(REVENUE_ROW_METRIC_PAYLOAD_COLUMNS)]
+        .fillna("")
+        .astype(str)
+        .apply(lambda column: column.str.strip())
+        .eq("")
+        .all()
+        .all()
+    )
     assert revenue["production_score_add_item_ids"] == ""
     assert revenue["validated_row_metric_add_item_ids"] == ""
     assert revenue["score_add_item_governance_status"] == (
@@ -103,6 +145,57 @@ def test_revenue_model_uses_model_owned_adapter_and_frozen_no_add_score_policy()
         "pass_adapter_row_metric_contract_columns_present"
     )
     assert revenue["issues"] == ""
+
+
+def test_revenue_pending_only_data_remains_non_mature_and_frozen(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    adapter_path = tmp_path / "revenue_pending_only_adapter.csv"
+    row = {
+        "model_id": "revenue_unreacted_range",
+        "row_type": "data",
+        "pdf_view": "full",
+        "pdf_section": "pending_confirmation",
+        "report_line": "mainstream",
+        "operation_asof_date": "20260824",
+        "stock_id": "9999",
+        "stock_name": "合成待確認",
+        "signal_date": "20260823",
+        "operation_quality": "pending_confirmation",
+    }
+    for column in REVENUE_ROW_METRIC_PAYLOAD_COLUMNS:
+        row[column] = ""
+    row["row_metric_status"] = "unavailable_no_approved_add_score_metric"
+    row["row_metric_selection_status"] = "baseline_not_permitted_in_operation_row"
+    pd.DataFrame([row]).to_csv(adapter_path, index=False, encoding="utf-8-sig")
+    monkeypatch.setitem(builder.ADAPTER_BY_MODEL, "revenue_unreacted_range", adapter_path)
+    monkeypatch.setattr(builder, "rel", lambda path: path.name)
+
+    audit = builder.audit_mature_model(
+        pd.Series(
+            {
+                "model_id": "revenue_unreacted_range",
+                "model_name_zh": "營收爆發但股價尚未反應模型",
+                "approved_for_daily": "True",
+                "presentation_allowed": "True",
+                "pdf_integration_status": "pdf_integrated_daily_adapter",
+            }
+        ),
+        pd.DataFrame(),
+        "test",
+    )
+
+    assert int(audit["adapter_data_row_count"]) == 1
+    assert int(audit["mature_operation_data_row_count"]) == 0
+    assert int(audit["unique_stock_lifecycle_count"]) == 0
+    assert audit["production_score_add_item_ids"] == ""
+    assert audit["validated_row_metric_add_item_ids"] == ""
+    assert audit["score_add_item_governance_status"] == (
+        "pass_frozen_no_add_score_items_and_no_row_metric"
+    )
+    assert int(audit["row_metric_ready_count"]) == 0
+    assert audit["issues"] == ""
 
 
 def test_revenue_frozen_no_add_score_policy_rejects_ready_row_metric(
