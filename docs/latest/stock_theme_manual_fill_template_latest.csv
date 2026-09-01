@@ -1410,10 +1410,10 @@
 5907,大洋-KY,貿易百貨,貿易百貨,非主流,,,,,,provisional_industry_mapping
 6005,群益證,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
 6015,宏遠證,金融業,金融業,非主流,,,,,,provisional_industry_mapping
-6016,康和證,金融業,金融業,非主流,,,,,,provisional_industry_mapping
+6016,康和證,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
 6020,大展證,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
 6021,美好證,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
-6023,元大期貨,金融業,金融業,非主流,,,,,,provisional_industry_mapping
+6023,元大期貨,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
 6024,群益期,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
 6026,福邦證,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
 6028,公勝保經,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
@@ -2331,7 +2331,7 @@
 8996,高力,電機機械,電機機械,主流,散熱液冷,,,,,user_authorized_seed_20260530
 9103,美德醫療-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
 910322,康師傅-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
-9105,泰金寶-DR,存託憑證,存託憑證,非主流,,,,,,
+9105,泰金寶-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
 910861,神州-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
 9110,越南控-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
 911608,明輝-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
@@ -2355,7 +2355,7 @@
 9919,康那香,其他業,其他業,非主流,,,,,,
 9921,巨大,運動休閒,運動休閒,非主流,,,,,,
 9924,福興,居家生活,居家生活,非主流,,,,,,
-9925,新保,其他業,其他業,非主流,,,,,,
+9925,新保,其他,其他,非主流,,,,,,
 9926,新海,油電燃氣業,油電燃氣業,非主流,,,,,,provisional_industry_mapping
 9927,泰銘,其他業,其他業,非主流,,,,,,
 9928,中視,其他業,其他業,非主流,,,,,,
