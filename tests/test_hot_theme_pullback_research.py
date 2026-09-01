@@ -4,12 +4,19 @@ import ast
 import hashlib
 import shutil
 from pathlib import Path
+import sys
 
 import pandas as pd
 import pytest
 
-from scripts import build_hot_theme_pullback_research as producer
-from scripts import validate_hot_theme_pullback_research as validator
+
+ROOT = Path(__file__).resolve().parents[1]
+SCRIPTS = ROOT / "scripts"
+if str(SCRIPTS) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS))
+
+import build_hot_theme_pullback_research as producer  # noqa: E402
+import validate_hot_theme_pullback_research as validator  # noqa: E402
 
 
 def _write_price(path: Path, closes: list[float]) -> None:

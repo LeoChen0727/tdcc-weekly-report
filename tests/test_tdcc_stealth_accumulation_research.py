@@ -6,11 +6,18 @@ import hashlib
 import io
 from datetime import date, timedelta
 from pathlib import Path
+import sys
 
 import pytest
 
-from scripts import build_tdcc_stealth_accumulation_research as producer
-from scripts import validate_tdcc_stealth_accumulation_research as validator
+
+ROOT = Path(__file__).resolve().parents[1]
+SCRIPTS = ROOT / "scripts"
+if str(SCRIPTS) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS))
+
+import build_tdcc_stealth_accumulation_research as producer  # noqa: E402
+import validate_tdcc_stealth_accumulation_research as validator  # noqa: E402
 
 
 SIGNAL_FIELDS = [
