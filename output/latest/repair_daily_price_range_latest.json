@@ -1,66 +1,66 @@
 {
   "rows": [
     {
-      "date": "20260828",
+      "date": "20260902",
       "status": "repaired",
-      "twse_rows": 1242,
-      "tpex_rows": 893,
-      "total_rows": 2135,
+      "twse_rows": 1244,
+      "tpex_rows": 875,
+      "total_rows": 2119,
       "reason": "full_market_ok",
-      "saved_files": "data/daily_price/20260828.csv;data/daily_price/daily_price_20260828.csv",
-      "price_sha256": "d353995ae96135eec84aa88edb170c2de8e2def5f21da71954c8cf7b888c10d7",
+      "saved_files": "data/daily_price/20260902.csv;data/daily_price/daily_price_20260902.csv",
+      "price_sha256": "10922fd08cd436225729f6f6d23a1837f11997aa624c09e94e7e3283dfc57b66",
       "fetch_response_provenance": [
         {
-          "endpoint": "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260828&type=ALLBUT0999&response=json",
+          "endpoint": "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260902&type=ALLBUT0999&response=json",
           "source_name": "TWSE_RWD_JSON_MI_INDEX",
           "params": {},
           "status_code": 200,
-          "fetched_at": "2026-08-28 20:34:40 Asia/Taipei",
-          "raw_sha256": "4cab8ac730a007961b354efcb270fa19d00eb1442c634d113aa0e2af60d0f2df",
-          "normalized_sha256": "4cab8ac730a007961b354efcb270fa19d00eb1442c634d113aa0e2af60d0f2df",
+          "fetched_at": "2026-09-02 20:33:37 Asia/Taipei",
+          "raw_sha256": "656821e9383357e3e6f543c4762d3f8a8c77da4a89f07f27e1b11e819fdef6d2",
+          "normalized_sha256": "656821e9383357e3e6f543c4762d3f8a8c77da4a89f07f27e1b11e819fdef6d2",
           "observed_response_dates": [
-            "20260828"
+            "20260902"
           ],
           "expected_response_date": "",
           "exact_date_match": "not_required",
           "attempt": 1
         },
         {
-          "endpoint": "https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/08/28&type=EW&response=json",
+          "endpoint": "https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/09/02&type=EW&response=json",
           "source_name": "TPEX_NEW_AFTERTRADING_JSON",
           "params": {},
           "status_code": 200,
-          "fetched_at": "2026-08-28 20:34:40 Asia/Taipei",
-          "raw_sha256": "6cc22ecd3f1e210aaa0834747cf00884a67e63c8065342f02225a7774efe5a4a",
-          "normalized_sha256": "32b605d0be6f92b3c030eeffa8e94e3c65c1a20cb6bc4efdadea2996d4cdbdf8",
+          "fetched_at": "2026-09-02 20:33:38 Asia/Taipei",
+          "raw_sha256": "6110c8f61f2b5fc297f1519c8a214dc9cca59e317d9da42e57b96b3cd90ba2e9",
+          "normalized_sha256": "0bb50e2c6c932cb308a1dc599239494c0196682297156a2c1be9902c4988abe5",
           "observed_response_dates": [],
           "expected_response_date": "",
           "exact_date_match": "not_required",
           "attempt": 1
         },
         {
-          "endpoint": "https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/08/28&type=EW&response=csv",
+          "endpoint": "https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/09/02&type=EW&response=csv",
           "source_name": "TPEX_NEW_AFTERTRADING_CSV",
           "params": {},
-          "status_code": 520,
-          "fetched_at": "2026-08-28 20:34:49 Asia/Taipei",
-          "raw_sha256": "fb8bea7302657ae06d5c75e9af22afca56d3f761a600d0967fb8a9a1fb705daa",
-          "normalized_sha256": "fb8bea7302657ae06d5c75e9af22afca56d3f761a600d0967fb8a9a1fb705daa",
+          "status_code": 200,
+          "fetched_at": "2026-09-02 20:33:39 Asia/Taipei",
+          "raw_sha256": "141e8b5e58e78c1964166436f236c843a82c94eef7e2d58ad210d2fa0e7ecb97",
+          "normalized_sha256": "c0ca46ca80cd147213e08131115f649aae5efd3c2609f7ce0260a05b209629c5",
           "observed_response_dates": [],
           "expected_response_date": "",
           "exact_date_match": "not_required",
           "attempt": 1
         },
         {
-          "endpoint": "https://www.tpex.org.tw/web/stock/aftertrading/otc_quotes_no1430/stk_wn1430_result.php?l=zh-tw&o=json&d=115/08/28&se=EW",
+          "endpoint": "https://www.tpex.org.tw/web/stock/aftertrading/otc_quotes_no1430/stk_wn1430_result.php?l=zh-tw&o=json&d=115/09/02&se=EW",
           "source_name": "TPEX_OTC_QUOTES_NO1430_JSON",
           "params": {},
           "status_code": 200,
-          "fetched_at": "2026-08-28 20:34:50 Asia/Taipei",
-          "raw_sha256": "f89ae7834c1f374e28253870597c5e3b35c240e3d1a1c0113d58f16a9fafe279",
-          "normalized_sha256": "f89ae7834c1f374e28253870597c5e3b35c240e3d1a1c0113d58f16a9fafe279",
+          "fetched_at": "2026-09-02 20:33:40 Asia/Taipei",
+          "raw_sha256": "7f5ae8e97eff54461bbcf0b0b7c4d48785a3a91887b1f6d129d60bf4630dd3ec",
+          "normalized_sha256": "7f5ae8e97eff54461bbcf0b0b7c4d48785a3a91887b1f6d129d60bf4630dd3ec",
           "observed_response_dates": [
-            "20260828"
+            "20260902"
           ],
           "expected_response_date": "",
           "exact_date_match": "not_required",
@@ -71,17 +71,17 @@
   ],
   "check_rows": [
     {
-      "date": "20260828",
+      "date": "20260902",
       "stock_id": "5291",
       "found": true,
       "stock_name": "邑昇",
       "market": "TPEx",
-      "open": "67.0",
-      "high": "72.0",
-      "low": "66.0",
-      "close": "68.5",
-      "volume": "5668000",
-      "trading_value": "391580600"
+      "open": "71.4",
+      "high": "73.2",
+      "low": "70.2",
+      "close": "70.7",
+      "volume": "1708000",
+      "trading_value": "121695900"
     }
   ]
 }

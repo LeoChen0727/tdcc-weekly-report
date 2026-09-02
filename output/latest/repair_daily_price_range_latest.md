@@ -2,8 +2,8 @@
 
 - mode: `date_range`
 - selected_dates: ``
-- start_date: `20260828`
-- end_date: `20260828`
+- start_date: `20260902`
+- end_date: `20260902`
 - source_base_sha: ``
 - check_code: `5291`
 - repaired_count: `1`
@@ -14,10 +14,10 @@
 
 | date | status | twse_rows | tpex_rows | total_rows | price_sha256 | reason | saved_files |
 |---|---|---:|---:|---:|---|---|---|
-| 20260828 | repaired | 1242 | 893 | 2135 | d353995ae96135eec84aa88edb170c2de8e2def5f21da71954c8cf7b888c10d7 | full_market_ok | data/daily_price/20260828.csv;data/daily_price/daily_price_20260828.csv |
+| 20260902 | repaired | 1244 | 875 | 2119 | 10922fd08cd436225729f6f6d23a1837f11997aa624c09e94e7e3283dfc57b66 | full_market_ok | data/daily_price/20260902.csv;data/daily_price/daily_price_20260902.csv |
 
 ## Check Code 5291
 
 | date | found | stock_id | stock_name | market | open | high | low | close | volume | trading_value |
 |---|---|---|---|---|---:|---:|---:|---:|---:|---:|
-| 20260828 | True | 5291 | 邑昇 | TPEx | 67.0 | 72.0 | 66.0 | 68.5 | 5668000 | 391580600 |
+| 20260902 | True | 5291 | 邑昇 | TPEx | 71.4 | 73.2 | 70.2 | 70.7 | 1708000 | 121695900 |
