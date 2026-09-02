@@ -3939,7 +3939,7 @@ def test_daily_full_failed_recovery_retry_contract_rejects_missing_guards() -> N
         "failed-recovery retry run id requires a reservation commit",
         "failed-recovery retry requires recovery_expected_head_sha",
         "if expected_head and event_head != expected_head:",
-        "Validate single failed-recovery retry",
+        "Validate bounded failed-recovery retry history",
         "collect-retry-runs",
         "verify-retry-runs",
         "daily-full-retry-{0}",

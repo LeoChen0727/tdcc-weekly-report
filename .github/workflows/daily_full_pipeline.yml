@@ -213,7 +213,7 @@ jobs:
             --reservation-commit-sha "${{ inputs.recovery_reservation_commit_sha }}" \
             --retry-of-run-id "${{ inputs.recovery_retry_of_run_id }}"
 
-      - name: Validate single failed-recovery retry
+      - name: Validate bounded failed-recovery retry history
         if: inputs.recovery_retry_of_run_id != ''
         shell: bash
         env:
