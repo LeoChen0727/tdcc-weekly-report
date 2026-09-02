@@ -834,6 +834,9 @@ def test_data_sharing_registry_uses_model_owned_research_entrypoints() -> None:
     assert by_family[
         "hot_theme_pullback_published_signal_research_outputs"
     ]["registered_producers"] == "scripts/build_hot_theme_pullback_research.py"
+    assert by_family["pullback_short_reclaim_research_outputs"][
+        "registered_producers"
+    ] == "scripts/build_pullback_short_reclaim_research.py"
     assert by_family["revenue_unreacted_range_feature_contrast_audit"]["registered_producers"] == (
         "scripts/build_revenue_unreacted_range_research.py"
     )
@@ -950,6 +953,81 @@ def test_hot_theme_pullback_research_outputs_are_model_owned_and_fail_closed() -
     assert migration["migration_status"] == "validated_user_approved_migration"
 
 
+def test_pullback_short_reclaim_research_outputs_are_model_owned_and_fail_closed() -> None:
+    family = "pullback_short_reclaim_research_outputs"
+    migration_id = "pullback_short_reclaim_research_outputs_registration_20260902"
+    approval = (
+        "user_requested_four_model_artifact_registration_then_sequential_"
+        "backtests_20260902"
+    )
+    expected_hash = (
+        "b5172cdd7e30e33a328a8d31bfe0069afca213b60b5b08516fb80a15a1354986"
+    )
+    background = {
+        row["data_family_id"]: row
+        for row in read_csv("config/daily_model_background_data_registry.csv")
+    }
+    sharing = {
+        row["data_family_id"]: row
+        for row in read_csv("config/daily_model_data_sharing_registry.csv")
+    }
+    migrations = {
+        row["migration_id"]: row
+        for row in read_csv("config/daily_model_data_sharing_migrations.csv")
+    }
+
+    bg = background[family]
+    assert bg["scope"] == "model_research_output"
+    assert bg["owner_lane"] == "research_backtest"
+    assert bg["producer"] == "scripts/build_pullback_short_reclaim_research.py"
+    assert bg["artifact_path"] == (
+        "output/latest/research_backtest/"
+        "pullback_short_reclaim_published_signal_replay_*_latest.csv"
+    )
+    assert bg["source_artifacts"].split(";") == [
+        "output/history/daily_model_snapshots/"
+        "daily_published_model_snapshot_manifest.csv",
+        "output/history/daily_model_snapshots/"
+        "daily_candidate_model_signals_for_report_*.csv",
+        "data/stock_price_history/*.csv",
+    ]
+    assert bg["consumer_surfaces"] == "research_backtest"
+    assert bg["consumer_models"] == "pullback_short_reclaim"
+    assert bg["validator"] == "scripts/validate_pullback_short_reclaim_research.py"
+    assert "latest_registered_revision_per_report_date" in bg["point_in_time_status"]
+    assert "exactly one signal event per date and stock" in bg["allowed_use"]
+    assert "self-contained immutable replay" in bg["forbidden_use"]
+    assert "operation_contract_status is decision_required" in bg["forbidden_use"]
+    assert "market-calendar proof is absent" in bg["forbidden_use"]
+    assert "promotion evidence" in bg["forbidden_use"]
+    assert "exactly three latest CSV artifacts" in bg["notes"]
+    assert "snapshot_pipeline_commit_sha" in bg["notes"]
+    assert "No model-owned manifest history or docs artifact" in bg["notes"]
+
+    row = sharing[family]
+    assert row["ownership_mode"] == "model_owned_not_shared"
+    assert row["owner_model_or_family"] == "pullback_short_reclaim"
+    assert row["registered_producers"] == bg["producer"]
+    assert row["producer_write_scope"] == bg["artifact_path"]
+    assert row["approved_consumer_models"] == "pullback_short_reclaim"
+    assert row["data_contract_sha256"] == expected_hash
+    assert row["data_contract_sha256"] == data_contract_sha256(bg)
+    assert row["last_migration_id"] == migration_id
+    assert row["sharing_decision_reference"] == approval
+    assert row["formal_evidence_policy"] == (
+        "research_only_published_signal_replay_not_formal_operation_or_"
+        "promotion_evidence"
+    )
+
+    migration = migrations[migration_id]
+    assert migration["changed_data_families"] == family
+    assert migration["previous_contract_sha256s"] == "NEW"
+    assert migration["new_contract_sha256s"] == expected_hash
+    assert migration["affected_models"] == "pullback_short_reclaim"
+    assert migration["user_approval_reference"] == approval
+    assert migration["migration_status"] == "validated_user_approved_migration"
+
+
 def test_volume_v2_watch_committed_lineage_audit_is_exactly_registered() -> None:
     approval = "user_authorized_volume_v2_advisory_lineage_refresh_1a_20260815"
     migration_id = "volume_v2_watch_committed_lineage_audit_20260815"
@@ -1021,9 +1099,9 @@ def test_volume_v2_watch_committed_lineage_audit_is_exactly_registered() -> None
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
-    assert len(rows) == 31
+    assert len(rows) == 32
     assert rows[-1]["migration_id"] == (
-        "hot_theme_pullback_published_signal_research_outputs_20260902"
+        "pullback_short_reclaim_research_outputs_registration_20260902"
     )
     baseline = rows[0]
     assert tuple(baseline) == DATA_SHARING_MIGRATION_COLUMNS

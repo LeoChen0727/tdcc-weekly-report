@@ -58,6 +58,25 @@ def test_hot_theme_pullback_research_outputs_are_required() -> None:
     )
 
 
+def test_pullback_short_reclaim_research_outputs_are_required() -> None:
+    rows = [
+        row
+        for row in registry_rows()
+        if row["data_family_id"] != "pullback_short_reclaim_research_outputs"
+    ]
+
+    errors = validate_registry(rows, require_artifacts=False)
+
+    assert any(
+        "registry missing required background data families" in error
+        for error in errors
+    )
+    assert any(
+        "pullback_short_reclaim_research_outputs" in error
+        for error in errors
+    )
+
+
 def test_model_specific_family_cannot_be_all_models() -> None:
     rows = deepcopy(registry_rows())
     for row in rows:
