@@ -837,6 +837,11 @@ def test_data_sharing_registry_uses_model_owned_research_entrypoints() -> None:
     assert by_family["pullback_short_reclaim_research_outputs"][
         "registered_producers"
     ] == "scripts/build_pullback_short_reclaim_research.py"
+    assert by_family[
+        "tdcc_stealth_accumulation_published_signal_research_outputs"
+    ]["registered_producers"] == (
+        "scripts/build_tdcc_stealth_accumulation_research.py"
+    )
     assert by_family["revenue_unreacted_range_feature_contrast_audit"]["registered_producers"] == (
         "scripts/build_revenue_unreacted_range_research.py"
     )
@@ -1028,6 +1033,87 @@ def test_pullback_short_reclaim_research_outputs_are_model_owned_and_fail_closed
     assert migration["migration_status"] == "validated_user_approved_migration"
 
 
+def test_tdcc_stealth_accumulation_research_outputs_are_model_owned_and_fail_closed() -> None:
+    family = "tdcc_stealth_accumulation_published_signal_research_outputs"
+    migration_id = (
+        "tdcc_stealth_accumulation_published_signal_research_outputs_20260902"
+    )
+    approval = (
+        "user_requested_four_model_artifact_registration_then_sequential_"
+        "backtests_20260902"
+    )
+    expected_hash = (
+        "771d2fa7b6065da58dca2cb3c9331a9a7e53f7e5331b54ff249258dccfee112b"
+    )
+    background = {
+        row["data_family_id"]: row
+        for row in read_csv("config/daily_model_background_data_registry.csv")
+    }
+    sharing = {
+        row["data_family_id"]: row
+        for row in read_csv("config/daily_model_data_sharing_registry.csv")
+    }
+    migrations = {
+        row["migration_id"]: row
+        for row in read_csv("config/daily_model_data_sharing_migrations.csv")
+    }
+
+    bg = background[family]
+    assert bg["scope"] == "model_research_output"
+    assert bg["owner_lane"] == "research_backtest"
+    assert bg["producer"] == "scripts/build_tdcc_stealth_accumulation_research.py"
+    assert bg["artifact_path"] == (
+        "output/research/tdcc_stealth_accumulation/"
+        "tdcc_stealth_accumulation_actual_recommendation_replay_*_v1.csv"
+    )
+    assert bg["source_artifacts"].split(";") == [
+        "output/history/daily_model_snapshots/"
+        "daily_published_model_snapshot_manifest.csv",
+        "output/history/daily_model_snapshots/"
+        "daily_candidate_model_signals_for_report_*.csv",
+        "data/stock_price_history/*.csv",
+    ]
+    assert bg["consumer_surfaces"] == "research_backtest"
+    assert bg["consumer_models"] == "tdcc_stealth_accumulation"
+    assert bg["validator"] == "scripts/validate_tdcc_stealth_accumulation_research.py"
+    assert "latest_valid_revision_per_report_date" in bg["point_in_time_status"]
+    assert "identity_deduplicated" in bg["point_in_time_status"]
+    assert "zero_sample_explicit" in bg["point_in_time_status"]
+    assert "same-signal identity deduplication" in bg["allowed_use"]
+    assert "header-only detail and three summary rows" in bg["allowed_use"]
+    assert "production semantic SHA binding is unavailable" in bg["forbidden_use"]
+    assert "do not infer or synthesize recommendation events" in bg["forbidden_use"]
+    assert "mutable unpinned price inputs" in bg["forbidden_use"]
+    assert "promotion evidence" in bg["forbidden_use"]
+    assert "exactly two CSV files" in bg["notes"]
+    assert "detail is header-only" in bg["notes"]
+    assert "Formal-use trade-eligibility promotion-evidence" in bg["notes"]
+
+    row = sharing[family]
+    assert row["ownership_mode"] == "model_owned_not_shared"
+    assert row["owner_model_or_family"] == "tdcc_stealth_accumulation"
+    assert row["registered_producers"] == bg["producer"]
+    assert row["producer_write_scope"] == bg["artifact_path"]
+    assert row["consumer_access_mode"] == "owner_model_research_only"
+    assert row["approved_consumer_models"] == "tdcc_stealth_accumulation"
+    assert row["data_contract_sha256"] == expected_hash
+    assert row["data_contract_sha256"] == data_contract_sha256(bg)
+    assert row["last_migration_id"] == migration_id
+    assert row["sharing_decision_reference"] == approval
+    assert row["formal_evidence_policy"] == (
+        "research_only_published_signal_replay_not_formal_or_promotion_evidence"
+    )
+    assert "No synthetic event win rate or operation row is permitted" in row["notes"]
+
+    migration = migrations[migration_id]
+    assert migration["changed_data_families"] == family
+    assert migration["previous_contract_sha256s"] == "NEW"
+    assert migration["new_contract_sha256s"] == expected_hash
+    assert migration["affected_models"] == "tdcc_stealth_accumulation"
+    assert migration["user_approval_reference"] == approval
+    assert migration["migration_status"] == "validated_user_approved_migration"
+
+
 def test_volume_v2_watch_committed_lineage_audit_is_exactly_registered() -> None:
     approval = "user_authorized_volume_v2_advisory_lineage_refresh_1a_20260815"
     migration_id = "volume_v2_watch_committed_lineage_audit_20260815"
@@ -1099,9 +1185,9 @@ def test_volume_v2_watch_committed_lineage_audit_is_exactly_registered() -> None
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
-    assert len(rows) == 32
+    assert len(rows) == 33
     assert rows[-1]["migration_id"] == (
-        "pullback_short_reclaim_research_outputs_registration_20260902"
+        "tdcc_stealth_accumulation_published_signal_research_outputs_20260902"
     )
     baseline = rows[0]
     assert tuple(baseline) == DATA_SHARING_MIGRATION_COLUMNS
