@@ -168,12 +168,43 @@ CONSUMER_EXCLUSION_APPROVAL_REFERENCE = (
 SNAPSHOT_REVISION_LINEAGE_APPROVAL_REFERENCE = (
     "user_selected_option_1_daily_snapshot_revision_lineage_20260720"
 )
+PULLBACK_SHORT_RECLAIM_CONSUMER_EXCLUSION_APPROVAL_REFERENCE = (
+    "user_authorized_pullback_short_reclaim_volume_v2_consumer_exclusions_20260901"
+)
+PULLBACK_SHORT_RECLAIM_CONSUMER_EXCLUSION_SCOPES = {
+    "report_model_score_pullback_short_reclaim_research_scope": (
+        "model_score__formal_report_current",
+        "scripts/build_pullback_short_reclaim_research.py",
+        "model_scope_mismatch",
+    ),
+    "report_model_score_pullback_short_reclaim_validator_scope": (
+        "model_score__formal_report_current",
+        "scripts/validate_pullback_short_reclaim_research.py",
+        "model_scope_mismatch",
+    ),
+}
+PULLBACK_SHORT_RECLAIM_CONSUMER_EXCLUSION_MIGRATION_ID = (
+    "pullback_short_reclaim_model_score_consumer_exclusions_20260901"
+)
 CONSUMER_EXCLUSION_APPROVAL_REFERENCES = frozenset(
     {
         CONSUMER_EXCLUSION_APPROVAL_REFERENCE,
         SNAPSHOT_REVISION_LINEAGE_APPROVAL_REFERENCE,
+        PULLBACK_SHORT_RECLAIM_CONSUMER_EXCLUSION_APPROVAL_REFERENCE,
     }
 )
+CONSUMER_EXCLUSION_APPROVAL_SCOPES = {
+    PULLBACK_SHORT_RECLAIM_CONSUMER_EXCLUSION_APPROVAL_REFERENCE: (
+        PULLBACK_SHORT_RECLAIM_CONSUMER_EXCLUSION_SCOPES
+    ),
+}
+CONSUMER_EXCLUSION_MIGRATION_APPROVAL_SCOPES = {
+    PULLBACK_SHORT_RECLAIM_CONSUMER_EXCLUSION_APPROVAL_REFERENCE: {
+        PULLBACK_SHORT_RECLAIM_CONSUMER_EXCLUSION_MIGRATION_ID: tuple(
+            PULLBACK_SHORT_RECLAIM_CONSUMER_EXCLUSION_SCOPES
+        ),
+    },
+}
 CONSUMER_EXCLUSION_CLASSIFICATIONS = frozenset(
     {
         "cross_artifact_literal",
@@ -1762,6 +1793,17 @@ def _validate_consumer_exclusions(
             errors.append(
                 f"canonical consumer exclusion approval mismatch: {exclusion_id}"
             )
+        approval_scope = CONSUMER_EXCLUSION_APPROVAL_SCOPES.get(
+            row["approval_reference"]
+        )
+        if approval_scope is not None and approval_scope.get(exclusion_id) != (
+            row["lineage_id"],
+            row["module"],
+            row["classification"],
+        ):
+            errors.append(
+                f"canonical consumer exclusion approval scope mismatch: {exclusion_id}"
+            )
         actual_hash = consumer_exclusion_contract_sha256(row)
         if row["contract_sha256"] != actual_hash:
             errors.append(
@@ -1910,6 +1952,16 @@ def _validate_consumer_exclusion_migrations(
         changed = _split(migration["changed_exclusion_ids"])
         previous = _split(migration["previous_contract_sha256s"])
         new = _split(migration["new_contract_sha256s"])
+        approval_scope = CONSUMER_EXCLUSION_MIGRATION_APPROVAL_SCOPES.get(
+            migration["user_approval_reference"]
+        )
+        if approval_scope is not None and approval_scope.get(migration_id) != tuple(
+            changed
+        ):
+            errors.append(
+                "canonical consumer exclusion migration approval scope mismatch: "
+                f"{migration_id}"
+            )
         if not changed or len(changed) != len(previous) or len(changed) != len(new):
             errors.append(
                 "canonical consumer exclusion migration SHA lists do not align: "
