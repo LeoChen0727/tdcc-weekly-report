@@ -961,7 +961,13 @@ def load_prior_confirmed_history(
         return {}
     confirmed: dict[str, tuple[str, str]] = {}
     pattern = "daily_revenue_unreacted_range_operation_section_*.csv"
+    formal_history_name = re.compile(
+        r"daily_revenue_unreacted_range_operation_section_"
+        r"20[0-9]{6}_[0-9a-f]{64}\.csv"
+    )
     for path in sorted(history_dir.glob(pattern)):
+        if formal_history_name.fullmatch(path.name) is None:
+            continue
         frame = pd.read_csv(
             path,
             dtype=str,

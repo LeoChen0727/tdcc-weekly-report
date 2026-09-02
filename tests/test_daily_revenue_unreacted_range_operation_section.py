@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 from pathlib import Path
 import shutil
 import sys
@@ -288,6 +289,13 @@ def test_d0_d1_d2_lifecycle_requires_append_only_confirmed_proof(
     }
     assert set(confirmed["entry_date"]) == {""}
     d1_outputs = _write(d1, destination)
+    published_payload = Path(d1_outputs["output_csv"]).read_bytes()
+    published_snapshot = history_dir / (
+        "daily_revenue_unreacted_range_operation_section_"
+        f"{dates[131]}_r1_"
+        f"{hashlib.sha256(published_payload).hexdigest()[:12]}.csv"
+    )
+    published_snapshot.write_bytes(published_payload)
 
     with pytest.raises(
         builder.RevenueOperationAdapterError,

@@ -291,16 +291,23 @@ def test_shared_business_semantics_are_disclosed_as_contained_not_technical() ->
         assert no_longer_shared_item not in by_item
 
 
-def test_revenue_v2_adapter_migration_pins_exact_consumer_retirement() -> None:
+def test_revenue_v2_adapter_migrations_pin_activation_and_history_repair() -> None:
     ownership = {
         row["model_id"]: row
         for row in read_csv("config/daily_model_semantic_ownership.csv")
     }["revenue_unreacted_range"]
-    migration = next(
+    migrations = read_csv("config/daily_model_semantic_migrations.csv")
+    activation = next(
         row
-        for row in read_csv("config/daily_model_semantic_migrations.csv")
+        for row in migrations
         if row["migration_id"]
         == "revenue_v2_dedicated_adapter_activation_20260830"
+    )
+    history_repair = next(
+        row
+        for row in migrations
+        if row["migration_id"]
+        == "revenue_operation_history_filename_contract_repair_20260902"
     )
 
     assert ownership["production_source_file"] == (
@@ -310,11 +317,20 @@ def test_revenue_v2_adapter_migration_pins_exact_consumer_retirement() -> None:
         "_selected_source_mid_falling;build_operation_section"
     )
     assert ownership["ownership_status"] == "model_owned_module"
-    assert ownership["last_migration_id"] == migration["migration_id"]
+    assert ownership["last_migration_id"] == history_repair["migration_id"]
+    assert ownership["approval_reference"] == history_repair["user_approval_reference"]
+    assert history_repair["changed_semantics"] == "model:revenue_unreacted_range"
+    assert history_repair["previous_sha256s"] == activation["new_sha256s"].split(";")[0]
+    assert history_repair["new_sha256s"] == semantic_record_sha256(
+        "model:revenue_unreacted_range", ownership
+    )
+    assert history_repair["affected_models"] == "revenue_unreacted_range"
+    assert history_repair["migration_status"] == "validated_user_approved_migration"
+    assert "generic rN published snapshots" in history_repair["notes"]
 
-    changed = migration["changed_semantics"].split(";")
-    previous = migration["previous_sha256s"].split(";")
-    current = migration["new_sha256s"].split(";")
+    changed = activation["changed_semantics"].split(";")
+    previous = activation["previous_sha256s"].split(";")
+    current = activation["new_sha256s"].split(";")
     assert len(changed) == len(previous) == len(current) == 32
     assert changed[0] == "model:revenue_unreacted_range"
     old_monolith_items = changed[1:]
@@ -339,9 +355,9 @@ def test_revenue_v2_adapter_migration_pins_exact_consumer_retirement() -> None:
         "item:scripts/build_daily_candidate_model_layer.py::"
         "function:in_recent_range",
     }
-    assert set(migration["affected_models"].split(";")) == ACTIVE_MODELS
-    assert "only behavior change" in migration["notes"]
-    assert "Every other model keeps the same AST" in migration["notes"]
+    assert set(activation["affected_models"].split(";")) == ACTIVE_MODELS
+    assert "only behavior change" in activation["notes"]
+    assert "Every other model keeps the same AST" in activation["notes"]
 
 
 def test_warrant_runtime_subgraphs_pin_recursive_hashes_consumers_and_migration() -> None:
