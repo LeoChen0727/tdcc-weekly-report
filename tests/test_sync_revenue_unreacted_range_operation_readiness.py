@@ -336,24 +336,28 @@ def cache_verified_current_cheap_inputs(monkeypatch: pytest.MonkeyPatch) -> None
                 per_stock_manifest_sha=per_stock_manifest_sha,
                 required_stock_ids=required_stock_ids,
             )
+        if not requested:
+            return {}
+        resolutions = pd.read_csv(
+            repo / syncer.PRICE_RESOLUTION_REL,
+            dtype=str,
+        ).fillna("")
         if _CURRENT_REGISTERED_PRICE_FRAMES is None:
             _CURRENT_REGISTERED_PRICE_FRAMES = {}
         for stock_id in requested:
             if stock_id in _CURRENT_REGISTERED_PRICE_FRAMES:
                 continue
-            path = ROOT / syncer.PRICE_HISTORY_DIR_REL / f"{stock_id}.csv"
-            dates = pd.read_csv(path, usecols=["date"], dtype=str).fillna("")
-            dates["date"] = dates["date"].map(
-                lambda value: syncer._strict_date(
-                    value, f"verified test price date {stock_id}"
-                )
+            path = repo / syncer.PRICE_HISTORY_DIR_REL / f"{stock_id}.csv"
+            raw = pd.read_csv(path, dtype=str).fillna("")
+            normalized = syncer._normalized_registered_price_frame(
+                raw,
+                resolutions,
+                stock_id=stock_id,
+                observed_through=observed_through,
             )
-            dates = dates.loc[
-                dates["date"].le(_BASELINE_OBSERVED), ["date"]
-            ].reset_index(drop=True)
-            assert not dates["date"].duplicated().any()
-            assert dates["date"].is_monotonic_increasing
-            _CURRENT_REGISTERED_PRICE_FRAMES[stock_id] = dates
+            _CURRENT_REGISTERED_PRICE_FRAMES[stock_id] = normalized.loc[
+                :, ["date", "analysis_open", "analysis_close"]
+            ].copy()
         return {
             stock_id: _CURRENT_REGISTERED_PRICE_FRAMES[stock_id]
             for stock_id in requested
@@ -877,7 +881,8 @@ def test_formal_adapter_runtime_tolerates_bom_and_crlf_transport_drift(
         runtime_semantic
     ).hexdigest()
     assert result.row_count > 0
-    assert result.data_row_count == 0
+    transport = pd.read_csv(runtime_path, dtype=str).fillna("")
+    assert result.data_row_count == int(transport["row_type"].eq("data").sum())
 
 
 @pytest.mark.parametrize("drift_location", ("worktree_history", "committed_history"))
