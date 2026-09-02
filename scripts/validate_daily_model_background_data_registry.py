@@ -70,6 +70,7 @@ REQUIRED_FAMILIES = {
     "financial_statement_source_manifest",
     "financial_statement_pit_coverage_audit",
     "revenue_unreacted_range_source_snapshot_projection",
+    "hot_theme_pullback_published_signal_research_outputs",
     "price_pullback_23ema_research_outputs",
     "neckline_context_interpretation",
     "w_bottom_shape_interpretation",

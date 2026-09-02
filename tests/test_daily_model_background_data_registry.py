@@ -38,6 +38,26 @@ def test_snapshot_revision_manifest_is_a_required_background_data_family() -> No
     assert any("daily_model_snapshot_revision_manifest" in error for error in errors)
 
 
+def test_hot_theme_pullback_research_outputs_are_required() -> None:
+    rows = [
+        row
+        for row in registry_rows()
+        if row["data_family_id"]
+        != "hot_theme_pullback_published_signal_research_outputs"
+    ]
+
+    errors = validate_registry(rows, require_artifacts=False)
+
+    assert any(
+        "registry missing required background data families" in error
+        for error in errors
+    )
+    assert any(
+        "hot_theme_pullback_published_signal_research_outputs" in error
+        for error in errors
+    )
+
+
 def test_model_specific_family_cannot_be_all_models() -> None:
     rows = deepcopy(registry_rows())
     for row in rows:
