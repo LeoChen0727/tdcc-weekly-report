@@ -30,7 +30,7 @@ SHA1_RE = re.compile(r"[0-9a-f]{40}")
 SHA256_RE = re.compile(r"[0-9a-f]{64}")
 DATE_RE = re.compile(r"20\d{6}")
 RELEASE_RE = re.compile(r"[A-Za-z0-9][A-Za-z0-9._:-]{7,127}")
-RECOVERY_RETRY_ALLOWED_PREFIXES = (
+RECOVERY_RETRY_REPAIR_PREFIXES = (
     ".github/workflows/",
     "scripts/",
     "tests/",
@@ -665,34 +665,34 @@ def verify_failed_recovery_retry_runs(
         current_head_sha=anchor_head,
         protected_paths=protected_paths,
     )
-    verify_code_only_retry_descendant(
-        root,
-        reservation_commit_sha=anchor_head,
-        current_head_sha=head_sha,
+    ordered_historical = sorted(
+        historical_candidates, key=lambda item: (item[0], item[1])
     )
     historical: list[tuple[datetime, int, dict[str, Any]]] = [
         (anchor_created, anchor_id, anchor)
     ]
-    for created_at, run_id, run_head, run in historical_candidates:
-        if run_id == anchor_id:
-            continue
-        if (created_at, run_id) <= (anchor_created, anchor_id):
-            raise DailySourceRecoveryError(
-                "historical retry run must follow the initial recovery anchor"
-            )
-        verify_code_only_retry_descendant(
+    previous_head = anchor_head
+    for created_at, run_id, run_head, run in ordered_historical[1:]:
+        verify_bounded_retry_descendant(
             root,
-            reservation_commit_sha=anchor_head,
-            current_head_sha=run_head,
+            failed_head_sha=previous_head,
+            retry_head_sha=run_head,
+            protected_paths=protected_paths,
         )
-        git_output(root, "merge-base", "--is-ancestor", run_head, head_sha)
         historical.append((created_at, run_id, run))
-    _latest_created, latest_id, prior = max(historical, key=lambda item: (item[0], item[1]))
+        previous_head = run_head
+    _latest_created, latest_id, prior = historical[-1]
     if latest_id != prior_id:
         raise DailySourceRecoveryError(
             "retry_of_run_id must identify the latest related completed failure: "
             f"expected={latest_id} observed={prior_id}"
         )
+    verify_bounded_retry_descendant(
+        root,
+        failed_head_sha=previous_head,
+        retry_head_sha=head_sha,
+        protected_paths=protected_paths,
+    )
     return {"anchor": anchor, "prior": prior, "current": current}
 
 
@@ -736,27 +736,33 @@ def _git_raw_diff_entries(
     return entries
 
 
-def verify_code_only_retry_descendant(
+def verify_bounded_retry_descendant(
     root: Path,
     *,
-    reservation_commit_sha: str,
-    current_head_sha: str,
+    failed_head_sha: str,
+    retry_head_sha: str,
+    protected_paths: set[str],
 ) -> list[str]:
     root = root.resolve()
-    reservation_commit = checked_sha1(
-        reservation_commit_sha, "recovery reservation commit SHA"
-    )
-    current_head = checked_sha1(current_head_sha, "recovery current head SHA")
-    if reservation_commit == current_head:
+    failed_head = checked_sha1(failed_head_sha, "failed recovery head SHA")
+    retry_head = checked_sha1(retry_head_sha, "recovery retry head SHA")
+    if failed_head == retry_head:
         raise DailySourceRecoveryError(
-            "failed-recovery retry requires a strict descendant of the reservation commit"
+            "failed-recovery retry requires a strict descendant of the failed head"
         )
-    git_output(root, "merge-base", "--is-ancestor", reservation_commit, current_head)
+    try:
+        git_output(root, "merge-base", "--is-ancestor", failed_head, retry_head)
+    except DailySourceRecoveryError as exc:
+        raise DailySourceRecoveryError(
+            "failed-recovery retry head is not a descendant of the failed head"
+        ) from exc
+    protected = {checked_relative_path(path) for path in protected_paths}
     paths: list[str] = []
+    repair_paths: list[str] = []
     for path, status, old_mode, new_mode in _git_raw_diff_entries(
         root,
-        base_sha=reservation_commit,
-        head_sha=current_head,
+        base_sha=failed_head,
+        head_sha=retry_head,
         label="failed-recovery retry",
     ):
         if status not in {"A", "M"}:
@@ -772,14 +778,17 @@ def verify_code_only_retry_descendant(
                 "failed-recovery retry path mode/type drift is forbidden: "
                 f"path={path} old_mode={old_mode} new_mode={new_mode}"
             )
-        if not path.startswith(RECOVERY_RETRY_ALLOWED_PREFIXES):
+        if path in protected:
             raise DailySourceRecoveryError(
-                f"failed-recovery retry changed path is outside code-only scope: {path}"
+                f"failed-recovery retry changed immutable protected path: {path}"
             )
         paths.append(path)
-    if not paths:
+        if path.startswith(RECOVERY_RETRY_REPAIR_PREFIXES):
+            repair_paths.append(path)
+    if not repair_paths:
         raise DailySourceRecoveryError(
-            "failed-recovery retry descendant has no code/workflow/test changes"
+            "failed-recovery retry descendant has no repair path under "
+            ".github/workflows/, scripts/, or tests/"
         )
     return paths
 

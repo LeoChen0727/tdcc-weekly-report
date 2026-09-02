@@ -1978,10 +1978,10 @@ def validate_daily_failed_recovery_retry_contract(daily_text: str) -> list[str]:
     )
     required_literals = {
         "recovery_reservation_commit_sha:": (
-            "Daily Full must declare the original reservation commit for code-only retry"
+            "Daily Full must declare the original reservation commit for bounded retry"
         ),
         "recovery_retry_of_run_id:": (
-            "Daily Full must declare the exact failed run resumed by code-only retry"
+            "Daily Full must declare the exact failed run resumed by bounded retry"
         ),
         "failed-recovery retry run id requires a reservation commit": (
             "Daily Full must fail closed when retry provenance lacks its reservation commit"
@@ -1992,8 +1992,8 @@ def validate_daily_failed_recovery_retry_contract(daily_text: str) -> list[str]:
         "if expected_head and event_head != expected_head:": (
             "Daily Full failed-recovery retry must reject event-head drift"
         ),
-        "Validate single failed-recovery retry": (
-            "Daily Full must enforce the one-retry run set before production"
+        "Validate bounded failed-recovery retry history": (
+            "Daily Full must enforce bounded protected-nonoverlap retry history before production"
         ),
         "daily-full-failed-recovery-runs.json": (
             "Daily Full must use isolated run evidence for retry correlation"

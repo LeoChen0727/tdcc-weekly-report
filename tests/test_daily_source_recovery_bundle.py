@@ -1054,21 +1054,26 @@ def test_dispatch_reservation_is_date_scoped_immutable_and_bundle_bound(tmp_path
         )
 
 
-def test_failed_recovery_retry_accepts_exact_code_only_descendant(tmp_path: Path) -> None:
+def test_failed_recovery_retry_accepts_repair_and_supporting_paths(tmp_path: Path) -> None:
     root, base_sha = _repo(tmp_path)
     result, source_commit = _build_and_commit(root, base_sha)
     reserved, reservation_commit = _reserve_and_commit(root, result, source_commit)
     for relative in (
         ".github/workflows/retry.yml",
+        "config/supporting_registry.csv",
         "scripts/retry_fix.py",
         "tests/test_retry_fix.py",
     ):
         path = root / relative
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(f"# {relative}\n", encoding="utf-8")
-    subprocess.run(["git", "add", ".github/workflows", "scripts", "tests"], cwd=root, check=True)
     subprocess.run(
-        ["git", "commit", "-m", "code-only retry fix"],
+        ["git", "add", ".github/workflows", "config", "scripts", "tests"],
+        cwd=root,
+        check=True,
+    )
+    subprocess.run(
+        ["git", "commit", "-m", "bounded retry repair with supporting paths"],
         cwd=root,
         check=True,
         capture_output=True,
@@ -1091,12 +1096,19 @@ def test_failed_recovery_retry_accepts_exact_code_only_descendant(tmp_path: Path
     )
 
     assert verified == reserved["payload"]
-    assert bundle.verify_code_only_retry_descendant(
+    protected_paths = bundle._immutable_recovery_protected_paths(
+        reservation_path=str(reserved["path"]),
+        manifest_path=str(result["manifest_path"]),
+        source_manifest=result["manifest"],
+    )
+    assert bundle.verify_bounded_retry_descendant(
         root,
-        reservation_commit_sha=reservation_commit,
-        current_head_sha=current_head,
+        failed_head_sha=reservation_commit,
+        retry_head_sha=current_head,
+        protected_paths=protected_paths,
     ) == [
         ".github/workflows/retry.yml",
+        "config/supporting_registry.csv",
         "scripts/retry_fix.py",
         "tests/test_retry_fix.py",
     ]
@@ -1194,6 +1206,68 @@ def test_ordinary_recovery_rejects_reserved_source_path_drift(
 
 
 @pytest.mark.parametrize(
+    "protected_kind",
+    ("reservation", "manifest", "state", "market_session", "source", "bundle"),
+)
+def test_failed_recovery_retry_rejects_dynamic_protected_path_mutation(
+    tmp_path: Path,
+    protected_kind: str,
+) -> None:
+    root, base_sha = _repo(tmp_path)
+    result, source_commit = _build_and_commit(root, base_sha)
+    reserved, reservation_commit = _reserve_and_commit(root, result, source_commit)
+    if protected_kind == "reservation":
+        relative_path = str(reserved["path"])
+    elif protected_kind == "manifest":
+        relative_path = str(result["manifest_path"])
+    elif protected_kind == "state":
+        relative_path = str(Path(str(result["manifest_path"])).parent / "state.json")
+    elif protected_kind == "market_session":
+        relative_path = str(result["manifest"]["market_session"]["bundle_path"])
+    elif protected_kind == "source":
+        relative_path = str(result["manifest"]["files"][0]["path"])
+    else:
+        relative_path = str(result["manifest"]["files"][0]["bundle_path"])
+    target = root / relative_path
+    target.write_bytes(target.read_bytes() + b"\n")
+    repair = root / "scripts" / "retry_fix.py"
+    repair.parent.mkdir(parents=True, exist_ok=True)
+    repair.write_text("REPAIRED = True\n", encoding="utf-8")
+    subprocess.run(
+        ["git", "add", relative_path, "scripts/retry_fix.py"], cwd=root, check=True
+    )
+    subprocess.run(
+        ["git", "commit", "-m", f"mutate protected {protected_kind}"],
+        cwd=root,
+        check=True,
+        capture_output=True,
+    )
+    current_head = _git(root, "rev-parse", "HEAD")
+    anchor = _retry_run(
+        201, head_sha=reservation_commit, created_at="2026-08-11T12:30:10Z"
+    )
+    current = _retry_run(
+        400,
+        head_sha=current_head,
+        created_at="2026-08-11T12:45:00Z",
+        status="in_progress",
+        conclusion=None,
+    )
+
+    with pytest.raises(bundle.DailySourceRecoveryError, match="immutable protected path"):
+        bundle.verify_failed_recovery_retry_runs(
+            root,
+            [anchor, current],
+            reservation_commit_sha=reservation_commit,
+            reservation_payload=reserved["payload"],
+            trading_date=DATE,
+            retry_of_run_id=201,
+            current_run_id=400,
+            current_head_sha=current_head,
+        )
+
+
+@pytest.mark.parametrize(
     "relative_path",
     (
         "config/retry.csv",
@@ -1204,7 +1278,7 @@ def test_ordinary_recovery_rejects_reserved_source_path_drift(
         "chatgpt/retry.json",
     ),
 )
-def test_failed_recovery_retry_rejects_non_code_descendant(
+def test_failed_recovery_retry_rejects_supporting_only_descendant(
     tmp_path: Path,
     relative_path: str,
 ) -> None:
@@ -1216,21 +1290,22 @@ def test_failed_recovery_retry_rejects_non_code_descendant(
     target.write_text("forbidden\n", encoding="utf-8")
     subprocess.run(["git", "add", relative_path], cwd=root, check=True)
     subprocess.run(
-        ["git", "commit", "-m", "forbidden retry change"],
+        ["git", "commit", "-m", "supporting-only retry change"],
         cwd=root,
         check=True,
         capture_output=True,
     )
 
-    with pytest.raises(bundle.DailySourceRecoveryError, match="outside code-only scope"):
-        bundle.verify_code_only_retry_descendant(
+    with pytest.raises(bundle.DailySourceRecoveryError, match="no repair path"):
+        bundle.verify_bounded_retry_descendant(
             root,
-            reservation_commit_sha=reservation_commit,
-            current_head_sha=_git(root, "rev-parse", "HEAD"),
+            failed_head_sha=reservation_commit,
+            retry_head_sha=_git(root, "rev-parse", "HEAD"),
+            protected_paths=set(),
         )
 
 
-@pytest.mark.parametrize("mutation", ("delete", "rename", "mode", "type"))
+@pytest.mark.parametrize("mutation", ("delete", "rename", "mode", "type", "symlink"))
 def test_failed_recovery_retry_rejects_path_or_type_drift(
     tmp_path: Path,
     mutation: str,
@@ -1264,13 +1339,31 @@ def test_failed_recovery_retry_rejects_path_or_type_drift(
             cwd=root,
             check=True,
         )
-    else:
+    elif mutation == "type":
         subprocess.run(
             [
                 "git",
                 "update-index",
                 "--cacheinfo",
                 f"160000,{reservation_commit},scripts/original.py",
+            ],
+            cwd=root,
+            check=True,
+        )
+    else:
+        symlink_blob = subprocess.run(
+            ["git", "hash-object", "-w", "--stdin"],
+            cwd=root,
+            input=b"target.py\n",
+            check=True,
+            capture_output=True,
+        ).stdout.decode("ascii").strip()
+        subprocess.run(
+            [
+                "git",
+                "update-index",
+                "--cacheinfo",
+                f"120000,{symlink_blob},scripts/original.py",
             ],
             cwd=root,
             check=True,
@@ -1283,10 +1376,47 @@ def test_failed_recovery_retry_rejects_path_or_type_drift(
     )
 
     with pytest.raises(bundle.DailySourceRecoveryError, match="cannot|mode/type drift"):
-        bundle.verify_code_only_retry_descendant(
+        bundle.verify_bounded_retry_descendant(
             root,
-            reservation_commit_sha=reservation_commit,
-            current_head_sha=_git(root, "rev-parse", "HEAD"),
+            failed_head_sha=reservation_commit,
+            retry_head_sha=_git(root, "rev-parse", "HEAD"),
+            protected_paths=set(),
+        )
+
+
+def test_failed_recovery_retry_requires_strict_descendant(tmp_path: Path) -> None:
+    root, failed_head = _repo(tmp_path)
+
+    with pytest.raises(bundle.DailySourceRecoveryError, match="strict descendant"):
+        bundle.verify_bounded_retry_descendant(
+            root,
+            failed_head_sha=failed_head,
+            retry_head_sha=failed_head,
+            protected_paths=set(),
+        )
+
+
+def test_failed_recovery_retry_rejects_divergent_head(tmp_path: Path) -> None:
+    root, base_sha = _repo(tmp_path)
+    subprocess.run(
+        ["git", "checkout", "-b", "failed-branch"],
+        cwd=root,
+        check=True,
+        capture_output=True,
+    )
+    failed_head = _commit_retry_fix(root, "failed_branch")
+    subprocess.run(
+        ["git", "checkout", "main"], cwd=root, check=True, capture_output=True
+    )
+    assert _git(root, "rev-parse", "HEAD") == base_sha
+    retry_head = _commit_retry_fix(root, "retry_branch")
+
+    with pytest.raises(bundle.DailySourceRecoveryError, match="not a descendant"):
+        bundle.verify_bounded_retry_descendant(
+            root,
+            failed_head_sha=failed_head,
+            retry_head_sha=retry_head,
+            protected_paths=set(),
         )
 
 
@@ -1353,6 +1483,7 @@ def test_failed_recovery_retry_accepts_historical_failures_and_latest_prior(
     result, source_commit = _build_and_commit(root, base_sha)
     reserved, reservation_commit = _reserve_and_commit(root, result, source_commit)
     intermediate_head = _commit_retry_fix(root, "intermediate_fix")
+    prior_head = _commit_retry_fix(root, "prior_fix")
     current_head = _commit_retry_fix(root, "current_fix")
     anchor = _retry_run(
         201, head_sha=reservation_commit, created_at="2026-08-11T12:30:10Z"
@@ -1361,7 +1492,7 @@ def test_failed_recovery_retry_accepts_historical_failures_and_latest_prior(
         250, head_sha=intermediate_head, created_at="2026-08-11T13:00:00Z"
     )
     prior = _retry_run(
-        300, head_sha=intermediate_head, created_at="2026-08-11T13:30:00Z"
+        300, head_sha=prior_head, created_at="2026-08-11T13:30:00Z"
     )
     current = _retry_run(
         400,
@@ -1382,6 +1513,19 @@ def test_failed_recovery_retry_accepts_historical_failures_and_latest_prior(
         current_head_sha=current_head,
     )
     assert verified == {"anchor": anchor, "prior": prior, "current": current}
+
+    repeated_prior_head = current | {"head_sha": prior_head}
+    with pytest.raises(bundle.DailySourceRecoveryError, match="strict descendant"):
+        bundle.verify_failed_recovery_retry_runs(
+            root,
+            [anchor, older, prior, repeated_prior_head],
+            reservation_commit_sha=reservation_commit,
+            reservation_payload=reserved["payload"],
+            trading_date=DATE,
+            retry_of_run_id=300,
+            current_run_id=400,
+            current_head_sha=prior_head,
+        )
 
     legacy_runs = []
     for run in (anchor, older, prior, current):
@@ -1517,7 +1661,7 @@ def test_failed_recovery_retry_accepts_nonoverlapping_initial_head_then_code_ret
     assert initial_head != reservation_commit
 
 
-def test_failed_recovery_retry_rejects_noncode_change_after_initial_anchor(
+def test_failed_recovery_retry_accepts_supporting_change_with_repair_after_anchor(
     tmp_path: Path,
 ) -> None:
     root, base_sha = _repo(tmp_path)
@@ -1537,7 +1681,40 @@ def test_failed_recovery_retry_rejects_noncode_change_after_initial_anchor(
         conclusion=None,
     )
 
-    with pytest.raises(bundle.DailySourceRecoveryError, match="outside code-only scope"):
+    verified = bundle.verify_failed_recovery_retry_runs(
+        root,
+        [anchor, current],
+        reservation_commit_sha=reservation_commit,
+        reservation_payload=reserved["payload"],
+        trading_date=DATE,
+        retry_of_run_id=201,
+        current_run_id=400,
+        current_head_sha=current_head,
+    )
+
+    assert verified == {"anchor": anchor, "prior": anchor, "current": current}
+
+
+def test_failed_recovery_retry_rejects_supporting_only_after_initial_anchor(
+    tmp_path: Path,
+) -> None:
+    root, base_sha = _repo(tmp_path)
+    result, source_commit = _build_and_commit(root, base_sha)
+    reserved, reservation_commit = _reserve_and_commit(root, result, source_commit)
+    initial_head = _commit_unrelated_doc(root, "ordinary_initial_head")
+    current_head = _commit_unrelated_doc(root, "supporting_only_retry")
+    anchor = _retry_run(
+        201, head_sha=initial_head, created_at="2026-08-11T12:30:10Z"
+    )
+    current = _retry_run(
+        400,
+        head_sha=current_head,
+        created_at="2026-08-11T12:45:00Z",
+        status="in_progress",
+        conclusion=None,
+    )
+
+    with pytest.raises(bundle.DailySourceRecoveryError, match="no repair path"):
         bundle.verify_failed_recovery_retry_runs(
             root,
             [anchor, current],
@@ -1686,7 +1863,7 @@ def test_failed_recovery_retry_workflow_uses_stable_group_and_direct_cli() -> No
     assert "daily_source_recovery_bundle.py verify-retry-runs" in text
     assert "&per_page=100" not in text
     assert text.index("Verify durable recovery dispatch reservation") < text.index(
-        "Validate single failed-recovery retry"
+        "Validate bounded failed-recovery retry history"
     )
 
 
