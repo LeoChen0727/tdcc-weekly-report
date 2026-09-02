@@ -18,8 +18,16 @@ from model_research_artifact_guard import (
 
 
 REQUIRED_MODEL_PRODUCERS = {
+    "hot_theme_pullback": "scripts/build_hot_theme_pullback_research.py",
+    "pullback_short_reclaim": "scripts/build_pullback_short_reclaim_research.py",
     "revenue_unreacted_range": "scripts/build_revenue_unreacted_range_research.py",
     "price_pullback_23ema": "scripts/build_price_pullback_23ema_research.py",
+    "tdcc_short_term_continuation_d5_d10": (
+        "scripts/build_tdcc_short_term_continuation_d5_d10_research.py"
+    ),
+    "tdcc_stealth_accumulation": (
+        "scripts/build_tdcc_stealth_accumulation_research.py"
+    ),
     "volume_range_breakout_v2": "scripts/build_volume_range_breakout_v2_research.py",
 }
 REQUIRED_PROTECTED_CLASSES = {

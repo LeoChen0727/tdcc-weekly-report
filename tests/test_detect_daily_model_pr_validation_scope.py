@@ -13,6 +13,29 @@ from scripts import validate_daily_legacy_volume_range_breakout_removed as volum
 ROOT = Path(__file__).resolve().parents[1]
 WORKFLOW = ROOT / ".github" / "workflows" / "daily_model_maintenance_pr_validation.yml"
 
+FOUR_MODEL_SHARED_RESEARCH_EXACT_PATHS = frozenset(
+    {
+        f"scripts/{prefix}_{model_id}_research.py"
+        for model_id in (
+            "hot_theme_pullback",
+            "pullback_short_reclaim",
+            "tdcc_stealth_accumulation",
+            "tdcc_short_term_continuation_d5_d10",
+        )
+        for prefix in ("build", "validate")
+    }
+    | {
+        f"tests/test_{model_id}_{suffix}.py"
+        for model_id in (
+            "hot_theme_pullback",
+            "pullback_short_reclaim",
+            "tdcc_stealth_accumulation",
+            "tdcc_short_term_continuation_d5_d10",
+        )
+        for suffix in ("research", "scope_probe")
+    }
+)
+
 LEGACY_GUARD_SCOPE_CASES = (
     ("output/latest/daily_report_model_registry_latest.csv", {scope.REPO_CURRENT_CONTRACTS, scope.PRODUCTION_PDF_CONTRACTS}),
     ("output/latest/model_operation_readiness_latest.csv", {scope.REPO_CURRENT_CONTRACTS}),
@@ -285,6 +308,17 @@ def test_paths_select_only_their_declared_domains(
     path: str, expected: set[str]
 ) -> None:
     assert set(scope.domains_for_path(path)) == expected
+
+
+def test_four_model_research_entrypoints_and_scope_probes_route_exactly() -> None:
+    assert scope.MODEL_OWNED_SHARED_RESEARCH_EXACT_PATHS == (
+        FOUR_MODEL_SHARED_RESEARCH_EXACT_PATHS
+    )
+    for path in sorted(FOUR_MODEL_SHARED_RESEARCH_EXACT_PATHS):
+        assert scope.is_watched_path(path)
+        assert scope.domains_for_path(path) == frozenset(
+            {scope.RESEARCH_SAFETY_LITE, scope.SHARED_MODEL_RESEARCH}
+        )
 
 
 @pytest.mark.parametrize("path", sorted(scope.REVENUE_CONTENT_SCOPED_PATHS))
@@ -841,10 +875,17 @@ def test_unknown_model_like_path_fails_closed(path: str) -> None:
         scope.domains_for_path(path)
 
 
+def test_apps_script_research_dispatch_registry_routes_to_repo_current_contracts() -> None:
+    path = "config/apps_script_research_dispatch_inputs.csv"
+
+    assert scope.is_watched_path(path)
+    assert not scope.is_model_like_path(path)
+    assert scope.domains_for_path(path) == frozenset({scope.REPO_CURRENT_CONTRACTS})
+
+
 @pytest.mark.parametrize(
     "path",
     (
-        "config/apps_script_research_dispatch_inputs.csv",
         "scripts/build_non_revenue_momentum_watch.py",
         "scripts/research_tdcc_dataset_consumer.py",
         "tests/test_research_tdcc_dataset_consumer.py",

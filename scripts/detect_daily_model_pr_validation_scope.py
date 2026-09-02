@@ -62,6 +62,7 @@ WATCHED_PATH_PATTERNS = (
     ".github/workflows/event_catalyst_update.yml",
     ".github/workflows/research_backtest_pipeline.yml",
     ".github/workflows/weekly_theme_review.yml",
+    "config/apps_script_research_dispatch_inputs.csv",
     "config/repo_file_lifecycle_inventory.csv",
     "config/repo_production_inventory.csv",
     "config/formal_model_evidence_pins.csv",
@@ -208,6 +209,7 @@ CORE_EXACT_PATHS = frozenset(
         ".github/workflows/warrant_flow.yml",
         ".github/workflows/event_catalyst_update.yml",
         ".github/workflows/weekly_theme_review.yml",
+        "config/apps_script_research_dispatch_inputs.csv",
         "config/repo_file_lifecycle_inventory.csv",
         "config/repo_production_inventory.csv",
         "config/historical_replay_semantic_contract.csv",
@@ -456,6 +458,29 @@ MODEL_OWNED_VOLUME_RESEARCH_EXACT_PATHS = frozenset(
     }
 )
 
+MODEL_OWNED_SHARED_RESEARCH_EXACT_PATHS = frozenset(
+    {
+        f"scripts/{prefix}_{model_id}_research.py"
+        for model_id in (
+            "hot_theme_pullback",
+            "pullback_short_reclaim",
+            "tdcc_stealth_accumulation",
+            "tdcc_short_term_continuation_d5_d10",
+        )
+        for prefix in ("build", "validate")
+    }
+    | {
+        f"tests/test_{model_id}_{suffix}.py"
+        for model_id in (
+            "hot_theme_pullback",
+            "pullback_short_reclaim",
+            "tdcc_stealth_accumulation",
+            "tdcc_short_term_continuation_d5_d10",
+        )
+        for suffix in ("research", "scope_probe")
+    }
+)
+
 RESEARCH_DOMAINS = frozenset(
     {
         SHARED_MODEL_RESEARCH,
@@ -526,7 +551,9 @@ def matches_pattern(path: str, pattern: str) -> bool:
 
 def is_watched_path(value: str) -> bool:
     path = normalize_path(value)
-    return any(matches_pattern(path, pattern) for pattern in WATCHED_PATH_PATTERNS)
+    return path in MODEL_OWNED_SHARED_RESEARCH_EXACT_PATHS or any(
+        matches_pattern(path, pattern) for pattern in WATCHED_PATH_PATTERNS
+    )
 
 
 def is_model_like_path(value: str) -> bool:
@@ -583,6 +610,8 @@ def domains_for_path(value: str) -> frozenset[str]:
         return frozenset({RESEARCH_SAFETY_LITE})
     if path in MODEL_OWNED_VOLUME_RESEARCH_EXACT_PATHS:
         return frozenset({RESEARCH_SAFETY_LITE, VOLUME_V2_RESEARCH})
+    if path in MODEL_OWNED_SHARED_RESEARCH_EXACT_PATHS:
+        return frozenset({RESEARCH_SAFETY_LITE, SHARED_MODEL_RESEARCH})
     if path in REPO_CURRENT_AND_SHARED_EXACT_PATHS:
         selected = {
             REPO_CURRENT_CONTRACTS,
