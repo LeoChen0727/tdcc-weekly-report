@@ -373,11 +373,15 @@ def cache_verified_current_cheap_inputs(monkeypatch: pytest.MonkeyPatch) -> None
         "validate_formal_adapter_runtime",
         lambda _repo: syncer.FormalAdapterRuntimeValidationResult(
             operation_module_path=syncer.REVENUE_FORMAL_ADAPTER_MODULE_REL,
-            operation_module_canonical_sha256="1" * 64,
+            operation_module_canonical_sha256=(
+                "91d857f4a00795b747cc4c8698b2d4d706e57e684e638f2c6d075fe50593a635"
+            ),
             adapter_artifact_id=syncer.REVENUE_FORMAL_ADAPTER_ARTIFACT_ID,
             adapter_artifact_version=syncer.REVENUE_FORMAL_ADAPTER_APPROVAL_VERSION,
             adapter_artifact_path=syncer.REVENUE_FORMAL_ADAPTER_ARTIFACT_REL,
-            adapter_artifact_canonical_sha256="2" * 64,
+            adapter_artifact_canonical_sha256=(
+                "68e9e920c6fe91167fb0c2eaacb3772c2a4c586bbfe43e439fca302d83426969"
+            ),
             adapter_schema_version=syncer.REVENUE_FORMAL_ADAPTER_SCHEMA_VERSION,
             lifecycle_contract_version=syncer.REVENUE_FORMAL_ADAPTER_LIFECYCLE_VERSION,
             row_count=12,
