@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-02 20:36:33 Asia/Taipei",
-  "status": "generated",
+  "generated_at": "2026-09-03 02:32:34 Asia/Taipei",
+  "status": "incremental_latest",
   "stock_count": 2390,
   "daily_price_file_count": 433,
   "manifest_csv": "output/latest/stock_price_history_manifest.csv",

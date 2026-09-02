@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-01 19:38:39 Asia/Taipei",
+  "generated_at": "2026-09-03 02:40:06 Asia/Taipei",
   "external_fetch_status": "partial_ok",
   "note": "Official monthly revenue and material-information sources are used when reachable. No unverified news, MOPS pages, or social rumor data is fabricated.",
   "files": {
@@ -16,12 +16,12 @@
     "quarterly_catalyst": {
       "path": "data/fundamental_catalysts/quarterly_catalyst.csv",
       "exists": true,
-      "rows": 2406
+      "rows": 2422
     },
     "event_catalyst_log": {
       "path": "data/event_catalysts/event_catalyst_log.csv",
       "exists": true,
-      "rows": 3127
+      "rows": 3133
     }
   },
   "sources": {
@@ -31,8 +31,8 @@
       "rows": 1085,
       "error": "",
       "http_status": 200,
-      "matched_tracked_rows": 294,
-      "stored_rows": 294,
+      "matched_tracked_rows": 230,
+      "stored_rows": 230,
       "note": "Official monthly revenue rows are stored as fundamental source rows with EPS/margin fields blank. They can flag revenue_good_eps_unconfirmed only; they are not EPS confirmation."
     },
     "TPEX monthly revenue OpenAPI": {
@@ -41,28 +41,27 @@
       "rows": 890,
       "error": "",
       "http_status": 200,
-      "matched_tracked_rows": 95,
-      "stored_rows": 95,
+      "matched_tracked_rows": 86,
+      "stored_rows": 86,
       "note": "Official monthly revenue rows are stored as fundamental source rows with EPS/margin fields blank. They can flag revenue_good_eps_unconfirmed only; they are not EPS confirmation."
     },
     "TWSE material information OpenAPI": {
       "url": "https://openapi.twse.com.tw/v1/opendata/t187ap04_L",
-      "status": "ok",
-      "rows": 124,
-      "error": "",
-      "http_status": 200,
-      "matched_tracked_rows": 50,
-      "stored_rows": 50,
+      "status": "failed",
+      "rows": 0,
+      "error": "HTTPSConnectionPool(host='openapi.twse.com.tw', port=443): Max retries exceeded with url: /v1/opendata/t187ap04_L (Caused by ConnectTimeoutError(<HTTPSConnection(host='openapi.twse.com.tw', port=443) at 0x7f329ff52490>, 'Connection to openapi.twse.com.tw timed out. (connect timeout=30)'))",
+      "matched_tracked_rows": 0,
+      "stored_rows": 0,
       "note": "Official material-information rows are filtered to tracked stocks. Only objective order/customer/capacity/production/certification keywords become evidence event types; other rows stay material_information context."
     },
     "TPEX material information OpenAPI": {
       "url": "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O",
       "status": "ok",
-      "rows": 80,
+      "rows": 41,
       "error": "",
       "http_status": 200,
-      "matched_tracked_rows": 15,
-      "stored_rows": 15,
+      "matched_tracked_rows": 6,
+      "stored_rows": 6,
       "note": "Official material-information rows are filtered to tracked stocks. Only objective order/customer/capacity/production/certification keywords become evidence event types; other rows stay material_information context."
     }
   }

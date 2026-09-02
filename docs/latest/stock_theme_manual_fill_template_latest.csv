@@ -157,6 +157,8 @@
 009824,群益美國科技巨頭,指數 / ETF / ETN商品,指數 / ETF / ETN商品,非主流,,,,,,
 009825,聯邦美國金融創新,指數 / ETF / ETN商品,指數 / ETF / ETN商品,非主流,,,,,,
 009826,貝萊德世界股票,指數 / ETF / ETN商品,指數 / ETF / ETN商品,非主流,,,,,,
+009827,玉山未來全球算力,指數 / ETF / ETN商品,指數 / ETF / ETN商品,非主流,,,,,,
+009828,中信台日韓PCB,指數 / ETF / ETN商品,指數 / ETF / ETN商品,非主流,,,,,,
 009829,大華韓國KOSPI50,指數 / ETF / ETN商品,指數 / ETF / ETN商品,非主流,,,,,,
 0200,兆豐半導體氣候N,指數 / ETF / ETN商品,指數 / ETF / ETN商品,非主流,,,,,,
 1101,台泥,水泥工業,水泥工業,非主流,,,,,,provisional_industry_mapping
@@ -700,7 +702,6 @@
 2851,中再保,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
 2852,第一保,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
 2855,統一證,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
-2867,三商壽,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
 2880,華南金,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
 2881,富邦金,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
 2882,國泰金,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
@@ -783,7 +784,7 @@
 3050,鈺德,光電業,光電業,主流,,,,,,provisional_industry_mapping
 3051,力特,光電業,光電業,主流,,,,,,provisional_industry_mapping
 3052,夆典,建材營造,建材營造,非主流,,,,,,provisional_industry_mapping
-3054,立萬利,食品工業,食品工業,非主流,,,,,,provisional_industry_mapping
+3054,立萬利,電子通路業,電子通路業,主流,,,,,,provisional_industry_mapping
 3055,蔚華科,電子通路業,電子通路業,主流,,,,,,provisional_industry_mapping
 3056,富華新,建材營造,建材營造,非主流,,,,,,provisional_industry_mapping
 3057,喬鼎,電腦及週邊設備業,電腦及週邊設備業,主流,,,,,,provisional_industry_mapping
@@ -1409,7 +1410,7 @@
 5906,台南-KY,貿易百貨,貿易百貨,非主流,,,,,,provisional_industry_mapping
 5907,大洋-KY,貿易百貨,貿易百貨,非主流,,,,,,provisional_industry_mapping
 6005,群益證,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
-6015,宏遠證,金融業,金融業,非主流,,,,,,provisional_industry_mapping
+6015,宏遠證,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
 6016,康和證,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
 6020,大展證,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
 6021,美好證,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
@@ -2168,7 +2169,7 @@
 8027,鈦昇,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
 8028,昇陽半導體,半導體業,半導體業,主流,半導體設備_CoWoS,晶圓再生,,,,user_authorized_seed_20260530
 8032,光菱,電子通路業,電子通路業,主流,,,,,,provisional_industry_mapping
-8033,雷虎,其他,其他,都有,軍工無人機,,,,,user_authorized_seed_20260530;dual_industry_theme_identity
+8033,雷虎,其他業,其他業,都有,軍工無人機,,,,,user_authorized_seed_20260530;dual_industry_theme_identity
 8034,榮群,通信網路業,通信網路業,主流,,,,,,provisional_industry_mapping
 8038,長園科,電子零組件業,電子零組件業,主流,,,,,,provisional_industry_mapping
 8039,台虹,電子零組件業,電子零組件業,主流,PCB_CCL_ABF材料,,,,,user_authorized_seed_20260530
@@ -2355,7 +2356,7 @@
 9919,康那香,其他業,其他業,非主流,,,,,,
 9921,巨大,運動休閒,運動休閒,非主流,,,,,,
 9924,福興,居家生活,居家生活,非主流,,,,,,
-9925,新保,其他,其他,非主流,,,,,,
+9925,新保,其他業,其他業,非主流,,,,,,
 9926,新海,油電燃氣業,油電燃氣業,非主流,,,,,,provisional_industry_mapping
 9927,泰銘,其他業,其他業,非主流,,,,,,
 9928,中視,其他業,其他業,非主流,,,,,,
