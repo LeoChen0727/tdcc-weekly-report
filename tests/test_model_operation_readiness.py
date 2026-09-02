@@ -48,22 +48,32 @@ def _model_verified_price_date_frames(
     missing = sorted(requested - set(per_stock_manifest_sha))
     if missing:
         raise RuntimeError(f"registered fixture stock missing lineage: {missing}")
+    if not requested:
+        return {}
+    resolutions = pd.read_csv(
+        repo / _SYNC_MODULE.PRICE_RESOLUTION_REL,
+        dtype=str,
+    ).fillna("")
     for stock_id in requested:
-        if stock_id not in _MODEL_PRICE_DATE_FRAMES:
+        cache_key = "\x1f".join((repo.as_posix(), observed_through, stock_id))
+        if cache_key not in _MODEL_PRICE_DATE_FRAMES:
             path = repo / _SYNC_MODULE.PRICE_HISTORY_DIR_REL / f"{stock_id}.csv"
-            dates = pd.read_csv(path, usecols=["date"], dtype=str).fillna("")
-            dates["date"] = dates["date"].map(
-                lambda value: _SYNC_MODULE._strict_date(
-                    value, f"verified test price date {stock_id}"
-                )
+            raw = pd.read_csv(path, dtype=str).fillna("")
+            normalized = _SYNC_MODULE._normalized_registered_price_frame(
+                raw,
+                resolutions,
+                stock_id=stock_id,
+                observed_through=observed_through,
             )
-            dates = dates.loc[
-                dates["date"].le(observed_through), ["date"]
-            ].reset_index(drop=True)
-            assert not dates["date"].duplicated().any()
-            assert dates["date"].is_monotonic_increasing
-            _MODEL_PRICE_DATE_FRAMES[stock_id] = dates
-    return {stock_id: _MODEL_PRICE_DATE_FRAMES[stock_id] for stock_id in requested}
+            _MODEL_PRICE_DATE_FRAMES[cache_key] = normalized.loc[
+                :, ["date", "analysis_open", "analysis_close"]
+            ].copy()
+    return {
+        stock_id: _MODEL_PRICE_DATE_FRAMES[
+            "\x1f".join((repo.as_posix(), observed_through, stock_id))
+        ]
+        for stock_id in requested
+    }
 
 
 @pytest.fixture(autouse=True)
