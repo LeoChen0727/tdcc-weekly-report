@@ -1467,6 +1467,10 @@ def test_daily_model_maintenance_pr_workflow_runs_focused_pdf_operation_tests() 
         "tests/test_daily_w_bottom_operation_sections.py",
         "tests/test_daily_price_pullback_23ema_operation_section.py",
         "tests/test_mature_model_row_level_metric_contract_audit.py",
+        "tests/test_hot_theme_pullback_research.py",
+        "tests/test_pullback_short_reclaim_research.py",
+        "tests/test_tdcc_stealth_accumulation_research.py",
+        "tests/test_tdcc_short_term_continuation_d5_d10_research.py",
         "tests/test_daily_report_model_summary.py",
         "tests/test_daily_production_boundaries.py",
         "tests/test_model_data_independence.py",
@@ -1499,6 +1503,20 @@ def test_daily_model_maintenance_pr_workflow_runs_focused_pdf_operation_tests() 
     )
     for path in required_tests:
         assert path in text
+
+
+def test_shared_model_research_job_runs_four_registered_model_test_files() -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+    job = job_block("shared_model_research", text)
+    required_tests = (
+        "tests/test_hot_theme_pullback_research.py",
+        "tests/test_pullback_short_reclaim_research.py",
+        "tests/test_tdcc_stealth_accumulation_research.py",
+        "tests/test_tdcc_short_term_continuation_d5_d10_research.py",
+    )
+
+    for path in required_tests:
+        assert job.count(path) == 1
 
 
 def test_revenue_job_runs_explicit_cheap_readiness_and_independent_v2_cases() -> None:

@@ -1328,6 +1328,63 @@ def test_apps_script_research_dispatch_registry_is_forward_compatible() -> None:
     assert 'payload.encoding !== "base64"' in schema_body
 
 
+def test_four_model_research_inputs_are_workflow_only_and_forbidden_from_apps_script() -> None:
+    validator = validate_apps_script_workflow_triggers
+    registry = validator.load_research_dispatch_registry()
+    workflow_inputs = validator.workflow_inputs("research_backtest_pipeline.yml")
+    apps_inputs, guarded_inputs = validator.apps_script_research_dispatch_inputs()
+    apps_script_text = validator.APPS_SCRIPT.read_text(encoding="utf-8")
+    expected = {
+        "run_hot_theme_pullback_research": (
+            "hot_theme_pullback",
+            "scripts/build_hot_theme_pullback_research.py",
+        ),
+        "run_pullback_short_reclaim_research": (
+            "pullback_short_reclaim",
+            "scripts/build_pullback_short_reclaim_research.py",
+        ),
+        "run_tdcc_stealth_accumulation_research": (
+            "tdcc_stealth_accumulation",
+            "scripts/build_tdcc_stealth_accumulation_research.py",
+        ),
+        "run_tdcc_short_term_continuation_d5_d10_research": (
+            "tdcc_short_term_continuation_d5_d10",
+            "scripts/build_tdcc_short_term_continuation_d5_d10_research.py",
+        ),
+    }
+
+    for workflow_input, (owner, producer) in expected.items():
+        row = registry[workflow_input]
+        assert row == {
+            "workflow_path": ".github/workflows/research_backtest_pipeline.yml",
+            "workflow_input": workflow_input,
+            "dispatch_value": "true",
+            "activation_mode": "workflow_only",
+            "owner": owner,
+            "producer": producer,
+            "notes": (
+                "workflow-only model research input; "
+                "forbidden from Apps Script dispatch"
+            ),
+        }
+        assert workflow_input in workflow_inputs
+        assert (
+            validator.workflow_dispatch_input_property(
+                "research_backtest_pipeline.yml", workflow_input, "default"
+            )
+            == "false"
+        )
+        assert (
+            validator.workflow_dispatch_input_property(
+                "research_backtest_pipeline.yml", workflow_input, "type"
+            )
+            == "boolean"
+        )
+        assert workflow_input not in apps_inputs
+        assert workflow_input not in guarded_inputs
+        assert workflow_input not in apps_script_text
+
+
 def test_apps_script_research_dispatch_workflow_only_contract_is_fail_closed() -> None:
     validator = validate_apps_script_workflow_triggers
     workflow_only_input = "run_revenue_unreacted_range_forward_holdout_only"

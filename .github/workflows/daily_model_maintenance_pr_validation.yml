@@ -309,7 +309,11 @@ jobs:
             tests/test_daily_w_bottom_operation_sections.py \
             tests/test_daily_price_pullback_23ema_operation_section.py \
             tests/test_price_pullback_daily_row_parity.py \
-            tests/test_mature_model_row_level_metric_contract_audit.py
+            tests/test_mature_model_row_level_metric_contract_audit.py \
+            tests/test_hot_theme_pullback_research.py \
+            tests/test_pullback_short_reclaim_research.py \
+            tests/test_tdcc_stealth_accumulation_research.py \
+            tests/test_tdcc_short_term_continuation_d5_d10_research.py
 
   volume_v2_research:
     name: volume-v2-research

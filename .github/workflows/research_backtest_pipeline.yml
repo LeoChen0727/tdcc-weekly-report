@@ -55,6 +55,26 @@ on:
         description: "Run model-owned 23EMA research only"
         required: false
         default: "false"
+      run_hot_theme_pullback_research:
+        description: "Run model-owned hot-theme pullback research only"
+        required: false
+        default: false
+        type: boolean
+      run_pullback_short_reclaim_research:
+        description: "Run model-owned pullback short-reclaim research only"
+        required: false
+        default: false
+        type: boolean
+      run_tdcc_stealth_accumulation_research:
+        description: "Run model-owned TDCC stealth-accumulation research only"
+        required: false
+        default: false
+        type: boolean
+      run_tdcc_short_term_continuation_d5_d10_research:
+        description: "Run model-owned TDCC D+5/D+10 continuation research only"
+        required: false
+        default: false
+        type: boolean
       run_revenue_unreacted_range_research:
         description: "Run model-owned revenue lag and strength research only"
         required: false
@@ -91,9 +111,9 @@ jobs:
 
     env:
       TARGET_BRANCH: ${{ github.ref_name }}
-      ANY_RESEARCH_SELECTED: ${{ github.event.inputs.run_market_timing == 'true' || github.event.inputs.run_weekly_surge == 'true' || github.event.inputs.run_explosive_volume == 'true' || github.event.inputs.run_surge_model == 'true' || github.event.inputs.run_signal_performance == 'true' || github.event.inputs.run_volume_breakout == 'true' || github.event.inputs.run_catalyst_performance == 'true' || github.event.inputs.run_msci_rebalance == 'true' || github.event.inputs.run_tdcc_signal_performance == 'true' || github.event.inputs.run_tdcc_short_term_edge == 'true' || github.event.inputs.run_short_term_specialty_packet == 'true' || github.event.inputs.run_shared_model_research_data_refresh == 'true' || github.event.inputs.run_price_pullback_23ema_research == 'true' || github.event.inputs.run_revenue_unreacted_range_research == 'true' || github.event.inputs.run_volume_range_breakout_v2_research == 'true' }}
-      MODEL_RESEARCH_SELECTED: ${{ github.event.inputs.run_price_pullback_23ema_research == 'true' || github.event.inputs.run_revenue_unreacted_range_research == 'true' || github.event.inputs.run_volume_range_breakout_v2_research == 'true' }}
-      TDCC_RESEARCH_SELECTED: ${{ github.event.inputs.run_weekly_surge == 'true' || github.event.inputs.run_surge_model == 'true' || github.event.inputs.run_volume_breakout == 'true' || github.event.inputs.run_tdcc_signal_performance == 'true' || github.event.inputs.run_tdcc_short_term_edge == 'true' || github.event.inputs.run_shared_model_research_data_refresh == 'true' }}
+      ANY_RESEARCH_SELECTED: ${{ github.event.inputs.run_market_timing == 'true' || github.event.inputs.run_weekly_surge == 'true' || github.event.inputs.run_explosive_volume == 'true' || github.event.inputs.run_surge_model == 'true' || github.event.inputs.run_signal_performance == 'true' || github.event.inputs.run_volume_breakout == 'true' || github.event.inputs.run_catalyst_performance == 'true' || github.event.inputs.run_msci_rebalance == 'true' || github.event.inputs.run_tdcc_signal_performance == 'true' || github.event.inputs.run_tdcc_short_term_edge == 'true' || github.event.inputs.run_short_term_specialty_packet == 'true' || github.event.inputs.run_shared_model_research_data_refresh == 'true' || github.event.inputs.run_price_pullback_23ema_research == 'true' || github.event.inputs.run_hot_theme_pullback_research == 'true' || github.event.inputs.run_pullback_short_reclaim_research == 'true' || github.event.inputs.run_tdcc_stealth_accumulation_research == 'true' || github.event.inputs.run_tdcc_short_term_continuation_d5_d10_research == 'true' || github.event.inputs.run_revenue_unreacted_range_research == 'true' || github.event.inputs.run_volume_range_breakout_v2_research == 'true' }}
+      MODEL_RESEARCH_SELECTED: ${{ github.event.inputs.run_price_pullback_23ema_research == 'true' || github.event.inputs.run_hot_theme_pullback_research == 'true' || github.event.inputs.run_pullback_short_reclaim_research == 'true' || github.event.inputs.run_tdcc_stealth_accumulation_research == 'true' || github.event.inputs.run_tdcc_short_term_continuation_d5_d10_research == 'true' || github.event.inputs.run_revenue_unreacted_range_research == 'true' || github.event.inputs.run_volume_range_breakout_v2_research == 'true' }}
+      TDCC_RESEARCH_SELECTED: ${{ github.event.inputs.run_weekly_surge == 'true' || github.event.inputs.run_surge_model == 'true' || github.event.inputs.run_volume_breakout == 'true' || github.event.inputs.run_tdcc_signal_performance == 'true' || github.event.inputs.run_tdcc_short_term_edge == 'true' || github.event.inputs.run_shared_model_research_data_refresh == 'true' || github.event.inputs.run_tdcc_short_term_continuation_d5_d10_research == 'true' }}
 
     steps:
       - name: Require production artifact write deploy key
@@ -249,6 +269,30 @@ jobs:
           python scripts/validate_price_pullback_promotion_matrix.py
           python scripts/validate_price_pullback_daily_row_parity.py
 
+      - name: Build model-owned hot-theme pullback research
+        if: ${{ github.event.inputs.run_hot_theme_pullback_research == 'true' }}
+        run: |
+          python scripts/build_hot_theme_pullback_research.py
+          python scripts/validate_hot_theme_pullback_research.py
+
+      - name: Build model-owned pullback short-reclaim research
+        if: ${{ github.event.inputs.run_pullback_short_reclaim_research == 'true' }}
+        run: |
+          python scripts/build_pullback_short_reclaim_research.py
+          python scripts/validate_pullback_short_reclaim_research.py
+
+      - name: Build model-owned TDCC stealth-accumulation research
+        if: ${{ github.event.inputs.run_tdcc_stealth_accumulation_research == 'true' }}
+        run: |
+          python scripts/build_tdcc_stealth_accumulation_research.py
+          python scripts/validate_tdcc_stealth_accumulation_research.py
+
+      - name: Build model-owned TDCC D+5/D+10 continuation research
+        if: ${{ github.event.inputs.run_tdcc_short_term_continuation_d5_d10_research == 'true' }}
+        run: |
+          python scripts/build_tdcc_short_term_continuation_d5_d10_research.py
+          python scripts/validate_tdcc_short_term_continuation_d5_d10_research.py
+
       - name: Build model-owned revenue lag and strength research
         if: ${{ github.event.inputs.run_revenue_unreacted_range_research == 'true' }}
         run: |
@@ -372,6 +416,24 @@ jobs:
             git add output/latest/research_backtest/price_pullback_23ema_* || true
             git add output/history/research/price_pullback_23ema_* || true
             git add docs/latest/price_pullback_23ema_* || true
+          fi
+
+          if [[ "${{ github.event.inputs.run_hot_theme_pullback_research }}" == "true" ]]; then
+            git add output/latest/research_backtest/hot_theme_pullback_* || true
+            git add output/history/research/hot_theme_pullback_* || true
+            git add docs/latest/hot_theme_pullback_* || true
+          fi
+
+          if [[ "${{ github.event.inputs.run_pullback_short_reclaim_research }}" == "true" ]]; then
+            git add output/latest/research_backtest/pullback_short_reclaim_* || true
+          fi
+
+          if [[ "${{ github.event.inputs.run_tdcc_stealth_accumulation_research }}" == "true" ]]; then
+            git add output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_actual_recommendation_replay_*_v1.csv || true
+          fi
+
+          if [[ "${{ github.event.inputs.run_tdcc_short_term_continuation_d5_d10_research }}" == "true" ]]; then
+            git add output/latest/research_backtest/tdcc_short_term_continuation_d5_d10_research_* || true
           fi
 
           if [[ "${{ github.event.inputs.run_shared_model_research_data_refresh }}" == "true" ]]; then

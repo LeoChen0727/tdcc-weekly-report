@@ -7,6 +7,41 @@ import pytest
 from scripts import validate_model_research_workflow_isolation as validator
 
 
+FOUR_MODEL_ENTRYPOINT_CONTRACT = {
+    "hot_theme_pullback": (
+        "run_hot_theme_pullback_research",
+        "scripts/build_hot_theme_pullback_research.py",
+        "scripts/validate_hot_theme_pullback_research.py",
+    ),
+    "pullback_short_reclaim": (
+        "run_pullback_short_reclaim_research",
+        "scripts/build_pullback_short_reclaim_research.py",
+        "scripts/validate_pullback_short_reclaim_research.py",
+    ),
+    "tdcc_stealth_accumulation": (
+        "run_tdcc_stealth_accumulation_research",
+        "scripts/build_tdcc_stealth_accumulation_research.py",
+        "scripts/validate_tdcc_stealth_accumulation_research.py",
+    ),
+    "tdcc_short_term_continuation_d5_d10": (
+        "run_tdcc_short_term_continuation_d5_d10_research",
+        "scripts/build_tdcc_short_term_continuation_d5_d10_research.py",
+        "scripts/validate_tdcc_short_term_continuation_d5_d10_research.py",
+    ),
+}
+FOUR_MODEL_STAGE_ALLOWLISTS = {
+    "output/latest/research_backtest/hot_theme_pullback_*",
+    "output/history/research/hot_theme_pullback_*",
+    "docs/latest/hot_theme_pullback_*",
+    "output/latest/research_backtest/pullback_short_reclaim_*",
+    (
+        "output/research/tdcc_stealth_accumulation/"
+        "tdcc_stealth_accumulation_actual_recommendation_replay_*_v1.csv"
+    ),
+    "output/latest/research_backtest/tdcc_short_term_continuation_d5_d10_research_*",
+}
+
+
 def _inputs() -> tuple[str, list[validator.WorkflowEntrypoint], dict[str, str]]:
     text = validator.WORKFLOW.read_text(encoding="utf-8")
     return text, validator.load_registry(), validator.load_model_owned_producers()
@@ -20,6 +55,129 @@ def _replace_last(text: str, old: str, new: str) -> str:
 
 def test_model_research_workflow_isolation_validator_passes() -> None:
     assert validator.main() == 0
+
+
+def test_four_model_entrypoints_are_independent_opt_in_workflow_contracts() -> None:
+    text, rows, _producers = _inputs()
+    rows_by_model = {row.model_id: row for row in rows}
+    registered_stage_globs: set[str] = set()
+
+    for model_id, (workflow_input, producer, validator_script) in (
+        FOUR_MODEL_ENTRYPOINT_CONTRACT.items()
+    ):
+        row = rows_by_model[model_id]
+        assert row.workflow_input == workflow_input
+        assert row.producer == producer
+        assert row.default_enabled is False
+        assert row.formal_sync_allowed is False
+        assert (
+            validator.MODEL_PR_VALIDATION_DOMAINS[model_id]
+            == validator.pr_scope.SHARED_MODEL_RESEARCH
+        )
+
+        stage_globs = {
+            value
+            for value in (
+                row.latest_stage_glob,
+                row.history_stage_glob,
+                row.docs_stage_glob,
+            )
+            if value
+        }
+        assert stage_globs
+        registered_stage_globs.update(stage_globs)
+
+        producer_command = f"python {producer}"
+        producer_blocks = [
+            block
+            for block in validator.workflow_step_blocks(text)
+            if producer_command in block
+        ]
+        assert len(producer_blocks) == 1
+        assert f"github.event.inputs.{workflow_input} == 'true'" in producer_blocks[0]
+        assert f"python {validator_script}" in producer_blocks[0]
+
+    assert registered_stage_globs == FOUR_MODEL_STAGE_ALLOWLISTS
+
+    tdcc_selected_line = next(
+        line for line in text.splitlines() if "TDCC_RESEARCH_SELECTED:" in line
+    )
+    assert (
+        "github.event.inputs.run_tdcc_short_term_continuation_d5_d10_research "
+        "== 'true'"
+    ) in tdcc_selected_line
+    assert "run_tdcc_stealth_accumulation_research" not in tdcc_selected_line
+
+
+def test_model_entrypoint_allows_blank_optional_stage_slots() -> None:
+    text, rows, producers = _inputs()
+    row = next(row for row in rows if row.model_id == "pullback_short_reclaim")
+
+    assert row.latest_stage_glob
+    assert row.history_stage_glob == ""
+    assert row.docs_stage_glob == ""
+    assert validator.validate_workflow_text(text, rows, producers) == []
+
+
+def test_model_entrypoint_rejects_all_blank_stage_slots() -> None:
+    text, rows, producers = _inputs()
+    index = next(
+        index
+        for index, row in enumerate(rows)
+        if row.model_id == "pullback_short_reclaim"
+    )
+    rows[index] = replace(rows[index], latest_stage_glob="")
+
+    errors = validator.validate_workflow_text(text, rows, producers)
+
+    assert any(
+        "requires at least one non-empty stage allowlist" in error
+        and "pullback_short_reclaim" in error
+        for error in errors
+    )
+
+
+def test_four_model_stage_allowlist_rejects_wrong_input_guard() -> None:
+    text, rows, producers = _inputs()
+    mutated = text.replace(
+        'if [[ "${{ github.event.inputs.run_pullback_short_reclaim_research }}" == "true" ]]; then\n'
+        "            git add output/latest/research_backtest/pullback_short_reclaim_* || true",
+        'if [[ "${{ github.event.inputs.run_hot_theme_pullback_research }}" == "true" ]]; then\n'
+        "            git add output/latest/research_backtest/pullback_short_reclaim_* || true",
+        1,
+    )
+
+    errors = validator.validate_workflow_text(mutated, rows, producers)
+
+    assert any(
+        "stage allowlist must be exact" in error
+        and "pullback_short_reclaim" in error
+        for error in errors
+    )
+
+
+@pytest.mark.parametrize(
+    "model_id",
+    tuple(FOUR_MODEL_ENTRYPOINT_CONTRACT),
+)
+def test_research_workflow_rejects_missing_model_owned_validator(
+    model_id: str,
+) -> None:
+    text, rows, producers = _inputs()
+    validator_script = FOUR_MODEL_ENTRYPOINT_CONTRACT[model_id][2]
+    mutated = text.replace(
+        f"          python {validator_script}\n",
+        f"          echo skipped-{model_id}-validator\n",
+        1,
+    )
+
+    errors = validator.validate_workflow_text(mutated, rows, producers)
+
+    assert any(
+        "model-owned validator must appear exactly once" in error
+        and validator_script in error
+        for error in errors
+    )
 
 
 def test_consumed_revenue_migration_controls_remain_retired() -> None:

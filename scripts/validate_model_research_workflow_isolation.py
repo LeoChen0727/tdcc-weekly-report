@@ -53,8 +53,20 @@ FORBIDDEN_STAGE_SNIPPETS = {
 SHARED_DATA_INPUT = "run_shared_model_research_data_refresh"
 MODEL_PR_VALIDATION_DOMAINS = {
     "price_pullback_23ema": pr_scope.SHARED_MODEL_RESEARCH,
+    "hot_theme_pullback": pr_scope.SHARED_MODEL_RESEARCH,
+    "pullback_short_reclaim": pr_scope.SHARED_MODEL_RESEARCH,
+    "tdcc_stealth_accumulation": pr_scope.SHARED_MODEL_RESEARCH,
+    "tdcc_short_term_continuation_d5_d10": pr_scope.SHARED_MODEL_RESEARCH,
     "revenue_unreacted_range": pr_scope.REVENUE_RESEARCH,
     "volume_range_breakout_v2": pr_scope.VOLUME_V2_RESEARCH,
+}
+MODEL_WORKFLOW_VALIDATORS = {
+    "hot_theme_pullback": "scripts/validate_hot_theme_pullback_research.py",
+    "pullback_short_reclaim": "scripts/validate_pullback_short_reclaim_research.py",
+    "tdcc_stealth_accumulation": "scripts/validate_tdcc_stealth_accumulation_research.py",
+    "tdcc_short_term_continuation_d5_d10": (
+        "scripts/validate_tdcc_short_term_continuation_d5_d10_research.py"
+    ),
 }
 SHARED_DATA_COMMANDS = {
     "python scripts/build_monthly_revenue_point_in_time_panel.py",
@@ -846,6 +858,19 @@ def validate_workflow_text(
             condition = f"github.event.inputs.{row.workflow_input} == 'true'"
             if condition not in block:
                 errors.append(f"model-owned producer has wrong workflow input condition: {row.producer}")
+            validator_script = MODEL_WORKFLOW_VALIDATORS.get(row.model_id)
+            if validator_script is not None:
+                validator_command = f"python {validator_script}"
+                if text.count(validator_command) != 1:
+                    errors.append(
+                        "model-owned validator must appear exactly once in the workflow: "
+                        f"{validator_script}"
+                    )
+                elif validator_command not in block:
+                    errors.append(
+                        "model-owned validator must share its producer input guard: "
+                        f"{row.model_id}: {validator_script}"
+                    )
             other_producers = sorted(
                 producer for producer in producers if producer != row.producer and f"python {producer}" in block
             )
@@ -860,10 +885,39 @@ def validate_workflow_text(
                     f"{row.model_id}; commands={mixed_shared_commands}"
                 )
 
-        for stage_glob in (row.latest_stage_glob, row.history_stage_glob, row.docs_stage_glob):
+        stage_globs = tuple(
+            stage_glob
+            for stage_glob in (
+                row.latest_stage_glob,
+                row.history_stage_glob,
+                row.docs_stage_glob,
+            )
+            if stage_glob
+        )
+        if not stage_globs:
+            errors.append(
+                "model-owned workflow entrypoint requires at least one non-empty "
+                f"stage allowlist: {row.model_id}"
+            )
+        for stage_glob in stage_globs:
             stage_command = f"git add {stage_glob} || true"
             if stage_command not in text:
                 errors.append(f"model-owned stage allowlist missing from workflow: {stage_command}")
+        if row.model_id in MODEL_WORKFLOW_VALIDATORS and stage_globs:
+            guarded_stage_block = "\n".join(
+                (
+                    "          if [[ \"${{ github.event.inputs."
+                    + row.workflow_input
+                    + " }}\" == \"true\" ]]; then",
+                    *(f"            git add {stage_glob} || true" for stage_glob in stage_globs),
+                    "          fi",
+                )
+            )
+            if guarded_stage_block not in text:
+                errors.append(
+                    "model-owned stage allowlist must be exact and remain inside its "
+                    f"workflow input guard: {row.model_id}"
+                )
 
     shared_positions = [text.index(command) for command in SHARED_DATA_COMMANDS if command in text]
     model_positions = [

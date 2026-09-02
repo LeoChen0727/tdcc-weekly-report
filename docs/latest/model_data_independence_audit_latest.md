@@ -1,7 +1,7 @@
 # 每日股票模型與資料獨立性稽核
 
-- 產生時間：`2026-09-02 01:49:15 Asia/Taipei`
-- 結果：`CONTAINED=27, DISCLOSED_NOT_INDEPENDENT=4, PASS=68`
+- 產生時間：`2026-09-02 16:05:31 Asia/Taipei`
+- 結果：`CONTAINED=23, DISCLOSED_NOT_INDEPENDENT=4, PASS=72`
 - 原則：新模型與新資料 family 預設獨立；跨模型共用商業語意必須先有使用者核准與 migration evidence。
 - `CONTAINED` 代表既有共用已被凍結與精確盤點，不代表已物理拆分。
 - `DISCLOSED_NOT_INDEPENDENT` 代表該 validator 只能做 implementation consistency，不得當成獨立模型正確性證據。
@@ -76,13 +76,13 @@
 | numerical_anomaly_governance | revenue_unreacted_range | CONTAINED | model_owned_root_cause_pending | corporate-action PIT, independent-source corroboration, and adjustment-basis checks remain incomplete |
 | numerical_anomaly_governance | price_pullback_23ema | CONTAINED | model_owned_root_cause_pending | all root-cause checks must complete before any candidate may be excluded |
 | numerical_anomaly_governance | volume_range_breakout_v2_legacy_quantile_artifacts | CONTAINED | legacy_threshold_artifacts_contained | republish under the root-cause disposition contract before reopening or promotion |
-| research_producer_ownership | hot_theme_pullback | CONTAINED | no_enabled_model_owned_research_entrypoint | before reopening research this model needs its own producer artifact allowlist and sentinel test |
+| research_producer_ownership | hot_theme_pullback | PASS | model_owned_write | none |
 | research_producer_ownership | neckline_volume_breakout_confirmation | CONTAINED | no_enabled_model_owned_research_entrypoint | before reopening research this model needs its own producer artifact allowlist and sentinel test |
 | research_producer_ownership | price_pullback_23ema | PASS | model_owned_write | none |
-| research_producer_ownership | pullback_short_reclaim | CONTAINED | no_enabled_model_owned_research_entrypoint | before reopening research this model needs its own producer artifact allowlist and sentinel test |
+| research_producer_ownership | pullback_short_reclaim | PASS | model_owned_write | none |
 | research_producer_ownership | revenue_unreacted_range | PASS | model_owned_write | none |
-| research_producer_ownership | tdcc_short_term_continuation_d5_d10 | CONTAINED | no_enabled_model_owned_research_entrypoint | before reopening research this model needs its own producer artifact allowlist and sentinel test |
-| research_producer_ownership | tdcc_stealth_accumulation | CONTAINED | no_enabled_model_owned_research_entrypoint | before reopening research this model needs its own producer artifact allowlist and sentinel test |
+| research_producer_ownership | tdcc_short_term_continuation_d5_d10 | PASS | model_owned_write | none |
+| research_producer_ownership | tdcc_stealth_accumulation | PASS | model_owned_write | none |
 | research_producer_ownership | volume_range_breakout_v2_high_position_volume_attack | PASS | model_owned_write | none |
 | research_producer_ownership | volume_range_breakout_v2_low_position_volume_attack | PASS | model_owned_write | none |
 | research_producer_ownership | volume_range_breakout_v2_mid_position_momentum_attack | PASS | model_owned_write | none |

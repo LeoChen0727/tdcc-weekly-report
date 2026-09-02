@@ -30,6 +30,7 @@ from validate_model_research_artifact_ownership import (  # noqa: E402
     LEGACY_BROAD_READINESS_PRODUCER,
     MIGRATION_COLUMNS,
     READINESS_FORMAL_SYNC_PRODUCER,
+    REQUIRED_MODEL_PRODUCERS,
     validate,
     validate_ownership_migrations,
     validate_readiness_output_inventory_producer,
@@ -47,10 +48,208 @@ FORBIDDEN_VOLUME_V2_BUILDERS = (
     "build_volume_breakout_confirmed_" + "operation_backtest.py",
     "build_daily_w_bottom_" + "operation_sections.py",
 )
+FOUR_MODEL_IDS = (
+    "hot_theme_pullback",
+    "pullback_short_reclaim",
+    "tdcc_stealth_accumulation",
+    "tdcc_short_term_continuation_d5_d10",
+)
+FOUR_MODEL_PRODUCERS = {
+    "hot_theme_pullback": "scripts/build_hot_theme_pullback_research.py",
+    "pullback_short_reclaim": "scripts/build_pullback_short_reclaim_research.py",
+    "tdcc_stealth_accumulation": (
+        "scripts/build_tdcc_stealth_accumulation_research.py"
+    ),
+    "tdcc_short_term_continuation_d5_d10": (
+        "scripts/build_tdcc_short_term_continuation_d5_d10_research.py"
+    ),
+}
+FOUR_MODEL_OWNERSHIP_CLASSES = {
+    "hot_theme_pullback": {
+        (
+            "output/latest/research_backtest/hot_theme_pullback_*",
+            "model_research_output",
+        ),
+        (
+            "output/history/research/hot_theme_pullback_*",
+            "model_research_history",
+        ),
+        ("docs/latest/hot_theme_pullback_*", "model_research_docs"),
+    },
+    "pullback_short_reclaim": {
+        (
+            "output/latest/research_backtest/pullback_short_reclaim_*",
+            "model_research_output",
+        ),
+    },
+    "tdcc_stealth_accumulation": {
+        (
+            "output/research/tdcc_stealth_accumulation/"
+            "tdcc_stealth_accumulation_actual_recommendation_replay_*_v1.csv",
+            "model_research_output",
+        ),
+    },
+    "tdcc_short_term_continuation_d5_d10": {
+        (
+            "output/latest/research_backtest/"
+            "tdcc_short_term_continuation_d5_d10_research_*",
+            "model_research_output",
+        ),
+    },
+}
+FOUR_MODEL_MIGRATION_RECORD_KEYS = {
+    "hot_theme_pullback": (
+        "output/latest/research_backtest/hot_theme_pullback_*;"
+        "output/history/research/hot_theme_pullback_*;"
+        "docs/latest/hot_theme_pullback_*"
+    ),
+    "pullback_short_reclaim": (
+        "output/latest/research_backtest/pullback_short_reclaim_*"
+    ),
+    "tdcc_stealth_accumulation": (
+        "output/research/tdcc_stealth_accumulation/"
+        "tdcc_stealth_accumulation_actual_recommendation_replay_*_v1.csv"
+    ),
+    "tdcc_short_term_continuation_d5_d10": (
+        "output/latest/research_backtest/"
+        "tdcc_short_term_continuation_d5_d10_research_*"
+    ),
+}
+FOUR_MODEL_MIGRATION_NOTES = {
+    "hot_theme_pullback": (
+        "Register the model-owned hot_theme_pullback latest history and docs "
+        "research-only artifact families before workflow execution."
+    ),
+    "pullback_short_reclaim": (
+        "Register the model-owned pullback_short_reclaim latest research-only "
+        "artifact family before workflow execution."
+    ),
+    "tdcc_stealth_accumulation": (
+        "Register the model-owned tdcc_stealth_accumulation v1 research-only "
+        "artifact family before workflow execution."
+    ),
+    "tdcc_short_term_continuation_d5_d10": (
+        "Register the model-owned tdcc_short_term_continuation_d5_d10 latest "
+        "research-only artifact family before workflow execution."
+    ),
+}
+EXPECTED_FOUR_MODEL_MIGRATIONS = tuple(
+    {
+        "migration_id": f"{model_id}_research_artifact_registration_v1",
+        "effective_date": "2026-09-02",
+        "registry_path": "config/model_research_artifact_ownership.csv",
+        "record_keys": FOUR_MODEL_MIGRATION_RECORD_KEYS[model_id],
+        "previous_owner": "unregistered",
+        "new_owner": model_id,
+        "change_policy": "model_owned_write",
+        "approval_reference": (
+            "user_authorized_four_model_artifact_workflow_registration_20260902"
+        ),
+        "status": "validated_user_approved_migration",
+        "notes": FOUR_MODEL_MIGRATION_NOTES[model_id],
+    }
+    for model_id in FOUR_MODEL_IDS
+)
 
 
 def test_model_research_artifact_ownership_registry_passes() -> None:
     assert validate() == []
+
+
+def test_four_model_research_ownership_is_exact_and_research_only() -> None:
+    rules = load_ownership_rules()
+    assert {
+        model_id: REQUIRED_MODEL_PRODUCERS[model_id]
+        for model_id in FOUR_MODEL_IDS
+    } == FOUR_MODEL_PRODUCERS
+
+    for model_id in FOUR_MODEL_IDS:
+        observed = {
+            (
+                rule.producer,
+                rule.artifact_glob,
+                rule.artifact_class,
+                rule.change_policy,
+                rule.formal_evidence_status,
+            )
+            for rule in rules
+            if rule.owner_model_id == model_id
+            and rule.change_policy == "model_owned_write"
+        }
+        expected = {
+            (
+                FOUR_MODEL_PRODUCERS[model_id],
+                artifact_glob,
+                artifact_class,
+                "model_owned_write",
+                "research_only",
+            )
+            for artifact_glob, artifact_class in FOUR_MODEL_OWNERSHIP_CLASSES[
+                model_id
+            ]
+        }
+        assert observed == expected
+
+
+def test_four_model_ownership_migrations_are_exact() -> None:
+    with (
+        ROOT / "config/model_research_artifact_ownership_migrations.csv"
+    ).open(encoding="utf-8-sig", newline="") as handle:
+        rows = list(csv.DictReader(handle))
+    current_by_id = {row["migration_id"]: row for row in rows}
+
+    assert tuple(
+        current_by_id[expected["migration_id"]]
+        for expected in EXPECTED_FOUR_MODEL_MIGRATIONS
+    ) == EXPECTED_FOUR_MODEL_MIGRATIONS
+
+
+@pytest.mark.parametrize("model_id", FOUR_MODEL_IDS)
+def test_four_model_artifact_guard_accepts_only_exact_owner_and_producer(
+    model_id: str,
+) -> None:
+    rules = load_ownership_rules()
+    producer = FOUR_MODEL_PRODUCERS[model_id]
+    artifact_glob = sorted(FOUR_MODEL_OWNERSHIP_CLASSES[model_id])[0][0]
+    sample_path = artifact_glob.replace("*", "ownership_probe.csv")
+
+    assert validate_changed_paths(model_id, producer, [sample_path], rules) == []
+    wrong_producer_errors = validate_changed_paths(
+        model_id,
+        LEGACY_CROSS_MODEL_PRODUCER,
+        [sample_path],
+        rules,
+    )
+    assert wrong_producer_errors and "wrong producer" in wrong_producer_errors[0]
+    cross_model_errors = validate_changed_paths(
+        "revenue_unreacted_range",
+        producer,
+        [sample_path],
+        rules,
+    )
+    assert cross_model_errors and "cross-model artifact change" in cross_model_errors[0]
+
+
+def test_four_model_required_producer_rows_fail_closed_when_removed(
+    monkeypatch,
+) -> None:
+    rules = [
+        rule
+        for rule in load_ownership_rules()
+        if rule.owner_model_id not in FOUR_MODEL_IDS
+    ]
+    monkeypatch.setattr(
+        ownership_validator,
+        "load_ownership_rules",
+        lambda _registry: rules,
+    )
+
+    errors = validate()
+
+    assert (
+        f"missing required model-owned producers: {sorted(FOUR_MODEL_IDS)}"
+        in errors
+    )
 
 
 def _write_ownership_migrations(path: Path, rows: list[dict[str, str]]) -> None:

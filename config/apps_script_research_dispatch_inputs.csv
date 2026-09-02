@@ -1,6 +1,10 @@
 workflow_path,workflow_input,dispatch_value,activation_mode,owner,producer,notes
 .github/workflows/research_backtest_pipeline.yml,run_revenue_unreacted_range_forward_holdout_only,true,workflow_only,revenue_unreacted_range,scripts/build_revenue_unreacted_range_research.py,workflow-only forward holdout input; forbidden from Apps Script dispatch
 .github/workflows/research_backtest_pipeline.yml,run_revenue_unreacted_range_forward_holdout_v2_only,true,workflow_only,revenue_unreacted_range,scripts/build_revenue_unreacted_range_research.py,workflow-only independent v2 forward holdout input; forbidden from Apps Script dispatch
+.github/workflows/research_backtest_pipeline.yml,run_hot_theme_pullback_research,true,workflow_only,hot_theme_pullback,scripts/build_hot_theme_pullback_research.py,workflow-only model research input; forbidden from Apps Script dispatch
+.github/workflows/research_backtest_pipeline.yml,run_pullback_short_reclaim_research,true,workflow_only,pullback_short_reclaim,scripts/build_pullback_short_reclaim_research.py,workflow-only model research input; forbidden from Apps Script dispatch
+.github/workflows/research_backtest_pipeline.yml,run_tdcc_stealth_accumulation_research,true,workflow_only,tdcc_stealth_accumulation,scripts/build_tdcc_stealth_accumulation_research.py,workflow-only model research input; forbidden from Apps Script dispatch
+.github/workflows/research_backtest_pipeline.yml,run_tdcc_short_term_continuation_d5_d10_research,true,workflow_only,tdcc_short_term_continuation_d5_d10,scripts/build_tdcc_short_term_continuation_d5_d10_research.py,workflow-only model research input; forbidden from Apps Script dispatch
 .github/workflows/research_backtest_pipeline.yml,run_market_timing,true,required,research_backtest,,scheduled full research input
 .github/workflows/research_backtest_pipeline.yml,run_weekly_surge,true,required,research_backtest,,scheduled full research input
 .github/workflows/research_backtest_pipeline.yml,run_explosive_volume,true,required,research_backtest,,scheduled full research input
