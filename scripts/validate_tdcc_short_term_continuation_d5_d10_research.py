@@ -289,6 +289,15 @@ def bool_value(value: Any) -> bool:
     )
 
 
+def canonical_bool_series(values: pd.Series) -> pd.Series:
+    """Parse exact boolean tokens into a dtype-stable boolean Series."""
+    return pd.Series(
+        (bool_value(value) for value in values.tolist()),
+        index=values.index,
+        dtype=bool,
+    )
+
+
 def number(value: Any) -> float:
     parsed = pd.to_numeric(pd.Series([value]), errors="coerce").iloc[0]
     return float(parsed) if pd.notna(parsed) else math.nan
@@ -1044,25 +1053,25 @@ def load_published_rows(path: Path | None) -> tuple[pd.DataFrame, str, str, int]
 
 
 def metric_expectations(part: pd.DataFrame, *, primary: bool) -> dict[str, Any]:
-    valid_mask = part.get("return_valid", pd.Series(False, index=part.index)).map(bool_value)
+    valid_mask = canonical_bool_series(
+        part.get("return_valid", pd.Series(False, index=part.index))
+    )
     all_returns = pd.to_numeric(
         part.get("realized_return_pct", pd.Series(dtype=float)), errors="coerce"
     )
     valid = all_returns[valid_mask].dropna()
     outcomes = part.loc[valid.index, "return_outcome"].map(text_value) if not valid.empty else pd.Series(dtype=str)
-    anomaly_count = int(
-        part.get("anomaly_candidate", pd.Series(False, index=part.index)).map(bool_value).sum()
+    anomaly_mask = canonical_bool_series(
+        part.get("anomaly_candidate", pd.Series(False, index=part.index))
     )
-    anomaly_mask = part.get(
-        "anomaly_candidate", pd.Series(False, index=part.index)
-    ).map(bool_value)
+    anomaly_count = int(anomaly_mask.sum())
     sensitivity = all_returns[valid_mask & ~anomaly_mask].dropna()
     invalid_reasons = part.get("invalid_reason", pd.Series("", index=part.index)).map(text_value)
     right_censored_count = int((~valid_mask & invalid_reasons.str.contains("right_censored")).sum())
     overlap_count = int(
-        part.get("same_stock_overlap_candidate", pd.Series(False, index=part.index))
-        .map(bool_value)
-        .sum()
+        canonical_bool_series(
+            part.get("same_stock_overlap_candidate", pd.Series(False, index=part.index))
+        ).sum()
     )
     valid_count = len(valid)
     win_count = int(outcomes.eq("win").sum())

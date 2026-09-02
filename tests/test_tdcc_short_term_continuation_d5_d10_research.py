@@ -463,6 +463,26 @@ def test_exact_union_replay_is_close_confirmed_and_fail_closed(tmp_path: Path) -
     assert validate_fixture(paths, outputs) == []
 
 
+def test_empty_summary_group_boolean_counts_are_dtype_stable() -> None:
+    empty_group = pd.DataFrame(
+        {
+            "return_valid": pd.Series(dtype="string"),
+            "realized_return_pct": pd.Series(dtype="string"),
+            "return_outcome": pd.Series(dtype="string"),
+            "anomaly_candidate": pd.Series(dtype="string"),
+            "invalid_reason": pd.Series(dtype="string"),
+            "same_stock_overlap_candidate": pd.Series(dtype="string"),
+        }
+    )
+
+    metrics = validator.metric_expectations(empty_group, primary=True)
+
+    assert metrics["signal_event_count"] == 0
+    assert metrics["anomaly_candidate_count"] == 0
+    assert metrics["same_stock_overlap_candidate_count"] == 0
+    assert metrics["candidate_exclusion_sensitivity_excluded_candidate_count"] == 0
+
+
 def test_independent_validator_rejects_tampered_realized_return(tmp_path: Path) -> None:
     paths, outputs = produce_fixture(tmp_path)
     events = pd.read_csv(outputs.events, dtype=str, keep_default_na=False)
