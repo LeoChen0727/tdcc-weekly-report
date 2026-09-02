@@ -842,6 +842,11 @@ def test_data_sharing_registry_uses_model_owned_research_entrypoints() -> None:
     ]["registered_producers"] == (
         "scripts/build_tdcc_stealth_accumulation_research.py"
     )
+    assert by_family[
+        "tdcc_short_term_continuation_d5_d10_research_outputs"
+    ]["registered_producers"] == (
+        "scripts/build_tdcc_short_term_continuation_d5_d10_research.py"
+    )
     assert by_family["revenue_unreacted_range_feature_contrast_audit"]["registered_producers"] == (
         "scripts/build_revenue_unreacted_range_research.py"
     )
@@ -1114,6 +1119,109 @@ def test_tdcc_stealth_accumulation_research_outputs_are_model_owned_and_fail_clo
     assert migration["migration_status"] == "validated_user_approved_migration"
 
 
+def test_tdcc_short_term_continuation_d5_d10_research_outputs_are_model_owned_and_fail_closed() -> None:
+    family = "tdcc_short_term_continuation_d5_d10_research_outputs"
+    migration_id = (
+        "tdcc_short_term_continuation_d5_d10_research_output_registration_20260902"
+    )
+    approval = (
+        "user_requested_four_model_artifact_registration_then_sequential_"
+        "backtests_20260902"
+    )
+    expected_hash = (
+        "76bfc0980fab217aa63b38988c8919b1fbec8a0b3927a229665897f2285d1caf"
+    )
+    background = {
+        row["data_family_id"]: row
+        for row in read_csv("config/daily_model_background_data_registry.csv")
+    }
+    sharing = {
+        row["data_family_id"]: row
+        for row in read_csv("config/daily_model_data_sharing_registry.csv")
+    }
+    migrations = {
+        row["migration_id"]: row
+        for row in read_csv("config/daily_model_data_sharing_migrations.csv")
+    }
+
+    bg = background[family]
+    assert bg["scope"] == "model_research_output"
+    assert bg["owner_lane"] == "research_backtest"
+    assert bg["producer"] == (
+        "scripts/build_tdcc_short_term_continuation_d5_d10_research.py"
+    )
+    assert bg["artifact_path"] == (
+        "output/latest/research_backtest/"
+        "tdcc_short_term_continuation_d5_d10_research_*"
+    )
+    assert bg["source_artifacts"].split(";") == [
+        "output/history/tdcc_signals/tdcc_signal_snapshot.csv",
+        "output/latest/tdcc_dataset_manifest_latest.json",
+        "output/history/tdcc/tdcc_holder_ratio_*.csv",
+        "data/stock_price_history/*.csv",
+        "output/history/research/daily_published_snapshot_ranking_events.csv",
+    ]
+    assert bg["consumer_surfaces"] == "research_backtest"
+    assert bg["consumer_models"] == "tdcc_short_term_continuation_d5_d10"
+    assert bg["validator"] == (
+        "scripts/validate_tdcc_short_term_continuation_d5_d10_research.py"
+    )
+    assert "no_event_time_immutable_signal_packet" in bg["point_in_time_status"]
+    assert "price_adjustment_not_formally_verified" in bg["point_in_time_status"]
+    assert "K/D derived from intraday high and low" in bg["allowed_use"]
+    assert "research-only oscillator selector for frozen Rule B" in bg["allowed_use"]
+    assert "next-trading-day-open entry" in bg["allowed_use"]
+    assert "fixed D+5 or D+10 close exit" in bg["allowed_use"]
+    assert "advisory MFE or MAE" in bg["allowed_use"]
+    assert "do not treat current TDCC manifest binding as event-time PIT proof" in (
+        bg["forbidden_use"]
+    )
+    assert (
+        "do not use intraday high or low or K/D as formal entry exit stop "
+        "profit-taking win failure or realized-return prices"
+    ) in bg["forbidden_use"]
+    assert "let K/D MFE or MAE alone support promotion" in bg["forbidden_use"]
+    assert "corrected primary performance" in bg["forbidden_use"]
+    assert "four-artifact family" in bg["notes"]
+    assert "supplementary only and never a selector or primary metric source" in bg["notes"]
+    assert "K/D oscillator used only by frozen research Rule B" in bg["notes"]
+    assert "research replay returns use next-trading-day open" in bg["notes"]
+    assert "formal_operation_contract_defined formal_use approved_for_daily" in bg["notes"]
+    assert "promotion_blocked remains True" in bg["notes"]
+
+    row = sharing[family]
+    assert row["ownership_mode"] == "model_owned_not_shared"
+    assert row["owner_model_or_family"] == (
+        "tdcc_short_term_continuation_d5_d10"
+    )
+    assert row["registered_producers"] == bg["producer"]
+    assert row["producer_write_scope"] == bg["artifact_path"]
+    assert row["consumer_access_mode"] == "owner_model_research_only"
+    assert row["approved_consumer_models"] == (
+        "tdcc_short_term_continuation_d5_d10"
+    )
+    assert row["data_contract_sha256"] == expected_hash
+    assert row["data_contract_sha256"] == data_contract_sha256(bg)
+    assert row["last_migration_id"] == migration_id
+    assert row["sharing_decision_reference"] == approval
+    assert row["formal_evidence_policy"] == (
+        "research_only_not_formal_operation_or_promotion_evidence"
+    )
+    assert "K/D oscillator used only by frozen research Rule B" in row["notes"]
+    assert "MFE and MAE" in row["notes"]
+    assert "cross-model uses remain fail-closed" in row["notes"]
+
+    migration = migrations[migration_id]
+    assert migration["changed_data_families"] == family
+    assert migration["previous_contract_sha256s"] == "NEW"
+    assert migration["new_contract_sha256s"] == expected_hash
+    assert migration["affected_models"] == (
+        "tdcc_short_term_continuation_d5_d10"
+    )
+    assert migration["user_approval_reference"] == approval
+    assert migration["migration_status"] == "validated_user_approved_migration"
+
+
 def test_volume_v2_watch_committed_lineage_audit_is_exactly_registered() -> None:
     approval = "user_authorized_volume_v2_advisory_lineage_refresh_1a_20260815"
     migration_id = "volume_v2_watch_committed_lineage_audit_20260815"
@@ -1185,9 +1293,9 @@ def test_volume_v2_watch_committed_lineage_audit_is_exactly_registered() -> None
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
-    assert len(rows) == 33
+    assert len(rows) == 34
     assert rows[-1]["migration_id"] == (
-        "tdcc_stealth_accumulation_published_signal_research_outputs_20260902"
+        "tdcc_short_term_continuation_d5_d10_research_output_registration_20260902"
     )
     baseline = rows[0]
     assert tuple(baseline) == DATA_SHARING_MIGRATION_COLUMNS

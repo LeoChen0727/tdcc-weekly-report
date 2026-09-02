@@ -73,6 +73,7 @@ REQUIRED_FAMILIES = {
     "hot_theme_pullback_published_signal_research_outputs",
     "pullback_short_reclaim_research_outputs",
     "tdcc_stealth_accumulation_published_signal_research_outputs",
+    "tdcc_short_term_continuation_d5_d10_research_outputs",
     "price_pullback_23ema_research_outputs",
     "neckline_context_interpretation",
     "w_bottom_shape_interpretation",
