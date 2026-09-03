@@ -34,6 +34,14 @@ FOUR_MODEL_SHARED_RESEARCH_EXACT_PATHS = frozenset(
         )
         for suffix in ("research", "scope_probe")
     }
+    | {
+        "scripts/audit_tdcc_stealth_accumulation_pit_replay_availability.py",
+        "scripts/validate_tdcc_stealth_accumulation_pit_replay_availability.py",
+        "tests/test_tdcc_stealth_accumulation_pit_replay_availability.py",
+        "tests/test_tdcc_stealth_accumulation_pit_replay_availability_audit_scope_probe.py",
+        "output/research/tdcc_stealth_accumulation/"
+        "tdcc_stealth_accumulation_pit_replay_availability_audit_v1.csv",
+    }
 )
 
 LEGACY_GUARD_SCOPE_CASES = (
@@ -310,7 +318,7 @@ def test_paths_select_only_their_declared_domains(
     assert set(scope.domains_for_path(path)) == expected
 
 
-def test_four_model_research_entrypoints_and_scope_probes_route_exactly() -> None:
+def test_four_model_research_and_tdcc_stealth_pit_audit_route_exactly() -> None:
     assert scope.MODEL_OWNED_SHARED_RESEARCH_EXACT_PATHS == (
         FOUR_MODEL_SHARED_RESEARCH_EXACT_PATHS
     )

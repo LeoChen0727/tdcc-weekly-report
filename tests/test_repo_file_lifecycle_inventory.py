@@ -54,6 +54,64 @@ def test_lifecycle_inventory_has_no_pending_delete_or_deprecated_rows() -> None:
     assert pending == []
 
 
+def test_lifecycle_inventory_covers_tdcc_stealth_pit_availability_audit() -> None:
+    lifecycle_path = ROOT / "config" / "repo_file_lifecycle_inventory.csv"
+    with lifecycle_path.open("r", encoding="utf-8-sig", newline="") as handle:
+        rows = {row["path"]: row for row in csv.DictReader(handle)}
+
+    expected = {
+        "scripts/audit_tdcc_stealth_accumulation_pit_replay_availability.py": (
+            "python",
+            ".github/workflows/research_backtest_pipeline.yml",
+        ),
+        "scripts/validate_tdcc_stealth_accumulation_pit_replay_availability.py": (
+            "python",
+            ".github/workflows/daily_model_maintenance_pr_validation.yml;"
+            ".github/workflows/research_backtest_pipeline.yml",
+        ),
+        "tests/test_tdcc_stealth_accumulation_pit_replay_availability.py": (
+            "test_python",
+            "",
+        ),
+    }
+    artifact = (
+        "output/research/tdcc_stealth_accumulation/"
+        "tdcc_stealth_accumulation_pit_replay_availability_audit_v1.csv"
+    )
+    sources = {
+        "output/history/daily_model_snapshots/"
+        "daily_published_model_snapshot_manifest.csv",
+        "output/history/daily_model_snapshots",
+        "output/history/daily_candidate_models/"
+        "daily_candidate_model_signal_log.csv",
+        "output/history/tdcc",
+        "output/latest/tdcc_dataset_manifest_latest.json",
+        "output/history/tdcc_signals/tdcc_signal_snapshot.csv",
+        "data/tdcc_stock_history_raw",
+        "data/tdcc_stock_history",
+        "data/daily_price",
+        "data/stock_price_history",
+        "config/stock_model_contract_registry.csv",
+        "config/daily_model_semantic_ownership.csv",
+        "config/daily_model_shared_semantic_registry.csv",
+    }
+    for path, (file_type, workflow) in expected.items():
+        assert rows[path]["type"] == file_type
+        assert rows[path]["owner"] == "research_backtest"
+        assert rows[path]["status"] == "active"
+        assert rows[path]["called_by_workflow"] == workflow
+    producer = rows[
+        "scripts/audit_tdcc_stealth_accumulation_pit_replay_availability.py"
+    ]
+    validator = rows[
+        "scripts/validate_tdcc_stealth_accumulation_pit_replay_availability.py"
+    ]
+    assert producer["writes_artifact"] == artifact
+    assert set(producer["reads_artifact"].split(";")) == sources
+    assert validator["writes_artifact"] == ""
+    assert set(validator["reads_artifact"].split(";")) == sources | {artifact}
+
+
 def test_lifecycle_inventory_does_not_track_date_stamped_daily_readme_aliases() -> None:
     lifecycle_path = ROOT / "config" / "repo_file_lifecycle_inventory.csv"
     date_readme = re.compile(r"(?:^|/)READ_ME_FIRST_DAILY_REPORT_\d{8}\.txt$")

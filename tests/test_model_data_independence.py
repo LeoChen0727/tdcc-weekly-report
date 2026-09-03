@@ -1135,6 +1135,125 @@ def test_tdcc_stealth_accumulation_research_outputs_are_model_owned_and_fail_clo
     assert migration["migration_status"] == "validated_user_approved_migration"
 
 
+def test_tdcc_stealth_pit_replay_availability_audit_is_model_owned_and_fail_closed() -> None:
+    family = "tdcc_stealth_accumulation_pit_replay_availability_audit"
+    migration_id = (
+        "tdcc_stealth_accumulation_pit_replay_availability_audit_20260903"
+    )
+    approval = (
+        "user_requested_tdcc_stealth_accumulation_pit_historical_replay_"
+        "availability_audit_20260903"
+    )
+    expected_hash = (
+        "b0dbfae2a9a675969f17b2cb6c963569bfb11222a1d8098615f9af81572879db"
+    )
+    background = {
+        row["data_family_id"]: row
+        for row in read_csv("config/daily_model_background_data_registry.csv")
+    }
+    sharing = {
+        row["data_family_id"]: row
+        for row in read_csv("config/daily_model_data_sharing_registry.csv")
+    }
+    migrations = {
+        row["migration_id"]: row
+        for row in read_csv("config/daily_model_data_sharing_migrations.csv")
+    }
+
+    bg = background[family]
+    assert bg["scope"] == "model_research_output"
+    assert bg["owner_lane"] == "research_backtest"
+    assert bg["producer"] == (
+        "scripts/audit_tdcc_stealth_accumulation_pit_replay_availability.py"
+    )
+    assert bg["artifact_path"] == (
+        "output/research/tdcc_stealth_accumulation/"
+        "tdcc_stealth_accumulation_pit_replay_availability_audit_v1.csv"
+    )
+    assert bg["source_artifacts"].split(";") == [
+        "output/history/daily_model_snapshots/"
+        "daily_published_model_snapshot_manifest.csv",
+        "output/history/daily_model_snapshots/all_candidates_*.csv",
+        "output/history/daily_model_snapshots/"
+        "daily_candidate_model_signals_for_report_*.csv",
+        "output/history/daily_candidate_models/"
+        "daily_candidate_model_signal_log.csv",
+        "output/history/tdcc/tdcc_holder_ratio_*.csv",
+        "output/history/tdcc/tdcc_latest_ratio_raw_*.csv",
+        "output/latest/tdcc_dataset_manifest_latest.json",
+        "output/history/tdcc/tdcc_dataset_manifest_*.json",
+        "output/history/tdcc_signals/tdcc_signal_snapshot.csv",
+        "data/tdcc_stock_history_raw/*.csv",
+        "data/tdcc_stock_history/*.csv",
+        (
+            "data/daily_price/"
+            "[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9].csv"
+        ),
+        "data/stock_price_history/*.csv",
+        "config/stock_model_contract_registry.csv",
+        "config/daily_model_semantic_ownership.csv",
+        "config/daily_model_shared_semantic_registry.csv",
+    ]
+    assert bg["consumer_surfaces"] == "research_backtest"
+    assert bg["consumer_models"] == "tdcc_stealth_accumulation"
+    assert bg["validator"] == (
+        "scripts/validate_tdcc_stealth_accumulation_pit_replay_availability.py"
+    )
+    assert bg["point_in_time_status"] == "coverage_backfill_audit_only"
+    assert (
+        "availability_state=partial_inputs_available_selector_replay_not_formally_available"
+        in bg["notes"]
+    )
+    assert "separately approved historical selector replay" in bg["allowed_use"]
+    assert "do not derive synthesize or publish replay events" in bg["forbidden_use"]
+    assert (
+        "do not use audit rows as a model-specific gate score recommendation or "
+        "production rule"
+        in bg["forbidden_use"]
+    )
+    assert "win rates returns or any other performance metric" in bg["forbidden_use"]
+    assert "do not import or replay production selector logic" in bg["forbidden_use"]
+    assert "promotion evidence" in bg["forbidden_use"]
+    for token in (
+        "phase_classifier_unresolved",
+        "full_historical_selector_replay_unavailable",
+        "model_semantic_sha_unavailable_from_snapshot_contract",
+        "formal_operation_decision_required",
+        "mutable_price_source_unpinned",
+        "no_published_tdcc_stealth_signal_rows",
+        "formal_use=False",
+        "trade_eligible=False",
+        "promotion_evidence_allowed=False",
+        "promotion_status=blocked",
+    ):
+        assert token in bg["notes"]
+
+    row = sharing[family]
+    assert row["ownership_mode"] == "model_owned_not_shared"
+    assert row["owner_model_or_family"] == family
+    assert row["registered_producers"] == bg["producer"]
+    assert row["producer_write_scope"] == bg["artifact_path"]
+    assert row["consumer_access_mode"] == "owner_model_research_only"
+    assert row["approved_consumer_models"] == "tdcc_stealth_accumulation"
+    assert row["data_contract_sha256"] == expected_hash
+    assert row["data_contract_sha256"] == data_contract_sha256(bg)
+    assert row["last_migration_id"] == migration_id
+    assert row["sharing_decision_reference"] == approval
+    assert row["formal_evidence_policy"] == (
+        "research_only_availability_audit_not_formal_performance_or_"
+        "promotion_evidence"
+    )
+    assert "cannot contain replay events win rates returns" in row["notes"]
+
+    migration = migrations[migration_id]
+    assert migration["changed_data_families"] == family
+    assert migration["previous_contract_sha256s"] == "NEW"
+    assert migration["new_contract_sha256s"] == expected_hash
+    assert migration["affected_models"] == "tdcc_stealth_accumulation"
+    assert migration["user_approval_reference"] == approval
+    assert migration["migration_status"] == "validated_user_approved_migration"
+
+
 def test_tdcc_short_term_continuation_d5_d10_research_outputs_are_model_owned_and_fail_closed() -> None:
     family = "tdcc_short_term_continuation_d5_d10_research_outputs"
     migration_id = (
@@ -1309,9 +1428,9 @@ def test_volume_v2_watch_committed_lineage_audit_is_exactly_registered() -> None
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
-    assert len(rows) == 34
+    assert len(rows) == 35
     assert rows[-1]["migration_id"] == (
-        "tdcc_short_term_continuation_d5_d10_research_output_registration_20260902"
+        "tdcc_stealth_accumulation_pit_replay_availability_audit_20260903"
     )
     baseline = rows[0]
     assert tuple(baseline) == DATA_SHARING_MIGRATION_COLUMNS
