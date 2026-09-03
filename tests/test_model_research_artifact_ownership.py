@@ -168,6 +168,22 @@ TDCC_STEALTH_PIT_AUDIT_APPROVAL = (
     "user_requested_tdcc_stealth_accumulation_pit_historical_replay_"
     "availability_audit_20260903"
 )
+TDCC_STEALTH_PIT_AUDIT_LINEAGE_SOURCES = (
+    "output/history/daily_model_snapshots/"
+    "daily_published_model_snapshot_manifest.csv",
+    "output/history/daily_model_snapshots",
+    "output/history/daily_candidate_models/daily_candidate_model_signal_log.csv",
+    "output/history/tdcc",
+    "output/latest/tdcc_dataset_manifest_latest.json",
+    "output/history/tdcc_signals/tdcc_signal_snapshot.csv",
+    "data/tdcc_stock_history_raw",
+    "data/tdcc_stock_history",
+    "data/daily_price",
+    "data/stock_price_history",
+    "config/stock_model_contract_registry.csv",
+    "config/daily_model_semantic_ownership.csv",
+    "config/daily_model_shared_semantic_registry.csv",
+)
 
 
 def test_model_research_artifact_ownership_registry_passes() -> None:
@@ -270,9 +286,21 @@ def test_tdcc_stealth_pit_replay_availability_audit_has_independent_owner() -> N
     assert lineage["validator"] == (
         "scripts/validate_tdcc_stealth_accumulation_pit_replay_availability.py"
     )
-    assert lineage["source_artifacts"] == background[
-        TDCC_STEALTH_PIT_AUDIT_OWNER
-    ]["source_artifacts"]
+    lineage_sources = tuple(lineage["source_artifacts"].split(";"))
+    assert lineage_sources == TDCC_STEALTH_PIT_AUDIT_LINEAGE_SOURCES
+    detailed_sources = background[TDCC_STEALTH_PIT_AUDIT_OWNER][
+        "source_artifacts"
+    ].split(";")
+    directory_sources = {
+        source
+        for source in lineage_sources
+        if not Path(source).suffix
+    }
+    assert all(
+        source in lineage_sources
+        or any(source.startswith(f"{directory}/") for directory in directory_sources)
+        for source in detailed_sources
+    )
     assert lineage["publisher"] == "manual_daily_model_maintenance_pr"
     assert lineage["public_surface"] == "output/research/tdcc_stealth_accumulation"
 

@@ -80,20 +80,16 @@ def test_lifecycle_inventory_covers_tdcc_stealth_pit_availability_audit() -> Non
     sources = {
         "output/history/daily_model_snapshots/"
         "daily_published_model_snapshot_manifest.csv",
-        "output/history/daily_model_snapshots/all_candidates_*.csv",
-        "output/history/daily_model_snapshots/"
-        "daily_candidate_model_signals_for_report_*.csv",
+        "output/history/daily_model_snapshots",
         "output/history/daily_candidate_models/"
         "daily_candidate_model_signal_log.csv",
-        "output/history/tdcc/tdcc_holder_ratio_*.csv",
-        "output/history/tdcc/tdcc_latest_ratio_raw_*.csv",
+        "output/history/tdcc",
         "output/latest/tdcc_dataset_manifest_latest.json",
-        "output/history/tdcc/tdcc_dataset_manifest_*.json",
         "output/history/tdcc_signals/tdcc_signal_snapshot.csv",
-        "data/tdcc_stock_history_raw/*.csv",
-        "data/tdcc_stock_history/*.csv",
-        "data/daily_price/[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9].csv",
-        "data/stock_price_history/*.csv",
+        "data/tdcc_stock_history_raw",
+        "data/tdcc_stock_history",
+        "data/daily_price",
+        "data/stock_price_history",
         "config/stock_model_contract_registry.csv",
         "config/daily_model_semantic_ownership.csv",
         "config/daily_model_shared_semantic_registry.csv",
