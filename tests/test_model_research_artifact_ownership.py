@@ -301,7 +301,7 @@ def test_tdcc_stealth_pit_replay_availability_audit_has_independent_owner() -> N
         or any(source.startswith(f"{directory}/") for directory in directory_sources)
         for source in detailed_sources
     )
-    assert lineage["publisher"] == "manual_daily_model_maintenance_pr"
+    assert lineage["publisher"] == ".github/workflows/research_backtest_pipeline.yml"
     assert lineage["public_surface"] == "output/research/tdcc_stealth_accumulation"
 
 

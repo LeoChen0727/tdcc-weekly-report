@@ -38,6 +38,7 @@ FOUR_MODEL_SHARED_RESEARCH_EXACT_PATHS = frozenset(
         "scripts/audit_tdcc_stealth_accumulation_pit_replay_availability.py",
         "scripts/validate_tdcc_stealth_accumulation_pit_replay_availability.py",
         "tests/test_tdcc_stealth_accumulation_pit_replay_availability.py",
+        "tests/test_tdcc_stealth_accumulation_pit_replay_availability_audit_scope_probe.py",
         "output/research/tdcc_stealth_accumulation/"
         "tdcc_stealth_accumulation_pit_replay_availability_audit_v1.csv",
     }

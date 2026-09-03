@@ -62,11 +62,12 @@ def test_lifecycle_inventory_covers_tdcc_stealth_pit_availability_audit() -> Non
     expected = {
         "scripts/audit_tdcc_stealth_accumulation_pit_replay_availability.py": (
             "python",
-            "",
+            ".github/workflows/research_backtest_pipeline.yml",
         ),
         "scripts/validate_tdcc_stealth_accumulation_pit_replay_availability.py": (
             "python",
-            ".github/workflows/daily_model_maintenance_pr_validation.yml",
+            ".github/workflows/daily_model_maintenance_pr_validation.yml;"
+            ".github/workflows/research_backtest_pipeline.yml",
         ),
         "tests/test_tdcc_stealth_accumulation_pit_replay_availability.py": (
             "test_python",
