@@ -267,6 +267,11 @@ def _read_rows(path: Path) -> list[dict[str, str]]:
         return list(csv.DictReader(handle))
 
 
+def _read_fields(path: Path) -> list[str]:
+    with path.open("r", encoding="utf-8", newline="") as handle:
+        return next(csv.reader(handle))
+
+
 def test_exact_actual_recommendation_replay_uses_latest_revision_and_retains_anomaly(
     tmp_path: Path,
 ) -> None:
@@ -323,6 +328,54 @@ def test_exact_actual_recommendation_replay_uses_latest_revision_and_retains_ano
         detail_path=detail_path,
         summary_path=summary_path,
     ) == []
+
+
+def test_validate_rejects_non_exact_or_reordered_artifact_headers(tmp_path: Path) -> None:
+    root, manifest, _, _ = _fixture_repo(tmp_path)
+    detail_path, summary_path = _artifact_paths(tmp_path)
+    producer.produce(
+        repository_root=root,
+        manifest_path=manifest,
+        price_dir=root / "data" / "stock_price_history",
+        detail_path=detail_path,
+        summary_path=summary_path,
+    )
+    artifacts = {"detail": detail_path, "summary": summary_path}
+    original_payloads = {path: path.read_bytes() for path in artifacts.values()}
+
+    for label, artifact_path in artifacts.items():
+        for mutation in ("missing", "extra", "reordered", "duplicate"):
+            for path, payload in original_payloads.items():
+                path.write_bytes(payload)
+            fields = _read_fields(artifact_path)
+            rows = _read_rows(artifact_path)
+            if mutation == "missing":
+                mutated_fields = fields[:-1]
+            elif mutation == "extra":
+                mutated_fields = [*fields, "unexpected_schema_column"]
+            elif mutation == "reordered":
+                mutated_fields = [fields[1], fields[0], *fields[2:]]
+            elif mutation == "duplicate":
+                mutated_fields = [fields[0], fields[0], *fields[1:]]
+            else:  # pragma: no cover - mutation tuple is exhaustive
+                raise AssertionError(mutation)
+            projected_rows = [
+                {field: row.get(field, "") for field in mutated_fields}
+                for row in rows
+            ]
+            _write_csv(artifact_path, mutated_fields, projected_rows)
+
+            errors = validator.validate(
+                repository_root=root,
+                manifest_path=manifest,
+                price_dir=root / "data" / "stock_price_history",
+                detail_path=detail_path,
+                summary_path=summary_path,
+            )
+
+            assert (
+                f"{label} schema does not exactly match v1 contract" in errors
+            ), f"{label}/{mutation}: {errors}"
 
 
 def test_cross_surface_duplicate_preserves_lineage_but_primary_is_deduped(

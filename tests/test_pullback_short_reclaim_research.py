@@ -195,6 +195,23 @@ def _build(
     )
 
 
+def _mutate_artifact_header(frame: pd.DataFrame, mutation: str) -> pd.DataFrame:
+    columns = list(frame.columns)
+    if mutation == "missing":
+        return frame.drop(columns=[columns[-1]])
+    if mutation == "extra":
+        mutated = frame.copy()
+        mutated["unexpected_header_field"] = ""
+        return mutated
+    if mutation == "reordered":
+        return frame.loc[:, [columns[1], columns[0], *columns[2:]]]
+    if mutation == "duplicate":
+        mutated = frame.copy()
+        mutated.insert(1, columns[0], mutated.iloc[:, 0], allow_duplicates=True)
+        return mutated
+    raise AssertionError(f"unsupported header mutation: {mutation}")
+
+
 def test_latest_revision_exact_signal_replay_and_identity_dedup(tmp_path: Path) -> None:
     snapshot_dir, manifest_path, price_dir = _fixture(tmp_path)
 
@@ -231,6 +248,49 @@ def test_latest_revision_exact_signal_replay_and_identity_dedup(tmp_path: Path) 
         manifest_path=manifest_path,
         price_dir=price_dir,
     ) == []
+
+
+@pytest.mark.parametrize("surface", ["events", "summary", "anomalies"])
+def test_validate_files_rejects_non_exact_artifact_headers(
+    tmp_path: Path,
+    surface: str,
+) -> None:
+    snapshot_dir, manifest_path, price_dir = _fixture(tmp_path)
+    bundle = _build(snapshot_dir, manifest_path, price_dir)
+    paths = producer.write_replay(bundle, tmp_path / "research")
+    artifact_paths = {
+        "events": paths[0],
+        "summary": paths[1],
+        "anomalies": paths[2],
+    }
+    original_payloads = {path: path.read_bytes() for path in artifact_paths.values()}
+
+    for mutation, expected_error in (
+        ("missing", "missing columns"),
+        ("extra", "has unexpected columns"),
+        ("reordered", "column order mismatch"),
+        ("duplicate", "has unexpected columns"),
+    ):
+        for path, payload in original_payloads.items():
+            path.write_bytes(payload)
+        artifact_path = artifact_paths[surface]
+        frame = pd.read_csv(artifact_path, dtype=str, keep_default_na=False)
+        tampered = _mutate_artifact_header(frame, mutation)
+        tampered.to_csv(artifact_path, index=False, encoding="utf-8")
+
+        errors = validator.validate_files(
+            events_path=paths[0],
+            summary_path=paths[1],
+            anomalies_path=paths[2],
+            snapshot_dir=snapshot_dir,
+            manifest_path=manifest_path,
+            price_dir=price_dir,
+        )
+
+        assert any(
+            f"{surface} artifact header {expected_error}" in error
+            for error in errors
+        )
 
 
 def test_anomaly_candidate_is_unresolved_and_retained_in_primary_metrics(

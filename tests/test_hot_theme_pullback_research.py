@@ -167,6 +167,23 @@ def _write_bound_artifacts(
     )
 
 
+def _mutate_artifact_header(frame: pd.DataFrame, mutation: str) -> pd.DataFrame:
+    columns = list(frame.columns)
+    if mutation == "missing":
+        return frame.drop(columns=[columns[-1]])
+    if mutation == "extra":
+        mutated = frame.copy()
+        mutated["unexpected_header_field"] = ""
+        return mutated
+    if mutation == "reordered":
+        return frame.loc[:, [columns[1], columns[0], *columns[2:]]]
+    if mutation == "duplicate":
+        mutated = frame.copy()
+        mutated.insert(1, columns[0], mutated.iloc[:, 0], allow_duplicates=True)
+        return mutated
+    raise AssertionError(f"unsupported header mutation: {mutation}")
+
+
 def test_published_signal_replay_is_row_level_and_fail_closed(tmp_path: Path) -> None:
     root, manifest_path, snapshot_root, price_root = _fixture(tmp_path)
     events, summary, anomalies, manifest = producer.build_research(
@@ -197,6 +214,50 @@ def test_published_signal_replay_is_row_level_and_fail_closed(tmp_path: Path) ->
         manifest,
         root=root,
     ) == []
+
+
+@pytest.mark.parametrize("surface", ["events", "summary", "anomalies", "manifest"])
+def test_validate_files_rejects_non_exact_artifact_headers(
+    tmp_path: Path,
+    surface: str,
+) -> None:
+    root, source_manifest_path, snapshot_root, price_root = _fixture(tmp_path)
+    events, summary, anomalies, manifest = producer.build_research(
+        manifest_path=source_manifest_path,
+        snapshot_root=snapshot_root,
+        price_root=price_root,
+    )
+    paths = _write_bound_artifacts(root, events, summary, anomalies, manifest)
+    artifact_paths = {
+        "events": paths[0],
+        "summary": paths[1],
+        "anomalies": paths[2],
+        "manifest": paths[3],
+    }
+    original_payloads = {path: path.read_bytes() for path in artifact_paths.values()}
+
+    for mutation, expected_error in (
+        ("missing", "missing columns"),
+        ("extra", "has unexpected columns"),
+        ("reordered", "column order mismatch"),
+        ("duplicate", "has unexpected columns"),
+    ):
+        for path, payload in original_payloads.items():
+            path.write_bytes(payload)
+        artifact_path = artifact_paths[surface]
+        frame = pd.read_csv(artifact_path, dtype=str, keep_default_na=False)
+        tampered = _mutate_artifact_header(frame, mutation)
+        tampered.to_csv(artifact_path, index=False, encoding="utf-8-sig")
+
+        errors = validator.validate_files(
+            *paths,
+            root=root,
+        )
+
+        assert any(
+            f"{surface} artifact header {expected_error}" in error
+            for error in errors
+        )
 
 
 def test_cli_without_ownership_registration_creates_no_outputs(
