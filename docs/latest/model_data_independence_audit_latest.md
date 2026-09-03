@@ -1,7 +1,7 @@
 # 每日股票模型與資料獨立性稽核
 
-- 產生時間：`2026-09-03 01:37:49 Asia/Taipei`
-- 結果：`CONTAINED=23, DISCLOSED_NOT_INDEPENDENT=4, PASS=76`
+- 產生時間：`2026-09-03 17:13:26 Asia/Taipei`
+- 結果：`CONTAINED=23, DISCLOSED_NOT_INDEPENDENT=4, PASS=77`
 - 原則：新模型與新資料 family 預設獨立；跨模型共用商業語意必須先有使用者核准與 migration evidence。
 - `CONTAINED` 代表既有共用已被凍結與精確盤點，不代表已物理拆分。
 - `DISCLOSED_NOT_INDEPENDENT` 代表該 validator 只能做 implementation consistency，不得當成獨立模型正確性證據。
@@ -25,6 +25,7 @@
 | shared_production_semantics | shared_technical | PASS | shared_technical | none |
 | data_family_ownership | tdcc_short_term_continuation_d5_d10_research_outputs | PASS | model_owned_not_shared | none |
 | data_family_ownership | tdcc_stealth_accumulation_published_signal_research_outputs | PASS | model_owned_not_shared | none |
+| data_family_ownership | tdcc_stealth_accumulation_pit_replay_availability_audit | PASS | model_owned_not_shared | none |
 | data_family_ownership | pullback_short_reclaim_research_outputs | PASS | model_owned_not_shared | none |
 | data_family_ownership | hot_theme_pullback_published_signal_research_outputs | PASS | model_owned_not_shared | none |
 | data_family_ownership | revenue_unreacted_range_source_snapshot_projection_v1_archive | PASS | model_owned_not_shared | none |
