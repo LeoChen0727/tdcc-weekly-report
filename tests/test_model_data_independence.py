@@ -1145,7 +1145,7 @@ def test_tdcc_stealth_pit_replay_availability_audit_is_model_owned_and_fail_clos
         "availability_audit_20260903"
     )
     expected_hash = (
-        "6a1af7f3b9d22bd3a40d0597a79a2e3314c412c9616234ceeff4f4d5952e39d4"
+        "b0dbfae2a9a675969f17b2cb6c963569bfb11222a1d8098615f9af81572879db"
     )
     background = {
         row["data_family_id"]: row
@@ -1199,12 +1199,18 @@ def test_tdcc_stealth_pit_replay_availability_audit_is_model_owned_and_fail_clos
     assert bg["validator"] == (
         "scripts/validate_tdcc_stealth_accumulation_pit_replay_availability.py"
     )
+    assert bg["point_in_time_status"] == "coverage_backfill_audit_only"
     assert (
-        "partial_inputs_available_selector_replay_not_formally_available"
-        in bg["point_in_time_status"]
+        "availability_state=partial_inputs_available_selector_replay_not_formally_available"
+        in bg["notes"]
     )
     assert "separately approved historical selector replay" in bg["allowed_use"]
     assert "do not derive synthesize or publish replay events" in bg["forbidden_use"]
+    assert (
+        "do not use audit rows as a model-specific gate score recommendation or "
+        "production rule"
+        in bg["forbidden_use"]
+    )
     assert "win rates returns or any other performance metric" in bg["forbidden_use"]
     assert "do not import or replay production selector logic" in bg["forbidden_use"]
     assert "promotion evidence" in bg["forbidden_use"]
