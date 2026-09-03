@@ -1,7 +1,7 @@
 # 每日報告 Manifest
 
-- 產生時間：`2026-09-03 02:47:39 Asia/Taipei`
-- 主資料日期：`20260902`
+- 產生時間：`2026-09-03 19:51:05 Asia/Taipei`
+- 主資料日期：`20260903`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：core daily data dates match main_price_date
 
@@ -9,8 +9,8 @@
 
 - policy: `local_price_redraw_first`
 - status: `generated`
-- total_charts: `26`
-- local_price_redraw_count: `26`
+- total_charts: `30`
+- local_price_redraw_count: `30`
 - chart_path_fallback_count: `0`
 - missing_count: `0`
 - status_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/pdf_kline_chart_status_latest.md
@@ -38,13 +38,13 @@
 
 ## Canonical history raw URLs
 
-- history summary md: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260902_daily_market_summary.md
-- history full md: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260902_daily_market_full.md
-- history summary pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260902_daily_market_summary.pdf
-- history full pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260902_daily_market_full.pdf
+- history summary md: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260903_daily_market_summary.md
+- history full md: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260903_daily_market_full.md
+- history summary pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260903_daily_market_summary.pdf
+- history full pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260903_daily_market_full.pdf
 
 ## Published human delivery PDFs
 
-- published summary pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/published_reports/daily_market/每日全市場候選股監測報告_精華版_20260902.pdf
-- published full pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/published_reports/daily_market/完整候選股清單_完整版_20260902.pdf
+- published summary pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/published_reports/daily_market/每日全市場候選股監測報告_精華版_20260903.pdf
+- published full pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/published_reports/daily_market/完整候選股清單_完整版_20260903.pdf
 

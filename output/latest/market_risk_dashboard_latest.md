@@ -1,10 +1,10 @@
 # 市場風險與大盤期權背景
 
-- generated_at: `2026-09-03 02:46:41 Asia/Taipei`
-- data_date: `20260902`
-- market_regime: `mild_bull`
-- risk_level: `neutral`
-- risk_score: `1`
+- generated_at: `2026-09-03 19:50:08 Asia/Taipei`
+- data_date: `20260903`
+- market_regime: `correction`
+- risk_level: `high_risk`
+- risk_score: `4`
 - futures_options_source_status: `ready`
 
 ## 資料狀態
@@ -13,31 +13,31 @@
 
 | source | status | rows | latest_date |
 | --- | --- | ---: | --- |
-| institutional_fo | ok | 3 | 20260902 |
-| futures_contracts | ok | 66 | 20260902 |
-| options_call_put | ok | 30 | 20260902 |
-| put_call_ratio | ok | 23 | 20260902 |
-| taiwan_vix | ok | 66 | 20260902 |
+| institutional_fo | ok | 3 | 20260903 |
+| futures_contracts | ok | 66 | 20260903 |
+| options_call_put | ok | 30 | 20260903 |
+| put_call_ratio | ok | 23 | 20260903 |
+| taiwan_vix | ok | 67 | 20260903 |
 
 ## 大盤指數結構
 
 | index | close | 5d | 20d | MA20 | MA60 | regime |
 | --- | --- | --- | --- | --- | --- | --- |
-| TWSE | 46,164.72 | +0.72% | +3.48% | True | True | mild_bull |
-| TPEx | 406.96 | +2.86% | +6.05% | True | True | strong_bull |
+| TWSE | 45,857.66 | -0.26% | +3.29% | True | True | mild_bull |
+| TPEx | 395.25 | -1.28% | +0.99% | False | False | correction |
 
 ## 期貨選擇權部位
 
 | indicator | value | state |
 | --- | --- | --- |
-| Foreign TX futures net OI | -85,329 | foreign_heavy_net_short |
-| Dealer TX futures net OI | +1,109 |  |
-| Trust TX futures net OI | +75,062 |  |
-| Retail MTX net OI proxy | +3,882 | neutral |
-| Foreign TXO call net OI | -3,692 |  |
-| Foreign TXO put net OI | +26 |  |
-| TXO put/call OI ratio | 83.90% | call_crowded_or_low_hedge |
-| Taiwan VIX | 26.09 | watch |
+| Foreign TX futures net OI | -81,575 | foreign_heavy_net_short |
+| Dealer TX futures net OI | +1,134 |  |
+| Trust TX futures net OI | +74,389 |  |
+| Retail MTX net OI proxy | +387 | neutral |
+| Foreign TXO call net OI | -3,254 |  |
+| Foreign TXO put net OI | +51 |  |
+| TXO put/call OI ratio | 77.16% | call_crowded_or_low_hedge |
+| Taiwan VIX | 25.66 | watch |
 
 ## 近期總經事件日曆
 
@@ -63,20 +63,20 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 
 ## 技術與型態重點
 
-- TWSE / TAIEX: mild_bull; close 46,164.72; 6M range 31,722.99-47,741.51; distance from 6M high -3.30%; above MA20=True, above MA60=True.
-- TPEx / OTC: strong_bull; close 406.96; 6M range 288.96-453.50; distance from 6M high -10.26%; above MA20=True, above MA60=True.
+- TWSE / TAIEX: mild_bull; close 45,857.66; 6M range 31,722.99-47,741.51; distance from 6M high -3.95%; above MA20=True, above MA60=True.
+- TPEx / OTC: correction; close 395.25; 6M range 288.96-453.50; distance from 6M high -12.84%; above MA20=False, above MA60=False.
 
 ## 散戶小台 proxy
 
 - 這是反向情緒輔助指標，以三大法人小台淨未平倉的反向 proxy 估算。
-- latest_proxy_value: `+3,882`
+- latest_proxy_value: `+387`
 - state: `neutral`
 - proxy 為正代表非三大法人帳戶偏多；擁擠偏多只能視為追高風險，不是單獨放空訊號。
 - proxy 為負代表非三大法人帳戶偏空；極端偏空可列反彈觀察，但仍需指數與廣度確認。
 
 ## 風險提醒
 
-- TPEx strong bull
+- TPEx correction
 - Foreign TX futures heavy net short
 
 ## 使用邊界
@@ -88,25 +88,25 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 <!-- MARKET_SENTIMENT_CONTEXT_START -->
 ## VIX Historical Context
 
-- Taiwan VIX latest: `26.09`
-- 252D high / low / percentile: `44.33` / `24.46` / `3.57%`
+- Taiwan VIX latest: `25.66`
+- 252D high / low / percentile: `44.33` / `24.46` / `2.84%`
 - 504D percentile: `-`
-- z-score: `-1.89`
-- vix_return_5d / 10d / 20d: `-9.03%` / `-15.37%` / `-26.24%`
-- TWSE / TPEx position: TWSE dist 60D high `-3.3%`, TPEx dist 60D high `-10.26%`
+- z-score: `-1.95`
+- vix_return_5d / 10d / 20d: `-5.31%` / `-14.52%` / `-28.86%`
+- TWSE / TPEx position: TWSE dist 60D high `-3.95%`, TPEx dist 60D high `-12.84%`
 - vix_index_interpretation: `vix_context_neutral_observe`
 
 ## Retail MTX Historical Context
 
-- retail_mtx_net_oi_proxy latest: `3,882`
+- retail_mtx_net_oi_proxy latest: `387`
 - proxy method: `negative_sum_of_three_institution_mtx_net_oi`
-- 252D high / low / percentile: `16,227` / `-1,332` / `13.24%`
+- 252D high / low / percentile: `16,227` / `-1,332` / `2.9%`
 - 504D percentile: `-`
-- retail_mtx_index_interpretation: `retail_positioning_observe`
+- retail_mtx_index_interpretation: `retail_extreme_short_possible_rebound_watch`
 
 ## Combined Sentiment Interpretation
 
-- combined_sentiment_interpretation: `sentiment_mixed_observe`
+- combined_sentiment_interpretation: `possible_contrarian_rebound_watch`
 - sentiment_warning_level: `low`
 - data_quality_note: short_history：可提供短樣本分位，但未達 252 日完整歷史。
 

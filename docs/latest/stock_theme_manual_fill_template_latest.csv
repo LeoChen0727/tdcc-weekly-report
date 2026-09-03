@@ -1047,6 +1047,7 @@
 3715,定穎投控,電子零組件業,電子零組件業,主流,,,,,,provisional_industry_mapping
 3716,中化控股,生技醫療業,生技醫療業,非主流,,,,,,provisional_industry_mapping
 3717,聯嘉投控,汽車工業,汽車工業,非主流,,,,,,provisional_industry_mapping
+3718,中光電投控,光電業,光電業,主流,,,,,,provisional_industry_mapping
 4102,永日,生技醫療業,生技醫療業,非主流,,,,,,provisional_industry_mapping
 4104,佳醫,生技醫療業,生技醫療業,非主流,,,,,,provisional_industry_mapping
 4105,東洋,生技醫療業,生技醫療業,非主流,,,,,,provisional_industry_mapping
@@ -1328,7 +1329,6 @@
 5355,佳總,電子零組件業,電子零組件業,主流,,,,,,provisional_industry_mapping
 5356,協益,電腦及週邊設備業,電腦及週邊設備業,主流,,,,,,provisional_industry_mapping
 5364,力麗店,觀光餐旅,觀光餐旅,非主流,,,,,,provisional_industry_mapping
-5371,中光電,光電業,光電業,主流,,,,,,provisional_industry_mapping
 5381,光譜,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
 5386,青雲,電腦及週邊設備業,電腦及週邊設備業,主流,,,,,,provisional_industry_mapping
 5388,中磊,通信網路業,通信網路業,主流,網通交換器,,,,,user_authorized_seed_20260530
@@ -1398,7 +1398,7 @@
 5703,亞都麗緻,觀光餐旅,觀光餐旅,非主流,,,,,,provisional_industry_mapping
 5704,老爺知,觀光餐旅,觀光餐旅,非主流,,,,,,provisional_industry_mapping
 5706,鳳凰,觀光餐旅,觀光餐旅,非主流,,,,,,provisional_industry_mapping
-5864,致和證,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
+5864,致和證,金融業,金融業,非主流,,,,,,provisional_industry_mapping
 5871,中租-KY,租賃金融 / 企業融資,租賃金融 / 企業融資,非主流,,,,,,
 5876,上海商銀,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
 5878,台名,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
@@ -1410,13 +1410,13 @@
 5906,台南-KY,貿易百貨,貿易百貨,非主流,,,,,,provisional_industry_mapping
 5907,大洋-KY,貿易百貨,貿易百貨,非主流,,,,,,provisional_industry_mapping
 6005,群益證,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
-6015,宏遠證,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
-6016,康和證,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
+6015,宏遠證,金融業,金融業,非主流,,,,,,provisional_industry_mapping
+6016,康和證,金融業,金融業,非主流,,,,,,provisional_industry_mapping
 6020,大展證,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
 6021,美好證,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
 6023,元大期貨,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
 6024,群益期,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
-6026,福邦證,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
+6026,福邦證,金融業,金融業,非主流,,,,,,provisional_industry_mapping
 6028,公勝保經,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
 6101,寬魚國際,文化創意業,文化創意業,非主流,,,,,,
 6103,合邦,半導體業,半導體業,主流,,,,,,provisional_industry_mapping
@@ -1497,7 +1497,7 @@
 6196,帆宣,其他電子業,其他電子業,主流,半導體設備_CoWoS,,,,,user_authorized_seed_20260530
 6197,佳必琪,電子零組件業,電子零組件業,主流,,,,,,provisional_industry_mapping
 6198,瑞築,建材營造,建材營造,非主流,,,,,,provisional_industry_mapping
-6199,天品,其他業,其他業,非主流,,,,,,
+6199,天品,其他,其他,非主流,,,,,,
 6201,亞弘電,其他電子業,其他電子業,主流,,,,,,provisional_industry_mapping
 6202,盛群,半導體業,半導體業,主流,,,,,,provisional_industry_mapping
 6203,海韻電,電子零組件業,電子零組件業,主流,,,,,,provisional_industry_mapping
@@ -2332,7 +2332,7 @@
 8996,高力,電機機械,電機機械,主流,散熱液冷,,,,,user_authorized_seed_20260530
 9103,美德醫療-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
 910322,康師傅-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
-9105,泰金寶-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
+9105,泰金寶-DR,存託憑證,存託憑證,非主流,,,,,,
 910861,神州-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
 9110,越南控-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
 911608,明輝-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping

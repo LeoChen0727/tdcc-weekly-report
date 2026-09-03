@@ -1,7 +1,7 @@
 # Upcoming Catalyst Calendar
 
-- generated_at: `2026-09-03 02:39:29 Asia/Taipei`
-- rows: `900`
+- generated_at: `2026-09-03 19:41:37 Asia/Taipei`
+- rows: `914`
 - note: Calendar proximity is a reminder, not a confirmed bullish catalyst.
 
 ## Company / Stock Calendar
@@ -44,6 +44,7 @@
 | 20260831 | 20260831 | 9917 | 中保科 | ex_right | confirmed | -3 | recent | dividend_calendar | cash_dividend=0.00000000; ex_right_dividend_flag=權 |
 | 20260901 | 20260910 | 0050 | 元大台灣50 | monthly_revenue_expected_window | expected_window | -2 | recent | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
 | 20260901 | 20260910 | 0052 | 富邦科技 | monthly_revenue_expected_window | expected_window | -2 | recent | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
+| 20260901 | 20260910 | 0055 | 元大MSCI金融 | monthly_revenue_expected_window | expected_window | -2 | recent | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
 | 20260901 | 20260910 | 0056 | 元大高股息 | monthly_revenue_expected_window | expected_window | -2 | recent | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
 | 20260901 | 20260901 | 00939 | 統一台灣高息動能 | ex_dividend | confirmed | -2 | recent | dividend_calendar | cash_dividend=0.12500000; ex_right_dividend_flag=息 |
 | 20260901 | 20260901 | 00984 | 主動聯博全球非投 | ex_dividend | confirmed | -2 | recent | dividend_calendar | cash_dividend=0.08500000; ex_right_dividend_flag=息 |
@@ -87,4 +88,3 @@
 | 20260901 | 20260910 | 1536 | 和大 | monthly_revenue_expected_window | expected_window | -2 | recent | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
 | 20260901 | 20260910 | 1560 | 中砂 | monthly_revenue_expected_window | expected_window | -2 | recent | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
 | 20260901 | 20260910 | 1563 | 巧新 | monthly_revenue_expected_window | expected_window | -2 | recent | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
-| 20260901 | 20260910 | 1582 | 信錦 | monthly_revenue_expected_window | expected_window | -2 | recent | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |

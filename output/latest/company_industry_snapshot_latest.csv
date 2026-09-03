@@ -885,6 +885,7 @@ stock_id,stock_name,industry,market,industry_source
 3715,定穎投控,電子零組件業,TWSE,official_twse
 3716,中化控股,生技醫療業,TWSE,official_twse
 3717,聯嘉投控,汽車工業,TWSE,official_twse
+3718,中光電投控,光電業,TPEX,official_tpex
 4102,永日,生技醫療業,TPEX,official_tpex
 4104,佳醫,生技醫療業,TWSE,official_twse
 4105,東洋,生技醫療業,TPEX,official_tpex
@@ -1166,7 +1167,6 @@ stock_id,stock_name,industry,market,industry_source
 5355,佳總,電子零組件業,TPEX,official_tpex
 5356,協益,電腦及週邊設備業,TPEX,official_tpex
 5364,力麗店,觀光餐旅,TPEX,official_tpex
-5371,中光電,光電業,TPEX,official_tpex
 5381,光譜,電機機械,TPEX,official_tpex
 5386,青雲,電腦及週邊設備業,TPEX,official_tpex
 5388,中磊,通信網路業,TWSE,official_twse
