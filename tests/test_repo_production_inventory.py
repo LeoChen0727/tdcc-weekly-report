@@ -447,6 +447,33 @@ def test_inventory_covers_revenue_operation_lag_bucket_audit() -> None:
         assert rows[path]["status"] == "active"
 
 
+def test_inventory_covers_tdcc_stealth_pit_availability_audit() -> None:
+    manifest = ROOT / "config" / "repo_production_inventory.csv"
+    with manifest.open("r", encoding="utf-8-sig", newline="") as handle:
+        rows = {row["path"]: row for row in csv.DictReader(handle)}
+
+    expected = {
+        "scripts/audit_tdcc_stealth_accumulation_pit_replay_availability.py": (
+            "python",
+            "",
+        ),
+        "scripts/validate_tdcc_stealth_accumulation_pit_replay_availability.py": (
+            "python",
+            ".github/workflows/daily_model_maintenance_pr_validation.yml",
+        ),
+        "tests/test_tdcc_stealth_accumulation_pit_replay_availability.py": (
+            "test_python",
+            "",
+        ),
+    }
+    for path, (kind, workflow) in expected.items():
+        assert rows[path]["kind"] == kind
+        assert rows[path]["owner"] == "research_backtest"
+        assert rows[path]["status"] == "active"
+        assert rows[path]["allowed_workflows"] == workflow
+        assert rows[path]["allowed_stage_patterns"] == ""
+
+
 def test_all_registered_workflow_commands_match_their_call_graph() -> None:
     for workflow_path, commands in inventory.REQUIRED_WORKFLOW_COMMANDS.items():
         if (ROOT / workflow_path).exists():

@@ -479,6 +479,13 @@ MODEL_OWNED_SHARED_RESEARCH_EXACT_PATHS = frozenset(
         )
         for suffix in ("research", "scope_probe")
     }
+    | {
+        "scripts/audit_tdcc_stealth_accumulation_pit_replay_availability.py",
+        "scripts/validate_tdcc_stealth_accumulation_pit_replay_availability.py",
+        "tests/test_tdcc_stealth_accumulation_pit_replay_availability.py",
+        "output/research/tdcc_stealth_accumulation/"
+        "tdcc_stealth_accumulation_pit_replay_availability_audit_v1.csv",
+    }
 )
 
 RESEARCH_DOMAINS = frozenset(

@@ -114,6 +114,28 @@ FORBIDDEN_ACTIVE_GUIDANCE_PATTERNS = {
 
 CANONICAL_DAILY_REPORT_ENTRYPOINT = "scripts/run_chatgpt_daily_report_entrypoint.py"
 CANONICAL_CHATGPT_PDF_RENDERER = "scripts/generate_chatgpt_side_daily_reports.py"
+TDCC_STEALTH_PIT_AUDIT_ARTIFACT = (
+    "output/research/tdcc_stealth_accumulation/"
+    "tdcc_stealth_accumulation_pit_replay_availability_audit_v1.csv"
+)
+TDCC_STEALTH_PIT_AUDIT_SOURCES = {
+    "output/history/daily_model_snapshots/daily_published_model_snapshot_manifest.csv",
+    "output/history/daily_model_snapshots/all_candidates_*.csv",
+    "output/history/daily_model_snapshots/daily_candidate_model_signals_for_report_*.csv",
+    "output/history/daily_candidate_models/daily_candidate_model_signal_log.csv",
+    "output/history/tdcc/tdcc_holder_ratio_*.csv",
+    "output/history/tdcc/tdcc_latest_ratio_raw_*.csv",
+    "output/latest/tdcc_dataset_manifest_latest.json",
+    "output/history/tdcc/tdcc_dataset_manifest_*.json",
+    "output/history/tdcc_signals/tdcc_signal_snapshot.csv",
+    "data/tdcc_stock_history_raw/*.csv",
+    "data/tdcc_stock_history/*.csv",
+    "data/daily_price/[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9].csv",
+    "data/stock_price_history/*.csv",
+    "config/stock_model_contract_registry.csv",
+    "config/daily_model_semantic_ownership.csv",
+    "config/daily_model_shared_semantic_registry.csv",
+}
 
 EXPLICIT_WORKFLOW_LIFECYCLE_REFERENCES = {
     ".github/workflows/revenue_unreacted_range_post_launch_monitoring.yml": {
@@ -123,7 +145,11 @@ EXPLICIT_WORKFLOW_LIFECYCLE_REFERENCES = {
         "reads_artifact": {
             "output/latest/model_operation_readiness_latest.csv"
         },
-    }
+    },
+    "scripts/validate_tdcc_stealth_accumulation_pit_replay_availability.py": {
+        "reads_artifact": TDCC_STEALTH_PIT_AUDIT_SOURCES
+        | {TDCC_STEALTH_PIT_AUDIT_ARTIFACT},
+    },
 }
 
 

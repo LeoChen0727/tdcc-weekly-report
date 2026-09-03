@@ -151,6 +151,24 @@ EXPECTED_FOUR_MODEL_MIGRATIONS = tuple(
     for model_id in FOUR_MODEL_IDS
 )
 
+TDCC_STEALTH_PIT_AUDIT_OWNER = (
+    "tdcc_stealth_accumulation_pit_replay_availability_audit"
+)
+TDCC_STEALTH_PIT_AUDIT_PRODUCER = (
+    "scripts/audit_tdcc_stealth_accumulation_pit_replay_availability.py"
+)
+TDCC_STEALTH_PIT_AUDIT_ARTIFACT = (
+    "output/research/tdcc_stealth_accumulation/"
+    "tdcc_stealth_accumulation_pit_replay_availability_audit_v1.csv"
+)
+TDCC_STEALTH_PIT_AUDIT_MIGRATION_ID = (
+    "tdcc_stealth_accumulation_pit_replay_availability_audit_registration_v1"
+)
+TDCC_STEALTH_PIT_AUDIT_APPROVAL = (
+    "user_requested_tdcc_stealth_accumulation_pit_historical_replay_"
+    "availability_audit_20260903"
+)
+
 
 def test_model_research_artifact_ownership_registry_passes() -> None:
     assert validate() == []
@@ -202,6 +220,87 @@ def test_four_model_ownership_migrations_are_exact() -> None:
         current_by_id[expected["migration_id"]]
         for expected in EXPECTED_FOUR_MODEL_MIGRATIONS
     ) == EXPECTED_FOUR_MODEL_MIGRATIONS
+
+
+def test_tdcc_stealth_pit_replay_availability_audit_has_independent_owner() -> None:
+    rules = load_ownership_rules()
+    observed = [
+        rule
+        for rule in rules
+        if rule.artifact_glob == TDCC_STEALTH_PIT_AUDIT_ARTIFACT
+    ]
+
+    assert len(observed) == 1
+    rule = observed[0]
+    assert rule.owner_model_id == TDCC_STEALTH_PIT_AUDIT_OWNER
+    assert rule.producer == TDCC_STEALTH_PIT_AUDIT_PRODUCER
+    assert rule.artifact_class == "model_research_output"
+    assert rule.change_policy == "model_owned_write"
+    assert rule.formal_evidence_status == "research_only"
+
+    assert validate_changed_paths(
+        TDCC_STEALTH_PIT_AUDIT_OWNER,
+        TDCC_STEALTH_PIT_AUDIT_PRODUCER,
+        [TDCC_STEALTH_PIT_AUDIT_ARTIFACT],
+        rules,
+    ) == []
+    assert validate_changed_paths(
+        "tdcc_stealth_accumulation",
+        TDCC_STEALTH_PIT_AUDIT_PRODUCER,
+        [TDCC_STEALTH_PIT_AUDIT_ARTIFACT],
+        rules,
+    )
+
+    with (ROOT / "config/report_artifact_lineage.csv").open(
+        encoding="utf-8-sig", newline=""
+    ) as handle:
+        lineage_rows = {
+            row["artifact_path"]: row for row in csv.DictReader(handle)
+        }
+    with (ROOT / "config/daily_model_background_data_registry.csv").open(
+        encoding="utf-8-sig", newline=""
+    ) as handle:
+        background = {
+            row["data_family_id"]: row for row in csv.DictReader(handle)
+        }
+    lineage = lineage_rows[TDCC_STEALTH_PIT_AUDIT_ARTIFACT]
+    assert lineage["artifact_kind"] == "research_model_pit_replay_availability_audit"
+    assert lineage["owner"] == "research_backtest"
+    assert lineage["producer"] == TDCC_STEALTH_PIT_AUDIT_PRODUCER
+    assert lineage["validator"] == (
+        "scripts/validate_tdcc_stealth_accumulation_pit_replay_availability.py"
+    )
+    assert lineage["source_artifacts"] == background[
+        TDCC_STEALTH_PIT_AUDIT_OWNER
+    ]["source_artifacts"]
+    assert lineage["publisher"] == "manual_daily_model_maintenance_pr"
+    assert lineage["public_surface"] == "output/research/tdcc_stealth_accumulation"
+
+
+def test_tdcc_stealth_pit_replay_availability_audit_migration_is_exact() -> None:
+    with (
+        ROOT / "config/model_research_artifact_ownership_migrations.csv"
+    ).open(encoding="utf-8-sig", newline="") as handle:
+        rows = {row["migration_id"]: row for row in csv.DictReader(handle)}
+
+    migration = rows[TDCC_STEALTH_PIT_AUDIT_MIGRATION_ID]
+    assert migration == {
+        "migration_id": TDCC_STEALTH_PIT_AUDIT_MIGRATION_ID,
+        "effective_date": "2026-09-03",
+        "registry_path": "config/model_research_artifact_ownership.csv",
+        "record_keys": TDCC_STEALTH_PIT_AUDIT_ARTIFACT,
+        "previous_owner": "unregistered",
+        "new_owner": TDCC_STEALTH_PIT_AUDIT_OWNER,
+        "change_policy": "model_owned_write",
+        "approval_reference": TDCC_STEALTH_PIT_AUDIT_APPROVAL,
+        "status": "validated_user_approved_migration",
+        "notes": (
+            "Register the TDCC stealth accumulation model-specific PIT replay "
+            "availability audit artifact as research-only evidence that cannot "
+            "contain replay events performance metrics formal evidence or "
+            "promotion evidence."
+        ),
+    }
 
 
 @pytest.mark.parametrize("model_id", FOUR_MODEL_IDS)
