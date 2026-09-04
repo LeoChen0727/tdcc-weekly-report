@@ -16,7 +16,7 @@
 | full | 操作中 | data | non_mainstream | 6870 騰雲 | 操作中 | 20260901 | 20260902 | 20260903 | active_operation | False |
 | full | 本日可買 / 已確認買入候選 | empty_state | non_mainstream |  | 本日無股票推薦 |  |  |  | empty_state | False |
 | full | 已確認但未列買入 | empty_state | non_mainstream |  | 目前無已確認但未列入買進排序列 |  |  |  | empty_state | False |
-| full | 待確認 | empty_state | non_mainstream |  | 目前無待確認列 |  |  |  | empty_state | False |
+| full | 待確認 | data | non_mainstream | 3374 精材 | 待確認 | 20260904 |  |  | pending_confirmation | False |
 | highlight | 操作中 | empty_state | mainstream |  | 目前無操作中追蹤列 |  |  |  | empty_state | False |
 | highlight | 本日可買 / 已確認買入候選 | empty_state | mainstream |  | 本日無股票推薦 |  |  |  | empty_state | False |
 | highlight | 操作中 | data | non_mainstream | 1326 台化 | 操作中 | 20260831 | 20260901 | 20260902 | active_operation | False |
