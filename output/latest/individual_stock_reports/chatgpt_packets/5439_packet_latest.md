@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5439 高技
 
 ## Metadata
-- generated_at: 2026-08-23 22:28:28 Asia/Taipei
+- generated_at: 2026-09-05 15:53:53 Asia/Taipei
 - stock_id: 5439
 - stock_name: 高技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 203
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 213
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 241.5
-- high: 252
-- low: 237
-- close: 239.5
-- volume: 2565000
-- ma5: 241.4
-- ema23_primary: 246.07
-- distance_to_ema23_pct: -2.67
-- ma20: 229.93
-- ma60: 292.25
-- ma120: 316.19
-- return_5d: -3.04
-- return_20d: 1.7
-- volume_ratio: 0.96
+- date: 20260904
+- open: 263
+- high: 267
+- low: 255
+- close: 261.5
+- volume: 1593000
+- ma5: 266.9
+- ema23_primary: 254.68
+- distance_to_ema23_pct: 2.68
+- ma20: 251.05
+- ma60: 274.01
+- ma120: 315.42
+- return_5d: -1.13
+- return_20d: 8.51
+- volume_ratio: 0.57
 - distance_to_ma20_pct_auxiliary: 4.16
-- distance_to_high_60_pct: -38.51
+- distance_to_high_60_pct: -28.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,235.5,236,223,234,2249000,289.26,-19.1,294.95,342.46,0.96
-20260728,224,224,212,212,2680000,282.82,-25.04,290.27,339.62,1.11
-20260729,212,214,191,195.5,3603000,275.54,-29.05,284.52,336.33,1.4
-20260730,192.5,203,183.5,185.5,5118000,268.04,-30.79,277.98,332.71,1.91
-20260731,203,203.5,197,199.5,3162000,262.33,-23.95,270.55,329.27,1.21
-20260803,218,218.5,206,214,3310000,258.3,-17.15,263.7,326.05,1.4
-20260804,214,229.5,212.5,224,2760000,255.44,-12.31,257.5,323.32,1.17
-20260805,228,233,223,226,2524000,252.99,-10.67,252.25,320.57,1.07
-20260806,226.5,241.5,217,236,3043000,251.57,-6.19,247.15,318.15,1.25
-20260807,234,246.5,232.5,241,2197000,250.69,-3.87,242.93,315.93,0.9
 20260810,242.5,249.5,237.5,241,2531000,249.88,-3.56,239.45,313.1,1.03
 20260811,233,244,232,240.5,1468000,249.1,-3.45,236.82,310.59,0.61
 20260812,240.5,248,240,245.5,1369000,248.8,-1.33,234.3,308.33,0.56
@@ -168,17 +158,27 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,236,243.5,233.5,234.5,1344000,246.95,-5.04,230,297.14,0.53
 20260820,236.5,249,233,243.5,2887000,246.67,-1.28,229.72,294.68,1.1
 20260821,241.5,252,237,239.5,2565000,246.07,-2.67,229.93,292.25,0.96
+20260824,240,247.5,238,239.5,1316000,245.52,-2.45,230.2,290.07,0.5
+20260825,239,241.5,233,241.5,940000,245.19,-1.5,231.68,287.72,0.37
+20260826,242,252,241,248,2038000,245.42,1.05,234.3,285.52,0.83
+20260827,248,271,245.5,262,4882000,246.8,6.16,238.12,283.65,1.99
+20260828,265,270.5,257,264.5,4726000,248.28,6.53,241.38,281.81,1.87
+20260831,265,279.5,262,267.5,7265000,249.88,7.05,244.05,280.17,2.66
+20260901,269,280.5,263,275,5236000,251.97,9.14,246.6,278.68,1.83
+20260902,271.5,272.5,267,269.5,2471000,253.43,6.34,248.78,277.28,0.87
+20260903,269.5,272,261,261,2076000,254.06,2.73,250.03,275.57,0.74
+20260904,263,267,255,261.5,1593000,254.68,2.68,251.05,274.01,0.57
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 39.92
-- over_600_ratio: 34.35
-- over_800_ratio: 31.13
-- over_1000_ratio: 26.42
-- over_400_change_1w: -0.73
-- over_800_change_1w: -1.64
-- over_1000_change_1w: -1.63
+- as_of_date: 20260904
+- over_400_ratio: 37.49
+- over_600_ratio: 32.88
+- over_800_ratio: 28.08
+- over_1000_ratio: 21.57
+- over_400_change_1w: -2.4
+- over_800_change_1w: -4.67
+- over_1000_change_1w: -4.75
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -187,8 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,49.73,-0.9,42.08,0.07,37.41,0.07,1,False,True
-20260612,49.06,-0.67,41.91,-0.17,37.18,-0.23,2,False,False
 20260618,47.02,-2.04,40.97,-0.94,34.31,-2.87,0,False,False
 20260626,45.94,-1.08,40.9,-0.07,35.26,0.95,1,False,True
 20260703,47.56,1.62,39.18,-1.72,35.28,0.02,2,False,True
@@ -199,17 +197,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,39.34,-0.12,31.96,-3.34,29.13,-1.46,0,False,False
 20260814,40.65,1.31,32.77,0.81,28.05,-1.08,1,False,True
 20260821,39.92,-0.73,31.13,-1.64,26.42,-1.63,0,False,False
+20260828,39.89,-0.03,32.75,1.62,26.32,-0.1,1,False,True
+20260904,37.49,-2.4,28.08,-4.67,21.57,-4.75,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 5439 | 高技 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | continued_2_3d | 1.董事會或股東會決議日期:115/07/06 2.原發放股利種類及金額:  現金股利新台幣669,425,414元，每股配發新台幣7.2元 3.變更後發放股利種類及金額:  現金股利新台幣669,425,414元，每股配發新台幣7.19992263元 4.變更原因:  因本公司國內第一次無擔保轉換公司債轉換為普通股，致影響流通在外股份  數量，股東配息率因此發生變動，董事會授權董事長調整配息率。 5.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| 20260904 | 5439 | 高技 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會或股東會決議日期:115/07/06 2.原發放股利種類及金額:  現金股利新台幣669,425,414元，每股配發新台幣7.2元 3.變更後發放股利種類及金額:  現金股利新台幣669,425,414元，每股配發新台幣7.19992263元 4.變更原因:  因本公司國內第一次無擔保轉換公司債轉換為普通股，致影響流通在外股份  數量，股東配息率因此發生變動，董事會授權董事長調整配息率。 5.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 5439 | 高技 | 3 | 3 | 3 | 5 | 13 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260904 | 5439 | 高技 | 2 | 2 | 4 | 7 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

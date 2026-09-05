@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5483 中美晶
 
 ## Metadata
-- generated_at: 2026-08-23 22:28:30 Asia/Taipei
+- generated_at: 2026-09-05 15:53:54 Asia/Taipei
 - stock_id: 5483
 - stock_name: 中美晶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 203
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 213
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 188.5
-- high: 188.5
-- low: 173.5
-- close: 176
-- volume: 25828000
-- ma5: 182.1
-- ema23_primary: 184.72
-- distance_to_ema23_pct: -4.72
-- ma20: 177.57
-- ma60: 185.81
-- ma120: 156.78
-- return_5d: -6.38
-- return_20d: -13.51
-- volume_ratio: 0.84
-- distance_to_ma20_pct_auxiliary: -0.89
-- distance_to_high_60_pct: -37.03
+- date: 20260904
+- open: 181.5
+- high: 185
+- low: 180
+- close: 183.5
+- volume: 10727000
+- ma5: 180
+- ema23_primary: 182.47
+- distance_to_ema23_pct: 0.56
+- ma20: 180.95
+- ma60: 189.58
+- ma120: 162.6
+- return_5d: 0
+- return_20d: 8.9
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: 1.41
+- distance_to_high_60_pct: -34.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,201,205,195,204,15618000,210.84,-3.25,216.95,176.72,0.4
-20260728,193,199.5,184.5,185,27086000,208.69,-11.35,218,177.57,0.68
-20260729,183,183,166.5,166.5,16105000,205.17,-18.85,217.32,178.07,0.41
-20260730,155,160.5,150.5,152.5,32617000,200.78,-24.05,215.05,178.2,0.85
-20260731,167.5,167.5,155,157,91718000,197.14,-20.36,212.85,178.39,2.37
-20260803,156,172.5,155.5,172.5,27352000,195.08,-11.58,210.95,178.73,0.71
-20260804,177,184.5,170,181,42940000,193.91,-6.66,209.53,179.27,1.13
-20260805,188,194,174,178,51868000,192.58,-7.57,208.5,179.51,1.32
-20260806,176.5,179,170,177.5,19193000,191.33,-7.23,206.97,179.88,0.5
-20260807,175.5,176,167.5,168.5,18584000,189.42,-11.05,204.88,180.22,0.5
 20260810,174,174,167.5,169.5,17605000,187.76,-9.73,201.78,180.5,0.47
 20260811,168.5,173,165,168.5,12595000,186.16,-9.49,197.55,180.97,0.37
 20260812,169.5,185,169.5,185,32331000,186.06,-0.57,192.9,181.73,1.01
@@ -168,27 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,179,179.5,174,176.5,17758000,185.42,-4.81,180.25,185.2,0.56
 20260820,181.5,187,177.5,186.5,16998000,185.51,0.53,178.95,185.57,0.55
 20260821,188.5,188.5,173.5,176,25828000,184.72,-4.72,177.57,185.81,0.84
+20260824,178.5,188.5,178.5,181.5,32784000,184.45,-1.6,176.45,186.16,1.03
+20260825,179,183,176,183,14403000,184.33,-0.72,176.35,186.34,0.46
+20260826,181,182,177,180,13444000,183.97,-2.16,177.03,186.53,0.43
+20260827,180.5,183.5,177.5,182,11550000,183.81,-0.98,178.5,186.82,0.39
+20260828,184.5,188,180.5,183.5,17749000,183.78,-0.15,179.82,187.1,0.68
+20260831,181,181,173,178,15309000,183.3,-2.89,180.1,187.39,0.6
+20260901,178.5,185,178,183.5,15884000,183.32,0.1,180.22,187.91,0.65
+20260902,180.5,181.5,178,179,8396000,182.96,-2.16,180.28,188.54,0.38
+20260903,181,187.5,176,176,17401000,182.38,-3.5,180.2,188.92,0.79
+20260904,181.5,185,180,183.5,10727000,182.47,0.56,180.95,189.58,0.5
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 59.6
-- over_600_ratio: 56.88
-- over_800_ratio: 54.48
-- over_1000_ratio: 52.71
-- over_400_change_1w: -0.12
-- over_800_change_1w: -0.7
-- over_1000_change_1w: -0.11
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260904
+- over_400_ratio: 58.18
+- over_600_ratio: 55.24
+- over_800_ratio: 53.25
+- over_1000_ratio: 50.79
+- over_400_change_1w: 0.11
+- over_800_change_1w: 0.41
+- over_1000_change_1w: -0.42
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,60.51,-0.69,55.96,-0.37,53.72,-0.48,0,False,False
-20260612,59.48,-1.03,54.98,-0.98,52.61,-1.11,0,False,False
 20260618,62.42,2.94,57.93,2.95,55.99,3.38,1,True,True
 20260626,60.31,-2.11,55.71,-2.22,53.64,-2.35,0,False,False
 20260703,62.06,1.75,56.64,0.93,54.55,0.91,1,True,True
@@ -199,17 +197,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,61.49,-3.02,56.78,-2.12,54.02,-2.06,0,False,False
 20260814,59.72,-1.77,55.18,-1.6,52.82,-1.2,0,False,False
 20260821,59.6,-0.12,54.48,-0.7,52.71,-0.11,0,False,False
+20260828,58.07,-1.53,52.84,-1.64,51.21,-1.5,0,False,False
+20260904,58.18,0.11,53.25,0.41,50.79,-0.42,1,False,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260904 | 5483 | 中美晶 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260904 | 5483 | 中美晶 | 1 | 1 | 2 | 6 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

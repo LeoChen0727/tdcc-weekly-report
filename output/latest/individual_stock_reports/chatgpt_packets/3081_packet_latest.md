@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3081 聯亞
 
 ## Metadata
-- generated_at: 2026-08-23 22:27:36 Asia/Taipei
+- generated_at: 2026-09-05 15:53:11 Asia/Taipei
 - stock_id: 3081
 - stock_name: 聯亞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 203
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 213
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,36 +69,37 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 等待回檔
-- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
-- action_summary_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
-- entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 營收成長股價回檔
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
+- final_decision_zh: 營收成長股價回檔 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: wait_pullback
-- action_rating_label_zh: 等待回檔
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: high_level_distribution_risk
-- entry_style: pullback_to_support
+- entry_style: no_entry_now
 - position_sizing: observe_only
 
 ### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -124,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 2845
-- high: 2920
-- low: 2760
-- close: 2920
-- volume: 4752000
-- ma5: 2819
-- ema23_primary: 2391.19
-- distance_to_ema23_pct: 22.11
-- ma20: 2290.25
-- ma60: 2188.5
-- ma120: 2188.83
-- return_5d: 14.96
-- return_20d: 65.91
-- volume_ratio: 1.55
-- distance_to_ma20_pct_auxiliary: 27.5
-- distance_to_high_60_pct: -4.73
+- date: 20260904
+- open: 3245
+- high: 3315
+- low: 2980
+- close: 3170
+- volume: 5284000
+- ma5: 3328
+- ema23_primary: 2890.11
+- distance_to_ema23_pct: 9.68
+- ma20: 2966.75
+- ma60: 2296.42
+- ma120: 2337.79
+- return_5d: -4.08
+- return_20d: 37.53
+- volume_ratio: 1.47
+- distance_to_ma20_pct_auxiliary: 6.85
+- distance_to_high_60_pct: -11.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,1825,1895,1740,1805,6064000,1884.41,-4.21,1843,2328.83,2.46
-20260728,1690,1840,1645,1710,5449000,1869.88,-8.55,1826.75,2313.33,2.07
-20260729,1720,1740,1540,1540,4014000,1842.39,-16.41,1802.75,2293.25,1.46
-20260730,1495,1625,1450,1485,4662000,1812.6,-18.07,1778,2271.08,1.6
-20260731,1630,1630,1630,1630,336000,1797.39,-9.31,1762.5,2254,0.12
-20260803,1760,1790,1750,1790,639000,1796.77,-0.38,1747,2239.5,0.23
-20260804,1965,1965,1965,1965,265000,1810.79,8.52,1745.25,2228.58,0.1
-20260805,2160,2160,2160,2160,296000,1839.89,17.4,1758,2218.25,0.12
-20260806,2185,2375,2180,2375,4738000,1884.48,26.03,1772,2206.92,1.76
-20260807,2420,2555,2275,2305,5700000,1919.53,20.08,1787,2198.08,1.98
 20260810,2500,2535,2420,2535,2999000,1970.82,28.63,1814.25,2191.25,1.01
 20260811,2420,2485,2415,2480,1071000,2013.25,23.18,1842,2188.33,0.37
 20260812,2560,2725,2560,2725,1179000,2072.56,31.48,1890.5,2188.58,0.41
@@ -166,18 +157,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,2750,2900,2650,2680,5057000,2303.4,16.35,2184.75,2194.25,1.57
 20260820,2765,2830,2635,2780,4519000,2343.11,18.65,2232.25,2187.92,1.36
 20260821,2845,2920,2760,2920,4752000,2391.19,22.11,2290.25,2188.5,1.55
+20260824,2910,2910,2750,2765,3133000,2422.34,14.15,2338.25,2190.42,1.07
+20260825,2690,2995,2645,2960,4479000,2467.14,19.98,2400.75,2196.17,1.56
+20260826,3010,3255,2940,3255,6821000,2532.8,28.51,2486.5,2205.67,2.27
+20260827,3385,3510,3265,3370,6294000,2602.57,29.49,2580.75,2218.92,2.04
+20260828,3370,3455,3285,3305,3066000,2661.1,24.2,2664.5,2226.83,0.95
+20260831,3240,3550,3235,3530,3971000,2733.51,29.14,2751.5,2242.67,1.17
+20260901,3600,3600,3420,3425,2459000,2791.13,22.71,2824.5,2255.5,0.7
+20260902,3425,3565,3375,3395,3191000,2841.46,19.48,2886.25,2270.5,0.88
+20260903,3425,3485,3110,3120,3924000,2864.67,8.91,2923.5,2281,1.09
+20260904,3245,3315,2980,3170,5284000,2890.11,9.68,2966.75,2296.42,1.47
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 47.48
-- over_600_ratio: 44.43
-- over_800_ratio: 39.75
+- as_of_date: 20260904
+- over_400_ratio: 48.93
+- over_600_ratio: 44.32
+- over_800_ratio: 39.67
 - over_1000_ratio: 33.53
-- over_400_change_1w: 0.65
-- over_800_change_1w: 1.61
-- over_1000_change_1w: -1.89
-- tdcc_consecutive_up_weeks: 3
+- over_400_change_1w: 0.98
+- over_800_change_1w: 0.9
+- over_1000_change_1w: -1
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -185,8 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,43.65,-0.8,36.09,0.65,31.4,0.72,4,False,True
-20260612,42.94,-0.71,36.75,0.66,30.05,-1.35,5,False,True
 20260618,44.41,1.47,37.26,0.51,31.62,1.57,6,True,True
 20260626,45.25,0.84,36.79,-0.47,32.02,0.4,7,False,True
 20260703,46.86,1.61,37.28,0.49,34.48,2.46,8,True,True
@@ -197,17 +196,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,46.21,2.5,37.05,0.93,32.46,-1.84,1,False,True
 20260814,46.83,0.62,38.14,1.09,35.42,2.96,2,True,True
 20260821,47.48,0.65,39.75,1.61,33.53,-1.89,3,False,True
+20260828,47.95,0.47,38.77,-0.98,34.53,1,4,False,True
+20260904,48.93,0.98,39.67,0.9,33.53,-1,5,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 3081 | 聯亞 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | 1.事實發生日:115/08/20 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理。 3.財務業務資訊:   聯亞一(30811)可轉債相關資訊   到期日期:118/08/12   實際發行總額:新台幣1,200,000,000元   本月發行餘額:新台幣1,200,000,000元(截至115/08/19)   最新轉(交)換價格:1,757.9   轉換標的收盤價格(3081):2,780.0  (115/08/20收盤價)   轉換債收盤價格/轉換債開盤參考價格(30811):198.0 (115/08/20收盤價) 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無。 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無。 6.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| 20260904 | 3081 | 聯亞 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | continued_overheated | 1.董事會或股東會決議日期:115/08/26 2.投資計畫內容:增購生產設備以提升產能 3.預計投資金額:總金額不超過新台幣22.7億元 4.預計投資日期:依各項設備採購合約約定之期程分期執行　 5.資金來源:自有營運資金及外部融資等 6.具體目的:因應客戶訂單需求，維持公司未來營運持續成長的動能 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 3081 | 聯亞 | 2 | 1 | 4 | 7 | 15 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260904 | 3081 | 聯亞 | 2 | 2 | 2 | 6 | 13 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

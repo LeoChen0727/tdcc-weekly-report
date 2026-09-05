@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6117 迎廣
 
 ## Metadata
-- generated_at: 2026-08-23 22:28:37 Asia/Taipei
+- generated_at: 2026-09-05 15:54:00 Asia/Taipei
 - stock_id: 6117
 - stock_name: 迎廣
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 61
-- high: 61.4
-- low: 60.7
-- close: 61.1
-- volume: 102569
-- ma5: 61.54
-- ema23_primary: 64.94
-- distance_to_ema23_pct: -5.92
-- ma20: 64.44
-- ma60: 71.41
-- ma120: 74.83
-- return_5d: -3.78
-- return_20d: -9.48
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: -5.18
-- distance_to_high_60_pct: -33.44
+- date: 20260904
+- open: 65.1
+- high: 65.1
+- low: 63
+- close: 64
+- volume: 137970
+- ma5: 64.12
+- ema23_primary: 64.09
+- distance_to_ema23_pct: -0.14
+- ma20: 63.43
+- ma60: 68.06
+- ma120: 74.24
+- return_5d: 1.59
+- return_20d: -2.88
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: 0.9
+- distance_to_high_60_pct: -17.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,67,68.7,67,68.3,197155,70.6,-3.26,70.04,77.75,0.89
-20260728,67,68.6,66,68.2,232989,70.4,-3.13,69.84,77.42,1.05
-20260729,66.8,67.3,62,65,816648,69.95,-7.08,69.42,77.05,3.21
-20260730,65,65,62,62,324938,69.29,-10.52,68.87,76.61,1.24
-20260731,64,64.5,63.1,63.2,209931,68.78,-8.12,68.37,76.23,0.79
-20260803,64,65.5,63.3,64.5,130409,68.43,-5.74,67.88,75.88,0.5
-20260804,63.8,65.6,63.8,64.5,101292,68.1,-5.28,67.41,75.61,0.4
-20260805,65.5,66.5,65.3,65.6,249269,67.89,-3.37,67.08,75.36,0.97
-20260806,65.6,65.7,64.2,65.4,143920,67.68,-3.37,66.75,75.12,0.57
-20260807,65.9,66.8,65.4,65.9,238222,67.53,-2.42,66.43,74.9,0.94
 20260810,66.4,66.6,65.7,66.3,123779,67.43,-1.68,66.28,74.65,0.54
 20260811,65.5,66.6,65.4,66.5,144324,67.35,-1.27,66.22,74.39,0.67
 20260812,66.8,67.1,66.6,66.8,256748,67.31,-0.75,66.15,74.17,1.16
@@ -167,18 +158,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,61.7,61.7,60.7,61,137590,65.68,-7.12,65.09,72.38,0.59
 20260820,61.6,61.8,60.8,61.1,134919,65.29,-6.42,64.75,71.81,0.57
 20260821,61,61.4,60.7,61.1,102569,64.94,-5.92,64.44,71.41,0.44
+20260824,62.1,62.1,60.6,61,116324,64.62,-5.6,64.07,71.05,0.51
+20260825,60.7,63,59.8,63,195689,64.48,-2.3,63.81,70.7,0.86
+20260826,63,63,62.1,62.4,91998,64.31,-2.97,63.68,70.31,0.48
+20260827,62.3,63.8,61.8,62.5,141147,64.16,-2.58,63.7,69.9,0.77
+20260828,63.1,63.6,62.6,63,136225,64.06,-1.66,63.7,69.47,0.76
+20260831,63.5,63.6,62.6,63.1,94332,63.98,-1.38,63.62,69.11,0.53
+20260901,63.6,66.8,63.6,64.1,289883,63.99,0.17,63.6,68.79,1.55
+20260902,64,65.9,64,65.4,156186,64.11,2.02,63.59,68.55,0.86
+20260903,66.4,66.8,64,64,339977,64.1,-0.15,63.52,68.29,1.77
+20260904,65.1,65.1,63,64,137970,64.09,-0.14,63.43,68.06,0.74
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 55.01
-- over_600_ratio: 53.61
-- over_800_ratio: 52.17
-- over_1000_ratio: 50.27
-- over_400_change_1w: 0.27
-- over_800_change_1w: 1.21
-- over_1000_change_1w: 1.21
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260904
+- over_400_ratio: 54.67
+- over_600_ratio: 53.66
+- over_800_ratio: 52.22
+- over_1000_ratio: 50.3
+- over_400_change_1w: 0.08
+- over_800_change_1w: 0.03
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -186,8 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,53.81,-1.05,50.96,0,49.06,0,0,False,False
-20260612,53.8,-0.01,50.96,0,49.06,0,0,False,False
 20260618,53.38,-0.42,50.96,0,49.06,0,0,False,False
 20260626,53.39,0.01,50.96,0,49.06,0,1,False,False
 20260703,53.39,0,50.96,0,49.06,0,0,False,False
@@ -198,6 +197,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,54.75,0.54,50.96,0,49.06,0,4,False,False
 20260814,54.74,-0.01,50.96,0,49.06,0,0,False,False
 20260821,55.01,0.27,52.17,1.21,50.27,1.21,1,True,True
+20260828,54.59,-0.42,52.19,0.02,50.29,0.02,2,False,True
+20260904,54.67,0.08,52.22,0.03,50.3,0.01,3,True,True
 ```
 
 ## Candidate Context
@@ -213,7 +214,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 6117 | 迎廣 | 4 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260904 | 6117 | 迎廣 | 4 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

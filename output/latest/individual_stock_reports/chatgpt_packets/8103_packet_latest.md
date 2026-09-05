@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8103 瀚荃
 
 ## Metadata
-- generated_at: 2026-08-23 22:29:34 Asia/Taipei
+- generated_at: 2026-09-05 15:54:45 Asia/Taipei
 - stock_id: 8103
 - stock_name: 瀚荃
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 331
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 341
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,25 +69,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 停利
-- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前以風險管理為主，不適合新買第一筆。
-- action_summary_zh: 區間內轉強 / 挑戰前高觀察 已出現風險管理訊號，操作評級為「停利」。
-- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
+- risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 區間內轉強 / 挑戰前高觀察 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: take_profit
-- action_rating_label_zh: 停利
-- confidence_level: low
-- thesis_state: high_level_distribution_risk
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: high_level_consolidation
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -100,10 +100,9 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 
 ### post_entry_watch_items
@@ -117,7 +116,6 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
 - price_too_extended
 
 ### chatgpt_instruction
@@ -126,38 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 91.5
-- high: 96.3
-- low: 90.2
-- close: 94
-- volume: 6918574
-- ma5: 86.58
-- ema23_primary: 83.06
-- distance_to_ema23_pct: 13.18
-- ma20: 79.31
-- ma60: 89.73
-- ma120: 93.73
-- return_5d: 19.14
-- return_20d: 19.59
-- volume_ratio: 4.43
-- distance_to_ma20_pct_auxiliary: 18.52
-- distance_to_high_60_pct: -21.34
+- date: 20260904
+- open: 123
+- high: 126
+- low: 118.5
+- close: 122.5
+- volume: 5723721
+- ma5: 122.2
+- ema23_primary: 102.54
+- distance_to_ema23_pct: 19.46
+- ma20: 99.06
+- ma60: 91.71
+- ma120: 95.79
+- return_5d: 12.9
+- return_20d: 55.65
+- volume_ratio: 1.15
+- distance_to_ma20_pct_auxiliary: 23.67
+- distance_to_high_60_pct: -3.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,79.4,79.7,77,78.5,488308,87.55,-10.33,89.08,100.04,0.48
-20260728,77.2,77.2,72.9,72.9,861963,86.33,-15.55,87.94,99.17,0.86
-20260729,72.4,74.1,66.5,69.1,1916355,84.89,-18.6,86.45,98.27,1.82
-20260730,68.5,70.7,66.3,67.7,1535941,83.46,-18.88,84.87,97.36,1.46
-20260731,73.4,73.6,70.7,73.1,787372,82.59,-11.5,83.28,96.63,0.78
-20260803,71.6,75.3,71.6,73.9,1000933,81.87,-9.74,81.77,95.83,0.99
-20260804,73.9,75.7,73,75.7,436858,81.36,-6.95,80.43,95.16,0.44
-20260805,77.2,79.9,76.9,78.7,610899,81.13,-3,79.52,94.55,0.64
-20260806,78.7,85,78.1,84.5,1029655,81.42,3.79,78.95,93.99,1.09
-20260807,84.5,84.5,78.6,78.7,2063981,81.19,-3.07,78.28,93.34,2.05
 20260810,79.1,80.6,79.1,80.3,618837,81.11,-1,77.84,92.89,0.62
 20260811,80.3,82.4,80.1,80.1,635151,81.03,-1.15,77.66,92.51,0.71
 20260812,80.7,83.8,80.7,81.1,853727,81.04,0.08,77.42,92.16,0.96
@@ -168,27 +156,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,81.1,84.4,80.5,83.6,1654196,81.17,3,77.91,90.19,1.59
 20260820,83.8,91.9,83.8,91.9,4045360,82.06,11.99,78.54,89.94,3.29
 20260821,91.5,96.3,90.2,94,6918574,83.06,13.18,79.31,89.73,4.43
+20260824,91.1,102,88.2,97.2,6471410,84.23,15.39,80.25,89.66,3.48
+20260825,99.3,105,97.3,103.5,10724370,85.84,20.57,81.78,89.53,4.56
+20260826,102,113.5,102,113.5,10909449,88.14,28.77,84,89.53,3.89
+20260827,115,117,110,114,10582326,90.3,26.25,86.31,89.7,3.25
+20260828,115.5,116.5,107.5,108.5,5176982,91.82,18.17,88.08,89.8,1.49
+20260831,115.5,119,115,119,3561783,94.08,26.49,90.33,90.09,0.99
+20260901,120.5,127.5,116.5,126.5,17338178,96.78,30.71,92.88,90.51,3.9
+20260902,124.5,125.5,120.5,122,4586924,98.88,23.38,95.04,90.89,0.99
+20260903,122,123,118,121,3928316,100.73,20.13,96.86,91.25,0.82
+20260904,123,126,118.5,122.5,5723721,102.54,19.46,99.06,91.71,1.15
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 42.36
-- over_600_ratio: 38.12
-- over_800_ratio: 29.09
-- over_1000_ratio: 24.21
-- over_400_change_1w: 1.19
-- over_800_change_1w: 0.32
-- over_1000_change_1w: -3.42
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
+- as_of_date: 20260904
+- over_400_ratio: 49.05
+- over_600_ratio: 43.63
+- over_800_ratio: 36.38
+- over_1000_ratio: 32.82
+- over_400_change_1w: 1.84
+- over_800_change_1w: 3.13
+- over_1000_change_1w: 0.66
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,46.89,-2.47,30.5,-1.95,29.42,-0.83,0,False,False
-20260612,46.69,-0.2,29.77,-0.73,28.69,-0.73,0,False,False
 20260618,46.17,-0.52,30.04,0.27,28.96,0.27,1,False,True
 20260626,47.23,1.06,30.81,0.77,27.47,-1.49,2,False,True
 20260703,47.68,0.45,31.26,0.45,27.95,0.48,3,False,True
@@ -199,22 +195,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,42.26,0,30.99,1.54,29.95,0.5,3,False,True
 20260814,41.17,-1.09,28.77,-2.22,27.63,-2.32,0,False,False
 20260821,42.36,1.19,29.09,0.32,24.21,-3.42,1,False,True
+20260828,47.21,4.85,33.25,4.16,32.16,7.95,2,True,True
+20260904,49.05,1.84,36.38,3.13,32.82,0.66,3,True,True
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 8103 | 瀚荃 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | call_strong_inflow | continued_overheated | 符合條款第四條第XX款：12 事實發生日：115/08/21 1.召開法人說明會之日期：115/08/21 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：台北市中山區南京東路三段219號11樓 4.法人說明會擇要訊息：本公司受邀參加元大證券舉辦之法人說明會，說明公司營運概況與未來展望。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 8103 | 瀚荃 | 2 | 2 | 2 | 2 | 6 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 8103 | 瀚荃 | 15 | 0 | 3374980.0 | 0.0 |  | call_strong_inflow |
+| 20260904 | 8103 | 瀚荃 | 14 | 0 | 5757940.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

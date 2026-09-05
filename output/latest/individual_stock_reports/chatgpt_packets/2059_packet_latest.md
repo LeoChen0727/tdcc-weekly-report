@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2059 川湖
 
 ## Metadata
-- generated_at: 2026-08-23 22:26:57 Asia/Taipei
+- generated_at: 2026-09-05 15:52:40 Asia/Taipei
 - stock_id: 2059
 - stock_name: 川湖
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -72,14 +72,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 單一個股分析
 - score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 股價乖離過大
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -87,7 +87,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -101,9 +101,11 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -116,7 +118,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- price_too_extended
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -124,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 13900
-- high: 14000
-- low: 13310
-- close: 13385
-- volume: 651440
-- ma5: 13905
-- ema23_primary: 11219.11
-- distance_to_ema23_pct: 19.31
-- ma20: 10859.75
-- ma60: 8357.58
-- ma120: 6124.92
-- return_5d: 7.08
-- return_20d: 73.04
-- volume_ratio: 1.07
-- distance_to_ma20_pct_auxiliary: 23.25
-- distance_to_high_60_pct: -11.27
+- date: 20260904
+- open: 13890
+- high: 14050
+- low: 13150
+- close: 13860
+- volume: 476556
+- ma5: 13901
+- ema23_primary: 12875.72
+- distance_to_ema23_pct: 7.64
+- ma20: 13593.75
+- ma60: 9784.75
+- ma120: 7032.29
+- return_5d: -3.08
+- return_20d: 24.75
+- volume_ratio: 0.84
+- distance_to_ma20_pct_auxiliary: 1.96
+- distance_to_high_60_pct: -8.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,7780,8275,7675,8275,531014,7752.6,6.74,7978.75,6398.67,0.89
-20260728,7715,7820,7450,7450,610643,7727.38,-3.59,7995.75,6457.67,1
-20260729,7450,7595,6840,7145,873804,7678.85,-6.95,7985,6509.17,1.38
-20260730,7035,7410,6840,7140,732344,7633.95,-6.47,7959.25,6559.17,1.14
-20260731,7850,7850,7760,7850,232481,7651.95,2.59,7957.75,6616.67,0.36
-20260803,8380,8635,8165,8635,613639,7733.87,11.65,7989.5,6679.92,0.94
-20260804,8720,9495,8720,9495,866327,7880.63,20.49,8075,6749.5,1.29
-20260805,9500,9575,9275,9470,727099,8013.08,18.18,8135.5,6815.33,1.12
-20260806,9555,10100,9510,10100,698425,8186.99,23.37,8235.75,6892.92,1.06
-20260807,11110,11110,11110,11110,361895,8430.57,31.78,8378.75,6990.58,0.57
 20260810,12220,12220,11590,11905,1016839,8720.11,36.52,8570,7105.5,1.54
 20260811,11700,12540,11615,12315,478258,9019.68,36.53,8786,7229.75,0.72
 20260812,12250,12295,11790,12045,350021,9271.79,29.91,8963.25,7351.08,0.54
@@ -166,27 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,13895,14500,13895,14095,526139,10758.32,31.01,10291,8068.33,0.88
 20260820,14245,14495,13795,13925,575318,11022.21,26.34,10577.25,8216.5,0.95
 20260821,13900,14000,13310,13385,651440,11219.11,19.31,10859.75,8357.58,1.07
+20260824,13650,14720,13650,14410,564938,11485.01,25.47,11166.5,8519.42,0.93
+20260825,14480,14625,14065,14285,657346,11718.35,21.9,11508.25,8673.08,1.07
+20260826,14295,14590,13855,14510,501767,11950.98,21.41,11876.5,8828,0.85
+20260827,14695,14815,14085,14340,382810,12150.07,18.02,12236.5,8982.42,0.67
+20260828,14500,14595,14005,14300,433751,12329.23,15.98,12559,9131.58,0.74
+20260831,14250,14310,13850,14180,982861,12483.46,13.59,12836.25,9278.75,1.63
+20260901,14010,14740,14005,14150,341901,12622.34,12.1,13069,9420.92,0.59
+20260902,14220,14220,13600,13865,439034,12725.89,8.95,13288.75,9549,0.78
+20260903,13935,14195,13255,13450,651444,12786.24,5.19,13456.25,9659.92,1.16
+20260904,13890,14050,13150,13860,476556,12875.72,7.64,13593.75,9784.75,0.84
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 66.88
-- over_600_ratio: 60.79
-- over_800_ratio: 59.29
-- over_1000_ratio: 55.65
-- over_400_change_1w: 0.64
-- over_800_change_1w: 0.62
-- over_1000_change_1w: -0.23
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260904
+- over_400_ratio: 66.07
+- over_600_ratio: 60.28
+- over_800_ratio: 57.96
+- over_1000_ratio: 54.2
+- over_400_change_1w: -1
+- over_800_change_1w: -0.86
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,67.44,-0.86,59.78,0.14,57.77,0.16,2,False,True
-20260612,67.12,-0.32,59.8,0.02,57.77,0,3,False,True
 20260618,66.8,-0.32,59.75,-0.05,58.75,0.98,4,False,True
 20260626,66.56,-0.24,59.36,-0.39,56.38,-2.37,5,False,False
 20260703,66.7,0.14,59.52,0.16,56.54,0.16,6,True,True
@@ -197,6 +197,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,66.2,0.2,58.96,0.96,56.17,0.13,1,True,True
 20260814,66.24,0.04,58.67,-0.29,55.88,-0.29,2,False,False
 20260821,66.88,0.64,59.29,0.62,55.65,-0.23,3,False,True
+20260828,67.07,0.19,58.82,-0.47,54.2,-1.45,4,False,False
+20260904,66.07,-1,57.96,-0.86,54.2,0,0,False,False
 ```
 
 ## Candidate Context
@@ -212,7 +214,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2059 | 川湖 | 105 | 11 | 16497850.0 | 189110.0 | 87.24 | call_inflow |
+| 20260904 | 2059 | 川湖 | 99 | 9 | 4481250.0 | 129050.0 | 34.72 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

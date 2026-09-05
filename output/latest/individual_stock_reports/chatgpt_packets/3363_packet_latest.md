@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3363 上詮
 
 ## Metadata
-- generated_at: 2026-08-23 22:27:46 Asia/Taipei
+- generated_at: 2026-09-05 15:53:19 Asia/Taipei
 - stock_id: 3363
 - stock_name: 上詮
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 203
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 213
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,7 +101,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -125,38 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 610
-- high: 616
-- low: 598
-- close: 600
-- volume: 1924000
-- ma5: 600.8
-- ema23_primary: 589.47
-- distance_to_ema23_pct: 1.79
-- ma20: 574
-- ma60: 634.83
-- ma120: 689.31
-- return_5d: 2.39
-- return_20d: 3.09
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: 4.53
-- distance_to_high_60_pct: -34.99
+- date: 20260904
+- open: 802
+- high: 808
+- low: 717
+- close: 735
+- volume: 8509000
+- ma5: 764.4
+- ema23_primary: 665.88
+- distance_to_ema23_pct: 10.38
+- ma20: 656.65
+- ma60: 614.9
+- ma120: 698.77
+- return_5d: 4.85
+- return_20d: 26.29
+- volume_ratio: 1.76
+- distance_to_ma20_pct_auxiliary: 11.93
+- distance_to_high_60_pct: -13.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,574,598,566,598,4011000,597.84,0.03,569.9,718.33,1.08
-20260728,566,584,539,539,3520000,592.94,-9.1,568.5,714.5,0.93
-20260729,536,544,485.5,485.5,2573000,583.98,-16.86,563.88,708.62,0.68
-20260730,460,491,437,437,3835000,571.73,-23.57,558.88,701.38,1.01
-20260731,480.5,480.5,473,480.5,1443000,564.13,-14.82,556.45,695.8,0.38
-20260803,499,528,492,525,2079000,560.87,-6.4,553.65,690.97,0.57
-20260804,542,566,528,563,3965000,561.05,0.35,553.1,686.85,1.12
-20260805,606,618,589,600,3132000,564.29,6.33,553.75,682.63,0.92
-20260806,590,625,587,604,3866000,567.6,6.41,551.95,677.37,1.21
-20260807,604,622,571,582,2722000,568.8,2.32,550.65,672.85,0.87
 20260810,604,640,603,640,2738000,574.74,11.36,552.6,668.48,0.87
 20260811,640,648,603,606,4104000,577.34,4.96,553.95,664.57,1.28
 20260812,616,652,612,630,4379000,581.73,8.3,555.6,661.67,1.32
@@ -167,27 +156,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,569,592,561,584,1992000,586.55,-0.44,572.05,643.53,0.55
 20260820,589,612,589,610,2889000,588.51,3.65,573.1,638.95,0.82
 20260821,610,616,598,600,1924000,589.47,1.79,574,634.83,0.59
+20260824,601,603,565,567,1934000,587.59,-3.5,572.45,630.7,0.62
+20260825,556,623,549,623,3360000,590.54,5.5,576.65,627.8,1.07
+20260826,630,654,623,650,6021000,595.5,9.15,584.88,625.15,1.82
+20260827,656,715,648,704,9546000,604.54,16.45,598.23,623.48,2.66
+20260828,703,703,678,701,4400000,612.58,14.43,609.25,620.43,1.18
+20260831,683,747,683,747,6652000,623.78,19.75,620.35,618.88,1.68
+20260901,742,813,735,786,7445000,637.3,23.33,631.5,616.85,1.8
+20260902,786,818,757,780,6583000,649.19,20.15,640.5,616.03,1.53
+20260903,798,850,767,774,8690000,659.59,17.35,649,615.1,1.91
+20260904,802,808,717,735,8509000,665.88,10.38,656.65,614.9,1.76
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 40.03
-- over_600_ratio: 34.89
-- over_800_ratio: 30.57
-- over_1000_ratio: 28.96
-- over_400_change_1w: 0.18
-- over_800_change_1w: -1.02
-- over_1000_change_1w: -0.98
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260904
+- over_400_ratio: 40.89
+- over_600_ratio: 36.62
+- over_800_ratio: 30.95
+- over_1000_ratio: 30.23
+- over_400_change_1w: -1.6
+- over_800_change_1w: -2.41
+- over_1000_change_1w: 0.13
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,43.4,-0.24,36.04,0.82,33.76,1,1,False,True
-20260612,42.49,-0.91,33.52,-2.52,31.18,-2.58,0,False,False
 20260618,41.91,-0.58,32.68,-0.84,31.11,-0.07,0,False,False
 20260626,41.56,-0.35,33.24,0.56,30.17,-0.94,1,False,True
 20260703,43.58,2.02,33.74,0.5,32.13,1.96,2,True,True
@@ -198,17 +195,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,40.96,-0.39,32.03,0.79,31.32,0.08,4,False,True
 20260814,39.85,-1.11,31.59,-0.44,29.94,-1.38,0,False,False
 20260821,40.03,0.18,30.57,-1.02,28.96,-0.98,1,False,False
+20260828,42.49,2.46,33.36,2.79,30.1,1.14,2,True,True
+20260904,40.89,-1.6,30.95,-2.41,30.23,0.13,3,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 3363 | 上詮 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日:115/08/19 2.發生緣由:本公司資訊系統遭受駭客網路攻擊，部分主機與電腦遭受病毒攻擊。 3.處理過程:本公司資訊系統遭受網路攻擊，資安團隊立即啟動防禦機制及備援作業， 並與外部資訊技術專業人員共同合作處理，並保持密切聯繫。 4.預計可能損失或影響:目前評估對公司營運無重大影響。 5.可能獲得保險理賠之金額:不適用。 6.改善情形及未來因應措施:本公司已於第一時間啟動資安防禦，並對網路攻擊進行清 查，亦同步持續檢視與提升網路與資訊基礎架構之安全控管，以確保資訊安全。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| 20260904 | 3363 | 上詮 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/16 1.召開法人說明會之日期：115/09/16 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：W Hotel Taipei 4.法人說明會擇要訊息：本公司受邀參加UBS Taiwan Summit 2026，會中說明本公司營運概況及經營績效。 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 3363 | 上詮 | 2 | 2 | 2 | 3 | 3 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260904 | 3363 | 上詮 | 2 | 2 | 4 | 7 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

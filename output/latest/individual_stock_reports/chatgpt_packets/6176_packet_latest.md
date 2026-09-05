@@ -1,27 +1,27 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6176 瑞儀
 
 ## Metadata
-- generated_at: 2026-08-23 22:28:41 Asia/Taipei
+- generated_at: 2026-09-05 15:54:03 Asia/Taipei
 - stock_id: 6176
 - stock_name: 瑞儀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260812
-- price_rows: 331
-- current_main_price_date: 20260821
-- current_main_price_universe_status: historical_only_noncurrent
+- latest_price_date: 20260904
+- price_rows: 341
+- current_main_price_date: 20260904
+- current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260814
-- tdcc_rows: 16
-- tdcc_history_status: historical_only_noncurrent
-- tdcc_freshness_status: historical_only_noncurrent
-- tdcc_continuity_status: not_current_tdcc_universe
-- tdcc_missing_official_dates: 
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 18
+- tdcc_history_status: tdcc_history_degraded_exception
+- tdcc_freshness_status: tdcc_window_degraded
+- tdcc_continuity_status: accepted_history_exception
+- tdcc_missing_official_dates: 20260821
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: Historical-only TDCC window: stock is absent from the official current main-price universe; retain real historical dates and do not claim current TDCC history
+- notes: TDCC history contains canonical accepted stock-level missing dates: 20260821; disclose the gap and do not treat the window as continuous
 
 ## Stable Read URLs
 - packet_pages_url: not_published_to_pages_use_raw_or_github_api
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -103,7 +103,6 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -118,7 +117,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -126,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260812
-- open: 81.6
-- high: 83
-- low: 81
-- close: 81.3
-- volume: 5502356
-- ma5: 82.6
-- ema23_primary: 85.36
-- distance_to_ema23_pct: -4.75
-- ma20: 84.89
-- ma60: 91.35
-- ma120: 95.97
-- return_5d: -3.9
-- return_20d: -7.82
-- volume_ratio: 1.01
-- distance_to_ma20_pct_auxiliary: -4.23
-- distance_to_high_60_pct: -25.75
+- date: 20260904
+- open: 90.4
+- high: 92.3
+- low: 90.4
+- close: 91.9
+- volume: 1541021
+- ma5: 91.56
+- ema23_primary: 90.26
+- distance_to_ema23_pct: 1.81
+- ma20: 89.2
+- ma60: 89.68
+- ma120: 93.76
+- return_5d: -1.29
+- return_20d: 9.54
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: 3.03
+- distance_to_high_60_pct: -14.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260716,88.6,89.2,87.3,88.6,3123537,90.56,-2.17,89.14,96.64,0.46
-20260717,87.8,87.9,84.5,84.5,6280539,90.06,-6.17,88.95,96.54,0.91
-20260720,84.6,85.9,82.7,83.1,3619566,89.48,-7.13,88.72,96.27,0.56
-20260721,83.8,85,82.8,84.7,3792250,89.08,-4.92,88.44,95.86,0.63
-20260722,86,89.3,86,87.4,5303105,88.94,-1.73,88.31,95.48,0.91
-20260723,87.1,88.6,86.9,88,3777849,88.86,-0.97,88.2,95.3,0.67
-20260724,87.9,88.6,87.1,88.1,2551116,88.8,-0.79,88.07,95.17,0.49
-20260727,88.1,89.5,85.7,87.2,3443246,88.66,-1.65,88.05,94.95,0.69
-20260728,86.5,87,84.2,84.4,3929571,88.31,-4.43,87.92,94.69,0.8
-20260729,84,84.8,81.5,83.9,7728385,87.94,-4.6,87.77,94.41,1.56
 20260730,82.9,87.1,82.9,84.8,5860925,87.68,-3.28,87.66,94.11,1.18
 20260731,83.8,87.6,80.7,82.3,20467625,87.23,-5.65,87.4,93.78,3.57
 20260803,81.3,86.8,80.8,86.2,7700953,87.15,-1.08,87.19,93.52,1.35
@@ -168,17 +157,27 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260810,83,83.2,82.1,82.3,3939534,86.09,-4.4,85.55,91.96,0.7
 20260811,82.3,82.3,81.4,81.7,3001004,85.72,-4.69,85.24,91.66,0.56
 20260812,81.6,83,81,81.3,5502356,85.36,-4.75,84.89,91.35,1.01
+20260824,102.5,108,99.8,101.5,4649928,86.7,17.07,85.54,91.34,0.84
+20260825,100,104,99,99.9,3346513,87.8,13.78,86.31,91.27,0.62
+20260826,99.5,100,98.2,98.2,2524770,88.67,10.75,87.06,91.15,0.47
+20260827,97.5,97.6,95.5,95.5,2771481,89.24,7.02,87.61,90.95,0.52
+20260828,95.5,95.6,93,93.1,3999237,89.56,3.95,87.89,90.71,0.76
+20260831,92.2,93.1,91,91.2,2628919,89.7,1.68,88.05,90.48,0.51
+20260901,90.7,93,90.1,92.1,2344663,89.9,2.45,88.25,90.33,0.45
+20260902,91.1,92.9,91.1,92.3,1757291,90.1,2.45,88.5,90.17,0.35
+20260903,92.9,93,90.3,90.3,2737594,90.11,0.21,88.8,89.89,0.55
+20260904,90.4,92.3,90.4,91.9,1541021,90.26,1.81,89.2,89.68,0.33
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260814
-- over_400_ratio: 46.16
-- over_600_ratio: 42.71
-- over_800_ratio: 39.48
-- over_1000_ratio: 36.42
-- over_400_change_1w: -1.07
-- over_800_change_1w: -0.62
-- over_1000_change_1w: -0.95
+- as_of_date: 20260904
+- over_400_ratio: 43.11
+- over_600_ratio: 38.17
+- over_800_ratio: 35.05
+- over_1000_ratio: 32.46
+- over_400_change_1w: -0.8
+- over_800_change_1w: -0.8
+- over_1000_change_1w: -1.13
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -187,8 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260529,58.58,0.55,52.28,1.57,49.93,1.32,3,True,True
-20260605,57.88,-0.7,51.57,-0.71,49.43,-0.5,0,False,False
 20260612,53.82,-4.06,47.56,-4.01,45.63,-3.8,0,False,False
 20260618,51.24,-2.58,44.9,-2.66,42.33,-3.3,0,False,False
 20260626,50.2,-1.04,44.01,-0.89,41.44,-0.89,0,False,False
@@ -199,22 +196,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260731,47.74,0.08,40.32,0.37,37.74,0.59,1,False,True
 20260807,47.23,-0.51,40.1,-0.22,37.37,-0.37,2,False,False
 20260814,46.16,-1.07,39.48,-0.62,36.42,-0.95,0,False,False
+20260828,43.91,,35.85,,33.59,,0,False,False
+20260904,43.11,-0.8,35.05,-0.8,32.46,-1.13,0,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260904 | 6176 | 瑞儀 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/09/02 2.公司名稱:NIL Technology ApS 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:不適用 5.發生緣由: 115年4至6月，本公司之子公司NIL Technology ApS對其子公司 NILT SINGAPORE PTE. LTD.之資金貸與餘額超過個別對象限額及總限額，依金融監督管 理委員會115年8月28日金管證審字第1150384199號函，要求母公司督促子公司訂定改善 計畫，於公開資訊觀測站重大訊息中公告，並按季公告執行情形及逐季提報本公司董事 會控管，並於下一次股東會報告執行情形。 6.因應措施: (1)本公司經115年4月24日審計委員會及董事會決議通過改善計畫，擬將於115年12月31 日前辦理清算註銷NILT SINGAPORE PTE. LTD.，以改善超限情形。 (2)將於下一次股東會報告執行情形，改善計畫未執行完成前，將按季公告執行情形及逐 季提報董事會。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260904 | 6176 | 瑞儀 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260904 | 6176 | 瑞儀 | 31 | 1 | 918980.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

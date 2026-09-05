@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00861 元大全球未來通訊
 
 ## Metadata
-- generated_at: 2026-08-23 22:26:27 Asia/Taipei
+- generated_at: 2026-09-05 15:52:16 Asia/Taipei
 - stock_id: 00861
 - stock_name: 元大全球未來通訊
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260821
-- price_rows: 71
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 81
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 85.95
-- high: 86.15
-- low: 85.45
-- close: 86.05
-- volume: 33663
-- ma5: 86.98
-- ema23_primary: 87.13
-- distance_to_ema23_pct: -1.24
-- ma20: 86.19
-- ma60: 89.82
-- ma120: 85.41
-- return_5d: -3.15
-- return_20d: -0.92
-- volume_ratio: 0.19
-- distance_to_ma20_pct_auxiliary: -0.16
-- distance_to_high_60_pct: -12.64
+- date: 20260904
+- open: 83.25
+- high: 85
+- low: 83.25
+- close: 84.25
+- volume: 45835
+- ma5: 83.7
+- ema23_primary: 85.5
+- distance_to_ema23_pct: -1.46
+- ma20: 86.11
+- ma60: 88.69
+- ma120: 85.3
+- return_5d: -1.35
+- return_20d: -3.11
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: -2.16
+- distance_to_high_60_pct: -14.47
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,86.5,87.05,86.1,87.05,132688,88.58,-1.72,89.93,85.14,0.55
-20260728,84,84,82.45,82.65,203360,88.08,-6.17,89.4,85.1,0.84
-20260729,82.5,82.5,78.8,79.75,373515,87.39,-8.74,88.56,85,1.57
-20260730,78,80.55,78,79.05,394490,86.69,-8.82,87.66,84.89,1.58
-20260731,84.1,85.3,84.1,85.3,142348,86.58,-1.48,87.23,84.9,0.6
-20260803,84.35,84.85,84.1,84.75,61889,86.43,-1.94,86.87,84.89,0.27
-20260804,84.75,85.15,84.25,84.75,90959,86.29,-1.78,86.5,84.89,0.41
-20260805,87.55,89.1,87.55,89.1,398550,86.52,2.98,86.47,84.96,1.83
-20260806,87.3,87.55,86.75,87.05,521033,86.56,0.56,86.41,85,2.28
-20260807,87.6,87.6,86.7,86.95,86136,86.6,0.41,86.28,85.8,0.38
 20260810,89.7,89.7,87.1,87.85,159733,86.7,1.32,86.2,86.58,0.77
 20260811,87.8,87.8,87.1,87.55,46313,86.77,0.9,86.1,87.27,0.24
 20260812,87.55,88.25,87.5,88.15,145451,86.89,1.45,85.96,87.96,0.76
@@ -168,6 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,87.6,87.6,85.65,85.7,41573,87.35,-1.88,86.36,89.93,0.23
 20260820,86.3,86.3,85.5,85.95,127107,87.23,-1.47,86.22,89.89,0.7
 20260821,85.95,86.15,85.45,86.05,33663,87.13,-1.24,86.19,89.82,0.19
+20260824,85.75,85.75,84.35,84.95,53435,86.95,-2.3,86.08,89.76,0.3
+20260825,84.6,84.75,83.8,84.75,48362,86.77,-2.32,86.19,89.68,0.29
+20260826,85.5,85.55,84.4,85.35,45184,86.65,-1.5,86.47,89.57,0.3
+20260827,86,86.25,85.9,86,101858,86.59,-0.69,86.81,89.47,0.75
+20260828,86,86,85.35,85.4,50808,86.49,-1.27,86.82,89.28,0.39
+20260831,84,84.1,83.25,84.1,52016,86.3,-2.54,86.78,89.11,0.4
+20260901,84.7,84.7,84.25,84.45,196310,86.14,-1.96,86.77,88.97,1.44
+20260902,83.9,84.05,83,83.2,88061,85.9,-3.14,86.47,88.88,0.73
+20260903,83.35,83.35,82.5,82.5,46346,85.61,-3.64,86.25,88.74,0.48
+20260904,83.25,85,83.25,84.25,45835,85.5,-1.46,86.11,88.69,0.48
 ```
 
 ## Latest TDCC Snapshot

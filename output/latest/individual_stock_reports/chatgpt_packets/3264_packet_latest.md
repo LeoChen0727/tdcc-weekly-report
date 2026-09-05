@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3264 欣銓
 
 ## Metadata
-- generated_at: 2026-08-23 22:27:42 Asia/Taipei
+- generated_at: 2026-09-05 15:53:16 Asia/Taipei
 - stock_id: 3264
 - stock_name: 欣銓
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 203
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 213
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -130,38 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 206.5
-- high: 206.5
-- low: 202
-- close: 203
-- volume: 2681000
-- ma5: 209.5
-- ema23_primary: 210.44
-- distance_to_ema23_pct: -3.53
-- ma20: 203.03
-- ma60: 218.15
-- ma120: 201.43
-- return_5d: -9.98
-- return_20d: -3.1
-- volume_ratio: 0.39
-- distance_to_ma20_pct_auxiliary: -0.01
-- distance_to_high_60_pct: -25.23
+- date: 20260904
+- open: 231
+- high: 232
+- low: 224.5
+- close: 227
+- volume: 3077000
+- ma5: 230.4
+- ema23_primary: 219.4
+- distance_to_ema23_pct: 3.46
+- ma20: 220.22
+- ma60: 218.03
+- ma120: 208.02
+- return_5d: -3.4
+- return_20d: 9.4
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: 3.08
+- distance_to_high_60_pct: -16.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,215,216.5,199,206,8285000,220.85,-6.72,224.88,224.88,1.06
-20260728,197,198,185.5,185.5,5677000,217.9,-14.87,223.38,224.72,0.72
-20260729,184.5,185,167,167,7261000,213.66,-21.84,220.62,223.93,0.92
-20260730,160,173,159,161,6587000,209.27,-23.07,217.07,222.69,0.86
-20260731,177,177,172,177,5092000,206.58,-14.32,213.47,221.88,0.68
-20260803,179.5,194,179,187.5,4766000,204.99,-8.53,210.5,220.86,0.67
-20260804,188,196,183.5,193.5,4101000,204.04,-5.16,207.32,220.35,0.64
-20260805,202,207,198.5,202,5415000,203.87,-0.92,205.85,219.96,0.89
-20260806,201.5,215.5,200,211.5,8972000,204.5,3.42,204.82,219.68,1.43
-20260807,211.5,219,206,207.5,9841000,204.75,1.34,203.45,219.3,1.51
 20260810,213.5,228,210.5,222.5,15680000,206.23,7.89,203.32,219.19,2.24
 20260811,221,221.5,214.5,219.5,9513000,207.34,5.87,203.43,219.08,1.33
 20260812,221,225.5,216,216.5,7596000,208.1,4.04,203.03,218.86,1.04
@@ -172,27 +162,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,205,210.5,202.5,206.5,2908000,211.35,-2.29,203.82,218.97,0.39
 20260820,209,211,205,208.5,2302000,211.11,-1.24,203.35,218.59,0.32
 20260821,206.5,206.5,202,203,2681000,210.44,-3.53,203.03,218.15,0.39
+20260824,205,209,204,205.5,2424000,210.02,-2.15,203,217.65,0.36
+20260825,205.5,213,202.5,213,3945000,210.27,1.3,204.38,217.14,0.6
+20260826,213,224.5,211.5,217.5,6713000,210.87,3.14,206.9,217.05,1.03
+20260827,219,224.5,213.5,219.5,6068000,211.59,3.74,209.82,217.13,0.93
+20260828,223,237.5,222,235,11444000,213.54,10.05,212.72,217.22,1.68
+20260831,230,230.5,220.5,228,5877000,214.75,6.17,214.75,217.08,0.85
+20260901,233,239,232.5,237.5,7787000,216.64,9.63,216.95,217.23,1.1
+20260902,234,239.5,232,233.5,5024000,218.05,7.09,218.53,217.61,0.71
+20260903,237,237,226,226,4168000,218.71,3.33,219.25,217.77,0.61
+20260904,231,232,224.5,227,3077000,219.4,3.46,220.22,218.03,0.48
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 70.64
-- over_600_ratio: 67.64
-- over_800_ratio: 64.92
-- over_1000_ratio: 63.99
-- over_400_change_1w: -0.54
-- over_800_change_1w: -0.6
-- over_1000_change_1w: -0.41
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260904
+- over_400_ratio: 71.84
+- over_600_ratio: 68.79
+- over_800_ratio: 65.98
+- over_1000_ratio: 64.67
+- over_400_change_1w: 1.25
+- over_800_change_1w: 1.29
+- over_1000_change_1w: 1.09
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,70.55,-1.7,65.07,-1.95,62.94,-1.36,0,False,False
-20260612,69.52,-1.03,63.7,-1.37,61.47,-1.47,0,False,False
 20260618,68.97,-0.55,63.13,-0.57,61.26,-0.21,0,False,False
 20260626,71.01,2.04,65.76,2.63,64.7,3.44,1,True,True
 20260703,71.99,0.98,66.5,0.74,65.22,0.52,2,True,True
@@ -203,18 +201,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,70.36,0.26,64.56,0.01,63.8,0.36,1,True,True
 20260814,71.18,0.82,65.52,0.96,64.4,0.6,2,True,True
 20260821,70.64,-0.54,64.92,-0.6,63.99,-0.41,0,False,False
+20260828,70.59,-0.05,64.69,-0.23,63.58,-0.41,0,False,False
+20260904,71.84,1.25,65.98,1.29,64.67,1.09,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 3264 | 欣銓 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.董事會召集通知日:115/07/15 2.董事會預計召開日期:115/07/23 3.預計提報董事會或經董事會決議之財務報告或年度自結財務資訊年季:  115年第二季財務報告 4.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260821 | 3264 | 欣銓 | revenue_breakout_low_response | 營收爆發低反應股 | 17 | 24 | A_優先追蹤 |  |  |  | stale_signal | 1.董事會召集通知日:115/07/15 2.董事會預計召開日期:115/07/23 3.預計提報董事會或經董事會決議之財務報告或年度自結財務資訊年季:  115年第二季財務報告 4.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260904 | 3264 | 欣銓 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.董事會召集通知日:115/07/15 2.董事會預計召開日期:115/07/23 3.預計提報董事會或經董事會決議之財務報告或年度自結財務資訊年季:  115年第二季財務報告 4.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260904 | 3264 | 欣銓 | revenue_breakout_low_response | 營收爆發低反應股 | 18 | 19 | A_優先追蹤 |  |  |  | stale_signal | 1.董事會召集通知日:115/07/15 2.董事會預計召開日期:115/07/23 3.預計提報董事會或經董事會決議之財務報告或年度自結財務資訊年季:  115年第二季財務報告 4.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 3264 | 欣銓 | 23 | 6 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260904 | 3264 | 欣銓 | 32 | 15 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4114 健喬
 
 ## Metadata
-- generated_at: 2026-08-23 22:28:01 Asia/Taipei
+- generated_at: 2026-09-05 15:53:31 Asia/Taipei
 - stock_id: 4114
 - stock_name: 健喬
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 203
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 213
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -103,6 +103,7 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -117,7 +118,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -125,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 31.2
-- high: 31.2
-- low: 30.55
-- close: 30.55
-- volume: 1338000
-- ma5: 30.41
-- ema23_primary: 30.08
-- distance_to_ema23_pct: 1.55
-- ma20: 29.61
-- ma60: 30.56
-- ma120: 30.83
-- return_5d: 2.52
-- return_20d: 3.38
-- volume_ratio: 1.14
-- distance_to_ma20_pct_auxiliary: 3.16
-- distance_to_high_60_pct: -10.15
+- date: 20260904
+- open: 29.75
+- high: 29.85
+- low: 29.5
+- close: 29.8
+- volume: 599000
+- ma5: 29.74
+- ema23_primary: 29.93
+- distance_to_ema23_pct: -0.44
+- ma20: 29.98
+- ma60: 30.48
+- ma120: 30.71
+- return_5d: -0.33
+- return_20d: 1.88
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: -0.62
+- distance_to_high_60_pct: -12.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,29.6,29.6,29.2,29.5,1135000,30.92,-4.59,31.46,30.92,0.6
-20260728,29.5,29.5,29.15,29.2,1316000,30.78,-5.12,31.37,30.89,0.7
-20260729,29.2,29.35,28.75,29.25,2151000,30.65,-4.57,31.26,30.87,1.11
-20260730,29.1,29.4,28.95,29.05,814000,30.52,-4.81,31.15,30.84,0.42
-20260731,29.4,29.4,28.9,29,1594000,30.39,-4.57,31.04,30.8,0.8
-20260803,29.1,29.2,28.8,28.9,628000,30.27,-4.51,30.89,30.77,0.33
-20260804,28.9,29.05,28.8,29.05,751000,30.16,-3.7,30.71,30.74,0.42
-20260805,29,29.15,28.9,28.95,937000,30.06,-3.7,30.52,30.7,0.54
-20260806,29,29,28.85,28.95,526000,29.97,-3.41,30.29,30.67,0.34
-20260807,28.95,29.3,28.95,29.25,809000,29.91,-2.21,30.09,30.64,0.54
 20260810,29.3,29.5,29.05,29.5,960000,29.88,-1.26,29.89,30.62,0.65
 20260811,29.7,30.15,29.6,30.05,1967000,29.89,0.53,29.73,30.61,1.34
 20260812,30.05,30.05,29.65,29.8,899000,29.88,-0.28,29.54,30.59,0.66
@@ -167,27 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,29.95,30.45,29.9,30.25,1146000,29.93,1.06,29.47,30.54,1.08
 20260820,30.4,31.4,30.4,31.25,2990000,30.04,4.02,29.57,30.55,2.59
 20260821,31.2,31.2,30.55,30.55,1338000,30.08,1.55,29.61,30.56,1.14
+20260824,30.55,30.65,30.25,30.25,728000,30.1,0.5,29.65,30.56,0.63
+20260825,30.25,30.25,29.9,29.9,768000,30.08,-0.6,29.69,30.55,0.68
+20260826,30,30,29.8,29.9,593000,30.07,-0.55,29.72,30.55,0.57
+20260827,29.95,30.1,29.8,29.85,647000,30.05,-0.66,29.76,30.55,0.62
+20260828,29.9,29.95,29.7,29.9,501000,30.04,-0.45,29.8,30.54,0.51
+20260831,30,30.05,29.8,29.8,519000,30.02,-0.72,29.85,30.53,0.53
+20260901,29.75,29.95,29.75,29.8,396000,30,-0.66,29.89,30.51,0.41
+20260902,29.8,29.9,29.7,29.7,426000,29.97,-0.91,29.93,30.5,0.46
+20260903,29.75,29.85,29.6,29.6,417000,29.94,-1.14,29.96,30.49,0.45
+20260904,29.75,29.85,29.5,29.8,599000,29.93,-0.44,29.98,30.48,0.65
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 44.35
-- over_600_ratio: 40.7
-- over_800_ratio: 38.7
-- over_1000_ratio: 37.61
-- over_400_change_1w: 1.09
-- over_800_change_1w: 1.05
-- over_1000_change_1w: 1.21
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260904
+- over_400_ratio: 44.18
+- over_600_ratio: 40.31
+- over_800_ratio: 38.22
+- over_1000_ratio: 37.25
+- over_400_change_1w: 0.13
+- over_800_change_1w: -0.01
+- over_1000_change_1w: -0.18
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,43.15,-0.16,37.91,-0.19,36.53,-0.2,0,False,False
-20260612,42.78,-0.37,37.64,-0.27,36.42,-0.11,0,False,False
 20260618,42.89,0.11,37.7,0.06,36.48,0.06,1,True,True
 20260626,42.97,0.08,37.62,-0.08,36.24,-0.24,2,False,False
 20260703,42.89,-0.08,37.5,-0.12,36.28,0.04,3,False,True
@@ -198,17 +197,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,42.86,-0.28,37.7,0.16,36.47,-0.05,2,False,True
 20260814,43.26,0.4,37.65,-0.05,36.4,-0.07,3,False,False
 20260821,44.35,1.09,38.7,1.05,37.61,1.21,4,True,True
+20260828,44.05,-0.3,38.23,-0.47,37.43,-0.18,0,False,False
+20260904,44.18,0.13,38.22,-0.01,37.25,-0.18,1,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 4114 | 健喬 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | stale_signal | 1.發生變動日期:115/07/03 2.法人名稱:祐僑股份有限公司 3.舊任者姓名:黃麗文 4.舊任者簡歷:本公司法人董事代表人 5.新任者姓名:張鴻仁 6.新任者簡歷: 美國哈佛大學醫療政策與管理碩士 台灣研發型生技新藥發展協會理事 7.異動原因:法人董事指派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）:114/05/23~117/05/22 9.新任生效日期:115/07/03 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 4114 | 健喬 | 3 | 3 | 4 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

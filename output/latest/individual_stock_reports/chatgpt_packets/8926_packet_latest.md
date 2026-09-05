@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8926 台汽電
 
 ## Metadata
-- generated_at: 2026-08-23 22:29:44 Asia/Taipei
+- generated_at: 2026-09-05 15:54:53 Asia/Taipei
 - stock_id: 8926
 - stock_name: 台汽電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 57.3
+- date: 20260904
+- open: 56.7
 - high: 57.7
 - low: 56.6
-- close: 57.3
-- volume: 3056654
-- ma5: 56.5
-- ema23_primary: 60.08
-- distance_to_ema23_pct: -4.63
-- ma20: 59.09
-- ma60: 68.02
-- ma120: 58.32
-- return_5d: 1.06
-- return_20d: -11.44
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: -3.03
-- distance_to_high_60_pct: -32.03
+- close: 57.5
+- volume: 1959811
+- ma5: 56.6
+- ema23_primary: 58.16
+- distance_to_ema23_pct: -1.14
+- ma20: 56.62
+- ma60: 65.88
+- ma120: 59.22
+- return_5d: 1.23
+- return_20d: -7.26
+- volume_ratio: 0.59
+- distance_to_ma20_pct_auxiliary: 1.55
+- distance_to_high_60_pct: -31.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,65.2,65.3,63.3,63.5,3346134,69.02,-8,70.59,67.03,0.48
-20260728,62.8,64.1,61.7,61.9,5001578,68.43,-9.54,69.84,67.32,0.72
-20260729,62,62.6,59,60.8,6315766,67.79,-10.31,69.07,67.57,0.92
-20260730,60.5,61,58.3,58.8,4464228,67.04,-12.3,68.3,67.75,0.68
-20260731,61.5,62.3,59,59,6553739,66.37,-11.11,67.59,67.96,0.99
-20260803,59.1,62,58.7,61.8,3885952,65.99,-6.35,66.94,68.21,0.59
-20260804,61.5,63.2,61.2,62.6,3547554,65.71,-4.73,66.02,68.44,0.58
-20260805,63.4,64,62.8,63.3,3396239,65.51,-3.37,65.25,68.63,0.59
-20260806,63.3,63.7,62.8,63.5,4029724,65.34,-2.82,64.55,68.83,0.72
-20260807,63.7,64.3,61.8,62,5346060,65.06,-4.71,63.84,68.92,1.02
 20260810,58,58.2,55.8,57,14590472,64.39,-11.48,63.23,68.91,2.81
 20260811,56,56.2,54.7,55.8,7907754,63.67,-12.37,62.66,68.82,1.57
 20260812,56.2,57.2,56,56.8,3668988,63.1,-9.99,62.11,68.81,0.74
@@ -168,17 +158,27 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,56,57.1,55.4,55.8,3134150,60.66,-8,59.84,68.47,0.66
 20260820,56.2,56.9,56,56.8,1709821,60.33,-5.86,59.46,68.27,0.37
 20260821,57.3,57.7,56.6,57.3,3056654,60.08,-4.63,59.09,68.02,0.66
+20260824,57.5,57.5,56.5,56.5,1802150,59.78,-5.49,58.74,67.84,0.39
+20260825,56.5,57,56,57,1448217,59.55,-4.28,58.49,67.68,0.33
+20260826,57,57.3,56.7,57.1,1628595,59.35,-3.79,58.31,67.51,0.39
+20260827,57.3,57.7,57.1,57.4,1588121,59.18,-3.01,58.24,67.34,0.4
+20260828,57.7,57.7,56.7,56.8,2194920,58.99,-3.71,58.13,67.12,0.58
+20260831,56.7,56.7,55.8,55.9,3842449,58.73,-4.82,57.84,66.84,1.01
+20260901,55.8,57,55.8,56.7,1394325,58.56,-3.18,57.54,66.63,0.38
+20260902,56.5,56.9,56,56.3,1266847,58.37,-3.55,57.19,66.45,0.35
+20260903,56.7,57.5,56.4,56.6,2059074,58.22,-2.79,56.84,66.17,0.59
+20260904,56.7,57.7,56.6,57.5,1959811,58.16,-1.14,56.62,65.88,0.59
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 56.98
-- over_600_ratio: 54.52
-- over_800_ratio: 52.97
-- over_1000_ratio: 51.91
-- over_400_change_1w: -0.14
-- over_800_change_1w: -0.23
-- over_1000_change_1w: -0.23
+- as_of_date: 20260904
+- over_400_ratio: 57.23
+- over_600_ratio: 54.73
+- over_800_ratio: 53.02
+- over_1000_ratio: 51.85
+- over_400_change_1w: -0.1
+- over_800_change_1w: -0.03
+- over_1000_change_1w: -0.03
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -187,8 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,60.77,0.15,57.25,0.12,55.66,0.35,1,True,True
-20260612,61.14,0.37,57.11,-0.14,55.43,-0.23,2,False,False
 20260618,61.47,0.33,57.34,0.23,55.86,0.43,3,True,True
 20260626,61.22,-0.25,56.87,-0.47,55.62,-0.24,0,False,False
 20260703,59.99,-1.23,55.71,-1.16,54.56,-1.06,0,False,False
@@ -199,22 +197,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,58.07,-0.59,54.11,-0.56,52.82,-0.35,0,False,False
 20260814,57.12,-0.95,53.2,-0.91,52.14,-0.68,0,False,False
 20260821,56.98,-0.14,52.97,-0.23,51.91,-0.23,0,False,False
+20260828,57.33,0.35,53.05,0.08,51.88,-0.03,1,False,True
+20260904,57.23,-0.1,53.02,-0.03,51.85,-0.03,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 8926 | 台汽電 | revenue_pullback | 營收成長股價回檔 | 64.0 |  |  |  |  | no_signal | stale_signal | 1.發生變動日期:115/07/01 2.法人名稱:大亞電線電纜股份有限公司 3.舊任者姓名:不適用 4.舊任者簡歷:不適用 5.新任者姓名:李文彬 6.新任者簡歷:大亞電線電纜股份有限公司銅材暨台北管理處執行顧問 7.異動原因:法人董事指派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）:115/06/30~118/06/29 9.新任生效日期:115/07/01 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260904 | 8926 | 台汽電 | revenue_pullback | 營收成長股價回檔 | 50.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期或發生變動日期:115/08/31 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:郭芳楠 4.舊任者簡歷:星能股份有限公司董事長 5.新任者姓名:郭芳楠 6.新任者簡歷:星能股份有限公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:改選 9.新任生效日期:115/08/31 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 8926 | 台汽電 | 6 | 6 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260904 | 8926 | 台汽電 | 2 | 2 | 4 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 8926 | 台汽電 | 5 | 0 | 264340.0 | 0.0 |  | no_signal |
+| 20260904 | 8926 | 台汽電 | 6 | 0 | 199530.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

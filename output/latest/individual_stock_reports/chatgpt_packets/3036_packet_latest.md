@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3036 文曄
 
 ## Metadata
-- generated_at: 2026-08-23 22:27:33 Asia/Taipei
+- generated_at: 2026-09-05 15:53:09 Asia/Taipei
 - stock_id: 3036
 - stock_name: 文曄
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 337
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 347
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -131,38 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 206
-- high: 209
-- low: 204.5
-- close: 206
-- volume: 3364306
-- ma5: 203.8
-- ema23_primary: 209.03
-- distance_to_ema23_pct: -1.45
-- ma20: 207.8
-- ma60: 221.29
-- ma120: 228.05
-- return_5d: -1.9
-- return_20d: 0.24
-- volume_ratio: 0.28
-- distance_to_ma20_pct_auxiliary: -0.87
-- distance_to_high_60_pct: -31.56
+- date: 20260904
+- open: 194
+- high: 195
+- low: 188.5
+- close: 192.5
+- volume: 7410058
+- ma5: 192.4
+- ema23_primary: 200.27
+- distance_to_ema23_pct: -3.88
+- ma20: 202.85
+- ma60: 207.88
+- ma120: 226.6
+- return_5d: -1.79
+- return_20d: -8.98
+- volume_ratio: 0.81
+- distance_to_ma20_pct_auxiliary: -5.1
+- distance_to_high_60_pct: -19.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,208,208.5,199.5,203.5,6550873,209.73,-2.97,206.2,237.78,0.75
-20260728,199,200.5,190.5,190.5,8181405,208.13,-8.47,205.28,237.55,0.96
-20260729,189,192.5,180,184.5,10864923,206.16,-10.51,203.8,237.12,1.24
-20260730,184.5,188.5,180.5,183.5,5523197,204.27,-10.17,202.43,236.69,0.68
-20260731,190,201.5,189.5,196.5,10716640,203.62,-3.5,201.38,236.4,1.3
-20260803,194.5,207,192.5,204.5,9179752,203.7,0.39,200.53,236.16,1.1
-20260804,200,214,199.5,212.5,9844027,204.43,3.95,200.2,235.69,1.16
-20260805,221,233.5,217,225,23076116,206.14,9.15,200.75,235.03,2.55
-20260806,225.5,235.5,224,233.5,24691646,208.42,12.03,201.9,234.33,2.48
-20260807,218.5,223.5,210.5,211.5,42344213,208.68,1.35,201.9,233.12,3.56
 20260810,213.5,230.5,213.5,229,20379407,210.37,8.85,202.8,232.42,1.64
 20260811,224.5,225.5,215,220,14125873,211.18,4.18,203.62,231.58,1.11
 20260812,220,222,216,217.5,10223957,211.7,2.74,204.5,230.82,0.8
@@ -173,17 +163,27 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,198.5,204.5,196.5,201.5,8946264,209.66,-3.89,207.88,224.26,0.73
 20260820,205,206,199.5,205.5,4399253,209.31,-1.82,207.78,222.79,0.36
 20260821,206,209,204.5,206,3364306,209.03,-1.45,207.8,221.29,0.28
+20260824,205.5,207,200.5,200.5,6928984,208.32,-3.76,207.65,219.81,0.58
+20260825,199,200,197,198.5,6699239,207.5,-4.34,208.05,218.31,0.56
+20260826,200,200.5,196,196.5,7267853,206.59,-4.88,208.65,216.79,0.62
+20260827,197,197.5,193,193,7742905,205.46,-6.06,209.12,215.17,0.65
+20260828,194.5,197.5,194,196,5301261,204.67,-4.23,209.1,213.56,0.46
+20260831,196,196,192.5,196,4392455,203.94,-3.9,208.68,212.12,0.39
+20260901,195,198.5,195,196,5086055,203.28,-3.58,207.85,210.71,0.46
+20260902,185.5,191,181.5,187,28951535,201.93,-7.39,205.95,209.66,2.54
+20260903,190,196,189,190.5,15173402,200.97,-5.21,203.8,208.67,1.39
+20260904,194,195,188.5,192.5,7410058,200.27,-3.88,202.85,207.88,0.81
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 84.22
-- over_600_ratio: 82.35
-- over_800_ratio: 80.23
-- over_1000_ratio: 78.81
-- over_400_change_1w: -0.34
-- over_800_change_1w: -0.72
-- over_1000_change_1w: -0.78
+- as_of_date: 20260904
+- over_400_ratio: 82.77
+- over_600_ratio: 80.93
+- over_800_ratio: 79.12
+- over_1000_ratio: 77.86
+- over_400_change_1w: -0.74
+- over_800_change_1w: -0.56
+- over_1000_change_1w: -0.47
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -192,8 +192,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,88.96,-0.3,85.82,-0.21,84.49,-0.21,0,False,False
-20260612,88.09,-0.87,84.82,-1,83.35,-1.14,0,False,False
 20260618,87.62,-0.47,84.36,-0.46,82.78,-0.57,0,False,False
 20260626,86.94,-0.68,83.52,-0.84,81.97,-0.81,0,False,False
 20260703,86.36,-0.58,82.93,-0.59,81.58,-0.39,0,False,False
@@ -204,23 +202,25 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,85.44,0.23,82.19,0.22,80.64,0.08,3,True,True
 20260814,84.56,-0.88,80.95,-1.24,79.59,-1.05,0,False,False
 20260821,84.22,-0.34,80.23,-0.72,78.81,-0.78,0,False,False
+20260828,83.51,-0.71,79.68,-0.55,78.33,-0.48,0,False,False
+20260904,82.77,-0.74,79.12,-0.56,77.86,-0.47,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 3036 | 文曄 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/08/10 2.公司名稱:文曄科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:不適用 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 　本公司公佈2026年7月份自結合併營收約新台幣1,830億元，較前月合併營收增加 　約1%，較去年同期合併營收增加約95%。今年累計合併營收約新台幣1.268兆元， 　與去年同期相較增加約111%。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260821 | 3036 | 文曄 | revenue_breakout_low_response | 營收爆發低反應股 | 13 | 41 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.事實發生日:115/08/10 2.公司名稱:文曄科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:不適用 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 　本公司公佈2026年7月份自結合併營收約新台幣1,830億元，較前月合併營收增加 　約1%，較去年同期合併營收增加約95%。今年累計合併營收約新台幣1.268兆元， 　與去年同期相較增加約111%。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260904 | 3036 | 文曄 | revenue_pullback | 營收成長股價回檔 | 77.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/08/10 2.公司名稱:文曄科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:不適用 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 　本公司公佈2026年7月份自結合併營收約新台幣1,830億元，較前月合併營收增加 　約1%，較去年同期合併營收增加約95%。今年累計合併營收約新台幣1.268兆元， 　與去年同期相較增加約111%。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260904 | 3036 | 文曄 | revenue_breakout_low_response | 營收爆發低反應股 | 13 | 45 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.事實發生日:115/08/10 2.公司名稱:文曄科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:不適用 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 　本公司公佈2026年7月份自結合併營收約新台幣1,830億元，較前月合併營收增加 　約1%，較去年同期合併營收增加約95%。今年累計合併營收約新台幣1.268兆元， 　與去年同期相較增加約111%。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 3036 | 文曄 | 5 | 5 | 5 | 8 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260904 | 3036 | 文曄 | 14 | 12 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 3036 | 文曄 | 99 | 1 | 3466820.0 | 32640.0 | 106.21 | no_signal |
+| 20260904 | 3036 | 文曄 | 103 | 1 | 12005860.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

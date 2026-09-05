@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4707 磐亞
 
 ## Metadata
-- generated_at: 2026-08-23 22:28:12 Asia/Taipei
+- generated_at: 2026-09-05 15:53:40 Asia/Taipei
 - stock_id: 4707
 - stock_name: 磐亞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 203
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 213
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -101,7 +101,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -126,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 32.55
-- high: 33.3
-- low: 32.1
-- close: 32.9
-- volume: 2248000
-- ma5: 32.39
-- ema23_primary: 31.51
-- distance_to_ema23_pct: 4.42
-- ma20: 30.18
-- ma60: 28.57
-- ma120: 20.8
-- return_5d: 4.44
-- return_20d: -6.8
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: 8.99
-- distance_to_high_60_pct: -26.89
+- date: 20260904
+- open: 31.1
+- high: 31.15
+- low: 29.2
+- close: 30.1
+- volume: 2901000
+- ma5: 31.52
+- ema23_primary: 32.01
+- distance_to_ema23_pct: -5.96
+- ma20: 32.44
+- ma60: 30.9
+- ma120: 22.68
+- return_5d: -7.53
+- return_20d: -5.64
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: -7.21
+- distance_to_high_60_pct: -33.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,34.6,35.8,31.8,31.8,9731000,33.08,-3.86,35.36,23.81,1.2
-20260728,28.65,28.65,28.65,28.65,1433000,32.71,-12.41,35.27,24.03,0.2
-20260729,26.8,26.9,25.8,25.8,1873000,32.13,-19.71,35.1,24.21,0.31
-20260730,23.25,23.25,23.25,23.25,1618000,31.39,-25.94,34.86,24.35,0.28
-20260731,23.45,25.05,23,23.2,10060000,30.71,-24.45,34.47,24.49,1.77
-20260803,22.1,25.5,21.85,25.5,3924000,30.28,-15.77,34.06,24.64,0.78
-20260804,25.95,28.05,25.95,28.05,4095000,30.09,-6.78,33.67,24.86,0.91
-20260805,29.05,30.85,28.95,30.85,3526000,30.15,2.31,33.38,25.09,0.88
-20260806,32,33.9,30.65,33.85,12923000,30.46,11.12,33.18,25.39,3.31
-20260807,33.65,34.8,31.8,31.9,6925000,30.58,4.31,32.96,25.67,1.67
 20260810,31.85,32.8,30.75,31.95,4030000,30.7,4.09,32.64,25.96,0.94
 20260811,31.3,31.9,28.8,30,7343000,30.64,-2.08,32.22,26.21,1.61
 20260812,30.3,33,30.3,33,6687000,30.83,7.02,31.77,26.52,1.41
@@ -168,27 +157,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,32,33.7,31.25,31.4,3027000,31.27,0.41,30.28,27.98,0.57
 20260820,31.4,32.55,31.3,32.55,1737000,31.38,3.73,30.3,28.27,0.33
 20260821,32.55,33.3,32.1,32.9,2248000,31.51,4.42,30.18,28.57,0.45
+20260824,35,36.15,34.3,35.8,13175000,31.86,12.35,30.39,28.92,2.55
+20260825,35.1,35.55,33.9,35.15,5041000,32.14,9.37,30.71,29.24,0.94
+20260826,35.15,35.7,33.8,34.65,4688000,32.35,7.12,31.15,29.52,0.85
+20260827,34.45,35.1,32.2,32.2,4382000,32.33,-0.42,31.6,29.72,0.78
+20260828,32.35,33.45,32,32.55,2398000,32.35,0.61,32.07,29.94,0.46
+20260831,32.8,34.85,32.25,33.4,3593000,32.44,2.96,32.46,30.14,0.69
+20260901,33.5,34.35,32.25,32.25,3647000,32.42,-0.54,32.67,30.35,0.7
+20260902,32.5,32.5,31.4,31.45,2035000,32.34,-2.76,32.7,30.55,0.4
+20260903,31.65,32.15,30.4,30.4,2296000,32.18,-5.53,32.53,30.71,0.5
+20260904,31.1,31.15,29.2,30.1,2901000,32.01,-5.96,32.44,30.9,0.66
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 71.99
-- over_600_ratio: 70.43
-- over_800_ratio: 68.73
-- over_1000_ratio: 67.65
-- over_400_change_1w: 0.11
-- over_800_change_1w: 0.2
-- over_1000_change_1w: 0.2
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260904
+- over_400_ratio: 71.44
+- over_600_ratio: 69.75
+- over_800_ratio: 67.88
+- over_1000_ratio: 66.8
+- over_400_change_1w: -0.31
+- over_800_change_1w: -0.58
+- over_1000_change_1w: -0.58
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,70.4,1.44,66.13,0.99,63.91,0.55,5,True,True
-20260612,70.6,0.2,66.41,0.28,63.92,0.01,6,True,True
 20260618,71.12,0.52,66.73,0.32,64.96,1.04,7,True,True
 20260626,71.14,0.02,66.7,-0.03,65.36,0.4,8,False,True
 20260703,71.84,0.7,68.65,1.95,65.94,0.58,9,True,True
@@ -199,17 +196,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,71.52,0.33,68.29,0.48,66.97,0.73,2,True,True
 20260814,71.88,0.36,68.53,0.24,67.45,0.48,3,True,True
 20260821,71.99,0.11,68.73,0.2,67.65,0.2,4,True,True
+20260828,71.75,-0.24,68.46,-0.27,67.38,-0.27,0,False,False
+20260904,71.44,-0.31,67.88,-0.58,66.8,-0.58,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 4707 | 磐亞 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | 1.事實發生日:115/07/08 2.公司名稱:磐亞股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:115年6月財務狀況及其他對股東權益或證券價格有重大影響之情事 6.因應措施:每月評價調整 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項): 一.現金及約當現金：509,031仟元。 二.有價證券持有成本：4,417,161仟元。 1.透過損益按公允價值衡量之金融資產-流動持有成本:21,768仟元， 評價調整:41,957仟元。 2.透過其他綜合損益按公允價值衡量之權益工具投資-非流動持有成本:2,445,513仟元， 評價調整:1,299,728仟元。 3.採權益法之長期股權投資持有成本:1,949,880仟元。 4.質押變動情形: 截至本月質押股票：持有成本437,780仟元、帳面價值450,279仟元： 三.長期借款餘額：386,000仟元 四.短期借款餘額：1,825,000仟元。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 4707 | 磐亞 | 2 | 2 | 3 | 3 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

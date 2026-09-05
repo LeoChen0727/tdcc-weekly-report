@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2308 台達電
 
 ## Metadata
-- generated_at: 2026-08-23 22:27:02 Asia/Taipei
+- generated_at: 2026-09-05 15:52:44 Asia/Taipei
 - stock_id: 2308
 - stock_name: 台達電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 1760
-- high: 1760
-- low: 1720
-- close: 1750
-- volume: 5768589
-- ma5: 1793
-- ema23_primary: 1781.82
-- distance_to_ema23_pct: -1.79
-- ma20: 1716.25
-- ma60: 1950.58
-- ma120: 1864.71
-- return_5d: -7.16
-- return_20d: -1.96
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: 1.97
-- distance_to_high_60_pct: -30.69
+- date: 20260904
+- open: 1810
+- high: 1850
+- low: 1790
+- close: 1825
+- volume: 9195063
+- ma5: 1804
+- ema23_primary: 1784.69
+- distance_to_ema23_pct: 2.26
+- ma20: 1798
+- ma60: 1853.08
+- ma120: 1902
+- return_5d: -0.27
+- return_20d: 10.61
+- volume_ratio: 0.83
+- distance_to_ma20_pct_auxiliary: 1.5
+- distance_to_high_60_pct: -21.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,1755,1785,1695,1755,9935415,1903.48,-7.8,1883,2094.58,0.94
-20260728,1635,1655,1580,1580,16516645,1876.52,-15.8,1866.75,2084.83,1.57
-20260729,1560,1595,1425,1495,22356467,1844.73,-18.96,1844,2072.75,2.04
-20260730,1505,1625,1475,1530,22598605,1818.5,-15.86,1821,2062.17,1.94
-20260731,1680,1680,1590,1640,31456334,1803.62,-9.07,1804.5,2052.67,2.44
-20260803,1610,1645,1560,1580,17410913,1784.99,-11.48,1779.75,2041,1.34
-20260804,1530,1680,1520,1620,20958807,1771.24,-8.54,1761,2031.33,1.55
-20260805,1705,1720,1645,1650,16778461,1761.14,-6.31,1749,2021.42,1.2
-20260806,1650,1700,1625,1680,10907572,1754.38,-4.24,1738.75,2012.83,0.79
-20260807,1700,1715,1635,1650,10432120,1745.68,-5.48,1727.25,2004.25,0.75
 20260810,1695,1815,1690,1815,10318139,1751.45,3.63,1723.5,1998.58,0.74
 20260811,1835,1865,1785,1805,18963715,1755.92,2.8,1721,1994.08,1.32
 20260812,1810,1830,1785,1790,9097777,1758.76,1.78,1716,1990.25,0.63
@@ -167,17 +157,27 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,1745,1800,1740,1765,12608652,1788.33,-1.3,1724.75,1973.5,0.85
 20260820,1770,1785,1705,1745,11014621,1784.72,-2.23,1718,1963.42,0.73
 20260821,1760,1760,1720,1750,5768589,1781.82,-1.79,1716.25,1950.58,0.38
+20260824,1720,1775,1710,1735,4498318,1777.92,-2.41,1715.25,1939.67,0.3
+20260825,1715,1715,1655,1710,10537455,1772.26,-3.51,1721.75,1927.42,0.73
+20260826,1680,1760,1670,1750,10798374,1770.41,-1.15,1734.5,1916.25,0.78
+20260827,1780,1820,1760,1770,8876431,1770.37,-0.02,1746.5,1906.42,0.67
+20260828,1800,1870,1780,1830,13398406,1775.34,3.08,1756,1896,1.09
+20260831,1785,1840,1775,1840,8899747,1780.73,3.33,1769,1886.25,0.75
+20260901,1845,1865,1810,1865,8434152,1787.75,4.32,1781.25,1879,0.75
+20260902,1815,1815,1730,1730,15977253,1782.94,-2.97,1785.25,1870.25,1.43
+20260903,1735,1810,1725,1760,10346094,1781.03,-1.18,1789.25,1859.33,0.93
+20260904,1810,1850,1790,1825,9195063,1784.69,2.26,1798,1853.08,0.83
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 80.74
-- over_600_ratio: 77.95
-- over_800_ratio: 75.69
-- over_1000_ratio: 74.03
-- over_400_change_1w: -0.16
-- over_800_change_1w: -0.13
-- over_1000_change_1w: -0.3
+- as_of_date: 20260904
+- over_400_ratio: 80.65
+- over_600_ratio: 77.67
+- over_800_ratio: 75.3
+- over_1000_ratio: 73.75
+- over_400_change_1w: -0.08
+- over_800_change_1w: -0.25
+- over_1000_change_1w: -0.09
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -186,8 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,83.4,-0.11,78.21,-0.11,76.2,-0.27,0,False,False
-20260612,83.05,-0.35,77.67,-0.54,75.82,-0.38,0,False,False
 20260618,82.75,-0.3,77.51,-0.16,75.62,-0.2,0,False,False
 20260626,82.12,-0.63,76.76,-0.75,75.07,-0.55,0,False,False
 20260703,81.72,-0.4,76.42,-0.34,74.62,-0.45,0,False,False
@@ -198,22 +196,25 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,80.91,-0.12,75.94,-0.21,74.37,0.26,1,False,True
 20260814,80.9,-0.01,75.82,-0.12,74.33,-0.04,0,False,False
 20260821,80.74,-0.16,75.69,-0.13,74.03,-0.3,0,False,False
+20260828,80.73,-0.01,75.55,-0.14,73.84,-0.19,0,False,False
+20260904,80.65,-0.08,75.3,-0.25,73.75,-0.09,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2308 | 台達電 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/30 1.召開法人說明會之日期：115/07/30 2.召開法人說明會之時間：15 時 00 分 3.召開法人說明會之地點：台達電子台北總部 4.法人說明會擇要訊息：本公司自辦法人說明會，說明115年第2季財務報告相關資訊 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| 20260904 | 2308 | 台達電 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | 1.事實發生日:115/09/02 2.公司名稱:台達電子工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:工商時報 6.報導內容:有關市場流傳台達電發文予客戶提及：「台達電子工業謹代表其關聯公司致 函通知您，關於某電源供應器特定批次產品存在潛在品質問題」等內容。 7.發生緣由:大眾傳播媒體報導 8.因應措施:公佈澄清訊息於公開資訊觀測站 9.其他應敘明事項:若供應商零組件出現問題，公司將盡力協助客戶安排換貨，以確保 滿足客戶需求。目前本公司整體營運未受影響。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| 20260904 | 2308 | 台達電 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/09/02 2.公司名稱:台達電子工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:工商時報 6.報導內容:有關市場流傳台達電發文予客戶提及：「台達電子工業謹代表其關聯公司致 函通知您，關於某電源供應器特定批次產品存在潛在品質問題」等內容。 7.發生緣由:大眾傳播媒體報導 8.因應措施:公佈澄清訊息於公開資訊觀測站 9.其他應敘明事項:若供應商零組件出現問題，公司將盡力協助客戶安排換貨，以確保 滿足客戶需求。目前本公司整體營運未受影響。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2308 | 台達電 | 2 | 2 | 3 | 7 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260904 | 2308 | 台達電 | 2 | 2 | 4 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2308 | 台達電 | 156 | 19 | 15427970.0 | 358360.0 | 43.05 | no_signal |
+| 20260904 | 2308 | 台達電 | 258 | 25 | 82689360.0 | 236880.0 | 349.08 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

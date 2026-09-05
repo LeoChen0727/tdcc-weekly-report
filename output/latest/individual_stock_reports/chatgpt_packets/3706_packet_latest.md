@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3706 神達
 
 ## Metadata
-- generated_at: 2026-08-23 22:27:59 Asia/Taipei
+- generated_at: 2026-09-05 15:53:29 Asia/Taipei
 - stock_id: 3706
 - stock_name: 神達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
+- model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -125,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 90
-- high: 90.9
-- low: 89.7
-- close: 90
-- volume: 4842984
-- ma5: 90.7
-- ema23_primary: 90.53
-- distance_to_ema23_pct: -0.58
-- ma20: 90.33
-- ma60: 89.51
-- ma120: 85.63
-- return_5d: -2.91
-- return_20d: -1.42
-- volume_ratio: 0.41
-- distance_to_ma20_pct_auxiliary: -0.37
-- distance_to_high_60_pct: -13.04
+- date: 20260904
+- open: 93.4
+- high: 94.4
+- low: 91.5
+- close: 92.5
+- volume: 10563096
+- ma5: 93.38
+- ema23_primary: 91.77
+- distance_to_ema23_pct: 0.79
+- ma20: 91.93
+- ma60: 89.73
+- ma120: 86.67
+- return_5d: 0.43
+- return_20d: 0.87
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: 0.62
+- distance_to_high_60_pct: -3.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,91.7,91.8,89.6,91.2,8120398,89.64,1.74,89.96,87.55,0.42
-20260728,89.5,89.9,87.8,88.2,11469480,89.52,-1.47,90.05,87.67,0.62
-20260729,88.5,89.2,83.5,85.3,17394924,89.17,-4.34,89.95,87.71,0.95
-20260730,84.4,86.5,83.8,84.1,7562017,88.75,-5.23,89.59,87.71,0.49
-20260731,87.9,90,87.4,87.4,12532357,88.63,-1.39,89.3,87.7,0.89
-20260803,87,90.3,86.3,89.5,8655887,88.71,0.9,89.22,87.73,0.65
-20260804,88.8,91.9,88.7,91.3,14277936,88.92,2.67,89.28,87.82,1.09
-20260805,92.8,93.7,91.8,91.9,19462683,89.17,3.06,89.48,87.91,1.48
-20260806,92,94,91.8,92.9,19632120,89.48,3.82,89.72,88.02,1.44
-20260807,93.5,93.7,91.2,91.7,9729538,89.67,2.27,89.86,88.18,0.73
 20260810,92.2,93.2,91.8,92.9,7961056,89.94,3.3,89.97,88.38,0.64
 20260811,91.9,91.9,89.6,90,12592023,89.94,0.07,89.98,88.55,1.01
 20260812,89.5,93.4,89.5,92.4,17902905,90.15,2.5,90.06,88.75,1.4
@@ -167,18 +157,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,89.9,91.8,89.3,90.7,8294613,90.62,0.09,90.5,89.37,0.66
 20260820,91.4,91.7,90,90.1,5263608,90.58,-0.52,90.4,89.41,0.43
 20260821,90,90.9,89.7,90,4842984,90.53,-0.58,90.33,89.51,0.41
+20260824,90.7,92.8,90.5,92.1,9405467,90.66,1.59,90.38,89.66,0.8
+20260825,92.1,92.2,90.3,91.4,6744384,90.72,0.75,90.54,89.7,0.58
+20260826,91.4,91.7,90.9,91.5,4605668,90.79,0.79,90.85,89.67,0.42
+20260827,92,92.9,91.4,91.4,6105426,90.84,0.62,91.22,89.61,0.56
+20260828,92,92.7,91.1,92.1,6896226,90.94,1.27,91.45,89.47,0.65
+20260831,92,93.7,91.3,92.5,9599922,91.07,1.57,91.6,89.45,0.9
+20260901,92.8,95.8,92.7,95.7,27970459,91.46,4.64,91.82,89.5,2.47
+20260902,95.1,95.3,93.8,94.7,12698438,91.73,3.24,91.96,89.63,1.16
+20260903,94.9,95.3,91.4,91.5,14808074,91.71,-0.23,91.89,89.62,1.38
+20260904,93.4,94.4,91.5,92.5,10563096,91.77,0.79,91.93,89.73,0.98
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 56.91
-- over_600_ratio: 55.67
-- over_800_ratio: 54.96
-- over_1000_ratio: 53.74
-- over_400_change_1w: 0.6
-- over_800_change_1w: 0.5
-- over_1000_change_1w: 0.73
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260904
+- over_400_ratio: 57.75
+- over_600_ratio: 56.51
+- over_800_ratio: 55.86
+- over_1000_ratio: 54.9
+- over_400_change_1w: 0.75
+- over_800_change_1w: 0.97
+- over_1000_change_1w: 1.02
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -186,8 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,55.61,3.3,53.52,3.35,52.48,3.06,3,True,True
-20260612,54.08,-1.53,51.79,-1.73,50.88,-1.6,0,False,False
 20260618,52.76,-1.32,50.62,-1.17,49.65,-1.23,0,False,False
 20260626,51.99,-0.77,49.89,-0.73,48.86,-0.79,0,False,False
 20260703,53.48,1.49,51.24,1.35,50.14,1.28,1,True,True
@@ -198,22 +196,25 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,55.67,1.69,53.96,1.93,52.59,2.01,1,True,True
 20260814,56.31,0.64,54.46,0.5,53.01,0.42,2,True,True
 20260821,56.91,0.6,54.96,0.5,53.74,0.73,3,True,True
+20260828,57,0.09,54.89,-0.07,53.88,0.14,4,False,True
+20260904,57.75,0.75,55.86,0.97,54.9,1.02,5,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 3706 | 神達 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/08/10 2.公司名稱:神達控股股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:神達控股股份有限公司(TWSE: 3706) 公佈一百一十五年七月份自結合併營收為新台幣128.34億元。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260904 | 3706 | 神達 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | 1.事實發生日:115/08/10 2.公司名稱:神達控股股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:神達控股股份有限公司(TWSE: 3706) 公佈一百一十五年七月份自結合併營收為新台幣128.34億元。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: ex_right_dividend on 20260909; status=confirmed; proximity=within_7d |
+| 20260904 | 3706 | 神達 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/08/10 2.公司名稱:神達控股股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:神達控股股份有限公司(TWSE: 3706) 公佈一百一十五年七月份自結合併營收為新台幣128.34億元。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: ex_right_dividend on 20260909; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 3706 | 神達 | 39 | 6 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260904 | 3706 | 神達 | 2 | 2 | 4 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 3706 | 神達 | 83 | 1 | 2656700.0 | 42160.0 | 63.01 | no_signal |
+| 20260904 | 3706 | 神達 | 82 | 1 | 5309090.0 | 10900.0 | 487.07 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

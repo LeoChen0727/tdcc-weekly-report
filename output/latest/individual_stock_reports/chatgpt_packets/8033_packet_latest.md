@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8033 雷虎
 
 ## Metadata
-- generated_at: 2026-08-23 22:29:30 Asia/Taipei
+- generated_at: 2026-09-05 15:54:42 Asia/Taipei
 - stock_id: 8033
 - stock_name: 雷虎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 190.5
-- high: 190.5
-- low: 185
-- close: 185.5
-- volume: 885478
-- ma5: 187.1
-- ema23_primary: 185.88
-- distance_to_ema23_pct: -0.21
-- ma20: 180.07
-- ma60: 173.99
-- ma120: 158.95
-- return_5d: -7.94
-- return_20d: -0.8
-- volume_ratio: 0.17
-- distance_to_ma20_pct_auxiliary: 3.01
-- distance_to_high_60_pct: -31.8
+- date: 20260904
+- open: 176.5
+- high: 177.5
+- low: 171.5
+- close: 176
+- volume: 2868742
+- ma5: 180.5
+- ema23_primary: 184.6
+- distance_to_ema23_pct: -4.66
+- ma20: 185.1
+- ma60: 182.32
+- ma120: 162.06
+- return_5d: -7.12
+- return_20d: -4.86
+- volume_ratio: 0.31
+- distance_to_ma20_pct_auxiliary: -4.92
+- distance_to_high_60_pct: -35.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,187,187,172.5,186,2106219,197.36,-5.76,210.38,162.1,0.14
-20260728,175,181,174,174,1050789,195.42,-10.96,211.35,162.6,0.07
-20260729,175,175,157,157,1651083,192.21,-18.32,210.72,162.67,0.13
-20260730,145,158,145,150,1582387,188.7,-20.51,208.93,162.6,0.13
-20260731,165,165,160,165,1045281,186.72,-11.63,207.88,162.84,0.11
-20260803,169.5,175.5,167.5,172.5,1035498,185.54,-7.03,206.28,163.19,0.12
-20260804,175.5,180,175.5,178.5,892286,184.95,-3.49,204.1,163.52,0.11
-20260805,190.5,190.5,185,189,1076498,185.29,2,203.2,164.27,0.13
-20260806,187.5,191,184,190,824341,185.68,2.33,201.32,165.07,0.11
-20260807,190,190,184.5,185,601074,185.62,-0.34,199.22,165.82,0.08
 20260810,177.5,182.5,170,172,6417956,184.49,-6.77,195.35,166.4,0.87
 20260811,170,189,162.5,189,8820185,184.86,2.24,191.6,167.21,1.2
 20260812,185,185,172.5,173,13435330,183.88,-5.91,186.78,167.8,1.73
@@ -168,17 +158,27 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,181,185,176.5,185,1149953,185.77,-0.42,180.3,172.3,0.17
 20260820,190,193.5,186.5,187.5,976656,185.92,0.85,180.15,173.15,0.16
 20260821,190.5,190.5,185,185.5,885478,185.88,-0.21,180.07,173.99,0.17
+20260824,188,188,184.5,185,683870,185.81,-0.44,180.03,174.82,0.13
+20260825,182.5,186.5,174,179,5329673,185.24,-3.37,180.28,175.43,1
+20260826,182,196.5,182,192.5,10764926,185.85,3.58,182.05,176.28,1.86
+20260827,193,211.5,192,199,28081541,186.94,6.45,184.5,177.33,3.95
+20260828,202,205.5,183.5,189.5,25691837,187.16,1.25,185.72,178.25,3.08
+20260831,187.5,192.5,187,187,4731485,187.14,-0.08,186.45,179.15,0.56
+20260901,187,187,183,185.5,3433718,187.01,-0.81,186.8,180,0.4
+20260902,185,188.5,181,181,4279688,186.51,-2.95,186.4,180.87,0.49
+20260903,183,184.5,172.5,173,5483122,185.38,-6.68,185.55,181.54,0.61
+20260904,176.5,177.5,171.5,176,2868742,184.6,-4.66,185.1,182.32,0.31
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 30.98
-- over_600_ratio: 27.35
-- over_800_ratio: 24.35
-- over_1000_ratio: 21.58
-- over_400_change_1w: -2.68
-- over_800_change_1w: -2.77
-- over_1000_change_1w: -1.77
+- as_of_date: 20260904
+- over_400_ratio: 28.04
+- over_600_ratio: 23.88
+- over_800_ratio: 21.81
+- over_1000_ratio: 18.49
+- over_400_change_1w: -5.68
+- over_800_change_1w: -6.13
+- over_1000_change_1w: -5.66
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -187,8 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,29.25,-2,22.19,-2.3,20.26,-2.33,0,False,False
-20260612,27.58,-1.67,22.62,0.43,20.45,0.19,1,False,True
 20260618,27.21,-0.37,22.31,-0.31,20.7,0.25,2,False,True
 20260626,28.57,1.36,23.18,0.87,20.6,-0.1,3,False,True
 20260703,38.94,10.37,32.5,9.32,30.38,9.78,4,True,True
@@ -199,6 +197,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,38.33,0.05,31.83,0.44,28.1,-0.02,2,False,True
 20260814,33.66,-4.67,27.12,-4.71,23.35,-4.75,0,False,False
 20260821,30.98,-2.68,24.35,-2.77,21.58,-1.77,0,False,False
+20260828,33.72,2.74,27.94,3.59,24.15,2.57,1,True,True
+20260904,28.04,-5.68,21.81,-6.13,18.49,-5.66,0,False,False
 ```
 
 ## Candidate Context
@@ -214,7 +214,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 8033 | 雷虎 | 3 | 0 | 78210.0 | 0.0 |  | no_signal |
+| 20260904 | 8033 | 雷虎 | 3 | 0 | 5000.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

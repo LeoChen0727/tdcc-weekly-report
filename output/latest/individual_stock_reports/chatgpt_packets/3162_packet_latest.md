@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3162 精確
 
 ## Metadata
-- generated_at: 2026-08-23 22:27:39 Asia/Taipei
+- generated_at: 2026-09-05 15:53:13 Asia/Taipei
 - stock_id: 3162
 - stock_name: 精確
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 203
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 213
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -103,7 +103,6 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -118,7 +117,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -126,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 62.1
-- high: 62.2
-- low: 61
-- close: 61.4
-- volume: 272000
-- ma5: 62
-- ema23_primary: 64.95
-- distance_to_ema23_pct: -5.47
-- ma20: 62.25
-- ma60: 74.44
-- ma120: 72.19
-- return_5d: -2.38
-- return_20d: -6.26
-- volume_ratio: 0.39
-- distance_to_ma20_pct_auxiliary: -1.37
-- distance_to_high_60_pct: -31.47
+- date: 20260904
+- open: 72.2
+- high: 73.2
+- low: 69.1
+- close: 70.8
+- volume: 1315000
+- ma5: 71.62
+- ema23_primary: 68.38
+- distance_to_ema23_pct: 3.54
+- ma20: 67
+- ma60: 72.18
+- ma120: 73.43
+- return_5d: -2.48
+- return_20d: 13.83
+- volume_ratio: 1
+- distance_to_ma20_pct_auxiliary: 5.67
+- distance_to_high_60_pct: -18.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,65.5,65.6,62.6,64.1,846000,74.95,-14.48,76.37,82,0.81
-20260728,63.9,63.9,59.8,59.8,1042000,73.69,-18.85,75.48,81.78,1.01
-20260729,60,61.3,55,57.1,1371000,72.3,-21.03,74.31,81.47,1.29
-20260730,57.1,57.6,55.6,55.7,824000,70.92,-21.46,73.08,81.02,0.77
-20260731,58.4,61.1,57.7,59,684000,69.93,-15.63,71.79,80.5,0.68
-20260803,58.3,61.2,58.3,59.7,390000,69.08,-13.57,70.52,79.9,0.41
-20260804,59.6,63.6,58.4,63.1,767000,68.58,-7.99,69.46,79.43,0.82
-20260805,64.8,66.5,64,65.4,727000,68.31,-4.26,68.53,79.02,0.8
-20260806,65.5,65.5,62.4,63.3,547000,67.89,-6.77,67.51,78.6,0.6
-20260807,66.4,66.9,62,62.2,1094000,67.42,-7.74,66.53,78.18,1.24
 20260810,63.2,64.9,63,64.9,683000,67.21,-3.44,65.71,77.86,0.8
 20260811,64.6,66.4,63.6,66.1,433000,67.12,-1.52,65.07,77.57,0.53
 20260812,66.3,67.3,65.8,66.2,692000,67.04,-1.25,64.48,77.28,0.84
@@ -168,18 +157,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,61.9,64.4,60.1,62.2,546000,65.56,-5.12,62.69,75.27,0.75
 20260820,63,63,62,62.2,298000,65.28,-4.71,62.45,74.81,0.42
 20260821,62.1,62.2,61,61.4,272000,64.95,-5.47,62.25,74.44,0.39
+20260824,61.5,62.4,60.8,60.8,225000,64.61,-5.89,62.09,74.08,0.34
+20260825,65.7,66.8,65,66.8,1617000,64.79,3.1,62.44,73.78,2.35
+20260826,72.5,73.4,68.3,73.4,6185000,65.51,12.05,63.25,73.57,6.65
+20260827,72.9,74.9,70.9,72.7,3532000,66.11,9.97,64.1,73.39,3.32
+20260828,72.1,73.7,71.2,72.6,1431000,66.65,8.93,64.78,73.22,1.3
+20260831,71.8,73.5,71.2,72.7,952000,67.15,8.26,65.43,73.05,0.84
+20260901,72.6,73.4,71.9,71.9,742000,67.55,6.44,65.87,72.86,0.66
+20260902,71.2,73,71,71.2,558000,67.85,4.93,66.16,72.68,0.5
+20260903,72.4,78.3,71.5,71.5,4135000,68.16,4.91,66.57,72.42,3.18
+20260904,72.2,73.2,69.1,70.8,1315000,68.38,3.54,67,72.18,1
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 61.39
-- over_600_ratio: 59.15
-- over_800_ratio: 57.49
-- over_1000_ratio: 55.25
-- over_400_change_1w: 0.46
-- over_800_change_1w: 0.94
-- over_1000_change_1w: -0.15
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260904
+- over_400_ratio: 60.99
+- over_600_ratio: 58.18
+- over_800_ratio: 56.93
+- over_1000_ratio: 55.14
+- over_400_change_1w: -0.18
+- over_800_change_1w: 0.07
+- over_1000_change_1w: -0.05
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -187,8 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,59.07,0.18,56.04,0.11,54.96,1.26,1,True,True
-20260612,60.21,1.14,55.99,-0.05,55.99,1.03,2,False,True
 20260618,60.43,0.22,56.51,0.52,56.51,0.52,3,True,True
 20260626,60.63,0.2,55.95,-0.56,55.95,-0.56,4,False,False
 20260703,61,0.37,57.27,1.32,56.7,0.75,5,True,True
@@ -199,17 +196,21 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,61.22,0.3,57.11,0.53,55.39,0,1,False,True
 20260814,60.93,-0.29,56.55,-0.56,55.4,0.01,2,False,True
 20260821,61.39,0.46,57.49,0.94,55.25,-0.15,3,False,True
+20260828,61.17,-0.22,56.86,-0.63,55.19,-0.06,0,False,False
+20260904,60.99,-0.18,56.93,0.07,55.14,-0.05,1,False,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260904 | 3162 | 精確 | pattern | 型態觀察 | 51.0 |  |  | early_entry_watch |  |  | stale_signal | 1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）: United Alloy-Tech Europe d.o.o 股權 2.事實發生日:115/9/2~115/9/2 3.董事會通過日期: 民國115年9月2日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: EUR4,000,000 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之 關係人者，得免揭露其姓名）: 母子公司 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移 轉之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次 移轉日期及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取 得及處分日期、價格及交易當時與公司之關係: 不適用 9.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分債權 如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人之債權 帳面金額: 不適用 10.處分利益（或損失）（取得有價證券者不適用）（原遞延者應列表說明 認列情形）: 不適用 11.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依資金需求狀況分批投入 12.本次交易之決定方式、價格決定之參考依據及決策單位: 決策單位:董事會 13.取得或處分有價證券標的公司每股淨值: 不適用 14.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 投資金額：NTD2,909,617仟元 持股比例：100% 權利受限情形：無 15.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列 之有價證券投資（含本次交易）占公司最近期財務報表中總資產及歸屬 於母公司業主之權益之比例暨最近期財務報表中營運資金數額（註二）: 占總資產比例：53.63% 占股東權益比例：70.70% 營運資金數額：NTD307,408仟元 16.經紀人及經紀費用: 無 17.取得或處分之具體目的或用途: 因應業務擴展營運需求 18.本次交易表示異議董事之意見: 無 19.本次交易為關係人交易:是 20.監察人承認或審計委員會同意日期: 民國115年09月02日 21.本次交易會計師出具非合理性意見:不適用 22.會計師事務所名稱: 不適用 23.會計師姓名: 不適用 24.會計師開業證書字號: 不適用 25.是否涉及營運模式變更:否 26.營運模式變更說明: 不適用 27.過去一年及預計未來一年內與交易相對人交易情形: 不適用 28.資金來源: 自有資金 29.前已就同一件事件發布重大訊息日期: 不適用 30.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| 20260904 | 3162 | 精確 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | stale_signal | 1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）: United Alloy-Tech Europe d.o.o 股權 2.事實發生日:115/9/2~115/9/2 3.董事會通過日期: 民國115年9月2日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: EUR4,000,000 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之 關係人者，得免揭露其姓名）: 母子公司 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移 轉之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次 移轉日期及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取 得及處分日期、價格及交易當時與公司之關係: 不適用 9.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分債權 如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人之債權 帳面金額: 不適用 10.處分利益（或損失）（取得有價證券者不適用）（原遞延者應列表說明 認列情形）: 不適用 11.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依資金需求狀況分批投入 12.本次交易之決定方式、價格決定之參考依據及決策單位: 決策單位:董事會 13.取得或處分有價證券標的公司每股淨值: 不適用 14.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 投資金額：NTD2,909,617仟元 持股比例：100% 權利受限情形：無 15.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列 之有價證券投資（含本次交易）占公司最近期財務報表中總資產及歸屬 於母公司業主之權益之比例暨最近期財務報表中營運資金數額（註二）: 占總資產比例：53.63% 占股東權益比例：70.70% 營運資金數額：NTD307,408仟元 16.經紀人及經紀費用: 無 17.取得或處分之具體目的或用途: 因應業務擴展營運需求 18.本次交易表示異議董事之意見: 無 19.本次交易為關係人交易:是 20.監察人承認或審計委員會同意日期: 民國115年09月02日 21.本次交易會計師出具非合理性意見:不適用 22.會計師事務所名稱: 不適用 23.會計師姓名: 不適用 24.會計師開業證書字號: 不適用 25.是否涉及營運模式變更:否 26.營運模式變更說明: 不適用 27.過去一年及預計未來一年內與交易相對人交易情形: 不適用 28.資金來源: 自有資金 29.前已就同一件事件發布重大訊息日期: 不適用 30.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260904 | 3162 | 精確 | revenue_breakout_low_response | 營收爆發低反應股 | 11 | 60 | D_降級_TDCC轉弱 |  |  |  | stale_signal | 1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）: United Alloy-Tech Europe d.o.o 股權 2.事實發生日:115/9/2~115/9/2 3.董事會通過日期: 民國115年9月2日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: EUR4,000,000 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之 關係人者，得免揭露其姓名）: 母子公司 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移 轉之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次 移轉日期及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取 得及處分日期、價格及交易當時與公司之關係: 不適用 9.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分債權 如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人之債權 帳面金額: 不適用 10.處分利益（或損失）（取得有價證券者不適用）（原遞延者應列表說明 認列情形）: 不適用 11.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依資金需求狀況分批投入 12.本次交易之決定方式、價格決定之參考依據及決策單位: 決策單位:董事會 13.取得或處分有價證券標的公司每股淨值: 不適用 14.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 投資金額：NTD2,909,617仟元 持股比例：100% 權利受限情形：無 15.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列 之有價證券投資（含本次交易）占公司最近期財務報表中總資產及歸屬 於母公司業主之權益之比例暨最近期財務報表中營運資金數額（註二）: 占總資產比例：53.63% 占股東權益比例：70.70% 營運資金數額：NTD307,408仟元 16.經紀人及經紀費用: 無 17.取得或處分之具體目的或用途: 因應業務擴展營運需求 18.本次交易表示異議董事之意見: 無 19.本次交易為關係人交易:是 20.監察人承認或審計委員會同意日期: 民國115年09月02日 21.本次交易會計師出具非合理性意見:不適用 22.會計師事務所名稱: 不適用 23.會計師姓名: 不適用 24.會計師開業證書字號: 不適用 25.是否涉及營運模式變更:否 26.營運模式變更說明: 不適用 27.過去一年及預計未來一年內與交易相對人交易情形: 不適用 28.資金來源: 自有資金 29.前已就同一件事件發布重大訊息日期: 不適用 30.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260904 | 3162 | 精確 | 2 | 2 | 2 | 4 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

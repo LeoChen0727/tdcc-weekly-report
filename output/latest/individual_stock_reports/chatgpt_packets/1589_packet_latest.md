@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1589 永冠-KY
 
 ## Metadata
-- generated_at: 2026-08-23 22:26:46 Asia/Taipei
+- generated_at: 2026-09-05 15:52:32 Asia/Taipei
 - stock_id: 1589
 - stock_name: 永冠-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260402
 - price_rows: 242
-- current_main_price_date: 20260821
+- current_main_price_date: 20260904
 - current_main_price_universe_status: historical_only_noncurrent
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: historical_only_noncurrent
 - tdcc_freshness_status: historical_only_noncurrent
 - tdcc_continuity_status: complete
@@ -170,7 +170,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
+- as_of_date: 20260904
 - over_400_ratio: 28.35
 - over_600_ratio: 24.11
 - over_800_ratio: 23.27
@@ -186,8 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,28.57,0,23.28,0,21.01,0,0,False,False
-20260612,28.57,0,23.28,0,21.01,0,0,False,False
 20260618,28.36,-0.21,23.28,0,21.01,0,0,False,False
 20260626,28.36,0,23.28,0,21.01,0,0,False,False
 20260703,28.36,0,23.28,0,21.01,0,0,False,False
@@ -198,6 +196,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,28.35,0,23.27,0,21,0,0,False,False
 20260814,28.35,0,23.27,0,21,0,0,False,False
 20260821,28.35,0,23.27,0,21,0,0,False,False
+20260828,28.35,0,23.27,0,21,0,0,False,False
+20260904,28.35,0,23.27,0,21,0,0,False,False
 ```
 
 ## Candidate Context

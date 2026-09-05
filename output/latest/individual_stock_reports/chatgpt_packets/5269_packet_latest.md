@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5269 祥碩
 
 ## Metadata
-- generated_at: 2026-08-23 22:28:24 Asia/Taipei
+- generated_at: 2026-09-05 15:53:49 Asia/Taipei
 - stock_id: 5269
 - stock_name: 祥碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 1425
-- high: 1425
-- low: 1405
-- close: 1415
-- volume: 241491
-- ma5: 1409
-- ema23_primary: 1413.12
-- distance_to_ema23_pct: 0.13
-- ma20: 1398.25
-- ma60: 1438.92
-- ma120: 1357
-- return_5d: 2.54
-- return_20d: 2.17
-- volume_ratio: 0.29
-- distance_to_ma20_pct_auxiliary: 1.2
-- distance_to_high_60_pct: -14.76
+- date: 20260904
+- open: 1450
+- high: 1465
+- low: 1425
+- close: 1430
+- volume: 317637
+- ma5: 1445
+- ema23_primary: 1430.24
+- distance_to_ema23_pct: -0.02
+- ma20: 1427
+- ma60: 1431.58
+- ma120: 1373.75
+- return_5d: -1.38
+- return_20d: 2.14
+- volume_ratio: 0.59
+- distance_to_ma20_pct_auxiliary: 0.21
+- distance_to_high_60_pct: -9.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,1380,1390,1340,1385,358319,1448.63,-4.39,1473,1447.75,0.36
-20260728,1355,1465,1350,1455,1586935,1449.16,0.4,1472,1449.25,1.64
-20260729,1460,1485,1370,1450,1508908,1449.23,0.05,1471,1450.25,1.55
-20260730,1425,1425,1305,1305,1375024,1437.21,-9.2,1462.75,1449.5,1.44
-20260731,1375,1380,1285,1315,1564349,1427.03,-7.85,1452.5,1449.08,1.64
-20260803,1315,1380,1295,1340,661479,1419.77,-5.62,1443,1448.58,0.74
-20260804,1340,1395,1325,1360,567612,1414.79,-3.87,1435,1447.75,0.65
-20260805,1390,1445,1375,1415,938050,1414.81,0.01,1430.75,1448.17,1.09
-20260806,1420,1435,1365,1410,982626,1414.41,-0.31,1425,1446.25,1.14
-20260807,1415,1430,1395,1400,559630,1413.21,-0.93,1421,1445.75,0.65
 20260810,1380,1435,1325,1400,809715,1412.11,-0.86,1415.5,1444.67,0.95
 20260811,1425,1450,1405,1435,797089,1414.02,1.48,1411,1444.33,0.95
 20260812,1435,1445,1425,1440,553904,1416.18,1.68,1407.25,1445.17,0.67
@@ -168,17 +158,27 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,1340,1480,1340,1460,1187531,1411.85,3.41,1395.75,1442.25,1.44
 20260820,1460,1475,1415,1425,566474,1412.94,0.85,1396.75,1440.25,0.68
 20260821,1425,1425,1405,1415,241491,1413.12,0.13,1398.25,1438.92,0.29
+20260824,1430,1430,1400,1400,165605,1412.02,-0.85,1399,1438.25,0.2
+20260825,1400,1420,1385,1415,284197,1412.27,0.19,1397,1437.42,0.38
+20260826,1430,1465,1415,1455,622471,1415.83,2.77,1397.25,1436.33,0.88
+20260827,1460,1485,1435,1465,443537,1419.93,3.17,1405.25,1434.25,0.67
+20260828,1480,1495,1440,1450,403900,1422.43,1.94,1412,1432.17,0.67
+20260831,1430,1440,1405,1425,377044,1422.65,0.17,1416.25,1429.75,0.64
+20260901,1420,1490,1420,1470,635026,1426.59,3.04,1421.75,1428.83,1.08
+20260902,1475,1485,1445,1460,646366,1429.38,2.14,1424,1429.83,1.12
+20260903,1470,1495,1430,1440,532498,1430.26,0.68,1425.5,1429.83,0.96
+20260904,1450,1465,1425,1430,317637,1430.24,-0.02,1427,1431.58,0.59
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 59.99
-- over_600_ratio: 57.29
-- over_800_ratio: 54.56
-- over_1000_ratio: 54.56
-- over_400_change_1w: 0.57
-- over_800_change_1w: 0.02
-- over_1000_change_1w: 0.02
+- as_of_date: 20260904
+- over_400_ratio: 59.47
+- over_600_ratio: 57.33
+- over_800_ratio: 54.6
+- over_1000_ratio: 54.6
+- over_400_change_1w: -0.52
+- over_800_change_1w: 0.04
+- over_1000_change_1w: 0.04
 - tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: True
@@ -187,8 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,55.79,0.85,51.61,0.43,51.61,0.43,2,True,True
-20260612,55.49,-0.3,51.61,0,51.61,0,3,False,False
 20260618,55.55,0.06,51.61,0,51.61,0,4,False,False
 20260626,55.56,0.01,51.61,0,51.61,0,5,False,False
 20260703,57.9,2.34,53.23,1.62,53.23,1.62,6,True,True
@@ -199,6 +197,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,59.42,0.09,54.54,0.03,54.54,0.03,11,True,True
 20260814,59.42,0,54.54,0,54.54,0,0,False,False
 20260821,59.99,0.57,54.56,0.02,54.56,0.02,1,False,True
+20260828,59.99,0,54.56,0,54.56,0,0,False,False
+20260904,59.47,-0.52,54.6,0.04,54.6,0.04,1,False,True
 ```
 
 ## Candidate Context
@@ -214,7 +214,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 5269 | 祥碩 | 135 | 0 | 5797650.0 | 0.0 |  | no_signal |
+| 20260904 | 5269 | 祥碩 | 137 | 0 | 10643060.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

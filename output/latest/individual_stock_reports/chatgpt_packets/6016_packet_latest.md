@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6016 康和證
 
 ## Metadata
-- generated_at: 2026-08-23 22:28:35 Asia/Taipei
+- generated_at: 2026-09-05 15:53:58 Asia/Taipei
 - stock_id: 6016
 - stock_name: 康和證
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 203
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 213
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「初步突破」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「初步突破」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -87,7 +87,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: breakout_initial
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -101,7 +101,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -126,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 19.35
-- high: 19.75
-- low: 19.3
-- close: 19.6
-- volume: 1733000
-- ma5: 19.46
-- ema23_primary: 20.83
-- distance_to_ema23_pct: -5.91
-- ma20: 19.84
-- ma60: 25.47
-- ma120: 22.19
-- return_5d: -2.73
-- return_20d: -19.84
-- volume_ratio: 0.36
-- distance_to_ma20_pct_auxiliary: -1.22
-- distance_to_high_60_pct: -46.3
+- date: 20260904
+- open: 21.8
+- high: 22.4
+- low: 21.55
+- close: 22.4
+- volume: 6421000
+- ma5: 21.5
+- ema23_primary: 20.92
+- distance_to_ema23_pct: 7.08
+- ma20: 20.11
+- ma60: 23.67
+- ma120: 22.51
+- return_5d: 4.92
+- return_20d: 13.13
+- volume_ratio: 1.49
+- distance_to_ma20_pct_auxiliary: 11.42
+- distance_to_high_60_pct: -27.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,21.95,22.15,21.2,21.65,12140000,25.77,-15.99,26.14,26.29,1.8
-20260728,21.2,21.25,19.95,20,9315000,25.29,-20.92,25.76,26.3,1.33
-20260729,20.05,20.2,18.75,19.4,6694000,24.8,-21.77,25.31,26.29,0.94
-20260730,19,19.5,18.95,19,3281000,24.32,-21.86,24.86,26.27,0.48
-20260731,20,20.7,19.9,20.6,4300000,24.01,-14.19,24.48,26.27,0.62
-20260803,20.35,20.7,20.2,20.3,2661000,23.7,-14.34,24.05,26.25,0.4
-20260804,20.35,20.7,20.1,20.45,2327000,23.43,-12.71,23.6,26.22,0.36
-20260805,21,21.25,20.8,20.9,3574000,23.22,-9.98,23.23,26.17,0.56
-20260806,20.6,20.65,20.05,20.3,4001000,22.97,-11.64,22.89,26.11,0.7
-20260807,20.3,20.3,19.7,19.8,4797000,22.71,-12.81,22.55,26.05,0.85
 20260810,18.65,19.05,18.35,18.4,12507000,22.35,-17.67,22.18,25.99,2.1
 20260811,18.2,18.7,18,18.65,2888000,22.04,-15.39,21.84,25.93,0.51
 20260812,18.7,20.1,18.7,19.85,6959000,21.86,-9.19,21.55,25.9,1.19
@@ -168,27 +157,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,19.2,19.25,19,19.15,1422000,21.09,-9.19,20.35,25.67,0.26
 20260820,19.2,19.4,19,19.35,2228000,20.94,-7.61,20.09,25.59,0.43
 20260821,19.35,19.75,19.3,19.6,1733000,20.83,-5.91,19.84,25.47,0.36
+20260824,19.8,19.8,19.2,19.35,1305000,20.71,-6.56,19.73,25.34,0.31
+20260825,19.2,19.3,19,19.3,1432000,20.59,-6.27,19.69,25.17,0.37
+20260826,19.45,19.8,19.4,19.8,1922000,20.52,-3.53,19.71,25,0.53
+20260827,19.85,20.6,19.85,20.35,3616000,20.51,-0.78,19.78,24.79,0.99
+20260828,20.65,21.95,20.65,21.35,9505000,20.58,3.74,19.82,24.55,2.44
+20260831,20.9,21.25,20.55,21.2,3646000,20.63,2.75,19.86,24.32,0.92
+20260901,21.25,21.8,21.25,21.55,3119000,20.71,4.07,19.92,24.08,0.78
+20260902,21.4,21.4,20.65,20.95,6339000,20.73,1.07,19.92,23.89,1.54
+20260903,21.25,21.8,21.2,21.4,6322000,20.78,2.96,19.98,23.75,1.49
+20260904,21.8,22.4,21.55,22.4,6421000,20.92,7.08,20.11,23.67,1.49
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 50.77
-- over_600_ratio: 47.3
-- over_800_ratio: 45.7
-- over_1000_ratio: 44.13
-- over_400_change_1w: 0.1
-- over_800_change_1w: 0.05
-- over_1000_change_1w: -0.09
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260904
+- over_400_ratio: 51.28
+- over_600_ratio: 48.12
+- over_800_ratio: 46.1
+- over_1000_ratio: 44.95
+- over_400_change_1w: -4.96
+- over_800_change_1w: -5.8
+- over_1000_change_1w: -5.68
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,56.64,-1.93,50.91,-2.21,49.64,-2.32,0,False,False
-20260612,53.76,-2.88,48.12,-2.79,46.94,-2.7,0,False,False
 20260618,52.65,-1.11,47.26,-0.86,45.72,-1.22,0,False,False
 20260626,51.54,-1.11,45.91,-1.35,44.48,-1.24,0,False,False
 20260703,51.54,0,45.74,-0.17,44.02,-0.46,0,False,False
@@ -199,17 +196,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,50.72,0.03,45.46,-0.12,43.91,0.03,1,False,True
 20260814,50.67,-0.05,45.65,0.19,44.22,0.31,2,False,True
 20260821,50.77,0.1,45.7,0.05,44.13,-0.09,3,False,True
+20260828,56.24,5.47,51.9,6.2,50.63,6.5,4,True,True
+20260904,51.28,-4.96,46.1,-5.8,44.95,-5.68,0,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260904 | 6016 | 康和證 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  |  | continued_2_3d | 1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）: 康和期貨普通股 2.事實發生日:115/7/9~115/7/9 3.董事會通過日期: 民國115年7月9日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: 依持股比例認購康和期貨 交易數量：預計普通股15,935仟股 每單位價格：暫訂新台幣20元 交易總金額：預計新台幣318,700仟元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之 關係人者，得免揭露其姓名）: 交易相對人：康和期貨(股)公司 其與公司之關係：為本公司95.71%持有之子公司 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移 轉之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次 移轉日期及移轉金額: 康和期貨為本公司持股95.71%之子公司， 此次現金增資，本公司依持股比例認購， 認股期間過後，如有原股東及員工放棄認購之部分，本公司得參與認購。 前次移轉日期及移轉金額：不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取 得及處分日期、價格及交易當時與公司之關係: 不適用 9.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分債權 如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人之債權 帳面金額: 不適用 10.處分利益（或損失）（取得有價證券者不適用）（原遞延者應列表說明 認列情形）: 不適用 11.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 交付或付款條件：於康和期貨取得主管機關核准後，辦理認購事宜。 契約限制條款及其他重要約定事項：無。 12.本次交易之決定方式、價格決定之參考依據及決策單位: 本次交易係以現金增資方式認購 價格決定之參考依據：以康和期貨115年5月31日每股淨值19.54元作為 參考依據，暫訂每股價格20元。 決策單位：董事會 13.取得或處分有價證券標的公司每股淨值: 不適用 14.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 含本次交易後，本公司持有康和期貨子公司 累計持有股數 : 預計93,941仟股 累計投資金額 : 預計878,354仟元 持股比例 : 預計93.94% 權利受限情形：無 15.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列 之有價證券投資（含本次交易）占公司最近期財務報表中總資產及歸屬 於母公司業主之權益之比例暨最近期財務報表中營運資金數額（註二）: 總資產比例：83.75% 股東權益比例：329.74% 營運資金數額：6,365,764仟元 16.經紀人及經紀費用: 不適用 17.取得或處分之具體目的或用途: 增進期貨業務發展。 18.本次交易表示異議董事之意見: 無 19.本次交易為關係人交易:是 20.監察人承認或審計委員會同意日期: 民國115年7月7日 21.本次交易會計師出具非合理性意見:不適用 22.會計師事務所名稱: 不適用 23.會計師姓名: 不適用 24.會計師開業證書字號: 不適用 25.是否涉及營運模式變更:否 26.營運模式變更說明: 不適用 27.過去一年及預計未來一年內與交易相對人交易情形: 無 28.資金來源: 公司自有資金 29.前已就同一件事件發布重大訊息日期: 不適用 30.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260904 | 6016 | 康和證 | 2 | 1 | 3 | 4 | 6 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

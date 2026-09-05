@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1319 東陽
 
 ## Metadata
-- generated_at: 2026-08-23 22:26:36 Asia/Taipei
+- generated_at: 2026-09-05 15:52:24 Asia/Taipei
 - stock_id: 1319
 - stock_name: 東陽
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 39
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 41
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 82.6
+- date: 20260904
+- open: 81.7
 - high: 82.8
-- low: 82.2
-- close: 82.8
-- volume: 1432016
-- ma5: 82.6
-- ema23_primary: 78.74
-- distance_to_ema23_pct: 5.15
-- ma20: 76.87
-- ma60: 82.26
-- ma120: 81.94
-- return_5d: -1.31
-- return_20d: 14.84
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: 7.71
-- distance_to_high_60_pct: -23.33
+- low: 80.6
+- close: 82.6
+- volume: 1654806
+- ma5: 82.56
+- ema23_primary: 80.87
+- distance_to_ema23_pct: 2.13
+- ma20: 81.79
+- ma60: 80
+- ma120: 81.23
+- return_5d: 0.61
+- return_20d: 7.69
+- volume_ratio: 0.64
+- distance_to_ma20_pct_auxiliary: 0.99
+- distance_to_high_60_pct: -23.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,72.7,73.1,72,73,1490892,77,-5.2,75.13,82.89,0.51
-20260728,72.4,72.4,70,70.1,4942825,76.43,-8.28,74.83,82.81,1.75
-20260729,71,71.5,68.8,70.5,3559055,75.93,-7.16,74.48,82.74,1.27
-20260730,70.6,71.9,70,71.4,3283516,75.56,-5.5,74.25,82.65,1.19
-20260731,72.1,73.4,71.2,71.2,3372213,75.19,-5.31,74.03,82.58,1.26
-20260803,71.2,71.9,70.9,71.4,1606266,74.88,-4.64,73.75,82.44,0.61
-20260804,70.7,72,70.7,72,1102871,74.64,-3.53,73.44,82.3,0.44
-20260805,72.4,73.3,72.3,72.9,1444291,74.49,-2.14,73.21,82.17,0.59
-20260806,74,76.5,73.7,76.5,4246603,74.66,2.47,73.22,82.11,1.68
-20260807,77,78.3,75.8,76.7,4075136,74.83,2.5,73.27,82.06,1.56
 20260810,76.8,77.6,76,77.6,2123941,75.06,3.38,73.39,82.03,0.82
 20260811,76.8,79,76.8,78.8,3323777,75.37,4.55,73.56,82.03,1.27
 20260812,79,79.4,78.1,79.2,3299025,75.69,4.64,73.74,82.02,1.23
@@ -167,27 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,81.4,82.2,81.2,81.7,2429556,77.95,4.81,75.83,82.14,0.75
 20260820,82.2,83,81.8,83,1869819,78.37,5.9,76.33,82.19,0.58
 20260821,82.6,82.8,82.2,82.8,1432016,78.74,5.15,76.87,82.26,0.44
+20260824,82.8,83.1,82.4,82.6,1122365,79.06,4.47,77.35,82.19,0.35
+20260825,82.6,83.5,82.1,82.6,2141515,79.36,4.08,77.97,81.98,0.7
+20260826,82.9,83.1,81.7,82.3,1332744,79.6,3.39,78.56,81.9,0.45
+20260827,82.3,82.7,81.6,81.7,1239092,79.78,2.41,79.08,81.72,0.43
+20260828,82,84.3,82,82.1,2802208,79.97,2.66,79.62,81.52,0.99
+20260831,82,82.9,81.7,82.6,1270226,80.19,3,80.19,81.29,0.45
+20260901,82.9,83.3,82.4,83.2,1807298,80.44,3.43,80.75,81.05,0.64
+20260902,82.9,83.5,82.7,83,1133367,80.65,2.91,81.25,80.8,0.4
+20260903,82.6,83,81.2,81.4,1898204,80.72,0.85,81.5,80.41,0.7
+20260904,81.7,82.8,80.6,82.6,1654806,80.87,2.13,81.79,80,0.64
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 80.12
-- over_600_ratio: 78.21
-- over_800_ratio: 77.3
-- over_1000_ratio: 76.22
-- over_400_change_1w: 1.09
-- over_800_change_1w: 1.05
-- over_1000_change_1w: 0.73
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
+- as_of_date: 20260904
+- over_400_ratio: 80.23
+- over_600_ratio: 77.94
+- over_800_ratio: 76.9
+- over_1000_ratio: 75.96
+- over_400_change_1w: 0.14
+- over_800_change_1w: -0.11
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,84,1.18,80.64,1.02,80.34,1.17,1,True,True
-20260612,85.63,1.63,82.74,2.1,82.31,1.97,2,True,True
 20260618,86.52,0.89,83.49,0.75,83.07,0.76,3,True,True
 20260626,82.03,-4.49,78.41,-5.08,77.99,-5.08,0,False,False
 20260703,80.16,-1.87,76.73,-1.68,76.12,-1.87,0,False,False
@@ -198,22 +197,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,78.67,-0.25,75.61,-0.01,75.2,0.02,1,False,True
 20260814,79.03,0.36,76.25,0.64,75.49,0.29,2,True,True
 20260821,80.12,1.09,77.3,1.05,76.22,0.73,3,True,True
+20260828,80.09,-0.03,77.01,-0.29,75.95,-0.27,0,False,False
+20260904,80.23,0.14,76.9,-0.11,75.96,0.01,1,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 1319 | 東陽 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.發生變動日期:115/06/17 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名:林幹雄、蔡明田、鄭雁玲 4.舊任者簡歷:林幹雄/開銘實業股份有限公司總經理、 蔡明田/成功大學工程管理學院工程管理碩士專班兼任教授、 鄭雁玲/就業情報資訊(股)公司職涯顧問 5.新任者姓名:尚未委任 6.新任者簡歷:尚未委任 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:薪資報酬委員會委員任期與董事會董事任期相同，配合董事會董事 任期屆滿解任。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/29~115/06/18 10.新任生效日期:尚未委任 11.其他應敘明事項:新任委員待召開董事會重新委任後,另行公告；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| 20260904 | 1319 | 東陽 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.發生變動日期:115/06/17 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名:林幹雄、蔡明田、鄭雁玲 4.舊任者簡歷:林幹雄/開銘實業股份有限公司總經理、 蔡明田/成功大學工程管理學院工程管理碩士專班兼任教授、 鄭雁玲/就業情報資訊(股)公司職涯顧問 5.新任者姓名:尚未委任 6.新任者簡歷:尚未委任 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:薪資報酬委員會委員任期與董事會董事任期相同，配合董事會董事 任期屆滿解任。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/29~115/06/18 10.新任生效日期:尚未委任 11.其他應敘明事項:新任委員待召開董事會重新委任後,另行公告；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 1319 | 東陽 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260904 | 1319 | 東陽 | 1 | 1 | 4 | 9 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 1319 | 東陽 | 18 | 0 | 876180.0 | 0.0 |  | no_signal |
+| 20260904 | 1319 | 東陽 | 21 | 0 | 570620.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

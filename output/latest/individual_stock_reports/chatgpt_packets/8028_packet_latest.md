@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8028 昇陽半導體
 
 ## Metadata
-- generated_at: 2026-08-23 22:29:30 Asia/Taipei
+- generated_at: 2026-09-05 15:54:42 Asia/Taipei
 - stock_id: 8028
 - stock_name: 昇陽半導體
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 245.5
-- high: 246
-- low: 240
-- close: 242.5
-- volume: 1319554
-- ma5: 250
-- ema23_primary: 266.9
-- distance_to_ema23_pct: -9.14
-- ma20: 261.25
-- ma60: 297.59
-- ma120: 256
-- return_5d: -7.79
-- return_20d: -19.3
-- volume_ratio: 0.47
-- distance_to_ma20_pct_auxiliary: -7.18
-- distance_to_high_60_pct: -33.56
+- date: 20260904
+- open: 242
+- high: 244
+- low: 234.5
+- close: 239
+- volume: 1322617
+- ma5: 243.4
+- ema23_primary: 253.7
+- distance_to_ema23_pct: -5.8
+- ma20: 250.8
+- ma60: 283.28
+- ma120: 261.76
+- return_5d: -4.02
+- return_20d: -5.91
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: -4.7
+- distance_to_high_60_pct: -34.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,301,311,301,311,1910406,309.31,0.55,311.68,298.57,0.25
-20260728,295,302.5,280,280,2957970,306.86,-8.75,311.25,299.15,0.39
-20260729,281,281,252,252,1257792,302.29,-16.64,308,299.27,0.18
-20260730,227,251,227,227.5,2357629,296.06,-23.16,303.77,299.05,0.34
-20260731,248,250,245,245,1506504,291.8,-16.04,300,299.19,0.23
-20260803,245,266,245,260.5,1613232,289.2,-9.92,296.3,299.72,0.26
-20260804,260,269.5,260,268,888117,287.43,-6.76,293.18,300.42,0.16
-20260805,278,286,275,282,1547396,286.98,-1.73,291.8,301.22,0.3
-20260806,277,278.5,262.5,274.5,5683115,285.94,-4,290.25,301.82,1.09
-20260807,277,277,252.5,254,5896528,283.28,-10.33,287.32,302.08,1.11
 20260810,260,268,257.5,264,3255163,281.67,-6.27,285.38,302.12,0.62
 20260811,262,268,257,261,2653764,279.95,-6.77,283.85,301.68,0.52
 20260812,262.5,268,261,265,2817860,278.7,-4.92,281.18,301.46,0.58
@@ -167,17 +158,27 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,240,253,240,247,2493705,271.13,-8.9,266.82,299.75,0.89
 20260820,250,251,243,247,1529198,269.12,-8.22,264.15,298.68,0.55
 20260821,245.5,246,240,242.5,1319554,266.9,-9.14,261.25,297.59,0.47
+20260824,242.5,249.5,242.5,242.5,1249637,264.86,-8.44,257.82,296.06,0.45
+20260825,240,243,231,242,1801046,262.96,-7.97,255.93,294.64,0.66
+20260826,241.5,246.5,240.5,246.5,1327218,261.59,-5.77,255.65,292.81,0.49
+20260827,249.5,251.5,244,248.5,1894678,260.5,-4.61,256.7,291.37,0.7
+20260828,251.5,255.5,249,249,2310457,259.54,-4.06,256.9,289.77,0.84
+20260831,246.5,246.5,237,241,3870838,257.99,-6.59,255.93,288.11,1.35
+20260901,242.5,256,242.5,255,3511893,257.74,-1.06,255.28,286.73,1.17
+20260902,250,253,245,245.5,2559823,256.72,-4.37,253.45,285.76,0.84
+20260903,248,249,236.5,236.5,1932954,255.04,-7.27,251.55,284.55,0.68
+20260904,242,244,234.5,239,1322617,253.7,-5.8,250.8,283.28,0.5
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 50.9
-- over_600_ratio: 44.76
-- over_800_ratio: 41.15
-- over_1000_ratio: 39.18
-- over_400_change_1w: -0.71
-- over_800_change_1w: -0.74
-- over_1000_change_1w: -0.17
+- as_of_date: 20260904
+- over_400_ratio: 48.63
+- over_600_ratio: 44.15
+- over_800_ratio: 39.72
+- over_1000_ratio: 38.2
+- over_400_change_1w: -1.01
+- over_800_change_1w: -0.85
+- over_1000_change_1w: -0.9
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -186,8 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,54.46,-1.64,44.8,-1.18,41.88,-2.69,0,False,False
-20260612,55.74,1.28,44.46,-0.34,43,1.12,1,False,True
 20260618,52.33,-3.41,42.87,-1.59,39.89,-3.11,0,False,False
 20260626,50.32,-2.01,40.59,-2.28,37.06,-2.83,0,False,False
 20260703,51.66,1.34,40.27,-0.32,37.4,0.34,1,False,True
@@ -198,6 +197,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,51.26,-1.06,42.2,-0.4,39.78,-1.82,0,False,False
 20260814,51.61,0.35,41.89,-0.31,39.35,-0.43,1,False,False
 20260821,50.9,-0.71,41.15,-0.74,39.18,-0.17,0,False,False
+20260828,49.64,-1.26,40.57,-0.58,39.1,-0.08,0,False,False
+20260904,48.63,-1.01,39.72,-0.85,38.2,-0.9,0,False,False
 ```
 
 ## Candidate Context
@@ -213,7 +214,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 8028 | 昇陽半導體 | 107 | 1 | 1787530.0 | 41080.0 | 43.51 | no_signal |
+| 20260904 | 8028 | 昇陽半導體 | 101 | 1 | 522030.0 | 46000.0 | 11.35 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2618 長榮航
 
 ## Metadata
-- generated_at: 2026-08-23 22:27:21 Asia/Taipei
+- generated_at: 2026-09-05 15:52:59 Asia/Taipei
 - stock_id: 2618
 - stock_name: 長榮航
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 39
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 41
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 42
-- high: 42.6
-- low: 41.6
-- close: 42.6
-- volume: 26556485
-- ma5: 42.03
-- ema23_primary: 42.06
-- distance_to_ema23_pct: 1.28
-- ma20: 42.39
-- ma60: 41.27
-- ma120: 37.97
-- return_5d: 6.77
-- return_20d: 4.67
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: 0.5
-- distance_to_high_60_pct: -6.68
+- date: 20260904
+- open: 42.75
+- high: 42.75
+- low: 42.1
+- close: 42.5
+- volume: 10032140
+- ma5: 42.37
+- ema23_primary: 42.27
+- distance_to_ema23_pct: 0.55
+- ma20: 42.09
+- ma60: 42.16
+- ma120: 38.67
+- return_5d: 1.67
+- return_20d: -4.28
+- volume_ratio: 0.37
+- distance_to_ma20_pct_auxiliary: 0.97
+- distance_to_high_60_pct: -6.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,41.5,42.15,41.3,41.95,48697688,41.4,1.32,42.09,38.84,0.93
-20260728,41.65,42.95,41.5,42.75,72120873,41.51,2.98,42.03,39,1.34
-20260729,43,43.4,40.75,41.45,47478156,41.51,-0.14,41.86,39.12,0.9
-20260730,41.6,41.85,41.05,41.75,52861405,41.53,0.53,41.75,39.25,1
-20260731,42.5,43.85,42.3,43.3,70267465,41.68,3.89,41.72,39.41,1.29
-20260803,43.3,43.8,42.9,43.7,40295415,41.85,4.43,41.71,39.55,0.74
-20260804,42.85,44.15,42,43.8,49619542,42.01,4.26,41.73,39.68,0.9
-20260805,44,44.55,43.55,43.8,45129966,42.16,3.9,41.8,39.82,0.84
-20260806,43.7,43.95,43.1,43.25,20003759,42.25,2.37,41.97,39.95,0.4
-20260807,43.2,44.6,42.8,44.4,37423508,42.43,4.65,42.2,40.12,0.78
 20260810,43,43,41.5,42.65,40365369,42.45,0.48,42.3,40.24,0.89
 20260811,42,42.15,41.2,41.75,36659531,42.39,-1.51,42.35,40.36,0.85
 20260812,41.9,42.6,41.45,42.15,22165760,42.37,-0.52,42.35,40.5,0.54
@@ -168,18 +158,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,41.75,41.85,41.05,41.6,17734556,41.99,-0.93,42.22,41.02,0.43
 20260820,42.05,42.5,41.8,42.25,24896565,42.01,0.57,42.29,41.13,0.61
 20260821,42,42.6,41.6,42.6,26556485,42.06,1.28,42.39,41.27,0.65
+20260824,42.65,43.6,42.55,42.65,20270027,42.11,1.28,42.42,41.39,0.52
+20260825,42.65,42.75,42,42.2,11423716,42.12,0.2,42.4,41.49,0.31
+20260826,42.85,43.4,42.8,43,28471617,42.19,1.92,42.47,41.58,0.81
+20260827,43.5,43.5,42.5,42.75,24917033,42.24,1.21,42.52,41.67,0.73
+20260828,42.6,42.6,41.6,41.8,20564641,42.2,-0.95,42.45,41.74,0.65
+20260831,41.75,42.05,41.45,42,20960560,42.18,-0.44,42.36,41.81,0.69
+20260901,41.55,42.4,41.5,42.4,21244156,42.2,0.47,42.29,41.88,0.73
+20260902,42.15,42.3,41.7,42.15,20019837,42.2,-0.11,42.21,41.98,0.72
+20260903,42.45,42.95,42.15,42.8,26435053,42.25,1.31,42.19,42.08,0.94
+20260904,42.75,42.75,42.1,42.5,10032140,42.27,0.55,42.09,42.16,0.37
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 81.85
-- over_600_ratio: 80.59
-- over_800_ratio: 79.43
-- over_1000_ratio: 78.62
-- over_400_change_1w: 0.31
-- over_800_change_1w: 0.25
-- over_1000_change_1w: 0.26
-- tdcc_consecutive_up_weeks: 16
+- as_of_date: 20260904
+- over_400_ratio: 82.49
+- over_600_ratio: 81.28
+- over_800_ratio: 80.25
+- over_1000_ratio: 79.36
+- over_400_change_1w: 0.22
+- over_800_change_1w: 0.26
+- over_1000_change_1w: 0.23
+- tdcc_consecutive_up_weeks: 18
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -187,8 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,74.46,1.24,71.74,1.45,70.84,1.45,5,True,True
-20260612,74.66,0.2,71.98,0.24,71.04,0.2,6,True,True
 20260618,77.34,2.68,74.97,2.99,74.16,3.12,7,True,True
 20260626,78.83,1.49,76.51,1.54,75.77,1.61,8,True,True
 20260703,79.41,0.58,77.04,0.53,76.2,0.43,9,True,True
@@ -199,23 +197,25 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,81.46,0.63,79.06,0.71,78.27,0.73,14,True,True
 20260814,81.54,0.08,79.18,0.12,78.36,0.09,15,True,True
 20260821,81.85,0.31,79.43,0.25,78.62,0.26,16,True,True
+20260828,82.27,0.42,79.99,0.56,79.13,0.51,17,True,True
+20260904,82.49,0.22,80.25,0.26,79.36,0.23,18,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2618 | 長榮航 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/22 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利，每股配發新台幣2元 4.除權（息）交易日:115/07/08 5.最後過戶日:115/07/09 6.停止過戶起始日期:115/07/10 7.停止過戶截止日期:115/07/14 8.除權（息）基準日:115/07/14 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/07 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
-| 20260821 | 2618 | 長榮航 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/22 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利，每股配發新台幣2元 4.除權（息）交易日:115/07/08 5.最後過戶日:115/07/09 6.停止過戶起始日期:115/07/10 7.停止過戶截止日期:115/07/14 8.除權（息）基準日:115/07/14 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/07 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260904 | 2618 | 長榮航 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | call_strong_inflow | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/22 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利，每股配發新台幣2元 4.除權（息）交易日:115/07/08 5.最後過戶日:115/07/09 6.停止過戶起始日期:115/07/10 7.停止過戶截止日期:115/07/14 8.除權（息）基準日:115/07/14 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/07 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| 20260904 | 2618 | 長榮航 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/22 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利，每股配發新台幣2元 4.除權（息）交易日:115/07/08 5.最後過戶日:115/07/09 6.停止過戶起始日期:115/07/10 7.停止過戶截止日期:115/07/14 8.除權（息）基準日:115/07/14 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/07 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2618 | 長榮航 | 13 | 6 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260904 | 2618 | 長榮航 | 2 | 2 | 4 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2618 | 長榮航 | 42 | 0 | 2929270.0 | 0.0 |  | no_signal |
+| 20260904 | 2618 | 長榮航 | 43 | 0 | 3296600.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

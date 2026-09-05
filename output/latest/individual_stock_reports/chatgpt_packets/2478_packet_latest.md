@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2478 大毅
 
 ## Metadata
-- generated_at: 2026-08-23 22:27:14 Asia/Taipei
+- generated_at: 2026-09-05 15:52:54 Asia/Taipei
 - stock_id: 2478
 - stock_name: 大毅
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 128.5
-- high: 131.5
-- low: 122
-- close: 123.5
-- volume: 6960110
-- ma5: 126.8
-- ema23_primary: 130.95
-- distance_to_ema23_pct: -5.69
-- ma20: 120.8
-- ma60: 160.24
-- ma120: 117.66
-- return_5d: -3.52
-- return_20d: -6.08
-- volume_ratio: 0.87
-- distance_to_ma20_pct_auxiliary: 2.24
-- distance_to_high_60_pct: -51.85
+- date: 20260904
+- open: 117.5
+- high: 125.5
+- low: 117.5
+- close: 125.5
+- volume: 5868369
+- ma5: 121.6
+- ema23_primary: 126.02
+- distance_to_ema23_pct: -0.41
+- ma20: 124.45
+- ma60: 156.22
+- ma120: 122.1
+- return_5d: -3.09
+- return_20d: 10.09
+- volume_ratio: 0.75
+- distance_to_ma20_pct_auxiliary: 0.84
+- distance_to_high_60_pct: -51.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,129.5,134,122.5,128.5,3894265,163.48,-21.4,174.78,151.32,0.7
-20260728,121,122,116,116,2730030,159.53,-27.29,170.32,152.12,0.49
-20260729,114.5,115.5,104.5,104.5,3046520,154.94,-32.56,164.28,152.67,0.53
-20260730,102.5,108.5,97.9,99.9,4867009,150.35,-33.56,158,153.05,0.83
-20260731,109.5,109.5,104,108.5,5166315,146.87,-26.12,152.02,153.58,0.86
-20260803,108,119,107.5,118,7221874,144.46,-18.32,146.02,154.21,1.14
-20260804,116,125,112,121.5,10562869,142.55,-14.77,141.34,154.93,1.7
-20260805,126.5,128,119,120,6291640,140.67,-14.69,137.67,155.63,1
-20260806,118,123,112,121.5,4224818,139.07,-12.63,134.69,156.32,0.69
-20260807,120,122.5,113.5,114,2999450,136.98,-16.78,131.69,156.88,0.51
 20260810,117.5,124,117.5,122,4025012,135.73,-10.12,129.62,157.54,0.71
 20260811,120,131,119.5,121,16801898,134.51,-10.04,127.8,158.17,2.72
 20260812,123,133,121,128.5,14439360,134.01,-4.11,125.57,158.78,2.22
@@ -168,27 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,118.5,134.5,118,134.5,11550700,131.92,1.96,121.67,160.02,1.57
 20260820,135.5,136,126,128.5,18349904,131.63,-2.38,121.19,160.18,2.34
 20260821,128.5,131.5,122,123.5,6960110,130.95,-5.69,120.8,160.24,0.87
+20260824,123.5,125.5,120,120.5,3004306,130.08,-7.37,120.39,160.13,0.38
+20260825,119,120.5,112.5,120.5,3892134,129.28,-6.79,120.62,159.82,0.48
+20260826,120,122.5,118,122,2844701,128.68,-5.19,121.5,159.46,0.35
+20260827,124,128.5,120.5,125,5900910,128.37,-2.63,122.75,159.16,0.73
+20260828,130,136,126.5,129.5,11981103,128.46,0.81,123.8,159.03,1.42
+20260831,126.5,133.5,120,123.5,4271740,128.05,-3.55,124.08,158.8,0.52
+20260901,123,128,122.5,123.5,3801857,127.67,-3.27,124.17,158.36,0.48
+20260902,120.5,123,119.5,121,1828520,127.12,-4.81,124.22,157.84,0.24
+20260903,121.5,121.5,114.5,114.5,2343366,126.06,-9.17,123.88,156.97,0.31
+20260904,117.5,125.5,117.5,125.5,5868369,126.02,-0.41,124.45,156.22,0.75
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 57.53
-- over_600_ratio: 51.57
-- over_800_ratio: 49.17
-- over_1000_ratio: 46.67
-- over_400_change_1w: 0.63
-- over_800_change_1w: 3.31
-- over_1000_change_1w: 2.67
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260904
+- over_400_ratio: 56.6
+- over_600_ratio: 50.47
+- over_800_ratio: 46.68
+- over_1000_ratio: 45.43
+- over_400_change_1w: -0.42
+- over_800_change_1w: -0.65
+- over_1000_change_1w: -0.04
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,64.04,1.94,54.41,1.98,52.57,2.02,5,True,True
-20260612,65.5,1.46,56.99,2.58,55.14,2.57,6,True,True
 20260618,69.68,4.18,61.78,4.79,59.36,4.22,7,True,True
 20260626,67.92,-1.76,60.4,-1.38,58.66,-0.7,0,False,False
 20260703,66.28,-1.64,59.34,-1.06,58.77,0.11,1,False,True
@@ -199,22 +197,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,62.09,-0.71,55.61,0.52,53.73,-0.79,3,False,True
 20260814,56.9,-5.19,45.86,-9.75,44,-9.73,0,False,False
 20260821,57.53,0.63,49.17,3.31,46.67,2.67,1,True,True
+20260828,57.02,-0.51,47.33,-1.84,45.47,-1.2,0,False,False
+20260904,56.6,-0.42,46.68,-0.65,45.43,-0.04,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2478 | 大毅 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| 20260904 | 2478 | 大毅 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2478 | 大毅 | 2 | 2 | 4 | 8 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260904 | 2478 | 大毅 | 1 | 1 | 1 | 4 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2478 | 大毅 | 33 | 0 | 1399880.0 | 0.0 |  | no_signal |
+| 20260904 | 2478 | 大毅 | 37 | 0 | 2634760.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6173 信昌電
 
 ## Metadata
-- generated_at: 2026-08-23 22:28:41 Asia/Taipei
+- generated_at: 2026-09-05 15:54:03 Asia/Taipei
 - stock_id: 6173
 - stock_name: 信昌電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 203
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 213
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -87,7 +87,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: high_level_consolidation
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -101,10 +101,10 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -117,7 +117,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -125,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 220.5
-- high: 227
-- low: 211.5
-- close: 212
-- volume: 20134000
-- ma5: 210.4
-- ema23_primary: 199.3
-- distance_to_ema23_pct: 6.37
-- ma20: 181.5
-- ma60: 231.03
-- ma120: 163.11
-- return_5d: 0.95
-- return_20d: 28.48
-- volume_ratio: 1.69
-- distance_to_ma20_pct_auxiliary: 16.8
-- distance_to_high_60_pct: -41.52
+- date: 20260904
+- open: 260
+- high: 265
+- low: 254.5
+- close: 260.5
+- volume: 18224000
+- ma5: 253.9
+- ema23_primary: 221.91
+- distance_to_ema23_pct: 17.39
+- ma20: 218.65
+- ma60: 232.15
+- ma120: 177.18
+- return_5d: 9
+- return_20d: 64.87
+- volume_ratio: 1.06
+- distance_to_ma20_pct_auxiliary: 19.14
+- distance_to_high_60_pct: -28.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,159.5,181,148.5,181,1954000,226.41,-20.06,246.8,221.61,0.26
-20260728,163,163,163,163,258000,221.12,-26.29,240.82,222.9,0.03
-20260729,149.5,149.5,147,147,433000,214.95,-31.61,232.65,223.84,0.06
-20260730,132.5,142.5,132.5,132.5,1015000,208.08,-36.32,222.2,224.52,0.14
-20260731,145.5,145.5,134,145.5,2270000,202.86,-28.28,213.53,225.26,0.35
-20260803,145.5,160,145.5,160,1089000,199.29,-19.72,204,226.07,0.2
-20260804,156.5,169.5,156.5,164.5,1632000,196.39,-16.24,196.45,226.78,0.35
-20260805,171,178,161.5,165,14355000,193.78,-14.85,190.5,227.3,2.93
-20260806,164,171.5,154,171,5634000,191.88,-10.88,185.4,227.7,1.22
-20260807,170,172,156,158,5455000,189.05,-16.43,179.55,227.68,1.26
 20260810,162,172,161.5,168.5,4934000,187.34,-10.06,175.6,227.62,1.2
 20260811,168,185,168,185,18472000,187.15,-1.15,172.9,228.12,4.45
 20260812,186.5,203.5,182.5,203.5,26034000,188.51,7.95,171.5,228.75,5.15
@@ -167,27 +157,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,190,213.5,189.5,213.5,9789000,196.06,8.89,177.25,231.31,1.08
 20260820,219,228,211,221,39655000,198.14,11.54,179.15,231.26,3.62
 20260821,220.5,227,211.5,212,20134000,199.3,6.37,181.5,231.03,1.69
+20260824,209.5,215,203,203,8336000,199.6,1.7,182.6,230.75,0.68
+20260825,201,205,190.5,203.5,6388000,199.93,1.79,184.62,230.19,0.51
+20260826,197.5,201.5,195,198,6116000,199.77,-0.89,187.18,229.54,0.48
+20260827,205,217.5,196,217.5,10757000,201.25,8.08,191.43,229.31,0.81
+20260828,229,239,229,239,17292000,204.39,16.93,196.1,229.45,1.23
+20260831,242.5,259.5,235.5,246,28268000,207.86,18.35,200.4,229.96,1.83
+20260901,255.5,270.5,254,261.5,21704000,212.33,23.16,205.25,230.59,1.32
+20260902,255,263.5,253.5,260.5,9462000,216.34,20.41,210.03,231.44,0.58
+20260903,258.5,258.5,237.5,241,12412000,218.4,10.35,213.53,231.62,0.75
+20260904,260,265,254.5,260.5,18224000,221.91,17.39,218.65,232.15,1.06
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 64.26
-- over_600_ratio: 62.28
-- over_800_ratio: 58.92
-- over_1000_ratio: 56.54
-- over_400_change_1w: 0.97
-- over_800_change_1w: -0.51
-- over_1000_change_1w: -1.95
-- tdcc_consecutive_up_weeks: 6
+- as_of_date: 20260904
+- over_400_ratio: 64.01
+- over_600_ratio: 62.24
+- over_800_ratio: 58.33
+- over_1000_ratio: 56.27
+- over_400_change_1w: 0.93
+- over_800_change_1w: 0.25
+- over_1000_change_1w: -0.85
+- tdcc_consecutive_up_weeks: 8
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,69.23,0.13,64.88,-0.21,62.4,-0.75,5,False,False
-20260612,70.39,1.16,65.23,0.35,63.15,0.75,6,True,True
 20260618,67.61,-2.78,63.67,-1.56,62.22,-0.93,0,False,False
 20260626,68.19,0.58,64.08,0.41,62.04,-0.18,1,False,True
 20260703,68.13,-0.06,63.91,-0.17,62.38,0.34,2,False,True
@@ -198,17 +196,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,64.45,-0.81,61.27,-0.03,58.32,0.11,4,False,True
 20260814,63.29,-1.16,59.43,-1.84,58.49,0.17,5,False,True
 20260821,64.26,0.97,58.92,-0.51,56.54,-1.95,6,False,False
+20260828,63.08,-1.18,58.08,-0.84,57.12,0.58,7,False,True
+20260904,64.01,0.93,58.33,0.25,56.27,-0.85,8,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 6173 | 信昌電 | pattern | 型態觀察 | 47.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.原預定買回股份總金額上限(元):4,881,410,000 2.原預定買回之期間:115/08/03~115/09/30 3.原預定買回之數量(股):1,000,000 4.原預定買回區間價格(元):135.00~170.00 5.本次實際買回期間:115/08/03~115/08/10 6.本次已買回股份數量(股):1,000,000 7.本次已買回股份總金額(元):165,848,636 8.本次平均每股買回價格(元):165.85 9.累積已持有自己公司股份數量(股):1,000,000 10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):0.58 11.本次未執行完畢之原因:  12.其他應敘明事項: 無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| 20260904 | 6173 | 信昌電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 55.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | 1.主管機關核准減資日期:115/08/24 2.辦理資本變更登記完成日期:115/08/24 3.對財務報告之影響（含實收資本額與流通在外股數之差異與對每股淨值之影響）:             實收資本額(元)        流通在外股數(股)       每股淨值(元) 減資前      1,712,000,000          171,200,000             59.28 減資後      1,609,280,000          160,928,000             62.42 註：每股淨值係以115年前2季經會計師核閱之財務報表為計算依據。 4.預計換股作業計畫:不適用。 5.預計減資新股上櫃後之上櫃普通股股數:160,928,000股 6.預計減資新股上櫃後之上櫃普通股股數占已發行普通股比率 （減資後上櫃普通股股數/減資後已發行普通股股數）:100% 7.前二項預計減資後上櫃普通股股數未達500萬股且未達25%者， 請說明股權流通性偏低之因應措施:不適用 8.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 6173 | 信昌電 | 4 | 1 | 4 | 8 | 15 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 15 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260904 | 6173 | 信昌電 | 1 | 1 | 3 | 7 | 15 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 15 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

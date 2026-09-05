@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8112 至上
 
 ## Metadata
-- generated_at: 2026-08-23 22:29:35 Asia/Taipei
+- generated_at: 2026-09-05 15:54:46 Asia/Taipei
 - stock_id: 8112
 - stock_name: 至上
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -130,38 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 93.5
-- high: 94.5
-- low: 92.7
-- close: 93.5
-- volume: 9150843
-- ma5: 92.4
-- ema23_primary: 90.55
-- distance_to_ema23_pct: 3.25
-- ma20: 88.65
-- ma60: 90.19
-- ma120: 86.35
-- return_5d: -2.4
-- return_20d: 5.89
-- volume_ratio: 0.47
-- distance_to_ma20_pct_auxiliary: 5.47
-- distance_to_high_60_pct: -10.1
+- date: 20260904
+- open: 90.3
+- high: 90.9
+- low: 88.6
+- close: 90.5
+- volume: 5572317
+- ma5: 90.62
+- ema23_primary: 91.1
+- distance_to_ema23_pct: -0.66
+- ma20: 93.18
+- ma60: 90.31
+- ma120: 87.7
+- return_5d: -0.44
+- return_20d: -0.77
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: -2.88
+- distance_to_high_60_pct: -12.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,88,88,81.9,84.3,20410865,87.83,-4.02,87.51,88.79,1.15
-20260728,81,81,78,78.2,14401656,87.03,-10.14,86.81,88.73,0.82
-20260729,78.7,78.7,73.5,76.7,13783602,86.16,-10.98,86.03,88.64,0.8
-20260730,76.2,78.9,73.6,75.6,10179462,85.28,-11.36,85.33,88.48,0.61
-20260731,80.6,81.7,78.5,80.3,14689641,84.87,-5.38,84.89,88.38,0.88
-20260803,79.1,83,77.2,81.4,16169102,84.58,-3.76,84.31,88.28,1.01
-20260804,81.1,85.7,80.8,85.2,17224178,84.63,0.67,84.1,88.22,1.08
-20260805,87.1,88.4,86.2,86.2,15378648,84.76,1.7,83.9,88.21,0.98
-20260806,86.6,89.2,84.7,89,13976707,85.12,4.56,84.08,88.33,0.93
-20260807,89.9,91.9,88.8,91.2,22269743,85.62,6.51,84.39,88.48,1.41
 20260810,92.9,93,91.2,92.4,16947208,86.19,7.21,84.64,88.61,1.07
 20260811,95,100.5,94.7,100,72928524,87.34,14.5,85.36,88.92,3.87
 20260812,100,101.5,96.6,96.9,37212675,88.14,9.94,85.83,89.13,1.87
@@ -172,17 +162,27 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,88.9,91.8,88.3,91,8972080,89.98,1.14,88.11,89.89,0.45
 20260820,91.8,93.8,90.4,93.7,10851249,90.29,3.78,88.39,90.06,0.54
 20260821,93.5,94.5,92.7,93.5,9150843,90.55,3.25,88.65,90.19,0.47
+20260824,93.5,98,93.4,95.4,18117535,90.96,4.88,89.2,90.34,0.95
+20260825,95,95,92.8,94,10743592,91.21,3.06,90,90.44,0.57
+20260826,94.1,94.5,92.9,93.1,8221408,91.37,1.9,90.81,90.46,0.44
+20260827,93.6,93.8,92,92.2,6409744,91.44,0.83,91.64,90.42,0.35
+20260828,92.6,93.4,90.8,90.9,8591880,91.39,-0.54,92.17,90.37,0.47
+20260831,90.3,91.9,89.8,90.8,5617523,91.34,-0.6,92.64,90.29,0.32
+20260901,91.5,91.7,90.5,91.3,5385732,91.34,-0.04,92.95,90.27,0.32
+20260902,91.5,91.9,90.7,91.2,6958592,91.33,-0.14,93.2,90.37,0.42
+20260903,91.5,92.1,89.2,89.3,9207939,91.16,-2.04,93.22,90.34,0.56
+20260904,90.3,90.9,88.6,90.5,5572317,91.1,-0.66,93.18,90.31,0.36
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 43.55
-- over_600_ratio: 41.87
-- over_800_ratio: 40.23
-- over_1000_ratio: 39.43
-- over_400_change_1w: -2.51
-- over_800_change_1w: -2.03
-- over_1000_change_1w: -2.18
+- as_of_date: 20260904
+- over_400_ratio: 40.56
+- over_600_ratio: 38.63
+- over_800_ratio: 37.65
+- over_1000_ratio: 36.39
+- over_400_change_1w: -2.92
+- over_800_change_1w: -2.75
+- over_1000_change_1w: -3.18
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -191,8 +191,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,41.62,2.94,39.39,3.5,38.07,4.01,1,True,True
-20260612,38.53,-3.09,35.48,-3.91,34.1,-3.97,0,False,False
 20260618,39.1,0.57,36.15,0.67,34.97,0.87,1,True,True
 20260626,38.56,-0.54,36.22,0.07,34.72,-0.25,2,False,True
 20260703,36.1,-2.46,33.93,-2.29,32.09,-2.63,0,False,False
@@ -203,23 +201,25 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,38.65,-0.86,35.48,-0.88,34.5,-1.05,0,False,False
 20260814,46.06,7.41,42.26,6.78,41.61,7.11,1,True,True
 20260821,43.55,-2.51,40.23,-2.03,39.43,-2.18,0,False,False
+20260828,43.48,-0.07,40.4,0.17,39.57,0.14,1,False,True
+20260904,40.56,-2.92,37.65,-2.75,36.39,-3.18,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 8112 | 至上 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_put_bullish | stale_signal | 1.事實發生日:115/08/10 2.被背書保證之: (1)公司名稱:高拓國際貿易(上海)有限公司 (2)與提供背書保證公司之關係: 本公司間接持有之100%子公司 (3)背書保證之限額(仟元):26,944,481 (4)原背書保證之餘額(仟元):4,291,850 (5)本次新增背書保證之金額(仟元):666,260 (6)迄事實發生日止背書保證餘額(仟元):4,958,110 (7)被背書保證公司實際動支金額(仟元):2,480,392 (8)本次新增背書保證之原因: 本公司向銀行簽具背書保證票據以取得額度，原額度人民幣14,000萬到期續保， 以因應轉投資子公司營運週轉之需求。 3.被背書保證公司提供擔保品之: (1)內容: 無。 (2)價值(仟元):0 4.被背書保證公司最近期財務報表之: (1)資本(仟元):383,021 (2)累積盈虧金額(仟元):147,332 5.解除背書保證責任之: (1)條件: 背書保證到期即解除背書保證責任。 (2)日期: 一年到期。 6.背書保證之總限額(仟元): 56,134,335 7.迄事實發生日為止，背書保證餘額(仟元): 22,874,005 8.迄事實發生日為止，A提供背書保證餘額占公開發行公司最近期財務報表淨值之 比率: 101.87 9.迄事實發生日為止，背書保證、長期投資及資金貸與餘額合計數達該公開發行公 司最近期財務報表淨值之比率: 23.72 10.其他應敘明事項: 無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260821 | 8112 | 至上 | revenue_breakout_low_response | 營收爆發低反應股 | 24 | 1 | A_優先追蹤 |  |  | call_put_bullish | stale_signal | 1.事實發生日:115/08/10 2.被背書保證之: (1)公司名稱:高拓國際貿易(上海)有限公司 (2)與提供背書保證公司之關係: 本公司間接持有之100%子公司 (3)背書保證之限額(仟元):26,944,481 (4)原背書保證之餘額(仟元):4,291,850 (5)本次新增背書保證之金額(仟元):666,260 (6)迄事實發生日止背書保證餘額(仟元):4,958,110 (7)被背書保證公司實際動支金額(仟元):2,480,392 (8)本次新增背書保證之原因: 本公司向銀行簽具背書保證票據以取得額度，原額度人民幣14,000萬到期續保， 以因應轉投資子公司營運週轉之需求。 3.被背書保證公司提供擔保品之: (1)內容: 無。 (2)價值(仟元):0 4.被背書保證公司最近期財務報表之: (1)資本(仟元):383,021 (2)累積盈虧金額(仟元):147,332 5.解除背書保證責任之: (1)條件: 背書保證到期即解除背書保證責任。 (2)日期: 一年到期。 6.背書保證之總限額(仟元): 56,134,335 7.迄事實發生日為止，背書保證餘額(仟元): 22,874,005 8.迄事實發生日為止，A提供背書保證餘額占公開發行公司最近期財務報表淨值之 比率: 101.87 9.迄事實發生日為止，背書保證、長期投資及資金貸與餘額合計數達該公開發行公 司最近期財務報表淨值之比率: 23.72 10.其他應敘明事項: 無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260904 | 8112 | 至上 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/08/24 2.公司名稱:至上電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年現金增資股款繳納催繳期間自115年7月24日至115年8月24日  15時30分止。 6.因應措施: (1)未於催繳期間繳納股款之股東及員工，自115年8月24日15時30分停止繳納並喪失其    權利。 (2)於催繳期間繳納股款之股東及員工，所認購之股數預計於115年09月04日劃撥至該股    東及員工之集保帳戶。 (3)若股東有任何疑問，敬請洽詢群益金鼎證券股份有限公司股務代理部    （地址：台北市大安區敦化南路二段97號B2，電話：02-2702-3999） 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260904 | 8112 | 至上 | revenue_breakout_low_response | 營收爆發低反應股 | 22 | 2 | A_優先追蹤 |  |  | no_signal | stale_signal | 1.事實發生日:115/08/24 2.公司名稱:至上電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年現金增資股款繳納催繳期間自115年7月24日至115年8月24日  15時30分止。 6.因應措施: (1)未於催繳期間繳納股款之股東及員工，自115年8月24日15時30分停止繳納並喪失其    權利。 (2)於催繳期間繳納股款之股東及員工，所認購之股數預計於115年09月04日劃撥至該股    東及員工之集保帳戶。 (3)若股東有任何疑問，敬請洽詢群益金鼎證券股份有限公司股務代理部    （地址：台北市大安區敦化南路二段97號B2，電話：02-2702-3999） 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 8112 | 至上 | 6 | 2 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260904 | 8112 | 至上 | 15 | 11 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 8112 | 至上 | 143 | 5 | 27741160.0 | 25450.0 | 1090.03 | call_put_bullish |
+| 20260904 | 8112 | 至上 | 143 | 6 | 1654760.0 | 4120.0 | 401.64 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

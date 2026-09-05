@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5328 華容
 
 ## Metadata
-- generated_at: 2026-08-23 22:28:26 Asia/Taipei
+- generated_at: 2026-09-05 15:53:51 Asia/Taipei
 - stock_id: 5328
 - stock_name: 華容
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 203
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 213
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
+- model_category_display_zh: 營收成長股價回檔
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 61.8
-- high: 63.3
-- low: 61.3
-- close: 61.4
-- volume: 4566000
-- ma5: 62.88
-- ema23_primary: 63.92
-- distance_to_ema23_pct: -3.95
-- ma20: 64.23
-- ma60: 59.78
-- ma120: 43.41
-- return_5d: -8.63
-- return_20d: 0.49
-- volume_ratio: 0.19
-- distance_to_ma20_pct_auxiliary: -4.41
-- distance_to_high_60_pct: -30.86
+- date: 20260904
+- open: 60.7
+- high: 63
+- low: 60.3
+- close: 61
+- volume: 6351000
+- ma5: 61.18
+- ema23_primary: 62.58
+- distance_to_ema23_pct: -2.52
+- ma20: 63.2
+- ma60: 63.44
+- ma120: 46.34
+- return_5d: -3.17
+- return_20d: 0.33
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: -3.47
+- distance_to_high_60_pct: -31.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,61,67.2,60.2,67.2,32015000,63.41,5.98,68.84,48.91,1.02
-20260728,65,66.2,61,61.3,37082000,63.23,-3.06,68.67,49.53,1.27
-20260729,62,66,57.1,64.5,65570000,63.34,1.83,68.34,50.17,2.11
-20260730,62.1,70,58.1,58.3,59655000,62.92,-7.34,67.34,50.7,1.82
-20260731,64.1,64.1,62.1,63.8,18277000,62.99,1.28,66.44,51.33,0.62
-20260803,63.7,69.8,63.4,67.4,39728000,63.36,6.38,65.69,51.97,1.39
-20260804,66.8,68.6,65.7,66.4,29867000,63.61,4.38,64.98,52.63,1.06
-20260805,68.6,69.9,65.5,65.9,22521000,63.8,3.29,64.48,53.26,0.83
-20260806,65.9,65.9,61.8,62.9,12527000,63.73,-1.3,64.03,53.84,0.47
-20260807,63.2,64.8,60.6,60.8,11348000,63.48,-4.23,63.55,54.38,0.44
 20260810,61,64.2,61,62.5,9380000,63.4,-1.42,63.41,54.93,0.37
 20260811,61.8,67.2,61.6,66,30140000,63.62,3.74,63.51,55.55,1.17
 20260812,66.7,67.2,65,67.2,18881000,63.92,5.14,63.55,56.2,0.74
@@ -168,27 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,60.4,65.5,60.4,63.1,12628000,64.32,-1.9,64.45,58.9,0.49
 20260820,63.7,64.5,61,62.3,8034000,64.15,-2.89,64.22,59.35,0.33
 20260821,61.8,63.3,61.3,61.4,4566000,63.92,-3.95,64.23,59.78,0.19
+20260824,61.3,63.1,61.3,61.9,5100000,63.76,-2.91,63.97,60.21,0.23
+20260825,61.2,63,58.7,63,5179000,63.69,-1.09,64.05,60.6,0.25
+20260826,62.7,63,61.8,61.9,4068000,63.54,-2.59,63.92,60.97,0.23
+20260827,62.7,63.8,61.2,62.1,7178000,63.42,-2.09,64.11,61.34,0.47
+20260828,63.7,67.4,63,63,16123000,63.39,-0.61,64.07,61.75,1.07
+20260831,62.5,64.5,61.4,62.1,5295000,63.28,-1.86,63.8,62.16,0.4
+20260901,62.5,64.2,62.2,62.3,5099000,63.2,-1.42,63.6,62.52,0.42
+20260902,61.5,62.2,61,61.5,2555000,63.06,-2.47,63.38,62.9,0.23
+20260903,61.1,61.9,59,59,3299000,62.72,-5.93,63.19,63.17,0.31
+20260904,60.7,63,60.3,61,6351000,62.58,-2.52,63.2,63.44,0.61
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 39.49
-- over_600_ratio: 37.48
-- over_800_ratio: 35.99
-- over_1000_ratio: 35.45
-- over_400_change_1w: -0.3
-- over_800_change_1w: -0.62
-- over_1000_change_1w: -0.62
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260904
+- over_400_ratio: 40.37
+- over_600_ratio: 38.53
+- over_800_ratio: 37.42
+- over_1000_ratio: 36.34
+- over_400_change_1w: 0.61
+- over_800_change_1w: 1.42
+- over_1000_change_1w: 0.88
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,40.55,-4.56,36.98,-3.69,36.44,-3.18,0,False,False
-20260612,46.65,6.1,43.86,6.88,42.83,6.39,1,True,True
 20260618,47.39,0.74,44,0.14,42.39,-0.44,2,False,True
 20260626,49.55,2.16,44.65,0.65,43.59,1.2,3,True,True
 20260703,45.49,-4.06,41.65,-3,40.63,-2.96,0,False,False
@@ -199,18 +197,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,39.25,-0.61,35.99,-0.01,35.45,-0.01,0,False,False
 20260814,39.79,0.54,36.61,0.62,36.07,0.62,1,True,True
 20260821,39.49,-0.3,35.99,-0.62,35.45,-0.62,0,False,False
+20260828,39.76,0.27,36,0.01,35.46,0.01,1,True,True
+20260904,40.37,0.61,37.42,1.42,36.34,0.88,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 5328 | 華容 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
-| 20260821 | 5328 | 華容 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260904 | 5328 | 華容 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/08/31 2.公司名稱:華容股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:更正本公司115年5月及6月關係人交易自結申報資訊 6.更正資訊項目/報表名稱: 115年5月及6月關係人交易金額-取得資產 7.更正前金額/內容/頁次: 取得資產;單位:新台幣仟元 關係人名稱:麥金開發創業投資有限合夥 115年5月取得資產金額:12,500仟元 本年累計取得資產金額:12,500仟元 8.更正後金額/內容/頁次: 取得資產;單位:新台幣仟元 關係人名稱:麥金開發創業投資有限合夥 115年5月取得資產金額:0仟元 本年累計取得資產金額:0仟元 9.因應措施:更正後重新上傳公開資訊觀測站 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 5328 | 華容 | 6 | 6 | 5 | 8 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260904 | 5328 | 華容 | 15 | 15 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

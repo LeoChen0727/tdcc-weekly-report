@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5880 合庫金
 
 ## Metadata
-- generated_at: 2026-08-23 22:28:34 Asia/Taipei
+- generated_at: 2026-09-05 15:53:58 Asia/Taipei
 - stock_id: 5880
 - stock_name: 合庫金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
+- model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -125,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 24.8
-- high: 25.2
-- low: 24.65
-- close: 25.05
-- volume: 13765561
-- ma5: 24.91
-- ema23_primary: 25.22
-- distance_to_ema23_pct: -0.69
-- ma20: 25.61
-- ma60: 24.88
-- ma120: 24.05
-- return_5d: 3.51
-- return_20d: -2.34
-- volume_ratio: 0.47
-- distance_to_ma20_pct_auxiliary: -2.17
-- distance_to_high_60_pct: -9.4
+- date: 20260904
+- open: 26.7
+- high: 26.7
+- low: 26.3
+- close: 26.65
+- volume: 21410399
+- ma5: 26.16
+- ema23_primary: 25.54
+- distance_to_ema23_pct: 4.34
+- ma20: 25.16
+- ma60: 25.27
+- ma120: 24.23
+- return_5d: 5.54
+- return_20d: 1.72
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: 5.9
+- distance_to_high_60_pct: -3.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,25.8,25.95,25.55,25.95,23265099,25.15,3.19,25.22,24,1.28
-20260728,25.85,25.95,25.65,25.95,15876007,25.22,2.91,25.27,24.05,0.88
-20260729,26,26.2,25.7,26.1,46004728,25.29,3.21,25.34,24.11,2.36
-20260730,26.1,27,25.8,27,70684510,25.43,6.17,25.44,24.17,3.16
-20260731,26.8,27.65,26.6,27.6,49661222,25.61,7.76,25.59,24.25,2.05
-20260803,27,27.4,26.7,26.9,30841805,25.72,4.59,25.7,24.32,1.22
-20260804,26.5,26.85,26.4,26.55,32000104,25.79,2.95,25.79,24.37,1.22
-20260805,26.7,26.8,26.5,26.6,18998546,25.86,2.88,25.88,24.43,0.72
-20260806,26.45,26.7,26.1,26.1,27088992,25.88,0.86,25.93,24.49,1.03
-20260807,26.1,26.25,26.05,26.2,15150397,25.9,1.14,25.98,24.55,0.58
 20260810,26.45,26.45,26,26.1,32243685,25.92,0.69,26.02,24.6,1.2
 20260811,24.75,24.8,23.95,24,51353650,25.76,-6.83,25.96,24.62,1.8
 20260812,24,24.1,23.85,24.1,18521666,25.62,-5.94,25.9,24.64,0.65
@@ -167,18 +157,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,24.95,25,24.6,24.85,33352232,25.28,-1.7,25.68,24.8,1.14
 20260820,25,25,24.7,24.8,14670266,25.24,-1.75,25.64,24.84,0.5
 20260821,24.8,25.2,24.65,25.05,13765561,25.22,-0.69,25.61,24.88,0.47
+20260824,25.1,25.2,24.85,25,7888175,25.21,-0.82,25.56,24.91,0.28
+20260825,25,25.25,24.95,25.05,12487194,25.19,-0.57,25.51,24.95,0.44
+20260826,25,25.1,24.85,25,8363717,25.18,-0.7,25.46,24.99,0.32
+20260827,25,25.3,24.95,25.05,10831100,25.17,-0.46,25.36,25.02,0.46
+20260828,25.1,25.3,25.05,25.25,9386451,25.17,0.3,25.24,25.05,0.44
+20260831,25.25,25.65,25.05,25.55,45412466,25.2,1.37,25.18,25.08,2.04
+20260901,25.35,25.7,25.3,25.6,15139049,25.24,1.44,25.13,25.12,0.71
+20260902,25.6,26.3,25.5,26.3,36416956,25.33,3.85,25.11,25.17,1.63
+20260903,26.3,26.85,26.25,26.7,32491451,25.44,4.95,25.14,25.22,1.44
+20260904,26.7,26.7,26.3,26.65,21410399,25.54,4.34,25.16,25.27,0.94
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 74.59
-- over_600_ratio: 72.62
-- over_800_ratio: 71.47
-- over_1000_ratio: 70.69
-- over_400_change_1w: 0.11
-- over_800_change_1w: 0.11
-- over_1000_change_1w: 0.12
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260904
+- over_400_ratio: 74.91
+- over_600_ratio: 72.97
+- over_800_ratio: 71.82
+- over_1000_ratio: 71.06
+- over_400_change_1w: 0.26
+- over_800_change_1w: 0.29
+- over_1000_change_1w: 0.3
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -186,8 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,72.76,0.25,69.51,0.29,68.68,0.28,1,True,True
-20260612,73,0.24,69.77,0.26,68.97,0.29,2,True,True
 20260618,73.3,0.3,70.1,0.33,69.28,0.31,3,True,True
 20260626,73.57,0.27,70.39,0.29,69.57,0.29,4,True,True
 20260703,73.6,0.03,70.4,0.01,69.58,0.01,5,True,True
@@ -198,17 +196,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,74.7,0.08,71.62,0.11,70.8,0.1,10,True,True
 20260814,74.48,-0.22,71.36,-0.26,70.57,-0.23,0,False,False
 20260821,74.59,0.11,71.47,0.11,70.69,0.12,1,True,True
+20260828,74.65,0.06,71.53,0.06,70.76,0.07,2,True,True
+20260904,74.91,0.26,71.82,0.29,71.06,0.3,3,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 5880 | 合庫金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.董事會決議日期或發生變動日期:115/07/15 2.人員別（請輸入董事長或總經理）:總經理 3.舊任者姓名:不適用 4.舊任者簡歷:不適用 5.新任者姓名:吳春敏 6.新任者簡歷:合作金庫證券股份有限公司總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:新任 8.異動原因:新任 9.新任生效日期:115/07/15 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 依據金融監督管理委員會115/07/15金管證券字第1150344889號函辦理。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| 20260904 | 5880 | 合庫金 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/31 1.召開法人說明會之日期：115/08/31 2.召開法人說明會之時間：14 時 30 分 3.召開法人說明會之地點：網路，連結網址詳如本公司投資人關係專區項下活動訊息。 4.法人說明會擇要訊息：公佈本公司2026年第2季營運及財務概況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| 20260904 | 5880 | 合庫金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/31 1.召開法人說明會之日期：115/08/31 2.召開法人說明會之時間：14 時 30 分 3.召開法人說明會之地點：網路，連結網址詳如本公司投資人關係專區項下活動訊息。 4.法人說明會擇要訊息：公佈本公司2026年第2季營運及財務概況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 5880 | 合庫金 | 2 | 2 | 3 | 8 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260904 | 5880 | 合庫金 | 11 | 2 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4989 榮科
 
 ## Metadata
-- generated_at: 2026-08-23 22:28:20 Asia/Taipei
+- generated_at: 2026-09-05 15:53:46 Asia/Taipei
 - stock_id: 4989
 - stock_name: 榮科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
+- model_category_display_zh: 營收爆發低反應股
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收爆發低反應股 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 營收爆發低反應股 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -101,8 +101,8 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -117,7 +117,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -125,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 62.1
-- high: 63.4
-- low: 61
-- close: 61.9
-- volume: 2917307
-- ma5: 62.62
-- ema23_primary: 66.93
-- distance_to_ema23_pct: -7.51
-- ma20: 63.36
-- ma60: 79.28
-- ma120: 82.29
-- return_5d: -4.48
-- return_20d: -5.06
-- volume_ratio: 0.39
-- distance_to_ma20_pct_auxiliary: -2.3
-- distance_to_high_60_pct: -47.32
+- date: 20260904
+- open: 62.3
+- high: 62.3
+- low: 59.7
+- close: 61.1
+- volume: 2536700
+- ma5: 62.96
+- ema23_primary: 65.01
+- distance_to_ema23_pct: -6.01
+- ma20: 64.47
+- ma60: 74.14
+- ma120: 81.93
+- return_5d: -10.41
+- return_20d: -7
+- volume_ratio: 0.4
+- distance_to_ma20_pct_auxiliary: -5.23
+- distance_to_high_60_pct: -48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,64.3,66,63.1,65.3,3319994,79.9,-18.27,83.45,90.22,0.26
-20260728,63.1,63.1,59.4,59.5,5007420,78.2,-23.91,82.46,89.33,0.39
-20260729,60.2,60.4,53.6,55.5,8388349,76.3,-27.26,80.87,88.54,0.64
-20260730,54.8,56.8,50.1,51,5818674,74.2,-31.26,78.83,87.64,0.45
-20260731,56,56.1,54.3,55.6,3943380,72.65,-23.46,76.58,86.81,0.33
-20260803,60,61.1,59.8,61.1,8081859,71.68,-14.76,74.11,86.11,0.81
-20260804,61.8,67.2,60.4,67.2,9392616,71.31,-5.76,71.92,85.66,1.11
-20260805,68.5,71.9,66.4,66.9,21028199,70.94,-5.7,70.28,85.19,2.45
-20260806,67.1,69.3,65.5,67.7,10107205,70.67,-4.21,68.74,84.75,1.2
-20260807,67.7,68.1,65,65.7,6068562,70.26,-6.49,67.44,84.3,0.77
 20260810,65.7,68.6,65.7,67.5,5486558,70.03,-3.61,66.67,83.92,0.73
 20260811,67.2,71.4,67.2,68,12242509,69.86,-2.66,66.08,83.59,1.61
 20260812,69.1,71.9,68.8,69,9203577,69.79,-1.13,65.53,83.23,1.18
@@ -167,27 +157,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,60.6,62.9,60.3,61.7,3728173,67.87,-9.1,63.94,80.67,0.49
 20260820,62.8,64.4,61,62,3548222,67.38,-7.99,63.52,80,0.47
 20260821,62.1,63.4,61,61.9,2917307,66.93,-7.51,63.36,79.28,0.39
+20260824,61.9,62.8,60.6,60.7,2021213,66.41,-8.6,63.13,78.58,0.28
+20260825,60,61,58.8,60.9,2458885,65.95,-7.66,63.2,77.86,0.34
+20260826,61.5,66.9,61.2,66.9,7774622,66.03,1.32,63.77,77.19,1.08
+20260827,68.8,68.8,65.8,66.3,12459737,66.05,0.38,64.53,76.62,1.66
+20260828,67.5,71.7,66.3,68.2,15471541,66.23,2.97,65.17,76.15,1.91
+20260831,66.8,68.5,64.5,64.7,5652636,66.1,-2.12,65.34,75.69,0.71
+20260901,65.1,68,64.7,64.7,5185141,65.99,-1.95,65.22,75.25,0.67
+20260902,64,65.6,63.7,63.8,2895937,65.8,-3.05,65.06,74.93,0.42
+20260903,64.3,65.6,60.4,60.5,4727679,65.36,-7.44,64.7,74.49,0.72
+20260904,62.3,62.3,59.7,61.1,2536700,65.01,-6.01,64.47,74.14,0.4
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 18.34
-- over_600_ratio: 15.74
-- over_800_ratio: 13.37
-- over_1000_ratio: 12.27
-- over_400_change_1w: -0.4
-- over_800_change_1w: -0.49
-- over_1000_change_1w: 0.03
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260904
+- over_400_ratio: 17.88
+- over_600_ratio: 15.64
+- over_800_ratio: 13.17
+- over_1000_ratio: 12.19
+- over_400_change_1w: -0.5
+- over_800_change_1w: -0.85
+- over_1000_change_1w: -0.72
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,26.17,-2.63,21.37,-3.02,20.15,-2.85,0,False,False
-20260612,24.28,-1.89,19.47,-1.9,17.59,-2.56,0,False,False
 20260618,23.8,-0.48,17.8,-1.67,17.15,-0.44,0,False,False
 20260626,23.05,-0.75,19.79,1.99,17.94,0.79,1,False,True
 20260703,30.1,7.05,25.52,5.73,23.62,5.68,2,True,True
@@ -198,23 +196,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,19.41,-17.34,14.71,-17.1,12.53,-18.72,0,False,False
 20260814,18.74,-0.67,13.86,-0.85,12.24,-0.29,0,False,False
 20260821,18.34,-0.4,13.37,-0.49,12.27,0.03,1,False,True
+20260828,18.38,0.04,14.02,0.65,12.91,0.64,2,True,True
+20260904,17.88,-0.5,13.17,-0.85,12.19,-0.72,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 4989 | 榮科 | revenue_pullback | 營收成長股價回檔 | 64.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/16 2.公司名稱:李長榮科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司現金增資發行新股認股繳款期限已於115年7月16日截止，依公司法 第142條、266條第3項規定，訂定自115年7月17日至115年8月17日下午3時30分止為尚未 繳款之原股東及認股員工之催告繳款期限。 6.因應措施: (1)尚未繳納股款之股東，請於上述期間內持原繳款書至中國信託營業部分行及 全國各地分行辦理繳款事宜，逾期未繳納者即喪失認購新股之權利。 (2)於催繳期間繳款之股東及員工，本公司將於催繳期間屆滿並經集保結算所作業後， 依所認購之股數，撥入所登記之集保帳號。 (3)若有任何疑問，請洽詢本公司股務代理機構：中國信託商業銀行代理部（地址： 台北市中正區重慶南路一段83號5樓，電話：02-6636-5566）。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260821 | 4989 | 榮科 | revenue_breakout_low_response | 營收爆發低反應股 | 16 | 37 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.事實發生日:115/07/16 2.公司名稱:李長榮科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司現金增資發行新股認股繳款期限已於115年7月16日截止，依公司法 第142條、266條第3項規定，訂定自115年7月17日至115年8月17日下午3時30分止為尚未 繳款之原股東及認股員工之催告繳款期限。 6.因應措施: (1)尚未繳納股款之股東，請於上述期間內持原繳款書至中國信託營業部分行及 全國各地分行辦理繳款事宜，逾期未繳納者即喪失認購新股之權利。 (2)於催繳期間繳款之股東及員工，本公司將於催繳期間屆滿並經集保結算所作業後， 依所認購之股數，撥入所登記之集保帳號。 (3)若有任何疑問，請洽詢本公司股務代理機構：中國信託商業銀行代理部（地址： 台北市中正區重慶南路一段83號5樓，電話：02-6636-5566）。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260904 | 4989 | 榮科 | revenue_breakout_low_response | 營收爆發低反應股 | 20 | 9 | A_優先追蹤 |  |  | no_signal | stale_signal | 1.事實發生日:115/07/16 2.公司名稱:李長榮科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司現金增資發行新股認股繳款期限已於115年7月16日截止，依公司法 第142條、266條第3項規定，訂定自115年7月17日至115年8月17日下午3時30分止為尚未 繳款之原股東及認股員工之催告繳款期限。 6.因應措施: (1)尚未繳納股款之股東，請於上述期間內持原繳款書至中國信託營業部分行及 全國各地分行辦理繳款事宜，逾期未繳納者即喪失認購新股之權利。 (2)於催繳期間繳款之股東及員工，本公司將於催繳期間屆滿並經集保結算所作業後， 依所認購之股數，撥入所登記之集保帳號。 (3)若有任何疑問，請洽詢本公司股務代理機構：中國信託商業銀行代理部（地址： 台北市中正區重慶南路一段83號5樓，電話：02-6636-5566）。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 4989 | 榮科 | 6 | 6 | 5 | 7 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260904 | 4989 | 榮科 | 15 | 5 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 4989 | 榮科 | 10 | 1 | 403590.0 | 0.0 |  | no_signal |
+| 20260904 | 4989 | 榮科 | 10 | 1 | 60840.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3004 豐達科
 
 ## Metadata
-- generated_at: 2026-08-23 22:27:30 Asia/Taipei
+- generated_at: 2026-09-05 15:53:06 Asia/Taipei
 - stock_id: 3004
 - stock_name: 豐達科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 121
-- high: 121.5
-- low: 120
-- close: 121
-- volume: 194850
-- ma5: 122.3
-- ema23_primary: 128.06
-- distance_to_ema23_pct: -5.51
-- ma20: 126.88
-- ma60: 133.25
-- ma120: 123.58
-- return_5d: -4.72
-- return_20d: -10.7
-- volume_ratio: 0.33
-- distance_to_ma20_pct_auxiliary: -4.63
-- distance_to_high_60_pct: -25.77
+- date: 20260904
+- open: 124.5
+- high: 125.5
+- low: 121.5
+- close: 121.5
+- volume: 683184
+- ma5: 120.6
+- ema23_primary: 123.58
+- distance_to_ema23_pct: -1.68
+- ma20: 122.38
+- ma60: 132.26
+- ma120: 124.53
+- return_5d: 2.1
+- return_20d: -2.02
+- volume_ratio: 1.76
+- distance_to_ma20_pct_auxiliary: -0.71
+- distance_to_high_60_pct: -25.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,136,136,132.5,135,333004,140.29,-3.77,143.43,132.13,0.28
-20260728,134,135,131.5,132.5,594769,139.64,-5.11,143.72,132.4,0.49
-20260729,132,135,124.5,132,1253744,139,-5.04,143.62,132.68,1.01
-20260730,130.5,131.5,125.5,125.5,585010,137.88,-8.98,143.03,132.68,0.47
-20260731,131.5,135,128,135,480438,137.64,-1.92,142.95,132.9,0.38
-20260803,126,128,121.5,124.5,1791944,136.54,-8.82,141.68,132.97,1.5
-20260804,123.5,126,121,125.5,1309751,135.62,-7.46,139.97,133.12,1.25
-20260805,129,131.5,127.5,128.5,613586,135.03,-4.84,139.07,133.35,0.63
-20260806,130.5,130.5,125.5,129,675010,134.53,-4.11,138.25,133.61,0.71
-20260807,129,129,124,124,719457,133.65,-7.22,136.78,133.77,0.8
 20260810,125.5,127,124.5,126.5,260800,133.05,-4.93,135.38,133.93,0.32
 20260811,125,127.5,124,127,493052,132.55,-4.19,134.05,134.03,0.65
 20260812,126.5,126.5,125,126,179802,132,-4.55,132.57,133.91,0.26
@@ -168,27 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,121,122.5,120.5,121.5,212670,129.36,-6.07,128.43,133.57,0.34
 20260820,123,124.5,121,121.5,169761,128.7,-5.59,127.6,133.3,0.28
 20260821,121,121.5,120,121,194850,128.06,-5.51,126.88,133.25,0.33
+20260824,121.5,122,120,120,136780,127.39,-5.8,126.12,133.28,0.24
+20260825,120,120,117,118.5,307655,126.65,-6.43,125.42,133.2,0.54
+20260826,120,120,118,119.5,211402,126.05,-5.2,124.8,133.13,0.41
+20260827,120.5,127,120.5,121.5,700991,125.67,-3.32,124.6,133.17,1.35
+20260828,123,123,118.5,119,409301,125.12,-4.89,123.8,133.05,0.79
+20260831,118.5,119,117.5,118.5,259443,124.56,-4.87,123.5,132.91,0.59
+20260901,118.5,120.5,118,120,401666,124.18,-3.37,123.22,132.74,1.02
+20260902,120,121,119.5,120,151692,123.84,-3.1,122.8,132.62,0.41
+20260903,126.5,129,123,123,1065876,123.77,-0.62,122.5,132.43,2.73
+20260904,124.5,125.5,121.5,121.5,683184,123.58,-1.68,122.38,132.26,1.76
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 59.43
-- over_600_ratio: 54.78
-- over_800_ratio: 50.55
-- over_1000_ratio: 47.79
-- over_400_change_1w: 0.48
-- over_800_change_1w: 1.55
-- over_1000_change_1w: 0.06
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260904
+- over_400_ratio: 59.08
+- over_600_ratio: 54.42
+- over_800_ratio: 50.18
+- over_1000_ratio: 47.42
+- over_400_change_1w: -0.08
+- over_800_change_1w: -0.11
+- over_1000_change_1w: -0.11
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,59.19,0.33,50.6,-0.66,47.93,-2.06,1,False,False
-20260612,58.72,-0.47,49.92,-0.68,46.02,-1.91,2,False,False
 20260618,60.74,2.02,50.46,0.54,47.9,1.88,3,True,True
 20260626,60.02,-0.72,49.4,-1.06,48.13,0.23,4,False,True
 20260703,60.38,0.36,49.64,0.24,48.37,0.24,5,True,True
@@ -199,6 +197,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,58.8,0.78,48.83,-0.04,47.56,-0.04,2,False,False
 20260814,58.95,0.15,49,0.17,47.73,0.17,3,False,True
 20260821,59.43,0.48,50.55,1.55,47.79,0.06,4,True,True
+20260828,59.16,-0.27,50.29,-0.26,47.53,-0.26,0,False,False
+20260904,59.08,-0.08,50.18,-0.11,47.42,-0.11,0,False,False
 ```
 
 ## Candidate Context
@@ -214,7 +214,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 3004 | 豐達科 | 7 | 0 | 29440.0 | 0.0 |  | no_signal |
+| 20260904 | 3004 | 豐達科 | 6 | 0 | 970.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

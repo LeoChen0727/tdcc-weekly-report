@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2237 華德動能-創
 
 ## Metadata
-- generated_at: 2026-08-23 22:27:01 Asia/Taipei
+- generated_at: 2026-09-05 15:52:43 Asia/Taipei
 - stock_id: 2237
 - stock_name: 華德動能-創
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260821
-- price_rows: 10
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 20
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -126,23 +126,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 27
-- high: 27.75
-- low: 26.95
-- close: 27.45
-- volume: 279811
-- ma5: 27.12
-- ema23_primary: 27.09
-- distance_to_ema23_pct: 1.32
-- ma20: 27.16
-- ma60: 27.16
-- ma120: 27.16
-- return_5d: 1.29
+- date: 20260904
+- open: 27.7
+- high: 27.9
+- low: 27.5
+- close: 27.7
+- volume: 176160
+- ma5: 27.81
+- ema23_primary: 27.53
+- distance_to_ema23_pct: 0.63
+- ma20: 27.51
+- ma60: 27.51
+- ma120: 27.51
+- return_5d: -1.07
 - return_20d:
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: 1.09
-- distance_to_high_60_pct: -1.26
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: 0.7
+- distance_to_high_60_pct: -3.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -158,6 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,27,27.05,26.6,26.9,138364,27.06,-0.61,27.14,27.14,0.33
 20260820,26.9,27,26.75,27,123484,27.06,-0.22,27.12,27.12,0.32
 20260821,27,27.75,26.95,27.45,279811,27.09,1.32,27.16,27.16,0.75
+20260824,27.55,28.75,27.55,28.1,349237,27.18,3.4,27.24,27.24,0.94
+20260825,27.9,27.9,27.5,27.8,83536,27.23,2.1,27.29,27.29,0.24
+20260826,27.9,27.95,27.6,27.75,169777,27.27,1.76,27.32,27.32,0.51
+20260827,27.75,28.1,27.75,27.9,206829,27.32,2.11,27.36,27.36,0.64
+20260828,27.9,28.3,27.5,28,289026,27.38,2.27,27.41,27.41,0.9
+20260831,28.1,28.1,27.8,27.9,111913,27.42,1.74,27.44,27.44,0.36
+20260901,27.9,28.05,27.8,27.95,188783,27.47,1.76,27.47,27.47,0.63
+20260902,28,28,27.8,27.8,129054,27.49,1.11,27.49,27.49,0.44
+20260903,28,28,27.65,27.7,123641,27.51,0.68,27.5,27.5,0.44
+20260904,27.7,27.9,27.5,27.7,176160,27.53,0.63,27.51,27.51,0.63
 ```
 
 ## Latest TDCC Snapshot

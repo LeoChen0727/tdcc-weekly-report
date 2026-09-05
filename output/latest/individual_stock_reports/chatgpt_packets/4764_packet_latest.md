@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4764 雙鍵
 
 ## Metadata
-- generated_at: 2026-08-23 22:28:15 Asia/Taipei
+- generated_at: 2026-09-05 15:53:42 Asia/Taipei
 - stock_id: 4764
 - stock_name: 雙鍵
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 335
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 345
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 211
+- date: 20260904
+- open: 223.5
 - high: 231.5
-- low: 209.5
-- close: 219
-- volume: 1863227
-- ma5: 212.8
-- ema23_primary: 245.92
-- distance_to_ema23_pct: -10.95
-- ma20: 243.5
-- ma60: 281.94
-- ma120: 246.35
-- return_5d: -5.6
-- return_20d: -21.65
-- volume_ratio: 0.87
-- distance_to_ma20_pct_auxiliary: -10.06
-- distance_to_high_60_pct: -41.44
+- low: 211
+- close: 231.5
+- volume: 1167672
+- ma5: 235.4
+- ema23_primary: 237.73
+- distance_to_ema23_pct: -2.62
+- ma20: 228.45
+- ma60: 271.99
+- ma120: 253.95
+- return_5d: -7.21
+- return_20d: -2.11
+- volume_ratio: 0.72
+- distance_to_ma20_pct_auxiliary: 1.34
+- distance_to_high_60_pct: -38.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,281.5,301,272,294.5,2377960,302.43,-2.62,305.07,305.88,0.86
-20260728,277.5,303,274,281,4334521,300.65,-6.53,305,306.27,1.47
-20260729,281,284,253,253,3134989,296.67,-14.72,302.6,305.76,1.02
-20260730,228,268,228,236.5,4351338,291.66,-18.91,299.38,304.52,1.33
-20260731,260,260,253.5,260,959680,289.02,-10.04,297.2,303.15,0.29
-20260803,261.5,278,259,263,2170121,286.85,-8.32,295.35,302.03,0.64
-20260804,261,270,256,259,1719062,284.53,-8.97,292.9,300.68,0.49
-20260805,268,283,260,261,1650483,282.57,-7.63,291.1,299.68,0.47
-20260806,260,268,255,262.5,1854780,280.9,-6.55,288.43,298.65,0.56
-20260807,259,261,236.5,236.5,2559361,277.2,-14.68,283.45,297.34,0.8
 20260810,235.5,239,226,232,2484954,273.43,-15.15,279.93,296.04,0.78
 20260811,234,243.5,224,240.5,1523858,270.69,-11.15,275.38,295.19,0.51
 20260812,240.5,258,240.5,249.5,1850927,268.92,-7.22,269.62,294.35,0.67
@@ -167,27 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,202,210,200.5,203,892302,251.77,-19.37,251.45,285.76,0.39
 20260820,200,211,196.5,211,1454582,248.37,-15.05,246.53,283.64,0.66
 20260821,211,231.5,209.5,219,1863227,245.92,-10.95,243.5,281.94,0.87
+20260824,217,220,206.5,206.5,1002538,242.64,-14.89,239.1,280.18,0.48
+20260825,205,213,202,212,542639,240.09,-11.7,235.65,278.62,0.29
+20260826,212,233,210.5,233,1782913,239.5,-2.71,234.65,277.18,0.99
+20260827,236.5,240,226.5,228,1686067,238.54,-4.42,234.22,275.94,1.01
+20260828,231,250.5,231,249.5,2855491,239.45,4.2,233.7,275.18,1.61
+20260831,245,248.5,235,241,1305867,239.58,0.59,232.6,274.43,0.76
+20260901,239,250.5,236,247,1638373,240.2,2.83,232,273.84,0.95
+20260902,243.5,247,236,240,1020400,240.18,-0.08,230.95,273.33,0.6
+20260903,239,243,216,217.5,1961994,238.29,-8.73,228.7,272.43,1.16
+20260904,223.5,231.5,211,231.5,1167672,237.73,-2.62,228.45,271.99,0.72
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 75.56
-- over_600_ratio: 71.87
-- over_800_ratio: 68.58
-- over_1000_ratio: 67.48
-- over_400_change_1w: 0.85
-- over_800_change_1w: 0.47
-- over_1000_change_1w: 0.47
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260904
+- over_400_ratio: 75.05
+- over_600_ratio: 70.28
+- over_800_ratio: 68.62
+- over_1000_ratio: 66.54
+- over_400_change_1w: 0.09
+- over_800_change_1w: -0.28
+- over_1000_change_1w: -1.26
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,74.17,-1.07,67.74,-3.81,66.64,-0.92,0,False,False
-20260612,74.35,0.18,67.13,-0.61,63.86,-2.78,1,False,False
 20260618,74.91,0.56,68.27,1.14,64.99,1.13,2,True,True
 20260626,75.48,0.57,68.79,0.52,65.74,0.75,3,True,True
 20260703,75.98,0.5,68.84,0.05,65.7,-0.04,4,False,True
@@ -198,22 +197,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,75.39,-0.62,68.41,-1.61,67.31,-1.61,0,False,False
 20260814,74.71,-0.68,68.11,-0.3,67.01,-0.3,0,False,False
 20260821,75.56,0.85,68.58,0.47,67.48,0.47,1,True,True
+20260828,74.96,-0.6,68.9,0.32,67.8,0.32,2,False,True
+20260904,75.05,0.09,68.62,-0.28,66.54,-1.26,3,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 4764 | 雙鍵 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | 1.董事會決議或公司決定增資基準日期:115/07/09 2.是否採總括申報發行新股(是，請併敘明預定發行期間/否):否 3.主管機關申報生效日期:115/07/08 4.董事會決議(追補)發行日期:115/06/05 5.發行總金額及股數:新台幣60,000,000元，普通股6,000,000股。 6.採總括申報發行新股案件，本次發行金額及股數:不適用 7.採總括申報發行新股案件，本次發行後，剩餘之金額及股數餘額:不適用 8.每股面額:新台幣10元。 9.發行價格:每股新台幣230元。(補充公告) 10.員工認股股數:發行新股總數之15%，計900,000股。 11.原股東認購比率:發行新股總數之75%，計4,500,000股，由原股東按認股基準日 股東名冊所記載之股東之持股比例認購。 12.公開銷售方式及股數:發行新股總數之10%，計600,000股，對外公開承銷。 13.畸零股及逾期未認購股份之處理方式:原股東認購不足一股之畸零股，由股東自停止過 戶起五日內自行向本公司股務代理機構辦理拼湊成整股認購，原股東及員工放棄認購或 拼湊後仍不足一股之畸零股部份，授權董事長洽特定人認購之。 14.本次發行新股之權利義務:與原已發行普通股股份相同。 15.本次增資資金用途:償還銀行借款及充實營運資金。 16.現金增資認股基準日:115/08/01 17.最後過戶日:115/07/27 18.停止過戶起始日期:115/07/28 19.停止過戶截止日期:115/08/01 20.股款繳納期間: (1)原股東及員工股款繳納期間:115/08/06~115/08/12。 (2)特定人繳納期間:115/08/13~115/08/17。 21.與代收及專戶存儲價款行庫訂約日期:115/07/09 22.委託代收存款機構:元大商業銀行股份有限公司營業部及全國各分行。 23.委託存儲款項機構:元大商業銀行股份有限公司中山北路分行。 24.其他應敘明事項: (1)本公司115年度現金增資發行新股，經金融監督管理委員會115年07月08日金 管證發字第1150348105號函申報生效在案。 (2)本次現金增資之發行價格、發行條件、發行時程，以及本計畫所需資金總額、資金 來源、計畫項目、資金運用進度、預計可能產生效益及其他相關事宜，如遇法令變更、 經主管機關修正、或因應主客觀環境因素而須修正或調整時，授權董事長全權處理之。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| 20260904 | 4764 | 雙鍵 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會決議或公司決定增資基準日期:115/07/09 2.是否採總括申報發行新股(是，請併敘明預定發行期間/否):否 3.主管機關申報生效日期:115/07/08 4.董事會決議(追補)發行日期:115/06/05 5.發行總金額及股數:新台幣60,000,000元，普通股6,000,000股。 6.採總括申報發行新股案件，本次發行金額及股數:不適用 7.採總括申報發行新股案件，本次發行後，剩餘之金額及股數餘額:不適用 8.每股面額:新台幣10元。 9.發行價格:每股新台幣230元。(補充公告) 10.員工認股股數:發行新股總數之15%，計900,000股。 11.原股東認購比率:發行新股總數之75%，計4,500,000股，由原股東按認股基準日 股東名冊所記載之股東之持股比例認購。 12.公開銷售方式及股數:發行新股總數之10%，計600,000股，對外公開承銷。 13.畸零股及逾期未認購股份之處理方式:原股東認購不足一股之畸零股，由股東自停止過 戶起五日內自行向本公司股務代理機構辦理拼湊成整股認購，原股東及員工放棄認購或 拼湊後仍不足一股之畸零股部份，授權董事長洽特定人認購之。 14.本次發行新股之權利義務:與原已發行普通股股份相同。 15.本次增資資金用途:償還銀行借款及充實營運資金。 16.現金增資認股基準日:115/08/01 17.最後過戶日:115/07/27 18.停止過戶起始日期:115/07/28 19.停止過戶截止日期:115/08/01 20.股款繳納期間: (1)原股東及員工股款繳納期間:115/08/06~115/08/12。 (2)特定人繳納期間:115/08/13~115/08/17。 21.與代收及專戶存儲價款行庫訂約日期:115/07/09 22.委託代收存款機構:元大商業銀行股份有限公司營業部及全國各分行。 23.委託存儲款項機構:元大商業銀行股份有限公司中山北路分行。 24.其他應敘明事項: (1)本公司115年度現金增資發行新股，經金融監督管理委員會115年07月08日金 管證發字第1150348105號函申報生效在案。 (2)本次現金增資之發行價格、發行條件、發行時程，以及本計畫所需資金總額、資金 來源、計畫項目、資金運用進度、預計可能產生效益及其他相關事宜，如遇法令變更、 經主管機關修正、或因應主客觀環境因素而須修正或調整時，授權董事長全權處理之。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 4764 | 雙鍵 | 1 | 1 | 2 | 7 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260904 | 4764 | 雙鍵 | 1 | 1 | 4 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 4764 | 雙鍵 | 22 | 0 | 1648940.0 | 0.0 |  | call_inflow |
+| 20260904 | 4764 | 雙鍵 | 28 | 0 | 1527520.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

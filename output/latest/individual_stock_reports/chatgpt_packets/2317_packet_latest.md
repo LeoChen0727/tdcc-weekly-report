@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2317 鴻海
 
 ## Metadata
-- generated_at: 2026-08-23 22:27:03 Asia/Taipei
+- generated_at: 2026-09-05 15:52:44 Asia/Taipei
 - stock_id: 2317
 - stock_name: 鴻海
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 337
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 347
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,23 +70,23 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
-- model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
+- model_category_display_zh: 回檔後短線轉強
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 回檔後短線轉強，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 符合 回檔後短線轉強，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
 - action_rating: scale_in
 - action_rating_label_zh: 可分批買進
-- confidence_level: high
+- confidence_level: medium
 - thesis_state: healthy_pullback
 - entry_style: pullback_to_23ema
 - position_sizing: half_position
@@ -105,7 +105,6 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -132,38 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 245
-- high: 247
-- low: 243
-- close: 245.5
-- volume: 25420299
-- ma5: 248.2
-- ema23_primary: 252.2
-- distance_to_ema23_pct: -2.66
-- ma20: 252.7
-- ma60: 256.53
-- ma120: 239.09
-- return_5d: -5.39
-- return_20d: -2.77
-- volume_ratio: 0.47
-- distance_to_ma20_pct_auxiliary: -2.85
-- distance_to_high_60_pct: -21.82
+- date: 20260904
+- open: 252.5
+- high: 256
+- low: 251
+- close: 256
+- volume: 49402342
+- ma5: 252.1
+- ema23_primary: 251.25
+- distance_to_ema23_pct: 1.89
+- ma20: 252.93
+- ma60: 250.78
+- ma120: 241.57
+- return_5d: 1.19
+- return_20d: -1.54
+- volume_ratio: 1.27
+- distance_to_ma20_pct_auxiliary: 1.22
+- distance_to_high_60_pct: -7.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,253,254.5,246,253,35908207,247.86,2.07,243.07,254.9,0.72
-20260728,246,247,238,238,52860433,247.04,-3.66,242.65,255.21,1.06
-20260729,240,246.5,231,237,84937463,246.2,-3.74,241.95,255.37,1.65
-20260730,236,237.5,226.5,229.5,77049664,244.81,-6.25,241.03,255.2,1.48
-20260731,245,252,242.5,250.5,99413798,245.29,2.13,241.6,255.18,1.86
-20260803,244.5,254,242.5,253,52666207,245.93,2.88,242.22,255.17,0.98
-20260804,249,254.5,246,250,41095656,246.27,1.52,242.62,255.17,0.77
-20260805,257,260.5,256,258.5,72633762,247.29,4.53,243.7,255.28,1.33
-20260806,258.5,265,257.5,264.5,82178728,248.72,6.34,245.05,255.52,1.45
-20260807,265.5,267,258,260,38813488,249.66,4.14,246.18,255.67,0.69
 20260810,262.5,266.5,262,264.5,34854398,250.9,5.42,247.57,256,0.62
 20260811,266,266,260.5,263,24592444,251.91,4.4,248.95,256.24,0.44
 20260812,264.5,270.5,264,270,60316168,253.41,6.54,250.5,256.6,1.07
@@ -174,17 +163,27 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,245,247,242.5,245,36592747,253.38,-3.31,253.6,257.05,0.65
 20260820,250.5,250.5,244,246.5,26344428,252.81,-2.5,253.05,256.84,0.48
 20260821,245,247,243,245.5,25420299,252.2,-2.66,252.7,256.53,0.47
+20260824,246,246.5,243.5,243.5,23690554,251.48,-3.17,252.22,256.21,0.44
+20260825,242,243.5,238,243,36819297,250.77,-3.1,252.47,255.44,0.7
+20260826,243,248,241.5,246.5,24910439,250.41,-1.56,252.95,254.66,0.5
+20260827,248.5,256.5,248.5,252,42280355,250.55,0.58,254.07,253.83,0.88
+20260828,255.5,256.5,251,253,31847341,250.75,0.9,254.2,252.9,0.72
+20260831,249.5,251,246,250,35223300,250.69,-0.27,254.05,252.18,0.81
+20260901,253,256,251,256,34131729,251.13,1.94,254.35,251.71,0.79
+20260902,253,255,250.5,251,29265369,251.12,-0.05,253.97,251.4,0.71
+20260903,253.5,254.5,247.5,247.5,29851493,250.82,-1.32,253.12,250.9,0.78
+20260904,252.5,256,251,256,49402342,251.25,1.89,252.93,250.78,1.27
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 69.47
-- over_600_ratio: 68.33
-- over_800_ratio: 67.48
-- over_1000_ratio: 66.73
-- over_400_change_1w: -0.28
-- over_800_change_1w: -0.31
-- over_1000_change_1w: -0.3
+- as_of_date: 20260904
+- over_400_ratio: 69.36
+- over_600_ratio: 68.23
+- over_800_ratio: 67.41
+- over_1000_ratio: 66.7
+- over_400_change_1w: -0.01
+- over_800_change_1w: -0.01
+- over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -193,8 +192,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,70.96,0.53,69.05,0.57,68.31,0.52,5,True,True
-20260612,70.52,-0.44,68.59,-0.46,67.84,-0.47,0,False,False
 20260618,70.47,-0.05,68.56,-0.03,67.82,-0.02,0,False,False
 20260626,69.93,-0.54,67.96,-0.6,67.22,-0.6,0,False,False
 20260703,69.05,-0.88,67.11,-0.85,66.38,-0.84,0,False,False
@@ -205,23 +202,27 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,69.76,0.83,67.81,0.86,67.04,0.82,1,True,True
 20260814,69.75,-0.01,67.79,-0.02,67.03,-0.01,0,False,False
 20260821,69.47,-0.28,67.48,-0.31,66.73,-0.3,0,False,False
+20260828,69.37,-0.1,67.42,-0.06,66.7,-0.03,0,False,False
+20260904,69.36,-0.01,67.41,-0.01,66.7,0,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2317 | 鴻海 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/08/19 2.公司名稱:富士康工業互聯網股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:84.16% 5.發生緣由: 2026年8月19日，公司通過上海證券交易所交易系統以集中競價交易方式首次回購公司 股份2,414,402股，占公司目前總股本0.01%，回購最高價格人民幣61.97元/股，回購 最低價格人民幣61.35元/股，使用資金總額人民幣149,099,932.68元（不含交易傭金 、過戶費等交易費用）。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260821 | 2317 | 鴻海 | revenue_breakout_low_response | 營收爆發低反應股 | 16 | 26 | A_優先追蹤 |  |  | no_signal | stale_signal | 1.事實發生日:115/08/19 2.公司名稱:富士康工業互聯網股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:84.16% 5.發生緣由: 2026年8月19日，公司通過上海證券交易所交易系統以集中競價交易方式首次回購公司 股份2,414,402股，占公司目前總股本0.01%，回購最高價格人民幣61.97元/股，回購 最低價格人民幣61.35元/股，使用資金總額人民幣149,099,932.68元（不含交易傭金 、過戶費等交易費用）。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260904 | 2317 | 鴻海 | pullback_rebound | 回檔後短線轉強 | 70.0 |  |  |  |  | call_put_bullish | stale_signal | 1.事實發生日:115/09/02 2.公司名稱:富士康工業互聯網股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:84.16% 5.發生緣由: 2026年8月，公司通過上海證券交易所交易系統以集中競價交易方式回購公司 股份14,010,229股，占公司目前總股本0.07%，回購最高價格人民幣66.40元/股， 回購最低價格人民幣59.91元/股，使用資金總額人民幣886,745,587.84元 （不含交易傭金、過戶費等交易費用）。 截至2026年8月31日，公司通過上海證券交易所交易系統以集中競價交易方式 累計回購公司股份14,010,229股，占公司目前總股本0.07%，回購最高價格 人民幣66.40元/股，回購最低價格人民幣59.91元/股，使用資金總額人民幣 886,745,587.84元（不含交易傭金、過戶費等交易費用）。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| 20260904 | 2317 | 鴻海 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_put_bullish | stale_signal | 1.事實發生日:115/09/02 2.公司名稱:富士康工業互聯網股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:84.16% 5.發生緣由: 2026年8月，公司通過上海證券交易所交易系統以集中競價交易方式回購公司 股份14,010,229股，占公司目前總股本0.07%，回購最高價格人民幣66.40元/股， 回購最低價格人民幣59.91元/股，使用資金總額人民幣886,745,587.84元 （不含交易傭金、過戶費等交易費用）。 截至2026年8月31日，公司通過上海證券交易所交易系統以集中競價交易方式 累計回購公司股份14,010,229股，占公司目前總股本0.07%，回購最高價格 人民幣66.40元/股，回購最低價格人民幣59.91元/股，使用資金總額人民幣 886,745,587.84元（不含交易傭金、過戶費等交易費用）。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260904 | 2317 | 鴻海 | revenue_breakout_low_response | 營收爆發低反應股 | 15 | 43 | D_降級_TDCC轉弱 |  |  | call_put_bullish | stale_signal | 1.事實發生日:115/09/02 2.公司名稱:富士康工業互聯網股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:84.16% 5.發生緣由: 2026年8月，公司通過上海證券交易所交易系統以集中競價交易方式回購公司 股份14,010,229股，占公司目前總股本0.07%，回購最高價格人民幣66.40元/股， 回購最低價格人民幣59.91元/股，使用資金總額人民幣886,745,587.84元 （不含交易傭金、過戶費等交易費用）。 截至2026年8月31日，公司通過上海證券交易所交易系統以集中競價交易方式 累計回購公司股份14,010,229股，占公司目前總股本0.07%，回購最高價格 人民幣66.40元/股，回購最低價格人民幣59.91元/股，使用資金總額人民幣 886,745,587.84元（不含交易傭金、過戶費等交易費用）。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260904 | 2317 | 鴻海 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | stale_signal | 1.事實發生日:115/09/02 2.公司名稱:富士康工業互聯網股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:84.16% 5.發生緣由: 2026年8月，公司通過上海證券交易所交易系統以集中競價交易方式回購公司 股份14,010,229股，占公司目前總股本0.07%，回購最高價格人民幣66.40元/股， 回購最低價格人民幣59.91元/股，使用資金總額人民幣886,745,587.84元 （不含交易傭金、過戶費等交易費用）。 截至2026年8月31日，公司通過上海證券交易所交易系統以集中競價交易方式 累計回購公司股份14,010,229股，占公司目前總股本0.07%，回購最高價格 人民幣66.40元/股，回購最低價格人民幣59.91元/股，使用資金總額人民幣 886,745,587.84元（不含交易傭金、過戶費等交易費用）。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2317 | 鴻海 | 6 | 6 | 5 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260904 | 2317 | 鴻海 | 15 | 15 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2317 | 鴻海 | 528 | 35 | 21086970.0 | 139060.0 | 151.64 | no_signal |
+| 20260904 | 2317 | 鴻海 | 535 | 33 | 52750910.0 | 601270.0 | 87.73 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

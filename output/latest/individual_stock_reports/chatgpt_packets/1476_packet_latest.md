@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1476 儒鴻
 
 ## Metadata
-- generated_at: 2026-08-23 22:26:42 Asia/Taipei
+- generated_at: 2026-09-05 15:52:28 Asia/Taipei
 - stock_id: 1476
 - stock_name: 儒鴻
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 316.5
-- high: 321.5
-- low: 316
-- close: 318
-- volume: 679932
-- ma5: 314.7
-- ema23_primary: 329.65
-- distance_to_ema23_pct: -3.53
-- ma20: 335
-- ma60: 335.08
-- ma120: 341.93
-- return_5d: -1.24
-- return_20d: -4.93
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: -5.07
-- distance_to_high_60_pct: -13.59
+- date: 20260904
+- open: 314.5
+- high: 316
+- low: 312
+- close: 313
+- volume: 870350
+- ma5: 312.8
+- ema23_primary: 320.37
+- distance_to_ema23_pct: -2.3
+- ma20: 317.75
+- ma60: 329.12
+- ma120: 335.75
+- return_5d: 0.48
+- return_20d: -9.8
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: -1.49
+- distance_to_high_60_pct: -14.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,339,341.5,333,341.5,1070035,334.48,2.1,331.9,335.88,0.66
-20260728,338,340,333,339,1152286,334.86,1.24,332.57,335.95,0.73
-20260729,339.5,339.5,328,338.5,1608357,335.16,1,333.88,335.95,1.03
-20260730,338.5,355.5,334.5,352,4057671,336.56,4.59,335.9,336.21,2.36
-20260731,347.5,357.5,346,346,3624076,337.35,2.56,337.45,336.43,1.95
-20260803,344,349.5,341,346.5,802250,338.11,2.48,338.6,336.62,0.44
-20260804,342.5,355.5,341.5,354.5,1242049,339.48,4.43,340.18,336.79,0.67
-20260805,356.5,358.5,352.5,355,1462036,340.77,4.18,340.9,336.95,0.83
-20260806,355.5,368,354,364.5,2079410,342.75,6.35,342.32,337.28,1.17
-20260807,360,363,341.5,347,3073752,343.1,1.14,342.93,337.25,1.65
 20260810,348,348,337,337,1350088,342.59,-1.63,342.73,337.18,0.74
 20260811,336,341.5,329,332,1642044,341.71,-2.84,342.15,337.05,0.89
 20260812,335,335.5,324,324.5,1790487,340.28,-4.64,341.82,336.99,0.95
@@ -168,18 +158,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,308,313.5,300.5,311.5,2144007,331.96,-6.16,336.68,335.59,1.23
 20260820,311.5,319,311.5,317,2011093,330.71,-4.15,335.82,335.3,1.13
 20260821,316.5,321.5,316,318,679932,329.65,-3.53,335,335.08,0.38
+20260824,315,317.5,314,315,866355,328.43,-4.09,333.68,334.66,0.49
+20260825,315,319.5,314.5,319,843192,327.64,-2.64,332.68,334.27,0.48
+20260826,318.5,319,315.5,316,591807,326.67,-3.27,331.55,333.65,0.35
+20260827,315,315.5,312,314,876526,325.62,-3.57,329.65,333.02,0.57
+20260828,313,314,310.5,311.5,698479,324.44,-3.99,327.93,332.21,0.5
+20260831,310,311.5,307,309,1016869,323.15,-4.38,326.05,331.3,0.72
+20260901,309,317,309,314.5,821591,322.43,-2.46,324.05,330.62,0.59
+20260902,313,315,312,314,456035,321.73,-2.4,322,330.23,0.34
+20260903,314,317,312.5,313.5,1133402,321.04,-2.35,319.45,329.64,0.88
+20260904,314.5,316,312,313,870350,320.37,-2.3,317.75,329.12,0.74
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 80.2
-- over_600_ratio: 76.85
-- over_800_ratio: 75.33
-- over_1000_ratio: 73.43
-- over_400_change_1w: -0.9
-- over_800_change_1w: -0.34
-- over_1000_change_1w: -0.69
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260904
+- over_400_ratio: 80.29
+- over_600_ratio: 76.71
+- over_800_ratio: 74.67
+- over_1000_ratio: 72.77
+- over_400_change_1w: 0.25
+- over_800_change_1w: -0.77
+- over_1000_change_1w: -1.41
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -187,8 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,81.93,0.13,76.75,-0.81,75.48,-0.89,2,False,False
-20260612,81.67,-0.26,76.6,-0.15,74.99,-0.49,0,False,False
 20260618,80.98,-0.69,75.78,-0.82,74.22,-0.77,0,False,False
 20260626,80.54,-0.44,76.28,0.5,73.65,-0.57,1,False,True
 20260703,80.16,-0.38,75.39,-0.89,72.82,-0.83,0,False,False
@@ -199,6 +197,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,81.55,0.53,76.08,-0.4,74.55,0.3,3,False,True
 20260814,81.1,-0.45,75.67,-0.41,74.12,-0.43,0,False,False
 20260821,80.2,-0.9,75.33,-0.34,73.43,-0.69,0,False,False
+20260828,80.04,-0.16,75.44,0.11,74.18,0.75,1,False,True
+20260904,80.29,0.25,74.67,-0.77,72.77,-1.41,2,False,False
 ```
 
 ## Candidate Context
@@ -214,7 +214,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 1476 | 儒鴻 | 17 | 0 | 3091370.0 | 0.0 |  | call_inflow |
+| 20260904 | 1476 | 儒鴻 | 16 | 0 | 736950.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

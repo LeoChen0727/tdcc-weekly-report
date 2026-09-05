@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6477 安集
 
 ## Metadata
-- generated_at: 2026-08-23 22:28:54 Asia/Taipei
+- generated_at: 2026-09-05 15:54:13 Asia/Taipei
 - stock_id: 6477
 - stock_name: 安集
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -103,6 +103,7 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -117,7 +118,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -125,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 37.8
-- high: 38.25
-- low: 37
-- close: 37
-- volume: 1579854
-- ma5: 37.9
-- ema23_primary: 36.63
-- distance_to_ema23_pct: 1.01
-- ma20: 35.86
-- ma60: 35.51
-- ma120: 35.33
-- return_5d: -3.27
-- return_20d: -4.76
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: 3.17
-- distance_to_high_60_pct: -17.96
+- date: 20260904
+- open: 35.25
+- high: 35.25
+- low: 34.2
+- close: 34.8
+- volume: 563588
+- ma5: 35.44
+- ema23_primary: 36.22
+- distance_to_ema23_pct: -3.92
+- ma20: 36.32
+- ma60: 35.95
+- ma120: 35.15
+- return_5d: -6.07
+- return_20d: 2.2
+- volume_ratio: 0.22
+- distance_to_ma20_pct_auxiliary: -4.19
+- distance_to_high_60_pct: -22.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,39,39.05,35.85,36.55,2867609,37.74,-3.17,38.07,35.05,0.4
-20260728,35.5,36.7,35,35.2,2866943,37.53,-6.22,38.31,35.08,0.39
-20260729,36.05,36.15,32.75,34.25,3004313,37.26,-8.08,38.35,35.06,0.41
-20260730,34.2,35.2,32.35,32.6,2626699,36.87,-11.58,38.27,35.02,0.36
-20260731,34.15,35.85,33.95,35.75,2465984,36.78,-2.79,38.38,35.04,0.34
-20260803,35,36.75,34.5,35.55,1910272,36.68,-3.07,38.31,35.02,0.27
-20260804,35.15,37.8,35.15,36.05,1865188,36.62,-1.57,38.16,35.04,0.28
-20260805,36.4,37.05,35.8,36.3,1858650,36.6,-0.81,38.22,35.07,0.28
-20260806,36.35,36.8,35.2,35.25,1141088,36.48,-3.38,38.08,35.08,0.17
-20260807,35.2,35.4,34,34.05,855474,36.28,-6.15,37.79,35.08,0.14
 20260810,34.05,34.75,33.15,33.95,1206262,36.09,-5.92,37.46,35.09,0.22
 20260811,33.8,35.2,32.75,34.95,2080487,35.99,-2.9,37.13,35.13,0.44
 20260812,34.6,34.8,34,34.25,933587,35.85,-4.46,36.73,35.13,0.21
@@ -167,27 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,38.2,39,36.8,37.5,2860960,36.45,2.87,35.97,35.4,0.93
 20260820,38.15,41,38,38.15,5134244,36.6,4.25,35.95,35.46,1.63
 20260821,37.8,38.25,37,37,1579854,36.63,1.01,35.86,35.51,0.54
+20260824,36.65,37,35.95,35.95,1000191,36.57,-1.7,35.83,35.55,0.35
+20260825,35.6,36.05,35.05,35.65,741031,36.5,-2.32,35.85,35.58,0.27
+20260826,36.1,37.25,36.05,36.75,1493310,36.52,0.64,35.98,35.63,0.56
+20260827,36.95,40.3,36.95,38.15,4817277,36.65,4.08,36.26,35.7,1.74
+20260828,39.45,39.6,37.05,37.05,2600850,36.69,0.99,36.32,35.74,0.94
+20260831,37,37.2,36.2,36.45,698578,36.67,-0.59,36.37,35.77,0.26
+20260901,36.05,36.55,35.6,35.6,1442152,36.58,-2.67,36.34,35.8,0.54
+20260902,35.15,36.35,35.15,35.75,693021,36.51,-2.08,36.32,35.87,0.26
+20260903,35.8,36,34.6,34.6,830884,36.35,-4.81,36.28,35.9,0.32
+20260904,35.25,35.25,34.2,34.8,563588,36.22,-3.92,36.32,35.95,0.22
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 42.65
-- over_600_ratio: 40.56
-- over_800_ratio: 38.34
-- over_1000_ratio: 37.6
-- over_400_change_1w: -0.84
-- over_800_change_1w: 0.21
-- over_1000_change_1w: 0.22
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260904
+- over_400_ratio: 40.87
+- over_600_ratio: 39.85
+- over_800_ratio: 38.21
+- over_1000_ratio: 37.47
+- over_400_change_1w: -1.53
+- over_800_change_1w: -0.87
+- over_1000_change_1w: -0.18
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,43.88,-0.15,40.32,1.36,37.46,-0.81,3,False,True
-20260612,44.05,0.17,38.29,-2.03,37.5,0.04,4,False,True
 20260618,43.57,-0.48,38.96,0.67,37.5,0,5,False,True
 20260626,43.15,-0.42,38.21,-0.75,37.42,-0.08,0,False,False
 20260703,43.47,0.32,39.27,1.06,37.05,-0.37,1,False,True
@@ -198,17 +197,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,43.54,0.79,37.85,-0.27,37.1,1.16,3,False,True
 20260814,43.49,-0.05,38.13,0.28,37.38,0.28,4,False,True
 20260821,42.65,-0.84,38.34,0.21,37.6,0.22,5,False,True
+20260828,42.4,-0.25,39.08,0.74,37.65,0.05,6,False,True
+20260904,40.87,-1.53,38.21,-0.87,37.47,-0.18,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 6477 | 安集 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日:115/07/16 2.公司名稱:安集科技股股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 本公司國內第三次無擔保轉換公司債自民國110年08月04日開始發行， 至民國115年08月04日到期，擬依本債券發行及轉換辦法辦理到期還本 事宜，並終止上櫃買賣。 6.因應措施:債券到期時，依債券面額之102.53%(到期年收益率為0.5%) 以現金一次償還。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (1)本公司國內第三次無擔保轉換公司債截至目前尚有餘額未轉換，    將於115年08月04日到期，並於到期之次一營業日115年08月05日    終止上櫃買賣。 (2)債券持有人如擬申請轉換，最遲應於115年08月04日向往來券商    提出申請轉換手續。 (3)本公司預計於115年08月18日將到期償還款項以匯款或郵寄支票    方式交付債權人，匯費及郵費將自償還價款中扣除。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 6477 | 安集 | 3 | 3 | 4 | 8 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

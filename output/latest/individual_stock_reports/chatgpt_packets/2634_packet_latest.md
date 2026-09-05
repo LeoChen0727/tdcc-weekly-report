@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2634 漢翔
 
 ## Metadata
-- generated_at: 2026-08-23 22:27:21 Asia/Taipei
+- generated_at: 2026-09-05 15:52:59 Asia/Taipei
 - stock_id: 2634
 - stock_name: 漢翔
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -124,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 73
-- high: 73.5
-- low: 69
-- close: 69.3
-- volume: 59948602
-- ma5: 70.9
-- ema23_primary: 65.19
-- distance_to_ema23_pct: 6.3
-- ma20: 64.36
-- ma60: 57.51
-- ma120: 53.19
-- return_5d: -1.84
-- return_20d: 5.96
-- volume_ratio: 1.28
-- distance_to_ma20_pct_auxiliary: 7.67
-- distance_to_high_60_pct: -9.41
+- date: 20260904
+- open: 65.4
+- high: 65.6
+- low: 64
+- close: 65
+- volume: 9832345
+- ma5: 65.94
+- ema23_primary: 66.17
+- distance_to_ema23_pct: -1.78
+- ma20: 67.34
+- ma60: 60.94
+- ma120: 54.4
+- return_5d: -4.13
+- return_20d: 5.35
+- volume_ratio: 0.22
+- distance_to_ma20_pct_auxiliary: -3.48
+- distance_to_high_60_pct: -15.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,65.4,65.4,61.3,61.8,46349008,60.3,2.49,61.53,52.02,0.72
-20260728,60.1,63.6,59.9,60.9,59654441,60.35,0.91,61.98,52.25,0.91
-20260729,61,62.2,58,60.7,47339742,60.38,0.53,62.18,52.45,0.73
-20260730,60.2,60.9,58.2,58.6,23315604,60.23,-2.71,62.3,52.59,0.37
-20260731,61.4,62.9,59.6,61.9,49257217,60.37,2.54,62.66,52.81,0.77
-20260803,61.2,62.3,60.6,60.7,17871838,60.4,0.5,62.7,52.99,0.28
-20260804,60,62.1,59.9,60.5,21596625,60.41,0.16,62.71,53.17,0.36
-20260805,61.6,64.5,61.3,63.5,38862353,60.66,4.68,62.97,53.44,0.64
-20260806,63,64,61.5,62.2,18012613,60.79,2.32,63.09,53.7,0.3
-20260807,61.6,62.6,60.7,61.7,13782539,60.87,1.37,63.28,53.94,0.23
 20260810,61.7,62,60.8,61,11999700,60.88,0.2,63.14,54.19,0.21
 20260811,61.5,64.4,59.9,62.8,31059532,61.04,2.89,62.92,54.46,0.61
 20260812,61.8,62.2,61.4,61.7,13149669,61.09,0.99,62.59,54.73,0.27
@@ -166,27 +157,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,73,74,68.5,68.6,59904430,64.14,6.96,63.65,56.68,1.25
 20260820,69.1,75.4,69,72.3,79873677,64.82,11.54,64.17,57.12,1.64
 20260821,73,73.5,69,69.3,59948602,65.19,6.3,64.36,57.51,1.28
+20260824,69.2,70.5,68.5,68.6,21260732,65.48,4.77,64.7,57.89,0.47
+20260825,68.6,69.2,66,66.7,20569421,65.58,1.71,65,58.22,0.47
+20260826,67,69.9,67,69,31147981,65.86,4.76,65.41,58.57,0.73
+20260827,69.2,75,69,70.3,103744465,66.23,6.14,66,58.96,2.21
+20260828,71.8,72.5,67.3,67.8,68007288,66.36,2.17,66.29,59.31,1.42
+20260831,67.1,68.1,66.6,66.9,17759292,66.41,0.74,66.6,59.65,0.37
+20260901,67,67.7,66.6,67,11315388,66.46,0.82,66.92,59.99,0.24
+20260902,66.6,67.8,66.4,66.4,11409935,66.45,-0.08,67.07,60.34,0.25
+20260903,66.7,66.9,64.1,64.4,15474023,66.28,-2.84,67.18,60.64,0.34
+20260904,65.4,65.6,64,65,9832345,66.17,-1.78,67.34,60.94,0.22
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 55.68
-- over_600_ratio: 54.52
-- over_800_ratio: 53.93
-- over_1000_ratio: 53.55
-- over_400_change_1w: 3.79
-- over_800_change_1w: 3.98
-- over_1000_change_1w: 3.97
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260904
+- over_400_ratio: 49.5
+- over_600_ratio: 48.51
+- over_800_ratio: 48
+- over_1000_ratio: 47.32
+- over_400_change_1w: -3.61
+- over_800_change_1w: -3.66
+- over_1000_change_1w: -3.96
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,48.38,0.13,46.53,0.01,46.43,0.41,2,True,True
-20260612,48.47,0.09,46.64,0.11,46.33,-0.1,3,False,True
 20260618,49,0.53,47.17,0.53,46.79,0.46,4,True,True
 20260626,49.4,0.4,47.55,0.38,47.26,0.47,5,True,True
 20260703,51.27,1.87,49.42,1.87,48.72,1.46,6,True,True
@@ -197,22 +196,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,50.78,0.06,48.86,-0.01,48.27,-0.21,1,False,False
 20260814,51.89,1.11,49.95,1.09,49.58,1.31,2,True,True
 20260821,55.68,3.79,53.93,3.98,53.55,3.97,3,True,True
+20260828,53.11,-2.57,51.66,-2.27,51.28,-2.27,0,False,False
+20260904,49.5,-3.61,48,-3.66,47.32,-3.96,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2634 | 漢翔 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:副總經理 2.發生變動日期:115/07/13 3.舊任者姓名、級職及簡歷:杜旭純，漢翔航空工業股份有限公司副總經理 4.新任者姓名、級職及簡歷:待委任 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:退休 6.異動原因:退休 7.生效日期:115/07/13 8.其他應敘明事項:新任副總經理待董事會決議通過委任後另行公告。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| 20260904 | 2634 | 漢翔 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:副總經理 2.發生變動日期:115/07/13 3.舊任者姓名、級職及簡歷:杜旭純，漢翔航空工業股份有限公司副總經理 4.新任者姓名、級職及簡歷:待委任 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:退休 6.異動原因:退休 7.生效日期:115/07/13 8.其他應敘明事項:新任副總經理待董事會決議通過委任後另行公告。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2634 | 漢翔 | 5 | 1 | 5 | 8 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260904 | 2634 | 漢翔 | 14 | 6 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2634 | 漢翔 | 86 | 3 | 20570800.0 | 309130.0 | 66.54 | no_signal |
+| 20260904 | 2634 | 漢翔 | 97 | 3 | 2630580.0 | 36400.0 | 72.27 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

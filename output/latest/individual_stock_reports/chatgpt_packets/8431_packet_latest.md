@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8431 匯鑽科
 
 ## Metadata
-- generated_at: 2026-08-23 22:29:40 Asia/Taipei
+- generated_at: 2026-09-05 15:54:50 Asia/Taipei
 - stock_id: 8431
 - stock_name: 匯鑽科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 203
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 213
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,25 +69,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- action_rating_display_zh: 停利
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
+- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
+- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
-- confidence_level: medium
-- thesis_state: unclear
+- action_rating: take_profit
+- action_rating_label_zh: 停利
+- confidence_level: low
+- thesis_state: breakout_confirmed
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -100,12 +100,12 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
+- decision_score_high
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -118,7 +118,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 45
-- high: 47.5
-- low: 45
-- close: 46.6
-- volume: 228000
-- ma5: 46.24
-- ema23_primary: 47.88
-- distance_to_ema23_pct: -2.68
-- ma20: 47.59
-- ma60: 50.43
-- ma120: 57.17
-- return_5d: -2.51
-- return_20d: -4.9
-- volume_ratio: 0.79
-- distance_to_ma20_pct_auxiliary: -2.08
-- distance_to_high_60_pct: -22.07
+- date: 20260904
+- open: 64.8
+- high: 69.7
+- low: 64
+- close: 68.8
+- volume: 10612000
+- ma5: 60.06
+- ema23_primary: 52.35
+- distance_to_ema23_pct: 31.43
+- ma20: 50.55
+- ma60: 50.39
+- ma120: 56.07
+- return_5d: 32.05
+- return_20d: 43.18
+- volume_ratio: 7.9
+- distance_to_ma20_pct_auxiliary: 36.09
+- distance_to_high_60_pct: -1.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,48.75,51,48,49.4,511000,50.14,-1.47,49.8,54.37,1.47
-20260728,49.35,49.35,46.1,46.1,392000,49.8,-7.43,49.51,54.09,1.11
-20260729,46.8,46.8,43.5,44.5,463000,49.36,-9.85,49.06,53.78,1.3
-20260730,43.6,45.5,43.5,44.15,377000,48.93,-9.76,48.64,53.47,1.04
-20260731,45.75,46.75,44.25,45.9,349000,48.67,-5.7,48.32,53.2,0.93
-20260803,45.55,47.65,45.55,46.85,261000,48.52,-3.44,48.05,52.95,0.69
-20260804,46.55,51.5,46.55,51.5,535000,48.77,5.6,47.95,52.8,1.37
-20260805,51.1,52.2,50.7,50.9,621000,48.95,3.99,47.96,52.63,1.54
-20260806,50.9,50.9,49.85,50,152000,49.03,1.97,47.92,52.44,0.38
-20260807,49.9,50.5,48,48.05,272000,48.95,-1.84,47.86,52.26,0.69
 20260810,49,51.7,48.85,49.8,270000,49.02,1.58,47.91,52.13,0.71
 20260811,50.1,50.1,48.5,48.75,164000,49,-0.51,47.99,51.97,0.45
 20260812,48.75,49,47.9,48.8,117000,48.98,-0.38,48.03,51.82,0.33
@@ -168,27 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,45.25,46.35,44.5,44.5,346000,48.24,-7.76,47.93,50.84,1.12
 20260820,45,45.5,44.85,45.3,127000,48,-5.62,47.71,50.61,0.43
 20260821,45,47.5,45,46.6,228000,47.88,-2.68,47.59,50.43,0.79
+20260824,46.65,47,45.5,45.5,75000,47.68,-4.58,47.4,50.25,0.28
+20260825,45.6,45.65,44.7,45.3,102000,47.49,-4.6,47.35,50.08,0.41
+20260826,45.3,46.3,45.3,46.05,68000,47.37,-2.78,47.43,49.91,0.29
+20260827,46.5,48.9,46.5,47.4,302000,47.37,0.07,47.59,49.81,1.33
+20260828,47.45,52.1,45.6,52.1,1266000,47.76,9.08,47.91,49.72,4.63
+20260831,51,55.5,50.9,53.6,1212000,48.25,11.09,48.24,49.69,3.77
+20260901,53,55.3,53,54.4,607000,48.76,11.56,48.39,49.69,1.87
+20260902,54.3,59.8,54.1,59.8,3177000,49.68,20.37,48.83,49.83,7.02
+20260903,59.1,65.7,58.7,63.7,7618000,50.85,25.27,49.52,50.04,9.22
+20260904,64.8,69.7,64,68.8,10612000,52.35,31.43,50.55,50.39,7.9
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 23.64
-- over_600_ratio: 21.7
-- over_800_ratio: 18.47
-- over_1000_ratio: 16.63
-- over_400_change_1w: -0.04
-- over_800_change_1w: -0.04
-- over_1000_change_1w: -0.04
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260904
+- over_400_ratio: 28.51
+- over_600_ratio: 24.53
+- over_800_ratio: 19.98
+- over_1000_ratio: 16.09
+- over_400_change_1w: 4.81
+- over_800_change_1w: 1.45
+- over_1000_change_1w: -0.6
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,24.57,0.17,17.62,0,15.78,0,2,False,False
-20260612,23.39,-1.18,17.28,-0.34,15.44,-0.34,0,False,False
 20260618,24.21,0.82,17.24,-0.04,15.4,-0.04,1,False,False
 20260626,23.33,-0.88,17.22,-0.02,15.38,-0.02,0,False,False
 20260703,23.47,0.14,17.23,0.01,15.39,0.01,1,True,True
@@ -199,17 +197,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,23.05,-0.43,18.97,1.78,17.13,1.78,1,False,True
 20260814,23.68,0.63,18.51,-0.46,16.67,-0.46,2,False,False
 20260821,23.64,-0.04,18.47,-0.04,16.63,-0.04,0,False,False
+20260828,23.7,0.06,18.53,0.06,16.69,0.06,1,True,True
+20260904,28.51,4.81,19.98,1.45,16.09,-0.6,2,False,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260904 | 8431 | 匯鑽科 | true_breakout | 嚴格突破 | 88.0 |  |  | breakout_confirmed |  |  | continued_overheated | 1.事實發生日:115/08/27 2.公司名稱:匯鑽科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:中國證券監督管理委員會對於本公司第二次無擔保轉換公司債之備案， 經審理後，業已公示回覆予以備案。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260904 | 8431 | 匯鑽科 | 2 | 2 | 3 | 4 | 4 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

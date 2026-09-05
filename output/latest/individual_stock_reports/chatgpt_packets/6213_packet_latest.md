@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6213 聯茂
 
 ## Metadata
-- generated_at: 2026-08-23 22:28:45 Asia/Taipei
+- generated_at: 2026-09-05 15:54:06 Asia/Taipei
 - stock_id: 6213
 - stock_name: 聯茂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,24 +69,24 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 停利
-- model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
-- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
-- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
+- final_decision_zh: 型態觀察 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: take_profit
-- action_rating_label_zh: 停利
-- confidence_level: low
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
 - thesis_state: high_level_distribution_risk
 - entry_style: no_entry_now
 - position_sizing: observe_only
@@ -100,9 +100,8 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
-- decision_score_high
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 
@@ -126,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 534
-- high: 555
-- low: 498.5
-- close: 513
-- volume: 38855929
-- ma5: 495.2
-- ema23_primary: 415.76
-- distance_to_ema23_pct: 23.39
-- ma20: 390.38
-- ma60: 339.38
-- ma120: 275.55
-- return_5d: 6.88
-- return_20d: 65.75
-- volume_ratio: 2.48
-- distance_to_ma20_pct_auxiliary: 31.41
-- distance_to_high_60_pct: -7.57
+- date: 20260904
+- open: 537
+- high: 545
+- low: 493.5
+- close: 517
+- volume: 13261099
+- ma5: 532.6
+- ema23_primary: 487.48
+- distance_to_ema23_pct: 6.06
+- ma20: 508.6
+- ma60: 385.48
+- ma120: 309.84
+- return_5d: -11.17
+- return_20d: 32.9
+- volume_ratio: 0.85
+- distance_to_ma20_pct_auxiliary: 1.65
+- distance_to_high_60_pct: -13.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,300.5,309,290,307,14624042,333.72,-8.01,353.57,300.12,0.59
-20260728,288,301,276.5,276.5,19040564,328.95,-15.95,350.2,300.23,0.76
-20260729,275,277.5,249,249,11867324,322.29,-22.74,344.12,299.54,0.48
-20260730,239,266,237,239.5,20665200,315.39,-24.06,338.1,298.8,0.84
-20260731,263,263,263,263,2069260,311.03,-15.44,333.32,298.43,0.09
-20260803,289,289,285,289,8241029,309.19,-6.53,328.07,298.26,0.37
-20260804,290,313,289,310,21166434,309.26,0.24,323.77,298.63,0.97
-20260805,324,341,320.5,341,26865735,311.9,9.33,321.88,299.31,1.28
-20260806,341,375,336.5,375,30617965,317.16,18.24,320.95,300.8,1.48
-20260807,384.5,401,366,389,50764820,323.15,20.38,321.15,302.73,2.33
 20260810,424,427.5,422,427.5,20055590,331.84,28.83,324.55,305.38,0.94
 20260811,427.5,452,395.5,452,16717332,341.86,32.22,329.73,308.7,0.79
 20260812,459,475,451.5,464,8182733,352.04,31.8,336.18,312.35,0.4
@@ -168,27 +157,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,466.5,500,466.5,484,3111366,397.55,21.75,371.88,331.51,0.2
 20260820,508,510,490,510,3222151,406.92,25.33,380.2,335.43,0.22
 20260821,534,555,498.5,513,38855929,415.76,23.39,390.38,339.38,2.48
+20260824,509,525,478,482.5,17393180,421.32,14.52,399.15,343.07,1.1
+20260825,482,530,480.5,530,26109789,430.38,23.15,411.82,347.43,1.62
+20260826,530,583,525,583,29746728,443.09,31.57,428.52,352.23,1.75
+20260827,585,599,556,563,36060522,453.09,24.26,444.7,357.06,2.03
+20260828,573,592,548,582,25938705,463.83,25.48,460.65,362.26,1.37
+20260831,563,591,534,548,17724290,470.84,16.39,473.6,367.05,0.91
+20260901,550,575,545,550,13046089,477.44,15.2,485.6,371.98,0.68
+20260902,545,566,532,536,12530573,482.32,11.13,495.35,376.85,0.68
+20260903,550,552,509,512,12963621,484.79,5.61,502.2,381.1,0.74
+20260904,537,545,493.5,517,13261099,487.48,6.06,508.6,385.48,0.85
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 68.77
-- over_600_ratio: 67.32
-- over_800_ratio: 64.24
-- over_1000_ratio: 62.24
-- over_400_change_1w: 0.72
-- over_800_change_1w: 0.32
-- over_1000_change_1w: 1.52
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260904
+- over_400_ratio: 67.71
+- over_600_ratio: 66.21
+- over_800_ratio: 63.53
+- over_1000_ratio: 61.31
+- over_400_change_1w: -1.23
+- over_800_change_1w: -1.42
+- over_1000_change_1w: -1.33
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,56.62,0.13,52.59,0.08,51.35,0.59,3,True,True
-20260612,56.26,-0.36,52.45,-0.14,50.68,-0.67,4,False,False
 20260618,57.63,1.37,53.34,0.89,51.09,0.41,5,True,True
 20260626,65.32,7.69,60.85,7.51,59.09,8,6,True,True
 20260703,65.3,-0.02,61.36,0.51,58.8,-0.29,7,False,True
@@ -199,22 +196,25 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,63.68,3.29,59.38,3.56,55.92,3.08,1,True,True
 20260814,68.05,4.37,63.92,4.54,60.72,4.8,2,True,True
 20260821,68.77,0.72,64.24,0.32,62.24,1.52,3,True,True
+20260828,68.94,0.17,64.95,0.71,62.64,0.4,4,True,True
+20260904,67.71,-1.23,63.53,-1.42,61.31,-1.33,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 6213 | 聯茂 | true_breakout | 嚴格突破 | 94.0 |  |  | platform_breakout |  | mixed_flow | first_seen | 1.事實發生日:115/06/23 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理公告 3.財務業務資訊:  一、本公司合併財務資訊：  科目　　 最近一月　　 與去年同期　　最近一季　　 與去年同期　最近四季累計  期間　　 115年05月　　增　　 減%　 115年第1季 　 增　　 減%　114年第2季至                                                               115年第1季              (自結數)               　(查核數)               (核閱或查核數)  ＝＝＝＝　 ＝＝＝＝　＝＝＝＝＝＝　＝＝＝＝＝＝ ＝＝＝＝＝＝ ＝＝＝＝＝＝＝  營業收入　　 3,803 　      29.31%　  　9,143 　　   20.62%　      34,661  (百萬)  稅前淨利       655        235.90%　      483　      -9.72%　　     2,315  (百萬)  本期淨利       438        265.00%　　    315　      -6.53%　　     1,488  (百萬)  每股盈餘　    1.21        266.67% 　    0.87　      -6.45%　        4.10  (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| 20260904 | 6213 | 聯茂 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | continued_overheated | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 供營業之機器設備 2.事實發生日:115/9/2~115/9/2 3.董事會通過日期: 民國115年8月7日 4.其他核決日期: 核決層級:董事長核決 民國115年9月2日 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 數量:一批 交易總金額:約新台幣634,373仟元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 河南環宇昌電子科技有限公司;與公司關係:無。 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依合約條件付款。 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 決定方式：比價及議價 決策單位：依該公司核決權限規定辦理。 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 供生產及營運使用 24.本次交易表示異議之董事之意見: 不適用 25.本次交易為關係人交易:否 26.監察人承認或審計委員會同意日期: 1.民國 年 月 日 2.不適用，請寫原因 (以上文字請自行增刪) 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| 20260904 | 6213 | 聯茂 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | continued_overheated | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 供營業之機器設備 2.事實發生日:115/9/2~115/9/2 3.董事會通過日期: 民國115年8月7日 4.其他核決日期: 核決層級:董事長核決 民國115年9月2日 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 數量:一批 交易總金額:約新台幣634,373仟元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 河南環宇昌電子科技有限公司;與公司關係:無。 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依合約條件付款。 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 決定方式：比價及議價 決策單位：依該公司核決權限規定辦理。 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 供生產及營運使用 24.本次交易表示異議之董事之意見: 不適用 25.本次交易為關係人交易:否 26.監察人承認或審計委員會同意日期: 1.民國 年 月 日 2.不適用，請寫原因 (以上文字請自行增刪) 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 6213 | 聯茂 | 1 | 1 | 3 | 6 | 13 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260904 | 6213 | 聯茂 | 2 | 2 | 2 | 7 | 13 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 6213 | 聯茂 | 120 | 8 | 56609190.0 | 1697790.0 | 33.34 | mixed_flow |
+| 20260904 | 6213 | 聯茂 | 113 | 8 | 7621240.0 | 475380.0 | 16.03 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

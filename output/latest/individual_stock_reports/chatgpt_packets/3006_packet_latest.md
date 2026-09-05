@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3006 晶豪科
 
 ## Metadata
-- generated_at: 2026-08-23 22:27:30 Asia/Taipei
+- generated_at: 2026-09-05 15:53:06 Asia/Taipei
 - stock_id: 3006
 - stock_name: 晶豪科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 249.5
-- high: 260.5
-- low: 247
-- close: 256.5
-- volume: 9305545
-- ma5: 254.7
-- ema23_primary: 242.62
-- distance_to_ema23_pct: 5.72
-- ma20: 236.47
-- ma60: 228.98
-- ma120: 205.17
-- return_5d: -6.22
-- return_20d: 24.51
-- volume_ratio: 0.89
-- distance_to_ma20_pct_auxiliary: 8.47
-- distance_to_high_60_pct: -10.16
+- date: 20260904
+- open: 285
+- high: 289
+- low: 263.5
+- close: 278.5
+- volume: 26605989
+- ma5: 281.6
+- ema23_primary: 263.23
+- distance_to_ema23_pct: 5.8
+- ma20: 270.93
+- ma60: 235.98
+- ma120: 215.58
+- return_5d: 3.34
+- return_20d: 8.58
+- volume_ratio: 1.88
+- distance_to_ma20_pct_auxiliary: 2.8
+- distance_to_high_60_pct: -10.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,205,212.5,198.5,212,7223711,216.46,-2.06,216.05,222.72,0.64
-20260728,196.5,198,191,191,6617302,214.34,-10.89,214.43,223.08,0.59
-20260729,185.5,185.5,172,172,8852258,210.81,-18.41,211.72,223.07,0.79
-20260730,166,177,161,164,11408491,206.91,-20.74,209.28,222.77,1.01
-20260731,180,180,180,180,1261112,204.67,-12.05,207.38,222.43,0.11
-20260803,188.5,198,188.5,198,7128493,204.11,-3,206.7,222.46,0.66
-20260804,207.5,217.5,207.5,217.5,16630560,205.23,5.98,206.62,222.72,1.52
-20260805,237.5,239,234,239,12064027,208.04,14.88,207.62,223,1.12
-20260806,240,258,239,258,30664323,212.21,21.58,209.75,223.63,2.61
-20260807,255,263.5,250.5,256.5,19500692,215.9,18.81,210.72,224.3,1.68
 20260810,275.5,281.5,265,275.5,23057646,220.86,24.74,213.1,224.93,1.96
 20260811,274,274,264,267.5,5554864,224.75,19.02,215.6,225.2,0.49
 20260812,275.5,279,269,274,3672397,228.85,19.73,217.35,225.57,0.34
@@ -167,17 +158,27 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,240,246.5,236,245.5,9106315,240.52,2.07,232.05,228.41,0.89
 20260820,250.5,255.5,242.5,250.5,9100991,241.35,3.79,233.95,228.72,0.88
 20260821,249.5,260.5,247,256.5,9305545,242.62,5.72,236.47,228.98,0.89
+20260824,257,282,252.5,282,19416434,245.9,14.68,239.97,229.64,1.76
+20260825,275.5,280.5,260,270,19812456,247.91,8.91,243.93,230.03,1.69
+20260826,270,273.5,265,273.5,12165843,250.04,9.38,249,230.43,1.02
+20260827,274.5,282.5,273,274,14068417,252.04,8.71,254.5,230.53,1.17
+20260828,275.5,279.5,265,269.5,9546036,253.49,6.32,258.98,230.7,0.77
+20260831,265.5,293.5,263.5,292.5,23235364,256.74,13.93,263.7,231.49,1.76
+20260901,298.5,299,276,278.5,20165284,258.56,7.71,266.75,232.43,1.5
+20260902,276,284.5,271,281.5,9196167,260.47,8.07,268.88,233.67,0.69
+20260903,300.5,309.5,275,277,41962593,261.85,5.79,269.82,234.71,3.04
+20260904,285,289,263.5,278.5,26605989,263.23,5.8,270.93,235.98,1.88
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 58.71
-- over_600_ratio: 54.95
-- over_800_ratio: 50.69
-- over_1000_ratio: 48.57
-- over_400_change_1w: -1.26
-- over_800_change_1w: -0.96
-- over_1000_change_1w: -1.26
+- as_of_date: 20260904
+- over_400_ratio: 58.48
+- over_600_ratio: 54.9
+- over_800_ratio: 51.14
+- over_1000_ratio: 48.75
+- over_400_change_1w: -1.41
+- over_800_change_1w: -0.85
+- over_1000_change_1w: -1.45
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -186,8 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,54.08,-3.34,47.06,-3.79,44.35,-3.51,0,False,False
-20260612,52.59,-1.49,45.37,-1.69,42.64,-1.71,0,False,False
 20260618,52.76,0.17,45.89,0.52,43.46,0.82,1,True,True
 20260626,54.04,1.28,46.65,0.76,44.84,1.38,2,True,True
 20260703,52.79,-1.25,45.51,-1.14,43.7,-1.14,0,False,False
@@ -198,23 +197,25 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,57.63,6.4,49.54,6.16,48.04,6.7,1,True,True
 20260814,59.97,2.34,51.65,2.11,49.83,1.79,2,True,True
 20260821,58.71,-1.26,50.69,-0.96,48.57,-1.26,0,False,False
+20260828,59.89,1.18,51.99,1.3,50.2,1.63,1,True,True
+20260904,58.48,-1.41,51.14,-0.85,48.75,-1.45,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 3006 | 晶豪科 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_inflow | continued_2_3d | 1.事實發生日:115/06/17 2.公司名稱:晶豪科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 依據「發行人募集與發行有價證券處理準則」第九條第一項第二款規定辦理， 公告本公司國內第二次有擔保轉換公司債之代收價款行庫及存儲專戶行庫等 相關事宜。 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (1)訂約日期：民國115年6月17日。 (2)委託代收價款行庫：凱基商業銀行敦北分行。 (3)委託存儲專戶行庫：凱基商業銀行市政分行。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
-| 20260821 | 3006 | 晶豪科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | continued_2_3d | 1.事實發生日:115/06/17 2.公司名稱:晶豪科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 依據「發行人募集與發行有價證券處理準則」第九條第一項第二款規定辦理， 公告本公司國內第二次有擔保轉換公司債之代收價款行庫及存儲專戶行庫等 相關事宜。 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (1)訂約日期：民國115年6月17日。 (2)委託代收價款行庫：凱基商業銀行敦北分行。 (3)委託存儲專戶行庫：凱基商業銀行市政分行。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260904 | 3006 | 晶豪科 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/08/26 2.公司名稱:晶豪科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: (1)本公司申報發行國內第二次有擔保轉換公司債上限20,000張，每張面額10萬元，    上限總額新臺幣2,000,000,000元乙案，業經金融監督管理委員會    民國115年6月17日金管證發字第1150345947號函核准申報生效在案。 (2)茲因應國內資本市場變動及尋求較佳的發行時點，並考量股東權益，    為尋求最佳發行時點並順利完成資金募足，本公司擬申請展延募集期間三個月，    以尋求最適發行時點。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| 20260904 | 3006 | 晶豪科 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/08/26 2.公司名稱:晶豪科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: (1)本公司申報發行國內第二次有擔保轉換公司債上限20,000張，每張面額10萬元，    上限總額新臺幣2,000,000,000元乙案，業經金融監督管理委員會    民國115年6月17日金管證發字第1150345947號函核准申報生效在案。 (2)茲因應國內資本市場變動及尋求較佳的發行時點，並考量股東權益，    為尋求最佳發行時點並順利完成資金募足，本公司擬申請展延募集期間三個月，    以尋求最適發行時點。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 3006 | 晶豪科 | 2 | 2 | 4 | 9 | 19 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260904 | 3006 | 晶豪科 | 11 | 4 | 5 | 10 | 19 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 3006 | 晶豪科 | 188 | 14 | 29758370.0 | 198870.0 | 149.64 | call_inflow |
+| 20260904 | 3006 | 晶豪科 | 187 | 14 | 21931320.0 | 688940.0 | 31.83 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

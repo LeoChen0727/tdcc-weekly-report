@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4912 聯德控股-KY
 
 ## Metadata
-- generated_at: 2026-08-23 22:28:16 Asia/Taipei
+- generated_at: 2026-09-05 15:53:43 Asia/Taipei
 - stock_id: 4912
 - stock_name: 聯德控股-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 營收成長股價回檔
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 91.5
-- high: 93.6
-- low: 90.4
-- close: 91.1
-- volume: 546119
-- ma5: 91.34
-- ema23_primary: 89.28
-- distance_to_ema23_pct: 2.04
-- ma20: 88.2
-- ma60: 89.62
-- ma120: 90.66
-- return_5d: -0.22
-- return_20d: 7.94
-- volume_ratio: 1.57
-- distance_to_ma20_pct_auxiliary: 3.28
-- distance_to_high_60_pct: -22.14
+- date: 20260904
+- open: 103
+- high: 104
+- low: 99.2
+- close: 102
+- volume: 1168288
+- ma5: 100.72
+- ema23_primary: 94.38
+- distance_to_ema23_pct: 8.07
+- ma20: 94.21
+- ma60: 89.06
+- ma120: 91.31
+- return_5d: 2.82
+- return_20d: 14.61
+- volume_ratio: 1.61
+- distance_to_ma20_pct_auxiliary: 8.27
+- distance_to_high_60_pct: -3.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,83,84,82.5,83.6,84068,86.55,-3.41,85.83,92.7,0.33
-20260728,82,82.5,80.5,81.2,274922,86.11,-5.7,85.64,92.69,1.06
-20260729,80.8,81.8,75,78.4,583322,85.46,-8.26,85.24,92.65,2.14
-20260730,78.4,80.5,77.6,79,291893,84.92,-6.98,84.91,92.61,1.07
-20260731,81.9,83.4,80.7,82.3,368850,84.71,-2.84,84.72,92.59,1.29
-20260803,82,87.7,82,86.6,470761,84.86,2.05,84.64,92.51,1.58
-20260804,86.6,89,86.1,88.9,358688,85.2,4.34,84.59,92.42,1.21
-20260805,90.3,92.3,89.6,89.6,538408,85.57,4.71,84.78,92.33,1.76
-20260806,91.2,91.9,87.4,90.9,564383,86.01,5.68,84.87,92.26,1.78
-20260807,91.5,91.5,88.6,89,275910,86.26,3.18,85,92,0.88
 20260810,91.7,92,89.7,89.8,468445,86.56,3.75,85.12,91.76,1.45
 20260811,90.5,90.5,88.2,89.2,159470,86.78,2.79,85.34,91.49,0.52
 20260812,88.7,95,88.7,94.7,659068,87.44,8.31,85.72,91.3,1.99
@@ -168,27 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,90,91.6,89.3,90.8,153426,88.9,2.14,87.54,90.23,0.47
 20260820,91,91.9,90.8,91.5,247229,89.12,2.68,87.87,89.98,0.75
 20260821,91.5,93.6,90.4,91.1,546119,89.28,2.04,88.2,89.62,1.57
+20260824,91,91.5,87.6,89.9,847247,89.33,0.64,88.52,89.36,2.19
+20260825,89.1,89.7,86.6,89.4,670019,89.34,0.07,88.93,88.93,1.65
+20260826,89.4,90,89,89.3,324121,89.33,-0.04,89.47,88.53,0.82
+20260827,89.8,98.2,89.8,98.2,2418654,90.07,9.02,90.44,88.45,4.84
+20260828,100,101.5,97.1,99.2,1734682,90.83,9.21,91.28,88.43,3.05
+20260831,98,98.9,95.3,98.4,736699,91.46,7.58,91.87,88.48,1.27
+20260901,99.5,101,98,98.7,1052502,92.07,7.2,92.36,88.58,1.71
+20260902,98.5,104,97.8,103,1457136,92.98,10.78,93.03,88.81,2.2
+20260903,103,105.5,101,101.5,970665,93.69,8.34,93.56,88.91,1.42
+20260904,103,104,99.2,102,1168288,94.38,8.07,94.21,89.06,1.61
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 51.39
-- over_600_ratio: 43.25
-- over_800_ratio: 38.19
-- over_1000_ratio: 36.97
-- over_400_change_1w: -0.01
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260904
+- over_400_ratio: 51.52
+- over_600_ratio: 42.96
+- over_800_ratio: 40
+- over_1000_ratio: 38.72
+- over_400_change_1w: -1.07
+- over_800_change_1w: 0.3
+- over_1000_change_1w: 0.28
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,51.17,-3.16,38.16,-0.22,36.97,-0.05,0,False,False
-20260612,51.21,0.04,36.97,-1.19,36.97,0,1,False,False
 20260618,50.58,-0.63,36.97,0,36.97,0,0,False,False
 20260626,50.66,0.08,38.19,1.22,36.97,0,1,False,True
 20260703,50.06,-0.6,38.16,-0.03,36.97,0,0,False,False
@@ -199,17 +197,21 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,51.16,0.27,36.97,-0.01,36.97,-0.01,2,False,False
 20260814,51.4,0.24,38.19,1.22,36.97,0,3,False,True
 20260821,51.39,-0.01,38.19,0,36.97,0,4,False,False
+20260828,52.59,1.2,39.7,1.51,38.44,1.47,5,True,True
+20260904,51.52,-1.07,40,0.3,38.72,0.28,6,False,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260904 | 4912 | 聯德控股-KY | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | repeated_but_no_breakout | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額:    現金股利：新台幣53,594,479元，每股配發0.8元。 3.變更後發放股利種類及金額:    現金股利：新台幣53,594,479元，每股配發0.80047794元。 4.變更原因:  一、依115/08/21董事會決議授權董事長於流通在外股數發生變動時，      辦理現金股利配息率調整事宜。  二、訂定115/10/15為現金股利發放日。  三、原115/08/21董事會決議115年第2季股東現金股利每股配發新台      幣0.8元，本公司因註銷限制員工權利新股影響流通在外股數，      致股東配息比率發生變動，故調整現金股利每股配發新台幣0.80047794 	元。 5.其他應敘明事項:無；calendar event: ex_dividend on 20260910; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260904 | 4912 | 聯德控股-KY | revenue_breakout_low_response | 營收爆發低反應股 | 19 | 12 | A_優先追蹤 |  |  |  | repeated_but_no_breakout | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額:    現金股利：新台幣53,594,479元，每股配發0.8元。 3.變更後發放股利種類及金額:    現金股利：新台幣53,594,479元，每股配發0.80047794元。 4.變更原因:  一、依115/08/21董事會決議授權董事長於流通在外股數發生變動時，      辦理現金股利配息率調整事宜。  二、訂定115/10/15為現金股利發放日。  三、原115/08/21董事會決議115年第2季股東現金股利每股配發新台      幣0.8元，本公司因註銷限制員工權利新股影響流通在外股數，      致股東配息比率發生變動，故調整現金股利每股配發新台幣0.80047794 	元。 5.其他應敘明事項:無；calendar event: ex_dividend on 20260910; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260904 | 4912 | 聯德控股-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額:    現金股利：新台幣53,594,479元，每股配發0.8元。 3.變更後發放股利種類及金額:    現金股利：新台幣53,594,479元，每股配發0.80047794元。 4.變更原因:  一、依115/08/21董事會決議授權董事長於流通在外股數發生變動時，      辦理現金股利配息率調整事宜。  二、訂定115/10/15為現金股利發放日。  三、原115/08/21董事會決議115年第2季股東現金股利每股配發新台      幣0.8元，本公司因註銷限制員工權利新股影響流通在外股數，      致股東配息比率發生變動，故調整現金股利每股配發新台幣0.80047794 	元。 5.其他應敘明事項:無；calendar event: ex_dividend on 20260910; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260904 | 4912 | 聯德控股-KY | 1 | 1 | 3 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 5 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

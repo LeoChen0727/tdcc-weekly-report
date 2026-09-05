@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6505 台塑化
 
 ## Metadata
-- generated_at: 2026-08-23 22:28:55 Asia/Taipei
+- generated_at: 2026-09-05 15:54:14 Asia/Taipei
 - stock_id: 6505
 - stock_name: 台塑化
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 72.9
-- high: 76.5
-- low: 72.5
-- close: 75.8
-- volume: 20465693
-- ma5: 72.42
-- ema23_primary: 71.16
-- distance_to_ema23_pct: 6.52
-- ma20: 71.22
-- ma60: 64.2
-- ma120: 59.51
-- return_5d: 6.91
-- return_20d: -11.65
-- volume_ratio: 0.72
-- distance_to_ma20_pct_auxiliary: 6.43
-- distance_to_high_60_pct: -22.57
+- date: 20260904
+- open: 76.6
+- high: 78.2
+- low: 75.4
+- close: 78.1
+- volume: 14976818
+- ma5: 76.7
+- ema23_primary: 73.17
+- distance_to_ema23_pct: 6.74
+- ma20: 72.6
+- ma60: 67.62
+- ma120: 60.68
+- return_5d: 9.38
+- return_20d: 10
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: 7.58
+- distance_to_high_60_pct: -20.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,81.7,82.9,77.3,77.9,40318333,71.03,9.68,69.23,58.33,0.75
-20260728,74,75.9,73,74.6,30093647,71.33,4.59,70.2,58.64,0.55
-20260729,76.3,77.1,72,74.8,48288584,71.61,4.45,71.19,58.98,0.85
-20260730,77,78,71,71.6,38960875,71.61,-0.02,72.08,59.25,0.67
-20260731,74.1,76,70.3,70.8,68602628,71.55,-1.04,72.75,59.52,1.13
-20260803,71.4,71.4,67.2,67.7,30573283,71.23,-4.95,73.19,59.78,0.51
-20260804,65.6,68.8,65.4,68.2,20035162,70.97,-3.91,73.62,60.03,0.33
-20260805,67.6,68.4,66.7,67.6,20430002,70.69,-4.37,74.1,60.26,0.34
-20260806,66.8,67.4,66.2,67.1,13793136,70.39,-4.68,74.48,60.49,0.23
-20260807,70.1,73,68.8,71,41571771,70.44,0.79,75.09,60.79,0.67
 20260810,70,70.7,67.2,69,26008347,70.32,-1.88,75.39,61.07,0.42
 20260811,70.4,71.6,68,71.1,24721513,70.39,1.01,75.64,61.4,0.41
 20260812,71.8,72.9,70.2,70.2,15118513,70.37,-0.24,75.5,61.72,0.26
@@ -167,17 +157,27 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,73,73,70.1,70.2,20727704,70.53,-0.47,72.73,63.38,0.56
 20260820,71.5,74.6,71.5,73,21316068,70.74,3.2,71.72,63.77,0.64
 20260821,72.9,76.5,72.5,75.8,20465693,71.16,6.52,71.22,64.2,0.72
+20260824,75.2,75.2,68.6,69.9,39342586,71.06,-1.63,70.82,64.53,1.4
+20260825,69.6,71.4,68.7,71,10923750,71.05,-0.07,70.64,64.86,0.4
+20260826,70.2,70.8,69.2,70.4,14882438,71,-0.84,70.42,65.14,0.58
+20260827,70.5,74.3,70.2,72.7,18460267,71.14,2.19,70.47,65.45,0.75
+20260828,72.8,74,71.4,71.4,10080935,71.16,0.34,70.5,65.71,0.47
+20260831,71.9,73.9,71.1,73.5,17193364,71.36,3.01,70.8,65.97,0.82
+20260901,73.7,77.6,73.3,76.7,30357487,71.8,6.82,71.22,66.33,1.42
+20260902,80.4,80.5,76.7,78.7,42792598,72.38,8.74,71.78,66.77,1.9
+20260903,78.1,79.9,76.1,76.5,27551720,72.72,5.2,72.25,67.17,1.18
+20260904,76.6,78.2,75.4,78.1,14976818,73.17,6.74,72.6,67.62,0.68
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 95.68
-- over_600_ratio: 95.43
-- over_800_ratio: 95.31
-- over_1000_ratio: 95.21
-- over_400_change_1w: 0.04
-- over_800_change_1w: 0.01
-- over_1000_change_1w: 0.05
+- as_of_date: 20260904
+- over_400_ratio: 95.66
+- over_600_ratio: 95.4
+- over_800_ratio: 95.28
+- over_1000_ratio: 95.18
+- over_400_change_1w: 0.08
+- over_800_change_1w: 0.09
+- over_1000_change_1w: 0.08
 - tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: True
 - high_thresholds_up: True
@@ -186,8 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,94.81,0.29,94.47,0.3,94.38,0.31,1,True,True
-20260612,94.75,-0.06,94.41,-0.06,94.31,-0.07,0,False,False
 20260618,94.78,0.03,94.43,0.02,94.34,0.03,1,True,True
 20260626,94.85,0.07,94.51,0.08,94.41,0.07,2,True,True
 20260703,94.91,0.06,94.56,0.05,94.44,0.03,3,True,True
@@ -198,23 +196,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,95.77,-0.13,95.44,-0.09,95.29,-0.14,0,False,False
 20260814,95.64,-0.13,95.3,-0.14,95.16,-0.13,0,False,False
 20260821,95.68,0.04,95.31,0.01,95.21,0.05,1,True,True
+20260828,95.58,-0.1,95.19,-0.12,95.1,-0.11,0,False,False
+20260904,95.66,0.08,95.28,0.09,95.18,0.08,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 6505 | 台塑化 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_put_bullish | stale_signal | 1.事實發生日:115/07/17 2.發生緣由:依據臺灣證券交易所股份有限公司通知辦理 3.財務業務資訊: 　　　　　最近一月    與去年同    最近一季   與去年同       最近四季累計 　　　　 合併自結數    期增減%   合併核閱數   期增減%      合併查核/核閱數          (115年6月)              (115年1季)              (114年2季至115年1季) ----------------------------------------------------------------------------- 營業收入   63,683       18.46%    161,989        -6.51%         614,881 (百萬) 稅前淨利     -492           -      25,616       431.56%          33,509 (百萬) 歸屬母公司 -5,685    -1603.97%     20,408       453.81%          26,598 業主淨利 (百萬) 每股盈餘    -0.60    -1600.00%       2.14       448.72%            2.79 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告:季申報 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
-| 20260821 | 6505 | 台塑化 | revenue_pullback | 營收成長股價回檔 | 60.0 |  |  |  |  | call_put_bullish | stale_signal | 1.事實發生日:115/07/17 2.發生緣由:依據臺灣證券交易所股份有限公司通知辦理 3.財務業務資訊: 　　　　　最近一月    與去年同    最近一季   與去年同       最近四季累計 　　　　 合併自結數    期增減%   合併核閱數   期增減%      合併查核/核閱數          (115年6月)              (115年1季)              (114年2季至115年1季) ----------------------------------------------------------------------------- 營業收入   63,683       18.46%    161,989        -6.51%         614,881 (百萬) 稅前淨利     -492           -      25,616       431.56%          33,509 (百萬) 歸屬母公司 -5,685    -1603.97%     20,408       453.81%          26,598 業主淨利 (百萬) 每股盈餘    -0.60    -1600.00%       2.14       448.72%            2.79 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告:季申報 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260904 | 6505 | 台塑化 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_inflow | stale_signal | 1.事實發生日:115/07/17 2.發生緣由:依據臺灣證券交易所股份有限公司通知辦理 3.財務業務資訊: 　　　　　最近一月    與去年同    最近一季   與去年同       最近四季累計 　　　　 合併自結數    期增減%   合併核閱數   期增減%      合併查核/核閱數          (115年6月)              (115年1季)              (114年2季至115年1季) ----------------------------------------------------------------------------- 營業收入   63,683       18.46%    161,989        -6.51%         614,881 (百萬) 稅前淨利     -492           -      25,616       431.56%          33,509 (百萬) 歸屬母公司 -5,685    -1603.97%     20,408       453.81%          26,598 業主淨利 (百萬) 每股盈餘    -0.60    -1600.00%       2.14       448.72%            2.79 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告:季申報 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 6505 | 台塑化 | 9 | 4 | 5 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260904 | 6505 | 台塑化 | 1 | 1 | 4 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 6505 | 台塑化 | 81 | 2 | 19724880.0 | 43990.0 | 448.39 | call_put_bullish |
+| 20260904 | 6505 | 台塑化 | 88 | 2 | 17678730.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

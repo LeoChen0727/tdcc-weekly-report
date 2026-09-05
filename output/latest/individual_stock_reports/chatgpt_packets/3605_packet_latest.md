@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3605 宏致
 
 ## Metadata
-- generated_at: 2026-08-23 22:27:55 Asia/Taipei
+- generated_at: 2026-09-05 15:53:26 Asia/Taipei
 - stock_id: 3605
 - stock_name: 宏致
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 109
-- high: 111
-- low: 106.5
-- close: 108.5
-- volume: 5102278
-- ma5: 118
-- ema23_primary: 106.67
-- distance_to_ema23_pct: 1.72
-- ma20: 105.14
-- ma60: 88.94
-- ma120: 79.44
-- return_5d: -17.49
-- return_20d: 19.23
-- volume_ratio: 0.48
-- distance_to_ma20_pct_auxiliary: 3.19
-- distance_to_high_60_pct: -21.09
+- date: 20260904
+- open: 118.5
+- high: 124.5
+- low: 113.5
+- close: 118
+- volume: 12601654
+- ma5: 124.8
+- ema23_primary: 115.68
+- distance_to_ema23_pct: 2.01
+- ma20: 120.6
+- ma60: 96.65
+- ma120: 84.48
+- return_5d: -9.92
+- return_20d: 9.77
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: -2.16
+- distance_to_high_60_pct: -16.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,90,92.7,89.6,91,5300259,85.5,6.43,86.55,81.41,0.48
-20260728,88.1,88.6,83.9,84.8,5535087,85.44,-0.75,86.89,81.37,0.5
-20260729,86,87.4,78.8,82.5,9015616,85.2,-3.16,87.12,81.31,0.79
-20260730,82,83.4,77.5,78.3,5477347,84.62,-7.47,86.75,81.1,0.5
-20260731,84.2,85.2,77.5,79,10025651,84.15,-6.12,86.2,80.95,1.01
-20260803,78.6,86.5,78.1,84.2,5556818,84.16,0.05,86,80.9,0.57
-20260804,83,92.6,82.7,92.6,7975211,84.86,9.12,86.25,81.06,0.83
-20260805,93.2,101.5,92,101.5,23451330,86.25,17.69,87.08,81.38,2.43
-20260806,102.5,111.5,98,108,22514018,88.06,22.64,87.94,81.81,2.25
-20260807,108,113,104.5,107.5,11193035,89.68,19.87,88.75,82.27,1.22
 20260810,108.5,110.5,103,109,9989806,91.29,19.4,89.72,82.75,1.09
 20260811,111.5,119.5,109.5,111,15655243,92.93,19.44,90.94,83.31,1.63
 20260812,111,120,111,120,8422797,95.19,26.07,92.66,84.05,0.86
@@ -167,27 +157,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,120,122.5,116.5,119,6294199,106.18,12.07,103.5,87.97,0.58
 20260820,119.5,119.5,107.5,110,9699155,106.5,3.28,104.27,88.44,0.9
 20260821,109,111,106.5,108.5,5102278,106.67,1.72,105.14,88.94,0.48
+20260824,109,119,108.5,115.5,14380707,107.4,7.54,106.37,89.56,1.3
+20260825,118,121,111.5,116.5,14837321,108.16,7.71,107.95,90.19,1.28
+20260826,114.5,115,111,112,8401678,108.48,3.24,109.43,90.73,0.73
+20260827,111.5,121.5,111.5,119.5,14003684,109.4,9.23,111.49,91.43,1.17
+20260828,121,131,118,131,19148721,111.2,17.81,114.09,92.33,1.54
+20260831,128.5,141,127.5,139,36448245,113.52,22.45,116.83,93.37,2.61
+20260901,128.5,132,125.5,125.5,7867059,114.52,9.59,118.47,94.21,0.56
+20260902,123.5,134,120,127,19992489,115.56,9.9,119.75,95.13,1.45
+20260903,128,129.5,114.5,114.5,13684319,115.47,-0.84,120.08,95.82,1.03
+20260904,118.5,124.5,113.5,118,12601654,115.68,2.01,120.6,96.65,0.94
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 68.56
-- over_600_ratio: 66.87
-- over_800_ratio: 64.9
-- over_1000_ratio: 62.29
-- over_400_change_1w: -0.03
-- over_800_change_1w: 3.86
-- over_1000_change_1w: 2.81
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260904
+- over_400_ratio: 64.61
+- over_600_ratio: 61.79
+- over_800_ratio: 56.9
+- over_1000_ratio: 55.86
+- over_400_change_1w: 0.35
+- over_800_change_1w: -4.34
+- over_1000_change_1w: -2.87
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,45.19,-0.22,40.72,0.11,39.25,0.12,5,False,True
-20260612,45.64,0.45,41.7,0.98,40.22,0.97,6,True,True
 20260618,45.53,-0.11,42.15,0.45,40.16,-0.06,7,False,True
 20260626,46.77,1.24,42.1,-0.05,41.09,0.93,8,False,True
 20260703,54.42,7.65,49.51,7.41,47.93,6.84,9,True,True
@@ -198,23 +196,25 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,63.51,8.21,57.92,8.31,55.79,7.72,1,True,True
 20260814,68.59,5.08,61.04,3.12,59.48,3.69,2,True,True
 20260821,68.56,-0.03,64.9,3.86,62.29,2.81,3,False,True
+20260828,64.26,-4.3,61.24,-3.66,58.73,-3.56,0,False,False
+20260904,64.61,0.35,56.9,-4.34,55.86,-2.87,1,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 3605 | 宏致 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/16 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:普通股現金股利，總金額為新台幣276,000,246元。 4.除權（息）交易日:115/08/12 5.最後過戶日:115/08/13 6.停止過戶起始日期:115/08/14 7.停止過戶截止日期:115/08/18 8.除權（息）基準日:115/08/18 9.債券最後申請轉換日期:115/07/22 10.債券停止轉換起始日期:115/07/24 11.債券停止轉換截止日期:115/08/18 12.普通股現金股利發放日期:115/09/16 13.現金股利之一部或全部是否以外幣發放(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項:   1.現金股利發放至元為止，其不足壹元之畸零數額列入本公司之其他收入。   2.嗣後如因本公司流通在外股數發生變動，致使配息率因此發生變動時，授權董事長     調整之。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
-| 20260821 | 3605 | 宏致 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/16 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:普通股現金股利，總金額為新台幣276,000,246元。 4.除權（息）交易日:115/08/12 5.最後過戶日:115/08/13 6.停止過戶起始日期:115/08/14 7.停止過戶截止日期:115/08/18 8.除權（息）基準日:115/08/18 9.債券最後申請轉換日期:115/07/22 10.債券停止轉換起始日期:115/07/24 11.債券停止轉換截止日期:115/08/18 12.普通股現金股利發放日期:115/09/16 13.現金股利之一部或全部是否以外幣發放(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項:   1.現金股利發放至元為止，其不足壹元之畸零數額列入本公司之其他收入。   2.嗣後如因本公司流通在外股數發生變動，致使配息率因此發生變動時，授權董事長     調整之。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260904 | 3605 | 宏致 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/17 1.召開法人說明會之日期：115/09/17 2.召開法人說明會之時間：14 時 30 分 3.召開法人說明會之地點：台北市大安區敦化南路二段97號11樓(敦南摩天大樓11樓教育訓練室) 4.法人說明會擇要訊息：本公司受邀參加台新證券舉辦之法人說明會，說明公司營運概況及未來展望。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| 20260904 | 3605 | 宏致 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/17 1.召開法人說明會之日期：115/09/17 2.召開法人說明會之時間：14 時 30 分 3.召開法人說明會之地點：台北市大安區敦化南路二段97號11樓(敦南摩天大樓11樓教育訓練室) 4.法人說明會擇要訊息：本公司受邀參加台新證券舉辦之法人說明會，說明公司營運概況及未來展望。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 3605 | 宏致 | 6 | 2 | 5 | 7 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260904 | 3605 | 宏致 | 3 | 2 | 4 | 8 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 3605 | 宏致 | 66 | 0 | 5762490.0 | 0.0 |  | no_signal |
+| 20260904 | 3605 | 宏致 | 84 | 0 | 11955670.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7855 和運租車
 
 ## Metadata
-- generated_at: 2026-08-23 22:29:29 Asia/Taipei
+- generated_at: 2026-09-05 15:54:41 Asia/Taipei
 - stock_id: 7855
 - stock_name: 和運租車
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260821
-- price_rows: 9
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 19
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -126,23 +126,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 43.35
-- high: 43.7
-- low: 43.3
-- close: 43.55
-- volume: 708861
-- ma5: 43.49
-- ema23_primary: 43.73
-- distance_to_ema23_pct: -0.41
-- ma20: 43.78
-- ma60: 43.78
-- ma120: 43.78
-- return_5d: -1.14
+- date: 20260904
+- open: 42.8
+- high: 42.95
+- low: 42.7
+- close: 42.75
+- volume: 652988
+- ma5: 42.87
+- ema23_primary: 43.37
+- distance_to_ema23_pct: -1.42
+- ma20: 43.47
+- ma60: 43.47
+- ma120: 43.47
+- return_5d: -1.27
 - return_20d:
-- volume_ratio: 0.18
-- distance_to_ma20_pct_auxiliary: -0.52
-- distance_to_high_60_pct: -3.22
+- volume_ratio: 0.28
+- distance_to_ma20_pct_auxiliary: -1.65
+- distance_to_high_60_pct: -5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -157,6 +157,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,43.45,43.5,43.15,43.3,1334829,43.78,-1.1,43.87,43.87,0.28
 20260820,43.3,43.4,43.25,43.35,987094,43.75,-0.91,43.81,43.81,0.23
 20260821,43.35,43.7,43.3,43.55,708861,43.73,-0.41,43.78,43.78,0.18
+20260824,43.65,43.8,43.6,43.65,858454,43.72,-0.17,43.77,43.77,0.24
+20260825,43.7,43.75,43.55,43.6,865426,43.71,-0.26,43.75,43.75,0.26
+20260826,43.6,43.65,43.4,43.5,1103403,43.7,-0.45,43.73,43.73,0.35
+20260827,43.5,43.55,43.4,43.45,857848,43.68,-0.52,43.71,43.71,0.28
+20260828,43.6,43.6,43.25,43.3,878588,43.64,-0.79,43.68,43.68,0.31
+20260831,43.3,43.3,43.1,43.1,1044839,43.6,-1.14,43.64,43.64,0.38
+20260901,43.2,43.2,42.9,42.95,1583587,43.54,-1.37,43.6,43.6,0.59
+20260902,42.9,42.95,42.75,42.75,1023863,43.48,-1.68,43.55,43.55,0.4
+20260903,42.8,42.9,42.75,42.8,591844,43.42,-1.43,43.51,43.51,0.24
+20260904,42.8,42.95,42.7,42.75,652988,43.37,-1.42,43.47,43.47,0.28
 ```
 
 ## Latest TDCC Snapshot

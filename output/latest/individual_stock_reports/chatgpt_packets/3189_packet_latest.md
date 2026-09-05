@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3189 景碩
 
 ## Metadata
-- generated_at: 2026-08-23 22:27:40 Asia/Taipei
+- generated_at: 2026-09-05 15:53:14 Asia/Taipei
 - stock_id: 3189
 - stock_name: 景碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 842
-- high: 842
-- low: 792
-- close: 811
-- volume: 17272838
-- ma5: 856.2
-- ema23_primary: 805.48
-- distance_to_ema23_pct: 0.69
-- ma20: 781.85
-- ma60: 758.53
-- ma120: 591.02
-- return_5d: -5.92
-- return_20d: 14.06
-- volume_ratio: 1.15
-- distance_to_ma20_pct_auxiliary: 3.73
-- distance_to_high_60_pct: -13.63
+- date: 20260904
+- open: 797
+- high: 828
+- low: 766
+- close: 819
+- volume: 19778741
+- ma5: 826.8
+- ema23_primary: 827
+- distance_to_ema23_pct: -0.97
+- ma20: 849.35
+- ma60: 780.45
+- ma120: 637.14
+- return_5d: -8.9
+- return_20d: -0.49
+- volume_ratio: 1.07
+- distance_to_ma20_pct_auxiliary: -3.57
+- distance_to_high_60_pct: -14.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,702,718,673,710,11397368,751.59,-5.53,780.55,680.98,0.86
-20260728,650,700,639,639,19391146,742.21,-13.91,772,682.83,1.53
-20260729,650,650,576,576,15851867,728.36,-20.92,756.25,683.58,1.33
-20260730,550,633,541,578,30070261,715.83,-19.25,740.75,684.42,2.62
-20260731,635,635,635,635,1399371,709.09,-10.45,731,686.97,0.14
-20260803,695,698,694,698,4279917,708.17,-1.44,724.25,690.39,0.42
-20260804,755,767,754,767,6043831,713.07,7.56,724.45,695.54,0.59
-20260805,843,843,812,828,33103524,722.65,14.58,731.5,700.96,2.85
-20260806,816,853,801,853,23356386,733.51,16.29,736.4,706.94,1.86
-20260807,848,854,808,823,16107601,740.97,11.07,737.8,712.37,1.22
 20260810,823,849,811,836,3650916,748.89,11.63,738.65,717.6,0.28
 20260811,820,844,807,842,2961490,756.65,11.28,740.5,723.53,0.22
 20260812,847,864,827,858,3488257,765.09,12.14,741.15,729.42,0.26
@@ -168,17 +158,27 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,834,902,832,849,21079068,800.79,6.02,773.55,754.13,1.42
 20260820,871,880,818,851,16928119,804.97,5.72,776.85,756.72,1.14
 20260821,842,842,792,811,17272838,805.48,0.69,781.85,758.53,1.15
+20260824,814,842,791,794,11764951,804.52,-1.31,786.05,760.42,0.78
+20260825,783,837,766,835,11433672,807.06,3.46,795.85,762.18,0.78
+20260826,820,881,812,881,23277987,813.22,8.33,811.1,763.97,1.55
+20260827,920,960,905,914,32580788,821.62,11.24,827.9,766.82,2.15
+20260828,929,933,867,899,21576121,828.07,8.57,841.1,769.48,1.34
+20260831,844,899,810,819,31932413,827.31,-1,847.15,771.6,1.82
+20260901,838,900,835,874,36368169,831.2,5.15,852.5,774.3,1.91
+20260902,850,864,837,847,14894440,832.52,1.74,853.45,776.78,0.82
+20260903,867,882,775,775,27084870,827.73,-6.37,849.55,777.8,1.48
+20260904,797,828,766,819,19778741,827,-0.97,849.35,780.45,1.07
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 73.44
-- over_600_ratio: 70.83
-- over_800_ratio: 69.12
-- over_1000_ratio: 68.17
-- over_400_change_1w: -0.82
-- over_800_change_1w: -0.65
-- over_1000_change_1w: -0.32
+- as_of_date: 20260904
+- over_400_ratio: 71.44
+- over_600_ratio: 69.06
+- over_800_ratio: 67.35
+- over_1000_ratio: 65.91
+- over_400_change_1w: -2.49
+- over_800_change_1w: -2.37
+- over_1000_change_1w: -2.7
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -187,8 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,73.44,0.65,69.01,0.64,67.69,0.64,4,True,True
-20260612,72.32,-1.12,67.78,-1.23,65.82,-1.87,0,False,False
 20260618,73.08,0.76,68.21,0.43,66.71,0.89,1,True,True
 20260626,73.73,0.65,69.26,1.05,67.55,0.84,2,True,True
 20260703,72.85,-0.88,67.91,-1.35,66.56,-0.99,0,False,False
@@ -199,23 +197,25 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,74.21,1.43,69.97,1.99,68.33,1.67,1,True,True
 20260814,74.26,0.05,69.77,-0.2,68.49,0.16,2,False,True
 20260821,73.44,-0.82,69.12,-0.65,68.17,-0.32,0,False,False
+20260828,73.93,0.49,69.72,0.6,68.61,0.44,1,True,True
+20260904,71.44,-2.49,67.35,-2.37,65.91,-2.7,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 3189 | 景碩 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_put_bullish | repeated_but_no_breakout | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 機器設備 2.事實發生日:115/7/8~115/7/8 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:董事長 民國115年7月8日 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 一批，總計新台幣543,998仟元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: Applied NEXX, Inc.，非關係人 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依合約付款條件 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 比價及議價，依本公司核決權限規定辦理 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:是 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 無 23.取得或處分之具體目的或用途: 供生產用 24.本次交易表示異議之董事之意見: 不適用 25.本次交易為關係人交易:否 26.監察人承認或審計委員會同意日期: 不適用 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
-| 20260821 | 3189 | 景碩 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | call_put_bullish | repeated_but_no_breakout | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 機器設備 2.事實發生日:115/7/8~115/7/8 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:董事長 民國115年7月8日 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 一批，總計新台幣543,998仟元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: Applied NEXX, Inc.，非關係人 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依合約付款條件 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 比價及議價，依本公司核決權限規定辦理 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:是 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 無 23.取得或處分之具體目的或用途: 供生產用 24.本次交易表示異議之董事之意見: 不適用 25.本次交易為關係人交易:否 26.監察人承認或審計委員會同意日期: 不適用 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260904 | 3189 | 景碩 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/09/04 1.召開法人說明會之日期：115/09/04 2.召開法人說明會之時間：12 時 00 分 3.召開法人說明會之地點：台北市 W Hotel 4.法人說明會擇要訊息：向法人說明產業狀況與本公司經營績效 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| 20260904 | 3189 | 景碩 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/09/04 1.召開法人說明會之日期：115/09/04 2.召開法人說明會之時間：12 時 00 分 3.召開法人說明會之地點：台北市 W Hotel 4.法人說明會擇要訊息：向法人說明產業狀況與本公司經營績效 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 3189 | 景碩 | 1 | 1 | 2 | 4 | 11 | repeated_but_no_breakout | 近 10 日上榜 4 次、近 20 日上榜 11 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260904 | 3189 | 景碩 | 10 | 2 | 5 | 10 | 14 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 14 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 3189 | 景碩 | 79 | 8 | 13058000.0 | 19730.0 | 661.83 | call_put_bullish |
+| 20260904 | 3189 | 景碩 | 73 | 8 | 2900450.0 | 8550.0 | 339.23 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

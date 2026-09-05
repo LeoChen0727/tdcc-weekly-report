@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2233 宇隆
 
 ## Metadata
-- generated_at: 2026-08-23 22:27:01 Asia/Taipei
+- generated_at: 2026-09-05 15:52:43 Asia/Taipei
 - stock_id: 2233
 - stock_name: 宇隆
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 182.5
-- high: 184.5
-- low: 175.5
-- close: 177
-- volume: 1029535
-- ma5: 187.5
-- ema23_primary: 202.18
-- distance_to_ema23_pct: -12.46
-- ma20: 196.07
-- ma60: 243.72
-- ma120: 251.68
-- return_5d: -10.61
-- return_20d: -13.02
-- volume_ratio: 0.96
-- distance_to_ma20_pct_auxiliary: -9.73
-- distance_to_high_60_pct: -53.05
+- date: 20260904
+- open: 166
+- high: 169
+- low: 164
+- close: 168.5
+- volume: 460742
+- ma5: 170.3
+- ema23_primary: 184.23
+- distance_to_ema23_pct: -8.54
+- ma20: 183.3
+- ma60: 218.63
+- ma120: 247.32
+- return_5d: -2.32
+- return_20d: -16.17
+- volume_ratio: 0.53
+- distance_to_ma20_pct_auxiliary: -8.07
+- distance_to_high_60_pct: -47.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,204,206.5,196,205,443684,235.45,-12.93,229.72,283.67,0.39
-20260728,197.5,198,191.5,192,807556,231.83,-17.18,229.68,281.87,0.86
-20260729,193.5,199.5,175.5,185.5,1754208,227.97,-18.63,228.35,279.65,1.77
-20260730,178.5,184.5,172,173.5,875340,223.43,-22.35,225.38,277.3,0.87
-20260731,189,190.5,185,190.5,550965,220.68,-13.68,222.4,275.22,0.61
-20260803,197,202.5,190,193.5,2365057,218.42,-11.41,218.32,273.52,2.6
-20260804,193.5,204.5,192.5,204,673917,217.22,-6.08,215.3,272.06,0.76
-20260805,212,224,208,224,1795034,217.78,2.86,213.9,270.75,1.92
-20260806,211.5,213.5,202,204,3180382,216.63,-5.83,211.3,269.18,2.95
-20260807,205.5,212,199,201,1582336,215.33,-6.66,208.72,267.73,1.38
 20260810,201,207.5,201,204.5,561747,214.43,-4.63,206.82,266.43,0.49
 20260811,201.5,205,199,201,458652,213.31,-5.77,205.53,264.87,0.4
 20260812,202,206,200.5,204,776960,212.53,-4.01,203.9,262.86,0.69
@@ -167,27 +157,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,189,195,185.5,188.5,730128,206.38,-8.66,199.15,250.07,0.72
 20260820,189.5,193,182,183.5,1034174,204.47,-10.26,197.4,246.85,0.99
 20260821,182.5,184.5,175.5,177,1029535,202.18,-12.46,196.07,243.72,0.96
+20260824,175.5,177,171,174.5,920226,199.88,-12.7,194.55,240.77,0.84
+20260825,172.5,173,157.5,167.5,3929115,197.18,-15.05,193.32,237.68,3.14
+20260826,167,177,163.5,177,1319582,195.5,-9.46,192.9,234.71,1.07
+20260827,177,179.5,172,174.5,771582,193.75,-9.93,192.95,232.13,0.63
+20260828,176,176,171.5,172.5,567408,191.98,-10.14,192.05,229.74,0.46
+20260831,171,171,167.5,171,459055,190.23,-10.11,190.93,227.32,0.41
+20260901,172,177,170.5,176,491464,189.04,-6.9,189.53,225.07,0.44
+20260902,175,175.5,170.5,171,418096,187.54,-8.82,186.88,223,0.4
+20260903,172,174,165,165,495267,185.66,-11.13,184.93,220.66,0.54
+20260904,166,169,164,168.5,460742,184.23,-8.54,183.3,218.63,0.53
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 43.77
-- over_600_ratio: 40.33
-- over_800_ratio: 35.72
-- over_1000_ratio: 34.26
-- over_400_change_1w: -2.29
-- over_800_change_1w: -1.25
-- over_1000_change_1w: 0.07
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260904
+- over_400_ratio: 41.67
+- over_600_ratio: 39.03
+- over_800_ratio: 34.6
+- over_1000_ratio: 34.6
+- over_400_change_1w: -0.36
+- over_800_change_1w: -0.17
+- over_1000_change_1w: -0.17
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,54.13,-4.35,41.46,-1.2,36.92,-2.6,1,False,False
-20260612,52.59,-1.54,41.08,-0.38,35.19,-1.73,0,False,False
 20260618,53.11,0.52,42.76,1.68,35.19,0,1,False,True
 20260626,51.4,-1.71,40.58,-2.18,33.14,-2.05,0,False,False
 20260703,49.03,-2.37,37.12,-3.46,34.23,1.09,1,False,True
@@ -198,6 +196,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,46.62,-0.94,36.67,-0.57,32.36,-1.87,0,False,False
 20260814,46.06,-0.56,36.97,0.3,34.19,1.83,1,False,True
 20260821,43.77,-2.29,35.72,-1.25,34.26,0.07,2,False,True
+20260828,42.03,-1.74,34.77,-0.95,34.77,0.51,3,False,True
+20260904,41.67,-0.36,34.6,-0.17,34.6,-0.17,0,False,False
 ```
 
 ## Candidate Context
@@ -213,7 +213,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2233 | 宇隆 | 37 | 1 | 592820.0 | 126220.0 | 4.7 | no_signal |
+| 20260904 | 2233 | 宇隆 | 34 | 1 | 254510.0 | 7550.0 | 33.71 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

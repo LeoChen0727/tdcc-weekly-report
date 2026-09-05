@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2465 麗臺
 
 ## Metadata
-- generated_at: 2026-08-23 22:27:13 Asia/Taipei
+- generated_at: 2026-09-05 15:52:53 Asia/Taipei
 - stock_id: 2465
 - stock_name: 麗臺
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,7 +101,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -126,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 86.6
-- high: 89.3
-- low: 85
-- close: 85.9
-- volume: 3498808
-- ma5: 86.92
-- ema23_primary: 85.58
-- distance_to_ema23_pct: 0.37
-- ma20: 84.43
-- ma60: 81.12
-- ma120: 73.6
-- return_5d: -10.43
-- return_20d: 6.71
-- volume_ratio: 0.9
-- distance_to_ma20_pct_auxiliary: 1.74
-- distance_to_high_60_pct: -19.34
+- date: 20260904
+- open: 97.5
+- high: 102
+- low: 94.4
+- close: 99.2
+- volume: 5766066
+- ma5: 98.04
+- ema23_primary: 91.79
+- distance_to_ema23_pct: 8.08
+- ma20: 93.34
+- ma60: 83.2
+- ma120: 77.22
+- return_5d: 4.42
+- return_20d: 16.57
+- volume_ratio: 1
+- distance_to_ma20_pct_auxiliary: 6.28
+- distance_to_high_60_pct: -7.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,80.5,80.5,77.2,79,844435,79.36,-0.46,78.28,80.42,0.4
-20260728,76.9,77,74.3,74.6,884545,78.96,-5.53,78.48,80.43,0.42
-20260729,75,76,69,72.6,1648382,78.43,-7.44,78.56,80.29,0.76
-20260730,71.5,73,67.4,67.6,1208160,77.53,-12.81,78.36,79.92,0.55
-20260731,72.5,74.3,72.3,73.4,783087,77.19,-4.91,78.5,79.73,0.35
-20260803,72.7,78,72.4,75.5,684932,77.05,-2.01,78.61,79.55,0.31
-20260804,75.3,78.4,75.2,78,711541,77.13,1.13,78.73,79.5,0.32
-20260805,80.1,85.8,79.6,85.8,3001815,77.85,10.21,79.32,79.49,1.28
-20260806,86.3,89.4,83.2,85.5,3916388,78.49,8.94,79.53,79.49,1.63
-20260807,85.5,87.2,83.6,85.1,1499084,79.04,7.67,79.31,79.52,0.71
 20260810,90,93.6,87.7,93.6,7060430,80.25,16.63,79.69,79.7,3.6
 20260811,94.6,95.8,86.8,86.9,5914780,80.81,7.54,79.79,79.86,2.88
 20260812,87.5,95.5,87.2,95.5,8870219,82.03,16.42,80.4,80.19,3.72
@@ -168,27 +157,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,85,90.5,84.4,85.9,3986951,85.51,0.45,84,81.14,1.06
 20260820,86.5,88.6,84.5,86,2625968,85.55,0.52,84.16,81.12,0.7
 20260821,86.6,89.3,85,85.9,3498808,85.58,0.37,84.43,81.12,0.9
+20260824,85.2,93.3,85.2,91.7,5091709,86.09,6.51,85.06,81.28,1.24
+20260825,90.7,90.7,88,89.4,2846478,86.37,3.51,85.81,81.39,0.67
+20260826,92.5,94.4,89.4,93.6,3896409,86.97,7.62,86.86,81.48,0.9
+20260827,94,97.7,91,95.4,4767796,87.67,8.81,88.25,81.58,1.06
+20260828,96.1,97.3,93.5,95,3743057,88.28,7.61,89.33,81.79,0.8
+20260831,93.6,96.8,93.1,94,2385753,88.76,5.9,90.25,81.94,0.5
+20260901,94.1,97.6,93.4,95.8,2639803,89.35,7.22,91.14,82.14,0.55
+20260902,99.2,105,99.2,105,8513698,90.65,15.83,92.1,82.57,1.66
+20260903,106.5,107.5,96,96.2,12290391,91.11,5.58,92.64,82.83,2.22
+20260904,97.5,102,94.4,99.2,5766066,91.79,8.08,93.34,83.2,1
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 40.46
-- over_600_ratio: 36.86
-- over_800_ratio: 32.19
-- over_1000_ratio: 29.42
-- over_400_change_1w: -4.97
-- over_800_change_1w: -4.67
-- over_1000_change_1w: -6.43
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260904
+- over_400_ratio: 44.69
+- over_600_ratio: 41.52
+- over_800_ratio: 34.93
+- over_1000_ratio: 33
+- over_400_change_1w: 2.91
+- over_800_change_1w: 2.1
+- over_1000_change_1w: 0.17
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,36.47,-2.01,31.72,-0.39,30.8,-0.35,0,False,False
-20260612,35.96,-0.51,31.62,-0.1,29.58,-1.22,0,False,False
 20260618,36.28,0.32,31.67,0.05,30.72,1.14,1,False,True
 20260626,35.51,-0.77,29.58,-2.09,29.58,-1.14,0,False,False
 20260703,35.67,0.16,29.58,0,29.58,0,1,False,False
@@ -199,19 +196,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,39.4,3.05,30.45,0.87,29.58,0,1,False,True
 20260814,45.43,6.03,36.86,6.41,35.85,6.27,2,True,True
 20260821,40.46,-4.97,32.19,-4.67,29.42,-6.43,0,False,False
+20260828,41.78,1.32,32.83,0.64,32.83,3.41,1,True,True
+20260904,44.69,2.91,34.93,2.1,33,0.17,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2465 | 麗臺 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | 1.提報董事會或經董事會決議日期:115/08/10 2.審計委員會通過日期:115/08/10 3.財務報告或年度自結財務資訊報導期間 起訖日期(XXX/XX/XX~XXX/XX/XX):115/01/01~115/06/30 4.1月1日累計至本期止營業收入(仟元):4,074,873 5.1月1日累計至本期止營業毛利(毛損) (仟元):474,947 6.1月1日累計至本期止營業利益(損失) (仟元):265,271 7.1月1日累計至本期止稅前淨利(淨損) (仟元):305,368 8.1月1日累計至本期止本期淨利(淨損) (仟元):261,923 9.1月1日累計至本期止歸屬於母公司業主淨利(損) (仟元):261,923 10.1月1日累計至本期止基本每股盈餘(損失) (元):2.79 11.期末總資產(仟元):2,375,431 12.期末總負債(仟元):1,012,098 13.期末歸屬於母公司業主之權益(仟元):1,363,333 14.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
-| 20260821 | 2465 | 麗臺 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | repeated_but_no_breakout | 1.提報董事會或經董事會決議日期:115/08/10 2.審計委員會通過日期:115/08/10 3.財務報告或年度自結財務資訊報導期間 起訖日期(XXX/XX/XX~XXX/XX/XX):115/01/01~115/06/30 4.1月1日累計至本期止營業收入(仟元):4,074,873 5.1月1日累計至本期止營業毛利(毛損) (仟元):474,947 6.1月1日累計至本期止營業利益(損失) (仟元):265,271 7.1月1日累計至本期止稅前淨利(淨損) (仟元):305,368 8.1月1日累計至本期止本期淨利(淨損) (仟元):261,923 9.1月1日累計至本期止歸屬於母公司業主淨利(損) (仟元):261,923 10.1月1日累計至本期止基本每股盈餘(損失) (元):2.79 11.期末總資產(仟元):2,375,431 12.期末總負債(仟元):1,012,098 13.期末歸屬於母公司業主之權益(仟元):1,363,333 14.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260821 | 2465 | 麗臺 | revenue_breakout_low_response | 營收爆發低反應股 | 23 | 4 | A_優先追蹤 |  |  |  | repeated_but_no_breakout | 1.提報董事會或經董事會決議日期:115/08/10 2.審計委員會通過日期:115/08/10 3.財務報告或年度自結財務資訊報導期間 起訖日期(XXX/XX/XX~XXX/XX/XX):115/01/01~115/06/30 4.1月1日累計至本期止營業收入(仟元):4,074,873 5.1月1日累計至本期止營業毛利(毛損) (仟元):474,947 6.1月1日累計至本期止營業利益(損失) (仟元):265,271 7.1月1日累計至本期止稅前淨利(淨損) (仟元):305,368 8.1月1日累計至本期止本期淨利(淨損) (仟元):261,923 9.1月1日累計至本期止歸屬於母公司業主淨利(損) (仟元):261,923 10.1月1日累計至本期止基本每股盈餘(損失) (元):2.79 11.期末總資產(仟元):2,375,431 12.期末總負債(仟元):1,012,098 13.期末歸屬於母公司業主之權益(仟元):1,363,333 14.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260904 | 2465 | 麗臺 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.提報董事會或經董事會決議日期:115/08/10 2.審計委員會通過日期:115/08/10 3.財務報告或年度自結財務資訊報導期間 起訖日期(XXX/XX/XX~XXX/XX/XX):115/01/01~115/06/30 4.1月1日累計至本期止營業收入(仟元):4,074,873 5.1月1日累計至本期止營業毛利(毛損) (仟元):474,947 6.1月1日累計至本期止營業利益(損失) (仟元):265,271 7.1月1日累計至本期止稅前淨利(淨損) (仟元):305,368 8.1月1日累計至本期止本期淨利(淨損) (仟元):261,923 9.1月1日累計至本期止歸屬於母公司業主淨利(損) (仟元):261,923 10.1月1日累計至本期止基本每股盈餘(損失) (元):2.79 11.期末總資產(仟元):2,375,431 12.期末總負債(仟元):1,012,098 13.期末歸屬於母公司業主之權益(仟元):1,363,333 14.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| 20260904 | 2465 | 麗臺 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | repeated_but_no_breakout | 1.提報董事會或經董事會決議日期:115/08/10 2.審計委員會通過日期:115/08/10 3.財務報告或年度自結財務資訊報導期間 起訖日期(XXX/XX/XX~XXX/XX/XX):115/01/01~115/06/30 4.1月1日累計至本期止營業收入(仟元):4,074,873 5.1月1日累計至本期止營業毛利(毛損) (仟元):474,947 6.1月1日累計至本期止營業利益(損失) (仟元):265,271 7.1月1日累計至本期止稅前淨利(淨損) (仟元):305,368 8.1月1日累計至本期止本期淨利(淨損) (仟元):261,923 9.1月1日累計至本期止歸屬於母公司業主淨利(損) (仟元):261,923 10.1月1日累計至本期止基本每股盈餘(損失) (元):2.79 11.期末總資產(仟元):2,375,431 12.期末總負債(仟元):1,012,098 13.期末歸屬於母公司業主之權益(仟元):1,363,333 14.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2465 | 麗臺 | 11 | 3 | 5 | 10 | 13 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 13 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260904 | 2465 | 麗臺 | 20 | 2 | 5 | 10 | 20 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

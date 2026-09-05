@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1504 東元
 
 ## Metadata
-- generated_at: 2026-08-23 22:26:42 Asia/Taipei
+- generated_at: 2026-09-05 15:52:29 Asia/Taipei
 - stock_id: 1504
 - stock_name: 東元
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 337
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 347
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 73.1
-- high: 73.3
-- low: 72
-- close: 72.1
-- volume: 7713386
-- ma5: 71.98
-- ema23_primary: 68.96
-- distance_to_ema23_pct: 4.55
-- ma20: 67.53
-- ma60: 69.83
-- ma120: 68.43
-- return_5d: 2.12
-- return_20d: 8.91
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: 6.78
-- distance_to_high_60_pct: -19.53
+- date: 20260904
+- open: 72.5
+- high: 73
+- low: 71.2
+- close: 72.2
+- volume: 4919804
+- ma5: 72.36
+- ema23_primary: 70.84
+- distance_to_ema23_pct: 1.92
+- ma20: 71.22
+- ma60: 69.14
+- ma120: 68.41
+- return_5d: -0.55
+- return_20d: 9.39
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: 1.38
+- distance_to_high_60_pct: -4.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,66.8,67.9,64.5,67.5,8006517,68.47,-1.42,68.28,70.73,0.67
-20260728,65,65.9,62.7,63,13623232,68.01,-7.37,67.97,70.74,1.11
-20260729,63.6,64.3,60,62,13686324,67.51,-8.17,67.57,70.63,1.09
-20260730,61.3,62.7,60.1,60.5,6876647,66.93,-9.61,67.15,70.5,0.55
-20260731,63.5,65.3,63.5,64.8,9137352,66.75,-2.92,66.94,70.46,0.72
-20260803,63.6,65.8,63.3,65.3,4733945,66.63,-2,66.7,70.31,0.38
-20260804,64.1,65.7,64.1,65.4,5515776,66.53,-1.7,66.32,70.19,0.48
-20260805,66.9,67.5,66.4,66.5,7027912,66.53,-0.04,66.1,70.09,0.65
-20260806,66,67,65.4,66.7,4263367,66.54,0.24,66,69.99,0.43
-20260807,67.4,67.8,65.8,66,4550685,66.5,-0.74,65.93,69.87,0.48
 20260810,67.5,67.8,67,67.2,5220509,66.55,0.97,65.97,69.78,0.57
 20260811,67.2,67.4,66.3,67.4,3855863,66.62,1.16,66.16,69.75,0.44
 20260812,67.4,68.2,67.2,67.3,5838546,66.68,0.93,66.07,69.73,0.73
@@ -167,27 +157,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,70.8,73.2,70.2,71.8,11122545,68.27,5.17,66.94,69.8,1.27
 20260820,72.9,74,71.9,73.1,16925324,68.68,6.44,67.23,69.81,1.82
 20260821,73.1,73.3,72,72.1,7713386,68.96,4.55,67.53,69.83,0.82
+20260824,72.5,75.5,71.3,71.5,16076936,69.17,3.36,67.72,69.84,1.64
+20260825,71,71,69.8,70.8,6233032,69.31,2.15,68.11,69.77,0.66
+20260826,71.1,71.9,70.5,71.4,4280351,69.48,2.76,68.58,69.64,0.48
+20260827,71.6,74.2,71.6,73.4,16053918,69.81,5.14,69.23,69.61,1.7
+20260828,73.4,74.3,72.4,72.6,13064159,70.04,3.65,69.62,69.44,1.36
+20260831,72.4,72.6,71.3,72.5,4705660,70.25,3.21,69.98,69.19,0.49
+20260901,72.8,74.8,72.8,73.5,12981457,70.52,4.23,70.39,69.11,1.3
+20260902,73.4,73.6,72.4,72.6,5931340,70.69,2.7,70.69,69.13,0.6
+20260903,72.9,73.2,71,71,7456813,70.72,0.4,70.91,69.09,0.74
+20260904,72.5,73,71.2,72.2,4919804,70.84,1.92,71.22,69.14,0.49
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 70.74
-- over_600_ratio: 69.46
-- over_800_ratio: 68.54
-- over_1000_ratio: 67.94
-- over_400_change_1w: 0.71
-- over_800_change_1w: 0.61
-- over_1000_change_1w: 0.64
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260904
+- over_400_ratio: 70.58
+- over_600_ratio: 69.18
+- over_800_ratio: 68.35
+- over_1000_ratio: 67.75
+- over_400_change_1w: -0.29
+- over_800_change_1w: -0.32
+- over_1000_change_1w: -0.32
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,73.28,-0.22,71.57,0.7,70.94,0.83,3,False,True
-20260612,70.82,-2.46,68.89,-2.68,68.4,-2.54,0,False,False
 20260618,70.16,-0.66,68.34,-0.55,67.71,-0.69,0,False,False
 20260626,70.06,-0.1,68.07,-0.27,67.52,-0.19,0,False,False
 20260703,69.58,-0.48,67.51,-0.56,66.95,-0.57,0,False,False
@@ -198,22 +196,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,69.57,0.36,67.4,0.22,66.81,0.18,1,True,True
 20260814,70.03,0.46,67.93,0.53,67.3,0.49,2,True,True
 20260821,70.74,0.71,68.54,0.61,67.94,0.64,3,True,True
+20260828,70.87,0.13,68.67,0.13,68.07,0.13,4,True,True
+20260904,70.58,-0.29,68.35,-0.32,67.75,-0.32,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 1504 | 東元 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/31 1.召開法人說明會之日期：115/08/31 ~ 115/09/01 2.召開法人說明會之時間：09 時 00 分 3.召開法人說明會之地點：Hong Kong 4.法人說明會擇要訊息：本公司受邀參加Goldman Sachs舉辦之 Asia Leaders Conference 2026，並就本公司營運狀況做一說明。 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| 20260904 | 1504 | 東元 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/31 1.召開法人說明會之日期：115/08/31 ~ 115/09/01 2.召開法人說明會之時間：09 時 00 分 3.召開法人說明會之地點：Hong Kong 4.法人說明會擇要訊息：本公司受邀參加Goldman Sachs舉辦之 Asia Leaders Conference 2026，並就本公司營運狀況做一說明。 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 1504 | 東元 | 4 | 1 | 4 | 5 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260904 | 1504 | 東元 | 4 | 3 | 4 | 8 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 1504 | 東元 | 74 | 1 | 5689740.0 | 0.0 |  | no_signal |
+| 20260904 | 1504 | 東元 | 75 | 1 | 1147020.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3532 台勝科
 
 ## Metadata
-- generated_at: 2026-08-23 22:27:52 Asia/Taipei
+- generated_at: 2026-09-05 15:53:23 Asia/Taipei
 - stock_id: 3532
 - stock_name: 台勝科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,7 +101,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -126,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 350.5
-- high: 353
-- low: 337.5
-- close: 342.5
-- volume: 6281628
-- ma5: 355.9
-- ema23_primary: 345.02
-- distance_to_ema23_pct: -0.73
-- ma20: 321.88
-- ma60: 358.94
-- ma120: 269.1
-- return_5d: -3.79
-- return_20d: -9.75
-- volume_ratio: 0.9
-- distance_to_ma20_pct_auxiliary: 6.41
-- distance_to_high_60_pct: -37.95
+- date: 20260904
+- open: 392
+- high: 406.5
+- low: 385
+- close: 399
+- volume: 6836299
+- ma5: 389.4
+- ema23_primary: 370.37
+- distance_to_ema23_pct: 7.73
+- ma20: 361.7
+- ma60: 373.78
+- ma120: 291.07
+- return_5d: 0
+- return_20d: 27.68
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: 10.31
+- distance_to_high_60_pct: -27.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,372,380.5,357.5,379.5,6707709,411.45,-7.76,425.27,334.79,0.77
-20260728,350,355.5,342,342,3830521,405.66,-15.69,425.82,337.34,0.43
-20260729,337,339.5,308,308,2899952,397.52,-22.52,423.02,339.02,0.32
-20260730,277.5,294,277.5,277.5,6889612,387.52,-28.39,416.9,339.84,0.74
-20260731,305,305,269.5,271.5,2604221,377.85,-28.15,410.12,340.19,0.28
-20260803,254,276,254,265,2020778,368.45,-28.08,401.38,340.23,0.21
-20260804,284,291.5,284,291.5,570073,362.03,-19.48,395.65,340.79,0.07
-20260805,310,319,300,316.5,1134407,358.24,-11.65,392.32,341.6,0.14
-20260806,301,316.5,300,316,938940,354.72,-10.92,387.65,342.46,0.12
-20260807,316,316,308,312.5,308177,351.2,-11.02,382.1,343.56,0.04
 20260810,310,312.5,281.5,283,8467248,345.52,-18.09,372.98,344.18,1.08
 20260811,282.5,290.5,265.5,284,7775673,340.39,-16.57,361.68,345.22,1.07
 20260812,289,312,286.5,312,5998580,338.03,-7.7,351.12,346.73,0.88
@@ -168,27 +157,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,354,369.5,344.5,356.5,7431947,345.72,3.12,327.8,357.41,1.09
 20260820,365,368,331.5,340,19359214,345.25,-1.52,323.73,358.07,2.75
 20260821,350.5,353,337.5,342.5,6281628,345.02,-0.73,321.88,358.94,0.9
+20260824,344.5,376.5,344.5,376.5,7236642,347.64,8.3,321.73,360.38,1.04
+20260825,377.5,386,359,378,20936416,350.17,7.95,323.52,361.37,2.67
+20260826,378,386,370.5,382,9820232,352.82,8.27,327.23,361.89,1.2
+20260827,382.5,400,375.5,394,10266161,356.25,10.6,333.05,363.2,1.23
+20260828,401,418.5,386,399,10689865,359.82,10.89,339.43,364.61,1.22
+20260831,393,394.5,367.5,379,4415477,361.41,4.87,345.12,366.07,0.5
+20260901,378,408.5,378,402,9118679,364.8,10.2,350.65,367.94,0.98
+20260902,401,405,386,386,3847679,366.56,5.3,354.12,370.02,0.41
+20260903,391,402,376,381,6008409,367.77,3.6,357.38,371.63,0.62
+20260904,392,406.5,385,399,6836299,370.37,7.73,361.7,373.78,0.68
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 89.32
-- over_600_ratio: 88.57
-- over_800_ratio: 87.5
-- over_1000_ratio: 87.25
-- over_400_change_1w: -0.67
-- over_800_change_1w: -0.71
-- over_1000_change_1w: -0.02
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260904
+- over_400_ratio: 89.65
+- over_600_ratio: 88.79
+- over_800_ratio: 88.05
+- over_1000_ratio: 87.8
+- over_400_change_1w: -0.11
+- over_800_change_1w: 0.22
+- over_1000_change_1w: 0.22
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,91.26,-0.05,89.18,0,88.47,0.24,5,False,True
-20260612,91.36,0.1,88.95,-0.23,87.98,-0.49,6,False,False
 20260618,91.57,0.21,89.29,0.34,88.78,0.8,7,False,True
 20260626,91.26,-0.31,89.04,-0.25,88.28,-0.5,8,False,False
 20260703,91.16,-0.1,88.93,-0.11,88.46,0.18,9,False,True
@@ -199,23 +196,25 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,89.56,-0.54,87.9,0.01,87.19,0.03,2,False,True
 20260814,89.99,0.43,88.21,0.31,87.27,0.08,3,True,True
 20260821,89.32,-0.67,87.5,-0.71,87.25,-0.02,0,False,False
+20260828,89.76,0.44,87.83,0.33,87.58,0.33,1,False,True
+20260904,89.65,-0.11,88.05,0.22,87.8,0.22,2,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 3532 | 台勝科 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會召集通知日:115/07/27 2.董事會預計召開日期:115/08/04 3.預計提報董事會或經董事會決議之財務報告或 年度自結財務資訊年季:115年第2季 4.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
-| 20260821 | 3532 | 台勝科 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  | no_signal | stale_signal | 1.董事會召集通知日:115/07/27 2.董事會預計召開日期:115/08/04 3.預計提報董事會或經董事會決議之財務報告或 年度自結財務資訊年季:115年第2季 4.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260904 | 3532 | 台勝科 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 1.董事會召集通知日:115/07/27 2.董事會預計召開日期:115/08/04 3.預計提報董事會或經董事會決議之財務報告或 年度自結財務資訊年季:115年第2季 4.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| 20260904 | 3532 | 台勝科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.董事會召集通知日:115/07/27 2.董事會預計召開日期:115/08/04 3.預計提報董事會或經董事會決議之財務報告或 年度自結財務資訊年季:115年第2季 4.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 3532 | 台勝科 | 2 | 2 | 3 | 6 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260904 | 3532 | 台勝科 | 2 | 2 | 4 | 8 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 3532 | 台勝科 | 30 | 0 | 756790.0 | 0.0 |  | no_signal |
+| 20260904 | 3532 | 台勝科 | 30 | 0 | 1420230.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

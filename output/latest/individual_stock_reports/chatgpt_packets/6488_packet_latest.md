@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6488 環球晶
 
 ## Metadata
-- generated_at: 2026-08-23 22:28:54 Asia/Taipei
+- generated_at: 2026-09-05 15:54:13 Asia/Taipei
 - stock_id: 6488
 - stock_name: 環球晶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 203
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 213
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 991
-- high: 1005
-- low: 931
-- close: 941
-- volume: 7461000
-- ma5: 999.4
-- ema23_primary: 990.16
-- distance_to_ema23_pct: -4.96
-- ma20: 931.15
-- ma60: 1031.8
-- ma120: 796.8
-- return_5d: -6.83
-- return_20d: -8.64
-- volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: 1.06
-- distance_to_high_60_pct: -41.19
+- date: 20260904
+- open: 953
+- high: 983
+- low: 940
+- close: 981
+- volume: 8077000
+- ma5: 956.2
+- ema23_primary: 974.5
+- distance_to_ema23_pct: 0.67
+- ma20: 965.9
+- ma60: 1045.82
+- ma120: 840.01
+- return_5d: 0.93
+- return_20d: 12.5
+- volume_ratio: 0.83
+- distance_to_ma20_pct_auxiliary: 1.56
+- distance_to_high_60_pct: -38.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,1030,1065,1005,1065,5597000,1172.12,-9.14,1231,973.15,0.62
-20260728,990,998,959,959,5368000,1154.36,-16.92,1233.2,979.47,0.59
-20260729,947,948,864,864,4729000,1130.16,-23.55,1226.15,983.77,0.51
-20260730,778,825,778,778,9910000,1100.81,-29.32,1209.8,985.63,1.04
-20260731,855,855,802,855,18646000,1080.33,-20.86,1192.3,987.87,1.82
-20260803,870,930,843,866,14974000,1062.47,-18.49,1172.85,989.08,1.38
-20260804,888,952,874,952,7942000,1053.26,-9.61,1153.7,991.58,0.78
-20260805,993,996,868,872,25132000,1038.16,-16,1137.05,992.2,2.3
-20260806,877,885,828,872,10781000,1024.31,-14.87,1119.15,993.65,0.98
-20260807,879,910,855,872,9233000,1011.62,-13.8,1095.25,995.68,0.83
 20260810,880,888,852,854,6699000,998.48,-14.47,1063.7,996.78,0.59
 20260811,847,883,823,849,8497000,986.03,-13.9,1030.4,999.1,0.8
 20260812,844,933,844,933,10564000,981.61,-4.95,1003.05,1003.02,1
@@ -168,18 +158,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,1010,1030,972,983,10429000,994.78,-1.18,941.95,1029.5,0.96
 20260820,1005,1015,954,993,8902000,994.63,-0.16,935.6,1031.62,0.82
 20260821,991,1005,931,941,7461000,990.16,-4.96,931.15,1031.8,0.7
+20260824,970,1035,970,1010,11429000,991.81,1.83,928.4,1033.18,1.04
+20260825,989,998,940,980,9190000,990.83,-1.09,929.45,1032.6,0.83
+20260826,961,972,941,949,9107000,987.34,-3.88,933.7,1032.58,0.8
+20260827,966,969,925,958,7648000,984.9,-2.73,942.7,1032.88,0.68
+20260828,967,1015,949,972,11084000,983.82,-1.2,948.55,1033.25,1.02
+20260831,951,953,875,912,10890000,977.84,-6.73,950.85,1033.95,1.02
+20260901,908,998,908,994,12008000,979.18,1.51,952.95,1037,1.11
+20260902,976,982,951,967,6929000,978.17,-1.14,957.7,1040.32,0.7
+20260903,970,974,920,927,7319000,973.9,-4.82,960.45,1042.38,0.75
+20260904,953,983,940,981,8077000,974.5,0.67,965.9,1045.82,0.83
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 79.32
-- over_600_ratio: 76.3
-- over_800_ratio: 73.79
-- over_1000_ratio: 71.41
-- over_400_change_1w: -0.1
-- over_800_change_1w: 0.03
-- over_1000_change_1w: 0.1
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260904
+- over_400_ratio: 77.68
+- over_600_ratio: 74.84
+- over_800_ratio: 72.51
+- over_1000_ratio: 70.6
+- over_400_change_1w: -0.77
+- over_800_change_1w: -0.04
+- over_1000_change_1w: 0.14
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -187,8 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,81.57,0.56,75.67,0.28,72.46,-0.66,2,False,True
-20260612,80.87,-0.7,75.08,-0.59,72.21,-0.25,0,False,False
 20260618,81.52,0.65,75.68,0.6,72.63,0.42,1,True,True
 20260626,81.36,-0.16,75.96,0.28,72.93,0.3,2,False,True
 20260703,80.98,-0.38,75.78,-0.18,72.95,0.02,3,False,True
@@ -199,17 +197,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,78.79,-1.13,73.44,-1.58,71.2,-1.41,0,False,False
 20260814,79.42,0.63,73.76,0.32,71.31,0.11,1,True,True
 20260821,79.32,-0.1,73.79,0.03,71.41,0.1,2,False,True
+20260828,78.45,-0.87,72.55,-1.24,70.46,-0.95,0,False,False
+20260904,77.68,-0.77,72.51,-0.04,70.6,0.14,1,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 6488 | 環球晶 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日:115/08/20 2.被背書保證之: (1)公司名稱:環球晶圓股份有限公司 (2)與提供背書保證公司之關係: 本公司之子公司環球晶資本股份有限公司 對本公司提供背書保證 (3)背書保證之限額(仟元):153,943,410 (4)原背書保證之餘額(仟元):0 (5)本次新增背書保證之金額(仟元):8,000,000 (6)迄事實發生日止背書保證餘額(仟元):8,000,000 (7)被背書保證公司實際動支金額(仟元):0 (8)本次新增背書保證之原因: 集團整體資金運用以協助降低銀行融資成本 3.被背書保證公司提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.被背書保證公司最近期財務報表之: (1)資本(仟元):4,781,137 (2)累積盈虧金額(仟元):34,882,093 5.解除背書保證責任之: (1)條件: 被保證額度全數清償 (2)日期: 被保證額度全數清償之日 6.背書保證之總限額(仟元): 967,240,960 7.迄事實發生日為止，背書保證餘額(仟元): 150,850,519 8.迄事實發生日為止，A提供背書保證餘額占公開發行公司最近期財務報表淨值之 比率: 155.96 9.迄事實發生日為止，背書保證、長期投資及資金貸與餘額合計數達該公開發行公 司最近期財務報表淨值之比率: 13.28 10.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| 20260904 | 6488 | 環球晶 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | 1.事實發生日:115/08/20 2.被背書保證之: (1)公司名稱:環球晶圓股份有限公司 (2)與提供背書保證公司之關係: 本公司之子公司環球晶資本股份有限公司 對本公司提供背書保證 (3)背書保證之限額(仟元):153,943,410 (4)原背書保證之餘額(仟元):0 (5)本次新增背書保證之金額(仟元):8,000,000 (6)迄事實發生日止背書保證餘額(仟元):8,000,000 (7)被背書保證公司實際動支金額(仟元):0 (8)本次新增背書保證之原因: 集團整體資金運用以協助降低銀行融資成本 3.被背書保證公司提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.被背書保證公司最近期財務報表之: (1)資本(仟元):4,781,137 (2)累積盈虧金額(仟元):34,882,093 5.解除背書保證責任之: (1)條件: 被保證額度全數清償 (2)日期: 被保證額度全數清償之日 6.背書保證之總限額(仟元): 967,240,960 7.迄事實發生日為止，背書保證餘額(仟元): 150,850,519 8.迄事實發生日為止，A提供背書保證餘額占公開發行公司最近期財務報表淨值之 比率: 155.96 9.迄事實發生日為止，背書保證、長期投資及資金貸與餘額合計數達該公開發行公 司最近期財務報表淨值之比率: 13.28 10.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 6488 | 環球晶 | 2 | 2 | 3 | 6 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260904 | 6488 | 環球晶 | 1 | 1 | 3 | 8 | 14 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 14 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2103 台橡
 
 ## Metadata
-- generated_at: 2026-08-23 22:26:58 Asia/Taipei
+- generated_at: 2026-09-05 15:52:41 Asia/Taipei
 - stock_id: 2103
 - stock_name: 台橡
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 27.9
-- high: 28.8
-- low: 27.6
-- close: 28.4
-- volume: 7697215
-- ma5: 27.77
-- ema23_primary: 25.56
-- distance_to_ema23_pct: 11.09
-- ma20: 24.81
-- ma60: 23.05
-- ma120: 21.48
-- return_5d: 5.77
-- return_20d: 21.89
-- volume_ratio: 0.86
-- distance_to_ma20_pct_auxiliary: 14.46
-- distance_to_high_60_pct: -1.9
+- date: 20260904
+- open: 28.2
+- high: 28.3
+- low: 27.7
+- close: 28.25
+- volume: 3274701
+- ma5: 28.34
+- ema23_primary: 27.12
+- distance_to_ema23_pct: 4.18
+- ma20: 27.98
+- ma60: 24.31
+- ma120: 22.14
+- return_5d: 0.18
+- return_20d: 13
+- volume_ratio: 0.37
+- distance_to_ma20_pct_auxiliary: 0.97
+- distance_to_high_60_pct: -4.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,23.3,23.3,22,22.2,6211316,23.04,-3.64,23.23,21.54,0.71
-20260728,21.8,21.8,21,21.2,6635220,22.88,-7.36,23.26,21.56,0.75
-20260729,21.2,21.35,20.15,20.65,8706730,22.7,-9.02,23.26,21.59,0.94
-20260730,20.65,21.25,20.25,20.5,4212198,22.52,-8.95,23.25,21.6,0.45
-20260731,21.4,21.65,20.9,21.25,6066953,22.41,-5.17,23.25,21.62,0.64
-20260803,20.95,21.35,20.8,21.2,2432720,22.31,-4.97,23.13,21.66,0.28
-20260804,21.05,21.85,21.05,21.8,2693149,22.27,-2.09,23.01,21.68,0.37
-20260805,21.95,22.6,21.95,22.4,3444507,22.28,0.55,22.9,21.7,0.5
-20260806,22.15,22.85,22.05,22.75,2525248,22.32,1.94,22.85,21.73,0.38
-20260807,25,25,25,25,4122539,22.54,10.91,22.95,21.78,0.63
 20260810,27.3,27.5,26.8,27.5,24706261,22.95,19.81,23.16,21.88,3.24
 20260811,27.8,28.95,27.5,28.65,38321753,23.43,22.29,23.34,22.01,4.38
 20260812,28.25,28.35,27.25,27.35,16248653,23.76,15.13,23.43,22.12,1.81
@@ -167,27 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,27.5,27.75,26.8,27.25,8185141,25.08,8.67,24.36,22.74,0.93
 20260820,27.55,28.2,27.3,27.85,5727413,25.31,10.05,24.56,22.89,0.65
 20260821,27.9,28.8,27.6,28.4,7697215,25.56,11.09,24.81,23.05,0.86
+20260824,28.6,28.8,27.65,28.3,6462701,25.79,9.72,25.12,23.2,0.72
+20260825,28.15,28.25,27.8,28.1,2887777,25.98,8.14,25.46,23.35,0.33
+20260826,28,28.3,27.85,28.2,2989053,26.17,7.76,25.84,23.5,0.35
+20260827,28.25,28.9,27.7,27.75,7270481,26.3,5.51,26.2,23.62,0.84
+20260828,27.9,28.45,27.85,28.2,3820263,26.46,6.58,26.55,23.73,0.45
+20260831,28.3,28.55,28.05,28.4,2912222,26.62,6.68,26.91,23.83,0.34
+20260901,28.35,29.45,28.2,28.8,7394990,26.8,7.45,27.26,23.95,0.84
+20260902,28.65,29.05,27.95,28.3,5051843,26.93,5.1,27.55,24.07,0.57
+20260903,28.2,28.9,27.9,27.95,4443020,27.01,3.47,27.82,24.19,0.5
+20260904,28.2,28.3,27.7,28.25,3274701,27.12,4.18,27.98,24.31,0.37
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 58.62
-- over_600_ratio: 56.25
-- over_800_ratio: 55.27
-- over_1000_ratio: 54.09
-- over_400_change_1w: -0.35
-- over_800_change_1w: -0.15
-- over_1000_change_1w: -0.38
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260904
+- over_400_ratio: 59.11
+- over_600_ratio: 56.74
+- over_800_ratio: 55.5
+- over_1000_ratio: 54.44
+- over_400_change_1w: 0.16
+- over_800_change_1w: 0.14
+- over_1000_change_1w: 0.28
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,54.1,1.5,50.51,1.46,48.98,1.56,1,True,True
-20260612,54.37,0.27,50.57,0.06,49.04,0.06,2,True,True
 20260618,54.68,0.31,51.22,0.65,49.8,0.76,3,True,True
 20260626,55.11,0.43,51.45,0.23,50.14,0.34,4,True,True
 20260703,55.1,-0.01,51.56,0.11,50.17,0.03,5,False,True
@@ -198,22 +197,25 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,56.56,0.08,53.1,-0.12,51.72,0,2,False,False
 20260814,58.97,2.41,55.42,2.32,54.47,2.75,3,True,True
 20260821,58.62,-0.35,55.27,-0.15,54.09,-0.38,0,False,False
+20260828,58.95,0.33,55.36,0.09,54.16,0.07,1,True,True
+20260904,59.11,0.16,55.5,0.14,54.44,0.28,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2103 | 台橡 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_inflow | repeated_but_no_breakout | 1.事實發生日:115/07/17 2.接受資金貸與之: (1)公司名稱:TSRC Specialty Materials LLC (2)與資金貸與他人公司之關係: Polybus Corporation Pte Ltd與TSRC Specialty Materials LLC, 均為 台橡股份有限公司100%間接持股之子公司 (3)資金貸與之限額(仟元):7,328,042 (4)原資金貸與之餘額(仟元):0 (5)本次新增資金貸與之金額(仟元):643,440 (6)是否為董事會授權董事長對同一貸與對象分次撥貸或循環動用之資金貸與:是 (7)迄事實發生日止資金貸與餘額(仟元):643,440 (8)本次新增資金貸與之原因: 因應TSRC Specialty Materials LLC營運資金需求 3.接受資金貸與公司所提供擔保品之: (1)內容: 無擔保品 (2)價值(仟元):0 4.接受資金貸與公司最近期財務報表之: (1)資本(仟元):0 (2)累積盈虧金額(仟元):165,741 5.計息方式: Term SOFR+1.1% 6.還款之: (1)條件: 依合約規範 (2)日期: 自首次撥款日起算二年 7.迄事實發生日為止，資金貸與餘額(仟元): 1,970,693 8.迄事實發生日為止，資金貸與餘額占公開發行公司最近期財務報表淨值之比率: 9.62 9.公司貸與他人資金之來源: 子公司本身 10.其他應敘明事項: Polybus Corporation Pte Ltd原於2024年10月25日與 TSRC Specialty Materials LLC簽訂美金1,000萬元借款協議, 由於 不再使用借款額度,經雙方合意提前終止協議, 並經雙方董事會通過後生效；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| 20260904 | 2103 | 台橡 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/07/17 2.接受資金貸與之: (1)公司名稱:TSRC Specialty Materials LLC (2)與資金貸與他人公司之關係: Polybus Corporation Pte Ltd與TSRC Specialty Materials LLC, 均為 台橡股份有限公司100%間接持股之子公司 (3)資金貸與之限額(仟元):7,328,042 (4)原資金貸與之餘額(仟元):0 (5)本次新增資金貸與之金額(仟元):643,440 (6)是否為董事會授權董事長對同一貸與對象分次撥貸或循環動用之資金貸與:是 (7)迄事實發生日止資金貸與餘額(仟元):643,440 (8)本次新增資金貸與之原因: 因應TSRC Specialty Materials LLC營運資金需求 3.接受資金貸與公司所提供擔保品之: (1)內容: 無擔保品 (2)價值(仟元):0 4.接受資金貸與公司最近期財務報表之: (1)資本(仟元):0 (2)累積盈虧金額(仟元):165,741 5.計息方式: Term SOFR+1.1% 6.還款之: (1)條件: 依合約規範 (2)日期: 自首次撥款日起算二年 7.迄事實發生日為止，資金貸與餘額(仟元): 1,970,693 8.迄事實發生日為止，資金貸與餘額占公開發行公司最近期財務報表淨值之比率: 9.62 9.公司貸與他人資金之來源: 子公司本身 10.其他應敘明事項: Polybus Corporation Pte Ltd原於2024年10月25日與 TSRC Specialty Materials LLC簽訂美金1,000萬元借款協議, 由於 不再使用借款額度,經雙方合意提前終止協議, 並經雙方董事會通過後生效；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| 20260904 | 2103 | 台橡 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/17 2.接受資金貸與之: (1)公司名稱:TSRC Specialty Materials LLC (2)與資金貸與他人公司之關係: Polybus Corporation Pte Ltd與TSRC Specialty Materials LLC, 均為 台橡股份有限公司100%間接持股之子公司 (3)資金貸與之限額(仟元):7,328,042 (4)原資金貸與之餘額(仟元):0 (5)本次新增資金貸與之金額(仟元):643,440 (6)是否為董事會授權董事長對同一貸與對象分次撥貸或循環動用之資金貸與:是 (7)迄事實發生日止資金貸與餘額(仟元):643,440 (8)本次新增資金貸與之原因: 因應TSRC Specialty Materials LLC營運資金需求 3.接受資金貸與公司所提供擔保品之: (1)內容: 無擔保品 (2)價值(仟元):0 4.接受資金貸與公司最近期財務報表之: (1)資本(仟元):0 (2)累積盈虧金額(仟元):165,741 5.計息方式: Term SOFR+1.1% 6.還款之: (1)條件: 依合約規範 (2)日期: 自首次撥款日起算二年 7.迄事實發生日為止，資金貸與餘額(仟元): 1,970,693 8.迄事實發生日為止，資金貸與餘額占公開發行公司最近期財務報表淨值之比率: 9.62 9.公司貸與他人資金之來源: 子公司本身 10.其他應敘明事項: Polybus Corporation Pte Ltd原於2024年10月25日與 TSRC Specialty Materials LLC簽訂美金1,000萬元借款協議, 由於 不再使用借款額度,經雙方合意提前終止協議, 並經雙方董事會通過後生效；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2103 | 台橡 | 1 | 1 | 4 | 9 | 14 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 14 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260904 | 2103 | 台橡 | 6 | 6 | 5 | 8 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2103 | 台橡 | 18 | 0 | 3500100.0 | 0.0 |  | call_inflow |
+| 20260904 | 2103 | 台橡 | 21 | 0 | 1080140.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

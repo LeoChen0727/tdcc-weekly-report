@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4906 正文
 
 ## Metadata
-- generated_at: 2026-08-23 22:28:16 Asia/Taipei
+- generated_at: 2026-09-05 15:53:43 Asia/Taipei
 - stock_id: 4906
 - stock_name: 正文
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 34.8
-- high: 35.15
-- low: 34.2
-- close: 34.6
-- volume: 2853094
-- ma5: 34.58
-- ema23_primary: 35.38
-- distance_to_ema23_pct: -2.19
-- ma20: 34.21
-- ma60: 39.76
-- ma120: 37.63
-- return_5d: -4.68
-- return_20d: 1.47
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: 1.15
-- distance_to_high_60_pct: -37.99
+- date: 20260904
+- open: 36.7
+- high: 37.45
+- low: 36.2
+- close: 36.9
+- volume: 5952016
+- ma5: 36.75
+- ema23_primary: 36
+- distance_to_ema23_pct: 2.5
+- ma20: 35.85
+- ma60: 37.78
+- ma120: 38.45
+- return_5d: 1.37
+- return_20d: 8.69
+- volume_ratio: 0.99
+- distance_to_ma20_pct_auxiliary: 2.91
+- distance_to_high_60_pct: -24.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,34,34.4,33.25,34.05,2517237,38.31,-11.12,38.52,41.25,0.43
-20260728,33.2,33.2,31.6,31.8,5381345,37.77,-15.8,38.05,41.21,0.94
-20260729,31.8,32.15,28.65,30.25,9760557,37.14,-18.55,37.43,41.14,1.66
-20260730,29.95,30.6,28.65,28.95,5021270,36.46,-20.59,36.83,41.03,0.88
-20260731,31,31.3,30.25,30.9,3165649,36,-14.15,36.26,40.96,0.57
-20260803,30.4,33.35,30.4,32.95,3998454,35.74,-7.81,35.72,40.87,0.75
-20260804,32.95,34.25,32.5,34.25,3351215,35.62,-3.84,35.29,40.77,0.66
-20260805,35.5,37.65,35.35,37.65,3862396,35.79,5.21,35.16,40.73,0.81
-20260806,36.1,36.45,34.7,35.5,12830661,35.76,-0.73,34.94,40.66,2.51
-20260807,35.4,36.1,33.9,33.95,4808875,35.61,-4.67,34.64,40.59,0.94
 20260810,34.55,35.9,34.55,35.6,4830797,35.61,-0.03,34.48,40.53,0.96
 20260811,36,36.9,35.45,36,5331250,35.64,1,34.4,40.48,1.09
 20260812,36.35,36.9,36,36.5,3329890,35.71,2.2,34.29,40.44,0.69
@@ -168,17 +158,27 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,33.5,34.35,33.25,33.95,2103452,35.55,-4.5,34.24,40.07,0.48
 20260820,34.35,35.1,33.85,34.3,2883849,35.45,-3.23,34.18,39.93,0.65
 20260821,34.8,35.15,34.2,34.6,2853094,35.38,-2.19,34.21,39.76,0.65
+20260824,34.5,34.95,33.8,34,2298265,35.26,-3.58,34.2,39.54,0.52
+20260825,34,34.6,33.15,34.55,2207517,35.2,-1.85,34.34,39.29,0.52
+20260826,34.95,37.35,34.75,37.3,10273769,35.38,5.44,34.7,39.02,2.4
+20260827,37.5,37.8,36.7,37.2,13206181,35.53,4.7,35.11,38.76,2.82
+20260828,37.95,37.95,36,36.4,11607235,35.6,2.24,35.38,38.5,2.27
+20260831,35.9,37.6,35.75,36.2,10004128,35.65,1.54,35.55,38.29,1.85
+20260901,36.35,38.9,36.1,38.2,17547363,35.86,6.51,35.74,38.12,2.87
+20260902,37.8,38,36.9,36.95,7986812,35.95,2.77,35.71,38.01,1.26
+20260903,37.1,37.35,35.5,35.5,5107223,35.92,-1.16,35.71,37.85,0.86
+20260904,36.7,37.45,36.2,36.9,5952016,36,2.5,35.85,37.78,0.99
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 28.85
-- over_600_ratio: 25.74
-- over_800_ratio: 23.22
-- over_1000_ratio: 21.29
-- over_400_change_1w: -0.08
-- over_800_change_1w: -0.77
-- over_1000_change_1w: -0.96
+- as_of_date: 20260904
+- over_400_ratio: 26.53
+- over_600_ratio: 23.78
+- over_800_ratio: 22.09
+- over_1000_ratio: 20.12
+- over_400_change_1w: -1.51
+- over_800_change_1w: -0.59
+- over_1000_change_1w: -0.95
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -187,8 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,33.32,-1.77,29.28,-1.37,28.11,-1.56,0,False,False
-20260612,32.84,-0.48,28.64,-0.64,27.47,-0.64,0,False,False
 20260618,33.02,0.18,28.88,0.24,27.68,0.21,1,True,True
 20260626,30.91,-2.11,26.25,-2.63,25.11,-2.57,0,False,False
 20260703,30.23,-0.68,24.9,-1.35,23.92,-1.19,0,False,False
@@ -199,22 +197,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,28.57,-0.24,24.07,-0.07,22.73,0.53,2,False,True
 20260814,28.93,0.36,23.99,-0.08,22.25,-0.48,3,False,False
 20260821,28.85,-0.08,23.22,-0.77,21.29,-0.96,0,False,False
+20260828,28.04,-0.81,22.68,-0.54,21.07,-0.22,0,False,False
+20260904,26.53,-1.51,22.09,-0.59,20.12,-0.95,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 4906 | 正文 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.提報董事會或經董事會決議日期:115/08/10 2.審計委員會通過日期:115/08/10 3.財務報告或年度自結財務資訊報導期間 起訖日期(XXX/XX/XX~XXX/XX/XX):115/01/01~115/06/30 4.1月1日累計至本期止營業收入(仟元):6,725,001 5.1月1日累計至本期止營業毛利(毛損) (仟元):761,359 6.1月1日累計至本期止營業利益(損失) (仟元):-320,773 7.1月1日累計至本期止稅前淨利(淨損) (仟元):-197,888 8.1月1日累計至本期止本期淨利(淨損) (仟元):-162,509 9.1月1日累計至本期止歸屬於母公司業主淨利(損) (仟元):-181,532 10.1月1日累計至本期止基本每股盈餘(損失) (元):-0.42 11.期末總資產(仟元):19,256,597 12.期末總負債(仟元):7,633,741 13.期末歸屬於母公司業主之權益(仟元):11,258,413 14.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| 20260904 | 4906 | 正文 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/09/03 2.公司名稱:正文科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公告本公司115年8月份合併營收 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 115年8月份合併營業收入為新台幣1,652,106仟元，本年度至8月底止累計合併 營業收入為新台幣9,916,888仟元；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 4906 | 正文 | 4 | 2 | 4 | 4 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260904 | 4906 | 正文 | 1 | 1 | 4 | 7 | 10 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 4906 | 正文 | 52 | 0 | 166570.0 | 0.0 |  | no_signal |
+| 20260904 | 4906 | 正文 | 55 | 0 | 891740.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

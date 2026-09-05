@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1909 榮成
 
 ## Metadata
-- generated_at: 2026-08-23 22:26:54 Asia/Taipei
+- generated_at: 2026-09-05 15:52:38 Asia/Taipei
 - stock_id: 1909
 - stock_name: 榮成
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 337
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 347
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
+- date: 20260904
 - open: 11.1
 - high: 11.2
-- low: 11
-- close: 11.2
-- volume: 3913361
-- ma5: 11.22
-- ema23_primary: 10.49
-- distance_to_ema23_pct: 6.73
-- ma20: 10.36
-- ma60: 10.02
-- ma120: 9.71
-- return_5d: 5.66
-- return_20d: 10.89
-- volume_ratio: 0.84
-- distance_to_ma20_pct_auxiliary: 8.1
-- distance_to_high_60_pct: -2.61
+- low: 10.85
+- close: 11
+- volume: 2960356
+- ma5: 11.12
+- ema23_primary: 10.81
+- distance_to_ema23_pct: 1.71
+- ma20: 10.87
+- ma60: 10.31
+- ma120: 9.84
+- return_5d: 1.38
+- return_20d: 9.45
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: 1.2
+- distance_to_high_60_pct: -4.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260724,10.05,10.15,9.97,10.05,2223508,10.07,-0.17,10.12,9.6,0.45
-20260727,9.96,10.05,9.93,10.05,1571188,10.07,-0.16,10.15,9.61,0.32
-20260728,9.95,10.1,9.94,10.05,2480675,10.06,-0.14,10.18,9.63,0.5
-20260729,10,10.1,9.77,9.88,3664061,10.05,-1.68,10.2,9.64,0.72
-20260730,9.83,10.1,9.83,10.05,2158926,10.05,0.01,10.22,9.66,0.43
-20260731,10,10.25,9.85,9.85,4600637,10.03,-1.82,10.22,9.68,0.9
-20260803,9.85,10.05,9.75,10.05,2400625,10.03,0.16,10.21,9.69,0.51
-20260804,9.95,10.2,9.91,10.1,3688496,10.04,0.6,10.18,9.71,0.88
-20260805,10.05,10.1,9.94,9.99,2614668,10.04,-0.45,10.15,9.72,0.69
-20260806,9.94,10.1,9.94,10.05,2247999,10.04,0.13,10.1,9.73,0.7
 20260807,10,10.2,9.99,10,3963369,10.03,-0.33,10.09,9.75,1.3
 20260810,10,10.2,9.97,10.15,3065633,10.04,1.06,10.08,9.77,1.03
 20260811,10.1,10.2,10,10.1,2004644,10.05,0.52,10.08,9.79,0.69
@@ -167,18 +158,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,10.85,11.4,10.85,11.2,6530658,10.36,8.07,10.25,9.94,1.44
 20260820,11.15,11.4,11.15,11.15,4082848,10.43,6.91,10.31,9.98,0.88
 20260821,11.1,11.2,11,11.2,3913361,10.49,6.73,10.36,10.02,0.84
+20260824,11.2,11.3,10.9,10.95,3499776,10.53,3.97,10.41,10.05,0.74
+20260825,10.85,11.1,10.85,11,2670471,10.57,4.06,10.45,10.09,0.56
+20260826,11,11.2,10.9,11,3532135,10.61,3.71,10.5,10.12,0.73
+20260827,10.95,11.05,10.85,10.9,2407089,10.63,2.53,10.55,10.15,0.5
+20260828,10.85,10.95,10.75,10.85,2659670,10.65,1.89,10.59,10.18,0.55
+20260831,10.75,11.3,10.75,11.1,4407261,10.69,3.87,10.65,10.21,0.92
+20260901,11.05,11.3,10.95,11,3157852,10.71,2.68,10.7,10.23,0.65
+20260902,10.9,11.4,10.9,11.35,3918262,10.77,5.42,10.76,10.26,0.81
+20260903,11.3,11.45,11.15,11.15,3194862,10.8,3.26,10.82,10.28,0.65
+20260904,11.1,11.2,10.85,11,2960356,10.81,1.71,10.87,10.31,0.6
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 68.19
-- over_600_ratio: 66
-- over_800_ratio: 64.57
-- over_1000_ratio: 64.17
-- over_400_change_1w: 0.59
-- over_800_change_1w: 0.48
-- over_1000_change_1w: 0.76
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260904
+- over_400_ratio: 68.37
+- over_600_ratio: 66.04
+- over_800_ratio: 64.82
+- over_1000_ratio: 64.34
+- over_400_change_1w: 0.09
+- over_800_change_1w: 0.14
+- over_1000_change_1w: 0.06
+- tdcc_consecutive_up_weeks: 7
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -186,8 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,66.29,0.1,62.92,0.14,61.7,0.01,5,True,True
-20260612,66.74,0.45,63.13,0.21,62.11,0.41,6,True,True
 20260618,66.87,0.13,63.46,0.33,62.24,0.13,7,True,True
 20260626,66.61,-0.26,63.42,-0.04,62.27,0.03,8,False,True
 20260703,66.59,-0.02,63.07,-0.35,61.98,-0.29,0,False,False
@@ -198,17 +197,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,67.63,0.01,64.17,-0.02,63.35,-0.02,3,False,False
 20260814,67.6,-0.03,64.09,-0.08,63.41,0.06,4,False,True
 20260821,68.19,0.59,64.57,0.48,64.17,0.76,5,True,True
+20260828,68.28,0.09,64.68,0.11,64.28,0.11,6,False,True
+20260904,68.37,0.09,64.82,0.14,64.34,0.06,7,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 1909 | 榮成 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | repeated_but_no_breakout | 1.原預定買回股份總金額上限(元):6,673,748,649 2.原預定買回之期間:115/05/28~115/07/27 3.原預定買回之數量(股):10,000,000 4.原預定買回區間價格(元):6.23~10.00 5.本次實際買回期間:115/05/29~115/07/27 6.本次已買回股份數量(股):1,042,000 7.本次已買回股份總金額(元):9,949,390 8.本次平均每股買回價格(元):9.55 9.累積已持有自己公司股份數量(股):37,341,000 10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):2.81 11.本次未執行完畢之原因: 為兼顧市場機制及維護全體股東權益，本公司視股價變化採取分批買回策略，因而未全數買回原定數量。 12.其他應敘明事項: 無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| 20260904 | 1909 | 榮成 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.原預定買回股份總金額上限(元):6,673,748,649 2.原預定買回之期間:115/05/28~115/07/27 3.原預定買回之數量(股):10,000,000 4.原預定買回區間價格(元):6.23~10.00 5.本次實際買回期間:115/05/29~115/07/27 6.本次已買回股份數量(股):1,042,000 7.本次已買回股份總金額(元):9,949,390 8.本次平均每股買回價格(元):9.55 9.累積已持有自己公司股份數量(股):37,341,000 10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):2.81 11.本次未執行完畢之原因: 為兼顧市場機制及維護全體股東權益，本公司視股價變化採取分批買回策略，因而未全數買回原定數量。 12.其他應敘明事項: 無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| 20260904 | 1909 | 榮成 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.原預定買回股份總金額上限(元):6,673,748,649 2.原預定買回之期間:115/05/28~115/07/27 3.原預定買回之數量(股):10,000,000 4.原預定買回區間價格(元):6.23~10.00 5.本次實際買回期間:115/05/29~115/07/27 6.本次已買回股份數量(股):1,042,000 7.本次已買回股份總金額(元):9,949,390 8.本次平均每股買回價格(元):9.55 9.累積已持有自己公司股份數量(股):37,341,000 10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):2.81 11.本次未執行完畢之原因: 為兼顧市場機制及維護全體股東權益，本公司視股價變化採取分批買回策略，因而未全數買回原定數量。 12.其他應敘明事項: 無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 1909 | 榮成 | 13 | 3 | 5 | 10 | 15 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 15 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260904 | 1909 | 榮成 | 22 | 12 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

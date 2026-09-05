@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3034 聯詠
 
 ## Metadata
-- generated_at: 2026-08-23 22:27:33 Asia/Taipei
+- generated_at: 2026-09-05 15:53:08 Asia/Taipei
 - stock_id: 3034
 - stock_name: 聯詠
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 528
-- high: 531
-- low: 526
-- close: 530
-- volume: 1443424
-- ma5: 521
-- ema23_primary: 521.05
-- distance_to_ema23_pct: 1.72
-- ma20: 523.88
-- ma60: 511.56
-- ma120: 464.16
-- return_5d: 3.52
-- return_20d: 4.54
-- volume_ratio: 0.36
-- distance_to_ma20_pct_auxiliary: 1.17
-- distance_to_high_60_pct: -12.54
+- date: 20260904
+- open: 527
+- high: 530
+- low: 519
+- close: 524
+- volume: 2053343
+- ma5: 537.2
+- ema23_primary: 532.85
+- distance_to_ema23_pct: -1.66
+- ma20: 535.35
+- ma60: 520.86
+- ma120: 477.64
+- return_5d: -3.85
+- return_20d: -3.32
+- volume_ratio: 0.58
+- distance_to_ma20_pct_auxiliary: -2.12
+- distance_to_high_60_pct: -13.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,510,525,507,518,3669875,500.87,3.42,506.62,494.17,0.64
-20260728,499,514,492.5,492.5,3358030,500.17,-1.53,505.1,495.56,0.6
-20260729,505,522,493,505,6245317,500.57,0.88,503.6,497.05,1.13
-20260730,501,512,486.5,491,4259195,499.78,-1.76,501.25,498.23,0.78
-20260731,530,531,504,519,7502701,501.38,3.51,500.15,499.52,1.33
-20260803,510,527,510,519,3445337,502.85,3.21,499.2,500.62,0.61
-20260804,515,532,514,524,4340914,504.61,3.84,498.5,501.06,0.76
-20260805,540,572,538,550,7764412,508.39,8.18,499.45,501.95,1.34
-20260806,547,556,540,543,2991197,511.28,6.21,499.4,502.88,0.53
-20260807,541,546,532,542,3483829,513.84,5.48,499.4,503.81,0.64
 20260810,546,557,541,544,3004623,516.35,5.36,503.23,504.66,0.6
 20260811,543,546,533,538,2428903,518.15,3.83,506.73,505.85,0.54
 20260812,538,544,532,537,3050823,519.72,3.32,509.98,506.88,0.69
@@ -168,27 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,504,535,501,534,4731319,519.62,2.77,521.52,510.22,1.15
 20260820,545,553,520,527,4176369,520.23,1.3,522.73,510.81,1.02
 20260821,528,531,526,530,1443424,521.05,1.72,523.88,511.56,0.36
+20260824,530,545,528,542,3982588,522.79,3.67,525.08,512.62,1
+20260825,552,562,536,555,6033162,525.48,5.62,528.2,513.92,1.47
+20260826,556,567,550,557,4833293,528.1,5.47,530.8,514.92,1.2
+20260827,559,560,541,548,3361245,529.76,3.44,533.65,515.61,0.84
+20260828,548,550,539,545,2848078,531.03,2.63,534.95,516.31,0.76
+20260831,543,544,533,540,5484810,531.78,1.55,536,517.16,1.42
+20260901,539,554,539,552,4462054,533.46,3.47,537.4,518.16,1.15
+20260902,558,563,540,543,3294710,534.26,1.64,537.05,519.33,0.9
+20260903,548,549,522,527,2612709,533.65,-1.25,536.25,520.1,0.72
+20260904,527,530,519,524,2053343,532.85,-1.66,535.35,520.86,0.58
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 71.24
-- over_600_ratio: 66.51
-- over_800_ratio: 63.17
-- over_1000_ratio: 59.56
-- over_400_change_1w: 0.12
-- over_800_change_1w: 0.39
-- over_1000_change_1w: -0.62
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
+- as_of_date: 20260904
+- over_400_ratio: 71.55
+- over_600_ratio: 66.78
+- over_800_ratio: 63.36
+- over_1000_ratio: 60.53
+- over_400_change_1w: 0.02
+- over_800_change_1w: 0.03
+- over_1000_change_1w: 1.24
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,70.16,-0.45,62.23,0.13,58.43,-0.15,2,False,True
-20260612,69.99,-0.17,62.35,0.12,59.27,0.84,3,False,True
 20260618,70.41,0.42,63.1,0.75,59.74,0.47,4,True,True
 20260626,70.52,0.11,62.56,-0.54,59.35,-0.39,5,False,False
 20260703,70.28,-0.24,62.96,0.4,58.94,-0.41,6,False,True
@@ -199,22 +197,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,71.57,0.54,62.78,0.94,60.19,1.27,3,True,True
 20260814,71.12,-0.45,62.78,0,60.18,-0.01,0,False,False
 20260821,71.24,0.12,63.17,0.39,59.56,-0.62,1,False,True
+20260828,71.53,0.29,63.33,0.16,59.29,-0.27,2,False,True
+20260904,71.55,0.02,63.36,0.03,60.53,1.24,3,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 3034 | 聯詠 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:內部稽核主管 2.發生變動日期:115/06/30 3.舊任者姓名、級職及簡歷: 葉育芬 聯詠科技內部稽核主管 4.新任者姓名、級職及簡歷: 徐韻筑 聯詠科技主任管理師 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:退休 6.異動原因:退休 7.生效日期:115/06/30 8.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| 20260904 | 3034 | 聯詠 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:內部稽核主管 2.發生變動日期:115/06/30 3.舊任者姓名、級職及簡歷: 葉育芬 聯詠科技內部稽核主管 4.新任者姓名、級職及簡歷: 徐韻筑 聯詠科技主任管理師 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:退休 6.異動原因:退休 7.生效日期:115/06/30 8.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 3034 | 聯詠 | 1 | 1 | 1 | 2 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260904 | 3034 | 聯詠 | 4 | 3 | 4 | 9 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 3034 | 聯詠 | 100 | 7 | 4056370.0 | 20980.0 | 193.34 | no_signal |
+| 20260904 | 3034 | 聯詠 | 112 | 7 | 2146600.0 | 56380.0 | 38.07 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

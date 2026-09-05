@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6873 泓德能源
 
 ## Metadata
-- generated_at: 2026-08-23 22:29:12 Asia/Taipei
+- generated_at: 2026-09-05 15:54:27 Asia/Taipei
 - stock_id: 6873
 - stock_name: 泓德能源
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 69
-- high: 69.9
-- low: 68.7
-- close: 69
-- volume: 157156
-- ma5: 68.86
-- ema23_primary: 75.17
-- distance_to_ema23_pct: -8.2
-- ma20: 75.11
-- ma60: 82
-- ma120: 86.63
-- return_5d: 0
-- return_20d: -18.82
-- volume_ratio: 0.31
-- distance_to_ma20_pct_auxiliary: -8.14
-- distance_to_high_60_pct: -33.33
+- date: 20260904
+- open: 68.2
+- high: 68.3
+- low: 67.2
+- close: 68.1
+- volume: 204206
+- ma5: 68.62
+- ema23_primary: 71.5
+- distance_to_ema23_pct: -4.76
+- ma20: 70.09
+- ma60: 78.4
+- ma120: 83.88
+- return_5d: -3.13
+- return_20d: -12.36
+- volume_ratio: 0.41
+- distance_to_ma20_pct_auxiliary: -2.84
+- distance_to_high_60_pct: -26.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,85.8,85.9,83.5,85.3,315830,85.43,-0.15,85.64,86.5,0.72
-20260728,84.8,84.8,80.3,80.7,442928,85.03,-5.1,85.54,86.36,1.01
-20260729,82.1,82.2,75,78.1,1109348,84.46,-7.53,85.33,86.14,2.29
-20260730,78.2,79.6,76.7,77,352263,83.83,-8.15,85.07,85.91,0.72
-20260731,79.5,81.9,77.8,78.3,312858,83.37,-6.08,84.94,85.73,0.64
-20260803,77.2,78.7,77.2,77.9,217692,82.92,-6.05,84.53,85.47,0.47
-20260804,77.5,79.2,76.9,78.1,179567,82.52,-5.35,83.97,85.24,0.42
-20260805,78.7,79.5,77.9,78,270570,82.14,-5.04,83.41,84.97,0.67
-20260806,78,78.6,77.4,78.6,219381,81.84,-3.96,82.87,84.78,0.55
-20260807,78.4,79.5,76.9,77.7,388053,81.5,-4.66,82.42,84.57,0.96
 20260810,78.1,80.5,77.4,79,427020,81.29,-2.82,81.88,84.44,1.11
 20260811,77.6,77.6,72.8,74.8,1061171,80.75,-7.37,81.33,84.3,2.62
 20260812,75,75.2,73.3,74.9,369658,80.26,-6.68,80.72,84.14,0.91
@@ -167,27 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,70.1,70.1,67.8,68,316063,76.29,-10.87,76.7,82.72,0.63
 20260820,69,69.6,67.7,69.5,350322,75.73,-8.22,75.92,82.39,0.69
 20260821,69,69.9,68.7,69,157156,75.17,-8.2,75.11,82,0.31
+20260824,69.2,69.7,68.6,68.6,422509,74.62,-8.07,74.28,81.65,0.83
+20260825,67.3,68.3,65.5,68.3,530897,74.09,-7.82,73.66,81.31,1.04
+20260826,68.1,69.5,67.1,69,322156,73.67,-6.34,73.2,80.95,0.68
+20260827,69,69.9,68.2,69.9,227886,73.35,-4.71,72.85,80.61,0.49
+20260828,70,71.8,68.4,70.3,698449,73.1,-3.83,72.45,80.2,1.44
+20260831,70.3,70.3,68.2,69,593387,72.76,-5.17,72,79.71,1.17
+20260901,68.7,69.5,68.5,69,212031,72.45,-4.76,71.55,79.31,0.42
+20260902,68.2,69,67.9,68.9,259509,72.15,-4.5,71.09,79.01,0.51
+20260903,68.9,69,67.2,68.1,186719,71.81,-5.17,70.57,78.7,0.37
+20260904,68.2,68.3,67.2,68.1,204206,71.5,-4.76,70.09,78.4,0.41
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 61.3
-- over_600_ratio: 57.51
-- over_800_ratio: 54.3
-- over_1000_ratio: 53.67
-- over_400_change_1w: -0.1
-- over_800_change_1w: 0.2
-- over_1000_change_1w: 0.2
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: False
+- as_of_date: 20260904
+- over_400_ratio: 61.53
+- over_600_ratio: 57.69
+- over_800_ratio: 54.48
+- over_1000_ratio: 53.85
+- over_400_change_1w: 0.16
+- over_800_change_1w: 0.14
+- over_1000_change_1w: 0.14
+- tdcc_consecutive_up_weeks: 5
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,62.39,0.77,54.88,1,53.6,0.35,5,True,True
-20260612,61.95,-0.44,54.35,-0.53,53.14,-0.46,0,False,False
 20260618,61.7,-0.25,53.78,-0.57,53.15,0.01,1,False,True
 20260626,61.73,0.03,53.79,0.01,53.16,0.01,2,False,True
 20260703,61.71,-0.02,53.76,-0.03,53.13,-0.03,3,False,False
@@ -198,6 +197,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,61.59,0.15,53.88,0.23,53.25,0.8,1,True,True
 20260814,61.4,-0.19,54.1,0.22,53.47,0.22,2,False,True
 20260821,61.3,-0.1,54.3,0.2,53.67,0.2,3,False,True
+20260828,61.37,0.07,54.34,0.04,53.71,0.04,4,True,True
+20260904,61.53,0.16,54.48,0.14,53.85,0.14,5,True,True
 ```
 
 ## Candidate Context
@@ -213,7 +214,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 6873 | 泓德能源 | 24 | 0 | 35950.0 | 0.0 |  | no_signal |
+| 20260904 | 6873 | 泓德能源 | 20 | 0 | 44050.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

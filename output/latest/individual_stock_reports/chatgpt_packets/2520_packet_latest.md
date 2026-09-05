@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2520 冠德
 
 ## Metadata
-- generated_at: 2026-08-23 22:27:17 Asia/Taipei
+- generated_at: 2026-09-05 15:52:56 Asia/Taipei
 - stock_id: 2520
 - stock_name: 冠德
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -130,38 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 36.55
-- high: 37.05
-- low: 36.2
-- close: 36.8
-- volume: 2723656
-- ma5: 36.37
-- ema23_primary: 35.38
-- distance_to_ema23_pct: 4.02
-- ma20: 35.16
-- ma60: 34.48
-- ma120: 32.8
-- return_5d: 5.6
-- return_20d: 5.29
-- volume_ratio: 1.73
-- distance_to_ma20_pct_auxiliary: 4.66
-- distance_to_high_60_pct: -1.47
+- date: 20260904
+- open: 37.1
+- high: 37.55
+- low: 36.45
+- close: 37.1
+- volume: 3575465
+- ma5: 36.48
+- ema23_primary: 35.85
+- distance_to_ema23_pct: 3.49
+- ma20: 35.88
+- ma60: 35.21
+- ma120: 33.15
+- return_5d: 5.1
+- return_20d: 6.92
+- volume_ratio: 2.07
+- distance_to_ma20_pct_auxiliary: 3.41
+- distance_to_high_60_pct: -1.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,34.9,35.5,34.3,35.3,1350356,34.96,0.98,35.15,32.9,0.77
-20260728,35,35.2,34.45,35,1383903,34.96,0.11,35.17,32.99,0.81
-20260729,35.2,35.2,34,34.7,1935591,34.94,-0.68,35.21,33.08,1.14
-20260730,35,35.3,34.05,35.1,1643899,34.95,0.42,35.25,33.19,0.96
-20260731,35.25,35.7,34.5,34.65,1691817,34.93,-0.79,35.26,33.28,0.97
-20260803,34.65,34.75,34.1,34.7,670346,34.91,-0.59,35.25,33.37,0.39
-20260804,34.15,34.4,33.9,34.1,1244146,34.84,-2.12,35.19,33.44,0.74
-20260805,34.4,34.5,34.15,34.3,557747,34.8,-1.42,35.17,33.5,0.34
-20260806,34.05,34.35,33.9,34.1,897378,34.74,-1.83,35.13,33.56,0.56
-20260807,34.1,34.85,34.1,34.7,1583120,34.73,-0.1,35.11,33.63,0.96
 20260810,33.3,35.25,33.3,34.85,3265998,34.74,0.31,35.08,33.69,1.86
 20260811,34.8,34.85,34.2,34.45,1105649,34.72,-0.78,35.05,33.75,0.64
 20260812,34.45,35.3,34,35.25,1900544,34.76,1.4,35,33.82,1.11
@@ -172,18 +162,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,35.85,36.8,35.65,36.7,2579914,35.13,4.47,34.99,34.26,1.67
 20260820,36.7,36.8,36.2,36.55,1036220,35.25,3.7,35.07,34.37,0.68
 20260821,36.55,37.05,36.2,36.8,2723656,35.38,4.02,35.16,34.48,1.73
+20260824,37,37.15,36,36.45,1055818,35.47,2.77,35.22,34.59,0.68
+20260825,36.5,36.85,35.3,35.4,1770658,35.46,-0.17,35.24,34.68,1.12
+20260826,35.4,35.9,35.25,35.8,1248665,35.49,0.88,35.29,34.76,0.81
+20260827,35.6,35.95,35.35,35.65,894932,35.5,0.42,35.32,34.83,0.6
+20260828,35.6,35.6,34.85,35.3,1233012,35.49,-0.52,35.35,34.9,0.83
+20260831,35.3,36.45,34.95,36.45,2106475,35.57,2.49,35.44,34.97,1.36
+20260901,35.8,36.15,35.5,36.1,1435971,35.61,1.38,35.54,35.04,0.92
+20260902,35.9,36.2,35.45,35.85,906763,35.63,0.62,35.62,35.11,0.57
+20260903,35.85,37.1,35.8,36.9,1846518,35.74,3.26,35.76,35.19,1.13
+20260904,37.1,37.55,36.45,37.1,3575465,35.85,3.49,35.88,35.21,2.07
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 73.88
-- over_600_ratio: 71.98
-- over_800_ratio: 70.34
-- over_1000_ratio: 69.57
-- over_400_change_1w: 0.7
-- over_800_change_1w: 0.44
-- over_1000_change_1w: 0.29
-- tdcc_consecutive_up_weeks: 15
+- as_of_date: 20260904
+- over_400_ratio: 74.41
+- over_600_ratio: 72.57
+- over_800_ratio: 71.22
+- over_1000_ratio: 70.01
+- over_400_change_1w: 0.36
+- over_800_change_1w: 0.51
+- over_1000_change_1w: 0.22
+- tdcc_consecutive_up_weeks: 17
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -191,8 +191,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,70.61,0.34,66.68,0.21,65.74,0.32,4,True,True
-20260612,71.13,0.52,67.82,1.14,66.9,1.16,5,True,True
 20260618,71.49,0.36,68.44,0.62,67.23,0.33,6,True,True
 20260626,71.34,-0.15,68.24,-0.2,67.35,0.12,7,False,True
 20260703,71.65,0.31,68.34,0.1,67.58,0.23,8,True,True
@@ -203,22 +201,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,72.86,0.14,69.54,0.01,68.5,-0.14,13,False,True
 20260814,73.18,0.32,69.9,0.36,69.28,0.78,14,True,True
 20260821,73.88,0.7,70.34,0.44,69.57,0.29,15,True,True
+20260828,74.05,0.17,70.71,0.37,69.79,0.22,16,True,True
+20260904,74.41,0.36,71.22,0.51,70.01,0.22,17,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2520 | 冠德 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/29 1.召開法人說明會之日期：115/06/29 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：台北市民權東路三段169號(冠德民權大樓15樓會議室) 4.法人說明會擇要訊息：本公司受邀參加國泰證券舉辦之法說會，說明本公司115年第1 季營運成果。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| 20260904 | 2520 | 冠德 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/29 1.召開法人說明會之日期：115/06/29 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：台北市民權東路三段169號(冠德民權大樓15樓會議室) 4.法人說明會擇要訊息：本公司受邀參加國泰證券舉辦之法說會，說明本公司115年第1 季營運成果。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2520 | 冠德 | 2 | 1 | 4 | 7 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260904 | 2520 | 冠德 | 2 | 2 | 4 | 6 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2520 | 冠德 | 4 | 0 | 1034210.0 | 0.0 |  | no_signal |
+| 20260904 | 2520 | 冠德 | 5 | 0 | 444650.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

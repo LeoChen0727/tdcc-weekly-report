@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1605 華新
 
 ## Metadata
-- generated_at: 2026-08-23 22:26:47 Asia/Taipei
+- generated_at: 2026-09-05 15:52:32 Asia/Taipei
 - stock_id: 1605
 - stock_name: 華新
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 36.8
-- high: 37.45
-- low: 36.3
-- close: 37.3
-- volume: 12911674
-- ma5: 37.31
-- ema23_primary: 36.08
-- distance_to_ema23_pct: 3.38
-- ma20: 35.2
-- ma60: 36.06
-- ma120: 34.39
-- return_5d: -4.48
-- return_20d: 13.55
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: 5.96
-- distance_to_high_60_pct: -15.23
+- date: 20260904
+- open: 38.45
+- high: 38.9
+- low: 37.35
+- close: 38.4
+- volume: 15702040
+- ma5: 38.43
+- ema23_primary: 37.52
+- distance_to_ema23_pct: 2.36
+- ma20: 38.36
+- ma60: 36.07
+- ma120: 34.86
+- return_5d: -1.54
+- return_20d: 11.14
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: 0.1
+- distance_to_high_60_pct: -9.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,33.45,33.75,31.9,32.65,21226767,34.48,-5.3,34.4,35.83,1.07
-20260728,31.8,31.85,30.25,30.6,31088721,34.16,-10.41,34.16,35.84,1.52
-20260729,30.85,30.95,28.35,29.35,42589062,33.75,-13.05,33.76,35.8,2
-20260730,29,29.8,28.35,28.6,21256398,33.33,-14.18,33.41,35.74,1
-20260731,30.45,31.45,30.25,31.45,26265054,33.17,-5.18,33.2,35.72,1.21
-20260803,31.15,33.2,31.1,32.8,24071681,33.14,-1.02,33.03,35.67,1.09
-20260804,32.35,34.3,32.35,33.75,22515258,33.19,1.69,32.89,35.67,1.04
-20260805,34.5,35.65,34.4,34.85,38467625,33.33,4.57,32.88,35.66,1.72
-20260806,34.65,35,34.05,34.25,14025243,33.4,2.53,32.85,35.66,0.63
-20260807,34.5,35,34,34.55,16295227,33.5,3.13,32.85,35.65,0.73
 20260810,35.95,38,35.95,38,74196432,33.87,12.18,33.06,35.69,2.96
 20260811,37.9,38.85,37.05,38.3,50213216,34.24,11.85,33.31,35.74,1.9
 20260812,38.5,41,38.3,40,94362185,34.72,15.2,33.56,35.83,3.15
@@ -168,27 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,36.65,36.95,36,36.8,19252526,35.89,2.54,34.82,36.07,0.57
 20260820,37.35,38,36.4,36.85,17642502,35.97,2.45,34.98,36.07,0.52
 20260821,36.8,37.45,36.3,37.3,12911674,36.08,3.38,35.2,36.06,0.38
+20260824,37.8,39.4,37.8,38.1,31646041,36.25,5.11,35.48,36.1,0.92
+20260825,38,38.5,37.15,38.45,19692251,36.43,5.54,35.87,36.09,0.58
+20260826,38.4,39.55,38.2,39.4,27490805,36.68,7.42,36.37,36.09,0.83
+20260827,39.5,40.3,38.85,38.9,42075431,36.86,5.52,36.88,36.06,1.24
+20260828,39.45,39.65,38.65,39,17822420,37.04,5.28,37.26,36,0.53
+20260831,38.8,39.2,38.25,39.2,22240545,37.22,5.31,37.58,35.96,0.66
+20260901,39.15,39.9,38.7,38.75,16032104,37.35,3.75,37.83,35.95,0.48
+20260902,38.4,38.45,37.75,38.2,17612531,37.42,2.08,38,35.99,0.55
+20260903,38.3,39.25,37.6,37.6,18436265,37.44,0.44,38.17,36.01,0.57
+20260904,38.45,38.9,37.35,38.4,15702040,37.52,2.36,38.36,36.07,0.49
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 74.86
-- over_600_ratio: 73.72
-- over_800_ratio: 73.07
-- over_1000_ratio: 72.37
-- over_400_change_1w: -0.13
-- over_800_change_1w: -0.23
-- over_1000_change_1w: -0.23
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260904
+- over_400_ratio: 75.34
+- over_600_ratio: 74.22
+- over_800_ratio: 73.6
+- over_1000_ratio: 72.92
+- over_400_change_1w: 0.03
+- over_800_change_1w: 0.02
+- over_1000_change_1w: 0.1
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,73.86,1.92,72.26,1.97,71.62,2.07,3,True,True
-20260612,72.92,-0.94,71.42,-0.84,70.69,-0.93,0,False,False
 20260618,73.67,0.75,72.15,0.73,71.4,0.71,1,True,True
 20260626,73.62,-0.05,71.92,-0.23,71.22,-0.18,0,False,False
 20260703,73.09,-0.53,71.38,-0.54,70.7,-0.52,0,False,False
@@ -199,22 +197,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,72.9,0.95,71.01,0.95,70.29,0.97,1,True,True
 20260814,74.99,2.09,73.3,2.29,72.6,2.31,2,True,True
 20260821,74.86,-0.13,73.07,-0.23,72.37,-0.23,0,False,False
+20260828,75.31,0.45,73.58,0.51,72.82,0.45,1,True,True
+20260904,75.34,0.03,73.6,0.02,72.92,0.1,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 1605 | 華新 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 1.事實發生日:115/08/10 2.公司名稱:華新麗華股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:115/08/08_工商時報 B4 6.報導內容:海底電纜廠產品5月已送認證，預計明年中取得認證，明年7月可量產，預估  年營收百億元。 7.發生緣由:澄清媒體報導 8.因應措施:公佈澄清訊息於公開資訊觀測站 9.其他應敘明事項:本公司之一切財務及營運資訊應以公開資訊觀測站公告為準。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| 20260904 | 1605 | 華新 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/08/10 2.公司名稱:華新麗華股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:115/08/08_工商時報 B4 6.報導內容:海底電纜廠產品5月已送認證，預計明年中取得認證，明年7月可量產，預估  年營收百億元。 7.發生緣由:澄清媒體報導 8.因應措施:公佈澄清訊息於公開資訊觀測站 9.其他應敘明事項:本公司之一切財務及營運資訊應以公開資訊觀測站公告為準。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 1605 | 華新 | 4 | 2 | 4 | 4 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260904 | 1605 | 華新 | 5 | 5 | 5 | 8 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 1605 | 華新 | 106 | 3 | 5567770.0 | 0.0 |  | no_signal |
+| 20260904 | 1605 | 華新 | 104 | 3 | 4952020.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

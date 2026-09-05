@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6177 達麗
 
 ## Metadata
-- generated_at: 2026-08-23 22:28:41 Asia/Taipei
+- generated_at: 2026-09-05 15:54:03 Asia/Taipei
 - stock_id: 6177
 - stock_name: 達麗
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
-- model_category_display_zh: 回檔後短線轉強
+- model_category_display_zh: 營收成長股價回檔
 - score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 回檔後短線轉強，價格結構尚未破壞，操作評級為「可分批買進」。
+- action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 回檔後短線轉強，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -130,38 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 47.05
-- high: 48.6
-- low: 47.05
-- close: 47.5
-- volume: 3177432
-- ma5: 48.14
-- ema23_primary: 47.71
-- distance_to_ema23_pct: -0.45
-- ma20: 47.82
-- ma60: 46.65
-- ma120: 46.38
-- return_5d: -0.52
-- return_20d: -2.16
-- volume_ratio: 1.47
-- distance_to_ma20_pct_auxiliary: -0.67
-- distance_to_high_60_pct: -8.12
+- date: 20260904
+- open: 49.35
+- high: 50.3
+- low: 48.9
+- close: 49.2
+- volume: 3109308
+- ma5: 47.96
+- ema23_primary: 47.86
+- distance_to_ema23_pct: 2.81
+- ma20: 47.95
+- ma60: 47.27
+- ma120: 46.52
+- return_5d: 3.47
+- return_20d: 0.82
+- volume_ratio: 1.42
+- distance_to_ma20_pct_auxiliary: 2.6
+- distance_to_high_60_pct: -4.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,48.6,48.85,47.85,47.9,861473,46.93,2.06,46.6,45.8,0.69
-20260728,47.8,47.85,47.1,47.4,1010566,46.97,0.91,46.71,45.83,0.82
-20260729,47.65,47.85,46.4,47.1,1770406,46.98,0.25,46.81,45.86,1.4
-20260730,47.55,48.15,46.8,47.45,1501072,47.02,0.91,46.88,45.9,1.25
-20260731,48.2,48.6,47.05,47.3,2368257,47.04,0.54,46.98,45.92,1.87
-20260803,47.3,47.9,47,47.35,1696437,47.07,0.59,47.06,45.95,1.29
-20260804,47.1,47.4,46.75,47.3,1457603,47.09,0.45,47.12,45.96,1.09
-20260805,47.6,47.8,47.1,47.75,835004,47.14,1.28,47.24,45.97,0.64
-20260806,47.35,48,47.25,47.8,783864,47.2,1.27,47.37,45.98,0.6
-20260807,47.95,49.35,47.95,48.8,2409491,47.33,3.1,47.55,46.02,1.71
 20260810,49.2,49.2,47.95,48.5,1645085,47.43,2.26,47.66,46.06,1.15
 20260811,48.45,48.7,47.95,48.25,1970274,47.5,1.58,47.78,46.11,1.37
 20260812,48.2,48.2,47.6,47.7,1536645,47.51,0.39,47.82,46.14,1.06
@@ -172,27 +162,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,49,49.5,48,48.4,4152050,47.79,1.27,47.95,46.48,2.36
 20260820,46.35,47.75,46,47.05,6585124,47.73,-1.43,47.87,46.56,3.22
 20260821,47.05,48.6,47.05,47.5,3177432,47.71,-0.45,47.82,46.65,1.47
+20260824,47.4,47.5,46.8,47.2,1493400,47.67,-0.99,47.78,46.73,0.68
+20260825,47.4,48.5,46.95,48.05,1854135,47.7,0.73,47.82,46.83,0.83
+20260826,48.1,48.9,47.85,48.35,1198734,47.76,1.24,47.88,46.91,0.54
+20260827,48.25,48.35,47.6,47.9,1033714,47.77,0.28,47.9,46.99,0.47
+20260828,47.85,47.95,47.25,47.55,1066000,47.75,-0.42,47.91,47.05,0.5
+20260831,47.45,47.65,47,47.1,602419,47.7,-1.25,47.9,47.09,0.29
+20260901,47.05,48.1,47,47.55,978000,47.68,-0.28,47.91,47.12,0.48
+20260902,47.6,47.9,47.05,47.2,905589,47.64,-0.93,47.89,47.16,0.44
+20260903,47.9,49.2,47.45,48.75,2841912,47.74,2.13,47.94,47.23,1.32
+20260904,49.35,50.3,48.9,49.2,3109308,47.86,2.81,47.95,47.27,1.42
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 75.48
-- over_600_ratio: 73.06
-- over_800_ratio: 69.95
-- over_1000_ratio: 67.24
-- over_400_change_1w: -0.11
-- over_800_change_1w: 0.5
-- over_1000_change_1w: 0.25
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: False
+- as_of_date: 20260904
+- over_400_ratio: 76.51
+- over_600_ratio: 74.21
+- over_800_ratio: 70.81
+- over_1000_ratio: 67.95
+- over_400_change_1w: 0.28
+- over_800_change_1w: 0.22
+- over_1000_change_1w: 0.41
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,75.1,0.03,68.73,-0.4,67.23,-0.22,1,False,False
-20260612,75.25,0.15,68.99,0.26,67.3,0.07,2,True,True
 20260618,75.29,0.04,69.46,0.47,67.39,0.09,3,False,True
 20260626,75.21,-0.08,68.83,-0.63,66.56,-0.83,4,False,False
 20260703,74.99,-0.22,68.66,-0.17,66.41,-0.15,0,False,False
@@ -203,24 +201,25 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,75.54,-0.63,69.95,-0.17,66.78,-0.19,0,False,False
 20260814,75.59,0.05,69.45,-0.5,66.99,0.21,1,False,True
 20260821,75.48,-0.11,69.95,0.5,67.24,0.25,2,False,True
+20260828,76.23,0.75,70.59,0.64,67.54,0.3,3,True,True
+20260904,76.51,0.28,70.81,0.22,67.95,0.41,4,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 6177 | 達麗 | pullback_rebound | 回檔後短線轉強 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.契約種類: 混合契約股票連結債券 2.事實發生日:115/7/15 3.契約金額: 單筆契約金額共1筆，合約金額計US$ 1,000仟元(折合NT$ 31,640仟元) 4.支付保證金或權利金金額: 無 5.處理程序所訂之全部或個別契約損失上限金額: 衍生性商品單筆損失上限達個別契約20% 6.從事衍生性商品交易原因: 以交易為目的 7.被避險項目: 無 8.被避險項目部位之金額: 無 9.被避險項目之損益狀況: 無 10.依公平價值評估(含已實現及未實現)之損失金額: 個別契約：共1筆契約累積未實現損失US$ 213仟元(折合NT$ 6,310仟元) 11.損失發生原因及對公司之影響: 持有該混合商品產生之未實現評價損失；該損失對公司營運無重大影響 12.契約期間: 2026/6/09至2026/11/16 13.限制條款: 無 14.其他重要約定事項: 無 15.其他敘明事項: 代子公司寶信營造(股)公司公告從事衍生性商品交易達所訂個別契約損失金額上限；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
-| 20260821 | 6177 | 達麗 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | 1.契約種類: 混合契約股票連結債券 2.事實發生日:115/7/15 3.契約金額: 單筆契約金額共1筆，合約金額計US$ 1,000仟元(折合NT$ 31,640仟元) 4.支付保證金或權利金金額: 無 5.處理程序所訂之全部或個別契約損失上限金額: 衍生性商品單筆損失上限達個別契約20% 6.從事衍生性商品交易原因: 以交易為目的 7.被避險項目: 無 8.被避險項目部位之金額: 無 9.被避險項目之損益狀況: 無 10.依公平價值評估(含已實現及未實現)之損失金額: 個別契約：共1筆契約累積未實現損失US$ 213仟元(折合NT$ 6,310仟元) 11.損失發生原因及對公司之影響: 持有該混合商品產生之未實現評價損失；該損失對公司營運無重大影響 12.契約期間: 2026/6/09至2026/11/16 13.限制條款: 無 14.其他重要約定事項: 無 15.其他敘明事項: 代子公司寶信營造(股)公司公告從事衍生性商品交易達所訂個別契約損失金額上限；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260821 | 6177 | 達麗 | revenue_breakout_low_response | 營收爆發低反應股 | 15 | 38 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.契約種類: 混合契約股票連結債券 2.事實發生日:115/7/15 3.契約金額: 單筆契約金額共1筆，合約金額計US$ 1,000仟元(折合NT$ 31,640仟元) 4.支付保證金或權利金金額: 無 5.處理程序所訂之全部或個別契約損失上限金額: 衍生性商品單筆損失上限達個別契約20% 6.從事衍生性商品交易原因: 以交易為目的 7.被避險項目: 無 8.被避險項目部位之金額: 無 9.被避險項目之損益狀況: 無 10.依公平價值評估(含已實現及未實現)之損失金額: 個別契約：共1筆契約累積未實現損失US$ 213仟元(折合NT$ 6,310仟元) 11.損失發生原因及對公司之影響: 持有該混合商品產生之未實現評價損失；該損失對公司營運無重大影響 12.契約期間: 2026/6/09至2026/11/16 13.限制條款: 無 14.其他重要約定事項: 無 15.其他敘明事項: 代子公司寶信營造(股)公司公告從事衍生性商品交易達所訂個別契約損失金額上限；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260904 | 6177 | 達麗 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | 1.契約種類: 混合契約股票連結債券 2.事實發生日:115/7/15 3.契約金額: 單筆契約金額共1筆，合約金額計US$ 1,000仟元(折合NT$ 31,640仟元) 4.支付保證金或權利金金額: 無 5.處理程序所訂之全部或個別契約損失上限金額: 衍生性商品單筆損失上限達個別契約20% 6.從事衍生性商品交易原因: 以交易為目的 7.被避險項目: 無 8.被避險項目部位之金額: 無 9.被避險項目之損益狀況: 無 10.依公平價值評估(含已實現及未實現)之損失金額: 個別契約：共1筆契約累積未實現損失US$ 213仟元(折合NT$ 6,310仟元) 11.損失發生原因及對公司之影響: 持有該混合商品產生之未實現評價損失；該損失對公司營運無重大影響 12.契約期間: 2026/6/09至2026/11/16 13.限制條款: 無 14.其他重要約定事項: 無 15.其他敘明事項: 代子公司寶信營造(股)公司公告從事衍生性商品交易達所訂個別契約損失金額上限；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260904 | 6177 | 達麗 | revenue_breakout_low_response | 營收爆發低反應股 | 22 | 22 | B_可觀察 |  |  | no_signal | stale_signal | 1.契約種類: 混合契約股票連結債券 2.事實發生日:115/7/15 3.契約金額: 單筆契約金額共1筆，合約金額計US$ 1,000仟元(折合NT$ 31,640仟元) 4.支付保證金或權利金金額: 無 5.處理程序所訂之全部或個別契約損失上限金額: 衍生性商品單筆損失上限達個別契約20% 6.從事衍生性商品交易原因: 以交易為目的 7.被避險項目: 無 8.被避險項目部位之金額: 無 9.被避險項目之損益狀況: 無 10.依公平價值評估(含已實現及未實現)之損失金額: 個別契約：共1筆契約累積未實現損失US$ 213仟元(折合NT$ 6,310仟元) 11.損失發生原因及對公司之影響: 持有該混合商品產生之未實現評價損失；該損失對公司營運無重大影響 12.契約期間: 2026/6/09至2026/11/16 13.限制條款: 無 14.其他重要約定事項: 無 15.其他敘明事項: 代子公司寶信營造(股)公司公告從事衍生性商品交易達所訂個別契約損失金額上限；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 6177 | 達麗 | 9 | 6 | 5 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260904 | 6177 | 達麗 | 2 | 2 | 2 | 7 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 6177 | 達麗 | 5 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260904 | 6177 | 達麗 | 2 | 0 | 4050.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

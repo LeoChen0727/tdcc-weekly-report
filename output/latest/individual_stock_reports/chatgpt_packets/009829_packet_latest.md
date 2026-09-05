@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009829 大華韓國KOSPI50
 
 ## Metadata
-- generated_at: 2026-08-23 22:26:31 Asia/Taipei
+- generated_at: 2026-09-05 15:52:20 Asia/Taipei
 - stock_id: 009829
 - stock_name: 大華韓國KOSPI50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260821
-- price_rows: 1
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 11
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,29 +126,39 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 10.49
-- high: 10.77
-- low: 10.45
-- close: 10.74
-- volume: 138382047
-- ma5:
-- ema23_primary:
-- distance_to_ema23_pct:
-- ma20:
-- ma60:
-- ma120:
-- return_5d:
+- date: 20260904
+- open: 10.33
+- high: 10.55
+- low: 10.25
+- close: 10.5
+- volume: 19781160
+- ma5: 10.32
+- ema23_primary: 10.52
+- distance_to_ema23_pct: -0.15
+- ma20: 10.4
+- ma60: 10.4
+- ma120: 10.4
+- return_5d: 0.86
 - return_20d:
-- volume_ratio:
-- distance_to_ma20_pct_auxiliary:
-- distance_to_high_60_pct:
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: 0.99
+- distance_to_high_60_pct: -2.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260821,10.49,10.77,10.45,10.74,138382047,,,,,
+20260824,10.59,10.59,10.25,10.34,69509781,,,,,
+20260825,10.02,10.33,9.94,10.33,58260791,,,,,
+20260826,10.34,10.54,10.29,10.42,31284664,,,,,
+20260827,10.54,10.68,10.5,10.54,35711510,10.64,-0.98,10.47,10.47,0.54
+20260828,10.53,10.53,10.37,10.41,30336366,10.62,-2.02,10.46,10.46,0.5
+20260831,10.18,10.4,10.05,10.4,36392907,10.61,-1.94,10.45,10.45,0.64
+20260901,10.51,10.52,10.35,10.46,18073179,10.59,-1.27,10.46,10.46,0.35
+20260902,10.3,10.31,10.13,10.2,30968684,10.56,-3.42,10.43,10.43,0.62
+20260903,10.28,10.36,10.02,10.03,21764576,10.52,-4.63,10.39,10.39,0.46
+20260904,10.33,10.55,10.25,10.5,19781160,10.52,-0.15,10.4,10.4,0.44
 ```
 
 ## Latest TDCC Snapshot

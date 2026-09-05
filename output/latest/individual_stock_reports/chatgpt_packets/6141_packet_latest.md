@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6141 柏承
 
 ## Metadata
-- generated_at: 2026-08-23 22:28:39 Asia/Taipei
+- generated_at: 2026-09-05 15:54:01 Asia/Taipei
 - stock_id: 6141
 - stock_name: 柏承
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,39 +69,40 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 等待回檔
-- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
-- action_summary_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
-- entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
+- risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: wait_pullback
-- action_rating_label_zh: 等待回檔
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_distribution_risk
-- entry_style: pullback_to_support
+- thesis_state: high_level_consolidation
+- entry_style: no_entry_now
 - position_sizing: observe_only
 
 ### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 
 ### post_entry_watch_items
@@ -115,7 +116,6 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
 - price_too_extended
 
 ### chatgpt_instruction
@@ -124,38 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 43.25
-- high: 46.8
-- low: 42.3
-- close: 45.4
-- volume: 5207209
-- ma5: 42.72
-- ema23_primary: 38.07
-- distance_to_ema23_pct: 19.24
-- ma20: 35.84
-- ma60: 37.42
-- ma120: 32.09
-- return_5d: 29.71
-- return_20d: 17.46
-- volume_ratio: 2.05
-- distance_to_ma20_pct_auxiliary: 26.69
-- distance_to_high_60_pct: -4.32
+- date: 20260904
+- open: 54
+- high: 54
+- low: 50.6
+- close: 52.5
+- volume: 2389780
+- ma5: 55.18
+- ema23_primary: 47.1
+- distance_to_ema23_pct: 11.48
+- ma20: 46.14
+- ma60: 39.69
+- ma120: 35.08
+- return_5d: -9.79
+- return_20d: 53.96
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: 13.79
+- distance_to_high_60_pct: -12.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,36.05,37.6,34.8,34.95,4699288,38.45,-9.1,38.65,36.59,2.2
-20260728,32.7,33.65,31.8,32.5,1670304,37.95,-14.37,38.37,36.59,0.76
-20260729,32.45,32.7,29.25,30.7,2224680,37.35,-17.8,37.97,36.52,0.98
-20260730,27.7,31.05,27.7,29.25,1397186,36.67,-20.24,37.47,36.4,0.61
-20260731,31,31,29.05,30.1,2040232,36.12,-16.68,37.03,36.3,0.85
-20260803,30.1,31.3,29.05,30.4,855149,35.65,-14.72,36.66,36.2,0.35
-20260804,30.4,33.4,30.15,33.4,1188376,35.46,-5.81,36.46,36.21,0.48
-20260805,34.8,36.7,34.45,35.45,1974937,35.46,-0.03,36.48,36.24,0.78
-20260806,34,35.1,34,34.4,931691,35.37,-2.75,36.42,36.29,0.37
-20260807,34.4,35.55,33.65,34.1,860566,35.27,-3.3,36.18,36.38,0.34
 20260810,34.1,35.4,34.1,34.7,630209,35.22,-1.47,36.01,36.53,0.26
 20260811,35.3,35.3,33.9,34.65,532609,35.17,-1.48,35.93,36.64,0.22
 20260812,35.35,37.1,35,36.9,1271188,35.32,4.49,35.79,36.73,0.54
@@ -166,18 +156,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,39,45.35,39,44.5,7784249,36.81,20.88,35.45,37.18,3.05
 20260820,44.05,45.8,41.9,43.95,5512410,37.41,17.49,35.5,37.32,2.29
 20260821,43.25,46.8,42.3,45.4,5207209,38.07,19.24,35.84,37.42,2.05
+20260824,45.8,47.25,43.05,46.05,4853320,38.74,18.88,36.39,37.47,1.91
+20260825,44.85,46.25,42.6,45.85,3841646,39.33,16.58,37.06,37.46,1.45
+20260826,46,50.4,45.2,50.4,7151867,40.25,25.21,38.04,37.56,2.47
+20260827,53.5,55.4,50,54.9,7830229,41.47,32.37,39.33,37.81,2.43
+20260828,54,59.5,53.7,58.2,7488061,42.87,35.77,40.73,38.11,2.14
+20260831,58.1,59.5,55.1,58.9,5240503,44.2,33.25,42.16,38.43,1.41
+20260901,58.9,59.9,57.2,58,3590856,45.35,27.89,43.38,38.76,0.94
+20260902,57.8,58.7,54.1,54.8,4645593,46.14,18.77,44.35,39.08,1.17
+20260903,55,56.2,51.5,51.7,4475000,46.6,10.94,45.22,39.36,1.08
+20260904,54,54,50.6,52.5,2389780,47.1,11.48,46.14,39.69,0.57
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 54.39
-- over_600_ratio: 50.89
-- over_800_ratio: 48.48
-- over_1000_ratio: 44.48
-- over_400_change_1w: 0.63
-- over_800_change_1w: 2.08
-- over_1000_change_1w: 1.36
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260904
+- over_400_ratio: 52.38
+- over_600_ratio: 50.51
+- over_800_ratio: 48.05
+- over_1000_ratio: 42.35
+- over_400_change_1w: 0.76
+- over_800_change_1w: 1.88
+- over_1000_change_1w: 0.35
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -185,8 +185,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,50.18,-5.11,43.43,-4.53,39.43,-3.75,0,False,False
-20260612,50.53,0.35,43.37,-0.06,39.29,-0.14,1,False,False
 20260618,49.7,-0.83,42.29,-1.08,39.09,-0.2,0,False,False
 20260626,51.5,1.8,44.35,2.06,40.21,1.12,1,True,True
 20260703,51.18,-0.32,44.41,0.06,41.99,1.78,2,False,True
@@ -197,17 +195,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,52.99,-0.45,45.88,-0.62,41.84,1.06,1,False,True
 20260814,53.76,0.77,46.4,0.52,43.12,1.28,2,False,True
 20260821,54.39,0.63,48.48,2.08,44.48,1.36,3,True,True
+20260828,51.62,-2.77,46.17,-2.31,42,-2.48,0,False,False
+20260904,52.38,0.76,48.05,1.88,42.35,0.35,1,True,True
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 6141 | 柏承 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | 1.事實發生日:115/07/13 2.公司名稱:柏承科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:NA 5.發生緣由:因颱風停班影響本公司發放115年股東常會紀念品予採電子投票之股東 6.因應措施:本公司115年股東常會採電子投票之股東如欲領取紀念品，原定於115年 07月09日起至115年07月13日止至富邦證券股務代理部領取，因受颱風停班影響， 發放截止日將順延至115年07月14日。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 6141 | 柏承 | 2 | 2 | 3 | 8 | 10 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

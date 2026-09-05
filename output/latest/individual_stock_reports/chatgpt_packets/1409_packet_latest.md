@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1409 新纖
 
 ## Metadata
-- generated_at: 2026-08-23 22:26:37 Asia/Taipei
+- generated_at: 2026-09-05 15:52:25 Asia/Taipei
 - stock_id: 1409
 - stock_name: 新纖
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 39
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 41
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
+- model_category_display_zh: 營收成長股價回檔
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 24.4
-- high: 24.65
-- low: 24.3
-- close: 24.5
-- volume: 7776097
-- ma5: 24.35
-- ema23_primary: 24.07
-- distance_to_ema23_pct: 1.77
-- ma20: 23.16
-- ma60: 25.24
-- ma120: 20.82
-- return_5d: -2.97
-- return_20d: 4.93
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: 5.76
-- distance_to_high_60_pct: -28.15
+- date: 20260904
+- open: 24.9
+- high: 24.9
+- low: 24
+- close: 24.55
+- volume: 10734570
+- ma5: 24.95
+- ema23_primary: 24.49
+- distance_to_ema23_pct: 0.23
+- ma20: 24.68
+- ma60: 25.12
+- ma120: 21.61
+- return_5d: 1.03
+- return_20d: 9.11
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: -0.53
+- distance_to_high_60_pct: -28.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,23,23.1,22.1,22.6,13283092,25.29,-10.65,26.25,23.3,0.29
-20260728,22.2,22.2,21.05,21.3,12664284,24.96,-14.67,26.02,23.38,0.28
-20260729,21.6,21.6,19.85,20.4,18938080,24.58,-17.01,25.73,23.44,0.41
-20260730,20.25,20.7,19.9,20.2,11665308,24.22,-16.59,25.46,23.49,0.26
-20260731,21,21.2,20.5,20.75,14268631,23.93,-13.28,25.09,23.56,0.32
-20260803,20.8,22.05,20.75,21.8,12476640,23.75,-8.21,24.63,23.64,0.3
-20260804,21.45,22.7,21.45,22.6,8766388,23.65,-4.46,24.25,23.74,0.26
-20260805,23,23.2,22.4,22.6,9195198,23.57,-4.1,23.79,23.83,0.38
-20260806,22.5,23.1,22.25,22.6,7900884,23.49,-3.77,23.46,23.92,0.4
-20260807,22.65,22.8,22.4,22.5,4243371,23.4,-3.86,23.25,24.02,0.27
 20260810,24.75,24.75,24.75,24.75,6300637,23.52,5.25,23.2,24.14,0.44
 20260811,24.8,25.35,23.7,24.25,30455073,23.58,2.85,23.09,24.27,2.18
 20260812,24.35,25.3,24.35,24.8,14444378,23.68,4.73,23.04,24.4,1.06
@@ -168,17 +158,27 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,24,24.45,24,24.1,6200089,24,0.4,23.08,25.04,0.5
 20260820,24.35,24.75,24.2,24.4,6073337,24.04,1.51,23.11,25.15,0.5
 20260821,24.4,24.65,24.3,24.5,7776097,24.07,1.77,23.16,25.24,0.64
+20260824,24.65,24.9,24.3,24.3,8256139,24.09,0.86,23.25,25.3,0.7
+20260825,24.35,24.75,24.1,24.45,7036312,24.12,1.35,23.41,25.33,0.61
+20260826,24.65,25.2,24.6,24.85,12666963,24.18,2.75,23.63,25.32,1.13
+20260827,24.25,25.1,24.2,25,14366905,24.25,3.08,23.87,25.28,1.26
+20260828,25.2,25.2,24.1,24.3,19584388,24.26,0.18,24.05,25.18,1.68
+20260831,24.05,24.65,23.7,24.6,11610980,24.28,1.3,24.19,25.14,1
+20260901,25,27.05,25,25.65,65478367,24.4,5.13,24.34,25.13,4.54
+20260902,25.25,26.6,25.25,25.35,25510372,24.48,3.56,24.48,25.14,1.67
+20260903,25.25,26.45,24.6,24.6,23016182,24.49,0.46,24.58,25.13,1.44
+20260904,24.9,24.9,24,24.55,10734570,24.49,0.23,24.68,25.12,0.66
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 62.99
-- over_600_ratio: 61.13
-- over_800_ratio: 60.05
-- over_1000_ratio: 59.27
-- over_400_change_1w: -0.17
-- over_800_change_1w: -0.09
-- over_1000_change_1w: -0.13
+- as_of_date: 20260904
+- over_400_ratio: 61.85
+- over_600_ratio: 59.96
+- over_800_ratio: 58.97
+- over_1000_ratio: 58.18
+- over_400_change_1w: -1.06
+- over_800_change_1w: -1.1
+- over_1000_change_1w: -0.93
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -187,8 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,67.55,-0.46,65.21,-0.22,64.26,-0.27,0,False,False
-20260612,67.47,-0.08,65.1,-0.11,64.27,0.01,1,False,True
 20260618,67.2,-0.27,64.8,-0.3,64.07,-0.2,0,False,False
 20260626,65.48,-1.72,62.85,-1.95,61.9,-2.17,0,False,False
 20260703,66.06,0.58,63.42,0.57,62.52,0.62,1,True,True
@@ -199,23 +197,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,63.18,-0.18,60.58,-0.21,59.74,-0.26,0,False,False
 20260814,63.16,-0.02,60.14,-0.44,59.4,-0.34,0,False,False
 20260821,62.99,-0.17,60.05,-0.09,59.27,-0.13,0,False,False
+20260828,62.91,-0.08,60.07,0.02,59.11,-0.16,1,False,True
+20260904,61.85,-1.06,58.97,-1.1,58.18,-0.93,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 1409 | 新纖 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: ex_dividend on 20260827; status=confirmed; proximity=within_7d |
-| 20260821 | 1409 | 新纖 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | calendar event: ex_dividend on 20260827; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260904 | 1409 | 新纖 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 1409 | 新纖 | 4 | 4 | 4 | 6 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260904 | 1409 | 新纖 | 13 | 2 | 5 | 10 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 1409 | 新纖 | 29 | 2 | 1331240.0 | 30700.0 | 43.36 | no_signal |
+| 20260904 | 1409 | 新纖 | 32 | 2 | 2146660.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

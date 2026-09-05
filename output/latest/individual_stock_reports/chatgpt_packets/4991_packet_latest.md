@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4991 環宇-KY
 
 ## Metadata
-- generated_at: 2026-08-23 22:28:20 Asia/Taipei
+- generated_at: 2026-09-05 15:53:46 Asia/Taipei
 - stock_id: 4991
 - stock_name: 環宇-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 203
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 213
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 512
-- high: 520
-- low: 481
-- close: 481
-- volume: 8590000
-- ma5: 492.1
-- ema23_primary: 465.59
-- distance_to_ema23_pct: 3.31
-- ma20: 446.27
-- ma60: 505.62
-- ma120: 528.15
-- return_5d: 4.57
-- return_20d: 15.35
-- volume_ratio: 2.31
-- distance_to_ma20_pct_auxiliary: 7.78
-- distance_to_high_60_pct: -37.86
+- date: 20260904
+- open: 499
+- high: 505
+- low: 470
+- close: 497
+- volume: 1118000
+- ma5: 518.9
+- ema23_primary: 489.09
+- distance_to_ema23_pct: 1.62
+- ma20: 494.85
+- ma60: 477.85
+- ma120: 541.93
+- return_5d: -4.42
+- return_20d: 6.88
+- volume_ratio: 0.2
+- distance_to_ma20_pct_auxiliary: 0.43
+- distance_to_high_60_pct: -16.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,411,447.5,404,433.5,6777000,462.71,-6.31,454.2,593.15,1.47
-20260728,400,430.5,392.5,396,8018000,457.15,-13.38,449.88,588.48,1.61
-20260729,392.5,401,356.5,356.5,6052000,448.77,-20.56,441.2,583.14,1.15
-20260730,321,352.5,321,321,757000,438.12,-26.73,430.1,576.09,0.14
-20260731,353,353,350,353,344000,431.03,-18.1,421.45,569.89,0.07
-20260803,368,388,368,388,501000,427.44,-9.23,411.95,564.86,0.1
-20260804,420,426.5,420,426.5,516000,427.36,-0.2,407.23,561.23,0.11
-20260805,469,469,453,469,2053000,430.83,8.86,407.23,557.62,0.45
-20260806,422.5,452.5,422.5,442,1630000,431.76,2.37,405.23,552.65,0.38
-20260807,443,478.5,443,465,1200000,434.53,7.01,405.4,548.73,0.29
 20260810,490,511,489,511,3440000,440.9,15.9,408.43,545.45,0.84
 20260811,491,522,461,481,9204000,444.25,8.27,411.62,542.77,2.11
 20260812,486,500,460,484.5,11315000,447.6,8.24,414.55,539.21,2.37
@@ -168,27 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,461.5,495,457.5,486.5,941000,459.11,5.97,438.88,516.48,0.21
 20260820,505,520,480,520,1346000,464.19,12.02,443.07,510.65,0.35
 20260821,512,520,481,481,8590000,465.59,3.31,446.27,505.62,2.31
+20260824,481,483,435,435,4340000,463.04,-6.06,446.35,501.12,1.21
+20260825,435,451.5,418.5,445,3974000,461.54,-3.58,448.8,496.37,1.17
+20260826,442,489.5,442,489.5,4931000,463.87,5.53,455.45,492.27,1.48
+20260827,508,538,500,538,7838000,470.04,14.46,466.3,489.54,2.13
+20260828,538,540,511,520,9170000,474.21,9.66,474.65,486.02,2.22
+20260831,515,543,505,539,5904000,479.61,12.38,482.2,483.64,1.34
+20260901,530,554,511,544,8989000,484.97,12.17,488.07,481.81,1.86
+20260902,524,545,524,530,5659000,488.72,8.45,491.12,480.44,1.13
+20260903,536,560,480.5,484.5,12932000,488.37,-0.79,493.25,478.55,2.32
+20260904,499,505,470,497,1118000,489.09,1.62,494.85,477.85,0.2
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 50.88
-- over_600_ratio: 47.6
-- over_800_ratio: 44.14
-- over_1000_ratio: 40.38
-- over_400_change_1w: -1.4
-- over_800_change_1w: 0.2
-- over_1000_change_1w: 0.06
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260904
+- over_400_ratio: 48.44
+- over_600_ratio: 44.33
+- over_800_ratio: 42.03
+- over_1000_ratio: 41.33
+- over_400_change_1w: -3.4
+- over_800_change_1w: -3.2
+- over_1000_change_1w: -1.68
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,60.61,-0.21,49.78,-0.55,48.3,-0.64,1,False,False
-20260612,59.56,-1.05,47.67,-2.11,46.07,-2.23,0,False,False
 20260618,58.94,-0.62,46.61,-1.06,45.92,-0.15,0,False,False
 20260626,57.92,-1.02,45.34,-1.27,45.34,-0.58,0,False,False
 20260703,57.78,-0.14,45.38,0.04,45.38,0.04,1,False,True
@@ -199,17 +197,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,52.62,-0.32,43.61,-0.66,42.91,0.06,2,False,True
 20260814,52.28,-0.34,43.94,0.33,40.32,-2.59,3,False,True
 20260821,50.88,-1.4,44.14,0.2,40.38,0.06,4,False,True
+20260828,51.84,0.96,45.23,1.09,43.01,2.63,5,True,True
+20260904,48.44,-3.4,42.03,-3.2,41.33,-1.68,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 4991 | 環宇-KY | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_2_3d | 符合條款第四條第XX款：12 事實發生日：115/08/05 1.召開法人說明會之日期：115/08/05 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：https://reurl.cc/k9782q 4.法人說明會擇要訊息：本公司2026年第二季財務及營運報告。 5.其他應敘明事項：簡報資料將於會議開始前30分鐘置於公開資訊觀測站及本公司網頁，請自行下載簡報資料。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| 20260904 | 4991 | 環宇-KY | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日:115/08/31 2.發生緣由:依櫃買中心通知辦理 3.財務業務資訊: (一)單月                   115年07月        114年07月       與去年同期增減% 營業收入(百萬元)             145               156                -7.05% 稅前淨利(百萬元)             -34                10              -440.00% 歸屬母公司業主淨利(百萬元)   -21                10              -310.00% 每股盈餘(元)                -0.18             0.09              -300.00% (二)單季                  115年第2季      114年第2季      與去年同期增減% 營業收入(百萬元)             770              490               57.14% 稅前淨利(百萬元)             134                6             2133.33% 歸屬母公司業主淨利(百萬元)   110               14              685.71% 每股盈餘(元)                0.92             0.13              607.69% (三)最近四季累計                    114年第3季至115年第2季 營業收入(百萬元)                            2,717 稅前淨利(百萬元)                              467 歸屬母公司業主淨利(百萬元)                    388 每股盈餘(元)                                 3.32 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無 6.其他應敘明事項: 註1：115年07月及去年同期比較數之財務資料係本公司採IFRS會計準則 編製之合併自結數，未經會計師查核(閱)，僅供投資人參考。 註2：最近一季115年第2季係指單季數字，非為最近財務報告中之累計數字，且係本公 司採IFRS下編製之合併數，業經會計師查核(閱)，僅供投資人參考。 註3：最近四季累計係本公司114年第3季至115年第2季採IFRS編製之合併數，業經會計 師查核(閱)，僅供投資人參考。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 4991 | 環宇-KY | 3 | 3 | 4 | 8 | 12 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260904 | 4991 | 環宇-KY | 1 | 1 | 4 | 7 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

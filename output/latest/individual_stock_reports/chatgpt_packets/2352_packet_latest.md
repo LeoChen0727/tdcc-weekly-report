@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2352 佳世達
 
 ## Metadata
-- generated_at: 2026-08-23 22:27:05 Asia/Taipei
+- generated_at: 2026-09-05 15:52:46 Asia/Taipei
 - stock_id: 2352
 - stock_name: 佳世達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 332
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 342
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 29.25
-- high: 29.35
+- date: 20260904
+- open: 28.95
+- high: 29.3
 - low: 28.75
-- close: 28.8
-- volume: 2948055
-- ma5: 28.83
-- ema23_primary: 29.1
-- distance_to_ema23_pct: -1.02
-- ma20: 28.49
-- ma60: 30.34
-- ma120: 27.55
-- return_5d: -2.37
-- return_20d: -1.37
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: 1.08
-- distance_to_high_60_pct: -20.66
+- close: 29.25
+- volume: 7864250
+- ma5: 28.64
+- ema23_primary: 28.74
+- distance_to_ema23_pct: 1.76
+- ma20: 28.7
+- ma60: 29.92
+- ma120: 27.93
+- return_5d: 3.72
+- return_20d: 3.36
+- volume_ratio: 1.35
+- distance_to_ma20_pct_auxiliary: 1.91
+- distance_to_high_60_pct: -19.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,29.4,29.4,28.25,28.75,5483909,30.79,-6.64,31.63,29.56,0.23
-20260728,28.2,28.45,27.4,27.7,7454488,30.54,-9.29,31.46,29.62,0.34
-20260729,27.9,28.1,26.05,26.95,7807699,30.24,-10.87,31.11,29.67,0.39
-20260730,26.65,27.1,26.3,26.45,5687780,29.92,-11.6,30.81,29.69,0.32
-20260731,27.85,28.05,27.35,27.35,7606695,29.71,-7.94,30.59,29.72,0.45
-20260803,27,28.75,27,28.45,5345381,29.6,-3.89,30.4,29.77,0.33
-20260804,28,29,28,28.9,3723497,29.54,-2.18,30.07,29.84,0.27
-20260805,29.1,29.75,28.4,28.45,7063350,29.45,-3.41,29.77,29.88,0.63
-20260806,28.45,29.05,28.35,28.8,4568064,29.4,-2.04,29.49,29.93,0.48
-20260807,29.15,29.3,28.1,28.3,5841322,29.31,-3.44,29.26,29.96,0.66
 20260810,28.75,30,28.65,29.6,10565901,29.33,0.92,29.19,30.03,1.25
 20260811,29.7,29.85,28.7,28.9,8208214,29.3,-1.35,29.1,30.09,0.98
 20260812,29.15,29.3,28.8,28.9,4716571,29.26,-1.24,28.97,30.16,0.58
@@ -168,27 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,28.05,30.15,27.95,28.75,5685629,29.11,-1.25,28.55,30.3,0.79
 20260820,29.05,29.5,28.65,29.25,5232697,29.13,0.43,28.51,30.32,0.78
 20260821,29.25,29.35,28.75,28.8,2948055,29.1,-1.02,28.49,30.34,0.45
+20260824,29,29.15,28.65,28.65,1844453,29.06,-1.41,28.49,30.36,0.29
+20260825,28.6,28.85,27.6,28.15,7083528,28.98,-2.88,28.51,30.34,1.11
+20260826,28.2,28.5,28,28.1,4009545,28.91,-2.81,28.57,30.3,0.65
+20260827,28.2,28.55,28,28,3735153,28.84,-2.9,28.64,30.24,0.61
+20260828,28.3,28.4,28.1,28.2,2871377,28.78,-2.02,28.69,30.14,0.49
+20260831,28.1,28.4,27.85,28.35,4458726,28.75,-1.38,28.68,30.04,0.77
+20260901,28.15,28.75,28.15,28.4,3499616,28.72,-1.11,28.66,29.99,0.6
+20260902,28.3,28.85,28.3,28.7,3477673,28.72,-0.06,28.67,29.97,0.62
+20260903,28.85,29.6,28.5,28.5,7278956,28.7,-0.69,28.66,29.93,1.27
+20260904,28.95,29.3,28.75,29.25,7864250,28.74,1.76,28.7,29.92,1.35
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 48.19
-- over_600_ratio: 45.71
-- over_800_ratio: 44.81
-- over_1000_ratio: 43.08
-- over_400_change_1w: -0.07
-- over_800_change_1w: -0.14
-- over_1000_change_1w: -0.2
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260904
+- over_400_ratio: 47.95
+- over_600_ratio: 45.53
+- over_800_ratio: 44.49
+- over_1000_ratio: 43.15
+- over_400_change_1w: 0.04
+- over_800_change_1w: 0.09
+- over_1000_change_1w: 0.2
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,48.45,-0.39,44.91,-0.59,43.36,-0.55,0,False,False
-20260612,48.22,-0.23,44.53,-0.38,42.92,-0.44,0,False,False
 20260618,48.32,0.1,44.73,0.2,43.22,0.3,1,True,True
 20260626,48.83,0.51,45.34,0.61,43.78,0.56,2,True,True
 20260703,49.47,0.64,46.03,0.69,44.5,0.72,3,True,True
@@ -199,22 +197,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,48.46,0.06,45.22,0.11,43.45,0.12,1,True,True
 20260814,48.26,-0.2,44.95,-0.27,43.28,-0.17,0,False,False
 20260821,48.19,-0.07,44.81,-0.14,43.08,-0.2,0,False,False
+20260828,47.91,-0.28,44.4,-0.41,42.95,-0.13,0,False,False
+20260904,47.95,0.04,44.49,0.09,43.15,0.2,1,True,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260904 | 2352 | 佳世達 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 67.0 |  |  | neckline_challenge |  | call_inflow | repeated_but_no_breakout | 1.事實發生日:115/09/03 2.公司名稱:佳世達科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公告本公司115年8月份自結合併營收 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):   佳世達115年8月自結合併營收為新台幣188.13億元，   較去年同期成長11.82%，較上月成長3.41%。   累計115年1至8月合併營收為新台幣1,412.79億元，較去年同期成長2.74%。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260904 | 2352 | 佳世達 | 1 | 1 | 1 | 1 | 6 | repeated_but_no_breakout | 近 10 日上榜 1 次、近 20 日上榜 6 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2352 | 佳世達 | 25 | 1 | 1383390.0 | 3700.0 | 373.89 | no_signal |
+| 20260904 | 2352 | 佳世達 | 21 | 1 | 1417730.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

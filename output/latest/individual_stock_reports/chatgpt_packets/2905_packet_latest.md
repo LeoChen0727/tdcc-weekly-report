@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2905 三商
 
 ## Metadata
-- generated_at: 2026-08-23 22:27:28 Asia/Taipei
+- generated_at: 2026-09-05 15:53:05 Asia/Taipei
 - stock_id: 2905
 - stock_name: 三商
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 337
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 347
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 17.35
-- high: 17.65
-- low: 17.2
-- close: 17.65
-- volume: 1577311
-- ma5: 17.67
-- ema23_primary: 16.71
-- distance_to_ema23_pct: 5.65
-- ma20: 16.79
-- ma60: 15.55
-- ma120: 14.93
-- return_5d: 3.22
-- return_20d: 9.63
-- volume_ratio: 0.99
-- distance_to_ma20_pct_auxiliary: 5.12
-- distance_to_high_60_pct: -5.36
+- date: 20260904
+- open: 18.25
+- high: 18.35
+- low: 17.95
+- close: 18.15
+- volume: 1543732
+- ma5: 17.81
+- ema23_primary: 17.27
+- distance_to_ema23_pct: 5.07
+- ma20: 17.36
+- ma60: 16.15
+- ma120: 15.09
+- return_5d: 4.01
+- return_20d: 10.67
+- volume_ratio: 0.97
+- distance_to_ma20_pct_auxiliary: 4.57
+- distance_to_high_60_pct: -2.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,16.15,16.25,15.95,16.15,1054128,15.4,4.86,15.38,14.48,1.1
-20260728,16.1,16.2,15.65,16.2,1356482,15.47,4.73,15.45,14.52,1.36
-20260729,16.25,16.45,16.05,16.45,2342636,15.55,5.79,15.53,14.57,2.15
-20260730,16.35,16.65,16.1,16.6,1451830,15.64,6.15,15.62,14.62,1.27
-20260731,16.6,17.15,16.6,17.1,1745308,15.76,8.51,15.74,14.68,1.46
-20260803,17,17.35,16.8,17.05,1773434,15.87,7.46,15.84,14.74,1.43
-20260804,16.7,16.85,16.2,16.35,1829304,15.91,2.78,15.9,14.79,1.41
-20260805,16.45,16.65,16.25,16.35,841056,15.94,2.55,15.96,14.84,0.64
-20260806,16.3,16.4,15.8,16.2,1494010,15.97,1.47,16,14.89,1.12
-20260807,16.15,16.4,16.15,16.4,538637,16,2.49,16.05,14.94,0.41
 20260810,16.5,16.55,16.3,16.5,641490,16.04,2.85,16.11,14.99,0.49
 20260811,16.6,16.6,16.3,16.4,496990,16.07,2.03,16.16,15.05,0.39
 20260812,16.4,16.5,16.3,16.4,479803,16.1,1.86,16.2,15.1,0.38
@@ -167,18 +158,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,17.75,17.85,17.4,17.45,1646695,16.55,5.45,16.63,15.42,1.05
 20260820,17.7,17.7,17.3,17.4,1477379,16.62,4.69,16.71,15.48,0.93
 20260821,17.35,17.65,17.2,17.65,1577311,16.71,5.65,16.79,15.55,0.99
+20260824,17.6,17.6,17.3,17.3,936300,16.76,3.25,16.85,15.62,0.59
+20260825,17.3,17.55,17.25,17.45,848808,16.81,3.79,16.91,15.68,0.54
+20260826,17.4,17.6,17.05,17.55,1361455,16.87,4,16.96,15.74,0.9
+20260827,17.4,17.55,17.3,17.4,1122045,16.92,2.85,17,15.8,0.75
+20260828,17.4,17.6,17.35,17.45,1299334,16.96,2.87,17.02,15.85,0.88
+20260831,17.2,17.5,17,17.5,1601652,17.01,2.9,17.05,15.9,1.09
+20260901,17.35,17.5,17.25,17.4,1002116,17.04,2.11,17.1,15.96,0.7
+20260902,17.35,17.9,17.3,17.8,1552082,17.1,4.07,17.17,16.02,1.06
+20260903,17.8,18.5,17.8,18.2,2924093,17.19,5.85,17.27,16.09,1.9
+20260904,18.25,18.35,17.95,18.15,1543732,17.27,5.07,17.36,16.15,0.97
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 84.3
-- over_600_ratio: 82.91
-- over_800_ratio: 81.6
-- over_1000_ratio: 80.98
-- over_400_change_1w: -0.02
-- over_800_change_1w: 0.05
-- over_1000_change_1w: 0.13
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20260904
+- over_400_ratio: 84.44
+- over_600_ratio: 82.95
+- over_800_ratio: 81.62
+- over_1000_ratio: 81.24
+- over_400_change_1w: 0.09
+- over_800_change_1w: -0.01
+- over_1000_change_1w: 0.23
+- tdcc_consecutive_up_weeks: 9
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -186,8 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,83.87,0,80.99,-0.01,80.22,0.06,5,False,True
-20260612,83.95,0.08,81.1,0.11,80.25,0.03,6,True,True
 20260618,83.92,-0.03,81.13,0.03,80.36,0.11,7,False,True
 20260626,83.97,0.05,81.23,0.1,80.45,0.09,8,True,True
 20260703,83.97,0,81.19,-0.04,80.33,-0.12,0,False,False
@@ -198,17 +197,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,84.36,0.09,81.61,-0.18,80.75,0.05,5,False,True
 20260814,84.32,-0.04,81.55,-0.06,80.85,0.1,6,False,True
 20260821,84.3,-0.02,81.6,0.05,80.98,0.13,7,False,True
+20260828,84.35,0.05,81.63,0.03,81.01,0.03,8,False,True
+20260904,84.44,0.09,81.62,-0.01,81.24,0.23,9,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2905 | 三商 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_2_3d | calendar event: ex_dividend on 20260831; status=confirmed; proximity=within_14d |
+| 20260904 | 2905 | 三商 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:法務長及永續長 2.發生變動日期:115/08/31 3.舊任者姓名、級職及簡歷:許(清爭)心／本公司法務長及永續長 4.新任者姓名、級職及簡歷:不適用 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:辭任 6.異動原因:辭任 7.生效日期:115/09/01 8.其他應敘明事項:新任法務長及永續長待董事會決議通過委任後，另行公告。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2905 | 三商 | 2 | 2 | 3 | 4 | 4 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260904 | 2905 | 三商 | 8 | 1 | 5 | 9 | 12 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

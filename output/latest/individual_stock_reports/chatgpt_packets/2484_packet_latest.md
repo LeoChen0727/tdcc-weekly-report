@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2484 希華
 
 ## Metadata
-- generated_at: 2026-08-23 22:27:15 Asia/Taipei
+- generated_at: 2026-09-05 15:52:54 Asia/Taipei
 - stock_id: 2484
 - stock_name: 希華
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -101,7 +101,9 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -116,7 +118,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -124,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 71.3
-- high: 78.2
-- low: 71.3
-- close: 76.5
-- volume: 28080345
-- ma5: 73.5
-- ema23_primary: 72.49
-- distance_to_ema23_pct: 5.54
-- ma20: 70.08
-- ma60: 70.86
-- ma120: 53.4
-- return_5d: 5.08
-- return_20d: 6.4
-- volume_ratio: 1.37
-- distance_to_ma20_pct_auxiliary: 9.17
-- distance_to_high_60_pct: -25
+- date: 20260904
+- open: 71
+- high: 72.5
+- low: 69.3
+- close: 70.4
+- volume: 5947607
+- ma5: 73.14
+- ema23_primary: 73.49
+- distance_to_ema23_pct: -4.2
+- ma20: 74.21
+- ma60: 74.19
+- ma120: 57.33
+- return_5d: -7.49
+- return_20d: -1.81
+- volume_ratio: 0.38
+- distance_to_ma20_pct_auxiliary: -5.13
+- distance_to_high_60_pct: -30.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,71.2,76,70.6,73.1,50049560,75.73,-3.47,80.94,62.48,1.12
-20260728,70,70.6,65.8,65.8,12655808,74.9,-12.15,80.78,62.92,0.3
-20260729,64.5,67.2,59.3,59.3,15212498,73.6,-19.43,80.11,63.22,0.37
-20260730,58.3,63,56.7,57.6,25659736,72.27,-20.3,79,63.47,0.62
-20260731,62.7,63.2,59.8,61.1,18503128,71.34,-14.35,77.67,63.81,0.48
-20260803,61.2,67.1,60.7,63.6,19131726,70.69,-10.03,76.03,64.12,0.56
-20260804,63.2,69.9,63.2,69.9,30167206,70.63,-1.03,74.73,64.59,0.96
-20260805,71.7,74,69.1,70.5,39733540,70.62,-0.17,73.91,65.1,1.36
-20260806,71.3,72.2,68.2,71.2,14151395,70.67,0.76,72.85,65.64,0.53
-20260807,72.8,74.5,68.9,71.7,18377997,70.75,1.34,71.9,66.21,0.74
 20260810,75.8,78.4,72.8,74.3,27411397,71.05,4.58,71.4,66.81,1.12
 20260811,74.7,76.4,73.3,73.3,15582263,71.24,2.9,71.04,67.41,0.65
 20260812,72.7,75.3,72.7,73.9,10667237,71.46,3.42,70.66,67.95,0.46
@@ -166,17 +158,27 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,69,74.5,68.6,73,7722213,72.22,1.09,69.76,70.22,0.36
 20260820,75.5,76.9,71.1,71.1,8336158,72.12,-1.42,69.84,70.47,0.4
 20260821,71.3,78.2,71.3,76.5,28080345,72.49,5.54,70.08,70.86,1.37
+20260824,75,75.8,72.1,72.1,10926077,72.45,-0.49,70.03,71.15,0.59
+20260825,72.5,79.3,70.1,79.3,18159725,73.03,8.59,70.7,71.56,0.96
+20260826,79.3,81,76,76.7,35920731,73.33,4.59,71.57,71.95,1.81
+20260827,77.4,79.4,75.8,76.6,20450498,73.6,4.07,72.52,72.37,1.04
+20260828,77.2,78.9,74.8,76.1,15368786,73.81,3.1,73.27,72.73,0.79
+20260831,75.5,76.2,73.6,74,6596000,73.83,0.23,73.79,73.11,0.35
+20260901,74.2,79.2,74.2,76.7,11587547,74.07,3.55,74.13,73.51,0.65
+20260902,76.7,77.8,74.5,74.5,8710402,74.1,0.54,74.33,73.83,0.53
+20260903,74.9,75.2,70,70.1,10122542,73.77,-4.97,74.28,73.99,0.63
+20260904,71,72.5,69.3,70.4,5947607,73.49,-4.2,74.21,74.19,0.38
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 25
-- over_600_ratio: 22.34
-- over_800_ratio: 21.86
-- over_1000_ratio: 19.06
-- over_400_change_1w: -1.84
-- over_800_change_1w: -0.73
-- over_1000_change_1w: -0.77
+- as_of_date: 20260904
+- over_400_ratio: 22.77
+- over_600_ratio: 19.08
+- over_800_ratio: 17.73
+- over_1000_ratio: 14.48
+- over_400_change_1w: -1.76
+- over_800_change_1w: -2.64
+- over_1000_change_1w: -3.14
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -185,8 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,26.5,-4.72,23.2,-4.68,20.45,-5.2,0,False,False
-20260612,29.95,3.45,25.55,2.35,23.27,2.82,1,True,True
 20260618,31.14,1.19,28.06,2.51,25.22,1.95,2,True,True
 20260626,29.79,-1.35,25.01,-3.05,20.96,-4.26,0,False,False
 20260703,41.12,11.33,38.22,13.21,35.97,15.01,1,True,True
@@ -197,22 +197,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,23.71,0.48,19.88,0.44,17.08,0.96,1,False,True
 20260814,26.84,3.13,22.59,2.71,19.83,2.75,2,True,True
 20260821,25,-1.84,21.86,-0.73,19.06,-0.77,0,False,False
+20260828,24.53,-0.47,20.37,-1.49,17.62,-1.44,0,False,False
+20260904,22.77,-1.76,17.73,-2.64,14.48,-3.14,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2484 | 希華 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_put_bullish | stale_signal | 1.事實發生日:115/07/02 2.發生緣由:依台灣證券交易所股份有限公司指示辦理。 3.財務業務資訊: 期  間             月                  季                最近四季累計 --------    -------------------  --------------------  -----------------             最近一月  與去年同   最近一季   與去年同     114年第2季至 科  目      115年5月 期增減％   115年第1季 期增減％     115年第1季              (個體財報自結數)    (合併財報核閱數)     (合併財報查(核)閱數) --------  -------------------   --------------------   ----------------- 營業收入       197      3.68%      558       4.89%           2,436 (百萬)  稅前淨利        29    167.44%       65      51.16%             148 (百萬)  歸屬於母公司    24    168.57%       52      36.84%             118 業主淨利 (百萬)  每股盈餘      0.15    168.18%      0.33      37.5%            0.74 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告:無。 7.其他應敘明事項:無。；calendar event: ex_dividend on 20260824; status=confirmed; proximity=within_3d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2484 | 希華 | 3 | 3 | 3 | 4 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2484 | 希華 | 9 | 1 | 3874380.0 | 30220.0 | 128.21 | call_put_bullish |
+| 20260904 | 2484 | 希華 | 24 | 1 | 605860.0 | 115460.0 | 5.25 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

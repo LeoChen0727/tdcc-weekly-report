@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5498 凱崴
 
 ## Metadata
-- generated_at: 2026-08-23 22:28:31 Asia/Taipei
+- generated_at: 2026-09-05 15:53:55 Asia/Taipei
 - stock_id: 5498
 - stock_name: 凱崴
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 203
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 213
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
+- model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -125,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 53
-- high: 54.8
-- low: 50.3
-- close: 50.4
-- volume: 4222000
-- ma5: 50.26
-- ema23_primary: 50.5
-- distance_to_ema23_pct: -0.2
-- ma20: 48.13
-- ma60: 56.1
-- ma120: 60.79
-- return_5d: -2.7
-- return_20d: 10.16
-- volume_ratio: 1.95
-- distance_to_ma20_pct_auxiliary: 4.71
-- distance_to_high_60_pct: -30.29
+- date: 20260904
+- open: 54
+- high: 54.7
+- low: 52.5
+- close: 53.4
+- volume: 1189000
+- ma5: 54.94
+- ema23_primary: 52.83
+- distance_to_ema23_pct: 1.07
+- ma20: 52.86
+- ma60: 54.71
+- ma120: 60.27
+- return_5d: -8.09
+- return_20d: 10.1
+- volume_ratio: 0.42
+- distance_to_ma20_pct_auxiliary: 1.02
+- distance_to_high_60_pct: -26.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,46.4,47.9,45.4,47.25,1758000,54.7,-13.61,55.08,63.18,0.85
-20260728,46,46,43.4,43.4,1990000,53.76,-19.26,54.34,62.67,0.96
-20260729,43.95,44.3,39.1,41,3282000,52.69,-22.19,53.35,62.12,1.52
-20260730,40.6,41.85,37.6,38.15,2556000,51.48,-25.89,52.3,61.44,1.17
-20260731,41.4,41.95,41.1,41.95,1001000,50.69,-17.24,51.34,60.89,0.46
-20260803,41.95,45.15,41.95,44.5,2379000,50.17,-11.3,50.51,60.39,1.08
-20260804,44.1,47.2,44.1,46.9,1722000,49.9,-6.01,49.8,59.97,0.79
-20260805,48.55,49.45,47.45,47.65,1462000,49.71,-4.15,49.13,59.62,0.7
-20260806,47.9,50.9,46.1,50.1,2275000,49.74,0.72,48.58,59.24,1.09
-20260807,50,50.5,48.1,48.5,1372000,49.64,-2.3,48.02,58.84,0.66
 20260810,49.5,51.2,48.65,50.6,1667000,49.72,1.77,47.64,58.44,0.83
 20260811,50.6,53.2,50.5,51.1,2773000,49.83,2.54,47.46,58.12,1.39
 20260812,50.9,56,50.9,55.2,4016000,50.28,9.78,47.4,57.89,1.89
@@ -167,18 +157,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,48.4,50.3,48.2,49.2,1174000,50.49,-2.56,47.8,56.74,0.58
 20260820,49.85,52.2,49.05,50.7,1617000,50.51,0.37,47.9,56.41,0.8
 20260821,53,54.8,50.3,50.4,4222000,50.5,-0.2,48.13,56.1,1.95
+20260824,50.5,52.5,50.1,51.1,1880000,50.55,1.08,48.33,55.86,0.87
+20260825,50.5,52.2,48.9,52.1,1357000,50.68,2.8,48.76,55.63,0.64
+20260826,52.5,55.4,52.2,54.6,4485000,51.01,7.04,49.44,55.44,2.04
+20260827,54.6,54.6,53,53.3,2227000,51.2,4.1,50.2,55.27,1.02
+20260828,54.4,58.5,53.6,58.1,6537000,51.77,12.22,51.01,55.2,2.66
+20260831,56.4,61.3,55.5,56.2,7707000,52.14,7.78,51.59,55.12,2.83
+20260901,56.1,59.2,55.8,56.4,3837000,52.5,7.43,52.07,55.03,1.36
+20260902,56.4,56.9,55.6,55.8,1948000,52.77,5.74,52.48,55,0.68
+20260903,55.9,56.9,52.9,52.9,2471000,52.78,0.22,52.62,54.83,0.86
+20260904,54,54.7,52.5,53.4,1189000,52.83,1.07,52.86,54.71,0.42
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 35.6
-- over_600_ratio: 33.45
-- over_800_ratio: 32.1
-- over_1000_ratio: 29.39
-- over_400_change_1w: 0.98
-- over_800_change_1w: 0.04
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 6
+- as_of_date: 20260904
+- over_400_ratio: 34.83
+- over_600_ratio: 33.21
+- over_800_ratio: 31.83
+- over_1000_ratio: 30.04
+- over_400_change_1w: -0.14
+- over_800_change_1w: -0.35
+- over_1000_change_1w: 0.09
+- tdcc_consecutive_up_weeks: 8
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -186,8 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,33.43,-0.28,31.13,0,30.25,0,0,False,False
-20260612,35.35,1.92,33,1.87,32.12,1.87,1,True,True
 20260618,33.47,-1.88,31.13,-1.87,30.25,-1.87,0,False,False
 20260626,33.75,0.28,31.13,0,30.25,0,1,False,False
 20260703,33.47,-0.28,30.55,-0.58,29.67,-0.58,0,False,False
@@ -198,18 +196,21 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,34.57,-0.49,31.71,0.53,29.92,0.53,4,False,True
 20260814,34.62,0.05,32.06,0.35,29.39,-0.53,5,False,True
 20260821,35.6,0.98,32.1,0.04,29.39,0,6,False,True
+20260828,34.97,-0.63,32.18,0.08,29.95,0.56,7,False,True
+20260904,34.83,-0.14,31.83,-0.35,30.04,0.09,8,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 5498 | 凱崴 | revenue_pullback | 營收成長股價回檔 | 50.0 |  |  |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/20 1.召開法人說明會之日期：115/08/20 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：(實體)台北市中山區明水路700號(凱基證券大樓)、(線上)Webex系統 4.法人說明會擇要訊息：本公司受邀參加凱基證券所舉辦之法人說明會，就本公司財務及業務相關資訊做說明。 5.其他應敘明事項：完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260821 | 5498 | 凱崴 | revenue_breakout_low_response | 營收爆發低反應股 | 20 | 29 | B_可觀察 |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/20 1.召開法人說明會之日期：115/08/20 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：(實體)台北市中山區明水路700號(凱基證券大樓)、(線上)Webex系統 4.法人說明會擇要訊息：本公司受邀參加凱基證券所舉辦之法人說明會，就本公司財務及業務相關資訊做說明。 5.其他應敘明事項：完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260904 | 5498 | 凱崴 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/09/01 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放股利種類及金額:現金股利總額48,387,137元(每股0.25元) 4.除權（息）交易日:115/09/17 5.最後過戶日:115/09/18 6.停止過戶起始日期:115/09/19 7.停止過戶截止日期:115/09/23 8.除權（息）基準日:115/09/23 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.現金股利發放日期:115/10/15 13.其他應敘明事項: 以上相關事宜，如經主管機關核示修正，或因應客觀環境之營運需要而須 變更或新訂時，授權董事長全權處理之。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| 20260904 | 5498 | 凱崴 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/09/01 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放股利種類及金額:現金股利總額48,387,137元(每股0.25元) 4.除權（息）交易日:115/09/17 5.最後過戶日:115/09/18 6.停止過戶起始日期:115/09/19 7.停止過戶截止日期:115/09/23 8.除權（息）基準日:115/09/23 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.現金股利發放日期:115/10/15 13.其他應敘明事項: 以上相關事宜，如經主管機關核示修正，或因應客觀環境之營運需要而須 變更或新訂時，授權董事長全權處理之。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260904 | 5498 | 凱崴 | revenue_breakout_low_response | 營收爆發低反應股 | 22 | 5 | A_優先追蹤 |  |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/09/01 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放股利種類及金額:現金股利總額48,387,137元(每股0.25元) 4.除權（息）交易日:115/09/17 5.最後過戶日:115/09/18 6.停止過戶起始日期:115/09/19 7.停止過戶截止日期:115/09/23 8.除權（息）基準日:115/09/23 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.現金股利發放日期:115/10/15 13.其他應敘明事項: 以上相關事宜，如經主管機關核示修正，或因應客觀環境之營運需要而須 變更或新訂時，授權董事長全權處理之。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 5498 | 凱崴 | 6 | 2 | 5 | 8 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260904 | 5498 | 凱崴 | 15 | 10 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

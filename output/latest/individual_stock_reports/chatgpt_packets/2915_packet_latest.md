@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2915 潤泰全
 
 ## Metadata
-- generated_at: 2026-08-23 22:27:29 Asia/Taipei
+- generated_at: 2026-09-05 15:53:05 Asia/Taipei
 - stock_id: 2915
 - stock_name: 潤泰全
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 61.4
-- high: 61.6
-- low: 60.5
-- close: 61.1
-- volume: 3884994
-- ma5: 61.18
-- ema23_primary: 55.78
-- distance_to_ema23_pct: 9.53
-- ma20: 54.84
-- ma60: 52.07
-- ma120: 49.34
-- return_5d: 2.69
-- return_20d: 18.87
-- volume_ratio: 1
-- distance_to_ma20_pct_auxiliary: 11.4
-- distance_to_high_60_pct: -2.24
+- date: 20260904
+- open: 56.9
+- high: 57.6
+- low: 56.6
+- close: 57.6
+- volume: 1487767
+- ma5: 56.86
+- ema23_primary: 56.85
+- distance_to_ema23_pct: 1.33
+- ma20: 57.96
+- ma60: 53.86
+- ma120: 49.83
+- return_5d: 0.52
+- return_20d: 10.98
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: -0.62
+- distance_to_high_60_pct: -7.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,51.7,51.9,51.3,51.5,1124638,51.32,0.34,51.67,48.46,0.41
-20260728,51.4,51.4,50.2,50.5,2004749,51.26,-1.47,51.6,48.55,0.71
-20260729,51,51.2,50.1,51.1,3972833,51.24,-0.28,51.58,48.68,1.37
-20260730,51,51.9,50.6,51.4,2092859,51.26,0.28,51.56,48.82,0.72
-20260731,51.9,53,51.9,52.2,5539985,51.33,1.69,51.57,48.96,1.79
-20260803,52.2,52.8,51.9,52.5,1869043,51.43,2.08,51.6,49.11,0.61
-20260804,52,52.3,51.5,51.8,1983863,51.46,0.66,51.58,49.25,0.64
-20260805,52,52.3,51.6,51.8,1451486,51.49,0.6,51.57,49.39,0.47
-20260806,51.6,51.9,51.1,51.2,1876993,51.47,-0.52,51.55,49.52,0.6
-20260807,51.7,52.7,51.6,51.9,1508133,51.5,0.77,51.55,49.66,0.49
 20260810,52.4,53.4,52.2,53.4,2960708,51.66,3.37,51.7,49.84,0.97
 20260811,53.1,53.6,52.6,53.6,2197124,51.82,3.43,51.82,50.02,0.75
 20260812,53.6,54.5,53.6,54.5,3511208,52.05,4.72,51.94,50.18,1.32
@@ -167,27 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,59.9,61.9,59.9,61.8,4691800,54.73,12.93,53.86,51.48,1.28
 20260820,62.1,62.5,61.4,61.6,3271736,55.3,11.4,54.36,51.77,0.87
 20260821,61.4,61.6,60.5,61.1,3884994,55.78,9.53,54.84,52.07,1
+20260824,60.9,61.3,59,59.7,4564107,56.11,6.4,55.26,52.33,1.12
+20260825,59.8,59.8,58.7,59,3399481,56.35,4.7,55.68,52.58,0.82
+20260826,59.2,59.3,58.6,59.3,2002537,56.59,4.78,56.09,52.81,0.5
+20260827,59,59.2,58.2,58.6,2347036,56.76,3.24,56.45,53.02,0.58
+20260828,58.7,58.8,57,57.3,3180383,56.81,0.87,56.7,53.18,0.81
+20260831,57.3,57.3,55.8,56,4283337,56.74,-1.3,56.88,53.3,1.05
+20260901,55.9,56.8,55.8,56.7,2422882,56.74,-0.06,57.12,53.43,0.59
+20260902,56.5,57.4,56.2,57.2,1770702,56.77,0.75,57.4,53.59,0.43
+20260903,57.1,57.5,56.7,56.8,1494724,56.78,0.04,57.67,53.72,0.37
+20260904,56.9,57.6,56.6,57.6,1487767,56.85,1.33,57.96,53.86,0.36
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 69.79
-- over_600_ratio: 67.74
-- over_800_ratio: 66.11
-- over_1000_ratio: 64.57
-- over_400_change_1w: 0.14
-- over_800_change_1w: 0.47
-- over_1000_change_1w: 0.55
-- tdcc_consecutive_up_weeks: 6
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260904
+- over_400_ratio: 69.65
+- over_600_ratio: 67.4
+- over_800_ratio: 65.47
+- over_1000_ratio: 63.84
+- over_400_change_1w: -0.1
+- over_800_change_1w: -0.39
+- over_1000_change_1w: -0.39
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,68.04,0.28,63.28,-0.04,61.83,0.3,1,False,True
-20260612,68.21,0.17,63.67,0.39,62.39,0.56,2,True,True
 20260618,68.45,0.24,64,0.33,62.47,0.08,3,True,True
 20260626,68.67,0.22,64.01,0.01,62.65,0.18,4,True,True
 20260703,68.74,0.07,64.29,0.28,62.62,-0.03,5,False,True
@@ -198,17 +197,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,69.27,0.09,65.47,0.49,63.77,0.33,4,True,True
 20260814,69.65,0.38,65.64,0.17,64.02,0.25,5,True,True
 20260821,69.79,0.14,66.11,0.47,64.57,0.55,6,True,True
+20260828,69.75,-0.04,65.86,-0.25,64.23,-0.34,0,False,False
+20260904,69.65,-0.1,65.47,-0.39,63.84,-0.39,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2915 | 潤泰全 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.事實發生日:115/07/14 2.公司名稱:潤泰全球股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司中和店近年因受整體量販零售市場環境變遷影響，經營 面臨嚴峻挑戰，經審慎評估後，為維護股東權益並優化公司資產運用，擬 於115年9月30日終止該店之營運。 針對後續的自有資產與員工安置問題，本公司已研擬完善的方案因應， 營業資產如目前經營場所、設備、存貨等將洽詢有意的廠商出租或出售。 現有編制同仁將依據勞基法之規定全數辦理資遣或退休。本公司亦將秉持 負責任態度，全面協助同仁媒合、轉調相關產業。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| 20260904 | 2915 | 潤泰全 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日:115/07/14 2.公司名稱:潤泰全球股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司中和店近年因受整體量販零售市場環境變遷影響，經營 面臨嚴峻挑戰，經審慎評估後，為維護股東權益並優化公司資產運用，擬 於115年9月30日終止該店之營運。 針對後續的自有資產與員工安置問題，本公司已研擬完善的方案因應， 營業資產如目前經營場所、設備、存貨等將洽詢有意的廠商出租或出售。 現有編制同仁將依據勞基法之規定全數辦理資遣或退休。本公司亦將秉持 負責任態度，全面協助同仁媒合、轉調相關產業。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2915 | 潤泰全 | 4 | 4 | 4 | 8 | 16 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 16 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260904 | 2915 | 潤泰全 | 3 | 3 | 3 | 8 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

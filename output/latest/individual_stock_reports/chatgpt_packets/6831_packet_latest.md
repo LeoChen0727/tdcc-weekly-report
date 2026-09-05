@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6831 邁科
 
 ## Metadata
-- generated_at: 2026-08-23 22:29:10 Asia/Taipei
+- generated_at: 2026-09-05 15:54:26 Asia/Taipei
 - stock_id: 6831
 - stock_name: 邁科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 179
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 189
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 600
-- high: 600
-- low: 554
-- close: 574
-- volume: 991143
-- ma5: 623.4
-- ema23_primary: 636.85
-- distance_to_ema23_pct: -9.87
-- ma20: 608.73
-- ma60: 706.38
-- ma120: 591.33
-- return_5d: -15.96
-- return_20d: -15.34
-- volume_ratio: 0.91
-- distance_to_ma20_pct_auxiliary: -5.7
-- distance_to_high_60_pct: -40.82
+- date: 20260904
+- open: 608
+- high: 613
+- low: 565
+- close: 605
+- volume: 1037685
+- ma5: 605.2
+- ema23_primary: 613.1
+- distance_to_ema23_pct: -1.32
+- ma20: 615.9
+- ma60: 682.01
+- ma120: 615.77
+- return_5d: -2.42
+- return_20d: -5.02
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: -1.77
+- distance_to_high_60_pct: -37.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,678,678,620,630,392782,709.16,-11.16,743.1,725.08,0.39
-20260728,567,577,567,567,242969,697.31,-18.69,731.75,726.62,0.25
-20260729,555,555,511,511,370751,681.78,-25.05,713.65,727.25,0.42
-20260730,460,530,460,477.5,1941503,664.76,-28.17,692.38,726.54,2.25
-20260731,525,525,507,525,504856,653.11,-19.62,670.83,725.94,0.63
-20260803,524,577,524,565,1858112,645.77,-12.51,652.92,726.04,2.23
-20260804,591,621,580,617,1701335,643.37,-4.1,640.83,727.33,2.13
-20260805,635,660,589,597,1363186,639.51,-6.65,631.92,727.38,1.68
-20260806,596,656,592,656,1440482,640.88,2.36,623.77,727.88,1.74
-20260807,695,695,626,637,1700879,640.56,-0.56,616.52,727.02,1.95
 20260810,653,657,618,619,798545,638.76,-3.09,611.27,725.31,0.92
 20260811,630,630,610,617,319875,636.95,-3.13,607.73,723.51,0.39
 20260812,629,678,618,678,1265664,640.37,5.88,606.12,722.61,1.47
@@ -167,27 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,637,660,595,599,1221498,646.26,-7.31,617.33,714.11,1.21
 20260820,610,615,580,602,1307836,642.57,-6.31,613.92,710.48,1.25
 20260821,600,600,554,574,991143,636.85,-9.87,608.73,706.38,0.91
+20260824,573,593,546,549,790250,629.53,-12.79,604.67,702.36,0.71
+20260825,536,564,518,562,1145259,623.9,-9.92,604.42,699.36,0.99
+20260826,550,578,545,576,1530915,619.91,-7.08,607.67,696.26,1.27
+20260827,582,612,568,593,1161889,617.67,-3.99,613.45,694.71,0.99
+20260828,605,633,597,620,1565775,617.86,0.35,618.2,692.94,1.28
+20260831,616,638,610,618,1216365,617.88,0.02,620.85,691.23,1.02
+20260901,618,635,602,609,1084803,617.14,-1.32,620.45,689.06,0.93
+20260902,613,623,602,609,788669,616.46,-1.21,621.05,687.29,0.7
+20260903,613,622,585,585,741344,613.84,-4.7,617.5,684.11,0.68
+20260904,608,613,565,605,1037685,613.1,-1.32,615.9,682.01,0.98
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 59.61
-- over_600_ratio: 52.5
-- over_800_ratio: 45.08
-- over_1000_ratio: 38.61
-- over_400_change_1w: 0.1
-- over_800_change_1w: -0.03
-- over_1000_change_1w: -0.03
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260904
+- over_400_ratio: 57.06
+- over_600_ratio: 50.57
+- over_800_ratio: 42.03
+- over_1000_ratio: 38.01
+- over_400_change_1w: -2.31
+- over_800_change_1w: -1.16
+- over_1000_change_1w: 0.05
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,59.88,-2.69,44.02,-1.23,37.56,-3.67,0,False,False
-20260612,60.23,0.35,46.19,2.17,42.17,4.61,1,True,True
 20260618,60.2,-0.03,46.76,0.57,42.74,0.57,2,False,True
 20260626,61.73,1.53,47.56,0.8,43.54,0.8,3,True,True
 20260703,63.79,2.06,49,1.44,43.66,0.12,4,True,True
@@ -198,6 +197,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,59.25,-1.51,45.32,-1.16,38.75,-2.24,0,False,False
 20260814,59.51,0.26,45.11,-0.21,38.64,-0.11,1,False,False
 20260821,59.61,0.1,45.08,-0.03,38.61,-0.03,2,False,False
+20260828,59.37,-0.24,43.19,-1.89,37.96,-0.65,0,False,False
+20260904,57.06,-2.31,42.03,-1.16,38.01,0.05,1,False,True
 ```
 
 ## Candidate Context
@@ -213,7 +214,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 6831 | 邁科 | 19 | 0 | 235570.0 | 0.0 |  | no_signal |
+| 20260904 | 6831 | 邁科 | 19 | 0 | 1019300.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

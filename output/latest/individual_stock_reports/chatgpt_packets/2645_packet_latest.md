@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2645 長榮航太
 
 ## Metadata
-- generated_at: 2026-08-23 22:27:22 Asia/Taipei
+- generated_at: 2026-09-05 15:52:59 Asia/Taipei
 - stock_id: 2645
 - stock_name: 長榮航太
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 179
-- high: 180.5
-- low: 176.5
-- close: 177
-- volume: 1505845
-- ma5: 179
-- ema23_primary: 188.32
-- distance_to_ema23_pct: -6.01
-- ma20: 185.8
-- ma60: 189.45
-- ma120: 173.28
-- return_5d: -11.5
-- return_20d: -9.92
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: -4.74
-- distance_to_high_60_pct: -31.4
+- date: 20260904
+- open: 173.5
+- high: 175
+- low: 170.5
+- close: 173.5
+- volume: 905169
+- ma5: 174
+- ema23_primary: 180.28
+- distance_to_ema23_pct: -3.76
+- ma20: 179.28
+- ma60: 190.56
+- ma120: 174.25
+- return_5d: -0.29
+- return_20d: -10.1
+- volume_ratio: 0.23
+- distance_to_ma20_pct_auxiliary: -3.22
+- distance_to_high_60_pct: -32.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,197.5,197.5,188,194,2873037,205.17,-5.44,214.6,180.47,0.35
-20260728,190.5,194,184.5,185.5,2959439,203.53,-8.86,215.28,181.01,0.36
-20260729,187,189.5,174.5,182,3186929,201.74,-9.78,215.1,181.39,0.39
-20260730,181.5,184,174.5,176,2241868,199.59,-11.82,213.7,181.66,0.28
-20260731,185,186,180.5,183,3920034,198.21,-7.67,213,182.09,0.52
-20260803,181,187,180.5,184.5,1509742,197.07,-6.38,211.4,182.52,0.21
-20260804,182.5,188.5,182.5,188,2064490,196.31,-4.23,208.9,182.92,0.31
-20260805,192,199.5,190.5,196.5,3183531,196.33,0.09,208,183.62,0.5
-20260806,198,198,191.5,194,1548109,196.13,-1.09,205.93,184.23,0.26
-20260807,195,195,190.5,193,1156022,195.87,-1.47,203.57,184.85,0.22
 20260810,190,192,188,189.5,1321286,195.34,-2.99,200.47,185.46,0.27
 20260811,189.5,193.5,183.5,191,3075664,194.98,-2.04,197.97,186.13,0.68
 20260812,186,186,179,182,3576853,193.9,-6.14,194.97,186.67,0.82
@@ -168,17 +158,27 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,178,181.5,175,177,2505634,190.29,-6.98,187.72,188.85,0.66
 20260820,179.5,184,178.5,179,3016902,189.35,-5.46,186.78,189.19,0.81
 20260821,179,180.5,176.5,177,1505845,188.32,-6.01,185.8,189.45,0.42
+20260824,177.5,178.5,173.5,174,1921792,187.12,-7.01,184.8,189.62,0.54
+20260825,173.5,174,169,170.5,2265090,185.74,-8.2,184.05,189.68,0.65
+20260826,172,181,172,179,3035106,185.18,-3.34,183.9,189.79,0.87
+20260827,180,189,178.5,178.5,8145476,184.62,-3.32,184.03,190,2.15
+20260828,188,188,172,174,7313938,183.74,-5.3,183.57,190.1,1.85
+20260831,172.5,175.5,171.5,173,1760829,182.84,-5.38,183,190.23,0.44
+20260901,174,177.5,174,176,1648798,182.27,-3.44,182.4,190.34,0.42
+20260902,176,178.5,175,176,1733029,181.75,-3.16,181.38,190.51,0.45
+20260903,175.5,177.5,171.5,171.5,2233942,180.89,-5.19,180.25,190.47,0.57
+20260904,173.5,175,170.5,173.5,905169,180.28,-3.76,179.28,190.56,0.23
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 81.9
-- over_600_ratio: 80.98
-- over_800_ratio: 79.61
-- over_1000_ratio: 78.93
-- over_400_change_1w: -2.47
-- over_800_change_1w: -2.16
-- over_1000_change_1w: -1.89
+- as_of_date: 20260904
+- over_400_ratio: 80.93
+- over_600_ratio: 80.17
+- over_800_ratio: 78.44
+- over_1000_ratio: 78.22
+- over_400_change_1w: -0.57
+- over_800_change_1w: -0.87
+- over_1000_change_1w: -0.65
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -187,8 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,83.82,-0.25,81.76,0.04,79.91,-0.16,5,False,True
-20260612,84.27,0.45,81.8,0.04,80.4,0.49,6,True,True
 20260618,84.31,0.04,81.89,0.09,80.49,0.09,7,True,True
 20260626,84.73,0.42,82.15,0.26,80.79,0.3,8,True,True
 20260703,86.26,1.53,83.58,1.43,81.93,1.14,9,True,True
@@ -199,6 +197,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,84.94,0.42,82.15,0.05,81.45,0.29,1,True,True
 20260814,84.37,-0.57,81.77,-0.38,80.82,-0.63,0,False,False
 20260821,81.9,-2.47,79.61,-2.16,78.93,-1.89,0,False,False
+20260828,81.5,-0.4,79.31,-0.3,78.87,-0.06,0,False,False
+20260904,80.93,-0.57,78.44,-0.87,78.22,-0.65,0,False,False
 ```
 
 ## Candidate Context
@@ -214,7 +214,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2645 | 長榮航太 | 54 | 0 | 1484390.0 | 0.0 |  | no_signal |
+| 20260904 | 2645 | 長榮航太 | 52 | 0 | 1831040.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

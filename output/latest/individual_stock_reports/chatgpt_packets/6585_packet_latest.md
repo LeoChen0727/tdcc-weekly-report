@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6585 鼎基
 
 ## Metadata
-- generated_at: 2026-08-23 22:28:59 Asia/Taipei
+- generated_at: 2026-09-05 15:54:17 Asia/Taipei
 - stock_id: 6585
 - stock_name: 鼎基
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 115
-- high: 116.5
-- low: 115
-- close: 116.5
-- volume: 122826
-- ma5: 116.6
-- ema23_primary: 118.16
-- distance_to_ema23_pct: -1.41
-- ma20: 116.15
-- ma60: 122.1
-- ma120: 106.12
-- return_5d: -0.85
-- return_20d: -4.9
-- volume_ratio: 0.29
-- distance_to_ma20_pct_auxiliary: 0.3
-- distance_to_high_60_pct: -23.1
+- date: 20260904
+- open: 112
+- high: 113.5
+- low: 111.5
+- close: 113
+- volume: 162619
+- ma5: 112.5
+- ema23_primary: 115.33
+- distance_to_ema23_pct: -2.02
+- ma20: 115.38
+- ma60: 122.83
+- ma120: 108.39
+- return_5d: -1.31
+- return_20d: -2.16
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: -2.06
+- distance_to_high_60_pct: -25.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,121.5,122.5,119,121,346673,125.2,-3.35,126.25,114.32,0.88
-20260728,118,118.5,111.5,113,448227,124.18,-9,125.47,114.8,1.15
-20260729,114,115.5,105,110,696436,123,-10.57,124.47,115.23,1.71
-20260730,108.5,110.5,105,107.5,294801,121.71,-11.67,123.38,115.61,0.73
-20260731,114,115,112,113.5,427157,121.02,-6.22,122.62,116.08,1.03
-20260803,112,114,108,112,345728,120.27,-6.88,121.5,116.48,0.87
-20260804,115,122,114.5,117.5,799632,120.04,-2.12,120.92,116.87,1.93
-20260805,123,123,116,121.5,1155755,120.16,1.11,120.92,117.33,2.73
-20260806,120.5,122.5,115.5,118.5,453370,120.02,-1.27,120.55,117.78,1.06
-20260807,117,117,114.5,115.5,379793,119.65,-3.47,120.1,118.2,0.91
 20260810,116,119.5,116,117.5,772046,119.47,-1.65,119.78,118.64,1.74
 20260811,117.5,118.5,115.5,117,360584,119.26,-1.9,119.35,119.06,0.81
 20260812,117.5,119.5,117.5,118,338942,119.16,-0.97,118.9,119.47,0.75
@@ -168,18 +158,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,115,116,113.5,114,172675,118.53,-3.82,117.08,121.39,0.4
 20260820,115,116,113,116,209407,118.32,-1.96,116.45,121.73,0.48
 20260821,115,116.5,115,116.5,122826,118.16,-1.41,116.15,122.1,0.29
+20260824,115.5,115.5,112.5,113.5,219984,117.78,-3.63,115.78,122.37,0.53
+20260825,112.5,113,111,113,110037,117.38,-3.73,115.78,122.63,0.28
+20260826,113.5,115.5,113,115,130149,117.18,-1.86,116.03,122.91,0.35
+20260827,115,116,115,116,98051,117.08,-0.92,116.45,123.14,0.27
+20260828,116,116,114,114.5,116021,116.87,-2.02,116.5,123.4,0.34
+20260831,113.5,114.5,112.5,112.5,84410,116.5,-3.44,116.53,123.46,0.25
+20260901,113.5,113.5,112.5,112.5,105922,116.17,-3.16,116.28,123.47,0.36
+20260902,112.5,113,111.5,113,115705,115.9,-2.51,115.85,123.3,0.47
+20260903,113.5,114,111,111.5,151452,115.54,-3.49,115.5,123.04,0.66
+20260904,112,113.5,111.5,113,162619,115.33,-2.02,115.38,122.83,0.74
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 77.42
-- over_600_ratio: 75.43
-- over_800_ratio: 73.54
-- over_1000_ratio: 72.44
-- over_400_change_1w: -0.68
-- over_800_change_1w: -0.03
-- over_1000_change_1w: -0.03
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260904
+- over_400_ratio: 76.07
+- over_600_ratio: 75.37
+- over_800_ratio: 73.53
+- over_1000_ratio: 72.43
+- over_400_change_1w: -1.13
+- over_800_change_1w: -0.01
+- over_1000_change_1w: -0.01
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -187,8 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,79.55,0.05,77.77,-0.06,74.21,-0.14,4,False,False
-20260612,79.27,-0.28,76.3,-1.47,72.78,-1.43,0,False,False
 20260618,79.39,0.12,76.21,-0.09,72.78,0,1,False,False
 20260626,79.56,0.17,77.81,1.6,74.4,1.62,2,True,True
 20260703,79.54,-0.02,76.69,-1.12,74.37,-0.03,3,False,False
@@ -199,6 +197,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,78.44,-0.38,74.91,-0.01,72.48,-0.01,0,False,False
 20260814,78.1,-0.34,73.57,-1.34,72.47,-0.01,0,False,False
 20260821,77.42,-0.68,73.54,-0.03,72.44,-0.03,1,False,False
+20260828,77.2,-0.22,73.54,0,72.44,0,0,False,False
+20260904,76.07,-1.13,73.53,-0.01,72.43,-0.01,0,False,False
 ```
 
 ## Candidate Context
@@ -214,7 +214,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 6585 | 鼎基 | 1 | 0 | 194610.0 | 0.0 |  | no_signal |
+| 20260904 | 6585 | 鼎基 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

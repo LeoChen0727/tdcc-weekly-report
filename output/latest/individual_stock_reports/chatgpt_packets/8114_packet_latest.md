@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8114 振樺電
 
 ## Metadata
-- generated_at: 2026-08-23 22:29:35 Asia/Taipei
+- generated_at: 2026-09-05 15:54:46 Asia/Taipei
 - stock_id: 8114
 - stock_name: 振樺電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 196.5
-- high: 198.5
-- low: 196
-- close: 198.5
-- volume: 288218
-- ma5: 198.6
-- ema23_primary: 207.59
-- distance_to_ema23_pct: -4.38
-- ma20: 210.45
-- ma60: 210.34
-- ma120: 200.2
-- return_5d: -2.7
-- return_20d: -13.7
-- volume_ratio: 0.25
-- distance_to_ma20_pct_auxiliary: -5.68
-- distance_to_high_60_pct: -28.21
+- date: 20260904
+- open: 192
+- high: 195
+- low: 190.5
+- close: 194.5
+- volume: 290290
+- ma5: 194
+- ema23_primary: 200.18
+- distance_to_ema23_pct: -2.84
+- ma20: 200.62
+- ma60: 203.9
+- ma120: 201.95
+- return_5d: -0.26
+- return_20d: -13.75
+- volume_ratio: 0.55
+- distance_to_ma20_pct_auxiliary: -3.05
+- distance_to_high_60_pct: -22.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,228,231,210.5,217.5,1962515,207.29,4.93,201.7,213.72,1.69
-20260728,212,217,208,213.5,975200,207.8,2.74,203.25,214.22,0.83
-20260729,216.5,218,196.5,209.5,1593324,207.94,0.75,204.55,214.68,1.29
-20260730,203,204.5,189,191.5,2245380,206.57,-7.3,205,214.88,1.69
-20260731,198.5,204.5,193,195.5,2164517,205.65,-4.94,205.28,215.18,1.53
-20260803,195.5,215,195,215,1264451,206.43,4.15,205.88,215.76,0.88
-20260804,215,227,212,224,1704079,207.89,7.75,206.8,216.18,1.14
-20260805,227,236.5,227,230,1771758,209.74,9.66,207.47,216.38,1.21
-20260806,229.5,235,220.5,225.5,990984,211.05,6.85,208.22,216.15,0.67
-20260807,225.5,234.5,224.5,225.5,1165898,212.25,6.24,209.3,215.79,0.77
 20260810,226.5,227.5,220,223.5,1202831,213.19,4.84,210.5,215.52,0.78
 20260811,221.5,221.5,210.5,211.5,1348082,213.05,-0.73,211.18,215.44,0.85
 20260812,211.5,217,211,215,594049,213.21,0.84,212.15,215.46,0.37
@@ -168,17 +158,27 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,194,199,192,197,481719,209.31,-5.88,213.7,212.52,0.31
 20260820,198.5,201,195.5,198.5,414187,208.41,-4.76,212.03,211.48,0.3
 20260821,196.5,198.5,196,198.5,288218,207.59,-4.38,210.45,210.34,0.25
+20260824,198.5,199.5,195,195.5,284069,206.58,-5.36,209.35,209.5,0.27
+20260825,194.5,196,189,195,425943,205.61,-5.16,208.43,208.65,0.41
+20260826,196,199,195.5,198,309642,204.98,-3.4,207.85,207.62,0.32
+20260827,199,200,196,197.5,312112,204.36,-3.35,208.15,206.68,0.36
+20260828,199,200,195,195,324474,203.58,-4.21,208.12,205.82,0.42
+20260831,194,196.5,192,192,472904,202.61,-5.24,206.97,205.05,0.64
+20260901,194.5,196.5,193,196,326148,202.06,-3,205.57,204.5,0.49
+20260902,197.5,199,196,198.5,248339,201.76,-1.62,204,204.37,0.42
+20260903,198.5,199,189,189,639210,200.7,-5.83,202.18,204.03,1.12
+20260904,192,195,190.5,194.5,290290,200.18,-2.84,200.62,203.9,0.55
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 47.42
-- over_600_ratio: 40.15
-- over_800_ratio: 37.38
-- over_1000_ratio: 33.61
-- over_400_change_1w: -2.06
-- over_800_change_1w: 0
-- over_1000_change_1w: -0.07
+- as_of_date: 20260904
+- over_400_ratio: 47.17
+- over_600_ratio: 40.04
+- over_800_ratio: 37.27
+- over_1000_ratio: 33.54
+- over_400_change_1w: -0.17
+- over_800_change_1w: -0.14
+- over_1000_change_1w: -0.05
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -187,8 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,50.3,-0.42,39.41,-0.75,35.94,-0.67,2,False,False
-20260612,51.26,0.96,38.52,-0.89,36.11,0.17,3,False,True
 20260618,49.54,-1.72,38.25,-0.27,35.84,-0.27,0,False,False
 20260626,48.6,-0.94,37.49,-0.76,33.79,-2.05,0,False,False
 20260703,47.65,-0.95,37.53,0.04,33.76,-0.03,1,False,True
@@ -199,6 +197,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,49.74,1.46,37.61,0.14,33.81,0.12,3,True,True
 20260814,49.48,-0.26,37.38,-0.23,33.68,-0.13,4,False,False
 20260821,47.42,-2.06,37.38,0,33.61,-0.07,0,False,False
+20260828,47.34,-0.08,37.41,0.03,33.59,-0.02,1,False,True
+20260904,47.17,-0.17,37.27,-0.14,33.54,-0.05,0,False,False
 ```
 
 ## Candidate Context
@@ -214,7 +214,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 8114 | 振樺電 | 16 | 0 | 17530.0 | 0.0 |  | no_signal |
+| 20260904 | 8114 | 振樺電 | 17 | 0 | 317930.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

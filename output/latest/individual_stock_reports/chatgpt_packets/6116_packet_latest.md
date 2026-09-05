@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6116 彩晶
 
 ## Metadata
-- generated_at: 2026-08-23 22:28:37 Asia/Taipei
+- generated_at: 2026-09-05 15:53:59 Asia/Taipei
 - stock_id: 6116
 - stock_name: 彩晶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 13.9
-- high: 13.9
-- low: 13.65
-- close: 13.8
-- volume: 12417261
-- ma5: 13.94
-- ema23_primary: 14.15
-- distance_to_ema23_pct: -2.45
-- ma20: 13.52
-- ma60: 16.04
-- ma120: 12.61
-- return_5d: -0.72
-- return_20d: 0
-- volume_ratio: 0.34
-- distance_to_ma20_pct_auxiliary: 2.09
-- distance_to_high_60_pct: -39.21
+- date: 20260904
+- open: 14.25
+- high: 14.35
+- low: 13.85
+- close: 14.05
+- volume: 14313503
+- ma5: 14.18
+- ema23_primary: 14.22
+- distance_to_ema23_pct: -1.17
+- ma20: 14.19
+- ma60: 15.41
+- ma120: 13.07
+- return_5d: -3.1
+- return_20d: 3.69
+- volume_ratio: 0.46
+- distance_to_ma20_pct_auxiliary: -0.97
+- distance_to_high_60_pct: -32.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,13.8,13.85,13,13.25,28747847,15.79,-16.09,16.43,15.06,0.51
-20260728,12.75,13.1,12.3,12.9,39432302,15.55,-17.04,16.11,15.14,0.78
-20260729,13,13.1,11.65,11.95,52036911,15.25,-21.64,15.73,15.2,1.15
-20260730,11.65,12.8,11.55,11.8,39052598,14.96,-21.14,15.4,15.25,0.97
-20260731,12.8,12.9,12.3,12.45,40259571,14.75,-15.61,15.1,15.32,1.02
-20260803,12.35,12.8,12.15,12.5,20094599,14.57,-14.18,14.82,15.37,0.52
-20260804,12.35,13,12.2,12.95,20300482,14.43,-10.26,14.55,15.43,0.55
-20260805,13.35,14.2,13.2,14.2,36172134,14.41,-1.47,14.41,15.51,1.04
-20260806,14.2,14.3,13.5,14,52886501,14.38,-2.63,14.24,15.56,1.52
-20260807,14.05,14.7,13.55,13.55,68399088,14.31,-5.3,14.06,15.6,1.91
 20260810,14,14.9,13.95,14.9,76264713,14.36,3.78,13.98,15.68,2.04
 20260811,14.65,14.65,14.1,14.2,47104464,14.34,-1.01,13.9,15.74,1.27
 20260812,14.25,14.55,14.1,14.15,26252335,14.33,-1.25,13.78,15.81,0.72
@@ -168,27 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,13.5,15.05,13.35,14.25,61603110,14.21,0.27,13.54,16.04,1.7
 20260820,14.05,14.45,13.75,13.8,33153850,14.18,-2.66,13.52,16.05,0.9
 20260821,13.9,13.9,13.65,13.8,12417261,14.15,-2.45,13.52,16.04,0.34
+20260824,13.9,14.75,13.85,14.2,38042376,14.15,0.35,13.56,16.01,1.03
+20260825,14.25,14.25,13.8,14.1,21529708,14.15,-0.33,13.62,15.96,0.6
+20260826,14.1,14.9,14,14.4,34235773,14.17,1.64,13.75,15.89,0.97
+20260827,14.6,15.15,14.5,14.85,43403360,14.22,4.4,13.9,15.79,1.23
+20260828,15,15.1,14.5,14.5,34400826,14.25,1.77,14,15.66,0.98
+20260831,14.4,14.6,14,14.5,23352368,14.27,1.62,14.1,15.56,0.66
+20260901,14.35,14.6,14.25,14.3,14225679,14.27,0.2,14.17,15.49,0.41
+20260902,14.3,14.5,14.1,14.15,15678952,14.26,-0.78,14.17,15.45,0.46
+20260903,14.35,15,13.9,13.9,45896083,14.23,-2.32,14.16,15.42,1.37
+20260904,14.25,14.35,13.85,14.05,14313503,14.22,-1.17,14.19,15.41,0.46
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 42.09
-- over_600_ratio: 40.85
-- over_800_ratio: 40.15
-- over_1000_ratio: 39.58
-- over_400_change_1w: 0.11
-- over_800_change_1w: 0.2
-- over_1000_change_1w: 0.24
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260904
+- over_400_ratio: 42.67
+- over_600_ratio: 41.5
+- over_800_ratio: 40.83
+- over_1000_ratio: 40.23
+- over_400_change_1w: -0.59
+- over_800_change_1w: -0.61
+- over_1000_change_1w: -0.64
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,45.01,-1.46,43.34,-1,42.81,-1.06,0,False,False
-20260612,46.56,1.55,44.78,1.44,44.31,1.5,1,True,True
 20260618,47.08,0.52,45.19,0.41,44.65,0.34,2,True,True
 20260626,42.73,-4.35,40.77,-4.42,40.3,-4.35,0,False,False
 20260703,42.15,-0.58,40.22,-0.55,39.81,-0.49,0,False,False
@@ -199,22 +197,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,42.73,-0.05,40.75,-0.05,40.31,-0.05,0,False,False
 20260814,41.98,-0.75,39.95,-0.8,39.34,-0.97,0,False,False
 20260821,42.09,0.11,40.15,0.2,39.58,0.24,1,True,True
+20260828,43.26,1.17,41.44,1.29,40.87,1.29,2,True,True
+20260904,42.67,-0.59,40.83,-0.61,40.23,-0.64,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 6116 | 彩晶 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/06/22 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理 3.財務業務資訊:(IFRS合併)  期間      最近一月     與去年同期    最近一季    與去年同期  最近四季累積 科目     (115年5月)     增減%       (115年第1季)     增減%    (114年第2季                                                              至115年第1季)            自結數                    核閱數                     核閱數 --------------------------------------------------------------------------- 營業收入        960       -10          3,015           4         11,553 (百萬元) 稅前淨利        100       131           (174)         76         (1,528) (百萬元) 本期淨利        103       133           (183)         75         (1,593) (百萬元) 每股盈餘       0.04       133          (0.06)         75          (0.55) (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告:季申報 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 6116 | 彩晶 | 2 | 2 | 3 | 6 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 6116 | 彩晶 | 34 | 0 | 414180.0 | 0.0 |  | no_signal |
+| 20260904 | 6116 | 彩晶 | 34 | 0 | 1707820.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

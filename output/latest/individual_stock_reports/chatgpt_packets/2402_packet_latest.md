@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2402 毅嘉
 
 ## Metadata
-- generated_at: 2026-08-23 22:27:09 Asia/Taipei
+- generated_at: 2026-09-05 15:52:49 Asia/Taipei
 - stock_id: 2402
 - stock_name: 毅嘉
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -103,7 +103,6 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -118,7 +117,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -126,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 53.1
-- high: 54.8
-- low: 52.6
-- close: 54.8
-- volume: 1211116
-- ma5: 53.38
-- ema23_primary: 55.49
-- distance_to_ema23_pct: -1.24
-- ma20: 53.83
-- ma60: 61.44
-- ma120: 61.47
-- return_5d: 0
-- return_20d: -5.52
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: 1.81
-- distance_to_high_60_pct: -24.41
+- date: 20260904
+- open: 58
+- high: 58.4
+- low: 56.4
+- close: 57.1
+- volume: 1420518
+- ma5: 59.12
+- ema23_primary: 56.83
+- distance_to_ema23_pct: 0.48
+- ma20: 56
+- ma60: 59.92
+- ma120: 61.94
+- return_5d: 0.88
+- return_20d: 5.55
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: 1.96
+- distance_to_high_60_pct: -21.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,58,58,56.1,56.7,1320700,62.17,-8.8,62.78,65.91,0.38
-20260728,56.2,57,55,55,2182987,61.57,-10.67,62.31,65.65,0.62
-20260729,53.3,53.6,47.75,49.8,4539988,60.59,-17.81,61.56,65.28,1.25
-20260730,48.5,50.9,48.25,48.4,1600481,59.57,-18.76,60.63,64.87,0.45
-20260731,51.5,51.9,50.7,51.8,1246288,58.93,-12.09,59.82,64.56,0.37
-20260803,51.5,54.2,51.4,53.2,1646602,58.45,-8.98,59.1,64.28,0.5
-20260804,53.6,54.1,52.7,53.8,1560300,58.06,-7.34,58.34,64.04,0.5
-20260805,54.9,55.4,53.8,54,1960732,57.72,-6.45,57.74,63.79,0.92
-20260806,53.8,54.9,52.6,54.9,1366516,57.49,-4.5,57.21,63.52,0.67
-20260807,54.7,55.5,54,54.1,1282585,57.21,-5.43,56.7,63.29,0.64
 20260810,55,56.2,54.7,55.5,1363071,57.06,-2.74,56.36,63.09,0.71
 20260811,55.1,56.1,54.7,55.6,1020003,56.94,-2.36,55.96,62.95,0.57
 20260812,56,57.5,55.9,56.7,1947287,56.92,-0.39,55.59,62.83,1.09
@@ -168,27 +157,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,51.6,52.8,51.1,52.2,1203708,55.77,-6.41,54.3,61.96,0.74
 20260820,52.6,53.2,52.1,53.1,776874,55.55,-4.41,53.98,61.67,0.48
 20260821,53.1,54.8,52.6,54.8,1211116,55.49,-1.24,53.83,61.44,0.75
+20260824,54.8,56.7,54.4,54.4,1431635,55.4,-1.8,53.71,61.25,0.89
+20260825,54.4,55.9,53,55.8,972250,55.43,0.66,53.75,61.02,0.63
+20260826,55.8,56.7,55.5,56.1,1074330,55.49,1.1,54.06,60.79,0.78
+20260827,56.6,57.4,55.8,56.7,1575205,55.59,2,54.48,60.59,1.15
+20260828,57.5,57.7,56.6,56.6,1135408,55.67,1.67,54.72,60.37,0.83
+20260831,56.6,61,56.5,59.7,7201865,56.01,6.59,55.05,60.21,4.37
+20260901,60,63.2,59.9,62.2,6075518,56.52,10.04,55.47,60.15,3.24
+20260902,59.3,60,58.6,59.3,4781802,56.76,4.48,55.73,60.08,2.37
+20260903,59,59.5,57.2,57.3,2415106,56.8,0.88,55.85,59.97,1.17
+20260904,58,58.4,56.4,57.1,1420518,56.83,0.48,56,59.92,0.69
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 38.02
-- over_600_ratio: 35.15
-- over_800_ratio: 33.79
-- over_1000_ratio: 32.87
-- over_400_change_1w: 0.24
-- over_800_change_1w: 0.08
-- over_1000_change_1w: 0.08
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260904
+- over_400_ratio: 37.88
+- over_600_ratio: 35.03
+- over_800_ratio: 33.88
+- over_1000_ratio: 32.71
+- over_400_change_1w: -0.39
+- over_800_change_1w: -0.64
+- over_1000_change_1w: -0.33
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,39.48,-0.1,36.08,-0.02,34.62,0.33,1,False,True
-20260612,38.35,-1.13,35.61,-0.47,34.46,-0.16,0,False,False
 20260618,38.52,0.17,35.75,0.14,34.58,0.12,1,False,True
 20260626,38.53,0.01,35.66,-0.09,34.21,-0.37,2,False,False
 20260703,38.5,-0.03,35.38,-0.28,34.19,-0.02,0,False,False
@@ -199,22 +196,25 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,37.62,-0.11,33.81,-0.18,32.89,0.11,1,False,True
 20260814,37.78,0.16,33.71,-0.1,32.79,-0.1,2,False,False
 20260821,38.02,0.24,33.79,0.08,32.87,0.08,3,True,True
+20260828,38.27,0.25,34.52,0.73,33.04,0.17,4,True,True
+20260904,37.88,-0.39,33.88,-0.64,32.71,-0.33,0,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260904 | 2402 | 毅嘉 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/07/15 2.公司名稱:毅嘉科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:毅嘉科技自行結算115年第二季合併營收約新台幣32.71億元，合併毛利率 約14%，合併營業淨利約新台幣1.85億元，合併稅前淨利約新台幣1.62億元，合併稅 後淨利約新台幣1.23億元。 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 不適用；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| 20260904 | 2402 | 毅嘉 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/15 2.公司名稱:毅嘉科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:毅嘉科技自行結算115年第二季合併營收約新台幣32.71億元，合併毛利率 約14%，合併營業淨利約新台幣1.85億元，合併稅前淨利約新台幣1.62億元，合併稅 後淨利約新台幣1.23億元。 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 不適用；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260904 | 2402 | 毅嘉 | 8 | 3 | 5 | 8 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2402 | 毅嘉 | 80 | 9 | 596380.0 | 0.0 |  | no_signal |
+| 20260904 | 2402 | 毅嘉 | 81 | 7 | 546740.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2303 聯電
 
 ## Metadata
-- generated_at: 2026-08-23 22:27:02 Asia/Taipei
+- generated_at: 2026-09-05 15:52:44 Asia/Taipei
 - stock_id: 2303
 - stock_name: 聯電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 115.5
-- high: 117
-- low: 114
-- close: 116.5
-- volume: 58537906
-- ma5: 117.6
-- ema23_primary: 123.8
-- distance_to_ema23_pct: -5.89
-- ma20: 118.58
-- ma60: 138.24
-- ma120: 107.36
-- return_5d: -3.72
-- return_20d: -8.98
-- volume_ratio: 0.35
-- distance_to_ma20_pct_auxiliary: -1.75
-- distance_to_high_60_pct: -37.2
+- date: 20260904
+- open: 128.5
+- high: 131
+- low: 126.5
+- close: 130
+- volume: 142867105
+- ma5: 128.5
+- ema23_primary: 125.52
+- distance_to_ema23_pct: 3.57
+- ma20: 123.28
+- ma60: 137.16
+- ma120: 112.77
+- return_5d: 0
+- return_20d: 12.07
+- volume_ratio: 1
+- distance_to_ma20_pct_auxiliary: 5.46
+- distance_to_high_60_pct: -29.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,123,127,118,126,219388398,145.2,-13.22,152.2,134.11,1.44
-20260728,115,117,113.5,113.5,152348721,142.56,-20.38,149.68,134.72,1.02
-20260729,109.5,112,102.5,102.5,271683852,139.22,-26.38,146.57,135.07,1.84
-20260730,107.5,112.5,105,110,376078814,136.79,-19.58,143.62,135.52,2.44
-20260731,121,121,121,121,45464057,135.47,-10.68,141.4,136.01,0.3
-20260803,125.5,126,116,118,372708183,134.02,-11.95,138.78,136.37,2.23
-20260804,118.5,120,115.5,118.5,181714211,132.72,-10.72,136.4,136.82,1.05
-20260805,129,129,121.5,122,279502812,131.83,-7.46,134.75,137.27,1.53
-20260806,121.5,123.5,118,121.5,149054040,130.97,-7.23,132.68,137.56,0.8
-20260807,121.5,121.5,114,116,169352784,129.72,-10.58,130.68,137.85,0.89
 20260810,117,123.5,117,123,175668376,129.16,-4.77,129.15,138.1,0.89
 20260811,121.5,124.5,120,123,79882055,128.65,-4.39,127.75,138.32,0.41
 20260812,123,125.5,121,123,93125712,128.18,-4.04,125.6,138.52,0.48
@@ -168,27 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,115,117,113.5,115.5,110337394,125.27,-7.8,120.3,138.94,0.65
 20260820,117,118,112,115.5,101840408,124.46,-7.2,119.15,138.69,0.6
 20260821,115.5,117,114,116.5,58537906,123.8,-5.89,118.58,138.24,0.35
+20260824,118,128,117.5,123.5,196622654,123.77,-0.22,118.45,137.93,1.2
+20260825,123.5,125.5,119,125,124999306,123.87,0.91,119.03,137.61,0.77
+20260826,124,124.5,122,123.5,85108376,123.84,-0.28,120.08,137.23,0.55
+20260827,123.5,123.5,117,118.5,184012062,123.4,-3.97,120.5,136.85,1.28
+20260828,120.5,130,120,130,325935822,123.95,4.88,120.95,136.84,2.06
+20260831,126.5,129,124,129,217807917,124.37,3.72,121.5,136.91,1.45
+20260901,127.5,136.5,127,132.5,223238022,125.05,5.96,122.2,136.93,1.46
+20260902,131.5,133,126,126,136331797,125.13,0.7,122.4,137.01,0.94
+20260903,127.5,129,123,125,139492332,125.12,-0.09,122.58,136.97,0.96
+20260904,128.5,131,126.5,130,142867105,125.52,3.57,123.28,137.16,1
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 73.13
-- over_600_ratio: 72.14
-- over_800_ratio: 71.29
-- over_1000_ratio: 70.5
-- over_400_change_1w: -0.41
-- over_800_change_1w: -0.41
-- over_1000_change_1w: -0.39
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260904
+- over_400_ratio: 73.62
+- over_600_ratio: 72.59
+- over_800_ratio: 71.73
+- over_1000_ratio: 70.92
+- over_400_change_1w: 0.78
+- over_800_change_1w: 0.74
+- over_1000_change_1w: 0.71
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,77.15,-1.55,75.24,-1.64,74.6,-1.63,0,False,False
-20260612,76.52,-0.63,74.62,-0.62,73.97,-0.63,0,False,False
 20260618,77.08,0.56,75.13,0.51,74.45,0.48,1,True,True
 20260626,77.62,0.54,75.72,0.59,75.02,0.57,2,True,True
 20260703,76.82,-0.8,74.96,-0.76,74.23,-0.79,0,False,False
@@ -199,22 +197,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,73.78,-1.14,71.93,-1.12,71.16,-1.17,0,False,False
 20260814,73.54,-0.24,71.7,-0.23,70.89,-0.27,0,False,False
 20260821,73.13,-0.41,71.29,-0.41,70.5,-0.39,0,False,False
+20260828,72.84,-0.29,70.99,-0.3,70.21,-0.29,0,False,False
+20260904,73.62,0.78,71.73,0.74,70.92,0.71,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2303 | 聯電 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/29 1.召開法人說明會之日期：115/07/29 2.召開法人說明會之時間：17 時 00 分 3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：本公司2026年第二季財務暨營運報告。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| 20260904 | 2303 | 聯電 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/09/14 1.召開法人說明會之日期：115/09/14 ~ 115/09/15 2.召開法人說明會之時間：09 時 00 分 3.召開法人說明會之地點：台北W飯店 4.法人說明會擇要訊息：本公司受邀參加瑞銀證券舉辦之法人說明會「Taiwan Summit 2026」。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2303 | 聯電 | 1 | 1 | 3 | 8 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260904 | 2303 | 聯電 | 1 | 1 | 3 | 7 | 15 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 15 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2303 | 聯電 | 291 | 20 | 18096020.0 | 270340.0 | 66.94 | no_signal |
+| 20260904 | 2303 | 聯電 | 322 | 22 | 68892770.0 | 623260.0 | 110.54 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

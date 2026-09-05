@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3515 華擎
 
 ## Metadata
-- generated_at: 2026-08-23 22:27:50 Asia/Taipei
+- generated_at: 2026-09-05 15:53:22 Asia/Taipei
 - stock_id: 3515
 - stock_name: 華擎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 217
-- high: 219
-- low: 215.5
-- close: 218.5
-- volume: 205892
-- ma5: 218.5
-- ema23_primary: 215.51
-- distance_to_ema23_pct: 1.39
-- ma20: 211.1
-- ma60: 223.78
-- ma120: 223.5
-- return_5d: -4.17
-- return_20d: 5.81
-- volume_ratio: 0.28
-- distance_to_ma20_pct_auxiliary: 3.51
-- distance_to_high_60_pct: -20.11
+- date: 20260904
+- open: 222
+- high: 227.5
+- low: 221
+- close: 227
+- volume: 548846
+- ma5: 224.5
+- ema23_primary: 219.67
+- distance_to_ema23_pct: 3.34
+- ma20: 221.7
+- ma60: 219.16
+- ma120: 223.97
+- return_5d: 3.18
+- return_20d: 6.82
+- volume_ratio: 0.72
+- distance_to_ma20_pct_auxiliary: 2.39
+- distance_to_high_60_pct: -10.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,207.5,208.5,202,205.5,233397,214.86,-4.35,211.57,230.82,0.44
-20260728,203,203,197,197,475204,213.37,-7.67,209.82,230.18,0.91
-20260729,198.5,198.5,187.5,190.5,635610,211.46,-9.91,207.65,229.43,1.24
-20260730,189.5,192,188,189.5,295515,209.63,-9.6,206.45,228.63,0.63
-20260731,195.5,198,194.5,194.5,427710,208.37,-6.66,205.28,227.81,0.9
-20260803,194.5,199,193.5,197.5,299503,207.47,-4.8,204.43,226.99,0.67
-20260804,196,199.5,195.5,198.5,273421,206.72,-3.98,203.5,226.21,0.62
-20260805,206,212,205.5,209.5,675847,206.95,1.23,203.35,225.82,1.48
-20260806,210.5,215,208.5,214.5,747744,207.58,3.33,203.57,225.54,1.57
-20260807,212.5,213,207,212.5,922807,207.99,2.17,203.65,225.28,1.81
 20260810,204.5,215.5,204.5,215.5,649920,208.62,3.3,203.8,225.07,1.23
 20260811,218,221,214,216,1531079,209.23,3.24,204.45,224.93,2.78
 20260812,218.5,233.5,216.5,224.5,2298064,210.5,6.65,205.5,224.94,3.81
@@ -168,18 +158,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,213,221.5,213,220,485056,215.08,2.29,210.15,224.6,0.65
 20260820,221.5,222.5,215.5,217,361231,215.24,0.82,210.5,224.13,0.48
 20260821,217,219,215.5,218.5,205892,215.51,1.39,211.1,223.78,0.28
+20260824,221,222.5,218.5,221,323335,215.97,2.33,211.88,223.57,0.43
+20260825,221.5,221.5,215.5,221,216547,216.39,2.13,213.07,223.22,0.29
+20260826,222,222,218,219,205659,216.6,1.11,214.5,222.64,0.29
+20260827,220,221.5,218,218,286503,216.72,0.59,215.93,221.72,0.4
+20260828,220.5,221,218.5,220,271439,216.99,1.39,217.2,221.07,0.38
+20260831,220,226,216.5,222.5,946107,217.45,2.32,218.45,220.62,1.28
+20260901,225,226.5,222.5,224.5,771237,218.04,2.96,219.75,220.21,1.01
+20260902,226.5,230,225,228.5,1072493,218.91,4.38,220.7,219.96,1.37
+20260903,232.5,235,220,220,713926,219,0.46,220.97,219.43,0.91
+20260904,222,227.5,221,227,548846,219.67,3.34,221.7,219.16,0.72
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 69.33
-- over_600_ratio: 66.59
-- over_800_ratio: 65.53
-- over_1000_ratio: 61.78
-- over_400_change_1w: 0.66
-- over_800_change_1w: 0.67
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260904
+- over_400_ratio: 68.96
+- over_600_ratio: 65.8
+- over_800_ratio: 64.75
+- over_1000_ratio: 61.8
+- over_400_change_1w: 0.18
+- over_800_change_1w: -0.11
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -187,8 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,71.18,1.12,65.95,0.1,63.68,0.84,2,True,True
-20260612,71.39,0.21,67.61,1.66,65.34,1.66,3,True,True
 20260618,71.46,0.07,68.42,0.81,66.15,0.81,4,True,True
 20260626,72.24,0.78,68.42,0,66.15,0,5,False,False
 20260703,71.39,-0.85,68.2,-0.22,65.93,-0.22,0,False,False
@@ -199,6 +197,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,68.64,-0.3,65.32,-0.22,63.03,-0.22,0,False,False
 20260814,68.67,0.03,64.86,-0.46,61.78,-1.25,1,False,False
 20260821,69.33,0.66,65.53,0.67,61.78,0,2,False,True
+20260828,68.78,-0.55,64.86,-0.67,61.78,0,0,False,False
+20260904,68.96,0.18,64.75,-0.11,61.8,0.02,1,False,True
 ```
 
 ## Candidate Context
@@ -214,7 +214,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 3515 | 華擎 | 19 | 2 | 2667710.0 | 0.0 |  | call_inflow |
+| 20260904 | 3515 | 華擎 | 20 | 2 | 1252560.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

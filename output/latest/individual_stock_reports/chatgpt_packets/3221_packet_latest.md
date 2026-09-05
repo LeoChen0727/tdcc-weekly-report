@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3221 台嘉碩
 
 ## Metadata
-- generated_at: 2026-08-23 22:27:41 Asia/Taipei
+- generated_at: 2026-09-05 15:53:15 Asia/Taipei
 - stock_id: 3221
 - stock_name: 台嘉碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 203
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 213
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 47.9
-- high: 51.3
-- low: 47.9
-- close: 48.85
-- volume: 7204000
-- ma5: 48.04
-- ema23_primary: 48.49
-- distance_to_ema23_pct: 0.74
-- ma20: 46.97
-- ma60: 53.6
-- ma120: 46.81
-- return_5d: 2.95
-- return_20d: -0.71
-- volume_ratio: 2.03
-- distance_to_ma20_pct_auxiliary: 4
-- distance_to_high_60_pct: -29.71
+- date: 20260904
+- open: 49.15
+- high: 50.4
+- low: 48.6
+- close: 49.4
+- volume: 1658000
+- ma5: 49.52
+- ema23_primary: 48.97
+- distance_to_ema23_pct: 0.87
+- ma20: 48.75
+- ma60: 52.04
+- ma120: 48.41
+- return_5d: 1.23
+- return_20d: 7.04
+- volume_ratio: 0.64
+- distance_to_ma20_pct_auxiliary: 1.33
+- distance_to_high_60_pct: -28.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,50.6,52.3,48.85,50.5,10464000,52.91,-4.55,54.63,53.81,1.13
-20260728,48.7,48.7,45.45,45.95,2908000,52.33,-12.18,54.03,53.86,0.33
-20260729,45.05,47.1,41.4,42.55,3465000,51.51,-17.4,53.23,53.85,0.4
-20260730,41.4,44.95,39.65,40.2,4195000,50.57,-20.5,52.02,53.78,0.54
-20260731,43.5,44.2,42.85,44.2,2319000,50.04,-11.67,51.03,53.78,0.4
-20260803,44,47.45,43.6,45.45,3129000,49.66,-8.47,49.98,53.74,0.7
-20260804,45.75,49.7,45.75,47,7999000,49.43,-4.92,49.3,53.77,1.87
-20260805,48,49,47.5,47.65,3133000,49.29,-3.32,48.83,53.83,0.76
-20260806,47.3,48.35,46.1,47.3,1757000,49.12,-3.71,48.32,53.89,0.46
-20260807,48,49.1,46.15,46.15,3323000,48.87,-5.57,47.77,53.95,0.86
 20260810,48.5,49.6,47.45,48.2,2153000,48.82,-1.26,47.38,54.06,0.57
 20260811,48.5,50.2,48,48.25,2502000,48.77,-1.06,47.17,54.19,0.67
 20260812,48.1,49.6,47.95,49,2131000,48.79,0.43,46.98,54.26,0.57
@@ -167,18 +157,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,45,48.5,45,47.85,1892000,48.49,-1.31,46.84,53.91,0.56
 20260820,49.1,49.8,47,48.15,2018000,48.46,-0.64,46.99,53.73,0.59
 20260821,47.9,51.3,47.9,48.85,7204000,48.49,0.74,46.97,53.6,2.03
+20260824,48.6,49,47.6,47.6,1434000,48.42,-1.69,46.83,53.39,0.46
+20260825,47.1,49.45,46.05,49.3,1974000,48.49,1.67,46.99,53.21,0.65
+20260826,50.1,50.9,49.5,50,3199000,48.62,2.85,47.37,53.09,1.06
+20260827,50.4,50.9,49.2,49.25,2010000,48.67,1.19,47.82,52.95,0.69
+20260828,49.6,50.8,48.8,48.8,1550000,48.68,0.25,48.05,52.79,0.54
+20260831,48,49.1,47.25,47.85,905000,48.61,-1.57,48.17,52.67,0.33
+20260901,48.05,52,48.05,51.3,4083000,48.84,5.05,48.38,52.57,1.58
+20260902,50.3,52.1,50,51,4214000,49.02,4.05,48.55,52.45,1.6
+20260903,51,51.3,48,48.05,2423000,48.94,-1.81,48.59,52.19,0.91
+20260904,49.15,50.4,48.6,49.4,1658000,48.97,0.87,48.75,52.04,0.64
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 24.9
-- over_600_ratio: 19.33
-- over_800_ratio: 13.33
-- over_1000_ratio: 9.12
-- over_400_change_1w: 0.62
-- over_800_change_1w: 0.53
-- over_1000_change_1w: -0.4
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260904
+- over_400_ratio: 24.87
+- over_600_ratio: 19.8
+- over_800_ratio: 13.24
+- over_1000_ratio: 9.11
+- over_400_change_1w: -1.23
+- over_800_change_1w: -0.86
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -186,8 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,28.23,-5.4,15.24,-4.12,11.95,-4.12,0,False,False
-20260612,27.8,-0.43,13.92,-1.32,9.73,-2.22,0,False,False
 20260618,26.2,-1.6,14.14,0.22,10.86,1.13,1,False,True
 20260626,25.43,-0.77,13.81,-0.33,9.61,-1.25,0,False,False
 20260703,30.76,5.33,15.12,1.31,11.06,1.45,1,True,True
@@ -198,19 +196,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,24.13,0.48,12.77,0,9.49,0,1,False,False
 20260814,24.28,0.15,12.8,0.03,9.52,0.03,2,True,True
 20260821,24.9,0.62,13.33,0.53,9.12,-0.4,3,False,True
+20260828,26.1,1.2,14.1,0.77,9.1,-0.02,4,False,True
+20260904,24.87,-1.23,13.24,-0.86,9.11,0.01,5,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 3221 | 台嘉碩 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 盈餘分配之現金股利NT$8,308,969元(每股配發新台幣0.08元) 資本公積發放之現金NT$20,772,422元(每股配發新台幣0.2元) 3.變更後發放股利種類及金額: 盈餘分配之現金股利NT$8,308,969元(每股配發新台幣0.07914117 元) 資本公積發放之現金NT$20,772,422元(每股配發新台幣0.19785292元) 4.變更原因: 本公司因限制員工權利新股收回註銷股份致流通在外之股數變動為104,989,210股， 經115年05月26日董事會決議授權董事長依相關法令辦理調整配息率。 5.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
-| 20260821 | 3221 | 台嘉碩 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  |  | stale_signal | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 盈餘分配之現金股利NT$8,308,969元(每股配發新台幣0.08元) 資本公積發放之現金NT$20,772,422元(每股配發新台幣0.2元) 3.變更後發放股利種類及金額: 盈餘分配之現金股利NT$8,308,969元(每股配發新台幣0.07914117 元) 資本公積發放之現金NT$20,772,422元(每股配發新台幣0.19785292元) 4.變更原因: 本公司因限制員工權利新股收回註銷股份致流通在外之股數變動為104,989,210股， 經115年05月26日董事會決議授權董事長依相關法令辦理調整配息率。 5.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
-| 20260821 | 3221 | 台嘉碩 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 盈餘分配之現金股利NT$8,308,969元(每股配發新台幣0.08元) 資本公積發放之現金NT$20,772,422元(每股配發新台幣0.2元) 3.變更後發放股利種類及金額: 盈餘分配之現金股利NT$8,308,969元(每股配發新台幣0.07914117 元) 資本公積發放之現金NT$20,772,422元(每股配發新台幣0.19785292元) 4.變更原因: 本公司因限制員工權利新股收回註銷股份致流通在外之股數變動為104,989,210股， 經115年05月26日董事會決議授權董事長依相關法令辦理調整配息率。 5.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260904 | 3221 | 台嘉碩 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 盈餘分配之現金股利NT$8,308,969元(每股配發新台幣0.08元) 資本公積發放之現金NT$20,772,422元(每股配發新台幣0.2元) 3.變更後發放股利種類及金額: 盈餘分配之現金股利NT$8,308,969元(每股配發新台幣0.07914117 元) 資本公積發放之現金NT$20,772,422元(每股配發新台幣0.19785292元) 4.變更原因: 本公司因限制員工權利新股收回註銷股份致流通在外之股數變動為104,989,210股， 經115年05月26日董事會決議授權董事長依相關法令辦理調整配息率。 5.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| 20260904 | 3221 | 台嘉碩 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 盈餘分配之現金股利NT$8,308,969元(每股配發新台幣0.08元) 資本公積發放之現金NT$20,772,422元(每股配發新台幣0.2元) 3.變更後發放股利種類及金額: 盈餘分配之現金股利NT$8,308,969元(每股配發新台幣0.07914117 元) 資本公積發放之現金NT$20,772,422元(每股配發新台幣0.19785292元) 4.變更原因: 本公司因限制員工權利新股收回註銷股份致流通在外之股數變動為104,989,210股， 經115年05月26日董事會決議授權董事長依相關法令辦理調整配息率。 5.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 3221 | 台嘉碩 | 4 | 4 | 4 | 5 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260904 | 3221 | 台嘉碩 | 4 | 4 | 4 | 9 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

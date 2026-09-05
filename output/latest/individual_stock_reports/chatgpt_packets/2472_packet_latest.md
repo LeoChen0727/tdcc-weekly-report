@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2472 立隆電
 
 ## Metadata
-- generated_at: 2026-08-23 22:27:14 Asia/Taipei
+- generated_at: 2026-09-05 15:52:53 Asia/Taipei
 - stock_id: 2472
 - stock_name: 立隆電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 225
-- high: 226.5
-- low: 217
-- close: 218
-- volume: 1240327
-- ma5: 229
-- ema23_primary: 250.44
-- distance_to_ema23_pct: -12.95
-- ma20: 234.55
-- ma60: 317.52
-- ma120: 243.82
-- return_5d: -11.02
-- return_20d: -15.67
-- volume_ratio: 0.35
-- distance_to_ma20_pct_auxiliary: -7.06
-- distance_to_high_60_pct: -55.33
+- date: 20260904
+- open: 214.5
+- high: 227
+- low: 214.5
+- close: 225
+- volume: 3532039
+- ma5: 219.4
+- ema23_primary: 233.43
+- distance_to_ema23_pct: -3.61
+- ma20: 229.65
+- ma60: 293.88
+- ma120: 253.13
+- return_5d: -3.23
+- return_20d: -1.96
+- volume_ratio: 1.2
+- distance_to_ma20_pct_auxiliary: -2.02
+- distance_to_high_60_pct: -53.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,258,265,250,260.5,2337106,321,-18.85,343.7,318.02,0.25
-20260728,246,247,234.5,235,3454399,313.83,-25.12,334.82,318.99,0.4
-20260729,238.5,242,211.5,220,5908644,306.01,-28.11,323.15,319.59,0.78
-20260730,218,225,198.5,203,5650250,297.43,-31.75,312.05,319.83,0.85
-20260731,223,223,214.5,220,3374321,290.98,-24.39,301.65,320.39,0.54
-20260803,218.5,235.5,217,230.5,5534264,285.94,-19.39,291.93,320.88,0.94
-20260804,228.5,239,225,236,3358583,281.78,-16.25,283.48,321.12,0.6
-20260805,241.5,249.5,237,240.5,3619962,278.34,-13.59,277.05,321.38,0.69
-20260806,240,242.5,224,238,3656273,274.98,-13.45,271.4,321.62,0.72
-20260807,238,239.5,224.5,229.5,2175626,271.19,-15.37,264.07,321.56,0.45
 20260810,234,241.5,234,240.5,2344173,268.63,-10.47,258.95,321.71,0.52
 20260811,237.5,257.5,236.5,244.5,6116074,266.62,-8.3,255.12,322.17,1.42
 20260812,244.5,258,242.5,250,4458172,265.23,-5.74,250.57,322.42,1.08
@@ -167,27 +158,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,218.5,238.5,218.5,234,2844558,256.11,-8.63,239.2,320.9,0.77
 20260820,234.5,235.5,220,223.5,2265391,253.39,-11.8,236.57,319.51,0.62
 20260821,225,226.5,217,218,1240327,250.44,-12.95,234.55,317.52,0.35
+20260824,218.5,225,218.5,220,981700,247.91,-11.26,232.53,315,0.28
+20260825,218.5,219,207,218,1423011,245.41,-11.17,231.68,312.45,0.42
+20260826,218,221,216,218.5,1109988,243.17,-10.15,231.6,309.56,0.35
+20260827,221,231,218,229,2332678,241.99,-5.37,232.9,307.04,0.77
+20260828,235,245.5,227.5,232.5,7298279,241.2,-3.61,233.53,304.93,2.27
+20260831,229.5,236.5,215,224,3198976,239.77,-6.58,233.2,302.83,1.03
+20260901,223,233,223,224,2524609,238.45,-6.06,232.6,300.51,0.83
+20260902,220,220.5,217,217,1277615,236.66,-8.31,231.43,298.48,0.44
+20260903,218,220,206.5,207,2263326,234.19,-11.61,229.88,295.72,0.79
+20260904,214.5,227,214.5,225,3532039,233.43,-3.61,229.65,293.88,1.2
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 58.65
-- over_600_ratio: 55.22
-- over_800_ratio: 54.04
-- over_1000_ratio: 49.5
-- over_400_change_1w: -0.78
-- over_800_change_1w: 0.59
-- over_1000_change_1w: -0.55
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260904
+- over_400_ratio: 57.95
+- over_600_ratio: 53.27
+- over_800_ratio: 52.08
+- over_1000_ratio: 47.04
+- over_400_change_1w: -0.95
+- over_800_change_1w: -0.43
+- over_1000_change_1w: -1.54
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,60.41,-1.12,54.12,-2.91,50.85,-1.24,0,False,False
-20260612,59.88,-0.53,54.07,-0.05,50.73,-0.12,0,False,False
 20260618,56.17,-3.71,49.4,-4.67,46.59,-4.14,0,False,False
 20260626,58.96,2.79,51.95,2.55,48.59,2,1,True,True
 20260703,59.45,0.49,52.65,0.7,49.32,0.73,2,True,True
@@ -198,6 +197,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,60.26,-0.22,54.28,0.83,50.39,0.27,4,False,True
 20260814,59.43,-0.83,53.45,-0.83,50.05,-0.34,0,False,False
 20260821,58.65,-0.78,54.04,0.59,49.5,-0.55,1,False,True
+20260828,58.9,0.25,52.51,-1.53,48.58,-0.92,2,False,False
+20260904,57.95,-0.95,52.08,-0.43,47.04,-1.54,0,False,False
 ```
 
 ## Candidate Context
@@ -213,7 +214,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2472 | 立隆電 | 133 | 6 | 5060320.0 | 45460.0 | 111.31 | no_signal |
+| 20260904 | 2472 | 立隆電 | 134 | 6 | 10317410.0 | 30780.0 | 335.2 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

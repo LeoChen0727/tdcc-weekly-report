@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3703 欣陸
 
 ## Metadata
-- generated_at: 2026-08-23 22:27:59 Asia/Taipei
+- generated_at: 2026-09-05 15:53:29 Asia/Taipei
 - stock_id: 3703
 - stock_name: 欣陸
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -103,7 +103,6 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -118,7 +117,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -126,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 19.9
-- high: 19.9
-- low: 19.65
-- close: 19.85
-- volume: 1788984
-- ma5: 19.68
-- ema23_primary: 20.16
-- distance_to_ema23_pct: -1.56
-- ma20: 20.19
-- ma60: 20.78
-- ma120: 21.15
-- return_5d: -0.5
-- return_20d: -4.57
-- volume_ratio: 0.92
-- distance_to_ma20_pct_auxiliary: -1.67
-- distance_to_high_60_pct: -11.19
+- date: 20260904
+- open: 20
+- high: 20.15
+- low: 19.8
+- close: 20
+- volume: 1135786
+- ma5: 19.69
+- ema23_primary: 19.88
+- distance_to_ema23_pct: 0.6
+- ma20: 19.77
+- ma60: 20.56
+- ma120: 20.95
+- return_5d: 3.09
+- return_20d: -1.96
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: 1.19
+- distance_to_high_60_pct: -10.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,20.8,20.85,20.7,20.8,829263,20.82,-0.12,20.79,20.85,0.86
-20260728,20.8,20.8,20.5,20.6,1089878,20.81,-0.99,20.74,20.85,1.11
-20260729,20.7,20.7,20.2,20.45,2889071,20.78,-1.57,20.68,20.84,2.69
-20260730,20.55,20.75,20.4,20.6,2097600,20.76,-0.78,20.64,20.85,1.92
-20260731,20.6,21,20.6,20.6,1407115,20.75,-0.71,20.64,20.85,1.28
-20260803,20.5,20.55,20.3,20.5,962072,20.73,-1.1,20.63,20.84,0.89
-20260804,20.25,20.4,20.15,20.4,1838343,20.7,-1.45,20.61,20.84,1.62
-20260805,20.4,20.5,20.3,20.35,851039,20.67,-1.55,20.59,20.83,0.75
-20260806,20.25,20.45,20.25,20.35,930237,20.64,-1.42,20.57,20.83,0.8
-20260807,20.35,20.55,20.35,20.4,1449180,20.62,-1.08,20.56,20.83,1.21
 20260810,20.4,20.45,20,20.2,1914683,20.59,-1.89,20.55,20.83,1.52
 20260811,20.05,20.25,19.95,20.15,3428435,20.55,-1.95,20.54,20.83,2.48
 20260812,20.2,20.3,20,20,1689770,20.51,-2.47,20.5,20.83,1.19
@@ -168,27 +157,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,19.4,19.65,19.2,19.55,2233625,20.22,-3.31,20.27,20.79,1.23
 20260820,19.55,20,19.55,19.9,2540434,20.19,-1.45,20.23,20.79,1.33
 20260821,19.9,19.9,19.65,19.85,1788984,20.16,-1.56,20.19,20.78,0.92
+20260824,19.65,19.95,19.65,19.8,1744498,20.13,-1.66,20.14,20.78,0.88
+20260825,19.8,19.8,19.6,19.65,1309079,20.09,-2.21,20.09,20.77,0.65
+20260826,19.65,19.75,19.5,19.65,1047003,20.06,-2.03,20.05,20.76,0.55
+20260827,19.65,19.8,19.65,19.65,815238,20.02,-1.86,20,20.74,0.44
+20260828,19.65,19.65,19.35,19.4,2033079,19.97,-2.86,19.94,20.7,1.08
+20260831,19.4,19.55,19.15,19.55,10020352,19.94,-1.94,19.89,20.67,4.3
+20260901,19.4,19.65,19.35,19.55,827584,19.9,-1.78,19.85,20.64,0.36
+20260902,19.5,19.75,19.4,19.4,1224894,19.86,-2.33,19.8,20.61,0.53
+20260903,19.45,20,19.45,19.95,1537050,19.87,0.41,19.79,20.59,0.66
+20260904,20,20.15,19.8,20,1135786,19.88,0.6,19.77,20.56,0.49
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 72.17
-- over_600_ratio: 70.05
-- over_800_ratio: 69.22
-- over_1000_ratio: 68.37
-- over_400_change_1w: -0.33
-- over_800_change_1w: -0.18
-- over_1000_change_1w: 0.05
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20260904
+- over_400_ratio: 72.06
+- over_600_ratio: 69.68
+- over_800_ratio: 69.03
+- over_1000_ratio: 68.06
+- over_400_change_1w: -0.07
+- over_800_change_1w: -0.09
+- over_1000_change_1w: -0.2
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,72.33,0.22,69.09,0.02,68.22,0.02,2,True,True
-20260612,72.49,0.16,69.18,0.09,68.3,0.08,3,True,True
 20260618,72.59,0.1,69.45,0.27,68.68,0.38,4,True,True
 20260626,72.54,-0.05,69.26,-0.19,68.37,-0.31,0,False,False
 20260703,72.21,-0.33,69.1,-0.16,68.13,-0.24,0,False,False
@@ -199,17 +196,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,72.65,0.04,69.52,-0.03,68.31,0.06,5,False,True
 20260814,72.5,-0.15,69.4,-0.12,68.32,0.01,6,False,True
 20260821,72.17,-0.33,69.22,-0.18,68.37,0.05,7,False,True
+20260828,72.13,-0.04,69.12,-0.1,68.26,-0.11,0,False,False
+20260904,72.06,-0.07,69.03,-0.09,68.06,-0.2,0,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260904 | 3703 | 欣陸 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | continued_2_3d | 1.發生變動日期:115/06/30 2.法人名稱:漢德建設股份有限公司 3.舊任者姓名:不適用 4.舊任者簡歷:不適用 5.新任者姓名:不適用 6.新任者簡歷:不適用 7.異動原因:不適用 8.原任期（例xx/xx/xx至xx/xx/xx）:不適用 9.新任生效日期:不適用 10.其他應敘明事項: 本公司於115年6月30日接獲通知，法人董事「漢德建設股份有限公司」 已更名為「吉劭股份有限公司」，該公司已於115年6月25日核准變更登記完成。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260904 | 3703 | 欣陸 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

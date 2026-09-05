@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2371 大同
 
 ## Metadata
-- generated_at: 2026-08-23 22:27:06 Asia/Taipei
+- generated_at: 2026-09-05 15:52:47 Asia/Taipei
 - stock_id: 2371
 - stock_name: 大同
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 331
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 341
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,38 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 27.85
-- high: 27.85
-- low: 27.35
-- close: 27.6
-- volume: 6031020
-- ma5: 27.27
-- ema23_primary: 26.5
-- distance_to_ema23_pct: 4.13
-- ma20: 25.89
-- ma60: 27.27
-- ma120: 29.22
-- return_5d: 4.74
-- return_20d: 6.98
-- volume_ratio: 0.68
-- distance_to_ma20_pct_auxiliary: 6.59
-- distance_to_high_60_pct: -15.85
+- date: 20260904
+- open: 27.95
+- high: 28.2
+- low: 27.3
+- close: 28.15
+- volume: 7257358
+- ma5: 28.13
+- ema23_primary: 27.45
+- distance_to_ema23_pct: 2.55
+- ma20: 27.46
+- ma60: 26.98
+- ma120: 28.79
+- return_5d: -1.23
+- return_20d: 8.48
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: 2.51
+- distance_to_high_60_pct: -5.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,26,26,25.5,25.7,5849416,27.01,-4.86,26.98,28.48,0.64
-20260728,25.6,25.6,24.7,24.8,11439466,26.83,-7.56,26.86,28.39,1.24
-20260729,24.9,25.1,23.35,24.1,16134811,26.6,-9.4,26.7,28.28,1.69
-20260730,24,24.1,23.3,23.5,8057881,26.34,-10.79,26.52,28.16,0.86
-20260731,24.3,24.7,24.25,24.3,6816237,26.17,-7.15,26.37,28.06,0.72
-20260803,24.1,25.45,23.9,25.25,8257399,26.1,-3.24,26.23,27.97,0.9
-20260804,25,25.45,24.85,25.25,6337976,26.02,-2.98,26.09,27.88,0.72
-20260805,25.45,25.8,25.3,25.5,6664584,25.98,-1.85,26,27.8,0.77
-20260806,25.5,25.55,25.2,25.45,4254659,25.94,-1.88,25.92,27.72,0.5
-20260807,25.5,26,25.5,25.95,6981182,25.94,0.05,25.83,27.65,0.83
 20260810,26.1,27.35,25.95,26.8,8792500,26.01,3.04,25.77,27.61,1.06
 20260811,26,26.6,24.9,25.95,15969288,26,-0.21,25.7,27.56,1.87
 20260812,26.25,26.9,26.15,26.35,9406212,26.03,1.22,25.66,27.52,1.08
@@ -167,27 +157,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,26.95,27.25,26.45,27,13666275,26.3,2.66,25.74,27.34,1.57
 20260820,27.35,27.65,27.2,27.55,10698325,26.41,4.34,25.8,27.3,1.19
 20260821,27.85,27.85,27.35,27.6,6031020,26.5,4.13,25.89,27.27,0.68
+20260824,27.8,28.05,27.45,27.45,7303019,26.58,3.26,25.98,27.25,0.81
+20260825,27.4,27.7,27.1,27.7,5191999,26.68,3.84,26.12,27.21,0.6
+20260826,27.7,27.85,27.35,27.65,7019152,26.76,3.33,26.3,27.17,0.85
+20260827,27.95,29.9,27.95,29.2,36297869,26.96,8.3,26.59,27.16,3.77
+20260828,29.55,29.55,28.2,28.5,18419762,27.09,5.21,26.8,27.11,1.81
+20260831,28.2,28.6,28,28.05,8630372,27.17,3.24,26.94,27.04,0.84
+20260901,28.15,29.15,28.15,28.65,9887622,27.29,4.97,27.11,27.01,0.95
+20260902,28.65,28.7,28.1,28.2,6156837,27.37,3.04,27.24,27,0.59
+20260903,28.3,28.5,27.55,27.6,6720599,27.39,0.78,27.35,26.98,0.64
+20260904,27.95,28.2,27.3,28.15,7257358,27.45,2.55,27.46,26.98,0.69
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 47.5
-- over_600_ratio: 45.48
-- over_800_ratio: 44.13
-- over_1000_ratio: 42.85
-- over_400_change_1w: 0.03
-- over_800_change_1w: 0.07
-- over_1000_change_1w: -0.06
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260904
+- over_400_ratio: 47.59
+- over_600_ratio: 45.41
+- over_800_ratio: 43.99
+- over_1000_ratio: 42.8
+- over_400_change_1w: -0.43
+- over_800_change_1w: -0.66
+- over_1000_change_1w: -0.45
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,48.02,-0.45,44.43,-0.47,43.1,-0.55,0,False,False
-20260612,47.29,-0.73,43.61,-0.82,42.4,-0.7,0,False,False
 20260618,47.15,-0.14,43.63,0.02,42.3,-0.1,1,False,True
 20260626,46.74,-0.41,43.27,-0.36,41.9,-0.4,0,False,False
 20260703,46.72,-0.02,43.15,-0.12,41.79,-0.11,0,False,False
@@ -198,22 +196,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,47.14,0.07,43.76,0.12,42.51,0.19,2,True,True
 20260814,47.47,0.33,44.06,0.3,42.91,0.4,3,True,True
 20260821,47.5,0.03,44.13,0.07,42.85,-0.06,4,False,True
+20260828,48.02,0.52,44.65,0.52,43.25,0.4,5,True,True
+20260904,47.59,-0.43,43.99,-0.66,42.8,-0.45,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2371 | 大同 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| 20260904 | 2371 | 大同 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 坐落新北市中和區健康段478地號等13筆土地之預售屋 2.事實發生日:115/9/2~115/9/2 3.董事會通過日期: 民國115年9月2日 4.其他核決日期: 不適用 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 一、房地共2戶，總價4,817萬元。 二、車位共2位，總價320萬元。 三、交易總金額5,137萬元(總面積約90.92坪，其中車位約19.28坪) 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 一、余信達、林倍宏。 二、關係人。 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 一、選定關係人為交易對象之原因：一般銷售 二、前次移轉之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、     前次移轉日期及移轉金額：不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 為公司銷售之商品，故不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 董事會決議通過後始簽訂契約，依契約條件付款。 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 一、本次交易決定方式：議價 二、價格決定之參考依據：市場行情 三、決策單位：董事會 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 無 23.取得或處分之具體目的或用途: 一般銷售，獲取利益。 24.本次交易表示異議之董事之意見: 無 25.本次交易為關係人交易:是 26.監察人承認或審計委員會同意日期: 民國115年9月2日 27.本次交易係向關係人取得不動產或其使用權資產:是 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2371 | 大同 | 4 | 1 | 4 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260904 | 2371 | 大同 | 2 | 2 | 4 | 8 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 2371 | 大同 | 42 | 2 | 1472750.0 | 8800.0 | 167.36 | no_signal |
+| 20260904 | 2371 | 大同 | 48 | 2 | 360370.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

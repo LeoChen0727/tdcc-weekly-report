@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6415 矽力*-KY
 
 ## Metadata
-- generated_at: 2026-08-23 22:28:51 Asia/Taipei
+- generated_at: 2026-09-05 15:54:11 Asia/Taipei
 - stock_id: 6415
 - stock_name: 矽力*-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,38 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 451.5
-- high: 452.5
-- low: 438
-- close: 445.5
-- volume: 1954645
-- ma5: 446.5
-- ema23_primary: 457.12
-- distance_to_ema23_pct: -2.54
-- ma20: 437.77
-- ma60: 514.47
-- ma120: 439.35
-- return_5d: -7.19
-- return_20d: -4.71
-- volume_ratio: 0.47
-- distance_to_ma20_pct_auxiliary: 1.76
-- distance_to_high_60_pct: -35.81
+- date: 20260904
+- open: 421
+- high: 429
+- low: 418.5
+- close: 428.5
+- volume: 2292237
+- ma5: 419.3
+- ema23_primary: 444.67
+- distance_to_ema23_pct: -3.64
+- ma20: 447.68
+- ma60: 492.73
+- ma120: 454.56
+- return_5d: -6.44
+- return_20d: -2.94
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: -4.28
+- distance_to_high_60_pct: -38.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,467.5,467.5,437.5,449,3353442,509.43,-11.86,523,534.19,0.92
-20260728,422,424.5,404.5,404.5,4630188,500.68,-19.21,513.33,533.82,1.22
-20260729,400,400,364.5,375.5,7858735,490.25,-23.41,502.2,532.83,1.91
-20260730,376,394,362,375.5,6127777,480.69,-21.88,491.57,531.82,1.41
-20260731,413,413,413,413,853430,475.05,-13.06,481.02,531.63,0.2
-20260803,433,439,417,424.5,6745694,470.84,-9.84,472,531.63,1.48
-20260804,416,435,406,424,5973218,466.93,-9.19,462.2,531.61,1.25
-20260805,453.5,466,442,445,6983785,465.11,-4.32,456.45,531.23,1.41
-20260806,437,453.5,426,445,3453386,463.43,-3.98,451.15,530.7,0.71
-20260807,446,456.5,433,441.5,2706351,461.6,-4.35,447.07,530.27,0.57
 20260810,443.5,475,442,465,3105622,461.89,0.67,444.12,529.63,0.66
 20260811,469.5,488,461.5,466.5,4548802,462.27,0.92,442.77,529.61,0.99
 20260812,466,472,447,449,4163148,461.16,-2.64,440.02,528.52,0.89
@@ -168,17 +158,27 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,425,448,425,440,1881027,459.1,-4.16,440.2,521.16,0.44
 20260820,445,451.5,438.5,448,1479222,458.18,-2.22,438.88,518.12,0.35
 20260821,451.5,452.5,438,445.5,1954645,457.12,-2.54,437.77,514.47,0.47
+20260824,442,464.5,439.5,450,1675626,456.53,-1.43,437.82,511.63,0.41
+20260825,443,453,438.5,451.5,1650434,456.11,-1.01,440.18,509.16,0.42
+20260826,454.5,476,447.5,469,2853938,457.18,2.58,444.85,506.88,0.78
+20260827,469,476,440,470.5,5463698,458.29,2.66,449.6,505.08,1.5
+20260828,482,488.5,447.5,458,6075270,458.27,-0.06,451.85,502.73,1.56
+20260831,452,452,412.5,412.5,4448947,454.45,-9.23,451.25,500.11,1.18
+20260901,408,426.5,401.5,418.5,6257655,451.46,-7.3,450.98,497.38,1.65
+20260902,406,448,406,426,5955557,449.34,-5.19,450.02,495.75,1.59
+20260903,426.5,437.5,408,411,4262145,446.14,-7.88,448.32,493.8,1.13
+20260904,421,429,418.5,428.5,2292237,444.67,-3.64,447.68,492.73,0.61
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 79.51
-- over_600_ratio: 72.82
-- over_800_ratio: 68.51
-- over_1000_ratio: 65.47
-- over_400_change_1w: 0.1
+- as_of_date: 20260904
+- over_400_ratio: 79.08
+- over_600_ratio: 71.85
+- over_800_ratio: 68.34
+- over_1000_ratio: 65.34
+- over_400_change_1w: -0.31
 - over_800_change_1w: 0.5
-- over_1000_change_1w: -0.23
+- over_1000_change_1w: 0.25
 - tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: True
@@ -187,8 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,79.37,-0.31,67.31,0.07,65.02,0.22,5,False,True
-20260612,79.84,0.47,68.75,1.44,66.42,1.4,6,True,True
 20260618,78.92,-0.92,67.48,-1.27,65.15,-1.27,0,False,False
 20260626,79.43,0.51,68.15,0.67,65.66,0.51,1,True,True
 20260703,79.28,-0.15,68.23,0.08,65.53,-0.13,2,False,True
@@ -199,23 +197,26 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,79.5,-0.47,68.92,0.44,65.99,0.01,7,False,True
 20260814,79.41,-0.09,68.01,-0.91,65.7,-0.29,0,False,False
 20260821,79.51,0.1,68.51,0.5,65.47,-0.23,1,False,True
+20260828,79.39,-0.12,67.84,-0.67,65.09,-0.38,0,False,False
+20260904,79.08,-0.31,68.34,0.5,65.34,0.25,1,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 6415 | 矽力*-KY | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/28 1.召開法人說明會之日期：115/08/28 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：電話會議。 4.法人說明會擇要訊息：本公司受邀參加UBS所舉辦之線上法說會，說明2026年第二季營運及業務狀況。 投資人或分析師可透過以下連結參加：https://openexc.zoom.us/webinar/register/WN_1y6DnA0_Q1aV9vm1FYRqEQ#/registration 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
-| 20260821 | 6415 | 矽力*-KY | revenue_pullback | 營收成長股價回檔 | 50.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/28 1.召開法人說明會之日期：115/08/28 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：電話會議。 4.法人說明會擇要訊息：本公司受邀參加UBS所舉辦之線上法說會，說明2026年第二季營運及業務狀況。 投資人或分析師可透過以下連結參加：https://openexc.zoom.us/webinar/register/WN_1y6DnA0_Q1aV9vm1FYRqEQ#/registration 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260904 | 6415 | 矽力*-KY | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/04 1.召開法人說明會之日期：115/09/04 2.召開法人說明會之時間：11 時 00 分 3.召開法人說明會之地點：台北艾麗酒店 4.法人說明會擇要訊息：本公司受邀參加中國信託證券前瞻論壇，就本公司已公開發布之財務數字、經營績效等相關資訊做說明。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| 20260904 | 6415 | 矽力*-KY | revenue_pullback | 營收成長股價回檔 | 50.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/04 1.召開法人說明會之日期：115/09/04 2.召開法人說明會之時間：11 時 00 分 3.召開法人說明會之地點：台北艾麗酒店 4.法人說明會擇要訊息：本公司受邀參加中國信託證券前瞻論壇，就本公司已公開發布之財務數字、經營績效等相關資訊做說明。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260904 | 6415 | 矽力*-KY | revenue_breakout_low_response | 營收爆發低反應股 | 12 | 57 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/04 1.召開法人說明會之日期：115/09/04 2.召開法人說明會之時間：11 時 00 分 3.召開法人說明會之地點：台北艾麗酒店 4.法人說明會擇要訊息：本公司受邀參加中國信託證券前瞻論壇，就本公司已公開發布之財務數字、經營績效等相關資訊做說明。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 6415 | 矽力*-KY | 4 | 4 | 4 | 7 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260904 | 6415 | 矽力*-KY | 2 | 2 | 4 | 9 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 6415 | 矽力*-KY | 83 | 1 | 3816340.0 | 0.0 |  | no_signal |
+| 20260904 | 6415 | 矽力*-KY | 92 | 2 | 2677880.0 | 37800.0 | 70.84 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

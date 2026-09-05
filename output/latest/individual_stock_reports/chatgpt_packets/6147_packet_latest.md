@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6147 頎邦
 
 ## Metadata
-- generated_at: 2026-08-23 22:28:39 Asia/Taipei
+- generated_at: 2026-09-05 15:54:01 Asia/Taipei
 - stock_id: 6147
 - stock_name: 頎邦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 203
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 213
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,7 +101,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -125,38 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 162
-- high: 162.5
-- low: 155
-- close: 156.5
-- volume: 14584000
-- ma5: 162.7
-- ema23_primary: 162.83
-- distance_to_ema23_pct: -3.89
-- ma20: 150.62
-- ma60: 200.95
-- ma120: 162.94
-- return_5d: -0.63
-- return_20d: -0.95
-- volume_ratio: 0.51
-- distance_to_ma20_pct_auxiliary: 3.9
-- distance_to_high_60_pct: -50.08
+- date: 20260904
+- open: 198
+- high: 202.5
+- low: 181
+- close: 182.5
+- volume: 62692000
+- ma5: 182.6
+- ema23_primary: 173.26
+- distance_to_ema23_pct: 5.33
+- ma20: 170.1
+- ma60: 186.09
+- ma120: 173.37
+- return_5d: 0
+- return_20d: 24.57
+- volume_ratio: 2.05
+- distance_to_ma20_pct_auxiliary: 7.29
+- distance_to_high_60_pct: -34.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,158,158,142.5,155,85044000,194.61,-20.36,194.12,218.1,2.69
-20260728,146,150.5,139.5,139.5,28999000,190.02,-26.59,190.55,217.71,0.91
-20260729,139.5,139.5,126,126,28834000,184.69,-31.78,186.28,216.82,0.9
-20260730,119.5,128.5,113.5,118.5,38776000,179.17,-33.86,181.25,215.84,1.22
-20260731,130,130,126,130,20185000,175.07,-25.75,177.18,215.09,0.65
-20260803,128,143,128,135.5,40850000,171.78,-21.12,173.18,214.14,1.3
-20260804,132.5,148.5,130.5,144.5,34009000,169.5,-14.75,169.55,213.25,1.09
-20260805,156,158.5,153.5,158.5,17518000,168.59,-5.98,167.47,212.62,0.58
-20260806,153,154.5,146.5,151,28395000,167.12,-9.65,165.05,211.87,0.92
-20260807,151,151,144.5,146.5,14053000,165.4,-11.43,161.53,211.11,0.48
 20260810,151,158,147,154,24199000,164.45,-6.36,159.32,210.57,0.84
 20260811,151,166,146.5,161.5,31503000,164.21,-1.65,158.1,209.84,1.09
 20260812,160.5,163,156,156.5,26177000,163.56,-4.32,155.7,209,0.9
@@ -167,27 +156,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,157,165.5,156.5,161.5,17100000,163.4,-1.16,151.3,204.38,0.59
 20260820,163,167,159,163.5,14878000,163.41,0.06,150.7,202.76,0.53
 20260821,162,162.5,155,156.5,14584000,162.83,-3.89,150.62,200.95,0.51
+20260824,157.5,162,157,157,14250000,162.35,-3.29,150.72,198.93,0.57
+20260825,157,171,152,169,22562000,162.9,3.74,152.2,196.66,0.91
+20260826,166,185.5,166,185.5,29810000,164.78,12.57,155.18,194.99,1.2
+20260827,186.5,192,180.5,187.5,70294000,166.68,12.49,158.62,193.43,2.66
+20260828,190,203,180.5,182.5,52447000,167.99,8.63,161.25,191.89,1.87
+20260831,176,177.5,171.5,175.5,20856000,168.62,4.08,163.25,190.3,0.77
+20260901,178,187,175.5,183.5,22963000,169.86,8.03,165.2,188.86,0.87
+20260902,180,186.5,178.5,182.5,15421000,170.91,6.78,166.4,187.85,0.58
+20260903,183.5,199.5,174,189,63936000,172.42,9.62,168.3,186.82,2.27
+20260904,198,202.5,181,182.5,62692000,173.26,5.33,170.1,186.09,2.05
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 63.83
-- over_600_ratio: 61.64
-- over_800_ratio: 60.32
-- over_1000_ratio: 58.84
-- over_400_change_1w: 0.19
-- over_800_change_1w: 0.25
-- over_1000_change_1w: 0.26
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
+- as_of_date: 20260904
+- over_400_ratio: 64.62
+- over_600_ratio: 62.2
+- over_800_ratio: 60.98
+- over_1000_ratio: 59.9
+- over_400_change_1w: 0.14
+- over_800_change_1w: -0.16
+- over_1000_change_1w: 0.36
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,72.16,-3.56,68.14,-3.3,66.07,-3.49,0,False,False
-20260612,71.61,-0.55,67.93,-0.21,66.36,0.29,1,False,True
 20260618,70.57,-1.04,66.92,-1.01,65.33,-1.03,0,False,False
 20260626,69.1,-1.47,65.4,-1.52,63.96,-1.37,0,False,False
 20260703,67.05,-2.05,63.61,-1.79,61.79,-2.17,0,False,False
@@ -198,17 +195,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,64.1,-0.92,60.59,-1.25,58.67,-1.21,0,False,False
 20260814,63.64,-0.46,60.07,-0.52,58.58,-0.09,0,False,False
 20260821,63.83,0.19,60.32,0.25,58.84,0.26,1,True,True
+20260828,64.48,0.65,61.14,0.82,59.54,0.7,2,True,True
+20260904,64.62,0.14,60.98,-0.16,59.9,0.36,3,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 6147 | 頎邦 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/24 1.召開法人說明會之日期：115/06/24 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：台北市松山區南京東路五段188號15樓 4.法人說明會擇要訊息：說明本公司營運概況及產業發展 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| 20260904 | 6147 | 頎邦 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | 1.事實發生日:115/09/02 2.公司名稱:頎邦科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:經濟日報 6.報導內容: 「頎邦（6147）隨光通訊需求提升，...法人預期，2026、2027年獲利均有六成以 上成長幅度...。 頎邦目前有超過30個光通訊相關專案在開發，其中六個通過認證 ，預計四個專案2026年量產，更多專案預計2027年進入放量階段...」 7.發生緣由: 本公司並未對外公佈財務預測，有關媒體報導法人預測性看法本公司不予評論。 相關業務資訊請以本公司正式對外公告訊息為主。 8.因應措施:發布重大訊息說明。 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| 20260904 | 6147 | 頎邦 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/09/02 2.公司名稱:頎邦科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:經濟日報 6.報導內容: 「頎邦（6147）隨光通訊需求提升，...法人預期，2026、2027年獲利均有六成以 上成長幅度...。 頎邦目前有超過30個光通訊相關專案在開發，其中六個通過認證 ，預計四個專案2026年量產，更多專案預計2027年進入放量階段...」 7.發生緣由: 本公司並未對外公佈財務預測，有關媒體報導法人預測性看法本公司不予評論。 相關業務資訊請以本公司正式對外公告訊息為主。 8.因應措施:發布重大訊息說明。 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 6147 | 頎邦 | 4 | 4 | 4 | 7 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260904 | 6147 | 頎邦 | 4 | 2 | 4 | 6 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

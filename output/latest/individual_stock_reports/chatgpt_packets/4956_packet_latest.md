@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4956 光鋐
 
 ## Metadata
-- generated_at: 2026-08-23 22:28:19 Asia/Taipei
+- generated_at: 2026-09-05 15:53:45 Asia/Taipei
 - stock_id: 4956
 - stock_name: 光鋐
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260821
-- price_rows: 338
-- current_main_price_date: 20260821
+- latest_price_date: 20260904
+- price_rows: 348
+- current_main_price_date: 20260904
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260821-d1df4c843f691346
-- official_tdcc_signal_date: 20260821
-- latest_tdcc_date: 20260821
-- tdcc_rows: 17
+- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
+- official_tdcc_signal_date: 20260904
+- latest_tdcc_date: 20260904
+- tdcc_rows: 19
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -130,38 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260821
-- open: 30.45
-- high: 33.45
-- low: 30.45
-- close: 33.45
-- volume: 4363803
-- ma5: 30.65
-- ema23_primary: 30.95
-- distance_to_ema23_pct: 8.07
-- ma20: 29.57
-- ma60: 35.07
-- ma120: 37.34
-- return_5d: 11.5
-- return_20d: 12.44
-- volume_ratio: 2.83
-- distance_to_ma20_pct_auxiliary: 13.11
-- distance_to_high_60_pct: -32.63
+- date: 20260904
+- open: 35.2
+- high: 38.1
+- low: 35
+- close: 37.65
+- volume: 5271439
+- ma5: 36.23
+- ema23_primary: 34.07
+- distance_to_ema23_pct: 10.5
+- ma20: 33.56
+- ma60: 33.93
+- ma120: 38.24
+- return_5d: 1.89
+- return_20d: 21.06
+- volume_ratio: 1.8
+- distance_to_ma20_pct_auxiliary: 12.17
+- distance_to_high_60_pct: -13.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260727,29.45,29.8,28.8,29.15,584315,33.93,-14.08,34.15,40.43,0.36
-20260728,28.6,28.6,27,27,987286,33.35,-19.04,33.67,40.1,0.61
-20260729,26.8,27.2,24.3,25.35,1819718,32.68,-22.44,33.02,39.7,1.1
-20260730,25.35,25.5,23.5,24.25,2828749,31.98,-24.17,32.35,39.28,1.66
-20260731,25.9,26.3,25.55,26,871832,31.48,-17.41,31.75,38.91,0.51
-20260803,25.9,28.3,25.75,27.75,1028343,31.17,-10.97,31.14,38.49,0.61
-20260804,27.75,30.3,27.65,29.7,1676567,31.05,-4.34,30.68,38.17,1
-20260805,30.3,32.35,30,31.6,2719777,31.09,1.63,30.34,37.94,1.78
-20260806,31.6,32.5,30.8,31.4,2600978,31.12,0.9,30.03,37.69,1.65
-20260807,33.7,33.7,30.9,31.1,2543276,31.12,-0.06,29.75,37.48,1.55
 20260810,31.1,33.2,31.1,31.4,1790593,31.14,0.83,29.58,37.29,1.09
 20260811,31.35,31.5,30.2,30.7,826172,31.1,-1.3,29.44,37.1,0.52
 20260812,30.7,31.7,30.7,31.7,829533,31.15,1.75,29.34,36.93,0.51
@@ -172,27 +162,35 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260819,28.4,29.85,28.15,29.05,520034,30.75,-5.53,29.39,35.63,0.38
 20260820,29.3,30.95,29.3,30.45,1435104,30.73,-0.9,29.39,35.31,1.05
 20260821,30.45,33.45,30.45,33.45,4363803,30.95,8.07,29.57,35.07,2.83
+20260824,34.95,36.75,34.2,36.75,3249545,31.44,16.91,29.95,34.93,1.94
+20260825,36,36,33.6,35.1,7121074,31.74,10.58,30.36,34.76,3.59
+20260826,36.3,38.6,35.8,37.2,9758595,32.2,15.54,30.95,34.62,4.1
+20260827,37.25,37.8,36,36,4107432,32.51,10.73,31.54,34.48,1.68
+20260828,36.2,38.45,35.8,36.95,5714283,32.88,12.37,32.09,34.32,2.13
+20260831,36.45,37.85,36.15,36.3,2626313,33.17,9.44,32.51,34.2,0.95
+20260901,36,37.25,35.8,36.2,2533476,33.42,8.32,32.84,34.09,0.9
+20260902,35.5,37.5,35.5,36.2,2237715,33.65,7.57,33.07,34.02,0.8
+20260903,36.5,37.6,34.8,34.8,2671227,33.75,3.12,33.24,33.93,0.96
+20260904,35.2,38.1,35,37.65,5271439,34.07,10.5,33.56,33.93,1.8
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260821
-- over_400_ratio: 38.35
-- over_600_ratio: 34.93
-- over_800_ratio: 33.53
-- over_1000_ratio: 33.53
-- over_400_change_1w: 0.18
-- over_800_change_1w: 0.18
-- over_1000_change_1w: 0.18
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260904
+- over_400_ratio: 39.34
+- over_600_ratio: 35.44
+- over_800_ratio: 35.44
+- over_1000_ratio: 34.52
+- over_400_change_1w: 0.42
+- over_800_change_1w: -0.58
+- over_1000_change_1w: -0.54
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260605,37.73,-0.82,33.83,-1.47,32.14,-2.28,0,False,False
-20260612,38.14,0.41,33.85,0.02,32.11,-0.03,1,False,True
 20260618,38.11,-0.03,34.77,0.92,33.13,1.02,2,False,True
 20260626,38.21,0.1,34.17,-0.6,32.46,-0.67,3,False,False
 20260703,38.59,0.38,33.1,-1.07,32.24,-0.22,4,False,False
@@ -203,17 +201,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260807,38.09,-0.07,33.13,-0.27,33.13,-0.27,0,False,False
 20260814,38.17,0.08,33.35,0.22,33.35,0.22,1,True,True
 20260821,38.35,0.18,33.53,0.18,33.53,0.18,2,True,True
+20260828,38.92,0.57,36.02,2.49,35.06,1.53,3,True,True
+20260904,39.34,0.42,35.44,-0.58,34.52,-0.54,4,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 4956 | 光鋐 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 1.股東常會日期:115/06/23 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認114年度虧損撥補案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:通過承認114年度營業報告書及 財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項: 通過授權董事會於適當時機選擇以現金增資發行普通股或參與發行海外存託憑證 籌募營運資金案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=within_14d |
+| 20260904 | 4956 | 光鋐 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 1.股東常會日期:115/06/23 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認114年度虧損撥補案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:通過承認114年度營業報告書及 財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項: 通過授權董事會於適當時機選擇以現金增資發行普通股或參與發行海外存託憑證 籌募營運資金案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260821 | 4956 | 光鋐 | 2 | 1 | 3 | 3 | 3 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260904 | 4956 | 光鋐 | 2 | 1 | 2 | 6 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |
