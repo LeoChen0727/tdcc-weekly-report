@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8183 精星
 
 ## Metadata
-- generated_at: 2026-09-05 15:54:47 Asia/Taipei
+- generated_at: 2026-09-05 22:18:18 Asia/Taipei
 - stock_id: 8183
 - stock_name: 精星
 - packet_status: standard_180d_window_packet

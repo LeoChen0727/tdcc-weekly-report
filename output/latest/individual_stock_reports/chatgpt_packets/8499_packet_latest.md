@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8499 鼎炫-KY
 
 ## Metadata
-- generated_at: 2026-09-05 15:54:52 Asia/Taipei
+- generated_at: 2026-09-05 22:18:25 Asia/Taipei
 - stock_id: 8499
 - stock_name: 鼎炫-KY
 - packet_status: standard_180d_window_packet

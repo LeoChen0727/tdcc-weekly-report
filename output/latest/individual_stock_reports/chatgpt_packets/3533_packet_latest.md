@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3533 嘉澤
 
 ## Metadata
-- generated_at: 2026-09-05 15:53:23 Asia/Taipei
+- generated_at: 2026-09-05 22:16:38 Asia/Taipei
 - stock_id: 3533
 - stock_name: 嘉澤
 - packet_status: standard_180d_window_packet

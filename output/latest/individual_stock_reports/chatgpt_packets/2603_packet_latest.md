@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2603 長榮
 
 ## Metadata
-- generated_at: 2026-09-05 15:52:57 Asia/Taipei
+- generated_at: 2026-09-05 22:16:06 Asia/Taipei
 - stock_id: 2603
 - stock_name: 長榮
 - packet_status: standard_180d_window_packet

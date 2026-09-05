@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4164 承業醫
 
 ## Metadata
-- generated_at: 2026-09-05 15:53:33 Asia/Taipei
+- generated_at: 2026-09-05 22:16:49 Asia/Taipei
 - stock_id: 4164
 - stock_name: 承業醫
 - packet_status: standard_180d_window_packet

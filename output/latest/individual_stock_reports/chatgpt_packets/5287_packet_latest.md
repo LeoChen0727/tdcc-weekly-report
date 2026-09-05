@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5287 數字
 
 ## Metadata
-- generated_at: 2026-09-05 15:53:50 Asia/Taipei
+- generated_at: 2026-09-05 22:17:10 Asia/Taipei
 - stock_id: 5287
 - stock_name: 數字
 - packet_status: standard_180d_window_packet

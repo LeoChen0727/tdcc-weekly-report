@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8027 鈦昇
 
 ## Metadata
-- generated_at: 2026-09-05 15:54:42 Asia/Taipei
+- generated_at: 2026-09-05 22:18:12 Asia/Taipei
 - stock_id: 8027
 - stock_name: 鈦昇
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2722 夏都
 
 ## Metadata
-- generated_at: 2026-09-05 15:53:00 Asia/Taipei
+- generated_at: 2026-09-05 22:16:10 Asia/Taipei
 - stock_id: 2722
 - stock_name: 夏都
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00954 中信日本半導體
 
 ## Metadata
-- generated_at: 2026-09-05 15:52:19 Asia/Taipei
+- generated_at: 2026-09-05 22:15:19 Asia/Taipei
 - stock_id: 00954
 - stock_name: 中信日本半導體
 - packet_status: standard_rawdata_packet

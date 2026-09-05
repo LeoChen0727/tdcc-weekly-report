@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6885 全福生技
 
 ## Metadata
-- generated_at: 2026-09-05 15:54:28 Asia/Taipei
+- generated_at: 2026-09-05 22:17:56 Asia/Taipei
 - stock_id: 6885
 - stock_name: 全福生技
 - packet_status: standard_180d_window_packet

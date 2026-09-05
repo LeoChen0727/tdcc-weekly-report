@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8411 福貞-KY
 
 ## Metadata
-- generated_at: 2026-09-05 15:54:49 Asia/Taipei
+- generated_at: 2026-09-05 22:18:22 Asia/Taipei
 - stock_id: 8411
 - stock_name: 福貞-KY
 - packet_status: standard_180d_window_packet

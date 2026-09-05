@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6202 盛群
 
 ## Metadata
-- generated_at: 2026-09-05 15:54:05 Asia/Taipei
+- generated_at: 2026-09-05 22:17:28 Asia/Taipei
 - stock_id: 6202
 - stock_name: 盛群
 - packet_status: standard_180d_window_packet

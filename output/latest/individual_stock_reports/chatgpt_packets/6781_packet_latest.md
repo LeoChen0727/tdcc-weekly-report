@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6781 AES-KY
 
 ## Metadata
-- generated_at: 2026-09-05 15:54:24 Asia/Taipei
+- generated_at: 2026-09-05 22:17:52 Asia/Taipei
 - stock_id: 6781
 - stock_name: AES-KY
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00731 復華富時高息低波
 
 ## Metadata
-- generated_at: 2026-09-05 15:52:16 Asia/Taipei
+- generated_at: 2026-09-05 22:15:16 Asia/Taipei
 - stock_id: 00731
 - stock_name: 復華富時高息低波
 - packet_status: standard_rawdata_packet

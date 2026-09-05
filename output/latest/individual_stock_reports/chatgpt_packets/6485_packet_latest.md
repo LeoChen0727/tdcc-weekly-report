@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6485 點序
 
 ## Metadata
-- generated_at: 2026-09-05 15:54:13 Asia/Taipei
+- generated_at: 2026-09-05 22:17:38 Asia/Taipei
 - stock_id: 6485
 - stock_name: 點序
 - packet_status: standard_180d_window_packet

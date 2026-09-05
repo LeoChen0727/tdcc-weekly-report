@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00700 富邦恒生國企
 
 ## Metadata
-- generated_at: 2026-09-05 15:52:15 Asia/Taipei
+- generated_at: 2026-09-05 22:15:15 Asia/Taipei
 - stock_id: 00700
 - stock_name: 富邦恒生國企
 - packet_status: standard_rawdata_packet

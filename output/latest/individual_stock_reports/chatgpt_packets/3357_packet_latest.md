@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3357 臺慶科
 
 ## Metadata
-- generated_at: 2026-09-05 15:53:19 Asia/Taipei
+- generated_at: 2026-09-05 22:16:32 Asia/Taipei
 - stock_id: 3357
 - stock_name: 臺慶科
 - packet_status: standard_180d_window_packet

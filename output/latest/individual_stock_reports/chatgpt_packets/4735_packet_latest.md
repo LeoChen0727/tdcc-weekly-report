@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4735 豪展
 
 ## Metadata
-- generated_at: 2026-09-05 15:53:41 Asia/Taipei
+- generated_at: 2026-09-05 22:16:59 Asia/Taipei
 - stock_id: 4735
 - stock_name: 豪展
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5371 中光電
 
 ## Metadata
-- generated_at: 2026-09-05 15:53:52 Asia/Taipei
+- generated_at: 2026-09-05 22:17:12 Asia/Taipei
 - stock_id: 5371
 - stock_name: 中光電
 - packet_status: standard_180d_window_packet

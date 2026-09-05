@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4909 新復興
 
 ## Metadata
-- generated_at: 2026-09-05 15:53:43 Asia/Taipei
+- generated_at: 2026-09-05 22:17:02 Asia/Taipei
 - stock_id: 4909
 - stock_name: 新復興
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8114 振樺電
 
 ## Metadata
-- generated_at: 2026-09-05 15:54:46 Asia/Taipei
+- generated_at: 2026-09-05 22:18:17 Asia/Taipei
 - stock_id: 8114
 - stock_name: 振樺電
 - packet_status: standard_180d_window_packet

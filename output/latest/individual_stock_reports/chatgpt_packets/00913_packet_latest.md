@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00913 兆豐台灣晶圓製造
 
 ## Metadata
-- generated_at: 2026-09-05 15:52:17 Asia/Taipei
+- generated_at: 2026-09-05 22:15:18 Asia/Taipei
 - stock_id: 00913
 - stock_name: 兆豐台灣晶圓製造
 - packet_status: standard_rawdata_packet

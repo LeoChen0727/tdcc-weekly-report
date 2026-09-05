@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8067 志旭
 
 ## Metadata
-- generated_at: 2026-09-05 15:54:43 Asia/Taipei
+- generated_at: 2026-09-05 22:18:14 Asia/Taipei
 - stock_id: 8067
 - stock_name: 志旭
 - packet_status: standard_180d_window_packet

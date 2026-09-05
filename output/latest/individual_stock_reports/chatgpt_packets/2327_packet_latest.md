@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2327 國巨*
 
 ## Metadata
-- generated_at: 2026-09-05 15:52:45 Asia/Taipei
+- generated_at: 2026-09-05 22:15:51 Asia/Taipei
 - stock_id: 2327
 - stock_name: 國巨*
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00927 群益半導體收益
 
 ## Metadata
-- generated_at: 2026-09-05 15:52:18 Asia/Taipei
+- generated_at: 2026-09-05 22:15:18 Asia/Taipei
 - stock_id: 00927
 - stock_name: 群益半導體收益
 - packet_status: standard_rawdata_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6541 泰福-KY
 
 ## Metadata
-- generated_at: 2026-09-05 15:54:15 Asia/Taipei
+- generated_at: 2026-09-05 22:17:41 Asia/Taipei
 - stock_id: 6541
 - stock_name: 泰福-KY
 - packet_status: standard_180d_window_packet

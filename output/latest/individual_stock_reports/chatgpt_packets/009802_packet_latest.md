@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009802 富邦旗艦50
 
 ## Metadata
-- generated_at: 2026-09-05 15:52:19 Asia/Taipei
+- generated_at: 2026-09-05 22:15:20 Asia/Taipei
 - stock_id: 009802
 - stock_name: 富邦旗艦50
 - packet_status: standard_rawdata_packet

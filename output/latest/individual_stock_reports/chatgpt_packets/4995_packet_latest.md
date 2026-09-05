@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4995 晶達
 
 ## Metadata
-- generated_at: 2026-09-05 15:53:47 Asia/Taipei
+- generated_at: 2026-09-05 22:17:06 Asia/Taipei
 - stock_id: 4995
 - stock_name: 晶達
 - packet_status: standard_180d_window_packet

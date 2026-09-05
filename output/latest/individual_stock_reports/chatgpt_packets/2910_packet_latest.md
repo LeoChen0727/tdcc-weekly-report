@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2910 統領
 
 ## Metadata
-- generated_at: 2026-09-05 15:53:05 Asia/Taipei
+- generated_at: 2026-09-05 22:16:15 Asia/Taipei
 - stock_id: 2910
 - stock_name: 統領
 - packet_status: standard_180d_window_packet

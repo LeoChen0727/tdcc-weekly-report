@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8176 智捷
 
 ## Metadata
-- generated_at: 2026-09-05 15:54:46 Asia/Taipei
+- generated_at: 2026-09-05 22:18:18 Asia/Taipei
 - stock_id: 8176
 - stock_name: 智捷
 - packet_status: standard_180d_window_packet

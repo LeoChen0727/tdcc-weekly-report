@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009827 玉山未來全球算力
 
 ## Metadata
-- generated_at: 2026-09-05 15:52:20 Asia/Taipei
+- generated_at: 2026-09-05 22:15:20 Asia/Taipei
 - stock_id: 009827
 - stock_name: 玉山未來全球算力
 - packet_status: partial_rawdata_packet

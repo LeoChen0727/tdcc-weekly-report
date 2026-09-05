@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00939 統一台灣高息動能
 
 ## Metadata
-- generated_at: 2026-09-05 15:52:18 Asia/Taipei
+- generated_at: 2026-09-05 22:15:19 Asia/Taipei
 - stock_id: 00939
 - stock_name: 統一台灣高息動能
 - packet_status: standard_rawdata_packet

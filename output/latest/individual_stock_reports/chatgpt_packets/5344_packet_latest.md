@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5344 立衛
 
 ## Metadata
-- generated_at: 2026-09-05 15:53:51 Asia/Taipei
+- generated_at: 2026-09-05 22:17:12 Asia/Taipei
 - stock_id: 5344
 - stock_name: 立衛
 - packet_status: standard_180d_window_packet

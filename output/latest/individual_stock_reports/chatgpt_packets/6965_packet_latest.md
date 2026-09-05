@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6965 中傑-KY
 
 ## Metadata
-- generated_at: 2026-09-05 15:54:31 Asia/Taipei
+- generated_at: 2026-09-05 22:18:00 Asia/Taipei
 - stock_id: 6965
 - stock_name: 中傑-KY
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0099 主動復華未來50
 
 ## Metadata
-- generated_at: 2026-09-05 15:52:20 Asia/Taipei
+- generated_at: 2026-09-05 22:15:20 Asia/Taipei
 - stock_id: 0099
 - stock_name: 主動復華未來50
 - packet_status: insufficient_price_data

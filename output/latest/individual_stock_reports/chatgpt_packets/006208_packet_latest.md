@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 006208 富邦台50
 
 ## Metadata
-- generated_at: 2026-09-05 15:52:15 Asia/Taipei
+- generated_at: 2026-09-05 22:15:14 Asia/Taipei
 - stock_id: 006208
 - stock_name: 富邦台50
 - packet_status: standard_rawdata_packet

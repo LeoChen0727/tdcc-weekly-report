@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009820 元大納斯達克精選
 
 ## Metadata
-- generated_at: 2026-09-05 15:52:20 Asia/Taipei
+- generated_at: 2026-09-05 22:15:20 Asia/Taipei
 - stock_id: 009820
 - stock_name: 元大納斯達克精選
 - packet_status: standard_rawdata_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3628 盈正
 
 ## Metadata
-- generated_at: 2026-09-05 15:53:27 Asia/Taipei
+- generated_at: 2026-09-05 22:16:42 Asia/Taipei
 - stock_id: 3628
 - stock_name: 盈正
 - packet_status: standard_180d_window_packet

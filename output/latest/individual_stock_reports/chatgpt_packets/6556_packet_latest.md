@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6556 勝品
 
 ## Metadata
-- generated_at: 2026-09-05 15:54:16 Asia/Taipei
+- generated_at: 2026-09-05 22:17:42 Asia/Taipei
 - stock_id: 6556
 - stock_name: 勝品
 - packet_status: standard_180d_window_packet

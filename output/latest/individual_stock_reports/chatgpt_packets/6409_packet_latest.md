@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6409 旭隼
 
 ## Metadata
-- generated_at: 2026-09-05 15:54:11 Asia/Taipei
+- generated_at: 2026-09-05 22:17:35 Asia/Taipei
 - stock_id: 6409
 - stock_name: 旭隼
 - packet_status: standard_180d_window_packet

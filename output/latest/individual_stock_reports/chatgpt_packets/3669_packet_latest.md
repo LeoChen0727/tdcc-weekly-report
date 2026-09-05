@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3669 圓展
 
 ## Metadata
-- generated_at: 2026-09-05 15:53:28 Asia/Taipei
+- generated_at: 2026-09-05 22:16:43 Asia/Taipei
 - stock_id: 3669
 - stock_name: 圓展
 - packet_status: standard_180d_window_packet

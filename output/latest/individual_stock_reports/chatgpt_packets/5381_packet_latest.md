@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5381 光譜
 
 ## Metadata
-- generated_at: 2026-09-05 15:53:52 Asia/Taipei
+- generated_at: 2026-09-05 22:17:12 Asia/Taipei
 - stock_id: 5381
 - stock_name: 光譜
 - packet_status: standard_180d_window_packet
