@@ -1,7 +1,7 @@
 {
   "status": "pass",
-  "generated_at": "2026-08-29 15:28:55 Asia/Taipei",
-  "signal_date": "20260828",
+  "generated_at": "2026-09-05 15:28:10 Asia/Taipei",
+  "signal_date": "20260904",
   "readiness_path": "output/latest/tdcc_weekly_data_readiness_latest.json",
   "required_periods": 0,
   "required_dates": [
@@ -22,10 +22,11 @@
     "20260807",
     "20260814",
     "20260821",
-    "20260828"
+    "20260828",
+    "20260904"
   ],
-  "current_stock_count": 1968,
-  "missing_rows_before": 6,
+  "current_stock_count": 1966,
+  "missing_rows_before": 7,
   "missing_before": [
     {
       "date": "20260626",
@@ -59,6 +60,14 @@
       "missing_stock_ids": [
         "6176",
         "6241"
+      ]
+    },
+    {
+      "date": "20260828",
+      "missing_stock_count": 1,
+      "existing_rows": 1968,
+      "missing_stock_ids": [
+        "4747"
       ]
     }
   ],
@@ -110,13 +119,21 @@
       "status": "official_no_data",
       "attempts": 3,
       "message": "official query returned no distribution row"
+    },
+    {
+      "date": "20260828",
+      "stock_id": "4747",
+      "stock_name": "強生",
+      "status": "invalid_holder_distribution",
+      "attempts": 1,
+      "message": "single-holder or placeholder distribution"
     }
   ],
   "repaired_count": 0,
   "failed_count": 0,
-  "accepted_exception_count": 6,
+  "accepted_exception_count": 7,
   "official_no_data_count": 2,
-  "invalid_holder_distribution_count": 4,
+  "invalid_holder_distribution_count": 5,
   "confirmed_history_exceptions": [
     {
       "date": "20260626",
@@ -141,11 +158,15 @@
     {
       "date": "20260821",
       "stock_id": "6241"
+    },
+    {
+      "date": "20260828",
+      "stock_id": "4747"
     }
   ],
   "history_exception_limit": 20,
   "systemic_history_exception": false,
-  "missing_rows_after": 6,
+  "missing_rows_after": 7,
   "unresolved_missing_rows": 0,
   "unresolved": []
 }
