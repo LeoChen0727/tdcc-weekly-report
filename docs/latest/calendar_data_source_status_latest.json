@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04 19:41:38 Asia/Taipei",
+  "generated_at": "2026-09-06 08:08:46 Asia/Taipei",
   "files": {
     "company_event_calendar": {
       "path": "data/company_calendar/company_event_calendar.csv",
@@ -11,11 +11,11 @@
     },
     "upcoming_catalyst_calendar": {
       "path": "output/latest/upcoming_catalyst_calendar_latest.csv",
-      "rows": 900
+      "rows": 889
     },
     "upcoming_macro_event_calendar": {
       "path": "output/latest/upcoming_macro_event_calendar_latest.csv",
-      "rows": 18
+      "rows": 19
     }
   },
   "sources": {
