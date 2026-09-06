@@ -64,6 +64,164 @@ SIGNAL_SEMANTIC_COLUMNS = (
     "model_operation_guidance",
     "selection_semantics",
 )
+EVENT_ARTIFACT_COLUMNS = (
+    "artifact_version",
+    "model_id",
+    "source_artifact_id",
+    "snapshot_revision_policy",
+    "snapshot_report_date",
+    "snapshot_revision",
+    "snapshot_path",
+    "snapshot_sha256",
+    "snapshot_manifest_sha256",
+    "snapshot_pipeline_commit_sha",
+    "snapshot_total_row_count",
+    "snapshot_total_column_count",
+    "snapshot_target_model_row_count",
+    "snapshot_csv_row_number",
+    "target_model_row_ordinal",
+    "published_source_row_index",
+    "source_row_sha256",
+    "signal_semantic_sha256",
+    "signal_date",
+    "stock_id",
+    "stock_name",
+    "report_line",
+    "report_bucket",
+    "model_score",
+    "published_entry_basis",
+    "entry_rule",
+    "price_source_path",
+    "price_source_sha256",
+    "price_source_sha256_basis",
+    "price_source_immutability_status",
+    "trading_calendar_status",
+    "realized_price_basis",
+    "return_cost_basis",
+    "statistical_trigger_status",
+    "anomaly_candidate_horizons",
+    "anomaly_disposition",
+    "anomaly_primary_metric_policy",
+    "formal_use_allowed",
+    "trade_eligible",
+    "promotion_evidence_allowed",
+    "operation_contract_status",
+    "operation_use_status",
+    "producer_source_sha256",
+    "entry_date",
+    "entry_open_price",
+    "entry_price_row_sha256",
+    "overall_maturity_status",
+    "d5_maturity_status",
+    "d5_exit_date",
+    "d5_exit_close_price",
+    "d5_exit_price_row_sha256",
+    "d5_return_pct",
+    "d5_outcome",
+    "d5_anomaly_candidate",
+    "d10_maturity_status",
+    "d10_exit_date",
+    "d10_exit_close_price",
+    "d10_exit_price_row_sha256",
+    "d10_return_pct",
+    "d10_outcome",
+    "d10_anomaly_candidate",
+    "d20_maturity_status",
+    "d20_exit_date",
+    "d20_exit_close_price",
+    "d20_exit_price_row_sha256",
+    "d20_return_pct",
+    "d20_outcome",
+    "d20_anomaly_candidate",
+    "signal_event_id",
+    "source_duplicate_ordinal",
+    "source_duplicate_count",
+    "identity_disposition",
+    "primary_metric_included",
+    "generated_at",
+)
+SUMMARY_ARTIFACT_COLUMNS = (
+    "artifact_version",
+    "model_id",
+    "snapshot_revision_policy",
+    "entry_rule",
+    "exit_rule",
+    "stop_rule",
+    "published_source_row_count",
+    "unique_signal_event_count",
+    "duplicate_presentation_row_count",
+    "snapshot_report_count",
+    "report_date_min",
+    "report_date_max",
+    "source_snapshot_set_sha256",
+    "source_price_set_sha256",
+    "primary_metric_basis",
+    "primary_retains_unresolved_anomaly_candidates",
+    "excluded_anomaly_candidate_count",
+    "right_censoring_policy",
+    "sensitivity_analysis_basis",
+    "sensitivity_is_corrected_primary",
+    "price_source_formal_lineage_status",
+    "formal_use_allowed",
+    "trade_eligible",
+    "promotion_evidence_allowed",
+    "operation_contract_status",
+    "interpretation_status",
+    "generated_at",
+    "horizon",
+    "holding_trading_rows",
+    "signal_event_count",
+    "mature_count",
+    "not_mature_count",
+    "right_censored_count",
+    "invalid_price_count",
+    "win_count",
+    "neutral_count",
+    "failure_count",
+    "win_rate_pct",
+    "neutral_rate_pct",
+    "failure_rate_pct",
+    "average_return_pct",
+    "median_return_pct",
+    "unresolved_anomaly_candidate_count",
+    "sensitivity_sample_count",
+    "sensitivity_excluded_anomaly_candidate_count",
+    "sensitivity_win_count",
+    "sensitivity_neutral_count",
+    "sensitivity_failure_count",
+    "sensitivity_win_rate_pct",
+    "sensitivity_average_return_pct",
+    "sensitivity_median_return_pct",
+    "promotion_blockers",
+)
+ANOMALY_ARTIFACT_COLUMNS = (
+    "artifact_version",
+    "anomaly_candidate_id",
+    "signal_event_id",
+    "model_id",
+    "signal_date",
+    "stock_id",
+    "horizon",
+    "realized_return_pct",
+    "statistical_trigger_method",
+    "statistical_trigger_threshold_pct",
+    "statistical_trigger_status",
+    "final_disposition",
+    "primary_metric_policy",
+    "promotion_policy",
+    "required_root_checks",
+    "completed_root_checks",
+    "missing_root_checks",
+    "snapshot_sha256",
+    "source_row_sha256",
+    "price_source_sha256",
+    "price_source_immutability_status",
+    "retained_in_primary_metrics",
+    "formal_use_allowed",
+    "promotion_evidence_allowed",
+    "operation_contract_status",
+    "generated_at",
+)
 EVENT_REQUIRED_COLUMNS = {
     "artifact_version",
     "model_id",
@@ -204,6 +362,33 @@ ANOMALY_REQUIRED_COLUMNS = {
     "operation_contract_status",
     "generated_at",
 }
+
+
+def _exact_header_errors(
+    artifact_name: str,
+    frame: pd.DataFrame,
+    expected_columns: tuple[str, ...],
+) -> list[str]:
+    observed_columns = tuple(str(column) for column in frame.columns)
+    if observed_columns == expected_columns:
+        return []
+    expected_set = set(expected_columns)
+    observed_set = set(observed_columns)
+    missing = [column for column in expected_columns if column not in observed_set]
+    extra = [column for column in observed_columns if column not in expected_set]
+    errors: list[str] = []
+    if missing:
+        errors.append(f"{artifact_name} artifact header missing columns: {missing}")
+    if extra:
+        errors.append(
+            f"{artifact_name} artifact header has unexpected columns: {extra}"
+        )
+    if not missing and not extra:
+        errors.append(
+            f"{artifact_name} artifact header column order mismatch: "
+            f"expected={list(expected_columns)}; observed={list(observed_columns)}"
+        )
+    return errors
 
 
 def _canonical_file_sha256(path: Path) -> str:
@@ -808,15 +993,12 @@ def validate_replay_bundle(
     through_date: str = "",
 ) -> list[str]:
     errors: list[str] = []
-    missing_events = sorted(EVENT_REQUIRED_COLUMNS - set(events.columns))
-    missing_summary = sorted(SUMMARY_REQUIRED_COLUMNS - set(summary.columns))
-    missing_anomalies = sorted(ANOMALY_REQUIRED_COLUMNS - set(anomalies.columns))
-    if missing_events:
-        errors.append(f"events missing columns: {missing_events}")
-    if missing_summary:
-        errors.append(f"summary missing columns: {missing_summary}")
-    if missing_anomalies:
-        errors.append(f"anomalies missing columns: {missing_anomalies}")
+    for name, frame, expected_columns in (
+        ("events", events, EVENT_ARTIFACT_COLUMNS),
+        ("summary", summary, SUMMARY_ARTIFACT_COLUMNS),
+        ("anomalies", anomalies, ANOMALY_ARTIFACT_COLUMNS),
+    ):
+        errors.extend(_exact_header_errors(name, frame, expected_columns))
     if errors:
         return errors
     if events.empty:

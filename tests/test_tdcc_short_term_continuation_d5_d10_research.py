@@ -463,6 +463,44 @@ def test_exact_union_replay_is_close_confirmed_and_fail_closed(tmp_path: Path) -
     assert validate_fixture(paths, outputs) == []
 
 
+def test_artifact_schemas_fail_closed_on_missing_extra_reordered_or_duplicate_columns(
+    tmp_path: Path,
+) -> None:
+    paths, outputs = produce_fixture(tmp_path)
+    artifacts = {
+        "events artifact": outputs.events,
+        "summary artifact": outputs.summary,
+        "anomaly artifact": outputs.anomaly,
+        "research manifest artifact": outputs.manifest,
+    }
+    original_payloads = {path: path.read_bytes() for path in artifacts.values()}
+
+    for label, artifact_path in artifacts.items():
+        for mutation in ("missing", "extra", "reordered", "duplicate"):
+            for path, payload in original_payloads.items():
+                path.write_bytes(payload)
+            frame = pd.read_csv(artifact_path, dtype=str, keep_default_na=False)
+            columns = list(frame.columns)
+            if mutation == "missing":
+                frame = frame.drop(columns=[columns[-1]])
+            elif mutation == "extra":
+                frame["unexpected_schema_column"] = ""
+            elif mutation == "reordered":
+                frame = frame[[columns[1], columns[0], *columns[2:]]]
+            elif mutation == "duplicate":
+                frame.insert(1, columns[0], frame.iloc[:, 0], allow_duplicates=True)
+            else:  # pragma: no cover - mutation tuple is exhaustive
+                raise AssertionError(mutation)
+            frame.to_csv(artifact_path, index=False)
+
+            errors = validate_fixture(paths, outputs)
+
+            assert errors, f"{label}/{mutation} unexpectedly passed"
+            assert (
+                f"{label} schema must exactly match ordered contract" in errors[0]
+            ), f"{label}/{mutation}: {errors}"
+
+
 def test_empty_summary_group_boolean_counts_are_dtype_stable() -> None:
     empty_group = pd.DataFrame(
         {
