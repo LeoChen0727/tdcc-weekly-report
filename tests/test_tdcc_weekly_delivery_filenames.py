@@ -496,6 +496,7 @@ def test_tdcc_weekly_missing_price_is_disclosed_and_not_converted_to_zero(monkey
     errors: list[str] = []
     validator.validate_report_facts(report, "missing price", enriched, enriched, errors)
     assert errors == []
+    report["report_price_return_5d"] = report["report_price_return_5d"].astype(object)
     report.loc[report.index[0], "report_price_return_5d"] = 0.0
     errors = []
     validator.validate_report_facts(report, "fabricated zero", enriched, enriched, errors)
@@ -556,3 +557,38 @@ def test_tdcc_weekly_blank_price_date_does_not_extend_the_available_window(monke
     assert row["price_context_date"] == "20260904"
     assert validator.safe_str(row["price_start_date_5d"]) == ""
     assert validator.safe_str(row["report_price_return_5d"]) == ""
+
+
+@pytest.mark.parametrize("has_price_history", [True, False])
+def test_tdcc_weekly_price_context_keeps_numeric_dtypes_with_missing_rows(
+    monkeypatch: pytest.MonkeyPatch, has_price_history: bool,
+) -> None:
+    dates = pd.bdate_range("20260807", "20260904").strftime("%Y%m%d").tolist()
+    history = pd.DataFrame({"date": dates, "close": [100.0 + day for day in range(21)], "ma20": [110.0] * 21})
+    monkeypatch.setattr(
+        builder,
+        "cached_price_history",
+        lambda stock_id: history if has_price_history and stock_id == "1815" else pd.DataFrame(),
+    )
+    source = pd.DataFrame(
+        [{"signal_date": "20260904", "stock_id": "1815"}, {"signal_date": "20260904", "stock_id": "9999"}],
+        index=[11, 23],
+    )
+
+    result = builder.add_report_price_context(source)
+
+    assert result.index.tolist() == [11, 23]
+    numeric_columns = [*validator.PRICE_RETURN_COLUMNS, "report_distance_ma20_pct"]
+    for column in numeric_columns:
+        assert pd.api.types.is_float_dtype(result[column].dtype), f"{column}: {result[column].dtype}"
+        assert pd.isna(result.at[23, column])
+        if not has_price_history:
+            assert result[column].isna().all()
+    for column in ["price_context_date", "price_context_source", *validator.PRICE_START_COLUMNS]:
+        assert pd.api.types.is_object_dtype(result[column].dtype), f"{column}: {result[column].dtype}"
+        assert result.at[23, column] == ""
+    if has_price_history:
+        assert result.at[11, "report_price_return_20d"] == pytest.approx(20.0)
+        assert result.at[11, "report_distance_ma20_pct"] == pytest.approx((120.0 / 110.0 - 1) * 100)
+        assert result.at[11, "price_context_date"] == "20260904"
+        assert result.at[11, "price_start_date_20d"] == "20260807"
