@@ -1,6 +1,6 @@
 {
   "status": "pass",
-  "generated_at": "2026-09-05 15:26:30 Asia/Taipei",
+  "generated_at": "2026-09-07 14:33:54 Asia/Taipei",
   "as_of_date": "20260905",
   "timezone": "Asia/Taipei",
   "target_week_start": "20260831",
@@ -9,7 +9,6 @@
   "latest_official_date": "20260904",
   "previous_official_date": "20260828",
   "official_dates": [
-    "20250905",
     "20250912",
     "20250919",
     "20250926",

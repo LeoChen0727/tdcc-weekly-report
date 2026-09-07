@@ -1,8 +1,8 @@
 # TDCC Weekly Run Status
 
-- generated_at: `2026-09-05 15:45:55 Asia/Taipei`
-- github_run: https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/33952461206
-- commit: `c5089af315a8d5310da4ac7ba5772c5180beda2e`
+- generated_at: `2026-09-07 14:51:35 Asia/Taipei`
+- github_run: https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/34091255758
+- commit: `8db13b4490544f96663d297d68a081ce420c8b84`
 
 ## Outputs
 
@@ -10,14 +10,14 @@
 |---|---:|---:|
 | `output/latest/tdcc_weekly_report_latest.md` | yes | 146 |
 | `output/latest/tdcc_holder_ratio_latest.csv` | yes | 1967 |
-| `output/latest/tdcc_weekly_data_readiness_latest.json` | yes | 67 |
+| `output/latest/tdcc_weekly_data_readiness_latest.json` | yes | 66 |
 | `output/latest/tdcc_weekly_data_readiness_latest.md` | yes | 13 |
 | `output/latest/tdcc_weekly_history_continuity_latest.json` | yes | 172 |
 | `output/latest/tdcc_weekly_history_continuity_latest.md` | yes | 37 |
 | `output/latest/tdcc_dataset_manifest_latest.json` | yes | 628 |
 | `output/latest/tdcc_analytics/tdcc_analytics_manifest_latest.json` | yes | 382 |
 | `output/latest/tdcc_analytics/tdcc_holder_ratio_history_latest.parquet` | yes | 2470 |
-| `output/latest/tdcc_analytics/tdcc_analytics_latest.duckdb` | yes | 4111 |
+| `output/latest/tdcc_analytics/tdcc_analytics_latest.duckdb` | yes | 3903 |
 | `output/latest/tdcc_invalid_holder_distribution_latest.csv` | yes | 3 |
 | `output/latest/tdcc_signal_performance_latest.md` | yes | 501 |
 | `output/latest/tdcc_signal_structures_latest.md` | yes | 130 |
@@ -44,14 +44,14 @@
 | `output/latest/tdcc_weekly_model_cross_summary_latest.md` | yes | 26 |
 | `output/latest/tdcc_weekly_model_cross_summary_latest.csv` | yes | 18 |
 | `output/latest/tdcc_weekly_report_section_manifest_latest.csv` | yes | 5 |
-| `output/latest/tdcc_weekly_candidate_highlight_for_report_latest.md` | yes | 62 |
+| `output/latest/tdcc_weekly_candidate_highlight_for_report_latest.md` | yes | 65 |
 | `output/latest/tdcc_weekly_candidate_highlight_for_report_latest.csv` | yes | 38 |
-| `output/latest/tdcc_weekly_candidate_full_for_report_latest.md` | yes | 110 |
+| `output/latest/tdcc_weekly_candidate_full_for_report_latest.md` | yes | 113 |
 | `output/latest/tdcc_weekly_candidate_full_for_report_latest.csv` | yes | 86 |
-| `output/latest/tdcc_weekly_candidate_highlight_latest.md` | yes | 62 |
-| `output/latest/tdcc_weekly_candidate_full_latest.md` | yes | 110 |
-| `output/latest/tdcc_weekly_candidate_highlight_latest.pdf` | yes | 1005 |
-| `output/latest/tdcc_weekly_candidate_full_latest.pdf` | yes | 1218 |
+| `output/latest/tdcc_weekly_candidate_highlight_latest.md` | yes | 65 |
+| `output/latest/tdcc_weekly_candidate_full_latest.md` | yes | 113 |
+| `output/latest/tdcc_weekly_candidate_highlight_latest.pdf` | yes | 849 |
+| `output/latest/tdcc_weekly_candidate_full_latest.pdf` | yes | 1144 |
 | `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_完整版_20260618.pdf` | yes | 780 |
 | `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_完整版_20260626.pdf` | yes | 1243 |
 | `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_完整版_20260703.pdf` | yes | 1301 |
@@ -62,7 +62,7 @@
 | `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_完整版_20260814.pdf` | yes | 1139 |
 | `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_完整版_20260821.pdf` | yes | 1222 |
 | `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_完整版_20260828.pdf` | yes | 1167 |
-| `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_完整版_20260904.pdf` | yes | 1218 |
+| `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_完整版_20260904.pdf` | yes | 1144 |
 | `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_精華版_20260618.pdf` | yes | 590 |
 | `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_精華版_20260626.pdf` | yes | 954 |
 | `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_精華版_20260703.pdf` | yes | 873 |
@@ -73,7 +73,7 @@
 | `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_精華版_20260814.pdf` | yes | 787 |
 | `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_精華版_20260821.pdf` | yes | 1013 |
 | `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_精華版_20260828.pdf` | yes | 996 |
-| `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_精華版_20260904.pdf` | yes | 1005 |
+| `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_精華版_20260904.pdf` | yes | 849 |
 | `output/latest/tdcc_weekly_candidate_report_validation_latest.md` | yes | 60 |
 | `output/latest/tdcc_weekly_candidate_report_validation_latest.json` | yes | 112 |
 | `output/latest/tdcc_chatgpt_tracking_validation_latest.md` | yes | 14 |

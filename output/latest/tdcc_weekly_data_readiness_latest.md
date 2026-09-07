@@ -1,7 +1,7 @@
 # TDCC Weekly Data Readiness
 
 - status: `pass`
-- generated_at: `2026-09-05 15:26:30 Asia/Taipei`
+- generated_at: `2026-09-07 14:33:54 Asia/Taipei`
 - as_of_date: `20260905`
 - target_week: `20260831 ~ 20260904`
 - selected_official_date: `20260904`

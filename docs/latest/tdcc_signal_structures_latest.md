@@ -1,6 +1,6 @@
 # TDCC Normalized Signal Structures
 
-- generated_at: `2026-09-05 15:36:37 Asia/Taipei`
+- generated_at: `2026-09-07 14:44:03 Asia/Taipei`
 - source_tdcc_dataset_id: `tdcc-20260904-ef2f08472cf64a89`
 - processed_snapshot_window: `full_history`
 - price_metrics_limit: `500`
