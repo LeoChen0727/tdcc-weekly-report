@@ -40,6 +40,13 @@ FOUR_MODEL_STAGE_ALLOWLISTS = {
     ),
     "output/latest/research_backtest/tdcc_short_term_continuation_d5_d10_research_*",
 }
+TDCC_STEALTH_PIT_AUDIT_ENTRYPOINT = (
+    "run_tdcc_stealth_accumulation_pit_replay_availability_audit",
+    "scripts/audit_tdcc_stealth_accumulation_pit_replay_availability.py",
+    "scripts/validate_tdcc_stealth_accumulation_pit_replay_availability.py",
+    "output/research/tdcc_stealth_accumulation/"
+    "tdcc_stealth_accumulation_pit_replay_availability_audit_v1.csv",
+)
 
 
 def _inputs() -> tuple[str, list[validator.WorkflowEntrypoint], dict[str, str]]:
@@ -116,6 +123,46 @@ def test_model_entrypoint_allows_blank_optional_stage_slots() -> None:
     assert row.latest_stage_glob
     assert row.history_stage_glob == ""
     assert row.docs_stage_glob == ""
+    assert validator.validate_workflow_text(text, rows, producers) == []
+
+
+def test_tdcc_stealth_pit_availability_audit_has_independent_opt_in_entrypoint() -> None:
+    text, rows, producers = _inputs()
+    workflow_input, producer, validator_script, artifact = (
+        TDCC_STEALTH_PIT_AUDIT_ENTRYPOINT
+    )
+    row = next(
+        row
+        for row in rows
+        if row.model_id
+        == "tdcc_stealth_accumulation_pit_replay_availability_audit"
+    )
+
+    assert row.workflow_input == workflow_input
+    assert row.producer == producer
+    assert row.latest_stage_glob == artifact
+    assert row.history_stage_glob == ""
+    assert row.docs_stage_glob == ""
+    assert row.default_enabled is False
+    assert row.formal_sync_allowed is False
+    assert validator.MODEL_PR_VALIDATION_DOMAINS[row.model_id] == (
+        validator.pr_scope.SHARED_MODEL_RESEARCH
+    )
+
+    producer_command = f"python {producer}"
+    blocks = [
+        block
+        for block in validator.workflow_step_blocks(text)
+        if producer_command in block
+    ]
+    assert len(blocks) == 1
+    assert f"github.event.inputs.{workflow_input} == 'true'" in blocks[0]
+    assert f"python {validator_script}" in blocks[0]
+    assert (
+        f'if [[ "${{{{ github.event.inputs.{workflow_input} }}}}" == "true" ]]; then\n'
+        f"            git add {artifact} || true\n"
+        "          fi"
+    ) in text
     assert validator.validate_workflow_text(text, rows, producers) == []
 
 

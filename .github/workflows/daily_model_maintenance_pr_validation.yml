@@ -294,6 +294,7 @@ jobs:
           python scripts/validate_mature_model_row_level_metric_contract_audit.py
           python scripts/validate_research_against_stock_model_contract.py
           python scripts/validate_daily_model_research_parity.py
+          python scripts/validate_tdcc_stealth_accumulation_pit_replay_availability.py
 
       - name: Run shared model research regression tests
         run: |
@@ -313,6 +314,7 @@ jobs:
             tests/test_hot_theme_pullback_research.py \
             tests/test_pullback_short_reclaim_research.py \
             tests/test_tdcc_stealth_accumulation_research.py \
+            tests/test_tdcc_stealth_accumulation_pit_replay_availability.py \
             tests/test_tdcc_short_term_continuation_d5_d10_research.py
 
   volume_v2_research:
