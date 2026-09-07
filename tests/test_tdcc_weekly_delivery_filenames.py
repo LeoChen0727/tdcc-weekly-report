@@ -98,6 +98,7 @@ def _tdcc_report(section_ids: list[str], report_kind: str = "highlight") -> pd.D
         )
         if section_id.startswith("model_cross_"):
             row["model_id"] = "tdcc_short_term_continuation_d5_d10"
+        row.update(builder.report_facts(pd.Series(row)))
         rows.append(row)
     return builder.ensure_columns(pd.DataFrame(rows), builder.REPORT_COLUMNS)
 
@@ -123,10 +124,15 @@ def test_tdcc_weekly_delivery_pdf_paths_reject_non_signal_date() -> None:
         validator.delivery_pdf_path("full", "")
 
 
-def test_tdcc_weekly_model_cross_empty_sections_do_not_fail_builder_validation() -> None:
+def test_tdcc_weekly_model_cross_empty_sections_do_not_fail_builder_validation(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     manifest = _tdcc_manifest()
     highlight = _tdcc_report(["weekly_increase", "consecutive_accumulation"], "highlight")
     full = _tdcc_report(["weekly_increase", "consecutive_accumulation"], "full")
+    # This unit test covers section rules; PDF content has its own contract tests.
+    for attribute in ("HIGHLIGHT_PDF", "FULL_PDF"):
+        path = tmp_path / f"{attribute}.pdf"
+        path.write_bytes(b"%PDF-1.4\n" + b" " * 10000)
+        monkeypatch.setattr(builder, attribute, path)
 
     builder.validate_outputs(highlight, full, manifest)
 
@@ -232,8 +238,8 @@ def test_tdcc_weekly_markdown_lists_empty_model_cross_sections(tmp_path: Path) -
 def test_tdcc_weekly_validator_lists_empty_model_cross_sections_as_zero_count_warning() -> None:
     manifest = _tdcc_manifest()
     report = _tdcc_report(["weekly_increase", "consecutive_accumulation"], "highlight")
-    weekly_source = pd.DataFrame([{"stock_id": "1001"}])
-    consecutive_source = pd.DataFrame([{"stock_id": "1002"}])
+    weekly_source = report[report["section_id"].eq("weekly_increase")].copy()
+    consecutive_source = report[report["section_id"].eq("consecutive_accumulation")].copy()
     errors: list[str] = []
     warnings: list[str] = []
 
@@ -365,3 +371,188 @@ def test_tdcc_weekly_builder_quarantines_invalid_holder_distribution_codes(tmp_p
     filtered = builder.filter_invalid_holder_distributions(latest, "20260626")
 
     assert filtered["stock_id"].tolist() == ["3374"]
+
+
+def _fuqiao_factual_ranking() -> pd.DataFrame:
+    row = {
+        "rank": 1,
+        "signal_date": "20260904",
+        "stock_id": "1815",
+        "stock_name": "富喬",
+        "tdcc_weekly_increase_score": 84.71,
+        "tdcc_consecutive_accumulation_score": 94.71,
+        "tdcc_1w_change_400": 6.10,
+        "tdcc_1w_change_600": 6.23,
+        "tdcc_1w_change_800": 6.21,
+        "tdcc_1w_change_1000": 6.88,
+        "tdcc_effective_increase_count": 4,
+        "tdcc_high_pair_effective_streak_weeks": 3,
+        "tdcc_consecutive_up_weeks": 5,
+        "tdcc_price_phase": "tdcc_leading_price",
+        "tdcc_phase_group_zh": "TDCC 領先股價 / 潛伏吸籌",
+        "risk_bucket": "strong_but_pre_move",
+        "risk_bucket_zh": "籌碼強但尚未發動",
+        "price_context_date": "20260904",
+        "price_context_source": "data/stock_price_history/1815.csv",
+        "price_start_date_5d": "20260828",
+        "price_start_date_10d": "20260821",
+        "price_start_date_20d": "20260807",
+        "report_price_return_5d": -5.577689,
+        "report_price_return_10d": 5.803571,
+        "report_price_return_20d": 37.951106,
+        "report_distance_ma20_pct": 9.7476,
+    }
+    row.update(builder.report_facts(pd.Series(row)))
+    return builder.ensure_columns(pd.DataFrame([row]), builder.BASE_COLUMNS)
+
+
+def _fuqiao_factual_report() -> tuple[pd.DataFrame, pd.DataFrame]:
+    ranking = _fuqiao_factual_ranking()
+    daily_models = pd.DataFrame([{
+        "stock_id": "1815",
+        "model_id": "tdcc_short_term_continuation_d5_d10",
+        "model_name_zh": "TDCC短線延續模型 D+5/D+10",
+        "display_rank": 8,
+        "model_score": 82.0,
+        "why_selected_human_zh": "潛伏吸籌，尚未發動，預期上漲",
+        "next_confirmation_zh": "突破即可買進",
+        "recommended_usage_zh": "研究勝率99%，立即買進",
+        "source_hit_labels_zh": "",
+        "risk_tags_zh": "",
+        "source_category_zh": "短線專項",
+    }])
+    cross = builder.build_model_cross(ranking, ranking, daily_models)
+    sections = builder.build_report_source_sections(ranking, ranking, cross)
+    report = builder.build_report_ready(sections, _tdcc_manifest(), "highlight")
+    return ranking, report
+
+
+def test_tdcc_weekly_fuqiao_reports_actual_windows_without_pre_move_claims() -> None:
+    ranking, report = _fuqiao_factual_report()
+    assert len(report) == 4
+    assert report["stock_id"].tolist() == ["1815"] * 4
+    for _, row in report.iterrows():
+        assert row["report_price_return_5d"] == pytest.approx(-5.577689)
+        assert row["report_price_return_20d"] == pytest.approx(37.951106)
+        assert row["tdcc_1w_change_1000"] == pytest.approx(6.88)
+        assert row["tdcc_high_pair_effective_streak_weeks"] == 3
+        assert "-5.58%" in row["price_facts_zh"]
+        assert "+5.80%" in row["price_facts_zh"]
+        assert "+37.95%" in row["price_facts_zh"]
+        assert "+9.75%" in row["price_facts_zh"]
+        assert "+6.88" in row["tdcc_facts_zh"]
+        assert row["historical_evidence_status"] == validator.HISTORICAL_EVIDENCE_STATUS
+        assert row["historical_evidence_zh"] == validator.HISTORICAL_EVIDENCE_TEXT
+    errors: list[str] = []
+    validator.validate_report_facts(report, "fuqiao", ranking, ranking, errors)
+    assert errors == []
+
+
+def test_tdcc_weekly_display_does_not_import_phase_or_unapproved_model_prose() -> None:
+    _, report = _fuqiao_factual_report()
+    legacy_columns = {"tdcc_phase_group_zh", "risk_bucket", "risk_bucket_zh", "why_selected_zh", "next_confirmation_zh", "operation_note_zh"}
+    for columns in [builder.PDF_RANKING_COLUMNS, builder.PDF_MODEL_CROSS_COLUMNS]:
+        assert not legacy_columns.intersection(columns)
+        text = builder.pdf_display_table(report, columns).to_string(index=False)
+        for unsupported in ["潛伏吸籌", "尚未發動", "预期", "預期上漲", "立即買進", "研究勝率99%"]:
+            assert unsupported not in text
+        assert validator.HISTORICAL_EVIDENCE_TEXT in text
+
+
+@pytest.mark.parametrize(
+    ("column", "value", "expected_error"),
+    [
+        ("report_price_return_20d", 0.0, "factual value differs"),
+        ("tdcc_1w_change_1000", "", "factual value differs"),
+        ("price_context_date", "20260907", "no later than signal_date"),
+        ("price_start_date_5d", "20260904", "must precede"),
+        ("price_context_source", "output/latest/research_backtest/metrics.csv", "canonical stock price history"),
+        ("historical_evidence_status", "approved", "not approved"),
+        ("historical_evidence_zh", "研究平均報酬+20%", "unavailable approved matching metrics"),
+        ("price_facts_zh", "潛伏吸籌，尚未發動", "unsupported interpretation"),
+        ("price_facts_zh", "有望上漲25%", "must contain only"),
+    ],
+)
+def test_tdcc_weekly_factual_validator_rejects_drift_or_unapproved_claims(column, value, expected_error) -> None:
+    ranking, report = _fuqiao_factual_report()
+    report[column] = report[column].astype(object)
+    report.loc[report.index[0], column] = value
+    errors: list[str] = []
+    validator.validate_report_facts(report, "injected", ranking, ranking, errors)
+    assert any(expected_error in error for error in errors)
+
+
+def test_tdcc_weekly_missing_price_is_disclosed_and_not_converted_to_zero(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setattr(builder, "cached_price_history", lambda stock_id: pd.DataFrame())
+    before = _fuqiao_factual_ranking().drop(columns=validator.REPORT_PRICE_COLUMNS)
+    enriched = builder.add_report_price_context(before)
+    row = enriched.iloc[0]
+    for column in validator.PRICE_RETURN_COLUMNS + ["report_distance_ma20_pct"]:
+        assert validator.safe_str(row.get(column)) == ""
+    facts = builder.report_facts(row)
+    assert "0.00%" not in facts["price_facts_zh"]
+    assert facts["price_facts_zh"]
+    report = builder.build_report_source_sections(enriched, enriched, pd.DataFrame())
+    errors: list[str] = []
+    validator.validate_report_facts(report, "missing price", enriched, enriched, errors)
+    assert errors == []
+    report.loc[report.index[0], "report_price_return_5d"] = 0.0
+    errors = []
+    validator.validate_report_facts(report, "fabricated zero", enriched, enriched, errors)
+    assert any("factual value differs" in error for error in errors)
+
+
+def test_tdcc_weekly_price_context_excludes_future_and_preserves_ranking(monkeypatch: pytest.MonkeyPatch) -> None:
+    dates = pd.bdate_range("20260807", "20260904").strftime("%Y%m%d").tolist()
+    closes = [100.0] * len(dates)
+    closes[0], closes[10], closes[15], closes[20] = 85.9, 112.0, 125.5, 118.5
+    price = pd.DataFrame({"date": dates + ["20260907"], "close": closes + [999.0], "ma20": [107.975] * len(dates) + [999.0]})
+    monkeypatch.setattr(builder, "cached_price_history", lambda stock_id: price)
+    before = _fuqiao_factual_ranking()
+    protected = ["stock_id", "rank", "tdcc_weekly_increase_score", "tdcc_consecutive_accumulation_score", "tdcc_price_phase"]
+    enriched = builder.add_report_price_context(before)
+    pd.testing.assert_frame_equal(enriched[protected], before[protected])
+    row = enriched.iloc[0]
+    assert row["price_context_date"] == "20260904"
+    assert row["price_start_date_5d"] == "20260828"
+    assert row["price_start_date_10d"] == "20260821"
+    assert row["price_start_date_20d"] == "20260807"
+    assert row["report_price_return_5d"] == pytest.approx((118.5 / 125.5 - 1) * 100, abs=0.000001)
+    assert row["report_price_return_10d"] == pytest.approx((118.5 / 112.0 - 1) * 100, abs=0.000001)
+    assert row["report_price_return_20d"] == pytest.approx((118.5 / 85.9 - 1) * 100, abs=0.000001)
+
+
+def test_tdcc_weekly_invalid_last_price_does_not_reuse_an_older_close(monkeypatch: pytest.MonkeyPatch) -> None:
+    price = pd.DataFrame([
+        {"date": "20260903", "close": 120.0, "ma20": 107.0},
+        {"date": "20260904", "close": float("nan"), "ma20": 107.975},
+        {"date": "20260907", "close": 130.0, "ma20": 110.0},
+    ])
+    monkeypatch.setattr(builder, "cached_price_history", lambda stock_id: price)
+    enriched = builder.add_report_price_context(_fuqiao_factual_ranking())
+    row = enriched.iloc[0]
+    assert all(validator.safe_str(row.get(column)) == "" for column in validator.REPORT_PRICE_COLUMNS)
+    assert "截至缺資料" in builder.report_facts(row)["price_facts_zh"]
+
+
+def test_tdcc_weekly_artifact_validator_rejects_legacy_claims_split_across_pdf_lines() -> None:
+    manifest = _tdcc_manifest()
+    text = "TDCC data date: 20260904\n" + "\n".join(manifest["section_title_zh"])
+    errors: list[str] = []
+    validator.validate_artifact(text, "PDF", "highlight", "20260904", manifest, errors)
+    assert errors == []
+    validator.validate_artifact(text + "\n潛伏\n吸籌／尚未\n發動", "PDF", "highlight", "20260904", manifest, errors)
+    assert any("unsupported market interpretations" in error for error in errors)
+
+
+def test_tdcc_weekly_blank_price_date_does_not_extend_the_available_window(monkeypatch: pytest.MonkeyPatch) -> None:
+    price = pd.DataFrame({
+        "date": ["", "20260831", "20260901", "20260902", "20260903", "20260904"],
+        "close": [1.0, 100.0, 101.0, 102.0, 103.0, 104.0],
+        "ma20": [100.0] * 6,
+    })
+    monkeypatch.setattr(builder, "cached_price_history", lambda stock_id: price)
+    row = builder.add_report_price_context(_fuqiao_factual_ranking()).iloc[0]
+    assert row["price_context_date"] == "20260904"
+    assert validator.safe_str(row["price_start_date_5d"]) == ""
+    assert validator.safe_str(row["report_price_return_5d"]) == ""

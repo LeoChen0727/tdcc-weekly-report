@@ -56,6 +56,35 @@ HOLDER_RATIO_COLS = [
 ]
 INVALID_LATEST_RATIO_PCT = 99.9
 INVALID_WEEKLY_CHANGE_PCT = 50.0
+PRICE_RETURN_COLUMNS = [f"report_price_return_{days}d" for days in (5, 10, 20)]
+PRICE_START_COLUMNS = [f"price_start_date_{days}d" for days in (5, 10, 20)]
+REPORT_PRICE_COLUMNS = [
+    "price_context_date",
+    "price_context_source",
+    *PRICE_START_COLUMNS,
+    *PRICE_RETURN_COLUMNS,
+    "report_distance_ma20_pct",
+]
+REPORT_FACT_COLUMNS = [
+    *REPORT_PRICE_COLUMNS,
+    "tdcc_facts_zh",
+    "price_facts_zh",
+    "historical_evidence_status",
+    "historical_evidence_zh",
+]
+FACT_NUMERIC_COLUMNS = [
+    *DELTA_COLS,
+    "tdcc_high_pair_effective_streak_weeks",
+    *PRICE_RETURN_COLUMNS,
+    "report_distance_ma20_pct",
+]
+HISTORICAL_EVIDENCE_STATUS = "unavailable_no_approved_matching_metric"
+HISTORICAL_EVIDENCE_TEXT = "尚無核准的條件匹配績效"
+FORBIDDEN_REPORT_CLAIMS = (
+    "潛伏吸籌", "尚未發動", "尚未反應", "尚未明顯反應", "領先股價",
+    "股價領先", "初步確認", "追高風險", "短線過熱", "股價過熱",
+    "訊號後失效", "短線支撐管理", "確認可操作性", "需降為觀察",
+)
 MANIFEST_COLUMNS = [
     "section_order",
     "section_id",
@@ -95,6 +124,7 @@ REQUIRED_REPORT_COLUMNS = [
     "tdcc_low_volume_penalty",
     "tdcc_high_pair_effective_streak_weeks",
     "tdcc_high_pair_streak_bonus",
+    *REPORT_FACT_COLUMNS,
 ]
 REQUIRED_RANKING_COLUMNS = [
     "rank",
@@ -340,6 +370,117 @@ def section_rank_values(group: pd.DataFrame) -> list[int]:
     return to_number(group["section_rank"]).dropna().astype(int).tolist()
 
 
+def factual_number(value: Any) -> float | None:
+    text = safe_str(value)
+    if not text:
+        return None
+    try:
+        number = float(text)
+    except (TypeError, ValueError):
+        return None
+    return number if math.isfinite(number) else None
+
+
+def valid_fact_date(value: Any) -> bool:
+    text = safe_str(value)
+    return bool(re.fullmatch(r"\d{8}", text)) and not pd.isna(pd.to_datetime(text, format="%Y%m%d", errors="coerce"))
+
+
+def validate_report_facts(
+    report: pd.DataFrame,
+    label: str,
+    weekly: pd.DataFrame,
+    consecutive: pd.DataFrame,
+    errors: list[str],
+) -> None:
+    """Validate report-owned facts without consulting model phase or research prose."""
+    if report.empty:
+        return
+    require_columns(report, REPORT_FACT_COLUMNS, label, errors)
+    if any(column not in report.columns for column in REPORT_FACT_COLUMNS):
+        return
+    source_rankings = {"weekly_increase": weekly, "consecutive_accumulation": consecutive}
+    for _, row in report.iterrows():
+        stock_id = safe_str(row.get("stock_id"))
+        row_label = f"{label} {safe_str(row.get('section_id'))}/{stock_id}"
+        ranking = source_rankings.get(safe_str(row.get("tdcc_list_type")))
+        if ranking is None or "stock_id" not in ranking.columns:
+            errors.append(f"{row_label} missing factual source ranking")
+            continue
+        source_rows = ranking[ranking["stock_id"].map(safe_str) == stock_id]
+        if len(source_rows) != 1:
+            errors.append(f"{row_label} must match one factual source ranking row, got {len(source_rows)}")
+            continue
+        source = source_rows.iloc[0]
+        for column in [*FACT_NUMERIC_COLUMNS, "price_context_date", "price_context_source", *PRICE_START_COLUMNS]:
+            if column not in source.index:
+                errors.append(f"{row_label} source ranking missing factual column: {column}")
+                continue
+            actual_text = safe_str(row.get(column))
+            source_text = safe_str(source.get(column))
+            if column in FACT_NUMERIC_COLUMNS:
+                actual = factual_number(actual_text)
+                expected = factual_number(source_text)
+                mismatch = (bool(actual_text) and actual is None) or (bool(source_text) and expected is None)
+                if not mismatch:
+                    mismatch = (actual is None) != (expected is None)
+                if not mismatch and actual is not None and expected is not None:
+                    mismatch = not math.isclose(actual, expected, rel_tol=0.0, abs_tol=0.000001)
+            else:
+                mismatch = actual_text != source_text
+            if mismatch:
+                errors.append(f"{row_label} factual value differs from source ranking: {column}")
+
+        signal_date = safe_str(row.get("signal_date"))
+        context_date = safe_str(row.get("price_context_date"))
+        context_source = safe_str(row.get("price_context_source"))
+        if context_date:
+            if not valid_fact_date(context_date) or context_date > signal_date:
+                errors.append(f"{row_label} price context date must be valid and no later than signal_date")
+            if context_source != f"data/stock_price_history/{stock_id}.csv":
+                errors.append(f"{row_label} price context must use its canonical stock price history")
+        elif any(safe_str(row.get(column)) for column in [*PRICE_START_COLUMNS, *PRICE_RETURN_COLUMNS, "report_distance_ma20_pct"]):
+            errors.append(f"{row_label} missing price context date cannot carry price numbers or start dates")
+        for days in (5, 10, 20):
+            start_date = safe_str(row.get(f"price_start_date_{days}d"))
+            value_text = safe_str(row.get(f"report_price_return_{days}d"))
+            if bool(start_date) != bool(value_text):
+                errors.append(f"{row_label} {days}d return and start date must both be present or both be missing")
+            if start_date and (not valid_fact_date(start_date) or not context_date or start_date >= context_date):
+                errors.append(f"{row_label} {days}d price start date must precede the context date")
+        if safe_str(row.get("historical_evidence_status")) != HISTORICAL_EVIDENCE_STATUS:
+            errors.append(f"{row_label} historical evidence is not approved for this report contract")
+        if safe_str(row.get("historical_evidence_zh")) != HISTORICAL_EVIDENCE_TEXT:
+            errors.append(f"{row_label} historical evidence text must disclose unavailable approved matching metrics")
+        for column in ["tdcc_facts_zh", "price_facts_zh"]:
+            text = safe_str(row.get(column))
+            if not text:
+                errors.append(f"{row_label} missing factual disclosure: {column}")
+            if any(claim in text for claim in FORBIDDEN_REPORT_CLAIMS):
+                errors.append(f"{row_label} unsupported interpretation in {column}")
+        displayed = {
+            column: ("缺資料" if factual_number(row.get(column)) is None else f"{factual_number(row.get(column)):+.2f}")
+            for column in [*DELTA_COLS, *PRICE_RETURN_COLUMNS, "report_distance_ma20_pct"]
+        }
+        streak = factual_number(row.get("tdcc_high_pair_effective_streak_weeks"))
+        streak_text = "缺資料" if streak is None else f"{streak:.0f}週"
+        expected_tdcc_text = (
+            ">400／600／800／1000張："
+            + "／".join(displayed[column] for column in DELTA_COLS)
+            + f"百分點；800/1000有效連增：{streak_text}"
+        )
+        price_parts = [f"截至{context_date or '缺資料'}"]
+        price_captions = [(f"report_price_return_{days}d", f"{days}日") for days in (5, 10, 20)]
+        price_captions.append(("report_distance_ma20_pct", "距MA20"))
+        for column, caption in price_captions:
+            display_value = displayed[column]
+            price_parts.append(f"{caption}：{display_value}{'%' if display_value != '缺資料' else ''}")
+        if safe_str(row.get("tdcc_facts_zh")) != expected_tdcc_text:
+            errors.append(f"{row_label} tdcc_facts_zh must contain only the row's observed values and units")
+        if safe_str(row.get("price_facts_zh")) != "；".join(price_parts):
+            errors.append(f"{row_label} price_facts_zh must contain only the row's observed dates, returns and distance")
+
+
 def validate_report(
     report: pd.DataFrame,
     label: str,
@@ -357,6 +498,7 @@ def validate_report(
     require_columns(report, REQUIRED_REPORT_COLUMNS, label, errors)
     if any(col not in report.columns for col in REQUIRED_REPORT_COLUMNS):
         return
+    validate_report_facts(report, label, weekly, consecutive, errors)
 
     bad_kind = sorted(set(report["report_kind"].dropna().map(safe_str)) - {report_kind})
     if bad_kind:
@@ -601,6 +743,10 @@ def validate_artifact(
     for title in expected_titles:
         if title not in text:
             errors.append(f"{label} missing independent section title: {title}")
+    compact_text = re.sub(r"\s+", "", text)
+    leaked_claims = [claim for claim in FORBIDDEN_REPORT_CLAIMS if re.sub(r"\s+", "", claim) in compact_text]
+    if leaked_claims:
+        errors.append(f"{label} contains unsupported market interpretations: {', '.join(leaked_claims)}")
 
 
 def validate_markdown_artifact(
