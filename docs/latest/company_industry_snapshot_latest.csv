@@ -183,7 +183,7 @@ stock_id,stock_name,industry,market,industry_source
 1717,長興,化學工業,TWSE,official_twse
 1718,中纖,化學工業,TWSE,official_twse
 1720,生達,生技醫療業,TWSE,official_twse
-1721,三晃,化學工業,TWSE,official_twse
+1721,國慶科技,化學工業,TWSE,official_twse
 1722,台肥,化學工業,TWSE,official_twse
 1723,中碳,化學工業,TWSE,official_twse
 1725,元禎,化學工業,TWSE,official_twse
@@ -885,6 +885,7 @@ stock_id,stock_name,industry,market,industry_source
 3715,定穎投控,電子零組件業,TWSE,official_twse
 3716,中化控股,生技醫療業,TWSE,official_twse
 3717,聯嘉投控,汽車工業,TWSE,official_twse
+3718,中光電投控,光電業,TPEX,official_tpex
 4102,永日,生技醫療業,TPEX,official_tpex
 4104,佳醫,生技醫療業,TWSE,official_twse
 4105,東洋,生技醫療業,TPEX,official_tpex
@@ -1166,7 +1167,6 @@ stock_id,stock_name,industry,market,industry_source
 5355,佳總,電子零組件業,TPEX,official_tpex
 5356,協益,電腦及週邊設備業,TPEX,official_tpex
 5364,力麗店,觀光餐旅,TPEX,official_tpex
-5371,中光電,光電業,TPEX,official_tpex
 5381,光譜,電機機械,TPEX,official_tpex
 5386,青雲,電腦及週邊設備業,TPEX,official_tpex
 5388,中磊,通信網路業,TWSE,official_twse
@@ -1668,7 +1668,7 @@ stock_id,stock_name,industry,market,industry_source
 6944,兆聯實業,綠能環保,TWSE,official_twse
 6945,圓祥生技,生技醫療業,TPEX,official_tpex
 6947,台鎔科技,綠能環保,TWSE,official_twse
-6949,沛爾生醫-創,生技醫療業,TWSE,official_twse
+6949,沛爾生醫*-創,生技醫療業,TWSE,official_twse
 6951,青新-創,綠能環保,TWSE,official_twse
 6952,大武山,其他業,TWSE,official_twse
 6953,家碩,半導體業,TPEX,official_tpex

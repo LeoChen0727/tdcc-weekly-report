@@ -172,6 +172,19 @@ DELTA_WEIGHTS = {
     "tdcc_1w_change_1000": 4,
 }
 
+REPORT_PRICE_COLUMNS = [
+    "price_context_date", "price_context_source",
+    "price_start_date_5d", "price_start_date_10d", "price_start_date_20d",
+    "report_price_return_5d", "report_price_return_10d", "report_price_return_20d",
+    "report_distance_ma20_pct",
+]
+REPORT_FACT_COLUMNS = [
+    *REPORT_PRICE_COLUMNS, "tdcc_facts_zh", "price_facts_zh",
+    "historical_evidence_status", "historical_evidence_zh",
+]
+HISTORICAL_EVIDENCE_STATUS = "unavailable_no_approved_matching_metric"
+HISTORICAL_EVIDENCE_ZH = "尚無核准的條件匹配績效"
+
 BASE_COLUMNS = [
     "rank",
     "signal_date",
@@ -205,6 +218,7 @@ BASE_COLUMNS = [
     "distance_ma20_pct",
     "relative_return_vs_benchmark",
     "ranking_note_zh",
+    *REPORT_FACT_COLUMNS,
 ]
 
 MODEL_CROSS_COLUMNS = [
@@ -231,6 +245,10 @@ MODEL_CROSS_COLUMNS = [
     "recommended_usage_zh",
     "report_usage_zh",
     "operation_note_zh",
+    *DELTA_COLS,
+    "tdcc_high_pair_effective_streak_weeks",
+    "tdcc_consecutive_up_weeks",
+    *REPORT_FACT_COLUMNS,
 ]
 
 REPORT_COLUMNS = [
@@ -277,36 +295,35 @@ REPORT_COLUMNS = [
     "recommended_usage_zh",
     "report_usage_zh",
     "operation_note_zh",
+    *REPORT_FACT_COLUMNS,
 ]
 
 PDF_RANKING_COLUMNS = [
     "section_rank",
     "stock_id",
     "stock_name",
-    "tdcc_phase_group_zh",
-    "risk_bucket",
     "tdcc_score",
-    "why_selected_zh",
-    "next_confirmation_zh",
-    "operation_note_zh",
+    "tdcc_facts_zh",
+    "price_facts_zh",
+    "historical_evidence_zh",
 ]
 
 PDF_MODEL_CROSS_COLUMNS = [
     "section_rank",
     "stock_id",
     "stock_name",
-    "tdcc_phase_group_zh",
-    "risk_bucket",
     "tdcc_score",
-    "model_name_zh",
     "tdcc_model_rank_in_list",
     "model_score",
-    "why_selected_zh",
-    "next_confirmation_zh",
-    "operation_note_zh",
+    "tdcc_facts_zh",
+    "price_facts_zh",
+    "historical_evidence_zh",
 ]
 
 PDF_HEADER_ZH = {
+    "tdcc_facts_zh": "持股比率變化（百分點）",
+    "price_facts_zh": "股價數據（%）",
+    "historical_evidence_zh": "條件匹配績效",
     "rank": "排名",
     "signal_date": "資料日",
     "report_kind": "報告版本",
@@ -963,34 +980,13 @@ def write_tdcc_weekly_highlight_pdf(df: pd.DataFrame, path: Path, title: str, ma
 
     def widths_for_columns(columns: list[str]) -> list[Any]:
         if columns == PDF_MODEL_CROSS_COLUMNS:
-            return [
-                0.7 * cm,
-                1.4 * cm,
-                1.55 * cm,
-                2.35 * cm,
-                1.9 * cm,
-                1.45 * cm,
-                2.55 * cm,
-                1.35 * cm,
-                1.4 * cm,
-                4.25 * cm,
-                3.55 * cm,
-                4.65 * cm,
-            ]
-        return [
-            0.8 * cm,
-            1.45 * cm,
-            1.65 * cm,
-            2.7 * cm,
-            2.1 * cm,
-            1.8 * cm,
-            5.35 * cm,
-            4.45 * cm,
-            6.35 * cm,
-        ]
+            return [width * cm for width in (0.7, 1.4, 1.55, 1.65, 1.45, 1.5, 7.0, 7.0, 4.85)]
+        return [width * cm for width in (0.8, 1.45, 1.65, 1.8, 8.5, 8.0, 5.15)]
 
     def cell_para(row: pd.Series, column: str) -> Any:
         text = pdf_display_cell(row, column)
+        if column in {"tdcc_facts_zh", "price_facts_zh", "historical_evidence_zh"}:
+            return Paragraph(text.replace("；", "<br/>"), normal)
         if column in {"section_rank", "stock_id", "tdcc_model_rank_in_list", "tdcc_score", "model_score"}:
             return text
         max_chars = {
@@ -1022,6 +1018,9 @@ def write_tdcc_weekly_highlight_pdf(df: pd.DataFrame, path: Path, title: str, ma
         Paragraph(f"TDCC data date: {report_date}", normal),
         Spacer(1, 0.2 * cm),
         Paragraph("TDCC 週報以當週增幅、連續累積與每日候選模型交集呈現。TDCC 不作單獨買進理由。", normal),
+        Paragraph("四級距為累積持股比率，彼此重疊，不可相加當成新增持股。有效連增指800及1000張兩級距每週均增加逾0.5個百分點。", normal),
+        Paragraph("5/10/20日漲跌幅依個股相隔5/10/20筆有效收盤記錄計算，非含息報酬；停牌或缺價可能跨較長曆日，起訖日期保留於報告資料表。數值及分數不代表後續報酬。", normal),
+        Paragraph("歷史績效：尚無核准的條件匹配績效；不引用其他模型或未核准研究績效，不提供本週個股操作規則。", normal),
         Spacer(1, 0.3 * cm),
     ]
     if df.empty:
@@ -1158,34 +1157,13 @@ def write_tdcc_weekly_full_pdf(df: pd.DataFrame, path: Path, title: str, manifes
 
     def widths_for_columns(columns: list[str]) -> list[Any]:
         if columns == PDF_MODEL_CROSS_COLUMNS:
-            return [
-                0.7 * cm,
-                1.4 * cm,
-                1.55 * cm,
-                2.35 * cm,
-                1.9 * cm,
-                1.45 * cm,
-                2.55 * cm,
-                1.35 * cm,
-                1.4 * cm,
-                4.25 * cm,
-                3.55 * cm,
-                4.65 * cm,
-            ]
-        return [
-            0.8 * cm,
-            1.45 * cm,
-            1.65 * cm,
-            2.7 * cm,
-            2.1 * cm,
-            1.8 * cm,
-            5.35 * cm,
-            4.45 * cm,
-            6.35 * cm,
-        ]
+            return [width * cm for width in (0.7, 1.4, 1.55, 1.65, 1.45, 1.5, 7.0, 7.0, 4.85)]
+        return [width * cm for width in (0.8, 1.45, 1.65, 1.8, 8.5, 8.0, 5.15)]
 
     def cell_para(row: pd.Series, column: str) -> Any:
         text = pdf_display_cell(row, column)
+        if column in {"tdcc_facts_zh", "price_facts_zh", "historical_evidence_zh"}:
+            return Paragraph(text.replace("；", "<br/>"), normal)
         if column in {"section_rank", "stock_id", "tdcc_model_rank_in_list", "tdcc_score", "model_score"}:
             return text
         max_chars = {
@@ -1217,6 +1195,9 @@ def write_tdcc_weekly_full_pdf(df: pd.DataFrame, path: Path, title: str, manifes
         Paragraph(f"TDCC data date: {report_date}", normal),
         Spacer(1, 0.2 * cm),
         Paragraph("TDCC 週報以當週增幅、連續累積與每日候選模型交集呈現。TDCC 不作單獨買進理由。", normal),
+        Paragraph("四級距為累積持股比率，彼此重疊，不可相加當成新增持股。有效連增指800及1000張兩級距每週均增加逾0.5個百分點。", normal),
+        Paragraph("5/10/20日漲跌幅依個股相隔5/10/20筆有效收盤記錄計算，非含息報酬；停牌或缺價可能跨較長曆日，起訖日期保留於報告資料表。數值及分數不代表後續報酬。", normal),
+        Paragraph("歷史績效：尚無核准的條件匹配績效；不引用其他模型或未核准研究績效，不提供本週個股操作規則。", normal),
         Spacer(1, 0.3 * cm),
     ]
     if df.empty:
@@ -1277,6 +1258,75 @@ def cached_price_history(stock_id: Any) -> pd.DataFrame:
     if code not in PRICE_HISTORY_CACHE:
         PRICE_HISTORY_CACHE[code] = load_price_history(code)
     return PRICE_HISTORY_CACHE[code]
+
+
+def add_report_price_context(df: pd.DataFrame) -> pd.DataFrame:
+    """Report-only close observations; never alter signal, score or selection fields."""
+    out = df.copy()
+    for column in REPORT_PRICE_COLUMNS:
+        # pandas 3 infers a strict string dtype from ""; keep numeric facts numeric.
+        out[column] = (
+            pd.Series(math.nan, index=out.index, dtype="float64")
+            if column.startswith("report_")
+            else pd.Series("", index=out.index, dtype="object")
+        )
+    for index, row in out.iterrows():
+        signal_date = safe_str(row.get("signal_date"))
+        code = safe_str(row.get("stock_id"))
+        if not re.fullmatch(r"\d{8}", signal_date):
+            continue
+        price = cached_price_history(code)
+        if price.empty or not {"date", "close"}.issubset(price.columns):
+            continue
+        dates = price["date"].map(safe_str)
+        part = price[dates.str.fullmatch(r"\d{8}") & (dates <= signal_date)].sort_values("date")
+        if part.empty:
+            continue
+        current = part.iloc[-1]
+        close = to_number(current.get("close"))
+        if not math.isfinite(close) or close <= 0:
+            continue
+        out.at[index, "price_context_date"] = safe_str(current.get("date"))
+        out.at[index, "price_context_source"] = f"data/stock_price_history/{code}.csv"
+        for days in (5, 10, 20):
+            if len(part) <= days:
+                continue
+            window_closes = pd.to_numeric(part.tail(days + 1)["close"], errors="coerce")
+            if not window_closes.map(lambda value: math.isfinite(value) and value > 0).all():
+                continue
+            previous = part.iloc[-days - 1]
+            previous_close = to_number(previous.get("close"))
+            if math.isfinite(previous_close) and previous_close > 0:
+                out.at[index, f"price_start_date_{days}d"] = safe_str(previous.get("date"))
+                out.at[index, f"report_price_return_{days}d"] = (close / previous_close - 1) * 100
+        ma20 = to_number(current.get("ma20"))
+        if math.isfinite(ma20) and ma20 > 0:
+            out.at[index, "report_distance_ma20_pct"] = (close / ma20 - 1) * 100
+    return out
+
+
+def report_facts(row: pd.Series) -> dict[str, Any]:
+    """The TDCC weekly consumer does not translate phase tags into market claims."""
+    def signed(value: Any) -> str:
+        number = to_number(value)
+        return f"{number:+.2f}" if math.isfinite(number) else "缺資料"
+
+    changes = "／".join(signed(row.get(column)) for column in DELTA_COLS)
+    streak = to_number(row.get("tdcc_high_pair_effective_streak_weeks"))
+    weeks = f"{streak:.0f}週" if math.isfinite(streak) else "缺資料"
+    price_date = safe_str(row.get("price_context_date")) or "缺資料"
+    returns = []
+    for days in (5, 10, 20):
+        value = signed(row.get(f"report_price_return_{days}d"))
+        returns.append(f"{days}日：{value}{'%' if value != '缺資料' else ''}")
+    distance = signed(row.get("report_distance_ma20_pct"))
+    return {
+        **{column: row.get(column, "") for column in REPORT_PRICE_COLUMNS},
+        "tdcc_facts_zh": f">400／600／800／1000張：{changes}百分點；800/1000有效連增：{weeks}",
+        "price_facts_zh": f"截至{price_date}；{'；'.join(returns)}；距MA20：{distance}{'%' if distance != '缺資料' else ''}",
+        "historical_evidence_status": HISTORICAL_EVIDENCE_STATUS,
+        "historical_evidence_zh": HISTORICAL_EVIDENCE_ZH,
+    }
 
 
 def latest_volume_ma20_lots(row: pd.Series) -> float:
@@ -1404,15 +1454,12 @@ def ranking_note(row: pd.Series) -> str:
         1 for x in deltas if not pd.isna(x) and x > TDCC_EFFECTIVE_INCREASE_THRESHOLD
     )
     high_pair_streak = to_number(row.get("tdcc_high_pair_effective_streak_weeks"))
-    parts = [f"有效級距增加 {effective_count}/4（門檻 >0.5）"]
+    parts = [f"有效級距增加 {effective_count}/4（持股比率週變化 >0.5個百分點）"]
     if not pd.isna(high_pair_streak) and high_pair_streak >= 2:
         parts.append(f"800/1000張有效連續增加 {high_pair_streak:.0f} 週")
     volume_lots = to_number(row.get("volume_ma20_lots"))
     if not pd.isna(volume_lots) and volume_lots < TDCC_LOW_VOLUME_MA20_LOTS_THRESHOLD:
         parts.append("20日均量低於1000張")
-    phase = row.get("tdcc_phase_group_zh")
-    if safe_str(phase):
-        parts.append(safe_str(phase))
     return "；".join(parts)
 
 
@@ -1494,11 +1541,11 @@ def build_model_cross(
             continue
         merged["tdcc_list_type"] = list_type
         merged["model_name_zh"] = merged.get("model_name_zh", "").map(lambda x: zh(x) or zh(merged.get("model_id", "")))
-        merged["source_hit_labels_zh"] = merged.get("source_hit_labels_zh", "").map(zh)
+        merged["source_hit_labels_zh"] = ""
         merged["why_selected_zh"] = merged.apply(human_reason_from_model, axis=1)
-        merged["risk_tags_zh"] = merged.get("risk_tags_zh", "").map(zh)
-        merged["next_confirmation_zh"] = merged.get("next_confirmation_zh", "").map(zh)
-        merged["recommended_usage_zh"] = merged.get("recommended_usage_zh", "").map(zh)
+        merged["risk_tags_zh"] = ""
+        merged["next_confirmation_zh"] = ""
+        merged["recommended_usage_zh"] = "僅列示名單交集；不提供本週個股操作規則。"
         merged["operation_note_zh"] = merged.apply(operation_note, axis=1)
         merged["model_source"] = merged.get("source_category_zh", merged.get("original_category_cn", "")).map(zh)
         merged["display_rank"] = merged.get("display_rank", merged.get("model_rank", ""))
@@ -1521,26 +1568,11 @@ def build_model_cross(
 
 
 def human_reason_from_model(row: pd.Series) -> str:
-    existing = zh(row.get("why_selected_human_zh"))
-    if existing and "基礎分=" not in existing:
-        return existing
-    model = zh(row.get("model_name_zh")) or zh(row.get("model_id")) or "每日候選模型"
-    phase = safe_str(row.get("tdcc_phase_group_zh"))
-    risk = safe_str(row.get("risk_bucket_zh"))
-    return f"符合 {model}；TDCC 狀態為 {phase or '資料不足'}，風險桶為 {risk or '待確認'}。"
+    return "TDCC 名單與模型來源名單交集；不代表核准績效或買進訊號。"
 
 
 def operation_note(row: pd.Series) -> str:
-    model_id = safe_str(row.get("model_id"))
-    if model_id in TDCC_FULL_REPORT_ALLOWED_MODEL_CROSS_IDS:
-        return "以訊號日隔天開盤為進場假設，依 D+5 / D+10 統計與短線支撐管理；這是短線延續研究，不是低位買進模型。"
-    next_text = zh(row.get("next_confirmation_zh"))
-    usage = zh(row.get("recommended_usage_zh"))
-    if usage:
-        return usage
-    if next_text:
-        return next_text
-    return "TDCC 為加分項，不可單獨作為買進理由；需搭配價格、量價與族群強弱確認。"
+    return "未提供本週個股操作規則。"
 
 
 def row_from_ranking(row: pd.Series, report_kind: str, section_id: str, section_name: str, section_rank: int) -> dict[str, Any]:
@@ -1548,6 +1580,7 @@ def row_from_ranking(row: pd.Series, report_kind: str, section_id: str, section_
     if section_id == "consecutive_accumulation":
         score = row.get("tdcc_consecutive_accumulation_score")
     return {
+        **report_facts(row),
         "report_kind": report_kind,
         "section_id": section_id,
         "section_name_zh": section_name,
@@ -1584,11 +1617,11 @@ def row_from_ranking(row: pd.Series, report_kind: str, section_id: str, section_
         "model_source": "",
         "source_hit_labels_zh": "",
         "why_selected_zh": row.get("ranking_note_zh", ""),
-        "risk_tags_zh": row.get("risk_bucket_zh", ""),
-        "next_confirmation_zh": "用每日候選模型與價格位置確認可操作性。",
+        "risk_tags_zh": "",
+        "next_confirmation_zh": "",
         "recommended_usage_zh": "TDCC 排名用於籌碼追蹤，不單獨作為買進理由。",
         "report_usage_zh": "TDCC 排名用於籌碼追蹤，不單獨作為買進理由。",
-        "operation_note_zh": "若價格已領先或過熱，需降為觀察；若仍在潛伏或初步確認，才進一步看每日候選模型。",
+        "operation_note_zh": operation_note(row),
     }
 
 
@@ -1618,6 +1651,7 @@ def build_report_source_sections(
             for idx, (_, row) in enumerate(group.iterrows(), start=1):
                 rows.append(
                     {
+                        **report_facts(row),
                         "report_kind": "",
                         "section_id": section_id,
                         "section_name_zh": section_name,
@@ -1634,19 +1668,19 @@ def build_report_source_sections(
                         "tdcc_score": row.get("tdcc_score", ""),
                         "tdcc_weekly_increase_score": "",
                         "tdcc_consecutive_accumulation_score": "",
-                        "tdcc_1w_change_400": "",
-                        "tdcc_1w_change_600": "",
-                        "tdcc_1w_change_800": "",
-                        "tdcc_1w_change_1000": "",
+                        "tdcc_1w_change_400": row.get("tdcc_1w_change_400", ""),
+                        "tdcc_1w_change_600": row.get("tdcc_1w_change_600", ""),
+                        "tdcc_1w_change_800": row.get("tdcc_1w_change_800", ""),
+                        "tdcc_1w_change_1000": row.get("tdcc_1w_change_1000", ""),
                         "tdcc_weighted_weekly_increase_score": "",
                         "tdcc_effective_increase_count": "",
                         "tdcc_sync_bonus": "",
                         "tdcc_theme_bonus": "",
                         "volume_ma20_lots": "",
                         "tdcc_low_volume_penalty": "",
-                        "tdcc_high_pair_effective_streak_weeks": "",
+                        "tdcc_high_pair_effective_streak_weeks": row.get("tdcc_high_pair_effective_streak_weeks", ""),
                         "tdcc_high_pair_streak_bonus": "",
-                        "tdcc_consecutive_up_weeks": "",
+                        "tdcc_consecutive_up_weeks": row.get("tdcc_consecutive_up_weeks", ""),
                         "model_id": row.get("model_id", ""),
                         "model_name_zh": zh(row.get("model_name_zh")) or zh(row.get("model_id")),
                         "model_rank": row.get("display_rank", ""),
@@ -1806,6 +1840,9 @@ def write_report_md(df: pd.DataFrame, path: Path, title: str, manifest: pd.DataF
         f"- TDCC data date: {signal_date_label(df)}",
         "",
         "這份報告使用 TDCC weekly report-ready structured data 產生；TDCC 是籌碼追蹤，不是單獨買進理由。",
+        "四級距為累積持股比率，彼此重疊；單位是百分點，不可相加。800/1000有效連增指兩級距每週均增加逾0.5個百分點。",
+        "5/10/20日以相隔5/10/20筆有效收盤記錄計算，非含息報酬；停牌或缺價可能跨較長曆日，起訖日期保留於structured data。",
+        "尚無核准的條件匹配績效；不引用其他模型或未核准研究績效，不提供本週個股操作規則。",
         "",
     ]
     if df.empty:
@@ -2021,7 +2058,10 @@ def main() -> int:
     if latest.empty:
         raise RuntimeError("No TDCC latest frame available.")
     latest = filter_invalid_holder_distributions(latest, latest_frame_signal_date(latest, meta))
+    latest = add_report_price_context(latest)
     latest = add_tdcc_scores(latest)
+    facts = latest.apply(lambda row: pd.Series(report_facts(row)), axis=1)
+    latest[REPORT_FACT_COLUMNS] = facts[REPORT_FACT_COLUMNS]
     theme_map = load_theme_display_map()
     latest = apply_theme_display(latest, theme_map)
 
@@ -2057,9 +2097,16 @@ def main() -> int:
     render_source = pd.concat([highlight_for_render, full_for_render], ignore_index=True)
     render_manifest = load_section_manifest(render_source)
 
-    write_md_table(weekly, WEEKLY_INCREASE_MD, "TDCC 當週增幅排名", BASE_COLUMNS, limit=TDCC_FULL_REPORT_SECTION_LIMIT)
-    write_md_table(consecutive, CONSECUTIVE_MD, "TDCC 連續累積排名", BASE_COLUMNS, limit=TDCC_FULL_REPORT_SECTION_LIMIT)
-    write_md_table(model_cross, MODEL_CROSS_MD, "TDCC 名單與每日候選模型交集", MODEL_CROSS_COLUMNS, limit=200)
+    ranking_md_columns = [
+        "rank", "stock_id", "stock_name", "tdcc_weekly_increase_score",
+        "tdcc_consecutive_accumulation_score", "tdcc_facts_zh", "price_facts_zh", "historical_evidence_zh",
+    ]
+    write_md_table(weekly, WEEKLY_INCREASE_MD, "TDCC 當週增幅排名", ranking_md_columns, limit=TDCC_FULL_REPORT_SECTION_LIMIT)
+    write_md_table(consecutive, CONSECUTIVE_MD, "TDCC 連續累積排名", ranking_md_columns, limit=TDCC_FULL_REPORT_SECTION_LIMIT)
+    write_md_table(model_cross, MODEL_CROSS_MD, "TDCC 名單與每日候選模型交集", [
+        "tdcc_list_type", "tdcc_rank", "stock_id", "stock_name", "model_name_zh",
+        "tdcc_model_rank_in_list", "model_score", "tdcc_facts_zh", "price_facts_zh", "historical_evidence_zh",
+    ], limit=200)
     write_report_md(highlight_for_render, HIGHLIGHT_FOR_REPORT_MD, "TDCC 週報精華版 report-ready table", render_manifest, "highlight", report_date)
     write_report_md(full_for_render, FULL_FOR_REPORT_MD, "TDCC 週報完整版 report-ready table", render_manifest, "full", report_date)
     write_report_md(highlight_for_render, HIGHLIGHT_MD, "TDCC 大戶籌碼週報精華版", render_manifest, "highlight", report_date)
