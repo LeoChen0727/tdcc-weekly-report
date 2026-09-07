@@ -77,7 +77,7 @@ SELECTOR_CONTRACT_SHA256 = hashlib.sha256(
     ).encode("utf-8")
 ).hexdigest()
 
-EVENT_REQUIRED_COLUMNS = {
+EVENT_COLUMNS = (
     "research_id",
     "artifact_version",
     "model_id",
@@ -85,14 +85,20 @@ EVENT_REQUIRED_COLUMNS = {
     "scenario_event_key",
     "signal_date",
     "stock_id",
+    "stock_name",
     "market_regime",
+    "benchmark_index",
     "source_signal_id",
     "source_signal_row_sha256",
     "source_tdcc_dataset_id",
     "source_tdcc_dataset_hash",
+    "source_tdcc_manifest_path",
     "source_tdcc_manifest_sha256",
+    "source_signal_snapshot_path",
     "source_signal_snapshot_sha256",
+    "source_price_path",
     "source_price_sha256",
+    "source_price_high_water_date",
     "selector_contract_sha256",
     "matched_rule_ids",
     "matched_rule_count",
@@ -100,10 +106,17 @@ EVENT_REQUIRED_COLUMNS = {
     "rule_b_matched",
     "rule_c_matched",
     "rule_membership_overlap",
+    "tdcc_price_phase",
+    "overheat_bucket",
+    "is_all_thresholds",
+    "tdcc_consecutive_up_weeks",
+    "price_ret_1w_pct",
+    "price_ret_2w_pct",
     "bb_width_percentile_120d",
     "k_value",
     "d_value",
     "macd_hist",
+    "signal_close_price",
     "scenario_id",
     "horizon_trading_days_after_signal",
     "entry_rule_id",
@@ -113,18 +126,25 @@ EVENT_REQUIRED_COLUMNS = {
     "exit_date",
     "exit_price",
     "stop_rule_id",
+    "return_formula",
     "return_valid",
     "invalid_reason",
     "realized_return_pct",
     "return_outcome",
+    "high_return_hit",
+    "loss_flag",
     "mfe_pct_advisory",
     "mae_pct_advisory",
+    "intraday_metrics_role",
     "intraday_metrics_formal_use",
     "same_stock_overlap_candidate",
+    "same_stock_overlap_policy",
     "anomaly_candidate",
+    "anomaly_candidate_ids",
     "anomaly_disposition",
     "primary_metric_included",
     "unresolved_candidate_retained_in_primary",
+    "price_adjustment_basis_status",
     "pit_exact_replay",
     "pit_replay_status",
     "formal_operation_contract_defined",
@@ -134,9 +154,9 @@ EVENT_REQUIRED_COLUMNS = {
     "promotion_eligible",
     "promotion_blocked",
     "promotion_block_reason",
-}
+)
 
-SUMMARY_REQUIRED_COLUMNS = {
+SUMMARY_COLUMNS = (
     "research_id",
     "artifact_version",
     "model_id",
@@ -162,6 +182,7 @@ SUMMARY_REQUIRED_COLUMNS = {
     "median_return_pct",
     "minimum_return_pct",
     "maximum_return_pct",
+    "high_return_threshold_pct",
     "high_return_hit_count",
     "high_return_hit_rate_pct",
     "anomaly_candidate_count",
@@ -174,6 +195,10 @@ SUMMARY_REQUIRED_COLUMNS = {
     "candidate_exclusion_sensitivity_average_return_pct",
     "candidate_exclusion_sensitivity_median_return_pct",
     "sensitivity_is_corrected_primary",
+    "sample_status",
+    "entry_rule_id",
+    "exit_rule_id",
+    "stop_rule_id",
     "pit_replay_status",
     "formal_operation_contract_defined",
     "formal_use",
@@ -182,9 +207,9 @@ SUMMARY_REQUIRED_COLUMNS = {
     "promotion_eligible",
     "promotion_blocked",
     "promotion_block_reason",
-}
+)
 
-ANOMALY_REQUIRED_COLUMNS = {
+ANOMALY_COLUMNS = (
     "research_id",
     "artifact_version",
     "model_id",
@@ -216,7 +241,8 @@ ANOMALY_REQUIRED_COLUMNS = {
     "supplementary_metric_included",
     "formal_use",
     "promotion_blocked",
-}
+    "investigation_note",
+)
 
 FALSE_ONLY_EVENT_FIELDS = {
     "intraday_metrics_formal_use",
@@ -342,6 +368,26 @@ def require_columns(frame: pd.DataFrame, required: set[str], label: str) -> None
     missing = sorted(required - set(frame.columns))
     if missing:
         raise RuntimeError(f"{label} missing required columns: {missing}")
+
+
+def require_exact_columns(
+    frame: pd.DataFrame,
+    expected: tuple[str, ...],
+    label: str,
+) -> None:
+    actual = tuple(str(column) for column in frame.columns)
+    if actual == expected:
+        return
+    missing = [column for column in expected if column not in actual]
+    extra = [column for column in actual if column not in expected]
+    duplicates = sorted(
+        {column for index, column in enumerate(actual) if column in actual[:index]}
+    )
+    raise RuntimeError(
+        f"{label} schema must exactly match ordered contract: "
+        f"missing={missing}; extra={extra}; duplicates={duplicates}; "
+        f"order_matches={actual == expected}"
+    )
 
 
 def read_csv(path: Path, label: str) -> pd.DataFrame:
@@ -866,7 +912,7 @@ def numeric_matches(actual: Any, expected: Any, tolerance: float = 1e-8) -> bool
 
 
 def validate_events(actual: pd.DataFrame, expected: pd.DataFrame) -> None:
-    require_columns(actual, EVENT_REQUIRED_COLUMNS, "events artifact")
+    require_exact_columns(actual, EVENT_COLUMNS, "events artifact")
     if actual["scenario_event_key"].duplicated().any():
         raise RuntimeError("events artifact scenario_event_key must be unique")
     if set(actual["research_id"].map(text_value)) != {RESEARCH_ID}:
@@ -1240,7 +1286,7 @@ def validate_summary(
     published: pd.DataFrame,
     published_status: str,
 ) -> None:
-    require_columns(summary, SUMMARY_REQUIRED_COLUMNS, "summary artifact")
+    require_exact_columns(summary, SUMMARY_COLUMNS, "summary artifact")
     if summary[["scenario_id", "group_kind", "group_value"]].duplicated().any():
         raise RuntimeError("summary group keys must be unique")
     if set(summary["research_id"].map(text_value)) != {RESEARCH_ID}:
@@ -1324,7 +1370,7 @@ def validate_anomaly(
     events: pd.DataFrame,
     published: pd.DataFrame,
 ) -> None:
-    require_columns(anomaly, ANOMALY_REQUIRED_COLUMNS, "anomaly artifact")
+    require_exact_columns(anomaly, ANOMALY_COLUMNS, "anomaly artifact")
     if anomaly["anomaly_candidate_id"].duplicated().any():
         raise RuntimeError("anomaly candidate ids must be unique")
     expected: dict[str, dict[str, Any]] = {}
@@ -1414,34 +1460,42 @@ def validate_anomaly(
                 raise RuntimeError(f"anomaly root-check status missing: {pending_field} {candidate_id}")
 
 
-MANIFEST_REQUIRED_COLUMNS = {
+MANIFEST_COLUMNS = (
     "schema_version",
     "research_id",
     "artifact_version",
     "model_id",
     "producer_path",
     "validator_path",
+    "generated_at",
     "selector_contract_sha256",
     "selector_rule_ids",
     "selector_union_policy",
     "source_tdcc_dataset_id",
     "source_tdcc_dataset_hash",
+    "source_tdcc_manifest_path",
     "source_tdcc_manifest_sha256",
+    "source_signal_snapshot_path",
     "source_signal_snapshot_sha256",
     "source_signal_snapshot_row_count",
+    "source_price_root",
     "evaluated_price_file_count",
     "evaluated_price_bundle_sha256",
     "source_price_high_water_date",
+    "published_snapshot_path",
     "published_snapshot_sha256",
     "published_snapshot_status",
     "published_snapshot_role",
     "published_snapshot_target_row_count",
+    "events_artifact_path",
     "events_artifact_sha256",
     "events_row_count",
     "events_key_set_sha256",
+    "summary_artifact_path",
     "summary_artifact_sha256",
     "summary_row_count",
     "summary_key_set_sha256",
+    "anomaly_artifact_path",
     "anomaly_artifact_sha256",
     "anomaly_row_count",
     "anomaly_key_set_sha256",
@@ -1467,7 +1521,7 @@ MANIFEST_REQUIRED_COLUMNS = {
     "promotion_eligible",
     "promotion_blocked",
     "promotion_block_reason",
-}
+)
 
 
 def validate_manifest(
@@ -1488,7 +1542,7 @@ def validate_manifest(
     published_status: str,
     published_target_count: int,
 ) -> None:
-    require_columns(manifest_frame, MANIFEST_REQUIRED_COLUMNS, "research manifest artifact")
+    require_exact_columns(manifest_frame, MANIFEST_COLUMNS, "research manifest artifact")
     if len(manifest_frame) != 1:
         raise RuntimeError("research manifest artifact must contain exactly one row")
     row = manifest_frame.iloc[0]

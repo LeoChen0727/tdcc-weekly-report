@@ -73,6 +73,134 @@ BOOLEAN_CONTRACT_FIELDS = {
         "production_change",
     ),
 }
+EVENT_ARTIFACT_COLUMNS = (
+    "artifact_version",
+    "model_id",
+    "signal_event_key",
+    "signal_date",
+    "stock_id",
+    "stock_name",
+    "model_score",
+    "model_rank",
+    "report_bucket_memberships",
+    "source_signal_row_count",
+    "source_signal_row_sha256s",
+    "source_signal_row_set_sha256",
+    "snapshot_report_date",
+    "snapshot_revision",
+    "snapshot_revision_policy",
+    "snapshot_path",
+    "snapshot_sha256",
+    "snapshot_manifest_row_sha256",
+    "snapshot_pipeline_commit_sha",
+    "scenario_id",
+    "horizon_sessions",
+    "entry_price_basis",
+    "exit_price_basis",
+    "price_source_path",
+    "price_source_sha256",
+    "entry_date",
+    "entry_open_price",
+    "exit_date",
+    "exit_close_price",
+    "entry_price_row_sha256",
+    "exit_price_row_sha256",
+    "return_valid",
+    "right_censored",
+    "invalid_reason",
+    "gross_return_pct",
+    "return_outcome",
+    "primary_metric_included",
+    "anomaly_candidate_flag",
+    "anomaly_candidate_kinds",
+    "anomaly_disposition",
+    "formal_use_allowed",
+    "approved_for_daily",
+    "presentation_allowed",
+    "operation_contract_status",
+    "full_historical_condition_replay_status",
+    "research_only",
+    "event_row_canonical_sha256",
+)
+SUMMARY_ARTIFACT_COLUMNS = (
+    "artifact_version",
+    "model_id",
+    "analysis_scope",
+    "scenario_id",
+    "horizon_sessions",
+    "entry_basis",
+    "exit_basis",
+    "signal_event_count",
+    "mature_count",
+    "right_censored_count",
+    "invalid_count",
+    "unique_stock_count",
+    "win_count",
+    "neutral_count",
+    "failure_count",
+    "win_rate_pct",
+    "neutral_rate_pct",
+    "failure_rate_pct",
+    "avg_return_pct",
+    "median_return_pct",
+    "high_return_threshold_pct",
+    "high_return_hit_rate_pct",
+    "loss_rate_pct",
+    "anomaly_candidate_count",
+    "unresolved_anomaly_count",
+    "primary_metrics_retain_unresolved_candidates",
+    "candidate_exclusion_sensitivity_count",
+    "candidate_exclusion_sensitivity_win_rate_pct",
+    "candidate_exclusion_sensitivity_avg_return_pct",
+    "sensitivity_is_corrected_primary",
+    "formal_use_allowed",
+    "operation_contract_status",
+    "full_historical_condition_replay_status",
+    "research_status",
+)
+MANIFEST_FRAME_COLUMNS = (
+    "artifact_version",
+    "model_id",
+    "producer_path",
+    "producer_canonical_sha256",
+    "evidence_basis",
+    "production_condition_recalculated",
+    "snapshot_revision_policy",
+    "source_manifest_path",
+    "source_manifest_sha256",
+    "selected_snapshot_count",
+    "selected_snapshot_date_min",
+    "selected_snapshot_date_max",
+    "selected_snapshot_bundle_sha256",
+    "price_input_file_count",
+    "price_input_bundle_sha256",
+    "signal_event_count",
+    "scenario_event_count",
+    "events_row_set_sha256",
+    "summary_row_set_sha256",
+    "anomaly_candidate_count",
+    "effective_anomaly_blocker_count",
+    "semantic_version_binding_status",
+    "full_historical_condition_replay_status",
+    "operation_contract_status",
+    "formal_use_allowed",
+    "approved_for_daily",
+    "presentation_allowed",
+    "promotion_evidence_allowed",
+    "production_change",
+)
+MANIFEST_ARTIFACT_COLUMNS = MANIFEST_FRAME_COLUMNS + (
+    "events_path",
+    "events_file_sha256",
+    "events_row_count",
+    "summary_path",
+    "summary_file_sha256",
+    "summary_row_count",
+    "anomalies_path",
+    "anomalies_file_sha256",
+    "anomalies_row_count",
+    "evidence_payload_bundle_sha256",
+)
 
 
 def _text(value: Any) -> str:
@@ -146,6 +274,33 @@ def _read_csv_frame(path: Path) -> pd.DataFrame:
     if not path.is_file():
         raise RuntimeError(f"missing CSV: {path.as_posix()}")
     return pd.read_csv(path, dtype=str, keep_default_na=False)
+
+
+def _exact_header_errors(
+    artifact_name: str,
+    frame: pd.DataFrame,
+    expected_columns: tuple[str, ...],
+) -> list[str]:
+    observed_columns = tuple(str(column) for column in frame.columns)
+    if observed_columns == expected_columns:
+        return []
+    expected_set = set(expected_columns)
+    observed_set = set(observed_columns)
+    missing = [column for column in expected_columns if column not in observed_set]
+    extra = [column for column in observed_columns if column not in expected_set]
+    errors: list[str] = []
+    if missing:
+        errors.append(f"{artifact_name} artifact header missing columns: {missing}")
+    if extra:
+        errors.append(
+            f"{artifact_name} artifact header has unexpected columns: {extra}"
+        )
+    if not missing and not extra:
+        errors.append(
+            f"{artifact_name} artifact header column order mismatch: "
+            f"expected={list(expected_columns)}; observed={list(observed_columns)}"
+        )
+    return errors
 
 
 def _display_path(path: Path, root: Path) -> str:
@@ -539,16 +694,26 @@ def validate_frames(
     manifest: pd.DataFrame,
     *,
     root: Path = ROOT,
+    manifest_is_bound_artifact: bool = False,
 ) -> list[str]:
     errors: list[str] = []
+    expected_headers = {
+        "events": EVENT_ARTIFACT_COLUMNS,
+        "summary": SUMMARY_ARTIFACT_COLUMNS,
+        "anomalies": EVENT_ARTIFACT_COLUMNS,
+        "manifest": (
+            MANIFEST_ARTIFACT_COLUMNS
+            if manifest_is_bound_artifact
+            else MANIFEST_FRAME_COLUMNS
+        ),
+    }
     for name, frame in {
         "events": events,
         "summary": summary,
+        "anomalies": anomalies,
         "manifest": manifest,
     }.items():
-        missing = sorted(_required_columns()[name] - set(frame.columns))
-        if missing:
-            errors.append(f"{name} missing columns: {missing}")
+        errors.extend(_exact_header_errors(name, frame, expected_headers[name]))
     if errors:
         return errors
     if len(manifest) != 1:
@@ -1113,6 +1278,7 @@ def validate_files(
             frames["anomalies"],
             frames["manifest"],
             root=root,
+            manifest_is_bound_artifact=True,
         )
     )
     return errors
