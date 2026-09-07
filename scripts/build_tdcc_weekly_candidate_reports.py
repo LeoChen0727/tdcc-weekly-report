@@ -1264,7 +1264,12 @@ def add_report_price_context(df: pd.DataFrame) -> pd.DataFrame:
     """Report-only close observations; never alter signal, score or selection fields."""
     out = df.copy()
     for column in REPORT_PRICE_COLUMNS:
-        out[column] = ""
+        # pandas 3 infers a strict string dtype from ""; keep numeric facts numeric.
+        out[column] = (
+            pd.Series(math.nan, index=out.index, dtype="float64")
+            if column.startswith("report_")
+            else pd.Series("", index=out.index, dtype="object")
+        )
     for index, row in out.iterrows():
         signal_date = safe_str(row.get("signal_date"))
         code = safe_str(row.get("stock_id"))
