@@ -2,10 +2,10 @@
 
 - status: `pass`
 - parameter_rows: `17`
-- raw_signal_rows: `305`
-- signal_rows: `305`
-- same_model_repeat_rows: `173`
-- rotation_rows: `4`
+- raw_signal_rows: `217`
+- signal_rows: `217`
+- same_model_repeat_rows: `129`
+- rotation_rows: `2`
 - packet_lines: `208`
 
 ## Errors

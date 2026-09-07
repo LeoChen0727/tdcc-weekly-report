@@ -1,22 +1,22 @@
 # Volume v2 warrant lineage history audit
 
 - Audit version: `volume_v2_warrant_lineage_history_audit_v5`
-- Audited trading dates: `20260615, 20260616, 20260617, 20260618, 20260622, 20260623, 20260624, 20260626, 20260629, 20260630, 20260701, 20260702, 20260703, 20260706, 20260707, 20260708, 20260709, 20260713, 20260714, 20260715, 20260716, 20260717, 20260810, 20260811, 20260820, 20260821, 20260825, 20260826, 20260827, 20260828, 20260831, 20260901, 20260902, 20260903, 20260904`
-- Runtime combined coverage: `123` revisions; current replay plus trusted HEAD baseline
-- Formal volume v2 rows: `230`
-- Formal verified clean: `204`
-- Formal superseded: `4`
+- Audited trading dates: `20260615, 20260616, 20260617, 20260618, 20260622, 20260623, 20260624, 20260626, 20260629, 20260630, 20260701, 20260702, 20260703, 20260706, 20260707, 20260708, 20260709, 20260713, 20260714, 20260715, 20260716, 20260717, 20260810, 20260811, 20260820, 20260821, 20260825, 20260826, 20260827, 20260828, 20260831, 20260901, 20260902, 20260903, 20260904, 20260907`
+- Runtime combined coverage: `124` revisions; current replay plus trusted HEAD baseline
+- Formal volume v2 rows: `241`
+- Formal verified clean: `214`
+- Formal superseded: `5`
 - Formal quarantined: `22`
 - Formal unreplayable: `0`
 - Legacy precontract history incomplete dates: `16`
-- Historical promotion evidence eligible rows: `31/230`
-- Superseded advisory watch rows: `92`
-- Independent component replay resolved: `230/230`
-- Candidate-absent canonical score contexts: `92` stored as `{}`
-- Warrant collision rows: `43`
+- Historical promotion evidence eligible rows: `31/241`
+- Superseded advisory watch rows: `96`
+- Independent component replay resolved: `241/241`
+- Candidate-absent canonical score contexts: `99` stored as `{}`
+- Warrant collision rows: `45`
 - TDCC-status collision rows: `0`
 - False-breakout collision rows: `0`
-- Watch/candidate source score collisions: `88`
+- Watch/candidate source score collisions: `92`
 - Watch/candidate source rank collisions: `0`
 - Non-current rows were preserved from trusted HEAD and were not revalidated or replayed.
 
@@ -147,6 +147,7 @@
 | 20260902 | r1 | 10 | versioned_revision_exact | complete | 0 | canonical_candidate_explicit_allowlist |
 | 20260903 | r1 | 4 | versioned_revision_exact | complete | 0 | canonical_candidate_explicit_allowlist |
 | 20260904 | r1 | 5 | versioned_revision_exact | complete | 0 | canonical_candidate_explicit_allowlist |
+| 20260907 | r1 | 11 | versioned_revision_exact | complete | 0 | canonical_candidate_explicit_allowlist |
 
 ## Watch collision disposition
 
@@ -244,6 +245,10 @@
 | 20260903 | 2221 | volume_range_breakout_v2_high_position_volume_attack |  | warrant=/→; tdcc=/→; false_breakout=False/False→False | 64.0→64.0 | 0.0→0.0 | 0.0→0.0 | 72.1→72.1 | 1→1 | verified_clean |
 | 20260904 | 6538 | volume_range_breakout_v2_high_position_volume_attack |  | warrant=/→; tdcc=/→; false_breakout=False/False→False | 64.0→64.0 | 0.0→0.0 | 0.0→0.0 | 73.0→73.0 | 1→1 | verified_clean |
 | 20260904 | 8431 | volume_range_breakout_v2_mid_position_momentum_attack |  | warrant=/→; tdcc=/→; false_breakout=False/False→False | 89.4→89.4 | 0.0→0.0 | 0.0→0.0 | 91.6→91.6 | 1→1 | verified_clean |
+| 20260907 | 8064 | volume_range_breakout_v2_mid_position_momentum_attack |  | warrant=/→; tdcc=/→; false_breakout=False/False→False | 97.1→97.1 | 0.0→0.0 | 0.0→0.0 | 100.0→100.0 | 1→1 | verified_clean |
+| 20260907 | 2305 | volume_range_breakout_v2_mid_position_momentum_attack | warrant_flow_signal | warrant=/call_inflow→call_inflow; tdcc=/→; false_breakout=False/False→False | 89.7→89.7 | 0.0→0.0 | 0.0→0.0 | 95.8→95.8 | 2→2 | verified_clean |
+| 20260907 | 2303 | volume_range_breakout_v2_mid_position_momentum_attack | warrant_flow_signal | warrant=/no_signal→no_signal; tdcc=/→; false_breakout=False/False→False | 86.2→86.2 | 0.0→0.0 | 0.0→0.0 | 92.4→92.4 | 3→3 | verified_clean |
+| 20260907 | 2413 | volume_range_breakout_v2_mid_position_momentum_attack |  | warrant=/→; tdcc=/→; false_breakout=False/False→False | 85.7→85.7 | 0.0→0.0 | 0.0→0.0 | 86.4→86.4 | 4→4 | verified_clean |
 
 ## Conclusion
 

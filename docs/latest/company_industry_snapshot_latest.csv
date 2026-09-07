@@ -183,7 +183,7 @@ stock_id,stock_name,industry,market,industry_source
 1717,長興,化學工業,TWSE,official_twse
 1718,中纖,化學工業,TWSE,official_twse
 1720,生達,生技醫療業,TWSE,official_twse
-1721,三晃,化學工業,TWSE,official_twse
+1721,國慶科技,化學工業,TWSE,official_twse
 1722,台肥,化學工業,TWSE,official_twse
 1723,中碳,化學工業,TWSE,official_twse
 1725,元禎,化學工業,TWSE,official_twse
@@ -1668,7 +1668,7 @@ stock_id,stock_name,industry,market,industry_source
 6944,兆聯實業,綠能環保,TWSE,official_twse
 6945,圓祥生技,生技醫療業,TPEX,official_tpex
 6947,台鎔科技,綠能環保,TWSE,official_twse
-6949,沛爾生醫-創,生技醫療業,TWSE,official_twse
+6949,沛爾生醫*-創,生技醫療業,TWSE,official_twse
 6951,青新-創,綠能環保,TWSE,official_twse
 6952,大武山,其他業,TWSE,official_twse
 6953,家碩,半導體業,TPEX,official_tpex
