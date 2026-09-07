@@ -308,6 +308,7 @@ SHARED_VALIDATION_COMMANDS = (
     "python scripts/validate_mature_model_row_level_metric_contract_audit.py",
     "python scripts/validate_research_against_stock_model_contract.py",
     "python scripts/validate_daily_model_research_parity.py",
+    "python scripts/validate_tdcc_stealth_accumulation_pit_replay_availability.py",
 )
 
 VOLUME_VALIDATION_COMMANDS = (
@@ -1421,6 +1422,7 @@ def test_daily_model_maintenance_pr_workflow_runs_contract_validators() -> None:
         "python scripts/validate_mature_model_row_level_metric_contract_audit.py",
         "python scripts/validate_research_against_stock_model_contract.py",
         "python scripts/validate_daily_model_research_parity.py",
+        "python scripts/validate_tdcc_stealth_accumulation_pit_replay_availability.py",
         "python scripts/validate_repo_hidden_coupling_audit.py",
         "python scripts/validate_repo_code_isolation_policy.py",
         "python scripts/validate_model_research_workflow_isolation.py",
@@ -1470,6 +1472,7 @@ def test_daily_model_maintenance_pr_workflow_runs_focused_pdf_operation_tests() 
         "tests/test_hot_theme_pullback_research.py",
         "tests/test_pullback_short_reclaim_research.py",
         "tests/test_tdcc_stealth_accumulation_research.py",
+        "tests/test_tdcc_stealth_accumulation_pit_replay_availability.py",
         "tests/test_tdcc_short_term_continuation_d5_d10_research.py",
         "tests/test_daily_report_model_summary.py",
         "tests/test_daily_production_boundaries.py",
@@ -1505,18 +1508,23 @@ def test_daily_model_maintenance_pr_workflow_runs_focused_pdf_operation_tests() 
         assert path in text
 
 
-def test_shared_model_research_job_runs_four_registered_model_test_files() -> None:
+def test_shared_model_research_job_runs_registered_model_test_files() -> None:
     text = WORKFLOW.read_text(encoding="utf-8")
     job = job_block("shared_model_research", text)
     required_tests = (
         "tests/test_hot_theme_pullback_research.py",
         "tests/test_pullback_short_reclaim_research.py",
         "tests/test_tdcc_stealth_accumulation_research.py",
+        "tests/test_tdcc_stealth_accumulation_pit_replay_availability.py",
         "tests/test_tdcc_short_term_continuation_d5_d10_research.py",
     )
 
     for path in required_tests:
         assert job.count(path) == 1
+    assert job.count(
+        "python scripts/validate_tdcc_stealth_accumulation_"
+        "pit_replay_availability.py"
+    ) == 1
 
 
 def test_revenue_job_runs_explicit_cheap_readiness_and_independent_v2_cases() -> None:
