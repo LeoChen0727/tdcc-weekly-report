@@ -56,6 +56,15 @@ TDCC_STEALTH_HISTORICAL_REPLAY_ENTRYPOINT = (
     "output/research/tdcc_stealth_accumulation/"
     "tdcc_stealth_accumulation_historical_selector_replay_report_v1.md",
 )
+TDCC_STEALTH_FIELD_CONTRACT_REPLAY_ENTRYPOINT = (
+    "run_tdcc_stealth_accumulation_field_contract_replay",
+    "scripts/build_tdcc_stealth_accumulation_field_contract_replay.py",
+    "scripts/validate_tdcc_stealth_accumulation_field_contract_replay.py",
+    "output/research/tdcc_stealth_accumulation/"
+    "tdcc_stealth_accumulation_historical_selector_field_contract_replay_*_v2.csv",
+    "output/research/tdcc_stealth_accumulation/"
+    "tdcc_stealth_accumulation_historical_selector_field_contract_replay_report_v2.md",
+)
 
 
 def _inputs() -> tuple[str, list[validator.WorkflowEntrypoint], dict[str, str]]:
@@ -193,6 +202,38 @@ def test_tdcc_stealth_historical_replay_has_independent_opt_in_entrypoint() -> N
     assert row.formal_sync_allowed is False
     assert validator.MODEL_PR_VALIDATION_DOMAINS[row.model_id] == validator.pr_scope.SHARED_MODEL_RESEARCH
     block = next(block for block in validator.workflow_step_blocks(text) if f"python {producer}" in block)
+    assert f"github.event.inputs.{workflow_input} == 'true'" in block
+    assert f"python {validator_script}" in block
+    assert f"git add {csv_glob} || true" in text
+    assert f"git add {report_path} || true" in text
+    assert validator.validate_workflow_text(text, rows, producers) == []
+
+
+def test_tdcc_stealth_field_contract_replay_has_independent_opt_in_entrypoint() -> None:
+    text, rows, producers = _inputs()
+    workflow_input, producer, validator_script, csv_glob, report_path = (
+        TDCC_STEALTH_FIELD_CONTRACT_REPLAY_ENTRYPOINT
+    )
+    row = next(
+        row
+        for row in rows
+        if row.model_id == "tdcc_stealth_accumulation_field_contract_replay"
+    )
+    assert row.workflow_input == workflow_input
+    assert row.producer == producer
+    assert row.latest_stage_glob == csv_glob
+    assert row.history_stage_glob == ""
+    assert row.docs_stage_glob == report_path
+    assert row.default_enabled is False
+    assert row.formal_sync_allowed is False
+    assert validator.MODEL_PR_VALIDATION_DOMAINS[row.model_id] == (
+        validator.pr_scope.SHARED_MODEL_RESEARCH
+    )
+    block = next(
+        block
+        for block in validator.workflow_step_blocks(text)
+        if f"python {producer}" in block
+    )
     assert f"github.event.inputs.{workflow_input} == 'true'" in block
     assert f"python {validator_script}" in block
     assert f"git add {csv_glob} || true" in text
