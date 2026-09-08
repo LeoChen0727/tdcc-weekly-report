@@ -309,6 +309,7 @@ SHARED_VALIDATION_COMMANDS = (
     "python scripts/validate_research_against_stock_model_contract.py",
     "python scripts/validate_daily_model_research_parity.py",
     "python scripts/validate_tdcc_stealth_accumulation_pit_replay_availability.py",
+    "python scripts/validate_tdcc_stealth_accumulation_historical_replay.py",
 )
 
 VOLUME_VALIDATION_COMMANDS = (
