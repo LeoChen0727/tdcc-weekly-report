@@ -61,6 +61,14 @@ FOUR_MODEL_SHARED_RESEARCH_EXACT_PATHS = frozenset(
         "tdcc_stealth_accumulation_historical_selector_field_contract_replay_summary_v2.csv",
         "output/research/tdcc_stealth_accumulation/"
         "tdcc_stealth_accumulation_historical_selector_field_contract_replay_report_v2.md",
+        "scripts/audit_tdcc_stealth_accumulation_price_pit.py",
+        "scripts/validate_tdcc_stealth_accumulation_price_pit.py",
+        "tests/test_tdcc_stealth_accumulation_price_pit.py",
+        "tests/test_tdcc_stealth_accumulation_price_pit_audit_scope_probe.py",
+        "config/tdcc_stealth_accumulation_price_pit_evidence_v1.json",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_price_pit_audit_v1.json",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_price_pit_audit_v1.csv",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_price_pit_audit_v1.md",
     }
 )
 

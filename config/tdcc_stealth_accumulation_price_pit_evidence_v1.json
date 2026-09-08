@@ -1,0 +1,106 @@
+{
+  "model_id": "tdcc_stealth_accumulation",
+  "model_name_zh": "TDCC 潛伏吸籌",
+  "audit_version": "price_pit_audit_v1",
+  "evidence_as_of_date": "2026-09-08",
+  "code_baseline_commit": "e643a2ee9076c92cfa7139e05b03e1f232d497ed",
+  "artifact_commit": "dde3ce9e39bc344297581223c6d2f10c802dc46c",
+  "replay_source_commit": "7ef37a966280201a5ee236856306fdb513de7092",
+  "observations": [
+    {"stock_id": "8261", "code": "d10_max_observed_return", "horizon": 10},
+    {"stock_id": "2492", "code": "d5_min_observed_return", "horizon": 5},
+    {"stock_id": "1447", "code": "d5_max_observed_return", "horizon": 5},
+    {"stock_id": "3624", "code": "d10_min_observed_return", "horizon": 10},
+    {"stock_id": "8358", "code": "d20_min_observed_return", "horizon": 20},
+    {"stock_id": "3653", "code": "d20_max_observed_return", "horizon": 20}
+  ],
+  "v2_sha256": {
+    "detail": "4e404bd8f73ed888b56384a1447461644ed6d5afa06ac420774983ddb595ddc3",
+    "summary": "0825fef290b52bf6c653d11c520e31d5db8ac9d34dc5953c8ca7c43300443318",
+    "report": "0677b15201a11120de145d3197634432fffc3a35bfc9e8f7bdfe53cbabc7d0d2"
+  },
+  "matching_candidate_commits": {
+    "8261": "b5871b7857b1990f381ddd6385ca1f9237b24adc",
+    "1447": "179dc72812f7162f4cdaf2b12759ee4e455fa997",
+    "8358": "3387e34244bfbf8eccd27b3b95996f5ffa4f23fb",
+    "2492": "8782faae617e8a703d396ad1c2e5d2aaefbaeb85",
+    "3624": "676690873e6123b49491864d0b3aed10ea6a5901",
+    "3653": "4f261ce76707955699cd9ac8c0059cd00abc07ff"
+  },
+  "matching_candidate_search_limit_zh": "有界 Git history 查找取得相同 selector inputs 的 commit；不宣稱最早官方發布。3624 查找 20260713–20260716 的 12 個 all_candidates 變更 commits，未查得早於 entry open 的相同 date/category/stock candidate；不能推論原始資料當時不存在。",
+  "external_evidence": [
+    {
+      "stock_id": "8358",
+      "title": "金居公司股利資訊",
+      "url": "https://www.co-tech.com/tw/ir/board",
+      "status": "company_html_event_observation",
+      "acquisition_channel": "web.open",
+      "observed_on": "2026-09-08",
+      "original_publish_time": null,
+      "raw_response_sha256": null,
+      "finding_zh": "114年度現金股利每股NT$2；20260717除權息交易日、20260721–25停止過戶、20260820發放。",
+      "limitation_zh": "停止過戶不是停牌；頁面未載原公告發布時間，此事件不能證明626至271變化的根因或完整調整基礎。"
+    },
+    {
+      "stock_id": "3624",
+      "title": "光頡公司股利查詢入口",
+      "url": "https://www.viking.com.tw/zh-TW/investors/Investors-T0304.html",
+      "status": "company_html_mops_link_only",
+      "acquisition_channel": "web.open",
+      "observed_on": "2026-09-08",
+      "original_publish_time": null,
+      "raw_response_sha256": null,
+      "finding_zh": "頁面只提供MOPS股利分派查詢入口及操作說明。",
+      "limitation_zh": "未取得對應期間完整公司事件資料，不能推論沒有事件。"
+    },
+    {
+      "stock_id": "3653",
+      "title": "健策公司股利沿革查詢",
+      "url": "https://www.jentech.com.tw/zh/shareholder-corner/dividend-history",
+      "status": "root_fetch_timeout_coordinator_coverage_incomplete",
+      "acquisition_channel": "web.open",
+      "observed_on": "2026-09-08",
+      "original_publish_time": null,
+      "raw_response_sha256": null,
+      "finding_zh": "本次主執行者web.open逾時；總管先前讀取頁面未涵蓋本次完整2026期間。",
+      "limitation_zh": "覆蓋不足或逾時均不代表該期間無公司事件。"
+    },
+    {
+      "stock_id": "3624",
+      "title": "櫃買公告11503018581查詢線索",
+      "url": "https://www.tpex.org.tw/storage/eb_data/11507/11503018581.html",
+      "status": "coordinator_search_visible_lead_raw_unavailable_403",
+      "acquisition_channel": "coordinator_web_search_report",
+      "observed_on": "2026-09-08",
+      "original_publish_time": null,
+      "raw_response_sha256": null,
+      "finding_zh": "總管搜尋線索指出20260709公告、20260720納入富櫃200；原頁403，僅保留查詢線索。",
+      "limitation_zh": "未取得公告原始bytes，未證明與價格變化的因果關係。"
+    },
+    {
+      "stock_id": "all_six",
+      "title": "TWSE每日股價查詢入口",
+      "url": "https://www.twse.com.tw/zh/trading/historical/stock-day.html",
+      "status": "official_ohlc_verification_not_completed",
+      "acquisition_channel": "alternate_shell_after_web_nonretryable",
+      "main_review_status": "not_accepted_for_completed_verification",
+      "observed_on": "2026-09-08",
+      "original_publish_time": null,
+      "raw_response_sha256": null,
+      "finding_zh": "總管已撤回另一路徑取得OHLC的完成核驗判定；本報告不採納該批JSON為已接受的獨立官方價格佐證。",
+      "limitation_zh": "查詢表單本身無OHLC結果；六筆仍缺已接受的官方獨立價格核驗。"
+    },
+    {
+      "stock_id": "all_six",
+      "title": "TWSE天然災害休市一般規則",
+      "url": "https://www.twse.com.tw/zh/about/suspended_faq.html",
+      "status": "coordinator_general_rule_observed_not_specific_event_proof",
+      "acquisition_channel": "coordinator_web.open",
+      "observed_on": "2026-09-08",
+      "original_publish_time": null,
+      "raw_response_sha256": null,
+      "finding_zh": "總管可讀一般規則：台北市全日或上午停止上班，集中市場全日休市。",
+      "limitation_zh": "一般規則不是20260710實際停班事件證明；該日CAP URL被non-retryable safe-open拒絕。"
+    }
+  ]
+}

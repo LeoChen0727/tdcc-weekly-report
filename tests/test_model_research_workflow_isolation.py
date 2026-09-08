@@ -940,6 +940,34 @@ def test_pr_validation_requires_unfiltered_pull_request_scope(
     assert any("must remain unfiltered" in error for error in errors)
 
 
+def test_price_pit_audit_uses_exact_bounded_optin_sources() -> None:
+    text, rows, producers = _inputs()
+    assert validator.validate_workflow_text(text, rows, producers) == []
+    selected = [r for r in rows if r.model_id == validator.TDCC_STEALTH_PRICE_PIT_AUDIT_MODEL_ID]
+    assert len(selected) == 1
+    assert selected[0].workflow_input == "run_tdcc_stealth_accumulation_price_pit_audit"
+    assert len(validator.TDCC_STEALTH_PRICE_PIT_AUDIT_SOURCE_REFS) == 17
+    assert text.count(validator.TDCC_STEALTH_PRICE_PIT_AUDIT_FETCH_COMMAND) == 1
+
+
+@pytest.mark.parametrize("replacement", ("", "git fetch --no-tags --depth=1 origin main"))
+def test_price_pit_audit_rejects_missing_or_nonexact_source_fetch(replacement) -> None:
+    text, rows, producers = _inputs()
+    text = text.replace(validator.TDCC_STEALTH_PRICE_PIT_AUDIT_FETCH_COMMAND, replacement, 1)
+    errors = validator.validate_workflow_text(text, rows, producers)
+    assert any("price/PIT audit must fetch its exact immutable sources" in e for e in errors)
+
+
+def test_price_pit_audit_rejects_source_fetch_after_validator() -> None:
+    text, rows, producers = _inputs()
+    command = validator.TDCC_STEALTH_PRICE_PIT_AUDIT_FETCH_COMMAND
+    text = text.replace("          " + command + "\n", "", 1)
+    validation = "          python scripts/validate_tdcc_stealth_accumulation_price_pit.py"
+    text = text.replace(validation, validation + "\n          " + command, 1)
+    errors = validator.validate_workflow_text(text, rows, producers)
+    assert any("price/PIT audit must fetch before" in e for e in errors)
+
+
 def test_pr_validation_requires_cheap_scope_detector() -> None:
     rows = validator.load_registry()
     text = validator.PR_VALIDATION_WORKFLOW.read_text(encoding="utf-8").replace(

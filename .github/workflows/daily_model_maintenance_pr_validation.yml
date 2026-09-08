@@ -296,6 +296,7 @@ jobs:
           python scripts/validate_daily_model_research_parity.py
           python scripts/validate_tdcc_stealth_accumulation_pit_replay_availability.py
           python scripts/validate_tdcc_stealth_accumulation_historical_replay.py
+          python scripts/validate_tdcc_stealth_accumulation_price_pit.py
 
       - name: Run shared model research regression tests
         run: |
@@ -317,6 +318,7 @@ jobs:
             tests/test_tdcc_stealth_accumulation_research.py \
             tests/test_tdcc_stealth_accumulation_pit_replay_availability.py \
             tests/test_tdcc_stealth_accumulation_historical_replay.py \
+            tests/test_tdcc_stealth_accumulation_price_pit.py \
             tests/test_tdcc_short_term_continuation_d5_d10_research.py
 
   volume_v2_research:
