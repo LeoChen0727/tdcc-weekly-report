@@ -238,18 +238,45 @@ def test_tdcc_stealth_field_contract_replay_has_independent_opt_in_entrypoint() 
         if f"python {producer}" in block
     )
     assert f"github.event.inputs.{workflow_input} == 'true'" in block
-    assert (
-        f"python {producer} --source-ref {TDCC_STEALTH_FIELD_CONTRACT_SOURCE_REF}"
-        in block
+    fetch_command = (
+        "git fetch --no-tags --depth=1 origin "
+        f"{TDCC_STEALTH_FIELD_CONTRACT_SOURCE_REF}"
     )
-    assert (
+    producer_command = (
+        f"python {producer} --source-ref {TDCC_STEALTH_FIELD_CONTRACT_SOURCE_REF}"
+    )
+    validator_command = (
         f"python {validator_script} --source-ref "
         f"{TDCC_STEALTH_FIELD_CONTRACT_SOURCE_REF}"
-        in block
+    )
+    assert fetch_command in block
+    assert (
+        producer_command in block
+    )
+    assert validator_command in block
+    assert (
+        block.index(fetch_command)
+        < block.index(producer_command)
+        < block.index(validator_command)
     )
     assert f"git add {csv_glob} || true" in text
     assert f"git add {report_path} || true" in text
     assert validator.validate_workflow_text(text, rows, producers) == []
+
+
+def test_tdcc_stealth_field_contract_replay_rejects_missing_source_fetch() -> None:
+    text, rows, producers = _inputs()
+    mutated = text.replace(
+        validator.TDCC_STEALTH_FIELD_CONTRACT_REPLAY_FETCH_COMMAND + "\n",
+        "",
+        1,
+    )
+
+    errors = validator.validate_workflow_text(mutated, rows, producers)
+
+    assert any(
+        "must fetch its immutable source exactly once" in error for error in errors
+    )
 
 
 def test_model_entrypoint_rejects_all_blank_stage_slots() -> None:

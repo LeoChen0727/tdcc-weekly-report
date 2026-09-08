@@ -86,6 +86,16 @@ MODEL_WORKFLOW_VALIDATORS = {
         "scripts/validate_tdcc_short_term_continuation_d5_d10_research.py"
     ),
 }
+TDCC_STEALTH_FIELD_CONTRACT_REPLAY_MODEL_ID = (
+    "tdcc_stealth_accumulation_field_contract_replay"
+)
+TDCC_STEALTH_FIELD_CONTRACT_REPLAY_SOURCE_REF = (
+    "7ef37a966280201a5ee236856306fdb513de7092"
+)
+TDCC_STEALTH_FIELD_CONTRACT_REPLAY_FETCH_COMMAND = (
+    "git fetch --no-tags --depth=1 origin "
+    f"{TDCC_STEALTH_FIELD_CONTRACT_REPLAY_SOURCE_REF}"
+)
 SHARED_DATA_COMMANDS = {
     "python scripts/build_monthly_revenue_point_in_time_panel.py",
     "python scripts/build_daily_model_signal_background_features.py",
@@ -481,6 +491,7 @@ def validate_workflow_text(
         line.strip()
         for line in text.splitlines()
         if FORBIDDEN_PUBLISH_REWRITE.match(line.strip())
+        and line.strip() != TDCC_STEALTH_FIELD_CONTRACT_REPLAY_FETCH_COMMAND
     ]
     if branch_sync_lines != [pre_run_sync]:
         errors.append(
@@ -876,6 +887,32 @@ def validate_workflow_text(
             condition = f"github.event.inputs.{row.workflow_input} == 'true'"
             if condition not in block:
                 errors.append(f"model-owned producer has wrong workflow input condition: {row.producer}")
+            if row.model_id == TDCC_STEALTH_FIELD_CONTRACT_REPLAY_MODEL_ID:
+                source_ref = TDCC_STEALTH_FIELD_CONTRACT_REPLAY_SOURCE_REF
+                producer_command = f"{command} --source-ref {source_ref}"
+                validator_script = MODEL_WORKFLOW_VALIDATORS[row.model_id]
+                validator_command = f"python {validator_script} --source-ref {source_ref}"
+                fetch_command = TDCC_STEALTH_FIELD_CONTRACT_REPLAY_FETCH_COMMAND
+                if text.count(fetch_command) != 1:
+                    errors.append(
+                        "field-contract replay must fetch its immutable source exactly once"
+                    )
+                elif fetch_command not in block:
+                    errors.append(
+                        "field-contract replay immutable source fetch must share its input guard"
+                    )
+                if producer_command not in block or validator_command not in block:
+                    errors.append(
+                        "field-contract replay producer and validator must use the immutable source ref"
+                    )
+                elif fetch_command in block and not (
+                    block.index(fetch_command)
+                    < block.index(producer_command)
+                    < block.index(validator_command)
+                ):
+                    errors.append(
+                        "field-contract replay must fetch before producing and validating"
+                    )
             validator_script = MODEL_WORKFLOW_VALIDATORS.get(row.model_id)
             if validator_script is not None:
                 validator_command = f"python {validator_script}"
