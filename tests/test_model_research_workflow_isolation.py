@@ -65,6 +65,9 @@ TDCC_STEALTH_FIELD_CONTRACT_REPLAY_ENTRYPOINT = (
     "output/research/tdcc_stealth_accumulation/"
     "tdcc_stealth_accumulation_historical_selector_field_contract_replay_report_v2.md",
 )
+TDCC_STEALTH_FIELD_CONTRACT_SOURCE_REF = (
+    "7ef37a966280201a5ee236856306fdb513de7092"
+)
 
 
 def _inputs() -> tuple[str, list[validator.WorkflowEntrypoint], dict[str, str]]:
@@ -235,7 +238,15 @@ def test_tdcc_stealth_field_contract_replay_has_independent_opt_in_entrypoint() 
         if f"python {producer}" in block
     )
     assert f"github.event.inputs.{workflow_input} == 'true'" in block
-    assert f"python {validator_script}" in block
+    assert (
+        f"python {producer} --source-ref {TDCC_STEALTH_FIELD_CONTRACT_SOURCE_REF}"
+        in block
+    )
+    assert (
+        f"python {validator_script} --source-ref "
+        f"{TDCC_STEALTH_FIELD_CONTRACT_SOURCE_REF}"
+        in block
+    )
     assert f"git add {csv_glob} || true" in text
     assert f"git add {report_path} || true" in text
     assert validator.validate_workflow_text(text, rows, producers) == []

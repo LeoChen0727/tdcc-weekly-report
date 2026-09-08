@@ -317,8 +317,8 @@ jobs:
       - name: Build model-owned TDCC stealth-accumulation enum field-contract replay
         if: ${{ github.event.inputs.run_tdcc_stealth_accumulation_field_contract_replay == 'true' }}
         run: |
-          python scripts/build_tdcc_stealth_accumulation_field_contract_replay.py
-          python scripts/validate_tdcc_stealth_accumulation_field_contract_replay.py
+          python scripts/build_tdcc_stealth_accumulation_field_contract_replay.py --source-ref 7ef37a966280201a5ee236856306fdb513de7092
+          python scripts/validate_tdcc_stealth_accumulation_field_contract_replay.py --source-ref 7ef37a966280201a5ee236856306fdb513de7092
 
       - name: Build model-owned TDCC D+5/D+10 continuation research
         if: ${{ github.event.inputs.run_tdcc_short_term_continuation_d5_d10_research == 'true' }}
