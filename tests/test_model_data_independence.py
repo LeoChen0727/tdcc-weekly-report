@@ -1428,9 +1428,29 @@ def test_volume_v2_watch_committed_lineage_audit_is_exactly_registered() -> None
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
-    assert len(rows) == 36
-    assert rows[-1]["migration_id"] == (
+    assert len(rows) == 37
+    assert rows[-2]["migration_id"] == (
         "tdcc_stealth_accumulation_historical_selector_replay_20260908"
+    )
+    field_contract_migration = rows[-1]
+    assert field_contract_migration["migration_id"] == (
+        "tdcc_stealth_accumulation_field_contract_replay_20260908"
+    )
+    assert field_contract_migration["changed_data_families"] == (
+        "tdcc_stealth_accumulation_field_contract_replay_outputs"
+    )
+    assert field_contract_migration["previous_contract_sha256s"] == "NEW"
+    assert field_contract_migration["new_contract_sha256s"] == (
+        "1d91d06423fa27b03dec3fbe932cc06202d677bb9b4c7e91d8d434ba802e00d8"
+    )
+    assert field_contract_migration["affected_models"] == (
+        "tdcc_stealth_accumulation"
+    )
+    assert field_contract_migration["user_approval_reference"] == (
+        "user_authorized_tdcc_stealth_field_contract_repair_replay_20260908"
+    )
+    assert field_contract_migration["migration_status"] == (
+        "validated_user_approved_migration"
     )
     baseline = rows[0]
     assert tuple(baseline) == DATA_SHARING_MIGRATION_COLUMNS
