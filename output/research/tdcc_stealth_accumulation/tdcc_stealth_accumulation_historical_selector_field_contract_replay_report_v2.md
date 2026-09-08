@@ -51,7 +51,7 @@
 - source commit time: `2026-09-07T18:39:08Z`
 - production source SHA-256: `93ad31cedbc7132a4f34a6e83fd34b0ed163bcd1e7f47b722a0727d0a3acdd6c`
 - selector contract SHA-256: `13b511f898de561c4c42d8c17dd857b9e55b87b829d8421b95eca951b5ba4767`
-- detail SHA-256: `2d7f7b3b3a1428e1e453893a7dba31b6ff405a642343115adeb894dbe08dcf64`
+- detail SHA-256: `4e404bd8f73ed888b56384a1447461644ed6d5afa06ac420774983ddb595ddc3`
 
 ## v1 / v2 比較界線
 

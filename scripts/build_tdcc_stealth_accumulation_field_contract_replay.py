@@ -165,6 +165,7 @@ def evaluate_selector(row: dict[str, str]) -> dict[str, Any]:
 
 def _field_contract_sha256(root: Path) -> str:
     payload = (root / FIELD_CONTRACT_PATH).read_bytes()
+    payload = payload.replace(b"\r\n", b"\n")
     rows = list(csv.DictReader(payload.decode("utf-8-sig").splitlines()))
     if {row["field_role"] for row in rows} != {"phase", "status", "enum_fallback"}:
         raise RuntimeError("field contract must define phase, status, and enum_fallback")
@@ -312,6 +313,17 @@ def build(*, root: Path, source_ref: str):
             f"{base._fmt_number(value)}% | {sequence} | `{row['entry_price_source_sha256']}` | "
             f"`{row[f'exit_d{horizon}_price_source_sha256']}` | unresolved; retained in primary |\n"
         )
+    prior_detail_sha = summary[0]["detail_artifact_sha256"]
+    detail_sha = hashlib.sha256(
+        base._csv_bytes(detail, list(base.DETAIL_FIELDS) + DETAIL_EXTRA_FIELDS)
+    ).hexdigest()
+    for row in summary:
+        row["detail_artifact_sha256"] = detail_sha
+    report = report.replace(
+        f"- detail SHA-256: `{prior_detail_sha}`",
+        f"- detail SHA-256: `{detail_sha}`",
+        1,
+    )
     return detail, summary, report
 
 
