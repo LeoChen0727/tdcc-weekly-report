@@ -1,0 +1,112 @@
+name: TDCC Stealth Accumulation Price PIT Audit
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_tdcc_stealth_accumulation_price_pit_audit:
+        description: "Run model-owned TDCC stealth-accumulation price and PIT evidence audit only"
+        required: false
+        default: false
+        type: boolean
+
+permissions: {}
+
+concurrency:
+  group: research-backtest-pipeline-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  no-op:
+    if: ${{ !(github.event.inputs.run_tdcc_stealth_accumulation_price_pit_audit == 'true') }}
+    runs-on: ubuntu-latest
+    permissions: {}
+    steps:
+      - name: No research selected
+        shell: bash
+        run: printf 'No research selected; no repository checkout or artifact writes.\n'
+
+  tdcc-stealth-accumulation-price-pit-audit:
+    if: ${{ github.event.inputs.run_tdcc_stealth_accumulation_price_pit_audit == 'true' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      TARGET_BRANCH: ${{ github.ref_name }}
+      ANY_RESEARCH_SELECTED: ${{ github.event.inputs.run_tdcc_stealth_accumulation_price_pit_audit == 'true' }}
+      MODEL_RESEARCH_SELECTED: ${{ github.event.inputs.run_tdcc_stealth_accumulation_price_pit_audit == 'true' }}
+    steps:
+      - name: Require production artifact write deploy key
+        shell: bash
+        env:
+          PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}
+        run: |
+          if [ -z "${PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY}" ]; then
+            echo "::error::PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY is required for artifact publishing."
+            exit 1
+          fi
+
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          ssh-key: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}
+          persist-credentials: true
+          ref: ${{ github.ref_name }}
+          fetch-depth: 2
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Synchronize target branch before research
+        run: |
+          git pull --ff-only origin "$TARGET_BRANCH"
+
+      - name: Install dependencies
+        if: ${{ env.ANY_RESEARCH_SELECTED == 'true' }}
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas requests tabulate matplotlib pillow openpyxl lxml html5lib beautifulsoup4 reportlab pypdf
+
+      - name: Validate model research prerequisites
+        run: |
+          python scripts/validate_apps_script_workflow_triggers.py
+          python scripts/validate_repo_production_inventory.py
+          python scripts/validate_daily_model_background_data_registry.py --structure-only
+          python scripts/validate_research_production_boundaries.py
+          python scripts/validate_model_research_artifact_ownership.py
+          python scripts/validate_model_research_shared_utilities.py
+          python scripts/validate_formal_model_evidence_pins.py
+          python scripts/validate_model_research_workflow_isolation.py
+
+
+      - name: Audit model-owned TDCC stealth-accumulation price and PIT evidence
+        if: ${{ github.event.inputs.run_tdcc_stealth_accumulation_price_pit_audit == 'true' }}
+        run: |
+          git fetch --no-tags --depth=1 origin e643a2ee9076c92cfa7139e05b03e1f232d497ed dde3ce9e39bc344297581223c6d2f10c802dc46c 7ef37a966280201a5ee236856306fdb513de7092 578a5ddac6a5ca01f2581925a5859d37ae04a939 514294fd97375f97fb3cfb03d7633da18c98f01e 7a53a9acb96456afbea750fc531d11af52c89494 8b8b84ae22d2cbda6c39a6b4f92b296da555e8b3 45303542983d2a1b665b7736c7143b4038751c0e a45c1a25e7e03fb8040d903339045892742cb3c0 b5871b7857b1990f381ddd6385ca1f9237b24adc 179dc72812f7162f4cdaf2b12759ee4e455fa997 3387e34244bfbf8eccd27b3b95996f5ffa4f23fb 8782faae617e8a703d396ad1c2e5d2aaefbaeb85 676690873e6123b49491864d0b3aed10ea6a5901 4f261ce76707955699cd9ac8c0059cd00abc07ff e44cd24a89b25121bf0cedb23137f0716f36d411 13848a4a401246a57618e29c458e8034c0a5534a
+          python scripts/audit_tdcc_stealth_accumulation_price_pit.py
+          python scripts/validate_tdcc_stealth_accumulation_price_pit.py
+
+      - name: Validate post-run model research contracts
+        if: ${{ env.MODEL_RESEARCH_SELECTED == 'true' }}
+        run: |
+          python scripts/validate_model_data_independence.py
+          python scripts/validate_daily_model_background_data_registry.py
+          python scripts/validate_model_research_artifact_ownership.py
+          python scripts/validate_formal_model_evidence_pins.py
+          python scripts/validate_daily_model_research_parity.py
+
+      - name: Commit research and backtest outputs
+        if: ${{ env.ANY_RESEARCH_SELECTED == 'true' }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_price_pit_audit_v1.*
+          git status --short
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "Update research backtest outputs"
+          git push origin "HEAD:$TARGET_BRANCH"

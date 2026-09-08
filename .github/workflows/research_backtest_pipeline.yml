@@ -85,11 +85,6 @@ on:
         required: false
         default: false
         type: boolean
-      run_tdcc_stealth_accumulation_price_pit_audit:
-        description: "Run model-owned TDCC stealth-accumulation price and PIT evidence audit only"
-        required: false
-        default: false
-        type: boolean
       run_tdcc_short_term_continuation_d5_d10_research:
         description: "Run model-owned TDCC D+5/D+10 continuation research only"
         required: false
@@ -118,21 +113,32 @@ on:
         default: false
         type: boolean
 
-permissions:
-  contents: write
+permissions: {}
 
 concurrency:
   group: research-backtest-pipeline-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
-  research-backtest-pipeline:
+  no-op:
+    if: ${{ !(github.event.inputs.run_market_timing == 'true' || github.event.inputs.run_weekly_surge == 'true' || github.event.inputs.run_explosive_volume == 'true' || github.event.inputs.run_surge_model == 'true' || github.event.inputs.run_signal_performance == 'true' || github.event.inputs.run_volume_breakout == 'true' || github.event.inputs.run_catalyst_performance == 'true' || github.event.inputs.run_msci_rebalance == 'true' || github.event.inputs.run_tdcc_signal_performance == 'true' || github.event.inputs.run_tdcc_short_term_edge == 'true' || github.event.inputs.run_short_term_specialty_packet == 'true' || github.event.inputs.run_shared_model_research_data_refresh == 'true' || github.event.inputs.run_price_pullback_23ema_research == 'true' || github.event.inputs.run_hot_theme_pullback_research == 'true' || github.event.inputs.run_pullback_short_reclaim_research == 'true' || github.event.inputs.run_tdcc_stealth_accumulation_research == 'true' || github.event.inputs.run_tdcc_stealth_accumulation_pit_replay_availability_audit == 'true' || github.event.inputs.run_tdcc_stealth_accumulation_historical_selector_replay == 'true' || github.event.inputs.run_tdcc_stealth_accumulation_field_contract_replay == 'true' || github.event.inputs.run_tdcc_short_term_continuation_d5_d10_research == 'true' || github.event.inputs.run_revenue_unreacted_range_research == 'true' || github.event.inputs.run_revenue_unreacted_range_source_snapshot_projection_chain_only == 'true' || github.event.inputs.run_volume_range_breakout_v2_research == 'true' || github.event.inputs.run_revenue_unreacted_range_forward_holdout_only == 'true' || github.event.inputs.run_revenue_unreacted_range_forward_holdout_v2_only == 'true') }}
     runs-on: ubuntu-latest
+    permissions: {}
+    steps:
+      - name: No research selected
+        shell: bash
+        run: printf 'No research selected; no repository checkout or artifact writes.\n'
+
+  research-backtest-pipeline:
+    if: ${{ github.event.inputs.run_market_timing == 'true' || github.event.inputs.run_weekly_surge == 'true' || github.event.inputs.run_explosive_volume == 'true' || github.event.inputs.run_surge_model == 'true' || github.event.inputs.run_signal_performance == 'true' || github.event.inputs.run_volume_breakout == 'true' || github.event.inputs.run_catalyst_performance == 'true' || github.event.inputs.run_msci_rebalance == 'true' || github.event.inputs.run_tdcc_signal_performance == 'true' || github.event.inputs.run_tdcc_short_term_edge == 'true' || github.event.inputs.run_short_term_specialty_packet == 'true' || github.event.inputs.run_shared_model_research_data_refresh == 'true' || github.event.inputs.run_price_pullback_23ema_research == 'true' || github.event.inputs.run_hot_theme_pullback_research == 'true' || github.event.inputs.run_pullback_short_reclaim_research == 'true' || github.event.inputs.run_tdcc_stealth_accumulation_research == 'true' || github.event.inputs.run_tdcc_stealth_accumulation_pit_replay_availability_audit == 'true' || github.event.inputs.run_tdcc_stealth_accumulation_historical_selector_replay == 'true' || github.event.inputs.run_tdcc_stealth_accumulation_field_contract_replay == 'true' || github.event.inputs.run_tdcc_short_term_continuation_d5_d10_research == 'true' || github.event.inputs.run_revenue_unreacted_range_research == 'true' || github.event.inputs.run_revenue_unreacted_range_source_snapshot_projection_chain_only == 'true' || github.event.inputs.run_volume_range_breakout_v2_research == 'true' || github.event.inputs.run_revenue_unreacted_range_forward_holdout_only == 'true' || github.event.inputs.run_revenue_unreacted_range_forward_holdout_v2_only == 'true' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     env:
       TARGET_BRANCH: ${{ github.ref_name }}
-      ANY_RESEARCH_SELECTED: ${{ github.event.inputs.run_market_timing == 'true' || github.event.inputs.run_weekly_surge == 'true' || github.event.inputs.run_explosive_volume == 'true' || github.event.inputs.run_surge_model == 'true' || github.event.inputs.run_signal_performance == 'true' || github.event.inputs.run_volume_breakout == 'true' || github.event.inputs.run_catalyst_performance == 'true' || github.event.inputs.run_msci_rebalance == 'true' || github.event.inputs.run_tdcc_signal_performance == 'true' || github.event.inputs.run_tdcc_short_term_edge == 'true' || github.event.inputs.run_short_term_specialty_packet == 'true' || github.event.inputs.run_shared_model_research_data_refresh == 'true' || github.event.inputs.run_price_pullback_23ema_research == 'true' || github.event.inputs.run_hot_theme_pullback_research == 'true' || github.event.inputs.run_pullback_short_reclaim_research == 'true' || github.event.inputs.run_tdcc_stealth_accumulation_research == 'true' || github.event.inputs.run_tdcc_stealth_accumulation_pit_replay_availability_audit == 'true' || github.event.inputs.run_tdcc_stealth_accumulation_historical_selector_replay == 'true' || github.event.inputs.run_tdcc_stealth_accumulation_field_contract_replay == 'true' || github.event.inputs.run_tdcc_stealth_accumulation_price_pit_audit == 'true' || github.event.inputs.run_tdcc_short_term_continuation_d5_d10_research == 'true' || github.event.inputs.run_revenue_unreacted_range_research == 'true' || github.event.inputs.run_volume_range_breakout_v2_research == 'true' }}
-      MODEL_RESEARCH_SELECTED: ${{ github.event.inputs.run_price_pullback_23ema_research == 'true' || github.event.inputs.run_hot_theme_pullback_research == 'true' || github.event.inputs.run_pullback_short_reclaim_research == 'true' || github.event.inputs.run_tdcc_stealth_accumulation_research == 'true' || github.event.inputs.run_tdcc_stealth_accumulation_pit_replay_availability_audit == 'true' || github.event.inputs.run_tdcc_stealth_accumulation_historical_selector_replay == 'true' || github.event.inputs.run_tdcc_stealth_accumulation_field_contract_replay == 'true' || github.event.inputs.run_tdcc_stealth_accumulation_price_pit_audit == 'true' || github.event.inputs.run_tdcc_short_term_continuation_d5_d10_research == 'true' || github.event.inputs.run_revenue_unreacted_range_research == 'true' || github.event.inputs.run_volume_range_breakout_v2_research == 'true' }}
+      ANY_RESEARCH_SELECTED: ${{ github.event.inputs.run_market_timing == 'true' || github.event.inputs.run_weekly_surge == 'true' || github.event.inputs.run_explosive_volume == 'true' || github.event.inputs.run_surge_model == 'true' || github.event.inputs.run_signal_performance == 'true' || github.event.inputs.run_volume_breakout == 'true' || github.event.inputs.run_catalyst_performance == 'true' || github.event.inputs.run_msci_rebalance == 'true' || github.event.inputs.run_tdcc_signal_performance == 'true' || github.event.inputs.run_tdcc_short_term_edge == 'true' || github.event.inputs.run_short_term_specialty_packet == 'true' || github.event.inputs.run_shared_model_research_data_refresh == 'true' || github.event.inputs.run_price_pullback_23ema_research == 'true' || github.event.inputs.run_hot_theme_pullback_research == 'true' || github.event.inputs.run_pullback_short_reclaim_research == 'true' || github.event.inputs.run_tdcc_stealth_accumulation_research == 'true' || github.event.inputs.run_tdcc_stealth_accumulation_pit_replay_availability_audit == 'true' || github.event.inputs.run_tdcc_stealth_accumulation_historical_selector_replay == 'true' || github.event.inputs.run_tdcc_stealth_accumulation_field_contract_replay == 'true' || github.event.inputs.run_tdcc_short_term_continuation_d5_d10_research == 'true' || github.event.inputs.run_revenue_unreacted_range_research == 'true' || github.event.inputs.run_volume_range_breakout_v2_research == 'true' }}
+      MODEL_RESEARCH_SELECTED: ${{ github.event.inputs.run_price_pullback_23ema_research == 'true' || github.event.inputs.run_hot_theme_pullback_research == 'true' || github.event.inputs.run_pullback_short_reclaim_research == 'true' || github.event.inputs.run_tdcc_stealth_accumulation_research == 'true' || github.event.inputs.run_tdcc_stealth_accumulation_pit_replay_availability_audit == 'true' || github.event.inputs.run_tdcc_stealth_accumulation_historical_selector_replay == 'true' || github.event.inputs.run_tdcc_stealth_accumulation_field_contract_replay == 'true' || github.event.inputs.run_tdcc_short_term_continuation_d5_d10_research == 'true' || github.event.inputs.run_revenue_unreacted_range_research == 'true' || github.event.inputs.run_volume_range_breakout_v2_research == 'true' }}
       TDCC_RESEARCH_SELECTED: ${{ github.event.inputs.run_weekly_surge == 'true' || github.event.inputs.run_surge_model == 'true' || github.event.inputs.run_volume_breakout == 'true' || github.event.inputs.run_tdcc_signal_performance == 'true' || github.event.inputs.run_tdcc_short_term_edge == 'true' || github.event.inputs.run_shared_model_research_data_refresh == 'true' || github.event.inputs.run_tdcc_short_term_continuation_d5_d10_research == 'true' }}
 
     steps:
@@ -163,6 +169,12 @@ jobs:
         run: |
           git pull --ff-only origin "$TARGET_BRANCH"
 
+      - name: Install dependencies
+        if: ${{ env.ANY_RESEARCH_SELECTED == 'true' }}
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas requests tabulate matplotlib pillow openpyxl lxml html5lib beautifulsoup4 reportlab pypdf
+
       - name: Validate Apps Script workflow triggers
         env:
           REVENUE_FORWARD_HOLDOUT_ONLY: ${{ github.event.inputs.run_revenue_unreacted_range_forward_holdout_only }}
@@ -171,6 +183,10 @@ jobs:
           REVENUE_SOURCE_PROJECTION_CHAIN_ONLY: ${{ github.event.inputs.run_revenue_unreacted_range_source_snapshot_projection_chain_only }}
         run: |
           set -euo pipefail
+          if [[ "$REVENUE_SOURCE_PROJECTION_CHAIN_ONLY" == "true" && "$REVENUE_RESEARCH_ENABLED" != "true" ]]; then
+            echo "::error::Revenue source snapshot projection chain mode requires run_revenue_unreacted_range_research=true."
+            exit 1
+          fi
           if [[ "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" && "$REVENUE_RESEARCH_ENABLED" != "true" ]]; then
             echo "::error::Revenue forward holdout mode requires run_revenue_unreacted_range_research=true."
             exit 1
@@ -204,12 +220,6 @@ jobs:
         if: ${{ env.MODEL_RESEARCH_SELECTED != 'true' }}
         run: |
           python scripts/validate_daily_model_background_data_registry.py
-
-      - name: Install dependencies
-        if: ${{ env.ANY_RESEARCH_SELECTED == 'true' }}
-        run: |
-          python -m pip install --upgrade pip
-          pip install pandas requests tabulate matplotlib pillow openpyxl lxml html5lib beautifulsoup4 reportlab pypdf
 
       - name: Validate canonical TDCC research consumer contract
         if: ${{ env.TDCC_RESEARCH_SELECTED == 'true' }}
@@ -325,13 +335,6 @@ jobs:
           git fetch --no-tags --depth=1 origin 7ef37a966280201a5ee236856306fdb513de7092
           python scripts/build_tdcc_stealth_accumulation_field_contract_replay.py --source-ref 7ef37a966280201a5ee236856306fdb513de7092
           python scripts/validate_tdcc_stealth_accumulation_field_contract_replay.py --source-ref 7ef37a966280201a5ee236856306fdb513de7092
-
-      - name: Audit model-owned TDCC stealth-accumulation price and PIT evidence
-        if: ${{ github.event.inputs.run_tdcc_stealth_accumulation_price_pit_audit == 'true' }}
-        run: |
-          git fetch --no-tags --depth=1 origin e643a2ee9076c92cfa7139e05b03e1f232d497ed dde3ce9e39bc344297581223c6d2f10c802dc46c 7ef37a966280201a5ee236856306fdb513de7092 578a5ddac6a5ca01f2581925a5859d37ae04a939 514294fd97375f97fb3cfb03d7633da18c98f01e 7a53a9acb96456afbea750fc531d11af52c89494 8b8b84ae22d2cbda6c39a6b4f92b296da555e8b3 45303542983d2a1b665b7736c7143b4038751c0e a45c1a25e7e03fb8040d903339045892742cb3c0 b5871b7857b1990f381ddd6385ca1f9237b24adc 179dc72812f7162f4cdaf2b12759ee4e455fa997 3387e34244bfbf8eccd27b3b95996f5ffa4f23fb 8782faae617e8a703d396ad1c2e5d2aaefbaeb85 676690873e6123b49491864d0b3aed10ea6a5901 4f261ce76707955699cd9ac8c0059cd00abc07ff e44cd24a89b25121bf0cedb23137f0716f36d411 13848a4a401246a57618e29c458e8034c0a5534a
-          python scripts/audit_tdcc_stealth_accumulation_price_pit.py
-          python scripts/validate_tdcc_stealth_accumulation_price_pit.py
 
       - name: Build model-owned TDCC D+5/D+10 continuation research
         if: ${{ github.event.inputs.run_tdcc_short_term_continuation_d5_d10_research == 'true' }}
@@ -490,10 +493,6 @@ jobs:
           if [[ "${{ github.event.inputs.run_tdcc_stealth_accumulation_field_contract_replay }}" == "true" ]]; then
             git add output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_historical_selector_field_contract_replay_*_v2.csv || true
             git add output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_historical_selector_field_contract_replay_report_v2.md || true
-          fi
-
-          if [[ "${{ github.event.inputs.run_tdcc_stealth_accumulation_price_pit_audit }}" == "true" ]]; then
-            git add output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_price_pit_audit_v1.* || true
           fi
 
           if [[ "${{ github.event.inputs.run_tdcc_short_term_continuation_d5_d10_research }}" == "true" ]]; then

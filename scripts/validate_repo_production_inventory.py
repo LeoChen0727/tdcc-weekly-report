@@ -12,6 +12,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+TDCC_PRICE_PIT_AUDIT_WORKFLOW = ".github/workflows/tdcc_stealth_accumulation_price_pit_audit.yml"
 INVENTORY = ROOT / "config" / "repo_production_inventory.csv"
 PR_SAFE_BASE_GUARD_WORKFLOW = ".github/workflows/individual_stock_pr_validation.yml"
 PR_SAFE_BASE_GUARD_SCRIPT = "scripts/validate_repo_production_inventory.py"
@@ -184,6 +185,7 @@ VALID_OWNERS = {
 }
 
 WORKFLOW_ALLOWED_OWNERS = {
+    TDCC_PRICE_PIT_AUDIT_WORKFLOW: set(),
     REVENUE_READINESS_FORMAL_SYNC_WORKFLOW: {
         "model_governance",
         "repo_infrastructure",
@@ -280,6 +282,20 @@ WORKFLOW_ALLOWED_OWNERS = {
 }
 
 WORKFLOW_EXACT_INVOCATION_ALLOWLIST = {
+    TDCC_PRICE_PIT_AUDIT_WORKFLOW: {
+        "scripts/audit_tdcc_stealth_accumulation_price_pit.py",
+        "scripts/validate_apps_script_workflow_triggers.py",
+        "scripts/validate_daily_model_background_data_registry.py",
+        "scripts/validate_daily_model_research_parity.py",
+        "scripts/validate_formal_model_evidence_pins.py",
+        "scripts/validate_model_data_independence.py",
+        "scripts/validate_model_research_artifact_ownership.py",
+        "scripts/validate_model_research_shared_utilities.py",
+        "scripts/validate_model_research_workflow_isolation.py",
+        "scripts/validate_repo_production_inventory.py",
+        "scripts/validate_research_production_boundaries.py",
+        "scripts/validate_tdcc_stealth_accumulation_price_pit.py",
+    },
     DAILY_WORKFLOW: {
         "scripts/build_daily_revenue_unreacted_range_operation_section.py",
         "scripts/validate_daily_revenue_unreacted_range_operation_section.py",

@@ -34,6 +34,7 @@ def assert_transition_safe_artifact_writer_count(
     expected_count = BASELINE_ARTIFACT_WRITER_COUNT + int(
         VOLUME_V2_ADVISORY_LINEAGE_REFRESH_WORKFLOW in workflow_paths
     ) + int(REVENUE_READINESS_FORMAL_SYNC_WORKFLOW in workflow_paths)
+    expected_count += int(inventory.TDCC_PRICE_PIT_AUDIT_WORKFLOW in workflow_paths)
     assert writer_count == expected_count
 
 
@@ -51,9 +52,10 @@ def test_daily_full_model_governance_invocation_exception_is_revenue_adapter_onl
         "scripts/build_daily_revenue_unreacted_range_operation_section.py",
         "scripts/validate_daily_revenue_unreacted_range_operation_section.py",
     }
-    assert inventory.WORKFLOW_EXACT_INVOCATION_ALLOWLIST == {
-        inventory.DAILY_WORKFLOW: expected_paths
+    assert set(inventory.WORKFLOW_EXACT_INVOCATION_ALLOWLIST) == {
+        inventory.DAILY_WORKFLOW, inventory.TDCC_PRICE_PIT_AUDIT_WORKFLOW
     }
+    assert inventory.WORKFLOW_EXACT_INVOCATION_ALLOWLIST[inventory.DAILY_WORKFLOW] == expected_paths
 
     errors: list[str] = []
     rows = inventory.load_inventory(errors)
@@ -61,6 +63,42 @@ def test_daily_full_model_governance_invocation_exception_is_revenue_adapter_onl
     for path in expected_paths:
         assert rows[path].owner == "model_governance"
         assert rows[path].allowed_workflows == (inventory.DAILY_WORKFLOW,)
+
+
+def test_price_pit_workflow_allows_only_its_owner_and_read_only_validators(monkeypatch) -> None:
+    workflow = inventory.TDCC_PRICE_PIT_AUDIT_WORKFLOW
+    expected = {
+        "scripts/audit_tdcc_stealth_accumulation_price_pit.py",
+        "scripts/validate_apps_script_workflow_triggers.py",
+        "scripts/validate_daily_model_background_data_registry.py",
+        "scripts/validate_daily_model_research_parity.py",
+        "scripts/validate_formal_model_evidence_pins.py",
+        "scripts/validate_model_data_independence.py",
+        "scripts/validate_model_research_artifact_ownership.py",
+        "scripts/validate_model_research_shared_utilities.py",
+        "scripts/validate_model_research_workflow_isolation.py",
+        "scripts/validate_repo_production_inventory.py",
+        "scripts/validate_research_production_boundaries.py",
+        "scripts/validate_tdcc_stealth_accumulation_price_pit.py",
+    }
+    assert inventory.WORKFLOW_EXACT_INVOCATION_ALLOWLIST[workflow] == expected
+    assert not inventory.WORKFLOW_ALLOWED_OWNERS.get(workflow)
+    errors: list[str] = []
+    rows = inventory.load_inventory(errors)
+    inventory.validate_workflow_invocations(rows, {workflow}, errors)
+    assert errors == []
+    assert rows[workflow].allowed_stage_patterns == (
+        "git add output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_price_pit_audit_v1.*",
+    )
+    assert_transition_safe_artifact_writer_count(15, {workflow})
+    for producer in (
+        "scripts/build_model_data_independence_audit.py",
+        "scripts/build_tdcc_stealth_accumulation_research.py",
+    ):
+        monkeypatch.setattr(inventory, "workflow_invocations", lambda _path, p=producer: {p})
+        errors = []
+        inventory.validate_workflow_invocations(rows, {workflow}, errors)
+        assert any("allowed owners" in error for error in errors)
 
 
 def test_revenue_readiness_formal_sync_is_exactly_registered_and_guarded() -> None:

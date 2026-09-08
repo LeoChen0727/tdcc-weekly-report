@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import csv
 import hashlib
 import json
 from pathlib import Path
@@ -1235,9 +1236,35 @@ def test_apps_script_workflow_trigger_validator_passes_current_repo() -> None:
     assert validate_apps_script_workflow_triggers.main() == 0
 
 
-def test_apps_script_research_dispatch_registry_is_forward_compatible() -> None:
+@pytest.fixture
+def apps_script_research_workflows(tmp_path: Path, monkeypatch: pytest.MonkeyPatch):
     validator = validate_apps_script_workflow_triggers
     registry = validator.load_research_dispatch_registry()
+    workflow_dir = tmp_path / "workflows"
+    workflow_dir.mkdir()
+    for workflow_path in (
+        ".github/workflows/research_backtest_pipeline.yml",
+        ".github/workflows/tdcc_stealth_accumulation_price_pit_audit.yml",
+    ):
+        blocks = ["name: Research fixture\n\non:\n  workflow_dispatch:\n    inputs:\n"]
+        for name, row in registry.items():
+            if row["workflow_path"] == workflow_path:
+                input_type = "boolean" if row["activation_mode"] == "workflow_only" else "string"
+                blocks.append(
+                    f"      {name}:\n        required: false\n"
+                    f"        default: false\n        type: {input_type}\n"
+                )
+        blocks.append("\njobs: {}\n")
+        (workflow_dir / Path(workflow_path).name).write_text("".join(blocks), encoding="utf-8")
+    monkeypatch.setattr(validator, "WORKFLOW_DIR", workflow_dir)
+    return registry
+
+
+def test_apps_script_research_dispatch_registry_is_forward_compatible(
+    apps_script_research_workflows,
+) -> None:
+    validator = validate_apps_script_workflow_triggers
+    registry = apps_script_research_workflows
     staged_input = "run_revenue_unreacted_range_source_snapshot_projection_chain_only"
     workflow_only_input = "run_revenue_unreacted_range_forward_holdout_only"
     workflow_inputs = validator.workflow_inputs("research_backtest_pipeline.yml") | {
@@ -1390,6 +1417,7 @@ def test_apps_script_research_dispatch_workflow_only_contract_is_fail_closed() -
     workflow_only_input = "run_revenue_unreacted_range_forward_holdout_only"
     registry = {
         workflow_only_input: {
+            "workflow_path": validator.RESEARCH_WORKFLOW_PATH,
             "activation_mode": "workflow_only",
         },
     }
@@ -1458,12 +1486,224 @@ def test_apps_script_research_dispatch_workflow_only_contract_is_fail_closed() -
             **valid_kwargs,
             "registry": {
                 workflow_only_input: {
+                    "workflow_path": validator.RESEARCH_WORKFLOW_PATH,
                     "activation_mode": "unknown",
                 },
             },
         },
     )
     assert any("unknown activation modes" in error for error in unknown_mode_errors)
+
+
+@pytest.mark.parametrize(
+    ("input_name", "wrong_path"),
+    [
+        ("run_tdcc_stealth_accumulation_price_pit_audit", ".github/workflows/research_backtest_pipeline.yml"),
+        ("run_market_timing", ".github/workflows/tdcc_stealth_accumulation_price_pit_audit.yml"),
+        ("run_tdcc_stealth_accumulation_price_pit_audit", ".github/workflows/unregistered.yml"),
+        ("run_market_timing", ".github/workflows/unregistered.yml"),
+        ("run_tdcc_stealth_accumulation_price_pit_audit", ".github/workflows/../workflows/tdcc_stealth_accumulation_price_pit_audit.yml"),
+    ],
+)
+def test_apps_script_research_dispatch_registry_rejects_wrong_paths(
+    tmp_path: Path, apps_script_research_workflows, input_name: str, wrong_path: str,
+) -> None:
+    validator = validate_apps_script_workflow_triggers
+    registry = apps_script_research_workflows
+    registry[input_name]["workflow_path"] = wrong_path
+    path = tmp_path / "registry.csv"
+    with path.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=list(next(iter(registry.values()))))
+        writer.writeheader()
+        writer.writerows(registry.values())
+    with pytest.raises(ValueError, match="wrong workflow"):
+        validator.load_research_dispatch_registry(path)
+
+
+@pytest.mark.parametrize("activation_mode", ["required", "when_declared"])
+def test_apps_script_research_dispatch_audit_cannot_be_gas_eligible(
+    tmp_path: Path, apps_script_research_workflows, activation_mode: str,
+) -> None:
+    validator = validate_apps_script_workflow_triggers
+    registry = apps_script_research_workflows
+    registry[validator.TDCC_PRICE_PIT_AUDIT_INPUT]["activation_mode"] = activation_mode
+    path = tmp_path / "registry.csv"
+    with path.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=list(next(iter(registry.values()))))
+        writer.writeheader()
+        writer.writerows(registry.values())
+    with pytest.raises(ValueError, match="must remain workflow_only"):
+        validator.load_research_dispatch_registry(path)
+
+
+def test_apps_script_research_dispatch_two_workflow_scopes(apps_script_research_workflows) -> None:
+    validator = validate_apps_script_workflow_triggers
+    registry = apps_script_research_workflows
+    audit_input = "run_tdcc_stealth_accumulation_price_pit_audit"
+    audit_path = ".github/workflows/tdcc_stealth_accumulation_price_pit_audit.yml"
+    assert registry[audit_input]["workflow_path"] == audit_path
+    assert registry[audit_input]["activation_mode"] == "workflow_only"
+    apps_inputs, guarded = validator.apps_script_research_dispatch_inputs()
+    errors: list[str] = []
+    observed = validator.validate_research_workflow_registries(
+        errors, registry=registry, apps_inputs=set(apps_inputs), guarded_inputs=guarded,
+    )
+    assert errors == []
+    assert set(observed) == {validator.RESEARCH_WORKFLOW_PATH, audit_path}
+    assert len(observed[validator.RESEARCH_WORKFLOW_PATH]) == 25
+    assert observed[audit_path] == {audit_input}
+    assert audit_input not in observed[validator.RESEARCH_WORKFLOW_PATH]
+    assert audit_input not in apps_inputs | dict.fromkeys(guarded)
+
+
+@pytest.mark.parametrize(
+    ("workflow_path", "input_name"),
+    [
+        (".github/workflows/research_backtest_pipeline.yml", "run_hot_theme_pullback_research"),
+        (".github/workflows/tdcc_stealth_accumulation_price_pit_audit.yml", "run_tdcc_stealth_accumulation_price_pit_audit"),
+    ],
+)
+@pytest.mark.parametrize(
+    ("mutation", "expected_error"),
+    [
+        ("missing", "missing workflow-only inputs"),
+        ("default", "must default false"),
+        ("type", "must use type boolean"),
+        ("declared", "must not appear in Apps Script"),
+        ("guarded", "must not be guarded by Apps Script"),
+    ],
+)
+def test_apps_script_research_dispatch_scoped_workflow_only_negative_cases(
+    apps_script_research_workflows, workflow_path: str, input_name: str,
+    mutation: str, expected_error: str,
+) -> None:
+    validator = validate_apps_script_workflow_triggers
+    path = validator.WORKFLOW_DIR / Path(workflow_path).name
+    block = (
+        f"      {input_name}:\n        required: false\n"
+        "        default: false\n        type: boolean\n"
+    )
+    text = path.read_text(encoding="utf-8")
+    assert block in text
+    apps_inputs, guarded = validator.apps_script_research_dispatch_inputs()
+    if mutation == "missing":
+        text = text.replace(block, "")
+    elif mutation == "default":
+        text = text.replace(block, block.replace("default: false", "default: true"))
+    elif mutation == "type":
+        text = text.replace(block, block.replace("type: boolean", "type: string"))
+    elif mutation == "declared":
+        apps_inputs[input_name] = "true"
+    elif mutation == "guarded":
+        guarded.add(input_name)
+    path.write_text(text, encoding="utf-8")
+    errors: list[str] = []
+    validator.validate_research_workflow_registries(
+        errors, registry=apps_script_research_workflows,
+        apps_inputs=set(apps_inputs), guarded_inputs=guarded,
+    )
+    assert any(workflow_path in error and expected_error in error for error in errors)
+
+
+def test_apps_script_research_dispatch_new_workflow_rejects_other_scopes(
+    apps_script_research_workflows,
+) -> None:
+    validator = validate_apps_script_workflow_triggers
+    apps_inputs, guarded = validator.apps_script_research_dispatch_inputs()
+    kwargs = {
+        "workflow_path": validator.TDCC_PRICE_PIT_AUDIT_WORKFLOW_PATH,
+        "workflow_input_names": {validator.TDCC_PRICE_PIT_AUDIT_INPUT},
+        "workflow_input_defaults": {validator.TDCC_PRICE_PIT_AUDIT_INPUT: "false"},
+        "workflow_input_types": {validator.TDCC_PRICE_PIT_AUDIT_INPUT: "boolean"},
+        "apps_inputs": set(apps_inputs), "guarded_inputs": guarded,
+        "registry": apps_script_research_workflows,
+    }
+    errors: list[str] = []
+    validator.validate_research_dispatch_contract(errors, **kwargs)
+    assert errors == []
+    for input_name in ("run_market_timing", "run_hot_theme_pullback_research", "run_unregistered"):
+        errors = []
+        validator.validate_research_dispatch_contract(
+            errors, **{**kwargs, "workflow_input_names": {*kwargs["workflow_input_names"], input_name}},
+        )
+        assert any("unregistered Apps Script inputs" in error for error in errors)
+    errors = []
+    validator.validate_research_dispatch_contract(
+        errors, **{**kwargs, "workflow_path": ".github/workflows/unregistered.yml"},
+    )
+    assert any("Unregistered research workflow path" in error for error in errors)
+
+
+def test_apps_script_research_dispatch_required_and_guarded_checks_survive_split(
+    apps_script_research_workflows,
+) -> None:
+    validator = validate_apps_script_workflow_triggers
+    apps_inputs, guarded = validator.apps_script_research_dispatch_inputs()
+    for changed_apps, changed_guarded, expected in (
+        (set(apps_inputs) - {"run_market_timing"}, guarded, "source must exactly match"),
+        (set(apps_inputs), set(), "must exactly match when_declared"),
+        (set(apps_inputs) | {"run_unregistered"}, guarded, "unguarded unknown inputs"),
+    ):
+        errors: list[str] = []
+        validator.validate_research_workflow_registries(
+            errors, registry=apps_script_research_workflows,
+            apps_inputs=changed_apps, guarded_inputs=changed_guarded,
+        )
+        assert any(expected in error for error in errors)
+    path = validator.WORKFLOW_DIR / "research_backtest_pipeline.yml"
+    text = path.read_text(encoding="utf-8")
+    block = "      run_market_timing:\n        required: false\n        default: false\n        type: string\n"
+    assert block in text
+    path.write_text(text.replace(block, ""), encoding="utf-8")
+    errors = []
+    validator.validate_research_workflow_registries(
+        errors, registry=apps_script_research_workflows,
+        apps_inputs=set(apps_inputs), guarded_inputs=guarded,
+    )
+    assert any("missing required Apps Script inputs" in error for error in errors)
+
+
+def test_apps_script_research_dispatch_missing_new_workflow_fails_closed(
+    apps_script_research_workflows,
+) -> None:
+    validator = validate_apps_script_workflow_triggers
+    (validator.WORKFLOW_DIR / "tdcc_stealth_accumulation_price_pit_audit.yml").unlink()
+    apps_inputs, guarded = validator.apps_script_research_dispatch_inputs()
+    errors: list[str] = []
+    validator.validate_research_workflow_registries(
+        errors, registry=apps_script_research_workflows,
+        apps_inputs=set(apps_inputs), guarded_inputs=guarded,
+    )
+    assert len(errors) == 1
+    assert "Research workflow unavailable" in errors[0]
+    assert validator.TDCC_PRICE_PIT_AUDIT_WORKFLOW_PATH in errors[0]
+
+
+def test_apps_script_research_dispatch_main_validates_both_workflows(
+    apps_script_research_workflows, monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    validator = validate_apps_script_workflow_triggers
+    actual_validate = validator.validate_research_dispatch_contract
+    observed: list[str] = []
+
+    class BothScopesReached(Exception):
+        pass
+
+    def record_scope(errors, **kwargs):
+        actual_validate(errors, **kwargs)
+        assert errors == []
+        observed.append(kwargs["workflow_path"])
+        if len(observed) == 2:
+            # Stop before unrelated daily/TDCC validators need their own files.
+            raise BothScopesReached
+
+    monkeypatch.setattr(validator, "validate_research_dispatch_contract", record_scope)
+    with pytest.raises(BothScopesReached):
+        validator.main()
+    assert observed == [
+        ".github/workflows/research_backtest_pipeline.yml",
+        ".github/workflows/tdcc_stealth_accumulation_price_pit_audit.yml",
+    ]
 
 
 def test_apps_script_daily_trigger_skips_weekends_and_disables_raw_health_check() -> None:

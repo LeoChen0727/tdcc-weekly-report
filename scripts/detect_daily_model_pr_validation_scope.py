@@ -498,6 +498,7 @@ MODEL_OWNED_SHARED_RESEARCH_EXACT_PATHS = frozenset(
         "tdcc_stealth_accumulation_historical_selector_replay_report_v1.md",
         "scripts/build_tdcc_stealth_accumulation_field_contract_replay.py",
         "scripts/validate_tdcc_stealth_accumulation_field_contract_replay.py",
+        "config/tdcc_stealth_accumulation_research_field_contract_v2.csv",
         "tests/test_tdcc_stealth_accumulation_field_contract_replay.py",
         "tests/test_tdcc_stealth_accumulation_field_contract_replay_scope_probe.py",
         "output/research/tdcc_stealth_accumulation/"
@@ -507,6 +508,7 @@ MODEL_OWNED_SHARED_RESEARCH_EXACT_PATHS = frozenset(
         "output/research/tdcc_stealth_accumulation/"
         "tdcc_stealth_accumulation_historical_selector_field_contract_replay_report_v2.md",
         "scripts/audit_tdcc_stealth_accumulation_price_pit.py",
+        ".github/workflows/tdcc_stealth_accumulation_price_pit_audit.yml",
         "scripts/validate_tdcc_stealth_accumulation_price_pit.py",
         "tests/test_tdcc_stealth_accumulation_price_pit.py",
         "tests/test_tdcc_stealth_accumulation_price_pit_audit_scope_probe.py",
@@ -594,8 +596,9 @@ def is_watched_path(value: str) -> bool:
 
 def is_model_like_path(value: str) -> bool:
     path = normalize_path(value).lower()
-    return path.startswith(MODEL_LIKE_PREFIXES) and any(
-        marker in path for marker in MODEL_LIKE_MARKERS
+    return path.startswith(".github/workflows/tdcc_stealth_accumulation_") or (
+        path.startswith(MODEL_LIKE_PREFIXES)
+        and any(marker in path for marker in MODEL_LIKE_MARKERS)
     )
 
 
@@ -648,6 +651,11 @@ def domains_for_path(value: str) -> frozenset[str]:
         return frozenset({RESEARCH_SAFETY_LITE, VOLUME_V2_RESEARCH})
     if path in MODEL_OWNED_SHARED_RESEARCH_EXACT_PATHS:
         return frozenset({RESEARCH_SAFETY_LITE, SHARED_MODEL_RESEARCH})
+    if lowered.startswith(".github/workflows/tdcc_stealth_accumulation_"):
+        raise ScopeDetectionError(
+            "TDCC research workflow has no declared validation domain: "
+            f"{path!r}"
+        )
     if path in REPO_CURRENT_AND_SHARED_EXACT_PATHS:
         selected = {
             REPO_CURRENT_CONTRACTS,

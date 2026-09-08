@@ -274,7 +274,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
         with:
+          ref: ${{ github.sha }}
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Set up Python
         uses: actions/setup-python@v6
@@ -285,6 +287,14 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install pandas requests tabulate matplotlib pillow openpyxl lxml html5lib beautifulsoup4 reportlab pypdf pytest fonttools pyyaml
+
+      - name: Verify TDCC field-contract replay source identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git --no-replace-objects rev-parse HEAD)" = "$GITHUB_SHA"
+          test "$(git --no-replace-objects rev-parse --is-shallow-repository)" = false
+          git --no-replace-objects cat-file -e "7ef37a966280201a5ee236856306fdb513de7092^{commit}"
 
       - name: Validate shared model research contracts
         run: |
@@ -297,6 +307,11 @@ jobs:
           python scripts/validate_tdcc_stealth_accumulation_pit_replay_availability.py
           python scripts/validate_tdcc_stealth_accumulation_historical_replay.py
           python scripts/validate_tdcc_stealth_accumulation_price_pit.py
+          python scripts/validate_tdcc_stealth_accumulation_field_contract_replay.py --source-ref 7ef37a966280201a5ee236856306fdb513de7092
+
+      - name: Run TDCC field-contract replay v2 regression tests
+        run: |
+          python -m pytest -q tests/test_tdcc_stealth_accumulation_field_contract_replay.py
 
       - name: Run shared model research regression tests
         run: |

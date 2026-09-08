@@ -12,6 +12,14 @@ APPS_SCRIPT = ROOT / "docs" / "apps_script_workflow_trigger.gs"
 WORKFLOW_DIR = ROOT / ".github" / "workflows"
 RESEARCH_DISPATCH_REGISTRY = ROOT / "config" / "apps_script_research_dispatch_inputs.csv"
 RESEARCH_WORKFLOW_PATH = ".github/workflows/research_backtest_pipeline.yml"
+TDCC_PRICE_PIT_AUDIT_WORKFLOW_PATH = (
+    ".github/workflows/tdcc_stealth_accumulation_price_pit_audit.yml"
+)
+TDCC_PRICE_PIT_AUDIT_INPUT = "run_tdcc_stealth_accumulation_price_pit_audit"
+RESEARCH_WORKFLOW_PATHS = (
+    RESEARCH_WORKFLOW_PATH,
+    TDCC_PRICE_PIT_AUDIT_WORKFLOW_PATH,
+)
 RESEARCH_REGISTRY_COLUMNS = {
     "workflow_path",
     "workflow_input",
@@ -97,6 +105,13 @@ def workflow_dispatch_input_property(
     return property_match.group(1).strip().strip('"').strip("'")
 
 
+def research_input_workflow_path(input_name: str) -> str:
+    # Only this exact input moved; other rows cannot opt into another workflow.
+    if input_name == TDCC_PRICE_PIT_AUDIT_INPUT:
+        return TDCC_PRICE_PIT_AUDIT_WORKFLOW_PATH
+    return RESEARCH_WORKFLOW_PATH
+
+
 def load_research_dispatch_registry(
     path: Path = RESEARCH_DISPATCH_REGISTRY,
 ) -> dict[str, dict[str, str]]:
@@ -113,7 +128,7 @@ def load_research_dispatch_registry(
             raise ValueError(f"Apps Script research dispatch registry row {row_number} has no input")
         if input_name in registry:
             raise ValueError(f"duplicate Apps Script research dispatch input: {input_name}")
-        if normalized["workflow_path"] != RESEARCH_WORKFLOW_PATH:
+        if normalized["workflow_path"] != research_input_workflow_path(input_name):
             raise ValueError(
                 f"Apps Script research dispatch input has wrong workflow: {input_name}"
             )
@@ -130,6 +145,8 @@ def load_research_dispatch_registry(
             raise ValueError(
                 f"Apps Script research input has invalid activation_mode: {input_name}"
             )
+        if input_name == TDCC_PRICE_PIT_AUDIT_INPUT and activation_mode != "workflow_only":
+            raise ValueError("TDCC price/PIT audit input must remain workflow_only")
         if not normalized["owner"]:
             raise ValueError(f"Apps Script research input has no owner: {input_name}")
         producer = normalized["producer"]
@@ -168,6 +185,7 @@ def apps_script_research_dispatch_inputs() -> tuple[dict[str, str], set[str]]:
 def validate_research_dispatch_contract(
     errors: list[str],
     *,
+    workflow_path: str = RESEARCH_WORKFLOW_PATH,
     workflow_input_names: set[str],
     workflow_input_defaults: dict[str, str | None],
     workflow_input_types: dict[str, str | None],
@@ -175,7 +193,25 @@ def validate_research_dispatch_contract(
     guarded_inputs: set[str],
     registry: dict[str, dict[str, str]],
 ) -> None:
-    registered_inputs = set(registry)
+    if workflow_path not in RESEARCH_WORKFLOW_PATHS:
+        errors.append(f"Unregistered research workflow path: {workflow_path}")
+        return
+    wrong_workflow_rows = {
+        name
+        for name, row in registry.items()
+        if row.get("workflow_path") != research_input_workflow_path(name)
+    }
+    if wrong_workflow_rows:
+        errors.append(
+            "Apps Script research input registry has wrong workflow paths: "
+            f"{sorted(wrong_workflow_rows)}"
+        )
+    audit_row = registry.get(TDCC_PRICE_PIT_AUDIT_INPUT)
+    if audit_row is not None and audit_row.get("activation_mode") != "workflow_only":
+        errors.append("TDCC price/PIT audit input must remain workflow_only")
+    registered_inputs = {
+        name for name, row in registry.items() if row.get("workflow_path") == workflow_path
+    }
     allowed_modes = {
         "required",
         "when_declared",
@@ -223,13 +259,14 @@ def validate_research_dispatch_contract(
             "Research workflow has unregistered Apps Script inputs: "
             f"{sorted(unregistered_workflow_inputs)}"
         )
-    missing_required_workflow_inputs = required_inputs - workflow_input_names
+    missing_required_workflow_inputs = (required_inputs & registered_inputs) - workflow_input_names
     if missing_required_workflow_inputs:
         errors.append(
             "Research workflow is missing required Apps Script inputs: "
             f"{sorted(missing_required_workflow_inputs)}"
         )
-    missing_workflow_only_inputs = workflow_only_inputs - workflow_input_names
+    scoped_workflow_only_inputs = workflow_only_inputs & registered_inputs
+    missing_workflow_only_inputs = scoped_workflow_only_inputs - workflow_input_names
     if missing_workflow_only_inputs:
         errors.append(
             "Research workflow is missing workflow-only inputs: "
@@ -237,7 +274,7 @@ def validate_research_dispatch_contract(
         )
     wrong_workflow_only_defaults = {
         name
-        for name in workflow_only_inputs & workflow_input_names
+        for name in scoped_workflow_only_inputs & workflow_input_names
         if workflow_input_defaults.get(name) != "false"
     }
     if wrong_workflow_only_defaults:
@@ -247,7 +284,7 @@ def validate_research_dispatch_contract(
         )
     wrong_workflow_only_types = {
         name
-        for name in workflow_only_inputs & workflow_input_names
+        for name in scoped_workflow_only_inputs & workflow_input_names
         if workflow_input_types.get(name) != "boolean"
     }
     if wrong_workflow_only_types:
@@ -268,12 +305,65 @@ def validate_research_dispatch_contract(
             "Research workflow-only inputs must not be guarded by Apps Script: "
             f"{sorted(unexpected_workflow_only_guarded_inputs)}"
         )
-    unsafe_extras = (apps_inputs - workflow_input_names) - staged_inputs
+    # GAS still dispatches only the original workflow. Its required inputs must
+    # not be mistaken for undeclared inputs of the separate workflow-only audit.
+    unsafe_extras = (
+        (apps_inputs - workflow_input_names) - staged_inputs
+        if workflow_path == RESEARCH_WORKFLOW_PATH
+        else set()
+    )
     if unsafe_extras:
         errors.append(
             "Apps Script research dispatch has unguarded unknown inputs: "
             f"{sorted(unsafe_extras)}"
         )
+
+
+def validate_research_workflow_registries(
+    errors: list[str],
+    *,
+    registry: dict[str, dict[str, str]],
+    apps_inputs: set[str],
+    guarded_inputs: set[str],
+) -> dict[str, set[str]]:
+    inputs_by_workflow: dict[str, set[str]] = {}
+    # Iterate the exact contract, not paths supplied by registry rows. A missing
+    # file or a cross-workflow input must never disappear through filtering.
+    for workflow_path in RESEARCH_WORKFLOW_PATHS:
+        workflow_file = Path(workflow_path).name
+        try:
+            input_names = workflow_inputs(workflow_file)
+            defaults = {
+                name: workflow_dispatch_input_property(workflow_file, name, "default")
+                for name in input_names
+            }
+            types = {
+                name: workflow_dispatch_input_property(workflow_file, name, "type")
+                for name in input_names
+            }
+        except OSError as exc:
+            errors.append(f"Research workflow unavailable: {workflow_path}: {exc}")
+            continue
+        inputs_by_workflow[workflow_path] = input_names
+        scoped_errors: list[str] = []
+        validate_research_dispatch_contract(
+            scoped_errors,
+            workflow_path=workflow_path,
+            workflow_input_names=input_names,
+            workflow_input_defaults=defaults,
+            workflow_input_types=types,
+            apps_inputs=apps_inputs,
+            guarded_inputs=guarded_inputs,
+            registry=registry,
+        )
+        for input_name in sorted(input_names):
+            if defaults[input_name] != "false":
+                scoped_errors.append(
+                    "Research workflow input has the wrong fail-closed default: "
+                    f"{input_name} expected='false'"
+                )
+        errors.extend(f"{workflow_path}: {error}" for error in scoped_errors)
+    return inputs_by_workflow
 
 
 def validate_repair_workflow_yaml_contract(errors: list[str]) -> None:
@@ -875,34 +965,17 @@ def main() -> int:
             errors.append(f"Workflow file missing: {workflow}")
 
     research_workflow = "research_backtest_pipeline.yml"
-    research_inputs = workflow_inputs(research_workflow)
     apps_inputs = set(dispatches.get(research_workflow, {}))
     _, guarded_research_inputs = apps_script_research_dispatch_inputs()
-    validate_research_dispatch_contract(
+    if Path(TDCC_PRICE_PIT_AUDIT_WORKFLOW_PATH).name in dispatches:
+        errors.append("Workflow-only TDCC price/PIT audit must not be dispatched by Apps Script")
+    research_inputs_by_workflow = validate_research_workflow_registries(
         errors,
-        workflow_input_names=research_inputs,
-        workflow_input_defaults={
-            name: workflow_dispatch_input_property(research_workflow, name, "default")
-            for name in research_inputs
-        },
-        workflow_input_types={
-            name: workflow_dispatch_input_property(research_workflow, name, "type")
-            for name in research_inputs
-        },
         apps_inputs=apps_inputs,
         guarded_inputs=guarded_research_inputs,
         registry=research_registry,
     )
-    for input_name in sorted(research_inputs):
-        expected_default = "false"
-        if (
-            workflow_dispatch_input_property(research_workflow, input_name, "default")
-            != expected_default
-        ):
-            errors.append(
-                "Research workflow input has the wrong fail-closed default: "
-                f"{input_name} expected={expected_default!r}"
-            )
+    research_inputs = research_inputs_by_workflow.get(RESEARCH_WORKFLOW_PATH, set())
     try:
         research_helper_body = apps_script_function_body("researchBacktestInputs_")
         research_trigger_body = apps_script_function_body("triggerResearchBacktestPipeline")

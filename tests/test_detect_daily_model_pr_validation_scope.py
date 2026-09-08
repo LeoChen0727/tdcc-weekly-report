@@ -53,6 +53,7 @@ FOUR_MODEL_SHARED_RESEARCH_EXACT_PATHS = frozenset(
         "tdcc_stealth_accumulation_historical_selector_replay_report_v1.md",
         "scripts/build_tdcc_stealth_accumulation_field_contract_replay.py",
         "scripts/validate_tdcc_stealth_accumulation_field_contract_replay.py",
+        "config/tdcc_stealth_accumulation_research_field_contract_v2.csv",
         "tests/test_tdcc_stealth_accumulation_field_contract_replay.py",
         "tests/test_tdcc_stealth_accumulation_field_contract_replay_scope_probe.py",
         "output/research/tdcc_stealth_accumulation/"
@@ -62,6 +63,7 @@ FOUR_MODEL_SHARED_RESEARCH_EXACT_PATHS = frozenset(
         "output/research/tdcc_stealth_accumulation/"
         "tdcc_stealth_accumulation_historical_selector_field_contract_replay_report_v2.md",
         "scripts/audit_tdcc_stealth_accumulation_price_pit.py",
+        ".github/workflows/tdcc_stealth_accumulation_price_pit_audit.yml",
         "scripts/validate_tdcc_stealth_accumulation_price_pit.py",
         "tests/test_tdcc_stealth_accumulation_price_pit.py",
         "tests/test_tdcc_stealth_accumulation_price_pit_audit_scope_probe.py",
@@ -354,6 +356,50 @@ def test_four_model_research_and_tdcc_stealth_pit_audit_route_exactly() -> None:
         assert scope.is_watched_path(path)
         assert scope.domains_for_path(path) == frozenset(
             {scope.RESEARCH_SAFETY_LITE, scope.SHARED_MODEL_RESEARCH}
+        )
+
+
+def test_tdcc_price_pit_workflow_only_diff_runs_exact_research_domains(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    path = ".github/workflows/tdcc_stealth_accumulation_price_pit_audit.yml"
+    repo, base_sha, head_sha, merge_sha = init_repo(tmp_path, path)
+    monkeypatch.setattr(scope, "ROOT", repo)
+
+    result = scope.detect_scope(
+        event_name="pull_request",
+        base_sha=base_sha,
+        head_sha=head_sha,
+        merge_sha=merge_sha,
+    )
+
+    assert result.changed_paths == (path,)
+    assert result.watched_paths == (path,)
+    assert result.selected_domains == (
+        scope.RESEARCH_SAFETY_LITE,
+        scope.SHARED_MODEL_RESEARCH,
+    )
+
+
+@pytest.mark.parametrize(
+    "path",
+    (
+        ".github/workflows/tdcc_stealth_accumulation_future_audit.yml",
+        ".github/workflows/tdcc_stealth_accumulation_field_contract_replay_v3.yml",
+        ".github/workflows/tdcc_stealth_accumulation_price_pit_audit.yaml",
+    ),
+)
+def test_unregistered_tdcc_research_workflow_only_diff_fails_closed(
+    path: str, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    assert scope.is_model_like_path(path)
+    monkeypatch.setattr(scope, "changed_paths_from_git", lambda *_args: [path])
+    monkeypatch.setattr(
+        scope, "production_pdf_inventory_paths_for_range", lambda *_args: frozenset()
+    )
+    with pytest.raises(scope.ScopeDetectionError, match="no declared validation domain"):
+        scope.detect_scope(
+            event_name="pull_request", base_sha="base", head_sha="head", merge_sha="merge"
         )
 
 
