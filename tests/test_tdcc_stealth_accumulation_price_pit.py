@@ -6,6 +6,7 @@ import csv
 import hashlib
 import io
 import sys
+from types import SimpleNamespace
 from pathlib import Path
 
 import pytest
@@ -321,3 +322,23 @@ def test_legacy_snapshot_crlf_digest_is_distinct_from_exact_raw_git_hash():
         validator.expected_snapshot_digest(raw.replace(b"176", b"177"), recorded)
     with pytest.raises(ValueError, match="all declared line-ending bases"):
         validator.expected_snapshot_digest(b"\xef\xbb\xbf" + raw, recorded)
+
+
+@pytest.mark.parametrize("module_path", ["scripts/audit_tdcc_stealth_accumulation_price_pit.py", "scripts/validate_tdcc_stealth_accumulation_price_pit.py"])
+@pytest.mark.parametrize("mutation", ["crlf_only", "modified_content", "added_bom", "untracked"])
+def test_checkout_transport_never_hides_uncommitted_content(module_path, mutation, tmp_path, monkeypatch):
+    tree = ast.parse((ROOT / module_path).read_text(encoding="utf-8"))
+    node = next(n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name == "read_audit_payload")
+    namespace = {"Path": Path, "subprocess": validator.subprocess}
+    exec(compile(ast.Module(body=[node], type_ignores=[]), module_path, "exec"), namespace)
+    raw = b"stock_id,price\n8261,176\n"
+    actual = raw.replace(b"\n", b"\r\n")
+    if mutation == "modified_content":
+        actual = actual.replace(b"176", b"177")
+    elif mutation == "added_bom":
+        actual = b"\xef\xbb\xbf" + actual
+    (tmp_path / "audit.csv").write_bytes(actual)
+    monkeypatch.setattr(validator.subprocess, "run", lambda *a, **k: SimpleNamespace(
+        returncode=1 if mutation == "untracked" else 0, stdout=raw))
+    observed = namespace["read_audit_payload"](tmp_path, "audit.csv")
+    assert observed == (raw if mutation == "crlf_only" else actual)

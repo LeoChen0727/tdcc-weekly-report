@@ -435,14 +435,23 @@ def verify_presentations(audit: dict, csv_payload: bytes, report: str) -> None:
         require(record["stock_id"] in report and record["observation_id"] in report and record["gross_return_pct"] in report, "report observation omission")
 
 
+def read_audit_payload(root: Path, relative: str) -> bytes:
+    working = (root / relative).read_bytes()
+    result = subprocess.run(["git", "-C", str(root), "show", f"HEAD:{relative}"],
+                            capture_output=True, check=False)
+    lf_working = working.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    lf_committed = result.stdout.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    return result.stdout if result.returncode == 0 and lf_working == lf_committed else working
+
+
 def validate(root: Path) -> dict:
-    settings_bytes = (root / CONFIG).read_bytes()
+    settings_bytes = read_audit_payload(root, CONFIG)
     settings = json.loads(settings_bytes)
-    audit = json.loads((root / DIRECTORY / f"{STEM}.json").read_text(encoding="utf-8"))
+    audit = json.loads(read_audit_payload(root, f"{DIRECTORY}/{STEM}.json"))
     require(audit["configuration_sha256"] == digest(settings_bytes), "configuration hash mismatch")
     verify_document(audit, settings, GitSources(root))
-    csv_payload = (root / DIRECTORY / f"{STEM}.csv").read_bytes()
-    report_payload = (root / DIRECTORY / f"{STEM}.md").read_bytes()
+    csv_payload = read_audit_payload(root, f"{DIRECTORY}/{STEM}.csv")
+    report_payload = read_audit_payload(root, f"{DIRECTORY}/{STEM}.md")
     verify_companions(audit, csv_payload, report_payload)
     verify_presentations(audit, csv_payload, report_payload.decode("utf-8"))
     return {"observations": len(audit["observations"]), "sources": len(audit["source_manifest"]), "status": "pass"}

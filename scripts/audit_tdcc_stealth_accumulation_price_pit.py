@@ -54,6 +54,16 @@ def sha(payload: bytes) -> str:
     return hashlib.sha256(payload).hexdigest()
 
 
+def read_audit_payload(root: Path, relative: str) -> bytes:
+    payload = (root / relative).read_bytes()
+    committed = subprocess.run(["git", "-C", str(root), "show", f"HEAD:{relative}"],
+                               check=False, capture_output=True)
+    normalize = lambda value: value.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    if committed.returncode == 0 and normalize(payload) == normalize(committed.stdout):
+        return committed.stdout
+    return payload
+
+
 def snapshot_digest_audit(payload: bytes, recorded: str) -> dict:
     lf = payload.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
     hashes = {"raw_git_bytes": sha(payload), "lf": sha(lf), "crlf": sha(lf.replace(b"\n", b"\r\n"))}
@@ -271,7 +281,8 @@ def price_sequence(source: Sources, stock: str, signal: str, entry: str, exit_da
 
 
 def build(root: Path = ROOT) -> dict:
-    settings = json.loads((root / CONFIG).read_text(encoding="utf-8"))
+    settings_payload = read_audit_payload(root, CONFIG)
+    settings = json.loads(settings_payload)
     if settings["artifact_commit"] != ARTIFACT_COMMIT or settings["replay_source_commit"] != SOURCE_COMMIT:
         raise RuntimeError("audit must use explicitly pinned v2 and replay sources")
     source = Sources(root)
@@ -395,7 +406,7 @@ def build(root: Path = ROOT) -> dict:
         "model_id": MODEL_ID, "model_name_zh": MODEL_NAME_ZH,
         "code_baseline_commit": settings["code_baseline_commit"], "artifact_commit": ARTIFACT_COMMIT,
         "replay_source_commit": SOURCE_COMMIT, "evidence_as_of_date": settings["evidence_as_of_date"],
-        "configuration_sha256": sha((root / CONFIG).read_bytes()),
+        "configuration_sha256": sha(settings_payload),
         "snapshot_digest_contract_functions": digest_contract,
         "primary_metric_basis": "signal_row_weighted_not_independent_positions_or_tradable_strategy",
         "v2_artifact_manifest": artifact_manifest, "v2_embedded_digest_audit": digest_audit,
