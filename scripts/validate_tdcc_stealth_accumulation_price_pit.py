@@ -439,8 +439,8 @@ def read_audit_payload(root: Path, relative: str) -> bytes:
     working = (root / relative).read_bytes()
     result = subprocess.run(["git", "-C", str(root), "show", f"HEAD:{relative}"],
                             capture_output=True, check=False)
-    lf_working = working.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
-    lf_committed = result.stdout.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    lf_working = working.replace(b"\r\n", b"\n")
+    lf_committed = result.stdout.replace(b"\r\n", b"\n")
     return result.stdout if result.returncode == 0 and lf_working == lf_committed else working
 
 

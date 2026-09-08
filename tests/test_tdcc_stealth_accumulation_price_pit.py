@@ -325,7 +325,7 @@ def test_legacy_snapshot_crlf_digest_is_distinct_from_exact_raw_git_hash():
 
 
 @pytest.mark.parametrize("module_path", ["scripts/audit_tdcc_stealth_accumulation_price_pit.py", "scripts/validate_tdcc_stealth_accumulation_price_pit.py"])
-@pytest.mark.parametrize("mutation", ["crlf_only", "modified_content", "added_bom", "untracked"])
+@pytest.mark.parametrize("mutation", ["crlf_only", "modified_content", "added_bom", "untracked", "bare_cr"])
 def test_checkout_transport_never_hides_uncommitted_content(module_path, mutation, tmp_path, monkeypatch):
     tree = ast.parse((ROOT / module_path).read_text(encoding="utf-8"))
     node = next(n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name == "read_audit_payload")
@@ -337,6 +337,8 @@ def test_checkout_transport_never_hides_uncommitted_content(module_path, mutatio
         actual = actual.replace(b"176", b"177")
     elif mutation == "added_bom":
         actual = b"\xef\xbb\xbf" + actual
+    elif mutation == "bare_cr":
+        actual = raw.replace(b"\n", b"\r")
     (tmp_path / "audit.csv").write_bytes(actual)
     monkeypatch.setattr(validator.subprocess, "run", lambda *a, **k: SimpleNamespace(
         returncode=1 if mutation == "untracked" else 0, stdout=raw))

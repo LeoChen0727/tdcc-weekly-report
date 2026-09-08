@@ -58,7 +58,7 @@ def read_audit_payload(root: Path, relative: str) -> bytes:
     payload = (root / relative).read_bytes()
     committed = subprocess.run(["git", "-C", str(root), "show", f"HEAD:{relative}"],
                                check=False, capture_output=True)
-    normalize = lambda value: value.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    normalize = lambda value: value.replace(b"\r\n", b"\n")
     if committed.returncode == 0 and normalize(payload) == normalize(committed.stdout):
         return committed.stdout
     return payload
