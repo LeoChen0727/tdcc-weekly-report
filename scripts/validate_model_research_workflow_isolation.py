@@ -66,10 +66,12 @@ MODEL_PR_VALIDATION_DOMAINS = {
         pr_scope.SHARED_MODEL_RESEARCH
     ),
     "tdcc_short_term_continuation_d5_d10": pr_scope.SHARED_MODEL_RESEARCH,
+    "tdcc_stealth_accumulation_price_pit_audit": pr_scope.SHARED_MODEL_RESEARCH,
     "revenue_unreacted_range": pr_scope.REVENUE_RESEARCH,
     "volume_range_breakout_v2": pr_scope.VOLUME_V2_RESEARCH,
 }
 MODEL_WORKFLOW_VALIDATORS = {
+    "tdcc_stealth_accumulation_price_pit_audit": "scripts/validate_tdcc_stealth_accumulation_price_pit.py",
     "hot_theme_pullback": "scripts/validate_hot_theme_pullback_research.py",
     "pullback_short_reclaim": "scripts/validate_pullback_short_reclaim_research.py",
     "tdcc_stealth_accumulation": "scripts/validate_tdcc_stealth_accumulation_research.py",
@@ -95,6 +97,30 @@ TDCC_STEALTH_FIELD_CONTRACT_REPLAY_SOURCE_REF = (
 TDCC_STEALTH_FIELD_CONTRACT_REPLAY_FETCH_COMMAND = (
     "git fetch --no-tags --depth=1 origin "
     f"{TDCC_STEALTH_FIELD_CONTRACT_REPLAY_SOURCE_REF}"
+)
+TDCC_STEALTH_PRICE_PIT_AUDIT_MODEL_ID = "tdcc_stealth_accumulation_price_pit_audit"
+TDCC_STEALTH_PRICE_PIT_AUDIT_SOURCE_REFS = (
+    "e643a2ee9076c92cfa7139e05b03e1f232d497ed",
+    "dde3ce9e39bc344297581223c6d2f10c802dc46c",
+    "7ef37a966280201a5ee236856306fdb513de7092",
+    "578a5ddac6a5ca01f2581925a5859d37ae04a939",
+    "514294fd97375f97fb3cfb03d7633da18c98f01e",
+    "7a53a9acb96456afbea750fc531d11af52c89494",
+    "8b8b84ae22d2cbda6c39a6b4f92b296da555e8b3",
+    "45303542983d2a1b665b7736c7143b4038751c0e",
+    "a45c1a25e7e03fb8040d903339045892742cb3c0",
+    "b5871b7857b1990f381ddd6385ca1f9237b24adc",
+    "179dc72812f7162f4cdaf2b12759ee4e455fa997",
+    "3387e34244bfbf8eccd27b3b95996f5ffa4f23fb",
+    "8782faae617e8a703d396ad1c2e5d2aaefbaeb85",
+    "676690873e6123b49491864d0b3aed10ea6a5901",
+    "4f261ce76707955699cd9ac8c0059cd00abc07ff",
+    "e44cd24a89b25121bf0cedb23137f0716f36d411",
+    "13848a4a401246a57618e29c458e8034c0a5534a",
+)
+TDCC_STEALTH_PRICE_PIT_AUDIT_FETCH_COMMAND = (
+    "git fetch --no-tags --depth=1 origin "
+    + " ".join(TDCC_STEALTH_PRICE_PIT_AUDIT_SOURCE_REFS)
 )
 SHARED_DATA_COMMANDS = {
     "python scripts/build_monthly_revenue_point_in_time_panel.py",
@@ -491,7 +517,10 @@ def validate_workflow_text(
         line.strip()
         for line in text.splitlines()
         if FORBIDDEN_PUBLISH_REWRITE.match(line.strip())
-        and line.strip() != TDCC_STEALTH_FIELD_CONTRACT_REPLAY_FETCH_COMMAND
+        and line.strip() not in (
+            TDCC_STEALTH_FIELD_CONTRACT_REPLAY_FETCH_COMMAND,
+            TDCC_STEALTH_PRICE_PIT_AUDIT_FETCH_COMMAND,
+        )
     ]
     if branch_sync_lines != [pre_run_sync]:
         errors.append(
@@ -913,6 +942,17 @@ def validate_workflow_text(
                     errors.append(
                         "field-contract replay must fetch before producing and validating"
                     )
+            if row.model_id == TDCC_STEALTH_PRICE_PIT_AUDIT_MODEL_ID:
+                fetch_command = TDCC_STEALTH_PRICE_PIT_AUDIT_FETCH_COMMAND
+                validator_command = f"python {MODEL_WORKFLOW_VALIDATORS[row.model_id]}"
+                if text.count(fetch_command) != 1:
+                    errors.append("price/PIT audit must fetch its exact immutable sources exactly once")
+                elif fetch_command not in block:
+                    errors.append("price/PIT audit immutable sources must share its input guard")
+                elif validator_command in block and not (
+                    block.index(fetch_command) < block.index(command) < block.index(validator_command)
+                ):
+                    errors.append("price/PIT audit must fetch before producing and validating")
             validator_script = MODEL_WORKFLOW_VALIDATORS.get(row.model_id)
             if validator_script is not None:
                 validator_command = f"python {validator_script}"
