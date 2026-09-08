@@ -242,14 +242,36 @@ def selected_manifest_rows(rows: list[dict[str, str]]) -> list[dict[str, str]]:
     return [max(candidates, key=lambda row: int(re.fullmatch(r"r([0-9]+)", row["snapshot_revision"]).group(1))) for _, candidates in sorted(grouped.items())]
 
 
-def validate(root: Path, source_ref: str) -> None:
-    detail_path = root / DETAIL
-    summary_path = root / SUMMARY
-    report_path = root / REPORT
-    detail = list(csv.DictReader(detail_path.open(encoding="utf-8-sig", newline="")))
-    summary = list(csv.DictReader(summary_path.open(encoding="utf-8-sig", newline="")))
-    if len(summary) != 3 or {row["horizon"] for row in summary} != {"D5", "D10", "D20"}:
+def replay_artifact_payload(path: Path) -> bytes:
+    payload = path.read_bytes()
+    normalized = payload.replace(b"\r\n", b"\n")
+    if payload.startswith(b"\xef\xbb\xbf") or b"\r" in normalized:
+        raise RuntimeError(f"replay artifact must not contain BOM or bare CR: {path.name}")
+    if b"\r\n" in payload and payload.count(b"\n") != payload.count(b"\r\n"):
+        raise RuntimeError(f"replay artifact must use pure LF or CRLF: {path.name}")
+    return normalized
+
+
+def load_bound_artifacts(root: Path) -> tuple[list[dict[str, str]], list[dict[str, str]], str]:
+    # Only normalize checkout line endings; never substitute HEAD for working bytes.
+    detail_payload = replay_artifact_payload(root / DETAIL)
+    detail = list(csv.DictReader(io.StringIO(detail_payload.decode("utf-8"), newline="")))
+    summary = list(csv.DictReader(io.StringIO(replay_artifact_payload(root / SUMMARY).decode("utf-8"), newline="")))
+    report = replay_artifact_payload(root / REPORT).decode("utf-8")
+    if len(summary) != 3 or {row.get("horizon") for row in summary} != {"D5", "D10", "D20"}:
         raise RuntimeError("summary must contain exactly D5, D10, and D20")
+    detail_sha = hashlib.sha256(detail_payload).hexdigest()
+    for row in summary:
+        if row.get("detail_artifact_sha256") != detail_sha:
+            raise RuntimeError(f"final detail digest mismatch in summary horizon={row['horizon']}")
+    markers = [line for line in report.splitlines() if "detail SHA-256:" in line]
+    if markers != [f"- detail SHA-256: `{detail_sha}`"]:
+        raise RuntimeError("report must contain exactly one matching final detail SHA-256 marker")
+    return detail, summary, report
+
+
+def validate(root: Path, source_ref: str) -> None:
+    detail, summary, report = load_bound_artifacts(root)
     tree = GitTree(root, source_ref)
     manifest = selected_manifest_rows(csv_rows(tree.read(MANIFEST)))
     expected: set[tuple[str, str, str, str]] = set()
@@ -338,7 +360,6 @@ def validate(root: Path, source_ref: str) -> None:
                     f"summary mismatch horizon={horizon} field={key} "
                     f"expected={expected_value} actual={row[key]}"
                 )
-    report = report_path.read_text(encoding="utf-8")
     for required in ("v1 / v2 比較界線", "advisory-only", "不是 `8434`", tree.commit):
         if required not in report:
             raise RuntimeError(f"report missing required text: {required}")
