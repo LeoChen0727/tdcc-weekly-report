@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import csv
 import re
+from collections import Counter
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -250,6 +251,64 @@ FORBIDDEN_PUBLISH_REWRITE = re.compile(
     r"^git\s+(?:pull|fetch|rebase|merge|reset|checkout|switch)\b"
 )
 
+LEGACY_WORKFLOW_PATH = ".github/workflows/research_backtest_pipeline.yml"
+PRICE_PIT_WORKFLOW_PATH = ".github/workflows/tdcc_stealth_accumulation_price_pit_audit.yml"
+PRICE_PIT_WORKFLOW = ROOT / PRICE_PIT_WORKFLOW_PATH
+WORKFLOW_WRITER_JOBS = {
+    LEGACY_WORKFLOW_PATH: "research-backtest-pipeline",
+    PRICE_PIT_WORKFLOW_PATH: "tdcc-stealth-accumulation-price-pit-audit",
+}
+PRICE_PIT_INPUT = "run_tdcc_stealth_accumulation_price_pit_audit"
+PRICE_PIT_STAGE_GLOB = (
+    "output/research/tdcc_stealth_accumulation/"
+    "tdcc_stealth_accumulation_price_pit_audit_v1.*"
+)
+LEGACY_WORKFLOW_INPUTS = frozenset({
+    "run_market_timing", "run_weekly_surge", "run_explosive_volume",
+    "run_surge_model", "run_signal_performance", "run_volume_breakout",
+    "run_catalyst_performance", "run_msci_rebalance", "run_tdcc_signal_performance",
+    "run_tdcc_short_term_edge", "run_short_term_specialty_packet",
+    SHARED_DATA_INPUT, "run_price_pullback_23ema_research",
+    "run_hot_theme_pullback_research", "run_pullback_short_reclaim_research",
+    "run_tdcc_stealth_accumulation_research",
+    "run_tdcc_stealth_accumulation_pit_replay_availability_audit",
+    "run_tdcc_stealth_accumulation_historical_selector_replay",
+    "run_tdcc_stealth_accumulation_field_contract_replay",
+    "run_tdcc_short_term_continuation_d5_d10_research",
+    REVENUE_WORKFLOW_INPUT, REVENUE_PROJECTION_CHAIN_STAGE_INPUT,
+    "run_volume_range_breakout_v2_research",
+    REVENUE_FORWARD_HOLDOUT_STAGE_INPUT, REVENUE_FORWARD_HOLDOUT_V2_STAGE_INPUT,
+})
+LEGACY_BOOLEAN_INPUTS = frozenset({
+    "run_hot_theme_pullback_research",
+    "run_pullback_short_reclaim_research",
+    "run_tdcc_stealth_accumulation_research",
+    "run_tdcc_stealth_accumulation_pit_replay_availability_audit",
+    "run_tdcc_stealth_accumulation_historical_selector_replay",
+    "run_tdcc_stealth_accumulation_field_contract_replay",
+    "run_tdcc_short_term_continuation_d5_d10_research",
+    REVENUE_FORWARD_HOLDOUT_STAGE_INPUT,
+    REVENUE_FORWARD_HOLDOUT_V2_STAGE_INPUT,
+})
+STATIC_VALIDATOR_COMMANDS = (
+    "python scripts/validate_apps_script_workflow_triggers.py",
+    "python scripts/validate_repo_production_inventory.py",
+    BACKGROUND_REGISTRY_STRUCTURE_COMMAND,
+    "python scripts/validate_research_production_boundaries.py",
+    "python scripts/validate_model_research_artifact_ownership.py",
+    "python scripts/validate_model_research_shared_utilities.py",
+    "python scripts/validate_formal_model_evidence_pins.py",
+    "python scripts/validate_model_research_workflow_isolation.py",
+)
+READ_ONLY_POST_RUN_COMMANDS = (
+    MODEL_DATA_AUDIT_VALIDATE_COMMAND,
+    BACKGROUND_REGISTRY_FULL_COMMAND,
+    "python scripts/validate_model_research_artifact_ownership.py",
+    "python scripts/validate_formal_model_evidence_pins.py",
+    "python scripts/validate_daily_model_research_parity.py",
+)
+NO_OP_RUN = r"printf 'No research selected; no repository checkout or artifact writes.\n'"
+
 
 @dataclass(frozen=True)
 class WorkflowEntrypoint:
@@ -312,25 +371,358 @@ def load_model_owned_producers(path: Path = OWNERSHIP_REGISTRY) -> dict[str, str
     return result
 
 
-def workflow_input_defaults(text: str) -> dict[str, str]:
-    match = re.search(r"(?ms)^    inputs:\s*\n(?P<body>.*?)(?=^permissions:)", text)
-    if not match:
-        return {}
-    body = match.group("body")
-    rows: dict[str, str] = {}
-    for input_match in re.finditer(
-        r'(?ms)^      (?P<name>[A-Za-z0-9_]+):\s*\n.*?^        default: '
-        r'(?:(?:"(?P<quoted>true|false)")|(?P<plain>true|false))\s*$',
-        body,
-    ):
-        rows[input_match.group("name")] = (
-            input_match.group("quoted") or input_match.group("plain")
+
+@dataclass(frozen=True)
+class WorkflowField:
+    value: str
+    body: str
+
+
+def _workflow_fields(text: str, indent: int) -> dict[str, WorkflowField]:
+    """Parse the fixed block-mapping subset, rejecting duplicate/ambiguous keys.
+
+    Shell/literal bodies remain opaque until their own contract validates them.
+    This is deliberately not a general YAML loader and has no runtime dependency.
+    """
+    fields: dict[str, WorkflowField] = {}
+    key = ""
+    value = ""
+    body: list[str] = []
+    for line in text.splitlines():
+        if not line.strip() or line.lstrip().startswith("#"):
+            continue
+        leading = line[:len(line) - len(line.lstrip())]
+        if "\t" in leading or len(leading) < indent:
+            raise ValueError("unsupported workflow indentation")
+        if len(leading) > indent:
+            if not key:
+                raise ValueError("workflow mapping has an unowned nested body")
+            body.append(line)
+            continue
+        match = re.fullmatch(r"([A-Za-z0-9_-]+):(?: +(.*))?", line[indent:])
+        if not match:
+            raise ValueError(f"unsupported workflow mapping entry: {line.strip()}")
+        if key:
+            fields[key] = WorkflowField(value, "\n".join(body))
+        key, value = match.group(1), match.group(2) or ""
+        if key in fields:
+            raise ValueError(f"duplicate workflow mapping key: {key}")
+        body = []
+    if key:
+        fields[key] = WorkflowField(value, "\n".join(body))
+    return fields
+
+
+def _children(field: WorkflowField, indent: int) -> dict[str, WorkflowField]:
+    if field.value:
+        raise ValueError("workflow contract requires an explicit block mapping")
+    return _workflow_fields(field.body, indent)
+
+
+def _scalar(fields: dict[str, WorkflowField], name: str) -> str:
+    field = fields.get(name, WorkflowField("", ""))
+    if field.body:
+        raise ValueError(f"workflow scalar must not have a nested body: {name}")
+    return field.value
+
+
+def _dispatch_inputs(text: str) -> dict[str, dict[str, WorkflowField]]:
+    root = _workflow_fields(text, 0)
+    trigger = _children(root["on"], 2)
+    if set(trigger) != {"workflow_dispatch"}:
+        raise ValueError("research workflows must expose only workflow_dispatch")
+    dispatch = _children(trigger["workflow_dispatch"], 4)
+    if set(dispatch) != {"inputs"}:
+        raise ValueError("workflow_dispatch must contain exactly the inputs mapping")
+    return {
+        name: _children(field, 8)
+        for name, field in _children(dispatch["inputs"], 6).items()
+    }
+
+
+def _workflow_steps(field: WorkflowField) -> list[dict[str, WorkflowField]]:
+    if field.value:
+        raise ValueError("workflow steps must be an explicit block sequence")
+    blocks: list[list[str]] = []
+    for line in field.body.splitlines():
+        if not line.strip() or line.lstrip().startswith("#"):
+            continue
+        if line.startswith("      - "):
+            blocks.append(["        " + line[8:]])
+        elif line.startswith("        ") and blocks:
+            blocks[-1].append(line)
+        else:
+            raise ValueError(f"unsupported workflow step entry: {line.strip()}")
+    return [_workflow_fields("\n".join(block), 8) for block in blocks]
+
+
+def _run_lines(step: dict[str, WorkflowField]) -> tuple[str, ...]:
+    field = step.get("run", WorkflowField("", ""))
+    if field.value in {"|", "|-"}:
+        return tuple(line.strip() for line in field.body.splitlines() if line.strip())
+    if field.body:
+        raise ValueError("workflow run must use a literal block or single scalar")
+    return (field.value,) if field.value else ()
+
+
+def workflow_selection_condition(input_names, *, negate: bool = False) -> str:
+    expression = " || ".join(
+        f"github.event.inputs.{name} == 'true'" for name in input_names
+    )
+    return "${{ " + ("!(" + expression + ")" if negate else expression) + " }}"
+
+
+def _same_condition(actual: str, expected: str) -> bool:
+    return re.sub(r"\s+", "", actual) == re.sub(r"\s+", "", expected)
+
+
+def validate_registry_contract(
+    rows: list[WorkflowEntrypoint], model_owned_producers: dict[str, str]
+) -> list[str]:
+    errors: list[str] = []
+    registry_models = {row.model_id: row.producer for row in rows}
+    if registry_models != model_owned_producers:
+        errors.append(
+            "workflow registry must cover every model_owned_write producer exactly: "
+            f"workflow={registry_models}; ownership={model_owned_producers}"
         )
-    return rows
+    for attribute in ("workflow_input", "producer", "model_id"):
+        values = [getattr(row, attribute) for row in rows]
+        if len(values) != len(set(values)):
+            errors.append(f"duplicate {attribute} in model research workflow registry")
+    for row in rows:
+        expected_path = (
+            PRICE_PIT_WORKFLOW_PATH
+            if row.model_id == TDCC_STEALTH_PRICE_PIT_AUDIT_MODEL_ID
+            else LEGACY_WORKFLOW_PATH
+        )
+        if row.workflow_path != expected_path:
+            errors.append(
+                f"model-owned producer registered to wrong workflow: {row.model_id}; "
+                f"expected={expected_path}; observed={row.workflow_path}"
+            )
+        if row.model_id == TDCC_STEALTH_PRICE_PIT_AUDIT_MODEL_ID and (
+            row.workflow_input != PRICE_PIT_INPUT
+            or (row.latest_stage_glob, row.history_stage_glob, row.docs_stage_glob)
+            != (PRICE_PIT_STAGE_GLOB, "", "")
+        ):
+            errors.append("price/PIT registry must retain its exact input and model family allowlist")
+    return errors
+
+
+def validate_workflow_job_contract(
+    text: str, rows: list[WorkflowEntrypoint], workflow_path: str
+) -> list[str]:
+    """Validate fixed job boundaries, executable step guards, and ordering."""
+    errors: list[str] = []
+    root = _workflow_fields(text, 0)
+    if set(root) != {"name", "on", "permissions", "concurrency", "jobs"}:
+        errors.append("research workflow must retain its exact top-level keys")
+    if root.get("permissions") != WorkflowField("{}", ""):
+        errors.append("research workflow top permissions must be exactly {}")
+    concurrency = _children(root["concurrency"], 2)
+    if concurrency != {
+        "group": WorkflowField("research-backtest-pipeline-${{ github.ref }}", ""),
+        "cancel-in-progress": WorkflowField("false", ""),
+    }:
+        errors.append("research writers must retain their shared non-cancelling concurrency lock")
+    inputs = _dispatch_inputs(text)
+    expected_inputs = (
+        {PRICE_PIT_INPUT} if workflow_path == PRICE_PIT_WORKFLOW_PATH
+        else LEGACY_WORKFLOW_INPUTS
+    )
+    if len(inputs) > 25:
+        errors.append(f"workflow_dispatch exceeds the 25 input limit: observed={len(inputs)}")
+    if set(inputs) != set(expected_inputs):
+        errors.append("research workflow dispatch inputs must equal its exact registered slice")
+    for name, fields in inputs.items():
+        requires_boolean = (
+            workflow_path == PRICE_PIT_WORKFLOW_PATH or name in LEGACY_BOOLEAN_INPUTS
+        )
+        expected_type = "boolean" if requires_boolean else "string"
+        required_fields = {"description", "required", "default"}
+        if requires_boolean:
+            required_fields.add("type")
+        if not required_fields.issubset(fields) or not set(fields).issubset(required_fields | {"type"}):
+            errors.append(f"research workflow input must declare exact {expected_type} fields: {name}")
+        actual_type = _scalar(fields, "type")
+        if not actual_type and not requires_boolean:
+            actual_type = "string"
+        if actual_type != expected_type:
+            errors.append(f"research workflow input must have type {expected_type}: {name}")
+        if _scalar(fields, "default").strip("'\"") != "false":
+            errors.append(f"research workflow input must default false: {name}")
+        if _scalar(fields, "required") != "false":
+            errors.append(f"research workflow input must be optional: {name}")
+    writer_id = WORKFLOW_WRITER_JOBS[workflow_path]
+    jobs = _children(root["jobs"], 2)
+    if set(jobs) != {writer_id, "no-op"}:
+        errors.append("research workflow must contain exactly its writer and no-op jobs")
+    writer = _children(jobs[writer_id], 4)
+    if set(writer) != {"if", "runs-on", "permissions", "env", "steps"}:
+        errors.append("research writer must retain its exact job keys")
+    if _children(writer["permissions"], 6) != {"contents": WorkflowField("write", "")}:
+        errors.append("research writer must explicitly grant only contents: write")
+    selected = workflow_selection_condition(inputs)
+    if not _same_condition(_scalar(writer, "if"), selected):
+        errors.append("research writer job.if must equal the OR of every dispatch input")
+    noop = _children(jobs["no-op"], 4)
+    if set(noop) != {"if", "runs-on", "permissions", "steps"}:
+        errors.append("no-op job must contain only if/runs-on/permissions/steps")
+    if not _same_condition(_scalar(noop, "if"), workflow_selection_condition(inputs, negate=True)):
+        errors.append("no-op job.if must be the exact negation of the writer input OR")
+    if noop.get("permissions") != WorkflowField("{}", ""):
+        errors.append("no-op job permissions must be exactly {}")
+    if _scalar(noop, "runs-on") != "ubuntu-latest":
+        errors.append("no-op job must use the fixed ubuntu-latest runner")
+    noop_steps = _workflow_steps(noop["steps"])
+    if len(noop_steps) != 1 or set(noop_steps[0]) != {"name", "shell", "run"}:
+        errors.append("no-op job must have exactly one name/shell/run printf step")
+    elif (
+        _scalar(noop_steps[0], "name") != "No research selected"
+        or _scalar(noop_steps[0], "shell") != "bash"
+        or _run_lines(noop_steps[0]) != (NO_OP_RUN,)
+    ):
+        errors.append("no-op step must contain only the fixed bash printf")
+
+    env = _children(writer["env"], 6)
+    if workflow_path == PRICE_PIT_WORKFLOW_PATH:
+        if set(env) != {"TARGET_BRANCH", "ANY_RESEARCH_SELECTED", "MODEL_RESEARCH_SELECTED"}:
+            errors.append("price/PIT writer env must contain only its single-input selection and target")
+        for name in ("ANY_RESEARCH_SELECTED", "MODEL_RESEARCH_SELECTED"):
+            if not _same_condition(_scalar(env, name), selected):
+                errors.append(f"price/PIT {name} must equal its single input")
+
+    steps = _workflow_steps(writer["steps"])
+    runs = [_run_lines(step) for step in steps]
+    for step in steps:
+        if "continue-on-error" in step or "set +e" in _run_lines(step):
+            errors.append("research steps must not mask shell failure or disable validation")
+    for row in rows:
+        matching = [i for i, lines in enumerate(runs) if row.producer in "\n".join(lines)]
+        if len(matching) != 1:
+            errors.append(f"model-owned producer must appear in exactly one workflow step: {row.producer}")
+            continue
+        index = matching[0]
+        if not _same_condition(
+            _scalar(steps[index], "if"), workflow_selection_condition([row.workflow_input])
+        ):
+            errors.append(f"model-owned producer has wrong workflow input condition: {row.producer}")
+        expected_commands = {f"python {row.producer}"}
+        if row.model_id == TDCC_STEALTH_FIELD_CONTRACT_REPLAY_MODEL_ID:
+            expected_commands = {
+                f"python {row.producer} --source-ref {TDCC_STEALTH_FIELD_CONTRACT_REPLAY_SOURCE_REF}"
+            }
+        elif row.producer == REVENUE_PRODUCER:
+            expected_commands = {
+                REVENUE_FULL_BUILD_COMMAND, REVENUE_FORWARD_HOLDOUT_BUILD_COMMAND,
+                REVENUE_FORWARD_HOLDOUT_V2_BUILD_COMMAND, REVENUE_PROJECTION_CHAIN_BUILD_COMMAND,
+            }
+        actual_commands = [line for line in runs[index] if row.producer in line]
+        if set(actual_commands) != expected_commands or len(actual_commands) != len(expected_commands):
+            errors.append(f"model-owned producer commands must execute exactly once without masking: {row.producer}")
+        validator_script = MODEL_WORKFLOW_VALIDATORS.get(row.model_id)
+        if validator_script:
+            expected = f"python {validator_script}"
+            if row.model_id == TDCC_STEALTH_FIELD_CONTRACT_REPLAY_MODEL_ID:
+                expected += f" --source-ref {TDCC_STEALTH_FIELD_CONTRACT_REPLAY_SOURCE_REF}"
+            if [line for line in runs[index] if validator_script in line] != [expected]:
+                errors.append(f"model-owned validator must execute exactly once without masking: {validator_script}")
+
+    static_indices = [i for i, lines in enumerate(runs) if BACKGROUND_REGISTRY_STRUCTURE_COMMAND in lines]
+    post_indices = [
+        i for i, step in enumerate(steps)
+        if _scalar(step, "name") == "Validate post-run model research contracts"
+    ]
+    publish_indices = [
+        i for i, step in enumerate(steps)
+        if _scalar(step, "name") == COMMIT_STEP_MARKER.removeprefix("- name: ")
+    ]
+    install_indices = [
+        i for i, step in enumerate(steps) if _scalar(step, "name") == "Install dependencies"
+    ]
+    if len(static_indices) != 1:
+        errors.append("research workflow must retain exactly one static validator step")
+    else:
+        index = static_indices[0]
+        if "if" in steps[index] or tuple(line for line in runs[index] if line.startswith("python ")) != STATIC_VALIDATOR_COMMANDS:
+            errors.append("research workflow must retain all eight unconditional static validators")
+        if len(install_indices) != 1 or install_indices[0] >= index:
+            errors.append("research dependency installation must precede static validators")
+    if len(post_indices) != 1:
+        errors.append("research workflow must retain exactly one post-run validation step")
+    else:
+        index = post_indices[0]
+        expected_post = READ_ONLY_POST_RUN_COMMANDS
+        if workflow_path == LEGACY_WORKFLOW_PATH:
+            expected_post = (MODEL_DATA_AUDIT_BUILD_COMMAND,) + expected_post
+        if runs[index] != expected_post or not _same_condition(
+            _scalar(steps[index], "if"), "${{ env.MODEL_RESEARCH_SELECTED == 'true' }}"
+        ):
+            errors.append("research workflow post-run commands and model guard must remain exact")
+    if len(publish_indices) == 1:
+        index = publish_indices[0]
+        if not _same_condition(_scalar(steps[index], "if"), "${{ env.ANY_RESEARCH_SELECTED == 'true' }}"):
+            errors.append("research publish step must retain its exact ANY_RESEARCH_SELECTED guard")
+    producer_indices = [
+        i for i, lines in enumerate(runs)
+        if any(row.producer in "\n".join(lines) for row in rows)
+    ]
+    if static_indices and post_indices and publish_indices and producer_indices and not (
+        static_indices[0] < min(producer_indices) <= max(producer_indices)
+        < post_indices[0] < publish_indices[0]
+    ):
+        errors.append("research workflow must order static validation, producers, post-run validation, publish")
+
+    if workflow_path == PRICE_PIT_WORKFLOW_PATH:
+        expected_price_run = (
+            TDCC_STEALTH_PRICE_PIT_AUDIT_FETCH_COMMAND,
+            "python scripts/audit_tdcc_stealth_accumulation_price_pit.py",
+            "python scripts/validate_tdcc_stealth_accumulation_price_pit.py",
+        )
+        price_indices = [i for i, lines in enumerate(runs) if expected_price_run[1] in lines]
+        if len(price_indices) != 1 or runs[price_indices[0]] != expected_price_run:
+            errors.append("price/PIT step must contain only the exact 17-ref fetch, producer and validator")
+        all_stage = tuple(line for lines in runs for line in lines if line.startswith("git add"))
+        if all_stage != (f"git add {PRICE_PIT_STAGE_GLOB}",):
+            errors.append("price/PIT staging must contain only its exact model family path without || true")
+        expected_scripts = Counter(STATIC_VALIDATOR_COMMANDS + expected_price_run[1:] + READ_ONLY_POST_RUN_COMMANDS)
+        actual_scripts = Counter(
+            line for lines in runs for line in lines
+            if re.match(r"python(?:3)?\s+scripts/", line)
+        )
+        if actual_scripts != expected_scripts:
+            errors.append("price/PIT workflow may invoke only its model and exact read-only contract validators")
+        if static_indices and runs[static_indices[0]] != STATIC_VALIDATOR_COMMANDS:
+            errors.append("price/PIT static validation must not include revenue guards or extra commands")
+        if len(steps) != 9:
+            errors.append("price/PIT workflow must retain exactly the nine contracted writer steps")
+        if len(publish_indices) == 1:
+            expected_publish = (
+                PUBLISH_FAIL_CLOSED_SHELL,
+                'git config user.name "github-actions"',
+                'git config user.email "github-actions@github.com"',
+                f"git add {PRICE_PIT_STAGE_GLOB}",
+                "git status --short",
+                *PUBLISH_NO_CHANGE_GUARD.splitlines(),
+                PUBLISH_COMMIT, PUBLISH_PUSH,
+            )
+            if runs[publish_indices[0]] != expected_publish:
+                errors.append("price/PIT publish body must retain the exact model-only fail-closed contract")
+    return errors
+
+
+def workflow_input_defaults(text: str) -> dict[str, str]:
+    return {
+        name: _scalar(fields, "default").strip("'\"")
+        for name, fields in _dispatch_inputs(text).items()
+    }
 
 
 def workflow_step_blocks(text: str) -> list[str]:
-    return [block for block in re.split(r"(?m)^      - name: ", text)[1:] if block.strip()]
+    return re.findall(
+        r"(?ms)^      - name: (.*?)(?=^      - |^  [A-Za-z0-9_-]+:|\Z)", text
+    )
 
 
 def _normalized_shell_block(block: str) -> str:
@@ -473,115 +865,16 @@ def validate_pr_workflow_text(text: str, rows: list[WorkflowEntrypoint]) -> list
     return errors
 
 
-def validate_workflow_text(
+
+def _validate_legacy_research_modes(
     text: str,
     rows: list[WorkflowEntrypoint],
-    model_owned_producers: dict[str, str],
+    defaults: dict[str, str],
+    blocks: list[str],
+    any_selected_line: str,
+    model_selected_line: str,
 ) -> list[str]:
     errors: list[str] = []
-    defaults = workflow_input_defaults(text)
-    blocks = workflow_step_blocks(text)
-    errors.extend(validate_publish_block(text, blocks))
-    stripped_lines = [line.strip() for line in text.splitlines()]
-    any_selected_line = next(
-        (line for line in text.splitlines() if "ANY_RESEARCH_SELECTED:" in line),
-        "",
-    )
-    model_selected_line = next(
-        (line for line in text.splitlines() if "MODEL_RESEARCH_SELECTED:" in line),
-        "",
-    )
-
-    for retired_input in RETIRED_REVENUE_WORKFLOW_INPUTS:
-        if retired_input in defaults:
-            errors.append(
-                "consumed one-time revenue workflow input must remain retired: "
-                f"{retired_input}"
-            )
-    if RETIRED_REVENUE_CONFIRMATION_TOKEN in text:
-        errors.append(
-            "consumed one-time revenue workflow confirmation token must remain retired"
-        )
-    if FORBIDDEN_REVENUE_PROMOTION_PREPARATION_COMMAND in text:
-        errors.append(
-            "ordinary research workflow must not invoke revenue promotion preparation"
-        )
-    if "run_model_parameter_research" in text:
-        errors.append("legacy cross-model workflow input is forbidden: run_model_parameter_research")
-    if 'git pull --rebase --autostash origin "$TARGET_BRANCH" || true' in text:
-        errors.append("research workflow must not pull or ignore sync failure after producers run")
-    pre_run_sync = 'git pull --ff-only origin "$TARGET_BRANCH"'
-    if pre_run_sync not in text:
-        errors.append("research workflow missing fail-closed pre-run branch synchronization")
-    branch_sync_lines = [
-        line.strip()
-        for line in text.splitlines()
-        if FORBIDDEN_PUBLISH_REWRITE.match(line.strip())
-        and line.strip() not in (
-            TDCC_STEALTH_FIELD_CONTRACT_REPLAY_FETCH_COMMAND,
-            TDCC_STEALTH_PRICE_PIT_AUDIT_FETCH_COMMAND,
-        )
-    ]
-    if branch_sync_lines != [pre_run_sync]:
-        errors.append(
-            "research workflow must contain exactly one pre-run ff-only synchronization and no "
-            f"post-validation branch rewrite: observed={branch_sync_lines}"
-        )
-    for name, default in sorted(defaults.items()):
-        if default != "false":
-            errors.append(f"research workflow input must default false: {name}={default}")
-    for script in sorted(FORBIDDEN_WORKFLOW_SCRIPTS):
-        if f"python {script}" in text:
-            errors.append(f"research workflow must not invoke formal or cross-model producer: {script}")
-    for snippet in sorted(FORBIDDEN_STAGE_SNIPPETS):
-        if snippet in text:
-            errors.append(f"research workflow contains forbidden broad/formal stage path: {snippet}")
-
-    observed_audit_stage_commands = tuple(
-        line
-        for line in stripped_lines
-        if line.startswith("git add") and "model_data_independence_audit" in line
-    )
-    if observed_audit_stage_commands != MODEL_DATA_AUDIT_STAGE_COMMANDS:
-        errors.append(
-            "research workflow must contain exactly the four guarded model-data "
-            "independence audit stage commands: "
-            f"actual={observed_audit_stage_commands}"
-        )
-
-    audit_commands = (
-        MODEL_DATA_AUDIT_BUILD_COMMAND,
-        MODEL_DATA_AUDIT_VALIDATE_COMMAND,
-    )
-    for command in audit_commands:
-        if stripped_lines.count(command) != 1:
-            errors.append(
-                "post-run model-data independence audit command must appear exactly once: "
-                f"{command}"
-            )
-    audit_blocks = [
-        block for block in blocks if any(command in block for command in audit_commands)
-    ]
-    if len(audit_blocks) != 1:
-        errors.append(
-            "model-data independence audit build and validation must share exactly one "
-            "post-run step"
-        )
-    else:
-        audit_block = audit_blocks[0]
-        audit_lines = [line.strip() for line in audit_block.splitlines()]
-        if MODEL_DATA_AUDIT_POST_RUN_CONDITION not in audit_lines:
-            errors.append(
-                "model-data independence audit refresh must require MODEL_RESEARCH_SELECTED"
-            )
-        if all(command in audit_lines for command in audit_commands) and not (
-            audit_lines.index(MODEL_DATA_AUDIT_BUILD_COMMAND)
-            < audit_lines.index(MODEL_DATA_AUDIT_VALIDATE_COMMAND)
-        ):
-            errors.append(
-                "model-data independence audit must build before fail-closed validation"
-            )
-
     if defaults.get(SHARED_DATA_INPUT) != "false":
         errors.append(f"missing opt-in shared objective data input with false default: {SHARED_DATA_INPUT}")
     if f"github.event.inputs.{SHARED_DATA_INPUT} == 'true'" not in any_selected_line:
@@ -622,6 +915,31 @@ def validate_workflow_text(
                 "revenue stage mode must require the primary revenue workflow input "
                 f"instead of selecting research independently: {stage_input}"
             )
+
+    projection_requires_primary = (
+        'if [[ "$REVENUE_SOURCE_PROJECTION_CHAIN_ONLY" == "true" && '
+        '"$REVENUE_RESEARCH_ENABLED" != "true" ]]; then'
+    )
+    projection_primary_guard = "\n".join((
+        projection_requires_primary,
+        'echo "::error::Revenue source snapshot projection chain mode requires '
+        'run_revenue_unreacted_range_research=true."',
+        "exit 1",
+        "fi",
+    ))
+    static_blocks = [
+        block for block in blocks
+        if block.splitlines()[0].strip() == "Validate Apps Script workflow triggers"
+    ]
+    static_shell = _normalized_shell_block(static_blocks[0]) if len(static_blocks) == 1 else ""
+    if not (
+        0 <= static_shell.find(projection_primary_guard)
+        < static_shell.find(STATIC_VALIDATOR_COMMANDS[0])
+    ):
+        errors.append(
+            "revenue source projection chain stage must fail closed unless the primary "
+            "revenue workflow input is selected; its pre-validator guard must exit 1"
+        )
 
     holdout_requires_primary = (
         'if [[ "$REVENUE_FORWARD_HOLDOUT_ONLY" == "true" && '
@@ -874,28 +1192,145 @@ def validate_workflow_text(
                     f"actual={sorted(full_stage_commands)}"
                 )
 
+    return errors
+
+
+def validate_workflow_text(
+    text: str,
+    rows: list[WorkflowEntrypoint],
+    model_owned_producers: dict[str, str],
+    *,
+    workflow_path: str = LEGACY_WORKFLOW_PATH,
+) -> list[str]:
+    errors = validate_registry_contract(rows, model_owned_producers)
+    if workflow_path not in WORKFLOW_WRITER_JOBS:
+        return errors + [f"unsupported model research workflow: {workflow_path}"]
+    for row in rows:
+        if row.workflow_path != workflow_path and row.producer in text:
+            errors.append(f"model-owned producer appears in wrong workflow: {row.producer}")
+    rows = [row for row in rows if row.workflow_path == workflow_path]
+    try:
+        defaults = workflow_input_defaults(text)
+        errors.extend(validate_workflow_job_contract(text, rows, workflow_path))
+    except (KeyError, ValueError) as exc:
+        errors.append(f"invalid fixed workflow contract: {exc}")
+        return errors
+    blocks = workflow_step_blocks(text)
+    errors.extend(validate_publish_block(text, blocks))
+    stripped_lines = [line.strip() for line in text.splitlines()]
+    any_selected_line = next(
+        (line for line in text.splitlines() if "ANY_RESEARCH_SELECTED:" in line),
+        "",
+    )
+    model_selected_line = next(
+        (line for line in text.splitlines() if "MODEL_RESEARCH_SELECTED:" in line),
+        "",
+    )
+
+    for retired_input in RETIRED_REVENUE_WORKFLOW_INPUTS:
+        if retired_input in defaults:
+            errors.append(
+                "consumed one-time revenue workflow input must remain retired: "
+                f"{retired_input}"
+            )
+    if RETIRED_REVENUE_CONFIRMATION_TOKEN in text:
+        errors.append(
+            "consumed one-time revenue workflow confirmation token must remain retired"
+        )
+    if FORBIDDEN_REVENUE_PROMOTION_PREPARATION_COMMAND in text:
+        errors.append(
+            "ordinary research workflow must not invoke revenue promotion preparation"
+        )
+    if "run_model_parameter_research" in text:
+        errors.append("legacy cross-model workflow input is forbidden: run_model_parameter_research")
+    if 'git pull --rebase --autostash origin "$TARGET_BRANCH" || true' in text:
+        errors.append("research workflow must not pull or ignore sync failure after producers run")
+    pre_run_sync = 'git pull --ff-only origin "$TARGET_BRANCH"'
+    if pre_run_sync not in text:
+        errors.append("research workflow missing fail-closed pre-run branch synchronization")
+    branch_sync_lines = [
+        line.strip()
+        for line in text.splitlines()
+        if FORBIDDEN_PUBLISH_REWRITE.match(line.strip())
+        and line.strip() not in (
+            TDCC_STEALTH_FIELD_CONTRACT_REPLAY_FETCH_COMMAND,
+            TDCC_STEALTH_PRICE_PIT_AUDIT_FETCH_COMMAND,
+        )
+    ]
+    if branch_sync_lines != [pre_run_sync]:
+        errors.append(
+            "research workflow must contain exactly one pre-run ff-only synchronization and no "
+            f"post-validation branch rewrite: observed={branch_sync_lines}"
+        )
+    for name, default in sorted(defaults.items()):
+        if default != "false":
+            errors.append(f"research workflow input must default false: {name}={default}")
+    for script in sorted(FORBIDDEN_WORKFLOW_SCRIPTS):
+        if f"python {script}" in text:
+            errors.append(f"research workflow must not invoke formal or cross-model producer: {script}")
+    for snippet in sorted(FORBIDDEN_STAGE_SNIPPETS):
+        if snippet in text:
+            errors.append(f"research workflow contains forbidden broad/formal stage path: {snippet}")
+
+    if workflow_path == LEGACY_WORKFLOW_PATH:
+        observed_audit_stage_commands = tuple(
+            line
+            for line in stripped_lines
+            if line.startswith("git add") and "model_data_independence_audit" in line
+        )
+        if observed_audit_stage_commands != MODEL_DATA_AUDIT_STAGE_COMMANDS:
+            errors.append(
+                "research workflow must contain exactly the four guarded model-data "
+                "independence audit stage commands: "
+                f"actual={observed_audit_stage_commands}"
+            )
+
+        audit_commands = (
+            MODEL_DATA_AUDIT_BUILD_COMMAND,
+            MODEL_DATA_AUDIT_VALIDATE_COMMAND,
+        )
+        for command in audit_commands:
+            if stripped_lines.count(command) != 1:
+                errors.append(
+                    "post-run model-data independence audit command must appear exactly once: "
+                    f"{command}"
+                )
+        audit_blocks = [
+            block for block in blocks if any(command in block for command in audit_commands)
+        ]
+        if len(audit_blocks) != 1:
+            errors.append(
+                "model-data independence audit build and validation must share exactly one "
+                "post-run step"
+            )
+        else:
+            audit_block = audit_blocks[0]
+            audit_lines = [line.strip() for line in audit_block.splitlines()]
+            if MODEL_DATA_AUDIT_POST_RUN_CONDITION not in audit_lines:
+                errors.append(
+                    "model-data independence audit refresh must require MODEL_RESEARCH_SELECTED"
+                )
+            if all(command in audit_lines for command in audit_commands) and not (
+                audit_lines.index(MODEL_DATA_AUDIT_BUILD_COMMAND)
+                < audit_lines.index(MODEL_DATA_AUDIT_VALIDATE_COMMAND)
+            ):
+                errors.append(
+                    "model-data independence audit must build before fail-closed validation"
+                )
+
+    if workflow_path == LEGACY_WORKFLOW_PATH:
+        errors.extend(_validate_legacy_research_modes(
+            text, rows, defaults, blocks, any_selected_line, model_selected_line
+        ))
+
     volume_source = "python scripts/build_volume_breakout_confirmed_operation_backtest.py"
     volume_v2 = "python scripts/build_volume_range_breakout_v2_research.py"
     if volume_source in text and volume_v2 in text and text.index(volume_source) > text.index(volume_v2):
         errors.append("volume breakout source refresh must precede the model-owned v2 producer")
 
-    registry_models = {row.model_id: row.producer for row in rows}
-    if registry_models != model_owned_producers:
-        errors.append(
-            "workflow registry must cover every model_owned_write producer exactly: "
-            f"workflow={registry_models}; ownership={model_owned_producers}"
-        )
-
-    inputs = [row.workflow_input for row in rows]
     producers = [row.producer for row in rows]
-    if len(inputs) != len(set(inputs)):
-        errors.append("duplicate workflow_input in model research workflow registry")
-    if len(producers) != len(set(producers)):
-        errors.append("duplicate producer in model research workflow registry")
 
     for row in rows:
-        if row.workflow_path != ".github/workflows/research_backtest_pipeline.yml":
-            errors.append(f"unsupported workflow path for model research entrypoint: {row.workflow_path}")
         if row.default_enabled:
             errors.append(f"model research workflow input must be opt-in: {row.workflow_input}")
         if row.formal_sync_allowed:
@@ -995,10 +1430,12 @@ def validate_workflow_text(
                 f"stage allowlist: {row.model_id}"
             )
         for stage_glob in stage_globs:
-            stage_command = f"git add {stage_glob} || true"
+            suffix = "" if workflow_path == PRICE_PIT_WORKFLOW_PATH else " || true"
+            stage_command = f"git add {stage_glob}{suffix}"
             if stage_command not in text:
                 errors.append(f"model-owned stage allowlist missing from workflow: {stage_command}")
-        if row.model_id in MODEL_WORKFLOW_VALIDATORS and stage_globs:
+        if (workflow_path == LEGACY_WORKFLOW_PATH
+                and row.model_id in MODEL_WORKFLOW_VALIDATORS and stage_globs):
             guarded_stage_block = "\n".join(
                 (
                     "          if [[ \"${{ github.event.inputs."
@@ -1067,10 +1504,11 @@ def validate_workflow_text(
             "research workflow must run background registry structure-only validation "
             "exactly once before model producers"
         )
-    if len(full_positions) != 2 or len(full_blocks) != 2:
+    expected_full_count = 1 if workflow_path == PRICE_PIT_WORKFLOW_PATH else 2
+    if len(full_positions) != expected_full_count or len(full_blocks) != expected_full_count:
         errors.append(
             "research workflow must run full background artifact validation exactly "
-            "once for non-model research and once after model producers"
+            f"{expected_full_count} time(s) for its workflow slice"
         )
     else:
         non_model_blocks = [
@@ -1083,7 +1521,7 @@ def validate_workflow_text(
             for block in full_blocks
             if "env.MODEL_RESEARCH_SELECTED == 'true'" in block
         ]
-        if len(non_model_blocks) != 1:
+        if len(non_model_blocks) != (0 if workflow_path == PRICE_PIT_WORKFLOW_PATH else 1):
             errors.append(
                 "existing registered artifacts full validation must be conditional on "
                 "MODEL_RESEARCH_SELECTED != true"
@@ -1115,6 +1553,29 @@ def validate_workflow_text(
     return errors
 
 
+
+def validate_workflow_texts(
+    workflow_texts: dict[str, str],
+    rows: list[WorkflowEntrypoint],
+    model_owned_producers: dict[str, str],
+) -> list[str]:
+    """Validate aggregate ownership across both exact, independently guarded writers."""
+    errors = validate_registry_contract(rows, model_owned_producers)
+    if set(workflow_texts) != set(WORKFLOW_WRITER_JOBS):
+        errors.append("research workflow set must contain exactly the two registered workflow paths")
+    for path in WORKFLOW_WRITER_JOBS:
+        if path not in workflow_texts:
+            errors.append(f"missing research workflow: {path}")
+            continue
+        errors.extend(
+            f"{path}: {error}"
+            for error in validate_workflow_text(
+                workflow_texts[path], rows, model_owned_producers, workflow_path=path
+            )
+        )
+    return errors
+
+
 def validate() -> list[str]:
     errors: list[str] = []
     try:
@@ -1122,9 +1583,14 @@ def validate() -> list[str]:
         model_owned_producers = load_model_owned_producers()
     except (OSError, RuntimeError, ValueError) as exc:
         return [str(exc)]
-    if not WORKFLOW.is_file():
-        return [f"missing research workflow: {WORKFLOW}"]
-    errors.extend(validate_workflow_text(WORKFLOW.read_text(encoding="utf-8"), rows, model_owned_producers))
+    workflow_texts: dict[str, str] = {}
+    for workflow_path in WORKFLOW_WRITER_JOBS:
+        path = ROOT / workflow_path
+        try:
+            workflow_texts[workflow_path] = path.read_text(encoding="utf-8")
+        except OSError as exc:
+            errors.append(f"missing research workflow: {path}: {exc}")
+    errors.extend(validate_workflow_texts(workflow_texts, rows, model_owned_producers))
     if not PR_VALIDATION_WORKFLOW.is_file():
         errors.append(f"missing daily model PR validation workflow: {PR_VALIDATION_WORKFLOW}")
     else:
@@ -1141,7 +1607,7 @@ def main() -> int:
         for error in errors:
             print(f"ERROR: {error}")
         return 1
-    print(f"model research workflow isolation validation passed: {WORKFLOW.relative_to(ROOT)}")
+    print("model research workflow isolation validation passed: " + ", ".join(WORKFLOW_WRITER_JOBS))
     print(f"validated_entrypoints={len(load_registry())}")
     return 0
 

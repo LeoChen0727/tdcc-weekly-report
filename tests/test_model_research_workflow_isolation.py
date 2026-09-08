@@ -1,6 +1,10 @@
 from __future__ import annotations
 
 from dataclasses import replace
+import os
+import re
+import shutil
+import subprocess
 
 import pytest
 
@@ -70,8 +74,10 @@ TDCC_STEALTH_FIELD_CONTRACT_SOURCE_REF = (
 )
 
 
-def _inputs() -> tuple[str, list[validator.WorkflowEntrypoint], dict[str, str]]:
-    text = validator.WORKFLOW.read_text(encoding="utf-8")
+def _inputs(
+    workflow_path: str = validator.LEGACY_WORKFLOW_PATH,
+) -> tuple[str, list[validator.WorkflowEntrypoint], dict[str, str]]:
+    text = (validator.ROOT / workflow_path).read_text(encoding="utf-8")
     return text, validator.load_registry(), validator.load_model_owned_producers()
 
 
@@ -875,17 +881,7 @@ def test_revenue_step_rejects_embedded_shared_data_refresh() -> None:
 
 def test_research_workflow_rejects_default_true_model_input() -> None:
     text, rows, producers = _inputs()
-    text = text.replace(
-        '      run_revenue_unreacted_range_research:\n'
-        '        description: "Run model-owned revenue lag and strength research only"\n'
-        "        required: false\n"
-        '        default: "false"',
-        '      run_revenue_unreacted_range_research:\n'
-        '        description: "Run model-owned revenue lag and strength research only"\n'
-        "        required: false\n"
-        '        default: "true"',
-        1,
-    )
+    text = _mutate_input(text, validator.REVENUE_WORKFLOW_INPUT, "default", "true")
 
     errors = validator.validate_workflow_text(text, rows, producers)
 
@@ -941,8 +937,8 @@ def test_pr_validation_requires_unfiltered_pull_request_scope(
 
 
 def test_price_pit_audit_uses_exact_bounded_optin_sources() -> None:
-    text, rows, producers = _inputs()
-    assert validator.validate_workflow_text(text, rows, producers) == []
+    text, rows, producers = _inputs(validator.PRICE_PIT_WORKFLOW_PATH)
+    assert validator.validate_workflow_text(text, rows, producers, workflow_path=validator.PRICE_PIT_WORKFLOW_PATH) == []
     selected = [r for r in rows if r.model_id == validator.TDCC_STEALTH_PRICE_PIT_AUDIT_MODEL_ID]
     assert len(selected) == 1
     assert selected[0].workflow_input == "run_tdcc_stealth_accumulation_price_pit_audit"
@@ -952,19 +948,19 @@ def test_price_pit_audit_uses_exact_bounded_optin_sources() -> None:
 
 @pytest.mark.parametrize("replacement", ("", "git fetch --no-tags --depth=1 origin main"))
 def test_price_pit_audit_rejects_missing_or_nonexact_source_fetch(replacement) -> None:
-    text, rows, producers = _inputs()
+    text, rows, producers = _inputs(validator.PRICE_PIT_WORKFLOW_PATH)
     text = text.replace(validator.TDCC_STEALTH_PRICE_PIT_AUDIT_FETCH_COMMAND, replacement, 1)
-    errors = validator.validate_workflow_text(text, rows, producers)
+    errors = validator.validate_workflow_text(text, rows, producers, workflow_path=validator.PRICE_PIT_WORKFLOW_PATH)
     assert any("price/PIT audit must fetch its exact immutable sources" in e for e in errors)
 
 
 def test_price_pit_audit_rejects_source_fetch_after_validator() -> None:
-    text, rows, producers = _inputs()
+    text, rows, producers = _inputs(validator.PRICE_PIT_WORKFLOW_PATH)
     command = validator.TDCC_STEALTH_PRICE_PIT_AUDIT_FETCH_COMMAND
     text = text.replace("          " + command + "\n", "", 1)
     validation = "          python scripts/validate_tdcc_stealth_accumulation_price_pit.py"
     text = text.replace(validation, validation + "\n          " + command, 1)
-    errors = validator.validate_workflow_text(text, rows, producers)
+    errors = validator.validate_workflow_text(text, rows, producers, workflow_path=validator.PRICE_PIT_WORKFLOW_PATH)
     assert any("price/PIT audit must fetch before" in e for e in errors)
 
 
@@ -1039,3 +1035,353 @@ def test_pr_validation_requires_exact_revenue_safety_and_model_domain(
         and "revenue_unreacted_range" in error
         for error in errors
     )
+
+
+def _mutate_input(text: str, name: str, field: str, value: str | None) -> str:
+    start = text.index(f"      {name}:\n")
+    end_match = re.search(r"(?m)^(?:      [A-Za-z0-9_]+:|permissions:)", text[start + 1:])
+    assert end_match is not None
+    end = start + 1 + end_match.start()
+    block = text[start:end]
+    replacement = "" if value is None else f"        {field}: {value}\n"
+    changed, count = re.subn(rf"(?m)^        {field}:.*\n", replacement, block, count=1)
+    assert count == 1
+    return text[:start] + changed + text[end:]
+
+
+def _workflow_texts() -> dict[str, str]:
+    return {
+        path: (validator.ROOT / path).read_text(encoding="utf-8")
+        for path in validator.WORKFLOW_WRITER_JOBS
+    }
+
+
+def _errors(text: str, workflow_path: str) -> list[str]:
+    return validator.validate_workflow_text(
+        text, validator.load_registry(), validator.load_model_owned_producers(),
+        workflow_path=workflow_path,
+    )
+
+
+def test_two_workflows_cover_aggregate_ownership_and_preserve_old_25_inputs() -> None:
+    texts = _workflow_texts()
+    rows = validator.load_registry()
+    assert validator.validate_workflow_texts(
+        texts, rows, validator.load_model_owned_producers()
+    ) == []
+    assert len(validator.workflow_input_defaults(texts[validator.LEGACY_WORKFLOW_PATH])) == 25
+    legacy_inputs = validator._dispatch_inputs(texts[validator.LEGACY_WORKFLOW_PATH])
+    legacy_string_inputs = set(legacy_inputs) - validator.LEGACY_BOOLEAN_INPUTS
+    assert len(legacy_string_inputs) == 16
+    assert all(
+        (validator._scalar(legacy_inputs[name], "type") or "string") == "string"
+        for name in legacy_string_inputs
+    )
+    assert set(validator.workflow_input_defaults(texts[validator.PRICE_PIT_WORKFLOW_PATH])) == {
+        validator.PRICE_PIT_INPUT
+    }
+    assert len([row for row in rows if row.workflow_path == validator.PRICE_PIT_WORKFLOW_PATH]) == 1
+
+
+def test_aggregate_registry_cannot_move_price_back_or_drop_an_owned_model() -> None:
+    rows = validator.load_registry()
+    owned = validator.load_model_owned_producers()
+    price_index = next(i for i, row in enumerate(rows) if row.workflow_input == validator.PRICE_PIT_INPUT)
+    moved = list(rows)
+    moved[price_index] = replace(moved[price_index], workflow_path=validator.LEGACY_WORKFLOW_PATH)
+    assert any("wrong workflow" in error for error in validator.validate_registry_contract(moved, owned))
+    assert any("cover every model_owned_write" in error for error in validator.validate_registry_contract(rows[:-1], owned))
+
+
+def test_aggregate_validator_rejects_missing_workflow() -> None:
+    texts = _workflow_texts()
+    del texts[validator.PRICE_PIT_WORKFLOW_PATH]
+    assert any("missing research workflow" in error for error in validator.validate_workflow_texts(
+        texts, validator.load_registry(), validator.load_model_owned_producers()
+    ))
+
+
+@pytest.mark.parametrize("workflow_path", tuple(validator.WORKFLOW_WRITER_JOBS))
+def test_dispatch_rejects_missing_boolean_type_default_or_true(workflow_path: str) -> None:
+    text, rows, _ = _inputs(workflow_path)
+    assert _errors(text, workflow_path) == []
+    row = next(
+        row for row in rows
+        if row.workflow_path == workflow_path
+        and (
+            workflow_path == validator.PRICE_PIT_WORKFLOW_PATH
+            or row.workflow_input in validator.LEGACY_BOOLEAN_INPUTS
+        )
+    )
+    for field, value in (
+        ("type", None), ("type", "string"), ("default", None),
+        ("default", "true"), ("required", "true"),
+    ):
+        assert _errors(_mutate_input(text, row.workflow_input, field, value), workflow_path)
+
+
+def test_dispatch_limit_counts_all_inputs_including_unregistered_controls() -> None:
+    text, _, _ = _inputs()
+    extra = (
+        "      unexpected_26th_input:\n"
+        "        description: Extra\n"
+        "        required: false\n"
+        "        default: false\n"
+        "        type: boolean\n"
+    )
+    errors = _errors(text.replace("permissions: {}", extra + "\npermissions: {}", 1), validator.LEGACY_WORKFLOW_PATH)
+    assert any("25 input limit" in error for error in errors)
+
+
+@pytest.mark.parametrize("workflow_path", tuple(validator.WORKFLOW_WRITER_JOBS))
+def test_duplicate_mapping_keys_fail_closed(workflow_path: str) -> None:
+    text, _, _ = _inputs(workflow_path)
+    mutated = text.replace("        type: boolean\n", "        type: boolean\n        type: string\n", 1)
+    assert any("duplicate workflow mapping key" in error for error in _errors(mutated, workflow_path))
+
+
+@pytest.mark.parametrize("workflow_path", tuple(validator.WORKFLOW_WRITER_JOBS))
+def test_writer_and_noop_gates_are_exact_complements(workflow_path: str) -> None:
+    text, _, _ = _inputs(workflow_path)
+    names = validator.workflow_input_defaults(text)
+    selected = validator.workflow_selection_condition(names)
+    negated = validator.workflow_selection_condition(names, negate=True)
+    assert f"    if: {selected}" in text
+    assert f"    if: {negated}" in text
+    for before, after in (
+        (f"    if: {selected}", "    if: false"),
+        (f"    if: {negated}", f"    if: {selected}"),
+        (f"    if: {selected}", "    if: ${{ env.ANY_RESEARCH_SELECTED == 'true' }}"),
+    ):
+        assert _errors(text.replace(before, after, 1), workflow_path)
+
+
+@pytest.mark.parametrize("stage_input", (
+    validator.REVENUE_FORWARD_HOLDOUT_STAGE_INPUT,
+    validator.REVENUE_FORWARD_HOLDOUT_V2_STAGE_INPUT,
+    validator.REVENUE_PROJECTION_CHAIN_STAGE_INPUT,
+))
+def test_legacy_writer_gate_cannot_drop_dependent_only_revenue_inputs(stage_input: str) -> None:
+    text, _, _ = _inputs()
+    names = validator.workflow_input_defaults(text)
+    expected = validator.workflow_selection_condition(names)
+    reduced = validator.workflow_selection_condition(name for name in names if name != stage_input)
+    mutated = text.replace(f"    if: {expected}", f"    if: {reduced}", 1)
+    assert any("OR of every dispatch input" in error for error in _errors(mutated, validator.LEGACY_WORKFLOW_PATH))
+
+
+@pytest.mark.parametrize("workflow_path", tuple(validator.WORKFLOW_WRITER_JOBS))
+@pytest.mark.parametrize("mutation", (
+    "checkout", "python", "secret", "extra_key", "extra_step", "write_permissions",
+    "duplicate_if", "extra_run_line",
+))
+def test_noop_cannot_acquire_execution_or_credentials(workflow_path: str, mutation: str) -> None:
+    text, _, _ = _inputs(workflow_path)
+    if mutation == "checkout":
+        mutated = text.replace("        shell: bash\n        run: printf", "        uses: actions/checkout@v6\n        shell: bash\n        run: printf", 1)
+    elif mutation == "python":
+        mutated = text.replace(validator.NO_OP_RUN, "python scripts/build_model_data_independence_audit.py", 1)
+    elif mutation == "secret":
+        mutated = text.replace("  no-op:\n", "  no-op:\n    env:\n      KEY: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}\n", 1)
+    elif mutation == "extra_key":
+        mutated = text.replace("  no-op:\n", "  no-op:\n    environment: production\n", 1)
+    elif mutation == "extra_step":
+        mutated = text.replace("      - name: No research selected\n", "      - name: Extra\n        run: printf extra\n      - name: No research selected\n", 1)
+    elif mutation == "write_permissions":
+        mutated = text.replace("    permissions: {}", "    permissions:\n      contents: write", 1)
+    elif mutation == "duplicate_if":
+        mutated = text.replace("  no-op:\n", "  no-op:\n    if: true\n", 1)
+    else:
+        mutated = text.replace(validator.NO_OP_RUN, "|\n          " + validator.NO_OP_RUN + "\n          printf extra", 1)
+    assert mutated != text
+    assert _errors(mutated, workflow_path)
+
+
+@pytest.mark.parametrize("workflow_path", tuple(validator.WORKFLOW_WRITER_JOBS))
+def test_top_and_writer_permissions_cannot_be_widened_or_removed(workflow_path: str) -> None:
+    text, _, _ = _inputs(workflow_path)
+    for before, after in (
+        ("permissions: {}", "permissions:\n  contents: write"),
+        ("      contents: write", "      contents: read"),
+    ):
+        assert _errors(text.replace(before, after, 1), workflow_path)
+
+
+@pytest.mark.parametrize("row", validator.load_registry(), ids=lambda row: row.model_id)
+@pytest.mark.parametrize("mutation", ("missing", "duplicate", "disabled", "masked"))
+def test_each_registered_producer_is_guarded_once_in_its_own_workflow(
+    row: validator.WorkflowEntrypoint, mutation: str,
+) -> None:
+    text, _, _ = _inputs(row.workflow_path)
+    command = f"python {row.producer}"
+    if mutation == "missing":
+        mutated = text.replace(command, "echo removed-producer")
+    elif mutation == "duplicate":
+        mutated = text.replace(command, command + "\n          " + command, 1)
+    elif mutation == "masked":
+        mutated = text.replace(command, command + " || true", 1)
+    else:
+        before = "        if: " + validator.workflow_selection_condition([row.workflow_input])
+        assert before in text
+        mutated = text.replace(before, "        if: false", 1)
+    assert _errors(mutated, row.workflow_path)
+
+
+def test_price_workflow_rejects_other_models_and_global_audit_writes() -> None:
+    path = validator.PRICE_PIT_WORKFLOW_PATH
+    text, _, _ = _inputs(path)
+    marker = "          python scripts/audit_tdcc_stealth_accumulation_price_pit.py\n"
+    for command in (
+        "python scripts/build_hot_theme_pullback_research.py",
+        validator.MODEL_DATA_AUDIT_BUILD_COMMAND,
+        *validator.MODEL_DATA_AUDIT_STAGE_COMMANDS,
+    ):
+        mutated = text.replace(marker, marker + f"          {command}\n", 1)
+        assert _errors(mutated, path)
+
+
+@pytest.mark.parametrize("workflow_path", tuple(validator.WORKFLOW_WRITER_JOBS))
+@pytest.mark.parametrize("command", validator.STATIC_VALIDATOR_COMMANDS + validator.READ_ONLY_POST_RUN_COMMANDS)
+def test_required_validation_cannot_be_removed_or_masked(workflow_path: str, command: str) -> None:
+    text, _, _ = _inputs(workflow_path)
+    line = f"          {command}\n"
+    assert line in text
+    for replacement in ("", f"          {command} || true\n"):
+        assert _errors(_replace_last(text, line, replacement), workflow_path)
+
+
+@pytest.mark.parametrize("workflow_path", tuple(validator.WORKFLOW_WRITER_JOBS))
+def test_static_and_postrun_steps_cannot_be_disabled(workflow_path: str) -> None:
+    text, _, _ = _inputs(workflow_path)
+    static_name = (
+        "Validate model research prerequisites" if workflow_path == validator.PRICE_PIT_WORKFLOW_PATH
+        else "Validate Apps Script workflow triggers"
+    )
+    marker = f"      - name: {static_name}\n"
+    assert marker in text
+    assert _errors(text.replace(marker, marker + "        if: false\n", 1), workflow_path)
+    marker = "      - name: Validate post-run model research contracts\n"
+    before = marker + "        if: ${{ env.MODEL_RESEARCH_SELECTED == 'true' }}"
+    assert before in text
+    assert _errors(text.replace(before, marker + "        if: false", 1), workflow_path)
+
+
+@pytest.mark.parametrize("replacement", (
+    "git add output/research/tdcc_stealth_accumulation/*",
+    f"git add {validator.PRICE_PIT_STAGE_GLOB} || true",
+    "git add output/latest/",
+    "",
+))
+def test_price_stage_is_exact_model_only_and_fail_closed(replacement: str) -> None:
+    path = validator.PRICE_PIT_WORKFLOW_PATH
+    text, _, _ = _inputs(path)
+    assert _errors(text.replace(f"git add {validator.PRICE_PIT_STAGE_GLOB}", replacement, 1), path)
+
+
+def test_price_registry_cannot_expand_allowlist_even_if_workflow_matches() -> None:
+    path = validator.PRICE_PIT_WORKFLOW_PATH
+    text, rows, owned = _inputs(path)
+    index = next(i for i, row in enumerate(rows) if row.workflow_path == path)
+    broad = "output/research/tdcc_stealth_accumulation/*"
+    rows[index] = replace(rows[index], latest_stage_glob=broad)
+    text = text.replace(validator.PRICE_PIT_STAGE_GLOB, broad)
+    assert any("exact input and model family allowlist" in error for error in
+               validator.validate_workflow_text(text, rows, owned, workflow_path=path))
+
+
+def test_price_background_full_validation_is_postrun_only() -> None:
+    text, _, _ = _inputs(validator.PRICE_PIT_WORKFLOW_PATH)
+    lines = [line.strip() for line in text.splitlines()]
+    assert lines.count(validator.BACKGROUND_REGISTRY_FULL_COMMAND) == 1
+    assert validator.MODEL_DATA_AUDIT_BUILD_COMMAND not in lines
+    assert not any("model_data_independence_audit" in line for line in lines if line.startswith("git add"))
+    assert _errors(text, validator.PRICE_PIT_WORKFLOW_PATH) == []
+
+
+def _dispatch_condition_value(condition: str, inputs: dict[str, str]) -> bool:
+    assert condition.startswith("${{ ") and condition.endswith(" }}")
+    expression = condition[4:-3].strip()
+    negated = expression.startswith("!(") and expression.endswith(")")
+    if negated:
+        expression = expression[2:-1]
+    values = []
+    for term in expression.split(" || "):
+        match = re.fullmatch(r"github\.event\.inputs\.([A-Za-z0-9_]+) == 'true'", term)
+        assert match is not None
+        values.append(inputs[match.group(1)] == "true")
+    selected = any(values)
+    return not selected if negated else selected
+
+
+@pytest.mark.parametrize("dependent_input,environment_name", (
+    (None, None),
+    (validator.REVENUE_PROJECTION_CHAIN_STAGE_INPUT, "REVENUE_SOURCE_PROJECTION_CHAIN_ONLY"),
+    (validator.REVENUE_FORWARD_HOLDOUT_STAGE_INPUT, "REVENUE_FORWARD_HOLDOUT_ONLY"),
+    (validator.REVENUE_FORWARD_HOLDOUT_V2_STAGE_INPUT, "REVENUE_FORWARD_HOLDOUT_V2_ONLY"),
+))
+def test_only_all_false_is_noop_and_dependent_only_inputs_exit_one(
+    dependent_input: str | None, environment_name: str | None,
+) -> None:
+    text, _, _ = _inputs()
+    assert _errors(text, validator.LEGACY_WORKFLOW_PATH) == []
+    root = validator._workflow_fields(text, 0)
+    jobs = validator._children(root["jobs"], 2)
+    writer = validator._children(jobs["research-backtest-pipeline"], 4)
+    noop = validator._children(jobs["no-op"], 4)
+    inputs = dict.fromkeys(validator.workflow_input_defaults(text), "false")
+    if dependent_input:
+        inputs[dependent_input] = "true"
+    assert _dispatch_condition_value(validator._scalar(writer, "if"), inputs) is bool(dependent_input)
+    assert _dispatch_condition_value(validator._scalar(noop, "if"), inputs) is (dependent_input is None)
+
+    static = next(
+        step for step in validator._workflow_steps(writer["steps"])
+        if validator._scalar(step, "name") == "Validate Apps Script workflow triggers"
+    )
+    lines = validator._run_lines(static)
+    guards = lines[:lines.index(validator.STATIC_VALIDATOR_COMMANDS[0])]
+    assert guards[0] == "set -euo pipefail"
+    assert all(
+        line in {"set -euo pipefail", "exit 1", "fi"}
+        or line.startswith(('if [[ "$REVENUE_', 'echo "::error::Revenue '))
+        for line in guards
+    )
+    git_bash = os.path.join(os.environ.get("ProgramFiles", r"C:\Program Files"), "Git", "bin", "bash.exe")
+    bash = git_bash if os.name == "nt" and os.path.isfile(git_bash) else shutil.which("bash")
+    assert bash, "A real Bash executable is required for revenue guard regression"
+    env = os.environ.copy()
+    for key in ("BASH_ENV", "ENV"):
+        env.pop(key, None)
+    env.update(dict.fromkeys((
+        "REVENUE_SOURCE_PROJECTION_CHAIN_ONLY", "REVENUE_FORWARD_HOLDOUT_ONLY",
+        "REVENUE_FORWARD_HOLDOUT_V2_ONLY", "REVENUE_RESEARCH_ENABLED",
+    ), "false"))
+    if environment_name:
+        env[environment_name] = "true"
+    result = subprocess.run(
+        [bash, "--noprofile", "--norc", "-c", "\n".join(guards) + "\nprintf 'RESEARCH_GUARDS_PASSED\\n'\n"],
+        env=env, capture_output=True, text=True, timeout=10, check=False,
+    )
+    assert result.returncode == (1 if dependent_input else 0), result.stdout + result.stderr
+    if dependent_input:
+        assert "::error::Revenue " in result.stdout
+        assert "requires run_revenue_unreacted_range_research=true." in result.stdout
+        assert "RESEARCH_GUARDS_PASSED" not in result.stdout
+    else:
+        assert result.stdout.strip() == "RESEARCH_GUARDS_PASSED"
+
+
+@pytest.mark.parametrize("mutation", ("remove", "exit_zero"))
+def test_projection_chain_primary_guard_cannot_be_removed_or_succeed(mutation: str) -> None:
+    text, _, _ = _inputs()
+    condition = (
+        '          if [[ "$REVENUE_SOURCE_PROJECTION_CHAIN_ONLY" == "true" && '
+        '"$REVENUE_RESEARCH_ENABLED" != "true" ]]; then\n'
+    )
+    start = text.index(condition)
+    end = text.index("          fi\n", start) + len("          fi\n")
+    guard = text[start:end]
+    assert "exit 1" in guard
+    replacement = "" if mutation == "remove" else guard.replace("exit 1", "exit 0", 1)
+    errors = _errors(text[:start] + replacement + text[end:], validator.LEGACY_WORKFLOW_PATH)
+    assert any("projection chain stage must fail closed" in error for error in errors)

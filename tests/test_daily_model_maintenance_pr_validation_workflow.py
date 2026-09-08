@@ -301,6 +301,15 @@ RESEARCH_SAFETY_VALIDATION_COMMANDS = (
     "python scripts/validate_research_production_boundaries.py",
 )
 
+TDCC_FIELD_CONTRACT_SOURCE_SHA = "7ef37a966280201a5ee236856306fdb513de7092"
+TDCC_FIELD_CONTRACT_VALIDATOR_COMMAND = (
+    "python scripts/validate_tdcc_stealth_accumulation_field_contract_replay.py "
+    f"--source-ref {TDCC_FIELD_CONTRACT_SOURCE_SHA}"
+)
+TDCC_FIELD_CONTRACT_TEST_COMMAND = (
+    "python -m pytest -q tests/test_tdcc_stealth_accumulation_field_contract_replay.py"
+)
+
 SHARED_VALIDATION_COMMANDS = (
     "python scripts/validate_daily_model_background_data_registry.py",
     'python scripts/validate_model_research_shared_utilities.py --base-ref "$BASE_SHA"',
@@ -311,6 +320,7 @@ SHARED_VALIDATION_COMMANDS = (
     "python scripts/validate_tdcc_stealth_accumulation_pit_replay_availability.py",
     "python scripts/validate_tdcc_stealth_accumulation_historical_replay.py",
     "python scripts/validate_tdcc_stealth_accumulation_price_pit.py",
+    TDCC_FIELD_CONTRACT_VALIDATOR_COMMAND,
 )
 
 VOLUME_VALIDATION_COMMANDS = (
@@ -1527,6 +1537,104 @@ def test_shared_model_research_job_runs_registered_model_test_files() -> None:
         "python scripts/validate_tdcc_stealth_accumulation_"
         "pit_replay_availability.py"
     ) == 1
+
+
+def tdcc_field_contract_ci_contract_ok(text: str) -> bool:
+    job = job_block("shared_model_research", text)
+    steps = active_step_blocks(job)
+    checkouts = [
+        step for step in steps
+        if (active_field(step, "uses") or "").startswith("actions/checkout@")
+    ]
+    source = job_step(
+        "shared_model_research", "Verify TDCC field-contract replay source identity", text
+    )
+    validation = job_step(
+        "shared_model_research", "Validate shared model research contracts", text
+    )
+    regression = job_step(
+        "shared_model_research", "Run TDCC field-contract replay v2 regression tests", text
+    )
+    expected_source_commands = (
+        "set -euo pipefail",
+        'test "$(git --no-replace-objects rev-parse HEAD)" = "$GITHUB_SHA"',
+        'test "$(git --no-replace-objects rev-parse --is-shallow-repository)" = false',
+        f'git --no-replace-objects cat-file -e "{TDCC_FIELD_CONTRACT_SOURCE_SHA}^{{commit}}"',
+    )
+    expected_test_commands = (
+        TDCC_FIELD_CONTRACT_TEST_COMMAND,
+    )
+    commands = run_commands(job_run_text("shared_model_research", text))
+    return (
+        len(checkouts) == 1
+        and active_field(checkouts[0], "ref", 10) == "${{ github.sha }}"
+        and active_field(checkouts[0], "fetch-depth", 10) == "0"
+        and active_field(checkouts[0], "persist-credentials", 10) == "false"
+        and all(step and steps.count(step) == 1 for step in (source, validation, regression))
+        and all(
+            active_field(step, key) is None
+            for step in (source, validation, regression)
+            for key in ("if", "continue-on-error")
+        )
+        and active_field(source, "shell") == "bash"
+        and run_commands(active_field(source, "run") or "") == expected_source_commands
+        and commands.count(TDCC_FIELD_CONTRACT_VALIDATOR_COMMAND) == 1
+        and TDCC_FIELD_CONTRACT_VALIDATOR_COMMAND
+        in run_commands(active_field(validation, "run") or "")
+        and run_commands(active_field(regression, "run") or "") == expected_test_commands
+        and steps.index(source) < steps.index(validation) < steps.index(regression)
+        and not re.search(
+            r"\b(?:build|audit)_tdcc_stealth_accumulation_[A-Za-z0-9_]+\.py\b|--rebuild\b",
+            job_run_text("shared_model_research", text),
+        )
+    )
+
+
+def test_shared_model_research_tdcc_field_contract_ci_is_fixed_source_read_only() -> None:
+    assert tdcc_field_contract_ci_contract_ok(WORKFLOW.read_text(encoding="utf-8"))
+
+
+@pytest.mark.parametrize(
+    ("old", "new"),
+    (
+        ("fetch-depth: 0", "fetch-depth: 1"),
+        ("ref: ${{ github.sha }}", "ref: main"),
+        ("persist-credentials: false", "persist-credentials: true"),
+        (TDCC_FIELD_CONTRACT_VALIDATOR_COMMAND, "# " + TDCC_FIELD_CONTRACT_VALIDATOR_COMMAND),
+        (f"--source-ref {TDCC_FIELD_CONTRACT_SOURCE_SHA}", "--source-ref HEAD"),
+        (TDCC_FIELD_CONTRACT_TEST_COMMAND, TDCC_FIELD_CONTRACT_TEST_COMMAND + " --collect-only"),
+        (TDCC_FIELD_CONTRACT_TEST_COMMAND, TDCC_FIELD_CONTRACT_TEST_COMMAND + " -k selector"),
+        (
+            "      - name: Run TDCC field-contract replay v2 regression tests\n",
+            "      - name: Run TDCC field-contract replay v2 regression tests\n"
+            "        if: false\n",
+        ),
+        (
+            "      - name: Validate shared model research contracts\n",
+            "      - name: Validate shared model research contracts\n"
+            "        continue-on-error: true\n",
+        ),
+        (
+            TDCC_FIELD_CONTRACT_VALIDATOR_COMMAND,
+            "python scripts/build_tdcc_stealth_accumulation_field_contract_replay.py "
+            f"--source-ref {TDCC_FIELD_CONTRACT_SOURCE_SHA}\n          "
+            + TDCC_FIELD_CONTRACT_VALIDATOR_COMMAND,
+        ),
+        (
+            TDCC_FIELD_CONTRACT_VALIDATOR_COMMAND,
+            "python scripts/audit_tdcc_stealth_accumulation_price_pit.py\n          "
+            + TDCC_FIELD_CONTRACT_VALIDATOR_COMMAND,
+        ),
+    ),
+)
+def test_shared_model_research_tdcc_field_contract_ci_rejects_bypass(
+    old: str, new: str
+) -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+    job = job_block("shared_model_research", text)
+    assert old in job
+    mutated = text.replace(job, job.replace(old, new, 1), 1)
+    assert not tdcc_field_contract_ci_contract_ok(mutated)
 
 
 def test_revenue_job_runs_explicit_cheap_readiness_and_independent_v2_cases() -> None:
