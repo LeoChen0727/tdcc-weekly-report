@@ -41,6 +41,16 @@ FOUR_MODEL_SHARED_RESEARCH_EXACT_PATHS = frozenset(
         "tests/test_tdcc_stealth_accumulation_pit_replay_availability_audit_scope_probe.py",
         "output/research/tdcc_stealth_accumulation/"
         "tdcc_stealth_accumulation_pit_replay_availability_audit_v1.csv",
+        "scripts/build_tdcc_stealth_accumulation_historical_replay.py",
+        "scripts/validate_tdcc_stealth_accumulation_historical_replay.py",
+        "tests/test_tdcc_stealth_accumulation_historical_replay.py",
+        "tests/test_tdcc_stealth_accumulation_historical_selector_replay_scope_probe.py",
+        "output/research/tdcc_stealth_accumulation/"
+        "tdcc_stealth_accumulation_historical_selector_replay_detail_v1.csv",
+        "output/research/tdcc_stealth_accumulation/"
+        "tdcc_stealth_accumulation_historical_selector_replay_summary_v1.csv",
+        "output/research/tdcc_stealth_accumulation/"
+        "tdcc_stealth_accumulation_historical_selector_replay_report_v1.md",
     }
 )
 

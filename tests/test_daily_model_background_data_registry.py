@@ -117,6 +117,19 @@ def test_tdcc_stealth_accumulation_pit_replay_availability_audit_is_required() -
     )
 
 
+def test_tdcc_stealth_historical_selector_replay_outputs_are_required() -> None:
+    family = "tdcc_stealth_accumulation_historical_selector_replay_outputs"
+    rows = [row for row in registry_rows() if row["data_family_id"] != family]
+
+    errors = validate_registry(rows, require_artifacts=False)
+
+    assert any(
+        "registry missing required background data families" in error
+        and family in error
+        for error in errors
+    )
+
+
 def test_tdcc_short_term_continuation_d5_d10_research_outputs_are_required() -> None:
     rows = [
         row

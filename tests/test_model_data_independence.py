@@ -1428,9 +1428,9 @@ def test_volume_v2_watch_committed_lineage_audit_is_exactly_registered() -> None
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
-    assert len(rows) == 35
+    assert len(rows) == 36
     assert rows[-1]["migration_id"] == (
-        "tdcc_stealth_accumulation_pit_replay_availability_audit_20260903"
+        "tdcc_stealth_accumulation_historical_selector_replay_20260908"
     )
     baseline = rows[0]
     assert tuple(baseline) == DATA_SHARING_MIGRATION_COLUMNS

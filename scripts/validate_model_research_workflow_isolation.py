@@ -59,6 +59,9 @@ MODEL_PR_VALIDATION_DOMAINS = {
     "tdcc_stealth_accumulation_pit_replay_availability_audit": (
         pr_scope.SHARED_MODEL_RESEARCH
     ),
+    "tdcc_stealth_accumulation_historical_selector_replay": (
+        pr_scope.SHARED_MODEL_RESEARCH
+    ),
     "tdcc_short_term_continuation_d5_d10": pr_scope.SHARED_MODEL_RESEARCH,
     "revenue_unreacted_range": pr_scope.REVENUE_RESEARCH,
     "volume_range_breakout_v2": pr_scope.VOLUME_V2_RESEARCH,
@@ -69,6 +72,9 @@ MODEL_WORKFLOW_VALIDATORS = {
     "tdcc_stealth_accumulation": "scripts/validate_tdcc_stealth_accumulation_research.py",
     "tdcc_stealth_accumulation_pit_replay_availability_audit": (
         "scripts/validate_tdcc_stealth_accumulation_pit_replay_availability.py"
+    ),
+    "tdcc_stealth_accumulation_historical_selector_replay": (
+        "scripts/validate_tdcc_stealth_accumulation_historical_replay.py"
     ),
     "tdcc_short_term_continuation_d5_d10": (
         "scripts/validate_tdcc_short_term_continuation_d5_d10_research.py"
