@@ -1,0 +1,45 @@
+{
+  "attempts": [
+    {
+      "date": "20260908",
+      "full_market_ok": true,
+      "total_rows": 2128,
+      "tpex_ok": true,
+      "tpex_rows": 884,
+      "twse_ok": true,
+      "twse_rows": 1244,
+      "universe_rows": 2141
+    }
+  ],
+  "data_quality_note": "",
+  "fetch_markdown_bytes": 2102,
+  "fetch_markdown_path": "output/latest/official_price_fetch_latest.md",
+  "fetch_markdown_sha256": "c117eceeb1e595649de9bffbe7697c35496048310d166cb5789278e8a529b157",
+  "full_market_ok": true,
+  "generated_at": "2026-09-08 19:33:03 Asia/Taipei",
+  "is_target_date": true,
+  "latest_price_bytes": 193986,
+  "latest_price_path": "output/latest/official_daily_price_latest.csv",
+  "latest_price_sha256": "4a168c2e830385caa59a650c859c78b83521c4906ee35e74725a82a8ba1733a0",
+  "market_same_ratios": {
+    "TPEx": 0.002277904328018223,
+    "TWSE": 0.0
+  },
+  "paths": {
+    "dated_alt_csv": "data/daily_price/daily_price_20260908.csv",
+    "dated_csv": "data/daily_price/20260908.csv",
+    "latest_csv": "output/latest/official_daily_price_latest.csv"
+  },
+  "price_bytes": 193986,
+  "price_path": "data/daily_price/daily_price_20260908.csv",
+  "price_sha256": "4a168c2e830385caa59a650c859c78b83521c4906ee35e74725a82a8ba1733a0",
+  "reason": "成功取得目標日 TWSE + TPEx 官方日線資料。",
+  "result": "success_target_full_market",
+  "saved_price_date": "20260908",
+  "stale_market_rows": 0,
+  "stale_markets": [],
+  "target_date": "20260908",
+  "total_rows": 2128,
+  "tpex_rows": 884,
+  "twse_rows": 1244
+}
