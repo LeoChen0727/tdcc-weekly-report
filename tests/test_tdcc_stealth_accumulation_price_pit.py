@@ -120,6 +120,16 @@ def test_producer_full_checkout_requires_registered_protected_sentinel_guard():
     assert any(isinstance(n, ast.Try) and n.finalbody for n in guard.body)
 
 
+def test_audit_lineage_uses_literal_paths_not_file_patterns():
+    with (ROOT / "config/report_artifact_lineage.csv").open(encoding="utf-8", newline="") as handle:
+        rows = [r for r in csv.DictReader(handle) if r["artifact_path"].startswith(f"{validator.DIRECTORY}/{validator.STEM}.")]
+    assert len(rows) == 3
+    source_lists = [r["source_artifacts"].split(";") for r in rows]
+    assert source_lists[0] == source_lists[1] == source_lists[2]
+    assert {"data/daily_price", "output/history/daily_model_snapshots", "output/history/tdcc"} <= set(source_lists[0])
+    assert not any(token in path for path in source_lists[0] for token in ("*", "?", "[", "]"))
+
+
 @pytest.mark.parametrize("field", ["sha256", "git_blob_oid", "bytes"])
 def test_manifest_tampering_is_rejected(field):
     sources = MemorySources()
