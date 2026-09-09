@@ -321,6 +321,7 @@ SHARED_VALIDATION_COMMANDS = (
     "python scripts/validate_tdcc_stealth_accumulation_historical_replay.py",
     "python scripts/validate_tdcc_stealth_accumulation_price_pit.py",
     TDCC_FIELD_CONTRACT_VALIDATOR_COMMAND,
+    "python scripts/validate_tdcc_stealth_accumulation_operation_replay.py --source-ref 7ef37a966280201a5ee236856306fdb513de7092 --artifact-source-ref 2244a0a36c4542cd62948b50f12ef98ade50e1df",
 )
 
 VOLUME_VALIDATION_COMMANDS = (
@@ -1560,6 +1561,7 @@ def tdcc_field_contract_ci_contract_ok(text: str) -> bool:
         'test "$(git --no-replace-objects rev-parse HEAD)" = "$GITHUB_SHA"',
         'test "$(git --no-replace-objects rev-parse --is-shallow-repository)" = false',
         f'git --no-replace-objects cat-file -e "{TDCC_FIELD_CONTRACT_SOURCE_SHA}^{{commit}}"',
+        'git --no-replace-objects cat-file -e "2244a0a36c4542cd62948b50f12ef98ade50e1df^{commit}"',
     )
     expected_test_commands = (
         TDCC_FIELD_CONTRACT_TEST_COMMAND,
@@ -1635,6 +1637,48 @@ def test_shared_model_research_tdcc_field_contract_ci_rejects_bypass(
     assert old in job
     mutated = text.replace(job, job.replace(old, new, 1), 1)
     assert not tdcc_field_contract_ci_contract_ok(mutated)
+
+def operation_replay_ci_contract_ok(text: str) -> bool:
+    import yaml
+    job = yaml.safe_load(text)["jobs"]["shared_model_research"]
+    commands = []
+    for step in job["steps"]:
+        if "run" in step:
+            commands.extend(line.strip() for line in step["run"].splitlines() if line.strip())
+    expected_validator = "python scripts/validate_tdcc_stealth_accumulation_operation_replay.py --source-ref 7ef37a966280201a5ee236856306fdb513de7092 --artifact-source-ref 2244a0a36c4542cd62948b50f12ef98ade50e1df"
+    expected_test = "python -m pytest -q tests/test_tdcc_stealth_accumulation_operation_replay.py tests/test_validate_tdcc_stealth_accumulation_operation_replay.py"
+    for command in (expected_validator, expected_test):
+        matching = [step for step in job["steps"] if command in step.get("run", "")]
+        if len(matching) != 1 or "if" in matching[0] or "continue-on-error" in matching[0]:
+            return False
+        if [line.strip() for line in matching[0]["run"].splitlines()].count(command) != 1:
+            return False
+    return not any("python scripts/build_tdcc_stealth_accumulation_operation_replay.py" in command for command in commands)
+
+
+def test_operation_replay_ci_runs_independent_validation_and_both_full_test_files() -> None:
+    assert operation_replay_ci_contract_ok(WORKFLOW.read_text(encoding="utf-8"))
+
+
+@pytest.mark.parametrize("mutation", ("source", "artifact", "tests", "disabled", "producer"))
+def test_operation_replay_ci_rejects_missing_contract_or_producer(mutation: str) -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+    command = "python scripts/validate_tdcc_stealth_accumulation_operation_replay.py --source-ref 7ef37a966280201a5ee236856306fdb513de7092 --artifact-source-ref 2244a0a36c4542cd62948b50f12ef98ade50e1df"
+    if mutation == "source":
+        changed = command.replace("--source-ref 7ef37a966280201a5ee236856306fdb513de7092", "--source-ref HEAD")
+    elif mutation == "artifact":
+        changed = command.replace("--artifact-source-ref 2244a0a36c4542cd62948b50f12ef98ade50e1df", "")
+    elif mutation == "producer":
+        changed = "python scripts/build_tdcc_stealth_accumulation_operation_replay.py --source-ref 7ef37a966280201a5ee236856306fdb513de7092 --artifact-source-ref 2244a0a36c4542cd62948b50f12ef98ade50e1df\n          " + command
+    elif mutation == "disabled":
+        text = text.replace("      - name: Run TDCC operation replay v3 regression tests\n",
+            "      - name: Run TDCC operation replay v3 regression tests\n        if: false\n")
+        changed = command
+    else:
+        text = text.replace("tests/test_validate_tdcc_stealth_accumulation_operation_replay.py", "")
+        changed = command
+    assert not operation_replay_ci_contract_ok(text.replace(command, changed))
+
 
 
 def test_revenue_job_runs_explicit_cheap_readiness_and_independent_v2_cases() -> None:

@@ -1,0 +1,768 @@
+{
+  "accepted_v2_detail_sha256": "4e404bd8f73ed888b56384a1447461644ed6d5afa06ac420774983ddb595ddc3",
+  "anomaly_observations": 6,
+  "artifact_source_commit_sha": "2244a0a36c4542cd62948b50f12ef98ade50e1df",
+  "artifact_version": "tdcc_stealth_accumulation_operation_replay_v3",
+  "artifacts": {
+    "tdcc_stealth_accumulation_operation_replay_events_v3.csv": {
+      "sha256": "3af54a33be08e079672ec32e422e393bf83335a7a0efa361beeaf77573fce3a2",
+      "size_bytes": 53729694
+    },
+    "tdcc_stealth_accumulation_operation_replay_evidence_v3.csv": {
+      "sha256": "50ae0237bf5abe5da11094ddd9b0faf94c75af930b697df9fc763928a9c1c511",
+      "size_bytes": 9168
+    },
+    "tdcc_stealth_accumulation_operation_replay_positions_v3.csv": {
+      "sha256": "870eca54a809768b93de05a1e45ef110dd472a06e0226f61a20882e56da45426",
+      "size_bytes": 732
+    },
+    "tdcc_stealth_accumulation_operation_replay_report_v3.md": {
+      "sha256": "06aa93dd84bd7682e1467658c5f8b5f0b7e340e3a4fd0a14b439f2856a667879",
+      "size_bytes": 13191
+    },
+    "tdcc_stealth_accumulation_operation_replay_signals_v3.csv": {
+      "sha256": "87c348e745d8628cefa4fa3235b6a4aff0101343cc01e489cf95c3bbe6c75f85",
+      "size_bytes": 26963064
+    },
+    "tdcc_stealth_accumulation_operation_replay_summary_v3.csv": {
+      "sha256": "b09f516c307286bb343792985f081e4e742a3a70763d4477e52ac9ec027c689c",
+      "size_bytes": 7177
+    }
+  },
+  "as_of": "20260907",
+  "calendar_evidence_status": "repo_version_reproducible_official_event_payload_not_fully_verified",
+  "corporate_action_evidence_status": "company_calendar_is_advisory_not_complete_cash_flow_ledger",
+  "decimal_precision": 50,
+  "event_horizon_rows": 15324,
+  "exchange_calendar": [
+    "20260615",
+    "20260616",
+    "20260617",
+    "20260618",
+    "20260622",
+    "20260623",
+    "20260624",
+    "20260625",
+    "20260626",
+    "20260629",
+    "20260630",
+    "20260701",
+    "20260702",
+    "20260703",
+    "20260706",
+    "20260707",
+    "20260708",
+    "20260709",
+    "20260713",
+    "20260714",
+    "20260715",
+    "20260716",
+    "20260717",
+    "20260720",
+    "20260721",
+    "20260722",
+    "20260723",
+    "20260724",
+    "20260727",
+    "20260728",
+    "20260729",
+    "20260730",
+    "20260731",
+    "20260803",
+    "20260804",
+    "20260805",
+    "20260806",
+    "20260807",
+    "20260810",
+    "20260811",
+    "20260812",
+    "20260813",
+    "20260814",
+    "20260817",
+    "20260818",
+    "20260819",
+    "20260820",
+    "20260821",
+    "20260824",
+    "20260825",
+    "20260826",
+    "20260827",
+    "20260828",
+    "20260831",
+    "20260901",
+    "20260902",
+    "20260903",
+    "20260904",
+    "20260907",
+    "20260908",
+    "20260909",
+    "20260910",
+    "20260911",
+    "20260914",
+    "20260915",
+    "20260916",
+    "20260917",
+    "20260918",
+    "20260921",
+    "20260922",
+    "20260923",
+    "20260924",
+    "20260929",
+    "20260930",
+    "20261001",
+    "20261002",
+    "20261005",
+    "20261006",
+    "20261007",
+    "20261008",
+    "20261012",
+    "20261013",
+    "20261014",
+    "20261015",
+    "20261016",
+    "20261019",
+    "20261020",
+    "20261021",
+    "20261022",
+    "20261023",
+    "20261027",
+    "20261028",
+    "20261029",
+    "20261030",
+    "20261102",
+    "20261103",
+    "20261104",
+    "20261105",
+    "20261106",
+    "20261109",
+    "20261110",
+    "20261111",
+    "20261112",
+    "20261113",
+    "20261116"
+  ],
+  "formal_use": "False",
+  "hash_basis": "actual_serialized_utf8_bytes_no_bom_lf",
+  "model_id": "tdcc_stealth_accumulation",
+  "owner_id": "tdcc_stealth_accumulation_operation_replay",
+  "position_sensitivity_rows": 0,
+  "promotion_evidence_allowed": "False",
+  "signal_rows": 6821,
+  "source_artifacts": [
+    {
+      "path": "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_historical_selector_field_contract_replay_detail_v2.csv",
+      "sha256": "4e404bd8f73ed888b56384a1447461644ed6d5afa06ac420774983ddb595ddc3",
+      "size_bytes": 17346733,
+      "source_commit_sha": "2244a0a36c4542cd62948b50f12ef98ade50e1df"
+    },
+    {
+      "path": "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_historical_selector_field_contract_replay_summary_v2.csv",
+      "sha256": "47027c93636c5b2aab42ab07ca1f2e3413ba88c737a23026fa918abd2dbd8ed0",
+      "size_bytes": 5710,
+      "source_commit_sha": "2244a0a36c4542cd62948b50f12ef98ade50e1df"
+    },
+    {
+      "path": "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_price_pit_audit_v1.csv",
+      "sha256": "fc3fe80afcca8018aaa1af08181eb9170a2b9cf56baaec02386cb9316a6bc32e",
+      "size_bytes": 2828,
+      "source_commit_sha": "2244a0a36c4542cd62948b50f12ef98ade50e1df"
+    },
+    {
+      "path": "config/twse_non_trading_days.csv",
+      "sha256": "1a1579b7c2fd42cc851a0b068d30248e0ffff0148bdb3df519ca6c3114c0afcf",
+      "size_bytes": 1713,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/company_calendar/company_event_calendar.csv",
+      "sha256": "93fe05aafeaf462425573f0c53c2d505f5221596e04745c4cacce396fd954d7b",
+      "size_bytes": 2224817,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260615.csv",
+      "sha256": "c3274e80c161d76a89654662c485145b6f3e27a1f5fbe079c07c9c3f6cc53018",
+      "size_bytes": 195644,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260616.csv",
+      "sha256": "a2970372e5be009a258e9fe008b91441d60dbd9601441b08cfd2559aa31bef6c",
+      "size_bytes": 195440,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260617.csv",
+      "sha256": "6f1d791b49276f0f5455d848e788066591491fd512012e44309be0fbdff133a4",
+      "size_bytes": 194707,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260618.csv",
+      "sha256": "33b9f445ee813f3906a1327fa88683401e682be67ae1c3f4cea3b177e01ec6e9",
+      "size_bytes": 195715,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260622.csv",
+      "sha256": "bbdfebae3ab5ab32a65cdfccbb1ce0d31a480b28d0fb7d62b16b7e74e9fdb289",
+      "size_bytes": 196771,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260623.csv",
+      "sha256": "39497febaada99caa30e4bb0ee1a4b8376c14d5b95585fbabde06f5e6d218606",
+      "size_bytes": 195393,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260624.csv",
+      "sha256": "d83ab0372e092a0fcf7ca3b7763d303ab2450389a3bfa740b652cdf44f090de7",
+      "size_bytes": 194838,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260625.csv",
+      "sha256": "765f9df5c170bffa516c4ef83fd4a291c32029df25920fe666544296cea168e5",
+      "size_bytes": 195334,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260626.csv",
+      "sha256": "93f635a934434d84d96c8ffff573e0d199413f5438466a8c050280be594112c2",
+      "size_bytes": 195465,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260629.csv",
+      "sha256": "b1291bf7f405b215e0a800e2ef35a363e1848ec9db716977020cd1edbfe91b83",
+      "size_bytes": 194699,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260630.csv",
+      "sha256": "3b78e072ef7fa48c6942bc6b142e67b8c61d10cf212e6357df6a84cf484769ba",
+      "size_bytes": 194958,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260701.csv",
+      "sha256": "1cf8d05ccc3edb9f2a861b2942a3b4159f5e3ecb18aaa80b20e6b6240e894553",
+      "size_bytes": 195791,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260702.csv",
+      "sha256": "43d77ac58ef33b3e8d9ed75395a229cf4a308f1d60d1449198f2a7ac703ab58c",
+      "size_bytes": 194364,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260703.csv",
+      "sha256": "a157f40f57ed40193e926404cfe454d78871391be4d3c11b4567df9cb249ee3d",
+      "size_bytes": 195947,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260706.csv",
+      "sha256": "c7e3aeba582481aa00f8a18553ca5651b853a8fd8fb2e52397d1d40c3e37adcd",
+      "size_bytes": 196141,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260707.csv",
+      "sha256": "36cfaa1952df9b0b28240d1543c22344a1b8b0d554ce7d45a54587c78911552e",
+      "size_bytes": 195806,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260708.csv",
+      "sha256": "95cb3940948ea40c79b1ea7e64352e852a43abbf2c064e600225061f4c4f6380",
+      "size_bytes": 195056,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260709.csv",
+      "sha256": "2eaf0bf296973f0a21434173aa82afb414cb5b6a83a223f513d38ad60981b3d5",
+      "size_bytes": 194907,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260713.csv",
+      "sha256": "d6ffdaa42cccb33cdd74a55ee2d1cf468d37268d2459ebcbd43ce7840a47cbc7",
+      "size_bytes": 195443,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260714.csv",
+      "sha256": "49f736052a97bd82e574edf96614fb5864993e3d81137ff341fc19a2f3003cab",
+      "size_bytes": 194878,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260715.csv",
+      "sha256": "52e4773de2880da63becd84c41439e4d577d0fd1900c8a56e176086a109448e9",
+      "size_bytes": 194637,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260716.csv",
+      "sha256": "1ed8685302351cc4358f6333210e8f10ce279020ef3ef587bfbfcbdfa0094254",
+      "size_bytes": 193909,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260717.csv",
+      "sha256": "9e49c885e458de7b127ca6066fa2ff884d2e0d5133f72b49d99bd08fdd2ec5ed",
+      "size_bytes": 195396,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260720.csv",
+      "sha256": "57229ad0aca43d78cbd9c6b333ebbb84b4ddf52ab16cb54e0bcc311d472cf898",
+      "size_bytes": 194788,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260721.csv",
+      "sha256": "19fa2033551ae64fb8d4cb4d02f6448726e8141f4dcc660f27ef3664cd5cc7d7",
+      "size_bytes": 193868,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260722.csv",
+      "sha256": "f171ce23cdb0fcbb496c950a12441c60aed468d86034c1e9a6eaddcbbe99956c",
+      "size_bytes": 194730,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260723.csv",
+      "sha256": "cfe90e4ac469c8fede356497b3a86b4bfceb7a76e9b2076e0ddec77e9fb996d8",
+      "size_bytes": 193052,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260724.csv",
+      "sha256": "1e2406445ff55094855404891722da71b7162b4e7f42a5a6e40e0055126d9af7",
+      "size_bytes": 193410,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260727.csv",
+      "sha256": "c7f4b1f4af7ba5342d16721745c51a26093b5e41a9f48d6bd8de6fab4a7a6438",
+      "size_bytes": 191942,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260728.csv",
+      "sha256": "ef1f6b0b837e694902e0c89ca8c5206216a2c7137a09c76a4202ead1e9afb8f3",
+      "size_bytes": 193370,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260729.csv",
+      "sha256": "c73c5a0617fe7cab53c97ce9a53cef1e1f1252d612748f70b438cf678c987d84",
+      "size_bytes": 195429,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260730.csv",
+      "sha256": "8362199c0bd89bbcbb1b1557706634d929a0c7a335851074f64df75bc02bf6c9",
+      "size_bytes": 193412,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260731.csv",
+      "sha256": "f3943c540678e344bcaeb7e0489d5cd6b01bfa00ff05854b0e20b0022cac9146",
+      "size_bytes": 194943,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260803.csv",
+      "sha256": "ab0e76f0dca82dde515dc24c8970bcc93064444e0f60a46adee5eec15a9c3308",
+      "size_bytes": 192897,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260804.csv",
+      "sha256": "0174935aeecf84dfe5c6fd8f1ef073b6bd1a4a9bec2aa44c63ed8b4b8eee7260",
+      "size_bytes": 193450,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260805.csv",
+      "sha256": "fdf566ef078a131853b6bacfe7db8dd8a43b7d5935462deeb2c298f3b229a803",
+      "size_bytes": 194329,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260806.csv",
+      "sha256": "b675c1d794b306f52e55d64c9596fcacdb6ac71252ced4ab9b8156de6ab8f43b",
+      "size_bytes": 194056,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260807.csv",
+      "sha256": "590e0e1bb6562c6f67d009b955a4b807385a586c3770d89069dc546457e6517a",
+      "size_bytes": 193219,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260810.csv",
+      "sha256": "d60c63ec47be2994afc42aacc8bd9501298a86eea4e70b04a86a04256c4885f9",
+      "size_bytes": 194929,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260811.csv",
+      "sha256": "4a6c7d1eb7f763e21b813d5d38c68852c01f58dd8dfa26ecd54bdf03c1d16c77",
+      "size_bytes": 194647,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260812.csv",
+      "sha256": "54113d796d8215f918699216d282306302ebdf885f9ec192e1984edc17918cf3",
+      "size_bytes": 194554,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260813.csv",
+      "sha256": "9fdc951c456daf9000932922f6acd7d095b308811ea1ef706457e66d63301e01",
+      "size_bytes": 195504,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260814.csv",
+      "sha256": "9cf3d18b2c189cef2dfd3f45633040b5dd665007b406a28400a9dcc956b1c8f1",
+      "size_bytes": 194859,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260817.csv",
+      "sha256": "584c81a07e0564d854a559ff7b1ce376a005f1827385d00b31ea52480c0b7ef0",
+      "size_bytes": 194457,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260818.csv",
+      "sha256": "cd7ef92d5eb1de952eeaa4a1a130de55e043113cd984ea3c05c7174992713892",
+      "size_bytes": 193723,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260819.csv",
+      "sha256": "0b98f8c27dac93060d4fc79177f31f6b058383f583c5504381d264da3b92ba68",
+      "size_bytes": 193166,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260820.csv",
+      "sha256": "f5c69eaa43c19617800f1403c62841b3cfbf96254c0b86d11cb19cafd8289177",
+      "size_bytes": 193671,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260821.csv",
+      "sha256": "ec78a7e4cdac80544214c2f11039bfecbbe0837c05bcceb0115898234cfb89bf",
+      "size_bytes": 194433,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260824.csv",
+      "sha256": "2456b55bd0cdc0c0556780dd2e618d994b3de0fdbd37e0eb846d49717a6a860a",
+      "size_bytes": 192309,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260825.csv",
+      "sha256": "1fd8d4ecff3cd74f03ca62cde7770b6753f5973ca2dc3665a0610dbe2f695d2b",
+      "size_bytes": 192730,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260826.csv",
+      "sha256": "284dfc4ccc092957f93c46e797e76b6baad0d62ae5c281d51901c829a9626713",
+      "size_bytes": 194664,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260827.csv",
+      "sha256": "8939de83b6b9fd11423c182e2ab3bfb64d2f1d687f99595c078eb30198a1fa3d",
+      "size_bytes": 194149,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260828.csv",
+      "sha256": "d353995ae96135eec84aa88edb170c2de8e2def5f21da71954c8cf7b888c10d7",
+      "size_bytes": 194892,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260831.csv",
+      "sha256": "4d4a212eea4832f20d02664fa17fb329e152479719e4b85fd792d12ca1e28192",
+      "size_bytes": 193079,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260901.csv",
+      "sha256": "051180acae8ef53f5ff6025c14a93506b1a1e84902409666f7e522a7ec38d4fb",
+      "size_bytes": 193875,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260902.csv",
+      "sha256": "10922fd08cd436225729f6f6d23a1837f11997aa624c09e94e7e3283dfc57b66",
+      "size_bytes": 193059,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260903.csv",
+      "sha256": "a4f9f2d7591b6e3d31fb4cc41a0e49e8805f78fd2429708132a2a808039a94db",
+      "size_bytes": 193237,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260904.csv",
+      "sha256": "bee4d53de287be1fa01b94a6f4531ea99621b1546cbbc9ec1a4868a35d48f23a",
+      "size_bytes": 193349,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/daily_price/20260907.csv",
+      "sha256": "4ac54c887d868e1c3376e52da9f5438a73550a1f3597955ca32925f6ff4585e5",
+      "size_bytes": 195246,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "data/market_calendar/exceptional_non_trading_days.csv",
+      "sha256": "1b6ceabcead6241ab8d70e51c28a058e3ebc921e295ab344520e338c4c21170b",
+      "size_bytes": 674,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/all_candidates_20260615.csv",
+      "sha256": "c43f2c410bfbab00262c49dba53bb36fa285fd8f2eaa2fee2b5634e9697f4adc",
+      "size_bytes": 1022666,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/all_candidates_20260616.csv",
+      "sha256": "6f1beeb74170bccc08ede70642329d5823ecb4895f415afd9f99cb772236781c",
+      "size_bytes": 1050892,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/all_candidates_20260617.csv",
+      "sha256": "ca575006d976e949b25e97a46c7ffa80e5810632fc36f5dbe6eec02153373d1e",
+      "size_bytes": 1155245,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/all_candidates_20260618.csv",
+      "sha256": "5a03cddafcf0160ae2fee42766c1a54b3d46835bf320f5c7e6b2b15de7f29d5a",
+      "size_bytes": 1086623,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/all_candidates_20260622.csv",
+      "sha256": "59d4466a4af2dd5c5add3ba44ceb7df3faa1fc56923d713e5ea063bb602e1d75",
+      "size_bytes": 1909387,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/all_candidates_20260623.csv",
+      "sha256": "9dccfb8ba0fc5e92ba9096bb2a3f038ede0c6a3e702fc80f2b16945d161cdeab",
+      "size_bytes": 1667466,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/all_candidates_20260624.csv",
+      "sha256": "726be83980a3b0c7b45dab32332fbbdc469342d884c8bec48c9ef285f592c629",
+      "size_bytes": 1705798,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/all_candidates_20260626.csv",
+      "sha256": "88a8585070eeed21ddd8c39c1f2f4da9e405b1bfaae53c0906185eac648f2863",
+      "size_bytes": 1394493,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/all_candidates_20260629.csv",
+      "sha256": "387c66197f7db2df708c61e858d1de6b37bbd3f4997d87b1fad81b2fc43cb9cc",
+      "size_bytes": 1471017,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/all_candidates_20260630.csv",
+      "sha256": "411489f72c1ee981cf1473e7cee0e57917da396ce941d2bbff79a5f14cadc6d0",
+      "size_bytes": 1662126,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/all_candidates_20260701.csv",
+      "sha256": "89342ffb5b5b806be367f25f8ca34dd67aa298f23fee8f14cd2c40f702f1cc1c",
+      "size_bytes": 1255909,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/all_candidates_20260702.csv",
+      "sha256": "9a1095685c4d2d7a608de404a7b6cef40cef7c697ca68581f77dd8798ace32cd",
+      "size_bytes": 1861817,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/all_candidates_20260703.csv",
+      "sha256": "56db793adc601068ae055f2d5ba1e19821223074367d952f76fd499f03d8ac51",
+      "size_bytes": 2100275,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/all_candidates_20260706.csv",
+      "sha256": "250568e93dba7e82b5598a87bff9005e374a8248df402cb9bc7a190a2410bfa4",
+      "size_bytes": 2000779,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/all_candidates_20260707.csv",
+      "sha256": "fb3a33120b59864d9a9129e3ef0813924f4388aa4b3915d8a1337510dee539f6",
+      "size_bytes": 1696502,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/all_candidates_20260708.csv",
+      "sha256": "4f73f5b832b0f9574c57d445b51f0613d8b1668404bc80d129268a47bb7f9e24",
+      "size_bytes": 1724308,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/all_candidates_20260709.csv",
+      "sha256": "7daceccf407b5976a6b7b6e5ecf7f73d6a77f793d98a05693e68fcd7b613ab82",
+      "size_bytes": 1592368,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/all_candidates_20260713.csv",
+      "sha256": "140517583a1796bf98f3c9ffffd0947456daa3a6ccb4ed45bc8d2368e2bb0e6a",
+      "size_bytes": 1647023,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/all_candidates_20260714.csv",
+      "sha256": "888e17ae8474d975ca3f4c4695e7a31ec9c09a6d287701835dc2fd2f2a887838",
+      "size_bytes": 1631224,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/all_candidates_20260715.csv",
+      "sha256": "e0f7bc8e7472ee7253a057dfeb9db141f78e35af2a4375a5a2b46765c0273e30",
+      "size_bytes": 805587,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/all_candidates_20260716.csv",
+      "sha256": "a56c28131dd25dbd12d2940225944c53e98248bcaa5a23326cc8c2a8c228b898",
+      "size_bytes": 1546603,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/all_candidates_20260717.csv",
+      "sha256": "0084a246ef84fd1f1a228bd4fb74a6a987e93d98cf98aad44782ed931ab67bac",
+      "size_bytes": 1290627,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/all_candidates_20260810_r1_003348cb62d5.csv",
+      "sha256": "003348cb62d52c7eadf08597cdf5c91771848698ee2d5cf0cfff37452a1fc2d7",
+      "size_bytes": 2175798,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/all_candidates_20260811_r1_2adb89a47540.csv",
+      "sha256": "2adb89a475409a558199b51eaba27e24748c14ff390c3997dcf1abdd8cf095ba",
+      "size_bytes": 1797293,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/all_candidates_20260820_r1_e9916b12b92f.csv",
+      "sha256": "e9916b12b92f91e5dc4024cbb25d698eba6f8b5cf9444bf08e061187ac8b6430",
+      "size_bytes": 1843472,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/all_candidates_20260821_r1_6e78c90f281b.csv",
+      "sha256": "6e78c90f281baa9d7b4ea2c4b5770388d97748b006e80472d3502627f92a24b4",
+      "size_bytes": 1869597,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/all_candidates_20260825_r1_b4f985b86b6d.csv",
+      "sha256": "b4f985b86b6d8c482ac675bd017a9b05f36c863678638a2042781e3efd77a7d8",
+      "size_bytes": 1697456,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/all_candidates_20260826_r1_f7d62e99b4df.csv",
+      "sha256": "f7d62e99b4dfa9b49030de40bea2306ac5500a14ee9d62ec68b85b2f732b7d05",
+      "size_bytes": 2078108,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/all_candidates_20260827_r1_5683168a6f78.csv",
+      "sha256": "5683168a6f78e20e684fd8775aa8b33231f5f3026bdb0f69d16a04739ede26a5",
+      "size_bytes": 2017581,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/all_candidates_20260828_r1_05f5625a4798.csv",
+      "sha256": "05f5625a479837f02e9473b3ad22aad92eec477c3b8cc9798545c527be11fff3",
+      "size_bytes": 2017350,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/all_candidates_20260831_r1_2aa8624f40f3.csv",
+      "sha256": "2aa8624f40f3d99205cf3c07ee06a399812fb9aea745a733d87c87e72034563b",
+      "size_bytes": 1982791,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/all_candidates_20260901_r1_5ebd70604908.csv",
+      "sha256": "5ebd70604908966c75c2407f13df5335675ba33d909db72107bb2c253836fdce",
+      "size_bytes": 2176054,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/all_candidates_20260902_r1_0a31dfbd6895.csv",
+      "sha256": "0a31dfbd6895e829738ceef45401d12dd858b2bfd0a0630c5722265f419b61a6",
+      "size_bytes": 1297921,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/all_candidates_20260903_r1_b27c6998ccc6.csv",
+      "sha256": "b27c6998ccc6f1ae3c6792660fbb59dbe3dcf6fcd1c423e6cf4d19daa63652c7",
+      "size_bytes": 1795718,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/all_candidates_20260904_r1_25e77e152fbc.csv",
+      "sha256": "25e77e152fbc267ffa2ad6418fabe7e5d4d0ceb38c4e450a92efc8692080fe1b",
+      "size_bytes": 1916095,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/all_candidates_20260907_r1_553990407eb1.csv",
+      "sha256": "553990407eb1b0df7b58e8d7f8cae1141479724853f1c74b6a0eb0d35fc47875",
+      "size_bytes": 1802130,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/daily_published_model_snapshot_manifest.csv",
+      "sha256": "84c98c406cd74fddfc1d05227ca25607e32ae9acd8c1d63672603430265139a6",
+      "size_bytes": 183623,
+      "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092"
+    }
+  ],
+  "source_commit_sha": "7ef37a966280201a5ee236856306fdb513de7092",
+  "trade_eligible": "False",
+  "unique_events": 5108
+}

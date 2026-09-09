@@ -348,11 +348,28 @@ def test_paths_select_only_their_declared_domains(
     assert set(scope.domains_for_path(path)) == expected
 
 
+TDCC_OPERATION_REPLAY_EXACT_PATHS = frozenset({
+    ".github/workflows/tdcc_stealth_accumulation_operation_replay.yml",
+    "scripts/build_tdcc_stealth_accumulation_operation_replay.py",
+    "scripts/validate_tdcc_stealth_accumulation_operation_replay.py",
+    "tests/test_tdcc_stealth_accumulation_operation_replay.py",
+    "tests/test_validate_tdcc_stealth_accumulation_operation_replay.py",
+    "tests/test_tdcc_stealth_accumulation_operation_replay_scope_probe.py",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_operation_replay_signals_v3.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_operation_replay_events_v3.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_operation_replay_positions_v3.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_operation_replay_summary_v3.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_operation_replay_evidence_v3.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_operation_replay_manifest_v3.json",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_operation_replay_report_v3.md",
+})
+
+
 def test_four_model_research_and_tdcc_stealth_pit_audit_route_exactly() -> None:
     assert scope.MODEL_OWNED_SHARED_RESEARCH_EXACT_PATHS == (
-        FOUR_MODEL_SHARED_RESEARCH_EXACT_PATHS
+        FOUR_MODEL_SHARED_RESEARCH_EXACT_PATHS | TDCC_OPERATION_REPLAY_EXACT_PATHS
     )
-    for path in sorted(FOUR_MODEL_SHARED_RESEARCH_EXACT_PATHS):
+    for path in sorted(FOUR_MODEL_SHARED_RESEARCH_EXACT_PATHS | TDCC_OPERATION_REPLAY_EXACT_PATHS):
         assert scope.is_watched_path(path)
         assert scope.domains_for_path(path) == frozenset(
             {scope.RESEARCH_SAFETY_LITE, scope.SHARED_MODEL_RESEARCH}
@@ -379,6 +396,27 @@ def test_tdcc_price_pit_workflow_only_diff_runs_exact_research_domains(
         scope.RESEARCH_SAFETY_LITE,
         scope.SHARED_MODEL_RESEARCH,
     )
+
+@pytest.mark.parametrize("path", (
+    ".github/workflows/tdcc_stealth_accumulation_operation_replay.yml",
+    "scripts/build_tdcc_stealth_accumulation_operation_replay.py",
+    "scripts/validate_tdcc_stealth_accumulation_operation_replay.py",
+    "tests/test_tdcc_stealth_accumulation_operation_replay.py",
+    "tests/test_validate_tdcc_stealth_accumulation_operation_replay.py",
+    "tests/test_tdcc_stealth_accumulation_operation_replay_scope_probe.py",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_operation_replay_signals_v3.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_operation_replay_events_v3.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_operation_replay_positions_v3.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_operation_replay_summary_v3.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_operation_replay_evidence_v3.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_operation_replay_manifest_v3.json",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_operation_replay_report_v3.md",
+))
+def test_tdcc_operation_replay_routes_to_exact_research_domains(path: str) -> None:
+    assert scope.domains_for_path(path) == frozenset({
+        scope.RESEARCH_SAFETY_LITE, scope.SHARED_MODEL_RESEARCH,
+    })
+
 
 
 @pytest.mark.parametrize(

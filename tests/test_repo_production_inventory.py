@@ -35,6 +35,7 @@ def assert_transition_safe_artifact_writer_count(
         VOLUME_V2_ADVISORY_LINEAGE_REFRESH_WORKFLOW in workflow_paths
     ) + int(REVENUE_READINESS_FORMAL_SYNC_WORKFLOW in workflow_paths)
     expected_count += int(inventory.TDCC_PRICE_PIT_AUDIT_WORKFLOW in workflow_paths)
+    expected_count += int(inventory.TDCC_OPERATION_REPLAY_WORKFLOW in workflow_paths)
     assert writer_count == expected_count
 
 
@@ -53,7 +54,8 @@ def test_daily_full_model_governance_invocation_exception_is_revenue_adapter_onl
         "scripts/validate_daily_revenue_unreacted_range_operation_section.py",
     }
     assert set(inventory.WORKFLOW_EXACT_INVOCATION_ALLOWLIST) == {
-        inventory.DAILY_WORKFLOW, inventory.TDCC_PRICE_PIT_AUDIT_WORKFLOW
+        inventory.DAILY_WORKFLOW, inventory.TDCC_PRICE_PIT_AUDIT_WORKFLOW,
+        inventory.TDCC_OPERATION_REPLAY_WORKFLOW,
     }
     assert inventory.WORKFLOW_EXACT_INVOCATION_ALLOWLIST[inventory.DAILY_WORKFLOW] == expected_paths
 
@@ -99,6 +101,28 @@ def test_price_pit_workflow_allows_only_its_owner_and_read_only_validators(monke
         errors = []
         inventory.validate_workflow_invocations(rows, {workflow}, errors)
         assert any("allowed owners" in error for error in errors)
+
+def test_operation_replay_workflow_has_no_cross_model_writer_allowance() -> None:
+    workflow = inventory.TDCC_OPERATION_REPLAY_WORKFLOW
+    expected = {
+        "scripts/build_tdcc_stealth_accumulation_operation_replay.py",
+        "scripts/validate_apps_script_workflow_triggers.py",
+        "scripts/validate_daily_model_background_data_registry.py",
+        "scripts/validate_daily_model_research_parity.py",
+        "scripts/validate_formal_model_evidence_pins.py",
+        "scripts/validate_model_data_independence.py",
+        "scripts/validate_model_research_artifact_ownership.py",
+        "scripts/validate_model_research_shared_utilities.py",
+        "scripts/validate_model_research_workflow_isolation.py",
+        "scripts/validate_repo_production_inventory.py",
+        "scripts/validate_research_production_boundaries.py",
+        "scripts/validate_tdcc_stealth_accumulation_operation_replay.py",
+    }
+    assert inventory.WORKFLOW_EXACT_INVOCATION_ALLOWLIST[workflow] == expected
+    assert inventory.WORKFLOW_ALLOWED_OWNERS[workflow] == set()
+    assert "scripts/build_model_data_independence_audit.py" not in expected
+    assert_transition_safe_artifact_writer_count(15, {workflow})
+
 
 
 def test_revenue_readiness_formal_sync_is_exactly_registered_and_guarded() -> None:

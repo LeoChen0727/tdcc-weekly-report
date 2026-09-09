@@ -1082,6 +1082,44 @@ def test_two_workflows_cover_aggregate_ownership_and_preserve_old_25_inputs() ->
     }
     assert len([row for row in rows if row.workflow_path == validator.PRICE_PIT_WORKFLOW_PATH]) == 1
 
+def test_operation_replay_has_distinct_sources_and_exact_v3_stage() -> None:
+    text, _, _ = _inputs(validator.OPERATION_REPLAY_WORKFLOW_PATH)
+    assert _errors(text, validator.OPERATION_REPLAY_WORKFLOW_PATH) == []
+    assert validator.OPERATION_REPLAY_SOURCE_REF != validator.OPERATION_REPLAY_ARTIFACT_SOURCE_REF
+    assert validator.workflow_input_defaults(text) == {validator.OPERATION_REPLAY_INPUT: "false"}
+    assert len(validator.OPERATION_REPLAY_ARTIFACTS) == 7
+    assert tuple(line.strip() for line in text.splitlines() if line.strip().startswith("git add")) == validator.OPERATION_REPLAY_STAGE_COMMANDS
+    assert validator.MODEL_DATA_AUDIT_BUILD_COMMAND not in text
+    assert validator.workflow_selection_condition([validator.OPERATION_REPLAY_INPUT], negate=True) in text
+
+
+@pytest.mark.parametrize("command", validator.OPERATION_REPLAY_STAGE_COMMANDS)
+def test_operation_replay_cannot_omit_any_v3_artifact(command: str) -> None:
+    text, _, _ = _inputs(validator.OPERATION_REPLAY_WORKFLOW_PATH)
+    assert command in text
+    assert _errors(text.replace(command, "echo missing-artifact", 1), validator.OPERATION_REPLAY_WORKFLOW_PATH)
+
+
+@pytest.mark.parametrize("mutation", ("source", "artifact", "swapped", "global-write", "old-version"))
+def test_operation_replay_rejects_wrong_sources_and_cross_family_writes(mutation: str) -> None:
+    text, _, _ = _inputs(validator.OPERATION_REPLAY_WORKFLOW_PATH)
+    if mutation == "source":
+        text = text.replace("--source-ref " + validator.OPERATION_REPLAY_SOURCE_REF, "--source-ref HEAD")
+    elif mutation == "artifact":
+        text = text.replace("--artifact-source-ref " + validator.OPERATION_REPLAY_ARTIFACT_SOURCE_REF, "")
+    elif mutation == "swapped":
+        text = text.replace(validator.OPERATION_REPLAY_ARGS,
+            "--source-ref " + validator.OPERATION_REPLAY_ARTIFACT_SOURCE_REF +
+            " --artifact-source-ref " + validator.OPERATION_REPLAY_SOURCE_REF)
+    elif mutation == "global-write":
+        text = text.replace(validator.OPERATION_REPLAY_VALIDATOR_COMMAND,
+            validator.MODEL_DATA_AUDIT_BUILD_COMMAND + "\n          " + validator.OPERATION_REPLAY_VALIDATOR_COMMAND)
+    else:
+        text = text.replace(validator.OPERATION_REPLAY_STAGE_COMMANDS[0],
+            "git add output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_historical_selector_replay_detail_v1.csv")
+    assert _errors(text, validator.OPERATION_REPLAY_WORKFLOW_PATH)
+
+
 
 def test_aggregate_registry_cannot_move_price_back_or_drop_an_owned_model() -> None:
     rows = validator.load_registry()
@@ -1109,7 +1147,7 @@ def test_dispatch_rejects_missing_boolean_type_default_or_true(workflow_path: st
         row for row in rows
         if row.workflow_path == workflow_path
         and (
-            workflow_path == validator.PRICE_PIT_WORKFLOW_PATH
+            workflow_path != validator.LEGACY_WORKFLOW_PATH
             or row.workflow_input in validator.LEGACY_BOOLEAN_INPUTS
         )
     )
@@ -1254,7 +1292,7 @@ def test_required_validation_cannot_be_removed_or_masked(workflow_path: str, com
 def test_static_and_postrun_steps_cannot_be_disabled(workflow_path: str) -> None:
     text, _, _ = _inputs(workflow_path)
     static_name = (
-        "Validate model research prerequisites" if workflow_path == validator.PRICE_PIT_WORKFLOW_PATH
+        "Validate model research prerequisites" if workflow_path != validator.LEGACY_WORKFLOW_PATH
         else "Validate Apps Script workflow triggers"
     )
     marker = f"      - name: {static_name}\n"

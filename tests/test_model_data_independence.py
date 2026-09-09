@@ -1428,11 +1428,11 @@ def test_volume_v2_watch_committed_lineage_audit_is_exactly_registered() -> None
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
-    assert len(rows) == 38
-    assert rows[-3]["migration_id"] == (
+    assert len(rows) == 39
+    assert rows[-4]["migration_id"] == (
         "tdcc_stealth_accumulation_historical_selector_replay_20260908"
     )
-    field_contract_migration = rows[-2]
+    field_contract_migration = rows[-3]
     assert field_contract_migration["migration_id"] == (
         "tdcc_stealth_accumulation_field_contract_replay_20260908"
     )
@@ -1452,13 +1452,31 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     assert field_contract_migration["migration_status"] == (
         "validated_user_approved_migration"
     )
-    audit_migration = rows[-1]
+    audit_migration = rows[-2]
     assert audit_migration["migration_id"] == "tdcc_stealth_accumulation_price_pit_audit_20260908"
     assert audit_migration["changed_data_families"] == "tdcc_stealth_accumulation_price_pit_audit"
     assert audit_migration["previous_contract_sha256s"] == "NEW"
     assert audit_migration["new_contract_sha256s"] == "51453013429b0304f6479feeb57f5b3a62dfdd747153e35ed3257d9b2f531d5c"
     assert audit_migration["affected_models"] == "tdcc_stealth_accumulation"
     assert audit_migration["user_approval_reference"] == "user_authorized_tdcc_stealth_price_anomaly_pit_audit_20260908"
+    operation_replay_migration = rows[-1]
+    assert operation_replay_migration["migration_id"] == (
+        "tdcc_stealth_accumulation_operation_replay_20260909"
+    )
+    assert operation_replay_migration["changed_data_families"] == (
+        "tdcc_stealth_accumulation_operation_replay_outputs"
+    )
+    assert operation_replay_migration["previous_contract_sha256s"] == "NEW"
+    assert operation_replay_migration["new_contract_sha256s"] == (
+        "54743d88bdd33ae6ebb43a8f4feda650ac9b238787a20838f61b6a8a353bd552"
+    )
+    assert operation_replay_migration["affected_models"] == "tdcc_stealth_accumulation"
+    assert operation_replay_migration["user_approval_reference"] == (
+        "user_adopted_scheme_a_20260909_thread_01a05bf4-f664-7cc3-bac0-28c3e9bd4cde"
+    )
+    assert operation_replay_migration["migration_status"] == (
+        "validated_user_approved_migration"
+    )
     baseline = rows[0]
     assert tuple(baseline) == DATA_SHARING_MIGRATION_COLUMNS
     assert data_migration_row_sha256(baseline) == BASELINE_DATA_MIGRATION_ROW_SHA256
