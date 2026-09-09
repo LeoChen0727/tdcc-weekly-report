@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-09-08 19:48:00 Asia/Taipei",
+  "generated_at": "2026-09-09 08:08:52 Asia/Taipei",
   "status": "pass",
-  "schema_only": false,
+  "schema_only": true,
   "data_table_rows": {
     "theme_event_calendar": 1,
     "company_theme_mapping": 28,
     "quarterly_catalyst": 2458,
-    "event_catalyst_log": 3275
+    "event_catalyst_log": 3308
   },
-  "all_candidates_rows": 470,
-  "catalyst_performance_rows": 3213,
-  "catalyst_summary_rows": 21,
-  "catalyst_needs_review_rows": 2,
+  "all_candidates_rows": "",
+  "catalyst_performance_rows": "",
+  "catalyst_summary_rows": "",
+  "catalyst_needs_review_rows": "",
   "errors": []
 }
