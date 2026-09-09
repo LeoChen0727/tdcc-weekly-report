@@ -1,0 +1,118 @@
+name: TDCC Stealth Accumulation Operation Replay
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_tdcc_stealth_accumulation_operation_replay:
+        description: "Run model-owned TDCC operation replay v3 research only"
+        required: false
+        default: false
+        type: boolean
+
+permissions: {}
+
+concurrency:
+  group: research-backtest-pipeline-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  no-op:
+    if: ${{ !(github.event.inputs.run_tdcc_stealth_accumulation_operation_replay == 'true') }}
+    runs-on: ubuntu-latest
+    permissions: {}
+    steps:
+      - name: No research selected
+        shell: bash
+        run: printf 'No research selected; no repository checkout or artifact writes.\n'
+
+  tdcc-stealth-accumulation-operation-replay:
+    if: ${{ github.event.inputs.run_tdcc_stealth_accumulation_operation_replay == 'true' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      TARGET_BRANCH: ${{ github.ref_name }}
+      ANY_RESEARCH_SELECTED: ${{ github.event.inputs.run_tdcc_stealth_accumulation_operation_replay == 'true' }}
+      MODEL_RESEARCH_SELECTED: ${{ github.event.inputs.run_tdcc_stealth_accumulation_operation_replay == 'true' }}
+    steps:
+      - name: Require production artifact write deploy key
+        shell: bash
+        env:
+          PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}
+        run: |
+          if [ -z "${PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY}" ]; then
+            echo "::error::PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY is required for artifact publishing."
+            exit 1
+          fi
+
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          ssh-key: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}
+          persist-credentials: true
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Synchronize target branch before research
+        run: |
+          git pull --ff-only origin "$TARGET_BRANCH"
+
+      - name: Install dependencies
+        if: ${{ env.ANY_RESEARCH_SELECTED == 'true' }}
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas requests tabulate matplotlib pillow openpyxl lxml html5lib beautifulsoup4 reportlab pypdf
+
+      - name: Validate model research prerequisites
+        run: |
+          python scripts/validate_apps_script_workflow_triggers.py
+          python scripts/validate_repo_production_inventory.py
+          python scripts/validate_daily_model_background_data_registry.py --structure-only
+          python scripts/validate_research_production_boundaries.py
+          python scripts/validate_model_research_artifact_ownership.py
+          python scripts/validate_model_research_shared_utilities.py
+          python scripts/validate_formal_model_evidence_pins.py
+          python scripts/validate_model_research_workflow_isolation.py
+
+
+      - name: Build model-owned TDCC operation replay v3
+        if: ${{ github.event.inputs.run_tdcc_stealth_accumulation_operation_replay == 'true' }}
+        run: |
+          git fetch --no-tags origin 7ef37a966280201a5ee236856306fdb513de7092 2244a0a36c4542cd62948b50f12ef98ade50e1df
+          python scripts/build_tdcc_stealth_accumulation_operation_replay.py --source-ref 7ef37a966280201a5ee236856306fdb513de7092 --artifact-source-ref 2244a0a36c4542cd62948b50f12ef98ade50e1df
+          python scripts/validate_tdcc_stealth_accumulation_operation_replay.py --source-ref 7ef37a966280201a5ee236856306fdb513de7092 --artifact-source-ref 2244a0a36c4542cd62948b50f12ef98ade50e1df
+
+      - name: Validate post-run model research contracts
+        if: ${{ env.MODEL_RESEARCH_SELECTED == 'true' }}
+        run: |
+          python scripts/validate_model_data_independence.py
+          python scripts/validate_daily_model_background_data_registry.py
+          python scripts/validate_model_research_artifact_ownership.py
+          python scripts/validate_formal_model_evidence_pins.py
+          python scripts/validate_daily_model_research_parity.py
+
+      - name: Commit research and backtest outputs
+        if: ${{ env.ANY_RESEARCH_SELECTED == 'true' }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_operation_replay_signals_v3.csv
+          git add output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_operation_replay_events_v3.csv
+          git add output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_operation_replay_positions_v3.csv
+          git add output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_operation_replay_summary_v3.csv
+          git add output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_operation_replay_evidence_v3.csv
+          git add output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_operation_replay_manifest_v3.json
+          git add output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_operation_replay_report_v3.md
+          git status --short
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "Update research backtest outputs"
+          git push origin "HEAD:$TARGET_BRANCH"

@@ -68,11 +68,13 @@ MODEL_PR_VALIDATION_DOMAINS = {
     ),
     "tdcc_short_term_continuation_d5_d10": pr_scope.SHARED_MODEL_RESEARCH,
     "tdcc_stealth_accumulation_price_pit_audit": pr_scope.SHARED_MODEL_RESEARCH,
+    "tdcc_stealth_accumulation_operation_replay": pr_scope.SHARED_MODEL_RESEARCH,
     "revenue_unreacted_range": pr_scope.REVENUE_RESEARCH,
     "volume_range_breakout_v2": pr_scope.VOLUME_V2_RESEARCH,
 }
 MODEL_WORKFLOW_VALIDATORS = {
     "tdcc_stealth_accumulation_price_pit_audit": "scripts/validate_tdcc_stealth_accumulation_price_pit.py",
+    "tdcc_stealth_accumulation_operation_replay": "scripts/validate_tdcc_stealth_accumulation_operation_replay.py",
     "hot_theme_pullback": "scripts/validate_hot_theme_pullback_research.py",
     "pullback_short_reclaim": "scripts/validate_pullback_short_reclaim_research.py",
     "tdcc_stealth_accumulation": "scripts/validate_tdcc_stealth_accumulation_research.py",
@@ -99,6 +101,39 @@ TDCC_STEALTH_FIELD_CONTRACT_REPLAY_FETCH_COMMAND = (
     "git fetch --no-tags --depth=1 origin "
     f"{TDCC_STEALTH_FIELD_CONTRACT_REPLAY_SOURCE_REF}"
 )
+OPERATION_REPLAY_MODEL_ID = "tdcc_stealth_accumulation_operation_replay"
+OPERATION_REPLAY_WORKFLOW_PATH = ".github/workflows/tdcc_stealth_accumulation_operation_replay.yml"
+OPERATION_REPLAY_INPUT = "run_tdcc_stealth_accumulation_operation_replay"
+OPERATION_REPLAY_SOURCE_REF = "7ef37a966280201a5ee236856306fdb513de7092"
+OPERATION_REPLAY_ARTIFACT_SOURCE_REF = "2244a0a36c4542cd62948b50f12ef98ade50e1df"
+OPERATION_REPLAY_ARGS = (
+    f"--source-ref {OPERATION_REPLAY_SOURCE_REF} "
+    f"--artifact-source-ref {OPERATION_REPLAY_ARTIFACT_SOURCE_REF}"
+)
+OPERATION_REPLAY_FETCH_COMMAND = (
+    f"git fetch --no-tags origin {OPERATION_REPLAY_SOURCE_REF} "
+    f"{OPERATION_REPLAY_ARTIFACT_SOURCE_REF}"
+)
+OPERATION_REPLAY_PRODUCER_COMMAND = (
+    "python scripts/build_tdcc_stealth_accumulation_operation_replay.py " + OPERATION_REPLAY_ARGS
+)
+OPERATION_REPLAY_VALIDATOR_COMMAND = (
+    "python scripts/validate_tdcc_stealth_accumulation_operation_replay.py " + OPERATION_REPLAY_ARGS
+)
+OPERATION_REPLAY_STAGE_GLOB = "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_operation_replay_*_v3.*"
+OPERATION_REPLAY_ARTIFACTS = (
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_operation_replay_signals_v3.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_operation_replay_events_v3.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_operation_replay_positions_v3.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_operation_replay_summary_v3.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_operation_replay_evidence_v3.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_operation_replay_manifest_v3.json",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_operation_replay_report_v3.md",
+)
+OPERATION_REPLAY_STAGE_COMMANDS = tuple(
+    f"git add {path}" for path in OPERATION_REPLAY_ARTIFACTS
+)
+
 TDCC_STEALTH_PRICE_PIT_AUDIT_MODEL_ID = "tdcc_stealth_accumulation_price_pit_audit"
 TDCC_STEALTH_PRICE_PIT_AUDIT_SOURCE_REFS = (
     "e643a2ee9076c92cfa7139e05b03e1f232d497ed",
@@ -257,6 +292,7 @@ PRICE_PIT_WORKFLOW = ROOT / PRICE_PIT_WORKFLOW_PATH
 WORKFLOW_WRITER_JOBS = {
     LEGACY_WORKFLOW_PATH: "research-backtest-pipeline",
     PRICE_PIT_WORKFLOW_PATH: "tdcc-stealth-accumulation-price-pit-audit",
+    OPERATION_REPLAY_WORKFLOW_PATH: "tdcc-stealth-accumulation-operation-replay",
 }
 PRICE_PIT_INPUT = "run_tdcc_stealth_accumulation_price_pit_audit"
 PRICE_PIT_STAGE_GLOB = (
@@ -494,6 +530,8 @@ def validate_registry_contract(
         expected_path = (
             PRICE_PIT_WORKFLOW_PATH
             if row.model_id == TDCC_STEALTH_PRICE_PIT_AUDIT_MODEL_ID
+            else OPERATION_REPLAY_WORKFLOW_PATH
+            if row.model_id == OPERATION_REPLAY_MODEL_ID
             else LEGACY_WORKFLOW_PATH
         )
         if row.workflow_path != expected_path:
@@ -507,6 +545,12 @@ def validate_registry_contract(
             != (PRICE_PIT_STAGE_GLOB, "", "")
         ):
             errors.append("price/PIT registry must retain its exact input and model family allowlist")
+        if row.model_id == OPERATION_REPLAY_MODEL_ID and (
+            row.workflow_input != OPERATION_REPLAY_INPUT
+            or (row.latest_stage_glob, row.history_stage_glob, row.docs_stage_glob)
+            != (OPERATION_REPLAY_STAGE_GLOB, "", "")
+        ):
+            errors.append("operation replay registry must retain its v3-only model family")
     return errors
 
 
@@ -529,6 +573,7 @@ def validate_workflow_job_contract(
     inputs = _dispatch_inputs(text)
     expected_inputs = (
         {PRICE_PIT_INPUT} if workflow_path == PRICE_PIT_WORKFLOW_PATH
+        else {OPERATION_REPLAY_INPUT} if workflow_path == OPERATION_REPLAY_WORKFLOW_PATH
         else LEGACY_WORKFLOW_INPUTS
     )
     if len(inputs) > 25:
@@ -537,7 +582,7 @@ def validate_workflow_job_contract(
         errors.append("research workflow dispatch inputs must equal its exact registered slice")
     for name, fields in inputs.items():
         requires_boolean = (
-            workflow_path == PRICE_PIT_WORKFLOW_PATH or name in LEGACY_BOOLEAN_INPUTS
+            workflow_path != LEGACY_WORKFLOW_PATH or name in LEGACY_BOOLEAN_INPUTS
         )
         expected_type = "boolean" if requires_boolean else "string"
         required_fields = {"description", "required", "default"}
@@ -586,7 +631,7 @@ def validate_workflow_job_contract(
         errors.append("no-op step must contain only the fixed bash printf")
 
     env = _children(writer["env"], 6)
-    if workflow_path == PRICE_PIT_WORKFLOW_PATH:
+    if workflow_path in (PRICE_PIT_WORKFLOW_PATH, OPERATION_REPLAY_WORKFLOW_PATH):
         if set(env) != {"TARGET_BRANCH", "ANY_RESEARCH_SELECTED", "MODEL_RESEARCH_SELECTED"}:
             errors.append("price/PIT writer env must contain only its single-input selection and target")
         for name in ("ANY_RESEARCH_SELECTED", "MODEL_RESEARCH_SELECTED"):
@@ -613,6 +658,8 @@ def validate_workflow_job_contract(
             expected_commands = {
                 f"python {row.producer} --source-ref {TDCC_STEALTH_FIELD_CONTRACT_REPLAY_SOURCE_REF}"
             }
+        elif row.model_id == OPERATION_REPLAY_MODEL_ID:
+            expected_commands = {OPERATION_REPLAY_PRODUCER_COMMAND}
         elif row.producer == REVENUE_PRODUCER:
             expected_commands = {
                 REVENUE_FULL_BUILD_COMMAND, REVENUE_FORWARD_HOLDOUT_BUILD_COMMAND,
@@ -626,6 +673,8 @@ def validate_workflow_job_contract(
             expected = f"python {validator_script}"
             if row.model_id == TDCC_STEALTH_FIELD_CONTRACT_REPLAY_MODEL_ID:
                 expected += f" --source-ref {TDCC_STEALTH_FIELD_CONTRACT_REPLAY_SOURCE_REF}"
+            elif row.model_id == OPERATION_REPLAY_MODEL_ID:
+                expected = OPERATION_REPLAY_VALIDATOR_COMMAND
             if [line for line in runs[index] if validator_script in line] != [expected]:
                 errors.append(f"model-owned validator must execute exactly once without masking: {validator_script}")
 
@@ -709,6 +758,41 @@ def validate_workflow_job_contract(
             )
             if runs[publish_indices[0]] != expected_publish:
                 errors.append("price/PIT publish body must retain the exact model-only fail-closed contract")
+    if workflow_path == OPERATION_REPLAY_WORKFLOW_PATH:
+        expected_run = (
+            OPERATION_REPLAY_FETCH_COMMAND,
+            OPERATION_REPLAY_PRODUCER_COMMAND,
+            OPERATION_REPLAY_VALIDATOR_COMMAND,
+        )
+        model_indices = [i for i, lines in enumerate(runs) if expected_run[1] in lines]
+        if len(model_indices) != 1 or runs[model_indices[0]] != expected_run:
+            errors.append("operation replay must fetch both distinct sources, build and validate in order")
+        all_stage = tuple(line for lines in runs for line in lines if line.startswith("git add"))
+        if all_stage != OPERATION_REPLAY_STAGE_COMMANDS:
+            errors.append("operation replay must stage only its exact seven v3 artifacts")
+        expected_scripts = Counter(STATIC_VALIDATOR_COMMANDS + expected_run[1:] + READ_ONLY_POST_RUN_COMMANDS)
+        actual_scripts = Counter(
+            line for lines in runs for line in lines
+            if re.match(r"python(?:3)?\s+scripts/", line)
+        )
+        if actual_scripts != expected_scripts:
+            errors.append("operation replay must not write other models or global audit artifacts")
+        if static_indices and runs[static_indices[0]] != STATIC_VALIDATOR_COMMANDS:
+            errors.append("operation replay static prerequisites must remain read-only")
+        if len(steps) != 9:
+            errors.append("operation replay must retain the nine model-owned writer steps")
+        if len(publish_indices) == 1:
+            expected_publish = (
+                PUBLISH_FAIL_CLOSED_SHELL,
+                'git config user.name "github-actions"',
+                'git config user.email "github-actions@github.com"',
+                *OPERATION_REPLAY_STAGE_COMMANDS,
+                "git status --short",
+                *PUBLISH_NO_CHANGE_GUARD.splitlines(),
+                PUBLISH_COMMIT, PUBLISH_PUSH,
+            )
+            if runs[publish_indices[0]] != expected_publish:
+                errors.append("operation replay publish must retain its seven-file fail-closed contract")
     return errors
 
 
@@ -1255,6 +1339,7 @@ def validate_workflow_text(
         and line.strip() not in (
             TDCC_STEALTH_FIELD_CONTRACT_REPLAY_FETCH_COMMAND,
             TDCC_STEALTH_PRICE_PIT_AUDIT_FETCH_COMMAND,
+            OPERATION_REPLAY_FETCH_COMMAND,
         )
     ]
     if branch_sync_lines != [pre_run_sync]:
@@ -1429,7 +1514,7 @@ def validate_workflow_text(
                 "model-owned workflow entrypoint requires at least one non-empty "
                 f"stage allowlist: {row.model_id}"
             )
-        for stage_glob in stage_globs:
+        for stage_glob in (() if row.model_id == OPERATION_REPLAY_MODEL_ID else stage_globs):
             suffix = "" if workflow_path == PRICE_PIT_WORKFLOW_PATH else " || true"
             stage_command = f"git add {stage_glob}{suffix}"
             if stage_command not in text:
@@ -1504,7 +1589,7 @@ def validate_workflow_text(
             "research workflow must run background registry structure-only validation "
             "exactly once before model producers"
         )
-    expected_full_count = 1 if workflow_path == PRICE_PIT_WORKFLOW_PATH else 2
+    expected_full_count = 1 if workflow_path != LEGACY_WORKFLOW_PATH else 2
     if len(full_positions) != expected_full_count or len(full_blocks) != expected_full_count:
         errors.append(
             "research workflow must run full background artifact validation exactly "
@@ -1521,7 +1606,7 @@ def validate_workflow_text(
             for block in full_blocks
             if "env.MODEL_RESEARCH_SELECTED == 'true'" in block
         ]
-        if len(non_model_blocks) != (0 if workflow_path == PRICE_PIT_WORKFLOW_PATH else 1):
+        if len(non_model_blocks) != (0 if workflow_path != LEGACY_WORKFLOW_PATH else 1):
             errors.append(
                 "existing registered artifacts full validation must be conditional on "
                 "MODEL_RESEARCH_SELECTED != true"
@@ -1562,7 +1647,7 @@ def validate_workflow_texts(
     """Validate aggregate ownership across both exact, independently guarded writers."""
     errors = validate_registry_contract(rows, model_owned_producers)
     if set(workflow_texts) != set(WORKFLOW_WRITER_JOBS):
-        errors.append("research workflow set must contain exactly the two registered workflow paths")
+        errors.append("research workflow set must contain exactly the registered workflow paths")
     for path in WORKFLOW_WRITER_JOBS:
         if path not in workflow_texts:
             errors.append(f"missing research workflow: {path}")

@@ -1242,10 +1242,7 @@ def apps_script_research_workflows(tmp_path: Path, monkeypatch: pytest.MonkeyPat
     registry = validator.load_research_dispatch_registry()
     workflow_dir = tmp_path / "workflows"
     workflow_dir.mkdir()
-    for workflow_path in (
-        ".github/workflows/research_backtest_pipeline.yml",
-        ".github/workflows/tdcc_stealth_accumulation_price_pit_audit.yml",
-    ):
+    for workflow_path in validator.RESEARCH_WORKFLOW_PATHS:
         blocks = ["name: Research fixture\n\non:\n  workflow_dispatch:\n    inputs:\n"]
         for name, row in registry.items():
             if row["workflow_path"] == workflow_path:
@@ -1549,7 +1546,9 @@ def test_apps_script_research_dispatch_two_workflow_scopes(apps_script_research_
         errors, registry=registry, apps_inputs=set(apps_inputs), guarded_inputs=guarded,
     )
     assert errors == []
-    assert set(observed) == {validator.RESEARCH_WORKFLOW_PATH, audit_path}
+    assert set(observed) == {validator.RESEARCH_WORKFLOW_PATH, audit_path, validator.TDCC_OPERATION_REPLAY_WORKFLOW_PATH}
+    assert observed[validator.TDCC_OPERATION_REPLAY_WORKFLOW_PATH] == {validator.TDCC_OPERATION_REPLAY_INPUT}
+    assert registry[validator.TDCC_OPERATION_REPLAY_INPUT]["activation_mode"] == "workflow_only"
     assert len(observed[validator.RESEARCH_WORKFLOW_PATH]) == 25
     assert observed[audit_path] == {audit_input}
     assert audit_input not in observed[validator.RESEARCH_WORKFLOW_PATH]
@@ -1561,6 +1560,7 @@ def test_apps_script_research_dispatch_two_workflow_scopes(apps_script_research_
     [
         (".github/workflows/research_backtest_pipeline.yml", "run_hot_theme_pullback_research"),
         (".github/workflows/tdcc_stealth_accumulation_price_pit_audit.yml", "run_tdcc_stealth_accumulation_price_pit_audit"),
+        (".github/workflows/tdcc_stealth_accumulation_operation_replay.yml", "run_tdcc_stealth_accumulation_operation_replay"),
     ],
 )
 @pytest.mark.parametrize(
@@ -1693,7 +1693,7 @@ def test_apps_script_research_dispatch_main_validates_both_workflows(
         actual_validate(errors, **kwargs)
         assert errors == []
         observed.append(kwargs["workflow_path"])
-        if len(observed) == 2:
+        if len(observed) == len(validator.RESEARCH_WORKFLOW_PATHS):
             # Stop before unrelated daily/TDCC validators need their own files.
             raise BothScopesReached
 
@@ -1703,6 +1703,7 @@ def test_apps_script_research_dispatch_main_validates_both_workflows(
     assert observed == [
         ".github/workflows/research_backtest_pipeline.yml",
         ".github/workflows/tdcc_stealth_accumulation_price_pit_audit.yml",
+        ".github/workflows/tdcc_stealth_accumulation_operation_replay.yml",
     ]
 
 
