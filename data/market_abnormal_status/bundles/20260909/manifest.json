@@ -1,0 +1,112 @@
+{
+  "collection_mode": "live_current_endpoints",
+  "fetch_date": "20260909",
+  "fetched_at": "2026-09-09 19:37:05 Asia/Taipei",
+  "schema_version": "market_abnormal_status_raw_bundle/v1",
+  "source_count": 7,
+  "sources": {
+    "tpex_attention": {
+      "columns": [
+        "Date",
+        "SecuritiesCompanyCode",
+        "CompanyName",
+        "TradingInformation",
+        "ClosePrice",
+        "PriceEarningRatio"
+      ],
+      "path": "data/market_abnormal_status/bundles/20260909/sources/tpex_attention.json",
+      "raw_sha256": "6ea8a6e24532e59770edc7cc6e2be99b53283937a55904fcaa2037e9f673d6ae",
+      "row_count": 19,
+      "source_url": "https://www.tpex.org.tw/openapi/v1/tpex_trading_warning_information"
+    },
+    "tpex_attention_note": {
+      "columns": [
+        "Date",
+        "SecuritiesCompanyCode",
+        "CompanyName",
+        "AccumulationSituation"
+      ],
+      "path": "data/market_abnormal_status/bundles/20260909/sources/tpex_attention_note.json",
+      "raw_sha256": "74bd4e7775e45513704a4d42f8a97a6a02c1226c6c4f257a67b3d937179eb4e0",
+      "row_count": 5,
+      "source_url": "https://www.tpex.org.tw/openapi/v1/tpex_trading_warning_note"
+    },
+    "tpex_disposition": {
+      "columns": [
+        "Date",
+        "SecuritiesCompanyCode",
+        "CompanyName",
+        "DispositionPeriod",
+        "DispositionReasons",
+        "DisposalCondition"
+      ],
+      "path": "data/market_abnormal_status/bundles/20260909/sources/tpex_disposition.json",
+      "raw_sha256": "88a1c624a06ed171c45b9ff1f2fcd1bf3cf974283591813495af3548ab4a1489",
+      "row_count": 22,
+      "source_url": "https://www.tpex.org.tw/openapi/v1/tpex_disposal_information"
+    },
+    "tpex_trading_mode": {
+      "columns": [
+        "Date",
+        "SecuritiesCompanyCode",
+        "CompanyName",
+        "AlteredTrading",
+        "PeriodicTrading",
+        "ManagedStock",
+        "MatchingFrequency",
+        "SuspensionOfTrading",
+        " FinancialAnnouncements"
+      ],
+      "path": "data/market_abnormal_status/bundles/20260909/sources/tpex_trading_mode.json",
+      "raw_sha256": "fbf5ba65a5cc84ad35f4cfdc4244a8f6c2d46a4757798e496b6da23d4aadf829",
+      "row_count": 20,
+      "source_url": "https://www.tpex.org.tw/openapi/v1/tpex_cmode"
+    },
+    "twse_attention": {
+      "columns": [
+        "Number",
+        "Code",
+        "Name",
+        "NumberOfAnnouncement",
+        "TradingInfoForAttention",
+        "Date",
+        "ClosingPrice",
+        "PE"
+      ],
+      "path": "data/market_abnormal_status/bundles/20260909/sources/twse_attention.json",
+      "raw_sha256": "4bd0ac94f01d8731e1e4407c90af24f3d16d4ff24e13e09b9247e92e5160e216",
+      "row_count": 1,
+      "source_url": "https://openapi.twse.com.tw/v1/announcement/notice"
+    },
+    "twse_attention_note": {
+      "columns": [
+        "Code",
+        "Name",
+        "RecentlyMetAttentionSecuritiesCriteria"
+      ],
+      "path": "data/market_abnormal_status/bundles/20260909/sources/twse_attention_note.json",
+      "raw_sha256": "cbb952713ab5375191d1ce155412347fd731e09df46cda48fe924f36d868ce7f",
+      "row_count": 1,
+      "source_url": "https://openapi.twse.com.tw/v1/announcement/notetrans"
+    },
+    "twse_disposition": {
+      "columns": [
+        "Number",
+        "Date",
+        "Code",
+        "Name",
+        "NumberOfAnnouncement",
+        "ReasonsOfDisposition",
+        "DispositionPeriod",
+        "DispositionMeasures",
+        "Detail",
+        "LinkInformation"
+      ],
+      "path": "data/market_abnormal_status/bundles/20260909/sources/twse_disposition.json",
+      "raw_sha256": "c69dc57f14ecde6462a12935534666532577f0b022dbefceb915e3c61b882a07",
+      "row_count": 5,
+      "source_url": "https://openapi.twse.com.tw/v1/announcement/punish"
+    }
+  },
+  "target_date": "20260909"
+}
