@@ -69,10 +69,12 @@ MODEL_PR_VALIDATION_DOMAINS = {
     "tdcc_short_term_continuation_d5_d10": pr_scope.SHARED_MODEL_RESEARCH,
     "tdcc_stealth_accumulation_price_pit_audit": pr_scope.SHARED_MODEL_RESEARCH,
     "tdcc_stealth_accumulation_operation_replay": pr_scope.SHARED_MODEL_RESEARCH,
+    "tdcc_stealth_accumulation_receipted_marketwide_replay": pr_scope.SHARED_MODEL_RESEARCH,
     "revenue_unreacted_range": pr_scope.REVENUE_RESEARCH,
     "volume_range_breakout_v2": pr_scope.VOLUME_V2_RESEARCH,
 }
 MODEL_WORKFLOW_VALIDATORS = {
+    "tdcc_stealth_accumulation_receipted_marketwide_replay": "scripts/validate_tdcc_stealth_accumulation_receipted_marketwide_replay.py",
     "tdcc_stealth_accumulation_price_pit_audit": "scripts/validate_tdcc_stealth_accumulation_price_pit.py",
     "tdcc_stealth_accumulation_operation_replay": "scripts/validate_tdcc_stealth_accumulation_operation_replay.py",
     "hot_theme_pullback": "scripts/validate_hot_theme_pullback_research.py",
@@ -101,6 +103,28 @@ TDCC_STEALTH_FIELD_CONTRACT_REPLAY_FETCH_COMMAND = (
     "git fetch --no-tags --depth=1 origin "
     f"{TDCC_STEALTH_FIELD_CONTRACT_REPLAY_SOURCE_REF}"
 )
+
+RECEIPTED_REPLAY_MODEL_ID = "tdcc_stealth_accumulation_receipted_marketwide_replay"
+RECEIPTED_REPLAY_WORKFLOW_PATH = ".github/workflows/tdcc_stealth_accumulation_receipted_marketwide_replay.yml"
+RECEIPTED_REPLAY_INPUT = "run_tdcc_stealth_accumulation_receipted_marketwide_replay"
+RECEIPTED_REPLAY_SOURCE_REF = "40cee0405390a9ccaf3a1ad0778aa1e680ab8252"
+RECEIPTED_REPLAY_FETCH_COMMAND = "git fetch --no-tags origin " + RECEIPTED_REPLAY_SOURCE_REF
+RECEIPTED_REPLAY_PRODUCER_COMMAND = "python scripts/build_tdcc_stealth_accumulation_receipted_marketwide_replay.py"
+RECEIPTED_REPLAY_VALIDATOR_COMMAND = "python scripts/validate_tdcc_stealth_accumulation_receipted_marketwide_replay.py"
+RECEIPTED_REPLAY_STAGE_GLOB = "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_receipted_marketwide_replay_*_v1.*"
+RECEIPTED_REPLAY_ARTIFACTS = (
+    'output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_receipted_marketwide_replay_source_manifest_v1.json',
+    'output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_receipted_marketwide_replay_coverage_v1.csv',
+    'output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_receipted_marketwide_replay_features_v1.csv',
+    'output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_receipted_marketwide_replay_signals_v1.csv',
+    'output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_receipted_marketwide_replay_trades_v1.csv',
+    'output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_receipted_marketwide_replay_summary_v1.csv',
+    'output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_receipted_marketwide_replay_blocked_v1.csv',
+    'output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_receipted_marketwide_replay_anomalies_v1.csv',
+    'output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_receipted_marketwide_replay_report_v1.md',
+)
+RECEIPTED_REPLAY_STAGE_COMMANDS = tuple(f"git add {path}" for path in RECEIPTED_REPLAY_ARTIFACTS)
+
 OPERATION_REPLAY_MODEL_ID = "tdcc_stealth_accumulation_operation_replay"
 OPERATION_REPLAY_WORKFLOW_PATH = ".github/workflows/tdcc_stealth_accumulation_operation_replay.yml"
 OPERATION_REPLAY_INPUT = "run_tdcc_stealth_accumulation_operation_replay"
@@ -293,6 +317,7 @@ WORKFLOW_WRITER_JOBS = {
     LEGACY_WORKFLOW_PATH: "research-backtest-pipeline",
     PRICE_PIT_WORKFLOW_PATH: "tdcc-stealth-accumulation-price-pit-audit",
     OPERATION_REPLAY_WORKFLOW_PATH: "tdcc-stealth-accumulation-operation-replay",
+    RECEIPTED_REPLAY_WORKFLOW_PATH: "tdcc-stealth-accumulation-receipted-marketwide-replay",
 }
 PRICE_PIT_INPUT = "run_tdcc_stealth_accumulation_price_pit_audit"
 PRICE_PIT_STAGE_GLOB = (
@@ -532,6 +557,8 @@ def validate_registry_contract(
             if row.model_id == TDCC_STEALTH_PRICE_PIT_AUDIT_MODEL_ID
             else OPERATION_REPLAY_WORKFLOW_PATH
             if row.model_id == OPERATION_REPLAY_MODEL_ID
+            else RECEIPTED_REPLAY_WORKFLOW_PATH
+            if row.model_id == RECEIPTED_REPLAY_MODEL_ID
             else LEGACY_WORKFLOW_PATH
         )
         if row.workflow_path != expected_path:
@@ -551,6 +578,12 @@ def validate_registry_contract(
             != (OPERATION_REPLAY_STAGE_GLOB, "", "")
         ):
             errors.append("operation replay registry must retain its v3-only model family")
+        if row.model_id == RECEIPTED_REPLAY_MODEL_ID and (
+            row.workflow_input != RECEIPTED_REPLAY_INPUT
+            or (row.latest_stage_glob, row.history_stage_glob, row.docs_stage_glob)
+            != (RECEIPTED_REPLAY_STAGE_GLOB, "", "")
+        ):
+            errors.append("receipted replay registry must retain its v1-only model family")
     return errors
 
 
@@ -574,6 +607,7 @@ def validate_workflow_job_contract(
     expected_inputs = (
         {PRICE_PIT_INPUT} if workflow_path == PRICE_PIT_WORKFLOW_PATH
         else {OPERATION_REPLAY_INPUT} if workflow_path == OPERATION_REPLAY_WORKFLOW_PATH
+        else {RECEIPTED_REPLAY_INPUT} if workflow_path == RECEIPTED_REPLAY_WORKFLOW_PATH
         else LEGACY_WORKFLOW_INPUTS
     )
     if len(inputs) > 25:
@@ -631,7 +665,7 @@ def validate_workflow_job_contract(
         errors.append("no-op step must contain only the fixed bash printf")
 
     env = _children(writer["env"], 6)
-    if workflow_path in (PRICE_PIT_WORKFLOW_PATH, OPERATION_REPLAY_WORKFLOW_PATH):
+    if workflow_path in (PRICE_PIT_WORKFLOW_PATH, OPERATION_REPLAY_WORKFLOW_PATH, RECEIPTED_REPLAY_WORKFLOW_PATH):
         if set(env) != {"TARGET_BRANCH", "ANY_RESEARCH_SELECTED", "MODEL_RESEARCH_SELECTED"}:
             errors.append("price/PIT writer env must contain only its single-input selection and target")
         for name in ("ANY_RESEARCH_SELECTED", "MODEL_RESEARCH_SELECTED"):
@@ -793,6 +827,44 @@ def validate_workflow_job_contract(
             )
             if runs[publish_indices[0]] != expected_publish:
                 errors.append("operation replay publish must retain its seven-file fail-closed contract")
+    if workflow_path == RECEIPTED_REPLAY_WORKFLOW_PATH:
+        checkouts = [step for step in steps if _scalar(step, "uses") == "actions/checkout@v6"]
+        if len(checkouts) != 1 or _scalar(_children(checkouts[0]["with"], 10), "fetch-depth") != "0":
+            errors.append("receipted replay requires a complete checkout for pinned historical source ancestors")
+        expected_run = (
+            RECEIPTED_REPLAY_FETCH_COMMAND,
+            RECEIPTED_REPLAY_PRODUCER_COMMAND,
+            RECEIPTED_REPLAY_VALIDATOR_COMMAND,
+        )
+        model_indices = [i for i, lines in enumerate(runs) if expected_run[1] in lines]
+        if len(model_indices) != 1 or runs[model_indices[0]] != expected_run:
+            errors.append("receipted replay must fetch the pinned outcome ancestor, build and validate in order")
+        all_stage = tuple(line for lines in runs for line in lines if line.startswith("git add"))
+        if all_stage != RECEIPTED_REPLAY_STAGE_COMMANDS:
+            errors.append("receipted replay must stage only its exact nine v1 artifacts")
+        expected_scripts = Counter(STATIC_VALIDATOR_COMMANDS + expected_run[1:] + READ_ONLY_POST_RUN_COMMANDS)
+        actual_scripts = Counter(
+            line for lines in runs for line in lines
+            if re.match(r"python(?:3)?\s+scripts/", line)
+        )
+        if actual_scripts != expected_scripts:
+            errors.append("receipted replay must not write other models or global audit artifacts")
+        if static_indices and runs[static_indices[0]] != STATIC_VALIDATOR_COMMANDS:
+            errors.append("receipted replay static prerequisites must remain read-only")
+        if len(steps) != 9:
+            errors.append("receipted replay must retain the nine model-owned writer steps")
+        if len(publish_indices) == 1:
+            expected_publish = (
+                PUBLISH_FAIL_CLOSED_SHELL,
+                'git config user.name "github-actions"',
+                'git config user.email "github-actions@github.com"',
+                *RECEIPTED_REPLAY_STAGE_COMMANDS,
+                "git status --short",
+                *PUBLISH_NO_CHANGE_GUARD.splitlines(),
+                PUBLISH_COMMIT, PUBLISH_PUSH,
+            )
+            if runs[publish_indices[0]] != expected_publish:
+                errors.append("receipted replay publish must retain its nine-file fail-closed contract")
     return errors
 
 
@@ -946,6 +1018,18 @@ def validate_pr_workflow_text(text: str, rows: list[WorkflowEntrypoint]) -> list
                     f"and its model domain: {path}: expected={sorted(expected_domains)} "
                     f"observed={sorted(domains)}"
                 )
+    if any(row.model_id == RECEIPTED_REPLAY_MODEL_ID for row in rows):
+        shared = text.split("\n  shared_model_research:", 1)[-1].split("\n  volume_v2_research:", 1)[0]
+        required = (
+            RECEIPTED_REPLAY_VALIDATOR_COMMAND,
+            "python -m pytest -q tests/test_tdcc_stealth_accumulation_receipted_marketwide_replay.py tests/test_tdcc_stealth_accumulation_receipted_marketwide_workflow.py",
+            "git diff --exit-code -- " + RECEIPTED_REPLAY_STAGE_GLOB,
+        )
+        for command in required:
+            if shared.count(command) != 1 or text.count(command) != 1:
+                errors.append("receipted replay CI must retain its exact read-only validator, tests and drift check: " + command)
+        if RECEIPTED_REPLAY_PRODUCER_COMMAND in text:
+            errors.append("receipted replay CI must not execute its producer")
     return errors
 
 
@@ -1341,6 +1425,10 @@ def validate_workflow_text(
             TDCC_STEALTH_PRICE_PIT_AUDIT_FETCH_COMMAND,
             OPERATION_REPLAY_FETCH_COMMAND,
         )
+        and not (
+            workflow_path == RECEIPTED_REPLAY_WORKFLOW_PATH
+            and line.strip() == RECEIPTED_REPLAY_FETCH_COMMAND
+        )
     ]
     if branch_sync_lines != [pre_run_sync]:
         errors.append(
@@ -1514,7 +1602,7 @@ def validate_workflow_text(
                 "model-owned workflow entrypoint requires at least one non-empty "
                 f"stage allowlist: {row.model_id}"
             )
-        for stage_glob in (() if row.model_id == OPERATION_REPLAY_MODEL_ID else stage_globs):
+        for stage_glob in (() if row.model_id in (OPERATION_REPLAY_MODEL_ID, RECEIPTED_REPLAY_MODEL_ID) else stage_globs):
             suffix = "" if workflow_path == PRICE_PIT_WORKFLOW_PATH else " || true"
             stage_command = f"git add {stage_glob}{suffix}"
             if stage_command not in text:

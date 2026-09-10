@@ -18,10 +18,13 @@ TDCC_PRICE_PIT_AUDIT_WORKFLOW_PATH = (
 TDCC_PRICE_PIT_AUDIT_INPUT = "run_tdcc_stealth_accumulation_price_pit_audit"
 TDCC_OPERATION_REPLAY_WORKFLOW_PATH = ".github/workflows/tdcc_stealth_accumulation_operation_replay.yml"
 TDCC_OPERATION_REPLAY_INPUT = "run_tdcc_stealth_accumulation_operation_replay"
+TDCC_RECEIPTED_REPLAY_WORKFLOW_PATH = ".github/workflows/tdcc_stealth_accumulation_receipted_marketwide_replay.yml"
+TDCC_RECEIPTED_REPLAY_INPUT = "run_tdcc_stealth_accumulation_receipted_marketwide_replay"
 RESEARCH_WORKFLOW_PATHS = (
     RESEARCH_WORKFLOW_PATH,
     TDCC_PRICE_PIT_AUDIT_WORKFLOW_PATH,
     TDCC_OPERATION_REPLAY_WORKFLOW_PATH,
+    TDCC_RECEIPTED_REPLAY_WORKFLOW_PATH,
 )
 RESEARCH_REGISTRY_COLUMNS = {
     "workflow_path",
@@ -114,6 +117,8 @@ def research_input_workflow_path(input_name: str) -> str:
         return TDCC_PRICE_PIT_AUDIT_WORKFLOW_PATH
     if input_name == TDCC_OPERATION_REPLAY_INPUT:
         return TDCC_OPERATION_REPLAY_WORKFLOW_PATH
+    if input_name == TDCC_RECEIPTED_REPLAY_INPUT:
+        return TDCC_RECEIPTED_REPLAY_WORKFLOW_PATH
     return RESEARCH_WORKFLOW_PATH
 
 
@@ -150,7 +155,7 @@ def load_research_dispatch_registry(
             raise ValueError(
                 f"Apps Script research input has invalid activation_mode: {input_name}"
             )
-        if input_name in (TDCC_PRICE_PIT_AUDIT_INPUT, TDCC_OPERATION_REPLAY_INPUT) and activation_mode != "workflow_only":
+        if input_name in (TDCC_PRICE_PIT_AUDIT_INPUT, TDCC_OPERATION_REPLAY_INPUT, TDCC_RECEIPTED_REPLAY_INPUT) and activation_mode != "workflow_only":
             raise ValueError("TDCC price/PIT audit input must remain workflow_only")
         if not normalized["owner"]:
             raise ValueError(f"Apps Script research input has no owner: {input_name}")
@@ -217,6 +222,9 @@ def validate_research_dispatch_contract(
     operation_row = registry.get(TDCC_OPERATION_REPLAY_INPUT)
     if operation_row is not None and operation_row.get("activation_mode") != "workflow_only":
         errors.append("TDCC operation replay input must remain workflow_only")
+    receipted_row = registry.get(TDCC_RECEIPTED_REPLAY_INPUT)
+    if receipted_row is not None and receipted_row.get("activation_mode") != "workflow_only":
+        errors.append("TDCC receipted marketwide replay input must remain workflow_only")
     registered_inputs = {
         name for name, row in registry.items() if row.get("workflow_path") == workflow_path
     }
@@ -975,6 +983,8 @@ def main() -> int:
     research_workflow = "research_backtest_pipeline.yml"
     apps_inputs = set(dispatches.get(research_workflow, {}))
     _, guarded_research_inputs = apps_script_research_dispatch_inputs()
+    if Path(TDCC_RECEIPTED_REPLAY_WORKFLOW_PATH).name in dispatches:
+        errors.append("Workflow-only TDCC receipted marketwide replay must not be dispatched by Apps Script")
     if Path(TDCC_OPERATION_REPLAY_WORKFLOW_PATH).name in dispatches:
         errors.append("Workflow-only TDCC operation replay must not be dispatched by Apps Script")
     if Path(TDCC_PRICE_PIT_AUDIT_WORKFLOW_PATH).name in dispatches:

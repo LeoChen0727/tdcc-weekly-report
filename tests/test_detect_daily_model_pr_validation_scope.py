@@ -365,11 +365,32 @@ TDCC_OPERATION_REPLAY_EXACT_PATHS = frozenset({
 })
 
 
+TDCC_RECEIPTED_REPLAY_EXACT_PATHS = frozenset({
+    '.github/workflows/tdcc_stealth_accumulation_receipted_marketwide_replay.yml',
+    'scripts/build_tdcc_stealth_accumulation_receipted_marketwide_replay.py',
+    'scripts/validate_tdcc_stealth_accumulation_receipted_marketwide_replay.py',
+    'tests/test_tdcc_stealth_accumulation_receipted_marketwide_replay.py',
+    'tests/test_tdcc_stealth_accumulation_receipted_marketwide_replay_scope_probe.py',
+    'tests/test_tdcc_stealth_accumulation_receipted_marketwide_workflow.py',
+    'config/tdcc_stealth_accumulation_receipted_marketwide_replay_v1.json',
+    'config/tdcc_stealth_accumulation_receipted_marketwide_availability_v1.json',
+    'output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_receipted_marketwide_replay_source_manifest_v1.json',
+    'output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_receipted_marketwide_replay_coverage_v1.csv',
+    'output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_receipted_marketwide_replay_features_v1.csv',
+    'output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_receipted_marketwide_replay_signals_v1.csv',
+    'output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_receipted_marketwide_replay_trades_v1.csv',
+    'output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_receipted_marketwide_replay_summary_v1.csv',
+    'output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_receipted_marketwide_replay_blocked_v1.csv',
+    'output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_receipted_marketwide_replay_anomalies_v1.csv',
+    'output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_receipted_marketwide_replay_report_v1.md',
+})
+
+
 def test_four_model_research_and_tdcc_stealth_pit_audit_route_exactly() -> None:
     assert scope.MODEL_OWNED_SHARED_RESEARCH_EXACT_PATHS == (
-        FOUR_MODEL_SHARED_RESEARCH_EXACT_PATHS | TDCC_OPERATION_REPLAY_EXACT_PATHS
+        FOUR_MODEL_SHARED_RESEARCH_EXACT_PATHS | TDCC_OPERATION_REPLAY_EXACT_PATHS | TDCC_RECEIPTED_REPLAY_EXACT_PATHS
     )
-    for path in sorted(FOUR_MODEL_SHARED_RESEARCH_EXACT_PATHS | TDCC_OPERATION_REPLAY_EXACT_PATHS):
+    for path in sorted(FOUR_MODEL_SHARED_RESEARCH_EXACT_PATHS | TDCC_OPERATION_REPLAY_EXACT_PATHS | TDCC_RECEIPTED_REPLAY_EXACT_PATHS):
         assert scope.is_watched_path(path)
         assert scope.domains_for_path(path) == frozenset(
             {scope.RESEARCH_SAFETY_LITE, scope.SHARED_MODEL_RESEARCH}

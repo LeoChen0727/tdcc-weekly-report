@@ -36,6 +36,7 @@ def assert_transition_safe_artifact_writer_count(
     ) + int(REVENUE_READINESS_FORMAL_SYNC_WORKFLOW in workflow_paths)
     expected_count += int(inventory.TDCC_PRICE_PIT_AUDIT_WORKFLOW in workflow_paths)
     expected_count += int(inventory.TDCC_OPERATION_REPLAY_WORKFLOW in workflow_paths)
+    expected_count += int(inventory.TDCC_RECEIPTED_REPLAY_WORKFLOW in workflow_paths)
     assert writer_count == expected_count
 
 
@@ -55,7 +56,7 @@ def test_daily_full_model_governance_invocation_exception_is_revenue_adapter_onl
     }
     assert set(inventory.WORKFLOW_EXACT_INVOCATION_ALLOWLIST) == {
         inventory.DAILY_WORKFLOW, inventory.TDCC_PRICE_PIT_AUDIT_WORKFLOW,
-        inventory.TDCC_OPERATION_REPLAY_WORKFLOW,
+        inventory.TDCC_OPERATION_REPLAY_WORKFLOW, inventory.TDCC_RECEIPTED_REPLAY_WORKFLOW,
     }
     assert inventory.WORKFLOW_EXACT_INVOCATION_ALLOWLIST[inventory.DAILY_WORKFLOW] == expected_paths
 

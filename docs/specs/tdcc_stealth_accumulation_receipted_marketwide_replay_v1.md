@@ -56,3 +56,11 @@ manifest 綁定實際讀取的 Git blob／SHA-256 及其餘八檔最終序列化
 synthetic tests 必須覆蓋缺收據、日期邊界、每股暖身、last20 成交量邊界、同股持倉鎖、費稅、未成熟、缺價、異常保留、輸出／來源竄改及寫入白名單。獨立 validator 從來源核對數字，不只核對 producer 自證。
 
 本次授權的本地實作、執行及檢查完成後報 `local_validated`；未經 PR／main 驗證不得宣稱正式完成或正式可採用。六份 PDF、Apps Script、workflow、正式條件、舊研究證據均不變。
+
+## 本模型專屬 workflow 與 PR 收尾
+
+- `.github/workflows/tdcc_stealth_accumulation_receipted_marketwide_replay.yml` 僅提供一個手動 boolean input `run_tdcc_stealth_accumulation_receipted_marketwide_replay`，預設 false；不新增 schedule 或 Apps Script 觸發。
+- input=false 時只執行無權限的 no-op，不 checkout、不寫入任何產物；input=true 的 producer、獨立 validator 與九個精確 stage 路徑共用同一模型 guard。
+- full checkout 與固定 `40cee0405390a9ccaf3a1ad0778aa1e680ab8252` fetch 覆蓋所有 44 個既有契約／收據來源 ancestor；禁止 latest 回補 decision。
+- PR 與 main 的共用研究驗證執行獨立 validator、synthetic tests 及產物不變檢查，不執行 producer。
+- 本次新增授權允許 PR 檢查、正常合併、main validation_profile=all 及 input=false 的 no-op 驗證；不授權 producer 實際執行或產物重建。
