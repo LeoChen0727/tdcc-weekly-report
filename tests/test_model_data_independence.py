@@ -1428,6 +1428,28 @@ def test_volume_v2_watch_committed_lineage_audit_is_exactly_registered() -> None
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
+    assert len(rows) == 41
+    ledger_migration = rows[-1]
+    assert ledger_migration["migration_id"] == (
+        "tdcc_stealth_accumulation_corporate_action_ledger_20260910"
+    )
+    assert ledger_migration["changed_data_families"] == (
+        "tdcc_stealth_accumulation_corporate_action_ledger_outputs"
+    )
+    assert ledger_migration["previous_contract_sha256s"] == "NEW"
+    assert ledger_migration["new_contract_sha256s"] == (
+        "2eb58be52a63402b0cdf0f16ae58e2bd7d16af6cb79d7a68c32a1cce219b75bc"
+    )
+    assert ledger_migration["affected_models"] == "tdcc_stealth_accumulation"
+    assert ledger_migration["user_approval_reference"] == (
+        "user_approval_20260910_tdcc_stealth_corporate_action_ledger"
+    )
+    assert ledger_migration["migration_status"] == "validated_user_approved_migration"
+    assert data_migration_row_sha256(ledger_migration) == (
+        "4cd8dc13666aa7e2dafc0ab6cb6f16642a5c04176abbd5a948b90c0e56499fc2"
+    )
+    # Preserve every pre-ledger migration assertion against its original prefix.
+    rows = rows[:-1]
     assert len(rows) == 40
     receipted_migration = rows[-1]
     assert receipted_migration['migration_id'] == 'tdcc_stealth_accumulation_receipted_marketwide_replay_20260910'
